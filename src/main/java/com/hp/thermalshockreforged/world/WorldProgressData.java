@@ -11,6 +11,8 @@ public final class WorldProgressData extends SavedData {
     private static final Factory<WorldProgressData> FACTORY = new Factory<>(WorldProgressData::new, WorldProgressData::load);
     private static final java.util.concurrent.ConcurrentMap<net.minecraft.server.MinecraftServer, WorldProgressData> LOADED = new java.util.concurrent.ConcurrentHashMap<>();
     private double worldCrux;
+    private boolean palaceExists;
+    private boolean palacePlacing;
     private boolean shalespringExists;
     private boolean shalespringPlacing;
     private boolean keystoneExists;
@@ -52,6 +54,18 @@ public final class WorldProgressData extends SavedData {
 
     public static WorldProgressData get(ServerLevel level) {
         return level.getServer().overworld().getDataStorage().computeIfAbsent(FACTORY, ID);
+    }
+    public boolean beginPalacePlacement() {
+        if (palaceExists || palacePlacing) return false;
+        palacePlacing = true;
+        return true;
+    }
+    public void finishPalacePlacement(boolean placed) {
+        palacePlacing = false;
+        if (placed && !palaceExists) {
+            palaceExists = true;
+            setDirty();
+        }
     }
     public boolean beginShalespringPlacement() {
         if (shalespringExists || shalespringPlacing) return false;
@@ -100,6 +114,7 @@ public final class WorldProgressData extends SavedData {
         var data = new WorldProgressData();
         double value = tag.getDouble("WorldCrux");
         data.worldCrux = Double.isFinite(value) ? Math.max(0, value) : 0;
+        data.palaceExists = tag.getBoolean("PalaceExists");
         data.shalespringExists = tag.getBoolean("ShalespringExists");
         data.keystoneExists = tag.getBoolean("KeystoneExists");
         data.keystoneNoticeDimension = net.minecraft.resources.ResourceLocation.tryParse(tag.getString("KeystoneNoticeDimension"));
@@ -113,6 +128,7 @@ public final class WorldProgressData extends SavedData {
     private static int validOreTier(int value) { return value == 1 || value == 2 ? value : 0; }
     @Override public CompoundTag save(CompoundTag tag, HolderLookup.Provider lookup) {
         tag.putDouble("WorldCrux", worldCrux);
+        tag.putBoolean("PalaceExists", palaceExists);
         tag.putBoolean("ShalespringExists", shalespringExists);
         tag.putBoolean("KeystoneExists", keystoneExists);
         tag.putInt("KeystoneNoticeTicks", keystoneNoticeTicks);

@@ -1,0 +1,92 @@
+{
+  "batch": 44,
+  "original_data_version": 3465,
+  "size": [
+    137,
+    32,
+    137
+  ],
+  "block_records": 600608,
+  "palette_states": 135,
+  "block_entities": 46,
+  "entities": 13,
+  "namespace_changes": 134,
+  "namespace_reversal_payload_byte_equal": true,
+  "original_payload_sha256": "4d40a3c570d514949710f9841ef99ab2e2b2cef193667518dc5adb7942d2e496",
+  "target_payload_sha256": "09b8debce5ec3f23262634a1bafe3a9dccc4ed96730126d502c2a9aca03e9927",
+  "target_file_sha256": "fd6316fc6a245424078f71b028c2f53b23a32b00c1ecc4210ec896bd65f9973f",
+  "compiler": {
+    "java": 21,
+    "offline": true,
+    "tasks": [
+      "compileJava",
+      "compileGametestJava",
+      "processResources"
+    ],
+    "exit_code": 0,
+    "gradle_reported_seconds": 54,
+    "executed": 3,
+    "up_to_date": 22,
+    "evidence": "validation_luna tool output; no disk Gradle log was saved"
+  },
+  "static": {
+    "target_and_build_resource_hash_equal": true,
+    "template_compressed_bytes": 1730938,
+    "custom_block_ids_registered": 44,
+    "palette_state_properties_accepted": true,
+    "custom_be_factories_registered": [
+      "atlas",
+      "glowstick",
+      "therma_dev_plush"
+    ],
+    "be_distribution": {
+      "decorated_pot": 7,
+      "lectern": 1,
+      "sign": 15,
+      "atlas": 1,
+      "glowstick": 21,
+      "therma_dev_plush": 1
+    },
+    "lectern": {
+      "position": [
+        74,
+        2,
+        66
+      ],
+      "item": "minecraft:writable_book",
+      "count": 1,
+      "pages": 4,
+      "page": 0
+    },
+    "decorated_pot_sherds": "four minecraft:heart_pottery_sherd each",
+    "signs": "12 wall + 3 hanging, front and back text retained",
+    "entities": {
+      "painting": 8,
+      "ly": 1,
+      "portrait_character": 4
+    },
+    "template_npc_has_no_gravity_field": false,
+    "painting_variants_and_textures_present": true,
+    "custom_be_items_nonempty": false,
+    "hidden_arrival_advancement_xp": 10,
+    "placement": {
+      "origin_and_pivot": [
+        -74,
+        178,
+        -132
+      ],
+      "rotation": "NONE",
+      "mirror": "NONE",
+      "ignore_entities": false,
+      "flags": 3
+    },
+    "shared_overworld_progress_saved": true,
+    "success_only_commit_and_finally_unlock": true
+  },
+  "intentional_fixes": [
+    "Missing template or failed placement does not permanently consume PalaceExists",
+    "Temporary reentry lock; no reduced template payload"
+  ],
+  "runtime_tests_run": false,
+  "whole_mod_complete": false
+}
