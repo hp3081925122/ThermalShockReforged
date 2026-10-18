@@ -1,0 +1,29 @@
+{
+  "display": {
+    "icon": {
+      "id": "thermal_shock_reforged:frigid_altar"
+    },
+    "title": {
+      "translate": "advancements.frigid_altar_get.title"
+    },
+    "description": {
+      "translate": "advancements.frigid_altar_get.descr"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "frigid_altar_get_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 10,
+    "loot": [
+      "thermal_shock_reforged:altar_get_reward"
+    ]
+  },
+  "parent": "thermal_shock_reforged:lapidary_get"
+}

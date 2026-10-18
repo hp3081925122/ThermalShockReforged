@@ -55,6 +55,8 @@ import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 public final class ClientEvents {
     @SubscribeEvent
     public static void renderers(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerEntityRenderer(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.CORE_ACTIVATION.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
+        event.registerEntityRenderer(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.FIRE_BOMB_ACTIVATION.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.GUARDIAN_PYLON.get(), com.hp.thermalshockreforged.client.sanctum.GuardianPylonRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.PYLON_ACTIVATION.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.KILOLYTE.get(), com.hp.thermalshockreforged.client.sanctum.KilolyteRenderer::new);
@@ -153,6 +155,7 @@ public final class ClientEvents {
     public static void particles(RegisterParticleProvidersEvent event) {
         CavebloomerClient.particles(event);
         event.registerSpriteSet(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.TURQ_EXPLODE.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "turqexplode", 0, ParticleRenderType.PARTICLE_SHEET_OPAQUE, false, true, 0));
+        event.registerSpriteSet(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.FIRE_BOMB_EFFECT.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "firebomb", 0, ParticleRenderType.PARTICLE_SHEET_OPAQUE, false, true, 0));
         event.registerSpriteSet(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.FROST_RING.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "frostring", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true, false, 0));
         event.registerSpriteSet(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.ERR_EFFECT.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "err", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true, false, 0));
         event.registerSpriteSet(ModEntities.ZAP_PARTICLE.get(), ZapAttackParticle.Provider::new);

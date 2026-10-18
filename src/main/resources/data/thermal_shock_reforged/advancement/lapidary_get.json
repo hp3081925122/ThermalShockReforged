@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "id": "thermal_shock_reforged:lapidarian_workbench"
+    },
+    "title": {
+      "translate": "advancements.lapidary_get.title"
+    },
+    "description": {
+      "translate": "advancements.lapidary_get.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "lapidary_get_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 10
+  },
+  "parent": "thermal_shock_reforged:cobalt_get"
+}

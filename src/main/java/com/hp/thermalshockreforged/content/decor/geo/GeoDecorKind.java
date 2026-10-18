@@ -8,6 +8,9 @@ import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.shapes.*;
 
 public enum GeoDecorKind {
+    FRIGID_ALTAR("frigid_altar", "Frigid Altar", "geo/everchill_altar.geo.json", "textures/block/texturealtar.png", "animations/everchill_altar.animation.json", Block.box(.1, .1, .1, 15.9, 14, 15.9), false, false),
+    FERROUS_ALTAR("ferrous_altar", "Ferrous Altar", "geo/everchill_altar.geo.json", "textures/block/ferrousaltar.png", "animations/everchill_altar.animation.json", Block.box(.1, .1, .1, 15.9, 14, 15.9), true, false),
+    PYLON_CORE("pylon_core", "Pylon Core", "geo/pylon_core.geo.json", "textures/block/texturepyloncore.png", "animations/pylon_core.animation.json", Block.box(2, 2, 2, 14, 14, 14), true, false),
     SURGE_PYLON("surge_pylon", "Surge Pylon", "geo/surge_pylon.geo.json", "textures/block/surge_pylon.png", "animations/surge_pylon.animation.json", Block.box(4, .1, 4, 12, 15.9, 12), true, false),
     CIVILIAN("civilian", "Civilian", "geo/civil1.geo.json", "textures/block/civil1.png", "animations/civil1.animation.json", Block.box(.1, .1, .1, 15.9, 15.9, 15.9), true, false),
     RUSTY_RADIO("rusty_radio", "Rusty Radio", "geo/rusty_radio.geo.json", "textures/block/rusty_radio.png", "animations/rusty_radio.animation.json", Block.box(.1, .1, .1, 15.9, 15.9, 15.9), true, false),
@@ -82,6 +85,13 @@ public enum GeoDecorKind {
     }
     public BlockBehaviour.Properties properties() {
         return switch (this) {
+            case FRIGID_ALTAR, FERROUS_ALTAR -> {
+                var properties = BlockBehaviour.Properties.of().mapColor(this == FRIGID_ALTAR ? MapColor.ICE : MapColor.METAL).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.METAL)
+                        .strength(this == FRIGID_ALTAR ? -1 : 10, this == FRIGID_ALTAR ? 3600000 : 999).lightLevel(state -> 5).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((state, level, pos) -> false);
+                yield this == FRIGID_ALTAR ? properties.noLootTable() : properties;
+            }
+            case PYLON_CORE -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.GLASS).strength(10, 999).lightLevel(state -> 15)
+                    .requiresCorrectToolForDrops().noOcclusion().pushReaction(PushReaction.BLOCK).hasPostProcess((state, level, pos) -> true).emissiveRendering((state, level, pos) -> true).isRedstoneConductor((state, level, pos) -> false);
             case SURGE_PYLON -> SurgePylonBlock.createPylonProperties();
             case SHALE_PILLAR, SHALE_PILLAR_VAR_2, SHALE_PILLAR_VAR_3, SHALE_PILLAR_VAR_4, SHALE_PILLAR_VAR_5, SHALE_PILLAR_VAR_6, SHALE_PILLAR_VAR_7, SHALE_PILLAR_VAR_8 -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).sound(SoundType.BASALT).strength(2, 10).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((state, level, pos) -> false);
             case THERMA_DEV_PLUSH -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).sound(SoundType.WOOL).strength(1, 999).noOcclusion().isRedstoneConductor((state, level, pos) -> false);

@@ -11,6 +11,7 @@ public final class WorldProgressData extends SavedData {
     private static final Factory<WorldProgressData> FACTORY = new Factory<>(WorldProgressData::new, WorldProgressData::load);
     private static final java.util.concurrent.ConcurrentMap<net.minecraft.server.MinecraftServer, WorldProgressData> LOADED = new java.util.concurrent.ConcurrentHashMap<>();
     private double worldCrux;
+    private volatile boolean altarUnlocked;
     private boolean palaceExists;
     private boolean palacePlacing;
     private boolean shalespringExists;
@@ -37,6 +38,11 @@ public final class WorldProgressData extends SavedData {
         WorldProgressData data = LOADED.get(level.getServer());
         if (data == null) throw new IllegalStateException("World progress was not loaded before chunk generation");
         return data;
+    }
+    public boolean altarUnlocked() { return altarUnlocked; }
+    public boolean unlockAltars() {
+        if (altarUnlocked) return false;
+        altarUnlocked = true; setDirty(); return true;
     }
     public int oreTier1() { return oreTier1; }
     public int oreTier2() { return oreTier2; }
@@ -114,6 +120,7 @@ public final class WorldProgressData extends SavedData {
         var data = new WorldProgressData();
         double value = tag.getDouble("WorldCrux");
         data.worldCrux = Double.isFinite(value) ? Math.max(0, value) : 0;
+        data.altarUnlocked = tag.getBoolean("AltarUnlocked");
         data.palaceExists = tag.getBoolean("PalaceExists");
         data.shalespringExists = tag.getBoolean("ShalespringExists");
         data.keystoneExists = tag.getBoolean("KeystoneExists");
@@ -128,6 +135,7 @@ public final class WorldProgressData extends SavedData {
     private static int validOreTier(int value) { return value == 1 || value == 2 ? value : 0; }
     @Override public CompoundTag save(CompoundTag tag, HolderLookup.Provider lookup) {
         tag.putDouble("WorldCrux", worldCrux);
+        tag.putBoolean("AltarUnlocked", altarUnlocked);
         tag.putBoolean("PalaceExists", palaceExists);
         tag.putBoolean("ShalespringExists", shalespringExists);
         tag.putBoolean("KeystoneExists", keystoneExists);
