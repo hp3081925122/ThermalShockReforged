@@ -1,0 +1,66 @@
+{
+  "scope": "Icidrogrunt and four Ice Squad projectile carriers. Shooters/vehicle/bosses/pod still pending.",
+  "verification_owner": "validation_luna; main agent implements code and records supplied results",
+  "build": {
+    "command": "compileJava compileGametestJava processResources --offline",
+    "java": "21",
+    "result": "BUILD SUCCESSFUL",
+    "seconds": 45,
+    "log": "D:/AI临时文件/ThermalShockMigration/compile-eleventh-squad-final.log"
+  },
+  "grunt": {
+    "entity_registration": "icidrogrunt MONSTER .6x1.6 / tracking64 interval3",
+    "physical_scale": 0.9,
+    "fixed_eye_height": 0.9,
+    "xp_deferred_until_death_tick": 20,
+    "goals_and_original_reach_preserved": true,
+    "extra_attack_LOS_removed_after_1_20_1_source_comparison": true,
+    "all_original_animations": [
+      "walk",
+      "idle",
+      "hurt"
+    ],
+    "model_animation_texture_sha256_matches_original": true,
+    "glow_layer": "gruntglow eyes NO_OVERLAY",
+    "original_tags_preserved": [
+      "blizzard_mobs",
+      "infectionimmune",
+      "pyro_weak"
+    ],
+    "no_fabricated_spawn_egg_or_natural_spawn": true
+  },
+  "projectiles": {
+    "types": [
+      "strider_attack",
+      "alt_cryonic_projectile",
+      "icidrogunner_bullet",
+      "icidroburner_flame"
+    ],
+    "lifetimes": [
+      5,
+      80,
+      80,
+      20
+    ],
+    "gravity": "Flame retains gravity; others enable noGravity after super.tick",
+    "particles": "Soul fire one/tick at position for Alt/Gunner; flame one/tick at xyz+.5; no added Strider particle",
+    "native_hit_chain_preserved": true,
+    "ownerless_block_extra_hit_skipped": true,
+    "strider_piercing_not_consumed_by_extra_hit_lock": true,
+    "arrow_count_nonnegative": true,
+    "flame_configure_ignites_projectile_seconds": 100,
+    "therm_projectile_members": [
+      "alt_cryonic_projectile",
+      "icidroburner_flame",
+      "icidrogunner_bullet"
+    ],
+    "explicit_bugfix": "Ephemeral attack arrows disallow pickup after setOwner and NBT read to avoid failed-damage external-item duplication",
+    "remaining_source_gate": "Actual shooter parameters, critical flags, strider pierce5, payload authorization and ownerless boss casts must be connected and verified with each shooter module."
+  },
+  "runtime": {
+    "client_started": false,
+    "server_started": false,
+    "render_preview_tested": false,
+    "full_migration_complete": false
+  }
+}
