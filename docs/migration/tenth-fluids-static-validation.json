@@ -1,0 +1,246 @@
+{
+  "scope": "Tenth batch only: static/structured comparison of fluid registration, block behavior, client hooks, bucket models, replaceable tag and two bucket recipes. No source/resource edits. No client/server run.",
+  "build": {
+    "command": ".\\gradlew.bat compileJava compileGametestJava processResources --offline",
+    "result": "BUILD SUCCESSFUL",
+    "duration_seconds": 50,
+    "log": "D:/AI临时文件/ThermalShockMigration/compile-tenth-fluids.log"
+  },
+  "registration_check": {
+    "fluids": {
+      "springelatin": true,
+      "flowing_springelatin": true,
+      "blood": true,
+      "flowing_blood": true
+    },
+    "fluid_types": {
+      "springelatin": true,
+      "blood": true
+    },
+    "blocks": {
+      "springelatin": true,
+      "blood": true
+    },
+    "buckets": {
+      "springelatin_bucket": true,
+      "blood_bucket": true
+    },
+    "called_from_mod_constructor": true
+  },
+  "registration_counts": {
+    "fluid": 4,
+    "fluid_type": 2,
+    "block": 2,
+    "bucket_item": 2
+  },
+  "fluid_behavior_comparison": {
+    "blood": {
+      "source_properties": "explosionResistance 100; tickRate 15; levelDecreasePerBlock 2; canConvertToSource true; motionScale 0.0035",
+      "target_properties": "explosionResistance 100; tickRate 15; levelDecreasePerBlock 2; canConvertToSource true; motionScale 0.0035"
+    },
+    "springelatin": {
+      "source_properties": "explosionResistance 100; levelDecreasePerBlock 2; no explicit tickRate; motionScale 0.007; lightLevel 1; temperature 350",
+      "target_properties": "explosionResistance 100; tickRate explicitly 5; levelDecreasePerBlock 2; motionScale 0.007; lightLevel 1; temperature 350",
+      "default_evidence": "NeoForge BaseFlowingFluid.Properties initializes tickRate to 5 at BaseFlowingFluid.java:184; source MCreator flow class did not explicitly set tickRate."
+    },
+    "common_type_properties": "fallDistanceModifier 0; canExtinguish; supportsBoating; canHydrate; BUCKET_FILL sound; FIRE_EXTINGUISH vaporize sound",
+    "slope_find_distance": "target explicitly sets 4; NeoForge BaseFlowingFluid.Properties default is 4 at BaseFlowingFluid.java:181"
+  },
+  "block_collision_comparison": {
+    "blood_server_infected_timing": true,
+    "blood_effect_original": "INFECTION_100_AMP1",
+    "blood_smoke_chance_and_conditions": true,
+    "springelatin_vertical_velocity": true
+  },
+  "client_comparison": {
+    "textures": {
+      "blood": [
+        "bloodrubicon",
+        "bloodrubicon"
+      ],
+      "springelatin": [
+        "springel",
+        "springel32"
+      ]
+    },
+    "all_four_fluid_layers_translucent": true,
+    "bucket_color_handler": true,
+    "extension_listener": true,
+    "item_color_listener": true,
+    "layers_enqueued": true
+  },
+  "bucket_model_json": {
+    "blood_bucket.json": {
+      "parent": "neoforge:item/bucket_drip",
+      "loader": "neoforge:fluid_container",
+      "fluid": "thermal_shock_reforged:blood"
+    },
+    "springelatin_bucket.json": {
+      "parent": "neoforge:item/bucket_drip",
+      "loader": "neoforge:fluid_container",
+      "fluid": "thermal_shock_reforged:springelatin"
+    }
+  },
+  "asset_comparison": [
+    {
+      "path": "blockstates/blood.json",
+      "source_exists": true,
+      "target_exists": true,
+      "source_sha256": "901203f71a05210986169367c420024ea3eb72a4597544940e1fe375e4c6df5f",
+      "target_sha256": "157764744278684ef7c07c23b11a901e65f6bc3efdabeab649d2333838d76af1",
+      "normalized_or_binary_equal": true
+    },
+    {
+      "path": "blockstates/springelatin.json",
+      "source_exists": true,
+      "target_exists": true,
+      "source_sha256": "a5667c304908cf30e1e61344370ad0d16d7b627b9eee90ab6280fc428f73fe65",
+      "target_sha256": "02b0435ada157290fd86a40eee927678b115b632eaeb64279ad1c493e26a8a2c",
+      "normalized_or_binary_equal": true
+    },
+    {
+      "path": "models/block/blood.json",
+      "source_exists": true,
+      "target_exists": true,
+      "source_sha256": "98e95205b47d27a1d660fffced0f13f2b6dfd65736281375774ef3b7c7a8e3f9",
+      "target_sha256": "09c9b1acd1bd8dbfc80c7427aa0745976fbc2b13a5518e1fa850ab7df91379f0",
+      "normalized_or_binary_equal": true
+    },
+    {
+      "path": "models/block/springelatin.json",
+      "source_exists": true,
+      "target_exists": true,
+      "source_sha256": "9bd67af7fd6a47a797fb136306ee3c05fbff685bd7c93721bc26e5ed84538784",
+      "target_sha256": "eb5571c229ecee3473f4201de2332291f0cefd8a502d34355c6ea8915f702560",
+      "normalized_or_binary_equal": true
+    },
+    {
+      "path": "models/item/blood_bucket.json",
+      "source_exists": true,
+      "target_exists": true,
+      "source_sha256": "32ba63e261aa1ae84eaa24bdbf3cb723b3ca06234939cdf860c9763d89cc3b1e",
+      "target_sha256": "49ee721ebf5fde3eceb3424ee59318e36627dff48f321c49ed6e677f0f4c55c6",
+      "normalized_or_binary_equal": true
+    },
+    {
+      "path": "models/item/springelatin_bucket.json",
+      "source_exists": true,
+      "target_exists": true,
+      "source_sha256": "6fe4b7aa7c35abc9b69efcfed592b4d8a6b03b2559817420c20c4c7f72afdb88",
+      "target_sha256": "6ff82ae3c5a622f5b37829c6d5b7f556afe03ad662b457dd2aa1f1380c5fc2f3",
+      "normalized_or_binary_equal": true
+    },
+    {
+      "path": "textures/block/bloodfluid.png",
+      "source_exists": true,
+      "target_exists": true,
+      "source_sha256": "4d3810cf63e6604a907b2735d87c450f14d40af40d21a749aa2534f53f4a2105",
+      "target_sha256": "4d3810cf63e6604a907b2735d87c450f14d40af40d21a749aa2534f53f4a2105",
+      "normalized_or_binary_equal": true
+    },
+    {
+      "path": "textures/block/bloodfluid.png.mcmeta",
+      "source_exists": true,
+      "target_exists": true,
+      "source_sha256": "3a7a0a8b388af8318b2bd3ae788e4ec47f1cd91c607278c8a764f132dca5bd30",
+      "target_sha256": "3a7a0a8b388af8318b2bd3ae788e4ec47f1cd91c607278c8a764f132dca5bd30",
+      "normalized_or_binary_equal": true
+    },
+    {
+      "path": "textures/block/bloodrubicon.png",
+      "source_exists": true,
+      "target_exists": true,
+      "source_sha256": "d41315d9d986aff6b37c190cf7ae565b97fe904999544d0853f5a72250e560e2",
+      "target_sha256": "d41315d9d986aff6b37c190cf7ae565b97fe904999544d0853f5a72250e560e2",
+      "normalized_or_binary_equal": true
+    },
+    {
+      "path": "textures/block/bloodrubicon.png.mcmeta",
+      "source_exists": true,
+      "target_exists": true,
+      "source_sha256": "16053cf6f1b887ceca9dd9259a387101733822f034d916da7b5a038dfaa6e282",
+      "target_sha256": "16053cf6f1b887ceca9dd9259a387101733822f034d916da7b5a038dfaa6e282",
+      "normalized_or_binary_equal": true
+    },
+    {
+      "path": "textures/block/springel.png",
+      "source_exists": true,
+      "target_exists": true,
+      "source_sha256": "aaa50e8cdaf1973cf190bfe6bf4a2e97fd70a4aad4b62dca7c57287078807b59",
+      "target_sha256": "aaa50e8cdaf1973cf190bfe6bf4a2e97fd70a4aad4b62dca7c57287078807b59",
+      "normalized_or_binary_equal": true
+    },
+    {
+      "path": "textures/block/springel.png.mcmeta",
+      "source_exists": true,
+      "target_exists": true,
+      "source_sha256": "eddaa09cafa99a6b7167148b1c98618fc632efc5944190b1767c58ebeb7a47e8",
+      "target_sha256": "eddaa09cafa99a6b7167148b1c98618fc632efc5944190b1767c58ebeb7a47e8",
+      "normalized_or_binary_equal": true
+    },
+    {
+      "path": "textures/block/springel32.png",
+      "source_exists": true,
+      "target_exists": true,
+      "source_sha256": "52ce6ca3f53a09484afe5809efb513c3cf04ca68e7d71f2bc85eed8f1d27c89a",
+      "target_sha256": "52ce6ca3f53a09484afe5809efb513c3cf04ca68e7d71f2bc85eed8f1d27c89a",
+      "normalized_or_binary_equal": true
+    },
+    {
+      "path": "textures/block/springel32.png.mcmeta",
+      "source_exists": true,
+      "target_exists": true,
+      "source_sha256": "0d77fe0aed559a20ebcbcc4b898c33705d3e5e8a53fd7be393fd5832bc9ed5c8",
+      "target_sha256": "0d77fe0aed559a20ebcbcc4b898c33705d3e5e8a53fd7be393fd5832bc9ed5c8",
+      "normalized_or_binary_equal": true
+    }
+  ],
+  "replaceable_tag": {
+    "target": "data/minecraft/tags/block/replaceable.json",
+    "required_ids": [
+      "thermal_shock_reforged:blood",
+      "thermal_shock_reforged:springelatin"
+    ],
+    "present": {
+      "thermal_shock_reforged:blood": true,
+      "thermal_shock_reforged:springelatin": true
+    }
+  },
+  "recipes": [
+    {
+      "source": "data/thermal_shock/recipes/springelatin_ball_recipe.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/recipe/springelatin_ball_recipe.json",
+      "source_bucket": "thermal_shock_reforged:springelatin_bucket",
+      "target_bucket": "thermal_shock_reforged:springelatin_bucket",
+      "source_ball_result": {
+        "id": "thermal_shock_reforged:springelatin_ball",
+        "count": 8
+      },
+      "target_ball_result": {
+        "count": 8,
+        "id": "thermal_shock_reforged:springelatin_ball"
+      },
+      "shape_and_ingredients_and_result_match": true
+    },
+    {
+      "source": "data/thermal_shock/recipes/springelatin_ball_cell_recipe.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/recipe/springelatin_ball_cell_recipe.json",
+      "source_bucket": "thermal_shock_reforged:springelatin_bucket",
+      "target_bucket": "thermal_shock_reforged:springelatin_bucket",
+      "source_ball_result": {
+        "id": "thermal_shock_reforged:springelatin_ball",
+        "count": 8
+      },
+      "target_ball_result": {
+        "count": 8,
+        "id": "thermal_shock_reforged:springelatin_ball"
+      },
+      "shape_and_ingredients_and_result_match": true
+    }
+  ],
+  "limitations": [
+    "Static/source/data comparison only; no fluid-flow or collision runtime test.",
+    "No client model load test; both legacy forge-prefixed bucket model values have been converted to the locally registered NeoForge identifiers.",
+    "Build warnings are unrelated existing deprecated APIs in ArmorClient and ClientEvents."
+  ]
+}

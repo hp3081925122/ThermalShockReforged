@@ -1,6 +1,8 @@
 package com.hp.thermalshockreforged.client;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
+import com.hp.thermalshockreforged.client.fluids.FluidClient;
+import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import com.hp.thermalshockreforged.client.growth.GrowthRenderers;
 import com.hp.thermalshockreforged.client.ice.IceRenderers;
 import com.hp.thermalshockreforged.client.doors.SpecialDoorRenderers;
@@ -83,6 +85,7 @@ public final class ClientEvents {
         FaunaRenderers.extensions(event);
         FarmingRenderers.extensions(event);
         GrowthRenderers.extensions(event);
+        FluidClient.extensions(event);
         GeoDecorRenderers.extensions(event);
         SpecialDoorRenderers.extensions(event);
     }
@@ -98,7 +101,10 @@ public final class ClientEvents {
     }
 
     @SubscribeEvent
-    public static void setup(FMLClientSetupEvent event) { event.enqueueWork(FarmingRenderers::layers); }
+    public static void itemColors(RegisterColorHandlersEvent.Item event) { FluidClient.colors(event); }
+
+    @SubscribeEvent
+    public static void setup(FMLClientSetupEvent event) { event.enqueueWork(() -> { FarmingRenderers.layers(); FluidClient.layers(); }); }
 
     private static final class InvisibleWarningRenderer extends EntityRenderer<ZapWarningEntity> {
         private InvisibleWarningRenderer(EntityRendererProvider.Context context) {
