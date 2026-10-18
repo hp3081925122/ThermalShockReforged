@@ -1,0 +1,29 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.unknown",
+				"texture_width": 144,
+				"texture_height": 144,
+				"visible_bounds_width": 6,
+				"visible_bounds_height": 5,
+				"visible_bounds_offset": [0, 1.5, 0]
+			},
+			"bones": [
+				{
+					"name": "door",
+					"pivot": [-8, 44, 0]
+				},
+				{
+					"name": "bone",
+					"parent": "door",
+					"pivot": [-8, 44, 0],
+					"cubes": [
+						{"origin": [-8, -16, -4], "size": [64, 64, 8], "uv": [0, 0]}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,135 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.unknown",
+				"texture_width": 112,
+				"texture_height": 112,
+				"visible_bounds_width": 5,
+				"visible_bounds_height": 3,
+				"visible_bounds_offset": [0, 0.5, 0]
+			},
+			"bones": [
+				{
+					"name": "gun",
+					"pivot": [0, 1, 13],
+					"cubes": [
+						{"origin": [-6, 0, -19], "size": [10, 10, 20], "pivot": [0, 6, 0], "rotation": [0, 0, -45], "uv": [0, 32]},
+						{"origin": [-5, 1, 1], "size": [8, 8, 1], "pivot": [0, 6, 20], "rotation": [0, 0, -45], "uv": [20, 79]},
+						{"origin": [-6, 1, 2], "size": [10, 8, 11], "pivot": [0, 6, 21], "rotation": [0, 0, -90], "uv": [60, 32]},
+						{"origin": [-0.46447, 8.88604, 3], "size": [6, 4, 4], "pivot": [-2, 10, 5], "rotation": [0, 20, -135], "uv": [74, 71]},
+						{"origin": [0.03553, 9.38604, 3.5], "size": [5, 3, 3], "pivot": [-2, 10, 5], "rotation": [0, 20, -135], "uv": [78, 65]},
+						{"origin": [-2.46447, 9.88604, 4], "size": [2, 2, 2], "pivot": [-2, 10, 5], "rotation": [0, 20, -135], "uv": [72, 25]},
+						{"origin": [-2.46447, 9.88604, 9], "size": [2, 2, 2], "pivot": [-2, 10, 10], "rotation": [0, 20, -135], "uv": [38, 74]},
+						{"origin": [-0.46447, 8.88604, 8], "size": [6, 4, 4], "pivot": [-2, 10, 10], "rotation": [0, 20, -135], "uv": [74, 71]},
+						{"origin": [0.03553, 9.38604, 8.5], "size": [5, 3, 3], "pivot": [-2, 10, 10], "rotation": [0, 20, -135], "uv": [78, 65]},
+						{"origin": [-6, 4, 13], "size": [6, 4, 13], "pivot": [0, 7, 32], "rotation": [0, 0, -90], "uv": [0, 62]},
+						{"origin": [-6, -14, -4], "size": [6, 4, 13], "pivot": [0, -11, 15], "rotation": [0, -65, -90], "uv": [64, 0]},
+						{"origin": [-6, -2, 22], "size": [6, 4, 4], "pivot": [0, 1, 32], "rotation": [0, 0, -90], "uv": [54, 71]},
+						{"origin": [-5.5, 3.75, 15], "size": [9, 3, 5], "pivot": [0.5, 5.75, 24], "rotation": [0, 45, -90], "uv": [64, 17]}
+					]
+				},
+				{
+					"name": "pump",
+					"parent": "gun",
+					"pivot": [3, 1, -16],
+					"cubes": [
+						{"origin": [-3, -11, -18], "size": [4, 8, 4], "pivot": [-1, 5, 0], "rotation": [0, 0, -45], "uv": [38, 62]},
+						{"origin": [-2, -3, -17], "size": [2, 2, 2], "pivot": [-1, 5, 0], "rotation": [0, 0, -45], "uv": [64, 25]}
+					]
+				},
+				{
+					"name": "bone",
+					"parent": "pump",
+					"pivot": [1, 5, -15]
+				},
+				{
+					"name": "leftarm",
+					"parent": "bone",
+					"pivot": [1, 5, -15],
+					"cubes": [
+						{"origin": [-2.14214, 2.17157, -18], "size": [6, 6, 14], "pivot": [0, 5, -20], "rotation": [0, 0, 45], "uv": [72, 92]}
+					]
+				},
+				{
+					"name": "flash",
+					"parent": "gun",
+					"pivot": [0, 3.5, -21],
+					"cubes": [
+						{"origin": [-16, -11.5, -20], "size": [32, 32, 0], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "solenoids",
+					"parent": "gun",
+					"pivot": [0, 6, 4]
+				},
+				{
+					"name": "solenoid1",
+					"parent": "solenoids",
+					"pivot": [0, 6, 0],
+					"cubes": [
+						{"origin": [4, 4, -16], "size": [1, 2, 2], "pivot": [0, 6, 0], "rotation": [0, 0, -45], "uv": [16, 73]}
+					]
+				},
+				{
+					"name": "spark",
+					"parent": "solenoid1",
+					"pivot": [0, 6, 0],
+					"cubes": [
+						{"origin": [5, 1, -15], "size": [9, 8, 0], "pivot": [0, 6, 0], "rotation": [0, 0, -45], "uv": [38, 80]}
+					]
+				},
+				{
+					"name": "solenoid2",
+					"parent": "solenoids",
+					"pivot": [0, 6, 4],
+					"cubes": [
+						{"origin": [4, 4, -12], "size": [1, 2, 2], "pivot": [0, 6, 4], "rotation": [0, 0, -45], "uv": [16, 73]}
+					]
+				},
+				{
+					"name": "spark2",
+					"parent": "solenoid2",
+					"pivot": [0, 6, 4],
+					"cubes": [
+						{"origin": [5, 1, -11], "size": [9, 8, 0], "pivot": [0, 6, 4], "rotation": [0, 0, -45], "uv": [38, 80]}
+					]
+				},
+				{
+					"name": "solenoid3",
+					"parent": "solenoids",
+					"pivot": [0, 6, 8],
+					"cubes": [
+						{"origin": [4, 4, -8], "size": [1, 2, 2], "pivot": [0, 6, 8], "rotation": [0, 0, -45], "uv": [16, 73]}
+					]
+				},
+				{
+					"name": "spark3",
+					"parent": "solenoid3",
+					"pivot": [0, 6, 8],
+					"cubes": [
+						{"origin": [5, 1, -7], "size": [9, 8, 0], "pivot": [0, 6, 8], "rotation": [0, 0, -45], "uv": [38, 80]}
+					]
+				},
+				{
+					"name": "solenoid4",
+					"parent": "solenoids",
+					"pivot": [0, 6, 12],
+					"cubes": [
+						{"origin": [4, 4, -4], "size": [1, 2, 2], "pivot": [0, 6, 12], "rotation": [0, 0, -45], "uv": [16, 73]}
+					]
+				},
+				{
+					"name": "spark4",
+					"parent": "solenoid4",
+					"pivot": [0, 6, 12],
+					"cubes": [
+						{"origin": [5, 1, -3], "size": [9, 8, 0], "pivot": [0, 6, 12], "rotation": [0, 0, -45], "uv": [38, 80]}
+					]
+				}
+			]
+		}
+	]
+}

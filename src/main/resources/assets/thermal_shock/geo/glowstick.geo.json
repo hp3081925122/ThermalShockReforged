@@ -1,0 +1,28 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.Glowstick",
+				"texture_width": 32,
+				"texture_height": 32,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "bone",
+					"pivot": [0, 16, 0],
+					"cubes": [
+						{"origin": [-1, 0, -1], "size": [2, 16, 2], "uv": [0, 0]},
+						{"origin": [-1, 16.60876, -3.79335], "size": [2, 0, 3], "pivot": [0, 16, 0], "rotation": [37.5, 0, 0], "uv": [9, 0]},
+						{"origin": [-1, 16.60876, -3.79335], "size": [2, 0, 3], "pivot": [0, 16, 0], "rotation": [-142.5, 0, -180], "uv": [5, 6]},
+						{"origin": [-1, 16.60876, -3.79335], "size": [2, 0, 3], "pivot": [0, 16, 0], "rotation": [0, -90, 37.5], "uv": [5, 0]},
+						{"origin": [-1, 16.60876, -3.79335], "size": [2, 0, 3], "pivot": [0, 16, 0], "rotation": [0, 90, -37.5], "uv": [5, 3]}
+					]
+				}
+			]
+		}
+	]
+}

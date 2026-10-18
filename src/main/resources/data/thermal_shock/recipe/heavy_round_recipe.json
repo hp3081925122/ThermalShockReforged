@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "a",
+    "b",
+    "c"
+  ],
+  "key": {
+    "a": {
+      "item": "thermal_shock:ferrum_plating"
+    },
+    "b": {
+      "item": "thermal_shock:thermite_chunk"
+    },
+    "c": {
+      "item": "minecraft:gunpowder"
+    }
+  },
+  "result": {
+    "count": 10,
+    "id": "thermal_shock:heavy_round"
+  }
+}

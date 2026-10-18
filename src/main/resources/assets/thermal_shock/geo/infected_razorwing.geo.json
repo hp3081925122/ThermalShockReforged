@@ -1,0 +1,160 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.Razorwing",
+				"texture_width": 148,
+				"texture_height": 148,
+				"visible_bounds_width": 5,
+				"visible_bounds_height": 6,
+				"visible_bounds_offset": [0, 2, 0]
+			},
+			"bones": [
+				{
+					"name": "birb",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "torso",
+					"parent": "birb",
+					"pivot": [0, 16, 0],
+					"cubes": [
+						{"origin": [-6, 16, -8], "size": [12, 11, 16], "uv": [51, 38]},
+						{"origin": [0, 16, 4], "size": [0, 19, 20], "uv": [0, 34]}
+					]
+				},
+				{
+					"name": "wing1",
+					"parent": "torso",
+					"pivot": [6, 20, -1],
+					"cubes": [
+						{"origin": [6, 20, -3], "size": [20, 0, 3], "uv": [29, 145]}
+					]
+				},
+				{
+					"name": "wing2",
+					"parent": "wing1",
+					"pivot": [24.5, 20, -1.5],
+					"cubes": [
+						{"origin": [24, 20, -3], "size": [20, 0, 3], "uv": [29, 142]}
+					]
+				},
+				{
+					"name": "claw3",
+					"parent": "wing2",
+					"pivot": [42.5, 20, -1.5],
+					"cubes": [
+						{"origin": [42, 20, -3], "size": [20, 0, 7], "uv": [25, 133]}
+					]
+				},
+				{
+					"name": "wing3",
+					"parent": "torso",
+					"pivot": [-6, 20, -1],
+					"cubes": [
+						{"origin": [-26, 20, -3], "size": [20, 0, 3], "uv": [29, 145], "mirror": true}
+					]
+				},
+				{
+					"name": "wing4",
+					"parent": "wing3",
+					"pivot": [-24.5, 20, -1.5],
+					"cubes": [
+						{"origin": [-44, 20, -3], "size": [20, 0, 3], "uv": [29, 142], "mirror": true}
+					]
+				},
+				{
+					"name": "claw2",
+					"parent": "wing4",
+					"pivot": [-42.5, 20, -1.5],
+					"cubes": [
+						{"origin": [-62, 20, -3], "size": [20, 0, 7], "uv": [25, 133], "mirror": true}
+					]
+				},
+				{
+					"name": "neck",
+					"parent": "torso",
+					"pivot": [0, 16, -6],
+					"cubes": [
+						{"origin": [-3, 16, -12], "size": [6, 13, 6], "uv": [0, 0]},
+						{"origin": [-2, 29, -9], "size": [4, 16, 0], "uv": [0, 132]},
+						{"origin": [0, 29, -11], "size": [0, 16, 4], "uv": [0, 128]}
+					]
+				},
+				{
+					"name": "head",
+					"parent": "neck",
+					"pivot": [0, 45, -9]
+				},
+				{
+					"name": "bone",
+					"parent": "head",
+					"pivot": [0, 45, -9],
+					"cubes": [
+						{"origin": [-3, 45, -12], "size": [6, 18, 6], "uv": [72, 118]}
+					]
+				},
+				{
+					"name": "bone3",
+					"parent": "bone",
+					"pivot": [0, 33, -9]
+				},
+				{
+					"name": "petal9",
+					"parent": "bone3",
+					"pivot": [0, 46, -11],
+					"rotation": [-22.5, 0, 0],
+					"cubes": [
+						{"origin": [-12, 46, -35], "size": [24, 0, 24], "uv": [72, 106]}
+					]
+				},
+				{
+					"name": "petal10",
+					"parent": "bone3",
+					"pivot": [0, 46, -7],
+					"rotation": [22.5, 0, 0],
+					"cubes": [
+						{"origin": [-34, 46, -7], "size": [24, 0, 24], "pivot": [-11, 46, 5], "rotation": [0, 180, 0], "uv": [72, 106]}
+					]
+				},
+				{
+					"name": "petal11",
+					"parent": "bone3",
+					"pivot": [2, 46, -9],
+					"rotation": [0, 0, -22.5],
+					"cubes": [
+						{"origin": [13, 46, -10], "size": [24, 0, 24], "pivot": [25, 46, -9], "rotation": [0, -90, 0], "uv": [72, 106]}
+					]
+				},
+				{
+					"name": "petal12",
+					"parent": "bone3",
+					"pivot": [-2, 46, -9],
+					"rotation": [0, 0, 22.5],
+					"cubes": [
+						{"origin": [-15, 46, -32], "size": [24, 0, 24], "pivot": [-3, 46, -9], "rotation": [0, 90, 0], "uv": [72, 106], "mirror": true}
+					]
+				},
+				{
+					"name": "leg1",
+					"parent": "birb",
+					"pivot": [0, 16, 0],
+					"cubes": [
+						{"origin": [1, 0, -2], "size": [4, 16, 4], "uv": [72, 65]},
+						{"origin": [1, 0, -3], "size": [4, 1, 1], "uv": [10, 43]}
+					]
+				},
+				{
+					"name": "leg2",
+					"parent": "birb",
+					"pivot": [0, 16, 0],
+					"cubes": [
+						{"origin": [-5, 0, -2], "size": [4, 16, 4], "uv": [67, 0]},
+						{"origin": [-5, 0, -3], "size": [4, 1, 1], "uv": [10, 43], "mirror": true}
+					]
+				}
+			]
+		}
+	]
+}

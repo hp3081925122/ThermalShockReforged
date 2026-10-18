@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "thermal_shock:block/desk_photo"
+    },
+    "facing=east": {
+      "model": "thermal_shock:block/desk_photo",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "thermal_shock:block/desk_photo",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "thermal_shock:block/desk_photo",
+      "y": 270
+    }
+  }
+}

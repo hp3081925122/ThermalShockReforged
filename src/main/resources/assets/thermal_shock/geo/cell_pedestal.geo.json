@@ -1,0 +1,30 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.Cell Pedestal",
+				"texture_width": 112,
+				"texture_height": 112,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [0, 1.25, 0]
+			},
+			"bones": [
+				{
+					"name": "body",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-8, 0, -8], "size": [16, 14, 16], "uv": [0, 0]},
+						{"origin": [-11, 36, -4], "size": [22, 3, 8], "uv": [42, 30]},
+						{"origin": [-11, 8, -4], "size": [3, 28, 8], "uv": [22, 46]},
+						{"origin": [8, 8, -4], "size": [3, 28, 8], "uv": [0, 46]},
+						{"origin": [-7, 14, -7], "size": [14, 2, 14], "uv": [0, 30]},
+						{"origin": [-8, 14, -2], "size": [16, 1, 4], "uv": [36, 46]},
+						{"origin": [0, 30, -3], "size": [0, 6, 6], "uv": [0, 0]}
+					]
+				}
+			]
+		}
+	]
+}

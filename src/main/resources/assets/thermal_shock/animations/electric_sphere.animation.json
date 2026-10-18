@@ -1,0 +1,116 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"0": {
+			"loop": true,
+			"animation_length": 4,
+			"bones": {
+				"1": {
+					"scale": {
+						"vector": [2.5, 2.5, 2.5]
+					}
+				},
+				"2": {
+					"scale": {
+						"vector": [1.2, 1.2, 1.2]
+					}
+				},
+				"bone": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"4.0": {
+							"vector": [-360, -360, 360],
+							"easing": "linear"
+						}
+					},
+					"position": {
+						"vector": [0, -2, 0]
+					},
+					"scale": {
+						"vector": [0.7, 0.7, 0.7]
+					}
+				}
+			}
+		},
+		"1": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
+			"bones": {
+				"1": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.5": {
+							"vector": [-720, -720, 720],
+							"easing": "easeInSine"
+						}
+					},
+					"scale": {
+						"0.0": {
+							"vector": [1.5, 1.5, 1.5]
+						},
+						"0.2083": {
+							"vector": [1, 1, 1],
+							"easing": "easeOutCubic"
+						},
+						"0.4167": {
+							"vector": [2, 2, 2],
+							"easing": "easeInCubic"
+						}
+					}
+				},
+				"2": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.5": {
+							"vector": [-720, -720, 720],
+							"easing": "easeInSine"
+						}
+					},
+					"scale": {
+						"0.0": {
+							"vector": [1.5, 1.5, 1.5]
+						},
+						"0.25": {
+							"vector": [1, 1, 1],
+							"easing": "easeOutCubic"
+						},
+						"0.4583": {
+							"vector": [2, 2, 2],
+							"easing": "easeInCubic"
+						}
+					}
+				},
+				"3": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.5": {
+							"vector": [-360, -360, 360],
+							"easing": "easeInSine"
+						}
+					},
+					"scale": {
+						"0.0": {
+							"vector": [1.5, 1.5, 1.5]
+						},
+						"0.25": {
+							"vector": [1, 1, 1],
+							"easing": "easeOutCubic"
+						},
+						"0.4583": {
+							"vector": [2, 2, 2],
+							"easing": "easeInCubic"
+						}
+					}
+				}
+			}
+		}
+	}
+}

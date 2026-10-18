@@ -1,0 +1,82 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.unknown",
+				"texture_width": 48,
+				"texture_height": 48,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [0, 1.25, 0]
+			},
+			"bones": [
+				{
+					"name": "bone",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-0.5, 0, -0.5], "size": [1, 13, 1], "uv": [26, 25]}
+					]
+				},
+				{
+					"name": "bone2",
+					"parent": "bone",
+					"pivot": [0, 12.5, 0],
+					"cubes": [
+						{"origin": [-4.5, 12, -0.5], "size": [4, 1, 1], "uv": [0, 32]},
+						{"origin": [-4.5, 13, -0.5], "size": [1, 5, 1], "uv": [34, 25]}
+					]
+				},
+				{
+					"name": "bone3",
+					"parent": "bone2",
+					"pivot": [-4, 17.5, 0],
+					"cubes": [
+						{"origin": [-3.5, 17, -0.5], "size": [8, 1, 1], "uv": [26, 14]},
+						{"origin": [3.5, 18, -0.5], "size": [1, 9, 1], "uv": [30, 25]},
+						{"origin": [1.5, 27, 0], "size": [5, 9, 0], "pivot": [4, 27, 0], "rotation": [0, -45, 0], "uv": [26, 5]},
+						{"origin": [1.5, 27, 0], "size": [5, 9, 0], "pivot": [4, 27, 0], "rotation": [0, 45, 0], "uv": [26, 5]},
+						{"origin": [4.5, 20, 0], "size": [4, 4, 0], "uv": [10, 32]},
+						{"origin": [-7.5, 17, 0], "size": [4, 4, 0], "uv": [18, 32]},
+						{"origin": [0.5, 6, 0], "size": [4, 4, 0], "uv": [0, 34]}
+					]
+				},
+				{
+					"name": "petal1",
+					"parent": "bone3",
+					"pivot": [4, 27, 0.5],
+					"cubes": [
+						{"origin": [1.5, 27, 0.5], "size": [5, 0, 8], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "petal2",
+					"parent": "bone3",
+					"pivot": [4, 27, 0.5],
+					"rotation": [0, -90, 0],
+					"cubes": [
+						{"origin": [1.5, 27, 0.5], "size": [5, 0, 8], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "petal3",
+					"parent": "bone3",
+					"pivot": [4, 27, 0.5],
+					"rotation": [0, 180, 0],
+					"cubes": [
+						{"origin": [1.5, 27, 0.5], "size": [5, 0, 8], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "petal4",
+					"parent": "bone3",
+					"pivot": [4, 27, 0.5],
+					"rotation": [0, 90, 0],
+					"cubes": [
+						{"origin": [1.5, 27, 0.5], "size": [5, 0, 8], "uv": [0, 0]}
+					]
+				}
+			]
+		}
+	]
+}

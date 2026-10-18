@@ -1,0 +1,116 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.G-raver",
+				"texture_width": 128,
+				"texture_height": 128,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [0, 1.25, 0]
+			},
+			"bones": [
+				{
+					"name": "Chor",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "body",
+					"parent": "Chor",
+					"pivot": [0, 10, 0],
+					"cubes": [
+						{"origin": [-3, 10, -2], "size": [6, 10, 4], "uv": [1, 16]}
+					]
+				},
+				{
+					"name": "arm1",
+					"parent": "body",
+					"pivot": [4, 19, 0],
+					"cubes": [
+						{"origin": [4, 10, -1], "size": [2, 9, 2], "uv": [26, 27]}
+					]
+				},
+				{
+					"name": "arm2",
+					"parent": "body",
+					"pivot": [-3, 19, 0],
+					"cubes": [
+						{"origin": [-6, 10, -1], "size": [2, 9, 2], "uv": [2, 32]},
+						{"origin": [-6.5, 8, -1.5], "size": [3, 6, 3], "uv": [11, 62]}
+					]
+				},
+				{
+					"name": "leg1",
+					"parent": "body",
+					"pivot": [0, 10, 0],
+					"cubes": [
+						{"origin": [1, 0.5, -1], "size": [2, 9, 2], "uv": [2, 46]},
+						{"origin": [0, 0, -2], "size": [3.5, 9.5, 4], "uv": [47, 40]}
+					]
+				},
+				{
+					"name": "leg2",
+					"parent": "body",
+					"pivot": [0, 10, 0],
+					"cubes": [
+						{"origin": [-3, 0.5, -1], "size": [2, 9, 2], "uv": [18, 41]},
+						{"origin": [-3.5, 0, -2], "size": [3.5, 9.5, 4], "uv": [47, 40], "mirror": true}
+					]
+				},
+				{
+					"name": "head",
+					"parent": "body",
+					"pivot": [0, 20, 0],
+					"cubes": [
+						{"origin": [-4, 20, -4], "size": [8, 8, 8], "uv": [0, 0]},
+						{"origin": [-5, 19, -5], "size": [10, 10, 10], "uv": [88, 37]}
+					]
+				},
+				{
+					"name": "eyes",
+					"parent": "head",
+					"pivot": [0, 23, -4],
+					"cubes": [
+						{"origin": [-3.5, 22, -4.1], "size": [3, 3, 0], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "eyetwitch",
+					"parent": "eyes",
+					"pivot": [0, 23, 0],
+					"cubes": [
+						{"origin": [0.5, 22, -4.1], "size": [3, 3, 0], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "antennae",
+					"parent": "head",
+					"pivot": [-1, 29, -2],
+					"cubes": [
+						{"origin": [-5, 28, -2], "size": [5, 12, 0], "uv": [32, 9]}
+					]
+				},
+				{
+					"name": "antennae2",
+					"parent": "head",
+					"pivot": [1, 29, -2],
+					"cubes": [
+						{"origin": [0, 28, -2], "size": [5, 12, 0], "uv": [34, 9]}
+					]
+				},
+				{
+					"name": "head2",
+					"parent": "head",
+					"pivot": [0, 19, 0]
+				},
+				{
+					"name": "cape",
+					"parent": "body",
+					"pivot": [0, 20, 2],
+					"rotation": [10, 0, 0]
+				}
+			]
+		}
+	]
+}

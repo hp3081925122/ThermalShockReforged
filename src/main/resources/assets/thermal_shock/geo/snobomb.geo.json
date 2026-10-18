@@ -1,0 +1,57 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.Snobol",
+				"texture_width": 48,
+				"texture_height": 48,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "body",
+					"pivot": [0, 2, -2],
+					"cubes": [
+						{"origin": [-5, 2, -7], "size": [10, 10, 10], "uv": [0, 0]},
+						{"origin": [5, 3, -5.5], "size": [3, 8, 3], "uv": [0, 37]},
+						{"origin": [7, 11, -4.25], "size": [0, 1, 1], "pivot": [6.5, 11, -3.25], "rotation": [0, 45, 0], "uv": [0, 38]},
+						{"origin": [7, 11, -0.25], "size": [0, 1, 1], "pivot": [6.5, 11, 0.75], "rotation": [0, 45, 0], "uv": [0, 38]},
+						{"origin": [-7, 11, -0.25], "size": [0, 1, 1], "pivot": [-6.5, 11, 0.75], "rotation": [0, -45, 0], "uv": [0, 38], "mirror": true},
+						{"origin": [-7, 11, -4.25], "size": [0, 1, 1], "pivot": [-6.5, 11, -3.25], "rotation": [0, -45, 0], "uv": [0, 38], "mirror": true},
+						{"origin": [5, 3, -1.5], "size": [3, 8, 3], "uv": [0, 37]},
+						{"origin": [-8, 3, -1.5], "size": [3, 8, 3], "uv": [0, 37]},
+						{"origin": [-8, 3, -5.5], "size": [3, 8, 3], "uv": [0, 37]}
+					]
+				},
+				{
+					"name": "ears",
+					"parent": "body",
+					"pivot": [0, 12, -7],
+					"cubes": [
+						{"origin": [-5, 12, -7], "size": [10, 10, 0], "uv": [24, 20]}
+					]
+				},
+				{
+					"name": "tail",
+					"parent": "body",
+					"pivot": [0, 5, 3],
+					"cubes": [
+						{"origin": [-3, 2, 3], "size": [6, 6, 6], "uv": [0, 20]}
+					]
+				},
+				{
+					"name": "legs",
+					"parent": "body",
+					"pivot": [0, 2, -2],
+					"cubes": [
+						{"origin": [1, 0, -4], "size": [3, 2, 4], "uv": [20, 30]},
+						{"origin": [-4, 0, -4], "size": [3, 2, 4], "uv": [30, 0]}
+					]
+				}
+			]
+		}
+	]
+}

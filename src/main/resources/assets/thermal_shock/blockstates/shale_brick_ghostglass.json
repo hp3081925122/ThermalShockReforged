@@ -1,0 +1,27 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "thermal_shock:block/shale_brick_ghostglass"
+    },
+    "facing=east": {
+      "model": "thermal_shock:block/shale_brick_ghostglass",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "thermal_shock:block/shale_brick_ghostglass",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "thermal_shock:block/shale_brick_ghostglass",
+      "y": 270
+    },
+    "facing=up": {
+      "model": "thermal_shock:block/shale_brick_ghostglass",
+      "x": 270
+    },
+    "facing=down": {
+      "model": "thermal_shock:block/shale_brick_ghostglass",
+      "x": 90
+    }
+  }
+}

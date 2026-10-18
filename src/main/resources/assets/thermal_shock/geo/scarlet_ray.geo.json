@@ -1,0 +1,43 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.Scarlet Ray",
+				"texture_width": 96,
+				"texture_height": 96,
+				"visible_bounds_width": 5,
+				"visible_bounds_height": 1.5,
+				"visible_bounds_offset": [0, 0.25, 0]
+			},
+			"bones": [
+				{
+					"name": "body",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-3.5, 0, -8], "size": [7, 2, 9], "uv": [0, 40]},
+						{"origin": [-2.5, 0, 1], "size": [5, 2, 8], "uv": [32, 40]},
+						{"origin": [-1.5, 0, 9], "size": [3, 2, 8], "uv": [50, 17]},
+						{"origin": [-4.5, 1, 9], "size": [9, 0, 17], "uv": [33, 0]}
+					]
+				},
+				{
+					"name": "rwing",
+					"parent": "body",
+					"pivot": [0, 1, 0],
+					"cubes": [
+						{"origin": [-15, 1, -13], "size": [15, 0, 20], "uv": [0, 20]}
+					]
+				},
+				{
+					"name": "lwing",
+					"parent": "body",
+					"pivot": [0, 1, 0],
+					"cubes": [
+						{"origin": [0, 1, -13], "size": [15, 0, 20], "uv": [0, 0]}
+					]
+				}
+			]
+		}
+	]
+}

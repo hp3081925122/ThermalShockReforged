@@ -1,0 +1,43 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"0": {
+			"loop": true,
+			"override_previous_animation": true
+		},
+		"1": {
+			"loop": true,
+			"override_previous_animation": true,
+			"bones": {
+				"bottle": {
+					"rotation": {
+						"vector": [0, 22.5, 0]
+					}
+				}
+			}
+		},
+		"2": {
+			"loop": true,
+			"override_previous_animation": true,
+			"bones": {
+				"bottle": {
+					"rotation": {
+						"vector": [0, 45, 0]
+					}
+				}
+			}
+		},
+		"3": {
+			"loop": true,
+			"override_previous_animation": true,
+			"bones": {
+				"bottle": {
+					"rotation": {
+						"vector": [0, -22.5, 0]
+					}
+				}
+			}
+		}
+	},
+	"geckolib_format_version": 2
+}

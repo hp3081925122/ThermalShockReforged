@@ -1,0 +1,303 @@
+{
+  "vermilli_slab": {
+    "type": "SlabBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.4f, 3.6f).dynamicShape()",
+    "source_class": "VermilliSlabBlock",
+    "light_block": 0,
+    "flammability": 6,
+    "fluid_overlay": false,
+    "tooltip": []
+  },
+  "vermilli_fence": {
+    "type": "FenceBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.4f, 3.6f).dynamicShape().forceSolidOn()",
+    "source_class": "VermilliFenceBlock",
+    "light_block": 0,
+    "flammability": 6,
+    "fluid_overlay": false,
+    "tooltip": []
+  },
+  "vermilli_fence_gate": {
+    "type": "FenceGateBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.4f, 3.6f).dynamicShape().forceSolidOn()",
+    "source_class": "VermilliFenceGateBlock",
+    "light_block": 0,
+    "flammability": 6,
+    "fluid_overlay": false,
+    "tooltip": []
+  },
+  "thin_stem": {
+    "type": "FenceBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(0.5f, 3.471093f).dynamicShape().forceSolidOn()",
+    "source_class": "ThinStemBlock",
+    "light_block": -1,
+    "flammability": 6,
+    "fluid_overlay": false,
+    "tooltip": []
+  },
+  "ochre_plank_slab": {
+    "type": "SlabBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.4f, 3.471093f).dynamicShape()",
+    "source_class": "OchrePlankSlabBlock",
+    "light_block": -1,
+    "flammability": 6,
+    "fluid_overlay": false,
+    "tooltip": []
+  },
+  "ochre_plank_fence": {
+    "type": "FenceBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.4f, 3.471093f).dynamicShape().forceSolidOn()",
+    "source_class": "OchrePlankFenceBlock",
+    "light_block": -1,
+    "flammability": 6,
+    "fluid_overlay": false,
+    "tooltip": []
+  },
+  "ochre_plank_fence_gate": {
+    "type": "FenceGateBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.4f, 3.471093f).dynamicShape().forceSolidOn()",
+    "source_class": "OchrePlankFenceGateBlock",
+    "light_block": -1,
+    "flammability": 6,
+    "fluid_overlay": false,
+    "tooltip": []
+  },
+  "shiverglitter_plank_slab": {
+    "type": "SlabBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.STEM).strength(2.4f, 2.314062f).dynamicShape()",
+    "source_class": "ShiverglitterPlankSlabBlock",
+    "light_block": -1,
+    "flammability": 6,
+    "fluid_overlay": false,
+    "tooltip": []
+  },
+  "shiverglitter_plank_fence": {
+    "type": "FenceBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.STEM).strength(2.4f, 2.314062f).dynamicShape().forceSolidOn()",
+    "source_class": "ShiverglitterPlankFenceBlock",
+    "light_block": -1,
+    "flammability": 6,
+    "fluid_overlay": false,
+    "tooltip": []
+  },
+  "shiverglitter_plank_fence_gate": {
+    "type": "FenceGateBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.STEM).strength(2.4f, 2.314062f).dynamicShape().forceSolidOn()",
+    "source_class": "ShiverglitterPlankFenceGateBlock",
+    "light_block": -1,
+    "flammability": 6,
+    "fluid_overlay": false,
+    "tooltip": []
+  },
+  "kyaneos_slab": {
+    "type": "SlabBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.0f, 3.0f).dynamicShape()",
+    "source_class": "KyaneosSlabBlock",
+    "light_block": 0,
+    "flammability": 5,
+    "fluid_overlay": false,
+    "tooltip": []
+  },
+  "kyaneos_fence": {
+    "type": "FenceBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.0f, 3.0f).dynamicShape().forceSolidOn()",
+    "source_class": "KyaneosFenceBlock",
+    "light_block": 0,
+    "flammability": 5,
+    "fluid_overlay": false,
+    "tooltip": []
+  },
+  "kyaneos_fence_gate": {
+    "type": "FenceGateBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.0f, 3.0f).dynamicShape().forceSolidOn()",
+    "source_class": "KyaneosFenceGateBlock",
+    "light_block": 0,
+    "flammability": 5,
+    "fluid_overlay": false,
+    "tooltip": []
+  },
+  "glauko_stem": {
+    "type": "FenceBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.0f).dynamicShape().forceSolidOn()",
+    "source_class": "GlaukoStemBlock",
+    "light_block": -1,
+    "flammability": 5,
+    "fluid_overlay": false,
+    "tooltip": []
+  },
+  "bordered_kyaneos_wall": {
+    "type": "WallBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.25f, 12.0f).dynamicShape().forceSolidOn()",
+    "source_class": "BorderedKyaneosWallBlock",
+    "light_block": -1,
+    "flammability": 5,
+    "fluid_overlay": false,
+    "tooltip": []
+  },
+  "bordered_ochre_wall": {
+    "type": "WallBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.4f, 10.0f).dynamicShape().forceSolidOn()",
+    "source_class": "BorderedOchreWallBlock",
+    "light_block": -1,
+    "flammability": 6,
+    "fluid_overlay": false,
+    "tooltip": []
+  },
+  "bordered_vermillion_wall": {
+    "type": "WallBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.4f, 10.0f).dynamicShape().forceSolidOn()",
+    "source_class": "BorderedVermillionWallBlock",
+    "light_block": -1,
+    "flammability": 6,
+    "fluid_overlay": false,
+    "tooltip": []
+  },
+  "bordered_shiverglitter_wall": {
+    "type": "WallBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.STEM).strength(2.4f, 10.0f).dynamicShape().forceSolidOn()",
+    "source_class": "BorderedShiverglitterWallBlock",
+    "light_block": -1,
+    "flammability": 6,
+    "fluid_overlay": false,
+    "tooltip": []
+  },
+  "spirewood_fence_gate": {
+    "type": "FenceGateBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().sound(SoundType.STEM).strength(1.35f, 15.0f).requiresCorrectToolForDrops().dynamicShape().forceSolidOn()",
+    "source_class": "SpirewoodFenceGateBlock",
+    "light_block": 0,
+    "flammability": -1,
+    "fluid_overlay": false,
+    "tooltip": []
+  },
+  "cherry_mesh_wall": {
+    "type": "IronBarsBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOL).strength(2.0f, 1.7f).jumpFactor(1.5f)",
+    "source_class": "CherryMeshWallBlock",
+    "light_block": -1,
+    "flammability": 6,
+    "fluid_overlay": false,
+    "tooltip": []
+  },
+  "spirewood_branch": {
+    "type": "IronBarsBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().sound(SoundType.STEM).instabreak().noCollission().noOcclusion().pushReaction(PushReaction.DESTROY).isRedstoneConductor((bs, br, bp) -> false)",
+    "source_class": "SpirewoodBranchBlock",
+    "light_block": 0,
+    "flammability": -1,
+    "fluid_overlay": false,
+    "tooltip": []
+  },
+  "greenhouse_glass_pane": {
+    "type": "IronBarsBlock",
+    "properties": "BlockBehaviour.Properties.of().sound(SoundType.GLASS).strength(1.0f, 10.0f).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((bs, br, bp) -> false)",
+    "source_class": "GreenhouseGlassPaneBlock",
+    "light_block": 0,
+    "flammability": -1,
+    "fluid_overlay": false,
+    "tooltip": []
+  },
+  "steelstem_bars": {
+    "type": "IronBarsBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.LANTERN).strength(1.0f, 3.8f).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((bs, br, bp) -> false)",
+    "source_class": "SteelstemBarsBlock",
+    "light_block": -1,
+    "flammability": -1,
+    "fluid_overlay": false,
+    "tooltip": []
+  },
+  "phobotite_hololattice": {
+    "type": "IronBarsBlock",
+    "properties": "BlockBehaviour.Properties.of().sound(SoundType.STEM).strength(0.5f, 0.0f).lightLevel(s -> 5).requiresCorrectToolForDrops().noOcclusion().hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).isRedstoneConductor((bs, br, bp) -> false)",
+    "source_class": "PhobotiteHololatticeBlock",
+    "light_block": 0,
+    "flammability": -1,
+    "fluid_overlay": false,
+    "tooltip": []
+  },
+  "jellercel_hololattice": {
+    "type": "IronBarsBlock",
+    "properties": "BlockBehaviour.Properties.of().sound(SoundType.STEM).strength(0.5f, 0.0f).lightLevel(s -> 5).requiresCorrectToolForDrops().noOcclusion().hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).isRedstoneConductor((bs, br, bp) -> false)",
+    "source_class": "JellercelHololatticeBlock",
+    "light_block": 0,
+    "flammability": -1,
+    "fluid_overlay": false,
+    "tooltip": []
+  },
+  "helion_hololattice": {
+    "type": "IronBarsBlock",
+    "properties": "BlockBehaviour.Properties.of().sound(SoundType.STEM).strength(0.5f, 0.0f).lightLevel(s -> 5).requiresCorrectToolForDrops().noOcclusion().hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).isRedstoneConductor((bs, br, bp) -> false)",
+    "source_class": "HelionHololatticeBlock",
+    "light_block": 0,
+    "flammability": -1,
+    "fluid_overlay": false,
+    "tooltip": []
+  },
+  "marine_seaglass_pane": {
+    "type": "IronBarsBlock",
+    "properties": "BlockBehaviour.Properties.of().sound(SoundType.SUSPICIOUS_GRAVEL).strength(0.5f, 0.0f).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((bs, br, bp) -> false)",
+    "source_class": "MarineSeaglassPaneBlock",
+    "light_block": 10,
+    "flammability": -1,
+    "fluid_overlay": true,
+    "tooltip": []
+  },
+  "violet_seaglass_pane": {
+    "type": "IronBarsBlock",
+    "properties": "BlockBehaviour.Properties.of().sound(SoundType.SUSPICIOUS_GRAVEL).strength(0.5f, 0.0f).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((bs, br, bp) -> false)",
+    "source_class": "VioletSeaglassPaneBlock",
+    "light_block": 10,
+    "flammability": -1,
+    "fluid_overlay": true,
+    "tooltip": []
+  },
+  "dull_thread_net": {
+    "type": "IronBarsBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOL).strength(2.0f, 1.7f).jumpFactor(1.5f)",
+    "source_class": "DullThreadNetBlock",
+    "light_block": -1,
+    "flammability": 6,
+    "fluid_overlay": false,
+    "tooltip": []
+  },
+  "hanging_dull_thread": {
+    "type": "IronBarsBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOL).strength(2.0f, 1.7f).noCollission().jumpFactor(1.5f)",
+    "source_class": "HangingDullThreadBlock",
+    "light_block": -1,
+    "flammability": 6,
+    "fluid_overlay": false,
+    "tooltip": []
+  },
+  "pure_muck_slab": {
+    "type": "SlabBlock",
+    "properties": "BlockBehaviour.Properties.of().sound(SoundType.MUD).strength(0.8f, 4.0f).speedFactor(0.6f).jumpFactor(0.7f).dynamicShape()",
+    "source_class": "PureMuckSlabBlock",
+    "light_block": -1,
+    "flammability": -1,
+    "fluid_overlay": false,
+    "tooltip": [
+      "block.thermal_shock.pure_muck_slab.description_0"
+    ]
+  },
+  "pure_muck_wall": {
+    "type": "WallBlock",
+    "properties": "BlockBehaviour.Properties.of().sound(SoundType.MUD).strength(0.8f, 4.0f).speedFactor(0.6f).jumpFactor(0.7f).dynamicShape().forceSolidOn()",
+    "source_class": "PureMuckWallBlock",
+    "light_block": -1,
+    "flammability": -1,
+    "fluid_overlay": false,
+    "tooltip": [
+      "block.thermal_shock.pure_muck_wall.description_0"
+    ]
+  },
+  "archive_glass": {
+    "type": "IronBarsBlock",
+    "properties": "BlockBehaviour.Properties.of().sound(SoundType.GLASS).strength(10.0f, 40.0f).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((bs, br, bp) -> false)",
+    "source_class": "ArchiveGlassBlock",
+    "light_block": 0,
+    "flammability": -1,
+    "fluid_overlay": false,
+    "tooltip": []
+  }
+}

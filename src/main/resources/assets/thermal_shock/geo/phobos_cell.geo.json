@@ -1,0 +1,35 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.unknown",
+				"texture_width": 160,
+				"texture_height": 160,
+				"visible_bounds_width": 5,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "cell",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-19, 1, -19], "size": [38, 14, 38], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "bulbs",
+					"parent": "cell",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-21, 3, -5], "size": [2, 10, 10], "uv": [0, 52]},
+						{"origin": [19, 3, -5], "size": [2, 10, 10], "uv": [0, 52], "mirror": true},
+						{"origin": [-21, 3, -5], "size": [2, 10, 10], "pivot": [0, 0, 0], "rotation": [0, 90, 0], "uv": [0, 52]},
+						{"origin": [19, 3, -5], "size": [2, 10, 10], "pivot": [0, 0, 0], "rotation": [0, 90, 0], "uv": [0, 52], "mirror": true}
+					]
+				}
+			]
+		}
+	]
+}

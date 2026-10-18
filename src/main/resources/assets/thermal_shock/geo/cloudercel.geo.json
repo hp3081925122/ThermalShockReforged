@@ -1,0 +1,42 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.unknown",
+				"texture_width": 352,
+				"texture_height": 352,
+				"visible_bounds_width": 14,
+				"visible_bounds_height": 10,
+				"visible_bounds_offset": [0, 1, 0]
+			},
+			"bones": [
+				{
+					"name": "body",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-18, 0, -18], "size": [36, 36, 36], "uv": [0, 156]}
+					]
+				},
+				{
+					"name": "tents",
+					"parent": "body",
+					"pivot": [0, 5, 0],
+					"cubes": [
+						{"origin": [-15, -59, -15], "size": [30, 64, 30], "uv": [144, 156]}
+					]
+				},
+				{
+					"name": "dome",
+					"parent": "body",
+					"pivot": [0, 15, 0],
+					"cubes": [
+						{"origin": [-44, 15, -44], "size": [88, 68, 88], "uv": [0, 0]},
+						{"origin": [-97, 15, 0], "size": [53, 68, 0], "uv": [0, 284]},
+						{"origin": [44, 15, 0], "size": [53, 68, 0], "uv": [0, 284], "mirror": true}
+					]
+				}
+			]
+		}
+	]
+}

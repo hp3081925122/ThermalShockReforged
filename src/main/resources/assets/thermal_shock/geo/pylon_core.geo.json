@@ -1,0 +1,54 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.Pylon Core",
+				"texture_width": 160,
+				"texture_height": 160,
+				"visible_bounds_width": 6,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "center",
+					"pivot": [0, 8, 0]
+				},
+				{
+					"name": "bone",
+					"parent": "center",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-5, 3, -5], "size": [10, 10, 10], "uv": [104, 56]}
+					]
+				},
+				{
+					"name": "corering1",
+					"parent": "center",
+					"pivot": [0, 8, 0],
+					"cubes": [
+						{"origin": [-7, 4, -7], "size": [14, 8, 14], "pivot": [0, 8, 0], "rotation": [0, 0, 90], "uv": [84, 0]}
+					]
+				},
+				{
+					"name": "corering2",
+					"parent": "center",
+					"pivot": [0, 8, 0],
+					"rotation": [90, 0, 0],
+					"cubes": [
+						{"origin": [-9, 5, -9], "size": [18, 6, 18], "uv": [0, 84]}
+					]
+				},
+				{
+					"name": "corering3",
+					"parent": "center",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-13, 4, -13], "size": [26, 8, 26], "uv": [2, 2]}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,112 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.Frostilyte Assassin",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 4.5,
+				"visible_bounds_offset": [0, 1.75, 0]
+			},
+			"bones": [
+				{
+					"name": "Chor",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "body",
+					"parent": "Chor",
+					"pivot": [0, 10, 0],
+					"cubes": [
+						{"origin": [-4, 12, -2], "size": [8, 8, 4], "uv": [0, 16]}
+					]
+				},
+				{
+					"name": "scarf",
+					"parent": "body",
+					"pivot": [0, 20, 2],
+					"cubes": [
+						{"origin": [-4, 7, 2], "size": [8, 13, 0], "uv": [40, 0]}
+					]
+				},
+				{
+					"name": "shoulder2",
+					"parent": "body",
+					"pivot": [-4, 20, 0]
+				},
+				{
+					"name": "arm2",
+					"parent": "shoulder2",
+					"pivot": [-4, 20, 0],
+					"cubes": [
+						{"origin": [-7, 10, -2], "size": [3, 4, 4], "uv": [16, 36]},
+						{"origin": [-5.5, 11, -3], "size": [0, 2, 11], "uv": [18, 33]}
+					]
+				},
+				{
+					"name": "shoulder",
+					"parent": "body",
+					"pivot": [4, 20, 0]
+				},
+				{
+					"name": "arm1",
+					"parent": "shoulder",
+					"pivot": [4, 20, 0],
+					"cubes": [
+						{"origin": [4, 10, -2], "size": [3, 4, 4], "uv": [30, 36]},
+						{"origin": [5.5, 11, -3], "size": [0, 2, 11], "uv": [18, 33], "mirror": true}
+					]
+				},
+				{
+					"name": "leg1",
+					"parent": "body",
+					"pivot": [0, 12, 0],
+					"cubes": [
+						{"origin": [0, 0, -2], "size": [4, 12, 4], "uv": [0, 30]}
+					]
+				},
+				{
+					"name": "leg2",
+					"parent": "body",
+					"pivot": [0, 12, 0],
+					"cubes": [
+						{"origin": [-4, 0, -2], "size": [4, 12, 4], "uv": [24, 16]}
+					]
+				},
+				{
+					"name": "head",
+					"parent": "body",
+					"pivot": [0, 20, 0],
+					"cubes": [
+						{"origin": [-4, 20, -4], "size": [8, 8, 8], "uv": [0, 0]},
+						{"origin": [-6, 20, -3], "size": [2, 6, 0], "uv": [60, 12], "mirror": true},
+						{"origin": [10, 20, -9], "size": [2, 6, 0], "pivot": [8, -2, -6], "rotation": [0, 180, 0], "uv": [58, 12]}
+					]
+				},
+				{
+					"name": "eye",
+					"parent": "head",
+					"pivot": [-1.5, 23.5, -4.1],
+					"cubes": [
+						{"origin": [-4, 21, -4.1], "size": [5, 5, 0], "uv": [0, 58]}
+					]
+				},
+				{
+					"name": "eyes",
+					"parent": "head",
+					"pivot": [0, 23, -4]
+				},
+				{
+					"name": "antennae",
+					"parent": "head",
+					"pivot": [0, 28, -3],
+					"cubes": [
+						{"origin": [-4, 28, -3], "size": [8, 10, 0], "uv": [32, 0]}
+					]
+				}
+			]
+		}
+	]
+}

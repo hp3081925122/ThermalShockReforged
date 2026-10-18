@@ -1,0 +1,42 @@
+{
+  "bindings": [
+    {
+      "condition": {
+        "and": [
+          {
+            "biomeIdIn": [
+              "thermal_shock:borean_tundra",
+			  "thermal_shock:vermillion_woods",
+			  "thermal_shock:stardust_garden",
+			  "thermal_shock:graveyard"
+            ]
+          },
+          {
+            "skyLightLevel": {
+              "min": 4
+            }
+          },
+          {
+            "surfaceHeight": {
+              "max": 45.0
+            }
+          }
+        ]
+      },
+      "startDistance": 5.0,
+      "endDistance": 60.0,
+      "opacity": 95.0,
+      "encapsulationSpeed": 1.0,
+      "brightness": {
+        "mode": "BY_GAME_FOG",
+        "adjustment": 0.0
+      },
+      "color": {
+        "mode": "BY_GAME_FOG"
+      },
+      "shape": "SPHERE"
+    }
+  ],
+  "version": 3,
+  "code": "LOQENDIA"
+}

@@ -1,0 +1,35 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.unknown",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "bone",
+					"pivot": [0, 1, 6],
+					"cubes": [
+						{"origin": [-3.5, 0, 1], "size": [7, 7, 7], "uv": [0, 26]},
+						{"origin": [-1.5, 7, -11], "size": [3, 3, 11], "uv": [26, 0]},
+						{"origin": [-1.49, 6.05, -1.65], "size": [3, 3, 4], "pivot": [0.199, 7.55, 0.35], "rotation": [-45, 0, 0], "uv": [28, 24]},
+						{"origin": [-1.5, 2.5, -7], "size": [3, 2, 8], "uv": [26, 14]}
+					]
+				},
+				{
+					"name": "saw",
+					"parent": "bone",
+					"pivot": [0, 3.5, -5.5],
+					"cubes": [
+						{"origin": [0, -3, -12], "size": [0, 13, 13], "uv": [0, 0]}
+					]
+				}
+			]
+		}
+	]
+}

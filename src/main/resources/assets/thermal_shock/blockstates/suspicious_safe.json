@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "thermal_shock:block/suspicious_safe"
+    },
+    "facing=east": {
+      "model": "thermal_shock:block/suspicious_safe",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "thermal_shock:block/suspicious_safe",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "thermal_shock:block/suspicious_safe",
+      "y": 270
+    }
+  }
+}
