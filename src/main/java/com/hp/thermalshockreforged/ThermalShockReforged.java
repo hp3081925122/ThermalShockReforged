@@ -1,6 +1,7 @@
 package com.hp.thermalshockreforged;
 
 import com.hp.thermalshockreforged.content.MaterialContent;
+import com.hp.thermalshockreforged.content.fluids.FluidContent;
 import com.hp.thermalshockreforged.content.growth.GrowthContent;
 import com.hp.thermalshockreforged.content.ModGameRules;
 import com.hp.thermalshockreforged.content.crates.CrateContent;
@@ -65,6 +66,7 @@ public final class ThermalShockReforged {
         GeoDecorContent.register(bus);
         SpecialDoorsContent.register(bus);
         CrateContent.register(bus);
+        FluidContent.register(bus);
         DependencyBlocks.register(bus);
         ModBlockEntities.register(bus);
         ModEffects.register(bus);
