@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:netherrack_replace_blobs",
+  "config": {
+    "target": {
+      "Name": "minecraft:air"
+    },
+    "state": {
+      "Name": "thermal_shock_reforged:dull_leaves"
+    },
+    "radius": {
+      "type": "minecraft:uniform",
+      "min_inclusive": 0,
+      "max_inclusive": 1
+    }
+  }
+}
