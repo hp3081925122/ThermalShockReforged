@@ -1,0 +1,68 @@
+{
+  "batch": 43,
+  "scope": "ThermaDev Plush complete directional Geo block and automatic inventory",
+  "compiler": {
+    "tasks": [
+      "compileJava",
+      "compileGametestJava",
+      "processResources"
+    ],
+    "offline": true,
+    "java": 21,
+    "exit_code": 0,
+    "elapsed_seconds": 18.9,
+    "result": "BUILD SUCCESSFUL",
+    "executed": 1,
+    "up_to_date": 24,
+    "evidence": "validation_luna reported tool output; no disk log path asserted"
+  },
+  "static": {
+    "id": "thermal_shock_reforged:therma_dev_plush",
+    "animation_domain": [
+      0,
+      1
+    ],
+    "horizontal_facing": true,
+    "inventory_slots": 9,
+    "six_side_insert_extract": true,
+    "comparator": false,
+    "sound": "WOOL",
+    "strength": [
+      1,
+      999
+    ],
+    "shape": [
+      0.1,
+      0.1,
+      0.1,
+      15.9,
+      15.9,
+      15.9
+    ],
+    "same_original_sha256": [
+      "geo/thermplush.geo.json",
+      "textures/block/therm2.png",
+      "animations/thermplush.animation.json"
+    ],
+    "namespace_only_json": [
+      "blockstates/therma_dev_plush.json",
+      "models/custom/therma_dev_plush_particle.json",
+      "models/item/therma_dev_plush.json"
+    ],
+    "display_parent_present": "models/displaysettings/voltflower_bulb.item.json",
+    "real_creative_entry": true,
+    "original_acquisition": [
+      "creative tab",
+      "structure placement"
+    ],
+    "original_recipe_loot_advancement_or_other_java_source_found": false
+  },
+  "intentional_fixes": [
+    "Server-authoritative collection",
+    "No block loot before successful removal",
+    "Shared onRemove drops stored nine-slot inventory",
+    "Meaningful light blue MapColor"
+  ],
+  "runtime_tests_run": false,
+  "whole_mod_complete": false
+}

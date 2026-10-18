@@ -1,0 +1,13 @@
+# Aqeron与宫殿接续审计
+
+原PalaceSpawnProcedure订阅base AdvancementEvent，匹配palace_get、原特殊结构gamerule及主世界共享PalaceExists。完整lavender_palace为137×32×137/600608块记录/135palette/46BE/13实体；原锚点与pivot均(-74,178,-132)，NONE旋转/镜像、不忽略实体、flags3。依赖居民Ly与PortraitCharacter已真实迁入，ThermaDevPlush第43批补齐。所有palette、属性、非空BE库存、讲台书与牌文字仍须Luna逐项核定，再导入模板；不得仅改palette或先建空白Palace。
+
+需保DataVersion3465并按类型解析命名空间资源字符串，反向还原对照整个解压payload；正文署名不改。宫殿首次一次放置600608条记录可能造成明显卡顿，实施前告知；不删空气/实体、也不在异步线程直接改世界。生成沿Shalespring成功后提交+临时重入锁方案，缺模板/失败不永久消费。
+
+原Aqeron为End型完整noise router和单lunar_tundra，并非void：原inline default_block cobbled_shale/default_fluid air、sea0、noise0..128/horizontal4/vertical1、legacy random true、oreveins/aquifers false。完整密度与surface math逐项保留；1.21.1 NoiseSettings.CODEC只含min_y/height/size_horizontal/size_vertical，主线核1.20.1 official sources.jar中的NoiseSettings.CODEC与NoiseGeneratorSettings.DIRECT_CODEC：同样没有island_noise_override和name字段，原字段未被此codec消费，不应凭残留名字另造岛屿算法。真正岛屿形态由原完整end_islands/sloped_cheese密度router决定，须逐项保留。维度type height256/logical256/fixed18000/ambient.19/sky true/bed true、effects原SkyType.NORMAL/黑雾非END天空。原lunar_tundra的tag/BiomeModifier叠加链与特殊月亮纹理桥由Luna核，不能只看空features。
+
+原建造限制：BreakEvent直接cancel；PlaceEvent dropResources后destroyBlock(false)，creative instabuild豁免，两者也受NO_BREAK内部标记驱动。目标CommonHooks.java:600-665实际先保原栈数量/组件，事件取消则逆序restore全部单/多块快照且不提交新消耗；应使用事件取消避免旧物品掉落替换损失。须检查桶及非玩家放置调用边界，不扩充原先没有覆盖的保护语义。GuardianPylon施加的内部锁之后随其完整迁移接入，不能注册空效果假装功能闭合。
+
+原AqeronDeathOverride取消LivingDeathEvent并回PalaceAtlas坐标，但未回生命值。目标LivingEntity.hurt在0HP后调die，ServerPlayer.die的CommonHooks.onLivingDeath取消只return，不会自动恢复生命；不能直接复制而留下0HP玩家。需查完原所有事件/变量写入后确定最小修正，明确记录伤害/生命值策略，防连续死亡递归。Atlas原有限坐标校验已在AtlasCoordinates，非原全量功能完成证明。
+
+本记录为迁移前契约与静态依据，未启动客户端、服务端或Render Preview。
