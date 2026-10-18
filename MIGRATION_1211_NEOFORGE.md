@@ -194,3 +194,14 @@ heart_boost为真实玩家增益，不是内部冷却标记；保留BENEFICIAL�
 ## 项目身份变更
 
 按用户要求独立命名为 Thermal Shock Reforged，命名空间 thermal_shock_reforged、Java 包 com.hp.thermalshockreforged、GitHub 名称 Thermal-Shock-Reforged。详细身份与旧快照边界见 docs/project-identity.md；旧验证报告保留作为历史证据，不能冒称已经验证新命名版本。
+
+
+## 第27至29批：附魔与世界自然来源（进行中）
+
+第27批补齐原生附魔标签，25工具、22实际护甲与3普通耐久物品共50个真实ID；Luna合并目标原版标签图核对全部通过，processResources离线成功，提交c2e0add。详见docs/migration/enchantment-tags-batch.md与twentyseventh-enchantment-tags-static-validation.json。标签类别支持不代表普通附魔值0物品能从附魔台抽取，实际附魔效果待最终测试。
+
+第29批六种条件矿脉的原生OreFeature与持久矿种值已实现，保世界共享筛选、原分布和未选择值0；Luna三任务离线编译/资源处理成功1分30秒。Atlas放置初始化尚未接入，矿脉正常可达链未完成。第28批Cavebloomer场景结构NBT已保全部非命名空间payload，正在补8种真实雕纹柱及凿子完整切换，详见cavebloomer-field-worldgen-batch.md。这些批次仍是静态/编译证据。
+
+整模组仍未完成：Atlas/Keystone完整菜单与传送、其他功能方块/世界生成、其余生物与Boss及进度链继续迁移。没有执行本轮游戏服务端、客户端或Render Preview；完整迁移后再交Luna验收，不用资源数量或本批编译成功推算整模组完成率。
+
+第28批后续完成记录：八种雕纹柱和Chisel完整循环/真实纹理/Geo BE及cavebloomer_field五资源已接通，Luna固定快照三任务离线成功48秒，静态报告twentyeighth-cave-field-static-validation.json。此条更新上段进行中状态；两端和Render Preview仍未运行，整模组未完成。

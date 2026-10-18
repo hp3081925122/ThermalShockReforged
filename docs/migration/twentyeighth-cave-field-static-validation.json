@@ -1,0 +1,502 @@
+{
+  "compile": {
+    "exit_code": 0,
+    "summary": "BUILD SUCCESSFUL in 48s",
+    "log": "D:\\AI临时文件\\ThermalShockMigration\\twentyeighth-cave-field-compile.log",
+    "compile_java_gametest_resources": {
+      "exit_code": 0,
+      "summary": "BUILD SUCCESSFUL in 48s",
+      "log": "D:\\AI临时文件\\ThermalShockMigration\\twentyeighth-cave-field-compile.log"
+    },
+    "final_process_resources": {
+      "command": "gradlew.bat processResources --offline",
+      "exit_code": 0,
+      "summary": "BUILD SUCCESSFUL in 40s",
+      "log": "D:\\AI临时文件\\ThermalShockMigration\\twentyeighth-cave-field-final-resources.log"
+    }
+  },
+  "structure_jsons": [
+    {
+      "source": "data/thermal_shock/worldgen/structure/cavebloomer_field.json",
+      "target": "data/thermal_shock_reforged/worldgen/structure/cavebloomer_field.json",
+      "target_exists": true,
+      "target_json": {
+        "type": "minecraft:jigsaw",
+        "start_pool": "thermal_shock_reforged:cavebloomer_field",
+        "size": 1,
+        "max_distance_from_center": 64,
+        "spawn_overrides": {},
+        "step": "underground_structures",
+        "terrain_adaptation": "beard_box",
+        "start_height": {
+          "type": "minecraft:uniform",
+          "min_inclusive": {
+            "absolute": 32
+          },
+          "max_inclusive": {
+            "absolute": 40
+          }
+        },
+        "biomes": "thermal_shock_reforged:glaciation",
+        "use_expansion_hack": false
+      },
+      "normalized_source": {
+        "type": "minecraft:jigsaw",
+        "start_pool": "thermal_shock_reforged:cavebloomer_field",
+        "size": 1,
+        "max_distance_from_center": 64,
+        "spawn_overrides": {},
+        "step": "underground_structures",
+        "terrain_adaptation": "beard_box",
+        "start_height": {
+          "type": "minecraft:uniform",
+          "min_inclusive": {
+            "absolute": 32
+          },
+          "max_inclusive": {
+            "absolute": 40
+          }
+        },
+        "biomes": "thermal_shock_reforged:glaciation",
+        "use_expansion_hack": false
+      },
+      "semantic_equal": true
+    },
+    {
+      "source": "data/thermal_shock/worldgen/template_pool/cavebloomer_field.json",
+      "target": "data/thermal_shock_reforged/worldgen/template_pool/cavebloomer_field.json",
+      "target_exists": true,
+      "target_json": {
+        "name": "thermal_shock_reforged:cavebloomer_field",
+        "fallback": "minecraft:empty",
+        "elements": [
+          {
+            "weight": 1,
+            "element": {
+              "element_type": "minecraft:single_pool_element",
+              "location": "thermal_shock_reforged:cavebloomer_field",
+              "projection": "rigid",
+              "processors": "thermal_shock_reforged:cavebloomer_field_processor"
+            }
+          }
+        ]
+      },
+      "normalized_source": {
+        "name": "thermal_shock_reforged:cavebloomer_field",
+        "fallback": "minecraft:empty",
+        "elements": [
+          {
+            "weight": 1,
+            "element": {
+              "element_type": "minecraft:single_pool_element",
+              "location": "thermal_shock_reforged:cavebloomer_field",
+              "projection": "rigid",
+              "processors": "thermal_shock_reforged:cavebloomer_field_processor"
+            }
+          }
+        ]
+      },
+      "semantic_equal": true
+    },
+    {
+      "source": "data/thermal_shock/worldgen/structure_set/cavebloomer_field.json",
+      "target": "data/thermal_shock_reforged/worldgen/structure_set/cavebloomer_field.json",
+      "target_exists": true,
+      "target_json": {
+        "structures": [
+          {
+            "structure": "thermal_shock_reforged:cavebloomer_field",
+            "weight": 1
+          }
+        ],
+        "placement": {
+          "type": "minecraft:random_spread",
+          "spacing": 20,
+          "separation": 7,
+          "salt": 1828568365
+        }
+      },
+      "normalized_source": {
+        "structures": [
+          {
+            "structure": "thermal_shock_reforged:cavebloomer_field",
+            "weight": 1
+          }
+        ],
+        "placement": {
+          "type": "minecraft:random_spread",
+          "spacing": 20,
+          "separation": 7,
+          "salt": 1828568365
+        }
+      },
+      "semantic_equal": true
+    },
+    {
+      "source": "data/thermal_shock/worldgen/processor_list/cavebloomer_field_processor.json",
+      "target": "data/thermal_shock_reforged/worldgen/processor_list/cavebloomer_field_processor.json",
+      "target_exists": true,
+      "target_json": {
+        "processors": [
+          {
+            "processor_type": "thermal_shock_reforged:waterlogging_fix"
+          }
+        ]
+      },
+      "normalized_source": {
+        "processors": [
+          {
+            "processor_type": "thermal_shock_reforged:waterlogging_fix"
+          }
+        ]
+      },
+      "semantic_equal": null,
+      "comparison_note": "原使用 integrated_api:waterlogging_fix_processor；目标改为本项目注册并实现的 thermal_shock_reforged:waterlogging_fix，算法已由前批按作者1.20.1源码核查，非逐字段ID相等。"
+    }
+  ],
+  "structure_nbt_rewrite_proof": {
+    "source": "data/thermal_shock/structures/cavebloomer_field.nbt",
+    "target": "data/thermal_shock_reforged/structure/cavebloomer_field.nbt",
+    "reverse_namespace_payload_byte_equal": true,
+    "all_other_tag_bytes_unchanged": true,
+    "source_payload_sha256": "a4f56e9e6b7d234735ef297e916bf94f45bed5a68ece12fca7cde19aef7661e1",
+    "target_payload_sha256": "03f0bd8fdb500eb0080074ebff6393c87b2e7f948683a771bd82ed12799504de",
+    "changed_strings": [
+      {
+        "path": "$.blocks[48003].nbt.id",
+        "before": "thermal_shock:suspicious_cavebloomer",
+        "after": "thermal_shock_reforged:suspicious_cavebloomer"
+      },
+      {
+        "path": "$.blocks[48004].nbt.id",
+        "before": "thermal_shock:shale_pillar",
+        "after": "thermal_shock_reforged:shale_pillar"
+      },
+      {
+        "path": "$.blocks[48005].nbt.id",
+        "before": "thermal_shock:shale_pillar",
+        "after": "thermal_shock_reforged:shale_pillar"
+      },
+      {
+        "path": "$.blocks[48006].nbt.id",
+        "before": "thermal_shock:shale_pillar",
+        "after": "thermal_shock_reforged:shale_pillar"
+      },
+      {
+        "path": "$.blocks[48007].nbt.id",
+        "before": "thermal_shock:shale_pillar",
+        "after": "thermal_shock_reforged:shale_pillar"
+      },
+      {
+        "path": "$.blocks[48008].nbt.id",
+        "before": "thermal_shock:shale_pillar",
+        "after": "thermal_shock_reforged:shale_pillar"
+      },
+      {
+        "path": "$.blocks[48009].nbt.id",
+        "before": "thermal_shock:shale_pillar",
+        "after": "thermal_shock_reforged:shale_pillar"
+      },
+      {
+        "path": "$.blocks[48010].nbt.id",
+        "before": "thermal_shock:shale_pillar",
+        "after": "thermal_shock_reforged:shale_pillar"
+      },
+      {
+        "path": "$.blocks[48011].nbt.id",
+        "before": "thermal_shock:shale_pillar",
+        "after": "thermal_shock_reforged:shale_pillar"
+      },
+      {
+        "path": "$.blocks[48012].nbt.id",
+        "before": "thermal_shock:shale_pillar",
+        "after": "thermal_shock_reforged:shale_pillar"
+      },
+      {
+        "path": "$.blocks[48013].nbt.id",
+        "before": "thermal_shock:shale_pillar",
+        "after": "thermal_shock_reforged:shale_pillar"
+      },
+      {
+        "path": "$.blocks[48014].nbt.id",
+        "before": "thermal_shock:shale_pillar",
+        "after": "thermal_shock_reforged:shale_pillar"
+      },
+      {
+        "path": "$.blocks[48015].nbt.id",
+        "before": "thermal_shock:shale_pillar",
+        "after": "thermal_shock_reforged:shale_pillar"
+      },
+      {
+        "path": "$.blocks[48016].nbt.id",
+        "before": "thermal_shock:shale_pillar",
+        "after": "thermal_shock_reforged:shale_pillar"
+      },
+      {
+        "path": "$.blocks[48017].nbt.id",
+        "before": "thermal_shock:shale_pillar",
+        "after": "thermal_shock_reforged:shale_pillar"
+      },
+      {
+        "path": "$.blocks[48018].nbt.id",
+        "before": "thermal_shock:shale_pillar",
+        "after": "thermal_shock_reforged:shale_pillar"
+      },
+      {
+        "path": "$.blocks[48019].nbt.id",
+        "before": "thermal_shock:shale_pillar",
+        "after": "thermal_shock_reforged:shale_pillar"
+      },
+      {
+        "path": "$.palette[0].Name",
+        "before": "thermal_shock:cobbled_shale",
+        "after": "thermal_shock_reforged:cobbled_shale"
+      },
+      {
+        "path": "$.palette[1].Name",
+        "before": "thermal_shock:flowering_shale",
+        "after": "thermal_shock_reforged:flowering_shale"
+      },
+      {
+        "path": "$.palette[2].Name",
+        "before": "thermal_shock:grassy_shale",
+        "after": "thermal_shock_reforged:grassy_shale"
+      },
+      {
+        "path": "$.palette[3].Name",
+        "before": "thermal_shock:shale",
+        "after": "thermal_shock_reforged:shale"
+      },
+      {
+        "path": "$.palette[4].Name",
+        "before": "thermal_shock:impervium_bricks",
+        "after": "thermal_shock_reforged:impervium_bricks"
+      },
+      {
+        "path": "$.palette[5].Name",
+        "before": "thermal_shock:polished_shale",
+        "after": "thermal_shock_reforged:polished_shale"
+      },
+      {
+        "path": "$.palette[6].Name",
+        "before": "thermal_shock:glowcap_stem",
+        "after": "thermal_shock_reforged:glowcap_stem"
+      },
+      {
+        "path": "$.palette[8].Name",
+        "before": "thermal_shock:mossy_cobbled_shale",
+        "after": "thermal_shock_reforged:mossy_cobbled_shale"
+      },
+      {
+        "path": "$.palette[10].Name",
+        "before": "thermal_shock:loque_dandelion",
+        "after": "thermal_shock_reforged:loque_dandelion"
+      },
+      {
+        "path": "$.palette[11].Name",
+        "before": "thermal_shock:windblown_loque_dandelion",
+        "after": "thermal_shock_reforged:windblown_loque_dandelion"
+      },
+      {
+        "path": "$.palette[12].Name",
+        "before": "thermal_shock:glitter_lotus",
+        "after": "thermal_shock_reforged:glitter_lotus"
+      },
+      {
+        "path": "$.palette[13].Name",
+        "before": "thermal_shock:shale_stairs",
+        "after": "thermal_shock_reforged:shale_stairs"
+      },
+      {
+        "path": "$.palette[14].Name",
+        "before": "thermal_shock:shale_stairs",
+        "after": "thermal_shock_reforged:shale_stairs"
+      },
+      {
+        "path": "$.palette[15].Name",
+        "before": "thermal_shock:shale_stairs",
+        "after": "thermal_shock_reforged:shale_stairs"
+      },
+      {
+        "path": "$.palette[16].Name",
+        "before": "thermal_shock:shale_stairs",
+        "after": "thermal_shock_reforged:shale_stairs"
+      },
+      {
+        "path": "$.palette[17].Name",
+        "before": "thermal_shock:shale_slab",
+        "after": "thermal_shock_reforged:shale_slab"
+      },
+      {
+        "path": "$.palette[18].Name",
+        "before": "thermal_shock:cobbled_shale_slab",
+        "after": "thermal_shock_reforged:cobbled_shale_slab"
+      },
+      {
+        "path": "$.palette[19].Name",
+        "before": "thermal_shock:suspicious_cavebloomer",
+        "after": "thermal_shock_reforged:suspicious_cavebloomer"
+      },
+      {
+        "path": "$.palette[20].Name",
+        "before": "thermal_shock:shale_pillar",
+        "after": "thermal_shock_reforged:shale_pillar"
+      },
+      {
+        "path": "$.palette[21].Name",
+        "before": "thermal_shock:shale_pillar",
+        "after": "thermal_shock_reforged:shale_pillar"
+      },
+      {
+        "path": "$.palette[22].Name",
+        "before": "thermal_shock:shale_pillar",
+        "after": "thermal_shock_reforged:shale_pillar"
+      }
+    ],
+    "palette_entry_count": 23,
+    "block_entry_count": 48020,
+    "block_entity_count": 17,
+    "entity_count": 0
+  },
+  "pillar_assets": [
+    {
+      "source": "assets/thermal_shock/geo/pillar_statue.geo.json",
+      "target": "assets/thermal_shock_reforged/geo/pillar_statue.geo.json",
+      "source_sha256": "ad0bd8ba4a6692ce6ce9f367b78d6dab86e3a917b1c28b42d1aa9c1a31d452cc",
+      "target_exists": true,
+      "target_sha256": "ad0bd8ba4a6692ce6ce9f367b78d6dab86e3a917b1c28b42d1aa9c1a31d452cc",
+      "byte_equal": true
+    },
+    {
+      "source": "assets/thermal_shock/animations/pillar_statue.animation.json",
+      "target": "assets/thermal_shock_reforged/animations/pillar_statue.animation.json",
+      "source_sha256": "1fefcf0bc6b5f9c26b5a5be1de3c4a0b6bb8cf41f4090dba5da153edb07b5e1e",
+      "target_exists": true,
+      "target_sha256": "1fefcf0bc6b5f9c26b5a5be1de3c4a0b6bb8cf41f4090dba5da153edb07b5e1e",
+      "byte_equal": true
+    },
+    {
+      "source": "assets/thermal_shock/textures/block/pillarstatue1.png",
+      "target": "assets/thermal_shock_reforged/textures/block/pillarstatue1.png",
+      "source_sha256": "abe4815b8aad6cc50964b73e33fd944321beddf455336f363a45818869c8467f",
+      "target_exists": true,
+      "target_sha256": "abe4815b8aad6cc50964b73e33fd944321beddf455336f363a45818869c8467f",
+      "byte_equal": true
+    },
+    {
+      "source": "assets/thermal_shock/textures/block/pillarstatue2.png",
+      "target": "assets/thermal_shock_reforged/textures/block/pillarstatue2.png",
+      "source_sha256": "e82469df7d3f843cdb470d45a5333e10208557d270b7bf7f0f936b7da05b91ed",
+      "target_exists": true,
+      "target_sha256": "e82469df7d3f843cdb470d45a5333e10208557d270b7bf7f0f936b7da05b91ed",
+      "byte_equal": true
+    },
+    {
+      "source": "assets/thermal_shock/textures/block/pillarstatue3.png",
+      "target": "assets/thermal_shock_reforged/textures/block/pillarstatue3.png",
+      "source_sha256": "10f7c1916759a5eeafbf76a0a38b69dc04154e231582c297f682f23b57af4b4f",
+      "target_exists": true,
+      "target_sha256": "10f7c1916759a5eeafbf76a0a38b69dc04154e231582c297f682f23b57af4b4f",
+      "byte_equal": true
+    },
+    {
+      "source": "assets/thermal_shock/textures/block/pillarstatue4.png",
+      "target": "assets/thermal_shock_reforged/textures/block/pillarstatue4.png",
+      "source_sha256": "9c65f48f94ab66ca8f5b9e53baa4ad3b11aa94e9b42522eb7ab572d4e4f23907",
+      "target_exists": true,
+      "target_sha256": "9c65f48f94ab66ca8f5b9e53baa4ad3b11aa94e9b42522eb7ab572d4e4f23907",
+      "byte_equal": true
+    },
+    {
+      "source": "assets/thermal_shock/textures/block/pillarstatue5.png",
+      "target": "assets/thermal_shock_reforged/textures/block/pillarstatue5.png",
+      "source_sha256": "a5cb74c6cc0dad4e29bc81194267eceac138ee9acffc598e08f51566a2330cb4",
+      "target_exists": true,
+      "target_sha256": "a5cb74c6cc0dad4e29bc81194267eceac138ee9acffc598e08f51566a2330cb4",
+      "byte_equal": true
+    },
+    {
+      "source": "assets/thermal_shock/textures/block/pillarstatue6.png",
+      "target": "assets/thermal_shock_reforged/textures/block/pillarstatue6.png",
+      "source_sha256": "ad99354fa481cc936a560eaaf73b3002024a270cdd31e9cff9c498623299f313",
+      "target_exists": true,
+      "target_sha256": "ad99354fa481cc936a560eaaf73b3002024a270cdd31e9cff9c498623299f313",
+      "byte_equal": true
+    },
+    {
+      "source": "assets/thermal_shock/textures/block/pillarstatue7.png",
+      "target": "assets/thermal_shock_reforged/textures/block/pillarstatue7.png",
+      "source_sha256": "789b9223e9da40cc4b2437eabad5368cc189a25438c70baceb335994aa3cd72e",
+      "target_exists": true,
+      "target_sha256": "789b9223e9da40cc4b2437eabad5368cc189a25438c70baceb335994aa3cd72e",
+      "byte_equal": true
+    },
+    {
+      "source": "assets/thermal_shock/textures/block/pillarextended.png",
+      "target": "assets/thermal_shock_reforged/textures/block/pillarextended.png",
+      "source_sha256": "88ce0a79dd791868fd420ff1e1ba54fba40e191c8d540089136965916bf81f1a",
+      "target_exists": true,
+      "target_sha256": "88ce0a79dd791868fd420ff1e1ba54fba40e191c8d540089136965916bf81f1a",
+      "byte_equal": true
+    }
+  ],
+  "pillar_registry_ids": [
+    "shale_pillar",
+    "shale_pillar_var_2",
+    "shale_pillar_var_3",
+    "shale_pillar_var_4",
+    "shale_pillar_var_5",
+    "shale_pillar_var_6",
+    "shale_pillar_var_7",
+    "shale_pillar_var_8"
+  ],
+  "pillar_property_evidence": "all source classes share BASALT, strength(2,10), requiresCorrectToolForDrops, noOcclusion, isRedstoneConductor false; ANIMATION=0..1, FACING horizontal, WATERLOGGED; shape [1,.1,1]..[15,47.9,15]; source registry lines ThermalShockModBlocks.java:880-887",
+  "pillar_texture_map": {
+    "shale_pillar": "textures/block/pillarextended.png",
+    "shale_pillar_var_2": "textures/block/pillarstatue1.png",
+    "shale_pillar_var_3": "textures/block/pillarstatue3.png",
+    "shale_pillar_var_4": "textures/block/pillarstatue7.png",
+    "shale_pillar_var_5": "textures/block/pillarstatue4.png",
+    "shale_pillar_var_6": "textures/block/pillarstatue6.png",
+    "shale_pillar_var_7": "textures/block/pillarstatue5.png",
+    "shale_pillar_var_8": "textures/block/pillarstatue2.png"
+  },
+  "pillar_chisel_cycle": [
+    "shale_pillar",
+    "shale_pillar_var_2",
+    "shale_pillar_var_3",
+    "shale_pillar_var_4",
+    "shale_pillar_var_5",
+    "shale_pillar_var_6",
+    "shale_pillar_var_7",
+    "shale_pillar_var_8",
+    "shale_pillar"
+  ],
+  "original_pillar_recipe": {
+    "source_path": "data/thermal_shock/recipes/shale_pillar_recipe.json",
+    "target_path": "data/thermal_shock_reforged/recipe/shale_pillar_recipe.json",
+    "target_exists": true,
+    "build_copy_equal": true,
+    "target_json": {
+      "type": "minecraft:crafting_shaped",
+      "category": "misc",
+      "pattern": [
+        "aa",
+        "aa",
+        "aa"
+      ],
+      "key": {
+        "a": {
+          "item": "thermal_shock_reforged:chiseled_shale"
+        }
+      },
+      "result": {
+        "count": 1,
+        "id": "thermal_shock_reforged:shale_pillar"
+      }
+    },
+    "source_semantics": "6 chiseled_shale -> 1 shale_pillar"
+  },
+  "source_loot_tag_fact": "original 8 Geo pillar variants have no dedicated loot table/tag; their BE getDrops fallback returns self and source requires correct pickaxe. Target pickaxe tag lists all 8.",
+  "missing_original_pillar_recipe": null
+}

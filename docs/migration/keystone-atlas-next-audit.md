@@ -9,3 +9,12 @@ Atlas 是真实 Geo 方块/方块实体/菜单入口。STONE3/100、light15、�
 下一步须追全 AtlasMenuMenu、客户端界面、按钮及网络 procedure、BE/Geo动画、MapVariables所有读写、真实 Loqendia 传送/维度和 atlasbase 模板引用。原 DisruptedSpace 程序两次独立 Math.random 判定的 else-if 可让等级仍为0，不能把它当一个均分随机布尔或只读函数名就判定采样次数；是否修正需先追踪变量全部消费端及原JAR控制流。当前不据此变更世界选择概率。
 
 完整迁移门槛包含真实世界数据保存/同步、菜单服务端位置与权限校验、传送后恢复、结构及旋转、完整音效时序、Geo模型、创意原图标及进度根链。本批创意列表保留 Keystone 待办，并不意味着上述链路已迁入。
+
+
+## 第29批后续已核的入口边界（仍待实现）
+
+世界矿种SavedData与六条件OreFeature已迁入，初始化保原两次独立random，但当前没有调用者。必须在真正Atlas放置链接入，不能在世界Load或feature.place偷偷选矿。default0仍不生成对应矿脉。
+
+原AtlasMenuMenu零物品槽，bound默认false使stillValid实际一直true；原AtlasMenuButtonMessage只验证请求坐标hasChunkAt，不验证当前打开的Atlas菜单/距离/真实Atlas/维度。重做应用目标原生容器按钮通道或等价校验，绑定真实服务端菜单位置与玩家，不能保远程任意已载入坐标的传送入口。原界面196×196、atlas_rubicon贴图192×192偏移2、三个20×20按钮位于(43,83)/(114,130)/(124,53)，hover使用原20×40贴图下半；原客户端回调同时发包并本地执行，应消除逻辑重复而保完整界面与声光。
+
+原三个目的入口为Loqendia/Overworld/Palace（aqeron），关闭菜单、保存来源Atlas坐标、按玩家目的Atlas坐标传送、更新能力和效果包及事件1032。切维失败后不能仍将玩家在原维度送往另一个维度坐标。原传送后180tick Resistance amp9属于伪装无敌，需要按真实伤害管线改为有期限、持久/同步语义明确的到达保护，逐项保原合法伤害例外和可见药效粒子；不能直接删保护或照抄超高抗性。Palace真实维度及内容、玩家坐标写入/重生/重启恢复、首次到达与LoqendiaPortal来源等继续追全，不能用按钮可点或空维度冒称完整。
