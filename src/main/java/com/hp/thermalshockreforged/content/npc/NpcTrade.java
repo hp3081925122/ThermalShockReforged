@@ -38,6 +38,6 @@ public record NpcTrade(String item, int count, int levels, String spice, int spi
         ThermalShockReforged.LOGGER.debug("NPC trade committed: player={}, item={}, count={}, levels={}, spice={}, spiceCount={}", player.getUUID(), item, count, levels, spice, spiceCount);
         return true;
     }
-    private static ResourceLocation id(String path) { return ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
+    private static ResourceLocation id(String path) { return path.indexOf(':') >= 0 ? ResourceLocation.parse(path) : ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
     private static void sound(ServerPlayer player, BlockPos anchor, SoundEvent sound, float volume, float pitch) { player.connection.send(new ClientboundSoundPacket(Holder.direct(sound), SoundSource.NEUTRAL, anchor.getX(), anchor.getY(), anchor.getZ(), volume, pitch, player.getRandom().nextLong())); }
 }

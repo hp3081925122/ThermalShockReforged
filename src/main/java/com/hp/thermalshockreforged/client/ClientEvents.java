@@ -57,6 +57,7 @@ public final class ClientEvents {
     public static void renderers(EntityRenderersEvent.RegisterRenderers event) {
         com.hp.thermalshockreforged.client.npc.laut.LautClient.renderers(event);
         com.hp.thermalshockreforged.client.npc.portrait.PortraitClient.renderers(event);
+        com.hp.thermalshockreforged.client.npc.ly.LyClient.renderers(event);
         com.hp.thermalshockreforged.client.npc.florist.FloristClient.renderers(event);
         com.hp.thermalshockreforged.client.npc.shutterbug.ShutterbugClient.renderers(event);
         CavebloomerClient.renderers(event);
@@ -108,6 +109,7 @@ public final class ClientEvents {
     public static void screens(RegisterMenuScreensEvent event) {
         com.hp.thermalshockreforged.client.npc.laut.LautClient.screens(event);
         com.hp.thermalshockreforged.client.npc.portrait.PortraitClient.screens(event);
+        com.hp.thermalshockreforged.client.npc.ly.LyClient.screens(event);
         com.hp.thermalshockreforged.client.npc.florist.FloristClient.screens(event);
         com.hp.thermalshockreforged.client.npc.shutterbug.ShutterbugClient.screens(event);
         com.hp.thermalshockreforged.client.dialogue.DialogueScreen.register(event);
