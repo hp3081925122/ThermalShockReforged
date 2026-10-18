@@ -19,7 +19,10 @@ import net.minecraft.sounds.SoundSource;
 public final class SickleItem extends HoeItem {
     private final String id;
     public SickleItem(String id, int durability, float speed, String repair) {
-        this(id, new SickleTier(durability, speed, repair));
+        this(id, durability, speed, repair, 4, 21);
+    }
+    public SickleItem(String id, int durability, float speed, String repair, float damage, int enchantmentValue) {
+        this(id, new SickleTier(durability, speed, repair, damage, enchantmentValue));
     }
     private SickleItem(String id, Tier tier) {
         super(tier, new Properties().attributes(DiggerItem.createAttributes(tier, 0, -2).withModifierAdded(Attributes.ATTACK_KNOCKBACK,
@@ -45,12 +48,12 @@ public final class SickleItem extends HoeItem {
         lines.add(Component.translatable("item." + ThermalShockReforged.MOD_ID + "." + id + ".description_0"));
         lines.add(Component.translatable("item." + ThermalShockReforged.MOD_ID + "." + id + ".description_1"));
     }
-    private record SickleTier(int durability, float speed, String repair) implements Tier {
+    private record SickleTier(int durability, float speed, String repair, float damage, int enchantmentValue) implements Tier {
         @Override public int getUses() { return durability; }
         @Override public float getSpeed() { return speed; }
-        @Override public float getAttackDamageBonus() { return 4; }
+        @Override public float getAttackDamageBonus() { return damage; }
         @Override public TagKey<Block> getIncorrectBlocksForDrops() { return BlockTags.INCORRECT_FOR_DIAMOND_TOOL; }
-        @Override public int getEnchantmentValue() { return 21; }
+        @Override public int getEnchantmentValue() { return enchantmentValue; }
         @Override public Ingredient getRepairIngredient() { return Ingredient.of(MaterialContent.items().get(repair).get()); }
     }
     public static final class WoundEffect extends MobEffect {

@@ -128,6 +128,7 @@ public final class ClientEvents {
         com.hp.thermalshockreforged.client.npc.laut.LautClient.screens(event);
         com.hp.thermalshockreforged.client.npc.portrait.PortraitClient.screens(event);
         com.hp.thermalshockreforged.client.npc.ly.LyClient.screens(event);
+        com.hp.thermalshockreforged.client.npc.sopel.SopelScreen.register(event);
         com.hp.thermalshockreforged.client.npc.florist.FloristClient.screens(event);
         com.hp.thermalshockreforged.client.npc.shutterbug.ShutterbugClient.screens(event);
         com.hp.thermalshockreforged.client.dialogue.DialogueScreen.register(event);
@@ -153,6 +154,7 @@ public final class ClientEvents {
 
     @SubscribeEvent
     public static void particles(RegisterParticleProvidersEvent event) {
+        event.registerSpriteSet(com.hp.thermalshockreforged.content.armor.ArmorContent.PURPLE_SPARKLE.get(), com.hp.thermalshockreforged.client.armor.PurpleSparkleParticle.Provider::new);
         CavebloomerClient.particles(event);
         event.registerSpriteSet(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.TURQ_EXPLODE.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "turqexplode", 0, ParticleRenderType.PARTICLE_SHEET_OPAQUE, false, true, 0));
         event.registerSpriteSet(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.FIRE_BOMB_EFFECT.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "firebomb", 0, ParticleRenderType.PARTICLE_SHEET_OPAQUE, false, true, 0));

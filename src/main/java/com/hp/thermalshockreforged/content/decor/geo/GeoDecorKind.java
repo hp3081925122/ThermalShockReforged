@@ -8,6 +8,9 @@ import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.shapes.*;
 
 public enum GeoDecorKind {
+    CRYSTAL_SOPEL_TROPHY("crystal_sopel_trophy", "Crystal Sopel Trophy", "geo/sopel_relic.geo.json", "textures/block/rubicon_trophy.png", "animations/sopel_relic.animation.json", Shapes.block(), true, false),
+    DESK_DIRECTOR("desk_director", "Desk Director", "geo/sopel_desk.geo.json", "textures/block/sopel_desk.png", "animations/sopel_desk.animation.json", Block.box(-16, .1, -16, 32, 15.9, 32), true, false),
+    SUPER_CRYONIC_CACHE("super_cryonic_cache", "Super Cryonic Cache", "geo/enchanted_cache.geo.json", "textures/block/supercache.png", "animations/enchanted_cache.animation.json", Block.box(0, 0, 0, 16, 28, 16), false, false),
     PHOBOTITE_OUTCROP("phobotite_outcrop", "Phobotite Outcrop", "geo/fluorite_ore.geo.json", "textures/block/phobotite_outcrop.png", "animations/fluorite_ore.animation.json", Shapes.block(), false, false),
     PHOBOTITE_MANTLE_OUTCROP("phobotite_mantle_outcrop", "Phobotite Mantle Outcrop", "geo/fluorite_ore.geo.json", "textures/block/phobotite_mantle_outcrop.png", "animations/fluorite_ore.animation.json", Shapes.block(), false, false),
     FRIGID_ALTAR("frigid_altar", "Frigid Altar", "geo/everchill_altar.geo.json", "textures/block/texturealtar.png", "animations/everchill_altar.animation.json", Block.box(.1, .1, .1, 15.9, 14, 15.9), false, false),
@@ -108,6 +111,9 @@ public enum GeoDecorKind {
             case RUSTY_RADIO -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).sound(SoundType.METAL).strength(-1, 3600000).noCollission().noOcclusion().pushReaction(PushReaction.BLOCK).isRedstoneConductor((state, level, pos) -> false);
             case CAPSULE -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).sound(SoundType.BASALT).strength(-1, 3600000).requiresCorrectToolForDrops().noOcclusion().pushReaction(PushReaction.BLOCK).isRedstoneConductor((state, level, pos) -> false);
             case ATLAS -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).sound(SoundType.STONE).strength(3, 100).lightLevel(state -> 15).requiresCorrectToolForDrops().noCollission().pushReaction(PushReaction.BLOCK);
+            case CRYSTAL_SOPEL_TROPHY -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).sound(SoundType.COPPER).strength(1, 10).lightLevel(state -> 7).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((state, level, pos) -> false);
+            case DESK_DIRECTOR -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).sound(SoundType.STONE).strength(-1, 3600000).noOcclusion().isRedstoneConductor((state, level, pos) -> false);
+            case SUPER_CRYONIC_CACHE -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.AMETHYST_CLUSTER).strength(-1, 3600000).lightLevel(state -> 12).noOcclusion().pushReaction(PushReaction.BLOCK).isRedstoneConductor((state, level, pos) -> false).noLootTable();
             case ENCHANTED_CACHE, CRYONIC_CACHE -> BlockBehaviour.Properties.of().mapColor(this == CRYONIC_CACHE ? MapColor.ICE : MapColor.COLOR_LIGHT_GREEN).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.AMETHYST_CLUSTER).strength(-1, 3600000).lightLevel(state -> 12).noOcclusion().pushReaction(PushReaction.BLOCK).isRedstoneConductor((state, level, pos) -> false).noLootTable();
             case SHALE_POT -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).sound(SoundType.DECORATED_POT).strength(0.5F, 0).noOcclusion().pushReaction(PushReaction.DESTROY).isRedstoneConductor((state, level, pos) -> false);
             case PATHIOLITE_OUTCROP -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERRACK).strength(6, 5).lightLevel(state -> 6).requiresCorrectToolForDrops();
