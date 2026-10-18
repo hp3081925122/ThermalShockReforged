@@ -11,6 +11,8 @@ public final class WorldProgressData extends SavedData {
     private static final Factory<WorldProgressData> FACTORY = new Factory<>(WorldProgressData::new, WorldProgressData::load);
     private static final java.util.concurrent.ConcurrentMap<net.minecraft.server.MinecraftServer, WorldProgressData> LOADED = new java.util.concurrent.ConcurrentHashMap<>();
     private double worldCrux;
+    private boolean shalespringExists;
+    private boolean shalespringPlacing;
     private volatile int oreTier1;
     private volatile int oreTier2;
 
@@ -46,6 +48,18 @@ public final class WorldProgressData extends SavedData {
     public static WorldProgressData get(ServerLevel level) {
         return level.getServer().overworld().getDataStorage().computeIfAbsent(FACTORY, ID);
     }
+    public boolean beginShalespringPlacement() {
+        if (shalespringExists || shalespringPlacing) return false;
+        shalespringPlacing = true;
+        return true;
+    }
+    public void finishShalespringPlacement(boolean placed) {
+        shalespringPlacing = false;
+        if (placed && !shalespringExists) {
+            shalespringExists = true;
+            setDirty();
+        }
+    }
     public double worldCrux() { return worldCrux; }
     public void advanceCrux(double stage) {
         if (Double.isFinite(stage) && stage > worldCrux) {
@@ -57,6 +71,7 @@ public final class WorldProgressData extends SavedData {
         var data = new WorldProgressData();
         double value = tag.getDouble("WorldCrux");
         data.worldCrux = Double.isFinite(value) ? Math.max(0, value) : 0;
+        data.shalespringExists = tag.getBoolean("ShalespringExists");
         data.oreTier1 = validOreTier(tag.getInt("OreTier1"));
         data.oreTier2 = validOreTier(tag.getInt("OreTier2"));
         return data;
@@ -64,6 +79,7 @@ public final class WorldProgressData extends SavedData {
     private static int validOreTier(int value) { return value == 1 || value == 2 ? value : 0; }
     @Override public CompoundTag save(CompoundTag tag, HolderLookup.Provider lookup) {
         tag.putDouble("WorldCrux", worldCrux);
+        tag.putBoolean("ShalespringExists", shalespringExists);
         tag.putInt("OreTier1", oreTier1);
         tag.putInt("OreTier2", oreTier2);
         return tag;

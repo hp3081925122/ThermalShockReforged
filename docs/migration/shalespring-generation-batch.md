@@ -1,0 +1,14 @@
+# 第37批：Shalespring完整首次生成（代码与静态阶段完成）
+
+来源原07.9 JAR、ShalespringSpawnProcedure、ThermalShockModVariables.MapVariables与GameRules；原件只读。三真实NPC及完整菜单奖励链已于33/34/36批闭合，九功能块依赖31/32批闭合，本批导入完整shalespring_august场景及实际生成入口，不使用空NPC或跳过未知方块。
+
+原模板DataVersion3465、size70×70×70、343000块记录、384 palette状态、52带NBT块与6实体（Laut/Shutterbug/Florist/盔甲架/两幅画）。保全部空气、相对坐标、实体姿态/装备/名称/贴图/原gravity状态、容器库存/附魔书与未知第三方历史数据；仅用NBT解析器改原thermal_shock资源标识到thermal_shock_reforged，反向还原解压payload须字节相同。保DataVersion3465，由目标StructureTemplateManager.readStructure的DataFixTypes.STRUCTURE原生转换Count/tag/StoredEnchantments等旧版原版容器与盔甲架数据，不自行改版本号使DFU失效。实际自定义BE库存均空，不把无证据的inventory别名当原缺陷。
+
+原调用位置固定(316,53,299)，pivot相同、Rotation.NONE、Mirror.NONE、ignoreEntities=false、flags3。按原base AdvancementEvent监听loqendia_get；已核旧Forge47.4.10与目标NeoForge21.1.233均有Earn/Progress两子事件，不能误认为原只监听Earn后无记录改变行为。保持事件发生玩家的实际ServerLevel（包括管理操作授予/撤销的原覆盖），不增只能Loqendia维度的限制。原loqendiaGenerateSpecialStructures、UPDATES、默认true；状态ShalespringExists为主世界共享SavedData，服务器多玩家/多维度一次，不改玩家状态。
+
+已确认原错误：getOrCreate缺模板会返回空模板，placeInWorld返回false后仍永久设Exists=true。目标使用get检查真实资源并只在成功放置后保存完成；生成中先占临时重入锁，finally释放，失败不永久消费。该锁不每tick扫描，不把服务端内部一次状态广播给全服。后续Palace/Keystone另行迁移，不假定本批覆盖。
+
+性能边界：343000完整记录一次原生放置及邻居更新可能产生首次明显卡顿；已向用户说明。保原时序/全部方块/空气/实体/更新flags，本批不通过跳空气、缩场景或异步操作世界改变功能。实际耗时/重启/双人触发与全场景渲染待完整模组后交Luna运行；当前仅静态和编译。
+
+
+实施收口：模板解析改329处资源字符串，逆转后payload逐字节等于原件，原DataVersion/完整343000块/384状态/52BE/6实体均未减少。已接原base事件、gamerule和共享持久一次状态/重入锁。Luna核122唯一模组方块、12唯一模组BE、全部状态值与实体/物品引用无具体缺项；源码与构建模板SHA256同98d77ff4703482264e67f92d9a80399ad09605f314ca323db88cf8011cf537de。Java21实际根三任务离线编译exit0/57.8秒/25tasks(3executed22up-to-date)，日志D:\AI临时文件\ThermalShockMigration\thirtyseventh-shalespring-compile.log，只有既存弃用/unchecked警告。原模板Shutterbug无NoGravity，结构默认finalizeEntities=false，不擅自套生成蛋行为改变模板。以上不代表游戏内DFU/首次生成/多人/完整渲染已实测；整模组未完成。

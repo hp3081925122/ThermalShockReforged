@@ -1,0 +1,52 @@
+{
+  "original_data_version": 3465,
+  "size": [
+    70,
+    70,
+    70
+  ],
+  "blocks": 343000,
+  "palette_states": 384,
+  "block_entities": 52,
+  "entities": 6,
+  "namespace_changes": 329,
+  "original_payload_sha256": "88b6281b6cc064f702ee89732880fbef1f5600d9f04f28708b7864aa19bc85e0",
+  "updated_payload_sha256": "df5c9a9a6eeec9526c9eca40b18404a0cc0ba496794ab8ea9f094900d7135535",
+  "namespace_reversal_payload_byte_equal": true,
+  "batch": 37,
+  "scope": "Complete Shalespring template and original advancement generation event with shared world state",
+  "compiler": {
+    "tasks": [
+      "compileJava",
+      "compileGametestJava",
+      "processResources"
+    ],
+    "offline": true,
+    "java": 21,
+    "exit_code": 0,
+    "elapsed_seconds": 57.8,
+    "task_count": 25,
+    "executed": 3,
+    "up_to_date": 22,
+    "log": "D:\\AI临时文件\\ThermalShockMigration\\thirtyseventh-shalespring-compile.log",
+    "warnings": "existing deprecated API and unchecked"
+  },
+  "static": {
+    "unique_mod_palette_blocks": 122,
+    "mod_block_entity_records": 23,
+    "vanilla_block_entity_records": 29,
+    "unique_mod_block_entity_types": 12,
+    "missing_block_entity_or_entity_or_item_reference": [],
+    "invalid_palette_properties_or_values": [],
+    "original_custom_block_entity_inventories_all_empty": true,
+    "native_dfu_source_reviewed": true,
+    "template_nbt_preserved_shutterbug_gravity": true,
+    "source_and_build_template_sha256": "98d77ff4703482264e67f92d9a80399ad09605f314ca323db88cf8011cf537de"
+  },
+  "runtime": {
+    "server": "not run; pending whole-mod completion",
+    "client": "not run; pending whole-mod completion",
+    "render_preview": "not run; pending whole-mod completion"
+  },
+  "whole_mod_complete": false
+}
