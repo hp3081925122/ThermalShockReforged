@@ -34,7 +34,6 @@ public final class IceCreatureEntity extends Monster implements GeoEntity, Range
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(IceCreatureEntity.class, EntityDataSerializers.STRING);
     private static final EntityDataAccessor<Boolean> COOLDOWN_VISIBLE = SynchedEntityData.defineId(IceCreatureEntity.class, EntityDataSerializers.BOOLEAN);
     private static final ResourceLocation MOVEMENT_LOCK = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "ice_movement_lock");
-    private static final ResourceKey<DamageType> ERRANT = ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "errant_damage"));
     private final AnimatableInstanceCache animations = GeckoLibUtil.createInstanceCache(this);
     private int cooldown;
     private int movementLock;
@@ -50,6 +49,8 @@ public final class IceCreatureEntity extends Monster implements GeoEntity, Range
     private boolean attributesApplied;
     private boolean loadedFromSave;
     private boolean restoreAnimation;
+    private boolean soldierExperiencePending;
+    private UUID soldierExperienceAttacker;
 
     public IceCreatureEntity(EntityType<? extends IceCreatureEntity> type, Level level) {
         super(type, level);
@@ -99,7 +100,7 @@ public final class IceCreatureEntity extends Monster implements GeoEntity, Range
             return;
         }
         goalSelector.addGoal(1, new MeleeAttackGoal(this, k == 3 ? 0.7 : 1.2, k == 0) {
-            @Override protected boolean canPerformAttack(LivingEntity target) { double reach = kind() == 0 ? 6.25 : kind() == 2 ? 100 : 12.25; return isTimeToAttack() && distanceToSqr(target) <= reach && getSensing().hasLineOfSight(target); }
+            @Override protected boolean canPerformAttack(LivingEntity target) { double reach = kind() == 0 ? 6.25 : kind() == 2 ? 100 : 12.25; return isTimeToAttack() && distanceToSqr(target) <= reach && (kind() == 0 || getSensing().hasLineOfSight(target)); }
         });
         targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, k != 2, k != 3));
         if (k == 0) {
@@ -120,10 +121,16 @@ public final class IceCreatureEntity extends Monster implements GeoEntity, Range
         if (k == 1) return false;
         if (!(level() instanceof ServerLevel) || !isAlive() || target == this) return true;
         if (cooldown > 0) return true;
-        pendingTarget = target.getUUID(); attackOrigin = target.position(); attackAge = 0; startedAt = level().getGameTime(); combatDimension = level().dimension().location().toString();
         if (k == 0) {
-            cooldown = IceCombatConfig.SOLDIER_COOLDOWN.get(); movementLock = 29; animate("attack"); sound(SoundEvents.STRAY_AMBIENT, 1, 3);
-        } else if (k == 2) {
+            if (!SoldierComboEntity.submit((ServerLevel)level(), this, target.getUUID(), target.position(), 0)) {
+                ThermalShockReforged.LOGGER.warn("Soldier combo could not be scheduled: caster={}, target={}", getUUID(), target.getUUID());
+                return true;
+            }
+            cooldown = IceCombatConfig.SOLDIER_COOLDOWN.get(); movementLock = 29; startedAt = level().getGameTime(); combatDimension = level().dimension().location().toString(); attackOrigin = target.position(); animate("attack"); sound(SoundEvents.STRAY_AMBIENT, 1, 3); syncMovementLock();
+            return true;
+        }
+        pendingTarget = target.getUUID(); attackOrigin = target.position(); attackAge = 0; startedAt = level().getGameTime(); combatDimension = level().dimension().location().toString();
+        if (k == 2) {
             cooldown = IceCombatConfig.DRONE_COOLDOWN.get(); animate("ready"); setTexture("icidrone_charged"); faceEyes(target); sound(customSound("galvanitehurt"), 0.8F, 3);
         } else {
             cooldown = IceCombatConfig.ZERK_COOLDOWN.get(); alternate = random.nextDouble() < IceCombatConfig.ZERK_ALT_CHANCE.get(); entityData.set(COOLDOWN_VISIBLE, true);
@@ -145,22 +152,13 @@ public final class IceCreatureEntity extends Monster implements GeoEntity, Range
         attackAge = -1; pendingTarget = null; cooldown = 0; movementLock = 0; driftPhase = -1; driftCooldown = 0; entityData.set(COOLDOWN_VISIBLE, false); syncMovementLock();
         if (kind() == 2) setTexture(defaultTexture());
     }
-    private void errantHit(LivingEntity target, double armorFactor) {
-        if (target == null || !target.isAlive() || target == this || distanceTo(target) > 2.5F) return;
-        double damage = getAttributeValue(Attributes.ATTACK_DAMAGE) * 1.8 - target.getArmorValue() * armorFactor;
-        if (Double.isFinite(damage)) target.hurt(new DamageSource(registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ERRANT)), (float)Math.max(0, damage));
-    }
     private void advanceAttack(ServerLevel server) {
         if (attackAge < 0) return;
-        int limit = kind() == 0 ? 22 : kind() == 2 ? 20 : 10;
+        int limit = kind() == 2 ? 20 : 10;
         if (attackAge >= limit) { attackAge = -1; pendingTarget = null; return; }
         attackAge++;
         LivingEntity target = pendingTarget != null && server.getEntity(pendingTarget) instanceof LivingEntity living ? living : null;
-        if (kind() == 0) {
-            if (attackAge == 11) { sound(SoundEvents.PLAYER_ATTACK_SWEEP, 1, 2); errantHit(target, 0.6); }
-            if (attackAge == 16) { sound(SoundEvents.SHIELD_BLOCK, 1, 1); addEffect(new MobEffectInstance(StatusContent.PARRYING, 6, 0)); }
-            if (attackAge == 22) { sound(customSound("magnet_bow_25"), 1, 1); sound(customSound("propulsionbootsactivate"), 0.5F, 1); errantHit(target, 0.3); setDeltaMovement(getLookAngle().multiply(1, 0, 1)); attackAge = -1; pendingTarget = null; }
-        } else if (kind() == 2 && attackAge == 20) {
+        if (kind() == 2 && attackAge == 20) {
             attackAge = -1; pendingTarget = null; setTexture(defaultTexture());
             if (target == null || !target.isAlive() || target == this) return;
             faceEyes(target); animate("attack"); sound(customSound("hailfire"), 1, 1);
@@ -204,6 +202,9 @@ public final class IceCreatureEntity extends Monster implements GeoEntity, Range
     @Override public void tick() {
         if (!level().isClientSide) {
             applyConfiguredAttributes();
+            if (kind() == 0 && attackAge >= 0 && pendingTarget != null && level() instanceof ServerLevel server
+                    && (combatDimension.isEmpty() || combatDimension.equals(server.dimension().location().toString()))
+                    && SoldierComboEntity.submit(server, this, pendingTarget, attackOrigin, attackAge)) { attackAge = -1; pendingTarget = null; }
             String dimension = level().dimension().location().toString();
             if (!combatDimension.isEmpty() && !combatDimension.equals(dimension) || !isAlive()) clearCombat();
             combatDimension = dimension; syncMovementLock();
@@ -227,6 +228,19 @@ public final class IceCreatureEntity extends Monster implements GeoEntity, Range
             ThermalShockReforged.LOGGER.debug("Cryomancer death spawn committed: source={}, drone={}", getUUID(), drone == null ? null : drone.getUUID());
         }
     }
+    @Override protected void dropExperience(Entity attacker) {
+        if (kind() != 0) { super.dropExperience(attacker); return; }
+        soldierExperiencePending = true; soldierExperienceAttacker = attacker == null ? null : attacker.getUUID();
+    }
+    @Override protected void tickDeath() {
+        if (kind() != 0) { super.tickDeath(); return; }
+        if (++deathTime >= 20 && !isRemoved()) {
+            remove(RemovalReason.KILLED);
+            if (soldierExperiencePending && level() instanceof ServerLevel server) {
+                soldierExperiencePending = false; super.dropExperience(soldierExperienceAttacker == null ? null : server.getEntity(soldierExperienceAttacker));
+            }
+        }
+    }
     @Override public boolean hurt(DamageSource source, float amount) { return !(kind() == 2 ? source.is(DamageTypes.FALL) : source.is(DamageTypes.DROWN)) && super.hurt(source, amount); }
     @Override public boolean removeWhenFarAway(double distance) { return false; }
     @Override protected EntityDimensions getDefaultDimensions(Pose pose) { return kind() == 0 ? super.getDefaultDimensions(pose).scale(1.1F) : super.getDefaultDimensions(pose); }
@@ -246,12 +260,16 @@ public final class IceCreatureEntity extends Monster implements GeoEntity, Range
         if (spawn) LegacyEffectParticles.emit(this, 0xFFFFFF, 2);
     }
     @Override public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); tag.putInt("IceCooldown", cooldown); tag.putInt("IceMovementLock", movementLock); tag.putInt("IceAttackAge", attackAge);
+        super.addAdditionalSaveData(tag); tag.putBoolean("SoldierExperiencePending", soldierExperiencePending);
+        if (soldierExperienceAttacker != null) tag.putUUID("SoldierExperienceAttacker", soldierExperienceAttacker);
+        tag.putString("Texture", texture()); tag.putInt("IceCooldown", cooldown); tag.putInt("IceMovementLock", movementLock); tag.putInt("IceAttackAge", attackAge);
         if (pendingTarget != null) tag.putUUID("IceTarget", pendingTarget); tag.putDouble("IceOriginX", attackOrigin.x); tag.putDouble("IceOriginY", attackOrigin.y); tag.putDouble("IceOriginZ", attackOrigin.z);
         tag.putString("IceDimension", combatDimension); tag.putBoolean("IceAlternate", alternate); tag.putInt("IceDriftPhase", driftPhase); tag.putInt("IceDriftCooldown", driftCooldown); tag.putBoolean("IceDeathSpawned", deathSpawned);
     }
     @Override public void readAdditionalSaveData(CompoundTag tag) {
         loadedFromSave = true; super.readAdditionalSaveData(tag); attributesApplied = false; applyConfiguredAttributes();
+        if (!tag.contains("NeoForgeData", 10) && tag.contains("ForgeData", 10)) getPersistentData().merge(tag.getCompound("ForgeData"));
+        soldierExperiencePending = tag.getBoolean("SoldierExperiencePending"); soldierExperienceAttacker = tag.hasUUID("SoldierExperienceAttacker") ? tag.getUUID("SoldierExperienceAttacker") : null;
         if (tag.contains("Texture")) setTexture(tag.getString("Texture"));
         cooldown = Math.max(0, Math.min(72000, tag.getInt("IceCooldown"))); movementLock = Math.max(0, Math.min(29, tag.getInt("IceMovementLock")));
         pendingTarget = tag.hasUUID("IceTarget") ? tag.getUUID("IceTarget") : null; attackAge = pendingTarget != null && tag.contains("IceAttackAge") ? Math.max(-1, Math.min(22, tag.getInt("IceAttackAge"))) : -1;

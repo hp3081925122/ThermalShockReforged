@@ -24,6 +24,7 @@ public final class IceRenderers {
         event.registerEntityRenderer(IceContent.ICIDRONE.get(), context -> new Renderer(context, "icidrone_rubicon", "body", 1, 0.5F, null));
         event.registerEntityRenderer(IceContent.ICIDROZERK.get(), context -> new Renderer(context, "novazerk", null, 1, 1, "novazerk_glow"));
         event.registerEntityRenderer(IceContent.ICE_BULLET.get(), ThrownItemRenderer::new);
+        event.registerEntityRenderer(IceContent.SOLDIER_COMBO.get(), NoopRenderer::new);
     }
     private static ResourceLocation resource(String path) { return ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
     private static final class Model extends GeoModel<IceCreatureEntity> {
