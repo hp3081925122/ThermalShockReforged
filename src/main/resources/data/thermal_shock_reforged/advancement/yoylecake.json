@@ -1,0 +1,39 @@
+{
+  "display": {
+    "icon": {
+      "id": "thermal_shock_reforged:ferro_cake"
+    },
+    "title": {
+      "translate": "advancements.yoylecake.title"
+    },
+    "description": {
+      "translate": "advancements.yoylecake.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "yoylecake_0": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "thermal_shock_reforged:ferro_cake"
+            ],
+            "count": {
+              "min": 1,
+              "max": 1
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 3
+  },
+  "parent": "thermal_shock_reforged:ferrous_get"
+}
