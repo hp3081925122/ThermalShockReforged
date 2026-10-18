@@ -93,3 +93,9 @@ Chilloo蛋使用已存在Dull叶，不重复注册；CFR孵化过程丢else的�
 ## 第八批：Hunters与原生／Geo装饰
 
 基准5ff0dd4。fauna独占四Hunters实体与渲染原loot，terrain独占20Geo块/物品/九槽BE及渲染，root独占44原生装饰／坠落块、3香料、DeskPhoto完整UI和所有共享接线／数据。status负责当前剩余201块盘点、root独立机械复核和固定快照编译静态。Hunters装甲转换扣错物/丢数据、Geo库存破坏吞物、Plenky非法粒子模型引用、orb缺动画默认0等均有原件证据与明确修复记录。没有客户端／服务端运行，整模组仍待完成。
+
+## 第九批：冰族／生长／特殊门与共享招架
+
+基准99dc75f。fauna独占四Ice生物+IceBullet、精英配置/渲染；terrain独占19Growth块/19物品/5BE/Gelshooter及箭/56数据与17NBT；root独占两特殊门、三Falling补给箱、Parry两真实效果与actuallyHurt精确hook、统一Ice掉落/tag、共享入口与Barbubble/Sparkler空间安全保护。status独立复核门/Parry/补给箱与固定源码统一编译。Root ModGameRules按原默认true预注册掉心晶，供下一Boss族；其它6规则与世界生成入口仍待。
+
+原动画桥来源描述已纠正，不把原攻击动画误判为无效。Gel普通破坏双本体复制、模板覆盖箱/建筑、作物重写遗漏Post钩子、Gel射击1tick可见状态漏动画均明确修复；不删动画/模板/粒子。原孤立proc、缺首次获取、尚未迁群系和NPC来源只做真实待办，不捏来源。第九批全部main/resources现在固定，交status编译和静态数据核对，不启动两端。

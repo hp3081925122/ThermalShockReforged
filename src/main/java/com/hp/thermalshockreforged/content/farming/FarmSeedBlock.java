@@ -1,6 +1,7 @@
 package com.hp.thermalshockreforged.content.farming;
 
 import java.util.List;
+import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.entity.gardenling.GardenlingEntity;
 import net.minecraft.core.*;
 import net.minecraft.core.particles.ParticleTypes;
@@ -81,7 +82,14 @@ public final class FarmSeedBlock extends Block implements EntityBlock {
     private void water(Level level, BlockPos pos, Player player) {
         if (!(level instanceof ServerLevel server) || !(level.getBlockEntity(pos) instanceof SeedBlockEntity seed)) return;
         var data = seed.getPersistentData();
-        if (BuiltInRegistries.ITEM.getKey(player.getMainHandItem().getItem()).equals(ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", "watering_can")) && data.getBoolean("thirsty")) {
+        boolean watering = BuiltInRegistries.ITEM.getKey(player.getMainHandItem().getItem()).equals(ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", "watering_can")) && data.getBoolean("thirsty");
+        double waterings = data.getDouble("waterings");
+        if (kind == CropKind.BARBUBBLE && (watering && waterings == 2 || waterings == 3)
+                && (pos.getY() + 1 >= server.getMaxBuildHeight() || !level.getBlockState(pos.above()).canBeReplaced())) {
+            ThermalShockReforged.LOGGER.debug("Barbubble maturation blocked: position={}, upper={}, waterings={}", pos, level.getBlockState(pos.above()), waterings);
+            return;
+        }
+        if (watering) {
             data.putBoolean("thirsty", false);
             data.putDouble("waterings", data.getDouble("waterings") + 1);
             changed(level, pos, seed);

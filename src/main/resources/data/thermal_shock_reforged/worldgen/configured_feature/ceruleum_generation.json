@@ -1,0 +1,47 @@
+{
+  "type": "minecraft:simple_random_selector",
+  "config": {
+    "features": [
+      {
+        "feature": {
+          "type": "thermal_shock_reforged:structure_feature",
+          "config": {
+            "structure": "thermal_shock_reforged:ceruleum3",
+            "ignored_blocks": "minecraft:air"
+          }
+        },
+        "placement": []
+      },
+      {
+        "feature": {
+          "type": "thermal_shock_reforged:structure_feature",
+          "config": {
+            "structure": "thermal_shock_reforged:ceruleum6",
+            "ignored_blocks": "minecraft:air"
+          }
+        },
+        "placement": []
+      },
+      {
+        "feature": {
+          "type": "thermal_shock_reforged:structure_feature",
+          "config": {
+            "structure": "thermal_shock_reforged:ceruleum9",
+            "ignored_blocks": "minecraft:air"
+          }
+        },
+        "placement": []
+      },
+      {
+        "feature": {
+          "type": "thermal_shock_reforged:structure_feature",
+          "config": {
+            "structure": "thermal_shock_reforged:ceruleum12",
+            "ignored_blocks": "minecraft:air"
+          }
+        },
+        "placement": []
+      }
+    ]
+  }
+}

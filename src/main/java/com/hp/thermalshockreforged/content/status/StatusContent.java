@@ -14,6 +14,8 @@ public final class StatusContent {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<Potion> POTIONS = DeferredRegister.create(Registries.POTION, ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<net.minecraft.core.particles.ParticleType<?>> PARTICLES = DeferredRegister.create(Registries.PARTICLE_TYPE, ThermalShockReforged.MOD_ID);
+    public static final DeferredHolder<MobEffect, MobEffect> PARRYING = EFFECTS.register("parrying", () -> new PlayerStatusEffect(MobEffectCategory.BENEFICIAL, -1, PlayerStatusEffect.Action.NONE, false));
+    public static final DeferredHolder<MobEffect, MobEffect> KNIGHTS_EDGE_CHARGE = EFFECTS.register("knights_edge_charge", () -> new PlayerStatusEffect(MobEffectCategory.BENEFICIAL, -1, PlayerStatusEffect.Action.NONE, true));
     public static final DeferredHolder<MobEffect, MobEffect> INFECTED = EFFECTS.register("infected", InfectedEffect::new);
     public static final DeferredHolder<MobEffect, MobEffect> STUNNED = EFFECTS.register("stunned", () -> new ControlEffect(false));
     public static final DeferredHolder<MobEffect, MobEffect> TREMORS = EFFECTS.register("tremors", () -> new ControlEffect(true));

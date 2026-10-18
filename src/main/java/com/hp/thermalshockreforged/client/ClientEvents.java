@@ -1,6 +1,9 @@
 package com.hp.thermalshockreforged.client;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
+import com.hp.thermalshockreforged.client.growth.GrowthRenderers;
+import com.hp.thermalshockreforged.client.ice.IceRenderers;
+import com.hp.thermalshockreforged.client.doors.SpecialDoorRenderers;
 import com.hp.thermalshockreforged.client.decor.geo.GeoDecorRenderers;
 import com.hp.thermalshockreforged.client.hunters.HuntersRenderers;
 import com.hp.thermalshockreforged.client.decor.nativeblocks.DeskPhotoScreen;
@@ -51,8 +54,11 @@ public final class ClientEvents {
         GardenlingRenderers.register(event);
         ManglerRenderers.register(event);
         HuntersRenderers.register(event);
+        IceRenderers.register(event);
         GeoDecorRenderers.register(event);
+        SpecialDoorRenderers.register(event);
         FarmingRenderers.register(event);
+        GrowthRenderers.register(event);
         event.registerEntityRenderer(ModEntities.PONDLER.get(), PondlerRenderer::new);
         event.registerEntityRenderer(ModEntities.PROBOSKER.get(), ProboskerRenderer::new);
         event.registerEntityRenderer(ModEntities.SCARLET_RAY.get(), ScarletRayRenderer::new);
@@ -76,7 +82,9 @@ public final class ClientEvents {
         AuraClient.extensions(event);
         FaunaRenderers.extensions(event);
         FarmingRenderers.extensions(event);
+        GrowthRenderers.extensions(event);
         GeoDecorRenderers.extensions(event);
+        SpecialDoorRenderers.extensions(event);
     }
 
     @SubscribeEvent
