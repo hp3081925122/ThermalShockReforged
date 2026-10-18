@@ -25,6 +25,10 @@ class ShaleLampBlock extends NativeDecorBlock {
     }
     protected IntegerProperty variant() { return VARIANT; }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { super.createBlockStateDefinition(builder); builder.add(variant()); }
+    @Override protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+        tick(state, level, pos, random);
+        com.hp.thermalshockreforged.ThermalShockReforged.LOGGER.debug("Shale lamp random ambience completed: position={}, dimension={}", pos, level.dimension().location());
+    }
     @Override protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         super.tick(state, level, pos, random); level.playSound(null, pos, SoundEvents.FIRE_AMBIENT, SoundSource.NEUTRAL, 1, 1);
     }
