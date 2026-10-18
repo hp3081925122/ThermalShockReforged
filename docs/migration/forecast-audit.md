@@ -1,6 +1,6 @@
 # Forecast 完整链静态审计（Thermal Shock 07.9 → NeoForge 1.21.1）
 
-只读核对。原始反编译可读目录：`D:\AI临时文件\ThermalShockMigration\readable\net\mcreator\thermal_shock`；原始发布 JAR：`D:\AI临时文件\ThermalShockMigration\thermal_shock-07.9-original.jar`。目标项目为 `E:\模组\发cf的模组\AAA生物\Thermal Shock 重做\1211-neoforge-ThermalShock`（Gradle 配置：MC 1.21.1、NeoForge 21.1.233、Java 21）。下列内容以源码和压缩包条目为证据；没有做运行时测试，因此区分“源码确定行为”和“尚不能静态定论的问题”。
+本文件为早期只读审计，当前实现修复见 forecast-fidelity.md。原始反编译可读目录：`D:\AI临时文件\ThermalShockMigration\readable\net\mcreator\thermal_shock`；原始发布 JAR：`D:\AI临时文件\ThermalShockMigration\thermal_shock-07.9-original.jar`。目标项目现为 `E:\模组\发cf的模组\AAA生物\Thermal Shock 重做\1211-neoforge-ThermalShockReforged`（MC 1.21.1、NeoForge 21.1.233、Java 21）。下列原行为以源码和压缩包条目为证据；初期依赖与未实现状态已经后续批次变化，不能作为当前覆盖结论。没有做运行时测试，因此区分“源码确定行为”和“尚不能静态定论的问题”。
 
 ## 完整引用链
 
@@ -28,7 +28,7 @@
 | 动画/材质 | `idle`（循环）、`attack`、`attack2`；默认主贴图 forecast；透明渲染 + forecast_glow 全亮层 |
 | 粒子 | 原版粒子 ID `thermal_shock:zap_attack`；AAA emitter `thermal_shock:zapattack`；全亮寿命/触发节拍要对齐（当前 provider 粒子存活1 tick） |
 
-Forecast tick 中“效果缺失才启动两级延迟任务”的节奏应按原分支保留。注意 baseTick 同时在 logical client/server 执行：随机速度写入发生在延迟回调内且未检查 logical side；只有后续加药水的回调检查 server。若迁移时调整成纯服务器执行，需先确认客户端速度同步不会改变漂浮表现。
+Forecast tick 中“效果缺失才启动两级延迟任务”的节奏应按原分支保留。第十六批补核队列入口：ThermalShockMod.queueServerWork 仅接受 SidedThreadGroups.SERVER，客户端虽然执行 baseTick，但不会入队。此前仅从回调内部未查 logical side 推断客户端写速度不成立，现纠正；目标服务端负责速度并按原实体同步参数发送。
 
 ## 可证实的问题与不确定点
 
@@ -41,7 +41,7 @@ Forecast tick 中“效果缺失才启动两级延迟任务”的节奏应按原
 
 **静态证据不能定论、不要作为已确认 bug：**
 
-- 延迟回调会在 logical client 改本地速度，但服务器同样执行并同步移动；仅凭源码不能断言造成可见抖动或破坏服务器状态。
+- 旧“延迟回调会在 logical client 改速度”的怀疑已被第十六批队列入口否定；不能据此认定原客户端存在速度抖动。
 - Forecast 属性攻击伤害为0而仍使用 MeleeAttackGoal；`LivingAttackEvent` 是否会按该版本的实际调用顺序触发、以及零伤害攻击能否进入回调，需要用 1.20.1 原环境复现，不能仅依反编译文本判死。
 - attack 动画的控制器同步取决于 `EntityAnimationFactory`（`init/EntityAnimationFactory.java:478–480`）的 `ANIMATION` 字段传播；移植必须覆盖网络同步和真实客户端动画测试。
 
@@ -52,7 +52,7 @@ Forecast tick 中“效果缺失才启动两级延迟任务”的节奏应按原
 3. Spawn placement 改由 NeoForge `RegisterSpawnPlacementsEvent` 注册（官方 1.21.1 实体文档）；保留 ON_GROUND / MOTION_BLOCKING_NO_LEAVES 与原始 Galvanite 条件，确认是否有重复注册或事件优先级要求。
 4. Biome modifier 路径从 Forge 原件 `data/thermal_shock/forge/biome_modifier/forecast_biome_modifier.json` 迁到 `data/thermal_shock/neoforge/biome_modifier/forecast_biome_modifier.json`；type 使用 `neoforge:add_spawns`，继续保留两个 biome、weight5、min2/max3。依据 NeoForge 1.21.1 文档。
 5. Spawn egg 原实现 `ForgeSpawnEggItem` 需要改成 1.21.1 的原版 `SpawnEggItem`/`DataComponents` 写法，并维持 ID `forecast_spawn_egg`、creative tab、egg 模型和贴图。
-6. 目标工程当前依赖仅列 JEI/JEC/Jade，未见 GeckoLib 与 AAA Particles。Forecast 必须增加并确认针对 MC1.21.1 NeoForge 的 GeckoLib 4.x 依赖；ZapAttackParticle 需要提供 `AAALevel`、`ParticleEmitterInfo` 对应版本的 AAA Particles 依赖。若目标计划去掉其中任一库，属于改造渲染/特效链，不是 API 机械迁移。
+6. 初期依赖盘点时仅列 JEI/JEC/Jade，后续批次已经引入目标版本 GeckoLib 与 AAA Particles，此旧缺项现已解决。ZapAttackParticle 依赖真实 `AAALevel`、`ParticleEmitterInfo`，不能去库后删特效或以普通粒子替代。
 7. 动态纹理同步、Forge `LivingAttackEvent`、自定义冷却 MobEffect、声音 registry、客户端粒子 provider、实体属性注册和 renderer/layer 注册均应按 NeoForge 21.1.233 实际类签名逐项复核，不能仅重命名包。
 
 官方参考： [NeoForge 21.0 版本/迁移变化](https://neoforged.net/news/21.0release/)（包名、EventBus、网络等跨版本变化以及 ResourceLocation 构造器变更）；[NeoForge 1.21.1 Biome Modifiers](https://docs.neoforged.net/docs/1.21.1/worldgen/biomemodifier/)；[NeoForge Living Entities / spawn placement](https://docs.neoforged.net/docs/entities/livingentity/)；[GeckoLib 4 Getting Started](https://github.com/bernie-g/geckolib/wiki/Getting-Started)。

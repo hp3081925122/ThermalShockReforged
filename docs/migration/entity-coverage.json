@@ -616,7 +616,7 @@
       "implementation": "com.hp.thermalshockreforged.entity.ZapWarningEntity",
       "server_tests": [
         "zapUsesOwnerDamageAndMultiplier",
-        "removedOwnerCancelsDelayedDamage"
+        "removedOwnerDoesNotCancelCommittedZap"
       ],
       "pending": [
         "预警粒子客户端对照",

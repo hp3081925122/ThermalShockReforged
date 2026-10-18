@@ -1,0 +1,25 @@
+# 第十六批 Forecast 完整性修复
+
+当前已有 ForecastEntity、ZapWarningEntity、ForecastRenderer；本批对照原件补早期实现差异，不重复注册。原审计 forecast-audit.md 是历史调查，路径和依赖状态已有后续变化，不能据其当时状态判断当前覆盖。
+
+原 MeleeAttackGoal 自定义 reach²100，旧版本攻击判定无额外LOS，目标移除早期新增LOS。保四个原AI和90tick攻击CD，技能基础攻击属性10×倍率1保默认电击10，普通直接攻击不额外伤害。攻击起手先消费CD/播attack2/受害者位置beacon HOSTILE1/3，再尝试按原BlockPos生成Zap；生成被拒绝也不能每次近战无冷却重复尝试。原source为Forecast的LivingAttack事件取消并转技能入口；目标接已有AttackAttemptEvent，闪电伤害保持原无归属LIGHTNING_BOLT，避免自己拦截子攻击或反击递归。
+
+原queueServerWork只接受SERVER线程组；旧审计“客户端延时改速度”缺少队列入口证据，本批纠正。其1tick任务在本tick服务端END执行，内部再排1tick任务在下一个END执行。无慢速时会连续两次随机速度脉冲，然后各次后续任务续40tick慢速。目标实体自身状态保双脉冲与40tick续期，不使用全局队列或药水充当计时；保原三级缓慢导致的移动属性倍率，真实外部缓慢仍参与控制并避免双重叠乘。原baseTick不受NoAI阻止，目标内部CD和漂浮状态不能因NoAI冻结。全世界Forecast转向命令改为附近有玩家时仅本体查询原生@p并面向脚部，不让一个实体反复控制全服同类。
+
+Zap原为MONSTER分类的PathfinderMob，不能用不可碰撞普通Entity省掉属性/原免疫矩阵/可受伤路径。还原无目标FlyingMoveControl/导航、固定出生锚点、无推挤和无重力；HP1/ARMOR90/ATK3/KBres有效1/step.6/地空速.3。保原具体免疫而非全伤害无敌。原已生成电击与施法者生命无绑定，目标保存施法时基础攻击快照，死亡/卸载施法者不撤销已提交的20tick警告。普通载体死亡仍推进已提交计时；外部强制移除取消载体任务作为不留死对象闭包的边界，最终测试须覆盖。范围为出生点inflate1.5，距离序对全部非ItemEntity尝试LIGHTNING_BOLT，不能缩为仅敌人；Forecast/Zap自身由真实免疫拒绝，保友伤语义。伤害前消费锁且独立快照防重入，NBT保阶段与原点，加载不重播已发警告。
+
+原粒子wrapper lifetime1、super.tick后仍无条件发AAA，包含移除当次，共2次发射；早期直接服务端AAA一次丢失次数与原wrapper表现。恢复zap_attack SimpleParticleType、client provider、.2尺寸、全亮LIT、hasPhysics=true、输入速度归零及两次独立EmitterInfo，保原EFK与其纹理。原sendParticles count0/offset0/speed1只创建一个wrapper，不将数量误改成0个。两次为正常生命周期静态计数，实际渲染待最终测试。
+
+原服务端END队列会在入队当tick就扣一次20，所以正常出生tick计入第1次，之后19次才起爆；目标保存createdAt并以remaining19承接，不在出生tick再次扣减。卸载只保剩余已加载tick，不按现实时间补算，不强加载区块。转向原tp命令对全体实体的控制、导航停止等副作用不照搬，改为仅本体原生朝向；不据此宣称已证明FPS/MSPT提升。已生成警告的伤害在arm时记录基础攻击力快照，后续改攻击属性不回溯修改该次已提交电击。
+
+外部真实缓慢保自身的粒子显示设置，不再被MCR内部的隐粒子慢速盖写；内部速度modifier按两者较强的减速补偿，保正常漂浮周期中的原有效速度。此项是移除内部药水伪状态后的明确交互调整，不能宣称所有外部药水显示细节与MCR混合实现逐位相等。
+
+生成条件追加修复：原 GalvaniteNaturalEntitySpawningCondition 读 LevelData.isThundering 原始天气标志，早期目标误用 Level.isThundering，后者另检查维度天光/顶棚与插值雷雨强度>0.9。目标改回原数据标志，保两种雪地脚下方块判断，不凭相似方法名附加天气过渡或维度限制。两个群系及原weight5/group2–3的biome modifier仍随真实世界生成模块闭合，不能因spawn predicate已恢复声称自然生成链已完成。
+
+经验恢复原死亡20tick发放；冷却、漂浮待续期、出生初始化、原点和一次性锁保存；不重复finalize向上抬高。自然生成条件、蛋、模型/动画/眼睛层、loot和标签由Luna机械核对。图鉴Wide Angle、Protoi Epsilon与世界生成完整群系为跨模块待办，不能宣称全模组完成。
+
+本批仅Java21编译/静态核对，最终所有功能迁完后再由Luna启动客户端/专用服务端和Render Preview，检查双脉冲/慢速/受击/隔墙攻击/死亡时序/装卸/范围友伤/粒子次数/冷却与网络。
+
+Luna验证记录：初轮Java21离线compileJava/compileGametestJava/processResources成功约20秒；天气getter修正后只补compileJava成功约15秒。有限130tick模型中，新旧脉冲均为0/1/42/43/84/85/126/127，慢速移动区间均122tick且零差异；模型未包括外部药水交互，不是实际世界帧采样。40项原资源全部存在，33项哈希相同，7项命名空间/模型/声音JSON差异明列报告；原三个实体标签成员核对通过。详细证据见sixteenth-forecast-static-validation.json，日志均在D盘。原无Forecast/Zap loot表，不伪造掉落；Galvanite的loot和世界Crux掉落不属于Forecast。
+
+历史entity-coverage中的removedOwnerCancelsDelayedDamage已改为removedOwnerDoesNotCancelCommittedZap，对应测试源码也改为核已提交电击保快照后一次起爆；该GameTest仅编译，尚未运行。整个模组及自然生成/图鉴外围链仍未完成。
