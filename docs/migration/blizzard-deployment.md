@@ -24,6 +24,8 @@ Luna核原注册/模型/动画/免疫/22+15+25+26时序/25×8AAA/两个Boss各�
 
 AAA数量是正常完整生命周期下25×8的静态控制流计数；客户端粒子上限/提前清理与实际渲染帧仍须真实环境验证，不能把静态计数当已观察到200次渲染。
 
+后续第十五批已接入原两创意标签页，Thingamabob真实注册并按原顺序进入主页面。此前“获取入口待办”记录为第十四批当时状态；入口接线现已完成静态核对与编译，实际界面和功能仍待整模组完成后运行验收。
+
 存档边界补强：创建tick门槛createdAt/startedAt也写NBT，保持同tick复载时不提前推进；常规服务器下一tick复载本就先推进gameTime，本项不冒称已观察到少一tick。若外部事件拒绝内部任务加入，尊重取消并记录debug，一次尝试不无限重试；不绕过外部拒绝直接补刷两Boss。最终测试需分别验证正常创建与拒绝分支，静态构建不证明时序运行。
 
 Luna最终Java21离线compileJava/compileGametestJava/processResources通过，17秒（初次47秒）；两个创建tick字段保存复核通过，其余有限机械核见fourteenth-deployment-static-validation.json。原资产哈希相等，调用来源已由JAR字节码纠正。未启动两端或Render Preview，创意标签页入口及整体迁移仍待完成。
