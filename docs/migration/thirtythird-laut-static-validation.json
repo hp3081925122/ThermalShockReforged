@@ -1,0 +1,28 @@
+{
+  "batch": 33,
+  "scope": "Laut full quest and five original pages",
+  "compiler": {
+    "tasks": [
+      "compileJava",
+      "compileGametestJava",
+      "processResources"
+    ],
+    "offline": true,
+    "exit_code": 0,
+    "duration_seconds": 53,
+    "task_count": 25,
+    "executed": 3,
+    "evidence_origin": "validation_luna returned actual terminal output; no standalone final log file"
+  },
+  "static": {
+    "pages": 5,
+    "labels": 20,
+    "buttons": 3,
+    "assets": 11,
+    "png_hash_matches": 7,
+    "json_namespace_normalized_matches": 4,
+    "advancements": 2,
+    "unresolved_differences": []
+  },
+  "runtime": "Not run; whole-mod migration remains incomplete"
+}

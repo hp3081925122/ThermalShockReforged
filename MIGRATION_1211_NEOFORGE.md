@@ -219,3 +219,6 @@ heart_boost为真实玩家增益，不是内部冷却标记；保留BENEFICIAL�
 第32批已完成代码并通过Luna最小三任务离线编译47秒/本批机械对照：Cryonic Cache与Spice Geyser真实方块/BE/九槽自动化、三池30项奖励/钥匙领取、19³陷阱完整逐块声及9次Bonerahna生成、喷口原烟/Silk/Fortune掉落均已接入；旧EnchantedCacheConsumed兼容，共享有实际两个调用者的消费状态。详见cryonic-cache-spice-geyser-batch.md和thirtysecond-cache-geyser-static-validation.json。
 
 首次建筑依赖尚未完整：Laut/Shutterbug/Florist和各自任务交易/图鉴/立绘对话仍待迁，下一步源码证据见shalespring-npc-next-audit.md。已用原JAR字节码核Laut拿错手持物品数量及NPC无效/effect语法，但未把原无效命令补成新无敌能力。Shalespring/Palace、自然Keystone来源、其余维度/模块及最终两端/Render Preview仍待完成；本批未启动游戏。
+
+
+第33批Laut真实NPC、五页20条文字/三个按钮、完整三Plenky交付/十份单独奖励/持久完成外观及两份原进度已迁入。修原手持数量误判、附近所有同类误完成及重复领取风险，保会话立绘逐帧裁切、原伤害例外/重力/动画和全部资产。Luna固定快照三任务离线编译53秒通过，11资产/全部页面及参数机械核对通过；首次SimpleMenuProvider为final的编译问题已按目标MenuProvider源码修正后复验。详见laut-quest-batch.md和thirtythird-laut-static-validation.json。其余NPC/结构/维度/生物仍待迁，未启动游戏。

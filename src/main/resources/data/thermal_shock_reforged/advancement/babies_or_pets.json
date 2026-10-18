@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "id": "thermal_shock_reforged:plenky"
+    },
+    "title": {
+      "translate": "advancements.babies_or_pets.title"
+    },
+    "description": {
+      "translate": "advancements.babies_or_pets.descr"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "babies_or_pets_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "thermal_shock_reforged:errands_get"
+}
