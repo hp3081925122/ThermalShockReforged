@@ -74,3 +74,5 @@ Forecast tick 中“效果缺失才启动两级延迟任务”的节奏应按原
 
 资源清单与代码引用均从原 JAR/反编译目录静态确认。
 
+
+第七批配置生命周期修正：实体构造只在服务端且COMMON SPEC已加载时读取实际值，readAdditionalSaveData与EntityJoinLevel幂等应用配置并保当前血量（只钳最大值），新实体构造可按新最大值满血。createAttributes继续固定默认属性，不在注册事件读取未加载配置；客户端由服务器同步，不读本地COMMON覆盖。新增英文debug便于最终真实两端检查；尚未运行游戏。

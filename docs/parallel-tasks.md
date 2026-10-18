@@ -81,3 +81,9 @@ Chilloo蛋使用已存在Dull叶，不重复注册；CFR孵化过程丢else的�
 前批提交2d3a09e。fauna独占Sootle双形态与Aura效果/原AAA粒子，terrain独占8双高植物、Vermilli真实结构Feature/叶/树苗及完整worldgen，root实现致盲灯、stunned/tremors、原生NO_MELEE局部尾效及根整合。所有源码资源已固定，交status统一编译与静态验证；不启动两端。Sootle首入口单次转换、高甲负伤害、属性尾效载入、Gecko逻辑stack触发和缓存回收作为新增门槛。完整四树模板与15份植物配置/placed保原字节，未迁群系/其他技能来源继续列待办。细节分别见本批专属矩阵与审计，不以效果注册代替全部调用者完成。
 
 第六批统一验证：首次因AnimationState同名导入失败，已精确指定Gecko类；复跑compileJava/compileGametestJava/processResources在53秒真实BUILD SUCCESSFUL。静态404块/598物品/30实体/10效果/6粒子/1药水/5BE/6装甲材质/1真实Feature，零重复；832份数据及2189处引用闭合，4结构NBT和25份已迁worldgen数据核对通过。原6105assets保持字节一致，两skill验证通过。完整报告见migration/sixth-sootle-lantern-worldgen-static-validation.json；没有两端/渲染测试，不将这些结果当全模组完成。
+
+## 第七批：感染召唤／特殊植物／完整农作物链
+
+第六批提交6bffa0a。root拥有五特殊植物A/B、Gardenling真实依赖及共享接线；fauna拥有entity/mangler、client/mangler及独立config；terrain拥有content/farming、client/farming及原独有作物资源/数据；status负责确定性剩余块盘点与Codec/Gardenling前置审计，后续固定源码验证。禁止测试期间改main，尚未完整迁完不启动两端。
+
+已发现并实际修复旧worldgen 25处UniformInt.value包装不符合目标MapCodec（不是原数值变化），8文件明细见int-provider-format-fixes.json。旧批次原件字节一致报告作为历史证据保留，不再当新目标解码成功。特殊植物恢复5独立块、完整三碰撞增益族、蒲公英双形态/骨粉实际主手消费、Roots水浸/空visual形状与全部十份世界生成数据，先写矩阵后代码；配置其余Codec由status追加审计。

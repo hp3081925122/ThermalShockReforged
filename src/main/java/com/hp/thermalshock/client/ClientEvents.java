@@ -13,6 +13,9 @@ import com.hp.thermalshock.client.ambient.AmbientRenderers;
 import com.hp.thermalshock.client.lights.LightsRenderers;
 import com.hp.thermalshock.client.spore.SporeRenderers;
 import com.hp.thermalshock.client.sootle.SootleRenderers;
+import com.hp.thermalshock.client.gardenling.GardenlingRenderers;
+import com.hp.thermalshock.client.farming.FarmingRenderers;
+import com.hp.thermalshock.client.mangler.ManglerRenderers;
 import com.hp.thermalshock.client.weapons.WeaponClient;
 import com.hp.thermalshock.client.status.aura.AuraClient;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -23,6 +26,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
@@ -39,6 +43,9 @@ public final class ClientEvents {
         LightsRenderers.register(event);
         SporeRenderers.register(event);
         SootleRenderers.register(event);
+        GardenlingRenderers.register(event);
+        ManglerRenderers.register(event);
+        FarmingRenderers.register(event);
         event.registerEntityRenderer(ModEntities.PONDLER.get(), PondlerRenderer::new);
         event.registerEntityRenderer(ModEntities.PROBOSKER.get(), ProboskerRenderer::new);
         event.registerEntityRenderer(ModEntities.SCARLET_RAY.get(), ScarletRayRenderer::new);
@@ -56,6 +63,7 @@ public final class ClientEvents {
         WeaponClient.extensions(event);
         AuraClient.extensions(event);
         FaunaRenderers.extensions(event);
+        FarmingRenderers.extensions(event);
     }
 
     @SubscribeEvent
@@ -65,7 +73,11 @@ public final class ClientEvents {
         SnobolRenderers.particles(event);
         AmbientRenderers.particles(event);
         AuraClient.particles(event);
+        FarmingRenderers.particles(event);
     }
+
+    @SubscribeEvent
+    public static void setup(FMLClientSetupEvent event) { event.enqueueWork(FarmingRenderers::layers); }
 
     private static final class InvisibleWarningRenderer extends EntityRenderer<ZapWarningEntity> {
         private InvisibleWarningRenderer(EntityRendererProvider.Context context) {

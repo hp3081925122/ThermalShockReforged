@@ -1,0 +1,11 @@
+# Gardenling与构造器实施
+
+依据gardenling-audit完整原件/caller矩阵，先记录实现约束。原实体是静止PathfinderMob、MONSTER注册、HP1/ATK0/speed0/step0、只环顾、实际击退抗性1、常驻且不远距消失，保原伤害免疫、声音、TextureNBT与死亡回收一个构造器，不增宠物AI/主动浇水/寿命。农业五种种子的16立方存在条件由farming模块引用该真实实体，不写占位。
+
+原唯一idle动画、透明基础贴图和eyes发光层/默认死亡侧倒、scale1/shadow.5全部保留。无用逐tick尺寸刷新移除；没有原刷怪蛋或自然出生，不新增。构造器真实BlockItem和原两配方保，不替成刷怪蛋。
+
+onPlace服务端先确认当前块/非同块重复回调，再实际消费方块成功才生成一次；保POOF20/偏移.5/速度0、BEACON_ACTIVATE和ANVIL_PLACE均BLOCKS1/2。原先spawn再置AIR顺序改为先消费是防重入缺陷修复，生成被外部取消时仍按原消耗语义不复制物品。原构造器无BE、声音GLASS/硬1抗爆10/遮光15，原cube_all占位贴图是原资源事实，保原模型不擅换皮；补合理地图颜色便于失败放置等边界绘图。
+
+原gardenling_get依赖purifier_get父链未迁，暂不导悬空进度；Skullscor追踪和图鉴来源仍按所属模块待办。完整固定后交子代理编译/静态，整模组完整后再服务端和Render Preview验收。
+
+静态已核BlockItem.place：PLACED_BLOCK.trigger位于放置后blockstate1仍等于原方块的分支内；构造器onPlace立即变AIR导致该分支不执行。这是原gardenling_get的真实触发缺陷，须在完整进度模块迁移时补合法放置成功授予路径；当前保持待办，未导悬空父链或冒称进度已可用。

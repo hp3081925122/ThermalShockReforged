@@ -45,6 +45,7 @@ public final class ModEntities {
         ITEMS.register(bus);
         bus.addListener(ModEntities::attributes);
         bus.addListener(ModEntities::spawnPlacements);
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(ForecastEntity::join);
     }
 
     private static void attributes(EntityAttributeCreationEvent event) {

@@ -3741,5 +3741,58 @@
     "status": "original_color_preserved",
     "map_color": "PLANT",
     "pending": "Xaero实际渲染验收"
+  },
+  "bounceweed": {
+    "status": "original_color_preserved",
+    "map_color": "PLANT",
+    "pending": "整模组后的Xaero验证"
+  },
+  "floatweed": {
+    "status": "original_color_preserved",
+    "map_color": "PLANT",
+    "pending": "整模组后的Xaero验证"
+  },
+  "loque_dandelion": {
+    "status": "original_color_preserved",
+    "map_color": "PLANT",
+    "pending": "整模组后的Xaero验证"
+  },
+  "windblown_loque_dandelion": {
+    "status": "original_color_preserved",
+    "map_color": "PLANT",
+    "pending": "整模组后的Xaero验证"
+  },
+  "vermillion_roots": {
+    "status": "texture_derived",
+    "texture": "thermal_shock:block/vermillionhyphae",
+    "map_color": "COLOR_RED",
+    "dominant_rgb": [
+      197,
+      38,
+      66
+    ],
+    "pending": "整模组后的Xaero验证"
+  },
+  "pure_muck": {
+    "status": "texture_derived",
+    "map_color": "COLOR_GRAY",
+    "texture": "thermal_shock:block/slush",
+    "dominant_rgb": [
+      74,
+      72,
+      96
+    ],
+    "pending": "Xaero整体验证"
+  },
+  "cobalt_block": {
+    "status": "family_color_derived",
+    "map_color": "COLOR_BLUE",
+    "pending": "三态光照与Xaero整体验证"
+  },
+  "gardenling_constructor": {
+    "status": "texture_derived",
+    "texture": "thermal_shock:block/placeholder",
+    "map_color": "COLOR_PURPLE",
+    "pending": "瞬时消费块的边界显示验证"
   }
 }

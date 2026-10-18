@@ -1,6 +1,9 @@
 package com.hp.thermalshock.entity;
 
 import com.hp.thermalshock.config.CombatConfig;
+import com.hp.thermalshock.ThermalShock;
+import net.minecraft.server.level.ServerLevel;
+import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -43,9 +46,21 @@ public final class ForecastEntity extends Monster implements GeoEntity {
         super(type, level);
         xpReward = 8;
         setNoGravity(true);
+        applyConfiguredAttributes(true);
+    }
+
+    private void applyConfiguredAttributes(boolean initial) {
+        if (!(level() instanceof ServerLevel) || !CombatConfig.SPEC.isLoaded()) return;
+        float health = getHealth();
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(CombatConfig.FORECAST_HEALTH.get());
         getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(CombatConfig.FORECAST_DAMAGE.get());
-        setHealth(getMaxHealth());
+        setHealth(initial ? getMaxHealth() : Math.min(health, getMaxHealth()));
+        ThermalShock.LOGGER.debug("Configured Forecast entity={} initial={} health={} maxHealth={} attackDamage={}",
+                getUUID(), initial, getHealth(), getMaxHealth(), getAttributeValue(Attributes.ATTACK_DAMAGE));
+    }
+
+    public static void join(EntityJoinLevelEvent event) {
+        if (event.getEntity() instanceof ForecastEntity forecast) forecast.applyConfiguredAttributes(false);
     }
 
     public static AttributeSupplier.Builder createAttributes() {
@@ -139,6 +154,7 @@ public final class ForecastEntity extends Monster implements GeoEntity {
         if (tag.contains("Texture")) entityData.set(TEXTURE, tag.getString("Texture"));
         attackCooldown = Math.max(0, tag.getInt("ZapCooldown"));
         driftCooldown = Math.max(0, tag.getInt("DriftCooldown"));
+        applyConfiguredAttributes(false);
     }
 
     @Override

@@ -1,0 +1,72 @@
+{
+  "target": "1.21.1 NeoForge21.1.233",
+  "source_evidence": "UniformInt.CODEC MapCodec and IntProvider dispatch",
+  "changes": [
+    {
+      "path": "data/thermal_shock/worldgen/configured_feature/loque_birch_tree.json",
+      "providers": [
+        "$.config.features[0].feature.config.foliage_placer.offset",
+        "$.config.features[0].feature.config.foliage_placer.radius",
+        "$.config.features[0].feature.config.foliage_placer.trunk_height",
+        "$.config.features[1].feature.config.foliage_placer.offset",
+        "$.config.features[1].feature.config.foliage_placer.radius",
+        "$.config.features[1].feature.config.foliage_placer.trunk_height"
+      ]
+    },
+    {
+      "path": "data/thermal_shock/worldgen/configured_feature/shiverglitter_tree.json",
+      "providers": [
+        "$.config.features[0].feature.config.trunk_placer.branch_count",
+        "$.config.features[0].feature.config.trunk_placer.branch_horizontal_length",
+        "$.config.features[0].feature.config.trunk_placer.branch_end_offset_from_top",
+        "$.config.features[1].feature.config.trunk_placer.branch_count",
+        "$.config.features[1].feature.config.trunk_placer.branch_horizontal_length",
+        "$.config.features[1].feature.config.trunk_placer.branch_end_offset_from_top"
+      ]
+    },
+    {
+      "path": "data/thermal_shock/worldgen/configured_feature/shiverglitter_tree_cobalt_heights.json",
+      "providers": [
+        "$.config.features[0].feature.config.trunk_placer.branch_count",
+        "$.config.features[0].feature.config.trunk_placer.branch_horizontal_length",
+        "$.config.features[0].feature.config.trunk_placer.branch_end_offset_from_top",
+        "$.config.features[1].feature.config.trunk_placer.branch_count",
+        "$.config.features[1].feature.config.trunk_placer.branch_horizontal_length",
+        "$.config.features[1].feature.config.trunk_placer.branch_end_offset_from_top"
+      ]
+    },
+    {
+      "path": "data/thermal_shock/worldgen/configured_feature/vermilli_fungus.json",
+      "providers": [
+        "$.config.root_placer.trunk_offset_y",
+        "$.config.trunk_placer.extra_branch_length",
+        "$.config.trunk_placer.extra_branch_steps"
+      ]
+    },
+    {
+      "path": "data/thermal_shock/worldgen/placed_feature/angler_bulb_feature.json",
+      "providers": [
+        "$.placement[0].count"
+      ]
+    },
+    {
+      "path": "data/thermal_shock/worldgen/placed_feature/heights_weeds.json",
+      "providers": [
+        "$.placement[0].count"
+      ]
+    },
+    {
+      "path": "data/thermal_shock/worldgen/placed_feature/vermillion_hyphae_patch.json",
+      "providers": [
+        "$.placement[0].count"
+      ]
+    },
+    {
+      "path": "data/thermal_shock/worldgen/placed_feature/vermillion_tree.json",
+      "providers": [
+        "$.placement[0].count"
+      ]
+    }
+  ],
+  "count": 25
+}
