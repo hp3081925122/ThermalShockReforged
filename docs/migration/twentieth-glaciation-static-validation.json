@@ -1,0 +1,75 @@
+{
+  "scope": "第20批Glaciation局部5项生成、真实前置方块/Chisel、独立水浸处理器；不是完整群系/维度或全模组验收",
+  "source_jar": "D:/AI临时文件/ThermalShockMigration/thermal_shock-07.9-original.jar",
+  "implementation_owner": "主代理",
+  "verification_owner": "Luna",
+  "compile": {
+    "command": "compileJava compileGametestJava processResources --offline",
+    "result": "BUILD SUCCESSFUL",
+    "duration_seconds": 48,
+    "compileGametestJava": "UP-TO-DATE",
+    "log": "D:/AI临时文件/ThermalShockMigration/twentieth-glaciation-compile.log"
+  },
+  "luna_semantic_comparison": {
+    "files": 16,
+    "groups": {
+      "biome": 1,
+      "configured": 5,
+      "placed": 5,
+      "modifier": 5
+    },
+    "normalized_equal": 15,
+    "normalization": [
+      "thermal_shock→thermal_shock_reforged",
+      "forge:add_features→neoforge:add_features及目录",
+      "UniformInt/BiasedToBottomInt旧value嵌套展平为目标MapCodec字段"
+    ],
+    "only_other_difference": "icicles configured中Glitterdrop原无blockstate属性，移除无效Properties；普通Icicles三态仍在",
+    "preserved": [
+      "count256冰柱",
+      "12%Glitterdrop分支",
+      "1..5 biased_to_bottom高度与后续两层",
+      "lotus tries32/count1..3",
+      "permafrost count64/oreSize64",
+      "pool count1/packed_ice+permafrost",
+      "shrub count12..24/radius0..1",
+      "全部Y/air/基底/biome谓词和生成step",
+      "气候/环境颜色/GoldGlitter概率.0003/Enderman生成"
+    ]
+  },
+  "luna_global_int_provider_scan": {
+    "configured_files": 34,
+    "placed_files": 31,
+    "remaining_uniform_or_biased_nested_value": 0
+  },
+  "blocks": {
+    "icicles": "真实三态/Chisel循环/金粒转化/触碰1点STALAGMITE后破碎语义/挂靠/无碰撞/标准镐标签",
+    "glitterdrop_icicle": "真实亮度15/触碰破碎/挂靠/无碰撞/标准镐标签",
+    "glitter_lotus": "真实亮度10/6高选框/保碰撞/EndRod相对中心且原速度与触发数",
+    "chisel": "真实单件COMMON/tooltip/useOn石切台NEUTRAL1/4/SUCCESS，与原过程完整行为相同",
+    "loot": "冰柱两表原无pools保空；莲花原单自掉落+survives_explosion；保random_sequence",
+    "recipe": "cobalt+cobalt_rod竖排→Chisel1，result字段item→id"
+  },
+  "corrections": [
+    "原GlowcapBlock没有animateTick，已撤回临时额外特效；GlitterLotus调用误命名GlowcapUpdateTick",
+    "Chisel过程没有额外转换逻辑，Luna先前差异推测已撤回",
+    "莲花原绝对(.5,.5,.5)粒子原点移到当前方块中心",
+    "冰柱破碎先消费方块再伤害防回调重入；挂靠检查识别全部原生air",
+    "金粒从实际使用手消费，服务端权威避免重复消耗"
+  ],
+  "waterlogging_processor": {
+    "registered_id": "thermal_shock_reforged:waterlogging_fix",
+    "reference": "https://github.com/craisinlord/IntegratedAPI/blob/803ae70cc0879910fec29834381769f12f885490/common-1.20.1/src/main/java/com/craisinlord/integrated_api/world/processors/WaterloggingFixProcessor.java",
+    "reference_scope": "官方1.20.1模块1.9.0代码；本机无原实际IA JAR，不断言所有历史版本一致",
+    "luna_branch_comparison": "流体非空、WorldGenRegion中心chunk、chunk构建高度闭区间内scheduleTick(block,0)，返回原信息/不改state；只读LevelReader防护是明确新增边界"
+  },
+  "pending": [
+    "8群系共享tag/18项全局生成",
+    "其他7群系、维度/地形/传送/天空及进度父链",
+    "Cavebloomer结构NBT/template_pool/structure_set/processor_list链",
+    "最终数据解码/世界生成/功能/两端/Render Preview验证"
+  ],
+  "runtime_started_for_this_batch": false,
+  "whole_mod_complete": false,
+  "performance_gain_measured": false
+}

@@ -1,0 +1,51 @@
+{
+  "has_precipitation": true,
+  "temperature": 0,
+  "downfall": 0.2,
+  "effects": {
+    "particle": {
+      "options": {
+        "type": "thermal_shock_reforged:gold_glitter"
+      },
+      "probability": 0.0003
+    },
+    "foliage_color": 10387789,
+    "grass_color": 9470285,
+    "sky_color": -11509387,
+    "fog_color": -12035989,
+    "water_color": -10983560,
+    "water_fog_color": -13480083
+  },
+  "spawners": {
+    "monster": [
+      {
+        "type": "enderman",
+        "weight": 1,
+        "minCount": 1,
+        "maxCount": 1
+      }
+    ],
+    "creature": [],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {},
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+  ]
+}
