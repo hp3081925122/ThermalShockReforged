@@ -174,3 +174,15 @@ heart_boost为真实玩家增益，不是内部冷却标记；保留BENEFICIAL�
 固定快照委派验证：compile-parallel-sol-final.log三项编译成功；其后Geo坩埚补地图色METAL，compile-parallel-sol-map.log仅compileJava再次成功。共364方块、511物品、13实体、6效果、1粒子、1药水，静态无重复。714份数据JSON、1893处具体自定义注册引用无悬空；初轮查出的vermillion_moss已真实迁入，不删除原掉落。6105原assets和23个Fauna动态资源哈希一致。
 
 关键复核修复包括骨粉不能覆盖不可替换建筑／扣错物品堆，Panacea使用后不再PASS回退和客户端重复声音，Willograde与Pondler正确写NeoForge伤害容器并保留绕过例外，Geo坩埚补地图色。全部作为行为修正记录，未缩动画、删粒子或省略原混合食物／投射逻辑。完整模组及服务端／客户端／Render Preview仍未完成，仅编译和静态检查通过。
+
+## 并行第二、三批进展
+
+第二批371方块／528物品／16实体的固定快照已由Sol子代理执行compileJava、compileGametestJava、processResources全部成功，735份数据JSON／1937自定义引用无悬空；6105个原assets及本批32项模型相关资源字节一致。仅编译及静态，未启动游戏。感染保真实移除后的完整20tick复发／血环爆发，修属性重应用误触发；局部任务持久化，原30tick行动锁用独立原生modifier。原蜂蜜声明未被1.20.1实际入口使用的缺陷已明确修复。
+
+装甲动画缓存以稳定实体／槽和真实逻辑stack ID隔离；换装、实体离场及退出世界清理manager，避免弱键外仍有Gecko永久强引用。geckoAnim客户端按边沿幂等，单字符串无法区分未观察到空值的同名再次触发，限制保留记录，待最终多人渲染测试。
+
+第三批实际代码为Snobol三变体及解毒剂／桶／毒泡全链、12件Zenith/Blood装甲、8食品和完整两类全局掉落；整合后待新快照编译，不能沿用第二批编译宣称已验证。新增真实攻击载体只为原多次延时爆炸保存任务，不虚增占位生物。源随机for边界须算实际数量分布；原墓地1..5种子按4096权重512/1344/1400/735/105保留，原木3..5产虫按25/56.25/18.75%保留。所有缺陷与调整详见各独占文档。
+
+整体仍未完整迁移：多数生物／Boss、GUI交易图鉴、功能方块、世界生成、维度、结构及完整进度链继续待做。当前不以已导入资源数量或编译成功冒充功能比例，两端与Render Preview留待全量代码完成。
+
+第三批最终固定快照：子代理确认compile-snobol-zenith-food.log第72行BUILD SUCCESSFUL，50秒，compileJava／compileGametestJava／processResources通过；静态371方块／553物品／20实体（含一个原延时队列替代的真实爆炸载体）／7效果／4粒子／1药水／5装甲材质／20装甲／2BE，无重复。758数据JSON、2028自定义引用无悬空；6105原assets字节不变；32食品均唯一注册。验收报告docs/migration/snobol-zenith-static-validation.json。Marrow Meld负饱和Codec兼容与1.21原生下界差异已记录。

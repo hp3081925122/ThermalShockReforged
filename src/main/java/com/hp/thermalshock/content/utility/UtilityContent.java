@@ -20,14 +20,32 @@ public final class UtilityContent {
     public static final DeferredItem<Item> LOQUE_MILK = ITEMS.register("loque_milk", () -> new LoqueMilkItem(new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)
             .food(new FoodProperties.Builder().nutrition(5).saturationModifier(1).usingConvertsTo(Items.BUCKET).build())));
     public static final DeferredItem<Item> ADAMANTINE_SPICE = ITEMS.register("adamantine_spice", () -> new AdamantineSpiceItem(new Item.Properties().rarity(Rarity.UNCOMMON)));
-    public static final DeferredItem<Item> MUCK_PIE = ITEMS.register("muck_pie", () -> new MuckPieItem(new Item.Properties().stacksTo(1).food(new FoodProperties.Builder().nutrition(10).saturationModifier(2).build())));
+    public static final DeferredItem<Item> MUCK_PIE = ITEMS.register("muck_pie", () -> new NourishingFoodItem(UseAnim.EAT));
+
+    public static final DeferredItem<Item> SNOWDAE = ITEMS.register("snowdae", () -> new NourishingFoodItem(UseAnim.EAT));
+    public static final DeferredItem<Item> LOQUESICLE = ITEMS.register("loquesicle", () -> new NourishingFoodItem(UseAnim.EAT));
+    public static final DeferredItem<Item> BLOOD_POP = ITEMS.register("blood_pop", () -> new NourishingFoodItem(UseAnim.DRINK));
+    public static final DeferredItem<Item> CHALK_CANDY = ITEMS.register("chalk_candy", () -> new NourishingFoodItem(UseAnim.EAT));
+    public static final DeferredItem<Item> LUCK_TICKET = ITEMS.register("luck_ticket", () -> new NourishingFoodItem(UseAnim.EAT));
+    public static final DeferredItem<Item> LOQUE_MILK_BOTTLE = ITEMS.register("loque_milk_bottle", BottledMilkItem::new);
+
+    public static final DeferredItem<Item> FROZEN_CHILLOO = ITEMS.register("frozen_chilloo", () -> new SlowFoodItem(0.1F));
+    public static final DeferredItem<Item> MARROW_MELD = ITEMS.register("marrow_meld", () -> new SlowFoodItem(-0.1F));
 
     private UtilityContent() { }
 
-    public static void register(IEventBus bus) { ITEMS.register(bus); }
+    public static void register(IEventBus bus) {
+        ITEMS.register(bus);
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(FoodDrops::death);
+    }
 
-    private static final class MuckPieItem extends Item {
-        private MuckPieItem(Properties properties) { super(properties); }
+    private static final class NourishingFoodItem extends Item {
+        private final UseAnim animation;
+        private NourishingFoodItem(UseAnim animation) {
+            super(new Item.Properties().stacksTo(1).food(new FoodProperties.Builder().nutrition(10).saturationModifier(2).build()));
+            this.animation = animation;
+        }
+        @Override public UseAnim getUseAnimation(ItemStack stack) { return animation; }
         @Override public int getUseDuration(ItemStack stack, LivingEntity consumer) { return 60; }
         @Override
         public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity consumer) {
@@ -35,6 +53,27 @@ public final class UtilityContent {
             if (!level.isClientSide) BuiltInRegistries.MOB_EFFECT.getHolder(ResourceLocation.fromNamespaceAndPath("farmersdelight", "nourishment"))
                     .ifPresent(effect -> consumer.addEffect(new MobEffectInstance(effect, 4000, 0)));
             return result;
+        }
+    }
+
+    private static final class SlowFoodItem extends Item {
+        private SlowFoodItem(float saturation) {
+            super(new Properties().food(new FoodProperties.Builder().nutrition(1).saturationModifier(saturation).build()));
+        }
+        @Override public int getUseDuration(ItemStack stack, LivingEntity consumer) { return 48; }
+    }
+
+    private static final class BottledMilkItem extends Item {
+        private BottledMilkItem() {
+            super(new Properties().stacksTo(1).food(new FoodProperties.Builder().nutrition(1).saturationModifier(0.5F)
+                    .usingConvertsTo(Items.GLASS_BOTTLE).build()));
+        }
+        @Override public UseAnim getUseAnimation(ItemStack stack) { return UseAnim.DRINK; }
+        @Override public int getUseDuration(ItemStack stack, LivingEntity consumer) { return 20; }
+        @Override
+        public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity consumer) {
+            ItemStack result = super.finishUsingItem(stack, level, consumer);
+            return !(consumer instanceof Player) && result.isEmpty() ? new ItemStack(Items.GLASS_BOTTLE) : result;
         }
     }
 

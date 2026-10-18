@@ -1,6 +1,6 @@
 # Infection 效果下一批源码审计
 
-状态：仅审计与设计，未修改main源码；未运行游戏测试。原件07.9 JAR只读。后续所有权仍为content/status/**、client/status/**；InfestophageSeed、Infestophage、Louse由Fauna的entity/infestation/**实现。本文件不将建议当成已实施行为。
+状态：第二批代码已按主线冻结决策实施，未运行构建或游戏测试。原件07.9 JAR只读。后续所有权仍为content/status/**、client/status/**；InfestophageSeed、Infestophage、Louse由Fauna的entity/infestation/**实现。本文件不将建议当成已实施行为。
 
 ## 证据来源
 
@@ -12,9 +12,9 @@
 
 注册ID infected，HARMFUL，颜色-65536（#FF0000），无属性modifier，没有客户端隐藏覆写，原库存、HUD、粒子表现取默认。所有amplifier都每tick调用相同过程，过程本身不读取等级。
 
-每tick独立Math.random()<0.005（0.5%）时同时执行：GENERIC伤害1；makeStuckInBlock(AIR, Vec3(0.25,0.05,0.25))；在当前位置加当前eyeHeight播放levelEvent2001，事件数据是VEINROOT默认状态的Block.getId。伤害未指定攻击者。此处没有额外生物生成，也不是Infestophage专用状态。目标应使用damageSources().generic()和目标已证实的stuck/levelEvent API，不使用命令替代。
+原tickEffects在两端都调用MobEffectInstance.tick，因此本批不额外添加服务器门槛减少原客户端黏滞/破碎视觉；两端独立随机。每tick独立Math.random()<0.005（0.5%）时同时执行：GENERIC伤害1；makeStuckInBlock(AIR, Vec3(0.25,0.05,0.25))；在当前位置加当前eyeHeight播放levelEvent2001，事件数据是VEINROOT默认状态的Block.getId。伤害未指定攻击者。此处没有额外生物生成，也不是Infestophage专用状态。目标应使用damageSources().generic()和目标已证实的stuck/levelEvent API，不使用命令替代。
 
-veinroot当前未在MaterialContent注册，不能用AIR或别的红方块替代事件数据；下一批需Terrain/root闭合该真实方块依赖，或明确留待实现，禁止让视觉数据悄悄变零。
+逐tick已直接引用主线承诺提供的TerrainContent.VEINROOT；不以AIR或别的红方块替代事件数据。该真实方块由主线集成，Status不重复注册。
 
 ## “Expires”真实触发时机
 
@@ -33,7 +33,7 @@ InfectedMobEffect没有自然到期专用处理；它在removeAttributeModifiers
 
 因此仅订阅Expired，或将全部行为改到自然到期，会漏掉原续时与治愈链。MobEffectEvent.Remove为可取消的移除前事件，也不能直接把它视作移除成功，更不覆盖所有modifier重应用。
 
-目标1.21.1 removeAttributeModifiers不再提供LivingEntity；已有common LivingEntityStatusMixin可以在独占目录扩展onEffectRemoved/onEffectUpdated钩子。若保留原触发范围，建议onEffectRemoved的HEAD及onEffectUpdated的HEAD且reapplyModifiers=true调用infection回调，限定服务器且instance为INFECTED，顺序对齐原remove modifier时机；保留Electrified原TAIL逻辑，避免双触发。只挂自然到期需要明确行为变更授权。
+目标1.21.1 removeAttributeModifiers不再提供LivingEntity。最终按主线授权修复旧误触发：在独占LivingEntityStatusMixin.onEffectRemoved TAIL仅处理INFECTED；不在onEffectUpdated启动感染任务。真正移除包括自然到期、牛奶、图腾、蜂蜜及removeEffect；可取消移除若被取消不会到达此hook。续时、升级、隐藏恢复、强制替换等仅重施modifier时不启动爆发，Electrified原TAIL回调保留。
 
 ## 回调发生后的真实时序
 
@@ -69,24 +69,41 @@ Graver免疫仅为InfectingMobAttack的instanceof排除，不是全局Applicable
 
 原HoneyBottleItem.finishUsingItem只removeEffect(POISON)，不调用通用curative列表，未找到模组额外蜂蜜治愈事件。因此“声明能用蜂蜜治愈”不等于原喝蜂蜜实际能治感染。目标NeoForge蜂蜜改用EffectCures.HONEY；若直接给感染添加HONEY将修复一个原未生效声明，同时改变真实可玩行为，需在实施时明确作为缺陷修复决定，不能当成无变化照搬。MILK与PROTECTED_BY_TOTEM应保留；HONEY选择留给主线本批行为决策。
 
-## 可执行迁移方案与需冻结接口
+## 已落地实现与接口
 
-Status公开DeferredHolder<MobEffect,MobEffect> StatusContent.INFECTED，保留原ID/颜色/默认显示；新增独立InfectedEffect逐tick处理，不把它塞进通用NONE逻辑。Status内部注册SimpleParticleType BLOOD_SPIRAL和BLOOD_ATTACK，均原SimpleParticleType(true)；使用ServerLevel原生sendParticles，保持原命令参数，不走命令。
+StatusContent.INFECTED公开Holder；独立InfectedEffect保留原ID、颜色、默认显示和逐tick概率、伤害、黏滞及veinroot破碎事件。StatusContent注册原SimpleParticleType(true)的BLOOD_SPIRAL、BLOOD_ATTACK。
 
-客户端增加StatusClient.registerParticles(RegisterParticleProvidersEvent)，注册blood_spiral/blood_attack的sprite provider；当前StatusClient.register(RegisterClientExtensionsEvent)继续处理Frostbite。AAA Particles使用已由WhiteOrb目标编译确认的AAALevel.addParticle及ParticleEmitterInfo(ResourceLocation).position(Vec3)。原两个sprite粒子均size0.2、lifetime1、gravity0、noPhysics，tick时各触发bloodspiral/bloodattack EFK；保留原sprite初始速度参数。需要root为CLIENT事件总线接新的registerParticles接口。
+StatusClient.registerParticles(RegisterParticleProvidersEvent)注册sprite provider，主线负责CLIENT事件接线。InfectionParticle保留size0.2、lifetime1、gravity0、noPhysics、sprite与原初始速度；每tick使用目标已确认AAA API创建ParticleEmitterInfo并发原bloodspiral/bloodattack EFK。ServerLevel.sendParticles保持原命令count0、delta0、speed0，不使用命令或全局延迟队列。原粒子JSON、sprite和EFK资源不改。
 
-现有assets包括particles/blood_spiral.json、particles/blood_attack.json及对应sprite、effeks/bloodspiral.efkefc、effeks/bloodattack.efkefc，不改其内容。效果本体不需要全屏渲染hook或新网络包。
+全局攻击来源使用精确hurt入口hook：原Forge LivingEntity.hurt第一行调用ForgeHooks.onLivingAttack，但ForgeHooks对Player直接跳过；Player.hurt第一行另调用onPlayerAttack。目标用LivingEntityStatusMixin在LivingEntity.hurt HEAD只处理非Player，用新增PlayerInfectionStatusMixin在Player.hurt HEAD处理Player，均服务器限定、检查原infecting_mobs标签及注册ID graver排除。不会等到Incoming阶段才检查，也不会在玩家调用super.hurt时重复执行。主线需在全局common mixins列表加入content.status.mixin.PlayerInfectionStatusMixin（package为com.hp.thermalshock时）。
 
-全局感染攻击事件必须核对NeoForge目标攻击早期阶段，不用LivingIncomingDamageEvent冒充原LivingAttack而忽略伤害被免疫/盾牌阻断的时机；必要时与root共享已有LivingEntity mixin提供精确hurt入口hook。Graver尚未实现时接口不能静默以“所有感染实体免疫”代替，应由Fauna后续提供真实Graver类型或明确的身份判断。
+InfectionStatus把任务写进患者NeoForge persistentData的thermal_shock:infection_tasks，Entity.java:1721、1803证实随实体NBT写读。每个任务保存原X/Y/Z、剩余tick20、创建tick及非玩家爆发标记；所属状态保存origin维度。调度只在EntityTickEvent.Post按加载中的患者tick减少remaining，不按离线gameTime追赶，因此卸载、服务器重启后剩余tick继续，旧坐标保留；创建同tick不提前减一。每个移除触发单独任务，先复发再非玩家爆发，不按目标数合并原输出。
 
-20tick任务应由患者自身状态控制，不用捕获实体的全局queueServerWork；每次真实回调都记录原origin维度/坐标、到期时间及任务种类，保留两条任务顺序和独立概率。不擅自合并重复续时产生的任务或限制传播目标数。建议保存附属状态或以生命周期归属组件实现；原没有任务持久化，对重启/卸载的具体处理必须在实现前冻结，不能自行声称与旧全局闭包等价。
+非玩家30tick移动约束独立保存在LockRemaining；以患者MOVEMENT_SPEED原生transient modifier ADD_MULTIPLIED_TOTAL -1归零，不加255级缓慢，不清除/替换其他药效或他人的modifier。30tick锁与20tick任务分离，叠加移除重置锁为30tick。EntityJoinLevelEvent在首个移动tick之前恢复自己的transient modifier；维度不符则清理。正常结束只移除自己命名的modifier。
 
-建议的安全修复边界需主线决定：死亡/移除/跨维度取消所属任务；再净化是否取消已排任务；蜂蜜能否真治愈；续时是否继续触发爆发。前三者改善残留/声明缺陷，最后一项会显著改变原传播频次，不能借重构之名静默去掉。若保持原续时触发范围，用患者局部任务列表逐项兑现，不使用无界全局扫描；若要去重，需明确记录原后果与授权。
+死亡、discard、跨维度取消患者任务与锁；KILLED/DISCARDED/CHANGED_DIMENSION离开事件及每次调度/爆发的存活、removed、维度核对保证任务不跨实体生命周期继续执行。UNLOADED_TO_CHUNK及退出/重启保留局部剩余tick。延迟开始后再获得Purified不新增取消，保持原净化时机。
 
-性能风险：原Blood每tick续时、感染传播再续时都能触发remove modifier回调，非玩家每次20tick后扫描2.25格并再感染，密集场景可能形成大量重复任务/扫描。直接保留输出本身也有成本，必须先告知，不能以减少范围、数量或取消技能掩盖。阶段审计仅证明这一风险的控制流，不代表已测得性能问题。
+## 主线明确授权的修复边界
 
-## 待实现与验收
+1. 仅真实移除触发20tick复发和爆发，修复续时、升级、隐藏恢复等重施属性造成的误爆发；牛奶、图腾移除仍触发，不把感染简化为无后果清除。
+2. 蜂蜜按原curative声明修复为真实可清感染；清除仍走相同移除回调，无Purified仍可能复发/爆发。Purified不会主动清当前感染，也不扩大为感染免疫。
+3. 用患者局部持久任务替换全局闭包，死亡/discard/跨维取消；卸载和重启保存剩余tick，避免离线到点即时爆发。每次移除独立保留，未限范围或目标数量。
+4. 以独立原生移动属性约束替代Slowness255内部锁，保持完整30tick，不占用其他药效。
+5. 固定GENERIC1/MAGIC5属于状态伤害，没有攻击属性宿主，原数值保留；不硬套生物基础攻击力。
 
-当前未注册INFECTED、两种粒子或任何新攻击事件。依赖缺口：veinroot真实方块、infecting_mobs标签5实体的分批迁移、Graver类型、BlightedSpore、Blood流体/方块；后两者可后续接公共INFECTED holder，不能标成已闭合。
+修复续时误触发降低了旧反复接触造成的误排队风险，但真实移除事件密集时仍可能存在多个原2.25格扫描；未用截断或合并隐藏行为成本。未测得运行时性能数字。
 
-下一批实现前冻结：1 实际remove/update触发范围；2 移动锁原30tick等价方式；3 任务重载/死亡/维度/净化规则；4 蜂蜜真实治愈修复；5 原来源事件的准确目标hook。完整模组后服务端需覆盖所有这些分支及叠加/多实体/取消事件，Render Preview核对两EFK及veinroot破碎视觉。当前无编译或运行时通过结论。
+## 接线、依赖与未迁移来源
+
+模块注册仍StatusContent.register(bus)，内部已注册实体tick/join/leave事件；新客户端入口和PlayerInfectionStatusMixin需要主线接线；TerrainContent.VEINROOT由主线提供真实方块。
+
+infecting_mobs标签原5个实体由主线随各批依赖导入，未实现的实体不能强行制造占位注册。Graver仅按注册ID排除该攻击入口，其他来源不扩大免疫。BlightedSpore碰撞、Blood流体entityInside、Ripple技能消费仍归各自后续批次；当前公开INFECTED可供接入，不宣称其已迁。
+
+Infestophage通过原tag来源感染，Seed与Louse不需Status生成接口，也不能加入原无此项的攻击tag。三种实体由Fauna实现，Status不跨目录修改。
+
+## 冻结与验证状态
+
+源码已完成本批并静态自查；依要求未执行任何Gradle、服务端、客户端或GameTest。所有新增/修改Java保持UTF-8且无注释，资源只读。接线及真实veinroot依赖由主线整合后统一委派编译。
+
+后续需服务端验证真实移除/取消移除、普通续时与升级不爆发、隐藏恢复、牛奶/蜂蜜/图腾、Purified入口与已排任务、玩家50%复发/非玩家必复发、所有旧位置参数、多任务排序、20/30tick独立时序、其他药效叠加、存读档、卸载/重启恢复、死亡/discard/跨维取消、Player与非Player攻击入口只执行一次。Render Preview核对两EFK、sprite和veinroot破碎事件。当前没有编译或运行时通过结论。
+

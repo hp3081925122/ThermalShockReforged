@@ -5,6 +5,9 @@ import com.hp.thermalshock.entity.ModEntities;
 import com.hp.thermalshock.entity.ZapWarningEntity;
 import com.hp.thermalshock.client.fauna.FaunaRenderers;
 import com.hp.thermalshock.client.status.StatusClient;
+import com.hp.thermalshock.client.armor.ArmorClient;
+import com.hp.thermalshock.client.infestation.InfestationRenderers;
+import com.hp.thermalshock.client.snobol.SnobolRenderers;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRenderer;
@@ -22,6 +25,8 @@ public final class ClientEvents {
     @SubscribeEvent
     public static void renderers(EntityRenderersEvent.RegisterRenderers event) {
         FaunaRenderers.register(event);
+        InfestationRenderers.register(event);
+        SnobolRenderers.register(event);
         event.registerEntityRenderer(ModEntities.PONDLER.get(), PondlerRenderer::new);
         event.registerEntityRenderer(ModEntities.PROBOSKER.get(), ProboskerRenderer::new);
         event.registerEntityRenderer(ModEntities.SCARLET_RAY.get(), ScarletRayRenderer::new);
@@ -33,12 +38,15 @@ public final class ClientEvents {
     @SubscribeEvent
     public static void extensions(RegisterClientExtensionsEvent event) {
         StatusClient.register(event);
+        ArmorClient.extensions(event);
         FaunaRenderers.extensions(event);
     }
 
     @SubscribeEvent
     public static void particles(RegisterParticleProvidersEvent event) {
         FaunaRenderers.particles(event);
+        StatusClient.registerParticles(event);
+        SnobolRenderers.particles(event);
     }
 
     private static final class InvisibleWarningRenderer extends EntityRenderer<ZapWarningEntity> {

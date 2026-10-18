@@ -71,7 +71,6 @@ public final class FaunaEntities {
         bus.addListener(FaunaEntities::placements);
         bus.addListener(FaunaEntities::capabilities);
         NeoForge.EVENT_BUS.addListener(FaunaEvents::incomingDamage);
-        NeoForge.EVENT_BUS.addListener(FaunaEvents::death);
     }
 
     private static void capabilities(net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent event) {

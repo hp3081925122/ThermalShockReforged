@@ -4,7 +4,8 @@
   "package": "com.hp.thermalshock",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "content.status.mixin.LivingEntityStatusMixin"
+    "content.status.mixin.LivingEntityStatusMixin",
+    "content.status.mixin.PlayerInfectionStatusMixin"
   ],
   "injectors": {
     "defaultRequire": 1

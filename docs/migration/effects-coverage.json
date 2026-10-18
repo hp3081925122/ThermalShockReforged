@@ -61,7 +61,13 @@
       "status": "not_migrated"
     },
     "infected": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "module": "com.hp.thermalshock.content.status",
+      "evidence": "infection-effect-batch.md",
+      "pending": [
+        "其余感染来源实体／Blood流体／BlightedSpore／Ripple联动",
+        "完整模组后的两端和AAA粒子对照"
+      ]
     },
     "purified": {
       "status": "implemented_pending_integration_validation",
@@ -76,7 +82,14 @@
       "status": "not_migrated"
     },
     "low_gravity": {
-      "status": "not_migrated"
+      "status": "reimplemented_for_carborundum_source",
+      "module": "com.hp.thermalshock.content.armor",
+      "evidence": "armor-batch.md",
+      "implementation": "独立原生GRAVITY -.06 modifier、持久剩余10tick，非伪装药效",
+      "pending": [
+        "其他原来源尚需随各技能审计迁移",
+        "整模组完整后验证尾效、维度及重载"
+      ]
     },
     "no_knockback": {
       "status": "not_migrated"

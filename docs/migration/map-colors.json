@@ -3563,5 +3563,47 @@
     "map_color": "METAL",
     "evidence": "fauna-batch.md",
     "note": "仅补金属主体地图颜色，Geo渲染与遮挡属性不变"
+  },
+  "veinroot": {
+    "status": "semantic_color_for_missing_original",
+    "map_color": "COLOR_RED",
+    "evidence": "infection-block-batch.md",
+    "validation": "static_only_xaero_pending"
+  },
+  "veinroot_ends": {
+    "status": "semantic_color_for_missing_original",
+    "map_color": "COLOR_RED",
+    "evidence": "infection-block-batch.md",
+    "validation": "static_only_xaero_pending"
+  },
+  "infested_log": {
+    "status": "semantic_color_for_missing_original",
+    "map_color": "COLOR_RED",
+    "evidence": "infection-block-batch.md",
+    "validation": "static_only_xaero_pending"
+  },
+  "loque_leaves": {
+    "status": "semantic_color_for_missing_original",
+    "map_color": "COLOR_LIGHT_BLUE",
+    "evidence": "infection-block-batch.md",
+    "validation": "static_only_xaero_pending"
+  },
+  "dark_loque_leaves": {
+    "status": "semantic_color_for_missing_original",
+    "map_color": "COLOR_BLUE",
+    "evidence": "infection-block-batch.md",
+    "validation": "static_only_xaero_pending"
+  },
+  "purified_loque_leaves": {
+    "status": "semantic_color_for_missing_original",
+    "map_color": "COLOR_LIGHT_BLUE",
+    "evidence": "infection-block-batch.md",
+    "validation": "static_only_xaero_pending"
+  },
+  "dull_leaves": {
+    "status": "semantic_color_for_missing_original",
+    "map_color": "TERRACOTTA_GREEN",
+    "evidence": "infection-block-batch.md",
+    "validation": "static_only_xaero_pending"
   }
 }
