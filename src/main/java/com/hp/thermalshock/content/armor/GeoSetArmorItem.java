@@ -45,15 +45,21 @@ public final class GeoSetArmorItem extends ArmorItem implements GeoItem {
         CARBORUNDUM("carborundum_armor", "carborundum_armor", "§6Set Bonus: Low gravity!"),
         RUBY_ZENITH("rubyarmor", "rubyarmorzenith", "§6Set Bonus: Passive Haste. Killing enemies with Ruby weapons grants a burst of Regen."),
         BLOOD_ZENITH("bloodarmor", "bloodarmorzenith", "§6Set Bonus: Passive Resistance."),
-        BLOOD("bloodarmor", "bloodarmor", "§6Set Bonus: Passive Resistance. Carrying weapons slows the wearer down.");
+        BLOOD("bloodarmor", "bloodarmor", "§6Set Bonus: Passive Resistance. Carrying weapons slows the wearer down."),
+        SENTRY("sentry_armor", "sentryarmor", "§6Set Bonus: Afflicts all nearby mobs with Glowing while sneaking.", "idle");
 
         private final String model;
         private final String texture;
         private final String tooltip;
+        private final String defaultAnimation;
         Style(String model, String texture, String tooltip) {
+            this(model, texture, tooltip, "0");
+        }
+        Style(String model, String texture, String tooltip, String defaultAnimation) {
             this.model = model;
             this.texture = texture;
             this.tooltip = tooltip;
+            this.defaultAnimation = defaultAnimation;
         }
     }
 
@@ -118,7 +124,7 @@ public final class GeoSetArmorItem extends ArmorItem implements GeoItem {
     public void registerControllers(AnimatableManager.ControllerRegistrar registrar) {
         registrar.add(new AnimationController<>(this, "controller", 5, state -> {
             Playback active = playback(state);
-            return active == null || !active.playing ? state.setAndContinue(RawAnimation.begin().thenLoop("0")) : PlayState.STOP;
+            return active == null || !active.playing ? state.setAndContinue(RawAnimation.begin().thenLoop(style.defaultAnimation)) : PlayState.STOP;
         }));
         registrar.add(new AnimationController<>(this, "procedureController", 5, state -> {
             Playback active = playback(state);

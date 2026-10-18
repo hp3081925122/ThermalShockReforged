@@ -26,12 +26,17 @@ public final class ArmorContent {
     public static final List<DeferredItem<GeoSetArmorItem>> RUBY_ZENITH = new ArrayList<>();
     public static final List<DeferredItem<GeoSetArmorItem>> BLOOD_ZENITH = new ArrayList<>();
     public static final List<DeferredItem<GeoSetArmorItem>> BLOOD = new ArrayList<>();
+    public static final List<DeferredItem<GeoSetArmorItem>> SENTRY = new ArrayList<>();
     public static final List<DeferredItem<GeoSetArmorItem>> ALL = new ArrayList<>();
     private static final DeferredHolder<ArmorMaterial, ArmorMaterial> RUBY_MATERIAL = MATERIALS.register("ruby_armor", () -> material(false));
     private static final DeferredHolder<ArmorMaterial, ArmorMaterial> CARBORUNDUM_MATERIAL = MATERIALS.register("carborundum_armor", () -> material(true));
     private static final DeferredHolder<ArmorMaterial, ArmorMaterial> RUBY_ZENITH_MATERIAL = MATERIALS.register("ruby_zenith_armor", () -> zenithMaterial(false, "ruby_zenith_armor"));
     private static final DeferredHolder<ArmorMaterial, ArmorMaterial> BLOOD_ZENITH_MATERIAL = MATERIALS.register("blood_zenith_armor", () -> zenithMaterial(true, "blood_zenith_armor"));
     private static final DeferredHolder<ArmorMaterial, ArmorMaterial> BLOOD_MATERIAL = MATERIALS.register("blood_armor", () -> zenithMaterial(true, "blood_armor"));
+    private static final DeferredHolder<ArmorMaterial, ArmorMaterial> SENTRY_MATERIAL = MATERIALS.register("sentry", () -> new ArmorMaterial(
+            Map.of(ArmorItem.Type.HELMET, 7, ArmorItem.Type.CHESTPLATE, 7), 50, SoundEvents.ARMOR_EQUIP_LEATHER,
+            () -> Ingredient.of(MaterialContent.items().get("silver_sentrapede_hide").get()),
+            List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(ThermalShock.MOD_ID, "sentry"))), 0, 0));
 
     static {
         for (ArmorItem.Type type : List.of(ArmorItem.Type.HELMET, ArmorItem.Type.CHESTPLATE, ArmorItem.Type.LEGGINGS, ArmorItem.Type.BOOTS)) {
@@ -46,6 +51,11 @@ public final class ArmorContent {
         ALL.addAll(RUBY_ZENITH);
         ALL.addAll(BLOOD_ZENITH);
         ALL.addAll(BLOOD);
+        for (ArmorItem.Type type : List.of(ArmorItem.Type.HELMET, ArmorItem.Type.CHESTPLATE)) {
+            SENTRY.add(ITEMS.register("sentry_" + type.getName(), () -> new GeoSetArmorItem(SENTRY_MATERIAL, type,
+                    GeoSetArmorItem.Style.SENTRY, new Item.Properties().durability(type.getDurability(23)))));
+        }
+        ALL.addAll(SENTRY);
     }
 
     private static ArmorMaterial material(boolean carbon) {
@@ -71,5 +81,6 @@ public final class ArmorContent {
         NeoForge.EVENT_BUS.addListener(ArmorSetEvents::tick);
         NeoForge.EVENT_BUS.addListener(ArmorSetEvents::death);
         NeoForge.EVENT_BUS.addListener(ArmorSetEvents::clonePlayer);
+        NeoForge.EVENT_BUS.addListener(ArmorSetEvents::serverTick);
     }
 }
