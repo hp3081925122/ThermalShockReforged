@@ -13,14 +13,14 @@
     "scope": "Historical 18-test snapshot before Probosker/Pondler, not current code acceptance"
   },
   "assets_unchanged": 6105,
-  "unique_block_ids": 354,
+  "unique_block_ids": 364,
   "full_mod_migration": "incomplete",
   "render_comparison": "not_run",
   "xaero_target_runtime": "not_run",
   "tetra_tinkers_target_runtime": "not_required_by_user",
   "all_features_server_acceptance": "not_run",
   "paintings": 17,
-  "entities_with_migrated_code": 6,
+  "entities_with_migrated_code": 13,
   "latest_runtime_attempt": {
     "log": "D:/AI临时文件/ThermalShockMigration/gametest-probosker-2.log",
     "executed": 21,
@@ -32,10 +32,17 @@
   "current_batch_runtime": "not_run",
   "compile_logs": [
     "D:/AI临时文件/ThermalShockMigration/compile-pondler-final.log",
-    "D:/AI临时文件/ThermalShockMigration/compile-heart-crystal.log"
+    "D:/AI临时文件/ThermalShockMigration/compile-heart-crystal.log",
+    "D:/AI临时文件/ThermalShockMigration/compile-parallel-sol-final.log",
+    "D:/AI临时文件/ThermalShockMigration/compile-parallel-sol-map.log"
   ],
   "validation_delegate": "subagents",
-  "registered_real_effects": 1,
+  "registered_real_effects": 6,
   "java_utf8_and_no_comments": "passed",
-  "skill_validation": "passed"
+  "skill_validation": "passed",
+  "registered_items": 511,
+  "registered_particles": 1,
+  "registered_potions": 1,
+  "current_batch_static_data": "714 JSON / 1893 concrete custom references / no dangling registry references",
+  "current_batch_static_report": "docs/migration/parallel-static-validation.json"
 }

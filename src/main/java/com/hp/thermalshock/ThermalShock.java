@@ -4,6 +4,11 @@ import com.hp.thermalshock.content.MaterialContent;
 import com.hp.thermalshock.content.ModSounds;
 import com.hp.thermalshock.content.ModBlockEntities;
 import com.hp.thermalshock.content.ModEffects;
+import com.hp.thermalshock.content.terrain.TerrainContent;
+import com.hp.thermalshock.content.tools.ToolsContent;
+import com.hp.thermalshock.content.utility.UtilityContent;
+import com.hp.thermalshock.content.status.StatusContent;
+import com.hp.thermalshock.entity.fauna.FaunaEntities;
 import com.hp.thermalshock.entity.ModEntities;
 import com.hp.thermalshock.config.CombatConfig;
 import net.neoforged.fml.config.ModConfig;
@@ -24,6 +29,11 @@ public final class ThermalShock {
         MaterialContent.register(bus);
         ModBlockEntities.register(bus);
         ModEffects.register(bus);
+        TerrainContent.register(bus);
+        ToolsContent.register(bus);
+        UtilityContent.register(bus);
+        StatusContent.register(bus);
+        FaunaEntities.register(bus);
         ModSounds.register(bus);
         LOGGER.info("Thermal Shock migration foundation loaded: {} material blocks and {} items", MaterialContent.blocks().size(), MaterialContent.items().size());
     }

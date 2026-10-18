@@ -1,0 +1,9 @@
+# 生物交互消耗品迁移
+
+LoqueMilk原nutrition5/saturationModifier1/单堆叠/DRINK/45tick，合成与使用返回桶。目标使用原生usingConvertsTo和craftRemainder，玩家由Player.eat正确处理桶及创造模式，非玩家用完也返回桶，避免两套余物逻辑重复生成。无奶清除药效行为，不擅自变成原版牛奶桶。
+
+AdamantineSpice原UNCOMMON/64堆叠/10tick、description_0、开始使用但本身不施加效果，真实用途由Willograde交互处理。目标保留10tick及tooltip，use返回consume而非执行后PASS，修复错误回退。
+
+MuckPie原单堆叠、60tick、nutrition10/saturationModifier2。其完成回调名称是Snowdae，但实际调用命令给使用者farmersdelight:nourishment 200秒/amp0/显示粒子。目标改服务端注册表查找、存在时施加4000tick同效果，不要求安装Farmer's Delight，也不每次执行权限4的命令。不简化为普通食物，原本没有该效果时命令失败的情况改为静默无效果，不创建占位nourishment。
+
+全部原资源复用。Fauna通过UtilityContent.LOQUE_MILK、ADAMANTINE_SPICE、MUCK_PIE读取，后续相关配方／箱子链由总进度处理。游戏内验证留到整模组代码完整后委派。

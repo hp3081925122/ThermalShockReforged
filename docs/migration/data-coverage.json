@@ -260,7 +260,31 @@
     "data/thermal_shock/recipe/vermilli_wood_recipe.json",
     "data/thermal_shock/recipe/watering_can_recipe.json",
     "data/thermal_shock/recipe/zenith_duplicate.json",
-    "data/thermal_shock/recipe/zenith_duplicate_blood.json"
+    "data/thermal_shock/recipe/zenith_duplicate_blood.json",
+    "data/thermal_shock/recipe/blood_axe_recipe.json",
+    "data/thermal_shock/recipe/blood_pick_recipe.json",
+    "data/thermal_shock/recipe/blood_shovel_recipe.json",
+    "data/thermal_shock/recipe/blood_sword_recipe.json",
+    "data/thermal_shock/recipe/bone_axe_recipe.json",
+    "data/thermal_shock/recipe/bone_pickaxe_recipe.json",
+    "data/thermal_shock/recipe/bone_shovel_recipe.json",
+    "data/thermal_shock/recipe/bone_sword_recipe.json",
+    "data/thermal_shock/recipe/carborundum_axe_recipe.json",
+    "data/thermal_shock/recipe/carborundum_pickaxe_recipe.json",
+    "data/thermal_shock/recipe/carborundum_shovel_recipe.json",
+    "data/thermal_shock/recipe/carborundum_sword_recipe.json",
+    "data/thermal_shock/recipe/cobalt_axe_recipe.json",
+    "data/thermal_shock/recipe/cobalt_rod_recipe.json",
+    "data/thermal_shock/recipe/cryonic_alloy_recipe.json",
+    "data/thermal_shock/recipe/loqendia_cake.json",
+    "data/thermal_shock/recipe/red_spice_block_recipe.json",
+    "data/thermal_shock/recipe/red_spice_decraft.json",
+    "data/thermal_shock/recipe/ruby_axe_recipe.json",
+    "data/thermal_shock/recipe/ruby_pickaxe_recipe.json",
+    "data/thermal_shock/recipe/ruby_shovel_recipe.json",
+    "data/thermal_shock/recipe/ruby_sword_recipe.json",
+    "data/thermal_shock/recipe/torpedo_blast.json",
+    "data/thermal_shock/recipe/torpedo_gunpowder_recipe.json"
   ],
   "loot_tables": [
     "data/thermal_shock/loot_table/blocks/archive_glass.json",
@@ -616,7 +640,19 @@
     "data/thermal_shock/loot_table/blocks/violet_seaglass_pane.json",
     "data/thermal_shock/loot_table/entities/probosker.json",
     "data/thermal_shock/loot_table/entities/pondler.json",
-    "data/thermal_shock/loot_table/blocks/pondler_egg.json"
+    "data/thermal_shock/loot_table/blocks/pondler_egg.json",
+    "data/thermal_shock/loot_table/blocks/adamantine_spice_block.json",
+    "data/thermal_shock/loot_table/blocks/cobalt.json",
+    "data/thermal_shock/loot_table/blocks/grassy_shale.json",
+    "data/thermal_shock/loot_table/blocks/loque_grass.json",
+    "data/thermal_shock/loot_table/blocks/muck_loot.json",
+    "data/thermal_shock/loot_table/blocks/short_loque_grass.json",
+    "data/thermal_shock/loot_table/blocks/snowy_cobalt.json",
+    "data/thermal_shock/loot_table/blocks/snowy_shale.json",
+    "data/thermal_shock/loot_table/blocks/tall_frosted_grass.json",
+    "data/thermal_shock/loot_table/blocks/vermillion_moss.json",
+    "data/thermal_shock/loot_table/entities/trilobite.json",
+    "data/thermal_shock/loot_table/entities/willograde.json"
   ],
   "tags": {
     "data/minecraft/tags/blocks/beacon_base_blocks.json": {
@@ -1698,9 +1734,6 @@
     "data/thermal_shock/recipes/blinding_lantern_recipe.json": [
       "未迁移物品 thermal_shock:blinding_lantern"
     ],
-    "data/thermal_shock/recipes/blood_axe_recipe.json": [
-      "未迁移物品 thermal_shock:bloodstone_axe"
-    ],
     "data/thermal_shock/recipes/blood_boot_zenith.json": [
       "未迁移物品 thermal_shock:blood_armor_boots",
       "未迁移物品 thermal_shock:blood_zenith_armor_boots"
@@ -1729,15 +1762,6 @@
     "data/thermal_shock/recipes/blood_leggings_recipe.json": [
       "未迁移物品 thermal_shock:blood_armor_leggings"
     ],
-    "data/thermal_shock/recipes/blood_pick_recipe.json": [
-      "未迁移物品 thermal_shock:bloodstone_pickaxe"
-    ],
-    "data/thermal_shock/recipes/blood_shovel_recipe.json": [
-      "未迁移物品 thermal_shock:bloodstone_shovel"
-    ],
-    "data/thermal_shock/recipes/blood_sword_recipe.json": [
-      "未迁移物品 thermal_shock:bloodstone_sword"
-    ],
     "data/thermal_shock/recipes/bloodstone_razorwing_recipe.json": [
       "未迁移物品 thermal_shock:blood_armor_boots"
     ],
@@ -1751,18 +1775,6 @@
     "data/thermal_shock/recipes/blue_spice_decraft.json": [
       "未迁移物品 thermal_shock:mithral_spice",
       "未迁移物品 thermal_shock:mithral_spice_block"
-    ],
-    "data/thermal_shock/recipes/bone_axe_recipe.json": [
-      "未迁移物品 thermal_shock:bone_axe"
-    ],
-    "data/thermal_shock/recipes/bone_pickaxe_recipe.json": [
-      "未迁移物品 thermal_shock:bone_pickaxe"
-    ],
-    "data/thermal_shock/recipes/bone_shovel_recipe.json": [
-      "未迁移物品 thermal_shock:bone_shovel"
-    ],
-    "data/thermal_shock/recipes/bone_sword_recipe.json": [
-      "未迁移物品 thermal_shock:bone_sword"
     ],
     "data/thermal_shock/recipes/bordered_kyaneos_uncraft.json": [
       "未迁移物品 thermal_shock:bordered_kyaneos_planks",
@@ -1815,9 +1827,6 @@
       "未迁移物品 thermal_shock:carbor_gl",
       "未迁移物品 thermal_shock:core_eject_flare_gun"
     ],
-    "data/thermal_shock/recipes/carborundum_axe_recipe.json": [
-      "未迁移物品 thermal_shock:carborundum_axe"
-    ],
     "data/thermal_shock/recipes/carborundum_boots_recipe.json": [
       "未迁移物品 thermal_shock:carborundum_armor_boots"
     ],
@@ -1838,19 +1847,10 @@
     "data/thermal_shock/recipes/carborundum_leggings_recipe.json": [
       "未迁移物品 thermal_shock:carborundum_armor_leggings"
     ],
-    "data/thermal_shock/recipes/carborundum_pickaxe_recipe.json": [
-      "未迁移物品 thermal_shock:carborundum_pickaxe"
-    ],
-    "data/thermal_shock/recipes/carborundum_shovel_recipe.json": [
-      "未迁移物品 thermal_shock:carborundum_shovel"
-    ],
     "data/thermal_shock/recipes/carborundum_spear_recipe.json": [
       "未迁移物品 thermal_shock:carborundum_spear",
       "未迁移物品 thermal_shock:carborundum_sword",
       "未迁移物品 thermal_shock:ruby_spear"
-    ],
-    "data/thermal_shock/recipes/carborundum_sword_recipe.json": [
-      "未迁移物品 thermal_shock:carborundum_sword"
     ],
     "data/thermal_shock/recipes/centrifuge_recipe.json": [
       "未迁移物品 thermal_shock:centrifuge"
@@ -1889,10 +1889,6 @@
     "data/thermal_shock/recipes/claw_sickle_recipe.json": [
       "未迁移物品 thermal_shock:claw_sickle"
     ],
-    "data/thermal_shock/recipes/cobalt_axe_recipe.json": [
-      "未迁移物品 thermal_shock:cobalt",
-      "未迁移物品 thermal_shock:cobalt_axe"
-    ],
     "data/thermal_shock/recipes/cobalt_block_ghostglass_recipe.json": [
       "未迁移物品 thermal_shock:cobalt_block",
       "未迁移物品 thermal_shock:cobalt_block_ghostglass",
@@ -1910,18 +1906,12 @@
       "未迁移物品 thermal_shock:cobalt_ghostglass",
       "未迁移物品 thermal_shock:ghostglass_block"
     ],
-    "data/thermal_shock/recipes/cobalt_rod_recipe.json": [
-      "未迁移物品 thermal_shock:cobalt"
-    ],
     "data/thermal_shock/recipes/compressed_slime_recipe.json": [
       "未迁移物品 thermal_shock:compressed_springslime"
     ],
     "data/thermal_shock/recipes/core_eject_flare_gun_recipe.json": [
       "未迁移物品 thermal_shock:cobalt_block",
       "未迁移物品 thermal_shock:core_eject_flare_gun"
-    ],
-    "data/thermal_shock/recipes/cryonic_alloy_recipe.json": [
-      "未迁移物品 thermal_shock:cobalt"
     ],
     "data/thermal_shock/recipes/darksteel_light_recipe.json": [
       "未迁移物品 thermal_shock:glowcap_block"
@@ -2164,9 +2154,6 @@
       "未迁移物品 thermal_shock:bottled_pixie",
       "未迁移物品 thermal_shock:liteprism_window"
     ],
-    "data/thermal_shock/recipes/loqendia_cake.json": [
-      "未迁移物品 thermal_shock:loque_milk"
-    ],
     "data/thermal_shock/recipes/loqendia_glass_recipe.json": [
       "未迁移物品 thermal_shock:pure_muck"
     ],
@@ -2324,14 +2311,6 @@
     "data/thermal_shock/recipes/rainbow_coast_recipe.json": [
       "未迁移物品 thermal_shock:rainbow_coast"
     ],
-    "data/thermal_shock/recipes/red_spice_block_recipe.json": [
-      "未迁移物品 thermal_shock:adamantine_spice",
-      "未迁移物品 thermal_shock:adamantine_spice_block"
-    ],
-    "data/thermal_shock/recipes/red_spice_decraft.json": [
-      "未迁移物品 thermal_shock:adamantine_spice",
-      "未迁移物品 thermal_shock:adamantine_spice_block"
-    ],
     "data/thermal_shock/recipes/reinforced_window_recipe.json": [
       "未迁移物品 thermal_shock:reinforced_window",
       "标签输入待完整闭合 thermal_shock:seaglasswindows"
@@ -2354,9 +2333,6 @@
     "data/thermal_shock/recipes/ruby_armor_leggings_recipe.json": [
       "未迁移物品 thermal_shock:ruby_armor_leggings"
     ],
-    "data/thermal_shock/recipes/ruby_axe_recipe.json": [
-      "未迁移物品 thermal_shock:ruby_axe"
-    ],
     "data/thermal_shock/recipes/ruby_boot_zenith.json": [
       "未迁移物品 thermal_shock:ruby_armor_boots",
       "未迁移物品 thermal_shock:ruby_zenith_armor_boots"
@@ -2377,20 +2353,11 @@
       "未迁移物品 thermal_shock:ruby_armor_leggings",
       "未迁移物品 thermal_shock:ruby_zenith_armor_leggings"
     ],
-    "data/thermal_shock/recipes/ruby_pickaxe_recipe.json": [
-      "未迁移物品 thermal_shock:ruby_pickaxe"
-    ],
     "data/thermal_shock/recipes/ruby_razorwing_recipe.json": [
       "未迁移物品 thermal_shock:ruby_armor_boots"
     ],
-    "data/thermal_shock/recipes/ruby_shovel_recipe.json": [
-      "未迁移物品 thermal_shock:ruby_shovel"
-    ],
     "data/thermal_shock/recipes/ruby_sickle_recipe.json": [
       "未迁移物品 thermal_shock:ruby_sickle"
-    ],
-    "data/thermal_shock/recipes/ruby_sword_recipe.json": [
-      "未迁移物品 thermal_shock:ruby_sword"
     ],
     "data/thermal_shock/recipes/shale_brick_ghostglass_recipe.json": [
       "未迁移物品 thermal_shock:ghostglass_block",
@@ -2516,12 +2483,6 @@
     "data/thermal_shock/recipes/thistle_bow_recipe.json": [
       "未迁移物品 thermal_shock:thistle_bow"
     ],
-    "data/thermal_shock/recipes/torpedo_blast.json": [
-      "未迁移物品 thermal_shock:raw_torpedo"
-    ],
-    "data/thermal_shock/recipes/torpedo_gunpowder_recipe.json": [
-      "未迁移物品 thermal_shock:raw_torpedo"
-    ],
     "data/thermal_shock/recipes/trident_flower_cyan_dye.json": [
       "未迁移物品 thermal_shock:trident_flower"
     ],
@@ -2620,7 +2581,6 @@
       "未迁移物品 thermal_shock:cobalt_thermoblaster",
       "未迁移物品 thermal_shock:zenith_thermoblaster"
     ],
-    "data/thermal_shock/loot_tables/blocks/adamantine_spice_block.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/ancient_barbubble_seed.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/ancient_skorio_seed.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/angler_bulb.json": "方块行为尚未迁移",
@@ -2650,7 +2610,6 @@
     "data/thermal_shock/loot_tables/blocks/chilloo_egg.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/chiseled_mantlestone.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/chromatic_shale_lamp.json": "方块行为尚未迁移",
-    "data/thermal_shock/loot_tables/blocks/cobalt.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/cobalt_block.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/cobalt_block_ghostglass.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/cobalt_block_liteprism.json": "方块行为尚未迁移",
@@ -2688,7 +2647,6 @@
     "data/thermal_shock/loot_tables/blocks/glittery_shale.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/glowcap.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/glowcap_block.json": "方块行为尚未迁移",
-    "data/thermal_shock/loot_tables/blocks/grassy_shale.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/greenhouse_glass.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/hanging_sparkler_bulb.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/hearthfly_branch_seed.json": "方块行为尚未迁移",
@@ -2708,7 +2666,6 @@
     "data/thermal_shock/loot_tables/blocks/little_spring.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/loque_dandelion.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/loque_fern.json": "方块行为尚未迁移",
-    "data/thermal_shock/loot_tables/blocks/loque_grass.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/loque_leaves.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/lunalemon.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/lunalemon_seed.json": "方块行为尚未迁移",
@@ -2728,7 +2685,6 @@
     "data/thermal_shock/loot_tables/blocks/modest_archive_cabinet.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/mossy_cobbled_shale.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/muck.json": "方块行为尚未迁移",
-    "data/thermal_shock/loot_tables/blocks/muck_loot.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/neoflorm_seed.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/ochre_leaves.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/ochre_planks.json": "方块行为尚未迁移",
@@ -2766,14 +2722,11 @@
     "data/thermal_shock/loot_tables/blocks/shiver_leaves.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/shiverglitter_planks.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/shiverglitter_sapling.json": "方块行为尚未迁移",
-    "data/thermal_shock/loot_tables/blocks/short_loque_grass.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/skorio.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/skorio_seed.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/slush.json": "方块行为尚未迁移",
-    "data/thermal_shock/loot_tables/blocks/snowy_cobalt.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/snowy_permafrost.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/snowy_sanctum_bricks.json": "方块行为尚未迁移",
-    "data/thermal_shock/loot_tables/blocks/snowy_shale.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/sparkler_bulb.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/sparkler_seed.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/sparkly_muck.json": "方块行为尚未迁移",
@@ -2799,7 +2752,6 @@
     "data/thermal_shock/loot_tables/blocks/superbouncer.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/suspicious_safe.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/tall_angler_bulb.json": "方块行为尚未迁移",
-    "data/thermal_shock/loot_tables/blocks/tall_frosted_grass.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/tall_loque_fern.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/tall_vermillion_fern.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/tesla_reed_seed.json": "方块行为尚未迁移",
@@ -2820,7 +2772,6 @@
     "data/thermal_shock/loot_tables/blocks/vermilli_leaves.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/vermilli_planks.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/vermillion_fern.json": "方块行为尚未迁移",
-    "data/thermal_shock/loot_tables/blocks/vermillion_moss.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/vermillion_roots.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/vermillion_sapling.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/vermillion_sparkler_stem.json": "方块行为尚未迁移",

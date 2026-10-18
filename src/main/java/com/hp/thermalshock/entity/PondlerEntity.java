@@ -111,7 +111,13 @@ public final class PondlerEntity extends PathfinderMob implements GeoEntity {
 
     @Override
     protected float getDamageAfterMagicAbsorb(DamageSource source, float damage) {
-        if (!level().getBlockState(blockPosition()).is(Blocks.AIR) && !source.is(DamageTypeTags.BYPASSES_EFFECTS) && !source.is(DamageTypeTags.BYPASSES_RESISTANCE)) return 0;
+        if (!level().getBlockState(blockPosition()).is(Blocks.AIR) && !source.is(DamageTypeTags.BYPASSES_EFFECTS) && !source.is(DamageTypeTags.BYPASSES_RESISTANCE)) {
+            damageContainers.peek().setReduction(net.neoforged.neoforge.common.damagesource.DamageContainer.Reduction.MOB_EFFECTS, Math.max(0, damage));
+            if (damage > 0 && damage < 3.4028235E37F && source.getEntity() instanceof net.minecraft.server.level.ServerPlayer player) {
+                player.awardStat(net.minecraft.stats.Stats.DAMAGE_DEALT_RESISTED, Math.round(damage * 10));
+            }
+            return 0;
+        }
         return super.getDamageAfterMagicAbsorb(source, damage);
     }
 
