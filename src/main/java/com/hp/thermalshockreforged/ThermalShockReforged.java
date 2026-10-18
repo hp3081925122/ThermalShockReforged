@@ -1,6 +1,7 @@
 package com.hp.thermalshockreforged;
 
 import com.hp.thermalshockreforged.content.MaterialContent;
+import com.hp.thermalshockreforged.content.creative.CreativeTabsContent;
 import com.hp.thermalshockreforged.content.music.MusicContent;
 import com.hp.thermalshockreforged.content.fluids.FluidContent;
 import com.hp.thermalshockreforged.content.growth.GrowthContent;
@@ -105,6 +106,7 @@ public final class ThermalShockReforged {
         AuraContent.register(bus);
         ArmorContent.register(bus);
         ModSounds.register(bus);
+        CreativeTabsContent.register(bus);
         LOGGER.info("Thermal Shock Reforged migration foundation loaded: {} material blocks and {} items", MaterialContent.blocks().size(), MaterialContent.items().size());
     }
 }
