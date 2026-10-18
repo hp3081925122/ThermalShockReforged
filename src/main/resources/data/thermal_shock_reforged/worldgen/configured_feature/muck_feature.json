@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:netherrack_replace_blobs",
+  "config": {
+    "target": {
+      "Name": "thermal_shock_reforged:shale"
+    },
+    "state": {
+      "Name": "thermal_shock_reforged:muck"
+    },
+    "radius": {
+      "type": "minecraft:uniform",
+      "min_inclusive": 2,
+      "max_inclusive": 4
+    }
+  }
+}

@@ -56,6 +56,7 @@ public final class ClientEvents {
     @SubscribeEvent
     public static void renderers(EntityRenderersEvent.RegisterRenderers event) {
         CavebloomerClient.renderers(event);
+        event.registerEntityRenderer(com.hp.thermalshockreforged.entity.pots.PotContent.SKULLSCOR.get(), com.hp.thermalshockreforged.client.pots.SkullscorRenderer::new);
         FaunaRenderers.register(event);
         InfestationRenderers.register(event);
         SnobolRenderers.register(event);

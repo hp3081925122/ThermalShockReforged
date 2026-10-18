@@ -1,0 +1,57 @@
+{
+  "has_precipitation": true,
+  "temperature": 0.1,
+  "downfall": 0.4,
+  "effects": {
+    "music": {
+      "sound": "thermal_shock_reforged:vermillionwoods",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": true
+    },
+    "particle": {
+      "options": {
+        "type": "white_ash"
+      },
+      "probability": 0.01
+    },
+    "foliage_color": 10387789,
+    "grass_color": 9470285,
+    "sky_color": -5921366,
+    "fog_color": -11393736,
+    "water_color": -12624768,
+    "water_fog_color": -13486995
+  },
+  "spawners": {
+    "monster": [
+      {
+        "type": "enderman",
+        "weight": 8,
+        "minCount": 1,
+        "maxCount": 1
+      }
+    ],
+    "creature": [],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {},
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+  ]
+}

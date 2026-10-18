@@ -1,0 +1,63 @@
+{
+  "scope": "第21批7个剩余biome、完整8项共享tag、8项共享feature、Pathiolite真实方块",
+  "source_jar": "D:/AI临时文件/ThermalShockMigration/thermal_shock-07.9-original.jar",
+  "implementation_owner": "主代理",
+  "verification_owner": "Luna",
+  "compile": {
+    "tasks": [
+      "compileJava",
+      "compileGametestJava",
+      "processResources"
+    ],
+    "offline": true,
+    "java": 21,
+    "result": "BUILD SUCCESSFUL",
+    "duration_seconds": 49,
+    "log": "D:/AI临时文件/ThermalShockMigration/twentyfirst-worldgen-compile.log"
+  },
+  "semantic_comparison": {
+    "all_8_biomes": "只替换命名空间后与原件完全相等，Glaciation来自第20批",
+    "tag": "原loqendian:tag全部8项→thermal_shock_reforged:loqendian；无删项或可选占位",
+    "8_feature_chains": [
+      "blazerock_gen",
+      "cobalt_feature",
+      "ferrous_rock_generation",
+      "icicle_patch",
+      "mantlestone_patch",
+      "muck_feature",
+      "permafrost_patch",
+      "springel_lake"
+    ],
+    "result": "configured/placed/modifier在命名空间、NeoForge类型和目标IntProvider格式转换后逐字段MATCH"
+  },
+  "pathiolite": {
+    "implementation": "Geo方块/物品/9槽BE/六面handler、源岩浆留下、scrap fallback",
+    "assets": "geo/animation/texture与原JAR SHA相同",
+    "tool_tags": [
+      "mineable/pickaxe",
+      "needs_diamond_tool"
+    ],
+    "map_color": "COLOR_GRAY，已查看原贴图",
+    "fix": "玩家破坏回调确认实际成功移除后才留岩浆，防失败回调覆盖"
+  },
+  "original_ore_selection_audit": {
+    "real_caller": "AtlasBlock.onPlace→AtlasBlockAddedProcedure→DisruptedSpaceEntityCollidesInTheBlockProcedure",
+    "nonexistent_block": "原JAR没有DisruptedSpaceBlock或disrupted_space注册",
+    "storage": "Overworld SavedData thermal_shock_mapvars",
+    "per_zero_tier_call": {
+      "select_1": 0.5,
+      "select_2": 0.25,
+      "remain_0": 0.25
+    },
+    "evidence": "D:/AI临时文件/ThermalShockMigration/disruptedspace-javap.txt，tier1 random偏移12/41，tier2偏移81/110",
+    "migration": "尚待完整Atlas/世界状态真实入口迁入，不改成均分/无条件矿物"
+  },
+  "pending_after_21": [
+    "其余10项共享生成",
+    "各群系专属剩余生成与维度/天空/入口",
+    "地下6场景真实方块/奖励/NBT完整链",
+    "最终两端与Render Preview"
+  ],
+  "runtime_started": false,
+  "whole_mod_complete": false
+}

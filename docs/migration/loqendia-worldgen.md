@@ -39,3 +39,23 @@ Luna查作者固定提交803ae70cc0879910fec29834381769f12f885490的common-1.20.
 本批仍不表示Glaciation或Loqendia全量完成：共享18项全局生成、8群系tag、其余7群系/气候源、维度地形/天空/传送、Cavebloomer场景NBT/结构链仍待逐项接入，不能删除或缩为单群系。上述16项仅是引用已闭合的局部数据真实进展；尚未运行世界解码/自然生成测试。
 
 第20批Luna三任务离线编译成功48秒（compileGametestJava为UP-TO-DATE），16JSON规范化对照15项全等、余1项只移除Glitterdrop无效属性；全目标34 configured+31 placed里旧uniform/biased嵌套value为0。水浸分支、Chisel完整声音语义已核，见twentieth-glaciation-static-validation.json。未启动任一端，本批不是完整Loqendia完成标志。
+
+## 第21批：共享生成与其余群系
+
+先接入其余7群系完整环境/出生数据与8项完整自有loqendian tag；共享18项按真实依赖分组推进，不删除未迁项或缩小tag。首组7项cobalt_feature/ferrous_rock_generation/icicle_patch/mantlestone_patch/muck_feature/permafrost_patch/springel_lake全部引用已有真实方块，保原configured/placed/step/密度/高度/过滤条件；只做命名空间、NeoForge modifier和目标IntProvider格式转换。其他11项中6矿物依赖全局矿物选择状态及真实初始化入口，4项依赖尚缺方块，地下场景依赖6个完整NBT；随后逐项闭合，不把矿物自选条件改成无条件ore。7群系本体迁入并不代表其全部专属feature和维度完成。
+
+PathioliteOutcrop完整接入为第8项共享生成blazerock_gen的依赖：原6硬度/5抗爆/亮度6/镐标签/全块碰撞/透天光/遮光0、fluorite_ore模型动画与pathiolite贴图/半透明层、9槽BE与六面自动化、Geo物品渲染全部保留。实际纹理暗灰底矿脉，补MapColor.COLOR_GRAY供地图。原无普通掉落时回退1 PathioliteScrap，现有材料注册直接使用；玩家成功挖掉或爆破后原位置留下源岩浆。修复原无条件onDestroyed回调在取消/未真正移除时也覆盖方块的风险，服务端且确认成功移除后才留岩浆；不添加额外粒子/发光贴图。原无交互菜单入口，共用BE的9槽菜单仍仅有provider而不会无故打开。blazerock scattered_ore size3/count6/Y[-64,-48]/trapezoid与mantlestone替换完整保留。
+
+## 第22批：Shale Pot／Skullscor／Pesticide
+
+迁移前证据：原ShalePot是有blockstate0..2与ANIMATION的Geo容器块，三态均为stone_pot几何/动画、pot1/2/3贴图、2..14×0..16碰撞、.5硬度/0抗爆/DecoratedPot/透光/遮光0/可推毁；玩家破坏后2.5%在整块坐标生成Skullscor、速度0。不能去掉实体依赖或只注册普通罐子。原无右击菜单入口但保9槽和六面自动化，loot实际15项权重/数量；原自然patch tries40/xzSpread10及下方shale/mantlestone/permafrost过滤完整迁入。Skullscor原Monster1×.6、HP8/armor4/ATK2/speed.3/range16/KB.8/step.6/XP3/7 goals、蜘蛛声音、三动画与头部朝向、六群系weight9组1..3出生全部保；不额外加Boss持久化或召唤CD/cap，因为每只来自实际被消费的罐子，非无限受伤召唤。Pesticide真实20tick饮用、使用手消费1（包括创造玩家）、80tickCD、PoisonCloud1、inflate1.75只对Skullscor无归属间接魔法50伤害；不附加瓶子或替换原AAA。两端运行验收仍等全模组迁完。
+
+第21批Luna离线三任务编译成功49秒；8个biome/8项tag/8组共享生成规范化逐字段匹配。Pathiolite模型/动画/贴图SHA与原JAR相同。详见twentyfirst-worldgen-static-validation.json。另核原JAR没有DisruptedSpaceBlock，初始化来自Atlas.onPlace；每tier两次Math.random字节码偏移已核，单次调用结果1/2/0概率.5/.25/.25，不能误记均分。该真实入口与全局状态仍是后续6矿物feature必要依赖。
+
+## 第23批：Shale Lamp完整灯光与变体
+
+地下场景还依赖ShaleLamp；同时迁同族ChromaticShaleLamp。原两块硬度1/抗爆5/Netherrack/正确工具/全块形状/遮光15，Plain blockstate0/1亮度15/0；Chromatic blockstate0/1/2/3亮度15/0/15/15并有水平朝向/旋转/镜像。非潜行右击Plain0→1→0、Chromatic0→1→2→3→0；从0切换播fire.extinguish1/1，其余播flintandsteel.use1/1。保scheduled tick时fire.ambient NEUTRAL1/1及原randomTicks标记，不把原只有tick override误改成每randomTick都发声。目标共用实现明确变体属性，服务端切换一次，原模型/贴图/配方/掉落与标准工具标签保全。EnchantedCache仍依赖Thermite等真实奖励，地下完整6场景未闭合前不导入缺失NBT。
+
+第22批Luna三任务52秒通过；Skullscor真身/全部7goal/属性/原生暗处条件/六群系出生/20tick经验与3动画、ShalePot三态和15项loot/Pesticide全部数值对上，关键Geo/动画/贴图SHA均同原JAR。目标arthropod标签实际替代已移除旧getMobType，不能因方法未覆写误报节肢杀手行为丢失。未发现ShalePot变体写入入口，不捏造额外交互；Pesticide无原配方，保实体掉落来源。见twentysecond-pot-static-validation.json。现在共享18项已接9项，余9项明确待迁；未开始全模组最终运行验收。
+
+第23批Luna三任务46秒通过，亮度property选择改为按实际Chromatic子类后的最终Java编译15秒通过；两灯完整状态/朝向/声音、标准镐标签、两配方与两掉落均对照一致。6纹理SHA相等，2blockstate/8模型JSON仅命名空间变化。IntegerProperty自身equals比较值域，StateHolder按key身份查询；此前只看Property父类后认为同名属性混淆的审计结论已撤回，最终代码直接按方块子类选择属性更明确，不改变任何亮度。所有证据是静态/编译，未启动任一端。见twentythird-lamps-static-validation.json。

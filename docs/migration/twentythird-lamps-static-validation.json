@@ -1,0 +1,39 @@
+{
+  "scope": "第23批普通与彩色ShaleLamp完整行为/合成/掉落",
+  "implementation_owner": "主代理",
+  "verification_owner": "Luna",
+  "compile": {
+    "tasks": [
+      "compileJava",
+      "compileGametestJava",
+      "processResources"
+    ],
+    "offline": true,
+    "result": "BUILD SUCCESSFUL",
+    "duration_seconds": 46,
+    "log": "D:/AI临时文件/ThermalShockMigration/twentythird-lamps-compile.log"
+  },
+  "final_java_compile": {
+    "reason": "以实际Chromatic子类选择variant属性，移除不必要的跨property探测；亮度不变",
+    "tasks": [
+      "compileJava"
+    ],
+    "offline": true,
+    "result": "BUILD SUCCESSFUL",
+    "duration_seconds": 15,
+    "log": "D:/AI临时文件/ThermalShockMigration/twentythird-lamps-final-compile.log"
+  },
+  "luna_static": {
+    "plain": "0↔1，状态1光0，其余光15，无朝向",
+    "chromatic": "0→1→2→3→0，状态1光0，其余15，水平朝向/相反玩家放置/旋转/镜像",
+    "interaction": "非潜行物品/空手切换一次，潜行PASS；0→1灭火声，其余打火石声；NEUTRAL1/1",
+    "body": "strength1/5、NETHERRACK、BASEDRUM、遮光15/全块形状，补地图灰色；正确工具、仅标准pickaxe标签无额外等级",
+    "ambient": "保scheduled tick时FIRE_AMBIENT NEUTRAL1/1；原randomTicks属性不等于覆写randomTick，未擅增加触发",
+    "recipes": "2原配方pattern/材料/数量不变，普通1和彩色6；result.item→id",
+    "loot": "2表单个自己/pool/roll/explosion条件均保",
+    "assets": "6纹理SHA相同，2blockstate+8模型JSON仅namespace变化",
+    "property_audit": "IntegerProperty自身equals覆写比较values，StateHolder按key身份查；Luna只读父类后的误识别结论已撤回。最终源码直接按实际子类选property。"
+  },
+  "runtime_started": false,
+  "whole_mod_complete": false
+}

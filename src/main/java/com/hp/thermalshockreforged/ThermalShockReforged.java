@@ -70,6 +70,7 @@ public final class ThermalShockReforged {
         container.registerConfig(ModConfig.Type.COMMON, com.hp.thermalshockreforged.entity.cavebloomer.CavebloomerConfig.SPEC, "thermal_shock_reforged-cavebloomer.toml");
         ModEntities.register(bus);
         CavebloomerContent.register(bus);
+        com.hp.thermalshockreforged.entity.pots.PotContent.register(bus);
         com.hp.thermalshockreforged.world.LoqendiaContent.register(bus);
         MaterialContent.register(bus);
         MusicContent.register(bus);

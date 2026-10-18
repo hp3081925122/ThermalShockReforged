@@ -20,6 +20,8 @@ public final class GeoDecorContent {
     static {
         for (GeoDecorKind kind : GeoDecorKind.values()) {
             DeferredBlock<GeoDecorBlock> block = BLOCKS.register(kind.id, () -> switch (kind) {
+                case SHALE_POT -> new ShalePotBlock();
+                case PATHIOLITE_OUTCROP -> new PathioliteOutcropBlock();
                 case SUSPICIOUS_CAVEBLOOMER -> new SuspiciousCavebloomerBlock();
                 case CRYONIC_LAMP, GLAUKO_BLOOM -> new GeoDecorBlock.Waterlogged(kind);
                 case STATUE_OF_LITANY, ITTY_BITTY, GUNNER_TROPHY, BURNER_TROPHY, CAVEBLOOMER_TROPHY -> new GeoDecorBlock.Directional(kind);

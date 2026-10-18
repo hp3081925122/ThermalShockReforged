@@ -1,0 +1,31 @@
+{
+  "feature": "thermal_shock_reforged:permafrost_patch",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": {
+        "type": "minecraft:uniform",
+        "min_inclusive": 5,
+        "max_inclusive": 6
+      }
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:height_range",
+      "height": {
+        "type": "minecraft:uniform",
+        "min_inclusive": {
+          "absolute": 5
+        },
+        "max_inclusive": {
+          "absolute": 150
+        }
+      }
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}
