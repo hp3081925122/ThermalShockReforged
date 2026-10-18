@@ -1,0 +1,27 @@
+{
+  "feature": "thermal_shock_reforged:blood_ore_generation",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": 25
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:height_range",
+      "height": {
+        "type": "minecraft:trapezoid",
+        "min_inclusive": {
+          "absolute": 0
+        },
+        "max_inclusive": {
+          "absolute": 140
+        }
+      }
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}
