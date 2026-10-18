@@ -250,3 +250,6 @@ Shutterbug六页介绍/真实相机/摄影及图鉴任务、首次Shalespring完
 
 
 第41批真实Ferro Cake Geo方块/九槽能力/0..2动画域/四次食用脉冲/原递进声与260tick Resistance1已迁入，补九槽shapeless配方及ferrous_get→loqendia_get、yoylecake→ferrous_get进度/3XP。修食物越界、客户端重复业务、收尾误删新方块，独立有限消费UUID载体取代捕获闭包，DEATHS生命快照防重生后串食用。Luna固定三任务离线54秒成功，11资产/完整参数/配方和进度机械对照通过；详见ferro-cake-batch.md和fortyfirst-ferro-cake-static-validation.json。当前游戏测试尚未开始，Ly全部商店/Palace/Aqeron等继续迁。
+
+
+第42批Ly真实实体、完整Main与10交易页已迁入。51静态标签+Main动态文字、21资产哈希、10商品真实ID/数量/价格、36玩家槽与翻页环经Luna机械对照通过，Java21离线compileJava/compileGametestJava/processResources 25.2秒成功。Springelatin按原显示和实际收费5级修准入2级，统一原子足额收费；每次保一声npcbuy及一声XP。局部会话立绘时钟修跨玩家共享状态，不宣称旧集成服双端静态轨迹一致。详见ly-complete-shop-batch.md及fortysecond-ly-shop-static-validation.json。下一步补宫殿依赖和Aqeron；整模组未完成，未启游戏。
