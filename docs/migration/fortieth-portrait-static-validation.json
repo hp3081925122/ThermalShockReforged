@@ -1,0 +1,44 @@
+{
+  "batch": 40,
+  "scope": "Full Palace portrait character with five appearances and two original dialogue pages",
+  "compiler": {
+    "tasks": [
+      "compileJava",
+      "compileGametestJava",
+      "processResources"
+    ],
+    "offline": true,
+    "java": 21,
+    "exit_code": 0,
+    "elapsed_seconds": 24.5,
+    "gradle_reported": "24s",
+    "log": "D:\\AI临时文件\\ThermalShockMigration\\fortieth-portrait-compile.log"
+  },
+  "static": {
+    "menu_pages": 2,
+    "original_labels": 10,
+    "menu_slots": 0,
+    "menu_buttons": 0,
+    "model_animation_gui_and_five_texture_hashes_equal": 9,
+    "additional_egg_model_equal": true,
+    "entity_and_menus_and_client_registration_unique": true,
+    "head_rotation_and_dimensions_verified": true,
+    "valid_template_textures": 5,
+    "attribute_cap_review": {
+      "old_armor_base": 64,
+      "effective_unmodified_armor": 30,
+      "target_armor_base": 30,
+      "evidence": "old mapped jar Attributes/RangedAttribute/AttributeInstance javap and target source final sanitize clamp 0..30",
+      "boundary": "external getBaseValue and modifier-before-clamp edge behavior may differ; no broad raw-value equivalence claim"
+    },
+    "remaining_specific_implementation_differences": []
+  },
+  "intentional_fixes": [
+    "Creative appearance cycle returns from gradient to default",
+    "Refresh dimensions only when texture changes",
+    "NPC-specific owner/UUID/level/range/texture menu binding",
+    "Remove unrelated shared WhisperSpriteIndex mutation"
+  ],
+  "runtime_tests_run": false,
+  "whole_mod_complete": false
+}

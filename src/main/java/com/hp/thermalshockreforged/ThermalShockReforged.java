@@ -86,6 +86,7 @@ public final class ThermalShockReforged {
         com.hp.thermalshockreforged.content.npc.florist.FloristContent.register(bus);
         com.hp.thermalshockreforged.content.camera.CameraContent.register(bus);
         com.hp.thermalshockreforged.content.npc.shutterbug.ShutterbugContent.register(bus);
+        com.hp.thermalshockreforged.content.npc.portrait.PortraitContent.register(bus);
         com.hp.thermalshockreforged.entity.springslime.SpringslimeContent.register(bus);
         com.hp.thermalshockreforged.content.dialogue.DialogueContent.register(bus);
         com.hp.thermalshockreforged.content.atlas.AtlasContent.register(bus);
