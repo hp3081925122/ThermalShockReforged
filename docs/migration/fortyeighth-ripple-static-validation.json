@@ -1,0 +1,54 @@
+{
+  "batch": 48,
+  "scope": [
+    "ripple",
+    "sanctum_ripple",
+    "err",
+    "ripple_cast_task",
+    "err_effect",
+    "GalvaniteDrops"
+  ],
+  "validation": {
+    "executor": "validation_luna",
+    "command": "gradlew.bat compileJava compileGametestJava processResources --offline",
+    "java": 21,
+    "durationSeconds": 49,
+    "exitCode": 0,
+    "result": "BUILD SUCCESSFUL",
+    "actionableTasks": 25,
+    "executed": 3,
+    "upToDate": 22
+  },
+  "mechanical": {
+    "originalAssets": "trojan.geo.json, trojan.animation.json, ripple.png, ripple_glow.png equal SHA256",
+    "clips": [
+      "attack",
+      "idle",
+      "walk",
+      "melee"
+    ],
+    "extraHeadRotation": false,
+    "errEffectSha256Prefix": "e9ed1dd1",
+    "errEffectSha256Suffix": "ba9d97d",
+    "aaaTextures": [
+      "errbotlayer",
+      "errtoplayer",
+      "howaa128",
+      "errtext",
+      "FrostbiteRing"
+    ],
+    "aaaTexturesOriginalEqual": true,
+    "errFinalPulse": "180 baseTick pulses; discard on expiry retains final pulse",
+    "loot": "original 2 pools, weights/counts/rolls equal after namespace conversion; all 4 item IDs exist",
+    "spawnModifiers": "both cobalt_heights weight10 min1 max1; thunder and exact ground predicate",
+    "sharedDeathDrops": "doEntityDrops and worldCrux>=1, 2 independent 20 percent trials, pickup delay10",
+    "rippleTags": [
+      "cryo_resist",
+      "ferro_resist",
+      "pyro_weak"
+    ],
+    "sanctumTags": "none in original; none added"
+  },
+  "remaining": "other original tag members are checked against actual registrations; unported types remain pending, never fabricated",
+  "runtimeTests": "not started; complete mod first"
+}
