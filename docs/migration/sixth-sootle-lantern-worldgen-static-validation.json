@@ -1,0 +1,2132 @@
+{
+  "armor_loop_expansion": {
+    "loops": [
+      {
+        "prefixes": [
+          "ruby_armor_",
+          "carborundum_armor_",
+          "ruby_zenith_armor_",
+          "blood_zenith_armor_",
+          "blood_armor_"
+        ],
+        "slots": [
+          "helmet",
+          "chestplate",
+          "leggings",
+          "boots"
+        ],
+        "concrete_items": 20
+      },
+      {
+        "prefixes": [
+          "sentry_"
+        ],
+        "slots": [
+          "helmet",
+          "chestplate"
+        ],
+        "concrete_items": 2
+      }
+    ],
+    "concrete_items": 22
+  },
+  "plant_block_item_expansion": {
+    "PlantContent.java": {
+      "fields": [
+        "ANGLER_BULB",
+        "BELLFLOWER",
+        "DULL_SHRUB",
+        "LOQUE_FERN",
+        "LUNEI",
+        "PIXIETILL",
+        "POLEMONIUM",
+        "PURIFIED_LOQUE_GRASS",
+        "TOPHAZ",
+        "TWILIT_SHRUB",
+        "VERMILLION_FERN"
+      ],
+      "count": 11
+    },
+    "TallPlantContent.java": {
+      "fields": [
+        "TALL_ANGLER_BULB",
+        "TALL_LOQUE_FERN",
+        "TALL_VERMILLION_FERN",
+        "TRIDENT_FLOWER",
+        "VOLT_FLOWER",
+        "WILDGRASS",
+        "SPIREROOT_THORNS",
+        "SPRINTWEED"
+      ],
+      "count": 8
+    }
+  },
+  "registries": {
+    "items": {
+      "count": 598,
+      "unique": 598,
+      "duplicates": {},
+      "ids": [
+        "adamantine_spice",
+        "adamantine_spice_block",
+        "angler_bulb",
+        "antitoxin",
+        "archive_glass",
+        "ashen_bone",
+        "atlas_base_centre",
+        "atlas_base_corner",
+        "barbubble_melon_slice",
+        "beetle_claw",
+        "bellflower",
+        "bioelectric_cell",
+        "bismuth",
+        "bismuth_block",
+        "bismuth_crystal",
+        "bismuth_fragment",
+        "bismuth_ore",
+        "blighted_spore_spawn_egg",
+        "blinding_lantern",
+        "blood_armor_boots",
+        "blood_armor_chestplate",
+        "blood_armor_helmet",
+        "blood_armor_leggings",
+        "blood_pop",
+        "blood_vessel",
+        "blood_zenith_armor_boots",
+        "blood_zenith_armor_chestplate",
+        "blood_zenith_armor_helmet",
+        "blood_zenith_armor_leggings",
+        "bloodstone",
+        "bloodstone_axe",
+        "bloodstone_block",
+        "bloodstone_hoe",
+        "bloodstone_ore",
+        "bloodstone_pickaxe",
+        "bloodstone_razorwing_armor",
+        "bloodstone_shard",
+        "bloodstone_shovel",
+        "bloodstone_sword",
+        "blue_carborundum",
+        "bone_axe",
+        "bone_pickaxe",
+        "bone_shovel",
+        "bone_sword",
+        "bonerahna_spawn_egg",
+        "bordered_hazard_stripes",
+        "bordered_kyaneos_wall",
+        "bordered_ochre_wall",
+        "bordered_shiverglitter_wall",
+        "bordered_spirewood_planks",
+        "bordered_spirewood_wall",
+        "bordered_vermillion_wall",
+        "bottled_pixie",
+        "breather_sponge",
+        "bright_ochre_leaves",
+        "bucket_of_siibol",
+        "carborundum",
+        "carborundum_armor_boots",
+        "carborundum_armor_chestplate",
+        "carborundum_armor_helmet",
+        "carborundum_armor_leggings",
+        "carborundum_axe",
+        "carborundum_pickaxe",
+        "carborundum_shovel",
+        "carborundum_sword",
+        "cauldron_of_trilobite",
+        "cavebloomer_core",
+        "chalk_candy",
+        "cherry_mesh_wall",
+        "chilloo_egg",
+        "chilloo_spawn_egg",
+        "chiseled_dark_frostrock_block",
+        "chiseled_frostrock",
+        "chiseled_permafrost",
+        "chiseled_rinthium_block",
+        "chiseled_shale",
+        "chromefish_spawn_egg",
+        "cobalt",
+        "cobalt_axe",
+        "cobalt_rod",
+        "cobalt_splatter",
+        "cobbled_shale",
+        "cobbled_shale_slab",
+        "cobbled_shale_stairs",
+        "cobbled_shale_wall",
+        "cocoa",
+        "cokked_sentrapede",
+        "cooked_chilloo",
+        "cooked_chromefish",
+        "cooked_crystal_koi",
+        "cooked_pondler",
+        "cooked_torpedo",
+        "corrial_flask",
+        "corrial_ingot",
+        "corrial_plating",
+        "corroded_block",
+        "corroded_mantlestone",
+        "corroded_nugget",
+        "corroded_rock",
+        "corroded_shale",
+        "corruption",
+        "cracked_shale_bricks",
+        "cracked_shale_pillar_block",
+        "crimson_bloodstone_block",
+        "cryonic_alloy",
+        "cryonic_energy",
+        "cryonic_key",
+        "crystal_koi_spawn_egg",
+        "cut_polished_permafrost",
+        "dark_frostrock",
+        "dark_frostrock_block",
+        "dark_frostrock_block_slab",
+        "dark_frostrock_block_stairs",
+        "dark_frostrock_block_wall",
+        "dark_frostrock_brick_fence",
+        "dark_frostrock_brick_slab",
+        "dark_frostrock_brick_stairs",
+        "dark_frostrock_brick_wall",
+        "dark_frostrock_bricks",
+        "dark_frostrock_button",
+        "dark_frostrock_door",
+        "dark_frostrock_pressure_plate",
+        "dark_frostrock_slab",
+        "dark_frostrock_stairs",
+        "dark_frostrock_trapdoor",
+        "dark_frostrock_wall",
+        "dark_loque_leaves",
+        "dark_rinthium_block",
+        "dark_rinthium_grid_block",
+        "dark_shiver_leaves",
+        "darksteel_beam",
+        "darksteel_block",
+        "darksteel_button",
+        "darksteel_door",
+        "darksteel_light",
+        "darksteel_pressure_plate",
+        "darksteel_slab",
+        "darksteel_stairs",
+        "darksteel_tile_slab",
+        "darksteel_tile_stairs",
+        "darksteel_tile_wall",
+        "darksteel_tiles",
+        "darksteel_trapdoor",
+        "darksteel_wall",
+        "dew_bottle",
+        "diskette_1",
+        "diskette_2",
+        "diskette_3",
+        "diskette_4",
+        "diskette_5",
+        "diskette_6",
+        "diskette_7",
+        "diskette_8",
+        "diskette_9",
+        "dissolving_impervium",
+        "drinking_straw",
+        "dull_leaves",
+        "dull_log",
+        "dull_shrub",
+        "dull_thread_net",
+        "empty_amaljelly_canister",
+        "empty_archive_cabinet",
+        "explosive_snobol_spawn_egg",
+        "eyespy_frostrock_block",
+        "ferrous_block",
+        "ferrous_mantlestone",
+        "ferrous_nugget",
+        "ferrous_rock",
+        "ferrous_shale",
+        "ferrum_ingot",
+        "ferrum_plating",
+        "ferrum_plating_slab",
+        "ferrum_plating_stairs",
+        "ferrum_plating_wall",
+        "fizzy_snowcone",
+        "flare_spawn_egg",
+        "flowing_dark",
+        "forecast_spawn_egg",
+        "frigid_altar_key",
+        "frost_pearl",
+        "frost_pearl_block",
+        "frostrock",
+        "frostrock_brick_slab",
+        "frostrock_brick_stairs",
+        "frostrock_brick_wall",
+        "frostrock_bricks",
+        "frostrock_button",
+        "frostrock_door",
+        "frostrock_pressure_plate",
+        "frostrock_slab",
+        "frostrock_stairs",
+        "frostrock_trapdoor",
+        "frostrock_wall",
+        "frozen_chilloo",
+        "ghostglass_block",
+        "glace",
+        "glace_slab",
+        "glace_stairs",
+        "glace_wall",
+        "glastrekker_armor",
+        "glauko_stem",
+        "glowcap_stem",
+        "glowstick",
+        "gore_projectile",
+        "grassy_shale",
+        "green_projectile",
+        "greenhouse_glass_pane",
+        "hanging_dull_thread",
+        "hazard_stripes",
+        "heart_crystal",
+        "hearth_honey",
+        "hearth_honey_block",
+        "heavy_round",
+        "helion_coagulate",
+        "helion_hololattice",
+        "helion_lamp_block",
+        "helion_slag",
+        "herald_key",
+        "hollowed_log",
+        "ice_projectile",
+        "icy_snowcone",
+        "impervium_brick_slab",
+        "impervium_brick_stairs",
+        "impervium_bricks",
+        "infected_core_sample",
+        "infected_flesh",
+        "infected_seeds",
+        "infested_log",
+        "infestophage_seed_spawn_egg",
+        "jellercel_cell",
+        "jellercel_hololattice",
+        "key_fragment",
+        "kyaneos_button",
+        "kyaneos_door",
+        "kyaneos_fence",
+        "kyaneos_fence_gate",
+        "kyaneos_log",
+        "kyaneos_pressure_plate",
+        "kyaneos_slab",
+        "kyaneos_stairs",
+        "kyaneos_trapdoor",
+        "kyaneos_wood",
+        "light_round",
+        "liteprism_window",
+        "loqendian_disc_shard",
+        "loque_fern",
+        "loque_grass",
+        "loque_leaves",
+        "loque_milk",
+        "loque_milk_bottle",
+        "loquesicle",
+        "louse_spawn_egg",
+        "luck_ticket",
+        "lunalemon_item",
+        "lunar_snowcone",
+        "lunei",
+        "malachite",
+        "malachite_block",
+        "malachite_crystal",
+        "malachite_fragment",
+        "malachite_ore",
+        "mantle_bloodstone_ore",
+        "mantle_ruby_ore",
+        "mantlestone",
+        "mantlestone_brick_slab",
+        "mantlestone_brick_stairs",
+        "mantlestone_brick_wall",
+        "mantlestone_bricks",
+        "mantlestone_button",
+        "mantlestone_door",
+        "mantlestone_pressure_plate",
+        "mantlestone_slab",
+        "mantlestone_stairs",
+        "mantlestone_trapdoor",
+        "mantlestone_wall",
+        "marine_seaglass_pane",
+        "marine_seaglass_pearl",
+        "marrow_meld",
+        "mavros_door",
+        "mavros_log",
+        "moonrock",
+        "mossy_mantlestone",
+        "muck_ball",
+        "muck_brick_slab",
+        "muck_brick_stairs",
+        "muck_brick_wall",
+        "muck_bricks",
+        "muck_button",
+        "muck_door",
+        "muck_pie",
+        "muck_pressure_plate",
+        "muck_trapdoor",
+        "neoflorm_crystal",
+        "neon_bricks",
+        "neural_chip",
+        "note_projectile_item",
+        "ochre_door",
+        "ochre_leaves",
+        "ochre_log",
+        "ochre_plank_button",
+        "ochre_plank_fence",
+        "ochre_plank_fence_gate",
+        "ochre_plank_pressure_plate",
+        "ochre_plank_slab",
+        "ochre_plank_stairs",
+        "ochre_sapling",
+        "ochre_trapdoor",
+        "ochre_wood",
+        "pale_stellar_bliss_block",
+        "pale_stellar_bliss_floor",
+        "panacea",
+        "pathiolite_scrap",
+        "permafrost",
+        "permafrost_button",
+        "permafrost_door",
+        "permafrost_pressure_plate",
+        "permafrost_tile_slab",
+        "permafrost_tile_stairs",
+        "permafrost_tile_wall",
+        "permafrost_tiles",
+        "permafrost_trapdoor",
+        "phobotite",
+        "phobotite_block",
+        "phobotite_hololattice",
+        "pillbud_spawn_egg",
+        "pixie_spawn_egg",
+        "pixietill",
+        "poison_projectile",
+        "polemonium",
+        "polished_frostrock",
+        "polished_frostrock_slab",
+        "polished_frostrock_stairs",
+        "polished_frostrock_wall",
+        "polished_impervium",
+        "polished_mantle_wall",
+        "polished_mantlestone",
+        "polished_mantlestone_slab",
+        "polished_mantlestone_stairs",
+        "polished_permafrost",
+        "polished_permafrost_slab",
+        "polished_permafrost_stairs",
+        "polished_permafrost_wall",
+        "polished_shale",
+        "polished_shale_slab",
+        "polished_shale_stairs",
+        "polished_shale_wall",
+        "pondler_egg",
+        "pondler_spawn_egg",
+        "primordial_blood",
+        "probosker_spawn_egg",
+        "pure_muck_slab",
+        "pure_muck_stairs",
+        "pure_muck_wall",
+        "purified_loque_grass",
+        "purified_loque_leaves",
+        "purple_carborundum_block",
+        "pyrogenic_energy",
+        "raincatcher_spawn_egg",
+        "raw_chromefish",
+        "raw_crystal_koi",
+        "raw_pondler",
+        "raw_sentrapede",
+        "raw_torpedo",
+        "red_sanctum_light",
+        "rinthium_a",
+        "rinthium_b",
+        "rinthium_block",
+        "rinthium_bricks",
+        "rinthium_c",
+        "rinthium_d",
+        "rinthium_e",
+        "rinthium_f",
+        "rinthium_g",
+        "rinthium_h",
+        "rinthium_i",
+        "rinthium_j",
+        "rinthium_k",
+        "rinthium_l",
+        "rinthium_m",
+        "rinthium_n",
+        "rinthium_o",
+        "rinthium_p",
+        "rinthium_q",
+        "rinthium_r",
+        "rinthium_s",
+        "rinthium_t",
+        "rinthium_tiles",
+        "rinthium_u",
+        "rinthium_v",
+        "rinthium_w",
+        "rinthium_x",
+        "rinthium_y",
+        "rinthium_z",
+        "rotten_cells",
+        "rough_bloodstone",
+        "rough_ruby",
+        "rough_ruby_block",
+        "ruby",
+        "ruby_armor_boots",
+        "ruby_armor_chestplate",
+        "ruby_armor_helmet",
+        "ruby_armor_leggings",
+        "ruby_axe",
+        "ruby_block",
+        "ruby_hoe",
+        "ruby_ore",
+        "ruby_pickaxe",
+        "ruby_razorwing_armor",
+        "ruby_shard",
+        "ruby_shovel",
+        "ruby_sword",
+        "ruby_zenith_armor_boots",
+        "ruby_zenith_armor_chestplate",
+        "ruby_zenith_armor_helmet",
+        "ruby_zenith_armor_leggings",
+        "sanctum_brick_slab",
+        "sanctum_brick_stairs",
+        "sanctum_brick_wall",
+        "sanctum_bricks",
+        "sanctum_lamp",
+        "sanctum_light",
+        "sanctum_pillar",
+        "sanctum_tile",
+        "scarlet_marrow",
+        "scarlet_ray_spawn_egg",
+        "sea_carcass_mass",
+        "seaglass_block",
+        "sentry_chestplate",
+        "sentry_helmet",
+        "shale",
+        "shale_brick_slab",
+        "shale_brick_stairs",
+        "shale_brick_wall",
+        "shale_bricks",
+        "shale_button",
+        "shale_door",
+        "shale_pillar_block",
+        "shale_pressure_plate",
+        "shale_slab",
+        "shale_stairs",
+        "shale_trapdoor",
+        "shale_wall",
+        "shiver_leaves",
+        "shiver_log",
+        "shiverglitter_plank_button",
+        "shiverglitter_plank_door",
+        "shiverglitter_plank_fence",
+        "shiverglitter_plank_fence_gate",
+        "shiverglitter_plank_pressure_plate",
+        "shiverglitter_plank_slab",
+        "shiverglitter_plank_stairs",
+        "shiverglitter_plank_trapdoor",
+        "shiverglitter_sapling",
+        "shiverglitter_wood",
+        "short_loque_grass",
+        "sigil_rinthium_block_b",
+        "siibol_spawn_egg",
+        "silly_straw",
+        "silver_sentrapede_hide",
+        "skorio_petal",
+        "skorio_waffle",
+        "slag",
+        "slushball",
+        "smiley_lantern",
+        "snobol_spawn_egg",
+        "snow_brick_slab",
+        "snow_brick_stairs",
+        "snow_brick_wall",
+        "snow_bricks",
+        "snow_poff",
+        "snowdae",
+        "snowy_cobalt",
+        "snowy_cobbled_shale",
+        "snowy_cobbled_shale_slab",
+        "snowy_cobbled_shale_stairs",
+        "snowy_glace",
+        "snowy_glace_slab",
+        "snowy_glace_stairs",
+        "snowy_shale",
+        "soapstone",
+        "soapstone_slab",
+        "soapstone_stairs",
+        "soapstone_wall",
+        "sootle_spawn_egg",
+        "sootling_spawn_egg",
+        "specialized_round",
+        "spiral_mantlestone",
+        "spire_bulb",
+        "spire_stem",
+        "spire_tendrils",
+        "spireroot_thorns",
+        "spirewood_branch",
+        "spirewood_button",
+        "spirewood_door",
+        "spirewood_fence",
+        "spirewood_fence_gate",
+        "spirewood_log",
+        "spirewood_planks",
+        "spirewood_pressure_plate",
+        "spirewood_slab",
+        "spirewood_stairs",
+        "spirewood_trapdoor",
+        "spore_pod",
+        "springelatin_ball",
+        "springling_spawn_egg",
+        "sprintweed",
+        "starfruit_item",
+        "starry_snowcone",
+        "steelstem",
+        "steelstem_bars",
+        "steelstem_block",
+        "steelstem_fence",
+        "stellar_bliss_beam_trim",
+        "stellar_bliss_block",
+        "stellar_bliss_cubbies",
+        "stellar_bliss_floor",
+        "stellar_bliss_slab",
+        "stellar_bliss_stairs",
+        "stellar_bliss_tile",
+        "stellar_bliss_tile_slab",
+        "stellar_bliss_tile_stairs",
+        "stellar_bliss_tile_wall",
+        "stellar_bliss_wall",
+        "stellar_scrap",
+        "stellar_void_block",
+        "stellar_void_button",
+        "stellar_void_door",
+        "stellar_void_lamp",
+        "stellar_void_panel",
+        "stellar_void_pressure_plate",
+        "stellar_void_slab",
+        "stellar_void_stairs",
+        "stellar_void_tile_slab",
+        "stellar_void_tile_stairs",
+        "stellar_void_tile_wall",
+        "stellar_void_tiles",
+        "stellar_void_trapdoor",
+        "stellar_void_wall",
+        "stratosilver",
+        "stratosilver_auger",
+        "stratosilver_chainsaw",
+        "stratosilver_drill",
+        "stratus_alloy",
+        "stripped_kyaneos_log",
+        "stripped_kyaneos_wood",
+        "stripped_ochre_log",
+        "stripped_ochre_wood",
+        "stripped_shiverglitter_log",
+        "stripped_shiverglitter_wood",
+        "stripped_vermilli_log",
+        "stripped_vermilli_wood",
+        "suspicious_archive_cabinet",
+        "tainted_energy",
+        "tall_angler_bulb",
+        "tall_frosted_grass",
+        "tall_loque_fern",
+        "tall_vermillion_fern",
+        "thermite_chunk",
+        "thin_spire_bulb",
+        "thin_stem",
+        "tophaz",
+        "torpedo_spawn_egg",
+        "train_pass",
+        "trapped_darksteel_block",
+        "trident_flower",
+        "trilobite_spawn_egg",
+        "twilit_shrub",
+        "veinroot",
+        "veinroot_ends",
+        "vermilli_button",
+        "vermilli_door",
+        "vermilli_fence",
+        "vermilli_fence_gate",
+        "vermilli_leaves",
+        "vermilli_log",
+        "vermilli_pressure_plate",
+        "vermilli_slab",
+        "vermilli_stairs",
+        "vermilli_trapdoor",
+        "vermilli_wood",
+        "vermillion_fern",
+        "vermillion_lantern",
+        "vermillion_moss",
+        "vermillion_sapling",
+        "vermillion_wax_block",
+        "vermillion_wax_cells",
+        "vermillion_wax_panel",
+        "vermillion_wax_slab",
+        "vermillion_wax_stairs",
+        "vermillion_wax_tiles",
+        "vermillion_wax_wall",
+        "violet_seaglass_pane",
+        "violet_seaglass_pearl",
+        "volt_flower",
+        "watering_can",
+        "wildgrass",
+        "willograde_spawn_egg",
+        "zenith_smithing_template"
+      ]
+    },
+    "blocks": {
+      "count": 404,
+      "unique": 404,
+      "duplicates": {},
+      "ids": [
+        "adamantine_spice_block",
+        "angler_bulb",
+        "archive_glass",
+        "atlas_base_centre",
+        "atlas_base_corner",
+        "bellflower",
+        "bismuth_block",
+        "bismuth_crystal",
+        "bismuth_ore",
+        "bloodstone_block",
+        "bloodstone_ore",
+        "blue_carborundum",
+        "bordered_hazard_stripes",
+        "bordered_kyaneos_wall",
+        "bordered_ochre_wall",
+        "bordered_shiverglitter_wall",
+        "bordered_spirewood_planks",
+        "bordered_spirewood_wall",
+        "bordered_vermillion_wall",
+        "breather_sponge",
+        "bright_ochre_leaves",
+        "cauldron_of_trilobite",
+        "cherry_mesh_wall",
+        "chilloo_egg",
+        "chiseled_dark_frostrock_block",
+        "chiseled_frostrock",
+        "chiseled_permafrost",
+        "chiseled_rinthium_block",
+        "chiseled_shale",
+        "cobalt",
+        "cobbled_shale",
+        "cobbled_shale_slab",
+        "cobbled_shale_stairs",
+        "cobbled_shale_wall",
+        "corrial_plating",
+        "corroded_block",
+        "corroded_mantlestone",
+        "corroded_shale",
+        "corruption",
+        "cracked_shale_bricks",
+        "cracked_shale_pillar_block",
+        "crimson_bloodstone_block",
+        "cut_polished_permafrost",
+        "dark_frostrock",
+        "dark_frostrock_block",
+        "dark_frostrock_block_slab",
+        "dark_frostrock_block_stairs",
+        "dark_frostrock_block_wall",
+        "dark_frostrock_brick_fence",
+        "dark_frostrock_brick_slab",
+        "dark_frostrock_brick_stairs",
+        "dark_frostrock_brick_wall",
+        "dark_frostrock_bricks",
+        "dark_frostrock_button",
+        "dark_frostrock_door",
+        "dark_frostrock_pressure_plate",
+        "dark_frostrock_slab",
+        "dark_frostrock_stairs",
+        "dark_frostrock_trapdoor",
+        "dark_frostrock_wall",
+        "dark_loque_leaves",
+        "dark_rinthium_block",
+        "dark_rinthium_grid_block",
+        "dark_shiver_leaves",
+        "darksteel_beam",
+        "darksteel_block",
+        "darksteel_button",
+        "darksteel_door",
+        "darksteel_light",
+        "darksteel_pressure_plate",
+        "darksteel_slab",
+        "darksteel_stairs",
+        "darksteel_tile_slab",
+        "darksteel_tile_stairs",
+        "darksteel_tile_wall",
+        "darksteel_tiles",
+        "darksteel_trapdoor",
+        "darksteel_wall",
+        "dissolving_impervium",
+        "dull_leaves",
+        "dull_log",
+        "dull_shrub",
+        "dull_thread_net",
+        "empty_archive_cabinet",
+        "eyespy_frostrock_block",
+        "ferrous_block",
+        "ferrous_mantlestone",
+        "ferrous_shale",
+        "ferrum_plating",
+        "ferrum_plating_slab",
+        "ferrum_plating_stairs",
+        "ferrum_plating_wall",
+        "flowing_dark",
+        "frost_pearl_block",
+        "frostrock",
+        "frostrock_brick_slab",
+        "frostrock_brick_stairs",
+        "frostrock_brick_wall",
+        "frostrock_bricks",
+        "frostrock_button",
+        "frostrock_door",
+        "frostrock_pressure_plate",
+        "frostrock_slab",
+        "frostrock_stairs",
+        "frostrock_trapdoor",
+        "frostrock_wall",
+        "ghostglass_block",
+        "glace",
+        "glace_slab",
+        "glace_stairs",
+        "glace_wall",
+        "glauko_stem",
+        "glowcap_stem",
+        "glowstick",
+        "grassy_shale",
+        "greenhouse_glass_pane",
+        "hanging_dull_thread",
+        "hazard_stripes",
+        "hearth_honey_block",
+        "helion_hololattice",
+        "helion_lamp_block",
+        "hollowed_log",
+        "impervium_brick_slab",
+        "impervium_brick_stairs",
+        "impervium_bricks",
+        "infested_log",
+        "jellercel_hololattice",
+        "kyaneos_button",
+        "kyaneos_door",
+        "kyaneos_fence",
+        "kyaneos_fence_gate",
+        "kyaneos_log",
+        "kyaneos_pressure_plate",
+        "kyaneos_slab",
+        "kyaneos_stairs",
+        "kyaneos_trapdoor",
+        "kyaneos_wood",
+        "liteprism_window",
+        "loque_fern",
+        "loque_grass",
+        "loque_leaves",
+        "lunei",
+        "malachite_block",
+        "malachite_crystal",
+        "malachite_ore",
+        "mantle_bloodstone_ore",
+        "mantle_ruby_ore",
+        "mantlestone",
+        "mantlestone_brick_slab",
+        "mantlestone_brick_stairs",
+        "mantlestone_brick_wall",
+        "mantlestone_bricks",
+        "mantlestone_button",
+        "mantlestone_door",
+        "mantlestone_pressure_plate",
+        "mantlestone_slab",
+        "mantlestone_stairs",
+        "mantlestone_trapdoor",
+        "mantlestone_wall",
+        "marine_seaglass_pane",
+        "mavros_door",
+        "mavros_log",
+        "moonrock",
+        "mossy_mantlestone",
+        "muck_brick_slab",
+        "muck_brick_stairs",
+        "muck_brick_wall",
+        "muck_bricks",
+        "muck_button",
+        "muck_door",
+        "muck_pressure_plate",
+        "muck_trapdoor",
+        "neon_bricks",
+        "ochre_door",
+        "ochre_leaves",
+        "ochre_log",
+        "ochre_plank_button",
+        "ochre_plank_fence",
+        "ochre_plank_fence_gate",
+        "ochre_plank_pressure_plate",
+        "ochre_plank_slab",
+        "ochre_plank_stairs",
+        "ochre_sapling",
+        "ochre_trapdoor",
+        "ochre_wood",
+        "pale_stellar_bliss_block",
+        "pale_stellar_bliss_floor",
+        "permafrost",
+        "permafrost_button",
+        "permafrost_door",
+        "permafrost_pressure_plate",
+        "permafrost_tile_slab",
+        "permafrost_tile_stairs",
+        "permafrost_tile_wall",
+        "permafrost_tiles",
+        "permafrost_trapdoor",
+        "phobotite_block",
+        "phobotite_hololattice",
+        "pixietill",
+        "polemonium",
+        "polished_frostrock",
+        "polished_frostrock_slab",
+        "polished_frostrock_stairs",
+        "polished_frostrock_wall",
+        "polished_impervium",
+        "polished_mantle_wall",
+        "polished_mantlestone",
+        "polished_mantlestone_slab",
+        "polished_mantlestone_stairs",
+        "polished_permafrost",
+        "polished_permafrost_slab",
+        "polished_permafrost_stairs",
+        "polished_permafrost_wall",
+        "polished_shale",
+        "polished_shale_slab",
+        "polished_shale_stairs",
+        "polished_shale_wall",
+        "pondler_egg",
+        "pure_muck_slab",
+        "pure_muck_stairs",
+        "pure_muck_wall",
+        "purified_loque_grass",
+        "purified_loque_leaves",
+        "purple_carborundum_block",
+        "red_sanctum_light",
+        "rinthium_a",
+        "rinthium_b",
+        "rinthium_block",
+        "rinthium_bricks",
+        "rinthium_c",
+        "rinthium_d",
+        "rinthium_e",
+        "rinthium_f",
+        "rinthium_g",
+        "rinthium_h",
+        "rinthium_i",
+        "rinthium_j",
+        "rinthium_k",
+        "rinthium_l",
+        "rinthium_m",
+        "rinthium_n",
+        "rinthium_o",
+        "rinthium_p",
+        "rinthium_q",
+        "rinthium_r",
+        "rinthium_s",
+        "rinthium_t",
+        "rinthium_tiles",
+        "rinthium_u",
+        "rinthium_v",
+        "rinthium_w",
+        "rinthium_x",
+        "rinthium_y",
+        "rinthium_z",
+        "rough_ruby_block",
+        "ruby_block",
+        "ruby_ore",
+        "sanctum_brick_slab",
+        "sanctum_brick_stairs",
+        "sanctum_brick_wall",
+        "sanctum_bricks",
+        "sanctum_lamp",
+        "sanctum_light",
+        "sanctum_pillar",
+        "sanctum_tile",
+        "sea_carcass_mass",
+        "seaglass_block",
+        "shale",
+        "shale_brick_slab",
+        "shale_brick_stairs",
+        "shale_brick_wall",
+        "shale_bricks",
+        "shale_button",
+        "shale_door",
+        "shale_pillar_block",
+        "shale_pressure_plate",
+        "shale_slab",
+        "shale_stairs",
+        "shale_trapdoor",
+        "shale_wall",
+        "shiver_leaves",
+        "shiver_log",
+        "shiverglitter_plank_button",
+        "shiverglitter_plank_door",
+        "shiverglitter_plank_fence",
+        "shiverglitter_plank_fence_gate",
+        "shiverglitter_plank_pressure_plate",
+        "shiverglitter_plank_slab",
+        "shiverglitter_plank_stairs",
+        "shiverglitter_plank_trapdoor",
+        "shiverglitter_sapling",
+        "shiverglitter_wood",
+        "short_loque_grass",
+        "sigil_rinthium_block_b",
+        "smiley_lantern",
+        "snow_brick_slab",
+        "snow_brick_stairs",
+        "snow_brick_wall",
+        "snow_bricks",
+        "snow_poff",
+        "snowy_cobalt",
+        "snowy_cobbled_shale",
+        "snowy_cobbled_shale_slab",
+        "snowy_cobbled_shale_stairs",
+        "snowy_glace",
+        "snowy_glace_slab",
+        "snowy_glace_stairs",
+        "snowy_shale",
+        "soapstone",
+        "soapstone_slab",
+        "soapstone_stairs",
+        "soapstone_wall",
+        "spiral_mantlestone",
+        "spire_bulb",
+        "spire_stem",
+        "spire_tendrils",
+        "spireroot_thorns",
+        "spirewood_branch",
+        "spirewood_button",
+        "spirewood_door",
+        "spirewood_fence",
+        "spirewood_fence_gate",
+        "spirewood_log",
+        "spirewood_planks",
+        "spirewood_pressure_plate",
+        "spirewood_slab",
+        "spirewood_stairs",
+        "spirewood_trapdoor",
+        "spore_pod",
+        "sprintweed",
+        "steelstem_bars",
+        "steelstem_block",
+        "steelstem_fence",
+        "stellar_bliss_beam_trim",
+        "stellar_bliss_block",
+        "stellar_bliss_cubbies",
+        "stellar_bliss_floor",
+        "stellar_bliss_slab",
+        "stellar_bliss_stairs",
+        "stellar_bliss_tile",
+        "stellar_bliss_tile_slab",
+        "stellar_bliss_tile_stairs",
+        "stellar_bliss_tile_wall",
+        "stellar_bliss_wall",
+        "stellar_void_block",
+        "stellar_void_button",
+        "stellar_void_door",
+        "stellar_void_lamp",
+        "stellar_void_panel",
+        "stellar_void_pressure_plate",
+        "stellar_void_slab",
+        "stellar_void_stairs",
+        "stellar_void_tile_slab",
+        "stellar_void_tile_stairs",
+        "stellar_void_tile_wall",
+        "stellar_void_tiles",
+        "stellar_void_trapdoor",
+        "stellar_void_wall",
+        "stripped_kyaneos_log",
+        "stripped_kyaneos_wood",
+        "stripped_ochre_log",
+        "stripped_ochre_wood",
+        "stripped_shiverglitter_log",
+        "stripped_shiverglitter_wood",
+        "stripped_vermilli_log",
+        "stripped_vermilli_wood",
+        "suspicious_archive_cabinet",
+        "tall_angler_bulb",
+        "tall_frosted_grass",
+        "tall_loque_fern",
+        "tall_vermillion_fern",
+        "thin_spire_bulb",
+        "thin_stem",
+        "tophaz",
+        "trapped_darksteel_block",
+        "trident_flower",
+        "twilit_shrub",
+        "veinroot",
+        "veinroot_ends",
+        "vermilli_button",
+        "vermilli_door",
+        "vermilli_fence",
+        "vermilli_fence_gate",
+        "vermilli_leaves",
+        "vermilli_log",
+        "vermilli_pressure_plate",
+        "vermilli_slab",
+        "vermilli_stairs",
+        "vermilli_trapdoor",
+        "vermilli_wood",
+        "vermillion_fern",
+        "vermillion_lantern",
+        "vermillion_moss",
+        "vermillion_sapling",
+        "vermillion_wax_block",
+        "vermillion_wax_cells",
+        "vermillion_wax_panel",
+        "vermillion_wax_slab",
+        "vermillion_wax_stairs",
+        "vermillion_wax_tiles",
+        "vermillion_wax_wall",
+        "violet_seaglass_pane",
+        "volt_flower",
+        "wildgrass"
+      ]
+    },
+    "block_entities": {
+      "count": 5,
+      "unique": 5,
+      "duplicates": {},
+      "ids": [
+        "cauldron_of_trilobite",
+        "chilloo_egg",
+        "glowstick",
+        "pondler_egg",
+        "spore_pod"
+      ]
+    },
+    "effects": {
+      "count": 10,
+      "unique": 10,
+      "duplicates": {},
+      "ids": [
+        "antitoxin_effect",
+        "cocoa_effect",
+        "damaging_aura",
+        "electrified",
+        "frostbite",
+        "heart_boost",
+        "infected",
+        "purified",
+        "stunned",
+        "tremors"
+      ]
+    },
+    "armor_material": {
+      "count": 6,
+      "unique": 6,
+      "duplicates": {},
+      "ids": [
+        "blood_armor",
+        "blood_zenith_armor",
+        "carborundum_armor",
+        "ruby_armor",
+        "ruby_zenith_armor",
+        "sentry"
+      ]
+    },
+    "potions": {
+      "count": 1,
+      "unique": 1,
+      "duplicates": {},
+      "ids": [
+        "electrifying"
+      ]
+    },
+    "particles": {
+      "count": 6,
+      "unique": 6,
+      "duplicates": {},
+      "ids": [
+        "blood_attack",
+        "blood_spiral",
+        "bloomer_aura",
+        "prismatic_boom",
+        "toxic_bubble",
+        "white_orb"
+      ]
+    },
+    "feature": {
+      "count": 1,
+      "unique": 1,
+      "duplicates": {},
+      "ids": [
+        "structure_feature"
+      ]
+    },
+    "entities": {
+      "count": 30,
+      "unique": 30,
+      "duplicates": {},
+      "ids": [
+        "blighted_spore",
+        "bonerahna",
+        "chilloo",
+        "chromefish",
+        "crystal_koi",
+        "explosive_snobol",
+        "flare",
+        "forecast",
+        "gore_flayer_orb",
+        "infestophage",
+        "infestophage_seed",
+        "louse",
+        "pillbud",
+        "pixie",
+        "pixie_bottle",
+        "pondler",
+        "probosker",
+        "raincatcher",
+        "scarlet_ray",
+        "siibol",
+        "snobol",
+        "snobol_blast",
+        "sootle",
+        "sootle_idle",
+        "sootling",
+        "springling",
+        "torpedo",
+        "trilobite",
+        "willograde",
+        "zap_attack_entity"
+      ]
+    }
+  },
+  "snapshot": "Sixth batch Sootle/Lantern/Control/Aura/TallPlants/Vermilli structure feature. Static snapshot, compile separately reported; no runtime execution.",
+  "history": [
+    {
+      "round": 1,
+      "data_closure": "failed",
+      "blocker": "willograde loot referenced unregistered thermal_shock:vermillion_moss; fixed in round2"
+    },
+    {
+      "round": 2,
+      "data_closure": "passed",
+      "compile": "compile-parallel-sol-final.log; then map follow-up compile-parallel-sol-map.log"
+    }
+  ],
+  "original_assets": {
+    "checked": 6105,
+    "missing": [],
+    "changed": []
+  },
+  "new_asset_hashes": {},
+  "utf8": {
+    "checked": 4716,
+    "issues": []
+  },
+  "java_comments": {
+    "checked": 145,
+    "issues": []
+  },
+  "migrated_data": {
+    "json_checked": 832,
+    "json_errors": [],
+    "registry_references_checked": 2189,
+    "unresolved": [],
+    "limits": "Checks imported JSON concrete custom item/block/entity/effect references and required custom tag references; separate worldgen closure below. Does not simulate codecs or omitted original data."
+  },
+  "literal_java_resource_paths": {
+    "checked": 35,
+    "missing": [],
+    "limits": "Literal paths only; dynamic fauna models/textures checked by separate fauna audit."
+  },
+  "worldgen_feature_references": {
+    "checked": 11,
+    "missing": [],
+    "limits": "String feature refs in imported worldgen; currently all point configured_feature; no runtime decoding"
+  },
+  "skill_checks": [
+    {
+      "command": [
+        "D:\\Anaconda2\\python.exe",
+        "-X",
+        "utf8",
+        "C:\\Users\\30819\\.codex\\skills\\.system\\skill-creator\\scripts\\quick_validate.py",
+        "C:\\Users\\30819\\.codex\\skills\\mcreator-rework"
+      ],
+      "exit": 0,
+      "output": "Skill is valid!\n"
+    },
+    {
+      "command": [
+        "D:\\Anaconda2\\python.exe",
+        "-X",
+        "utf8",
+        "D:\\AI临时文件\\ThermalShockMigration\\validate_skill.py"
+      ],
+      "exit": 0,
+      "output": "UTF-8, local references, UI metadata and scaffold checks passed.\n"
+    }
+  ],
+  "scope": "Frozen sixth batch snapshot. Static registry expansion includes PlantContent11/TallPlantContent8 loop block items, VermilliContent2 simple block items, AuraContent effects/particles and structure_feature type; no deletion of references to pass checks. Final compiled resources read from build output after main release, no post-release main scan.",
+  "structure_templates": {
+    "checked": 4,
+    "templates": {
+      "vermillion_pine_1.nbt": {
+        "sha256": "efe365a55bb17646908e4d77e42f5603b0b46d1d1a8887fdea3dea28543457be",
+        "original_equal": true,
+        "size": [
+          9,
+          47,
+          9
+        ],
+        "block_entries": 3807,
+        "palette": [
+          {
+            "Properties": {
+              "axis": "y"
+            },
+            "Name": "thermal_shock:vermilli_log"
+          },
+          {
+            "Properties": {
+              "waterlogged": "false",
+              "distance": "4",
+              "persistent": "true"
+            },
+            "Name": "thermal_shock:vermilli_leaves"
+          },
+          {
+            "Properties": {
+              "waterlogged": "false",
+              "distance": "3",
+              "persistent": "true"
+            },
+            "Name": "thermal_shock:vermilli_leaves"
+          },
+          {
+            "Properties": {
+              "waterlogged": "false",
+              "distance": "2",
+              "persistent": "true"
+            },
+            "Name": "thermal_shock:vermilli_leaves"
+          },
+          {
+            "Properties": {
+              "waterlogged": "false",
+              "distance": "1",
+              "persistent": "true"
+            },
+            "Name": "thermal_shock:vermilli_leaves"
+          },
+          {
+            "Properties": {
+              "waterlogged": "false",
+              "distance": "5",
+              "persistent": "true"
+            },
+            "Name": "thermal_shock:vermilli_leaves"
+          },
+          {
+            "Properties": {
+              "waterlogged": "false",
+              "distance": "6",
+              "persistent": "true"
+            },
+            "Name": "thermal_shock:vermilli_leaves"
+          },
+          {
+            "Name": "minecraft:air"
+          }
+        ],
+        "entity_count": 0
+      },
+      "vermillion_pine_1b.nbt": {
+        "sha256": "b53de9705a05d404a82dc6f6ad286097c645b86b527786b741e13a2cd12b6337",
+        "original_equal": true,
+        "size": [
+          9,
+          43,
+          9
+        ],
+        "block_entries": 3483,
+        "palette": [
+          {
+            "Properties": {
+              "axis": "y"
+            },
+            "Name": "thermal_shock:vermilli_log"
+          },
+          {
+            "Properties": {
+              "waterlogged": "false",
+              "distance": "4",
+              "persistent": "true"
+            },
+            "Name": "thermal_shock:vermilli_leaves"
+          },
+          {
+            "Properties": {
+              "waterlogged": "false",
+              "distance": "3",
+              "persistent": "true"
+            },
+            "Name": "thermal_shock:vermilli_leaves"
+          },
+          {
+            "Properties": {
+              "waterlogged": "false",
+              "distance": "2",
+              "persistent": "true"
+            },
+            "Name": "thermal_shock:vermilli_leaves"
+          },
+          {
+            "Properties": {
+              "waterlogged": "false",
+              "distance": "1",
+              "persistent": "true"
+            },
+            "Name": "thermal_shock:vermilli_leaves"
+          },
+          {
+            "Properties": {
+              "waterlogged": "false",
+              "distance": "5",
+              "persistent": "true"
+            },
+            "Name": "thermal_shock:vermilli_leaves"
+          },
+          {
+            "Properties": {
+              "waterlogged": "false",
+              "distance": "6",
+              "persistent": "true"
+            },
+            "Name": "thermal_shock:vermilli_leaves"
+          },
+          {
+            "Name": "minecraft:air"
+          }
+        ],
+        "entity_count": 0
+      },
+      "vermillion_pine_2.nbt": {
+        "sha256": "2ab479ca53e765de572a38681f17d09be4b024a4c46e187b24d89887bee8e4ec",
+        "original_equal": true,
+        "size": [
+          9,
+          47,
+          9
+        ],
+        "block_entries": 3807,
+        "palette": [
+          {
+            "Properties": {
+              "axis": "y"
+            },
+            "Name": "thermal_shock:vermilli_log"
+          },
+          {
+            "Properties": {
+              "waterlogged": "false",
+              "distance": "4",
+              "persistent": "true"
+            },
+            "Name": "thermal_shock:vermilli_leaves"
+          },
+          {
+            "Properties": {
+              "waterlogged": "false",
+              "distance": "3",
+              "persistent": "true"
+            },
+            "Name": "thermal_shock:vermilli_leaves"
+          },
+          {
+            "Properties": {
+              "waterlogged": "false",
+              "distance": "2",
+              "persistent": "true"
+            },
+            "Name": "thermal_shock:vermilli_leaves"
+          },
+          {
+            "Properties": {
+              "waterlogged": "false",
+              "distance": "1",
+              "persistent": "true"
+            },
+            "Name": "thermal_shock:vermilli_leaves"
+          },
+          {
+            "Properties": {
+              "waterlogged": "false",
+              "distance": "5",
+              "persistent": "true"
+            },
+            "Name": "thermal_shock:vermilli_leaves"
+          },
+          {
+            "Properties": {
+              "waterlogged": "false",
+              "distance": "6",
+              "persistent": "true"
+            },
+            "Name": "thermal_shock:vermilli_leaves"
+          },
+          {
+            "Name": "minecraft:air"
+          }
+        ],
+        "entity_count": 0
+      },
+      "vermillion_pine_2b.nbt": {
+        "sha256": "d45eebe9bc0f67259de14b9fdfa486d6c96452e81a2580a7d94e09929602db36",
+        "original_equal": true,
+        "size": [
+          9,
+          45,
+          9
+        ],
+        "block_entries": 3645,
+        "palette": [
+          {
+            "Properties": {
+              "axis": "y"
+            },
+            "Name": "thermal_shock:vermilli_log"
+          },
+          {
+            "Properties": {
+              "waterlogged": "false",
+              "distance": "4",
+              "persistent": "true"
+            },
+            "Name": "thermal_shock:vermilli_leaves"
+          },
+          {
+            "Properties": {
+              "waterlogged": "false",
+              "distance": "3",
+              "persistent": "true"
+            },
+            "Name": "thermal_shock:vermilli_leaves"
+          },
+          {
+            "Properties": {
+              "waterlogged": "false",
+              "distance": "2",
+              "persistent": "true"
+            },
+            "Name": "thermal_shock:vermilli_leaves"
+          },
+          {
+            "Properties": {
+              "waterlogged": "false",
+              "distance": "1",
+              "persistent": "true"
+            },
+            "Name": "thermal_shock:vermilli_leaves"
+          },
+          {
+            "Properties": {
+              "waterlogged": "false",
+              "distance": "5",
+              "persistent": "true"
+            },
+            "Name": "thermal_shock:vermilli_leaves"
+          },
+          {
+            "Properties": {
+              "waterlogged": "false",
+              "distance": "6",
+              "persistent": "true"
+            },
+            "Name": "thermal_shock:vermilli_leaves"
+          },
+          {
+            "Name": "minecraft:air"
+          }
+        ],
+        "entity_count": 0
+      }
+    },
+    "issues": [],
+    "property_schema_evidence": "MaterialContent vermilli_log native RotatedPillar axis; SnowCoveredLeaves extends native LeavesBlock distance1..7/persistent/waterlogged plus blockstate0..1; omitted blockstate defaults0. Native palette decoder not executed."
+  },
+  "worldgen_original_bytes": {
+    "files": {
+      "data/thermal_shock/worldgen/configured_feature/angler_bulb_feature.json": {
+        "sha256": "82d8e5e098d0684b214a65072a24bf81e9c098109f7921756514adeaee2174d0",
+        "original_byte_equal": true
+      },
+      "data/thermal_shock/worldgen/configured_feature/dull_shrub.json": {
+        "sha256": "05026de438a0d8c95176268b99cf4ddb942690964d00ffe0754e500a353cc68f",
+        "original_byte_equal": true
+      },
+      "data/thermal_shock/worldgen/configured_feature/loque_birch_tree.json": {
+        "sha256": "b423451585a7397653a4b54f30c644abb59f78cf9443f29d9c328d9563ae0988",
+        "original_byte_equal": false,
+        "original_json_equal": true
+      },
+      "data/thermal_shock/worldgen/configured_feature/loque_fern.json": {
+        "sha256": "84b893491426f8701bf1164fd692d435350775dd1b538b41fd2cdf4fab6b7a24",
+        "original_byte_equal": true
+      },
+      "data/thermal_shock/worldgen/configured_feature/shiverglitter_tree.json": {
+        "sha256": "30be6d04768523437bb4e44f7dc90517d24482b4875229933e5071e363539168",
+        "original_byte_equal": true
+      },
+      "data/thermal_shock/worldgen/configured_feature/shiverglitter_tree_cobalt_heights.json": {
+        "sha256": "8330eb72153a9226290eae06967ccfa69df5a83759389f048980facc5fbfb1b6",
+        "original_byte_equal": true
+      },
+      "data/thermal_shock/worldgen/configured_feature/spireroot_thorns.json": {
+        "sha256": "01499270584086c998cec202aebb5090033536a5d724dca33cb351c155a7d7be",
+        "original_byte_equal": true
+      },
+      "data/thermal_shock/worldgen/configured_feature/spore_pod_gen.json": {
+        "sha256": "ad5d1ccc1f56cf98cc27acf437849ba4be4ffbd3c3a9a6b6db6a46f77dab0814",
+        "original_byte_equal": true
+      },
+      "data/thermal_shock/worldgen/configured_feature/sprintweed.json": {
+        "sha256": "300717ae006d4344b86d4f4a34aa24b83d65a61783a71036a8e7d274dbd78d4c",
+        "original_byte_equal": true
+      },
+      "data/thermal_shock/worldgen/configured_feature/tall_loque_fern.json": {
+        "sha256": "505cb80596c711751349517db6cd2d5ea90435c5633f89d048c032f4d47b7608",
+        "original_byte_equal": true
+      },
+      "data/thermal_shock/worldgen/configured_feature/tall_vermillion_fern.json": {
+        "sha256": "0d63d94e4f9acf179694a73dd573498a2ac8b6a39f5b0321b56e2e283ad3c655",
+        "original_byte_equal": true
+      },
+      "data/thermal_shock/worldgen/configured_feature/vermillion_fern.json": {
+        "sha256": "2e505bfb4ad02f9410b51d999f0087c6f02d923ae4210b3aedfb5df7435d0e3b",
+        "original_byte_equal": true
+      },
+      "data/thermal_shock/worldgen/configured_feature/vermillion_tree.json": {
+        "sha256": "6a739d20623b1a180b9b39ec161a4369bf8fa26c25f391ac83bc78dc4c261b75",
+        "original_byte_equal": true
+      },
+      "data/thermal_shock/worldgen/configured_feature/volt_flower.json": {
+        "sha256": "83c7a3e8528905532749a9dd7ff65c178be7b6bd991452c134b9d39f9ab8f9c4",
+        "original_byte_equal": true
+      },
+      "data/thermal_shock/worldgen/placed_feature/angler_bulb_feature.json": {
+        "sha256": "a20e20e8da5527b33c8e19ddb2943955c24d14d96562e04d28072bfb8789be3c",
+        "original_byte_equal": true
+      },
+      "data/thermal_shock/worldgen/placed_feature/dull_shrub.json": {
+        "sha256": "66d2837a35e8283cd66d0421e37098eafd14943eb21262e3e36803b29e4188e9",
+        "original_byte_equal": true
+      },
+      "data/thermal_shock/worldgen/placed_feature/loque_fern.json": {
+        "sha256": "c411c6546507703dce87946291186aff68d7331fbb66cba4364e4ae02baa3729",
+        "original_byte_equal": true
+      },
+      "data/thermal_shock/worldgen/placed_feature/spireroot_thorns.json": {
+        "sha256": "43f7bb23ea3046fa4a77722518f956b3f8832436c627790b72ca4ef3e6a00c4e",
+        "original_byte_equal": true
+      },
+      "data/thermal_shock/worldgen/placed_feature/spore_pod_gen.json": {
+        "sha256": "274eacbb5304a030300030ba73cdf3697e0fd42e7fd0e12451526a2f085f8172",
+        "original_byte_equal": true
+      },
+      "data/thermal_shock/worldgen/placed_feature/sprintweed.json": {
+        "sha256": "3f458e1983dce3df140b0f2af1b0fa13820bd87c5e5421c387823a7125806dd3",
+        "original_byte_equal": true
+      },
+      "data/thermal_shock/worldgen/placed_feature/tall_loque_fern.json": {
+        "sha256": "adbe19e931e77d637310f491ecd2133b7e7e626b44e454b563e595245ff7bc4a",
+        "original_byte_equal": true
+      },
+      "data/thermal_shock/worldgen/placed_feature/tall_vermillion_fern.json": {
+        "sha256": "55110ab396547cb6dbc79f10572b00bb73796f60bdf52d6f73b5c75ffe45106d",
+        "original_byte_equal": true
+      },
+      "data/thermal_shock/worldgen/placed_feature/vermillion_fern.json": {
+        "sha256": "3b351bbc4ff52d4343b7a474e8ae1407d7867ecc1a2f1ef7a94469a436aa1520",
+        "original_byte_equal": true
+      },
+      "data/thermal_shock/worldgen/placed_feature/vermillion_tree.json": {
+        "sha256": "3f2680e365dbe5ae042bbe7d330683952bb391cd0bde693828fd7d9c1d08cca6",
+        "original_byte_equal": true
+      },
+      "data/thermal_shock/worldgen/placed_feature/volt_flower.json": {
+        "sha256": "21df8138baef2008d173b9bdf37f2b6d3183eb4e68e4881f128491989910e39c",
+        "original_byte_equal": true
+      }
+    },
+    "custom_type_and_structure_issues": [],
+    "runtime_codec_decode": "not_run"
+  },
+  "sixth_visual_assets": {
+    "animations/blinding_lantern.animation.json": {
+      "sha256": "a70dedac013a9fbcd7c9467410777b6336c371a69cbe4cbe897837edd670db50",
+      "original_equal": true
+    },
+    "animations/sootling.animation.json": {
+      "sha256": "5a0e9414b29a6078fbd2ebbf7055f58265e260e7c1ea320959b8fe67554ea5f4",
+      "original_equal": true
+    },
+    "effeks/bloomeraura.efkefc": {
+      "sha256": "809b58283fa42c70dceb48746ce559a815a42210914265184a2dc54c3821dbe4",
+      "original_equal": true
+    },
+    "geo/blinding_lantern.geo.json": {
+      "sha256": "6f5176b6d3145f2585ffd802e75d12529b69fc7fe0f3b289954fccaa3562fccb",
+      "original_equal": true
+    },
+    "geo/sootling.geo.json": {
+      "sha256": "504f6f4e1537360d852a7d3d57b27d08a6edb8efa6e3f661ea7c46c96fdecc94",
+      "original_equal": true
+    },
+    "models/item/blinding_lantern.json": {
+      "sha256": "1be555e7729c6b059c3cbaf7109a9f677dcf4ce2cc39a473dca6c8ecc3f13754",
+      "original_equal": true
+    },
+    "models/item/sootle_spawn_egg.json": {
+      "sha256": "580a646ca6deaffd727fca9430aa7959f2053bd20024efbbefc8e2695a69abe5",
+      "original_equal": true
+    },
+    "particles/bloomer_aura.json": {
+      "sha256": "6e9138a906b84f75b110bbed564c935e90772ba87b6b8c4ccfbc89c05471a3fb",
+      "original_equal": true
+    },
+    "textures/entities/sootleglow.png": {
+      "sha256": "fb3902b24e43876f420fb92cc8faf638c212597ea2ef0a18654666345cf64cb6",
+      "original_equal": true
+    },
+    "textures/entities/sootling.png": {
+      "sha256": "0cdc0bf94002822bc2c2167d1521d0eaf79b0a90988361997a712b6f00cc8104",
+      "original_equal": true
+    },
+    "textures/item/blindinglantern.png": {
+      "sha256": "5f917f0b04137fee97bd9f07f0f445d76e7075e43898967dc8677b79d4ab97a5",
+      "original_equal": true
+    },
+    "textures/mob_effect/damaging_aura.png": {
+      "sha256": "fd7bf3cda532bdc3fc192230b2b54f9dda000d49c9e46d6930340969a44bf3a4",
+      "original_equal": true
+    },
+    "textures/mob_effect/stunned.png": {
+      "sha256": "1b5f91e5f1fb436fcf18bd407af10cafa7bf3c89afe3e7337bfbd721c5e15b9c",
+      "original_equal": true
+    },
+    "textures/mob_effect/tremors.png": {
+      "sha256": "1b5f91e5f1fb436fcf18bd407af10cafa7bf3c89afe3e7337bfbd721c5e15b9c",
+      "original_equal": true
+    },
+    "textures/particle/bloomer_aura.png": {
+      "sha256": "7074f74f39a8ad752db14a876089e9867d92b2425c37a6d44a74660f900a877d",
+      "original_equal": true
+    },
+    "animations/neon_lime_sootling.animation.json": {
+      "sha256": "34102b0c7a08a08fbe7bc02774bcd6e3e9c46b2fec9a885c911fb0947a4572d3",
+      "original_equal": true
+    },
+    "blockstates/spireroot_thorns.json": {
+      "sha256": "f6103eface2bce865bd462a58eebb3f3ada9d77782e03230e4cc23cb13595997",
+      "original_equal": true
+    },
+    "blockstates/sprintweed.json": {
+      "sha256": "c573a55c54694464bcd8fd54b8062a68b21ece8eca5802ec482fec4ccdc07659",
+      "original_equal": true
+    },
+    "blockstates/tall_angler_bulb.json": {
+      "sha256": "4b7d469bc1b60fce062cc0102e809f39632f455fd2024a59902506c503c56d62",
+      "original_equal": true
+    },
+    "blockstates/tall_loque_fern.json": {
+      "sha256": "a0dac9c8034b305c6bf32b8019e60fcd9d6f729abb0aedf9cc37b669b82f8a54",
+      "original_equal": true
+    },
+    "blockstates/tall_vermillion_fern.json": {
+      "sha256": "8fa53bfc9fe9b31cb23063260d2792c540a69174a4746882c6c9935895131882",
+      "original_equal": true
+    },
+    "blockstates/trident_flower.json": {
+      "sha256": "8c5a9d69145e3ffc2f04a9f18b5334a91d4f7da8dacd483ca779d23290843e25",
+      "original_equal": true
+    },
+    "blockstates/vermillion_sapling.json": {
+      "sha256": "9578a0f51dfdb50d8a4d9d8ed5ff215d9de7bfacf42d14f2bbf536b91a635f78",
+      "original_equal": true
+    },
+    "blockstates/vermilli_leaves.json": {
+      "sha256": "caa5201a0c963b456f4d7254a3a8ec4a3373161edd41d7fd3dde527f7a53ebf1",
+      "original_equal": true
+    },
+    "blockstates/volt_flower.json": {
+      "sha256": "3f06f438dce601225e443c8261b2f58f0456d0f6c14e294ca650ef9b222d9ae9",
+      "original_equal": true
+    },
+    "blockstates/wildgrass.json": {
+      "sha256": "0a8b91300687e570e8f97b7313d23f99c4407773e0bd83e3c42a28fe85098c59",
+      "original_equal": true
+    },
+    "effeks/Texture/bloomeraura.png": {
+      "sha256": "fb344332d560d8c386b320ceb7d683532d8de2fb05b690551925f8efb8692a00",
+      "original_equal": true
+    },
+    "geo/neon_lime_sootling.geo.json": {
+      "sha256": "794d55fb42294404daa9d0e101bc99bdd666c05490032ece2fbf9fe11c5df549",
+      "original_equal": true
+    },
+    "models/block/spireroot_thorns.json": {
+      "sha256": "acee4a9fe3bb2f1aeb1be9a6b183d40924117bbf299d33bc44d9596a2b15aff8",
+      "original_equal": true
+    },
+    "models/block/spireroot_thorns_bottom.json": {
+      "sha256": "3c24db3eb142f149c7cc85fa5d05df919033e03fc16c701cc13fb29f4ba58c10",
+      "original_equal": true
+    },
+    "models/block/sprintweed.json": {
+      "sha256": "0928cdd9b5da848bf8cb60d0c5cd2970b1f21b2532f531680abe8bf28966f968",
+      "original_equal": true
+    },
+    "models/block/sprintweed_bottom.json": {
+      "sha256": "acd12a82db2786cd6d2596bc9b4a8b1857aad9e2697bb77b1e9665b97e6d2f71",
+      "original_equal": true
+    },
+    "models/block/tall_angler_bulb.json": {
+      "sha256": "2f8008cc226b0e0d90ce8e0565f78bf27e0e905d2691343217365e9cb532487b",
+      "original_equal": true
+    },
+    "models/block/tall_angler_bulb_bottom.json": {
+      "sha256": "14aabf3b93e8aab7e29ab1c0d9b3ce0427697f59c450400f047025a481589062",
+      "original_equal": true
+    },
+    "models/block/tall_loque_fern.json": {
+      "sha256": "13ef81c8d9a4451d2e4f104854fe54e51ec826c6aa9950bc8ffad1b89cdaee83",
+      "original_equal": true
+    },
+    "models/block/tall_loque_fern_bottom.json": {
+      "sha256": "c6a5d5ad9c61c1bc903bb8069eba5ba30f332ee5bd3eee8eaaab8f8d6a6e70d7",
+      "original_equal": true
+    },
+    "models/block/tall_vermillion_fern.json": {
+      "sha256": "13ef81c8d9a4451d2e4f104854fe54e51ec826c6aa9950bc8ffad1b89cdaee83",
+      "original_equal": true
+    },
+    "models/block/tall_vermillion_fern_bottom.json": {
+      "sha256": "e8494db5b25d3e193c43704e35df54c9b39fe9d7521b67ff7062cc8ca6251fe4",
+      "original_equal": true
+    },
+    "models/block/trident_flower.json": {
+      "sha256": "1bb581b0437ca1d26e15b9737f3b23002cbe31764005debfe4b60358bb9f5b7e",
+      "original_equal": true
+    },
+    "models/block/trident_flower_bottom.json": {
+      "sha256": "bc41668544f2f5d3eaab3a13621335a7438e72409675e6af8fa7dc9847db4cf6",
+      "original_equal": true
+    },
+    "models/block/vermillion_sapling.json": {
+      "sha256": "df44ad6cb002c820ef3cba2e2e622b08a80cfacd207e59d38f5c24a3645e1fde",
+      "original_equal": true
+    },
+    "models/block/vermilli_leaves.json": {
+      "sha256": "1c44d7b629544b477b4354b7bcbe0f30bc62d173f328d5b284e307ddf346dd8e",
+      "original_equal": true
+    },
+    "models/block/volt_flower.json": {
+      "sha256": "df0c9c831c0562298116e322c81e9675e9a2cbb77e871b3547d489f38f58a9b3",
+      "original_equal": true
+    },
+    "models/block/volt_flower_bottom.json": {
+      "sha256": "69907740c62a90348a502ab34e1cf17ab30f5ee2c2f4eee5b94fec6a17d4b511",
+      "original_equal": true
+    },
+    "models/block/wildgrass.json": {
+      "sha256": "6e2de68d0a844273913da4553f795788e0dcacca10abf201ad67845ddc5bac16",
+      "original_equal": true
+    },
+    "models/block/wildgrass_bottom.json": {
+      "sha256": "d86fa7ee00b4f3e1644661e8500811b15fc57bd4f4d584c8d464c68e196a69f3",
+      "original_equal": true
+    },
+    "models/displaysettings/blindinglantern.json": {
+      "sha256": "81c6365a2c23bea2d642cf8094b5b441d150beb504a0e99ca087e2faef6a54f2",
+      "original_equal": true
+    },
+    "models/displaysettings/blinding_lantern.json": {
+      "sha256": "6488b27f131836f3cb0c09fed36c033802736060d8469ba030b3c265534d0041",
+      "original_equal": true
+    },
+    "models/item/sootling_spawn_egg.json": {
+      "sha256": "5719846359b953644d0f9a2450a56368a8b287cb14134c8108deb1d61d6f79d4",
+      "original_equal": true
+    },
+    "models/item/spireroot_thorns.json": {
+      "sha256": "fcaa46387eb148f033937e41274ac7698df42b4835a290450dade25815032c6f",
+      "original_equal": true
+    },
+    "models/item/sprintweed.json": {
+      "sha256": "acc6d375b487b84ecef552eb51da1b3b44d4d3d8fa5cd295d9caeba5c7c49044",
+      "original_equal": true
+    },
+    "models/item/sprintweed_soda.json": {
+      "sha256": "019e24e6eb3ebfc2075941153e20dff2582feab60cb011d56d1d273d3c8d0345",
+      "original_equal": true
+    },
+    "models/item/tall_angler_bulb.json": {
+      "sha256": "93a1b6c2de99784a3e16d4beccb8e0535abe8debe1470a15841c06813342decc",
+      "original_equal": true
+    },
+    "models/item/tall_loque_fern.json": {
+      "sha256": "c1712e6a50fe11b15224b29deaef417b985573a965aff19fae1cfaf7b9321985",
+      "original_equal": true
+    },
+    "models/item/tall_vermillion_fern.json": {
+      "sha256": "c1712e6a50fe11b15224b29deaef417b985573a965aff19fae1cfaf7b9321985",
+      "original_equal": true
+    },
+    "models/item/trident_flower.json": {
+      "sha256": "e6856a46a2d7f8013c61f2dd1f6727b5f1966757cf357fead7a4fe767609e9ec",
+      "original_equal": true
+    },
+    "models/item/vermillion_sapling.json": {
+      "sha256": "65deb2d955dca099bcbf4d6208c5a1210f72a90679f510c359b94ede07052403",
+      "original_equal": true
+    },
+    "models/item/vermilli_leaves.json": {
+      "sha256": "658115d3dacb88614bb882c0984e7d81d6b9b3b314a9b884b0f9d29a6ab4298e",
+      "original_equal": true
+    },
+    "models/item/volt_flower.json": {
+      "sha256": "165e65fd1b336e819fdf81ace6514acd49c00c2323b0f824dcadd3e7f23e7500",
+      "original_equal": true
+    },
+    "models/item/wildgrass.json": {
+      "sha256": "67355b3e3afb3ec1593a12ca52da2f4868eda7e023b7bbb9fddb9072dffa7a86",
+      "original_equal": true
+    },
+    "textures/block/frosted_wildgrass.png": {
+      "sha256": "d0e213d19b9e37e589defa5f988bad53fb760c37f92d0868ac5d922265537a39",
+      "original_equal": true
+    },
+    "textures/block/loque_wildgrass.png": {
+      "sha256": "4d96a2c77e5fd6ee18f6c8738d76024fbfa89bdf9033c4836edad483666bee23",
+      "original_equal": true
+    },
+    "textures/block/neon_sootling.png": {
+      "sha256": "ba5daa17adc371c57332a0a455fa4bdde56ec1d18d2cbdccf8a571a72348bb09",
+      "original_equal": true
+    },
+    "textures/block/tall_angler_bulb_1.png": {
+      "sha256": "33eced05e85452ca48caffb085dfdb5678d1bd79d3f8a83eac68cfd2e98c8d7a",
+      "original_equal": true
+    },
+    "textures/block/tall_angler_bulb_2.png": {
+      "sha256": "227e8593e15791c7ad9b0891f10f854b51db3edeb456feb98306df68133d9518",
+      "original_equal": true
+    },
+    "textures/block/tall_loque_fern_bottom.png": {
+      "sha256": "2797f2f65193976a4b0349fd7989d51fb60537c0040191e4d4e27c599053512e",
+      "original_equal": true
+    },
+    "textures/block/tall_loque_fern_top.png": {
+      "sha256": "a34fe71720ff5b2c365d7d5dcba44cca01ef1464f7c34e4c7e6408b02ccf9d53",
+      "original_equal": true
+    },
+    "textures/block/trident_flower_bottom.png": {
+      "sha256": "77d3c21124a0766090efcd5f9f4eda2dfa1c9ed687459f0c7dd16928c98ddc00",
+      "original_equal": true
+    },
+    "textures/block/trident_flower_top.png": {
+      "sha256": "395883f778352811d4234e0f60ac20a8de3c5680cd760aab087bd09f0e586eed",
+      "original_equal": true
+    },
+    "textures/block/trident_flower_top_rubicon.png": {
+      "sha256": "225aab4e4904ea7dea79a27ed0fbbaff9521b2e74f3707ca60796dab0bc53560",
+      "original_equal": true
+    },
+    "textures/block/vermillion_sapling.png": {
+      "sha256": "26eea1e508138d21b1ceac89a8569c1f397f053354155c2401ade8de732a8c36",
+      "original_equal": true
+    },
+    "textures/block/vermillion_sapling_26.png": {
+      "sha256": "06bf718d0034eff050020d32efa6ee3e4cbebdfb12fbd03f342c2ee211a4b50a",
+      "original_equal": true
+    },
+    "textures/block/wildgrass_bottom.png": {
+      "sha256": "3f6302cb2952852e8a8b82d2ba1f07a70b540d54863af53f9d03a289e087c226",
+      "original_equal": true
+    },
+    "textures/block/wildgrass_top.png": {
+      "sha256": "8093ec2019379945fc827cc1d287afb2dc3ffa018a2f29ffce00984f44a9e082",
+      "original_equal": true
+    },
+    "textures/entities/sootlingglow.png": {
+      "sha256": "e31b0fdc29243f0b048c6c143e2e8f678d14fc170b444fa6ae5cd9cee07f9771",
+      "original_equal": true
+    },
+    "textures/item/sootling_egg.png": {
+      "sha256": "130872bd619acfee4a418b5911fe0514e30614789f9255f707b0800a9212a741",
+      "original_equal": true
+    },
+    "textures/item/sprintweed_soda.png": {
+      "sha256": "3612ebf288d1a521d7e4e07bd1e92a9987fb5299fa245096549ef1a277e880ca",
+      "original_equal": true
+    },
+    "textures/item/vermillion_sapling.png": {
+      "sha256": "26eea1e508138d21b1ceac89a8569c1f397f053354155c2401ade8de732a8c36",
+      "original_equal": true
+    },
+    "textures/item/vermillion_sapling_26.png": {
+      "sha256": "06bf718d0034eff050020d32efa6ee3e4cbebdfb12fbd03f342c2ee211a4b50a",
+      "original_equal": true
+    },
+    "textures/screens/vermillion_sapling_26.png": {
+      "sha256": "06bf718d0034eff050020d32efa6ee3e4cbebdfb12fbd03f342c2ee211a4b50a",
+      "original_equal": true
+    },
+    "textures/screens/wildgrass_top.png": {
+      "sha256": "8093ec2019379945fc827cc1d287afb2dc3ffa018a2f29ffce00984f44a9e082",
+      "original_equal": true
+    }
+  },
+  "build": {
+    "command": "compileJava compileGametestJava processResources --offline --console=plain",
+    "java_home": "C:\\Users\\30819\\.jdks\\ms-21.0.11",
+    "logs": {
+      "compile-sixth-sootle-lantern-worldgen.log": {
+        "result": "failed",
+        "evidence": [
+          {
+            "line": 41,
+            "text": "> Task :compileJava"
+          },
+          {
+            "line": 42,
+            "text": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShock\\src\\main\\java\\com\\hp\\thermalshock\\entity\\sootle\\AbstractSootleEntity.java:38: 错误: 对AnimationState的引用不明确"
+          },
+          {
+            "line": 46,
+            "text": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShock\\src\\main\\java\\com\\hp\\thermalshock\\client\\armor\\ArmorClient.java:53: 警告: [removal] GeoArmorRenderer 中的 prepForRender(Entity,ItemStack,EquipmentSlot,HumanoidModel<?>) 已过时, 且标记为待删除"
+          },
+          {
+            "line": 49,
+            "text": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShock\\src\\main\\java\\com\\hp\\thermalshock\\client\\ClientEvents.java:30: 警告: [removal] EventBusSubscriber 中的 bus() 已过时, 且标记为待删除"
+          },
+          {
+            "line": 52,
+            "text": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShock\\src\\main\\java\\com\\hp\\thermalshock\\client\\ClientEvents.java:30: 警告: [removal] EventBusSubscriber 中的 Bus 已过时, 且标记为待删除"
+          },
+          {
+            "line": 57,
+            "text": "注: E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShock\\src\\main\\java\\com\\hp\\thermalshock\\content\\weapons\\BoundedItemAnimationCache.java使用了未经检查或不安全的操作。"
+          },
+          {
+            "line": 62,
+            "text": "> Task :compileJava FAILED"
+          },
+          {
+            "line": 71,
+            "text": "  E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShock\\src\\main\\java\\com\\hp\\thermalshock\\entity\\sootle\\AbstractSootleEntity.java:38: 错误: 对AnimationState的引用不明确"
+          },
+          {
+            "line": 76,
+            "text": "  注: E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShock\\src\\main\\java\\com\\hp\\thermalshock\\content\\weapons\\BoundedItemAnimationCache.java使用了未经检查或不安全的操作。"
+          },
+          {
+            "line": 79,
+            "text": "  E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShock\\src\\main\\java\\com\\hp\\thermalshock\\client\\armor\\ArmorClient.java:53: 警告: [removal] GeoArmorRenderer 中的 prepForRender(Entity,ItemStack,EquipmentSlot,HumanoidModel<?>) 已过时, 且标记为待删除"
+          },
+          {
+            "line": 82,
+            "text": "  E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShock\\src\\main\\java\\com\\hp\\thermalshock\\client\\ClientEvents.java:30: 警告: [removal] EventBusSubscriber 中的 bus() 已过时, 且标记为待删除"
+          },
+          {
+            "line": 85,
+            "text": "  E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShock\\src\\main\\java\\com\\hp\\thermalshock\\client\\ClientEvents.java:30: 警告: [removal] EventBusSubscriber 中的 Bus 已过时, 且标记为待删除"
+          },
+          {
+            "line": 101,
+            "text": "BUILD FAILED in 18s"
+          }
+        ]
+      },
+      "compile-sixth-sootle-lantern-worldgen-final.log": {
+        "result": "success",
+        "evidence": [
+          {
+            "line": 41,
+            "text": "> Task :compileJava"
+          },
+          {
+            "line": 42,
+            "text": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShock\\src\\main\\java\\com\\hp\\thermalshock\\client\\armor\\ArmorClient.java:53: 警告: [removal] GeoArmorRenderer 中的 prepForRender(Entity,ItemStack,EquipmentSlot,HumanoidModel<?>) 已过时, 且标记为待删除"
+          },
+          {
+            "line": 45,
+            "text": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShock\\src\\main\\java\\com\\hp\\thermalshock\\client\\ClientEvents.java:30: 警告: [removal] EventBusSubscriber 中的 bus() 已过时, 且标记为待删除"
+          },
+          {
+            "line": 48,
+            "text": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShock\\src\\main\\java\\com\\hp\\thermalshock\\client\\ClientEvents.java:30: 警告: [removal] EventBusSubscriber 中的 Bus 已过时, 且标记为待删除"
+          },
+          {
+            "line": 53,
+            "text": "注: E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShock\\src\\main\\java\\com\\hp\\thermalshock\\content\\weapons\\BoundedItemAnimationCache.java使用了未经检查或不安全的操作。"
+          },
+          {
+            "line": 57,
+            "text": "> Task :processResources"
+          },
+          {
+            "line": 60,
+            "text": "> Task :compileGametestJava"
+          },
+          {
+            "line": 72,
+            "text": "BUILD SUCCESSFUL in 53s"
+          }
+        ]
+      }
+    },
+    "initial_failure_resolution": "Fauna/root added exact software.bernie.geckolib.animation.AnimationState import in AbstractSootleEntity, removing ambiguous wildcard import use",
+    "authority": "Actual BUILD SUCCESSFUL/FAILED and task log, not PowerShell LASTEXITCODE; first failed build reported0",
+    "runtime_started": false
+  },
+  "sixth_visual_asset_summary": {
+    "checked": 81,
+    "all_equal": true,
+    "scope": "Named matching batch assets plus explicit Aura/Lantern/Sootle list; all original6105 independently hashed including any shared display parent resources"
+  },
+  "worldgen_byte_summary": {
+    "checked": 25,
+    "not_equal": [
+      "data/thermal_shock/worldgen/configured_feature/loque_birch_tree.json"
+    ],
+    "new_plant_files_in_batch": "15 plant configured/placed files plus Vermillion cfg/placed; all current25 individually hashed in report",
+    "limits": "Original bytes/target codec static source only; no runtime decoding/generation",
+    "existing_format_only_difference": {
+      "path": "data/thermal_shock/worldgen/configured_feature/loque_birch_tree.json",
+      "json_equal": true
+    }
+  },
+  "safety_and_behavior_review": {
+    "held_weapon_tail": "HeldWeaponState.join reapplies transient -40 range for saved remaining>0 and alive server entity, sets CREATED=Long.MIN_VALUE; next Post removes unless selected inventoryTick refreshes. WeaponContent registers join once. Death clears nextPost.",
+    "lantern": "Three-argument onEntitySwing actual native call;265 Player item CD/server FLASH45/delta5/speed.3/range6/exclude self and all tame pets/generic3 without owner/stunned60 amp1 even failed damage; hand transforms and native synced stackID/30s cache with logout/server-stop cleanup retained",
+    "sootle_lifecycle": "Idle conversionClaimed before scheduling, first7or10 input owns one countdown; dimension cancellation/reset/death cancel; discard before spawn one active. No repeated hurt queue or global delayed closure. Active single7tick or double8/10 damage,30/40CD,18 action lock; local UUID/dimension and remaining states persisted.",
+    "negative_damage": "Aura raw amp-armor*.3/.6 now Math.max0; Sootle ATK*(4/3 or1)-armor*.4 now Math.max0; normal attributes/armor/amp finite, no negative absorbed yellow-heart creation from these formulas. Zero hurt remains allowed for original callbacks.",
+    "nbt_finite": "ZapWarning multiplier, ExplosiveSnobol FuseDamage, legacy SnobolBlast Damage load now Double.isFinite fallback0 after nonnegative clamp; no arbitrary global third-party damage cancellation.",
+    "aura": "Per-tick radius1.5 for3original IDs else.5, exclude caster/item; original amp notamp+1, no owner generic source, Angry10% one BloomerAura AAA; hidden and milk/honey/totem cures, no normal source auto fabricated.",
+    "worldgen": "StructureFeature and recordCodec complete5fields; native feature registry1 actual ID; preserve ignored air,offset,mirror original nextInt2 boundary,rotation,template placement flag4/ignoreEntitiesfalse/constanttrue; constanttrue not evidence template actually generated.",
+    "limits": "No gameplay/Mixin/client shader/render/stress test; full source owner migration matrices referenced rather than claiming all original callers done"
+  },
+  "previous_snapshots": [
+    "docs/migration/ambient-plants-lights-static-validation.json retains earlier missing glass results failure",
+    "docs/migration/fifth-safety-spore-static-validation.json retains fifth repaired snapshot"
+  ],
+  "pending_and_limits": [
+    "Only compileJava/compileGametestJava/processResources executed; no server/client/GameTest started.",
+    "Native registry declarations statically expanded, not runtime registry enumeration; all concrete imported data references checked, not all omitted original dynamic registries.",
+    "Tremors/Aura other original weapon/mob callers, biomes/structures source placement/modifiers, trades/book and dimension/advancement chains remain pending in coverage docs.",
+    "No public cooldown/no_melee registry; lantern uses native range state. Original flower item small_flowers stew eligibility and Glowstick missing animation1 still limits.",
+    "Four imported template palette/property schema validated against registered native block classes, not runtime StructureTemplate decode/place."
+  ],
+  "overall": {
+    "final_compilation": "passed",
+    "initial_compile": "failed_then_exact_import_fixed",
+    "ids_unique": "passed",
+    "data_references": "passed",
+    "template_palettes": "passed4",
+    "original_assets": "passed6105",
+    "visual_batch": "passed",
+    "worldgen_bytes": "24of25_byte_equal; prior_loque_birch_tree_JSON_equal_formatting_difference",
+    "utf8_no_java_comments": "passed",
+    "skill_checks": "passed_both",
+    "runtime": "not_run"
+  }
+}

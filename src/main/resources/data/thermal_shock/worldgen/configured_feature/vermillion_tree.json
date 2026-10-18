@@ -1,0 +1,67 @@
+{
+  "type": "minecraft:simple_random_selector",
+  "config": {
+    "features": [
+      {
+        "feature": {
+          "type": "thermal_shock:structure_feature",
+          "config": {
+            "structure": "thermal_shock:vermillion_pine_1",
+            "ignored_blocks": "minecraft:air",
+            "offset": [
+              -4,
+              0,
+              -4
+            ]
+          }
+        },
+        "placement": []
+      },
+      {
+        "feature": {
+          "type": "thermal_shock:structure_feature",
+          "config": {
+            "structure": "thermal_shock:vermillion_pine_1b",
+            "ignored_blocks": "minecraft:air",
+            "offset": [
+              -4,
+              0,
+              -4
+            ]
+          }
+        },
+        "placement": []
+      },
+      {
+        "feature": {
+          "type": "thermal_shock:structure_feature",
+          "config": {
+            "structure": "thermal_shock:vermillion_pine_2",
+            "ignored_blocks": "minecraft:air",
+            "offset": [
+              -4,
+              0,
+              -4
+            ]
+          }
+        },
+        "placement": []
+      },
+      {
+        "feature": {
+          "type": "thermal_shock:structure_feature",
+          "config": {
+            "structure": "thermal_shock:vermillion_pine_2b",
+            "ignored_blocks": "minecraft:air",
+            "offset": [
+              -4,
+              0,
+              -4
+            ]
+          }
+        },
+        "placement": []
+      }
+    ]
+  }
+}

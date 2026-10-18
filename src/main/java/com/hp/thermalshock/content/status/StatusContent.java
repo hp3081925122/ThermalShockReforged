@@ -15,6 +15,8 @@ public final class StatusContent {
     private static final DeferredRegister<Potion> POTIONS = DeferredRegister.create(Registries.POTION, ThermalShock.MOD_ID);
     private static final DeferredRegister<net.minecraft.core.particles.ParticleType<?>> PARTICLES = DeferredRegister.create(Registries.PARTICLE_TYPE, ThermalShock.MOD_ID);
     public static final DeferredHolder<MobEffect, MobEffect> INFECTED = EFFECTS.register("infected", InfectedEffect::new);
+    public static final DeferredHolder<MobEffect, MobEffect> STUNNED = EFFECTS.register("stunned", () -> new ControlEffect(false));
+    public static final DeferredHolder<MobEffect, MobEffect> TREMORS = EFFECTS.register("tremors", () -> new ControlEffect(true));
     public static final DeferredHolder<net.minecraft.core.particles.ParticleType<?>, net.minecraft.core.particles.SimpleParticleType> BLOOD_SPIRAL = PARTICLES.register("blood_spiral", () -> new net.minecraft.core.particles.SimpleParticleType(true));
     public static final DeferredHolder<net.minecraft.core.particles.ParticleType<?>, net.minecraft.core.particles.SimpleParticleType> BLOOD_ATTACK = PARTICLES.register("blood_attack", () -> new net.minecraft.core.particles.SimpleParticleType(true));
     public static final DeferredHolder<MobEffect, MobEffect> FROSTBITE = EFFECTS.register("frostbite", () -> new PlayerStatusEffect(MobEffectCategory.HARMFUL, -13464321, PlayerStatusEffect.Action.NONE, false));

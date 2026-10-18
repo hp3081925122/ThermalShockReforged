@@ -91,7 +91,9 @@ public final class SnobolBlastEntity extends Entity {
         var tasks = tag.getList("PendingBlasts", Tag.TAG_COMPOUND);
         for (int i = 0; i < Math.min(1, tasks.size()); i++) {
             var task = tasks.getCompound(i);
-            pending.add(new Blast(new Vec3(task.getDouble("X"), task.getDouble("Y"), task.getDouble("Z")), Math.max(0, task.getDouble("Damage")), Math.max(1, Math.min(20, task.getInt("Remaining"))), Long.MIN_VALUE));
+            double damage = Math.max(0, task.getDouble("Damage"));
+            if (!Double.isFinite(damage)) damage = 0;
+            pending.add(new Blast(new Vec3(task.getDouble("X"), task.getDouble("Y"), task.getDouble("Z")), damage, Math.max(1, Math.min(20, task.getInt("Remaining"))), Long.MIN_VALUE));
         }
     }
 

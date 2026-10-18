@@ -12,6 +12,9 @@ import com.hp.thermalshock.client.ecosystem.EcosystemRenderers;
 import com.hp.thermalshock.client.ambient.AmbientRenderers;
 import com.hp.thermalshock.client.lights.LightsRenderers;
 import com.hp.thermalshock.client.spore.SporeRenderers;
+import com.hp.thermalshock.client.sootle.SootleRenderers;
+import com.hp.thermalshock.client.weapons.WeaponClient;
+import com.hp.thermalshock.client.status.aura.AuraClient;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRenderer;
@@ -35,6 +38,7 @@ public final class ClientEvents {
         AmbientRenderers.register(event);
         LightsRenderers.register(event);
         SporeRenderers.register(event);
+        SootleRenderers.register(event);
         event.registerEntityRenderer(ModEntities.PONDLER.get(), PondlerRenderer::new);
         event.registerEntityRenderer(ModEntities.PROBOSKER.get(), ProboskerRenderer::new);
         event.registerEntityRenderer(ModEntities.SCARLET_RAY.get(), ScarletRayRenderer::new);
@@ -49,6 +53,8 @@ public final class ClientEvents {
         ArmorClient.extensions(event);
         LightsRenderers.extensions(event);
         SporeRenderers.extensions(event);
+        WeaponClient.extensions(event);
+        AuraClient.extensions(event);
         FaunaRenderers.extensions(event);
     }
 
@@ -58,6 +64,7 @@ public final class ClientEvents {
         StatusClient.registerParticles(event);
         SnobolRenderers.particles(event);
         AmbientRenderers.particles(event);
+        AuraClient.particles(event);
     }
 
     private static final class InvisibleWarningRenderer extends EntityRenderer<ZapWarningEntity> {

@@ -121,6 +121,7 @@ public final class ExplosiveSnobolEntity extends Monster implements GeoEntity {
                 ? Math.max(0, Math.min(20, tag.getInt("FuseRemaining"))) : 0;
         fuseOrigin = tag.contains("FuseX") ? new net.minecraft.world.phys.Vec3(tag.getDouble("FuseX"), tag.getDouble("FuseY"), tag.getDouble("FuseZ")) : position();
         fuseDamage = Math.max(0, tag.getDouble("FuseDamage"));
+        if (!Double.isFinite(fuseDamage)) fuseDamage = 0;
         fuseStarted = Long.MIN_VALUE;
         fuseDimension = tag.getString("FuseDimension");
     }
