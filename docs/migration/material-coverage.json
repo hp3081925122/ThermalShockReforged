@@ -6460,7 +6460,8 @@
     "darksteel_beam",
     "mavros_log",
     "sanctum_pillar",
-    "sea_carcass_mass"
+    "sea_carcass_mass",
+    "pondler_egg"
   ],
   "registered_plain_items": [
     "ruby",
@@ -6753,7 +6754,6 @@
       "knights_edge": "KnightsEdgeItem",
       "thingamabob": "ThingamabobItem",
       "rusty_edge": "RustyEdgeItem",
-      "heart_crystal": "HeartCrystalItem",
       "petrichor": "PetrichorItem",
       "strangers_theme": "StrangersThemeItem",
       "floor_33": "Floor33Item",
@@ -7051,7 +7051,6 @@
       "glauko_flower": "GlaukoFlowerBlock",
       "chromatic_shale_lamp": "ChromaticShaleLampBlock",
       "dull_shrub": "DullShrubBlock",
-      "pondler_egg": "PondlerEggBlock",
       "greenhouse_glass": "GreenhouseGlassBlock",
       "wallbore": "WallboreBlock",
       "liftbug_constructor": "LiftbugConstructorBlock",
@@ -7122,5 +7121,8 @@
       "electric_sphere_constructor": "ElectricSphereConstructorBlock"
     }
   },
-  "scope": "基础材料与无procedure装饰方块迁移；不代表完整模组，实体、交互方块、世界数据等另列覆盖与待办。"
+  "scope": "基础材料／装饰、交互／轴向方块及Pondler孵化蛋；实体、世界数据及待验证边界另列覆盖。",
+  "registered_behavior_items": [
+    "heart_crystal"
+  ]
 }

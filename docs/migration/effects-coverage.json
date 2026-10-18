@@ -1,0 +1,91 @@
+{
+  "source_version": "07.9",
+  "original_count": 23,
+  "effects": {
+    "cocoa_effect": {
+      "status": "not_migrated"
+    },
+    "cooldown": {
+      "status": "not_migrated"
+    },
+    "stunned": {
+      "status": "not_migrated"
+    },
+    "antitoxin_effect": {
+      "status": "not_migrated"
+    },
+    "propulsion_boots_cooldown": {
+      "status": "not_migrated"
+    },
+    "electrified": {
+      "status": "not_migrated"
+    },
+    "reach": {
+      "status": "not_migrated"
+    },
+    "no_melee": {
+      "status": "not_migrated"
+    },
+    "parrying": {
+      "status": "not_migrated"
+    },
+    "heart_boost": {
+      "status": "implemented_pending_full_validation",
+      "source": "HeartBoostMobEffect/HeartCrystalRightclickedProcedure",
+      "implementation": "com.hp.thermalshock.content.ModEffects",
+      "real_player_effect": true,
+      "pending": [
+        "整模组完整后的属性叠加／过期移除／存档和双手交互运行验收",
+        "Cavebloomer箱／Icidroburner死亡／Icidrogunner死亡产出及DROPS游戏规则链"
+      ]
+    },
+    "damaging_aura": {
+      "status": "not_migrated"
+    },
+    "infected": {
+      "status": "not_migrated"
+    },
+    "purified": {
+      "status": "not_migrated"
+    },
+    "liteprism_buildup": {
+      "status": "not_migrated"
+    },
+    "low_gravity": {
+      "status": "not_migrated"
+    },
+    "no_knockback": {
+      "status": "not_migrated"
+    },
+    "sickle_wound_buildup": {
+      "status": "not_migrated"
+    },
+    "frostbite": {
+      "status": "not_migrated"
+    },
+    "knights_edge_charge": {
+      "status": "not_migrated"
+    },
+    "sylvia_rifle_charge": {
+      "status": "not_migrated"
+    },
+    "tremors": {
+      "status": "not_migrated"
+    },
+    "nomnomnom": {
+      "status": "not_migrated"
+    },
+    "no_break": {
+      "status": "not_migrated"
+    }
+  },
+  "potions": {
+    "electrifying": {
+      "status": "not_migrated",
+      "source_effect": "electrified",
+      "duration": 360,
+      "amplifier": 1,
+      "note": "原酿造组合仅JEI展示，不能误当作真实酿造注册"
+    }
+  }
+}

@@ -2,7 +2,19 @@
   "original_count": 154,
   "entities": {
     "probosker": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshock.entity.ProboskerEntity",
+      "prepared_tests": [
+        "ownerCommandsAndFeedingDoNotInterfere",
+        "sittingRetainsDamageAndPersistsColorOwnerAndPose",
+        "tamingKeepsBothRandomOutcomesAndFoodSet"
+      ],
+      "pending": [
+        "群系／地表自然生成链",
+        "Infestophage Seed、Louse、Monolith交叉AI及图鉴",
+        "原版缺失BreedGoal的行为评审",
+        "整模组完整后服务端及Render Preview验收"
+      ]
     },
     "crystal_koi": {
       "status": "implemented_pending_full_validation",
@@ -330,7 +342,15 @@
       "status": "not_migrated"
     },
     "pondler": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshock.entity.PondlerEntity",
+      "related_block": "pondler_egg",
+      "pending": [
+        "vermillion_woods自然生成及蛋来源",
+        "NetBullet捕捉与图鉴",
+        "整模组完整后跳跃／条件免伤／孵化库存服务端验证",
+        "双颜色、水陆／跳跃动画的Render Preview对照"
+      ]
     },
     "net_bullet": {
       "status": "not_migrated"

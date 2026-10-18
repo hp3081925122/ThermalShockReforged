@@ -17,6 +17,8 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 public final class ClientEvents {
     @SubscribeEvent
     public static void renderers(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerEntityRenderer(ModEntities.PONDLER.get(), PondlerRenderer::new);
+        event.registerEntityRenderer(ModEntities.PROBOSKER.get(), ProboskerRenderer::new);
         event.registerEntityRenderer(ModEntities.SCARLET_RAY.get(), ScarletRayRenderer::new);
         event.registerEntityRenderer(ModEntities.CRYSTAL_KOI.get(), CrystalKoiRenderer::new);
         event.registerEntityRenderer(ModEntities.FORECAST.get(), ForecastRenderer::new);

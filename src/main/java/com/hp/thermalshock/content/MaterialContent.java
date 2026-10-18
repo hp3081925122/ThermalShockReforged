@@ -30,6 +30,8 @@ public final class MaterialContent {
     private static final Map<String, DeferredItem<Item>> ITEM_ENTRIES = new LinkedHashMap<>();
 
     static {
+        item("heart_crystal", () -> new HeartCrystalItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
+        block("pondler_egg", () -> new PondlerEggBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).sound(SoundType.POINTED_DRIPSTONE).strength(0.2F, 0).noOcclusion().isRedstoneConductor((state, level, position) -> false)));
         block("ruby_ore", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_PURPLE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.STONE).strength(3.0f, 6.915809f).requiresCorrectToolForDrops(), 15));
         block("ruby_block", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.METAL).strength(2.0f, 10.0f).requiresCorrectToolForDrops(), 15));
         block("rough_ruby_block", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.CRIMSON_HYPHAE).sound(SoundType.METAL).strength(2.0f, 10.0f).requiresCorrectToolForDrops(), 15));

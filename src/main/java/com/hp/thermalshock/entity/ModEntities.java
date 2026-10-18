@@ -25,7 +25,13 @@ public final class ModEntities {
 
     public static final DeferredHolder<EntityType<?>, EntityType<ScarletRayEntity>> SCARLET_RAY = TYPES.register("scarlet_ray", () -> EntityType.Builder.of(ScarletRayEntity::new, MobCategory.WATER_AMBIENT).sized(1.0F, 0.3F).clientTrackingRange(64).updateInterval(3).build("thermal_shock:scarlet_ray"));
 
+    public static final DeferredHolder<EntityType<?>, EntityType<ProboskerEntity>> PROBOSKER = TYPES.register("probosker", () -> EntityType.Builder.of(ProboskerEntity::new, MobCategory.AMBIENT).sized(0.9F, 1.0F).clientTrackingRange(64).updateInterval(3).build("thermal_shock:probosker"));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<PondlerEntity>> PONDLER = TYPES.register("pondler", () -> EntityType.Builder.of(PondlerEntity::new, MobCategory.WATER_AMBIENT).sized(0.6F, 0.6F).clientTrackingRange(64).updateInterval(3).build("thermal_shock:pondler"));
+
     static {
+        ITEMS.register("pondler_spawn_egg", () -> new DeferredSpawnEggItem(PONDLER, -1, -1, new Item.Properties()));
+        ITEMS.register("probosker_spawn_egg", () -> new DeferredSpawnEggItem(PROBOSKER, -1, -1, new Item.Properties()));
         ITEMS.register("scarlet_ray_spawn_egg", () -> new DeferredSpawnEggItem(SCARLET_RAY, -1, -1, new Item.Properties()));
         ITEMS.register("crystal_koi_spawn_egg", () -> new DeferredSpawnEggItem(CRYSTAL_KOI, -1, -1, new Item.Properties()));
         ITEMS.register("forecast_spawn_egg", () -> new DeferredSpawnEggItem(FORECAST, -1, -1, new Item.Properties()));
@@ -42,12 +48,20 @@ public final class ModEntities {
     }
 
     private static void attributes(EntityAttributeCreationEvent event) {
+        event.put(PONDLER.get(), PondlerEntity.createAttributes().build());
+        event.put(PROBOSKER.get(), ProboskerEntity.createAttributes().build());
         event.put(SCARLET_RAY.get(), ScarletRayEntity.createAttributes().build());
         event.put(CRYSTAL_KOI.get(), CrystalKoiEntity.createAttributes().build());
         event.put(FORECAST.get(), ForecastEntity.createAttributes().build());
     }
 
     private static void spawnPlacements(RegisterSpawnPlacementsEvent event) {
+        event.register(PONDLER.get(), SpawnPlacementTypes.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (type, level, reason, position, random) -> level.getBlockState(position).is(net.minecraft.world.level.block.Blocks.WATER) && level.getBlockState(position.above()).is(net.minecraft.world.level.block.Blocks.WATER), RegisterSpawnPlacementsEvent.Operation.REPLACE);
+        event.register(PROBOSKER.get(), SpawnPlacementTypes.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (type, level, reason, position, random) -> {
+            var id = BuiltInRegistries.BLOCK.getKey(level.getBlockState(position.below()).getBlock());
+            return id.getNamespace().equals(ThermalShock.MOD_ID) && (id.getPath().equals("grassy_shale") || id.getPath().equals("snowy_shale"))
+                    && level.canSeeSkyFromBelowWater(position) && level.getLevel().isDay();
+        }, RegisterSpawnPlacementsEvent.Operation.REPLACE);
         event.register(CRYSTAL_KOI.get(), SpawnPlacementTypes.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (type, level, reason, position, random) -> level.getBlockState(position).is(net.minecraft.world.level.block.Blocks.WATER) && level.getBlockState(position.above()).is(net.minecraft.world.level.block.Blocks.WATER), RegisterSpawnPlacementsEvent.Operation.REPLACE);
         event.register(SCARLET_RAY.get(), SpawnPlacementTypes.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (type, level, reason, position, random) -> level.getBlockState(position).is(net.minecraft.world.level.block.Blocks.WATER) && level.getBlockState(position.above()).is(net.minecraft.world.level.block.Blocks.WATER), RegisterSpawnPlacementsEvent.Operation.REPLACE);
         event.register(FORECAST.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (type, level, reason, position, random) -> {
