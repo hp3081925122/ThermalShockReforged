@@ -1,0 +1,27 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "thermal_shock_reforged:block/ghostglass_block"
+    },
+    "facing=east": {
+      "model": "thermal_shock_reforged:block/ghostglass_block",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "thermal_shock_reforged:block/ghostglass_block",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "thermal_shock_reforged:block/ghostglass_block",
+      "y": 270
+    },
+    "facing=up": {
+      "model": "thermal_shock_reforged:block/ghostglass_block",
+      "x": 270
+    },
+    "facing=down": {
+      "model": "thermal_shock_reforged:block/ghostglass_block",
+      "x": 90
+    }
+  }
+}

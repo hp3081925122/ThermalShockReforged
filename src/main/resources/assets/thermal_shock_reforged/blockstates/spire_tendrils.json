@@ -1,0 +1,48 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "thermal_shock_reforged:block/spire_tendrils_post"
+      }
+    },
+    {
+      "when": {
+        "north": "true"
+      },
+      "apply": {
+        "model": "thermal_shock_reforged:block/spire_tendrils",
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "south": "true"
+      },
+      "apply": {
+        "model": "thermal_shock_reforged:block/spire_tendrils",
+        "y": 180,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "west": "true"
+      },
+      "apply": {
+        "model": "thermal_shock_reforged:block/spire_tendrils",
+        "y": 270,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "east": "true"
+      },
+      "apply": {
+        "model": "thermal_shock_reforged:block/spire_tendrils",
+        "y": 90,
+        "uvlock": true
+      }
+    }
+  ]
+}

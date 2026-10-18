@@ -1,4 +1,4 @@
-# Thermal Shock 并行迁移设计
+# Thermal Shock Reforged 并行迁移设计
 
 本设计承接 MIGRATION_1211_NEOFORGE.md；基线提交f2d6e95，Minecraft1.21.1／NeoForge21.1.233／Java21。原07.9 JAR、readable源码及目标依赖源码均已落地，是行为和API证据。当前354方块、6实体、Heart Boost已实现不等于整模组完成。
 

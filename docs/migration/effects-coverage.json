@@ -4,7 +4,7 @@
   "effects": {
     "cocoa_effect": {
       "status": "implemented_pending_full_validation",
-      "module": "com.hp.thermalshock.content.status.StatusContent",
+      "module": "com.hp.thermalshockreforged.content.status.StatusContent",
       "evidence": "status-batch.md",
       "pending": [
         "未迁移武器／生物／功能方块来源",
@@ -16,7 +16,7 @@
     },
     "stunned": {
       "status": "implemented_pending_full_validation",
-      "module": "com.hp.thermalshock.content.status.ControlEffect",
+      "module": "com.hp.thermalshockreforged.content.status.ControlEffect",
       "evidence": "lantern-control-effects-batch.md",
       "pending": [
         "其他原技能/生物来源未迁完",
@@ -25,7 +25,7 @@
     },
     "antitoxin_effect": {
       "status": "implemented_pending_full_validation",
-      "module": "com.hp.thermalshock.content.status.StatusContent",
+      "module": "com.hp.thermalshockreforged.content.status.StatusContent",
       "evidence": "status-batch.md",
       "pending": [
         "未迁移武器／生物／功能方块来源",
@@ -37,7 +37,7 @@
     },
     "electrified": {
       "status": "implemented_pending_full_validation",
-      "module": "com.hp.thermalshock.content.status.StatusContent",
+      "module": "com.hp.thermalshockreforged.content.status.StatusContent",
       "evidence": "status-batch.md",
       "pending": [
         "未迁移武器／生物／功能方块来源",
@@ -49,7 +49,7 @@
     },
     "no_melee": {
       "status": "reimplemented_for_blinding_lantern_source",
-      "module": "com.hp.thermalshock.content.weapons.HeldWeaponState",
+      "module": "com.hp.thermalshockreforged.content.weapons.HeldWeaponState",
       "evidence": "lantern-control-effects-batch.md",
       "pending": [
         "其他原武器来源待迁",
@@ -62,7 +62,7 @@
     "heart_boost": {
       "status": "implemented_pending_full_validation",
       "source": "HeartBoostMobEffect/HeartCrystalRightclickedProcedure",
-      "implementation": "com.hp.thermalshock.content.ModEffects",
+      "implementation": "com.hp.thermalshockreforged.content.ModEffects",
       "real_player_effect": true,
       "pending": [
         "整模组完整后的属性叠加／过期移除／存档和双手交互运行验收",
@@ -71,7 +71,7 @@
     },
     "damaging_aura": {
       "status": "implemented_pending_full_validation",
-      "module": "com.hp.thermalshock.content.status.aura",
+      "module": "com.hp.thermalshockreforged.content.status.aura",
       "evidence": "damaging-aura-batch.md",
       "pending": [
         "8原caller依赖的实体/武器来源",
@@ -80,7 +80,7 @@
     },
     "infected": {
       "status": "implemented_pending_full_validation",
-      "module": "com.hp.thermalshock.content.status",
+      "module": "com.hp.thermalshockreforged.content.status",
       "evidence": "infection-effect-batch.md",
       "pending": [
         "其余感染来源实体／Blood流体／Ripple联动",
@@ -89,7 +89,7 @@
     },
     "purified": {
       "status": "implemented_pending_full_validation",
-      "module": "com.hp.thermalshock.content.status.StatusContent",
+      "module": "com.hp.thermalshockreforged.content.status.StatusContent",
       "evidence": "status-batch.md",
       "pending": [
         "未迁移武器／生物／功能方块来源",
@@ -101,7 +101,7 @@
     },
     "low_gravity": {
       "status": "reimplemented_for_carborundum_source",
-      "module": "com.hp.thermalshock.content.armor",
+      "module": "com.hp.thermalshockreforged.content.armor",
       "evidence": "armor-batch.md",
       "implementation": "独立原生GRAVITY -.06 modifier、持久剩余10tick，非伪装药效",
       "pending": [
@@ -117,7 +117,7 @@
     },
     "frostbite": {
       "status": "implemented_pending_full_validation",
-      "module": "com.hp.thermalshock.content.status.StatusContent",
+      "module": "com.hp.thermalshockreforged.content.status.StatusContent",
       "evidence": "status-batch.md",
       "pending": [
         "未迁移武器／生物／功能方块来源",
@@ -132,7 +132,7 @@
     },
     "tremors": {
       "status": "implemented_pending_full_validation",
-      "module": "com.hp.thermalshock.content.status.ControlEffect",
+      "module": "com.hp.thermalshockreforged.content.status.ControlEffect",
       "evidence": "lantern-control-effects-batch.md",
       "pending": [
         "其他原技能/生物来源未迁完",
