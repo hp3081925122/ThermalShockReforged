@@ -8,9 +8,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
-final class AtlasCoordinates {
+public final class AtlasCoordinates {
     private AtlasCoordinates() { }
-    static Vec3 get(Player player, ResourceKey<Level> dimension) {
+    public static Vec3 get(Player player, ResourceKey<Level> dimension) {
         Vec3 fallback = dimension.equals(Level.OVERWORLD) ? Vec3.ZERO : dimension.equals(AtlasContent.PALACE) ? new Vec3(0, 194, 0) : new Vec3(324, 73, 324);
         CompoundTag data = player.getPersistentData().getCompound(Player.PERSISTED_NBT_TAG).getCompound(ThermalShockReforged.MOD_ID).getCompound("AtlasCoordinates").getCompound(dimension.location().toString());
         if (!data.contains("X", 99) || !data.contains("Y", 99) || !data.contains("Z", 99)) return fallback;
