@@ -5,10 +5,18 @@ import net.neoforged.neoforge.common.ModConfigSpec;
 public final class SanctumConfig {
     public static final ModConfigSpec SPEC;
     public static final Profile ERRANT, SANCTUM_ERRANT;
+    public static final Kilolyte KILOLYTE;
     static {
         var builder = new ModConfigSpec.Builder();
         ERRANT = profile(builder, "errant", 62);
         SANCTUM_ERRANT = profile(builder, "sanctum_errant", 40);
+        builder.push("kilolyte");
+        KILOLYTE = new Kilolyte(builder.defineInRange("maxHealth", 100D, 1D, 1024D), builder.defineInRange("armor", 10D, 0D, 30D),
+                builder.defineInRange("attackDamage", 13D, 0D, 2048D), builder.defineInRange("movementSpeed", .17D, 0D, 4D),
+                builder.defineInRange("knockbackResistance", 1D, 0D, 1D), builder.defineInRange("meleeMultiplier", 1D, 0D, 100D),
+                builder.defineInRange("meleeArmorFactor", .6D, 0D, 100D), builder.defineInRange("zapMultiplier", 10D / 13D, 0D, 100D),
+                builder.defineInRange("ringChance", .3D, 0D, 1D));
+        builder.pop();
         SPEC = builder.build();
     }
     private SanctumConfig() { }
@@ -25,4 +33,8 @@ public final class SanctumConfig {
     public record Profile(ModConfigSpec.DoubleValue health, ModConfigSpec.DoubleValue armor, ModConfigSpec.DoubleValue damage,
                           ModConfigSpec.DoubleValue speed, ModConfigSpec.DoubleValue resistance, ModConfigSpec.DoubleValue knockback,
                           ModConfigSpec.DoubleValue strikeMultiplier, ModConfigSpec.DoubleValue armorFactor, ModConfigSpec.DoubleValue strikeKnockback) { }
+    public record Kilolyte(ModConfigSpec.DoubleValue health, ModConfigSpec.DoubleValue armor, ModConfigSpec.DoubleValue damage,
+                           ModConfigSpec.DoubleValue speed, ModConfigSpec.DoubleValue resistance, ModConfigSpec.DoubleValue meleeMultiplier,
+                           ModConfigSpec.DoubleValue armorFactor, ModConfigSpec.DoubleValue zapMultiplier, ModConfigSpec.DoubleValue ringChance) { }
+
 }

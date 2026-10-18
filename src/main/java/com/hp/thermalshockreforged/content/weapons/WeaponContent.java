@@ -11,6 +11,7 @@ import net.neoforged.neoforge.registries.*;
 
 public final class WeaponContent {
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
+    public static final DeferredItem<ZapGauntletItem> ZAP_GAUNTLET = ITEMS.register("zap_gauntlet", ZapGauntletItem::new);
     public static final DeferredItem<RustyEdgeItem> RUSTY_EDGE = ITEMS.register("rusty_edge", RustyEdgeItem::new);
     public static final DeferredItem<BlindingLanternItem> BLINDING_LANTERN = ITEMS.register("blinding_lantern", BlindingLanternItem::new);
 
@@ -28,6 +29,6 @@ public final class WeaponContent {
         NeoForge.EVENT_BUS.addListener(WeaponContent::serverStopped);
     }
 
-    private static void serverTick(ServerTickEvent.Post event) { BLINDING_LANTERN.get().pruneAnimations(); }
-    private static void serverStopped(ServerStoppedEvent event) { BLINDING_LANTERN.get().clearAnimations(); }
+    private static void serverTick(ServerTickEvent.Post event) { BLINDING_LANTERN.get().pruneAnimations(); ZAP_GAUNTLET.get().pruneAnimations(); }
+    private static void serverStopped(ServerStoppedEvent event) { BLINDING_LANTERN.get().clearAnimations(); ZAP_GAUNTLET.get().clearAnimations(); }
 }
