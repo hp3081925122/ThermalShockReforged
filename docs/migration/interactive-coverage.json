@@ -1,0 +1,734 @@
+{
+  "vermilli_pressure_plate": {
+    "type": "PressurePlateBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.4f, 3.6f).dynamicShape().forceSolidOn()",
+    "source_class": "VermilliPressurePlateBlock",
+    "light_block": 0,
+    "flammability": 6,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "OAK",
+      "pressure_plate_sensitivity": "EVERYTHING",
+      "button": null
+    }
+  },
+  "vermilli_button": {
+    "type": "ButtonBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.4f, 3.6f).dynamicShape()",
+    "source_class": "VermilliButtonBlock",
+    "light_block": 0,
+    "flammability": 6,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "OAK",
+      "pressure_plate_sensitivity": null,
+      "button": {
+        "press_duration_ticks": 30,
+        "arrow_can_press": true
+      }
+    }
+  },
+  "vermilli_door": {
+    "type": "DoorBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.4f, 3.471093f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false).dynamicShape()",
+    "source_class": "VermilliDoorBlock",
+    "light_block": -1,
+    "flammability": 6,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "OAK",
+      "pressure_plate_sensitivity": null,
+      "button": null
+    }
+  },
+  "vermilli_trapdoor": {
+    "type": "TrapDoorBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.4f, 3.471093f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false).dynamicShape()",
+    "source_class": "VermilliTrapdoorBlock",
+    "light_block": -1,
+    "flammability": 6,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "OAK",
+      "pressure_plate_sensitivity": null,
+      "button": null
+    }
+  },
+  "ochre_door": {
+    "type": "DoorBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.4f, 3.471093f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false).dynamicShape()",
+    "source_class": "OchreDoorBlock",
+    "light_block": -1,
+    "flammability": 6,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "OAK",
+      "pressure_plate_sensitivity": null,
+      "button": null
+    }
+  },
+  "ochre_trapdoor": {
+    "type": "TrapDoorBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.4f, 3.471093f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false).dynamicShape()",
+    "source_class": "OchreTrapdoorBlock",
+    "light_block": -1,
+    "flammability": 6,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "OAK",
+      "pressure_plate_sensitivity": null,
+      "button": null
+    }
+  },
+  "ochre_plank_pressure_plate": {
+    "type": "PressurePlateBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.4f, 3.471093f).dynamicShape().forceSolidOn()",
+    "source_class": "OchrePlankPressurePlateBlock",
+    "light_block": -1,
+    "flammability": 6,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "OAK",
+      "pressure_plate_sensitivity": "EVERYTHING",
+      "button": null
+    }
+  },
+  "ochre_plank_button": {
+    "type": "ButtonBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.4f, 3.471093f).dynamicShape()",
+    "source_class": "OchrePlankButtonBlock",
+    "light_block": -1,
+    "flammability": 6,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "OAK",
+      "pressure_plate_sensitivity": null,
+      "button": {
+        "press_duration_ticks": 30,
+        "arrow_can_press": true
+      }
+    }
+  },
+  "shiverglitter_plank_pressure_plate": {
+    "type": "PressurePlateBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.STEM).strength(2.4f, 2.314062f).dynamicShape().forceSolidOn()",
+    "source_class": "ShiverglitterPlankPressurePlateBlock",
+    "light_block": -1,
+    "flammability": 6,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "OAK",
+      "pressure_plate_sensitivity": "EVERYTHING",
+      "button": null
+    }
+  },
+  "shiverglitter_plank_button": {
+    "type": "ButtonBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.STEM).strength(2.4f, 2.314062f).dynamicShape()",
+    "source_class": "ShiverglitterPlankButtonBlock",
+    "light_block": -1,
+    "flammability": 6,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "OAK",
+      "pressure_plate_sensitivity": null,
+      "button": {
+        "press_duration_ticks": 30,
+        "arrow_can_press": true
+      }
+    }
+  },
+  "shiverglitter_plank_door": {
+    "type": "DoorBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.STEM).strength(2.4f, 2.314062f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false).dynamicShape()",
+    "source_class": "ShiverglitterPlankDoorBlock",
+    "light_block": -1,
+    "flammability": 6,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "OAK",
+      "pressure_plate_sensitivity": null,
+      "button": null
+    }
+  },
+  "shiverglitter_plank_trapdoor": {
+    "type": "TrapDoorBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.STEM).strength(2.4f, 2.314062f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false).dynamicShape()",
+    "source_class": "ShiverglitterPlankTrapdoorBlock",
+    "light_block": -1,
+    "flammability": 6,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "OAK",
+      "pressure_plate_sensitivity": null,
+      "button": null
+    }
+  },
+  "kyaneos_pressure_plate": {
+    "type": "PressurePlateBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.0f, 3.0f).dynamicShape().forceSolidOn()",
+    "source_class": "KyaneosPressurePlateBlock",
+    "light_block": 0,
+    "flammability": 5,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "OAK",
+      "pressure_plate_sensitivity": "EVERYTHING",
+      "button": null
+    }
+  },
+  "kyaneos_button": {
+    "type": "ButtonBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.0f, 3.0f).dynamicShape()",
+    "source_class": "KyaneosButtonBlock",
+    "light_block": 0,
+    "flammability": 5,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "OAK",
+      "pressure_plate_sensitivity": null,
+      "button": {
+        "press_duration_ticks": 30,
+        "arrow_can_press": true
+      }
+    }
+  },
+  "kyaneos_door": {
+    "type": "DoorBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.0f, 3.0f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false).dynamicShape()",
+    "source_class": "KyaneosDoorBlock",
+    "light_block": -1,
+    "flammability": 5,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "OAK",
+      "pressure_plate_sensitivity": null,
+      "button": null
+    }
+  },
+  "kyaneos_trapdoor": {
+    "type": "TrapDoorBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.0f, 3.0f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false).dynamicShape()",
+    "source_class": "KyaneosTrapdoorBlock",
+    "light_block": -1,
+    "flammability": 5,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "OAK",
+      "pressure_plate_sensitivity": null,
+      "button": null
+    }
+  },
+  "spirewood_pressure_plate": {
+    "type": "PressurePlateBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().sound(SoundType.STEM).strength(1.35f, 15.0f).requiresCorrectToolForDrops().dynamicShape().forceSolidOn()",
+    "source_class": "SpirewoodPressurePlateBlock",
+    "light_block": 0,
+    "flammability": -1,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "IRON",
+      "pressure_plate_sensitivity": "MOBS",
+      "button": null
+    }
+  },
+  "spirewood_button": {
+    "type": "ButtonBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().sound(SoundType.STEM).strength(1.35f, 15.0f).requiresCorrectToolForDrops().dynamicShape()",
+    "source_class": "SpirewoodButtonBlock",
+    "light_block": 0,
+    "flammability": -1,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "STONE",
+      "pressure_plate_sensitivity": null,
+      "button": {
+        "press_duration_ticks": 20,
+        "arrow_can_press": false
+      }
+    }
+  },
+  "spirewood_door": {
+    "type": "DoorBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().sound(SoundType.STEM).strength(1.35f, 15.0f).requiresCorrectToolForDrops().dynamicShape()",
+    "source_class": "SpirewoodDoorBlock",
+    "light_block": 0,
+    "flammability": -1,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "STONE",
+      "pressure_plate_sensitivity": null,
+      "button": null
+    }
+  },
+  "spirewood_trapdoor": {
+    "type": "TrapDoorBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().sound(SoundType.STEM).strength(1.35f, 15.0f).requiresCorrectToolForDrops().dynamicShape()",
+    "source_class": "SpirewoodTrapdoorBlock",
+    "light_block": 0,
+    "flammability": -1,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "STONE",
+      "pressure_plate_sensitivity": null,
+      "button": null
+    }
+  },
+  "shale_door": {
+    "type": "DoorBlock",
+    "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERRACK).strength(1.0f, 5.0f).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((bs, br, bp) -> false).dynamicShape()",
+    "source_class": "ShaleDoorBlock",
+    "light_block": -1,
+    "flammability": -1,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "STONE",
+      "pressure_plate_sensitivity": null,
+      "button": null
+    }
+  },
+  "mantlestone_door": {
+    "type": "DoorBlock",
+    "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.BASALT).strength(2.0f, 30.0f).requiresCorrectToolForDrops().dynamicShape()",
+    "source_class": "MantlestoneDoorBlock",
+    "light_block": -1,
+    "flammability": -1,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "STONE",
+      "pressure_plate_sensitivity": null,
+      "button": null
+    }
+  },
+  "dark_frostrock_door": {
+    "type": "DoorBlock",
+    "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.STONE).strength(3.0f, 50.0f).requiresCorrectToolForDrops().dynamicShape()",
+    "source_class": "DarkFrostrockDoorBlock",
+    "light_block": -1,
+    "flammability": -1,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "STONE",
+      "pressure_plate_sensitivity": null,
+      "button": null
+    }
+  },
+  "stellar_void_door": {
+    "type": "DoorBlock",
+    "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERITE_BLOCK).strength(2.0f, 30.0f).requiresCorrectToolForDrops().dynamicShape()",
+    "source_class": "StellarVoidDoorBlock",
+    "light_block": -1,
+    "flammability": -1,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "STONE",
+      "pressure_plate_sensitivity": null,
+      "button": null
+    }
+  },
+  "stellar_void_trapdoor": {
+    "type": "TrapDoorBlock",
+    "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERITE_BLOCK).strength(2.0f, 30.0f).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((bs, br, bp) -> false).dynamicShape()",
+    "source_class": "StellarVoidTrapdoorBlock",
+    "light_block": -1,
+    "flammability": -1,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "STONE",
+      "pressure_plate_sensitivity": null,
+      "button": null
+    }
+  },
+  "stellar_void_button": {
+    "type": "ButtonBlock",
+    "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERITE_BLOCK).strength(2.0f, 30.0f).requiresCorrectToolForDrops().dynamicShape()",
+    "source_class": "StellarVoidButtonBlock",
+    "light_block": -1,
+    "flammability": -1,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "STONE",
+      "pressure_plate_sensitivity": null,
+      "button": {
+        "press_duration_ticks": 20,
+        "arrow_can_press": false
+      }
+    }
+  },
+  "stellar_void_pressure_plate": {
+    "type": "PressurePlateBlock",
+    "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERITE_BLOCK).strength(2.0f, 30.0f).requiresCorrectToolForDrops().dynamicShape().forceSolidOn()",
+    "source_class": "StellarVoidPressurePlateBlock",
+    "light_block": -1,
+    "flammability": -1,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "IRON",
+      "pressure_plate_sensitivity": "MOBS",
+      "button": null
+    }
+  },
+  "permafrost_door": {
+    "type": "DoorBlock",
+    "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.COPPER).strength(0.8f, 2.0f).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((bs, br, bp) -> false).dynamicShape()",
+    "source_class": "PermafrostDoorBlock",
+    "light_block": -1,
+    "flammability": -1,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "STONE",
+      "pressure_plate_sensitivity": null,
+      "button": null
+    }
+  },
+  "mavros_door": {
+    "type": "DoorBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.STEM).strength(2.0f, 3.0f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false).dynamicShape()",
+    "source_class": "MavrosDoorBlock",
+    "light_block": -1,
+    "flammability": 5,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "OAK",
+      "pressure_plate_sensitivity": null,
+      "button": null
+    }
+  },
+  "shale_trapdoor": {
+    "type": "TrapDoorBlock",
+    "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERRACK).strength(1.0f, 5.0f).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((bs, br, bp) -> false).dynamicShape()",
+    "source_class": "ShaleTrapdoorBlock",
+    "light_block": -1,
+    "flammability": -1,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "STONE",
+      "pressure_plate_sensitivity": null,
+      "button": null
+    }
+  },
+  "shale_button": {
+    "type": "ButtonBlock",
+    "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERRACK).strength(1.0f, 5.0f).requiresCorrectToolForDrops().dynamicShape()",
+    "source_class": "ShaleButtonBlock",
+    "light_block": -1,
+    "flammability": -1,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "STONE",
+      "pressure_plate_sensitivity": null,
+      "button": {
+        "press_duration_ticks": 20,
+        "arrow_can_press": false
+      }
+    }
+  },
+  "shale_pressure_plate": {
+    "type": "PressurePlateBlock",
+    "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERRACK).strength(1.0f, 5.0f).requiresCorrectToolForDrops().dynamicShape().forceSolidOn()",
+    "source_class": "ShalePressurePlateBlock",
+    "light_block": -1,
+    "flammability": -1,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "IRON",
+      "pressure_plate_sensitivity": "MOBS",
+      "button": null
+    }
+  },
+  "mantlestone_trapdoor": {
+    "type": "TrapDoorBlock",
+    "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.BASALT).strength(2.0f, 30.0f).requiresCorrectToolForDrops().dynamicShape()",
+    "source_class": "MantlestoneTrapdoorBlock",
+    "light_block": -1,
+    "flammability": -1,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "STONE",
+      "pressure_plate_sensitivity": null,
+      "button": null
+    }
+  },
+  "mantlestone_button": {
+    "type": "ButtonBlock",
+    "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.BASALT).strength(2.0f, 30.0f).requiresCorrectToolForDrops().dynamicShape()",
+    "source_class": "MantlestoneButtonBlock",
+    "light_block": -1,
+    "flammability": -1,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "STONE",
+      "pressure_plate_sensitivity": null,
+      "button": {
+        "press_duration_ticks": 20,
+        "arrow_can_press": false
+      }
+    }
+  },
+  "mantlestone_pressure_plate": {
+    "type": "PressurePlateBlock",
+    "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.BASALT).strength(2.0f, 30.0f).requiresCorrectToolForDrops().dynamicShape().forceSolidOn()",
+    "source_class": "MantlestonePressurePlateBlock",
+    "light_block": -1,
+    "flammability": -1,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "IRON",
+      "pressure_plate_sensitivity": "MOBS",
+      "button": null
+    }
+  },
+  "permafrost_trapdoor": {
+    "type": "TrapDoorBlock",
+    "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.COPPER).strength(0.8f, 2.0f).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((bs, br, bp) -> false).dynamicShape()",
+    "source_class": "PermafrostTrapdoorBlock",
+    "light_block": -1,
+    "flammability": -1,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "STONE",
+      "pressure_plate_sensitivity": null,
+      "button": null
+    }
+  },
+  "permafrost_button": {
+    "type": "ButtonBlock",
+    "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.COPPER).strength(0.8f, 2.0f).requiresCorrectToolForDrops().dynamicShape()",
+    "source_class": "PermafrostButtonBlock",
+    "light_block": -1,
+    "flammability": -1,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "STONE",
+      "pressure_plate_sensitivity": null,
+      "button": {
+        "press_duration_ticks": 20,
+        "arrow_can_press": false
+      }
+    }
+  },
+  "permafrost_pressure_plate": {
+    "type": "PressurePlateBlock",
+    "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.COPPER).strength(0.8f, 2.0f).requiresCorrectToolForDrops().dynamicShape().forceSolidOn()",
+    "source_class": "PermafrostPressurePlateBlock",
+    "light_block": -1,
+    "flammability": -1,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "IRON",
+      "pressure_plate_sensitivity": "MOBS",
+      "button": null
+    }
+  },
+  "muck_door": {
+    "type": "DoorBlock",
+    "properties": "BlockBehaviour.Properties.of().sound(SoundType.MUD_BRICKS).strength(1.4f, 4.0f).speedFactor(0.6f).jumpFactor(0.7f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false).dynamicShape()",
+    "source_class": "MuckDoorBlock",
+    "light_block": -1,
+    "flammability": -1,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "STONE",
+      "pressure_plate_sensitivity": null,
+      "button": null
+    }
+  },
+  "muck_trapdoor": {
+    "type": "TrapDoorBlock",
+    "properties": "BlockBehaviour.Properties.of().sound(SoundType.MUD_BRICKS).strength(1.4f, 4.0f).speedFactor(0.6f).jumpFactor(0.7f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false).dynamicShape()",
+    "source_class": "MuckTrapdoorBlock",
+    "light_block": -1,
+    "flammability": -1,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "STONE",
+      "pressure_plate_sensitivity": null,
+      "button": null
+    }
+  },
+  "muck_button": {
+    "type": "ButtonBlock",
+    "properties": "BlockBehaviour.Properties.of().sound(SoundType.MUD).strength(0.8f, 4.0f).speedFactor(0.6f).jumpFactor(0.7f).dynamicShape()",
+    "source_class": "MuckButtonBlock",
+    "light_block": -1,
+    "flammability": -1,
+    "tooltip": [
+      "block.thermal_shock.muck_button.description_0"
+    ],
+    "interaction": {
+      "block_set_type": "STONE",
+      "pressure_plate_sensitivity": null,
+      "button": {
+        "press_duration_ticks": 20,
+        "arrow_can_press": false
+      }
+    }
+  },
+  "muck_pressure_plate": {
+    "type": "PressurePlateBlock",
+    "properties": "BlockBehaviour.Properties.of().sound(SoundType.MUD).strength(0.8f, 4.0f).speedFactor(0.6f).jumpFactor(0.7f).dynamicShape().forceSolidOn()",
+    "source_class": "MuckPressurePlateBlock",
+    "light_block": -1,
+    "flammability": -1,
+    "tooltip": [
+      "block.thermal_shock.muck_pressure_plate.description_0"
+    ],
+    "interaction": {
+      "block_set_type": "IRON",
+      "pressure_plate_sensitivity": "MOBS",
+      "button": null
+    }
+  },
+  "frostrock_door": {
+    "type": "DoorBlock",
+    "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.STONE).strength(3.0f, 50.0f).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((bs, br, bp) -> false).dynamicShape()",
+    "source_class": "FrostrockDoorBlock",
+    "light_block": -1,
+    "flammability": -1,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "STONE",
+      "pressure_plate_sensitivity": null,
+      "button": null
+    }
+  },
+  "frostrock_trapdoor": {
+    "type": "TrapDoorBlock",
+    "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.STONE).strength(3.0f, 50.0f).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((bs, br, bp) -> false).dynamicShape()",
+    "source_class": "FrostrockTrapdoorBlock",
+    "light_block": -1,
+    "flammability": -1,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "STONE",
+      "pressure_plate_sensitivity": null,
+      "button": null
+    }
+  },
+  "frostrock_button": {
+    "type": "ButtonBlock",
+    "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.STONE).strength(3.0f, 50.0f).requiresCorrectToolForDrops().dynamicShape()",
+    "source_class": "FrostrockButtonBlock",
+    "light_block": -1,
+    "flammability": -1,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "STONE",
+      "pressure_plate_sensitivity": null,
+      "button": {
+        "press_duration_ticks": 20,
+        "arrow_can_press": false
+      }
+    }
+  },
+  "frostrock_pressure_plate": {
+    "type": "PressurePlateBlock",
+    "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.STONE).strength(3.0f, 50.0f).requiresCorrectToolForDrops().dynamicShape().forceSolidOn()",
+    "source_class": "FrostrockPressurePlateBlock",
+    "light_block": -1,
+    "flammability": -1,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "IRON",
+      "pressure_plate_sensitivity": "MOBS",
+      "button": null
+    }
+  },
+  "dark_frostrock_trapdoor": {
+    "type": "TrapDoorBlock",
+    "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.STONE).strength(3.0f, 50.0f).requiresCorrectToolForDrops().dynamicShape()",
+    "source_class": "DarkFrostrockTrapdoorBlock",
+    "light_block": -1,
+    "flammability": -1,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "STONE",
+      "pressure_plate_sensitivity": null,
+      "button": null
+    }
+  },
+  "dark_frostrock_button": {
+    "type": "ButtonBlock",
+    "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.STONE).strength(3.0f, 50.0f).requiresCorrectToolForDrops().dynamicShape()",
+    "source_class": "DarkFrostrockButtonBlock",
+    "light_block": -1,
+    "flammability": -1,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "STONE",
+      "pressure_plate_sensitivity": null,
+      "button": {
+        "press_duration_ticks": 20,
+        "arrow_can_press": false
+      }
+    }
+  },
+  "dark_frostrock_pressure_plate": {
+    "type": "PressurePlateBlock",
+    "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.STONE).strength(3.0f, 50.0f).requiresCorrectToolForDrops().dynamicShape().forceSolidOn()",
+    "source_class": "DarkFrostrockPressurePlateBlock",
+    "light_block": -1,
+    "flammability": -1,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "IRON",
+      "pressure_plate_sensitivity": "MOBS",
+      "button": null
+    }
+  },
+  "darksteel_button": {
+    "type": "ButtonBlock",
+    "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERITE_BLOCK).strength(2.0f, 30.0f).requiresCorrectToolForDrops().dynamicShape()",
+    "source_class": "DarksteelButtonBlock",
+    "light_block": -1,
+    "flammability": -1,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "STONE",
+      "pressure_plate_sensitivity": null,
+      "button": {
+        "press_duration_ticks": 20,
+        "arrow_can_press": false
+      }
+    }
+  },
+  "darksteel_pressure_plate": {
+    "type": "PressurePlateBlock",
+    "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERITE_BLOCK).strength(2.0f, 30.0f).requiresCorrectToolForDrops().dynamicShape().forceSolidOn()",
+    "source_class": "DarksteelPressurePlateBlock",
+    "light_block": -1,
+    "flammability": -1,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "IRON",
+      "pressure_plate_sensitivity": "MOBS",
+      "button": null
+    }
+  },
+  "darksteel_door": {
+    "type": "DoorBlock",
+    "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERITE_BLOCK).strength(2.0f, 30.0f).requiresCorrectToolForDrops().dynamicShape()",
+    "source_class": "DarksteelDoorBlock",
+    "light_block": -1,
+    "flammability": -1,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "STONE",
+      "pressure_plate_sensitivity": null,
+      "button": null
+    }
+  },
+  "darksteel_trapdoor": {
+    "type": "TrapDoorBlock",
+    "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERITE_BLOCK).strength(2.0f, 30.0f).requiresCorrectToolForDrops().dynamicShape()",
+    "source_class": "DarksteelTrapdoorBlock",
+    "light_block": -1,
+    "flammability": -1,
+    "tooltip": [],
+    "interaction": {
+      "block_set_type": "STONE",
+      "pressure_plate_sensitivity": null,
+      "button": null
+    }
+  }
+}

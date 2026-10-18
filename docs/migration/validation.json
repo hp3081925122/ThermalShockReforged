@@ -5,16 +5,19 @@
   "java": 21,
   "compile_and_resources": "passed",
   "gametest": {
-    "log": "D:/AI临时文件/ThermalShockMigration/gametest-server-4.log",
-    "required": 9,
-    "passed": 9,
-    "failed": 0
+    "log": "D:/AI临时文件/ThermalShockMigration/gametest-axis.log",
+    "required": 18,
+    "passed": 18,
+    "failed": 0,
+    "game_errors": 0
   },
   "assets_unchanged": 6105,
-  "unique_block_ids": 272,
+  "unique_block_ids": 353,
   "full_mod_migration": "incomplete",
   "render_comparison": "not_run",
   "xaero_target_runtime": "not_run",
-  "tetra_tinkers_target_runtime": "not_run",
-  "all_features_server_acceptance": "not_run"
+  "tetra_tinkers_target_runtime": "not_required_by_user",
+  "all_features_server_acceptance": "not_run",
+  "paintings": 17,
+  "entities_with_migrated_code": 4
 }
