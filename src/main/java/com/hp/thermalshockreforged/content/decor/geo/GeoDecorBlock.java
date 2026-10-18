@@ -23,9 +23,10 @@ public class GeoDecorBlock extends Block implements EntityBlock {
     public GeoDecorBlock(GeoDecorKind kind) {
         super(kind.properties());
         this.kind = kind;
-        registerDefaultState(defaultBlockState().setValue(ANIMATION, 0));
+        registerDefaultState(defaultBlockState().setValue(animationProperty(), 0));
     }
-    @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { builder.add(ANIMATION); }
+    protected IntegerProperty animationProperty() { return ANIMATION; }
+    @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { builder.add(animationProperty()); }
     @Override protected RenderShape getRenderShape(BlockState state) { return RenderShape.ENTITYBLOCK_ANIMATED; }
     @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return new GeoDecorBlockEntity(kind, pos, state); }
     @Override protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) { return kind.shape; }
