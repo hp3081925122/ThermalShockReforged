@@ -115,7 +115,7 @@ public final class KilolyteEntity extends Monster implements GeoEntity {
         entityData.set(ANIMATION_SEQUENCE, entityData.get(ANIMATION_SEQUENCE) + 1);
     }
     private static int duration(String clip) {
-        return switch (clip) { case "spawn" -> 70; case "attack" -> 27; case "attack2" -> 25; case "idle" -> 40; case "walk" -> 26; case "death" -> 2; default -> 0; };
+        return switch (clip) { case "spawn" -> 74; case "attack" -> 31; case "attack2" -> 29; case "idle" -> 44; case "walk" -> 30; case "death" -> 6; default -> 0; };
     }
     @Override public void onSyncedDataUpdated(EntityDataAccessor<?> accessor) {
         super.onSyncedDataUpdated(accessor);
@@ -203,7 +203,10 @@ public final class KilolyteEntity extends Monster implements GeoEntity {
     }
     private final class PhaseController extends AnimationController<KilolyteEntity> {
         private PhaseController() { super(KilolyteEntity.this, "procedure", 4, state -> PlayState.STOP); }
-        @Override protected double adjustTick(double tick) { return super.adjustTick(tick) + clientAnimationOffset; }
+        @Override protected double adjustTick(double tick) {
+            double offset = getAnimationState() == State.TRANSITIONING ? clientAnimationOffset : Math.max(0, clientAnimationOffset - transitionLength);
+            return super.adjustTick(tick) + offset;
+        }
     }
     @Override public AnimatableInstanceCache getAnimatableInstanceCache() { return animations; }
 }

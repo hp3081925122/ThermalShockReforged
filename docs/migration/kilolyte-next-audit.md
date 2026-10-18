@@ -33,3 +33,9 @@ Gauntlet自定义ArmPose使用目标NeoForge enum extension JSON及client-only E
 
 
 第50批固定快照通过：Luna离线compileJava/compileGametestJava/processResources 50秒成功，exit0，3 executed/22 up-to-date，日志D:\AI临时文件\ThermalShockMigration\fiftieth-kilolyte-zap-compile.log。两招阶段/八落点、出生吸收阶段/绕过、XP100与20末帧/真实掉落、六clip/双scale2/head/透明、客户端枚举声明/服务器引用隔离、武器射线/冷却/NO_MELEE、343陷阱扫描和原资源hash静态核通过。显式MapColor是Xaero修补差异；姿态80是原字段弧度数值，不是已修80度。新动画相位补偿和enum实际加载仍待最终两端/RenderPreview；三个结构来源及GuardianPylon继续迁移，不宣称全模组完整。
+
+
+第50批后续静态复审修正动画相位：Geo4.9.2 AnimationController.process字节码在transition结束后切RUNNING并shouldResetTick，随后再次adjustTick。元数据有效时间必须包含transition4+raw片段（spawn74/attack31/attack2 29/idle44/walk30/death6），不能只按raw长度提前终止。补偿也不能在切RUNNING时再完整加一次网络初始迟到量；过渡期补elapsed、运行期仅补max(0,elapsed-transitionLength)。出生保护仍70，攻击命中17/22..28等全部游戏时序不变。此修正需重新编译与Luna字节码核对，不以之前50秒快照证明后续源。
+
+
+动画修正固定源已由Luna按Geo4.9.2 process/adjustTick实际字节码复核，并重新离线三任务17秒通过、exit0（1 executed/24 up-to-date）。只修完整可见相位/迟到补偿；出生保护70和攻击17/22/24/26/28未变，运行时视觉仍待最终验收。
