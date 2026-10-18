@@ -4,6 +4,7 @@ import net.neoforged.neoforge.common.ModConfigSpec;
 
 public final class BastionCombatConfig {
     public static final ModConfigSpec SPEC;
+    public static final ModConfigSpec.DoubleValue POD_HEALTH, POD_ARMOR;
     public static final ModConfigSpec.DoubleValue[] HEALTH = new ModConfigSpec.DoubleValue[2], ARMOR = new ModConfigSpec.DoubleValue[2], DAMAGE = new ModConfigSpec.DoubleValue[2], SPEED = new ModConfigSpec.DoubleValue[2], RESISTANCE = new ModConfigSpec.DoubleValue[2], KNOCKBACK = new ModConfigSpec.DoubleValue[2], MULTIPLIER = new ModConfigSpec.DoubleValue[2], DASH_SPEED = new ModConfigSpec.DoubleValue[2];
     public static final ModConfigSpec.IntValue[] SALVO_COOLDOWN = new ModConfigSpec.IntValue[2], DASH_COOLDOWN = new ModConfigSpec.IntValue[2];
     static {
@@ -22,6 +23,10 @@ public final class BastionCombatConfig {
             DASH_COOLDOWN[k] = builder.defineInRange("dashCooldown", k == 0 ? 45 : 20, 1, 72000);
             builder.pop();
         }
+        builder.push("dropPod");
+        POD_HEALTH = builder.defineInRange("maxHealth", 300.0, 1, 1000000);
+        POD_ARMOR = builder.defineInRange("armor", 90.0, 0, 1000);
+        builder.pop();
         SPEC = builder.build();
     }
     private BastionCombatConfig() { }

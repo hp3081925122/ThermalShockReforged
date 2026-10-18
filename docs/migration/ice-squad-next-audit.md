@@ -10,7 +10,7 @@
 
 FrostilytePatrolSpawnerOnInitialEntitySpawnProcedure在原全部Java无外部引用，全部class常量引用仅自身；没有对应实体/注册/自然modifier。其原内容70%生成3Grunt+2Soldier、30%生成1Zerk+2Grunt+3Soldier，全同BlockPos/零速度，先discard传入实体。该proc是孤立遗留，不创建假的patrol实体，不把它接到自然spawn。Grunt的唯一生成程序caller正是这个孤立proc，原自然获取因此缺失。
 
-BlizzardDropPod有真实注册/MONSTER/Geo/spawn初始化程序，但全Java无生成caller，原全部结构NBT无该ID，所有非class资源中只在两个tag出现；无自然modifier/原pod egg。原可命令生成，迁移仍保完整部署能力，但不得宣称自然军团来源已闭合。root已确认只迁原真实可达内容、不激活Patrol/AG、不捏新自然Pod来源。若后续要真实野外军团事件，需单独设计并授权，当前列原来源pending。
+BlizzardDropPod来源更正（2026-10-18原JAR字节码复核）：此前“全Java无caller”错误。真实链为已注册且进入创意栏的ThingamabobItem.use → ThingamabobRightClickedProcedure（22tick）→ BLIZZARD_DROP_POD.spawn → Pod.finalizeSpawn → BlizzardDropPodOnInitialEntitySpawnProcedure。原无该物品recipe/loot/trade数据引用证据，不捏生存来源；不创建Pod蛋。第十四批须一并迁物品/真实钩子，不能因旧审计误判删除正常可达功能。后续召唤入口搜索同时追注册ID、Java字段及字节码方法调用，不能只搜ID字面量。
 
 Strider真实正常来源是构造器shaped recipe，现已迁材料可闭合；两Boss各原spawn egg可用，原无Grunt/Strider/Pod egg。无必要去强带未迁机器。
 

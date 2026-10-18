@@ -1,0 +1,70 @@
+{
+  "scope": "Thingamabob use chain, BlizzardDropPod, bounded saved deployment task and original AAA FogCloud",
+  "verification_owner": "validation_luna source/JAR/asset mechanical evidence and build; main agent implementation and report",
+  "build": {
+    "java": "21",
+    "command": "compileJava compileGametestJava processResources --offline",
+    "initial_seconds": 47,
+    "final_seconds": 17,
+    "result": "BUILD SUCCESSFUL",
+    "log": "D:/AI临时文件/ThermalShockMigration/compile-fourteenth-deployment-final.log"
+  },
+  "source_correction": {
+    "old_claim": "No Pod spawn caller",
+    "finding": "False; original JAR registers Thingamabob and Item.use invokes real procedure which spawns Pod at22ticks; Pod.finalizeSpawn invokes deployment procedure",
+    "evidence": "Original JAR javap verified registration field/lambda, Item.use invokestatic and Pod.finalizeSpawn invokestatic",
+    "corrected_doc": "ice-squad-next-audit.md",
+    "survival_acquisition": "No original recipe/loot/trade data found; no fabricated replacement"
+  },
+  "chain": {
+    "item": "stack1 UNCOMMON original tooltip, actual held stack consumed server-side once including creative, correct use result prevents duplicate hands",
+    "source_inventory_fix": "Original clears first matching inventory/crafting item; cleared slot becomes EMPTY, creative count restoration modifies detached old stack not slot",
+    "initial_fx": "reverse_portal8 offset1 speed.2; bell NEUTRAL1/7",
+    "pod_request_delay": 22,
+    "pod_fog_tick": 15,
+    "fog": "25 wrappers offsets2 speed0 at original anchor+.5x,+.5z; anvil HOSTILE2/-4",
+    "pod_discard_tick": 25,
+    "discard_fx": "dragon_fireball_explode HOSTILE1/2 and magnetcrossbowfire HOSTILE1/-3 at original anchor",
+    "boss_spawn_tick": 26,
+    "bosses": "one Gunner attempt then one Burner attempt, same original block position and independent random yaw; no nearby cap or infinite retry"
+  },
+  "lifecycle": {
+    "snapshot_task": "mode0 request22, mode1 final1; invisible non-colliding MISC noSummon with value-only source UUID/anchor/dimension",
+    "consume_before_side_effects": true,
+    "save_fields": "armed/consumed/mode/remaining/anchor/dimension/source and CreatedAt; Pod initialized/smokeSent/handedOff/age/anchor/dimension/PodStartedAt",
+    "same_tick_reload_guard": "birth gameTime saved and read with MIN fallback for old records; normal server timing not empirically tested",
+    "pod_repeat_finalize_guard": true,
+    "loaded_handedOff_pod_discarded": true,
+    "death_or_dimension_change": "cancel unsubmitted pod stages; already consumed item request survives player departure/death; final committed task independent of removed pod",
+    "failure_policy": "respect rejected task join and log debug; no retry or bypass spawning"
+  },
+  "pod": {
+    "registration": "MONSTER 2x3.5 fireImmune tracking64 interval3, persistent, no goals, speed0 attack0 follow16 step0 XP0",
+    "config": "health300/raw armor90, effective knockback resistance1, loaded health preserved",
+    "damage_matrix_matches_original": true,
+    "visual": "original drop_pod model/animation, blizzarddroppod texture/NBT, translucent scale1 shadow.5, no head rotation",
+    "original_data": "infectionimmune and sprintweed_blacklist include Pod; no original Pod loot/egg/natural spawn/recipe/trade JSON"
+  },
+  "fog_cloud": {
+    "registration": "SimpleParticleType(true), sprite provider client-only",
+    "wrapper": "lifetime7, size.2, gravity0, noPhysics, original input velocities, OPAQUE sprite",
+    "emission_order": "super.tick then unconditional AAA addParticle including removal invocation",
+    "normal_full_lifetime_emissions_per_wrapper": 8,
+    "normal_full_lifetime_total": 200,
+    "target_particle_guard_verified": "age++ >= lifetime",
+    "assets_sha256_match_original": [
+      "drop_pod model and animation",
+      "blizzarddroppod texture",
+      "fogcloud.efkefc",
+      "effeks/Texture/Fog3001.png",
+      "fog_cloud particle PNG"
+    ],
+    "description_json": "namespace normalization only; original EFK texture reference exists"
+  },
+  "remaining": {
+    "creative_tab": "Target currently lacks global CreativeModeTab code, so original Thingamabob creative acquisition entry is pending next module. Registration/command availability does not prove creative UI entry.",
+    "full_migration_complete": false,
+    "client_server_render_preview_started": false,
+    "runtime": "All lifecycle/timing/render assertions still require final real environment tests"
+  }
+}

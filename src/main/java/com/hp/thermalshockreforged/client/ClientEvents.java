@@ -8,6 +8,7 @@ import com.hp.thermalshockreforged.client.ice.IceRenderers;
 import com.hp.thermalshockreforged.client.icesquad.IceSquadRenderers;
 import com.hp.thermalshockreforged.client.icesquad.StriderRenderers;
 import com.hp.thermalshockreforged.client.icesquad.BastionRenderers;
+import com.hp.thermalshockreforged.client.icesquad.PodRenderers;
 import com.hp.thermalshockreforged.client.doors.SpecialDoorRenderers;
 import com.hp.thermalshockreforged.client.decor.geo.GeoDecorRenderers;
 import com.hp.thermalshockreforged.client.hunters.HuntersRenderers;
@@ -63,6 +64,7 @@ public final class ClientEvents {
         IceSquadRenderers.register(event);
         StriderRenderers.register(event);
         BastionRenderers.register(event);
+        PodRenderers.register(event);
         GeoDecorRenderers.register(event);
         SpecialDoorRenderers.register(event);
         FarmingRenderers.register(event);
@@ -103,6 +105,7 @@ public final class ClientEvents {
         SnobolRenderers.particles(event);
         AmbientRenderers.particles(event);
         AuraClient.particles(event);
+        PodRenderers.particles(event);
         FarmingRenderers.particles(event);
     }
 
