@@ -1,0 +1,39 @@
+{
+  "batch": 32,
+  "verifier": "validation_luna",
+  "evidence_origin": "Root records subagent returned terminal output and source/resource comparison. No game was started.",
+  "compile": {
+    "command": "gradlew.bat compileJava compileGametestJava processResources --offline",
+    "java_home": "C:\\Users\\30819\\.jdks\\ms-21.0.11",
+    "exit_code": 0,
+    "tail": [
+      "BUILD SUCCESSFUL in 47s",
+      "25 actionable tasks: 2 executed, 23 up-to-date"
+    ]
+  },
+  "static": {
+    "cryonic_reward_pools": 3,
+    "cryonic_reward_entries": 30,
+    "cryonic_original_weights_counts_conditions_match": true,
+    "cryonic_item_references_registered": true,
+    "normal_open": "Validate actual mainhand key and reward table, claim persistent state, confirm destruction, then consume one actual key and produce native CHEST-context reward.",
+    "trap": "Y/X/Z loops [-9,9], remove matching trapped darksteel with original per-block glass sound, attempt 9 normal Bonerahna spawns, retain spawn cancellation and random yaw.",
+    "trap_wording_correction": "Subagent final message used a deletion verb for Bonerahna; actual source clearly spawns nine, it does not clear Bonerahna.",
+    "cache_state": "Both cache factories use CacheBlockEntity. Read CacheConsumed or legacy EnchantedCacheConsumed; write CacheConsumed. Existing enchanted cache logic otherwise only changes type and constructor.",
+    "geyser": "One original smoke at center + Y1 with velocity (0,.1,0); native 9 slots, sided automation, comparator and removal drops; no new right-click menu.",
+    "geyser_loot": "Silk Touch self; otherwise spice count 1..3 with Fortune ore_drops, target component predicate conversion.",
+    "three_geyser_texture_hashes_equal": true,
+    "model_and_blockstate_json": "Equal after namespace normalization",
+    "cryonic_geo_animation_texture": "Equal after required namespace normalization"
+  },
+  "runtime": {
+    "games_started": false,
+    "dedicated_server_gameplay": "pending full mod completion",
+    "client_render": "pending full mod completion and Render Preview"
+  },
+  "remaining": [
+    "Laut/Shutterbug/Florist and all reachable menu/quest/trade branches",
+    "Shalespring first-arrival structure and advancement/world flag entry",
+    "Keystone natural origin, Aqeron/Palace and other unported modules"
+  ]
+}

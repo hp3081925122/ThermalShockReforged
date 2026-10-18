@@ -21,7 +21,7 @@ import net.minecraft.world.phys.BlockHitResult;
 public final class EnchantedCacheBlock extends GeoDecorBlock {
     private static final ResourceKey<LootTable> LOOT = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "enchanted_cache_loot"));
     public EnchantedCacheBlock() { super(GeoDecorKind.ENCHANTED_CACHE); }
-    @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return new EnchantedCacheBlockEntity(pos, state); }
+    @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return new CacheBlockEntity(GeoDecorKind.ENCHANTED_CACHE, pos, state); }
     @Override protected void attack(BlockState state, Level level, BlockPos pos, Player player) {
         super.attack(state, level, pos, player);
         if (!level.isClientSide) {
@@ -30,7 +30,7 @@ public final class EnchantedCacheBlock extends GeoDecorBlock {
         }
     }
     private void open(Level level, BlockPos pos) {
-        if (!(level instanceof ServerLevel server) || !server.getBlockState(pos).is(this) || !(server.getBlockEntity(pos) instanceof EnchantedCacheBlockEntity cache)) return;
+        if (!(level instanceof ServerLevel server) || !server.getBlockState(pos).is(this) || !(server.getBlockEntity(pos) instanceof CacheBlockEntity cache)) return;
         var base = server.getBlockState(pos.below());
         if (!base.is(GeoDecorContent.block(GeoDecorKind.FERROUS_CACHE_PAD)) && !base.is(GeoDecorContent.block(GeoDecorKind.SHALE_CACHE_PAD))) return;
         var table = server.getServer().reloadableRegistries().getLootTable(LOOT);

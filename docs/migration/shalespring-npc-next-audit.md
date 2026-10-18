@@ -1,0 +1,18 @@
+# Shalespring 三位NPC：下一批源码证据（尚未实现）
+
+原件07.9只读来源不变。Laut、Shutterbug、Florist均为有真实菜单/任务/交易的持久Geo实体，不能为建筑解引用只注册站桩空实体。实体与整个可达菜单分支一起迁入后，才迁Shalespring模板及首次advancement入口。
+
+已读源码：LautEntity/FloristEntity/ShutterbugEntity、LautRightClickProcedure、FloristRightClickedOnEntityProcedure、ShutterbugRightClickedOnEntityProcedure、BenzorOnInitialEntitySpawnProcedure、UmaMainScreen/UmaMainButtonMessage、LautErrand1Epl2ButtonMessage、UmabelSetIntroTextProcedure。
+
+- Laut右击按实体hasplenkys检查：未完成时检测玩家库存Plenky，够3进入LautErrand1Epl2，否则Epl1；完成时原无交互。源循环发现Plenky堆后却赋值本次交互itemstack.getCount而非该库存堆计数，已核原JAR字节码：getStackInSlot副本存局部14，匹配PLENKY后129处读取局部9（传入交互itemstack）并调用m_41613_得到Count，而不是读取局部14；不是CFR缩进误判。实际任务提交/扣物/奖励链仍需继续追。不能只开文本页遗漏Plenky提交/奖励。
+- Florist右击实际开UmaMain，不凭实体名找FloristMain。UmaMain带原mainflavourboxes/mainspeechbox背景、umarubiconidleportrait 128×1536立绘条，取全局WhisperSpriteIndex裁128帧且夹0..1408；两个65×22图像按钮分别进入UmaInfoPageing和UmaPageRight。UmabelSetIntroText按原全局WhisperIntroMessageIndex给三种文本；需追实际写入者，保原随机分布和切换时机，状态改归玩家/所属菜单，不能删立绘/只保一条文本。
+- Shutterbug按玩家UnetteIntroduced标记进入UneIntroEpl1或UneMain，不是单页对话。需追介绍完成的真实写入/保存/死亡继承及所有后续可达图鉴/交易/任务。
+
+已见原所有示例GUI按钮先向服务端发坐标和buttonID，又在客户端本地直接调用同一业务；服务端仅hasChunkAt，没有当前菜单/距离/真实NPC校验。重做使用原生容器按钮协议和实际打开的服务端菜单，绑定NPC身份/维度/存活/距离/玩家进度，交易提交重新核实际库存并幂等消费。不得信任客户端坐标或扫描最近NPC代替绑定；不保客户端重复发奖励的缺陷。
+
+Florist/Shutterbug finalizeSpawn调用BenzorOnInitialEntitySpawnProcedure：设noGravity，并执行字符串 `/effect @s minecraft:regeneration 255 infinite true`。该字符串需对照原1.20.1原生命令语法和原JAR，不能见到regeneration就断言原NPC真有无限再生，也不能擅自改成永久无敌。显式伤害拒绝列表/属性/重力/持久化及未拒绝伤害分别审计，不凭MCreator名字猜意图。
+
+后续工作：先完成三NPC对应菜单/按钮/procedure/状态/奖励/资源调用图的只读清单，再形成迁移前契约和实现；保全部图像、动画、文字、按钮位置/尺寸/翻页和交易条件。当前仅源码预审，不是已迁移或运行验证。
+
+
+补充命令语法证据：原JAR BenzorOnInitialEntitySpawnProcedure 字节码97处ldc确为上述 `/effect @s minecraft:regeneration 255 infinite true`，非反编译拼错。核原1.20.1官方映射EffectCommands.java，effect根的执行分支为clear/give，give后才是targets/effect/seconds或infinite/amplifier。原字符串在原版语法下不合法，不能把NPC的“无限再生”当成已实现事实。这里是命令源码/字节码结论，未启动旧版游戏实测；迁移时不擅自补正确再生命令或永久无敌来增加原来未生效的能力。

@@ -24,6 +24,7 @@ public final class GeoDecorContent {
                 case CIVILIAN -> new DialogueBlock.Civilian();
                 case RUSTY_RADIO -> new DialogueBlock(kind);
                 case ATLAS -> new com.hp.thermalshockreforged.content.atlas.AtlasBlock();
+                case CRYONIC_CACHE -> new CryonicCacheBlock();
                 case ENCHANTED_CACHE -> new EnchantedCacheBlock();
                 case SHALE_POT -> new ShalePotBlock();
                 case PATHIOLITE_OUTCROP -> new PathioliteOutcropBlock();
@@ -34,7 +35,7 @@ public final class GeoDecorContent {
             });
             BLOCK_VALUES.put(kind, block);
             ITEM_VALUES.put(kind, ITEMS.register(kind.id, () -> new GeoDecorItem(block.get(), kind, new Item.Properties())));
-            ENTITY_VALUES.put(kind, ENTITIES.register(kind.id, () -> BlockEntityType.Builder.<GeoDecorBlockEntity>of((pos, state) -> switch (kind) { case SUSPICIOUS_CAVEBLOOMER -> new SuspiciousCavebloomerBlockEntity(pos, state); case ENCHANTED_CACHE -> new EnchantedCacheBlockEntity(pos, state); default -> new GeoDecorBlockEntity(kind, pos, state); }, block.get()).build(null)));
+            ENTITY_VALUES.put(kind, ENTITIES.register(kind.id, () -> BlockEntityType.Builder.<GeoDecorBlockEntity>of((pos, state) -> switch (kind) { case SUSPICIOUS_CAVEBLOOMER -> new SuspiciousCavebloomerBlockEntity(pos, state); case ENCHANTED_CACHE, CRYONIC_CACHE -> new CacheBlockEntity(kind, pos, state); default -> new GeoDecorBlockEntity(kind, pos, state); }, block.get()).build(null)));
         }
     }
     public static GeoDecorBlock block(GeoDecorKind kind) { return BLOCK_VALUES.get(kind).get(); }
