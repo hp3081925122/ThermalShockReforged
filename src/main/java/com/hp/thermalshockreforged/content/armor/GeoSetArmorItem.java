@@ -41,6 +41,9 @@ public final class GeoSetArmorItem extends ArmorItem implements GeoItem {
     public String textureName() { return style.texture; }
 
     public enum Style {
+        STRANGESILK("stranger_armor", "strangearmor", ""),
+        CORRIAL_DIVING("corrial_diving_helmet", "corrialdivinghelmet", "§7Grants passive Water Breathing when worn."),
+        DEV_SCARF("voidflare_scarf", "voidflarescarf", "§7Attackers have a 50% chance of getting set on fire.", "idle"),
         RUSTSILK("stranger_armor", "dweller_armor", ""),
         RUBY("rubyarmor", "rubyarmor", "§6Set Bonus: Passive Haste I"),
         CARBORUNDUM("carborundum_armor", "carborundum_armor", "§6Set Bonus: Low gravity!"),

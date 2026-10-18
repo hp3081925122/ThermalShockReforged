@@ -23,9 +23,13 @@ import net.minecraft.world.level.storage.loot.parameters.*;
 import net.minecraft.world.phys.BlockHitResult;
 
 public final class CryonicCacheBlock extends GeoDecorBlock {
-    private static final ResourceKey<LootTable> LOOT = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "blocks/cryonic_cache"));
-    public CryonicCacheBlock() { super(GeoDecorKind.CRYONIC_CACHE); }
-    @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return new CacheBlockEntity(GeoDecorKind.CRYONIC_CACHE, pos, state); }
+    private final ResourceKey<LootTable> loot;
+    public CryonicCacheBlock(GeoDecorKind kind) {
+        super(kind);
+        if (kind != GeoDecorKind.CRYONIC_CACHE && kind != GeoDecorKind.SUPER_CRYONIC_CACHE) throw new IllegalArgumentException("Not a cryonic cache: " + kind);
+        loot = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "blocks/" + kind.id));
+    }
+    @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return new CacheBlockEntity(kind, pos, state); }
     private static void hint(Level level, BlockPos pos, Player player) {
         if (level.isClientSide) return;
         player.displayClientMessage(Component.literal("§aThis is a Locked Cache; right click with a Key to open."), true);
@@ -34,10 +38,10 @@ public final class CryonicCacheBlock extends GeoDecorBlock {
     @Override protected void attack(BlockState state, Level level, BlockPos pos, Player player) { super.attack(state, level, pos, player); hint(level, pos, player); }
     private void open(Level level, BlockPos pos, Player player) {
         if (!(level instanceof ServerLevel server) || !server.getBlockState(pos).is(this) || !(server.getBlockEntity(pos) instanceof CacheBlockEntity cache)) return;
-        boolean trapped = server.getBlockState(pos.below()).is(GeoDecorContent.block(GeoDecorKind.TRAPPED_CACHE_PAD));
+        boolean trapped = kind == GeoDecorKind.CRYONIC_CACHE && server.getBlockState(pos.below()).is(GeoDecorContent.block(GeoDecorKind.TRAPPED_CACHE_PAD));
         ItemStack key = player.getMainHandItem();
         if (!trapped && !key.is(MaterialContent.items().get("cryonic_key").get())) { hint(level, pos, player); return; }
-        LootTable table = trapped ? null : server.getServer().reloadableRegistries().getLootTable(LOOT);
+        LootTable table = trapped ? null : server.getServer().reloadableRegistries().getLootTable(loot);
         if (!trapped && table == LootTable.EMPTY) { ThermalShockReforged.LOGGER.warn("Cryonic cache reward table is not available; keeping block: position={}", pos); return; }
         if (!cache.claim()) return;
         if (!server.destroyBlock(pos, false) || server.getBlockState(pos).is(this) || server.getBlockEntity(pos) == cache) { cache.release(); return; }
@@ -60,7 +64,7 @@ public final class CryonicCacheBlock extends GeoDecorBlock {
             var params = new LootParams.Builder(server).withParameter(LootContextParams.ORIGIN, origin).create(LootContextParamSets.CHEST);
             for (var drop : table.getRandomItems(params)) { var item = new ItemEntity(server, origin.x, origin.y, origin.z, drop.copy()); item.setDefaultPickUpDelay(); server.addFreshEntity(item); }
         }
-        ThermalShockReforged.LOGGER.debug("Cryonic cache consumed: position={}, dimension={}, trapped={}", pos, server.dimension().location(), trapped);
+        ThermalShockReforged.LOGGER.debug("Cryonic cache consumed: position={}, dimension={}, trapped={}, kind={}", pos, server.dimension().location(), trapped, kind);
     }
     @Override protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) { open(level, pos, player); return ItemInteractionResult.SUCCESS; }
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) { open(level, pos, player); return InteractionResult.SUCCESS; }

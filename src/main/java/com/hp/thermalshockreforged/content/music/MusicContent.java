@@ -13,6 +13,10 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public final class MusicContent {
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
+    public static final ResourceKey<JukeboxSong> AZURE_GREY_SONG = ResourceKey.create(Registries.JUKEBOX_SONG, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "azure_grey"));
+    public static final DeferredItem<Item> AZURE_GREY = ITEMS.register("azure_grey", () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(AZURE_GREY_SONG)));
+    public static final ResourceKey<JukeboxSong> PHOBOS_LAMENT_SONG = ResourceKey.create(Registries.JUKEBOX_SONG, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "phobos_lament"));
+    public static final DeferredItem<Item> PHOBOS_LAMENT = ITEMS.register("phobos_lament", () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(PHOBOS_LAMENT_SONG)));
     public static final ResourceKey<JukeboxSong> PETRICHOR_SONG = ResourceKey.create(Registries.JUKEBOX_SONG, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "petrichor"));
     public static final DeferredItem<Item> PETRICHOR = ITEMS.register("petrichor", () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(PETRICHOR_SONG)));
     public static final ResourceKey<JukeboxSong> TRAMPLING_FLOWERS_SONG = ResourceKey.create(Registries.JUKEBOX_SONG, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "trampling_flowers"));

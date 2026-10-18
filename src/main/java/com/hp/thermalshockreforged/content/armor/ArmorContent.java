@@ -21,6 +21,8 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public final class ArmorContent {
     private static final DeferredRegister<ArmorMaterial> MATERIALS = DeferredRegister.create(Registries.ARMOR_MATERIAL, ThermalShockReforged.MOD_ID);
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister<net.minecraft.core.particles.ParticleType<?>> PARTICLES = DeferredRegister.create(Registries.PARTICLE_TYPE, ThermalShockReforged.MOD_ID);
+    public static final DeferredHolder<net.minecraft.core.particles.ParticleType<?>, net.minecraft.core.particles.SimpleParticleType> PURPLE_SPARKLE = PARTICLES.register("purple_sparkle", () -> new net.minecraft.core.particles.SimpleParticleType(false));
     public static final List<DeferredItem<GeoSetArmorItem>> RUBY = new ArrayList<>();
     public static final List<DeferredItem<GeoSetArmorItem>> CARBORUNDUM = new ArrayList<>();
     public static final List<DeferredItem<GeoSetArmorItem>> RUBY_ZENITH = new ArrayList<>();
@@ -29,6 +31,22 @@ public final class ArmorContent {
     public static final List<DeferredItem<GeoSetArmorItem>> SENTRY = new ArrayList<>();
     public static final List<DeferredItem<GeoSetArmorItem>> RUSTSILK = new ArrayList<>();
     public static final List<DeferredItem<GeoSetArmorItem>> ALL = new ArrayList<>();
+    private static final DeferredHolder<ArmorMaterial, ArmorMaterial> DIVING_MATERIAL = MATERIALS.register("corrial_diving_helmet", () -> new ArmorMaterial(
+            Map.of(ArmorItem.Type.HELMET, 6), 7, net.minecraft.core.Holder.direct(SoundEvents.EMPTY),
+            () -> Ingredient.of(MaterialContent.items().get("corrial_ingot").get()),
+            List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "corrial_diving_helmet"))), 1, .2F));
+    private static final DeferredHolder<ArmorMaterial, ArmorMaterial> DEV_SCARF_MATERIAL = MATERIALS.register("dev_scarf", () -> new ArmorMaterial(
+            Map.of(ArmorItem.Type.CHESTPLATE, 4), 50, net.minecraft.core.Holder.direct(SoundEvents.SNOW_PLACE),
+            () -> Ingredient.EMPTY,
+            List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "dev_scarf"))), 0, .1F));
+    private static final DeferredHolder<ArmorMaterial, ArmorMaterial> STRANGESILK_MATERIAL = MATERIALS.register("strangesilk_armour", () -> new ArmorMaterial(
+            Map.of(ArmorItem.Type.HELMET, 3, ArmorItem.Type.CHESTPLATE, 3), 9, SoundEvents.ARMOR_EQUIP_LEATHER,
+            () -> Ingredient.of(RUSTSILK.get(0).get(), RUSTSILK.get(1).get()),
+            List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "strangesilk_armour"))), 0, 0));
+    public static final DeferredItem<GeoSetArmorItem> CORRIAL_DIVING_HELMET = ITEMS.register("corrial_diving_helmet_helmet", () -> new GeoSetArmorItem(DIVING_MATERIAL, ArmorItem.Type.HELMET, GeoSetArmorItem.Style.CORRIAL_DIVING, new Item.Properties().durability(330)));
+    public static final DeferredItem<GeoSetArmorItem> DEV_SCARF = ITEMS.register("dev_scarf_chestplate", () -> new GeoSetArmorItem(DEV_SCARF_MATERIAL, ArmorItem.Type.CHESTPLATE, GeoSetArmorItem.Style.DEV_SCARF, new Item.Properties().durability(368).fireResistant()));
+    public static final DeferredItem<GeoSetArmorItem> STRANGESILK_HELMET = ITEMS.register("strangesilk_armour_helmet", () -> new GeoSetArmorItem(STRANGESILK_MATERIAL, ArmorItem.Type.HELMET, GeoSetArmorItem.Style.STRANGESILK, new Item.Properties().durability(165)));
+    public static final DeferredItem<GeoSetArmorItem> STRANGESILK_CHESTPLATE = ITEMS.register("strangesilk_armour_chestplate", () -> new GeoSetArmorItem(STRANGESILK_MATERIAL, ArmorItem.Type.CHESTPLATE, GeoSetArmorItem.Style.STRANGESILK, new Item.Properties().durability(240)));
     private static final DeferredHolder<ArmorMaterial, ArmorMaterial> RUBY_MATERIAL = MATERIALS.register("ruby_armor", () -> material(false));
     private static final DeferredHolder<ArmorMaterial, ArmorMaterial> CARBORUNDUM_MATERIAL = MATERIALS.register("carborundum_armor", () -> material(true));
     private static final DeferredHolder<ArmorMaterial, ArmorMaterial> RUBY_ZENITH_MATERIAL = MATERIALS.register("ruby_zenith_armor", () -> zenithMaterial(false, "ruby_zenith_armor"));
@@ -43,6 +61,7 @@ public final class ArmorContent {
             List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "sentry"))), 0, 0));
 
     static {
+        ALL.addAll(List.of(CORRIAL_DIVING_HELMET, DEV_SCARF, STRANGESILK_HELMET, STRANGESILK_CHESTPLATE));
         RUSTSILK.add(ITEMS.register("rustsilk_armour_helmet", () -> new GeoSetArmorItem(RUSTSILK_MATERIAL, ArmorItem.Type.HELMET, GeoSetArmorItem.Style.RUSTSILK, new Item.Properties().durability(55))));
         RUSTSILK.add(ITEMS.register("rustsilk_armour_chestplate", () -> new GeoSetArmorItem(RUSTSILK_MATERIAL, ArmorItem.Type.CHESTPLATE, GeoSetArmorItem.Style.RUSTSILK, new Item.Properties().durability(80))));
         ALL.addAll(RUSTSILK);
@@ -84,10 +103,12 @@ public final class ArmorContent {
 
     public static void register(IEventBus bus) {
         MATERIALS.register(bus);
+        PARTICLES.register(bus);
         ITEMS.register(bus);
         NeoForge.EVENT_BUS.addListener(ArmorSetEvents::tick);
         NeoForge.EVENT_BUS.addListener(ArmorSetEvents::death);
         NeoForge.EVENT_BUS.addListener(ArmorSetEvents::clonePlayer);
         NeoForge.EVENT_BUS.addListener(ArmorSetEvents::serverTick);
+        NeoForge.EVENT_BUS.addListener(SpecialArmorEvents::hurt);
     }
 }

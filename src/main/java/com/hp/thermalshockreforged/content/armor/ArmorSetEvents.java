@@ -42,6 +42,7 @@ final class ArmorSetEvents {
         }
         boolean eligible = player.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.HEAD).is(ZENITH)
                 || player.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.FEET).is(ZENITH);
+        if (eligible && player.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.HEAD).is(ArmorContent.CORRIAL_DIVING_HELMET.get())) player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 60, 0, true, false));
         if (eligible && wearing(player, ArmorContent.RUBY)) player.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED, 20, 0, true, false));
         if (eligible && wearing(player, ArmorContent.RUBY_ZENITH)) {
             player.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED, 20, 1, true, false));

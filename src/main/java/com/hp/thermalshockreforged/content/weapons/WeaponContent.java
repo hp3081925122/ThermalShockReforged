@@ -19,6 +19,7 @@ public final class WeaponContent {
     public static final DeferredHolder<MobEffect, MobEffect> SICKLE_WOUND = EFFECTS.register("sickle_wound_buildup", SickleItem.WoundEffect::new);
     public static final DeferredItem<SickleItem> RUBY_SICKLE = ITEMS.register("ruby_sickle", () -> new SickleItem("ruby_sickle", 1200, 10, "ruby"));
     public static final DeferredItem<SickleItem> BLOODSTONE_SICKLE = ITEMS.register("bloodstone_sickle", () -> new SickleItem("bloodstone_sickle", 1500, 8, "bloodstone"));
+    public static final DeferredItem<SickleItem> CARBORUNDUM_SICKLE = ITEMS.register("carborundum_sickle", () -> new SickleItem("carborundum_sickle", 900, 15, "carborundum", 4.5F, 16));
     private WeaponContent() { }
 
     public static void register(IEventBus bus) {
