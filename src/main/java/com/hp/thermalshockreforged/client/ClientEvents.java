@@ -19,6 +19,7 @@ import com.hp.thermalshockreforged.entity.ModEntities;
 import com.hp.thermalshockreforged.entity.ZapWarningEntity;
 import com.hp.thermalshockreforged.client.particle.ZapAttackParticle;
 import com.hp.thermalshockreforged.client.particle.TeleportFlashParticle;
+import com.hp.thermalshockreforged.client.cavebloomer.CavebloomerClient;
 import com.hp.thermalshockreforged.client.fauna.FaunaRenderers;
 import com.hp.thermalshockreforged.client.status.StatusClient;
 import com.hp.thermalshockreforged.client.armor.ArmorClient;
@@ -51,6 +52,7 @@ import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 public final class ClientEvents {
     @SubscribeEvent
     public static void renderers(EntityRenderersEvent.RegisterRenderers event) {
+        CavebloomerClient.renderers(event);
         FaunaRenderers.register(event);
         InfestationRenderers.register(event);
         SnobolRenderers.register(event);
@@ -103,6 +105,7 @@ public final class ClientEvents {
 
     @SubscribeEvent
     public static void particles(RegisterParticleProvidersEvent event) {
+        CavebloomerClient.particles(event);
         event.registerSpriteSet(ModEntities.ZAP_PARTICLE.get(), ZapAttackParticle.Provider::new);
         event.registerSpriteSet(ModEntities.TELEPORT_FLASH.get(), TeleportFlashParticle.Provider::new);
         FaunaRenderers.particles(event);
