@@ -33,6 +33,9 @@ public final class SanctumContent {
     public static final DeferredHolder<EntityType<?>, EntityType<KilolyteEntity>> KILOLYTE = TYPES.register("kilolyte", () -> EntityType.Builder.of(KilolyteEntity::new, MobCategory.MONSTER).sized(.6F, 1.7F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":kilolyte"));
     public static final DeferredItem<DeferredSpawnEggItem> KILOLYTE_EGG = ITEMS.register("kilolyte_spawn_egg", () -> new DeferredSpawnEggItem(KILOLYTE, -1, -1, new Item.Properties()));
     public static final DeferredHolder<EntityType<?>, EntityType<KilolyteAttackEntity>> KILOLYTE_ATTACK = TYPES.register("kilolyte_attack_task", () -> EntityType.Builder.<KilolyteAttackEntity>of(KilolyteAttackEntity::new, MobCategory.MISC).sized(.01F, .01F).clientTrackingRange(1).updateInterval(Integer.MAX_VALUE).build(ThermalShockReforged.MOD_ID + ":kilolyte_attack_task"));
+    public static final DeferredHolder<EntityType<?>, EntityType<GuardianPylonEntity>> GUARDIAN_PYLON = TYPES.register("guardian_pylon", () -> EntityType.Builder.of(GuardianPylonEntity::new, MobCategory.MONSTER).sized(1, 1).fireImmune().setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":guardian_pylon"));
+    public static final DeferredItem<DeferredSpawnEggItem> GUARDIAN_PYLON_EGG = ITEMS.register("guardian_pylon_spawn_egg", () -> new DeferredSpawnEggItem(GUARDIAN_PYLON, -1, -1, new Item.Properties()));
+    public static final DeferredHolder<EntityType<?>, EntityType<PylonActivationEntity>> PYLON_ACTIVATION = TYPES.register("pylon_activation_task", () -> EntityType.Builder.<PylonActivationEntity>of(PylonActivationEntity::new, MobCategory.MISC).noSummon().sized(.01F, .01F).clientTrackingRange(0).updateInterval(20).build(ThermalShockReforged.MOD_ID + ":pylon_activation_task"));
     private static DeferredHolder<EntityType<?>, EntityType<RippleEntity>> ripple(String name) {
         return TYPES.register(name, () -> EntityType.Builder.of(RippleEntity::new, MobCategory.MONSTER).sized(.6F, 2).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":" + name));
     }
@@ -49,6 +52,7 @@ public final class SanctumContent {
         NeoForge.EVENT_BUS.addListener(SanctumContent::attack);
     }
     private static void attributes(EntityAttributeCreationEvent event) {
+        event.put(GUARDIAN_PYLON.get(), GuardianPylonEntity.createAttributes().build());
         event.put(KILOLYTE.get(), KilolyteEntity.createAttributes().build());
         event.put(FROSTILYTE_GUNNER.get(), FrostilyteGunnerEntity.createAttributes().build());
         event.put(RIPPLE.get(), RippleEntity.createAttributes(false).build());
