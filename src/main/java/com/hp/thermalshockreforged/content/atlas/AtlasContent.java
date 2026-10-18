@@ -17,6 +17,7 @@ public final class AtlasContent {
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(Registries.MENU, ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
+    public static final DeferredItem<Item> VIRUSTONE = ITEMS.register("virustone", VirustoneItem::new);
     public static final DeferredItem<Item> KEYSTONE = ITEMS.register("keystone", KeystoneItem::new);
     public static final DeferredHolder<MenuType<?>, MenuType<AtlasMenu>> MENU = MENUS.register("atlas_menu", () -> IMenuTypeExtension.create(AtlasMenu::new));
     public static final DeferredHolder<EntityType<?>, EntityType<AtlasActivationEntity>> ACTIVATION = ENTITIES.register("atlas_activation", () -> EntityType.Builder.of(AtlasActivationEntity::new, MobCategory.MISC).noSummon().fireImmune().sized(0.01F, 0.01F).clientTrackingRange(0).updateInterval(20).build(ThermalShockReforged.MOD_ID + ":atlas_activation"));

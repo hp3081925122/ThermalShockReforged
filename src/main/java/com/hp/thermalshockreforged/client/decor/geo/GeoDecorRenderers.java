@@ -47,6 +47,13 @@ public final class GeoDecorRenderers {
         @Override public ResourceLocation getModelResource(T entity) { return ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", kind(entity) == GeoDecorKind.CIVILIAN ? "geo/" + civilianAsset(entity) + ".geo.json" : kind(entity).model); }
         @Override public ResourceLocation getTextureResource(T entity) {
             String texture = kind(entity).texture;
+            if (entity instanceof GeoDecorBlockEntity block && block.kind == GeoDecorKind.CAPSULE) texture = "textures/block/" + switch (block.getBlockState().getValue(CapsuleBlock.VARIANT)) {
+                case 1 -> "capsule_errant";
+                case 2 -> "capsule_frostilyte";
+                case 3 -> "capsule_kilolyte";
+                case 4 -> "capsule_ripple";
+                default -> "capsule";
+            } + ".png";
             if (entity instanceof GeoDecorBlockEntity block && block.kind == GeoDecorKind.SHALE_POT) texture = "textures/block/pot" + (block.getBlockState().getValue(ShalePotBlock.VARIANT) + 1) + ".png";
             if (kind(entity) == GeoDecorKind.CIVILIAN) texture = "textures/block/" + (civilianAsset(entity).equals("neon_lime_sootling") ? "neon_sootling" : civilianAsset(entity)) + ".png";
             return ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", texture);

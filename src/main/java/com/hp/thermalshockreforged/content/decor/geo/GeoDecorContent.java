@@ -28,6 +28,7 @@ public final class GeoDecorContent {
                 case KEYSTONE_PEDESTAL -> new KeystonePuzzleBlock.Pedestal();
                 case CIVILIAN -> new DialogueBlock.Civilian();
                 case RUSTY_RADIO -> new DialogueBlock(kind);
+                case CAPSULE -> new CapsuleBlock();
                 case ATLAS -> new com.hp.thermalshockreforged.content.atlas.AtlasBlock();
                 case CRYONIC_CACHE -> new CryonicCacheBlock();
                 case ENCHANTED_CACHE -> new EnchantedCacheBlock();

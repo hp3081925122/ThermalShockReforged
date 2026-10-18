@@ -1,0 +1,118 @@
+{
+  "batch": 46,
+  "scope": "Complete Capsule Geo block and Virustone item prerequisites; original advancement data",
+  "compiler": {
+    "java": 21,
+    "offline": true,
+    "tasks": [
+      "compileJava",
+      "compileGametestJava",
+      "processResources"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 18.8,
+    "executed": 1,
+    "up_to_date": 24,
+    "warnings": "existing ClientEvents deprecated API",
+    "disk_log_saved": false
+  },
+  "post_data_validation": {
+    "tasks": [
+      "processResources"
+    ],
+    "offline": true,
+    "exit_code": 0,
+    "elapsed_seconds": 40,
+    "executed": 1,
+    "reason": "two advancement resources added after frozen Java compilation"
+  },
+  "static": {
+    "capsule_real_block_item_be_registration": true,
+    "creative_entries_real": [
+      "capsule",
+      "virustone"
+    ],
+    "capsule_variant_range": [
+      0,
+      4
+    ],
+    "animation_range": [
+      0,
+      1
+    ],
+    "capsule_horizontal_facing_and_waterlogged": true,
+    "capsule_default_variant": 0,
+    "capsule_light": 0,
+    "shape": [
+      1,
+      0.1,
+      1,
+      15,
+      47.9,
+      15
+    ],
+    "strength": [
+      -1,
+      3600000
+    ],
+    "sound": "BASALT",
+    "push_reaction": "BLOCK",
+    "requires_correct_tool_for_drops": true,
+    "redstone_conductor": false,
+    "occlusion": false,
+    "inventory_slots": 9,
+    "all_six_faces_insert_extract": true,
+    "comparator": false,
+    "capsule_original_asset_bytes_equal": [
+      "five capsule PNGs",
+      "pillar_statue.geo.json",
+      "pillar_statue.animation.json"
+    ],
+    "capsule_variant_texture_order": [
+      "capsule",
+      "capsule_errant",
+      "capsule_frostilyte",
+      "capsule_kilolyte",
+      "capsule_ripple"
+    ],
+    "shared_existing_kind_paths_preserved": true,
+    "virustone_epic_and_stack_one": true,
+    "virustone_original_tooltip": true,
+    "virustone_atlas_activation_shared_with_keystone": true,
+    "cooldown_ticks": 100,
+    "cooldowns_per_actual_item_instance": true,
+    "virustone_original_png_and_mcmeta_equal": true,
+    "virustone_animation": {
+      "frames": 10,
+      "frame_time_ticks": 2,
+      "interpolate": false
+    },
+    "advancement_normalized_source_and_build_equal": [
+      "icebreaker_1",
+      "icebreaker_2"
+    ],
+    "existing_errands_get_original_data_equal": true,
+    "advancement_chain": [
+      "icebreaker_2",
+      "icebreaker_1",
+      "errands_get"
+    ],
+    "original_impossible_criteria_retained": true,
+    "new_advancement_rewards": false,
+    "advancement_icons_registered": true
+  },
+  "intentional_fixes": [
+    "Creative Capsule variant wraps to 0 instead of getting stuck at 4",
+    "Server-authoritative variant switching",
+    "Shared block removal drops automated inventory instead of losing contents",
+    "Meaningful gray MapColor"
+  ],
+  "explicit_remaining_work": [
+    "Guardian Pylon complete entity and typed build restriction",
+    "All four Capsule combat entities",
+    "BackdoorScarabAssembler and upstream NPC advancement-award behavior",
+    "Final server/client/render verification"
+  ],
+  "runtime_tests_run": false,
+  "whole_mod_complete": false
+}

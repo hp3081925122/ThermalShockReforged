@@ -11,7 +11,7 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 
-final class KeystoneItem extends Item {
+class KeystoneItem extends Item {
     KeystoneItem() { super(new Properties().stacksTo(1).rarity(Rarity.EPIC)); }
     @Override public InteractionResult useOn(UseOnContext context) {
         var player = context.getPlayer(); var level = context.getLevel(); var pos = context.getClickedPos();
