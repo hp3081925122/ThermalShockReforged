@@ -22,6 +22,8 @@ public final class ModEntities {
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<ParticleType<?>> PARTICLES = DeferredRegister.create(Registries.PARTICLE_TYPE, ThermalShockReforged.MOD_ID);
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> ZAP_PARTICLE = PARTICLES.register("zap_attack", () -> new SimpleParticleType(true));
+    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> TELEPORT_FLASH = PARTICLES.register("teleport_flash", () -> new SimpleParticleType(true));
+    public static final DeferredHolder<EntityType<?>, EntityType<GalvaniteEntity>> GALVANITE = TYPES.register("galvanite", () -> EntityType.Builder.of(GalvaniteEntity::new, MobCategory.MONSTER).sized(0.6F, 2).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":galvanite"));
     public static final DeferredHolder<EntityType<?>, EntityType<ForecastEntity>> FORECAST = TYPES.register("forecast", () -> EntityType.Builder.of(ForecastEntity::new, MobCategory.MONSTER).sized(0.8F, 1.2F).clientTrackingRange(64).updateInterval(3).build("thermal_shock_reforged:forecast"));
     public static final DeferredHolder<EntityType<?>, EntityType<ZapWarningEntity>> ZAP = TYPES.register("zap_attack_entity", () -> EntityType.Builder.of(ZapWarningEntity::new, MobCategory.MONSTER).sized(1.0F, 1.0F).fireImmune().setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build("thermal_shock_reforged:zap_attack_entity"));
 
@@ -39,6 +41,7 @@ public final class ModEntities {
         ITEMS.register("scarlet_ray_spawn_egg", () -> new DeferredSpawnEggItem(SCARLET_RAY, -1, -1, new Item.Properties()));
         ITEMS.register("crystal_koi_spawn_egg", () -> new DeferredSpawnEggItem(CRYSTAL_KOI, -1, -1, new Item.Properties()));
         ITEMS.register("forecast_spawn_egg", () -> new DeferredSpawnEggItem(FORECAST, -1, -1, new Item.Properties()));
+        ITEMS.register("galvanite_spawn_egg", () -> new DeferredSpawnEggItem(GALVANITE, -1, -1, new Item.Properties()));
     }
 
     private ModEntities() {
@@ -61,9 +64,15 @@ public final class ModEntities {
         event.put(CRYSTAL_KOI.get(), CrystalKoiEntity.createAttributes().build());
         event.put(FORECAST.get(), ForecastEntity.createAttributes().build());
         event.put(ZAP.get(), ZapWarningEntity.createAttributes().build());
+        event.put(GALVANITE.get(), GalvaniteEntity.createAttributes().build());
     }
 
     private static void spawnPlacements(RegisterSpawnPlacementsEvent event) {
+        event.register(GALVANITE.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (type, level, reason, position, random) -> {
+            if (!level.getLevelData().isThundering()) return false;
+            var id = BuiltInRegistries.BLOCK.getKey(level.getBlockState(position.below()).getBlock());
+            return id.getNamespace().equals(ThermalShockReforged.MOD_ID) && (id.getPath().equals("snowy_shale") || id.getPath().equals("snowy_cobalt"));
+        }, RegisterSpawnPlacementsEvent.Operation.REPLACE);
         event.register(PONDLER.get(), SpawnPlacementTypes.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (type, level, reason, position, random) -> level.getBlockState(position).is(net.minecraft.world.level.block.Blocks.WATER) && level.getBlockState(position.above()).is(net.minecraft.world.level.block.Blocks.WATER), RegisterSpawnPlacementsEvent.Operation.REPLACE);
         event.register(PROBOSKER.get(), SpawnPlacementTypes.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (type, level, reason, position, random) -> {
             var id = BuiltInRegistries.BLOCK.getKey(level.getBlockState(position.below()).getBlock());

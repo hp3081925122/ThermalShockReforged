@@ -379,7 +379,15 @@
       "status": "not_migrated"
     },
     "galvanite": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshockreforged.entity.GalvaniteEntity",
+      "migration_document": "galvanite-batch.md",
+      "pending": [
+        "Squall真实实体迁入后的避让验收",
+        "Angry Cavebloomer死亡解锁WorldCrux的真实入口及客户端进度同步",
+        "七个原群系自然生成数据链",
+        "整模组完整后服务端、客户端及Render Preview验收"
+      ]
     },
     "squall": {
       "status": "not_migrated"

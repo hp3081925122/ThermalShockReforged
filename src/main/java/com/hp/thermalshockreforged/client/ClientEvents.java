@@ -18,6 +18,7 @@ import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import com.hp.thermalshockreforged.entity.ModEntities;
 import com.hp.thermalshockreforged.entity.ZapWarningEntity;
 import com.hp.thermalshockreforged.client.particle.ZapAttackParticle;
+import com.hp.thermalshockreforged.client.particle.TeleportFlashParticle;
 import com.hp.thermalshockreforged.client.fauna.FaunaRenderers;
 import com.hp.thermalshockreforged.client.status.StatusClient;
 import com.hp.thermalshockreforged.client.armor.ArmorClient;
@@ -75,6 +76,7 @@ public final class ClientEvents {
         event.registerEntityRenderer(ModEntities.SCARLET_RAY.get(), ScarletRayRenderer::new);
         event.registerEntityRenderer(ModEntities.CRYSTAL_KOI.get(), CrystalKoiRenderer::new);
         event.registerEntityRenderer(ModEntities.FORECAST.get(), ForecastRenderer::new);
+        event.registerEntityRenderer(ModEntities.GALVANITE.get(), GalvaniteRenderer::new);
         event.registerEntityRenderer(ModEntities.ZAP.get(), InvisibleWarningRenderer::new);
     }
 
@@ -102,6 +104,7 @@ public final class ClientEvents {
     @SubscribeEvent
     public static void particles(RegisterParticleProvidersEvent event) {
         event.registerSpriteSet(ModEntities.ZAP_PARTICLE.get(), ZapAttackParticle.Provider::new);
+        event.registerSpriteSet(ModEntities.TELEPORT_FLASH.get(), TeleportFlashParticle.Provider::new);
         FaunaRenderers.particles(event);
         StatusClient.registerParticles(event);
         SnobolRenderers.particles(event);
