@@ -1,6 +1,9 @@
 package com.hp.thermalshockreforged.content.status.aura;
 
 import java.util.Comparator;
+import com.hp.thermalshockreforged.entity.cavebloomer.AngryCavebloomerEntity;
+import com.hp.thermalshockreforged.entity.cavebloomer.CavebloomerConfig;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import java.util.Set;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -34,7 +37,8 @@ final class DamagingAuraEffect extends MobEffect {
             var effect = caster.getEffect(AuraContent.DAMAGING_AURA);
             int damageLevel = effect == null ? 0 : effect.getAmplifier();
             int armor = target instanceof LivingEntity living ? living.getArmorValue() : 0;
-            target.hurt(source, (float) Math.max(0, damageLevel - armor * armorFactor));
+            double raw = caster instanceof AngryCavebloomerEntity ? damageLevel * caster.getAttributeValue(Attributes.ATTACK_DAMAGE) * CavebloomerConfig.AURA_MULTIPLIER.get() / 2 : damageLevel;
+            target.hurt(source, Double.isFinite(raw) ? (float)Math.max(0, raw - armor * armorFactor) : 0);
         }
         return true;
     }

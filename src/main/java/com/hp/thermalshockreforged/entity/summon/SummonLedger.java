@@ -1,4 +1,4 @@
-package com.hp.thermalshockreforged.entity.mangler;
+package com.hp.thermalshockreforged.entity.summon;
 
 import java.util.*;
 import net.minecraft.core.HolderLookup;
@@ -6,12 +6,12 @@ import net.minecraft.nbt.*;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.saveddata.SavedData;
 
-final class SummonLedger extends SavedData {
+public final class SummonLedger extends SavedData {
     private static final Factory<SummonLedger> FACTORY = new Factory<>(SummonLedger::new, SummonLedger::load);
     private final Map<UUID, Map<UUID, Long>> owners = new HashMap<>();
     private final TreeMap<Long, Set<Key>> expiry = new TreeMap<>();
-    static long clock(ServerLevel level) { return level.getServer().overworld().getGameTime(); }
-    static SummonLedger get(ServerLevel level) {
+    public static long clock(ServerLevel level) { return level.getServer().overworld().getGameTime(); }
+    public static SummonLedger get(ServerLevel level) {
         var ledger = level.getServer().overworld().getDataStorage().computeIfAbsent(FACTORY, "thermal_shock_reforged_mangler_summons");
         ledger.prune(clock(level));
         return ledger;
@@ -22,13 +22,19 @@ final class SummonLedger extends SavedData {
             for (var key : bucket.getValue()) { var children = owners.get(key.owner); if (children != null && Objects.equals(children.get(key.child), bucket.getKey())) { children.remove(key.child); if (children.isEmpty()) owners.remove(key.owner); setDirty(); } }
         }
     }
-    boolean reserve(UUID owner, UUID child, long until, int cap) {
+    public boolean reserve(UUID owner, UUID child, long until, int cap) {
         var children = owners.computeIfAbsent(owner, key -> new HashMap<>());
         if (children.size() >= cap) return false;
         children.put(child, until); expiry.computeIfAbsent(until, key -> new HashSet<>()).add(new Key(owner, child)); setDirty(); return true;
     }
-    void replace(UUID owner, UUID reservation, UUID child, long until) { release(owner, reservation); owners.computeIfAbsent(owner, key -> new HashMap<>()).put(child, until); expiry.computeIfAbsent(until, key -> new HashSet<>()).add(new Key(owner, child)); setDirty(); }
-    void release(UUID owner, UUID child) {
+    public List<UUID> reserveGroup(UUID owner, int count, long until, int cap) {
+        if (count <= 0 || count > cap || owners.getOrDefault(owner, Map.of()).size() > cap - count) return List.of();
+        var result = new ArrayList<UUID>(count);
+        for (int i = 0; i < count; i++) { var reservation = UUID.randomUUID(); reserve(owner, reservation, until, cap); result.add(reservation); }
+        return result;
+    }
+    public void replace(UUID owner, UUID reservation, UUID child, long until) { release(owner, reservation); owners.computeIfAbsent(owner, key -> new HashMap<>()).put(child, until); expiry.computeIfAbsent(until, key -> new HashSet<>()).add(new Key(owner, child)); setDirty(); }
+    public void release(UUID owner, UUID child) {
         var children = owners.get(owner); if (children == null) return;
         var until = children.remove(child); if (until == null) return;
         if (children.isEmpty()) owners.remove(owner);

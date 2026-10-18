@@ -1,0 +1,48 @@
+{
+  "scope": "第18批Cavebloomer本体/四技能/Budding/Dandy/奖励依赖的源码与静态/编译证据；不是全模组完成或游戏实测",
+  "source_jar": "D:/AI临时文件/ThermalShockMigration/thermal_shock-07.9-original.jar",
+  "source_inventories": [
+    "eighteenth-cavebloomer-original.json",
+    "eighteenth-bloomers-original.json"
+  ],
+  "implementation_owner": "主代理；Luna仅检索/机械核对/编译",
+  "compilation": {
+    "bloomlings": "Luna成功 compileJava compileGametestJava processResources --offline；初次GENERIC_EXPLODE Holder类型错误修复后成功",
+    "boss_combat": "Luna同三任务成功49s；D:/AI临时文件/ThermalShockMigration/eighteenth-cavebloomer-combat-compile.log",
+    "rewards": "Luna同三任务成功45s；D:/AI临时文件/ThermalShockMigration/eighteenth-cavebloomer-rewards-compile.log",
+    "final_source": "TTL边界修复后Luna compileJava --offline成功16s；D:/AI临时文件/ThermalShockMigration/eighteenth-cavebloomer-final-compile.log；未启动游戏"
+  },
+  "mechanical_checks_by_luna": {
+    "rapid": "age0,1,3,...37 total20",
+    "ring": "age19和29各8；非半血只有19的Mortar",
+    "slam": "age36音效，46爆炸",
+    "dandy": "半血判断在age4，age4/6/8/10/12各1；cap整组预约5",
+    "reward_table": "原/新均8池20唯一物品，rolls/count ranges/weights匹配；所有物品有真实Java注册；武器/护甲池权重9,9,10,10,8,8,8,8,10,10",
+    "reward_box": "成功仅当前使用手shrink1，CHEST context仅ORIGIN，EMPTY表保物品",
+    "birth_effect": "原/新均MAGNETIC_BOOM1 at eyeY offsets.001/speed0 + SHULKER_TELEPORT HOSTILE1/1；初次报告差异文字已更正",
+    "resource_fidelity": "原Geo/animation/texture/glow/particle/EFK资源接入；MagneticBoom实际引用greenexplode",
+    "loot_format": "目录loot_table，namespace重写，uniform provider显式type，enchant_with_levels旧treasure=true转on_random_loot options",
+    "ttl_final": "过期先于起手续期；实体/台账共同延至overworld now+20；到期Join取消；19tick爆发discard早于120tick下一冷却，无续命循环"
+  },
+  "intentional_bugfixes": [
+    "AOE按当前受害者格挡/Parrying，非击杀者或初始目标",
+    "施法者Dandy播放volley，非受害者",
+    "原生实际格挡手hurtAndBreak替代固定副手SHIELD手动shrink",
+    "内部CD/移动锁替代假药水；伤口战斗debuff与真实Slow220/amp1保留",
+    "适中原生攻击击退及抗性缩放，Boss技能伤害从基础ATK×倍率",
+    "9槽实际容器使用相连9槽菜单；原无工具标签奖杯补标准mineable/pickaxe",
+    "世界进度真实死亡幂等推进；已生成攻击不依赖Boss存活",
+    "owned Dandy可配置cap40/TTL2400，整组预约/失败释放/卸载计数/超期清理；人工生成不限TTL",
+    "Dandy构造后单次刷新真实0.8尺寸；起爆期间不可跨维",
+    "临近TTL起爆同步延长实体及台账到now+20；卸载超期不补炸"
+  ],
+  "pending": [
+    "Suspicious Cavebloomer真实双阶段召唤方块/BE库存/Geo/正常场景来源",
+    "cavebloomer_kill进度父链glaciation_get→loqendia_get及真实Keystone/世界依赖",
+    "全模组其他未迁内容",
+    "完整迁入后由Luna执行客户端/专用服务端功能测试及Render Preview原件对照"
+  ],
+  "runtime_started": false,
+  "whole_mod_complete": false,
+  "performance_gain_measured": false
+}
