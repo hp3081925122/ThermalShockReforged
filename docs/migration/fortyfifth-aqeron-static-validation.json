@@ -1,0 +1,92 @@
+{
+  "batch": 45,
+  "scope": "Full Aqeron noise dimension, Moonrock worldgen, native protection and recovery, both custom dimension sky textures",
+  "compiler": {
+    "tasks": [
+      "compileJava",
+      "compileGametestJava",
+      "processResources"
+    ],
+    "java": 21,
+    "offline": true,
+    "exit_code": 0,
+    "gradle_reported_seconds": 55,
+    "executed": 3,
+    "up_to_date": 22,
+    "evidence": "validation_luna observed Gradle output; no disk log asserted"
+  },
+  "static": {
+    "dimension_namespace_normalized_equal_except_removed_unused_fields": [
+      "generator.settings.name",
+      "generator.settings.noise.island_noise_override"
+    ],
+    "dimension_type_only_uniform_int_codec_converted": true,
+    "lunar_tundra_namespace_normalized_equal": true,
+    "moonrock_normalized_source_equal": true,
+    "moonrock": {
+      "feature": "minecraft:netherrack_replace_blobs",
+      "target": "cobbled_shale",
+      "state": "moonrock",
+      "radius": [
+        2,
+        6
+      ],
+      "count": 30,
+      "height_absolute": [
+        40,
+        360
+      ],
+      "step": "underground_decoration",
+      "biome": "lunar_tundra"
+    },
+    "original_biome_modifiers_scanned": 162,
+    "lunar_tundra_matching_modifiers": 1,
+    "shared_loqendian_tag_contains_lunar_tundra": false,
+    "custom_structure_biome_reference_to_aqeron_or_lunar_tundra_found": false,
+    "dimension_effects": {
+      "cloud_height": "NaN",
+      "has_ground": true,
+      "sky_type": "NORMAL",
+      "force_bright_lightmap": false,
+      "constant_ambient_light": false,
+      "fog_color": [
+        0,
+        0,
+        0
+      ],
+      "is_foggy_at": false
+    },
+    "sky_assets_original_sha256_equal": true,
+    "sky_assets_mcmeta_present": false,
+    "sky_texture_routes": {
+      "loqendia": [
+        "loque_sun.png",
+        "aqeron_phases.png"
+      ],
+      "aqeron": [
+        "loque_sun.png",
+        "loqendia_phases.png"
+      ],
+      "other_dimensions": "original texture argument"
+    },
+    "mixin_client_only": true,
+    "mixin_actual_injection_points_confirmed": 2,
+    "mixin_injection_descriptor": "Lcom/mojang/blaze3d/systems/RenderSystem;setShaderTexture(ILnet/minecraft/resources/ResourceLocation;)V",
+    "mixin_actual_application_verified": false,
+    "native_uv_phase_vertices_and_sky_drawing_retained": true,
+    "events_registered": true,
+    "creative_instabuild_exception_retained": true
+  },
+  "intentional_fixes": [
+    "Native placement cancellation restores snapshot and original item count instead of incorrect loot and destroy",
+    "Lethal recovery retains at least positive health, normally 1HP and capped by max health, avoiding canceled death at zero HP",
+    "Render-time dimension texture choice replaces per-tick global TextureManager mutation"
+  ],
+  "explicit_remaining_work": [
+    "Guardian Pylon internal NO_BREAK writer and out-of-Aqeron build lease are not yet migrated",
+    "Actual client mixin application, resource reload and sky comparison after whole-mod completion",
+    "Final dedicated-server death, placement, world generation and full feature tests"
+  ],
+  "runtime_tests_run": false,
+  "whole_mod_complete": false
+}
