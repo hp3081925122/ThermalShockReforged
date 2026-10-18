@@ -129,7 +129,14 @@
       "status": "not_migrated"
     },
     "snobol": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "module": "com.hp.thermalshock.entity.snobol",
+      "evidence": "snobol-batch.md",
+      "pending": [
+        "原群系和自然生成注入",
+        "WideAngle图鉴／捕捉及外围交易链",
+        "整模组完整后服务端与Render Preview验收"
+      ]
     },
     "icidrone": {
       "status": "not_migrated"
@@ -177,7 +184,14 @@
       "status": "not_migrated"
     },
     "explosive_snobol": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "module": "com.hp.thermalshock.entity.snobol",
+      "evidence": "snobol-batch.md",
+      "pending": [
+        "原群系和自然生成注入",
+        "WideAngle图鉴／捕捉及外围交易链",
+        "整模组完整后服务端与Render Preview验收"
+      ]
     },
     "blood_armoured_razorwing": {
       "status": "not_migrated"
@@ -186,10 +200,24 @@
       "status": "not_migrated"
     },
     "infestophage_seed": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "module": "com.hp.thermalshock.entity.infestation",
+      "evidence": "infestation-batch.md",
+      "pending": [
+        "原群系和自然生成注入",
+        "WideAngle图鉴／捕捉及外围交易链",
+        "整模组完整后服务端与Render Preview验收"
+      ]
     },
     "infestophage": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "module": "com.hp.thermalshock.entity.infestation",
+      "evidence": "infestation-batch.md",
+      "pending": [
+        "原群系和自然生成注入",
+        "WideAngle图鉴／捕捉及外围交易链",
+        "整模组完整后服务端与Render Preview验收"
+      ]
     },
     "monolith": {
       "status": "not_migrated"
@@ -234,7 +262,14 @@
       "status": "not_migrated"
     },
     "siibol": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "module": "com.hp.thermalshock.entity.snobol",
+      "evidence": "snobol-batch.md",
+      "pending": [
+        "原群系和自然生成注入",
+        "WideAngle图鉴／捕捉及外围交易链",
+        "整模组完整后服务端与Render Preview验收"
+      ]
     },
     "lil_jelly": {
       "status": "not_migrated"
@@ -381,7 +416,14 @@
       "status": "not_migrated"
     },
     "louse": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "module": "com.hp.thermalshock.entity.infestation",
+      "evidence": "infestation-batch.md",
+      "pending": [
+        "原群系和自然生成注入",
+        "WideAngle图鉴／捕捉及外围交易链",
+        "整模组完整后服务端与Render Preview验收"
+      ]
     },
     "pondler": {
       "status": "implemented_pending_full_validation",
@@ -562,6 +604,12 @@
     },
     "electric_sphere": {
       "status": "not_migrated"
+    }
+  },
+  "additional_entities": {
+    "snobol_blast": {
+      "status": "implemented_pending_full_validation",
+      "purpose": "原全局延时爆炸改归属明确、可持久化的多任务攻击载体，不是原新生物占位"
     }
   }
 }

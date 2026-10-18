@@ -13,6 +13,10 @@ public final class StatusContent {
     private static final DeferredRegister<MobEffect> EFFECTS = DeferredRegister.create(Registries.MOB_EFFECT, ThermalShock.MOD_ID);
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShock.MOD_ID);
     private static final DeferredRegister<Potion> POTIONS = DeferredRegister.create(Registries.POTION, ThermalShock.MOD_ID);
+    private static final DeferredRegister<net.minecraft.core.particles.ParticleType<?>> PARTICLES = DeferredRegister.create(Registries.PARTICLE_TYPE, ThermalShock.MOD_ID);
+    public static final DeferredHolder<MobEffect, MobEffect> INFECTED = EFFECTS.register("infected", InfectedEffect::new);
+    public static final DeferredHolder<net.minecraft.core.particles.ParticleType<?>, net.minecraft.core.particles.SimpleParticleType> BLOOD_SPIRAL = PARTICLES.register("blood_spiral", () -> new net.minecraft.core.particles.SimpleParticleType(true));
+    public static final DeferredHolder<net.minecraft.core.particles.ParticleType<?>, net.minecraft.core.particles.SimpleParticleType> BLOOD_ATTACK = PARTICLES.register("blood_attack", () -> new net.minecraft.core.particles.SimpleParticleType(true));
     public static final DeferredHolder<MobEffect, MobEffect> FROSTBITE = EFFECTS.register("frostbite", () -> new PlayerStatusEffect(MobEffectCategory.HARMFUL, -13464321, PlayerStatusEffect.Action.NONE, false));
     public static final DeferredHolder<MobEffect, MobEffect> COCOA_EFFECT = EFFECTS.register("cocoa_effect", () -> new PlayerStatusEffect(MobEffectCategory.BENEFICIAL, -1935513, PlayerStatusEffect.Action.WARM, true));
     public static final DeferredHolder<MobEffect, MobEffect> ANTITOXIN_EFFECT = EFFECTS.register("antitoxin_effect", () -> new PlayerStatusEffect(MobEffectCategory.BENEFICIAL, -65383, PlayerStatusEffect.Action.ANTITOXIN, true));
@@ -28,8 +32,12 @@ public final class StatusContent {
         EFFECTS.register(bus);
         ITEMS.register(bus);
         POTIONS.register(bus);
+        PARTICLES.register(bus);
         NeoForge.EVENT_BUS.addListener(StatusEvents::onHeal);
         NeoForge.EVENT_BUS.addListener(StatusEvents::onDamage);
+        NeoForge.EVENT_BUS.addListener(InfectionStatus::tick);
+        NeoForge.EVENT_BUS.addListener(InfectionStatus::leave);
+        NeoForge.EVENT_BUS.addListener(InfectionStatus::join);
 
     }
 }

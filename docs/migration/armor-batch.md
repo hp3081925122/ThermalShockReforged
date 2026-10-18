@@ -1,6 +1,6 @@
 # Ruby／Carborundum Geo装甲迁移前审计
 
-当前仅原件和目标API审计；尚未开始源码实现，不修改main输入，不运行构建。独占后续content/armor、client/armor。本批8ID为ruby_armor与carborundum_armor各自helmet、chestplate、leggings、boots；不含Ruby Zenith。
+迁移前审计记录及第二批实现报告。独占content/armor、client/armor。本批8ID为ruby_armor与carborundum_armor各自helmet、chestplate、leggings、boots；不含Ruby Zenith。已获主代理开工授权，未运行构建或游戏。
 
 ## 属性矩阵
 
@@ -50,4 +50,28 @@ NeoForge源码RegisterClientExtensionsEvent.registerItem接受IClientItemExtensi
 
 ## 待主代理闭合与验收
 
-共享zenith标签8ID、carborundum_get及garden_plant_get父链、low_gravity效果归属、aqeron维度后续实现须协调。普通四件装备属性、坏损/修复、发射器穿戴、铠甲架/玩家全槽模型、透明层、Ruby头1.1动画、外部动画数据、多玩家状态隔离、Haste与低重力退出条件/维度/进度为验收项。目前仅审计，不声称已迁移或渲染一致。
+共享zenith标签8ID、carborundum_get及garden_plant_get父链、low_gravity效果归属、aqeron维度后续实现须协调。普通四件装备属性、坏损/修复、发射器穿戴、铠甲架/玩家全槽模型、透明层、Ruby头1.1动画、外部动画数据、多玩家状态隔离、Haste与低重力退出条件/维度/进度为验收项。当前代码已实现，静态覆盖见下节；不声称运行或渲染一致。
+
+## 第二批实现结果与冻结接口
+
+已新增ArmorContent、GeoSetArmorItem、ArmorSetEvents、ArmorClient四文件。8件真实ArmorItem+两材质注册，属性、耐久、修复、声音、tooltip按上表保留。原六份Geo/贴图/动画资源SHA256逐一对原JAR相等（6/6），未修改资源。Renderer保留entityTranslucent，4.9.2 javap再次核对八个默认骨骼名与原一致，不生成虚假骨骼替代真实模型。
+
+双动画controller保留5tick transition、默认循环0与procedureController单次动画。初版逐对象单调ID存在Gecko内部manager不回收缺陷，已按下节生命周期复审修正；以修正后方案为准。
+
+套装事件由ArmorContent.register内部注册玩家Post、死亡和clone监听。Ruby仍实际给予HasteI；Carborundum按主代理明确要求改原生GRAVITY独立modifier thermal_shock:carborundum_set_gravity ADD_VALUE -0.06。剩余时间放玩家getPersistentData的thermal_shock_carborundum_gravity_ticks：合格时刷新10，脱装/进入aqeron/zenith门槛消失后逐tick倒计时，归零仅移除本modifier，不改base或其他来源。NeoForge Entity源码确认此数据写入NeoForgeData，重载后首tick恢复transient modifier并继续剩余时间；非死亡clone转存计时，死亡清理计时及modifier。直接跨维保留尾效且aqeron不刷新。Attributes.GRAVITY是syncable，属性变化由原版同步，不添加伪药水、额外逐tick网络包或共享全局延迟队列。
+
+Carborundum套装合格且非aqeron时查thermal_shock:carborundum_get的AdvancementHolder，存在则授予剩余criteria；查空不崩溃，但不能据此声称进度完整。主线仍需补8ID的zenith标签、该进度与garden_plant_get父链。low_gravity效果注册不再是本批依赖（按主代理明确指令原生状态替代），其他未来来源由其模块决定。
+
+最终接口：ArmorContent.register(IEventBus)；ArmorClient.extensions(RegisterClientExtensionsEvent)接MOD总线；ArmorClient.playerTick(PlayerTickEvent.Post)接仅客户端游戏总线。主线不要另接服务端套装tick，register已接。只做源码/API/资源静态核对，未编译、未跑服务端、客户端或Render Preview；所有实际效果仍待对应验收。当前四文件源码冻结，未实现后续Zenith套装。
+
+## 生命周期与同步复审修复
+
+GeoItem.getOrAssignId(stack,ServerLevel)已对4.9.2字节码核对：只在缺失STACK_ANIMATABLE_ID_COMPONENT时向堆栈组件写新ID，已有ID原样返回；没有每tick分配ID。ArmorItem.inventoryTick调用该API，目标Inventory.tick源码确认遍历所有compartments（含装甲）。组件随原版装备同步复制，不是客户端臆造源序号。
+
+Renderer实例键改为稳定entityId+slot，不再为每个网络ItemStack副本分配永久新manager；每个键另记录标准Gecko逻辑stack ID。网络副本逻辑ID相同保持controller，真实换装逻辑ID改变则立即移除旧manager和Playback再创建；同一逻辑ID被创造复制给不同玩家仍以entity+slot隔离。无标准ID的铠甲架/预览用弱ItemStack身份作为换装判定，不强制给客户端堆栈写假ID。
+
+ArmorCache继承已核对的SingletonAnimatableInstanceCache并显式管理protected managers。Playback仅含WeakReference<LivingEntity>和WeakReference<ItemStack>及数字/枚举/字符串，不通过值强持owner/stack；动画控制器回调只捕获Item，未把AnimationState或Entity写入manager.extraData。缓存清理按本地玩家客户端Post每tick一次，8件item各扫各自现有bindings一次；不在每骨骼或每次getManagerForId扫描。owner消失/移除/离开当前level、槽已不是该item或逻辑ID改变时清理，最近5秒确实渲染的实例保留以保护预览；继续渲染会刷新时间，不按动画时长或固定容量误删活跃实例。LoggingOut事件清空全部bindings和manager。真实换装prepareInstance仅O(1)比较当前键并重建，不扫描表。
+
+CUSTOM_DATA.geckoAnim改为观察到的字符串边沿触发，不再在客户端删除服务器拥有的命令键。相同逻辑堆栈相同命令随耐久/组件包重传不会重播，空字符串仅重新武装同名后续命令，不打断已播放动画；字符串empty显式取消并恢复默认循环。重复同名活动动画不重置。原单字段无法区分“服务端相同值再次写入”与“旧值重传”，因此源端要先清空且让客户端观察到空，再同名触发；没有添加无源序号或宣称已实现不可观测的同值重复触发。换装后新逻辑实例可以独立触发相同名称。
+
+额外客户端LoggingOut监听由ArmorClient.extensions内部注册，主线不再加新的接线；原ArmorClient.playerTick入口保持。上述均静态证据；尚未跑真实多人、耐久同步、长时缓存数量或Render Preview。修复后装甲源码再次冻结，等待主代理统一编译。

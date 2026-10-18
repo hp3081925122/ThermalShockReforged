@@ -38,6 +38,9 @@ public final class TerrainContent {
     public static final DeferredBlock<Block> SNOWY_SHALE = BLOCKS.register("snowy_shale", () -> new GrassyShaleBlock(true));
     public static final DeferredBlock<Block> SNOWY_COBALT = BLOCKS.register("snowy_cobalt", () -> new PlantSoilBlock(cobaltProperties(MapColor.SNOW)));
     public static final DeferredBlock<Block> COBALT = BLOCKS.register("cobalt", CobaltBlock::new);
+    public static final DeferredBlock<Block> VEINROOT = BLOCKS.register("veinroot", VeinrootBlock::new);
+    public static final DeferredBlock<Block> VEINROOT_ENDS = BLOCKS.register("veinroot_ends", VeinrootBlock::new);
+    public static final DeferredBlock<Block> INFESTED_LOG = BLOCKS.register("infested_log", InfestedLogBlock::new);
     public static final DeferredBlock<Block> LOQUE_GRASS = BLOCKS.register("loque_grass", TerrainFlowerBlock::new);
     public static final DeferredBlock<Block> TALL_FROSTED_GRASS = BLOCKS.register("tall_frosted_grass", TerrainFlowerBlock::new);
     public static final DeferredBlock<Block> SHORT_LOQUE_GRASS = BLOCKS.register("short_loque_grass", TerrainFlowerBlock::new);
@@ -47,11 +50,23 @@ public final class TerrainContent {
     public static final DeferredBlock<Block> ADAMANTINE_SPICE_BLOCK = BLOCKS.register("adamantine_spice_block", () -> new SpiceFallingBlock(
             BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).instrument(NoteBlockInstrument.SNARE).sound(SoundType.GRAVEL).strength(0.7F, 12.0F)));
 
+    public static final DeferredBlock<Block> LOQUE_LEAVES = BLOCKS.register("loque_leaves", () -> new UnderbrushLeaves(MapColor.COLOR_LIGHT_BLUE, 8, false));
+    public static final DeferredBlock<Block> DARK_LOQUE_LEAVES = BLOCKS.register("dark_loque_leaves", () -> new UnderbrushLeaves(MapColor.COLOR_BLUE, 12, false));
+    public static final DeferredBlock<Block> PURIFIED_LOQUE_LEAVES = BLOCKS.register("purified_loque_leaves", () -> new UnderbrushLeaves(MapColor.COLOR_LIGHT_BLUE, 8, false));
+    public static final DeferredBlock<Block> DULL_LEAVES = BLOCKS.register("dull_leaves", UnderbrushLeaves.Dull::new);
+
     static {
         ITEMS.registerSimpleBlockItem(GRASSY_SHALE);
         ITEMS.registerSimpleBlockItem(SNOWY_SHALE);
         ITEMS.registerSimpleBlockItem(SNOWY_COBALT);
         ITEMS.registerSimpleBlockItem(COBALT);
+        ITEMS.registerSimpleBlockItem(LOQUE_LEAVES);
+        ITEMS.registerSimpleBlockItem(DARK_LOQUE_LEAVES);
+        ITEMS.registerSimpleBlockItem(PURIFIED_LOQUE_LEAVES);
+        ITEMS.registerSimpleBlockItem(DULL_LEAVES);
+        ITEMS.registerSimpleBlockItem(VEINROOT);
+        ITEMS.registerSimpleBlockItem(VEINROOT_ENDS);
+        ITEMS.registerSimpleBlockItem(INFESTED_LOG);
         ITEMS.registerSimpleBlockItem(LOQUE_GRASS);
         ITEMS.registerSimpleBlockItem(TALL_FROSTED_GRASS);
         ITEMS.registerSimpleBlockItem(SHORT_LOQUE_GRASS);

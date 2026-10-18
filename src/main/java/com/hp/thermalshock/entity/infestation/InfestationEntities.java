@@ -1,0 +1,55 @@
+package com.hp.thermalshock.entity.infestation;
+
+import com.hp.thermalshock.ThermalShock;
+import net.minecraft.core.registries.*;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.levelgen.Heightmap;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.common.*;
+import net.neoforged.neoforge.event.entity.*;
+import net.neoforged.neoforge.registries.*;
+
+public final class InfestationEntities {
+    private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShock.MOD_ID);
+    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShock.MOD_ID);
+    public static final DeferredHolder<EntityType<?>, EntityType<InfestophageSeedEntity>> SEED = TYPES.register("infestophage_seed", () -> EntityType.Builder.of(InfestophageSeedEntity::new, MobCategory.AMBIENT).sized(0, 0).fireImmune().clientTrackingRange(64).updateInterval(3).build("thermal_shock:infestophage_seed"));
+    public static final DeferredHolder<EntityType<?>, EntityType<InfestophageEntity>> INFESTOPHAGE = TYPES.register("infestophage", () -> EntityType.Builder.of(InfestophageEntity::new, MobCategory.MONSTER).sized(0.8F, 2).clientTrackingRange(64).updateInterval(3).build("thermal_shock:infestophage"));
+    public static final DeferredHolder<EntityType<?>, EntityType<LouseEntity>> LOUSE = TYPES.register("louse", () -> EntityType.Builder.of(LouseEntity::new, MobCategory.AMBIENT).sized(0.2F, 0.2F).clientTrackingRange(32).updateInterval(3).build("thermal_shock:louse"));
+
+    static {
+        ITEMS.register("infestophage_seed_spawn_egg", () -> new DeferredSpawnEggItem(SEED, -1, -1, new Item.Properties()));
+        ITEMS.register("louse_spawn_egg", () -> new DeferredSpawnEggItem(LOUSE, -1, -1, new Item.Properties()));
+    }
+
+    private InfestationEntities() { }
+
+    static boolean hasType(LivingEntity entity, String path) {
+        return BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType()).equals(ResourceLocation.fromNamespaceAndPath(ThermalShock.MOD_ID, path));
+    }
+
+    public static void register(IEventBus bus) {
+        TYPES.register(bus);
+        ITEMS.register(bus);
+        bus.addListener(InfestationEntities::attributes);
+        bus.addListener(InfestationEntities::placements);
+        NeoForge.EVENT_BUS.addListener(GraveyardDrops::death);
+    }
+
+    private static void attributes(EntityAttributeCreationEvent event) {
+        event.put(SEED.get(), InfestophageSeedEntity.createAttributes().build());
+        event.put(INFESTOPHAGE.get(), InfestophageEntity.createAttributes().build());
+        event.put(LOUSE.get(), LouseEntity.createAttributes().build());
+    }
+
+    private static void placements(RegisterSpawnPlacementsEvent event) {
+        event.register(SEED.get(), SpawnPlacementTypes.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (type, level, reason, pos, random) -> {
+            var id = BuiltInRegistries.BLOCK.getKey(level.getBlockState(pos.below()).getBlock());
+            return id.getNamespace().equals(ThermalShock.MOD_ID)
+                    && java.util.Set.of("snowy_shale", "grassy_shale", "snowy_cobalt", "snowy_sanctum_bricks").contains(id.getPath())
+                    && level.canSeeSkyFromBelowWater(pos);
+        }, RegisterSpawnPlacementsEvent.Operation.REPLACE);
+        event.register(LOUSE.get(), SpawnPlacementTypes.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Mob::checkMobSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
+    }
+}
