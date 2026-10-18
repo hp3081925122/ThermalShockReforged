@@ -1,0 +1,69 @@
+{
+  "batch": 55,
+  "source": "thermal_shock-07.9-original.jar",
+  "target": "1.21.1 NeoForge 21.1.233",
+  "scope": [
+    "frigid_altar",
+    "ferrous_altar",
+    "pylon_core",
+    "fire_bomb",
+    "lapidarian_workbench"
+  ],
+  "compile": {
+    "agent": "validation_luna",
+    "tasks": [
+      "compileJava",
+      "compileGametestJava",
+      "processResources"
+    ],
+    "offline": true,
+    "java": "21.0.11",
+    "result": "BUILD SUCCESSFUL",
+    "seconds": 51,
+    "exitCode": 0,
+    "actionableTasks": 25,
+    "executed": 2,
+    "upToDate": 23,
+    "log": "D:/AI临时文件/ThermalShockMigration/fiftyfifth-altar-lapidary-compile.log"
+  },
+  "verifiedData": {
+    "workbenchBranches": 11,
+    "processingLootTables": 8,
+    "processingOutputIds": 36,
+    "missingOutputRegistrationIds": 0,
+    "muckOriginalBrokenCall": "thermal_shock:muck_loot",
+    "muckActualTableAndTargetCall": "thermal_shock_reforged:blocks/muck_loot",
+    "springling": "real EcosystemContent.SPRINGLING",
+    "modestArchiveEnchantConversion": "treasure:true -> options:#minecraft:on_random_loot; all 16 entry weights/counts retained"
+  },
+  "mechanicalReview": {
+    "agent": "validation_luna",
+    "result": "passed after correcting review API-boundary inference; no product change required",
+    "visualAssets": "9 original Geo/animation/texture/display assets SHA equal; FireBomb particle PNG SHA equal; particle JSON namespace conversion only",
+    "advancementChain": "frigid_altar_get -> lapidary_get -> cobalt_get -> loqendia_get; ferrous_altar_get -> ferrous_get -> loqendia_get",
+    "altarReward": "diskette_6 x1; 10XP frigid / 5XP ferrous",
+    "coreDust": "cryonic_energy x1..3",
+    "fireBombConditionalDraw": {
+      "old": "Mth.nextInt(RandomSource.create(),1,3) inclusive max",
+      "target": "ThreadLocalRandom.nextInt(1,4) exclusive bound",
+      "actualRange": "1..3 inclusive",
+      "countProbabilities": {
+        "1": "1/3",
+        "2": "4/9",
+        "3": "2/9"
+      },
+      "evidence": "D:/AI临时文件/ThermalShockMigration/old-mth-inclusive55-bytecode.txt:285-301"
+    },
+    "coreSourceRemoved": "Committed original delayed conversion still executes; UUID controls direct source removal, armed source no self-drop, never directly erases replacement block"
+  },
+  "skillValidation": "quick_validate.py via python -X utf8 passed",
+  "runtime": "Not launched. Whole mod migration remains incomplete; final client/server/Render Preview tests are pending.",
+  "pendingOtherDependencies": [
+    "Phobotite two real outcrops/harvest/worldgen",
+    "AltarUnlocked readers: Magnetite/Sola/Vorxon",
+    "Springling original stardust_garden natural spawn modifier",
+    "Core Whisper barter and Fabricator consumers",
+    "remaining Sanctum/Lab template dependencies",
+    "all other unported module matrix entries"
+  ]
+}

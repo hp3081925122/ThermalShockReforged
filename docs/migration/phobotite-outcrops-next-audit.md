@@ -1,0 +1,11 @@
+# 第56批预审：祭坛进度的实际采集使用者
+
+原件thermal_shock-07.9-original.jar只读，目标1.21.1 NeoForge。第55批已实现共享AltarUnlocked及真实祭坛解锁入口；字段存在不代表其它使用者自动完成。
+
+已直接读取原PhobotiteOutcropBlock、PhobotiteMantleOutcropBlock、AltarCheckConditionProcedure与PhobotiteOutcropPlayerStartsToDestroyProcedure。两矿体均真实Geo方块/BE，ANIMATION0..1、ENTITYBLOCK_ANIMATED、原全方块碰撞、BASEDRUM/NETHERRACK、light6、requiresCorrectToolForDrops、透天光且光阻0；普通体强度6/5、Mantle体6.75/5。无原具体PickaxeItem限制，不引入模块化工具适配。
+
+采集条件为原生super.canHarvestBlock且主世界共享AltarUnlocked；这个条件本身不读取LOQENDIA_ENFORCE_PROGRESSION。玩家开始破坏时只有未解锁且enforce为true才发actionbar“§aThis ore is too cold for you to gather...”。不能把提示门槛当实际挖掘/掉落条件，不能把关进度开关推定为所有原采集规则都旁路。客户端只做预测，服务端权威实际掉落门槛，原生工具与等级标签仍须保留。
+
+下一步根据Luna只读结果确认现有注册、原BE能力/库存/动画/透明/物品渲染/资源/全部loot与自然生成链，迁入真实功能并补Xaero合理地图色。不直接按文件名新建重复块，不删既有结构或掉落引用。Springling已有真实EcosystemContent类型，Workbench复用其1%召唤；审计另发现stardust_garden原自然刷新weight80/count3..5目前缺modifier，应补原真实自然入口，不能凭实体已注册声称全来源完成。
+
+所有新API先核当前源码或项目已验证用法；主代理实现，Luna只读及编译。完整模组迁好后再委派服务端/客户端及Render Preview最终测试。

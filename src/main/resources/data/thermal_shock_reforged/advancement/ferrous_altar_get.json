@@ -1,0 +1,39 @@
+{
+  "display": {
+    "icon": {
+      "id": "thermal_shock_reforged:ferrous_altar"
+    },
+    "title": {
+      "translate": "advancements.ferrous_altar_get.title"
+    },
+    "description": {
+      "translate": "advancements.ferrous_altar_get.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "ferrous_altar_get_0": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "thermal_shock_reforged:ferrous_altar"
+            ],
+            "count": {
+              "min": 1,
+              "max": 64
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 5
+  },
+  "parent": "thermal_shock_reforged:ferrous_get"
+}
