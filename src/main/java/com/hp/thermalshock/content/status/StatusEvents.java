@@ -3,6 +3,8 @@ package com.hp.thermalshock.content.status;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.ArrayDeque;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -12,7 +14,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.neoforged.neoforge.event.entity.living.*;
 
 public final class StatusEvents {
-    private static final ThreadLocal<Set<LivingEntity>> PROPAGATION_PATH = ThreadLocal.withInitial(HashSet::new);
+    private static final ThreadLocal<Propagation> PROPAGATION = new ThreadLocal<>();
     private StatusEvents() { }
 
     public static void onHeal(LivingHealEvent event) {
@@ -38,20 +40,41 @@ public final class StatusEvents {
         incomingDamage += event.getContainer().getReduction(net.neoforged.neoforge.common.damagesource.DamageContainer.Reduction.ARMOR);
         incomingDamage += event.getContainer().getReduction(net.neoforged.neoforge.common.damagesource.DamageContainer.Reduction.ENCHANTMENTS);
         incomingDamage += event.getContainer().getReduction(net.neoforged.neoforge.common.damagesource.DamageContainer.Reduction.MOB_EFFECTS);
-        Set<LivingEntity> path = PROPAGATION_PATH.get();
-        if (!path.add(entity)) return;
+        if (!(incomingDamage > 0) || !Float.isFinite(incomingDamage)) return;
+        Propagation active = PROPAGATION.get();
+        if (active != null) {
+            active.visited.add(entity);
+            if (active.queued.add(entity)) active.pending.addLast(new Pulse(entity, event.getSource(), incomingDamage));
+            return;
+        }
+        Propagation chain = new Propagation();
+        chain.visited.add(entity);
+        chain.queued.add(entity);
+        chain.pending.addLast(new Pulse(entity, event.getSource(), incomingDamage));
+        PROPAGATION.set(chain);
         try {
-            for (LivingEntity target : entity.level().getEntitiesOfClass(LivingEntity.class,
-                    new net.minecraft.world.phys.AABB(entity.position(), entity.position()).inflate(4.0),
-                    candidate -> candidate != entity && candidate.hasEffect(StatusContent.ELECTRIFIED))
-                    .stream().sorted(Comparator.comparingDouble(candidate -> candidate.distanceToSqr(entity.position()))).toList()) {
-                if (!path.contains(target)) target.hurt(event.getSource(), incomingDamage / 2.0F);
+            while (!chain.pending.isEmpty()) {
+                Pulse pulse = chain.pending.removeFirst();
+                LivingEntity origin = pulse.entity;
+                for (LivingEntity target : origin.level().getEntitiesOfClass(LivingEntity.class,
+                        new net.minecraft.world.phys.AABB(origin.position(), origin.position()).inflate(4.0),
+                        candidate -> candidate != origin && !chain.visited.contains(candidate) && candidate.hasEffect(StatusContent.ELECTRIFIED))
+                        .stream().sorted(Comparator.comparingDouble(candidate -> candidate.distanceToSqr(origin.position()))).toList()) {
+                    if (chain.visited.add(target)) target.hurt(pulse.source, pulse.damage / 2.0F);
+                }
             }
         } finally {
-            path.remove(entity);
-            if (path.isEmpty()) PROPAGATION_PATH.remove();
+            PROPAGATION.remove();
         }
     }
+
+    private static final class Propagation {
+        private final Set<LivingEntity> visited = new HashSet<>();
+        private final Set<LivingEntity> queued = new HashSet<>();
+        private final ArrayDeque<Pulse> pending = new ArrayDeque<>();
+    }
+
+    private record Pulse(LivingEntity entity, DamageSource source, float damage) { }
 }
 
 

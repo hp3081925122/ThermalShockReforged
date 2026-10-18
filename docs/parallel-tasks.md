@@ -57,3 +57,20 @@ C0整合已落地，首次编译通过但静态发现vermillion_moss悬空；真
 |status_sol|只读复核与全main固定后的统一编译|不启动两端；静态比原与目标codec字段|
 
 Chilloo蛋使用已存在Dull叶，不重复注册；CFR孵化过程丢else的误读已用原JAR字节码纠正，孵化后立即return，不能额外增加原不可达10%声音。Pondler原代码正确保留，不带错误修正。Assembler／进度父链／原群系注入／Workbench副产caller仍待完整模块闭合。Sentry由用户明确允许每秒一次，不外推到其他技能降频。
+
+## 第五批D0：原生植物、Shiver树、动态挂件与攻击入口
+
+第四批本地提交b0bd2d6；当前所有权和范围：
+
+|所有者|独占模块|状态|
+|---|---|---|
+|fauna_sol|entity/ambient/**、client/ambient/**、ambient-next-audit.md；获批3旧事件监听单点修复|Pillbud／Pixie／Sootling及瓶装物品／投射物／紫爆完整代码已冻结，旧Incoming监听改早期AttackAttemptEvent|
+|terrain_sol|content/lights/**、client/lights/**、Glowstick loot和glowstick-batch.md|真实Geo块／物品／9槽BE／六面自动化／含水／挂点／0摆动全冻结|
+|root|content/plants/**11原生植物；terrain Shiver两叶／树苗及2原配置；ModDamageTypes；公用AttackAttemptEvent及两Mixin／入口／共享tags／两配方|根源码冻结等待统一编译|
+|status_sol|11植物矩阵与根模块只读复核，固定快照验证|根植物／3loot组件转换／2配置／damageJSON已静态比原无阻塞|
+
+原LiveAttack阶段不能机械变Incoming；现公共可取消早期事件沿原Infection两个HEAD入口，Player只post一次。取消回false，未取消仍保正常伤害，所有原技能时序不动。新技能参数／伤害归属／双扣修复／原模型陷阱详见Ambient矩阵。原数据生成未闭合、交易、图鉴等仍明确待办。整个模组未完，两端／Render Preview不启动。
+
+## 第五批闭合与安全门槛追加
+
+两玻璃真实实现与等级标签补齐，三植物patch和SporePod完整配置/placed feature已导入；上游群系仍待迁。Spore实体/Geo块/九槽BE/item及四原tag已接。用户要求的受伤召唤、反击递归、性能审计按safety-performance-audit与original-combat-risk-audit执行；root修复Snobol单引信、瓶单次释放、电击整链去重、感染任务上限。安全修复差异见safety-performance-fixes。当前main固定，交status统一编译静态；不运行两端。

@@ -89,3 +89,8 @@ NeoForge21.1.233的actuallyHurt调用getDamageAfterMagicAbsorb时不采用返回
 上述核查未发现本批Gecko调用签名不匹配。签名核对仅证明接口形状匹配，泛型类型推导与整模组编译结果由主线统一编译确认，实际动画/渲染仍待后续对照测试。
 
 静态脚本核对23个本批模型/动画/纹理/粒子JSON资源与原JAR逐字节一致，whiteorb.efkefc存在；3个新loot JSON能解析，保原权重/次数/数值区间，统一补minecraft:uniform provider；20个Java文件无旧Forge/MCreator包、无注释、无UTF8 BOM，括号计数一致。没有运行Gradle、javac、服务端、客户端或GameTest。编译、全部行为、真实渲染对照尚待主线冻结后统一验收；本批源码覆盖不代表整个模组迁移完成。
+
+
+## 原LivingAttack入口等价迁移
+
+Pillbud、Sootling、Siibol和Flare原监听LivingAttackEvent，不能迁到时机更晚的LivingIncomingDamageEvent：后者会漏掉Player创造模式/先期免疫等原本能执行的攻击尝试。对应模块监听现已改为公共`com.hp.thermalshock.combat.AttackAttemptEvent`；root负责在非Player的LivingEntity.hurt HEAD与Player.hurt HEAD各准确post一次，取消则返回false，不重复post Player。各模块原source/target筛选、是否取消、起手冷却与Flare点燃条件不变；不额外加入全局感染/雷击行为。现有NeoForge.EVENT_BUS.addListener方法引用只绑定新事件类型，旧Incoming监听已经移除。为避免改额外注册文件，部分私有/包可见方法名仍为incomingDamage，名称不代表当前事件时机。此修改只改监听入口，不改技能伤害/时序，未运行构建游戏。

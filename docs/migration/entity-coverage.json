@@ -129,10 +129,22 @@
       "status": "not_migrated"
     },
     "pixie": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "module": "com.hp.thermalshock.entity.ambient",
+      "evidence": "ambient-next-audit.md",
+      "pending": [
+        "原群系注入／交易／WideAngle外部链",
+        "完整模组后Mixin入口／服务端与原渲染验证"
+      ]
     },
     "pixie_bottle": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "module": "com.hp.thermalshock.entity.ambient",
+      "evidence": "ambient-next-audit.md",
+      "pending": [
+        "原群系注入／交易／WideAngle外部链",
+        "完整模组后Mixin入口／服务端与原渲染验证"
+      ]
     },
     "snobol": {
       "status": "implemented_pending_full_validation",
@@ -166,7 +178,13 @@
       "status": "not_migrated"
     },
     "blighted_spore": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshock.entity.spore.BlightedSporeEntity",
+      "audit": "spore-next-audit.md",
+      "pending": [
+        "graveyard出生及世界生成上游",
+        "整模组完整后的服务端与Render Preview测试"
+      ]
     },
     "sentrarius": {
       "status": "not_migrated"
@@ -341,7 +359,13 @@
       "status": "not_migrated"
     },
     "sootling": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "module": "com.hp.thermalshock.entity.ambient",
+      "evidence": "ambient-next-audit.md",
+      "pending": [
+        "原群系注入／交易／WideAngle外部链",
+        "完整模组后Mixin入口／服务端与原渲染验证"
+      ]
     },
     "sootle_idle": {
       "status": "not_migrated"
@@ -416,7 +440,13 @@
       "status": "not_migrated"
     },
     "pillbud": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "module": "com.hp.thermalshock.entity.ambient",
+      "evidence": "ambient-next-audit.md",
+      "pending": [
+        "原群系注入／交易／WideAngle外部链",
+        "完整模组后Mixin入口／服务端与原渲染验证"
+      ]
     },
     "mortar_bomb": {
       "status": "not_migrated"

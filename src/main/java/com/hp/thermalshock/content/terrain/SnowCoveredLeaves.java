@@ -13,7 +13,11 @@ public final class SnowCoveredLeaves extends UnderbrushLeaves {
     public static final IntegerProperty BLOCKSTATE = IntegerProperty.create("blockstate", 0, 1);
 
     public SnowCoveredLeaves(boolean bright) {
-        super(bright ? MapColor.COLOR_YELLOW : MapColor.COLOR_ORANGE, 6, true);
+        this(bright ? MapColor.COLOR_YELLOW : MapColor.COLOR_ORANGE, 6, true);
+    }
+
+    public SnowCoveredLeaves(MapColor color, int opacity, boolean dense) {
+        super(color, opacity, dense);
         registerDefaultState(defaultBlockState().setValue(BLOCKSTATE, 0));
     }
 

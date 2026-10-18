@@ -1,0 +1,7 @@
+# 早期攻击事件兼容入口
+
+原Flare/Pillbud/Siibol/Sootling实际监听Forge LivingAttackEvent。NeoForge21.1.233 LivingIncomingDamageEvent源码明确发生在invulnerability checks之后，不能只因新事件名称相似就替代；否则原本会起手而普通伤害被取消的创造／免疫目标会漏技能或点燃。Infected此前已按原时机还原。
+
+当前公共AttackAttemptEvent携带实体/源/原伤害、支持取消。沿已核对的LivingEntity.hurt HEAD非Player，以及Player.hurt HEAD各post一次；Player进入父方法时跳过避免双触发。InfectionStatus.onAttack原位置保持。取消时注入回false，不再进入后续普通伤害流程；未取消保完整原生伤害容器/无敌/盾与减伤。三原模块改监听该事件，删旧Incoming监听，保原条件和全部技能时序，不造额外伤害事件。
+
+Mixin两个方法明确cancellable，目标原hurt签名已查；仅编译静态还不能确认实际Mixin运行，整模组完成后应由子代理覆盖FakePlayer生存/创造/免疫/盾、普通mob及只触发一次、冷却内仍正确取消、Flare点燃与原普通伤害、感染源/无来源伤害不重复的服务端测试。

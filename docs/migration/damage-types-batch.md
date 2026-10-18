@@ -1,0 +1,7 @@
+# 原自定义无伤害间隔类型
+
+原data/thermal_shock/damage_type/therm_iframe_bypass.json：exhaustion .1、message_id therm_iframe_bypass、scaling never、effects poking。保数据原值及原death翻译；Minecraft标签bypasses_cooldown原含本ID与未迁errant_damage，本批只放真实本ID，不导入未知类型。
+
+来源用于Sootling等技能，类型本身不自动绕过护甲／抗性／所有无敌帧层，不凭名称添加其他标签。使用共享ResourceKey指向动态注册表，不把damage_type当旧Forge静态注册。根负责JSON与key；实体模块保原攻击来源证据、基础攻击倍率与每次命中时序。
+
+目标DamageType Codec及DamageEffects POKING按1.21.1源码核值，运行时注册解码留全模组完整后，当前仅编译和静态字段检查。

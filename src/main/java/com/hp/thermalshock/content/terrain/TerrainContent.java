@@ -57,14 +57,21 @@ public final class TerrainContent {
 
     public static final DeferredBlock<Block> OCHRE_LEAVES = BLOCKS.register("ochre_leaves", () -> new SnowCoveredLeaves(false));
     public static final DeferredBlock<Block> BRIGHT_OCHRE_LEAVES = BLOCKS.register("bright_ochre_leaves", () -> new SnowCoveredLeaves(true));
-    public static final DeferredBlock<Block> OCHRE_SAPLING = BLOCKS.register("ochre_sapling", ThermalSaplingBlock::new);
+    public static final DeferredBlock<Block> OCHRE_SAPLING = BLOCKS.register("ochre_sapling", () -> new ThermalSaplingBlock("ochre", "loque_birch_tree"));
     public static final DeferredBlock<Block> BREATHER_SPONGE = BLOCKS.register("breather_sponge", BreatherSpongeBlock::new);
+
+    public static final DeferredBlock<Block> SHIVER_LEAVES = BLOCKS.register("shiver_leaves", () -> new SnowCoveredLeaves(MapColor.COLOR_PURPLE, 12, false));
+    public static final DeferredBlock<Block> DARK_SHIVER_LEAVES = BLOCKS.register("dark_shiver_leaves", () -> new SnowCoveredLeaves(MapColor.COLOR_PURPLE, 12, false));
+    public static final DeferredBlock<Block> SHIVERGLITTER_SAPLING = BLOCKS.register("shiverglitter_sapling", () -> new ThermalSaplingBlock("shiverglitter", "shiverglitter_tree"));
 
     static {
         ITEMS.registerSimpleBlockItem(GRASSY_SHALE);
         ITEMS.registerSimpleBlockItem(SNOWY_SHALE);
         ITEMS.registerSimpleBlockItem(SNOWY_COBALT);
         ITEMS.registerSimpleBlockItem(COBALT);
+        ITEMS.registerSimpleBlockItem(SHIVER_LEAVES);
+        ITEMS.registerSimpleBlockItem(DARK_SHIVER_LEAVES);
+        ITEMS.registerSimpleBlockItem(SHIVERGLITTER_SAPLING);
         ITEMS.registerSimpleBlockItem(OCHRE_LEAVES);
         ITEMS.registerSimpleBlockItem(BRIGHT_OCHRE_LEAVES);
         ITEMS.registerSimpleBlockItem(OCHRE_SAPLING);
