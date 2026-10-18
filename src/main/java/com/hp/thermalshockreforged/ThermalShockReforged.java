@@ -1,6 +1,10 @@
 package com.hp.thermalshockreforged;
 
 import com.hp.thermalshockreforged.content.MaterialContent;
+import com.hp.thermalshockreforged.content.decor.geo.GeoDecorContent;
+import com.hp.thermalshockreforged.entity.hunters.HuntersContent;
+import com.hp.thermalshockreforged.entity.drops.IceMobDrops;
+import com.hp.thermalshockreforged.content.decor.nativeblocks.NativeDecorContent;
 import com.hp.thermalshockreforged.content.dependencies.DependencyBlocks;
 import com.hp.thermalshockreforged.content.ModSounds;
 import com.hp.thermalshockreforged.content.ModBlockEntities;
@@ -49,6 +53,8 @@ public final class ThermalShockReforged {
         container.registerConfig(ModConfig.Type.COMMON, ManglerCombatConfig.SPEC, "thermal_shock_reforged-mangler.toml");
         ModEntities.register(bus);
         MaterialContent.register(bus);
+        NativeDecorContent.register(bus);
+        GeoDecorContent.register(bus);
         DependencyBlocks.register(bus);
         ModBlockEntities.register(bus);
         ModEffects.register(bus);
@@ -68,6 +74,8 @@ public final class ThermalShockReforged {
         GlassVariantsContent.register(bus);
         FarmingContent.register(bus);
         ManglerContent.register(bus);
+        HuntersContent.register(bus);
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(IceMobDrops::death);
         SporeContent.register(bus);
         SootleContent.register(bus);
         GardenlingContent.register(bus);
