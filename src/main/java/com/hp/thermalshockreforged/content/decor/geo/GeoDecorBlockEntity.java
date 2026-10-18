@@ -29,10 +29,12 @@ public class GeoDecorBlockEntity extends RandomizableContainerBlockEntity implem
     private String previousAnimation = "0";
     private final IItemHandler[] handlers = java.util.Arrays.stream(Direction.values()).map(side -> new SidedInvWrapper(this, side)).toArray(IItemHandler[]::new);
 
+    private int previousVariant;
     public final GeoDecorKind kind;
     public GeoDecorBlockEntity(GeoDecorKind kind, BlockPos position, BlockState state) {
         super(GeoDecorContent.entity(kind), position, state);
         this.kind = kind;
+        previousVariant = state.hasProperty(ShalePotBlock.VARIANT) ? state.getValue(ShalePotBlock.VARIANT) : 0;
     }
 
     public IItemHandler itemHandler(Direction side) { return side == null ? null : handlers[side.ordinal()]; }
@@ -82,7 +84,14 @@ public class GeoDecorBlockEntity extends RandomizableContainerBlockEntity implem
     public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction side) { return true; }
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(this, "controller", 0, state -> getBlockState().getValue(GeoDecorBlock.ANIMATION) == 0 ? state.setAndContinue(RawAnimation.begin().thenLoop(kind.idleAnimation())) : PlayState.STOP));
+        controllers.add(new AnimationController<>(this, "controller", 0, state -> {
+            if (kind == GeoDecorKind.SHALE_POT && previousVariant != getBlockState().getValue(ShalePotBlock.VARIANT)) {
+                previousVariant = getBlockState().getValue(ShalePotBlock.VARIANT);
+                state.getController().forceAnimationReset();
+                return PlayState.STOP;
+            }
+            return getBlockState().getValue(GeoDecorBlock.ANIMATION) == 0 ? state.setAndContinue(RawAnimation.begin().thenLoop(kind.idleAnimation())) : PlayState.STOP;
+        }));
         controllers.add(new AnimationController<>(this, "procedurecontroller", 0, state -> {
             String requested = Integer.toString(getBlockState().getValue(GeoDecorBlock.ANIMATION));
             if ((!requested.equals("0") && state.getController().getAnimationState() == AnimationController.State.STOPPED)

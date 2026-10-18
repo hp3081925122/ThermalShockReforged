@@ -32,6 +32,7 @@ public final class UtilityContent {
     public static final DeferredItem<Item> FROZEN_CHILLOO = ITEMS.register("frozen_chilloo", () -> new SlowFoodItem(0.1F));
     public static final DeferredItem<Item> MARROW_MELD = ITEMS.register("marrow_meld", () -> new SlowFoodItem(-0.1F));
 
+    public static final DeferredItem<PesticideItem> PESTICIDE = ITEMS.register("pesticide", PesticideItem::new);
     public static final DeferredItem<Item> CHISEL = ITEMS.register("chisel", ChiselItem::new);
     private UtilityContent() { }
 

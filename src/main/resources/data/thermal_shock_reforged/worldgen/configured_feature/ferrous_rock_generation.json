@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:ore",
+  "config": {
+    "size": 7,
+    "discard_chance_on_air_exposure": 0,
+    "targets": [
+      {
+        "target": {
+          "predicate_type": "block_match",
+          "block": "thermal_shock_reforged:shale"
+        },
+        "state": {
+          "Name": "thermal_shock_reforged:ferrous_shale"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "block_match",
+          "block": "thermal_shock_reforged:mantlestone"
+        },
+        "state": {
+          "Name": "thermal_shock_reforged:ferrous_mantlestone"
+        }
+      }
+    ]
+  }
+}

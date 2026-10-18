@@ -1,0 +1,60 @@
+{
+  "scope": "第22批Shale Pot→Skullscor→Pesticide真实内容和来源链",
+  "implementation_owner": "主代理",
+  "verification_owner": "Luna",
+  "compile": {
+    "tasks": [
+      "compileJava",
+      "compileGametestJava",
+      "processResources"
+    ],
+    "offline": true,
+    "result": "BUILD SUCCESSFUL",
+    "duration_seconds": 52,
+    "log": "D:/AI临时文件/ThermalShockMigration/twentysecond-pot-compile.log"
+  },
+  "skullscor": {
+    "body": "MONSTER,1x0.6,XP3,step0.6,原生距离消失/无额外永久存活",
+    "attributes": {
+      "speed": 0.3,
+      "max_health": 8,
+      "armor": 4,
+      "attack": 2,
+      "follow_range": 16,
+      "knockback": 0.8
+    },
+    "goals": "原7项/优先级/速度和reach²4保，未引入原未有LOS门槛",
+    "spawn": "六原群系weight9/min1/max3，原地面/非和平/暗处/原生规则",
+    "animations": "idle/walk/attack、3 controller与7tick攻击窗口；目标原生摆臂更新时间输入保留",
+    "render": "headPitch/netHeadYaw、scale1/shadow.5/entityTranslucent，无原不存在glow",
+    "assets_sha": "geo/animation/entity texture与原JAR相同",
+    "xp": "死后20tick发一次经验、pending/归属UUID持久化",
+    "tags": [
+      "minecraft:arthropod",
+      "thermal_shock_reforged:ferro_weak",
+      "thermal_shock_reforged:sprintweed_blacklist",
+      "thermal_shock_reforged:undead_mobs"
+    ],
+    "classification_audit": "旧getMobType→目标arthropod标签，Luna初次缺失判断已纠正"
+  },
+  "shale_pot": {
+    "body": "硬度.5/抗爆0/DecoratedPot/透光/遮光0/推毁/2,0,2→14,16,14",
+    "inventory": "真实9槽/六面全部槽、原无右击开菜单入口",
+    "variants": "blockstate0..2→pot1/2/3，原几何/动画保；换态reset controller；全部SHA匹配",
+    "spawn_on_break": "成功玩家破坏且方块已移除后独立2.5%生成Skullscor、速度0，创造同原可触发；爆炸不擅触发",
+    "loot": "15项权重、数量、无额外条件保原；min/max改目标显式uniform",
+    "natural_feature": "count3、rarity3、Y[-55,40]、tries40/xzSpread10及AIR/3基底/biome过滤全保",
+    "variant_caller_audit": "原SHALE_POT字段和shale_pot字面均未找到外观写入caller，未捏造Chisel或随机皮肤"
+  },
+  "pesticide": {
+    "use_ticks": 20,
+    "cooldown_ticks": 80,
+    "particle": "POISON_CLOUD wrapper1，复用已迁实际AAA",
+    "damage": "inflate1.75只Skullscor、无归属INDIRECT_MAGIC50，按距离原顺序",
+    "consumption": "完成时服务器玩家使用手栈减1，包括creative；修原全库存错槽",
+    "recipe": "原全recipes未找到，不捏造配方；真实来源Skullscor2项loot已迁"
+  },
+  "remaining_shared_features_after_22": 9,
+  "runtime_started": false,
+  "whole_mod_complete": false
+}
