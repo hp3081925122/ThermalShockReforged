@@ -21,7 +21,7 @@ public final class GeoDecorContent {
         for (GeoDecorKind kind : GeoDecorKind.values()) {
             DeferredBlock<GeoDecorBlock> block = BLOCKS.register(kind.id, () -> switch (kind) {
                 case CRYONIC_LAMP, GLAUKO_BLOOM -> new GeoDecorBlock.Waterlogged(kind);
-                case STATUE_OF_LITANY, ITTY_BITTY, GUNNER_TROPHY, BURNER_TROPHY -> new GeoDecorBlock.Directional(kind);
+                case STATUE_OF_LITANY, ITTY_BITTY, GUNNER_TROPHY, BURNER_TROPHY, CAVEBLOOMER_TROPHY -> new GeoDecorBlock.Directional(kind);
                 default -> new GeoDecorBlock(kind);
             });
             BLOCK_VALUES.put(kind, block);

@@ -36,7 +36,7 @@ public class GeoDecorBlock extends Block implements EntityBlock {
     }
     @Override public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
         super.animateTick(state, level, pos, random);
-        if (kind == GeoDecorKind.GUNNER_TROPHY || kind == GeoDecorKind.BURNER_TROPHY) level.addParticle(ParticleTypes.END_ROD, pos.getX() + random.nextDouble(), pos.getY() + random.nextDouble() * 2, pos.getZ() + random.nextDouble(), 0, 0.1, 0);
+        if (kind == GeoDecorKind.GUNNER_TROPHY || kind == GeoDecorKind.BURNER_TROPHY || kind == GeoDecorKind.CAVEBLOOMER_TROPHY) level.addParticle(ParticleTypes.END_ROD, pos.getX() + random.nextDouble(), pos.getY() + random.nextDouble() * 2, pos.getZ() + random.nextDouble(), 0, 0.1, 0);
     }
     @Override protected List<ItemStack> getDrops(BlockState state, LootParams.Builder builder) {
         var drops = super.getDrops(state, builder);
