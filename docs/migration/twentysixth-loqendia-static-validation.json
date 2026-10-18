@@ -1,0 +1,74 @@
+{
+  "scope": "第26批Loqendia完整地形定义/类型/天空雾和Slush真实依赖",
+  "implementation_owner": "主代理",
+  "verification_owner": "Luna",
+  "compile": {
+    "tasks": [
+      "compileJava",
+      "compileGametestJava",
+      "processResources"
+    ],
+    "java": 21,
+    "offline": true,
+    "result": "BUILD SUCCESSFUL",
+    "duration_seconds": 47,
+    "log": "D:/AI临时文件/ThermalShockMigration/twentysixth-loqendia-compile.log"
+  },
+  "dimension": {
+    "source_json_bytes": 39899,
+    "comparison": "只做自有namespace替换后逐字段全等",
+    "generator": "minecraft:noise，inline完整settings/router15字段/surface rules",
+    "biome_source": "minecraft:multi_noise全部8气候点和原参数范围完整保",
+    "defaults": "shale / water level0",
+    "noise": "min_y-64/height384/size_horizontal1/size_vertical2，sea_level63、aquifers等原flags",
+    "registered_surface_blocks": [
+      "frostrock",
+      "mossy_cobbled_shale",
+      "permafrost",
+      "shale",
+      "slush",
+      "snowy_permafrost",
+      "snowy_shale"
+    ],
+    "state_properties": "此维度表面自有默认态无额外Properties，8biomes和7blocks都实际注册"
+  },
+  "dimension_type": {
+    "comparison": "原完整值保；仅effects namespace和IntProvider旧value壳展平",
+    "monster_spawn_light": "uniform0..7，block_light_limit0",
+    "physical": "natural/skylight/无ceiling/床与锚/无raid/猪灵不安全/scale1/ambient.01/逻辑高度384保原"
+  },
+  "client_effects": {
+    "constructor": [
+      150,
+      true,
+      "NORMAL",
+      false,
+      false
+    ],
+    "fog_multipliers": [
+      "sunHeight*.94+.06",
+      "sunHeight*.94+.06",
+      "sunHeight*.91+.09"
+    ],
+    "isFoggyAt": false,
+    "side": "Dist.CLIENT类内modbus事件；注册自有LOQENDIA_ID，公共类不导client"
+  },
+  "slush": {
+    "body": "CLAY/GRAVEL/.8硬度/4抗爆/friction.7/全块遮光15/支持种植物",
+    "bone_meal": "原雪分支二选一各50%，非潜行/主手骨粉/UP；修复覆盖上方任意块和全库存错槽，只有可替换且放成功后才消费主手1",
+    "loot": "精准自身1，否则slushball1..2+fortune，目标1.21附魔谓词",
+    "recipe": "4slushball→2slush，原材料/形状/数量保",
+    "tags": "原shovel标准tag，无额外工具适配",
+    "slushball": "原普通材料Item，目标已有真实注册"
+  },
+  "pending": [
+    "剩余共享7feature（6条件矿物+Phobotite）",
+    "各群系剩余专属生成与全部结构/场景",
+    "Keystone/Atlas/Portal/网络/玩家跨维状态/世界矿物选择",
+    "Fabricator制造及其他未迁内容/Boss/装备",
+    "全量覆盖复审、最终两端/世界decode/Render Preview"
+  ],
+  "runtime_started": false,
+  "codec_dynamic_decode_proven": false,
+  "whole_mod_complete": false
+}

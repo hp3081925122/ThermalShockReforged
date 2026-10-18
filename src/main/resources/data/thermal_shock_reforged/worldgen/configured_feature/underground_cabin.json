@@ -1,0 +1,99 @@
+{
+  "type": "minecraft:simple_random_selector",
+  "config": {
+    "features": [
+      {
+        "feature": {
+          "type": "minecraft:simple_random_selector",
+          "config": {
+            "features": [
+              {
+                "feature": {
+                  "type": "thermal_shock_reforged:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock_reforged:undercabin2",
+                    "random_rotation": true,
+                    "random_mirror": true,
+                    "ignored_blocks": "minecraft:white_concrete_powder"
+                  }
+                },
+                "placement": []
+              },
+              {
+                "feature": {
+                  "type": "thermal_shock_reforged:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock_reforged:undercabin3",
+                    "random_rotation": true,
+                    "random_mirror": true,
+                    "ignored_blocks": "minecraft:white_concrete_powder"
+                  }
+                },
+                "placement": []
+              },
+              {
+                "feature": {
+                  "type": "thermal_shock_reforged:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock_reforged:undercabin4",
+                    "random_rotation": true,
+                    "random_mirror": true,
+                    "ignored_blocks": "minecraft:white_concrete_powder"
+                  }
+                },
+                "placement": []
+              }
+            ]
+          }
+        },
+        "placement": []
+      },
+      {
+        "feature": {
+          "type": "minecraft:simple_random_selector",
+          "config": {
+            "features": [
+              {
+                "feature": {
+                  "type": "thermal_shock_reforged:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock_reforged:underbase1",
+                    "random_rotation": true,
+                    "random_mirror": true,
+                    "ignored_blocks": "minecraft:white_concrete_powder"
+                  }
+                },
+                "placement": []
+              },
+              {
+                "feature": {
+                  "type": "thermal_shock_reforged:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock_reforged:underbase2",
+                    "random_rotation": true,
+                    "random_mirror": true,
+                    "ignored_blocks": "minecraft:white_concrete_powder"
+                  }
+                },
+                "placement": []
+              },
+              {
+                "feature": {
+                  "type": "thermal_shock_reforged:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock_reforged:underbase3",
+                    "random_rotation": true,
+                    "random_mirror": true,
+                    "ignored_blocks": "minecraft:white_concrete_powder"
+                  }
+                },
+                "placement": []
+              }
+            ]
+          }
+        },
+        "placement": []
+      }
+    ]
+  }
+}

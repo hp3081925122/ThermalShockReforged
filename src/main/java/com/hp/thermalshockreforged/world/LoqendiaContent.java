@@ -10,6 +10,8 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public final class LoqendiaContent {
+    public static final net.minecraft.resources.ResourceLocation LOQENDIA_ID = net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "loqendia");
+    public static final net.minecraft.resources.ResourceKey<net.minecraft.world.level.Level> DIMENSION = net.minecraft.resources.ResourceKey.create(Registries.DIMENSION, LOQENDIA_ID);
     private static final DeferredRegister<ParticleType<?>> PARTICLES = DeferredRegister.create(Registries.PARTICLE_TYPE, ThermalShockReforged.MOD_ID);
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> GOLD_GLITTER = PARTICLES.register("gold_glitter", () -> new SimpleParticleType(false));
     private static final DeferredRegister<StructureProcessorType<?>> PROCESSORS = DeferredRegister.create(Registries.STRUCTURE_PROCESSOR, ThermalShockReforged.MOD_ID);

@@ -1,0 +1,45 @@
+{
+  "scope": "第24批Thermite真实方块/精准与时运掉落/合成/生成/持久化连锁",
+  "implementation_owner": "主代理",
+  "verification_owner": "Luna",
+  "compile": {
+    "tasks": [
+      "compileJava",
+      "compileGametestJava",
+      "processResources"
+    ],
+    "java": 21,
+    "offline": true,
+    "result": "BUILD SUCCESSFUL",
+    "initial_duration_seconds": 53,
+    "final_same_snapshot_confirmation_seconds": 15,
+    "final_note": "最终相同快照多项UP-TO-DATE；不将重复成功当额外功能证据",
+    "log": "D:/AI临时文件/ThermalShockMigration/twentyfourth-thermite-compile.log"
+  },
+  "timing": {
+    "original": "SERVER线程组入队，END先遍历减全部计数→收集→执行→移除",
+    "normal_submit_tick_T": "END T+2，出生当END 3→2",
+    "nested_submit_during_END_T": "END T+3，快照先移走，新载体首次递减下一END",
+    "target": "倒计时/锚点/维度/armed/consumed归独立Entity；弱server-key瞬时UUID派发集合不存Runnable/Entity引用；LinkedHashSet去重"
+  },
+  "explosion": "无归属、原整块坐标、radius1、Level.ExplosionInteraction.BLOCK及原生FX/声音/伤害，不额外改参数",
+  "boundary_repairs": [
+    "消费锁并discard在爆炸之前，防重入",
+    "原闭包不可保存且可访问卸载世界；目标卸载暂停/重载恢复，维度锁定",
+    "尊重EntityJoin取消，失败英文warn；不从tick旁路重生",
+    "服务器停止清临时索引，实体剩余保存于NBT",
+    "无全世界扫描/额外削减连锁数量cap；真实消耗块每块一次"
+  ],
+  "block": "硬度.3/抗爆0/MUD_BRICKS/BASEDRUM/遮光15/两tooltip/红棕地图色",
+  "loot": "精准自身1，否则chunk1..2+fortune ore_drops；目标component enchantment谓词与uniform provider格式",
+  "recipes": [
+    "9chunk→Thermite1",
+    "3chunk+3cobbled_shale→gunpowder1（此前已存在，逐字段相等未覆盖）"
+  ],
+  "feature": "ore size28/count3/Y[-64,-46]/mantlestone替换/8群系tag与原step保",
+  "tools": "仅原标准pickaxe标签，无额外等级/模块化工具适配",
+  "remaining_shared_features_after_24": 8,
+  "runtime_started": false,
+  "measured_performance_gain": false,
+  "whole_mod_complete": false
+}

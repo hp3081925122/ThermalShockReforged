@@ -35,6 +35,7 @@ public final class TerrainContent {
     private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
     public static final DeferredBlock<Block> GRASSY_SHALE = BLOCKS.register("grassy_shale", () -> new GrassyShaleBlock(false));
+    public static final DeferredBlock<Block> SLUSH = BLOCKS.register("slush", () -> new GrassyShaleBlock(true, BlockBehaviour.Properties.of().mapColor(MapColor.CLAY).sound(SoundType.GRAVEL).strength(0.8F, 4).friction(0.7F)));
     public static final DeferredBlock<Block> SNOWY_SHALE = BLOCKS.register("snowy_shale", () -> new GrassyShaleBlock(true));
     public static final DeferredBlock<Block> SNOWY_COBALT = BLOCKS.register("snowy_cobalt", () -> new PlantSoilBlock(cobaltProperties(MapColor.SNOW)));
     public static final DeferredBlock<Block> COBALT = BLOCKS.register("cobalt", CobaltBlock::new);
@@ -69,6 +70,7 @@ public final class TerrainContent {
         ITEMS.registerSimpleBlockItem(SNOWY_SHALE);
         ITEMS.registerSimpleBlockItem(SNOWY_COBALT);
         ITEMS.registerSimpleBlockItem(COBALT);
+        ITEMS.registerSimpleBlockItem(SLUSH);
         ITEMS.registerSimpleBlockItem(SHIVER_LEAVES);
         ITEMS.registerSimpleBlockItem(DARK_SHIVER_LEAVES);
         ITEMS.registerSimpleBlockItem(SHIVERGLITTER_SAPLING);
@@ -115,10 +117,10 @@ public final class TerrainContent {
         private final boolean snowy;
 
         private GrassyShaleBlock(boolean snowy) {
-            super(Properties.of().mapColor(snowy ? MapColor.SNOW : MapColor.GRASS).instrument(NoteBlockInstrument.BASEDRUM)
+            this(snowy, Properties.of().mapColor(snowy ? MapColor.SNOW : MapColor.GRASS).instrument(NoteBlockInstrument.BASEDRUM)
                     .sound(SoundType.NETHERRACK).strength(1.0F, 5.0F).requiresCorrectToolForDrops());
-            this.snowy = snowy;
         }
+        private GrassyShaleBlock(boolean snowy, Properties properties) { super(properties); this.snowy = snowy; }
 
         @Override
         protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
