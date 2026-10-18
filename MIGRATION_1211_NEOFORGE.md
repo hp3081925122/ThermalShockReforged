@@ -244,3 +244,6 @@ Shutterbug六页介绍/真实相机/摄影及图鉴任务、首次Shalespring完
 
 
 第39批Keystone自然来源闭合：完整81000块/63状态/14BE/0实体密室、醒来原门槛/共享一次状态、100/145/200 END原剧情和按当时N玩家重复原声音已迁入，持久值计时替代旧捕获闭包。明确修重复Force监听绕过开关/玩家进度及失败永久消费。Luna三任务离线55秒、放置前捕获锚点补丁后compileJava15.8秒通过，模板46命名空间修改可逆payload及全部注册/状态/参数核对通过。详见keystone-chamber-generation-batch.md和thirtyninth-keystone-generation-static-validation.json。Aqeron/Palace及依赖居民Ly/PortraitCharacter等仍待迁，整模组未完成，未启游戏。
+
+
+第40批Palace Portrait Character完整五外观/原头部旋转/透明渲染与零阴影/尺寸规则/两页10文字/真实菜单已迁入。修创意切图卡末档和未绑定远程菜单、两静态页面误改全局立绘计时；原九资产哈希与全部UI/参数通过Luna机械对照，三任务离线24.5秒成功。ARMOR普通读取64经属性限幅实际30已由旧JAR/目标源码核，不声称对外部读base或强负modifier完全等价。详见palace-portrait-character-batch.md和fortieth-portrait-static-validation.json。FerroCake与Ly完整交易、宫殿/维度和其他剩余内容继续迁，未启游戏。
