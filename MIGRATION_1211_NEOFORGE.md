@@ -238,3 +238,6 @@ Shutterbug六页介绍/真实相机/摄影及图鉴任务、首次Shalespring完
 
 
 第37批Shalespring完整70³/343000块/384状态/52BE/6实体已导入，首次loqendia_get监听/原开关/主世界共享一次状态已接，修缺模板或放置失败永久误消费。保329处解析命名空间修改外所有解压payload与原DataVersion，原版DFU自行升级嵌套库存。Luna三任务离线57.8秒成功、122方块/12种BE/全部实体和物品及状态值静态通过。详见shalespring-generation-batch.md和thirtyseventh-shalespring-static-validation.json。自然Keystone密室/四功能机关、Aqeron/Palace、其余生物和功能仍待迁，尚未进行最终游戏/渲染验收。
+
+
+第38批Keystone四真实功能机关（Rinthium Button/Lever、Inactive/Active Pedestal）完整交互/四角检查/三处动画/原音效/九槽能力/实际Keystone发放已接入；活动台座独立保animation0..2，既有块不扩域。原JAR字节码确认领取清caninteract使lever可重开，现用中心持久KeystoneClaimed阻断重复领奖，保首次功能。Luna三任务离线18.7秒成功，四组Geo/animation/texture哈希及模型/state/displaysettings/原参数机械核对通过；详见keystone-puzzle-blocks-batch.md及thirtyeighth-keystone-puzzle-static-validation.json。81000块密室/睡醒双监听冲突/有限持久延迟广播仍待下一批，未启动游戏。

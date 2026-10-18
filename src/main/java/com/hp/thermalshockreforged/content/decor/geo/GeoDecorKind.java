@@ -46,6 +46,10 @@ public enum GeoDecorKind {
     SUSPICIOUS_CAVEBLOOMER("suspicious_cavebloomer", "Suspicious Cavebloomer", "geo/angry_cavebloomer.geo.json", "textures/block/angry_cavebloomer.png", "animations/angry_cavebloomer.animation.json", Block.box(0.1, 0, 0.1, 15.9, 7, 15.9), true, false),
     CAVEBLOOMER_TROPHY("cavebloomer_trophy", "§fA§en§6g§cr§dy §eC§6a§cv§de§fb§el§6o§co§dm§fe§er §cT§dr§fo§ep§6h§cy", "geo/cavebloomer_relic.geo.json", "textures/block/cavebloomer_relic.png", "animations/cavebloomer_relic.animation.json", Shapes.block(), true, false),
     BURNER_TROPHY("icidroburner_trophy", "Icidroburner Trophy", "geo/lod_relic.geo.json", "textures/block/lodpozar_relic.png", "animations/lod_relic.animation.json", Shapes.block(), true, false),
+    RINTHIUM_BUTTON("rinthium_button", "Rinthium Button", "geo/rinthbutton.geo.json", "textures/block/rubicon_button.png", "animations/rinthbutton.animation.json", Block.box(.1, .1, .1, 15.9, 15.9, 15.9), true, false),
+    RINTHIUM_LEVER("rinthium_lever", "Rinthium Lever", "geo/rinthlever.geo.json", "textures/block/rubicon_lever.png", "animations/rinthlever.animation.json", Shapes.block(), true, true),
+    INACTIVE_KEYSTONE_PEDESTAL("inactive_keystone_pedestal", "Keystone Pedestal", "geo/pedestalhole.geo.json", "textures/block/pedestal.png", "animations/pedestalhole.animation.json", Block.box(0, 0, 0, 16, 2, 16), false, true),
+    KEYSTONE_PEDESTAL("keystone_pedestal", "Keystone Pedestal", "geo/keystonepedestal.geo.json", "textures/block/pedestal.png", "animations/keystonepedestal.animation.json", Block.box(2, 0, 2, 14, 32, 14), false, true),
     TRAPPED_CACHE_PAD("trapped_cache_pad", "Trapped Cache Pad", "geo/cachepad.geo.json", "textures/block/trapped_cache_pad.png", "animations/cachepad.animation.json", Shapes.block(), false, false);
 
     public final String id;
@@ -75,6 +79,10 @@ public enum GeoDecorKind {
     public BlockBehaviour.Properties properties() {
         return switch (this) {
             case SHALE_PILLAR, SHALE_PILLAR_VAR_2, SHALE_PILLAR_VAR_3, SHALE_PILLAR_VAR_4, SHALE_PILLAR_VAR_5, SHALE_PILLAR_VAR_6, SHALE_PILLAR_VAR_7, SHALE_PILLAR_VAR_8 -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).sound(SoundType.BASALT).strength(2, 10).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((state, level, pos) -> false);
+            case RINTHIUM_BUTTON -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.METAL).strength(-1, 3600000).lightLevel(state -> 5).noOcclusion().pushReaction(PushReaction.BLOCK).isRedstoneConductor((state, level, pos) -> false);
+            case RINTHIUM_LEVER -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.METAL).strength(-1, 3600000).lightLevel(state -> 5).pushReaction(PushReaction.BLOCK);
+            case INACTIVE_KEYSTONE_PEDESTAL -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.METAL).strength(-1, 3600000).lightLevel(state -> 15).noCollission().noOcclusion().pushReaction(PushReaction.BLOCK).isRedstoneConductor((state, level, pos) -> false).noLootTable();
+            case KEYSTONE_PEDESTAL -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.METAL).strength(-1, 3600000).lightLevel(state -> 15).noOcclusion().pushReaction(PushReaction.BLOCK).isRedstoneConductor((state, level, pos) -> false).noLootTable();
             case CIVILIAN -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).sound(SoundType.EMPTY).strength(-1, 3600000).noCollission().noOcclusion().pushReaction(PushReaction.BLOCK).isRedstoneConductor((state, level, pos) -> false);
             case RUSTY_RADIO -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).sound(SoundType.METAL).strength(-1, 3600000).noCollission().noOcclusion().pushReaction(PushReaction.BLOCK).isRedstoneConductor((state, level, pos) -> false);
             case ATLAS -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).sound(SoundType.STONE).strength(3, 100).lightLevel(state -> 15).requiresCorrectToolForDrops().noCollission().pushReaction(PushReaction.BLOCK);

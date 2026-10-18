@@ -21,6 +21,9 @@ public final class GeoDecorContent {
         for (GeoDecorKind kind : GeoDecorKind.values()) {
             DeferredBlock<GeoDecorBlock> block = BLOCKS.register(kind.id, () -> switch (kind) {
                 case SHALE_PILLAR, SHALE_PILLAR_VAR_2, SHALE_PILLAR_VAR_3, SHALE_PILLAR_VAR_4, SHALE_PILLAR_VAR_5, SHALE_PILLAR_VAR_6, SHALE_PILLAR_VAR_7, SHALE_PILLAR_VAR_8 -> new ShalePillarBlock(kind);
+                case RINTHIUM_BUTTON, RINTHIUM_LEVER -> new KeystonePuzzleBlock.Directional(kind);
+                case INACTIVE_KEYSTONE_PEDESTAL -> new KeystonePuzzleBlock(kind);
+                case KEYSTONE_PEDESTAL -> new KeystonePuzzleBlock.Pedestal();
                 case CIVILIAN -> new DialogueBlock.Civilian();
                 case RUSTY_RADIO -> new DialogueBlock(kind);
                 case ATLAS -> new com.hp.thermalshockreforged.content.atlas.AtlasBlock();

@@ -1,0 +1,63 @@
+{
+  "batch": 38,
+  "scope": "Four complete Keystone puzzle blocks and real reward action; chamber generation deferred",
+  "compiler": {
+    "tasks": [
+      "compileJava",
+      "compileGametestJava",
+      "processResources"
+    ],
+    "offline": true,
+    "java": 21,
+    "exit_code": 0,
+    "elapsed_seconds": 18.7,
+    "task_count": 25,
+    "executed": 1,
+    "up_to_date": 24,
+    "log": "D:\\AI临时文件\\ThermalShockMigration\\thirtyeighth-keystone-compile.log"
+  },
+  "static": {
+    "block_item_block_entity_types_each": 4,
+    "nine_slot_inventory_and_automation": true,
+    "animation_ranges": {
+      "rinthium_button": [
+        0,
+        1
+      ],
+      "rinthium_lever": [
+        0,
+        1
+      ],
+      "inactive_keystone_pedestal": [
+        0,
+        1
+      ],
+      "keystone_pedestal": [
+        0,
+        2
+      ]
+    },
+    "original_geo_animation_texture_hashes_equal": true,
+    "item_model_blockstate_normalized_namespace_bytes_equal": true,
+    "original_displaysettings_equal": true,
+    "original_specific_loot_json_absent_on_both": true,
+    "switch_offsets_and_three_animation_triggers_equal": true,
+    "original_sound_parameters_equal": true,
+    "original_rearm_bug_confirmed_by_jar_bytecode": true,
+    "persistent_claimed_guard_implemented": true,
+    "missing_specific_differences": []
+  },
+  "intentional_fixes": [
+    "Persistent claim guard prevents same puzzle rearming after reward",
+    "Server-side-only reward/state mutation",
+    "Button inventory drops on block removal via shared native container implementation"
+  ],
+  "pending": [
+    "Full chamber template and wake-up generation conflict",
+    "Finite persistent delayed broadcasts",
+    "Whole-mod source completion",
+    "Final server/client/Render Preview tests"
+  ],
+  "runtime_tests_run": false,
+  "whole_mod_complete": false
+}

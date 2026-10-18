@@ -91,16 +91,16 @@ public class GeoDecorBlockEntity extends RandomizableContainerBlockEntity implem
                 state.getController().forceAnimationReset();
                 return PlayState.STOP;
             }
-            return getBlockState().getValue(GeoDecorBlock.ANIMATION) == 0 ? state.setAndContinue(RawAnimation.begin().thenLoop(kind.idleAnimation())) : PlayState.STOP;
+            return getBlockState().getValue(((GeoDecorBlock)getBlockState().getBlock()).animationProperty()) == 0 ? state.setAndContinue(RawAnimation.begin().thenLoop(kind.idleAnimation())) : PlayState.STOP;
         }));
         controllers.add(new AnimationController<>(this, "procedurecontroller", 0, state -> {
-            String requested = Integer.toString(getBlockState().getValue(GeoDecorBlock.ANIMATION));
+            String requested = Integer.toString(getBlockState().getValue(((GeoDecorBlock)getBlockState().getBlock()).animationProperty()));
             if ((!requested.equals("0") && state.getController().getAnimationState() == AnimationController.State.STOPPED)
                     || (!requested.equals(previousAnimation) && !requested.equals("0"))) {
                 if (!requested.equals(previousAnimation)) state.getController().forceAnimationReset();
                 state.getController().setAnimation(RawAnimation.begin().thenPlay(requested));
                 if (state.getController().getAnimationState() == AnimationController.State.STOPPED) {
-                    if (level != null) level.setBlock(worldPosition, getBlockState().setValue(GeoDecorBlock.ANIMATION, 0), 3);
+                    if (level != null) level.setBlock(worldPosition, getBlockState().setValue(((GeoDecorBlock)getBlockState().getBlock()).animationProperty(), 0), 3);
                     state.getController().forceAnimationReset();
                 }
             } else if (requested.equals("0")) {
