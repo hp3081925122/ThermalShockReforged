@@ -87,3 +87,5 @@ Chilloo蛋使用已存在Dull叶，不重复注册；CFR孵化过程丢else的�
 第六批提交6bffa0a。root拥有五特殊植物A/B、Gardenling真实依赖及共享接线；fauna拥有entity/mangler、client/mangler及独立config；terrain拥有content/farming、client/farming及原独有作物资源/数据；status负责确定性剩余块盘点与Codec/Gardenling前置审计，后续固定源码验证。禁止测试期间改main，尚未完整迁完不启动两端。
 
 已发现并实际修复旧worldgen 25处UniformInt.value包装不符合目标MapCodec（不是原数值变化），8文件明细见int-provider-format-fixes.json。旧批次原件字节一致报告作为历史证据保留，不再当新目标解码成功。特殊植物恢复5独立块、完整三碰撞增益族、蒲公英双形态/骨粉实际主手消费、Roots水浸/空visual形状与全部十份世界生成数据，先写矩阵后代码；配置其余Codec由status追加审计。
+
+项目身份已统一改为 Thermal Shock Reforged / thermal_shock_reforged / com.hp.thermalshockreforged；后续迁移模块必须使用新包与新资源命名空间，历史原件引用仍指向原命名空间。

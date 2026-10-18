@@ -1,0 +1,145 @@
+package com.hp.thermalshockreforged.content;
+
+import com.hp.thermalshockreforged.ThermalShockReforged;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvent;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredRegister;
+
+public final class ModSounds {
+    private static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(Registries.SOUND_EVENT, ThermalShockReforged.MOD_ID);
+    private static final String[] IDS = {
+        "mantle_lever",
+        "thermalshockjingle",
+        "stalkerstep",
+        "disc33",
+        "ambushtheme",
+        "preyintro",
+        "preyloop",
+        "preyend",
+        "loq_disc_04",
+        "phoboswin",
+        "loq_disc_01",
+        "loq_disc_02",
+        "loq_disc_03",
+        "infestorkill",
+        "flintsteelfire",
+        "magnetcrossbowfire",
+        "ghostbullet",
+        "hailfire",
+        "volcanofire",
+        "monolithambient",
+        "monolithhurt",
+        "monolithdeath",
+        "windchime",
+        "nomnomnom",
+        "loq_disc_legacy_01",
+        "lanternflashattack",
+        "flarealtshoot",
+        "flareshoot",
+        "flarecoreexplode",
+        "thermoblasterburstfire",
+        "thermoblasterspreadfire",
+        "boss_spawn_roar",
+        "sparkhum",
+        "sparkexplode",
+        "amalgeltheme",
+        "amalgelloopthemeloop",
+        "propulsionbootsactivate",
+        "cooldownend",
+        "boreanforest",
+        "boreantundra",
+        "vermillionwoods",
+        "stardustgarden",
+        "graveyard",
+        "luminoussea",
+        "jellyumbrellamabient",
+        "jellyumbrelladeploy",
+        "loq_disc_05",
+        "loqbossdisc01",
+        "lensambient",
+        "galvaniteambient",
+        "galvanitehurt",
+        "galvanitedeath",
+        "rain_drum_random",
+        "rain_drum_01",
+        "angry_rain_drum_random",
+        "phobosdisc",
+        "petrichordisc",
+        "floor33disc",
+        "strangerdisc",
+        "mob_death_explode",
+        "flint_gun_25",
+        "bone_hit",
+        "buzzsaw",
+        "magnet_bow_25",
+        "magnet_bomb",
+        "misc_gun_1",
+        "misc_gun_2",
+        "organ_disc",
+        "hanahaki_disc",
+        "supernova_charge",
+        "supernova_blast",
+        "weapon_swing",
+        "laser_fires",
+        "prism_breakout",
+        "thermoid_cries",
+        "whistler_hurt",
+        "whistler_death",
+        "whistler_ambient",
+        "camera_shutters",
+        "camera_success",
+        "npcbuy",
+        "spinebreaking_disc",
+        "ignition_detector_click",
+        "unette_main_speak",
+        "unette_ok",
+        "surge_pylon_breaks",
+        "surge_pylon_pulses",
+        "frostbitten",
+        "ribbonblade_spawns",
+        "ribbonblade_taunting",
+        "ribbonblade_win",
+        "ribbonblade_block",
+        "ribbonblade_hurts",
+        "ceramicish_place",
+        "ceramic_mine",
+        "ceramicish_step",
+        "qo_main_speak",
+        "qo_em1_speak",
+        "qo_em2_speak",
+        "cavebloomer_detonates",
+        "budbloomer_hurt",
+        "budbloomer_death",
+        "budbloomer_ambient",
+        "cavebloomer_roar",
+        "cavebloomer_squeak",
+        "cavebloomer_hurt",
+        "cavebloomer_death",
+        "delta_ambient",
+        "delta_death",
+        "delta_hurt",
+        "delta_step",
+        "gamma_hurt",
+        "protoi_cry",
+        "sopel_main_speak",
+        "azure_grey_disc",
+        "leafcutter",
+        "bunker_door",
+        "sickle_slash"
+    };
+
+    static {
+        for (String id : IDS) {
+            SOUNDS.register(id, () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, id)));
+        }
+    }
+
+    private ModSounds() {
+    }
+
+    public static void register(IEventBus bus) {
+        SOUNDS.register(bus);
+    }
+}

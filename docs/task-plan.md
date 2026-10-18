@@ -1,4 +1,4 @@
-# Thermal Shock 迁移总任务表
+# Thermal Shock Reforged 迁移总任务表
 
 依据parallel-migration-design.md；全量范围见migration/original-inventory.json及entity-coverage.json等清单。
 

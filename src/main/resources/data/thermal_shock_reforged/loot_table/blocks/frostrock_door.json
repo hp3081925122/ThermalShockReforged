@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:block",
+  "random_sequence": "thermal_shock_reforged:blocks/frostrock_door",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "thermal_shock_reforged:frostrock_door",
+          "conditions": [
+            {
+              "block": "thermal_shock_reforged:frostrock_door",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "half": "lower"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

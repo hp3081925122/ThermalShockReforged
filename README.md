@@ -1,4 +1,4 @@
-# Thermal Shock 1.21.1 NeoForge 重做
+# Thermal Shock Reforged — 1.21.1 NeoForge
 
 这是基于 Thermal Shock: Rubicon 07.9 的非官方重实现，当前正在逐模块迁移，**尚非完整可玩版本**。原作者为 ThermaDev；不以减少功能或视觉效果代替重构。
 
@@ -11,3 +11,5 @@
 当前测试仅代表已迁移模块；真实 Xaero 显示、完整世界进度和 Render Preview 原版视觉对照仍需完成。
 
 用户当前验证规则：整模组代码迁移完整前只编译／静态核对，不运行服务端或客户端；完成后的两端及Render Preview测试交给子代理。既有GameTest结果仅为早期历史记录。
+
+项目身份：显示名 `Thermal Shock Reforged`，命名空间 `thermal_shock_reforged`，Java 包 `com.hp.thermalshockreforged`，GitHub 仓库名称 `Thermal-Shock-Reforged`（当前尚未配置远程）。原模组名称只用于来源署名和历史对照。

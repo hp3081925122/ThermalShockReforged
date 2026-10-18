@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:block",
+  "random_sequence": "thermal_shock_reforged:blocks/atlas_base_centre",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:obsidian"
+        }
+      ]
+    }
+  ]
+}

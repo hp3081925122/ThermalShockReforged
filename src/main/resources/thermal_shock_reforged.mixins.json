@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.hp.thermalshockreforged",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "content.status.mixin.LivingEntityStatusMixin",
+    "content.status.mixin.PlayerInfectionStatusMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

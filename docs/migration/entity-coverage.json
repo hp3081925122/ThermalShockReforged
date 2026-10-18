@@ -3,7 +3,7 @@
   "entities": {
     "probosker": {
       "status": "implemented_pending_full_validation",
-      "implementation": "com.hp.thermalshock.entity.ProboskerEntity",
+      "implementation": "com.hp.thermalshockreforged.entity.ProboskerEntity",
       "prepared_tests": [
         "ownerCommandsAndFeedingDoNotInterfere",
         "sittingRetainsDamageAndPersistsColorOwnerAndPose",
@@ -18,7 +18,7 @@
     },
     "crystal_koi": {
       "status": "implemented_pending_full_validation",
-      "implementation": "com.hp.thermalshock.entity.CrystalKoiEntity",
+      "implementation": "com.hp.thermalshockreforged.entity.CrystalKoiEntity",
       "server_tests": [
         "koiRetainsAquaticSemanticsAndSpawnRule",
         "koiDropsOneFishAndPreservesSavedTexture"
@@ -31,7 +31,7 @@
     },
     "bonerahna": {
       "status": "implemented_pending_full_validation",
-      "module": "com.hp.thermalshock.entity.fauna",
+      "module": "com.hp.thermalshockreforged.entity.fauna",
       "evidence": "fauna-batch.md",
       "pending": [
         "WideAngle图鉴／完整群系生成注入",
@@ -40,7 +40,7 @@
     },
     "scarlet_ray": {
       "status": "implemented_pending_full_validation",
-      "implementation": "com.hp.thermalshock.entity.ScarletRayEntity",
+      "implementation": "com.hp.thermalshockreforged.entity.ScarletRayEntity",
       "server_tests": [
         "scarletRayKeepsDistinctAttributesSizeAndLoot"
       ],
@@ -52,7 +52,7 @@
     },
     "torpedo": {
       "status": "implemented_pending_full_validation",
-      "module": "com.hp.thermalshock.entity.fauna",
+      "module": "com.hp.thermalshockreforged.entity.fauna",
       "evidence": "fauna-batch.md",
       "pending": [
         "WideAngle图鉴／完整群系生成注入",
@@ -64,7 +64,7 @@
     },
     "willograde": {
       "status": "implemented_pending_full_validation",
-      "module": "com.hp.thermalshock.entity.fauna",
+      "module": "com.hp.thermalshockreforged.entity.fauna",
       "evidence": "fauna-batch.md",
       "pending": [
         "WideAngle图鉴／完整群系生成注入",
@@ -73,7 +73,7 @@
     },
     "trilobite": {
       "status": "implemented_pending_full_validation",
-      "module": "com.hp.thermalshock.entity.fauna",
+      "module": "com.hp.thermalshockreforged.entity.fauna",
       "evidence": "fauna-batch.md",
       "pending": [
         "WideAngle图鉴／完整群系生成注入",
@@ -82,7 +82,7 @@
     },
     "flare": {
       "status": "implemented_pending_full_validation",
-      "module": "com.hp.thermalshock.entity.fauna",
+      "module": "com.hp.thermalshockreforged.entity.fauna",
       "evidence": "fauna-batch.md",
       "pending": [
         "WideAngle图鉴／完整群系生成注入",
@@ -91,7 +91,7 @@
     },
     "mangler": {
       "status": "implemented_pending_full_validation",
-      "implementation": "com.hp.thermalshock.entity.mangler.ManglerEntity",
+      "implementation": "com.hp.thermalshockreforged.entity.mangler.ManglerEntity",
       "evidence": "mangler-herald-next-audit.md",
       "pending": [
         "完整群系/结构/特殊门和机器来源",
@@ -112,7 +112,7 @@
     },
     "springling": {
       "status": "implemented_pending_full_validation",
-      "module": "com.hp.thermalshock.entity.ecosystem",
+      "module": "com.hp.thermalshockreforged.entity.ecosystem",
       "evidence": "ecosystem-batch.md",
       "pending": [
         "原群系注入及图鉴／外围caller",
@@ -136,7 +136,7 @@
     },
     "pixie": {
       "status": "implemented_pending_full_validation",
-      "module": "com.hp.thermalshock.entity.ambient",
+      "module": "com.hp.thermalshockreforged.entity.ambient",
       "evidence": "ambient-next-audit.md",
       "pending": [
         "原群系注入／交易／WideAngle外部链",
@@ -145,7 +145,7 @@
     },
     "pixie_bottle": {
       "status": "implemented_pending_full_validation",
-      "module": "com.hp.thermalshock.entity.ambient",
+      "module": "com.hp.thermalshockreforged.entity.ambient",
       "evidence": "ambient-next-audit.md",
       "pending": [
         "原群系注入／交易／WideAngle外部链",
@@ -154,7 +154,7 @@
     },
     "snobol": {
       "status": "implemented_pending_full_validation",
-      "module": "com.hp.thermalshock.entity.snobol",
+      "module": "com.hp.thermalshockreforged.entity.snobol",
       "evidence": "snobol-batch.md",
       "pending": [
         "原群系和自然生成注入",
@@ -185,7 +185,7 @@
     },
     "blighted_spore": {
       "status": "implemented_pending_full_validation",
-      "implementation": "com.hp.thermalshock.entity.spore.BlightedSporeEntity",
+      "implementation": "com.hp.thermalshockreforged.entity.spore.BlightedSporeEntity",
       "audit": "spore-next-audit.md",
       "pending": [
         "graveyard出生及世界生成上游",
@@ -215,7 +215,7 @@
     },
     "explosive_snobol": {
       "status": "implemented_pending_full_validation",
-      "module": "com.hp.thermalshock.entity.snobol",
+      "module": "com.hp.thermalshockreforged.entity.snobol",
       "evidence": "snobol-batch.md",
       "pending": [
         "原群系和自然生成注入",
@@ -231,7 +231,7 @@
     },
     "infestophage_seed": {
       "status": "implemented_pending_full_validation",
-      "module": "com.hp.thermalshock.entity.infestation",
+      "module": "com.hp.thermalshockreforged.entity.infestation",
       "evidence": "infestation-batch.md",
       "pending": [
         "原群系和自然生成注入",
@@ -241,7 +241,7 @@
     },
     "infestophage": {
       "status": "implemented_pending_full_validation",
-      "module": "com.hp.thermalshock.entity.infestation",
+      "module": "com.hp.thermalshockreforged.entity.infestation",
       "evidence": "infestation-batch.md",
       "pending": [
         "原群系和自然生成注入",
@@ -272,7 +272,7 @@
     },
     "chromefish": {
       "status": "implemented_pending_full_validation",
-      "module": "com.hp.thermalshock.entity.fauna",
+      "module": "com.hp.thermalshockreforged.entity.fauna",
       "evidence": "fauna-batch.md",
       "pending": [
         "WideAngle图鉴／完整群系生成注入",
@@ -293,7 +293,7 @@
     },
     "siibol": {
       "status": "implemented_pending_full_validation",
-      "module": "com.hp.thermalshock.entity.snobol",
+      "module": "com.hp.thermalshockreforged.entity.snobol",
       "evidence": "snobol-batch.md",
       "pending": [
         "原群系和自然生成注入",
@@ -312,7 +312,7 @@
     },
     "gore_flayer_orb": {
       "status": "implemented_pending_full_validation",
-      "module": "com.hp.thermalshock.entity.fauna",
+      "module": "com.hp.thermalshockreforged.entity.fauna",
       "evidence": "fauna-batch.md",
       "pending": [
         "WideAngle图鉴／完整群系生成注入",
@@ -363,7 +363,7 @@
     },
     "sootle": {
       "status": "implemented_pending_full_validation",
-      "implementation": "com.hp.thermalshock.entity.sootle.SootleEntity",
+      "implementation": "com.hp.thermalshockreforged.entity.sootle.SootleEntity",
       "audit": "sootle-batch.md",
       "pending": [
         "原结构自然来源待总结构系统闭合",
@@ -372,7 +372,7 @@
     },
     "sootling": {
       "status": "implemented_pending_full_validation",
-      "module": "com.hp.thermalshock.entity.ambient",
+      "module": "com.hp.thermalshockreforged.entity.ambient",
       "evidence": "ambient-next-audit.md",
       "pending": [
         "原群系注入／交易／WideAngle外部链",
@@ -381,7 +381,7 @@
     },
     "sootle_idle": {
       "status": "implemented_pending_full_validation",
-      "implementation": "com.hp.thermalshock.entity.sootle.SootleIdleEntity",
+      "implementation": "com.hp.thermalshockreforged.entity.sootle.SootleIdleEntity",
       "audit": "sootle-batch.md",
       "pending": [
         "原结构自然来源待总结构系统闭合",
@@ -390,7 +390,7 @@
     },
     "herald": {
       "status": "implemented_pending_full_validation",
-      "implementation": "com.hp.thermalshock.entity.mangler.HeraldEntity",
+      "implementation": "com.hp.thermalshockreforged.entity.mangler.HeraldEntity",
       "evidence": "mangler-herald-next-audit.md",
       "pending": [
         "完整群系/结构/特殊门和机器来源",
@@ -408,7 +408,7 @@
     },
     "summoned_mangler": {
       "status": "implemented_pending_full_validation",
-      "implementation": "com.hp.thermalshock.entity.mangler.SummonedManglerEntity",
+      "implementation": "com.hp.thermalshockreforged.entity.mangler.SummonedManglerEntity",
       "evidence": "mangler-herald-next-audit.md",
       "pending": [
         "完整群系/结构/特殊门和机器来源",
@@ -447,7 +447,7 @@
     },
     "gardenling": {
       "status": "implemented_pending_full_validation",
-      "implementation": "com.hp.thermalshock.entity.gardenling.GardenlingEntity",
+      "implementation": "com.hp.thermalshockreforged.entity.gardenling.GardenlingEntity",
       "evidence": "gardenling-implementation.md",
       "pending": [
         "farming五种子真实存在条件接线",
@@ -479,7 +479,7 @@
     },
     "pillbud": {
       "status": "implemented_pending_full_validation",
-      "module": "com.hp.thermalshock.entity.ambient",
+      "module": "com.hp.thermalshockreforged.entity.ambient",
       "evidence": "ambient-next-audit.md",
       "pending": [
         "原群系注入／交易／WideAngle外部链",
@@ -491,7 +491,7 @@
     },
     "louse": {
       "status": "implemented_pending_full_validation",
-      "module": "com.hp.thermalshock.entity.infestation",
+      "module": "com.hp.thermalshockreforged.entity.infestation",
       "evidence": "infestation-batch.md",
       "pending": [
         "原群系和自然生成注入",
@@ -501,7 +501,7 @@
     },
     "pondler": {
       "status": "implemented_pending_full_validation",
-      "implementation": "com.hp.thermalshock.entity.PondlerEntity",
+      "implementation": "com.hp.thermalshockreforged.entity.PondlerEntity",
       "related_block": "pondler_egg",
       "pending": [
         "vermillion_woods自然生成及蛋来源",
@@ -530,7 +530,7 @@
     },
     "forecast": {
       "status": "implemented_pending_full_validation",
-      "implementation": "com.hp.thermalshock.entity.ForecastEntity",
+      "implementation": "com.hp.thermalshockreforged.entity.ForecastEntity",
       "server_tests": [
         "zapUsesOwnerDamageAndMultiplier",
         "forecastCooldownDoesNotUsePotionEffects"
@@ -543,7 +543,7 @@
     },
     "zap_attack_entity": {
       "status": "implemented_pending_full_validation",
-      "implementation": "com.hp.thermalshock.entity.ZapWarningEntity",
+      "implementation": "com.hp.thermalshockreforged.entity.ZapWarningEntity",
       "server_tests": [
         "zapUsesOwnerDamageAndMultiplier",
         "removedOwnerCancelsDelayedDamage"
@@ -567,7 +567,7 @@
     },
     "chilloo": {
       "status": "implemented_pending_full_validation",
-      "module": "com.hp.thermalshock.entity.ecosystem",
+      "module": "com.hp.thermalshockreforged.entity.ecosystem",
       "evidence": "ecosystem-batch.md",
       "pending": [
         "原群系注入及图鉴／外围caller",
@@ -603,7 +603,7 @@
     },
     "raincatcher": {
       "status": "implemented_pending_full_validation",
-      "module": "com.hp.thermalshock.entity.ecosystem",
+      "module": "com.hp.thermalshockreforged.entity.ecosystem",
       "evidence": "ecosystem-batch.md",
       "pending": [
         "原群系注入及图鉴／外围caller",

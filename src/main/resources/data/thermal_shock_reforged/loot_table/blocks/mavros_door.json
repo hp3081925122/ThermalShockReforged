@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:block",
+  "random_sequence": "thermal_shock_reforged:blocks/mavros_door",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "thermal_shock_reforged:mavros_door",
+          "conditions": [
+            {
+              "block": "thermal_shock_reforged:mavros_door",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "half": "lower"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
