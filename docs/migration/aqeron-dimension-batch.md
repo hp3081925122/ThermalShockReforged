@@ -1,0 +1,19 @@
+# 第45批：Aqeron完整维度与环境事件（迁移前契约）
+
+原件及目标API依据见aqeron-palace-next-audit.md。完整Palace及全部依赖已在44批闭合，本批接入dimension/dimension_type/lunar_tundra以及真实叠加链、客户端环境与原维度事件，不使用空白生成器。原所有density router数值/运算树、surface、noise尺寸、气候与类型参数逐项保留，UniformInt仅展平旧value壳。仅删双方Codec均未消费的settings.name及noise.island_noise_override，不发明新算法。保原天空NORMAL、云高NaN、黑雾、全亮设置及原月相绘制表现；若原全局TextureManager替换月亮，改仅本维度的原生纹理选择，不能破坏其他维度/资源重载。
+
+原Break/Place事件均保creative instabuild豁免与实际参与者范围，Place采用原生cancel/快照归还，修原先掉落战利品后删新方块导致错误物品或替换丢失。NO_BREAK为GuardianPylon内部标记，不造空effect，后续随完整实体状态实现。
+
+死亡取消须核原另有无回血链，再以最小正生命值恢复修0HP仍死亡状态；保原Atlas保存回传坐标与朝向，不擅自满血或添加额外强抗性，避免伤害递归。客户端与服务端仅在全量代码完成后由子代理验证，本批固定快照先编译及静态逐项对照。未知/未闭合链必须留待办，不从JSON features为空推断无worldgen。
+
+
+原件链收口：Luna查162原BiomeModifier，仅Moonrock直接匹配lunar_tundra；18共享loqendian:tag仍仅8旧群系、不含lunar，原自有结构也不匹配月面。已补Moonrock三段原版netherrack_replace_blobs链：替cobbled_shale为moonrock、radius均匀2..6、每区块count30/in_square/绝对40..360 uniform/biome/underground_decoration。高度360虽超过维度高度，保原采样而不擅自裁切改变概率；nativeFeature自身处理高度。Moonrock真实块及钻石正确工具标签已核。
+
+原MoonPhasesTexturer为每玩家END客户端替换全局TextureManager；所谓LeavesDimension程序实际无调用。原Loqendia用loque_sun + aqeron_phases，Aqeron用loque_sun + loqendia_phases；三PNG原目标哈希一致且无mcmeta、无额外图像处理。目标仅客户端DimensionSkyTexturesMixin在原生LevelRenderer.renderSky两个setShaderTexture调用选择实际维度资源，保UV/月相/颜色/尺寸/顶点绘制等原生逻辑，不改全局缓存、不每tick注册release、不污染其他维度或资源重载。
+
+原AqeronDeathOverride及其关联事件无另外回血链，0HP取消死亡不恢复isDeadOrDying。目标保ServerPlayer限定/原AtlasCoordinates当前Palace点/原朝向/同维回传，恢复最低正生命值1（受maxHealth上限；若健康时其他mod手动触发死亡则不降原健康值），不满血、不加新无敌或清除合法效果。native事件中直接处理，不再施伤/反击/调用die，无伤害递归。有限合法生命校验失败则不取消原死亡；debug记录为英文且只随死亡回传发生。
+
+AqeronEvents对原EntityPlace及其MultiPlace子类取消，Break取消，保持creative instabuild豁免与原实体空值范围；原生快照恢复和物品未消耗替代错误掉战利品毁块。未宣称保护所有桶/命令/活塞等原本未走此事件的路径。GuardianPylon NO_BREAK内部状态仍待完整实体，不造空效果。
+
+
+冻结快照验收：Luna确认六JSON逐字段必要转换外等原件、事件注册/原生保护参数/生命值修正、三天空资产与原生两处注入描述符及客户端隔离。Java21离线三任务55秒成功（3执行/22缓存）；Mixin是否运行应用、实际天空与Moonrock/死亡/放置仍未启动游戏验证。effects两个末尾布尔值均false（非强制亮光、非恒定ambient）；完整记录fortyfifth-aqeron-static-validation.json。原NO_BREAK由GuardianPylon产生的维度外锁尚待下一批，明确不是本批完整迁入的功能。
