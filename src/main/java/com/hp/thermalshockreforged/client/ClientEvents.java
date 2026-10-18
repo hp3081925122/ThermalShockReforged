@@ -1,6 +1,11 @@
 package com.hp.thermalshockreforged.client;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
+import com.hp.thermalshockreforged.client.decor.geo.GeoDecorRenderers;
+import com.hp.thermalshockreforged.client.hunters.HuntersRenderers;
+import com.hp.thermalshockreforged.client.decor.nativeblocks.DeskPhotoScreen;
+import com.hp.thermalshockreforged.content.decor.nativeblocks.NativeDecorContent;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import com.hp.thermalshockreforged.entity.ModEntities;
 import com.hp.thermalshockreforged.entity.ZapWarningEntity;
 import com.hp.thermalshockreforged.client.fauna.FaunaRenderers;
@@ -45,6 +50,8 @@ public final class ClientEvents {
         SootleRenderers.register(event);
         GardenlingRenderers.register(event);
         ManglerRenderers.register(event);
+        HuntersRenderers.register(event);
+        GeoDecorRenderers.register(event);
         FarmingRenderers.register(event);
         event.registerEntityRenderer(ModEntities.PONDLER.get(), PondlerRenderer::new);
         event.registerEntityRenderer(ModEntities.PROBOSKER.get(), ProboskerRenderer::new);
@@ -52,6 +59,11 @@ public final class ClientEvents {
         event.registerEntityRenderer(ModEntities.CRYSTAL_KOI.get(), CrystalKoiRenderer::new);
         event.registerEntityRenderer(ModEntities.FORECAST.get(), ForecastRenderer::new);
         event.registerEntityRenderer(ModEntities.ZAP.get(), InvisibleWarningRenderer::new);
+    }
+
+    @SubscribeEvent
+    public static void screens(RegisterMenuScreensEvent event) {
+        event.register(NativeDecorContent.DESK_PHOTO_SCREEN.get(), DeskPhotoScreen::new);
     }
 
     @SubscribeEvent
@@ -64,6 +76,7 @@ public final class ClientEvents {
         AuraClient.extensions(event);
         FaunaRenderers.extensions(event);
         FarmingRenderers.extensions(event);
+        GeoDecorRenderers.extensions(event);
     }
 
     @SubscribeEvent

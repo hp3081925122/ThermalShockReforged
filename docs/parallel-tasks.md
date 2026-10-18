@@ -89,3 +89,7 @@ Chilloo蛋使用已存在Dull叶，不重复注册；CFR孵化过程丢else的�
 已发现并实际修复旧worldgen 25处UniformInt.value包装不符合目标MapCodec（不是原数值变化），8文件明细见int-provider-format-fixes.json。旧批次原件字节一致报告作为历史证据保留，不再当新目标解码成功。特殊植物恢复5独立块、完整三碰撞增益族、蒲公英双形态/骨粉实际主手消费、Roots水浸/空visual形状与全部十份世界生成数据，先写矩阵后代码；配置其余Codec由status追加审计。
 
 项目身份已统一改为 Thermal Shock Reforged / thermal_shock_reforged / com.hp.thermalshockreforged；后续迁移模块必须使用新包与新资源命名空间，历史原件引用仍指向原命名空间。
+
+## 第八批：Hunters与原生／Geo装饰
+
+基准5ff0dd4。fauna独占四Hunters实体与渲染原loot，terrain独占20Geo块/物品/九槽BE及渲染，root独占44原生装饰／坠落块、3香料、DeskPhoto完整UI和所有共享接线／数据。status负责当前剩余201块盘点、root独立机械复核和固定快照编译静态。Hunters装甲转换扣错物/丢数据、Geo库存破坏吞物、Plenky非法粒子模型引用、orb缺动画默认0等均有原件证据与明确修复记录。没有客户端／服务端运行，整模组仍待完成。
