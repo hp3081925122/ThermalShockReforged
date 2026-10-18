@@ -3,6 +3,8 @@ package com.hp.thermalshock.content.status.mixin;
 import com.hp.thermalshock.content.status.StatusContent;
 import com.hp.thermalshock.content.status.StatusEvents;
 import com.hp.thermalshock.content.status.InfectionStatus;
+import com.hp.thermalshock.combat.AttackAttemptEvent;
+import net.neoforged.neoforge.common.NeoForge;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -16,10 +18,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityStatusMixin {
-    @Inject(method = "hurt", at = @At("HEAD"))
+    @Inject(method = "hurt", at = @At("HEAD"), cancellable = true)
     private void thermalShock$infectionAttack(DamageSource source, float amount, CallbackInfoReturnable<Boolean> callback) {
         LivingEntity entity = (LivingEntity) (Object) this;
-        if (!(entity instanceof Player)) InfectionStatus.onAttack(entity, source);
+        if (!(entity instanceof Player)) {
+            InfectionStatus.onAttack(entity, source);
+            if (NeoForge.EVENT_BUS.post(new AttackAttemptEvent(entity, source, amount)).isCanceled()) callback.setReturnValue(false);
+        }
     }
 
     @Inject(method = "onEffectRemoved", at = @At("TAIL"))

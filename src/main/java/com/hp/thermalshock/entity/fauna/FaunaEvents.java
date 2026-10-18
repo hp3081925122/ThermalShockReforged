@@ -1,11 +1,11 @@
 package com.hp.thermalshock.entity.fauna;
 
-import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
+import com.hp.thermalshock.combat.AttackAttemptEvent;
 
 final class FaunaEvents {
     private FaunaEvents() { }
 
-    static void incomingDamage(LivingIncomingDamageEvent event) {
+    static void incomingDamage(AttackAttemptEvent event) {
         if (!event.getEntity().level().isClientSide && event.getSource().getEntity() instanceof FlareEntity) event.getEntity().igniteForSeconds(4);
     }
 }

@@ -17,10 +17,10 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 
 public final class ThermalSaplingBlock extends SaplingBlock {
-    public ThermalSaplingBlock() {
-        super(new TreeGrower(ThermalShock.MOD_ID + ":ochre", Optional.empty(),
+    public ThermalSaplingBlock(String name, String feature) {
+        super(new TreeGrower(ThermalShock.MOD_ID + ":" + name, Optional.empty(),
                         Optional.of(ResourceKey.create(Registries.CONFIGURED_FEATURE,
-                                ResourceLocation.fromNamespaceAndPath(ThermalShock.MOD_ID, "loque_birch_tree"))), Optional.empty()),
+                                ResourceLocation.fromNamespaceAndPath(ThermalShock.MOD_ID, feature))), Optional.empty()),
                 Properties.of().mapColor(MapColor.PLANT).randomTicks().sound(SoundType.GRASS).instabreak().noCollission()
                         .offsetType(BlockBehaviour.OffsetType.NONE).pushReaction(PushReaction.DESTROY));
     }

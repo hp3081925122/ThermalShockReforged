@@ -1,0 +1,22 @@
+# 11种原生花草的原configured feature只读审计
+
+本次完整扫描原JAR的113份`data/thermal_shock/worldgen/configured_feature/*.json`，以11种已迁植物的真实BlockState Name作直接引用筛选，得到4份候选，只有3份依赖闭合可独立导入。按已验证391方块冻结清单核依赖，不把尚在实施的两玻璃块计算在内；不重复3份树配置。未改main、未导入任何资源、未运行Gradle或游戏。
+
+|完整原路径|原类型与有效参数|全部方块引用|结论|
+|---|---|---|---|
+|data/thermal_shock/worldgen/configured_feature/dull_shrub.json|minecraft:random_patch；tries=3；省略xz_spread→7、y_spread→3|state thermal_shock:dull_shrub；predicate minecraft:air|闭合，可完整原样导入|
+|data/thermal_shock/worldgen/configured_feature/loque_fern.json|minecraft:random_patch；tries=40；省略xz_spread→7、y_spread→3|state thermal_shock:loque_fern；predicate minecraft:air|闭合，可完整原样导入|
+|data/thermal_shock/worldgen/configured_feature/vermillion_fern.json|minecraft:random_patch；tries=9；省略xz_spread→7、y_spread→3|state thermal_shock:vermillion_fern；predicate minecraft:air|闭合，可完整原样导入|
+|data/thermal_shock/worldgen/configured_feature/angler_bulb_feature.json|minecraft:simple_random_selector两个等概率inline patch；各tries=180/xz_spread=10/省略y_spread→3|state thermal_shock:angler_bulb和thermal_shock:tall_angler_bulb；两个分支predicate均minecraft:air及thermal_shock:vermillion_moss（offset[0,-1,0]）|跳过整份：tall_angler_bulb未迁双高植物；不可删掉50%分支伪闭合|
+
+三份可导入配置结构完全相同：random_patch.feature为inline PlacedFeature；内含minecraft:simple_block，to_place是minecraft:simple_state_provider及上述单个state.Name；placement仅一个minecraft:block_predicate_filter，其predicate为minecraft:matching_blocks，blocks为minecraft:air。无BlockState Properties、tag引用、外置configured_feature/placed_feature ID、自定义feature/type或procedure植物依赖。全部type引用即random_patch/simple_block/simple_state_provider/block_predicate_filter/matching_blocks，均原版。每个patch仍由SimpleBlockFeature检查真实blockstate.canSurvive，不可把空气谓词解释成忽略土壤生存条件。
+
+Angler额外type为simple_random_selector及all_of；两个inline分支的外层placement均空列表，内层all_of组合空气与下方vermillion_moss。其余依赖已注册也不能掩盖缺失的tall_angler_bulb；DoublePlantBlock原生放置上半部规则与普通Flower不同，本次不降为单高花。不因缺半个分支改tries或概率。
+
+剩余8种bellflower、lunei、pixietill、polemonium、purified_loque_grass、tophaz、twilit_shrub、angler_bulb（仅有被阻塞混合配置）没有本次可独立导入的纯闭合patch；其中前7种没有任何直接Name引用的configured feature。不据外观或交易/骨粉来源虚构worldgen。有procedure植物、自定义feature及双高植物不在11植物候选范围，不扩大复制全量配置。
+
+目标codec已静态核对：1.21.1 RandomPatchConfiguration.CODEC的tries为POSITIVE_INT默认128，xz_spread/y_spread为NON_NEGATIVE_INT默认7/3，与原1.20.1源码完全相同；SimpleBlockConfiguration的to_place、SimpleStateProvider的state/BlockState.CODEC、PlacedFeature.DIRECT_CODEC的feature及placement、BlockPredicateFilter的predicate、MatchingBlocksPredicate的blocks及StateTestingPredicate的offset（默认0且范围16）均接受原字段和本批数值。minecraft前缀均原值保留，未进行运行时registry codec解码，不能声称已游戏生成验证。
+
+证据源码位于目标MC源码的world/level/levelgen/feature/configurations/RandomPatchConfiguration.java、SimpleBlockConfiguration.java、feature/stateproviders/SimpleStateProvider.java、placement/PlacedFeature.java、placement/BlockPredicateFilter.java、blockpredicates/MatchingBlocksPredicate.java与StateTestingPredicate.java，以及feature/SimpleBlockFeature.java。原件和完整递归引用矩阵保存在D:/AI临时文件/ThermalShockMigration/native-plant-feature-candidates.json。
+
+导入configured feature只闭合配置定义，不自动赋予自然生成；原placed feature、biome或modifier入口需要后续逐链审计。本次不导入这些上游，也不把“可导入”写成已有自然获取。

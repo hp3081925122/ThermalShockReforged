@@ -9,7 +9,7 @@
 |ID|原属性/AI|完整行为与依赖|渲染/保存/数据|当前状态|
 |---|---|---|---|---|
 |snobol|PathfinderMob/AMBIENT；0.7×0.7；速度0.3/生命4/甲0/攻击0/范围16/台阶0.6/XP3；漫步1、环顾、漂浮、跳跃0.5、避Monolith与玩家6格1/1.2|免FALL；非潜行右键TNT变explosive_snobol，非潜行右键antitoxin变siibol；原材料扣除/返瓶对象错误需修|texturesnobol、snobol模型动画idle/walk/bounce；透明、阴影0.3、缩放1；Texture同步NBT；SurfaceSpawnCondition；自然4群系；羊毛/兔肉各0..1|源码完成，待统一验收|
-|explosive_snobol|Monster/AMBIENT；0.7×0.7；速度0.3/生命4/甲0/攻击0/范围16/台阶0.6/XP0；同Snobol六项goal|hurt先触发bounce+TNT点燃音(1,3)，再检查FALL免疫与父hurt；每次调用排20tick后原受击位置强度4/MOB爆炸并discard；重复受击可多个任务，不能压成单引信|boomsnobol贴图、snobomb模型/动画idle/walk/bounce；透明阴影0.3缩放1；TextureNBT；原无spawn placement或biome modifier/实体loot|源码完成，待统一验收|
+|explosive_snobol|Monster/AMBIENT；0.7×0.7；速度0.3/生命4/甲0/攻击0/范围16/台阶0.6/XP0；同Snobol六项goal|hurt先触发bounce+TNT点燃音(1,3)，再检查FALL免疫与父hurt；每次调用排20tick后原受击位置强度4/MOB爆炸并discard；原重复受击可多个任务；用户2026-10-18要求防失控生成/无界任务后明确修为单引信，详见下方最新说明|boomsnobol贴图、snobomb模型/动画idle/walk/bounce；透明阴影0.3缩放1；TextureNBT；原无spawn placement或biome modifier/实体loot|源码完成，待统一验收|
 |siibol|PathfinderMob/MONSTER；0.7×0.7；生命4/甲0/攻击0/范围16/台阶0.6/XP3；LivingEntity目标需可达不需视线；近战速度0.1/距离平方25；漫步、环顾、跳跃0.5|免FALL/DROWN；近战由SiibolAttack拦截；50tick冷却/20tick行动锁；原受害者位置20tick后35 ToxicBubble和5.5宽AOE；毒60tick等级3+DROWN1；桶捕获、桶物品放出完整链|sybol、sybol模型/动画idle/swim；透明阴影0.3缩放1；TextureNBT；ON_GROUND且下方SHALE；自然3群系；无原实体loot|源码完成，待统一验收|
 |antitoxin|Item堆16/COMMON，营养0饱和0/alwaysEat，DRINK，原默认32tick|完成使用给ANTITOXIN_EFFECT原命令6000秒等级1，即120000tick等级1；返corrial_flask，满背包掉地；需替换命令实现，保玩家/非玩家与创造行为边界|tooltip原description_0；corrial_flask为既有真实MaterialContent物品；ANTITOXIN_EFFECT为StatusContent已有holder|源码完成，待统一验收|
 |bucket_of_siibol|Item堆1/COMMON|Siibol右键持桶捕获、消费一桶返本物品并discard；右键方块在(x+0.5,y+1,z+0.5)对应BlockPos生成Siibol/MOB_SUMMONED，yaw随机，axolotl空桶音，消耗满桶返空桶|不简化成装饰道具，不删除捕获/放出任一路径|源码完成，待统一验收|
@@ -23,9 +23,9 @@ Snobol的TNT和Antitoxin两分支都要求交互玩家未潜行。原procedure�
 
 ## 爆炸引信契约
 
-ExplosiveSnobol原hurt回调在免疫检查和父hurt之前执行，因此FALL即使免伤也会启动；处于受伤无敌帧的hurt调用同样会启动。每次回调立即bounce+TNT音，再独立排20tick，以该次受击瞬间xyz为爆炸中心。不能擅自只允许一次引爆，也不能把多个受击事件合并掉。
+ExplosiveSnobol原hurt在免疫/父hurt之前每次排20tick爆炸，FALL和无敌帧尝试也会触发。初版为保原多次行为采用载体任务列表；2026-10-18用户明确要求审查无CD、无上限、递归与性能后，已确认该列表可任意增长，原方案撤销，不再作为实现要求。
 
-主线要求实体归属本地状态并保存多个待爆任务。拟存每任务剩余tick及原中心，NBT持久化；实体死亡/卸载/换维度的取消与恢复语义在实现时明确，不能继续捕获全局闭包。原闭包在实体已discard后仍能爆炸，是需专门记录的生命周期风险：本地载体应保持已排多任务的可执行归属，不用discard后所有后续任务直接消失骗数量一致。强度4、MOB地形策略、原爆炸粒子音效必须完整保留；技能伤害与基础攻击挂钩，采用目标ExplosionDamageCalculator保持默认原公式与范围，不能因原攻击属性0而变无伤。基础归一化与多任务生命周期实施方案需如实写明。
+现实现为宿主唯一引信：有效非零、非FALL且非显式免疫的首次hurt尝试记录20tick、起手坐标、攻击快照及维度，立即原bounce/TNT声音；后续不追加。保持hurt前起手语义和死亡取消；到期先discard宿主再强度4/MOB爆炸，原公式乘基础攻击、0.6抗性击退保留。宿主NBT保存剩余时间，卸载暂停/重载续算，跨维取消；无独立载体创建失败/加载顺序哑弹风险。取消多次异常叠爆是明确安全修复，不声称次数等价。遗留snobol_blast注册仍可读旧数据，载入最多一个任务，新流程不创建它。
 
 ## Siibol技能冻结契约
 
@@ -43,7 +43,7 @@ ExplosiveSnobol原hurt回调在免疫检查和父hurt之前执行，因此FALL�
 
 ## 精确API与验收边界
 
-目标MC1.21.1/NeoForge21.1.233源码已核：LivingIncomingDamageEvent可取消且可读DamageSource.getEntity；Mob.hurt覆写可在父调用之前保留引信触发；ExplosionDamageCalculator.getEntityDamageAmount/getKnockbackMultiplier及Level对应explode重载；Item.useOn/finishUsingItem、ItemStack目标耐久/消耗机制、ServerLevel.sendParticles与EntityType.spawn；实体NBT列表和CompoundTag保存；TextureSheetParticle/SpriteSet与RegisterParticleProvidersEvent。实施任何尚未核实的新API前继续查对应目标源码。
+目标MC1.21.1/NeoForge21.1.233源码已核：公共AttackAttemptEvent读取DamageSource.getEntity并可取消，保原LivingAttack的hurt HEAD时机；Mob.hurt覆写可在父调用之前保留引信触发；ExplosionDamageCalculator.getEntityDamageAmount/getKnockbackMultiplier及Level对应explode重载；Item.useOn/finishUsingItem、ItemStack目标耐久/消耗机制、ServerLevel.sendParticles与EntityType.spawn；实体NBT列表和CompoundTag保存；TextureSheetParticle/SpriteSet与RegisterParticleProvidersEvent。实施任何尚未核实的新API前继续查对应目标源码。
 
 Gecko使用实际curse.maven:geckolib-388172:8350073的4.9.2，参考已生成精确javap签名清单，不能引用4.8.4当最终依赖。三个模型/纹理/动画及全部毒泡帧必须按原件核对。当前未构建、未运行服务端/客户端/GameTest；源码与本批新增loot均已落地，等待主线接线与固定快照统一编译。
 
@@ -53,9 +53,7 @@ Gecko使用实际curse.maven:geckolib-388172:8350073的4.9.2，参考已生成�
 
 Snobol交互现在尊重父类成功结果，未潜行时当前手持TNT/Antitoxin消费一份，Antitoxin返真实CorrialFlask；服务端执行转化，原兔音与3POOF完整保留。已discard旧实体上的缓慢12/10移除为无效代码，不给新实体增加动作锁。Antitoxin分支返回已消费结果，避免既转化又继续触发饮用。Siibol桶捕获和满桶右键方块放出/随机yaw/返空桶全部实现。Antitoxin真实32tick饮用、0营养/总能吃、120000tick等级1效果和返瓶行为均实现，使用StatusContent既有ANTITOXIN_EFFECT，不修改Status模块。
 
-爆炸型基础攻击归一化1，保持无普通攻击goal，独立snobol_blast载体按每次hurt保存一个20tick待爆任务(即使FALL免疫也排入)，每次立即bounce+TNT音；载体NBT保存ownerUUID、是否首爆后脱离、每条remaining/中心/攻击快照，不捕获实体引用。首爆discard本体并标记detached，载体继续执行所有已排任务，首爆不吞后续次数；每次强度4/MOB爆炸、原公式乘基础攻击快照(默认1等价)，击退倍率0.6乘普通抗性，原版再处理爆炸抗性。载体无形、无物理、有真实注册与客户端renderer，任务清空自移除。
-
-经批准的生命周期修正：首次引爆之前，本体真实死亡/外部移除/换维度导致当前服务器维度找不到活体施法者时，载体取消；首爆自身造成的discard例外，后续已排爆炸不取消。卸载保存全部载体任务，重载继续剩余延迟，不使用全局闭包；这与原队列在已死/外部移除后仍无条件爆炸的行为有明确差异，不宣称该异常路径完全相同。每个任务保存自己受击瞬间位置和伤害基数，多次受击不会全部跟随本体新位置。
+爆炸型基础攻击归一化1，保持无普通攻击goal；最新唯一引信实现见上节及safety-performance-fixes.md。早期多载体任务实现已被安全审计替换，其历史编译证据不证明当前代码运行行为。
 
 Siibol普通近战仍0，保平方25触发距离/0.1近战速度；实际技能DROWN=current ATTACK_DAMAGE*1，默认归一化1保持原伤害。公共incoming监听兼顾归属攻击，直接doHurtTarget不创建额外伤害；50tick冷却在baseTick按原效果阶段推进，开始同tick不减，20tick行动锁/施法延迟按本地状态保存。预警和出手位置为原受害者坐标，原35毒泡、5.5宽AABB、毒60/3、两个声音完整保留；先保持“至少存在LivingEntity才进入伤害循环”的原门槛，过滤按每个实际目标character tag修错误变量，ItemEntity/Siibol/抗毒目标照原跳过。施法者死亡/换维度取消本地待攻击，卸载重载保存剩余；这一生命周期修正与原闭包无条件执行的异常路径差异明确记录。
 
@@ -72,3 +70,8 @@ FaunaEvents原Flare种子/flesh分支已全部转入本通用事件，随后主�
 公共入口SnobolContent.register(bus)。公共holder为SNOBOL、EXPLOSIVE_SNOBOL、SIIBOL、BLAST（snobol_blast）、ANTITOXIN、BUCKET_OF_SIIBOL、TOXIC_BUBBLE；客户端SnobolRenderers.register(RegisterRenderers)及particles(RegisterParticleProvidersEvent)。原三者无需新增原生entity tags；角色豁免读取主线character_mobs。原自然群系列表、图鉴和共享资源由主线整合，未闭合群系继续待接，不删原列表。
 
 静态验证：9个Java均UTF-8无BOM、无注释/旧Forge或MCreator包/命令/全局队列，括号计数一致；20项原geo/animation/实体贴图/毒泡JSON与十张sprite逐字节同原JAR；新增snobol loot JSON解析为原两池；遍历4096个整数采样域得到确切权重512/1344/1400/735/105。相关源使用的方法均按目标源码与精确Gecko4.9.2签名核对，包括SpriteSet.get(int,int)、CompoundTag.getList及Tag.TAG_COMPOUND、FoodProperties.alwaysEdible、DamageSources.drown、粒子常量。没有Gradle/javac或两端/GameTest运行；源码覆盖与静态证据不等于编译/真实技能或渲染已验。
+
+
+## 原LivingAttack入口等价迁移
+
+Pillbud、Sootling、Siibol和Flare原监听LivingAttackEvent，不能迁到时机更晚的LivingIncomingDamageEvent：后者会漏掉Player创造模式/先期免疫等原本能执行的攻击尝试。对应模块监听现已改为公共`com.hp.thermalshock.combat.AttackAttemptEvent`；root负责在非Player的LivingEntity.hurt HEAD与Player.hurt HEAD各准确post一次，取消则返回false，不重复post Player。各模块原source/target筛选、是否取消、起手冷却与Flare点燃条件不变；不额外加入全局感染/雷击行为。现有NeoForge.EVENT_BUS.addListener方法引用只绑定新事件类型，旧Incoming监听已经移除。为避免改额外注册文件，部分私有/包可见方法名仍为incomingDamage，名称不代表当前事件时机。此修改只改监听入口，不改技能伤害/时序，未运行构建游戏。

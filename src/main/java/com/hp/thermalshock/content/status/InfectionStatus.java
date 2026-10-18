@@ -43,8 +43,17 @@ public final class InfectionStatus {
             state = state(patient);
         }
         state.putString("Dimension", dimension);
-        level.sendParticles(StatusContent.BLOOD_SPIRAL.get(), patient.getX(), patient.getY() + patient.getEyeHeight() - 0.2, patient.getZ(), 0, 0, 0, 0, 0);
+        if (!(patient instanceof Player)) {
+            state.putInt("LockRemaining", 30);
+            state.putLong("LockCreated", level.getGameTime());
+            applyLock(patient);
+        }
         ListTag tasks = state.getList("Tasks", Tag.TAG_COMPOUND);
+        if (tasks.size() >= 20) return;
+        for (int i = 0; i < tasks.size(); i++) {
+            if (tasks.getCompound(i).getLong("Created") == level.getGameTime()) return;
+        }
+        level.sendParticles(StatusContent.BLOOD_SPIRAL.get(), patient.getX(), patient.getY() + patient.getEyeHeight() - 0.2, patient.getZ(), 0, 0, 0, 0, 0);
         CompoundTag task = new CompoundTag();
         task.putInt("Remaining", 20);
         task.putLong("Created", level.getGameTime());
@@ -54,11 +63,6 @@ public final class InfectionStatus {
         task.putBoolean("Burst", !(patient instanceof Player));
         tasks.add(task);
         state.put("Tasks", tasks);
-        if (!(patient instanceof Player)) {
-            state.putInt("LockRemaining", 30);
-            state.putLong("LockCreated", level.getGameTime());
-            applyLock(patient);
-        }
     }
 
     private static CompoundTag state(LivingEntity entity) {
@@ -99,6 +103,7 @@ public final class InfectionStatus {
             }
         }
         ListTag tasks = state.getList("Tasks", Tag.TAG_COMPOUND);
+        while (tasks.size() > 20) tasks.remove(tasks.size() - 1);
         ListTag ready = new ListTag();
         for (int i = 0; i < tasks.size();) {
             CompoundTag task = tasks.getCompound(i);
@@ -148,6 +153,9 @@ public final class InfectionStatus {
         if (!(event.getEntity() instanceof LivingEntity patient) || event.getLevel().isClientSide
                 || !patient.getPersistentData().contains(KEY, Tag.TAG_COMPOUND)) return;
         CompoundTag state = state(patient);
+        ListTag tasks = state.getList("Tasks", Tag.TAG_COMPOUND);
+        while (tasks.size() > 20) tasks.remove(tasks.size() - 1);
+        state.put("Tasks", tasks);
         if (!patient.isAlive() || !state.getString("Dimension").equals(patient.level().dimension().location().toString())) {
             cancel(patient);
         } else if (state.getInt("LockRemaining") > 0) {

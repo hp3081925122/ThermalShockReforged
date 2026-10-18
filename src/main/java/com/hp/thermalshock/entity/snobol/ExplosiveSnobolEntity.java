@@ -22,7 +22,11 @@ public final class ExplosiveSnobolEntity extends Monster implements GeoEntity {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(ExplosiveSnobolEntity.class, EntityDataSerializers.STRING);
     private final AnimatableInstanceCache animations = GeckoLibUtil.createInstanceCache(this);
 
-    private java.util.UUID carrier;
+    private int fuseRemaining;
+    private long fuseStarted;
+    private net.minecraft.world.phys.Vec3 fuseOrigin;
+    private double fuseDamage;
+    private String fuseDimension = "";
 
     public ExplosiveSnobolEntity(EntityType<? extends ExplosiveSnobolEntity> type, Level level) {
         super(type, level);
@@ -69,38 +73,56 @@ public final class ExplosiveSnobolEntity extends Monster implements GeoEntity {
 
     @Override
     public boolean hurt(DamageSource source, float amount) {
-        if (level() instanceof net.minecraft.server.level.ServerLevel server && !isRemoved()) {
+        if (level() instanceof net.minecraft.server.level.ServerLevel server && isAlive() && fuseRemaining == 0
+                && amount > 0 && !source.is(DamageTypes.FALL) && !isInvulnerableTo(source)) {
+            fuseRemaining = 20;
+            fuseStarted = server.getGameTime();
+            fuseDimension = server.dimension().location().toString();
+            fuseOrigin = position();
+            fuseDamage = getAttributeValue(Attributes.ATTACK_DAMAGE);
             setAnimation("bounce");
             server.playSound(null, blockPosition(), SoundEvents.TNT_PRIMED, SoundSource.NEUTRAL, 1, 3);
-            Entity found = carrier == null ? null : server.getEntity(carrier);
-            SnobolBlastEntity blast;
-            if (found instanceof SnobolBlastEntity existing && !existing.isRemoved()) {
-                blast = existing;
-            } else {
-                blast = SnobolContent.BLAST.get().create(server);
-                if (blast != null) {
-                    blast.arm(this);
-                    server.addFreshEntity(blast);
-                    carrier = blast.getUUID();
-                }
-            }
-            if (blast != null) blast.enqueue(position(), getAttributeValue(Attributes.ATTACK_DAMAGE));
         }
         return !source.is(DamageTypes.FALL) && super.hurt(source, amount);
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+        if (!(level() instanceof net.minecraft.server.level.ServerLevel server) || fuseRemaining <= 0 || !isAlive()) return;
+        if (!fuseDimension.equals(server.dimension().location().toString())) { fuseRemaining = 0; return; }
+        if (fuseStarted == server.getGameTime()) return;
+        if (--fuseRemaining == 0) {
+            var origin = fuseOrigin == null ? position() : fuseOrigin;
+            discard();
+            SnobolBlastEntity.detonate(server, origin, fuseDamage);
+        }
     }
 
     @Override
     public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
         tag.putString("Texture", texture());
-        if (carrier != null) tag.putUUID("BlastCarrier", carrier);
+        tag.putInt("FuseRemaining", fuseRemaining);
+        if (fuseOrigin != null) {
+            tag.putDouble("FuseX", fuseOrigin.x);
+            tag.putDouble("FuseY", fuseOrigin.y);
+            tag.putDouble("FuseZ", fuseOrigin.z);
+        }
+        tag.putDouble("FuseDamage", fuseDamage);
+        tag.putString("FuseDimension", fuseDimension);
     }
 
     @Override
     public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
         if (tag.contains("Texture")) setTexture(tag.getString("Texture"));
-        carrier = tag.hasUUID("BlastCarrier") ? tag.getUUID("BlastCarrier") : null;
+        fuseRemaining = tag.getString("FuseDimension").equals(level().dimension().location().toString())
+                ? Math.max(0, Math.min(20, tag.getInt("FuseRemaining"))) : 0;
+        fuseOrigin = tag.contains("FuseX") ? new net.minecraft.world.phys.Vec3(tag.getDouble("FuseX"), tag.getDouble("FuseY"), tag.getDouble("FuseZ")) : position();
+        fuseDamage = Math.max(0, tag.getDouble("FuseDamage"));
+        fuseStarted = Long.MIN_VALUE;
+        fuseDimension = tag.getString("FuseDimension");
     }
 
     @Override

@@ -11,7 +11,7 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.*;
 import net.neoforged.neoforge.event.entity.*;
-import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
+import com.hp.thermalshock.combat.AttackAttemptEvent;
 import net.neoforged.neoforge.registries.*;
 
 public final class SnobolContent {
@@ -47,7 +47,7 @@ public final class SnobolContent {
         NeoForge.EVENT_BUS.addListener(SnobolContent::incomingDamage);
     }
 
-    private static void incomingDamage(LivingIncomingDamageEvent event) {
+    private static void incomingDamage(AttackAttemptEvent event) {
         if (event.getSource().getEntity() instanceof SiibolEntity caster && !(event.getEntity() instanceof SiibolEntity)) {
             event.setCanceled(true);
             caster.beginCast(event.getEntity());

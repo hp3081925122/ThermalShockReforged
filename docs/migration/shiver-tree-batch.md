@@ -1,0 +1,9 @@
+# Shiverglitter树及雪叶迁移前矩阵
+
+范围：shiver_leaves、dark_shiver_leaves、shiverglitter_sapling；树的真实Glowstick由lights模块owner实现，禁止删树挂件来闭合数据。原ShiverLeaves/DarkShiverLeaves与grower、配置及loot已核，目标TreeGrower/SaplingBlock流程沿第四批已验证API复用。
+
+两叶：原MapColor.COLOR_PURPLE、GRASS、硬度.1/抗爆0、不遮挡、熔岩点燃、光遮12；完整DISTANCE/PERSISTENT/WATERLOGGED及原生剪刀/距离/衰败机制。blockstate0/1依正上方恰为SNOW更新，同原SnowCoveredLeaves处理，不缩成只有静态紫叶。原两个loot都含shiverglitter_sapling，丝触工具谓词迁为组件predicate，不删掉落。
+
+树苗：原PLANT/NONE offset/随机tick/GRASS/瞬挖无碰撞/DESTROY、火焰100传播60。grower精确shiverglitter_tree，非原版cherry树key；原simple_random_selector两变体各50%，各自树高12+1、9+1及樱花枝冠、两种紫叶、地面改grassy_shale全部参数原样。第二变体保留0.14概率下挂Glowstick、排他XZ1/Y0、required_empty2、down方向，不能省此装饰。
+
+代码只泛化既有真实重复SnowCoveredLeaves和ThermalSaplingBlock构造，Ochre现有效果保持。配置数据原JSON精确拷贝；目标native codec字段再交子代理静态核对，运行时解码和生长渲染等全模组完整后测试。原cobalt_heights配置仅在所有block/type依赖真实闭合时另导入，不捏造feature。

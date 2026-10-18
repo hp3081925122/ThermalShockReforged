@@ -25,7 +25,9 @@ public final class SnobolBlastEntity extends Entity {
         setPos(caster.position());
     }
 
-    void enqueue(Vec3 position, double damage) { pending.add(new Blast(position, Math.max(0, damage), 20, level().getGameTime())); }
+    void enqueue(Vec3 position, double damage) {
+        if (pending.isEmpty() && !detached) pending.add(new Blast(position, Math.max(0, damage), 20, level().getGameTime()));
+    }
 
     @Override
     protected void defineSynchedData(SynchedEntityData.Builder builder) { }
@@ -46,20 +48,22 @@ public final class SnobolBlastEntity extends Entity {
             detached = true;
             caster.discard();
         }
-        for (var blast : due) {
-            var calculator = new ExplosionDamageCalculator() {
-                @Override
-                public float getEntityDamageAmount(Explosion explosion, Entity target) { return (float) (super.getEntityDamageAmount(explosion, target) * blast.damage); }
-                @Override
-                public float getKnockbackMultiplier(Entity target) {
-                    return target instanceof LivingEntity living ? (float) (0.6 * (1 - living.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE))) : 0.6F;
-                }
-                @Override
-                public boolean shouldDamageEntity(Explosion explosion, Entity target) { return target != SnobolBlastEntity.this; }
-            };
-            server.explode(null, null, calculator, blast.position.x, blast.position.y, blast.position.z, 4, false, Level.ExplosionInteraction.MOB);
-        }
+        for (var blast : due) detonate(server, blast.position, blast.damage);
         if (pending.isEmpty()) discard();
+    }
+
+    static void detonate(ServerLevel server, Vec3 position, double damage) {
+        var calculator = new ExplosionDamageCalculator() {
+            @Override
+            public float getEntityDamageAmount(Explosion explosion, Entity target) {
+                return (float) (super.getEntityDamageAmount(explosion, target) * damage);
+            }
+            @Override
+            public float getKnockbackMultiplier(Entity target) {
+                return target instanceof LivingEntity living ? (float) (0.6 * (1 - living.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE))) : 0.6F;
+            }
+        };
+        server.explode(null, null, calculator, position.x, position.y, position.z, 4, false, Level.ExplosionInteraction.MOB);
     }
 
     @Override
@@ -85,7 +89,7 @@ public final class SnobolBlastEntity extends Entity {
         detached = tag.getBoolean("Detached");
         pending.clear();
         var tasks = tag.getList("PendingBlasts", Tag.TAG_COMPOUND);
-        for (int i = 0; i < tasks.size(); i++) {
+        for (int i = 0; i < Math.min(1, tasks.size()); i++) {
             var task = tasks.getCompound(i);
             pending.add(new Blast(new Vec3(task.getDouble("X"), task.getDouble("Y"), task.getDouble("Z")), Math.max(0, task.getDouble("Damage")), Math.max(1, Math.min(20, task.getInt("Remaining"))), Long.MIN_VALUE));
         }

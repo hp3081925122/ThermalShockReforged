@@ -1,0 +1,9 @@
+# 原生普通植物实施矩阵
+
+实施前证据为simple-plants-audit.md与D临时simple-plant-definitions.json的11项完整原件矩阵。只迁无procedure的11个FlowerBlock；五个带procedure及所有DoublePlantBlock仍另批，不省略。
+
+采用一个原生GardenFlowerBlock，分别保DullShrub中键STICK和TwilitShrub完整WATERLOGGED两个具体子类。11种真实花效果组件均100tick，不把原覆写100误当100秒；原生形状/偏移/土壤/100火焰60传播完整。只有Angler光5；Lunei/Pixietill/Tophaz只后处理/自发光渲染且光0。Dull/PurifiedGrass有replaceable属性，Fern仅原replaceable标签，二者不混淆。6自掉与5空loot原样，不凭外观改掉落。
+
+原只有Angler有BLOCK small_flowers，没有11项ITEM small_flowers；保持原数据资格，不因为构造有StewEffects就伪称原可配炖菜。地图色原PLANT保留，assets原字节不变。所有BlockItem正常原生注册，不硬绑定工具类。
+
+目标API已核：FlowerBlock(SuspiciousStewEffects,Properties)及原100tick Entry；Block.getCloneItemStack(LevelReader,BlockPos,BlockState)与NeoForge五参默认委托；含水四方法用当前已编译同版本原生流程。代码后统一编译静态，不提前启动游戏。
