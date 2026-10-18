@@ -18,3 +18,8 @@ Atlas 是真实 Geo 方块/方块实体/菜单入口。STONE3/100、light15、�
 原AtlasMenuMenu零物品槽，bound默认false使stillValid实际一直true；原AtlasMenuButtonMessage只验证请求坐标hasChunkAt，不验证当前打开的Atlas菜单/距离/真实Atlas/维度。重做应用目标原生容器按钮通道或等价校验，绑定真实服务端菜单位置与玩家，不能保远程任意已载入坐标的传送入口。原界面196×196、atlas_rubicon贴图192×192偏移2、三个20×20按钮位于(43,83)/(114,130)/(124,53)，hover使用原20×40贴图下半；原客户端回调同时发包并本地执行，应消除逻辑重复而保完整界面与声光。
 
 原三个目的入口为Loqendia/Overworld/Palace（aqeron），关闭菜单、保存来源Atlas坐标、按玩家目的Atlas坐标传送、更新能力和效果包及事件1032。切维失败后不能仍将玩家在原维度送往另一个维度坐标。原传送后180tick Resistance amp9属于伪装无敌，需要按真实伤害管线改为有期限、持久/同步语义明确的到达保护，逐项保原合法伤害例外和可见药效粒子；不能直接删保护或照抄超高抗性。Palace真实维度及内容、玩家坐标写入/重生/重启恢复、首次到达与LoqendiaPortal来源等继续追全，不能用按钮可点或空维度冒称完整。
+
+
+原1.20.1可见抗性粒子另已由Luna从本机对应source JAR核实：RGB=#9146F0（9520880）；非ambient普通每tick nextBoolean，即1/2，隐身1/15；ambient另乘1/5。PotionUtils仅混可见效果，按amplifier+1权重混RGB各通道。因此到达amp9在混色时占10权重，不能删粒子或照用目标1.21.1普通1/4采样。目标已有LegacyCooldownVisuals是特定白色冷却2权重的实现，不能直接拿它当紫色到达保护的同义方法。拟保保护边沿同步、服务端本地倒计时/存档与真实MagicAbsorb伤害阶段例外；尚未实施，不宣称测试通过。
+
+原默认玩家目的坐标现核：Overworld=(0,0,0)、Loqendia=(324,73,324)、Palace=(0,194,0)。atlasbase是3×1×3/9块、没有BE或实体，只依赖已注册的atlas_base_corner/edge/centre；尚缺真正模板资源。每维度保存哪个坐标以真实来源为准，同时明确原从aqeron去Loqendia误写OverworldAtlas的缺陷，不在未说明时静默照抄覆盖主世界回程坐标。
