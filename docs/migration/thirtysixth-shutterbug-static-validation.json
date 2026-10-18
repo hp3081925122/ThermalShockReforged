@@ -1,0 +1,44 @@
+{
+  "batch": 36,
+  "scope": "Shutterbug complete dialogue, introduction, photography quest and camera trade",
+  "evidence_origin": "validation_luna returned actual compiler stdout and read-only source/JAR audit; no separate final compiler log",
+  "compiler": {
+    "tasks": [
+      "compileJava",
+      "compileGametestJava",
+      "processResources"
+    ],
+    "offline": true,
+    "java": 21,
+    "exit_code": 0,
+    "gradle_reported": "55s"
+  },
+  "static": {
+    "pages": 43,
+    "static_labels": 215,
+    "voiced_pages": 40,
+    "trade_player_slots": 36,
+    "non_trade_player_slots": 0,
+    "ui_texture_hashes_equal": 24,
+    "character_geo_animation_texture_hashes_equal": true,
+    "stale_florist_trade_source_and_class": 0,
+    "quest_and_reward_branch_audit": "passed",
+    "camera_catalog_scope_only": {
+      "references": 97,
+      "real_registered_types": 48,
+      "not_yet_migrated": 49
+    },
+    "additional_advancements": [
+      "loqendia_get",
+      "glaciation_get",
+      "cavebloomer_kill"
+    ],
+    "remaining_specific_differences": []
+  },
+  "runtime": {
+    "server": "not run; pending whole-mod completion",
+    "client": "not run; pending whole-mod completion",
+    "render_preview": "not run; pending whole-mod completion"
+  },
+  "whole_mod_complete": false
+}

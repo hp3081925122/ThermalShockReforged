@@ -232,3 +232,6 @@ Shutterbug六页介绍/真实相机/摄影及图鉴任务、首次Shalespring完
 第35批真实E-Xpolar/WideAngle两款相机、86完整有序图鉴说明/97原注册类型映射、60tick冷却、原一次CAM_PHOTO→AAA完整闪光和两类拍摄声音、AngryCavebloomer摄影进度、LeafItToMe奖励包五池七项/原20END_ROD/两声/当前手持一次消耗已实现。明确修原资格10格而识别/粒子5格冲突，统一原识别5格，合并重复clip/分类扫描；不变为更长射线或新增实体准星门槛。三原进度完整迁入，_1/_3真实授予仍待NPC。Luna固定快照三任务离线86.7秒成功，86文案/97映射/12本批相关资产和全部参数机械对照通过。目录97中实际47已注册、50待迁仅作目录数据，不代表整模组实体覆盖/完成率。详见camera-photography-batch.md与thirtyfifth-camera-static-validation.json。
 
 下一批Shutterbug完整43菜单/角色对话声音/原个人介绍状态/相机交易与摄影差事已完成源码盘点，迁移前契约见shutterbug-dialogue-batch.md；尚未实现，不能因有相机就声称NPC完整。整模组、首次建筑及其余生物/Boss/维度等继续迁移，未启动游戏。
+
+
+第36批Shutterbug真实NPC/完整43页215静态文案/40原语音开页时序/介绍六页及持久奖励/19Tips/信息全部分支/真实相机交易和成功失败摄影差事已迁入，提取两商人实际共用NpcTrade；补loqendia_get→glaciation_get→cavebloomer_kill完整父链与原奖励，修biome谓词新版格式和旧旁观者范围漏查。Luna固定快照三任务离线55秒通过，全部页面、状态奖励、24UI资产与角色资产机械对照通过，无FloristTrade残留。详见shutterbug-dialogue-batch.md、thirtysixth-shutterbug-static-validation.json。Shalespring完整结构与首次生成入口仍待下一批；其余生物/Boss/维度等未完成，不启动游戏。

@@ -98,7 +98,7 @@ public final class AngryCavebloomerEntity extends Monster implements GeoEntity {
         if (!dead || deathCommitted || !(level() instanceof ServerLevel server)) return;
         deathCommitted = true; attacks.cancel(server); deathSequence.start(server, position(), getEyeHeight());
         server.playSound(null, blockPosition(), soundEvent("cavebloomer_death"), SoundSource.NEUTRAL, 1, 1);
-        var center = position(); var players = server.getEntitiesOfClass(ServerPlayer.class, new AABB(center, center).inflate(24));
+        var center = position(); var players = server.getEntitiesOfClass(ServerPlayer.class, new AABB(center, center).inflate(24), player -> true);
         players.sort(Comparator.comparingDouble(player -> player.distanceToSqr(center)));
         var advancement = server.getServer().getAdvancements().get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "cavebloomer_kill"));
         if (advancement == null) ThermalShockReforged.LOGGER.warn("Cavebloomer advancement chain is not available: cavebloomer_kill");

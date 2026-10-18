@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "id": "thermal_shock_reforged:cavebloomer_core"
+    },
+    "title": {
+      "translate": "advancements.cavebloomer_kill.title"
+    },
+    "description": {
+      "translate": "advancements.cavebloomer_kill.descr"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "cavebloomer_kill_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 1000
+  },
+  "parent": "thermal_shock_reforged:glaciation_get"
+}
