@@ -235,3 +235,6 @@ Shutterbug六页介绍/真实相机/摄影及图鉴任务、首次Shalespring完
 
 
 第36批Shutterbug真实NPC/完整43页215静态文案/40原语音开页时序/介绍六页及持久奖励/19Tips/信息全部分支/真实相机交易和成功失败摄影差事已迁入，提取两商人实际共用NpcTrade；补loqendia_get→glaciation_get→cavebloomer_kill完整父链与原奖励，修biome谓词新版格式和旧旁观者范围漏查。Luna固定快照三任务离线55秒通过，全部页面、状态奖励、24UI资产与角色资产机械对照通过，无FloristTrade残留。详见shutterbug-dialogue-batch.md、thirtysixth-shutterbug-static-validation.json。Shalespring完整结构与首次生成入口仍待下一批；其余生物/Boss/维度等未完成，不启动游戏。
+
+
+第37批Shalespring完整70³/343000块/384状态/52BE/6实体已导入，首次loqendia_get监听/原开关/主世界共享一次状态已接，修缺模板或放置失败永久误消费。保329处解析命名空间修改外所有解压payload与原DataVersion，原版DFU自行升级嵌套库存。Luna三任务离线57.8秒成功、122方块/12种BE/全部实体和物品及状态值静态通过。详见shalespring-generation-batch.md和thirtyseventh-shalespring-static-validation.json。自然Keystone密室/四功能机关、Aqeron/Palace、其余生物和功能仍待迁，尚未进行最终游戏/渲染验收。

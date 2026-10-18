@@ -7,8 +7,11 @@ public final class ModGameRules {
     public static final GameRules.Key<GameRules.BooleanValue> LOQENDIA_DROP_HEART_CRYSTALS = GameRules.register(
             "loqendiaDropHeartCrystals", GameRules.Category.DROPS, GameRules.BooleanValue.create(true));
 
+    public static final GameRules.Key<GameRules.BooleanValue> LOQENDIA_GENERATE_SPECIAL_STRUCTURES = GameRules.register(
+            "loqendiaGenerateSpecialStructures", GameRules.Category.UPDATES, GameRules.BooleanValue.create(true));
+
     private ModGameRules() { }
     public static void initialize() {
-        ThermalShockReforged.LOGGER.debug("Thermal Shock Reforged gamerule initialized: loqendiaDropHeartCrystals");
+        ThermalShockReforged.LOGGER.debug("Thermal Shock Reforged gamerules initialized: loqendiaDropHeartCrystals, loqendiaGenerateSpecialStructures");
     }
 }
