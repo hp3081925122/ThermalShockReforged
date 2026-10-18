@@ -42,6 +42,7 @@ public abstract class LivingEntityStatusMixin {
         LivingEntity entity = (LivingEntity)(Object)this;
         if (entity instanceof com.hp.thermalshockreforged.content.atlas.AtlasArrivalState arrival) arrival.tickArrivalProtection();
         com.hp.thermalshockreforged.content.atlas.AtlasArrivalVisuals.tick(entity);
+        com.hp.thermalshockreforged.world.sanctum.PylonBuildingLock.tick(entity);
     }
     @Inject(method = "onSyncedDataUpdated", at = @At("TAIL"))
     private void thermalShockReforged$arrivalDataUpdated(net.minecraft.network.syncher.EntityDataAccessor<?> key, CallbackInfo callback) {

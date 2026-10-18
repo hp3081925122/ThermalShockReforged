@@ -26,7 +26,7 @@ public final class AqeronEvents {
         player.connection.teleport(point.x, point.y, point.z, player.getYRot(), player.getXRot());
     }
     private static boolean protectedActor(Entity entity) {
-        return entity != null && !entity.level().isClientSide && entity.level().dimension().equals(AtlasContent.PALACE)
+        return entity != null && !entity.level().isClientSide && (entity.level().dimension().equals(AtlasContent.PALACE) || com.hp.thermalshockreforged.world.sanctum.PylonBuildingLock.active(entity))
                 && !(entity instanceof Player player && player.getAbilities().instabuild);
     }
     private static void breakBlock(BlockEvent.BreakEvent event) {

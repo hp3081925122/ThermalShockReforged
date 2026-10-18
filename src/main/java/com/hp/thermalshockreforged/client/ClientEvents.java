@@ -55,6 +55,8 @@ import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 public final class ClientEvents {
     @SubscribeEvent
     public static void renderers(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerEntityRenderer(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.GUARDIAN_PYLON.get(), com.hp.thermalshockreforged.client.sanctum.GuardianPylonRenderer::new);
+        event.registerEntityRenderer(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.PYLON_ACTIVATION.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.KILOLYTE.get(), com.hp.thermalshockreforged.client.sanctum.KilolyteRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.KILOLYTE_ATTACK.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.FROSTILYTE_GUNNER.get(), com.hp.thermalshockreforged.client.sanctum.FrostilyteGunnerRenderer::new);

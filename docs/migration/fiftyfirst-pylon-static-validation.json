@@ -1,0 +1,82 @@
+{
+  "batch": 51,
+  "scope": [
+    "guardian_pylon",
+    "guardian_pylon_spawn_egg",
+    "pylon_activation_task",
+    "internal building lock",
+    "full sanctum release",
+    "shared BossDeathEffectEntity / Herald"
+  ],
+  "validation": {
+    "executor": "validation_luna",
+    "java": 21,
+    "command": "gradlew.bat compileJava compileGametestJava processResources --offline",
+    "durationSeconds": 17,
+    "exitCode": 0,
+    "result": "BUILD SUCCESSFUL",
+    "actionableTasks": 25,
+    "executed": 1,
+    "upToDate": 24,
+    "log": "D:/AI临时文件/ThermalShockMigration/fiftyfirst-pylon-final-compile.log",
+    "warnings": "2 existing ClientEvents bus deprecations"
+  },
+  "mechanical": {
+    "ellipsoidOffsets": 757827,
+    "rows": 7181,
+    "offsetOrderedSha256": "77663f8630fb2ecffe4d7e8e31f7a271e21a67adf3ca5b0b20c3944d2fd6297a",
+    "enumerationScript": "D:/AI临时文件/ThermalShockMigration/pylon-release-sequence-audit.py",
+    "anchors": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        316.5,
+        53.25,
+        -17.5
+      ],
+      [
+        -316.5,
+        -53.5,
+        -80.5
+      ],
+      [
+        -0.5,
+        -0.5,
+        -0.5
+      ]
+    ],
+    "blockAndSpawnOrderEqual": true,
+    "assets": "5 original pylon geo/animation/body/glow/no_break icon assets byte-equal",
+    "windchime": "unreachable original SERVER-only queue / client-only branch; no new sound added"
+  },
+  "implementation": {
+    "registration": "MONSTER 1x1 fire immune tracking64 update3, egg -1/-1, no added natural spawn placement",
+    "buildingLock": "Player-only original center y+22 / inflate40 / true predicate incl spectators; refresh100 each tick including death, tickEffects-tail countdown, native NBT persistence",
+    "interaction": "main-hand Virustone no consume, once-only story; live damage+sound retries permitted after iframe-reduced damage; failed task submission leaves unactivated and undamaged",
+    "storyEndTicks": [
+      80,
+      120
+    ],
+    "release": "full original y/x/z ellipsoid, same first chunk loads, palette recheck per span, real slabs keep TYPE/WATERLOGGED, all four actual mobs with original +.5 floor offset and random yaw",
+    "death": "60 tick removal / XP gating, 5 END_ROD / .4 conduit sound; shared finite death VFX15 pulses with immediate first and4 END interval"
+  },
+  "intentionalFixes": [
+    "once-only persistent story submission without suppressing damage retries",
+    "internal building state replaces hidden NO_BREAK marker",
+    "Player-specific AABB scan removes unrelated entity sorting without changing range or refresh rate",
+    "shared death effect uses original END phase rather than entity tick offset",
+    "final END_ROD at actual pylon instead of erroneous world .5,.5,.5"
+  ],
+  "remaining": [
+    "orb_sanctum full template and normal generation source",
+    "archive_sanctum / sunken_blizzard_lab and other unported content",
+    "complete source fidelity audit",
+    "final full server/client/Render Preview tests"
+  ],
+  "runtimeTests": "not started; whole mod incomplete",
+  "performance": "structural optimization only; no measured MSPT/FPS claim",
+  "skillValidation": "mcreator-rework quick_validate passed after batch51 update"
+}

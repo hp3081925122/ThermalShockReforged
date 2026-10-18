@@ -122,7 +122,7 @@ public final class HeraldEntity extends Monster implements GeoEntity {
     @Override
     public void die(DamageSource source) {
         super.die(source);
-        if (dead && !deathVisualStarted && level() instanceof ServerLevel server) { deathVisualStarted = true; activationRemaining = -1; var visual = new HeraldDeathEffectEntity(ManglerContent.HERALD_DEATH_EFFECT.get(), server); visual.arm(position(), getEyeHeight()); server.addFreshEntity(visual); }
+        if (dead && !deathVisualStarted && level() instanceof ServerLevel server) { deathVisualStarted = true; activationRemaining = -1; com.hp.thermalshockreforged.entity.attack.BossDeathEffectEntity.submit(server, ManglerContent.HERALD_DEATH_EFFECT.get(), position(), getEyeHeight()); }
     }
     @Override
     public SoundEvent getAmbientSound() { return sound("monolithambient"); }
