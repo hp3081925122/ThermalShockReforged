@@ -1,0 +1,77 @@
+{
+  "batch": 41,
+  "scope": "Real Ferro Cake Geo block, full staged eating, independent bounded task, original recipe and advancement chain",
+  "compiler": {
+    "tasks": [
+      "compileJava",
+      "compileGametestJava",
+      "processResources"
+    ],
+    "offline": true,
+    "java": 21,
+    "exit_code": 0,
+    "gradle_reported": "54s",
+    "log": "D:\\AI临时文件\\ThermalShockMigration\\fortyfirst-ferro-cake-compile.log",
+    "warnings": "existing deprecated and unchecked"
+  },
+  "static": {
+    "asset_files": 11,
+    "original_byte_hash_equal_files": 8,
+    "namespace_normalized_json_equal_files": 3,
+    "animation_property_range": [
+      0,
+      2
+    ],
+    "original_called_animation": 1,
+    "actual_animation_clips": [
+      "0",
+      "1"
+    ],
+    "inventory_slots": 9,
+    "original_pulses": {
+      "immediate": true,
+      "subsequent_end_count_points": [
+        5,
+        10,
+        15
+      ],
+      "count_includes_trigger_tick_end": true,
+      "nutrition_per_pulse": 3,
+      "saturation_per_pulse": 3,
+      "honey_sound_pitches": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "resistance_ticks": 260,
+      "resistance_amplifier": 1
+    },
+    "recipe_input_slots": 9,
+    "recipe_unique_inputs": 8,
+    "recipe_result_count": 1,
+    "advancements": [
+      "ferrous_get",
+      "yoylecake"
+    ],
+    "existing_root": "loqendia_get",
+    "yoylecake_reward_xp": 3,
+    "source_dependency_and_life_identity_review": "passed",
+    "remaining_specific_differences": []
+  },
+  "intentional_fixes": [
+    "Native FoodData legal-value caps instead of unbounded setters",
+    "Server-authoritative consumption claim and failed-task rollback",
+    "Final removal checks the original consumption UUID",
+    "Bounded persistent value-only task replaces captured closure",
+    "UUID and death-stat snapshot prevents feeding a respawned life"
+  ],
+  "runtime_policies_pending_verification": [
+    "Unload pauses carrier and load resumes; no forced chunks",
+    "Normal save/restart resumes remaining phases",
+    "Offline or dead owner receives no deferred nutrition; original-position sounds and final block consumption continue",
+    "Cross-dimension living same-life owner can receive nutrition"
+  ],
+  "runtime_tests_run": false,
+  "whole_mod_complete": false
+}

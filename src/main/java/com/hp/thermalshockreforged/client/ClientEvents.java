@@ -61,6 +61,7 @@ public final class ClientEvents {
         com.hp.thermalshockreforged.client.npc.shutterbug.ShutterbugClient.renderers(event);
         CavebloomerClient.renderers(event);
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.atlas.AtlasContent.ACTIVATION.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
+        event.registerEntityRenderer(com.hp.thermalshockreforged.content.food.FerroCakeConsumption.TYPE.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         com.hp.thermalshockreforged.client.springslime.SpringslimeRenderers.register(event);
         event.registerEntityRenderer(com.hp.thermalshockreforged.world.thermite.ThermiteContent.DETONATION.get(), ThermiteDetonationRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.entity.pots.PotContent.SKULLSCOR.get(), com.hp.thermalshockreforged.client.pots.SkullscorRenderer::new);

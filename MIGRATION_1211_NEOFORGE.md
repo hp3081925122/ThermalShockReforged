@@ -247,3 +247,6 @@ Shutterbug六页介绍/真实相机/摄影及图鉴任务、首次Shalespring完
 
 
 第40批Palace Portrait Character完整五外观/原头部旋转/透明渲染与零阴影/尺寸规则/两页10文字/真实菜单已迁入。修创意切图卡末档和未绑定远程菜单、两静态页面误改全局立绘计时；原九资产哈希与全部UI/参数通过Luna机械对照，三任务离线24.5秒成功。ARMOR普通读取64经属性限幅实际30已由旧JAR/目标源码核，不声称对外部读base或强负modifier完全等价。详见palace-portrait-character-batch.md和fortieth-portrait-static-validation.json。FerroCake与Ly完整交易、宫殿/维度和其他剩余内容继续迁，未启游戏。
+
+
+第41批真实Ferro Cake Geo方块/九槽能力/0..2动画域/四次食用脉冲/原递进声与260tick Resistance1已迁入，补九槽shapeless配方及ferrous_get→loqendia_get、yoylecake→ferrous_get进度/3XP。修食物越界、客户端重复业务、收尾误删新方块，独立有限消费UUID载体取代捕获闭包，DEATHS生命快照防重生后串食用。Luna固定三任务离线54秒成功，11资产/完整参数/配方和进度机械对照通过；详见ferro-cake-batch.md和fortyfirst-ferro-cake-static-validation.json。当前游戏测试尚未开始，Ly全部商店/Palace/Aqeron等继续迁。
