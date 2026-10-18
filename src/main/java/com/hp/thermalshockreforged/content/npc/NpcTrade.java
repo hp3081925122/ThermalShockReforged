@@ -1,4 +1,4 @@
-package com.hp.thermalshockreforged.content.npc.florist;
+package com.hp.thermalshockreforged.content.npc;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import net.minecraft.core.BlockPos;
@@ -11,12 +11,12 @@ import net.minecraft.sounds.*;
 import net.minecraft.world.item.*;
 import net.neoforged.neoforge.items.ItemHandlerHelper;
 
-public record FloristTrade(String item, int count, int levels, String spice, int spiceCount) {
+public record NpcTrade(String item, int count, int levels, String spice, int spiceCount) {
     public boolean buy(ServerPlayer player, BlockPos anchor) {
         Item reward = BuiltInRegistries.ITEM.get(id(item));
         Item currency = spiceCount == 0 ? Items.AIR : BuiltInRegistries.ITEM.get(id(spice));
         if (reward == Items.AIR || spiceCount > 0 && currency == Items.AIR) {
-            ThermalShockReforged.LOGGER.warn("Florist trade unavailable: reward={}, currency={}", item, spice); return false;
+            ThermalShockReforged.LOGGER.warn("NPC trade unavailable: reward={}, currency={}", item, spice); return false;
         }
         if (player.experienceLevel < levels) return false;
         var inventory = player.getInventory();
@@ -25,7 +25,7 @@ public record FloristTrade(String item, int count, int levels, String spice, int
             int paid = inventory.clearOrCountMatchingItems(stack -> stack.is(currency), spiceCount, player.inventoryMenu.getCraftSlots());
             if (paid != spiceCount) {
                 if (paid > 0) ItemHandlerHelper.giveItemToPlayer(player, new ItemStack(currency, paid));
-                ThermalShockReforged.LOGGER.error("Florist payment mismatch: player={}, currency={}, required={}, paid={}", player.getUUID(), spice, spiceCount, paid);
+                ThermalShockReforged.LOGGER.error("NPC payment mismatch: player={}, currency={}, required={}, paid={}", player.getUUID(), spice, spiceCount, paid);
                 return false;
             }
         }
@@ -35,7 +35,7 @@ public record FloristTrade(String item, int count, int levels, String spice, int
         sound(player, anchor, BuiltInRegistries.SOUND_EVENT.get(id("npcbuy")), 1, 1);
         if (spiceCount > 0) sound(player, anchor, SoundEvents.DISPENSER_FAIL, .5F, 5);
         sound(player, anchor, SoundEvents.EXPERIENCE_ORB_PICKUP, .5F, 5);
-        ThermalShockReforged.LOGGER.debug("Florist trade committed: player={}, item={}, count={}, levels={}, spice={}, spiceCount={}", player.getUUID(), item, count, levels, spice, spiceCount);
+        ThermalShockReforged.LOGGER.debug("NPC trade committed: player={}, item={}, count={}, levels={}, spice={}, spiceCount={}", player.getUUID(), item, count, levels, spice, spiceCount);
         return true;
     }
     private static ResourceLocation id(String path) { return ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
