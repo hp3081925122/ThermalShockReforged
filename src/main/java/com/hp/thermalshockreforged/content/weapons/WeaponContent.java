@@ -11,6 +11,7 @@ import net.neoforged.neoforge.registries.*;
 
 public final class WeaponContent {
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
+    public static final DeferredItem<RustyEdgeItem> RUSTY_EDGE = ITEMS.register("rusty_edge", RustyEdgeItem::new);
     public static final DeferredItem<BlindingLanternItem> BLINDING_LANTERN = ITEMS.register("blinding_lantern", BlindingLanternItem::new);
 
     private static final DeferredRegister<MobEffect> EFFECTS = DeferredRegister.create(Registries.MOB_EFFECT, ThermalShockReforged.MOD_ID);

@@ -1,0 +1,37 @@
+{
+  "batch": 47,
+  "scope": "Errant / Sanctum Errant / Rusty Edge / Rustsilk / associated original data",
+  "validation": {
+    "executor": "validation_luna",
+    "java": 21,
+    "command": "gradlew.bat compileJava compileGametestJava processResources --offline",
+    "exitCode": 0,
+    "result": "BUILD SUCCESSFUL",
+    "durationSeconds": 53,
+    "warnings": "3 existing deprecation warnings"
+  },
+  "rustsilkOriginalBytecode": {
+    "slotIndices": {
+      "HEAD": 3,
+      "CHEST": 2
+    },
+    "helmet": {
+      "durability": 55,
+      "armor": 1
+    },
+    "chestplate": {
+      "durability": 80,
+      "armor": 1
+    },
+    "registrationDurabilityOverride": false
+  },
+  "runtimeTests": "not started; wait for complete mod migration",
+  "remaining": [
+    "Frostilyte Gunner",
+    "Kilolyte",
+    "Sanctum Ripple",
+    "Guardian Pylon full sequence",
+    "Fabricator upgrade paths",
+    "other unported modules"
+  ]
+}

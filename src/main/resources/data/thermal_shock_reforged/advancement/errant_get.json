@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "id": "thermal_shock_reforged:errant_spawn_egg"
+    },
+    "title": {
+      "translate": "advancements.errant_get.title"
+    },
+    "description": {
+      "translate": "advancements.errant_get.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "errant_get_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 100
+  },
+  "parent": "thermal_shock_reforged:borean_tundra_advancement"
+}

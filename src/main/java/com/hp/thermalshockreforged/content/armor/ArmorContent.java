@@ -27,18 +27,25 @@ public final class ArmorContent {
     public static final List<DeferredItem<GeoSetArmorItem>> BLOOD_ZENITH = new ArrayList<>();
     public static final List<DeferredItem<GeoSetArmorItem>> BLOOD = new ArrayList<>();
     public static final List<DeferredItem<GeoSetArmorItem>> SENTRY = new ArrayList<>();
+    public static final List<DeferredItem<GeoSetArmorItem>> RUSTSILK = new ArrayList<>();
     public static final List<DeferredItem<GeoSetArmorItem>> ALL = new ArrayList<>();
     private static final DeferredHolder<ArmorMaterial, ArmorMaterial> RUBY_MATERIAL = MATERIALS.register("ruby_armor", () -> material(false));
     private static final DeferredHolder<ArmorMaterial, ArmorMaterial> CARBORUNDUM_MATERIAL = MATERIALS.register("carborundum_armor", () -> material(true));
     private static final DeferredHolder<ArmorMaterial, ArmorMaterial> RUBY_ZENITH_MATERIAL = MATERIALS.register("ruby_zenith_armor", () -> zenithMaterial(false, "ruby_zenith_armor"));
     private static final DeferredHolder<ArmorMaterial, ArmorMaterial> BLOOD_ZENITH_MATERIAL = MATERIALS.register("blood_zenith_armor", () -> zenithMaterial(true, "blood_zenith_armor"));
     private static final DeferredHolder<ArmorMaterial, ArmorMaterial> BLOOD_MATERIAL = MATERIALS.register("blood_armor", () -> zenithMaterial(true, "blood_armor"));
+    private static final DeferredHolder<ArmorMaterial, ArmorMaterial> RUSTSILK_MATERIAL = MATERIALS.register("rustsilk_armour", () -> new ArmorMaterial(
+            Map.of(ArmorItem.Type.HELMET, 1, ArmorItem.Type.CHESTPLATE, 1), 9, SoundEvents.ARMOR_EQUIP_LEATHER,
+            () -> Ingredient.EMPTY, List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "rustsilk_armour"))), 0, 0));
     private static final DeferredHolder<ArmorMaterial, ArmorMaterial> SENTRY_MATERIAL = MATERIALS.register("sentry", () -> new ArmorMaterial(
             Map.of(ArmorItem.Type.HELMET, 7, ArmorItem.Type.CHESTPLATE, 7), 50, SoundEvents.ARMOR_EQUIP_LEATHER,
             () -> Ingredient.of(MaterialContent.items().get("silver_sentrapede_hide").get()),
             List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "sentry"))), 0, 0));
 
     static {
+        RUSTSILK.add(ITEMS.register("rustsilk_armour_helmet", () -> new GeoSetArmorItem(RUSTSILK_MATERIAL, ArmorItem.Type.HELMET, GeoSetArmorItem.Style.RUSTSILK, new Item.Properties().durability(55))));
+        RUSTSILK.add(ITEMS.register("rustsilk_armour_chestplate", () -> new GeoSetArmorItem(RUSTSILK_MATERIAL, ArmorItem.Type.CHESTPLATE, GeoSetArmorItem.Style.RUSTSILK, new Item.Properties().durability(80))));
+        ALL.addAll(RUSTSILK);
         for (ArmorItem.Type type : List.of(ArmorItem.Type.HELMET, ArmorItem.Type.CHESTPLATE, ArmorItem.Type.LEGGINGS, ArmorItem.Type.BOOTS)) {
             RUBY.add(ITEMS.register("ruby_armor_" + type.getName(), () -> new GeoSetArmorItem(RUBY_MATERIAL, type, false, new Item.Properties().durability(type.getDurability(35)))));
             CARBORUNDUM.add(ITEMS.register("carborundum_armor_" + type.getName(), () -> new GeoSetArmorItem(CARBORUNDUM_MATERIAL, type, true, new Item.Properties().durability(type.getDurability(35)))));

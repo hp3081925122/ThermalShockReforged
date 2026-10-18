@@ -55,6 +55,8 @@ import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 public final class ClientEvents {
     @SubscribeEvent
     public static void renderers(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerEntityRenderer(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.ERRANT.get(), com.hp.thermalshockreforged.client.sanctum.ErrantRenderer::new);
+        event.registerEntityRenderer(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.SANCTUM_ERRANT.get(), com.hp.thermalshockreforged.client.sanctum.ErrantRenderer::new);
         com.hp.thermalshockreforged.client.npc.laut.LautClient.renderers(event);
         com.hp.thermalshockreforged.client.npc.portrait.PortraitClient.renderers(event);
         com.hp.thermalshockreforged.client.npc.ly.LyClient.renderers(event);
