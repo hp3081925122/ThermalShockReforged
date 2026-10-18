@@ -8,6 +8,7 @@ import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.shapes.*;
 
 public enum GeoDecorKind {
+    SURGE_PYLON("surge_pylon", "Surge Pylon", "geo/surge_pylon.geo.json", "textures/block/surge_pylon.png", "animations/surge_pylon.animation.json", Block.box(4, .1, 4, 12, 15.9, 12), true, false),
     CIVILIAN("civilian", "Civilian", "geo/civil1.geo.json", "textures/block/civil1.png", "animations/civil1.animation.json", Block.box(.1, .1, .1, 15.9, 15.9, 15.9), true, false),
     RUSTY_RADIO("rusty_radio", "Rusty Radio", "geo/rusty_radio.geo.json", "textures/block/rusty_radio.png", "animations/rusty_radio.animation.json", Block.box(.1, .1, .1, 15.9, 15.9, 15.9), true, false),
     CAPSULE("capsule", "Capsule", "geo/pillar_statue.geo.json", "textures/block/capsule.png", "animations/pillar_statue.animation.json", Block.box(1, .1, 1, 15, 47.9, 15), true, false),
@@ -81,6 +82,7 @@ public enum GeoDecorKind {
     }
     public BlockBehaviour.Properties properties() {
         return switch (this) {
+            case SURGE_PYLON -> SurgePylonBlock.createPylonProperties();
             case SHALE_PILLAR, SHALE_PILLAR_VAR_2, SHALE_PILLAR_VAR_3, SHALE_PILLAR_VAR_4, SHALE_PILLAR_VAR_5, SHALE_PILLAR_VAR_6, SHALE_PILLAR_VAR_7, SHALE_PILLAR_VAR_8 -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).sound(SoundType.BASALT).strength(2, 10).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((state, level, pos) -> false);
             case THERMA_DEV_PLUSH -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).sound(SoundType.WOOL).strength(1, 999).noOcclusion().isRedstoneConductor((state, level, pos) -> false);
             case FERRO_CAKE -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).sound(SoundType.WOOL).strength(1, 0).noOcclusion().pushReaction(PushReaction.DESTROY).isRedstoneConductor((state, level, pos) -> false).noLootTable();

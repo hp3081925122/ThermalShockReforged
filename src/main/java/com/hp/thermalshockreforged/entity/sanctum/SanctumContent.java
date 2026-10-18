@@ -18,6 +18,7 @@ public final class SanctumContent {
     private static final DeferredRegister<net.minecraft.core.particles.ParticleType<?>> PARTICLES = DeferredRegister.create(Registries.PARTICLE_TYPE, ThermalShockReforged.MOD_ID);
     public static final DeferredHolder<net.minecraft.core.particles.ParticleType<?>, net.minecraft.core.particles.SimpleParticleType> ERR_EFFECT = PARTICLES.register("err_effect", () -> new net.minecraft.core.particles.SimpleParticleType(false));
     public static final DeferredHolder<net.minecraft.core.particles.ParticleType<?>, net.minecraft.core.particles.SimpleParticleType> TURQ_EXPLODE = PARTICLES.register("turq_explode", () -> new net.minecraft.core.particles.SimpleParticleType(false));
+    public static final DeferredHolder<net.minecraft.core.particles.ParticleType<?>, net.minecraft.core.particles.SimpleParticleType> FROST_RING = PARTICLES.register("frost_ring", () -> new net.minecraft.core.particles.SimpleParticleType(false));
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
     public static final DeferredHolder<EntityType<?>, EntityType<ErrantEntity>> ERRANT = errant("errant");
     public static final DeferredHolder<EntityType<?>, EntityType<ErrantEntity>> SANCTUM_ERRANT = errant("sanctum_errant");

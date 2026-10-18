@@ -1,0 +1,75 @@
+{
+  "batch": 54,
+  "scope": [
+    "surge_pylon block/item/Geo BE",
+    "frost_ring complete AAA effect",
+    "ShaleLamp and ChromaticShaleLamp random tick delegation",
+    "gradlew.bat reliable exit propagation"
+  ],
+  "validation": {
+    "executor": "validation_luna",
+    "java": 21,
+    "launcher": "direct org.gradle.wrapper.GradleWrapperMain",
+    "tasks": [
+      "compileJava",
+      "compileGametestJava",
+      "processResources"
+    ],
+    "offline": true,
+    "result": "BUILD SUCCESSFUL",
+    "nativeJavaExitCode": 0,
+    "durationSeconds": 50,
+    "executed": 2,
+    "upToDate": 23,
+    "log": "D:/AI临时文件/ThermalShockMigration/fiftyfourth-surge-randomtick-final-compile.log",
+    "warnings": "2 existing ClientEvents bus deprecations",
+    "initialFailure": "new static helper named properties collided with superclass static method; renamed createPylonProperties before final build"
+  },
+  "wrapperRegression": {
+    "originalFailure": "Gradle BUILD FAILED returned cmd0 due missing explicit Java ERRORLEVEL propagation and missing fail label",
+    "fixed": true,
+    "successProbe": {
+      "command": "gradlew.bat --version",
+      "exitCode": 0,
+      "log": "D:/AI临时文件/ThermalShockMigration/gradle-exit-code-version-probe.log"
+    },
+    "intentionalFailureProbe": {
+      "command": "gradlew.bat codexExitCodeProbe --offline",
+      "exitCode": 1,
+      "log": "D:/AI临时文件/ThermalShockMigration/gradle-exit-code-failure-probe.log"
+    }
+  },
+  "mechanical": {
+    "block": "real independent registry block/item/BE; original9slot all-sided capabilities, true Geo item/translucent block rendering, no new right-click GUI",
+    "attributes": "shape4,.1,4..12,15.9,12; light15; hardness-1/resistance3600000; BASDRUM; custom break +4 lodestone sounds; push BLOCK; noOcclusion",
+    "pulse": "random and scheduled tick both same pulse, original random cadence",
+    "sound": "surge_pylon_pulses AMBIENT1/1",
+    "ring": "one at block x,y+1,z; offsets.0001 each/speed1",
+    "players": "lower-corner origin AABB.inflate16, onlySURVIVAL ServerPlayer, trueFROSTBITE1200/0 hidden nonambient",
+    "particle": "SimpleParticleType(false), life0/size.2/gravity0/noPhysics/velocity0/LIT/fullbright, AAA frostring emitter",
+    "assets": "original geo/animation/block texture/efk/sprite/Texture-FrostbiteRing byte hashes equal; resource JSON normalized equal",
+    "animation": "original unique clip0 duration4 loop, property0..1; no original clip1 or normal writer, none invented",
+    "lootAndRecipes": "no original dedicated loot or recipe; real fallback self drop preserved",
+    "tools": "standard pickaxe/diamond tier plus lower wood/stone/iron/gold incorrect tags",
+    "shaleAudit": "only3 original direct blocks have randomTicks+tick pattern; both already-migrated lamps now explicitrandomTick->tick, unconditional FIRE_AMBIENT NEUTRAL1/1 retained"
+  },
+  "evidence": {
+    "legacyRandomTick": "D:/AI临时文件/ThermalShockMigration/old-blockbehaviour-randomtick54-bytecode.txt",
+    "legacyPatternInventory": "D:/AI临时文件/ThermalShockMigration/randomtick-legacy-pattern-audit.json",
+    "coreXorForNextBatch": "D:/AI临时文件/ThermalShockMigration/pylon-core-original55-bytecode.txt"
+  },
+  "fixes": [
+    "target1.21 empty default randomTick no longer loses original three blocks behavior",
+    "explicit blueMapColor for Xaero, display remains pending final runtime",
+    "Player-only pylon query removes unrelated entity sorting without changing AABB or effects"
+  ],
+  "remaining": [
+    "complete FireBomb/PylonCore/two altar progression and40END branches",
+    "remaining sanctum/template dependencies and normal natural worldgen",
+    "other unported content and fidelity audits",
+    "full server/client/Render Preview at whole mod completion"
+  ],
+  "runtimeTests": "not started; whole mod incomplete",
+  "performance": "no measured FPS/MSPT claim",
+  "skillValidation": "mcreator-rework quick_validate passed"
+}
