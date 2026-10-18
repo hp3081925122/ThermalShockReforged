@@ -1,12 +1,14 @@
 package com.hp.thermalshockreforged;
 
 import com.hp.thermalshockreforged.content.MaterialContent;
+import com.hp.thermalshockreforged.content.music.MusicContent;
 import com.hp.thermalshockreforged.content.fluids.FluidContent;
 import com.hp.thermalshockreforged.content.growth.GrowthContent;
 import com.hp.thermalshockreforged.content.ModGameRules;
 import com.hp.thermalshockreforged.content.crates.CrateContent;
 import com.hp.thermalshockreforged.entity.ice.IceContent;
 import com.hp.thermalshockreforged.entity.icesquad.IceSquadContent;
+import com.hp.thermalshockreforged.entity.icesquad.BastionCombatConfig;
 import com.hp.thermalshockreforged.entity.ice.IceCombatConfig;
 import com.hp.thermalshockreforged.content.doors.SpecialDoorsContent;
 import com.hp.thermalshockreforged.content.decor.geo.GeoDecorContent;
@@ -59,10 +61,12 @@ public final class ThermalShockReforged {
     public ThermalShockReforged(IEventBus bus, ModContainer container) {
         ModGameRules.initialize();
         container.registerConfig(ModConfig.Type.COMMON, CombatConfig.SPEC);
+        container.registerConfig(ModConfig.Type.COMMON, BastionCombatConfig.SPEC, "thermal_shock_reforged-bastions.toml");
         container.registerConfig(ModConfig.Type.COMMON, IceCombatConfig.SPEC, "thermal_shock_reforged-ice.toml");
         container.registerConfig(ModConfig.Type.COMMON, ManglerCombatConfig.SPEC, "thermal_shock_reforged-mangler.toml");
         ModEntities.register(bus);
         MaterialContent.register(bus);
+        MusicContent.register(bus);
         NativeDecorContent.register(bus);
         GeoDecorContent.register(bus);
         SpecialDoorsContent.register(bus);

@@ -1,6 +1,8 @@
 package com.hp.thermalshockreforged.content.decor.geo;
 
 import java.util.List;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.util.RandomSource;
 import net.minecraft.core.*;
 import net.minecraft.world.*;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -31,6 +33,10 @@ public class GeoDecorBlock extends Block implements EntityBlock {
     @Override protected boolean propagatesSkylightDown(BlockState state, BlockGetter level, BlockPos pos) { return true; }
     @Override public boolean shouldDisplayFluidOverlay(BlockState state, BlockAndTintGetter level, BlockPos pos, FluidState fluid) {
         return kind == GeoDecorKind.VOLTFLOWER_BULB || super.shouldDisplayFluidOverlay(state, level, pos, fluid);
+    }
+    @Override public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
+        super.animateTick(state, level, pos, random);
+        if (kind == GeoDecorKind.GUNNER_TROPHY || kind == GeoDecorKind.BURNER_TROPHY) level.addParticle(ParticleTypes.END_ROD, pos.getX() + random.nextDouble(), pos.getY() + random.nextDouble() * 2, pos.getZ() + random.nextDouble(), 0, 0.1, 0);
     }
     @Override protected List<ItemStack> getDrops(BlockState state, LootParams.Builder builder) {
         var drops = super.getDrops(state, builder);
