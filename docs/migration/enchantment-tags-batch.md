@@ -1,0 +1,11 @@
+# 第27批：原版附魔数据标签补齐
+
+源码/依赖证据先行：Luna核ToolsContent共23把真实原生工具和本机1.21.1 client JAR。此前只有GhostglassPick在minecraft:pickaxes，其余22把既没有原版类别tag也没有enchantable的直接扩展。1.21.1 Efficiency/Fortune/SilkTouch/Unbreaking/Mending/Sharpness等根据supported_items/primary_items标签选择，旧版基于EnchantmentCategory和Java子类的识别不再能替代这些数据链；Tier enchantability数值不能自动获得支持。此缺口也影响EnchantedCache中Ruby工具随机附魔，不能仅注册工具并声称附魔能力完整。
+
+按已核真实继承类补minecraft:axes/hoes/pickaxes/shovels/swords，replace=false，保已有值。工具原生标签传递到minecraft:enchantable/mining/mining_loot/durability/weapon等，保正常原版附魔，不为Tetra/匠魂写兼容模块、不增加自定义附魔或改原数值。主代理负责JSON修改，Luna负责实际注册/继承/原版标签图核对与processResources，完整模组前不启动任一端。其余真实原生子类同模式核查后一起补；盔甲/其他耐久物品的标签缺口单列，不把本批工具修复当全模组附魔验收。
+
+本轮同模式全项目实际子类核对后，覆盖25原生工具（ToolsContent23+两把HoeItem镰刀）、22护甲与3个普通耐久物品，共50个真实ID。实际护甲是五套全槽20件及Sentry仅头盔/胸甲2件，不是初次盘点误算的24，不伪造其不存在腿靴。按head_armor/chest_armor/leg_armor/foot_armor标准槽标签接入；其原ArmorItem子类无禁附魔覆盖，原生enchantable各槽/armor/durability/vanishing/equippable链自然继承。两镰刀为HoeItem/附魔值21，不硬塞swords获得原没有的攻击附魔。
+
+drinking_straw/silly_straw/blinding_lantern按真实damageable Item加入enchantable/durability；原1.20.1 BREAKABLE判Item.canBeDepleted，这三物品无禁附魔覆盖，允许相应书/铁砧的耐久附魔类别。普通Item的原附魔能力值0不变，不声称恢复后就能从附魔台直接抽出。吸管原消耗耐久10/285，灯笼虽耐久565但原右键没有扣耐久；本次只修标签，不擅增加灯笼损耗或改其他行为。未找到Bow/Crossbow/Shield/Trident/FishingRod实际子类。最终动态附魔台/铁砧/随机战利品/盔甲附魔效果仍待完整迁移后的两端测试。
+
+第27批冻结资源：Luna processResources --offline 已成功；50个唯一实际ID的合并标签链无缺项，验证报告见twentyseventh-enchantment-tags-static-validation.json。未启动任一游戏端，未把静态标签验证当实际附魔效果测试。

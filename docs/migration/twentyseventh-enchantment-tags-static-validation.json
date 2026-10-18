@@ -1,0 +1,716 @@
+{
+  "project_root": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged",
+  "original_vanilla_tag_source": "C:\\Users\\30819\\.gradle\\caches\\neoformruntime\\artifacts\\minecraft_1.21.1_client.jar",
+  "method": "Merge vanilla 1.21.1 client item tags with project tag values (all 10 new files use replace:false), then recursively expand #minecraft tag references.",
+  "registered_item_count": 50,
+  "unique_id_count": 50,
+  "local_item_tag_files": [
+    "axes",
+    "chest_armor",
+    "enchantable/durability",
+    "foot_armor",
+    "head_armor",
+    "hoes",
+    "leg_armor",
+    "pickaxes",
+    "planks",
+    "shovels",
+    "swords",
+    "wolf_food"
+  ],
+  "chain_summary": {
+    "axe": "axes → enchantable/sharp_weapon → enchantable/weapon; axes are also enchantable/mining, mining_loot, durability and vanishing.",
+    "hoe_pickaxe_shovel": "respective native tag → enchantable/mining and mining_loot → durability and vanishing.",
+    "sword": "swords → enchantable/sword, sharp_weapon, weapon, fire_aspect, durability and vanishing.",
+    "armor": "slot tag (head_armor/chest_armor/leg_armor/foot_armor) → matching enchantable slot tag; enchantable/armor and equippable aggregate these, durability and vanishing include them.",
+    "damageable_custom": "direct enchantable/durability entries → enchantable/vanishing."
+  },
+  "all_expected_chains_present": true,
+  "differences": [],
+  "ordinary_item_limit": "Tag membership is eligibility only. It does not make a plain Item with enchantment value 0 selectable by an enchanting table.",
+  "items": [
+    {
+      "id": "thermal_shock_reforged:bloodstone_axe",
+      "kind": "tool",
+      "native_category": "axes",
+      "specific_tag": "minecraft:axes",
+      "enchantable_tags": [
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/mining",
+        "minecraft:enchantable/mining_loot",
+        "minecraft:enchantable/sharp_weapon",
+        "minecraft:enchantable/vanishing",
+        "minecraft:enchantable/weapon"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:bone_axe",
+      "kind": "tool",
+      "native_category": "axes",
+      "specific_tag": "minecraft:axes",
+      "enchantable_tags": [
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/mining",
+        "minecraft:enchantable/mining_loot",
+        "minecraft:enchantable/sharp_weapon",
+        "minecraft:enchantable/vanishing",
+        "minecraft:enchantable/weapon"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:carborundum_axe",
+      "kind": "tool",
+      "native_category": "axes",
+      "specific_tag": "minecraft:axes",
+      "enchantable_tags": [
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/mining",
+        "minecraft:enchantable/mining_loot",
+        "minecraft:enchantable/sharp_weapon",
+        "minecraft:enchantable/vanishing",
+        "minecraft:enchantable/weapon"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:cobalt_axe",
+      "kind": "tool",
+      "native_category": "axes",
+      "specific_tag": "minecraft:axes",
+      "enchantable_tags": [
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/mining",
+        "minecraft:enchantable/mining_loot",
+        "minecraft:enchantable/sharp_weapon",
+        "minecraft:enchantable/vanishing",
+        "minecraft:enchantable/weapon"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:ruby_axe",
+      "kind": "tool",
+      "native_category": "axes",
+      "specific_tag": "minecraft:axes",
+      "enchantable_tags": [
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/mining",
+        "minecraft:enchantable/mining_loot",
+        "minecraft:enchantable/sharp_weapon",
+        "minecraft:enchantable/vanishing",
+        "minecraft:enchantable/weapon"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:stratosilver_chainsaw",
+      "kind": "tool",
+      "native_category": "axes",
+      "specific_tag": "minecraft:axes",
+      "enchantable_tags": [
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/mining",
+        "minecraft:enchantable/mining_loot",
+        "minecraft:enchantable/sharp_weapon",
+        "minecraft:enchantable/vanishing",
+        "minecraft:enchantable/weapon"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:bloodstone_hoe",
+      "kind": "tool",
+      "native_category": "hoes",
+      "specific_tag": "minecraft:hoes",
+      "enchantable_tags": [
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/mining",
+        "minecraft:enchantable/mining_loot",
+        "minecraft:enchantable/vanishing"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:ruby_hoe",
+      "kind": "tool",
+      "native_category": "hoes",
+      "specific_tag": "minecraft:hoes",
+      "enchantable_tags": [
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/mining",
+        "minecraft:enchantable/mining_loot",
+        "minecraft:enchantable/vanishing"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:ruby_sickle",
+      "kind": "tool",
+      "native_category": "hoes",
+      "specific_tag": "minecraft:hoes",
+      "enchantable_tags": [
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/mining",
+        "minecraft:enchantable/mining_loot",
+        "minecraft:enchantable/vanishing"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:bloodstone_sickle",
+      "kind": "tool",
+      "native_category": "hoes",
+      "specific_tag": "minecraft:hoes",
+      "enchantable_tags": [
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/mining",
+        "minecraft:enchantable/mining_loot",
+        "minecraft:enchantable/vanishing"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:ghostglass_pick",
+      "kind": "tool",
+      "native_category": "pickaxes",
+      "specific_tag": "minecraft:pickaxes",
+      "enchantable_tags": [
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/mining",
+        "minecraft:enchantable/mining_loot",
+        "minecraft:enchantable/vanishing"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:bloodstone_pickaxe",
+      "kind": "tool",
+      "native_category": "pickaxes",
+      "specific_tag": "minecraft:pickaxes",
+      "enchantable_tags": [
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/mining",
+        "minecraft:enchantable/mining_loot",
+        "minecraft:enchantable/vanishing"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:bone_pickaxe",
+      "kind": "tool",
+      "native_category": "pickaxes",
+      "specific_tag": "minecraft:pickaxes",
+      "enchantable_tags": [
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/mining",
+        "minecraft:enchantable/mining_loot",
+        "minecraft:enchantable/vanishing"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:carborundum_pickaxe",
+      "kind": "tool",
+      "native_category": "pickaxes",
+      "specific_tag": "minecraft:pickaxes",
+      "enchantable_tags": [
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/mining",
+        "minecraft:enchantable/mining_loot",
+        "minecraft:enchantable/vanishing"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:ruby_pickaxe",
+      "kind": "tool",
+      "native_category": "pickaxes",
+      "specific_tag": "minecraft:pickaxes",
+      "enchantable_tags": [
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/mining",
+        "minecraft:enchantable/mining_loot",
+        "minecraft:enchantable/vanishing"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:stratosilver_drill",
+      "kind": "tool",
+      "native_category": "pickaxes",
+      "specific_tag": "minecraft:pickaxes",
+      "enchantable_tags": [
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/mining",
+        "minecraft:enchantable/mining_loot",
+        "minecraft:enchantable/vanishing"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:bloodstone_shovel",
+      "kind": "tool",
+      "native_category": "shovels",
+      "specific_tag": "minecraft:shovels",
+      "enchantable_tags": [
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/mining",
+        "minecraft:enchantable/mining_loot",
+        "minecraft:enchantable/vanishing"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:bone_shovel",
+      "kind": "tool",
+      "native_category": "shovels",
+      "specific_tag": "minecraft:shovels",
+      "enchantable_tags": [
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/mining",
+        "minecraft:enchantable/mining_loot",
+        "minecraft:enchantable/vanishing"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:carborundum_shovel",
+      "kind": "tool",
+      "native_category": "shovels",
+      "specific_tag": "minecraft:shovels",
+      "enchantable_tags": [
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/mining",
+        "minecraft:enchantable/mining_loot",
+        "minecraft:enchantable/vanishing"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:ruby_shovel",
+      "kind": "tool",
+      "native_category": "shovels",
+      "specific_tag": "minecraft:shovels",
+      "enchantable_tags": [
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/mining",
+        "minecraft:enchantable/mining_loot",
+        "minecraft:enchantable/vanishing"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:stratosilver_auger",
+      "kind": "tool",
+      "native_category": "shovels",
+      "specific_tag": "minecraft:shovels",
+      "enchantable_tags": [
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/mining",
+        "minecraft:enchantable/mining_loot",
+        "minecraft:enchantable/vanishing"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:bloodstone_sword",
+      "kind": "tool",
+      "native_category": "swords",
+      "specific_tag": "minecraft:swords",
+      "enchantable_tags": [
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/fire_aspect",
+        "minecraft:enchantable/sharp_weapon",
+        "minecraft:enchantable/sword",
+        "minecraft:enchantable/vanishing",
+        "minecraft:enchantable/weapon"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:bone_sword",
+      "kind": "tool",
+      "native_category": "swords",
+      "specific_tag": "minecraft:swords",
+      "enchantable_tags": [
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/fire_aspect",
+        "minecraft:enchantable/sharp_weapon",
+        "minecraft:enchantable/sword",
+        "minecraft:enchantable/vanishing",
+        "minecraft:enchantable/weapon"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:carborundum_sword",
+      "kind": "tool",
+      "native_category": "swords",
+      "specific_tag": "minecraft:swords",
+      "enchantable_tags": [
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/fire_aspect",
+        "minecraft:enchantable/sharp_weapon",
+        "minecraft:enchantable/sword",
+        "minecraft:enchantable/vanishing",
+        "minecraft:enchantable/weapon"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:ruby_sword",
+      "kind": "tool",
+      "native_category": "swords",
+      "specific_tag": "minecraft:swords",
+      "enchantable_tags": [
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/fire_aspect",
+        "minecraft:enchantable/sharp_weapon",
+        "minecraft:enchantable/sword",
+        "minecraft:enchantable/vanishing",
+        "minecraft:enchantable/weapon"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:ruby_armor_helmet",
+      "kind": "armor",
+      "slot": "helmet",
+      "specific_tag": "minecraft:head_armor",
+      "enchantable_tags": [
+        "minecraft:enchantable/armor",
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/equippable",
+        "minecraft:enchantable/head_armor",
+        "minecraft:enchantable/vanishing"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:ruby_armor_chestplate",
+      "kind": "armor",
+      "slot": "chestplate",
+      "specific_tag": "minecraft:chest_armor",
+      "enchantable_tags": [
+        "minecraft:enchantable/armor",
+        "minecraft:enchantable/chest_armor",
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/equippable",
+        "minecraft:enchantable/vanishing"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:ruby_armor_leggings",
+      "kind": "armor",
+      "slot": "leggings",
+      "specific_tag": "minecraft:leg_armor",
+      "enchantable_tags": [
+        "minecraft:enchantable/armor",
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/equippable",
+        "minecraft:enchantable/leg_armor",
+        "minecraft:enchantable/vanishing"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:ruby_armor_boots",
+      "kind": "armor",
+      "slot": "boots",
+      "specific_tag": "minecraft:foot_armor",
+      "enchantable_tags": [
+        "minecraft:enchantable/armor",
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/equippable",
+        "minecraft:enchantable/foot_armor",
+        "minecraft:enchantable/vanishing"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:carborundum_armor_helmet",
+      "kind": "armor",
+      "slot": "helmet",
+      "specific_tag": "minecraft:head_armor",
+      "enchantable_tags": [
+        "minecraft:enchantable/armor",
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/equippable",
+        "minecraft:enchantable/head_armor",
+        "minecraft:enchantable/vanishing"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:carborundum_armor_chestplate",
+      "kind": "armor",
+      "slot": "chestplate",
+      "specific_tag": "minecraft:chest_armor",
+      "enchantable_tags": [
+        "minecraft:enchantable/armor",
+        "minecraft:enchantable/chest_armor",
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/equippable",
+        "minecraft:enchantable/vanishing"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:carborundum_armor_leggings",
+      "kind": "armor",
+      "slot": "leggings",
+      "specific_tag": "minecraft:leg_armor",
+      "enchantable_tags": [
+        "minecraft:enchantable/armor",
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/equippable",
+        "minecraft:enchantable/leg_armor",
+        "minecraft:enchantable/vanishing"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:carborundum_armor_boots",
+      "kind": "armor",
+      "slot": "boots",
+      "specific_tag": "minecraft:foot_armor",
+      "enchantable_tags": [
+        "minecraft:enchantable/armor",
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/equippable",
+        "minecraft:enchantable/foot_armor",
+        "minecraft:enchantable/vanishing"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:ruby_zenith_armor_helmet",
+      "kind": "armor",
+      "slot": "helmet",
+      "specific_tag": "minecraft:head_armor",
+      "enchantable_tags": [
+        "minecraft:enchantable/armor",
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/equippable",
+        "minecraft:enchantable/head_armor",
+        "minecraft:enchantable/vanishing"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:ruby_zenith_armor_chestplate",
+      "kind": "armor",
+      "slot": "chestplate",
+      "specific_tag": "minecraft:chest_armor",
+      "enchantable_tags": [
+        "minecraft:enchantable/armor",
+        "minecraft:enchantable/chest_armor",
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/equippable",
+        "minecraft:enchantable/vanishing"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:ruby_zenith_armor_leggings",
+      "kind": "armor",
+      "slot": "leggings",
+      "specific_tag": "minecraft:leg_armor",
+      "enchantable_tags": [
+        "minecraft:enchantable/armor",
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/equippable",
+        "minecraft:enchantable/leg_armor",
+        "minecraft:enchantable/vanishing"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:ruby_zenith_armor_boots",
+      "kind": "armor",
+      "slot": "boots",
+      "specific_tag": "minecraft:foot_armor",
+      "enchantable_tags": [
+        "minecraft:enchantable/armor",
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/equippable",
+        "minecraft:enchantable/foot_armor",
+        "minecraft:enchantable/vanishing"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:blood_zenith_armor_helmet",
+      "kind": "armor",
+      "slot": "helmet",
+      "specific_tag": "minecraft:head_armor",
+      "enchantable_tags": [
+        "minecraft:enchantable/armor",
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/equippable",
+        "minecraft:enchantable/head_armor",
+        "minecraft:enchantable/vanishing"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:blood_zenith_armor_chestplate",
+      "kind": "armor",
+      "slot": "chestplate",
+      "specific_tag": "minecraft:chest_armor",
+      "enchantable_tags": [
+        "minecraft:enchantable/armor",
+        "minecraft:enchantable/chest_armor",
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/equippable",
+        "minecraft:enchantable/vanishing"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:blood_zenith_armor_leggings",
+      "kind": "armor",
+      "slot": "leggings",
+      "specific_tag": "minecraft:leg_armor",
+      "enchantable_tags": [
+        "minecraft:enchantable/armor",
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/equippable",
+        "minecraft:enchantable/leg_armor",
+        "minecraft:enchantable/vanishing"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:blood_zenith_armor_boots",
+      "kind": "armor",
+      "slot": "boots",
+      "specific_tag": "minecraft:foot_armor",
+      "enchantable_tags": [
+        "minecraft:enchantable/armor",
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/equippable",
+        "minecraft:enchantable/foot_armor",
+        "minecraft:enchantable/vanishing"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:blood_armor_helmet",
+      "kind": "armor",
+      "slot": "helmet",
+      "specific_tag": "minecraft:head_armor",
+      "enchantable_tags": [
+        "minecraft:enchantable/armor",
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/equippable",
+        "minecraft:enchantable/head_armor",
+        "minecraft:enchantable/vanishing"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:blood_armor_chestplate",
+      "kind": "armor",
+      "slot": "chestplate",
+      "specific_tag": "minecraft:chest_armor",
+      "enchantable_tags": [
+        "minecraft:enchantable/armor",
+        "minecraft:enchantable/chest_armor",
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/equippable",
+        "minecraft:enchantable/vanishing"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:blood_armor_leggings",
+      "kind": "armor",
+      "slot": "leggings",
+      "specific_tag": "minecraft:leg_armor",
+      "enchantable_tags": [
+        "minecraft:enchantable/armor",
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/equippable",
+        "minecraft:enchantable/leg_armor",
+        "minecraft:enchantable/vanishing"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:blood_armor_boots",
+      "kind": "armor",
+      "slot": "boots",
+      "specific_tag": "minecraft:foot_armor",
+      "enchantable_tags": [
+        "minecraft:enchantable/armor",
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/equippable",
+        "minecraft:enchantable/foot_armor",
+        "minecraft:enchantable/vanishing"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:sentry_helmet",
+      "kind": "armor",
+      "slot": "helmet",
+      "specific_tag": "minecraft:head_armor",
+      "enchantable_tags": [
+        "minecraft:enchantable/armor",
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/equippable",
+        "minecraft:enchantable/head_armor",
+        "minecraft:enchantable/vanishing"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:sentry_chestplate",
+      "kind": "armor",
+      "slot": "chestplate",
+      "specific_tag": "minecraft:chest_armor",
+      "enchantable_tags": [
+        "minecraft:enchantable/armor",
+        "minecraft:enchantable/chest_armor",
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/equippable",
+        "minecraft:enchantable/vanishing"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:drinking_straw",
+      "kind": "damageable_item",
+      "specific_tag": "minecraft:enchantable/durability",
+      "enchantable_tags": [
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/vanishing"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:silly_straw",
+      "kind": "damageable_item",
+      "specific_tag": "minecraft:enchantable/durability",
+      "enchantable_tags": [
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/vanishing"
+      ],
+      "native_category_tag_member": true
+    },
+    {
+      "id": "thermal_shock_reforged:blinding_lantern",
+      "kind": "damageable_item",
+      "specific_tag": "minecraft:enchantable/durability",
+      "enchantable_tags": [
+        "minecraft:enchantable/durability",
+        "minecraft:enchantable/vanishing"
+      ],
+      "native_category_tag_member": true
+    }
+  ]
+}
