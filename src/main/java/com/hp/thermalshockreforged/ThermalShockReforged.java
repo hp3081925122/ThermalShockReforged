@@ -80,6 +80,8 @@ public final class ThermalShockReforged {
         MusicContent.register(bus);
         NativeDecorContent.register(bus);
         GeoDecorContent.register(bus);
+        com.hp.thermalshockreforged.entity.springslime.SpringslimeContent.register(bus);
+        com.hp.thermalshockreforged.content.dialogue.DialogueContent.register(bus);
         com.hp.thermalshockreforged.content.atlas.AtlasContent.register(bus);
         SpecialDoorsContent.register(bus);
         CrateContent.register(bus);
