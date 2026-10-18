@@ -8,6 +8,14 @@ import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.shapes.*;
 
 public enum GeoDecorKind {
+    SHALE_PILLAR("shale_pillar", "Shale Pillar §d[Blank]", "geo/pillar_statue.geo.json", "textures/block/pillarextended.png", "animations/pillar_statue.animation.json", Block.box(1, 0.1, 1, 15, 47.9, 15), true, false),
+    SHALE_PILLAR_VAR_2("shale_pillar_var_2", "Shale Pillar §d[Spawn]", "geo/pillar_statue.geo.json", "textures/block/pillarstatue1.png", "animations/pillar_statue.animation.json", Block.box(1, 0.1, 1, 15, 47.9, 15), true, false),
+    SHALE_PILLAR_VAR_3("shale_pillar_var_3", "Shale Pillar §d[Fuzz]", "geo/pillar_statue.geo.json", "textures/block/pillarstatue3.png", "animations/pillar_statue.animation.json", Block.box(1, 0.1, 1, 15, 47.9, 15), true, false),
+    SHALE_PILLAR_VAR_4("shale_pillar_var_4", "Shale Pillar §d[Depth]", "geo/pillar_statue.geo.json", "textures/block/pillarstatue7.png", "animations/pillar_statue.animation.json", Block.box(1, 0.1, 1, 15, 47.9, 15), true, false),
+    SHALE_PILLAR_VAR_5("shale_pillar_var_5", "Shale Pillar §d[Garden]", "geo/pillar_statue.geo.json", "textures/block/pillarstatue4.png", "animations/pillar_statue.animation.json", Block.box(1, 0.1, 1, 15, 47.9, 15), true, false),
+    SHALE_PILLAR_VAR_6("shale_pillar_var_6", "Shale Pillar §d[Pathos]", "geo/pillar_statue.geo.json", "textures/block/pillarstatue6.png", "animations/pillar_statue.animation.json", Block.box(1, 0.1, 1, 15, 47.9, 15), true, false),
+    SHALE_PILLAR_VAR_7("shale_pillar_var_7", "Shale Pillar §d[Azazel]", "geo/pillar_statue.geo.json", "textures/block/pillarstatue5.png", "animations/pillar_statue.animation.json", Block.box(1, 0.1, 1, 15, 47.9, 15), true, false),
+    SHALE_PILLAR_VAR_8("shale_pillar_var_8", "Shale Pillar §d[Monolith]", "geo/pillar_statue.geo.json", "textures/block/pillarstatue2.png", "animations/pillar_statue.animation.json", Block.box(1, 0.1, 1, 15, 47.9, 15), true, false),
     ENCHANTED_CACHE("enchanted_cache", "Enchanted Cache", "geo/enchanted_cache.geo.json", "textures/block/textureenchantcache.png", "animations/enchanted_cache.animation.json", Block.box(0, 0, 0, 16, 28, 16), false, false),
     SHALE_POT("shale_pot", "Shale Pot", "geo/stone_pot.geo.json", "textures/block/pot1.png", "animations/stone_pot.animation.json", Block.box(2, 0, 2, 14, 16, 14), false, false),
     PATHIOLITE_OUTCROP("pathiolite_outcrop", "pathiolite_outcrop", "geo/fluorite_ore.geo.json", "textures/block/pathiolite_outcrop.png", "animations/fluorite_ore.animation.json", Shapes.block(), false, false),
@@ -62,6 +70,7 @@ public enum GeoDecorKind {
     }
     public BlockBehaviour.Properties properties() {
         return switch (this) {
+            case SHALE_PILLAR, SHALE_PILLAR_VAR_2, SHALE_PILLAR_VAR_3, SHALE_PILLAR_VAR_4, SHALE_PILLAR_VAR_5, SHALE_PILLAR_VAR_6, SHALE_PILLAR_VAR_7, SHALE_PILLAR_VAR_8 -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).sound(SoundType.BASALT).strength(2, 10).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((state, level, pos) -> false);
             case ENCHANTED_CACHE -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.AMETHYST_CLUSTER).strength(-1, 3600000).lightLevel(state -> 12).noOcclusion().pushReaction(PushReaction.BLOCK).isRedstoneConductor((state, level, pos) -> false).noLootTable();
             case SHALE_POT -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).sound(SoundType.DECORATED_POT).strength(0.5F, 0).noOcclusion().pushReaction(PushReaction.DESTROY).isRedstoneConductor((state, level, pos) -> false);
             case PATHIOLITE_OUTCROP -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERRACK).strength(6, 5).lightLevel(state -> 6).requiresCorrectToolForDrops();

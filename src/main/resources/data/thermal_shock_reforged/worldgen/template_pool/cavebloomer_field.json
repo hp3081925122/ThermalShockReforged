@@ -1,0 +1,15 @@
+{
+  "name": "thermal_shock_reforged:cavebloomer_field",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "thermal_shock_reforged:cavebloomer_field",
+        "projection": "rigid",
+        "processors": "thermal_shock_reforged:cavebloomer_field_processor"
+      }
+    }
+  ]
+}
