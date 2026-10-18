@@ -1,0 +1,767 @@
+{
+  "scope": "第25批Ghostglass Pick完整工具与攀爬、Enchanted Cache25奖励及6个完整地下模板",
+  "implementation_owner": "主代理",
+  "verification_owner": "Luna",
+  "compile": {
+    "tasks": [
+      "compileJava",
+      "compileGametestJava",
+      "processResources"
+    ],
+    "java": 21,
+    "offline": true,
+    "result": "BUILD SUCCESSFUL",
+    "duration_seconds": 47,
+    "log": "D:/AI临时文件/ThermalShockMigration/twentyfifth-cache-compile.log"
+  },
+  "ghostglass_pick": {
+    "tier": "422/29/baseDamage0/旧level2→INCORRECT_FOR_IRON_TOOL/enchant19/malachite修理",
+    "attributes": "原modifier1/speed-2.8",
+    "climb": "非aqeron/非潜行/水平面→velocity0,.4,0与CD5，客户端两声，仅原有效果无耐久消费",
+    "tooltip_and_tags": "原tooltip+标准pickaxes标签",
+    "manufacturing": "原Fabricator指南/页面/制造真实入口后续待迁，没造普通合成替代；当前真实宝箱来源已迁"
+  },
+  "enchanted_cache": {
+    "body": "原Geo/9槽六面/动画0和1/半透明/原0..16×0..28碰撞/-1硬度/3600000抗爆/light12等保",
+    "assets_sha": "textureenchantcache.png/enchanted_cache.geo.json/enchanted_cache.animation.json均同原JAR",
+    "map_color": "原未显式MapColor；新增LIGHT_GREEN按root实际查看绿/黄绿原贴图，用户Xaero要求，不声称原显式有绿色",
+    "base_gate": [
+      "ferrous_cache_pad",
+      "shale_cache_pad"
+    ],
+    "reward": "25项/3池(6/7/12)/roll1、1..2、0..1，全部ID/权重/数量/3个Ruby工具0..1 treasure/随机序列保",
+    "loot_context": "原命令loot spawn→原生CHEST，仅ORIGIN(center)，无玩家或Luck",
+    "repair_boundaries": [
+      "先确认当前块/BE/基座/真实表；缺表保块",
+      "claim防重复；实际销毁失败释放锁，销毁成功后开奖一次",
+      "服务端统一广播原参数声音，防两端重复",
+      "真实9槽内容移除时正常掉出，不吞库存"
+    ]
+  },
+  "underground": {
+    "files": [
+      "underbase1",
+      "underbase2",
+      "underbase3",
+      "undercabin2",
+      "undercabin3",
+      "undercabin4"
+    ],
+    "all_reverse_namespace_payload_byte_equal": true,
+    "all_other_tag_bytes_unchanged": true,
+    "be_fields": "每个原BE只有id/空Items，无LootTable/ForgeData",
+    "data_version": "保原；目标StructureTemplateManager.readStructure调用DataFixTypes.STRUCTURE.updateToCurrentVersion",
+    "config": "原2组选3各分支/旋转镜像/ignored white_concrete_powder、rarity25/count1..2/Y[-60,16]/in_square/biome/step全保；引用已迁真实structure_feature",
+    "rewrite_details": [
+      {
+        "name": "underbase1",
+        "source": "data/thermal_shock/structures/underbase1.nbt",
+        "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\data\\thermal_shock_reforged\\structure\\underbase1.nbt",
+        "changed_strings": [
+          {
+            "path": "$.blocks[2233].nbt.id",
+            "before": "thermal_shock:shale_pot",
+            "after": "thermal_shock_reforged:shale_pot"
+          },
+          {
+            "path": "$.blocks[2234].nbt.id",
+            "before": "thermal_shock:shale_pot",
+            "after": "thermal_shock_reforged:shale_pot"
+          },
+          {
+            "path": "$.blocks[2235].nbt.id",
+            "before": "thermal_shock:shale_pot",
+            "after": "thermal_shock_reforged:shale_pot"
+          },
+          {
+            "path": "$.blocks[2236].nbt.id",
+            "before": "thermal_shock:shale_pot",
+            "after": "thermal_shock_reforged:shale_pot"
+          },
+          {
+            "path": "$.blocks[2237].nbt.id",
+            "before": "thermal_shock:shale_pot",
+            "after": "thermal_shock_reforged:shale_pot"
+          },
+          {
+            "path": "$.blocks[2238].nbt.id",
+            "before": "thermal_shock:shale_pot",
+            "after": "thermal_shock_reforged:shale_pot"
+          },
+          {
+            "path": "$.blocks[2239].nbt.id",
+            "before": "thermal_shock:shale_pot",
+            "after": "thermal_shock_reforged:shale_pot"
+          },
+          {
+            "path": "$.palette[0].Name",
+            "before": "thermal_shock:shale_bricks",
+            "after": "thermal_shock_reforged:shale_bricks"
+          },
+          {
+            "path": "$.palette[1].Name",
+            "before": "thermal_shock:cobbled_shale",
+            "after": "thermal_shock_reforged:cobbled_shale"
+          },
+          {
+            "path": "$.palette[2].Name",
+            "before": "thermal_shock:spirewood_planks",
+            "after": "thermal_shock_reforged:spirewood_planks"
+          },
+          {
+            "path": "$.palette[3].Name",
+            "before": "thermal_shock:spirewood_log",
+            "after": "thermal_shock_reforged:spirewood_log"
+          },
+          {
+            "path": "$.palette[4].Name",
+            "before": "thermal_shock:spirewood_log",
+            "after": "thermal_shock_reforged:spirewood_log"
+          },
+          {
+            "path": "$.palette[5].Name",
+            "before": "thermal_shock:ferrum_crate",
+            "after": "thermal_shock_reforged:ferrum_crate"
+          },
+          {
+            "path": "$.palette[6].Name",
+            "before": "thermal_shock:spirewood_log",
+            "after": "thermal_shock_reforged:spirewood_log"
+          },
+          {
+            "path": "$.palette[8].Name",
+            "before": "thermal_shock:shale_brick_stairs",
+            "after": "thermal_shock_reforged:shale_brick_stairs"
+          },
+          {
+            "path": "$.palette[10].Name",
+            "before": "thermal_shock:shale_brick_stairs",
+            "after": "thermal_shock_reforged:shale_brick_stairs"
+          },
+          {
+            "path": "$.palette[11].Name",
+            "before": "thermal_shock:shale_brick_stairs",
+            "after": "thermal_shock_reforged:shale_brick_stairs"
+          },
+          {
+            "path": "$.palette[12].Name",
+            "before": "thermal_shock:shale_brick_stairs",
+            "after": "thermal_shock_reforged:shale_brick_stairs"
+          },
+          {
+            "path": "$.palette[13].Name",
+            "before": "thermal_shock:shale_brick_stairs",
+            "after": "thermal_shock_reforged:shale_brick_stairs"
+          },
+          {
+            "path": "$.palette[14].Name",
+            "before": "thermal_shock:spirewood_slab",
+            "after": "thermal_shock_reforged:spirewood_slab"
+          },
+          {
+            "path": "$.palette[15].Name",
+            "before": "thermal_shock:spirewood_fence",
+            "after": "thermal_shock_reforged:spirewood_fence"
+          },
+          {
+            "path": "$.palette[16].Name",
+            "before": "thermal_shock:spirewood_fence",
+            "after": "thermal_shock_reforged:spirewood_fence"
+          },
+          {
+            "path": "$.palette[17].Name",
+            "before": "thermal_shock:spirewood_pressure_plate",
+            "after": "thermal_shock_reforged:spirewood_pressure_plate"
+          },
+          {
+            "path": "$.palette[18].Name",
+            "before": "thermal_shock:spirewood_fence",
+            "after": "thermal_shock_reforged:spirewood_fence"
+          },
+          {
+            "path": "$.palette[19].Name",
+            "before": "thermal_shock:spirewood_fence",
+            "after": "thermal_shock_reforged:spirewood_fence"
+          },
+          {
+            "path": "$.palette[20].Name",
+            "before": "thermal_shock:shale_pot",
+            "after": "thermal_shock_reforged:shale_pot"
+          }
+        ],
+        "source_payload_sha256": "9d243e6d26b603565d49e24ab292577a563c09343f64a704c19204ae1d8599b1",
+        "target_payload_sha256": "5cd488088475332bbccfba19d66f03a0314464deac65389861130cb1faf57290",
+        "reverse_namespace_payload_byte_equal": true,
+        "all_other_tag_bytes_unchanged": true
+      },
+      {
+        "name": "underbase2",
+        "source": "data/thermal_shock/structures/underbase2.nbt",
+        "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\data\\thermal_shock_reforged\\structure\\underbase2.nbt",
+        "changed_strings": [
+          {
+            "path": "$.blocks[2234].nbt.id",
+            "before": "thermal_shock:shale_pot",
+            "after": "thermal_shock_reforged:shale_pot"
+          },
+          {
+            "path": "$.blocks[2235].nbt.id",
+            "before": "thermal_shock:shale_pot",
+            "after": "thermal_shock_reforged:shale_pot"
+          },
+          {
+            "path": "$.blocks[2236].nbt.id",
+            "before": "thermal_shock:shale_pot",
+            "after": "thermal_shock_reforged:shale_pot"
+          },
+          {
+            "path": "$.blocks[2237].nbt.id",
+            "before": "thermal_shock:shale_pot",
+            "after": "thermal_shock_reforged:shale_pot"
+          },
+          {
+            "path": "$.blocks[2238].nbt.id",
+            "before": "thermal_shock:shale_pot",
+            "after": "thermal_shock_reforged:shale_pot"
+          },
+          {
+            "path": "$.blocks[2239].nbt.id",
+            "before": "thermal_shock:shale_pot",
+            "after": "thermal_shock_reforged:shale_pot"
+          },
+          {
+            "path": "$.palette[0].Name",
+            "before": "thermal_shock:shale_bricks",
+            "after": "thermal_shock_reforged:shale_bricks"
+          },
+          {
+            "path": "$.palette[1].Name",
+            "before": "thermal_shock:planter_box",
+            "after": "thermal_shock_reforged:planter_box"
+          },
+          {
+            "path": "$.palette[2].Name",
+            "before": "thermal_shock:spirewood_planks",
+            "after": "thermal_shock_reforged:spirewood_planks"
+          },
+          {
+            "path": "$.palette[3].Name",
+            "before": "thermal_shock:permafrost",
+            "after": "thermal_shock_reforged:permafrost"
+          },
+          {
+            "path": "$.palette[4].Name",
+            "before": "thermal_shock:spirewood_log",
+            "after": "thermal_shock_reforged:spirewood_log"
+          },
+          {
+            "path": "$.palette[5].Name",
+            "before": "thermal_shock:spirewood_log",
+            "after": "thermal_shock_reforged:spirewood_log"
+          },
+          {
+            "path": "$.palette[6].Name",
+            "before": "thermal_shock:ferrum_crate",
+            "after": "thermal_shock_reforged:ferrum_crate"
+          },
+          {
+            "path": "$.palette[7].Name",
+            "before": "thermal_shock:shale_lamp",
+            "after": "thermal_shock_reforged:shale_lamp"
+          },
+          {
+            "path": "$.palette[8].Name",
+            "before": "thermal_shock:spirewood_log",
+            "after": "thermal_shock_reforged:spirewood_log"
+          },
+          {
+            "path": "$.palette[9].Name",
+            "before": "thermal_shock:dark_loque_leaves",
+            "after": "thermal_shock_reforged:dark_loque_leaves"
+          },
+          {
+            "path": "$.palette[11].Name",
+            "before": "thermal_shock:shale_brick_stairs",
+            "after": "thermal_shock_reforged:shale_brick_stairs"
+          },
+          {
+            "path": "$.palette[12].Name",
+            "before": "thermal_shock:short_loque_grass",
+            "after": "thermal_shock_reforged:short_loque_grass"
+          },
+          {
+            "path": "$.palette[13].Name",
+            "before": "thermal_shock:tall_frosted_grass",
+            "after": "thermal_shock_reforged:tall_frosted_grass"
+          },
+          {
+            "path": "$.palette[14].Name",
+            "before": "thermal_shock:shale_brick_stairs",
+            "after": "thermal_shock_reforged:shale_brick_stairs"
+          },
+          {
+            "path": "$.palette[15].Name",
+            "before": "thermal_shock:shale_brick_stairs",
+            "after": "thermal_shock_reforged:shale_brick_stairs"
+          },
+          {
+            "path": "$.palette[16].Name",
+            "before": "thermal_shock:shale_brick_stairs",
+            "after": "thermal_shock_reforged:shale_brick_stairs"
+          },
+          {
+            "path": "$.palette[17].Name",
+            "before": "thermal_shock:shale_brick_stairs",
+            "after": "thermal_shock_reforged:shale_brick_stairs"
+          },
+          {
+            "path": "$.palette[18].Name",
+            "before": "thermal_shock:spirewood_slab",
+            "after": "thermal_shock_reforged:spirewood_slab"
+          },
+          {
+            "path": "$.palette[19].Name",
+            "before": "thermal_shock:shale_pot",
+            "after": "thermal_shock_reforged:shale_pot"
+          }
+        ],
+        "source_payload_sha256": "c53377e55bcd0387d3c72f34e62a7422bbf0388b6e7474a8aeb4d68f9a8d96c8",
+        "target_payload_sha256": "9e3f75b790a4d48424af1417fbab3d173ec45544f571649db0df5627d870c18a",
+        "reverse_namespace_payload_byte_equal": true,
+        "all_other_tag_bytes_unchanged": true
+      },
+      {
+        "name": "underbase3",
+        "source": "data/thermal_shock/structures/underbase3.nbt",
+        "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\data\\thermal_shock_reforged\\structure\\underbase3.nbt",
+        "changed_strings": [
+          {
+            "path": "$.blocks[2234].nbt.id",
+            "before": "thermal_shock:shale_cache_pad",
+            "after": "thermal_shock_reforged:shale_cache_pad"
+          },
+          {
+            "path": "$.blocks[2235].nbt.id",
+            "before": "thermal_shock:enchanted_cache",
+            "after": "thermal_shock_reforged:enchanted_cache"
+          },
+          {
+            "path": "$.blocks[2236].nbt.id",
+            "before": "thermal_shock:shale_pot",
+            "after": "thermal_shock_reforged:shale_pot"
+          },
+          {
+            "path": "$.blocks[2237].nbt.id",
+            "before": "thermal_shock:shale_pot",
+            "after": "thermal_shock_reforged:shale_pot"
+          },
+          {
+            "path": "$.blocks[2238].nbt.id",
+            "before": "thermal_shock:shale_pot",
+            "after": "thermal_shock_reforged:shale_pot"
+          },
+          {
+            "path": "$.blocks[2239].nbt.id",
+            "before": "thermal_shock:shale_pot",
+            "after": "thermal_shock_reforged:shale_pot"
+          },
+          {
+            "path": "$.palette[0].Name",
+            "before": "thermal_shock:shale_bricks",
+            "after": "thermal_shock_reforged:shale_bricks"
+          },
+          {
+            "path": "$.palette[1].Name",
+            "before": "thermal_shock:spirewood_planks",
+            "after": "thermal_shock_reforged:spirewood_planks"
+          },
+          {
+            "path": "$.palette[2].Name",
+            "before": "thermal_shock:spirewood_log",
+            "after": "thermal_shock_reforged:spirewood_log"
+          },
+          {
+            "path": "$.palette[3].Name",
+            "before": "thermal_shock:spirewood_log",
+            "after": "thermal_shock_reforged:spirewood_log"
+          },
+          {
+            "path": "$.palette[4].Name",
+            "before": "thermal_shock:spirewood_log",
+            "after": "thermal_shock_reforged:spirewood_log"
+          },
+          {
+            "path": "$.palette[5].Name",
+            "before": "thermal_shock:ferrum_crate",
+            "after": "thermal_shock_reforged:ferrum_crate"
+          },
+          {
+            "path": "$.palette[8].Name",
+            "before": "thermal_shock:shale_brick_stairs",
+            "after": "thermal_shock_reforged:shale_brick_stairs"
+          },
+          {
+            "path": "$.palette[9].Name",
+            "before": "thermal_shock:shale_brick_stairs",
+            "after": "thermal_shock_reforged:shale_brick_stairs"
+          },
+          {
+            "path": "$.palette[10].Name",
+            "before": "thermal_shock:shale_brick_stairs",
+            "after": "thermal_shock_reforged:shale_brick_stairs"
+          },
+          {
+            "path": "$.palette[11].Name",
+            "before": "thermal_shock:shale_brick_stairs",
+            "after": "thermal_shock_reforged:shale_brick_stairs"
+          },
+          {
+            "path": "$.palette[12].Name",
+            "before": "thermal_shock:shale_brick_stairs",
+            "after": "thermal_shock_reforged:shale_brick_stairs"
+          },
+          {
+            "path": "$.palette[13].Name",
+            "before": "thermal_shock:spirewood_slab",
+            "after": "thermal_shock_reforged:spirewood_slab"
+          },
+          {
+            "path": "$.palette[14].Name",
+            "before": "thermal_shock:spirewood_stairs",
+            "after": "thermal_shock_reforged:spirewood_stairs"
+          },
+          {
+            "path": "$.palette[15].Name",
+            "before": "thermal_shock:bordered_spirewood_wall",
+            "after": "thermal_shock_reforged:bordered_spirewood_wall"
+          },
+          {
+            "path": "$.palette[16].Name",
+            "before": "thermal_shock:bordered_spirewood_wall",
+            "after": "thermal_shock_reforged:bordered_spirewood_wall"
+          },
+          {
+            "path": "$.palette[17].Name",
+            "before": "thermal_shock:spirewood_fence",
+            "after": "thermal_shock_reforged:spirewood_fence"
+          },
+          {
+            "path": "$.palette[18].Name",
+            "before": "thermal_shock:spirewood_fence",
+            "after": "thermal_shock_reforged:spirewood_fence"
+          },
+          {
+            "path": "$.palette[19].Name",
+            "before": "thermal_shock:bordered_spirewood_wall",
+            "after": "thermal_shock_reforged:bordered_spirewood_wall"
+          },
+          {
+            "path": "$.palette[20].Name",
+            "before": "thermal_shock:spirewood_stairs",
+            "after": "thermal_shock_reforged:spirewood_stairs"
+          },
+          {
+            "path": "$.palette[21].Name",
+            "before": "thermal_shock:bordered_spirewood_wall",
+            "after": "thermal_shock_reforged:bordered_spirewood_wall"
+          },
+          {
+            "path": "$.palette[22].Name",
+            "before": "thermal_shock:bordered_spirewood_wall",
+            "after": "thermal_shock_reforged:bordered_spirewood_wall"
+          },
+          {
+            "path": "$.palette[23].Name",
+            "before": "thermal_shock:bordered_spirewood_wall",
+            "after": "thermal_shock_reforged:bordered_spirewood_wall"
+          },
+          {
+            "path": "$.palette[24].Name",
+            "before": "thermal_shock:spirewood_pressure_plate",
+            "after": "thermal_shock_reforged:spirewood_pressure_plate"
+          },
+          {
+            "path": "$.palette[25].Name",
+            "before": "thermal_shock:shale_cache_pad",
+            "after": "thermal_shock_reforged:shale_cache_pad"
+          },
+          {
+            "path": "$.palette[26].Name",
+            "before": "thermal_shock:enchanted_cache",
+            "after": "thermal_shock_reforged:enchanted_cache"
+          },
+          {
+            "path": "$.palette[27].Name",
+            "before": "thermal_shock:shale_pot",
+            "after": "thermal_shock_reforged:shale_pot"
+          }
+        ],
+        "source_payload_sha256": "d3ebed398471d9d110ec6e2274d3065c4143d09b45bbb7548c913c20b624ae78",
+        "target_payload_sha256": "75972c723f6134600677ccd1596ad3924223d6e292637d8cfcb9695ba865fa61",
+        "reverse_namespace_payload_byte_equal": true,
+        "all_other_tag_bytes_unchanged": true
+      },
+      {
+        "name": "undercabin2",
+        "source": "data/thermal_shock/structures/undercabin2.nbt",
+        "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\data\\thermal_shock_reforged\\structure\\undercabin2.nbt",
+        "changed_strings": [
+          {
+            "path": "$.blocks[382].nbt.id",
+            "before": "thermal_shock:shale_pot",
+            "after": "thermal_shock_reforged:shale_pot"
+          },
+          {
+            "path": "$.blocks[383].nbt.id",
+            "before": "thermal_shock:shale_pot",
+            "after": "thermal_shock_reforged:shale_pot"
+          },
+          {
+            "path": "$.blocks[384].nbt.id",
+            "before": "thermal_shock:shale_pot",
+            "after": "thermal_shock_reforged:shale_pot"
+          },
+          {
+            "path": "$.palette[0].Name",
+            "before": "thermal_shock:shale_bricks",
+            "after": "thermal_shock_reforged:shale_bricks"
+          },
+          {
+            "path": "$.palette[1].Name",
+            "before": "thermal_shock:spirewood_planks",
+            "after": "thermal_shock_reforged:spirewood_planks"
+          },
+          {
+            "path": "$.palette[2].Name",
+            "before": "thermal_shock:spirewood_log",
+            "after": "thermal_shock_reforged:spirewood_log"
+          },
+          {
+            "path": "$.palette[3].Name",
+            "before": "thermal_shock:spirewood_log",
+            "after": "thermal_shock_reforged:spirewood_log"
+          },
+          {
+            "path": "$.palette[4].Name",
+            "before": "thermal_shock:ferrum_crate",
+            "after": "thermal_shock_reforged:ferrum_crate"
+          },
+          {
+            "path": "$.palette[5].Name",
+            "before": "thermal_shock:spirewood_log",
+            "after": "thermal_shock_reforged:spirewood_log"
+          },
+          {
+            "path": "$.palette[6].Name",
+            "before": "thermal_shock:shale_brick_stairs",
+            "after": "thermal_shock_reforged:shale_brick_stairs"
+          },
+          {
+            "path": "$.palette[8].Name",
+            "before": "thermal_shock:spirewood_stairs",
+            "after": "thermal_shock_reforged:spirewood_stairs"
+          },
+          {
+            "path": "$.palette[9].Name",
+            "before": "thermal_shock:spirewood_fence",
+            "after": "thermal_shock_reforged:spirewood_fence"
+          },
+          {
+            "path": "$.palette[10].Name",
+            "before": "thermal_shock:spirewood_stairs",
+            "after": "thermal_shock_reforged:spirewood_stairs"
+          },
+          {
+            "path": "$.palette[12].Name",
+            "before": "thermal_shock:spirewood_pressure_plate",
+            "after": "thermal_shock_reforged:spirewood_pressure_plate"
+          },
+          {
+            "path": "$.palette[13].Name",
+            "before": "thermal_shock:shale_pot",
+            "after": "thermal_shock_reforged:shale_pot"
+          }
+        ],
+        "source_payload_sha256": "40c23231d8abf2063dda0f468c906b1f1188b7c0b02ac7ea9333fe31c23dcf52",
+        "target_payload_sha256": "1cc8a30e3f5ff3e5821f427a7f5849e74a998158ea83e65730f44c9535002d9e",
+        "reverse_namespace_payload_byte_equal": true,
+        "all_other_tag_bytes_unchanged": true
+      },
+      {
+        "name": "undercabin3",
+        "source": "data/thermal_shock/structures/undercabin3.nbt",
+        "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\data\\thermal_shock_reforged\\structure\\undercabin3.nbt",
+        "changed_strings": [
+          {
+            "path": "$.blocks[384].nbt.id",
+            "before": "thermal_shock:shale_pot",
+            "after": "thermal_shock_reforged:shale_pot"
+          },
+          {
+            "path": "$.palette[0].Name",
+            "before": "thermal_shock:shale_bricks",
+            "after": "thermal_shock_reforged:shale_bricks"
+          },
+          {
+            "path": "$.palette[1].Name",
+            "before": "thermal_shock:spirewood_planks",
+            "after": "thermal_shock_reforged:spirewood_planks"
+          },
+          {
+            "path": "$.palette[2].Name",
+            "before": "thermal_shock:spirewood_log",
+            "after": "thermal_shock_reforged:spirewood_log"
+          },
+          {
+            "path": "$.palette[3].Name",
+            "before": "thermal_shock:spirewood_log",
+            "after": "thermal_shock_reforged:spirewood_log"
+          },
+          {
+            "path": "$.palette[4].Name",
+            "before": "thermal_shock:ferrum_crate",
+            "after": "thermal_shock_reforged:ferrum_crate"
+          },
+          {
+            "path": "$.palette[5].Name",
+            "before": "thermal_shock:spirewood_log",
+            "after": "thermal_shock_reforged:spirewood_log"
+          },
+          {
+            "path": "$.palette[6].Name",
+            "before": "thermal_shock:shale_lamp",
+            "after": "thermal_shock_reforged:shale_lamp"
+          },
+          {
+            "path": "$.palette[7].Name",
+            "before": "thermal_shock:shale_brick_stairs",
+            "after": "thermal_shock_reforged:shale_brick_stairs"
+          },
+          {
+            "path": "$.palette[9].Name",
+            "before": "thermal_shock:spirewood_stairs",
+            "after": "thermal_shock_reforged:spirewood_stairs"
+          },
+          {
+            "path": "$.palette[11].Name",
+            "before": "thermal_shock:spirewood_stairs",
+            "after": "thermal_shock_reforged:spirewood_stairs"
+          },
+          {
+            "path": "$.palette[12].Name",
+            "before": "thermal_shock:shale_pot",
+            "after": "thermal_shock_reforged:shale_pot"
+          }
+        ],
+        "source_payload_sha256": "8a359924421837e5de84ce8b138216d20f53cd7ed0be191a274696f250c13ecc",
+        "target_payload_sha256": "ffd3153fac5bf13060d9e12b38ded1cc46fb531d8e03f5ceac4a64f7e230fb56",
+        "reverse_namespace_payload_byte_equal": true,
+        "all_other_tag_bytes_unchanged": true
+      },
+      {
+        "name": "undercabin4",
+        "source": "data/thermal_shock/structures/undercabin4.nbt",
+        "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\data\\thermal_shock_reforged\\structure\\undercabin4.nbt",
+        "changed_strings": [
+          {
+            "path": "$.blocks[381].nbt.id",
+            "before": "thermal_shock:shale_cache_pad",
+            "after": "thermal_shock_reforged:shale_cache_pad"
+          },
+          {
+            "path": "$.blocks[382].nbt.id",
+            "before": "thermal_shock:shale_pot",
+            "after": "thermal_shock_reforged:shale_pot"
+          },
+          {
+            "path": "$.blocks[383].nbt.id",
+            "before": "thermal_shock:enchanted_cache",
+            "after": "thermal_shock_reforged:enchanted_cache"
+          },
+          {
+            "path": "$.blocks[384].nbt.id",
+            "before": "thermal_shock:shale_pot",
+            "after": "thermal_shock_reforged:shale_pot"
+          },
+          {
+            "path": "$.palette[0].Name",
+            "before": "thermal_shock:shale_bricks",
+            "after": "thermal_shock_reforged:shale_bricks"
+          },
+          {
+            "path": "$.palette[1].Name",
+            "before": "thermal_shock:spirewood_planks",
+            "after": "thermal_shock_reforged:spirewood_planks"
+          },
+          {
+            "path": "$.palette[2].Name",
+            "before": "thermal_shock:spirewood_log",
+            "after": "thermal_shock_reforged:spirewood_log"
+          },
+          {
+            "path": "$.palette[3].Name",
+            "before": "thermal_shock:spirewood_log",
+            "after": "thermal_shock_reforged:spirewood_log"
+          },
+          {
+            "path": "$.palette[4].Name",
+            "before": "thermal_shock:spirewood_log",
+            "after": "thermal_shock_reforged:spirewood_log"
+          },
+          {
+            "path": "$.palette[5].Name",
+            "before": "thermal_shock:shale_brick_stairs",
+            "after": "thermal_shock_reforged:shale_brick_stairs"
+          },
+          {
+            "path": "$.palette[7].Name",
+            "before": "thermal_shock:spirewood_stairs",
+            "after": "thermal_shock_reforged:spirewood_stairs"
+          },
+          {
+            "path": "$.palette[8].Name",
+            "before": "thermal_shock:spirewood_fence",
+            "after": "thermal_shock_reforged:spirewood_fence"
+          },
+          {
+            "path": "$.palette[9].Name",
+            "before": "thermal_shock:spirewood_door",
+            "after": "thermal_shock_reforged:spirewood_door"
+          },
+          {
+            "path": "$.palette[11].Name",
+            "before": "thermal_shock:spirewood_pressure_plate",
+            "after": "thermal_shock_reforged:spirewood_pressure_plate"
+          },
+          {
+            "path": "$.palette[12].Name",
+            "before": "thermal_shock:spirewood_door",
+            "after": "thermal_shock_reforged:spirewood_door"
+          },
+          {
+            "path": "$.palette[13].Name",
+            "before": "thermal_shock:shale_cache_pad",
+            "after": "thermal_shock_reforged:shale_cache_pad"
+          },
+          {
+            "path": "$.palette[14].Name",
+            "before": "thermal_shock:shale_pot",
+            "after": "thermal_shock_reforged:shale_pot"
+          },
+          {
+            "path": "$.palette[15].Name",
+            "before": "thermal_shock:enchanted_cache",
+            "after": "thermal_shock_reforged:enchanted_cache"
+          }
+        ],
+        "source_payload_sha256": "cd87d5fef3168e16f88556b8f330878d482dc59cc8157745e8bf63b4cadfe12b",
+        "target_payload_sha256": "823601d5821ee703c9b5a48b82075140eaf6e6f677456ba42a185ba962d62782",
+        "reverse_namespace_payload_byte_equal": true,
+        "all_other_tag_bytes_unchanged": true
+      }
+    ]
+  },
+  "remaining_shared_features_after_25": 7,
+  "runtime_started": false,
+  "whole_mod_complete": false
+}

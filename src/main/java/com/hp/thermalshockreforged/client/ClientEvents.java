@@ -56,6 +56,7 @@ public final class ClientEvents {
     @SubscribeEvent
     public static void renderers(EntityRenderersEvent.RegisterRenderers event) {
         CavebloomerClient.renderers(event);
+        event.registerEntityRenderer(com.hp.thermalshockreforged.world.thermite.ThermiteContent.DETONATION.get(), ThermiteDetonationRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.entity.pots.PotContent.SKULLSCOR.get(), com.hp.thermalshockreforged.client.pots.SkullscorRenderer::new);
         FaunaRenderers.register(event);
         InfestationRenderers.register(event);
@@ -84,6 +85,16 @@ public final class ClientEvents {
         event.registerEntityRenderer(ModEntities.FORECAST.get(), ForecastRenderer::new);
         event.registerEntityRenderer(ModEntities.GALVANITE.get(), GalvaniteRenderer::new);
         event.registerEntityRenderer(ModEntities.ZAP.get(), InvisibleWarningRenderer::new);
+    }
+
+    @SubscribeEvent
+    public static void dimensionEffects(net.neoforged.neoforge.client.event.RegisterDimensionSpecialEffectsEvent event) {
+        event.register(LoqendiaContent.LOQENDIA_ID, new net.minecraft.client.renderer.DimensionSpecialEffects(150, true, net.minecraft.client.renderer.DimensionSpecialEffects.SkyType.NORMAL, false, false) {
+            @Override public net.minecraft.world.phys.Vec3 getBrightnessDependentFogColor(net.minecraft.world.phys.Vec3 color, float sunHeight) {
+                return color.multiply(sunHeight * 0.94 + 0.06, sunHeight * 0.94 + 0.06, sunHeight * 0.91 + 0.09);
+            }
+            @Override public boolean isFoggyAt(int x, int y) { return false; }
+        });
     }
 
     @SubscribeEvent

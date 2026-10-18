@@ -59,3 +59,15 @@ PathioliteOutcrop完整接入为第8项共享生成blazerock_gen的依赖：原6
 第22批Luna三任务52秒通过；Skullscor真身/全部7goal/属性/原生暗处条件/六群系出生/20tick经验与3动画、ShalePot三态和15项loot/Pesticide全部数值对上，关键Geo/动画/贴图SHA均同原JAR。目标arthropod标签实际替代已移除旧getMobType，不能因方法未覆写误报节肢杀手行为丢失。未发现ShalePot变体写入入口，不捏造额外交互；Pesticide无原配方，保实体掉落来源。见twentysecond-pot-static-validation.json。现在共享18项已接9项，余9项明确待迁；未开始全模组最终运行验收。
 
 第23批Luna三任务46秒通过，亮度property选择改为按实际Chromatic子类后的最终Java编译15秒通过；两灯完整状态/朝向/声音、标准镐标签、两配方与两掉落均对照一致。6纹理SHA相等，2blockstate/8模型JSON仅命名空间变化。IntegerProperty自身equals比较值域，StateHolder按key身份查询；此前只看Property父类后认为同名属性混淆的审计结论已撤回，最终代码直接按方块子类选择属性更明确，不改变任何亮度。所有证据是静态/编译，未启动任一端。见twentythird-lamps-static-validation.json。
+
+## 第26批：Loqendia地形定义与天空雾
+
+原39899字节dimension JSON使用noise generator、inline完整noise settings/router/surface rules和8群系multi_noise气候点。本批在所有直接方块/群系依赖实际注册后原结构迁入，只更换自有namespace；不删密度函数/洞穴/水体、不替换成单群系或原版noise_settings引用。保sea_level63、minY-64/height384、size_horizontal1/size_vertical2、默认shale/水level0、aquifers=true/ore_veins=false/legacyRandom=false/mobGeneration启用、spawn_target空及全部原native密度/表面参数。8气候点包括Glaciation depth .5、其余depth0以及全部范围均保。
+
+原维度类型natural=true、ultrawarm=false、猪灵不安全、床/重生锚可用、无raid、skylight/无ceiling、coordinateScale1、ambientLight.01、逻辑高度384、原overworld infiniburn、monster blockLightLimit0与light uniform0..7保；旧IntProvider value壳按已核1.21 Codec展平，不改概率。effects指向真实客户端Loqendia effects注册。原LoqendiaDimension.java仅注册DimensionSpecialEffects(150,true,NORMAL,false,false)，fogColor RGB分别乘sunHeight*.94+.06/.94+.06/.91+.09，isFoggyAt=false。目标同构造参数/云高/天空/地面/光照/色公式，服务端不引用client类，不降低表现。
+
+地形直接依赖新增Slush实际块：.8硬度/4抗爆/GRAVEL/CLAY/friction.7/遮光15，原canSustainPlant=true。调用原GrassyShale骨粉过程的雪分支，上方生成TallFrostedGrass或ShortLoqueGrass各50%；目标复用已有骨粉流程，只在可替换上方放成功后消费真实主手骨粉1，修原直接覆盖任意上方方块与全库存错槽。保原非潜行/主手骨粉/点击UP条件、创造也消费，无额外粒子/音效/滑速改变。精准自身1，普通slushball1..2+fortune，原4球→2 Slush配方保；slushball已有真实普通材料注册。其他所有surface rule方块与8个群系ID均有真实注册，不能以默认AIR补缺。
+
+这只完成Loqendia地形/类型/天空的直接链，并不表示维度全部玩法完成。7项剩余共享特征、各群系专属剩余生成、Keystone/Atlas/Portal/玩家状态与制造/进度仍按原件继续；最终两端/世界解码/渲染验收尚未开始。
+
+第26批Luna离线三任务47秒成功。整份39899字节原dimension namespace归一后逐字段相等，inline完整noise/router15字段/surfaceRule/8气候点未少；dimension_type仅IntProvider格式/namespace变化。天空雾全部构造参数与RGB公式、真实Slush属性/骨粉/精准时运/配方对照完成，所有直接方块/群系引用实际存在。见twentysixth-loqendia-static-validation.json。未作动态Codec/自然生成/两端或Render Preview测试，Loqendia完整玩法与全模组仍未完成。

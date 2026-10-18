@@ -8,6 +8,7 @@ import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.shapes.*;
 
 public enum GeoDecorKind {
+    ENCHANTED_CACHE("enchanted_cache", "Enchanted Cache", "geo/enchanted_cache.geo.json", "textures/block/textureenchantcache.png", "animations/enchanted_cache.animation.json", Block.box(0, 0, 0, 16, 28, 16), false, false),
     SHALE_POT("shale_pot", "Shale Pot", "geo/stone_pot.geo.json", "textures/block/pot1.png", "animations/stone_pot.animation.json", Block.box(2, 0, 2, 14, 16, 14), false, false),
     PATHIOLITE_OUTCROP("pathiolite_outcrop", "pathiolite_outcrop", "geo/fluorite_ore.geo.json", "textures/block/pathiolite_outcrop.png", "animations/fluorite_ore.animation.json", Shapes.block(), false, false),
     PYLON_RING("pylon_ring", "Pylon Ring", "geo/pylon_ring.geo.json", "textures/block/texturepylonring.png", "animations/pylon_ring.animation.json", Block.box(4.0, 0.1, 4.0, 12.0, 15.9, 12.0), true, false),
@@ -61,6 +62,7 @@ public enum GeoDecorKind {
     }
     public BlockBehaviour.Properties properties() {
         return switch (this) {
+            case ENCHANTED_CACHE -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.AMETHYST_CLUSTER).strength(-1, 3600000).lightLevel(state -> 12).noOcclusion().pushReaction(PushReaction.BLOCK).isRedstoneConductor((state, level, pos) -> false).noLootTable();
             case SHALE_POT -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).sound(SoundType.DECORATED_POT).strength(0.5F, 0).noOcclusion().pushReaction(PushReaction.DESTROY).isRedstoneConductor((state, level, pos) -> false);
             case PATHIOLITE_OUTCROP -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERRACK).strength(6, 5).lightLevel(state -> 6).requiresCorrectToolForDrops();
             case GUNNER_TROPHY, BURNER_TROPHY, CAVEBLOOMER_TROPHY -> BlockBehaviour.Properties.of().mapColor(MapColor.METAL).sound(SoundType.COPPER).strength(1, 10).lightLevel(state -> 7).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((bs, br, bp) -> false);

@@ -72,6 +72,7 @@ public final class ThermalShockReforged {
         CavebloomerContent.register(bus);
         com.hp.thermalshockreforged.entity.pots.PotContent.register(bus);
         com.hp.thermalshockreforged.world.LoqendiaContent.register(bus);
+        com.hp.thermalshockreforged.world.thermite.ThermiteContent.register(bus);
         MaterialContent.register(bus);
         MusicContent.register(bus);
         NativeDecorContent.register(bus);
