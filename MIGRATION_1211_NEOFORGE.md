@@ -215,3 +215,7 @@ heart_boost为真实玩家增益，不是内部冷却标记；保留BENEFICIAL�
 第32批Cryonic Cache与Spice Geyser迁移前契约已建，尚未实施；三个场景NPC及相关交易/任务、首次生成的完整建筑和世界状态、Aqeron/Palace及其余模块仍需继续。整模组未完成，不启动游戏，不以编译成功代替最终两端/Render Preview验收。
 
 第31批最终快照：Luna三任务离线通过53秒；本地预测补丁后compileJava再通过15秒。8原生块/2Geo对话块、九页35文案、8掉落/5配方、29原对话相关资产及完整Springslime新增链核对通过，三晶眼石质门槛修复。详见thirtyfirst-functional-static-validation.json；编译工具输出由子代理返回而非D盘最终日志，运行时两端/渲染仍待整模组完成。
+
+第32批已完成代码并通过Luna最小三任务离线编译47秒/本批机械对照：Cryonic Cache与Spice Geyser真实方块/BE/九槽自动化、三池30项奖励/钥匙领取、19³陷阱完整逐块声及9次Bonerahna生成、喷口原烟/Silk/Fortune掉落均已接入；旧EnchantedCacheConsumed兼容，共享有实际两个调用者的消费状态。详见cryonic-cache-spice-geyser-batch.md和thirtysecond-cache-geyser-static-validation.json。
+
+首次建筑依赖尚未完整：Laut/Shutterbug/Florist和各自任务交易/图鉴/立绘对话仍待迁，下一步源码证据见shalespring-npc-next-audit.md。已用原JAR字节码核Laut拿错手持物品数量及NPC无效/effect语法，但未把原无效命令补成新无敌能力。Shalespring/Palace、自然Keystone来源、其余维度/模块及最终两端/Render Preview仍待完成；本批未启动游戏。

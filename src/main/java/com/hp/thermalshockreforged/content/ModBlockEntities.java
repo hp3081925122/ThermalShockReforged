@@ -14,6 +14,8 @@ public final class ModBlockEntities {
     private static final DeferredRegister<BlockEntityType<?>> TYPES = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, ThermalShockReforged.MOD_ID);
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<PondlerEggBlockEntity>> PONDLER_EGG = TYPES.register("pondler_egg", () -> BlockEntityType.Builder.of(PondlerEggBlockEntity::new, MaterialContent.blocks().get("pondler_egg").get()).build(null));
 
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<com.hp.thermalshockreforged.content.decor.nativeblocks.SpiceGeyserBlockEntity>> SPICE_GEYSER = TYPES.register("spice_geyser", () -> BlockEntityType.Builder.of(com.hp.thermalshockreforged.content.decor.nativeblocks.SpiceGeyserBlockEntity::new, com.hp.thermalshockreforged.content.decor.nativeblocks.NativeDecorContent.SPICE_GEYSER.get()).build(null));
+
     private ModBlockEntities() { }
 
     public static void register(IEventBus bus) {
@@ -22,6 +24,7 @@ public final class ModBlockEntities {
     }
 
     private static void capabilities(RegisterCapabilitiesEvent event) {
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SPICE_GEYSER.get(), (geyser, side) -> geyser.itemHandler(side));
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, PONDLER_EGG.get(), (egg, side) -> side == null ? null : new SidedInvWrapper(egg, side));
     }
 }
