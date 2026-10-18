@@ -1,0 +1,46 @@
+{
+  "scope": "Icidrostrider complete native entity, renderer, constructor block/item, recipe/loot, C2S fire request and client key input",
+  "verification_owner": "validation_luna; main agent implementation and recording",
+  "build": {
+    "command": "compileJava compileGametestJava processResources --offline",
+    "java": "21",
+    "initial_result": "FAILED: setPierceLevel is private in target version",
+    "final_result": "BUILD SUCCESSFUL",
+    "final_seconds": 46,
+    "log": "D:/AI临时文件/ThermalShockMigration/compile-twelfth-strider-final.log"
+  },
+  "static_comparison": {
+    "entity": "MONSTER 1x1.6, tracking64 interval3, persistent, no AI goals, original immunities and physical collision",
+    "attributes": "health25 armor0 speed.15 follow16 step1 resistance1; native effective clamp from old10 retained",
+    "attack_scaling": "ability-only base ATTACK_DAMAGE1 times3.5; doHurtTarget remains disabled to preserve old ordinary attack0",
+    "riding": "full strafe/forward and half-pitch/yaw/body/head orientation; native target player travel hooks",
+    "death": "tick1 removal, delayed experience1, native custom loot one constructor under DO_MOB_LOOT",
+    "animation": "idle/walk/attack, zero-transition controllers, no resource replacement",
+    "renderer": "translucent scale1 shadow1 deathRotation0; striderglow eyes NO_OVERLAY; old icidrostider texture spelling retained",
+    "server_authority": "context.player actual vehicle and controlling passenger checked, entity alive, cooldown10 entity-owned and persisted; no client-authoritative target or nearby scan",
+    "shot": "rider owner and position; horizontal lookXZ speed1 spread0 base3.5 KB0 critical silent piercing5",
+    "constructor": "atomic block consumption before one spawn, original failure consumption, Poof20 spread.5 speed0, Beacon/Anvil BLOCKS1/2, original tooltip, explicit MapColor.METAL",
+    "recipe": "aba/cdc/eee full original material/counts; all inputs verified registered",
+    "data": "original recipe, block loot and infectionimmune tag all included; no original advancement references",
+    "binding": "SPACE32 gameplay, same key suffix, configurable keybind hint, C2S empty request only",
+    "source_bugfixes": [
+      "right-click no longer resets cooldown",
+      "payload cannot activate nearby vehicles owned by other riders",
+      "client no longer duplicates authoritative fire or delay work",
+      "hint targets rider rather than clicked non-player entity"
+    ]
+  },
+  "piercing_access": {
+    "target": "net.minecraft.world.entity.projectile.AbstractArrow private setPierceLevel(byte) descriptor(B)V",
+    "implementation": "ArrowPiercingAccess @Invoker; delegates original setter and preserves native synchronized/NBT piercing handling",
+    "mixin_dependency": "net.fabricmc:sponge-mixin:0.15.2+mixin.0.8.7 javap verified value/remap",
+    "configuration": "required common mixin config linked by NeoForge TOML; path/package matched",
+    "runtime_application_verified": false
+  },
+  "runtime": {
+    "client_started": false,
+    "server_started": false,
+    "render_preview_tested": false,
+    "full_migration_complete": false
+  }
+}
