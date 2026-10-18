@@ -20,13 +20,14 @@ public final class GeoDecorContent {
     static {
         for (GeoDecorKind kind : GeoDecorKind.values()) {
             DeferredBlock<GeoDecorBlock> block = BLOCKS.register(kind.id, () -> switch (kind) {
+                case SUSPICIOUS_CAVEBLOOMER -> new SuspiciousCavebloomerBlock();
                 case CRYONIC_LAMP, GLAUKO_BLOOM -> new GeoDecorBlock.Waterlogged(kind);
                 case STATUE_OF_LITANY, ITTY_BITTY, GUNNER_TROPHY, BURNER_TROPHY, CAVEBLOOMER_TROPHY -> new GeoDecorBlock.Directional(kind);
                 default -> new GeoDecorBlock(kind);
             });
             BLOCK_VALUES.put(kind, block);
             ITEM_VALUES.put(kind, ITEMS.register(kind.id, () -> new GeoDecorItem(block.get(), kind, new Item.Properties())));
-            ENTITY_VALUES.put(kind, ENTITIES.register(kind.id, () -> BlockEntityType.Builder.of((pos, state) -> new GeoDecorBlockEntity(kind, pos, state), block.get()).build(null)));
+            ENTITY_VALUES.put(kind, ENTITIES.register(kind.id, () -> BlockEntityType.Builder.<GeoDecorBlockEntity>of((pos, state) -> kind == GeoDecorKind.SUSPICIOUS_CAVEBLOOMER ? new SuspiciousCavebloomerBlockEntity(pos, state) : new GeoDecorBlockEntity(kind, pos, state), block.get()).build(null)));
         }
     }
     public static GeoDecorBlock block(GeoDecorKind kind) { return BLOCK_VALUES.get(kind).get(); }

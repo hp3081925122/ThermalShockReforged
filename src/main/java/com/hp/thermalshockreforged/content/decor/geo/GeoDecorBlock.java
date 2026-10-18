@@ -77,7 +77,7 @@ public class GeoDecorBlock extends Block implements EntityBlock {
             return super.updateShape(state, side, neighbor, level, pos, neighborPos);
         }
     }
-    public static final class Directional extends GeoDecorBlock {
+    public static class Directional extends GeoDecorBlock {
         public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
         public Directional(GeoDecorKind kind) { super(kind); registerDefaultState(defaultBlockState().setValue(FACING, Direction.NORTH)); }
         @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { super.createBlockStateDefinition(builder); builder.add(FACING); }

@@ -65,3 +65,21 @@ Dandy近战取消普通击中后，保120内部冷却、75内部移动锁和19�
 召唤TTL与台账一致性复核：原临时实现让burstKind非0跳过TTL清理，但台账仍按世界expiry释放名额，会允许卸载的起爆Dandy在到期后重载再爆。现起手先核TTL；若临近到期，将实体和台账同一次延长到当前世界tick+20，保正常19tick起爆完整执行；超期清理不再因burstKind跳过，卸载中超期则join取消、不补炸。人工生成无owner/TTL者仍保原自爆。这是新增召唤寿命的边界约束，不能宣称原本就有TTL。
 
 最终冻结源码Luna验证：奖励链版三任务compileJava/compileGametestJava/processResources离线成功45秒；尺寸/跨维与TTL一致性最终修复后compileJava再成功16秒，Luna额外机械确认过期先判、共同now+20及19tick移除/120CD无续命循环。见eighteenth-cavebloomer-static-validation.json。没有运行游戏或渲染预览，整体目标仍未完成。
+
+## 第十九批：Suspicious Cavebloomer 召唤入口（迁移前契约）
+
+沿原Block/use/BE/procedure/Geo/结构来源核对。保原phase双阶段：首次右键动画1、phase1，4次Budding尝试在0/6/13/20时刻、随机XZ[-6,6]且Y+3取BlockPos、MOB_SUMMONED与额外随机yaw；后续右键仅在以整数方块坐标为中心的32×32×32内没有任意Budding时召Angry，并保原全服awoken广播/Detonates HOSTILE.6/3/NukeCloud1 offset0 speed1。不只查本方块归属、不排除死亡中的Budding，保持原等待尸体移除的条件。
+
+新确认原phase在第一次Budding生成前就设1，余下3只仍全局排队；第一只死亡或未生成、离开检测范围时可提前右键召Boss，后续队列继续冒Budding。重做用可持久化本地4次尝试状态，pending结束前不准二阶段，生成取消只消费该次尝试、不无限重试；连续点击和生成事件重入均锁住。原先毁方块后再spawn且无论失败仍广播成功，目标先创建/尊重finalize与加入世界结果，成功后才消费入口和发成功声光；失败保入口可再次正常点击。
+
+复用真正相同的GeoDecor方向方块/9槽BE/六面物品handler/Geo渲染，但由专用子类拥有召唤状态。新增spawning布尔方块状态仅用于启停服务端ticker，已核LevelChunk相同方块state更新会updateBlockEntityTicker；静止与已完成阶段不注册活动ticker，不为等待第二次点击逐tick扫描32格生物。未加载时本地未提交阶段暂停，重新加载继续，不捕获失效方块/实体引用的全局闭包；删除方块会取消尚未生成阶段。保存余数与剩余已加载tick，载入修复ticker开关与状态一致性。
+
+原不可挖硬度-1/抗爆3600000、STONE音、透明/透光/遮光0、非红石导体、方向/ANIMATION、.1,0,.1→15.9,7,15.9包围形状保留；不因地图显示把它改成实体不透明满方块。MapColor按实际蘑菇/石质外观给非NONE色。9槽与原3行独立ChestMenu不连通的问题沿既有GeoDecor原生9槽菜单修复，方块交互仍用于召唤，库存保自动化入口；正常消耗方块时释放实际库存，避免源实现的隐藏容器吞物品。
+
+模型资源与正常世界来源等待Luna确定性盘点，不凭名字猜路径或捏造配方/结构来源。全模组完成前不运行客户端/服务端。
+
+第十九批资源/来源盘点已核：原模型/动画/块贴图真实复用angry_cavebloomer（不是另猜suspicious路径），三个资产SHA与目标一致；通用GeoDecor枚举注册BE/GeoItem与透明renderer接通。原召唤方块确实在cavebloomer_field.nbt palette和对应BE记录中出现，自然来源链是jigsaw cavebloomer_field→template_pool→NBT及Integrated API waterlogging processor，structure_set spacing20/separation7/salt1828568365、glaciation群系、y32..40、beard_box。该世界生成链当前仍缺目标真实注册/迁入，不能用创意页能拿到替代自然来源完成。glaciation本体/原BiomeModifier、GoldGlitter与Loqendia维度等依赖另追，不能只复制一个有未注册引用的结构JSON。
+
+Luna初次十九批compileJava/compileGametestJava/processResources离线成功17秒，机械核对4次0/6/13/20、32³含尸体筛选、NBT及事件取消保入口。新增spawning结束状态同步可能把服务端遗留ANIMATION1再次发给客户端、重播一次开场动画；核原clip1时长0.5417秒，正常在20tick最后召唤前已经播完，因此结束SPAWNING时同步ANIMATION0，防止不相关ticker开关重触发动画。服务器重载/客户端晚加入的过时开场重播也不再作为正常功能保留，资产与初次完整动画不删。此修正后再编译，尚未运行渲染对照。
+
+第十九批最终冻结源码日志nineteenth-summoner-final-compile.log为compileJava离线成功15秒；详见nineteenth-summoner-static-validation.json。没有启动游戏；正常结构生成、进度父链和全模组其他未迁项继续处理。

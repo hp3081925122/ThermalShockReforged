@@ -28,6 +28,7 @@ public enum GeoDecorKind {
     PLENKY("plenky", "Plenky", "geo/plenky.geo.json", "textures/block/plenky.png", "animations/plenky.animation.json", Block.box(1.0, 0.1, 1.0, 15.0, 8.0, 15.0), true, false),
     ITTY_BITTY("itty_bitty", "Itty Bitty", "geo/itty_bitty.geo.json", "textures/block/itty_bitty.png", "animations/itty_bitty.animation.json", Block.box(3.0, 0.1, 3.0, 13.0, 15.9, 13.0), true, false),
     GUNNER_TROPHY("icidrogunner_trophy", "Icidrogunner Trophy", "geo/pozar_relic.geo.json", "textures/block/lodpozar_relic.png", "animations/pozar_relic.animation.json", Shapes.block(), true, false),
+    SUSPICIOUS_CAVEBLOOMER("suspicious_cavebloomer", "Suspicious Cavebloomer", "geo/angry_cavebloomer.geo.json", "textures/block/angry_cavebloomer.png", "animations/angry_cavebloomer.animation.json", Block.box(0.1, 0, 0.1, 15.9, 7, 15.9), true, false),
     CAVEBLOOMER_TROPHY("cavebloomer_trophy", "§fA§en§6g§cr§dy §eC§6a§cv§de§fb§el§6o§co§dm§fe§er §cT§dr§fo§ep§6h§cy", "geo/cavebloomer_relic.geo.json", "textures/block/cavebloomer_relic.png", "animations/cavebloomer_relic.animation.json", Shapes.block(), true, false),
     BURNER_TROPHY("icidroburner_trophy", "Icidroburner Trophy", "geo/lod_relic.geo.json", "textures/block/lodpozar_relic.png", "animations/lod_relic.animation.json", Shapes.block(), true, false),
     TRAPPED_CACHE_PAD("trapped_cache_pad", "Trapped Cache Pad", "geo/cachepad.geo.json", "textures/block/trapped_cache_pad.png", "animations/cachepad.animation.json", Shapes.block(), false, false);
@@ -59,6 +60,7 @@ public enum GeoDecorKind {
     public BlockBehaviour.Properties properties() {
         return switch (this) {
             case GUNNER_TROPHY, BURNER_TROPHY, CAVEBLOOMER_TROPHY -> BlockBehaviour.Properties.of().mapColor(MapColor.METAL).sound(SoundType.COPPER).strength(1, 10).lightLevel(state -> 7).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((bs, br, bp) -> false);
+            case SUSPICIOUS_CAVEBLOOMER -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PINK).sound(SoundType.STONE).strength(-1, 3600000).noOcclusion().isRedstoneConductor((bs, br, bp) -> false);
             case PYLON_RING -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.LODESTONE).strength(-1.0f, 3600000.0f).requiresCorrectToolForDrops().noOcclusion().pushReaction(PushReaction.BLOCK).isRedstoneConductor((bs, br, bp) -> false);
             case GIANT_GEAR -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.METAL).strength(-1.0f, 3600000.0f).noOcclusion().pushReaction(PushReaction.BLOCK).isRedstoneConductor((bs, br, bp) -> false);
             case VOLTFLOWER_BULB -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).sound(SoundType.SLIME_BLOCK).strength(0.6f, 0.0f).lightLevel(s -> 15).noOcclusion().hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).isRedstoneConductor((bs, br, bp) -> false);

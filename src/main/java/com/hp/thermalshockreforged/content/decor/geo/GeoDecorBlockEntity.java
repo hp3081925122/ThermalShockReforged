@@ -22,7 +22,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.wrapper.SidedInvWrapper;
 
-public final class GeoDecorBlockEntity extends RandomizableContainerBlockEntity implements WorldlyContainer, GeoBlockEntity {
+public class GeoDecorBlockEntity extends RandomizableContainerBlockEntity implements WorldlyContainer, GeoBlockEntity {
     private static final int[] SLOTS = {0, 1, 2, 3, 4, 5, 6, 7, 8};
     private NonNullList<ItemStack> items = NonNullList.withSize(9, ItemStack.EMPTY);
     private final AnimatableInstanceCache animations = GeckoLibUtil.createInstanceCache(this);
