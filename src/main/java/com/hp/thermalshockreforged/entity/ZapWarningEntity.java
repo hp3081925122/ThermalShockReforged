@@ -30,6 +30,8 @@ public final class ZapWarningEntity extends AttackCarrierBody {
     private UUID caster;
     private double damage = 10;
     private int remainingTicks = 19;
+    private boolean ignoreCaster;
+    private boolean damageConfigured;
     private boolean initialized;
     private boolean emitted;
     private boolean committed;
@@ -42,10 +44,24 @@ public final class ZapWarningEntity extends AttackCarrierBody {
     }
     public void arm(LivingEntity owner, double damageMultiplier) {
         if (caster != null || committed) return;
-        caster = owner.getUUID();
-        double value = owner.getAttributeValue(Attributes.ATTACK_DAMAGE) * damageMultiplier;
-        damage = Double.isFinite(value) ? Math.clamp(value, 0, Float.MAX_VALUE) : 0;
+        configureDamage(owner.getUUID(), owner.getAttributeValue(Attributes.ATTACK_DAMAGE) * damageMultiplier);
         initialize();
+    }
+    private void configureDamage(UUID owner, double value) {
+        caster = owner;
+        damage = Double.isFinite(value) ? Math.clamp(value, 0, Float.MAX_VALUE) : 0;
+        damageConfigured = true;
+    }
+    public static ZapWarningEntity spawn(ServerLevel level, BlockPos pos, UUID owner, double damage, boolean ignoreCaster) {
+        var zap = ModEntities.ZAP.get().create(level);
+        if (zap == null) return null;
+        zap.configureDamage(owner, damage); zap.ignoreCaster = ignoreCaster;
+        zap.moveTo(pos.getX() + .5, pos.getY(), pos.getZ() + .5, net.minecraft.util.Mth.wrapDegrees(level.random.nextFloat() * 360), 0);
+        zap.yHeadRot = zap.getYRot(); zap.yBodyRot = zap.getYRot();
+        net.neoforged.neoforge.event.EventHooks.finalizeMobSpawn(zap, level, level.getCurrentDifficultyAt(pos), MobSpawnType.MOB_SUMMONED, null);
+        if (!zap.initialized || zap.isSpawnCancelled() || zap.isRemoved()) { zap.discard(); return null; }
+        if (!level.addFreshEntity(zap)) { zap.discard(); return null; }
+        return zap;
     }
     private void initialize() {
         if (initialized || !(level() instanceof ServerLevel server)) return;
@@ -58,7 +74,7 @@ public final class ZapWarningEntity extends AttackCarrierBody {
     }
     @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType reason, SpawnGroupData data) {
         SpawnGroupData result = super.finalizeSpawn(level, difficulty, reason, data);
-        if (!initialized) damage = CombatConfig.SPEC.isLoaded() ? CombatConfig.FORECAST_DAMAGE.get() : CombatConfig.FORECAST_DAMAGE.getDefault();
+        if (!initialized && !damageConfigured) damage = 10;
         initialize();
         return result;
     }
@@ -71,7 +87,7 @@ public final class ZapWarningEntity extends AttackCarrierBody {
         if (server.getGameTime() == createdAt || --remainingTicks > 0) return;
         committed = true;
         server.playSound(null, BlockPos.containing(origin), BuiltInRegistries.SOUND_EVENT.get(SOUND), SoundSource.NEUTRAL, 1, 2);
-        var targets = server.getEntitiesOfClass(Entity.class, new AABB(origin, origin).inflate(1.5), entity -> !(entity instanceof ItemEntity))
+        var targets = server.getEntitiesOfClass(Entity.class, new AABB(origin, origin).inflate(1.5), entity -> !(entity instanceof ItemEntity) && (!ignoreCaster || caster == null || !caster.equals(entity.getUUID())))
                 .stream().sorted(Comparator.comparingDouble(entity -> entity.distanceToSqr(origin))).toList();
         DamageSource source = damageSources().lightningBolt();
         for (Entity target : targets) target.hurt(source, (float) damage);
@@ -80,17 +96,19 @@ public final class ZapWarningEntity extends AttackCarrierBody {
     @Override public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
         if (caster != null) tag.putUUID("Caster", caster);
-        tag.putDouble("ZapDamage", damage); tag.putInt("RemainingTicks", remainingTicks);
+        tag.putBoolean("ZapIgnoreCaster", ignoreCaster); tag.putBoolean("ZapDamageConfigured", damageConfigured); tag.putDouble("ZapDamage", damage); tag.putInt("RemainingTicks", remainingTicks);
         tag.putBoolean("WarningInitialized", initialized); tag.putBoolean("WarningEmitted", emitted); tag.putBoolean("WarningCommitted", committed);
         tag.putDouble("WarningOriginX", origin.x); tag.putDouble("WarningOriginY", origin.y); tag.putDouble("WarningOriginZ", origin.z);
         tag.putString("WarningDimension", originDimension); tag.putLong("WarningCreatedAt", createdAt);
     }
     @Override public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
+        ignoreCaster = tag.getBoolean("ZapIgnoreCaster");
         caster = tag.hasUUID("Caster") ? tag.getUUID("Caster") : null;
         double value = tag.contains("ZapDamage") ? tag.getDouble("ZapDamage")
                 : CombatConfig.FORECAST_DAMAGE.getDefault() * (tag.contains("Multiplier") ? tag.getDouble("Multiplier") : 1);
         damage = Double.isFinite(value) ? Math.clamp(value, 0, Float.MAX_VALUE) : 0;
+        damageConfigured = tag.getBoolean("ZapDamageConfigured") || tag.contains("ZapDamage");
         remainingTicks = tag.contains("RemainingTicks") ? Math.clamp(tag.getInt("RemainingTicks"), 0, 20) : 19;
         initialized = tag.getBoolean("WarningInitialized"); emitted = tag.getBoolean("WarningEmitted"); committed = tag.getBoolean("WarningCommitted");
         origin = new Vec3(tag.getDouble("WarningOriginX"), tag.getDouble("WarningOriginY"), tag.getDouble("WarningOriginZ"));

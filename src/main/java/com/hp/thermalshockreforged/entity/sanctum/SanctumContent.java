@@ -17,6 +17,7 @@ public final class SanctumContent {
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<net.minecraft.core.particles.ParticleType<?>> PARTICLES = DeferredRegister.create(Registries.PARTICLE_TYPE, ThermalShockReforged.MOD_ID);
     public static final DeferredHolder<net.minecraft.core.particles.ParticleType<?>, net.minecraft.core.particles.SimpleParticleType> ERR_EFFECT = PARTICLES.register("err_effect", () -> new net.minecraft.core.particles.SimpleParticleType(false));
+    public static final DeferredHolder<net.minecraft.core.particles.ParticleType<?>, net.minecraft.core.particles.SimpleParticleType> TURQ_EXPLODE = PARTICLES.register("turq_explode", () -> new net.minecraft.core.particles.SimpleParticleType(false));
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
     public static final DeferredHolder<EntityType<?>, EntityType<ErrantEntity>> ERRANT = errant("errant");
     public static final DeferredHolder<EntityType<?>, EntityType<ErrantEntity>> SANCTUM_ERRANT = errant("sanctum_errant");
@@ -29,6 +30,9 @@ public final class SanctumContent {
     public static final DeferredHolder<EntityType<?>, EntityType<FrostilyteGunnerEntity>> FROSTILYTE_GUNNER = TYPES.register("frostilyte_gunner", () -> EntityType.Builder.of(FrostilyteGunnerEntity::new, MobCategory.MONSTER).sized(.6F, 1.7F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":frostilyte_gunner"));
     public static final DeferredItem<DeferredSpawnEggItem> FROSTILYTE_GUNNER_EGG = ITEMS.register("frostilyte_gunner_spawn_egg", () -> new DeferredSpawnEggItem(FROSTILYTE_GUNNER, -1, -1, new Item.Properties()));
     public static final DeferredHolder<EntityType<?>, EntityType<GunnerVolleyEntity>> GUNNER_VOLLEY = TYPES.register("gunner_volley_task", () -> EntityType.Builder.<GunnerVolleyEntity>of(GunnerVolleyEntity::new, MobCategory.MISC).sized(.01F, .01F).clientTrackingRange(1).updateInterval(Integer.MAX_VALUE).build(ThermalShockReforged.MOD_ID + ":gunner_volley_task"));
+    public static final DeferredHolder<EntityType<?>, EntityType<KilolyteEntity>> KILOLYTE = TYPES.register("kilolyte", () -> EntityType.Builder.of(KilolyteEntity::new, MobCategory.MONSTER).sized(.6F, 1.7F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":kilolyte"));
+    public static final DeferredItem<DeferredSpawnEggItem> KILOLYTE_EGG = ITEMS.register("kilolyte_spawn_egg", () -> new DeferredSpawnEggItem(KILOLYTE, -1, -1, new Item.Properties()));
+    public static final DeferredHolder<EntityType<?>, EntityType<KilolyteAttackEntity>> KILOLYTE_ATTACK = TYPES.register("kilolyte_attack_task", () -> EntityType.Builder.<KilolyteAttackEntity>of(KilolyteAttackEntity::new, MobCategory.MISC).sized(.01F, .01F).clientTrackingRange(1).updateInterval(Integer.MAX_VALUE).build(ThermalShockReforged.MOD_ID + ":kilolyte_attack_task"));
     private static DeferredHolder<EntityType<?>, EntityType<RippleEntity>> ripple(String name) {
         return TYPES.register(name, () -> EntityType.Builder.of(RippleEntity::new, MobCategory.MONSTER).sized(.6F, 2).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":" + name));
     }
@@ -45,6 +49,7 @@ public final class SanctumContent {
         NeoForge.EVENT_BUS.addListener(SanctumContent::attack);
     }
     private static void attributes(EntityAttributeCreationEvent event) {
+        event.put(KILOLYTE.get(), KilolyteEntity.createAttributes().build());
         event.put(FROSTILYTE_GUNNER.get(), FrostilyteGunnerEntity.createAttributes().build());
         event.put(RIPPLE.get(), RippleEntity.createAttributes(false).build());
         event.put(SANCTUM_RIPPLE.get(), RippleEntity.createAttributes(true).build());
@@ -63,6 +68,7 @@ public final class SanctumContent {
                 }, RegisterSpawnPlacementsEvent.Operation.REPLACE);
     }
     private static void attack(AttackAttemptEvent event) {
+        if (event.getSource().getEntity() instanceof KilolyteEntity kilolyte) { event.setCanceled(true); kilolyte.beginAttack(event.getEntity()); }
         if (event.getSource().getEntity() instanceof FrostilyteGunnerEntity gunner) { event.setCanceled(true); gunner.beginAttack(event.getEntity()); }
         if (event.getSource().getEntity() instanceof RippleEntity ripple) { event.setCanceled(true); ripple.beginAttack(event.getEntity()); }
         if (event.getSource().getEntity() instanceof ErrantEntity errant) { event.setCanceled(true); errant.beginAttack(event.getEntity()); }

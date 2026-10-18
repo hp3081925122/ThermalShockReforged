@@ -1,0 +1,71 @@
+{
+  "batch": 50,
+  "scope": [
+    "kilolyte",
+    "kilolyte_spawn_egg",
+    "kilolyte_attack_task",
+    "zap_gauntlet",
+    "turq_explode",
+    "trapped_archive_cube",
+    "ZapWarning configured spawn API"
+  ],
+  "validation": {
+    "executor": "validation_luna",
+    "java": 21,
+    "command": "gradlew.bat compileJava compileGametestJava processResources --offline",
+    "durationSeconds": 50,
+    "exitCode": 0,
+    "result": "BUILD SUCCESSFUL",
+    "actionableTasks": 25,
+    "executed": 3,
+    "upToDate": 22,
+    "log": "D:\\AI临时文件\\ThermalShockMigration\\fiftieth-kilolyte-zap-compile.log",
+    "warnings": "2 ClientEvents EventBusSubscriber.bus deprecation warnings"
+  },
+  "mechanical": {
+    "kilo": "MONSTER .6x1.7, physical/render scale2, tracking64/update3, egg -1/-1, HP100, armor10, speed.17, effective KB resistance1",
+    "damage": "base13, melee x1 minus armor*.6, zap x10/13, default actual 13/10; source direct attack0 normalized and still intercepted",
+    "ringEndTicks": [
+      22,
+      24,
+      26,
+      28
+    ],
+    "ringCount": 8,
+    "strikeEndTick": 17,
+    "birthProtection": "70 ticks at native DamageContainer MOB_EFFECTS phase, preserves bypass effects/resistance and resisted statistic",
+    "experience": "100 at native 20tick death final frame",
+    "loot": "one real Geo Zap Gauntlet through native dropCustomDeathLoot",
+    "duplicateOldListeners": "KilolyteAttack and SkeletitanAttack equal after class-name normalization; one target listener",
+    "clips": [
+      "idle",
+      "walk",
+      "attack",
+      "attack2",
+      "spawn",
+      "death"
+    ],
+    "visualAssets": "original Kilo and Gauntlet geo/animation/textures byte-equal",
+    "gauntlet": "1000 durability, uncommon, enchant5, native durability tag, 20 use duration, left swing, clip0/1/2, 12 then10 OUTLINE rays, CD90, original10 Zap, no new cost",
+    "pose": "original xRot=80+head.xRot numeric value retained; not converted to 80 degrees; enum runtime/render test pending",
+    "enumExtension": "JSON descriptor and static EnumProxy field match, TOML property in mods block, client-only references",
+    "turq": "false particle type and original OPAQUE/lifetime0/physics/zero velocity provider, efkefc/sprite hashes equal",
+    "zapCasterFiltering": "only Kilo ignoreCaster true; Gauntlet false; Forecast arm unchanged",
+    "trap": "343 original y/x/z iterations, stone-tier pickaxe, original empty loot and shared archive texture, successful player break gate"
+  },
+  "intentionalFixes": [
+    "native finite birth protection replaces fake resistance200",
+    "caster-only Kilo ring self-hit prevention",
+    "default unconfigured Zap10 no longer coupled to unrelated Forecast damage config",
+    "negative/nonfinite skill damage guards",
+    "failed trap destruction no longer triggers summon",
+    "explicit MapColor WARPED_WART_BLOCK for Xaero consistent with identical ordinary ArchiveCube texture"
+  ],
+  "remaining": [
+    "Guardian Pylon full sequence",
+    "archive_sanctum/orb_sanctum/sunken_blizzard_lab full structure sources",
+    "other unported modules",
+    "complete mod source audit, server/client/Render Preview tests"
+  ],
+  "runtimeTests": "not started; complete mod first"
+}
