@@ -1,0 +1,160 @@
+{
+  "scope": "第十六批Forecast/Zap静态验证；未启动客户端/服务端；未编辑项目文件。",
+  "compile": {
+    "command": ".\\gradlew.bat compileJava compileGametestJava processResources --offline",
+    "java_home": "C:\\Users\\30819\\.jdks\\ms-21.0.11",
+    "log": "D:\\AI临时文件\\ThermalShockMigration\\compile-sixteenth-forecast.log",
+    "build_successful": true,
+    "summary": "25 actionable tasks: 2 executed, 23 up-to-date",
+    "warnings": 2
+  },
+  "mechanical_checks": {
+    "forecast_los_removed": true,
+    "forecast_internal_two_pulse_state": true,
+    "forecast_does_not_apply_slowdown_potion": true,
+    "forecast_local_timers_continue_with_noai": true,
+    "forecast_source_attempt_canceled": true,
+    "zap_damage_snapshotted_at_arm": true,
+    "zap_does_not_cancel_for_dead_caster": true,
+    "zap_ownerless_lightning_source": true,
+    "zap_pathfinder_and_attributes": true,
+    "zap_mob_registration": true,
+    "zap_exact_immunity_matrix": true,
+    "zap_fire_immune_and_explosion_ignored": true,
+    "zap_state_nbt_saved": true,
+    "zap_wrapper_full_two_emissions": true,
+    "zap_particle_override_limiter": true,
+    "all_pass": true
+  },
+  "tag_membership": {
+    "cryo_resist": {
+      "forecast": true,
+      "zap": false,
+      "values": [
+        "thermal_shock_reforged:forecast",
+        "thermal_shock_reforged:frostilyte",
+        "thermal_shock_reforged:icidrozerk",
+        "thermal_shock_reforged:frostilyte_cryomancer",
+        "thermal_shock_reforged:frostilyte_soldier",
+        "thermal_shock_reforged:icidroburner",
+        "thermal_shock_reforged:icidrogunner"
+      ]
+    },
+    "pyro_weak": {
+      "forecast": true,
+      "zap": false,
+      "values": [
+        "thermal_shock_reforged:forecast",
+        "thermal_shock_reforged:frostilyte",
+        "thermal_shock_reforged:icidrozerk",
+        "thermal_shock_reforged:icidrone",
+        "thermal_shock_reforged:frostilyte_cryomancer",
+        "thermal_shock_reforged:frostilyte_soldier",
+        "thermal_shock_reforged:icidrogrunt",
+        "thermal_shock_reforged:icidrogunner"
+      ]
+    },
+    "infectionimmune": {
+      "forecast": false,
+      "zap": true,
+      "values": [
+        "thermal_shock_reforged:infestophage_seed",
+        "thermal_shock_reforged:zap_attack_entity",
+        "thermal_shock_reforged:blighted_spore",
+        "thermal_shock_reforged:sootle_idle",
+        "thermal_shock_reforged:herald",
+        "thermal_shock_reforged:frostilyte",
+        "thermal_shock_reforged:frostilyte_cryomancer",
+        "thermal_shock_reforged:frostilyte_soldier",
+        "thermal_shock_reforged:icidrone",
+        "thermal_shock_reforged:icidrozerk",
+        "thermal_shock_reforged:icidrogrunt",
+        "thermal_shock_reforged:icidrostrider",
+        "thermal_shock_reforged:icidroburner",
+        "thermal_shock_reforged:icidrogunner",
+        "thermal_shock_reforged:blizzard_drop_pod"
+      ]
+    }
+  },
+  "asset_hash_comparison": {
+    "source_count": 40,
+    "target_missing": [],
+    "equal_hash_count": 33,
+    "changed_hash": [
+      "assets/thermal_shock_reforged/models/item/forecast_spawn_egg.json",
+      "assets/thermal_shock_reforged/models/item/galvanite_spawn_egg.json",
+      "assets/thermal_shock_reforged/models/item/zap_gauntlet.json",
+      "assets/thermal_shock_reforged/particles/teleport_flash.json",
+      "assets/thermal_shock_reforged/particles/turq_explode.json",
+      "assets/thermal_shock_reforged/particles/zap_attack.json",
+      "assets/thermal_shock_reforged/sounds.json"
+    ]
+  },
+  "timing_simulation": {
+    "ticks": 130,
+    "old_pulse_ticks": [
+      0,
+      1,
+      42,
+      43,
+      84,
+      85,
+      126,
+      127
+    ],
+    "target_pulse_ticks": [
+      0,
+      1,
+      42,
+      43,
+      84,
+      85,
+      126,
+      127
+    ],
+    "pulse_sequences_equal": true,
+    "old_slow_ticks": 122,
+    "target_slow_ticks": 122,
+    "slow_tick_sequences_equal": true,
+    "slow_mismatch_ticks": []
+  },
+  "git_diff_check": {
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "warning: in the working copy of 'docs/migration/forecast-audit.md', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'src/main/java/com/hp/thermalshockreforged/client/ClientEvents.java', CRLF will be replaced by LF the next time Git touches it"
+  },
+  "stale_document_reference": {
+    "file": "docs/migration/entity-coverage.json",
+    "literal": "removedOwnerCancelsDelayedDamage",
+    "present": true,
+    "note": "Parent reports the outdated test name has been corrected; it was not rechecked per instruction.",
+    "line": 619,
+    "finding": "Only current incorrect owner-cancellation assertion found: docs/migration/entity-coverage.json:619 test name removedOwnerCancelsDelayedDamage. Current docs/migration/forecast-fidelity.md:9 says committed zap is not canceled by caster death/unload; source matches that behavior.",
+    "resolved_by_parent": true
+  },
+  "runtime_pending_from_fidelity_doc": [
+    "客户端/专服运行与Render Preview",
+    "双脉冲/40tick慢速真实运动",
+    "NoAI内部计时",
+    "载体/施法者死亡、跨维与卸载恢复",
+    "1.5范围友伤及免疫",
+    "Zap粒子实际渲染与两次EFK发射"
+  ],
+  "final_weather_and_compile": {
+    "weather_source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\GalvaniteNaturalEntitySpawningConditionProcedure.java:12",
+    "weather_source_expression": "world.getLevelData().isThundering()",
+    "weather_target": "src/main/java/com/hp/thermalshockreforged/entity/ModEntities.java:75-78",
+    "weather_target_expression": "level.getLevelData().isThundering()",
+    "finding": "The frozen target now uses the original LevelData thunder flag for the Forecast placement predicate.",
+    "compile": {
+      "command": ".\\gradlew.bat compileJava --offline",
+      "java_home": "C:\\Users\\30819\\.jdks\\ms-21.0.11",
+      "log": "D:\\AI临时文件\\ThermalShockMigration\\compile-sixteenth-forecast-final.log",
+      "result": "BUILD SUCCESSFUL",
+      "duration_seconds": 15,
+      "summary": "23 actionable tasks: 1 executed, 22 up-to-date",
+      "warnings": "Two existing EventBusSubscriber bus()/Bus removal warnings in ClientEvents.java:49."
+    },
+    "scope": "Only this final compile and weather expression were added; prior 130-tick simulation, asset comparison and full compileJava/compileGametestJava/processResources results were not rerun."
+  }
+}

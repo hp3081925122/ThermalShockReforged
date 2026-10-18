@@ -60,19 +60,21 @@ public final class MigrationGameTests {
     }
 
     @GameTest(template = "migration_empty", timeoutTicks = 60)
-    public static void removedOwnerCancelsDelayedDamage(GameTestHelper helper) {
+    public static void removedOwnerDoesNotCancelCommittedZap(GameTestHelper helper) {
         ForecastEntity caster = helper.spawnWithNoFreeWill(ModEntities.FORECAST.get(), 1, 2, 1);
         var target = helper.spawnWithNoFreeWill(EntityType.COW, 4, 2, 4);
         target.setNoGravity(true);
-        float health = target.getHealth();
+        target.getAttribute(Attributes.MAX_HEALTH).setBaseValue(100);
+        target.setHealth(100);
+        caster.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(7);
         ZapWarningEntity warning = ModEntities.ZAP.get().create(helper.getLevel());
         warning.moveTo(target.position());
         warning.arm(caster, 1);
         helper.getLevel().addFreshEntity(warning);
         caster.discard();
         helper.runAfterDelay(21, () -> {
-            helper.assertTrue(target.getHealth() == health, "Removed caster must not damage targets from a stale delayed task");
-            helper.assertTrue(warning.isRemoved(), "Cancelled warning must be removed");
+            helper.assertTrue(Math.abs(target.getHealth() - 93) < 0.001, "Committed zap must retain its damage snapshot after caster removal");
+            helper.assertTrue(warning.isRemoved(), "Committed warning must detonate once and be removed");
             helper.succeed();
         });
     }

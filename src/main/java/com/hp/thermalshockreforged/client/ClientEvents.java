@@ -17,6 +17,7 @@ import com.hp.thermalshockreforged.content.decor.nativeblocks.NativeDecorContent
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import com.hp.thermalshockreforged.entity.ModEntities;
 import com.hp.thermalshockreforged.entity.ZapWarningEntity;
+import com.hp.thermalshockreforged.client.particle.ZapAttackParticle;
 import com.hp.thermalshockreforged.client.fauna.FaunaRenderers;
 import com.hp.thermalshockreforged.client.status.StatusClient;
 import com.hp.thermalshockreforged.client.armor.ArmorClient;
@@ -100,6 +101,7 @@ public final class ClientEvents {
 
     @SubscribeEvent
     public static void particles(RegisterParticleProvidersEvent event) {
+        event.registerSpriteSet(ModEntities.ZAP_PARTICLE.get(), ZapAttackParticle.Provider::new);
         FaunaRenderers.particles(event);
         StatusClient.registerParticles(event);
         SnobolRenderers.particles(event);
