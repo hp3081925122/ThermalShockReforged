@@ -8,6 +8,7 @@ import com.hp.thermalshock.client.status.StatusClient;
 import com.hp.thermalshock.client.armor.ArmorClient;
 import com.hp.thermalshock.client.infestation.InfestationRenderers;
 import com.hp.thermalshock.client.snobol.SnobolRenderers;
+import com.hp.thermalshock.client.ecosystem.EcosystemRenderers;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRenderer;
@@ -27,6 +28,7 @@ public final class ClientEvents {
         FaunaRenderers.register(event);
         InfestationRenderers.register(event);
         SnobolRenderers.register(event);
+        EcosystemRenderers.register(event);
         event.registerEntityRenderer(ModEntities.PONDLER.get(), PondlerRenderer::new);
         event.registerEntityRenderer(ModEntities.PROBOSKER.get(), ProboskerRenderer::new);
         event.registerEntityRenderer(ModEntities.SCARLET_RAY.get(), ScarletRayRenderer::new);

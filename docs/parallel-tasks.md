@@ -44,3 +44,16 @@ C0整合已落地，首次编译通过但静态发现vermillion_moss悬空；真
 |status_sol|仅静态与冻结后的编译|32食物原件对照、FD实际参数、原概率、获取途径未迁项已记录|
 
 所有主源码冻结后统一编译，不在构建期间编辑输入。原LyBuy交易、装甲进度父链／维度群系，以及Snobol自然生成注入仍pending；原Antitoxin重复配方需要BreatherSponge等完整方块链，不导入悬空数据。最终运行规则仍为整个模组完成后由子代理执行。
+
+## 第四批D0：生态、生长与Sentry
+
+前三批阶段本地提交fd4216d，固定快照553物品／20实体及原32食品已编译／静态通过。
+
+|所有者|范围|冻结接口／状态|
+|---|---|---|
+|fauna_sol|entity/ecosystem/**、client/ecosystem/**、本批原loot、ecosystem-batch.md|EcosystemContent.register；EcosystemRenderers.register；Chilloo／Springling／Raincatcher及9槽含水蛋完整链|
+|terrain_sol|既有armor/**及sentry-armor-batch.md|现有入口；Sentry真实两件，用户明确每20tick合并跨维扫描，发光21tick保余量|
+|root|TerrainContent新4块及SnowCoveredLeaves/ThermalSaplingBlock/BreatherSpongeBlock；真实Ochre feature／loot／Sponge配方／共享入口tags|源码已冻结等待整批编译|
+|status_sol|只读复核与全main固定后的统一编译|不启动两端；静态比原与目标codec字段|
+
+Chilloo蛋使用已存在Dull叶，不重复注册；CFR孵化过程丢else的误读已用原JAR字节码纠正，孵化后立即return，不能额外增加原不可达10%声音。Pondler原代码正确保留，不带错误修正。Assembler／进度父链／原群系注入／Workbench副产caller仍待完整模块闭合。Sentry由用户明确允许每秒一次，不外推到其他技能降频。

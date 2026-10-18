@@ -1,0 +1,64 @@
+package com.hp.thermalshock.content.terrain;
+
+import com.hp.thermalshock.ThermalShock;
+import com.hp.thermalshock.content.MaterialContent;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.phys.BlockHitResult;
+
+public final class BreatherSpongeBlock extends Block {
+    public BreatherSpongeBlock() {
+        super(Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).sound(SoundType.CORAL_BLOCK)
+                .strength(1.0F, 10.0F).lightLevel(state -> 5));
+    }
+
+    @Override
+    protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 15; }
+
+    @Override
+    public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
+        level.addParticle(ParticleTypes.BUBBLE_COLUMN_UP, pos.getX() + random.nextDouble(), pos.getY() + 1.0,
+                pos.getZ() + random.nextDouble(), 0, 1, 0);
+    }
+
+    @Override
+    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
+            Player player, InteractionHand hand, BlockHitResult hit) {
+        ItemStack straw = player.getMainHandItem();
+        boolean silly = straw.is(MaterialContent.items().get("silly_straw").get());
+        boolean drinking = straw.is(MaterialContent.items().get("drinking_straw").get());
+        if ((!silly && !drinking) || player.getCooldowns().isOnCooldown(straw.getItem())) {
+            return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        }
+        if (!level.isClientSide) {
+            player.getCooldowns().addCooldown(straw.getItem(), silly ? 60 : 20);
+            player.setAirSupply(silly ? 300 : Math.min(300, player.getAirSupply() + 60));
+            straw.hurtAndBreak(1, player, EquipmentSlot.MAINHAND);
+            level.playSound(null, pos, SoundEvents.HONEY_DRINK, SoundSource.NEUTRAL, 1, 1);
+            if (player instanceof ServerPlayer serverPlayer) {
+                var advancement = serverPlayer.server.getAdvancements().get(ResourceLocation.fromNamespaceAndPath(ThermalShock.MOD_ID, "breather_sponge_get"));
+                if (advancement != null) {
+                    var progress = serverPlayer.getAdvancements().getOrStartProgress(advancement);
+                    if (!progress.isDone()) for (String criterion : progress.getRemainingCriteria()) serverPlayer.getAdvancements().award(advancement, criterion);
+                }
+            }
+        }
+        return ItemInteractionResult.SUCCESS;
+    }
+}

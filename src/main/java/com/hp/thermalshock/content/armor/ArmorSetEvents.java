@@ -2,6 +2,7 @@ package com.hp.thermalshock.content.armor;
 
 import com.hp.thermalshock.ThermalShock;
 import java.util.List;
+import java.util.ArrayList;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
@@ -13,10 +14,13 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
+import net.neoforged.neoforge.event.tick.ServerTickEvent;
 import net.neoforged.neoforge.registries.DeferredItem;
 
 final class ArmorSetEvents {
@@ -79,6 +83,29 @@ final class ArmorSetEvents {
             if (!player.getItemBySlot(item.getEquipmentSlot()).is(item)) return false;
         }
         return true;
+    }
+
+    static void serverTick(ServerTickEvent.Post event) {
+        if (event.getServer().getTickCount() % 20 != 0) return;
+        FeatureFlagSet features = null;
+        for (Player player : event.getServer().getPlayerList().getPlayers()) {
+            boolean eligible = player.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.HEAD).is(ZENITH)
+                    || player.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.FEET).is(ZENITH);
+            if (eligible && player.isShiftKeyDown() && wearing(player, ArmorContent.SENTRY)) {
+                features = player.level().enabledFeatures();
+                break;
+            }
+        }
+        if (features == null) return;
+        List<LivingEntity> targets = new ArrayList<>();
+        for (var level : event.getServer().getAllLevels()) {
+            for (var entity : level.getAllEntities()) {
+                if (entity instanceof LivingEntity living && entity.isAlive() && entity.getType().isEnabled(features)) {
+                    targets.add(living);
+                }
+            }
+        }
+        for (LivingEntity target : targets) target.addEffect(new MobEffectInstance(MobEffects.GLOWING, 21, 1, false, true));
     }
 
     private static void clear(Player player) {

@@ -55,11 +55,20 @@ public final class TerrainContent {
     public static final DeferredBlock<Block> PURIFIED_LOQUE_LEAVES = BLOCKS.register("purified_loque_leaves", () -> new UnderbrushLeaves(MapColor.COLOR_LIGHT_BLUE, 8, false));
     public static final DeferredBlock<Block> DULL_LEAVES = BLOCKS.register("dull_leaves", UnderbrushLeaves.Dull::new);
 
+    public static final DeferredBlock<Block> OCHRE_LEAVES = BLOCKS.register("ochre_leaves", () -> new SnowCoveredLeaves(false));
+    public static final DeferredBlock<Block> BRIGHT_OCHRE_LEAVES = BLOCKS.register("bright_ochre_leaves", () -> new SnowCoveredLeaves(true));
+    public static final DeferredBlock<Block> OCHRE_SAPLING = BLOCKS.register("ochre_sapling", ThermalSaplingBlock::new);
+    public static final DeferredBlock<Block> BREATHER_SPONGE = BLOCKS.register("breather_sponge", BreatherSpongeBlock::new);
+
     static {
         ITEMS.registerSimpleBlockItem(GRASSY_SHALE);
         ITEMS.registerSimpleBlockItem(SNOWY_SHALE);
         ITEMS.registerSimpleBlockItem(SNOWY_COBALT);
         ITEMS.registerSimpleBlockItem(COBALT);
+        ITEMS.registerSimpleBlockItem(OCHRE_LEAVES);
+        ITEMS.registerSimpleBlockItem(BRIGHT_OCHRE_LEAVES);
+        ITEMS.registerSimpleBlockItem(OCHRE_SAPLING);
+        ITEMS.registerSimpleBlockItem(BREATHER_SPONGE);
         ITEMS.registerSimpleBlockItem(LOQUE_LEAVES);
         ITEMS.registerSimpleBlockItem(DARK_LOQUE_LEAVES);
         ITEMS.registerSimpleBlockItem(PURIFIED_LOQUE_LEAVES);

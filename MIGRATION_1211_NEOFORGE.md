@@ -186,3 +186,7 @@ heart_boost为真实玩家增益，不是内部冷却标记；保留BENEFICIAL�
 整体仍未完整迁移：多数生物／Boss、GUI交易图鉴、功能方块、世界生成、维度、结构及完整进度链继续待做。当前不以已导入资源数量或编译成功冒充功能比例，两端与Render Preview留待全量代码完成。
 
 第三批最终固定快照：子代理确认compile-snobol-zenith-food.log第72行BUILD SUCCESSFUL，50秒，compileJava／compileGametestJava／processResources通过；静态371方块／553物品／20实体（含一个原延时队列替代的真实爆炸载体）／7效果／4粒子／1药水／5装甲材质／20装甲／2BE，无重复。758数据JSON、2028自定义引用无悬空；6105原assets字节不变；32食品均唯一注册。验收报告docs/migration/snobol-zenith-static-validation.json。Marrow Meld负饱和Codec兼容与1.21原生下界差异已记录。
+
+第四批已由子代理固定快照完成compileJava／processResources／compileGametestJava，日志compile-ecosystem-sentry-tree.log第72行成功，50秒。当前376方块／563物品／23实体／7效果／4粒子／1药水／3BE／6装甲材质及22装甲，无重复；768数据JSON、2070引用无悬空；6105原assets和生态14模型资源字节一致。原Ochre配置完整导入，codec仅源码字段静态核对，未声称游戏动态注册解码。验收报告docs/migration/ecosystem-sentry-tree-static-validation.json。
+
+用户新要求已落地并在此次编译内：Sentry ArmorSetEvents第89行按原生服务器tickCount每20tick执行，第108行发光21tick留余量；所有维度范围和筛选不变，至多一次全服扫描。末次尾效最多21tick、激活最多19tick采样等待；低TPS不等于严格墙钟1秒。没有减少其他技能频率。功能与性能仍待整模组完整后的实测。
