@@ -1,0 +1,13 @@
+# Mixin 根包误圈入导致客户端启动崩溃
+
+用户提供runClient崩溃结果，错误为IllegalClassLoadError，普通事件AttackAttemptEvent被Mixin判为受保护的Mixin类。源码已确认thermal_shock_reforged.mixins.json的package错误指向整个com.hp.thermalshockreforged根包，而真实3个Mixin分散在两处子包。Mixin保留配置package命名空间，不能让普通事件、内容和主类处于该范围。
+
+将3个真实Mixin移到专用com.hp.thermalshockreforged.mixin，JSON package只包含该专用包，mixins列表对应三个简单类名；所有ArrowPiercingAccess引用同步改新包。保全部注入点、cancellable/require、方法体与Invoker，不删除原战斗事件或降低defaultRequire规避错误。增加英文启动debug日志确认修复后能够抵达模组初始化。
+
+已提交的Cavebloomer/召唤方块阶段不回退；当前正在迁GoldGlitter及世界依赖，修复编译也覆盖这些当前真实改动。Luna负责确认原崩溃日志、静态命名空间/引用核对、编译及本次用户明确要求的runClient启动复测；该例外仅检查启动故障，不提前运行全模组服务端/玩法验收。
+
+验证待Luna返回：原日志、三Mixin实际转换、IllegalClassLoadError是否消失、是否出现下一启动错误、客户端窗口/主菜单直接证据。编译成功不等于客户端测试通过，未运行场景功能不称为整模组已测试。
+
+Luna核实的原件日志路径为runs/client/crash-reports/crash-2026-10-18_20.58.06-client.txt（不是run/crash-reports）。第7/25行准确错误：AttackAttemptEvent is in a defined mixin package com.hp.thermalshockreforged.* owned by thermal_shock_reforged.mixins.json and cannot be referenced directly。普通代码对Invoker的两处调用分别为CavebloomerBombEntity、IcidrostriderEntity；均已同步，其他两Mixin没有普通代码直接调用。
+
+Luna冻结版三任务离线编译成功52秒，旧包3个class已被Gradle增量编译清理，新class位于专用mixin目录。runClient启动复测日志在D:/AI临时文件/ThermalShockMigration/mixin-namespace-runclient.log，未取得主菜单直接画面证据，关闭阶段记录TextureManager.close并发修改异常。用户随后要求不再继续关注此启动问题、继续迁移；本次验证进程已结束，不重启、不扩展关闭异常调查。只记录配置根因已修及编译成功，不将此报告写成客户端完整验收通过。

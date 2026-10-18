@@ -19,6 +19,9 @@ import com.hp.thermalshockreforged.entity.ModEntities;
 import com.hp.thermalshockreforged.entity.ZapWarningEntity;
 import com.hp.thermalshockreforged.client.particle.ZapAttackParticle;
 import com.hp.thermalshockreforged.client.particle.TeleportFlashParticle;
+import com.hp.thermalshockreforged.client.particle.AaaStationaryParticle;
+import com.hp.thermalshockreforged.world.LoqendiaContent;
+import net.minecraft.client.particle.ParticleRenderType;
 import com.hp.thermalshockreforged.client.cavebloomer.CavebloomerClient;
 import com.hp.thermalshockreforged.client.fauna.FaunaRenderers;
 import com.hp.thermalshockreforged.client.status.StatusClient;
@@ -108,6 +111,7 @@ public final class ClientEvents {
         CavebloomerClient.particles(event);
         event.registerSpriteSet(ModEntities.ZAP_PARTICLE.get(), ZapAttackParticle.Provider::new);
         event.registerSpriteSet(ModEntities.TELEPORT_FLASH.get(), TeleportFlashParticle.Provider::new);
+        event.registerSpriteSet(LoqendiaContent.GOLD_GLITTER.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "goldglitter", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true, false, 0));
         FaunaRenderers.particles(event);
         StatusClient.registerParticles(event);
         SnobolRenderers.particles(event);

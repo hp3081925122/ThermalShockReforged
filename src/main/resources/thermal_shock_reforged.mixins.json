@@ -1,12 +1,12 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "com.hp.thermalshockreforged",
+  "package": "com.hp.thermalshockreforged.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "content.status.mixin.LivingEntityStatusMixin",
-    "content.status.mixin.PlayerInfectionStatusMixin",
-    "entity.icesquad.mixin.ArrowPiercingAccess"
+    "LivingEntityStatusMixin",
+    "PlayerInfectionStatusMixin",
+    "ArrowPiercingAccess"
   ],
   "injectors": {
     "defaultRequire": 1

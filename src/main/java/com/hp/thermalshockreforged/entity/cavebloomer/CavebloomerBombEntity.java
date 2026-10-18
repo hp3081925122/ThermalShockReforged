@@ -1,7 +1,7 @@
 package com.hp.thermalshockreforged.entity.cavebloomer;
 
 import com.hp.thermalshockreforged.content.MaterialContent;
-import com.hp.thermalshockreforged.entity.icesquad.mixin.ArrowPiercingAccess;
+import com.hp.thermalshockreforged.mixin.ArrowPiercingAccess;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;

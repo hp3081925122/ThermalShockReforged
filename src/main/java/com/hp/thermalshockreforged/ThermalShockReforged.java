@@ -61,6 +61,7 @@ public final class ThermalShockReforged {
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public ThermalShockReforged(IEventBus bus, ModContainer container) {
+        LOGGER.debug("Thermal Shock Reforged startup reached mod initialization with an isolated mixin namespace");
         ModGameRules.initialize();
         container.registerConfig(ModConfig.Type.COMMON, CombatConfig.SPEC);
         container.registerConfig(ModConfig.Type.COMMON, BastionCombatConfig.SPEC, "thermal_shock_reforged-bastions.toml");
@@ -69,6 +70,7 @@ public final class ThermalShockReforged {
         container.registerConfig(ModConfig.Type.COMMON, com.hp.thermalshockreforged.entity.cavebloomer.CavebloomerConfig.SPEC, "thermal_shock_reforged-cavebloomer.toml");
         ModEntities.register(bus);
         CavebloomerContent.register(bus);
+        com.hp.thermalshockreforged.world.LoqendiaContent.register(bus);
         MaterialContent.register(bus);
         MusicContent.register(bus);
         NativeDecorContent.register(bus);
