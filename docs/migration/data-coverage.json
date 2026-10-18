@@ -8,6 +8,7 @@
     "data/thermal_shock/recipe/bismuth_block_craft.json",
     "data/thermal_shock/recipe/bismuth_block_uncraft.json",
     "data/thermal_shock/recipe/bismuth_frag_craft.json",
+    "data/thermal_shock/recipe/blinding_lantern_recipe.json",
     "data/thermal_shock/recipe/blood_axe_recipe.json",
     "data/thermal_shock/recipe/blood_boot_zenith.json",
     "data/thermal_shock/recipe/blood_boots_recipe.json",
@@ -632,6 +633,7 @@
     "data/thermal_shock/loot_table/blocks/soapstone_wall.json",
     "data/thermal_shock/loot_table/blocks/spiral_mantlestone.json",
     "data/thermal_shock/loot_table/blocks/spire_bulb.json",
+    "data/thermal_shock/loot_table/blocks/spireroot_thorns.json",
     "data/thermal_shock/loot_table/blocks/spirewood_branch.json",
     "data/thermal_shock/loot_table/blocks/spirewood_button.json",
     "data/thermal_shock/loot_table/blocks/spirewood_door.json",
@@ -643,6 +645,7 @@
     "data/thermal_shock/loot_table/blocks/spirewood_slab.json",
     "data/thermal_shock/loot_table/blocks/spirewood_stairs.json",
     "data/thermal_shock/loot_table/blocks/spirewood_trapdoor.json",
+    "data/thermal_shock/loot_table/blocks/sprintweed.json",
     "data/thermal_shock/loot_table/blocks/steelstem_bars.json",
     "data/thermal_shock/loot_table/blocks/steelstem_block.json",
     "data/thermal_shock/loot_table/blocks/steelstem_fence.json",
@@ -680,11 +683,15 @@
     "data/thermal_shock/loot_table/blocks/stripped_vermilli_log.json",
     "data/thermal_shock/loot_table/blocks/stripped_vermilli_wood.json",
     "data/thermal_shock/loot_table/blocks/suspicious_archive_cabinet.json",
+    "data/thermal_shock/loot_table/blocks/tall_angler_bulb.json",
     "data/thermal_shock/loot_table/blocks/tall_frosted_grass.json",
+    "data/thermal_shock/loot_table/blocks/tall_loque_fern.json",
+    "data/thermal_shock/loot_table/blocks/tall_vermillion_fern.json",
     "data/thermal_shock/loot_table/blocks/thin_spire_bulb.json",
     "data/thermal_shock/loot_table/blocks/thin_stem.json",
     "data/thermal_shock/loot_table/blocks/tophaz.json",
     "data/thermal_shock/loot_table/blocks/trapped_darksteel_block.json",
+    "data/thermal_shock/loot_table/blocks/trident_flower.json",
     "data/thermal_shock/loot_table/blocks/twilit_shrub.json",
     "data/thermal_shock/loot_table/blocks/veinroot.json",
     "data/thermal_shock/loot_table/blocks/veinroot_ends.json",
@@ -692,6 +699,7 @@
     "data/thermal_shock/loot_table/blocks/vermilli_door.json",
     "data/thermal_shock/loot_table/blocks/vermilli_fence.json",
     "data/thermal_shock/loot_table/blocks/vermilli_fence_gate.json",
+    "data/thermal_shock/loot_table/blocks/vermilli_leaves.json",
     "data/thermal_shock/loot_table/blocks/vermilli_log.json",
     "data/thermal_shock/loot_table/blocks/vermilli_pressure_plate.json",
     "data/thermal_shock/loot_table/blocks/vermilli_slab.json",
@@ -701,6 +709,7 @@
     "data/thermal_shock/loot_table/blocks/vermillion_fern.json",
     "data/thermal_shock/loot_table/blocks/vermillion_lantern.json",
     "data/thermal_shock/loot_table/blocks/vermillion_moss.json",
+    "data/thermal_shock/loot_table/blocks/vermillion_sapling.json",
     "data/thermal_shock/loot_table/blocks/vermillion_wax_block.json",
     "data/thermal_shock/loot_table/blocks/vermillion_wax_cells.json",
     "data/thermal_shock/loot_table/blocks/vermillion_wax_panel.json",
@@ -709,6 +718,8 @@
     "data/thermal_shock/loot_table/blocks/vermillion_wax_tiles.json",
     "data/thermal_shock/loot_table/blocks/vermillion_wax_wall.json",
     "data/thermal_shock/loot_table/blocks/violet_seaglass_pane.json",
+    "data/thermal_shock/loot_table/blocks/volt_flower.json",
+    "data/thermal_shock/loot_table/blocks/wildgrass.json",
     "data/thermal_shock/loot_table/entities/chilloo.json",
     "data/thermal_shock/loot_table/entities/pondler.json",
     "data/thermal_shock/loot_table/entities/probosker.json",
@@ -1790,9 +1801,6 @@
       "未迁移物品 thermal_shock:blackpowder_spice",
       "未迁移物品 thermal_shock:blackpowder_spice_block"
     ],
-    "data/thermal_shock/recipes/blinding_lantern_recipe.json": [
-      "未迁移物品 thermal_shock:blinding_lantern"
-    ],
     "data/thermal_shock/recipes/bloodstone_sickle_recipe.json": [
       "未迁移物品 thermal_shock:bloodstone_sickle"
     ],
@@ -2674,8 +2682,6 @@
     "data/thermal_shock/loot_tables/blocks/spire_tendrils.json": [
       "未迁移掉落物 thermal_shock:spire_base"
     ],
-    "data/thermal_shock/loot_tables/blocks/spireroot_thorns.json": "方块行为尚未迁移",
-    "data/thermal_shock/loot_tables/blocks/sprintweed.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/starfruit.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/starfruit_seed.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/storm_battery.json": "方块行为尚未迁移",
@@ -2685,9 +2691,6 @@
     "data/thermal_shock/loot_tables/blocks/super_cryonic_cache.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/superbouncer.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/suspicious_safe.json": "方块行为尚未迁移",
-    "data/thermal_shock/loot_tables/blocks/tall_angler_bulb.json": "方块行为尚未迁移",
-    "data/thermal_shock/loot_tables/blocks/tall_loque_fern.json": "方块行为尚未迁移",
-    "data/thermal_shock/loot_tables/blocks/tall_vermillion_fern.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/tesla_reed_seed.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/thermal_geyser.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/thermite.json": "方块行为尚未迁移",
@@ -2695,14 +2698,11 @@
     "data/thermal_shock/loot_tables/blocks/train_terminal.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/transmutator.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/trapped_archive_cube.json": "方块行为尚未迁移",
-    "data/thermal_shock/loot_tables/blocks/trident_flower.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/trident_lamp.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/twilit_grassy_shale.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/verdium.json": "方块行为尚未迁移",
-    "data/thermal_shock/loot_tables/blocks/vermilli_leaves.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/vermilli_planks.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/vermillion_roots.json": "方块行为尚未迁移",
-    "data/thermal_shock/loot_tables/blocks/vermillion_sapling.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/vermillion_sparkler_stem.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/vermillion_sparkler_top_1.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/vermillion_sparkler_top_2.json": "方块行为尚未迁移",
@@ -2711,9 +2711,7 @@
     "data/thermal_shock/loot_tables/blocks/visi_bulb.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/visi_bulb_seed.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/volatine_seed.json": "方块行为尚未迁移",
-    "data/thermal_shock/loot_tables/blocks/volt_flower.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/wallbore_constructor.json": "方块行为尚未迁移",
-    "data/thermal_shock/loot_tables/blocks/wildgrass.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/windblown_loque_dandelion.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/wrought_bar_corner.json": "方块行为尚未迁移",
     "data/thermal_shock/loot_tables/blocks/wrought_bars.json": "方块行为尚未迁移"
@@ -2722,16 +2720,33 @@
     "data/minecraft/tags/entity_types/arthropod.json"
   ],
   "configured_features": [
+    "data/thermal_shock/worldgen/configured_feature/angler_bulb_feature.json",
     "data/thermal_shock/worldgen/configured_feature/dull_shrub.json",
     "data/thermal_shock/worldgen/configured_feature/loque_birch_tree.json",
     "data/thermal_shock/worldgen/configured_feature/loque_fern.json",
     "data/thermal_shock/worldgen/configured_feature/shiverglitter_tree.json",
     "data/thermal_shock/worldgen/configured_feature/shiverglitter_tree_cobalt_heights.json",
+    "data/thermal_shock/worldgen/configured_feature/spireroot_thorns.json",
     "data/thermal_shock/worldgen/configured_feature/spore_pod_gen.json",
-    "data/thermal_shock/worldgen/configured_feature/vermillion_fern.json"
+    "data/thermal_shock/worldgen/configured_feature/sprintweed.json",
+    "data/thermal_shock/worldgen/configured_feature/tall_loque_fern.json",
+    "data/thermal_shock/worldgen/configured_feature/tall_vermillion_fern.json",
+    "data/thermal_shock/worldgen/configured_feature/vermillion_fern.json",
+    "data/thermal_shock/worldgen/configured_feature/vermillion_tree.json",
+    "data/thermal_shock/worldgen/configured_feature/volt_flower.json"
   ],
   "placed_features": [
-    "data/thermal_shock/worldgen/placed_feature/spore_pod_gen.json"
+    "data/thermal_shock/worldgen/placed_feature/angler_bulb_feature.json",
+    "data/thermal_shock/worldgen/placed_feature/dull_shrub.json",
+    "data/thermal_shock/worldgen/placed_feature/loque_fern.json",
+    "data/thermal_shock/worldgen/placed_feature/spireroot_thorns.json",
+    "data/thermal_shock/worldgen/placed_feature/spore_pod_gen.json",
+    "data/thermal_shock/worldgen/placed_feature/sprintweed.json",
+    "data/thermal_shock/worldgen/placed_feature/tall_loque_fern.json",
+    "data/thermal_shock/worldgen/placed_feature/tall_vermillion_fern.json",
+    "data/thermal_shock/worldgen/placed_feature/vermillion_fern.json",
+    "data/thermal_shock/worldgen/placed_feature/vermillion_tree.json",
+    "data/thermal_shock/worldgen/placed_feature/volt_flower.json"
   ],
   "current_tag_files": [
     "data/minecraft/tags/block/animals_spawnable_on.json",
@@ -2760,6 +2775,7 @@
     "data/minecraft/tags/block/small_flowers.json",
     "data/minecraft/tags/block/stairs.json",
     "data/minecraft/tags/block/stone_buttons.json",
+    "data/minecraft/tags/block/tall_flowers.json",
     "data/minecraft/tags/block/trapdoors.json",
     "data/minecraft/tags/block/walls.json",
     "data/minecraft/tags/block/wooden_buttons.json",
@@ -2798,5 +2814,11 @@
     "data/thermal_shock/tags/item/ruby.json",
     "data/thermal_shock/tags/item/weapon.json",
     "data/thermal_shock/tags/item/zenith.json"
+  ],
+  "structure_templates": [
+    "data/thermal_shock/structure/vermillion_pine_1.nbt",
+    "data/thermal_shock/structure/vermillion_pine_1b.nbt",
+    "data/thermal_shock/structure/vermillion_pine_2.nbt",
+    "data/thermal_shock/structure/vermillion_pine_2b.nbt"
   ]
 }

@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:block",
+  "random_sequence": "thermal_shock:blocks/volt_flower",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "thermal_shock:volt_flower",
+          "conditions": [
+            {
+              "block": "thermal_shock:volt_flower",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "half": "lower"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

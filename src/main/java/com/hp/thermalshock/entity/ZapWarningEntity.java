@@ -76,6 +76,7 @@ public final class ZapWarningEntity extends Entity {
     protected void readAdditionalSaveData(CompoundTag tag) {
         caster = tag.hasUUID("Caster") ? tag.getUUID("Caster") : null;
         multiplier = Math.max(0, tag.getDouble("Multiplier"));
+        if (!Double.isFinite(multiplier)) multiplier = 0;
         remainingTicks = Math.max(1, Math.min(20, tag.getInt("RemainingTicks")));
         emitted = false;
     }

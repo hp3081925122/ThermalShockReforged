@@ -3,7 +3,7 @@
   "original_count": 23,
   "effects": {
     "cocoa_effect": {
-      "status": "implemented_pending_integration_validation",
+      "status": "implemented_pending_full_validation",
       "module": "com.hp.thermalshock.content.status.StatusContent",
       "evidence": "status-batch.md",
       "pending": [
@@ -15,10 +15,16 @@
       "status": "not_migrated"
     },
     "stunned": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "module": "com.hp.thermalshock.content.status.ControlEffect",
+      "evidence": "lantern-control-effects-batch.md",
+      "pending": [
+        "其他原技能/生物来源未迁完",
+        "整模组后的两端行为/渲染验收"
+      ]
     },
     "antitoxin_effect": {
-      "status": "implemented_pending_integration_validation",
+      "status": "implemented_pending_full_validation",
       "module": "com.hp.thermalshock.content.status.StatusContent",
       "evidence": "status-batch.md",
       "pending": [
@@ -30,7 +36,7 @@
       "status": "not_migrated"
     },
     "electrified": {
-      "status": "implemented_pending_integration_validation",
+      "status": "implemented_pending_full_validation",
       "module": "com.hp.thermalshock.content.status.StatusContent",
       "evidence": "status-batch.md",
       "pending": [
@@ -42,7 +48,13 @@
       "status": "not_migrated"
     },
     "no_melee": {
-      "status": "not_migrated"
+      "status": "reimplemented_for_blinding_lantern_source",
+      "module": "com.hp.thermalshock.content.weapons.HeldWeaponState",
+      "evidence": "lantern-control-effects-batch.md",
+      "pending": [
+        "其他原武器来源待迁",
+        "整模组后属性/换手/掉线及实际近战范围验收"
+      ]
     },
     "parrying": {
       "status": "not_migrated"
@@ -58,19 +70,25 @@
       ]
     },
     "damaging_aura": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "module": "com.hp.thermalshock.content.status.aura",
+      "evidence": "damaging-aura-batch.md",
+      "pending": [
+        "8原caller依赖的实体/武器来源",
+        "完整模组后实际伤害/AAA视觉验收"
+      ]
     },
     "infected": {
       "status": "implemented_pending_full_validation",
       "module": "com.hp.thermalshock.content.status",
       "evidence": "infection-effect-batch.md",
       "pending": [
-        "其余感染来源实体／Blood流体／BlightedSpore／Ripple联动",
+        "其余感染来源实体／Blood流体／Ripple联动",
         "完整模组后的两端和AAA粒子对照"
       ]
     },
     "purified": {
-      "status": "implemented_pending_integration_validation",
+      "status": "implemented_pending_full_validation",
       "module": "com.hp.thermalshock.content.status.StatusContent",
       "evidence": "status-batch.md",
       "pending": [
@@ -98,7 +116,7 @@
       "status": "not_migrated"
     },
     "frostbite": {
-      "status": "implemented_pending_integration_validation",
+      "status": "implemented_pending_full_validation",
       "module": "com.hp.thermalshock.content.status.StatusContent",
       "evidence": "status-batch.md",
       "pending": [
@@ -113,7 +131,13 @@
       "status": "not_migrated"
     },
     "tremors": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "module": "com.hp.thermalshock.content.status.ControlEffect",
+      "evidence": "lantern-control-effects-batch.md",
+      "pending": [
+        "其他原技能/生物来源未迁完",
+        "整模组后的两端行为/渲染验收"
+      ]
     },
     "nomnomnom": {
       "status": "not_migrated"

@@ -15,6 +15,12 @@ public final class StatusClient {
     public static void register(RegisterClientExtensionsEvent event) {
         event.registerMobEffect(new IClientMobEffectExtensions() {
             @Override
+            public boolean isVisibleInInventory(MobEffectInstance instance) { return false; }
+            @Override
+            public boolean isVisibleInGui(MobEffectInstance instance) { return false; }
+        }, StatusContent.TREMORS);
+        event.registerMobEffect(new IClientMobEffectExtensions() {
+            @Override
             public boolean isVisibleInGui(MobEffectInstance instance) { return false; }
         }, StatusContent.FROSTBITE);
     }

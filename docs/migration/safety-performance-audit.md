@@ -112,3 +112,18 @@ InfectionStatus.onRemoved现先刷新非玩家LockRemaining30/LockCreated并appl
 独立最终静态报告为fifth-safety-spore-static-validation.json，保留上一轮ambient-plants-lights-static-validation.json的真实两配方悬空失败历史。当前实际展开394方块、586物品、28实体、7效果、5粒子、1药水、5BE、6装甲材质，均零重复；包括玻璃2个真实BlockItem、11植物循环BlockItem和SporePodItem显式注册。803data JSON/2147具体注册引用及1个外置feature引用无悬空；原6105assets SHA全等，Spore9资源全等，7份configured feature（3树+3植物patch+孢子）与1份孢子placed原JSON全等。126Java无注释、UTF8扫描无问题，两skill校验通过。
 
 这是编译和源码/资源静态结论，不是实际Mixin应用、网络组件解码、原生worldgen解码、碰撞/存档恢复、压力测试或渲染相等验证。花炖菜获取tag资格、Glowstick原无动画1、未迁群系/交易/图鉴/维度与部分装甲进度链等限制仍保留，不能把本批引用闭合扩大为整模组迁移完成。
+
+
+## 第六批冻结后复核与编译
+
+本批灯/control/Sootle/Aura/原生双高植物/Vermilli结构树的最终快照已完成源码静态及统一编译，详见sixth-sootle-lantern-worldgen-static-validation.json。HeldWeaponState.join已新增alive/server/remaining验证并恢复transient -40触距，把Created置Long.MIN_VALUE；若未selected刷新，首次Post移除，先前1tick存档尾效缺口已解决，WeaponContent真实注册join一次。
+
+SootleIdle首个7/10tick触发先conversionClaimed，后续受击不再增任务；到期先discard再spawn一只Active；死亡取消、跨维取消并释放claim、卸载保存剩余tick。Active技能单状态、30/40tick冷却、18tick行动锁、单击7/双击8及10tick，原范围和声音时序不缩减。负伤害源头Sootle公式及Aura的amp-armor*.3/.6均Math.max0，正常原生属性/护甲/amp有界有限；未拿负hurt制造吸收。zero hurt仍保留原回调。三处NBT非有限值读取ZapWarning.Multiplier、宿主FuseDamage和遗留SnobolBlast.Damage均补Double.isFinite→0，前轮异常存档防御项已落实，不是全局吞第三方伤害。
+
+灯权威挥动265CD/FLASH45/r6/无owner generic3/stun60amp1、native Geo stackID与30秒缓存回收、原手持变换保持前述复核结论；Aura完整双半径/排self与物品/Angry10% BloomerAura AAA、同源amp而非amp+1、三治愈入口和隐藏UI均已接，其他原生物/武器caller仍pending，不把效果注册算作全部技能迁完。Tremors唯一Cavebloomer来源仍pending。
+
+第一次编译日志compile-sixth-sootle-lantern-worldgen.log第42行AbstractSootleEntity:38的AnimationState歧义，第101行BUILD FAILED in18s；PowerShell脚本却输出LASTEXITCODE0，故按真实日志判失败并释放输入。root修唯一精确Gecko AnimationState import后重新冻结；复跑compile-sixth-sootle-lantern-worldgen-final.log任务41/57/60，72行BUILD SUCCESSFUL in53s。既有三条removal warning42/45/48；新增BoundedItemAnimationCache unchecked注记53行，未将其伪称错误或运行通过。
+
+当前真实展开404方块/598物品/30实体/10效果/6粒子/1药水/5BE/6装甲材质/1Feature（structure_feature），全部唯一；832data JSON/2189具体引用无悬空。4原结构NBT逐字节一致，palette只有air/vermilli_log/vermilli_leaves，所有property值/块palette索引有效，无实体或嵌套BE NBT；native codec/放树未实际运行。25worldgen的custom feature type和structure引用闭合，24份原字节相等，既有loque_birch_tree仅格式差异、原JSON参数相等；本批15植物文件与Vermillion两文件均原字节相等，不能把格式差异误报为行为改写，也不能写全部25字节一致。原6105assets全同，本批显式81视觉资源全同；145Java无注释/UTF8、两skill校验通过。
+
+所有历史失败快照保留。本轮无服务端/客户端/GameTest启动，也无真实Mixin应用、worldgen codec解码、生物转换/黄色吸收/渲染/性能实测。main已在编译结束释放，此后只写文档并读取固定build/resources输出，不扫描新输入。

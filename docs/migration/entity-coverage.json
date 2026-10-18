@@ -356,7 +356,13 @@
       "status": "not_migrated"
     },
     "sootle": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshock.entity.sootle.SootleEntity",
+      "audit": "sootle-batch.md",
+      "pending": [
+        "原结构自然来源待总结构系统闭合",
+        "完整模组后服务端与Render Preview验收"
+      ]
     },
     "sootling": {
       "status": "implemented_pending_full_validation",
@@ -368,7 +374,13 @@
       ]
     },
     "sootle_idle": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshock.entity.sootle.SootleIdleEntity",
+      "audit": "sootle-batch.md",
+      "pending": [
+        "原结构自然来源待总结构系统闭合",
+        "完整模组后服务端与Render Preview验收"
+      ]
     },
     "herald": {
       "status": "not_migrated"
