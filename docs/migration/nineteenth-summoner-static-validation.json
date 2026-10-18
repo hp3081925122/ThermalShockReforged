@@ -1,0 +1,73 @@
+{
+  "scope": "Suspicious Cavebloomer真实双阶段召唤方块/9槽BE/Geo入口；世界自然来源链尚待迁入",
+  "original": "D:/AI临时文件/ThermalShockMigration/thermal_shock-07.9-original.jar",
+  "implementation_owner": "主代理",
+  "validation_owner": "Luna，未修改产品代码，未启动游戏",
+  "compilation": {
+    "full": "compileJava compileGametestJava processResources --offline; BUILD SUCCESSFUL 17s; nineteenth-summoner-compile.log",
+    "final": "动画状态复核修正后compileJava --offline; BUILD SUCCESSFUL 15s; nineteenth-summoner-final-compile.log",
+    "logs_root": "D:/AI临时文件/ThermalShockMigration"
+  },
+  "luna_mechanical_results": {
+    "budding_attempts": [
+      0,
+      6,
+      13,
+      20
+    ],
+    "attempts_total": 4,
+    "gate": "phase1、pending全部结束、整数方块坐标中心32×32×32内无任意非Dandy的Bloomling（无alive筛选，保含尸体）",
+    "persistence": "phase使用NeoForge persistent data；remaining0..3/delay0..7/startedAt存NBT；onLoad修复SPAWNING开关",
+    "ticker": "server && SPAWNING && matching type才提供；LevelChunk状态更新会更新ticker；不每tick查32格",
+    "cancelled_spawn": "create/finalize/add失败保入口；仅addFreshEntity成功后destroy(false)并广播/声光",
+    "resources": "原Geo/animation/block texture三文件SHA与目标一致；通用GeoDecor枚举真实注册BE、GeoItem及方块/物品renderer",
+    "clips": [
+      "0",
+      "1",
+      "2",
+      "Idle",
+      "walk",
+      "prime",
+      "prime2",
+      "prime3",
+      "prime4"
+    ]
+  },
+  "source_confirmed_world_entry": {
+    "structure": "cavebloomer_field.nbt含suspicious_cavebloomer palette及BE",
+    "chain": [
+      "jigsaw cavebloomer_field",
+      "template_pool cavebloomer_field",
+      "NBT cavebloomer_field",
+      "processor integrated_api:waterlogging_fix_processor"
+    ],
+    "biome": "glaciation",
+    "placement": {
+      "spacing": 20,
+      "separation": 7,
+      "salt": 1828568365
+    },
+    "height": [
+      32,
+      40
+    ],
+    "terrain_adaptation": "beard_box",
+    "migrated": false
+  },
+  "intentional_repairs": [
+    "阻止余下Budding排队时提前第二次激活Boss",
+    "取消/失败spawn不先吞入口或播成功广播",
+    "原9槽与独立3行ChestMenu断开，复用相连9槽容器，保六面自动化",
+    "本地持久化阶段替换全局闭包；卸载暂停、删除方块取消未提交阶段",
+    "ticker关状态同时ANIMATION0，避免重复广播源服务端遗留ANIMATION1重播开场；初次clip1保原.5417s",
+    "给合理非NONE MapColor，不改透明/灯光语义"
+  ],
+  "not_proven": [
+    "运行时事件取消与重入",
+    "真实NBT保存重载/卸载计时/动态ticker刷新",
+    "实际客户端Geo动画/发光/透明与Xaero显示",
+    "cavebloomer_field实际自然生成"
+  ],
+  "whole_mod_complete": false,
+  "runtime_started": false
+}
