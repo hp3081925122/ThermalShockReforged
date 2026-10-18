@@ -1,0 +1,410 @@
+{
+  "project": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged",
+  "source_jar": "D:\\AI临时文件\\ThermalShockMigration\\thermal_shock-07.9-original.jar",
+  "readable_source_root": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock",
+  "scope": "第十七批 Galvanite 只读静态核对；未修改项目文件、未启动客户端/服务端。",
+  "builds": [
+    {
+      "command": ".\\gradlew.bat compileJava compileGametestJava processResources --offline",
+      "java": "C:/Users/30819/.jdks/ms-21.0.11",
+      "log": "D:\\AI临时文件\\ThermalShockMigration\\compile-seventeenth-galvanite.log",
+      "result": "BUILD SUCCESSFUL in 48s; 25 tasks, 3 executed; ClientEvents.java:50 two removal/deprecation warnings; compileGametestJava deprecation note."
+    },
+    {
+      "command": ".\\gradlew.bat compileJava --offline",
+      "java": "C:/Users/30819/.jdks/ms-21.0.11",
+      "log": "D:\\AI临时文件\\ThermalShockMigration\\compile-seventeenth-galvanite-final.log",
+      "result": "BUILD SUCCESSFUL in 17s; 23 tasks, 1 executed; same two ClientEvents.java:50 removal warnings."
+    }
+  ],
+  "entity_registration": {
+    "id": "thermal_shock_reforged:galvanite",
+    "source": "src/main/java/com/hp/thermalshockreforged/entity/ModEntities.java:26",
+    "category": "MONSTER",
+    "dimensions": [
+      0.6,
+      2.0
+    ],
+    "tracking_range": 64,
+    "update_interval": 3,
+    "velocity_updates": true,
+    "spawn_egg_registered": "ModEntities.java:44, colors -1/-1",
+    "attribute_registration": "ModEntities.java:67"
+  },
+  "attributes_and_entity_behavior": {
+    "target_file": "src/main/java/com/hp/thermalshockreforged/entity/GalvaniteEntity.java",
+    "eye_height": {
+      "target": 0.8,
+      "source": "readable entity/GalvaniteEntity.java:104 returns 0.8f"
+    },
+    "max_up_step": {
+      "target": 1.6,
+      "source": "readable entity/GalvaniteEntity.java:86 setMaxUpStep(1.6f)"
+    },
+    "attributes": {
+      "max_health": 12,
+      "armor": 6,
+      "attack_damage": 7,
+      "movement_speed": 0.15,
+      "follow_range": 32,
+      "attack_knockback": 0.8,
+      "step_height": 1.6
+    },
+    "source_attributes": [
+      "movement_speed .15",
+      "max_health 12",
+      "armor 6",
+      "attack_damage 7",
+      "follow_range 32",
+      "attack_knockback .8"
+    ],
+    "ai": "Six custom priorities match old list: melee, hurt-by, stroll, look, player target, avoid Squall. Avoid goal queries Monster with exact thermal_shock_reforged:squall ID predicate; canUse first checks registry optional then delegates, preventing futile scans while Squall is absent. Source SquallEntity extends Monster (readable entity/SquallEntity.java:37-38).",
+    "lightning_immunity": "hurt returns false for DamageTypes.LIGHTNING_BOLT; old source same behavior.",
+    "xp": "xpReward=10; XP emission deferred through deathTime >=20; pending attacker and pending flag are NBT saved. Original xpReward=10 and dropExperience at deathTime==20.",
+    "source_goal_list": "readable/entity/GalvaniteEntity.java:112-124 confirms custom priority 1..6; class constructor :78-86 sets max-up-step 1.6; eye height :104 is 0.8."
+  },
+  "animation_and_rendering": {
+    "source_animation_clip_keys": [
+      "idle",
+      "walk",
+      "run"
+    ],
+    "target_animation_controller_keys": [
+      "idle",
+      "walk",
+      "run"
+    ],
+    "render_type": "entityTranslucent",
+    "head_look": "sets head bone pitch/yaw from entity model data",
+    "glow": "separate RenderType.eyes layer using textures/entities/galvaniteglow.png",
+    "target_default_texture": "galvanitenoglow",
+    "renderer_source": "src/main/java/com/hp/thermalshockreforged/client/GalvaniteRenderer.java",
+    "asset_presence": [
+      {
+        "original_jar_path": "assets/thermal_shock/animations/galvanite.animation.json",
+        "target_path": "assets/thermal_shock_reforged/animations/galvanite.animation.json",
+        "target_exists": true
+      },
+      {
+        "original_jar_path": "assets/thermal_shock/animations/ribbonblade_galvanite.animation.json",
+        "target_path": "assets/thermal_shock_reforged/animations/ribbonblade_galvanite.animation.json",
+        "target_exists": true
+      },
+      {
+        "original_jar_path": "assets/thermal_shock/geo/galvanite.geo.json",
+        "target_path": "assets/thermal_shock_reforged/geo/galvanite.geo.json",
+        "target_exists": true
+      },
+      {
+        "original_jar_path": "assets/thermal_shock/geo/ribbonblade_galvanite.geo.json",
+        "target_path": "assets/thermal_shock_reforged/geo/ribbonblade_galvanite.geo.json",
+        "target_exists": true
+      },
+      {
+        "original_jar_path": "assets/thermal_shock/models/item/galvanite_spawn_egg.json",
+        "target_path": "assets/thermal_shock_reforged/models/item/galvanite_spawn_egg.json",
+        "target_exists": true
+      },
+      {
+        "original_jar_path": "assets/thermal_shock/particles/teleport_flash.json",
+        "target_path": "assets/thermal_shock_reforged/particles/teleport_flash.json",
+        "target_exists": true
+      },
+      {
+        "original_jar_path": "assets/thermal_shock/sounds/galvaniteambient1.ogg",
+        "target_path": "assets/thermal_shock_reforged/sounds/galvaniteambient1.ogg",
+        "target_exists": true
+      },
+      {
+        "original_jar_path": "assets/thermal_shock/sounds/galvaniteambient2.ogg",
+        "target_path": "assets/thermal_shock_reforged/sounds/galvaniteambient2.ogg",
+        "target_exists": true
+      },
+      {
+        "original_jar_path": "assets/thermal_shock/sounds/galvaniteambient3.ogg",
+        "target_path": "assets/thermal_shock_reforged/sounds/galvaniteambient3.ogg",
+        "target_exists": true
+      },
+      {
+        "original_jar_path": "assets/thermal_shock/sounds/galvaniteambient4.ogg",
+        "target_path": "assets/thermal_shock_reforged/sounds/galvaniteambient4.ogg",
+        "target_exists": true
+      },
+      {
+        "original_jar_path": "assets/thermal_shock/sounds/galvanitedeath1.ogg",
+        "target_path": "assets/thermal_shock_reforged/sounds/galvanitedeath1.ogg",
+        "target_exists": true
+      },
+      {
+        "original_jar_path": "assets/thermal_shock/sounds/galvanitedeath2.ogg",
+        "target_path": "assets/thermal_shock_reforged/sounds/galvanitedeath2.ogg",
+        "target_exists": true
+      },
+      {
+        "original_jar_path": "assets/thermal_shock/sounds/galvanitedeath3.ogg",
+        "target_path": "assets/thermal_shock_reforged/sounds/galvanitedeath3.ogg",
+        "target_exists": true
+      },
+      {
+        "original_jar_path": "assets/thermal_shock/sounds/galvanitehurt1.ogg",
+        "target_path": "assets/thermal_shock_reforged/sounds/galvanitehurt1.ogg",
+        "target_exists": true
+      },
+      {
+        "original_jar_path": "assets/thermal_shock/sounds/galvanitehurt2.ogg",
+        "target_path": "assets/thermal_shock_reforged/sounds/galvanitehurt2.ogg",
+        "target_exists": true
+      },
+      {
+        "original_jar_path": "assets/thermal_shock/sounds/galvanitehurt3.ogg",
+        "target_path": "assets/thermal_shock_reforged/sounds/galvanitehurt3.ogg",
+        "target_exists": true
+      },
+      {
+        "original_jar_path": "assets/thermal_shock/sounds/galvanitehurt4.ogg",
+        "target_path": "assets/thermal_shock_reforged/sounds/galvanitehurt4.ogg",
+        "target_exists": true
+      },
+      {
+        "original_jar_path": "assets/thermal_shock/textures/entities/galvaniteglow.png",
+        "target_path": "assets/thermal_shock_reforged/textures/entities/galvaniteglow.png",
+        "target_exists": true
+      },
+      {
+        "original_jar_path": "assets/thermal_shock/textures/entities/galvanitenoglow.png",
+        "target_path": "assets/thermal_shock_reforged/textures/entities/galvanitenoglow.png",
+        "target_exists": true
+      },
+      {
+        "original_jar_path": "assets/thermal_shock/textures/item/galvanite_egg.png",
+        "target_path": "assets/thermal_shock_reforged/textures/item/galvanite_egg.png",
+        "target_exists": true
+      },
+      {
+        "original_jar_path": "assets/thermal_shock/textures/particle/teleport_flash.png",
+        "target_path": "assets/thermal_shock_reforged/textures/particle/teleport_flash.png",
+        "target_exists": true
+      }
+    ],
+    "source_parity": {
+      "source_renderer": "readable/client/renderer/GalvaniteRenderer.java:25-36 uses shadow .5, add GalvaniteLayer, entityTranslucent, scale 1",
+      "source_head_tracking": "readable/entity/model/GalvaniteModel.java:28-33 sets head rotation from pitch/yaw",
+      "source_glow": "readable/entity/layer/GalvaniteLayer.java:27-28 uses RenderType.eyes"
+    }
+  },
+  "sounds": {
+    "event_ids": [
+      "galvaniteambient",
+      "galvanitehurt",
+      "galvanitedeath"
+    ],
+    "target_variant_counts": {
+      "galvaniteambient": 4,
+      "galvanitehurt": 4,
+      "galvanitedeath": 3
+    },
+    "sound_registry_source": "src/main/java/com/hp/thermalshockreforged/content/ModSounds.java",
+    "target_sound_events_json": "assets/thermal_shock_reforged/sounds.json",
+    "note": "Ambient event registered/assets present; GalvaniteEntity overrides hurt/death, no ambient override."
+  },
+  "initial_spawn_particle": {
+    "id": "thermal_shock_reforged:teleport_flash",
+    "source_simple_particle_type_always_show": true,
+    "target_simple_particle_type_always_show": true,
+    "target_registration": "src/main/java/com/hp/thermalshockreforged/entity/ModEntities.java:25",
+    "provider_registration": "src/main/java/com/hp/thermalshockreforged/client/ClientEvents.java:107",
+    "wrapper": "src/main/java/com/hp/thermalshockreforged/client/particle/TeleportFlashParticle.java",
+    "lifetime": 0,
+    "ordering": "sets lifetime=0; tick calls super.tick() then exactly one AAALevel.addParticle call; the call is after super and is not skipped by an early return, so the wrapper still emits once.",
+    "target_particle_description": {
+      "textures": [
+        "thermal_shock_reforged:teleport_flash"
+      ]
+    },
+    "original_particle_description": {
+      "textures": [
+        "thermal_shock:teleport_flash"
+      ]
+    },
+    "target_EFK_exists": false,
+    "target_particle_texture_exists": false
+  },
+  "loot": {
+    "namespace_normalized_deep_equal_to_original": true,
+    "target_pools": [
+      {
+        "rolls": 1,
+        "entries": [
+          {
+            "type": "minecraft:item",
+            "name": "thermal_shock_reforged:stellar_scrap",
+            "weight": 5,
+            "functions": [
+              {
+                "function": "set_count",
+                "count": {
+                  "min": 0,
+                  "max": 1
+                }
+              }
+            ]
+          },
+          {
+            "type": "minecraft:item",
+            "name": "thermal_shock_reforged:phobotite",
+            "weight": 1,
+            "functions": [
+              {
+                "function": "set_count",
+                "count": {
+                  "min": 1,
+                  "max": 2
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rolls": {
+          "min": 0,
+          "max": 1
+        },
+        "entries": [
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:iron_nugget",
+            "weight": 1,
+            "functions": [
+              {
+                "function": "set_count",
+                "count": {
+                  "min": 3,
+                  "max": 5
+                }
+              }
+            ]
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:gold_nugget",
+            "weight": 1,
+            "functions": [
+              {
+                "function": "set_count",
+                "count": {
+                  "min": 5,
+                  "max": 8
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "item_ids": [
+      "thermal_shock_reforged:stellar_scrap",
+      "thermal_shock_reforged:phobotite",
+      "minecraft:iron_nugget",
+      "minecraft:gold_nugget"
+    ],
+    "registered_non_vanilla_material_ids": [
+      "thermal_shock_reforged:stellar_scrap",
+      "thermal_shock_reforged:phobotite",
+      "thermal_shock_reforged:bioelectric_cell"
+    ],
+    "target_table": "src/main/resources/data/thermal_shock_reforged/loot_table/entities/galvanite.json"
+  },
+  "tags": {
+    "target_path_is_singular_entity_type": true,
+    "changes_from_HEAD": {
+      "cryo_resist": {
+        "head_count": 7,
+        "current_count": 8,
+        "removed_since_head": [],
+        "added_since_head": [
+          "thermal_shock_reforged:galvanite"
+        ],
+        "contains_galvanite": true,
+        "source_jar_members_missing_from_current": [
+          "thermal_shock_reforged:frost_titan",
+          "thermal_shock_reforged:frostilyte_gunner",
+          "thermal_shock_reforged:ribbonblade_galvanite",
+          "thermal_shock_reforged:ripple",
+          "thermal_shock_reforged:kilolyte"
+        ]
+      },
+      "pyro_weak": {
+        "head_count": 8,
+        "current_count": 9,
+        "removed_since_head": [],
+        "added_since_head": [
+          "thermal_shock_reforged:galvanite"
+        ],
+        "contains_galvanite": true,
+        "source_jar_members_missing_from_current": [
+          "thermal_shock_reforged:frost_titan",
+          "thermal_shock_reforged:frostilyte_gunner",
+          "thermal_shock_reforged:effigy",
+          "thermal_shock_reforged:ribbonblade_galvanite",
+          "thermal_shock_reforged:ripple",
+          "thermal_shock_reforged:angry_cavebloomer",
+          "thermal_shock_reforged:monolith"
+        ]
+      },
+      "ferro_resist": {
+        "head_count": 2,
+        "current_count": 3,
+        "removed_since_head": [],
+        "added_since_head": [
+          "thermal_shock_reforged:galvanite"
+        ],
+        "contains_galvanite": true,
+        "source_jar_members_missing_from_current": [
+          "thermal_shock_reforged:spectre",
+          "thermal_shock_reforged:spirit",
+          "thermal_shock_reforged:effigy",
+          "thermal_shock_reforged:ribbonblade_galvanite",
+          "thermal_shock_reforged:ripple",
+          "thermal_shock_reforged:kilolyte",
+          "thermal_shock_reforged:angry_cavebloomer",
+          "thermal_shock_reforged:beetle_crasher",
+          "thermal_shock_reforged:beetle_thrasher"
+        ]
+      }
+    },
+    "interpretation": "Each of this batch’s three tag edits adds only galvanite; no member present at HEAD was removed. Some original-JAR members absent from the target are other unported entities, not removals by this batch."
+  },
+  "world_progress": {
+    "file": "src/main/java/com/hp/thermalshockreforged/world/WorldProgressData.java",
+    "id": "thermal_shock_reforged_world_progress",
+    "storage": "server overworld DataStorage even when given another ServerLevel",
+    "default": 0.0,
+    "load_validation": "non-finite becomes 0; negative clamped to 0",
+    "setter": "advanceCrux rejects non-finite values; updates and calls setDirty only when stage > current value",
+    "source_semantics": "Original WorldCrux defaults 0 and the only source write is AngryCavebloomerEntityDiesProcedure.java:54-56, assigning exactly 1 then syncing.",
+    "target_write_callers": [],
+    "pending": "AngryCavebloomer unlock writer, Squall implementation, 7 biome generation registrations and GUI/client progress sync remain unported; natural spawning is not closed.",
+    "source_only_writer_line": "readable/procedures/AngryCavebloomerEntityDiesProcedure.java:54-56"
+  },
+  "extra_death_drop": {
+    "file": "src/main/java/com/hp/thermalshockreforged/entity/GalvaniteEntity.java",
+    "condition": "server side, DO_ENTITY_DROPS true, WorldProgressData.worldCrux >= 1",
+    "trials": "two independent random.nextDouble() trials; each drops one bioelectric_cell with probability .2",
+    "pickup_delay": 10,
+    "idempotence": "deathCommitted checked and set before processing drops; persisted/read from GalvaniteDeathCommitted NBT; if rule/crux fails, this death is still committed, matching one-shot processing intent.",
+    "source": "original GalvaniteEntity dies calls procedure once; procedure has same gamerule/crux threshold, two independent 20% trials, pickup delay 10."
+  },
+  "registration_closure": {
+    "loot_material_item_ids_exist": true,
+    "renderer_registered": "src/main/java/com/hp/thermalshockreforged/client/ClientEvents.java:79",
+    "spawn_egg_item_model_exists": false,
+    "galvanite_entity_loot_exists": true,
+    "all_original_relevant_assets_exist": true
+  },
+  "notes": [
+    "No client/server gameplay or visual rendering tests were run.",
+    "No asset SHA checks were repeated.",
+    "This report confirms static implementation pieces only and does not claim biome/natural-spawn or WorldCrux unlock chain is complete."
+  ]
+}
