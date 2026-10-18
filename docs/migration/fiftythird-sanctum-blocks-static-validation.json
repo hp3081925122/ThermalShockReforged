@@ -1,0 +1,54 @@
+{
+  "batch": 53,
+  "newBlocks": [
+    "brick_climbing_wall",
+    "mantleslag",
+    "phaser"
+  ],
+  "sharedExistingBlock": "rock_climbing_wall",
+  "validation": {
+    "executor": "validation_luna",
+    "java": 21,
+    "command": "gradlew.bat compileJava compileGametestJava processResources --offline",
+    "result": "BUILD SUCCESSFUL",
+    "nativeProcessExitCode": 0,
+    "finalDurationSeconds": 13,
+    "finalExecuted": 0,
+    "finalUpToDate": 25,
+    "finalLog": "D:/AI临时文件/ThermalShockMigration/fiftythird-sanctum-blocks-final-compile.log",
+    "precedingActualCompilation": {
+      "durationSeconds": 49,
+      "executed": 2,
+      "upToDate": 23,
+      "result": "BUILD SUCCESSFUL"
+    },
+    "initialFailure": "constructor reference overload ambiguity; fixed using explicit zero-argument lambda; no source change after successful build"
+  },
+  "mechanical": {
+    "assets": 31,
+    "assetVerification": "normalized JSON semantic equality / binary SHA equality",
+    "newRecipes": 4,
+    "newLootTables": 3,
+    "relatedTotalRecipesIncludingExistingRock": 6,
+    "relatedTotalLootTablesIncludingExistingRock": 4,
+    "recipeAndLootParity": "same original fields and contents after namespace and 1.21 result.item to id mapping",
+    "ingredients": "all actually registered",
+    "climbing": "blockstate0..2, side non-sneak y.35, original two local sounds, exact original pickaxe no min tier",
+    "mantleslag": "box16x15x16, strength-1/3600000, light10/speed.4/noOcclusion/emissive; Aqeron Atlas teleport+fire1sec elsefire10sec, nonplayer default0,194,0",
+    "phaser": "noCollision/light10/opacity15/strength5,100; real5tick amp1 SlowFalling or Levitation ambient true/visible true",
+    "phaserParticleBranch": "original client animateTick to ServerLevel-only procedure unreachable; no invented spark particles",
+    "toolRules": "vanilla mineable/pickaxe and Phaser diamond tier plus four lower incorrect tags; no concrete tool class checks"
+  },
+  "fixes": [
+    "explicit reasonable MapColor for Xaero; actual display pending",
+    "Mantleslag server-authoritative teleport/fire, one player connection teleport; shared existing coordinates unchanged"
+  ],
+  "remaining": [
+    "SurgePylon/DeskDirector/SuperCryonicCache and missing sanctum mobs",
+    "underground base missing blocks",
+    "full original templates and normal worldgen",
+    "whole mod final server/client/Render Preview"
+  ],
+  "runtimeTests": "not started; whole mod incomplete",
+  "skill": "new verified 1.20.1 randomTick delegates tick while 1.21.1 empty; skill updated and validated; full analogous mechanical inventory pending"
+}
