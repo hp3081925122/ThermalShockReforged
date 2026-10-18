@@ -1,7 +1,7 @@
 package com.hp.thermalshockreforged.entity.icesquad;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
-import com.hp.thermalshockreforged.entity.icesquad.mixin.ArrowPiercingAccess;
+import com.hp.thermalshockreforged.mixin.ArrowPiercingAccess;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;

@@ -1,4 +1,4 @@
-package com.hp.thermalshockreforged.entity.icesquad.mixin;
+package com.hp.thermalshockreforged.mixin;
 
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import org.spongepowered.asm.mixin.Mixin;

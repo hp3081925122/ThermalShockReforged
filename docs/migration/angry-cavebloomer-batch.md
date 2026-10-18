@@ -83,3 +83,5 @@ Dandy近战取消普通击中后，保120内部冷却、75内部移动锁和19�
 Luna初次十九批compileJava/compileGametestJava/processResources离线成功17秒，机械核对4次0/6/13/20、32³含尸体筛选、NBT及事件取消保入口。新增spawning结束状态同步可能把服务端遗留ANIMATION1再次发给客户端、重播一次开场动画；核原clip1时长0.5417秒，正常在20tick最后召唤前已经播完，因此结束SPAWNING时同步ANIMATION0，防止不相关ticker开关重触发动画。服务器重载/客户端晚加入的过时开场重播也不再作为正常功能保留，资产与初次完整动画不删。此修正后再编译，尚未运行渲染对照。
 
 第十九批最终冻结源码日志nineteenth-summoner-final-compile.log为compileJava离线成功15秒；详见nineteenth-summoner-static-validation.json。没有启动游戏；正常结构生成、进度父链和全模组其他未迁项继续处理。
+
+贴图实看复核：Suspicious使用的angry_cavebloomer块贴图主体为深灰/灰蓝、浅紫点缀，因此将初始推定的MapColor.COLOR_PINK更正为COLOR_GRAY，以实际视觉资产为据；不是按蘑菇名称猜粉红色。Xaero实际显示仍待最终客户端测试。

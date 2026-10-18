@@ -1,4 +1,4 @@
-package com.hp.thermalshockreforged.content.status.mixin;
+package com.hp.thermalshockreforged.mixin;
 
 import com.hp.thermalshockreforged.content.status.StatusContent;
 import com.hp.thermalshockreforged.content.status.StatusEvents;

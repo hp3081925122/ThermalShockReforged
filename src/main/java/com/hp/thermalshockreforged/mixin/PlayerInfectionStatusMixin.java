@@ -1,4 +1,4 @@
-package com.hp.thermalshockreforged.content.status.mixin;
+package com.hp.thermalshockreforged.mixin;
 
 import com.hp.thermalshockreforged.content.status.InfectionStatus;
 import com.hp.thermalshockreforged.content.status.ParryingStatus;
