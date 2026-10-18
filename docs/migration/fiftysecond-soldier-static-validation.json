@@ -1,0 +1,55 @@
+{
+  "batch": 52,
+  "scope": [
+    "Frostilyte Soldier END combo fidelity",
+    "Soldier delayed death XP",
+    "shared Ice registration velocity flag"
+  ],
+  "validation": {
+    "executor": "validation_luna",
+    "java": 21,
+    "command": "gradlew.bat compileJava compileGametestJava processResources --offline",
+    "durationSeconds": 17,
+    "exitCode": 0,
+    "result": "BUILD SUCCESSFUL",
+    "executed": 1,
+    "upToDate": 24,
+    "log": "D:/AI临时文件/ThermalShockMigration/fiftysecond-soldier-compile.log",
+    "warnings": "2 existing ClientEvents bus deprecation warnings"
+  },
+  "mechanical": {
+    "endTicks": [
+      11,
+      16,
+      22
+    ],
+    "cooldown": 44,
+    "movementLock": 29,
+    "damage": "default base5 *1.8 minus armor*.6 / *.3, positive finite guard",
+    "distance": "native float xyz-difference then Mth.sqrt <=2.5",
+    "parry": "true PARRYING duration6 amplifier0 at16 END",
+    "soundOrigin": "initial victim block position",
+    "lastDash": "current caster look x/z with y0",
+    "death": "20tick removal and gated XP10; independent22 END survives removal",
+    "sourceOwnership": "ownerless errant_damage preserved",
+    "visualAssets": "original geo/animation/soldier_a texture SHA256 equal; idle/walk/attack, head rotation, scale1.1, translucent, shadow.5, no extra glow",
+    "registration": "existing MONSTER .6x1.7 tracking64/update3; real egg retained",
+    "loot": "no original dedicated Soldier loot JSON; existing IceMobDrops untouched",
+    "persistence": "UUID/value finite task, phase0..3/remaining bounds; legacy IceAttackAge bridge is target previous-development saves only"
+  },
+  "fixes": [
+    "END scheduling replaces delayed entity-tick progression",
+    "death no longer cancels committed second hit/sounds",
+    "20tick XP timing restored",
+    "removed extra line-of-sight gate on native custom melee reach"
+  ],
+  "remaining": [
+    "other Ice family fidelity review",
+    "six original missing sanctum blocks and missing entities/BE",
+    "full original templates and normal worldgen",
+    "whole mod completion then server/client/Render Preview"
+  ],
+  "runtimeTests": "not started; whole mod incomplete",
+  "oldWorldConversion": "not implemented or claimed; original global work queue was never saved in original entity NBT",
+  "skillValidation": "mcreator-rework quick_validate passed"
+}
