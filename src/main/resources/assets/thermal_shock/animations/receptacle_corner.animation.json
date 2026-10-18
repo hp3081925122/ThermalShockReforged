@@ -1,0 +1,42 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"0": {
+			"loop": true
+		},
+		"1": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.6667,
+			"override_previous_animation": true,
+			"bones": {
+				"button": {
+					"position": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.5833": {
+							"vector": [0, 0, 0]
+						},
+						"0.6667": {
+							"vector": [0, -1.45009, 0.67619],
+							"easing": "easeOutBack"
+						}
+					}
+				},
+				"cell": {
+					"position": {
+						"0.0": {
+							"vector": [0, 13.43503, -13.43503]
+						},
+						"0.3333": {
+							"vector": [0, 4.24761, -4.24761],
+							"easing": "easeOutBack",
+							"easingArgs": [0.4]
+						}
+					}
+				}
+			}
+		}
+	},
+	"geckolib_format_version": 2
+}

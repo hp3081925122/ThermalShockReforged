@@ -1,0 +1,50 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.Receptacle",
+				"texture_width": 128,
+				"texture_height": 128,
+				"visible_bounds_width": 4,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [0, 1.25, 0]
+			},
+			"bones": [
+				{
+					"name": "body",
+					"pivot": [0, 0, 0],
+					"rotation": [0, -45, 0],
+					"cubes": [
+						{"origin": [-6, 0, -9], "size": [12, 17, 18], "uv": [0, 45]},
+						{"origin": [-9, -6, -6], "size": [18, 29, 16], "pivot": [0, 17, 0], "rotation": [25, 0, 0], "uv": [0, 0]},
+						{"origin": [-4, 23, -2], "size": [8, 5, 8], "pivot": [0, 17, 0], "rotation": [25, 0, 0], "uv": [68, 22]},
+						{"origin": [-8, -5, 10], "size": [16, 27, 2], "pivot": [0, 17, 0], "rotation": [25, 0, 0], "uv": [60, 66]},
+						{"origin": [-3.95, 0, -12], "size": [7.9, 17, 3], "uv": [18, 80]},
+						{"origin": [-5, 6, -5], "size": [10, 21, 10], "pivot": [0, 6, 0], "rotation": [45, 0, 0], "uv": [60, 35]},
+						{"origin": [-4, 6, -6], "size": [8, 21, 1], "pivot": [0, 6, 0], "rotation": [45, 0, 0], "uv": [0, 80]}
+					]
+				},
+				{
+					"name": "button",
+					"parent": "body",
+					"pivot": [0, 17, 0],
+					"rotation": [25, 0, 0],
+					"cubes": [
+						{"origin": [-3, 28, -1], "size": [6, 2, 6], "uv": [52, 0]}
+					]
+				},
+				{
+					"name": "cell",
+					"parent": "body",
+					"pivot": [0, 1.75736, 4.24264],
+					"rotation": [45, 0, 0],
+					"cubes": [
+						{"origin": [-4, 23.75736, 4.24264], "size": [8, 5, 0], "uv": [0, 0]},
+						{"origin": [-4, 9.75736, 0.24264], "size": [8, 14, 8], "uv": [68, 0]}
+					]
+				}
+			]
+		}
+	]
+}

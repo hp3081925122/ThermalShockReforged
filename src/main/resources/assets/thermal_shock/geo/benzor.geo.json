@@ -1,0 +1,121 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.unknown",
+				"texture_width": 192,
+				"texture_height": 192,
+				"visible_bounds_width": 6,
+				"visible_bounds_height": 7,
+				"visible_bounds_offset": [0, 2.5, 0]
+			},
+			"bones": [
+				{
+					"name": "body",
+					"pivot": [0, -6, 17],
+					"cubes": [
+						{"origin": [-24, 0, -24], "size": [48, 48, 48], "uv": [0, 0]},
+						{"origin": [-24, 48, 0], "size": [48, 7, 0], "uv": [88, 96]}
+					]
+				},
+				{
+					"name": "wing1",
+					"parent": "body",
+					"pivot": [11, 43.5, 24],
+					"cubes": [
+						{"origin": [11, 43, 24], "size": [0, 5, 5], "uv": [0, -5]}
+					]
+				},
+				{
+					"name": "wing2",
+					"parent": "body",
+					"pivot": [-11, 43.5, 24],
+					"cubes": [
+						{"origin": [-11, 43, 24], "size": [0, 5, 5], "uv": [0, -5], "mirror": true}
+					]
+				},
+				{
+					"name": "head",
+					"parent": "body",
+					"pivot": [0, 48, 0],
+					"cubes": [
+						{"origin": [-11, 48, -11], "size": [22, 11, 22], "uv": [0, 96]}
+					]
+				},
+				{
+					"name": "eyelids",
+					"parent": "head",
+					"pivot": [0, 48, 0.09],
+					"cubes": [
+						{"origin": [-10, 51, -11.1], "size": [20, 5, 0], "uv": [0, 153]}
+					]
+				},
+				{
+					"name": "antena1",
+					"parent": "head",
+					"pivot": [-2, 59, 0],
+					"cubes": [
+						{"origin": [-31, 59, 0], "size": [31, 15, 0], "uv": [88, 103]}
+					]
+				},
+				{
+					"name": "antena2",
+					"parent": "head",
+					"pivot": [2, 59, 0],
+					"cubes": [
+						{"origin": [0, 59, 0], "size": [31, 15, 0], "uv": [88, 118]}
+					]
+				},
+				{
+					"name": "hand1",
+					"parent": "body",
+					"pivot": [-24, 44, 0],
+					"cubes": [
+						{"origin": [-32, 40, -4], "size": [8, 8, 8], "uv": [0, 129]}
+					]
+				},
+				{
+					"name": "hand4",
+					"parent": "body",
+					"pivot": [24, 44, 0],
+					"cubes": [
+						{"origin": [24, 40, -4], "size": [8, 8, 8], "uv": [0, 129], "mirror": true}
+					]
+				},
+				{
+					"name": "hand2",
+					"parent": "body",
+					"pivot": [-24, 24, 0],
+					"cubes": [
+						{"origin": [-32, 21, -4], "size": [8, 8, 8], "uv": [0, 129]}
+					]
+				},
+				{
+					"name": "hand5",
+					"parent": "body",
+					"pivot": [24, 24, 0],
+					"cubes": [
+						{"origin": [24, 21, -4], "size": [8, 8, 8], "uv": [0, 129], "mirror": true}
+					]
+				},
+				{
+					"name": "hand3",
+					"parent": "body",
+					"pivot": [-24, 3, 0],
+					"cubes": [
+						{"origin": [-32, 0, -4], "size": [8, 8, 8], "uv": [0, 129]}
+					]
+				},
+				{
+					"name": "hand6",
+					"parent": "body",
+					"pivot": [24, 3, 0],
+					"cubes": [
+						{"origin": [24, 0, -4], "size": [8, 8, 8], "uv": [0, 129], "mirror": true}
+					]
+				}
+			]
+		}
+	]
+}

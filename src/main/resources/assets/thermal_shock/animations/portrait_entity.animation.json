@@ -1,0 +1,26 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"idle": {
+			"loop": true,
+			"animation_length": 1.5,
+			"bones": {
+				"body": {
+					"scale": {
+						"0.0": {
+							"vector": [0.975, 1.025, 1]
+						},
+						"0.75": {
+							"vector": [1.025, 0.975, 1],
+							"easing": "easeInOutSine"
+						},
+						"1.5": {
+							"vector": [0.975, 1.025, 1],
+							"easing": "easeInOutSine"
+						}
+					}
+				}
+			}
+		}
+	}
+}

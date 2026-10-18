@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "thermal_shock:block/extractor_constructor"
+    },
+    "facing=east": {
+      "model": "thermal_shock:block/extractor_constructor",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "thermal_shock:block/extractor_constructor",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "thermal_shock:block/extractor_constructor",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.LargeJellercell",
+				"texture_width": 128,
+				"texture_height": 128,
+				"visible_bounds_width": 4,
+				"visible_bounds_height": 5,
+				"visible_bounds_offset": [0, 0.5, 0]
+			},
+			"bones": [
+				{
+					"name": "dome",
+					"pivot": [-8, 0, 8],
+					"cubes": [
+						{"origin": [-23, 2, -7], "size": [30, 28, 30], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "tentacles",
+					"pivot": [-8, 9, 8],
+					"cubes": [
+						{"origin": [-23, -28, 8], "size": [30, 36, 0], "pivot": [-8, -12, 8], "rotation": [0, -90, 0], "uv": [44, 58]},
+						{"origin": [-23, -28, 8], "size": [30, 36, 0], "uv": [44, 58]}
+					]
+				}
+			]
+		}
+	]
+}

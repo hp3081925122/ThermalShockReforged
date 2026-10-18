@@ -1,0 +1,496 @@
+{
+  "original_count": 154,
+  "entities": {
+    "probosker": {
+      "status": "not_migrated"
+    },
+    "crystal_koi": {
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshock.entity.CrystalKoiEntity",
+      "server_tests": [
+        "koiRetainsAquaticSemanticsAndSpawnRule",
+        "koiDropsOneFishAndPreservesSavedTexture"
+      ],
+      "pending": [
+        "五原群系自然生成",
+        "交易和图鉴外围系统",
+        "游动与动画原版渲染对照"
+      ]
+    },
+    "bonerahna": {
+      "status": "not_migrated"
+    },
+    "scarlet_ray": {
+      "status": "not_migrated"
+    },
+    "torpedo": {
+      "status": "not_migrated"
+    },
+    "frostilyte": {
+      "status": "not_migrated"
+    },
+    "willograde": {
+      "status": "not_migrated"
+    },
+    "trilobite": {
+      "status": "not_migrated"
+    },
+    "flare": {
+      "status": "not_migrated"
+    },
+    "mangler": {
+      "status": "not_migrated"
+    },
+    "razorwing": {
+      "status": "not_migrated"
+    },
+    "ruby_armoured_razorwing": {
+      "status": "not_migrated"
+    },
+    "icidrozerk": {
+      "status": "not_migrated"
+    },
+    "springslime": {
+      "status": "not_migrated"
+    },
+    "springling": {
+      "status": "not_migrated"
+    },
+    "springslime_projectile": {
+      "status": "not_migrated"
+    },
+    "whisper": {
+      "status": "not_migrated"
+    },
+    "frostilyte_soldier": {
+      "status": "not_migrated"
+    },
+    "frostilyte_cryomancer": {
+      "status": "not_migrated"
+    },
+    "cryonic_projectile": {
+      "status": "not_migrated"
+    },
+    "pixie": {
+      "status": "not_migrated"
+    },
+    "pixie_bottle": {
+      "status": "not_migrated"
+    },
+    "snobol": {
+      "status": "not_migrated"
+    },
+    "icidrone": {
+      "status": "not_migrated"
+    },
+    "icidrogrunt": {
+      "status": "not_migrated"
+    },
+    "icidrostrider": {
+      "status": "not_migrated"
+    },
+    "strider_attack": {
+      "status": "not_migrated"
+    },
+    "alt_cryonic_projectile": {
+      "status": "not_migrated"
+    },
+    "magnetite": {
+      "status": "not_migrated"
+    },
+    "magnetite_bullet": {
+      "status": "not_migrated"
+    },
+    "blighted_spore": {
+      "status": "not_migrated"
+    },
+    "sentrarius": {
+      "status": "not_migrated"
+    },
+    "ghostglass_sword_bullet": {
+      "status": "not_migrated"
+    },
+    "magnet_crossbow_bullet": {
+      "status": "not_migrated"
+    },
+    "volcano_bullet": {
+      "status": "not_migrated"
+    },
+    "flintsteel_rifle_bullet": {
+      "status": "not_migrated"
+    },
+    "hailfall_bullet": {
+      "status": "not_migrated"
+    },
+    "skeletitan": {
+      "status": "not_migrated"
+    },
+    "explosive_snobol": {
+      "status": "not_migrated"
+    },
+    "blood_armoured_razorwing": {
+      "status": "not_migrated"
+    },
+    "skullscor": {
+      "status": "not_migrated"
+    },
+    "infestophage_seed": {
+      "status": "not_migrated"
+    },
+    "infestophage": {
+      "status": "not_migrated"
+    },
+    "monolith": {
+      "status": "not_migrated"
+    },
+    "dormant_monolith": {
+      "status": "not_migrated"
+    },
+    "graver": {
+      "status": "not_migrated"
+    },
+    "glastrekker": {
+      "status": "not_migrated"
+    },
+    "mantletitan": {
+      "status": "not_migrated"
+    },
+    "frost_titan": {
+      "status": "not_migrated"
+    },
+    "armoured_glastrekker": {
+      "status": "not_migrated"
+    },
+    "chromefish": {
+      "status": "not_migrated"
+    },
+    "flare_gun_core": {
+      "status": "not_migrated"
+    },
+    "flare_bullet": {
+      "status": "not_migrated"
+    },
+    "thermoblaster_bullet": {
+      "status": "not_migrated"
+    },
+    "thermoblaster_shotgun_bullet": {
+      "status": "not_migrated"
+    },
+    "siibol": {
+      "status": "not_migrated"
+    },
+    "lil_jelly": {
+      "status": "not_migrated"
+    },
+    "giant_laser_test": {
+      "status": "not_migrated"
+    },
+    "blinding_lantern_flash_ring": {
+      "status": "not_migrated"
+    },
+    "gore_flayer_orb": {
+      "status": "not_migrated"
+    },
+    "lens": {
+      "status": "not_migrated"
+    },
+    "galvanite": {
+      "status": "not_migrated"
+    },
+    "squall": {
+      "status": "not_migrated"
+    },
+    "icidrogunner": {
+      "status": "not_migrated"
+    },
+    "icidroburner": {
+      "status": "not_migrated"
+    },
+    "icidroburner_flame": {
+      "status": "not_migrated"
+    },
+    "icidrogunner_bullet": {
+      "status": "not_migrated"
+    },
+    "blizzard_drop_pod": {
+      "status": "not_migrated"
+    },
+    "errant": {
+      "status": "not_migrated"
+    },
+    "assimilator": {
+      "status": "not_migrated"
+    },
+    "assimilated_graver": {
+      "status": "not_migrated"
+    },
+    "razoraptor": {
+      "status": "not_migrated"
+    },
+    "concierge": {
+      "status": "not_migrated"
+    },
+    "benzor": {
+      "status": "not_migrated"
+    },
+    "sootle": {
+      "status": "not_migrated"
+    },
+    "sootling": {
+      "status": "not_migrated"
+    },
+    "sootle_idle": {
+      "status": "not_migrated"
+    },
+    "herald": {
+      "status": "not_migrated"
+    },
+    "beetle_thrasher": {
+      "status": "not_migrated"
+    },
+    "beetle_crasher": {
+      "status": "not_migrated"
+    },
+    "dormant_beetle_crasher": {
+      "status": "not_migrated"
+    },
+    "summoned_mangler": {
+      "status": "not_migrated"
+    },
+    "magnetic_bomb": {
+      "status": "not_migrated"
+    },
+    "neon_lime_graver": {
+      "status": "not_migrated"
+    },
+    "kofoni": {
+      "status": "not_migrated"
+    },
+    "defector_machinist": {
+      "status": "not_migrated"
+    },
+    "thermoid": {
+      "status": "not_migrated"
+    },
+    "liteprism_disk_projectile": {
+      "status": "not_migrated"
+    },
+    "prismatic_supernova": {
+      "status": "not_migrated"
+    },
+    "liteprism_beam": {
+      "status": "not_migrated"
+    },
+    "lanternbearer": {
+      "status": "not_migrated"
+    },
+    "sola": {
+      "status": "not_migrated"
+    },
+    "gardenling": {
+      "status": "not_migrated"
+    },
+    "gelshooter": {
+      "status": "not_migrated"
+    },
+    "gelshooter_bullet": {
+      "status": "not_migrated"
+    },
+    "tesla_reed": {
+      "status": "not_migrated"
+    },
+    "grenade_bullet": {
+      "status": "not_migrated"
+    },
+    "spectre": {
+      "status": "not_migrated"
+    },
+    "whistler_note": {
+      "status": "not_migrated"
+    },
+    "spirit": {
+      "status": "not_migrated"
+    },
+    "pillbud": {
+      "status": "not_migrated"
+    },
+    "mortar_bomb": {
+      "status": "not_migrated"
+    },
+    "louse": {
+      "status": "not_migrated"
+    },
+    "pondler": {
+      "status": "not_migrated"
+    },
+    "net_bullet": {
+      "status": "not_migrated"
+    },
+    "liftbug": {
+      "status": "not_migrated"
+    },
+    "moonoid": {
+      "status": "not_migrated"
+    },
+    "starrite": {
+      "status": "not_migrated"
+    },
+    "shutterbug": {
+      "status": "not_migrated"
+    },
+    "icidroviathan": {
+      "status": "not_migrated"
+    },
+    "forecast": {
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshock.entity.ForecastEntity",
+      "server_tests": [
+        "zapUsesOwnerDamageAndMultiplier",
+        "forecastCooldownDoesNotUsePotionEffects"
+      ],
+      "pending": [
+        "自然生成数据链",
+        "图鉴外围系统",
+        "原版渲染和行为对照"
+      ]
+    },
+    "zap_attack_entity": {
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshock.entity.ZapWarningEntity",
+      "server_tests": [
+        "zapUsesOwnerDamageAndMultiplier",
+        "removedOwnerCancelsDelayedDamage"
+      ],
+      "pending": [
+        "预警粒子客户端对照",
+        "卸载恢复和跨维度边界"
+      ]
+    },
+    "maiden": {
+      "status": "not_migrated"
+    },
+    "blood_bullet": {
+      "status": "not_migrated"
+    },
+    "frostilyte_gunner": {
+      "status": "not_migrated"
+    },
+    "effigy": {
+      "status": "not_migrated"
+    },
+    "chilloo": {
+      "status": "not_migrated"
+    },
+    "ice_bullet": {
+      "status": "not_migrated"
+    },
+    "florist": {
+      "status": "not_migrated"
+    },
+    "huntress_boss": {
+      "status": "not_migrated"
+    },
+    "huntress": {
+      "status": "not_migrated"
+    },
+    "cerulean_jellercel": {
+      "status": "not_migrated"
+    },
+    "fuschia_jellercel": {
+      "status": "not_migrated"
+    },
+    "veridian_jellercel": {
+      "status": "not_migrated"
+    },
+    "err": {
+      "status": "not_migrated"
+    },
+    "ripple": {
+      "status": "not_migrated"
+    },
+    "raincatcher": {
+      "status": "not_migrated"
+    },
+    "ribbonblade_galvanite": {
+      "status": "not_migrated"
+    },
+    "aerocel": {
+      "status": "not_migrated"
+    },
+    "laut": {
+      "status": "not_migrated"
+    },
+    "ly": {
+      "status": "not_migrated"
+    },
+    "protoi_gamma": {
+      "status": "not_migrated"
+    },
+    "kilolyte": {
+      "status": "not_migrated"
+    },
+    "lab_machinist": {
+      "status": "not_migrated"
+    },
+    "angry_cavebloomer": {
+      "status": "not_migrated"
+    },
+    "shock_attack_entity": {
+      "status": "not_migrated"
+    },
+    "poison_bomb": {
+      "status": "not_migrated"
+    },
+    "poison_attack_entity": {
+      "status": "not_migrated"
+    },
+    "budding_bloomer": {
+      "status": "not_migrated"
+    },
+    "dandybloomer": {
+      "status": "not_migrated"
+    },
+    "thistle_beam": {
+      "status": "not_migrated"
+    },
+    "stopper_orb": {
+      "status": "not_migrated"
+    },
+    "mover_orb": {
+      "status": "not_migrated"
+    },
+    "high_director_sopel": {
+      "status": "not_migrated"
+    },
+    "protoi_sunbeam": {
+      "status": "not_migrated"
+    },
+    "portrait_character": {
+      "status": "not_migrated"
+    },
+    "protoi_delta": {
+      "status": "not_migrated"
+    },
+    "sunbeam_bullet": {
+      "status": "not_migrated"
+    },
+    "sanctum_errant": {
+      "status": "not_migrated"
+    },
+    "sanctum_ripple": {
+      "status": "not_migrated"
+    },
+    "guardian_pylon": {
+      "status": "not_migrated"
+    },
+    "protoi_epsilon": {
+      "status": "not_migrated"
+    },
+    "epsilon_bomb": {
+      "status": "not_migrated"
+    },
+    "electric_sphere": {
+      "status": "not_migrated"
+    }
+  }
+}

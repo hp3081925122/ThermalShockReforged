@@ -1,0 +1,82 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.Razorwing",
+				"texture_width": 112,
+				"texture_height": 112,
+				"visible_bounds_width": 5,
+				"visible_bounds_height": 5.5,
+				"visible_bounds_offset": [0, 2.25, 0]
+			},
+			"bones": [
+				{
+					"name": "birb",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "torso",
+					"parent": "birb",
+					"pivot": [0, 16, 0],
+					"cubes": [
+						{"origin": [-6, 16, -8], "size": [12, 11, 16], "uv": [51, 38]},
+						{"origin": [0, 16, 4], "size": [0, 19, 20], "uv": [0, 34]}
+					]
+				},
+				{
+					"name": "wing1",
+					"parent": "torso",
+					"pivot": [6, 24, -6],
+					"cubes": [
+						{"origin": [5, 24, -8], "size": [20, 0, 27], "uv": [0, 27]}
+					]
+				},
+				{
+					"name": "wing2",
+					"parent": "torso",
+					"pivot": [-6, 24, -6],
+					"cubes": [
+						{"origin": [-26, 24, -8], "size": [20, 0, 27], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "neck",
+					"parent": "torso",
+					"pivot": [0, 16, -6],
+					"cubes": [
+						{"origin": [-3, 16, -12], "size": [6, 29, 6], "uv": [0, 0]},
+						{"origin": [0, 26, -16], "size": [0, 19, 4], "uv": [64, 71]}
+					]
+				},
+				{
+					"name": "head",
+					"parent": "neck",
+					"pivot": [0, 45, -6],
+					"cubes": [
+						{"origin": [-3, 45, -18], "size": [6, 7, 12], "uv": [28, 65]},
+						{"origin": [0, 52, -18], "size": [0, 8, 12], "uv": [0, 23], "mirror": true}
+					]
+				},
+				{
+					"name": "leg1",
+					"parent": "birb",
+					"pivot": [0, 16, 0],
+					"cubes": [
+						{"origin": [1, 0, -2], "size": [4, 16, 4], "uv": [72, 65]},
+						{"origin": [1, 0, -3], "size": [4, 1, 1], "uv": [10, 43]}
+					]
+				},
+				{
+					"name": "leg2",
+					"parent": "birb",
+					"pivot": [0, 16, 0],
+					"cubes": [
+						{"origin": [-5, 0, -2], "size": [4, 16, 4], "uv": [67, 0]},
+						{"origin": [-5, 0, -3], "size": [4, 1, 1], "uv": [10, 43], "mirror": true}
+					]
+				}
+			]
+		}
+	]
+}

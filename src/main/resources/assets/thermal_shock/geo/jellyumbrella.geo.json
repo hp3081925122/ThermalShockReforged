@@ -1,0 +1,32 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.Jelly Umbrella",
+				"texture_width": 112,
+				"texture_height": 112,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [0, 1.25, 0]
+			},
+			"bones": [
+				{
+					"name": "handle",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-1, 0, -1], "size": [2, 29, 2], "uv": [2, 34]}
+					]
+				},
+				{
+					"name": "umbrella",
+					"parent": "handle",
+					"pivot": [0, 29, 0],
+					"cubes": [
+						{"origin": [-13, 29, -13], "size": [26, 7, 26], "uv": [0, 0]}
+					]
+				}
+			]
+		}
+	]
+}

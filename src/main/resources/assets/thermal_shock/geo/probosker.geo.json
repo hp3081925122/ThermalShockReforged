@@ -1,0 +1,141 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.Probosker",
+				"texture_width": 112,
+				"texture_height": 112,
+				"visible_bounds_width": 8,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "torso2",
+					"pivot": [0, 7, 0]
+				},
+				{
+					"name": "torso",
+					"parent": "torso2",
+					"pivot": [0, 7, 0],
+					"cubes": [
+						{"origin": [-6, 7, -7], "size": [12, 10, 14], "uv": [0, 0]},
+						{"origin": [-8, 13, -1], "size": [16, 10, 0], "pivot": [0, 13, -1], "rotation": [27.5, 0, 0], "uv": [66, 40]},
+						{"origin": [-8, 11, 2], "size": [16, 10, 0], "pivot": [0, 11, 2], "rotation": [15, 0, 0], "uv": [72, 16]}
+					]
+				},
+				{
+					"name": "fin1",
+					"parent": "torso",
+					"pivot": [6, 9, -6],
+					"cubes": [
+						{"origin": [6, 9, -7], "size": [20, 0, 11], "uv": [-11, 101]}
+					]
+				},
+				{
+					"name": "fin2",
+					"parent": "torso",
+					"pivot": [6, 9, 2],
+					"cubes": [
+						{"origin": [6, 9, 1], "size": [20, 0, 11], "uv": [-11, 101]}
+					]
+				},
+				{
+					"name": "fin3",
+					"parent": "torso",
+					"pivot": [-6, 9, -6],
+					"cubes": [
+						{"origin": [-26, 9, -7], "size": [20, 0, 11], "uv": [-11, 101], "mirror": true}
+					]
+				},
+				{
+					"name": "fin4",
+					"parent": "torso",
+					"pivot": [-6, 9, 2],
+					"cubes": [
+						{"origin": [-26, 9, 1], "size": [20, 0, 11], "uv": [-11, 101], "mirror": true}
+					]
+				},
+				{
+					"name": "tail1",
+					"parent": "torso",
+					"pivot": [0, 14, 7],
+					"cubes": [
+						{"origin": [-2, 11, 7], "size": [4, 6, 11], "uv": [0, 53]}
+					]
+				},
+				{
+					"name": "tail2",
+					"parent": "tail1",
+					"pivot": [0, 14.5, 18],
+					"cubes": [
+						{"origin": [-1.5, 12, 18], "size": [3, 5, 12], "uv": [30, 59]}
+					]
+				},
+				{
+					"name": "tail3",
+					"parent": "tail2",
+					"pivot": [0, 15, 30],
+					"cubes": [
+						{"origin": [-1, 13, 30], "size": [2, 4, 12], "uv": [60, 59]},
+						{"origin": [0, 9, 38], "size": [0, 12, 17], "uv": [0, 24]}
+					]
+				},
+				{
+					"name": "head",
+					"parent": "torso",
+					"pivot": [0, 13, -7],
+					"cubes": [
+						{"origin": [-4, 9, -14], "size": [8, 8, 8], "uv": [52, 0]},
+						{"origin": [-4, 17, -14], "size": [8, 4, 0], "pivot": [0, 17, -14], "rotation": [55, 0, 0], "uv": [52, 16]},
+						{"origin": [-4, 17, -7], "size": [8, 3, 0], "pivot": [0, 17, -7], "rotation": [45, 0, 0], "uv": [52, 20]},
+						{"origin": [-6, 9, -9], "size": [3, 8, 0], "pivot": [-7, 14, -9], "rotation": [0, -45, 0], "uv": [66, 50]},
+						{"origin": [3, 9, -9], "size": [3, 8, 0], "pivot": [7, 14, -9], "rotation": [0, 45, 0], "uv": [72, 50]}
+					]
+				},
+				{
+					"name": "mouth1",
+					"parent": "head",
+					"pivot": [0, 13, -14],
+					"cubes": [
+						{"origin": [-1.5, 13, -30], "size": [3, 0, 16], "uv": [34, 24]},
+						{"origin": [0, 11.5, -30], "size": [0, 3, 16], "uv": [34, 40]}
+					]
+				},
+				{
+					"name": "legl1",
+					"parent": "torso2",
+					"pivot": [3, 7, -4],
+					"cubes": [
+						{"origin": [0.9, 0, -6], "size": [5, 7, 6], "uv": [22, 76], "mirror": true}
+					]
+				},
+				{
+					"name": "legr1",
+					"parent": "torso2",
+					"pivot": [-3, 7, -4],
+					"cubes": [
+						{"origin": [-5.9, 0, -6], "size": [5, 7, 6], "uv": [22, 76]}
+					]
+				},
+				{
+					"name": "legr2",
+					"parent": "torso2",
+					"pivot": [-3, 7, 5],
+					"cubes": [
+						{"origin": [-5.8, 0, 3], "size": [5, 7, 6], "uv": [22, 76]}
+					]
+				},
+				{
+					"name": "legl2",
+					"parent": "torso2",
+					"pivot": [3, 7, 5],
+					"cubes": [
+						{"origin": [0.9, 0, 3], "size": [5, 7, 6], "uv": [22, 76], "mirror": true}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,90 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.unknown",
+				"texture_width": 240,
+				"texture_height": 240,
+				"visible_bounds_width": 7,
+				"visible_bounds_height": 7.5,
+				"visible_bounds_offset": [0, 3.25, 0]
+			},
+			"bones": [
+				{
+					"name": "root",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "leg2",
+					"parent": "root",
+					"pivot": [10, 23, 0],
+					"cubes": [
+						{"origin": [3, 1, -7], "size": [14, 24, 14], "uv": [152, 0]}
+					]
+				},
+				{
+					"name": "leg1",
+					"parent": "root",
+					"pivot": [-10, 23, 0],
+					"cubes": [
+						{"origin": [-17, 1, -7], "size": [14, 24, 14], "uv": [152, 0], "mirror": true}
+					]
+				},
+				{
+					"name": "torso",
+					"parent": "root",
+					"pivot": [0, 21, 0],
+					"cubes": [
+						{"origin": [-13, 14, -13], "size": [26, 19, 26], "uv": [104, 57]},
+						{"origin": [-4, 33, -4], "size": [8, 13, 8], "uv": [172, 188]},
+						{"origin": [3, 15, 13], "size": [7, 17, 7], "uv": [0, 216]},
+						{"origin": [-9, 15, 13], "size": [7, 17, 7], "uv": [0, 216]}
+					]
+				},
+				{
+					"name": "head",
+					"parent": "torso",
+					"pivot": [0, 40, 0],
+					"cubes": [
+						{"origin": [4, 59, 13], "size": [6, 40, 0], "uv": [86, 109]},
+						{"origin": [-19, 40, -19], "size": [38, 19, 38], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "chaingun",
+					"parent": "root",
+					"pivot": [-32, 28, 1],
+					"cubes": [
+						{"origin": [-43, 16, -10], "size": [22, 22, 21], "uv": [0, 109]}
+					]
+				},
+				{
+					"name": "barrel",
+					"parent": "chaingun",
+					"pivot": [-32, 27, -10],
+					"cubes": [
+						{"origin": [-40, 19, -46], "size": [16, 16, 36], "uv": [0, 57]}
+					]
+				},
+				{
+					"name": "flamethrower",
+					"parent": "root",
+					"pivot": [32, 28, 1],
+					"cubes": [
+						{"origin": [21, 16, -10], "size": [22, 22, 21], "uv": [86, 150], "mirror": true}
+					]
+				},
+				{
+					"name": "barrel2",
+					"parent": "flamethrower",
+					"pivot": [32, 27, -10],
+					"cubes": [
+						{"origin": [26, 21, -46], "size": [12, 12, 36], "uv": [104, 102]},
+						{"origin": [32, 13, -53], "size": [0, 10, 43], "uv": [54, 187]}
+					]
+				}
+			]
+		}
+	]
+}

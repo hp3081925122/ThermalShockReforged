@@ -1,0 +1,93 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.unknown",
+				"texture_width": 128,
+				"texture_height": 128,
+				"visible_bounds_width": 4,
+				"visible_bounds_height": 4.5,
+				"visible_bounds_offset": [0, 1.75, 0]
+			},
+			"bones": [
+				{
+					"name": "root",
+					"pivot": [0, 0, 6],
+					"cubes": [
+						{"origin": [5, 0, -11], "size": [9, 9, 9], "uv": [40, 68]},
+						{"origin": [-14, 0, -11], "size": [9, 9, 9], "uv": [40, 68], "mirror": true},
+						{"origin": [-14, 0, 2], "size": [9, 9, 9], "uv": [40, 68]},
+						{"origin": [5, 0, 2], "size": [9, 9, 9], "uv": [40, 68], "mirror": true}
+					]
+				},
+				{
+					"name": "torso",
+					"parent": "root",
+					"pivot": [0, 3, 0],
+					"cubes": [
+						{"origin": [-9, 3, -5], "size": [18, 12, 10], "uv": [56, 46]}
+					]
+				},
+				{
+					"name": "head",
+					"parent": "torso",
+					"pivot": [0, 15, 0],
+					"cubes": [
+						{"origin": [-9, 15, -4], "size": [18, 12, 10], "uv": [0, 46]},
+						{"origin": [-8, 16, -5], "size": [16, 10, 0], "uv": [11, 57]},
+						{"origin": [-8.9, 15, -6], "size": [0, 12, 2], "uv": [-1, -2]},
+						{"origin": [8.9, 15, -6], "size": [0, 12, 2], "uv": [1, -2]},
+						{"origin": [-9, 15, -6], "size": [18, 12, 2], "uv": [0, 68]}
+					]
+				},
+				{
+					"name": "PLANT",
+					"parent": "head",
+					"pivot": [0, 27, 0],
+					"rotation": [0, 22.5, 0],
+					"cubes": [
+						{"origin": [-3, 27, -3], "size": [6, 2, 6], "uv": [58, 36]},
+						{"origin": [-6, 29, 0], "size": [12, 22, 0], "pivot": [0, 29, 0], "rotation": [0, -45, 0], "uv": [104, 106]},
+						{"origin": [-6, 29, 0], "size": [12, 22, 0], "pivot": [0, 29, 0], "rotation": [0, 45, 0], "uv": [104, 106]}
+					]
+				},
+				{
+					"name": "leaf1",
+					"parent": "PLANT",
+					"pivot": [0, 29, -3],
+					"cubes": [
+						{"origin": [-6, 23, -20], "size": [12, 6, 17], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "leaf2",
+					"parent": "PLANT",
+					"pivot": [-3, 29, 0],
+					"rotation": [0, 90, 0],
+					"cubes": [
+						{"origin": [-9, 23, -17], "size": [12, 6, 17], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "leaf3",
+					"parent": "PLANT",
+					"pivot": [0, 29, 3],
+					"rotation": [0, 180, 0],
+					"cubes": [
+						{"origin": [-6, 23, -14], "size": [12, 6, 17], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "leaf4",
+					"parent": "PLANT",
+					"pivot": [3, 29, 0],
+					"rotation": [0, -90, 0],
+					"cubes": [
+						{"origin": [-3, 23, -17], "size": [12, 6, 17], "uv": [0, 0]}
+					]
+				}
+			]
+		}
+	]
+}

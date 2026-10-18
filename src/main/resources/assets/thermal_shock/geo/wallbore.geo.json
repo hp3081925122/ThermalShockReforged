@@ -1,0 +1,84 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.Wallbore",
+				"texture_width": 176,
+				"texture_height": 176,
+				"visible_bounds_width": 10,
+				"visible_bounds_height": 12.5,
+				"visible_bounds_offset": [0, 5.75, 0]
+			},
+			"bones": [
+				{
+					"name": "bb_main",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-8, 0, -8], "size": [16, 16, 16], "uv": [0, 48]},
+						{"origin": [-8, 0.1, 8], "size": [16, 0, 64], "uv": [80, 38]},
+						{"origin": [10, 0, -8], "size": [12, 12, 16], "uv": [64, 48]},
+						{"origin": [-22, 0, -8], "size": [12, 12, 16], "uv": [0, 80]}
+					]
+				},
+				{
+					"name": "shrinkthis1",
+					"pivot": [16, 12, -8],
+					"cubes": [
+						{"origin": [10, 3, -25], "size": [12, 9, 17], "pivot": [16, 12, -8], "rotation": [45, 0, 0], "uv": [64, 76]},
+						{"origin": [10, 3, 8], "size": [12, 9, 17], "pivot": [16, 12, 8], "rotation": [-45, 0, 0], "uv": [56, 102]}
+					]
+				},
+				{
+					"name": "shrinkthis2",
+					"pivot": [-16, 12, -8],
+					"cubes": [
+						{"origin": [-22, 3, -25], "size": [12, 9, 17], "pivot": [-16, 12, -8], "rotation": [45, 0, 0], "uv": [96, 0]},
+						{"origin": [-22, 3, 8], "size": [12, 9, 17], "pivot": [-16, 12, 8], "rotation": [-45, 0, 0], "uv": [114, 102]}
+					]
+				},
+				{
+					"name": "arm1",
+					"pivot": [0, 1.5, 13],
+					"cubes": [
+						{"origin": [-4, -3, 9], "size": [8, 32, 8], "uv": [0, 108]},
+						{"origin": [-2.5, 29, 10.5], "size": [5, 20, 5], "uv": [32, 108]}
+					]
+				},
+				{
+					"name": "drillhead",
+					"parent": "arm1",
+					"pivot": [0, 49, 13],
+					"cubes": [
+						{"origin": [-8, 42, -3], "size": [16, 16, 32], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "chain",
+					"parent": "drillhead",
+					"pivot": [-7, 42, 9],
+					"cubes": [
+						{"origin": [-7, 10, 7.5], "size": [0, 32, 3], "uv": [0, -3]}
+					]
+				},
+				{
+					"name": "chain2",
+					"parent": "drillhead",
+					"pivot": [7, 42, 9],
+					"cubes": [
+						{"origin": [7, 10, 7.5], "size": [0, 32, 3], "uv": [0, -3]}
+					]
+				},
+				{
+					"name": "drilbit",
+					"parent": "drillhead",
+					"pivot": [0, 50, 29],
+					"cubes": [
+						{"origin": [-8, 50, 29], "size": [16, 0, 16], "uv": [96, 26]},
+						{"origin": [0, 42, 29], "size": [0, 16, 16], "uv": [108, 28]}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,68 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.unknown",
+				"texture_width": 176,
+				"texture_height": 176,
+				"visible_bounds_width": 4,
+				"visible_bounds_height": 4.5,
+				"visible_bounds_offset": [0, 1.75, 0]
+			},
+			"bones": [
+				{
+					"name": "head",
+					"pivot": [0, 24, 0],
+					"cubes": [
+						{"origin": [-24, 0, -16], "size": [48, 48, 40], "uv": [0, 0]},
+						{"origin": [10, 0, -24], "size": [14, 14, 8], "uv": [0, 118]},
+						{"origin": [-24, 0, -24], "size": [14, 14, 8], "uv": [44, 132]},
+						{"origin": [10, 34, -24], "size": [14, 14, 8], "uv": [0, 140]},
+						{"origin": [-24, 34, -24], "size": [14, 14, 8], "uv": [88, 144]}
+					]
+				},
+				{
+					"name": "petal1",
+					"parent": "head",
+					"pivot": [0, 48, -16],
+					"cubes": [
+						{"origin": [-10, 34, -24], "size": [20, 14, 8], "uv": [60, 88]}
+					]
+				},
+				{
+					"name": "petal2",
+					"parent": "head",
+					"pivot": [0, 0, -16],
+					"cubes": [
+						{"origin": [-10, 0, -24], "size": [20, 14, 8], "uv": [60, 110]}
+					]
+				},
+				{
+					"name": "petal3",
+					"parent": "head",
+					"pivot": [24, 24, -16],
+					"cubes": [
+						{"origin": [10, 14, -24], "size": [14, 20, 8], "uv": [116, 88]}
+					]
+				},
+				{
+					"name": "petal4",
+					"parent": "head",
+					"pivot": [-24, 24, -16],
+					"cubes": [
+						{"origin": [-24, 14, -24], "size": [14, 20, 8], "uv": [116, 116]}
+					]
+				},
+				{
+					"name": "petal5",
+					"parent": "head",
+					"pivot": [0, 24, -16],
+					"cubes": [
+						{"origin": [-10, 14, -24], "size": [20, 20, 10], "uv": [0, 88]}
+					]
+				}
+			]
+		}
+	]
+}

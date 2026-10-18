@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=north,blockstate=0": {
+      "model": "thermal_shock:custom/wallbore_particle"
+    },
+    "facing=east,blockstate=0": {
+      "model": "thermal_shock:custom/wallbore_particle",
+      "y": 90
+    },
+    "facing=south,blockstate=0": {
+      "model": "thermal_shock:custom/wallbore_particle",
+      "y": 180
+    },
+    "facing=west,blockstate=0": {
+      "model": "thermal_shock:custom/wallbore_particle",
+      "y": 270
+    },
+    "facing=north,blockstate=1": {
+      "model": "thermal_shock:block/wallbore_blockstate_0"
+    },
+    "facing=east,blockstate=1": {
+      "model": "thermal_shock:block/wallbore_blockstate_0",
+      "y": 90
+    },
+    "facing=south,blockstate=1": {
+      "model": "thermal_shock:block/wallbore_blockstate_0",
+      "y": 180
+    },
+    "facing=west,blockstate=1": {
+      "model": "thermal_shock:block/wallbore_blockstate_0",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.Chorusian Villager",
+				"texture_width": 80,
+				"texture_height": 80,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 4.5,
+				"visible_bounds_offset": [0, 1.75, 0]
+			},
+			"bones": [
+				{
+					"name": "Chor",
+					"pivot": [0, 6, 0]
+				},
+				{
+					"name": "body",
+					"parent": "Chor",
+					"pivot": [0, 21, 0],
+					"cubes": [
+						{"origin": [-4, 22, -6], "size": [8, 10, 5], "pivot": [0, 10, -4], "rotation": [-12.5, 0, 0], "uv": [40, 45]}
+					]
+				},
+				{
+					"name": "arm2",
+					"parent": "body",
+					"pivot": [-4, 31, 0],
+					"cubes": [
+						{"origin": [-9, 14, -2], "size": [4, 17, 4], "uv": [0, 46]}
+					]
+				},
+				{
+					"name": "sword",
+					"parent": "arm2",
+					"pivot": [-7, 17, 0],
+					"cubes": [
+						{"origin": [-8.5, 15.5, 2], "size": [3, 3, 2], "uv": [32, 60]},
+						{"origin": [-8, 13, -4], "size": [2, 8, 2], "uv": [32, 46]},
+						{"origin": [-7.5, 14.5, -27], "size": [1, 5, 23], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "leg1",
+					"parent": "body",
+					"pivot": [0, 21, 0],
+					"cubes": [
+						{"origin": [1, 0, -2], "size": [3, 21, 3], "uv": [48, 0]}
+					]
+				},
+				{
+					"name": "head",
+					"parent": "body",
+					"pivot": [0, 32, 1],
+					"cubes": [
+						{"origin": [-4, 33, -3], "size": [8, 9, 8], "uv": [40, 28]},
+						{"origin": [-10, 33, -1], "size": [20, 18, 0], "uv": [0, 28]}
+					]
+				},
+				{
+					"name": "arm3",
+					"parent": "body",
+					"pivot": [4, 31, 0],
+					"cubes": [
+						{"origin": [5, 14, -2], "size": [4, 17, 4], "uv": [16, 46]}
+					]
+				},
+				{
+					"name": "leg3",
+					"parent": "body",
+					"pivot": [0, 21, 0],
+					"cubes": [
+						{"origin": [-4, 0, -2], "size": [3, 21, 3], "uv": [60, 0]}
+					]
+				}
+			]
+		}
+	]
+}

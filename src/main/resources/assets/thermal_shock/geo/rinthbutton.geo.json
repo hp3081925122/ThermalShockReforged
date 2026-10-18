@@ -1,0 +1,55 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.rinthbutton",
+				"texture_width": 128,
+				"texture_height": 128,
+				"visible_bounds_width": 4,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [0, 1.25, 0]
+			},
+			"bones": [
+				{
+					"name": "bb_main",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-8, 0, -8], "size": [16, 16, 16], "uv": [3, 96]}
+					]
+				},
+				{
+					"name": "body",
+					"pivot": [6.12132, 17, -6.12132],
+					"rotation": [0, -45, 0],
+					"cubes": [
+						{"origin": [0.12132, 0, -12.12132], "size": [12, 17, 18], "uv": [0, 45]},
+						{"origin": [-1.87868, -6, -9.12132], "size": [16, 29, 16], "pivot": [6.12132, 17, -3.12132], "rotation": [25, 0, 0], "uv": [2, 0]},
+						{"origin": [2.12132, 23, -5.12132], "size": [8, 5, 8], "pivot": [6.12132, 17, -3.12132], "rotation": [25, 0, 0], "uv": [68, 22]},
+						{"origin": [-0.87868, -5, 6.87868], "size": [14, 27, 2], "pivot": [6.12132, 17, -3.12132], "rotation": [25, 0, 0], "uv": [62, 66]},
+						{"origin": [2.12132, 6, -9.12132], "size": [8, 21, 1], "pivot": [6.12132, 6, -3.12132], "rotation": [45, 0, 0], "uv": [0, 80]}
+					]
+				},
+				{
+					"name": "button",
+					"parent": "body",
+					"pivot": [6.12132, 17, -3.12132],
+					"rotation": [25, 0, 0],
+					"cubes": [
+						{"origin": [3.12132, 28, -4.12132], "size": [6, 2, 6], "uv": [52, 0]}
+					]
+				},
+				{
+					"name": "cell",
+					"parent": "body",
+					"pivot": [6.12132, 1.75736, 1.12132],
+					"rotation": [45, 0, 0],
+					"cubes": [
+						{"origin": [2.12132, 23.75736, 1.12132], "size": [8, 5, 0], "uv": [0, 0]},
+						{"origin": [2.12132, 9.75736, -2.87868], "size": [8, 14, 8], "uv": [68, 0]}
+					]
+				}
+			]
+		}
+	]
+}

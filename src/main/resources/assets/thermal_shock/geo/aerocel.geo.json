@@ -1,0 +1,80 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.Aerocel",
+				"texture_width": 80,
+				"texture_height": 80,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 4,
+				"visible_bounds_offset": [0, 0, 0]
+			},
+			"bones": [
+				{
+					"name": "dome",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-7.5, 2, -7.5], "size": [15, 14, 15], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "tent1",
+					"parent": "dome",
+					"pivot": [-4, 4, -4],
+					"cubes": [
+						{"origin": [-5.5, -23, -5.5], "size": [3, 28, 3], "uv": [13, 29]}
+					]
+				},
+				{
+					"name": "tent3",
+					"parent": "dome",
+					"pivot": [-4, 4, 4],
+					"cubes": [
+						{"origin": [-5.5, -23, 2.5], "size": [3, 28, 3], "uv": [13, 29]}
+					]
+				},
+				{
+					"name": "tent2",
+					"parent": "dome",
+					"pivot": [4, 4, -4],
+					"cubes": [
+						{"origin": [2.5, -23, -5.5], "size": [3, 28, 3], "uv": [13, 29], "mirror": true}
+					]
+				},
+				{
+					"name": "tent4",
+					"parent": "dome",
+					"pivot": [4, 4, 4],
+					"cubes": [
+						{"origin": [2.5, -23, 2.5], "size": [3, 28, 3], "uv": [13, 29], "mirror": true}
+					]
+				},
+				{
+					"name": "core1",
+					"parent": "dome",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-2.5, 2, -2.5], "size": [5, 5, 5], "uv": [57, 1]}
+					]
+				},
+				{
+					"name": "core2",
+					"parent": "core1",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-2, -3, -2], "size": [4, 4, 4], "uv": [45, 7]}
+					]
+				},
+				{
+					"name": "core3",
+					"parent": "core2",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-1.5, -7, -1.5], "size": [3, 3, 3], "uv": [45, 1]}
+					]
+				}
+			]
+		}
+	]
+}

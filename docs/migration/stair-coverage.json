@@ -1,0 +1,378 @@
+{
+  "implemented": {
+    "vermilli_stairs": {
+      "type": "StairBlock",
+      "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.4f, 2.4f).dynamicShape()",
+      "source_class": "VermilliStairsBlock",
+      "light_block": 0,
+      "flammability": 6,
+      "fire_spread": -1,
+      "random_ticks": false,
+      "blast_resistance": 2.4
+    },
+    "polished_permafrost_stairs": {
+      "type": "StairBlock",
+      "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.COPPER).strength(0.8f, 2.0f).requiresCorrectToolForDrops().dynamicShape()",
+      "source_class": "PolishedPermafrostStairsBlock",
+      "light_block": -1,
+      "flammability": -1,
+      "fire_spread": -1,
+      "random_ticks": false,
+      "blast_resistance": 2.0
+    },
+    "permafrost_tile_stairs": {
+      "type": "StairBlock",
+      "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.COPPER).strength(0.8f, 2.0f).requiresCorrectToolForDrops().dynamicShape()",
+      "source_class": "PermafrostTileStairsBlock",
+      "light_block": -1,
+      "flammability": -1,
+      "fire_spread": -1,
+      "random_ticks": false,
+      "blast_resistance": 2.0
+    },
+    "sanctum_brick_stairs": {
+      "type": "StairBlock",
+      "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHER_BRICKS).strength(-1.0f, 3600000.0f).requiresCorrectToolForDrops().pushReaction(PushReaction.BLOCK).dynamicShape()",
+      "source_class": "SanctumBrickStairsBlock",
+      "light_block": -1,
+      "flammability": -1,
+      "fire_spread": -1,
+      "random_ticks": false,
+      "blast_resistance": 100.0
+    },
+    "shale_brick_stairs": {
+      "type": "StairBlock",
+      "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERRACK).strength(1.0f, 5.0f).requiresCorrectToolForDrops().dynamicShape()",
+      "source_class": "ShaleBrickStairsBlock",
+      "light_block": -1,
+      "flammability": -1,
+      "fire_spread": -1,
+      "random_ticks": false,
+      "blast_resistance": 5.0
+    },
+    "polished_mantlestone_stairs": {
+      "type": "StairBlock",
+      "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.BASALT).strength(2.0f, 30.0f).requiresCorrectToolForDrops().dynamicShape()",
+      "source_class": "PolishedMantlestoneStairsBlock",
+      "light_block": -1,
+      "flammability": -1,
+      "fire_spread": -1,
+      "random_ticks": false,
+      "blast_resistance": 30.0
+    },
+    "mantlestone_brick_stairs": {
+      "type": "StairBlock",
+      "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.BASALT).strength(2.0f, 30.0f).requiresCorrectToolForDrops().dynamicShape()",
+      "source_class": "MantlestoneBrickStairsBlock",
+      "light_block": -1,
+      "flammability": -1,
+      "fire_spread": -1,
+      "random_ticks": false,
+      "blast_resistance": 30.0
+    },
+    "ochre_plank_stairs": {
+      "type": "StairBlock",
+      "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.4f, 3.471093f).dynamicShape()",
+      "source_class": "OchrePlankStairsBlock",
+      "light_block": -1,
+      "flammability": 6,
+      "fire_spread": -1,
+      "random_ticks": false,
+      "blast_resistance": 3.471093
+    },
+    "shiverglitter_plank_stairs": {
+      "type": "StairBlock",
+      "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.STEM).strength(2.4f, 2.314062f).dynamicShape()",
+      "source_class": "ShiverglitterPlankStairsBlock",
+      "light_block": -1,
+      "flammability": 6,
+      "fire_spread": -1,
+      "random_ticks": false,
+      "blast_resistance": 2.314062
+    },
+    "polished_frostrock_stairs": {
+      "type": "StairBlock",
+      "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.STONE).strength(3.0f, 50.0f).requiresCorrectToolForDrops().dynamicShape()",
+      "source_class": "PolishedFrostrockStairsBlock",
+      "light_block": -1,
+      "flammability": -1,
+      "fire_spread": -1,
+      "random_ticks": false,
+      "blast_resistance": 50.0
+    },
+    "frostrock_brick_stairs": {
+      "type": "StairBlock",
+      "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.STONE).strength(3.0f, 50.0f).requiresCorrectToolForDrops().dynamicShape()",
+      "source_class": "FrostrockBrickStairsBlock",
+      "light_block": -1,
+      "flammability": -1,
+      "fire_spread": -1,
+      "random_ticks": false,
+      "blast_resistance": 50.0
+    },
+    "dark_frostrock_stairs": {
+      "type": "StairBlock",
+      "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.STONE).strength(3.0f, 50.0f).requiresCorrectToolForDrops().dynamicShape()",
+      "source_class": "DarkFrostrockStairsBlock",
+      "light_block": -1,
+      "flammability": -1,
+      "fire_spread": -1,
+      "random_ticks": false,
+      "blast_resistance": 50.0
+    },
+    "muck_brick_stairs": {
+      "type": "StairBlock",
+      "properties": "BlockBehaviour.Properties.of().sound(SoundType.MUD_BRICKS).strength(1.4f, 4.0f).speedFactor(0.6f).jumpFactor(0.7f).dynamicShape()",
+      "source_class": "MuckBrickStairsBlock",
+      "light_block": -1,
+      "flammability": -1,
+      "fire_spread": -1,
+      "random_ticks": false,
+      "blast_resistance": 4.0
+    },
+    "kyaneos_stairs": {
+      "type": "StairBlock",
+      "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(3.0f, 2.0f).dynamicShape()",
+      "source_class": "KyaneosStairsBlock",
+      "light_block": 0,
+      "flammability": 5,
+      "fire_spread": -1,
+      "random_ticks": false,
+      "blast_resistance": 2.0
+    },
+    "ferrum_plating_stairs": {
+      "type": "StairBlock",
+      "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERITE_BLOCK).strength(2.0f, 30.0f).requiresCorrectToolForDrops().dynamicShape()",
+      "source_class": "FerrumPlatingStairsBlock",
+      "light_block": -1,
+      "flammability": -1,
+      "fire_spread": -1,
+      "random_ticks": false,
+      "blast_resistance": 30.0
+    },
+    "dark_frostrock_brick_stairs": {
+      "type": "StairBlock",
+      "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.STONE).strength(3.0f, 50.0f).requiresCorrectToolForDrops().dynamicShape()",
+      "source_class": "DarkFrostrockBrickStairsBlock",
+      "light_block": -1,
+      "flammability": -1,
+      "fire_spread": -1,
+      "random_ticks": false,
+      "blast_resistance": 50.0
+    },
+    "spirewood_stairs": {
+      "type": "StairBlock",
+      "properties": "BlockBehaviour.Properties.of().ignitedByLava().sound(SoundType.STEM).strength(1.35f, 15.0f).requiresCorrectToolForDrops().dynamicShape()",
+      "source_class": "SpirewoodStairsBlock",
+      "light_block": -1,
+      "flammability": -1,
+      "fire_spread": -1,
+      "random_ticks": false,
+      "blast_resistance": 15.0
+    },
+    "impervium_brick_stairs": {
+      "type": "StairBlock",
+      "properties": "BlockBehaviour.Properties.of().sound(SoundType.NETHER_BRICKS).strength(-1.0f, 3600000.0f).pushReaction(PushReaction.BLOCK).dynamicShape()",
+      "source_class": "ImperviumBrickStairsBlock",
+      "light_block": -1,
+      "flammability": -1,
+      "fire_spread": -1,
+      "random_ticks": false,
+      "blast_resistance": 999.0
+    },
+    "snow_brick_stairs": {
+      "type": "StairBlock",
+      "properties": "BlockBehaviour.Properties.of().sound(SoundType.WOOL).strength(0.8f, 4.0f).dynamicShape()",
+      "source_class": "SnowBrickStairsBlock",
+      "light_block": -1,
+      "flammability": -1,
+      "fire_spread": -1,
+      "random_ticks": false,
+      "blast_resistance": 4.0
+    },
+    "polished_shale_stairs": {
+      "type": "StairBlock",
+      "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERRACK).strength(1.0f, 5.0f).requiresCorrectToolForDrops().dynamicShape()",
+      "source_class": "PolishedShaleStairsBlock",
+      "light_block": -1,
+      "flammability": -1,
+      "fire_spread": -1,
+      "random_ticks": false,
+      "blast_resistance": 5.0
+    },
+    "cobbled_shale_stairs": {
+      "type": "StairBlock",
+      "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERRACK).strength(1.0f, 5.0f).requiresCorrectToolForDrops().dynamicShape()",
+      "source_class": "CobbledShaleStairsBlock",
+      "light_block": -1,
+      "flammability": -1,
+      "fire_spread": -1,
+      "random_ticks": false,
+      "blast_resistance": 5.0
+    },
+    "glace_stairs": {
+      "type": "StairBlock",
+      "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.GLASS).strength(0.8f, 2.0f).requiresCorrectToolForDrops().dynamicShape()",
+      "source_class": "GlaceStairsBlock",
+      "light_block": -1,
+      "flammability": -1,
+      "fire_spread": -1,
+      "random_ticks": false,
+      "blast_resistance": 2.0
+    },
+    "snowy_glace_stairs": {
+      "type": "StairBlock",
+      "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.GLASS).strength(0.8f, 2.0f).requiresCorrectToolForDrops().dynamicShape()",
+      "source_class": "SnowyGlaceStairsBlock",
+      "light_block": -1,
+      "flammability": -1,
+      "fire_spread": -1,
+      "random_ticks": false,
+      "blast_resistance": 2.0
+    },
+    "snowy_cobbled_shale_stairs": {
+      "type": "StairBlock",
+      "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERRACK).strength(1.0f, 5.0f).requiresCorrectToolForDrops().dynamicShape()",
+      "source_class": "SnowyCobbledShaleStairsBlock",
+      "light_block": -1,
+      "flammability": -1,
+      "fire_spread": -1,
+      "random_ticks": false,
+      "blast_resistance": 5.0
+    },
+    "stellar_void_stairs": {
+      "type": "StairBlock",
+      "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERITE_BLOCK).strength(2.0f, 30.0f).requiresCorrectToolForDrops().dynamicShape()",
+      "source_class": "StellarVoidStairsBlock",
+      "light_block": -1,
+      "flammability": -1,
+      "fire_spread": -1,
+      "random_ticks": false,
+      "blast_resistance": 30.0
+    },
+    "vermillion_wax_stairs": {
+      "type": "StairBlock",
+      "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.WART_BLOCK).strength(2.0f, 30.0f).requiresCorrectToolForDrops().dynamicShape()",
+      "source_class": "VermillionWaxStairsBlock",
+      "light_block": -1,
+      "flammability": -1,
+      "fire_spread": -1,
+      "random_ticks": false,
+      "blast_resistance": 30.0
+    },
+    "mantlestone_stairs": {
+      "type": "StairBlock",
+      "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.BASALT).strength(2.0f, 30.0f).requiresCorrectToolForDrops().dynamicShape()",
+      "source_class": "MantlestoneStairsBlock",
+      "light_block": -1,
+      "flammability": -1,
+      "fire_spread": -1,
+      "random_ticks": false,
+      "blast_resistance": 30.0
+    },
+    "frostrock_stairs": {
+      "type": "StairBlock",
+      "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.STONE).strength(3.0f, 50.0f).requiresCorrectToolForDrops().dynamicShape()",
+      "source_class": "FrostrockStairsBlock",
+      "light_block": -1,
+      "flammability": -1,
+      "fire_spread": -1,
+      "random_ticks": false,
+      "blast_resistance": 50.0
+    },
+    "dark_frostrock_block_stairs": {
+      "type": "StairBlock",
+      "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.STONE).strength(3.0f, 50.0f).requiresCorrectToolForDrops().dynamicShape()",
+      "source_class": "DarkFrostrockBlockStairsBlock",
+      "light_block": -1,
+      "flammability": -1,
+      "fire_spread": -1,
+      "random_ticks": false,
+      "blast_resistance": 50.0
+    },
+    "darksteel_stairs": {
+      "type": "StairBlock",
+      "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERITE_BLOCK).strength(2.0f, 30.0f).requiresCorrectToolForDrops().dynamicShape()",
+      "source_class": "DarksteelStairsBlock",
+      "light_block": -1,
+      "flammability": -1,
+      "fire_spread": -1,
+      "random_ticks": false,
+      "blast_resistance": 30.0
+    },
+    "darksteel_tile_stairs": {
+      "type": "StairBlock",
+      "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERITE_BLOCK).strength(2.0f, 30.0f).requiresCorrectToolForDrops().dynamicShape()",
+      "source_class": "DarksteelTileStairsBlock",
+      "light_block": -1,
+      "flammability": -1,
+      "fire_spread": -1,
+      "random_ticks": false,
+      "blast_resistance": 30.0
+    },
+    "stellar_void_tile_stairs": {
+      "type": "StairBlock",
+      "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERITE_BLOCK).strength(2.0f, 30.0f).requiresCorrectToolForDrops().dynamicShape()",
+      "source_class": "StellarVoidTileStairsBlock",
+      "light_block": -1,
+      "flammability": -1,
+      "fire_spread": -1,
+      "random_ticks": false,
+      "blast_resistance": 30.0
+    },
+    "shale_stairs": {
+      "type": "StairBlock",
+      "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.STONE).sound(SoundType.NETHERRACK).strength(1.0f, 5.0f).requiresCorrectToolForDrops().randomTicks().dynamicShape()",
+      "source_class": "ShaleStairsBlock",
+      "light_block": -1,
+      "flammability": -1,
+      "fire_spread": -1,
+      "random_ticks": true,
+      "blast_resistance": 5.0
+    },
+    "soapstone_stairs": {
+      "type": "StairBlock",
+      "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.STONE).strength(2.0f, 30.0f).requiresCorrectToolForDrops().dynamicShape()",
+      "source_class": "SoapstoneStairsBlock",
+      "light_block": -1,
+      "flammability": -1,
+      "fire_spread": -1,
+      "random_ticks": false,
+      "blast_resistance": 30.0
+    },
+    "stellar_bliss_tile_stairs": {
+      "type": "StairBlock",
+      "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.STONE).strength(2.0f, 30.0f).requiresCorrectToolForDrops().dynamicShape()",
+      "source_class": "StellarBlissTileStairsBlock",
+      "light_block": -1,
+      "flammability": -1,
+      "fire_spread": -1,
+      "random_ticks": false,
+      "blast_resistance": 30.0
+    },
+    "stellar_bliss_stairs": {
+      "type": "StairBlock",
+      "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.STONE).strength(2.0f, 30.0f).requiresCorrectToolForDrops().dynamicShape()",
+      "source_class": "StellarBlissStairsBlock",
+      "light_block": -1,
+      "flammability": -1,
+      "fire_spread": -1,
+      "random_ticks": false,
+      "blast_resistance": 30.0
+    },
+    "pure_muck_stairs": {
+      "type": "StairBlock",
+      "properties": "BlockBehaviour.Properties.of().sound(SoundType.MUD).strength(0.8f, 4.0f).speedFactor(0.6f).jumpFactor(0.7f).dynamicShape()",
+      "source_class": "PureMuckStairsBlock",
+      "light_block": -1,
+      "flammability": -1,
+      "fire_spread": -1,
+      "random_ticks": false,
+      "blast_resistance": 4,
+      "tooltip": [
+        "block.thermal_shock.pure_muck_stairs.description_0"
+      ]
+    }
+  },
+  "pending": {}
+}

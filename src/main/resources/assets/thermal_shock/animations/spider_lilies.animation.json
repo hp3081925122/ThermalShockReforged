@@ -1,0 +1,57 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"0": {
+			"loop": true,
+			"bones": {
+				"BL": {
+					"scale": {
+						"vector": [0, 0, 0]
+					}
+				},
+				"BR": {
+					"scale": {
+						"vector": [0, 0, 0]
+					}
+				},
+				"TL": {
+					"scale": {
+						"vector": [0, 0, 0]
+					}
+				}
+			}
+		},
+		"1": {
+			"loop": true,
+			"override_previous_animation": true,
+			"bones": {
+				"BL": {
+					"scale": {
+						"vector": [0, 0, 0]
+					}
+				},
+				"TL": {
+					"scale": {
+						"vector": [0, 0, 0]
+					}
+				}
+			}
+		},
+		"2": {
+			"loop": true,
+			"override_previous_animation": true,
+			"bones": {
+				"TL": {
+					"scale": {
+						"vector": [0, 0, 0]
+					}
+				}
+			}
+		},
+		"3": {
+			"loop": true,
+			"override_previous_animation": true
+		}
+	},
+	"geckolib_format_version": 2
+}

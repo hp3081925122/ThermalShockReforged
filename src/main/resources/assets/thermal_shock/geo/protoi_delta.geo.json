@@ -1,0 +1,80 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.unknown",
+				"texture_width": 176,
+				"texture_height": 176,
+				"visible_bounds_width": 4,
+				"visible_bounds_height": 5.5,
+				"visible_bounds_offset": [0, 2.25, 0]
+			},
+			"bones": [
+				{
+					"name": "body",
+					"pivot": [0, 35, 0],
+					"cubes": [
+						{"origin": [-22, 35, -22], "size": [44, 12, 44], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "leg1",
+					"parent": "body",
+					"pivot": [17, 35, -17],
+					"cubes": [
+						{"origin": [13, 0, -22], "size": [9, 35, 9], "uv": [60, 77]}
+					]
+				},
+				{
+					"name": "leg2",
+					"parent": "body",
+					"pivot": [-17, 35, -17],
+					"cubes": [
+						{"origin": [-22, 0, -22], "size": [9, 35, 9], "uv": [0, 86]}
+					]
+				},
+				{
+					"name": "leg3",
+					"parent": "body",
+					"pivot": [17, 35, 17],
+					"cubes": [
+						{"origin": [13, 0, 13], "size": [9, 35, 9], "uv": [60, 77]}
+					]
+				},
+				{
+					"name": "leg4",
+					"parent": "body",
+					"pivot": [-17, 35, 17],
+					"cubes": [
+						{"origin": [-22, 0, 13], "size": [9, 35, 9], "uv": [0, 86]}
+					]
+				},
+				{
+					"name": "anten",
+					"parent": "body",
+					"pivot": [0, 47, -22],
+					"cubes": [
+						{"origin": [-15, 47, -22], "size": [30, 21, 0], "uv": [60, 56]}
+					]
+				},
+				{
+					"name": "gun",
+					"parent": "body",
+					"pivot": [0, 35, 0],
+					"cubes": [
+						{"origin": [-2, 24, -2], "size": [4, 12, 4], "uv": [36, 86]}
+					]
+				},
+				{
+					"name": "head",
+					"parent": "gun",
+					"pivot": [0, 22, 0],
+					"cubes": [
+						{"origin": [-4, 18, -17], "size": [8, 8, 22], "uv": [0, 56]}
+					]
+				}
+			]
+		}
+	]
+}

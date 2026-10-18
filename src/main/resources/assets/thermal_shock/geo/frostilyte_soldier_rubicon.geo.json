@@ -1,0 +1,95 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.Frostilyte Soldier Rubicon",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [0, 1.25, 0]
+			},
+			"bones": [
+				{
+					"name": "Chor",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "body",
+					"parent": "Chor",
+					"pivot": [0, 10, 0],
+					"cubes": [
+						{"origin": [-4, 10, -2], "size": [8, 10, 4], "uv": [0, 16]}
+					]
+				},
+				{
+					"name": "shoulder2",
+					"parent": "body",
+					"pivot": [-4, 20, 0]
+				},
+				{
+					"name": "arm2",
+					"parent": "shoulder2",
+					"pivot": [-5.5, 12, 0],
+					"cubes": [
+						{"origin": [-7, 10, -2], "size": [3, 4, 4], "uv": [16, 36]},
+						{"origin": [-7, 10.5, -12], "size": [3, 3, 9], "uv": [40, 20]},
+						{"origin": [-6, 11.5, -3], "size": [1, 1, 6], "uv": [45, 24]}
+					]
+				},
+				{
+					"name": "shoulder",
+					"parent": "body",
+					"pivot": [4, 20, 0]
+				},
+				{
+					"name": "arm1",
+					"parent": "shoulder",
+					"pivot": [5.5, 12, 0],
+					"cubes": [
+						{"origin": [4, 10, -2], "size": [3, 4, 4], "uv": [16, 36], "mirror": true},
+						{"origin": [7, 6, -10], "size": [1, 12, 20], "uv": [22, 32]}
+					]
+				},
+				{
+					"name": "leg1",
+					"parent": "body",
+					"pivot": [0, 10, 0],
+					"cubes": [
+						{"origin": [0, 0, -2], "size": [4, 10, 4], "uv": [0, 30]}
+					]
+				},
+				{
+					"name": "leg2",
+					"parent": "body",
+					"pivot": [0, 10, 0],
+					"cubes": [
+						{"origin": [-4, 0, -2], "size": [4, 10, 4], "uv": [24, 16]}
+					]
+				},
+				{
+					"name": "head",
+					"parent": "body",
+					"pivot": [0, 20, 0],
+					"cubes": [
+						{"origin": [-4, 20, -4], "size": [8, 8, 8], "uv": [0, 0]},
+						{"origin": [-5, 21, -4], "size": [1, 1, 0], "uv": [31, 14]},
+						{"origin": [4, 21, -4], "size": [1, 1, 0], "uv": [23, 0]},
+						{"origin": [-5, 23, -4], "size": [1, 1, 0], "uv": [31, 12]},
+						{"origin": [4, 23, -4], "size": [1, 1, 0], "uv": [31, 14]},
+						{"origin": [-3.5, 28, -4], "size": [7, 2, 0], "pivot": [0, 28, -4], "rotation": [20, 0, 0], "uv": [32, 14]}
+					]
+				},
+				{
+					"name": "antennae",
+					"parent": "head",
+					"pivot": [0, 28, -3],
+					"cubes": [
+						{"origin": [-4, 28, -3], "size": [8, 8, 0], "uv": [40, 0]}
+					]
+				}
+			]
+		}
+	]
+}
