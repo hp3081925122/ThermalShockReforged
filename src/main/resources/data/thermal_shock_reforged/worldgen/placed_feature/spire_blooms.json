@@ -1,0 +1,29 @@
+{
+  "feature": "thermal_shock_reforged:spire_blooms",
+  "placement": [
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 3
+    },
+    {
+      "type": "minecraft:count_on_every_layer",
+      "count": {
+        "type": "minecraft:uniform",
+        "min_inclusive": 6,
+        "max_inclusive": 12
+      }
+    },
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:would_survive",
+        "state": {
+          "Name": "thermal_shock_reforged:loque_grass"
+        }
+      }
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

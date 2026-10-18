@@ -57,7 +57,15 @@
       ]
     },
     "parrying": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "module": "com.hp.thermalshockreforged.content.status.StatusContent",
+      "source_matrix": "parrying-next-audit.md",
+      "implementation_matrix": "parrying-batch.md",
+      "pending": [
+        "第九批固定快照统一验证",
+        "KnightsEdge及其它未迁窗口caller的完整武器链",
+        "完整迁移后的服务端及客户端实测"
+      ]
     },
     "heart_boost": {
       "status": "implemented_pending_full_validation",
@@ -125,7 +133,15 @@
       ]
     },
     "knights_edge_charge": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "module": "com.hp.thermalshockreforged.content.status.StatusContent",
+      "source_matrix": "parrying-next-audit.md",
+      "implementation_matrix": "parrying-batch.md",
+      "pending": [
+        "第九批固定快照统一验证",
+        "KnightsEdge及其它未迁窗口caller的完整武器链",
+        "完整迁移后的服务端及客户端实测"
+      ]
     },
     "sylvia_rifle_charge": {
       "status": "not_migrated"

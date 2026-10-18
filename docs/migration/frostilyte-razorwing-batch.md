@@ -52,7 +52,7 @@ Frostilyte瞬态速度modifier标识frostilyte_movement_lock，20tick字段移�
 
 Razorwing仅装甲形态覆盖controllingPassenger，采用1.21原生玩家骑乘tick/input/speed，保输入前进zza、无strafe/跳跃、yaw同步/pitch半值和座高-.2；非玩家LivingEntity乘客也保原travel前进规则。基础形态没有新增可控骑乘。原装甲任意玩家交互尝试上骑（含未驯服/非owner）保持，实际骑乘仍经过原生canMountEntity/shift/cap检查，不绕过事件。原无跟随主人/坐下/主动近战goal，本批不擅补。
 
-14项模型/动画/6贴图/2蛋模型/2装甲item模型逐项与原JAR核：二进制原字节相同，JSON仅允许已统一namespace变化后语义一致。原Frostilyte攻击动画三名称完整保，target用Gecko triggerAnim实际同步触发，不继续依赖生成器未接入procedure字段的脆弱本地状态；无粒子/发光层被删除。4.9.2真实jar javap核GeoModel.setCustomAnimations、GeoEntityRenderer.getRenderType/withScale、GeoEntity.triggerAnim与AnimationController.triggerableAnim/isPlayingTriggeredAnimation。证据D:/AI临时文件/ThermalShockMigration/hunters-gecko492-javap.txt。
+14项模型/动画/6贴图/2蛋模型/2装甲item模型逐项与原JAR核：二进制原字节相同，JSON仅允许已统一namespace变化后语义一致。原Frostilyte攻击动画三名称完整保，target用Gecko triggerAnim实际同步触发，改用明确的服务端动画触发接口；原EntityAnimationFactory全局事件桥实际会将getSyncedAnimation写入animationprocedure并复位undefined，不能称原攻击动画未接入或天然无效；无粒子/发光层被删除。4.9.2真实jar javap核GeoModel.setCustomAnimations、GeoEntityRenderer.getRenderType/withScale、GeoEntity.triggerAnim与AnimationController.triggerableAnim/isPlayingTriggeredAnimation。证据D:/AI临时文件/ThermalShockMigration/hunters-gecko492-javap.txt。
 
 唯一新增资源loot_table/entities/razorwing.json，除random_sequence namespace外结构与原完全一致；鸡肉2..4、羽毛3..5不加looting/fire替代。4Java UTF8/括号/无注释/无全局延时/无COOLDOWN伪药效静态核通过，D:/AI临时文件/ThermalShockMigration/hunters-static-result.json。此为静态证据，未编译、未游戏、未骑乘网络或Render Preview实测。
 

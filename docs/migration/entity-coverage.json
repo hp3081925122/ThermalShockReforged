@@ -60,7 +60,14 @@
       ]
     },
     "frostilyte": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "module": "com.hp.thermalshockreforged.entity.hunters",
+      "source_matrix": "frostilyte-razorwing-batch.md",
+      "static_validation": "eighth-hunters-decor-static-validation.json",
+      "pending": [
+        "原群系自然生成／Patrol／图鉴上游按各模块继续",
+        "完整迁移后的两端与Render Preview验收"
+      ]
     },
     "willograde": {
       "status": "implemented_pending_full_validation",
@@ -99,13 +106,34 @@
       ]
     },
     "razorwing": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "module": "com.hp.thermalshockreforged.entity.hunters",
+      "source_matrix": "frostilyte-razorwing-batch.md",
+      "static_validation": "eighth-hunters-decor-static-validation.json",
+      "pending": [
+        "原群系自然生成／Patrol／图鉴上游按各模块继续",
+        "完整迁移后的两端与Render Preview验收"
+      ]
     },
     "ruby_armoured_razorwing": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "module": "com.hp.thermalshockreforged.entity.hunters",
+      "source_matrix": "frostilyte-razorwing-batch.md",
+      "static_validation": "eighth-hunters-decor-static-validation.json",
+      "pending": [
+        "原群系自然生成／Patrol／图鉴上游按各模块继续",
+        "完整迁移后的两端与Render Preview验收"
+      ]
     },
     "icidrozerk": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "module": "com.hp.thermalshockreforged.entity.ice",
+      "source_matrix": "ice-family-next-audit.md",
+      "pending": [
+        "第九批统一编译与固定快照静态核对",
+        "BlizzardDropPod／结构／图鉴等上游调用模块",
+        "完整迁移后的两端与Render Preview验收"
+      ]
     },
     "springslime": {
       "status": "not_migrated"
@@ -126,10 +154,24 @@
       "status": "not_migrated"
     },
     "frostilyte_soldier": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "module": "com.hp.thermalshockreforged.entity.ice",
+      "source_matrix": "ice-family-next-audit.md",
+      "pending": [
+        "第九批统一编译与固定快照静态核对",
+        "BlizzardDropPod／结构／图鉴等上游调用模块",
+        "完整迁移后的两端与Render Preview验收"
+      ]
     },
     "frostilyte_cryomancer": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "module": "com.hp.thermalshockreforged.entity.ice",
+      "source_matrix": "ice-family-next-audit.md",
+      "pending": [
+        "第九批统一编译与固定快照静态核对",
+        "BlizzardDropPod／结构／图鉴等上游调用模块",
+        "完整迁移后的两端与Render Preview验收"
+      ]
     },
     "cryonic_projectile": {
       "status": "not_migrated"
@@ -163,7 +205,14 @@
       ]
     },
     "icidrone": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "module": "com.hp.thermalshockreforged.entity.ice",
+      "source_matrix": "ice-family-next-audit.md",
+      "pending": [
+        "第九批统一编译与固定快照静态核对",
+        "BlizzardDropPod／结构／图鉴等上游调用模块",
+        "完整迁移后的两端与Render Preview验收"
+      ]
     },
     "icidrogrunt": {
       "status": "not_migrated"
@@ -224,7 +273,14 @@
       ]
     },
     "blood_armoured_razorwing": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "module": "com.hp.thermalshockreforged.entity.hunters",
+      "source_matrix": "frostilyte-razorwing-batch.md",
+      "static_validation": "eighth-hunters-decor-static-validation.json",
+      "pending": [
+        "原群系自然生成／Patrol／图鉴上游按各模块继续",
+        "完整迁移后的两端与Render Preview验收"
+      ]
     },
     "skullscor": {
       "status": "not_migrated"
@@ -457,10 +513,24 @@
       ]
     },
     "gelshooter": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "module": "com.hp.thermalshockreforged.entity.growth",
+      "source_matrix": "growth-family-next-audit.md",
+      "pending": [
+        "第九批统一固定快照验证",
+        "Gel原首次获取闭环缺陷已记录，未新增配方",
+        "完整迁移后的两端与Render Preview验收"
+      ]
     },
     "gelshooter_bullet": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "module": "com.hp.thermalshockreforged.entity.growth",
+      "source_matrix": "growth-family-next-audit.md",
+      "pending": [
+        "第九批统一固定快照验证",
+        "Gel原首次获取闭环缺陷已记录，未新增配方",
+        "完整迁移后的两端与Render Preview验收"
+      ]
     },
     "tesla_reed": {
       "status": "not_migrated"
@@ -575,7 +645,14 @@
       ]
     },
     "ice_bullet": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "module": "com.hp.thermalshockreforged.entity.ice",
+      "source_matrix": "ice-family-next-audit.md",
+      "pending": [
+        "第九批统一编译与固定快照静态核对",
+        "BlizzardDropPod／结构／图鉴等上游调用模块",
+        "完整迁移后的两端与Render Preview验收"
+      ]
     },
     "florist": {
       "status": "not_migrated"

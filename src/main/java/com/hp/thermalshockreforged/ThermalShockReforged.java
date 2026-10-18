@@ -1,6 +1,12 @@
 package com.hp.thermalshockreforged;
 
 import com.hp.thermalshockreforged.content.MaterialContent;
+import com.hp.thermalshockreforged.content.growth.GrowthContent;
+import com.hp.thermalshockreforged.content.ModGameRules;
+import com.hp.thermalshockreforged.content.crates.CrateContent;
+import com.hp.thermalshockreforged.entity.ice.IceContent;
+import com.hp.thermalshockreforged.entity.ice.IceCombatConfig;
+import com.hp.thermalshockreforged.content.doors.SpecialDoorsContent;
 import com.hp.thermalshockreforged.content.decor.geo.GeoDecorContent;
 import com.hp.thermalshockreforged.entity.hunters.HuntersContent;
 import com.hp.thermalshockreforged.entity.drops.IceMobDrops;
@@ -49,12 +55,16 @@ public final class ThermalShockReforged {
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public ThermalShockReforged(IEventBus bus, ModContainer container) {
+        ModGameRules.initialize();
         container.registerConfig(ModConfig.Type.COMMON, CombatConfig.SPEC);
+        container.registerConfig(ModConfig.Type.COMMON, IceCombatConfig.SPEC, "thermal_shock_reforged-ice.toml");
         container.registerConfig(ModConfig.Type.COMMON, ManglerCombatConfig.SPEC, "thermal_shock_reforged-mangler.toml");
         ModEntities.register(bus);
         MaterialContent.register(bus);
         NativeDecorContent.register(bus);
         GeoDecorContent.register(bus);
+        SpecialDoorsContent.register(bus);
+        CrateContent.register(bus);
         DependencyBlocks.register(bus);
         ModBlockEntities.register(bus);
         ModEffects.register(bus);
@@ -73,8 +83,10 @@ public final class ThermalShockReforged {
         GlassContent.register(bus);
         GlassVariantsContent.register(bus);
         FarmingContent.register(bus);
+        GrowthContent.register(bus);
         ManglerContent.register(bus);
         HuntersContent.register(bus);
+        IceContent.register(bus);
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(IceMobDrops::death);
         SporeContent.register(bus);
         SootleContent.register(bus);

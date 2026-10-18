@@ -3,6 +3,7 @@ package com.hp.thermalshockreforged.content.status.mixin;
 import com.hp.thermalshockreforged.content.status.StatusContent;
 import com.hp.thermalshockreforged.content.status.StatusEvents;
 import com.hp.thermalshockreforged.content.status.InfectionStatus;
+import com.hp.thermalshockreforged.content.status.ParryingStatus;
 import com.hp.thermalshockreforged.combat.AttackAttemptEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.minecraft.world.damagesource.DamageSource;
@@ -46,5 +47,11 @@ public abstract class LivingEntityStatusMixin {
         if (reapplyModifiers && !entity.level().isClientSide && instance.is(StatusContent.ELECTRIFIED)) {
             StatusEvents.playElectrifiedVisual(entity);
         }
+    }
+
+    @Inject(method = "actuallyHurt", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;getDamageAfterArmorAbsorb(Lnet/minecraft/world/damagesource/DamageSource;F)F", ordinal = 0), require = 1)
+    private void thermalShockReforged$parryBeforeArmor(DamageSource source, float amount, CallbackInfo callback) {
+        LivingEntity entity = (LivingEntity) (Object) this;
+        if (!(entity instanceof Player)) ParryingStatus.beforeArmor(entity);
     }
 }

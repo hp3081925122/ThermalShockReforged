@@ -37,7 +37,7 @@ root已实施中五项单列R0，不重复推荐；terrain farming共享过程29
 
 ## 门/门帘与空实体的纠正
 
-原所有DoorBlock/TrapDoorBlock木石金属家族已经包含在404冻结注册中，不存在一个可再迁的原生门大族；原注册差集没有curtain/门帘ID，不凭用户举例捏造。只剩maw_door/bunker_door，均BaseEntityBlock+GeoBE。MawDoor右键需主手3个HeraldKey，blockstate/animation切换、耗3、两声与失败消息；BunkerDoor neighbor红石过程会放/删light_blocking_barrier碰撞门面（该依赖也在245中），不是普通红石DoorBlock。两者应连对应barrier/钥匙完整闭合，不能继承原版门省Geo多格形状/动画。
+原所有DoorBlock/TrapDoorBlock木石金属家族已经包含在404冻结注册中，不存在一个可再迁的原生门大族；原注册差集没有curtain/门帘ID，不凭用户举例捏造。只剩maw_door/bunker_door，均BaseEntityBlock+GeoBE。MawDoor右键需主手3个HeraldKey，blockstate/animation切换、耗3、两声与失败消息；BunkerDoor neighbor红石过程首次通电扫描9×9×9并删除light_blocking_barrier（原不负责放置或断电关门）（该依赖也在245中），不是普通红石DoorBlock。两者应连对应barrier/钥匙完整闭合，不能继承原版门省Geo多格形状/动画。
 
 真正0槽BE只有wallbore和desk_director，二者仍有procedure/Geo，不是空实现。97个9槽BE中，许多原createMenu返回ChestMenu.threeRows(id,inventory)却不传自身9槽，甚至块类未override use；这意味着原库存能力真实但GUI可达/显示槽数可能有历史问题。只读盘点不把它们谎称可正常打开9槽，也不借原GUIbug删库存；后续owner须明确修复并验证菜单与能力。原renderer接线86项可从ClientListener核到，其他非Geo BE依赖普通模型；所有原assets已整体保留，但245个未注册ID目前都未接运行资源，不能拿模型存在充迁移完成。
 

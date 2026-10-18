@@ -18,7 +18,11 @@ public final class StatusClient {
             public boolean isVisibleInInventory(MobEffectInstance instance) { return false; }
             @Override
             public boolean isVisibleInGui(MobEffectInstance instance) { return false; }
-        }, StatusContent.TREMORS);
+        }, StatusContent.TREMORS, StatusContent.PARRYING);
+        event.registerMobEffect(new IClientMobEffectExtensions() {
+            @Override
+            public boolean isVisibleInInventory(MobEffectInstance instance) { return false; }
+        }, StatusContent.KNIGHTS_EDGE_CHARGE);
         event.registerMobEffect(new IClientMobEffectExtensions() {
             @Override
             public boolean isVisibleInGui(MobEffectInstance instance) { return false; }
