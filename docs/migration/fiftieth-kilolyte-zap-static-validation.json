@@ -67,5 +67,36 @@
     "other unported modules",
     "complete mod source audit, server/client/Render Preview tests"
   ],
-  "runtimeTests": "not started; complete mod first"
+  "runtimeTests": "not started; complete mod first",
+  "animationFollowUp": {
+    "evidence": "actual GeckoLib4.9.2 AnimationController.process and adjustTick bytecode",
+    "totalTicksIncludingTransition4": {
+      "spawn": 74,
+      "attack": 31,
+      "attack2": 29,
+      "idle": 44,
+      "walk": 30,
+      "death": 6
+    },
+    "offset": "TRANSITIONING: elapsed; RUNNING: max(0, elapsed-transitionLength)",
+    "birthProtectionTicksUnchanged": 70,
+    "attackEndTicksUnchanged": [
+      17,
+      22,
+      24,
+      26,
+      28
+    ],
+    "validation": {
+      "executor": "validation_luna",
+      "command": "gradlew.bat compileJava compileGametestJava processResources --offline",
+      "java": 21,
+      "exitCode": 0,
+      "result": "BUILD SUCCESSFUL",
+      "durationSeconds": 17,
+      "executed": 1,
+      "upToDate": 24
+    },
+    "runtime": "still pending final client/Render Preview"
+  }
 }
