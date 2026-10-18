@@ -9,3 +9,5 @@
 迁移范围、已确认缺陷、待办与验证结果见 [迁移文档](MIGRATION_1211_NEOFORGE.md)，逐项覆盖及资源哈希见 `docs/migration/`。测试源集位于 `src/gametest`，不会打入主模组 JAR。
 
 当前测试仅代表已迁移模块；真实 Xaero 显示、完整世界进度和 Render Preview 原版视觉对照仍需完成。
+
+用户当前验证规则：整模组代码迁移完整前只编译／静态核对，不运行服务端或客户端；完成后的两端及Render Preview测试交给子代理。既有GameTest结果仅为早期历史记录。

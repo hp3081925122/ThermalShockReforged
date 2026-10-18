@@ -106,3 +106,63 @@ Scarlet Ray代码已迁移：游泳控制与Koi复用，保留独立实体ID、1
 用户明确要求只按正常原版方块的挖掘标签和等级机制处理；不开发Tetra／匠魂等专门兼容，也不将专门兼容测试作为本次验收门槛。既有标准工具能力和等级测试继续保留，外部模组支持不做已验证声明。后续继续迁移其他内容。
 
 阶段服务端结果：gametest-axis.log中18项required tests全部通过，日志未出现ERROR；编译与资源处理成功。工具专门兼容不在范围；后续继续实体、状态效果等模块，整模组迁移仍未完成。
+
+## Probosker 实施批次（2026-10-18）
+
+保留AMBIENT分类、0.9×1.0尺寸、32生命／6基础伤害／0.25速度／16范围、河豚音效、狼脚步声、1经验、1/3驯服概率、六种鱼食物、仅Crystal Koi诱惑、营养值回血、40%紫色生成、双贴图、原geo、六段动画资源及头部转向。透明渲染、0.7阴影和1.0缩放不变。原掉落表按目标单数loot_table目录迁入，保留蓝羊毛0–2、吸管0–1池规则及random_sequence。
+
+原蹲伏flag+每tick缓慢255替换为TamableAnimal持久化坐姿和SitWhenOrderedToGoal；不引入抗性或免伤。源hurt仅排除溺水伤害。原右键无条件翻转坐姿会让陌生人、喂食和刷怪蛋也切姿；现在主人非食物交互切姿，喂食与刷怪蛋不切姿，保留对应吹气声音。
+
+OwnerHurtByTargetGoal从错误的goalSelector移至targetSelector。原两类猎物及Monolith威胁按实体注册ID选择，保留原目标优先级／检测范围／速度；它们实体尚未迁入，跨实体战斗验收仍待闭合，不注册占位实体。没有增加原本不存在的跟随主人AI。近战仍保留距离平方1的原阈值，并使用基础攻击属性。
+
+原主人满血喂食走Animal.mobInteract，可进入love；原类与父类均没有自动添加BreedGoal。因此本批保留求爱和后代创建，没有把后代工厂存在写成实际繁殖已完成，也没有无说明新增繁殖AI。此缺陷待后续完整行为评审。
+
+自然生成谓词保留脚下grassy_shale／snowy_shale、可见天空及白天限制；两个地表方块及三个源群系未闭合，原biome modifier暂不导入。Wide Angle图鉴与Louse反向回避同样待对应模块迁移。
+
+Probosker回归测试与渲染仍分别记录；编译成功不表示真实视觉一致。原资源文件不修改。
+
+# Pondler 与孵化蛋迁移（2026-10-18）
+
+## 原件与保留行为
+
+来源仍为07.9原JAR及readable源码。Pondler为WATER_AMBIENT，0.6×0.6、2HP、0护甲、0攻击、16范围、1移动及游泳速度、0.6台阶、2经验；保留原游泳／逃跑AI、河豚以外的鳕鱼音效、水下呼吸／穿刺标签、溺水免疫、无水流推力和生成点上下两格水检查。
+
+50%橙色／默认绿色变体，仍保存Texture并限制为真实原纹理。透明渲染、0.2阴影、1.0缩放、原geo和三段idle／landidle／jump动画全部保留。没有将Pondler套用为Koi的swim动画。
+
+原tick在脚下不可遮挡且冷却结束时，主体是严格的minecraft:air便沿视向水平0.2、向上1跳跃，冷却为round(80+randomDouble×220)，并播放jump；主体非air则每tick向上0.5。原hurt在主体非air时先沿视向水平1冲刺，再处理伤害。目标保留这些条件、速度、随机分布；服务器作为唯一逻辑来源。
+
+原极高抗性替换为伤害吸收阶段的条件规则：主体非air时抵消普通伤害，但仍允许bypasses_effects／bypasses_resistance伤害；DROWN独立保持免疫。不使用笼统isInvulnerable吞掉所有伤害。原代码不是单纯“在水中”：非air也包括其他方块，这个字面条件未在本批擅自改成isInWater。原cooldown药水改为PondlerJumpCooldown整数字段，持久化、读取限0–300，不再每tick加效果。
+
+掉落保留单池权重4:1：raw_pondler为1个，pondler_egg为0–2个，并保留random_sequence；不是每次必掉鱼再额外掉蛋。已有200tick熔炉、100tick烟熏、100tick营火三配方保留。
+
+## 蛋链闭合与原缺陷修复
+
+蛋保持WATERLOGGED、原模型、完整碰撞、空视觉形状、无光遮挡、干燥透天光、POINTED_DRIPSTONE音效、硬度0.2／抗爆0、非导体。新增绿色地图色使其拥有正常MapColor，未修改遮挡来强制地图绘制。
+
+原方块每20tick调用孵化过程，过程先检查age>=600再增一；初始age=0时第601次调用孵化，即12020游戏tick。目标保留这一次序和单位，不缩成600tick。每次未孵化调用仍有10%裂蛋声；孵化声原pitch=-1超出合法播放范围，目标用原客户端实际下限0.5表达低音。
+
+蛋原有9槽inventory、六方向自动化、比较器输出以及破坏／孵化时掉出库存，全部保留。目标用真实9槽绑定菜单替代原三行空菜单工厂（原未绑定BE，显示数量也不一致），未新增直接右键打开入口。仅库存和持久化确有改变时标脏，不每秒sendBlockUpdated广播整份NBT；孵化年龄不影响外观，不需同步年龄进度。孵化移除蛋、不掉蛋本体、生成一个Pondler；含水移除保留原流体恢复流程。
+
+## 尚未闭合与验证边界
+
+vermillion_woods维度／群系自然生成、蛋的世界生成来源、NetBullet捕捉和WideAngle图鉴由各自模块后续迁移。Chilloo蛋虽复用了同一原procedure，但本批不注册假Chilloo实体，不把Pondler蛋完成算成Chilloo链完成。
+
+按用户最新AGENTS.md，整模组代码完整迁移前只做源码／数据静态核对及编译，不启动服务端或客户端。最终服务端和Render Preview对照均交给子代理执行。本批不能声称游戏内孵化、原画面或整个模组已通过验收。
+
+# Heart Crystal 与 Heart Boost 迁移前审计（2026-10-18）
+
+原HeartCrystalItem右键调用HeartCrystalRightclickedProcedure：堆叠1、RARE、保留description_0。每次使用消耗1晶体，heart_boost持续5000tick，第一次amplifier=1，后续在原amplifier上加1；每级属性倍率由标准MobEffect机制计算为4×(amplifier+1)最大生命，不能误改为首用只加4或给永久生命。另施加20tick、amplifier9原版生命恢复，保留原高频短恢复，不直接替换成瞬间治疗。
+
+heart_boost为真实玩家增益，不是内部冷却标记；保留BENEFICIAL、颜色#FF6699、原图标、本地化及原版默认药效清除机制。没有有效tick回调，不保留每tick空调用。
+
+原消费逻辑clearOrCountMatchingItems扫描整个Inventory和合成栏，不按当前手中晶体处理，且Item.use结束仍返回super的PASS。目标改为服务端消费当前手中1个晶体并返回sidedSuccess，防止删错同类物品／双手回退；原即便创造模式也会扫描删除，本批仍使用shrink保留每次消耗一晶体，不擅自新增免消耗。原sound为ENCHANTMENT_TABLE_USE，NEUTRAL，音量1，pitch4；目标保留该参数，声音引擎照常限制实际播放上界。
+
+代码和数据迁移后只编译／静态核对。来源配方／战利品所属数据链未闭合时不导入失效引用；完整迁移后的实际属性叠加、时效、移除、存档、双手与声音表现交子代理测试。
+
+## 本批最终静态／编译记录
+
+子代理确认compile-pondler-final.log和compile-heart-crystal.log的compileJava／compileGametestJava／processResources全部成功。当前354方块、6实体实现、1真实玩家增益效果；这些是代码覆盖，不是完成比例。6105个原assets字节哈希保持一致；新Java和资源文本UTF-8、Java无注释，两项skill校验通过。
+
+新AGENTS生效前Probosker曾有21项运行检查的快照，20过／1失败；剩余失败属于夹具吃完最后一条鱼后未补食物，已修复夹具并编译，未重新运行，不写成21项全过。新规则生效后没有再启动游戏服务端或客户端；当前代码运行与Render Preview验收统一留到整模组代码完整迁移后，由子代理执行。
+
+本批已复查源模型／贴图／动画／动作互斥、物品时效与等级、掉落权重、孵化时基和库存，没有通过缩动画、减特效或减少功能来完成编译。世界生成、图鉴、捕捉及跨实体战斗未闭合项仍在覆盖清单中，整体迁移未完成。

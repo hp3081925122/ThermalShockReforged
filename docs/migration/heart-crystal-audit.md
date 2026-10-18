@@ -1,0 +1,11 @@
+# Heart Crystal 与 Heart Boost 迁移前审计（2026-10-18）
+
+原HeartCrystalItem右键调用HeartCrystalRightclickedProcedure：堆叠1、RARE、保留description_0。每次使用消耗1晶体，heart_boost持续5000tick，第一次amplifier=1，后续在原amplifier上加1；每级属性倍率由标准MobEffect机制计算为4×(amplifier+1)最大生命，不能误改为首用只加4或给永久生命。另施加20tick、amplifier9原版生命恢复，保留原高频短恢复，不直接替换成瞬间治疗。
+
+heart_boost为真实玩家增益，不是内部冷却标记；保留BENEFICIAL、颜色#FF6699、原图标、本地化及原版默认药效清除机制。没有有效tick回调，不保留每tick空调用。
+
+原消费逻辑clearOrCountMatchingItems扫描整个Inventory和合成栏，不按当前手中晶体处理，且Item.use结束仍返回super的PASS。目标改为服务端消费当前手中1个晶体并返回sidedSuccess，防止删错同类物品／双手回退；原即便创造模式也会扫描删除，本批仍使用shrink保留每次消耗一晶体，不擅自新增免消耗。原sound为ENCHANTMENT_TABLE_USE，NEUTRAL，音量1，pitch4；目标保留该参数，声音引擎照常限制实际播放上界。
+
+代码和数据迁移后只编译／静态核对。来源配方／战利品所属数据链未闭合时不导入失效引用；完整迁移后的实际属性叠加、时效、移除、存档、双手与声音表现交子代理测试。
+
+实现已注册，子代理compile-heart-crystal.log确认编译与资源处理通过；未运行游戏验收。目标LivingEntity.onEffectRemoved→refreshDirtyAttributes→onAttributeUpdated已处理MAX_HEALTH降低时夹紧当前生命，不额外添加重复的手动生命重算。

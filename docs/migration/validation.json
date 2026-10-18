@@ -9,15 +9,33 @@
     "required": 18,
     "passed": 18,
     "failed": 0,
-    "game_errors": 0
+    "game_errors": 0,
+    "scope": "Historical 18-test snapshot before Probosker/Pondler, not current code acceptance"
   },
   "assets_unchanged": 6105,
-  "unique_block_ids": 353,
+  "unique_block_ids": 354,
   "full_mod_migration": "incomplete",
   "render_comparison": "not_run",
   "xaero_target_runtime": "not_run",
   "tetra_tinkers_target_runtime": "not_required_by_user",
   "all_features_server_acceptance": "not_run",
   "paintings": 17,
-  "entities_with_migrated_code": 4
+  "entities_with_migrated_code": 6,
+  "latest_runtime_attempt": {
+    "log": "D:/AI临时文件/ThermalShockMigration/gametest-probosker-2.log",
+    "executed": 21,
+    "passed": 20,
+    "failed": 1,
+    "reason": "Test fixture consumed the last Koi before the love interaction; fixture corrected, not rerun under updated user policy"
+  },
+  "current_runtime_policy": "Only after full mod code migration, delegated to subagents",
+  "current_batch_runtime": "not_run",
+  "compile_logs": [
+    "D:/AI临时文件/ThermalShockMigration/compile-pondler-final.log",
+    "D:/AI临时文件/ThermalShockMigration/compile-heart-crystal.log"
+  ],
+  "validation_delegate": "subagents",
+  "registered_real_effects": 1,
+  "java_utf8_and_no_comments": "passed",
+  "skill_validation": "passed"
 }
