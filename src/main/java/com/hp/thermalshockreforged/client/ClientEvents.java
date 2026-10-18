@@ -6,6 +6,7 @@ import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import com.hp.thermalshockreforged.client.growth.GrowthRenderers;
 import com.hp.thermalshockreforged.client.ice.IceRenderers;
 import com.hp.thermalshockreforged.client.icesquad.IceSquadRenderers;
+import com.hp.thermalshockreforged.client.icesquad.StriderRenderers;
 import com.hp.thermalshockreforged.client.doors.SpecialDoorRenderers;
 import com.hp.thermalshockreforged.client.decor.geo.GeoDecorRenderers;
 import com.hp.thermalshockreforged.client.hunters.HuntersRenderers;
@@ -59,6 +60,7 @@ public final class ClientEvents {
         HuntersRenderers.register(event);
         IceRenderers.register(event);
         IceSquadRenderers.register(event);
+        StriderRenderers.register(event);
         GeoDecorRenderers.register(event);
         SpecialDoorRenderers.register(event);
         FarmingRenderers.register(event);
