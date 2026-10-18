@@ -22,6 +22,7 @@ public final class GeoDecorContent {
             DeferredBlock<GeoDecorBlock> block = BLOCKS.register(kind.id, () -> switch (kind) {
                 case SHALE_PILLAR, SHALE_PILLAR_VAR_2, SHALE_PILLAR_VAR_3, SHALE_PILLAR_VAR_4, SHALE_PILLAR_VAR_5, SHALE_PILLAR_VAR_6, SHALE_PILLAR_VAR_7, SHALE_PILLAR_VAR_8 -> new ShalePillarBlock(kind);
                 case FRIGID_ALTAR, FERROUS_ALTAR -> new AltarBlock(kind);
+                case PHOBOTITE_OUTCROP, PHOBOTITE_MANTLE_OUTCROP -> new PhobotiteOutcropBlock(kind);
                 case PYLON_CORE -> new PylonCoreBlock();
                 case SURGE_PYLON -> new SurgePylonBlock();
                 case THERMA_DEV_PLUSH -> new ThermaDevPlushBlock();

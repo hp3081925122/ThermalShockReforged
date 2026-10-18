@@ -175,7 +175,10 @@ public final class ClientEvents {
     public static void itemColors(RegisterColorHandlersEvent.Item event) { FluidClient.colors(event); }
 
     @SubscribeEvent
-    public static void setup(FMLClientSetupEvent event) { event.enqueueWork(() -> { FarmingRenderers.layers(); FluidClient.layers(); }); }
+    public static void setup(FMLClientSetupEvent event) { event.enqueueWork(() -> {
+        FarmingRenderers.layers(); FluidClient.layers();
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener((net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent.LoggingOut logout) -> com.hp.thermalshockreforged.world.AltarProgressPayload.resetClient());
+    }); }
 
     private static final class InvisibleWarningRenderer extends EntityRenderer<ZapWarningEntity> {
         private InvisibleWarningRenderer(EntityRendererProvider.Context context) {

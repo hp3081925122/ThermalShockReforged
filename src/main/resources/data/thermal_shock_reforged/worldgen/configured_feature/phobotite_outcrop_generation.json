@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:replace_single_block",
+  "config": {
+    "targets": [
+      {
+        "target": {
+          "predicate_type": "block_match",
+          "block": "thermal_shock_reforged:shale"
+        },
+        "state": {
+          "Name": "thermal_shock_reforged:phobotite_outcrop"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "block_match",
+          "block": "thermal_shock_reforged:mantlestone"
+        },
+        "state": {
+          "Name": "thermal_shock_reforged:phobotite_mantle_outcrop"
+        }
+      }
+    ]
+  }
+}

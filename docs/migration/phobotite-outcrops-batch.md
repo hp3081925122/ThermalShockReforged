@@ -1,0 +1,22 @@
+# 第56批：Phobotite双矿体及祭坛状态同步
+
+原完整证据/待迁契约见phobotite-outcrops-next-audit.md。普通与Mantle矿体此前只有资源，没有真实方块/BE/显示物品；本批补实际GeoDecorKind及共用PhobotiteOutcropBlock，沿现有GeoDecorContent实际注册两块、GeoBlockEntity、GeoItem与透明渲染/物品扩展。
+
+两者保原全方块碰撞、ANIMATION0..1、ENTITYBLOCK_ANIMATED、BASEDRUM/NETHERRACK、6点光照/0光阻/透天光；原强度分别6/5与6.75/5。不加原没有的noOcclusion或统一发光层。Geo模型/动画沿原fluorite_ore和两独立原纹理，不改成普通静态矿石。新增MapColor.STONE依据已读纹理的大面积灰色基岩和少量蓝晶；仅为合理原生地图色，Xaero最终模式仍待真实客户端测试。
+
+真实9槽/all-side自动化、存取/更新包/loot数据与两个0过渡动画控制器复用完整Geo机制。原9槽BE却生成三行空ChestMenu的缺陷不继承，共用真实9槽菜单；原方块无普通打开UI入口，不另造工作台或删自动化。共用onRemove掉落库存防原拆除丢物，标准钻石镐标签/错误低等级工具标签采用原版机制。
+
+采集返回原生canHarvest且共享AltarUnlocked；不把enforce开关混到实际掉落门槛。attack仅服务端在“未解锁且enforce=true”时给原actionbar文字，不阻止原没有取消的方块破坏动作。无抗性/缓慢/虚弱药水假状态，无每tick世界扫描。
+
+AltarProgressPayload单bool仅服务器向客户端同步。服务端每次读取真实主世界SavedData，客户端仅缓存展示/客户端采集判定；登录、重生、换维度单人同步，真实解锁一次向在线玩家同步，客户端断线清缓存避免跨存档残留。PayloadRegistrar原生默认MAIN线程与playToClient方向已查目标NeoForge源码；Codec用已核ByteBufCodecs.BOOL。通用类不引用Minecraft客户端类，退出监听只在Dist.CLIENT的ClientEvents安装，不由客户端数据覆盖服务端进度。
+
+原两loot/完整replace_single_block双target生成、count12/in_square/trapezoid−40..75/biome和六邻空气谓词/underground_decoration共享群系入口已按精确数据转换；丝触得原块×1，非丝触普通phobotite×1、Mantle×1..2，均保原Fortune ore_drops；不用自掉落fallback代替真实矿物掉落。旧match_tool的enchantments列表改1.21组件predicate.predicates.minecraft:enchantments，并将单项enchantment改enchantments，不改原最低1级。Springling完整自然入口的缺modifier也同时补原stardust_garden weight80/count3..5，而Workbench的1%合法召唤继续复用真实Ecosystem实体。
+
+原#loqendian:tag不能仅替换原模组命名空间就照用；已核目标既有8群系共享集合是#thermal_shock_reforged:loqendian，modifier显式接该真实tag。其余namespace转换不改两个target/六相邻air判定及placement顺序，原NeoForge对应Codec已查。当前6个原数据文件全部真实落入目标，两原loot中的random_sequence也同步改新命名空间。
+
+写完全部数据后冻结源码/资源，由Luna离线三任务和机械对照验证。整模组未完整前不启动客户端、服务端或Render Preview。
+
+
+## 固定快照验证
+
+Luna离线compileJava/compileGametestJava/processResources：57秒BUILD SUCCESSFUL、退出0，共25任务/3执行22最新，日志D:/AI临时文件/ThermalShockMigration/fiftysixth-phobotite-compile.log。Luna机械核两真实注册/全部属性/原四视觉资源哈希、两个SilkTouch/Fortune池、完整生成顺序与全部六向谓词、8群系集合及Springling原刷新参数均通过；单bool同步的方向/服务器进度优先/登录重生换维度及解锁入口/客户端断线清理也已核。原只读phobotite56-data-audit.json的targetPresence是实施前WIP快照，不作最终覆盖结论。服务端实际行为、客户端预测、Xaero和Geo渲染均待整模组完成后的最终验证。
