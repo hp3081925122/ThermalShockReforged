@@ -1,0 +1,93 @@
+{
+  "scope": "Bastion boss combat, complete original entity loot, two functional Geo trophies, Petrichor dependency and legacy cooldown visuals",
+  "verification_owner": "validation_luna read-only comparisons and build; main agent implementation and report",
+  "build": {
+    "java": "21",
+    "command": "compileJava compileGametestJava processResources --offline",
+    "result": "BUILD SUCCESSFUL",
+    "seconds": 52,
+    "log": "D:/AI临时文件/ThermalShockMigration/compile-thirteenth-bastions-final.log"
+  },
+  "boss_combat": {
+    "entities": [
+      "icidrogunner",
+      "icidroburner"
+    ],
+    "AI_and_original_attributes_preserved_except_documented_knockback": true,
+    "config": "thermal_shock_reforged-bastions.toml health armor damage speed resistance knockback multiplier dash and cooldown fields",
+    "salvo_times": [
+      10,
+      12,
+      14,
+      16,
+      18,
+      20,
+      22,
+      24,
+      26,
+      28,
+      30,
+      32,
+      34,
+      36,
+      38,
+      40,
+      42
+    ],
+    "auxiliary_sound_times": [
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55
+    ],
+    "salvo_shots": 17,
+    "auxiliary_sound_count": 10,
+    "ownerless_projectiles_preserved": true,
+    "damage": "base attack times .2, native arrow speed/crit behavior retained",
+    "gunner_stunned": "60ticks amplifier1 original real status retained",
+    "thresholds": "Gunner dash at <=10; Burner dash at >=7",
+    "dash": "original velocity4 direction backward/forward and cooldown45/20; caster-only rotation replaces all-entities teleport command",
+    "nearest_player": "cached native @p selector query, no command execution or invented filters",
+    "death": "20tick experience, once-only heart crystal conditional on own gamerule independent of doMobLoot, opposite-boss Speed9999/1 ambient true particles false in point-inflated21 AABB sorted by distance",
+    "persistence": "cooldown/phase/origin/dimension/death/experience state; no captured delay closures; loaded health not reset"
+  },
+  "trophies": {
+    "IDs": [
+      "icidrogunner_trophy",
+      "icidroburner_trophy"
+    ],
+    "native_inventory": "9 slots saved and exposed on all six faces, no fabricated right-click GUI",
+    "geometry_and_visuals": "original whole-block shape, FACING, animation0..1, translucent block/item models, original item/generated display and two relic animations",
+    "properties": "copper1/10 light7 noOcclusion non-conductor proper vanilla pickaxe tag MapColor.METAL",
+    "particles": "one END_ROD per original animateTick callback; xz0..1 y0..2 velocity0,.1,0",
+    "existing_inventory_release_fix_retained": true
+  },
+  "loot": {
+    "two_original_entity_tables_complete": true,
+    "all_item_references_registered": true,
+    "petrichor": "real RARE stack1 jukebox-playable Item, original Forge Supplier ctor5000ticks maps to250 seconds, comparator6, original sound/description and stream=true OGG preserved"
+  },
+  "cooldown_visual_fidelity": {
+    "old_native": "1.20.1 normal nonambient1/2, invisible1/15; visible color weighted by amplifier+1",
+    "target_native_difference": "1.21.1 normal nonambient1/4 and random effect particle selection, so proxy explicitly preserves old behavior",
+    "shared_helper": "LegacyCooldownVisuals mixes synthetic white amp1 weight2 and visible actual effects",
+    "affected_classes": [
+      "BastionEntity",
+      "IceCreatureEntity"
+    ],
+    "client_expiration": "client-only path waits for server removal as native; periodic update occurs only when effect.tick returned true"
+  },
+  "remaining": {
+    "advancements": [
+      "lod_pozar_get and knight_edge_get remain pending complete fabricator_get parent chain; no fake parent or removed dependency"
+    ],
+    "blizzard_drop_pod": "not yet migrated",
+    "runtime": "client/server/Render Preview not started; whole mod incomplete"
+  }
+}

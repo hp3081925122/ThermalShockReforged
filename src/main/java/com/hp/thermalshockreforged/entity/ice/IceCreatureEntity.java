@@ -1,6 +1,7 @@
 package com.hp.thermalshockreforged.entity.ice;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
+import com.hp.thermalshockreforged.content.status.LegacyCooldownVisuals;
 import com.hp.thermalshockreforged.content.status.StatusContent;
 import java.util.*;
 import net.minecraft.commands.arguments.EntityAnchorArgument;
@@ -237,15 +238,12 @@ public final class IceCreatureEntity extends Monster implements GeoEntity, Range
     @Override public void aiStep() { super.aiStep(); updateSwingTime(); }
     @Override protected void tickEffects() {
         if (!level().isClientSide || !entityData.get(COOLDOWN_VISIBLE)) { super.tickEffects(); return; }
-        var particles = new ArrayList<ParticleOptions>(); boolean ambient = true;
         for (var effect : new ArrayList<>(getActiveEffects())) {
-            effect.tick(this, () -> onEffectUpdated(effect, true, null));
-            if (effect.getDuration() % 600 == 0) onEffectUpdated(effect, false, null);
-            if (effect.isVisible()) { particles.add(effect.getParticleOptions()); if (!effect.isAmbient()) ambient = false; }
+            boolean active = effect.tick(this, () -> onEffectUpdated(effect, true, null));
+            if (active && effect.getDuration() % 600 == 0) onEffectUpdated(effect, false, null);
         }
-        particles.add(ColorParticleOption.create(ParticleTypes.ENTITY_EFFECT, -1));
-        int frequency = (isInvisible() ? 15 : 4) * (ambient ? 5 : 1);
-        if (random.nextInt(frequency) == 0) level().addParticle(particles.get(random.nextInt(particles.size())), getRandomX(0.5), getRandomY(), getRandomZ(0.5), 1, 1, 1);
+        boolean spawn = isInvisible() ? random.nextInt(15) == 0 : random.nextBoolean();
+        if (spawn) level().addParticle(LegacyCooldownVisuals.particle(getActiveEffects()), getRandomX(0.5), getRandomY(), getRandomZ(0.5), 1, 1, 1);
     }
     @Override public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); tag.putInt("IceCooldown", cooldown); tag.putInt("IceMovementLock", movementLock); tag.putInt("IceAttackAge", attackAge);
