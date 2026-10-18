@@ -41,6 +41,7 @@ public final class GeoSetArmorItem extends ArmorItem implements GeoItem {
     public String textureName() { return style.texture; }
 
     public enum Style {
+        RUSTSILK("stranger_armor", "dweller_armor", ""),
         RUBY("rubyarmor", "rubyarmor", "§6Set Bonus: Passive Haste I"),
         CARBORUNDUM("carborundum_armor", "carborundum_armor", "§6Set Bonus: Low gravity!"),
         RUBY_ZENITH("rubyarmor", "rubyarmorzenith", "§6Set Bonus: Passive Haste. Killing enemies with Ruby weapons grants a burst of Regen."),
@@ -109,7 +110,7 @@ public final class GeoSetArmorItem extends ArmorItem implements GeoItem {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) {
         super.appendHoverText(stack, context, lines, flag);
-        lines.add(Component.literal(style.tooltip));
+        if (!style.tooltip.isEmpty()) lines.add(Component.literal(style.tooltip));
     }
 
     private Playback playback(software.bernie.geckolib.animation.AnimationState<GeoSetArmorItem> state) {

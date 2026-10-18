@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "id": "thermal_shock_reforged:ochre_log"
+    },
+    "title": {
+      "translate": "advancements.borean_forest_advancement.title"
+    },
+    "description": {
+      "translate": "advancements.borean_forest_advancement.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "borean_forest_advancement_0": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biomes": "thermal_shock_reforged:borean_forest"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "parent": "thermal_shock_reforged:loqendia_get"
+}

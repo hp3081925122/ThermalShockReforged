@@ -68,7 +68,9 @@ public final class ThermalShockReforged {
         container.registerConfig(ModConfig.Type.COMMON, IceCombatConfig.SPEC, "thermal_shock_reforged-ice.toml");
         container.registerConfig(ModConfig.Type.COMMON, ManglerCombatConfig.SPEC, "thermal_shock_reforged-mangler.toml");
         container.registerConfig(ModConfig.Type.COMMON, com.hp.thermalshockreforged.entity.cavebloomer.CavebloomerConfig.SPEC, "thermal_shock_reforged-cavebloomer.toml");
+        container.registerConfig(ModConfig.Type.COMMON, com.hp.thermalshockreforged.entity.sanctum.SanctumConfig.SPEC, "thermal_shock_reforged-sanctum.toml");
         ModEntities.register(bus);
+        com.hp.thermalshockreforged.entity.sanctum.SanctumContent.register(bus);
         CavebloomerContent.register(bus);
         com.hp.thermalshockreforged.entity.pots.PotContent.register(bus);
         com.hp.thermalshockreforged.world.LoqendiaContent.register(bus);
