@@ -3503,5 +3503,65 @@
     "status": "semantic_color",
     "map_color": "COLOR_GREEN",
     "reason": "绿色孵化蛋实体模型；保留透明／含水属性，仅补地图颜色"
+  },
+  "grassy_shale": {
+    "status": "source_preserved_or_semantic_color",
+    "map_color": "GRASS",
+    "module": "TerrainContent",
+    "evidence": "terrain-batch.md"
+  },
+  "snowy_shale": {
+    "status": "source_preserved_or_semantic_color",
+    "map_color": "SNOW",
+    "module": "TerrainContent",
+    "evidence": "terrain-batch.md"
+  },
+  "snowy_cobalt": {
+    "status": "source_preserved_or_semantic_color",
+    "map_color": "SNOW",
+    "module": "TerrainContent",
+    "evidence": "terrain-batch.md"
+  },
+  "cobalt": {
+    "status": "source_preserved_or_semantic_color",
+    "map_color": "COLOR_BLUE",
+    "module": "TerrainContent",
+    "evidence": "terrain-batch.md"
+  },
+  "loque_grass": {
+    "status": "source_preserved_or_semantic_color",
+    "map_color": "PLANT",
+    "module": "TerrainContent",
+    "evidence": "terrain-batch.md"
+  },
+  "tall_frosted_grass": {
+    "status": "source_preserved_or_semantic_color",
+    "map_color": "PLANT",
+    "module": "TerrainContent",
+    "evidence": "terrain-batch.md"
+  },
+  "short_loque_grass": {
+    "status": "source_preserved_or_semantic_color",
+    "map_color": "PLANT",
+    "module": "TerrainContent",
+    "evidence": "terrain-batch.md"
+  },
+  "adamantine_spice_block": {
+    "status": "source_preserved_or_semantic_color",
+    "map_color": "COLOR_LIGHT_GRAY",
+    "module": "TerrainContent",
+    "evidence": "terrain-batch.md"
+  },
+  "vermillion_moss": {
+    "status": "source_preserved_or_semantic_color",
+    "map_color": "COLOR_RED",
+    "module": "TerrainContent",
+    "evidence": "terrain-batch.md"
+  },
+  "cauldron_of_trilobite": {
+    "status": "semantic_color",
+    "map_color": "METAL",
+    "evidence": "fauna-batch.md",
+    "note": "仅补金属主体地图颜色，Geo渲染与遮挡属性不变"
   }
 }

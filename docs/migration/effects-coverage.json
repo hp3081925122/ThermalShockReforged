@@ -3,7 +3,13 @@
   "original_count": 23,
   "effects": {
     "cocoa_effect": {
-      "status": "not_migrated"
+      "status": "implemented_pending_integration_validation",
+      "module": "com.hp.thermalshock.content.status.StatusContent",
+      "evidence": "status-batch.md",
+      "pending": [
+        "未迁移武器／生物／功能方块来源",
+        "整模组完整后的服务端及视觉验收"
+      ]
     },
     "cooldown": {
       "status": "not_migrated"
@@ -12,13 +18,25 @@
       "status": "not_migrated"
     },
     "antitoxin_effect": {
-      "status": "not_migrated"
+      "status": "implemented_pending_integration_validation",
+      "module": "com.hp.thermalshock.content.status.StatusContent",
+      "evidence": "status-batch.md",
+      "pending": [
+        "未迁移武器／生物／功能方块来源",
+        "整模组完整后的服务端及视觉验收"
+      ]
     },
     "propulsion_boots_cooldown": {
       "status": "not_migrated"
     },
     "electrified": {
-      "status": "not_migrated"
+      "status": "implemented_pending_integration_validation",
+      "module": "com.hp.thermalshock.content.status.StatusContent",
+      "evidence": "status-batch.md",
+      "pending": [
+        "未迁移武器／生物／功能方块来源",
+        "整模组完整后的服务端及视觉验收"
+      ]
     },
     "reach": {
       "status": "not_migrated"
@@ -46,7 +64,13 @@
       "status": "not_migrated"
     },
     "purified": {
-      "status": "not_migrated"
+      "status": "implemented_pending_integration_validation",
+      "module": "com.hp.thermalshock.content.status.StatusContent",
+      "evidence": "status-batch.md",
+      "pending": [
+        "未迁移武器／生物／功能方块来源",
+        "整模组完整后的服务端及视觉验收"
+      ]
     },
     "liteprism_buildup": {
       "status": "not_migrated"
@@ -61,7 +85,13 @@
       "status": "not_migrated"
     },
     "frostbite": {
-      "status": "not_migrated"
+      "status": "implemented_pending_integration_validation",
+      "module": "com.hp.thermalshock.content.status.StatusContent",
+      "evidence": "status-batch.md",
+      "pending": [
+        "未迁移武器／生物／功能方块来源",
+        "整模组完整后的服务端及视觉验收"
+      ]
     },
     "knights_edge_charge": {
       "status": "not_migrated"
@@ -81,11 +111,11 @@
   },
   "potions": {
     "electrifying": {
-      "status": "not_migrated",
+      "status": "implemented_pending_integration_validation",
       "source_effect": "electrified",
       "duration": 360,
       "amplifier": 1,
-      "note": "原酿造组合仅JEI展示，不能误当作真实酿造注册"
+      "note": "保留360tick/amp1效果，原JEI展示尚待兼容模块；没有虚构真实酿造注册"
     }
   }
 }

@@ -27,3 +27,5 @@ vermillion_woods维度／群系自然生成、蛋的世界生成来源、NetBull
 按用户最新AGENTS.md，整模组代码完整迁移前只做源码／数据静态核对及编译，不启动服务端或客户端。最终服务端和Render Preview对照均交给子代理执行。本批不能声称游戏内孵化、原画面或整个模组已通过验收。
 
 动画控制器复核：procedure触发动作播放时暂停movement控制器，保留原专用动作独占语义，避免idle/walk与jump等动作同时驱动同一骨骼。GeckoLib4.9.2的isPlayingTriggeredAnimation已通过依赖字节码核对；真实画面仍待完整迁移后的Render Preview对照。
+
+并行复核修正：NeoForge21.1.233的actuallyHurt忽略getDamageAfterMagicAbsorb返回值，读取DamageContainer.newDamage；因此Pondler原单return0不足以免伤。本批改在同阶段写MOB_EFFECTS全额减免，并保留原抵抗统计与两种绕过标签，未继续用抗性药水。此项是新确认修复，先前编译通过不能证明条件免伤实际有效。
