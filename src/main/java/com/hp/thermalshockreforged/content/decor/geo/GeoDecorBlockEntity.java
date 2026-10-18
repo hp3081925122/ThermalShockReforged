@@ -34,7 +34,7 @@ public class GeoDecorBlockEntity extends RandomizableContainerBlockEntity implem
     public GeoDecorBlockEntity(GeoDecorKind kind, BlockPos position, BlockState state) {
         super(GeoDecorContent.entity(kind), position, state);
         this.kind = kind;
-        previousVariant = state.hasProperty(ShalePotBlock.VARIANT) ? state.getValue(ShalePotBlock.VARIANT) : 0;
+        previousVariant = kind == GeoDecorKind.CIVILIAN ? state.getValue(DialogueBlock.VARIANT) : state.hasProperty(ShalePotBlock.VARIANT) ? state.getValue(ShalePotBlock.VARIANT) : 0;
     }
 
     public IItemHandler itemHandler(Direction side) { return side == null ? null : handlers[side.ordinal()]; }
@@ -85,8 +85,9 @@ public class GeoDecorBlockEntity extends RandomizableContainerBlockEntity implem
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(new AnimationController<>(this, "controller", 0, state -> {
-            if (kind == GeoDecorKind.SHALE_POT && previousVariant != getBlockState().getValue(ShalePotBlock.VARIANT)) {
-                previousVariant = getBlockState().getValue(ShalePotBlock.VARIANT);
+            int variant = kind == GeoDecorKind.CIVILIAN ? getBlockState().getValue(DialogueBlock.VARIANT) : kind == GeoDecorKind.SHALE_POT ? getBlockState().getValue(ShalePotBlock.VARIANT) : 0;
+            if ((kind == GeoDecorKind.SHALE_POT || kind == GeoDecorKind.CIVILIAN) && previousVariant != variant) {
+                previousVariant = variant;
                 state.getController().forceAnimationReset();
                 return PlayState.STOP;
             }

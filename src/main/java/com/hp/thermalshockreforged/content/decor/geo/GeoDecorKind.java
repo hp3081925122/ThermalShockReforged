@@ -8,6 +8,8 @@ import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.shapes.*;
 
 public enum GeoDecorKind {
+    CIVILIAN("civilian", "Civilian", "geo/civil1.geo.json", "textures/block/civil1.png", "animations/civil1.animation.json", Block.box(.1, .1, .1, 15.9, 15.9, 15.9), true, false),
+    RUSTY_RADIO("rusty_radio", "Rusty Radio", "geo/rusty_radio.geo.json", "textures/block/rusty_radio.png", "animations/rusty_radio.animation.json", Block.box(.1, .1, .1, 15.9, 15.9, 15.9), true, false),
     ATLAS("atlas", "Atlas", "geo/atlas.geo.json", "textures/block/atlas.png", "animations/atlas.animation.json", Shapes.block(), false, false),
     SHALE_PILLAR("shale_pillar", "Shale Pillar §d[Blank]", "geo/pillar_statue.geo.json", "textures/block/pillarextended.png", "animations/pillar_statue.animation.json", Block.box(1, 0.1, 1, 15, 47.9, 15), true, false),
     SHALE_PILLAR_VAR_2("shale_pillar_var_2", "Shale Pillar §d[Spawn]", "geo/pillar_statue.geo.json", "textures/block/pillarstatue1.png", "animations/pillar_statue.animation.json", Block.box(1, 0.1, 1, 15, 47.9, 15), true, false),
@@ -72,6 +74,8 @@ public enum GeoDecorKind {
     public BlockBehaviour.Properties properties() {
         return switch (this) {
             case SHALE_PILLAR, SHALE_PILLAR_VAR_2, SHALE_PILLAR_VAR_3, SHALE_PILLAR_VAR_4, SHALE_PILLAR_VAR_5, SHALE_PILLAR_VAR_6, SHALE_PILLAR_VAR_7, SHALE_PILLAR_VAR_8 -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).sound(SoundType.BASALT).strength(2, 10).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((state, level, pos) -> false);
+            case CIVILIAN -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).sound(SoundType.EMPTY).strength(-1, 3600000).noCollission().noOcclusion().pushReaction(PushReaction.BLOCK).isRedstoneConductor((state, level, pos) -> false);
+            case RUSTY_RADIO -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).sound(SoundType.METAL).strength(-1, 3600000).noCollission().noOcclusion().pushReaction(PushReaction.BLOCK).isRedstoneConductor((state, level, pos) -> false);
             case ATLAS -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).sound(SoundType.STONE).strength(3, 100).lightLevel(state -> 15).requiresCorrectToolForDrops().noCollission().pushReaction(PushReaction.BLOCK);
             case ENCHANTED_CACHE -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.AMETHYST_CLUSTER).strength(-1, 3600000).lightLevel(state -> 12).noOcclusion().pushReaction(PushReaction.BLOCK).isRedstoneConductor((state, level, pos) -> false).noLootTable();
             case SHALE_POT -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).sound(SoundType.DECORATED_POT).strength(0.5F, 0).noOcclusion().pushReaction(PushReaction.DESTROY).isRedstoneConductor((state, level, pos) -> false);

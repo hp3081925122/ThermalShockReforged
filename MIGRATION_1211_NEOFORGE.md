@@ -205,3 +205,13 @@ heart_boost为真实玩家增益，不是内部冷却标记；保留BENEFICIAL�
 整模组仍未完成：Atlas/Keystone完整菜单与传送、其他功能方块/世界生成、其余生物与Boss及进度链继续迁移。没有执行本轮游戏服务端、客户端或Render Preview；完整迁移后再交Luna验收，不用资源数量或本批编译成功推算整模组完成率。
 
 第28批后续完成记录：八种雕纹柱和Chisel完整循环/真实纹理/Geo BE及cavebloomer_field五资源已接通，Luna固定快照三任务离线成功48秒，静态报告twentyeighth-cave-field-static-validation.json。此条更新上段进行中状态；两端和Render Preview仍未运行，整模组未完成。
+
+## 第30至31批：Atlas 与首次场景功能依赖
+
+第30批已提交538103b：Keystone/Atlas真实物品与Geo方块、原九槽BE、零槽三按钮原图菜单、atlasbase完整模板、三维度实际来源坐标持久化及20/60 END计时激活、180tick内部到达保护与原可见粒子/HUD图标/倒计时已迁入。Atlas.onPlace已实际接第29批矿种初始化，更新此前“未接入”状态。目标未实现的Aqeron维度不伪造，Shalespring/Palace首次建筑和Keystone自然获取入口仍待补；不能将本批当作完整传送场景。三任务编译/资源与Mixin字节码静态核对通过，详见atlas-keystone-batch.md、thirtieth-atlas-static-validation.json。
+
+第31批新增攀岩墙、弹跳器/小弹簧/超级弹跳器、列车终端、Mantlestone/红蓝晶眼凿子完整切换、居民八变体和收音机九页35条文字菜单。保BE九槽自动化与零槽对话、全部原资产，修居民末档不能循环及无关菜单共享动画时钟副作用。审计补齐晶眼原石质挖掘门槛；小弹簧掉落牵出真实Compressed Springslime道具→箭型投射物→Springslime生物→20tick结尾全链，连同原四球合成一件、一次消费/一次命中/一次结尾锁都已实现。客户端预测和服务器速度纠正保即时弹跳，未删正常弹跳声、动画或15粒子。详见shalespring-functional-blocks-batch.md，追加代码固定快照验证另行记录。
+
+第32批Cryonic Cache与Spice Geyser迁移前契约已建，尚未实施；三个场景NPC及相关交易/任务、首次生成的完整建筑和世界状态、Aqeron/Palace及其余模块仍需继续。整模组未完成，不启动游戏，不以编译成功代替最终两端/Render Preview验收。
+
+第31批最终快照：Luna三任务离线通过53秒；本地预测补丁后compileJava再通过15秒。8原生块/2Geo对话块、九页35文案、8掉落/5配方、29原对话相关资产及完整Springslime新增链核对通过，三晶眼石质门槛修复。详见thirtyfirst-functional-static-validation.json；编译工具输出由子代理返回而非D盘最终日志，运行时两端/渲染仍待整模组完成。

@@ -1,0 +1,78 @@
+{
+  "batch": 31,
+  "verifier": "validation_luna",
+  "evidence_origin": "Subagent returned terminal results and deterministic source/asset comparison; final terminal logs were not written to disk. Root records the returned evidence here.",
+  "compile": [
+    {
+      "command": ".\\gradlew.bat compileJava compileGametestJava processResources --offline",
+      "exit_code": 0,
+      "tail": [
+        "BUILD SUCCESSFUL in 53s",
+        "25 actionable tasks: 3 executed, 22 up-to-date"
+      ]
+    },
+    {
+      "command": ".\\gradlew.bat compileJava --offline",
+      "reason": "Local player motion prediction added after the three-task snapshot; no resource or gametest source changes.",
+      "exit_code": 0,
+      "tail": [
+        "BUILD SUCCESSFUL in 15s",
+        "23 actionable tasks: 1 executed, 22 up-to-date"
+      ]
+    }
+  ],
+  "static": {
+    "native_blocks": 8,
+    "geo_dialogue_blocks": 2,
+    "original_block_loot_tables": 8,
+    "recipes": 5,
+    "dialogue_pages": 9,
+    "dialogue_texts": 35,
+    "dialogue_slots": 0,
+    "be_slots": 9,
+    "six_side_automation": true,
+    "dialogue_original_assets_byte_equal": 29,
+    "mineable_tags_match_original": true,
+    "needs_stone_tool_corrected": [
+      "chiseled_mantlestone",
+      "red_crystalleye_lamp",
+      "blue_crystalleye_lamp"
+    ],
+    "compressed_springslime_registered": true,
+    "compressed_item_model": "Already present/tracked; JSON differs only in namespace",
+    "springslime_assets_byte_equal": [
+      "geo/violetsplat.geo.json",
+      "animations/violetsplat.animation.json",
+      "textures/entities/new_splat.png",
+      "textures/item/splatnew.png"
+    ],
+    "spring_chain": [
+      "compressed_springslime",
+      "springslime_projectile",
+      "springslime",
+      "springslime_fade"
+    ],
+    "impact": "Pickup disabled, one claimed contact, block hit spawns at original blockpos + (1,1,1), rejected entity damage cannot create pickup duplication.",
+    "consumption": "After successful entity addition only, one real ammunition in survival, none in creative.",
+    "fade": "20 SERVER-END ticks; snapshot removal before reschedule yields T+19; dimension/anchor/source UUID/remaining/consumed persisted; one final sound and 15 POOF.",
+    "contact": "Repeated live contact keeps velocity and squish; only final task is single. Client local-player motion prediction retained."
+  },
+  "recorded_repairs": [
+    "Creative civilian variant 7 cycles to 0 instead of attempting invalid 8.",
+    "Static dialogue menus no longer advance another GUI shared animation clock.",
+    "Duplicate ammunition consumption and creative ammunition loss fixed.",
+    "Repeated touch no longer queues duplicate delayed final sound/particles.",
+    "Corpse no longer bounces players."
+  ],
+  "runtime": {
+    "games_started": false,
+    "server_gameplay": "pending full mod migration",
+    "client_render": "pending full mod migration and Render Preview"
+  },
+  "remaining_scope": [
+    "Cryonic cache and spice geyser",
+    "Laut/Shutterbug/Florist and their full menu/quest/trade dependencies",
+    "First scene structures and advancement/world flags",
+    "Aqeron/Palace and remaining mod modules"
+  ]
+}

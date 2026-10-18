@@ -57,6 +57,7 @@ public final class ClientEvents {
     public static void renderers(EntityRenderersEvent.RegisterRenderers event) {
         CavebloomerClient.renderers(event);
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.atlas.AtlasContent.ACTIVATION.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
+        com.hp.thermalshockreforged.client.springslime.SpringslimeRenderers.register(event);
         event.registerEntityRenderer(com.hp.thermalshockreforged.world.thermite.ThermiteContent.DETONATION.get(), ThermiteDetonationRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.entity.pots.PotContent.SKULLSCOR.get(), com.hp.thermalshockreforged.client.pots.SkullscorRenderer::new);
         FaunaRenderers.register(event);
@@ -100,6 +101,7 @@ public final class ClientEvents {
 
     @SubscribeEvent
     public static void screens(RegisterMenuScreensEvent event) {
+        com.hp.thermalshockreforged.client.dialogue.DialogueScreen.register(event);
         event.register(NativeDecorContent.DESK_PHOTO_SCREEN.get(), DeskPhotoScreen::new);
         event.register(com.hp.thermalshockreforged.content.atlas.AtlasContent.MENU.get(), com.hp.thermalshockreforged.client.atlas.AtlasScreen::new);
     }
