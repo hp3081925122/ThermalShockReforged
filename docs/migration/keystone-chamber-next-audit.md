@@ -11,3 +11,6 @@
 重要新发现：原两个Spawn程序都带EventBusSubscriber和PlayerWakeUpEvent SubscribeEvent，已由原JAR javap核SpawnForce实际注解。普通分支检查loqendiaGenerateSpecialStructures/KeystoneExists/玩家未到Loqendia；Force分支只查KeystoneExists，因共享flag且订阅次序未知，可能旁路gamerule和玩家进度门槛并改变广播文本/OST提示。不可凭Force名字推断它是未调用工具方法，需查原实际注册顺序/目标设计后明确修复边界，不能无记录删真实入口。原两程序还在放置前设Exists，缺模板也永远消费；新实现应在真实成功后提交。延迟100再45/100 END消息和windchime位于醒来坐标，原循环按该维度每个玩家重复向相同坐标广播声音，须明确是否去重及听众语义；不把遍历循环变量误读为以每位玩家坐标播放。
 
 尚未实施的延迟逻辑应使用归属明确、有限寿命、可持久化且幂等载体，不继续捕获Level/Entity的MCR全局闭包。保原100→45/100嵌套END时序（队列处理时机已在既有skill核实），原文本/原声/完整场景和一次Keystone获取均需闭合后才称完成。本批未启动任一游戏端。
+
+
+第39批状态更新：原四块待迁已由38批完整实现；完整模板/自然生成/有限剧情由39批实现并编译与静态核对通过。Force旁路按正常生成开关/进度统一修正，保留本文件原证据不作为当前待办。详见后续两批独立文档。
