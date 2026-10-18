@@ -1,0 +1,56 @@
+{
+  "batch": 49,
+  "scope": [
+    "frostilyte_gunner",
+    "frostilyte_gunner_spawn_egg",
+    "gunner_volley_task",
+    "IceBullet.configureUnowned"
+  ],
+  "validation": {
+    "executor": "validation_luna",
+    "java": 21,
+    "command": "gradlew.bat compileJava compileGametestJava processResources --offline",
+    "exitCode": 0,
+    "result": "BUILD SUCCESSFUL",
+    "durationSeconds": 47,
+    "log": "D:\\AI临时文件\\ThermalShockMigration\\compile-fortyninth-gunner.log",
+    "warnings": "2 ClientEvents deprecation warnings"
+  },
+  "mechanical": {
+    "registration": "MONSTER .6x1.7, velocity updates true, tracking64/update3",
+    "bodyAndRenderScale": 1.1,
+    "shadow": 0.5,
+    "head": "original head bone pitch/yaw in radians retained",
+    "originalAssets": "geo, animation, gunner_a PNG and egg texture byte-identical; item model only namespace changed",
+    "clips": [
+      "idle",
+      "walk",
+      "aggro",
+      "attack"
+    ],
+    "egg": "real registered item; colors -1/-1; creative manifest entry 849 dynamically resolves registered item",
+    "naturalSpawn": "none in original; none invented",
+    "loot": "no dedicated original loot; none invented",
+    "tags": [
+      "cryo_resist",
+      "pyro_weak"
+    ],
+    "volleyEndTicks": [
+      11,
+      16,
+      21
+    ],
+    "projectile": "native ICE_BULLET, base attack x1 (default5), speed1.25, inaccuracy0, knockback0, silent, no owner, original trail",
+    "death": "20 tick final XP10, committed third shot survives normal caster removal",
+    "cooldown": 60,
+    "movementLock": 29,
+    "persistence": "local finite counters and task UUID/value snapshots"
+  },
+  "remaining": [
+    "Kilolyte and real Zap Gauntlet",
+    "full Guardian Pylon sequence",
+    "other unported modules",
+    "whole mod functionality and final server/client/Render Preview tests"
+  ],
+  "runtimeTests": "not started; complete mod first"
+}

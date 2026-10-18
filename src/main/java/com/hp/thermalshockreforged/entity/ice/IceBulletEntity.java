@@ -26,6 +26,14 @@ public final class IceBulletEntity extends AbstractArrow implements ItemSupplier
         impactKnockback = Double.isFinite(knockback) ? Math.max(0, Math.min(2, knockback)) : 0;
         setSilent(true); setCritArrow(false);
     }
+    public void configureUnowned(UUID source, double damage) {
+        caster = source;
+        setOwner(null);
+        setBaseDamage(Double.isFinite(damage) ? Math.clamp(damage, 0, Float.MAX_VALUE) : 0);
+        impactKnockback = 0;
+        pickup = Pickup.DISALLOWED;
+        setSilent(true); setCritArrow(false);
+    }
     @Override protected boolean canHitEntity(Entity entity) { return (caster == null || !caster.equals(entity.getUUID())) && super.canHitEntity(entity); }
     @Override protected void doPostHurtEffects(LivingEntity entity) { super.doPostHurtEffects(entity); entity.setArrowCount(Math.max(0, entity.getArrowCount() - 1)); }
     @Override protected void doKnockback(LivingEntity target, DamageSource source) {
