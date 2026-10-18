@@ -1,0 +1,37 @@
+package com.hp.thermalshockreforged.content.npc.florist;
+
+import com.hp.thermalshockreforged.ThermalShockReforged;
+import java.util.Set;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
+
+public final class LeafcutterItem extends ShearsItem {
+    private static final Set<String> LEAVES = Set.of("loque_leaves", "dark_loque_leaves", "purified_loque_leaves", "bright_ochre_leaves", "ochre_leaves", "shiver_leaves", "dark_shiver_leaves", "vermilli_leaves", "dull_leaves");
+    public LeafcutterItem() { super(new Item.Properties().durability(380).component(DataComponents.TOOL, ShearsItem.createToolProperties())); }
+    @Override public int getEnchantmentValue() { return 8; }
+    @Override public float getDestroySpeed(ItemStack stack, BlockState state) { return 4; }
+    @Override public boolean mineBlock(ItemStack stack, Level level, BlockState state, BlockPos pos, LivingEntity miner) {
+        boolean result = super.mineBlock(stack, level, state, pos, miner);
+        if (level instanceof ServerLevel server) {
+            var id = BuiltInRegistries.BLOCK.getKey(state.getBlock());
+            if (id.getNamespace().equals(ThermalShockReforged.MOD_ID) && LEAVES.contains(id.getPath())) {
+                int count = 1 + server.random.nextInt(2);
+                for (int i = 0; i < count; i++) {
+                    var drop = new ItemEntity(server, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(state.getBlock()));
+                    drop.setPickUpDelay(10); server.addFreshEntity(drop);
+                }
+            }
+            server.playSound(null, pos, BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "leafcutter")), SoundSource.NEUTRAL, 1, 1);
+        }
+        return result;
+    }
+}

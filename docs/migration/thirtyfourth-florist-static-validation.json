@@ -1,0 +1,57 @@
+{
+  "batch": 34,
+  "scope": "Florist entity, original 25 pages, complete 17 trades, Leafcutter and gated info",
+  "evidence_origin": "validation_luna actual terminal and source/JAR mechanical comparison, returned in conversation; no standalone final compiler log",
+  "initial_compiler": {
+    "tasks": [
+      "compileJava",
+      "compileGametestJava",
+      "processResources"
+    ],
+    "offline": true,
+    "exit_code": 0,
+    "duration_seconds": 54,
+    "task_count": 25,
+    "executed": 3,
+    "up_to_date": 22
+  },
+  "final_inventory_patch_compiler": {
+    "status": "passed",
+    "tasks": [
+      "compileJava"
+    ],
+    "offline": true,
+    "exit_code": 0,
+    "elapsed_seconds": 20,
+    "gradle_reported_seconds": 19,
+    "task_count": 23,
+    "executed": 1,
+    "up_to_date": 22
+  },
+  "static": {
+    "menu_ids_matched": 25,
+    "static_labels_matched": 124,
+    "ui_texture_sha_matches": 34,
+    "trades_price_quantity_matched": 17,
+    "real_currencies": 2,
+    "leafcutter_real_leaf_blocks_with_items": 9,
+    "non_trade_pages_animate": 8,
+    "trade_pages_animate": 0,
+    "body_glow_geo_animation_matches": 4,
+    "advancement": "blasphemy_1 normalized original, parent errands_get and icon primordial_blood resolve",
+    "inventory_difference": "Corrected and verified: 17 trade pages each contain all original 36 player slots, coordinates, source Inventory mapping and quick-move order/return semantics; remaining 8 pages zero slots.",
+    "unresolved_differences": []
+  },
+  "authorized_fixes": [
+    "Charge all currency and levels before delivering instead of delayed unpersisted global debt",
+    "Server-authoritative advancement gate and native DataSlot visibility with per-request revalidation",
+    "Conversation-owned portrait clock instead of shared global double-end/multiplayer counter",
+    "Remove guaranteed-failing zero-range shift-move operation while retaining original return semantics"
+  ],
+  "pending_scope": [
+    "Actual blasphemy_1 grant remains original Concierge quest branch, not invented or auto-unlocked",
+    "Shutterbug and complete Shalespring structure progression",
+    "Whole-mod migration and final dedicated server, client and Render Preview testing"
+  ],
+  "runtime": "Not run"
+}

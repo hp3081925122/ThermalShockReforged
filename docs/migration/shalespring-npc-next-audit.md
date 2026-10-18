@@ -16,3 +16,10 @@ Florist/Shutterbug finalizeSpawn调用BenzorOnInitialEntitySpawnProcedure：设n
 
 
 补充命令语法证据：原JAR BenzorOnInitialEntitySpawnProcedure 字节码97处ldc确为上述 `/effect @s minecraft:regeneration 255 infinite true`，非反编译拼错。核原1.20.1官方映射EffectCommands.java，effect根的执行分支为clear/give，give后才是targets/effect/seconds或infinite/amplifier。原字符串在原版语法下不合法，不能把NPC的“无限再生”当成已实现事实。这里是命令源码/字节码结论，未启动旧版游戏实测；迁移时不擅自补正确再生命令或永久无敌来增加原来未生效的能力。
+
+
+## 第33/34批后的状态更新
+
+Laut完整任务/五页/奖励/状态已迁入并通过Luna编译和原件机械比对（49acaef）。Florist完整25页/17交易/真实Leafcutter/透明与独立发光实体已实现，第34批三任务离线编译54秒成功，完整机械比对正在进行；原头像总帧、所有分页和带门槛的Concierge信息分支均保留，不是只实现主页。正常开场实际采样1..2，kutty是fallback，不当第三个正常随机选项。后续独占范围转向Shutterbug，仍不能提前导入含缺失NPC的Shalespring建筑。
+
+已继续读ShutterbugRightClickedOnEntityProcedure、UneIntroProgressProcedure及UneErrandsOpenProcedure。未介绍玩家走IntroEpl1，介绍后走Main。Intro1→2→3→4→5，5按钮推进6时才设置玩家UnetteIntroduced并发一台E_XPOLAR_CAMERA，6按钮关闭菜单；实际新手奖励要保此时机并防重复请求/重新打开刷取。相机不是普通无行为物品：需继续追相机use→摄影判定/图鉴/任务进度/WideAngle及奖励包等真实依赖，不能为让NPC注册就先发空相机。UneErrandsOpen有leaf_it_to_me_2/3、cavebloomer_kill以及LeafItToMe奖励包的多分支，CFR含aggressive block sorting，关键互斥与奖励前置需核原JAR字节码后制定契约。此为下一批源码预审，尚未实现/验证。

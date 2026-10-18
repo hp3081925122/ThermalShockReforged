@@ -222,3 +222,8 @@ heart_boost为真实玩家增益，不是内部冷却标记；保留BENEFICIAL�
 
 
 第33批Laut真实NPC、五页20条文字/三个按钮、完整三Plenky交付/十份单独奖励/持久完成外观及两份原进度已迁入。修原手持数量误判、附近所有同类误完成及重复领取风险，保会话立绘逐帧裁切、原伤害例外/重力/动画和全部资产。Luna固定快照三任务离线编译53秒通过，11资产/全部页面及参数机械核对通过；首次SimpleMenuProvider为final的编译问题已按目标MenuProvider源码修正后复验。详见laut-quest-batch.md和thirtythird-laut-static-validation.json。其余NPC/结构/维度/生物仍待迁，未启动游戏。
+
+
+第34批Florist完整25页（Main/信息根/六信息页/17交易）、124静态文字、所有原图/立绘/图像按钮及17真实商品价格数量已迁入；补真实Leafcutter剪刀、九叶额外采集/剪刀工具组件及原生附魔标签，保原Geo/Idle/半透明主体/独立eyes发光层。修交易先发货后全局延迟扣款漏洞、ServerPlayer检查在客户端永不成立与服务端漏验证的Concierge门槛；原blasphemy_1进度原样导入，仍由未来Concierge真实任务授予，不默认解锁。静态比对找到的17交易页各36玩家槽遗漏已经按原坐标/索引/快捷移动顺序完整补回。Luna三任务离线54秒通过，补槽后最小compileJava20秒再次通过，25页/124文字/34UI纹理/17交易及参数核对无剩余差异。详见florist-trade-batch.md与thirtyfourth-florist-static-validation.json。
+
+Shutterbug六页介绍/真实相机/摄影及图鉴任务、首次Shalespring完整建筑/世界状态、Concierge进度授予、其余生物/Boss/功能/维度仍待迁。下一批关键入口证据已补到shalespring-npc-next-audit.md。当前只是本批代码/编译/静态阶段完成，未启动游戏，整模组未完成，最终两端/Render Preview仍在完整迁移后执行。
