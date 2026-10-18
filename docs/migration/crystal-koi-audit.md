@@ -68,3 +68,7 @@ Crystal Koi 是具备完整移动、自然生成、掉落、食物加工和客�
 - `data/thermal_shock/loot_tables` 中无 `entities/crystal_koi.json`；死亡掉落由实体代码直接生成。
 
 参考： [NeoForge 1.21.1 spawn placement 文档](https://docs.neoforged.net/docs/entities/livingentity/)、[NeoForge 1.21.1 biome modifiers 文档](https://docs.neoforged.net/docs/1.21.1/worldgen/biomemodifier/)、[NeoForge 1.21.1 swim-speed API 示例](https://github.com/neoforged/NeoForge/issues/1852)。
+
+## 后续复核更正（2026-10-18）
+
+原件还包括营火配方koi_campfire_smelt（600 tick、经验1），与crystal_koi_smelt／crystal_koi_smoke共同构成三种加工。当前三条资源均已迁移并加入测试。移动控制器现为PassiveSwimMoveControl，与Scarlet Ray共用相同算法；实体、属性、掉落和渲染仍分别保留。早期报告中的两个配方清单不是完整消费者清单。

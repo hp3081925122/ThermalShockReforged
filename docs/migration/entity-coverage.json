@@ -21,7 +21,16 @@
       "status": "not_migrated"
     },
     "scarlet_ray": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshock.entity.ScarletRayEntity",
+      "server_tests": [
+        "scarletRayKeepsDistinctAttributesSizeAndLoot"
+      ],
+      "pending": [
+        "luminous_sea自然生成数据链",
+        "图鉴外围系统",
+        "原1.25缩放、发光与动画的Render Preview对照"
+      ]
     },
     "torpedo": {
       "status": "not_migrated"

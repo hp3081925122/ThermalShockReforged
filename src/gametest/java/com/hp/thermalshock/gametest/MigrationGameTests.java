@@ -129,7 +129,7 @@ public final class MigrationGameTests {
         var drops = helper.getLevel().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, fish.getBoundingBox().inflate(1));
         int count = drops.stream().filter(item -> item.getItem().is(MaterialContent.items().get("raw_crystal_koi").get())).mapToInt(item -> item.getItem().getCount()).sum();
         helper.assertTrue(count == 1, "Koi must drop exactly one raw fish, without a duplicate loot table");
-        for (String recipe : List.of("crystal_koi_smelt", "crystal_koi_smoke")) {
+        for (String recipe : List.of("crystal_koi_smelt", "crystal_koi_smoke", "koi_campfire_smelt")) {
             helper.assertTrue(helper.getLevel().getRecipeManager().byKey(ResourceLocation.fromNamespaceAndPath(ThermalShock.MOD_ID, recipe)).isPresent(), "Koi cooking recipe must load: " + recipe);
         }
         helper.succeed();

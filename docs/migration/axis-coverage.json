@@ -1,0 +1,254 @@
+{
+  "vermilli_wood": {
+    "type": "RotatedPillarBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.4f, 2.314062f)",
+    "source_class": "VermilliWoodBlock",
+    "light_block": 15,
+    "flammability": 6,
+    "source_parent": "Block",
+    "tool_interaction": "原块无工具交互；钴斧专属去皮仍待物品模块迁移，不自动泛化给所有斧头"
+  },
+  "vermilli_log": {
+    "type": "RotatedPillarBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.4f, 2.314062f)",
+    "source_class": "VermilliLogBlock",
+    "light_block": 15,
+    "flammability": 6,
+    "source_parent": "Block",
+    "tool_interaction": "原块无工具交互；钴斧专属去皮仍待物品模块迁移，不自动泛化给所有斧头"
+  },
+  "stripped_vermilli_log": {
+    "type": "RotatedPillarBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.4f, 2.314062f)",
+    "source_class": "StrippedVermilliLogBlock",
+    "light_block": 15,
+    "flammability": 6,
+    "source_parent": "Block",
+    "tool_interaction": "原块无工具交互；钴斧专属去皮仍待物品模块迁移，不自动泛化给所有斧头"
+  },
+  "cut_polished_permafrost": {
+    "type": "RotatedPillarBlock",
+    "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.COPPER).strength(0.8f, 2.0f).requiresCorrectToolForDrops()",
+    "source_class": "CutPolishedPermafrostBlock",
+    "light_block": 15,
+    "flammability": -1,
+    "source_parent": "Block",
+    "tool_interaction": "原块无工具交互；钴斧专属去皮仍待物品模块迁移，不自动泛化给所有斧头"
+  },
+  "stripped_vermilli_wood": {
+    "type": "RotatedPillarBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.4f, 2.314062f)",
+    "source_class": "StrippedVermilliWoodBlock",
+    "light_block": 15,
+    "flammability": 6,
+    "source_parent": "Block",
+    "tool_interaction": "原块无工具交互；钴斧专属去皮仍待物品模块迁移，不自动泛化给所有斧头"
+  },
+  "shiver_log": {
+    "type": "RotatedPillarBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.STEM).strength(2.4f, 2.314062f)",
+    "source_class": "ShiverLogBlock",
+    "light_block": 15,
+    "flammability": 6,
+    "source_parent": "Block",
+    "tool_interaction": "原块无工具交互；钴斧专属去皮仍待物品模块迁移，不自动泛化给所有斧头"
+  },
+  "ochre_log": {
+    "type": "RotatedPillarBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.4f, 2.314062f)",
+    "source_class": "OchreLogBlock",
+    "light_block": 15,
+    "flammability": 6,
+    "source_parent": "Block",
+    "tool_interaction": "原块无工具交互；钴斧专属去皮仍待物品模块迁移，不自动泛化给所有斧头"
+  },
+  "ochre_wood": {
+    "type": "RotatedPillarBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.4f, 2.314062f)",
+    "source_class": "OchreWoodBlock",
+    "light_block": 15,
+    "flammability": 6,
+    "source_parent": "Block",
+    "tool_interaction": "原块无工具交互；钴斧专属去皮仍待物品模块迁移，不自动泛化给所有斧头"
+  },
+  "dull_log": {
+    "type": "RotatedPillarBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.STEM).strength(0.5f, 0.0f)",
+    "source_class": "DullLogBlock",
+    "light_block": 15,
+    "flammability": 6,
+    "source_parent": "Block",
+    "tool_interaction": "原块无工具交互；钴斧专属去皮仍待物品模块迁移，不自动泛化给所有斧头"
+  },
+  "stripped_ochre_log": {
+    "type": "RotatedPillarBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.4f, 2.314062f)",
+    "source_class": "StrippedOchreLogBlock",
+    "light_block": 15,
+    "flammability": 6,
+    "source_parent": "Block",
+    "tool_interaction": "原块无工具交互；钴斧专属去皮仍待物品模块迁移，不自动泛化给所有斧头"
+  },
+  "stripped_ochre_wood": {
+    "type": "RotatedPillarBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.4f, 2.314062f)",
+    "source_class": "StrippedOchreWoodBlock",
+    "light_block": 15,
+    "flammability": 6,
+    "source_parent": "Block",
+    "tool_interaction": "原块无工具交互；钴斧专属去皮仍待物品模块迁移，不自动泛化给所有斧头"
+  },
+  "shiverglitter_wood": {
+    "type": "RotatedPillarBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.STEM).strength(2.4f, 2.314062f)",
+    "source_class": "ShiverglitterWoodBlock",
+    "light_block": 15,
+    "flammability": 6,
+    "source_parent": "Block",
+    "tool_interaction": "原块无工具交互；钴斧专属去皮仍待物品模块迁移，不自动泛化给所有斧头"
+  },
+  "stripped_shiverglitter_log": {
+    "type": "RotatedPillarBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.STEM).strength(2.4f, 2.314062f)",
+    "source_class": "StrippedShiverglitterLogBlock",
+    "light_block": 15,
+    "flammability": 6,
+    "source_parent": "Block",
+    "tool_interaction": "原块无工具交互；钴斧专属去皮仍待物品模块迁移，不自动泛化给所有斧头"
+  },
+  "stripped_shiverglitter_wood": {
+    "type": "RotatedPillarBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.STEM).strength(2.4f, 2.314062f)",
+    "source_class": "StrippedShiverglitterWoodBlock",
+    "light_block": 15,
+    "flammability": 6,
+    "source_parent": "Block",
+    "tool_interaction": "原块无工具交互；钴斧专属去皮仍待物品模块迁移，不自动泛化给所有斧头"
+  },
+  "steelstem_block": {
+    "type": "RotatedPillarBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.LANTERN).strength(1.0f, 3.8f).requiresCorrectToolForDrops()",
+    "source_class": "SteelstemBlockBlock",
+    "light_block": 15,
+    "flammability": -1,
+    "source_parent": "Block",
+    "tool_interaction": "原块无工具交互；钴斧专属去皮仍待物品模块迁移，不自动泛化给所有斧头"
+  },
+  "kyaneos_wood": {
+    "type": "RotatedPillarBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.0f)",
+    "source_class": "KyaneosWoodBlock",
+    "light_block": 15,
+    "flammability": 5,
+    "source_parent": "Block",
+    "tool_interaction": "原块无工具交互；钴斧专属去皮仍待物品模块迁移，不自动泛化给所有斧头"
+  },
+  "kyaneos_log": {
+    "type": "RotatedPillarBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.0f)",
+    "source_class": "KyaneosLogBlock",
+    "light_block": 15,
+    "flammability": 5,
+    "source_parent": "Block",
+    "tool_interaction": "原块无工具交互；钴斧专属去皮仍待物品模块迁移，不自动泛化给所有斧头"
+  },
+  "shale_pillar_block": {
+    "type": "RotatedPillarBlock",
+    "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERRACK).strength(1.0f, 5.0f).requiresCorrectToolForDrops()",
+    "source_class": "ShalePillarBlockBlock",
+    "light_block": 15,
+    "flammability": -1,
+    "source_parent": "Block",
+    "tool_interaction": "原块无工具交互；钴斧专属去皮仍待物品模块迁移，不自动泛化给所有斧头"
+  },
+  "cracked_shale_pillar_block": {
+    "type": "RotatedPillarBlock",
+    "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERRACK).strength(1.0f, 5.0f).requiresCorrectToolForDrops()",
+    "source_class": "CrackedShalePillarBlockBlock",
+    "light_block": 15,
+    "flammability": -1,
+    "source_parent": "Block",
+    "tool_interaction": "原块无工具交互；钴斧专属去皮仍待物品模块迁移，不自动泛化给所有斧头"
+  },
+  "stripped_kyaneos_log": {
+    "type": "RotatedPillarBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.0f)",
+    "source_class": "StrippedKyaneosLogBlock",
+    "light_block": 15,
+    "flammability": 5,
+    "source_parent": "Block",
+    "tool_interaction": "原块无工具交互；钴斧专属去皮仍待物品模块迁移，不自动泛化给所有斧头"
+  },
+  "stripped_kyaneos_wood": {
+    "type": "RotatedPillarBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.0f)",
+    "source_class": "StrippedKyaneosWoodBlock",
+    "light_block": 15,
+    "flammability": 5,
+    "source_parent": "Block",
+    "tool_interaction": "原块无工具交互；钴斧专属去皮仍待物品模块迁移，不自动泛化给所有斧头"
+  },
+  "spirewood_log": {
+    "type": "RotatedPillarBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().sound(SoundType.STEM).strength(1.35f, 15.0f).requiresCorrectToolForDrops()",
+    "source_class": "SpirewoodLogBlock",
+    "light_block": 15,
+    "flammability": -1,
+    "source_parent": "Block",
+    "tool_interaction": "原块无工具交互；钴斧专属去皮仍待物品模块迁移，不自动泛化给所有斧头"
+  },
+  "glowcap_stem": {
+    "type": "RotatedPillarBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(0.5f, 3.471093f)",
+    "source_class": "GlowcapStemBlock",
+    "light_block": 15,
+    "flammability": 6,
+    "source_parent": "Block",
+    "tool_interaction": "原块无工具交互；钴斧专属去皮仍待物品模块迁移，不自动泛化给所有斧头"
+  },
+  "hollowed_log": {
+    "type": "RotatedPillarBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().sound(SoundType.STEM).strength(1.35f, 15.0f).requiresCorrectToolForDrops()",
+    "source_class": "HollowedLogBlock",
+    "light_block": 15,
+    "flammability": -1,
+    "source_parent": "Block",
+    "tool_interaction": "原块无工具交互；钴斧专属去皮仍待物品模块迁移，不自动泛化给所有斧头"
+  },
+  "darksteel_beam": {
+    "type": "RotatedPillarBlock",
+    "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERITE_BLOCK).strength(2.0f, 30.0f).requiresCorrectToolForDrops()",
+    "source_class": "DarksteelBeamBlock",
+    "light_block": 15,
+    "flammability": -1,
+    "source_parent": "Block",
+    "tool_interaction": "原块无工具交互；钴斧专属去皮仍待物品模块迁移，不自动泛化给所有斧头"
+  },
+  "mavros_log": {
+    "type": "RotatedPillarBlock",
+    "properties": "BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.STEM).strength(0.5f, 2.0f)",
+    "source_class": "MavrosLogBlock",
+    "light_block": 15,
+    "flammability": 5,
+    "source_parent": "Block",
+    "tool_interaction": "原块无工具交互；钴斧专属去皮仍待物品模块迁移，不自动泛化给所有斧头"
+  },
+  "sanctum_pillar": {
+    "type": "RotatedPillarBlock",
+    "properties": "BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHER_BRICKS).strength(-1.0f, 3600000.0f).requiresCorrectToolForDrops().pushReaction(PushReaction.BLOCK)",
+    "source_class": "SanctumPillarBlock",
+    "light_block": 15,
+    "flammability": -1,
+    "source_parent": "Block",
+    "tool_interaction": "原块无工具交互；钴斧专属去皮仍待物品模块迁移，不自动泛化给所有斧头"
+  },
+  "sea_carcass_mass": {
+    "type": "RotatedPillarBlock",
+    "properties": "BlockBehaviour.Properties.of().sound(SoundType.WET_GRASS).strength(1.75f, 4.0f).speedFactor(0.8f).jumpFactor(0.8f)",
+    "source_class": "SeaCarcassMassBlock",
+    "light_block": 15,
+    "flammability": -1,
+    "source_parent": "Block",
+    "tool_interaction": "原块无工具交互；钴斧专属去皮仍待物品模块迁移，不自动泛化给所有斧头"
+  }
+}

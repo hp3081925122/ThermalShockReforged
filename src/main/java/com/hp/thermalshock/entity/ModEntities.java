@@ -23,7 +23,10 @@ public final class ModEntities {
 
     public static final DeferredHolder<EntityType<?>, EntityType<CrystalKoiEntity>> CRYSTAL_KOI = TYPES.register("crystal_koi", () -> EntityType.Builder.of(CrystalKoiEntity::new, MobCategory.WATER_AMBIENT).sized(0.3F, 0.3F).clientTrackingRange(64).updateInterval(3).build("thermal_shock:crystal_koi"));
 
+    public static final DeferredHolder<EntityType<?>, EntityType<ScarletRayEntity>> SCARLET_RAY = TYPES.register("scarlet_ray", () -> EntityType.Builder.of(ScarletRayEntity::new, MobCategory.WATER_AMBIENT).sized(1.0F, 0.3F).clientTrackingRange(64).updateInterval(3).build("thermal_shock:scarlet_ray"));
+
     static {
+        ITEMS.register("scarlet_ray_spawn_egg", () -> new DeferredSpawnEggItem(SCARLET_RAY, -1, -1, new Item.Properties()));
         ITEMS.register("crystal_koi_spawn_egg", () -> new DeferredSpawnEggItem(CRYSTAL_KOI, -1, -1, new Item.Properties()));
         ITEMS.register("forecast_spawn_egg", () -> new DeferredSpawnEggItem(FORECAST, -1, -1, new Item.Properties()));
     }
@@ -39,12 +42,14 @@ public final class ModEntities {
     }
 
     private static void attributes(EntityAttributeCreationEvent event) {
+        event.put(SCARLET_RAY.get(), ScarletRayEntity.createAttributes().build());
         event.put(CRYSTAL_KOI.get(), CrystalKoiEntity.createAttributes().build());
         event.put(FORECAST.get(), ForecastEntity.createAttributes().build());
     }
 
     private static void spawnPlacements(RegisterSpawnPlacementsEvent event) {
         event.register(CRYSTAL_KOI.get(), SpawnPlacementTypes.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (type, level, reason, position, random) -> level.getBlockState(position).is(net.minecraft.world.level.block.Blocks.WATER) && level.getBlockState(position.above()).is(net.minecraft.world.level.block.Blocks.WATER), RegisterSpawnPlacementsEvent.Operation.REPLACE);
+        event.register(SCARLET_RAY.get(), SpawnPlacementTypes.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (type, level, reason, position, random) -> level.getBlockState(position).is(net.minecraft.world.level.block.Blocks.WATER) && level.getBlockState(position.above()).is(net.minecraft.world.level.block.Blocks.WATER), RegisterSpawnPlacementsEvent.Operation.REPLACE);
         event.register(FORECAST.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (type, level, reason, position, random) -> {
             if (!level.getLevel().isThundering()) return false;
             var id = BuiltInRegistries.BLOCK.getKey(level.getBlockState(position.below()).getBlock());

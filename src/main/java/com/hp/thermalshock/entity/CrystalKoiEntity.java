@@ -43,7 +43,7 @@ public final class CrystalKoiEntity extends PathfinderMob implements GeoEntity {
         super(type, level);
         xpReward = 1;
         setPathfindingMalus(PathType.WATER, 0);
-        moveControl = new KoiMoveControl(this);
+        moveControl = new PassiveSwimMoveControl(this);
     }
 
     public static AttributeSupplier.Builder createAttributes() {
