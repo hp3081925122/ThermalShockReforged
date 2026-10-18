@@ -55,6 +55,10 @@ import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 public final class ClientEvents {
     @SubscribeEvent
     public static void renderers(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerEntityRenderer(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.RIPPLE.get(), com.hp.thermalshockreforged.client.sanctum.RippleRenderer::new);
+        event.registerEntityRenderer(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.SANCTUM_RIPPLE.get(), com.hp.thermalshockreforged.client.sanctum.RippleRenderer::new);
+        event.registerEntityRenderer(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.ERR.get(), com.hp.thermalshockreforged.client.sanctum.ErrFieldRenderer::new);
+        event.registerEntityRenderer(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.RIPPLE_CAST.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.ERRANT.get(), com.hp.thermalshockreforged.client.sanctum.ErrantRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.SANCTUM_ERRANT.get(), com.hp.thermalshockreforged.client.sanctum.ErrantRenderer::new);
         com.hp.thermalshockreforged.client.npc.laut.LautClient.renderers(event);
@@ -142,6 +146,7 @@ public final class ClientEvents {
     @SubscribeEvent
     public static void particles(RegisterParticleProvidersEvent event) {
         CavebloomerClient.particles(event);
+        event.registerSpriteSet(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.ERR_EFFECT.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "err", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true, false, 0));
         event.registerSpriteSet(ModEntities.ZAP_PARTICLE.get(), ZapAttackParticle.Provider::new);
         event.registerSpriteSet(ModEntities.TELEPORT_FLASH.get(), TeleportFlashParticle.Provider::new);
         event.registerSpriteSet(LoqendiaContent.GOLD_GLITTER.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "goldglitter", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true, false, 0));

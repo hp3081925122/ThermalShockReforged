@@ -1,8 +1,6 @@
 package com.hp.thermalshockreforged.entity;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
-import com.hp.thermalshockreforged.content.MaterialContent;
-import com.hp.thermalshockreforged.world.WorldProgressData;
 import java.util.UUID;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -22,11 +20,8 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.*;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.*;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
@@ -90,13 +85,7 @@ public final class GalvaniteEntity extends Monster implements GeoEntity {
         super.die(source);
         if (!dead || deathCommitted || !(level() instanceof ServerLevel server)) return;
         deathCommitted = true;
-        if (!server.getGameRules().getBoolean(GameRules.RULE_DOENTITYDROPS) || WorldProgressData.get(server).worldCrux() < 1) return;
-        for (int i = 0; i < 2; i++) {
-            if (random.nextDouble() >= 0.2) continue;
-            var cell = new ItemEntity(server, getX(), getY(), getZ(), new ItemStack(MaterialContent.items().get("bioelectric_cell").get()));
-            cell.setPickUpDelay(10);
-            server.addFreshEntity(cell);
-        }
+        GalvaniteDrops.drop(this, server);
     }
     @Override protected void dropExperience(Entity attacker) { experiencePending = true; experienceAttacker = attacker == null ? null : attacker.getUUID(); }
     @Override protected void tickDeath() {
