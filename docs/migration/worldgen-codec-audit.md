@@ -1,0 +1,24 @@
+# 已导入worldgen非IntProvider codec专项审计
+
+此次只读快照现有35份worldgen JSON；递归type/字段位置清单D:/AI临时文件/ThermalShockMigration/worldgen-codec-types.json。root已确认并修25处UniformInt包装/8文件，本轮不复读UniformInt论证、不改资源，引用docs/migration/int-provider-format-fixes.json作为唯一授权格式变换清单。未构建或游戏解码。
+
+结论：除root已经识别的IntProvider旧value包装外，在当前已导入实际使用的其他provider类型中，没有再发现确定的目标字段不兼容。此结论只覆盖下表实际出现类型，不是“所有原样复制世界生成都可解码”。之前报告的原字节/JSON相等仅证明没有改原参数，不证明codec兼容；历史静态验证未执行真正registry decode，因此不能把其措辞扩大为实测可解码。
+
+|实际类型/出现位置|目标源码与实际字段|本快照判定|
+|---|---|---|
+|FloatProvider|FloatProvider.java:9-12用float或registry dispatch；UniformFloat.java:12-15 MapCodec顶层min_inclusive/max_exclusive，无旧value壳|本快照没有任何typed FloatProvider；概率全是Codec.floatRange标量。今后导入typed uniform float若沿旧value包装同样会失败，不能因type同uniform就用Int规则改max_exclusive|
+|UniformHeight五处|HeightProvider.java:10-13是VerticalAnchor或registry dispatch；UniformHeight.java:16-19顶层min_inclusive/max_inclusive，内部各为anchor对象|五处原格式已经正确，不能把absolute/above_bottom/below_top再扁平化。Angler[-60,0]、Heights[90,300]、Thorns[above_bottom0,below_top0]、Hyphae[-64,0]、Vermillion[65,86]均在anchor codec世界允许范围；这不保证所在维度实际生成位置适合|
+|46个SimpleStateProvider|SimpleStateProvider.CODEC是BlockState.CODEC.fieldOf(state)，BlockStateProvider registry dispatch扁平map|现有type/state/Name结构正确，无value包裹；无Weighted/Noise/RandomizedIntState provider实例，不能外推它们兼容。BlockState Properties仍需实际注册block的property值有效性独立检查|
+|TreeConfiguration七inline树|trunk_provider/trunk_placer/foliage_provider/foliage_placer/dirt_provider/minimum_size/decorators必需；root_placer可选，force_dirt/ignore_vines默认false|现有字段完整；Custom structure_feature四分支不是native tree，应按自定义recordCodec核，不可用native tree schema代替|
+|MangroveRootPlacer/RootPlacement|RootPlacer.parts:trunk_offset_y IntProvider、root_provider StateProvider、above_root_placement可选；MangroveRootPlacement:can_grow_through/muddy_roots_in HolderSet，muddy_roots_provider StateProvider、width1..12、length1..64、skew[0,1]|Vermilli Fungus width8/length15/skew.2与above chance.5合法；#mangrove_roots_can_grow_through/#dirt是minecraft命名空间默认解析，并非未迁thermal_shock tag。Int值形状由root已修|
+|RandomSpreadFoliagePlacer|foliage_height IntProvider1..512、leaf_placement_attempts int0..256，基类radius/offset providers|Fungus height2/attempts70合法；typedInt变换由root负责，不能把foliage_height误判FloatProvider|
+|UpwardsBranchingTrunkPlacer|extra_branch_steps POSITIVE IntProvider；extra_branch_length NON_NEGATIVE IntProvider；place_branch_per_log_probability float[0,1]；can_grow_through block HolderSet|Fungus steps1..4、length0..1、prob.5合法；length0不是非法，不能为了“正数”改掉原0分支|
+|Spruce/Cherry foliage/trunk|继承通用height/radius/offset/provider字段；Cherry四概率均float[0,1]、branchStart额外UniformInt本体无type要求|原数值/branchStart与目标签名一致；分支Int壳修复不应错误给branch_start_offset_from_top强加type或value|
+|AlterGround/AttachedToLeaves|provider/block_provider直接StateProvider；附着probability[0,1]、exclusionXZ/Y0..16、required_empty1..16、directions非空|实际0.14/XZ1/Y0/required2/down合法；保原Glowstick挂件而非删decorator|
+|RandomPatch/SimpleBlock|tries正数默认128、spread非负默认7/3，内feature是PlacedFeature.CODEC；to_place StateProvider|原内联feature/placement双层正确，不需人为加value；block状态生存由SimpleBlockFeature另判|
+|EnvironmentScan|direction_of_search仅vertical，target_condition必需、allowed_search_condition可选默认alwaysTrue、max_steps1..32|Fungus放置使用原字段和竖向值，目标字段存在；bare environment_scan默认为minecraft命名空间，不是自定义失联type|
+|其他placement/predicate|Count/CountEveryLayer使用IntProvider；Heightmap MOTION_BLOCKING；Rarity chance positive；InSquare/Biome unit；matching_blocks HolderSet与offset默认ZERO；all_of predicates列表|除已修IntProvider外未见不兼容。引用存在、顺序与生成频率仍须独立比较，不能以JSON可解析代替数据解码|
+
+后续验证规则：以root列出的25个JSON路径精确进行IntProvider value→顶层的归一化，仅允许该字段搬移；保原type字符串、上下界数值、全部selector分支与placement/decorator数组顺序。其余diff照报，不再断言所有worldgen字节一致或笼统JSON等价。FloatProvider用max_exclusive，HeightProvider的anchor对象与BlockStateProvider的state不是相同包装，禁止递归见value就无脑flatten。
+
+本次没有额外严重阻塞项可报。所有结论是目标源码静态schema审计，仍未调用codec真实decode、数据包重载或游戏生成；第七批来源与注册正在变动，也没有重新宣称全data引用闭合。后续统一冻结后compile只保证Java/资源任务，动态registry解码仍需整模组完整后按用户门槛由测试代理验证。

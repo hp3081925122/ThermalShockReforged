@@ -28,7 +28,7 @@ BarbubbleSeedBlock本身是Block+EntityBlock，不是CropBlock。onPlace排30tic
 
 共享SkorioSeedBlockAdded/Neighbour要求下方精确planter_pot或planter_box，否则掉落并销毁；出生BE初始化thirsty=false、waterings=0。Tick过程每30tick，在不thirsty时概率0.0026变thirsty，thirsty期间发送5个FALLING_WATER粒子。右键只有主手WATERING_CAN且thirsty才清thirsty并waterings+1，达到**恰好3.0**时生成对应成熟植物、播放bottle.empty与flowering_azalea.place等音效并授相关种植进度。原共享右键过程覆盖多种普通/ancient种子：Skorio、Barbubble及其他花/菌作物，不能把它压成只支持两种或删失败分支。
 
-成熟Barbubble是双高，成熟生成必须核共享过程是否确实设置两半及土壤存活；当前审计只确认原通过setBlock(defaultBlockState)生成，后续实现要核这个潜在单下半缺陷并明确修复，不把原缺陷当双高效果已完整。
+纠错：前审计因截取不全而提出“成熟Barbubble可能只生成下半”的猜测，现已撤回。完整SkorioSeedOnBlockRightClicked源码确认它放置thermal_shock:planted_barbubble NBT，不是setBlock(defaultBlockState)；农作物迁移必须保留该完整原模板，见farming-batch.md。
 
 ### SickleHarvesting的真实工具链
 

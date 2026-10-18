@@ -90,7 +90,13 @@
       ]
     },
     "mangler": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshock.entity.mangler.ManglerEntity",
+      "evidence": "mangler-herald-next-audit.md",
+      "pending": [
+        "完整群系/结构/特殊门和机器来源",
+        "全模组后CD/召唤cap/载入及两端Render Preview验收"
+      ]
     },
     "razorwing": {
       "status": "not_migrated"
@@ -383,7 +389,13 @@
       ]
     },
     "herald": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshock.entity.mangler.HeraldEntity",
+      "evidence": "mangler-herald-next-audit.md",
+      "pending": [
+        "完整群系/结构/特殊门和机器来源",
+        "全模组后CD/召唤cap/载入及两端Render Preview验收"
+      ]
     },
     "beetle_thrasher": {
       "status": "not_migrated"
@@ -395,7 +407,13 @@
       "status": "not_migrated"
     },
     "summoned_mangler": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshock.entity.mangler.SummonedManglerEntity",
+      "evidence": "mangler-herald-next-audit.md",
+      "pending": [
+        "完整群系/结构/特殊门和机器来源",
+        "全模组后CD/召唤cap/载入及两端Render Preview验收"
+      ]
     },
     "magnetic_bomb": {
       "status": "not_migrated"
@@ -428,7 +446,15 @@
       "status": "not_migrated"
     },
     "gardenling": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshock.entity.gardenling.GardenlingEntity",
+      "evidence": "gardenling-implementation.md",
+      "pending": [
+        "farming五种子真实存在条件接线",
+        "gardenling_get进度父链",
+        "Skullscor目标/图鉴模块",
+        "整模组后两端及Render Preview验证"
+      ]
     },
     "gelshooter": {
       "status": "not_migrated"
