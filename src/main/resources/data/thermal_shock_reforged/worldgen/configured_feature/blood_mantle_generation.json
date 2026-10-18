@@ -1,0 +1,18 @@
+{
+  "type": "thermal_shock_reforged:blood_mantle_generation",
+  "config": {
+    "size": 9,
+    "discard_chance_on_air_exposure": 0,
+    "targets": [
+      {
+        "target": {
+          "predicate_type": "block_match",
+          "block": "thermal_shock_reforged:mantlestone"
+        },
+        "state": {
+          "Name": "thermal_shock_reforged:mantle_bloodstone_ore"
+        }
+      }
+    ]
+  }
+}

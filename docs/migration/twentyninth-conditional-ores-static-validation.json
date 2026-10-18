@@ -1,0 +1,563 @@
+{
+  "batch": 29,
+  "compile": {
+    "command": "gradlew.bat compileJava compileGametestJava processResources --offline",
+    "exit_code": 0,
+    "summary": "BUILD SUCCESSFUL in 1m 30s",
+    "log": "D:\\AI临时文件\\ThermalShockMigration\\twentyninth-conditional-ores-compile.log"
+  },
+  "ore_feature_ids": [
+    "ruby_ore_generation",
+    "ruby_mantle_generation",
+    "blood_ore_generation",
+    "blood_mantle_generation",
+    "malachite_generation",
+    "bismuth_generation"
+  ],
+  "biome_modifiers": [
+    {
+      "id": "ruby_ore_generation",
+      "original_path": "data/thermal_shock/forge/biome_modifier/ruby_ore_generation_biome_modifier.json",
+      "target_path": "data/thermal_shock_reforged/neoforge/biome_modifier/ruby_ore_generation_biome_modifier.json",
+      "original": {
+        "type": "forge:add_features",
+        "biomes": "#loqendian:tag",
+        "features": "thermal_shock:ruby_ore_generation",
+        "step": "underground_ores"
+      },
+      "target": {
+        "type": "neoforge:add_features",
+        "biomes": "#thermal_shock_reforged:loqendian",
+        "features": "thermal_shock_reforged:ruby_ore_generation",
+        "step": "underground_ores"
+      },
+      "semantic_shape_equal_after_expected_loader_namespace_and_tag_migration": true
+    },
+    {
+      "id": "ruby_mantle_generation",
+      "original_path": "data/thermal_shock/forge/biome_modifier/ruby_mantle_generation_biome_modifier.json",
+      "target_path": "data/thermal_shock_reforged/neoforge/biome_modifier/ruby_mantle_generation_biome_modifier.json",
+      "original": {
+        "type": "forge:add_features",
+        "biomes": "#loqendian:tag",
+        "features": "thermal_shock:ruby_mantle_generation",
+        "step": "underground_ores"
+      },
+      "target": {
+        "type": "neoforge:add_features",
+        "biomes": "#thermal_shock_reforged:loqendian",
+        "features": "thermal_shock_reforged:ruby_mantle_generation",
+        "step": "underground_ores"
+      },
+      "semantic_shape_equal_after_expected_loader_namespace_and_tag_migration": true
+    },
+    {
+      "id": "blood_ore_generation",
+      "original_path": "data/thermal_shock/forge/biome_modifier/blood_ore_generation_biome_modifier.json",
+      "target_path": "data/thermal_shock_reforged/neoforge/biome_modifier/blood_ore_generation_biome_modifier.json",
+      "original": {
+        "type": "forge:add_features",
+        "biomes": "#loqendian:tag",
+        "features": "thermal_shock:blood_ore_generation",
+        "step": "underground_ores"
+      },
+      "target": {
+        "type": "neoforge:add_features",
+        "biomes": "#thermal_shock_reforged:loqendian",
+        "features": "thermal_shock_reforged:blood_ore_generation",
+        "step": "underground_ores"
+      },
+      "semantic_shape_equal_after_expected_loader_namespace_and_tag_migration": true
+    },
+    {
+      "id": "blood_mantle_generation",
+      "original_path": "data/thermal_shock/forge/biome_modifier/blood_mantle_generation_biome_modifier.json",
+      "target_path": "data/thermal_shock_reforged/neoforge/biome_modifier/blood_mantle_generation_biome_modifier.json",
+      "original": {
+        "type": "forge:add_features",
+        "biomes": "#loqendian:tag",
+        "features": "thermal_shock:blood_mantle_generation",
+        "step": "underground_ores"
+      },
+      "target": {
+        "type": "neoforge:add_features",
+        "biomes": "#thermal_shock_reforged:loqendian",
+        "features": "thermal_shock_reforged:blood_mantle_generation",
+        "step": "underground_ores"
+      },
+      "semantic_shape_equal_after_expected_loader_namespace_and_tag_migration": true
+    },
+    {
+      "id": "malachite_generation",
+      "original_path": "data/thermal_shock/forge/biome_modifier/malachite_generation_biome_modifier.json",
+      "target_path": "data/thermal_shock_reforged/neoforge/biome_modifier/malachite_generation_biome_modifier.json",
+      "original": {
+        "type": "forge:add_features",
+        "biomes": "#loqendian:tag",
+        "features": "thermal_shock:malachite_generation",
+        "step": "underground_ores"
+      },
+      "target": {
+        "type": "neoforge:add_features",
+        "biomes": "#thermal_shock_reforged:loqendian",
+        "features": "thermal_shock_reforged:malachite_generation",
+        "step": "underground_ores"
+      },
+      "semantic_shape_equal_after_expected_loader_namespace_and_tag_migration": true
+    },
+    {
+      "id": "bismuth_generation",
+      "original_path": "data/thermal_shock/forge/biome_modifier/bismuth_generation_biome_modifier.json",
+      "target_path": "data/thermal_shock_reforged/neoforge/biome_modifier/bismuth_generation_biome_modifier.json",
+      "original": {
+        "type": "forge:add_features",
+        "biomes": "#loqendian:tag",
+        "features": "thermal_shock:bismuth_generation",
+        "step": "underground_ores"
+      },
+      "target": {
+        "type": "neoforge:add_features",
+        "biomes": "#thermal_shock_reforged:loqendian",
+        "features": "thermal_shock_reforged:bismuth_generation",
+        "step": "underground_ores"
+      },
+      "semantic_shape_equal_after_expected_loader_namespace_and_tag_migration": true
+    }
+  ],
+  "loqendian_biome_tag": {
+    "original_path": "data/loqendian/tags/worldgen/biome/tag.json",
+    "target_path": "data/thermal_shock_reforged/tags/worldgen/biome/loqendian.json",
+    "original_values": [
+      "thermal_shock:borean_forest",
+      "thermal_shock:borean_tundra",
+      "thermal_shock:graveyard",
+      "thermal_shock:stardust_garden",
+      "thermal_shock:vermillion_woods",
+      "thermal_shock:luminous_sea",
+      "thermal_shock:cobalt_heights",
+      "thermal_shock:glaciation"
+    ],
+    "target_values": [
+      "thermal_shock_reforged:borean_forest",
+      "thermal_shock_reforged:borean_tundra",
+      "thermal_shock_reforged:graveyard",
+      "thermal_shock_reforged:stardust_garden",
+      "thermal_shock_reforged:vermillion_woods",
+      "thermal_shock_reforged:luminous_sea",
+      "thermal_shock_reforged:cobalt_heights",
+      "thermal_shock_reforged:glaciation"
+    ],
+    "membership_equal_after_namespace": true
+  },
+  "feature_json_comparison": [
+    {
+      "id": "ruby_ore_generation",
+      "configured_original_path": "data/thermal_shock/worldgen/configured_feature/ruby_ore_generation.json",
+      "configured_target_path": "data/thermal_shock_reforged/worldgen/configured_feature/ruby_ore_generation.json",
+      "configured_equal_after_namespace": true,
+      "placed_original_path": "data/thermal_shock/worldgen/placed_feature/ruby_ore_generation.json",
+      "placed_target_path": "data/thermal_shock_reforged/worldgen/placed_feature/ruby_ore_generation.json",
+      "placed_original": {
+        "feature": "thermal_shock:ruby_ore_generation",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": 25
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:height_range",
+            "height": {
+              "type": "minecraft:trapezoid",
+              "min_inclusive": {
+                "absolute": 0
+              },
+              "max_inclusive": {
+                "absolute": 140
+              }
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      },
+      "placed_target": {
+        "feature": "thermal_shock_reforged:ruby_ore_generation",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": 25
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:height_range",
+            "height": {
+              "type": "minecraft:trapezoid",
+              "min_inclusive": {
+                "absolute": 0
+              },
+              "max_inclusive": {
+                "absolute": 140
+              }
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ruby_mantle_generation",
+      "configured_original_path": "data/thermal_shock/worldgen/configured_feature/ruby_mantle_generation.json",
+      "configured_target_path": "data/thermal_shock_reforged/worldgen/configured_feature/ruby_mantle_generation.json",
+      "configured_equal_after_namespace": true,
+      "placed_original_path": "data/thermal_shock/worldgen/placed_feature/ruby_mantle_generation.json",
+      "placed_target_path": "data/thermal_shock_reforged/worldgen/placed_feature/ruby_mantle_generation.json",
+      "placed_original": {
+        "feature": "thermal_shock:ruby_mantle_generation",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": 24
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:height_range",
+            "height": {
+              "type": "minecraft:trapezoid",
+              "min_inclusive": {
+                "absolute": -64
+              },
+              "max_inclusive": {
+                "absolute": 0
+              }
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      },
+      "placed_target": {
+        "feature": "thermal_shock_reforged:ruby_mantle_generation",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": 24
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:height_range",
+            "height": {
+              "type": "minecraft:trapezoid",
+              "min_inclusive": {
+                "absolute": -64
+              },
+              "max_inclusive": {
+                "absolute": 0
+              }
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      }
+    },
+    {
+      "id": "blood_ore_generation",
+      "configured_original_path": "data/thermal_shock/worldgen/configured_feature/blood_ore_generation.json",
+      "configured_target_path": "data/thermal_shock_reforged/worldgen/configured_feature/blood_ore_generation.json",
+      "configured_equal_after_namespace": true,
+      "placed_original_path": "data/thermal_shock/worldgen/placed_feature/blood_ore_generation.json",
+      "placed_target_path": "data/thermal_shock_reforged/worldgen/placed_feature/blood_ore_generation.json",
+      "placed_original": {
+        "feature": "thermal_shock:blood_ore_generation",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": 25
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:height_range",
+            "height": {
+              "type": "minecraft:trapezoid",
+              "min_inclusive": {
+                "absolute": 0
+              },
+              "max_inclusive": {
+                "absolute": 140
+              }
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      },
+      "placed_target": {
+        "feature": "thermal_shock_reforged:blood_ore_generation",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": 25
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:height_range",
+            "height": {
+              "type": "minecraft:trapezoid",
+              "min_inclusive": {
+                "absolute": 0
+              },
+              "max_inclusive": {
+                "absolute": 140
+              }
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      }
+    },
+    {
+      "id": "blood_mantle_generation",
+      "configured_original_path": "data/thermal_shock/worldgen/configured_feature/blood_mantle_generation.json",
+      "configured_target_path": "data/thermal_shock_reforged/worldgen/configured_feature/blood_mantle_generation.json",
+      "configured_equal_after_namespace": true,
+      "placed_original_path": "data/thermal_shock/worldgen/placed_feature/blood_mantle_generation.json",
+      "placed_target_path": "data/thermal_shock_reforged/worldgen/placed_feature/blood_mantle_generation.json",
+      "placed_original": {
+        "feature": "thermal_shock:blood_mantle_generation",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": 24
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:height_range",
+            "height": {
+              "type": "minecraft:trapezoid",
+              "min_inclusive": {
+                "absolute": -64
+              },
+              "max_inclusive": {
+                "absolute": 0
+              }
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      },
+      "placed_target": {
+        "feature": "thermal_shock_reforged:blood_mantle_generation",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": 24
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:height_range",
+            "height": {
+              "type": "minecraft:trapezoid",
+              "min_inclusive": {
+                "absolute": -64
+              },
+              "max_inclusive": {
+                "absolute": 0
+              }
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      }
+    },
+    {
+      "id": "malachite_generation",
+      "configured_original_path": "data/thermal_shock/worldgen/configured_feature/malachite_generation.json",
+      "configured_target_path": "data/thermal_shock_reforged/worldgen/configured_feature/malachite_generation.json",
+      "configured_equal_after_namespace": true,
+      "placed_original_path": "data/thermal_shock/worldgen/placed_feature/malachite_generation.json",
+      "placed_target_path": "data/thermal_shock_reforged/worldgen/placed_feature/malachite_generation.json",
+      "placed_original": {
+        "feature": "thermal_shock:malachite_generation",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": {
+              "type": "uniform",
+              "value": {
+                "min_inclusive": 7,
+                "max_inclusive": 8
+              }
+            }
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:height_range",
+            "height": {
+              "type": "minecraft:trapezoid",
+              "min_inclusive": {
+                "absolute": 0
+              },
+              "max_inclusive": {
+                "absolute": 44
+              }
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      },
+      "placed_target": {
+        "feature": "thermal_shock_reforged:malachite_generation",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": {
+              "type": "minecraft:uniform",
+              "min_inclusive": 7,
+              "max_inclusive": 8
+            }
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:height_range",
+            "height": {
+              "type": "minecraft:trapezoid",
+              "min_inclusive": {
+                "absolute": 0
+              },
+              "max_inclusive": {
+                "absolute": 44
+              }
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      }
+    },
+    {
+      "id": "bismuth_generation",
+      "configured_original_path": "data/thermal_shock/worldgen/configured_feature/bismuth_generation.json",
+      "configured_target_path": "data/thermal_shock_reforged/worldgen/configured_feature/bismuth_generation.json",
+      "configured_equal_after_namespace": true,
+      "placed_original_path": "data/thermal_shock/worldgen/placed_feature/bismuth_generation.json",
+      "placed_target_path": "data/thermal_shock_reforged/worldgen/placed_feature/bismuth_generation.json",
+      "placed_original": {
+        "feature": "thermal_shock:bismuth_generation",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": {
+              "type": "uniform",
+              "value": {
+                "min_inclusive": 7,
+                "max_inclusive": 8
+              }
+            }
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:height_range",
+            "height": {
+              "type": "minecraft:trapezoid",
+              "min_inclusive": {
+                "absolute": 0
+              },
+              "max_inclusive": {
+                "absolute": 44
+              }
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      },
+      "placed_target": {
+        "feature": "thermal_shock_reforged:bismuth_generation",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": {
+              "type": "minecraft:uniform",
+              "min_inclusive": 7,
+              "max_inclusive": 8
+            }
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:height_range",
+            "height": {
+              "type": "minecraft:trapezoid",
+              "min_inclusive": {
+                "absolute": 0
+              },
+              "max_inclusive": {
+                "absolute": 44
+              }
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      }
+    }
+  ],
+  "world_progress": {
+    "initializeOreChoices_source": "src/main/java/com/hp/thermalshockreforged/world/WorldProgressData.java:34-43",
+    "observed_call_sites": "definition only; no caller found under src/main/java",
+    "tier_defaults": 0,
+    "selection": "two independent Math.random checks per uninitialized tier; persisted valid values 1 or 2; remains 0 when both branches fail",
+    "behavioral_implication": "until a real caller initializes the data, all six ConditionalOreFeature choices remain zero and no tier 1/2 ores pass the matching gate"
+  },
+  "target_block_ids_checked": [
+    "shale",
+    "mantlestone",
+    "ruby_ore",
+    "mantle_ruby_ore",
+    "bloodstone_ore",
+    "mantle_bloodstone_ore",
+    "malachite_ore",
+    "bismuth_ore"
+  ]
+}
