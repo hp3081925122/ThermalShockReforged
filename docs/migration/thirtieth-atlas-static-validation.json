@@ -1,0 +1,147 @@
+{
+  "batch": 30,
+  "compile": {
+    "status": "BUILD SUCCESSFUL",
+    "tasks": [
+      "compileJava",
+      "compileGametestJava",
+      "processResources"
+    ],
+    "offline": true,
+    "duration_seconds": 60,
+    "log": "D:\\AI临时文件\\ThermalShockMigration\\thirtieth-atlas-compile.log"
+  },
+  "registrations": {
+    "atlas": "GeoDecorKind.ATLAS通过GeoDecorContent注册atlas方块、物品、BE；AtlasContent注册keystone、atlas_menu、atlas_activation",
+    "atlas_be_slots": 9,
+    "atlas_menu_slots": 0,
+    "keystone": "EPIC，单个；原件和目标useOn均无shrink/consume。"
+  },
+  "gui_assets": [
+    {
+      "relative_path": "textures/screens/atlas_rubicon.png",
+      "source_sha256": "64b0626241e7f3ae7f8db1fa899f34e9c66be4c8abd5db91477a194d27939f96",
+      "target_sha256": "64b0626241e7f3ae7f8db1fa899f34e9c66be4c8abd5db91477a194d27939f96",
+      "byte_equal": true,
+      "bytes": 5202
+    },
+    {
+      "relative_path": "textures/screens/atlas/imagebutton_atlas_button_inac.png",
+      "source_sha256": "df551667e860516d356f70ce7741f121839c3c70990c930b8caae9ecac004b1f",
+      "target_sha256": "df551667e860516d356f70ce7741f121839c3c70990c930b8caae9ecac004b1f",
+      "byte_equal": true,
+      "bytes": 309
+    },
+    {
+      "relative_path": "textures/screens/atlas/imagebutton_atlas_button_inac1.png",
+      "source_sha256": "df551667e860516d356f70ce7741f121839c3c70990c930b8caae9ecac004b1f",
+      "target_sha256": "df551667e860516d356f70ce7741f121839c3c70990c930b8caae9ecac004b1f",
+      "byte_equal": true,
+      "bytes": 309
+    },
+    {
+      "relative_path": "textures/screens/atlas/imagebutton_atlas_button_inac2.png",
+      "source_sha256": "df551667e860516d356f70ce7741f121839c3c70990c930b8caae9ecac004b1f",
+      "target_sha256": "df551667e860516d356f70ce7741f121839c3c70990c930b8caae9ecac004b1f",
+      "byte_equal": true,
+      "bytes": 309
+    }
+  ],
+  "gui_layout": {
+    "screen_size": [
+      196,
+      196
+    ],
+    "background_draw": [
+      2,
+      2,
+      192,
+      192
+    ],
+    "button_positions": [
+      {
+        "texture": "imagebutton_atlas_button_inac.png",
+        "xy": [
+          43,
+          83
+        ]
+      },
+      {
+        "texture": "imagebutton_atlas_button_inac1.png",
+        "xy": [
+          114,
+          130
+        ]
+      },
+      {
+        "texture": "imagebutton_atlas_button_inac2.png",
+        "xy": [
+          124,
+          53
+        ]
+      }
+    ],
+    "button_size": [
+      20,
+      20
+    ],
+    "layout_matches_original": true
+  },
+  "activation": {
+    "trigger_plane": "以点击方块为中心、同一Y层的3x3 XZ obsidian；六个clickedFace均可，方向只决定旋转",
+    "cooldown_ticks": 100,
+    "consumes_keystone": false,
+    "phase0": "remaining=20；在玩家交互所在tick END已入队的常规情况下，T+19执行首阶段放置",
+    "phase1": "remaining=60；END快照先移除，嵌套schedule在下一次END执行，T+79执行完成阶段",
+    "nbt": [
+      "AtlasAnchor",
+      "AtlasDimension",
+      "AtlasFace",
+      "AtlasRemaining",
+      "AtlasPhase",
+      "AtlasArmed"
+    ],
+    "critical_missing_asset": "已存在目标模板data/thermal_shock_reforged/structure/atlasbase.nbt；源文件与当前build/resources副本各249字节且SHA-256一致。D:\\AI临时文件\\ThermalShockMigration\\thirtieth-atlasbase-nbt-rewrite.json记录原模板逆namespace后payload byte-equal（6个palette block ID仅改namespace）。先前缺失结论误判，已撤销。",
+    "template_evidence": {
+      "source": "src/main/resources/data/thermal_shock_reforged/structure/atlasbase.nbt",
+      "build": "build/resources/main/data/thermal_shock_reforged/structure/atlasbase.nbt",
+      "source_build_sha256": "0f23f6293344936908427dda49481ce7209361e9c5de9872fcecf5c75edbeaa5",
+      "source_build_byte_equal": true,
+      "nbt_semantic_report": "D:\\AI临时文件\\ThermalShockMigration\\thirtieth-atlasbase-nbt-rewrite.json",
+      "reverse_namespace_payload_byte_equal": true,
+      "palette_namespace_rewrites": 6
+    }
+  },
+  "scheduler": "ServerEndTickTasks在遍历前先移除当前pending快照。Atlas下一阶段只由后续END处理。ThermiteDetonationEntity仍实现相同ServerEndTickTask并通过同一schedule入口；未改Thermite实体逻辑。",
+  "arrival": {
+    "mixin_field": "PlayerInfectionStatusMixin的private static final EntityDataAccessor<Integer>，SynchedEntityData.defineId(Player.class, INT)，defineSynchedData默认0",
+    "sync": "begin/end各set带force；tick中只改本地计数，不逐tick同步；AtlasTravel跨维度返回主世界时重发当前正计数。",
+    "duration": 180,
+    "damage": "LivingEntity.getDamageAfterMagicAbsorb HEAD拦截；有效抵抗量归零并更新DamageContainer/stat；BYPASSES_EFFECTS与BYPASSES_RESISTANCE来源不拦截。",
+    "particle": "RGB #9146F0；可见普通采样1/2，隐形1/15；旧效果权重10，其他可见效果按amplifier+1混色；真实Resistance被过滤出加权循环并被合并为max(amplifier,9)的显示/粒子基底，避免重复计数。",
+    "clear": "removeAllEffects、默认EffectCures以及单效果移除仅在无真实Resistance时清虚拟状态。",
+    "hud": "客户端AtlasEffectDisplayMixin通过effects()返回合成列表，不将虚拟Resistance加入LivingEntity.activeEffects。"
+  },
+  "mixin_bytecode": {
+    "target_jar": "build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\recompile\\outputs.jar",
+    "Gui.renderEffects": {
+      "LocalPlayer.getActiveEffects_owner": "net/minecraft/client/player/LocalPlayer",
+      "matching_invocations": 1,
+      "target_ordinal": 0,
+      "annotation_explicit_ordinal": false
+    },
+    "EffectRenderingInventoryScreen.renderEffects": {
+      "LocalPlayer.getActiveEffects_owner": "net/minecraft/client/player/LocalPlayer",
+      "matching_invocations": 1,
+      "target_ordinal": 0,
+      "annotation_explicit_ordinal": false
+    },
+    "LivingEntity.tickEffects": {
+      "SynchedEntityData.get_count": 2,
+      "first_get_accessor_field": "DATA_EFFECT_PARTICLES",
+      "first_get_bytecode_offset": 175,
+      "mixin_redirect_ordinal": 0
+    }
+  },
+  "remaining_boundary": "Shalespring、Palace、Keystone自然结构链依赖仍未闭合；编译/字节码静态核不证明Mixin实际应用、GUI实际渲染或功能已运行。"
+}

@@ -1,7 +1,7 @@
 package com.hp.thermalshockreforged.entity.ice;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
-import com.hp.thermalshockreforged.content.status.LegacyCooldownVisuals;
+import com.hp.thermalshockreforged.content.status.LegacyEffectParticles;
 import com.hp.thermalshockreforged.content.status.StatusContent;
 import java.util.*;
 import net.minecraft.commands.arguments.EntityAnchorArgument;
@@ -243,7 +243,7 @@ public final class IceCreatureEntity extends Monster implements GeoEntity, Range
             if (active && effect.getDuration() % 600 == 0) onEffectUpdated(effect, false, null);
         }
         boolean spawn = isInvisible() ? random.nextInt(15) == 0 : random.nextBoolean();
-        if (spawn) level().addParticle(LegacyCooldownVisuals.particle(getActiveEffects()), getRandomX(0.5), getRandomY(), getRandomZ(0.5), 1, 1, 1);
+        if (spawn) LegacyEffectParticles.emit(this, 0xFFFFFF, 2);
     }
     @Override public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); tag.putInt("IceCooldown", cooldown); tag.putInt("IceMovementLock", movementLock); tag.putInt("IceAttackAge", attackAge);

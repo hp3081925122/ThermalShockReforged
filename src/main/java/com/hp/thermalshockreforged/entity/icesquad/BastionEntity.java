@@ -1,7 +1,7 @@
 package com.hp.thermalshockreforged.entity.icesquad;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
-import com.hp.thermalshockreforged.content.status.LegacyCooldownVisuals;
+import com.hp.thermalshockreforged.content.status.LegacyEffectParticles;
 import com.hp.thermalshockreforged.content.MaterialContent;
 import com.hp.thermalshockreforged.content.ModGameRules;
 import com.hp.thermalshockreforged.content.status.StatusContent;
@@ -157,7 +157,7 @@ public final class BastionEntity extends Monster implements GeoEntity {
             if (active && effect.getDuration() % 600 == 0) onEffectUpdated(effect, false, null);
         }
         boolean spawn = isInvisible() ? random.nextInt(15) == 0 : random.nextBoolean();
-        if (spawn) level().addParticle(LegacyCooldownVisuals.particle(getActiveEffects()), getRandomX(0.5), getRandomY(), getRandomZ(0.5), 1, 1, 1);
+        if (spawn) LegacyEffectParticles.emit(this, 0xFFFFFF, 2);
     }
     @Override public boolean hurt(DamageSource source, float amount) { return !source.is(DamageTypes.DROWN) && !source.is(DamageTypes.LIGHTNING_BOLT) && super.hurt(source, amount); }
     @Override public boolean removeWhenFarAway(double distance) { return false; }

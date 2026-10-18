@@ -9,7 +9,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
 
-public final class ThermiteDetonationEntity extends Entity {
+public final class ThermiteDetonationEntity extends Entity implements com.hp.thermalshockreforged.world.timing.ServerEndTickTask {
     private BlockPos anchor = BlockPos.ZERO;
     private String dimension = "";
     private int remaining = 3;
@@ -25,18 +25,18 @@ public final class ThermiteDetonationEntity extends Entity {
     }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
     @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
-    @Override public void onAddedToLevel() { super.onAddedToLevel(); if (armed && !consumed && level() instanceof ServerLevel server) ThermiteContent.schedule(server, getUUID()); }
+    @Override public void onAddedToLevel() { super.onAddedToLevel(); if (armed && !consumed && level() instanceof ServerLevel server) com.hp.thermalshockreforged.world.timing.ServerEndTickTasks.schedule(server, getUUID()); }
     @Override public void tick() {
         super.tick();
         if (level() instanceof ServerLevel server) {
             if (!armed || consumed || !dimension.equals(server.dimension().location().toString())) { discard(); return; }
             setPos(anchor.getX(), anchor.getY(), anchor.getZ());
-            ThermiteContent.schedule(server, getUUID());
+            com.hp.thermalshockreforged.world.timing.ServerEndTickTasks.schedule(server, getUUID());
         }
     }
-    void endTick(ServerLevel level) {
+    @Override public void endTick(ServerLevel level) {
         if (isRemoved() || !armed || consumed || !dimension.equals(level.dimension().location().toString())) { discard(); return; }
-        if (--remaining > 0) { ThermiteContent.schedule(level, getUUID()); return; }
+        if (--remaining > 0) { com.hp.thermalshockreforged.world.timing.ServerEndTickTasks.schedule(level, getUUID()); return; }
         consumed = true; discard();
         ThermalShockReforged.LOGGER.debug("Thermite detonation committed: position={}, dimension={}", anchor, dimension);
         level.explode(null, anchor.getX(), anchor.getY(), anchor.getZ(), 1, Level.ExplosionInteraction.BLOCK);
