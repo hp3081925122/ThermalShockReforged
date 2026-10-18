@@ -241,3 +241,6 @@ Shutterbug六页介绍/真实相机/摄影及图鉴任务、首次Shalespring完
 
 
 第38批Keystone四真实功能机关（Rinthium Button/Lever、Inactive/Active Pedestal）完整交互/四角检查/三处动画/原音效/九槽能力/实际Keystone发放已接入；活动台座独立保animation0..2，既有块不扩域。原JAR字节码确认领取清caninteract使lever可重开，现用中心持久KeystoneClaimed阻断重复领奖，保首次功能。Luna三任务离线18.7秒成功，四组Geo/animation/texture哈希及模型/state/displaysettings/原参数机械核对通过；详见keystone-puzzle-blocks-batch.md及thirtyeighth-keystone-puzzle-static-validation.json。81000块密室/睡醒双监听冲突/有限持久延迟广播仍待下一批，未启动游戏。
+
+
+第39批Keystone自然来源闭合：完整81000块/63状态/14BE/0实体密室、醒来原门槛/共享一次状态、100/145/200 END原剧情和按当时N玩家重复原声音已迁入，持久值计时替代旧捕获闭包。明确修重复Force监听绕过开关/玩家进度及失败永久消费。Luna三任务离线55秒、放置前捕获锚点补丁后compileJava15.8秒通过，模板46命名空间修改可逆payload及全部注册/状态/参数核对通过。详见keystone-chamber-generation-batch.md和thirtyninth-keystone-generation-static-validation.json。Aqeron/Palace及依赖居民Ly/PortraitCharacter等仍待迁，整模组未完成，未启游戏。
