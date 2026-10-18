@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "id": "thermal_shock_reforged:e_xpolar_camera"
+    },
+    "title": {
+      "translate": "advancements.leaf_it_to_me_3.title"
+    },
+    "description": {
+      "translate": "advancements.leaf_it_to_me_3.descr"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "leaf_it_to_me_3_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 300
+  },
+  "parent": "thermal_shock_reforged:leaf_it_to_me_2"
+}

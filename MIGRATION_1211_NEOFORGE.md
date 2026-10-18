@@ -227,3 +227,8 @@ heart_boost为真实玩家增益，不是内部冷却标记；保留BENEFICIAL�
 第34批Florist完整25页（Main/信息根/六信息页/17交易）、124静态文字、所有原图/立绘/图像按钮及17真实商品价格数量已迁入；补真实Leafcutter剪刀、九叶额外采集/剪刀工具组件及原生附魔标签，保原Geo/Idle/半透明主体/独立eyes发光层。修交易先发货后全局延迟扣款漏洞、ServerPlayer检查在客户端永不成立与服务端漏验证的Concierge门槛；原blasphemy_1进度原样导入，仍由未来Concierge真实任务授予，不默认解锁。静态比对找到的17交易页各36玩家槽遗漏已经按原坐标/索引/快捷移动顺序完整补回。Luna三任务离线54秒通过，补槽后最小compileJava20秒再次通过，25页/124文字/34UI纹理/17交易及参数核对无剩余差异。详见florist-trade-batch.md与thirtyfourth-florist-static-validation.json。
 
 Shutterbug六页介绍/真实相机/摄影及图鉴任务、首次Shalespring完整建筑/世界状态、Concierge进度授予、其余生物/Boss/功能/维度仍待迁。下一批关键入口证据已补到shalespring-npc-next-audit.md。当前只是本批代码/编译/静态阶段完成，未启动游戏，整模组未完成，最终两端/Render Preview仍在完整迁移后执行。
+
+
+第35批真实E-Xpolar/WideAngle两款相机、86完整有序图鉴说明/97原注册类型映射、60tick冷却、原一次CAM_PHOTO→AAA完整闪光和两类拍摄声音、AngryCavebloomer摄影进度、LeafItToMe奖励包五池七项/原20END_ROD/两声/当前手持一次消耗已实现。明确修原资格10格而识别/粒子5格冲突，统一原识别5格，合并重复clip/分类扫描；不变为更长射线或新增实体准星门槛。三原进度完整迁入，_1/_3真实授予仍待NPC。Luna固定快照三任务离线86.7秒成功，86文案/97映射/12本批相关资产和全部参数机械对照通过。目录97中实际47已注册、50待迁仅作目录数据，不代表整模组实体覆盖/完成率。详见camera-photography-batch.md与thirtyfifth-camera-static-validation.json。
+
+下一批Shutterbug完整43菜单/角色对话声音/原个人介绍状态/相机交易与摄影差事已完成源码盘点，迁移前契约见shutterbug-dialogue-batch.md；尚未实现，不能因有相机就声称NPC完整。整模组、首次建筑及其余生物/Boss/维度等继续迁移，未启动游戏。

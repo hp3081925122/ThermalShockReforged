@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "id": "thermal_shock_reforged:glitterdrop_icicle"
+    },
+    "title": {
+      "translate": "advancements.leaf_it_to_me_1.title"
+    },
+    "description": {
+      "translate": "advancements.leaf_it_to_me_1.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "leaf_it_to_me_1_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "thermal_shock_reforged:errands_get"
+}

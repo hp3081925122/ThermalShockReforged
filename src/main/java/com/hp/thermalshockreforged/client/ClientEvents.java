@@ -132,6 +132,7 @@ public final class ClientEvents {
         event.registerSpriteSet(ModEntities.ZAP_PARTICLE.get(), ZapAttackParticle.Provider::new);
         event.registerSpriteSet(ModEntities.TELEPORT_FLASH.get(), TeleportFlashParticle.Provider::new);
         event.registerSpriteSet(LoqendiaContent.GOLD_GLITTER.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "goldglitter", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true, false, 0));
+        event.registerSpriteSet(com.hp.thermalshockreforged.content.camera.CameraContent.CAM_PHOTO.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "camphoto", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true));
         FaunaRenderers.particles(event);
         StatusClient.registerParticles(event);
         SnobolRenderers.particles(event);
