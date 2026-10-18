@@ -8,6 +8,8 @@ import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.shapes.*;
 
 public enum GeoDecorKind {
+    PHOBOTITE_OUTCROP("phobotite_outcrop", "Phobotite Outcrop", "geo/fluorite_ore.geo.json", "textures/block/phobotite_outcrop.png", "animations/fluorite_ore.animation.json", Shapes.block(), false, false),
+    PHOBOTITE_MANTLE_OUTCROP("phobotite_mantle_outcrop", "Phobotite Mantle Outcrop", "geo/fluorite_ore.geo.json", "textures/block/phobotite_mantle_outcrop.png", "animations/fluorite_ore.animation.json", Shapes.block(), false, false),
     FRIGID_ALTAR("frigid_altar", "Frigid Altar", "geo/everchill_altar.geo.json", "textures/block/texturealtar.png", "animations/everchill_altar.animation.json", Block.box(.1, .1, .1, 15.9, 14, 15.9), false, false),
     FERROUS_ALTAR("ferrous_altar", "Ferrous Altar", "geo/everchill_altar.geo.json", "textures/block/ferrousaltar.png", "animations/everchill_altar.animation.json", Block.box(.1, .1, .1, 15.9, 14, 15.9), true, false),
     PYLON_CORE("pylon_core", "Pylon Core", "geo/pylon_core.geo.json", "textures/block/texturepyloncore.png", "animations/pylon_core.animation.json", Block.box(2, 2, 2, 14, 14, 14), true, false),
@@ -85,6 +87,8 @@ public enum GeoDecorKind {
     }
     public BlockBehaviour.Properties properties() {
         return switch (this) {
+            case PHOBOTITE_OUTCROP, PHOBOTITE_MANTLE_OUTCROP -> BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERRACK)
+                    .strength(this == PHOBOTITE_OUTCROP ? 6 : 6.75F, 5).lightLevel(state -> 6).requiresCorrectToolForDrops();
             case FRIGID_ALTAR, FERROUS_ALTAR -> {
                 var properties = BlockBehaviour.Properties.of().mapColor(this == FRIGID_ALTAR ? MapColor.ICE : MapColor.METAL).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.METAL)
                         .strength(this == FRIGID_ALTAR ? -1 : 10, this == FRIGID_ALTAR ? 3600000 : 999).lightLevel(state -> 5).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((state, level, pos) -> false);

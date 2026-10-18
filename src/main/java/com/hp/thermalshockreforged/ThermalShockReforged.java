@@ -75,6 +75,7 @@ public final class ThermalShockReforged {
         com.hp.thermalshockreforged.entity.pots.PotContent.register(bus);
         com.hp.thermalshockreforged.world.LoqendiaContent.register(bus);
         com.hp.thermalshockreforged.world.WorldProgressData.register();
+        com.hp.thermalshockreforged.world.AltarProgressPayload.register(bus);
         com.hp.thermalshockreforged.world.ShalespringGeneration.register();
         com.hp.thermalshockreforged.world.PalaceGeneration.register();
         com.hp.thermalshockreforged.content.atlas.AqeronEvents.register();

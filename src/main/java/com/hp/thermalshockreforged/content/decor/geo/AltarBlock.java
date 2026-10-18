@@ -21,6 +21,7 @@ final class AltarBlock extends GeoDecorBlock {
     AltarBlock(GeoDecorKind kind) { super(kind); }
     private boolean unlock(Level level, BlockPos pos, Player player) {
         if (!player.getMainHandItem().is(MaterialContent.items().get("frigid_altar_key").get())) return false;
+        if (com.hp.thermalshockreforged.world.AltarProgressPayload.unlocked(level)) return false;
         if (!(level instanceof ServerLevel server) || !(player instanceof ServerPlayer owner)) return true;
         var progress = WorldProgressData.get(server);
         if (progress.altarUnlocked()) return false;
@@ -30,6 +31,7 @@ final class AltarBlock extends GeoDecorBlock {
             return true;
         }
         if (!progress.unlockAltars()) return false;
+        com.hp.thermalshockreforged.world.AltarProgressPayload.broadcast(server);
         server.playSound(null, pos, SoundEvents.AMETHYST_BLOCK_BREAK, SoundSource.NEUTRAL, 1, 1);
         server.playSound(null, pos, SoundEvents.AMETHYST_BLOCK_RESONATE, SoundSource.NEUTRAL, 1, -1);
         server.sendParticles(owner, ParticleTypes.END_ROD, false, pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5, 0, 0, .2, 0, 1);
