@@ -1,6 +1,7 @@
 package com.hp.thermalshockreforged;
 
 import com.hp.thermalshockreforged.content.MaterialContent;
+import com.hp.thermalshockreforged.entity.cavebloomer.CavebloomerContent;
 import com.hp.thermalshockreforged.content.creative.CreativeTabsContent;
 import com.hp.thermalshockreforged.content.music.MusicContent;
 import com.hp.thermalshockreforged.content.fluids.FluidContent;
@@ -66,6 +67,7 @@ public final class ThermalShockReforged {
         container.registerConfig(ModConfig.Type.COMMON, IceCombatConfig.SPEC, "thermal_shock_reforged-ice.toml");
         container.registerConfig(ModConfig.Type.COMMON, ManglerCombatConfig.SPEC, "thermal_shock_reforged-mangler.toml");
         ModEntities.register(bus);
+        CavebloomerContent.register(bus);
         MaterialContent.register(bus);
         MusicContent.register(bus);
         NativeDecorContent.register(bus);

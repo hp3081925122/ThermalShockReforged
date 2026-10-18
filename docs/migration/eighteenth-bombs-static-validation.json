@@ -1,0 +1,235 @@
+{
+  "batch": "eighteenth bombs and landing impacts",
+  "scope": "Finite read-only check of the frozen stage. No source/resource edits and no client/server run.",
+  "compile": {
+    "command": ".\\gradlew.bat compileJava compileGametestJava processResources --offline",
+    "java": "C:/Users/30819/.jdks/ms-21.0.11",
+    "log": "D:/AI临时文件/ThermalShockMigration/compile-eighteenth-bombs.log",
+    "result": "BUILD SUCCESSFUL in 24s; 25 actionable tasks, 2 executed, 23 up-to-date; 3 deprecation warnings and unchecked-operation note."
+  },
+  "entity_registration": [
+    {
+      "id": "thermal_shock_reforged:mortar_bomb",
+      "class": "CavebloomerBombEntity",
+      "category": "MISC",
+      "size": [
+        0.5,
+        0.5
+      ],
+      "tracking_range": 64,
+      "update_interval": 1,
+      "velocity_updates": true,
+      "attributes": "none (projectile)",
+      "evidence": "src/main/java/com/hp/thermalshockreforged/entity/cavebloomer/CavebloomerContent.java:18-19"
+    },
+    {
+      "id": "thermal_shock_reforged:poison_bomb",
+      "class": "CavebloomerBombEntity",
+      "category": "MISC",
+      "size": [
+        0.5,
+        0.5
+      ],
+      "tracking_range": 64,
+      "update_interval": 1,
+      "velocity_updates": true,
+      "attributes": "none (projectile)",
+      "evidence": "src/main/java/com/hp/thermalshockreforged/entity/cavebloomer/CavebloomerContent.java:20-21"
+    },
+    {
+      "id": "thermal_shock_reforged:shock_attack_entity",
+      "class": "CavebloomerImpactEntity",
+      "category": "MONSTER",
+      "size": [
+        1,
+        1
+      ],
+      "tracking_range": 64,
+      "update_interval": 3,
+      "velocity_updates": true,
+      "fire_immune": true,
+      "attributes": "AttackCarrierBody.createAttributes",
+      "evidence": "src/main/java/com/hp/thermalshockreforged/entity/cavebloomer/CavebloomerContent.java:22-23,32"
+    },
+    {
+      "id": "thermal_shock_reforged:poison_attack_entity",
+      "class": "CavebloomerImpactEntity",
+      "category": "MONSTER",
+      "size": [
+        1,
+        1
+      ],
+      "tracking_range": 64,
+      "update_interval": 3,
+      "velocity_updates": true,
+      "fire_immune": true,
+      "attributes": "AttackCarrierBody.createAttributes",
+      "evidence": "src/main/java/com/hp/thermalshockreforged/entity/cavebloomer/CavebloomerContent.java:24-25,33"
+    }
+  ],
+  "original_entity_type_tags": {
+    "ids_checked": [
+      "mortar_bomb",
+      "poison_bomb",
+      "shock_attack_entity",
+      "poison_attack_entity"
+    ],
+    "original_matching_tag_members": [],
+    "target_matching_tag_members": [],
+    "method": "Scanned original JAR data/thermal_shock/tags/entity_types/*.json values and target data/thermal_shock_reforged/tags/entity_type/*.json values for exactly these four IDs."
+  },
+  "bomb_mechanics": {
+    "class": "src/main/java/com/hp/thermalshockreforged/entity/cavebloomer/CavebloomerBombEntity.java",
+    "gravity": "Uses AbstractArrow defaults; no no-gravity override found.",
+    "piercing": "configure invokes ArrowPiercingAccess Invoker with its byte argument; no target caller of CavebloomerBombEntity.configure was found in this frozen substage, so runtime input 5 is not yet wired. The original source attack uses pierce level 5 (D:/AI临时文件/ThermalShockMigration/eighteenth-cavebloomer-dependencies.json).",
+    "owner_and_self_hit": "configure snapshots owner UUID into caster and sets owner; canHitEntity excludes that UUID; UUID persists in NBT.",
+    "items": {
+      "mortar": "thermal_shock_reforged:gore_projectile (MaterialContent.java:450)",
+      "poison": "thermal_shock_reforged:poison_projectile (MaterialContent.java:485)"
+    },
+    "trail": "tick emits one RED_ORB per tick after super.tick; RED_ORB registration is CavebloomerContent.java:28 and provider wiring is CavebloomerClient.java:22 / ClientEvents.java:108.",
+    "block_and_entity_hit": "Custom impact creation is only in onHitBlock. No onHitEntity override or entity-hit impact spawn found; entity hits remain inherited AbstractArrow behavior.",
+    "block_commit": "blockCommitted is saved; duplicate onHitBlock entry returns before a second impact spawn.",
+    "pickup": "DISALLOWED in constructor, setOwner, and readAdditionalSaveData; no pickup path enabled.",
+    "arrow_count": "doPostHurtEffects clamps target ArrowCount decrement with Math.max(0, ...).",
+    "landing": "tick discards after super.tick when inGround.",
+    "damage_knockback": "damage is based on owner ATTACK_DAMAGE multipliers; impact knockback finite-clamped 0..0.6 and multiplied by target knockback resistance.",
+    "line_evidence": [
+      "CavebloomerBombEntity.java:22-39",
+      "CavebloomerBombEntity.java:40-61",
+      "CavebloomerBombEntity.java:63-69"
+    ],
+    "configure_call_sites_in_target": 0
+  },
+  "impact_timing_and_effects": [
+    {
+      "kind": "shock",
+      "spawn_finalization": "EventHooks.finalizeMobSpawn is called before addFreshEntity; NeoForge EventHooks source at build/neoForm/.../EventHooks.java:319-329 posts FinalizeSpawnEvent and calls mob.finalizeSpawn only if not cancelled. The caller discards when initialized remains false, so cancelled finalization does not execute impact side effects.",
+      "delay": "remaining starts 19; initialized finalizeSpawn stores gameTime; tick skips same gameTime then decrements once per later server tick, detonates on the 19th future tick.",
+      "targets": "Player only, radius 1.5.",
+      "damage": "default 10, Explosion DamageType without owner attribution.",
+      "evidence": "CavebloomerImpactEntity.java:23-39,42-57; CavebloomerBombEntity.java:47-60"
+    },
+    {
+      "kind": "poison",
+      "spawn_finalization": "Same event-before-finalize behavior; detonate is reached from finalizeSpawn only after uncancelled event.",
+      "delay": "Immediate in finalizeSpawn.",
+      "targets": "Player only, radius 2.",
+      "damage": "default 6, Unattributed Fireball DamageType; Poison 100 ticks, amplifier 3.",
+      "evidence": "CavebloomerImpactEntity.java:23-39,42-57"
+    }
+  ],
+  "attack_carrier_body_comparison": {
+    "original_classes": [
+      "ZapAttackEntityEntity",
+      "ShockAttackEntityEntity",
+      "PoisonAttackEntityEntity"
+    ],
+    "original_registration": "ThermalShockModEntities.java:286,310,312: each MONSTER, 1x1, tracking64, update3, velocity update, fire immune.",
+    "shared_original_behavior": "PathfinderMob; FlyingMoveControl(10,true), FlyingPathNavigation, empty additional goals, MobType.UNDEFINED, 0.3 movement/flying speed, health1, armor90, attack3, follow16, knockback resistance90, step height0.6, no fall damage, fire immunity, explosion immunity, non-pushable, no gravity, same explicit hurt immunity matrix. Only finalizeSpawn procedure differs per class.",
+    "target": "AttackCarrierBody is the common base used by both impact types and existing ZapWarningEntity. Movement/navigation, attributes, damage immunities, push/fall/no-gravity behaviors are shared. Numeric KNOCKBACK_RESISTANCE is 1 in AttackCarrierBody versus original three classes' 90; step height is represented by attribute 0.6 rather than setMaxUpStep(0.6). Both source and target register fireImmune.",
+    "zap_head_comparison": "git show HEAD:src/main/java/com/hp/thermalshockreforged/entity/ZapWarningEntity.java compared to current file: zap damage/multiplier fields, 19-tick remaining count, origin/dimension/time snapshots, particle emission guard, sound, 1.5 query, entity filtering, lightning source and NBT keys remain unchanged; only common body implementation is inherited."
+  },
+  "particle_contract": [
+    {
+      "id": "shock_attack",
+      "simple_particle_type_override": true,
+      "provider": "CavebloomerClient.java:20",
+      "lifetime": 0,
+      "size": [
+        0.2,
+        0.2
+      ],
+      "gravity": 0,
+      "has_physics": true,
+      "velocity_scale": 0,
+      "render_type": "PARTICLE_SHEET_LIT",
+      "fullbright": true,
+      "aaa_effect": "shockattack",
+      "efk": "assets/thermal_shock_reforged/effeks/shockattack.efkefc",
+      "texture_dependencies": [
+        "Texture/shockattack.png",
+        "Texture/shockwarn.png",
+        "Texture/Bomb Explosion.png"
+      ],
+      "target_files_exist": true
+    },
+    {
+      "id": "poison_cloud",
+      "simple_particle_type_override": true,
+      "provider": "CavebloomerClient.java:21",
+      "lifetime": 0,
+      "size": [
+        0.2,
+        0.2
+      ],
+      "gravity": 0,
+      "has_physics": true,
+      "velocity_scale": 0,
+      "render_type": "PARTICLE_SHEET_LIT",
+      "fullbright": true,
+      "aaa_effect": "poisoncloud",
+      "efk": "assets/thermal_shock_reforged/effeks/poisoncloud.efkefc",
+      "texture_dependencies": [
+        "Texture/Bomb Ball.png"
+      ],
+      "target_files_exist": true
+    },
+    {
+      "id": "red_orb",
+      "simple_particle_type_override": false,
+      "provider": "CavebloomerClient.java:22",
+      "lifetime": 1,
+      "size": [
+        0.2,
+        0.2
+      ],
+      "gravity": 0,
+      "has_physics": true,
+      "velocity_scale": 0,
+      "render_type": "PARTICLE_SHEET_OPAQUE",
+      "fullbright": false,
+      "aaa_effect": "redorb",
+      "efk": "assets/thermal_shock_reforged/effeks/redorb.efkefc",
+      "texture_dependencies": [
+        "Texture/Particle1.png"
+      ],
+      "target_files_exist": true
+    }
+  ],
+  "death_sequence": {
+    "class": "src/main/java/com/hp/thermalshockreforged/entity/boss/BossDeathSequence.java",
+    "count": 15,
+    "burst_offsets_ticks": [
+      0,
+      3,
+      7,
+      11,
+      15,
+      19,
+      23,
+      27,
+      31,
+      35,
+      39,
+      43,
+      47,
+      51,
+      55
+    ],
+    "evidence": "start emits immediately and sets remaining=3; subsequent bursts set remaining=4. tick skips startedAt game tick and then decrements."
+  },
+  "stage_boundary": {
+    "CavebloomerConfig": "Declared maxHealth/armor/attackDamage/movementSpeed/knockbackResistance/attackKnockback/auraDamageMultiplier/auraHealthFraction, but no reference to CavebloomerConfig.SPEC found outside its declaration in the inspected source tree.",
+    "BossDeathSequence": "Class exists but rg finds no Boss/entity call sites yet.",
+    "pending": [
+      "Boss body and four skills",
+      "Budding Bloomer and Dandybloomer complete chain",
+      "summoning block",
+      "boss-box loot",
+      "WorldCrux advancement/unlock caller",
+      "Bomb configure/fire call sites in Boss attack procedure; current API is registered but not yet called"
+    ],
+    "runtime": "No client/server/game runtime tests were started. This validation does not claim the complete Cavebloomer migration."
+  }
+}

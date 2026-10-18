@@ -565,7 +565,13 @@
       ]
     },
     "mortar_bomb": {
-      "status": "not_migrated"
+      "status": "implemented_pending_attack_chain_and_full_validation",
+      "implementation": "com.hp.thermalshockreforged.entity.cavebloomer.CavebloomerBombEntity",
+      "migration_document": "angry-cavebloomer-batch.md",
+      "pending": [
+        "Angry Cavebloomer完整Boss技能与configure实际发射链",
+        "全模组完成后的服务端、客户端和Render Preview验收"
+      ]
     },
     "louse": {
       "status": "implemented_pending_full_validation",
@@ -720,13 +726,31 @@
       "status": "not_migrated"
     },
     "shock_attack_entity": {
-      "status": "not_migrated"
+      "status": "implemented_pending_attack_chain_and_full_validation",
+      "implementation": "com.hp.thermalshockreforged.entity.cavebloomer.CavebloomerImpactEntity",
+      "migration_document": "angry-cavebloomer-batch.md",
+      "pending": [
+        "Angry Cavebloomer完整Boss技能与configure实际发射链",
+        "全模组完成后的服务端、客户端和Render Preview验收"
+      ]
     },
     "poison_bomb": {
-      "status": "not_migrated"
+      "status": "implemented_pending_attack_chain_and_full_validation",
+      "implementation": "com.hp.thermalshockreforged.entity.cavebloomer.CavebloomerBombEntity",
+      "migration_document": "angry-cavebloomer-batch.md",
+      "pending": [
+        "Angry Cavebloomer完整Boss技能与configure实际发射链",
+        "全模组完成后的服务端、客户端和Render Preview验收"
+      ]
     },
     "poison_attack_entity": {
-      "status": "not_migrated"
+      "status": "implemented_pending_attack_chain_and_full_validation",
+      "implementation": "com.hp.thermalshockreforged.entity.cavebloomer.CavebloomerImpactEntity",
+      "migration_document": "angry-cavebloomer-batch.md",
+      "pending": [
+        "Angry Cavebloomer完整Boss技能与configure实际发射链",
+        "全模组完成后的服务端、客户端和Render Preview验收"
+      ]
     },
     "budding_bloomer": {
       "status": "not_migrated"
