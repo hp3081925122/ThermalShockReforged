@@ -1,0 +1,449 @@
+{
+  "batch": 107,
+  "recipes": 7,
+  "loot_definitions": 1,
+  "files": [
+    {
+      "source": "data/thermal_shock/recipes/disc_1_recipe.json",
+      "source_sha256": "69f3113b2035c0490e13caf76d39de8af0b909ace35cc88b21e8941e214bcc8b",
+      "target": "src/main/resources/data/thermal_shock_reforged/recipe/disc_1_recipe.json",
+      "sha256": "ad2df5b57882f01d8df9fff165f95de3ebc2a86c54e1369afee4019a6618f355",
+      "original_json": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          "aaa",
+          "aba",
+          "aaa"
+        ],
+        "key": {
+          "a": {
+            "item": "thermal_shock:loqendian_disc_shard"
+          },
+          "b": {
+            "item": "thermal_shock:adamantine_spice"
+          }
+        },
+        "result": {
+          "item": "thermal_shock:arctic_warmth",
+          "count": 1
+        }
+      },
+      "target_json": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          "aaa",
+          "aba",
+          "aaa"
+        ],
+        "key": {
+          "a": {
+            "item": "thermal_shock_reforged:loqendian_disc_shard"
+          },
+          "b": {
+            "item": "thermal_shock_reforged:adamantine_spice"
+          }
+        },
+        "result": {
+          "count": 1,
+          "id": "thermal_shock_reforged:arctic_warmth"
+        }
+      }
+    },
+    {
+      "source": "data/thermal_shock/recipes/disc_2_recipe.json",
+      "source_sha256": "cad2309881152b5134cfc98f98e0358301ec6913c5bd7570141f32b56fca3396",
+      "target": "src/main/resources/data/thermal_shock_reforged/recipe/disc_2_recipe.json",
+      "sha256": "aec9071cb0173ec128afb4fa65311692dd057bca2da83a7a8d96f4dec4c5e739",
+      "original_json": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          "aaa",
+          "aba",
+          "aaa"
+        ],
+        "key": {
+          "a": {
+            "item": "thermal_shock:loqendian_disc_shard"
+          },
+          "b": {
+            "item": "thermal_shock:mithral_spice"
+          }
+        },
+        "result": {
+          "item": "thermal_shock:boundless",
+          "count": 1
+        }
+      },
+      "target_json": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          "aaa",
+          "aba",
+          "aaa"
+        ],
+        "key": {
+          "a": {
+            "item": "thermal_shock_reforged:loqendian_disc_shard"
+          },
+          "b": {
+            "item": "thermal_shock_reforged:mithral_spice"
+          }
+        },
+        "result": {
+          "count": 1,
+          "id": "thermal_shock_reforged:boundless"
+        }
+      }
+    },
+    {
+      "source": "data/thermal_shock/recipes/hard_thermology_recipe.json",
+      "source_sha256": "d043e6edefbfb2774eaf6217e4ee6b443ccdaf7d4e0957283a7f7550fd258b1f",
+      "target": "src/main/resources/data/thermal_shock_reforged/recipe/hard_thermology_recipe.json",
+      "sha256": "b03b98cccd1765067d37183340337cca2884e85b9fc2c9f734c003250e8894e5",
+      "original_json": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          "aaa",
+          "aba",
+          "aaa"
+        ],
+        "key": {
+          "a": {
+            "item": "thermal_shock:loqendian_disc_shard"
+          },
+          "b": {
+            "item": "thermal_shock:jellercel_cell"
+          }
+        },
+        "result": {
+          "item": "thermal_shock:hard_thermology_shock",
+          "count": 1
+        }
+      },
+      "target_json": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          "aaa",
+          "aba",
+          "aaa"
+        ],
+        "key": {
+          "a": {
+            "item": "thermal_shock_reforged:loqendian_disc_shard"
+          },
+          "b": {
+            "item": "thermal_shock_reforged:jellercel_cell"
+          }
+        },
+        "result": {
+          "count": 1,
+          "id": "thermal_shock_reforged:hard_thermology_shock"
+        }
+      }
+    },
+    {
+      "source": "data/thermal_shock/recipes/rainbow_coast_recipe.json",
+      "source_sha256": "045e2dd947e2c6da5005718ca47d81ad22fb8800e5b1cb814d01e2b1cba1a67d",
+      "target": "src/main/resources/data/thermal_shock_reforged/recipe/rainbow_coast_recipe.json",
+      "sha256": "5cbe16fe76851ac903055ba9c84385b41ce71a9e28dc01c8189d65fee7b876fd",
+      "original_json": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          "aaa",
+          "aba",
+          "aaa"
+        ],
+        "key": {
+          "a": {
+            "item": "thermal_shock:loqendian_disc_shard"
+          },
+          "b": {
+            "item": "thermal_shock:seaglass_block"
+          }
+        },
+        "result": {
+          "item": "thermal_shock:rainbow_coast",
+          "count": 1
+        }
+      },
+      "target_json": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          "aaa",
+          "aba",
+          "aaa"
+        ],
+        "key": {
+          "a": {
+            "item": "thermal_shock_reforged:loqendian_disc_shard"
+          },
+          "b": {
+            "item": "thermal_shock_reforged:seaglass_block"
+          }
+        },
+        "result": {
+          "count": 1,
+          "id": "thermal_shock_reforged:rainbow_coast"
+        }
+      }
+    },
+    {
+      "source": "data/thermal_shock/recipes/disc_3_recipe.json",
+      "source_sha256": "afc8fe97d2404adfa9744070c0eabf9cf36881133fb0b349a860f8712f64fa93",
+      "target": "src/main/resources/data/thermal_shock_reforged/recipe/disc_3_recipe.json",
+      "sha256": "5172174ff68b0044863525a2fb460a9391da791db8457f108134f44e1fe85acb",
+      "original_json": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          "aaa",
+          "aba",
+          "aaa"
+        ],
+        "key": {
+          "a": {
+            "item": "thermal_shock:loqendian_disc_shard"
+          },
+          "b": {
+            "item": "thermal_shock:tourmaline_spice"
+          }
+        },
+        "result": {
+          "item": "thermal_shock:someplace",
+          "count": 1
+        }
+      },
+      "target_json": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          "aaa",
+          "aba",
+          "aaa"
+        ],
+        "key": {
+          "a": {
+            "item": "thermal_shock_reforged:loqendian_disc_shard"
+          },
+          "b": {
+            "item": "thermal_shock_reforged:tourmaline_spice"
+          }
+        },
+        "result": {
+          "count": 1,
+          "id": "thermal_shock_reforged:someplace"
+        }
+      }
+    },
+    {
+      "source": "data/thermal_shock/recipes/organ_organ_disc_recipe.json",
+      "source_sha256": "874de923cddda1c93c296c9e3350314bc81acf03c8dc838a7d7cdc73840c087d",
+      "target": "src/main/resources/data/thermal_shock_reforged/recipe/organ_organ_disc_recipe.json",
+      "sha256": "61049ea2c425934aa8161b5babe0f37ec985bfa7f328de4f71129634adcaf48f",
+      "original_json": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          " a ",
+          "bcd",
+          " e "
+        ],
+        "key": {
+          "a": {
+            "item": "thermal_shock:infected_flesh"
+          },
+          "b": {
+            "item": "thermal_shock:infected_seeds"
+          },
+          "c": {
+            "item": "thermal_shock:hanahaki"
+          },
+          "d": {
+            "item": "thermal_shock:ashen_bone"
+          },
+          "e": {
+            "item": "thermal_shock:tainted_energy"
+          }
+        },
+        "result": {
+          "item": "thermal_shock:the_organ_organ",
+          "count": 1
+        }
+      },
+      "target_json": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          " a ",
+          "bcd",
+          " e "
+        ],
+        "key": {
+          "a": {
+            "item": "thermal_shock_reforged:infected_flesh"
+          },
+          "b": {
+            "item": "thermal_shock_reforged:infected_seeds"
+          },
+          "c": {
+            "item": "thermal_shock_reforged:hanahaki"
+          },
+          "d": {
+            "item": "thermal_shock_reforged:ashen_bone"
+          },
+          "e": {
+            "item": "thermal_shock_reforged:tainted_energy"
+          }
+        },
+        "result": {
+          "count": 1,
+          "id": "thermal_shock_reforged:the_organ_organ"
+        }
+      }
+    },
+    {
+      "source": "data/thermal_shock/recipes/disc_5_recipe.json",
+      "source_sha256": "b28b95af5517af6df3827aaf54a233e2e61e9e49e4e23c5cb451b14a93aff2cc",
+      "target": "src/main/resources/data/thermal_shock_reforged/recipe/disc_5_recipe.json",
+      "sha256": "1319b981e30c98e06eb0b8444aeeb86a8250fbfe7b098a4476a3d370d97786be",
+      "original_json": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          "aaa",
+          "aba",
+          "aaa"
+        ],
+        "key": {
+          "a": {
+            "item": "thermal_shock:loqendian_disc_shard"
+          },
+          "b": {
+            "item": "thermal_shock:helion_slag"
+          }
+        },
+        "result": {
+          "item": "thermal_shock:three_three_disc",
+          "count": 1
+        }
+      },
+      "target_json": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          "aaa",
+          "aba",
+          "aaa"
+        ],
+        "key": {
+          "a": {
+            "item": "thermal_shock_reforged:loqendian_disc_shard"
+          },
+          "b": {
+            "item": "thermal_shock_reforged:helion_slag"
+          }
+        },
+        "result": {
+          "count": 1,
+          "id": "thermal_shock_reforged:three_three_disc"
+        }
+      }
+    },
+    {
+      "source": "data/thermal_shock/loot_tables/enterloqtablet.json",
+      "source_sha256": "9f82e2fee90cbf1de4a6ce0176a8fe67ecf2fe3febfdba4b64fdb249504ede0e",
+      "target": "src/main/resources/data/thermal_shock_reforged/loot_table/enterloqtablet.json",
+      "sha256": "4382d6bc0b031691de3699030bcda2c9d58f28e40df7958183d048dae457e687",
+      "original_json": {
+        "type": "minecraft:generic",
+        "pools": [
+          {
+            "rolls": 1,
+            "entries": [
+              {
+                "type": "minecraft:item",
+                "name": "thermal_shock:strangers_theme",
+                "weight": 1,
+                "functions": [
+                  {
+                    "function": "set_count",
+                    "count": {
+                      "min": 1,
+                      "max": 1
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "random_sequence": "thermal_shock:enterloqtablet"
+      },
+      "target_json": {
+        "type": "minecraft:generic",
+        "pools": [
+          {
+            "rolls": 1,
+            "entries": [
+              {
+                "type": "minecraft:item",
+                "name": "thermal_shock_reforged:strangers_theme",
+                "weight": 1,
+                "functions": [
+                  {
+                    "function": "set_count",
+                    "count": {
+                      "min": 1,
+                      "max": 1
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "random_sequence": "thermal_shock_reforged:enterloqtablet"
+      }
+    }
+  ],
+  "zh_cn_additions": {
+    "item.thermal_shock_reforged.arctic_warmth": "音乐唱片",
+    "item.thermal_shock_reforged.arctic_warmth.desc": "ThermaDev - Arctic Warmth",
+    "item.thermal_shock_reforged.boundless": "音乐唱片",
+    "item.thermal_shock_reforged.boundless.desc": "ThermaDev - Boundless",
+    "item.thermal_shock_reforged.hard_thermology_shock": "音乐唱片",
+    "item.thermal_shock_reforged.hard_thermology_shock.desc": "ThermaDev - Hard Thermology Shock",
+    "item.thermal_shock_reforged.rainbow_coast": "音乐唱片",
+    "item.thermal_shock_reforged.rainbow_coast.desc": "ThermaDev - Rainbow Coast",
+    "item.thermal_shock_reforged.someplace": "音乐唱片",
+    "item.thermal_shock_reforged.someplace.desc": "ThermaDev - Someplace",
+    "item.thermal_shock_reforged.strangers_theme": "音乐唱片",
+    "item.thermal_shock_reforged.strangers_theme.desc": "ThermaDev - Stranger's Theme",
+    "item.thermal_shock_reforged.the_organ_organ": "音乐唱片",
+    "item.thermal_shock_reforged.the_organ_organ.desc": "ThermaDev - The Organ Organ",
+    "item.thermal_shock_reforged.three_three_disc": "音乐唱片",
+    "item.thermal_shock_reforged.three_three_disc.desc": "ThermaDev - 33",
+    "item.thermal_shock_reforged.azure_grey": "音乐唱片",
+    "item.thermal_shock_reforged.azure_grey.desc": "ThermaDev - Azure Grey",
+    "item.thermal_shock_reforged.phobos_lament": "音乐唱片",
+    "item.thermal_shock_reforged.phobos_lament.desc": "ThermaDev - Phobos' Lament",
+    "item.thermal_shock_reforged.petrichor": "音乐唱片",
+    "item.thermal_shock_reforged.petrichor.desc": "ThermaDev - Petrichor",
+    "item.thermal_shock_reforged.trampling_flowers": "音乐唱片",
+    "item.thermal_shock_reforged.trampling_flowers.desc": "ThermaDev - Trampling Flowers"
+  },
+  "original_entry_notes": [
+    "Seven original shaped recipes preserve complete patterns, ingredients and amounts.",
+    "enterloqtablet is an original loot definition giving strangers_theme, but source Java and advancements have no exact consumer; retain definition and creative manifest without inventing a natural reward.",
+    "thermofebruary gives arctic_warmth_legacy, not regular arctic_warmth; existing table is correct and unchanged."
+  ],
+  "pending": "Unified frozen-input build after A lane completes"
+}

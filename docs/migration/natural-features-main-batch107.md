@@ -1,0 +1,15 @@
+# 第107批主线：十二项完整自然生成链
+
+生产前建立本迁移文档。基线dbd3cc89ae3bc6ae8a34cf2d69ca65d2647b9621，原件Thermal Shock07.9（SHA256见数据清单），目标Minecraft1.21.1 / NeoForge21.1.233 / Java21。迁移A按parallel-batch107.md负责其余25项及两种自定义晶洞，主线唯一负责本文十二项与共享集成。测试聊天由用户独立负责，本线不联系、不启动或等待测试。
+
+本线功能清单：loque_grass、seaglass_patch、seaglass_sprinkle、shale_boulder、short_loque_grass、snow_poff_generation、soapstone_pile、tall_frosted_grass、tundra_islands、tundra_vermillion_tree、vilebath_infected_mass_patch、vilebath_pools。原件每项均有configured_feature、placed_feature和forge/biome_modifier，完整迁入36份JSON；保原生Feature类型、候选方块、全部状态、过滤器、尝试次数、树形、置放顺序、高度、概率、分布与群系，不新增生成入口或改变采样。
+
+生产前已读原36份JSON、目标UniformInt、DiskConfiguration、RandomPatchConfiguration、FoliagePlacer和SpruceFoliagePlacer Codec；IntProvider旧value层需按目标MapCodec展平九处，保原上下界，不能对HeightProvider统一展平。原SpruceFoliage的radius7..12、offset0..2、trunk_height12..18均在目标字段允许范围。原圆盘radius2..4、half_height1亦合法。RandomPatch未显式参数沿目标原生默认值逐项核对，不因文件名改写生成算法。
+
+方块注册存在和同块的其他生成引用不代表这十二项已经注入；须单独核全部目标方块/流体/状态、实际placed与modifier引用和群系依赖。主线不新增重复Java。脚本按固定原JAR哈希读取，以结构化JSON转换；拒绝覆盖已有分歧文件，逐项记录原文件、原/目标哈希、必要schema差异。
+
+验证计划：独立只读对照原JAR全部36份JSON，核namespace/schema差异及注册依赖；两路生产完成停笔后冻结src/main，再统一compileJava/processResources及资源复制核对。此文当前是迁移计划，不代表构建、游戏或渲染已经通过。
+
+本批主线增加独立物品注册闭合：补原八张唱片arctic_warmth、boundless、hard_thermology_shock、rainbow_coast、someplace、strangers_theme、the_organ_organ、three_three_disc及icidrogrunt_spawn_egg。迁移前已确认MusicContent仅七项显式注册，八曲不是现有唱片的同音轨别名；Arctic Warmth与Legacy原音轨不同，不合并。逐项核原比较器值、Forge Supplier重载的tick单位、rarity、堆叠、音频stream、全部模型/纹理/语言和真实来源，再转目标jukeboxPlayable及完整jukebox_song。grunt实体已经完整注册，但原普通刷怪蛋未注册，原色值-1/-1、原模型cryospark_egg须保留。仅补真实物品，不新增配方或世界掉落。上述Java由主线唯一修改，与A晶洞无文件交叉。
+
+本批两路冻结后统一构建及资源核对通过，最终证据main107-static-validation.json；上文待验证为生产阶段记录。客户端/渲染仍待整模组完整后验收。

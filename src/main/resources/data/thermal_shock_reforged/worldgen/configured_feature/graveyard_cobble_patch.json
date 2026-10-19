@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:netherrack_replace_blobs",
+  "config": {
+    "target": {
+      "Name": "thermal_shock_reforged:snowy_shale"
+    },
+    "state": {
+      "Name": "thermal_shock_reforged:mossy_cobbled_shale"
+    },
+    "radius": {
+      "type": "minecraft:uniform",
+      "min_inclusive": 3,
+      "max_inclusive": 4
+    }
+  }
+}

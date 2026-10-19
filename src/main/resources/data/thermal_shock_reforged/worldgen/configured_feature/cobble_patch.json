@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:scattered_ore",
+  "config": {
+    "size": 38,
+    "discard_chance_on_air_exposure": 0,
+    "targets": [
+      {
+        "target": {
+          "predicate_type": "block_match",
+          "block": "thermal_shock_reforged:shale"
+        },
+        "state": {
+          "Name": "thermal_shock_reforged:cobbled_shale"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "block_match",
+          "block": "thermal_shock_reforged:snowy_shale"
+        },
+        "state": {
+          "Name": "thermal_shock_reforged:mossy_cobbled_shale"
+        }
+      }
+    ]
+  }
+}

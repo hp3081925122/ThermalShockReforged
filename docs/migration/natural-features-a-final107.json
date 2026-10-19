@@ -1,0 +1,520 @@
+{
+  "batch": 107,
+  "owner": "迁移A",
+  "status": "本线已冻结停笔，等待主线整批统一构建",
+  "baseline_commit": "dbd3cc89ae3bc6ae8a34cf2d69ca65d2647b9621",
+  "original_jar_sha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436",
+  "production_count": 75,
+  "production_aggregate_sha256": "35920cd6f0fe340e821ecf56121f30b39dff8a20b94a695df0b733eb1f8aab9f",
+  "aggregate_algorithm": "按相对路径排序，每行为sha256+两个ASCII空格+path+LF，对UTF8全文计算SHA256。",
+  "production": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/world/geodes/ConditionalGeodeFeature.java",
+      "bytes": 761,
+      "sha256": "31702f5507e58783b6d3d6bc7ee3b4c22b726e554d55f669345361c528ca8b32"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/world/geodes/GeodeContent.java",
+      "bytes": 797,
+      "sha256": "963818ed74553bef5f692f60975734101398144bdb9f82eb860ec9483e4d7bd0"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/bismuth_geode_biome_modifier.json",
+      "bytes": 279,
+      "sha256": "06c27cbee7d0ac43fe819b84721a32087020b9088ed67c2453ef154abacbf844"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/breather_sponge_generation_biome_modifier.json",
+      "bytes": 192,
+      "sha256": "d34aaf1cc1953444b4a1f8c1a54e0b1bdf934bc1acd6570fac7f1741068c1966"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/cobble_patch_biome_modifier.json",
+      "bytes": 179,
+      "sha256": "b53d419471ab0ed47c2298588801a8451015c12fc0244e3858e177f927eb4d63"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/corroded_rock_generation_biome_modifier.json",
+      "bytes": 239,
+      "sha256": "13d90dff05c0eed055ecdf383d3b02298a43c0f4de9380634cb8d557998fb182"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/dead_trees_biome_modifier.json",
+      "bytes": 360,
+      "sha256": "92da122a69286d9f3e5654bde48edccc06f772b9c49dec3fd6641aa3ad72a539"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/dull_birch_tree_biome_modifier.json",
+      "bytes": 174,
+      "sha256": "e0279f0c7ee6c98d69ad2905999a10b560be27cccffb0d88873812a13b2f9366"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/forest_boulder_biome_modifier.json",
+      "bytes": 281,
+      "sha256": "919dd35707a41303440743b59079fe48ba2741ac8b6866d5a8209ea95ea2a423"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/forest_lake_biome_modifier.json",
+      "bytes": 218,
+      "sha256": "b5b8c09f553359d3d61072a2ab09529e2b22373489de6065d14918cb3d62a8da"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/frigid_crate_feature_biome_modifier.json",
+      "bytes": 184,
+      "sha256": "5bbbc264f1a8a643c8deeeef0b4467a7519279c757b0ce6a2d12a8976e60244b"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/geyser_cluster_biome_modifier.json",
+      "bytes": 364,
+      "sha256": "d82d1a99dd15052de6f078bc16d529de5b6dc1ea03ecb8ae15051d9a4f9eba6e"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/glitter_lotus_plant_biome_modifier.json",
+      "bytes": 376,
+      "sha256": "9f744665b38c2dd89067167cbb7a4642de5ad09ee8b40f09f7e3006d5ac97e6f"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/glittershroom_plant_biome_modifier.json",
+      "bytes": 417,
+      "sha256": "394b0f6dd4ea2fead37d1ea90f43e9eaa09de33d08666a3c75933cd789268d03"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/grassy_shale_patch_biome_modifier.json",
+      "bytes": 288,
+      "sha256": "11adf872a1cbdd5ec81ff29c494151a64a841086163386e54c6354315dd03000"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/graveyard_cobble_patch_biome_modifier.json",
+      "bytes": 185,
+      "sha256": "c350d14745d90f171a64956671855f627422fb72e92b7060e05cebd0627e23d8"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/large_grave_tree_biome_modifier.json",
+      "bytes": 175,
+      "sha256": "49af70381c82a298408a197eee0627dacba1223d1bb58158cf5b4900727b40f1"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/large_tundra_islands_biome_modifier.json",
+      "bytes": 240,
+      "sha256": "c48977a6b389c28f8d7d10347971956f203b9f69fd5794e54c9ec806224b140a"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/large_voltflower_biome_modifier.json",
+      "bytes": 181,
+      "sha256": "1a0f55456aaa849f3d8cbacb9a749bf0cc20f0fb6f89319337526c5991fe8ee3"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/loque_bush_feature_biome_modifier.json",
+      "bytes": 284,
+      "sha256": "b705c42b11d871bd5038b42f25844b6698a1fbe73caba4a5f1d414823cd428e0"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/malachite_geode_biome_modifier.json",
+      "bytes": 281,
+      "sha256": "1b7680def21b734bac86fdbcb10281f41bbb6d0ce9794b9c1cb8950ec2b05862"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/mavros_tree_biome_modifier.json",
+      "bytes": 173,
+      "sha256": "0311d9998219793337bc37f3f3d0df0407198755c03207b4785882fef1f7eccc"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/metallic_debris_generation_biome_modifier.json",
+      "bytes": 190,
+      "sha256": "97c081e135283c84f5256b62608a68bb3203f8ea99e80e0f2013b15a11989d45"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/mossy_shale_patch_b_biome_modifier.json",
+      "bytes": 189,
+      "sha256": "f9be1921fe7df42f8aac56f73e9499569c1d5d9c087fcf3ee29e2d0eb05813a9"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/mossy_shale_patch_biome_modifier.json",
+      "bytes": 187,
+      "sha256": "43a5895f2e3e81b24276115aedce446dde6858b68f788dd0449fc39e5a9db551"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/vilebath_veinroots_biome_modifier.json",
+      "bytes": 177,
+      "sha256": "29871f3c906ff8011330a1186638dd1cc790b3dff375bd7c839fe9bdec6f5014"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/bismuth_geode.json",
+      "bytes": 1291,
+      "sha256": "7aaad62c1ec26f48f63e6c2e008f16175c1922c0fc348c507df819a8223c89bf"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/blu_to_pure_purification.json",
+      "bytes": 245,
+      "sha256": "15671c7c50358804b2197866791783f2688d06a48dcc938007d0d1b4fa761bee"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/breather_sponge_generation.json",
+      "bytes": 213,
+      "sha256": "b5a4348fe52d6d597fad85561e5d5e99a57f0e61a85c980f8f2fcd21a569d8a1"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/cobble_patch.json",
+      "bytes": 604,
+      "sha256": "6db06cc73a2b4c8f0e290afe6233dc818d3d9c3cf431277bc62563ff7abb8a91"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/corroded_rock_generation.json",
+      "bytes": 595,
+      "sha256": "b9fcd1e8a9886ace87375dc06b78103c0ee74468b57dc3cce22fc9c3f4b4d48a"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/dead_trees.json",
+      "bytes": 1670,
+      "sha256": "2b942e7bec56e3b9ac2772f5238efc76f0233f61e11cd593f3f1ef98898e3e8a"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/dull_birch_tree.json",
+      "bytes": 1326,
+      "sha256": "3d2b222eff6c58ed5a22373191834da5cc54bc0894733c104d3c8c01004d7a0f"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/forest_boulder.json",
+      "bytes": 137,
+      "sha256": "1ca8de3404a77dc260a1e644ffd2f1d5381553ff342b8317598be665b73cfa34"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/forest_lake.json",
+      "bytes": 332,
+      "sha256": "7e95e74511e3acf6deae17425a620faaa1d229676a810279509cae271044a03f"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/frigid_crate_feature.json",
+      "bytes": 1158,
+      "sha256": "04445044ef960426775b94162db4ad1684b737ea8b8dd6cf76cd874d03dab75c"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/geyser_cluster.json",
+      "bytes": 210,
+      "sha256": "d8aed3cf2ef363b319ae6b163624da11eea29ac162ac8e82f16877bfa7ccb22a"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/glitter_lotus_plant.json",
+      "bytes": 1082,
+      "sha256": "ef9bd7747a7a29288f9f87316a49ef8f12418ade263de758b4245a20fca5d77c"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/glittershroom_plant.json",
+      "bytes": 1220,
+      "sha256": "13b601442218b47bc8d92321620ed23073091b6a2b1f8c15d76518c8ccafd8b9"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/grassy_shale_patch.json",
+      "bytes": 326,
+      "sha256": "23a4331d7e5a27d384aed5add417bca877fe59eb1863eebf80ba87205747d27d"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/graveyard_cobble_patch.json",
+      "bytes": 333,
+      "sha256": "8cffac59c4a26aa0b4558bacdd759266f7c9e271f68e470cdc2a4432a0ee208e"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/large_grave_tree.json",
+      "bytes": 1696,
+      "sha256": "11e0f45a933b77a729b76f094e541e54977161fefe1254064e339dd67abcd8bd"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/large_tundra_islands.json",
+      "bytes": 2699,
+      "sha256": "8464e8c93ba8102d56138c7acf19e14446857db5901306a115f3a1e44197d747"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/large_voltflower.json",
+      "bytes": 774,
+      "sha256": "2d3dd9370e0998b6ed2919958bcb1c2a001a668a1a96b54f903f24305edab186"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/loque_bush_feature.json",
+      "bytes": 1008,
+      "sha256": "0e9f8249097d4ecc20713d37d282c52cd17eae11e71ff12f6c8df7f5b493e59c"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/malachite_geode.json",
+      "bytes": 1295,
+      "sha256": "011fbbbdcf89bdcf87b46ac9afa5e2cf33d520c04e01c160d88d853ba631f322"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/mavros_tree.json",
+      "bytes": 1682,
+      "sha256": "b538bd890b84710dd1383e0849a1ba9915a059b9c525c92dc3bca43729f3fc82"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/metallic_debris_generation.json",
+      "bytes": 217,
+      "sha256": "64f5206169850ba2fb3701a28d584a2ce112b92ee3a055b67c839f31507b9037"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/mossy_shale_patch.json",
+      "bytes": 238,
+      "sha256": "92065fb4978235e7883415b7964b4a2f2bcaba583e56c15bfde2f658ff2b60bb"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/mossy_shale_patch_b.json",
+      "bytes": 239,
+      "sha256": "b1bd799ab761e493eb0510cb21ae0b6c8c26f353103d0e7c14c95632063db599"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/vilebath_veinroots.json",
+      "bytes": 1604,
+      "sha256": "ef479d81d09f4e65abbff234b05eddaa6080a5c7993db52e3a35bdf209fc7f6c"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/bismuth_geode.json",
+      "bytes": 488,
+      "sha256": "a31170109e00ba1ff2878e06d831930ded191648b6467a2ed87f6c47b8df536e"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/breather_sponge_generation.json",
+      "bytes": 671,
+      "sha256": "69155fcaee90c44e2c418e92b960978a22bcb990925d2630b018f1ced0fc9138"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/cobble_patch.json",
+      "bytes": 715,
+      "sha256": "ab1c4d910bf4448bb2daeadfc6405e8c9aca7a1067136f730272b459341f2ece"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/corroded_rock_generation.json",
+      "bytes": 490,
+      "sha256": "3991ba1d86b2a29602341440dea0b9564158218e9226c58457ebb99e58871239"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/dead_trees.json",
+      "bytes": 729,
+      "sha256": "714ba9737e1dd423c7e185e993532d82a779b88261ba79bc290d87d8ebf0ad67"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/dull_birch_tree.json",
+      "bytes": 970,
+      "sha256": "11aa2f0e850893601610f47e6f70e618c0b4af6c802c97bec44d503717d10758"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/forest_boulder.json",
+      "bytes": 655,
+      "sha256": "4e1ac8acd41623bc60a9cd702ce113c152c57272b7e6f2b6c978e92429a9cbea"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/forest_lake.json",
+      "bytes": 630,
+      "sha256": "14071e22c64346ee1106791ff923b40385f1977aed8c0cd2d132382425bb33d1"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/frigid_crate_feature.json",
+      "bytes": 492,
+      "sha256": "77a2433dde2ae4400f1cd262e3d2004645e30adcdd5359a7fc8de924196266c3"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/geyser_cluster.json",
+      "bytes": 593,
+      "sha256": "7692dd40af128b464a15ad07948023762c7f1e65ad597d0d4a66430611208ae7"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/glitter_lotus_plant.json",
+      "bytes": 582,
+      "sha256": "0a071dfbce2edcd1d1300439f5b559d16ae4f7d4593a2587a27cdb2a03391fda"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/glittershroom_plant.json",
+      "bytes": 582,
+      "sha256": "590535198eceea182db8cdfb0586ff383cc2757a6cb7c33b5110153c64dd6afb"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/grassy_shale_patch.json",
+      "bytes": 1138,
+      "sha256": "52310eda30288586dbcfb3a0d761f806f34e5ba23c10a6584b1ef63208054ed9"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/graveyard_cobble_patch.json",
+      "bytes": 657,
+      "sha256": "6cb1e969c9f84a54a91baf88b20c17a05907c6d9d355dc5289c71f8079f94e80"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/large_grave_tree.json",
+      "bytes": 424,
+      "sha256": "bfa3bc692216af07bff3f5c82e3119932265923e1059d12c0cb0d2bc6df242ab"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/large_tundra_islands.json",
+      "bytes": 734,
+      "sha256": "6c2035569f10b4d42b0422fc15fb43408d61d991d8d99c289b30120e95b2aa55"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/large_voltflower.json",
+      "bytes": 958,
+      "sha256": "2d1a4f645151bcf26cba5db96ba8dcdb12256889b855f444e93175c279d6c3c8"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/loque_bush_feature.json",
+      "bytes": 914,
+      "sha256": "8a804747a9fd08f23e998a595a4e7eb640aca169197ce7160a8e8bc58a02415e"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/malachite_geode.json",
+      "bytes": 490,
+      "sha256": "100912c4dc3c12d50245b1ae1213b08dd81033d4f3dfd2fb018cca70cb1406f0"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/mavros_tree.json",
+      "bytes": 857,
+      "sha256": "2ad654f51b4a7b17eb003a30e4b03ef30b7803e2de4755269daaa230b468d3cf"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/metallic_debris_generation.json",
+      "bytes": 1018,
+      "sha256": "7648d32b57220ba0d8e7ee9ba2c8d62e70b539e4ca3573bd6c33c5e1a6e9b993"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/mossy_shale_patch.json",
+      "bytes": 780,
+      "sha256": "c8774a91b006459094cd5da1a7f7921a9dedabd82c633b617f32f1e449dffacb"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/mossy_shale_patch_b.json",
+      "bytes": 490,
+      "sha256": "61878e6d9a6181633c6a64a28dfe60f683b88917bd50db719c0b84ff88fa20c0"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/vilebath_veinroots.json",
+      "bytes": 887,
+      "sha256": "19c1dffaa8329b7f340390c8ba8ec6eaba644c7e0fde9d9530325d805a1e8a04"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/migration/natural-features-a-assets107.json",
+      "bytes": 51023,
+      "sha256": "9fed993c77b1673be1d1dc2108f7f7429569b328d09a1f4fe8d6d07655a1e5bf"
+    },
+    {
+      "path": "docs/migration/natural-features-a-batch107.md",
+      "bytes": 6443,
+      "sha256": "eedec9d0ebf864201a74ae099d8b96c8330c3d62e7657ce04842f5fe0d698e3c"
+    },
+    {
+      "path": "docs/migration/natural-features-a-data107.json",
+      "bytes": 166098,
+      "sha256": "413ad27c54cb87c42aa7db7ac6d83ff8d74f3a5d8540edabf0a86a2173d8ce4c"
+    },
+    {
+      "path": "docs/migration/natural-features-a-integration107.json",
+      "bytes": 2510,
+      "sha256": "b1203969f27b5fe8d9d931779fc05a4ac683f3ddf217c8b2f6d97ef848587961"
+    },
+    {
+      "path": "docs/migration/natural-features-a-sources107.json",
+      "bytes": 171436,
+      "sha256": "f104eb17e3950cf1e757d737ea3e485c3e9972ae91fa3fff05c0565373acc377"
+    },
+    {
+      "path": "docs/migration/natural-features-a-validation107.json",
+      "bytes": 398189,
+      "sha256": "fc4d28c2099dc1ce4be96aaaf3b21e6929b7c5381c0cd970c64ae4e213cb6566"
+    }
+  ],
+  "reproduction_scripts": [
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\inspect-natural107a.py",
+      "bytes": 2519,
+      "sha256": "50a7e552df5faff44829a75b43584c6575d46a4c1db07725181eb2a48461b5f4"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\inspect-codecs107a.py",
+      "bytes": 5247,
+      "sha256": "197da46f1f5fb6f9bd43af6ab78e0ad83910a00aa4285913d53e686a48da05cc"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\produce-natural107a.py",
+      "bytes": 3675,
+      "sha256": "15aaaaa418032f30fc9339f27b6678561dafb6fe93735d3a2c543a913c24f1c1"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\validate-natural107a.py",
+      "bytes": 23772,
+      "sha256": "c4436dbdead83d691cba115e4f742aa9835dffceb7ea8a1064dc2a43c305f216"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\check-sources-natural107a.py",
+      "bytes": 11829,
+      "sha256": "384067f2d6f2229fa1c311a7b23bc8c48e033981cafd4f961d92521d35b5c072"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\finalize-natural107a.py",
+      "bytes": 5663,
+      "sha256": "f953afe12f1883ea608f24509c81541149deda2147541692c61bfe9b85bc7dad"
+    }
+  ],
+  "validation_summary": {
+    "json_files": 73,
+    "java_files": 2,
+    "configured_features": 25,
+    "placed_features": 24,
+    "biome_modifiers": 24,
+    "uniform_codec_conversions": 22,
+    "configuration_dependencies_behavior_checks": 1902,
+    "class_header_checks": 4577,
+    "checks_total": 6479,
+    "block_registrations": 40,
+    "state_occurrences": 61,
+    "reused_asset_files": 126,
+    "vanilla_source_pairs": 92,
+    "normalized_methods_equal": 19
+  },
+  "shared_increments": {
+    "root_call": {
+      "file": "src/main/java/com/hp/thermalshockreforged/ThermalShockReforged.java",
+      "insert_after": "com.hp.thermalshockreforged.world.ore.OreContent.register(bus);",
+      "statement": "com.hp.thermalshockreforged.world.geodes.GeodeContent.register(bus);",
+      "reason": "注册真实原自定义晶洞，孔雀石依赖oreTier2=1，铋依赖oreTier2=2；不替代或重复矿石Feature。",
+      "integrated_by_main": true,
+      "verified_exactly_one_call": true
+    },
+    "language": [],
+    "tags": [],
+    "reforged_changes": [
+      "恢复24项原真实自然来源的configured/placed/群系注入链及孤立净化配置定义，包含两种按原世界矿种进度短路的完整原生晶洞。生成参数、放置顺序、全部内联候选及随机时机不改。",
+      "22处旧整数UniformInt的value包装展平至1.21.1 MapCodec形状；保闭区间与均匀分布，不误改HeightProvider或樱花分枝起点的直接UniformInt编码。"
+    ]
+  },
+  "purification": {
+    "original_classes_scanned": 4577,
+    "procedure_class_callers": [],
+    "feature_id_constant_pool_occurrences": [
+      {
+        "source": "net/mcreator/thermal_shock/procedures/HelionStabilizerOnBlockRightClickedProcedure.class",
+        "utf8": "thermal_shock:blu_to_pure_purification"
+      }
+    ],
+    "matching_nonclass_assets": [
+      "data/thermal_shock/worldgen/configured_feature/blu_to_pure_purification.json"
+    ],
+    "direct_source_consumers": [
+      {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\HelionStabilizerOnBlockRightClickedProcedure.java",
+        "id": "blu_to_pure_purification",
+        "sha256": "a360eba7136bf673488befe2b791f0fc7d8f9da25a4861d633d707a3cdb2dfc6"
+      }
+    ],
+    "conclusion": "保留仅配置定义；不创建原不存在的自然入口或可交互稳定器。"
+  },
+  "parameter_changes": [],
+  "ownership": "仅本线73份JSON及world/geodes两份Java；根入口由主线写入，本线证据记录其已接入状态。",
+  "validation_limits": [
+    "未独立运行Gradle/编译/目标Codec运行时解码。",
+    "未执行服务端、客户端或Render Preview测试。",
+    "未stage、commit或接触独立测试聊天。",
+    "第108批仅预分工，未作任何生产修改。",
+    "全仓diff检查曾报告主线编辑的中文语言CRLF尾部空白；本线75份生产UTF8、LF与无尾部空白独立核验通过。"
+  ],
+  "final_testing_arrangement": {
+    "client_status": "待验，当前不提前启动客户端",
+    "client_gate": "全部代码完整迁移并通过无简化复审",
+    "client_owner": "主线安排子代理执行客户端及Render Preview完整原件对照",
+    "server_status": "独立测试进行中，未据此认定通过",
+    "server_boundary": "本线不联系、不干预独立服务端测试"
+  }
+}

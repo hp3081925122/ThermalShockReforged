@@ -1,0 +1,103 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": {
+        "type": "minecraft:ore",
+        "config": {
+          "size": 37,
+          "discard_chance_on_air_exposure": 0,
+          "targets": [
+            {
+              "target": {
+                "predicate_type": "block_match",
+                "block": "minecraft:water"
+              },
+              "state": {
+                "Name": "thermal_shock_reforged:frostrock"
+              }
+            },
+            {
+              "target": {
+                "predicate_type": "block_match",
+                "block": "minecraft:air"
+              },
+              "state": {
+                "Name": "thermal_shock_reforged:permafrost"
+              }
+            }
+          ]
+        }
+      },
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.7,
+        "feature": {
+          "feature": {
+            "type": "minecraft:ore",
+            "config": {
+              "size": 37,
+              "discard_chance_on_air_exposure": 0,
+              "targets": [
+                {
+                  "target": {
+                    "predicate_type": "block_match",
+                    "block": "minecraft:water"
+                  },
+                  "state": {
+                    "Name": "thermal_shock_reforged:frostrock"
+                  }
+                },
+                {
+                  "target": {
+                    "predicate_type": "block_match",
+                    "block": "minecraft:air"
+                  },
+                  "state": {
+                    "Name": "thermal_shock_reforged:permafrost"
+                  }
+                }
+              ]
+            }
+          },
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.3,
+        "feature": {
+          "feature": {
+            "type": "minecraft:ore",
+            "config": {
+              "size": 34,
+              "discard_chance_on_air_exposure": 0,
+              "targets": [
+                {
+                  "target": {
+                    "predicate_type": "block_match",
+                    "block": "minecraft:water"
+                  },
+                  "state": {
+                    "Name": "thermal_shock_reforged:permafrost"
+                  }
+                },
+                {
+                  "target": {
+                    "predicate_type": "block_match",
+                    "block": "minecraft:air"
+                  },
+                  "state": {
+                    "Name": "thermal_shock_reforged:slush"
+                  }
+                }
+              ]
+            }
+          },
+          "placement": []
+        }
+      }
+    ]
+  }
+}
