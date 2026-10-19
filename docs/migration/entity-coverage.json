@@ -414,7 +414,16 @@
       ]
     },
     "lil_jelly": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshockreforged.entity.legacy.LilJellyEntity",
+      "migration_document": "lil-jelly-canister-batch.md",
+      "static_evidence": "seventyseventh-lil-jelly-static-validation.json",
+      "pending": [
+        "完整Fabricator制造页面/正常制造来源",
+        "两恢复自定义标签的下一组合并资源构建",
+        "整模组完整后服务端全部交互/射击/免疫/重载边界测试",
+        "Render Preview完整idle/head/透明显示对照"
+      ]
     },
     "giant_laser_test": {
       "status": "not_migrated"
