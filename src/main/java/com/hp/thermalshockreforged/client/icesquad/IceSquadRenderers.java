@@ -21,6 +21,7 @@ public final class IceSquadRenderers {
     public static void register(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(IceSquadContent.GRUNT.get(), context -> new Renderer(context, "icidrosentinel", "head", 0.9F, 0.5F, "gruntglow"));
         event.registerEntityRenderer(IceSquadContent.STRIDER_ATTACK.get(), ThrownItemRenderer::new);
+        event.registerEntityRenderer(IceSquadContent.CRYONIC_PROJECTILE.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(IceSquadContent.ALT_CRYONIC_PROJECTILE.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(IceSquadContent.GUNNER_BULLET.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(IceSquadContent.BURNER_FLAME.get(), ThrownItemRenderer::new);
