@@ -1,0 +1,122 @@
+{
+  "scope": "原物品/调用过程/队列时序/完整AAA及模型声音静态对照；不等于游戏或性能实测",
+  "runtime_tests": "pending_full_mod_migration_primary_agent_only",
+  "summary": {
+    "real_weapons": 1,
+    "full_original_assets_including_aaa_texture_and_audio": 12,
+    "data_build_paths": 7,
+    "fabrication_output_closed": "buzzsaw"
+  },
+  "original_behavior": {
+    "durability": 1350,
+    "rarity": "UNCOMMON",
+    "enchantability": 5,
+    "no_extra_durability_consumption": true,
+    "player_cooldown": 11,
+    "self_dash": "look.x/0.1/look.z，客户端预测和服务器权威同步",
+    "damage_stages": [
+      "immediate",
+      1,
+      2,
+      3,
+      4
+    ],
+    "center": "逐次使用者当前位置",
+    "targets": "inflate1 AABB中所有Entity距排序，原排Player；额外排新载体和使用者UUID",
+    "damage_each": "2 ownerless therm_iframe_bypass",
+    "sound": "buzzsaw NEUTRAL 0.7/1，全三音频",
+    "particles": "每目标眼位一完整BloodSplatter AAA，初始脚位一Campfire Cosy Smoke，保方向和数量",
+    "clips": {
+      "0": {
+        "loop": true,
+        "animation_length": 1
+      },
+      "1": {
+        "animation_length": 0.5
+      }
+    }
+  },
+  "intentional_changes": [
+    "非玩家使用者不再锯到自己",
+    "声音仅服务器广播一次，完整血液/烟雾广播给旁观者，保客户端冲刺预测",
+    "死亡/卸载/换维或原实体ID失效时停止后续移动锯击；重启后旧实体ID不匹配也安全取消"
+  ],
+  "implementation": {
+    "finite_saved_task_end": 4,
+    "same_live_owner_uuid_and_entity_id": true,
+    "no_strong_entity_reference": true,
+    "no_global_entity_scan": true,
+    "no_chunk_force": true,
+    "noop_renderer_registered": true,
+    "actual_animation_cache_cleanup": true,
+    "english_debug_logs": true
+  },
+  "assets": [
+    {
+      "path": "geo/buzzsaw.geo.json",
+      "sha256": "cb3260fdb987ef44fca01909ce410fa8d092706e925fb1b10831aeb5724f07cb"
+    },
+    {
+      "path": "animations/buzzsaw.animation.json",
+      "sha256": "5f0d30e51670e077238f0a4d9a4a26a815a06f7f6bb36f072c493ee7d1861eb0"
+    },
+    {
+      "path": "textures/item/buzzsaw.png",
+      "sha256": "33bf2181a1ec106af6b134803bbf8b597ff0f5921c970f5bf91c1556ad20f2fe"
+    },
+    {
+      "path": "models/item/buzzsaw.json",
+      "sha256": "f11cbf7a2b45583b48a07bb0cca9a7c9df3bf8e912ee1b8cca84641f82b159e0"
+    },
+    {
+      "path": "particles/blood_splatter.json",
+      "sha256": "89fdc8d9491df5ace3249caee05290d754668d1ea90434d5deede604885c3cb5"
+    },
+    {
+      "path": "effeks/bloodsplatter.efkefc",
+      "sha256": "ea289baab2d203a72e77bf987ddc746d1c1134e54110613ad5aa3ec24d2b742a"
+    },
+    {
+      "path": "models/displaysettings/buzzsaw.json",
+      "sha256": "5ebdca97aac7bf2981c3741e3551ba3555ead86d99bfcc7fba586439953049e8"
+    },
+    {
+      "path": "textures/particle/blood_splatter.png",
+      "sha256": "7074f74f39a8ad752db14a876089e9867d92b2425c37a6d44a74660f900a877d"
+    },
+    {
+      "path": "sounds/buzzsaw1.ogg",
+      "sha256": "5c0d4e50eec3cb711b222ba2ed13d995fdd98887abf776e65f9e3b57a828030f"
+    },
+    {
+      "path": "sounds/buzzsaw2.ogg",
+      "sha256": "6e5f613b97e73567a1b4016b609759f9ed4649a6214419a6128bd367f22abe13"
+    },
+    {
+      "path": "sounds/buzzsaw3.ogg",
+      "sha256": "44ba6d0c28de7d36384e991e2bec706279ded09f5883aaccd040bb5b9c2ce6c9"
+    },
+    {
+      "path": "effeks/Texture/Blood Splot.png",
+      "sha256": "17a91b6bacee13a6d4b8cc1666b9ee837c9b06ecc339dd050636409b650fb6f3"
+    }
+  ],
+  "data_build_paths": [
+    "assets/thermal_shock_reforged/sounds.json",
+    "data/thermal_shock_reforged/recipe/fabrication/buzzsaw.json",
+    "data/minecraft/tags/item/enchantable/durability.json",
+    "data/thermal_shock_reforged/tags/item/nomelee.json",
+    "data/thermal_shock_reforged/tags/item/weapon.json",
+    "assets/thermal_shock_reforged/lang/en_us.json",
+    "assets/thermal_shock_reforged/lang/zh_cn.json"
+  ],
+  "build": {
+    "compileJava_processResources": "passed",
+    "subagents": false,
+    "game_runtime_started": false
+  },
+  "pending": [
+    "其他真实制造产物、全局元素与世界/NPC剩余缺口",
+    "整模组完成后确认五轮位置、非玩家自伤、CD、多人声画、死亡/换维取消与Render Preview"
+  ]
+}

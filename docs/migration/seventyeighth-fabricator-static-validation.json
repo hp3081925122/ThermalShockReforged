@@ -338,7 +338,7 @@
       "page": "BuzzsawPage",
       "output": "thermal_shock_reforged:buzzsaw",
       "materials_match_original_actual_removal": true,
-      "active": false,
+      "active": true,
       "original_threshold_mismatch_fixed": false
     },
     {
@@ -578,11 +578,10 @@
     "buttons": 68,
     "textures": 36,
     "defined_recipes": 31,
-    "active_closed_recipes": 25,
-    "pending_real_output_implementation": 6,
+    "active_closed_recipes": 26,
+    "pending_real_output_implementation": 5,
     "all_active_recipe_references_have_registration_evidence": true,
     "pending_recipe_outputs": [
-      "thermal_shock_reforged:buzzsaw",
       "thermal_shock_reforged:liteprism_disk",
       "thermal_shock_reforged:liteprism_laser",
       "thermal_shock_reforged:propulsion_boots_boots",
