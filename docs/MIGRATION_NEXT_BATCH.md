@@ -148,3 +148,5 @@ Spectre 已接完整实体、原0.3速度/仰角0.1/5基础箭伤/零击退音�
 
 
 第80批由主对话迁入Shock Stick与Knight's Edge真实近战/use、原7/9弱点伤害、5 SERVER END带电240/amp1或10伤害充能爆破、原范围和排除项、100tick右键CD及18/12/25难度窗口；复用既有Parrying/Charge40与防递归Electrified传导，不擅改原未取消主伤或充能期间可多次命中的规则。完整两Hit AAA与九帧BluePlus、原Shock两帧mcmeta和Knight定制几何、34原资产和六数据构建副本静态通过；两有限任务补NoopRenderer。较大代码组统一Java/资源编译通过；两制造产物启用后Fabricator现21活动、10待实际实现。详见shock-knights-blades-batch.md和eightieth-blades-static-validation.json。全局元素其余分支、Qo来源、Vilebath/Concierge及其余未迁模块仍待，整模组未完整，最终两端/Render Preview留到全代码完成后主对话执行；无子代理、未启游戏。
+
+接续第81批见migration/gauntlet-volcano-next-audit.md：已核Zerker Gauntlet实际titanium_mace入口、击飞/挥手80CD与杀Icidrozerk挑战；Volcano入口字节码确认玩家/弹药门槛、原五发（立即＋1/2/3/4 END）、16/20 END装填声、固定出生点与逐发look、速度4/伤害3/散布20/pierce2，不能套既有辅助shoot。原两个Geo、双手动画工厂、变换/ArmPose与源标签已审，尚未写本批代码；继续完成真实有限连射任务和安全归属方案后统一编译。
