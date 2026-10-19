@@ -35,6 +35,7 @@ public final class GeoDecorContent {
                 case CAPSULE -> new CapsuleBlock();
                 case ATLAS -> new com.hp.thermalshockreforged.content.atlas.AtlasBlock();
                 case DESK_DIRECTOR -> new DeskDirectorBlock();
+                case FABRICATOR -> new FabricatorBlock();
                 case CRYONIC_CACHE, SUPER_CRYONIC_CACHE -> new CryonicCacheBlock(kind);
                 case ENCHANTED_CACHE -> new EnchantedCacheBlock();
                 case SHALE_POT -> new ShalePotBlock();

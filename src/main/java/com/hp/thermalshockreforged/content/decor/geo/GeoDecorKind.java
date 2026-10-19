@@ -8,6 +8,7 @@ import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.shapes.*;
 
 public enum GeoDecorKind {
+    FABRICATOR("fabricator", "Fabricator", "geo/fabricator.geo.json", "textures/block/texturefabricator.png", "animations/fabricator.animation.json", Block.box(.1, .1, .1, 15.9, 14, 15.9), false, true),
     CRYSTAL_SOPEL_TROPHY("crystal_sopel_trophy", "Crystal Sopel Trophy", "geo/sopel_relic.geo.json", "textures/block/rubicon_trophy.png", "animations/sopel_relic.animation.json", Shapes.block(), true, false),
     DESK_DIRECTOR("desk_director", "Desk Director", "geo/sopel_desk.geo.json", "textures/block/sopel_desk.png", "animations/sopel_desk.animation.json", Block.box(-16, .1, -16, 32, 15.9, 32), true, false),
     SUPER_CRYONIC_CACHE("super_cryonic_cache", "Super Cryonic Cache", "geo/enchanted_cache.geo.json", "textures/block/supercache.png", "animations/enchanted_cache.animation.json", Block.box(0, 0, 0, 16, 28, 16), false, false),
@@ -112,6 +113,7 @@ public enum GeoDecorKind {
             case CAPSULE -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).sound(SoundType.BASALT).strength(-1, 3600000).requiresCorrectToolForDrops().noOcclusion().pushReaction(PushReaction.BLOCK).isRedstoneConductor((state, level, pos) -> false);
             case ATLAS -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).sound(SoundType.STONE).strength(3, 100).lightLevel(state -> 15).requiresCorrectToolForDrops().noCollission().pushReaction(PushReaction.BLOCK);
             case CRYSTAL_SOPEL_TROPHY -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).sound(SoundType.COPPER).strength(1, 10).lightLevel(state -> 7).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((state, level, pos) -> false);
+            case FABRICATOR -> BlockBehaviour.Properties.of().mapColor(MapColor.METAL).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.LODESTONE).strength(10, 999).lightLevel(state -> 13).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((state, level, pos) -> false);
             case DESK_DIRECTOR -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).sound(SoundType.STONE).strength(-1, 3600000).noOcclusion().isRedstoneConductor((state, level, pos) -> false);
             case SUPER_CRYONIC_CACHE -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.AMETHYST_CLUSTER).strength(-1, 3600000).lightLevel(state -> 12).noOcclusion().pushReaction(PushReaction.BLOCK).isRedstoneConductor((state, level, pos) -> false).noLootTable();
             case ENCHANTED_CACHE, CRYONIC_CACHE -> BlockBehaviour.Properties.of().mapColor(this == CRYONIC_CACHE ? MapColor.ICE : MapColor.COLOR_LIGHT_GREEN).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.AMETHYST_CLUSTER).strength(-1, 3600000).lightLevel(state -> 12).noOcclusion().pushReaction(PushReaction.BLOCK).isRedstoneConductor((state, level, pos) -> false).noLootTable();

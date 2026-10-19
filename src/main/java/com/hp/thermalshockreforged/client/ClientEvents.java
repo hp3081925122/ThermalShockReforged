@@ -55,6 +55,7 @@ import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 public final class ClientEvents {
     @SubscribeEvent
     public static void renderers(EntityRenderersEvent.RegisterRenderers event) {
+        com.hp.thermalshockreforged.client.weapons.FirearmBulletRenderer.register(event);
         event.registerEntityRenderer(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.CORE_ACTIVATION.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.FIRE_BOMB_ACTIVATION.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.GUARDIAN_PYLON.get(), com.hp.thermalshockreforged.client.sanctum.GuardianPylonRenderer::new);
@@ -93,6 +94,7 @@ public final class ClientEvents {
         HuntersRenderers.register(event);
         IceRenderers.register(event);
         IceSquadRenderers.register(event);
+        com.hp.thermalshockreforged.client.protoi.ProtoiRenderers.register(event);
         StriderRenderers.register(event);
         BastionRenderers.register(event);
         PodRenderers.register(event);
@@ -108,6 +110,8 @@ public final class ClientEvents {
         event.registerEntityRenderer(ModEntities.GALVANITE.get(), GalvaniteRenderer::new);
         event.registerEntityRenderer(ModEntities.ZAP.get(), InvisibleWarningRenderer::new);
     }
+    @SubscribeEvent
+    public static void firearmLayers(EntityRenderersEvent.RegisterLayerDefinitions event) { com.hp.thermalshockreforged.client.weapons.FirearmBulletRenderer.layers(event); }
 
     @SubscribeEvent
     public static void dimensionEffects(net.neoforged.neoforge.client.event.RegisterDimensionSpecialEffectsEvent event) {
@@ -134,6 +138,7 @@ public final class ClientEvents {
         com.hp.thermalshockreforged.client.dialogue.DialogueScreen.register(event);
         event.register(NativeDecorContent.DESK_PHOTO_SCREEN.get(), DeskPhotoScreen::new);
         event.register(com.hp.thermalshockreforged.content.atlas.AtlasContent.MENU.get(), com.hp.thermalshockreforged.client.atlas.AtlasScreen::new);
+        event.register(com.hp.thermalshockreforged.content.decor.nativeblocks.NativeDecorContent.FABRICATOR_MENU.get(), com.hp.thermalshockreforged.client.decor.FabricatorScreen::new);
     }
 
     @SubscribeEvent

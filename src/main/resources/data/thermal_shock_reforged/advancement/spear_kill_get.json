@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "id": "thermal_shock_reforged:ruby_spear"
+    },
+    "title": {
+      "translate": "advancements.spear_kill_get.title"
+    },
+    "description": {
+      "translate": "advancements.spear_kill_get.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "spear_kill_get_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "thermal_shock_reforged:ruby_get"
+}

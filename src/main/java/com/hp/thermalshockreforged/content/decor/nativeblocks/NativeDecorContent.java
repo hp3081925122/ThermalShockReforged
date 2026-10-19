@@ -18,18 +18,21 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import net.neoforged.neoforge.common.extensions.IMenuTypeExtension;
 
 public final class NativeDecorContent {
     private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(Registries.MENU, ThermalShockReforged.MOD_ID);
     public static final DeferredHolder<MenuType<?>, MenuType<DeskPhotoMenu>> DESK_PHOTO_SCREEN = MENUS.register("desk_photo_screen", () -> new MenuType<>(DeskPhotoMenu::new, FeatureFlags.DEFAULT_FLAGS));
+    public static final DeferredHolder<MenuType<?>, MenuType<com.hp.thermalshockreforged.content.decor.geo.FabricatorMenu>> FABRICATOR_MENU = MENUS.register("fabricator_guide", () -> IMenuTypeExtension.create(com.hp.thermalshockreforged.content.decor.geo.FabricatorMenu::new));
     public static final DeferredBlock<Block> SPICE_GEYSER = BLOCKS.register("spice_geyser", SpiceGeyserBlock::new);
     public static final DeferredBlock<Block> ROCK_CLIMBING_WALL = BLOCKS.register("rock_climbing_wall", () -> new RockClimbingWallBlock());
     public static final DeferredBlock<Block> BRICK_CLIMBING_WALL = BLOCKS.register("brick_climbing_wall", () -> new RockClimbingWallBlock(MapColor.STONE));
     public static final DeferredBlock<Block> MANTLESLAG = BLOCKS.register("mantleslag", MantleslagBlock::new);
     public static final DeferredBlock<Block> PHASER = BLOCKS.register("phaser", PhaserBlock::new);
     public static final DeferredBlock<Block> LAPIDARIAN_WORKBENCH = BLOCKS.register("lapidarian_workbench", LapidarianWorkbenchBlock::new);
+    public static final DeferredBlock<Block> FABRICATOR_CONSTRUCTOR = BLOCKS.register("fabricator_constructor", FabricatorConstructorBlock::new);
     public static final DeferredBlock<Block> BOUNCER = BLOCKS.register("bouncer", BounceBlocks.Full::new);
     public static final DeferredBlock<Block> LITTLE_SPRING = BLOCKS.register("little_spring", () -> new BounceBlocks.Slab(false));
     public static final DeferredBlock<Block> SUPERBOUNCER = BLOCKS.register("superbouncer", () -> new BounceBlocks.Slab(true));
@@ -94,6 +97,7 @@ public final class NativeDecorContent {
 
     static {
         ITEMS.registerSimpleBlockItem(LAPIDARIAN_WORKBENCH);
+        ITEMS.registerSimpleBlockItem(FABRICATOR_CONSTRUCTOR);
         for (var block : List.of(SPICE_GEYSER, ROCK_CLIMBING_WALL, BRICK_CLIMBING_WALL, MANTLESLAG, PHASER, BOUNCER, LITTLE_SPRING, SUPERBOUNCER, TRAIN_TERMINAL, CHISELED_MANTLESTONE, RED_CRYSTALLEYE_LAMP, BLUE_CRYSTALLEYE_LAMP, THERMITE, SHALE_LAMP, CHROMATIC_SHALE_LAMP, DESK_PHOTO, ICICLES, GLITTERDROP_ICICLE, GLITTER_LOTUS, GLOWCAP, VERMILLI_PLANKS, SNOWY_PERMAFROST, MUCK, SPIRE_BASE, OCHRE_PLANKS, MOSSY_COBBLED_SHALE, BORDERED_VERMILLION_PLANKS, BORDERED_OCHRE_PLANKS, SHIVERGLITTER_PLANKS, BORDERED_SHIVERGLITTER_PLANKS, SPARKLY_MUCK, JELLERCEL_CELL_BLOCK, MITHRAL_SPICE_BLOCK, TOURMALINE_SPICE_BLOCK, KYANEOS_PLANKS, BORDERED_KYANEOS_PLANKS, ATLAS_BASE_EDGE, BLACK_GRID_CORRUPTION, RED_GRID_CORRUPTION, PURIFIED_GRASSY_SHALE, BLACKPOWDER_SPICE_BLOCK, WROUGHT_BARS, WROUGHT_BAR_CORNER, RUSTY_MACHINE, CHERRY_MESH_BLOCK, GLOWCAP_BLOCK, GLAUKO_FLOWER, SNOWY_SANCTUM_BRICKS, LIGHT_BLOCKING_BARRIER, MAVROS_PLANKS, METALLIC_DEBRIS, BOX_VOLTFLOWER, MODEST_ARCHIVE_CABINET, CRAMMED_ARCHIVE_CABINET, PROTOI_SERVER, SEA_CARCASS_MEMBRANE, SEA_CARCASS_HEAD, KILOLYTE_SPAWNER, TRAPPED_ARCHIVE_CUBE, ARCHIVE_CUBE, FLOWERING_SHALE, LAPTOP, MANTLESTONE_DOORMAT)) ITEMS.registerSimpleBlockItem(block);
     }
 

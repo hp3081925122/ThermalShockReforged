@@ -1,0 +1,97 @@
+{
+  "scope": "FlintsteelRifle,Hailfall,Speleothem,RubySpear,CarborundumSpear",
+  "assets": [
+    {
+      "path": "geo/speleothem.geo.json",
+      "original_sha256": "5bd592b963869ce0b8e3ed011998668cdcc986d0908187b57bcec8260aa6053e",
+      "target_sha256": "5bd592b963869ce0b8e3ed011998668cdcc986d0908187b57bcec8260aa6053e",
+      "equal": true
+    },
+    {
+      "path": "animations/speleothem.animation.json",
+      "original_sha256": "96012e2446e72514831e62655c62505b5cfe06a899049d5fb6fbed5b45312a46",
+      "target_sha256": "96012e2446e72514831e62655c62505b5cfe06a899049d5fb6fbed5b45312a46",
+      "equal": true
+    },
+    {
+      "path": "textures/item/speleothem.png",
+      "original_sha256": "e984b0f461752be70ec34e1444fce1d394cf3a5ae09a73ca843f0a25f03270e2",
+      "target_sha256": "e984b0f461752be70ec34e1444fce1d394cf3a5ae09a73ca843f0a25f03270e2",
+      "equal": true
+    },
+    {
+      "path": "geo/rubyspearalt.geo.json",
+      "original_sha256": "a86ce1c6ba0c837821e2d214e58b5b22f5bb4ef8038a840521b9bd6466da69a7",
+      "target_sha256": "a86ce1c6ba0c837821e2d214e58b5b22f5bb4ef8038a840521b9bd6466da69a7",
+      "equal": true
+    },
+    {
+      "path": "animations/rubyspearalt.animation.json",
+      "original_sha256": "b359e7ef9d444d00e2a0a86d2de473b88c0214e125b1b42a281665108181461a",
+      "target_sha256": "b359e7ef9d444d00e2a0a86d2de473b88c0214e125b1b42a281665108181461a",
+      "equal": true
+    },
+    {
+      "path": "textures/item/rubyspearalt.png",
+      "original_sha256": "d0a9fcefea4c3df8fe078f6d147bacc7fb5224f787724b51962a95fdb38c6d97",
+      "target_sha256": "d0a9fcefea4c3df8fe078f6d147bacc7fb5224f787724b51962a95fdb38c6d97",
+      "equal": true
+    },
+    {
+      "path": "textures/item/carborundum_spear.png",
+      "original_sha256": "d8e7ba6efbd9ee692229d1253c045c82288cf57e3c9680a07b307b9cea9dcad2",
+      "target_sha256": "d8e7ba6efbd9ee692229d1253c045c82288cf57e3c9680a07b307b9cea9dcad2",
+      "equal": true
+    },
+    {
+      "path": "geo/flint-steel_rifle.geo.json",
+      "original_sha256": "8743058d7f578ff6dd36684b495b2dfcfe0c1048a8655789b0aff91a706d45b3",
+      "target_sha256": "8743058d7f578ff6dd36684b495b2dfcfe0c1048a8655789b0aff91a706d45b3",
+      "equal": true
+    },
+    {
+      "path": "animations/flint-steel_rifle.animation.json",
+      "original_sha256": "273b74e723964e3e40490349a9ee440abc149016c4c2a576833d9a312586e1f0",
+      "target_sha256": "273b74e723964e3e40490349a9ee440abc149016c4c2a576833d9a312586e1f0",
+      "equal": true
+    },
+    {
+      "path": "textures/item/flintsteel_rifle_rubicon.png",
+      "original_sha256": "d2de8693d7ca26023dca5431a50f1600c05a9427a978d6d9c6b41b5cce903117",
+      "target_sha256": "d2de8693d7ca26023dca5431a50f1600c05a9427a978d6d9c6b41b5cce903117",
+      "equal": true
+    },
+    {
+      "path": "geo/hailfall.geo.json",
+      "original_sha256": "2b7b394444b9c97355989094e3ad2687c3598c56dcda7371aad9120e4ed6a55a",
+      "target_sha256": "2b7b394444b9c97355989094e3ad2687c3598c56dcda7371aad9120e4ed6a55a",
+      "equal": true
+    },
+    {
+      "path": "animations/hailfall.animation.json",
+      "original_sha256": "0e4d61ce57ca2bc1170bae852fb7ecca145d872741420771e48074c2b4814397",
+      "target_sha256": "0e4d61ce57ca2bc1170bae852fb7ecca145d872741420771e48074c2b4814397",
+      "equal": true
+    },
+    {
+      "path": "textures/item/hailfall.png",
+      "original_sha256": "bd69f051d807afd91372a2ede2d428bed61aa3110617cac51ef90b243b51008a",
+      "target_sha256": "bd69f051d807afd91372a2ede2d428bed61aa3110617cac51ef90b243b51008a",
+      "equal": true
+    },
+    {
+      "path": "textures/entities/gruntglow.png",
+      "original_sha256": "5fb24d0c2985401ac501625aa3bcdd1e13271673f7901ffbf9e12dc6453071b0",
+      "target_sha256": "5fb24d0c2985401ac501625aa3bcdd1e13271673f7901ffbf9e12dc6453071b0",
+      "equal": true
+    }
+  ],
+  "resource_json_parse": "passed",
+  "gameplay_tests": "not_run_whole_migration_incomplete",
+  "compilation": "pending_final_batch_snapshot",
+  "known_remaining": [
+    "Fabricator complete menus and crafting transactions",
+    "Sopel beta_complete parent chain",
+    "remaining original registered content and final full runtime fidelity tests"
+  ]
+}

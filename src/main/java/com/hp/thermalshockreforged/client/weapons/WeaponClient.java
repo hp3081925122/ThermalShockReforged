@@ -19,6 +19,8 @@ public final class WeaponClient {
 
     public static void extensions(RegisterClientExtensionsEvent event) {
         ZapGauntletClient.extensions(event);
+        FirearmClient.extensions(event);
+        SpearClient.extensions(event);
         event.registerItem(new IClientItemExtensions() {
             private Renderer renderer;
             @Override
@@ -38,8 +40,8 @@ public final class WeaponClient {
         NeoForge.EVENT_BUS.addListener(WeaponClient::logout);
     }
 
-    private static void tick(ClientTickEvent.Post event) { WeaponContent.BLINDING_LANTERN.get().pruneAnimations(); WeaponContent.ZAP_GAUNTLET.get().pruneAnimations(); }
-    private static void logout(ClientPlayerNetworkEvent.LoggingOut event) { WeaponContent.BLINDING_LANTERN.get().clearAnimations(); WeaponContent.ZAP_GAUNTLET.get().clearAnimations(); }
+    private static void tick(ClientTickEvent.Post event) { WeaponContent.pruneAnimations(); }
+    private static void logout(ClientPlayerNetworkEvent.LoggingOut event) { WeaponContent.clearAnimations(); }
 
     private static final class Renderer extends GeoItemRenderer<BlindingLanternItem> {
         private Renderer() { super(new Model()); }
