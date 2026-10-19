@@ -1,0 +1,51 @@
+{
+  "scope": "Luna确定性只读调查，原07.9 worldgen JSON的精确模板消费者；不把目录差集当全部未迁功能",
+  "source": "D:/AI临时文件/ThermalShockMigration/thermal_shock-07.9-original.jar",
+  "target_snapshot": "HEAD 0623a5156f29b3882f6af89e93011ac37202a244，第104批无结构/世界生成生产改动",
+  "source_templates": 164,
+  "target_templates": 59,
+  "missing_by_filename": 105,
+  "target_worldgen_json_referencing_missing_template_ids": 0,
+  "configured_feature_consumers": {
+    "cobalt_pillar": ["cobalt_15hex_1", "cobalt_15hex_surge", "cobalt_7hex_1", "cobalt_9hex_1", "cobalt_9hex_surge"],
+    "giant_glowcap": ["giant_glowcap_1", "giant_glowcap_2", "giant_glowcap_3"],
+    "giant_urchin": ["gianturchin"],
+    "glace_rock": ["glace_rock_1", "glace_rock_2"],
+    "gravetree": ["gravetree1", "gravetree2"],
+    "jellercel_generation": ["jellercellogged"],
+    "large_jellercel_generation": ["largejellercel"],
+    "lost_boat": ["lostboat1", "lostboat2", "lostboat3"],
+    "louse_log": ["louse_log_1", "louse_log_2", "louse_log_3"],
+    "lower_cobalt_pillar": ["cobalt_15hex_1", "cobalt_7hex_1", "cobalt_9hex_1"],
+    "spire": ["spire1_25", "spire2_25", "spire3_25"],
+    "twilit_shrub_alt": ["twilitgrass"],
+    "twilit_shrub_generation": ["twilitgrass"]
+  },
+  "template_pool_consumers": {
+    "blizzard_base": "blizzard_base",
+    "blizzard_sanctum": "orb_sanctum",
+    "kiosk": "kiosk",
+    "medium_campsite": "campmed",
+    "pylon": "pylon",
+    "shalespring_grove": "shalespring_grove_derelict",
+    "small_campsite": "campsmall",
+    "snowtower": "snowtower",
+    "sunken_blizzard_base": "sunken_blizzard_lab",
+    "test_jigsaw": "testjig",
+    "test_jigsaw_testchecker": "testsaw"
+  },
+  "natural_structure_chains": [
+    {"id": "blizzard_base", "biomes": "thermal_shock:glaciation", "step": "underground_structures"},
+    {"id": "blizzard_sanctum", "biomes": "thermal_shock:cobalt_heights", "step": "surface_structures"},
+    {"id": "kiosk", "biomes": ["thermal_shock:borean_forest", "thermal_shock:borean_tundra", "thermal_shock:stardust_garden", "thermal_shock:vermillion_woods"], "step": "surface_structures"},
+    {"id": "pylon", "biomes": ["thermal_shock:borean_forest", "thermal_shock:borean_tundra", "thermal_shock:stardust_garden", "thermal_shock:vermillion_woods"], "step": "surface_structures"},
+    {"id": "snowtower", "biomes": ["thermal_shock:borean_forest", "thermal_shock:borean_tundra"], "step": "surface_structures"},
+    {"id": "sunken_blizzard_base", "biomes": "thermal_shock:luminous_sea", "step": "underground_structures"}
+  ],
+  "same_relative_target_consumer_json_exist": 0,
+  "unique_missing_templates_with_direct_worldgen_consumers": 36,
+  "missing_templates_without_exact_worldgen_consumer": 68,
+  "consumer_count_note": "blizzard_sanctum自身为structure/set/pool ID，实际池NBT为orb_sanctum，因此36+68与105的目录差集不是同口径相加。无精确worldgen消费者不证明无Java或嵌套NBT消费者。",
+  "full_missing_template_list": "structure-gaps104.json",
+  "next_batch": "第105批A多承担两Outcrop与blizzard_base/sunken_blizzard_lab完整原生链；主线完整LoqendiaPortal。其他链仍是原生待办。"
+}

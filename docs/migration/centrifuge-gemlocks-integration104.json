@@ -1,0 +1,109 @@
+{
+  "batch": 104,
+  "owner": "主线唯一编辑共享文件；迁移A不编辑以下文件",
+  "root": {
+    "path": "src/main/java/com/hp/thermalshockreforged/ThermalShockReforged.java",
+    "statements": [
+      "com.hp.thermalshockreforged.content.centrifuge.CentrifugeContent.register(bus);",
+      "com.hp.thermalshockreforged.content.gemlocks.GemlocksContent.register(bus);"
+    ]
+  },
+  "screen": {
+    "path": "src/main/java/com/hp/thermalshockreforged/client/ClientEvents.java",
+    "method": "screens(RegisterMenuScreensEvent event)",
+    "statement": "event.register(com.hp.thermalshockreforged.content.centrifuge.CentrifugeContent.MENU.get(), com.hp.thermalshockreforged.client.centrifuge.CentrifugeScreen::new);"
+  },
+  "tags": [
+    {
+      "path": "src/main/resources/data/minecraft/tags/block/mineable/pickaxe.json",
+      "operation": "append_unique",
+      "values": [
+        "thermal_shock_reforged:centrifuge",
+        "thermal_shock_reforged:ruby_gemlock",
+        "thermal_shock_reforged:malachite_gemlock",
+        "thermal_shock_reforged:bismuth_gemlock",
+        "thermal_shock_reforged:phobotite_gemlock"
+      ],
+      "source": "data/minecraft/tags/blocks/mineable/pickaxe.json"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/tags/item/centrifuge_ingredients.json",
+      "operation": "merge_values",
+      "data": {
+        "replace": false,
+        "values": [
+          "thermal_shock_reforged:hearth_honey",
+          "thermal_shock_reforged:frost_pearl"
+        ]
+      },
+      "source": "data/thermal_shock/tags/items/centrifuge_ingredients.json"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/tags/item/energy.json",
+      "operation": "merge_values",
+      "data": {
+        "replace": false,
+        "values": [
+          "thermal_shock_reforged:cryonic_energy",
+          "thermal_shock_reforged:pyrogenic_energy",
+          "thermal_shock_reforged:tainted_energy"
+        ]
+      },
+      "source": "data/thermal_shock/tags/items/energy.json"
+    }
+  ],
+  "language": {
+    "en_us": {
+      "block.thermal_shock_reforged.centrifuge": "Centrifuge",
+      "block.thermal_shock_reforged.ruby_gemlock": "Ruby Gemlock",
+      "block.thermal_shock_reforged.malachite_gemlock": "Malachite Gemlock",
+      "block.thermal_shock_reforged.bismuth_gemlock": "Bismuth Gemlock",
+      "block.thermal_shock_reforged.phobotite_gemlock": "Phobotite Gemlock",
+      "block.thermal_shock_reforged.centrifuge.description_0": "§7Converts energies into their §eAlternate §7counterparts.",
+      "gui.thermal_shock_reforged.centrifuge_page.label_centrifuge": "Centrifuge",
+      "gui.thermal_shock_reforged.centrifuge_page.tooltip_place_two_same_energies_in_the_l": "Place two same energies in the left and top slots.",
+      "gui.thermal_shock_reforged.centrifuge_page.tooltip_place_frost_pearl_or_hearth_hone": "Place Frost Pearl or Hearth Honey in the right slot.",
+      "gui.thermal_shock_reforged.centrifuge_page.button_convert": "Convert"
+    },
+    "zh_cn": {
+      "block.thermal_shock_reforged.centrifuge": "离心机",
+      "block.thermal_shock_reforged.ruby_gemlock": "红宝石锁",
+      "block.thermal_shock_reforged.malachite_gemlock": "孔雀石锁",
+      "block.thermal_shock_reforged.bismuth_gemlock": "铋锁",
+      "block.thermal_shock_reforged.phobotite_gemlock": "恐晶石锁",
+      "block.thermal_shock_reforged.centrifuge.description_0": "转换寒能与炽能。",
+      "gui.thermal_shock_reforged.centrifuge_page.label_centrifuge": "离心机",
+      "gui.thermal_shock_reforged.centrifuge_page.tooltip_place_two_same_energies_in_the_l": "在左侧和顶部槽位放入相同的能量。",
+      "gui.thermal_shock_reforged.centrifuge_page.tooltip_place_frost_pearl_or_hearth_hone": "在右侧槽位放入霜珠或炉心蜜。",
+      "gui.thermal_shock_reforged.centrifuge_page.button_convert": "转换"
+    }
+  },
+  "native_followup": [
+    {
+      "source": "data/thermal_shock/structures/blizzard_base.nbt",
+      "counts": {
+        "thermal_shock:phobotite_gemlock": 1
+      },
+      "target_exists": false,
+      "actual_blocks": 86258,
+      "actual_gemlock_blocks": 1,
+      "entities": 21,
+      "block_entities": 21,
+      "source_report": "docs/migration/centrifuge-gemlocks-sources104.json",
+      "status": "后续原生完整结构批，保全模板及三JSON自然生成链"
+    }
+  ],
+  "fixes": [
+    "离心机GUI绑定真实三槽，修复原null面能力查询导致临时库存，与六面自动化共享库存。",
+    "离心机使用原生容器按钮包，验证当前菜单、操作者、同维度、距离与同一BE，禁止客户端重复处理。",
+    "宝石锁服务端处理，扣实际主手；状态更新失败返还扣款，关闭成功才返还宝石；保创造模式消耗。",
+    "所有新增方块补纹理对应地图色。",
+    "1.21.1 Container默认上限99；离心机BE和客户端镜像均显式保原64。",
+    "保原shift合并mayPlace检查，自动化塞入的非标签物品不能在GUI中绕过槽限制继续合并。"
+  ],
+  "not_required": [
+    "不新增公共网络包",
+    "不新增Geo动画、计时器、额外合成进度或FE需求",
+    "不修改现有创意清单，原五项已列入并经注册后自动解析"
+  ]
+}

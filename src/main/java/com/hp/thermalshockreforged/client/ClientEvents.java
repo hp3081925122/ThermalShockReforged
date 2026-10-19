@@ -180,6 +180,7 @@ public final class ClientEvents {
 
     @SubscribeEvent
     public static void screens(RegisterMenuScreensEvent event) {
+        event.register(com.hp.thermalshockreforged.content.centrifuge.CentrifugeContent.MENU.get(), com.hp.thermalshockreforged.client.centrifuge.CentrifugeScreen::new);
         com.hp.thermalshockreforged.client.whisper.WhisperScreen.register(event);
         com.hp.thermalshockreforged.client.npc.laut.LautClient.screens(event);
         com.hp.thermalshockreforged.client.npc.portrait.PortraitClient.screens(event);

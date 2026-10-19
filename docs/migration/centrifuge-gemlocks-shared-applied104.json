@@ -1,0 +1,66 @@
+{
+  "batch": 104,
+  "integration_sha256": "676d26f50830984ca1dad7293b443cb2311c3feabdf17d31dd3b6c57166557f9",
+  "root_statements": 2,
+  "screen_statements": 1,
+  "tags": [
+    {
+      "path": "src/main/resources/data/minecraft/tags/block/mineable/pickaxe.json",
+      "added_values": [
+        "thermal_shock_reforged:centrifuge",
+        "thermal_shock_reforged:ruby_gemlock",
+        "thermal_shock_reforged:malachite_gemlock",
+        "thermal_shock_reforged:bismuth_gemlock",
+        "thermal_shock_reforged:phobotite_gemlock"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/tags/item/centrifuge_ingredients.json",
+      "added_values": [
+        "thermal_shock_reforged:hearth_honey",
+        "thermal_shock_reforged:frost_pearl"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/tags/item/energy.json",
+      "added_values": [
+        "thermal_shock_reforged:cryonic_energy",
+        "thermal_shock_reforged:pyrogenic_energy",
+        "thermal_shock_reforged:tainted_energy"
+      ]
+    }
+  ],
+  "languages": {
+    "en_us": {
+      "changed": {},
+      "added": [
+        "gui.thermal_shock_reforged.centrifuge_page.button_convert"
+      ]
+    },
+    "zh_cn": {
+      "changed": {},
+      "added": [
+        "block.thermal_shock_reforged.bismuth_gemlock",
+        "block.thermal_shock_reforged.centrifuge",
+        "block.thermal_shock_reforged.centrifuge.description_0",
+        "block.thermal_shock_reforged.malachite_gemlock",
+        "block.thermal_shock_reforged.phobotite_gemlock",
+        "block.thermal_shock_reforged.ruby_gemlock",
+        "gui.thermal_shock_reforged.centrifuge_page.button_convert",
+        "gui.thermal_shock_reforged.centrifuge_page.label_centrifuge",
+        "gui.thermal_shock_reforged.centrifuge_page.tooltip_place_frost_pearl_or_hearth_hone",
+        "gui.thermal_shock_reforged.centrifuge_page.tooltip_place_two_same_energies_in_the_l"
+      ]
+    }
+  },
+  "shared_sha256": {
+    "src/main/java/com/hp/thermalshockreforged/ThermalShockReforged.java": "81d8a0240caaed0e45be50280c1d3eb3fa8061235f716f5c9ffe45d8b7e29157",
+    "src/main/java/com/hp/thermalshockreforged/client/ClientEvents.java": "f3ebefdfcb952e87093c6fac00e391180e4f4cff6de74ae7e854832aa54bba6b",
+    "src/main/resources/data/minecraft/tags/block/mineable/pickaxe.json": "53910ae1d468eae07b08d6b7d9e11253b254537067c24c9fe185f169f78abc2e",
+    "src/main/resources/data/thermal_shock_reforged/tags/item/centrifuge_ingredients.json": "5c6c61281632f0c0ac55c65da38b804e47803f475c43491ca3ffbf3b51f56c70",
+    "src/main/resources/data/thermal_shock_reforged/tags/item/energy.json": "5275980a01db1799e265ed78d813c5a28f229494bd803343d6467ad81b05b716",
+    "src/main/resources/assets/thermal_shock_reforged/lang/en_us.json": "4d335df86104c2e68893b20c8e310f442243fe8711c10586859638733486cca1",
+    "src/main/resources/assets/thermal_shock_reforged/lang/zh_cn.json": "8d3847901b0c873b88c3c4bbaca175c0e8ec26ef1b662cb0f2405b9e516a3ad0"
+  },
+  "applied": true
+}
