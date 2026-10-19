@@ -1,0 +1,719 @@
+{
+  "batch": 108,
+  "sources": [
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch108a\\old\\net\\minecraftforge\\common\\ForgeMod.java",
+      "sha256": "ae15230a1cc86f618f69248bf98ece5569711985bd0ab002a4f74a06bc7f12d8",
+      "scope": "旧注册仅step_height_addition；没有step_height注册",
+      "fragments": [
+        {
+          "line": 175,
+          "anchor": "STEP_HEIGHT_ADDITION =",
+          "source": "     * @see IForgeEntity#getStepHeight()\n     */\n    public static final RegistryObject<Attribute> STEP_HEIGHT_ADDITION = ATTRIBUTES.register(\"step_height_addition\", () -> new RangedAttribute(\"forge.step_height\", 0.0D, -512.0D, 512.0D).m_22084_(true));\n\n    /**\n     * Noop biome modifier. Can be used in a biome modifier json with \"type\": \"forge:none\".\n     */\n    public static final RegistryObject<Codec<NoneBiomeModifier>> NONE_BIOME_MODIFIER_TYPE = BIOME_MODIFIER_SERIALIZERS.register(\"none\", () -> Codec.unit(NoneBiomeModifier.INSTANCE));\n\n    /**\n     * Stock biome modifier for adding features to biomes.\n     */\n    public static final RegistryObject<Codec<AddFeaturesBiomeModifier>> ADD_FEATURES_BIOME_MODIFIER_TYPE = BIOME_MODIFIER_SERIALIZERS.register(\"add_features\", () ->\n        RecordCodecBuilder.create(builder -> builder.group(\n                Biome.f_47432_.fieldOf(\"biomes\").forGetter(AddFeaturesBiomeModifier::biomes),"
+        }
+      ]
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch108a\\old\\net\\minecraftforge\\common\\extensions\\IForgeEntity.java",
+      "sha256": "19229236a48f1ac0934389ac5381c3f5462642c3e871613af72b1757ea4f2f74",
+      "scope": "旧实际步高等于float基础加额外属性，非负后转float",
+      "fragments": [
+        {
+          "line": 215,
+          "anchor": "default float getStepHeight()",
+          "source": "     * (if this Entity is a {@link LivingEntity} and has the attribute), clamped at 0.\n     */\n    default float getStepHeight()\n    {\n        float vanillaStep = self().m_274421_();\n        if (self() instanceof LivingEntity living)\n        {\n            AttributeInstance stepHeightAttribute = living.m_21051_(ForgeMod.STEP_HEIGHT_ADDITION.get());\n            if (stepHeightAttribute != null)\n            {\n                return (float) Math.max(0, vanillaStep + stepHeightAttribute.m_22135_());\n            }\n        }\n        return vanillaStep;\n    }"
+        }
+      ]
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch108a\\old\\net\\minecraft\\world\\entity\\ai\\attributes\\AttributeMap.java",
+      "sha256": "d6890bc234cf73180746909d9bc38772602129bf2e251ef72adfea1fe28bbe44",
+      "scope": "旧未知保存属性忽略",
+      "fragments": [
+        {
+          "line": 148,
+          "anchor": "Ignoring unknown attribute",
+          "source": "\n         }, () -> {\n            LOGGER.warn(\"Ignoring unknown attribute '{}'\", (Object)s);\n         });\n      }\n\n   }\n}"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\entity\\ai\\attributes\\AttributeMap.java",
+      "sha256": "d9f63809a7394e6898745a78ececfb5afe252de58348a30fd11888cce399269e",
+      "scope": "目标未知保存属性同样忽略，保原遗留字段而不赋予新行为",
+      "fragments": [
+        {
+          "line": 137,
+          "anchor": "Ignoring unknown attribute",
+          "source": "                        attributeinstance.load(compoundtag);\n                    }\n                }, () -> LOGGER.warn(\"Ignoring unknown attribute '{}'\", resourcelocation));\n            } else {\n                LOGGER.warn(\"Ignoring malformed attribute '{}'\", s);\n            }\n        }\n    }\n}"
+        }
+      ]
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch108a\\old\\net\\minecraft\\world\\entity\\ai\\attributes\\AttributeModifier.java",
+      "sha256": "ab79b210191a281977f060e59804a5abc869cf795e4ad6b5692787d94f43d451",
+      "scope": "原无显式UUID构造器逐次随机身份",
+      "fragments": [
+        {
+          "line": 20,
+          "anchor": "public AttributeModifier(String",
+          "source": "   private final UUID id;\n\n   public AttributeModifier(String p_22196_, double p_22197_, AttributeModifier.Operation p_22198_) {\n      this(Mth.createInsecureUUID(RandomSource.createNewThreadLocalInstance()), () -> {\n         return p_22196_;\n      }, p_22197_, p_22198_);\n   }\n\n   public AttributeModifier(UUID p_22200_, String p_22201_, double p_22202_, AttributeModifier.Operation p_22203_) {\n      this(p_22200_, () -> {\n         return p_22201_;\n      }, p_22202_, p_22203_);\n   }\n\n   public AttributeModifier(UUID p_22205_, Supplier<String> p_22206_, double p_22207_, AttributeModifier.Operation p_22208_) {"
+        },
+        {
+          "line": 21,
+          "anchor": "Mth.createInsecureUUID",
+          "source": "\n   public AttributeModifier(String p_22196_, double p_22197_, AttributeModifier.Operation p_22198_) {\n      this(Mth.createInsecureUUID(RandomSource.createNewThreadLocalInstance()), () -> {\n         return p_22196_;\n      }, p_22197_, p_22198_);\n   }\n\n   public AttributeModifier(UUID p_22200_, String p_22201_, double p_22202_, AttributeModifier.Operation p_22203_) {\n      this(p_22200_, () -> {\n         return p_22201_;\n      }, p_22202_, p_22203_);\n   }\n\n   public AttributeModifier(UUID p_22205_, Supplier<String> p_22206_, double p_22207_, AttributeModifier.Operation p_22208_) {\n      this.id = p_22205_;"
+        }
+      ]
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch108a\\old\\net\\minecraft\\world\\entity\\Mob.java",
+      "sha256": "a1a14fd0fec47f0552948d5caa7f2153cff2301260719296e763ac766ad0c6ca",
+      "scope": "原结构finalize每次增加独立随机修饰符",
+      "fragments": [
+        {
+          "line": 1066,
+          "anchor": "randomsource.triangle",
+          "source": "   public SpawnGroupData finalizeSpawn(ServerLevelAccessor p_21434_, DifficultyInstance p_21435_, MobSpawnType p_21436_, @Nullable SpawnGroupData p_21437_, @Nullable CompoundTag p_21438_) {\n      RandomSource randomsource = p_21434_.getRandom();\n      this.getAttribute(Attributes.FOLLOW_RANGE).addPermanentModifier(new AttributeModifier(\"Random spawn bonus\", randomsource.triangle(0.0D, 0.11485000000000001D), AttributeModifier.Operation.MULTIPLY_BASE));\n      if (randomsource.nextFloat() < 0.05F) {\n         this.setLeftHanded(true);\n      } else {\n         this.setLeftHanded(false);\n      }\n\n      this.spawnType = p_21436_;\n      return p_21437_;\n   }\n\n   public void setPersistenceRequired() {\n      this.persistenceRequired = true;"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\entity\\Mob.java",
+      "sha256": "018c676ace0c958ecd3b377a044f19ec0332ac2045f9d3174a7a7aaf537e446c",
+      "scope": "目标canonical修饰符会跳过抽样，出生字段读取已变",
+      "fragments": [
+        {
+          "line": 1173,
+          "anchor": "if (!attributeinstance.hasModifier(RANDOM_SPAWN_BONUS_ID))",
+          "source": "        RandomSource randomsource = p_21434_.getRandom();\n        AttributeInstance attributeinstance = Objects.requireNonNull(this.getAttribute(Attributes.FOLLOW_RANGE));\n        if (!attributeinstance.hasModifier(RANDOM_SPAWN_BONUS_ID)) {\n            attributeinstance.addPermanentModifier(\n                new AttributeModifier(RANDOM_SPAWN_BONUS_ID, randomsource.triangle(0.0, 0.11485000000000001), AttributeModifier.Operation.ADD_MULTIPLIED_BASE)\n            );\n        }\n\n        this.setLeftHanded(randomsource.nextFloat() < 0.05F);\n        this.spawnType = p_21436_;\n        return p_21437_;\n    }\n\n    public void setPersistenceRequired() {\n        this.persistenceRequired = true;"
+        },
+        {
+          "line": 441,
+          "anchor": "neoforge:spawn_type",
+          "source": "        }\n        if (this.spawnType != null) {\n            p_21484_.putString(\"neoforge:spawn_type\", this.spawnType.name());\n        }\n    }\n\n    @Override\n    public void readAdditionalSaveData(CompoundTag p_21450_) {\n        super.readAdditionalSaveData(p_21450_);\n        if (p_21450_.contains(\"CanPickUpLoot\", 1)) {\n            this.setCanPickUpLoot(p_21450_.getBoolean(\"CanPickUpLoot\"));\n        }\n\n        this.persistenceRequired = p_21450_.getBoolean(\"PersistenceRequired\");\n        if (p_21450_.contains(\"ArmorItems\", 9)) {"
+        },
+        {
+          "line": 503,
+          "anchor": "neoforge:spawn_type",
+          "source": "        this.setNoAi(p_21450_.getBoolean(\"NoAI\"));\n\n        if (p_21450_.contains(\"neoforge:spawn_type\")) {\n            try {\n                this.spawnType = MobSpawnType.valueOf(p_21450_.getString(\"neoforge:spawn_type\"));\n            } catch (Exception ex) {\n                p_21450_.remove(\"neoforge:spawn_type\");\n            }\n        }\n    }\n\n    @Override\n    protected void dropFromLootTable(DamageSource p_21389_, boolean p_21390_) {\n        super.dropFromLootTable(p_21389_, p_21390_);\n        this.lootTable = null;"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\entity\\ai\\attributes\\AttributeInstance.java",
+      "sha256": "1d226ebd1d975b6f777c34ebbb5c87ae1b8079326a8e616b5bd0bad52931d4d2",
+      "scope": "相同ID覆盖；保存修饰符列表逐个读入",
+      "fragments": [
+        {
+          "line": 74,
+          "anchor": "modifierById.put",
+          "source": "\n    private void addModifier(AttributeModifier p_22134_) {\n        AttributeModifier attributemodifier = this.modifierById.putIfAbsent(p_22134_.id(), p_22134_);\n        if (attributemodifier != null) {\n            throw new IllegalArgumentException(\"Modifier is already applied on this attribute!\");\n        } else {\n            this.getModifiers(p_22134_.operation()).put(p_22134_.id(), p_22134_);\n            this.setDirty();\n        }\n    }\n\n    public void addOrUpdateTransientModifier(AttributeModifier p_316482_) {\n        AttributeModifier attributemodifier = this.modifierById.put(p_316482_.id(), p_316482_);\n        if (p_316482_ != attributemodifier) {\n            this.getModifiers(p_316482_.operation()).put(p_316482_.id(), p_316482_);"
+        },
+        {
+          "line": 84,
+          "anchor": "modifierById.put",
+          "source": "\n    public void addOrUpdateTransientModifier(AttributeModifier p_316482_) {\n        AttributeModifier attributemodifier = this.modifierById.put(p_316482_.id(), p_316482_);\n        if (p_316482_ != attributemodifier) {\n            this.getModifiers(p_316482_.operation()).put(p_316482_.id(), p_316482_);\n            this.setDirty();\n        }\n    }\n\n    public void addTransientModifier(AttributeModifier p_22119_) {\n        this.addModifier(p_22119_);\n    }\n\n    public void addOrReplacePermanentModifier(AttributeModifier p_353041_) {\n        this.removeModifier(p_353041_.id());"
+        },
+        {
+          "line": 201,
+          "anchor": "getList(\"modifiers\"",
+          "source": "        this.baseValue = p_22114_.getDouble(\"base\");\n        if (p_22114_.contains(\"modifiers\", 9)) {\n            ListTag listtag = p_22114_.getList(\"modifiers\", 10);\n\n            for (int i = 0; i < listtag.size(); i++) {\n                AttributeModifier attributemodifier = AttributeModifier.load(listtag.getCompound(i));\n                if (attributemodifier != null) {\n                    this.modifierById.put(attributemodifier.id(), attributemodifier);\n                    this.getModifiers(attributemodifier.operation()).put(attributemodifier.id(), attributemodifier);\n                    this.permanentModifiers.put(attributemodifier.id(), attributemodifier);\n                }\n            }\n        }\n\n        this.setDirty();"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\entity\\ai\\attributes\\AttributeModifier.java",
+      "sha256": "f9d30df5e7a1d74962b4d5a5536e89bb09404b3f7ff18d74178bbb0ced3e4e33",
+      "scope": "目标修饰符Codec与运算枚举",
+      "fragments": [
+        {
+          "line": 26,
+          "anchor": "ResourceLocation.CODEC.fieldOf(\"id\")",
+          "source": "    public static final MapCodec<AttributeModifier> MAP_CODEC = RecordCodecBuilder.mapCodec(\n        p_349989_ -> p_349989_.group(\n                    ResourceLocation.CODEC.fieldOf(\"id\").forGetter(AttributeModifier::id),\n                    Codec.DOUBLE.fieldOf(\"amount\").forGetter(AttributeModifier::amount),\n                    AttributeModifier.Operation.CODEC.fieldOf(\"operation\").forGetter(AttributeModifier::operation)\n                )\n                .apply(p_349989_, AttributeModifier::new)\n    );\n    public static final Codec<AttributeModifier> CODEC = MAP_CODEC.codec();\n    public static final StreamCodec<ByteBuf, AttributeModifier> STREAM_CODEC = StreamCodec.composite(\n        ResourceLocation.STREAM_CODEC,\n        AttributeModifier::id,\n        ByteBufCodecs.DOUBLE,\n        AttributeModifier::amount,\n        AttributeModifier.Operation.STREAM_CODEC,"
+        },
+        {
+          "line": 65,
+          "anchor": "ADD_MULTIPLIED_BASE",
+          "source": "    public static enum Operation implements StringRepresentable {\n        ADD_VALUE(\"add_value\", 0),\n        ADD_MULTIPLIED_BASE(\"add_multiplied_base\", 1),\n        ADD_MULTIPLIED_TOTAL(\"add_multiplied_total\", 2);\n\n        public static final IntFunction<AttributeModifier.Operation> BY_ID = ByIdMap.continuous(\n            AttributeModifier.Operation::id, values(), ByIdMap.OutOfBoundsStrategy.ZERO\n        );\n        public static final StreamCodec<ByteBuf, AttributeModifier.Operation> STREAM_CODEC = ByteBufCodecs.idMapper(BY_ID, AttributeModifier.Operation::id);\n        public static final Codec<AttributeModifier.Operation> CODEC = StringRepresentable.fromEnum(AttributeModifier.Operation::values);\n        private final String name;\n        private final int id;\n\n        private Operation(String p_298507_, int p_22234_) {\n            this.name = p_298507_;"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\entity\\LivingEntity.java",
+      "sha256": "1bbe1b37d6f73eadefdcdfe6f5822106e410fbc80d20c163a4eb5feefb317731",
+      "scope": "目标原生STEP_HEIGHT最终转float",
+      "fragments": [
+        {
+          "line": 3647,
+          "anchor": "public float maxUpStep()",
+          "source": "\n    @Override\n    public float maxUpStep() {\n        float f = (float)this.getAttributeValue(Attributes.STEP_HEIGHT);\n        return this.getControllingPassenger() instanceof Player ? Math.max(f, 1.0F) : f;\n    }\n\n    @Override\n    public Vec3 getPassengerRidingPosition(Entity p_295664_) {\n        return this.position().add(this.getPassengerAttachmentPoint(p_295664_, this.getDimensions(this.getPose()), this.getScale() * this.getAgeScale()));\n    }\n\n    protected void lerpHeadRotationStep(int p_296134_, double p_296397_) {\n        this.yHeadRot = (float)Mth.rotLerp(1.0 / (double)p_296134_, (double)this.yHeadRot, p_296397_);\n    }"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\effect\\MobEffects.java",
+      "sha256": "faf46a2ea4610614a8f231b613a07dca2c766cea02d626c0a40aca59917d8a00",
+      "scope": "目标漂浮注册",
+      "fragments": [
+        {
+          "line": 97,
+          "anchor": "LEVITATION =",
+          "source": "    public static final Holder<MobEffect> SATURATION = register(\"saturation\", new SaturationMobEffect(MobEffectCategory.BENEFICIAL, 16262179));\n    public static final Holder<MobEffect> GLOWING = register(\"glowing\", new MobEffect(MobEffectCategory.NEUTRAL, 9740385));\n    public static final Holder<MobEffect> LEVITATION = register(\"levitation\", new MobEffect(MobEffectCategory.HARMFUL, 13565951));\n    public static final Holder<MobEffect> LUCK = register(\n        \"luck\",\n        new MobEffect(MobEffectCategory.BENEFICIAL, 5882118)\n            .addAttributeModifier(Attributes.LUCK, ResourceLocation.withDefaultNamespace(\"effect.luck\"), 1.0, AttributeModifier.Operation.ADD_VALUE)\n    );\n    public static final Holder<MobEffect> UNLUCK = register(\n        \"unluck\",\n        new MobEffect(MobEffectCategory.HARMFUL, 12624973)\n            .addAttributeModifier(Attributes.LUCK, ResourceLocation.withDefaultNamespace(\"effect.unluck\"), -1.0, AttributeModifier.Operation.ADD_VALUE)\n    );\n    public static final Holder<MobEffect> SLOW_FALLING = register(\"slow_falling\", new MobEffect(MobEffectCategory.BENEFICIAL, 15978425));\n    public static final Holder<MobEffect> CONDUIT_POWER = register(\"conduit_power\", new MobEffect(MobEffectCategory.BENEFICIAL, 1950417));"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\effect\\MobEffectInstance.java",
+      "sha256": "fa1b8328a9ecb153dead299028085f98b458fef75e47a2a71159c7697c13fbaa",
+      "scope": "效果和详细字段Codec，cures持久化",
+      "fragments": [
+        {
+          "line": 35,
+          "anchor": "MobEffect.CODEC.fieldOf(\"id\")",
+          "source": "    public static final Codec<MobEffectInstance> CODEC = RecordCodecBuilder.create(\n        p_348152_ -> p_348152_.group(\n                    MobEffect.CODEC.fieldOf(\"id\").forGetter(MobEffectInstance::getEffect),\n                    MobEffectInstance.Details.MAP_CODEC.forGetter(MobEffectInstance::asDetails)\n                )\n                .apply(p_348152_, MobEffectInstance::new)\n    );\n    public static final StreamCodec<RegistryFriendlyByteBuf, MobEffectInstance> STREAM_CODEC = StreamCodec.composite(\n        MobEffect.STREAM_CODEC, MobEffectInstance::getEffect, MobEffectInstance.Details.STREAM_CODEC, MobEffectInstance::asDetails, MobEffectInstance::new\n    );\n    private final Holder<MobEffect> effect;\n    private int duration;\n    private int amplifier;\n    private boolean ambient;\n    private boolean visible;"
+        },
+        {
+          "line": 425,
+          "anchor": "neoforge:cures",
+          "source": "                                p_323465_.optionalFieldOf(\"hidden_effect\").forGetter(MobEffectInstance.Details::hiddenEffect)\n                                // Neo: Add additional serialization logic for custom EffectCure(s)\n                                , net.neoforged.neoforge.common.util.NeoForgeExtraCodecs.setOf(net.neoforged.neoforge.common.EffectCure.CODEC).optionalFieldOf(\"neoforge:cures\").forGetter(MobEffectInstance.Details::cures)\n                            )\n                            .apply(p_324063_, MobEffectInstance.Details::create)\n                )\n        );\n        public static final StreamCodec<RegistryFriendlyByteBuf, MobEffectInstance.Details> STREAM_CODEC = StreamCodec.recursive(\n            p_329990_ -> net.neoforged.neoforge.network.codec.NeoForgeStreamCodecs.composite(\n                    ByteBufCodecs.VAR_INT,\n                    MobEffectInstance.Details::amplifier,\n                    ByteBufCodecs.VAR_INT,\n                    MobEffectInstance.Details::duration,\n                    ByteBufCodecs.BOOL,\n                    MobEffectInstance.Details::ambient,"
+        },
+        {
+          "line": 418,
+          "anchor": "UNSIGNED_BYTE",
+          "source": "            p_323465_ -> RecordCodecBuilder.mapCodec(\n                    p_324063_ -> p_324063_.group(\n                                ExtraCodecs.UNSIGNED_BYTE.optionalFieldOf(\"amplifier\", 0).forGetter(MobEffectInstance.Details::amplifier),\n                                Codec.INT.optionalFieldOf(\"duration\", Integer.valueOf(0)).forGetter(MobEffectInstance.Details::duration),\n                                Codec.BOOL.optionalFieldOf(\"ambient\", Boolean.valueOf(false)).forGetter(MobEffectInstance.Details::ambient),\n                                Codec.BOOL.optionalFieldOf(\"show_particles\", Boolean.valueOf(true)).forGetter(MobEffectInstance.Details::showParticles),\n                                Codec.BOOL.optionalFieldOf(\"show_icon\").forGetter(p_323788_ -> Optional.of(p_323788_.showIcon())),\n                                p_323465_.optionalFieldOf(\"hidden_effect\").forGetter(MobEffectInstance.Details::hiddenEffect)\n                                // Neo: Add additional serialization logic for custom EffectCure(s)\n                                , net.neoforged.neoforge.common.util.NeoForgeExtraCodecs.setOf(net.neoforged.neoforge.common.EffectCure.CODEC).optionalFieldOf(\"neoforge:cures\").forGetter(MobEffectInstance.Details::cures)\n                            )\n                            .apply(p_324063_, MobEffectInstance.Details::create)\n                )\n        );\n        public static final StreamCodec<RegistryFriendlyByteBuf, MobEffectInstance.Details> STREAM_CODEC = StreamCodec.recursive("
+        }
+      ]
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch108a\\neo\\net\\neoforged\\neoforge\\common\\EffectCures.java",
+      "sha256": "99597be70a6f508c8056b993bdde5d70b93415efe0b5196dda1754906599040a",
+      "scope": "默认milk与图腾治愈",
+      "fragments": [
+        {
+          "line": 14,
+          "anchor": "MILK =",
+          "source": "     * Cure used when a milk bucket is consumed. Cures any effect by default.\n     */\n    public static final EffectCure MILK = EffectCure.get(\"milk\");\n    /**\n     * Cure used when a honey bottle is consumed. Only cures poison by default.\n     */\n    public static final EffectCure HONEY = EffectCure.get(\"honey\");\n    /**\n     * Cure used when a totem of undying protects the player from death. Cures any effect by default.\n     */\n    public static final EffectCure PROTECTED_BY_TOTEM = EffectCure.get(\"protected_by_totem\");\n\n    public static final Set<EffectCure> DEFAULT_CURES = Set.of(MILK, PROTECTED_BY_TOTEM);\n}"
+        },
+        {
+          "line": 22,
+          "anchor": "PROTECTED_BY_TOTEM =",
+          "source": "     * Cure used when a totem of undying protects the player from death. Cures any effect by default.\n     */\n    public static final EffectCure PROTECTED_BY_TOTEM = EffectCure.get(\"protected_by_totem\");\n\n    public static final Set<EffectCure> DEFAULT_CURES = Set.of(MILK, PROTECTED_BY_TOTEM);\n}"
+        },
+        {
+          "line": 24,
+          "anchor": "DEFAULT_CURES =",
+          "source": "    public static final EffectCure PROTECTED_BY_TOTEM = EffectCure.get(\"protected_by_totem\");\n\n    public static final Set<EffectCure> DEFAULT_CURES = Set.of(MILK, PROTECTED_BY_TOTEM);\n}"
+        }
+      ]
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch108a\\neo\\net\\neoforged\\neoforge\\common\\extensions\\IMobEffectExtension.java",
+      "sha256": "bb962e766ad9e37bc3256b41223c3ee36bb2a7dde851fe8183117682c88456d5",
+      "scope": "原生默认cures；honey仅毒",
+      "fragments": [
+        {
+          "line": 23,
+          "anchor": "fillEffectCures",
+          "source": "     * Fill the given set with the {@link EffectCure}s this effect should be curable with by default\n     */\n    default void fillEffectCures(Set<EffectCure> cures, MobEffectInstance effectInstance) {\n        cures.addAll(EffectCures.DEFAULT_CURES);\n        if (self() == MobEffects.POISON.value()) {\n            cures.add(EffectCures.HONEY);\n        }\n    }\n\n    /**\n     * Used for determining {@link MobEffect} sort order in GUIs.\n     * Defaults to the {@link MobEffect}'s liquid color.\n     * \n     * @param effectInstance the {@link MobEffectInstance} containing this {@link MobEffect}\n     * @return a value used to sort {@link MobEffect}s in GUIs"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\item\\ItemStack.java",
+      "sha256": "b35770a757f0c62a88276a38c36763d26e204d1a6210ea3fcac71a53526bc389",
+      "scope": "新版物品堆数量和注册项Codec",
+      "fragments": [
+        {
+          "line": 107,
+          "anchor": "intRange(1, 99)",
+          "source": "                p_347288_ -> p_347288_.group(\n                            ITEM_NON_AIR_CODEC.fieldOf(\"id\").forGetter(ItemStack::getItemHolder),\n                            ExtraCodecs.intRange(1, 99).fieldOf(\"count\").orElse(1).forGetter(ItemStack::getCount),\n                            DataComponentPatch.CODEC\n                                .optionalFieldOf(\"components\", DataComponentPatch.EMPTY)\n                                .forGetter(p_330103_ -> p_330103_.components.asPatch())\n                        )\n                        .apply(p_347288_, ItemStack::new)\n            )\n    );\n    public static final Codec<ItemStack> SINGLE_ITEM_CODEC = Codec.lazyInitialized(\n        () -> RecordCodecBuilder.create(\n                p_337931_ -> p_337931_.group(\n                            ITEM_NON_AIR_CODEC.fieldOf(\"id\").forGetter(ItemStack::getItemHolder),\n                            DataComponentPatch.CODEC"
+        },
+        {
+          "line": 106,
+          "anchor": "ITEM_NON_AIR_CODEC.fieldOf(\"id\")",
+          "source": "        () -> RecordCodecBuilder.create(\n                p_347288_ -> p_347288_.group(\n                            ITEM_NON_AIR_CODEC.fieldOf(\"id\").forGetter(ItemStack::getItemHolder),\n                            ExtraCodecs.intRange(1, 99).fieldOf(\"count\").orElse(1).forGetter(ItemStack::getCount),\n                            DataComponentPatch.CODEC\n                                .optionalFieldOf(\"components\", DataComponentPatch.EMPTY)\n                                .forGetter(p_330103_ -> p_330103_.components.asPatch())\n                        )\n                        .apply(p_347288_, ItemStack::new)\n            )\n    );\n    public static final Codec<ItemStack> SINGLE_ITEM_CODEC = Codec.lazyInitialized(\n        () -> RecordCodecBuilder.create(\n                p_337931_ -> p_337931_.group(\n                            ITEM_NON_AIR_CODEC.fieldOf(\"id\").forGetter(ItemStack::getItemHolder),"
+        },
+        {
+          "line": 118,
+          "anchor": "ITEM_NON_AIR_CODEC.fieldOf(\"id\")",
+          "source": "        () -> RecordCodecBuilder.create(\n                p_337931_ -> p_337931_.group(\n                            ITEM_NON_AIR_CODEC.fieldOf(\"id\").forGetter(ItemStack::getItemHolder),\n                            DataComponentPatch.CODEC\n                                .optionalFieldOf(\"components\", DataComponentPatch.EMPTY)\n                                .forGetter(p_332616_ -> p_332616_.components.asPatch())\n                        )\n                        .apply(p_337931_, (p_332614_, p_332615_) -> new ItemStack(p_332614_, 1, p_332615_))\n            )\n    );\n    public static final Codec<ItemStack> STRICT_CODEC = CODEC.validate(ItemStack::validateStrict);\n    public static final Codec<ItemStack> STRICT_SINGLE_ITEM_CODEC = SINGLE_ITEM_CODEC.validate(ItemStack::validateStrict);\n    public static final Codec<ItemStack> OPTIONAL_CODEC = ExtraCodecs.optionalEmptyMap(CODEC)\n        .xmap(p_330099_ -> p_330099_.orElse(ItemStack.EMPTY), p_330101_ -> p_330101_.isEmpty() ? Optional.empty() : Optional.of(p_330101_));\n    public static final Codec<ItemStack> SIMPLE_ITEM_CODEC = ITEM_NON_AIR_CODEC.xmap(ItemStack::new, ItemStack::getItemHolder);"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\entity\\item\\ItemEntity.java",
+      "sha256": "29ba6ac25480eb5d126307974c8f4a92463334f50f29b5aa45dd8637fe65de89",
+      "scope": "掉落物读取嵌套Item物品栈",
+      "fragments": [
+        {
+          "line": 353,
+          "anchor": "ItemStack.parse(",
+          "source": "        if (p_32034_.contains(\"Item\", 10)) {\n            CompoundTag compoundtag = p_32034_.getCompound(\"Item\");\n            this.setItem(ItemStack.parse(this.registryAccess(), compoundtag).orElse(ItemStack.EMPTY));\n        } else {\n            this.setItem(ItemStack.EMPTY);\n        }\n\n        if (this.getItem().isEmpty()) {\n            this.discard();\n        }\n    }\n\n    @Override\n    public void playerTouch(Player p_32040_) {\n        if (!this.level().isClientSide) {"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\entity\\ExperienceOrb.java",
+      "sha256": "3dd1b6cfc3a3846625d0644b5d437d388939b979d28f9a29f16c699082baac0e",
+      "scope": "经验球独立整数Count，不能按物品迁移",
+      "fragments": [
+        {
+          "line": 217,
+          "anchor": "putInt(\"Count\"",
+          "source": "        p_20796_.putShort(\"Age\", (short)this.age);\n        p_20796_.putShort(\"Value\", (short)this.value);\n        p_20796_.putInt(\"Count\", this.count);\n    }\n\n    @Override\n    public void readAdditionalSaveData(CompoundTag p_20788_) {\n        this.health = p_20788_.getShort(\"Health\");\n        this.age = p_20788_.getShort(\"Age\");\n        this.value = p_20788_.getShort(\"Value\");\n        this.count = Math.max(p_20788_.getInt(\"Count\"), 1);\n    }\n\n    @Override\n    public void playerTouch(Player p_20792_) {"
+        },
+        {
+          "line": 225,
+          "anchor": "getInt(\"Count\"",
+          "source": "        this.age = p_20788_.getShort(\"Age\");\n        this.value = p_20788_.getShort(\"Value\");\n        this.count = Math.max(p_20788_.getInt(\"Count\"), 1);\n    }\n\n    @Override\n    public void playerTouch(Player p_20792_) {\n        if (p_20792_ instanceof ServerPlayer serverplayer) {\n            if (p_20792_.takeXpDelay == 0) {\n                if (net.neoforged.neoforge.common.NeoForge.EVENT_BUS.post(new net.neoforged.neoforge.event.entity.player.PlayerXpEvent.PickupXp(p_20792_, this)).isCanceled()) return;\n                p_20792_.takeXpDelay = 2;\n                p_20792_.take(this, 1);\n                int i = this.repairPlayerItems(serverplayer, this.value);\n                if (i > 0) {\n                    p_20792_.giveExperiencePoints(i);"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\structure\\templatesystem\\StructureTemplate.java",
+      "sha256": "e2b63ca8afc2f951a7f78eb021216ce7e711db3b4707a6baa2300d4cb9162eec",
+      "scope": "结构实体finalize与palette读取",
+      "fragments": [
+        {
+          "line": 479,
+          "anchor": "finalizeSpawn",
+          "source": "                    p_275190_.moveTo(vec31.x, vec31.y, vec31.z, f, p_275190_.getXRot());\n                    if (placementIn.shouldFinalizeEntities() && p_275190_ instanceof Mob) {\n                        ((Mob)p_275190_).finalizeSpawn(p_74524_, p_74524_.getCurrentDifficultyAt(BlockPos.containing(vec31)), MobSpawnType.STRUCTURE, null);\n                    }\n\n                    p_74524_.addFreshEntityWithPassengers(p_275190_);\n                });\n            }\n        }\n    }\n\n    private static Optional<Entity> createEntityIgnoreException(ServerLevelAccessor p_74544_, CompoundTag p_74545_) {\n        try {\n            return EntityType.create(p_74545_, p_74544_.getLevel());\n        } catch (Exception exception) {"
+        },
+        {
+          "line": 741,
+          "anchor": "NbtUtils.readBlockState",
+          "source": "\n        for (int i = 0; i < p_251056_.size(); i++) {\n            structuretemplate$simplepalette.addMapping(NbtUtils.readBlockState(p_256546_, p_251056_.getCompound(i)), i);\n        }\n\n        List<StructureTemplate.StructureBlockInfo> list2 = Lists.newArrayList();\n        List<StructureTemplate.StructureBlockInfo> list = Lists.newArrayList();\n        List<StructureTemplate.StructureBlockInfo> list1 = Lists.newArrayList();\n\n        for (int j = 0; j < p_251493_.size(); j++) {\n            CompoundTag compoundtag = p_251493_.getCompound(j);\n            ListTag listtag = compoundtag.getList(\"pos\", 3);\n            BlockPos blockpos = new BlockPos(listtag.getInt(0), listtag.getInt(1), listtag.getInt(2));\n            BlockState blockstate = structuretemplate$simplepalette.stateFor(compoundtag.getInt(\"state\"));\n            CompoundTag compoundtag1;"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\structure\\pools\\SinglePoolElement.java",
+      "sha256": "8d4310fee5be72dd6d16f4d912ec7f8a1659690251a632de5c8adf003537a513",
+      "scope": "Jigsaw结构池确定启用finalize",
+      "fragments": [
+        {
+          "line": 181,
+          "anchor": "setFinalizeEntities(true)",
+          "source": "        structureplacesettings.setIgnoreEntities(false);\n        structureplacesettings.addProcessor(BlockIgnoreProcessor.STRUCTURE_BLOCK);\n        structureplacesettings.setFinalizeEntities(true);\n        structureplacesettings.setLiquidSettings(this.overrideLiquidSettings.orElse(p_352322_));\n        if (!p_210423_) {\n            structureplacesettings.addProcessor(JigsawReplacementProcessor.INSTANCE);\n        }\n\n        this.processors.value().list().forEach(structureplacesettings::addProcessor);\n        this.getProjection().getProcessors().forEach(structureplacesettings::addProcessor);\n        return structureplacesettings;\n    }\n\n    @Override\n    public StructurePoolElementType<?> getType() {"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\structure\\structures\\JigsawStructure.java",
+      "sha256": "ac73b963a562d4cfff4d6d46f751e76a912382add2db275630484389a7c6edcc",
+      "scope": "自然结构Codec",
+      "fragments": [
+        {
+          "line": 37,
+          "anchor": "Codec.intRange(0, 20)",
+          "source": "                        StructureTemplatePool.CODEC.fieldOf(\"start_pool\").forGetter(p_227656_ -> p_227656_.startPool),\n                        ResourceLocation.CODEC.optionalFieldOf(\"start_jigsaw_name\").forGetter(p_227654_ -> p_227654_.startJigsawName),\n                        Codec.intRange(0, 20).fieldOf(\"size\").forGetter(p_227652_ -> p_227652_.maxDepth),\n                        HeightProvider.CODEC.fieldOf(\"start_height\").forGetter(p_227649_ -> p_227649_.startHeight),\n                        Codec.BOOL.fieldOf(\"use_expansion_hack\").forGetter(p_227646_ -> p_227646_.useExpansionHack),\n                        Heightmap.Types.CODEC.optionalFieldOf(\"project_start_to_heightmap\").forGetter(p_227644_ -> p_227644_.projectStartToHeightmap),\n                        Codec.intRange(1, 128).fieldOf(\"max_distance_from_center\").forGetter(p_227642_ -> p_227642_.maxDistanceFromCenter),\n                        Codec.list(PoolAliasBinding.CODEC).optionalFieldOf(\"pool_aliases\", List.of()).forGetter(p_307187_ -> p_307187_.poolAliases),\n                        DimensionPadding.CODEC\n                            .optionalFieldOf(\"dimension_padding\", DEFAULT_DIMENSION_PADDING)\n                            .forGetter(p_348455_ -> p_348455_.dimensionPadding),\n                        LiquidSettings.CODEC.optionalFieldOf(\"liquid_settings\", DEFAULT_LIQUID_SETTINGS).forGetter(p_352036_ -> p_352036_.liquidSettings)\n                    )\n                    .apply(p_227640_, JigsawStructure::new)\n        )"
+        },
+        {
+          "line": 50,
+          "anchor": "verifyRange",
+          "source": "                    .apply(p_227640_, JigsawStructure::new)\n        )\n        .validate(JigsawStructure::verifyRange);\n    private final Holder<StructureTemplatePool> startPool;\n    private final Optional<ResourceLocation> startJigsawName;\n    private final int maxDepth;\n    private final HeightProvider startHeight;\n    private final boolean useExpansionHack;\n    private final Optional<Heightmap.Types> projectStartToHeightmap;\n    private final int maxDistanceFromCenter;\n    private final List<PoolAliasBinding> poolAliases;\n    private final DimensionPadding dimensionPadding;\n    private final LiquidSettings liquidSettings;\n\n    private static DataResult<JigsawStructure> verifyRange(JigsawStructure p_286886_) {"
+        },
+        {
+          "line": 62,
+          "anchor": "verifyRange",
+          "source": "    private final LiquidSettings liquidSettings;\n\n    private static DataResult<JigsawStructure> verifyRange(JigsawStructure p_286886_) {\n        int i = switch (p_286886_.terrainAdaptation()) {\n            case NONE -> 0;\n            case BURY, BEARD_THIN, BEARD_BOX, ENCAPSULATE -> 12;\n        };\n        return p_286886_.maxDistanceFromCenter + i > 128\n            ? DataResult.error(() -> \"Structure size including terrain adaptation must not exceed 128\")\n            : DataResult.success(p_286886_);\n    }\n\n    public JigsawStructure(\n        Structure.StructureSettings p_227627_,\n        Holder<StructureTemplatePool> p_227628_,"
+        },
+        {
+          "line": 40,
+          "anchor": "project_start_to_heightmap",
+          "source": "                        HeightProvider.CODEC.fieldOf(\"start_height\").forGetter(p_227649_ -> p_227649_.startHeight),\n                        Codec.BOOL.fieldOf(\"use_expansion_hack\").forGetter(p_227646_ -> p_227646_.useExpansionHack),\n                        Heightmap.Types.CODEC.optionalFieldOf(\"project_start_to_heightmap\").forGetter(p_227644_ -> p_227644_.projectStartToHeightmap),\n                        Codec.intRange(1, 128).fieldOf(\"max_distance_from_center\").forGetter(p_227642_ -> p_227642_.maxDistanceFromCenter),\n                        Codec.list(PoolAliasBinding.CODEC).optionalFieldOf(\"pool_aliases\", List.of()).forGetter(p_307187_ -> p_307187_.poolAliases),\n                        DimensionPadding.CODEC\n                            .optionalFieldOf(\"dimension_padding\", DEFAULT_DIMENSION_PADDING)\n                            .forGetter(p_348455_ -> p_348455_.dimensionPadding),\n                        LiquidSettings.CODEC.optionalFieldOf(\"liquid_settings\", DEFAULT_LIQUID_SETTINGS).forGetter(p_352036_ -> p_352036_.liquidSettings)\n                    )\n                    .apply(p_227640_, JigsawStructure::new)\n        )\n        .validate(JigsawStructure::verifyRange);\n    private final Holder<StructureTemplatePool> startPool;\n    private final Optional<ResourceLocation> startJigsawName;"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\structure\\placement\\RandomSpreadStructurePlacement.java",
+      "sha256": "ff5a1f503bb7dd13ebf9d23f9177d8e87dd28eee0bc911c71e8de142b2eb0200",
+      "scope": "间距及分离约束",
+      "fragments": [
+        {
+          "line": 20,
+          "anchor": "spacing",
+          "source": "                    .and(\n                        p_204996_.group(\n                            Codec.intRange(0, 4096).fieldOf(\"spacing\").forGetter(RandomSpreadStructurePlacement::spacing),\n                            Codec.intRange(0, 4096).fieldOf(\"separation\").forGetter(RandomSpreadStructurePlacement::separation),\n                            RandomSpreadType.CODEC\n                                .optionalFieldOf(\"spread_type\", RandomSpreadType.LINEAR)\n                                .forGetter(RandomSpreadStructurePlacement::spreadType)\n                        )\n                    )\n                    .apply(p_204996_, RandomSpreadStructurePlacement::new)\n        )\n        .validate(RandomSpreadStructurePlacement::validate);\n    private final int spacing;\n    private final int separation;\n    private final RandomSpreadType spreadType;"
+        },
+        {
+          "line": 30,
+          "anchor": "spacing",
+          "source": "        )\n        .validate(RandomSpreadStructurePlacement::validate);\n    private final int spacing;\n    private final int separation;\n    private final RandomSpreadType spreadType;\n\n    private static DataResult<RandomSpreadStructurePlacement> validate(RandomSpreadStructurePlacement p_286361_) {\n        return p_286361_.spacing <= p_286361_.separation ? DataResult.error(() -> \"Spacing has to be larger than separation\") : DataResult.success(p_286361_);\n    }\n\n    public RandomSpreadStructurePlacement(\n        Vec3i p_227000_,\n        StructurePlacement.FrequencyReductionMethod p_227001_,\n        float p_227002_,\n        int p_227003_,"
+        },
+        {
+          "line": 21,
+          "anchor": "separation",
+          "source": "                        p_204996_.group(\n                            Codec.intRange(0, 4096).fieldOf(\"spacing\").forGetter(RandomSpreadStructurePlacement::spacing),\n                            Codec.intRange(0, 4096).fieldOf(\"separation\").forGetter(RandomSpreadStructurePlacement::separation),\n                            RandomSpreadType.CODEC\n                                .optionalFieldOf(\"spread_type\", RandomSpreadType.LINEAR)\n                                .forGetter(RandomSpreadStructurePlacement::spreadType)\n                        )\n                    )\n                    .apply(p_204996_, RandomSpreadStructurePlacement::new)\n        )\n        .validate(RandomSpreadStructurePlacement::validate);\n    private final int spacing;\n    private final int separation;\n    private final RandomSpreadType spreadType;\n"
+        },
+        {
+          "line": 31,
+          "anchor": "separation",
+          "source": "        .validate(RandomSpreadStructurePlacement::validate);\n    private final int spacing;\n    private final int separation;\n    private final RandomSpreadType spreadType;\n\n    private static DataResult<RandomSpreadStructurePlacement> validate(RandomSpreadStructurePlacement p_286361_) {\n        return p_286361_.spacing <= p_286361_.separation ? DataResult.error(() -> \"Spacing has to be larger than separation\") : DataResult.success(p_286361_);\n    }\n\n    public RandomSpreadStructurePlacement(\n        Vec3i p_227000_,\n        StructurePlacement.FrequencyReductionMethod p_227001_,\n        float p_227002_,\n        int p_227003_,\n        Optional<StructurePlacement.ExclusionZone> p_227004_,"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\structure\\pools\\StructureTemplatePool.java",
+      "sha256": "c59b557a291e55de891d867af1c66f2d4137267b20c07c41b88a6ffc6040a95d",
+      "scope": "池引用与权重Codec",
+      "fragments": [
+        {
+          "line": 31,
+          "anchor": "fallback",
+          "source": "    public static final Codec<StructureTemplatePool> DIRECT_CODEC = RecordCodecBuilder.create(\n        p_338101_ -> p_338101_.group(\n                    Codec.lazyInitialized(CODEC_REFERENCE::getValue).fieldOf(\"fallback\").forGetter(StructureTemplatePool::getFallback),\n                    Codec.mapPair(StructurePoolElement.CODEC.fieldOf(\"element\"), Codec.intRange(1, 150).fieldOf(\"weight\"))\n                        .codec()\n                        .listOf()\n                        .fieldOf(\"elements\")\n                        .forGetter(p_210579_ -> p_210579_.rawTemplates)\n                )\n                .apply(p_338101_, StructureTemplatePool::new)\n    );\n    public static final Codec<Holder<StructureTemplatePool>> CODEC = Util.make(\n        RegistryFileCodec.create(Registries.TEMPLATE_POOL, DIRECT_CODEC), CODEC_REFERENCE::setValue\n    );\n    private final List<Pair<StructurePoolElement, Integer>> rawTemplates;"
+        },
+        {
+          "line": 45,
+          "anchor": "fallback",
+          "source": "    private final List<Pair<StructurePoolElement, Integer>> rawTemplates;\n    private final ObjectArrayList<StructurePoolElement> templates;\n    private final Holder<StructureTemplatePool> fallback;\n    private int maxSize = Integer.MIN_VALUE;\n\n    public StructureTemplatePool(Holder<StructureTemplatePool> p_255747_, List<Pair<StructurePoolElement, Integer>> p_255919_) {\n        this.rawTemplates = p_255919_;\n        this.templates = new ObjectArrayList<>();\n\n        for (Pair<StructurePoolElement, Integer> pair : p_255919_) {\n            StructurePoolElement structurepoolelement = pair.getFirst();\n\n            for (int i = 0; i < pair.getSecond(); i++) {\n                this.templates.add(structurepoolelement);\n            }"
+        },
+        {
+          "line": 32,
+          "anchor": "weight",
+          "source": "        p_338101_ -> p_338101_.group(\n                    Codec.lazyInitialized(CODEC_REFERENCE::getValue).fieldOf(\"fallback\").forGetter(StructureTemplatePool::getFallback),\n                    Codec.mapPair(StructurePoolElement.CODEC.fieldOf(\"element\"), Codec.intRange(1, 150).fieldOf(\"weight\"))\n                        .codec()\n                        .listOf()\n                        .fieldOf(\"elements\")\n                        .forGetter(p_210579_ -> p_210579_.rawTemplates)\n                )\n                .apply(p_338101_, StructureTemplatePool::new)\n    );\n    public static final Codec<Holder<StructureTemplatePool>> CODEC = Util.make(\n        RegistryFileCodec.create(Registries.TEMPLATE_POOL, DIRECT_CODEC), CODEC_REFERENCE::setValue\n    );\n    private final List<Pair<StructurePoolElement, Integer>> rawTemplates;\n    private final ObjectArrayList<StructurePoolElement> templates;"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\structure\\templatesystem\\BlockIgnoreProcessor.java",
+      "sha256": "0752ef35a84f97551d45334f21ffef283a2112a6ff7679743f6c7ede3f970e9e",
+      "scope": "处理器方块状态Codec，营地忽略空气而grove保空气",
+      "fragments": [
+        {
+          "line": 18,
+          "anchor": "fieldOf(\"blocks\")",
+          "source": "        .xmap(BlockBehaviour.BlockStateBase::getBlock, Block::defaultBlockState)\n        .listOf()\n        .fieldOf(\"blocks\")\n        .xmap(BlockIgnoreProcessor::new, p_74062_ -> p_74062_.toIgnore);\n    public static final BlockIgnoreProcessor STRUCTURE_BLOCK = new BlockIgnoreProcessor(ImmutableList.of(Blocks.STRUCTURE_BLOCK));\n    public static final BlockIgnoreProcessor AIR = new BlockIgnoreProcessor(ImmutableList.of(Blocks.AIR));\n    public static final BlockIgnoreProcessor STRUCTURE_AND_AIR = new BlockIgnoreProcessor(ImmutableList.of(Blocks.AIR, Blocks.STRUCTURE_BLOCK));\n    private final ImmutableList<Block> toIgnore;\n\n    public BlockIgnoreProcessor(List<Block> p_74052_) {\n        this.toIgnore = ImmutableList.copyOf(p_74052_);\n    }\n\n    @Nullable\n    @Override"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\nbt\\NbtUtils.java",
+      "sha256": "8c1a9fe1494c30b527b1fb182a6f6f9605aa49b607f22842d915e29887d935e3",
+      "scope": "目标未注册palette返回空气",
+      "fragments": [
+        {
+          "line": 148,
+          "anchor": "readBlockState",
+          "source": "    }\n\n    public static BlockState readBlockState(HolderGetter<Block> p_256363_, CompoundTag p_250775_) {\n        if (!p_250775_.contains(\"Name\", 8)) {\n            return Blocks.AIR.defaultBlockState();\n        } else {\n            ResourceLocation resourcelocation = ResourceLocation.parse(p_250775_.getString(\"Name\"));\n            Optional<? extends Holder<Block>> optional = p_256363_.get(ResourceKey.create(Registries.BLOCK, resourcelocation));\n            if (optional.isEmpty()) {\n                return Blocks.AIR.defaultBlockState();\n            } else {\n                Block block = optional.get().value();\n                BlockState blockstate = block.defaultBlockState();\n                if (p_250775_.contains(\"Properties\", 10)) {\n                    CompoundTag compoundtag = p_250775_.getCompound(\"Properties\");"
+        },
+        {
+          "line": 154,
+          "anchor": "optional.isEmpty()",
+          "source": "            ResourceLocation resourcelocation = ResourceLocation.parse(p_250775_.getString(\"Name\"));\n            Optional<? extends Holder<Block>> optional = p_256363_.get(ResourceKey.create(Registries.BLOCK, resourcelocation));\n            if (optional.isEmpty()) {\n                return Blocks.AIR.defaultBlockState();\n            } else {\n                Block block = optional.get().value();\n                BlockState blockstate = block.defaultBlockState();\n                if (p_250775_.contains(\"Properties\", 10)) {\n                    CompoundTag compoundtag = p_250775_.getCompound(\"Properties\");\n                    StateDefinition<Block, BlockState> statedefinition = block.getStateDefinition();\n\n                    for (String s : compoundtag.getAllKeys()) {\n                        Property<?> property = statedefinition.getProperty(s);\n                        if (property != null) {\n                            blockstate = setValueHelper(blockstate, property, s, compoundtag, p_250775_);"
+        }
+      ]
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch108a\\old\\net\\minecraft\\nbt\\NbtUtils.java",
+      "sha256": "21ce2db64635b839b19d567c00e464ae435e97f67603e7e126357ffca68abdc7",
+      "scope": "原件未注册palette原读取入口",
+      "fragments": [
+        {
+          "line": 224,
+          "anchor": "readBlockState",
+          "source": "   }\n\n   public static BlockState readBlockState(HolderGetter<Block> p_256363_, CompoundTag p_250775_) {\n      if (!p_250775_.contains(\"Name\", 8)) {\n         return Blocks.AIR.defaultBlockState();\n      } else {\n         ResourceLocation resourcelocation = new ResourceLocation(p_250775_.getString(\"Name\"));\n         Optional<? extends Holder<Block>> optional = p_256363_.get(ResourceKey.create(Registries.BLOCK, resourcelocation));\n         if (optional.isEmpty()) {\n            return Blocks.AIR.defaultBlockState();\n         } else {\n            Block block = optional.get().value();\n            BlockState blockstate = block.defaultBlockState();\n            if (p_250775_.contains(\"Properties\", 10)) {\n               CompoundTag compoundtag = p_250775_.getCompound(\"Properties\");"
+        }
+      ]
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch108a\\old\\net\\minecraft\\core\\DefaultedMappedRegistry.java",
+      "sha256": "5517ca25be7cc44f0ae18add81a31472f4202c03bd690acb8ab487e9b1ac54ff",
+      "scope": "旧默认注册表未知项回退默认空气",
+      "fragments": [
+        {
+          "line": 41,
+          "anchor": "public T get(",
+          "source": "\n   @Nonnull\n   public T get(@Nullable ResourceLocation p_260004_) {\n      T t = super.get(p_260004_);\n      return (T)(t == null ? this.defaultValue.value() : t);\n   }\n\n   public Optional<T> getOptional(@Nullable ResourceLocation p_260078_) {\n      return Optional.ofNullable(super.get(p_260078_));\n   }\n\n   @Nonnull\n   public T byId(int p_259534_) {\n      T t = super.byId(p_259534_);\n      return (T)(t == null ? this.defaultValue.value() : t);"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\biome\\Biome.java",
+      "sha256": "664b507f240c093013182427942ac2827b632b2052313302461be02ac8f2c2a9",
+      "scope": "群系天气Codec",
+      "fragments": [
+        {
+          "line": 350,
+          "anchor": "has_precipitation",
+          "source": "        public static final MapCodec<Biome.ClimateSettings> CODEC = RecordCodecBuilder.mapCodec(\n            p_264995_ -> p_264995_.group(\n                        Codec.BOOL.fieldOf(\"has_precipitation\").forGetter(p_264996_ -> p_264996_.hasPrecipitation),\n                        Codec.FLOAT.fieldOf(\"temperature\").forGetter(p_151737_ -> p_151737_.temperature),\n                        Biome.TemperatureModifier.CODEC\n                            .optionalFieldOf(\"temperature_modifier\", Biome.TemperatureModifier.NONE)\n                            .forGetter(p_151735_ -> p_151735_.temperatureModifier),\n                        Codec.FLOAT.fieldOf(\"downfall\").forGetter(p_151733_ -> p_151733_.downfall)\n                    )\n                    .apply(p_264995_, Biome.ClimateSettings::new)\n        );\n    }\n\n    public static enum Precipitation implements StringRepresentable {\n        NONE(\"none\"),"
+        },
+        {
+          "line": 69,
+          "anchor": "temperature",
+          "source": "    /** Neo: Field accesses are redirected to {@link #getModifiedSpecialEffects()} with a coremod. */\n    private final BiomeSpecialEffects specialEffects;\n    private final ThreadLocal<Long2FloatLinkedOpenHashMap> temperatureCache = ThreadLocal.withInitial(() -> Util.make(() -> {\n            Long2FloatLinkedOpenHashMap long2floatlinkedopenhashmap = new Long2FloatLinkedOpenHashMap(1024, 0.25F) {\n                @Override\n                protected void rehash(int p_47580_) {\n                }\n            };\n            long2floatlinkedopenhashmap.defaultReturnValue(Float.NaN);\n            return long2floatlinkedopenhashmap;\n        }));\n\n    Biome(Biome.ClimateSettings p_220530_, BiomeSpecialEffects p_220531_, BiomeGenerationSettings p_220532_, MobSpawnSettings p_220533_) {\n        this.climateSettings = p_220530_;\n        this.generationSettings = p_220532_;"
+        },
+        {
+          "line": 108,
+          "anchor": "temperature",
+          "source": "\n    private float getHeightAdjustedTemperature(BlockPos p_47529_) {\n        float f = this.climateSettings.temperatureModifier.modifyTemperature(p_47529_, this.getBaseTemperature());\n        if (p_47529_.getY() > 80) {\n            float f1 = (float)(TEMPERATURE_NOISE.getValue((double)((float)p_47529_.getX() / 8.0F), (double)((float)p_47529_.getZ() / 8.0F), false) * 8.0);\n            return f - (f1 + (float)p_47529_.getY() - 80.0F) * 0.05F / 40.0F;\n        } else {\n            return f;\n        }\n    }\n\n    @Deprecated\n    private float getTemperature(BlockPos p_47506_) {\n        long i = p_47506_.asLong();\n        Long2FloatLinkedOpenHashMap long2floatlinkedopenhashmap = this.temperatureCache.get();"
+        },
+        {
+          "line": 211,
+          "anchor": "downfall",
+          "source": "    private int getGrassColorFromTexture() {\n        double d0 = (double)Mth.clamp(this.climateSettings.temperature, 0.0F, 1.0F);\n        double d1 = (double)Mth.clamp(this.climateSettings.downfall, 0.0F, 1.0F);\n        return GrassColor.get(d0, d1);\n    }\n\n    public int getFoliageColor() {\n        return this.specialEffects.getFoliageColorOverride().orElseGet(this::getFoliageColorFromTexture);\n    }\n\n    private int getFoliageColorFromTexture() {\n        double d0 = (double)Mth.clamp(this.climateSettings.temperature, 0.0F, 1.0F);\n        double d1 = (double)Mth.clamp(this.climateSettings.downfall, 0.0F, 1.0F);\n        return FoliageColor.get(d0, d1);\n    }"
+        },
+        {
+          "line": 221,
+          "anchor": "downfall",
+          "source": "    private int getFoliageColorFromTexture() {\n        double d0 = (double)Mth.clamp(this.climateSettings.temperature, 0.0F, 1.0F);\n        double d1 = (double)Mth.clamp(this.climateSettings.downfall, 0.0F, 1.0F);\n        return FoliageColor.get(d0, d1);\n    }\n\n    public float getBaseTemperature() {\n        return this.climateSettings.temperature;\n    }\n\n    public BiomeSpecialEffects getSpecialEffects() {\n        return this.specialEffects;\n    }\n\n    public int getWaterColor() {"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\biome\\BiomeSpecialEffects.java",
+      "sha256": "69268951e10886ae90a0646c48ad78410388a7bc87d83975098460cd35243414",
+      "scope": "群系声画Codec",
+      "fragments": [
+        {
+          "line": 30,
+          "anchor": "music",
+          "source": "                    AmbientMoodSettings.CODEC.optionalFieldOf(\"mood_sound\").forGetter(p_151764_ -> p_151764_.ambientMoodSettings),\n                    AmbientAdditionsSettings.CODEC.optionalFieldOf(\"additions_sound\").forGetter(p_151762_ -> p_151762_.ambientAdditionsSettings),\n                    Music.CODEC.optionalFieldOf(\"music\").forGetter(p_151760_ -> p_151760_.backgroundMusic)\n                )\n                .apply(p_47971_, BiomeSpecialEffects::new)\n    );\n    private final int fogColor;\n    private final int waterColor;\n    private final int waterFogColor;\n    private final int skyColor;\n    private final Optional<Integer> foliageColorOverride;\n    private final Optional<Integer> grassColorOverride;\n    private final BiomeSpecialEffects.GrassColorModifier grassColorModifier;\n    private final Optional<AmbientParticleSettings> ambientParticleSettings;\n    private final Optional<Holder<SoundEvent>> ambientLoopSoundEvent;"
+        },
+        {
+          "line": 26,
+          "anchor": "particle",
+          "source": "                        .optionalFieldOf(\"grass_color_modifier\", BiomeSpecialEffects.GrassColorModifier.NONE)\n                        .forGetter(p_151770_ -> p_151770_.grassColorModifier),\n                    AmbientParticleSettings.CODEC.optionalFieldOf(\"particle\").forGetter(p_151768_ -> p_151768_.ambientParticleSettings),\n                    SoundEvent.CODEC.optionalFieldOf(\"ambient_sound\").forGetter(p_151766_ -> p_151766_.ambientLoopSoundEvent),\n                    AmbientMoodSettings.CODEC.optionalFieldOf(\"mood_sound\").forGetter(p_151764_ -> p_151764_.ambientMoodSettings),\n                    AmbientAdditionsSettings.CODEC.optionalFieldOf(\"additions_sound\").forGetter(p_151762_ -> p_151762_.ambientAdditionsSettings),\n                    Music.CODEC.optionalFieldOf(\"music\").forGetter(p_151760_ -> p_151760_.backgroundMusic)\n                )\n                .apply(p_47971_, BiomeSpecialEffects::new)\n    );\n    private final int fogColor;\n    private final int waterColor;\n    private final int waterFogColor;\n    private final int skyColor;\n    private final Optional<Integer> foliageColorOverride;"
+        },
+        {
+          "line": 21,
+          "anchor": "foliage_color",
+          "source": "                    Codec.INT.fieldOf(\"water_fog_color\").forGetter(p_151778_ -> p_151778_.waterFogColor),\n                    Codec.INT.fieldOf(\"sky_color\").forGetter(p_151776_ -> p_151776_.skyColor),\n                    Codec.INT.optionalFieldOf(\"foliage_color\").forGetter(p_151774_ -> p_151774_.foliageColorOverride),\n                    Codec.INT.optionalFieldOf(\"grass_color\").forGetter(p_151772_ -> p_151772_.grassColorOverride),\n                    BiomeSpecialEffects.GrassColorModifier.CODEC\n                        .optionalFieldOf(\"grass_color_modifier\", BiomeSpecialEffects.GrassColorModifier.NONE)\n                        .forGetter(p_151770_ -> p_151770_.grassColorModifier),\n                    AmbientParticleSettings.CODEC.optionalFieldOf(\"particle\").forGetter(p_151768_ -> p_151768_.ambientParticleSettings),\n                    SoundEvent.CODEC.optionalFieldOf(\"ambient_sound\").forGetter(p_151766_ -> p_151766_.ambientLoopSoundEvent),\n                    AmbientMoodSettings.CODEC.optionalFieldOf(\"mood_sound\").forGetter(p_151764_ -> p_151764_.ambientMoodSettings),\n                    AmbientAdditionsSettings.CODEC.optionalFieldOf(\"additions_sound\").forGetter(p_151762_ -> p_151762_.ambientAdditionsSettings),\n                    Music.CODEC.optionalFieldOf(\"music\").forGetter(p_151760_ -> p_151760_.backgroundMusic)\n                )\n                .apply(p_47971_, BiomeSpecialEffects::new)\n    );"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\biome\\MobSpawnSettings.java",
+      "sha256": "199f4381ecea26284653c47816952e32189228643582070e003fac0832138880",
+      "scope": "群系刷怪配置Codec",
+      "fragments": [
+        {
+          "line": 138,
+          "anchor": "minCount",
+          "source": "                            BuiltInRegistries.ENTITY_TYPE.byNameCodec().fieldOf(\"type\").forGetter(p_151826_ -> p_151826_.type),\n                            Weight.CODEC.fieldOf(\"weight\").forGetter(WeightedEntry.IntrusiveBase::getWeight),\n                            ExtraCodecs.POSITIVE_INT.fieldOf(\"minCount\").forGetter(p_151824_ -> p_151824_.minCount),\n                            ExtraCodecs.POSITIVE_INT.fieldOf(\"maxCount\").forGetter(p_151820_ -> p_151820_.maxCount)\n                        )\n                        .apply(p_344646_, MobSpawnSettings.SpawnerData::new)\n            )\n            .validate(\n                p_275168_ -> p_275168_.minCount > p_275168_.maxCount\n                        ? DataResult.error(() -> \"minCount needs to be smaller or equal to maxCount\")\n                        : DataResult.success(p_275168_)\n            );\n        public final EntityType<?> type;\n        public final int minCount;\n        public final int maxCount;"
+        },
+        {
+          "line": 144,
+          "anchor": "minCount",
+          "source": "            )\n            .validate(\n                p_275168_ -> p_275168_.minCount > p_275168_.maxCount\n                        ? DataResult.error(() -> \"minCount needs to be smaller or equal to maxCount\")\n                        : DataResult.success(p_275168_)\n            );\n        public final EntityType<?> type;\n        public final int minCount;\n        public final int maxCount;\n\n        public SpawnerData(EntityType<?> p_48409_, int p_48410_, int p_48411_, int p_48412_) {\n            this(p_48409_, Weight.of(p_48410_), p_48411_, p_48412_);\n        }\n\n        public SpawnerData(EntityType<?> p_151815_, Weight p_151816_, int p_151817_, int p_151818_) {"
+        },
+        {
+          "line": 139,
+          "anchor": "maxCount",
+          "source": "                            Weight.CODEC.fieldOf(\"weight\").forGetter(WeightedEntry.IntrusiveBase::getWeight),\n                            ExtraCodecs.POSITIVE_INT.fieldOf(\"minCount\").forGetter(p_151824_ -> p_151824_.minCount),\n                            ExtraCodecs.POSITIVE_INT.fieldOf(\"maxCount\").forGetter(p_151820_ -> p_151820_.maxCount)\n                        )\n                        .apply(p_344646_, MobSpawnSettings.SpawnerData::new)\n            )\n            .validate(\n                p_275168_ -> p_275168_.minCount > p_275168_.maxCount\n                        ? DataResult.error(() -> \"minCount needs to be smaller or equal to maxCount\")\n                        : DataResult.success(p_275168_)\n            );\n        public final EntityType<?> type;\n        public final int minCount;\n        public final int maxCount;\n"
+        },
+        {
+          "line": 144,
+          "anchor": "maxCount",
+          "source": "            )\n            .validate(\n                p_275168_ -> p_275168_.minCount > p_275168_.maxCount\n                        ? DataResult.error(() -> \"minCount needs to be smaller or equal to maxCount\")\n                        : DataResult.success(p_275168_)\n            );\n        public final EntityType<?> type;\n        public final int minCount;\n        public final int maxCount;\n\n        public SpawnerData(EntityType<?> p_48409_, int p_48410_, int p_48411_, int p_48412_) {\n            this(p_48409_, Weight.of(p_48410_), p_48411_, p_48412_);\n        }\n\n        public SpawnerData(EntityType<?> p_151815_, Weight p_151816_, int p_151817_, int p_151818_) {"
+        },
+        {
+          "line": 43,
+          "anchor": "spawners",
+          "source": "                            StringRepresentable.keys(MobCategory.values())\n                        )\n                        .fieldOf(\"spawners\")\n                        .forGetter(p_187053_ -> p_187053_.spawners),\n                    Codec.simpleMap(BuiltInRegistries.ENTITY_TYPE.byNameCodec(), MobSpawnSettings.MobSpawnCost.CODEC, BuiltInRegistries.ENTITY_TYPE)\n                        .fieldOf(\"spawn_costs\")\n                        .forGetter(p_187049_ -> p_187049_.mobSpawnCosts)\n                )\n                .apply(p_187051_, MobSpawnSettings::new)\n    );\n    private final float creatureGenerationProbability;\n    private final Map<MobCategory, WeightedRandomList<MobSpawnSettings.SpawnerData>> spawners;\n    private final Map<EntityType<?>, MobSpawnSettings.MobSpawnCost> mobSpawnCosts;\n    private final java.util.Set<MobCategory> typesView;\n    private final java.util.Set<EntityType<?>> costView;"
+        },
+        {
+          "line": 44,
+          "anchor": "spawners",
+          "source": "                        )\n                        .fieldOf(\"spawners\")\n                        .forGetter(p_187053_ -> p_187053_.spawners),\n                    Codec.simpleMap(BuiltInRegistries.ENTITY_TYPE.byNameCodec(), MobSpawnSettings.MobSpawnCost.CODEC, BuiltInRegistries.ENTITY_TYPE)\n                        .fieldOf(\"spawn_costs\")\n                        .forGetter(p_187049_ -> p_187049_.mobSpawnCosts)\n                )\n                .apply(p_187051_, MobSpawnSettings::new)\n    );\n    private final float creatureGenerationProbability;\n    private final Map<MobCategory, WeightedRandomList<MobSpawnSettings.SpawnerData>> spawners;\n    private final Map<EntityType<?>, MobSpawnSettings.MobSpawnCost> mobSpawnCosts;\n    private final java.util.Set<MobCategory> typesView;\n    private final java.util.Set<EntityType<?>> costView;\n"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\resources\\ResourceLocation.java",
+      "sha256": "0d695fa4fc1750e70167375fea9f2db772eb45ffe02b6720860b45734ffa64a3",
+      "scope": "未限定的white_ash及enderman取原生命名空间",
+      "fragments": [
+        {
+          "line": 33,
+          "anchor": "DEFAULT_NAMESPACE",
+          "source": "    public static final SimpleCommandExceptionType ERROR_INVALID = new SimpleCommandExceptionType(Component.translatable(\"argument.id.invalid\"));\n    public static final char NAMESPACE_SEPARATOR = ':';\n    public static final String DEFAULT_NAMESPACE = \"minecraft\";\n    public static final String REALMS_NAMESPACE = \"realms\";\n    private final String namespace;\n    private final String path;\n\n    private ResourceLocation(String p_135811_, String p_135812_) {\n        assert isValidNamespace(p_135811_);\n\n        assert isValidPath(p_135812_);\n\n        this.namespace = p_135811_;\n        this.path = p_135812_;\n    }"
+        },
+        {
+          "line": 55,
+          "anchor": "parse(String",
+          "source": "    }\n\n    public static ResourceLocation parse(String p_350801_) {\n        return bySeparator(p_350801_, ':');\n    }\n\n    public static ResourceLocation withDefaultNamespace(String p_350998_) {\n        return new ResourceLocation(\"minecraft\", assertValidPath(\"minecraft\", p_350998_));\n    }\n\n    @Nullable\n    public static ResourceLocation tryParse(String p_135821_) {\n        return tryBySeparator(p_135821_, ':');\n    }\n"
+        }
+      ]
+    }
+  ],
+  "source_pairs": {
+    "source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+    "sources": [
+      {
+        "source": "net/minecraft/world/entity/Mob.java",
+        "original_sha256": "a1a14fd0fec47f0552948d5caa7f2153cff2301260719296e763ac766ad0c6ca",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\entity\\Mob.java",
+        "target_sha256": "018c676ace0c958ecd3b377a044f19ec0332ac2045f9d3174a7a7aaf537e446c"
+      },
+      {
+        "source": "net/minecraft/world/entity/Entity.java",
+        "original_sha256": "e3188fd334e2076ccc64b8a16090355bc77d42d2e133d8fe237f91fce621bc04",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\entity\\Entity.java",
+        "target_sha256": "ca0586cb259e95dbd29524bf2db0ed7eaccfa5ca3a3c21492f5072c6ceef44bb"
+      },
+      {
+        "source": "net/minecraft/world/entity/LivingEntity.java",
+        "original_sha256": "96358c942018379244e5ffd6c01513f38ff26f56b99ce4747fa891490332f6c8",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\entity\\LivingEntity.java",
+        "target_sha256": "1bbe1b37d6f73eadefdcdfe6f5822106e410fbc80d20c163a4eb5feefb317731"
+      },
+      {
+        "source": "net/minecraft/world/entity/ExperienceOrb.java",
+        "original_sha256": "6c2bff0081f92af1afd3d347ab7895e84589d86089c19883670209e960a7e052",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\entity\\ExperienceOrb.java",
+        "target_sha256": "3dd1b6cfc3a3846625d0644b5d437d388939b979d28f9a29f16c699082baac0e"
+      },
+      {
+        "source": "net/minecraft/world/entity/item/ItemEntity.java",
+        "original_sha256": "ae178f725f96e2911388f52596de602cc6e0c6ce66ac9a55efabcd6c753248b2",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\entity\\item\\ItemEntity.java",
+        "target_sha256": "29ba6ac25480eb5d126307974c8f4a92463334f50f29b5aa45dd8637fe65de89"
+      },
+      {
+        "source": "net/minecraft/world/entity/ai/attributes/AttributeInstance.java",
+        "original_sha256": "5791acca0fed5acb47908ff813f292f16fe940b39a08d318ed5f5b8a0762b8d9",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\entity\\ai\\attributes\\AttributeInstance.java",
+        "target_sha256": "1d226ebd1d975b6f777c34ebbb5c87ae1b8079326a8e616b5bd0bad52931d4d2"
+      },
+      {
+        "source": "net/minecraft/world/entity/ai/attributes/AttributeModifier.java",
+        "original_sha256": "ab79b210191a281977f060e59804a5abc869cf795e4ad6b5692787d94f43d451",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\entity\\ai\\attributes\\AttributeModifier.java",
+        "target_sha256": "f9d30df5e7a1d74962b4d5a5536e89bb09404b3f7ff18d74178bbb0ced3e4e33"
+      },
+      {
+        "source": "net/minecraft/world/effect/MobEffectInstance.java",
+        "original_sha256": "d9b0c294c9b9e9ce61d1b77ff3a9489bef404a47809fe60659558b994d2fcab5",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\effect\\MobEffectInstance.java",
+        "target_sha256": "fa1b8328a9ecb153dead299028085f98b458fef75e47a2a71159c7697c13fbaa"
+      },
+      {
+        "source": "net/minecraft/world/effect/MobEffects.java",
+        "original_sha256": "1097e3c22d76bd19570021f1031f7775bde57045388223a9f81addea700c8f75",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\effect\\MobEffects.java",
+        "target_sha256": "faf46a2ea4610614a8f231b613a07dca2c766cea02d626c0a40aca59917d8a00"
+      },
+      {
+        "source": "net/minecraft/world/item/ItemStack.java",
+        "original_sha256": "16b9e0d43961a296d096384502ca57633e005192c49a7bf4179bf24f52a8ef82",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\item\\ItemStack.java",
+        "target_sha256": "b35770a757f0c62a88276a38c36763d26e204d1a6210ea3fcac71a53526bc389"
+      },
+      {
+        "source": "net/minecraft/world/level/levelgen/structure/templatesystem/StructureTemplate.java",
+        "original_sha256": "d3fb843bcf025da4f7372ae06e7e6a0cf12aba164dd2c3967c18fc1874d314ff",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\structure\\templatesystem\\StructureTemplate.java",
+        "target_sha256": "e2b63ca8afc2f951a7f78eb021216ce7e711db3b4707a6baa2300d4cb9162eec"
+      },
+      {
+        "source": "net/minecraft/world/level/levelgen/structure/templatesystem/StructureTemplateManager.java",
+        "original_sha256": "97eef15ed31adfb11ce6fbdd9f1201302f5b5a404883e8bd6e203b17cba4b48b",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\structure\\templatesystem\\StructureTemplateManager.java",
+        "target_sha256": "a570023329493bd319d922041b64ea0dacbffebb5ffcbef9159b03ecb2009e06"
+      },
+      {
+        "source": "net/minecraft/world/level/levelgen/structure/pools/SinglePoolElement.java",
+        "original_sha256": "bba9d31940384d95167746130a022753f0b5eab1cc5df54c4f5a24e3f2104eb4",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\structure\\pools\\SinglePoolElement.java",
+        "target_sha256": "8d4310fee5be72dd6d16f4d912ec7f8a1659690251a632de5c8adf003537a513"
+      },
+      {
+        "source": "net/minecraft/world/level/levelgen/structure/pools/JigsawPlacement.java",
+        "original_sha256": "0ef5a85d6b1ad532232d419c53c58fb15e3ca7b066af16492af8436fbfec458c",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\structure\\pools\\JigsawPlacement.java",
+        "target_sha256": "79eabed9da8b498201073cef036e5a299fbd3c2241efb66f8afcb21fb72a8d45"
+      },
+      {
+        "source": "net/minecraft/world/level/levelgen/structure/pools/StructureTemplatePool.java",
+        "original_sha256": "faeaba24482dae5d2d4e1c66422ad9d2e6c66fe01bf9422dc04658ebeb5ad584",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\structure\\pools\\StructureTemplatePool.java",
+        "target_sha256": "c59b557a291e55de891d867af1c66f2d4137267b20c07c41b88a6ffc6040a95d"
+      },
+      {
+        "source": "net/minecraft/world/level/levelgen/structure/structures/JigsawStructure.java",
+        "original_sha256": "a083e6adade6659dd45a8733160416e4c3019831aa9ae84197f4060ead81da5d",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\structure\\structures\\JigsawStructure.java",
+        "target_sha256": "ac73b963a562d4cfff4d6d46f751e76a912382add2db275630484389a7c6edcc"
+      },
+      {
+        "source": "net/minecraft/world/level/levelgen/structure/Structure.java",
+        "original_sha256": "b472758545077b31e87ef2621e815774f4fdf8368b1569067cf84d121a02d90b",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\structure\\Structure.java",
+        "target_sha256": "17ea1509dfb7fd88cf68188742b73c1142597bd3f2e6888ece51ef61ada18b08"
+      },
+      {
+        "source": "net/minecraft/world/level/levelgen/structure/placement/RandomSpreadStructurePlacement.java",
+        "original_sha256": "20c327de24e41800709b44871224672ef171e9c41433ba5f5f90ba8787c9cccf",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\structure\\placement\\RandomSpreadStructurePlacement.java",
+        "target_sha256": "ff5a1f503bb7dd13ebf9d23f9177d8e87dd28eee0bc911c71e8de142b2eb0200"
+      },
+      {
+        "source": "net/minecraft/world/level/levelgen/structure/StructureSet.java",
+        "original_sha256": "4240365d657612d4aaeeabb935a44767e13f3a0584ac335d83b37d02198d5589",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\structure\\StructureSet.java",
+        "target_sha256": "c9168e6b059dc8dd68143f65c5df3dc70f278627ca6ec4414cdfa7f657192fa5"
+      },
+      {
+        "source": "net/minecraft/world/level/levelgen/structure/templatesystem/BlockIgnoreProcessor.java",
+        "original_sha256": "d59bea280fbc8a1fc1e3555b72c00b16076df321fc855284826d782a29afef38",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\structure\\templatesystem\\BlockIgnoreProcessor.java",
+        "target_sha256": "0752ef35a84f97551d45334f21ffef283a2112a6ff7679743f6c7ede3f970e9e"
+      },
+      {
+        "source": "net/minecraft/world/level/biome/Biome.java",
+        "original_sha256": "43f760cd8dceb746e143ac51b9eabf0654a35afe8bdfa2137d24e86f7554c27e",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\biome\\Biome.java",
+        "target_sha256": "664b507f240c093013182427942ac2827b632b2052313302461be02ac8f2c2a9"
+      },
+      {
+        "source": "net/minecraft/world/level/biome/BiomeSpecialEffects.java",
+        "original_sha256": "2a24162d8e5e154af48002c32004374f592358c9d293c74789d31521691909fe",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\biome\\BiomeSpecialEffects.java",
+        "target_sha256": "69268951e10886ae90a0646c48ad78410388a7bc87d83975098460cd35243414"
+      },
+      {
+        "source": "net/minecraft/world/level/biome/MobSpawnSettings.java",
+        "original_sha256": "a6c3bf0a60871ac33b13a500046bbee59394e2d19b7cf86789ea59a702f1201f",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\biome\\MobSpawnSettings.java",
+        "target_sha256": "199f4381ecea26284653c47816952e32189228643582070e003fac0832138880"
+      },
+      {
+        "source": "net/minecraft/world/level/biome/AmbientParticleSettings.java",
+        "original_sha256": "3c9ee33f76972d95ac011ae1ab70527fd4d7eea16e02c973ec5836ef362c5d2e",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\biome\\AmbientParticleSettings.java",
+        "target_sha256": "4943a6dfcc4e5a5c1636e502f0bf8710193d27c2746c65e534089f1d7ccd8ec7"
+      },
+      {
+        "source": "net/minecraft/world/level/BaseSpawner.java",
+        "original_sha256": "319368b2ed99adacabab8568e15a4dd913602b351bdbcdf8edb3433a4e3dbfad",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\BaseSpawner.java",
+        "target_sha256": "7a4d1155db86a145d987a61c512e9be00e22582dcbef26587b5c27e89f5477ff"
+      },
+      {
+        "source": "net/minecraft/world/level/SpawnData.java",
+        "original_sha256": "975a7038e1fc1eef9024af6d0fcc0c5034f814eefbbd14dea0cca4258736fe44",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\SpawnData.java",
+        "target_sha256": "17f232065c931602185cf8fbf9d0cdc84c1ae5fc8cde6554b80e5fba7290d751"
+      },
+      {
+        "source": "net/minecraft/world/level/block/entity/BlockEntity.java",
+        "original_sha256": "315d987750c58808ad5afccac02551fd5ec7b736f98788e0514ef98bdcdcf0e6",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\block\\entity\\BlockEntity.java",
+        "target_sha256": "c278b134769eefd1033c7952a2a5d461efd4e3e7fbe2c2f7d864182a9aeece6d"
+      },
+      {
+        "source": "net/minecraft/world/entity/ai/attributes/AttributeMap.java",
+        "original_sha256": "d6890bc234cf73180746909d9bc38772602129bf2e251ef72adfea1fe28bbe44",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\entity\\ai\\attributes\\AttributeMap.java",
+        "target_sha256": "d9f63809a7394e6898745a78ececfb5afe252de58348a30fd11888cce399269e"
+      }
+    ]
+  },
+  "fixed_semantics": [
+    "223条Blizzard、两条pixie及一条whisper原修饰符保UUID身份及原值，不合并canonical；允许结构finalize继续采样一次。",
+    "forge:step_height为原未注册属性；whisper保其未知ID，AttributeMap与原一样忽略，默认0.6f步高保持。",
+    "漂浮七条：等级1时长5，保全部显示布尔与milk和图腾治愈。"
+  ],
+  "runtime_status": "仅源码/静态约束核验，没有运行真实Codec解析、游戏或构建。"
+}

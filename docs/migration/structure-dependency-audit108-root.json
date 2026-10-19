@@ -1,0 +1,731 @@
+{
+  "snapshot": {
+    "head": "758d15ac612aebff67f3cf84a6b068f0156fce79",
+    "project": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged",
+    "sourceJar": "D:\\AI临时文件\\ThermalShockMigration\\thermal_shock-07.9-original.jar",
+    "sourceInventory": "docs/migration/structures-next-inventory107.json",
+    "scope": [
+      "slagway",
+      "test_jigsaw",
+      "test_jigsaw_testchecker"
+    ],
+    "sourceJSONReadDirectlyFromJar": true
+  },
+  "sourceJson": [
+    {
+      "id": "slagway",
+      "kind": "structure",
+      "sourcePath": "data/thermal_shock/worldgen/structure/slagway.json",
+      "sha256": "dc57fb7c35240a5b8c8f35a8873d6cffae165c262f3948e235b077f9dd7e8e3a",
+      "json": {
+        "type": "minecraft:jigsaw",
+        "start_pool": "thermal_shock:slagway",
+        "size": 1,
+        "max_distance_from_center": 64,
+        "spawn_overrides": {},
+        "step": "underground_structures",
+        "terrain_adaptation": "none",
+        "start_height": {
+          "type": "minecraft:uniform",
+          "min_inclusive": {
+            "absolute": -64
+          },
+          "max_inclusive": {
+            "absolute": -12
+          }
+        },
+        "biomes": "thermal_shock:non_biome",
+        "use_expansion_hack": false
+      }
+    },
+    {
+      "id": "slagway",
+      "kind": "structure_set",
+      "sourcePath": "data/thermal_shock/worldgen/structure_set/slagway.json",
+      "sha256": "31adc5ce9641de2918f0f60c6271dace203128fffaca1966e4ebe5279c1cd77b",
+      "json": {
+        "structures": [
+          {
+            "structure": "thermal_shock:slagway",
+            "weight": 1
+          }
+        ],
+        "placement": {
+          "type": "minecraft:random_spread",
+          "spacing": 16,
+          "separation": 10,
+          "salt": 2064525785
+        }
+      }
+    },
+    {
+      "id": "slagway",
+      "kind": "template_pool",
+      "sourcePath": "data/thermal_shock/worldgen/template_pool/slagway.json",
+      "sha256": "c6123beb2c3acdd97c7952110ae106c6bb8862d977c6bb4cb3f9e76eab4cf344",
+      "json": {
+        "name": "thermal_shock:slagway",
+        "fallback": "minecraft:empty",
+        "elements": [
+          {
+            "weight": 1,
+            "element": {
+              "element_type": "minecraft:single_pool_element",
+              "location": "thermal_shock:slagway1",
+              "projection": "rigid",
+              "processors": {
+                "processors": [
+                  {
+                    "processor_type": "minecraft:block_ignore",
+                    "blocks": [
+                      {
+                        "Name": "minecraft:structure_block"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "test_jigsaw",
+      "kind": "structure",
+      "sourcePath": "data/thermal_shock/worldgen/structure/test_jigsaw.json",
+      "sha256": "8e2c28769141bf2dbac62144933797330e2b48e30a692f03209db2335fbd34b7",
+      "json": {
+        "type": "minecraft:jigsaw",
+        "start_pool": "thermal_shock:test_jigsaw",
+        "size": 2,
+        "max_distance_from_center": 64,
+        "spawn_overrides": {},
+        "step": "surface_structures",
+        "terrain_adaptation": "none",
+        "start_height": {
+          "type": "minecraft:uniform",
+          "min_inclusive": {
+            "absolute": -50
+          },
+          "max_inclusive": {
+            "absolute": -49
+          }
+        },
+        "biomes": "thermal_shock:non_biome",
+        "use_expansion_hack": false
+      }
+    },
+    {
+      "id": "test_jigsaw",
+      "kind": "structure_set",
+      "sourcePath": "data/thermal_shock/worldgen/structure_set/test_jigsaw.json",
+      "sha256": "26c3884b5990210428bb0b76cff4707144f8a9a66417efe51b0182e42abd4c9f",
+      "json": {
+        "structures": [
+          {
+            "structure": "thermal_shock:test_jigsaw",
+            "weight": 1
+          }
+        ],
+        "placement": {
+          "type": "minecraft:random_spread",
+          "spacing": 5,
+          "separation": 2,
+          "salt": 1694238542
+        }
+      }
+    },
+    {
+      "id": "test_jigsaw",
+      "kind": "template_pool",
+      "sourcePath": "data/thermal_shock/worldgen/template_pool/test_jigsaw.json",
+      "sha256": "d401d9ee00b0193e237551c03950b583a7cfdf9b1d3ea170a79d2a76be691f43",
+      "json": {
+        "name": "thermal_shock:test_jigsaw",
+        "fallback": "minecraft:empty",
+        "elements": [
+          {
+            "weight": 1,
+            "element": {
+              "element_type": "minecraft:single_pool_element",
+              "location": "thermal_shock:testjig",
+              "projection": "rigid",
+              "processors": {
+                "processors": [
+                  {
+                    "processor_type": "minecraft:block_ignore",
+                    "blocks": [
+                      {
+                        "Name": "minecraft:structure_block"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "test_jigsaw_testchecker",
+      "kind": "template_pool",
+      "sourcePath": "data/thermal_shock/worldgen/template_pool/test_jigsaw_testchecker.json",
+      "sha256": "8fdc41efc50d6205d0fe24fd886d6b403d4182f1e57635ee0508043dfbd5f441",
+      "json": {
+        "name": "thermal_shock:test_jigsaw_testchecker",
+        "fallback": "minecraft:empty",
+        "elements": [
+          {
+            "weight": 1,
+            "element": {
+              "element_type": "minecraft:single_pool_element",
+              "location": "thermal_shock:testsaw",
+              "projection": "rigid",
+              "processors": {
+                "processors": []
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "sourceNbt": [
+    {
+      "id": "slagway1",
+      "sourcePath": "data/thermal_shock/structures/slagway1.nbt",
+      "sha256": "0be6fa9cef209b6f9b7b0b8766edb76ea3437e6ea4e59e79246e06e9b95a8f14",
+      "size": [
+        9,
+        13,
+        108
+      ],
+      "paletteCount": 9,
+      "blockCount": 12636,
+      "entityCount": 1,
+      "blockEntityTagCount": 0,
+      "stateCounts": {
+        "minecraft:air": 6469,
+        "thermal_shock:mantleslag": 1376,
+        "thermal_shock:mantlestone": 3330,
+        "thermal_shock:mantlestone_bricks": 1336,
+        "thermal_shock:polished_mantle_wall": 2,
+        "thermal_shock:polished_mantlestone": 107,
+        "thermal_shock:polished_mantlestone_slab": 10,
+        "thermal_shock:spiral_mantlestone": 6
+      },
+      "jigsawBlocks": [],
+      "lootTableRefs": [],
+      "entityIds": [
+        "thermal_shock:icidroviathan"
+      ]
+    },
+    {
+      "id": "testjig",
+      "sourcePath": "data/thermal_shock/structures/testjig.nbt",
+      "sha256": "113646aaf96b4ef9903fabceca12fe438223107627bd3d148176b54928067a46",
+      "size": [
+        5,
+        5,
+        1
+      ],
+      "paletteCount": 3,
+      "blockCount": 25,
+      "entityCount": 0,
+      "blockEntityTagCount": 1,
+      "stateCounts": {
+        "minecraft:jigsaw": 1,
+        "thermal_shock:chiseled_rinthium_block": 22,
+        "thermal_shock:corruption": 2
+      },
+      "jigsawBlocks": [
+        {
+          "path": "blocks/24/nbt",
+          "pos": [
+            4,
+            2,
+            0
+          ],
+          "state": {
+            "Properties": {
+              "orientation": "east_up"
+            },
+            "Name": "minecraft:jigsaw"
+          },
+          "nbt": {
+            "joint": "rollable",
+            "name": "minecraft:empty",
+            "pool": "thermal_shock:test_jigsaw_testchecker",
+            "final_state": "minecraft:air",
+            "id": "minecraft:jigsaw",
+            "target": "thermal_shock:testsaw"
+          }
+        }
+      ],
+      "lootTableRefs": [],
+      "entityIds": []
+    },
+    {
+      "id": "testsaw",
+      "sourcePath": "data/thermal_shock/structures/testsaw.nbt",
+      "sha256": "09f3713b9bd5edfe7c98ddc8d0f0cb4fffc52501aba1f614f38b728c331688fe",
+      "size": [
+        5,
+        5,
+        1
+      ],
+      "paletteCount": 3,
+      "blockCount": 25,
+      "entityCount": 0,
+      "blockEntityTagCount": 1,
+      "stateCounts": {
+        "minecraft:jigsaw": 1,
+        "thermal_shock:chiseled_rinthium_block": 4,
+        "thermal_shock:corruption": 20
+      },
+      "jigsawBlocks": [
+        {
+          "path": "blocks/24/nbt",
+          "pos": [
+            0,
+            2,
+            0
+          ],
+          "state": {
+            "Properties": {
+              "orientation": "west_up"
+            },
+            "Name": "minecraft:jigsaw"
+          },
+          "nbt": {
+            "joint": "rollable",
+            "name": "thermal_shock:testsaw",
+            "pool": "minecraft:empty",
+            "final_state": "minecraft:air",
+            "id": "minecraft:jigsaw",
+            "target": "minecraft:empty"
+          }
+        }
+      ],
+      "lootTableRefs": [],
+      "entityIds": []
+    }
+  ],
+  "recursiveConsumers": {
+    "worldgenJsonReferences": [
+      {
+        "path": "data/thermal_shock/worldgen/structure/slagway.json",
+        "jsonPath": "$/start_pool",
+        "reference": "thermal_shock:slagway"
+      },
+      {
+        "path": "data/thermal_shock/worldgen/structure/test_jigsaw.json",
+        "jsonPath": "$/start_pool",
+        "reference": "thermal_shock:test_jigsaw"
+      },
+      {
+        "path": "data/thermal_shock/worldgen/structure_set/slagway.json",
+        "jsonPath": "$/structures/0/structure",
+        "reference": "thermal_shock:slagway"
+      },
+      {
+        "path": "data/thermal_shock/worldgen/structure_set/test_jigsaw.json",
+        "jsonPath": "$/structures/0/structure",
+        "reference": "thermal_shock:test_jigsaw"
+      },
+      {
+        "path": "data/thermal_shock/worldgen/template_pool/slagway.json",
+        "jsonPath": "$/name",
+        "reference": "thermal_shock:slagway"
+      },
+      {
+        "path": "data/thermal_shock/worldgen/template_pool/slagway.json",
+        "jsonPath": "$/elements/0/element/location",
+        "reference": "thermal_shock:slagway1"
+      },
+      {
+        "path": "data/thermal_shock/worldgen/template_pool/test_jigsaw.json",
+        "jsonPath": "$/name",
+        "reference": "thermal_shock:test_jigsaw"
+      },
+      {
+        "path": "data/thermal_shock/worldgen/template_pool/test_jigsaw.json",
+        "jsonPath": "$/elements/0/element/location",
+        "reference": "thermal_shock:testjig"
+      },
+      {
+        "path": "data/thermal_shock/worldgen/template_pool/test_jigsaw_testchecker.json",
+        "jsonPath": "$/name",
+        "reference": "thermal_shock:test_jigsaw_testchecker"
+      },
+      {
+        "path": "data/thermal_shock/worldgen/template_pool/test_jigsaw_testchecker.json",
+        "jsonPath": "$/elements/0/element/location",
+        "reference": "thermal_shock:testsaw"
+      }
+    ],
+    "traceSummary": [
+      "slagway structure_set -> slagway structure -> slagway start pool -> slagway1 single rigid element; slagway1 has no jigsaw connector.",
+      "test_jigsaw structure_set -> test_jigsaw structure -> test_jigsaw start pool -> testjig; testjig connector targets thermal_shock:testsaw and uses thermal_shock:test_jigsaw_testchecker pool -> testsaw; testsaw connector uses minecraft:empty and targets minecraft:empty."
+    ],
+    "extraPoolConsumer": "test_jigsaw_testchecker is reached only from testjig NBT jigsaw pool field in scanned structure templates.",
+    "nbtJigsawReferences": [
+      {
+        "sourcePath": "data/thermal_shock/structures/testjig.nbt",
+        "nbtPath": "blocks/24/nbt/name",
+        "position": [
+          4,
+          2,
+          0
+        ],
+        "field": "name",
+        "value": "minecraft:empty"
+      },
+      {
+        "sourcePath": "data/thermal_shock/structures/testjig.nbt",
+        "nbtPath": "blocks/24/nbt/target",
+        "position": [
+          4,
+          2,
+          0
+        ],
+        "field": "target",
+        "value": "thermal_shock:testsaw"
+      },
+      {
+        "sourcePath": "data/thermal_shock/structures/testjig.nbt",
+        "nbtPath": "blocks/24/nbt/pool",
+        "position": [
+          4,
+          2,
+          0
+        ],
+        "field": "pool",
+        "value": "thermal_shock:test_jigsaw_testchecker"
+      },
+      {
+        "sourcePath": "data/thermal_shock/structures/testjig.nbt",
+        "nbtPath": "blocks/24/nbt/final_state",
+        "position": [
+          4,
+          2,
+          0
+        ],
+        "field": "final_state",
+        "value": "minecraft:air"
+      },
+      {
+        "sourcePath": "data/thermal_shock/structures/testjig.nbt",
+        "nbtPath": "blocks/24/nbt/joint",
+        "position": [
+          4,
+          2,
+          0
+        ],
+        "field": "joint",
+        "value": "rollable"
+      },
+      {
+        "sourcePath": "data/thermal_shock/structures/testsaw.nbt",
+        "nbtPath": "blocks/24/nbt/name",
+        "position": [
+          0,
+          2,
+          0
+        ],
+        "field": "name",
+        "value": "thermal_shock:testsaw"
+      },
+      {
+        "sourcePath": "data/thermal_shock/structures/testsaw.nbt",
+        "nbtPath": "blocks/24/nbt/target",
+        "position": [
+          0,
+          2,
+          0
+        ],
+        "field": "target",
+        "value": "minecraft:empty"
+      },
+      {
+        "sourcePath": "data/thermal_shock/structures/testsaw.nbt",
+        "nbtPath": "blocks/24/nbt/pool",
+        "position": [
+          0,
+          2,
+          0
+        ],
+        "field": "pool",
+        "value": "minecraft:empty"
+      },
+      {
+        "sourcePath": "data/thermal_shock/structures/testsaw.nbt",
+        "nbtPath": "blocks/24/nbt/final_state",
+        "position": [
+          0,
+          2,
+          0
+        ],
+        "field": "final_state",
+        "value": "minecraft:air"
+      },
+      {
+        "sourcePath": "data/thermal_shock/structures/testsaw.nbt",
+        "nbtPath": "blocks/24/nbt/joint",
+        "position": [
+          0,
+          2,
+          0
+        ],
+        "field": "joint",
+        "value": "rollable"
+      }
+    ]
+  },
+  "targetResources": [
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/structure/slagway.json",
+      "exists": false,
+      "sha256": null
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/slagway.json",
+      "exists": false,
+      "sha256": null
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/slagway.json",
+      "exists": false,
+      "sha256": null
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/structure/test_jigsaw.json",
+      "exists": false,
+      "sha256": null
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/test_jigsaw.json",
+      "exists": false,
+      "sha256": null
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/test_jigsaw.json",
+      "exists": false,
+      "sha256": null
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/test_jigsaw_testchecker.json",
+      "exists": false,
+      "sha256": null
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/slagway1.nbt",
+      "exists": true,
+      "sha256": "f8d88cc6a06c3ca5c850fc5b2738123cf9ab3055b353e43f1510205cba1e182a"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/testjig.nbt",
+      "exists": false,
+      "sha256": null
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/testsaw.nbt",
+      "exists": false,
+      "sha256": null
+    }
+  ],
+  "reusedSlagwayNbt": {
+    "targetPath": "src/main/resources/data/thermal_shock_reforged/structure/slagway1.nbt",
+    "sourceSha256": "0be6fa9cef209b6f9b7b0b8766edb76ea3437e6ea4e59e79246e06e9b95a8f14",
+    "targetSha256": "f8d88cc6a06c3ca5c850fc5b2738123cf9ab3055b353e43f1510205cba1e182a",
+    "equalAfterNamespaceAndKnownEntityIdentifierMigration": true,
+    "nonEntityPayloadEqualAfterNamespace": true,
+    "knownEntityIdentifierMigration": [
+      "forge:spawn_type tag -> neoforge:spawn_type",
+      "forge:entity_gravity -> minecraft:generic.gravity",
+      "forge:step_height_addition -> minecraft:generic.step_height"
+    ]
+  },
+  "targetRegistrations": [
+    {
+      "id": "mantlestone",
+      "source": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java:39",
+      "registration": "block helper"
+    },
+    {
+      "id": "mantleslag",
+      "source": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java:32",
+      "registration": "BLOCKS.register"
+    },
+    {
+      "id": "mantlestone_bricks",
+      "source": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java:62",
+      "registration": "block helper"
+    },
+    {
+      "id": "polished_mantle_wall",
+      "source": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java:72",
+      "registration": "block helper"
+    },
+    {
+      "id": "polished_mantlestone",
+      "source": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java:61",
+      "registration": "block helper"
+    },
+    {
+      "id": "spiral_mantlestone",
+      "source": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java:65",
+      "registration": "block helper"
+    },
+    {
+      "id": "polished_mantlestone_slab",
+      "source": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java:63",
+      "registration": "block helper"
+    },
+    {
+      "id": "chiseled_rinthium_block",
+      "source": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java:110",
+      "registration": "block helper"
+    },
+    {
+      "id": "corruption",
+      "source": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java:142",
+      "registration": "block helper"
+    },
+    {
+      "id": "icidroviathan",
+      "source": "src/main/java/com/hp/thermalshockreforged/entity/icidroviathan/IcidroviathanContent.java:12",
+      "registration": "entity registry"
+    },
+    {
+      "id": "icidroviathan register hookup",
+      "source": "src/main/java/com/hp/thermalshockreforged/ThermalShockReforged.java:174",
+      "registration": "register(bus)"
+    }
+  ],
+  "dependencyCheck": {
+    "externalProcessorLists": [],
+    "processorTypes": [
+      "minecraft:block_ignore (inline)"
+    ],
+    "blockIgnoreInputs": {
+      "slagway": [
+        "minecraft:structure_block"
+      ],
+      "test_jigsaw": [
+        "minecraft:structure_block"
+      ],
+      "test_jigsaw_testchecker": []
+    },
+    "lootTableReferences": [],
+    "inventoryItemReferences": [],
+    "blockEntityTagCounts": {
+      "slagway1": 0,
+      "testjig": 1,
+      "testsaw": 1
+    },
+    "entityReferences": [
+      {
+        "id": "thermal_shock:icidroviathan",
+        "registeredAs": "thermal_shock_reforged:icidroviathan",
+        "registration": "src/main/java/com/hp/thermalshockreforged/entity/icidroviathan/IcidroviathanContent.java:12"
+      }
+    ]
+  },
+  "codecEvidence": {
+    "sourceFiles": [
+      "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/levelgen/structure/structures/JigsawStructure.java",
+      "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/levelgen/structure/Structure.java",
+      "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/levelgen/structure/placement/RandomSpreadStructurePlacement.java",
+      "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/levelgen/heightproviders/UniformHeight.java",
+      "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/levelgen/VerticalAnchor.java",
+      "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/levelgen/structure/pools/StructureTemplatePool.java",
+      "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/levelgen/structure/pools/SinglePoolElement.java",
+      "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/levelgen/structure/templatesystem/StructureProcessorType.java",
+      "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/levelgen/structure/templatesystem/BlockIgnoreProcessor.java",
+      "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/levelgen/structure/pools/JigsawPlacement.java"
+    ],
+    "confirmedRules": [
+      "JigsawStructure CODEC: size [0,20], max_distance_from_center [1,128], start_height HeightProvider, booleans and optional heightmap.",
+      "JigsawStructure verifyRange: max distance plus terrain adaptation thickness <=128; beard_thin thickness=12.",
+      "Structure settings fields: biomes/spawn_overrides/step/terrain_adaptation.",
+      "RandomSpread spacing/separation [0,4096], requires spacing > separation.",
+      "VerticalAnchor absolute codec accepts DimensionType.MIN_Y..MAX_Y; dimension runtime height is applied through WorldGenerationContext/JigsawPlacement bounds.",
+      "Template pool weights [1,150]; SinglePoolElement accepts location/processors/projection; inline processor-list codec and block_ignore codec accept the source shape."
+    ],
+    "structureAssessments": [
+      {
+        "id": "slagway",
+        "size": 1,
+        "sizeRange0to20Valid": true,
+        "maxDistance": 64,
+        "terrainAdaptation": "none",
+        "adaptationThickness": 0,
+        "distancePlusAdaptation": 64,
+        "rangeLimit128Valid": true,
+        "startYAnchors": [
+          -64,
+          -12
+        ],
+        "anchorCodecRangeValid": true,
+        "spacing": 16,
+        "separation": 10,
+        "spacingRange0to4096Valid": true,
+        "separationRange0to4096Valid": true,
+        "spacingGreaterThanSeparation": true
+      },
+      {
+        "id": "test_jigsaw",
+        "size": 2,
+        "sizeRange0to20Valid": true,
+        "maxDistance": 64,
+        "terrainAdaptation": "none",
+        "adaptationThickness": 0,
+        "distancePlusAdaptation": 64,
+        "rangeLimit128Valid": true,
+        "startYAnchors": [
+          -50,
+          -49
+        ],
+        "anchorCodecRangeValid": true,
+        "spacing": 5,
+        "separation": 2,
+        "spacingRange0to4096Valid": true,
+        "separationRange0to4096Valid": true,
+        "spacingGreaterThanSeparation": true
+      }
+    ]
+  },
+  "dimensionAssessment": {
+    "slagwayStartRange": [
+      -64,
+      -12
+    ],
+    "slagwayTemplateSize": [
+      9,
+      13,
+      108
+    ],
+    "testJigsawStartRange": [
+      -50,
+      -49
+    ],
+    "testjigAndTestsawSizes": [
+      [
+        5,
+        5,
+        1
+      ],
+      [
+        5,
+        5,
+        1
+      ]
+    ],
+    "conclusion": "All absolute anchor literals are within the 1.21.1 vertical-anchor codec domain. For the standard Overworld lower bound -64, neither start interval is below world minimum and templates extend upward. Custom dimension height remains runtime-dependent; jigsaw placement bounds use the level height accessor.",
+    "nonBiomeScopeNote": "All three structures use thermal_shock:non_biome. This report does not infer missing natural-biome assignment from that identifier; that work is owned by the separate assigned structure batch."
+  },
+  "unclosed": []
+}

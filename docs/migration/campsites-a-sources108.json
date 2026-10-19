@@ -1,0 +1,4153 @@
+{
+  "batch": 108,
+  "palette_count": 109,
+  "registered_palette_count": 108,
+  "static_property_values_checked": 994,
+  "registrations": [
+    {
+      "id": "minecraft:air",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/block/Blocks.java",
+          "line": 46,
+          "text": "public static final Block AIR = register(\"air\", new AirBlock(BlockBehaviour.Properties.of().replaceable().noCollission().noLootTable().air()));"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "minecraft:birch_fence",
+      "properties": [
+        {
+          "east": "false",
+          "waterlogged": "false",
+          "south": "true",
+          "north": "false",
+          "west": "false"
+        },
+        {
+          "east": "false",
+          "waterlogged": "false",
+          "south": "false",
+          "north": "true",
+          "west": "false"
+        },
+        {
+          "east": "false",
+          "waterlogged": "false",
+          "south": "false",
+          "north": "false",
+          "west": "false"
+        }
+      ],
+      "registration": [
+        {
+          "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/block/Blocks.java",
+          "line": 4599,
+          "text": "\"birch_fence\","
+        }
+      ],
+      "schema": {
+        "waterlogged": [
+          "false",
+          "true"
+        ],
+        "north": [
+          "false",
+          "true"
+        ],
+        "east": [
+          "false",
+          "true"
+        ],
+        "south": [
+          "false",
+          "true"
+        ],
+        "west": [
+          "false",
+          "true"
+        ]
+      }
+    },
+    {
+      "id": "minecraft:birch_log",
+      "properties": [
+        {
+          "axis": "y"
+        }
+      ],
+      "registration": [
+        {
+          "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/block/Blocks.java",
+          "line": 473,
+          "text": "public static final Block BIRCH_LOG = register(\"birch_log\", log(MapColor.SAND, MapColor.QUARTZ));"
+        }
+      ],
+      "schema": {
+        "axis": [
+          "x",
+          "y",
+          "z"
+        ]
+      }
+    },
+    {
+      "id": "minecraft:black_stained_glass",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/block/Blocks.java",
+          "line": 2408,
+          "text": "public static final Block BLACK_STAINED_GLASS = register(\"black_stained_glass\", stainedGlass(DyeColor.BLACK));"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "minecraft:black_stained_glass_pane",
+      "properties": [
+        {
+          "waterlogged": "false",
+          "west": "false",
+          "east": "false",
+          "south": "true",
+          "north": "true"
+        },
+        {
+          "waterlogged": "false",
+          "west": "true",
+          "east": "true",
+          "south": "false",
+          "north": "false"
+        }
+      ],
+      "registration": [
+        {
+          "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/block/Blocks.java",
+          "line": 3431,
+          "text": "\"black_stained_glass_pane\","
+        }
+      ],
+      "schema": {
+        "waterlogged": [
+          "false",
+          "true"
+        ],
+        "north": [
+          "false",
+          "true"
+        ],
+        "east": [
+          "false",
+          "true"
+        ],
+        "south": [
+          "false",
+          "true"
+        ],
+        "west": [
+          "false",
+          "true"
+        ]
+      }
+    },
+    {
+      "id": "minecraft:campfire",
+      "properties": [
+        {
+          "waterlogged": "false",
+          "signal_fire": "false",
+          "lit": "true",
+          "facing": "east"
+        },
+        {
+          "waterlogged": "false",
+          "signal_fire": "false",
+          "lit": "true",
+          "facing": "west"
+        }
+      ],
+      "registration": [
+        {
+          "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/block/Blocks.java",
+          "line": 6150,
+          "text": "\"campfire\","
+        }
+      ],
+      "schema": {
+        "waterlogged": [
+          "false",
+          "true"
+        ],
+        "facing": [
+          "north",
+          "east",
+          "south",
+          "west"
+        ],
+        "lit": [
+          "false",
+          "true"
+        ],
+        "signal_fire": [
+          "false",
+          "true"
+        ]
+      }
+    },
+    {
+      "id": "minecraft:chain",
+      "properties": [
+        {
+          "waterlogged": "false",
+          "axis": "y"
+        }
+      ],
+      "registration": [
+        {
+          "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/block/Blocks.java",
+          "line": 2607,
+          "text": "\"chain\","
+        }
+      ],
+      "schema": {
+        "waterlogged": [
+          "false",
+          "true"
+        ],
+        "axis": [
+          "x",
+          "y",
+          "z"
+        ]
+      }
+    },
+    {
+      "id": "minecraft:cobblestone_slab",
+      "properties": [
+        {
+          "waterlogged": "false",
+          "type": "bottom"
+        }
+      ],
+      "registration": [
+        {
+          "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/block/Blocks.java",
+          "line": 4376,
+          "text": "\"cobblestone_slab\","
+        }
+      ],
+      "schema": {
+        "waterlogged": [
+          "false",
+          "true"
+        ],
+        "type": [
+          "top",
+          "bottom",
+          "double"
+        ]
+      }
+    },
+    {
+      "id": "minecraft:crafting_table",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/block/Blocks.java",
+          "line": 1418,
+          "text": "\"crafting_table\","
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "minecraft:infested_cobblestone",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/block/Blocks.java",
+          "line": 2566,
+          "text": "\"infested_cobblestone\", new InfestedBlock(COBBLESTONE, BlockBehaviour.Properties.of().mapColor(MapColor.CLAY))"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "minecraft:lantern",
+      "properties": [
+        {
+          "waterlogged": "false",
+          "hanging": "false"
+        },
+        {
+          "waterlogged": "false",
+          "hanging": "true"
+        }
+      ],
+      "registration": [
+        {
+          "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/block/Blocks.java",
+          "line": 6122,
+          "text": "\"lantern\","
+        }
+      ],
+      "schema": {
+        "waterlogged": [
+          "false",
+          "true"
+        ],
+        "hanging": [
+          "false",
+          "true"
+        ]
+      }
+    },
+    {
+      "id": "minecraft:light_gray_wool",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/block/Blocks.java",
+          "line": 931,
+          "text": "\"light_gray_wool\","
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "minecraft:magenta_wool",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/block/Blocks.java",
+          "line": 865,
+          "text": "\"magenta_wool\","
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "minecraft:obsidian",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/block/Blocks.java",
+          "line": 1321,
+          "text": "\"obsidian\","
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "minecraft:packed_ice",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/block/Blocks.java",
+          "line": 3655,
+          "text": "\"packed_ice\","
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "minecraft:purple_bed",
+      "properties": [
+        {
+          "part": "foot",
+          "facing": "east",
+          "occupied": "false"
+        },
+        {
+          "part": "head",
+          "facing": "east",
+          "occupied": "false"
+        },
+        {
+          "part": "head",
+          "facing": "west",
+          "occupied": "false"
+        },
+        {
+          "part": "foot",
+          "facing": "west",
+          "occupied": "false"
+        }
+      ],
+      "registration": [
+        {
+          "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/block/Blocks.java",
+          "line": 750,
+          "text": "public static final Block PURPLE_BED = register(\"purple_bed\", bed(DyeColor.PURPLE));"
+        }
+      ],
+      "schema": {
+        "facing": [
+          "north",
+          "east",
+          "south",
+          "west"
+        ],
+        "occupied": [
+          "false",
+          "true"
+        ],
+        "part": [
+          "foot",
+          "head"
+        ]
+      }
+    },
+    {
+      "id": "minecraft:purple_wool",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/block/Blocks.java",
+          "line": 953,
+          "text": "\"purple_wool\","
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "minecraft:snow",
+      "properties": [
+        {
+          "layers": "1"
+        },
+        {
+          "layers": "2"
+        },
+        {
+          "layers": "5"
+        },
+        {
+          "layers": "3"
+        },
+        {
+          "layers": "4"
+        },
+        {
+          "layers": "6"
+        },
+        {
+          "layers": "8"
+        }
+      ],
+      "registration": [
+        {
+          "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/block/Blocks.java",
+          "line": 2194,
+          "text": "\"snow\","
+        }
+      ],
+      "schema": {
+        "layers": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8"
+        ]
+      }
+    },
+    {
+      "id": "minecraft:snow_block",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/block/Blocks.java",
+          "line": 2223,
+          "text": "\"snow_block\", new Block(BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).requiresCorrectToolForDrops().strength(0.2F).sound(SoundType.SNOW))"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "minecraft:soul_lantern",
+      "properties": [
+        {
+          "waterlogged": "false",
+          "hanging": "false"
+        },
+        {
+          "waterlogged": "false",
+          "hanging": "true"
+        }
+      ],
+      "registration": [
+        {
+          "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/block/Blocks.java",
+          "line": 6136,
+          "text": "\"soul_lantern\","
+        }
+      ],
+      "schema": {
+        "waterlogged": [
+          "false",
+          "true"
+        ],
+        "hanging": [
+          "false",
+          "true"
+        ]
+      }
+    },
+    {
+      "id": "minecraft:soul_wall_torch",
+      "properties": [
+        {
+          "facing": "north"
+        },
+        {
+          "facing": "south"
+        },
+        {
+          "facing": "east"
+        },
+        {
+          "facing": "west"
+        }
+      ],
+      "registration": [
+        {
+          "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/block/Blocks.java",
+          "line": 2328,
+          "text": "\"soul_wall_torch\","
+        }
+      ],
+      "schema": {
+        "facing": [
+          "north",
+          "east",
+          "south",
+          "west"
+        ]
+      }
+    },
+    {
+      "id": "minecraft:spawner",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/block/Blocks.java",
+          "line": 1377,
+          "text": "\"spawner\","
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "minecraft:tinted_glass",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/block/Blocks.java",
+          "line": 6897,
+          "text": "\"tinted_glass\","
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "minecraft:white_wool",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/block/Blocks.java",
+          "line": 848,
+          "text": "\"white_wool\","
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "thermal_shock_reforged:atlas",
+      "properties": [
+        {
+          "animation": "1"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+          "line": 36,
+          "text": "ATLAS(\"atlas\", \"Atlas\", \"geo/atlas.geo.json\", \"textures/block/atlas.png\", \"animations/atlas.animation.json\", Shapes.block(), false, false),"
+        }
+      ],
+      "schema": {
+        "animation": [
+          "0",
+          "1"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:atlas_base_centre",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 113,
+          "text": "block(\"atlas_base_centre\", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).sound(SoundType.STONE).strength(3.0f, 100.0f).lightLevel(s -> 15).requiresCorrectToolForDrops().pushReaction(PushReaction.BLOCK), 15));"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "thermal_shock_reforged:atlas_base_corner",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 112,
+          "text": "block(\"atlas_base_corner\", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).sound(SoundType.STONE).strength(3.0f, 100.0f).requiresCorrectToolForDrops().pushReaction(PushReaction.BLOCK), 15));"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "thermal_shock_reforged:atlas_base_edge",
+      "properties": [
+        {
+          "facing": "east"
+        },
+        {
+          "facing": "south"
+        },
+        {
+          "facing": "north"
+        },
+        {
+          "facing": "west"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java",
+          "line": 69,
+          "text": "public static final DeferredBlock<Block> ATLAS_BASE_EDGE = BLOCKS.register(\"atlas_base_edge\", () -> new FacingDecorBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).sound(SoundType.STONE).strength(3.0f, 100.0f).requiresCorrectToolForDrops().pushReaction(PushReaction.BLOCK), new NativeDecorBlock.Traits(15, false, false, false, 0F, 0, false, false), FacingDecorBlock.Outline.FULL));"
+        }
+      ],
+      "schema": {
+        "facing": [
+          "north",
+          "east",
+          "south",
+          "west"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:bordered_vermillion_planks",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java",
+          "line": 59,
+          "text": "public static final DeferredBlock<Block> BORDERED_VERMILLION_PLANKS = BLOCKS.register(\"bordered_vermillion_planks\", () -> new NativeDecorBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WARPED_HYPHAE).ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.4f, 10.0f), new NativeDecorBlock.Traits(15, false, false, false, 0F, 6, false, false), null));"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "thermal_shock_reforged:bottle_of_lunarlight",
+      "properties": [
+        {
+          "animation": "0"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+          "line": 63,
+          "text": "BOTTLE_OF_LUNARLIGHT(\"bottle_of_lunarlight\", \"Bottle of Lunarlight\", \"geo/bottle_of_starlight.geo.json\", \"textures/block/texturelunabottle.png\", \"animations/bottle_of_starlight.animation.json\", Block.box(.1, .1, .1, 15.9, 15.9, 15.9), true, true),"
+        }
+      ],
+      "schema": {
+        "animation": [
+          "0",
+          "1"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:cache_pad",
+      "properties": [
+        {
+          "animation": "0"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+          "line": 53,
+          "text": "CACHE_PAD(\"cache_pad\", \"Cache Pad\", \"geo/cachepad.geo.json\", \"textures/block/cache_pad.png\", \"animations/cachepad.animation.json\", Shapes.block(), false, false),"
+        }
+      ],
+      "schema": {
+        "animation": [
+          "0",
+          "1"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:chiseled_frostrock",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 69,
+          "text": "block(\"chiseled_frostrock\", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_LIGHT_BLUE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.STONE).strength(3.0f, 50.0f).requiresCorrectToolForDrops(), 15));"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "thermal_shock_reforged:chiseled_mantlestone",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java",
+          "line": 40,
+          "text": "public static final DeferredBlock<Block> CHISELED_MANTLESTONE = BLOCKS.register(\"chiseled_mantlestone\", () -> new CrystalleyeBlock(0));"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "thermal_shock_reforged:chiseled_shale",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 95,
+          "text": "block(\"chiseled_shale\", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BLUE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERRACK).strength(1.0f, 5.0f).requiresCorrectToolForDrops(), 15));"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "thermal_shock_reforged:cobbled_shale",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 58,
+          "text": "block(\"cobbled_shale\", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_CYAN).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERRACK).strength(1.0f, 5.0f).requiresCorrectToolForDrops(), 15));"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "thermal_shock_reforged:cracked_shale_bricks",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 96,
+          "text": "block(\"cracked_shale_bricks\", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERRACK).strength(0.8f, 3.0f).requiresCorrectToolForDrops(), 15));"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "thermal_shock_reforged:cryonic_cache",
+      "properties": [
+        {
+          "animation": "0"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+          "line": 45,
+          "text": "CRYONIC_CACHE(\"cryonic_cache\", \"Cryonic Cache\", \"geo/enchanted_cache.geo.json\", \"textures/block/blizzardcache.png\", \"animations/enchanted_cache.animation.json\", Block.box(0, 0, 0, 16, 28, 16), false, false),"
+        }
+      ],
+      "schema": {
+        "animation": [
+          "0",
+          "1"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:cryonic_lamp",
+      "properties": [
+        {
+          "waterlogged": "false",
+          "animation": "0"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+          "line": 52,
+          "text": "CRYONIC_LAMP(\"cryonic_lamp\", \"Cryonic Lamp\", \"geo/cryonic_lantern.geo.json\", \"textures/block/cryonic_lamp.png\", \"animations/cryonic_lantern.animation.json\", Block.box(2.0, 2.0, 2.0, 14.0, 14.0, 14.0), true, false),"
+        }
+      ],
+      "schema": {
+        "animation": [
+          "0",
+          "1"
+        ],
+        "waterlogged": [
+          "false",
+          "true"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:dark_frostrock_brick_fence",
+      "properties": [
+        {
+          "waterlogged": "false",
+          "west": "false",
+          "east": "false",
+          "south": "false",
+          "north": "false"
+        },
+        {
+          "waterlogged": "false",
+          "west": "true",
+          "east": "false",
+          "south": "false",
+          "north": "false"
+        },
+        {
+          "waterlogged": "false",
+          "west": "false",
+          "east": "false",
+          "south": "true",
+          "north": "false"
+        },
+        {
+          "waterlogged": "false",
+          "west": "false",
+          "east": "true",
+          "south": "true",
+          "north": "false"
+        },
+        {
+          "waterlogged": "false",
+          "west": "false",
+          "east": "false",
+          "south": "false",
+          "north": "true"
+        },
+        {
+          "waterlogged": "false",
+          "west": "false",
+          "east": "true",
+          "south": "false",
+          "north": "false"
+        },
+        {
+          "waterlogged": "false",
+          "west": "false",
+          "east": "false",
+          "south": "true",
+          "north": "true"
+        },
+        {
+          "waterlogged": "false",
+          "west": "true",
+          "east": "true",
+          "south": "false",
+          "north": "false"
+        },
+        {
+          "waterlogged": "false",
+          "west": "true",
+          "east": "false",
+          "south": "false",
+          "north": "true"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 77,
+          "text": "block(\"dark_frostrock_brick_fence\", () -> new FenceBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BLUE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.STONE).strength(3.0f, 50.0f).requiresCorrectToolForDrops().dynamicShape().forceSolidOn()));"
+        }
+      ],
+      "schema": {
+        "waterlogged": [
+          "false",
+          "true"
+        ],
+        "north": [
+          "false",
+          "true"
+        ],
+        "east": [
+          "false",
+          "true"
+        ],
+        "south": [
+          "false",
+          "true"
+        ],
+        "west": [
+          "false",
+          "true"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:dark_frostrock_brick_wall",
+      "properties": [
+        {
+          "waterlogged": "false",
+          "up": "true",
+          "west": "none",
+          "east": "none",
+          "south": "none",
+          "north": "none"
+        },
+        {
+          "waterlogged": "false",
+          "up": "true",
+          "west": "none",
+          "east": "low",
+          "south": "low",
+          "north": "none"
+        },
+        {
+          "waterlogged": "false",
+          "up": "true",
+          "west": "none",
+          "east": "low",
+          "south": "low",
+          "north": "low"
+        },
+        {
+          "waterlogged": "false",
+          "up": "true",
+          "west": "none",
+          "east": "low",
+          "south": "none",
+          "north": "low"
+        },
+        {
+          "waterlogged": "false",
+          "up": "true",
+          "west": "low",
+          "east": "low",
+          "south": "low",
+          "north": "none"
+        },
+        {
+          "waterlogged": "false",
+          "up": "true",
+          "west": "low",
+          "east": "low",
+          "south": "none",
+          "north": "low"
+        },
+        {
+          "waterlogged": "false",
+          "up": "true",
+          "west": "low",
+          "east": "none",
+          "south": "low",
+          "north": "none"
+        },
+        {
+          "waterlogged": "false",
+          "up": "true",
+          "west": "low",
+          "east": "none",
+          "south": "low",
+          "north": "low"
+        },
+        {
+          "waterlogged": "false",
+          "up": "true",
+          "west": "low",
+          "east": "none",
+          "south": "none",
+          "north": "low"
+        },
+        {
+          "waterlogged": "false",
+          "up": "true",
+          "west": "none",
+          "east": "low",
+          "south": "none",
+          "north": "none"
+        },
+        {
+          "waterlogged": "false",
+          "up": "true",
+          "west": "none",
+          "east": "none",
+          "south": "low",
+          "north": "none"
+        },
+        {
+          "waterlogged": "false",
+          "up": "true",
+          "west": "none",
+          "east": "none",
+          "south": "none",
+          "north": "low"
+        },
+        {
+          "waterlogged": "false",
+          "up": "true",
+          "west": "low",
+          "east": "none",
+          "south": "none",
+          "north": "none"
+        },
+        {
+          "waterlogged": "false",
+          "up": "true",
+          "west": "tall",
+          "east": "none",
+          "south": "tall",
+          "north": "tall"
+        },
+        {
+          "waterlogged": "false",
+          "up": "true",
+          "west": "none",
+          "east": "tall",
+          "south": "tall",
+          "north": "tall"
+        },
+        {
+          "waterlogged": "false",
+          "up": "true",
+          "west": "tall",
+          "east": "none",
+          "south": "low",
+          "north": "none"
+        },
+        {
+          "waterlogged": "false",
+          "up": "true",
+          "west": "tall",
+          "east": "none",
+          "south": "none",
+          "north": "low"
+        },
+        {
+          "waterlogged": "false",
+          "up": "true",
+          "west": "none",
+          "east": "tall",
+          "south": "low",
+          "north": "none"
+        },
+        {
+          "waterlogged": "false",
+          "up": "true",
+          "west": "none",
+          "east": "tall",
+          "south": "none",
+          "north": "low"
+        },
+        {
+          "waterlogged": "false",
+          "up": "true",
+          "west": "tall",
+          "east": "none",
+          "south": "none",
+          "north": "none"
+        },
+        {
+          "waterlogged": "false",
+          "up": "true",
+          "west": "none",
+          "east": "tall",
+          "south": "none",
+          "north": "none"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 76,
+          "text": "block(\"dark_frostrock_brick_wall\", () -> new WallBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BLUE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.STONE).strength(3.0f, 50.0f).requiresCorrectToolForDrops().dynamicShape().forceSolidOn()));"
+        }
+      ],
+      "schema": {
+        "waterlogged": [
+          "false",
+          "true"
+        ],
+        "up": [
+          "false",
+          "true"
+        ],
+        "north": [
+          "none",
+          "low",
+          "tall"
+        ],
+        "east": [
+          "none",
+          "low",
+          "tall"
+        ],
+        "south": [
+          "none",
+          "low",
+          "tall"
+        ],
+        "west": [
+          "none",
+          "low",
+          "tall"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:dark_frostrock_bricks",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 75,
+          "text": "block(\"dark_frostrock_bricks\", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BLUE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.STONE).strength(3.0f, 50.0f).requiresCorrectToolForDrops(), 15));"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "thermal_shock_reforged:dark_loque_leaves",
+      "properties": [
+        {
+          "waterlogged": "false",
+          "distance": "4",
+          "persistent": "true"
+        },
+        {
+          "waterlogged": "false",
+          "distance": "5",
+          "persistent": "true"
+        },
+        {
+          "waterlogged": "false",
+          "distance": "2",
+          "persistent": "true"
+        },
+        {
+          "waterlogged": "false",
+          "distance": "3",
+          "persistent": "true"
+        },
+        {
+          "waterlogged": "false",
+          "distance": "1",
+          "persistent": "true"
+        },
+        {
+          "waterlogged": "false",
+          "distance": "6",
+          "persistent": "true"
+        },
+        {
+          "waterlogged": "false",
+          "distance": "7",
+          "persistent": "true"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/terrain/TerrainContent.java",
+          "line": 58,
+          "text": "public static final DeferredBlock<Block> DARK_LOQUE_LEAVES = BLOCKS.register(\"dark_loque_leaves\", () -> new UnderbrushLeaves(MapColor.COLOR_BLUE, 12, false));"
+        }
+      ],
+      "schema": {
+        "waterlogged": [
+          "false",
+          "true"
+        ],
+        "distance": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7"
+        ],
+        "persistent": [
+          "false",
+          "true"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:dissolver_gemlock",
+      "properties": [
+        {
+          "blockstate": "0"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/labworldgen/LabWorldgenContent.java",
+          "line": 13,
+          "text": "public static final DeferredBlock<DissolverGemlockBlock> DISSOLVER_GEMLOCK = BLOCKS.register(\"dissolver_gemlock\", DissolverGemlockBlock::new);"
+        }
+      ],
+      "schema": {
+        "blockstate": [
+          "0",
+          "1"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:dissolving_impervium",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 168,
+          "text": "block(\"dissolving_impervium\", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GRAY).sound(SoundType.NETHER_BRICKS).strength(-1.0f, 3600000.0f).pushReaction(PushReaction.BLOCK), 15));"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "thermal_shock_reforged:dull_leaves",
+      "properties": [
+        {
+          "waterlogged": "false",
+          "distance": "7",
+          "persistent": "true"
+        },
+        {
+          "waterlogged": "false",
+          "distance": "2",
+          "persistent": "true"
+        },
+        {
+          "waterlogged": "false",
+          "distance": "1",
+          "persistent": "true"
+        },
+        {
+          "waterlogged": "false",
+          "distance": "3",
+          "persistent": "true"
+        },
+        {
+          "waterlogged": "false",
+          "distance": "4",
+          "persistent": "true"
+        },
+        {
+          "waterlogged": "false",
+          "distance": "5",
+          "persistent": "true"
+        },
+        {
+          "waterlogged": "false",
+          "distance": "6",
+          "persistent": "true"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/terrain/TerrainContent.java",
+          "line": 60,
+          "text": "public static final DeferredBlock<Block> DULL_LEAVES = BLOCKS.register(\"dull_leaves\", UnderbrushLeaves.Dull::new);"
+        }
+      ],
+      "schema": {
+        "waterlogged": [
+          "false",
+          "true"
+        ],
+        "distance": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7"
+        ],
+        "persistent": [
+          "false",
+          "true"
+        ],
+        "blockstate": [
+          "0",
+          "1"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:dull_log",
+      "properties": [
+        {
+          "axis": "y"
+        },
+        {
+          "axis": "x"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 368,
+          "text": "block(\"dull_log\", () -> new MaterialPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.STEM).strength(0.5f, 0.0f), 6));"
+        }
+      ],
+      "schema": {
+        "axis": [
+          "x",
+          "y",
+          "z"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:enchanted_cache",
+      "properties": [
+        {
+          "animation": "0"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+          "line": 46,
+          "text": "ENCHANTED_CACHE(\"enchanted_cache\", \"Enchanted Cache\", \"geo/enchanted_cache.geo.json\", \"textures/block/textureenchantcache.png\", \"animations/enchanted_cache.animation.json\", Block.box(0, 0, 0, 16, 28, 16), false, false),"
+        }
+      ],
+      "schema": {
+        "animation": [
+          "0",
+          "1"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:frigid_altar",
+      "properties": [
+        {
+          "animation": "0"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+          "line": 29,
+          "text": "FRIGID_ALTAR(\"frigid_altar\", \"Frigid Altar\", \"geo/everchill_altar.geo.json\", \"textures/block/texturealtar.png\", \"animations/everchill_altar.animation.json\", Block.box(.1, .1, .1, 15.9, 14, 15.9), false, false),"
+        }
+      ],
+      "schema": {
+        "animation": [
+          "0",
+          "1"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:frostrock_brick_stairs",
+      "properties": [
+        {
+          "waterlogged": "false",
+          "half": "top",
+          "facing": "west",
+          "shape": "straight"
+        },
+        {
+          "waterlogged": "false",
+          "half": "top",
+          "facing": "north",
+          "shape": "straight"
+        },
+        {
+          "waterlogged": "false",
+          "half": "top",
+          "facing": "south",
+          "shape": "straight"
+        },
+        {
+          "waterlogged": "false",
+          "half": "top",
+          "facing": "east",
+          "shape": "straight"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 247,
+          "text": "block(\"frostrock_brick_stairs\", () -> new MaterialStairBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_LIGHT_BLUE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.STONE).strength(3.0f, 50.0f).requiresCorrectToolForDrops().dynamicShape(), 50.0F, false, -1, -1, -1));"
+        }
+      ],
+      "schema": {
+        "waterlogged": [
+          "false",
+          "true"
+        ],
+        "facing": [
+          "north",
+          "east",
+          "south",
+          "west"
+        ],
+        "half": [
+          "top",
+          "bottom"
+        ],
+        "shape": [
+          "straight",
+          "inner_left",
+          "inner_right",
+          "outer_left",
+          "outer_right"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:frostrock_bricks",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 68,
+          "text": "block(\"frostrock_bricks\", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_LIGHT_BLUE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.STONE).strength(3.0f, 50.0f).requiresCorrectToolForDrops(), 15));"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "thermal_shock_reforged:ghostglass_block",
+      "properties": [
+        {
+          "facing": "east"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/glass/GlassContent.java",
+          "line": 22,
+          "text": "public static final DeferredBlock<Block> GHOSTGLASS_BLOCK = BLOCKS.register(\"ghostglass_block\", () -> new DirectionalGlassBlock(MapColor.COLOR_LIGHT_BLUE));"
+        }
+      ],
+      "schema": {
+        "facing": [
+          "north",
+          "east",
+          "south",
+          "west",
+          "up",
+          "down"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:glitter_lotus",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java",
+          "line": 51,
+          "text": "public static final DeferredBlock<Block> GLITTER_LOTUS = BLOCKS.register(\"glitter_lotus\", GlitterLotusBlock::new);"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "thermal_shock_reforged:glowcap",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java",
+          "line": 52,
+          "text": "public static final DeferredBlock<Block> GLOWCAP = BLOCKS.register(\"glowcap\", () -> new NativeDecorBlock(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).sound(SoundType.FUNGUS).strength(0.2f, 0.0f).lightLevel(s -> 7).noCollission().noOcclusion().hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).isRedstoneConductor((bs, br, bp) -> false), new NativeDecorBlock.Traits(0, true, true, false, 0F, 0, false, false), Block.box(5, 0, 5, 11, 16, 11)));"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "thermal_shock_reforged:grassy_shale",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/terrain/TerrainContent.java",
+          "line": 37,
+          "text": "public static final DeferredBlock<Block> GRASSY_SHALE = BLOCKS.register(\"grassy_shale\", () -> new GrassyShaleBlock(false));"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "thermal_shock_reforged:lapidarian_workbench",
+      "properties": [
+        {
+          "facing": "north"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java",
+          "line": 34,
+          "text": "public static final DeferredBlock<Block> LAPIDARIAN_WORKBENCH = BLOCKS.register(\"lapidarian_workbench\", LapidarianWorkbenchBlock::new);"
+        }
+      ],
+      "schema": {
+        "facing": [
+          "north",
+          "east",
+          "south",
+          "west"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:little_spring",
+      "properties": [
+        {
+          "type": "bottom",
+          "waterlogged": "false"
+        },
+        {
+          "type": "top",
+          "waterlogged": "false"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java",
+          "line": 37,
+          "text": "public static final DeferredBlock<Block> LITTLE_SPRING = BLOCKS.register(\"little_spring\", () -> new BounceBlocks.Slab(false));"
+        }
+      ],
+      "schema": {
+        "waterlogged": [
+          "false",
+          "true"
+        ],
+        "type": [
+          "top",
+          "bottom",
+          "double"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:loque_grass",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/terrain/TerrainContent.java",
+          "line": 48,
+          "text": "public static final DeferredBlock<Block> LOQUE_GRASS = BLOCKS.register(\"loque_grass\", TerrainFlowerBlock::new);"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "thermal_shock_reforged:loque_leaves",
+      "properties": [
+        {
+          "waterlogged": "false",
+          "distance": "7",
+          "persistent": "true"
+        },
+        {
+          "waterlogged": "false",
+          "distance": "3",
+          "persistent": "false"
+        },
+        {
+          "waterlogged": "false",
+          "distance": "2",
+          "persistent": "false"
+        },
+        {
+          "waterlogged": "false",
+          "distance": "1",
+          "persistent": "false"
+        },
+        {
+          "waterlogged": "false",
+          "distance": "4",
+          "persistent": "false"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/terrain/TerrainContent.java",
+          "line": 57,
+          "text": "public static final DeferredBlock<Block> LOQUE_LEAVES = BLOCKS.register(\"loque_leaves\", () -> new UnderbrushLeaves(MapColor.COLOR_LIGHT_BLUE, 8, false));"
+        }
+      ],
+      "schema": {
+        "waterlogged": [
+          "false",
+          "true"
+        ],
+        "distance": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7"
+        ],
+        "persistent": [
+          "false",
+          "true"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:lunalemon",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthContent.java",
+          "line": 23,
+          "text": "public static final DeferredBlock<Block> LUNALEMON = block(\"lunalemon\", () -> new HangingFruitBlock(true));"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "thermal_shock_reforged:malachite_crystal",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 154,
+          "text": "block(\"malachite_crystal\", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WARPED_NYLIUM).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.ANCIENT_DEBRIS).strength(2.0f, 5.0f).lightLevel(s -> 8).requiresCorrectToolForDrops(), 15));"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "thermal_shock_reforged:mantlestone_bricks",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 62,
+          "text": "block(\"mantlestone_bricks\", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GRAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.BASALT).strength(2.0f, 30.0f).requiresCorrectToolForDrops(), 15));"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "thermal_shock_reforged:mossy_cobbled_shale",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java",
+          "line": 58,
+          "text": "public static final DeferredBlock<Block> MOSSY_COBBLED_SHALE = BLOCKS.register(\"mossy_cobbled_shale\", () -> new NativeDecorBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_CYAN).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERRACK).strength(1.0f, 5.0f).requiresCorrectToolForDrops(), new NativeDecorBlock.Traits(15, false, false, false, 0F, 0, true, false), null));"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "thermal_shock_reforged:muck",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java",
+          "line": 55,
+          "text": "public static final DeferredBlock<Block> MUCK = BLOCKS.register(\"muck\", () -> new NativeDecorBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).sound(SoundType.MUD).strength(0.8f, 4.0f).speedFactor(0.6f).jumpFactor(0.7f), new NativeDecorBlock.Traits(15, false, false, false, 0F, 0, false, false), null, \"block.thermal_shock_reforged.muck.description_0\", \"block.thermal_shock_reforged.muck.description_1\"));"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "thermal_shock_reforged:muck_brick_slab",
+      "properties": [
+        {
+          "waterlogged": "false",
+          "type": "top"
+        },
+        {
+          "waterlogged": "false",
+          "type": "bottom"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 93,
+          "text": "block(\"muck_brick_slab\", () -> new SlabBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).sound(SoundType.MUD_BRICKS).strength(1.4f, 4.0f).speedFactor(0.6f).jumpFactor(0.7f).dynamicShape()));"
+        }
+      ],
+      "schema": {
+        "waterlogged": [
+          "false",
+          "true"
+        ],
+        "type": [
+          "top",
+          "bottom",
+          "double"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:muck_brick_stairs",
+      "properties": [
+        {
+          "half": "top",
+          "waterlogged": "false",
+          "shape": "straight",
+          "facing": "north"
+        },
+        {
+          "half": "top",
+          "waterlogged": "false",
+          "shape": "straight",
+          "facing": "south"
+        },
+        {
+          "half": "top",
+          "waterlogged": "false",
+          "shape": "straight",
+          "facing": "west"
+        },
+        {
+          "half": "top",
+          "waterlogged": "false",
+          "shape": "straight",
+          "facing": "east"
+        },
+        {
+          "half": "bottom",
+          "waterlogged": "false",
+          "shape": "straight",
+          "facing": "south"
+        },
+        {
+          "half": "bottom",
+          "waterlogged": "false",
+          "shape": "straight",
+          "facing": "north"
+        },
+        {
+          "half": "bottom",
+          "waterlogged": "false",
+          "shape": "straight",
+          "facing": "east"
+        },
+        {
+          "half": "bottom",
+          "waterlogged": "false",
+          "shape": "straight",
+          "facing": "west"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 249,
+          "text": "block(\"muck_brick_stairs\", () -> new MaterialStairBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).sound(SoundType.MUD_BRICKS).strength(1.4f, 4.0f).speedFactor(0.6f).jumpFactor(0.7f).dynamicShape(), 4.0F, false, -1, -1, -1));"
+        }
+      ],
+      "schema": {
+        "waterlogged": [
+          "false",
+          "true"
+        ],
+        "facing": [
+          "north",
+          "east",
+          "south",
+          "west"
+        ],
+        "half": [
+          "top",
+          "bottom"
+        ],
+        "shape": [
+          "straight",
+          "inner_left",
+          "inner_right",
+          "outer_left",
+          "outer_right"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:muck_bricks",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 91,
+          "text": "block(\"muck_bricks\", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).sound(SoundType.MUD_BRICKS).strength(1.4f, 4.0f).speedFactor(0.6f).jumpFactor(0.7f), 15));"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "thermal_shock_reforged:permafrost",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 40,
+          "text": "block(\"permafrost\", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.CLAY).instrument(NoteBlockInstrument.BASEDRUM).sound(new DeferredSoundType(1.0f, 1.0f, () -> sound(\"block.copper.break\"), () -> sound(\"thermal_shock_reforged:ceramicish_step\"), () -> sound(\"thermal_shock_reforged:ceramicish_place\"), () -> sound(\"thermal_shock_reforged:ceramic_mine\"), () -> sound(\"thermal_shock_reforged:ceramicish_step\"))).strength(0.8f, 2.0f).requiresCorrectToolForDrops(), 15));"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "thermal_shock_reforged:phaser",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java",
+          "line": 33,
+          "text": "public static final DeferredBlock<Block> PHASER = BLOCKS.register(\"phaser\", PhaserBlock::new);"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "thermal_shock_reforged:phobotite_outcrop",
+      "properties": [
+        {
+          "animation": "0"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+          "line": 27,
+          "text": "PHOBOTITE_OUTCROP(\"phobotite_outcrop\", \"Phobotite Outcrop\", \"geo/fluorite_ore.geo.json\", \"textures/block/phobotite_outcrop.png\", \"animations/fluorite_ore.animation.json\", Shapes.block(), false, false),"
+        }
+      ],
+      "schema": {
+        "animation": [
+          "0",
+          "1"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:polished_frostrock",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 67,
+          "text": "block(\"polished_frostrock\", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.STONE).strength(3.0f, 50.0f).requiresCorrectToolForDrops(), 15));"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "thermal_shock_reforged:polished_frostrock_wall",
+      "properties": [
+        {
+          "waterlogged": "false",
+          "up": "true",
+          "west": "none",
+          "east": "none",
+          "south": "none",
+          "north": "low"
+        },
+        {
+          "waterlogged": "false",
+          "up": "true",
+          "west": "none",
+          "east": "low",
+          "south": "none",
+          "north": "none"
+        },
+        {
+          "waterlogged": "false",
+          "up": "false",
+          "west": "none",
+          "east": "none",
+          "south": "low",
+          "north": "low"
+        },
+        {
+          "waterlogged": "false",
+          "up": "false",
+          "west": "none",
+          "east": "none",
+          "south": "tall",
+          "north": "tall"
+        },
+        {
+          "waterlogged": "false",
+          "up": "false",
+          "west": "low",
+          "east": "low",
+          "south": "none",
+          "north": "none"
+        },
+        {
+          "waterlogged": "false",
+          "up": "false",
+          "west": "tall",
+          "east": "tall",
+          "south": "none",
+          "north": "none"
+        },
+        {
+          "waterlogged": "false",
+          "up": "true",
+          "west": "none",
+          "east": "none",
+          "south": "low",
+          "north": "none"
+        },
+        {
+          "waterlogged": "false",
+          "up": "true",
+          "west": "low",
+          "east": "none",
+          "south": "none",
+          "north": "none"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 71,
+          "text": "block(\"polished_frostrock_wall\", () -> new WallBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.STONE).strength(3.0f, 50.0f).requiresCorrectToolForDrops().dynamicShape().forceSolidOn()));"
+        }
+      ],
+      "schema": {
+        "waterlogged": [
+          "false",
+          "true"
+        ],
+        "up": [
+          "false",
+          "true"
+        ],
+        "north": [
+          "none",
+          "low",
+          "tall"
+        ],
+        "east": [
+          "none",
+          "low",
+          "tall"
+        ],
+        "south": [
+          "none",
+          "low",
+          "tall"
+        ],
+        "west": [
+          "none",
+          "low",
+          "tall"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:polished_impervium",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 167,
+          "text": "block(\"polished_impervium\", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).sound(SoundType.NETHER_BRICKS).strength(-1.0f, 3600000.0f).pushReaction(PushReaction.BLOCK), 15));"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "thermal_shock_reforged:polished_mantlestone",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 61,
+          "text": "block(\"polished_mantlestone\", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GRAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.BASALT).strength(2.0f, 30.0f).requiresCorrectToolForDrops(), 15));"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "thermal_shock_reforged:polished_mantlestone_slab",
+      "properties": [
+        {
+          "waterlogged": "false",
+          "type": "bottom"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 63,
+          "text": "block(\"polished_mantlestone_slab\", () -> new SlabBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GRAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.BASALT).strength(2.0f, 30.0f).requiresCorrectToolForDrops().dynamicShape()));"
+        }
+      ],
+      "schema": {
+        "waterlogged": [
+          "false",
+          "true"
+        ],
+        "type": [
+          "top",
+          "bottom",
+          "double"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:polished_permafrost",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 43,
+          "text": "block(\"polished_permafrost\", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.CLAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.COPPER).strength(0.8f, 2.0f).requiresCorrectToolForDrops(), 15));"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "thermal_shock_reforged:polished_permafrost_slab",
+      "properties": [
+        {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 46,
+          "text": "block(\"polished_permafrost_slab\", () -> new SlabBlock(BlockBehaviour.Properties.of().mapColor(MapColor.CLAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.COPPER).strength(0.8f, 2.0f).requiresCorrectToolForDrops().dynamicShape()));"
+        }
+      ],
+      "schema": {
+        "waterlogged": [
+          "false",
+          "true"
+        ],
+        "type": [
+          "top",
+          "bottom",
+          "double"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:sanctum_brick_stairs",
+      "properties": [
+        {
+          "waterlogged": "false",
+          "half": "bottom",
+          "facing": "east",
+          "shape": "outer_right"
+        },
+        {
+          "waterlogged": "false",
+          "half": "bottom",
+          "facing": "east",
+          "shape": "straight"
+        },
+        {
+          "waterlogged": "false",
+          "half": "bottom",
+          "facing": "south",
+          "shape": "straight"
+        },
+        {
+          "waterlogged": "false",
+          "half": "top",
+          "facing": "east",
+          "shape": "outer_right"
+        },
+        {
+          "waterlogged": "false",
+          "half": "top",
+          "facing": "east",
+          "shape": "straight"
+        },
+        {
+          "waterlogged": "false",
+          "half": "top",
+          "facing": "north",
+          "shape": "outer_right"
+        },
+        {
+          "waterlogged": "false",
+          "half": "top",
+          "facing": "south",
+          "shape": "straight"
+        },
+        {
+          "waterlogged": "false",
+          "half": "top",
+          "facing": "north",
+          "shape": "straight"
+        },
+        {
+          "waterlogged": "false",
+          "half": "top",
+          "facing": "east",
+          "shape": "inner_right"
+        },
+        {
+          "waterlogged": "false",
+          "half": "top",
+          "facing": "north",
+          "shape": "inner_right"
+        },
+        {
+          "waterlogged": "false",
+          "half": "top",
+          "facing": "south",
+          "shape": "outer_right"
+        },
+        {
+          "waterlogged": "false",
+          "half": "top",
+          "facing": "west",
+          "shape": "straight"
+        },
+        {
+          "waterlogged": "false",
+          "half": "top",
+          "facing": "south",
+          "shape": "inner_right"
+        },
+        {
+          "waterlogged": "false",
+          "half": "top",
+          "facing": "west",
+          "shape": "inner_right"
+        },
+        {
+          "waterlogged": "false",
+          "half": "top",
+          "facing": "west",
+          "shape": "outer_right"
+        },
+        {
+          "waterlogged": "false",
+          "half": "bottom",
+          "facing": "north",
+          "shape": "straight"
+        },
+        {
+          "waterlogged": "false",
+          "half": "bottom",
+          "facing": "north",
+          "shape": "outer_right"
+        },
+        {
+          "waterlogged": "false",
+          "half": "bottom",
+          "facing": "south",
+          "shape": "outer_right"
+        },
+        {
+          "waterlogged": "false",
+          "half": "bottom",
+          "facing": "west",
+          "shape": "straight"
+        },
+        {
+          "waterlogged": "false",
+          "half": "bottom",
+          "facing": "west",
+          "shape": "outer_right"
+        },
+        {
+          "waterlogged": "false",
+          "half": "top",
+          "facing": "south",
+          "shape": "outer_left"
+        },
+        {
+          "waterlogged": "false",
+          "half": "top",
+          "facing": "east",
+          "shape": "outer_left"
+        },
+        {
+          "waterlogged": "false",
+          "half": "top",
+          "facing": "north",
+          "shape": "outer_left"
+        },
+        {
+          "waterlogged": "false",
+          "half": "top",
+          "facing": "west",
+          "shape": "outer_left"
+        },
+        {
+          "waterlogged": "false",
+          "half": "top",
+          "facing": "south",
+          "shape": "inner_left"
+        },
+        {
+          "waterlogged": "false",
+          "half": "top",
+          "facing": "west",
+          "shape": "inner_left"
+        },
+        {
+          "waterlogged": "false",
+          "half": "bottom",
+          "facing": "south",
+          "shape": "outer_left"
+        },
+        {
+          "waterlogged": "false",
+          "half": "bottom",
+          "facing": "east",
+          "shape": "inner_right"
+        },
+        {
+          "waterlogged": "false",
+          "half": "bottom",
+          "facing": "east",
+          "shape": "inner_left"
+        },
+        {
+          "waterlogged": "false",
+          "half": "bottom",
+          "facing": "south",
+          "shape": "inner_left"
+        },
+        {
+          "waterlogged": "false",
+          "half": "bottom",
+          "facing": "east",
+          "shape": "outer_left"
+        },
+        {
+          "waterlogged": "false",
+          "half": "bottom",
+          "facing": "north",
+          "shape": "inner_right"
+        },
+        {
+          "waterlogged": "false",
+          "half": "bottom",
+          "facing": "west",
+          "shape": "outer_left"
+        },
+        {
+          "waterlogged": "false",
+          "half": "bottom",
+          "facing": "south",
+          "shape": "inner_right"
+        },
+        {
+          "waterlogged": "false",
+          "half": "bottom",
+          "facing": "north",
+          "shape": "inner_left"
+        },
+        {
+          "waterlogged": "false",
+          "half": "bottom",
+          "facing": "west",
+          "shape": "inner_left"
+        },
+        {
+          "waterlogged": "false",
+          "half": "bottom",
+          "facing": "west",
+          "shape": "inner_right"
+        },
+        {
+          "waterlogged": "false",
+          "half": "bottom",
+          "facing": "north",
+          "shape": "outer_left"
+        },
+        {
+          "waterlogged": "false",
+          "half": "top",
+          "facing": "east",
+          "shape": "inner_left"
+        },
+        {
+          "waterlogged": "false",
+          "half": "top",
+          "facing": "north",
+          "shape": "inner_left"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 240,
+          "text": "block(\"sanctum_brick_stairs\", () -> new MaterialStairBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BLUE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHER_BRICKS).strength(-1.0f, 3600000.0f).requiresCorrectToolForDrops().pushReaction(PushReaction.BLOCK).dynamicShape(), 100.0F, false, -1, -1, -1));"
+        }
+      ],
+      "schema": {
+        "waterlogged": [
+          "false",
+          "true"
+        ],
+        "facing": [
+          "north",
+          "east",
+          "south",
+          "west"
+        ],
+        "half": [
+          "top",
+          "bottom"
+        ],
+        "shape": [
+          "straight",
+          "inner_left",
+          "inner_right",
+          "outer_left",
+          "outer_right"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:sanctum_brick_wall",
+      "properties": [
+        {
+          "waterlogged": "false",
+          "up": "true",
+          "west": "none",
+          "east": "none",
+          "south": "none",
+          "north": "none"
+        },
+        {
+          "waterlogged": "false",
+          "up": "true",
+          "west": "none",
+          "east": "low",
+          "south": "none",
+          "north": "none"
+        },
+        {
+          "waterlogged": "false",
+          "up": "true",
+          "west": "none",
+          "east": "none",
+          "south": "low",
+          "north": "none"
+        },
+        {
+          "waterlogged": "false",
+          "up": "true",
+          "west": "none",
+          "east": "none",
+          "south": "none",
+          "north": "low"
+        },
+        {
+          "waterlogged": "false",
+          "up": "true",
+          "west": "low",
+          "east": "none",
+          "south": "none",
+          "north": "none"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 74,
+          "text": "block(\"sanctum_brick_wall\", () -> new WallBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BLUE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHER_BRICKS).strength(-1.0f, 3600000.0f).requiresCorrectToolForDrops().pushReaction(PushReaction.BLOCK).dynamicShape().forceSolidOn()));"
+        }
+      ],
+      "schema": {
+        "waterlogged": [
+          "false",
+          "true"
+        ],
+        "up": [
+          "false",
+          "true"
+        ],
+        "north": [
+          "none",
+          "low",
+          "tall"
+        ],
+        "east": [
+          "none",
+          "low",
+          "tall"
+        ],
+        "south": [
+          "none",
+          "low",
+          "tall"
+        ],
+        "west": [
+          "none",
+          "low",
+          "tall"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:sanctum_bricks",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 52,
+          "text": "block(\"sanctum_bricks\", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BLUE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHER_BRICKS).strength(-1.0f, 3600000.0f).requiresCorrectToolForDrops().pushReaction(PushReaction.BLOCK), 15));"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "thermal_shock_reforged:sanctum_lamp",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 53,
+          "text": "block(\"sanctum_lamp\", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_CYAN).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHER_BRICKS).strength(-1.0f, 3600000.0f).lightLevel(s -> 10).requiresCorrectToolForDrops().pushReaction(PushReaction.BLOCK), 15));"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "thermal_shock_reforged:shale",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 38,
+          "text": "block(\"shale\", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERRACK).strength(1.0f, 5.0f).requiresCorrectToolForDrops().randomTicks(), 15));"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "thermal_shock_reforged:shale_brick_slab",
+      "properties": [
+        {
+          "waterlogged": "false",
+          "type": "bottom"
+        },
+        {
+          "waterlogged": "false",
+          "type": "double"
+        },
+        {
+          "waterlogged": "false",
+          "type": "top"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 56,
+          "text": "block(\"shale_brick_slab\", () -> new SlabBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERRACK).strength(1.0f, 5.0f).requiresCorrectToolForDrops().dynamicShape()));"
+        }
+      ],
+      "schema": {
+        "waterlogged": [
+          "false",
+          "true"
+        ],
+        "type": [
+          "top",
+          "bottom",
+          "double"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:shale_brick_stairs",
+      "properties": [
+        {
+          "half": "bottom",
+          "waterlogged": "false",
+          "shape": "straight",
+          "facing": "south"
+        },
+        {
+          "half": "bottom",
+          "waterlogged": "false",
+          "shape": "straight",
+          "facing": "east"
+        },
+        {
+          "half": "bottom",
+          "waterlogged": "false",
+          "shape": "straight",
+          "facing": "west"
+        },
+        {
+          "half": "top",
+          "waterlogged": "false",
+          "shape": "straight",
+          "facing": "north"
+        },
+        {
+          "half": "top",
+          "waterlogged": "false",
+          "shape": "straight",
+          "facing": "south"
+        },
+        {
+          "half": "top",
+          "waterlogged": "false",
+          "shape": "straight",
+          "facing": "west"
+        },
+        {
+          "half": "top",
+          "waterlogged": "false",
+          "shape": "straight",
+          "facing": "east"
+        },
+        {
+          "half": "bottom",
+          "waterlogged": "false",
+          "shape": "straight",
+          "facing": "north"
+        },
+        {
+          "half": "top",
+          "waterlogged": "false",
+          "shape": "outer_left",
+          "facing": "south"
+        },
+        {
+          "half": "top",
+          "waterlogged": "false",
+          "shape": "outer_right",
+          "facing": "north"
+        },
+        {
+          "half": "top",
+          "waterlogged": "false",
+          "shape": "outer_left",
+          "facing": "west"
+        },
+        {
+          "half": "top",
+          "waterlogged": "false",
+          "shape": "outer_left",
+          "facing": "north"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 241,
+          "text": "block(\"shale_brick_stairs\", () -> new MaterialStairBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERRACK).strength(1.0f, 5.0f).requiresCorrectToolForDrops().dynamicShape(), 5.0F, false, -1, -1, -1));"
+        }
+      ],
+      "schema": {
+        "waterlogged": [
+          "false",
+          "true"
+        ],
+        "facing": [
+          "north",
+          "east",
+          "south",
+          "west"
+        ],
+        "half": [
+          "top",
+          "bottom"
+        ],
+        "shape": [
+          "straight",
+          "inner_left",
+          "inner_right",
+          "outer_left",
+          "outer_right"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:shale_brick_wall",
+      "properties": [
+        {
+          "east": "low",
+          "waterlogged": "false",
+          "south": "low",
+          "north": "none",
+          "west": "none",
+          "up": "true"
+        },
+        {
+          "east": "low",
+          "waterlogged": "false",
+          "south": "none",
+          "north": "low",
+          "west": "none",
+          "up": "true"
+        },
+        {
+          "east": "low",
+          "waterlogged": "false",
+          "south": "low",
+          "north": "none",
+          "west": "low",
+          "up": "true"
+        },
+        {
+          "east": "low",
+          "waterlogged": "false",
+          "south": "none",
+          "north": "low",
+          "west": "low",
+          "up": "true"
+        },
+        {
+          "east": "none",
+          "waterlogged": "false",
+          "south": "none",
+          "north": "none",
+          "west": "none",
+          "up": "true"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 55,
+          "text": "block(\"shale_brick_wall\", () -> new WallBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERRACK).strength(1.0f, 5.0f).requiresCorrectToolForDrops().dynamicShape().forceSolidOn()));"
+        }
+      ],
+      "schema": {
+        "waterlogged": [
+          "false",
+          "true"
+        ],
+        "up": [
+          "false",
+          "true"
+        ],
+        "north": [
+          "none",
+          "low",
+          "tall"
+        ],
+        "east": [
+          "none",
+          "low",
+          "tall"
+        ],
+        "south": [
+          "none",
+          "low",
+          "tall"
+        ],
+        "west": [
+          "none",
+          "low",
+          "tall"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:shale_bricks",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 54,
+          "text": "block(\"shale_bricks\", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERRACK).strength(1.0f, 5.0f).requiresCorrectToolForDrops(), 15));"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "thermal_shock_reforged:shale_cache_pad",
+      "properties": [
+        {
+          "animation": "0"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+          "line": 55,
+          "text": "SHALE_CACHE_PAD(\"shale_cache_pad\", \"Cache Pad\", \"geo/cachepad.geo.json\", \"textures/block/grey_cache_pad.png\", \"animations/cachepad.animation.json\", Shapes.block(), false, false),"
+        }
+      ],
+      "schema": {
+        "animation": [
+          "0",
+          "1"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:shale_pillar",
+      "properties": [
+        {
+          "waterlogged": "false",
+          "facing": "east",
+          "animation": "0"
+        },
+        {
+          "waterlogged": "false",
+          "facing": "north",
+          "animation": "0"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+          "line": 37,
+          "text": "SHALE_PILLAR(\"shale_pillar\", \"Shale Pillar §d[Blank]\", \"geo/pillar_statue.geo.json\", \"textures/block/pillarextended.png\", \"animations/pillar_statue.animation.json\", Block.box(1, 0.1, 1, 15, 47.9, 15), true, false),"
+        }
+      ],
+      "schema": {
+        "animation": [
+          "0",
+          "1"
+        ],
+        "waterlogged": [
+          "false",
+          "true"
+        ],
+        "facing": [
+          "north",
+          "east",
+          "south",
+          "west"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:shale_pillar_block",
+      "properties": [
+        {
+          "axis": "y"
+        },
+        {
+          "axis": "z"
+        },
+        {
+          "axis": "x"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 377,
+          "text": "block(\"shale_pillar_block\", () -> new MaterialPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_CYAN).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERRACK).strength(1.0f, 5.0f).requiresCorrectToolForDrops(), -1));"
+        }
+      ],
+      "schema": {
+        "axis": [
+          "x",
+          "y",
+          "z"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:skorio",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/farming/CropKind.java",
+          "line": 4,
+          "text": "SKORIO(\"skorio\", false, false, false),"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "thermal_shock_reforged:slush",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/terrain/TerrainContent.java",
+          "line": 41,
+          "text": "public static final DeferredBlock<Block> SLUSH = BLOCKS.register(\"slush\", () -> new GrassyShaleBlock(true, BlockBehaviour.Properties.of().mapColor(MapColor.CLAY).sound(SoundType.GRAVEL).strength(0.8F, 4).friction(0.7F)));"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "thermal_shock_reforged:snowy_permafrost",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java",
+          "line": 54,
+          "text": "public static final DeferredBlock<Block> SNOWY_PERMAFROST = BLOCKS.register(\"snowy_permafrost\", () -> new NativeDecorBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.COPPER).strength(0.8f, 2.0f).requiresCorrectToolForDrops(), new NativeDecorBlock.Traits(15, false, false, false, 0F, 0, true, false), null));"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "thermal_shock_reforged:snowy_shale",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/terrain/TerrainContent.java",
+          "line": 42,
+          "text": "public static final DeferredBlock<Block> SNOWY_SHALE = BLOCKS.register(\"snowy_shale\", () -> new GrassyShaleBlock(true));"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "thermal_shock_reforged:sparkly_muck",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java",
+          "line": 63,
+          "text": "public static final DeferredBlock<Block> SPARKLY_MUCK = BLOCKS.register(\"sparkly_muck\", () -> new NativeDecorBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BLUE).sound(SoundType.MUD).strength(0.8f, 4.0f).speedFactor(0.6f).jumpFactor(0.7f), new NativeDecorBlock.Traits(15, false, false, false, 0F, 0, false, false), null, \"block.thermal_shock_reforged.sparkly_muck.description_0\", \"block.thermal_shock_reforged.sparkly_muck.description_1\"));"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "thermal_shock_reforged:spire_base",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java",
+          "line": 56,
+          "text": "public static final DeferredBlock<Block> SPIRE_BASE = BLOCKS.register(\"spire_base\", () -> new NativeDecorBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).sound(SoundType.STEM).strength(2.35f, 30.0f).requiresCorrectToolForDrops(), new NativeDecorBlock.Traits(15, false, false, false, 0F, 0, true, false), null));"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "thermal_shock_reforged:spirewood_door",
+      "properties": [
+        {
+          "hinge": "right",
+          "half": "lower",
+          "powered": "false",
+          "facing": "west",
+          "open": "false"
+        },
+        {
+          "hinge": "left",
+          "half": "lower",
+          "powered": "false",
+          "facing": "west",
+          "open": "true"
+        },
+        {
+          "hinge": "right",
+          "half": "upper",
+          "powered": "false",
+          "facing": "west",
+          "open": "false"
+        },
+        {
+          "hinge": "left",
+          "half": "upper",
+          "powered": "false",
+          "facing": "west",
+          "open": "true"
+        },
+        {
+          "hinge": "left",
+          "half": "lower",
+          "powered": "false",
+          "facing": "west",
+          "open": "false"
+        },
+        {
+          "hinge": "left",
+          "half": "upper",
+          "powered": "false",
+          "facing": "west",
+          "open": "false"
+        },
+        {
+          "hinge": "right",
+          "half": "lower",
+          "powered": "false",
+          "facing": "south",
+          "open": "false"
+        },
+        {
+          "hinge": "left",
+          "half": "lower",
+          "powered": "false",
+          "facing": "south",
+          "open": "false"
+        },
+        {
+          "hinge": "right",
+          "half": "upper",
+          "powered": "false",
+          "facing": "south",
+          "open": "false"
+        },
+        {
+          "hinge": "left",
+          "half": "upper",
+          "powered": "false",
+          "facing": "south",
+          "open": "false"
+        },
+        {
+          "hinge": "left",
+          "half": "lower",
+          "powered": "false",
+          "facing": "east",
+          "open": "false"
+        },
+        {
+          "hinge": "right",
+          "half": "lower",
+          "powered": "false",
+          "facing": "east",
+          "open": "false"
+        },
+        {
+          "hinge": "left",
+          "half": "upper",
+          "powered": "false",
+          "facing": "east",
+          "open": "false"
+        },
+        {
+          "hinge": "right",
+          "half": "upper",
+          "powered": "false",
+          "facing": "east",
+          "open": "false"
+        },
+        {
+          "hinge": "left",
+          "half": "lower",
+          "powered": "false",
+          "facing": "north",
+          "open": "false"
+        },
+        {
+          "hinge": "right",
+          "half": "lower",
+          "powered": "false",
+          "facing": "north",
+          "open": "false"
+        },
+        {
+          "hinge": "left",
+          "half": "upper",
+          "powered": "false",
+          "facing": "north",
+          "open": "false"
+        },
+        {
+          "hinge": "right",
+          "half": "upper",
+          "powered": "false",
+          "facing": "north",
+          "open": "false"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 325,
+          "text": "block(\"spirewood_door\", () -> InteractiveBlocks.door(BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).ignitedByLava().sound(SoundType.STEM).strength(1.35f, 15.0f).requiresCorrectToolForDrops().dynamicShape(), BlockSetType.STONE, 0, -1));"
+        }
+      ],
+      "schema": {
+        "facing": [
+          "north",
+          "east",
+          "south",
+          "west"
+        ],
+        "half": [
+          "lower",
+          "upper"
+        ],
+        "hinge": [
+          "left",
+          "right"
+        ],
+        "powered": [
+          "false",
+          "true"
+        ],
+        "open": [
+          "false",
+          "true"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:spirewood_fence",
+      "properties": [
+        {
+          "east": "false",
+          "waterlogged": "false",
+          "south": "false",
+          "north": "true",
+          "west": "false"
+        },
+        {
+          "east": "false",
+          "waterlogged": "false",
+          "south": "true",
+          "north": "false",
+          "west": "false"
+        },
+        {
+          "east": "false",
+          "waterlogged": "false",
+          "south": "true",
+          "north": "true",
+          "west": "false"
+        },
+        {
+          "east": "true",
+          "waterlogged": "false",
+          "south": "false",
+          "north": "false",
+          "west": "false"
+        },
+        {
+          "east": "true",
+          "waterlogged": "false",
+          "south": "false",
+          "north": "false",
+          "west": "true"
+        },
+        {
+          "east": "false",
+          "waterlogged": "false",
+          "south": "false",
+          "north": "false",
+          "west": "true"
+        },
+        {
+          "east": "false",
+          "waterlogged": "false",
+          "south": "true",
+          "north": "false",
+          "west": "true"
+        },
+        {
+          "east": "true",
+          "waterlogged": "false",
+          "south": "false",
+          "north": "true",
+          "west": "false"
+        },
+        {
+          "east": "false",
+          "waterlogged": "false",
+          "south": "false",
+          "north": "false",
+          "west": "false"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 147,
+          "text": "block(\"spirewood_fence\", () -> new FenceBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).ignitedByLava().sound(SoundType.STEM).strength(1.35f, 15.0f).requiresCorrectToolForDrops().dynamicShape().forceSolidOn()));"
+        }
+      ],
+      "schema": {
+        "waterlogged": [
+          "false",
+          "true"
+        ],
+        "north": [
+          "false",
+          "true"
+        ],
+        "east": [
+          "false",
+          "true"
+        ],
+        "south": [
+          "false",
+          "true"
+        ],
+        "west": [
+          "false",
+          "true"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:spirewood_fence_gate",
+      "properties": [
+        {
+          "in_wall": "false",
+          "powered": "false",
+          "facing": "north",
+          "open": "false"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 292,
+          "text": "block(\"spirewood_fence_gate\", () -> DecorativeBlocks.gate(BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).ignitedByLava().sound(SoundType.STEM).strength(1.35f, 15.0f).requiresCorrectToolForDrops().dynamicShape().forceSolidOn(), 0, -1, false));"
+        }
+      ],
+      "schema": {
+        "facing": [
+          "north",
+          "east",
+          "south",
+          "west"
+        ],
+        "in_wall": [
+          "false",
+          "true"
+        ],
+        "open": [
+          "false",
+          "true"
+        ],
+        "powered": [
+          "false",
+          "true"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:spirewood_planks",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 145,
+          "text": "block(\"spirewood_planks\", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).ignitedByLava().sound(SoundType.STEM).strength(1.35f, 15.0f).requiresCorrectToolForDrops(), 15));"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "thermal_shock_reforged:spirewood_slab",
+      "properties": [
+        {
+          "waterlogged": "false",
+          "type": "top"
+        },
+        {
+          "waterlogged": "false",
+          "type": "double"
+        },
+        {
+          "waterlogged": "false",
+          "type": "bottom"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 146,
+          "text": "block(\"spirewood_slab\", () -> new SlabBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).ignitedByLava().sound(SoundType.STEM).strength(1.35f, 15.0f).requiresCorrectToolForDrops().dynamicShape()));"
+        }
+      ],
+      "schema": {
+        "waterlogged": [
+          "false",
+          "true"
+        ],
+        "type": [
+          "top",
+          "bottom",
+          "double"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:spirewood_stairs",
+      "properties": [
+        {
+          "half": "top",
+          "waterlogged": "false",
+          "shape": "straight",
+          "facing": "west"
+        },
+        {
+          "half": "bottom",
+          "waterlogged": "false",
+          "shape": "straight",
+          "facing": "east"
+        },
+        {
+          "half": "bottom",
+          "waterlogged": "false",
+          "shape": "inner_left",
+          "facing": "south"
+        },
+        {
+          "half": "bottom",
+          "waterlogged": "false",
+          "shape": "straight",
+          "facing": "north"
+        },
+        {
+          "half": "bottom",
+          "waterlogged": "false",
+          "shape": "straight",
+          "facing": "west"
+        },
+        {
+          "half": "bottom",
+          "waterlogged": "false",
+          "shape": "outer_right",
+          "facing": "west"
+        },
+        {
+          "half": "bottom",
+          "waterlogged": "false",
+          "shape": "straight",
+          "facing": "south"
+        },
+        {
+          "half": "bottom",
+          "waterlogged": "false",
+          "shape": "outer_left",
+          "facing": "north"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 253,
+          "text": "block(\"spirewood_stairs\", () -> new MaterialStairBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).ignitedByLava().sound(SoundType.STEM).strength(1.35f, 15.0f).requiresCorrectToolForDrops().dynamicShape(), 15.0F, false, -1, -1, -1));"
+        }
+      ],
+      "schema": {
+        "waterlogged": [
+          "false",
+          "true"
+        ],
+        "facing": [
+          "north",
+          "east",
+          "south",
+          "west"
+        ],
+        "half": [
+          "top",
+          "bottom"
+        ],
+        "shape": [
+          "straight",
+          "inner_left",
+          "inner_right",
+          "outer_left",
+          "outer_right"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:spirewood_trapdoor",
+      "properties": [
+        {
+          "half": "top",
+          "waterlogged": "false",
+          "powered": "false",
+          "facing": "south",
+          "open": "true"
+        },
+        {
+          "half": "top",
+          "waterlogged": "false",
+          "powered": "false",
+          "facing": "north",
+          "open": "true"
+        },
+        {
+          "half": "top",
+          "waterlogged": "false",
+          "powered": "false",
+          "facing": "east",
+          "open": "true"
+        },
+        {
+          "half": "top",
+          "waterlogged": "false",
+          "powered": "false",
+          "facing": "west",
+          "open": "true"
+        },
+        {
+          "half": "bottom",
+          "waterlogged": "false",
+          "powered": "false",
+          "facing": "west",
+          "open": "true"
+        },
+        {
+          "half": "bottom",
+          "waterlogged": "false",
+          "powered": "false",
+          "facing": "north",
+          "open": "true"
+        },
+        {
+          "half": "bottom",
+          "waterlogged": "false",
+          "powered": "false",
+          "facing": "south",
+          "open": "true"
+        },
+        {
+          "half": "bottom",
+          "waterlogged": "false",
+          "powered": "false",
+          "facing": "east",
+          "open": "true"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 326,
+          "text": "block(\"spirewood_trapdoor\", () -> InteractiveBlocks.trapdoor(BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).ignitedByLava().sound(SoundType.STEM).strength(1.35f, 15.0f).requiresCorrectToolForDrops().dynamicShape(), BlockSetType.STONE, 0, -1));"
+        }
+      ],
+      "schema": {
+        "waterlogged": [
+          "false",
+          "true"
+        ],
+        "facing": [
+          "north",
+          "east",
+          "south",
+          "west"
+        ],
+        "half": [
+          "top",
+          "bottom"
+        ],
+        "powered": [
+          "false",
+          "true"
+        ],
+        "open": [
+          "false",
+          "true"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:steelstem_block",
+      "properties": [
+        {
+          "axis": "y"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 374,
+          "text": "block(\"steelstem_block\", () -> new MaterialPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BLUE).ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.LANTERN).strength(1.0f, 3.8f).requiresCorrectToolForDrops(), -1));"
+        }
+      ],
+      "schema": {
+        "axis": [
+          "x",
+          "y",
+          "z"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:vermilli_fence",
+      "properties": [
+        {
+          "east": "true",
+          "waterlogged": "false",
+          "south": "false",
+          "north": "false",
+          "west": "true"
+        },
+        {
+          "east": "false",
+          "waterlogged": "false",
+          "south": "false",
+          "north": "false",
+          "west": "false"
+        },
+        {
+          "east": "false",
+          "waterlogged": "false",
+          "south": "true",
+          "north": "true",
+          "west": "false"
+        },
+        {
+          "east": "true",
+          "waterlogged": "false",
+          "south": "false",
+          "north": "true",
+          "west": "false"
+        },
+        {
+          "east": "false",
+          "waterlogged": "false",
+          "south": "true",
+          "north": "false",
+          "west": "true"
+        },
+        {
+          "east": "true",
+          "waterlogged": "false",
+          "south": "false",
+          "north": "false",
+          "west": "false"
+        },
+        {
+          "east": "false",
+          "waterlogged": "false",
+          "south": "false",
+          "north": "false",
+          "west": "true"
+        },
+        {
+          "east": "false",
+          "waterlogged": "false",
+          "south": "true",
+          "north": "false",
+          "west": "false"
+        },
+        {
+          "east": "true",
+          "waterlogged": "false",
+          "south": "false",
+          "north": "true",
+          "west": "true"
+        },
+        {
+          "east": "true",
+          "waterlogged": "false",
+          "south": "true",
+          "north": "false",
+          "west": "false"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 275,
+          "text": "block(\"vermilli_fence\", () -> DecorativeBlocks.fence(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.4f, 3.6f).dynamicShape().forceSolidOn(), 0, 6, false));"
+        }
+      ],
+      "schema": {
+        "waterlogged": [
+          "false",
+          "true"
+        ],
+        "north": [
+          "false",
+          "true"
+        ],
+        "east": [
+          "false",
+          "true"
+        ],
+        "south": [
+          "false",
+          "true"
+        ],
+        "west": [
+          "false",
+          "true"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:vermilli_planks",
+      "properties": [
+        {}
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java",
+          "line": 53,
+          "text": "public static final DeferredBlock<Block> VERMILLI_PLANKS = BLOCKS.register(\"vermilli_planks\", () -> new NativeDecorBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.4f, 3.471093f), new NativeDecorBlock.Traits(15, false, false, false, 0F, 6, false, false), null));"
+        }
+      ],
+      "schema": {}
+    },
+    {
+      "id": "thermal_shock_reforged:vermilli_slab",
+      "properties": [
+        {
+          "waterlogged": "false",
+          "type": "bottom"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 274,
+          "text": "block(\"vermilli_slab\", () -> DecorativeBlocks.slab(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.4f, 3.6f).dynamicShape(), 0, 6, false));"
+        }
+      ],
+      "schema": {
+        "waterlogged": [
+          "false",
+          "true"
+        ],
+        "type": [
+          "top",
+          "bottom",
+          "double"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:vermilli_trapdoor",
+      "properties": [
+        {
+          "half": "top",
+          "waterlogged": "false",
+          "powered": "false",
+          "facing": "west",
+          "open": "true"
+        },
+        {
+          "half": "top",
+          "waterlogged": "false",
+          "powered": "false",
+          "facing": "north",
+          "open": "true"
+        },
+        {
+          "half": "top",
+          "waterlogged": "false",
+          "powered": "false",
+          "facing": "south",
+          "open": "true"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "line": 310,
+          "text": "block(\"vermilli_trapdoor\", () -> InteractiveBlocks.trapdoor(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.4f, 3.471093f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false).dynamicShape(), BlockSetType.OAK, -1, 6));"
+        }
+      ],
+      "schema": {
+        "waterlogged": [
+          "false",
+          "true"
+        ],
+        "facing": [
+          "north",
+          "east",
+          "south",
+          "west"
+        ],
+        "half": [
+          "top",
+          "bottom"
+        ],
+        "powered": [
+          "false",
+          "true"
+        ],
+        "open": [
+          "false",
+          "true"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:vermillion_sparkler_stem",
+      "properties": [
+        {
+          "waterlogged": "false"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthContent.java",
+          "line": 31,
+          "text": "public static final DeferredBlock<Block> SPARKLER_STEM = block(\"vermillion_sparkler_stem\", () -> new SparklerBlock(0));"
+        }
+      ],
+      "schema": {
+        "waterlogged": [
+          "false",
+          "true"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:voltflower_bulb",
+      "properties": [
+        {
+          "animation": "0"
+        }
+      ],
+      "registration": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+          "line": 51,
+          "text": "VOLTFLOWER_BULB(\"voltflower_bulb\", \"\\u00a7cVoltflower Bulb [Deprecated]\", \"geo/voltflower_bulb.geo.json\", \"textures/block/voltflowerbulb.png\", \"animations/voltflower_bulb.animation.json\", Shapes.block(), true, false),"
+        }
+      ],
+      "schema": {
+        "animation": [
+          "0",
+          "1"
+        ]
+      }
+    }
+  ],
+  "missing_palette": [
+    {
+      "id": "thermal_shock_reforged:loque_bush",
+      "registered_original": false,
+      "target_refs": [],
+      "preserved_original_unknown": true,
+      "meaning": "原件注册表无此ID；保持原模板遗留ID，旧/新NbtUtils均在Holder查询为空时返回空气，未补造注册。"
+    }
+  ],
+  "payload_registrations": {
+    "thermal_shock_reforged:atlas": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "line": 36,
+        "text": "ATLAS(\"atlas\", \"Atlas\", \"geo/atlas.geo.json\", \"textures/block/atlas.png\", \"animations/atlas.animation.json\", Shapes.block(), false, false),"
+      }
+    ],
+    "thermal_shock_reforged:bottle_of_lunarlight": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "line": 63,
+        "text": "BOTTLE_OF_LUNARLIGHT(\"bottle_of_lunarlight\", \"Bottle of Lunarlight\", \"geo/bottle_of_starlight.geo.json\", \"textures/block/texturelunabottle.png\", \"animations/bottle_of_starlight.animation.json\", Block.box(.1, .1, .1, 15.9, 15.9, 15.9), true, true),"
+      }
+    ],
+    "thermal_shock_reforged:cache_pad": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "line": 53,
+        "text": "CACHE_PAD(\"cache_pad\", \"Cache Pad\", \"geo/cachepad.geo.json\", \"textures/block/cache_pad.png\", \"animations/cachepad.animation.json\", Shapes.block(), false, false),"
+      }
+    ],
+    "thermal_shock_reforged:cryonic_cache": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "line": 45,
+        "text": "CRYONIC_CACHE(\"cryonic_cache\", \"Cryonic Cache\", \"geo/enchanted_cache.geo.json\", \"textures/block/blizzardcache.png\", \"animations/enchanted_cache.animation.json\", Block.box(0, 0, 0, 16, 28, 16), false, false),"
+      }
+    ],
+    "thermal_shock_reforged:cryonic_lamp": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "line": 52,
+        "text": "CRYONIC_LAMP(\"cryonic_lamp\", \"Cryonic Lamp\", \"geo/cryonic_lantern.geo.json\", \"textures/block/cryonic_lamp.png\", \"animations/cryonic_lantern.animation.json\", Block.box(2.0, 2.0, 2.0, 14.0, 14.0, 14.0), true, false),"
+      }
+    ],
+    "thermal_shock_reforged:effigy": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/entity/effigy/EffigyContent.java",
+        "line": 20,
+        "text": "public static final DeferredHolder<EntityType<?>, EntityType<EffigyEntity>> EFFIGY = TYPES.register(\"effigy\", () -> EntityType.Builder.of(EffigyEntity::new, MobCategory.MONSTER).sized(1, 2.9F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + \":effigy\"));"
+      }
+    ],
+    "thermal_shock_reforged:enchanted_cache": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "line": 46,
+        "text": "ENCHANTED_CACHE(\"enchanted_cache\", \"Enchanted Cache\", \"geo/enchanted_cache.geo.json\", \"textures/block/textureenchantcache.png\", \"animations/enchanted_cache.animation.json\", Block.box(0, 0, 0, 16, 28, 16), false, false),"
+      }
+    ],
+    "thermal_shock_reforged:frigid_altar": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "line": 29,
+        "text": "FRIGID_ALTAR(\"frigid_altar\", \"Frigid Altar\", \"geo/everchill_altar.geo.json\", \"textures/block/texturealtar.png\", \"animations/everchill_altar.animation.json\", Block.box(.1, .1, .1, 15.9, 14, 15.9), false, false),"
+      }
+    ],
+    "thermal_shock_reforged:frostilyte": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/entity/hunters/HuntersContent.java",
+        "line": 19,
+        "text": "public static final DeferredHolder<EntityType<?>, EntityType<FrostilyteEntity>> FROSTILYTE = TYPES.register(\"frostilyte\", () -> EntityType.Builder.of(FrostilyteEntity::new, MobCategory.MONSTER).sized(0.6F, 1.7F).clientTrackingRange(64).updateInterval(3).build(\"thermal_shock_reforged:frostilyte\"));"
+      }
+    ],
+    "thermal_shock_reforged:frostilyte_cryomancer": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/entity/ice/IceContent.java",
+        "line": 18,
+        "text": "public static final DeferredHolder<EntityType<?>, EntityType<IceCreatureEntity>> FROSTILYTE_CRYOMANCER = creature(\"frostilyte_cryomancer\", 0.6F, 1.7F);"
+      }
+    ],
+    "thermal_shock_reforged:frostilyte_gunner": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/entity/sanctum/SanctumContent.java",
+        "line": 35,
+        "text": "public static final DeferredHolder<EntityType<?>, EntityType<FrostilyteGunnerEntity>> FROSTILYTE_GUNNER = TYPES.register(\"frostilyte_gunner\", () -> EntityType.Builder.of(FrostilyteGunnerEntity::new, MobCategory.MONSTER).sized(.6F, 1.7F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + \":frostilyte_gunner\"));"
+      }
+    ],
+    "thermal_shock_reforged:frostilyte_soldier": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/entity/ice/IceContent.java",
+        "line": 17,
+        "text": "public static final DeferredHolder<EntityType<?>, EntityType<IceCreatureEntity>> FROSTILYTE_SOLDIER = creature(\"frostilyte_soldier\", 0.6F, 1.7F);"
+      }
+    ],
+    "thermal_shock_reforged:icidrogrunt": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/entity/icesquad/IceSquadContent.java",
+        "line": 39,
+        "text": "public static final DeferredHolder<EntityType<?>, EntityType<IcidrogruntEntity>> GRUNT = TYPES.register(\"icidrogrunt\", () -> EntityType.Builder.of(IcidrogruntEntity::new, MobCategory.MONSTER).sized(0.6F, 1.6F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + \":icidrogrunt\"));"
+      }
+    ],
+    "thermal_shock_reforged:icidrostrider": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/entity/icesquad/IceSquadContent.java",
+        "line": 38,
+        "text": "public static final DeferredHolder<EntityType<?>, EntityType<IcidrostriderEntity>> STRIDER = TYPES.register(\"icidrostrider\", () -> EntityType.Builder.of(IcidrostriderEntity::new, MobCategory.MONSTER).sized(1, 1.6F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + \":icidrostrider\"));"
+      }
+    ],
+    "thermal_shock_reforged:icidrozerk": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/entity/ice/IceContent.java",
+        "line": 20,
+        "text": "public static final DeferredHolder<EntityType<?>, EntityType<IceCreatureEntity>> ICIDROZERK = creature(\"icidrozerk\", 1.8F, 2.2F);"
+      }
+    ],
+    "thermal_shock_reforged:phobotite": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+        "line": 404,
+        "text": "item(\"phobotite\", () -> new DescribedItem(new Item.Properties().stacksTo(64).rarity(Rarity.UNCOMMON), \"item.thermal_shock_reforged.phobotite.description_0\"));"
+      }
+    ],
+    "thermal_shock_reforged:phobotite_outcrop": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "line": 27,
+        "text": "PHOBOTITE_OUTCROP(\"phobotite_outcrop\", \"Phobotite Outcrop\", \"geo/fluorite_ore.geo.json\", \"textures/block/phobotite_outcrop.png\", \"animations/fluorite_ore.animation.json\", Shapes.block(), false, false),"
+      }
+    ],
+    "thermal_shock_reforged:pixie": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/entity/ambient/AmbientContent.java",
+        "line": 21,
+        "text": "public static final DeferredHolder<EntityType<?>, EntityType<PixieEntity>> PIXIE = TYPES.register(\"pixie\", () -> EntityType.Builder.of(PixieEntity::new, MobCategory.AMBIENT).fireImmune().sized(0.7F, 0.7F).clientTrackingRange(64).updateInterval(3).build(\"thermal_shock_reforged:pixie\"));"
+      }
+    ],
+    "thermal_shock_reforged:shale_cache_pad": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "line": 55,
+        "text": "SHALE_CACHE_PAD(\"shale_cache_pad\", \"Cache Pad\", \"geo/cachepad.geo.json\", \"textures/block/grey_cache_pad.png\", \"animations/cachepad.animation.json\", Shapes.block(), false, false),"
+      }
+    ],
+    "thermal_shock_reforged:shale_pillar": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "line": 37,
+        "text": "SHALE_PILLAR(\"shale_pillar\", \"Shale Pillar §d[Blank]\", \"geo/pillar_statue.geo.json\", \"textures/block/pillarextended.png\", \"animations/pillar_statue.animation.json\", Block.box(1, 0.1, 1, 15, 47.9, 15), true, false),"
+      }
+    ],
+    "thermal_shock_reforged:voltflower_bulb": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "line": 51,
+        "text": "VOLTFLOWER_BULB(\"voltflower_bulb\", \"\\u00a7cVoltflower Bulb [Deprecated]\", \"geo/voltflower_bulb.geo.json\", \"textures/block/voltflowerbulb.png\", \"animations/voltflower_bulb.animation.json\", Shapes.block(), true, false),"
+      }
+    ],
+    "thermal_shock_reforged:whisper": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperContent.java",
+        "line": 28,
+        "text": "public static final DeferredHolder<EntityType<?>, EntityType<WhisperEntity>> WHISPER = TYPES.register(\"whisper\", () -> EntityType.Builder.of(WhisperEntity::new, MobCategory.AMBIENT).sized(.8F, 3.5F).fireImmune().setShouldReceiveVelocityUpdates(true).clientTrackingRange(10).updateInterval(3).build(id(\"whisper\").toString()));"
+      }
+    ]
+  },
+  "target_sources": [
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\nbt\\NbtUtils.java",
+      "sha256": "8c1a9fe1494c30b527b1fb182a6f6f9605aa49b607f22842d915e29887d935e3"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\block\\BedBlock.java",
+      "sha256": "fb6388506e02af8486e9ed7f4dba34243b2a8b43ec7ae9bb8ee80d1e31aee901"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\block\\Blocks.java",
+      "sha256": "c38a694404ba0e0317f744f368ae9a3a44a8bd95f03f3ac65ec9bc78d5d96a58"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\block\\CampfireBlock.java",
+      "sha256": "c79d9b2de9ca3291450f78a907faeeb60aaa4b05a8419392474acc358b95bb10"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\block\\ChainBlock.java",
+      "sha256": "d59fee1dda7236da301d9724b74bc5de66525c366c52db932e06427227a64fad"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\block\\DoorBlock.java",
+      "sha256": "89415e7a6dfbfbaf297d6d34b82085fb81ca255d3bd2bbbd465a926ac0a98491"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\block\\FenceBlock.java",
+      "sha256": "288bd57be9ecf514f96df80c076400c6a4d2f3c29a9b0039f500326076c61320"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\block\\FenceGateBlock.java",
+      "sha256": "e7cdfa2edaf2a53acee6c872af41362010a5d045ee68dde079deafddefb0deac"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\block\\IronBarsBlock.java",
+      "sha256": "11d04090029c6732d5ec670e314e85e0ca89e9014e70433f1ca299e91ee349ee"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\block\\LanternBlock.java",
+      "sha256": "7791725858e6a76c7b622f38c2b3967e341455ab58a083a82f512de1add9c593"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\block\\LeavesBlock.java",
+      "sha256": "7132037d164ea0075414e4400bfb5d1c64e0334259a2c5f888ef660d918aa06e"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\block\\RotatedPillarBlock.java",
+      "sha256": "b6dd5df7cecea31e7d32bbadaaef80a3b7b832d5dded96cd7ded261a016fcffd"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\block\\SlabBlock.java",
+      "sha256": "970e9a090d0e7a2f0b578d3c31d5b68eaa6a629eac4c2a4092720c207c91c432"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\block\\SnowLayerBlock.java",
+      "sha256": "5df777ef5a7fd9984536bd98e3bcf5169703744b5f39637dba40d1758fea0ab6"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\block\\StairBlock.java",
+      "sha256": "92bcd3366e144df00644049358a0bc4e23a3dd51b1fb1db6ae76846488013a4f"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\block\\state\\properties\\BlockStateProperties.java",
+      "sha256": "567de4c1da591117871888466674f43640ca119ef79153d22f23fd9b2f401ba8"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\block\\TrapDoorBlock.java",
+      "sha256": "01c8b644aaa7a970969ceac53654cfae1968d4d29f33132871900cfea1eb9f4d"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\block\\WallBlock.java",
+      "sha256": "47801a0767dda4b724ba374f5b1951c2f6724544bb33c580f70936e138edfacf"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\block\\WallTorchBlock.java",
+      "sha256": "83aeba23a25a5baafab5b2b47401f6622e0a8853e432c12423d78c758e2a413d"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\ambient\\AmbientRenderers.java",
+      "sha256": "084a687e81bc02731e025e9ec6ddd1c4871a723357bcf996e725edda8b7f584f"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\ClientEvents.java",
+      "sha256": "24f582fda37a69823c5fa885790b1586e63cbd5a65fa5c350bbc53ccd09f26a6"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\decor\\geo\\GeoDecorRenderers.java",
+      "sha256": "4fb7e01184457d0e8f2c46b09bcc34b986e8774a6657e61004a603713f71cfe9"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\effigy\\EffigyRenderer.java",
+      "sha256": "afd3111d202067436a100f28eb0826449157e2e58a8112a287e2da983d9367ea"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\hunters\\HuntersRenderers.java",
+      "sha256": "20556202c0350d8a10317869b18ef9d7961697ff03a46de4ed9a0635349a2813"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\ice\\IceRenderers.java",
+      "sha256": "aa2c3e9a35e4f2799b32222f61703bac77c068d15f30b88572e1cae4d269c58c"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\icesquad\\IceSquadRenderers.java",
+      "sha256": "fe884c595db76cfd7cb004adf5471d57e143023604c036cd27eb3f69281aa1b4"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\icesquad\\StriderRenderers.java",
+      "sha256": "31e69e84b789ef2ff98083a6b7d8996f3c9c4e219bd835a0f4d9e08a6132d871"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\sanctum\\FrostilyteGunnerRenderer.java",
+      "sha256": "54e1c7b04f7a8212c06b6d9e2e130db92b36b17537be184ffa92f6cbeefdd860"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\whisper\\PassiveTrioRenderers.java",
+      "sha256": "7b42133009c9453780a71e05a2193ba3243d96792df496c9751056b1580c0c8e"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\CacheBlockEntity.java",
+      "sha256": "18923f5b0394722692635ef389588699c849f9534a7eb31b1283bf2dfecf9113"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\GeoDecorBlock.java",
+      "sha256": "c5d196fcf05e8ce2530e235ce8f10d68c062460c1266ae4bc8c529db0cbe3e31"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\GeoDecorBlockEntity.java",
+      "sha256": "763bd63a15dfe647a1981d0f388857b4d8f43a575ac1c6c872c311f913ce37c7"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\GeoDecorContent.java",
+      "sha256": "84147bbf1ce0131a1d5240bfe33746fe48e064e02fc57e034abf48c8c44ddfb4"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\GeoDecorKind.java",
+      "sha256": "c749f29bef0998ecc7d5f4ebe5a538c1b840349a6e1d87b548f8d73f3d5c92dc"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\ShalePillarBlock.java",
+      "sha256": "e77713f412eb6f69a39aaa26f85101d85de4b4eca5a76fee882d2497cdf9227f"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\nativeblocks\\FacingDecorBlock.java",
+      "sha256": "fc05bb9c5282450e5be2e817dd34fcc8bf0c64ac452482e39deddd8dc4649608"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\nativeblocks\\LapidarianWorkbenchBlock.java",
+      "sha256": "fb20f75f18369c8a3ef12aabcab6f387c52b16953e3882c49dcdace94eab040e"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\nativeblocks\\NativeDecorContent.java",
+      "sha256": "b158a0665b55b54678ec9e36aabb5f5ded0c698c7d758fa344befb0c4d044001"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\DecorativeBlocks.java",
+      "sha256": "855ccd9ce227551b4c8fdd396d5c8c88b6c5ea7fdbddf08fc3a213510d154378"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\farming\\CropKind.java",
+      "sha256": "de622ac78a57d6250918c96c11624378691753229a0a66fccde8847ebc06403e"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\farming\\FarmingContent.java",
+      "sha256": "64022c1d59b9684b97d85ae8ebd6b545d4e45529d95b6c66d26ee542daf0a0b7"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\farming\\SkorioBlock.java",
+      "sha256": "0d42fc1fa7dce4912cc8f30a4854bdc7503e37cfabfc11f5708a4f8e65199be2"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\glass\\GlassContent.java",
+      "sha256": "5cfaac2f68b6d98918f254591631909d3d28a6a88c5ead1a01695b74f98dd4dc"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\growth\\GrowthContent.java",
+      "sha256": "5b0d2eb62e57c4e625a248bd83a0169412c8410f0f8793894a2f1cf2ed46eddc"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\growth\\SparklerBlock.java",
+      "sha256": "1ab9630dd11b62c907df27706a5bf4b5043411b3bfcbccb01c051c2b4ac35f2b"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\InteractiveBlocks.java",
+      "sha256": "836e557945499edd2e87a2fc915adcfd4ea73b9f271d97c753fdebd676b351ce"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\labworldgen\\DissolverGemlockBlock.java",
+      "sha256": "f0b859da01b9bfb43b9d9d3316edff37f9a38db2711e308617d62789a636ba22"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\labworldgen\\LabWorldgenContent.java",
+      "sha256": "b7039d6a6183d21f035726ee17423bc66b1fdb25851c8a7646f9af815042c6e2"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\MaterialContent.java",
+      "sha256": "1d6518d8cc39102c5850164eaf5cc09f6e9d2f7f78efbd10aca00f2494c8ed52"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\terrain\\TerrainContent.java",
+      "sha256": "cd1805d6fdefa9f53b232f92b36ce7b04efbf3523ae6e80579155a6279e894df"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\terrain\\UnderbrushLeaves.java",
+      "sha256": "c519422d70b0bbb25fd25445352c61967f10b6d18d10aa66c9b0fa4e88618f54"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\ambient\\AmbientContent.java",
+      "sha256": "29a082fd68dc8b40dd3e32a1a7f2daa6a7eb9eb7a97fdb91bc151dd473332f25"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\effigy\\EffigyContent.java",
+      "sha256": "9f1f00d4fd1f260579aad68da6430ed89333fd5f4e0c88ad1037b2c700632d24"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\hunters\\HuntersContent.java",
+      "sha256": "409b829303986e682e46db92241befc9e80c42c5fa18280a648aeadb8a600621"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\ice\\IceContent.java",
+      "sha256": "308c15062b833fefc28774057691cefd15bf65ea1e3fc54c39a74e7233757dbd"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\icesquad\\IceSquadContent.java",
+      "sha256": "99d3ce5054903d57801265a5ace34cc3d00a4abcfe6ae72e3c0f1ff227eb51a8"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\sanctum\\SanctumContent.java",
+      "sha256": "7a1632467179892480213eeab6f2d75d22d5b4312d2d0abfad31ea3074c0b58f"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\whisper\\WhisperContent.java",
+      "sha256": "db35ae201fdf75a15dec8831544c1ea6c5c281bd39892a6ebd408b09b18e70ca"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\ThermalShockReforged.java",
+      "sha256": "cc9a8c4d3ce1eec90ebb44eb67e7fbd9ed580402b0ec87b20c63788ad5f1ee43"
+    }
+  ],
+  "original_block_registry": {
+    "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModBlocks.java",
+    "sha256": "6e2903d75acfaed7948dca38194456dec4c1ebd34292a1942605817806155c1c"
+  },
+  "special_json_consumers": {
+    "non_biome": [
+      "data/thermal_shock/worldgen/structure/shalespring_grove.json",
+      "data/thermal_shock/worldgen/structure/slagway.json",
+      "data/thermal_shock/worldgen/structure/test_jigsaw.json"
+    ],
+    "blizzardoutpostrubicon": []
+  },
+  "special_java_consumers": [],
+  "unrelated_invalid_original_json": [
+    "data/minecraft/tags/entity_types/arthropod.json"
+  ],
+  "limits": "静态源码与资源等价；未知原件palette单列待主线判断，不能用空气替换以假装闭合。"
+}

@@ -1,0 +1,27 @@
+{
+  "source_inventory": "remaining-biome-modifiers107.json",
+  "reviewer": "/root/coverage101_inventory",
+  "review_type": "read-only resource paths, configured types, entity registrations and duplicate modifier scan",
+  "feature_count": 30,
+  "configured_type_counts": {
+    "minecraft:simple_random_selector": 10,
+    "minecraft:random_patch": 16,
+    "minecraft:tree": 3,
+    "minecraft:block_column": 1
+  },
+  "target_configured_present": 30,
+  "target_same_name_placed_present": 27,
+  "missing_same_name_placed": [
+    "loque_birch_tree",
+    "shiverglitter_tree",
+    "shiverglitter_tree_cobalt_heights"
+  ],
+  "spawn_ids_registered": 26,
+  "spawn_biome_entries_present": 26,
+  "same_entity_duplicate_target_modifiers": 0,
+  "helper_registration_exceptions": {
+    "razorwing": "HuntersContent.razorwing helper",
+    "galvanite": "TYPES.register; build uses MOD_ID concatenation"
+  },
+  "limits": "Only summary returned by read-only reviewer. No per-file hashes retained from reviewer, so do not cite unprovided aggregate or claim full behavior completeness. No game tests."
+}

@@ -1,0 +1,329 @@
+{
+  "batch": 108,
+  "files": [
+    {
+      "source": "data/thermal_shock/worldgen/structure/slagway.json",
+      "source_sha256": "dc57fb7c35240a5b8c8f35a8873d6cffae165c262f3948e235b077f9dd7e8e3a",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/structure/slagway.json",
+      "sha256": "e71f3778af990d75e106967cf7664aea135ed7b9856d6eb1f3036a22739ee0fa",
+      "source_json": {
+        "type": "minecraft:jigsaw",
+        "start_pool": "thermal_shock:slagway",
+        "size": 1,
+        "max_distance_from_center": 64,
+        "spawn_overrides": {},
+        "step": "underground_structures",
+        "terrain_adaptation": "none",
+        "start_height": {
+          "type": "minecraft:uniform",
+          "min_inclusive": {
+            "absolute": -64
+          },
+          "max_inclusive": {
+            "absolute": -12
+          }
+        },
+        "biomes": "thermal_shock:non_biome",
+        "use_expansion_hack": false
+      },
+      "target_json": {
+        "type": "minecraft:jigsaw",
+        "start_pool": "thermal_shock_reforged:slagway",
+        "size": 1,
+        "max_distance_from_center": 64,
+        "spawn_overrides": {},
+        "step": "underground_structures",
+        "terrain_adaptation": "none",
+        "start_height": {
+          "type": "minecraft:uniform",
+          "min_inclusive": {
+            "absolute": -64
+          },
+          "max_inclusive": {
+            "absolute": -12
+          }
+        },
+        "biomes": "thermal_shock_reforged:non_biome",
+        "use_expansion_hack": false
+      },
+      "schema_changes": []
+    },
+    {
+      "source": "data/thermal_shock/worldgen/structure/test_jigsaw.json",
+      "source_sha256": "8e2c28769141bf2dbac62144933797330e2b48e30a692f03209db2335fbd34b7",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/structure/test_jigsaw.json",
+      "sha256": "f5dcac541d9c3644410842a61ec7f2c245b88b200eaa2f11d218a60b2e641718",
+      "source_json": {
+        "type": "minecraft:jigsaw",
+        "start_pool": "thermal_shock:test_jigsaw",
+        "size": 2,
+        "max_distance_from_center": 64,
+        "spawn_overrides": {},
+        "step": "surface_structures",
+        "terrain_adaptation": "none",
+        "start_height": {
+          "type": "minecraft:uniform",
+          "min_inclusive": {
+            "absolute": -50
+          },
+          "max_inclusive": {
+            "absolute": -49
+          }
+        },
+        "biomes": "thermal_shock:non_biome",
+        "use_expansion_hack": false
+      },
+      "target_json": {
+        "type": "minecraft:jigsaw",
+        "start_pool": "thermal_shock_reforged:test_jigsaw",
+        "size": 2,
+        "max_distance_from_center": 64,
+        "spawn_overrides": {},
+        "step": "surface_structures",
+        "terrain_adaptation": "none",
+        "start_height": {
+          "type": "minecraft:uniform",
+          "min_inclusive": {
+            "absolute": -50
+          },
+          "max_inclusive": {
+            "absolute": -49
+          }
+        },
+        "biomes": "thermal_shock_reforged:non_biome",
+        "use_expansion_hack": false
+      },
+      "schema_changes": []
+    },
+    {
+      "source": "data/thermal_shock/worldgen/structure_set/slagway.json",
+      "source_sha256": "31adc5ce9641de2918f0f60c6271dace203128fffaca1966e4ebe5279c1cd77b",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/slagway.json",
+      "sha256": "e22d3d4ce8a8b170f7c00aec6db61bb8187a10f6a70492624cd5ac806dfb12e1",
+      "source_json": {
+        "structures": [
+          {
+            "structure": "thermal_shock:slagway",
+            "weight": 1
+          }
+        ],
+        "placement": {
+          "type": "minecraft:random_spread",
+          "spacing": 16,
+          "separation": 10,
+          "salt": 2064525785
+        }
+      },
+      "target_json": {
+        "structures": [
+          {
+            "structure": "thermal_shock_reforged:slagway",
+            "weight": 1
+          }
+        ],
+        "placement": {
+          "type": "minecraft:random_spread",
+          "spacing": 16,
+          "separation": 10,
+          "salt": 2064525785
+        }
+      },
+      "schema_changes": []
+    },
+    {
+      "source": "data/thermal_shock/worldgen/structure_set/test_jigsaw.json",
+      "source_sha256": "26c3884b5990210428bb0b76cff4707144f8a9a66417efe51b0182e42abd4c9f",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/test_jigsaw.json",
+      "sha256": "b224fc75dff5ace16d8a3b8be978fd6e436d0bf990e69ffb8a3832085e874b35",
+      "source_json": {
+        "structures": [
+          {
+            "structure": "thermal_shock:test_jigsaw",
+            "weight": 1
+          }
+        ],
+        "placement": {
+          "type": "minecraft:random_spread",
+          "spacing": 5,
+          "separation": 2,
+          "salt": 1694238542
+        }
+      },
+      "target_json": {
+        "structures": [
+          {
+            "structure": "thermal_shock_reforged:test_jigsaw",
+            "weight": 1
+          }
+        ],
+        "placement": {
+          "type": "minecraft:random_spread",
+          "spacing": 5,
+          "separation": 2,
+          "salt": 1694238542
+        }
+      },
+      "schema_changes": []
+    },
+    {
+      "source": "data/thermal_shock/worldgen/template_pool/slagway.json",
+      "source_sha256": "c6123beb2c3acdd97c7952110ae106c6bb8862d977c6bb4cb3f9e76eab4cf344",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/slagway.json",
+      "sha256": "b836266822ad4c769e5def545dec3ff2dec232f37101cbc2f43ad2be9d437063",
+      "source_json": {
+        "name": "thermal_shock:slagway",
+        "fallback": "minecraft:empty",
+        "elements": [
+          {
+            "weight": 1,
+            "element": {
+              "element_type": "minecraft:single_pool_element",
+              "location": "thermal_shock:slagway1",
+              "projection": "rigid",
+              "processors": {
+                "processors": [
+                  {
+                    "processor_type": "minecraft:block_ignore",
+                    "blocks": [
+                      {
+                        "Name": "minecraft:structure_block"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "target_json": {
+        "name": "thermal_shock_reforged:slagway",
+        "fallback": "minecraft:empty",
+        "elements": [
+          {
+            "weight": 1,
+            "element": {
+              "element_type": "minecraft:single_pool_element",
+              "location": "thermal_shock_reforged:slagway1",
+              "projection": "rigid",
+              "processors": {
+                "processors": [
+                  {
+                    "processor_type": "minecraft:block_ignore",
+                    "blocks": [
+                      {
+                        "Name": "minecraft:structure_block"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "schema_changes": []
+    },
+    {
+      "source": "data/thermal_shock/worldgen/template_pool/test_jigsaw.json",
+      "source_sha256": "d401d9ee00b0193e237551c03950b583a7cfdf9b1d3ea170a79d2a76be691f43",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/test_jigsaw.json",
+      "sha256": "d362c231a7239087d39ba356c3783c9187e4199631b6fbf96435d18919f7a581",
+      "source_json": {
+        "name": "thermal_shock:test_jigsaw",
+        "fallback": "minecraft:empty",
+        "elements": [
+          {
+            "weight": 1,
+            "element": {
+              "element_type": "minecraft:single_pool_element",
+              "location": "thermal_shock:testjig",
+              "projection": "rigid",
+              "processors": {
+                "processors": [
+                  {
+                    "processor_type": "minecraft:block_ignore",
+                    "blocks": [
+                      {
+                        "Name": "minecraft:structure_block"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "target_json": {
+        "name": "thermal_shock_reforged:test_jigsaw",
+        "fallback": "minecraft:empty",
+        "elements": [
+          {
+            "weight": 1,
+            "element": {
+              "element_type": "minecraft:single_pool_element",
+              "location": "thermal_shock_reforged:testjig",
+              "projection": "rigid",
+              "processors": {
+                "processors": [
+                  {
+                    "processor_type": "minecraft:block_ignore",
+                    "blocks": [
+                      {
+                        "Name": "minecraft:structure_block"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "schema_changes": []
+    },
+    {
+      "source": "data/thermal_shock/worldgen/template_pool/test_jigsaw_testchecker.json",
+      "source_sha256": "8fdc41efc50d6205d0fe24fd886d6b403d4182f1e57635ee0508043dfbd5f441",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/test_jigsaw_testchecker.json",
+      "sha256": "5dabedc35bbdea81373a87d91dd062a1fa89eba9ba608d79ffda3b26b05472e2",
+      "source_json": {
+        "name": "thermal_shock:test_jigsaw_testchecker",
+        "fallback": "minecraft:empty",
+        "elements": [
+          {
+            "weight": 1,
+            "element": {
+              "element_type": "minecraft:single_pool_element",
+              "location": "thermal_shock:testsaw",
+              "projection": "rigid",
+              "processors": {
+                "processors": []
+              }
+            }
+          }
+        ]
+      },
+      "target_json": {
+        "name": "thermal_shock_reforged:test_jigsaw_testchecker",
+        "fallback": "minecraft:empty",
+        "elements": [
+          {
+            "weight": 1,
+            "element": {
+              "element_type": "minecraft:single_pool_element",
+              "location": "thermal_shock_reforged:testsaw",
+              "projection": "rigid",
+              "processors": {
+                "processors": []
+              }
+            }
+          }
+        ]
+      },
+      "schema_changes": []
+    }
+  ],
+  "count": 7
+}

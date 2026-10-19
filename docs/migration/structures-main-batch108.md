@@ -1,0 +1,23 @@
+# 第108批主线：两结构自然入口与两特殊模板载荷
+
+迁移前建文档。基线758d15ac612aebff67f3cf84a6b068f0156fce79，原Thermal Shock07.9固定JAR，目标1.21.1 NeoForge21.1.233。第107批统一验证和提交完成，现在解除第108批生产冻结；迁移A负责parallel-batch108.md指定较大份额。
+
+主线独占slagway、test_jigsaw两条structure/set/pool与附池test_jigsaw_testchecker，完整原testjig/testsaw模板，复用已迁slagway1并核原全部依赖。主线另独占旧lavender_palace、shalespring_august：显式迁入八个模组NPC属性、spawn字段、ForgeData、vanilla讲台/书架/附魔书/容器/盔甲架及所有嵌套载荷后标目标DataVersion3955。全部原几何、实体位置、方块状态、书页、数量/槽位和外caps保留。
+
+依据structures-next-inventory107.json和legacy-template-dfu-followup107.json，原生DFU的入口不能证明未知模组choice会成功升级；不只把版本改新，不用custom_data假充真实物品组件，不把经验球Count当ItemStack。原模组实体的forge:step_height_addition须核原setMaxUpStep与目标STEP_HEIGHT基值关系，避免丢原一步高度。原NPC spawn和外cap字段分别核原/目标读写，保原数据与延期联动边界。
+
+所有结构参数保原HeightProvider、heightmap、terrain_adaptation、processor、weight、盐和随机间距；jigsaw连接须递归追实际pool。原non_biome由A补齐，不因名称或无自然生成消费者捏造其他群系入口。脚本临时仅D:/AI临时文件，UTF-8，Java不写注释。
+
+主线先盘完整typed字段和目标Codec/读取代码，再生产；独立机械核几何和允许格式差异，两路完成停笔后固定全部src/main统一编译。当前未启动游戏，最终客户端/Render Preview在全部迁移及无简化复审后交子代理，服务端独立测试不联系、不干预，不将正在测当已通过。
+
+## 主线生产与复核
+
+两条完整自然定义与test_jigsaw_testchecker附池共七份JSON仅替换命名空间。testjig/testsaw两完整25块模板保原jigsaw名字、连接目标和终止池。non_biome由A迁入原定义，保原无自然分布的边界，不因名字另造自然群系入口。复用slagway1的依赖只读证据见structure-dependency-audit108-root.json；报告记录的是生产前快照，实际新增文件由本批最终交付覆盖。
+
+Palace完整600608条方块记录、13实体与46方块实体；Shalespring完整343000条方块记录、6实体与52方块实体。显式升级九个实体的属性（八个模组NPC和一个盔甲架）、八份spawn字段、两份空持久数据、14栈真实物品、四页作者原文、两附魔书和六面旗帜的15层。原附魔fortune1/unbreaking1、库存Slot/count、空装备槽、书架顺序、讲台Page、全部画、实体坐标、ForgeCaps/BalmData逐类型保留。各NPC及盔甲架原步高基值均0，forge:step_height_addition0迁为目标step_height0，未擅加0.6。
+
+初版转换将八条Random spawn bonus映为目标固定ID，复核Mob.finalizeSpawn发现会跳原采样，已在本批统一编译前修正：旧四整数UUID无损映为各自minecraft:<uuid>，保Amount/Operation及独立身份，目标固定ID留给原生后续出生初始化。修正前后哈希见structures-main-modifier-correction108.json，最终模板及typed差异报告已同步。未改变原参数；目前为源码和静态载荷结论，不代表游戏内生成功能已通过。
+
+已更新mcreator-rework关于修饰符身份和全模板旧字段盘点的规则，并通过skill结构校验。四模板几何、palette除必要命名空间外及外cap均保留；最终独立机械核验和统一构建结果将追加于本节。
+
+两路已停笔并完成统一构建及资源/输入哈希验证，见main108-static-validation.json。主线独立typed复核另交；本节上文待构建为生产期间状态。当前仅阶段完成，游戏与渲染未验。
