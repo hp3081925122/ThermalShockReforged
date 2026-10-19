@@ -6,11 +6,12 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.AABB;
+import java.util.Comparator;
 
 public final class NetBulletEntity extends LegacyArrowEntity {
     public NetBulletEntity(EntityType<? extends NetBulletEntity> type, Level level) { super(type, level); }
@@ -18,8 +19,12 @@ public final class NetBulletEntity extends LegacyArrowEntity {
     @Override protected ItemStack projectileItem() { return new ItemStack(com.hp.thermalshockreforged.content.decor.geo.GeoDecorContent.item(com.hp.thermalshockreforged.content.decor.geo.GeoDecorKind.YELLOW_ORB)); }
     @Override public void tick() {
         super.tick();
-        if (level() instanceof ServerLevel server && !server.getEntitiesOfClass(PondlerEntity.class, getBoundingBox().inflate(1)).isEmpty()) {
-            for (var pondler : server.getEntitiesOfClass(PondlerEntity.class, getBoundingBox().inflate(1))) pondler.hurt(server.damageSources().generic(), 10);
+        if (level() instanceof ServerLevel server) {
+            var center = position();
+            var targets = server.getEntitiesOfClass(PondlerEntity.class, AABB.ofSize(center, 2, 2, 2));
+            if (targets.isEmpty()) return;
+            targets.sort(Comparator.comparingDouble(target -> target.distanceToSqr(center)));
+            for (var pondler : targets) pondler.hurt(server.damageSources().generic(), 10);
             server.playSound(null, BlockPos.containing(position()), SoundEvents.AZALEA_BREAK, SoundSource.NEUTRAL, 1, 1);
             server.playSound(null, BlockPos.containing(position()), SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.NEUTRAL, 1, 1);
             discard();

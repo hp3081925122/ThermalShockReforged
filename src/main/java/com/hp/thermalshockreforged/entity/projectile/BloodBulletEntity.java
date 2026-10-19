@@ -2,7 +2,6 @@ package com.hp.thermalshockreforged.entity.projectile;
 
 import com.hp.thermalshockreforged.content.MaterialContent;
 import com.hp.thermalshockreforged.entity.cavebloomer.CavebloomerContent;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -10,17 +9,15 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 public final class BloodBulletEntity extends LegacyArrowEntity {
-    private int remainingTicks = 40;
     public BloodBulletEntity(EntityType<? extends BloodBulletEntity> type, Level level) { super(type, level); setImpactKnockback(5); }
     public BloodBulletEntity(LivingEntity owner, Level level) { super(ProjectileContent.BLOOD_BULLET.get(), owner, level, new ItemStack(MaterialContent.items().get("gore_projectile").get())); setImpactKnockback(5); }
+    @Override protected boolean fliesWithoutGravity() { return true; }
+    @Override protected int lifetimeTicks() { return 40; }
     @Override protected ItemStack projectileItem() { return new ItemStack(MaterialContent.items().get("gore_projectile").get()); }
     @Override public void tick() {
         super.tick();
         if (level() instanceof net.minecraft.server.level.ServerLevel server) server.sendParticles(CavebloomerContent.RED_ORB.get(), getX(), getY(), getZ(), 1, .0001, .0001, .0001, 0);
-        if (!level().isClientSide && --remainingTicks <= 0) discard();
     }
-    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putInt("BloodRemainingTicks", remainingTicks); }
-    @Override public void readAdditionalSaveData(CompoundTag tag) { super.readAdditionalSaveData(tag); remainingTicks = Math.max(1, Math.min(40, tag.getInt("BloodRemainingTicks"))); }
     public static BloodBulletEntity shoot(Level level, LivingEntity owner, RandomSource random) { return shoot(level, owner, random, .1F, 5, 5); }
     public static BloodBulletEntity shoot(Level level, LivingEntity owner, RandomSource random, float pullingPower) { return shoot(level, owner, random, pullingPower * .1F, 5, 5); }
     public static BloodBulletEntity shoot(Level level, LivingEntity owner, RandomSource random, float power, double damage, int knockback) {
