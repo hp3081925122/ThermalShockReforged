@@ -240,3 +240,16 @@ Whisper/Liftbug/Aerocel及完整菜单/构造方块/真实Floor33唱片，与分
 整个模组仍未完整。按原154注册ID基线，本批5实体ID接入后尚有13旧ID缺口：benzor、blinding_lantern_flash_ring、effigy、electric_sphere、giant_laser_test、high_director_sopel、icidroviathan、maiden、moonoid、ribbonblade_galvanite、sentrarius、starrite、tesla_reed。仍有FogMachine与其他原生世界/物品/GUI调用链待闭合，注册计数不是功能完成率。未启动服务端、客户端或Render Preview；最终全功能测试待全代码完整后交子代理。Git仍无remote，本地提交不等于远程发布。
 
 第99批已先建文档和约半分工：主线TeslaReed/ElectricSphere/RibbonbladeGalvanite，既有另一聊天Benzor/Maiden；前批固定输入验证/提交完成前双方仅只读准备。
+
+
+## 第99批最终集成验证及提前测试授权
+
+主线TeslaReed/ElectricSphere/RibbonbladeGalvanite与分工Benzor/Maiden完成，共27新Java。电芦完整13/15/17/19 END电击及四轮逐目标声音、真实缓慢/虚弱保留；修原循环错打初始目标和不存在的attack引用，接原完整shoot。电球保100HP受伤前回血再正常扣本次伤、原接触伤/AAA/发光和完整收回机制；有效正伤才反弹，横向指数增长修为有界且折抗性。Ribbonblade保17 END尾击/5 END充电/真实电击与再生/原声画和可见白色混色，技能默认8减甲*.4，有限任务幂等保存，完整XZ瞬移并核实体碰撞，精英属性与技能倍率可配置。
+
+Benzor九页/真实三槽2/4/8经验/返还/玩家信息与黑火药门槛齐；Maiden保真实STUNNED护盾、9/29/34/39 END、单圈8和三圈24箭、每圈末方向原系数5和零技能击退、60tick死亡经验及完整声画。BenzorHome保3825块/39状态/20BE/1Benzor与原自然参数，Maiden四群系weight1来源闭合。原MaidenChamber未找到实际消费者且原两变体蛋和boss_spawner未注册，不造新玩法；两第三方联动只在DEFERRED_MOD_INTEGRATIONS.md延期。
+
+两路停笔后固定8310源码/资源输入，Java21离线compileJava/processResources --max-workers=2首轮统一通过1分34秒，24任务/2执行/22最新，3项既有弃用警告。7595构建资源逐字节相同，2模板展开通过，分工18生产文件交付哈希全同，无编译修复。主线17命名资产/72辅助资源/7声音组/两配方/两loot、4标签，分工25原资产/两蛋模型/九页AST和274625种正常交易槽数量组合通过静态核对；数量组合不是游戏测试次数。总证据docs/migration/main99-static-validation.json，分工最终清单benzor-maiden-final99.json。合理差异已写REFORGED_CHANGES；skill新增真实范围循环、伤害前回血、客户端ServerPlayer门槛和箭伤害系数等案例并校验通过。
+
+用户本批明确要求指定聊天01a153f3-2ec1-7df1-965d-fa91691cfd24提前用两至三个Luna测试，覆盖旧的完整迁移前不启动游戏限制。已实际创建early_server_a和early_client_b，两份第98批8397254提交快照隔离导出，文档见docs/testing/EARLY_TEST_PLAN.md和docs/testing/early-tests/。本项目客户端/Render Preview与现有其他项目客户端错峰，记录实际运行状态，不保证尚未测量的性能。该提前测试不包含本批新代码，不替代完整代码后的最终验收。
+
+整模组仍未完整：按原154实体注册ID基线，本批接五ID后尚有八个旧ID待接：blinding_lantern_flash_ring、effigy、giant_laser_test、high_director_sopel、icidroviathan、moonoid、sentrarius、starrite。FogMachine及其他原生世界/物品/GUI链仍需闭合，注册比例不是功能完成百分比。第100批已先建parallel-batch100.md并约半分给既有生产聊天，解除本批冻结前只读准备。Git无remote，本地提交不等于远程发布。

@@ -78,6 +78,8 @@ public final class ThermalShockReforged {
         container.registerConfig(ModConfig.Type.COMMON, com.hp.thermalshockreforged.entity.gravers.GraverConfig.SPEC, "thermal_shock_reforged-gravers.toml");
         container.registerConfig(ModConfig.Type.COMMON, com.hp.thermalshockreforged.entity.squall.SquallConfig.SPEC, "thermal_shock_reforged-squall.toml");
         container.registerConfig(ModConfig.Type.COMMON, com.hp.thermalshockreforged.entity.huntress.HuntressConfig.SPEC, "thermal_shock_reforged-huntress.toml");
+        container.registerConfig(ModConfig.Type.COMMON, com.hp.thermalshockreforged.entity.maiden.MaidenConfig.SPEC, "thermal_shock_reforged-maiden.toml");
+        container.registerConfig(ModConfig.Type.COMMON, com.hp.thermalshockreforged.entity.ribbonblade.RibbonbladeConfig.SPEC, "thermal_shock_reforged-ribbonblade.toml");
         ModEntities.register(bus);
         com.hp.thermalshockreforged.entity.sanctum.SanctumContent.register(bus);
         CavebloomerContent.register(bus);
@@ -152,9 +154,14 @@ public final class ThermalShockReforged {
         com.hp.thermalshockreforged.content.reactor.ReactorContent.register(bus);
         com.hp.thermalshockreforged.entity.squall.SquallContent.register(bus);
         com.hp.thermalshockreforged.entity.huntress.HuntressContent.register(bus);
+        com.hp.thermalshockreforged.entity.benzor.BenzorContent.register(bus);
+        com.hp.thermalshockreforged.entity.maiden.MaidenContent.register(bus);
         com.hp.thermalshockreforged.entity.whisper.WhisperContent.register(bus);
         com.hp.thermalshockreforged.entity.liftbug.LiftbugContent.register(bus);
         com.hp.thermalshockreforged.entity.aerocel.AerocelContent.register(bus);
+        com.hp.thermalshockreforged.entity.teslareed.TeslaReedContent.register(bus);
+        com.hp.thermalshockreforged.entity.electricsphere.ElectricSphereContent.register(bus);
+        com.hp.thermalshockreforged.entity.ribbonblade.RibbonbladeContent.register(bus);
         com.hp.thermalshockreforged.entity.beetles.BeetleContent.register(bus);
         com.hp.thermalshockreforged.entity.monolith.MonolithContent.register(bus);
         com.hp.thermalshockreforged.entity.gravers.GraverContent.register(bus);

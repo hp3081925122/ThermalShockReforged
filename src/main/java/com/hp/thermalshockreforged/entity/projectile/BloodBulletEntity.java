@@ -12,6 +12,7 @@ public final class BloodBulletEntity extends LegacyArrowEntity {
     public BloodBulletEntity(EntityType<? extends BloodBulletEntity> type, Level level) { super(type, level); setImpactKnockback(5); }
     public BloodBulletEntity(LivingEntity owner, Level level) { super(ProjectileContent.BLOOD_BULLET.get(), owner, level, new ItemStack(MaterialContent.items().get("gore_projectile").get())); setImpactKnockback(5); }
     @Override protected boolean fliesWithoutGravity() { return true; }
+    public void setSkillKnockback(double value) { setImpactKnockback(value); }
     @Override protected int lifetimeTicks() { return 40; }
     @Override protected ItemStack projectileItem() { return new ItemStack(MaterialContent.items().get("gore_projectile").get()); }
     @Override public void tick() {

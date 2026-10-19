@@ -31,3 +31,8 @@ JEI、Jade 和 Just Enough Characters 的现有示例依赖保留；可选联动
 独立世界/NPC 对话已收到同一延期要求，遇到新的外部调用或数据依赖会在其集成清单列来源、原行为及恢复条件，由主对话汇入此表。尚未核实的条目应标待调查，不能先删依赖数据再声称功能完成。
 
 本次已扫描原 Java imports、原 JSON 资源命名空间、外部 assets 目录和当前生产 Java 的可选入口，证据清单保存于 `D:\AI临时文件\ThermalShockMigration\deferred-integrations-inventory.json`；独立对话另盘点了部分 Vilebath/Cathedral 模板。尚未解析其余所有 NBT 的外部引用，未运行第三方组合测试，也未验证第三方现在的 API 或预设版本；以后恢复联动时再做相应调查和测试。
+
+
+第99批：Benzor：原主手持 untagged_mobs:scrambler 时将 Texture 改为 rozneb，并提示 Skin Acquired: §eRozneb。本批按用户要求单独延期跨模组联动；Benzor 本体、普通交互和 rozneb 原贴图仍保留。不得写入可选依赖 TOML。
+
+第99批BenzorHome：原ForgeCaps.structure_gel:gel_entity.portal=structure_gel:empty随NBT保留为证据，第三方能力联动单独延期，不新增可选TOML，也不阻止本模组已闭合的原生世界生成。

@@ -1,0 +1,447 @@
+{
+  "schema": "benzor-maiden99-structure-conversion-v1",
+  "source": "data/thermal_shock/structures/benzor_home.nbt",
+  "original_gzip_sha256": "982d7aec65b3282e20a6069e80aa8744d3ee5f62e208eeb244717519abcc6ed7",
+  "target_nbt_sha256": "89b7ecb3aee2d7bfe8cbd826807b4e6617f628805944c5b49e1d9a59e326e5a8",
+  "size": [
+    17,
+    15,
+    15
+  ],
+  "block_count": 3825,
+  "palette_count": 39,
+  "entity_count": 1,
+  "conversion_counts": {
+    "entity_attributes": 1,
+    "persistent_data": 1
+  },
+  "original_byte_roundtrip": true,
+  "converted_byte_roundtrip": true,
+  "geometry_state_indices_entity_positions_preserved": true,
+  "palette_properties_preserved": true,
+  "state_value_checks": [
+    {
+      "block": "chiseled_shale",
+      "properties": {},
+      "render_variant_values_checked": []
+    },
+    {
+      "block": "shale_pillar_block",
+      "properties": {
+        "axis": "z"
+      },
+      "render_variant_values_checked": [
+        "axis"
+      ]
+    },
+    {
+      "block": "shale_pillar_block",
+      "properties": {
+        "axis": "x"
+      },
+      "render_variant_values_checked": [
+        "axis"
+      ]
+    },
+    {
+      "block": "mantlestone_bricks",
+      "properties": {},
+      "render_variant_values_checked": []
+    },
+    {
+      "block": "vermillion_moss",
+      "properties": {},
+      "render_variant_values_checked": []
+    },
+    {
+      "block": "mossy_mantlestone",
+      "properties": {},
+      "render_variant_values_checked": []
+    },
+    {
+      "block": "polished_mantlestone",
+      "properties": {},
+      "render_variant_values_checked": []
+    },
+    {
+      "block": "mantlestone",
+      "properties": {},
+      "render_variant_values_checked": []
+    },
+    {
+      "block": "adamantine_spice_block",
+      "properties": {},
+      "render_variant_values_checked": []
+    },
+    {
+      "block": "shale_bricks",
+      "properties": {},
+      "render_variant_values_checked": []
+    },
+    {
+      "block": "shale_pillar_block",
+      "properties": {
+        "axis": "y"
+      },
+      "render_variant_values_checked": [
+        "axis"
+      ]
+    },
+    {
+      "block": "spiral_mantlestone",
+      "properties": {},
+      "render_variant_values_checked": []
+    },
+    {
+      "block": "cracked_shale_pillar_block",
+      "properties": {
+        "axis": "y"
+      },
+      "render_variant_values_checked": [
+        "axis"
+      ]
+    },
+    {
+      "block": "cracked_shale_bricks",
+      "properties": {},
+      "render_variant_values_checked": []
+    },
+    {
+      "block": "shale_brick_stairs",
+      "properties": {
+        "half": "bottom",
+        "waterlogged": "false",
+        "shape": "straight",
+        "facing": "north"
+      },
+      "render_variant_values_checked": [
+        "facing",
+        "half",
+        "shape"
+      ]
+    },
+    {
+      "block": "shale_brick_stairs",
+      "properties": {
+        "half": "bottom",
+        "waterlogged": "false",
+        "shape": "straight",
+        "facing": "east"
+      },
+      "render_variant_values_checked": [
+        "facing",
+        "half",
+        "shape"
+      ]
+    },
+    {
+      "block": "shale_brick_stairs",
+      "properties": {
+        "half": "bottom",
+        "waterlogged": "false",
+        "shape": "straight",
+        "facing": "west"
+      },
+      "render_variant_values_checked": [
+        "facing",
+        "half",
+        "shape"
+      ]
+    },
+    {
+      "block": "vermilli_button",
+      "properties": {
+        "face": "wall",
+        "powered": "false",
+        "facing": "west"
+      },
+      "render_variant_values_checked": [
+        "face",
+        "facing",
+        "powered"
+      ]
+    },
+    {
+      "block": "polished_mantle_wall",
+      "properties": {
+        "east": "low",
+        "waterlogged": "false",
+        "south": "low",
+        "north": "none",
+        "west": "none",
+        "up": "true"
+      },
+      "render_variant_values_checked": []
+    },
+    {
+      "block": "polished_mantle_wall",
+      "properties": {
+        "east": "low",
+        "waterlogged": "false",
+        "south": "none",
+        "north": "low",
+        "west": "none",
+        "up": "true"
+      },
+      "render_variant_values_checked": []
+    },
+    {
+      "block": "vermilli_button",
+      "properties": {
+        "face": "wall",
+        "powered": "false",
+        "facing": "north"
+      },
+      "render_variant_values_checked": [
+        "face",
+        "facing",
+        "powered"
+      ]
+    },
+    {
+      "block": "vermilli_button",
+      "properties": {
+        "face": "wall",
+        "powered": "false",
+        "facing": "south"
+      },
+      "render_variant_values_checked": [
+        "face",
+        "facing",
+        "powered"
+      ]
+    },
+    {
+      "block": "polished_mantle_wall",
+      "properties": {
+        "east": "none",
+        "waterlogged": "false",
+        "south": "low",
+        "north": "none",
+        "west": "low",
+        "up": "true"
+      },
+      "render_variant_values_checked": []
+    },
+    {
+      "block": "polished_mantle_wall",
+      "properties": {
+        "east": "none",
+        "waterlogged": "false",
+        "south": "none",
+        "north": "low",
+        "west": "low",
+        "up": "true"
+      },
+      "render_variant_values_checked": []
+    },
+    {
+      "block": "vermilli_button",
+      "properties": {
+        "face": "wall",
+        "powered": "false",
+        "facing": "east"
+      },
+      "render_variant_values_checked": [
+        "face",
+        "facing",
+        "powered"
+      ]
+    },
+    {
+      "block": "shale_brick_stairs",
+      "properties": {
+        "half": "bottom",
+        "waterlogged": "false",
+        "shape": "straight",
+        "facing": "south"
+      },
+      "render_variant_values_checked": [
+        "facing",
+        "half",
+        "shape"
+      ]
+    },
+    {
+      "block": "shale_brick_stairs",
+      "properties": {
+        "half": "top",
+        "waterlogged": "false",
+        "shape": "straight",
+        "facing": "south"
+      },
+      "render_variant_values_checked": [
+        "facing",
+        "half",
+        "shape"
+      ]
+    },
+    {
+      "block": "shale_brick_stairs",
+      "properties": {
+        "half": "top",
+        "waterlogged": "false",
+        "shape": "straight",
+        "facing": "east"
+      },
+      "render_variant_values_checked": [
+        "facing",
+        "half",
+        "shape"
+      ]
+    },
+    {
+      "block": "shale_brick_stairs",
+      "properties": {
+        "half": "top",
+        "waterlogged": "false",
+        "shape": "straight",
+        "facing": "west"
+      },
+      "render_variant_values_checked": [
+        "facing",
+        "half",
+        "shape"
+      ]
+    },
+    {
+      "block": "spirewood_fence",
+      "properties": {
+        "east": "true",
+        "waterlogged": "false",
+        "south": "true",
+        "north": "true",
+        "west": "true"
+      },
+      "render_variant_values_checked": []
+    },
+    {
+      "block": "thermal_geyser",
+      "properties": {},
+      "render_variant_values_checked": []
+    },
+    {
+      "block": "shale_pillar",
+      "properties": {
+        "waterlogged": "false",
+        "facing": "north",
+        "animation": "0"
+      },
+      "render_variant_values_checked": [
+        "facing"
+      ]
+    },
+    {
+      "block": "shale_pillar",
+      "properties": {
+        "waterlogged": "false",
+        "facing": "west",
+        "animation": "0"
+      },
+      "render_variant_values_checked": [
+        "facing"
+      ]
+    },
+    {
+      "block": "shale_pillar",
+      "properties": {
+        "waterlogged": "false",
+        "facing": "east",
+        "animation": "0"
+      },
+      "render_variant_values_checked": [
+        "facing"
+      ]
+    },
+    {
+      "block": "shale_pillar",
+      "properties": {
+        "waterlogged": "false",
+        "facing": "south",
+        "animation": "0"
+      },
+      "render_variant_values_checked": [
+        "facing"
+      ]
+    }
+  ],
+  "worldgen": [
+    {
+      "original": "data/thermal_shock/worldgen/structure/benzor_home.json",
+      "target": "data/thermal_shock_reforged/worldgen/structure/benzor_home.json",
+      "json": {
+        "type": "minecraft:jigsaw",
+        "start_pool": "thermal_shock_reforged:benzor_home",
+        "size": 1,
+        "max_distance_from_center": 64,
+        "spawn_overrides": {},
+        "step": "underground_structures",
+        "terrain_adaptation": "beard_box",
+        "start_height": {
+          "type": "minecraft:uniform",
+          "min_inclusive": {
+            "absolute": -36
+          },
+          "max_inclusive": {
+            "absolute": 30
+          }
+        },
+        "biomes": [
+          "thermal_shock_reforged:vermillion_woods",
+          "thermal_shock_reforged:borean_tundra"
+        ],
+        "use_expansion_hack": false
+      }
+    },
+    {
+      "original": "data/thermal_shock/worldgen/structure_set/benzor_home.json",
+      "target": "data/thermal_shock_reforged/worldgen/structure_set/benzor_home.json",
+      "json": {
+        "structures": [
+          {
+            "structure": "thermal_shock_reforged:benzor_home",
+            "weight": 1
+          }
+        ],
+        "placement": {
+          "type": "minecraft:random_spread",
+          "spacing": 37,
+          "separation": 29,
+          "salt": 1835144946
+        }
+      }
+    },
+    {
+      "original": "data/thermal_shock/worldgen/template_pool/benzor_home.json",
+      "target": "data/thermal_shock_reforged/worldgen/template_pool/benzor_home.json",
+      "json": {
+        "name": "thermal_shock_reforged:benzor_home",
+        "fallback": "minecraft:empty",
+        "elements": [
+          {
+            "weight": 1,
+            "element": {
+              "element_type": "minecraft:single_pool_element",
+              "location": "thermal_shock_reforged:benzor_home",
+              "projection": "rigid",
+              "processors": {
+                "processors": [
+                  {
+                    "processor_type": "minecraft:block_ignore",
+                    "blocks": [
+                      {
+                        "Name": "minecraft:structure_block"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "third_party_caps": "Original ForgeCaps.structure_gel:gel_entity.portal=structure_gel:empty preserved as inert evidence; integration deferred by user",
+  "maiden_chamber": "Not activated: no original Java/archive consumer found; boss_spawner and two variant eggs absent from original registration. Original standalone artifact preserved in source archive; no fake entities or eggs added."
+}

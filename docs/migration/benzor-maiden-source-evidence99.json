@@ -1,0 +1,360 @@
+{
+  "data/thermal_shock/forge/biome_modifier/maiden_biome_modifier.json": {
+    "type": "forge:add_spawns",
+    "biomes": [
+      "thermal_shock:borean_forest",
+      "thermal_shock:borean_tundra",
+      "thermal_shock:graveyard",
+      "thermal_shock:vermillion_woods"
+    ],
+    "spawners": {
+      "type": "thermal_shock:maiden",
+      "weight": 1,
+      "minCount": 1,
+      "maxCount": 1
+    }
+  },
+  "data/thermal_shock/advancements/blackpowder_get.json": {
+    "display": {
+      "icon": {
+        "item": "thermal_shock:blackpowder_spice"
+      },
+      "title": {
+        "translate": "advancements.blackpowder_get.title"
+      },
+      "description": {
+        "translate": "advancements.blackpowder_get.descr"
+      },
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "criteria": {
+      "blackpowder_get_0": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "thermal_shock:blackpowder_spice"
+              ],
+              "count": {
+                "min": 1,
+                "max": 64
+              }
+            }
+          ]
+        }
+      }
+    },
+    "parent": "thermal_shock:spice_get"
+  },
+  "advancement_chain": [
+    {
+      "path": "data/thermal_shock/advancements/blackpowder_get.json",
+      "object": {
+        "display": {
+          "icon": {
+            "item": "thermal_shock:blackpowder_spice"
+          },
+          "title": {
+            "translate": "advancements.blackpowder_get.title"
+          },
+          "description": {
+            "translate": "advancements.blackpowder_get.descr"
+          },
+          "frame": "task",
+          "show_toast": true,
+          "announce_to_chat": true,
+          "hidden": false
+        },
+        "criteria": {
+          "blackpowder_get_0": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+              "items": [
+                {
+                  "items": [
+                    "thermal_shock:blackpowder_spice"
+                  ],
+                  "count": {
+                    "min": 1,
+                    "max": 64
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "parent": "thermal_shock:spice_get"
+      },
+      "target_exists": false
+    },
+    {
+      "path": "data/thermal_shock/advancements/spice_get.json",
+      "object": {
+        "display": {
+          "icon": {
+            "item": "thermal_shock:adamantine_spice"
+          },
+          "title": {
+            "translate": "advancements.spice_get.title"
+          },
+          "description": {
+            "translate": "advancements.spice_get.descr"
+          },
+          "frame": "task",
+          "show_toast": true,
+          "announce_to_chat": true,
+          "hidden": false
+        },
+        "criteria": {
+          "spice_get_0": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+              "items": [
+                {
+                  "items": [
+                    "thermal_shock:adamantine_spice"
+                  ],
+                  "count": {
+                    "min": 1,
+                    "max": 64
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "parent": "thermal_shock:loqendia_get"
+      },
+      "target_exists": true
+    },
+    {
+      "path": "data/thermal_shock/advancements/loqendia_get.json",
+      "object": {
+        "display": {
+          "background": "thermal_shock:textures/screens/cobalt.png",
+          "icon": {
+            "item": "thermal_shock:keystone"
+          },
+          "title": {
+            "translate": "advancements.loqendia_get.title"
+          },
+          "description": {
+            "translate": "advancements.loqendia_get.descr"
+          },
+          "frame": "goal",
+          "show_toast": true,
+          "announce_to_chat": true,
+          "hidden": true
+        },
+        "criteria": {
+          "loqendia_get_0": {
+            "trigger": "minecraft:changed_dimension",
+            "conditions": {
+              "to": "thermal_shock:loqendia"
+            }
+          }
+        },
+        "rewards": {
+          "experience": 10
+        }
+      },
+      "target_exists": true
+    }
+  ],
+  "class_references": [
+    {
+      "class": "net/mcreator/thermal_shock/client/renderer/BenzorRenderer.class",
+      "tokens": [
+        "BenzorEntity"
+      ]
+    },
+    {
+      "class": "net/mcreator/thermal_shock/client/renderer/MaidenRenderer.class",
+      "tokens": [
+        "MaidenEntity"
+      ]
+    },
+    {
+      "class": "net/mcreator/thermal_shock/entity/BenzorEntity.class",
+      "tokens": [
+        "BenzorEntity",
+        "BENZOR"
+      ]
+    },
+    {
+      "class": "net/mcreator/thermal_shock/entity/MaidenEntity$1.class",
+      "tokens": [
+        "MaidenEntity"
+      ]
+    },
+    {
+      "class": "net/mcreator/thermal_shock/entity/MaidenEntity.class",
+      "tokens": [
+        "MaidenEntity",
+        "MAIDEN"
+      ]
+    },
+    {
+      "class": "net/mcreator/thermal_shock/entity/layer/BenzorLayer.class",
+      "tokens": [
+        "BenzorEntity"
+      ]
+    },
+    {
+      "class": "net/mcreator/thermal_shock/entity/model/BenzorModel.class",
+      "tokens": [
+        "BenzorEntity"
+      ]
+    },
+    {
+      "class": "net/mcreator/thermal_shock/entity/model/MaidenModel.class",
+      "tokens": [
+        "MaidenEntity"
+      ]
+    },
+    {
+      "class": "net/mcreator/thermal_shock/init/EntityAnimationFactory.class",
+      "tokens": [
+        "BenzorEntity",
+        "MaidenEntity"
+      ]
+    },
+    {
+      "class": "net/mcreator/thermal_shock/init/ThermalShockModEntities.class",
+      "tokens": [
+        "BenzorEntity",
+        "MaidenEntity",
+        "BENZOR",
+        "MAIDEN"
+      ]
+    },
+    {
+      "class": "net/mcreator/thermal_shock/init/ThermalShockModEntityRenderers.class",
+      "tokens": [
+        "BENZOR",
+        "MAIDEN"
+      ]
+    },
+    {
+      "class": "net/mcreator/thermal_shock/init/ThermalShockModItems.class",
+      "tokens": [
+        "BENZOR",
+        "MAIDEN"
+      ]
+    },
+    {
+      "class": "net/mcreator/thermal_shock/init/ThermalShockModMenus.class",
+      "tokens": [
+        "BENZOR"
+      ]
+    },
+    {
+      "class": "net/mcreator/thermal_shock/init/ThermalShockModScreens.class",
+      "tokens": [
+        "BENZOR"
+      ]
+    },
+    {
+      "class": "net/mcreator/thermal_shock/init/ThermalShockModTabs.class",
+      "tokens": [
+        "BENZOR",
+        "MAIDEN"
+      ]
+    },
+    {
+      "class": "net/mcreator/thermal_shock/procedures/BenzorRightClickedOnEntityProcedure.class",
+      "tokens": [
+        "BenzorEntity"
+      ]
+    },
+    {
+      "class": "net/mcreator/thermal_shock/procedures/MaidenAttackProcedure.class",
+      "tokens": [
+        "MaidenEntity"
+      ]
+    },
+    {
+      "class": "net/mcreator/thermal_shock/procedures/MaidenEntityDiesProcedure.class",
+      "tokens": [
+        "MaidenEntity"
+      ]
+    },
+    {
+      "class": "net/mcreator/thermal_shock/procedures/MaidenShieldingProcedure.class",
+      "tokens": [
+        "MaidenEntity"
+      ]
+    },
+    {
+      "class": "net/mcreator/thermal_shock/procedures/WideAngleRightclickedProcedure.class",
+      "tokens": [
+        "BenzorEntity",
+        "MaidenEntity"
+      ]
+    },
+    {
+      "class": "net/mcreator/thermal_shock/world/inventory/BenzorBlackpowderInfoMenu.class",
+      "tokens": [
+        "BENZOR"
+      ]
+    },
+    {
+      "class": "net/mcreator/thermal_shock/world/inventory/BenzorBlizzardInfoMenu.class",
+      "tokens": [
+        "BENZOR"
+      ]
+    },
+    {
+      "class": "net/mcreator/thermal_shock/world/inventory/BenzorInfectionInfoMenu.class",
+      "tokens": [
+        "BENZOR"
+      ]
+    },
+    {
+      "class": "net/mcreator/thermal_shock/world/inventory/BenzorInfoMenu.class",
+      "tokens": [
+        "BENZOR"
+      ]
+    },
+    {
+      "class": "net/mcreator/thermal_shock/world/inventory/BenzorMainMenu.class",
+      "tokens": [
+        "BENZOR"
+      ]
+    },
+    {
+      "class": "net/mcreator/thermal_shock/world/inventory/BenzorSelfInfoMenu.class",
+      "tokens": [
+        "BENZOR"
+      ]
+    },
+    {
+      "class": "net/mcreator/thermal_shock/world/inventory/BenzorSpiceEplMenu.class",
+      "tokens": [
+        "BENZOR"
+      ]
+    },
+    {
+      "class": "net/mcreator/thermal_shock/world/inventory/BenzorSpiceInfoMenu.class",
+      "tokens": [
+        "BENZOR"
+      ]
+    },
+    {
+      "class": "net/mcreator/thermal_shock/world/inventory/BenzorSpiceMenu.class",
+      "tokens": [
+        "BENZOR"
+      ]
+    },
+    {
+      "class": "net/mcreator/thermal_shock/world/inventory/KofoniBenzorInfoMenu.class",
+      "tokens": [
+        "BENZOR"
+      ]
+    }
+  ]
+}

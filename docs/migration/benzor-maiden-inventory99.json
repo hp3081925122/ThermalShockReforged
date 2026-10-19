@@ -1,0 +1,883 @@
+{
+  "schema": "benzor-maiden99-luna-inventory-v1",
+  "jar": "D:\\AI临时文件\\ThermalShockMigration\\thermal_shock-07.9-original.jar",
+  "jar_sha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436",
+  "target_root": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged",
+  "head": "8397254821278a42c577addcb6f1f34e53c97ebc",
+  "registration": {
+    "benzor": [
+      "public static final RegistryObject<EntityType<BenzorEntity>> BENZOR = ThermalShockModEntities.register(\"benzor\", EntityType.Builder.of(BenzorEntity::new, (MobCategory)MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(BenzorEntity::new).fireImmune().sized(3.0f, 3.3f));",
+      "event.put((EntityType)BENZOR.get(), BenzorEntity.createAttributes().build());"
+    ],
+    "maiden": [
+      "public static final RegistryObject<EntityType<MaidenEntity>> MAIDEN = ThermalShockModEntities.register(\"maiden\", EntityType.Builder.of(MaidenEntity::new, (MobCategory)MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(MaidenEntity::new).fireImmune().sized(1.2f, 3.1f));",
+      "event.put((EntityType)MAIDEN.get(), MaidenEntity.createAttributes().build());"
+    ]
+  },
+  "spawn_eggs": {
+    "benzor": {
+      "registered": true,
+      "creative_tab_lines": [
+        "tabData.accept((ItemLike)ThermalShockModItems.BENZOR_SPAWN_EGG.get());"
+      ]
+    },
+    "maiden": {
+      "registered": true,
+      "creative_tab_lines": [
+        "tabData.accept((ItemLike)ThermalShockModItems.MAIDEN_SPAWN_EGG.get());"
+      ]
+    }
+  },
+  "renderer_models": {
+    "benzor": {
+      "model_resources": [
+        "animations/benzor.animation.json",
+        "geo/benzor.geo.json"
+      ],
+      "texture_expression": [
+        "animations/benzor.animation.json",
+        "geo/benzor.geo.json",
+        "textures/entities/"
+      ],
+      "shadow_radius": [
+        "2.2"
+      ],
+      "layers": [
+        "BenzorLayer"
+      ],
+      "translucent": true
+    },
+    "maiden": {
+      "model_resources": [
+        "animations/maiden.animation.json",
+        "geo/maiden.geo.json"
+      ],
+      "texture_expression": [
+        "animations/maiden.animation.json",
+        "geo/maiden.geo.json",
+        "textures/entities/"
+      ],
+      "shadow_radius": [
+        "0.7"
+      ],
+      "layers": [],
+      "translucent": true
+    }
+  },
+  "renderer_assets": [
+    {
+      "original": "assets/thermal_shock/animations/benzor.animation.json",
+      "original_sha256": "f86592f6f35ef9db6db2740cb52992570653cbafa9c9352034d59996297b9bb6",
+      "target": "src/main/resources/assets/thermal_shock_reforged/animations/benzor.animation.json",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "f86592f6f35ef9db6db2740cb52992570653cbafa9c9352034d59996297b9bb6",
+      "target_sha256_head": "f86592f6f35ef9db6db2740cb52992570653cbafa9c9352034d59996297b9bb6"
+    },
+    {
+      "original": "assets/thermal_shock/geo/benzor.geo.json",
+      "original_sha256": "b0e684c16dd22287377305317aa2d0efd47ede73c49a8e0b01e775a4bce9ce1c",
+      "target": "src/main/resources/assets/thermal_shock_reforged/geo/benzor.geo.json",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "b0e684c16dd22287377305317aa2d0efd47ede73c49a8e0b01e775a4bce9ce1c",
+      "target_sha256_head": "b0e684c16dd22287377305317aa2d0efd47ede73c49a8e0b01e775a4bce9ce1c"
+    },
+    {
+      "original": "assets/thermal_shock/textures/entities/benzor.png",
+      "original_sha256": "9329b65d1fe0a4c7288807b9099ecb7f17657e91ff947024a0c8a1d2593c395b",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/entities/benzor.png",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "9329b65d1fe0a4c7288807b9099ecb7f17657e91ff947024a0c8a1d2593c395b",
+      "target_sha256_head": "9329b65d1fe0a4c7288807b9099ecb7f17657e91ff947024a0c8a1d2593c395b"
+    },
+    {
+      "original": "assets/thermal_shock/textures/entities/benzorglow.png",
+      "original_sha256": "4771aa425c5d570300ddb5de0993da9b600960c50168b769c706df524cc20295",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/entities/benzorglow.png",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "4771aa425c5d570300ddb5de0993da9b600960c50168b769c706df524cc20295",
+      "target_sha256_head": "4771aa425c5d570300ddb5de0993da9b600960c50168b769c706df524cc20295"
+    },
+    {
+      "original": "assets/thermal_shock/animations/maiden.animation.json",
+      "original_sha256": "904f400f3fae27f07b91acdfa27f7603533c05090617ba9d2357a2d4f4047539",
+      "target": "src/main/resources/assets/thermal_shock_reforged/animations/maiden.animation.json",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "904f400f3fae27f07b91acdfa27f7603533c05090617ba9d2357a2d4f4047539",
+      "target_sha256_head": "904f400f3fae27f07b91acdfa27f7603533c05090617ba9d2357a2d4f4047539"
+    },
+    {
+      "original": "assets/thermal_shock/geo/maiden.geo.json",
+      "original_sha256": "a9add6953a7b02431df0e11d930c8461ed00cc2d214db13cabd0411401038c5d",
+      "target": "src/main/resources/assets/thermal_shock_reforged/geo/maiden.geo.json",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "a9add6953a7b02431df0e11d930c8461ed00cc2d214db13cabd0411401038c5d",
+      "target_sha256_head": "a9add6953a7b02431df0e11d930c8461ed00cc2d214db13cabd0411401038c5d"
+    },
+    {
+      "original": "assets/thermal_shock/textures/entities/maiden.png",
+      "original_sha256": "37575b206a1449d4501711122952a9cb992faf2417ee5d672544d9d3dc879d28",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/entities/maiden.png",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "37575b206a1449d4501711122952a9cb992faf2417ee5d672544d9d3dc879d28",
+      "target_sha256_head": "37575b206a1449d4501711122952a9cb992faf2417ee5d672544d9d3dc879d28"
+    },
+    {
+      "original": "assets/thermal_shock/textures/entities/maiden_micah.png",
+      "original_sha256": "6a2069729d7f4013457b35ad903007829312583d1a4456316a4f66169414a4c1",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/entities/maiden_micah.png",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "6a2069729d7f4013457b35ad903007829312583d1a4456316a4f66169414a4c1",
+      "target_sha256_head": "6a2069729d7f4013457b35ad903007829312583d1a4456316a4f66169414a4c1"
+    },
+    {
+      "original": "assets/thermal_shock/textures/entities/maidenumabel.png",
+      "original_sha256": "05bc771f1ffe575e168223ea63d9960e111c6a04d4c44cff48c1e53e9a06a191",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/entities/maidenumabel.png",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "05bc771f1ffe575e168223ea63d9960e111c6a04d4c44cff48c1e53e9a06a191",
+      "target_sha256_head": "05bc771f1ffe575e168223ea63d9960e111c6a04d4c44cff48c1e53e9a06a191"
+    }
+  ],
+  "associated_assets": [
+    {
+      "original": "assets/thermal_shock/animations/benzor.animation.json",
+      "original_sha256": "f86592f6f35ef9db6db2740cb52992570653cbafa9c9352034d59996297b9bb6",
+      "target": "src/main/resources/assets/thermal_shock_reforged/animations/benzor.animation.json",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "f86592f6f35ef9db6db2740cb52992570653cbafa9c9352034d59996297b9bb6",
+      "target_sha256_head": "f86592f6f35ef9db6db2740cb52992570653cbafa9c9352034d59996297b9bb6"
+    },
+    {
+      "original": "assets/thermal_shock/animations/maiden.animation.json",
+      "original_sha256": "904f400f3fae27f07b91acdfa27f7603533c05090617ba9d2357a2d4f4047539",
+      "target": "src/main/resources/assets/thermal_shock_reforged/animations/maiden.animation.json",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "904f400f3fae27f07b91acdfa27f7603533c05090617ba9d2357a2d4f4047539",
+      "target_sha256_head": "904f400f3fae27f07b91acdfa27f7603533c05090617ba9d2357a2d4f4047539"
+    },
+    {
+      "original": "assets/thermal_shock/animations/maiden_mask.animation.json",
+      "original_sha256": "1fefcf0bc6b5f9c26b5a5be1de3c4a0b6bb8cf41f4090dba5da153edb07b5e1e",
+      "target": "src/main/resources/assets/thermal_shock_reforged/animations/maiden_mask.animation.json",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "1fefcf0bc6b5f9c26b5a5be1de3c4a0b6bb8cf41f4090dba5da153edb07b5e1e",
+      "target_sha256_head": "1fefcf0bc6b5f9c26b5a5be1de3c4a0b6bb8cf41f4090dba5da153edb07b5e1e"
+    },
+    {
+      "original": "assets/thermal_shock/animations/maiden_relic.animation.json",
+      "original_sha256": "bd404cc8e9666ddaffc07425416c29f568f4833c3e40e6d47e3400f9b5f99a18",
+      "target": "src/main/resources/assets/thermal_shock_reforged/animations/maiden_relic.animation.json",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "bd404cc8e9666ddaffc07425416c29f568f4833c3e40e6d47e3400f9b5f99a18",
+      "target_sha256_head": "bd404cc8e9666ddaffc07425416c29f568f4833c3e40e6d47e3400f9b5f99a18"
+    },
+    {
+      "original": "assets/thermal_shock/geo/benzor.geo.json",
+      "original_sha256": "b0e684c16dd22287377305317aa2d0efd47ede73c49a8e0b01e775a4bce9ce1c",
+      "target": "src/main/resources/assets/thermal_shock_reforged/geo/benzor.geo.json",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "b0e684c16dd22287377305317aa2d0efd47ede73c49a8e0b01e775a4bce9ce1c",
+      "target_sha256_head": "b0e684c16dd22287377305317aa2d0efd47ede73c49a8e0b01e775a4bce9ce1c"
+    },
+    {
+      "original": "assets/thermal_shock/geo/maiden.geo.json",
+      "original_sha256": "a9add6953a7b02431df0e11d930c8461ed00cc2d214db13cabd0411401038c5d",
+      "target": "src/main/resources/assets/thermal_shock_reforged/geo/maiden.geo.json",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "a9add6953a7b02431df0e11d930c8461ed00cc2d214db13cabd0411401038c5d",
+      "target_sha256_head": "a9add6953a7b02431df0e11d930c8461ed00cc2d214db13cabd0411401038c5d"
+    },
+    {
+      "original": "assets/thermal_shock/geo/maiden_mask.geo.json",
+      "original_sha256": "4f5ba4d2ef8d4077f4fb9130ec41458e06d8a5137947fe91310866842378fdd2",
+      "target": "src/main/resources/assets/thermal_shock_reforged/geo/maiden_mask.geo.json",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "4f5ba4d2ef8d4077f4fb9130ec41458e06d8a5137947fe91310866842378fdd2",
+      "target_sha256_head": "4f5ba4d2ef8d4077f4fb9130ec41458e06d8a5137947fe91310866842378fdd2"
+    },
+    {
+      "original": "assets/thermal_shock/geo/maiden_relic.geo.json",
+      "original_sha256": "78736206ade8da3e537f4743d0b64b75bd13e2f82dca51b3e463f12303824a1e",
+      "target": "src/main/resources/assets/thermal_shock_reforged/geo/maiden_relic.geo.json",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "78736206ade8da3e537f4743d0b64b75bd13e2f82dca51b3e463f12303824a1e",
+      "target_sha256_head": "78736206ade8da3e537f4743d0b64b75bd13e2f82dca51b3e463f12303824a1e"
+    },
+    {
+      "original": "assets/thermal_shock/models/item/benzor_spawn_egg.json",
+      "original_sha256": "e0a59b2812be30405b9a4340daf93758f7a7f6f0c387b7f4cc035a785af6a568",
+      "target": "src/main/resources/assets/thermal_shock_reforged/models/item/benzor_spawn_egg.json",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "cf7c58a4f7ff37d81e8a10ace581c24c7835c7c261bbaf3f216ef17b7573d6c6",
+      "target_sha256_head": "cf7c58a4f7ff37d81e8a10ace581c24c7835c7c261bbaf3f216ef17b7573d6c6"
+    },
+    {
+      "original": "assets/thermal_shock/models/item/maiden_spawn_egg.json",
+      "original_sha256": "c9bd989d391f72d67a3a1e3105aebfa8c0284571196cae1782d90e8ab68fa6ec",
+      "target": "src/main/resources/assets/thermal_shock_reforged/models/item/maiden_spawn_egg.json",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "5bc09b42e9997d232d04f9ccf183f6ed6e0065935edae0465e8b33b597f777fe",
+      "target_sha256_head": "5bc09b42e9997d232d04f9ccf183f6ed6e0065935edae0465e8b33b597f777fe"
+    },
+    {
+      "original": "assets/thermal_shock/sounds.json",
+      "original_sha256": "184a7ad656c772a8c808d9761fc32a86b0ccd2862e7fdddee30fe48d5543f238",
+      "target": "src/main/resources/assets/thermal_shock_reforged/sounds.json",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "602af97956d0f615f45201fa498565eb974aab609f019227960595301d40541d",
+      "target_sha256_head": "602af97956d0f615f45201fa498565eb974aab609f019227960595301d40541d"
+    },
+    {
+      "original": "assets/thermal_shock/textures/block/maiden_relic.png",
+      "original_sha256": "b83c424cd98c5399dd0306c9e434ad13741a28e69d23236f125d88a4278b3558",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/block/maiden_relic.png",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "b83c424cd98c5399dd0306c9e434ad13741a28e69d23236f125d88a4278b3558",
+      "target_sha256_head": "b83c424cd98c5399dd0306c9e434ad13741a28e69d23236f125d88a4278b3558"
+    },
+    {
+      "original": "assets/thermal_shock/textures/entities/benzor.png",
+      "original_sha256": "9329b65d1fe0a4c7288807b9099ecb7f17657e91ff947024a0c8a1d2593c395b",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/entities/benzor.png",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "9329b65d1fe0a4c7288807b9099ecb7f17657e91ff947024a0c8a1d2593c395b",
+      "target_sha256_head": "9329b65d1fe0a4c7288807b9099ecb7f17657e91ff947024a0c8a1d2593c395b"
+    },
+    {
+      "original": "assets/thermal_shock/textures/entities/benzorglow.png",
+      "original_sha256": "4771aa425c5d570300ddb5de0993da9b600960c50168b769c706df524cc20295",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/entities/benzorglow.png",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "4771aa425c5d570300ddb5de0993da9b600960c50168b769c706df524cc20295",
+      "target_sha256_head": "4771aa425c5d570300ddb5de0993da9b600960c50168b769c706df524cc20295"
+    },
+    {
+      "original": "assets/thermal_shock/textures/entities/maiden.png",
+      "original_sha256": "37575b206a1449d4501711122952a9cb992faf2417ee5d672544d9d3dc879d28",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/entities/maiden.png",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "37575b206a1449d4501711122952a9cb992faf2417ee5d672544d9d3dc879d28",
+      "target_sha256_head": "37575b206a1449d4501711122952a9cb992faf2417ee5d672544d9d3dc879d28"
+    },
+    {
+      "original": "assets/thermal_shock/textures/entities/maiden_micah.png",
+      "original_sha256": "6a2069729d7f4013457b35ad903007829312583d1a4456316a4f66169414a4c1",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/entities/maiden_micah.png",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "6a2069729d7f4013457b35ad903007829312583d1a4456316a4f66169414a4c1",
+      "target_sha256_head": "6a2069729d7f4013457b35ad903007829312583d1a4456316a4f66169414a4c1"
+    },
+    {
+      "original": "assets/thermal_shock/textures/entities/maidenumabel.png",
+      "original_sha256": "05bc771f1ffe575e168223ea63d9960e111c6a04d4c44cff48c1e53e9a06a191",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/entities/maidenumabel.png",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "05bc771f1ffe575e168223ea63d9960e111c6a04d4c44cff48c1e53e9a06a191",
+      "target_sha256_head": "05bc771f1ffe575e168223ea63d9960e111c6a04d4c44cff48c1e53e9a06a191"
+    },
+    {
+      "original": "assets/thermal_shock/textures/item/benzor_egg.png",
+      "original_sha256": "d166351451f842aeb2b7d66035ad7b938f59a2569c8fcf8b1f86d9ebcf9f1aef",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/benzor_egg.png",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "d166351451f842aeb2b7d66035ad7b938f59a2569c8fcf8b1f86d9ebcf9f1aef",
+      "target_sha256_head": "d166351451f842aeb2b7d66035ad7b938f59a2569c8fcf8b1f86d9ebcf9f1aef"
+    },
+    {
+      "original": "assets/thermal_shock/textures/item/maiden_boss_bundle.png",
+      "original_sha256": "ba6f6b498d8854703c4a7a2e2b76b86ad3de6158cbcb12d2b7f74e5599d92176",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/maiden_boss_bundle.png",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "ba6f6b498d8854703c4a7a2e2b76b86ad3de6158cbcb12d2b7f74e5599d92176",
+      "target_sha256_head": "ba6f6b498d8854703c4a7a2e2b76b86ad3de6158cbcb12d2b7f74e5599d92176"
+    },
+    {
+      "original": "assets/thermal_shock/textures/item/maiden_egg.png",
+      "original_sha256": "e861bce2a883ed2948863541bf5ddd795009d04a509286944fbd2b2ab90eaf30",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/maiden_egg.png",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "e861bce2a883ed2948863541bf5ddd795009d04a509286944fbd2b2ab90eaf30",
+      "target_sha256_head": "e861bce2a883ed2948863541bf5ddd795009d04a509286944fbd2b2ab90eaf30"
+    },
+    {
+      "original": "assets/thermal_shock/textures/item/maiden_mask.png",
+      "original_sha256": "f3d210e562f44ea95b0c7f2c2184833f0093b48420a9b1f177fc8a1780f92d42",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/maiden_mask.png",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "f3d210e562f44ea95b0c7f2c2184833f0093b48420a9b1f177fc8a1780f92d42",
+      "target_sha256_head": "f3d210e562f44ea95b0c7f2c2184833f0093b48420a9b1f177fc8a1780f92d42"
+    },
+    {
+      "original": "assets/thermal_shock/textures/item/maiden_relic_icon.png",
+      "original_sha256": "6ff51b28a8c5492e8aee856cf350963c1e82bdf4ff3873ecbc7a6cc49ad12685",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/maiden_relic_icon.png",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "6ff51b28a8c5492e8aee856cf350963c1e82bdf4ff3873ecbc7a6cc49ad12685",
+      "target_sha256_head": "6ff51b28a8c5492e8aee856cf350963c1e82bdf4ff3873ecbc7a6cc49ad12685"
+    },
+    {
+      "original": "assets/thermal_shock/textures/item/maidenmask.png",
+      "original_sha256": "7e663c3838a6b3b7817d1a94eb589af922c639dfde8897c5b29d10e364c14bce",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/maidenmask.png",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "7e663c3838a6b3b7817d1a94eb589af922c639dfde8897c5b29d10e364c14bce",
+      "target_sha256_head": "7e663c3838a6b3b7817d1a94eb589af922c639dfde8897c5b29d10e364c14bce"
+    },
+    {
+      "original": "assets/thermal_shock/textures/item/maidentablet.png",
+      "original_sha256": "6eebffbc6b5ca865e84233c0d5b891af1c3be4b2aff5fa13f45f945cffb3b9b8",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/maidentablet.png",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "6eebffbc6b5ca865e84233c0d5b891af1c3be4b2aff5fa13f45f945cffb3b9b8",
+      "target_sha256_head": "6eebffbc6b5ca865e84233c0d5b891af1c3be4b2aff5fa13f45f945cffb3b9b8"
+    },
+    {
+      "original": "assets/thermal_shock/textures/item/maidentablet.png.mcmeta",
+      "original_sha256": "97f425d9cc3f80147ddf0e97b2d5dee265d9c7036ab540ef6c0218feb968afdc",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/maidentablet.png.mcmeta",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "97f425d9cc3f80147ddf0e97b2d5dee265d9c7036ab540ef6c0218feb968afdc",
+      "target_sha256_head": "97f425d9cc3f80147ddf0e97b2d5dee265d9c7036ab540ef6c0218feb968afdc"
+    },
+    {
+      "original": "assets/thermal_shock/textures/screens/atlas/imagebutton_infobenzor.png",
+      "original_sha256": "89e2dd36bdd32ca22bab3403d066f4364786659dddcc92362a919a392de866bb",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/screens/atlas/imagebutton_infobenzor.png",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "89e2dd36bdd32ca22bab3403d066f4364786659dddcc92362a919a392de866bb",
+      "target_sha256_head": "89e2dd36bdd32ca22bab3403d066f4364786659dddcc92362a919a392de866bb"
+    },
+    {
+      "original": "assets/thermal_shock/textures/screens/benzoridleportrait.png",
+      "original_sha256": "ceb02cebb1e9fa3b1d2032d06d5371307e3d16c44b2d4ac399dda8df787ba09c",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/screens/benzoridleportrait.png",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "ceb02cebb1e9fa3b1d2032d06d5371307e3d16c44b2d4ac399dda8df787ba09c",
+      "target_sha256_head": "ceb02cebb1e9fa3b1d2032d06d5371307e3d16c44b2d4ac399dda8df787ba09c"
+    },
+    {
+      "original": "assets/thermal_shock/textures/screens/benzoridlerubiconstatic.png",
+      "original_sha256": "234dc719796d75609a95e8c99274f665da5032b39d71797209e7e9576d612154",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/screens/benzoridlerubiconstatic.png",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "234dc719796d75609a95e8c99274f665da5032b39d71797209e7e9576d612154",
+      "target_sha256_head": "234dc719796d75609a95e8c99274f665da5032b39d71797209e7e9576d612154"
+    },
+    {
+      "original": "assets/thermal_shock/textures/screens/benzorinfobox.png",
+      "original_sha256": "b15e059c252329bda606fa915e7a1679cdd84c961a9ba5de47da1ca5d9d34734",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/screens/benzorinfobox.png",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "b15e059c252329bda606fa915e7a1679cdd84c961a9ba5de47da1ca5d9d34734",
+      "target_sha256_head": "b15e059c252329bda606fa915e7a1679cdd84c961a9ba5de47da1ca5d9d34734"
+    },
+    {
+      "original": "assets/thermal_shock/textures/screens/benzorspicemenu.png",
+      "original_sha256": "1f067d8ba3dd2320e35e87a2a3ea65b3fb66dcdaf9f2e683e4650755d51823d6",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/screens/benzorspicemenu.png",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "1f067d8ba3dd2320e35e87a2a3ea65b3fb66dcdaf9f2e683e4650755d51823d6",
+      "target_sha256_head": "1f067d8ba3dd2320e35e87a2a3ea65b3fb66dcdaf9f2e683e4650755d51823d6"
+    },
+    {
+      "original": "assets/thermal_shock/textures/screens/infobenzor.png",
+      "original_sha256": "fd8b5464436991356617b4f5578be2dd0686fd2e7a2754027d967321718fe288",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/screens/infobenzor.png",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "fd8b5464436991356617b4f5578be2dd0686fd2e7a2754027d967321718fe288",
+      "target_sha256_head": "fd8b5464436991356617b4f5578be2dd0686fd2e7a2754027d967321718fe288"
+    }
+  ],
+  "sound_references": [
+    {
+      "source": "entity/MaidenEntity.java",
+      "id": "entity.iron_golem.death"
+    },
+    {
+      "source": "entity/MaidenEntity.java",
+      "id": "entity.iron_golem.hurt"
+    },
+    {
+      "source": "procedures/MaidenAttackProcedure.java",
+      "id": "entity.shulker.shoot"
+    },
+    {
+      "source": "procedures/MaidenOnEntityTickUpdateProcedure.java",
+      "id": "block.dispenser.fail"
+    }
+  ],
+  "animation_clips": {
+    "benzor": [
+      "idle",
+      "idle2"
+    ],
+    "maiden": [
+      "idle",
+      "walk",
+      "attack1",
+      "attack2",
+      "fall"
+    ]
+  },
+  "relevant_json": [
+    {
+      "original": "assets/thermal_shock/animations/benzor.animation.json",
+      "original_sha256": "f86592f6f35ef9db6db2740cb52992570653cbafa9c9352034d59996297b9bb6",
+      "target": "src/main/resources/assets/thermal_shock_reforged/animations/benzor.animation.json",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "f86592f6f35ef9db6db2740cb52992570653cbafa9c9352034d59996297b9bb6",
+      "target_sha256_head": "f86592f6f35ef9db6db2740cb52992570653cbafa9c9352034d59996297b9bb6"
+    },
+    {
+      "original": "assets/thermal_shock/animations/maiden.animation.json",
+      "original_sha256": "904f400f3fae27f07b91acdfa27f7603533c05090617ba9d2357a2d4f4047539",
+      "target": "src/main/resources/assets/thermal_shock_reforged/animations/maiden.animation.json",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "904f400f3fae27f07b91acdfa27f7603533c05090617ba9d2357a2d4f4047539",
+      "target_sha256_head": "904f400f3fae27f07b91acdfa27f7603533c05090617ba9d2357a2d4f4047539"
+    },
+    {
+      "original": "assets/thermal_shock/animations/maiden_mask.animation.json",
+      "original_sha256": "1fefcf0bc6b5f9c26b5a5be1de3c4a0b6bb8cf41f4090dba5da153edb07b5e1e",
+      "target": "src/main/resources/assets/thermal_shock_reforged/animations/maiden_mask.animation.json",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "1fefcf0bc6b5f9c26b5a5be1de3c4a0b6bb8cf41f4090dba5da153edb07b5e1e",
+      "target_sha256_head": "1fefcf0bc6b5f9c26b5a5be1de3c4a0b6bb8cf41f4090dba5da153edb07b5e1e"
+    },
+    {
+      "original": "assets/thermal_shock/animations/maiden_relic.animation.json",
+      "original_sha256": "bd404cc8e9666ddaffc07425416c29f568f4833c3e40e6d47e3400f9b5f99a18",
+      "target": "src/main/resources/assets/thermal_shock_reforged/animations/maiden_relic.animation.json",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "bd404cc8e9666ddaffc07425416c29f568f4833c3e40e6d47e3400f9b5f99a18",
+      "target_sha256_head": "bd404cc8e9666ddaffc07425416c29f568f4833c3e40e6d47e3400f9b5f99a18"
+    },
+    {
+      "original": "assets/thermal_shock/geo/benzor.geo.json",
+      "original_sha256": "b0e684c16dd22287377305317aa2d0efd47ede73c49a8e0b01e775a4bce9ce1c",
+      "target": "src/main/resources/assets/thermal_shock_reforged/geo/benzor.geo.json",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "b0e684c16dd22287377305317aa2d0efd47ede73c49a8e0b01e775a4bce9ce1c",
+      "target_sha256_head": "b0e684c16dd22287377305317aa2d0efd47ede73c49a8e0b01e775a4bce9ce1c"
+    },
+    {
+      "original": "assets/thermal_shock/geo/maiden.geo.json",
+      "original_sha256": "a9add6953a7b02431df0e11d930c8461ed00cc2d214db13cabd0411401038c5d",
+      "target": "src/main/resources/assets/thermal_shock_reforged/geo/maiden.geo.json",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "a9add6953a7b02431df0e11d930c8461ed00cc2d214db13cabd0411401038c5d",
+      "target_sha256_head": "a9add6953a7b02431df0e11d930c8461ed00cc2d214db13cabd0411401038c5d"
+    },
+    {
+      "original": "assets/thermal_shock/geo/maiden_mask.geo.json",
+      "original_sha256": "4f5ba4d2ef8d4077f4fb9130ec41458e06d8a5137947fe91310866842378fdd2",
+      "target": "src/main/resources/assets/thermal_shock_reforged/geo/maiden_mask.geo.json",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "4f5ba4d2ef8d4077f4fb9130ec41458e06d8a5137947fe91310866842378fdd2",
+      "target_sha256_head": "4f5ba4d2ef8d4077f4fb9130ec41458e06d8a5137947fe91310866842378fdd2"
+    },
+    {
+      "original": "assets/thermal_shock/geo/maiden_relic.geo.json",
+      "original_sha256": "78736206ade8da3e537f4743d0b64b75bd13e2f82dca51b3e463f12303824a1e",
+      "target": "src/main/resources/assets/thermal_shock_reforged/geo/maiden_relic.geo.json",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "78736206ade8da3e537f4743d0b64b75bd13e2f82dca51b3e463f12303824a1e",
+      "target_sha256_head": "78736206ade8da3e537f4743d0b64b75bd13e2f82dca51b3e463f12303824a1e"
+    },
+    {
+      "original": "assets/thermal_shock/models/item/benzor_spawn_egg.json",
+      "original_sha256": "e0a59b2812be30405b9a4340daf93758f7a7f6f0c387b7f4cc035a785af6a568",
+      "target": "src/main/resources/assets/thermal_shock_reforged/models/item/benzor_spawn_egg.json",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "cf7c58a4f7ff37d81e8a10ace581c24c7835c7c261bbaf3f216ef17b7573d6c6",
+      "target_sha256_head": "cf7c58a4f7ff37d81e8a10ace581c24c7835c7c261bbaf3f216ef17b7573d6c6"
+    },
+    {
+      "original": "assets/thermal_shock/models/item/maiden_spawn_egg.json",
+      "original_sha256": "c9bd989d391f72d67a3a1e3105aebfa8c0284571196cae1782d90e8ab68fa6ec",
+      "target": "src/main/resources/assets/thermal_shock_reforged/models/item/maiden_spawn_egg.json",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "5bc09b42e9997d232d04f9ccf183f6ed6e0065935edae0465e8b33b597f777fe",
+      "target_sha256_head": "5bc09b42e9997d232d04f9ccf183f6ed6e0065935edae0465e8b33b597f777fe"
+    },
+    {
+      "original": "data/thermal_shock/forge/biome_modifier/maiden_biome_modifier.json",
+      "original_sha256": "a3833ba91cb30e63e90516933971fff0ed5b4b50b0e42e3ef11d3cac83cddd0c",
+      "target": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/maiden_biome_modifier.json",
+      "target_exists_worktree": false,
+      "target_sha256_worktree": null,
+      "target_sha256_head": null
+    },
+    {
+      "original": "data/thermal_shock/tags/entity_types/character_mobs.json",
+      "original_sha256": "de5e6a8fa59105a500b01efbc2b85a876d8ab11d0de0de0326e96e7edc071348",
+      "target": "src/main/resources/data/thermal_shock_reforged/tags/entity_type/character_mobs.json",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "ad8bf07169fb8daebd45fbc93ec8139210cc86b5986c3277a6fe458157589be0",
+      "target_sha256_head": "ad8bf07169fb8daebd45fbc93ec8139210cc86b5986c3277a6fe458157589be0"
+    },
+    {
+      "original": "data/thermal_shock/tags/entity_types/cloro_weak.json",
+      "original_sha256": "85eb1fd5afd2ef918a3cc58cc824e368a634f01c2f84f0cae199258700638b29",
+      "target": "src/main/resources/data/thermal_shock_reforged/tags/entity_type/cloro_weak.json",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "3999505dfc12d4664cc70996130ba694d1dceee5033904680aa2341f0eeb48b8",
+      "target_sha256_head": "3999505dfc12d4664cc70996130ba694d1dceee5033904680aa2341f0eeb48b8"
+    },
+    {
+      "original": "data/thermal_shock/worldgen/structure/benzor_home.json",
+      "original_sha256": "b20605733c3e42e0340defed6480eb171338880c20e7e81177614ea9309d3faf",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/structure/benzor_home.json",
+      "target_exists_worktree": false,
+      "target_sha256_worktree": null,
+      "target_sha256_head": null
+    },
+    {
+      "original": "data/thermal_shock/worldgen/structure_set/benzor_home.json",
+      "original_sha256": "238d5ccd14d567648dec7b8a2c0a1ab83e8f3f8ab86756af7cc00afff8d93b4f",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/benzor_home.json",
+      "target_exists_worktree": false,
+      "target_sha256_worktree": null,
+      "target_sha256_head": null
+    },
+    {
+      "original": "data/thermal_shock/worldgen/template_pool/benzor_home.json",
+      "original_sha256": "5fab7fba1a867dee8c401eb5769fbdea29409aff9930bd7503926c865af439ef",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/benzor_home.json",
+      "target_exists_worktree": false,
+      "target_sha256_worktree": null,
+      "target_sha256_head": null
+    }
+  ],
+  "recursive_nbt_occurrences": [
+    {
+      "original": "data/thermal_shock/structures/benzor_home.nbt",
+      "original_sha256": "982d7aec65b3282e20a6069e80aa8744d3ee5f62e208eeb244717519abcc6ed7",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/benzor_home.nbt",
+      "target_exists_worktree": false,
+      "target_sha256_worktree": null,
+      "target_sha256_head": null,
+      "occurrences": [
+        {
+          "entity": "benzor",
+          "path": "$.entities[0].nbt.Texture",
+          "value": "benzor"
+        },
+        {
+          "entity": "benzor",
+          "path": "$.entities[0].nbt.id",
+          "value": "thermal_shock:benzor"
+        }
+      ]
+    },
+    {
+      "original": "data/thermal_shock/structures/maiden_chamber.nbt",
+      "original_sha256": "aecd7708935db3454842615d9ec48b350b37f82588894e03937aa6654588b95a",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/maiden_chamber.nbt",
+      "target_exists_worktree": false,
+      "target_sha256_worktree": null,
+      "target_sha256_head": null,
+      "occurrences": [
+        {
+          "entity": "maiden",
+          "path": "$.entities[0].nbt.InventoryCustom.Items[0].id",
+          "value": "thermal_shock:maiden_spawn_egg"
+        },
+        {
+          "entity": "maiden",
+          "path": "$.entities[1].nbt.InventoryCustom.Items[0].id",
+          "value": "thermal_shock:maiden_micah_spawn_egg"
+        },
+        {
+          "entity": "maiden",
+          "path": "$.entities[2].nbt.InventoryCustom.Items[0].id",
+          "value": "thermal_shock:maiden_umabel_spawn_egg"
+        }
+      ]
+    }
+  ],
+  "language_keys": {
+    "assets/thermal_shock/lang/en_us.json": {
+      "gui.thermal_shock.benzor_infection_info.label_the_surface_people_say_benzor": "❄ Is terrifying sight in person...",
+      "gui.thermal_shock.benzor_blizzard_info.label_the_surface_people_say_benzor": "❄ But Benzor think is too late for them to rebuild.",
+      "gui.thermal_shock.benzor_self_info.label_concierge": "BENZOR",
+      "entity.thermal_shock.maiden": "Maiden",
+      "gui.thermal_shock.benzor_main.button_trade": "SPICE",
+      "gui.thermal_shock.kofoni_benzor_info.label_kutty": "❄ He's a cool dude, we went to college together.",
+      "gui.thermal_shock.benzor_spice.label_concierge": "BENZOR",
+      "gui.thermal_shock.benzor_info.label_concierge": "BENZOR",
+      "gui.thermal_shock.benzor_spice_epl.label_kutty": "❄ You give me §espice§f, Benzor give you precious §eEXP.",
+      "gui.thermal_shock.benzor_main.label_concierge": "BENZOR",
+      "gui.thermal_shock.benzor_main.button_info": "INFO",
+      "gui.thermal_shock.benzor_infection_info.label_this_is_why_benzor_stay_down_h": "❄ This is why Benzor stay down here, much safer!",
+      "entity.thermal_shock.benzor": "Benzor",
+      "gui.thermal_shock.benzor_blackpowder_info.label_kutty": "❄ Stranger find the blackpowder???",
+      "gui.thermal_shock.kofoni_benzor_info.label_but_you_know_everything_went": "❄ §7That's why I don't touch that §espice§7 stuff.",
+      "gui.thermal_shock.benzor_blizzard_info.label_empty": "❄ Maybe they are from old government?",
+      "gui.thermal_shock.benzor_blizzard_info.label_concierge": "BENZOR",
+      "gui.thermal_shock.kofoni_benzor_info.label_house_my_collection": "creepy crawlies!",
+      "gui.thermal_shock.benzor_self_info.label_empty": "❄ Benzor used to be man of faith, long time ago.",
+      "gui.thermal_shock.benzor_self_info.label_kutty": "❄ Benzor simply like spice, that is all.",
+      "gui.thermal_shock.benzor_spice_info.label_the_surface_people_say_benzor": "❄ Spice is sustenance blessed by The Sun Himself!",
+      "gui.thermal_shock.kofoni_benzor_info.label_old_relics_n_stuff": "❄ Real unfortunate that his brain's all fried...",
+      "gui.thermal_shock.benzor_spice_info.label_more_spice_more_exp_yes": "❄ Maybe Benzor overindulge, but is not too bad!",
+      "gui.thermal_shock.benzor_spice_epl.label_concierge": "BENZOR",
+      "gui.thermal_shock.benzor_spice_epl.button_info": "INFO",
+      "gui.thermal_shock.benzor_blackpowder_info.label_the_surface_people_say_benzor": "❄ The spice is divine, but far too dangerous.",
+      "gui.thermal_shock.benzor_blackpowder_info.label_this_is_why_benzor_stay_down_h": "❄ The surface is good as dead...",
+      "gui.thermal_shock.benzor_info.button_trade": "SPICE",
+      "gui.thermal_shock.benzor_main.button_errands": "ERRANDS",
+      "gui.thermal_shock.benzor_spice_epl.button_errands": "ERRANDS",
+      "gui.thermal_shock.benzor_info.button_errands": "ERRANDS",
+      "gui.thermal_shock.benzor_blizzard_info.label_kutty": "❄ Benzor don't know very much about this Blizzard.",
+      "gui.thermal_shock.benzor_spice_epl.label_more_spice_more_exp_yes": "❄ More spice, more §eEXP§f, yes?",
+      "gui.thermal_shock.benzor_blackpowder_info.label_empty": "❄ Hrrr... Benzor promised not to consume anymore.",
+      "gui.thermal_shock.benzor_self_info.label_more_spice_more_exp_yes": "❄ Maybe Benzor overindulge, but is not too bad!",
+      "gui.thermal_shock.benzor_infection_info.label_kutty": "❄ Benzor remember day this happen.",
+      "item.thermal_shock.benzor_spawn_egg": "Benzor Spawn Egg",
+      "gui.thermal_shock.benzor_spice_info.label_kutty": "❄ Very valuable resource, very delectable.",
+      "gui.thermal_shock.benzor_infection_info.label_empty": "❄ All town get sick, bodies rot and melt and meld.",
+      "gui.thermal_shock.kofoni_benzor_info.label_concierge": "KOFONI",
+      "gui.thermal_shock.benzor_info.button_info": "INFO",
+      "gui.thermal_shock.benzor_blackpowder_info.label_concierge": "BENZOR",
+      "gui.thermal_shock.benzor_spice.button_errands": "ERRANDS",
+      "gui.thermal_shock.benzor_spice_epl.button_trade": "SPICE",
+      "gui.thermal_shock.benzor_self_info.label_the_surface_people_say_benzor": "❄ The cathedral people say Benzor's hunger is sin.",
+      "gui.thermal_shock.benzor_blizzard_info.label_this_is_why_benzor_stay_down_h": "❄ The surface is good as dead...",
+      "gui.thermal_shock.benzor_spice.button_info": "INFO",
+      "gui.thermal_shock.benzor_infection_info.label_concierge": "BENZOR",
+      "gui.thermal_shock.benzor_spice_info.label_empty": "❄ Most people use spice for fuel, what a waste!",
+      "item.thermal_shock.maiden_spawn_egg": "Maiden Spawn Egg",
+      "gui.thermal_shock.benzor_spice_info.label_concierge": "BENZOR",
+      "gui.thermal_shock.benzor_spice.button_trade": "SPICE"
+    }
+  },
+  "entity_type_tags": [
+    {
+      "original": "data/thermal_shock/tags/entity_types/character_mobs.json",
+      "original_sha256": "de5e6a8fa59105a500b01efbc2b85a876d8ab11d0de0de0326e96e7edc071348",
+      "values": [
+        "thermal_shock:benzor"
+      ],
+      "target": "src/main/resources/data/thermal_shock_reforged/tags/entity_type/character_mobs.json",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "ad8bf07169fb8daebd45fbc93ec8139210cc86b5986c3277a6fe458157589be0",
+      "target_sha256_head": "ad8bf07169fb8daebd45fbc93ec8139210cc86b5986c3277a6fe458157589be0"
+    },
+    {
+      "original": "data/thermal_shock/tags/entity_types/cloro_weak.json",
+      "original_sha256": "85eb1fd5afd2ef918a3cc58cc824e368a634f01c2f84f0cae199258700638b29",
+      "values": [
+        "thermal_shock:maiden"
+      ],
+      "target": "src/main/resources/data/thermal_shock_reforged/tags/entity_type/cloro_weak.json",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "3999505dfc12d4664cc70996130ba694d1dceee5033904680aa2341f0eeb48b8",
+      "target_sha256_head": "3999505dfc12d4664cc70996130ba694d1dceee5033904680aa2341f0eeb48b8"
+    }
+  ],
+  "target_consistency": {
+    "unique_target_count": 39,
+    "exists_worktree_count": 33,
+    "missing_worktree_count": 6,
+    "exists_head_count": 33,
+    "missing_head_count": 6,
+    "checks": {
+      "src/main/resources/assets/thermal_shock_reforged/animations/benzor.animation.json": {
+        "exists_worktree": true,
+        "sha256_worktree": "f86592f6f35ef9db6db2740cb52992570653cbafa9c9352034d59996297b9bb6",
+        "sha256_head": "f86592f6f35ef9db6db2740cb52992570653cbafa9c9352034d59996297b9bb6"
+      },
+      "src/main/resources/assets/thermal_shock_reforged/animations/maiden.animation.json": {
+        "exists_worktree": true,
+        "sha256_worktree": "904f400f3fae27f07b91acdfa27f7603533c05090617ba9d2357a2d4f4047539",
+        "sha256_head": "904f400f3fae27f07b91acdfa27f7603533c05090617ba9d2357a2d4f4047539"
+      },
+      "src/main/resources/assets/thermal_shock_reforged/animations/maiden_mask.animation.json": {
+        "exists_worktree": true,
+        "sha256_worktree": "1fefcf0bc6b5f9c26b5a5be1de3c4a0b6bb8cf41f4090dba5da153edb07b5e1e",
+        "sha256_head": "1fefcf0bc6b5f9c26b5a5be1de3c4a0b6bb8cf41f4090dba5da153edb07b5e1e"
+      },
+      "src/main/resources/assets/thermal_shock_reforged/animations/maiden_relic.animation.json": {
+        "exists_worktree": true,
+        "sha256_worktree": "bd404cc8e9666ddaffc07425416c29f568f4833c3e40e6d47e3400f9b5f99a18",
+        "sha256_head": "bd404cc8e9666ddaffc07425416c29f568f4833c3e40e6d47e3400f9b5f99a18"
+      },
+      "src/main/resources/assets/thermal_shock_reforged/geo/benzor.geo.json": {
+        "exists_worktree": true,
+        "sha256_worktree": "b0e684c16dd22287377305317aa2d0efd47ede73c49a8e0b01e775a4bce9ce1c",
+        "sha256_head": "b0e684c16dd22287377305317aa2d0efd47ede73c49a8e0b01e775a4bce9ce1c"
+      },
+      "src/main/resources/assets/thermal_shock_reforged/geo/maiden.geo.json": {
+        "exists_worktree": true,
+        "sha256_worktree": "a9add6953a7b02431df0e11d930c8461ed00cc2d214db13cabd0411401038c5d",
+        "sha256_head": "a9add6953a7b02431df0e11d930c8461ed00cc2d214db13cabd0411401038c5d"
+      },
+      "src/main/resources/assets/thermal_shock_reforged/geo/maiden_mask.geo.json": {
+        "exists_worktree": true,
+        "sha256_worktree": "4f5ba4d2ef8d4077f4fb9130ec41458e06d8a5137947fe91310866842378fdd2",
+        "sha256_head": "4f5ba4d2ef8d4077f4fb9130ec41458e06d8a5137947fe91310866842378fdd2"
+      },
+      "src/main/resources/assets/thermal_shock_reforged/geo/maiden_relic.geo.json": {
+        "exists_worktree": true,
+        "sha256_worktree": "78736206ade8da3e537f4743d0b64b75bd13e2f82dca51b3e463f12303824a1e",
+        "sha256_head": "78736206ade8da3e537f4743d0b64b75bd13e2f82dca51b3e463f12303824a1e"
+      },
+      "src/main/resources/assets/thermal_shock_reforged/models/item/benzor_spawn_egg.json": {
+        "exists_worktree": true,
+        "sha256_worktree": "cf7c58a4f7ff37d81e8a10ace581c24c7835c7c261bbaf3f216ef17b7573d6c6",
+        "sha256_head": "cf7c58a4f7ff37d81e8a10ace581c24c7835c7c261bbaf3f216ef17b7573d6c6"
+      },
+      "src/main/resources/assets/thermal_shock_reforged/models/item/maiden_spawn_egg.json": {
+        "exists_worktree": true,
+        "sha256_worktree": "5bc09b42e9997d232d04f9ccf183f6ed6e0065935edae0465e8b33b597f777fe",
+        "sha256_head": "5bc09b42e9997d232d04f9ccf183f6ed6e0065935edae0465e8b33b597f777fe"
+      },
+      "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/maiden_biome_modifier.json": {
+        "exists_worktree": false,
+        "sha256_worktree": null,
+        "sha256_head": null
+      },
+      "src/main/resources/data/thermal_shock_reforged/tags/entity_type/character_mobs.json": {
+        "exists_worktree": true,
+        "sha256_worktree": "ad8bf07169fb8daebd45fbc93ec8139210cc86b5986c3277a6fe458157589be0",
+        "sha256_head": "ad8bf07169fb8daebd45fbc93ec8139210cc86b5986c3277a6fe458157589be0"
+      },
+      "src/main/resources/data/thermal_shock_reforged/tags/entity_type/cloro_weak.json": {
+        "exists_worktree": true,
+        "sha256_worktree": "3999505dfc12d4664cc70996130ba694d1dceee5033904680aa2341f0eeb48b8",
+        "sha256_head": "3999505dfc12d4664cc70996130ba694d1dceee5033904680aa2341f0eeb48b8"
+      },
+      "src/main/resources/data/thermal_shock_reforged/worldgen/structure/benzor_home.json": {
+        "exists_worktree": false,
+        "sha256_worktree": null,
+        "sha256_head": null
+      },
+      "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/benzor_home.json": {
+        "exists_worktree": false,
+        "sha256_worktree": null,
+        "sha256_head": null
+      },
+      "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/benzor_home.json": {
+        "exists_worktree": false,
+        "sha256_worktree": null,
+        "sha256_head": null
+      },
+      "src/main/resources/assets/thermal_shock_reforged/textures/entities/benzor.png": {
+        "exists_worktree": true,
+        "sha256_worktree": "9329b65d1fe0a4c7288807b9099ecb7f17657e91ff947024a0c8a1d2593c395b",
+        "sha256_head": "9329b65d1fe0a4c7288807b9099ecb7f17657e91ff947024a0c8a1d2593c395b"
+      },
+      "src/main/resources/assets/thermal_shock_reforged/textures/entities/benzorglow.png": {
+        "exists_worktree": true,
+        "sha256_worktree": "4771aa425c5d570300ddb5de0993da9b600960c50168b769c706df524cc20295",
+        "sha256_head": "4771aa425c5d570300ddb5de0993da9b600960c50168b769c706df524cc20295"
+      },
+      "src/main/resources/assets/thermal_shock_reforged/textures/entities/maiden.png": {
+        "exists_worktree": true,
+        "sha256_worktree": "37575b206a1449d4501711122952a9cb992faf2417ee5d672544d9d3dc879d28",
+        "sha256_head": "37575b206a1449d4501711122952a9cb992faf2417ee5d672544d9d3dc879d28"
+      },
+      "src/main/resources/assets/thermal_shock_reforged/textures/entities/maiden_micah.png": {
+        "exists_worktree": true,
+        "sha256_worktree": "6a2069729d7f4013457b35ad903007829312583d1a4456316a4f66169414a4c1",
+        "sha256_head": "6a2069729d7f4013457b35ad903007829312583d1a4456316a4f66169414a4c1"
+      },
+      "src/main/resources/assets/thermal_shock_reforged/textures/entities/maidenumabel.png": {
+        "exists_worktree": true,
+        "sha256_worktree": "05bc771f1ffe575e168223ea63d9960e111c6a04d4c44cff48c1e53e9a06a191",
+        "sha256_head": "05bc771f1ffe575e168223ea63d9960e111c6a04d4c44cff48c1e53e9a06a191"
+      },
+      "src/main/resources/assets/thermal_shock_reforged/sounds.json": {
+        "exists_worktree": true,
+        "sha256_worktree": "602af97956d0f615f45201fa498565eb974aab609f019227960595301d40541d",
+        "sha256_head": "602af97956d0f615f45201fa498565eb974aab609f019227960595301d40541d"
+      },
+      "src/main/resources/assets/thermal_shock_reforged/textures/block/maiden_relic.png": {
+        "exists_worktree": true,
+        "sha256_worktree": "b83c424cd98c5399dd0306c9e434ad13741a28e69d23236f125d88a4278b3558",
+        "sha256_head": "b83c424cd98c5399dd0306c9e434ad13741a28e69d23236f125d88a4278b3558"
+      },
+      "src/main/resources/assets/thermal_shock_reforged/textures/item/benzor_egg.png": {
+        "exists_worktree": true,
+        "sha256_worktree": "d166351451f842aeb2b7d66035ad7b938f59a2569c8fcf8b1f86d9ebcf9f1aef",
+        "sha256_head": "d166351451f842aeb2b7d66035ad7b938f59a2569c8fcf8b1f86d9ebcf9f1aef"
+      },
+      "src/main/resources/assets/thermal_shock_reforged/textures/item/maiden_boss_bundle.png": {
+        "exists_worktree": true,
+        "sha256_worktree": "ba6f6b498d8854703c4a7a2e2b76b86ad3de6158cbcb12d2b7f74e5599d92176",
+        "sha256_head": "ba6f6b498d8854703c4a7a2e2b76b86ad3de6158cbcb12d2b7f74e5599d92176"
+      },
+      "src/main/resources/assets/thermal_shock_reforged/textures/item/maiden_egg.png": {
+        "exists_worktree": true,
+        "sha256_worktree": "e861bce2a883ed2948863541bf5ddd795009d04a509286944fbd2b2ab90eaf30",
+        "sha256_head": "e861bce2a883ed2948863541bf5ddd795009d04a509286944fbd2b2ab90eaf30"
+      },
+      "src/main/resources/assets/thermal_shock_reforged/textures/item/maiden_mask.png": {
+        "exists_worktree": true,
+        "sha256_worktree": "f3d210e562f44ea95b0c7f2c2184833f0093b48420a9b1f177fc8a1780f92d42",
+        "sha256_head": "f3d210e562f44ea95b0c7f2c2184833f0093b48420a9b1f177fc8a1780f92d42"
+      },
+      "src/main/resources/assets/thermal_shock_reforged/textures/item/maiden_relic_icon.png": {
+        "exists_worktree": true,
+        "sha256_worktree": "6ff51b28a8c5492e8aee856cf350963c1e82bdf4ff3873ecbc7a6cc49ad12685",
+        "sha256_head": "6ff51b28a8c5492e8aee856cf350963c1e82bdf4ff3873ecbc7a6cc49ad12685"
+      },
+      "src/main/resources/assets/thermal_shock_reforged/textures/item/maidenmask.png": {
+        "exists_worktree": true,
+        "sha256_worktree": "7e663c3838a6b3b7817d1a94eb589af922c639dfde8897c5b29d10e364c14bce",
+        "sha256_head": "7e663c3838a6b3b7817d1a94eb589af922c639dfde8897c5b29d10e364c14bce"
+      },
+      "src/main/resources/assets/thermal_shock_reforged/textures/item/maidentablet.png": {
+        "exists_worktree": true,
+        "sha256_worktree": "6eebffbc6b5ca865e84233c0d5b891af1c3be4b2aff5fa13f45f945cffb3b9b8",
+        "sha256_head": "6eebffbc6b5ca865e84233c0d5b891af1c3be4b2aff5fa13f45f945cffb3b9b8"
+      },
+      "src/main/resources/assets/thermal_shock_reforged/textures/item/maidentablet.png.mcmeta": {
+        "exists_worktree": true,
+        "sha256_worktree": "97f425d9cc3f80147ddf0e97b2d5dee265d9c7036ab540ef6c0218feb968afdc",
+        "sha256_head": "97f425d9cc3f80147ddf0e97b2d5dee265d9c7036ab540ef6c0218feb968afdc"
+      },
+      "src/main/resources/assets/thermal_shock_reforged/textures/screens/atlas/imagebutton_infobenzor.png": {
+        "exists_worktree": true,
+        "sha256_worktree": "89e2dd36bdd32ca22bab3403d066f4364786659dddcc92362a919a392de866bb",
+        "sha256_head": "89e2dd36bdd32ca22bab3403d066f4364786659dddcc92362a919a392de866bb"
+      },
+      "src/main/resources/assets/thermal_shock_reforged/textures/screens/benzoridleportrait.png": {
+        "exists_worktree": true,
+        "sha256_worktree": "ceb02cebb1e9fa3b1d2032d06d5371307e3d16c44b2d4ac399dda8df787ba09c",
+        "sha256_head": "ceb02cebb1e9fa3b1d2032d06d5371307e3d16c44b2d4ac399dda8df787ba09c"
+      },
+      "src/main/resources/assets/thermal_shock_reforged/textures/screens/benzoridlerubiconstatic.png": {
+        "exists_worktree": true,
+        "sha256_worktree": "234dc719796d75609a95e8c99274f665da5032b39d71797209e7e9576d612154",
+        "sha256_head": "234dc719796d75609a95e8c99274f665da5032b39d71797209e7e9576d612154"
+      },
+      "src/main/resources/assets/thermal_shock_reforged/textures/screens/benzorinfobox.png": {
+        "exists_worktree": true,
+        "sha256_worktree": "b15e059c252329bda606fa915e7a1679cdd84c961a9ba5de47da1ca5d9d34734",
+        "sha256_head": "b15e059c252329bda606fa915e7a1679cdd84c961a9ba5de47da1ca5d9d34734"
+      },
+      "src/main/resources/assets/thermal_shock_reforged/textures/screens/benzorspicemenu.png": {
+        "exists_worktree": true,
+        "sha256_worktree": "1f067d8ba3dd2320e35e87a2a3ea65b3fb66dcdaf9f2e683e4650755d51823d6",
+        "sha256_head": "1f067d8ba3dd2320e35e87a2a3ea65b3fb66dcdaf9f2e683e4650755d51823d6"
+      },
+      "src/main/resources/assets/thermal_shock_reforged/textures/screens/infobenzor.png": {
+        "exists_worktree": true,
+        "sha256_worktree": "fd8b5464436991356617b4f5578be2dd0686fd2e7a2754027d967321718fe288",
+        "sha256_head": "fd8b5464436991356617b4f5578be2dd0686fd2e7a2754027d967321718fe288"
+      },
+      "src/main/resources/data/thermal_shock_reforged/structure/benzor_home.nbt": {
+        "exists_worktree": false,
+        "sha256_worktree": null,
+        "sha256_head": null
+      },
+      "src/main/resources/data/thermal_shock_reforged/structure/maiden_chamber.nbt": {
+        "exists_worktree": false,
+        "sha256_worktree": null,
+        "sha256_head": null
+      }
+    }
+  }
+}

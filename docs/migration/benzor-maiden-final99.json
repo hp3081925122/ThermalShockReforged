@@ -1,0 +1,167 @@
+{
+  "schema": "benzor-maiden-final99-v1",
+  "baseline_head": "8397254821278a42c577addcb6f1f34e53c97ebc",
+  "original_jar_sha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436",
+  "production_stopped": true,
+  "no_further_production_changes": true,
+  "stopped_at_utc": "2026-10-19T11:46:36.141724+00:00",
+  "production_file_count": 18,
+  "java_count": 12,
+  "new_data_count": 6,
+  "aggregate_format": "SHA256 of UTF-8 concatenated sorted lines: path + single space + lowercase SHA256 + LF",
+  "production_aggregate_sha256": "9fb6b5d643d9de8f2dd799434f426fe33559025cd8a17474b1b9b4c1cf717825",
+  "production_files": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/benzor/BenzorRenderer.java",
+      "sha256": "829db90612d09b6f45deff332cc444b4764171f8d4cb807cd1e3ab78c4e6bf8f",
+      "bytes": 2901
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/maiden/MaidenRenderer.java",
+      "sha256": "51c2bc41dc924dab8138cf55e968b87d5228e83b35e220252655a88d34bafaf9",
+      "bytes": 1556
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/npc/benzor/BenzorScreen.java",
+      "sha256": "374a28dff06bfa17449db7a50c838769ccfa11cbb9e73cee7ae51b217e7777c1",
+      "bytes": 3687
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/npc/benzor/BenzorMenu.java",
+      "sha256": "d547aee9fdeff0c5f20760b4ddf84a73e06689301a386773002996fa160c0cac",
+      "bytes": 6642
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/npc/benzor/BenzorMenus.java",
+      "sha256": "0f27cc02e56382bd62b36b790c12ad2eb7f4a8e5662a55f41066f5a121b1a604",
+      "bytes": 3430
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/npc/benzor/BenzorPage.java",
+      "sha256": "5b27a8f6c50e24c42d621c296ee722a435a0e536cb12d92f94a8555abfaf3644",
+      "bytes": 6251
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/benzor/BenzorContent.java",
+      "sha256": "1324284523e6816492947192c241388ef9f471783b8a41aa47fb2751728c5e0a",
+      "bytes": 1779
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/benzor/BenzorEntity.java",
+      "sha256": "7d0d84478fbe0a5aa83fbfaaf184d4d537dbb5f35943d6ecb01e6a331280f083",
+      "bytes": 4997
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/maiden/MaidenConfig.java",
+      "sha256": "065347200333757083140ce42c63eb53bef6ac9f4edb72d722292cbc121df191",
+      "bytes": 1938
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/maiden/MaidenContent.java",
+      "sha256": "cf3417fbcbda632a77e1fd3d1c39133d7eb2b8846e8faf533376f0845823139b",
+      "bytes": 3639
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/maiden/MaidenEntity.java",
+      "sha256": "876224a317d7bb77194f4c073b573da79cb39533362572079d98f2d3b43a0dc1",
+      "bytes": 7416
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/maiden/MaidenVolleyEntity.java",
+      "sha256": "d412dedc0a0028cbd0f2de1bed0bd876e813bd63bcf91ea8303ee2d5221ad49a",
+      "bytes": 7792
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/advancement/blackpowder_get.json",
+      "sha256": "492fcf7251feca2fb333dd7a7a25d360a99ddb73ffa00ceda32af0ed53b560b7",
+      "bytes": 769
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/maiden_biome_modifier.json",
+      "sha256": "bc7b9d668ccf886c441ed16da0fe2d070d598ed8bb173f6d4aae9c75a72765be",
+      "bytes": 349
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/benzor_home.nbt",
+      "sha256": "89b7ecb3aee2d7bfe8cbd826807b4e6617f628805944c5b49e1d9a59e326e5a8",
+      "bytes": 12134
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/structure/benzor_home.json",
+      "sha256": "f3f9ad04b359c2b87a3960211c8b5e4ee05ad7b3c4be01b6327f70f638100ec7",
+      "bytes": 532
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/benzor_home.json",
+      "sha256": "d6600f7ecb654d1f8125e766328b9abeac3066feabb815ca2683040bfbf2f908",
+      "bytes": 238
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/benzor_home.json",
+      "sha256": "f1e05ff78aadb481f6135d3b1b2747a79e6801f6b32f41ed5db2afcc8cbc8f1d",
+      "bytes": 599
+    }
+  ],
+  "delivery_documents": [
+    {
+      "path": "docs/migration/benzor-maiden-batch99.md",
+      "sha256": "cfe131c6eb731e84a900f5d475d7531da4acfc7c676b4dff4f0582d5acb69351"
+    },
+    {
+      "path": "docs/migration/benzor-maiden-integration99.json",
+      "sha256": "8277151e4ded154dfbad72741bcd4db2e67ae2dfa709345242f58ad8b3b1eafa"
+    },
+    {
+      "path": "docs/migration/benzor-maiden-inventory99.json",
+      "sha256": "a05bcde9d8b0eedf8d28d06c7e2b45121638e81a19c1582da7ab92d70662e792"
+    },
+    {
+      "path": "docs/migration/benzor-maiden-investigation99.json",
+      "sha256": "3bab44f05ca7c4ad985f0bc951651cd5181952374183b7d4c6bd2d623a88eaf7"
+    },
+    {
+      "path": "docs/migration/benzor-maiden-source-closure99.json",
+      "sha256": "c236f55ace378cc17be22cd0c85de28af7858191e89c00e8685714a0555501ab"
+    },
+    {
+      "path": "docs/migration/benzor-maiden-source-evidence99.json",
+      "sha256": "526f48f7b97f7e4c70e48d82da8916a75b9d8cedb89ff7ec41b8c6538a7d94e9"
+    },
+    {
+      "path": "docs/migration/benzor-maiden-structures99.json",
+      "sha256": "c2bfb8fa7867997e346415e3a101067f271f51f3450778a0c72cc7c5bf7fbc01"
+    },
+    {
+      "path": "docs/migration/benzor-maiden-validation99.json",
+      "sha256": "2b3586c40d8035fbc6a79013b350622692961c028be24e1db069114e8500d2f5"
+    }
+  ],
+  "shared_integration": "docs/migration/benzor-maiden-integration99.json",
+  "shared_integration_sha256": "8277151e4ded154dfbad72741bcd4db2e67ae2dfa709345242f58ad8b3b1eafa",
+  "validation": "docs/migration/benzor-maiden-validation99.json",
+  "validation_sha256": "2b3586c40d8035fbc6a79013b350622692961c028be24e1db069114e8500d2f5",
+  "verification": {
+    "java_ast_utf8_no_comments": true,
+    "owned_diff_check": true,
+    "nine_gui_metadata_original_exact": true,
+    "arrow_vectors_coefficients_timing_original_exact": true,
+    "normal_trade_count_combinations": 274625,
+    "asset_byte_identity_count": 25,
+    "egg_models_namespace_only": 2,
+    "benzor_nbt_original_and_converted_roundtrip_geometry": true,
+    "native_sources": "BenzorHome and Maiden biome modifier integrated",
+    "compile": "NOT RUN; main thread compiles combined fixed inputs",
+    "server_client_render": "NOT RUN; isolated baseline testing is owned by another thread; no test documents modified"
+  },
+  "deferred_only": [
+    "untagged_mobs:scrambler skin integration",
+    "Structure Gel capability integration"
+  ],
+  "original_unreachable_artifact": "maiden_chamber NBT: original boss_spawner and two variant eggs have no registration; no real consumer found. Not activated or fabricated.",
+  "main_thread_actions": [
+    "Apply exact integration JSON Java/tag/language increments and shared changelog/deferred notes",
+    "Verify these 18 hashes before unified compilation",
+    "Keep separate isolated 8397254 baseline tests untouched"
+  ],
+  "ownership_statement": "Only listed Benzor/Maiden production and delivery documents written; shared code, language, tags and test documents remain owned by main or test threads."
+}

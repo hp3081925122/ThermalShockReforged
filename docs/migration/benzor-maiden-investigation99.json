@@ -1,0 +1,468 @@
+{
+  "batch": 99,
+  "base_head": "8397254",
+  "menus": {
+    "BenzorBlackpowderInfo": {
+      "width": 276,
+      "height": 182,
+      "labels": [
+        {
+          "key": "gui.thermal_shock.benzor_blackpowder_info.label_kutty",
+          "x": 9,
+          "y": 112,
+          "color": -1
+        },
+        {
+          "key": "gui.thermal_shock.benzor_blackpowder_info.label_concierge",
+          "x": 67,
+          "y": 93,
+          "color": -1
+        },
+        {
+          "key": "gui.thermal_shock.benzor_blackpowder_info.label_empty",
+          "x": 9,
+          "y": 123,
+          "color": -1
+        },
+        {
+          "key": "gui.thermal_shock.benzor_blackpowder_info.label_the_surface_people_say_benzor",
+          "x": 9,
+          "y": 134,
+          "color": -1
+        }
+      ],
+      "image_calls": [
+        "guiGraphics.blit(new ResourceLocation(\"thermal_shock:textures/screens/mainspeechbox.png\"), this.leftPos + 0, this.topPos + 103, 0.0f, 0.0f, 276, 276, 276, 276);",
+        "guiGraphics.blit(new ResourceLocation(\"thermal_shock:textures/screens/mainlabelbox.png\"), this.leftPos + 62, this.topPos + -30, 0.0f, 0.0f, 134, 134, 134, 134);",
+        "guiGraphics.blit(new ResourceLocation(\"thermal_shock:textures/screens/benzoridlerubiconstatic.png\"), this.leftPos + 65, this.topPos + -39, 0.0f, 0.0f, 128, 128, 128, 128);"
+      ],
+      "buttons": [
+        {
+          "x": 237,
+          "y": 161,
+          "width": 38,
+          "height": 20,
+          "texture": "nextbuttona",
+          "action": 0
+        }
+      ],
+      "network_actions": "public static void handleButtonAction(Player entity, int buttonID, int x, int y, int z) {\n        Level world = entity.level();\n        HashMap<String, Object> guistate = BenzorBlackpowderInfoMenu.guistate;\n        if (!world.hasChunkAt(new BlockPos(x, y, z))) {\n            return;\n        }\n        if (buttonID == 0) {\n            BenzorInfoPageOpenProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity);\n        }\n    }\n\n",
+      "menu_init_calls": [
+        "ConciergeGUIOpenTickProcedure.execute();"
+      ],
+      "custom_slot_count": 0
+    },
+    "BenzorBlizzardInfo": {
+      "width": 276,
+      "height": 182,
+      "labels": [
+        {
+          "key": "gui.thermal_shock.benzor_blizzard_info.label_kutty",
+          "x": 9,
+          "y": 112,
+          "color": -1
+        },
+        {
+          "key": "gui.thermal_shock.benzor_blizzard_info.label_concierge",
+          "x": 67,
+          "y": 93,
+          "color": -1
+        },
+        {
+          "key": "gui.thermal_shock.benzor_blizzard_info.label_empty",
+          "x": 9,
+          "y": 123,
+          "color": -1
+        },
+        {
+          "key": "gui.thermal_shock.benzor_blizzard_info.label_the_surface_people_say_benzor",
+          "x": 9,
+          "y": 134,
+          "color": -1
+        },
+        {
+          "key": "gui.thermal_shock.benzor_blizzard_info.label_this_is_why_benzor_stay_down_h",
+          "x": 9,
+          "y": 145,
+          "color": -1
+        }
+      ],
+      "image_calls": [
+        "guiGraphics.blit(new ResourceLocation(\"thermal_shock:textures/screens/mainspeechbox.png\"), this.leftPos + 0, this.topPos + 103, 0.0f, 0.0f, 276, 276, 276, 276);",
+        "guiGraphics.blit(new ResourceLocation(\"thermal_shock:textures/screens/mainlabelbox.png\"), this.leftPos + 62, this.topPos + -30, 0.0f, 0.0f, 134, 134, 134, 134);",
+        "guiGraphics.blit(new ResourceLocation(\"thermal_shock:textures/screens/benzoridlerubiconstatic.png\"), this.leftPos + 65, this.topPos + -39, 0.0f, 0.0f, 128, 128, 128, 128);"
+      ],
+      "buttons": [
+        {
+          "x": 237,
+          "y": 161,
+          "width": 38,
+          "height": 20,
+          "texture": "nextbuttona",
+          "action": 0
+        }
+      ],
+      "network_actions": "public static void handleButtonAction(Player entity, int buttonID, int x, int y, int z) {\n        Level world = entity.level();\n        HashMap<String, Object> guistate = BenzorBlizzardInfoMenu.guistate;\n        if (!world.hasChunkAt(new BlockPos(x, y, z))) {\n            return;\n        }\n        if (buttonID == 0) {\n            BenzorInfoPageOpenProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity);\n        }\n    }\n\n",
+      "menu_init_calls": [
+        "ConciergeGUIOpenTickProcedure.execute();"
+      ],
+      "custom_slot_count": 0
+    },
+    "BenzorInfectionInfo": {
+      "width": 276,
+      "height": 182,
+      "labels": [
+        {
+          "key": "gui.thermal_shock.benzor_infection_info.label_kutty",
+          "x": 9,
+          "y": 112,
+          "color": -1
+        },
+        {
+          "key": "gui.thermal_shock.benzor_infection_info.label_concierge",
+          "x": 67,
+          "y": 93,
+          "color": -1
+        },
+        {
+          "key": "gui.thermal_shock.benzor_infection_info.label_empty",
+          "x": 9,
+          "y": 123,
+          "color": -1
+        },
+        {
+          "key": "gui.thermal_shock.benzor_infection_info.label_the_surface_people_say_benzor",
+          "x": 9,
+          "y": 134,
+          "color": -1
+        },
+        {
+          "key": "gui.thermal_shock.benzor_infection_info.label_this_is_why_benzor_stay_down_h",
+          "x": 9,
+          "y": 145,
+          "color": -1
+        }
+      ],
+      "image_calls": [
+        "guiGraphics.blit(new ResourceLocation(\"thermal_shock:textures/screens/mainspeechbox.png\"), this.leftPos + 0, this.topPos + 103, 0.0f, 0.0f, 276, 276, 276, 276);",
+        "guiGraphics.blit(new ResourceLocation(\"thermal_shock:textures/screens/mainlabelbox.png\"), this.leftPos + 62, this.topPos + -30, 0.0f, 0.0f, 134, 134, 134, 134);",
+        "guiGraphics.blit(new ResourceLocation(\"thermal_shock:textures/screens/benzoridlerubiconstatic.png\"), this.leftPos + 65, this.topPos + -39, 0.0f, 0.0f, 128, 128, 128, 128);"
+      ],
+      "buttons": [
+        {
+          "x": 237,
+          "y": 161,
+          "width": 38,
+          "height": 20,
+          "texture": "nextbuttona",
+          "action": 0
+        }
+      ],
+      "network_actions": "public static void handleButtonAction(Player entity, int buttonID, int x, int y, int z) {\n        Level world = entity.level();\n        HashMap<String, Object> guistate = BenzorInfectionInfoMenu.guistate;\n        if (!world.hasChunkAt(new BlockPos(x, y, z))) {\n            return;\n        }\n        if (buttonID == 0) {\n            BenzorInfoPageOpenProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity);\n        }\n    }\n\n",
+      "menu_init_calls": [
+        "ConciergeGUIOpenTickProcedure.execute();"
+      ],
+      "custom_slot_count": 0
+    },
+    "BenzorInfo": {
+      "width": 212,
+      "height": 116,
+      "labels": [],
+      "image_calls": [
+        "guiGraphics.blit(new ResourceLocation(\"thermal_shock:textures/screens/benzorinfobox.png\"), this.leftPos + -1, this.topPos + 0, 0.0f, 0.0f, 212, 116, 212, 116);"
+      ],
+      "buttons": [
+        {
+          "x": 14,
+          "y": 32,
+          "width": 59,
+          "height": 20,
+          "texture": "infobenzor",
+          "action": 0
+        },
+        {
+          "x": 76,
+          "y": 32,
+          "width": 59,
+          "height": 20,
+          "texture": "infospice",
+          "action": 1
+        },
+        {
+          "x": 138,
+          "y": 32,
+          "width": 59,
+          "height": 20,
+          "texture": "infoinfection",
+          "action": 2
+        },
+        {
+          "x": 14,
+          "y": 55,
+          "width": 59,
+          "height": 20,
+          "texture": "infoblizzard",
+          "action": 3
+        },
+        {
+          "x": 76,
+          "y": 55,
+          "width": 59,
+          "height": 20,
+          "texture": "infoblackpowder",
+          "action": 4
+        }
+      ],
+      "network_actions": "public static void handleButtonAction(Player entity, int buttonID, int x, int y, int z) {\n        Level world = entity.level();\n        HashMap<String, Object> guistate = BenzorInfoMenu.guistate;\n        if (!world.hasChunkAt(new BlockPos(x, y, z))) {\n            return;\n        }\n        if (buttonID == 0) {\n            BenzorSelfPageOpenProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity);\n        }\n        if (buttonID == 1) {\n            BenzorSpiceInfoPageOpenProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity);\n        }\n        if (buttonID == 2) {\n            BenzorInfectionPageOpenProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity);\n        }\n        if (buttonID == 3) {\n            BenzorBlizzardPageOpenProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity);\n        }\n        if (buttonID == 4) {\n            BenzorBlackpowderPageOpenProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity);\n        }\n    }\n\n",
+      "menu_init_calls": [
+        "ConciergeMainThisGUIIsOpenedProcedure.execute();",
+        "ConciergeGUIOpenTickProcedure.execute();"
+      ],
+      "custom_slot_count": 0
+    },
+    "BenzorMain": {
+      "width": 276,
+      "height": 182,
+      "labels": [
+        {
+          "key": "gui.thermal_shock.benzor_main.label_concierge",
+          "x": 67,
+          "y": 93,
+          "color": -1
+        }
+      ],
+      "image_calls": [
+        "guiGraphics.blit(new ResourceLocation(\"thermal_shock:textures/screens/mainspeechbox.png\"), this.leftPos + 0, this.topPos + 103, 0.0f, 0.0f, 276, 276, 276, 276);",
+        "guiGraphics.blit(new ResourceLocation(\"thermal_shock:textures/screens/mainflavourboxes.png\"), this.leftPos + 62, this.topPos + -110, 0.0f, 0.0f, 214, 214, 214, 214);",
+        "guiGraphics.blit(new ResourceLocation(\"thermal_shock:textures/screens/benzoridlerubiconstatic.png\"), this.leftPos + 65, this.topPos + -39, 0.0f, 0.0f, 128, 128, 128, 128);"
+      ],
+      "buttons": [
+        {
+          "x": 203,
+          "y": -6,
+          "width": 65,
+          "height": 22,
+          "texture": "maininfobuttona",
+          "action": 0
+        },
+        {
+          "x": 203,
+          "y": 17,
+          "width": 65,
+          "height": 22,
+          "texture": "maintradebuttona",
+          "action": 1
+        }
+      ],
+      "network_actions": "public static void handleButtonAction(Player entity, int buttonID, int x, int y, int z) {\n        Level world = entity.level();\n        HashMap<String, Object> guistate = BenzorMainMenu.guistate;\n        if (!world.hasChunkAt(new BlockPos(x, y, z))) {\n            return;\n        }\n        if (buttonID == 0) {\n            BenzorInfoPageOpenProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity);\n        }\n        if (buttonID == 1) {\n            BenzorSpicePageOpenProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity);\n        }\n    }\n\n",
+      "menu_init_calls": [
+        "ConciergeMainThisGUIIsOpenedProcedure.execute();",
+        "ConciergeGUIOpenTickProcedure.execute();"
+      ],
+      "custom_slot_count": 0
+    },
+    "BenzorSelfInfo": {
+      "width": 276,
+      "height": 182,
+      "labels": [
+        {
+          "key": "gui.thermal_shock.benzor_self_info.label_kutty",
+          "x": 9,
+          "y": 112,
+          "color": -1
+        },
+        {
+          "key": "gui.thermal_shock.benzor_self_info.label_concierge",
+          "x": 67,
+          "y": 93,
+          "color": -1
+        },
+        {
+          "key": "gui.thermal_shock.benzor_self_info.label_more_spice_more_exp_yes",
+          "x": 9,
+          "y": 146,
+          "color": -1
+        },
+        {
+          "key": "gui.thermal_shock.benzor_self_info.label_empty",
+          "x": 9,
+          "y": 123,
+          "color": -1
+        },
+        {
+          "key": "gui.thermal_shock.benzor_self_info.label_the_surface_people_say_benzor",
+          "x": 9,
+          "y": 134,
+          "color": -1
+        }
+      ],
+      "image_calls": [
+        "guiGraphics.blit(new ResourceLocation(\"thermal_shock:textures/screens/mainspeechbox.png\"), this.leftPos + 2, this.topPos + 103, 0.0f, 0.0f, 276, 276, 276, 276);",
+        "guiGraphics.blit(new ResourceLocation(\"thermal_shock:textures/screens/mainlabelbox.png\"), this.leftPos + 62, this.topPos + -30, 0.0f, 0.0f, 134, 134, 134, 134);",
+        "guiGraphics.blit(new ResourceLocation(\"thermal_shock:textures/screens/benzoridlerubiconstatic.png\"), this.leftPos + 65, this.topPos + -39, 0.0f, 0.0f, 128, 128, 128, 128);"
+      ],
+      "buttons": [
+        {
+          "x": 237,
+          "y": 161,
+          "width": 38,
+          "height": 20,
+          "texture": "nextbuttona",
+          "action": 0
+        }
+      ],
+      "network_actions": "public static void handleButtonAction(Player entity, int buttonID, int x, int y, int z) {\n        Level world = entity.level();\n        HashMap<String, Object> guistate = BenzorSelfInfoMenu.guistate;\n        if (!world.hasChunkAt(new BlockPos(x, y, z))) {\n            return;\n        }\n        if (buttonID == 0) {\n            BenzorInfoPageOpenProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity);\n        }\n    }\n\n",
+      "menu_init_calls": [
+        "ConciergeGUIOpenTickProcedure.execute();"
+      ],
+      "custom_slot_count": 0
+    },
+    "BenzorSpiceEpl": {
+      "width": 276,
+      "height": 182,
+      "labels": [
+        {
+          "key": "gui.thermal_shock.benzor_spice_epl.label_kutty",
+          "x": 9,
+          "y": 112,
+          "color": -1
+        },
+        {
+          "key": "gui.thermal_shock.benzor_spice_epl.label_concierge",
+          "x": 67,
+          "y": 93,
+          "color": -1
+        },
+        {
+          "key": "gui.thermal_shock.benzor_spice_epl.label_more_spice_more_exp_yes",
+          "x": 9,
+          "y": 123,
+          "color": -1
+        }
+      ],
+      "image_calls": [
+        "guiGraphics.blit(new ResourceLocation(\"thermal_shock:textures/screens/mainspeechbox.png\"), this.leftPos + 0, this.topPos + 103, 0.0f, 0.0f, 276, 276, 276, 276);",
+        "guiGraphics.blit(new ResourceLocation(\"thermal_shock:textures/screens/mainlabelbox.png\"), this.leftPos + 62, this.topPos + -30, 0.0f, 0.0f, 134, 134, 134, 134);",
+        "guiGraphics.blit(new ResourceLocation(\"thermal_shock:textures/screens/benzoridlerubiconstatic.png\"), this.leftPos + 65, this.topPos + -39, 0.0f, 0.0f, 128, 128, 128, 128);"
+      ],
+      "buttons": [
+        {
+          "x": 237,
+          "y": 161,
+          "width": 38,
+          "height": 20,
+          "texture": "nextbuttona",
+          "action": 0
+        }
+      ],
+      "network_actions": "public static void handleButtonAction(Player entity, int buttonID, int x, int y, int z) {\n        Level world = entity.level();\n        HashMap<String, Object> guistate = BenzorSpiceEplMenu.guistate;\n        if (!world.hasChunkAt(new BlockPos(x, y, z))) {\n            return;\n        }\n        if (buttonID == 0) {\n            BenzorSpicePageOpenProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity);\n        }\n    }\n\n",
+      "menu_init_calls": [
+        "ConciergeGUIOpenTickProcedure.execute();"
+      ],
+      "custom_slot_count": 0
+    },
+    "BenzorSpiceInfo": {
+      "width": 276,
+      "height": 182,
+      "labels": [
+        {
+          "key": "gui.thermal_shock.benzor_spice_info.label_kutty",
+          "x": 9,
+          "y": 112,
+          "color": -1
+        },
+        {
+          "key": "gui.thermal_shock.benzor_spice_info.label_concierge",
+          "x": 67,
+          "y": 93,
+          "color": -1
+        },
+        {
+          "key": "gui.thermal_shock.benzor_spice_info.label_empty",
+          "x": 9,
+          "y": 123,
+          "color": -1
+        },
+        {
+          "key": "gui.thermal_shock.benzor_spice_info.label_the_surface_people_say_benzor",
+          "x": 9,
+          "y": 134,
+          "color": -1
+        }
+      ],
+      "image_calls": [
+        "guiGraphics.blit(new ResourceLocation(\"thermal_shock:textures/screens/mainspeechbox.png\"), this.leftPos + 0, this.topPos + 103, 0.0f, 0.0f, 276, 276, 276, 276);",
+        "guiGraphics.blit(new ResourceLocation(\"thermal_shock:textures/screens/mainlabelbox.png\"), this.leftPos + 62, this.topPos + -30, 0.0f, 0.0f, 134, 134, 134, 134);",
+        "guiGraphics.blit(new ResourceLocation(\"thermal_shock:textures/screens/benzoridlerubiconstatic.png\"), this.leftPos + 65, this.topPos + -39, 0.0f, 0.0f, 128, 128, 128, 128);"
+      ],
+      "buttons": [
+        {
+          "x": 237,
+          "y": 161,
+          "width": 38,
+          "height": 20,
+          "texture": "nextbuttona",
+          "action": 0
+        }
+      ],
+      "network_actions": "public static void handleButtonAction(Player entity, int buttonID, int x, int y, int z) {\n        Level world = entity.level();\n        HashMap<String, Object> guistate = BenzorSpiceInfoMenu.guistate;\n        if (!world.hasChunkAt(new BlockPos(x, y, z))) {\n            return;\n        }\n        if (buttonID == 0) {\n            BenzorInfoPageOpenProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity);\n        }\n    }\n\n",
+      "menu_init_calls": [
+        "ConciergeGUIOpenTickProcedure.execute();"
+      ],
+      "custom_slot_count": 0
+    },
+    "BenzorSpice": {
+      "width": 206,
+      "height": 196,
+      "labels": [],
+      "image_calls": [
+        "guiGraphics.blit(new ResourceLocation(\"thermal_shock:textures/screens/benzorspicemenu.png\"), this.leftPos + -20, this.topPos + 0, 0.0f, 0.0f, 246, 180, 246, 180);"
+      ],
+      "buttons": [
+        {
+          "x": 84,
+          "y": 73,
+          "width": 38,
+          "height": 20,
+          "texture": "tradebuttona",
+          "action": 0
+        }
+      ],
+      "network_actions": "public static void handleButtonAction(Player entity, int buttonID, int x, int y, int z) {\n        Level world = entity.level();\n        HashMap<String, Object> guistate = BenzorSpiceMenu.guistate;\n        if (!world.hasChunkAt(new BlockPos(x, y, z))) {\n            return;\n        }\n        if (buttonID == 0) {\n            BenzorSpiceTradeProcedure.execute((Entity)entity);\n        }\n    }\n\n",
+      "menu_init_calls": [],
+      "custom_slot_count": 3
+    }
+  },
+  "procedures": {
+    "MaidenAttackProcedure": {
+      "sha256": "75c89dad95ce6a93a0fc817db134b9bf700974dcdeb64780a1b2b21d9fa73ee0"
+    },
+    "MaidenShieldingProcedure": {
+      "sha256": "cf28f49705d43d33c78d5682a7832e9167874ea8e4739846cf4573f0297bde47"
+    },
+    "MaidenOnEntityTickUpdateProcedure": {
+      "sha256": "fe005bcc56c9b07c48814e188901181727e4de9a011638a3d11dcb58ac17c9f6"
+    },
+    "MaidenEntityDiesProcedure": {
+      "sha256": "358e5962c5e4ea31704b7d379e3693926ff6b3a0a8706e83843cdba2d5fdc590"
+    },
+    "BenzorRightClickedOnEntityProcedure": {
+      "sha256": "01f240329cee9da53c16e4853b12b19df56ef7ea60617fbbe3586c8a65fe3ebf"
+    },
+    "BenzorSpiceTradeProcedure": {
+      "sha256": "f58264d138bb3282f18d3a76725be5aada7674e25aca1352bd8ab4c7e11484f3"
+    },
+    "BenzorSpicePageOpenProcedure": {
+      "sha256": "7536e657c48505a6f60d0d65aa183f49214f3702a917cc27af125bf7d6ad34a6"
+    },
+    "BenzorOnInitialEntitySpawnProcedure": {
+      "sha256": "ded0aa840d1bdb7f72cc9d917717797e103c01434d314a084ce13e8996a6da07"
+    },
+    "BenzorBlackpowderCheckProcedure": {
+      "sha256": "b35ea59d8ab7e941f0bb017132050249b5dc9d0e1899723236f2ed95ef4d54d6"
+    },
+    "KofoniBenzorCheckProcedure": {
+      "sha256": "2cd1d71928d51fcb1fb418aad213e3bbc6b4604ccd0a3c4eddd41823d8b4ca8c"
+    }
+  }
+}
