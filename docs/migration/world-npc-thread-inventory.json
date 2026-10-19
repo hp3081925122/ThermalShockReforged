@@ -1,0 +1,448 @@
+{
+  "date": "2026-10-19",
+  "scope": "NPC/剧情/结构自然生成",
+  "concierge": {
+    "status": "当前根入口及所有Java工厂未注册concierge；本批新增真实模块",
+    "pages": [
+      {
+        "source_screen": "ConcErrand1Epl1Screen.java",
+        "page_id": "conc_errand_1_epl_1",
+        "buttons": 1
+      },
+      {
+        "source_screen": "ConcErrand1Epl2Screen.java",
+        "page_id": "conc_errand_1_epl_2",
+        "buttons": 1
+      },
+      {
+        "source_screen": "ConcErrand1Epl3Screen.java",
+        "page_id": "conc_errand_1_epl_3",
+        "buttons": 2
+      },
+      {
+        "source_screen": "ConcErrand1EplFScreen.java",
+        "page_id": "conc_errand_1_epl_f",
+        "buttons": 1
+      },
+      {
+        "source_screen": "ConciergeErrandNoneScreen.java",
+        "page_id": "concierge_errand_none",
+        "buttons": 1
+      },
+      {
+        "source_screen": "ConciergeInfoScreen.java",
+        "page_id": "ConciergeInfoScreen",
+        "buttons": 5
+      },
+      {
+        "source_screen": "ConciergeMainScreen.java",
+        "page_id": "concierge_main",
+        "buttons": 3
+      },
+      {
+        "source_screen": "ConciergeTradeEplScreen.java",
+        "page_id": "concierge_trade_epl",
+        "buttons": 1
+      },
+      {
+        "source_screen": "ConcInfoBlizzardScreen.java",
+        "page_id": "conc_info_blizzard",
+        "buttons": 1
+      },
+      {
+        "source_screen": "ConcInfoFloristScreen.java",
+        "page_id": "conc_info_florist",
+        "buttons": 1
+      },
+      {
+        "source_screen": "ConcInfoInfectionScreen.java",
+        "page_id": "conc_info_infection",
+        "buttons": 1
+      },
+      {
+        "source_screen": "ConcInfoSelfScreen.java",
+        "page_id": "conc_info_self",
+        "buttons": 1
+      },
+      {
+        "source_screen": "ConcInfoVilebathScreen.java",
+        "page_id": "conc_info_vilebath",
+        "buttons": 1
+      },
+      {
+        "source_screen": "ConcTradeHeavyRoundScreen.java",
+        "page_id": "conc_trade_heavy_round",
+        "buttons": 3
+      },
+      {
+        "source_screen": "ConcTradeLargeSpiderLilyScreen.java",
+        "page_id": "conc_trade_large_spider_lily",
+        "buttons": 3
+      },
+      {
+        "source_screen": "ConcTradeLightRoundScreen.java",
+        "page_id": "conc_trade_light_round",
+        "buttons": 3
+      },
+      {
+        "source_screen": "ConcTradePanaceaScreen.java",
+        "page_id": "conc_trade_panacea",
+        "buttons": 3
+      },
+      {
+        "source_screen": "ConcTradeSpecRoundScreen.java",
+        "page_id": "conc_trade_spec_round",
+        "buttons": 3
+      },
+      {
+        "source_screen": "ConcTradeSpiderLiliesScreen.java",
+        "page_id": "conc_trade_spider_lilies",
+        "buttons": 3
+      },
+      {
+        "source_screen": "ConcTradeWideAngleScreen.java",
+        "page_id": "conc_trade_wide_angle",
+        "buttons": 3
+      }
+    ],
+    "trade_count": 7,
+    "quest_chain": [
+      "errands_get",
+      "blasphemy_1",
+      "blasphemy_2",
+      "blasphemy_3",
+      "blasphemy_4"
+    ],
+    "missing_advancement": "blasphemy_4"
+  },
+  "structures": [
+    {
+      "id": "vilebath_castle",
+      "size": [
+        79,
+        43,
+        87
+      ],
+      "data_version": 3465,
+      "blocks": 295539,
+      "palette": 154,
+      "entities": {
+        "thermal_shock:sootle": 7,
+        "thermal_shock:beetle_thrasher": 16,
+        "thermal_shock:dormant_beetle_crasher": 5,
+        "thermal_shock:dormant_monolith": 1,
+        "minecraft:item_frame": 6,
+        "thermal_shock:sootling": 1,
+        "thermal_shock:herald": 3,
+        "thermal_shock:infestophage_seed": 5,
+        "thermal_shock:frostilyte": 1
+      },
+      "block_entities": {
+        "thermal_shock:thermal_geyser": 5,
+        "thermal_shock:ferrous_cache_pad": 12,
+        "thermal_shock:enchanted_cache": 9,
+        "thermal_shock:phobotite_mantle_outcrop": 9,
+        "thermal_shock:cryonic_cache": 3,
+        "thermal_shock:shale_pillar": 5,
+        "minecraft:mob_spawner": 2,
+        "minecraft:banner": 27,
+        "thermal_shock:maw_door": 1,
+        "thermal_shock:grand_blasphemer": 1,
+        "thermal_shock:shale_pot": 2
+      },
+      "grand_positions": [
+        [
+          45,
+          14,
+          60
+        ]
+      ],
+      "items": [
+        "thermal_shock:bloodstone_halberd",
+        "thermal_shock:bloodstone_sword"
+      ],
+      "external_data": [
+        "structure_gel:empty"
+      ],
+      "custom_refs": [
+        "thermal_shock:beetle_thrasher",
+        "thermal_shock:blood",
+        "thermal_shock:bloodstone_halberd",
+        "thermal_shock:bloodstone_sword",
+        "thermal_shock:bordered_spirewood_planks",
+        "thermal_shock:bordered_spirewood_wall",
+        "thermal_shock:cobbled_shale",
+        "thermal_shock:cracked_shale_pillar_block",
+        "thermal_shock:cryonic_cache",
+        "thermal_shock:dormant_beetle_crasher",
+        "thermal_shock:dormant_monolith",
+        "thermal_shock:enchanted_cache",
+        "thermal_shock:ferrous_cache_pad",
+        "thermal_shock:ferrum_plating_slab",
+        "thermal_shock:frostilyte",
+        "thermal_shock:glowcap",
+        "thermal_shock:grand_blasphemer",
+        "thermal_shock:hanging_sparkler_bulb",
+        "thermal_shock:hazard_stripes",
+        "thermal_shock:herald",
+        "thermal_shock:impervium_brick_stairs",
+        "thermal_shock:impervium_bricks",
+        "thermal_shock:infestophage_seed",
+        "thermal_shock:mantle_bloodstone_ore",
+        "thermal_shock:mantle_ruby_ore",
+        "thermal_shock:mantlestone",
+        "thermal_shock:mantlestone_brick_slab",
+        "thermal_shock:mantlestone_brick_stairs",
+        "thermal_shock:mantlestone_bricks",
+        "thermal_shock:maw_door",
+        "thermal_shock:mossy_mantlestone",
+        "thermal_shock:phobotite_mantle_outcrop",
+        "thermal_shock:polished_mantle_wall",
+        "thermal_shock:polished_mantlestone",
+        "thermal_shock:polished_mantlestone_slab",
+        "thermal_shock:polished_mantlestone_stairs",
+        "thermal_shock:red_crystalleye_lamp",
+        "thermal_shock:shale_pillar",
+        "thermal_shock:shale_pillar_block",
+        "thermal_shock:shale_pot",
+        "thermal_shock:sootle",
+        "thermal_shock:sootling",
+        "thermal_shock:spiral_mantlestone",
+        "thermal_shock:spire_base",
+        "thermal_shock:spire_tendrils",
+        "thermal_shock:spirewood_door",
+        "thermal_shock:spirewood_planks",
+        "thermal_shock:spirewood_trapdoor",
+        "thermal_shock:steelstem_block",
+        "thermal_shock:thermal_geyser",
+        "thermal_shock:thin_spire_bulb",
+        "thermal_shock:tourmaline_spice_block",
+        "thermal_shock:veinroot_ends",
+        "thermal_shock:vermilli_trapdoor",
+        "thermal_shock:vermillion_lantern",
+        "thermal_shock:wrought_bars"
+      ],
+      "status": "待解析转换与完整依赖核对"
+    },
+    {
+      "id": "vilebathrubicon",
+      "size": [
+        79,
+        64,
+        87
+      ],
+      "data_version": 3465,
+      "blocks": 439872,
+      "palette": 153,
+      "entities": {
+        "thermal_shock:infestophage_seed": 5,
+        "thermal_shock:beetle_thrasher": 16,
+        "minecraft:item_frame": 6,
+        "thermal_shock:herald": 3,
+        "thermal_shock:dormant_beetle_crasher": 5,
+        "thermal_shock:frostilyte": 1,
+        "thermal_shock:sootle": 7,
+        "thermal_shock:sootling": 1,
+        "thermal_shock:dormant_monolith": 1
+      },
+      "block_entities": {
+        "thermal_shock:ferrous_cache_pad": 12,
+        "thermal_shock:thermal_geyser": 5,
+        "thermal_shock:phobotite_mantle_outcrop": 9,
+        "thermal_shock:cryonic_cache": 3,
+        "thermal_shock:enchanted_cache": 9,
+        "minecraft:mob_spawner": 2,
+        "thermal_shock:shale_pillar": 5,
+        "minecraft:banner": 27,
+        "thermal_shock:shale_pot": 2,
+        "thermal_shock:grand_blasphemer": 1,
+        "thermal_shock:maw_door": 1
+      },
+      "grand_positions": [
+        [
+          33,
+          14,
+          26
+        ]
+      ],
+      "items": [
+        "thermal_shock:bloodstone_halberd",
+        "thermal_shock:bloodstone_sword"
+      ],
+      "external_data": [
+        "structure_gel:empty"
+      ],
+      "custom_refs": [
+        "thermal_shock:beetle_thrasher",
+        "thermal_shock:blood",
+        "thermal_shock:bloodstone_halberd",
+        "thermal_shock:bloodstone_sword",
+        "thermal_shock:bordered_spirewood_planks",
+        "thermal_shock:bordered_spirewood_wall",
+        "thermal_shock:cobbled_shale",
+        "thermal_shock:cracked_shale_pillar_block",
+        "thermal_shock:cryonic_cache",
+        "thermal_shock:dormant_beetle_crasher",
+        "thermal_shock:dormant_monolith",
+        "thermal_shock:enchanted_cache",
+        "thermal_shock:ferrous_cache_pad",
+        "thermal_shock:ferrum_plating_slab",
+        "thermal_shock:frostilyte",
+        "thermal_shock:glowcap",
+        "thermal_shock:grand_blasphemer",
+        "thermal_shock:hanging_sparkler_bulb",
+        "thermal_shock:hazard_stripes",
+        "thermal_shock:herald",
+        "thermal_shock:impervium_brick_stairs",
+        "thermal_shock:impervium_bricks",
+        "thermal_shock:infestophage_seed",
+        "thermal_shock:mantle_bloodstone_ore",
+        "thermal_shock:mantle_ruby_ore",
+        "thermal_shock:mantlestone",
+        "thermal_shock:mantlestone_brick_slab",
+        "thermal_shock:mantlestone_brick_stairs",
+        "thermal_shock:mantlestone_bricks",
+        "thermal_shock:maw_door",
+        "thermal_shock:mossy_mantlestone",
+        "thermal_shock:phobotite_mantle_outcrop",
+        "thermal_shock:polished_mantle_wall",
+        "thermal_shock:polished_mantlestone",
+        "thermal_shock:polished_mantlestone_slab",
+        "thermal_shock:polished_mantlestone_stairs",
+        "thermal_shock:red_crystalleye_lamp",
+        "thermal_shock:shale_pillar",
+        "thermal_shock:shale_pillar_block",
+        "thermal_shock:shale_pot",
+        "thermal_shock:sootle",
+        "thermal_shock:sootling",
+        "thermal_shock:spiral_mantlestone",
+        "thermal_shock:spire_base",
+        "thermal_shock:spire_tendrils",
+        "thermal_shock:spirewood_door",
+        "thermal_shock:spirewood_planks",
+        "thermal_shock:spirewood_trapdoor",
+        "thermal_shock:steelstem_block",
+        "thermal_shock:thermal_geyser",
+        "thermal_shock:thin_spire_bulb",
+        "thermal_shock:tourmaline_spice_block",
+        "thermal_shock:veinroot_ends",
+        "thermal_shock:vermilli_trapdoor",
+        "thermal_shock:vermillion_lantern",
+        "thermal_shock:wrought_bars"
+      ],
+      "status": "待解析转换与完整依赖核对"
+    },
+    {
+      "id": "vilebath_bridge",
+      "size": [
+        21,
+        25,
+        49
+      ],
+      "data_version": 3465,
+      "blocks": 24549,
+      "palette": 14,
+      "entities": {},
+      "block_entities": {
+        "minecraft:jigsaw": 2
+      },
+      "grand_positions": [],
+      "items": [],
+      "external_data": [],
+      "custom_refs": [
+        "thermal_shock:mantlestone",
+        "thermal_shock:mantlestone_brick_slab",
+        "thermal_shock:mantlestone_brick_stairs",
+        "thermal_shock:mantlestone_bricks",
+        "thermal_shock:thin_spire_bulb",
+        "thermal_shock:vilebath_bridge",
+        "thermal_shock:vilebath_bridges"
+      ],
+      "status": "待解析转换与完整依赖核对"
+    },
+    {
+      "id": "vilebath_bridge_center",
+      "size": [
+        31,
+        25,
+        31
+      ],
+      "data_version": 3465,
+      "blocks": 22833,
+      "palette": 28,
+      "entities": {},
+      "block_entities": {
+        "minecraft:jigsaw": 4
+      },
+      "grand_positions": [],
+      "items": [],
+      "external_data": [],
+      "custom_refs": [
+        "thermal_shock:mantlestone",
+        "thermal_shock:mantlestone_brick_slab",
+        "thermal_shock:mantlestone_brick_stairs",
+        "thermal_shock:mantlestone_bricks",
+        "thermal_shock:polished_mantlestone",
+        "thermal_shock:spiral_mantlestone",
+        "thermal_shock:spire_base",
+        "thermal_shock:spire_bulb",
+        "thermal_shock:spire_stem",
+        "thermal_shock:spire_tendrils",
+        "thermal_shock:thin_spire_bulb",
+        "thermal_shock:vilebath_bridge",
+        "thermal_shock:vilebath_bridges"
+      ],
+      "status": "待解析转换与完整依赖核对"
+    },
+    {
+      "id": "vilebath_bridge_split",
+      "size": [
+        37,
+        25,
+        49
+      ],
+      "data_version": 3465,
+      "blocks": 45325,
+      "palette": 32,
+      "entities": {},
+      "block_entities": {
+        "minecraft:jigsaw": 3
+      },
+      "grand_positions": [],
+      "items": [],
+      "external_data": [],
+      "custom_refs": [
+        "thermal_shock:mantlestone",
+        "thermal_shock:mantlestone_brick_slab",
+        "thermal_shock:mantlestone_brick_stairs",
+        "thermal_shock:mantlestone_bricks",
+        "thermal_shock:polished_mantle_wall",
+        "thermal_shock:polished_mantlestone",
+        "thermal_shock:polished_mantlestone_stairs",
+        "thermal_shock:spire_bulb",
+        "thermal_shock:thin_spire_bulb",
+        "thermal_shock:vilebath_bridge",
+        "thermal_shock:vilebath_bridges"
+      ],
+      "status": "待解析转换与完整依赖核对"
+    }
+  ],
+  "other_npc": {
+    "hooked": [
+      "Laut",
+      "Florist",
+      "Shutterbug",
+      "Portrait",
+      "Ly",
+      "Sopel"
+    ],
+    "audit_next": "按原实体mobInteract和根注册核对其余NPC，不以历史coverage为真值"
+  },
+  "restrictions": [
+    "不运行Gradle/游戏/专服/Render Preview",
+    "不创建子代理",
+    "不提交推送",
+    "共享入口/语言/标签/进度由主对话集成",
+    "其它mod可选联动延期"
+  ]
+}

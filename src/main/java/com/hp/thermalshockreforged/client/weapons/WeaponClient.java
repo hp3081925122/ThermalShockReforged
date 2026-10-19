@@ -26,6 +26,7 @@ public final class WeaponClient {
         ThermoblasterClient.extensions(event);
         BuzzsawClient.extensions(event);
         LiteprismLaserClient.extensions(event);
+        CoreEjectFlareGunClient.extensions(event);
         event.registerItem(new IClientItemExtensions() {
             private Renderer renderer;
             @Override

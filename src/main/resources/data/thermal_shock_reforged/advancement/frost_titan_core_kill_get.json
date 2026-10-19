@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "id": "thermal_shock_reforged:core_eject_flare_gun"
+    },
+    "title": {
+      "translate": "advancements.frost_titan_core_kill_get.title"
+    },
+    "description": {
+      "translate": "advancements.frost_titan_core_kill_get.descr"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "frost_titan_core_kill_get_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 10000
+  },
+  "parent": "thermal_shock_reforged:cobalt_get"
+}

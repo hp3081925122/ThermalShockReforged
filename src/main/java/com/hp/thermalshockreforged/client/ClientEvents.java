@@ -60,6 +60,10 @@ public final class ClientEvents {
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.weapons.WeaponContent.HI_VOLT_PULSE.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.weapons.WeaponContent.THERMOBLASTER_BURST.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.weapons.WeaponContent.BUZZSAW_SWEEP.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
+        event.registerEntityRenderer(com.hp.thermalshockreforged.content.weapons.WeaponContent.FLARE_GUN_CYCLE.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
+        event.registerEntityRenderer(com.hp.thermalshockreforged.content.weapons.WeaponContent.FLARE_GUN_CORE.get(), com.hp.thermalshockreforged.client.weapons.FlareGunCoreRenderer::new);
+        event.registerEntityRenderer(com.hp.thermalshockreforged.content.weapons.WeaponContent.DISK_RESONANCE.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
+        event.registerEntityRenderer(com.hp.thermalshockreforged.content.weapons.WeaponContent.LITEPRISM_DISK_PROJECTILE.get(), com.hp.thermalshockreforged.client.weapons.LiteprismDiskRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.machines.MachineContent.BLASPHEMER_PROCESS.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         com.hp.thermalshockreforged.client.weapons.FirearmBulletRenderer.register(event);
         event.registerEntityRenderer(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.CORE_ACTIVATION.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
@@ -81,6 +85,7 @@ public final class ClientEvents {
         com.hp.thermalshockreforged.client.npc.ly.LyClient.renderers(event);
         com.hp.thermalshockreforged.client.npc.florist.FloristClient.renderers(event);
         com.hp.thermalshockreforged.client.npc.shutterbug.ShutterbugClient.renderers(event);
+        com.hp.thermalshockreforged.client.npc.concierge.ConciergeClient.renderers(event);
         CavebloomerClient.renderers(event);
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.atlas.AtlasContent.ACTIVATION.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.weapons.WeaponContent.MAGNETIC_CYCLE_SOUND.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
@@ -121,7 +126,7 @@ public final class ClientEvents {
         event.registerEntityRenderer(ModEntities.ZAP.get(), InvisibleWarningRenderer::new);
     }
     @SubscribeEvent
-    public static void firearmLayers(EntityRenderersEvent.RegisterLayerDefinitions event) { com.hp.thermalshockreforged.client.weapons.FirearmBulletRenderer.layers(event); }
+    public static void firearmLayers(EntityRenderersEvent.RegisterLayerDefinitions event) { com.hp.thermalshockreforged.client.weapons.FirearmBulletRenderer.layers(event); com.hp.thermalshockreforged.client.weapons.LiteprismDiskRenderer.layers(event); }
 
     @SubscribeEvent
     public static void orbLayers(EntityRenderersEvent.RegisterLayerDefinitions event) { com.hp.thermalshockreforged.client.orb.OrbRenderers.layers(event); }
@@ -148,6 +153,7 @@ public final class ClientEvents {
         com.hp.thermalshockreforged.client.npc.sopel.SopelScreen.register(event);
         com.hp.thermalshockreforged.client.npc.florist.FloristClient.screens(event);
         com.hp.thermalshockreforged.client.npc.shutterbug.ShutterbugClient.screens(event);
+        com.hp.thermalshockreforged.client.npc.concierge.ConciergeClient.screens(event);
         com.hp.thermalshockreforged.client.dialogue.DialogueScreen.register(event);
         event.register(NativeDecorContent.DESK_PHOTO_SCREEN.get(), DeskPhotoScreen::new);
         event.register(com.hp.thermalshockreforged.content.atlas.AtlasContent.MENU.get(), com.hp.thermalshockreforged.client.atlas.AtlasScreen::new);
@@ -182,6 +188,7 @@ public final class ClientEvents {
         event.registerSpriteSet(com.hp.thermalshockreforged.content.weapons.WeaponContent.HIT_CLORO.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "hitcloro", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true));
         event.registerSpriteSet(com.hp.thermalshockreforged.content.weapons.WeaponContent.BLUE_PLUS_BLAST.get(), com.hp.thermalshockreforged.client.particle.BluePlusBlastParticle.Provider::new);
         event.registerSpriteSet(com.hp.thermalshockreforged.content.weapons.WeaponContent.BLOOD_SPLATTER.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "bloodsplatter", 0, ParticleRenderType.PARTICLE_SHEET_OPAQUE, false, false, 1));
+        event.registerSpriteSet(com.hp.thermalshockreforged.content.weapons.WeaponContent.PRISM_CLUSTER.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "prismcluster", 1, ParticleRenderType.PARTICLE_SHEET_OPAQUE, false, false, 1));
         event.registerSpriteSet(com.hp.thermalshockreforged.content.armor.ArmorContent.PURPLE_SPARKLE.get(), com.hp.thermalshockreforged.client.armor.PurpleSparkleParticle.Provider::new);
         CavebloomerClient.particles(event);
         event.registerSpriteSet(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.TURQ_EXPLODE.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "turqexplode", 0, ParticleRenderType.PARTICLE_SHEET_OPAQUE, false, true, 0));

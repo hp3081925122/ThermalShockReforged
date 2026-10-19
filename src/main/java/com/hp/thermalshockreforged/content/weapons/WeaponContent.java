@@ -18,8 +18,15 @@ public final class WeaponContent {
     public static final DeferredHolder<net.minecraft.core.particles.ParticleType<?>, net.minecraft.core.particles.SimpleParticleType> HIT_CLORO = PARTICLES.register("hit_cloro", () -> new net.minecraft.core.particles.SimpleParticleType(true));
     public static final DeferredHolder<net.minecraft.core.particles.ParticleType<?>, net.minecraft.core.particles.SimpleParticleType> BLUE_PLUS_BLAST = PARTICLES.register("blue_plus_blast", () -> new net.minecraft.core.particles.SimpleParticleType(false));
     public static final DeferredHolder<net.minecraft.core.particles.ParticleType<?>, net.minecraft.core.particles.SimpleParticleType> BLOOD_SPLATTER = PARTICLES.register("blood_splatter", () -> new net.minecraft.core.particles.SimpleParticleType(true));
+    public static final DeferredHolder<net.minecraft.core.particles.ParticleType<?>, net.minecraft.core.particles.SimpleParticleType> PRISM_CLUSTER = PARTICLES.register("prism_cluster", () -> new net.minecraft.core.particles.SimpleParticleType(true));
+    public static final DeferredItem<LiteprismDiskItem> LITEPRISM_DISK = ITEMS.register("liteprism_disk", LiteprismDiskItem::new);
+    public static final DeferredHolder<EntityType<?>, EntityType<com.hp.thermalshockreforged.entity.projectile.LiteprismDiskProjectileEntity>> LITEPRISM_DISK_PROJECTILE = TYPES.register("liteprism_disk_projectile", () -> EntityType.Builder.<com.hp.thermalshockreforged.entity.projectile.LiteprismDiskProjectileEntity>of(com.hp.thermalshockreforged.entity.projectile.LiteprismDiskProjectileEntity::new, MobCategory.MISC).sized(.5F, .5F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(1).build(ThermalShockReforged.MOD_ID + ":liteprism_disk_projectile"));
+    public static final DeferredHolder<EntityType<?>, EntityType<DiskResonanceEntity>> DISK_RESONANCE = TYPES.register("disk_resonance_task", () -> EntityType.Builder.<DiskResonanceEntity>of(DiskResonanceEntity::new, MobCategory.MISC).noSummon().sized(.01F, .01F).clientTrackingRange(0).updateInterval(20).build(ThermalShockReforged.MOD_ID + ":disk_resonance_task"));
     public static final DeferredItem<BuzzsawItem> BUZZSAW = ITEMS.register("buzzsaw", BuzzsawItem::new);
     public static final DeferredItem<LiteprismLaserItem> LITEPRISM_LASER = ITEMS.register("liteprism_laser", LiteprismLaserItem::new);
+    public static final DeferredItem<CoreEjectFlareGunItem> CORE_EJECT_FLARE_GUN = ITEMS.register("core_eject_flare_gun", CoreEjectFlareGunItem::new);
+    public static final DeferredHolder<EntityType<?>, EntityType<com.hp.thermalshockreforged.entity.weaponcore.FlareGunCoreEntity>> FLARE_GUN_CORE = TYPES.register("flare_gun_core", () -> EntityType.Builder.<com.hp.thermalshockreforged.entity.weaponcore.FlareGunCoreEntity>of(com.hp.thermalshockreforged.entity.weaponcore.FlareGunCoreEntity::new, MobCategory.MONSTER).sized(.6F, .6F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":flare_gun_core"));
+    public static final DeferredHolder<EntityType<?>, EntityType<FlareGunCycleEntity>> FLARE_GUN_CYCLE = TYPES.register("flare_gun_cycle_task", () -> EntityType.Builder.<FlareGunCycleEntity>of(FlareGunCycleEntity::new, MobCategory.MISC).noSummon().sized(.01F, .01F).clientTrackingRange(0).updateInterval(20).build(ThermalShockReforged.MOD_ID + ":flare_gun_cycle_task"));
     public static final DeferredHolder<EntityType<?>, EntityType<BuzzsawSweepEntity>> BUZZSAW_SWEEP = TYPES.register("buzzsaw_sweep_task", () -> EntityType.Builder.<BuzzsawSweepEntity>of(BuzzsawSweepEntity::new, MobCategory.MISC).noSummon().sized(.01F, .01F).clientTrackingRange(0).updateInterval(20).build(ThermalShockReforged.MOD_ID + ":buzzsaw_sweep_task"));
     public static final DeferredHolder<EntityType<?>, EntityType<BladeImpactEntity>> BLADE_IMPACT = TYPES.register("blade_impact_task", () -> EntityType.Builder.<BladeImpactEntity>of(BladeImpactEntity::new, MobCategory.MISC).noSummon().sized(.01F, .01F).clientTrackingRange(0).updateInterval(20).build(ThermalShockReforged.MOD_ID + ":blade_impact_task"));
     public static final DeferredItem<ZerkerGauntletItem> TITANIUM_MACE = ITEMS.register("titanium_mace", ZerkerGauntletItem::new);
@@ -49,6 +56,7 @@ public final class WeaponContent {
 
     private static final DeferredRegister<MobEffect> EFFECTS = DeferredRegister.create(Registries.MOB_EFFECT, ThermalShockReforged.MOD_ID);
     public static final DeferredHolder<MobEffect, MobEffect> SICKLE_WOUND = EFFECTS.register("sickle_wound_buildup", SickleItem.WoundEffect::new);
+    public static final DeferredHolder<MobEffect, MobEffect> LITEPRISM_BUILDUP = EFFECTS.register("liteprism_buildup", LiteprismBuildupEffect::new);
     public static final DeferredItem<SickleItem> RUBY_SICKLE = ITEMS.register("ruby_sickle", () -> new SickleItem("ruby_sickle", 1200, 10, "ruby"));
     public static final DeferredItem<SickleItem> BLOODSTONE_SICKLE = ITEMS.register("bloodstone_sickle", () -> new SickleItem("bloodstone_sickle", 1500, 8, "bloodstone"));
     public static final DeferredItem<SickleItem> CARBORUNDUM_SICKLE = ITEMS.register("carborundum_sickle", () -> new SickleItem("carborundum_sickle", 900, 15, "carborundum", 4.5F, 16));
@@ -59,14 +67,18 @@ public final class WeaponContent {
 
     public static void register(IEventBus bus) {
         ITEMS.register(bus); EFFECTS.register(bus); TYPES.register(bus); PARTICLES.register(bus);
+        bus.addListener(WeaponContent::coreAttributes);
         NeoForge.EVENT_BUS.addListener(HeldWeaponState::tick);
         NeoForge.EVENT_BUS.addListener(HeldWeaponState::join);
         NeoForge.EVENT_BUS.addListener(WeaponContent::serverTick);
         NeoForge.EVENT_BUS.addListener(WeaponContent::serverStopped);
     }
 
-    public static void pruneAnimations() { LITEPRISM_LASER.get().pruneAnimations(); BUZZSAW.get().pruneAnimations(); COBALT_THERMOBLASTER.get().pruneAnimations(); ZENITH_THERMOBLASTER.get().pruneAnimations(); HI_VOLT_LANCE.get().pruneAnimations(); TITANIUM_MACE.get().pruneAnimations(); VOLCANO.get().pruneAnimations(); MAGNETIC_CROSSBOW.get().pruneAnimations(); BLINDING_LANTERN.get().pruneAnimations(); ZAP_GAUNTLET.get().pruneAnimations(); FLINTSTEEL_RIFLE.get().pruneAnimations(); HAILFALL.get().pruneAnimations(); SPELEOTHEM.get().pruneAnimations(); RUBY_SPEAR.get().pruneAnimations(); CARBORUNDUM_SPEAR.get().pruneAnimations(); }
-    public static void clearAnimations() { LITEPRISM_LASER.get().clearAnimations(); BUZZSAW.get().clearAnimations(); COBALT_THERMOBLASTER.get().clearAnimations(); ZENITH_THERMOBLASTER.get().clearAnimations(); HI_VOLT_LANCE.get().clearAnimations(); TITANIUM_MACE.get().clearAnimations(); VOLCANO.get().clearAnimations(); MAGNETIC_CROSSBOW.get().clearAnimations(); BLINDING_LANTERN.get().clearAnimations(); ZAP_GAUNTLET.get().clearAnimations(); FLINTSTEEL_RIFLE.get().clearAnimations(); HAILFALL.get().clearAnimations(); SPELEOTHEM.get().clearAnimations(); RUBY_SPEAR.get().clearAnimations(); CARBORUNDUM_SPEAR.get().clearAnimations(); }
+    public static void pruneAnimations() { CORE_EJECT_FLARE_GUN.get().pruneAnimations(); LITEPRISM_LASER.get().pruneAnimations(); BUZZSAW.get().pruneAnimations(); COBALT_THERMOBLASTER.get().pruneAnimations(); ZENITH_THERMOBLASTER.get().pruneAnimations(); HI_VOLT_LANCE.get().pruneAnimations(); TITANIUM_MACE.get().pruneAnimations(); VOLCANO.get().pruneAnimations(); MAGNETIC_CROSSBOW.get().pruneAnimations(); BLINDING_LANTERN.get().pruneAnimations(); ZAP_GAUNTLET.get().pruneAnimations(); FLINTSTEEL_RIFLE.get().pruneAnimations(); HAILFALL.get().pruneAnimations(); SPELEOTHEM.get().pruneAnimations(); RUBY_SPEAR.get().pruneAnimations(); CARBORUNDUM_SPEAR.get().pruneAnimations(); }
+    public static void clearAnimations() { CORE_EJECT_FLARE_GUN.get().clearAnimations(); LITEPRISM_LASER.get().clearAnimations(); BUZZSAW.get().clearAnimations(); COBALT_THERMOBLASTER.get().clearAnimations(); ZENITH_THERMOBLASTER.get().clearAnimations(); HI_VOLT_LANCE.get().clearAnimations(); TITANIUM_MACE.get().clearAnimations(); VOLCANO.get().clearAnimations(); MAGNETIC_CROSSBOW.get().clearAnimations(); BLINDING_LANTERN.get().clearAnimations(); ZAP_GAUNTLET.get().clearAnimations(); FLINTSTEEL_RIFLE.get().clearAnimations(); HAILFALL.get().clearAnimations(); SPELEOTHEM.get().clearAnimations(); RUBY_SPEAR.get().clearAnimations(); CARBORUNDUM_SPEAR.get().clearAnimations(); }
+    private static void coreAttributes(net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent event) {
+        event.put(FLARE_GUN_CORE.get(), com.hp.thermalshockreforged.entity.weaponcore.FlareGunCoreEntity.createAttributes().build());
+    }
     private static void serverTick(ServerTickEvent.Post event) { pruneAnimations(); }
     private static void serverStopped(ServerStoppedEvent event) { clearAnimations(); }
 }

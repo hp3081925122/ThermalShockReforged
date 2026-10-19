@@ -374,7 +374,13 @@
       ]
     },
     "flare_gun_core": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshockreforged.entity.weaponcore.FlareGunCoreEntity",
+      "evidence": "core-eject-disk-chain-batch.md",
+      "pending": [
+        "FrostTitan真实目标实体尚未迁入，核心挑战不可视作运行闭合",
+        "完整模组完成后验证核心连锁/死亡取消/卸载/原动画"
+      ]
     },
     "flare_bullet": {
       "status": "implemented_pending_full_validation",
@@ -483,7 +489,13 @@
       "status": "not_migrated"
     },
     "concierge": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshockreforged.content.npc.concierge.ConciergeEntity",
+      "evidence": "world-npc-thread-batch.md",
+      "pending": [
+        "完整Cathedral/Vilebath依赖和自然生成尚未闭合",
+        "最终验完整任务父链/七交易/菜单安全/头像动画/渲染"
+      ]
     },
     "benzor": {
       "status": "not_migrated"
@@ -564,7 +576,13 @@
       "status": "not_migrated"
     },
     "liteprism_disk_projectile": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshockreforged.entity.projectile.LiteprismDiskProjectileEntity",
+      "evidence": "core-eject-disk-chain-batch.md",
+      "pending": [
+        "全局Cloro其余分支",
+        "最终验原生碰撞/七层爆发/三轮核心共鸣/禁拾取/原完整几何"
+      ]
     },
     "prismatic_supernova": {
       "status": "not_migrated"
@@ -1055,6 +1073,14 @@
     "sunbeam_attack_task": {
       "status": "implemented_pending_full_validation",
       "purpose": "28 SERVER END完整光束与固定受击锚点声音，有限持久UUID任务"
+    },
+    "flare_gun_cycle_task": {
+      "status": "implemented_pending_full_validation",
+      "purpose": "主副射击固定坐标3/8/18/20 END音效；有限持久，无实体闭包"
+    },
+    "disk_resonance_task": {
+      "status": "implemented_pending_full_validation",
+      "purpose": "同步/3/6 END完整共鸣；固定坐标、来源UUID/实体ID、持久有限阶段"
     }
   }
 }

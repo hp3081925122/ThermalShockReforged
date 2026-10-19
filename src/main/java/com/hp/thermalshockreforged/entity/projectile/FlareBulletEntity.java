@@ -26,6 +26,14 @@ public final class FlareBulletEntity extends LegacyArrowEntity {
     private static final TagKey<EntityType<?>> PYRO_WEAK = TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "pyro_weak"));
     public FlareBulletEntity(EntityType<? extends FlareBulletEntity> type, Level level) { super(type, level); }
     public FlareBulletEntity(LivingEntity owner, Level level) { super(ProjectileContent.FLARE_BULLET.get(), owner, level, new ItemStack(GeoDecorContent.item(GeoDecorKind.YELLOW_ORB))); }
+    public static boolean fireWeaponShot(net.minecraft.server.level.ServerLevel level, LivingEntity shooter) {
+        var bullet = new FlareBulletEntity(ProjectileContent.FLARE_BULLET.get(), level);
+        bullet.setOwner(shooter); bullet.setPos(shooter.getX(), shooter.getY() + 1.5, shooter.getZ());
+        bullet.setBaseDamage(2); bullet.setImpactKnockback(0); bullet.setSilent(true); bullet.setCritArrow(false);
+        var look = shooter.getLookAngle();
+        bullet.shoot(look.x, look.y, look.z, 1.3F, .15F);
+        return level.addFreshEntity(bullet);
+    }
     @Override protected ItemStack projectileItem() { return new ItemStack(GeoDecorContent.item(GeoDecorKind.YELLOW_ORB)); }
     @Override protected void onHitEntity(EntityHitResult hit) { super.onHitEntity(hit); if (!(hit.getEntity() instanceof Player)) { impact(blockPosition(), hit.getEntity()); } }
     @Override protected void onHitBlock(BlockHitResult hit) { super.onHitBlock(hit); impact(hit.getBlockPos(), null); }

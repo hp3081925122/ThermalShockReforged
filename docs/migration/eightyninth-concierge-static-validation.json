@@ -1,0 +1,222 @@
+{
+  "scope": "独立对话停笔交付后真实根入口集成、20页原布局/文字坐标/图片尺寸/按钮/七交易费用、原资源及构建副本机械核对；不是剧情玩法/网络/渲染实测",
+  "summary": {
+    "real_npc": 1,
+    "java_files": 8,
+    "pages": 20,
+    "labels": 96,
+    "buttons": 41,
+    "trades": 7,
+    "original_assets": 35,
+    "language_entries_per_locale": {
+      "en_us": 132,
+      "zh_cn": 132
+    },
+    "templates_prepared_only": 7
+  },
+  "assets": [
+    {
+      "path": "animations/concierge.animation.json",
+      "sha256": "93ee6225982e9c97539c12fb82dbaf5f48244a95daf51ef2d9cbaf086112e75d"
+    },
+    {
+      "path": "geo/concierge.geo.json",
+      "sha256": "a70726d72416db8fd97f272f04386fa23fa3157cf57ec634f4754529da382da9"
+    },
+    {
+      "path": "sounds/jingle.ogg",
+      "sha256": "1621a62dfa378aa5916b7938d99fa4e2054a3efb922c63240d07a4aacd983ae0"
+    },
+    {
+      "path": "textures/entities/concierge.png",
+      "sha256": "c5f7b1d1922349b5beab2202d0ec53fbfe6966c3068f4951f860f6253ef4fd4b"
+    },
+    {
+      "path": "textures/entities/concierge_static.png",
+      "sha256": "c689de1be3be206e393c49ea3ca63b5e5394eee5013dbd8ffd2629a76d719b69"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_adamantine_spice.png",
+      "sha256": "24088cc9b089321dcb2669d16638bd3ce484927e1056ca4c84a7703ca787d391"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_infoblizzard.png",
+      "sha256": "4e6ccf805e97d4c60f15da176809c1f02427f88734d887fd9cc8596a50c15686"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_infoconcierge.png",
+      "sha256": "8dc5148ddb81c770e85d212777fc1b631e4d180e66b397fbdad647a1ba60157a"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_infoinfection.png",
+      "sha256": "d313aab231628e8031f877479e7c372823525a7bbd5f55ce979c5c7c3c4ec5bf"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_infoumabel.png",
+      "sha256": "b63ab172029d59e8b3863271eacf377cbb73921d8ac8c69a351a690fd4ca8e2a"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_infovilebath.png",
+      "sha256": "2655d93dff2f088b74d4504b12f46fd9901fc5f28f20b9458c25c8ca24c7e776"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_mainerrandsbuttona.png",
+      "sha256": "5d1debd3befb57e2e98c6817e7a0ca5b026aabf5f7038508b31283feb2c0f67e"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_maininfobuttona.png",
+      "sha256": "7c7afaddbb70b6b0f43ad046e87340dcd0100e712a5ef307ff2e46953fcc16fa"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_maintradebuttona.png",
+      "sha256": "9a4da845718acc3294efd6e21e8e67064ff28b887b740f0128340c3ea830111c"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_nextbuttona.png",
+      "sha256": "0c3e332bdc97c682d9c96cca3217a534bbe8d26eba61471f6756e1063cf4c70f"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_primordial_blood.png",
+      "sha256": "e613ac93fb6bbda72dfc23c81dfefb145d9a99fc4239e6b5a099597891a11bf6"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_tabcycleleft.png",
+      "sha256": "8831c02b0fce235a48e1f600f600c73652c2aeb6c43d221264d00e5c14108761"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_tradebuttona.png",
+      "sha256": "6d8c2897450b0f5414ba325ddba06ca4de09deb9689b3000506c24edcd64019a"
+    },
+    {
+      "path": "textures/screens/concem1portrait.png",
+      "sha256": "656ada5bc69a715758c15da949d71e5cc350d4aa3e6c89ee9c12b8a518ed82f0"
+    },
+    {
+      "path": "textures/screens/concem2portrait.png",
+      "sha256": "b405157a608e2d7006ee8ff01ced39651c35f78aaf67939ac72bf78cd97929da"
+    },
+    {
+      "path": "textures/screens/concem3portrait.png",
+      "sha256": "81cba6b0047f6053037aa9dae1ef976de13a937b3c3423196638cd6e87be626c"
+    },
+    {
+      "path": "textures/screens/conciergeinfobox.png",
+      "sha256": "dd3144a8f519255e5cf9ec4c2b78813fbc811a0ca47ffa387ea2cbdf3c3076f5"
+    },
+    {
+      "path": "textures/screens/conciergetrademenu.png",
+      "sha256": "1c879ade25496d3a3b326f18f1e4c4c4125165c5731d357702f56ca46ded06ee"
+    },
+    {
+      "path": "textures/screens/conciergetrademenuextend.png",
+      "sha256": "8a67550733eb923ccbf16d3b260adb61e5c8cedb489d2598616139a1b7a4a9f5"
+    },
+    {
+      "path": "textures/screens/concrubiconidleportrait.png",
+      "sha256": "04d299de9a617ffa9dc2031b177588d13c854fc0389fa30b03b128b33a38f1c9"
+    },
+    {
+      "path": "textures/screens/heavy_round.png",
+      "sha256": "68ea4e55c7b5a3087d4fc544b97f2342c8df953371c1b1a73cd3bd77ced7c0ba"
+    },
+    {
+      "path": "textures/screens/large_spider_lily_item.png",
+      "sha256": "1a3b417b2c255603da2f3c8d98072da9c10ee5e72ce937cbf2db42f6a486ee25"
+    },
+    {
+      "path": "textures/screens/light_round.png",
+      "sha256": "b36607f5a29dd03076023eb6344e3f13d3b445a45f7ecb5533f6aa166f95c44c"
+    },
+    {
+      "path": "textures/screens/magnetic_round.png",
+      "sha256": "5d3b411fdc3bdd9caf9604201cf22525834b7300de4ede3a5b00a1ffc3e44450"
+    },
+    {
+      "path": "textures/screens/mainflavourboxes.png",
+      "sha256": "80a2cf18e8d36b3a9b7bbe138d0fef25338fb9176daabead538c784abe941cf3"
+    },
+    {
+      "path": "textures/screens/mainlabelbox.png",
+      "sha256": "633b9d4f6971f9e2e173893b11889a588813a132963edcbd3c85154bca6d9dd6"
+    },
+    {
+      "path": "textures/screens/mainspeechbox.png",
+      "sha256": "12894af8cfa75443411767e123b9c3e66c72b81b21085b2e383e5f7040bb9ea5"
+    },
+    {
+      "path": "textures/screens/panacea.png",
+      "sha256": "17d60005f3828614856150ef0abc29bde6051521f25034dc29a6994d6d064d30"
+    },
+    {
+      "path": "textures/screens/spider_lily_item.png",
+      "sha256": "025733b6170e97d8f3a5864b9d501d2d3416092098f94b94537a4058f3e061cc"
+    },
+    {
+      "path": "textures/screens/wide_angle.png",
+      "sha256": "9b6b7ff4fee902a46b39d310faed44596fdc749b6a84902c33b0027eaa35c884"
+    }
+  ],
+  "source_sha256": {
+    "src\\main\\java\\com\\hp\\thermalshockreforged\\client\\npc\\concierge\\ConciergeClient.java": "0eeeb6b9739e63850156b3b15086641fb46211be03304bf2469eb34dac43822e",
+    "src\\main\\java\\com\\hp\\thermalshockreforged\\client\\npc\\concierge\\ConciergeScreen.java": "581f24ea092e6f07ff7953dd9caede28a6b95ac37460b56d85ea11712a953016",
+    "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\npc\\concierge\\ConciergeContent.java": "92b0b0225d629f6171f140500d4983dbabd5b4ec385ff88ddf64111a708ef338",
+    "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\npc\\concierge\\ConciergeEntity.java": "f16b74e562a8b55d4582bafefc83976844e39cee3d0d68bf1d7741974c6cd367",
+    "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\npc\\concierge\\ConciergeMenu.java": "a9277f2c88be95d906bd55fec42a19688993a69c59b532b2254bd931d0690e55",
+    "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\npc\\concierge\\ConciergePage.java": "0304d86c37936731846c87838b04b04ae109c495f669f7ee086b888262600c33",
+    "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\npc\\concierge\\ConciergeQuest.java": "2b0d39f8f4678948eff0b729c46f50f806b65b7615afa46e4e2aefa882efd488",
+    "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\npc\\concierge\\ConciergeTrade.java": "24902b6d77046780267cc487921780e99d27dcce1547f73b2490c2bbaaa5bd4f"
+  },
+  "templates": [
+    {
+      "id": "vilebath_castle",
+      "sha256": "480d70ddcaac7669d8adc7d8e15d304fa2c46a2787e7902ccaca3a50ae3df2e3",
+      "status": "converted_resource_only_pending_internal_dependencies_and_generation"
+    },
+    {
+      "id": "vilebathrubicon",
+      "sha256": "96660d99a2be972835d7ba48020bae555baef184176978fa7cf9f1ce09680e7e",
+      "status": "converted_resource_only_pending_internal_dependencies_and_generation"
+    },
+    {
+      "id": "vilebath_bridge",
+      "sha256": "0866301284eaa977ce2db00b8a8393dedbae152c7c1e19efcd1732702259ec27",
+      "status": "converted_resource_only_pending_internal_dependencies_and_generation"
+    },
+    {
+      "id": "vilebath_bridge_center",
+      "sha256": "e56ff588b166f29dd73bf0ad3e5c59ad05fbe612ad84933e58a80283cbd496bc",
+      "status": "converted_resource_only_pending_internal_dependencies_and_generation"
+    },
+    {
+      "id": "vilebath_bridge_split",
+      "sha256": "284dbcc2a8cc54eb1ca02b75440f7d538b4947755aa20729775087245e1418f7",
+      "status": "converted_resource_only_pending_internal_dependencies_and_generation"
+    },
+    {
+      "id": "cathedral",
+      "sha256": "259367d0ad49e09022fb068159bcd33ae426214ec70c1f5d647cdc938d0a7420",
+      "status": "converted_resource_only_pending_internal_dependencies_and_generation"
+    },
+    {
+      "id": "cathedral_base",
+      "sha256": "b2d93c92bcc674758fd3927e69a63c48ee0739d326c3ad9674ec8c13d9355a18",
+      "status": "converted_resource_only_pending_internal_dependencies_and_generation"
+    }
+  ],
+  "build": {
+    "compileJava_processResources": "passed_1m6s_24_tasks_2_executed",
+    "independent_thread_stopped_before_compile": true,
+    "game_started": false
+  },
+  "intentional_changes": [
+    "绑定NPC UUID/实体ID/距离/维度/当前容器，服务端原子交易与一次性任务结算",
+    "把原没有任何可达入口的Panacea交易接入完成任务后的交易循环；费用数量不变",
+    "原notice写入未被动画predicate读取的字段，改真实同步原动画",
+    "原999击退抗性在目标版本等效满抗性1，取消逐tick固定尺寸刷新"
+  ],
+  "pending": [
+    "Vilebath/Cathedral内部尚缺实体/方块/物品，保留模板但自然生成未启用，Grand/Concierge自然获得主线仍未完整",
+    "Kofoni已审计尚未迁入，不计完成功能",
+    "最终全模组完成后验证任务所有父链、七交易/满包/恶意按钮/死亡重生/完整头像动画与渲染"
+  ]
+}
