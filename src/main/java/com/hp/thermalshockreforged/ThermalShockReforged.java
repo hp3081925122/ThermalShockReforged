@@ -101,6 +101,7 @@ public final class ThermalShockReforged {
         NativeDecorContent.register(bus);
         com.hp.thermalshockreforged.content.vilebathblocks.VilebathBlocksContent.register(bus);
         com.hp.thermalshockreforged.content.fabrication.FabricationContent.register(bus);
+        com.hp.thermalshockreforged.content.legacyfabricator.LegacyFabricatorContent.register(bus);
         com.hp.thermalshockreforged.content.machines.MachineContent.register(bus);
         GeoDecorContent.register(bus);
         com.hp.thermalshockreforged.content.npc.laut.LautContent.register(bus);
@@ -114,6 +115,7 @@ public final class ThermalShockReforged {
         com.hp.thermalshockreforged.content.food.FerroCakeConsumption.register(bus);
         com.hp.thermalshockreforged.entity.springslime.SpringslimeContent.register(bus);
         com.hp.thermalshockreforged.content.dialogue.DialogueContent.register(bus);
+        com.hp.thermalshockreforged.content.remaininggui.RemainingGuiContent.register(bus);
         com.hp.thermalshockreforged.content.atlas.AtlasContent.register(bus);
         SpecialDoorsContent.register(bus);
         CrateContent.register(bus);

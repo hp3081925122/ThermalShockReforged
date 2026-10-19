@@ -1,0 +1,797 @@
+{
+  "batch": 113,
+  "sourceJarSha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436",
+  "baseCommit": "4b5a97269b0a235dd4f62aa5ba90903c5d33285f",
+  "pages": [
+    {
+      "id": "clash_page_1",
+      "name": "ClashPage1",
+      "width": 176,
+      "height": 166,
+      "images": [
+        {
+          "texture": "kgcpage",
+          "x": 0,
+          "y": 0,
+          "u": 0.0,
+          "v": 0.0,
+          "width": 176,
+          "height": 166,
+          "textureWidth": 176,
+          "textureHeight": 166
+        }
+      ],
+      "labels": [
+        {
+          "key": "gui.thermal_shock.clash_page_1.label_no_signal",
+          "x": 9,
+          "y": 43,
+          "color": -16777216
+        },
+        {
+          "key": "gui.thermal_shock.clash_page_1.label_take_a_look",
+          "x": 9,
+          "y": 50,
+          "color": -16777216
+        },
+        {
+          "key": "gui.thermal_shock.clash_page_1.label_execute_kgcfunc_33",
+          "x": 9,
+          "y": 57,
+          "color": -16764007
+        },
+        {
+          "key": "gui.thermal_shock.clash_page_1.label_func33_report_103txt",
+          "x": 9,
+          "y": 64,
+          "color": -6710887
+        },
+        {
+          "key": "gui.thermal_shock.clash_page_1.label_they_will_be_arriving_shortly",
+          "x": 9,
+          "y": 71,
+          "color": -16777216
+        },
+        {
+          "key": "gui.thermal_shock.clash_page_1.label_shortly",
+          "x": 9,
+          "y": 78,
+          "color": -16777216
+        },
+        {
+          "key": "gui.thermal_shock.clash_page_1.label_how_will_i_find_them",
+          "x": 9,
+          "y": 85,
+          "color": -16764007
+        },
+        {
+          "key": "gui.thermal_shock.clash_page_1.label_they_will_come_to_you",
+          "x": 9,
+          "y": 92,
+          "color": -16777216
+        },
+        {
+          "key": "gui.thermal_shock.clash_page_1.label_they_are_ready_they_will_find",
+          "x": 9,
+          "y": 99,
+          "color": -16777216
+        },
+        {
+          "key": "gui.thermal_shock.clash_page_1.label_find_their_way",
+          "x": 9,
+          "y": 106,
+          "color": -16777216
+        },
+        {
+          "key": "gui.thermal_shock.clash_page_1.label_goodbye",
+          "x": 9,
+          "y": 113,
+          "color": -16777216
+        },
+        {
+          "key": "gui.thermal_shock.clash_page_1.label_wait",
+          "x": 9,
+          "y": 120,
+          "color": -10653287
+        },
+        {
+          "key": "gui.thermal_shock.clash_page_1.label_message_not_sent_try_again",
+          "x": 9,
+          "y": 127,
+          "color": -6710887
+        },
+        {
+          "key": "gui.thermal_shock.clash_page_1.label_try_again_yn",
+          "x": 9,
+          "y": 134,
+          "color": -6710887
+        }
+      ],
+      "buttons": [],
+      "customSlotPutCount": 0,
+      "slotAdditionCount": 0,
+      "openingConstructorCallers": [],
+      "classReferences": [
+        {
+          "path": "net/mcreator/thermal_shock/client/gui/ClashPage1Screen.class",
+          "sha256": "5f45fc22da785afc6f595ad2dd0d2f5d01e5b7dc742affc48b5a80b9077c920e",
+          "matches": [
+            "Lnet/minecraft/client/gui/screens/inventory/AbstractContainerScreen<Lnet/mcreator/thermal_shock/world/inventory/ClashPage1Menu;>;",
+            "(Lnet/mcreator/thermal_shock/world/inventory/ClashPage1Menu;Lnet/minecraft/world/entity/player/Inventory;Lnet/minecraft/network/chat/Component;)V",
+            "net/mcreator/thermal_shock/world/inventory/ClashPage1Menu",
+            "Lnet/mcreator/thermal_shock/world/inventory/ClashPage1Menu;"
+          ]
+        },
+        {
+          "path": "net/mcreator/thermal_shock/init/ThermalShockModMenus.class",
+          "sha256": "ab7294bb0806317b265ff995886fcf2b45a1ccecb27eceb889c955d364e75555",
+          "matches": [
+            "Lnet/minecraftforge/registries/RegistryObject<Lnet/minecraft/world/inventory/MenuType<Lnet/mcreator/thermal_shock/world/inventory/ClashPage1Menu;>;>;",
+            "net/mcreator/thermal_shock/world/inventory/ClashPage1Menu",
+            "(ILnet/minecraft/world/entity/player/Inventory;Lnet/minecraft/network/FriendlyByteBuf;)Lnet/mcreator/thermal_shock/world/inventory/ClashPage1Menu;"
+          ]
+        },
+        {
+          "path": "net/mcreator/thermal_shock/init/ThermalShockModScreens.class",
+          "sha256": "ce031a5e5c581f84891aa22f5f87a0894b3d08f355f3c6e52bbdceb7c685f8c9",
+          "matches": [
+            "(Lnet/mcreator/thermal_shock/world/inventory/ClashPage1Menu;Lnet/minecraft/world/entity/player/Inventory;Lnet/minecraft/network/chat/Component;)V",
+            "(Lnet/mcreator/thermal_shock/world/inventory/ClashPage1Menu;Lnet/minecraft/world/entity/player/Inventory;Lnet/minecraft/network/chat/Component;)Lnet/mcreator/thermal_shock/client/gui/ClashPage1Screen;"
+          ]
+        },
+        {
+          "path": "net/mcreator/thermal_shock/world/inventory/ClashPage1Menu.class",
+          "sha256": "59c911dac69942db950a712beb1570e6d23d8eded9a3b0ef6d5fb3d6ca7e71d0",
+          "matches": [
+            "net/mcreator/thermal_shock/world/inventory/ClashPage1Menu",
+            "Lnet/mcreator/thermal_shock/world/inventory/ClashPage1Menu;"
+          ]
+        }
+      ],
+      "sourceEnglish": {
+        "gui.thermal_shock.clash_page_1.label_execute_kgcfunc_33": "❄ /execute kgcfunc 33",
+        "gui.thermal_shock.clash_page_1.label_find_their_way": "FIND THEIR WAY.",
+        "gui.thermal_shock.clash_page_1.label_func33_report_103txt": "-- [Func33_Report_107.txt]",
+        "gui.thermal_shock.clash_page_1.label_goodbye": "❄ GOODBYE :^)",
+        "gui.thermal_shock.clash_page_1.label_how_will_i_find_them": "❄ How will I find them?",
+        "gui.thermal_shock.clash_page_1.label_message_not_sent_try_again": "-- Message not sent,",
+        "gui.thermal_shock.clash_page_1.label_no_signal": "❄ TODAY IS THE DAY.",
+        "gui.thermal_shock.clash_page_1.label_shortly": "SHORTLY.",
+        "gui.thermal_shock.clash_page_1.label_take_a_look": "❄ TAKE A LOOK.",
+        "gui.thermal_shock.clash_page_1.label_they_are_ready_they_will_find": "THEY ARE READY. THEY WILL",
+        "gui.thermal_shock.clash_page_1.label_they_will_be_arriving_shortly": "❄ THEY WILL BE ARRIVING",
+        "gui.thermal_shock.clash_page_1.label_they_will_come_to_you": "❄ THEY WILL COME TO YOU WHEN",
+        "gui.thermal_shock.clash_page_1.label_try_again_yn": "   try again? [Y/N]",
+        "gui.thermal_shock.clash_page_1.label_wait": "❄ Wait"
+      },
+      "targetPriorMappingMatches": []
+    },
+    {
+      "id": "clash_no_signal",
+      "name": "ClashNoSignal",
+      "width": 176,
+      "height": 166,
+      "images": [
+        {
+          "texture": "cbt_nosignal",
+          "x": 0,
+          "y": 0,
+          "u": 0.0,
+          "v": 0.0,
+          "width": 176,
+          "height": 166,
+          "textureWidth": 176,
+          "textureHeight": 166
+        }
+      ],
+      "labels": [
+        {
+          "key": "gui.thermal_shock.clash_no_signal.label_no_signal",
+          "x": 63,
+          "y": 109,
+          "color": -5920281
+        }
+      ],
+      "buttons": [],
+      "customSlotPutCount": 0,
+      "slotAdditionCount": 0,
+      "openingConstructorCallers": [],
+      "classReferences": [
+        {
+          "path": "net/mcreator/thermal_shock/client/gui/ClashNoSignalScreen.class",
+          "sha256": "9ef82d0e97c598673abeffc3fb2655bb43b1ea08865806497dbfd4a9766785ea",
+          "matches": [
+            "Lnet/minecraft/client/gui/screens/inventory/AbstractContainerScreen<Lnet/mcreator/thermal_shock/world/inventory/ClashNoSignalMenu;>;",
+            "(Lnet/mcreator/thermal_shock/world/inventory/ClashNoSignalMenu;Lnet/minecraft/world/entity/player/Inventory;Lnet/minecraft/network/chat/Component;)V",
+            "net/mcreator/thermal_shock/world/inventory/ClashNoSignalMenu",
+            "Lnet/mcreator/thermal_shock/world/inventory/ClashNoSignalMenu;"
+          ]
+        },
+        {
+          "path": "net/mcreator/thermal_shock/init/ThermalShockModMenus.class",
+          "sha256": "ab7294bb0806317b265ff995886fcf2b45a1ccecb27eceb889c955d364e75555",
+          "matches": [
+            "Lnet/minecraftforge/registries/RegistryObject<Lnet/minecraft/world/inventory/MenuType<Lnet/mcreator/thermal_shock/world/inventory/ClashNoSignalMenu;>;>;",
+            "net/mcreator/thermal_shock/world/inventory/ClashNoSignalMenu",
+            "(ILnet/minecraft/world/entity/player/Inventory;Lnet/minecraft/network/FriendlyByteBuf;)Lnet/mcreator/thermal_shock/world/inventory/ClashNoSignalMenu;"
+          ]
+        },
+        {
+          "path": "net/mcreator/thermal_shock/init/ThermalShockModScreens.class",
+          "sha256": "ce031a5e5c581f84891aa22f5f87a0894b3d08f355f3c6e52bbdceb7c685f8c9",
+          "matches": [
+            "(Lnet/mcreator/thermal_shock/world/inventory/ClashNoSignalMenu;Lnet/minecraft/world/entity/player/Inventory;Lnet/minecraft/network/chat/Component;)V",
+            "(Lnet/mcreator/thermal_shock/world/inventory/ClashNoSignalMenu;Lnet/minecraft/world/entity/player/Inventory;Lnet/minecraft/network/chat/Component;)Lnet/mcreator/thermal_shock/client/gui/ClashNoSignalScreen;"
+          ]
+        },
+        {
+          "path": "net/mcreator/thermal_shock/world/inventory/ClashNoSignalMenu.class",
+          "sha256": "12f258434e3a2df88a6558761fbc0bfebaa58e7f456ba74089e1558595187303",
+          "matches": [
+            "net/mcreator/thermal_shock/world/inventory/ClashNoSignalMenu",
+            "Lnet/mcreator/thermal_shock/world/inventory/ClashNoSignalMenu;"
+          ]
+        }
+      ],
+      "sourceEnglish": {
+        "gui.thermal_shock.clash_no_signal.label_no_signal": "NO SIGNAL!"
+      },
+      "targetPriorMappingMatches": []
+    },
+    {
+      "id": "char_trade_template",
+      "name": "CharTradeTEMPLATE",
+      "width": 206,
+      "height": 196,
+      "images": [
+        {
+          "texture": "conciergetrademenu",
+          "x": -20,
+          "y": 0,
+          "u": 0.0,
+          "v": 0.0,
+          "width": 246,
+          "height": 180,
+          "textureWidth": 246,
+          "textureHeight": 180
+        },
+        {
+          "texture": "heavy_round",
+          "x": 47,
+          "y": 26,
+          "u": 0.0,
+          "v": 0.0,
+          "width": 16,
+          "height": 16,
+          "textureWidth": 16,
+          "textureHeight": 16
+        }
+      ],
+      "labels": [
+        {
+          "key": "gui.thermal_shock.char_trade_template.label_xx",
+          "x": 49,
+          "y": 52,
+          "color": -4124383
+        },
+        {
+          "key": "gui.thermal_shock.char_trade_template.label_xx1",
+          "x": 69,
+          "y": 52,
+          "color": -15427946
+        },
+        {
+          "key": "gui.thermal_shock.char_trade_template.label_xx2",
+          "x": 89,
+          "y": 52,
+          "color": -6218527
+        },
+        {
+          "key": "gui.thermal_shock.char_trade_template.label_xxx",
+          "x": 49,
+          "y": 72,
+          "color": -5577638
+        },
+        {
+          "key": "gui.thermal_shock.char_trade_template.label_lorem_ipsum",
+          "x": 68,
+          "y": 29,
+          "color": -1
+        }
+      ],
+      "buttons": [
+        {
+          "x": 84,
+          "y": 73,
+          "width": 38,
+          "height": 20,
+          "u": 0,
+          "v": 0,
+          "hoverOffset": 20,
+          "texture": "atlas/imagebutton_tradebuttona",
+          "textureWidth": 38,
+          "textureHeight": 40
+        },
+        {
+          "x": 167,
+          "y": 50,
+          "width": 14,
+          "height": 21,
+          "u": 0,
+          "v": 0,
+          "hoverOffset": 21,
+          "texture": "atlas/imagebutton_adamantine_spice",
+          "textureWidth": 14,
+          "textureHeight": 42
+        },
+        {
+          "x": 25,
+          "y": 50,
+          "width": 14,
+          "height": 21,
+          "u": 0,
+          "v": 0,
+          "hoverOffset": 21,
+          "texture": "atlas/imagebutton_tabcycleleft",
+          "textureWidth": 14,
+          "textureHeight": 42
+        }
+      ],
+      "customSlotPutCount": 0,
+      "slotAdditionCount": 2,
+      "openingConstructorCallers": [],
+      "classReferences": [
+        {
+          "path": "net/mcreator/thermal_shock/client/gui/CharTradeTEMPLATEScreen.class",
+          "sha256": "5bbece7ff6b3ec9f9fa41d025d6831a352a2e8e3c12ace35c2aa0e9269b9412b",
+          "matches": [
+            "Lnet/minecraft/client/gui/screens/inventory/AbstractContainerScreen<Lnet/mcreator/thermal_shock/world/inventory/CharTradeTEMPLATEMenu;>;",
+            "(Lnet/mcreator/thermal_shock/world/inventory/CharTradeTEMPLATEMenu;Lnet/minecraft/world/entity/player/Inventory;Lnet/minecraft/network/chat/Component;)V",
+            "net/mcreator/thermal_shock/world/inventory/CharTradeTEMPLATEMenu",
+            "Lnet/mcreator/thermal_shock/world/inventory/CharTradeTEMPLATEMenu;"
+          ]
+        },
+        {
+          "path": "net/mcreator/thermal_shock/init/ThermalShockModMenus.class",
+          "sha256": "ab7294bb0806317b265ff995886fcf2b45a1ccecb27eceb889c955d364e75555",
+          "matches": [
+            "Lnet/minecraftforge/registries/RegistryObject<Lnet/minecraft/world/inventory/MenuType<Lnet/mcreator/thermal_shock/world/inventory/CharTradeTEMPLATEMenu;>;>;",
+            "net/mcreator/thermal_shock/world/inventory/CharTradeTEMPLATEMenu",
+            "(ILnet/minecraft/world/entity/player/Inventory;Lnet/minecraft/network/FriendlyByteBuf;)Lnet/mcreator/thermal_shock/world/inventory/CharTradeTEMPLATEMenu;"
+          ]
+        },
+        {
+          "path": "net/mcreator/thermal_shock/init/ThermalShockModScreens.class",
+          "sha256": "ce031a5e5c581f84891aa22f5f87a0894b3d08f355f3c6e52bbdceb7c685f8c9",
+          "matches": [
+            "(Lnet/mcreator/thermal_shock/world/inventory/CharTradeTEMPLATEMenu;Lnet/minecraft/world/entity/player/Inventory;Lnet/minecraft/network/chat/Component;)V",
+            "(Lnet/mcreator/thermal_shock/world/inventory/CharTradeTEMPLATEMenu;Lnet/minecraft/world/entity/player/Inventory;Lnet/minecraft/network/chat/Component;)Lnet/mcreator/thermal_shock/client/gui/CharTradeTEMPLATEScreen;"
+          ]
+        },
+        {
+          "path": "net/mcreator/thermal_shock/network/CharTradeTEMPLATEButtonMessage.class",
+          "sha256": "18e241bd19ca043e028e79250a402322040caf9ad50e9674254d24c17c9538ca",
+          "matches": [
+            "net/mcreator/thermal_shock/world/inventory/CharTradeTEMPLATEMenu"
+          ]
+        },
+        {
+          "path": "net/mcreator/thermal_shock/world/inventory/CharTradeTEMPLATEMenu.class",
+          "sha256": "6560dbc6e0d7da9c65a88d25ddb4d390cab6cc95624fe2004d8371077157a7fc",
+          "matches": [
+            "net/mcreator/thermal_shock/world/inventory/CharTradeTEMPLATEMenu",
+            "(Lnet/mcreator/thermal_shock/world/inventory/CharTradeTEMPLATEMenu;Lnet/minecraft/world/item/ItemStack;B)Ljava/util/function/Supplier;",
+            "(Lnet/mcreator/thermal_shock/world/inventory/CharTradeTEMPLATEMenu;)Lnet/minecraftforge/common/util/NonNullConsumer;",
+            "Lnet/mcreator/thermal_shock/world/inventory/CharTradeTEMPLATEMenu;"
+          ]
+        }
+      ],
+      "sourceEnglish": {
+        "gui.thermal_shock.char_trade_template.label_lorem_ipsum": "LOREM IPSUM",
+        "gui.thermal_shock.char_trade_template.label_xx": "XX",
+        "gui.thermal_shock.char_trade_template.label_xx1": "XX",
+        "gui.thermal_shock.char_trade_template.label_xx2": "XX",
+        "gui.thermal_shock.char_trade_template.label_xxx": "XXX"
+      },
+      "targetPriorMappingMatches": []
+    },
+    {
+      "id": "civil_8_tlk_2",
+      "name": "Civil8Tlk2",
+      "width": 276,
+      "height": 182,
+      "images": [
+        {
+          "texture": "mainspeechbox",
+          "x": 0,
+          "y": 103,
+          "u": 0.0,
+          "v": 0.0,
+          "width": 276,
+          "height": 276,
+          "textureWidth": 276,
+          "textureHeight": 276
+        },
+        {
+          "texture": "mainlabelbox",
+          "x": 0,
+          "y": -30,
+          "u": 0.0,
+          "v": 0.0,
+          "width": 134,
+          "height": 134,
+          "textureWidth": 134,
+          "textureHeight": 134
+        }
+      ],
+      "labels": [
+        {
+          "key": "gui.thermal_shock.civil_8_tlk_2.label_kutty",
+          "x": 9,
+          "y": 112,
+          "color": -1
+        },
+        {
+          "key": "gui.thermal_shock.civil_8_tlk_2.label_concierge",
+          "x": 5,
+          "y": 93,
+          "color": -1
+        }
+      ],
+      "buttons": [],
+      "customSlotPutCount": 0,
+      "slotAdditionCount": 0,
+      "openingConstructorCallers": [],
+      "classReferences": [
+        {
+          "path": "net/mcreator/thermal_shock/client/gui/Civil8Tlk2Screen.class",
+          "sha256": "2bd48f42f965af2bfca39cab4e2b2dbd8728d6851db0b6a134f56b3d480573c9",
+          "matches": [
+            "Lnet/minecraft/client/gui/screens/inventory/AbstractContainerScreen<Lnet/mcreator/thermal_shock/world/inventory/Civil8Tlk2Menu;>;",
+            "(Lnet/mcreator/thermal_shock/world/inventory/Civil8Tlk2Menu;Lnet/minecraft/world/entity/player/Inventory;Lnet/minecraft/network/chat/Component;)V",
+            "net/mcreator/thermal_shock/world/inventory/Civil8Tlk2Menu",
+            "Lnet/mcreator/thermal_shock/world/inventory/Civil8Tlk2Menu;"
+          ]
+        },
+        {
+          "path": "net/mcreator/thermal_shock/init/ThermalShockModMenus.class",
+          "sha256": "ab7294bb0806317b265ff995886fcf2b45a1ccecb27eceb889c955d364e75555",
+          "matches": [
+            "Lnet/minecraftforge/registries/RegistryObject<Lnet/minecraft/world/inventory/MenuType<Lnet/mcreator/thermal_shock/world/inventory/Civil8Tlk2Menu;>;>;",
+            "net/mcreator/thermal_shock/world/inventory/Civil8Tlk2Menu",
+            "(ILnet/minecraft/world/entity/player/Inventory;Lnet/minecraft/network/FriendlyByteBuf;)Lnet/mcreator/thermal_shock/world/inventory/Civil8Tlk2Menu;"
+          ]
+        },
+        {
+          "path": "net/mcreator/thermal_shock/init/ThermalShockModScreens.class",
+          "sha256": "ce031a5e5c581f84891aa22f5f87a0894b3d08f355f3c6e52bbdceb7c685f8c9",
+          "matches": [
+            "(Lnet/mcreator/thermal_shock/world/inventory/Civil8Tlk2Menu;Lnet/minecraft/world/entity/player/Inventory;Lnet/minecraft/network/chat/Component;)V",
+            "(Lnet/mcreator/thermal_shock/world/inventory/Civil8Tlk2Menu;Lnet/minecraft/world/entity/player/Inventory;Lnet/minecraft/network/chat/Component;)Lnet/mcreator/thermal_shock/client/gui/Civil8Tlk2Screen;"
+          ]
+        },
+        {
+          "path": "net/mcreator/thermal_shock/world/inventory/Civil8Tlk2Menu.class",
+          "sha256": "c778d1d708944ae9eaf740a6bddf93bb671ae5c315c4fe1760ffea28de1c12df",
+          "matches": [
+            "net/mcreator/thermal_shock/world/inventory/Civil8Tlk2Menu",
+            "Lnet/mcreator/thermal_shock/world/inventory/Civil8Tlk2Menu;"
+          ]
+        }
+      ],
+      "sourceEnglish": {
+        "gui.thermal_shock.civil_8_tlk_2.label_concierge": "ROACH",
+        "gui.thermal_shock.civil_8_tlk_2.label_kutty": "❄ warm :)"
+      },
+      "targetPriorMappingMatches": []
+    },
+    {
+      "id": "limbo_vault_gui",
+      "name": "LimboVaultGUI",
+      "width": 276,
+      "height": 76,
+      "images": [],
+      "labels": [
+        {
+          "key": "gui.thermal_shock.limbo_vault_gui.label_limbo_vault",
+          "x": 110,
+          "y": 4,
+          "color": -1
+        }
+      ],
+      "buttons": [
+        {
+          "x": 201,
+          "y": 31,
+          "width": 18,
+          "height": 18,
+          "u": 0,
+          "v": 0,
+          "hoverOffset": 18,
+          "texture": "atlas/imagebutton_textarrow",
+          "textureWidth": 18,
+          "textureHeight": 36
+        }
+      ],
+      "customSlotPutCount": 0,
+      "slotAdditionCount": 0,
+      "openingConstructorCallers": [
+        {
+          "path": "procedures/LimboVaultOnBlockRightClickedProcedure.java",
+          "lines": [
+            {
+              "line": 35,
+              "text": "                    return new LimboVaultGUIMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));"
+            }
+          ]
+        }
+      ],
+      "classReferences": [
+        {
+          "path": "net/mcreator/thermal_shock/client/gui/LimboVaultGUIScreen.class",
+          "sha256": "ac16a417deb0304d96cf68dfb4150698d2b46867b9069be32e0d10ec8a1b4544",
+          "matches": [
+            "Lnet/minecraft/client/gui/screens/inventory/AbstractContainerScreen<Lnet/mcreator/thermal_shock/world/inventory/LimboVaultGUIMenu;>;",
+            "(Lnet/mcreator/thermal_shock/world/inventory/LimboVaultGUIMenu;Lnet/minecraft/world/entity/player/Inventory;Lnet/minecraft/network/chat/Component;)V",
+            "net/mcreator/thermal_shock/world/inventory/LimboVaultGUIMenu",
+            "Lnet/mcreator/thermal_shock/world/inventory/LimboVaultGUIMenu;"
+          ]
+        },
+        {
+          "path": "net/mcreator/thermal_shock/init/ThermalShockModMenus.class",
+          "sha256": "ab7294bb0806317b265ff995886fcf2b45a1ccecb27eceb889c955d364e75555",
+          "matches": [
+            "Lnet/minecraftforge/registries/RegistryObject<Lnet/minecraft/world/inventory/MenuType<Lnet/mcreator/thermal_shock/world/inventory/LimboVaultGUIMenu;>;>;",
+            "net/mcreator/thermal_shock/world/inventory/LimboVaultGUIMenu",
+            "(ILnet/minecraft/world/entity/player/Inventory;Lnet/minecraft/network/FriendlyByteBuf;)Lnet/mcreator/thermal_shock/world/inventory/LimboVaultGUIMenu;"
+          ]
+        },
+        {
+          "path": "net/mcreator/thermal_shock/init/ThermalShockModScreens.class",
+          "sha256": "ce031a5e5c581f84891aa22f5f87a0894b3d08f355f3c6e52bbdceb7c685f8c9",
+          "matches": [
+            "(Lnet/mcreator/thermal_shock/world/inventory/LimboVaultGUIMenu;Lnet/minecraft/world/entity/player/Inventory;Lnet/minecraft/network/chat/Component;)V",
+            "(Lnet/mcreator/thermal_shock/world/inventory/LimboVaultGUIMenu;Lnet/minecraft/world/entity/player/Inventory;Lnet/minecraft/network/chat/Component;)Lnet/mcreator/thermal_shock/client/gui/LimboVaultGUIScreen;"
+          ]
+        },
+        {
+          "path": "net/mcreator/thermal_shock/network/LimboVaultGUIButtonMessage.class",
+          "sha256": "efa4b8fe405e95d472f1b8924dfb5703d94d4642dec6fdb8a806568ba5f877cf",
+          "matches": [
+            "net/mcreator/thermal_shock/world/inventory/LimboVaultGUIMenu"
+          ]
+        },
+        {
+          "path": "net/mcreator/thermal_shock/procedures/LimboVaultOnBlockRightClickedProcedure$1.class",
+          "sha256": "2d5e752542b11d78688ce093ea1a7fb817550d96573ac4b26171bfed9993e0e4",
+          "matches": [
+            "net/mcreator/thermal_shock/world/inventory/LimboVaultGUIMenu"
+          ]
+        },
+        {
+          "path": "net/mcreator/thermal_shock/world/inventory/LimboVaultGUIMenu.class",
+          "sha256": "1acc6ae819ea12d8a04dc1438635fc9da2f13d70a60b1599e873272498115dbb",
+          "matches": [
+            "net/mcreator/thermal_shock/world/inventory/LimboVaultGUIMenu",
+            "Lnet/mcreator/thermal_shock/world/inventory/LimboVaultGUIMenu;"
+          ]
+        }
+      ],
+      "sourceEnglish": {
+        "gui.thermal_shock.limbo_vault_gui.label_limbo_vault": "Limbo Vault",
+        "gui.thermal_shock.limbo_vault_gui.vaultcodeslot": "..."
+      },
+      "targetPriorMappingMatches": []
+    }
+  ],
+  "sources": [
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\gui\\ClashPage1Screen.java",
+      "sha256": "eeea0494e32d2d3cd884796e9852e21e4236ab9e78271e7d28aa126e5d7f9eb9",
+      "jarPath": "net/mcreator/thermal_shock/client/gui/ClashPage1Screen.class",
+      "jarSha256": "5f45fc22da785afc6f595ad2dd0d2f5d01e5b7dc742affc48b5a80b9077c920e"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\world\\inventory\\ClashPage1Menu.java",
+      "sha256": "e0c4318d5ac34f5faf8e9dcd616522faa88a66244462d63ef9c4ddf15a7287b4",
+      "jarPath": "net/mcreator/thermal_shock/world/inventory/ClashPage1Menu.class",
+      "jarSha256": "59c911dac69942db950a712beb1570e6d23d8eded9a3b0ef6d5fb3d6ca7e71d0"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\gui\\ClashNoSignalScreen.java",
+      "sha256": "2b3e8baff5b55755160dacd336e8501e276caa41d0f40ece8a735135d49ff8c8",
+      "jarPath": "net/mcreator/thermal_shock/client/gui/ClashNoSignalScreen.class",
+      "jarSha256": "9ef82d0e97c598673abeffc3fb2655bb43b1ea08865806497dbfd4a9766785ea"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\world\\inventory\\ClashNoSignalMenu.java",
+      "sha256": "44ab09e0f3eb362ed678d096fe2fbb8c756050a2dd0424524f1a6380213a7d8a",
+      "jarPath": "net/mcreator/thermal_shock/world/inventory/ClashNoSignalMenu.class",
+      "jarSha256": "12f258434e3a2df88a6558761fbc0bfebaa58e7f456ba74089e1558595187303"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\gui\\CharTradeTEMPLATEScreen.java",
+      "sha256": "c2d6af0ee10af8dfba9fa41a47b36d3e9c520a48b0c2ab3efb2309a68e4af3e5",
+      "jarPath": "net/mcreator/thermal_shock/client/gui/CharTradeTEMPLATEScreen.class",
+      "jarSha256": "5bbece7ff6b3ec9f9fa41d025d6831a352a2e8e3c12ace35c2aa0e9269b9412b"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\world\\inventory\\CharTradeTEMPLATEMenu.java",
+      "sha256": "1f04c18b933edbf3c24b5ae607d64a1dafabe187b6880532cc7ea48035f88e80",
+      "jarPath": "net/mcreator/thermal_shock/world/inventory/CharTradeTEMPLATEMenu.class",
+      "jarSha256": "6560dbc6e0d7da9c65a88d25ddb4d390cab6cc95624fe2004d8371077157a7fc"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\gui\\Civil8Tlk2Screen.java",
+      "sha256": "d5b341e5a03cd7f744a256aa4ef19656d14deb5021247282e3409c6d20ff67e9",
+      "jarPath": "net/mcreator/thermal_shock/client/gui/Civil8Tlk2Screen.class",
+      "jarSha256": "2bd48f42f965af2bfca39cab4e2b2dbd8728d6851db0b6a134f56b3d480573c9"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\world\\inventory\\Civil8Tlk2Menu.java",
+      "sha256": "8f0f54a198371a10d7f44fbb80a209441ea346f9c4dbab90698958b3286a6c9a",
+      "jarPath": "net/mcreator/thermal_shock/world/inventory/Civil8Tlk2Menu.class",
+      "jarSha256": "c778d1d708944ae9eaf740a6bddf93bb671ae5c315c4fe1760ffea28de1c12df"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\gui\\LimboVaultGUIScreen.java",
+      "sha256": "514e3011f1fa2e227c8fe734f3d96a39ea76f662eba01dedca75e382ae7d5b8b",
+      "jarPath": "net/mcreator/thermal_shock/client/gui/LimboVaultGUIScreen.class",
+      "jarSha256": "ac16a417deb0304d96cf68dfb4150698d2b46867b9069be32e0d10ec8a1b4544"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\world\\inventory\\LimboVaultGUIMenu.java",
+      "sha256": "15daa48d28ce4a369f2134fea256551d5a225ff0243ea287b7a3d2744ba8b473",
+      "jarPath": "net/mcreator/thermal_shock/world/inventory/LimboVaultGUIMenu.class",
+      "jarSha256": "1acc6ae819ea12d8a04dc1438635fc9da2f13d70a60b1599e873272498115dbb"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\LimboVaultOnBlockRightClickedProcedure.java",
+      "sha256": "808124e7b2d7fdaff06031bd48bc94ef2fdddc527ec05c2e11878c412633eec5",
+      "jarPath": "net/mcreator/thermal_shock/procedures/LimboVaultOnBlockRightClickedProcedure.class",
+      "jarSha256": "488829b6847083e71140518c4e7c75ca91f6bb87dca637e505d54ae0b392ef24"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModMenus.java",
+      "sha256": "b29f03319ca76d7360358b0fb103922cfb7ca92268f16fdbc4a11b0f34f52c05",
+      "jarPath": "net/mcreator/thermal_shock/init/ThermalShockModMenus.class",
+      "jarSha256": "ab7294bb0806317b265ff995886fcf2b45a1ccecb27eceb889c955d364e75555"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModScreens.java",
+      "sha256": "a86cb1dec42842f2b405904aca45189bc4b2d6f571e7f48480de32989fd1d668",
+      "jarPath": "net/mcreator/thermal_shock/init/ThermalShockModScreens.class",
+      "jarSha256": "ce031a5e5c581f84891aa22f5f87a0894b3d08f355f3c6e52bbdceb7c685f8c9"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\network\\CharTradeTEMPLATEButtonMessage.java",
+      "sha256": "2dd60885e5ac1841a73c8bbf83329b577bffde5cd9cf8e784cbc80ec02d3f0a2",
+      "jarPath": "net/mcreator/thermal_shock/network/CharTradeTEMPLATEButtonMessage.class",
+      "jarSha256": "18e241bd19ca043e028e79250a402322040caf9ad50e9674254d24c17c9538ca"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\network\\LimboVaultGUIButtonMessage.java",
+      "sha256": "987fa062d43cde05468e235102d1749d8c85a97c4f74ade012e9933772654b7c",
+      "jarPath": "net/mcreator/thermal_shock/network/LimboVaultGUIButtonMessage.class",
+      "jarSha256": "efa4b8fe405e95d472f1b8924dfb5703d94d4642dec6fdb8a806568ba5f877cf"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\BenzorSpiceTradeProcedure.java",
+      "sha256": "f58264d138bb3282f18d3a76725be5aada7674e25aca1352bd8ab4c7e11484f3",
+      "jarPath": "net/mcreator/thermal_shock/procedures/BenzorSpiceTradeProcedure.class",
+      "jarSha256": "a95ea66e0d879df52cf0806698d34636e11f5bc545010297d43550fb69e33817"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\Limbovaultcode1Procedure.java",
+      "sha256": "f46836fbd8656d12358538d1db5bb0b0f7a0827dacda3aa34b63865a66b8ab7a",
+      "jarPath": "net/mcreator/thermal_shock/procedures/Limbovaultcode1Procedure.class",
+      "jarSha256": "9b172587bc64ccfc561239920d746533f65bf8385d8e5c3a4e52cd7e31dc936b"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\ConciergeGUIOpenTickProcedure.java",
+      "sha256": "b9524f1b663248dcc26af5fbcd513a148045abb77698287bdb6e63d1dc628de7",
+      "jarPath": "net/mcreator/thermal_shock/procedures/ConciergeGUIOpenTickProcedure.class",
+      "jarSha256": "1a02d35f1cea2f8df8c9ec85ac7d241c8bb23b3084a9c734238027b5903da83e"
+    }
+  ],
+  "assets": [
+    {
+      "sourcePath": "assets/thermal_shock/textures/screens/kgcpage.png",
+      "sourceSha256": "be5520291678080e30ff39a677ac22931385146958e24cb0c8489d9c6fb16e72",
+      "targetPath": "src/main/resources/assets/thermal_shock_reforged/textures/screens/kgcpage.png",
+      "targetSha256": "be5520291678080e30ff39a677ac22931385146958e24cb0c8489d9c6fb16e72",
+      "sameBytes": true
+    },
+    {
+      "sourcePath": "assets/thermal_shock/textures/screens/cbt_nosignal.png",
+      "sourceSha256": "42737c0288b87cee801d4665e8739148052b29d405b7322b1d36f88c9b25e2d8",
+      "targetPath": "src/main/resources/assets/thermal_shock_reforged/textures/screens/cbt_nosignal.png",
+      "targetSha256": "42737c0288b87cee801d4665e8739148052b29d405b7322b1d36f88c9b25e2d8",
+      "sameBytes": true
+    },
+    {
+      "sourcePath": "assets/thermal_shock/textures/screens/conciergetrademenu.png",
+      "sourceSha256": "1c879ade25496d3a3b326f18f1e4c4c4125165c5731d357702f56ca46ded06ee",
+      "targetPath": "src/main/resources/assets/thermal_shock_reforged/textures/screens/conciergetrademenu.png",
+      "targetSha256": "1c879ade25496d3a3b326f18f1e4c4c4125165c5731d357702f56ca46ded06ee",
+      "sameBytes": true
+    },
+    {
+      "sourcePath": "assets/thermal_shock/textures/screens/heavy_round.png",
+      "sourceSha256": "68ea4e55c7b5a3087d4fc544b97f2342c8df953371c1b1a73cd3bd77ced7c0ba",
+      "targetPath": "src/main/resources/assets/thermal_shock_reforged/textures/screens/heavy_round.png",
+      "targetSha256": "68ea4e55c7b5a3087d4fc544b97f2342c8df953371c1b1a73cd3bd77ced7c0ba",
+      "sameBytes": true
+    },
+    {
+      "sourcePath": "assets/thermal_shock/textures/screens/atlas/imagebutton_tradebuttona.png",
+      "sourceSha256": "6d8c2897450b0f5414ba325ddba06ca4de09deb9689b3000506c24edcd64019a",
+      "targetPath": "src/main/resources/assets/thermal_shock_reforged/textures/screens/atlas/imagebutton_tradebuttona.png",
+      "targetSha256": "6d8c2897450b0f5414ba325ddba06ca4de09deb9689b3000506c24edcd64019a",
+      "sameBytes": true
+    },
+    {
+      "sourcePath": "assets/thermal_shock/textures/screens/atlas/imagebutton_adamantine_spice.png",
+      "sourceSha256": "24088cc9b089321dcb2669d16638bd3ce484927e1056ca4c84a7703ca787d391",
+      "targetPath": "src/main/resources/assets/thermal_shock_reforged/textures/screens/atlas/imagebutton_adamantine_spice.png",
+      "targetSha256": "24088cc9b089321dcb2669d16638bd3ce484927e1056ca4c84a7703ca787d391",
+      "sameBytes": true
+    },
+    {
+      "sourcePath": "assets/thermal_shock/textures/screens/atlas/imagebutton_tabcycleleft.png",
+      "sourceSha256": "8831c02b0fce235a48e1f600f600c73652c2aeb6c43d221264d00e5c14108761",
+      "targetPath": "src/main/resources/assets/thermal_shock_reforged/textures/screens/atlas/imagebutton_tabcycleleft.png",
+      "targetSha256": "8831c02b0fce235a48e1f600f600c73652c2aeb6c43d221264d00e5c14108761",
+      "sameBytes": true
+    },
+    {
+      "sourcePath": "assets/thermal_shock/textures/screens/mainspeechbox.png",
+      "sourceSha256": "12894af8cfa75443411767e123b9c3e66c72b81b21085b2e383e5f7040bb9ea5",
+      "targetPath": "src/main/resources/assets/thermal_shock_reforged/textures/screens/mainspeechbox.png",
+      "targetSha256": "12894af8cfa75443411767e123b9c3e66c72b81b21085b2e383e5f7040bb9ea5",
+      "sameBytes": true
+    },
+    {
+      "sourcePath": "assets/thermal_shock/textures/screens/mainlabelbox.png",
+      "sourceSha256": "633b9d4f6971f9e2e173893b11889a588813a132963edcbd3c85154bca6d9dd6",
+      "targetPath": "src/main/resources/assets/thermal_shock_reforged/textures/screens/mainlabelbox.png",
+      "targetSha256": "633b9d4f6971f9e2e173893b11889a588813a132963edcbd3c85154bca6d9dd6",
+      "sameBytes": true
+    },
+    {
+      "sourcePath": "assets/thermal_shock/textures/screens/atlas/imagebutton_textarrow.png",
+      "sourceSha256": "2a3f574607a99281567c12c41e2ced5fabfac8247b7cfbd5d22ff206322c3524",
+      "targetPath": "src/main/resources/assets/thermal_shock_reforged/textures/screens/atlas/imagebutton_textarrow.png",
+      "targetSha256": "2a3f574607a99281567c12c41e2ced5fabfac8247b7cfbd5d22ff206322c3524",
+      "sameBytes": true
+    }
+  ],
+  "originalClassCount": 4577,
+  "limboOpeningProcedureClassReferences": [
+    {
+      "path": "net/mcreator/thermal_shock/procedures/LimboVaultOnBlockRightClickedProcedure$1.class",
+      "sha256": "2d5e752542b11d78688ce093ea1a7fb817550d96573ac4b26171bfed9993e0e4",
+      "matches": [
+        "net/mcreator/thermal_shock/procedures/LimboVaultOnBlockRightClickedProcedure$1",
+        "net/mcreator/thermal_shock/procedures/LimboVaultOnBlockRightClickedProcedure",
+        "Lnet/mcreator/thermal_shock/procedures/LimboVaultOnBlockRightClickedProcedure$1;"
+      ]
+    },
+    {
+      "path": "net/mcreator/thermal_shock/procedures/LimboVaultOnBlockRightClickedProcedure.class",
+      "sha256": "488829b6847083e71140518c4e7c75ca91f6bb87dca637e505d54ae0b392ef24",
+      "matches": [
+        "net/mcreator/thermal_shock/procedures/LimboVaultOnBlockRightClickedProcedure",
+        "net/mcreator/thermal_shock/procedures/LimboVaultOnBlockRightClickedProcedure$1",
+        "Lnet/mcreator/thermal_shock/procedures/LimboVaultOnBlockRightClickedProcedure;"
+      ]
+    }
+  ],
+  "originalDataTextReferences": [],
+  "sourceExceptions": [
+    "原四页无菜单构造入口；Limbo仅原独立procedure构造且该procedure无外部class消费者，不增加正常来源。",
+    "Char模板无自定义槽，按钮0原会解引用缺失槽，目标保按钮并拒绝缺槽操作。",
+    "Limbo原服务端尝试读静态客户端EditBox，目标传文本并验证当前菜单后权威奖励。"
+  ],
+  "limits": "仅源码/常量池/文本数据与图资源证据；没有构建或游戏。"
+}

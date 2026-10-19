@@ -1,0 +1,36 @@
+{
+  "batch": 113,
+  "languages": {
+    "en_us": {},
+    "zh_cn": {
+      "gui.thermal_shock_reforged.ender_tentacle_page.label_fabricator_guide": "制造机",
+      "gui.thermal_shock_reforged.ender_tentacle_page.label_tools": "末影触手",
+      "gui.thermal_shock_reforged.ender_tentacle_page.label_slot_1_cryonic_alloy_x5": "> 弹簧凝胶球 x20",
+      "gui.thermal_shock_reforged.ender_tentacle_page.label_slot_2_cobalt_block_x2": "> 赫利昂残渣 x16",
+      "gui.thermal_shock_reforged.ender_tentacle_page.label_slot_3_polished_permafrost_x4": "> 末影珍珠 x32",
+      "gui.thermal_shock_reforged.ender_tentacle_page.label_cryonic_alloy": "> 冰能合金 x10",
+      "gui.thermal_shock_reforged.ender_tentacle_page.label_slag_x1": "> 熔渣 x2",
+      "gui.thermal_shock_reforged.ghostglass_sword_page.label_fabricator_guide": "制造机",
+      "gui.thermal_shock_reforged.ghostglass_sword_page.label_slot_1_cryonic_alloy_x5": "此配方已移至",
+      "gui.thermal_shock_reforged.ghostglass_sword_page.label_to_the_crafting_table": "工作台。",
+      "gui.thermal_shock_reforged.ghostglass_sword_page.label_check_jei_for_the_new_recipe": "请在 JEI 中查看新配方！"
+    }
+  },
+  "preserved_english": {
+    "gui.thermal_shock_reforged.ender_tentacle_page.label_fabricator_guide": "Fabricator",
+    "gui.thermal_shock_reforged.ender_tentacle_page.label_tools": "Ender Tentacle",
+    "gui.thermal_shock_reforged.ender_tentacle_page.label_slot_1_cryonic_alloy_x5": "> Springelatin Ball x20",
+    "gui.thermal_shock_reforged.ender_tentacle_page.label_slot_2_cobalt_block_x2": "> Helion Residue x16",
+    "gui.thermal_shock_reforged.ender_tentacle_page.label_slot_3_polished_permafrost_x4": "> Ender Pearl x32",
+    "gui.thermal_shock_reforged.ender_tentacle_page.label_cryonic_alloy": "> Cryonic Alloy x10",
+    "gui.thermal_shock_reforged.ender_tentacle_page.label_slag_x1": "> Slag x2",
+    "gui.thermal_shock_reforged.ghostglass_sword_page.label_fabricator_guide": "Fabricator",
+    "gui.thermal_shock_reforged.ghostglass_sword_page.label_slot_1_cryonic_alloy_x5": "This recipe has been moved",
+    "gui.thermal_shock_reforged.ghostglass_sword_page.label_to_the_crafting_table": "to the Crafting Table.",
+    "gui.thermal_shock_reforged.ghostglass_sword_page.label_check_jei_for_the_new_recipe": "Check JEI for the new recipe!"
+  },
+  "shared_java_already_integrated": [
+    "ThermalShockReforged: LegacyFabricatorContent.register(bus)",
+    "ClientEvents.screens: LegacyFabricatorScreen.register(event)"
+  ]
+}

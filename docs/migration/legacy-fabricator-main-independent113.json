@@ -1,0 +1,48 @@
+{
+  "batch": 113,
+  "reviewer": "/root/remaining_inventory97",
+  "result": "PASS",
+  "scope": "Independent static 4-file and 2-shared-bridge snapshot; no build or game",
+  "production": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/legacyfabricator/LegacyFabricatorContent.java",
+      "sha256": "7b35f57bba7be9dda232d9da26668044ca9b9d486a4deecce7be00370be0f39a"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/legacyfabricator/LegacyFabricatorMenu.java",
+      "sha256": "c4a7222388d878444cdfc96fc675eb56290a51c853f7d8308168c2b9a173bfe6"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/legacyfabricator/LegacyFabricatorScreen.java",
+      "sha256": "f7eded6ec4c9508a52d8854a2145c1e9df505f8281991f4e57222b6050323b3b"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/fabrication/ender_tentacle.json",
+      "sha256": "be6edde9592de882b3daef4ebb6247bab6f13da739131f7bf0e983e53ee1cab7"
+    }
+  ],
+  "findings": [
+    "Two original menu IDs retained with separate MenuTypes, factory/screen registration and root/client bridges present.",
+    "246x163 layouts, two custom slot coordinates and 36 displayed player slots match; material scan includes all 41 inventory slots.",
+    "Seven Ender and four Ghost labels match original white text and coordinates; all eleven existing English values equal original.",
+    "Ender alone has 40x18 craft button and original sprite/hover; Ghost has no button.",
+    "Five material counts 20/32/16/10/2, energy 1 and result 1 match original; two sounds retain volume/pitch 1/2 and 1/1.",
+    "Null-face block capability, item/entity binding, invalid-cap refusal, server/current-container/transaction guards and output component/capacity checks present.",
+    "Temporary slots copy+clear before refund; closed guard prevents duplicate close refunds; bound inventory is not refunded.",
+    "Open method has no normal caller, consistent with source orphan page evidence; no invented normal entry."
+  ],
+  "preserved_english": {
+    "gui.thermal_shock_reforged.ender_tentacle_page.label_fabricator_guide": "Fabricator",
+    "gui.thermal_shock_reforged.ender_tentacle_page.label_tools": "Ender Tentacle",
+    "gui.thermal_shock_reforged.ender_tentacle_page.label_slot_1_cryonic_alloy_x5": "> Springelatin Ball x20",
+    "gui.thermal_shock_reforged.ender_tentacle_page.label_slot_2_cobalt_block_x2": "> Helion Residue x16",
+    "gui.thermal_shock_reforged.ender_tentacle_page.label_slot_3_polished_permafrost_x4": "> Ender Pearl x32",
+    "gui.thermal_shock_reforged.ender_tentacle_page.label_cryonic_alloy": "> Cryonic Alloy x10",
+    "gui.thermal_shock_reforged.ender_tentacle_page.label_slag_x1": "> Slag x2",
+    "gui.thermal_shock_reforged.ghostglass_sword_page.label_fabricator_guide": "Fabricator",
+    "gui.thermal_shock_reforged.ghostglass_sword_page.label_slot_1_cryonic_alloy_x5": "This recipe has been moved",
+    "gui.thermal_shock_reforged.ghostglass_sword_page.label_to_the_crafting_table": "to the Crafting Table.",
+    "gui.thermal_shock_reforged.ghostglass_sword_page.label_check_jei_for_the_new_recipe": "Check JEI for the new recipe!"
+  },
+  "runtime_verified": false
+}

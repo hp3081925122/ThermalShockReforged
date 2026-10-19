@@ -197,9 +197,11 @@ public final class ClientEvents {
         com.hp.thermalshockreforged.client.npc.huntress.HuntressScreen.register(event);
         com.hp.thermalshockreforged.client.npc.benzor.BenzorScreen.register(event);
         com.hp.thermalshockreforged.client.dialogue.DialogueScreen.register(event);
+        com.hp.thermalshockreforged.client.remaininggui.RemainingGuiScreen.register(event);
         event.register(NativeDecorContent.DESK_PHOTO_SCREEN.get(), DeskPhotoScreen::new);
         event.register(com.hp.thermalshockreforged.content.atlas.AtlasContent.MENU.get(), com.hp.thermalshockreforged.client.atlas.AtlasScreen::new);
         event.register(com.hp.thermalshockreforged.content.decor.nativeblocks.NativeDecorContent.FABRICATOR_MENU.get(), com.hp.thermalshockreforged.client.decor.FabricatorScreen::new);
+        com.hp.thermalshockreforged.client.legacyfabricator.LegacyFabricatorScreen.register(event);
     }
 
     @SubscribeEvent

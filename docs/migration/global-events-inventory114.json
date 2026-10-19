@@ -1,0 +1,1353 @@
+{
+  "batch": 114,
+  "scope": "Original subscription inventory and candidate names only; not behavior coverage",
+  "inventoryReviewer": "quick_explorer /root/coverage101_inventory",
+  "capture": "Parent executes reviewer-provided deterministic collection and hashes directly; hand-transcribed partial hashes rejected",
+  "sourceRoot": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures",
+  "targetRoot": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java",
+  "total": 81,
+  "eventCounts": {
+    "LivingDeathEvent": 6,
+    "BlockEvent.BreakEvent": 1,
+    "BlockEvent.EntityPlaceEvent": 3,
+    "LivingAttackEvent": 55,
+    "LivingFallEvent": 2,
+    "TickEvent.PlayerTickEvent": 3,
+    "EntityJoinLevelEvent": 1,
+    "LivingHurtEvent": 3,
+    "LivingHealEvent": 1,
+    "AdvancementEvent": 3,
+    "PlayerEvent.PlayerLoggedOutEvent": 1,
+    "PlayerWakeUpEvent": 2
+  },
+  "attack": 55,
+  "other": 26,
+  "entries": [
+    {
+      "class": "AqeronDeathOverrideProcedure",
+      "handler": "onEntityDeath",
+      "event": "LivingDeathEvent",
+      "sourcePath": "AqeronDeathOverrideProcedure.java",
+      "sourceSha256": "fdb9f68ef010ad54521e008289b76a469aedb97164a8371c19a466af51dbd8cf",
+      "calls": [
+        "AqeronDeathOverrideProcedure"
+      ],
+      "lane": "main",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited",
+        "candidateFilename": "AqeronEvents.java",
+        "candidateMethod": "death",
+        "candidatePaths": [
+          "src/main/java/com/hp/thermalshockreforged/content/atlas/AqeronEvents.java"
+        ]
+      }
+    },
+    {
+      "class": "AqeronEntityEffectsProcedure",
+      "handler": "onBlockBreak",
+      "event": "BlockEvent.BreakEvent",
+      "sourcePath": "AqeronEntityEffectsProcedure.java",
+      "sourceSha256": "5bc069efad31b755fe60b0a35cdda63373b34ee8fea1242ee82a05e8dd13bb0a",
+      "calls": [
+        "AqeronEntityEffectsProcedure"
+      ],
+      "lane": "main",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited",
+        "candidateFilename": "AqeronEvents.java",
+        "candidateMethod": "breakBlock",
+        "candidatePaths": [
+          "src/main/java/com/hp/thermalshockreforged/content/atlas/AqeronEvents.java"
+        ]
+      }
+    },
+    {
+      "class": "AqeronPlaceStopProcedure",
+      "handler": "onBlockPlace",
+      "event": "BlockEvent.EntityPlaceEvent",
+      "sourcePath": "AqeronPlaceStopProcedure.java",
+      "sourceSha256": "dc6b19b9c534510d3edeeecf89c92a921e6a0ba05ba8d46fc0139be1bbc3a8ee",
+      "calls": [
+        "AqeronPlaceStopProcedure"
+      ],
+      "lane": "main",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited",
+        "candidateFilename": "AqeronEvents.java",
+        "candidateMethod": "placeBlock",
+        "candidatePaths": [
+          "src/main/java/com/hp/thermalshockreforged/content/atlas/AqeronEvents.java"
+        ]
+      }
+    },
+    {
+      "class": "BeetleCrasherAttackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "BeetleCrasherAttackProcedure.java",
+      "sourceSha256": "b067317c018ead680f91d5d6ee87e73bd02866caf90e849d6220d28c677314ca",
+      "calls": [
+        "BeetleCrasherAttackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "BeetleThrasherAttackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "BeetleThrasherAttackProcedure.java",
+      "sourceSha256": "1dad81f69c84e792b5f9a688540a9837708924dc3b09e35d0a14909916cda31b",
+      "calls": [
+        "BeetleThrasherAttackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "BouncerfalldamageoverrideProcedure",
+      "handler": "onEntityFall",
+      "event": "LivingFallEvent",
+      "sourcePath": "BouncerfalldamageoverrideProcedure.java",
+      "sourceSha256": "55c302289626aaf07576cccba1cec087455b0268c4e90df179d036be88b3f38a",
+      "calls": [
+        "BouncerfalldamageoverrideProcedure"
+      ],
+      "lane": "main",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited",
+        "candidateFilename": "BounceBlocks.java",
+        "candidateMethod": "Full/Slab.stepOn",
+        "candidatePaths": [
+          "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/BounceBlocks.java"
+        ]
+      }
+    },
+    {
+      "class": "BuddingBloomerAttackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "BuddingBloomerAttackProcedure.java",
+      "sourceSha256": "236e9090ac2c6e34c7b5366ad2776c6c0e05f243e3745105a9107559867857c4",
+      "calls": [
+        "BuddingBloomerAttackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "CarborundumFallOverrideProcedure",
+      "handler": "onEntityFall",
+      "event": "LivingFallEvent",
+      "sourcePath": "CarborundumFallOverrideProcedure.java",
+      "sourceSha256": "1cecf9606cdabbf194a9131b1661d10beb1e33c6cb0e48a86139fc7ddf2569ed",
+      "calls": [
+        "CarborundumFallOverrideProcedure"
+      ],
+      "lane": "main",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited",
+        "candidateFilename": "ArmorContent.java",
+        "candidateMethod": "listeners",
+        "candidatePaths": [
+          "src/main/java/com/hp/thermalshockreforged/content/armor/ArmorContent.java"
+        ]
+      }
+    },
+    {
+      "class": "CavebloomerAttackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "CavebloomerAttackProcedure.java",
+      "sourceSha256": "a4a5ea464bce25c263d4f4a949f8b54dc0ec7a93f983f6ec763d3c96360531b0",
+      "calls": [
+        "CavebloomerAttackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "CharacterMobDeathstopProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "CharacterMobDeathstopProcedure.java",
+      "sourceSha256": "42a70bce38f3c4a72b8c0960b1349b1f7012a1b57bd0d16d626eac785d0b9c69",
+      "calls": [
+        "CharacterMobDeathstopProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "CloroHurtBonusProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "CloroHurtBonusProcedure.java",
+      "sourceSha256": "868d502528c0c7970b4b579a3e274bdb1de0d2c8e3af69369391cd8de7c488a3",
+      "calls": [
+        "CloroHurtBonusProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "CloroHurtResistProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "CloroHurtResistProcedure.java",
+      "sourceSha256": "8a673e7224a47d3177842d4c06de4f7a955bfc9bb96f63c11f9a14c8fc10fb71",
+      "calls": [
+        "CloroHurtResistProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "CobaltHeightsIgnitionEffectProcedure",
+      "handler": "onPlayerTick",
+      "event": "TickEvent.PlayerTickEvent",
+      "sourcePath": "CobaltHeightsIgnitionEffectProcedure.java",
+      "sourceSha256": "4ef5ff73cf76ceec6baecb336882d99bb018f0a3564307fafcfa2c6819d1eb8d",
+      "calls": [
+        "CobaltHeightsIgnitionEffectProcedure"
+      ],
+      "lane": "main",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "ColdAttackCancelProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "ColdAttackCancelProcedure.java",
+      "sourceSha256": "2e89c7e7fdb5913f2d21e2507a060b2e7e58dd8f7eace15790188a0f797d6d37",
+      "calls": [
+        "ColdAttackCancelProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "CryoHurtBonusProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "CryoHurtBonusProcedure.java",
+      "sourceSha256": "d9c41a4875e1cbbe6b0bc71455dc6885402c3fce2e0b804dab3041b961786565",
+      "calls": [
+        "CryoHurtBonusProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "CryoHurtResistProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "CryoHurtResistProcedure.java",
+      "sourceSha256": "d5694036e1a3a9665469dc2603149bd6fa4fd0cf2c501f53f89becab8150b6ae",
+      "calls": [
+        "CryoHurtResistProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "DandyBloomerAttackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "DandyBloomerAttackProcedure.java",
+      "sourceSha256": "e34396f293695075656da74d031bb7734b1acb990d96774a0ef9b24e0767330d",
+      "calls": [
+        "DandyBloomerAttackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "DepiginatorProcedure",
+      "handler": "onEntitySpawned",
+      "event": "EntityJoinLevelEvent",
+      "sourcePath": "DepiginatorProcedure.java",
+      "sourceSha256": "8f67ab46d134607a3492191aca42ba9a680ea96c1e8ba9e24f719ee065aa7a28",
+      "calls": [
+        "DepiginatorProcedure"
+      ],
+      "lane": "main",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "DevScarfEffectProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingHurtEvent",
+      "sourcePath": "DevScarfEffectProcedure.java",
+      "sourceSha256": "38f7a73f649be9e85e526bdf4f35a0ecbc4b5b3bd154de2d5eede1525916570e",
+      "calls": [
+        "DevScarfEffectProcedure"
+      ],
+      "lane": "main",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited",
+        "candidateFilename": "SpecialArmorEvents.java",
+        "candidateMethod": "hurt",
+        "candidatePaths": [
+          "src/main/java/com/hp/thermalshockreforged/content/armor/SpecialArmorEvents.java"
+        ]
+      }
+    },
+    {
+      "class": "EffigyAttackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "EffigyAttackProcedure.java",
+      "sourceSha256": "351ae62f42071292ce962f6fdafadcfd5d5096b28eb477274e3aac3dff2b7fae",
+      "calls": [
+        "EffigyAttackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "ElectrifiedHitProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingHurtEvent",
+      "sourcePath": "ElectrifiedHitProcedure.java",
+      "sourceSha256": "5e9c01a1cc28cdbb2e244a36a65e238c5d8cf4cfa86628337b11d65656493b36",
+      "calls": [
+        "ElectrifiedHitProcedure"
+      ],
+      "lane": "main",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited",
+        "candidateFilename": "ElementalCombat.java",
+        "candidateMethod": "attack / StatusEvents.onDamage",
+        "candidatePaths": [
+          "src/main/java/com/hp/thermalshockreforged/combat/ElementalCombat.java"
+        ]
+      }
+    },
+    {
+      "class": "ErrantAttackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "ErrantAttackProcedure.java",
+      "sourceSha256": "cc1298f67f5b8c11b2d46db3a5d3f8dc8f9c55d7428e190b1699bf1b3011bef4",
+      "calls": [
+        "ErrantAttackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "ExtinguishFireProcedure",
+      "handler": "onBlockPlace",
+      "event": "BlockEvent.EntityPlaceEvent",
+      "sourcePath": "ExtinguishFireProcedure.java",
+      "sourceSha256": "5a0ead471e039b86cbffbde23a2c3fc727422970bbe03053b42a205507a85e23",
+      "calls": [
+        "ExtinguishFireProcedure"
+      ],
+      "lane": "main",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "FerroHurtBonusProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "FerroHurtBonusProcedure.java",
+      "sourceSha256": "a77b34ddfd36d549052cf60e18c72fb595e12cf799ffddfb39dd3766fe760be5",
+      "calls": [
+        "FerroHurtBonusProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "FerroHurtResistProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "FerroHurtResistProcedure.java",
+      "sourceSha256": "f120b7ee7d8032fd33c524d8ea6f3db03aef3af5e67f29f7bb8024b5244c22cc",
+      "calls": [
+        "FerroHurtResistProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "FlareAttackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "FlareAttackProcedure.java",
+      "sourceSha256": "0c6766a2550b9e2c085f15c776b6820e186757b118ba3c4983a3d9a16a85f639",
+      "calls": [
+        "FlareAttackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "ForecastAttackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "ForecastAttackProcedure.java",
+      "sourceSha256": "71748b95e3a4f0cf55e0386c26c7d8714160aeed67e9bd1d91a5bebe89ff11cf",
+      "calls": [
+        "ForecastAttackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "FreezeMagmaProcedure",
+      "handler": "onBlockPlace",
+      "event": "BlockEvent.EntityPlaceEvent",
+      "sourcePath": "FreezeMagmaProcedure.java",
+      "sourceSha256": "7d1fdd145131b1edca8633c856229eaee3e1808a7e082ca07922a877f7c62329",
+      "calls": [
+        "FreezeMagmaProcedure"
+      ],
+      "lane": "main",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "FrostbiteHealstopProcedure",
+      "handler": "onEntityHealed",
+      "event": "LivingHealEvent",
+      "sourcePath": "FrostbiteHealstopProcedure.java",
+      "sourceSha256": "3855ebe3766f2a189197b53d7d6cbf667e7b8dc586d0405768ad3324709e56cc",
+      "calls": [
+        "FrostbiteHealstopProcedure"
+      ],
+      "lane": "main",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited",
+        "candidateFilename": "StatusEvents.java",
+        "candidateMethod": "onHeal",
+        "candidatePaths": [
+          "src/main/java/com/hp/thermalshockreforged/content/status/StatusEvents.java"
+        ]
+      }
+    },
+    {
+      "class": "FrostilyteAttackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "FrostilyteAttackProcedure.java",
+      "sourceSha256": "baab85dd799277bb95a5491ed88c79dbe8142e5f48d7244f20a3ce658ff80c38",
+      "calls": [
+        "FrostilyteAttackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "FrostilyteGunnerAttackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "FrostilyteGunnerAttackProcedure.java",
+      "sourceSha256": "984ba1838c1521178eeacc0201c0ec9f25c60c0879bc262b7a3dc5709a8ea727",
+      "calls": [
+        "FrostilyteGunnerAttackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "FrostilyteSoldierAttackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "FrostilyteSoldierAttackProcedure.java",
+      "sourceSha256": "a1755f45b171470a0eae7592f70fa56c65125facece51d5378071be2c224d1d1",
+      "calls": [
+        "FrostilyteSoldierAttackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "GlastrekkerEntityIsHurtProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "GlastrekkerEntityIsHurtProcedure.java",
+      "sourceSha256": "055d948f48a78f0c64793d8a4e2b1722e9ba6e7d0f45ca89451369572d6c8a6f",
+      "calls": [
+        "GlastrekkerEntityIsHurtProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "GraveMobDropsProcedure",
+      "handler": "onEntityDeath",
+      "event": "LivingDeathEvent",
+      "sourcePath": "GraveMobDropsProcedure.java",
+      "sourceSha256": "d294f6dfa750d1211e6f1be1d095a7912f86dea250d345152d77736dccb3133b",
+      "calls": [
+        "GraveMobDropsProcedure"
+      ],
+      "lane": "main",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited",
+        "candidateFilename": "GraveyardDrops.java",
+        "candidateMethod": "death",
+        "candidatePaths": [
+          "src/main/java/com/hp/thermalshockreforged/entity/infestation/GraveyardDrops.java"
+        ]
+      }
+    },
+    {
+      "class": "HeraldSiphonBloodProcedure",
+      "handler": "onEntityDeath",
+      "event": "LivingDeathEvent",
+      "sourcePath": "HeraldSiphonBloodProcedure.java",
+      "sourceSha256": "2246d29a0f1ab0f7821f1726609804f92770ef58fee27ed55aba55d411984228",
+      "calls": [
+        "HeraldSiphonBloodProcedure"
+      ],
+      "lane": "main",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited",
+        "candidateFilename": "ManglerContent.java",
+        "candidateMethod": "death",
+        "candidatePaths": [
+          "src/main/java/com/hp/thermalshockreforged/entity/mangler/ManglerContent.java"
+        ]
+      }
+    },
+    {
+      "class": "HuntressAttackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "HuntressAttackProcedure.java",
+      "sourceSha256": "93c74e26dfaab648eaf1602d0ddfe5d293523c2af67373b4f2f483a475d555b2",
+      "calls": [
+        "HuntressAttackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "IceMobDropsProcedure",
+      "handler": "onEntityDeath",
+      "event": "LivingDeathEvent",
+      "sourcePath": "IceMobDropsProcedure.java",
+      "sourceSha256": "29356397096c301a62fc8e85dd175787919af7f7dcdd6215c4da5efe7402677a",
+      "calls": [
+        "IceMobDropsProcedure"
+      ],
+      "lane": "main",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited",
+        "candidateFilename": "IceMobDrops.java",
+        "candidateMethod": "death",
+        "candidatePaths": [
+          "src/main/java/com/hp/thermalshockreforged/entity/drops/IceMobDrops.java"
+        ]
+      }
+    },
+    {
+      "class": "IcidroburnerAttackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "IcidroburnerAttackProcedure.java",
+      "sourceSha256": "4c893108a1aefd10834acf3daa792aa5c568c58e504cbcfbea534bd24265e8c3",
+      "calls": [
+        "IcidroburnerAttackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "IcidrogunnerAttackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "IcidrogunnerAttackProcedure.java",
+      "sourceSha256": "05e195f97a3afedda50d7b5ffd05311e7cb49e09e47a5c95d6b6d4bc975370cd",
+      "calls": [
+        "IcidrogunnerAttackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "IcidroneAttackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "IcidroneAttackProcedure.java",
+      "sourceSha256": "6a8a3e1735362a6ad14bbb965f56368cf22a5c406a29a6e2ffd386658ba666b6",
+      "calls": [
+        "IcidroneAttackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "IgnitionNegBonusProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "IgnitionNegBonusProcedure.java",
+      "sourceSha256": "b98234d61ac8ff507b4cf96607b748c26c971d21b63a831bf9eb92f15a9a92d0",
+      "calls": [
+        "IgnitionNegBonusProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "InfectingMobAttackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "InfectingMobAttackProcedure.java",
+      "sourceSha256": "c625b182078b3aee8b15d92d3075b6b97c4f32e441af23cadb755f34770b5a65",
+      "calls": [
+        "InfectingMobAttackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "KilolyteAttackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "KilolyteAttackProcedure.java",
+      "sourceSha256": "e775919b0a8a51cdc426a9c0d89165ea18b7bafde47e47d70f63d60b8334aac2",
+      "calls": [
+        "KilolyteAttackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "MaidenAttackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "MaidenAttackProcedure.java",
+      "sourceSha256": "75c89dad95ce6a93a0fc817db134b9bf700974dcdeb64780a1b2b21d9fa73ee0",
+      "calls": [
+        "MaidenAttackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "MaidenShieldingProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "MaidenShieldingProcedure.java",
+      "sourceSha256": "cf28f49705d43d33c78d5682a7832e9167874ea8e4739846cf4573f0297bde47",
+      "calls": [
+        "MaidenShieldingProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "ManglerAttackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "ManglerAttackProcedure.java",
+      "sourceSha256": "ca46dd9f9c994e5a0aa1c61b9d462238bc437c1616253cbd3b87cd4005367785",
+      "calls": [
+        "ManglerAttackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "MiscFoodDropsProcedure",
+      "handler": "onEntityDeath",
+      "event": "LivingDeathEvent",
+      "sourcePath": "MiscFoodDropsProcedure.java",
+      "sourceSha256": "8ef98f16bdf788d9fc8f3477b18f3014de87d398e6a42c74a274a5cff0b2139c",
+      "calls": [
+        "MiscFoodDropsProcedure"
+      ],
+      "lane": "main",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited",
+        "candidateFilename": "FoodDrops.java",
+        "candidateMethod": "death",
+        "candidatePaths": [
+          "src/main/java/com/hp/thermalshockreforged/content/utility/FoodDrops.java"
+        ]
+      }
+    },
+    {
+      "class": "MonolithAttackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "MonolithAttackProcedure.java",
+      "sourceSha256": "b95ec66705a4156398e150c577825a6dac8c6a25e32472427756312de4401191",
+      "calls": [
+        "MonolithAttackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "MoonPhasesTexturerProcedure",
+      "handler": "onPlayerTick",
+      "event": "TickEvent.PlayerTickEvent",
+      "sourcePath": "MoonPhasesTexturerProcedure.java",
+      "sourceSha256": "a7e97acaa6461b5438b5636c75e552c8413d9cae1481e2cda3622ce81fc06ce8",
+      "calls": [
+        "MoonPhasesTexturerProcedure"
+      ],
+      "lane": "main",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited",
+        "candidateFilename": "DimensionSkyTexturesMixin.java",
+        "candidateMethod": "injection",
+        "candidatePaths": [
+          "src/main/java/com/hp/thermalshockreforged/mixin/DimensionSkyTexturesMixin.java"
+        ]
+      }
+    },
+    {
+      "class": "PalaceSpawnProcedure",
+      "handler": "onAdvancement",
+      "event": "AdvancementEvent",
+      "sourcePath": "PalaceSpawnProcedure.java",
+      "sourceSha256": "a172c91a4e6c8b525c6c79f98cbab3b789a26ad8d71a0b27746df2b7e9224bee",
+      "calls": [
+        "PalaceSpawnProcedure"
+      ],
+      "lane": "main",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited",
+        "candidateFilename": "PalaceGeneration.java",
+        "candidateMethod": "advancement",
+        "candidatePaths": [
+          "src/main/java/com/hp/thermalshockreforged/world/PalaceGeneration.java"
+        ]
+      }
+    },
+    {
+      "class": "ParryingHitCancelProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingHurtEvent",
+      "sourcePath": "ParryingHitCancelProcedure.java",
+      "sourceSha256": "0788df91a2749188d3a97e4aae66e63aec5a0e0fa52f4b043d1e00c82bfceee5",
+      "calls": [
+        "ParryingHitCancelProcedure"
+      ],
+      "lane": "main",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited",
+        "candidateFilename": "ElementalCombat.java",
+        "candidateMethod": "attack / StatusEvents.onDamage",
+        "candidatePaths": [
+          "src/main/java/com/hp/thermalshockreforged/combat/ElementalCombat.java"
+        ]
+      }
+    },
+    {
+      "class": "PillbudAttackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "PillbudAttackProcedure.java",
+      "sourceSha256": "67cb4207f6c2ea4d84fcce47e30fa5f5de1a5fdce489d9401eeb3f0ff01a8df3",
+      "calls": [
+        "PillbudAttackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "PreyStopLeaveWorldProcedure",
+      "handler": "onPlayerLoggedOut",
+      "event": "PlayerEvent.PlayerLoggedOutEvent",
+      "sourcePath": "PreyStopLeaveWorldProcedure.java",
+      "sourceSha256": "c00dda4b398adcc2693fe1752f115713b6bfc7c5981a9aa8a4cf6c3515c47183",
+      "calls": [
+        "PreyStopLeaveWorldProcedure"
+      ],
+      "lane": "main",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "ProtoiDeltaAttackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "ProtoiDeltaAttackProcedure.java",
+      "sourceSha256": "5abcf09d47229e9f7f1b0257691d638f37325a333b3c3e59149e2437f229142e",
+      "calls": [
+        "ProtoiDeltaAttackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "ProtoiEpsilonAttackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "ProtoiEpsilonAttackProcedure.java",
+      "sourceSha256": "67feb685c5ffc91b3ab7050986c82e1c438fdfaee6fe3169e728765f15935665",
+      "calls": [
+        "ProtoiEpsilonAttackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "ProtoiSunbeamAttackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "ProtoiSunbeamAttackProcedure.java",
+      "sourceSha256": "e47e00ccb10321d8878eec6e1226dbbe24a85c217d2c16797a49526509ee7461",
+      "calls": [
+        "ProtoiSunbeamAttackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "PyroHurtBonusProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "PyroHurtBonusProcedure.java",
+      "sourceSha256": "a45b7b43118f2b5fd435f25c2b64f925b712a8d164a1c55c52476f0edbab6468",
+      "calls": [
+        "PyroHurtBonusProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "PyroHurtResistProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "PyroHurtResistProcedure.java",
+      "sourceSha256": "078ca962c1e6b8bdefc3ad3a2b3f4ed4025c1ab68a36bd024c2da622d9ddd969",
+      "calls": [
+        "PyroHurtResistProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "RazoraptorAttackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "RazoraptorAttackProcedure.java",
+      "sourceSha256": "36201da998680487460e0795ce9a4623350c1e72f1eefa4565208c560fde272d",
+      "calls": [
+        "RazoraptorAttackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "RibbonbladeAttackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "RibbonbladeAttackProcedure.java",
+      "sourceSha256": "bc811be7cd1157460e9dff78e1b605df3d5baedbbcb992f8f98cc16db12055a1",
+      "calls": [
+        "RibbonbladeAttackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "RippleAttackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "RippleAttackProcedure.java",
+      "sourceSha256": "5e57018480f577a25583bd64f6ef9b4c902f1258936a5fa74ce162bdee254016",
+      "calls": [
+        "RippleAttackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "RubyWeaponBuffProcedure",
+      "handler": "onEntityDeath",
+      "event": "LivingDeathEvent",
+      "sourcePath": "RubyWeaponBuffProcedure.java",
+      "sourceSha256": "118179636c35c55a95e865d985c2444006292ca64b939065d1f5ae410af84b9f",
+      "calls": [
+        "RubyWeaponBuffProcedure"
+      ],
+      "lane": "main",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited",
+        "candidateFilename": "ArmorSetEvents.java",
+        "candidateMethod": "death",
+        "candidatePaths": [
+          "src/main/java/com/hp/thermalshockreforged/content/armor/ArmorSetEvents.java"
+        ]
+      }
+    },
+    {
+      "class": "ShalespringSpawnProcedure",
+      "handler": "onAdvancement",
+      "event": "AdvancementEvent",
+      "sourcePath": "ShalespringSpawnProcedure.java",
+      "sourceSha256": "748053e1877d1f556e90faba06af9600d896b95974a040f2f8caf52a4e8a33c3",
+      "calls": [
+        "ShalespringSpawnProcedure"
+      ],
+      "lane": "main",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited",
+        "candidateFilename": "ShalespringGeneration.java",
+        "candidateMethod": "advancement",
+        "candidatePaths": [
+          "src/main/java/com/hp/thermalshockreforged/world/ShalespringGeneration.java"
+        ]
+      }
+    },
+    {
+      "class": "SiibolAttackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "SiibolAttackProcedure.java",
+      "sourceSha256": "454f8e7d33a0e0a0e81421bd21b72f590a1ded8a91a2ad9a94d961a9c543031f",
+      "calls": [
+        "SiibolAttackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "SkeletitanAttackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "SkeletitanAttackProcedure.java",
+      "sourceSha256": "8eaf3a53012230e72714d7b207d180e43a671e9e256d23095b98747e62a5db45",
+      "calls": [
+        "SkeletitanAttackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "SootleAttackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "SootleAttackProcedure.java",
+      "sourceSha256": "e09baf71970c908c3ad3a142c16cfc83f7941e108169c63370d0cc8f537e5f28",
+      "calls": [
+        "SootleAttackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "SootleIdleAttackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "SootleIdleAttackProcedure.java",
+      "sourceSha256": "aecb9e69e02d140af960cacd72ddb874d5f89cd88e9ce1266a9796d14896b5e1",
+      "calls": [
+        "SootleIdleAttackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "SootlingAttackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "SootlingAttackProcedure.java",
+      "sourceSha256": "1c3f7f0f0d986f98ac24a58691708731c96f075298d0a02aca2f8699dd00bfaa",
+      "calls": [
+        "SootlingAttackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "SopelAttackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "SopelAttackProcedure.java",
+      "sourceSha256": "55f002356dbcaa2eec6a1255abc8efde6c3573fa10b67be96b58bf6f9964e382",
+      "calls": [
+        "SopelAttackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "SpawnForceKeystoneChamberProcedure",
+      "handler": "onEntityEndSleep",
+      "event": "PlayerWakeUpEvent",
+      "sourcePath": "SpawnForceKeystoneChamberProcedure.java",
+      "sourceSha256": "d6499cdca134e3ab0b72ce02401000a4a1ad4d5556a80d054e88d9cd91ae397a",
+      "calls": [
+        "SpawnForceKeystoneChamberProcedure"
+      ],
+      "lane": "main",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited",
+        "candidateFilename": "KeystoneChamberGeneration.java",
+        "candidateMethod": "wakeUp",
+        "candidatePaths": [
+          "src/main/java/com/hp/thermalshockreforged/world/KeystoneChamberGeneration.java"
+        ]
+      }
+    },
+    {
+      "class": "SpawnKeystoneChamberSpawnnProcedure",
+      "handler": "onEntityEndSleep",
+      "event": "PlayerWakeUpEvent",
+      "sourcePath": "SpawnKeystoneChamberSpawnnProcedure.java",
+      "sourceSha256": "2191eb8a75535bdbe32085992a1892e63d9784d08fcd39494dd67b27718a9a45",
+      "calls": [
+        "SpawnKeystoneChamberSpawnnProcedure"
+      ],
+      "lane": "main",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited",
+        "candidateFilename": "KeystoneChamberGeneration.java",
+        "candidateMethod": "wakeUp",
+        "candidatePaths": [
+          "src/main/java/com/hp/thermalshockreforged/world/KeystoneChamberGeneration.java"
+        ]
+      }
+    },
+    {
+      "class": "SpectreAttackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "SpectreAttackProcedure.java",
+      "sourceSha256": "58940b4e00237fc32d7c02421934ab97931f0fd13bc7002bc1bc10c70e04aaf3",
+      "calls": [
+        "SpectreAttackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "SpiritAttackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "SpiritAttackProcedure.java",
+      "sourceSha256": "7bb82e545d7733d3e01e9f73f2a205cd2abff169408efa35e00c727207db7e1d",
+      "calls": [
+        "SpiritAttackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "SquallAttackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "SquallAttackProcedure.java",
+      "sourceSha256": "597897e140f4e55fca4b89a19dff7816426f2d3919ed3bd5f49f8339e1f17e01",
+      "calls": [
+        "SquallAttackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "StarriteMoonoidAttackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "StarriteMoonoidAttackProcedure.java",
+      "sourceSha256": "45d664cc25f38bed72a15c5141287104b55da2460137a33f912568c6310628f1",
+      "calls": [
+        "StarriteMoonoidAttackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "SummonedManglerAttackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "SummonedManglerAttackProcedure.java",
+      "sourceSha256": "ea5f32f9ef1ac054c522e60d088ed2dbd15430f6f55606e45aaf3eb3a8cc0069",
+      "calls": [
+        "SummonedManglerAttackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "TeslaReedAttackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "TeslaReedAttackProcedure.java",
+      "sourceSha256": "ab2de720e894287ba1a905418448f840200c112e997f7570ad81652b525e2707",
+      "calls": [
+        "TeslaReedAttackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "TestmobattackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "TestmobattackProcedure.java",
+      "sourceSha256": "4b3b1ec59d0f2b6c712e64fdc7b4bb2a9c691b0eac0bd0bd6fa8f0f5e574b750",
+      "calls": [
+        "TestmobattackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    },
+    {
+      "class": "VilebathGetInfoLogicProcedure",
+      "handler": "onAdvancement",
+      "event": "AdvancementEvent",
+      "sourcePath": "VilebathGetInfoLogicProcedure.java",
+      "sourceSha256": "6f9e74b680b1e952093dd69af86d58fe0c3b4f308a8d1cdd51be9391d126a43b",
+      "calls": [
+        "VilebathGetInfoLogicProcedure"
+      ],
+      "lane": "main",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited",
+        "candidateFilename": "ConciergeQuest.java",
+        "candidateMethod": "advancement",
+        "candidatePaths": [
+          "src/main/java/com/hp/thermalshockreforged/content/npc/concierge/ConciergeQuest.java"
+        ]
+      }
+    },
+    {
+      "class": "ZenithTickProcedure",
+      "handler": "onPlayerTick",
+      "event": "TickEvent.PlayerTickEvent",
+      "sourcePath": "ZenithTickProcedure.java",
+      "sourceSha256": "ff3c1889559c8f674ce24942b208c55654d3550a34046540eb3c137897ac95e8",
+      "calls": [
+        "BloodArmorEffectProcedure",
+        "CarborundumArmorEffectProcedure",
+        "CorDivHelmetEffectProcedure",
+        "RubyArmorEffectProcedure",
+        "SentryArmorEffectProcedure",
+        "SilencedArmorEffectProcedure",
+        "ZenithTickProcedure"
+      ],
+      "lane": "main",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited",
+        "candidateFilename": "ArmorSetEvents.java",
+        "candidateMethod": "tick",
+        "candidatePaths": [
+          "src/main/java/com/hp/thermalshockreforged/content/armor/ArmorSetEvents.java"
+        ]
+      }
+    },
+    {
+      "class": "ZerkaltattackProcedure",
+      "handler": "onEntityAttacked",
+      "event": "LivingAttackEvent",
+      "sourcePath": "ZerkaltattackProcedure.java",
+      "sourceSha256": "d650b3d5af14c13c569fa9122b4b60e3c734ba82c31dbed02c345d3c55722a8f",
+      "calls": [
+        "ZerkaltattackProcedure"
+      ],
+      "lane": "A",
+      "target": {
+        "status": "manual_mapping",
+        "meaning": "Name or listener candidate only; behavior not audited"
+      }
+    }
+  ]
+}

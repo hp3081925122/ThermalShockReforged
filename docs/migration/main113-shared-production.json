@@ -1,0 +1,95 @@
+{
+  "batch": 113,
+  "base_head": "4b5a97269b0a235dd4f62aa5ba90903c5d33285f",
+  "languages": {
+    "en_us": {
+      "preserved_values": 3361,
+      "old_values_unchanged": true,
+      "new_keys": {
+        "gui.thermal_shock_reforged.remaininggui.button_tradebuttona": "Trade",
+        "gui.thermal_shock_reforged.remaininggui.button_adamantine_spice": "Adamantine Spice",
+        "gui.thermal_shock_reforged.remaininggui.button_tabcycleleft": "Previous Tab",
+        "gui.thermal_shock_reforged.remaininggui.button_textarrow": "Submit"
+      },
+      "final_entries": 3365
+    },
+    "zh_cn": {
+      "preserved_values": 942,
+      "old_values_unchanged": true,
+      "new_keys": {
+        "gui.thermal_shock_reforged.ender_tentacle_page.label_fabricator_guide": "制造机",
+        "gui.thermal_shock_reforged.ender_tentacle_page.label_tools": "末影触手",
+        "gui.thermal_shock_reforged.ender_tentacle_page.label_slot_1_cryonic_alloy_x5": "> 弹簧凝胶球 x20",
+        "gui.thermal_shock_reforged.ender_tentacle_page.label_slot_2_cobalt_block_x2": "> 赫利昂残渣 x16",
+        "gui.thermal_shock_reforged.ender_tentacle_page.label_slot_3_polished_permafrost_x4": "> 末影珍珠 x32",
+        "gui.thermal_shock_reforged.ender_tentacle_page.label_cryonic_alloy": "> 冰能合金 x10",
+        "gui.thermal_shock_reforged.ender_tentacle_page.label_slag_x1": "> 熔渣 x2",
+        "gui.thermal_shock_reforged.ghostglass_sword_page.label_fabricator_guide": "制造机",
+        "gui.thermal_shock_reforged.ghostglass_sword_page.label_slot_1_cryonic_alloy_x5": "此配方已移至",
+        "gui.thermal_shock_reforged.ghostglass_sword_page.label_to_the_crafting_table": "工作台。",
+        "gui.thermal_shock_reforged.ghostglass_sword_page.label_check_jei_for_the_new_recipe": "请在 JEI 中查看新配方！",
+        "gui.thermal_shock_reforged.clash_page_1.label_execute_kgcfunc_33": "❄ /execute kgcfunc 33",
+        "gui.thermal_shock_reforged.clash_page_1.label_find_their_way": "找到路的。",
+        "gui.thermal_shock_reforged.clash_page_1.label_func33_report_103txt": "-- [Func33_Report_107.txt]",
+        "gui.thermal_shock_reforged.clash_page_1.label_goodbye": "❄ 再见 :^)",
+        "gui.thermal_shock_reforged.clash_page_1.label_how_will_i_find_them": "❄ 我要怎样找到他们？",
+        "gui.thermal_shock_reforged.clash_page_1.label_message_not_sent_try_again": "-- 消息未发送，",
+        "gui.thermal_shock_reforged.clash_page_1.label_no_signal": "❄ 就是今天。",
+        "gui.thermal_shock_reforged.clash_page_1.label_shortly": "就快了。",
+        "gui.thermal_shock_reforged.clash_page_1.label_take_a_look": "❄ 看看吧。",
+        "gui.thermal_shock_reforged.clash_page_1.label_they_are_ready_they_will_find": "他们会来找你的。他们会",
+        "gui.thermal_shock_reforged.clash_page_1.label_they_will_be_arriving_shortly": "❄ 他们就快到了。",
+        "gui.thermal_shock_reforged.clash_page_1.label_they_will_come_to_you": "❄ 等他们准备好了，",
+        "gui.thermal_shock_reforged.clash_page_1.label_try_again_yn": "   重试？[Y/N]",
+        "gui.thermal_shock_reforged.clash_page_1.label_wait": "❄ 等等",
+        "gui.thermal_shock_reforged.clash_no_signal.label_no_signal": "无信号！",
+        "gui.thermal_shock_reforged.char_trade_template.label_lorem_ipsum": "LOREM IPSUM",
+        "gui.thermal_shock_reforged.char_trade_template.label_xx": "XX",
+        "gui.thermal_shock_reforged.char_trade_template.label_xx1": "XX",
+        "gui.thermal_shock_reforged.char_trade_template.label_xx2": "XX",
+        "gui.thermal_shock_reforged.char_trade_template.label_xxx": "XXX",
+        "gui.thermal_shock_reforged.civil_8_tlk_2.label_concierge": "蟑螂",
+        "gui.thermal_shock_reforged.civil_8_tlk_2.label_kutty": "❄ 暖和 :)",
+        "gui.thermal_shock_reforged.limbo_vault_gui.label_limbo_vault": "虚境保险库",
+        "gui.thermal_shock_reforged.limbo_vault_gui.vaultcodeslot": "...",
+        "gui.thermal_shock_reforged.remaininggui.button_tradebuttona": "交易",
+        "gui.thermal_shock_reforged.remaininggui.button_adamantine_spice": "精金香料",
+        "gui.thermal_shock_reforged.remaininggui.button_tabcycleleft": "上一页",
+        "gui.thermal_shock_reforged.remaininggui.button_textarrow": "提交"
+      },
+      "final_entries": 981
+    }
+  },
+  "production": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/ThermalShockReforged.java",
+      "sha256": "16c9cfa024119230679eb6d5ac7811be9ca019c88c85fb84b31dde942d9cea2d"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/ClientEvents.java",
+      "sha256": "bc908bcd916088093e425d7aef5fd3abcc673f11ebc74030a9021a100a88567e"
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/lang/en_us.json",
+      "sha256": "f8ed378f9a4aa2c0dda3499098e69b5ec5e741265504280df4a5ac693cae3742"
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/lang/zh_cn.json",
+      "sha256": "0ba3db9410113940dadf6878872d7f1c5211523e0cf195bf6f993fb9c199fc6f"
+    }
+  ],
+  "sharedCode": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/ThermalShockReforged.java",
+      "operation": "在构造器已有DialogueContent.register(bus)之后追加一次",
+      "anchor": "com.hp.thermalshockreforged.content.dialogue.DialogueContent.register(bus);",
+      "addition": "com.hp.thermalshockreforged.content.remaininggui.RemainingGuiContent.register(bus);"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/ClientEvents.java",
+      "operation": "在screens(RegisterMenuScreensEvent event)已有DialogueScreen.register(event)之后追加一次",
+      "anchor": "com.hp.thermalshockreforged.client.dialogue.DialogueScreen.register(event);",
+      "addition": "com.hp.thermalshockreforged.client.remaininggui.RemainingGuiScreen.register(event);"
+    }
+  ]
+}
