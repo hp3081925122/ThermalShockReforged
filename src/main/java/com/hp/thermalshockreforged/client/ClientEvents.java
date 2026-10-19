@@ -83,6 +83,7 @@ public final class ClientEvents {
         event.registerEntityRenderer(com.hp.thermalshockreforged.world.thermite.ThermiteContent.DETONATION.get(), ThermiteDetonationRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.entity.pots.PotContent.SKULLSCOR.get(), com.hp.thermalshockreforged.client.pots.SkullscorRenderer::new);
         FaunaRenderers.register(event);
+        com.hp.thermalshockreforged.client.jellercel.JellercelRenderers.register(event);
         InfestationRenderers.register(event);
         SnobolRenderers.register(event);
         EcosystemRenderers.register(event);

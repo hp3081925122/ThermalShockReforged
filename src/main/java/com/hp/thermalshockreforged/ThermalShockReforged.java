@@ -130,6 +130,7 @@ public final class ThermalShockReforged {
         ProtoiContent.register(bus);
         MagnetiteContent.register(bus);
         LegacyContent.register(bus);
+        com.hp.thermalshockreforged.entity.jellercel.JellercelContent.register(bus);
         com.hp.thermalshockreforged.entity.orb.OrbContent.register(bus);
         com.hp.thermalshockreforged.entity.projectile.ProjectileContent.register(bus);
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(IceMobDrops::death);

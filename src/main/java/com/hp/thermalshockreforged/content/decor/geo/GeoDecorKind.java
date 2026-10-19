@@ -63,6 +63,8 @@ public enum GeoDecorKind {
     RINTHIUM_LEVER("rinthium_lever", "Rinthium Lever", "geo/rinthlever.geo.json", "textures/block/rubicon_lever.png", "animations/rinthlever.animation.json", Shapes.block(), true, true),
     INACTIVE_KEYSTONE_PEDESTAL("inactive_keystone_pedestal", "Keystone Pedestal", "geo/pedestalhole.geo.json", "textures/block/pedestal.png", "animations/pedestalhole.animation.json", Block.box(0, 0, 0, 16, 2, 16), false, true),
     KEYSTONE_PEDESTAL("keystone_pedestal", "Keystone Pedestal", "geo/keystonepedestal.geo.json", "textures/block/pedestal.png", "animations/keystonepedestal.animation.json", Block.box(2, 0, 2, 14, 32, 14), false, true),
+    JELLERCEL("jellercel", "Jellercel", "geo/jellercell.geo.json", "textures/block/jellercell.png", "animations/jellercell.animation.json", Block.box(.1, .1, .1, 15.9, 15.9, 15.9), true, false),
+    LARGE_JELLERCEL("large_jellercel", "Large Jellercel", "geo/largejellercell.geo.json", "textures/block/largejellercel.png", "animations/largejellercell.animation.json", Block.box(.1, .1, .1, 31.9, 31.9, 31.9), true, false),
     TRAPPED_CACHE_PAD("trapped_cache_pad", "Trapped Cache Pad", "geo/cachepad.geo.json", "textures/block/trapped_cache_pad.png", "animations/cachepad.animation.json", Shapes.block(), false, false);
 
     public final String id;
@@ -91,6 +93,11 @@ public enum GeoDecorKind {
     }
     public BlockBehaviour.Properties properties() {
         return switch (this) {
+            case JELLERCEL, LARGE_JELLERCEL -> {
+                var properties = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PINK).sound(SoundType.SLIME_BLOCK).strength(this == JELLERCEL ? .5F : 2, 1).lightLevel(state -> 10)
+                        .noOcclusion().hasPostProcess((state, level, pos) -> true).emissiveRendering((state, level, pos) -> true).isRedstoneConductor((state, level, pos) -> false);
+                yield this == JELLERCEL ? properties.instrument(NoteBlockInstrument.BASEDRUM) : properties.pushReaction(PushReaction.BLOCK);
+            }
             case PHOBOTITE_OUTCROP, PHOBOTITE_MANTLE_OUTCROP -> BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERRACK)
                     .strength(this == PHOBOTITE_OUTCROP ? 6 : 6.75F, 5).lightLevel(state -> 6).requiresCorrectToolForDrops();
             case FRIGID_ALTAR, FERROUS_ALTAR -> {

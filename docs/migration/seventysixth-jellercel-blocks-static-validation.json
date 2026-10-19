@@ -1,0 +1,158 @@
+{
+  "asset_checks": [
+    {
+      "path": "geo/jellercell.geo.json",
+      "normalized_original_matches": true,
+      "sha256": "36ac92759442ef7fadc57039516534d09b85b5cc47b6a99ece3f4045f3417aa6"
+    },
+    {
+      "path": "animations/jellercell.animation.json",
+      "normalized_original_matches": true,
+      "sha256": "01d0caf6a9da5b43ed0f6d8d03b2cd5257e89923abb3705ab7ed170efaba247d"
+    },
+    {
+      "path": "textures/block/jellercell.png",
+      "normalized_original_matches": true,
+      "sha256": "83e4f0434adf99c128849a95a66b5498948e844da3f3e62ba168b36a108b2002"
+    },
+    {
+      "path": "geo/largejellercell.geo.json",
+      "normalized_original_matches": true,
+      "sha256": "527a495859000b6ece2ed323323aa18cf691d06557160e0e2e19d55bec48336f"
+    },
+    {
+      "path": "animations/largejellercell.animation.json",
+      "normalized_original_matches": true,
+      "sha256": "01d0caf6a9da5b43ed0f6d8d03b2cd5257e89923abb3705ab7ed170efaba247d"
+    },
+    {
+      "path": "textures/block/largejellercel.png",
+      "normalized_original_matches": true,
+      "sha256": "6015848a0dd913e3312ff40720079f59e9e4c22119d3bb0bf92a9a30e388ed20"
+    },
+    {
+      "path": "blockstates/jellercel.json",
+      "normalized_original_matches": true,
+      "sha256": "b876e52a3b0bd60f3ba8a470e917733711fd9f5244084a536663e16ababa2be6"
+    },
+    {
+      "path": "models/item/jellercel.json",
+      "normalized_original_matches": true,
+      "sha256": "e83b6da1175d527947066b7e9cde5c77e08a4c9f37f36588414294409fdb3e3c"
+    },
+    {
+      "path": "blockstates/large_jellercel.json",
+      "normalized_original_matches": true,
+      "sha256": "89cc7834485b2774bbaccbd346871fd3464c811db5ce787ad18d8b0d397871e8"
+    },
+    {
+      "path": "models/item/large_jellercel.json",
+      "normalized_original_matches": true,
+      "sha256": "7034e17091566d84af21dd612fce72dfbdb8ff0a58bbf59aec2c8c9953e82405"
+    },
+    {
+      "path": "blockstates/large_jellercell_collision.json",
+      "normalized_original_matches": true,
+      "sha256": "1acf3987a4029e5b78229dccfdcdf3f150939cee0b8f02af6cd2f41a5e3fb646"
+    },
+    {
+      "path": "models/item/large_jellercell_collision.json",
+      "normalized_original_matches": true,
+      "sha256": "cc73325d3378d1bce757cb1861b522fee1e4fd523d8dd0842ecf383065576ef2"
+    },
+    {
+      "path": "models/custom/jellercel_particle.json",
+      "normalized_original_matches": true,
+      "sha256": "7f02a6c16cd2212e3efa2d7a2b3d1283d221f1febac9621b44e991894a724d00"
+    },
+    {
+      "path": "models/custom/large_jellercel_particle.json",
+      "normalized_original_matches": true,
+      "sha256": "637379d2441399033941ecec6a76c6f78e9afd4a2cdeaefc6d6e75f09ea59083"
+    },
+    {
+      "path": "models/block/large_jellercell_collision.json",
+      "normalized_original_matches": true,
+      "sha256": "c8daf578bedc471698515808be68f3803fbec806b95dc55f9221f9d5cb812e54"
+    },
+    {
+      "path": "models/displaysettings/jellercell.item.json",
+      "normalized_original_matches": true,
+      "sha256": "fdb5cea58f534a167741b8f6678378546c5a669c5fdbbf58b4d1e5de196f5cc9"
+    },
+    {
+      "path": "models/displaysettings/largejellercell.json",
+      "normalized_original_matches": true,
+      "sha256": "5548886a373e2843b9261a17acb13988da029d1cddf6127b85d838ae5eef54ff"
+    },
+    {
+      "path": "textures/item/jellercel_icon_1.png",
+      "normalized_original_matches": true,
+      "sha256": "e3b14131e7244f14b877d9175c9224c2f4a76a8fbe7a3ed701aa34f4cdce74e9"
+    },
+    {
+      "path": "textures/item/jellercel_icon_2.png",
+      "normalized_original_matches": true,
+      "sha256": "cb0e5395a79654c2052c86671f7cf781f9ce2269d1265620a86cdad04feb0d9d"
+    }
+  ],
+  "data_checks": [
+    {
+      "path": "recipe/jellercel_cell_recipe.json",
+      "original_preserved_with_1211_result_id": true
+    },
+    {
+      "path": "recipe/large_jellercel_decraft.json",
+      "original_preserved_with_1211_result_id": true
+    },
+    {
+      "path": "loot_table/blocks/large_jellercell_collision.json",
+      "original_empty_loot_preserved": true
+    }
+  ],
+  "runtime_tests": "pending_full_mod_migration",
+  "reviewed_behavior_evidence": {
+    "scope": "源码/目标API人工复审；最终服务端行为与Render Preview尚未运行",
+    "shape": {
+      "small_pixels": [
+        0.1,
+        0.1,
+        0.1,
+        15.9,
+        15.9,
+        15.9
+      ],
+      "large_pixels": [
+        0.1,
+        0.1,
+        0.1,
+        31.9,
+        31.9,
+        31.9
+      ],
+      "collision_parts": 7
+    },
+    "properties": "original strength/sounds/light10, waterlogging, animation 0..1, translucent geometry, 9-slot inventory/six-sided capabilities; pink map color on visible cores",
+    "damage": "unowned LIGHTNING_BOLT1; entityInside on both cores; entityInside and stepOn on parts; server authority; no lightning entity",
+    "multiblock_fix": "validate 7 replaceable loaded positions before writing, reject block entities and borders, indexed ownership, same-block state change guard, cleanup only own parts, no forced loading/global tasks",
+    "removal": "one core drop for survival/explosion/part removal, creative no core drop, preserve per-part fluid and unrelated replacement, random-tick orphan check waits for relevant chunks",
+    "item_model_route": "original item/generated icons preserved; Java Geo renderer retained without enabling unreferenced builtin/entity display models",
+    "deferred": "natural structure/feature dependency closure and runtime edge cases remain for later complete-worldgen/final validation"
+  },
+  "creative_blocks": "small Jellercel original entry preserved; large block absent from original tab and remains absent",
+  "copied_data": [
+    "data/thermal_shock_reforged/recipe/jellercel_cell_recipe.json",
+    "data/thermal_shock_reforged/recipe/large_jellercel_decraft.json",
+    "data/thermal_shock_reforged/loot_table/blocks/large_jellercell_collision.json"
+  ],
+  "build": {
+    "tasks": [
+      "compileJava",
+      "processResources"
+    ],
+    "result": "passed",
+    "duration_seconds": 59,
+    "initial_attempt": "22s compile failure: BlockGetter clone signature changed; corrected to verified native LevelReader three-argument override",
+    "scope": "Java compilation and resource copy; no game runtime"
+  }
+}
