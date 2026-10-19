@@ -33,6 +33,10 @@ public final class LanternbearerEntity extends AnimatedMonsterEntity {
     }
     @Override public boolean isWithinMeleeAttackRange(LivingEntity target) { return distanceToSqr(target) <= getBbWidth() * getBbWidth() + target.getBbWidth(); }
     @Override protected int deathDuration() { return 25; }
+    @Override protected void tickEffects() {
+        if (!com.hp.thermalshockreforged.content.remainingcombat.CryoCooldownVisual.tickClientEffects(
+                this, false, (effect, refresh) -> onEffectUpdated(effect, refresh, null))) super.tickEffects();
+    }
     @Override protected int animationTransitionTicks() { return 2; }
     @Override protected List<String> procedureAnimations() { return List.of("idle", "walk", "explode"); }
     @Override public void die(DamageSource source) {

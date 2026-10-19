@@ -1,0 +1,11 @@
+# 第111批独立物品注册候选复核
+
+quick_explorer `/root/coverage104_inventory` 在HEAD d76f90e869d60cf075a902161ae6b9091f309d20及111生产工作树下只读核对。沿用106/107宽范围盘点、109剩余17候选，聚焦独立Items；本次未重做646个BlockItem派生项全集，不能将本报告当1000项重新验证或整模组完整覆盖率。
+
+111九项战斗物品在RemainingCombatContent的九条ITEMS.register中真实注册，七项工具/结构/饮料在RemainingUtilityContent七条ITEMS.register中真实注册；根register(bus)均已接。模型、语言和creative manifest字符串不计注册证据。原先16个未确认同ID注册候选在当前工作树已有实际入口，阶段提交/统一编译由主线后续证据确认。
+
+八张后迁唱片均由MusicContent.disc(id) helper实际传入注册ID，MATERIAL/ITEMS事件总线链已核；Arctic Warmth与Legacy不是别名。icidrogrunt_spawn_egg是真实DeferredSpawnEggItem，三Titan刷怪蛋按kind.id()+后缀动态注册已有107证据，不能因不出现完整字面量漏报。
+
+本次剩余候选仅zenith_crossbow未找到目标同ID注册，原ThermalShockModItems.java:939独立注册明确。目标Magnetic已注册不能覆盖它，原614行同时存在Magnetic；共用过程只说明可共享实现，不构成改名证据。旧109候选说法已由zenith-crossbow-followup110.md纠正；112必须补独立物品、升级链、全部表现和标签。保留原creative条目不等于可用注册。
+
+此为独立只读候选更新，没有运行编译、游戏或修改生产，不替代原注册全清单及行为矩阵无简化复审。编译成功也不能推定每一功能已实测。

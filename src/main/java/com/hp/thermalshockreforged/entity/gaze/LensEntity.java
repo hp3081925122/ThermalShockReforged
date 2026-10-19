@@ -43,6 +43,10 @@ public final class LensEntity extends AnimatedMonsterEntity {
     @Override public void setNoGravity(boolean ignored) { super.setNoGravity(true); }
     @Override public boolean causeFallDamage(float distance, float multiplier, DamageSource source) { return false; }
     @Override public boolean hurt(DamageSource source, float amount) { return !source.is(DamageTypes.DROWN) && super.hurt(source, amount); }
+    @Override protected void tickEffects() {
+        if (!com.hp.thermalshockreforged.content.remainingcombat.CryoCooldownVisual.tickClientEffects(
+                this, false, (effect, refresh) -> onEffectUpdated(effect, refresh, null))) super.tickEffects();
+    }
     @Override protected int animationTransitionTicks() { return 5; }
     @Override protected String movementAnimation(boolean moving) { return isShiftKeyDown() ? "open" : "idle"; }
     @Override protected List<String> procedureAnimations() { return List.of("open", "idle"); }

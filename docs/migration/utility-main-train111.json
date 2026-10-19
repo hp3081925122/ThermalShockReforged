@@ -1,0 +1,55 @@
+{
+  "batch": 111,
+  "source": "data/thermal_shock/structures/shalespring_trainstation.nbt",
+  "source_sha256": "7fedab18bc0d2332201c1913d3c45997c4f933760c7dfdf23ce15f60e24f797c",
+  "path": "src/main/resources/data/thermal_shock_reforged/structure/shalespring_trainstation.nbt",
+  "sha256": "001093684a1010f7a99a9f3ae432979d923c59306f617ff19fe481c5287bc0f2",
+  "size": [
+    30,
+    24,
+    70
+  ],
+  "blocks": 50400,
+  "palette": 54,
+  "entities": 0,
+  "block_entities": 3,
+  "item_stacks": 0,
+  "attributes": 0,
+  "effects": 0,
+  "source_data_version": 3465,
+  "target_data_version": 3955,
+  "block_entity_payloads": [
+    {
+      "index": 50397,
+      "nbt": {
+        "ForgeCaps": {},
+        "id": "thermal_shock_reforged:shale_cache_pad",
+        "Items": []
+      },
+      "external_caps_typed_unchanged": true
+    },
+    {
+      "index": 50398,
+      "nbt": {
+        "ForgeCaps": {},
+        "id": "thermal_shock_reforged:atlas",
+        "Items": []
+      },
+      "external_caps_typed_unchanged": true
+    },
+    {
+      "index": 50399,
+      "nbt": {
+        "ForgeCaps": {},
+        "id": "thermal_shock_reforged:cryonic_cache",
+        "Items": []
+      },
+      "external_caps_typed_unchanged": true
+    }
+  ],
+  "complete_typed_only_namespace_and_data_version": true,
+  "source_and_target_byte_roundtrip": true,
+  "geometry_palette_properties_positions_and_all_block_records_preserved": true,
+  "consumer": "RemainingUtilityContent.MODEL_TRAIN -> FixedStructureItem, exact original current-dimension origin (316,53,299), rotation NONE, mirror NONE, ignoreEntities false, flags3",
+  "build_or_game_tests": false
+}

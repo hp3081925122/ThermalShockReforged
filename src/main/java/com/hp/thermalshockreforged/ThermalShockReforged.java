@@ -124,6 +124,8 @@ public final class ThermalShockReforged {
         TerrainContent.register(bus);
         ToolsContent.register(bus);
         UtilityContent.register(bus);
+        com.hp.thermalshockreforged.content.remainingutility.RemainingUtilityContent.register(bus);
+        com.hp.thermalshockreforged.content.remainingcombat.RemainingCombatContent.register(bus);
         StatusContent.register(bus);
         com.hp.thermalshockreforged.content.brewing.NativeBrewing.register();
         com.hp.thermalshockreforged.combat.ElementalCombat.register(bus);

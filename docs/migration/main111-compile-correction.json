@@ -1,0 +1,17 @@
+{
+  "batch": 111,
+  "path": "src/main/java/com/hp/thermalshockreforged/content/remainingcombat/RemainingGunItem.java",
+  "a_delivered_sha256": "f2205201a79d632f859731b4f821402b2d86d5cd06120335a3c3833eaa83477b",
+  "integrated_sha256": "f74465fa21963342dae5d151b89bafaca7715da4e389842e0398fea45db63b67",
+  "before": "bullet.setSecondsOnFire(100);",
+  "after": "bullet.igniteForSeconds(100);",
+  "change": "Equivalent target-version native API rename; original100 seconds retained. No other byte changed.",
+  "native_source": "C:\\Users\\30819\\.gradle\\caches\\ng_execute\\e8875c373a4301e44ec50c8116fbc02e58f10e04d8e7081250c674b5ea5298a0\\transformed\\net\\minecraft\\world\\entity\\Entity.java",
+  "native_source_sha256": "ca0586cb259e95dbd29524bf2db0ed7eaccfa5ca3a3c21492f5072c6ceef44bb",
+  "first_build_log": "D:\\AI临时文件\\ThermalShockMigration\\batch111-unified-build-first-attempt.log",
+  "first_build_log_sha256": "ff04bcbe97b5b48a95f7fecb1e5652120f36083b3c203cc9077e6bd8f43b8546",
+  "first_build_duration": "42s",
+  "first_frozen_inputs_unchanged_before_correction": true,
+  "a_original_delivery_retained_as_snapshot": "remaining-combat-a-final111.json",
+  "first_frozen_manifest_sha256": "8edbcb943941c2657f425d65d2a7a749dc1dfc66e3962df7ef687beb9eda3cac"
+}

@@ -1,0 +1,2555 @@
+{
+  "status": "仅只读准备，未解除111生产冻结",
+  "ownedIds": [
+    "chorusian_antennae_helmet",
+    "claw_sickle",
+    "flower_bomb",
+    "ice_bomb",
+    "jelly_umbrella",
+    "legendary_jelly_umbrella",
+    "net_launcher",
+    "piston_gauntlet",
+    "the_judge"
+  ],
+  "items": [
+    {
+      "id": "chorusian_antennae_helmet",
+      "classPath": "item/ChorusianAntennaeItem.java",
+      "registryEvidence": {
+        "path": "init/ThermalShockModItems.java",
+        "line": 630,
+        "declaration": "public static final RegistryObject<ChorusianAntennaeItem> CHORUSIAN_ANTENNAE_HELMET = REGISTRY.register(\"chorusian_antennae_helmet\", () -> new ChorusianAntennaeItem(ArmorItem.Type.HELMET, new Item.Properties()));"
+      },
+      "implementsGeoItem": true,
+      "directProcedures": []
+    },
+    {
+      "id": "claw_sickle",
+      "classPath": "item/ClawSickleItem.java",
+      "registryEvidence": {
+        "path": "init/ThermalShockModItems.java",
+        "line": 1006,
+        "declaration": "public static final RegistryObject<Item> CLAW_SICKLE = REGISTRY.register(\"claw_sickle\", () -> new ClawSickleItem());"
+      },
+      "implementsGeoItem": false,
+      "directProcedures": [
+        "SickleHitsEntityProcedure",
+        "RubySickleToolInHandTickProcedure"
+      ]
+    },
+    {
+      "id": "flower_bomb",
+      "classPath": "item/FlowerBombItem.java",
+      "registryEvidence": {
+        "path": "init/ThermalShockModItems.java",
+        "line": 1318,
+        "declaration": "public static final RegistryObject<Item> FLOWER_BOMB = REGISTRY.register(\"flower_bomb\", () -> new FlowerBombItem());"
+      },
+      "implementsGeoItem": false,
+      "directProcedures": [
+        "FlowerBombUseProcedure"
+      ]
+    },
+    {
+      "id": "ice_bomb",
+      "classPath": "item/IceBombItem.java",
+      "registryEvidence": {
+        "path": "init/ThermalShockModItems.java",
+        "line": 1048,
+        "declaration": "public static final RegistryObject<Item> ICE_BOMB = REGISTRY.register(\"ice_bomb\", () -> new IceBombItem());"
+      },
+      "implementsGeoItem": false,
+      "directProcedures": [
+        "IceBombPlayerFinishesUsingItemProcedure"
+      ]
+    },
+    {
+      "id": "jelly_umbrella",
+      "classPath": "item/JellyUmbrellaItem.java",
+      "registryEvidence": {
+        "path": "init/ThermalShockModItems.java",
+        "line": 482,
+        "declaration": "public static final RegistryObject<Item> JELLY_UMBRELLA = REGISTRY.register(\"jelly_umbrella\", () -> new JellyUmbrellaItem());"
+      },
+      "implementsGeoItem": true,
+      "directProcedures": [
+        "JellyUmbrellaRightclickedProcedure"
+      ]
+    },
+    {
+      "id": "legendary_jelly_umbrella",
+      "classPath": "item/LegendaryJellyUmbrellaItem.java",
+      "registryEvidence": {
+        "path": "init/ThermalShockModItems.java",
+        "line": 787,
+        "declaration": "public static final RegistryObject<Item> LEGENDARY_JELLY_UMBRELLA = REGISTRY.register(\"legendary_jelly_umbrella\", () -> new LegendaryJellyUmbrellaItem());"
+      },
+      "implementsGeoItem": true,
+      "directProcedures": [
+        "LegendaryJellyUmbrellaRightclickedProcedure"
+      ]
+    },
+    {
+      "id": "net_launcher",
+      "classPath": "item/NetLauncherItem.java",
+      "registryEvidence": {
+        "path": "init/ThermalShockModItems.java",
+        "line": 1064,
+        "declaration": "public static final RegistryObject<Item> NET_LAUNCHER = REGISTRY.register(\"net_launcher\", () -> new NetLauncherItem());"
+      },
+      "implementsGeoItem": true,
+      "directProcedures": [
+        "NetLauncherFiringProcedure",
+        "CoreEjectFlareGunItemInHandTickProcedure"
+      ]
+    },
+    {
+      "id": "piston_gauntlet",
+      "classPath": "item/PistonGauntletItem.java",
+      "registryEvidence": {
+        "path": "init/ThermalShockModItems.java",
+        "line": 798,
+        "declaration": "public static final RegistryObject<Item> PISTON_GAUNTLET = REGISTRY.register(\"piston_gauntlet\", () -> new PistonGauntletItem());"
+      },
+      "implementsGeoItem": true,
+      "directProcedures": [
+        "PistonGauntletRightclickedProcedure"
+      ]
+    },
+    {
+      "id": "the_judge",
+      "classPath": "item/TheJudgeItem.java",
+      "registryEvidence": {
+        "path": "init/ThermalShockModItems.java",
+        "line": 819,
+        "declaration": "public static final RegistryObject<Item> THE_JUDGE = REGISTRY.register(\"the_judge\", () -> new TheJudgeItem());"
+      },
+      "implementsGeoItem": true,
+      "directProcedures": [
+        "JudgeFiringProcedure",
+        "CoreEjectFlareGunItemInHandTickProcedure"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "path": "item/ChorusianAntennaeItem.java",
+      "readableSha256": "a3ce7a56c3b10005dd6fd224920d1d357bab0faa4e718f367807f0d76326c2ee",
+      "jarClassPath": "net/mcreator/thermal_shock/item/ChorusianAntennaeItem.class",
+      "jarClassSha256": "aeb039950ff322b112e91ec3dfd80d6c1eb09261e5b842e397464f1c5b099f79",
+      "dependencies": [
+        "client/renderer/ChorusianAntennaeArmorRenderer.java"
+      ],
+      "directAssets": [],
+      "relevantLines": [
+        {
+          "line": 61,
+          "text": "                return (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.amethyst_block.place\"));"
+        },
+        {
+          "line": 107,
+          "text": "            event.getController().setAnimation(RawAnimation.begin().thenLoop(\"0\"));"
+        },
+        {
+          "line": 123,
+          "text": "            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));"
+        }
+      ]
+    },
+    {
+      "path": "item/ClawSickleItem.java",
+      "readableSha256": "8b3143820848c38ef0a7f13fcab8200062be22a3f62ea6b2b5958496dae6c60e",
+      "jarClassPath": "net/mcreator/thermal_shock/item/ClawSickleItem.class",
+      "jarClassSha256": "85665b3970c04c9c714e02b05d45375d99459b7befa384d488f413c5a46dc813",
+      "dependencies": [
+        "procedures/RubySickleToolInHandTickProcedure.java",
+        "procedures/SickleHitsEntityProcedure.java"
+      ],
+      "directAssets": [],
+      "relevantLines": [
+        {
+          "line": 56,
+          "text": "        SickleHitsEntityProcedure.execute((LevelAccessor)entity.level(), entity.getX(), entity.getY(), entity.getZ(), (Entity)entity, (Entity)sourceentity);"
+        },
+        {
+          "line": 70,
+          "text": "            RubySickleToolInHandTickProcedure.execute(entity);"
+        }
+      ]
+    },
+    {
+      "path": "item/FlowerBombItem.java",
+      "readableSha256": "5364c89a4d30f9e3cfdc7d985dc4103ec7f7352ca2e519f8609385804c440c5c",
+      "jarClassPath": "net/mcreator/thermal_shock/item/FlowerBombItem.class",
+      "jarClassSha256": "1ae19d7a9aa42f1185a4284277026a10163c354a9c33d3fc3c117885d9333a41",
+      "dependencies": [
+        "procedures/FlowerBombUseProcedure.java"
+      ],
+      "directAssets": [],
+      "relevantLines": [
+        {
+          "line": 33,
+          "text": "        FlowerBombUseProcedure.execute((LevelAccessor)world, entity.getX(), entity.getY(), entity.getZ(), (Entity)entity, (ItemStack)ar.getObject());"
+        }
+      ]
+    },
+    {
+      "path": "item/IceBombItem.java",
+      "readableSha256": "6252968747416c46e8452a168ca3bb08c6f3ab81c5421e811fdb8907b934ea1c",
+      "jarClassPath": "net/mcreator/thermal_shock/item/IceBombItem.class",
+      "jarClassSha256": "856f9f49604b25757134c3c0d9173a71b7f600a9b07b1f79b965458c32860724",
+      "dependencies": [
+        "procedures/IceBombPlayerFinishesUsingItemProcedure.java"
+      ],
+      "directAssets": [],
+      "relevantLines": [
+        {
+          "line": 33,
+          "text": "        IceBombPlayerFinishesUsingItemProcedure.execute((LevelAccessor)world, entity.getX(), entity.getY(), entity.getZ(), (Entity)entity, (ItemStack)ar.getObject());"
+        }
+      ]
+    },
+    {
+      "path": "item/JellyUmbrellaItem.java",
+      "readableSha256": "fceff9dc0cd97afefb40c93950e7be6e8324a937cd807836dd14bacc86c0bfa4",
+      "jarClassPath": "net/mcreator/thermal_shock/item/JellyUmbrellaItem.class",
+      "jarClassSha256": "d7b429e2c89fee71fc753103dc5e9a18c0c580173ff084a09ab7f2c337a7f5a2",
+      "dependencies": [
+        "item/renderer/JellyUmbrellaItemRenderer.java",
+        "procedures/JellyUmbrellaRightclickedProcedure.java"
+      ],
+      "directAssets": [],
+      "relevantLines": [
+        {
+          "line": 73,
+          "text": "            event.getController().setAnimation(RawAnimation.begin().thenLoop(\"0\"));"
+        },
+        {
+          "line": 84,
+          "text": "            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));"
+        },
+        {
+          "line": 119,
+          "text": "        JellyUmbrellaRightclickedProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity, itemstack);"
+        }
+      ]
+    },
+    {
+      "path": "item/LegendaryJellyUmbrellaItem.java",
+      "readableSha256": "2e5b8862e6c69c304906eff062e547e380c0646737e8ccba04795ab17ce2782a",
+      "jarClassPath": "net/mcreator/thermal_shock/item/LegendaryJellyUmbrellaItem.class",
+      "jarClassSha256": "55a0e47ab4d2aa0995eac3e3bd63f04891ca2b391d78225db8f9b0d6ed4d4b95",
+      "dependencies": [
+        "item/renderer/LegendaryJellyUmbrellaItemRenderer.java",
+        "procedures/LegendaryJellyUmbrellaRightclickedProcedure.java"
+      ],
+      "directAssets": [],
+      "relevantLines": [
+        {
+          "line": 73,
+          "text": "            event.getController().setAnimation(RawAnimation.begin().thenLoop(\"0\"));"
+        },
+        {
+          "line": 84,
+          "text": "            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));"
+        },
+        {
+          "line": 120,
+          "text": "        LegendaryJellyUmbrellaRightclickedProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity, itemstack);"
+        }
+      ]
+    },
+    {
+      "path": "item/NetLauncherItem.java",
+      "readableSha256": "057b8434430c10a895dea689b538973de9efc474927654bdd6f7c5f513e3a5a3",
+      "jarClassPath": "net/mcreator/thermal_shock/item/NetLauncherItem.class",
+      "jarClassSha256": "c6b12f180273ba79de0ff53e5df465fb1b63dc7ffacd3c864210cd66b8d330bf",
+      "dependencies": [
+        "item/renderer/NetLauncherItemRenderer.java",
+        "procedures/CoreEjectFlareGunItemInHandTickProcedure.java",
+        "procedures/NetLauncherFiringProcedure.java"
+      ],
+      "directAssets": [],
+      "relevantLines": [
+        {
+          "line": 86,
+          "text": "            event.getController().setAnimation(RawAnimation.begin().thenLoop(\"0\"));"
+        },
+        {
+          "line": 97,
+          "text": "            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));"
+        },
+        {
+          "line": 133,
+          "text": "        NetLauncherFiringProcedure.execute((LevelAccessor)entity.level(), entity.getX(), entity.getY(), entity.getZ(), (Entity)entity, itemstack);"
+        },
+        {
+          "line": 140,
+          "text": "            CoreEjectFlareGunItemInHandTickProcedure.execute(entity);"
+        }
+      ]
+    },
+    {
+      "path": "item/PistonGauntletItem.java",
+      "readableSha256": "400bfc1aa487287bd4d8aa761070d645ba8e61656d4910cca60532ed17cae6d8",
+      "jarClassPath": "net/mcreator/thermal_shock/item/PistonGauntletItem.class",
+      "jarClassSha256": "340fe29eae59a5798fa7106474b2db53967dcdb3fbca27b00b53e422655d5098",
+      "dependencies": [
+        "item/renderer/PistonGauntletItemRenderer.java",
+        "procedures/PistonGauntletRightclickedProcedure.java"
+      ],
+      "directAssets": [],
+      "relevantLines": [
+        {
+          "line": 73,
+          "text": "            event.getController().setAnimation(RawAnimation.begin().thenLoop(\"0\"));"
+        },
+        {
+          "line": 84,
+          "text": "            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));"
+        },
+        {
+          "line": 119,
+          "text": "        PistonGauntletRightclickedProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity, itemstack);"
+        }
+      ]
+    },
+    {
+      "path": "item/TheJudgeItem.java",
+      "readableSha256": "56cae6a81dee55e0fe8a777c3b609cbfa5816a53ef0c9ab8f43f7bfef22e0e4e",
+      "jarClassPath": "net/mcreator/thermal_shock/item/TheJudgeItem.class",
+      "jarClassSha256": "e4d4416e2cfb02a985ea3322b5b5facf6f8041d349194aa65868af6d5d4ce450",
+      "dependencies": [
+        "item/renderer/TheJudgeItemRenderer.java",
+        "procedures/CoreEjectFlareGunItemInHandTickProcedure.java",
+        "procedures/JudgeFiringProcedure.java"
+      ],
+      "directAssets": [],
+      "relevantLines": [
+        {
+          "line": 86,
+          "text": "            event.getController().setAnimation(RawAnimation.begin().thenLoop(\"0\"));"
+        },
+        {
+          "line": 97,
+          "text": "            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));"
+        },
+        {
+          "line": 134,
+          "text": "        JudgeFiringProcedure.execute((LevelAccessor)entity.level(), entity.getX(), entity.getY(), entity.getZ(), (Entity)entity, itemstack);"
+        },
+        {
+          "line": 141,
+          "text": "            CoreEjectFlareGunItemInHandTickProcedure.execute(entity);"
+        }
+      ]
+    },
+    {
+      "path": "init/ItemAnimationFactory.java",
+      "readableSha256": "498a11096969012029d469d0360b61c774fafd3b94aa6edfb5fcba0dfa182884",
+      "jarClassPath": "net/mcreator/thermal_shock/init/ItemAnimationFactory.class",
+      "jarClassSha256": "a31740261cc0f039baa9137e7eeb0a13b1058fcb547a2afb15a85313f242685b",
+      "dependencies": [],
+      "directAssets": [],
+      "relevantLines": [
+        {
+          "line": 50,
+          "text": "            if (item instanceof JellyUmbrellaItem) {"
+        },
+        {
+          "line": 52,
+          "text": "                animation = mainhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 54,
+          "text": "                    event.player.getMainHandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 60,
+          "text": "            if ((item = offhandItem.getItem()) instanceof JellyUmbrellaItem) {"
+        },
+        {
+          "line": 62,
+          "text": "                animation = offhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 64,
+          "text": "                    event.player.getOffhandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 72,
+          "text": "                animation = mainhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 74,
+          "text": "                    event.player.getMainHandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 82,
+          "text": "                animation = offhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 84,
+          "text": "                    event.player.getOffhandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 92,
+          "text": "                animation = mainhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 94,
+          "text": "                    event.player.getMainHandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 102,
+          "text": "                animation = offhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 104,
+          "text": "                    event.player.getOffhandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 112,
+          "text": "                animation = mainhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 114,
+          "text": "                    event.player.getMainHandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 122,
+          "text": "                animation = offhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 124,
+          "text": "                    event.player.getOffhandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 132,
+          "text": "                animation = mainhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 134,
+          "text": "                    event.player.getMainHandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 142,
+          "text": "                animation = offhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 144,
+          "text": "                    event.player.getOffhandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 152,
+          "text": "                animation = mainhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 154,
+          "text": "                    event.player.getMainHandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 162,
+          "text": "                animation = offhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 164,
+          "text": "                    event.player.getOffhandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 172,
+          "text": "                animation = mainhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 174,
+          "text": "                    event.player.getMainHandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 182,
+          "text": "                animation = offhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 184,
+          "text": "                    event.player.getOffhandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 192,
+          "text": "                animation = mainhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 194,
+          "text": "                    event.player.getMainHandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 202,
+          "text": "                animation = offhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 204,
+          "text": "                    event.player.getOffhandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 212,
+          "text": "                animation = mainhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 214,
+          "text": "                    event.player.getMainHandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 222,
+          "text": "                animation = offhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 224,
+          "text": "                    event.player.getOffhandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 232,
+          "text": "                animation = mainhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 234,
+          "text": "                    event.player.getMainHandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 242,
+          "text": "                animation = offhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 244,
+          "text": "                    event.player.getOffhandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 252,
+          "text": "                animation = mainhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 254,
+          "text": "                    event.player.getMainHandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 262,
+          "text": "                animation = offhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 264,
+          "text": "                    event.player.getOffhandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 272,
+          "text": "                animation = mainhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 274,
+          "text": "                    event.player.getMainHandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 282,
+          "text": "                animation = offhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 284,
+          "text": "                    event.player.getOffhandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 292,
+          "text": "                animation = mainhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 294,
+          "text": "                    event.player.getMainHandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 302,
+          "text": "                animation = offhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 304,
+          "text": "                    event.player.getOffhandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 312,
+          "text": "                animation = mainhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 314,
+          "text": "                    event.player.getMainHandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 322,
+          "text": "                animation = offhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 324,
+          "text": "                    event.player.getOffhandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 332,
+          "text": "                animation = mainhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 334,
+          "text": "                    event.player.getMainHandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 342,
+          "text": "                animation = offhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 344,
+          "text": "                    event.player.getOffhandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 352,
+          "text": "                animation = mainhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 354,
+          "text": "                    event.player.getMainHandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 362,
+          "text": "                animation = offhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 364,
+          "text": "                    event.player.getOffhandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 372,
+          "text": "                animation = mainhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 374,
+          "text": "                    event.player.getMainHandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 382,
+          "text": "                animation = offhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 384,
+          "text": "                    event.player.getOffhandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 392,
+          "text": "                animation = mainhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 394,
+          "text": "                    event.player.getMainHandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 402,
+          "text": "                animation = offhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 404,
+          "text": "                    event.player.getOffhandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 412,
+          "text": "                animation = mainhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 414,
+          "text": "                    event.player.getMainHandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 422,
+          "text": "                animation = offhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 424,
+          "text": "                    event.player.getOffhandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 432,
+          "text": "                animation = mainhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 434,
+          "text": "                    event.player.getMainHandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 442,
+          "text": "                animation = offhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 444,
+          "text": "                    event.player.getOffhandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 452,
+          "text": "                animation = mainhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 454,
+          "text": "                    event.player.getMainHandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 462,
+          "text": "                animation = offhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 464,
+          "text": "                    event.player.getOffhandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 472,
+          "text": "                animation = mainhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 474,
+          "text": "                    event.player.getMainHandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 482,
+          "text": "                animation = offhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 484,
+          "text": "                    event.player.getOffhandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 492,
+          "text": "                animation = mainhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 494,
+          "text": "                    event.player.getMainHandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 502,
+          "text": "                animation = offhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 504,
+          "text": "                    event.player.getOffhandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 512,
+          "text": "                animation = mainhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 514,
+          "text": "                    event.player.getMainHandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 522,
+          "text": "                animation = offhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 524,
+          "text": "                    event.player.getOffhandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 532,
+          "text": "                animation = mainhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 534,
+          "text": "                    event.player.getMainHandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 542,
+          "text": "                animation = offhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 544,
+          "text": "                    event.player.getOffhandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 552,
+          "text": "                animation = mainhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 554,
+          "text": "                    event.player.getMainHandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 562,
+          "text": "                animation = offhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 564,
+          "text": "                    event.player.getOffhandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 572,
+          "text": "                animation = mainhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 574,
+          "text": "                    event.player.getMainHandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 582,
+          "text": "                animation = offhandItem.getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 584,
+          "text": "                    event.player.getOffhandItem().getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        }
+      ]
+    },
+    {
+      "path": "init/ArmorAnimationFactory.java",
+      "readableSha256": "97eb974c79c42a28cb9844fd3ed94862f9e730d3479a0985436e3a8f4759d794",
+      "jarClassPath": "net/mcreator/thermal_shock/init/ArmorAnimationFactory.class",
+      "jarClassSha256": "ca3053ddbe8f45bad70d2a0569958cba91ee365c5778d3bc4def959461b323da",
+      "dependencies": [],
+      "directAssets": [],
+      "relevantLines": [
+        {
+          "line": 36,
+          "text": "            if (event.player.getItemBySlot(EquipmentSlot.HEAD).getItem() != ItemStack.EMPTY.getItem() && event.player.getItemBySlot(EquipmentSlot.HEAD).getItem() instanceof GeoItem && !event.player.getItemBySlot(EquipmentSlot.HEAD).getOrCreateTag().getString(\"geckoAnim\").equals(\"\")) {"
+        },
+        {
+          "line": 37,
+          "text": "                animation = event.player.getItemBySlot(EquipmentSlot.HEAD).getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 38,
+          "text": "                event.player.getItemBySlot(EquipmentSlot.HEAD).getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 119,
+          "text": "            if (event.player.getItemBySlot(EquipmentSlot.CHEST).getItem() != ItemStack.EMPTY.getItem() && event.player.getItemBySlot(EquipmentSlot.CHEST).getItem() instanceof GeoItem && !event.player.getItemBySlot(EquipmentSlot.CHEST).getOrCreateTag().getString(\"geckoAnim\").equals(\"\")) {"
+        },
+        {
+          "line": 120,
+          "text": "                animation = event.player.getItemBySlot(EquipmentSlot.CHEST).getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 121,
+          "text": "                event.player.getItemBySlot(EquipmentSlot.CHEST).getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 202,
+          "text": "            if (event.player.getItemBySlot(EquipmentSlot.LEGS).getItem() != ItemStack.EMPTY.getItem() && event.player.getItemBySlot(EquipmentSlot.LEGS).getItem() instanceof GeoItem && !event.player.getItemBySlot(EquipmentSlot.LEGS).getOrCreateTag().getString(\"geckoAnim\").equals(\"\")) {"
+        },
+        {
+          "line": 203,
+          "text": "                animation = event.player.getItemBySlot(EquipmentSlot.LEGS).getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 204,
+          "text": "                event.player.getItemBySlot(EquipmentSlot.LEGS).getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        },
+        {
+          "line": 285,
+          "text": "            if (event.player.getItemBySlot(EquipmentSlot.FEET).getItem() != ItemStack.EMPTY.getItem() && event.player.getItemBySlot(EquipmentSlot.FEET).getItem() instanceof GeoItem && !event.player.getItemBySlot(EquipmentSlot.FEET).getOrCreateTag().getString(\"geckoAnim\").equals(\"\")) {"
+        },
+        {
+          "line": 286,
+          "text": "                animation = event.player.getItemBySlot(EquipmentSlot.FEET).getOrCreateTag().getString(\"geckoAnim\");"
+        },
+        {
+          "line": 287,
+          "text": "                event.player.getItemBySlot(EquipmentSlot.FEET).getOrCreateTag().putString(\"geckoAnim\", \"\");"
+        }
+      ]
+    },
+    {
+      "path": "ThermalShockMod.java",
+      "readableSha256": "171e15daecaa9383f2d126d108460ab6d2b4b6e915bc24cc2f3c08c15493e7d0",
+      "jarClassPath": "net/mcreator/thermal_shock/ThermalShockMod.class",
+      "jarClassSha256": "bc141536b76bdefacfe3633f9a866908e29d45c43a4a1b55f33c024e048cb2ea",
+      "dependencies": [],
+      "directAssets": [],
+      "relevantLines": [
+        {
+          "line": 48,
+          "text": "    public static final SimpleChannel PACKET_HANDLER = NetworkRegistry.newSimpleChannel((ResourceLocation)new ResourceLocation(\"thermal_shock\", \"thermal_shock\"), () -> \"1\", \"1\"::equals, \"1\"::equals);"
+        },
+        {
+          "line": 77,
+          "text": "    public static void queueServerWork(int tick, Runnable action) {"
+        }
+      ]
+    },
+    {
+      "path": "client/renderer/ChorusianAntennaeArmorRenderer.java",
+      "readableSha256": "da49ff052f39322b75c84c2c7066d8b7ecb74f20ea7cf43844fa3ebff5b17488",
+      "jarClassPath": "net/mcreator/thermal_shock/client/renderer/ChorusianAntennaeArmorRenderer.class",
+      "jarClassSha256": "c5e7be4378c4dcd800351c82c4552695ff041dff3910ae1f8757181d13024084",
+      "dependencies": [
+        "item/model/ChorusianAntennaeModel.java"
+      ],
+      "directAssets": [],
+      "relevantLines": [
+        {
+          "line": 31,
+          "text": "        return RenderType.entityTranslucent((ResourceLocation)this.getTextureLocation((GeoAnimatable)animatable));"
+        }
+      ]
+    },
+    {
+      "path": "procedures/RubySickleToolInHandTickProcedure.java",
+      "readableSha256": "5d1e2f027e0ea0a3711cd84decb184303aaaf70d756ea27bc91d6dcda5a3be36",
+      "jarClassPath": "net/mcreator/thermal_shock/procedures/RubySickleToolInHandTickProcedure.class",
+      "jarClassSha256": "0d6c5de5f76e2bb7f11dcc525c4c02782fa6444f438968c7baebdf9376f56e2d",
+      "dependencies": [],
+      "directAssets": [],
+      "relevantLines": [
+        {
+          "line": 19,
+          "text": "            _entity.addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.NO_KNOCKBACK.get(), 1, 50, true, false));"
+        }
+      ]
+    },
+    {
+      "path": "procedures/SickleHitsEntityProcedure.java",
+      "readableSha256": "757de8a7d10daa3555ea49bbfeb49b88109035aa4e849a2c3fc46d2328d98986",
+      "jarClassPath": "net/mcreator/thermal_shock/procedures/SickleHitsEntityProcedure.class",
+      "jarClassSha256": "6f10fedf50320cce7dee4953e25897f359c05d13b21959a50da533df8359cee0",
+      "dependencies": [],
+      "directAssets": [],
+      "relevantLines": [
+        {
+          "line": 36,
+          "text": "                _entity.addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.SICKLE_WOUND_BUILDUP.get(), 20, 1 + (entity instanceof LivingEntity && (_livEnt2 = (LivingEntity)entity).hasEffect((MobEffect)ThermalShockModMobEffects.SICKLE_WOUND_BUILDUP.get()) ? _livEnt2.getEffect((MobEffect)ThermalShockModMobEffects.SICKLE_WOUND_BUILDUP.get()).getAmplifier() : 0)));"
+        },
+        {
+          "line": 39,
+          "text": "            _entity.addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.SICKLE_WOUND_BUILDUP.get(), 20, 0));"
+        },
+        {
+          "line": 50,
+          "text": "                    _level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:sickle_slash\")), SoundSource.NEUTRAL, 1.0f, 1.0f);"
+        },
+        {
+          "line": 52,
+          "text": "                    _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:sickle_slash\")), SoundSource.NEUTRAL, 1.0f, 1.0f, false);"
+        },
+        {
+          "line": 62,
+          "text": "                entity.hurt(new DamageSource((Holder)world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.GENERIC)), 12.0f);"
+        },
+        {
+          "line": 72,
+          "text": "                    entity.hurt(new DamageSource((Holder)world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.GENERIC)), 14.0f);"
+        },
+        {
+          "line": 74,
+          "text": "                    entity.hurt(new DamageSource((Holder)world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.GENERIC)), 10.0f);"
+        }
+      ]
+    },
+    {
+      "path": "procedures/FlowerBombUseProcedure.java",
+      "readableSha256": "6aee0315bd4b670b19dcf5998cb970b0bcb16bf646c70cfaa5d032ad6fdddedc",
+      "jarClassPath": "net/mcreator/thermal_shock/procedures/FlowerBombUseProcedure.class",
+      "jarClassSha256": "269eec30aec5a4a7a101611e1df9ff7fe44695d6c41121ce2bbb5ebd18ce701d",
+      "dependencies": [],
+      "directAssets": [],
+      "relevantLines": [
+        {
+          "line": 41,
+          "text": "            _player.getCooldowns().addCooldown(itemstack.getItem(), 600);"
+        },
+        {
+          "line": 46,
+          "text": "                _level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.tnt.primed\")), SoundSource.NEUTRAL, 1.0f, 2.0f);"
+        },
+        {
+          "line": 48,
+          "text": "                _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.tnt.primed\")), SoundSource.NEUTRAL, 1.0f, 2.0f, false);"
+        },
+        {
+          "line": 54,
+          "text": "                _level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.item.pickup\")), SoundSource.NEUTRAL, 1.0f, 1.0f);"
+        },
+        {
+          "line": 56,
+          "text": "                _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.item.pickup\")), SoundSource.NEUTRAL, 1.0f, 1.0f, false);"
+        },
+        {
+          "line": 63,
+          "text": "        ThermalShockMod.queueServerWork(20, () -> {"
+        },
+        {
+          "line": 68,
+          "text": "                    _level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:flarecoreexplode\")), SoundSource.NEUTRAL, 1.0f, 1.0f);"
+        },
+        {
+          "line": 70,
+          "text": "                    _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:flarecoreexplode\")), SoundSource.NEUTRAL, 1.0f, 1.0f, false);"
+        },
+        {
+          "line": 76,
+          "text": "                    _level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.rooted_dirt.break\")), SoundSource.NEUTRAL, 1.0f, 1.0f);"
+        },
+        {
+          "line": 78,
+          "text": "                    _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.rooted_dirt.break\")), SoundSource.NEUTRAL, 1.0f, 1.0f, false);"
+        },
+        {
+          "line": 82,
+          "text": "            List<Entity> _entfound = world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(3.0), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList();"
+        },
+        {
+          "line": 84,
+          "text": "                if (!entityiterator.getType().is(TagKey.create((ResourceKey)Registries.ENTITY_TYPE, (ResourceLocation)new ResourceLocation(\"thermal_shock:cloro_weak\")))) continue;"
+        }
+      ]
+    },
+    {
+      "path": "procedures/IceBombPlayerFinishesUsingItemProcedure.java",
+      "readableSha256": "6bfade3b0209f48267cde177ff8bc19b386a07d3862fb4c6b82e2d59f6d7074a",
+      "jarClassPath": "net/mcreator/thermal_shock/procedures/IceBombPlayerFinishesUsingItemProcedure.class",
+      "jarClassSha256": "ccb1656f8d174661b264d124d2d8640d7d9ae274d1a73629003f5a8e716a9f36",
+      "dependencies": [],
+      "directAssets": [],
+      "relevantLines": [
+        {
+          "line": 50,
+          "text": "            _player.getInventory().clearOrCountMatchingItems(p -> _stktoremove.getItem() == p.getItem(), 1, (Container)_player.inventoryMenu.getCraftSlots());"
+        },
+        {
+          "line": 54,
+          "text": "            _player.getCooldowns().addCooldown(itemstack.getItem(), 60);"
+        },
+        {
+          "line": 59,
+          "text": "                _level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.tnt.primed\")), SoundSource.NEUTRAL, 1.0f, 2.0f);"
+        },
+        {
+          "line": 61,
+          "text": "                _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.tnt.primed\")), SoundSource.NEUTRAL, 1.0f, 2.0f, false);"
+        },
+        {
+          "line": 67,
+          "text": "                _level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.item.pickup\")), SoundSource.NEUTRAL, 1.0f, 1.0f);"
+        },
+        {
+          "line": 69,
+          "text": "                _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.item.pickup\")), SoundSource.NEUTRAL, 1.0f, 1.0f, false);"
+        },
+        {
+          "line": 76,
+          "text": "        ThermalShockMod.queueServerWork(20, () -> {"
+        },
+        {
+          "line": 81,
+          "text": "                    _level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:flarecoreexplode\")), SoundSource.NEUTRAL, 1.0f, 1.0f);"
+        },
+        {
+          "line": 83,
+          "text": "                    _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:flarecoreexplode\")), SoundSource.NEUTRAL, 1.0f, 1.0f, false);"
+        },
+        {
+          "line": 87,
+          "text": "            List<Entity> _entfound = world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(3.0), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList();"
+        },
+        {
+          "line": 90,
+          "text": "                if (!entityiterator.getType().is(TagKey.create((ResourceKey)Registries.ENTITY_TYPE, (ResourceLocation)new ResourceLocation(\"thermal_shock:cryo_weak\")))) continue;"
+        },
+        {
+          "line": 93,
+          "text": "                    _entity.addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 120, 0));"
+        },
+        {
+          "line": 96,
+          "text": "                _entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 120, 9));"
+        }
+      ]
+    },
+    {
+      "path": "item/renderer/JellyUmbrellaItemRenderer.java",
+      "readableSha256": "e88bf78cf3b0347067e2451d462f0f23c5719a3f50b41ca40d7da0032c4e050c",
+      "jarClassPath": "net/mcreator/thermal_shock/item/renderer/JellyUmbrellaItemRenderer.class",
+      "jarClassSha256": "7da20217e8cb03d7d902053f65ce08b4cc463d2f4e352d947fa08e2303ec277d",
+      "dependencies": [
+        "item/model/JellyUmbrellaItemModel.java"
+      ],
+      "directAssets": [],
+      "relevantLines": [
+        {
+          "line": 38,
+          "text": "        return RenderType.entityTranslucent((ResourceLocation)this.getTextureLocation(animatable));"
+        }
+      ]
+    },
+    {
+      "path": "procedures/JellyUmbrellaRightclickedProcedure.java",
+      "readableSha256": "b2dbcbf91120ed8146752886579e5c8c0054a46e5e3114bc3cb44d43a00afc7c",
+      "jarClassPath": "net/mcreator/thermal_shock/procedures/JellyUmbrellaRightclickedProcedure.class",
+      "jarClassSha256": "032321c677bda3d8c271314f16833a5eab12951a317a46f4fa318a1461fb766c",
+      "dependencies": [],
+      "directAssets": [],
+      "relevantLines": [
+        {
+          "line": 28,
+          "text": "        entity.setDeltaMovement(new Vec3(0.0, 0.5, 0.0));"
+        },
+        {
+          "line": 30,
+          "text": "            _entity.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 120, 1));"
+        },
+        {
+          "line": 35,
+          "text": "                _level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:jellyumbrelladeploy\")), SoundSource.NEUTRAL, 1.0f, 1.0f);"
+        },
+        {
+          "line": 37,
+          "text": "                _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:jellyumbrelladeploy\")), SoundSource.NEUTRAL, 1.0f, 1.0f, false);"
+        },
+        {
+          "line": 40,
+          "text": "        if (itemstack.getItem() instanceof JellyUmbrellaItem) {"
+        },
+        {
+          "line": 41,
+          "text": "            itemstack.getOrCreateTag().putString(\"geckoAnim\", \"1\");"
+        },
+        {
+          "line": 45,
+          "text": "            _player.getCooldowns().addCooldown(itemstack.getItem(), 200);"
+        }
+      ]
+    },
+    {
+      "path": "item/renderer/LegendaryJellyUmbrellaItemRenderer.java",
+      "readableSha256": "2bb8d76e4d67069d5e2a68d4a8a126e739c23d836ccb01ec9ffdfa58559eeb35",
+      "jarClassPath": "net/mcreator/thermal_shock/item/renderer/LegendaryJellyUmbrellaItemRenderer.class",
+      "jarClassSha256": "b9fe840e3d3c1406346d907432e419ed9b480a0cc5957f61156a6b917f52a408",
+      "dependencies": [
+        "item/model/LegendaryJellyUmbrellaItemModel.java"
+      ],
+      "directAssets": [],
+      "relevantLines": [
+        {
+          "line": 38,
+          "text": "        return RenderType.entityTranslucent((ResourceLocation)this.getTextureLocation(animatable));"
+        }
+      ]
+    },
+    {
+      "path": "procedures/LegendaryJellyUmbrellaRightclickedProcedure.java",
+      "readableSha256": "9b402edab89b11b8ab0a77bc942c66dfafbba62971b7fb6638fba2d72ee562dd",
+      "jarClassPath": "net/mcreator/thermal_shock/procedures/LegendaryJellyUmbrellaRightclickedProcedure.class",
+      "jarClassSha256": "195984066d29b24cc7a1fbd3d7ef5070a49e41c98022c7a7aaf68464e3c11d68",
+      "dependencies": [],
+      "directAssets": [],
+      "relevantLines": [
+        {
+          "line": 28,
+          "text": "        entity.setDeltaMovement(new Vec3(0.0, 0.5, 0.0));"
+        },
+        {
+          "line": 30,
+          "text": "            _entity.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 60, 1));"
+        },
+        {
+          "line": 35,
+          "text": "                _level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:jellyumbrelladeploy\")), SoundSource.NEUTRAL, 1.0f, 1.0f);"
+        },
+        {
+          "line": 37,
+          "text": "                _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:jellyumbrelladeploy\")), SoundSource.NEUTRAL, 1.0f, 1.0f, false);"
+        },
+        {
+          "line": 40,
+          "text": "        if (itemstack.getItem() instanceof JellyUmbrellaItem) {"
+        },
+        {
+          "line": 41,
+          "text": "            itemstack.getOrCreateTag().putString(\"geckoAnim\", \"1\");"
+        },
+        {
+          "line": 45,
+          "text": "            _player.getCooldowns().addCooldown(itemstack.getItem(), 80);"
+        }
+      ]
+    },
+    {
+      "path": "item/renderer/NetLauncherItemRenderer.java",
+      "readableSha256": "e3e4b89a89f6734b233ff3116e193b63663c079a330c4f02a21f2bbc214aa231",
+      "jarClassPath": "net/mcreator/thermal_shock/item/renderer/NetLauncherItemRenderer.class",
+      "jarClassSha256": "a6194288c5d21eceb6cc65ddb402f82d94899bf4d9bcb1faef17f0f60a73bcb8",
+      "dependencies": [
+        "item/model/NetLauncherItemModel.java"
+      ],
+      "directAssets": [],
+      "relevantLines": [
+        {
+          "line": 38,
+          "text": "        return RenderType.entityTranslucent((ResourceLocation)this.getTextureLocation(animatable));"
+        }
+      ]
+    },
+    {
+      "path": "procedures/CoreEjectFlareGunItemInHandTickProcedure.java",
+      "readableSha256": "310ce280f19483df3382a3570d0ddf8ad06703ff29011b180aa14f9f0fb4df33",
+      "jarClassPath": "net/mcreator/thermal_shock/procedures/CoreEjectFlareGunItemInHandTickProcedure.class",
+      "jarClassSha256": "db26b5dd7489ae6479d96b5807529d4fbbdc303465112df5ca0ed2479b5dcb7a",
+      "dependencies": [],
+      "directAssets": [],
+      "relevantLines": [
+        {
+          "line": 19,
+          "text": "            _entity.addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.NO_MELEE.get(), 1, 1, true, false));"
+        }
+      ]
+    },
+    {
+      "path": "procedures/NetLauncherFiringProcedure.java",
+      "readableSha256": "5c6a2b4c9defa07bf18df7dfed245db093f034d348f27e9d59a36560ca7f54a3",
+      "jarClassPath": "net/mcreator/thermal_shock/procedures/NetLauncherFiringProcedure.class",
+      "jarClassSha256": "09497d4d3fdef194618543943dadf4d8090ba24658d38f697560aae21f8da707",
+      "dependencies": [
+        "entity/NetBulletEntity.java",
+        "procedures/RecoilEffectProcedure.java"
+      ],
+      "directAssets": [],
+      "relevantLines": [
+        {
+          "line": 51,
+          "text": "                    itemstack.getOrCreateTag().putString(\"geckoAnim\", \"1\");"
+        },
+        {
+          "line": 55,
+          "text": "                    _player.getCooldowns().addCooldown(itemstack.getItem(), 21);"
+        },
+        {
+          "line": 60,
+          "text": "                        _level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.firework_rocket.shoot\")), SoundSource.NEUTRAL, 0.2f, 3.0f);"
+        },
+        {
+          "line": 62,
+          "text": "                        _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.firework_rocket.shoot\")), SoundSource.NEUTRAL, 0.2f, 3.0f, false);"
+        },
+        {
+          "line": 68,
+          "text": "                        _level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"item.crossbow.shoot\")), SoundSource.NEUTRAL, 0.7f, 1.0f);"
+        },
+        {
+          "line": 70,
+          "text": "                        _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"item.crossbow.shoot\")), SoundSource.NEUTRAL, 0.7f, 1.0f, false);"
+        },
+        {
+          "line": 73,
+          "text": "                ThermalShockMod.queueServerWork(10, () -> {"
+        },
+        {
+          "line": 77,
+          "text": "                            _level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"item.crossbow.loading_start\")), SoundSource.NEUTRAL, 1.5f, -4.0f);"
+        },
+        {
+          "line": 79,
+          "text": "                            _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"item.crossbow.loading_start\")), SoundSource.NEUTRAL, 1.5f, -4.0f, false);"
+        },
+        {
+          "line": 82,
+          "text": "                    ThermalShockMod.queueServerWork(10, () -> {"
+        },
+        {
+          "line": 86,
+          "text": "                                _level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.stone_button.click_off\")), SoundSource.NEUTRAL, 1.5f, 2.0f);"
+        },
+        {
+          "line": 88,
+          "text": "                                _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.stone_button.click_off\")), SoundSource.NEUTRAL, 1.5f, 2.0f, false);"
+        },
+        {
+          "line": 100,
+          "text": "                            entityToSpawn.setBaseDamage(damage);"
+        },
+        {
+          "line": 101,
+          "text": "                            entityToSpawn.setKnockback(knockback);"
+        },
+        {
+          "line": 107,
+          "text": "                    _entityToSpawn.shoot(entity.getLookAngle().x, entity.getLookAngle().y, entity.getLookAngle().z, 3.0f, 1.0f);"
+        },
+        {
+          "line": 110,
+          "text": "                RecoilEffectProcedure.execute(entity);"
+        },
+        {
+          "line": 114,
+          "text": "                _player.getInventory().clearOrCountMatchingItems(p -> _stktoremove.getItem() == p.getItem(), 1, (Container)_player.inventoryMenu.getCraftSlots());"
+        },
+        {
+          "line": 129,
+          "text": "            _level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.stone_button.click_on\")), SoundSource.NEUTRAL, 1.0f, 5.0f);"
+        },
+        {
+          "line": 132,
+          "text": "        _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.stone_button.click_on\")), SoundSource.NEUTRAL, 1.0f, 5.0f, false);"
+        }
+      ]
+    },
+    {
+      "path": "item/renderer/PistonGauntletItemRenderer.java",
+      "readableSha256": "e1f564be23d7ae7c6743300f016c3b713197017c59136dd723938346948a6af6",
+      "jarClassPath": "net/mcreator/thermal_shock/item/renderer/PistonGauntletItemRenderer.class",
+      "jarClassSha256": "572dc6f9bc92976cf31775c51c96597b456146a85dd190e0f378cf62d31d9b0d",
+      "dependencies": [
+        "item/model/PistonGauntletItemModel.java"
+      ],
+      "directAssets": [],
+      "relevantLines": [
+        {
+          "line": 38,
+          "text": "        return RenderType.entityTranslucent((ResourceLocation)this.getTextureLocation(animatable));"
+        }
+      ]
+    },
+    {
+      "path": "procedures/PistonGauntletRightclickedProcedure.java",
+      "readableSha256": "cfcdc86cef96b283724a3e479ccfccd0936eab11cd9476a0e401a403f959d858",
+      "jarClassPath": "net/mcreator/thermal_shock/procedures/PistonGauntletRightclickedProcedure.class",
+      "jarClassSha256": "152566508870ca15c2f9eb0cefd62455b6cf2e42257a46de3c8d86e45b9b41b2",
+      "dependencies": [],
+      "directAssets": [],
+      "relevantLines": [
+        {
+          "line": 40,
+          "text": "                itemstack.getOrCreateTag().putString(\"geckoAnim\", \"1\");"
+        },
+        {
+          "line": 44,
+          "text": "                _player.getCooldowns().addCooldown(itemstack.getItem(), 60);"
+        },
+        {
+          "line": 46,
+          "text": "            if ((_ist = itemstack).hurt(1, RandomSource.create(), null)) {"
+        },
+        {
+          "line": 53,
+          "text": "                    _level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.piston.extend\")), SoundSource.NEUTRAL, 0.8f, 4.0f);"
+        },
+        {
+          "line": 55,
+          "text": "                    _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.piston.extend\")), SoundSource.NEUTRAL, 0.8f, 4.0f, false);"
+        },
+        {
+          "line": 59,
+          "text": "                _entity.addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.PARRYING.get(), 15, 1));"
+        }
+      ]
+    },
+    {
+      "path": "item/renderer/TheJudgeItemRenderer.java",
+      "readableSha256": "6d4d5e446347f2cd8947773f0c172f0705c965dd2bb38ba013bce13e1595b87a",
+      "jarClassPath": "net/mcreator/thermal_shock/item/renderer/TheJudgeItemRenderer.class",
+      "jarClassSha256": "c859a4ddc9c80e0ed960e5eb5c74fba6eca0bcfd12f2ece9be9230ba0465d029",
+      "dependencies": [
+        "item/model/TheJudgeItemModel.java"
+      ],
+      "directAssets": [],
+      "relevantLines": [
+        {
+          "line": 38,
+          "text": "        return RenderType.entityTranslucent((ResourceLocation)this.getTextureLocation(animatable));"
+        }
+      ]
+    },
+    {
+      "path": "procedures/JudgeFiringProcedure.java",
+      "readableSha256": "a05697a40806a342bc7305f0da5807d96564097787d3a6dc8c4d23acb16169fa",
+      "jarClassPath": "net/mcreator/thermal_shock/procedures/JudgeFiringProcedure.class",
+      "jarClassSha256": "ca34bccc72f053e55f22c5098e5d15fd7cda6ff9ed30da45cf85ef16c740369a",
+      "dependencies": [
+        "entity/VolcanoBulletEntity.java"
+      ],
+      "directAssets": [],
+      "relevantLines": [
+        {
+          "line": 50,
+          "text": "                    itemstack.getOrCreateTag().putString(\"geckoAnim\", \"1\");"
+        },
+        {
+          "line": 54,
+          "text": "                    _player.getCooldowns().addCooldown(itemstack.getItem(), 32);"
+        },
+        {
+          "line": 59,
+          "text": "                        _level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.generic.explode\")), SoundSource.NEUTRAL, 0.2f, 3.0f);"
+        },
+        {
+          "line": 61,
+          "text": "                        _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.generic.explode\")), SoundSource.NEUTRAL, 0.2f, 3.0f, false);"
+        },
+        {
+          "line": 67,
+          "text": "                        _level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:volcanofire\")), SoundSource.NEUTRAL, 0.8f, 0.5f);"
+        },
+        {
+          "line": 69,
+          "text": "                        _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:volcanofire\")), SoundSource.NEUTRAL, 0.8f, 0.5f, false);"
+        },
+        {
+          "line": 72,
+          "text": "                ThermalShockMod.queueServerWork(20, () -> {"
+        },
+        {
+          "line": 77,
+          "text": "                            _level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.piston.extend\")), SoundSource.NEUTRAL, 0.7f, 3.0f);"
+        },
+        {
+          "line": 79,
+          "text": "                            _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.piston.extend\")), SoundSource.NEUTRAL, 0.7f, 3.0f, false);"
+        },
+        {
+          "line": 85,
+          "text": "                            _level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.lever.click\")), SoundSource.NEUTRAL, 0.7f, 5.0f);"
+        },
+        {
+          "line": 87,
+          "text": "                            _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.lever.click\")), SoundSource.NEUTRAL, 0.7f, 5.0f, false);"
+        },
+        {
+          "line": 90,
+          "text": "                    ThermalShockMod.queueServerWork(1, () -> {"
+        },
+        {
+          "line": 94,
+          "text": "                                _level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.lever.click\")), SoundSource.NEUTRAL, 0.8f, 6.0f);"
+        },
+        {
+          "line": 96,
+          "text": "                                _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.lever.click\")), SoundSource.NEUTRAL, 0.8f, 6.0f, false);"
+        },
+        {
+          "line": 100,
+          "text": "                    ThermalShockMod.queueServerWork(8, () -> {"
+        },
+        {
+          "line": 104,
+          "text": "                                _level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.stone_button.click_on\")), SoundSource.NEUTRAL, 1.0f, 2.0f);"
+        },
+        {
+          "line": 106,
+          "text": "                                _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.stone_button.click_on\")), SoundSource.NEUTRAL, 1.0f, 2.0f, false);"
+        },
+        {
+          "line": 110,
+          "text": "                    ThermalShockMod.queueServerWork(10, () -> {"
+        },
+        {
+          "line": 114,
+          "text": "                                _level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.piston.contract\")), SoundSource.NEUTRAL, 1.0f, 2.0f);"
+        },
+        {
+          "line": 116,
+          "text": "                                _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.piston.contract\")), SoundSource.NEUTRAL, 1.0f, 2.0f, false);"
+        },
+        {
+          "line": 129,
+          "text": "                            entityToSpawn.setBaseDamage(damage);"
+        },
+        {
+          "line": 130,
+          "text": "                            entityToSpawn.setKnockback(knockback);"
+        },
+        {
+          "line": 132,
+          "text": "                            entityToSpawn.setPierceLevel(piercing);"
+        },
+        {
+          "line": 133,
+          "text": "                            entityToSpawn.setSecondsOnFire(100);"
+        },
+        {
+          "line": 138,
+          "text": "                    _entityToSpawn.shoot(entity.getLookAngle().x, entity.getLookAngle().y, entity.getLookAngle().z, 3.0f, 4.0f);"
+        },
+        {
+          "line": 144,
+          "text": "                    _player.getInventory().clearOrCountMatchingItems(p -> _stktoremove.getItem() == p.getItem(), 1, (Container)_player.inventoryMenu.getCraftSlots());"
+        },
+        {
+          "line": 146,
+          "text": "                entity.setDeltaMovement(new Vec3(entity.getLookAngle().x - entity.getLookAngle().x * 2.0, entity.getLookAngle().y - entity.getLookAngle().y * 2.0, entity.getLookAngle().z - entity.getLookAngle().z * 2.0));"
+        },
+        {
+          "line": 161,
+          "text": "            _level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.stone_button.click_on\")), SoundSource.NEUTRAL, 1.0f, 5.0f);"
+        },
+        {
+          "line": 164,
+          "text": "        _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.stone_button.click_on\")), SoundSource.NEUTRAL, 1.0f, 5.0f, false);"
+        }
+      ]
+    },
+    {
+      "path": "item/model/ChorusianAntennaeModel.java",
+      "readableSha256": "00d01d7b46d97cf76411bf300b21e8ef6c7fe1664aa51bc8b4d3da2860f75887",
+      "jarClassPath": "net/mcreator/thermal_shock/item/model/ChorusianAntennaeModel.class",
+      "jarClassSha256": "78b3c51b6a02b416ea8d270a3c17fc22b02feeeabcf4acda366579ac52a110d1",
+      "dependencies": [],
+      "directAssets": [
+        "assets/thermal_shock/animations/chorantenna.animation.json",
+        "assets/thermal_shock/geo/chorantenna.geo.json",
+        "assets/thermal_shock/textures/item/chorantennaealt.png"
+      ],
+      "relevantLines": [
+        {
+          "line": 13,
+          "text": "        return new ResourceLocation(\"thermal_shock\", \"animations/chorantenna.animation.json\");"
+        },
+        {
+          "line": 17,
+          "text": "        return new ResourceLocation(\"thermal_shock\", \"geo/chorantenna.geo.json\");"
+        },
+        {
+          "line": 21,
+          "text": "        return new ResourceLocation(\"thermal_shock\", \"textures/item/chorantennaealt.png\");"
+        }
+      ]
+    },
+    {
+      "path": "item/model/JellyUmbrellaItemModel.java",
+      "readableSha256": "6c35ba95984fd55675db36d70ce324c0d1af2331ac83c4a143d170a77409b1fa",
+      "jarClassPath": "net/mcreator/thermal_shock/item/model/JellyUmbrellaItemModel.class",
+      "jarClassSha256": "380c28d3f6b4d4ace1abaa000d2913505a78305c19d178ae98c23f81d4912388",
+      "dependencies": [],
+      "directAssets": [
+        "assets/thermal_shock/animations/jellyumbrella.animation.json",
+        "assets/thermal_shock/geo/jellyumbrella.geo.json",
+        "assets/thermal_shock/textures/item/jellumnbra.png"
+      ],
+      "relevantLines": [
+        {
+          "line": 13,
+          "text": "        return new ResourceLocation(\"thermal_shock\", \"animations/jellyumbrella.animation.json\");"
+        },
+        {
+          "line": 17,
+          "text": "        return new ResourceLocation(\"thermal_shock\", \"geo/jellyumbrella.geo.json\");"
+        },
+        {
+          "line": 21,
+          "text": "        return new ResourceLocation(\"thermal_shock\", \"textures/item/jellumnbra.png\");"
+        }
+      ]
+    },
+    {
+      "path": "item/model/LegendaryJellyUmbrellaItemModel.java",
+      "readableSha256": "98ce4e5dbf08ee66d1650940339b137aab315e2c13c635dbd4acc8e19cc809a2",
+      "jarClassPath": "net/mcreator/thermal_shock/item/model/LegendaryJellyUmbrellaItemModel.class",
+      "jarClassSha256": "bf2cd5c5dc76f0899a532a9f519c85157897cde6ec242d98f846c94c9b74464b",
+      "dependencies": [],
+      "directAssets": [
+        "assets/thermal_shock/animations/jellyumbrella.animation.json",
+        "assets/thermal_shock/geo/jellyumbrella.geo.json",
+        "assets/thermal_shock/textures/item/jellumnbra.png"
+      ],
+      "relevantLines": [
+        {
+          "line": 13,
+          "text": "        return new ResourceLocation(\"thermal_shock\", \"animations/jellyumbrella.animation.json\");"
+        },
+        {
+          "line": 17,
+          "text": "        return new ResourceLocation(\"thermal_shock\", \"geo/jellyumbrella.geo.json\");"
+        },
+        {
+          "line": 21,
+          "text": "        return new ResourceLocation(\"thermal_shock\", \"textures/item/jellumnbra.png\");"
+        }
+      ]
+    },
+    {
+      "path": "item/model/NetLauncherItemModel.java",
+      "readableSha256": "6a1fdff5f73b1e22239512ef0157dfa7603379c3498da905c18ed0d81a837ed9",
+      "jarClassPath": "net/mcreator/thermal_shock/item/model/NetLauncherItemModel.class",
+      "jarClassSha256": "ee51faa5a5310e6254f47504cbc0583a1697abb8851a17e7c8037aa69ca93acd",
+      "dependencies": [],
+      "directAssets": [
+        "assets/thermal_shock/animations/net_launcher.animation.json",
+        "assets/thermal_shock/geo/net_launcher.geo.json",
+        "assets/thermal_shock/textures/item/net_launcher.png"
+      ],
+      "relevantLines": [
+        {
+          "line": 13,
+          "text": "        return new ResourceLocation(\"thermal_shock\", \"animations/net_launcher.animation.json\");"
+        },
+        {
+          "line": 17,
+          "text": "        return new ResourceLocation(\"thermal_shock\", \"geo/net_launcher.geo.json\");"
+        },
+        {
+          "line": 21,
+          "text": "        return new ResourceLocation(\"thermal_shock\", \"textures/item/net_launcher.png\");"
+        }
+      ]
+    },
+    {
+      "path": "entity/NetBulletEntity.java",
+      "readableSha256": "b7eeed797afb99ff49ba136584ce45e71ce56bfb79c44de859380a2633f0712d",
+      "jarClassPath": "net/mcreator/thermal_shock/entity/NetBulletEntity.class",
+      "jarClassSha256": "47fa88be8c7dd3ed04500f865b8959b32240ebff9cf4d1a1ceeff14a6537a64a",
+      "dependencies": [
+        "procedures/NetBulletWhileProjectileFlyingTickProcedure.java"
+      ],
+      "directAssets": [],
+      "relevantLines": [
+        {
+          "line": 68,
+          "text": "        NetBulletWhileProjectileFlyingTickProcedure.execute((LevelAccessor)this.level(), this.getX(), this.getY(), this.getZ(), (Entity)this);"
+        },
+        {
+          "line": 75,
+          "text": "        return NetBulletEntity.shoot(world, entity, source, 0.7f, 1.0, 0);"
+        },
+        {
+          "line": 79,
+          "text": "        return NetBulletEntity.shoot(world, entity, source, pullingPower * 0.7f, 1.0, 0);"
+        },
+        {
+          "line": 84,
+          "text": "        entityarrow.shoot(entity.getViewVector((float)1.0f).x, entity.getViewVector((float)1.0f).y, entity.getViewVector((float)1.0f).z, power * 2.0f, 0.0f);"
+        },
+        {
+          "line": 87,
+          "text": "        entityarrow.setBaseDamage(damage);"
+        },
+        {
+          "line": 88,
+          "text": "        entityarrow.setKnockback(knockback);"
+        },
+        {
+          "line": 98,
+          "text": "        entityarrow.shoot(dx, dy - entityarrow.getY() + Math.hypot(dx, dz) * (double)0.2f, dz, 1.4f, 12.0f);"
+        },
+        {
+          "line": 100,
+          "text": "        entityarrow.setBaseDamage(1.0);"
+        },
+        {
+          "line": 101,
+          "text": "        entityarrow.setKnockback(0);"
+        }
+      ]
+    },
+    {
+      "path": "procedures/RecoilEffectProcedure.java",
+      "readableSha256": "16145aa61bb87ee8fdb3231db37d2306ccd5dd03c48dda5cb9fb56a1f7db0c00",
+      "jarClassPath": "net/mcreator/thermal_shock/procedures/RecoilEffectProcedure.class",
+      "jarClassSha256": "4e49b5d5e64c9253fd0bcee1880bff27e73dc2a0dbc67a24243af93db0331877",
+      "dependencies": [],
+      "directAssets": [],
+      "relevantLines": [
+        {
+          "line": 18,
+          "text": "            _entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 2, 0, true, false));"
+        }
+      ]
+    },
+    {
+      "path": "item/model/PistonGauntletItemModel.java",
+      "readableSha256": "1ed29f3cfdc722229baeac66cf4673ed909ce0aa9f473befeff27f3f1dadf904",
+      "jarClassPath": "net/mcreator/thermal_shock/item/model/PistonGauntletItemModel.class",
+      "jarClassSha256": "698527b69bab20a11de1e0355eae4072849e611c360f5aa14f21543b7b5b64a1",
+      "dependencies": [],
+      "directAssets": [
+        "assets/thermal_shock/animations/cobalt_fist.animation.json",
+        "assets/thermal_shock/geo/cobalt_fist.geo.json",
+        "assets/thermal_shock/textures/item/cobalt_fist.png"
+      ],
+      "relevantLines": [
+        {
+          "line": 13,
+          "text": "        return new ResourceLocation(\"thermal_shock\", \"animations/cobalt_fist.animation.json\");"
+        },
+        {
+          "line": 17,
+          "text": "        return new ResourceLocation(\"thermal_shock\", \"geo/cobalt_fist.geo.json\");"
+        },
+        {
+          "line": 21,
+          "text": "        return new ResourceLocation(\"thermal_shock\", \"textures/item/cobalt_fist.png\");"
+        }
+      ]
+    },
+    {
+      "path": "item/model/TheJudgeItemModel.java",
+      "readableSha256": "9ccda670b1a78de7fefe918dcadda877fbc4bb0e5d28893db4907e3ce5428ed4",
+      "jarClassPath": "net/mcreator/thermal_shock/item/model/TheJudgeItemModel.class",
+      "jarClassSha256": "04adce0aab0838e6ff285783f104e2a0feedffbe1191f6c69880fe2cd29f00d4",
+      "dependencies": [],
+      "directAssets": [
+        "assets/thermal_shock/animations/super_shotgun.animation.json",
+        "assets/thermal_shock/geo/super_shotgun.geo.json",
+        "assets/thermal_shock/textures/item/supershotgun.png"
+      ],
+      "relevantLines": [
+        {
+          "line": 13,
+          "text": "        return new ResourceLocation(\"thermal_shock\", \"animations/super_shotgun.animation.json\");"
+        },
+        {
+          "line": 17,
+          "text": "        return new ResourceLocation(\"thermal_shock\", \"geo/super_shotgun.geo.json\");"
+        },
+        {
+          "line": 21,
+          "text": "        return new ResourceLocation(\"thermal_shock\", \"textures/item/supershotgun.png\");"
+        }
+      ]
+    },
+    {
+      "path": "entity/VolcanoBulletEntity.java",
+      "readableSha256": "5eb6f904e498af02eefe9f06b57da03e406768d313d70daa259a4aee9bb3b681",
+      "jarClassPath": "net/mcreator/thermal_shock/entity/VolcanoBulletEntity.class",
+      "jarClassSha256": "ae10f6014b38ccdd37b9193d0c60f715780491e22a61d2cab13fe4e2a3c325b9",
+      "dependencies": [
+        "procedures/VolcanoBulletTickProcedure.java",
+        "procedures/VolcanoHitProcedure.java"
+      ],
+      "directAssets": [],
+      "relevantLines": [
+        {
+          "line": 71,
+          "text": "        VolcanoHitProcedure.execute((LevelAccessor)this.level(), this.getX(), this.getY(), this.getZ(), entityHitResult.getEntity(), (Entity)this);"
+        },
+        {
+          "line": 76,
+          "text": "        VolcanoHitProcedure.execute((LevelAccessor)this.level(), blockHitResult.getBlockPos().getX(), blockHitResult.getBlockPos().getY(), blockHitResult.getBlockPos().getZ(), this.getOwner(), (Entity)this);"
+        },
+        {
+          "line": 81,
+          "text": "        VolcanoBulletTickProcedure.execute((LevelAccessor)this.level(), this.getX(), this.getY(), this.getZ(), (Entity)this);"
+        },
+        {
+          "line": 88,
+          "text": "        return VolcanoBulletEntity.shoot(world, entity, source, 1.0f, 2.0, 1);"
+        },
+        {
+          "line": 92,
+          "text": "        return VolcanoBulletEntity.shoot(world, entity, source, pullingPower * 1.0f, 2.0, 1);"
+        },
+        {
+          "line": 97,
+          "text": "        entityarrow.shoot(entity.getViewVector((float)1.0f).x, entity.getViewVector((float)1.0f).y, entity.getViewVector((float)1.0f).z, power * 2.0f, 0.0f);"
+        },
+        {
+          "line": 100,
+          "text": "        entityarrow.setBaseDamage(damage);"
+        },
+        {
+          "line": 101,
+          "text": "        entityarrow.setKnockback(knockback);"
+        },
+        {
+          "line": 111,
+          "text": "        entityarrow.shoot(dx, dy - entityarrow.getY() + Math.hypot(dx, dz) * (double)0.2f, dz, 2.0f, 12.0f);"
+        },
+        {
+          "line": 113,
+          "text": "        entityarrow.setBaseDamage(2.0);"
+        },
+        {
+          "line": 114,
+          "text": "        entityarrow.setKnockback(1);"
+        }
+      ]
+    },
+    {
+      "path": "procedures/NetBulletWhileProjectileFlyingTickProcedure.java",
+      "readableSha256": "cfe5ba64581dd6e3f132a86d7e6c71d123a9687791fe7b65aaee550c27fb63fd",
+      "jarClassPath": "net/mcreator/thermal_shock/procedures/NetBulletWhileProjectileFlyingTickProcedure.class",
+      "jarClassSha256": "82c8aab903415ce3961e78ff66f1dbbd9887afbdd8115771f8e67f5d1a9820bc",
+      "dependencies": [],
+      "directAssets": [],
+      "relevantLines": [
+        {
+          "line": 32,
+          "text": "            List<Entity> _entfound = world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(1.0), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList();"
+        },
+        {
+          "line": 35,
+          "text": "                entityiterator.hurt(new DamageSource((Holder)world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.GENERIC)), 10.0f);"
+        },
+        {
+          "line": 43,
+          "text": "                    _level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.azalea.break\")), SoundSource.NEUTRAL, 1.0f, 1.0f);"
+        },
+        {
+          "line": 45,
+          "text": "                    _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.azalea.break\")), SoundSource.NEUTRAL, 1.0f, 1.0f, false);"
+        },
+        {
+          "line": 51,
+          "text": "                    _level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.experience_orb.pickup\")), SoundSource.NEUTRAL, 1.0f, 1.0f);"
+        },
+        {
+          "line": 53,
+          "text": "                    _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.experience_orb.pickup\")), SoundSource.NEUTRAL, 1.0f, 1.0f, false);"
+        }
+      ]
+    },
+    {
+      "path": "procedures/VolcanoBulletTickProcedure.java",
+      "readableSha256": "d1619bea6310d376466395edd1c5e4a67a0364ff74ca90fcabd023ca689d4722",
+      "jarClassPath": "net/mcreator/thermal_shock/procedures/VolcanoBulletTickProcedure.class",
+      "jarClassSha256": "0bad9ca37a2e6230415bfb912b299ab31a51347cd679383801f511d7e9619c4d",
+      "dependencies": [],
+      "directAssets": [],
+      "relevantLines": [
+        {
+          "line": 25,
+          "text": "        ThermalShockMod.queueServerWork(3, () -> {"
+        },
+        {
+          "line": 35,
+          "text": "                        _level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.firework_rocket.twinkle\")), SoundSource.NEUTRAL, 0.5f, 1.0f);"
+        },
+        {
+          "line": 37,
+          "text": "                        _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.firework_rocket.twinkle\")), SoundSource.NEUTRAL, 0.5f, 1.0f, false);"
+        }
+      ]
+    },
+    {
+      "path": "procedures/VolcanoHitProcedure.java",
+      "readableSha256": "489757b7ada108d858d0967ec37b8a5a7c50ae4570a80a9a643338b899fd0cc1",
+      "jarClassPath": "net/mcreator/thermal_shock/procedures/VolcanoHitProcedure.class",
+      "jarClassSha256": "8d039d34bcaa97c844356dd41910b1c9f235e908b9dd92108174f9b22e1620c8",
+      "dependencies": [],
+      "directAssets": [],
+      "relevantLines": [
+        {
+          "line": 32,
+          "text": "                    _level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:flareshoot\")), SoundSource.NEUTRAL, 1.0f, 1.0f);"
+        },
+        {
+          "line": 34,
+          "text": "                    _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:flareshoot\")), SoundSource.NEUTRAL, 1.0f, 1.0f, false);"
+        },
+        {
+          "line": 37,
+          "text": "            entity.hurt(new DamageSource((Holder)world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.UNATTRIBUTED_FIREBALL)), 3.0f);"
+        }
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "sourcePath": "assets/thermal_shock/animations/chorantenna.animation.json",
+      "sourceSha256": "5dc1670b2566e12faa921e463710db72c90470ecee643fd41d92412bec2a9c58",
+      "targetPath": "src/main/resources/assets/thermal_shock_reforged/animations/chorantenna.animation.json",
+      "targetExists": true,
+      "targetSha256": "5dc1670b2566e12faa921e463710db72c90470ecee643fd41d92412bec2a9c58",
+      "clips": [
+        "0"
+      ]
+    },
+    {
+      "sourcePath": "assets/thermal_shock/animations/cobalt_fist.animation.json",
+      "sourceSha256": "0a21f2c4da63b62b8a3f652f0cc3147fd9efc9a12763a9b9d00c3547164dffca",
+      "targetPath": "src/main/resources/assets/thermal_shock_reforged/animations/cobalt_fist.animation.json",
+      "targetExists": true,
+      "targetSha256": "0a21f2c4da63b62b8a3f652f0cc3147fd9efc9a12763a9b9d00c3547164dffca",
+      "clips": [
+        "0",
+        "1"
+      ]
+    },
+    {
+      "sourcePath": "assets/thermal_shock/animations/jellyumbrella.animation.json",
+      "sourceSha256": "113ca66f44599c4f4fb8849011b01eeeba52deb268934cefc4bd5c17b66f4407",
+      "targetPath": "src/main/resources/assets/thermal_shock_reforged/animations/jellyumbrella.animation.json",
+      "targetExists": true,
+      "targetSha256": "113ca66f44599c4f4fb8849011b01eeeba52deb268934cefc4bd5c17b66f4407",
+      "clips": [
+        "0",
+        "1"
+      ]
+    },
+    {
+      "sourcePath": "assets/thermal_shock/animations/net_launcher.animation.json",
+      "sourceSha256": "9fad4c2c083907719d9d507f12019593066e413933ca7897f14efbc93f1a9d22",
+      "targetPath": "src/main/resources/assets/thermal_shock_reforged/animations/net_launcher.animation.json",
+      "targetExists": true,
+      "targetSha256": "9fad4c2c083907719d9d507f12019593066e413933ca7897f14efbc93f1a9d22",
+      "clips": [
+        "0",
+        "1"
+      ]
+    },
+    {
+      "sourcePath": "assets/thermal_shock/animations/super_shotgun.animation.json",
+      "sourceSha256": "81f43a2ab50aaefdbb368e96c205ca174285d482570f6b4a4d54d2e0c014c1d2",
+      "targetPath": "src/main/resources/assets/thermal_shock_reforged/animations/super_shotgun.animation.json",
+      "targetExists": true,
+      "targetSha256": "81f43a2ab50aaefdbb368e96c205ca174285d482570f6b4a4d54d2e0c014c1d2",
+      "clips": [
+        "0",
+        "1"
+      ]
+    },
+    {
+      "sourcePath": "assets/thermal_shock/geo/chorantenna.geo.json",
+      "sourceSha256": "ac35e263ef5fb88b0fcb70cc78d6bc3af0be6dc80bbc1c0e3e72fde480c34c18",
+      "targetPath": "src/main/resources/assets/thermal_shock_reforged/geo/chorantenna.geo.json",
+      "targetExists": true,
+      "targetSha256": "ac35e263ef5fb88b0fcb70cc78d6bc3af0be6dc80bbc1c0e3e72fde480c34c18",
+      "bones": [
+        "bipedHead",
+        "armorHead",
+        "antennae",
+        "eyes",
+        "pupil1",
+        "pupil2",
+        "bipedBody",
+        "armorBody",
+        "bipedRightArm",
+        "armorRightArm",
+        "bipedLeftArm",
+        "armorLeftArm",
+        "bipedLeftLeg",
+        "armorLeftLeg",
+        "armorLeftBoot",
+        "bipedRightLeg",
+        "armorRightLeg",
+        "armorRightBoot"
+      ]
+    },
+    {
+      "sourcePath": "assets/thermal_shock/geo/cobalt_fist.geo.json",
+      "sourceSha256": "5ec508606052fb26b3d1319d8104ef98272ba0b2373734d116ab977787cfbe82",
+      "targetPath": "src/main/resources/assets/thermal_shock_reforged/geo/cobalt_fist.geo.json",
+      "targetExists": true,
+      "targetSha256": "5ec508606052fb26b3d1319d8104ef98272ba0b2373734d116ab977787cfbe82",
+      "bones": [
+        "bone",
+        "piston"
+      ]
+    },
+    {
+      "sourcePath": "assets/thermal_shock/geo/jellyumbrella.geo.json",
+      "sourceSha256": "36d55c6c6469fe92ca9c92af934bb193492cff4304dd2ad0d7c312b89eb3e6da",
+      "targetPath": "src/main/resources/assets/thermal_shock_reforged/geo/jellyumbrella.geo.json",
+      "targetExists": true,
+      "targetSha256": "36d55c6c6469fe92ca9c92af934bb193492cff4304dd2ad0d7c312b89eb3e6da",
+      "bones": [
+        "handle",
+        "umbrella"
+      ]
+    },
+    {
+      "sourcePath": "assets/thermal_shock/geo/net_launcher.geo.json",
+      "sourceSha256": "6ac7c7f31e455c52f5816c4bdcf253e33b2fef97967233fc9733e08343ea84e1",
+      "targetPath": "src/main/resources/assets/thermal_shock_reforged/geo/net_launcher.geo.json",
+      "targetExists": true,
+      "targetSha256": "6ac7c7f31e455c52f5816c4bdcf253e33b2fef97967233fc9733e08343ea84e1",
+      "bones": [
+        "gun",
+        "spool",
+        "spollstring",
+        "arm1",
+        "arm2",
+        "flash"
+      ]
+    },
+    {
+      "sourcePath": "assets/thermal_shock/geo/super_shotgun.geo.json",
+      "sourceSha256": "f3efb2132c3fbb191f054863142bb93fb2ba754028c9efde3c399c0e8eddd513",
+      "targetPath": "src/main/resources/assets/thermal_shock_reforged/geo/super_shotgun.geo.json",
+      "targetExists": true,
+      "targetSha256": "f3efb2132c3fbb191f054863142bb93fb2ba754028c9efde3c399c0e8eddd513",
+      "bones": [
+        "bone",
+        "barrels",
+        "shell",
+        "shell2",
+        "flash"
+      ]
+    },
+    {
+      "sourcePath": "assets/thermal_shock/models/item/chorusian_antennae_helmet.json",
+      "sourceSha256": "04238239278762c3655dfb4ede399b8c2c811fd04a638e3eb6855ce28664a42d",
+      "targetPath": "src/main/resources/assets/thermal_shock_reforged/models/item/chorusian_antennae_helmet.json",
+      "targetExists": true,
+      "targetSha256": "d8ccf12cd04c4d882ac7c598a3170db44b755877b843449ae4e8f7c722182dbc"
+    },
+    {
+      "sourcePath": "assets/thermal_shock/models/item/claw_sickle.json",
+      "sourceSha256": "0c67ea07f78c130b5ae932699469eaedf36cd42122c08536dcf3be17a069e7f6",
+      "targetPath": "src/main/resources/assets/thermal_shock_reforged/models/item/claw_sickle.json",
+      "targetExists": true,
+      "targetSha256": "fe71da1ecb297f617ea5aefde7f392ba4bc8200c27985175e89653b1b80349c0"
+    },
+    {
+      "sourcePath": "assets/thermal_shock/models/item/flower_bomb.json",
+      "sourceSha256": "f89decaed410ceb601dfdbded9048f7ec676d459f565af7895b360049507aa9f",
+      "targetPath": "src/main/resources/assets/thermal_shock_reforged/models/item/flower_bomb.json",
+      "targetExists": true,
+      "targetSha256": "4ee7ad7a8ba20af29a6d906cdfc451d1f0ef55901e3208b42b3cb8317687e6df"
+    },
+    {
+      "sourcePath": "assets/thermal_shock/models/item/ice_bomb.json",
+      "sourceSha256": "491584883ea262ebd5471eba8c5dc2ae8d365dc6f163a11a985d54220b3e2d6f",
+      "targetPath": "src/main/resources/assets/thermal_shock_reforged/models/item/ice_bomb.json",
+      "targetExists": true,
+      "targetSha256": "55f1b6db2964b53fa0dda6f290906d511f24004534529a989d19f1324817c45d"
+    },
+    {
+      "sourcePath": "assets/thermal_shock/models/item/jelly_umbrella.json",
+      "sourceSha256": "db838cf0a870403135fb21cb2f1db219d3f4c6e873c3a30280fadff312583c40",
+      "targetPath": "src/main/resources/assets/thermal_shock_reforged/models/item/jelly_umbrella.json",
+      "targetExists": true,
+      "targetSha256": "6e420dec64f5e72f244ce3df490d56b7fc557f83e075510a4b41051053117f75"
+    },
+    {
+      "sourcePath": "assets/thermal_shock/models/item/legendary_jelly_umbrella.json",
+      "sourceSha256": "db838cf0a870403135fb21cb2f1db219d3f4c6e873c3a30280fadff312583c40",
+      "targetPath": "src/main/resources/assets/thermal_shock_reforged/models/item/legendary_jelly_umbrella.json",
+      "targetExists": true,
+      "targetSha256": "6e420dec64f5e72f244ce3df490d56b7fc557f83e075510a4b41051053117f75"
+    },
+    {
+      "sourcePath": "assets/thermal_shock/models/item/net_launcher.json",
+      "sourceSha256": "261a7cc136ade349aca516d33a37234115359b1433867257ad1d815c7b597620",
+      "targetPath": "src/main/resources/assets/thermal_shock_reforged/models/item/net_launcher.json",
+      "targetExists": true,
+      "targetSha256": "89e5499a5094a5824ab41d5686cb7f5e72836b62f45e8de9b9ea48968f2ec065"
+    },
+    {
+      "sourcePath": "assets/thermal_shock/models/item/piston_gauntlet.json",
+      "sourceSha256": "98f1eed1bfc30bb6a088f015a2c5cda5267ce6a9c537a7bac747e4dbb3b15a82",
+      "targetPath": "src/main/resources/assets/thermal_shock_reforged/models/item/piston_gauntlet.json",
+      "targetExists": true,
+      "targetSha256": "80a29154ccd42034c0493a9cfc480ac5344a5d89ef861fecf4fd75e4ae26e560"
+    },
+    {
+      "sourcePath": "assets/thermal_shock/models/item/the_judge.json",
+      "sourceSha256": "0f76eb42236994fabb33e096067f92047414a9a1376c282ff111c914a5b5bcb5",
+      "targetPath": "src/main/resources/assets/thermal_shock_reforged/models/item/the_judge.json",
+      "targetExists": true,
+      "targetSha256": "a880e295344cdef0cbd025ee036af46fdadef78e5038c6a155a81a58d95b6811"
+    },
+    {
+      "sourcePath": "assets/thermal_shock/textures/item/chorantennaealt.png",
+      "sourceSha256": "8bf7488c3dd68eb271a275fe8de3dac1fceb59a4bdc2a6a52292f0b1d71265fe",
+      "targetPath": "src/main/resources/assets/thermal_shock_reforged/textures/item/chorantennaealt.png",
+      "targetExists": true,
+      "targetSha256": "8bf7488c3dd68eb271a275fe8de3dac1fceb59a4bdc2a6a52292f0b1d71265fe"
+    },
+    {
+      "sourcePath": "assets/thermal_shock/textures/item/chorusianantennae.png",
+      "sourceSha256": "8b6b8c6cfa5440fa46fc22e2cbd7ca3998d13ab3ad5fbe1504b84bce49c45f55",
+      "targetPath": "src/main/resources/assets/thermal_shock_reforged/textures/item/chorusianantennae.png",
+      "targetExists": true,
+      "targetSha256": "8b6b8c6cfa5440fa46fc22e2cbd7ca3998d13ab3ad5fbe1504b84bce49c45f55"
+    },
+    {
+      "sourcePath": "assets/thermal_shock/textures/item/claw_sickle.png",
+      "sourceSha256": "0df8383302e2422698eccee29578664a952b86ae14886ee389832a5fd6dd32f3",
+      "targetPath": "src/main/resources/assets/thermal_shock_reforged/textures/item/claw_sickle.png",
+      "targetExists": true,
+      "targetSha256": "0df8383302e2422698eccee29578664a952b86ae14886ee389832a5fd6dd32f3"
+    },
+    {
+      "sourcePath": "assets/thermal_shock/textures/item/cobalt_fist.png",
+      "sourceSha256": "1773e2fd4dc0523cb224106208be67351e38de73a78de7c54d52aad3dbece2b1",
+      "targetPath": "src/main/resources/assets/thermal_shock_reforged/textures/item/cobalt_fist.png",
+      "targetExists": true,
+      "targetSha256": "1773e2fd4dc0523cb224106208be67351e38de73a78de7c54d52aad3dbece2b1"
+    },
+    {
+      "sourcePath": "assets/thermal_shock/textures/item/flowerbomb.png",
+      "sourceSha256": "42b01fbdcf0fe75c3622a7d7876e928494ebe806e11cfb0d27fb2fa9f7fd8fe2",
+      "targetPath": "src/main/resources/assets/thermal_shock_reforged/textures/item/flowerbomb.png",
+      "targetExists": true,
+      "targetSha256": "42b01fbdcf0fe75c3622a7d7876e928494ebe806e11cfb0d27fb2fa9f7fd8fe2"
+    },
+    {
+      "sourcePath": "assets/thermal_shock/textures/item/icebomb.png",
+      "sourceSha256": "fe3717145ae357f18d555093e5207e02a1c1c1ebd9af9eda8de6c444571d0d5c",
+      "targetPath": "src/main/resources/assets/thermal_shock_reforged/textures/item/icebomb.png",
+      "targetExists": true,
+      "targetSha256": "fe3717145ae357f18d555093e5207e02a1c1c1ebd9af9eda8de6c444571d0d5c"
+    },
+    {
+      "sourcePath": "assets/thermal_shock/textures/item/jellumnbra.png",
+      "sourceSha256": "cac79465ff98071056831d56c2147a45f87ce17de98e31497c16ab0a0e81259e",
+      "targetPath": "src/main/resources/assets/thermal_shock_reforged/textures/item/jellumnbra.png",
+      "targetExists": true,
+      "targetSha256": "cac79465ff98071056831d56c2147a45f87ce17de98e31497c16ab0a0e81259e"
+    },
+    {
+      "sourcePath": "assets/thermal_shock/textures/item/net_launcher.png",
+      "sourceSha256": "6be73bfbe2fd7a30a6be12738eb8c852d8199bb4c52d6f8f7e2ee48da7e9573b",
+      "targetPath": "src/main/resources/assets/thermal_shock_reforged/textures/item/net_launcher.png",
+      "targetExists": true,
+      "targetSha256": "6be73bfbe2fd7a30a6be12738eb8c852d8199bb4c52d6f8f7e2ee48da7e9573b"
+    },
+    {
+      "sourcePath": "assets/thermal_shock/textures/item/supershotgun.png",
+      "sourceSha256": "b0252a6f49d2ab3c30723338a1eaa939d0325239291b2cd192c990eb81568c34",
+      "targetPath": "src/main/resources/assets/thermal_shock_reforged/textures/item/supershotgun.png",
+      "targetExists": true,
+      "targetSha256": "b0252a6f49d2ab3c30723338a1eaa939d0325239291b2cd192c990eb81568c34"
+    }
+  ],
+  "dataConsumers": [
+    {
+      "sourcePath": "data/minecraft/tags/items/hoes.json",
+      "sourceSha256": "e9eeed0deea49b7fdd7e5c37f51123adfcf00960c0aeb98ff32f958b5e58ea72",
+      "itemIds": [
+        "thermal_shock:claw_sickle"
+      ],
+      "sourceJson": {
+        "replace": false,
+        "values": [
+          "thermal_shock:carborundum_sickle",
+          "thermal_shock:stratosilver_sickle",
+          "thermal_shock:claw_sickle",
+          "thermal_shock:bloodstone_sickle",
+          "thermal_shock:ruby_sickle",
+          "thermal_shock:bloodstone_hoe",
+          "thermal_shock:ruby_hoe"
+        ]
+      },
+      "targetPath": "src/main/resources/data/minecraft/tags/item/hoes.json",
+      "targetExists": true,
+      "targetSha256": "7c019020b9f702b21cec15ce3b540fd8e0e87d7e92e76d31e5b8a31c3c197840"
+    },
+    {
+      "sourcePath": "data/thermal_shock/loot_tables/entities/protoi_delta.json",
+      "sourceSha256": "5c01b57d26dc7df1a6c2990c7056d9008c535ef5b4d7b97df01ac966ecc1b98d",
+      "itemIds": [
+        "thermal_shock:ice_bomb"
+      ],
+      "sourceJson": {
+        "type": "minecraft:entity",
+        "pools": [
+          {
+            "rolls": 1,
+            "entries": [
+              {
+                "type": "minecraft:item",
+                "name": "thermal_shock:helion_coagulate",
+                "weight": 1,
+                "functions": [
+                  {
+                    "function": "set_count",
+                    "count": {
+                      "min": 1,
+                      "max": 2
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rolls": 1,
+            "entries": [
+              {
+                "type": "minecraft:item",
+                "name": "thermal_shock:ice_bomb",
+                "weight": 1,
+                "functions": [
+                  {
+                    "function": "set_count",
+                    "count": {
+                      "min": 0,
+                      "max": 1
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "minecraft:item",
+                "name": "thermal_shock:adamantine_spice",
+                "weight": 3,
+                "functions": [
+                  {
+                    "function": "set_count",
+                    "count": {
+                      "min": 0,
+                      "max": 3
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "random_sequence": "thermal_shock:entities/protoi_delta"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/loot_table/entities/protoi_delta.json",
+      "targetExists": false,
+      "targetSha256": null
+    },
+    {
+      "sourcePath": "data/thermal_shock/recipes/claw_sickle_recipe.json",
+      "sourceSha256": "79fc0717ff6661ca43ad4bd00f5811d8e4e613e46f10efa86ffe2d7d23156d2d",
+      "itemIds": [
+        "thermal_shock:claw_sickle"
+      ],
+      "sourceJson": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          " aa",
+          "  a",
+          "bcc"
+        ],
+        "key": {
+          "a": {
+            "item": "thermal_shock:beetle_claw"
+          },
+          "b": {
+            "item": "thermal_shock:cobalt_rod"
+          },
+          "c": {
+            "item": "thermal_shock:ferrum_ingot"
+          }
+        },
+        "result": {
+          "item": "thermal_shock:claw_sickle",
+          "count": 1
+        }
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/recipe/claw_sickle_recipe.json",
+      "targetExists": false,
+      "targetSha256": null
+    },
+    {
+      "sourcePath": "data/thermal_shock/recipes/flower_bomb_recipe.json",
+      "sourceSha256": "a8995c7886283c27e51c37ddf3ef7f1d467c34b880b74e254911e594a8b65a75",
+      "itemIds": [
+        "thermal_shock:flower_bomb"
+      ],
+      "sourceJson": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          "aba",
+          "bcb",
+          "aba"
+        ],
+        "key": {
+          "a": {
+            "item": "thermal_shock:volatine"
+          },
+          "b": {
+            "item": "thermal_shock:cobalt_block"
+          },
+          "c": {
+            "item": "thermal_shock:cavebloomer_core"
+          }
+        },
+        "result": {
+          "item": "thermal_shock:flower_bomb",
+          "count": 1
+        }
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/recipe/flower_bomb_recipe.json",
+      "targetExists": false,
+      "targetSha256": null
+    },
+    {
+      "sourcePath": "data/thermal_shock/recipes/ice_bomb_recipe.json",
+      "sourceSha256": "a8bbf38757ca52de25de702c56798cc25d208172abe8087b61a781b30aef22e4",
+      "itemIds": [
+        "thermal_shock:ice_bomb"
+      ],
+      "sourceJson": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          "aba",
+          "bcb",
+          "aba"
+        ],
+        "key": {
+          "a": {
+            "item": "thermal_shock:permafrost"
+          },
+          "b": {
+            "item": "thermal_shock:cobalt"
+          },
+          "c": {
+            "item": "minecraft:gunpowder"
+          }
+        },
+        "result": {
+          "item": "thermal_shock:ice_bomb",
+          "count": 6
+        }
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/recipe/ice_bomb_recipe.json",
+      "targetExists": false,
+      "targetSha256": null
+    },
+    {
+      "sourcePath": "data/thermal_shock/recipes/jelly_umbrella_recipe.json",
+      "sourceSha256": "b3d92adc7307f48570671a8d84f347d6a07de1b9cd1f4453322cf7872bb24367",
+      "itemIds": [
+        "thermal_shock:jelly_umbrella"
+      ],
+      "sourceJson": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          "aaa",
+          " b ",
+          " b "
+        ],
+        "key": {
+          "a": {
+            "item": "thermal_shock:springelatin_ball"
+          },
+          "b": {
+            "item": "thermal_shock:cobalt_rod"
+          }
+        },
+        "result": {
+          "item": "thermal_shock:jelly_umbrella",
+          "count": 1
+        }
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/recipe/jelly_umbrella_recipe.json",
+      "targetExists": false,
+      "targetSha256": null
+    },
+    {
+      "sourcePath": "data/thermal_shock/recipes/legendary_jelly_umbrella_recipe.json",
+      "sourceSha256": "eb6febd878b1164f7f618d8befb1164341f0d0bca2791142281eebfb61f2c98a",
+      "itemIds": [
+        "thermal_shock:jelly_umbrella",
+        "thermal_shock:legendary_jelly_umbrella"
+      ],
+      "sourceJson": {
+        "type": "minecraft:smithing_transform",
+        "template": {
+          "item": "thermal_shock:jelly_umbrella"
+        },
+        "base": {
+          "item": "thermal_shock:zenith_smithing_template"
+        },
+        "addition": {
+          "item": "thermal_shock:stratus_alloy"
+        },
+        "result": {
+          "item": "thermal_shock:legendary_jelly_umbrella"
+        }
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/recipe/legendary_jelly_umbrella_recipe.json",
+      "targetExists": false,
+      "targetSha256": null
+    },
+    {
+      "sourcePath": "data/thermal_shock/recipes/net_launcher_recipe.json",
+      "sourceSha256": "50ad6ebc491da1134870eb75fcb364d01614961c8459eed3c9a7074e9c265d37",
+      "itemIds": [
+        "thermal_shock:net_launcher"
+      ],
+      "sourceJson": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          "aab",
+          "bcb",
+          "aab"
+        ],
+        "key": {
+          "a": {
+            "item": "thermal_shock:ochre_planks"
+          },
+          "b": {
+            "item": "thermal_shock:ferrum_ingot"
+          },
+          "c": {
+            "tag": "minecraft:wool"
+          }
+        },
+        "result": {
+          "item": "thermal_shock:net_launcher",
+          "count": 1
+        }
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/recipe/net_launcher_recipe.json",
+      "targetExists": false,
+      "targetSha256": null
+    },
+    {
+      "sourcePath": "data/thermal_shock/recipes/piston_gauntlet_recipe.json",
+      "sourceSha256": "fbf27f97371809ca37b146abfee6c1ac9ae01763001f2bcb425fc2147e68b8e5",
+      "itemIds": [
+        "thermal_shock:piston_gauntlet"
+      ],
+      "sourceJson": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          "aaa",
+          "bcb",
+          "bdb"
+        ],
+        "key": {
+          "a": {
+            "item": "thermal_shock:polished_permafrost"
+          },
+          "b": {
+            "item": "thermal_shock:cobalt_block"
+          },
+          "c": {
+            "item": "minecraft:shield"
+          },
+          "d": {
+            "item": "thermal_shock:cobalt_rod"
+          }
+        },
+        "result": {
+          "item": "thermal_shock:piston_gauntlet",
+          "count": 1
+        }
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/recipe/piston_gauntlet_recipe.json",
+      "targetExists": false,
+      "targetSha256": null
+    },
+    {
+      "sourcePath": "data/thermal_shock/tags/items/weapon.json",
+      "sourceSha256": "094acc7238cdcb6b9673cac1e9c8613ebd13a95d9a72456087215777f26eae8f",
+      "itemIds": [
+        "thermal_shock:claw_sickle",
+        "thermal_shock:flower_bomb",
+        "thermal_shock:ice_bomb",
+        "thermal_shock:net_launcher"
+      ],
+      "sourceJson": {
+        "replace": false,
+        "values": [
+          "thermal_shock:ruby_axe",
+          "thermal_shock:ruby_sword",
+          "thermal_shock:muck",
+          "thermal_shock:pure_muck",
+          "thermal_shock:sparkly_muck",
+          "thermal_shock:ghostglass_sword",
+          "thermal_shock:magnetic_crossbow",
+          "thermal_shock:volcano",
+          "thermal_shock:flintsteel_rifle",
+          "thermal_shock:bloodstone_axe",
+          "thermal_shock:bloodstone_sword",
+          "thermal_shock:ruby_spear",
+          "thermal_shock:bloodstone_halberd",
+          "thermal_shock:titanium_mace",
+          "thermal_shock:blinding_lantern",
+          "thermal_shock:core_eject_flare_gun",
+          "thermal_shock:cobalt_thermoblaster",
+          "thermal_shock:shock_stick",
+          "thermal_shock:stratosilver_chainsaw",
+          "thermal_shock:knights_edge",
+          "thermal_shock:rusty_edge",
+          "thermal_shock:buzzsaw",
+          "thermal_shock:zenith_crossbow",
+          "thermal_shock:liteprism_sword",
+          "thermal_shock:liteprism_disk",
+          "thermal_shock:ruby_sickle",
+          "thermal_shock:bloodstone_sickle",
+          "thermal_shock:claw_sickle",
+          "thermal_shock:stratosilver_sickle",
+          "thermal_shock:carborundum_axe",
+          "thermal_shock:carborundum_sword",
+          "thermal_shock:carborundum_sickle",
+          "thermal_shock:ice_bomb",
+          "thermal_shock:net_launcher",
+          "thermal_shock:molten_bat",
+          "thermal_shock:frozen_blade",
+          "thermal_shock:fire_bomb",
+          "thermal_shock:sylvia_rifle",
+          "thermal_shock:carborundum_spear",
+          "thermal_shock:carborundum_halberd",
+          "thermal_shock:liteprism_laser",
+          "thermal_shock:zap_gauntlet",
+          "thermal_shock:flower_bomb",
+          "thermal_shock:speleothem",
+          "thermal_shock:thistle_bow",
+          "thermal_shock:bone_axe",
+          "thermal_shock:bone_sword"
+        ]
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/tags/item/weapon.json",
+      "targetExists": true,
+      "targetSha256": "7624db631d2a2cac74a4423c758a69537f7213e79c4ae8138be87d6078fc1bf8"
+    }
+  ],
+  "targetPreserveSnapshot": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/weapons/WeaponClient.java",
+      "sha256": "57ae2f964cd3b40cf0e43e2722cdaad404315e6b248b311295fb6187ea6e153f"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/farming/SickleHarvesting.java",
+      "sha256": "57c219447c614b7ae7d1a6ca667d0b00c26c7feeffe1ca96fc964396b8b6c6ec"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthHarvest.java",
+      "sha256": "a52aafd855ad7258fb91d1a6a1ef428c398ac461f64dd86aa2522b9689c3e11b"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/status/ParryingStatus.java",
+      "sha256": "943609d5c5090ce82e5950a1d131a03c0bf2d35dfe272fec140544848d00f184"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/BoundedItemAnimationCache.java",
+      "sha256": "c878300780cf1fb50dfc0a683b9eacf44df8523def29bd20f3a987f23910d286"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/FirearmItem.java",
+      "sha256": "8038386a2598467333e32088ae72edd1a3b92be7cc3f4b83e42129fe9f142ff7"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/HeldWeaponState.java",
+      "sha256": "fb1bf923b9f6b974ac567f459ffbeaeec14fc5b58b4a98c6c1820e3858807746"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/SickleItem.java",
+      "sha256": "58d4f6becd40063b9b529eba036df0d2f06e8d50d49ff958fa47000bcf0e3974"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/WeaponContent.java",
+      "sha256": "a4fb72453e064ae9d5a9e522ff2c17c2998c9e92d9e6fecb32ef1f1115989514"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/projectile/LegacyArrowEntity.java",
+      "sha256": "58f614ec825b7f6be3d9691e78db0737ad6ba3d86e77cac22b795282befc4c11"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/projectile/NetBulletEntity.java",
+      "sha256": "60699e74e4a63e076ceacd11e69b68e89fceed4ee3c60a14f8a34e0adda81d6a"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/projectile/VolcanoBulletEntity.java",
+      "sha256": "3a1f78c0d2501987ea10af6015bf4cc477f52021ecad1565b872cb146a80c20c"
+    }
+  ],
+  "unrelatedSourceJsonParseErrors": [
+    {
+      "path": "data/minecraft/tags/entity_types/arthropod.json",
+      "error": "Expecting value: line 7 column 3 (char 133)"
+    }
+  ],
+  "limits": "依赖盘点与来源证据，不代表生产、完整行为复审或游戏测试完成。",
+  "zenithCorrection": "Zenith/Magnetic为独立原物品，原alias候选结论不成立；主线负责Zenith，不扩大本线九项。",
+  "sourceJarSha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436",
+  "legendaryUmbrellaBytecode": {
+    "class": "net.mcreator.thermal_shock.procedures.LegendaryJellyUmbrellaRightclickedProcedure",
+    "confirmedWrongOrdinaryUmbrellaClassCheck": true,
+    "javapFullText": "Compiled from \"LegendaryJellyUmbrellaRightclickedProcedure.java\"\npublic class net.mcreator.thermal_shock.procedures.LegendaryJellyUmbrellaRightclickedProcedure {\n  public net.mcreator.thermal_shock.procedures.LegendaryJellyUmbrellaRightclickedProcedure();\n    Code:\n       0: aload_0\n       1: invokespecial #9                  // Method java/lang/Object.\"<init>\":()V\n       4: return\n\n  public static void execute(net.minecraft.world.level.LevelAccessor, double, double, double, net.minecraft.world.entity.Entity, net.minecraft.world.item.ItemStack);\n    Code:\n       0: aload         7\n       2: ifnonnull     6\n       5: return\n       6: aload         7\n       8: new           #15                 // class net/minecraft/world/phys/Vec3\n      11: dup\n      12: dconst_0\n      13: ldc2_w        #16                 // double 0.5d\n      16: dconst_0\n      17: invokespecial #20                 // Method net/minecraft/world/phys/Vec3.\"<init>\":(DDD)V\n      20: invokevirtual #26                 // Method net/minecraft/world/entity/Entity.m_20256_:(Lnet/minecraft/world/phys/Vec3;)V\n      23: aload         7\n      25: instanceof    #28                 // class net/minecraft/world/entity/LivingEntity\n      28: ifeq          68\n      31: aload         7\n      33: checkcast     #28                 // class net/minecraft/world/entity/LivingEntity\n      36: astore        9\n      38: aload         9\n      40: invokevirtual #32                 // Method net/minecraft/world/entity/LivingEntity.m_9236_:()Lnet/minecraft/world/level/Level;\n      43: invokevirtual #38                 // Method net/minecraft/world/level/Level.m_5776_:()Z\n      46: ifne          68\n      49: aload         9\n      51: new           #40                 // class net/minecraft/world/effect/MobEffectInstance\n      54: dup\n      55: getstatic     #46                 // Field net/minecraft/world/effect/MobEffects.f_19591_:Lnet/minecraft/world/effect/MobEffect;\n      58: bipush        60\n      60: iconst_1\n      61: invokespecial #49                 // Method net/minecraft/world/effect/MobEffectInstance.\"<init>\":(Lnet/minecraft/world/effect/MobEffect;II)V\n      64: invokevirtual #53                 // Method net/minecraft/world/entity/LivingEntity.m_7292_:(Lnet/minecraft/world/effect/MobEffectInstance;)Z\n      67: pop\n      68: aload_0\n      69: instanceof    #34                 // class net/minecraft/world/level/Level\n      72: ifeq          165\n      75: aload_0\n      76: checkcast     #34                 // class net/minecraft/world/level/Level\n      79: astore        9\n      81: aload         9\n      83: invokevirtual #38                 // Method net/minecraft/world/level/Level.m_5776_:()Z\n      86: ifne          130\n      89: aload         9\n      91: aconst_null\n      92: dload_1\n      93: dload_3\n      94: dload         5\n      96: invokestatic  #59                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;\n      99: getstatic     #65                 // Field net/minecraftforge/registries/ForgeRegistries.SOUND_EVENTS:Lnet/minecraftforge/registries/IForgeRegistry;\n     102: new           #67                 // class net/minecraft/resources/ResourceLocation\n     105: dup\n     106: ldc           #69                 // String thermal_shock:jellyumbrelladeploy\n     108: invokespecial #72                 // Method net/minecraft/resources/ResourceLocation.\"<init>\":(Ljava/lang/String;)V\n     111: invokeinterface #78,  2           // InterfaceMethod net/minecraftforge/registries/IForgeRegistry.getValue:(Lnet/minecraft/resources/ResourceLocation;)Ljava/lang/Object;\n     116: checkcast     #80                 // class net/minecraft/sounds/SoundEvent\n     119: getstatic     #86                 // Field net/minecraft/sounds/SoundSource.NEUTRAL:Lnet/minecraft/sounds/SoundSource;\n     122: fconst_1\n     123: fconst_1\n     124: invokevirtual #90                 // Method net/minecraft/world/level/Level.m_5594_:(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/core/BlockPos;Lnet/minecraft/sounds/SoundEvent;Lnet/minecraft/sounds/SoundSource;FF)V\n     127: goto          165\n     130: aload         9\n     132: dload_1\n     133: dload_3\n     134: dload         5\n     136: getstatic     #65                 // Field net/minecraftforge/registries/ForgeRegistries.SOUND_EVENTS:Lnet/minecraftforge/registries/IForgeRegistry;\n     139: new           #67                 // class net/minecraft/resources/ResourceLocation\n     142: dup\n     143: ldc           #69                 // String thermal_shock:jellyumbrelladeploy\n     145: invokespecial #72                 // Method net/minecraft/resources/ResourceLocation.\"<init>\":(Ljava/lang/String;)V\n     148: invokeinterface #78,  2           // InterfaceMethod net/minecraftforge/registries/IForgeRegistry.getValue:(Lnet/minecraft/resources/ResourceLocation;)Ljava/lang/Object;\n     153: checkcast     #80                 // class net/minecraft/sounds/SoundEvent\n     156: getstatic     #86                 // Field net/minecraft/sounds/SoundSource.NEUTRAL:Lnet/minecraft/sounds/SoundSource;\n     159: fconst_1\n     160: fconst_1\n     161: iconst_0\n     162: invokevirtual #94                 // Method net/minecraft/world/level/Level.m_7785_:(DDDLnet/minecraft/sounds/SoundEvent;Lnet/minecraft/sounds/SoundSource;FFZ)V\n     165: aload         8\n     167: invokevirtual #100                // Method net/minecraft/world/item/ItemStack.m_41720_:()Lnet/minecraft/world/item/Item;\n     170: instanceof    #102                // class net/mcreator/thermal_shock/item/JellyUmbrellaItem\n     173: ifeq          188\n     176: aload         8\n     178: invokevirtual #106                // Method net/minecraft/world/item/ItemStack.m_41784_:()Lnet/minecraft/nbt/CompoundTag;\n     181: ldc           #108                // String geckoAnim\n     183: ldc           #110                // String 1\n     185: invokevirtual #116                // Method net/minecraft/nbt/CompoundTag.m_128359_:(Ljava/lang/String;Ljava/lang/String;)V\n     188: aload         7\n     190: instanceof    #118                // class net/minecraft/world/entity/player/Player\n     193: ifeq          218\n     196: aload         7\n     198: checkcast     #118                // class net/minecraft/world/entity/player/Player\n     201: astore        9\n     203: aload         9\n     205: invokevirtual #122                // Method net/minecraft/world/entity/player/Player.m_36335_:()Lnet/minecraft/world/item/ItemCooldowns;\n     208: aload         8\n     210: invokevirtual #100                // Method net/minecraft/world/item/ItemStack.m_41720_:()Lnet/minecraft/world/item/Item;\n     213: bipush        80\n     215: invokevirtual #128                // Method net/minecraft/world/item/ItemCooldowns.m_41524_:(Lnet/minecraft/world/item/Item;I)V\n     218: return\n}\n"
+  },
+  "summary": {
+    "owned": 9,
+    "sourceFiles": 40,
+    "assets": 28,
+    "geoItems": 6,
+    "dataConsumers": 10,
+    "missingTargetAssets": 0
+  }
+}

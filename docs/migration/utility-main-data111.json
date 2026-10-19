@@ -1,0 +1,211 @@
+{
+  "batch": 111,
+  "production": [
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/hpsm_recipe.json",
+      "sha256": "567adbad8a634a49f73c2ef3b9e05744ba11abd634c017936c87ff710973ba82",
+      "source": "data/thermal_shock/recipes/hpsm_recipe.json",
+      "source_sha256": "c20a348965625b41ce3865d703d36536847733c79cd69a78d683f55d4146f945",
+      "changes": [
+        "namespace",
+        "result.item to result.id"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/micro_dome_recipe.json",
+      "sha256": "29b26a4bf3fad5b38e18dd5cdeff94a7c41fc8dda791e31d5c8e3b79987eee13",
+      "source": "data/thermal_shock/recipes/micro_dome_recipe.json",
+      "source_sha256": "d1360e8038a4d9e7ae2c9cd1dbabe2332757bfb7a5c5c72e8db8d946cafb33af",
+      "changes": [
+        "namespace",
+        "result.item to result.id"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/model_train_recipe.json",
+      "sha256": "021ae54be5a4f15a6e4fb22e8defbf95e8284322471f7055f9ba3aceeddc8af7",
+      "source": "data/thermal_shock/recipes/model_train_recipe.json",
+      "source_sha256": "414f9073b602d655951c80d017f6fb7b1f0ec26ffb155d7816d9ff031674e569",
+      "changes": [
+        "namespace",
+        "result.item to result.id"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/sprintweed_soda_recipe.json",
+      "sha256": "1caef895caa4e401f46f149d10b0877dd8b7dca3b18e65321ea1226765ceaf2e",
+      "source": "data/thermal_shock/recipes/sprintweed_soda_recipe.json",
+      "source_sha256": "ee7abbc688dbf95f72581ea9034df98dd55c9af791eb516d8fb598fd0eb0cadc",
+      "changes": [
+        "namespace",
+        "result.item to result.id"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/advancement/hpsm_get.json",
+      "sha256": "413b7acb09488974c0339a64525b620bf38cbccc848742ff331f8aee6e2fde3d",
+      "source": "data/thermal_shock/advancements/hpsm_get.json",
+      "source_sha256": "1105724ff6877af404fc411d72e0965417333b56dbfccd32acf70374f2e23f46",
+      "changes": [
+        "namespace",
+        "display.icon.item to display.icon.id"
+      ]
+    }
+  ],
+  "existing_assets": [
+    {
+      "source": "assets/thermal_shock/models/item/dev_deletor.json",
+      "source_sha256": "8f4826ea67ae0afdacdc67d8b60eec5de23fe7a6ac8446ef84f47007673f37af",
+      "target": "src/main/resources/assets/thermal_shock_reforged/models/item/dev_deletor.json",
+      "target_sha256": "fe5a39e764f3be9a3bbd3a1d3af4e41e006061f3cccab54bfb73c3457fb74dd0",
+      "json_namespace_only": true
+    },
+    {
+      "source": "assets/thermal_shock/textures/item/deleter.png",
+      "source_sha256": "4289db2489c10457b4a28905299bb8950ddd1e475df36445d04027299ac93275",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/deleter.png",
+      "target_sha256": "4289db2489c10457b4a28905299bb8950ddd1e475df36445d04027299ac93275",
+      "byte_equal": true
+    },
+    {
+      "source": "assets/thermal_shock/models/item/dev_rotator.json",
+      "source_sha256": "98bbe2151281f33df8b0417a5b67fe7455413f7f6f36c7adf09a08d6d2a46606",
+      "target": "src/main/resources/assets/thermal_shock_reforged/models/item/dev_rotator.json",
+      "target_sha256": "28f79e652b868202b8ecba594ef44a03bef0f7bb552edb1ee1834782b5df9fa3",
+      "json_namespace_only": true
+    },
+    {
+      "source": "assets/thermal_shock/textures/item/rotator.png",
+      "source_sha256": "0f10833f65c9974e3d61a65bb2dc292f12dd4c92b35934bb2d6562200ba2cae8",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/rotator.png",
+      "target_sha256": "0f10833f65c9974e3d61a65bb2dc292f12dd4c92b35934bb2d6562200ba2cae8",
+      "byte_equal": true
+    },
+    {
+      "source": "assets/thermal_shock/models/item/hpsm.json",
+      "source_sha256": "f0373732a9f3bc9c578281ca56acd994ca043f88f2f808dd9a1f8889856a9368",
+      "target": "src/main/resources/assets/thermal_shock_reforged/models/item/hpsm.json",
+      "target_sha256": "b2ce46d50615af46a918ce06f5eb5ce3e1062394f532f0f7f0d7de2d6d64624f",
+      "json_namespace_only": true
+    },
+    {
+      "source": "assets/thermal_shock/textures/item/hpsm.png",
+      "source_sha256": "b796844d0b2060dc4c7acfbe148bceb93d1ad70d8ce82d27894f8e7a22f22b52",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/hpsm.png",
+      "target_sha256": "b796844d0b2060dc4c7acfbe148bceb93d1ad70d8ce82d27894f8e7a22f22b52",
+      "byte_equal": true
+    },
+    {
+      "source": "assets/thermal_shock/models/item/ignition_detector.json",
+      "source_sha256": "4ea3293f39d5e699f8866beafed3b170458538bd50bb750241b7313ecac91f6d",
+      "target": "src/main/resources/assets/thermal_shock_reforged/models/item/ignition_detector.json",
+      "target_sha256": "6ef66a90fd0e03302bba201ffbca6a74b19ddde25464ae2e30feeba823a43a72",
+      "json_namespace_only": true
+    },
+    {
+      "source": "assets/thermal_shock/textures/item/ignition_detector.png",
+      "source_sha256": "cb60bfc2dde13e2ee78e44e450071a0902671021c2359f3e54706c7a1bcdeb74",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/ignition_detector.png",
+      "target_sha256": "cb60bfc2dde13e2ee78e44e450071a0902671021c2359f3e54706c7a1bcdeb74",
+      "byte_equal": true
+    },
+    {
+      "source": "assets/thermal_shock/models/item/micro_dome.json",
+      "source_sha256": "dd0493192a8eb785a5d99fe57e49f25701570d773b519df7b188cf4ca42fa32e",
+      "target": "src/main/resources/assets/thermal_shock_reforged/models/item/micro_dome.json",
+      "target_sha256": "519c84955d9015cf6ffe056a69b16ce9fe53ba02472f0e4593c2dae8db654de1",
+      "json_namespace_only": true
+    },
+    {
+      "source": "assets/thermal_shock/textures/item/micro_dome.png",
+      "source_sha256": "5c6d9bdb24717570aeae7b37432d07f6724e30ca45658f208833cf3e9bfbc6d4",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/micro_dome.png",
+      "target_sha256": "5c6d9bdb24717570aeae7b37432d07f6724e30ca45658f208833cf3e9bfbc6d4",
+      "byte_equal": true
+    },
+    {
+      "source": "assets/thermal_shock/models/item/model_train.json",
+      "source_sha256": "e991dbebfd511e1e15e4779d7955d4b7f385eee135a79c1bf0486bf58aa9f972",
+      "target": "src/main/resources/assets/thermal_shock_reforged/models/item/model_train.json",
+      "target_sha256": "1a6721408e202c0d80cf174142b058eba836569991eab9255797477a72884aa8",
+      "json_namespace_only": true
+    },
+    {
+      "source": "assets/thermal_shock/textures/item/model_train.png",
+      "source_sha256": "edc81ec2b7e7056bced20c87b2a3ecd544a217b0d0798b6983cee540e38ab045",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/model_train.png",
+      "target_sha256": "edc81ec2b7e7056bced20c87b2a3ecd544a217b0d0798b6983cee540e38ab045",
+      "byte_equal": true
+    },
+    {
+      "source": "assets/thermal_shock/models/item/sprintweed_soda.json",
+      "source_sha256": "019e24e6eb3ebfc2075941153e20dff2582feab60cb011d56d1d273d3c8d0345",
+      "target": "src/main/resources/assets/thermal_shock_reforged/models/item/sprintweed_soda.json",
+      "target_sha256": "e405c299bf95f9cfbb1c83e2fd41575c1cd6070226950a496468343c3b8e5efa",
+      "json_namespace_only": true
+    },
+    {
+      "source": "assets/thermal_shock/textures/item/sprintweed_soda.png",
+      "source_sha256": "3612ebf288d1a521d7e4e07bd1e92a9987fb5299fa245096549ef1a277e880ca",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/sprintweed_soda.png",
+      "target_sha256": "3612ebf288d1a521d7e4e07bd1e92a9987fb5299fa245096549ef1a277e880ca",
+      "byte_equal": true
+    }
+  ],
+  "count": 5,
+  "language_added": {
+    "en_us": {
+      "message.thermal_shock_reforged.ignition_score.-2": "Biome Ignition Score: §e-2\n§cSurge Pylons present, Frostbite prevents healing\n \n§cGarden Plants will not grow here",
+      "message.thermal_shock_reforged.ignition_score.-1": "Biome Ignition Score: §e-1\n \n§cGarden Plants will not grow here",
+      "message.thermal_shock_reforged.ignition_score.0": "Biome Ignition Score: §e0\n§aThis biome is stable!",
+      "message.thermal_shock_reforged.ignition_score.1": "Biome Ignition Score: §e1\n ",
+      "message.thermal_shock_reforged.ignition_score.2": "Biome Ignition Score: §e2\n§cInfection present, tread with caution\n ",
+      "message.thermal_shock_reforged.ignition_score.irrelevant": "Biome Ignition Score: Irrelevant",
+      "message.thermal_shock_reforged.fixed_structure_start": "Generating at X330 Z330, Please Stand By...",
+      "message.thermal_shock_reforged.fixed_structure_failed": "Structure generation failed. The item was not consumed."
+    },
+    "zh_cn": {
+      "item.thermal_shock_reforged.dev_deletor": "角色移除器",
+      "item.thermal_shock_reforged.dev_rotator": "角色转向器",
+      "item.thermal_shock_reforged.hpsm": "高压除雪器",
+      "item.thermal_shock_reforged.hpsm.description_0": "§7移除或添加页岩、冻土上的积雪。",
+      "item.thermal_shock_reforged.hpsm.description_1": "§7也可清除薄雪层。",
+      "item.thermal_shock_reforged.ignition_detector": "点火探测器",
+      "item.thermal_shock_reforged.ignition_detector.description_0": "§7检测当前群系的点火评分。",
+      "item.thermal_shock_reforged.micro_dome": "微型穹顶",
+      "item.thermal_shock_reforged.micro_dome.description_0": "§7在固定坐标生成页泉聚落。",
+      "item.thermal_shock_reforged.micro_dome.description_1": "§7使用前请确认生成区域。",
+      "item.thermal_shock_reforged.model_train": "模型列车",
+      "item.thermal_shock_reforged.model_train.description_0": "§7在固定坐标生成页泉车站。",
+      "item.thermal_shock_reforged.model_train.description_1": "§7使用前请确认生成区域。",
+      "item.thermal_shock_reforged.sprintweed_soda": "疾行草汽水",
+      "advancements.hpsm_get.title": "高压除雪",
+      "advancements.hpsm_get.descr": "使用高压除雪器。",
+      "message.thermal_shock_reforged.fixed_structure_start": "正在 X330 Z330 生成，请稍候……",
+      "message.thermal_shock_reforged.fixed_structure_failed": "结构生成失败，物品未消耗。",
+      "message.thermal_shock_reforged.ignition_score.-2": "群系点火评分：§e-2\n§c此处存在涌能塔，冻伤会阻止治疗\n \n§c花园植物无法在此生长",
+      "message.thermal_shock_reforged.ignition_score.-1": "群系点火评分：§e-1\n \n§c花园植物无法在此生长",
+      "message.thermal_shock_reforged.ignition_score.0": "群系点火评分：§e0\n§a此群系状态稳定！",
+      "message.thermal_shock_reforged.ignition_score.1": "群系点火评分：§e1\n ",
+      "message.thermal_shock_reforged.ignition_score.2": "群系点火评分：§e2\n§c此处存在感染，请谨慎行事\n ",
+      "message.thermal_shock_reforged.ignition_score.irrelevant": "群系点火评分：不适用"
+    }
+  },
+  "original_ignition_tags_undefined": [
+    "data/thermal_shock/tags/worldgen/biome/ignition_-2.json",
+    "data/thermal_shock/tags/worldgen/biome/ignition_-1.json",
+    "data/thermal_shock/tags/worldgen/biome/ignition_0.json",
+    "data/thermal_shock/tags/worldgen/biome/ignition_1.json",
+    "data/thermal_shock/tags/worldgen/biome/ignition_2.json"
+  ],
+  "original_ignition_messages": {
+    "-2": "Biome Ignition Score: §e-2\n§cSurge Pylons present, Frostbite prevents healing\n \n§cGarden Plants will not grow here",
+    "-1": "Biome Ignition Score: §e-1\n \n§cGarden Plants will not grow here",
+    "0": "Biome Ignition Score: §e0\n§aThis biome is stable!",
+    "1": "Biome Ignition Score: §e1\n ",
+    "2": "Biome Ignition Score: §e2\n§cInfection present, tread with caution\n ",
+    "irrelevant": "Biome Ignition Score: Irrelevant"
+  },
+  "original_generation_message": "Generating at X330 Z330, Please Stand By...",
+  "build_or_game_tests": false
+}

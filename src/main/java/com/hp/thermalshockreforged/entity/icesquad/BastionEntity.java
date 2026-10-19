@@ -1,7 +1,6 @@
 package com.hp.thermalshockreforged.entity.icesquad;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
-import com.hp.thermalshockreforged.content.status.LegacyEffectParticles;
 import com.hp.thermalshockreforged.content.MaterialContent;
 import com.hp.thermalshockreforged.content.ModGameRules;
 import com.hp.thermalshockreforged.content.status.StatusContent;
@@ -36,7 +35,6 @@ import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animation.*;
 import software.bernie.geckolib.util.GeckoLibUtil;
-import java.util.ArrayList;
 import java.util.UUID;
 import java.util.Comparator;
 
@@ -104,7 +102,7 @@ public final class BastionEntity extends Monster implements GeoEntity {
     boolean attackAttempt(LivingEntity target, Entity direct) {
         if (!(target instanceof Player) || direct == null) return false;
         if (direct.getType() == (burner() ? IceSquadContent.BURNER_FLAME : IceSquadContent.ALT_CRYONIC_PROJECTILE).get()) return false;
-        if (!(level() instanceof ServerLevel) || !isAlive() || target == this || cooldown > 0 || attackAge >= 0) return true;
+        if (!(level() instanceof ServerLevel) || !isAlive() || target == this || cooldown > 0 || attackAge >= 0 || (burner() && com.hp.thermalshockreforged.content.remainingcombat.RemainingCombatState.blocksCryoAttack(this))) return true;
         int k = kind(); startedAt = level().getGameTime(); attackOrigin = target.position(); combatDimension = level().dimension().location().toString();
         boolean dash = burner() ? distanceTo(target) >= 7 : distanceTo(target) <= 10;
         if (dash) {
@@ -151,13 +149,8 @@ public final class BastionEntity extends Monster implements GeoEntity {
         advanceAttack(server);
     }
     @Override protected void tickEffects() {
-        if (!level().isClientSide || !entityData.get(COOLDOWN_VISIBLE)) { super.tickEffects(); return; }
-        for (var effect : new ArrayList<>(getActiveEffects())) {
-            boolean active = effect.tick(this, () -> onEffectUpdated(effect, true, null));
-            if (active && effect.getDuration() % 600 == 0) onEffectUpdated(effect, false, null);
-        }
-        boolean spawn = isInvisible() ? random.nextInt(15) == 0 : random.nextBoolean();
-        if (spawn) LegacyEffectParticles.emit(this, 0xFFFFFF, 2);
+        if (!com.hp.thermalshockreforged.content.remainingcombat.CryoCooldownVisual.tickClientEffects(
+                this, entityData.get(COOLDOWN_VISIBLE), (effect, refresh) -> onEffectUpdated(effect, refresh, null))) super.tickEffects();
     }
     @Override public boolean hurt(DamageSource source, float amount) { return !source.is(DamageTypes.DROWN) && !source.is(DamageTypes.LIGHTNING_BOLT) && super.hurt(source, amount); }
     @Override public boolean removeWhenFarAway(double distance) { return false; }

@@ -1,0 +1,87 @@
+{
+  "batch": 111,
+  "base_head": "d76f90e869d60cf075a902161ae6b9091f309d20",
+  "reviewer": "/root/remaining_inventory97 (quick_explorer)",
+  "report_recorded_at": "2026-10-20T01:49:29.956790+08:00",
+  "method": "Independent read-only original/target source, typed NBT, JSON and SHA comparison; no compile or game execution",
+  "production_manifest_sha256": "a5bad56920dfe92c79b7e08a14b3d96e3979ce2a3d1826a2a0d6f4f5454106ef",
+  "production_files": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/remainingutility/DevCharacterToolItem.java",
+      "sha256": "b3f0296a4d730080e00511640e4bb96cc0187227150259dbe1dbbfa2d8762b12"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/remainingutility/FixedStructureItem.java",
+      "sha256": "8b26852ed57db166ebc16acf25a23141a300a1e45c5ac5fc95b8f4c0edf18db5"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/remainingutility/IgnitionDetectorItem.java",
+      "sha256": "18633289808cfb1074f7f3c6f1d04dabef68c4c4ed966f344370c44c26f8592f"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/remainingutility/RemainingUtilityContent.java",
+      "sha256": "8cd50df03abe9d65321dac7b29a32e6c860662269c718fc00bc24a573a725070"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/remainingutility/SnowMelterItem.java",
+      "sha256": "1e308b9e784653c49a0b18f09325eb0b25f413c782e23988957f51c29e373086"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/remainingutility/SprintweedSodaItem.java",
+      "sha256": "9859c4c2b97cb9880d27399d9fedc92791ca9df30e14adfcc9df6dc3eb7504dc"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/world/WorldProgressData.java",
+      "sha256": "77e393024ace0055e90dfab2d3cc1a65ee11c12aee93d1d62a915dd23df3679a"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/advancement/hpsm_get.json",
+      "sha256": "413b7acb09488974c0339a64525b620bf38cbccc848742ff331f8aee6e2fde3d"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/hpsm_recipe.json",
+      "sha256": "567adbad8a634a49f73c2ef3b9e05744ba11abd634c017936c87ff710973ba82"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/micro_dome_recipe.json",
+      "sha256": "29b26a4bf3fad5b38e18dd5cdeff94a7c41fc8dda791e31d5c8e3b79987eee13"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/model_train_recipe.json",
+      "sha256": "021ae54be5a4f15a6e4fb22e8defbf95e8284322471f7055f9ba3aceeddc8af7"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/sprintweed_soda_recipe.json",
+      "sha256": "1caef895caa4e401f46f149d10b0877dd8b7dca3b18e65321ea1226765ceaf2e"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/shalespring_trainstation.nbt",
+      "sha256": "001093684a1010f7a99a9f3ae432979d923c59306f617ff19fe481c5287bc0f2"
+    }
+  ],
+  "checks": {
+    "production_hashes": "13/13 match",
+    "recipe_and_advancement_json": "Four recipes and HPSM advancement differ only by namespace and approved result/icon item-to-id schema conversion",
+    "trainstation": {
+      "block_records": 50400,
+      "palette_entries": 54,
+      "block_entities": 3,
+      "entities": 0,
+      "registered_mod_palette_blocks": 33,
+      "typed_conversion_only": true
+    },
+    "shalespring_august": "Unchanged from frozen SHA in production manifest",
+    "messages": "All six original ignition English branches and structure generation message match original decoded text",
+    "seven_item_parameters": "Matched against original source and declared implementation document"
+  },
+  "reviewer_difference": {
+    "item": "sprintweed_soda",
+    "original": "All LivingEntity consumers receive Speed, but only Player consumers lose the drink and receive a flask",
+    "target": "Every actual LivingEntity consumer consumes the real used stack and receives the flask",
+    "root_decision": "Accepted as an intentional consistent-consumption change under user authorization for reasonable fixes; declared before production in utility-main-batch111.md",
+    "runtime_exploit_claim": false
+  },
+  "hashes_rechecked_on_recording": true,
+  "passed_with_documented_intentional_change": true,
+  "runtime_tests": false
+}

@@ -1,0 +1,113 @@
+{
+  "batch": 111,
+  "reviewer": "/root/remaining_inventory97 (quick_explorer)",
+  "method": "Read-only source, direct original JAR JSON, manifest and exact method body comparison; no build or game",
+  "reviewed_manifest_sha256": "b6dc719d937cee7edbde08af5d9dc61dd6693ed27633248f9dada53f7646dc1f",
+  "reviewed_production": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/ThermalShockReforged.java",
+      "sha256": "6fcd2cd494eafb50cd7cc49d5031afec71ef1c371d8427491548108b2b69804b"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/ClientEvents.java",
+      "sha256": "acd0ddff63a83ba96425b4b5ac6a175f1c987ba212475dab7a49f7f924d7f445"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/gaze/LanternbearerEntity.java",
+      "sha256": "57415f3f60adf1a6486ec9104fa7e6b6f91be30b011fcbd41a4d3017bf8526cd"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/gaze/LensEntity.java",
+      "sha256": "862af3d267df89420c2476bf36c8e8b9688e88313c76e69f79b21764a6693514"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/gaze/SpiritEntity.java",
+      "sha256": "b8afdbb2dff4566b2dde41c524ba7fc79c42de41aaad3dd47ab90679412f2d54"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/icesquad/BastionEntity.java",
+      "sha256": "fb0e5d07552d3dc2785aef9e96b51a38ae0577355a3f7ccbe6c0517a7acff135"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/legacy/SolaEntity.java",
+      "sha256": "afed533ba3fb09acd43f5abe1af7f2e3ac552fc26e5519be5283b88da3af2dc8"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/magnetite/MagnetiteEntity.java",
+      "sha256": "b7f142af1e25cc9b1630b4c1114a06c1d6b6a6d107c009220c5cea2334bf96df"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/projectile/LegacyArrowEntity.java",
+      "sha256": "d808640c6270e0bc8ca5d06d3845bb0cf18de56272515645a340284053efe1c6"
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/lang/en_us.json",
+      "sha256": "eeb95ee27a0ab354e79b81172dbaaa9adf6982249c21862bf4f66dcd5fdea6e7"
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/lang/zh_cn.json",
+      "sha256": "8d68c2deb0c6896ae4154f47dc0b00b68ca0394439561cd267bc626191f906c5"
+    },
+    {
+      "path": "src/main/resources/data/minecraft/tags/item/enchantable/armor.json",
+      "sha256": "ae5626d77a604512b56307153c872cb91969d380ac011401090d093d318c670e"
+    },
+    {
+      "path": "src/main/resources/data/minecraft/tags/item/enchantable/durability.json",
+      "sha256": "6b14bdc7b084158dd76bff346b0909b9bd00522f010eadfc6fcbde0a529d861c"
+    },
+    {
+      "path": "src/main/resources/data/minecraft/tags/item/enchantable/head_armor.json",
+      "sha256": "ae5626d77a604512b56307153c872cb91969d380ac011401090d093d318c670e"
+    },
+    {
+      "path": "src/main/resources/data/minecraft/tags/item/enchantable/mining.json",
+      "sha256": "afa74c2f172ea09d42b593d261ef693b635e46a3ca80dea6fd6e417318446dd7"
+    },
+    {
+      "path": "src/main/resources/data/minecraft/tags/item/enchantable/mining_loot.json",
+      "sha256": "484c2b9a7d5baa184af2ca3ea25fb65faf9558321637ab49d6b74b68091b66b0"
+    },
+    {
+      "path": "src/main/resources/data/minecraft/tags/item/head_armor.json",
+      "sha256": "cf18138d8077b0422c2516b9c03d1007ddf293f196fe7263667665e284dcf32f"
+    },
+    {
+      "path": "src/main/resources/data/minecraft/tags/item/hoes.json",
+      "sha256": "5d3d93ef864eea1dea32295148e99682ae05b0d2877a6797aabe4f381d36dbd2"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/tags/item/nomelee.json",
+      "sha256": "979c899dece92173ce84e1f097cf88182b0ddea663cc42e09393f224eafb2050"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/tags/item/weapon.json",
+      "sha256": "6488995e132f9e2ceed4bd789abe479bb6f19870c45f7139a57a6bd7dbc04660"
+    }
+  ],
+  "checks": {
+    "hashes_match": "20/20",
+    "root_two_registrations_each_once": true,
+    "client_three_hooks_each_once": true,
+    "cryo_six_target_effect_tick_overrides_each_once": true,
+    "client_helper_skips_super_after_own_effect_advancement": true,
+    "server_returns_to_super_once": true,
+    "spirit_and_burner_attack_start_gates": true,
+    "blue_bastion_not_blocked_by_cryo_gate": true,
+    "existing_attack_age_and_advance_attack_not_cancelled": true,
+    "projectile_setter_access_change_only_body_exact": true,
+    "weapon_original_order_only_zenith_omitted": {
+      "original": 47,
+      "target": 46
+    },
+    "nomelee_original_order_only_zenith_omitted": {
+      "original": 10,
+      "target": 9
+    },
+    "new_standard_tag_capabilities_present_baseline_retained": true,
+    "shared_language_additions_exact_baseline_values_changed": 0
+  },
+  "known_final_format_adjustment": "Main will restore en_us LF only after this independent check; see main111-format-adjustment.json and final main111-static-validation.json for updated hash. No semantic re-review required for byte-verified newline-only adjustment.",
+  "passed": true,
+  "runtime_tests": false
+}
