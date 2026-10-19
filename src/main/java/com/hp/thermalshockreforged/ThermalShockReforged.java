@@ -144,6 +144,7 @@ public final class ThermalShockReforged {
         VermilliContent.register(bus);
         AuraContent.register(bus);
         ArmorContent.register(bus);
+        com.hp.thermalshockreforged.content.armor.fabricated.FabricatedArmorContent.register(bus);
         ModSounds.register(bus);
         CreativeTabsContent.register(bus);
         LOGGER.info("Thermal Shock Reforged migration foundation loaded: {} material blocks and {} items", MaterialContent.blocks().size(), MaterialContent.items().size());

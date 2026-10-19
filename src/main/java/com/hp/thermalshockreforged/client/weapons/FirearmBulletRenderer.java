@@ -14,7 +14,7 @@ import net.minecraft.util.Mth;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
 public final class FirearmBulletRenderer extends EntityRenderer<FirearmBulletEntity> {
-    private static final ModelLayerLocation LAYER = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "model_small_laser_beam"), "main");
+    public static final ModelLayerLocation LAYER = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "model_small_laser_beam"), "main");
     private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/entities/gruntglow.png");
     private final ModelPart group;
     public FirearmBulletRenderer(EntityRendererProvider.Context context) { super(context); group = context.bakeLayer(LAYER).getChild("group"); }

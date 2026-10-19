@@ -92,7 +92,8 @@ final class ArmorSetEvents {
         for (Player player : event.getServer().getPlayerList().getPlayers()) {
             boolean eligible = player.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.HEAD).is(ZENITH)
                     || player.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.FEET).is(ZENITH);
-            if (eligible && player.isShiftKeyDown() && wearing(player, ArmorContent.SENTRY)) {
+            if ((eligible && player.isAlive() && player.isShiftKeyDown() && wearing(player, ArmorContent.SENTRY))
+                    || com.hp.thermalshockreforged.content.armor.fabricated.FabricatedArmorEvents.silencedSet(player)) {
                 features = player.level().enabledFeatures();
                 break;
             }

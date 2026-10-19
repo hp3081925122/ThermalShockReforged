@@ -158,6 +158,7 @@ public final class ClientEvents {
     public static void extensions(RegisterClientExtensionsEvent event) {
         StatusClient.register(event);
         ArmorClient.extensions(event);
+        com.hp.thermalshockreforged.client.armor.fabricated.FabricatedArmorClient.extensions(event);
         LightsRenderers.extensions(event);
         SporeRenderers.extensions(event);
         WeaponClient.extensions(event);
@@ -168,6 +169,11 @@ public final class ClientEvents {
         FluidClient.extensions(event);
         GeoDecorRenderers.extensions(event);
         SpecialDoorRenderers.extensions(event);
+    }
+
+    @SubscribeEvent
+    public static void armorKeys(net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent event) {
+        com.hp.thermalshockreforged.client.armor.fabricated.FabricatedArmorClient.keys(event);
     }
 
     @SubscribeEvent

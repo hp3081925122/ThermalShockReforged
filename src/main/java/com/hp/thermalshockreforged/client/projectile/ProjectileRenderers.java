@@ -20,7 +20,7 @@ public final class ProjectileRenderers {
         event.registerEntityRenderer(ProjectileContent.THERMOBLASTER_BULLET.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(ProjectileContent.THERMOBLASTER_SHOTGUN_BULLET.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(ProjectileContent.NET_BULLET.get(), ThrownItemRenderer::new);
-        event.registerEntityRenderer(ProjectileContent.LITEPRISM_BEAM.get(), ThrownItemRenderer::new);
-        event.registerEntityRenderer(ProjectileContent.THISTLE_BEAM.get(), ThrownItemRenderer::new);
+        event.registerEntityRenderer(ProjectileContent.LITEPRISM_BEAM.get(), SmallBeamRenderer::new);
+        event.registerEntityRenderer(ProjectileContent.THISTLE_BEAM.get(), SmallBeamRenderer::new);
     }
 }
