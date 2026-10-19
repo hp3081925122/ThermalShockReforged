@@ -1,0 +1,16 @@
+# 第72批：Protoi Sunbeam完整光束与死亡反馈
+
+原实体/攻击/命中方块/BigBossDeath及模型与发光层为依据。保120tick冷却，取消本体directEntity初始伤害，先按脚位转向，受击者最初位置protoi_cry音高-1，attack动画，28 END重新面向当前眼位；眼位发射速度5、baseArrowDamage20、pierce5的SunbeamBullet，再在原受击锚点播cavebloomer_detonates音量0.7/音高3。独立有限任务保已提交攻击和声音，不因来源死亡就吞掉。
+
+原基础攻击为0，光束另写死20；为落实技能跟随基础攻击的用户要求，将默认基础攻击设20、倍率1，实际普通近战始终被取消，默认箭伤不变。原raw击退5的水平脉冲可达3格/tick；按用户要求默认raw1、配置范围0～2，沿用原箭公式且抗性只折算一次。这是明确的击退调整，不宣称原5完全未变。伤害、生命、护甲、索敌、冷却、倍率与击退均配置化，CD下限29tick防单阶段重叠。
+
+保无重力、FlyingPathNavigation、1.5眼高、0台阶/地面/飞行速度、16索敌、原火/跌落/溺水免疫、100生命、有效抗性1和持久存在。原无自然生成placement，不编造。目标不要求视线/可达，保100平方攻击距离及canUse寻路失败入口，不添加随机散步。tick过程名不能代替真实调用：ProtoiSunbeamOnEntityTickUpdateProcedure源码仅定义无调用，原JAR类引用检查后记录，不能擅加每tick追踪玩家。
+
+死亡立即开始原15次爆炸粒子和mob_death_explode，间隔4 END、固定死亡锚点和眼高，复用既有BossDeathEffectEntity；本体第60tick移除且只结算一次100经验。保透明模型、原idle/attack、head跟随、sunbeam_glow发光层和零死亡侧翻。SunbeamBullet保重力、父箭穿透/命中、原方块整数位置NUKE_CLOUD，不添加原本不存在的40tick寿命；修EMPTY owner构造异常和装饰物拾取，保真实发射入口与helper参数区别。
+
+完成静态/API核查后与本批统一编译；全模组尚未完整，客户端/服务端/Render Preview最终验收继续等待。
+
+本批首编定位setPierceLevel在当前映射已为private，已复用项目现有ArrowPiercingAccess Invoker及已注册Mixin设置原生穿透数据；不使用NBT反复加载或反射，不删pierce5。
+
+
+第72批统一验证通过：离线compileJava/processResources复编35秒，24任务中1执行23最新，仅既有弃用警告。5项视觉资产和5组声音对照原JAR一致，原未调用tick过程的class引用检查仅自身；完整报告seventysecond-sunbeam-static-validation.json。最终两端和Render Preview仍待整模组完整。

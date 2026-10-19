@@ -24,6 +24,13 @@ public final class CombatConfig {
     public static final ModConfigSpec.DoubleValue DELTA_FOLLOW_RANGE;
     public static final ModConfigSpec.DoubleValue DELTA_BULLET_MULTIPLIER;
     public static final ModConfigSpec.IntValue DELTA_COOLDOWN;
+    public static final ModConfigSpec.DoubleValue SUNBEAM_HEALTH;
+    public static final ModConfigSpec.DoubleValue SUNBEAM_ARMOR;
+    public static final ModConfigSpec.DoubleValue SUNBEAM_DAMAGE;
+    public static final ModConfigSpec.DoubleValue SUNBEAM_FOLLOW_RANGE;
+    public static final ModConfigSpec.DoubleValue SUNBEAM_MULTIPLIER;
+    public static final ModConfigSpec.DoubleValue SUNBEAM_KNOCKBACK;
+    public static final ModConfigSpec.IntValue SUNBEAM_COOLDOWN;
 
     static {
         ModConfigSpec.Builder builder = new ModConfigSpec.Builder();
@@ -52,6 +59,15 @@ public final class CombatConfig {
         DELTA_FOLLOW_RANGE = builder.defineInRange("followRange", 16.0, 1.0, 256.0);
         DELTA_BULLET_MULTIPLIER = builder.defineInRange("bulletMultiplier", .8, 0.0, 1000.0);
         DELTA_COOLDOWN = builder.defineInRange("attackCooldown", 100, 42, 72000);
+        builder.pop();
+        builder.push("protoiSunbeam");
+        SUNBEAM_HEALTH = builder.defineInRange("maxHealth", 100.0, 1.0, 1000000.0);
+        SUNBEAM_ARMOR = builder.defineInRange("armor", 0.0, 0.0, 1000.0);
+        SUNBEAM_DAMAGE = builder.defineInRange("attackDamage", 20.0, 0.0, 1000000.0);
+        SUNBEAM_FOLLOW_RANGE = builder.defineInRange("followRange", 16.0, 1.0, 256.0);
+        SUNBEAM_MULTIPLIER = builder.defineInRange("beamMultiplier", 1.0, 0.0, 1000.0);
+        SUNBEAM_KNOCKBACK = builder.defineInRange("beamKnockback", 1.0, 0.0, 2.0);
+        SUNBEAM_COOLDOWN = builder.defineInRange("attackCooldown", 120, 29, 72000);
         builder.pop();
         SPEC = builder.build();
     }

@@ -3,22 +3,36 @@ import com.hp.thermalshockreforged.content.decor.nativeblocks.NativeDecorContent
 import com.hp.thermalshockreforged.entity.cavebloomer.CavebloomerContent;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.entity.projectile.ItemSupplier;
+import com.hp.thermalshockreforged.entity.projectile.LegacyArrowEntity;
+import com.hp.thermalshockreforged.mixin.ArrowPiercingAccess;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
-import net.minecraft.world.entity.ai.attributes.Attributes;
-public final class SunbeamBulletEntity extends AbstractArrow implements ItemSupplier {
+public final class SunbeamBulletEntity extends LegacyArrowEntity {
     public SunbeamBulletEntity(EntityType<? extends SunbeamBulletEntity> type, Level level) { super(type, level); }
-    public SunbeamBulletEntity(EntityType<? extends SunbeamBulletEntity> type, LivingEntity owner, Level level) { super(type, owner, level, ItemStack.EMPTY, ItemStack.EMPTY); }
-    @Override protected ItemStack getPickupItem() { return new ItemStack(NativeDecorContent.LIGHT_BLOCKING_BARRIER.get()); }
-    @Override protected ItemStack getDefaultPickupItem() { return new ItemStack(NativeDecorContent.LIGHT_BLOCKING_BARRIER.get()); }
-    @Override public ItemStack getItem() { return new ItemStack(NativeDecorContent.LIGHT_BLOCKING_BARRIER.get()); }
-    @Override protected void doPostHurtEffects(LivingEntity entity) { super.doPostHurtEffects(entity); entity.setArrowCount(Math.max(0, entity.getArrowCount() - 1)); }
+    public SunbeamBulletEntity(EntityType<? extends SunbeamBulletEntity> type, LivingEntity owner, Level level) { super(type, owner, level, new ItemStack(NativeDecorContent.LIGHT_BLOCKING_BARRIER.get())); }
+    @Override protected ItemStack projectileItem() { return new ItemStack(NativeDecorContent.LIGHT_BLOCKING_BARRIER.get()); }
+    public void configure(double damage, double knockback, byte piercing) {
+        setBaseDamage(Double.isFinite(damage) ? Math.clamp(damage, 0, Float.MAX_VALUE) : 0);
+        setImpactKnockback(Double.isFinite(knockback) ? Math.clamp(knockback, 0, 2) : 0);
+        ((ArrowPiercingAccess)(Object)this).thermalShockReforged$setPierceLevel(piercing); setSilent(true); setCritArrow(false);
+    }
     @Override protected void onHitBlock(BlockHitResult hit) { super.onHitBlock(hit); if (level() instanceof net.minecraft.server.level.ServerLevel server) server.sendParticles(CavebloomerContent.NUKE_CLOUD.get(), hit.getBlockPos().getX(), hit.getBlockPos().getY(), hit.getBlockPos().getZ(), 1, 0, 0, 0, 0); }
-    @Override public void tick() { super.tick(); if (inGround) discard(); }
-    @Override protected void doKnockback(LivingEntity target, net.minecraft.world.damagesource.DamageSource source) { double resistance = Math.max(0, 1 - target.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE)); Vec3 impulse = getDeltaMovement().multiply(1, 0, 1).normalize().scale(5 * .6 * resistance); if (impulse.lengthSqr() > 0) { target.push(impulse.x, .1, impulse.z); target.hurtMarked = true; } }
-    public static SunbeamBulletEntity shoot(Level level, LivingEntity owner, double damage, int knockback) { var bullet = new SunbeamBulletEntity(ProtoiContent.SUNBEAM_BULLET.get(), owner, level); bullet.shootFromRotation(owner, owner.getXRot(), owner.getYRot(), 0, 2, 0); bullet.setSilent(true); bullet.setBaseDamage(damage); level.addFreshEntity(bullet); return bullet; }
+    public static SunbeamBulletEntity shoot(Level level, LivingEntity owner, double damage, int knockback) { return shoot(level, owner, owner.getRandom(), 1, damage, knockback); }
+    public static SunbeamBulletEntity shoot(Level level, LivingEntity owner, net.minecraft.util.RandomSource random) { return shoot(level, owner, random, 1, 20, 1); }
+    public static SunbeamBulletEntity shoot(Level level, LivingEntity owner, net.minecraft.util.RandomSource random, float power) { return shoot(level, owner, random, power, 20, 1); }
+    public static SunbeamBulletEntity shoot(Level level, LivingEntity owner, net.minecraft.util.RandomSource random, float power, double damage, int knockback) {
+        var bullet = new SunbeamBulletEntity(ProtoiContent.SUNBEAM_BULLET.get(), owner, level);
+        Vec3 look = owner.getViewVector(1);
+        bullet.configure(damage, knockback, (byte)0); bullet.shoot(look.x, look.y, look.z, power * 2, 0);
+        level.addFreshEntity(bullet); return bullet;
+    }
+    public static SunbeamBulletEntity shoot(LivingEntity owner, LivingEntity target) {
+        var bullet = new SunbeamBulletEntity(ProtoiContent.SUNBEAM_BULLET.get(), owner, owner.level());
+        double dx = target.getX() - owner.getX(), dz = target.getZ() - owner.getZ();
+        bullet.configure(20, 1, (byte)0);
+        bullet.shoot(dx, target.getY() + target.getEyeHeight() - 1.1 - bullet.getY() + Math.hypot(dx, dz) * .2F, dz, 2, 12);
+        owner.level().addFreshEntity(bullet); return bullet;
+    }
 }
