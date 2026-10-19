@@ -366,3 +366,17 @@ Random spawn bonus按原各UUID映为独立minecraft:<uuid>，保每条Amount/Op
 新全量盘点remaining-template-schema108.json记录92个非活跃模板，四活跃模板另由两路核验。13个旧字段候选和17个canonical修饰符模板不是按DataVersion自动定缺陷，已逐类列109继续原件回查；whisper本批已修、两新营地已保独立UUID，扫描快照不能覆盖本批最终状态。第109批按parallel-batch109.md继续让A承担较多体量，不因目录齐全或本批构建通过宣称整模组完整。
 
 用户确认服务端正在独立测试，生产线不联系、干预或重复启动；全部代码完整并无简化复审后，由主线安排子代理进行客户端及E:/模组/发cf的模组/Render Preview原件对照。当前没有启动游戏，正在测试不等于通过。Git无remote，只做本地阶段提交。
+
+## 第109批最终集成验证
+
+迁移A承担圣所、两Blizzard基地、两Vilebath及Keystone六份较大复杂模板，主线完成其余十二模板；仅改18份NBT，完整保2859428条块记录和187实体，不改Java或worldgen参数。原UUID在各自AttributeInstance内核，跨实体/跨模板相同身份不全局去重；原同一属性内没有UUID冲突。本批共恢复210条随机修饰符独立身份，其中Vilebath Rubicon补回39条曾合并记录、Junkyard Rubicon保原四条，不凭当前合并列表当需求。
+
+A恢复39个城堡未知旧步高身份，保休眠独石2等原实体默认值；主线五个未知属性同样保旧忽略语义，不将无效零值赋新行为。有效step_height_addition按原setMaxUpStep float及额外值核，保原float结果；root将0.6f的保存double精度归一，不宣称实际步高改变。主线另改23处spawn键、一处持久键和Slagway旧Attributes，A改13处空持久键、Keystone目标版本。全部现有书/附魔/旗帜/库存组件、真实缓慢及cures、内部状态替代、外caps和世界生成高度修复不动。
+
+A独立13027项核验覆盖707份载荷、32个真实缓慢和原生缓慢修饰符、13组件compound/15真实物品、102有效步高及四游泳属性；主线独立12模板对原JAR及108基线全typed核对，无授权外差异，30原UUID/23spawn值和八份原持久数据保留。本批A207项、root99项typed差异逐路径交付；证据各templates-a/main文件，静态计数不当游戏测试次数。
+
+两路停笔固定8709份src/main输入，Java21离线compileJava/processResources --max-workers=2统一通过，日志1m 37s；compileJava为UP-TO-DATE，本批仅资源变更，processResources执行。18生产哈希及编译全输入保持，7923直接复制资源逐字节相同、两展开模板通过；847中文/3338英文值不变。总证据main109-static-validation.json。mcreator-rework补充随机UUID作用域及未知属性实际生效性案例，skill校验通过。
+
+剩余原物品注册盘点item-registration-followup109.json：17候选中Zenith对应改名后的Magnetic Crossbow，其他16个同ID注册未确认，只有创意页/模型/音效/字符串引用不算注册；后续继续迁入原生内容，不当外模组联动延期。自然入口差集原56项已先读依赖：30configured/27placed内容正确，三placed和30feature modifier待补；26spawn真实注册/群系及类别存在，六个原以为缺的placement已证在共享ModEntities完整接入。第110批按parallel-batch110.md给A较多特征入口工作，主线闭合26spawn，109提交后解除生产。
+
+整模组尚未完整。客户端及Render Preview待全部代码完整、无简化复审后由主线安排子代理；服务端由用户独立测试线进行，不联系、不干预，也不把正在测视为通过。本批未启动游戏；Git无remote，阶段提交仅本地。

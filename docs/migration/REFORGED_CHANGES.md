@@ -271,3 +271,9 @@ Qo集成保全世界共享剧情、真实16页与奖励链，服务端验证同�
 - 显式升级四旧大模板的属性、spawn/持久数据、真实组件、完整书页/附魔/旗帜和实际levitation；经验球Count保实体含义，外caps保留不代表外模组联动已实现。
 - 原Random spawn bonus的UUID身份完整保留为独立目标ID，防canonical固定ID折叠多条记录及阻止原生结构出生抽样。root初稿的八条canonical已在统一构建前改正；修前后哈希公开记录，不留玩法简化。
 - whisper_home旧forge:step_height本来未注册会被忽略，修此前误转成有效原生零步高的问题，维持原实体默认0.6；真正forge:step_height_addition仍按实际基值转换，不把两类混同。其它旧模板的全量回查已排109，不以只修四个含旧库存模板当全部升级完毕。
+
+### 第109批：其余结构随机属性与旧字段完整回查
+
+- 18模板仅做核实的实体数据转换，保2859428块记录、187实体和所有已有正确组件/药效/cures/外caps。恢复210条随机bonus的各自原UUID身份；Vilebath/Junkyard Rubicon的多条不同UUID不再合并。跨实体相同UUID不全局去重，也不凭名称把真实缓慢修饰符当随机bonus改写。
+- 城堡39个与主线五个原未注册forge:step_height保持原被忽略身份，修此前误赋原生有效步高的偏差；真实step_height_addition按原实体float基值处理，保持默认步高与已正确原生参数。保所有已授权玩法修复和106圣所高度，不从原件整体覆盖当前模板。
+- 转换剩余旧spawn/持久字段与Slagway旧Attributes并按实际格式标版本。旧DataVersion本身不是故障，保留的原未知属性ID也不是旧schema未处理；以真实读写消费者和完整typed证据判断。

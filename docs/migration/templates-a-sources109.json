@@ -1,0 +1,1263 @@
+{
+  "batch": 109,
+  "api_sources": [
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch108a\\old\\net\\minecraftforge\\common\\ForgeMod.java",
+      "sha256": "ae15230a1cc86f618f69248bf98ece5569711985bd0ab002a4f74a06bc7f12d8",
+      "scope": "旧注册仅step_height_addition；没有step_height注册",
+      "fragments": [
+        {
+          "line": 175,
+          "anchor": "STEP_HEIGHT_ADDITION =",
+          "source": "     * @see IForgeEntity#getStepHeight()\n     */\n    public static final RegistryObject<Attribute> STEP_HEIGHT_ADDITION = ATTRIBUTES.register(\"step_height_addition\", () -> new RangedAttribute(\"forge.step_height\", 0.0D, -512.0D, 512.0D).m_22084_(true));\n\n    /**\n     * Noop biome modifier. Can be used in a biome modifier json with \"type\": \"forge:none\".\n     */\n    public static final RegistryObject<Codec<NoneBiomeModifier>> NONE_BIOME_MODIFIER_TYPE = BIOME_MODIFIER_SERIALIZERS.register(\"none\", () -> Codec.unit(NoneBiomeModifier.INSTANCE));\n\n    /**\n     * Stock biome modifier for adding features to biomes.\n     */\n    public static final RegistryObject<Codec<AddFeaturesBiomeModifier>> ADD_FEATURES_BIOME_MODIFIER_TYPE = BIOME_MODIFIER_SERIALIZERS.register(\"add_features\", () ->\n        RecordCodecBuilder.create(builder -> builder.group(\n                Biome.f_47432_.fieldOf(\"biomes\").forGetter(AddFeaturesBiomeModifier::biomes),"
+        }
+      ]
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch108a\\old\\net\\minecraftforge\\common\\extensions\\IForgeEntity.java",
+      "sha256": "19229236a48f1ac0934389ac5381c3f5462642c3e871613af72b1757ea4f2f74",
+      "scope": "旧实际步高等于float基础加额外属性，非负后转float",
+      "fragments": [
+        {
+          "line": 215,
+          "anchor": "default float getStepHeight()",
+          "source": "     * (if this Entity is a {@link LivingEntity} and has the attribute), clamped at 0.\n     */\n    default float getStepHeight()\n    {\n        float vanillaStep = self().m_274421_();\n        if (self() instanceof LivingEntity living)\n        {\n            AttributeInstance stepHeightAttribute = living.m_21051_(ForgeMod.STEP_HEIGHT_ADDITION.get());\n            if (stepHeightAttribute != null)\n            {\n                return (float) Math.max(0, vanillaStep + stepHeightAttribute.m_22135_());\n            }\n        }\n        return vanillaStep;\n    }"
+        }
+      ]
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch108a\\old\\net\\minecraft\\world\\entity\\ai\\attributes\\AttributeMap.java",
+      "sha256": "d6890bc234cf73180746909d9bc38772602129bf2e251ef72adfea1fe28bbe44",
+      "scope": "旧未知保存属性忽略",
+      "fragments": [
+        {
+          "line": 148,
+          "anchor": "Ignoring unknown attribute",
+          "source": "\n         }, () -> {\n            LOGGER.warn(\"Ignoring unknown attribute '{}'\", (Object)s);\n         });\n      }\n\n   }\n}"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\entity\\ai\\attributes\\AttributeMap.java",
+      "sha256": "d9f63809a7394e6898745a78ececfb5afe252de58348a30fd11888cce399269e",
+      "scope": "目标未知保存属性同样忽略，保原遗留字段而不赋予新行为",
+      "fragments": [
+        {
+          "line": 137,
+          "anchor": "Ignoring unknown attribute",
+          "source": "                        attributeinstance.load(compoundtag);\n                    }\n                }, () -> LOGGER.warn(\"Ignoring unknown attribute '{}'\", resourcelocation));\n            } else {\n                LOGGER.warn(\"Ignoring malformed attribute '{}'\", s);\n            }\n        }\n    }\n}"
+        }
+      ]
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch108a\\old\\net\\minecraft\\world\\entity\\ai\\attributes\\AttributeModifier.java",
+      "sha256": "ab79b210191a281977f060e59804a5abc869cf795e4ad6b5692787d94f43d451",
+      "scope": "原无显式UUID构造器逐次随机身份",
+      "fragments": [
+        {
+          "line": 20,
+          "anchor": "public AttributeModifier(String",
+          "source": "   private final UUID id;\n\n   public AttributeModifier(String p_22196_, double p_22197_, AttributeModifier.Operation p_22198_) {\n      this(Mth.createInsecureUUID(RandomSource.createNewThreadLocalInstance()), () -> {\n         return p_22196_;\n      }, p_22197_, p_22198_);\n   }\n\n   public AttributeModifier(UUID p_22200_, String p_22201_, double p_22202_, AttributeModifier.Operation p_22203_) {\n      this(p_22200_, () -> {\n         return p_22201_;\n      }, p_22202_, p_22203_);\n   }\n\n   public AttributeModifier(UUID p_22205_, Supplier<String> p_22206_, double p_22207_, AttributeModifier.Operation p_22208_) {"
+        },
+        {
+          "line": 21,
+          "anchor": "Mth.createInsecureUUID",
+          "source": "\n   public AttributeModifier(String p_22196_, double p_22197_, AttributeModifier.Operation p_22198_) {\n      this(Mth.createInsecureUUID(RandomSource.createNewThreadLocalInstance()), () -> {\n         return p_22196_;\n      }, p_22197_, p_22198_);\n   }\n\n   public AttributeModifier(UUID p_22200_, String p_22201_, double p_22202_, AttributeModifier.Operation p_22203_) {\n      this(p_22200_, () -> {\n         return p_22201_;\n      }, p_22202_, p_22203_);\n   }\n\n   public AttributeModifier(UUID p_22205_, Supplier<String> p_22206_, double p_22207_, AttributeModifier.Operation p_22208_) {\n      this.id = p_22205_;"
+        }
+      ]
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch108a\\old\\net\\minecraft\\world\\entity\\Mob.java",
+      "sha256": "a1a14fd0fec47f0552948d5caa7f2153cff2301260719296e763ac766ad0c6ca",
+      "scope": "原结构finalize每次增加独立随机修饰符",
+      "fragments": [
+        {
+          "line": 1066,
+          "anchor": "randomsource.triangle",
+          "source": "   public SpawnGroupData finalizeSpawn(ServerLevelAccessor p_21434_, DifficultyInstance p_21435_, MobSpawnType p_21436_, @Nullable SpawnGroupData p_21437_, @Nullable CompoundTag p_21438_) {\n      RandomSource randomsource = p_21434_.getRandom();\n      this.getAttribute(Attributes.FOLLOW_RANGE).addPermanentModifier(new AttributeModifier(\"Random spawn bonus\", randomsource.triangle(0.0D, 0.11485000000000001D), AttributeModifier.Operation.MULTIPLY_BASE));\n      if (randomsource.nextFloat() < 0.05F) {\n         this.setLeftHanded(true);\n      } else {\n         this.setLeftHanded(false);\n      }\n\n      this.spawnType = p_21436_;\n      return p_21437_;\n   }\n\n   public void setPersistenceRequired() {\n      this.persistenceRequired = true;"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\entity\\Mob.java",
+      "sha256": "018c676ace0c958ecd3b377a044f19ec0332ac2045f9d3174a7a7aaf537e446c",
+      "scope": "目标canonical修饰符会跳过抽样，出生字段读取已变",
+      "fragments": [
+        {
+          "line": 1173,
+          "anchor": "if (!attributeinstance.hasModifier(RANDOM_SPAWN_BONUS_ID))",
+          "source": "        RandomSource randomsource = p_21434_.getRandom();\n        AttributeInstance attributeinstance = Objects.requireNonNull(this.getAttribute(Attributes.FOLLOW_RANGE));\n        if (!attributeinstance.hasModifier(RANDOM_SPAWN_BONUS_ID)) {\n            attributeinstance.addPermanentModifier(\n                new AttributeModifier(RANDOM_SPAWN_BONUS_ID, randomsource.triangle(0.0, 0.11485000000000001), AttributeModifier.Operation.ADD_MULTIPLIED_BASE)\n            );\n        }\n\n        this.setLeftHanded(randomsource.nextFloat() < 0.05F);\n        this.spawnType = p_21436_;\n        return p_21437_;\n    }\n\n    public void setPersistenceRequired() {\n        this.persistenceRequired = true;"
+        },
+        {
+          "line": 441,
+          "anchor": "neoforge:spawn_type",
+          "source": "        }\n        if (this.spawnType != null) {\n            p_21484_.putString(\"neoforge:spawn_type\", this.spawnType.name());\n        }\n    }\n\n    @Override\n    public void readAdditionalSaveData(CompoundTag p_21450_) {\n        super.readAdditionalSaveData(p_21450_);\n        if (p_21450_.contains(\"CanPickUpLoot\", 1)) {\n            this.setCanPickUpLoot(p_21450_.getBoolean(\"CanPickUpLoot\"));\n        }\n\n        this.persistenceRequired = p_21450_.getBoolean(\"PersistenceRequired\");\n        if (p_21450_.contains(\"ArmorItems\", 9)) {"
+        },
+        {
+          "line": 503,
+          "anchor": "neoforge:spawn_type",
+          "source": "        this.setNoAi(p_21450_.getBoolean(\"NoAI\"));\n\n        if (p_21450_.contains(\"neoforge:spawn_type\")) {\n            try {\n                this.spawnType = MobSpawnType.valueOf(p_21450_.getString(\"neoforge:spawn_type\"));\n            } catch (Exception ex) {\n                p_21450_.remove(\"neoforge:spawn_type\");\n            }\n        }\n    }\n\n    @Override\n    protected void dropFromLootTable(DamageSource p_21389_, boolean p_21390_) {\n        super.dropFromLootTable(p_21389_, p_21390_);\n        this.lootTable = null;"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\entity\\ai\\attributes\\AttributeInstance.java",
+      "sha256": "1d226ebd1d975b6f777c34ebbb5c87ae1b8079326a8e616b5bd0bad52931d4d2",
+      "scope": "相同ID覆盖；保存修饰符列表逐个读入",
+      "fragments": [
+        {
+          "line": 74,
+          "anchor": "modifierById.put",
+          "source": "\n    private void addModifier(AttributeModifier p_22134_) {\n        AttributeModifier attributemodifier = this.modifierById.putIfAbsent(p_22134_.id(), p_22134_);\n        if (attributemodifier != null) {\n            throw new IllegalArgumentException(\"Modifier is already applied on this attribute!\");\n        } else {\n            this.getModifiers(p_22134_.operation()).put(p_22134_.id(), p_22134_);\n            this.setDirty();\n        }\n    }\n\n    public void addOrUpdateTransientModifier(AttributeModifier p_316482_) {\n        AttributeModifier attributemodifier = this.modifierById.put(p_316482_.id(), p_316482_);\n        if (p_316482_ != attributemodifier) {\n            this.getModifiers(p_316482_.operation()).put(p_316482_.id(), p_316482_);"
+        },
+        {
+          "line": 84,
+          "anchor": "modifierById.put",
+          "source": "\n    public void addOrUpdateTransientModifier(AttributeModifier p_316482_) {\n        AttributeModifier attributemodifier = this.modifierById.put(p_316482_.id(), p_316482_);\n        if (p_316482_ != attributemodifier) {\n            this.getModifiers(p_316482_.operation()).put(p_316482_.id(), p_316482_);\n            this.setDirty();\n        }\n    }\n\n    public void addTransientModifier(AttributeModifier p_22119_) {\n        this.addModifier(p_22119_);\n    }\n\n    public void addOrReplacePermanentModifier(AttributeModifier p_353041_) {\n        this.removeModifier(p_353041_.id());"
+        },
+        {
+          "line": 201,
+          "anchor": "getList(\"modifiers\"",
+          "source": "        this.baseValue = p_22114_.getDouble(\"base\");\n        if (p_22114_.contains(\"modifiers\", 9)) {\n            ListTag listtag = p_22114_.getList(\"modifiers\", 10);\n\n            for (int i = 0; i < listtag.size(); i++) {\n                AttributeModifier attributemodifier = AttributeModifier.load(listtag.getCompound(i));\n                if (attributemodifier != null) {\n                    this.modifierById.put(attributemodifier.id(), attributemodifier);\n                    this.getModifiers(attributemodifier.operation()).put(attributemodifier.id(), attributemodifier);\n                    this.permanentModifiers.put(attributemodifier.id(), attributemodifier);\n                }\n            }\n        }\n\n        this.setDirty();"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\entity\\ai\\attributes\\AttributeModifier.java",
+      "sha256": "f9d30df5e7a1d74962b4d5a5536e89bb09404b3f7ff18d74178bbb0ced3e4e33",
+      "scope": "目标修饰符Codec与运算枚举",
+      "fragments": [
+        {
+          "line": 26,
+          "anchor": "ResourceLocation.CODEC.fieldOf(\"id\")",
+          "source": "    public static final MapCodec<AttributeModifier> MAP_CODEC = RecordCodecBuilder.mapCodec(\n        p_349989_ -> p_349989_.group(\n                    ResourceLocation.CODEC.fieldOf(\"id\").forGetter(AttributeModifier::id),\n                    Codec.DOUBLE.fieldOf(\"amount\").forGetter(AttributeModifier::amount),\n                    AttributeModifier.Operation.CODEC.fieldOf(\"operation\").forGetter(AttributeModifier::operation)\n                )\n                .apply(p_349989_, AttributeModifier::new)\n    );\n    public static final Codec<AttributeModifier> CODEC = MAP_CODEC.codec();\n    public static final StreamCodec<ByteBuf, AttributeModifier> STREAM_CODEC = StreamCodec.composite(\n        ResourceLocation.STREAM_CODEC,\n        AttributeModifier::id,\n        ByteBufCodecs.DOUBLE,\n        AttributeModifier::amount,\n        AttributeModifier.Operation.STREAM_CODEC,"
+        },
+        {
+          "line": 65,
+          "anchor": "ADD_MULTIPLIED_BASE",
+          "source": "    public static enum Operation implements StringRepresentable {\n        ADD_VALUE(\"add_value\", 0),\n        ADD_MULTIPLIED_BASE(\"add_multiplied_base\", 1),\n        ADD_MULTIPLIED_TOTAL(\"add_multiplied_total\", 2);\n\n        public static final IntFunction<AttributeModifier.Operation> BY_ID = ByIdMap.continuous(\n            AttributeModifier.Operation::id, values(), ByIdMap.OutOfBoundsStrategy.ZERO\n        );\n        public static final StreamCodec<ByteBuf, AttributeModifier.Operation> STREAM_CODEC = ByteBufCodecs.idMapper(BY_ID, AttributeModifier.Operation::id);\n        public static final Codec<AttributeModifier.Operation> CODEC = StringRepresentable.fromEnum(AttributeModifier.Operation::values);\n        private final String name;\n        private final int id;\n\n        private Operation(String p_298507_, int p_22234_) {\n            this.name = p_298507_;"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\entity\\LivingEntity.java",
+      "sha256": "1bbe1b37d6f73eadefdcdfe6f5822106e410fbc80d20c163a4eb5feefb317731",
+      "scope": "目标原生STEP_HEIGHT最终转float",
+      "fragments": [
+        {
+          "line": 3647,
+          "anchor": "public float maxUpStep()",
+          "source": "\n    @Override\n    public float maxUpStep() {\n        float f = (float)this.getAttributeValue(Attributes.STEP_HEIGHT);\n        return this.getControllingPassenger() instanceof Player ? Math.max(f, 1.0F) : f;\n    }\n\n    @Override\n    public Vec3 getPassengerRidingPosition(Entity p_295664_) {\n        return this.position().add(this.getPassengerAttachmentPoint(p_295664_, this.getDimensions(this.getPose()), this.getScale() * this.getAgeScale()));\n    }\n\n    protected void lerpHeadRotationStep(int p_296134_, double p_296397_) {\n        this.yHeadRot = (float)Mth.rotLerp(1.0 / (double)p_296134_, (double)this.yHeadRot, p_296397_);\n    }"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\effect\\MobEffects.java",
+      "sha256": "faf46a2ea4610614a8f231b613a07dca2c766cea02d626c0a40aca59917d8a00",
+      "scope": "目标漂浮注册",
+      "fragments": [
+        {
+          "line": 97,
+          "anchor": "LEVITATION =",
+          "source": "    public static final Holder<MobEffect> SATURATION = register(\"saturation\", new SaturationMobEffect(MobEffectCategory.BENEFICIAL, 16262179));\n    public static final Holder<MobEffect> GLOWING = register(\"glowing\", new MobEffect(MobEffectCategory.NEUTRAL, 9740385));\n    public static final Holder<MobEffect> LEVITATION = register(\"levitation\", new MobEffect(MobEffectCategory.HARMFUL, 13565951));\n    public static final Holder<MobEffect> LUCK = register(\n        \"luck\",\n        new MobEffect(MobEffectCategory.BENEFICIAL, 5882118)\n            .addAttributeModifier(Attributes.LUCK, ResourceLocation.withDefaultNamespace(\"effect.luck\"), 1.0, AttributeModifier.Operation.ADD_VALUE)\n    );\n    public static final Holder<MobEffect> UNLUCK = register(\n        \"unluck\",\n        new MobEffect(MobEffectCategory.HARMFUL, 12624973)\n            .addAttributeModifier(Attributes.LUCK, ResourceLocation.withDefaultNamespace(\"effect.unluck\"), -1.0, AttributeModifier.Operation.ADD_VALUE)\n    );\n    public static final Holder<MobEffect> SLOW_FALLING = register(\"slow_falling\", new MobEffect(MobEffectCategory.BENEFICIAL, 15978425));\n    public static final Holder<MobEffect> CONDUIT_POWER = register(\"conduit_power\", new MobEffect(MobEffectCategory.BENEFICIAL, 1950417));"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\effect\\MobEffectInstance.java",
+      "sha256": "fa1b8328a9ecb153dead299028085f98b458fef75e47a2a71159c7697c13fbaa",
+      "scope": "效果和详细字段Codec，cures持久化",
+      "fragments": [
+        {
+          "line": 35,
+          "anchor": "MobEffect.CODEC.fieldOf(\"id\")",
+          "source": "    public static final Codec<MobEffectInstance> CODEC = RecordCodecBuilder.create(\n        p_348152_ -> p_348152_.group(\n                    MobEffect.CODEC.fieldOf(\"id\").forGetter(MobEffectInstance::getEffect),\n                    MobEffectInstance.Details.MAP_CODEC.forGetter(MobEffectInstance::asDetails)\n                )\n                .apply(p_348152_, MobEffectInstance::new)\n    );\n    public static final StreamCodec<RegistryFriendlyByteBuf, MobEffectInstance> STREAM_CODEC = StreamCodec.composite(\n        MobEffect.STREAM_CODEC, MobEffectInstance::getEffect, MobEffectInstance.Details.STREAM_CODEC, MobEffectInstance::asDetails, MobEffectInstance::new\n    );\n    private final Holder<MobEffect> effect;\n    private int duration;\n    private int amplifier;\n    private boolean ambient;\n    private boolean visible;"
+        },
+        {
+          "line": 425,
+          "anchor": "neoforge:cures",
+          "source": "                                p_323465_.optionalFieldOf(\"hidden_effect\").forGetter(MobEffectInstance.Details::hiddenEffect)\n                                // Neo: Add additional serialization logic for custom EffectCure(s)\n                                , net.neoforged.neoforge.common.util.NeoForgeExtraCodecs.setOf(net.neoforged.neoforge.common.EffectCure.CODEC).optionalFieldOf(\"neoforge:cures\").forGetter(MobEffectInstance.Details::cures)\n                            )\n                            .apply(p_324063_, MobEffectInstance.Details::create)\n                )\n        );\n        public static final StreamCodec<RegistryFriendlyByteBuf, MobEffectInstance.Details> STREAM_CODEC = StreamCodec.recursive(\n            p_329990_ -> net.neoforged.neoforge.network.codec.NeoForgeStreamCodecs.composite(\n                    ByteBufCodecs.VAR_INT,\n                    MobEffectInstance.Details::amplifier,\n                    ByteBufCodecs.VAR_INT,\n                    MobEffectInstance.Details::duration,\n                    ByteBufCodecs.BOOL,\n                    MobEffectInstance.Details::ambient,"
+        },
+        {
+          "line": 418,
+          "anchor": "UNSIGNED_BYTE",
+          "source": "            p_323465_ -> RecordCodecBuilder.mapCodec(\n                    p_324063_ -> p_324063_.group(\n                                ExtraCodecs.UNSIGNED_BYTE.optionalFieldOf(\"amplifier\", 0).forGetter(MobEffectInstance.Details::amplifier),\n                                Codec.INT.optionalFieldOf(\"duration\", Integer.valueOf(0)).forGetter(MobEffectInstance.Details::duration),\n                                Codec.BOOL.optionalFieldOf(\"ambient\", Boolean.valueOf(false)).forGetter(MobEffectInstance.Details::ambient),\n                                Codec.BOOL.optionalFieldOf(\"show_particles\", Boolean.valueOf(true)).forGetter(MobEffectInstance.Details::showParticles),\n                                Codec.BOOL.optionalFieldOf(\"show_icon\").forGetter(p_323788_ -> Optional.of(p_323788_.showIcon())),\n                                p_323465_.optionalFieldOf(\"hidden_effect\").forGetter(MobEffectInstance.Details::hiddenEffect)\n                                // Neo: Add additional serialization logic for custom EffectCure(s)\n                                , net.neoforged.neoforge.common.util.NeoForgeExtraCodecs.setOf(net.neoforged.neoforge.common.EffectCure.CODEC).optionalFieldOf(\"neoforge:cures\").forGetter(MobEffectInstance.Details::cures)\n                            )\n                            .apply(p_324063_, MobEffectInstance.Details::create)\n                )\n        );\n        public static final StreamCodec<RegistryFriendlyByteBuf, MobEffectInstance.Details> STREAM_CODEC = StreamCodec.recursive("
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\structure\\templatesystem\\StructureTemplate.java",
+      "sha256": "e2b63ca8afc2f951a7f78eb021216ce7e711db3b4707a6baa2300d4cb9162eec",
+      "scope": "结构实体finalize与palette读取",
+      "fragments": [
+        {
+          "line": 479,
+          "anchor": "finalizeSpawn",
+          "source": "                    p_275190_.moveTo(vec31.x, vec31.y, vec31.z, f, p_275190_.getXRot());\n                    if (placementIn.shouldFinalizeEntities() && p_275190_ instanceof Mob) {\n                        ((Mob)p_275190_).finalizeSpawn(p_74524_, p_74524_.getCurrentDifficultyAt(BlockPos.containing(vec31)), MobSpawnType.STRUCTURE, null);\n                    }\n\n                    p_74524_.addFreshEntityWithPassengers(p_275190_);\n                });\n            }\n        }\n    }\n\n    private static Optional<Entity> createEntityIgnoreException(ServerLevelAccessor p_74544_, CompoundTag p_74545_) {\n        try {\n            return EntityType.create(p_74545_, p_74544_.getLevel());\n        } catch (Exception exception) {"
+        },
+        {
+          "line": 741,
+          "anchor": "NbtUtils.readBlockState",
+          "source": "\n        for (int i = 0; i < p_251056_.size(); i++) {\n            structuretemplate$simplepalette.addMapping(NbtUtils.readBlockState(p_256546_, p_251056_.getCompound(i)), i);\n        }\n\n        List<StructureTemplate.StructureBlockInfo> list2 = Lists.newArrayList();\n        List<StructureTemplate.StructureBlockInfo> list = Lists.newArrayList();\n        List<StructureTemplate.StructureBlockInfo> list1 = Lists.newArrayList();\n\n        for (int j = 0; j < p_251493_.size(); j++) {\n            CompoundTag compoundtag = p_251493_.getCompound(j);\n            ListTag listtag = compoundtag.getList(\"pos\", 3);\n            BlockPos blockpos = new BlockPos(listtag.getInt(0), listtag.getInt(1), listtag.getInt(2));\n            BlockState blockstate = structuretemplate$simplepalette.stateFor(compoundtag.getInt(\"state\"));\n            CompoundTag compoundtag1;"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\structure\\pools\\SinglePoolElement.java",
+      "sha256": "8d4310fee5be72dd6d16f4d912ec7f8a1659690251a632de5c8adf003537a513",
+      "scope": "Jigsaw结构池确定启用finalize",
+      "fragments": [
+        {
+          "line": 181,
+          "anchor": "setFinalizeEntities(true)",
+          "source": "        structureplacesettings.setIgnoreEntities(false);\n        structureplacesettings.addProcessor(BlockIgnoreProcessor.STRUCTURE_BLOCK);\n        structureplacesettings.setFinalizeEntities(true);\n        structureplacesettings.setLiquidSettings(this.overrideLiquidSettings.orElse(p_352322_));\n        if (!p_210423_) {\n            structureplacesettings.addProcessor(JigsawReplacementProcessor.INSTANCE);\n        }\n\n        this.processors.value().list().forEach(structureplacesettings::addProcessor);\n        this.getProjection().getProcessors().forEach(structureplacesettings::addProcessor);\n        return structureplacesettings;\n    }\n\n    @Override\n    public StructurePoolElementType<?> getType() {"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\entity\\Entity.java",
+      "sha256": "ca0586cb259e95dbd29524bf2db0ed7eaccfa5ca3a3c21492f5072c6ceef44bb",
+      "fragments": [
+        {
+          "line": 1721,
+          "text": "            if (attachments != null) p_20241_.put(ATTACHMENTS_NBT_KEY, attachments);\n            if (persistentData != null) p_20241_.put(\"NeoForgeData\", persistentData.copy());\n\n            this.addAdditionalSaveData(p_20241_);\n            if (this.isVehicle()) {\n                ListTag listtag1 = new ListTag();\n\n                for (Entity entity : this.getPassengers()) {\n                    CompoundTag compoundtag = new CompoundTag();\n                    if (entity.saveAsPassenger(compoundtag)) {\n                        listtag1.add(compoundtag);\n                    }\n                }"
+        },
+        {
+          "line": 1803,
+          "text": "                this.hasVisualFire = p_20259_.getBoolean(\"HasVisualFire\");\n                if (p_20259_.contains(\"NeoForgeData\", 10)) persistentData = p_20259_.getCompound(\"NeoForgeData\");\n                if (p_20259_.contains(ATTACHMENTS_NBT_KEY, net.minecraft.nbt.Tag.TAG_COMPOUND)) deserializeAttachments(registryAccess(), p_20259_.getCompound(ATTACHMENTS_NBT_KEY));\n                if (p_20259_.contains(\"Tags\", 9)) {\n                    this.tags.clear();\n                    ListTag listtag3 = p_20259_.getList(\"Tags\", 8);\n                    int i = Math.min(listtag3.size(), 1024);\n\n                    for (int j = 0; j < i; j++) {\n                        this.tags.add(listtag3.getString(j));\n                    }\n                }\n"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\block\\entity\\BlockEntity.java",
+      "sha256": "c278b134769eefd1033c7952a2a5d461efd4e3e7fbe2c2f7d864182a9aeece6d",
+      "fragments": [
+        {
+          "line": 78,
+          "text": "    protected void loadAdditional(CompoundTag p_338466_, HolderLookup.Provider p_338445_) {\n        if (p_338466_.contains(\"NeoForgeData\", net.minecraft.nbt.Tag.TAG_COMPOUND)) this.customPersistentData = p_338466_.getCompound(\"NeoForgeData\");\n        if (p_338466_.contains(ATTACHMENTS_NBT_KEY, net.minecraft.nbt.Tag.TAG_COMPOUND)) deserializeAttachments(p_338445_, p_338466_.getCompound(ATTACHMENTS_NBT_KEY));\n    }\n\n    public final void loadWithComponents(CompoundTag p_338356_, HolderLookup.Provider p_338558_) {\n        this.loadAdditional(p_338356_, p_338558_);\n        BlockEntity.ComponentHelper.COMPONENTS_CODEC\n            .parse(p_338558_.createSerializationContext(NbtOps.INSTANCE), p_338356_)\n            .resultOrPartial(p_337987_ -> LOGGER.warn(\"Failed to load components: {}\", p_337987_))\n            .ifPresent(p_337995_ -> this.components = p_337995_);\n    }\n"
+        },
+        {
+          "line": 95,
+          "text": "    protected void saveAdditional(CompoundTag p_187471_, HolderLookup.Provider p_323635_) {\n        if (this.customPersistentData != null) p_187471_.put(\"NeoForgeData\", this.customPersistentData.copy());\n        var attachmentsTag = serializeAttachments(p_323635_);\n        if (attachmentsTag != null) p_187471_.put(ATTACHMENTS_NBT_KEY, attachmentsTag);\n    }\n\n    public final CompoundTag saveWithFullMetadata(HolderLookup.Provider p_323767_) {\n        CompoundTag compoundtag = this.saveWithoutMetadata(p_323767_);\n        this.saveMetadata(compoundtag);\n        return compoundtag;\n    }\n\n    public final CompoundTag saveWithId(HolderLookup.Provider p_324357_) {"
+        }
+      ]
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch108a\\old\\net\\minecraft\\world\\entity\\Entity.java",
+      "sha256": "e3188fd334e2076ccc64b8a16090355bc77d42d2e133d8fe237f91fce621bc04",
+      "fragments": [
+        {
+          "line": 1660,
+          "text": "         if (caps != null) p_20241_.put(\"ForgeCaps\", caps);\n         if (persistentData != null) p_20241_.put(\"ForgeData\", persistentData.copy());\n\n         this.addAdditionalSaveData(p_20241_);\n         if (this.isVehicle()) {\n            ListTag listtag1 = new ListTag();\n\n            for(Entity entity : this.getPassengers()) {\n               CompoundTag compoundtag = new CompoundTag();\n               if (entity.saveAsPassenger(compoundtag)) {\n                  listtag1.add(compoundtag);\n               }\n            }"
+        },
+        {
+          "line": 1737,
+          "text": "               this.hasVisualFire = p_20259_.getBoolean(\"HasVisualFire\");\n               if (p_20259_.contains(\"ForgeData\", 10)) persistentData = p_20259_.getCompound(\"ForgeData\");\n               if (p_20259_.contains(\"CanUpdate\", 99)) this.canUpdate(p_20259_.getBoolean(\"CanUpdate\"));\n               if (p_20259_.contains(\"ForgeCaps\", 10)) deserializeCaps(p_20259_.getCompound(\"ForgeCaps\"));\n               if (p_20259_.contains(\"Tags\", 9)) {\n                  this.tags.clear();\n                  ListTag listtag3 = p_20259_.getList(\"Tags\", 8);\n                  int i = Math.min(listtag3.size(), 1024);\n\n                  for(int j = 0; j < i; ++j) {\n                     this.tags.add(listtag3.getString(j));\n                  }\n               }"
+        }
+      ]
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch108a\\old\\net\\minecraft\\world\\level\\block\\entity\\BlockEntity.java",
+      "sha256": "315d987750c58808ad5afccac02551fd5ec7b736f98788e0514ef98bdcdcf0e6",
+      "fragments": [
+        {
+          "line": 54,
+          "text": "   public void load(CompoundTag p_155245_) {\n      if (p_155245_.contains(\"ForgeData\")) this.customPersistentData = p_155245_.getCompound(\"ForgeData\");\n      if (getCapabilities() != null && p_155245_.contains(\"ForgeCaps\")) deserializeCaps(p_155245_.getCompound(\"ForgeCaps\"));\n   }\n\n   protected void saveAdditional(CompoundTag p_187471_) {\n      if (this.customPersistentData != null) p_187471_.put(\"ForgeData\", this.customPersistentData.copy());\n      if (getCapabilities() != null) p_187471_.put(\"ForgeCaps\", serializeCaps());\n   }\n\n   public final CompoundTag saveWithFullMetadata() {\n      CompoundTag compoundtag = this.saveWithoutMetadata();\n      this.saveMetadata(compoundtag);"
+        },
+        {
+          "line": 59,
+          "text": "   protected void saveAdditional(CompoundTag p_187471_) {\n      if (this.customPersistentData != null) p_187471_.put(\"ForgeData\", this.customPersistentData.copy());\n      if (getCapabilities() != null) p_187471_.put(\"ForgeCaps\", serializeCaps());\n   }\n\n   public final CompoundTag saveWithFullMetadata() {\n      CompoundTag compoundtag = this.saveWithoutMetadata();\n      this.saveMetadata(compoundtag);\n      return compoundtag;\n   }\n\n   public final CompoundTag saveWithId() {\n      CompoundTag compoundtag = this.saveWithoutMetadata();"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\beetles\\BeetleContent.java",
+      "sha256": "b788e73b4b16cc0f79f7b25b54d0f1b906c43756bf4ec8fcccb7a04a99fa7b62",
+      "fragments": [
+        {
+          "line": 29,
+          "text": "        event.put(CRASHER.get(), BeetleCombatEntity.createAttributes(false).build());\n        event.put(THRASHER.get(), BeetleCombatEntity.createAttributes(true).build());\n        event.put(DORMANT.get(), DormantBeetleCrasherEntity.createAttributes().build());\n    }\n    private static void attack(AttackAttemptEvent event) {\n        if (!event.getEntity().level().isClientSide && event.getSource().getEntity() instanceof BeetleCombatEntity owner) { event.setCanceled(true); owner.beginAttack(event.getEntity()); }\n    }\n    private BeetleContent() { }\n}"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\monolith\\MonolithContent.java",
+      "sha256": "f6b38015af330e6b06e8bb67d395cda45d02299a3433ba9c916faa07a8631d04",
+      "fragments": [
+        {
+          "line": 23,
+          "text": "    public static void register(IEventBus bus) { TYPES.register(bus); ITEMS.register(bus); bus.addListener(MonolithContent::attributes); NeoForge.EVENT_BUS.addListener(MonolithContent::attack); }\n    private static void attributes(EntityAttributeCreationEvent event) { event.put(ACTIVE.get(), MonolithBaseEntity.createAttributes(false).build()); event.put(DORMANT.get(), MonolithBaseEntity.createAttributes(true).build()); }\n    private static void attack(AttackAttemptEvent event) { if (!event.getEntity().level().isClientSide && event.getSource().getEntity() instanceof MonolithEntity owner) { event.setCanceled(true); owner.beginAttack(event.getEntity()); } }\n    private MonolithContent() { }\n}"
+        }
+      ]
+    }
+  ],
+  "unknown_attribute_cases": [
+    {
+      "template": "vilebath_castle",
+      "path": "/entities/0/nbt/Attributes/0",
+      "entity_id": "thermal_shock:sootle",
+      "original_ignored_base": 0.0,
+      "effective_default_step_float": 0.6000000238418579,
+      "original": {
+        "literal": "0.6",
+        "float_value": 0.6000000238418579,
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\SootleEntity.java",
+        "sha256": "f35632938b62caceed6a6c518a7ecdec53019b7d6ad84f546ec1b16bb7e5c469"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\sootle\\AbstractSootleEntity.java",
+        "sha256": "fba3d915e07b036bd984002dcad952f3c469c676e7c06d7d6d18200e12a4ea84",
+        "fragments": [
+          {
+            "line": 21,
+            "text": "    protected AbstractSootleEntity(EntityType<? extends AbstractSootleEntity> type, Level level, int experience) { super(type, level); xpReward = experience; setPersistenceRequired(); }\n    public static AttributeSupplier.Builder createAttributes() { return Mob.createMobAttributes().add(Attributes.MOVEMENT_SPEED, 0.2).add(Attributes.MAX_HEALTH, 30).add(Attributes.ARMOR, 0).add(Attributes.ATTACK_DAMAGE, 3).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.STEP_HEIGHT, 0.6); }\n    @Override\n    protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, \"sootling\"); }\n    public String texture() { return entityData.get(TEXTURE); }\n    public void setTexture(String value) { entityData.set(TEXTURE, value); }\n    public void setAnimation(String value) { triggerAnim(\"procedure\", value); }\n    @Override\n    public boolean removeWhenFarAway(double distance) { return false; }\n    @Override\n    public boolean hurt(DamageSource source, float amount) { return !source.is(DamageTypes.IN_FIRE) && super.hurt(source, amount); }\n    @Override\n    protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.GENERIC_HURT; }"
+          }
+        ]
+      }
+    },
+    {
+      "template": "vilebath_castle",
+      "path": "/entities/1/nbt/Attributes/0",
+      "entity_id": "thermal_shock:beetle_thrasher",
+      "original_ignored_base": 0.0,
+      "effective_default_step_float": 0.6000000238418579,
+      "original": {
+        "literal": "0.6",
+        "float_value": 0.6000000238418579,
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\BeetleThrasherEntity.java",
+        "sha256": "2a38015a260be6d758da4fcb98458f19b3297388264bb6ac1effccd4fd15943c"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\beetles\\BeetleCombatEntity.java",
+        "sha256": "adc0009430a77351086997e9b9a1f0f14d9518f05549819393e7a003cceea8d4",
+        "fragments": [
+          {
+            "line": 45,
+            "text": "    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, \"\"); builder.define(EMERGING, false); }\n    public static AttributeSupplier.Builder createAttributes(boolean thrasher) { return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, thrasher ? 45 : 82).add(Attributes.ARMOR, thrasher ? 8 : 10).add(Attributes.ATTACK_DAMAGE, thrasher ? 3 : 8).add(Attributes.MOVEMENT_SPEED, thrasher ? .2 : 0).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.KNOCKBACK_RESISTANCE, thrasher ? 0 : 1).add(Attributes.STEP_HEIGHT, thrasher ? .6 : 1); }\n    @Override protected void registerGoals() {\n        targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, false, false));\n        goalSelector.addGoal(thrasher() ? 3 : 2, new MeleeAttackGoal(this, 1.2, false) { @Override protected boolean canPerformAttack(LivingEntity target) { return isTimeToAttack() && isWithinMeleeAttackRange(target); } });\n        goalSelector.addGoal(thrasher() ? 4 : 3, new RandomStrollGoal(this, 1));\n        targetSelector.addGoal(thrasher() ? 5 : 4, new HurtByTargetGoal(this));\n    }\n    @Override public boolean isWithinMeleeAttackRange(LivingEntity target) { return distanceToSqr(target) <= (thrasher() ? 36 : 121); }\n    @Override public boolean doHurtTarget(Entity target) { if (target instanceof LivingEntity living) beginAttack(living); return false; }\n    public void beginAttack(LivingEntity victim) {\n        if (!(level() instanceof ServerLevel server) || !isAlive() || cooldown > 0 || submittingAttack || victim == this || !victim.isAlive() || victim.level() != level()) return;\n        boolean first = random.nextDouble() < (thrasher() ? BeetleConfig.THRASHER_TRIPLE_CHANCE.get() : BeetleConfig.CRASHER_HEAVY_CHANCE.get());"
+          }
+        ]
+      }
+    },
+    {
+      "template": "vilebath_castle",
+      "path": "/entities/2/nbt/Attributes/0",
+      "entity_id": "thermal_shock:dormant_beetle_crasher",
+      "original_ignored_base": 0.0,
+      "effective_default_step_float": 0.6000000238418579,
+      "original": {
+        "literal": "0.6",
+        "float_value": 0.6000000238418579,
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\DormantBeetleCrasherEntity.java",
+        "sha256": "1c8861b85ff6ffdffc02028ea40c45859ce5ba5fd70cbd1a684a417501bd9f12"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\beetles\\DormantBeetleCrasherEntity.java",
+        "sha256": "8885b1053ad08a7385586c0281990685b110271eb5d6f6687d50509ef27b2300",
+        "fragments": [
+          {
+            "line": 32,
+            "text": "    public DormantBeetleCrasherEntity(EntityType<? extends DormantBeetleCrasherEntity> type, Level level) { super(type, level); xpReward = 2; setPersistenceRequired(); }\n    public static AttributeSupplier.Builder createAttributes() { return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 2).add(Attributes.ARMOR, 0).add(Attributes.ATTACK_DAMAGE, 0).add(Attributes.MOVEMENT_SPEED, 0).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.STEP_HEIGHT, .6); }\n    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, \"texturespringy\"); }\n    public String texture() { return entityData.get(TEXTURE); }\n    @Override public void baseTick() {\n        super.baseTick();\n        if (!(level() instanceof ServerLevel server) || !isAlive() || converted) return;\n        if (retryDelay > 0) { retryDelay--; return; }\n        var nearby = server.getEntitiesOfClass(Player.class, AABB.ofSize(position(), 18, 18, 18), player -> true);\n        if (nearby.isEmpty()) return;\n        if (random.nextDouble() < .05) server.levelEvent(2001, blockPosition(), Block.getId(server.getBlockState(BlockPos.containing(getX(), getY() - 1, getZ()))));\n        AABB trigger = AABB.ofSize(position(), 10, 10, 10);\n        Player closest = null;"
+          }
+        ]
+      }
+    },
+    {
+      "template": "vilebath_castle",
+      "path": "/entities/3/nbt/Attributes/0",
+      "entity_id": "thermal_shock:dormant_monolith",
+      "original_ignored_base": 0.0,
+      "effective_default_step_float": 2.0,
+      "original": {
+        "literal": "2.0",
+        "float_value": 2.0,
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\DormantMonolithEntity.java",
+        "sha256": "9eea5a41505f94d7bb40a15e42df48275ef3754e25f25670b029794f448c7d8d"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\monolith\\MonolithBaseEntity.java",
+        "sha256": "ad45a8588fdad9c8a82e54207a74a9ad08ccddb7cdb18008f74cf624b676bde3",
+        "fragments": [
+          {
+            "line": 18,
+            "text": "    protected final boolean dormant() { return this instanceof DormantMonolithEntity; }\n    public static AttributeSupplier.Builder createAttributes(boolean dormant) { return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 160).add(Attributes.ARMOR, 16).add(Attributes.ATTACK_DAMAGE, dormant ? 12 : 14).add(Attributes.MOVEMENT_SPEED, dormant ? 0 : .3).add(Attributes.FOLLOW_RANGE, 128).add(Attributes.KNOCKBACK_RESISTANCE, 1).add(Attributes.ATTACK_KNOCKBACK, .6).add(Attributes.STEP_HEIGHT, 2); }\n    @Override protected EntityDimensions getDefaultDimensions(Pose pose) { return super.getDefaultDimensions(pose).scale(1.7F); }\n    @Override public boolean removeWhenFarAway(double distance) { return false; }\n    @Override public boolean hurt(DamageSource source, float amount) { return !(source.is(DamageTypes.IN_FIRE) || source.is(DamageTypes.FALL) || source.is(DamageTypes.CACTUS) || source.is(DamageTypes.DROWN)) && super.hurt(source, amount); }\n    private void applyConfiguredAttributes() {\n        if (level().isClientSide || attributesApplied || !MonolithConfig.SPEC.isLoaded()) return;\n        int index = dormant() ? 1 : 0;\n        float previous = getHealth();\n        getAttribute(Attributes.MAX_HEALTH).setBaseValue(MonolithConfig.HEALTH[index].get());\n        getAttribute(Attributes.ARMOR).setBaseValue(MonolithConfig.ARMOR[index].get());\n        getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(MonolithConfig.DAMAGE[index].get());\n        getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(MonolithConfig.SPEED[index].get());"
+          }
+        ]
+      }
+    },
+    {
+      "template": "vilebath_castle",
+      "path": "/entities/4/nbt/Attributes/0",
+      "entity_id": "thermal_shock:beetle_thrasher",
+      "original_ignored_base": 0.0,
+      "effective_default_step_float": 0.6000000238418579,
+      "original": {
+        "literal": "0.6",
+        "float_value": 0.6000000238418579,
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\BeetleThrasherEntity.java",
+        "sha256": "2a38015a260be6d758da4fcb98458f19b3297388264bb6ac1effccd4fd15943c"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\beetles\\BeetleCombatEntity.java",
+        "sha256": "adc0009430a77351086997e9b9a1f0f14d9518f05549819393e7a003cceea8d4",
+        "fragments": [
+          {
+            "line": 45,
+            "text": "    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, \"\"); builder.define(EMERGING, false); }\n    public static AttributeSupplier.Builder createAttributes(boolean thrasher) { return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, thrasher ? 45 : 82).add(Attributes.ARMOR, thrasher ? 8 : 10).add(Attributes.ATTACK_DAMAGE, thrasher ? 3 : 8).add(Attributes.MOVEMENT_SPEED, thrasher ? .2 : 0).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.KNOCKBACK_RESISTANCE, thrasher ? 0 : 1).add(Attributes.STEP_HEIGHT, thrasher ? .6 : 1); }\n    @Override protected void registerGoals() {\n        targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, false, false));\n        goalSelector.addGoal(thrasher() ? 3 : 2, new MeleeAttackGoal(this, 1.2, false) { @Override protected boolean canPerformAttack(LivingEntity target) { return isTimeToAttack() && isWithinMeleeAttackRange(target); } });\n        goalSelector.addGoal(thrasher() ? 4 : 3, new RandomStrollGoal(this, 1));\n        targetSelector.addGoal(thrasher() ? 5 : 4, new HurtByTargetGoal(this));\n    }\n    @Override public boolean isWithinMeleeAttackRange(LivingEntity target) { return distanceToSqr(target) <= (thrasher() ? 36 : 121); }\n    @Override public boolean doHurtTarget(Entity target) { if (target instanceof LivingEntity living) beginAttack(living); return false; }\n    public void beginAttack(LivingEntity victim) {\n        if (!(level() instanceof ServerLevel server) || !isAlive() || cooldown > 0 || submittingAttack || victim == this || !victim.isAlive() || victim.level() != level()) return;\n        boolean first = random.nextDouble() < (thrasher() ? BeetleConfig.THRASHER_TRIPLE_CHANCE.get() : BeetleConfig.CRASHER_HEAVY_CHANCE.get());"
+          }
+        ]
+      }
+    },
+    {
+      "template": "vilebath_castle",
+      "path": "/entities/5/nbt/Attributes/0",
+      "entity_id": "thermal_shock:beetle_thrasher",
+      "original_ignored_base": 0.0,
+      "effective_default_step_float": 0.6000000238418579,
+      "original": {
+        "literal": "0.6",
+        "float_value": 0.6000000238418579,
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\BeetleThrasherEntity.java",
+        "sha256": "2a38015a260be6d758da4fcb98458f19b3297388264bb6ac1effccd4fd15943c"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\beetles\\BeetleCombatEntity.java",
+        "sha256": "adc0009430a77351086997e9b9a1f0f14d9518f05549819393e7a003cceea8d4",
+        "fragments": [
+          {
+            "line": 45,
+            "text": "    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, \"\"); builder.define(EMERGING, false); }\n    public static AttributeSupplier.Builder createAttributes(boolean thrasher) { return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, thrasher ? 45 : 82).add(Attributes.ARMOR, thrasher ? 8 : 10).add(Attributes.ATTACK_DAMAGE, thrasher ? 3 : 8).add(Attributes.MOVEMENT_SPEED, thrasher ? .2 : 0).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.KNOCKBACK_RESISTANCE, thrasher ? 0 : 1).add(Attributes.STEP_HEIGHT, thrasher ? .6 : 1); }\n    @Override protected void registerGoals() {\n        targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, false, false));\n        goalSelector.addGoal(thrasher() ? 3 : 2, new MeleeAttackGoal(this, 1.2, false) { @Override protected boolean canPerformAttack(LivingEntity target) { return isTimeToAttack() && isWithinMeleeAttackRange(target); } });\n        goalSelector.addGoal(thrasher() ? 4 : 3, new RandomStrollGoal(this, 1));\n        targetSelector.addGoal(thrasher() ? 5 : 4, new HurtByTargetGoal(this));\n    }\n    @Override public boolean isWithinMeleeAttackRange(LivingEntity target) { return distanceToSqr(target) <= (thrasher() ? 36 : 121); }\n    @Override public boolean doHurtTarget(Entity target) { if (target instanceof LivingEntity living) beginAttack(living); return false; }\n    public void beginAttack(LivingEntity victim) {\n        if (!(level() instanceof ServerLevel server) || !isAlive() || cooldown > 0 || submittingAttack || victim == this || !victim.isAlive() || victim.level() != level()) return;\n        boolean first = random.nextDouble() < (thrasher() ? BeetleConfig.THRASHER_TRIPLE_CHANCE.get() : BeetleConfig.CRASHER_HEAVY_CHANCE.get());"
+          }
+        ]
+      }
+    },
+    {
+      "template": "vilebath_castle",
+      "path": "/entities/6/nbt/Attributes/0",
+      "entity_id": "thermal_shock:sootle",
+      "original_ignored_base": 0.0,
+      "effective_default_step_float": 0.6000000238418579,
+      "original": {
+        "literal": "0.6",
+        "float_value": 0.6000000238418579,
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\SootleEntity.java",
+        "sha256": "f35632938b62caceed6a6c518a7ecdec53019b7d6ad84f546ec1b16bb7e5c469"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\sootle\\AbstractSootleEntity.java",
+        "sha256": "fba3d915e07b036bd984002dcad952f3c469c676e7c06d7d6d18200e12a4ea84",
+        "fragments": [
+          {
+            "line": 21,
+            "text": "    protected AbstractSootleEntity(EntityType<? extends AbstractSootleEntity> type, Level level, int experience) { super(type, level); xpReward = experience; setPersistenceRequired(); }\n    public static AttributeSupplier.Builder createAttributes() { return Mob.createMobAttributes().add(Attributes.MOVEMENT_SPEED, 0.2).add(Attributes.MAX_HEALTH, 30).add(Attributes.ARMOR, 0).add(Attributes.ATTACK_DAMAGE, 3).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.STEP_HEIGHT, 0.6); }\n    @Override\n    protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, \"sootling\"); }\n    public String texture() { return entityData.get(TEXTURE); }\n    public void setTexture(String value) { entityData.set(TEXTURE, value); }\n    public void setAnimation(String value) { triggerAnim(\"procedure\", value); }\n    @Override\n    public boolean removeWhenFarAway(double distance) { return false; }\n    @Override\n    public boolean hurt(DamageSource source, float amount) { return !source.is(DamageTypes.IN_FIRE) && super.hurt(source, amount); }\n    @Override\n    protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.GENERIC_HURT; }"
+          }
+        ]
+      }
+    },
+    {
+      "template": "vilebath_castle",
+      "path": "/entities/10/nbt/Attributes/0",
+      "entity_id": "thermal_shock:beetle_thrasher",
+      "original_ignored_base": 0.0,
+      "effective_default_step_float": 0.6000000238418579,
+      "original": {
+        "literal": "0.6",
+        "float_value": 0.6000000238418579,
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\BeetleThrasherEntity.java",
+        "sha256": "2a38015a260be6d758da4fcb98458f19b3297388264bb6ac1effccd4fd15943c"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\beetles\\BeetleCombatEntity.java",
+        "sha256": "adc0009430a77351086997e9b9a1f0f14d9518f05549819393e7a003cceea8d4",
+        "fragments": [
+          {
+            "line": 45,
+            "text": "    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, \"\"); builder.define(EMERGING, false); }\n    public static AttributeSupplier.Builder createAttributes(boolean thrasher) { return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, thrasher ? 45 : 82).add(Attributes.ARMOR, thrasher ? 8 : 10).add(Attributes.ATTACK_DAMAGE, thrasher ? 3 : 8).add(Attributes.MOVEMENT_SPEED, thrasher ? .2 : 0).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.KNOCKBACK_RESISTANCE, thrasher ? 0 : 1).add(Attributes.STEP_HEIGHT, thrasher ? .6 : 1); }\n    @Override protected void registerGoals() {\n        targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, false, false));\n        goalSelector.addGoal(thrasher() ? 3 : 2, new MeleeAttackGoal(this, 1.2, false) { @Override protected boolean canPerformAttack(LivingEntity target) { return isTimeToAttack() && isWithinMeleeAttackRange(target); } });\n        goalSelector.addGoal(thrasher() ? 4 : 3, new RandomStrollGoal(this, 1));\n        targetSelector.addGoal(thrasher() ? 5 : 4, new HurtByTargetGoal(this));\n    }\n    @Override public boolean isWithinMeleeAttackRange(LivingEntity target) { return distanceToSqr(target) <= (thrasher() ? 36 : 121); }\n    @Override public boolean doHurtTarget(Entity target) { if (target instanceof LivingEntity living) beginAttack(living); return false; }\n    public void beginAttack(LivingEntity victim) {\n        if (!(level() instanceof ServerLevel server) || !isAlive() || cooldown > 0 || submittingAttack || victim == this || !victim.isAlive() || victim.level() != level()) return;\n        boolean first = random.nextDouble() < (thrasher() ? BeetleConfig.THRASHER_TRIPLE_CHANCE.get() : BeetleConfig.CRASHER_HEAVY_CHANCE.get());"
+          }
+        ]
+      }
+    },
+    {
+      "template": "vilebath_castle",
+      "path": "/entities/11/nbt/Attributes/0",
+      "entity_id": "thermal_shock:beetle_thrasher",
+      "original_ignored_base": 0.0,
+      "effective_default_step_float": 0.6000000238418579,
+      "original": {
+        "literal": "0.6",
+        "float_value": 0.6000000238418579,
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\BeetleThrasherEntity.java",
+        "sha256": "2a38015a260be6d758da4fcb98458f19b3297388264bb6ac1effccd4fd15943c"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\beetles\\BeetleCombatEntity.java",
+        "sha256": "adc0009430a77351086997e9b9a1f0f14d9518f05549819393e7a003cceea8d4",
+        "fragments": [
+          {
+            "line": 45,
+            "text": "    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, \"\"); builder.define(EMERGING, false); }\n    public static AttributeSupplier.Builder createAttributes(boolean thrasher) { return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, thrasher ? 45 : 82).add(Attributes.ARMOR, thrasher ? 8 : 10).add(Attributes.ATTACK_DAMAGE, thrasher ? 3 : 8).add(Attributes.MOVEMENT_SPEED, thrasher ? .2 : 0).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.KNOCKBACK_RESISTANCE, thrasher ? 0 : 1).add(Attributes.STEP_HEIGHT, thrasher ? .6 : 1); }\n    @Override protected void registerGoals() {\n        targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, false, false));\n        goalSelector.addGoal(thrasher() ? 3 : 2, new MeleeAttackGoal(this, 1.2, false) { @Override protected boolean canPerformAttack(LivingEntity target) { return isTimeToAttack() && isWithinMeleeAttackRange(target); } });\n        goalSelector.addGoal(thrasher() ? 4 : 3, new RandomStrollGoal(this, 1));\n        targetSelector.addGoal(thrasher() ? 5 : 4, new HurtByTargetGoal(this));\n    }\n    @Override public boolean isWithinMeleeAttackRange(LivingEntity target) { return distanceToSqr(target) <= (thrasher() ? 36 : 121); }\n    @Override public boolean doHurtTarget(Entity target) { if (target instanceof LivingEntity living) beginAttack(living); return false; }\n    public void beginAttack(LivingEntity victim) {\n        if (!(level() instanceof ServerLevel server) || !isAlive() || cooldown > 0 || submittingAttack || victim == this || !victim.isAlive() || victim.level() != level()) return;\n        boolean first = random.nextDouble() < (thrasher() ? BeetleConfig.THRASHER_TRIPLE_CHANCE.get() : BeetleConfig.CRASHER_HEAVY_CHANCE.get());"
+          }
+        ]
+      }
+    },
+    {
+      "template": "vilebath_castle",
+      "path": "/entities/12/nbt/Attributes/0",
+      "entity_id": "thermal_shock:dormant_beetle_crasher",
+      "original_ignored_base": 0.0,
+      "effective_default_step_float": 0.6000000238418579,
+      "original": {
+        "literal": "0.6",
+        "float_value": 0.6000000238418579,
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\DormantBeetleCrasherEntity.java",
+        "sha256": "1c8861b85ff6ffdffc02028ea40c45859ce5ba5fd70cbd1a684a417501bd9f12"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\beetles\\DormantBeetleCrasherEntity.java",
+        "sha256": "8885b1053ad08a7385586c0281990685b110271eb5d6f6687d50509ef27b2300",
+        "fragments": [
+          {
+            "line": 32,
+            "text": "    public DormantBeetleCrasherEntity(EntityType<? extends DormantBeetleCrasherEntity> type, Level level) { super(type, level); xpReward = 2; setPersistenceRequired(); }\n    public static AttributeSupplier.Builder createAttributes() { return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 2).add(Attributes.ARMOR, 0).add(Attributes.ATTACK_DAMAGE, 0).add(Attributes.MOVEMENT_SPEED, 0).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.STEP_HEIGHT, .6); }\n    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, \"texturespringy\"); }\n    public String texture() { return entityData.get(TEXTURE); }\n    @Override public void baseTick() {\n        super.baseTick();\n        if (!(level() instanceof ServerLevel server) || !isAlive() || converted) return;\n        if (retryDelay > 0) { retryDelay--; return; }\n        var nearby = server.getEntitiesOfClass(Player.class, AABB.ofSize(position(), 18, 18, 18), player -> true);\n        if (nearby.isEmpty()) return;\n        if (random.nextDouble() < .05) server.levelEvent(2001, blockPosition(), Block.getId(server.getBlockState(BlockPos.containing(getX(), getY() - 1, getZ()))));\n        AABB trigger = AABB.ofSize(position(), 10, 10, 10);\n        Player closest = null;"
+          }
+        ]
+      }
+    },
+    {
+      "template": "vilebath_castle",
+      "path": "/entities/13/nbt/Attributes/0",
+      "entity_id": "thermal_shock:sootle",
+      "original_ignored_base": 0.0,
+      "effective_default_step_float": 0.6000000238418579,
+      "original": {
+        "literal": "0.6",
+        "float_value": 0.6000000238418579,
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\SootleEntity.java",
+        "sha256": "f35632938b62caceed6a6c518a7ecdec53019b7d6ad84f546ec1b16bb7e5c469"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\sootle\\AbstractSootleEntity.java",
+        "sha256": "fba3d915e07b036bd984002dcad952f3c469c676e7c06d7d6d18200e12a4ea84",
+        "fragments": [
+          {
+            "line": 21,
+            "text": "    protected AbstractSootleEntity(EntityType<? extends AbstractSootleEntity> type, Level level, int experience) { super(type, level); xpReward = experience; setPersistenceRequired(); }\n    public static AttributeSupplier.Builder createAttributes() { return Mob.createMobAttributes().add(Attributes.MOVEMENT_SPEED, 0.2).add(Attributes.MAX_HEALTH, 30).add(Attributes.ARMOR, 0).add(Attributes.ATTACK_DAMAGE, 3).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.STEP_HEIGHT, 0.6); }\n    @Override\n    protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, \"sootling\"); }\n    public String texture() { return entityData.get(TEXTURE); }\n    public void setTexture(String value) { entityData.set(TEXTURE, value); }\n    public void setAnimation(String value) { triggerAnim(\"procedure\", value); }\n    @Override\n    public boolean removeWhenFarAway(double distance) { return false; }\n    @Override\n    public boolean hurt(DamageSource source, float amount) { return !source.is(DamageTypes.IN_FIRE) && super.hurt(source, amount); }\n    @Override\n    protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.GENERIC_HURT; }"
+          }
+        ]
+      }
+    },
+    {
+      "template": "vilebath_castle",
+      "path": "/entities/14/nbt/Attributes/0",
+      "entity_id": "thermal_shock:dormant_beetle_crasher",
+      "original_ignored_base": 0.0,
+      "effective_default_step_float": 0.6000000238418579,
+      "original": {
+        "literal": "0.6",
+        "float_value": 0.6000000238418579,
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\DormantBeetleCrasherEntity.java",
+        "sha256": "1c8861b85ff6ffdffc02028ea40c45859ce5ba5fd70cbd1a684a417501bd9f12"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\beetles\\DormantBeetleCrasherEntity.java",
+        "sha256": "8885b1053ad08a7385586c0281990685b110271eb5d6f6687d50509ef27b2300",
+        "fragments": [
+          {
+            "line": 32,
+            "text": "    public DormantBeetleCrasherEntity(EntityType<? extends DormantBeetleCrasherEntity> type, Level level) { super(type, level); xpReward = 2; setPersistenceRequired(); }\n    public static AttributeSupplier.Builder createAttributes() { return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 2).add(Attributes.ARMOR, 0).add(Attributes.ATTACK_DAMAGE, 0).add(Attributes.MOVEMENT_SPEED, 0).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.STEP_HEIGHT, .6); }\n    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, \"texturespringy\"); }\n    public String texture() { return entityData.get(TEXTURE); }\n    @Override public void baseTick() {\n        super.baseTick();\n        if (!(level() instanceof ServerLevel server) || !isAlive() || converted) return;\n        if (retryDelay > 0) { retryDelay--; return; }\n        var nearby = server.getEntitiesOfClass(Player.class, AABB.ofSize(position(), 18, 18, 18), player -> true);\n        if (nearby.isEmpty()) return;\n        if (random.nextDouble() < .05) server.levelEvent(2001, blockPosition(), Block.getId(server.getBlockState(BlockPos.containing(getX(), getY() - 1, getZ()))));\n        AABB trigger = AABB.ofSize(position(), 10, 10, 10);\n        Player closest = null;"
+          }
+        ]
+      }
+    },
+    {
+      "template": "vilebath_castle",
+      "path": "/entities/15/nbt/Attributes/0",
+      "entity_id": "thermal_shock:beetle_thrasher",
+      "original_ignored_base": 0.0,
+      "effective_default_step_float": 0.6000000238418579,
+      "original": {
+        "literal": "0.6",
+        "float_value": 0.6000000238418579,
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\BeetleThrasherEntity.java",
+        "sha256": "2a38015a260be6d758da4fcb98458f19b3297388264bb6ac1effccd4fd15943c"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\beetles\\BeetleCombatEntity.java",
+        "sha256": "adc0009430a77351086997e9b9a1f0f14d9518f05549819393e7a003cceea8d4",
+        "fragments": [
+          {
+            "line": 45,
+            "text": "    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, \"\"); builder.define(EMERGING, false); }\n    public static AttributeSupplier.Builder createAttributes(boolean thrasher) { return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, thrasher ? 45 : 82).add(Attributes.ARMOR, thrasher ? 8 : 10).add(Attributes.ATTACK_DAMAGE, thrasher ? 3 : 8).add(Attributes.MOVEMENT_SPEED, thrasher ? .2 : 0).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.KNOCKBACK_RESISTANCE, thrasher ? 0 : 1).add(Attributes.STEP_HEIGHT, thrasher ? .6 : 1); }\n    @Override protected void registerGoals() {\n        targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, false, false));\n        goalSelector.addGoal(thrasher() ? 3 : 2, new MeleeAttackGoal(this, 1.2, false) { @Override protected boolean canPerformAttack(LivingEntity target) { return isTimeToAttack() && isWithinMeleeAttackRange(target); } });\n        goalSelector.addGoal(thrasher() ? 4 : 3, new RandomStrollGoal(this, 1));\n        targetSelector.addGoal(thrasher() ? 5 : 4, new HurtByTargetGoal(this));\n    }\n    @Override public boolean isWithinMeleeAttackRange(LivingEntity target) { return distanceToSqr(target) <= (thrasher() ? 36 : 121); }\n    @Override public boolean doHurtTarget(Entity target) { if (target instanceof LivingEntity living) beginAttack(living); return false; }\n    public void beginAttack(LivingEntity victim) {\n        if (!(level() instanceof ServerLevel server) || !isAlive() || cooldown > 0 || submittingAttack || victim == this || !victim.isAlive() || victim.level() != level()) return;\n        boolean first = random.nextDouble() < (thrasher() ? BeetleConfig.THRASHER_TRIPLE_CHANCE.get() : BeetleConfig.CRASHER_HEAVY_CHANCE.get());"
+          }
+        ]
+      }
+    },
+    {
+      "template": "vilebath_castle",
+      "path": "/entities/16/nbt/Attributes/0",
+      "entity_id": "thermal_shock:beetle_thrasher",
+      "original_ignored_base": 0.0,
+      "effective_default_step_float": 0.6000000238418579,
+      "original": {
+        "literal": "0.6",
+        "float_value": 0.6000000238418579,
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\BeetleThrasherEntity.java",
+        "sha256": "2a38015a260be6d758da4fcb98458f19b3297388264bb6ac1effccd4fd15943c"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\beetles\\BeetleCombatEntity.java",
+        "sha256": "adc0009430a77351086997e9b9a1f0f14d9518f05549819393e7a003cceea8d4",
+        "fragments": [
+          {
+            "line": 45,
+            "text": "    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, \"\"); builder.define(EMERGING, false); }\n    public static AttributeSupplier.Builder createAttributes(boolean thrasher) { return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, thrasher ? 45 : 82).add(Attributes.ARMOR, thrasher ? 8 : 10).add(Attributes.ATTACK_DAMAGE, thrasher ? 3 : 8).add(Attributes.MOVEMENT_SPEED, thrasher ? .2 : 0).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.KNOCKBACK_RESISTANCE, thrasher ? 0 : 1).add(Attributes.STEP_HEIGHT, thrasher ? .6 : 1); }\n    @Override protected void registerGoals() {\n        targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, false, false));\n        goalSelector.addGoal(thrasher() ? 3 : 2, new MeleeAttackGoal(this, 1.2, false) { @Override protected boolean canPerformAttack(LivingEntity target) { return isTimeToAttack() && isWithinMeleeAttackRange(target); } });\n        goalSelector.addGoal(thrasher() ? 4 : 3, new RandomStrollGoal(this, 1));\n        targetSelector.addGoal(thrasher() ? 5 : 4, new HurtByTargetGoal(this));\n    }\n    @Override public boolean isWithinMeleeAttackRange(LivingEntity target) { return distanceToSqr(target) <= (thrasher() ? 36 : 121); }\n    @Override public boolean doHurtTarget(Entity target) { if (target instanceof LivingEntity living) beginAttack(living); return false; }\n    public void beginAttack(LivingEntity victim) {\n        if (!(level() instanceof ServerLevel server) || !isAlive() || cooldown > 0 || submittingAttack || victim == this || !victim.isAlive() || victim.level() != level()) return;\n        boolean first = random.nextDouble() < (thrasher() ? BeetleConfig.THRASHER_TRIPLE_CHANCE.get() : BeetleConfig.CRASHER_HEAVY_CHANCE.get());"
+          }
+        ]
+      }
+    },
+    {
+      "template": "vilebath_castle",
+      "path": "/entities/17/nbt/Attributes/0",
+      "entity_id": "thermal_shock:beetle_thrasher",
+      "original_ignored_base": 0.0,
+      "effective_default_step_float": 0.6000000238418579,
+      "original": {
+        "literal": "0.6",
+        "float_value": 0.6000000238418579,
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\BeetleThrasherEntity.java",
+        "sha256": "2a38015a260be6d758da4fcb98458f19b3297388264bb6ac1effccd4fd15943c"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\beetles\\BeetleCombatEntity.java",
+        "sha256": "adc0009430a77351086997e9b9a1f0f14d9518f05549819393e7a003cceea8d4",
+        "fragments": [
+          {
+            "line": 45,
+            "text": "    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, \"\"); builder.define(EMERGING, false); }\n    public static AttributeSupplier.Builder createAttributes(boolean thrasher) { return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, thrasher ? 45 : 82).add(Attributes.ARMOR, thrasher ? 8 : 10).add(Attributes.ATTACK_DAMAGE, thrasher ? 3 : 8).add(Attributes.MOVEMENT_SPEED, thrasher ? .2 : 0).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.KNOCKBACK_RESISTANCE, thrasher ? 0 : 1).add(Attributes.STEP_HEIGHT, thrasher ? .6 : 1); }\n    @Override protected void registerGoals() {\n        targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, false, false));\n        goalSelector.addGoal(thrasher() ? 3 : 2, new MeleeAttackGoal(this, 1.2, false) { @Override protected boolean canPerformAttack(LivingEntity target) { return isTimeToAttack() && isWithinMeleeAttackRange(target); } });\n        goalSelector.addGoal(thrasher() ? 4 : 3, new RandomStrollGoal(this, 1));\n        targetSelector.addGoal(thrasher() ? 5 : 4, new HurtByTargetGoal(this));\n    }\n    @Override public boolean isWithinMeleeAttackRange(LivingEntity target) { return distanceToSqr(target) <= (thrasher() ? 36 : 121); }\n    @Override public boolean doHurtTarget(Entity target) { if (target instanceof LivingEntity living) beginAttack(living); return false; }\n    public void beginAttack(LivingEntity victim) {\n        if (!(level() instanceof ServerLevel server) || !isAlive() || cooldown > 0 || submittingAttack || victim == this || !victim.isAlive() || victim.level() != level()) return;\n        boolean first = random.nextDouble() < (thrasher() ? BeetleConfig.THRASHER_TRIPLE_CHANCE.get() : BeetleConfig.CRASHER_HEAVY_CHANCE.get());"
+          }
+        ]
+      }
+    },
+    {
+      "template": "vilebath_castle",
+      "path": "/entities/18/nbt/Attributes/0",
+      "entity_id": "thermal_shock:sootling",
+      "original_ignored_base": 0.0,
+      "effective_default_step_float": 0.6000000238418579,
+      "original": {
+        "literal": "0.6",
+        "float_value": 0.6000000238418579,
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\SootlingEntity.java",
+        "sha256": "3f4b5089923041f758d3693f67b7805cefcd8849fab7ae92a6669e73e3db9c04"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\ambient\\SootlingEntity.java",
+        "sha256": "7de05b4c542f8804a71107dfbe166927cf80270f1833a8463c204ea71fb55dd3",
+        "fragments": [
+          {
+            "line": 33,
+            "text": "    }\n    public static AttributeSupplier.Builder createAttributes() { return Mob.createMobAttributes().add(Attributes.MOVEMENT_SPEED, 0.2).add(Attributes.MAX_HEALTH, 26).add(Attributes.ARMOR, 0).add(Attributes.ATTACK_DAMAGE, 3).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.STEP_HEIGHT, 0.6) .add(Attributes.FLYING_SPEED, 0.2); }\n    @Override\n    protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, \"flare_wrangler\"); }\n    public String texture() { return entityData.get(TEXTURE); }\n    public void setTexture(String value) { entityData.set(TEXTURE, value); }\n    public void setAnimation(String value) { triggerAnim(\"procedure\", value); }\n    @Override\n    protected void registerGoals() { targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, false, false)); goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.2, false) { @Override protected boolean canPerformAttack(LivingEntity target) { return isTimeToAttack() && isWithinMeleeAttackRange(target); } }); goalSelector.addGoal(3, new RandomStrollGoal(this, 0.8, 20) { @Override protected Vec3 getPosition() { return position().add((random.nextFloat() * 2 - 1) * 16, (random.nextFloat() * 2 - 1) * 16, (random.nextFloat() * 2 - 1) * 16); } }); targetSelector.addGoal(4, new HurtByTargetGoal(this)); goalSelector.addGoal(5, new RandomLookAroundGoal(this)); }\n\n    @Override\n    public boolean isWithinMeleeAttackRange(LivingEntity target) { return distanceToSqr(target) <= 16; }\n    @Override"
+          }
+        ]
+      }
+    },
+    {
+      "template": "vilebath_castle",
+      "path": "/entities/19/nbt/Attributes/0",
+      "entity_id": "thermal_shock:sootle",
+      "original_ignored_base": 0.0,
+      "effective_default_step_float": 0.6000000238418579,
+      "original": {
+        "literal": "0.6",
+        "float_value": 0.6000000238418579,
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\SootleEntity.java",
+        "sha256": "f35632938b62caceed6a6c518a7ecdec53019b7d6ad84f546ec1b16bb7e5c469"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\sootle\\AbstractSootleEntity.java",
+        "sha256": "fba3d915e07b036bd984002dcad952f3c469c676e7c06d7d6d18200e12a4ea84",
+        "fragments": [
+          {
+            "line": 21,
+            "text": "    protected AbstractSootleEntity(EntityType<? extends AbstractSootleEntity> type, Level level, int experience) { super(type, level); xpReward = experience; setPersistenceRequired(); }\n    public static AttributeSupplier.Builder createAttributes() { return Mob.createMobAttributes().add(Attributes.MOVEMENT_SPEED, 0.2).add(Attributes.MAX_HEALTH, 30).add(Attributes.ARMOR, 0).add(Attributes.ATTACK_DAMAGE, 3).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.STEP_HEIGHT, 0.6); }\n    @Override\n    protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, \"sootling\"); }\n    public String texture() { return entityData.get(TEXTURE); }\n    public void setTexture(String value) { entityData.set(TEXTURE, value); }\n    public void setAnimation(String value) { triggerAnim(\"procedure\", value); }\n    @Override\n    public boolean removeWhenFarAway(double distance) { return false; }\n    @Override\n    public boolean hurt(DamageSource source, float amount) { return !source.is(DamageTypes.IN_FIRE) && super.hurt(source, amount); }\n    @Override\n    protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.GENERIC_HURT; }"
+          }
+        ]
+      }
+    },
+    {
+      "template": "vilebath_castle",
+      "path": "/entities/20/nbt/Attributes/0",
+      "entity_id": "thermal_shock:sootle",
+      "original_ignored_base": 0.0,
+      "effective_default_step_float": 0.6000000238418579,
+      "original": {
+        "literal": "0.6",
+        "float_value": 0.6000000238418579,
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\SootleEntity.java",
+        "sha256": "f35632938b62caceed6a6c518a7ecdec53019b7d6ad84f546ec1b16bb7e5c469"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\sootle\\AbstractSootleEntity.java",
+        "sha256": "fba3d915e07b036bd984002dcad952f3c469c676e7c06d7d6d18200e12a4ea84",
+        "fragments": [
+          {
+            "line": 21,
+            "text": "    protected AbstractSootleEntity(EntityType<? extends AbstractSootleEntity> type, Level level, int experience) { super(type, level); xpReward = experience; setPersistenceRequired(); }\n    public static AttributeSupplier.Builder createAttributes() { return Mob.createMobAttributes().add(Attributes.MOVEMENT_SPEED, 0.2).add(Attributes.MAX_HEALTH, 30).add(Attributes.ARMOR, 0).add(Attributes.ATTACK_DAMAGE, 3).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.STEP_HEIGHT, 0.6); }\n    @Override\n    protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, \"sootling\"); }\n    public String texture() { return entityData.get(TEXTURE); }\n    public void setTexture(String value) { entityData.set(TEXTURE, value); }\n    public void setAnimation(String value) { triggerAnim(\"procedure\", value); }\n    @Override\n    public boolean removeWhenFarAway(double distance) { return false; }\n    @Override\n    public boolean hurt(DamageSource source, float amount) { return !source.is(DamageTypes.IN_FIRE) && super.hurt(source, amount); }\n    @Override\n    protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.GENERIC_HURT; }"
+          }
+        ]
+      }
+    },
+    {
+      "template": "vilebath_castle",
+      "path": "/entities/21/nbt/Attributes/0",
+      "entity_id": "thermal_shock:herald",
+      "original_ignored_base": 0.0,
+      "effective_default_step_float": 0.0,
+      "original": {
+        "literal": "0.0",
+        "float_value": 0.0,
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\HeraldEntity.java",
+        "sha256": "8363e191e3e6dd849f08487d6dde70b627af8578559cfbdb568f69f95e0d0e04"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\mangler\\HeraldEntity.java",
+        "sha256": "ef635f26f84e0669c36c8e6b460a80280309a54413ba56351e03950101216021",
+        "fragments": [
+          {
+            "line": 57,
+            "text": "    }\n    public static AttributeSupplier.Builder createAttributes() { return Mob.createMobAttributes().add(Attributes.MOVEMENT_SPEED, 0).add(Attributes.MAX_HEALTH, ManglerCombatConfig.HERALD_HEALTH.getDefault()).add(Attributes.ARMOR, ManglerCombatConfig.HERALD_ARMOR.getDefault()).add(Attributes.ATTACK_DAMAGE, 0).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.KNOCKBACK_RESISTANCE, ManglerCombatConfig.HERALD_RESISTANCE.getDefault()).add(Attributes.ATTACK_KNOCKBACK, ManglerCombatConfig.HERALD_KNOCKBACK.getDefault()).add(Attributes.STEP_HEIGHT, 0); }\n    @Override\n    protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, \"herald\"); }\n    public String texture() { return entityData.get(TEXTURE); }\n    public void setTexture(String value) { entityData.set(TEXTURE, value); }\n    public void setAnimation(String value) { triggerAnim(\"procedure\", value); }\n    @Override\n    protected void registerGoals() { goalSelector.addGoal(1, new RandomLookAroundGoal(this)); }\n    @Override\n    public boolean removeWhenFarAway(double distance) { return false; }\n    @Override\n    public boolean hurt(DamageSource source, float amount) {"
+          }
+        ]
+      }
+    },
+    {
+      "template": "vilebath_castle",
+      "path": "/entities/22/nbt/Attributes/0",
+      "entity_id": "thermal_shock:sootle",
+      "original_ignored_base": 0.0,
+      "effective_default_step_float": 0.6000000238418579,
+      "original": {
+        "literal": "0.6",
+        "float_value": 0.6000000238418579,
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\SootleEntity.java",
+        "sha256": "f35632938b62caceed6a6c518a7ecdec53019b7d6ad84f546ec1b16bb7e5c469"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\sootle\\AbstractSootleEntity.java",
+        "sha256": "fba3d915e07b036bd984002dcad952f3c469c676e7c06d7d6d18200e12a4ea84",
+        "fragments": [
+          {
+            "line": 21,
+            "text": "    protected AbstractSootleEntity(EntityType<? extends AbstractSootleEntity> type, Level level, int experience) { super(type, level); xpReward = experience; setPersistenceRequired(); }\n    public static AttributeSupplier.Builder createAttributes() { return Mob.createMobAttributes().add(Attributes.MOVEMENT_SPEED, 0.2).add(Attributes.MAX_HEALTH, 30).add(Attributes.ARMOR, 0).add(Attributes.ATTACK_DAMAGE, 3).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.STEP_HEIGHT, 0.6); }\n    @Override\n    protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, \"sootling\"); }\n    public String texture() { return entityData.get(TEXTURE); }\n    public void setTexture(String value) { entityData.set(TEXTURE, value); }\n    public void setAnimation(String value) { triggerAnim(\"procedure\", value); }\n    @Override\n    public boolean removeWhenFarAway(double distance) { return false; }\n    @Override\n    public boolean hurt(DamageSource source, float amount) { return !source.is(DamageTypes.IN_FIRE) && super.hurt(source, amount); }\n    @Override\n    protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.GENERIC_HURT; }"
+          }
+        ]
+      }
+    },
+    {
+      "template": "vilebath_castle",
+      "path": "/entities/23/nbt/Attributes/0",
+      "entity_id": "thermal_shock:dormant_beetle_crasher",
+      "original_ignored_base": 0.0,
+      "effective_default_step_float": 0.6000000238418579,
+      "original": {
+        "literal": "0.6",
+        "float_value": 0.6000000238418579,
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\DormantBeetleCrasherEntity.java",
+        "sha256": "1c8861b85ff6ffdffc02028ea40c45859ce5ba5fd70cbd1a684a417501bd9f12"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\beetles\\DormantBeetleCrasherEntity.java",
+        "sha256": "8885b1053ad08a7385586c0281990685b110271eb5d6f6687d50509ef27b2300",
+        "fragments": [
+          {
+            "line": 32,
+            "text": "    public DormantBeetleCrasherEntity(EntityType<? extends DormantBeetleCrasherEntity> type, Level level) { super(type, level); xpReward = 2; setPersistenceRequired(); }\n    public static AttributeSupplier.Builder createAttributes() { return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 2).add(Attributes.ARMOR, 0).add(Attributes.ATTACK_DAMAGE, 0).add(Attributes.MOVEMENT_SPEED, 0).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.STEP_HEIGHT, .6); }\n    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, \"texturespringy\"); }\n    public String texture() { return entityData.get(TEXTURE); }\n    @Override public void baseTick() {\n        super.baseTick();\n        if (!(level() instanceof ServerLevel server) || !isAlive() || converted) return;\n        if (retryDelay > 0) { retryDelay--; return; }\n        var nearby = server.getEntitiesOfClass(Player.class, AABB.ofSize(position(), 18, 18, 18), player -> true);\n        if (nearby.isEmpty()) return;\n        if (random.nextDouble() < .05) server.levelEvent(2001, blockPosition(), Block.getId(server.getBlockState(BlockPos.containing(getX(), getY() - 1, getZ()))));\n        AABB trigger = AABB.ofSize(position(), 10, 10, 10);\n        Player closest = null;"
+          }
+        ]
+      }
+    },
+    {
+      "template": "vilebath_castle",
+      "path": "/entities/24/nbt/Attributes/0",
+      "entity_id": "thermal_shock:sootle",
+      "original_ignored_base": 0.0,
+      "effective_default_step_float": 0.6000000238418579,
+      "original": {
+        "literal": "0.6",
+        "float_value": 0.6000000238418579,
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\SootleEntity.java",
+        "sha256": "f35632938b62caceed6a6c518a7ecdec53019b7d6ad84f546ec1b16bb7e5c469"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\sootle\\AbstractSootleEntity.java",
+        "sha256": "fba3d915e07b036bd984002dcad952f3c469c676e7c06d7d6d18200e12a4ea84",
+        "fragments": [
+          {
+            "line": 21,
+            "text": "    protected AbstractSootleEntity(EntityType<? extends AbstractSootleEntity> type, Level level, int experience) { super(type, level); xpReward = experience; setPersistenceRequired(); }\n    public static AttributeSupplier.Builder createAttributes() { return Mob.createMobAttributes().add(Attributes.MOVEMENT_SPEED, 0.2).add(Attributes.MAX_HEALTH, 30).add(Attributes.ARMOR, 0).add(Attributes.ATTACK_DAMAGE, 3).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.STEP_HEIGHT, 0.6); }\n    @Override\n    protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, \"sootling\"); }\n    public String texture() { return entityData.get(TEXTURE); }\n    public void setTexture(String value) { entityData.set(TEXTURE, value); }\n    public void setAnimation(String value) { triggerAnim(\"procedure\", value); }\n    @Override\n    public boolean removeWhenFarAway(double distance) { return false; }\n    @Override\n    public boolean hurt(DamageSource source, float amount) { return !source.is(DamageTypes.IN_FIRE) && super.hurt(source, amount); }\n    @Override\n    protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.GENERIC_HURT; }"
+          }
+        ]
+      }
+    },
+    {
+      "template": "vilebath_castle",
+      "path": "/entities/25/nbt/Attributes/0",
+      "entity_id": "thermal_shock:beetle_thrasher",
+      "original_ignored_base": 0.0,
+      "effective_default_step_float": 0.6000000238418579,
+      "original": {
+        "literal": "0.6",
+        "float_value": 0.6000000238418579,
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\BeetleThrasherEntity.java",
+        "sha256": "2a38015a260be6d758da4fcb98458f19b3297388264bb6ac1effccd4fd15943c"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\beetles\\BeetleCombatEntity.java",
+        "sha256": "adc0009430a77351086997e9b9a1f0f14d9518f05549819393e7a003cceea8d4",
+        "fragments": [
+          {
+            "line": 45,
+            "text": "    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, \"\"); builder.define(EMERGING, false); }\n    public static AttributeSupplier.Builder createAttributes(boolean thrasher) { return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, thrasher ? 45 : 82).add(Attributes.ARMOR, thrasher ? 8 : 10).add(Attributes.ATTACK_DAMAGE, thrasher ? 3 : 8).add(Attributes.MOVEMENT_SPEED, thrasher ? .2 : 0).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.KNOCKBACK_RESISTANCE, thrasher ? 0 : 1).add(Attributes.STEP_HEIGHT, thrasher ? .6 : 1); }\n    @Override protected void registerGoals() {\n        targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, false, false));\n        goalSelector.addGoal(thrasher() ? 3 : 2, new MeleeAttackGoal(this, 1.2, false) { @Override protected boolean canPerformAttack(LivingEntity target) { return isTimeToAttack() && isWithinMeleeAttackRange(target); } });\n        goalSelector.addGoal(thrasher() ? 4 : 3, new RandomStrollGoal(this, 1));\n        targetSelector.addGoal(thrasher() ? 5 : 4, new HurtByTargetGoal(this));\n    }\n    @Override public boolean isWithinMeleeAttackRange(LivingEntity target) { return distanceToSqr(target) <= (thrasher() ? 36 : 121); }\n    @Override public boolean doHurtTarget(Entity target) { if (target instanceof LivingEntity living) beginAttack(living); return false; }\n    public void beginAttack(LivingEntity victim) {\n        if (!(level() instanceof ServerLevel server) || !isAlive() || cooldown > 0 || submittingAttack || victim == this || !victim.isAlive() || victim.level() != level()) return;\n        boolean first = random.nextDouble() < (thrasher() ? BeetleConfig.THRASHER_TRIPLE_CHANCE.get() : BeetleConfig.CRASHER_HEAVY_CHANCE.get());"
+          }
+        ]
+      }
+    },
+    {
+      "template": "vilebath_castle",
+      "path": "/entities/26/nbt/Attributes/0",
+      "entity_id": "thermal_shock:beetle_thrasher",
+      "original_ignored_base": 0.0,
+      "effective_default_step_float": 0.6000000238418579,
+      "original": {
+        "literal": "0.6",
+        "float_value": 0.6000000238418579,
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\BeetleThrasherEntity.java",
+        "sha256": "2a38015a260be6d758da4fcb98458f19b3297388264bb6ac1effccd4fd15943c"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\beetles\\BeetleCombatEntity.java",
+        "sha256": "adc0009430a77351086997e9b9a1f0f14d9518f05549819393e7a003cceea8d4",
+        "fragments": [
+          {
+            "line": 45,
+            "text": "    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, \"\"); builder.define(EMERGING, false); }\n    public static AttributeSupplier.Builder createAttributes(boolean thrasher) { return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, thrasher ? 45 : 82).add(Attributes.ARMOR, thrasher ? 8 : 10).add(Attributes.ATTACK_DAMAGE, thrasher ? 3 : 8).add(Attributes.MOVEMENT_SPEED, thrasher ? .2 : 0).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.KNOCKBACK_RESISTANCE, thrasher ? 0 : 1).add(Attributes.STEP_HEIGHT, thrasher ? .6 : 1); }\n    @Override protected void registerGoals() {\n        targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, false, false));\n        goalSelector.addGoal(thrasher() ? 3 : 2, new MeleeAttackGoal(this, 1.2, false) { @Override protected boolean canPerformAttack(LivingEntity target) { return isTimeToAttack() && isWithinMeleeAttackRange(target); } });\n        goalSelector.addGoal(thrasher() ? 4 : 3, new RandomStrollGoal(this, 1));\n        targetSelector.addGoal(thrasher() ? 5 : 4, new HurtByTargetGoal(this));\n    }\n    @Override public boolean isWithinMeleeAttackRange(LivingEntity target) { return distanceToSqr(target) <= (thrasher() ? 36 : 121); }\n    @Override public boolean doHurtTarget(Entity target) { if (target instanceof LivingEntity living) beginAttack(living); return false; }\n    public void beginAttack(LivingEntity victim) {\n        if (!(level() instanceof ServerLevel server) || !isAlive() || cooldown > 0 || submittingAttack || victim == this || !victim.isAlive() || victim.level() != level()) return;\n        boolean first = random.nextDouble() < (thrasher() ? BeetleConfig.THRASHER_TRIPLE_CHANCE.get() : BeetleConfig.CRASHER_HEAVY_CHANCE.get());"
+          }
+        ]
+      }
+    },
+    {
+      "template": "vilebath_castle",
+      "path": "/entities/27/nbt/Attributes/0",
+      "entity_id": "thermal_shock:infestophage_seed",
+      "original_ignored_base": 0.0,
+      "effective_default_step_float": 0.6000000238418579,
+      "original": {
+        "literal": "0.6",
+        "float_value": 0.6000000238418579,
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\InfestophageSeedEntity.java",
+        "sha256": "1b2f62ba2e6b752e4529763f679cd30755c257e0d08eb1231286a3a4eb71493f"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\infestation\\InfestophageSeedEntity.java",
+        "sha256": "3381988c97ea3c2d51909a358e2133089174b3fd484a01e7c8f792cdcfeda7e3",
+        "fragments": [
+          {
+            "line": 34,
+            "text": "    public static AttributeSupplier.Builder createAttributes() {\n        return Mob.createMobAttributes().add(Attributes.MOVEMENT_SPEED, 0).add(Attributes.MAX_HEALTH, 2).add(Attributes.ARMOR, 0).add(Attributes.ATTACK_DAMAGE, 0).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.STEP_HEIGHT, 0.6);\n    }\n\n    @Override\n    protected void defineSynchedData(SynchedEntityData.Builder builder) {\n        super.defineSynchedData(builder);\n        builder.define(TEXTURE, \"texturespringy\");\n    }\n\n    public String texture() { return entityData.get(TEXTURE); }\n\n    public void setTexture(String texture) { entityData.set(TEXTURE, texture); }"
+          }
+        ]
+      }
+    },
+    {
+      "template": "vilebath_castle",
+      "path": "/entities/28/nbt/Attributes/0",
+      "entity_id": "thermal_shock:infestophage_seed",
+      "original_ignored_base": 0.0,
+      "effective_default_step_float": 0.6000000238418579,
+      "original": {
+        "literal": "0.6",
+        "float_value": 0.6000000238418579,
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\InfestophageSeedEntity.java",
+        "sha256": "1b2f62ba2e6b752e4529763f679cd30755c257e0d08eb1231286a3a4eb71493f"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\infestation\\InfestophageSeedEntity.java",
+        "sha256": "3381988c97ea3c2d51909a358e2133089174b3fd484a01e7c8f792cdcfeda7e3",
+        "fragments": [
+          {
+            "line": 34,
+            "text": "    public static AttributeSupplier.Builder createAttributes() {\n        return Mob.createMobAttributes().add(Attributes.MOVEMENT_SPEED, 0).add(Attributes.MAX_HEALTH, 2).add(Attributes.ARMOR, 0).add(Attributes.ATTACK_DAMAGE, 0).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.STEP_HEIGHT, 0.6);\n    }\n\n    @Override\n    protected void defineSynchedData(SynchedEntityData.Builder builder) {\n        super.defineSynchedData(builder);\n        builder.define(TEXTURE, \"texturespringy\");\n    }\n\n    public String texture() { return entityData.get(TEXTURE); }\n\n    public void setTexture(String texture) { entityData.set(TEXTURE, texture); }"
+          }
+        ]
+      }
+    },
+    {
+      "template": "vilebath_castle",
+      "path": "/entities/29/nbt/Attributes/0",
+      "entity_id": "thermal_shock:infestophage_seed",
+      "original_ignored_base": 0.0,
+      "effective_default_step_float": 0.6000000238418579,
+      "original": {
+        "literal": "0.6",
+        "float_value": 0.6000000238418579,
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\InfestophageSeedEntity.java",
+        "sha256": "1b2f62ba2e6b752e4529763f679cd30755c257e0d08eb1231286a3a4eb71493f"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\infestation\\InfestophageSeedEntity.java",
+        "sha256": "3381988c97ea3c2d51909a358e2133089174b3fd484a01e7c8f792cdcfeda7e3",
+        "fragments": [
+          {
+            "line": 34,
+            "text": "    public static AttributeSupplier.Builder createAttributes() {\n        return Mob.createMobAttributes().add(Attributes.MOVEMENT_SPEED, 0).add(Attributes.MAX_HEALTH, 2).add(Attributes.ARMOR, 0).add(Attributes.ATTACK_DAMAGE, 0).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.STEP_HEIGHT, 0.6);\n    }\n\n    @Override\n    protected void defineSynchedData(SynchedEntityData.Builder builder) {\n        super.defineSynchedData(builder);\n        builder.define(TEXTURE, \"texturespringy\");\n    }\n\n    public String texture() { return entityData.get(TEXTURE); }\n\n    public void setTexture(String texture) { entityData.set(TEXTURE, texture); }"
+          }
+        ]
+      }
+    },
+    {
+      "template": "vilebath_castle",
+      "path": "/entities/30/nbt/Attributes/0",
+      "entity_id": "thermal_shock:herald",
+      "original_ignored_base": 0.0,
+      "effective_default_step_float": 0.0,
+      "original": {
+        "literal": "0.0",
+        "float_value": 0.0,
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\HeraldEntity.java",
+        "sha256": "8363e191e3e6dd849f08487d6dde70b627af8578559cfbdb568f69f95e0d0e04"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\mangler\\HeraldEntity.java",
+        "sha256": "ef635f26f84e0669c36c8e6b460a80280309a54413ba56351e03950101216021",
+        "fragments": [
+          {
+            "line": 57,
+            "text": "    }\n    public static AttributeSupplier.Builder createAttributes() { return Mob.createMobAttributes().add(Attributes.MOVEMENT_SPEED, 0).add(Attributes.MAX_HEALTH, ManglerCombatConfig.HERALD_HEALTH.getDefault()).add(Attributes.ARMOR, ManglerCombatConfig.HERALD_ARMOR.getDefault()).add(Attributes.ATTACK_DAMAGE, 0).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.KNOCKBACK_RESISTANCE, ManglerCombatConfig.HERALD_RESISTANCE.getDefault()).add(Attributes.ATTACK_KNOCKBACK, ManglerCombatConfig.HERALD_KNOCKBACK.getDefault()).add(Attributes.STEP_HEIGHT, 0); }\n    @Override\n    protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, \"herald\"); }\n    public String texture() { return entityData.get(TEXTURE); }\n    public void setTexture(String value) { entityData.set(TEXTURE, value); }\n    public void setAnimation(String value) { triggerAnim(\"procedure\", value); }\n    @Override\n    protected void registerGoals() { goalSelector.addGoal(1, new RandomLookAroundGoal(this)); }\n    @Override\n    public boolean removeWhenFarAway(double distance) { return false; }\n    @Override\n    public boolean hurt(DamageSource source, float amount) {"
+          }
+        ]
+      }
+    },
+    {
+      "template": "vilebath_castle",
+      "path": "/entities/31/nbt/Attributes/0",
+      "entity_id": "thermal_shock:frostilyte",
+      "original_ignored_base": 0.0,
+      "effective_default_step_float": 0.6000000238418579,
+      "original": {
+        "literal": "0.6",
+        "float_value": 0.6000000238418579,
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\FrostilyteEntity.java",
+        "sha256": "a1ce786ee0ae665a40814c4e03d59f5761d8ea46051fe652ee33d68afdba8403"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\hunters\\FrostilyteEntity.java",
+        "sha256": "a4f1269f591e6f096467baf093b8ffda65d92872659dc846ee092abb4b7b7f12",
+        "fragments": [
+          {
+            "line": 49,
+            "text": "        return Mob.createMobAttributes().add(Attributes.MOVEMENT_SPEED, 0.2).add(Attributes.MAX_HEALTH, 15).add(Attributes.ARMOR, 1.2)\n                .add(Attributes.ATTACK_DAMAGE, 4).add(Attributes.FOLLOW_RANGE, 8).add(Attributes.STEP_HEIGHT, 0.6);\n    }\n\n    @Override\n    protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, \"frostilyte_a\"); }\n    public String texture() { return entityData.get(TEXTURE); }\n    public void setTexture(String value) { entityData.set(TEXTURE, value); }\n    @Override\n    protected void registerGoals() {\n        goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.2, true) {\n            @Override protected boolean canPerformAttack(LivingEntity target) { return isTimeToAttack() && distanceToSqr(target) <= 2.25 && getSensing().hasLineOfSight(target); }\n        });"
+          }
+        ]
+      }
+    },
+    {
+      "template": "vilebath_castle",
+      "path": "/entities/32/nbt/Attributes/0",
+      "entity_id": "thermal_shock:beetle_thrasher",
+      "original_ignored_base": 0.0,
+      "effective_default_step_float": 0.6000000238418579,
+      "original": {
+        "literal": "0.6",
+        "float_value": 0.6000000238418579,
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\BeetleThrasherEntity.java",
+        "sha256": "2a38015a260be6d758da4fcb98458f19b3297388264bb6ac1effccd4fd15943c"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\beetles\\BeetleCombatEntity.java",
+        "sha256": "adc0009430a77351086997e9b9a1f0f14d9518f05549819393e7a003cceea8d4",
+        "fragments": [
+          {
+            "line": 45,
+            "text": "    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, \"\"); builder.define(EMERGING, false); }\n    public static AttributeSupplier.Builder createAttributes(boolean thrasher) { return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, thrasher ? 45 : 82).add(Attributes.ARMOR, thrasher ? 8 : 10).add(Attributes.ATTACK_DAMAGE, thrasher ? 3 : 8).add(Attributes.MOVEMENT_SPEED, thrasher ? .2 : 0).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.KNOCKBACK_RESISTANCE, thrasher ? 0 : 1).add(Attributes.STEP_HEIGHT, thrasher ? .6 : 1); }\n    @Override protected void registerGoals() {\n        targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, false, false));\n        goalSelector.addGoal(thrasher() ? 3 : 2, new MeleeAttackGoal(this, 1.2, false) { @Override protected boolean canPerformAttack(LivingEntity target) { return isTimeToAttack() && isWithinMeleeAttackRange(target); } });\n        goalSelector.addGoal(thrasher() ? 4 : 3, new RandomStrollGoal(this, 1));\n        targetSelector.addGoal(thrasher() ? 5 : 4, new HurtByTargetGoal(this));\n    }\n    @Override public boolean isWithinMeleeAttackRange(LivingEntity target) { return distanceToSqr(target) <= (thrasher() ? 36 : 121); }\n    @Override public boolean doHurtTarget(Entity target) { if (target instanceof LivingEntity living) beginAttack(living); return false; }\n    public void beginAttack(LivingEntity victim) {\n        if (!(level() instanceof ServerLevel server) || !isAlive() || cooldown > 0 || submittingAttack || victim == this || !victim.isAlive() || victim.level() != level()) return;\n        boolean first = random.nextDouble() < (thrasher() ? BeetleConfig.THRASHER_TRIPLE_CHANCE.get() : BeetleConfig.CRASHER_HEAVY_CHANCE.get());"
+          }
+        ]
+      }
+    },
+    {
+      "template": "vilebath_castle",
+      "path": "/entities/33/nbt/Attributes/0",
+      "entity_id": "thermal_shock:beetle_thrasher",
+      "original_ignored_base": 0.0,
+      "effective_default_step_float": 0.6000000238418579,
+      "original": {
+        "literal": "0.6",
+        "float_value": 0.6000000238418579,
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\BeetleThrasherEntity.java",
+        "sha256": "2a38015a260be6d758da4fcb98458f19b3297388264bb6ac1effccd4fd15943c"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\beetles\\BeetleCombatEntity.java",
+        "sha256": "adc0009430a77351086997e9b9a1f0f14d9518f05549819393e7a003cceea8d4",
+        "fragments": [
+          {
+            "line": 45,
+            "text": "    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, \"\"); builder.define(EMERGING, false); }\n    public static AttributeSupplier.Builder createAttributes(boolean thrasher) { return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, thrasher ? 45 : 82).add(Attributes.ARMOR, thrasher ? 8 : 10).add(Attributes.ATTACK_DAMAGE, thrasher ? 3 : 8).add(Attributes.MOVEMENT_SPEED, thrasher ? .2 : 0).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.KNOCKBACK_RESISTANCE, thrasher ? 0 : 1).add(Attributes.STEP_HEIGHT, thrasher ? .6 : 1); }\n    @Override protected void registerGoals() {\n        targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, false, false));\n        goalSelector.addGoal(thrasher() ? 3 : 2, new MeleeAttackGoal(this, 1.2, false) { @Override protected boolean canPerformAttack(LivingEntity target) { return isTimeToAttack() && isWithinMeleeAttackRange(target); } });\n        goalSelector.addGoal(thrasher() ? 4 : 3, new RandomStrollGoal(this, 1));\n        targetSelector.addGoal(thrasher() ? 5 : 4, new HurtByTargetGoal(this));\n    }\n    @Override public boolean isWithinMeleeAttackRange(LivingEntity target) { return distanceToSqr(target) <= (thrasher() ? 36 : 121); }\n    @Override public boolean doHurtTarget(Entity target) { if (target instanceof LivingEntity living) beginAttack(living); return false; }\n    public void beginAttack(LivingEntity victim) {\n        if (!(level() instanceof ServerLevel server) || !isAlive() || cooldown > 0 || submittingAttack || victim == this || !victim.isAlive() || victim.level() != level()) return;\n        boolean first = random.nextDouble() < (thrasher() ? BeetleConfig.THRASHER_TRIPLE_CHANCE.get() : BeetleConfig.CRASHER_HEAVY_CHANCE.get());"
+          }
+        ]
+      }
+    },
+    {
+      "template": "vilebath_castle",
+      "path": "/entities/34/nbt/Attributes/0",
+      "entity_id": "thermal_shock:beetle_thrasher",
+      "original_ignored_base": 0.0,
+      "effective_default_step_float": 0.6000000238418579,
+      "original": {
+        "literal": "0.6",
+        "float_value": 0.6000000238418579,
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\BeetleThrasherEntity.java",
+        "sha256": "2a38015a260be6d758da4fcb98458f19b3297388264bb6ac1effccd4fd15943c"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\beetles\\BeetleCombatEntity.java",
+        "sha256": "adc0009430a77351086997e9b9a1f0f14d9518f05549819393e7a003cceea8d4",
+        "fragments": [
+          {
+            "line": 45,
+            "text": "    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, \"\"); builder.define(EMERGING, false); }\n    public static AttributeSupplier.Builder createAttributes(boolean thrasher) { return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, thrasher ? 45 : 82).add(Attributes.ARMOR, thrasher ? 8 : 10).add(Attributes.ATTACK_DAMAGE, thrasher ? 3 : 8).add(Attributes.MOVEMENT_SPEED, thrasher ? .2 : 0).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.KNOCKBACK_RESISTANCE, thrasher ? 0 : 1).add(Attributes.STEP_HEIGHT, thrasher ? .6 : 1); }\n    @Override protected void registerGoals() {\n        targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, false, false));\n        goalSelector.addGoal(thrasher() ? 3 : 2, new MeleeAttackGoal(this, 1.2, false) { @Override protected boolean canPerformAttack(LivingEntity target) { return isTimeToAttack() && isWithinMeleeAttackRange(target); } });\n        goalSelector.addGoal(thrasher() ? 4 : 3, new RandomStrollGoal(this, 1));\n        targetSelector.addGoal(thrasher() ? 5 : 4, new HurtByTargetGoal(this));\n    }\n    @Override public boolean isWithinMeleeAttackRange(LivingEntity target) { return distanceToSqr(target) <= (thrasher() ? 36 : 121); }\n    @Override public boolean doHurtTarget(Entity target) { if (target instanceof LivingEntity living) beginAttack(living); return false; }\n    public void beginAttack(LivingEntity victim) {\n        if (!(level() instanceof ServerLevel server) || !isAlive() || cooldown > 0 || submittingAttack || victim == this || !victim.isAlive() || victim.level() != level()) return;\n        boolean first = random.nextDouble() < (thrasher() ? BeetleConfig.THRASHER_TRIPLE_CHANCE.get() : BeetleConfig.CRASHER_HEAVY_CHANCE.get());"
+          }
+        ]
+      }
+    },
+    {
+      "template": "vilebath_castle",
+      "path": "/entities/35/nbt/Attributes/0",
+      "entity_id": "thermal_shock:infestophage_seed",
+      "original_ignored_base": 0.0,
+      "effective_default_step_float": 0.6000000238418579,
+      "original": {
+        "literal": "0.6",
+        "float_value": 0.6000000238418579,
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\InfestophageSeedEntity.java",
+        "sha256": "1b2f62ba2e6b752e4529763f679cd30755c257e0d08eb1231286a3a4eb71493f"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\infestation\\InfestophageSeedEntity.java",
+        "sha256": "3381988c97ea3c2d51909a358e2133089174b3fd484a01e7c8f792cdcfeda7e3",
+        "fragments": [
+          {
+            "line": 34,
+            "text": "    public static AttributeSupplier.Builder createAttributes() {\n        return Mob.createMobAttributes().add(Attributes.MOVEMENT_SPEED, 0).add(Attributes.MAX_HEALTH, 2).add(Attributes.ARMOR, 0).add(Attributes.ATTACK_DAMAGE, 0).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.STEP_HEIGHT, 0.6);\n    }\n\n    @Override\n    protected void defineSynchedData(SynchedEntityData.Builder builder) {\n        super.defineSynchedData(builder);\n        builder.define(TEXTURE, \"texturespringy\");\n    }\n\n    public String texture() { return entityData.get(TEXTURE); }\n\n    public void setTexture(String texture) { entityData.set(TEXTURE, texture); }"
+          }
+        ]
+      }
+    },
+    {
+      "template": "vilebath_castle",
+      "path": "/entities/36/nbt/Attributes/0",
+      "entity_id": "thermal_shock:dormant_beetle_crasher",
+      "original_ignored_base": 0.0,
+      "effective_default_step_float": 0.6000000238418579,
+      "original": {
+        "literal": "0.6",
+        "float_value": 0.6000000238418579,
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\DormantBeetleCrasherEntity.java",
+        "sha256": "1c8861b85ff6ffdffc02028ea40c45859ce5ba5fd70cbd1a684a417501bd9f12"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\beetles\\DormantBeetleCrasherEntity.java",
+        "sha256": "8885b1053ad08a7385586c0281990685b110271eb5d6f6687d50509ef27b2300",
+        "fragments": [
+          {
+            "line": 32,
+            "text": "    public DormantBeetleCrasherEntity(EntityType<? extends DormantBeetleCrasherEntity> type, Level level) { super(type, level); xpReward = 2; setPersistenceRequired(); }\n    public static AttributeSupplier.Builder createAttributes() { return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 2).add(Attributes.ARMOR, 0).add(Attributes.ATTACK_DAMAGE, 0).add(Attributes.MOVEMENT_SPEED, 0).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.STEP_HEIGHT, .6); }\n    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, \"texturespringy\"); }\n    public String texture() { return entityData.get(TEXTURE); }\n    @Override public void baseTick() {\n        super.baseTick();\n        if (!(level() instanceof ServerLevel server) || !isAlive() || converted) return;\n        if (retryDelay > 0) { retryDelay--; return; }\n        var nearby = server.getEntitiesOfClass(Player.class, AABB.ofSize(position(), 18, 18, 18), player -> true);\n        if (nearby.isEmpty()) return;\n        if (random.nextDouble() < .05) server.levelEvent(2001, blockPosition(), Block.getId(server.getBlockState(BlockPos.containing(getX(), getY() - 1, getZ()))));\n        AABB trigger = AABB.ofSize(position(), 10, 10, 10);\n        Player closest = null;"
+          }
+        ]
+      }
+    },
+    {
+      "template": "vilebath_castle",
+      "path": "/entities/37/nbt/Attributes/0",
+      "entity_id": "thermal_shock:beetle_thrasher",
+      "original_ignored_base": 0.0,
+      "effective_default_step_float": 0.6000000238418579,
+      "original": {
+        "literal": "0.6",
+        "float_value": 0.6000000238418579,
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\BeetleThrasherEntity.java",
+        "sha256": "2a38015a260be6d758da4fcb98458f19b3297388264bb6ac1effccd4fd15943c"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\beetles\\BeetleCombatEntity.java",
+        "sha256": "adc0009430a77351086997e9b9a1f0f14d9518f05549819393e7a003cceea8d4",
+        "fragments": [
+          {
+            "line": 45,
+            "text": "    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, \"\"); builder.define(EMERGING, false); }\n    public static AttributeSupplier.Builder createAttributes(boolean thrasher) { return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, thrasher ? 45 : 82).add(Attributes.ARMOR, thrasher ? 8 : 10).add(Attributes.ATTACK_DAMAGE, thrasher ? 3 : 8).add(Attributes.MOVEMENT_SPEED, thrasher ? .2 : 0).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.KNOCKBACK_RESISTANCE, thrasher ? 0 : 1).add(Attributes.STEP_HEIGHT, thrasher ? .6 : 1); }\n    @Override protected void registerGoals() {\n        targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, false, false));\n        goalSelector.addGoal(thrasher() ? 3 : 2, new MeleeAttackGoal(this, 1.2, false) { @Override protected boolean canPerformAttack(LivingEntity target) { return isTimeToAttack() && isWithinMeleeAttackRange(target); } });\n        goalSelector.addGoal(thrasher() ? 4 : 3, new RandomStrollGoal(this, 1));\n        targetSelector.addGoal(thrasher() ? 5 : 4, new HurtByTargetGoal(this));\n    }\n    @Override public boolean isWithinMeleeAttackRange(LivingEntity target) { return distanceToSqr(target) <= (thrasher() ? 36 : 121); }\n    @Override public boolean doHurtTarget(Entity target) { if (target instanceof LivingEntity living) beginAttack(living); return false; }\n    public void beginAttack(LivingEntity victim) {\n        if (!(level() instanceof ServerLevel server) || !isAlive() || cooldown > 0 || submittingAttack || victim == this || !victim.isAlive() || victim.level() != level()) return;\n        boolean first = random.nextDouble() < (thrasher() ? BeetleConfig.THRASHER_TRIPLE_CHANCE.get() : BeetleConfig.CRASHER_HEAVY_CHANCE.get());"
+          }
+        ]
+      }
+    },
+    {
+      "template": "vilebath_castle",
+      "path": "/entities/38/nbt/Attributes/0",
+      "entity_id": "thermal_shock:beetle_thrasher",
+      "original_ignored_base": 0.0,
+      "effective_default_step_float": 0.6000000238418579,
+      "original": {
+        "literal": "0.6",
+        "float_value": 0.6000000238418579,
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\BeetleThrasherEntity.java",
+        "sha256": "2a38015a260be6d758da4fcb98458f19b3297388264bb6ac1effccd4fd15943c"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\beetles\\BeetleCombatEntity.java",
+        "sha256": "adc0009430a77351086997e9b9a1f0f14d9518f05549819393e7a003cceea8d4",
+        "fragments": [
+          {
+            "line": 45,
+            "text": "    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, \"\"); builder.define(EMERGING, false); }\n    public static AttributeSupplier.Builder createAttributes(boolean thrasher) { return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, thrasher ? 45 : 82).add(Attributes.ARMOR, thrasher ? 8 : 10).add(Attributes.ATTACK_DAMAGE, thrasher ? 3 : 8).add(Attributes.MOVEMENT_SPEED, thrasher ? .2 : 0).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.KNOCKBACK_RESISTANCE, thrasher ? 0 : 1).add(Attributes.STEP_HEIGHT, thrasher ? .6 : 1); }\n    @Override protected void registerGoals() {\n        targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, false, false));\n        goalSelector.addGoal(thrasher() ? 3 : 2, new MeleeAttackGoal(this, 1.2, false) { @Override protected boolean canPerformAttack(LivingEntity target) { return isTimeToAttack() && isWithinMeleeAttackRange(target); } });\n        goalSelector.addGoal(thrasher() ? 4 : 3, new RandomStrollGoal(this, 1));\n        targetSelector.addGoal(thrasher() ? 5 : 4, new HurtByTargetGoal(this));\n    }\n    @Override public boolean isWithinMeleeAttackRange(LivingEntity target) { return distanceToSqr(target) <= (thrasher() ? 36 : 121); }\n    @Override public boolean doHurtTarget(Entity target) { if (target instanceof LivingEntity living) beginAttack(living); return false; }\n    public void beginAttack(LivingEntity victim) {\n        if (!(level() instanceof ServerLevel server) || !isAlive() || cooldown > 0 || submittingAttack || victim == this || !victim.isAlive() || victim.level() != level()) return;\n        boolean first = random.nextDouble() < (thrasher() ? BeetleConfig.THRASHER_TRIPLE_CHANCE.get() : BeetleConfig.CRASHER_HEAVY_CHANCE.get());"
+          }
+        ]
+      }
+    },
+    {
+      "template": "vilebath_castle",
+      "path": "/entities/39/nbt/Attributes/0",
+      "entity_id": "thermal_shock:beetle_thrasher",
+      "original_ignored_base": 0.0,
+      "effective_default_step_float": 0.6000000238418579,
+      "original": {
+        "literal": "0.6",
+        "float_value": 0.6000000238418579,
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\BeetleThrasherEntity.java",
+        "sha256": "2a38015a260be6d758da4fcb98458f19b3297388264bb6ac1effccd4fd15943c"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\beetles\\BeetleCombatEntity.java",
+        "sha256": "adc0009430a77351086997e9b9a1f0f14d9518f05549819393e7a003cceea8d4",
+        "fragments": [
+          {
+            "line": 45,
+            "text": "    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, \"\"); builder.define(EMERGING, false); }\n    public static AttributeSupplier.Builder createAttributes(boolean thrasher) { return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, thrasher ? 45 : 82).add(Attributes.ARMOR, thrasher ? 8 : 10).add(Attributes.ATTACK_DAMAGE, thrasher ? 3 : 8).add(Attributes.MOVEMENT_SPEED, thrasher ? .2 : 0).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.KNOCKBACK_RESISTANCE, thrasher ? 0 : 1).add(Attributes.STEP_HEIGHT, thrasher ? .6 : 1); }\n    @Override protected void registerGoals() {\n        targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, false, false));\n        goalSelector.addGoal(thrasher() ? 3 : 2, new MeleeAttackGoal(this, 1.2, false) { @Override protected boolean canPerformAttack(LivingEntity target) { return isTimeToAttack() && isWithinMeleeAttackRange(target); } });\n        goalSelector.addGoal(thrasher() ? 4 : 3, new RandomStrollGoal(this, 1));\n        targetSelector.addGoal(thrasher() ? 5 : 4, new HurtByTargetGoal(this));\n    }\n    @Override public boolean isWithinMeleeAttackRange(LivingEntity target) { return distanceToSqr(target) <= (thrasher() ? 36 : 121); }\n    @Override public boolean doHurtTarget(Entity target) { if (target instanceof LivingEntity living) beginAttack(living); return false; }\n    public void beginAttack(LivingEntity victim) {\n        if (!(level() instanceof ServerLevel server) || !isAlive() || cooldown > 0 || submittingAttack || victim == this || !victim.isAlive() || victim.level() != level()) return;\n        boolean first = random.nextDouble() < (thrasher() ? BeetleConfig.THRASHER_TRIPLE_CHANCE.get() : BeetleConfig.CRASHER_HEAVY_CHANCE.get());"
+          }
+        ]
+      }
+    },
+    {
+      "template": "vilebath_castle",
+      "path": "/entities/40/nbt/Attributes/0",
+      "entity_id": "thermal_shock:herald",
+      "original_ignored_base": 0.0,
+      "effective_default_step_float": 0.0,
+      "original": {
+        "literal": "0.0",
+        "float_value": 0.0,
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\HeraldEntity.java",
+        "sha256": "8363e191e3e6dd849f08487d6dde70b627af8578559cfbdb568f69f95e0d0e04"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\mangler\\HeraldEntity.java",
+        "sha256": "ef635f26f84e0669c36c8e6b460a80280309a54413ba56351e03950101216021",
+        "fragments": [
+          {
+            "line": 57,
+            "text": "    }\n    public static AttributeSupplier.Builder createAttributes() { return Mob.createMobAttributes().add(Attributes.MOVEMENT_SPEED, 0).add(Attributes.MAX_HEALTH, ManglerCombatConfig.HERALD_HEALTH.getDefault()).add(Attributes.ARMOR, ManglerCombatConfig.HERALD_ARMOR.getDefault()).add(Attributes.ATTACK_DAMAGE, 0).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.KNOCKBACK_RESISTANCE, ManglerCombatConfig.HERALD_RESISTANCE.getDefault()).add(Attributes.ATTACK_KNOCKBACK, ManglerCombatConfig.HERALD_KNOCKBACK.getDefault()).add(Attributes.STEP_HEIGHT, 0); }\n    @Override\n    protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, \"herald\"); }\n    public String texture() { return entityData.get(TEXTURE); }\n    public void setTexture(String value) { entityData.set(TEXTURE, value); }\n    public void setAnimation(String value) { triggerAnim(\"procedure\", value); }\n    @Override\n    protected void registerGoals() { goalSelector.addGoal(1, new RandomLookAroundGoal(this)); }\n    @Override\n    public boolean removeWhenFarAway(double distance) { return false; }\n    @Override\n    public boolean hurt(DamageSource source, float amount) {"
+          }
+        ]
+      }
+    },
+    {
+      "template": "vilebath_castle",
+      "path": "/entities/44/nbt/Attributes/0",
+      "entity_id": "thermal_shock:infestophage_seed",
+      "original_ignored_base": 0.0,
+      "effective_default_step_float": 0.6000000238418579,
+      "original": {
+        "literal": "0.6",
+        "float_value": 0.6000000238418579,
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\InfestophageSeedEntity.java",
+        "sha256": "1b2f62ba2e6b752e4529763f679cd30755c257e0d08eb1231286a3a4eb71493f"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\infestation\\InfestophageSeedEntity.java",
+        "sha256": "3381988c97ea3c2d51909a358e2133089174b3fd484a01e7c8f792cdcfeda7e3",
+        "fragments": [
+          {
+            "line": 34,
+            "text": "    public static AttributeSupplier.Builder createAttributes() {\n        return Mob.createMobAttributes().add(Attributes.MOVEMENT_SPEED, 0).add(Attributes.MAX_HEALTH, 2).add(Attributes.ARMOR, 0).add(Attributes.ATTACK_DAMAGE, 0).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.STEP_HEIGHT, 0.6);\n    }\n\n    @Override\n    protected void defineSynchedData(SynchedEntityData.Builder builder) {\n        super.defineSynchedData(builder);\n        builder.define(TEXTURE, \"texturespringy\");\n    }\n\n    public String texture() { return entityData.get(TEXTURE); }\n\n    public void setTexture(String texture) { entityData.set(TEXTURE, texture); }"
+          }
+        ]
+      }
+    }
+  ],
+  "source_constructor_step_files": [
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\BeetleThrasherEntity.java",
+      "sha256": "2a38015a260be6d758da4fcb98458f19b3297388264bb6ac1effccd4fd15943c"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\DormantBeetleCrasherEntity.java",
+      "sha256": "1c8861b85ff6ffdffc02028ea40c45859ce5ba5fd70cbd1a684a417501bd9f12"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\DormantMonolithEntity.java",
+      "sha256": "9eea5a41505f94d7bb40a15e42df48275ef3754e25f25670b029794f448c7d8d"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\FrostilyteCryomancerEntity.java",
+      "sha256": "1206cf55ae50683a57ced722b76fb7cb1b976d5b1b3f29a06571ea003249635b"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\FrostilyteEntity.java",
+      "sha256": "a1ce786ee0ae665a40814c4e03d59f5761d8ea46051fe652ee33d68afdba8403"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\FrostilyteGunnerEntity.java",
+      "sha256": "0d0a4006e6611d41daa0d21de857de25944fc8efd69eaa4660ff348153bbd6ac"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\FrostilyteSoldierEntity.java",
+      "sha256": "d4220e1e77400aae7266750740fbc53faabbfbf9726997c5c8475ad8791acd89"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\GuardianPylonEntity.java",
+      "sha256": "3868608387d878dfd746d979f5268fc5cc9412214dc716c2fe9e753f99794cb4"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\HeraldEntity.java",
+      "sha256": "8363e191e3e6dd849f08487d6dde70b627af8578559cfbdb568f69f95e0d0e04"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\IcidrozerkEntity.java",
+      "sha256": "1986c91c8d3fa0c6b53fb0132d998afbfc1a7ccbfa04dcf69ef53cafa0a0fcec"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\InfestophageSeedEntity.java",
+      "sha256": "1b2f62ba2e6b752e4529763f679cd30755c257e0d08eb1231286a3a4eb71493f"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\ProtoiSunbeamEntity.java",
+      "sha256": "93e8a071636e25388edffde6a041ee4e8e298f2d94362ee8189277b16a930b7c"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\SootleEntity.java",
+      "sha256": "f35632938b62caceed6a6c518a7ecdec53019b7d6ad84f546ec1b16bb7e5c469"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\SootlingEntity.java",
+      "sha256": "3f4b5089923041f758d3693f67b7805cefcd8849fab7ae92a6669e73e3db9c04"
+    }
+  ],
+  "source_namespace_to_target": {
+    "forge:step_height": "保未知旧ID，旧新AttributeMap同样忽略，不能赋予生效零步高",
+    "forge:step_height_addition": "已正确转换的原生STEP_HEIGHT保持，102项float生效结果对原件相等",
+    "forge:entity_gravity": "保持已正确minecraft:generic.gravity",
+    "forge:swim_speed": "保持四项已正确neoforge:swim_speed"
+  },
+  "duplicate_scope_findings": {
+    "same_attribute_duplicates": 0,
+    "cross_entity_or_template_shared_uuid_groups": 40,
+    "meaning": "重复UUID跨不同实体或不同模板各有独立AttributeInstance，按各自列表保留；原缓慢固定UUID共享正确，不全局去重。"
+  },
+  "limits": "静态源码和参数证明；没有运行游戏或真实服务端/渲染验收。"
+}

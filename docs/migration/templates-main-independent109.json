@@ -1,0 +1,36 @@
+{
+  "batch": 109,
+  "reviewer": "/root/remaining_inventory97",
+  "passed": true,
+  "baseline": "8d83cc6da750da0106060b7d63ba3698b070e771",
+  "checks": {
+    "templates": 12,
+    "nonpermitted_typed_differences_from_baseline": 0,
+    "entity_attribute_payloads": 28,
+    "source_uuid_amount_operation_matches": 30,
+    "source_setMaxUpStep_classes": 12,
+    "unknown_forge_step_height_preserved": 5,
+    "spawn_values_preserved_during_key_migration": 23,
+    "source_persistent_data_payloads_preserved": 8,
+    "persistent_key_changes_this_batch": 1,
+    "junkyard_rubicon_four_independent_modifiers_preserved": true,
+    "slagway_legacy_attribute_list_migrated": true,
+    "all_other_geometry_inventory_effect_and_entity_fields_preserved": true
+  },
+  "production_sha256": {
+    "src/main/resources/data/thermal_shock_reforged/structure/benzor_home.nbt": "a21240a911e21eb70ba86533cb527d2a5f06a9f5e561312a9ac68082f3d3dfc4",
+    "src/main/resources/data/thermal_shock_reforged/structure/cathedral.nbt": "f6f45aa7feb2630ddaae1a530cad519c0de7db1d027922c1af186ced0c8b2e43",
+    "src/main/resources/data/thermal_shock_reforged/structure/cathedral_base.nbt": "7ba73d596e7fac4a43e1167718daabab3690e21f77a10a661682a5fa08129f55",
+    "src/main/resources/data/thermal_shock_reforged/structure/junkyard.nbt": "c56fa1ac2398faad13b78d825b72c43dfc4990a15456152b9e7659732525213d",
+    "src/main/resources/data/thermal_shock_reforged/structure/junkyard_rubicon.nbt": "c423b34561f4b028ebe3f2c12d983ad1fbae4198254e4e32e51a16a79b60c8fe",
+    "src/main/resources/data/thermal_shock_reforged/structure/kiosk.nbt": "2e54c19614d95e724081ab70c448bb0a82f36549c6315f0af5d1f8ee76d66431",
+    "src/main/resources/data/thermal_shock_reforged/structure/machinist_lab.nbt": "44c7962927057580f420d52add18278ab108ccad1ee891f5f616b6dce0bbfadc",
+    "src/main/resources/data/thermal_shock_reforged/structure/monolith.nbt": "18ad2ecce74bdfa7d1d66e6b6aa5806daa02df9c44aa3d2062ca32d42d92357d",
+    "src/main/resources/data/thermal_shock_reforged/structure/nu_monoluth.nbt": "b68d2d769186ea3edd8ab5221cd79aaa71919d2a66544259fabb766e32489f1e",
+    "src/main/resources/data/thermal_shock_reforged/structure/slagway1.nbt": "21cfdbdfd88e69e97400a18de1cdd384a059f65a11463b2e2b0c3de0b972471b",
+    "src/main/resources/data/thermal_shock_reforged/structure/whisperden.nbt": "9fea987f5ff51b24f8099218526de3f42e32e3ab2efac8b83fe696f1c998a3b6",
+    "src/main/resources/data/thermal_shock_reforged/structure/whisperdenalt.nbt": "ec39eb929df7958119efb3f75a3f309b3d91c6dc6c23b2f53406bfed938d283c"
+  },
+  "hash_provenance": "Current file hashes read mechanically and checked against production manifest; reviewer reports independently matching 12/12.",
+  "limits": "Read-only typed comparison against original JAR and baseline. No game, runtime DFU or rendering tests."
+}

@@ -1,0 +1,196 @@
+{
+  "batch": 109,
+  "owner": "迁移A",
+  "status": "停笔供主线统一构建",
+  "baseline_head": "8d83cc6da750da0106060b7d63ba3698b070e771",
+  "head_at_delivery": "8d83cc6da750da0106060b7d63ba3698b070e771",
+  "original_jar_sha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436",
+  "production_count": 6,
+  "production_digest_sha256": "f3458155301468a135a10b75dcf6ab67d90c32bf653976a2e204c8673f0dec84",
+  "production_files": [
+    {
+      "template": "orb_sanctum",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/orb_sanctum.nbt",
+      "source_sha256": "9722583736cc9e64e598806a8c2a8f2dbd43326aea7de62a8a802f04ce882514",
+      "before_sha256": "1272cf9bb84755ef8b0edee350a07866819d07022138d01433021721c505b5ce",
+      "sha256": "60a90958d85ef55a2fac60acfb7f376329003b8d4b111292f1fa1a49c3572a5c",
+      "geometry_sha256": "6f79e8bf52449ae62dbeb231abc4419c517849a1e1e3e499843ba78535f266ea",
+      "blocks": 1513694,
+      "entities": 29,
+      "block_entities": 335,
+      "conversions": {
+        "random_attribute_lists": 29,
+        "original_random_modifiers_restored": 29,
+        "additional_modifier_records_restored": 0
+      }
+    },
+    {
+      "template": "blizzard_base",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/blizzard_base.nbt",
+      "source_sha256": "5c5f6e5aa443b209e816e78f8bf64320d2393402886e12967ac885b15003115d",
+      "before_sha256": "3014ae5d3bbd9a93e1d07d8159d30008bcb0ea2c4b62783f97549379c475a7aa",
+      "sha256": "3775e7b8bd1dae2718de0e0d877b689b728a81ecbdc3d9be006399879b679a29",
+      "geometry_sha256": "df7e9a81365320a49ad234d4f0e74adda13d52d0c23f1c6760a7102139ee50d2",
+      "blocks": 86258,
+      "entities": 21,
+      "block_entities": 21,
+      "conversions": {
+        "random_attribute_lists": 21,
+        "original_random_modifiers_restored": 21,
+        "additional_modifier_records_restored": 0
+      }
+    },
+    {
+      "template": "sunken_blizzard_lab",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/sunken_blizzard_lab.nbt",
+      "source_sha256": "c8f9f1029c04d88ace94580e65b4d3f6af0de5672cf7d13dba9e64caec3a75b5",
+      "before_sha256": "57b90bf3b7c45e1afd99effb218098252c1b653877629d2cdccf6eff71d2fd84",
+      "sha256": "5838c2dd0babfec42d0d7802fb8dc41c7aefe4ef12ba533a2579dfc0cd9a8a77",
+      "geometry_sha256": "387117c1e8f267fea41f005d3f5babdacb33ec107c3e89c7d093a7aa6c1d7224",
+      "blocks": 32174,
+      "entities": 13,
+      "block_entities": 32,
+      "conversions": {
+        "random_attribute_lists": 13,
+        "original_random_modifiers_restored": 13,
+        "additional_modifier_records_restored": 0
+      }
+    },
+    {
+      "template": "vilebath_castle",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/vilebath_castle.nbt",
+      "source_sha256": "49af1b26a8212141276173159d5cc615f722e41c99e69f871952987944f11f24",
+      "before_sha256": "e24cb07cfd18d570837ad1084ed7a2642ac13d2de940c6339682583301ad6ebe",
+      "sha256": "109e363899c576b757e2d489aab0169f8e1ad63fb30c385ca7f1df730d7e06fa",
+      "geometry_sha256": "1f84c6d45b9896156f95191a1bacf50a1edac2b7be179b0a7f169f32813439c8",
+      "blocks": 295539,
+      "entities": 45,
+      "block_entities": 76,
+      "conversions": {
+        "restore_unknown_step_height_id": 39,
+        "random_attribute_lists": 39,
+        "original_random_modifiers_restored": 39,
+        "additional_modifier_records_restored": 0,
+        "empty_persistent_data_renamed": 6
+      }
+    },
+    {
+      "template": "vilebathrubicon",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/vilebathrubicon.nbt",
+      "source_sha256": "35442c63fa1d1aaf4e46542eb5d9bb0009cd9ca5bb677f79f28f7f5b6c69ee8e",
+      "before_sha256": "a3165dd2debb90060b35ecc83835ff42274c537ce2351ee39ab6c568850dbb1a",
+      "sha256": "6b8eab852fc286069bbf2264da56567cec18150af4e10ad5c560ffbc490fdabe",
+      "geometry_sha256": "1f273a0303cce54f3bd72bfc211251e604f1e6a9ec8a88ff5db7970cafaf9bf5",
+      "blocks": 439872,
+      "entities": 45,
+      "block_entities": 76,
+      "conversions": {
+        "random_attribute_lists": 39,
+        "original_random_modifiers_restored": 78,
+        "additional_modifier_records_restored": 39,
+        "empty_persistent_data_renamed": 6
+      }
+    },
+    {
+      "template": "keystonerubicon",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/keystonerubicon.nbt",
+      "source_sha256": "0118ab8826792a74af1a223a60b5f465b1b4a32fca5b45429bc80622cef750e1",
+      "before_sha256": "e8ec11cf72640171cccd53921d1910398e3b2edce1ef60e7833fe38cf00865bf",
+      "sha256": "72b8d62d7d2f9a8a789c296094585d4a1fd838b0ebdc5e5b5a94a8537ba7d19c",
+      "geometry_sha256": "7fe1c1f40e7f353abcd88af9d9564cb46f5f5e2c4b1fdcf5256711a9749d2987",
+      "blocks": 81000,
+      "entities": 0,
+      "block_entities": 14,
+      "conversions": {
+        "empty_persistent_data_renamed": 1,
+        "data_version_updated": 1
+      }
+    }
+  ],
+  "validation_checks": 13027,
+  "typed_diff_entries": 207,
+  "payload_proofs": 707,
+  "documents": [
+    {
+      "path": "docs/migration/templates-a-batch109.md",
+      "sha256": "aea791a900333d4ee5ac56268ac03fba18a769609eab1f54615cbf2b4696e1ab",
+      "bytes": 6766
+    },
+    {
+      "path": "docs/migration/templates-a-current-diff109.json",
+      "sha256": "b63d925d142543618c7b27fd0e992dc6b3b96c5d8101aed28581f5e15294299c",
+      "bytes": 1272863
+    },
+    {
+      "path": "docs/migration/templates-a-integration109.json",
+      "sha256": "2d2434490f0b1e86d2d9b4b1d82a1d50c84c2b8ad025f974e73629b32c3b631f",
+      "bytes": 3532
+    },
+    {
+      "path": "docs/migration/templates-a-inventory109.json",
+      "sha256": "15725d2362b27c7e84d686ca7e056f6e8250a1aed0a9892da1d2dc740edce6cc",
+      "bytes": 1029137
+    },
+    {
+      "path": "docs/migration/templates-a-production109.json",
+      "sha256": "05f245eefef69e36e3b3e5a4fbd1b0683214d4da88d1e55bc66f5e985ac27b27",
+      "bytes": 4763
+    },
+    {
+      "path": "docs/migration/templates-a-sources109.json",
+      "sha256": "b1c2004384037243c126df9092e128470e6c55ee0a38cb466d10899a22dc7ac2",
+      "bytes": 133997
+    },
+    {
+      "path": "docs/migration/templates-a-typed-diff109.json",
+      "sha256": "b32f380a2af52556041862f24a157ad7429e16ac29b230307b9db3fca592ccf3",
+      "bytes": 181577
+    },
+    {
+      "path": "docs/migration/templates-a-validation109.json",
+      "sha256": "d6a5d10d8898da5052ddee8bdf8200020796bd7ff1481049bcef5f44bf01b0d8",
+      "bytes": 2211018
+    }
+  ],
+  "scripts": [
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\inspect-templates109a.py",
+      "sha256": "d73cb9926d9baa29a6ad82ee166509af79b3dc4c1261b7829f89b8f65614e5a9"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\produce-templates109a.py",
+      "sha256": "0dcc8b0a953a463f0264116001b1a7c7db057c0daffbd8e59764b3dd61480e88"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\validate-templates109a.py",
+      "sha256": "4a4b131ef546e69cdf22ff427e1dbb4f76bd06caa8c163c98ca82c44c21b8f73"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\finalize-templates109a.py",
+      "sha256": "eb0f7ce6246126989783283b054f543c46deca220cf17848d4bbcbe0ce698abc"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\structure_stream106.py",
+      "sha256": "ca6c9c181e06f2899f4c406083188f037dbe2b924db20439da5d50cbd931de6b"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\migrate_vilebath_nbt.py",
+      "sha256": "5d179d84b9760c8336ce421e54225600985b8e3607568e7dfe34e41261ddf52e"
+    }
+  ],
+  "no_simplification_review": {
+    "all_original_geometry_order_states_positions_preserved": true,
+    "all_707_payloads_independent_expected_equal": true,
+    "all_180_random_modifier_identities_and_values_restored": true,
+    "original_32_slowness_identities_preserved": true,
+    "source_32_effects_and_cures_preserved": true,
+    "correct_existing_13_components_preserved": true,
+    "no_fake_extra_duplicate_modifiers": true,
+    "all_current_changes_exactly_207_typed_entries": true,
+    "no_java_or_worldgen_changes": true
+  },
+  "limits": [
+    "等待两路停笔后由root固定src/main统一compileJava/processResources；本线未单独运行。",
+    "未游戏、未联系服务端测试。完整迁移和无简化复审后主线安排客户端及Render Preview子代理。"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "batch": 109,
+  "snapshot_head": "8d83cc6da750da0106060b7d63ba3698b070e771",
+  "reviewer": "/root/coverage104_inventory",
+  "scope": "Read-only search of 17 residual item IDs through literal registrations, helper factories, derived enums and creative display manifest. Registration evidence only, not a behavior-completeness audit.",
+  "candidate_count": 17,
+  "confirmed_renamed_registration": {
+    "zenith_crossbow": {
+      "target_id": "magnetic_crossbow",
+      "evidence": "src/main/java/com/hp/thermalshockreforged/content/weapons/WeaponContent.java:45",
+      "limit": "Existing followup107 records original shared magnetic-crossbow behavior; remaining parameters and ID policy still need complete migration review. Do not create a duplicate weapon solely from this registration inventory."
+    }
+  },
+  "same_id_registration_not_found": [
+    "chorusian_antennae_helmet",
+    "claw_sickle",
+    "dev_deletor",
+    "dev_rotator",
+    "flower_bomb",
+    "hpsm",
+    "ice_bomb",
+    "ignition_detector",
+    "jelly_umbrella",
+    "legendary_jelly_umbrella",
+    "micro_dome",
+    "model_train",
+    "net_launcher",
+    "piston_gauntlet",
+    "sprintweed_soda",
+    "the_judge"
+  ],
+  "misleading_existing_references": {
+    "claw_sickle": [
+      "SickleHarvesting.java:21 string ID branch",
+      "GrowthHarvest.java:21 string ID branch"
+    ],
+    "ignition_detector": "ModSounds.java:95 ignition_detector_click is a sound event, not an Item registration.",
+    "sprintweed_soda": "TallPlantContent.java:39,42 only registers sprintweed and its BlockItem; it does not generate a soda ID.",
+    "creative_entries": "CreativeTabsContent.java:25-29,57-65 resolves display manifest IDs against existing BuiltInRegistries and skips missing registrations with a warning. Display entries do not create items."
+  },
+  "helper_evidence": [
+    "MaterialContent.java:513-520 block()/item() perform actual DeferredRegister calls.",
+    "ThermalShockReforged.java:194-200 wires WeaponContent, ArmorContent, sounds and creative tabs."
+  ],
+  "count_correction": "Reviewer corrected an initial verbal count of 15 to 16 unconfirmed same-ID registrations; 16 + 1 renamed = 17.",
+  "limits": "No production edit, gameplay audit, build or game execution. These residual items remain migration work; no feature-completion percentage inferred."
+}
