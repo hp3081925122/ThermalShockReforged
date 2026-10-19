@@ -1,0 +1,89 @@
+{
+  "batch": 112,
+  "reviewer": "/root/remaining_inventory97",
+  "result": "PASS",
+  "scope": "Static original-to-target mechanical audit; no compilation or game verification",
+  "production_hashes": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/MagneticCrossbowItem.java",
+      "expected": "6933f6a057c5b31403dbd570c87faf2d9920edf534a3f05b0af5d32341b50633",
+      "actual": "6933f6a057c5b31403dbd570c87faf2d9920edf534a3f05b0af5d32341b50633"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/WeaponContent.java",
+      "expected": "282fe23988271428636fbf4a6a59cd322a44cddcda64c74d8f9414b6c3980a7a",
+      "actual": "282fe23988271428636fbf4a6a59cd322a44cddcda64c74d8f9414b6c3980a7a"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/weapons/MagneticCrossbowClient.java",
+      "expected": "51905d57a1372062c0356d9d0bfe5d6ec39f4c9d8c38685cb6d5f505a7c1f52d",
+      "actual": "51905d57a1372062c0356d9d0bfe5d6ec39f4c9d8c38685cb6d5f505a7c1f52d"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/tags/block/sustain_fire.json",
+      "expected": "814e93ff35149b75345e643291ec400bfde416c92702af4e26bd879d43db7002",
+      "actual": "814e93ff35149b75345e643291ec400bfde416c92702af4e26bd879d43db7002"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/tags/entity_type/therm_projectile.json",
+      "expected": "bcf2abaf9a6ecd53d0c20d8671cb7318cd561c722e8934077791de6f292811c3",
+      "actual": "bcf2abaf9a6ecd53d0c20d8671cb7318cd561c722e8934077791de6f292811c3"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/tags/entity_type/infectionimmune.json",
+      "expected": "1b3b9725239b25faa6f8d02e472b5a22c264215452337f8640d33c39d9e29462",
+      "actual": "1b3b9725239b25faa6f8d02e472b5a22c264215452337f8640d33c39d9e29462"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/tags/entity_type/sprintweed_blacklist.json",
+      "expected": "65bd9cd242297f526f32c25f510c981a872fe65ab289749073c3021ddf28dc35",
+      "actual": "65bd9cd242297f526f32c25f510c981a872fe65ab289749073c3021ddf28dc35"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/tags/item/key.json",
+      "expected": "80779c1681ef3bfa9d216acd8e2a7efa8de7501397b6ae8210aa8a0e40d9e458",
+      "actual": "80779c1681ef3bfa9d216acd8e2a7efa8de7501397b6ae8210aa8a0e40d9e458"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/tags/item/milk.json",
+      "expected": "41db76d2e28f5710305a66975c98e4180c6b3355eadc782249740da5b73c6bc9",
+      "actual": "41db76d2e28f5710305a66975c98e4180c6b3355eadc782249740da5b73c6bc9"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/tags/item/tombstones.json",
+      "expected": "0c615d27d6e7932dab70603593b0d4b2098f06e605c17c7e8549a677ec84ef94",
+      "actual": "0c615d27d6e7932dab70603593b0d4b2098f06e605c17c7e8549a677ec84ef94"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/tags/item/weapon.json",
+      "expected": "a18c76b1dab79acc909959f2a6a814dfb9d032b342a2efad954f8367cbe57892",
+      "actual": "a18c76b1dab79acc909959f2a6a814dfb9d032b342a2efad954f8367cbe57892"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/tags/item/nomelee.json",
+      "expected": "83d2c0dc1f8be95e680b2cb68753e423ba1b6aaec0833fd669f58e7cc1446cf1",
+      "actual": "83d2c0dc1f8be95e680b2cb68753e423ba1b6aaec0833fd669f58e7cc1446cf1"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/zenith_magnetic_crossbow_recipe.json",
+      "expected": "318d297199014f860ca629831c22c8a0c4a0fbb96c5a0e6d001e33c80514df3a",
+      "actual": "318d297199014f860ca629831c22c8a0c4a0fbb96c5a0e6d001e33c80514df3a"
+    },
+    {
+      "path": "src/main/resources/data/minecraft/tags/item/enchantable/durability.json",
+      "expected": "24907136d97bd5137ff40482ff559494e030577090dba9650e50100bbe0d2ba2",
+      "actual": "24907136d97bd5137ff40482ff559494e030577090dba9650e50100bbe0d2ba2"
+    }
+  ],
+  "independent_findings": [
+    "Magnetic and Zenith are separate registered items; true construction selects Zenith texture; both retain 800 durability, fire resistance, UNCOMMON and enchant value 5.",
+    "Shoot preserves one projectile, look vector x2, 40-tick per-item cooldown, one round except creative, no durability consumption, Slowness 15/2 and Recoil Speed 2/0.",
+    "Cycle sounds retain 5/10/15 END ticks and volumes/pitches .3/-1, .2/1, .1/2.",
+    "Both item instances participate in pruneAnimations and clearAnimations; idle clip0 and procedure clip1 retained.",
+    "Six English tooltips match decoded source exactly; all baseline locale entries remain unchanged.",
+    "Nine tags match source after namespace conversion, ordered values and replace=false retained; weapon 47 and nomelee 10.",
+    "Durability tag preserves baseline and adds only Zenith; smithing matches namespace/result conversion plus user-authorized template/base exchange.",
+    "Seven existing assets match original: five namespace-only JSON and two identical PNG; actual model parent is displaysettings/anton_hammar."
+  ],
+  "runtime_verified": false
+}

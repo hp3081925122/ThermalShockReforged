@@ -1,0 +1,158 @@
+{
+  "batch": 112,
+  "base_head": "12972090e286a245a7521ec06e6e479dfec23c53",
+  "production": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/MagneticCrossbowItem.java",
+      "sha256": "6933f6a057c5b31403dbd570c87faf2d9920edf534a3f05b0af5d32341b50633"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/WeaponContent.java",
+      "sha256": "282fe23988271428636fbf4a6a59cd322a44cddcda64c74d8f9414b6c3980a7a"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/weapons/MagneticCrossbowClient.java",
+      "sha256": "51905d57a1372062c0356d9d0bfe5d6ec39f4c9d8c38685cb6d5f505a7c1f52d"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/tags/block/sustain_fire.json",
+      "sha256": "814e93ff35149b75345e643291ec400bfde416c92702af4e26bd879d43db7002"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/tags/entity_type/therm_projectile.json",
+      "sha256": "bcf2abaf9a6ecd53d0c20d8671cb7318cd561c722e8934077791de6f292811c3"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/tags/entity_type/infectionimmune.json",
+      "sha256": "1b3b9725239b25faa6f8d02e472b5a22c264215452337f8640d33c39d9e29462"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/tags/entity_type/sprintweed_blacklist.json",
+      "sha256": "65bd9cd242297f526f32c25f510c981a872fe65ab289749073c3021ddf28dc35"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/tags/item/key.json",
+      "sha256": "80779c1681ef3bfa9d216acd8e2a7efa8de7501397b6ae8210aa8a0e40d9e458"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/tags/item/milk.json",
+      "sha256": "41db76d2e28f5710305a66975c98e4180c6b3355eadc782249740da5b73c6bc9"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/tags/item/tombstones.json",
+      "sha256": "0c615d27d6e7932dab70603593b0d4b2098f06e605c17c7e8549a677ec84ef94"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/tags/item/weapon.json",
+      "sha256": "a18c76b1dab79acc909959f2a6a814dfb9d032b342a2efad954f8367cbe57892"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/tags/item/nomelee.json",
+      "sha256": "83d2c0dc1f8be95e680b2cb68753e423ba1b6aaec0833fd669f58e7cc1446cf1"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/zenith_magnetic_crossbow_recipe.json",
+      "sha256": "318d297199014f860ca629831c22c8a0c4a0fbb96c5a0e6d001e33c80514df3a"
+    },
+    {
+      "path": "src/main/resources/data/minecraft/tags/item/enchantable/durability.json",
+      "sha256": "24907136d97bd5137ff40482ff559494e030577090dba9650e50100bbe0d2ba2"
+    }
+  ],
+  "lane_production_stopped": true,
+  "shared_integration_pending": [
+    "Both locales after A delta",
+    "A precise shared award/event bridges"
+  ],
+  "source_evidence": [
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModItems.java",
+      "sha256": "f3f473d4f3002b5de54f4fad2b2b09df076686ba3c0f1772c19452bd7dd861df"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\MagneticCrossbowItem.java",
+      "sha256": "a8d8ce8e9a413893803852e7a0b1c1622098579df09697f7396c50e70bdc68eb"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\ZenithCrossbowItem.java",
+      "sha256": "2db500f4dae59b2a41d6bfbc6ac5da2695ef75f1623289ff2e7a6558fd47985f"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\model\\ZenithCrossbowItemModel.java",
+      "sha256": "f9bbe0b339bd12d8ab0ce235155ac4186ca2bc867d9fbc9ac4d42117767708b6"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\renderer\\ZenithCrossbowItemRenderer.java",
+      "sha256": "f69c03268d478217d7c7d77afb035930f5ac23091ce1c7b4a96727291336d6a6"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\MagneticCrossbowRightclickedProcedure.java",
+      "sha256": "18be79ceabc79da1603f0ff8c0432c6fdeaedd8ad28ee95ec013385969e5b15f"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\MagneticCrossbowItemInHandTickProcedure.java",
+      "sha256": "b0fe6c6d1b1a7ed516bb0ddff73969016f4031cec4613d0271802a20264212b2"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\RecoilEffectProcedure.java",
+      "sha256": "16145aa61bb87ee8fdb3231db37d2306ccd5dd03c48dda5cb9fb56a1f7db0c00"
+    }
+  ],
+  "assets_existing_unchanged": [
+    {
+      "source": "assets/thermal_shock/models/item/magnetic_crossbow.json",
+      "source_sha256": "2ea0b9d203509d63723c0546b5772d0ec4e3957666c2363d5912263993c42346",
+      "target": "src/main/resources/assets/thermal_shock_reforged/models/item/magnetic_crossbow.json",
+      "target_sha256": "59c5811180b72b1babcf916a5b009e96790151adf6d348017538731ecc2922ba",
+      "comparison": "JSON namespace only"
+    },
+    {
+      "source": "assets/thermal_shock/models/item/zenith_crossbow.json",
+      "source_sha256": "1c85e35afcd4d8d785df95c2dca02575c8f06fc17603a0762c3f1372d2882886",
+      "target": "src/main/resources/assets/thermal_shock_reforged/models/item/zenith_crossbow.json",
+      "target_sha256": "9229b7f5b7f8afa930d9732759357d30aea5b30bca205e8ab050d399ff6e9287",
+      "comparison": "JSON namespace only"
+    },
+    {
+      "source": "assets/thermal_shock/models/displaysettings/anton_hammar.json",
+      "source_sha256": "e9ce6f683c8b655d4ee4d43dff40bfeb2d5e80895e77c86fb79b0c8ae0649a88",
+      "target": "src/main/resources/assets/thermal_shock_reforged/models/displaysettings/anton_hammar.json",
+      "target_sha256": "6121209c0749cc9dafdec95fd0df43d9b6d5ad263aade3bdf4fefce8dccc4d89",
+      "comparison": "JSON namespace only"
+    },
+    {
+      "source": "assets/thermal_shock/geo/magnetic_crossbow.geo.json",
+      "source_sha256": "3ce797c778abee43bcce35f7770c8bf4f526ebd93296c6455d1a7fb098d00e0e",
+      "target": "src/main/resources/assets/thermal_shock_reforged/geo/magnetic_crossbow.geo.json",
+      "target_sha256": "3ce797c778abee43bcce35f7770c8bf4f526ebd93296c6455d1a7fb098d00e0e",
+      "comparison": "JSON namespace only"
+    },
+    {
+      "source": "assets/thermal_shock/animations/magnetic_crossbow.animation.json",
+      "source_sha256": "e3313d53407fb233657b0407fb7912b8b5a08f3e747a452ae3db671c3ecde625",
+      "target": "src/main/resources/assets/thermal_shock_reforged/animations/magnetic_crossbow.animation.json",
+      "target_sha256": "e3313d53407fb233657b0407fb7912b8b5a08f3e747a452ae3db671c3ecde625",
+      "comparison": "JSON namespace only"
+    },
+    {
+      "source": "assets/thermal_shock/textures/item/magnetic_crossbow.png",
+      "source_sha256": "8d02d87ae77e52a9e4ca7c35508cd2a527ece0fd19f547dcff5de11d7b220cc8",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/magnetic_crossbow.png",
+      "target_sha256": "8d02d87ae77e52a9e4ca7c35508cd2a527ece0fd19f547dcff5de11d7b220cc8",
+      "comparison": "byte equal"
+    },
+    {
+      "source": "assets/thermal_shock/textures/item/zenith_crossbow.png",
+      "source_sha256": "7cc3f640afae20d490ec0cd151c28bab58eba404cf54630579e605ab5d5ad053",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/zenith_crossbow.png",
+      "target_sha256": "7cc3f640afae20d490ec0cd151c28bab58eba404cf54630579e605ab5d5ad053",
+      "comparison": "byte equal"
+    }
+  ],
+  "animation_clips": [
+    "0",
+    "1"
+  ],
+  "native_tag_source_evidence": "zenith-main-data112.json",
+  "runtime_tests": false
+}

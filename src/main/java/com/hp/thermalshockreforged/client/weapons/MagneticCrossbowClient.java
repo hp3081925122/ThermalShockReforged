@@ -33,7 +33,7 @@ final class MagneticCrossbowClient {
                 if (player.getUseItem() == stack) pose.translate(.05, .05, .05);
                 return true;
             }
-        }, WeaponContent.MAGNETIC_CROSSBOW.get());
+        }, WeaponContent.MAGNETIC_CROSSBOW.get(), WeaponContent.ZENITH_CROSSBOW.get());
     }
     private static ResourceLocation resource(String path) { return ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
     private static final class Renderer extends GeoItemRenderer<MagneticCrossbowItem> {
@@ -42,7 +42,7 @@ final class MagneticCrossbowClient {
     }
     private static final class Model extends GeoModel<MagneticCrossbowItem> {
         @Override public ResourceLocation getModelResource(MagneticCrossbowItem item) { return resource("geo/magnetic_crossbow.geo.json"); }
-        @Override public ResourceLocation getTextureResource(MagneticCrossbowItem item) { return resource("textures/item/magnetic_crossbow.png"); }
+        @Override public ResourceLocation getTextureResource(MagneticCrossbowItem item) { return resource("textures/item/" + item.textureName() + ".png"); }
         @Override public ResourceLocation getAnimationResource(MagneticCrossbowItem item) { return resource("animations/magnetic_crossbow.animation.json"); }
     }
 }

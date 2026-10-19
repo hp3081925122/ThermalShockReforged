@@ -32,7 +32,14 @@ import software.bernie.geckolib.animation.RawAnimation;
 
 public final class MagneticCrossbowItem extends Item implements GeoItem {
     private final BoundedItemAnimationCache animations = new BoundedItemAnimationCache(this);
-    public MagneticCrossbowItem() { super(new Properties().durability(800).fireResistant().rarity(Rarity.UNCOMMON)); GeoItem.registerSyncedAnimatable(this); }
+    private final boolean zenith;
+    public MagneticCrossbowItem() { this(false); }
+    public MagneticCrossbowItem(boolean zenith) {
+        super(new Properties().durability(800).fireResistant().rarity(Rarity.UNCOMMON));
+        this.zenith = zenith;
+        GeoItem.registerSyncedAnimatable(this);
+    }
+    public String textureName() { return zenith ? "zenith_crossbow" : "magnetic_crossbow"; }
     @Override public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) { return false; }
     @Override public int getEnchantmentValue() { return 5; }
     @Override public boolean onEntitySwing(ItemStack stack, LivingEntity wielder, InteractionHand hand) {
@@ -68,9 +75,7 @@ public final class MagneticCrossbowItem extends Item implements GeoItem {
     }
     @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) {
         super.appendHoverText(stack, context, lines, flag);
-        lines.add(Component.literal("§a- Sneak to Zoom"));
-        lines.add(Component.literal("§9- Slow Speed"));
-        lines.add(Component.literal("§9- Fires §eSpecialized Rounds"));
+        for (int line = 0; line < 3; line++) lines.add(Component.translatable(getDescriptionId() + ".description_" + line));
     }
     public void pruneAnimations() { animations.prune(); }
     public void clearAnimations() { animations.clear(); }

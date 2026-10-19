@@ -1,0 +1,39 @@
+{
+  "display": {
+    "icon": {
+      "id": "thermal_shock_reforged:climbing_pick"
+    },
+    "title": {
+      "translate": "advancements.climbing_pick_get.title"
+    },
+    "description": {
+      "translate": "advancements.climbing_pick_get.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "climbing_pick_get_0": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "thermal_shock_reforged:climbing_pick"
+            ],
+            "count": {
+              "min": 1,
+              "max": 1
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 10
+  },
+  "parent": "thermal_shock_reforged:fabricator_get"
+}

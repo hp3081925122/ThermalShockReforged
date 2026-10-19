@@ -1,0 +1,2007 @@
+{
+  "batch": 112,
+  "kind": "源码、注册、反向caller和Codec证据；未执行玩家行为或启动游戏。",
+  "originalSources": [
+    {
+      "readable": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\BreatherSpongeBlock.java",
+      "readableSha256": "464bfaa9e803c902198d29f0d0174450e24c0711a8c70e800317b779b635c75c",
+      "jarClass": "net/mcreator/thermal_shock/block/BreatherSpongeBlock.class",
+      "jarClassSha256": "54a187422e9ccd1260e3134fc0ae996c1bd7e102e80db2494ca9505ff2d38c8c"
+    },
+    {
+      "readable": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\BreatherSpongeOnBlockRightClickedProcedure.java",
+      "readableSha256": "5ea5f9357eea677b7b7322467aa573918090f74344b31f8ef022ca0203160090",
+      "jarClass": "net/mcreator/thermal_shock/procedures/BreatherSpongeOnBlockRightClickedProcedure.class",
+      "jarClassSha256": "9987bd7e85aa7deff5218289e36b91a63c3507aa326f2c01298265cac1440f68"
+    },
+    {
+      "readable": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\ZenithTickProcedure.java",
+      "readableSha256": "ff3c1889559c8f674ce24942b208c55654d3550a34046540eb3c137897ac95e8",
+      "jarClass": "net/mcreator/thermal_shock/procedures/ZenithTickProcedure.class",
+      "jarClassSha256": "2e7e2b2f4ecb5d95e0cda2b726c14048242648236f1e72de186800fb0c935b5c"
+    },
+    {
+      "readable": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\CarborundumArmorEffectProcedure.java",
+      "readableSha256": "8068937306acdccb4b91eb43152d5c2f50b878ce899f0019dc943ba13288a764",
+      "jarClass": "net/mcreator/thermal_shock/procedures/CarborundumArmorEffectProcedure.class",
+      "jarClassSha256": "a14404e04b313845d07e8bc418cd699667cf401b3bdf542859b6e43f42971551"
+    },
+    {
+      "readable": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\RubyArmorEffectProcedure.java",
+      "readableSha256": "0f5a164aa8bd4631ce781376409d5a95bd29ecda8c604a115e39e82e25b9c609",
+      "jarClass": "net/mcreator/thermal_shock/procedures/RubyArmorEffectProcedure.class",
+      "jarClassSha256": "9586a136fb8d506a3453e9e04c66ded609ca72cd42e371e236de6c34deca3d1e"
+    },
+    {
+      "readable": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\BloodArmorEffectProcedure.java",
+      "readableSha256": "cf02cf3e385c1cb851900c8ad95e48c2592c63f0d1861f53102d33f781639ef3",
+      "jarClass": "net/mcreator/thermal_shock/procedures/BloodArmorEffectProcedure.class",
+      "jarClassSha256": "d2d36cdf52c0150917953ab03f0640bf0448e2c5e6ed6fe0facf1e7780af3b0b"
+    },
+    {
+      "readable": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\SkorioSeedOnBlockRightClickedProcedure.java",
+      "readableSha256": "256901aa71215b2eda0a11a53cbc7c457ea20efbdfcfdf7ba4a9c14c207d54f2",
+      "jarClass": "net/mcreator/thermal_shock/procedures/SkorioSeedOnBlockRightClickedProcedure.class",
+      "jarClassSha256": "1b012ce26bafbcdeaab6202066c0b732126172048c7631701544fe8efda10c9a"
+    },
+    {
+      "readable": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\AncientBarbubbleSeedBlock.java",
+      "readableSha256": "4ffeb3476ac4da669617330a793c3436a1a08b937aa0343752b3805934680728",
+      "jarClass": "net/mcreator/thermal_shock/block/AncientBarbubbleSeedBlock.class",
+      "jarClassSha256": "b4571ea8dc7f135a09e9c5c89f851c6a6c5d6f0f22c53f24085dc885ae54cb91"
+    },
+    {
+      "readable": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\AncientSkorioSeedBlock.java",
+      "readableSha256": "c310e5e6bbc58fc262b60ca047cdd6a5f14b18447066211447389e3d7835b106",
+      "jarClass": "net/mcreator/thermal_shock/block/AncientSkorioSeedBlock.class",
+      "jarClassSha256": "64738369bd56be5a83bdefab072808e847411f5d0984024ff0d585d765d01f07"
+    },
+    {
+      "readable": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\BarbubbleSeedBlock.java",
+      "readableSha256": "c836a2c1d958cb984eaab8adf270b0b658146ccbe91a5756c3bb80c7637ec748",
+      "jarClass": "net/mcreator/thermal_shock/block/BarbubbleSeedBlock.class",
+      "jarClassSha256": "3d1645dfe341d8aa54672dccad575b2b7ed55758ebba24ea9a48eebb5f07699f"
+    },
+    {
+      "readable": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\DewleafSeedBlock.java",
+      "readableSha256": "1f7bb2ebb30377349d9050b0a85bb4192e5fb7dbd2b5ec36d866fb28825212e5",
+      "jarClass": "net/mcreator/thermal_shock/block/DewleafSeedBlock.class",
+      "jarClassSha256": "dedbc436d1f52486fe3fff3fb3800700a31e74a1fe5187605230e1eff37bb0bc"
+    },
+    {
+      "readable": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\FrostLotusSeedBlock.java",
+      "readableSha256": "b79c86f2fbf8419063ffba17219d3383025369bf4416d830aeb494628d181e96",
+      "jarClass": "net/mcreator/thermal_shock/block/FrostLotusSeedBlock.class",
+      "jarClassSha256": "4e31d99ec792d0cf6d1780fdc0837da0c3c585a2cabd5c152ec81491e16e2ec2"
+    },
+    {
+      "readable": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\GelBulbSeedBlock.java",
+      "readableSha256": "db1a79533a9c86daa5ebaa7e13848d1584e30ff41e333024c337d247780cbe14",
+      "jarClass": "net/mcreator/thermal_shock/block/GelBulbSeedBlock.class",
+      "jarClassSha256": "d2d3ab815bfffbeddd8baf466ce8bf0e451c22597d84ce372f655492c2670549"
+    },
+    {
+      "readable": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\HearthflyBranchSeedBlock.java",
+      "readableSha256": "05e7ea36f7975e5564d74b3735773602412d13829c31330fc5dbf9bc257ee3f1",
+      "jarClass": "net/mcreator/thermal_shock/block/HearthflyBranchSeedBlock.class",
+      "jarClassSha256": "bef9f80031610879c40c3357882a1b8a08475a2d3a9cce46c58ef0c5fc52158f"
+    },
+    {
+      "readable": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\NeoflormSeedBlock.java",
+      "readableSha256": "3584baf890ab15d99853ed2bf25237e9ae539e8f18c433365b33820df7d21f71",
+      "jarClass": "net/mcreator/thermal_shock/block/NeoflormSeedBlock.class",
+      "jarClassSha256": "4d2da701f08d3aa3d4a81a0a76ec253a9f1a6562b9ff7d7a46170a2f0a0ff3b3"
+    },
+    {
+      "readable": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\SkorioSeedBlock.java",
+      "readableSha256": "21e0361200085c83c5fbc7d65b92af5053d98b60ae2504804f57d5039558fa75",
+      "jarClass": "net/mcreator/thermal_shock/block/SkorioSeedBlock.class",
+      "jarClassSha256": "29d752c7ea8c8d4369cf29077c8885975adc559af9cceab6a898dac25176c105"
+    },
+    {
+      "readable": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\SparklerSeedBlock.java",
+      "readableSha256": "60c992e7ae45381f01b8340c9969c94237d4b432ca0357f8904a0d56edafa477",
+      "jarClass": "net/mcreator/thermal_shock/block/SparklerSeedBlock.class",
+      "jarClassSha256": "d37a9626e81a83c95cb8871abc48aa954cace0a9857a50f47ba9f77300198a3e"
+    },
+    {
+      "readable": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\VisiBulbSeedBlock.java",
+      "readableSha256": "4c63a1e13a77fe0597880c84a8bf224c948c81856663332275c9aefafd4893b7",
+      "jarClass": "net/mcreator/thermal_shock/block/VisiBulbSeedBlock.class",
+      "jarClassSha256": "7cc3c4d1d73b8356645d55eead4521f50e94d035641c35d2a38228d1a7523597"
+    },
+    {
+      "readable": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\VolatineSeedBlock.java",
+      "readableSha256": "610ef7ba5beef0c3c78cac7b76c6b03ad19d596e09777ea2f58008d4721ee384",
+      "jarClass": "net/mcreator/thermal_shock/block/VolatineSeedBlock.class",
+      "jarClassSha256": "171b5b95b78197e0a0a15e4317d6c15ba14880066f50293fd031a4c42a5b9c1d"
+    },
+    {
+      "readable": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\CauldronOfTrilobiteBlock.java",
+      "readableSha256": "c87f14b0407371dfa6a1f8e2c72428ecb4ddd666aaea55aee94a65879c86533b",
+      "jarClass": "net/mcreator/thermal_shock/block/CauldronOfTrilobiteBlock.class",
+      "jarClassSha256": "234d9d0fcbd664aa936360f3240bc92a650097c8b50203c963f7d70cfe05c080"
+    },
+    {
+      "readable": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\TriloCauldronClickProcedure.java",
+      "readableSha256": "ad6f45785af4c89f35b9a23bd1fb0efe2645323230b8f813dc594824fe100d72",
+      "jarClass": "net/mcreator/thermal_shock/procedures/TriloCauldronClickProcedure.class",
+      "jarClassSha256": "1c04d1f161155fc2230f743a72228f47da8a32aeeb730d04ae257b4f164b1fae"
+    },
+    {
+      "readable": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\GardenlingConstructorBlock.java",
+      "readableSha256": "d01ecb0bce9e74f6661b1fefbdb614cb3a57083c66bd4b884d15e4266ce5f68e",
+      "jarClass": "net/mcreator/thermal_shock/block/GardenlingConstructorBlock.class",
+      "jarClassSha256": "759d8b6b114340bd5ce01a69aa3fe9c6d351b7cc0172c8f9943e45058ca1512e"
+    },
+    {
+      "readable": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\GardenlingConstructorBlockAddedProcedure.java",
+      "readableSha256": "9ed3a4a9ea0e454966aa92d30f3d4fd27497074ba79f50209f1b4c857aa8dafb",
+      "jarClass": "net/mcreator/thermal_shock/procedures/GardenlingConstructorBlockAddedProcedure.class",
+      "jarClassSha256": "4605822fb00c7ce1d4ec1049b8e46637d66315cf2c66bd498c34083ebb012c82"
+    }
+  ],
+  "apiEvidence": [
+    {
+      "path": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar!/net/minecraftforge/common/ForgeHooks.java",
+      "sha256": "5d2d8ef8e8a9f2f6c37c0933ea2f09bed21e119d681239c1b4021ddee3f75dee",
+      "lines": [
+        {
+          "line": 568,
+          "text": "    public static InteractionResult onPlaceItemIntoWorld(@NotNull UseOnContext context)"
+        },
+        {
+          "line": 585,
+          "text": "            level.captureBlockSnapshots = true;"
+        },
+        {
+          "line": 588,
+          "text": "        InteractionResult ret = itemstack.getItem().useOn(context);"
+        },
+        {
+          "line": 592,
+          "text": "        level.captureBlockSnapshots = false;"
+        },
+        {
+          "line": 645,
+          "text": "                    newBlock.onPlace(level, snap.getPos(), oldBlock, false);"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\30819\\.gradle\\caches\\modules-2\\files-2.1\\net.neoforged\\neoforge\\21.1.233\\d5d7bc199775d60b364960c45079595739d75081\\neoforge-21.1.233-sources.jar!/net/neoforged/neoforge/common/CommonHooks.java",
+      "sha256": "1c01b3c4aabdfeb9b0bc74ddbe3f481bc1762ce8e5e4cfb550417fd7e0f0b929",
+      "lines": [
+        {
+          "line": 594,
+          "text": "    public static InteractionResult onPlaceItemIntoWorld(UseOnContext context) {"
+        },
+        {
+          "line": 612,
+          "text": "            level.captureBlockSnapshots = true;"
+        },
+        {
+          "line": 615,
+          "text": "        InteractionResult ret = itemstack.getItem().useOn(context);"
+        },
+        {
+          "line": 619,
+          "text": "        level.captureBlockSnapshots = false;"
+        },
+        {
+          "line": 660,
+          "text": "                    newBlock.onPlace(level, snap.getPos(), oldBlock, false);"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar!/net/minecraft/world/level/chunk/LevelChunk.java",
+      "sha256": "23bbf3b264f84e8930c0430f92048d4c9da39568f791c87777c7c044c6bace4a",
+      "lines": [
+        {
+          "line": 256,
+          "text": "            if (!this.level.isClientSide && !this.level.captureBlockSnapshots) {"
+        },
+        {
+          "line": 257,
+          "text": "                  p_62866_.onPlace(this.level, p_62865_, blockstate, p_62867_);"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\chunk\\LevelChunk.java",
+      "sha256": "c014a13e2ef391901113b080362ad6db4bdd4a65c7ad47b8c6aecd8bd89b6223",
+      "lines": [
+        {
+          "line": 282,
+          "text": "                    if (!this.level.isClientSide && !this.level.captureBlockSnapshots) {"
+        },
+        {
+          "line": 283,
+          "text": "                        p_62866_.onPlace(this.level, p_62865_, blockstate, p_62867_);"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\item\\BlockItem.java",
+      "sha256": "f26f291ad73176d372d7916d05eb396358f41d08dbffcca02f1d425972b5c7ea",
+      "lines": [
+        {
+          "line": 74,
+          "text": "                    BlockState blockstate1 = level.getBlockState(blockpos);"
+        },
+        {
+          "line": 81,
+          "text": "                            CriteriaTriggers.PLACED_BLOCK.trigger((ServerPlayer)player, blockpos, itemstack);"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\item\\ItemStack.java",
+      "sha256": "b35770a757f0c62a88276a38c36763d26e204d1a6210ea3fcac71a53526bc389",
+      "lines": [
+        {
+          "line": 360,
+          "text": "        if (!p_41662_.getLevel().isClientSide) return net.neoforged.neoforge.common.CommonHooks.onPlaceItemIntoWorld(p_41662_);"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\item\\crafting\\SimpleCookingSerializer.java",
+      "sha256": "de7d95f45f82f7144225ef73c0f47661dffef161e4dcfa7a9e17dd77d5da13d7",
+      "lines": [
+        {
+          "line": 23,
+          "text": "                        ItemStack.CODEC.fieldOf(\"result\").forGetter(p_300827_ -> p_300827_.result),"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\advancements\\DisplayInfo.java",
+      "sha256": "718c98c4402b0bc309651bf19cf285518a8514f261a1d90cddf00da51fe9d42f",
+      "lines": [
+        {
+          "line": 17,
+          "text": "                    ItemStack.STRICT_CODEC.fieldOf(\"icon\").forGetter(DisplayInfo::getIcon),"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\advancements\\critereon\\LocationPredicate.java",
+      "sha256": "2515f26cbe772e95e6b36fb6ed34eae174e8b00d171932b915bd29a7ebf76157",
+      "lines": [
+        {
+          "line": 33,
+          "text": "                    RegistryCodecs.homogeneousList(Registries.BIOME).optionalFieldOf(\"biomes\").forGetter(LocationPredicate::biomes),"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\advancements\\critereon\\ItemPredicate.java",
+      "sha256": "b71c082ff27aa68dd24d6147d5054298d89f9c2e32c447d3300d78de7fc62c68",
+      "lines": [
+        {
+          "line": 26,
+          "text": "                    RegistryCodecs.homogeneousList(Registries.ITEM).optionalFieldOf(\"items\").forGetter(ItemPredicate::items),"
+        },
+        {
+          "line": 27,
+          "text": "                    MinMaxBounds.Ints.CODEC.optionalFieldOf(\"count\", MinMaxBounds.Ints.ANY).forGetter(ItemPredicate::count),"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\advancements\\critereon\\ItemUsedOnLocationTrigger.java",
+      "sha256": "4ffb4019beb5d59e861f091ed464015dc3085b781ffc62d6ae48efe4140e9d29",
+      "lines": [
+        {
+          "line": 49,
+          "text": "                        ContextAwarePredicate.CODEC.optionalFieldOf(\"location\").forGetter(ItemUsedOnLocationTrigger.TriggerInstance::location)"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\advancements\\critereon\\InventoryChangeTrigger.java",
+      "sha256": "c0310fcb9f5de03220fa6a85d2001866b9dd501dfc5a53cd7482c0e7900dac60",
+      "lines": [
+        {
+          "line": 58,
+          "text": "                        ItemPredicate.CODEC.listOf().optionalFieldOf(\"items\", List.of()).forGetter(InventoryChangeTrigger.TriggerInstance::items)"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\advancements\\critereon\\ConsumeItemTrigger.java",
+      "sha256": "5aecc9be89a56da16e5c0395cddcf8fcbd91383064ef0bfb423006e4288cd11a",
+      "lines": [
+        {
+          "line": 27,
+          "text": "                        ItemPredicate.CODEC.optionalFieldOf(\"item\").forGetter(ConsumeItemTrigger.TriggerInstance::item)"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\item\\crafting\\ShapedRecipePattern.java",
+      "sha256": "88dc70bb2752b0e945051548e46c4413dd8f4619dad5400a0b7e3784c5e38aa6",
+      "lines": [
+        {
+          "line": 89,
+          "text": "        String[] astring = shrink(p_312037_.pattern);"
+        },
+        {
+          "line": 171,
+          "text": "    public boolean matches(CraftingInput p_345063_) {"
+        },
+        {
+          "line": 176,
+          "text": "                if (!this.symmetrical && this.matches(p_345063_, true)) {"
+        },
+        {
+          "line": 180,
+          "text": "                if (this.matches(p_345063_, false)) {"
+        },
+        {
+          "line": 189,
+          "text": "    private boolean matches(CraftingInput p_345835_, boolean p_344990_) {"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\item\\crafting\\ShapelessRecipe.java",
+      "sha256": "854153657b6f8fa9051eb958c4fbb4b9260fe8ad0cb1a521f4912a819eda2fcc",
+      "lines": [
+        {
+          "line": 57,
+          "text": "        if (p_346123_.ingredientCount() != this.ingredients.size()) {"
+        },
+        {
+          "line": 60,
+          "text": "            var nonEmptyItems = new java.util.ArrayList<ItemStack>(p_346123_.ingredientCount());"
+        },
+        {
+          "line": 64,
+          "text": "            return net.neoforged.neoforge.common.util.RecipeMatcher.findMatches(nonEmptyItems, this.ingredients) != null;"
+        }
+      ]
+    }
+  ],
+  "growthStructures": [
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/planted_barbubble.nbt",
+      "sha256": "691d98520aa684a3b3bd64cfa2e1420d7d03141a65aeaff5f88571a895acb766",
+      "sourcePath": "data/thermal_shock/structures/planted_barbubble.nbt",
+      "sourceSha256": "e14cf636ee4eede8665141f19a66321b8809017ae4ed5fcc51c5c817c22fa966"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/planted_sparkler_a.nbt",
+      "sha256": "a245d251e03c425490fceade3456822090b74845cfc38907fba867c5b85bf33d",
+      "sourcePath": "data/thermal_shock/structures/planted_sparkler_a.nbt",
+      "sourceSha256": "fa1126ebf757e6cf850bffad7f11941a7d32fe6e5d0d8170f7a16724f95e288e"
+    }
+  ],
+  "chains": [
+    {
+      "id": "breather_sponge_get",
+      "source": "原BreatherSpongeBlock.use → BreatherSpongeOnBlockRightClickedProcedure",
+      "target": "入口类TerrainContent注册 → BreatherSpongeBlock.useItemOn → ServerPlayer剩余criteria授予",
+      "condition": "主手普通/滑稽吸管且对应冷却未生效；执行补气/耐久/声音分支后授予，不要求父进度先完成。"
+    },
+    {
+      "id": "carborundum_get",
+      "source": "原@EventBusSubscriber ZenithTick END → CarborundumArmorEffect",
+      "target": "入口类ArmorContent → NeoForge.EVENT_BUS PlayerTick.Post → ArmorSetEvents.carbon → award",
+      "condition": "头或脚命中#zenith、四槽全碳化硅且维度不是aqeron。目标#zenith包含完整对应装备；未改为只获取头盔。"
+    },
+    {
+      "id": "zenith_get",
+      "source": "原ZenithTick END → RubyArmorEffect/BloodArmorEffect",
+      "target": "同ArmorSetEvents.tick两套wearing分支 → award(ZENITH_ADVANCEMENT)",
+      "condition": "头或脚命中#zenith且完整Ruby Zenith或Blood Zenith四件套；非普通红宝石/血石套装，非只获得模板。"
+    },
+    {
+      "id": "garden_plant_get",
+      "source": "原12种SeedBlock.use → SkorioSeedOnBlockRightClickedProcedure",
+      "target": "入口类Farming/GrowthContent → 9+3真实Seed/BE注册 → useItemOn/useWithoutItem → water → 成熟后剩余criteria",
+      "condition": "主手浇水壶并thirsty时增加waterings，成熟判断waterings==3；原第三次后的成熟检查位于浇水if外，目标保持。已有双高植物上方空间防覆盖规则不改。",
+      "sourceCallers": [
+        "AncientBarbubbleSeedBlock.java",
+        "AncientSkorioSeedBlock.java",
+        "BarbubbleSeedBlock.java",
+        "DewleafSeedBlock.java",
+        "FrostLotusSeedBlock.java",
+        "GelBulbSeedBlock.java",
+        "HearthflyBranchSeedBlock.java",
+        "NeoflormSeedBlock.java",
+        "SkorioSeedBlock.java",
+        "SparklerSeedBlock.java",
+        "VisiBulbSeedBlock.java",
+        "VolatineSeedBlock.java"
+      ],
+      "targetCropIds": [
+        "skorio",
+        "barbubble",
+        "ancient_skorio",
+        "ancient_barbubble",
+        "dewleaf",
+        "hearthfly_branch",
+        "frost_lotus",
+        "neoflorm",
+        "volatine"
+      ],
+      "targetGrowthIds": [
+        "sparkler",
+        "gel_bulb",
+        "visi_bulb"
+      ]
+    },
+    {
+      "id": "cauldron_get",
+      "source": "原impossible；原4577个class常量池任意cauldron_get子串零命中、全data文本仅自身JSON",
+      "target": "保原impossible；真实炼锅方块/Item/BE均存在",
+      "condition": "原无可达自动授予；不依据描述中的香料合并/节点降级捏造业务，具体全扫描见validation112。"
+    },
+    {
+      "id": "gardenling_get",
+      "source": "原生placed_block（非impossible）",
+      "target": "原生ItemStack→CommonHooks快照→BlockItem.place→PLACED_BLOCK→回放constructor.onPlace",
+      "condition": "原location block_state_property仍匹配真实constructor，奖励49；先前只看BlockItem/onPlace误判不可达的结论已撤回，无专用Item和额外授予。"
+    }
+  ],
+  "correctionForMainOwnedDocs": {
+    "path": "docs/migration/advancement-next-audit.md",
+    "section": "农业真实父链",
+    "replaceMeaning": "原记园丁构造器即时移除导致PLACED_BLOCK不可达的段落已被Forge/NeoForge快照调用链推翻；用本报告gardenling_get链替换。该全局文档由主线维护，本线未修改。"
+  },
+  "checks": [
+    "目标入口证据:ThermalShockReforged.java:TerrainContent.register(bus)",
+    "目标入口证据:ThermalShockReforged.java:ArmorContent.register(bus)",
+    "目标入口证据:ThermalShockReforged.java:FarmingContent.register(bus)",
+    "目标入口证据:ThermalShockReforged.java:GrowthContent.register(bus)",
+    "目标入口证据:ThermalShockReforged.java:GardenlingContent.register(bus)",
+    "目标入口证据:ThermalShockReforged.java:FaunaEntities.register(bus)",
+    "原入口证据:block/BreatherSpongeBlock.java:BreatherSpongeOnBlockRightClickedProcedure.execute",
+    "原入口证据:procedures/BreatherSpongeOnBlockRightClickedProcedure.java:DRINKING_STRAW",
+    "原入口证据:procedures/BreatherSpongeOnBlockRightClickedProcedure.java:SILLY_STRAW",
+    "原入口证据:procedures/BreatherSpongeOnBlockRightClickedProcedure.java:isOnCooldown",
+    "原入口证据:procedures/BreatherSpongeOnBlockRightClickedProcedure.java:addCooldown",
+    "原入口证据:procedures/BreatherSpongeOnBlockRightClickedProcedure.java:thermal_shock:breather_sponge_get",
+    "原入口证据:procedures/BreatherSpongeOnBlockRightClickedProcedure.java:getRemainingCriteria()",
+    "原入口证据:procedures/BreatherSpongeOnBlockRightClickedProcedure.java:.award(",
+    "目标入口证据:content/terrain/TerrainContent.java:BLOCKS.register(\"breather_sponge\", BreatherSpongeBlock::new)",
+    "目标入口证据:content/terrain/TerrainContent.java:ITEMS.registerSimpleBlockItem(BREATHER_SPONGE)",
+    "目标入口证据:content/terrain/TerrainContent.java:BLOCKS.register(bus)",
+    "目标入口证据:content/terrain/BreatherSpongeBlock.java:useItemOn(",
+    "目标入口证据:content/terrain/BreatherSpongeBlock.java:getMainHandItem()",
+    "目标入口证据:content/terrain/BreatherSpongeBlock.java:\"silly_straw\"",
+    "目标入口证据:content/terrain/BreatherSpongeBlock.java:\"drinking_straw\"",
+    "目标入口证据:content/terrain/BreatherSpongeBlock.java:isOnCooldown",
+    "目标入口证据:content/terrain/BreatherSpongeBlock.java:if (!level.isClientSide)",
+    "目标入口证据:content/terrain/BreatherSpongeBlock.java:\"breather_sponge_get\"",
+    "目标入口证据:content/terrain/BreatherSpongeBlock.java:getRemainingCriteria()",
+    "目标入口证据:content/terrain/BreatherSpongeBlock.java:.award(",
+    "原入口证据:procedures/ZenithTickProcedure.java:@Mod.EventBusSubscriber",
+    "原入口证据:procedures/ZenithTickProcedure.java:@SubscribeEvent",
+    "原入口证据:procedures/ZenithTickProcedure.java:TickEvent.Phase.END",
+    "原入口证据:procedures/ZenithTickProcedure.java:EquipmentSlot.HEAD",
+    "原入口证据:procedures/ZenithTickProcedure.java:EquipmentSlot.FEET",
+    "原入口证据:procedures/ZenithTickProcedure.java:thermal_shock:zenith",
+    "原入口证据:procedures/ZenithTickProcedure.java:CarborundumArmorEffectProcedure.execute",
+    "原入口证据:procedures/ZenithTickProcedure.java:RubyArmorEffectProcedure.execute",
+    "原入口证据:procedures/ZenithTickProcedure.java:BloodArmorEffectProcedure.execute",
+    "原入口证据:procedures/CarborundumArmorEffectProcedure.java:CARBORUNDUM_ARMOR_HELMET",
+    "原入口证据:procedures/CarborundumArmorEffectProcedure.java:CARBORUNDUM_ARMOR_CHESTPLATE",
+    "原入口证据:procedures/CarborundumArmorEffectProcedure.java:CARBORUNDUM_ARMOR_LEGGINGS",
+    "原入口证据:procedures/CarborundumArmorEffectProcedure.java:CARBORUNDUM_ARMOR_BOOTS",
+    "原入口证据:procedures/CarborundumArmorEffectProcedure.java:thermal_shock:aqeron",
+    "原入口证据:procedures/CarborundumArmorEffectProcedure.java:thermal_shock:carborundum_get",
+    "原入口证据:procedures/CarborundumArmorEffectProcedure.java:getRemainingCriteria()",
+    "原入口证据:procedures/CarborundumArmorEffectProcedure.java:.award(",
+    "原入口证据:procedures/RubyArmorEffectProcedure.java:RUBY_ZENITH_ARMOR_HELMET",
+    "原入口证据:procedures/RubyArmorEffectProcedure.java:RUBY_ZENITH_ARMOR_CHESTPLATE",
+    "原入口证据:procedures/RubyArmorEffectProcedure.java:RUBY_ZENITH_ARMOR_LEGGINGS",
+    "原入口证据:procedures/RubyArmorEffectProcedure.java:RUBY_ZENITH_ARMOR_BOOTS",
+    "原入口证据:procedures/RubyArmorEffectProcedure.java:thermal_shock:zenith_get",
+    "原入口证据:procedures/RubyArmorEffectProcedure.java:getRemainingCriteria()",
+    "原入口证据:procedures/RubyArmorEffectProcedure.java:.award(",
+    "原入口证据:procedures/BloodArmorEffectProcedure.java:BLOOD_ZENITH_ARMOR_HELMET",
+    "原入口证据:procedures/BloodArmorEffectProcedure.java:BLOOD_ZENITH_ARMOR_CHESTPLATE",
+    "原入口证据:procedures/BloodArmorEffectProcedure.java:BLOOD_ZENITH_ARMOR_LEGGINGS",
+    "原入口证据:procedures/BloodArmorEffectProcedure.java:BLOOD_ZENITH_ARMOR_BOOTS",
+    "原入口证据:procedures/BloodArmorEffectProcedure.java:thermal_shock:zenith_get",
+    "原入口证据:procedures/BloodArmorEffectProcedure.java:getRemainingCriteria()",
+    "原入口证据:procedures/BloodArmorEffectProcedure.java:.award(",
+    "目标入口证据:content/armor/ArmorContent.java:ArmorItem.Type.HELMET, ArmorItem.Type.CHESTPLATE, ArmorItem.Type.LEGGINGS, ArmorItem.Type.BOOTS",
+    "目标入口证据:content/armor/ArmorContent.java:\"carborundum_armor_\" + type.getName()",
+    "目标入口证据:content/armor/ArmorContent.java:\"ruby_zenith_armor_\" + type.getName()",
+    "目标入口证据:content/armor/ArmorContent.java:\"blood_zenith_armor_\" + type.getName()",
+    "目标入口证据:content/armor/ArmorContent.java:NeoForge.EVENT_BUS.addListener(ArmorSetEvents::tick)",
+    "目标入口证据:content/armor/ArmorContent.java:ITEMS.register(bus)",
+    "目标入口证据:content/armor/ArmorSetEvents.java:PlayerTickEvent.Post",
+    "目标入口证据:content/armor/ArmorSetEvents.java:EquipmentSlot.HEAD",
+    "目标入口证据:content/armor/ArmorSetEvents.java:EquipmentSlot.FEET",
+    "目标入口证据:content/armor/ArmorSetEvents.java:.is(ZENITH)",
+    "目标入口证据:content/armor/ArmorSetEvents.java:wearing(player, ArmorContent.CARBORUNDUM)",
+    "目标入口证据:content/armor/ArmorSetEvents.java:!player.level().dimension().location().equals(AQERON)",
+    "目标入口证据:content/armor/ArmorSetEvents.java:if (carbon) award(player, ADVANCEMENT)",
+    "目标入口证据:content/armor/ArmorSetEvents.java:wearing(player, ArmorContent.RUBY_ZENITH)",
+    "目标入口证据:content/armor/ArmorSetEvents.java:wearing(player, ArmorContent.BLOOD_ZENITH)",
+    "目标入口证据:content/armor/ArmorSetEvents.java:award(player, ZENITH_ADVANCEMENT)",
+    "目标入口证据:content/armor/ArmorSetEvents.java:for (var entry : armor)",
+    "目标入口证据:content/armor/ArmorSetEvents.java:getItemBySlot(item.getEquipmentSlot()).is(item)",
+    "目标入口证据:content/armor/ArmorSetEvents.java:getRemainingCriteria()",
+    "目标入口证据:content/armor/ArmorSetEvents.java:.award(",
+    "原入口证据:procedures/SkorioSeedOnBlockRightClickedProcedure.java:WATERING_CAN",
+    "原入口证据:procedures/SkorioSeedOnBlockRightClickedProcedure.java:\"thirsty\"",
+    "原入口证据:procedures/SkorioSeedOnBlockRightClickedProcedure.java:\"waterings\") == 3.0",
+    "原入口证据:procedures/SkorioSeedOnBlockRightClickedProcedure.java:\"planted_barbubble\"",
+    "原入口证据:procedures/SkorioSeedOnBlockRightClickedProcedure.java:\"planted_sparkler_a\"",
+    "原入口证据:procedures/SkorioSeedOnBlockRightClickedProcedure.java:thermal_shock:garden_plant_get",
+    "原入口证据:procedures/SkorioSeedOnBlockRightClickedProcedure.java:getRemainingCriteria()",
+    "原入口证据:procedures/SkorioSeedOnBlockRightClickedProcedure.java:.award(",
+    "原入口证据:block/AncientBarbubbleSeedBlock.java:InteractionResult use(",
+    "原入口证据:block/AncientBarbubbleSeedBlock.java:SkorioSeedOnBlockRightClickedProcedure.execute",
+    "原入口证据:block/AncientSkorioSeedBlock.java:InteractionResult use(",
+    "原入口证据:block/AncientSkorioSeedBlock.java:SkorioSeedOnBlockRightClickedProcedure.execute",
+    "原入口证据:block/BarbubbleSeedBlock.java:InteractionResult use(",
+    "原入口证据:block/BarbubbleSeedBlock.java:SkorioSeedOnBlockRightClickedProcedure.execute",
+    "原入口证据:block/DewleafSeedBlock.java:InteractionResult use(",
+    "原入口证据:block/DewleafSeedBlock.java:SkorioSeedOnBlockRightClickedProcedure.execute",
+    "原入口证据:block/FrostLotusSeedBlock.java:InteractionResult use(",
+    "原入口证据:block/FrostLotusSeedBlock.java:SkorioSeedOnBlockRightClickedProcedure.execute",
+    "原入口证据:block/GelBulbSeedBlock.java:InteractionResult use(",
+    "原入口证据:block/GelBulbSeedBlock.java:SkorioSeedOnBlockRightClickedProcedure.execute",
+    "原入口证据:block/HearthflyBranchSeedBlock.java:InteractionResult use(",
+    "原入口证据:block/HearthflyBranchSeedBlock.java:SkorioSeedOnBlockRightClickedProcedure.execute",
+    "原入口证据:block/NeoflormSeedBlock.java:InteractionResult use(",
+    "原入口证据:block/NeoflormSeedBlock.java:SkorioSeedOnBlockRightClickedProcedure.execute",
+    "原入口证据:block/SkorioSeedBlock.java:InteractionResult use(",
+    "原入口证据:block/SkorioSeedBlock.java:SkorioSeedOnBlockRightClickedProcedure.execute",
+    "原入口证据:block/SparklerSeedBlock.java:InteractionResult use(",
+    "原入口证据:block/SparklerSeedBlock.java:SkorioSeedOnBlockRightClickedProcedure.execute",
+    "原入口证据:block/VisiBulbSeedBlock.java:InteractionResult use(",
+    "原入口证据:block/VisiBulbSeedBlock.java:SkorioSeedOnBlockRightClickedProcedure.execute",
+    "原入口证据:block/VolatineSeedBlock.java:InteractionResult use(",
+    "原入口证据:block/VolatineSeedBlock.java:SkorioSeedOnBlockRightClickedProcedure.execute",
+    "原12种种子真实回调",
+    "目标入口证据:content/farming/CropKind.java:SKORIO(",
+    "目标入口证据:content/farming/CropKind.java:BARBUBBLE(",
+    "目标入口证据:content/farming/CropKind.java:ANCIENT_SKORIO(",
+    "目标入口证据:content/farming/CropKind.java:ANCIENT_BARBUBBLE(",
+    "目标入口证据:content/farming/CropKind.java:DEWLEAF(",
+    "目标入口证据:content/farming/CropKind.java:HEARTHFLY_BRANCH(",
+    "目标入口证据:content/farming/CropKind.java:FROST_LOTUS(",
+    "目标入口证据:content/farming/CropKind.java:NEOFLORM(",
+    "目标入口证据:content/farming/CropKind.java:VOLATINE(",
+    "目标入口证据:content/growth/GrowthKind.java:SPARKLER(",
+    "目标入口证据:content/growth/GrowthKind.java:GEL_BULB(",
+    "目标入口证据:content/growth/GrowthKind.java:VISI_BULB(",
+    "目标9+3种子覆盖原成熟分支",
+    "目标入口证据:content/farming/FarmingContent.java:for (CropKind kind : CropKind.values())",
+    "目标入口证据:content/farming/FarmingContent.java:BLOCKS.register(kind.id + \"_seed\", () -> new FarmSeedBlock(kind))",
+    "目标入口证据:content/farming/FarmingContent.java:ITEMS.registerSimpleBlockItem(seed)",
+    "目标入口证据:content/farming/FarmingContent.java:SEED_ENTITIES.put(kind, ENTITIES.register(kind.id + \"_seed\"",
+    "目标入口证据:content/growth/GrowthContent.java:for (GrowthKind kind : GrowthKind.values()) block(kind.id + \"_seed\", () -> new GrowthSeedBlock(kind))",
+    "目标入口证据:content/growth/GrowthContent.java:BLOCKS.register(id, factory)",
+    "目标入口证据:content/growth/GrowthContent.java:ITEMS.registerSimpleBlockItem(holder)",
+    "目标入口证据:content/farming/FarmSeedBlock.java:useItemOn(",
+    "目标入口证据:content/farming/FarmSeedBlock.java:useWithoutItem(",
+    "目标入口证据:content/farming/FarmSeedBlock.java:water(level, pos, player)",
+    "目标入口证据:content/farming/FarmSeedBlock.java:\"watering_can\"",
+    "目标入口证据:content/farming/FarmSeedBlock.java:data.getBoolean(\"thirsty\")",
+    "目标入口证据:content/farming/FarmSeedBlock.java:data.getDouble(\"waterings\") + 1",
+    "目标入口证据:content/farming/FarmSeedBlock.java:data.getDouble(\"waterings\") == 3",
+    "目标入口证据:content/farming/FarmSeedBlock.java:\"garden_plant_get\"",
+    "目标入口证据:content/farming/FarmSeedBlock.java:getRemainingCriteria()",
+    "目标入口证据:content/farming/FarmSeedBlock.java:.award(",
+    "目标入口证据:content/farming/FarmSeedBlock.java:ParticleTypes.HAPPY_VILLAGER",
+    "目标入口证据:content/growth/GrowthSeedBlock.java:useItemOn(",
+    "目标入口证据:content/growth/GrowthSeedBlock.java:useWithoutItem(",
+    "目标入口证据:content/growth/GrowthSeedBlock.java:water(level, pos, player)",
+    "目标入口证据:content/growth/GrowthSeedBlock.java:\"watering_can\"",
+    "目标入口证据:content/growth/GrowthSeedBlock.java:data.getBoolean(\"thirsty\")",
+    "目标入口证据:content/growth/GrowthSeedBlock.java:data.getDouble(\"waterings\") + 1",
+    "目标入口证据:content/growth/GrowthSeedBlock.java:data.getDouble(\"waterings\") == 3",
+    "目标入口证据:content/growth/GrowthSeedBlock.java:\"garden_plant_get\"",
+    "目标入口证据:content/growth/GrowthSeedBlock.java:getRemainingCriteria()",
+    "目标入口证据:content/growth/GrowthSeedBlock.java:.award(",
+    "目标入口证据:content/growth/GrowthSeedBlock.java:ParticleTypes.HAPPY_VILLAGER",
+    "成熟结构真实模板:planted_barbubble",
+    "成熟结构真实模板:planted_sparkler_a",
+    "原入口证据:block/CauldronOfTrilobiteBlock.java:InteractionResult use(",
+    "原入口证据:block/CauldronOfTrilobiteBlock.java:TriloCauldronClickProcedure.execute",
+    "原入口证据:procedures/TriloCauldronClickProcedure.java:Items.BUCKET",
+    "原入口证据:procedures/TriloCauldronClickProcedure.java:LOQUE_MILK",
+    "原入口证据:procedures/TriloCauldronClickProcedure.java:entity.mooshroom.milk",
+    "原炼锅交互无进度或GUI授予",
+    "目标入口证据:entity/fauna/FaunaEntities.java:BLOCKS.register(\"cauldron_of_trilobite\"",
+    "目标入口证据:entity/fauna/FaunaEntities.java:ITEMS.register(\"cauldron_of_trilobite\"",
+    "目标入口证据:entity/fauna/FaunaEntities.java:BLOCK_ENTITIES.register(\"cauldron_of_trilobite\"",
+    "目标入口证据:entity/fauna/block/CauldronOfTrilobiteBlock.java:useItemOn(",
+    "目标入口证据:entity/fauna/block/CauldronOfTrilobiteBlock.java:Items.BUCKET",
+    "目标入口证据:entity/fauna/block/CauldronOfTrilobiteBlock.java:\"loque_milk\"",
+    "目标入口证据:entity/fauna/block/CauldronOfTrilobiteBlock.java:MOOSHROOM_MILK",
+    "原入口证据:block/GardenlingConstructorBlock.java:GardenlingConstructorBlockAddedProcedure.execute",
+    "原入口证据:procedures/GardenlingConstructorBlockAddedProcedure.java:Blocks.AIR.defaultBlockState()",
+    "原入口证据:procedures/GardenlingConstructorBlockAddedProcedure.java:ThermalShockModEntities.GARDENLING",
+    "目标入口证据:entity/gardenling/GardenlingContent.java:BLOCKS.register(\"gardenling_constructor\", GardenlingConstructorBlock::new)",
+    "目标入口证据:entity/gardenling/GardenlingContent.java:ITEMS.registerSimpleBlockItem(CONSTRUCTOR)",
+    "目标入口证据:entity/gardenling/GardenlingConstructorBlock.java:protected void onPlace(",
+    "目标入口证据:entity/gardenling/GardenlingConstructorBlock.java:server.removeBlock(pos, false)",
+    "目标入口证据:entity/gardenling/GardenlingConstructorBlock.java:GardenlingContent.GARDENLING.get().spawn",
+    "已核目标/原API:C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar!/net/minecraftforge/common/ForgeHooks.java:onPlaceItemIntoWorld(",
+    "已核目标/原API:C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar!/net/minecraftforge/common/ForgeHooks.java:level.captureBlockSnapshots = true",
+    "已核目标/原API:C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar!/net/minecraftforge/common/ForgeHooks.java:itemstack.getItem().useOn(context)",
+    "已核目标/原API:C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar!/net/minecraftforge/common/ForgeHooks.java:level.captureBlockSnapshots = false",
+    "已核目标/原API:C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar!/net/minecraftforge/common/ForgeHooks.java:newBlock.onPlace(",
+    "快照捕获在useOn前、回放onPlace在后:net/minecraftforge/common/ForgeHooks.java",
+    "已核目标/原API:C:\\Users\\30819\\.gradle\\caches\\modules-2\\files-2.1\\net.neoforged\\neoforge\\21.1.233\\d5d7bc199775d60b364960c45079595739d75081\\neoforge-21.1.233-sources.jar!/net/neoforged/neoforge/common/CommonHooks.java:onPlaceItemIntoWorld(",
+    "已核目标/原API:C:\\Users\\30819\\.gradle\\caches\\modules-2\\files-2.1\\net.neoforged\\neoforge\\21.1.233\\d5d7bc199775d60b364960c45079595739d75081\\neoforge-21.1.233-sources.jar!/net/neoforged/neoforge/common/CommonHooks.java:level.captureBlockSnapshots = true",
+    "已核目标/原API:C:\\Users\\30819\\.gradle\\caches\\modules-2\\files-2.1\\net.neoforged\\neoforge\\21.1.233\\d5d7bc199775d60b364960c45079595739d75081\\neoforge-21.1.233-sources.jar!/net/neoforged/neoforge/common/CommonHooks.java:itemstack.getItem().useOn(context)",
+    "已核目标/原API:C:\\Users\\30819\\.gradle\\caches\\modules-2\\files-2.1\\net.neoforged\\neoforge\\21.1.233\\d5d7bc199775d60b364960c45079595739d75081\\neoforge-21.1.233-sources.jar!/net/neoforged/neoforge/common/CommonHooks.java:level.captureBlockSnapshots = false",
+    "已核目标/原API:C:\\Users\\30819\\.gradle\\caches\\modules-2\\files-2.1\\net.neoforged\\neoforge\\21.1.233\\d5d7bc199775d60b364960c45079595739d75081\\neoforge-21.1.233-sources.jar!/net/neoforged/neoforge/common/CommonHooks.java:newBlock.onPlace(",
+    "快照捕获在useOn前、回放onPlace在后:net/neoforged/neoforge/common/CommonHooks.java",
+    "已核目标/原API:C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar!/net/minecraft/world/level/chunk/LevelChunk.java:!this.level.captureBlockSnapshots",
+    "已核目标/原API:C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar!/net/minecraft/world/level/chunk/LevelChunk.java:.onPlace(",
+    "已核目标/原API:E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\chunk\\LevelChunk.java:!this.level.captureBlockSnapshots",
+    "已核目标/原API:E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\chunk\\LevelChunk.java:.onPlace(",
+    "已核目标/原API:E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\item\\BlockItem.java:BlockState blockstate1 = level.getBlockState(blockpos)",
+    "已核目标/原API:E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\item\\BlockItem.java:CriteriaTriggers.PLACED_BLOCK.trigger",
+    "已核目标/原API:E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\item\\ItemStack.java:CommonHooks.onPlaceItemIntoWorld",
+    "已核目标/原API:E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\item\\crafting\\SimpleCookingSerializer.java:ItemStack.CODEC.fieldOf(\"result\")",
+    "已核目标/原API:E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\advancements\\DisplayInfo.java:ItemStack.STRICT_CODEC.fieldOf(\"icon\")",
+    "已核目标/原API:E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\advancements\\critereon\\LocationPredicate.java:RegistryCodecs.homogeneousList(Registries.BIOME).optionalFieldOf(\"biomes\")",
+    "已核目标/原API:E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\advancements\\critereon\\ItemPredicate.java:RegistryCodecs.homogeneousList(Registries.ITEM).optionalFieldOf(\"items\")",
+    "已核目标/原API:E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\advancements\\critereon\\ItemPredicate.java:MinMaxBounds.Ints.CODEC.optionalFieldOf(\"count\"",
+    "已核目标/原API:E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\advancements\\critereon\\ItemUsedOnLocationTrigger.java:ContextAwarePredicate.CODEC.optionalFieldOf(\"location\")",
+    "已核目标/原API:E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\advancements\\critereon\\InventoryChangeTrigger.java:ItemPredicate.CODEC.listOf().optionalFieldOf(\"items\"",
+    "已核目标/原API:E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\advancements\\critereon\\ConsumeItemTrigger.java:ItemPredicate.CODEC.optionalFieldOf(\"item\")",
+    "已核目标/原API:E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\item\\crafting\\ShapedRecipePattern.java:String[] astring = shrink(",
+    "已核目标/原API:E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\item\\crafting\\ShapedRecipePattern.java:boolean matches(CraftingInput",
+    "已核目标/原API:E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\item\\crafting\\ShapedRecipePattern.java:this.matches(p_345063_, true)",
+    "已核目标/原API:E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\item\\crafting\\ShapedRecipePattern.java:this.matches(p_345063_, false)",
+    "已核目标/原API:E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\item\\crafting\\ShapelessRecipe.java:RecipeMatcher.findMatches",
+    "已核目标/原API:E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\item\\crafting\\ShapelessRecipe.java:ingredientCount()"
+  ],
+  "checkCount": 208,
+  "evidence": {
+    "src/main/java/com/hp/thermalshockreforged/ThermalShockReforged.java": {
+      "sha256": "6fcd2cd494eafb50cd7cc49d5031afec71ef1c371d8427491548108b2b69804b",
+      "tokens": [
+        "ArmorContent.register(bus)",
+        "FarmingContent.register(bus)",
+        "FaunaEntities.register(bus)",
+        "GardenlingContent.register(bus)",
+        "GrowthContent.register(bus)",
+        "TerrainContent.register(bus)"
+      ],
+      "lines": [
+        {
+          "line": 124,
+          "text": "        TerrainContent.register(bus);"
+        },
+        {
+          "line": 132,
+          "text": "        FaunaEntities.register(bus);"
+        },
+        {
+          "line": 142,
+          "text": "        FarmingContent.register(bus);"
+        },
+        {
+          "line": 143,
+          "text": "        GrowthContent.register(bus);"
+        },
+        {
+          "line": 194,
+          "text": "        GardenlingContent.register(bus);"
+        },
+        {
+          "line": 199,
+          "text": "        ArmorContent.register(bus);"
+        },
+        {
+          "line": 200,
+          "text": "        com.hp.thermalshockreforged.content.armor.fabricated.FabricatedArmorContent.register(bus);"
+        }
+      ]
+    },
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\BreatherSpongeBlock.java": {
+      "sha256": "464bfaa9e803c902198d29f0d0174450e24c0711a8c70e800317b779b635c75c",
+      "tokens": [
+        "BreatherSpongeOnBlockRightClickedProcedure.execute"
+      ],
+      "lines": [
+        {
+          "line": 57,
+          "text": "        InteractionResult result = BreatherSpongeOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity);"
+        }
+      ]
+    },
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\BreatherSpongeOnBlockRightClickedProcedure.java": {
+      "sha256": "5ea5f9357eea677b7b7322467aa573918090f74344b31f8ef022ca0203160090",
+      "tokens": [
+        ".award(",
+        "DRINKING_STRAW",
+        "SILLY_STRAW",
+        "addCooldown",
+        "getRemainingCriteria()",
+        "isOnCooldown",
+        "thermal_shock:breather_sponge_get"
+      ],
+      "lines": [
+        {
+          "line": 38,
+          "text": "                if (v0.getItem() != ThermalShockModItems.DRINKING_STRAW.get()) break block40;"
+        },
+        {
+          "line": 48,
+          "text": "                if (v1.isOnCooldown(v2.getItem())) {"
+        },
+        {
+          "line": 66,
+          "text": "                        v4.addCooldown(v5.getItem(), 20);"
+        },
+        {
+          "line": 92,
+          "text": "                        _adv = _player.server.getAdvancements().getAdvancement(new ResourceLocation(\"thermal_shock:breather_sponge_get\"));"
+        },
+        {
+          "line": 95,
+          "text": "                            for (String criteria : _ap.getRemainingCriteria()) {"
+        },
+        {
+          "line": 96,
+          "text": "                                _player.getAdvancements().award(_adv, criteria);"
+        },
+        {
+          "line": 109,
+          "text": "            if (v7.getItem() != ThermalShockModItems.SILLY_STRAW.get()) break block41;"
+        },
+        {
+          "line": 119,
+          "text": "            if (v8.isOnCooldown(v9.getItem())) {"
+        },
+        {
+          "line": 137,
+          "text": "                    v11.addCooldown(v12.getItem(), 60);"
+        },
+        {
+          "line": 160,
+          "text": "                    _adv = _player.server.getAdvancements().getAdvancement(new ResourceLocation(\"thermal_shock:breather_sponge_get\"));"
+        },
+        {
+          "line": 163,
+          "text": "                        for (String criteria : _ap.getRemainingCriteria()) {"
+        },
+        {
+          "line": 164,
+          "text": "                            _player.getAdvancements().award(_adv, criteria);"
+        }
+      ]
+    },
+    "src/main/java/com/hp/thermalshockreforged/content/terrain/TerrainContent.java": {
+      "sha256": "cd1805d6fdefa9f53b232f92b36ce7b04efbf3523ae6e80579155a6279e894df",
+      "tokens": [
+        "BLOCKS.register(\"breather_sponge\", BreatherSpongeBlock::new)",
+        "BLOCKS.register(bus)",
+        "ITEMS.registerSimpleBlockItem(BREATHER_SPONGE)"
+      ],
+      "lines": [
+        {
+          "line": 65,
+          "text": "    public static final DeferredBlock<Block> BREATHER_SPONGE = BLOCKS.register(\"breather_sponge\", BreatherSpongeBlock::new);"
+        },
+        {
+          "line": 84,
+          "text": "        ITEMS.registerSimpleBlockItem(BREATHER_SPONGE);"
+        },
+        {
+          "line": 100,
+          "text": "        BLOCKS.register(bus);"
+        }
+      ]
+    },
+    "src/main/java/com/hp/thermalshockreforged/content/terrain/BreatherSpongeBlock.java": {
+      "sha256": "228e67eb56ecbbe9ea587c8c970d82cdfefc5f64cc8219725f46bb8ee584d32c",
+      "tokens": [
+        "\"breather_sponge_get\"",
+        "\"drinking_straw\"",
+        "\"silly_straw\"",
+        ".award(",
+        "getMainHandItem()",
+        "getRemainingCriteria()",
+        "if (!level.isClientSide)",
+        "isOnCooldown",
+        "useItemOn("
+      ],
+      "lines": [
+        {
+          "line": 41,
+          "text": "    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,"
+        },
+        {
+          "line": 43,
+          "text": "        ItemStack straw = player.getMainHandItem();"
+        },
+        {
+          "line": 44,
+          "text": "        boolean silly = straw.is(MaterialContent.items().get(\"silly_straw\").get());"
+        },
+        {
+          "line": 45,
+          "text": "        boolean drinking = straw.is(MaterialContent.items().get(\"drinking_straw\").get());"
+        },
+        {
+          "line": 46,
+          "text": "        if ((!silly && !drinking) || player.getCooldowns().isOnCooldown(straw.getItem())) {"
+        },
+        {
+          "line": 49,
+          "text": "        if (!level.isClientSide) {"
+        },
+        {
+          "line": 55,
+          "text": "                var advancement = serverPlayer.server.getAdvancements().get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, \"breather_sponge_get\"));"
+        },
+        {
+          "line": 58,
+          "text": "                    if (!progress.isDone()) for (String criterion : progress.getRemainingCriteria()) serverPlayer.getAdvancements().award(advancement, criterion);"
+        }
+      ]
+    },
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\ZenithTickProcedure.java": {
+      "sha256": "ff3c1889559c8f674ce24942b208c55654d3550a34046540eb3c137897ac95e8",
+      "tokens": [
+        "@Mod.EventBusSubscriber",
+        "@SubscribeEvent",
+        "BloodArmorEffectProcedure.execute",
+        "CarborundumArmorEffectProcedure.execute",
+        "EquipmentSlot.FEET",
+        "EquipmentSlot.HEAD",
+        "RubyArmorEffectProcedure.execute",
+        "TickEvent.Phase.END",
+        "thermal_shock:zenith"
+      ],
+      "lines": [
+        {
+          "line": 25,
+          "text": "@Mod.EventBusSubscriber"
+        },
+        {
+          "line": 27,
+          "text": "    @SubscribeEvent"
+        },
+        {
+          "line": 29,
+          "text": "        if (event.phase == TickEvent.Phase.END) {"
+        },
+        {
+          "line": 48,
+          "text": "                    itemStack2 = _entGetArmor.getItemBySlot(EquipmentSlot.HEAD);"
+        },
+        {
+          "line": 52,
+          "text": "                if (itemStack2.is(ItemTags.create((ResourceLocation)new ResourceLocation(\"thermal_shock:zenith\")))) break block8;"
+        },
+        {
+          "line": 55,
+          "text": "                    itemStack = _entGetArmor.getItemBySlot(EquipmentSlot.FEET);"
+        },
+        {
+          "line": 59,
+          "text": "                if (!itemStack.is(ItemTags.create((ResourceLocation)new ResourceLocation(\"thermal_shock:zenith\")))) break block9;"
+        },
+        {
+          "line": 61,
+          "text": "            RubyArmorEffectProcedure.execute(entity);"
+        },
+        {
+          "line": 62,
+          "text": "            BloodArmorEffectProcedure.execute(entity);"
+        },
+        {
+          "line": 66,
+          "text": "            CarborundumArmorEffectProcedure.execute(entity);"
+        }
+      ]
+    },
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\CarborundumArmorEffectProcedure.java": {
+      "sha256": "8068937306acdccb4b91eb43152d5c2f50b878ce899f0019dc943ba13288a764",
+      "tokens": [
+        ".award(",
+        "CARBORUNDUM_ARMOR_BOOTS",
+        "CARBORUNDUM_ARMOR_CHESTPLATE",
+        "CARBORUNDUM_ARMOR_HELMET",
+        "CARBORUNDUM_ARMOR_LEGGINGS",
+        "getRemainingCriteria()",
+        "thermal_shock:aqeron",
+        "thermal_shock:carborundum_get"
+      ],
+      "lines": [
+        {
+          "line": 34,
+          "text": "        if (itemStack.getItem() == ThermalShockModItems.CARBORUNDUM_ARMOR_HELMET.get()) {"
+        },
+        {
+          "line": 42,
+          "text": "            if (itemStack2.getItem() == ThermalShockModItems.CARBORUNDUM_ARMOR_CHESTPLATE.get()) {"
+        },
+        {
+          "line": 50,
+          "text": "                if (itemStack3.getItem() == ThermalShockModItems.CARBORUNDUM_ARMOR_LEGGINGS.get()) {"
+        },
+        {
+          "line": 58,
+          "text": "                    if (itemStack4.getItem() == ThermalShockModItems.CARBORUNDUM_ARMOR_BOOTS.get() && entity instanceof Player && entity.level().dimension() != ResourceKey.create((ResourceKey)Registries.DIMENSION, (ResourceLocation)new ResourceLocation(\"thermal_shock:aqeron\"))) {"
+        },
+        {
+          "line": 65,
+          "text": "                            Advancement _adv = _player.server.getAdvancements().getAdvancement(new ResourceLocation(\"thermal_shock:carborundum_get\"));"
+        },
+        {
+          "line": 68,
+          "text": "                                for (String criteria : _ap.getRemainingCriteria()) {"
+        },
+        {
+          "line": 69,
+          "text": "                                    _player.getAdvancements().award(_adv, criteria);"
+        }
+      ]
+    },
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\RubyArmorEffectProcedure.java": {
+      "sha256": "0f5a164aa8bd4631ce781376409d5a95bd29ecda8c604a115e39e82e25b9c609",
+      "tokens": [
+        ".award(",
+        "RUBY_ZENITH_ARMOR_BOOTS",
+        "RUBY_ZENITH_ARMOR_CHESTPLATE",
+        "RUBY_ZENITH_ARMOR_HELMET",
+        "RUBY_ZENITH_ARMOR_LEGGINGS",
+        "getRemainingCriteria()",
+        "thermal_shock:zenith_get"
+      ],
+      "lines": [
+        {
+          "line": 39,
+          "text": "        if (itemStack5.getItem() == ThermalShockModItems.RUBY_ZENITH_ARMOR_HELMET.get()) {"
+        },
+        {
+          "line": 47,
+          "text": "            if (itemStack6.getItem() == ThermalShockModItems.RUBY_ZENITH_ARMOR_CHESTPLATE.get()) {"
+        },
+        {
+          "line": 55,
+          "text": "                if (itemStack7.getItem() == ThermalShockModItems.RUBY_ZENITH_ARMOR_LEGGINGS.get()) {"
+        },
+        {
+          "line": 63,
+          "text": "                    if (itemStack8.getItem() == ThermalShockModItems.RUBY_ZENITH_ARMOR_BOOTS.get() && entity instanceof Player) {"
+        },
+        {
+          "line": 70,
+          "text": "                        Advancement _adv = _player.server.getAdvancements().getAdvancement(new ResourceLocation(\"thermal_shock:zenith_get\"));"
+        },
+        {
+          "line": 73,
+          "text": "                        for (String criteria : _ap.getRemainingCriteria()) {"
+        },
+        {
+          "line": 74,
+          "text": "                            _player.getAdvancements().award(_adv, criteria);"
+        }
+      ]
+    },
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\BloodArmorEffectProcedure.java": {
+      "sha256": "cf02cf3e385c1cb851900c8ad95e48c2592c63f0d1861f53102d33f781639ef3",
+      "tokens": [
+        ".award(",
+        "BLOOD_ZENITH_ARMOR_BOOTS",
+        "BLOOD_ZENITH_ARMOR_CHESTPLATE",
+        "BLOOD_ZENITH_ARMOR_HELMET",
+        "BLOOD_ZENITH_ARMOR_LEGGINGS",
+        "getRemainingCriteria()",
+        "thermal_shock:zenith_get"
+      ],
+      "lines": [
+        {
+          "line": 45,
+          "text": "        if (itemStack6.getItem() == ThermalShockModItems.BLOOD_ZENITH_ARMOR_HELMET.get()) {"
+        },
+        {
+          "line": 53,
+          "text": "            if (itemStack7.getItem() == ThermalShockModItems.BLOOD_ZENITH_ARMOR_CHESTPLATE.get()) {"
+        },
+        {
+          "line": 61,
+          "text": "                if (itemStack8.getItem() == ThermalShockModItems.BLOOD_ZENITH_ARMOR_LEGGINGS.get()) {"
+        },
+        {
+          "line": 69,
+          "text": "                    if (itemStack9.getItem() == ThermalShockModItems.BLOOD_ZENITH_ARMOR_BOOTS.get() && entity instanceof Player) {"
+        },
+        {
+          "line": 76,
+          "text": "                        Advancement _adv = _player.server.getAdvancements().getAdvancement(new ResourceLocation(\"thermal_shock:zenith_get\"));"
+        },
+        {
+          "line": 79,
+          "text": "                        for (String criteria : _ap.getRemainingCriteria()) {"
+        },
+        {
+          "line": 80,
+          "text": "                            _player.getAdvancements().award(_adv, criteria);"
+        }
+      ]
+    },
+    "src/main/java/com/hp/thermalshockreforged/content/armor/ArmorContent.java": {
+      "sha256": "04ec0e6e0721222c1e867ef51f6e3fec82b460fbe31b835d0a2b260844fe1ed6",
+      "tokens": [
+        "\"blood_zenith_armor_\" + type.getName()",
+        "\"carborundum_armor_\" + type.getName()",
+        "\"ruby_zenith_armor_\" + type.getName()",
+        "ArmorItem.Type.HELMET, ArmorItem.Type.CHESTPLATE, ArmorItem.Type.LEGGINGS, ArmorItem.Type.BOOTS",
+        "ITEMS.register(bus)",
+        "NeoForge.EVENT_BUS.addListener(ArmorSetEvents::tick)"
+      ],
+      "lines": [
+        {
+          "line": 68,
+          "text": "        for (ArmorItem.Type type : List.of(ArmorItem.Type.HELMET, ArmorItem.Type.CHESTPLATE, ArmorItem.Type.LEGGINGS, ArmorItem.Type.BOOTS)) {"
+        },
+        {
+          "line": 70,
+          "text": "            CARBORUNDUM.add(ITEMS.register(\"carborundum_armor_\" + type.getName(), () -> new GeoSetArmorItem(CARBORUNDUM_MATERIAL, type, true, new Item.Properties().durability(type.getDurability(35)))));"
+        },
+        {
+          "line": 71,
+          "text": "            RUBY_ZENITH.add(ITEMS.register(\"ruby_zenith_armor_\" + type.getName(), () -> new GeoSetArmorItem(RUBY_ZENITH_MATERIAL, type, GeoSetArmorItem.Style.RUBY_ZENITH, new Item.Properties().durability(type.getDurability(35)))));"
+        },
+        {
+          "line": 72,
+          "text": "            BLOOD_ZENITH.add(ITEMS.register(\"blood_zenith_armor_\" + type.getName(), () -> new GeoSetArmorItem(BLOOD_ZENITH_MATERIAL, type, GeoSetArmorItem.Style.BLOOD_ZENITH, new Item.Properties().durability(type.getDurability(32)))));"
+        },
+        {
+          "line": 107,
+          "text": "        ITEMS.register(bus);"
+        },
+        {
+          "line": 108,
+          "text": "        NeoForge.EVENT_BUS.addListener(ArmorSetEvents::tick);"
+        }
+      ]
+    },
+    "src/main/java/com/hp/thermalshockreforged/content/armor/ArmorSetEvents.java": {
+      "sha256": "91a8f6f341b6da19f497eb998dc492b0398387a0f329d8b98b41f50f1f05eef1",
+      "tokens": [
+        "!player.level().dimension().location().equals(AQERON)",
+        ".award(",
+        ".is(ZENITH)",
+        "EquipmentSlot.FEET",
+        "EquipmentSlot.HEAD",
+        "PlayerTickEvent.Post",
+        "award(player, ZENITH_ADVANCEMENT)",
+        "for (var entry : armor)",
+        "getItemBySlot(item.getEquipmentSlot()).is(item)",
+        "getRemainingCriteria()",
+        "if (carbon) award(player, ADVANCEMENT)",
+        "wearing(player, ArmorContent.BLOOD_ZENITH)",
+        "wearing(player, ArmorContent.CARBORUNDUM)",
+        "wearing(player, ArmorContent.RUBY_ZENITH)"
+      ],
+      "lines": [
+        {
+          "line": 36,
+          "text": "    static void tick(PlayerTickEvent.Post event) {"
+        },
+        {
+          "line": 43,
+          "text": "        boolean eligible = player.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.HEAD).is(ZENITH)"
+        },
+        {
+          "line": 44,
+          "text": "                || player.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.FEET).is(ZENITH);"
+        },
+        {
+          "line": 45,
+          "text": "        if (eligible && player.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.HEAD).is(ArmorContent.CORRIAL_DIVING_HELMET.get())) player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 60, 0, true, false));"
+        },
+        {
+          "line": 47,
+          "text": "        if (eligible && wearing(player, ArmorContent.RUBY_ZENITH)) {"
+        },
+        {
+          "line": 49,
+          "text": "            award(player, ZENITH_ADVANCEMENT);"
+        },
+        {
+          "line": 51,
+          "text": "        if (eligible && wearing(player, ArmorContent.BLOOD_ZENITH)) {"
+        },
+        {
+          "line": 53,
+          "text": "            award(player, ZENITH_ADVANCEMENT);"
+        },
+        {
+          "line": 59,
+          "text": "        boolean carbon = eligible && wearing(player, ArmorContent.CARBORUNDUM) && !player.level().dimension().location().equals(AQERON);"
+        },
+        {
+          "line": 68,
+          "text": "        if (carbon) award(player, ADVANCEMENT);"
+        },
+        {
+          "line": 76,
+          "text": "                if (!progress.isDone()) for (String criterion : progress.getRemainingCriteria()) serverPlayer.getAdvancements().award(advancement, criterion);"
+        },
+        {
+          "line": 82,
+          "text": "        for (var entry : armor) {"
+        },
+        {
+          "line": 84,
+          "text": "            if (!player.getItemBySlot(item.getEquipmentSlot()).is(item)) return false;"
+        },
+        {
+          "line": 93,
+          "text": "            boolean eligible = player.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.HEAD).is(ZENITH)"
+        },
+        {
+          "line": 94,
+          "text": "                    || player.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.FEET).is(ZENITH);"
+        }
+      ]
+    },
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\SkorioSeedOnBlockRightClickedProcedure.java": {
+      "sha256": "256901aa71215b2eda0a11a53cbc7c457ea20efbdfcfdf7ba4a9c14c207d54f2",
+      "tokens": [
+        "\"planted_barbubble\"",
+        "\"planted_sparkler_a\"",
+        "\"thirsty\"",
+        "\"waterings\") == 3.0",
+        ".award(",
+        "WATERING_CAN",
+        "getRemainingCriteria()",
+        "thermal_shock:garden_plant_get"
+      ],
+      "lines": [
+        {
+          "line": 44,
+          "text": "        if (itemStack.getItem() == ThermalShockModItems.WATERING_CAN.get() && new Object(){"
+        },
+        {
+          "line": 53,
+          "text": "        }.getValue(world, BlockPos.containing((double)x, (double)y, (double)z), \"thirsty\")) {"
+        },
+        {
+          "line": 63,
+          "text": "                    _blockEntity.getPersistentData().putBoolean(\"thirsty\", false);"
+        },
+        {
+          "line": 109,
+          "text": "        }.getValue(world, BlockPos.containing((double)x, (double)y, (double)z), \"waterings\") == 3.0) {"
+        },
+        {
+          "line": 132,
+          "text": "                if (world instanceof ServerLevel && (template = (_serverworld = (ServerLevel)world).getStructureManager().getOrCreate(new ResourceLocation(\"thermal_shock\", \"planted_barbubble\"))) != null) {"
+        },
+        {
+          "line": 138,
+          "text": "                if (world instanceof ServerLevel && (template = (_serverworld = (ServerLevel)world).getStructureManager().getOrCreate(new ResourceLocation(\"thermal_shock\", \"planted_sparkler_a\"))) != null) {"
+        },
+        {
+          "line": 162,
+          "text": "                Advancement _adv = _player.server.getAdvancements().getAdvancement(new ResourceLocation(\"thermal_shock:garden_plant_get\"));"
+        },
+        {
+          "line": 165,
+          "text": "                    for (String criteria : _ap.getRemainingCriteria()) {"
+        },
+        {
+          "line": 166,
+          "text": "                        _player.getAdvancements().award(_adv, criteria);"
+        }
+      ]
+    },
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\AncientBarbubbleSeedBlock.java": {
+      "sha256": "4ffeb3476ac4da669617330a793c3436a1a08b937aa0343752b3805934680728",
+      "tokens": [
+        "InteractionResult use(",
+        "SkorioSeedOnBlockRightClickedProcedure.execute"
+      ],
+      "lines": [
+        {
+          "line": 86,
+          "text": "    public InteractionResult use(BlockState blockstate, Level world, BlockPos pos, Player entity, InteractionHand hand, BlockHitResult hit) {"
+        },
+        {
+          "line": 95,
+          "text": "        SkorioSeedOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity);"
+        }
+      ]
+    },
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\AncientSkorioSeedBlock.java": {
+      "sha256": "c310e5e6bbc58fc262b60ca047cdd6a5f14b18447066211447389e3d7835b106",
+      "tokens": [
+        "InteractionResult use(",
+        "SkorioSeedOnBlockRightClickedProcedure.execute"
+      ],
+      "lines": [
+        {
+          "line": 86,
+          "text": "    public InteractionResult use(BlockState blockstate, Level world, BlockPos pos, Player entity, InteractionHand hand, BlockHitResult hit) {"
+        },
+        {
+          "line": 95,
+          "text": "        SkorioSeedOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity);"
+        }
+      ]
+    },
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\BarbubbleSeedBlock.java": {
+      "sha256": "c836a2c1d958cb984eaab8adf270b0b658146ccbe91a5756c3bb80c7637ec748",
+      "tokens": [
+        "InteractionResult use(",
+        "SkorioSeedOnBlockRightClickedProcedure.execute"
+      ],
+      "lines": [
+        {
+          "line": 85,
+          "text": "    public InteractionResult use(BlockState blockstate, Level world, BlockPos pos, Player entity, InteractionHand hand, BlockHitResult hit) {"
+        },
+        {
+          "line": 94,
+          "text": "        SkorioSeedOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity);"
+        }
+      ]
+    },
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\DewleafSeedBlock.java": {
+      "sha256": "1f7bb2ebb30377349d9050b0a85bb4192e5fb7dbd2b5ec36d866fb28825212e5",
+      "tokens": [
+        "InteractionResult use(",
+        "SkorioSeedOnBlockRightClickedProcedure.execute"
+      ],
+      "lines": [
+        {
+          "line": 86,
+          "text": "    public InteractionResult use(BlockState blockstate, Level world, BlockPos pos, Player entity, InteractionHand hand, BlockHitResult hit) {"
+        },
+        {
+          "line": 95,
+          "text": "        SkorioSeedOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity);"
+        }
+      ]
+    },
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\FrostLotusSeedBlock.java": {
+      "sha256": "b79c86f2fbf8419063ffba17219d3383025369bf4416d830aeb494628d181e96",
+      "tokens": [
+        "InteractionResult use(",
+        "SkorioSeedOnBlockRightClickedProcedure.execute"
+      ],
+      "lines": [
+        {
+          "line": 86,
+          "text": "    public InteractionResult use(BlockState blockstate, Level world, BlockPos pos, Player entity, InteractionHand hand, BlockHitResult hit) {"
+        },
+        {
+          "line": 95,
+          "text": "        SkorioSeedOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity);"
+        }
+      ]
+    },
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\GelBulbSeedBlock.java": {
+      "sha256": "db1a79533a9c86daa5ebaa7e13848d1584e30ff41e333024c337d247780cbe14",
+      "tokens": [
+        "InteractionResult use(",
+        "SkorioSeedOnBlockRightClickedProcedure.execute"
+      ],
+      "lines": [
+        {
+          "line": 85,
+          "text": "    public InteractionResult use(BlockState blockstate, Level world, BlockPos pos, Player entity, InteractionHand hand, BlockHitResult hit) {"
+        },
+        {
+          "line": 94,
+          "text": "        SkorioSeedOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity);"
+        }
+      ]
+    },
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\HearthflyBranchSeedBlock.java": {
+      "sha256": "05e7ea36f7975e5564d74b3735773602412d13829c31330fc5dbf9bc257ee3f1",
+      "tokens": [
+        "InteractionResult use(",
+        "SkorioSeedOnBlockRightClickedProcedure.execute"
+      ],
+      "lines": [
+        {
+          "line": 86,
+          "text": "    public InteractionResult use(BlockState blockstate, Level world, BlockPos pos, Player entity, InteractionHand hand, BlockHitResult hit) {"
+        },
+        {
+          "line": 95,
+          "text": "        SkorioSeedOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity);"
+        }
+      ]
+    },
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\NeoflormSeedBlock.java": {
+      "sha256": "3584baf890ab15d99853ed2bf25237e9ae539e8f18c433365b33820df7d21f71",
+      "tokens": [
+        "InteractionResult use(",
+        "SkorioSeedOnBlockRightClickedProcedure.execute"
+      ],
+      "lines": [
+        {
+          "line": 85,
+          "text": "    public InteractionResult use(BlockState blockstate, Level world, BlockPos pos, Player entity, InteractionHand hand, BlockHitResult hit) {"
+        },
+        {
+          "line": 94,
+          "text": "        SkorioSeedOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity);"
+        }
+      ]
+    },
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\SkorioSeedBlock.java": {
+      "sha256": "21e0361200085c83c5fbc7d65b92af5053d98b60ae2504804f57d5039558fa75",
+      "tokens": [
+        "InteractionResult use(",
+        "SkorioSeedOnBlockRightClickedProcedure.execute"
+      ],
+      "lines": [
+        {
+          "line": 85,
+          "text": "    public InteractionResult use(BlockState blockstate, Level world, BlockPos pos, Player entity, InteractionHand hand, BlockHitResult hit) {"
+        },
+        {
+          "line": 94,
+          "text": "        SkorioSeedOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity);"
+        }
+      ]
+    },
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\SparklerSeedBlock.java": {
+      "sha256": "60c992e7ae45381f01b8340c9969c94237d4b432ca0357f8904a0d56edafa477",
+      "tokens": [
+        "InteractionResult use(",
+        "SkorioSeedOnBlockRightClickedProcedure.execute"
+      ],
+      "lines": [
+        {
+          "line": 85,
+          "text": "    public InteractionResult use(BlockState blockstate, Level world, BlockPos pos, Player entity, InteractionHand hand, BlockHitResult hit) {"
+        },
+        {
+          "line": 94,
+          "text": "        SkorioSeedOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity);"
+        }
+      ]
+    },
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\VisiBulbSeedBlock.java": {
+      "sha256": "4c63a1e13a77fe0597880c84a8bf224c948c81856663332275c9aefafd4893b7",
+      "tokens": [
+        "InteractionResult use(",
+        "SkorioSeedOnBlockRightClickedProcedure.execute"
+      ],
+      "lines": [
+        {
+          "line": 85,
+          "text": "    public InteractionResult use(BlockState blockstate, Level world, BlockPos pos, Player entity, InteractionHand hand, BlockHitResult hit) {"
+        },
+        {
+          "line": 94,
+          "text": "        SkorioSeedOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity);"
+        }
+      ]
+    },
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\VolatineSeedBlock.java": {
+      "sha256": "610ef7ba5beef0c3c78cac7b76c6b03ad19d596e09777ea2f58008d4721ee384",
+      "tokens": [
+        "InteractionResult use(",
+        "SkorioSeedOnBlockRightClickedProcedure.execute"
+      ],
+      "lines": [
+        {
+          "line": 85,
+          "text": "    public InteractionResult use(BlockState blockstate, Level world, BlockPos pos, Player entity, InteractionHand hand, BlockHitResult hit) {"
+        },
+        {
+          "line": 94,
+          "text": "        SkorioSeedOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity);"
+        }
+      ]
+    },
+    "src/main/java/com/hp/thermalshockreforged/content/farming/CropKind.java": {
+      "sha256": "de622ac78a57d6250918c96c11624378691753229a0a66fccde8847ebc06403e",
+      "tokens": [
+        "ANCIENT_BARBUBBLE(",
+        "ANCIENT_SKORIO(",
+        "BARBUBBLE(",
+        "DEWLEAF(",
+        "FROST_LOTUS(",
+        "HEARTHFLY_BRANCH(",
+        "NEOFLORM(",
+        "SKORIO(",
+        "VOLATINE("
+      ],
+      "lines": [
+        {
+          "line": 4,
+          "text": "    SKORIO(\"skorio\", false, false, false),"
+        },
+        {
+          "line": 5,
+          "text": "    BARBUBBLE(\"barbubble\", false, false, false),"
+        },
+        {
+          "line": 6,
+          "text": "    ANCIENT_SKORIO(\"ancient_skorio\", true, true, false),"
+        },
+        {
+          "line": 7,
+          "text": "    ANCIENT_BARBUBBLE(\"ancient_barbubble\", true, true, false),"
+        },
+        {
+          "line": 8,
+          "text": "    DEWLEAF(\"dewleaf\", true, true, false),"
+        },
+        {
+          "line": 9,
+          "text": "    HEARTHFLY_BRANCH(\"hearthfly_branch\", true, true, true),"
+        },
+        {
+          "line": 10,
+          "text": "    FROST_LOTUS(\"frost_lotus\", true, true, true),"
+        },
+        {
+          "line": 11,
+          "text": "    NEOFLORM(\"neoflorm\", true, false, true),"
+        },
+        {
+          "line": 12,
+          "text": "    VOLATINE(\"volatine\", true, false, false);"
+        }
+      ]
+    },
+    "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthKind.java": {
+      "sha256": "844b18aee6b59e5da51786ca5cdf0fbacdac14614a9c07be5a5363dc4cb277fa",
+      "tokens": [
+        "GEL_BULB(",
+        "SPARKLER(",
+        "VISI_BULB("
+      ],
+      "lines": [
+        {
+          "line": 4,
+          "text": "    SPARKLER(\"sparkler\"), GEL_BULB(\"gel_bulb\"), VISI_BULB(\"visi_bulb\");"
+        }
+      ]
+    },
+    "src/main/java/com/hp/thermalshockreforged/content/farming/FarmingContent.java": {
+      "sha256": "64022c1d59b9684b97d85ae8ebd6b545d4e45529d95b6c66d26ee542daf0a0b7",
+      "tokens": [
+        "BLOCKS.register(kind.id + \"_seed\", () -> new FarmSeedBlock(kind))",
+        "ITEMS.registerSimpleBlockItem(seed)",
+        "SEED_ENTITIES.put(kind, ENTITIES.register(kind.id + \"_seed\"",
+        "for (CropKind kind : CropKind.values())"
+      ],
+      "lines": [
+        {
+          "line": 34,
+          "text": "        for (CropKind kind : CropKind.values()) {"
+        },
+        {
+          "line": 39,
+          "text": "            var seed = BLOCKS.register(kind.id + \"_seed\", () -> new FarmSeedBlock(kind));"
+        },
+        {
+          "line": 41,
+          "text": "            ITEMS.registerSimpleBlockItem(seed);"
+        },
+        {
+          "line": 42,
+          "text": "            SEED_ENTITIES.put(kind, ENTITIES.register(kind.id + \"_seed\", () -> BlockEntityType.Builder.of((pos, state) -> new SeedBlockEntity(kind, pos, state), seed.get()).build(null)));"
+        }
+      ]
+    },
+    "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthContent.java": {
+      "sha256": "5b0d2eb62e57c4e625a248bd83a0169412c8410f0f8793894a2f1cf2ed46eddc",
+      "tokens": [
+        "BLOCKS.register(id, factory)",
+        "ITEMS.registerSimpleBlockItem(holder)",
+        "for (GrowthKind kind : GrowthKind.values()) block(kind.id + \"_seed\", () -> new GrowthSeedBlock(kind))"
+      ],
+      "lines": [
+        {
+          "line": 41,
+          "text": "        for (GrowthKind kind : GrowthKind.values()) block(kind.id + \"_seed\", () -> new GrowthSeedBlock(kind));"
+        },
+        {
+          "line": 46,
+          "text": "        DeferredBlock<Block> holder = BLOCKS.register(id, factory);"
+        },
+        {
+          "line": 48,
+          "text": "        ITEMS.registerSimpleBlockItem(holder);"
+        }
+      ]
+    },
+    "src/main/java/com/hp/thermalshockreforged/content/farming/FarmSeedBlock.java": {
+      "sha256": "0fbcfb3d0e85f536f8d2c6d236f27a4fc4b8ee04a62a50273c0222e75b9a9216",
+      "tokens": [
+        "\"garden_plant_get\"",
+        "\"watering_can\"",
+        ".award(",
+        "ParticleTypes.HAPPY_VILLAGER",
+        "data.getBoolean(\"thirsty\")",
+        "data.getDouble(\"waterings\") + 1",
+        "data.getDouble(\"waterings\") == 3",
+        "getRemainingCriteria()",
+        "useItemOn(",
+        "useWithoutItem(",
+        "water(level, pos, player)"
+      ],
+      "lines": [
+        {
+          "line": 72,
+          "text": "            if (!data.getBoolean(\"thirsty\") && (!kind.gardenling || !level.getEntitiesOfClass(GardenlingEntity.class,"
+        },
+        {
+          "line": 78,
+          "text": "            if (data.getBoolean(\"thirsty\")) level.sendParticles(ParticleTypes.FALLING_WATER, pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5, 5, .3, .3, .3, 0);"
+        },
+        {
+          "line": 85,
+          "text": "        boolean watering = BuiltInRegistries.ITEM.getKey(player.getMainHandItem().getItem()).equals(ResourceLocation.fromNamespaceAndPath(\"thermal_shock_reforged\", \"watering_can\")) && data.getBoolean(\"thirsty\");"
+        },
+        {
+          "line": 94,
+          "text": "            data.putDouble(\"waterings\", data.getDouble(\"waterings\") + 1);"
+        },
+        {
+          "line": 98,
+          "text": "        if (data.getDouble(\"waterings\") == 3) {"
+        },
+        {
+          "line": 105,
+          "text": "            server.sendParticles(ParticleTypes.HAPPY_VILLAGER, pos.getX() + .5, pos.getY(), pos.getZ() + .5, 15, .5, 1, .5, .1);"
+        },
+        {
+          "line": 107,
+          "text": "                var advancement = server.getServer().getAdvancements().get(ResourceLocation.fromNamespaceAndPath(\"thermal_shock_reforged\", \"garden_plant_get\"));"
+        },
+        {
+          "line": 110,
+          "text": "                    if (!progress.isDone()) for (String criterion : progress.getRemainingCriteria()) sp.getAdvancements().award(advancement, criterion);"
+        },
+        {
+          "line": 115,
+          "text": "    @Override protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {"
+        },
+        {
+          "line": 116,
+          "text": "        water(level, pos, player);"
+        },
+        {
+          "line": 119,
+          "text": "    @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {"
+        },
+        {
+          "line": 120,
+          "text": "        water(level, pos, player);"
+        }
+      ]
+    },
+    "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthSeedBlock.java": {
+      "sha256": "91b7507ee0e32618a142e1641cdea5a0b99a498e15d38caa6cf9353bc574fa4a",
+      "tokens": [
+        "\"garden_plant_get\"",
+        "\"watering_can\"",
+        ".award(",
+        "ParticleTypes.HAPPY_VILLAGER",
+        "data.getBoolean(\"thirsty\")",
+        "data.getDouble(\"waterings\") + 1",
+        "data.getDouble(\"waterings\") == 3",
+        "getRemainingCriteria()",
+        "useItemOn(",
+        "useWithoutItem(",
+        "water(level, pos, player)"
+      ],
+      "lines": [
+        {
+          "line": 73,
+          "text": "            if (!data.getBoolean(\"thirsty\") && random.nextDouble() < .0026) {"
+        },
+        {
+          "line": 77,
+          "text": "            if (data.getBoolean(\"thirsty\")) level.sendParticles(ParticleTypes.FALLING_WATER, pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5, 5, .3, .3, .3, 0);"
+        },
+        {
+          "line": 84,
+          "text": "        boolean canWater=BuiltInRegistries.ITEM.getKey(player.getMainHandItem().getItem()).equals(ResourceLocation.fromNamespaceAndPath(\"thermal_shock_reforged\", \"watering_can\"))&&data.getBoolean(\"thirsty\");"
+        },
+        {
+          "line": 92,
+          "text": "            data.putDouble(\"waterings\", data.getDouble(\"waterings\") + 1);"
+        },
+        {
+          "line": 96,
+          "text": "        if (data.getDouble(\"waterings\") == 3) {"
+        },
+        {
+          "line": 103,
+          "text": "            server.sendParticles(ParticleTypes.HAPPY_VILLAGER, pos.getX() + .5, pos.getY(), pos.getZ() + .5, 15, .5, 1, .5, .1);"
+        },
+        {
+          "line": 105,
+          "text": "                var advancement = server.getServer().getAdvancements().get(ResourceLocation.fromNamespaceAndPath(\"thermal_shock_reforged\", \"garden_plant_get\"));"
+        },
+        {
+          "line": 108,
+          "text": "                    if (!progress.isDone()) for (String criterion : progress.getRemainingCriteria()) sp.getAdvancements().award(advancement, criterion);"
+        },
+        {
+          "line": 113,
+          "text": "    @Override protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {"
+        },
+        {
+          "line": 114,
+          "text": "        water(level, pos, player);"
+        },
+        {
+          "line": 117,
+          "text": "    @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {"
+        },
+        {
+          "line": 118,
+          "text": "        water(level, pos, player);"
+        }
+      ]
+    },
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\CauldronOfTrilobiteBlock.java": {
+      "sha256": "c87f14b0407371dfa6a1f8e2c72428ecb4ddd666aaea55aee94a65879c86533b",
+      "tokens": [
+        "InteractionResult use(",
+        "TriloCauldronClickProcedure.execute"
+      ],
+      "lines": [
+        {
+          "line": 105,
+          "text": "    public InteractionResult use(BlockState blockstate, Level world, BlockPos pos, Player entity, InteractionHand hand, BlockHitResult hit) {"
+        },
+        {
+          "line": 114,
+          "text": "        InteractionResult result = TriloCauldronClickProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity);"
+        }
+      ]
+    },
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\TriloCauldronClickProcedure.java": {
+      "sha256": "ad6f45785af4c89f35b9a23bd1fb0efe2645323230b8f813dc594824fe100d72",
+      "tokens": [
+        "Items.BUCKET",
+        "LOQUE_MILK",
+        "entity.mooshroom.milk"
+      ],
+      "lines": [
+        {
+          "line": 36,
+          "text": "        if (itemStack.getItem() == Items.BUCKET) {"
+        },
+        {
+          "line": 40,
+          "text": "                ItemStack _stktoremove = new ItemStack((ItemLike)Items.BUCKET);"
+        },
+        {
+          "line": 45,
+          "text": "                ItemStack _setstack = new ItemStack((ItemLike)ThermalShockModItems.LOQUE_MILK.get()).copy();"
+        },
+        {
+          "line": 52,
+          "text": "                    _level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.mooshroom.milk\")), SoundSource.NEUTRAL, 1.0f, 1.0f);"
+        },
+        {
+          "line": 54,
+          "text": "                    _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.mooshroom.milk\")), SoundSource.NEUTRAL, 1.0f, 1.0f, false);"
+        }
+      ]
+    },
+    "src/main/java/com/hp/thermalshockreforged/entity/fauna/FaunaEntities.java": {
+      "sha256": "e3992d2651aea9d75428815c7784adb190d59fe1cc22367951e4a7954df2405e",
+      "tokens": [
+        "BLOCKS.register(\"cauldron_of_trilobite\"",
+        "BLOCK_ENTITIES.register(\"cauldron_of_trilobite\"",
+        "ITEMS.register(\"cauldron_of_trilobite\""
+      ],
+      "lines": [
+        {
+          "line": 26,
+          "text": "    public static final DeferredBlock<CauldronOfTrilobiteBlock> CAULDRON = BLOCKS.register(\"cauldron_of_trilobite\", CauldronOfTrilobiteBlock::new);"
+        },
+        {
+          "line": 27,
+          "text": "    public static final DeferredItem<CauldronOfTrilobiteItem> CAULDRON_ITEM = ITEMS.register(\"cauldron_of_trilobite\", () -> new CauldronOfTrilobiteItem(CAULDRON.get(), new Item.Properties()));"
+        },
+        {
+          "line": 28,
+          "text": "    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CauldronOfTrilobiteBlockEntity>> CAULDRON_ENTITY = BLOCK_ENTITIES.register(\"cauldron_of_trilobite\", () -> BlockEntityType.Builder.of(CauldronOfTrilobiteBlockEntity::new, CAULDRON.get()).build(null));"
+        }
+      ]
+    },
+    "src/main/java/com/hp/thermalshockreforged/entity/fauna/block/CauldronOfTrilobiteBlock.java": {
+      "sha256": "fc5077489a798513783dcec534798e3bb6cde95399f8a92876207a12058f15d7",
+      "tokens": [
+        "\"loque_milk\"",
+        "Items.BUCKET",
+        "MOOSHROOM_MILK",
+        "useItemOn("
+      ],
+      "lines": [
+        {
+          "line": 78,
+          "text": "    protected ItemInteractionResult useItemOn(ItemStack held, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {"
+        },
+        {
+          "line": 79,
+          "text": "        if (!held.is(Items.BUCKET)) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;"
+        },
+        {
+          "line": 82,
+          "text": "            var milk = new ItemStack(FaunaEntities.item(\"loque_milk\"));"
+        },
+        {
+          "line": 84,
+          "text": "            level.playSound(null, pos, net.minecraft.sounds.SoundEvents.MOOSHROOM_MILK, net.minecraft.sounds.SoundSource.NEUTRAL, 1, 1);"
+        }
+      ]
+    },
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\GardenlingConstructorBlock.java": {
+      "sha256": "d01ecb0bce9e74f6661b1fefbdb614cb3a57083c66bd4b884d15e4266ce5f68e",
+      "tokens": [
+        "GardenlingConstructorBlockAddedProcedure.execute"
+      ],
+      "lines": [
+        {
+          "line": 28,
+          "text": "        GardenlingConstructorBlockAddedProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ());"
+        }
+      ]
+    },
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\GardenlingConstructorBlockAddedProcedure.java": {
+      "sha256": "9ed3a4a9ea0e454966aa92d30f3d4fd27497074ba79f50209f1b4c857aa8dafb",
+      "tokens": [
+        "Blocks.AIR.defaultBlockState()",
+        "ThermalShockModEntities.GARDENLING"
+      ],
+      "lines": [
+        {
+          "line": 27,
+          "text": "            Entity entityToSpawn = ((EntityType)ThermalShockModEntities.GARDENLING.get()).spawn(_level, BlockPos.containing((double)(x + 0.5), (double)y, (double)(z + 0.5)), MobSpawnType.MOB_SUMMONED);"
+        },
+        {
+          "line": 52,
+          "text": "        world.setBlock(BlockPos.containing((double)x, (double)y, (double)z), Blocks.AIR.defaultBlockState(), 3);"
+        }
+      ]
+    },
+    "src/main/java/com/hp/thermalshockreforged/entity/gardenling/GardenlingContent.java": {
+      "sha256": "3c12956aa945e9df824f0ada5bff0998645daf0d95540f26f9c1aa86b7d21682",
+      "tokens": [
+        "BLOCKS.register(\"gardenling_constructor\", GardenlingConstructorBlock::new)",
+        "ITEMS.registerSimpleBlockItem(CONSTRUCTOR)"
+      ],
+      "lines": [
+        {
+          "line": 17,
+          "text": "    public static final DeferredBlock<Block> CONSTRUCTOR = BLOCKS.register(\"gardenling_constructor\", GardenlingConstructorBlock::new);"
+        },
+        {
+          "line": 19,
+          "text": "    static { ITEMS.registerSimpleBlockItem(CONSTRUCTOR); }"
+        }
+      ]
+    },
+    "src/main/java/com/hp/thermalshockreforged/entity/gardenling/GardenlingConstructorBlock.java": {
+      "sha256": "c95fbf9895dba9976146a5a8ec9d1dd67f65014dead91198f4dd2cd4f637ae7c",
+      "tokens": [
+        "GardenlingContent.GARDENLING.get().spawn",
+        "protected void onPlace(",
+        "server.removeBlock(pos, false)"
+      ],
+      "lines": [
+        {
+          "line": 20,
+          "text": "    protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState previous, boolean moving) {"
+        },
+        {
+          "line": 22,
+          "text": "        if (previous.is(this) || !(level instanceof ServerLevel server) || !level.getBlockState(pos).is(this) || !server.removeBlock(pos, false)) return;"
+        },
+        {
+          "line": 23,
+          "text": "        GardenlingContent.GARDENLING.get().spawn(server, pos, MobSpawnType.MOB_SUMMONED);"
+        }
+      ]
+    },
+    "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/chunk/LevelChunk.java": {
+      "sha256": "c014a13e2ef391901113b080362ad6db4bdd4a65c7ad47b8c6aecd8bd89b6223",
+      "tokens": [
+        "!this.level.captureBlockSnapshots",
+        ".onPlace("
+      ],
+      "lines": [
+        {
+          "line": 282,
+          "text": "                    if (!this.level.isClientSide && !this.level.captureBlockSnapshots) {"
+        },
+        {
+          "line": 283,
+          "text": "                        p_62866_.onPlace(this.level, p_62865_, blockstate, p_62867_);"
+        }
+      ]
+    },
+    "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/item/BlockItem.java": {
+      "sha256": "f26f291ad73176d372d7916d05eb396358f41d08dbffcca02f1d425972b5c7ea",
+      "tokens": [
+        "BlockState blockstate1 = level.getBlockState(blockpos)",
+        "CriteriaTriggers.PLACED_BLOCK.trigger"
+      ],
+      "lines": [
+        {
+          "line": 74,
+          "text": "                    BlockState blockstate1 = level.getBlockState(blockpos);"
+        },
+        {
+          "line": 81,
+          "text": "                            CriteriaTriggers.PLACED_BLOCK.trigger((ServerPlayer)player, blockpos, itemstack);"
+        }
+      ]
+    },
+    "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/item/ItemStack.java": {
+      "sha256": "b35770a757f0c62a88276a38c36763d26e204d1a6210ea3fcac71a53526bc389",
+      "tokens": [
+        "CommonHooks.onPlaceItemIntoWorld"
+      ],
+      "lines": [
+        {
+          "line": 360,
+          "text": "        if (!p_41662_.getLevel().isClientSide) return net.neoforged.neoforge.common.CommonHooks.onPlaceItemIntoWorld(p_41662_);"
+        }
+      ]
+    },
+    "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/item/crafting/SimpleCookingSerializer.java": {
+      "sha256": "de7d95f45f82f7144225ef73c0f47661dffef161e4dcfa7a9e17dd77d5da13d7",
+      "tokens": [
+        "ItemStack.CODEC.fieldOf(\"result\")"
+      ],
+      "lines": [
+        {
+          "line": 23,
+          "text": "                        ItemStack.CODEC.fieldOf(\"result\").forGetter(p_300827_ -> p_300827_.result),"
+        }
+      ]
+    },
+    "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/advancements/DisplayInfo.java": {
+      "sha256": "718c98c4402b0bc309651bf19cf285518a8514f261a1d90cddf00da51fe9d42f",
+      "tokens": [
+        "ItemStack.STRICT_CODEC.fieldOf(\"icon\")"
+      ],
+      "lines": [
+        {
+          "line": 17,
+          "text": "                    ItemStack.STRICT_CODEC.fieldOf(\"icon\").forGetter(DisplayInfo::getIcon),"
+        }
+      ]
+    },
+    "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/advancements/critereon/LocationPredicate.java": {
+      "sha256": "2515f26cbe772e95e6b36fb6ed34eae174e8b00d171932b915bd29a7ebf76157",
+      "tokens": [
+        "RegistryCodecs.homogeneousList(Registries.BIOME).optionalFieldOf(\"biomes\")"
+      ],
+      "lines": [
+        {
+          "line": 33,
+          "text": "                    RegistryCodecs.homogeneousList(Registries.BIOME).optionalFieldOf(\"biomes\").forGetter(LocationPredicate::biomes),"
+        }
+      ]
+    },
+    "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/advancements/critereon/ItemPredicate.java": {
+      "sha256": "b71c082ff27aa68dd24d6147d5054298d89f9c2e32c447d3300d78de7fc62c68",
+      "tokens": [
+        "MinMaxBounds.Ints.CODEC.optionalFieldOf(\"count\"",
+        "RegistryCodecs.homogeneousList(Registries.ITEM).optionalFieldOf(\"items\")"
+      ],
+      "lines": [
+        {
+          "line": 26,
+          "text": "                    RegistryCodecs.homogeneousList(Registries.ITEM).optionalFieldOf(\"items\").forGetter(ItemPredicate::items),"
+        },
+        {
+          "line": 27,
+          "text": "                    MinMaxBounds.Ints.CODEC.optionalFieldOf(\"count\", MinMaxBounds.Ints.ANY).forGetter(ItemPredicate::count),"
+        }
+      ]
+    },
+    "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/advancements/critereon/ItemUsedOnLocationTrigger.java": {
+      "sha256": "4ffb4019beb5d59e861f091ed464015dc3085b781ffc62d6ae48efe4140e9d29",
+      "tokens": [
+        "ContextAwarePredicate.CODEC.optionalFieldOf(\"location\")"
+      ],
+      "lines": [
+        {
+          "line": 49,
+          "text": "                        ContextAwarePredicate.CODEC.optionalFieldOf(\"location\").forGetter(ItemUsedOnLocationTrigger.TriggerInstance::location)"
+        }
+      ]
+    },
+    "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/advancements/critereon/InventoryChangeTrigger.java": {
+      "sha256": "c0310fcb9f5de03220fa6a85d2001866b9dd501dfc5a53cd7482c0e7900dac60",
+      "tokens": [
+        "ItemPredicate.CODEC.listOf().optionalFieldOf(\"items\""
+      ],
+      "lines": [
+        {
+          "line": 58,
+          "text": "                        ItemPredicate.CODEC.listOf().optionalFieldOf(\"items\", List.of()).forGetter(InventoryChangeTrigger.TriggerInstance::items)"
+        }
+      ]
+    },
+    "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/advancements/critereon/ConsumeItemTrigger.java": {
+      "sha256": "5aecc9be89a56da16e5c0395cddcf8fcbd91383064ef0bfb423006e4288cd11a",
+      "tokens": [
+        "ItemPredicate.CODEC.optionalFieldOf(\"item\")"
+      ],
+      "lines": [
+        {
+          "line": 27,
+          "text": "                        ItemPredicate.CODEC.optionalFieldOf(\"item\").forGetter(ConsumeItemTrigger.TriggerInstance::item)"
+        }
+      ]
+    },
+    "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/item/crafting/ShapedRecipePattern.java": {
+      "sha256": "88dc70bb2752b0e945051548e46c4413dd8f4619dad5400a0b7e3784c5e38aa6",
+      "tokens": [
+        "String[] astring = shrink(",
+        "boolean matches(CraftingInput",
+        "this.matches(p_345063_, false)",
+        "this.matches(p_345063_, true)"
+      ],
+      "lines": [
+        {
+          "line": 89,
+          "text": "        String[] astring = shrink(p_312037_.pattern);"
+        },
+        {
+          "line": 171,
+          "text": "    public boolean matches(CraftingInput p_345063_) {"
+        },
+        {
+          "line": 176,
+          "text": "                if (!this.symmetrical && this.matches(p_345063_, true)) {"
+        },
+        {
+          "line": 180,
+          "text": "                if (this.matches(p_345063_, false)) {"
+        },
+        {
+          "line": 189,
+          "text": "    private boolean matches(CraftingInput p_345835_, boolean p_344990_) {"
+        }
+      ]
+    },
+    "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/item/crafting/ShapelessRecipe.java": {
+      "sha256": "854153657b6f8fa9051eb958c4fbb4b9260fe8ad0cb1a521f4912a819eda2fcc",
+      "tokens": [
+        "RecipeMatcher.findMatches",
+        "ingredientCount()"
+      ],
+      "lines": [
+        {
+          "line": 57,
+          "text": "        if (p_346123_.ingredientCount() != this.ingredients.size()) {"
+        },
+        {
+          "line": 60,
+          "text": "            var nonEmptyItems = new java.util.ArrayList<ItemStack>(p_346123_.ingredientCount());"
+        },
+        {
+          "line": 64,
+          "text": "            return net.neoforged.neoforge.common.util.RecipeMatcher.findMatches(nonEmptyItems, this.ingredients) != null;"
+        }
+      ]
+    }
+  }
+}

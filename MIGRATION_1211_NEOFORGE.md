@@ -583,3 +583,19 @@ A保六发Judge每发原参数、Net独立弹体/声音、两伞完整Geo与真�
 
 客户端及Render Preview由主线在全部代码完整和无简化复核后安排子代理，独占验收计划client-final-acceptance-plan.md已记录两版本工具入口、目录选择和真实依赖版本问题；未启动游戏，静态/编译不是渲染一致证明。服务端用户独立测试中，生产线不联系、不干预、不重复，也不将进行中当通过。Git无remote，只做本地阶段提交。
 
+## 第112批最终集成验证
+
+迁移A承担25配方与20进度数据及原真实授予链，主线承担Zenith独立磁弩/九原标签/升级配方和共享语言集成；61生产文件（A45、主线14、共享两locale）。Magnetic与Zenith是两个独立注册Item，保800耐久但原射击不扣耐久、各40tick冷却、专用弹1/创造免弹、完整Geo/两纹理/clip0与1/手持姿态及5/10/15 END装填声，两实例都进入有界动画缓存清理。原instanceof只写Magnetic动画的缺陷修为两真实实例各自同步；六原英文tooltip逐字保留，中英文不覆盖旧值。smithing按用户要求将模板放template、原磁弩放base，配料产物不变。
+
+九原tag保原顺序、replace:false、嵌套引用与既有合法额外项，weapon47/nomelee10完整纳入真实Zenith，durability保旧项只加Zenith。七已有资产按原JSON namespace-only或PNG字节相等，实际物品模型父为anton_hammar，不凭近似文件名误判。quick97独立核14生产、参数/标签/资源/locale通过；编译更正前SHA由独立报告保留，最终SHA见本总报告。
+
+A45份数据独立quick101反向核原JSON通过；25配方保完整输入/结果/数量/35、200、100烹饪tick与经验，除pure_muck拆解按授权改为并排两块返8球、消除与单块按钮冲突。20进度保全部criterion/display/parent/奖励。四impossible真实授予沿既有方块/护甲事件完整闭合，原炼锅进度4577类常量池及数据反查无授予，保impossible并如实列原悬空，不捏造香料/降级业务。原路径覆盖536/536配方、69/69进度仅证明路径闭合，不代表整个模组完整。A792项静态检查、67真实物品引用与147关联视觉资产核对通过，均非游戏测试次数。
+
+园丁放置旧不可达判断已撤回：Forge/NeoForge玩家useOn捕获快照延后onPlace，原生placed_block先读取构造器，成功回放才移除。保原criterion与49经验，不额外手工授予或新增专用Item；原调用顺序/版本/API哈希见A chains112。mcreator-rework补此可复用坑并quick_validate通过。
+
+首轮编译38s发现新增boolean构造器令MagneticCrossbowItem::new与DeferredRegister两个重载歧义；仅将Magnetic注册明确为无参Supplier lambda，其余生产保持，原清单/首次固定输入与失败日志保留main112-compile-correction。最终固定8852份src/main统一Java21离线compileJava/processResources --max-workers=2通过，耗时1m 31s；8047直接复制资源逐字节相同、2展开模板通过，全部固定输入未变。原3355英文/894中文全保，新增英文6/中文48。最终证据main112-static-validation.json。
+
+客户端完整后验收计划已按用户最新要求更新：生产主线安排子代理实际客户端与Render Preview，保截图/日志/覆盖边界；当前未启动。真实目标Gecko4.9.2和AAA2.3.3已按mavenLocal坐标定位并核JAR元数据/SHA，AAA内嵌Architectury13.0.8。Preview当前固定Gecko4.8.4需最终真覆盖；原件Forge1.20.1 AAA在限定坐标缓存未找到，仍是最终对照准备待办。服务端用户独立测试中，生产线不联系、不重复、不视为已通过。
+
+下一批113按parallel-batch113.md处理七GUI候选，较多的五项交迁移A，主线另两制作页及共享集成；有同产物替代配方不证明旧GUI已保，原孤立页也不删除。还需全行为矩阵与无简化复审，整模组未完整。当前Git无remote，只本地阶段提交。
+

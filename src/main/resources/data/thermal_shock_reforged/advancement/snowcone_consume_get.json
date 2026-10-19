@@ -1,0 +1,30 @@
+{
+  "display": {
+    "icon": {
+      "id": "thermal_shock_reforged:icy_snowcone"
+    },
+    "title": {
+      "translate": "advancements.snowcone_consume_get.title"
+    },
+    "description": {
+      "translate": "advancements.snowcone_consume_get.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "snowcone_consume_get_0": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "items": [
+            "thermal_shock_reforged:icy_snowcone"
+          ]
+        }
+      }
+    }
+  },
+  "parent": "thermal_shock_reforged:luminous_sea_get"
+}

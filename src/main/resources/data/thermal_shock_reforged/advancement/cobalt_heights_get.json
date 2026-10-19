@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "id": "thermal_shock_reforged:sanctum_bricks"
+    },
+    "title": {
+      "translate": "advancements.cobalt_heights_get.title"
+    },
+    "description": {
+      "translate": "advancements.cobalt_heights_get.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "cobalt_heights_get_0": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biomes": "thermal_shock_reforged:cobalt_heights"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "parent": "thermal_shock_reforged:loqendia_get"
+}

@@ -1,0 +1,30 @@
+{
+  "scope": "Read-only final-client dependency preparation; no game launched",
+  "reviewer": "/root/coverage101_inventory",
+  "jars": [
+    {
+      "mod": "geckolib",
+      "path": "C:\\Users\\30819\\.gradle\\caches\\modules-2\\files-2.1\\curse.maven\\geckolib-388172\\8350073\\14c64013cadee7d28f3685f94350f9a4d2ec6d86\\geckolib-388172-8350073.jar",
+      "sha256": "5e548466af9ab6aca7a91a7c7d4dc0dc8bc385e22958aed5da0e7bebd0fa3fba",
+      "metadata": {
+        "META-INF/neoforge.mods.toml": "modLoader=\"javafml\"\nloaderVersion=\"[4,)\"\nissueTrackerURL=\"https://github.com/bernie-g/geckolib/issues\"\nlicense=\"MIT\"\n\n[[mods]]\n    modId=\"geckolib\"\n    version=\"4.9.2\"\n    displayName=\"GeckoLib 4\"\n    displayURL=\"http://geckolib.com/\"\n    logoFile=\"geckolib.png\"\n    credits=\"Gecko, Eliot, AzureDoom, DerToaster, Tslat, Witixin\"\n    authors=\"Gecko, Eliot, AzureDoom, DerToaster, Tslat, Witixin\"\n    description='''\nGeckoLib is an animation engine for Minecraft Mods, with support for complex 3D keyframe-based animations, 30+ easings, concurrent animation support, sound and particle keyframes, event keyframes, and more.\n'''\n\n[[mixins]]\n    config = \"geckolib.mixins.json\"\n\n[[accessTransformers]]\n    file = \"META-INF/accesstransformer.cfg\"\n\n[[dependencies.geckolib]]\n    modId=\"neoforge\"\n    type=\"required\"\n    versionRange=\"[21.1.150,)\"\n    ordering=\"NONE\"\n    side=\"BOTH\"\n[[dependencies.geckolib]]\n    modId=\"minecraft\"\n    type=\"required\"\n    versionRange=\"[1.21,)\"\n    ordering=\"NONE\"\n    side=\"BOTH\"\n[[dependencies.geckolib]]\n    modId=\"geckoanimfix\"\n    type=\"incompatible\"\n    side=\"BOTH\""
+      }
+    },
+    {
+      "mod": "aaa_particles",
+      "path": "C:\\Users\\30819\\.m2\\repository\\curse\\maven\\aaa-particles-979809\\9101011\\aaa-particles-979809-9101011.jar",
+      "sha256": "948b3fc4d38d33a817596ad0b2d14c28976f8cfde801041b1c58cf1fef505f98",
+      "metadata": {
+        "META-INF/neoforge.mods.toml": "modLoader = \"javafml\" #mandatory\nloaderVersion = \"[4,)\" #mandatory\nlicense = \"MIT\" # Review your options at https://choosealicense.com/.\n#issueTrackerURL=\"https://change.me.to.your.issue.tracker.example.invalid/\" #optional\n[[mods]] #mandatory\nmodId = \"aaa_particles\" #mandatory\nversion = \"2.3.3\" #mandatory\ndisplayName = \"AAA Particles\" #mandatory\n#updateJSONURL=\"https://change.me.example.invalid/updates.json\" #optional (see https://docs.neoforged.net/docs/misc/updatechecker/)\n#displayURL=\"https://change.me.to.your.mods.homepage.example.invalid/\" #optional (displayed in the mod UI)\nlogoFile=\"aaa_particles.png\" #optional\ncredits=\"\" #optional\nauthors = \"ChloePrime\" #optional\ndescription = '''Effekseer for Minecraft''' #mandatory (Supports multiline text)\n[[mixins]]\nconfig = \"aaa_particles.mixins.json\"\n[[mixins]]\nconfig = \"aaa_particles-common.mixins.json\"\n[[dependencies.aaa_particles]] #optional\nmodId = \"neoforge\" #mandatory\ntype=\"required\" #mandatory (Can be one of \"required\", \"optional\", \"incompatible\" or \"discouraged\")\nversionRange = \"[21.1.169,)\" #mandatory\nordering = \"NONE\" # The order that this dependency should load in relation to your mod, required to be either 'BEFORE' or 'AFTER' if the dependency is not mandatory\nside = \"BOTH\" # Side this dependency is applied on - 'BOTH', 'CLIENT' or 'SERVER'\n[[dependencies.aaa_particles]]\nmodId = \"minecraft\"\ntype=\"required\" #mandatory (Can be one of \"required\", \"optional\", \"incompatible\" or \"discouraged\")\nversionRange = \"[1.21, 1.21.2)\"\nordering = \"NONE\"\nside = \"BOTH\"\n\n# Features are specific properties of the game environment, that you may want to declare you require. This example declares\n# that your mod requires GL version 3.2 or higher. Other features will be added. They are side aware so declaring this won't\n# stop your mod loading on the server for example.\n#[features.aaa_particles]\n#openGLVersion=\"[3.2,)\"\n",
+        "META-INF/jarjar/metadata.json": "{\r\n  \"jars\": [\r\n    {\r\n      \"identifier\": {\r\n        \"group\": \"dev.architectury\",\r\n        \"artifact\": \"architectury-neoforge\"\r\n      },\r\n      \"version\": {\r\n        \"range\": \"[13.0.8,)\",\r\n        \"artifactVersion\": \"13.0.8\"\r\n      },\r\n      \"path\": \"META-INF/jarjar/architectury-neoforge-13.0.8.jar\",\r\n      \"isObfuscated\": false\r\n    }\r\n  ]\r\n}\r\n"
+      }
+    }
+  ],
+  "findings": [
+    "GeckoLib 4.9.2 requires NeoForge >=21.1.150 and Minecraft >=1.21; geckoanimfix is incompatible; no jarjar metadata.",
+    "AAA Particles 2.3.3 requires NeoForge >=21.1.169 and Minecraft [1.21,1.21.2); architectury-neoforge 13.0.8 is embedded.",
+    "Both located target jars satisfy the target and NeoForge Preview runtime version requirements.",
+    "The limited AAA coordinate cache contains no Forge 1.20.1-compatible jar; no claim about all local disks.",
+    "Preview still pins GeckoLib 4.8.4 and takes one previewHpJar; final runtime configuration is pending."
+  ]
+}

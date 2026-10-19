@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "id": "thermal_shock_reforged:cauldron_of_trilobite"
+    },
+    "title": {
+      "translate": "advancements.cauldron_get.title"
+    },
+    "description": {
+      "translate": "advancements.cauldron_get.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "cauldron_get_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "thermal_shock_reforged:spice_get"
+}
