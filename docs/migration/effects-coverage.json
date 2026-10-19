@@ -105,7 +105,13 @@
       ]
     },
     "liteprism_buildup": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "module": "com.hp.thermalshockreforged.content.weapons.LiteprismBuildupEffect",
+      "evidence": "core-eject-disk-chain-batch.md",
+      "implementation": "真实有色粒子可移除20tick有害效果；amp0起第七次命中爆发，隐藏HUD/库存；自然过期无爆炸",
+      "pending": [
+        "最终游戏核七连击/到期/净化/主伤致死与共鸣、完整AAA及药水粒子"
+      ]
     },
     "low_gravity": {
       "status": "reimplemented_for_carborundum_source",

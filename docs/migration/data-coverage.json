@@ -317,7 +317,8 @@
     "data/thermal_shock/recipe/watering_can_recipe.json",
     "data/thermal_shock/recipe/zenith_duplicate.json",
     "data/thermal_shock/recipe/zenith_duplicate_blood.json",
-    "data/thermal_shock/recipe/zenith_thermoblaster_recipe.json"
+    "data/thermal_shock/recipe/zenith_thermoblaster_recipe.json",
+    "data/thermal_shock/recipe/core_eject_flare_gun_recipe.json"
   ],
   "loot_tables": [
     "data/thermal_shock/loot_table/blocks/adamantine_spice_block.json",
@@ -1804,6 +1805,7 @@
     },
     "data/thermal_shock/tags/items/cloro_type.json": {
       "loaded": [
+        "thermal_shock:liteprism_disk",
         "thermal_shock:liteprism_laser",
         "thermal_shock:knights_edge"
       ],
@@ -1812,7 +1814,6 @@
         "thermal_shock:ghostglass_sword",
         "thermal_shock:magnetic_crossbow",
         "thermal_shock:liteprism_sword",
-        "thermal_shock:liteprism_disk",
         "thermal_shock:thistle_bow"
       ]
     },
@@ -1841,11 +1842,13 @@
         "thermal_shock:bloodstone_sword",
         "thermal_shock:ruby_spear",
         "thermal_shock:titanium_mace",
+        "thermal_shock:core_eject_flare_gun",
         "thermal_shock:cobalt_thermoblaster",
         "thermal_shock:shock_stick",
         "thermal_shock:stratosilver_chainsaw",
         "thermal_shock:knights_edge",
         "thermal_shock:buzzsaw",
+        "thermal_shock:liteprism_disk",
         "thermal_shock:carborundum_axe",
         "thermal_shock:carborundum_sword",
         "thermal_shock:carborundum_sickle",
@@ -1862,11 +1865,9 @@
         "thermal_shock:magnetic_crossbow",
         "thermal_shock:bloodstone_halberd",
         "thermal_shock:blinding_lantern",
-        "thermal_shock:core_eject_flare_gun",
         "thermal_shock:rusty_edge",
         "thermal_shock:zenith_crossbow",
         "thermal_shock:liteprism_sword",
-        "thermal_shock:liteprism_disk",
         "thermal_shock:ruby_sickle",
         "thermal_shock:bloodstone_sickle",
         "thermal_shock:claw_sickle",
@@ -1901,6 +1902,7 @@
         "thermal_shock:volcano",
         "thermal_shock:flintsteel_rifle",
         "thermal_shock:hailfall",
+        "thermal_shock:core_eject_flare_gun",
         "thermal_shock:cobalt_thermoblaster",
         "thermal_shock:zenith_thermoblaster",
         "thermal_shock:buzzsaw"
@@ -1908,17 +1910,16 @@
       "pending": [
         "thermal_shock:magnetic_crossbow",
         "thermal_shock:blinding_lantern",
-        "thermal_shock:core_eject_flare_gun",
         "thermal_shock:zenith_crossbow"
       ]
     },
     "data/thermal_shock/tags/items/pyro_type.json": {
       "loaded": [
+        "thermal_shock:core_eject_flare_gun",
         "thermal_shock:flintsteel_rifle",
         "thermal_shock:volcano"
       ],
       "pending": [
-        "thermal_shock:core_eject_flare_gun",
         "thermal_shock:molten_bat"
       ]
     },
@@ -2091,10 +2092,6 @@
     ],
     "data/thermal_shock/recipes/compressed_slime_recipe.json": [
       "未迁移物品 thermal_shock:compressed_springslime"
-    ],
-    "data/thermal_shock/recipes/core_eject_flare_gun_recipe.json": [
-      "未迁移物品 thermal_shock:cobalt_block",
-      "未迁移物品 thermal_shock:core_eject_flare_gun"
     ],
     "data/thermal_shock/recipes/darksteel_light_recipe.json": [
       "未迁移物品 thermal_shock:glowcap_block"

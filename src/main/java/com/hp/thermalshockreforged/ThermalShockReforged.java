@@ -99,6 +99,7 @@ public final class ThermalShockReforged {
         com.hp.thermalshockreforged.content.npc.portrait.PortraitContent.register(bus);
         com.hp.thermalshockreforged.content.npc.ly.LyContent.register(bus);
         com.hp.thermalshockreforged.content.npc.sopel.SopelContent.register(bus);
+        com.hp.thermalshockreforged.content.npc.concierge.ConciergeContent.register(bus);
         com.hp.thermalshockreforged.content.food.FerroCakeConsumption.register(bus);
         com.hp.thermalshockreforged.entity.springslime.SpringslimeContent.register(bus);
         com.hp.thermalshockreforged.content.dialogue.DialogueContent.register(bus);

@@ -345,7 +345,7 @@
       "page": "LiteprismDiskPage",
       "output": "thermal_shock_reforged:liteprism_disk",
       "materials_match_original_actual_removal": true,
-      "active": false,
+      "active": true,
       "original_threshold_mismatch_fixed": false
     },
     {
@@ -578,12 +578,10 @@
     "buttons": 68,
     "textures": 36,
     "defined_recipes": 31,
-    "active_closed_recipes": 30,
-    "pending_real_output_implementation": 1,
+    "active_closed_recipes": 31,
+    "pending_real_output_implementation": 0,
     "all_active_recipe_references_have_registration_evidence": true,
-    "pending_recipe_outputs": [
-      "thermal_shock_reforged:liteprism_disk"
-    ],
+    "pending_recipe_outputs": [],
     "late_batch77_tags_build_copies": [
       "infectionimmune",
       "sprintweed_blacklist"

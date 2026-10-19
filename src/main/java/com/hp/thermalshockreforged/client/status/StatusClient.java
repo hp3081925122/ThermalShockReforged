@@ -18,7 +18,7 @@ public final class StatusClient {
             public boolean isVisibleInInventory(MobEffectInstance instance) { return false; }
             @Override
             public boolean isVisibleInGui(MobEffectInstance instance) { return false; }
-        }, StatusContent.TREMORS, StatusContent.PARRYING, com.hp.thermalshockreforged.content.weapons.WeaponContent.SICKLE_WOUND);
+        }, StatusContent.TREMORS, StatusContent.PARRYING, com.hp.thermalshockreforged.content.weapons.WeaponContent.SICKLE_WOUND, com.hp.thermalshockreforged.content.weapons.WeaponContent.LITEPRISM_BUILDUP);
         event.registerMobEffect(new IClientMobEffectExtensions() {
             @Override
             public boolean isVisibleInInventory(MobEffectInstance instance) { return false; }
