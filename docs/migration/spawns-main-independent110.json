@@ -1,0 +1,63 @@
+{
+  "batch": 110,
+  "reviewer": "/root/remaining_inventory97 quick_explorer",
+  "reviewer_result": "PASS",
+  "reviewer_method": "Direct original JAR JSON comparisons, full current spawn-modifier duplicate scan, real entity/helper/event-bus and placement linkage inspection; no production edits, build or game",
+  "source_jar_sha256_computed_by_reviewer": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436",
+  "reviewer_counts": {
+    "json_entries": 26,
+    "source_hashes_checked": 26,
+    "target_hashes_checked": 26,
+    "semantic_matches_except_namespace_and_modifier_type": 26,
+    "unique_biome_references": 8,
+    "biome_assets_found": 8,
+    "all_target_add_spawns_scanned": 52,
+    "unique_spawned_entity_ids": 52,
+    "duplicate_spawned_entity_ids": 0,
+    "entities_registered": 26,
+    "placement_helpers_linked": 26,
+    "shared_ModEntities_placements": 6,
+    "categories": {
+      "AMBIENT": 15,
+      "WATER_AMBIENT": 6,
+      "MONSTER": 5
+    },
+    "failures": 0
+  },
+  "reviewer_linkage_notes": [
+    "razorwing uses HuntersContent.razorwing helper with AMBIENT category",
+    "six shared entities use ModEntities.register(bus) spawnPlacements listener",
+    "FaunaEntities, InfestationEntities and ProtoiContent helpers are event-bus linked"
+  ],
+  "root_recording": "Root saved reviewer returned structured findings; hashes below were mechanically computed by root against the producer manifest, not copied from inline messages",
+  "manifest_sha256_computed_by_root": "947a8178bda05a2774c32fd5eb6371f60b243dedf8104c55e936d39f67567107",
+  "production_sha256_computed_by_root": {
+    "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/blighted_spore_biome_modifier.json": "785d87679f4b44591bf33369b1bbb8a879681a279b7625eae0e44a4381b17b85",
+    "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/bonerahna_biome_modifier.json": "fba517a13fcddb6e4d86d62df7264a86b8e5b59268db6c4f06c2c80a58469b8d",
+    "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/chilloo_biome_modifier.json": "324a5d60cbe5083f501a8c8649a31584627c2a86831a171e2fdd84282af5b01c",
+    "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/chromefish_biome_modifier.json": "42cae353a08ac4715191616aa0f16aeef446904cda5713fc0a464441f3ca1be4",
+    "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/crystal_koi_biome_modifier.json": "e8b6a7174d2b4590849a60c86093b066acf532771ad247809af5932ed07434c3",
+    "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/flare_biome_modifier.json": "c4a264a05efd43cb0a777f66ee8264a9b22cac5cff042d0484b7f2bc95a43051",
+    "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/forecast_biome_modifier.json": "1d280a85bbb5b6e3996224d1e687c8be31025c62b56cf7e6a4b201f7d7d68ca6",
+    "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/galvanite_biome_modifier.json": "6b5db29ab6d4ad3cac6df89227cdd194318528f227b0e3cbcc7ef8da822cd0ab",
+    "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/infestophage_seed_biome_modifier.json": "d7690257dd571d372e82f2f0810115e8afbaf7ff33664e8e37d196843c62c5d7",
+    "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/louse_biome_modifier.json": "3ff14767506a940e4157b0b06d38e59eb1e92b4102887f74959fcdad724ffbbd",
+    "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/mangler_biome_modifier.json": "032a42fea541fe042923a2d2ea491a9baf7e2c41691a589c5d5b8885605358d4",
+    "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/pillbud_biome_modifier.json": "82c6208e19af03bb380678d38c0747ad1ac43690c99eda346eed60daa38cc4bb",
+    "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/pixie_biome_modifier.json": "d9c99879b24668ab11894a897b48ceb7789bf5fbe43b765bf447e03043b42756",
+    "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/pondler_biome_modifier.json": "5ca238a5e9f5b1961e32f825db46446a838132ff0ae71b5bd3e68196e0e48b5a",
+    "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/probosker_biome_modifier.json": "6521fdc0e54c53fefeae00e37489ce4cb16982b689f120ac73e7be556482806a",
+    "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/protoi_delta_biome_modifier.json": "b4f3619f5596b28398afc28700f323030d308458fcb6c217a815e51544769a97",
+    "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/protoi_epsilon_biome_modifier.json": "011fbfb4236b3526030b3af8b3b967d469a46d21d7160e48099d8cef9561ddd2",
+    "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/protoi_gamma_biome_modifier.json": "4d77410ad594a1f5ce3f4bdf56e4928d68a68a1f4ab981730d960ecf6b8d2891",
+    "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/raincatcher_biome_modifier.json": "1a75a6622ba554b0ae09cb1b4b391282e7dee92940a7b3f0a2c4ac022693b52e",
+    "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/razorwing_biome_modifier.json": "13e087b7f47d48c3edb3df515570382c56a1c51bdd382f19ede7580ecfdb55f8",
+    "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/scarlet_ray_biome_modifier.json": "d50d2280f04bbd1ecd88b7eb532811356d6bcd48b6a01dacdf40fdc220a736c2",
+    "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/siibol_biome_modifier.json": "cc6c5d441fc3a15b2c1299c9bdb4023345a5cf34d8f45453099b398049fe9266",
+    "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/snobol_biome_modifier.json": "9add9ff480bc67657c588fba52da3fc6fb13aff292abcaa2fbf22c587c0e9ea2",
+    "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/torpedo_biome_modifier.json": "2766e5697ab3bc07393be4b063ef595145e6f3d9b53dddee0a490fc1592f04d1",
+    "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/trilobite_biome_modifier.json": "bf4d3107314f7b736950b1fdd656e3daf54e88b83e42eab7f7d581ac31aa7e71",
+    "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/willograde_biome_modifier.json": "47560121a7dd1f8f38940e1daed076a09a2275fcc825626d3ab3227c79052f54"
+  },
+  "build_or_game_test": false
+}

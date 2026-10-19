@@ -1,0 +1,9 @@
+# Zenith Crossbow 注册清单纠正
+
+第110批只读quick_explorer对原注册及两物品类核对，纠正item-registration-followup109.json中“zenith可视作改名magnetic”这一候选结论。原ThermalShockModItems同时注册magnetic_crossbow与zenith_crossbow，是两个独立物品；共用MagneticCrossbow两procedure并不能证明为同一注册。目标目前仅有magnetic_crossbow，zenith创意条目因缺注册被跳过；名称/资源仍在不等于已实现。
+
+原zenith_magnetic_crossbow_recipe是独立smithing_transform，磁弩、Zenith模板和stratus_alloy产Zenith弩。现fabrication/magnetic_crossbow并非该升级配方，不能互相抵消缺失。原Zenith还需按真实Geo模型、控制器、手持姿态、tooltip、元素/武器标签以及共用procedure的实际物品判断逐项复核，不按名称推定相同。111已分十六项物品保持既定归属；Zenith作为新增第十七项真实注册缺口进入后续原生补齐，不能遗漏或归联动延期。
+
+代理机械确认Zenith与当前Magnetic的公共射击数值包括耐久800/耐火/UNCOMMON/附魔5、专用弹/40tick/视线乘2。实体生成失败后副作用与内部状态实现差异须结合已记录合理修复核对，不能把共有参数相同当完整物品迁移。nomelee/weapon原标签真实消费者仍须追查；当前HeldWeaponState存在不是自动等价证明。
+
+原注册证据readable/init/ThermalShockModItems.java:614与939；原item/ZenithCrossbowItem.java、item/MagneticCrossbowItem.java。目标WeaponContent.java:45、CreativeTabsContent.java:60..69与creative_tabs.json:542/761。原smithing配方全文可直接从固定原JAR读取。此文记录静态纠正，不是客户端/服务端或渲染测试结果；先前109快照保留作审计历史，不覆盖本结论。

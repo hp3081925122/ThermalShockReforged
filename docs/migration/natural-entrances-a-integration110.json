@@ -1,0 +1,38 @@
+{
+  "status": "A线生产与静态复查完成，src/main停笔，交主线统一编译；未独立编译或游戏。",
+  "baselineHead": "38ca837ea06d747373c84aec7a8cd3c3b8c834ff",
+  "productionCount": 32,
+  "normalModifierCount": 29,
+  "newPlacedCount": 3,
+  "originalUnresolvedSourceCount": 1,
+  "exceptionReport": "natural-entrances-a-exception110.json",
+  "scope": "仅32份独占JSON；主线26spawn与共享文件、Java、NBT、已有57份JSON均未修改。",
+  "productionAggregateSha256": "59a657945f4b1efdc0dd1c25152e2b052fe742e1c2958fda12a34cd4ab55b10f",
+  "aggregateFormat": "sorted path + TAB + sha256 + LF, UTF-8",
+  "validation": {
+    "checksPassed": 635,
+    "orderedJsonNodesCompared": 2050,
+    "modifiers": 29,
+    "dependencyJsons": 60,
+    "existingResourcesUnchanged": 57,
+    "structureTemplatesUnchangedAndCompared": 20,
+    "templateBlocksCompared": 14850,
+    "sourcePairs": 24,
+    "exceptions": 1
+  },
+  "validationReport": "natural-entrances-a-validation110.json",
+  "sourceEvidence": [
+    "natural-entrances-a-inventory110.json:sources",
+    "natural-entrances-a-validation110.json:sourcePairs"
+  ],
+  "requiredMainValidation": "固定两路输入后主线统一compileJava/processResources及资源字节核验。",
+  "laterClientAndRender": "全部完整迁移且无简化复审完成后，由主线安排子代理进行客户端与Render Preview原件对照。",
+  "server": "用户独立对话测试，不接管、不重复、不联系干预。",
+  "claimLimit": "29项具备与原参数一致的完整自然配置；没有声称实际世界生成或渲染测试通过。",
+  "temporaryScripts": [
+    "inspect-natural-entrances110a.py",
+    "produce-natural-entrances110a.py",
+    "validate-natural-entrances110a.py",
+    "finalize-natural-entrances110a.py"
+  ]
+}

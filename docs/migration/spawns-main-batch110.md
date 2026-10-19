@@ -1,0 +1,11 @@
+# 第110批主线：二十六项原生生物自然生成入口
+
+生产前建档。第109批已统一验证并本地提交38ca837ea06d747373c84aec7a8cd3c3b8c834ff，现解除110生产冻结。主线独占remaining-biome-modifiers107.json中的26个add_spawns，迁移A负责30feature modifier、三缺placed及递归链核验；主线不重复A资源编辑。
+
+原件07.9固定SHA为3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436。26实体真实注册和群系数据已由只读清单核，原目标MobCategory一致（15AMBIENT/6WATER_AMBIENT/5MONSTER）；26目标modifier无同entity重复。仅将forge:add_spawns换为neoforge:add_spawns、模组命名空间换新，完整保原群系及数组顺序、权重和minCount/maxCount，不加原无难度/光照/高度限制。
+
+六个最初只在独立注册类未找到的placement已核共享ModEntities.register→spawnPlacements：三水生IN_WATER且当前位置与上方均原版水；Forecast/Galvanite ON_GROUND、雷暴且脚下雪页岩/雪钴矿，原重复条件去重不改语义；Probosker NO_RESTRICTIONS、草质/雪页岩且可见天空和白天。共享方法已接mod bus，与原各init及Galvanite/Razorwing原procedure一致，不能加重复监听修不存在的问题。其他20项既有placement不改，正常生成入口和已迁技能/声画均保。
+
+写入前校验当前HEAD、原JAR和每份原JSON哈希、目标真实群系与范围、禁止与其它现有modifier同entity重复。未授权差异拒绝覆盖现有文件。后续独立直接原JAR对照26JSON和获取链、两路停笔固定输入再统一编译；所有临时/脚本仅D:/AI临时文件。当前不启动游戏；客户端/Render Preview待全部代码完整及无简化复审后交子代理，服务端由用户独立测试线处理。
+
+独立quick_explorer对26项直接原JAR及注册链复核通过，无同实体重复。两路8767输入统一构建1m32s成功、58生产哈希保持，7981资源字节相同及两模板展开正确。最终证据main110-static-validation.json；未运行游戏。

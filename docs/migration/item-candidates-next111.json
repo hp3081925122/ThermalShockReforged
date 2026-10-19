@@ -1,0 +1,1652 @@
+{
+  "snapshot": "Original readable decompile and 07.9 JAR; current target Java snapshot HEAD 8d83cc6da750da0106060b7d63ba3698b070e771",
+  "jar": "D:\\AI临时文件\\ThermalShockMigration\\thermal_shock-07.9-original.jar",
+  "readable_root": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock",
+  "items": [
+    {
+      "id": "chorusian_antennae_helmet",
+      "registry_evidence": {
+        "path": "init/ThermalShockModItems.java",
+        "line": 630,
+        "declaration": "public static final RegistryObject<ChorusianAntennaeItem> CHORUSIAN_ANTENNAE_HELMET = REGISTRY.register(\"chorusian_antennae_helmet\", () -> new ChorusianAntennaeItem(ArmorItem.Type.HELMET, new Item.Properties()));"
+      },
+      "class_path": "item/ChorusianAntennaeItem.java",
+      "class_line": 38,
+      "class_declaration": "public class ChorusianAntennaeItem extends ArmorItem",
+      "constructor": [
+        {
+          "line": 45,
+          "text": "public ChorusianAntennaeItem(ArmorItem.Type type, Item.Properties properties) {"
+        }
+      ],
+      "base_constructor_arguments": [
+        {
+          "line": 46,
+          "text": "super(new ArmorMaterial(){"
+        }
+      ],
+      "override_or_public_entry_signatures": [
+        {
+          "line": 48,
+          "text": "public int getDurabilityForType(ArmorItem.Type type) {"
+        },
+        {
+          "line": 52,
+          "text": "public int getDefenseForType(ArmorItem.Type type) {"
+        },
+        {
+          "line": 56,
+          "text": "public int getEnchantmentValue() {"
+        },
+        {
+          "line": 72,
+          "text": "public float getToughness() {"
+        },
+        {
+          "line": 76,
+          "text": "public float getKnockbackResistance() {"
+        },
+        {
+          "line": 82,
+          "text": "public void initializeClient(Consumer<IClientItemExtensions> consumer) {"
+        },
+        {
+          "line": 96,
+          "text": "public void appendHoverText(ItemStack itemstack, Level world, List<Component> list, TooltipFlag flag) {"
+        },
+        {
+          "line": 141,
+          "text": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {"
+        }
+      ],
+      "direct_procedure_calls": [],
+      "procedure_source_paths": [],
+      "recipe_loot_consumers": [],
+      "same_id_or_class_stem_assets": [
+        "assets/thermal_shock/models/item/chorusian_antennae_helmet.json",
+        "assets/thermal_shock/textures/item/chorusianantennae.png"
+      ],
+      "sound_refs_in_source": [],
+      "complexity_facts": {
+        "geo_or_animation_assets": false,
+        "asset_path_count": 2,
+        "direct_procedure_count": 0,
+        "public_entry_count": 8,
+        "implements_geo_item": true,
+        "has_geo_model_or_animation": false
+      },
+      "inheritance_clause": "extends ArmorItem implements GeoItem",
+      "source_model_renderer_classes": [],
+      "numeric_override_bodies": [
+        {
+          "line": 48,
+          "body_excerpt": "public int getDurabilityForType(ArmorItem.Type type) { return (new int[]{13, 15, 16, 11})[type.getSlot().getIndex()] * 25; }  public int getDefenseForType(ArmorItem.Type type) {"
+        },
+        {
+          "line": 52,
+          "body_excerpt": "public int getDefenseForType(ArmorItem.Type type) { return (new int[]{2, 5, 6, 2})[type.getSlot().getIndex()]; }  public int getEnchantmentValue() {"
+        },
+        {
+          "line": 56,
+          "body_excerpt": "public int getEnchantmentValue() { return 9; }  public SoundEvent getEquipSound() {"
+        },
+        {
+          "line": 72,
+          "body_excerpt": "public float getToughness() { return 0.0f; }  public float getKnockbackResistance() {"
+        },
+        {
+          "line": 76,
+          "body_excerpt": "public float getKnockbackResistance() { return 0.0f; } }, type, properties); }"
+        }
+      ],
+      "gui_open_calls_in_direct_procedures": [],
+      "direct_procedure_sound_lines": [],
+      "sound_resource_candidates": [],
+      "explicit_sound_literals": [],
+      "custom_sound_event_resources": []
+    },
+    {
+      "id": "claw_sickle",
+      "registry_evidence": {
+        "path": "init/ThermalShockModItems.java",
+        "line": 1006,
+        "declaration": "public static final RegistryObject<Item> CLAW_SICKLE = REGISTRY.register(\"claw_sickle\", () -> new ClawSickleItem());"
+      },
+      "class_path": "item/ClawSickleItem.java",
+      "class_line": 23,
+      "class_declaration": "public class ClawSickleItem extends HoeItem {",
+      "constructor": [
+        {
+          "line": 25,
+          "text": "public ClawSickleItem() {"
+        }
+      ],
+      "base_constructor_arguments": [
+        {
+          "line": 26,
+          "text": "super(new Tier(){"
+        }
+      ],
+      "override_or_public_entry_signatures": [
+        {
+          "line": 28,
+          "text": "public int getUses() {"
+        },
+        {
+          "line": 32,
+          "text": "public float getSpeed() {"
+        },
+        {
+          "line": 36,
+          "text": "public float getAttackDamageBonus() {"
+        },
+        {
+          "line": 40,
+          "text": "public int getLevel() {"
+        },
+        {
+          "line": 44,
+          "text": "public int getEnchantmentValue() {"
+        },
+        {
+          "line": 54,
+          "text": "public boolean hurtEnemy(ItemStack itemstack, LivingEntity entity, LivingEntity sourceentity) {"
+        },
+        {
+          "line": 60,
+          "text": "public void appendHoverText(ItemStack itemstack, Level level, List<Component> list, TooltipFlag flag) {"
+        },
+        {
+          "line": 67,
+          "text": "public void inventoryTick(ItemStack itemstack, Level world, Entity entity, int slot, boolean selected) {"
+        }
+      ],
+      "direct_procedure_calls": [
+        "RubySickleToolInHandTickProcedure",
+        "SickleHitsEntityProcedure"
+      ],
+      "procedure_source_paths": [
+        "procedures/RubySickleToolInHandTickProcedure.java",
+        "procedures/SickleHitsEntityProcedure.java"
+      ],
+      "recipe_loot_consumers": [
+        "data/thermal_shock/recipes/claw_sickle_recipe.json"
+      ],
+      "same_id_or_class_stem_assets": [
+        "assets/thermal_shock/models/item/claw_sickle.json",
+        "assets/thermal_shock/textures/item/claw_sickle.png"
+      ],
+      "sound_refs_in_source": [],
+      "complexity_facts": {
+        "geo_or_animation_assets": false,
+        "asset_path_count": 2,
+        "direct_procedure_count": 2,
+        "public_entry_count": 8,
+        "implements_geo_item": false,
+        "has_geo_model_or_animation": false
+      },
+      "inheritance_clause": "extends HoeItem",
+      "source_model_renderer_classes": [],
+      "numeric_override_bodies": [
+        {
+          "line": 28,
+          "body_excerpt": "public int getUses() { return 1200; }  public float getSpeed() {"
+        },
+        {
+          "line": 32,
+          "body_excerpt": "public float getSpeed() { return 10.0f; }  public float getAttackDamageBonus() {"
+        },
+        {
+          "line": 36,
+          "body_excerpt": "public float getAttackDamageBonus() { return 4.5f; }  public int getLevel() {"
+        },
+        {
+          "line": 40,
+          "body_excerpt": "public int getLevel() { return 3; }  public int getEnchantmentValue() {"
+        },
+        {
+          "line": 44,
+          "body_excerpt": "public int getEnchantmentValue() { return 21; }  public Ingredient getRepairIngredient() {"
+        }
+      ],
+      "gui_open_calls_in_direct_procedures": [],
+      "direct_procedure_sound_lines": [
+        {
+          "path": "procedures/SickleHitsEntityProcedure.java",
+          "line": 12,
+          "text": "import net.minecraft.sounds.SoundEvent;"
+        },
+        {
+          "path": "procedures/SickleHitsEntityProcedure.java",
+          "line": 13,
+          "text": "import net.minecraft.sounds.SoundSource;"
+        },
+        {
+          "path": "procedures/SickleHitsEntityProcedure.java",
+          "line": 50,
+          "text": "_level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:sickle_slash\")), SoundSource.NEUTRAL, 1.0f, 1.0f);"
+        },
+        {
+          "path": "procedures/SickleHitsEntityProcedure.java",
+          "line": 52,
+          "text": "_level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:sickle_slash\")), SoundSource.NEUTRAL, 1.0f, 1.0f, false);"
+        }
+      ],
+      "sound_resource_candidates": [],
+      "explicit_sound_literals": [],
+      "custom_sound_event_resources": [
+        {
+          "event_id": "sickle_slash",
+          "sound_paths": [
+            "assets/thermal_shock/sounds/sickleslash.ogg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dev_deletor",
+      "registry_evidence": {
+        "path": "init/ThermalShockModItems.java",
+        "line": 1157,
+        "declaration": "public static final RegistryObject<Item> DEV_DELETOR = REGISTRY.register(\"dev_deletor\", () -> new DevDeletorItem());"
+      },
+      "class_path": "item/DevDeletorItem.java",
+      "class_line": 16,
+      "class_declaration": "public class DevDeletorItem extends Item {",
+      "constructor": [
+        {
+          "line": 18,
+          "text": "public DevDeletorItem() {"
+        }
+      ],
+      "base_constructor_arguments": [
+        {
+          "line": 19,
+          "text": "super(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC));"
+        }
+      ],
+      "override_or_public_entry_signatures": [],
+      "direct_procedure_calls": [
+        "DevDeletorRightclickedProcedure"
+      ],
+      "procedure_source_paths": [
+        "procedures/DevDeletorRightclickedProcedure.java"
+      ],
+      "recipe_loot_consumers": [],
+      "same_id_or_class_stem_assets": [
+        "assets/thermal_shock/models/item/dev_deletor.json"
+      ],
+      "sound_refs_in_source": [],
+      "complexity_facts": {
+        "geo_or_animation_assets": false,
+        "asset_path_count": 1,
+        "direct_procedure_count": 1,
+        "public_entry_count": 0,
+        "implements_geo_item": false,
+        "has_geo_model_or_animation": false
+      },
+      "inheritance_clause": "extends Item",
+      "source_model_renderer_classes": [],
+      "numeric_override_bodies": [],
+      "gui_open_calls_in_direct_procedures": [],
+      "direct_procedure_sound_lines": [
+        {
+          "path": "procedures/DevDeletorRightclickedProcedure.java",
+          "line": 12,
+          "text": "import net.minecraft.sounds.SoundEvent;"
+        },
+        {
+          "path": "procedures/DevDeletorRightclickedProcedure.java",
+          "line": 13,
+          "text": "import net.minecraft.sounds.SoundSource;"
+        },
+        {
+          "path": "procedures/DevDeletorRightclickedProcedure.java",
+          "line": 34,
+          "text": "_level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:infestorkill\")), SoundSource.NEUTRAL, 1.0f, 1.0f);"
+        },
+        {
+          "path": "procedures/DevDeletorRightclickedProcedure.java",
+          "line": 37,
+          "text": "_level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:infestorkill\")), SoundSource.NEUTRAL, 1.0f, 1.0f, false);"
+        }
+      ],
+      "sound_resource_candidates": [],
+      "explicit_sound_literals": [],
+      "custom_sound_event_resources": [
+        {
+          "event_id": "infestorkill",
+          "sound_paths": [
+            "assets/thermal_shock/sounds/infestorkill1.ogg",
+            "assets/thermal_shock/sounds/infestorkill2.ogg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dev_rotator",
+      "registry_evidence": {
+        "path": "init/ThermalShockModItems.java",
+        "line": 1158,
+        "declaration": "public static final RegistryObject<Item> DEV_ROTATOR = REGISTRY.register(\"dev_rotator\", () -> new DevRotatorItem());"
+      },
+      "class_path": "item/DevRotatorItem.java",
+      "class_line": 16,
+      "class_declaration": "public class DevRotatorItem extends Item {",
+      "constructor": [
+        {
+          "line": 18,
+          "text": "public DevRotatorItem() {"
+        }
+      ],
+      "base_constructor_arguments": [
+        {
+          "line": 19,
+          "text": "super(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC));"
+        }
+      ],
+      "override_or_public_entry_signatures": [],
+      "direct_procedure_calls": [
+        "DevRotatorRightclickedProcedure"
+      ],
+      "procedure_source_paths": [
+        "procedures/DevRotatorRightclickedProcedure.java"
+      ],
+      "recipe_loot_consumers": [],
+      "same_id_or_class_stem_assets": [
+        "assets/thermal_shock/models/item/dev_rotator.json"
+      ],
+      "sound_refs_in_source": [],
+      "complexity_facts": {
+        "geo_or_animation_assets": false,
+        "asset_path_count": 1,
+        "direct_procedure_count": 1,
+        "public_entry_count": 0,
+        "implements_geo_item": false,
+        "has_geo_model_or_animation": false
+      },
+      "inheritance_clause": "extends Item",
+      "source_model_renderer_classes": [],
+      "numeric_override_bodies": [],
+      "gui_open_calls_in_direct_procedures": [],
+      "direct_procedure_sound_lines": [],
+      "sound_resource_candidates": [],
+      "explicit_sound_literals": [],
+      "custom_sound_event_resources": []
+    },
+    {
+      "id": "flower_bomb",
+      "registry_evidence": {
+        "path": "init/ThermalShockModItems.java",
+        "line": 1318,
+        "declaration": "public static final RegistryObject<Item> FLOWER_BOMB = REGISTRY.register(\"flower_bomb\", () -> new FlowerBombItem());"
+      },
+      "class_path": "item/FlowerBombItem.java",
+      "class_line": 20,
+      "class_declaration": "public class FlowerBombItem extends Item {",
+      "constructor": [
+        {
+          "line": 22,
+          "text": "public FlowerBombItem() {"
+        }
+      ],
+      "base_constructor_arguments": [
+        {
+          "line": 23,
+          "text": "super(new Item.Properties().stacksTo(1).rarity(Rarity.COMMON));"
+        }
+      ],
+      "override_or_public_entry_signatures": [
+        {
+          "line": 26,
+          "text": "public void appendHoverText(ItemStack itemstack, Level level, List<Component> list, TooltipFlag flag) {"
+        }
+      ],
+      "direct_procedure_calls": [
+        "FlowerBombUseProcedure"
+      ],
+      "procedure_source_paths": [
+        "procedures/FlowerBombUseProcedure.java"
+      ],
+      "recipe_loot_consumers": [
+        "data/thermal_shock/recipes/flower_bomb_recipe.json"
+      ],
+      "same_id_or_class_stem_assets": [
+        "assets/thermal_shock/models/item/flower_bomb.json",
+        "assets/thermal_shock/textures/item/flowerbomb.png",
+        "assets/thermal_shock/textures/item/flowerbomb.png.mcmeta"
+      ],
+      "sound_refs_in_source": [],
+      "complexity_facts": {
+        "geo_or_animation_assets": false,
+        "asset_path_count": 3,
+        "direct_procedure_count": 1,
+        "public_entry_count": 1,
+        "implements_geo_item": false,
+        "has_geo_model_or_animation": false
+      },
+      "inheritance_clause": "extends Item",
+      "source_model_renderer_classes": [],
+      "numeric_override_bodies": [],
+      "gui_open_calls_in_direct_procedures": [],
+      "direct_procedure_sound_lines": [
+        {
+          "path": "procedures/FlowerBombUseProcedure.java",
+          "line": 18,
+          "text": "import net.minecraft.sounds.SoundEvent;"
+        },
+        {
+          "path": "procedures/FlowerBombUseProcedure.java",
+          "line": 19,
+          "text": "import net.minecraft.sounds.SoundSource;"
+        },
+        {
+          "path": "procedures/FlowerBombUseProcedure.java",
+          "line": 46,
+          "text": "_level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.tnt.primed\")), SoundSource.NEUTRAL, 1.0f, 2.0f);"
+        },
+        {
+          "path": "procedures/FlowerBombUseProcedure.java",
+          "line": 48,
+          "text": "_level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.tnt.primed\")), SoundSource.NEUTRAL, 1.0f, 2.0f, false);"
+        },
+        {
+          "path": "procedures/FlowerBombUseProcedure.java",
+          "line": 54,
+          "text": "_level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.item.pickup\")), SoundSource.NEUTRAL, 1.0f, 1.0f);"
+        },
+        {
+          "path": "procedures/FlowerBombUseProcedure.java",
+          "line": 56,
+          "text": "_level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.item.pickup\")), SoundSource.NEUTRAL, 1.0f, 1.0f, false);"
+        },
+        {
+          "path": "procedures/FlowerBombUseProcedure.java",
+          "line": 68,
+          "text": "_level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:flarecoreexplode\")), SoundSource.NEUTRAL, 1.0f, 1.0f);"
+        },
+        {
+          "path": "procedures/FlowerBombUseProcedure.java",
+          "line": 70,
+          "text": "_level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:flarecoreexplode\")), SoundSource.NEUTRAL, 1.0f, 1.0f, false);"
+        },
+        {
+          "path": "procedures/FlowerBombUseProcedure.java",
+          "line": 76,
+          "text": "_level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.rooted_dirt.break\")), SoundSource.NEUTRAL, 1.0f, 1.0f);"
+        },
+        {
+          "path": "procedures/FlowerBombUseProcedure.java",
+          "line": 78,
+          "text": "_level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.rooted_dirt.break\")), SoundSource.NEUTRAL, 1.0f, 1.0f, false);"
+        }
+      ],
+      "sound_resource_candidates": [],
+      "explicit_sound_literals": [],
+      "custom_sound_event_resources": [
+        {
+          "event_id": "flarecoreexplode",
+          "sound_paths": [
+            "assets/thermal_shock/sounds/flarecoreexplode.ogg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hpsm",
+      "registry_evidence": {
+        "path": "init/ThermalShockModItems.java",
+        "line": 995,
+        "declaration": "public static final RegistryObject<Item> HPSM = REGISTRY.register(\"hpsm\", () -> new HPSMItem());"
+      },
+      "class_path": "item/HPSMItem.java",
+      "class_line": 19,
+      "class_declaration": "public class HPSMItem extends Item {",
+      "constructor": [
+        {
+          "line": 21,
+          "text": "public HPSMItem() {"
+        }
+      ],
+      "base_constructor_arguments": [
+        {
+          "line": 22,
+          "text": "super(new Item.Properties().stacksTo(1).rarity(Rarity.COMMON));"
+        }
+      ],
+      "override_or_public_entry_signatures": [
+        {
+          "line": 25,
+          "text": "public void appendHoverText(ItemStack itemstack, Level level, List<Component> list, TooltipFlag flag) {"
+        },
+        {
+          "line": 31,
+          "text": "public InteractionResult useOn(UseOnContext context) {"
+        }
+      ],
+      "direct_procedure_calls": [
+        "HPSMRightclickedOnBlockProcedure"
+      ],
+      "procedure_source_paths": [
+        "procedures/HPSMRightclickedOnBlockProcedure.java"
+      ],
+      "recipe_loot_consumers": [
+        "data/thermal_shock/recipes/hpsm_recipe.json"
+      ],
+      "same_id_or_class_stem_assets": [
+        "assets/thermal_shock/models/item/hpsm.json",
+        "assets/thermal_shock/textures/item/hpsm.png"
+      ],
+      "sound_refs_in_source": [],
+      "complexity_facts": {
+        "geo_or_animation_assets": false,
+        "asset_path_count": 2,
+        "direct_procedure_count": 1,
+        "public_entry_count": 2,
+        "implements_geo_item": false,
+        "has_geo_model_or_animation": false
+      },
+      "inheritance_clause": "extends Item",
+      "source_model_renderer_classes": [],
+      "numeric_override_bodies": [],
+      "gui_open_calls_in_direct_procedures": [],
+      "direct_procedure_sound_lines": [
+        {
+          "path": "procedures/HPSMRightclickedOnBlockProcedure.java",
+          "line": 16,
+          "text": "import net.minecraft.sounds.SoundEvent;"
+        },
+        {
+          "path": "procedures/HPSMRightclickedOnBlockProcedure.java",
+          "line": 17,
+          "text": "import net.minecraft.sounds.SoundSource;"
+        },
+        {
+          "path": "procedures/HPSMRightclickedOnBlockProcedure.java",
+          "line": 55,
+          "text": "_level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.player.breath\")), SoundSource.NEUTRAL, 1.0f, 2.0f);"
+        },
+        {
+          "path": "procedures/HPSMRightclickedOnBlockProcedure.java",
+          "line": 57,
+          "text": "_level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.player.breath\")), SoundSource.NEUTRAL, 1.0f, 2.0f, false);"
+        }
+      ],
+      "sound_resource_candidates": [],
+      "explicit_sound_literals": [],
+      "custom_sound_event_resources": []
+    },
+    {
+      "id": "ice_bomb",
+      "registry_evidence": {
+        "path": "init/ThermalShockModItems.java",
+        "line": 1048,
+        "declaration": "public static final RegistryObject<Item> ICE_BOMB = REGISTRY.register(\"ice_bomb\", () -> new IceBombItem());"
+      },
+      "class_path": "item/IceBombItem.java",
+      "class_line": 20,
+      "class_declaration": "public class IceBombItem extends Item {",
+      "constructor": [
+        {
+          "line": 22,
+          "text": "public IceBombItem() {"
+        }
+      ],
+      "base_constructor_arguments": [
+        {
+          "line": 23,
+          "text": "super(new Item.Properties().stacksTo(16).rarity(Rarity.COMMON));"
+        }
+      ],
+      "override_or_public_entry_signatures": [
+        {
+          "line": 26,
+          "text": "public void appendHoverText(ItemStack itemstack, Level level, List<Component> list, TooltipFlag flag) {"
+        }
+      ],
+      "direct_procedure_calls": [
+        "IceBombPlayerFinishesUsingItemProcedure"
+      ],
+      "procedure_source_paths": [
+        "procedures/IceBombPlayerFinishesUsingItemProcedure.java"
+      ],
+      "recipe_loot_consumers": [
+        "data/thermal_shock/loot_tables/entities/protoi_delta.json",
+        "data/thermal_shock/recipes/ice_bomb_recipe.json"
+      ],
+      "same_id_or_class_stem_assets": [
+        "assets/thermal_shock/effeks/icebomb.efkefc",
+        "assets/thermal_shock/models/item/ice_bomb.json",
+        "assets/thermal_shock/particles/ice_bomb_effect.json",
+        "assets/thermal_shock/textures/item/icebomb.png",
+        "assets/thermal_shock/textures/item/icebomb.png.mcmeta",
+        "assets/thermal_shock/textures/particle/ice_bomb_effect.png"
+      ],
+      "sound_refs_in_source": [],
+      "complexity_facts": {
+        "geo_or_animation_assets": false,
+        "asset_path_count": 6,
+        "direct_procedure_count": 1,
+        "public_entry_count": 1,
+        "implements_geo_item": false,
+        "has_geo_model_or_animation": false
+      },
+      "inheritance_clause": "extends Item",
+      "source_model_renderer_classes": [],
+      "numeric_override_bodies": [],
+      "gui_open_calls_in_direct_procedures": [],
+      "direct_procedure_sound_lines": [
+        {
+          "path": "procedures/IceBombPlayerFinishesUsingItemProcedure.java",
+          "line": 19,
+          "text": "import net.minecraft.sounds.SoundEvent;"
+        },
+        {
+          "path": "procedures/IceBombPlayerFinishesUsingItemProcedure.java",
+          "line": 20,
+          "text": "import net.minecraft.sounds.SoundSource;"
+        },
+        {
+          "path": "procedures/IceBombPlayerFinishesUsingItemProcedure.java",
+          "line": 59,
+          "text": "_level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.tnt.primed\")), SoundSource.NEUTRAL, 1.0f, 2.0f);"
+        },
+        {
+          "path": "procedures/IceBombPlayerFinishesUsingItemProcedure.java",
+          "line": 61,
+          "text": "_level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.tnt.primed\")), SoundSource.NEUTRAL, 1.0f, 2.0f, false);"
+        },
+        {
+          "path": "procedures/IceBombPlayerFinishesUsingItemProcedure.java",
+          "line": 67,
+          "text": "_level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.item.pickup\")), SoundSource.NEUTRAL, 1.0f, 1.0f);"
+        },
+        {
+          "path": "procedures/IceBombPlayerFinishesUsingItemProcedure.java",
+          "line": 69,
+          "text": "_level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.item.pickup\")), SoundSource.NEUTRAL, 1.0f, 1.0f, false);"
+        },
+        {
+          "path": "procedures/IceBombPlayerFinishesUsingItemProcedure.java",
+          "line": 81,
+          "text": "_level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:flarecoreexplode\")), SoundSource.NEUTRAL, 1.0f, 1.0f);"
+        },
+        {
+          "path": "procedures/IceBombPlayerFinishesUsingItemProcedure.java",
+          "line": 83,
+          "text": "_level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:flarecoreexplode\")), SoundSource.NEUTRAL, 1.0f, 1.0f, false);"
+        }
+      ],
+      "sound_resource_candidates": [],
+      "explicit_sound_literals": [],
+      "custom_sound_event_resources": [
+        {
+          "event_id": "flarecoreexplode",
+          "sound_paths": [
+            "assets/thermal_shock/sounds/flarecoreexplode.ogg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ignition_detector",
+      "registry_evidence": {
+        "path": "init/ThermalShockModItems.java",
+        "line": 1144,
+        "declaration": "public static final RegistryObject<Item> IGNITION_DETECTOR = REGISTRY.register(\"ignition_detector\", () -> new IgnitionDetectorItem());"
+      },
+      "class_path": "item/IgnitionDetectorItem.java",
+      "class_line": 20,
+      "class_declaration": "public class IgnitionDetectorItem extends Item {",
+      "constructor": [
+        {
+          "line": 22,
+          "text": "public IgnitionDetectorItem() {"
+        }
+      ],
+      "base_constructor_arguments": [
+        {
+          "line": 23,
+          "text": "super(new Item.Properties().stacksTo(1).rarity(Rarity.COMMON));"
+        }
+      ],
+      "override_or_public_entry_signatures": [
+        {
+          "line": 26,
+          "text": "public void appendHoverText(ItemStack itemstack, Level level, List<Component> list, TooltipFlag flag) {"
+        }
+      ],
+      "direct_procedure_calls": [
+        "IgnitionDetectorRightclickedProcedure"
+      ],
+      "procedure_source_paths": [
+        "procedures/IgnitionDetectorRightclickedProcedure.java"
+      ],
+      "recipe_loot_consumers": [],
+      "same_id_or_class_stem_assets": [
+        "assets/thermal_shock/models/item/ignition_detector.json",
+        "assets/thermal_shock/textures/item/ignition_detector.png"
+      ],
+      "sound_refs_in_source": [],
+      "complexity_facts": {
+        "geo_or_animation_assets": false,
+        "asset_path_count": 2,
+        "direct_procedure_count": 1,
+        "public_entry_count": 1,
+        "implements_geo_item": false,
+        "has_geo_model_or_animation": false
+      },
+      "inheritance_clause": "extends Item",
+      "source_model_renderer_classes": [],
+      "numeric_override_bodies": [],
+      "gui_open_calls_in_direct_procedures": [],
+      "direct_procedure_sound_lines": [
+        {
+          "path": "procedures/IgnitionDetectorRightclickedProcedure.java",
+          "line": 11,
+          "text": "import net.minecraft.sounds.SoundEvent;"
+        },
+        {
+          "path": "procedures/IgnitionDetectorRightclickedProcedure.java",
+          "line": 12,
+          "text": "import net.minecraft.sounds.SoundSource;"
+        },
+        {
+          "path": "procedures/IgnitionDetectorRightclickedProcedure.java",
+          "line": 58,
+          "text": "_level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:ignition_detector_click\")), SoundSource.NEUTRAL, 1.0f, 1.0f, false);"
+        }
+      ],
+      "sound_resource_candidates": [
+        "assets/thermal_shock/sounds/ignition_detector_click.ogg"
+      ],
+      "explicit_sound_literals": [],
+      "custom_sound_event_resources": [
+        {
+          "event_id": "ignition_detector_click",
+          "sound_paths": [
+            "assets/thermal_shock/sounds/igniton_detector.ogg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jelly_umbrella",
+      "registry_evidence": {
+        "path": "init/ThermalShockModItems.java",
+        "line": 482,
+        "declaration": "public static final RegistryObject<Item> JELLY_UMBRELLA = REGISTRY.register(\"jelly_umbrella\", () -> new JellyUmbrellaItem());"
+      },
+      "class_path": "item/JellyUmbrellaItem.java",
+      "class_line": 36,
+      "class_declaration": "public class JellyUmbrellaItem extends Item",
+      "constructor": [
+        {
+          "line": 43,
+          "text": "public JellyUmbrellaItem() {"
+        }
+      ],
+      "base_constructor_arguments": [
+        {
+          "line": 44,
+          "text": "super(new Item.Properties().durability(250).rarity(Rarity.COMMON));"
+        }
+      ],
+      "override_or_public_entry_signatures": [
+        {
+          "line": 47,
+          "text": "public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {"
+        },
+        {
+          "line": 51,
+          "text": "public void initializeClient(Consumer<IClientItemExtensions> consumer) {"
+        },
+        {
+          "line": 60,
+          "text": "public boolean applyForgeHandTransform(PoseStack poseStack, LocalPlayer player, HumanoidArm arm, ItemStack itemInHand, float partialTick, float equipProcess, float swingProcess) {"
+        },
+        {
+          "line": 97,
+          "text": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {"
+        },
+        {
+          "line": 108,
+          "text": "public void appendHoverText(ItemStack itemstack, Level level, List<Component> list, TooltipFlag flag) {"
+        }
+      ],
+      "direct_procedure_calls": [
+        "JellyUmbrellaRightclickedProcedure"
+      ],
+      "procedure_source_paths": [
+        "procedures/JellyUmbrellaRightclickedProcedure.java"
+      ],
+      "recipe_loot_consumers": [
+        "data/thermal_shock/recipes/jelly_umbrella_recipe.json",
+        "data/thermal_shock/recipes/legendary_jelly_umbrella_recipe.json"
+      ],
+      "same_id_or_class_stem_assets": [
+        "assets/thermal_shock/animations/jellyumbrella.animation.json",
+        "assets/thermal_shock/geo/jellyumbrella.geo.json",
+        "assets/thermal_shock/models/displaysettings/jelly_umbrella.item.json",
+        "assets/thermal_shock/models/item/jelly_umbrella.json",
+        "assets/thermal_shock/models/item/legendary_jelly_umbrella.json",
+        "assets/thermal_shock/sounds/jellyumbrellaambient.ogg",
+        "assets/thermal_shock/sounds/jellyumbrelladeploy.ogg"
+      ],
+      "sound_refs_in_source": [],
+      "complexity_facts": {
+        "geo_or_animation_assets": true,
+        "asset_path_count": 7,
+        "direct_procedure_count": 1,
+        "public_entry_count": 5,
+        "implements_geo_item": true,
+        "has_geo_model_or_animation": true
+      },
+      "inheritance_clause": "extends Item implements GeoItem",
+      "source_model_renderer_classes": [
+        "item/renderer/JellyUmbrellaItemRenderer.java"
+      ],
+      "numeric_override_bodies": [],
+      "gui_open_calls_in_direct_procedures": [],
+      "direct_procedure_sound_lines": [
+        {
+          "path": "procedures/JellyUmbrellaRightclickedProcedure.java",
+          "line": 9,
+          "text": "import net.minecraft.sounds.SoundEvent;"
+        },
+        {
+          "path": "procedures/JellyUmbrellaRightclickedProcedure.java",
+          "line": 10,
+          "text": "import net.minecraft.sounds.SoundSource;"
+        },
+        {
+          "path": "procedures/JellyUmbrellaRightclickedProcedure.java",
+          "line": 35,
+          "text": "_level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:jellyumbrelladeploy\")), SoundSource.NEUTRAL, 1.0f, 1.0f);"
+        },
+        {
+          "path": "procedures/JellyUmbrellaRightclickedProcedure.java",
+          "line": 37,
+          "text": "_level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:jellyumbrelladeploy\")), SoundSource.NEUTRAL, 1.0f, 1.0f, false);"
+        }
+      ],
+      "sound_resource_candidates": [],
+      "explicit_sound_literals": [],
+      "custom_sound_event_resources": [
+        {
+          "event_id": "jellyumbrelladeploy",
+          "sound_paths": [
+            "assets/thermal_shock/sounds/jellyumbrelladeploy.ogg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "legendary_jelly_umbrella",
+      "registry_evidence": {
+        "path": "init/ThermalShockModItems.java",
+        "line": 787,
+        "declaration": "public static final RegistryObject<Item> LEGENDARY_JELLY_UMBRELLA = REGISTRY.register(\"legendary_jelly_umbrella\", () -> new LegendaryJellyUmbrellaItem());"
+      },
+      "class_path": "item/LegendaryJellyUmbrellaItem.java",
+      "class_line": 36,
+      "class_declaration": "public class LegendaryJellyUmbrellaItem extends Item",
+      "constructor": [
+        {
+          "line": 43,
+          "text": "public LegendaryJellyUmbrellaItem() {"
+        }
+      ],
+      "base_constructor_arguments": [
+        {
+          "line": 44,
+          "text": "super(new Item.Properties().durability(250).rarity(Rarity.UNCOMMON));"
+        }
+      ],
+      "override_or_public_entry_signatures": [
+        {
+          "line": 47,
+          "text": "public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {"
+        },
+        {
+          "line": 51,
+          "text": "public void initializeClient(Consumer<IClientItemExtensions> consumer) {"
+        },
+        {
+          "line": 60,
+          "text": "public boolean applyForgeHandTransform(PoseStack poseStack, LocalPlayer player, HumanoidArm arm, ItemStack itemInHand, float partialTick, float equipProcess, float swingProcess) {"
+        },
+        {
+          "line": 97,
+          "text": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {"
+        },
+        {
+          "line": 108,
+          "text": "public void appendHoverText(ItemStack itemstack, Level level, List<Component> list, TooltipFlag flag) {"
+        }
+      ],
+      "direct_procedure_calls": [
+        "LegendaryJellyUmbrellaRightclickedProcedure"
+      ],
+      "procedure_source_paths": [
+        "procedures/LegendaryJellyUmbrellaRightclickedProcedure.java"
+      ],
+      "recipe_loot_consumers": [
+        "data/thermal_shock/recipes/legendary_jelly_umbrella_recipe.json"
+      ],
+      "same_id_or_class_stem_assets": [
+        "assets/thermal_shock/models/item/legendary_jelly_umbrella.json"
+      ],
+      "sound_refs_in_source": [],
+      "complexity_facts": {
+        "geo_or_animation_assets": false,
+        "asset_path_count": 1,
+        "direct_procedure_count": 1,
+        "public_entry_count": 5,
+        "implements_geo_item": true,
+        "has_geo_model_or_animation": false
+      },
+      "inheritance_clause": "extends Item implements GeoItem",
+      "source_model_renderer_classes": [
+        "item/renderer/LegendaryJellyUmbrellaItemRenderer.java"
+      ],
+      "numeric_override_bodies": [],
+      "gui_open_calls_in_direct_procedures": [],
+      "direct_procedure_sound_lines": [
+        {
+          "path": "procedures/LegendaryJellyUmbrellaRightclickedProcedure.java",
+          "line": 9,
+          "text": "import net.minecraft.sounds.SoundEvent;"
+        },
+        {
+          "path": "procedures/LegendaryJellyUmbrellaRightclickedProcedure.java",
+          "line": 10,
+          "text": "import net.minecraft.sounds.SoundSource;"
+        },
+        {
+          "path": "procedures/LegendaryJellyUmbrellaRightclickedProcedure.java",
+          "line": 35,
+          "text": "_level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:jellyumbrelladeploy\")), SoundSource.NEUTRAL, 1.0f, 1.0f);"
+        },
+        {
+          "path": "procedures/LegendaryJellyUmbrellaRightclickedProcedure.java",
+          "line": 37,
+          "text": "_level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:jellyumbrelladeploy\")), SoundSource.NEUTRAL, 1.0f, 1.0f, false);"
+        }
+      ],
+      "sound_resource_candidates": [],
+      "explicit_sound_literals": [],
+      "custom_sound_event_resources": [
+        {
+          "event_id": "jellyumbrelladeploy",
+          "sound_paths": [
+            "assets/thermal_shock/sounds/jellyumbrelladeploy.ogg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "micro_dome",
+      "registry_evidence": {
+        "path": "init/ThermalShockModItems.java",
+        "line": 1348,
+        "declaration": "public static final RegistryObject<Item> MICRO_DOME = REGISTRY.register(\"micro_dome\", () -> new MicroDomeItem());"
+      },
+      "class_path": "item/MicroDomeItem.java",
+      "class_line": 20,
+      "class_declaration": "public class MicroDomeItem extends Item {",
+      "constructor": [
+        {
+          "line": 22,
+          "text": "public MicroDomeItem() {"
+        }
+      ],
+      "base_constructor_arguments": [
+        {
+          "line": 23,
+          "text": "super(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC));"
+        }
+      ],
+      "override_or_public_entry_signatures": [
+        {
+          "line": 26,
+          "text": "public void appendHoverText(ItemStack itemstack, Level level, List<Component> list, TooltipFlag flag) {"
+        }
+      ],
+      "direct_procedure_calls": [
+        "MicroDomeRightclickedProcedure"
+      ],
+      "procedure_source_paths": [
+        "procedures/MicroDomeRightclickedProcedure.java"
+      ],
+      "recipe_loot_consumers": [
+        "data/thermal_shock/recipes/micro_dome_recipe.json"
+      ],
+      "same_id_or_class_stem_assets": [
+        "assets/thermal_shock/models/item/micro_dome.json",
+        "assets/thermal_shock/textures/item/micro_dome.png"
+      ],
+      "sound_refs_in_source": [],
+      "complexity_facts": {
+        "geo_or_animation_assets": false,
+        "asset_path_count": 2,
+        "direct_procedure_count": 1,
+        "public_entry_count": 1,
+        "implements_geo_item": false,
+        "has_geo_model_or_animation": false
+      },
+      "inheritance_clause": "extends Item",
+      "source_model_renderer_classes": [],
+      "numeric_override_bodies": [],
+      "gui_open_calls_in_direct_procedures": [],
+      "direct_procedure_sound_lines": [],
+      "sound_resource_candidates": [],
+      "explicit_sound_literals": [],
+      "custom_sound_event_resources": []
+    },
+    {
+      "id": "model_train",
+      "registry_evidence": {
+        "path": "init/ThermalShockModItems.java",
+        "line": 1355,
+        "declaration": "public static final RegistryObject<Item> MODEL_TRAIN = REGISTRY.register(\"model_train\", () -> new ModelTrainItem());"
+      },
+      "class_path": "item/ModelTrainItem.java",
+      "class_line": 20,
+      "class_declaration": "public class ModelTrainItem extends Item {",
+      "constructor": [
+        {
+          "line": 22,
+          "text": "public ModelTrainItem() {"
+        }
+      ],
+      "base_constructor_arguments": [
+        {
+          "line": 23,
+          "text": "super(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC));"
+        }
+      ],
+      "override_or_public_entry_signatures": [
+        {
+          "line": 26,
+          "text": "public void appendHoverText(ItemStack itemstack, Level level, List<Component> list, TooltipFlag flag) {"
+        }
+      ],
+      "direct_procedure_calls": [
+        "ModelTrainRightclickedProcedure"
+      ],
+      "procedure_source_paths": [
+        "procedures/ModelTrainRightclickedProcedure.java"
+      ],
+      "recipe_loot_consumers": [
+        "data/thermal_shock/recipes/model_train_recipe.json"
+      ],
+      "same_id_or_class_stem_assets": [
+        "assets/thermal_shock/models/item/model_train.json",
+        "assets/thermal_shock/textures/item/model_train.png"
+      ],
+      "sound_refs_in_source": [],
+      "complexity_facts": {
+        "geo_or_animation_assets": false,
+        "asset_path_count": 2,
+        "direct_procedure_count": 1,
+        "public_entry_count": 1,
+        "implements_geo_item": false,
+        "has_geo_model_or_animation": false
+      },
+      "inheritance_clause": "extends Item",
+      "source_model_renderer_classes": [],
+      "numeric_override_bodies": [],
+      "gui_open_calls_in_direct_procedures": [],
+      "direct_procedure_sound_lines": [],
+      "sound_resource_candidates": [],
+      "explicit_sound_literals": [],
+      "custom_sound_event_resources": []
+    },
+    {
+      "id": "net_launcher",
+      "registry_evidence": {
+        "path": "init/ThermalShockModItems.java",
+        "line": 1064,
+        "declaration": "public static final RegistryObject<Item> NET_LAUNCHER = REGISTRY.register(\"net_launcher\", () -> new NetLauncherItem());"
+      },
+      "class_path": "item/NetLauncherItem.java",
+      "class_line": 37,
+      "class_declaration": "public class NetLauncherItem extends Item",
+      "constructor": [
+        {
+          "line": 44,
+          "text": "public NetLauncherItem() {"
+        }
+      ],
+      "base_constructor_arguments": [
+        {
+          "line": 45,
+          "text": "super(new Item.Properties().durability(920).rarity(Rarity.UNCOMMON));"
+        }
+      ],
+      "override_or_public_entry_signatures": [
+        {
+          "line": 48,
+          "text": "public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {"
+        },
+        {
+          "line": 52,
+          "text": "public void initializeClient(Consumer<IClientItemExtensions> consumer) {"
+        },
+        {
+          "line": 73,
+          "text": "public boolean applyForgeHandTransform(PoseStack poseStack, LocalPlayer player, HumanoidArm arm, ItemStack itemInHand, float partialTick, float equipProcess, float swingProcess) {"
+        },
+        {
+          "line": 110,
+          "text": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {"
+        },
+        {
+          "line": 121,
+          "text": "public int getEnchantmentValue() {"
+        },
+        {
+          "line": 125,
+          "text": "public void appendHoverText(ItemStack itemstack, Level level, List<Component> list, TooltipFlag flag) {"
+        },
+        {
+          "line": 131,
+          "text": "public boolean onEntitySwing(ItemStack itemstack, LivingEntity entity) {"
+        },
+        {
+          "line": 137,
+          "text": "public void inventoryTick(ItemStack itemstack, Level world, Entity entity, int slot, boolean selected) {"
+        }
+      ],
+      "direct_procedure_calls": [
+        "CoreEjectFlareGunItemInHandTickProcedure",
+        "NetLauncherFiringProcedure"
+      ],
+      "procedure_source_paths": [
+        "procedures/CoreEjectFlareGunItemInHandTickProcedure.java",
+        "procedures/NetLauncherFiringProcedure.java"
+      ],
+      "recipe_loot_consumers": [
+        "data/thermal_shock/recipes/net_launcher_recipe.json"
+      ],
+      "same_id_or_class_stem_assets": [
+        "assets/thermal_shock/animations/net_launcher.animation.json",
+        "assets/thermal_shock/geo/net_launcher.geo.json",
+        "assets/thermal_shock/models/item/net_launcher.json",
+        "assets/thermal_shock/textures/item/net_launcher.png"
+      ],
+      "sound_refs_in_source": [],
+      "complexity_facts": {
+        "geo_or_animation_assets": true,
+        "asset_path_count": 4,
+        "direct_procedure_count": 2,
+        "public_entry_count": 8,
+        "implements_geo_item": true,
+        "has_geo_model_or_animation": true
+      },
+      "inheritance_clause": "extends Item implements GeoItem",
+      "source_model_renderer_classes": [
+        "item/renderer/NetLauncherItemRenderer.java"
+      ],
+      "numeric_override_bodies": [
+        {
+          "line": 121,
+          "body_excerpt": "public int getEnchantmentValue() { return 5; }  public void appendHoverText(ItemStack itemstack, Level level, List<Component> list, TooltipFlag flag) {"
+        }
+      ],
+      "gui_open_calls_in_direct_procedures": [],
+      "direct_procedure_sound_lines": [
+        {
+          "path": "procedures/NetLauncherFiringProcedure.java",
+          "line": 14,
+          "text": "import net.minecraft.sounds.SoundEvent;"
+        },
+        {
+          "path": "procedures/NetLauncherFiringProcedure.java",
+          "line": 15,
+          "text": "import net.minecraft.sounds.SoundSource;"
+        },
+        {
+          "path": "procedures/NetLauncherFiringProcedure.java",
+          "line": 60,
+          "text": "_level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.firework_rocket.shoot\")), SoundSource.NEUTRAL, 0.2f, 3.0f);"
+        },
+        {
+          "path": "procedures/NetLauncherFiringProcedure.java",
+          "line": 62,
+          "text": "_level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.firework_rocket.shoot\")), SoundSource.NEUTRAL, 0.2f, 3.0f, false);"
+        },
+        {
+          "path": "procedures/NetLauncherFiringProcedure.java",
+          "line": 68,
+          "text": "_level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"item.crossbow.shoot\")), SoundSource.NEUTRAL, 0.7f, 1.0f);"
+        },
+        {
+          "path": "procedures/NetLauncherFiringProcedure.java",
+          "line": 70,
+          "text": "_level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"item.crossbow.shoot\")), SoundSource.NEUTRAL, 0.7f, 1.0f, false);"
+        },
+        {
+          "path": "procedures/NetLauncherFiringProcedure.java",
+          "line": 77,
+          "text": "_level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"item.crossbow.loading_start\")), SoundSource.NEUTRAL, 1.5f, -4.0f);"
+        },
+        {
+          "path": "procedures/NetLauncherFiringProcedure.java",
+          "line": 79,
+          "text": "_level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"item.crossbow.loading_start\")), SoundSource.NEUTRAL, 1.5f, -4.0f, false);"
+        },
+        {
+          "path": "procedures/NetLauncherFiringProcedure.java",
+          "line": 86,
+          "text": "_level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.stone_button.click_off\")), SoundSource.NEUTRAL, 1.5f, 2.0f);"
+        },
+        {
+          "path": "procedures/NetLauncherFiringProcedure.java",
+          "line": 88,
+          "text": "_level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.stone_button.click_off\")), SoundSource.NEUTRAL, 1.5f, 2.0f, false);"
+        },
+        {
+          "path": "procedures/NetLauncherFiringProcedure.java",
+          "line": 129,
+          "text": "_level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.stone_button.click_on\")), SoundSource.NEUTRAL, 1.0f, 5.0f);"
+        },
+        {
+          "path": "procedures/NetLauncherFiringProcedure.java",
+          "line": 132,
+          "text": "_level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.stone_button.click_on\")), SoundSource.NEUTRAL, 1.0f, 5.0f, false);"
+        }
+      ],
+      "sound_resource_candidates": [
+        "assets/thermal_shock/sounds/crossbow.ogg"
+      ],
+      "explicit_sound_literals": [
+        "block.stone_button.click_off",
+        "block.stone_button.click_on",
+        "entity.firework_rocket.shoot",
+        "item.crossbow.shoot"
+      ],
+      "custom_sound_event_resources": []
+    },
+    {
+      "id": "piston_gauntlet",
+      "registry_evidence": {
+        "path": "init/ThermalShockModItems.java",
+        "line": 798,
+        "declaration": "public static final RegistryObject<Item> PISTON_GAUNTLET = REGISTRY.register(\"piston_gauntlet\", () -> new PistonGauntletItem());"
+      },
+      "class_path": "item/PistonGauntletItem.java",
+      "class_line": 36,
+      "class_declaration": "public class PistonGauntletItem extends Item",
+      "constructor": [
+        {
+          "line": 43,
+          "text": "public PistonGauntletItem() {"
+        }
+      ],
+      "base_constructor_arguments": [
+        {
+          "line": 44,
+          "text": "super(new Item.Properties().durability(50).rarity(Rarity.COMMON));"
+        }
+      ],
+      "override_or_public_entry_signatures": [
+        {
+          "line": 47,
+          "text": "public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {"
+        },
+        {
+          "line": 51,
+          "text": "public void initializeClient(Consumer<IClientItemExtensions> consumer) {"
+        },
+        {
+          "line": 60,
+          "text": "public boolean applyForgeHandTransform(PoseStack poseStack, LocalPlayer player, HumanoidArm arm, ItemStack itemInHand, float partialTick, float equipProcess, float swingProcess) {"
+        },
+        {
+          "line": 97,
+          "text": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {"
+        },
+        {
+          "line": 108,
+          "text": "public void appendHoverText(ItemStack itemstack, Level level, List<Component> list, TooltipFlag flag) {"
+        }
+      ],
+      "direct_procedure_calls": [
+        "PistonGauntletRightclickedProcedure"
+      ],
+      "procedure_source_paths": [
+        "procedures/PistonGauntletRightclickedProcedure.java"
+      ],
+      "recipe_loot_consumers": [
+        "data/thermal_shock/recipes/piston_gauntlet_recipe.json"
+      ],
+      "same_id_or_class_stem_assets": [
+        "assets/thermal_shock/models/item/piston_gauntlet.json"
+      ],
+      "sound_refs_in_source": [],
+      "complexity_facts": {
+        "geo_or_animation_assets": false,
+        "asset_path_count": 1,
+        "direct_procedure_count": 1,
+        "public_entry_count": 5,
+        "implements_geo_item": true,
+        "has_geo_model_or_animation": false
+      },
+      "inheritance_clause": "extends Item implements GeoItem",
+      "source_model_renderer_classes": [
+        "item/renderer/PistonGauntletItemRenderer.java"
+      ],
+      "numeric_override_bodies": [],
+      "gui_open_calls_in_direct_procedures": [],
+      "direct_procedure_sound_lines": [
+        {
+          "path": "procedures/PistonGauntletRightclickedProcedure.java",
+          "line": 11,
+          "text": "import net.minecraft.sounds.SoundEvent;"
+        },
+        {
+          "path": "procedures/PistonGauntletRightclickedProcedure.java",
+          "line": 12,
+          "text": "import net.minecraft.sounds.SoundSource;"
+        },
+        {
+          "path": "procedures/PistonGauntletRightclickedProcedure.java",
+          "line": 53,
+          "text": "_level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.piston.extend\")), SoundSource.NEUTRAL, 0.8f, 4.0f);"
+        },
+        {
+          "path": "procedures/PistonGauntletRightclickedProcedure.java",
+          "line": 55,
+          "text": "_level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.piston.extend\")), SoundSource.NEUTRAL, 0.8f, 4.0f, false);"
+        }
+      ],
+      "sound_resource_candidates": [],
+      "explicit_sound_literals": [
+        "block.piston.extend"
+      ],
+      "custom_sound_event_resources": []
+    },
+    {
+      "id": "sprintweed_soda",
+      "registry_evidence": {
+        "path": "init/ThermalShockModItems.java",
+        "line": 1085,
+        "declaration": "public static final RegistryObject<Item> SPRINTWEED_SODA = REGISTRY.register(\"sprintweed_soda\", () -> new SprintweedSodaItem());"
+      },
+      "class_path": "item/SprintweedSodaItem.java",
+      "class_line": 18,
+      "class_declaration": "public class SprintweedSodaItem extends Item {",
+      "constructor": [
+        {
+          "line": 20,
+          "text": "public SprintweedSodaItem() {"
+        }
+      ],
+      "base_constructor_arguments": [
+        {
+          "line": 21,
+          "text": "super(new Item.Properties().stacksTo(1).rarity(Rarity.COMMON));"
+        }
+      ],
+      "override_or_public_entry_signatures": [
+        {
+          "line": 24,
+          "text": "public UseAnim getUseAnimation(ItemStack itemstack) {"
+        },
+        {
+          "line": 28,
+          "text": "public int getUseDuration(ItemStack itemstack) {"
+        },
+        {
+          "line": 38,
+          "text": "public ItemStack finishUsingItem(ItemStack itemstack, Level world, LivingEntity entity) {"
+        }
+      ],
+      "direct_procedure_calls": [
+        "SprintweedSodaPlayerFinishesUsingItemProcedure"
+      ],
+      "procedure_source_paths": [
+        "procedures/SprintweedSodaPlayerFinishesUsingItemProcedure.java"
+      ],
+      "recipe_loot_consumers": [
+        "data/thermal_shock/recipes/sprintweed_soda_recipe.json"
+      ],
+      "same_id_or_class_stem_assets": [
+        "assets/thermal_shock/models/item/sprintweed_soda.json",
+        "assets/thermal_shock/textures/item/sprintweed_soda.png"
+      ],
+      "sound_refs_in_source": [],
+      "complexity_facts": {
+        "geo_or_animation_assets": false,
+        "asset_path_count": 2,
+        "direct_procedure_count": 1,
+        "public_entry_count": 3,
+        "implements_geo_item": false,
+        "has_geo_model_or_animation": false
+      },
+      "inheritance_clause": "extends Item",
+      "source_model_renderer_classes": [],
+      "numeric_override_bodies": [],
+      "gui_open_calls_in_direct_procedures": [],
+      "direct_procedure_sound_lines": [],
+      "sound_resource_candidates": [],
+      "explicit_sound_literals": [],
+      "custom_sound_event_resources": []
+    },
+    {
+      "id": "the_judge",
+      "registry_evidence": {
+        "path": "init/ThermalShockModItems.java",
+        "line": 819,
+        "declaration": "public static final RegistryObject<Item> THE_JUDGE = REGISTRY.register(\"the_judge\", () -> new TheJudgeItem());"
+      },
+      "class_path": "item/TheJudgeItem.java",
+      "class_line": 37,
+      "class_declaration": "public class TheJudgeItem extends Item",
+      "constructor": [
+        {
+          "line": 44,
+          "text": "public TheJudgeItem() {"
+        }
+      ],
+      "base_constructor_arguments": [
+        {
+          "line": 45,
+          "text": "super(new Item.Properties().durability(920).fireResistant().rarity(Rarity.EPIC));"
+        }
+      ],
+      "override_or_public_entry_signatures": [
+        {
+          "line": 48,
+          "text": "public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {"
+        },
+        {
+          "line": 52,
+          "text": "public void initializeClient(Consumer<IClientItemExtensions> consumer) {"
+        },
+        {
+          "line": 73,
+          "text": "public boolean applyForgeHandTransform(PoseStack poseStack, LocalPlayer player, HumanoidArm arm, ItemStack itemInHand, float partialTick, float equipProcess, float swingProcess) {"
+        },
+        {
+          "line": 110,
+          "text": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {"
+        },
+        {
+          "line": 121,
+          "text": "public int getEnchantmentValue() {"
+        },
+        {
+          "line": 125,
+          "text": "public void appendHoverText(ItemStack itemstack, Level level, List<Component> list, TooltipFlag flag) {"
+        },
+        {
+          "line": 132,
+          "text": "public boolean onEntitySwing(ItemStack itemstack, LivingEntity entity) {"
+        },
+        {
+          "line": 138,
+          "text": "public void inventoryTick(ItemStack itemstack, Level world, Entity entity, int slot, boolean selected) {"
+        }
+      ],
+      "direct_procedure_calls": [
+        "CoreEjectFlareGunItemInHandTickProcedure",
+        "JudgeFiringProcedure"
+      ],
+      "procedure_source_paths": [
+        "procedures/CoreEjectFlareGunItemInHandTickProcedure.java",
+        "procedures/JudgeFiringProcedure.java"
+      ],
+      "recipe_loot_consumers": [],
+      "same_id_or_class_stem_assets": [
+        "assets/thermal_shock/models/item/the_judge.json"
+      ],
+      "sound_refs_in_source": [],
+      "complexity_facts": {
+        "geo_or_animation_assets": false,
+        "asset_path_count": 1,
+        "direct_procedure_count": 2,
+        "public_entry_count": 8,
+        "implements_geo_item": true,
+        "has_geo_model_or_animation": false
+      },
+      "inheritance_clause": "extends Item implements GeoItem",
+      "source_model_renderer_classes": [
+        "item/renderer/TheJudgeItemRenderer.java"
+      ],
+      "numeric_override_bodies": [
+        {
+          "line": 121,
+          "body_excerpt": "public int getEnchantmentValue() { return 5; }  public void appendHoverText(ItemStack itemstack, Level level, List<Component> list, TooltipFlag flag) {"
+        }
+      ],
+      "gui_open_calls_in_direct_procedures": [],
+      "direct_procedure_sound_lines": [
+        {
+          "path": "procedures/JudgeFiringProcedure.java",
+          "line": 14,
+          "text": "import net.minecraft.sounds.SoundEvent;"
+        },
+        {
+          "path": "procedures/JudgeFiringProcedure.java",
+          "line": 15,
+          "text": "import net.minecraft.sounds.SoundSource;"
+        },
+        {
+          "path": "procedures/JudgeFiringProcedure.java",
+          "line": 59,
+          "text": "_level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.generic.explode\")), SoundSource.NEUTRAL, 0.2f, 3.0f);"
+        },
+        {
+          "path": "procedures/JudgeFiringProcedure.java",
+          "line": 61,
+          "text": "_level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.generic.explode\")), SoundSource.NEUTRAL, 0.2f, 3.0f, false);"
+        },
+        {
+          "path": "procedures/JudgeFiringProcedure.java",
+          "line": 67,
+          "text": "_level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:volcanofire\")), SoundSource.NEUTRAL, 0.8f, 0.5f);"
+        },
+        {
+          "path": "procedures/JudgeFiringProcedure.java",
+          "line": 69,
+          "text": "_level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:volcanofire\")), SoundSource.NEUTRAL, 0.8f, 0.5f, false);"
+        },
+        {
+          "path": "procedures/JudgeFiringProcedure.java",
+          "line": 77,
+          "text": "_level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.piston.extend\")), SoundSource.NEUTRAL, 0.7f, 3.0f);"
+        },
+        {
+          "path": "procedures/JudgeFiringProcedure.java",
+          "line": 79,
+          "text": "_level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.piston.extend\")), SoundSource.NEUTRAL, 0.7f, 3.0f, false);"
+        },
+        {
+          "path": "procedures/JudgeFiringProcedure.java",
+          "line": 85,
+          "text": "_level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.lever.click\")), SoundSource.NEUTRAL, 0.7f, 5.0f);"
+        },
+        {
+          "path": "procedures/JudgeFiringProcedure.java",
+          "line": 87,
+          "text": "_level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.lever.click\")), SoundSource.NEUTRAL, 0.7f, 5.0f, false);"
+        },
+        {
+          "path": "procedures/JudgeFiringProcedure.java",
+          "line": 94,
+          "text": "_level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.lever.click\")), SoundSource.NEUTRAL, 0.8f, 6.0f);"
+        },
+        {
+          "path": "procedures/JudgeFiringProcedure.java",
+          "line": 96,
+          "text": "_level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.lever.click\")), SoundSource.NEUTRAL, 0.8f, 6.0f, false);"
+        },
+        {
+          "path": "procedures/JudgeFiringProcedure.java",
+          "line": 104,
+          "text": "_level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.stone_button.click_on\")), SoundSource.NEUTRAL, 1.0f, 2.0f);"
+        },
+        {
+          "path": "procedures/JudgeFiringProcedure.java",
+          "line": 106,
+          "text": "_level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.stone_button.click_on\")), SoundSource.NEUTRAL, 1.0f, 2.0f, false);"
+        },
+        {
+          "path": "procedures/JudgeFiringProcedure.java",
+          "line": 114,
+          "text": "_level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.piston.contract\")), SoundSource.NEUTRAL, 1.0f, 2.0f);"
+        },
+        {
+          "path": "procedures/JudgeFiringProcedure.java",
+          "line": 116,
+          "text": "_level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.piston.contract\")), SoundSource.NEUTRAL, 1.0f, 2.0f, false);"
+        },
+        {
+          "path": "procedures/JudgeFiringProcedure.java",
+          "line": 161,
+          "text": "_level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.stone_button.click_on\")), SoundSource.NEUTRAL, 1.0f, 5.0f);"
+        },
+        {
+          "path": "procedures/JudgeFiringProcedure.java",
+          "line": 164,
+          "text": "_level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"block.stone_button.click_on\")), SoundSource.NEUTRAL, 1.0f, 5.0f, false);"
+        }
+      ],
+      "sound_resource_candidates": [],
+      "explicit_sound_literals": [
+        "block.lever.click",
+        "block.piston.contract",
+        "block.piston.extend",
+        "block.stone_button.click_on"
+      ],
+      "custom_sound_event_resources": [
+        {
+          "event_id": "volcanofire",
+          "sound_paths": [
+            "assets/thermal_shock/sounds/volcano1.ogg",
+            "assets/thermal_shock/sounds/volcano2.ogg"
+          ]
+        }
+      ]
+    }
+  ],
+  "renamed_item_followup": {
+    "id": "zenith_crossbow",
+    "original_class": "ZenithCrossbowItem",
+    "original_source": "item/ZenithCrossbowItem.java",
+    "target_class": "com.hp.thermalshockreforged.content.weapons.MagneticCrossbowItem",
+    "target_file": "src/main/java/com/hp/thermalshockreforged/content/weapons/MagneticCrossbowItem.java",
+    "target_registration": "src/main/java/com/hp/thermalshockreforged/content/weapons/WeaponContent.java:45 registers magnetic_crossbow"
+  },
+  "notes": [
+    "Only class/registration and direct static references are cataloged; no behavior implementation inferred.",
+    "Recipe/loot consumers are exact JSON files containing the item ID.",
+    "Creative tab entries are not used as registration evidence.",
+    "inheritance_clause and numeric_override_bodies retain class hierarchy and literal tier/armor parameter evidence for planning.",
+    "direct_procedure_sound_lines quote source Java evidence; sound_resource_candidates are filename/ID matches, not proof the procedure references each file unless a line identifies it.",
+    "implements_geo_item is read from original class inheritance. custom_sound_event_resources map direct procedure thermal_shock sound event IDs through original sounds.json to actual audio paths."
+  ]
+}

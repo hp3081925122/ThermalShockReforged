@@ -1,0 +1,4617 @@
+{
+  "head": "38ca837ea06d747373c84aec7a8cd3c3b8c834ff",
+  "sourceJar": "D:\\AI临时文件\\ThermalShockMigration\\thermal_shock-07.9-original.jar",
+  "sourceJarSha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436",
+  "priorRecursiveComparison": {
+    "provenance": "parallel-batch110.md; root quick_explorer report",
+    "configuredCount": 30,
+    "placedCount": 27,
+    "result": "Namespace normalization and existing correct UniformInt flattening match recursively.",
+    "limit": "Prior reviewer did not supply per-file hashes; current hashes below are a new production baseline, not its evidence."
+  },
+  "modifiers": [
+    {
+      "id": "angler_bulb_feature_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/angler_bulb_feature_biome_modifier.json",
+      "sourceSha256": "fe298aaa60e8f970f266d290fe55ab52675c6f8b4b67783a0741af4366bb22a3",
+      "source": {
+        "type": "forge:add_features",
+        "biomes": "thermal_shock:vermillion_woods",
+        "features": "thermal_shock:angler_bulb_feature",
+        "step": "underground_decoration"
+      },
+      "planned": {
+        "type": "neoforge:add_features",
+        "biomes": "thermal_shock_reforged:vermillion_woods",
+        "features": "thermal_shock_reforged:angler_bulb_feature",
+        "step": "underground_decoration"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/angler_bulb_feature_biome_modifier.json",
+      "ready": true,
+      "status": "ready"
+    },
+    {
+      "id": "barbubble_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/barbubble_biome_modifier.json",
+      "sourceSha256": "99863c927dc09ff6342e99bc0aeaffeb11cc67cb27d6ab9d820b56aa7c4fdd81",
+      "source": {
+        "type": "forge:add_features",
+        "biomes": [
+          "thermal_shock:borean_forest",
+          "thermal_shock:vermillion_woods",
+          "thermal_shock:stardust_garden"
+        ],
+        "features": "thermal_shock:barbubble",
+        "step": "vegetal_decoration"
+      },
+      "planned": {
+        "type": "neoforge:add_features",
+        "biomes": [
+          "thermal_shock_reforged:borean_forest",
+          "thermal_shock_reforged:vermillion_woods",
+          "thermal_shock_reforged:stardust_garden"
+        ],
+        "features": "thermal_shock_reforged:barbubble",
+        "step": "vegetal_decoration"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/barbubble_biome_modifier.json",
+      "ready": true,
+      "status": "ready"
+    },
+    {
+      "id": "bounceweed_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/bounceweed_biome_modifier.json",
+      "sourceSha256": "d8cdf17895ef50542f37203f274af5eafa0be38be1e33809511b4494b22ef86b",
+      "source": {
+        "type": "forge:add_features",
+        "biomes": "thermal_shock:cobalt_heights",
+        "features": "thermal_shock:bounceweed",
+        "step": "vegetal_decoration"
+      },
+      "planned": {
+        "type": "neoforge:add_features",
+        "biomes": "thermal_shock_reforged:cobalt_heights",
+        "features": "thermal_shock_reforged:bounceweed",
+        "step": "vegetal_decoration"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/bounceweed_biome_modifier.json",
+      "ready": true,
+      "status": "ready"
+    },
+    {
+      "id": "ceruleum_generation_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/ceruleum_generation_biome_modifier.json",
+      "sourceSha256": "363edd3f2f55f485d524e2cc292cca7e18c9ef4b81cfe23b0b1df159c6d14945",
+      "source": {
+        "type": "forge:add_features",
+        "biomes": "thermal_shock:luminous_sea",
+        "features": "thermal_shock:ceruleum_generation",
+        "step": "vegetal_decoration"
+      },
+      "planned": {
+        "type": "neoforge:add_features",
+        "biomes": "thermal_shock_reforged:luminous_sea",
+        "features": "thermal_shock_reforged:ceruleum_generation",
+        "step": "vegetal_decoration"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/ceruleum_generation_biome_modifier.json",
+      "ready": true,
+      "status": "ready"
+    },
+    {
+      "id": "dull_shrub_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/dull_shrub_biome_modifier.json",
+      "sourceSha256": "fb3e69c68b2eef8b8c1b34277b68569e84154bbb182a9706e7620e542c6d58f6",
+      "source": {
+        "type": "forge:add_features",
+        "biomes": [
+          "thermal_shock:borean_tundra",
+          "thermal_shock:graveyard",
+          "thermal_shock:vermillion_woods"
+        ],
+        "features": "thermal_shock:dull_shrub",
+        "step": "vegetal_decoration"
+      },
+      "planned": {
+        "type": "neoforge:add_features",
+        "biomes": [
+          "thermal_shock_reforged:borean_tundra",
+          "thermal_shock_reforged:graveyard",
+          "thermal_shock_reforged:vermillion_woods"
+        ],
+        "features": "thermal_shock_reforged:dull_shrub",
+        "step": "vegetal_decoration"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/dull_shrub_biome_modifier.json",
+      "ready": true,
+      "status": "ready"
+    },
+    {
+      "id": "floatweed_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/floatweed_biome_modifier.json",
+      "sourceSha256": "c2908bc80ad11de242a4fc5d55fb929ba4a5ebe03b2546a5f561f118eb92e295",
+      "source": {
+        "type": "forge:add_features",
+        "biomes": "thermal_shock:cobalt_heights",
+        "features": "thermal_shock:floatweed",
+        "step": "vegetal_decoration"
+      },
+      "planned": {
+        "type": "neoforge:add_features",
+        "biomes": "thermal_shock_reforged:cobalt_heights",
+        "features": "thermal_shock_reforged:floatweed",
+        "step": "vegetal_decoration"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/floatweed_biome_modifier.json",
+      "ready": true,
+      "status": "ready"
+    },
+    {
+      "id": "fuscium_generation_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/fuscium_generation_biome_modifier.json",
+      "sourceSha256": "5cc53d5206cb09994bba1c87bd454a65f647cac29392ffe35909b03a278efc44",
+      "source": {
+        "type": "forge:add_features",
+        "biomes": "thermal_shock:luminous_sea",
+        "features": "thermal_shock:fuscium_generation",
+        "step": "vegetal_decoration"
+      },
+      "planned": {
+        "type": "neoforge:add_features",
+        "biomes": "thermal_shock_reforged:luminous_sea",
+        "features": "thermal_shock_reforged:fuscium_generation",
+        "step": "vegetal_decoration"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/fuscium_generation_biome_modifier.json",
+      "ready": true,
+      "status": "ready"
+    },
+    {
+      "id": "hanging_bulb_patch_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/hanging_bulb_patch_biome_modifier.json",
+      "sourceSha256": "c6c11aa6dcb2056446287173b953eb6e8250a866d9c8e54ca7755318fa8c9871",
+      "source": {
+        "type": "forge:add_features",
+        "biomes": "#thermal_shock:purebiomes",
+        "features": "thermal_shock:hanging_bulb_patch",
+        "step": "underground_decoration"
+      },
+      "planned": {
+        "type": "neoforge:add_features",
+        "biomes": "#thermal_shock_reforged:purebiomes",
+        "features": "thermal_shock_reforged:hanging_bulb_patch",
+        "step": "underground_decoration"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/hanging_bulb_patch_biome_modifier.json",
+      "ready": false,
+      "status": "original_missing_biome_tag"
+    },
+    {
+      "id": "heights_weeds_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/heights_weeds_biome_modifier.json",
+      "sourceSha256": "60b9c254451c0bff75da0a5b746424392daf12aaf1e0b70642260c9d178c4969",
+      "source": {
+        "type": "forge:add_features",
+        "biomes": "thermal_shock:cobalt_heights",
+        "features": "thermal_shock:heights_weeds",
+        "step": "vegetal_decoration"
+      },
+      "planned": {
+        "type": "neoforge:add_features",
+        "biomes": "thermal_shock_reforged:cobalt_heights",
+        "features": "thermal_shock_reforged:heights_weeds",
+        "step": "vegetal_decoration"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/heights_weeds_biome_modifier.json",
+      "ready": true,
+      "status": "ready"
+    },
+    {
+      "id": "loque_birch_tree_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/loque_birch_tree_biome_modifier.json",
+      "sourceSha256": "a7832a1a7aa7408efd44fe18378c17f4c3b9d9927621f423242fd50c8392ddc7",
+      "source": {
+        "type": "forge:add_features",
+        "biomes": "thermal_shock:borean_forest",
+        "features": "thermal_shock:loque_birch_tree",
+        "step": "vegetal_decoration"
+      },
+      "planned": {
+        "type": "neoforge:add_features",
+        "biomes": "thermal_shock_reforged:borean_forest",
+        "features": "thermal_shock_reforged:loque_birch_tree",
+        "step": "vegetal_decoration"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/loque_birch_tree_biome_modifier.json",
+      "ready": true,
+      "status": "ready"
+    },
+    {
+      "id": "loque_fern_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/loque_fern_biome_modifier.json",
+      "sourceSha256": "b1c1667c395d1675ec67afdd99968fee0dddd28de26effa54531bb1524c41b9f",
+      "source": {
+        "type": "forge:add_features",
+        "biomes": [
+          "thermal_shock:borean_forest",
+          "thermal_shock:vermillion_woods",
+          "thermal_shock:cobalt_heights"
+        ],
+        "features": "thermal_shock:loque_fern",
+        "step": "vegetal_decoration"
+      },
+      "planned": {
+        "type": "neoforge:add_features",
+        "biomes": [
+          "thermal_shock_reforged:borean_forest",
+          "thermal_shock_reforged:vermillion_woods",
+          "thermal_shock_reforged:cobalt_heights"
+        ],
+        "features": "thermal_shock_reforged:loque_fern",
+        "step": "vegetal_decoration"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/loque_fern_biome_modifier.json",
+      "ready": true,
+      "status": "ready"
+    },
+    {
+      "id": "lunalemon_tree_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/lunalemon_tree_biome_modifier.json",
+      "sourceSha256": "4ece12ed9eb24b2dc61196fe6593ef3fc53c321610924d4928eec13f808e1778",
+      "source": {
+        "type": "forge:add_features",
+        "biomes": [
+          "thermal_shock:vermillion_woods",
+          "thermal_shock:stardust_garden"
+        ],
+        "features": "thermal_shock:lunalemon_tree",
+        "step": "surface_structures"
+      },
+      "planned": {
+        "type": "neoforge:add_features",
+        "biomes": [
+          "thermal_shock_reforged:vermillion_woods",
+          "thermal_shock_reforged:stardust_garden"
+        ],
+        "features": "thermal_shock_reforged:lunalemon_tree",
+        "step": "surface_structures"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/lunalemon_tree_biome_modifier.json",
+      "ready": true,
+      "status": "ready"
+    },
+    {
+      "id": "shiverglitter_tree_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/shiverglitter_tree_biome_modifier.json",
+      "sourceSha256": "7a925ee7891765da50b25b4394ce3b1e45d38c46e46785166811528db1109cb0",
+      "source": {
+        "type": "forge:add_features",
+        "biomes": "thermal_shock:stardust_garden",
+        "features": "thermal_shock:shiverglitter_tree",
+        "step": "vegetal_decoration"
+      },
+      "planned": {
+        "type": "neoforge:add_features",
+        "biomes": "thermal_shock_reforged:stardust_garden",
+        "features": "thermal_shock_reforged:shiverglitter_tree",
+        "step": "vegetal_decoration"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/shiverglitter_tree_biome_modifier.json",
+      "ready": true,
+      "status": "ready"
+    },
+    {
+      "id": "shiverglitter_tree_cobalt_heights_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/shiverglitter_tree_cobalt_heights_biome_modifier.json",
+      "sourceSha256": "46becc4ced5a27134b7164324cccb2e377a4ba1a2d93df0ffc4b3c2b25f6208e",
+      "source": {
+        "type": "forge:add_features",
+        "biomes": "thermal_shock:cobalt_heights",
+        "features": "thermal_shock:shiverglitter_tree_cobalt_heights",
+        "step": "vegetal_decoration"
+      },
+      "planned": {
+        "type": "neoforge:add_features",
+        "biomes": "thermal_shock_reforged:cobalt_heights",
+        "features": "thermal_shock_reforged:shiverglitter_tree_cobalt_heights",
+        "step": "vegetal_decoration"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/shiverglitter_tree_cobalt_heights_biome_modifier.json",
+      "ready": true,
+      "status": "ready"
+    },
+    {
+      "id": "skorio_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/skorio_biome_modifier.json",
+      "sourceSha256": "d27d87c01f776b8f5380bd82e0c99b0fc1c67e88936a60dd3e7a028624bcd989",
+      "source": {
+        "type": "forge:add_features",
+        "biomes": [
+          "thermal_shock:borean_forest",
+          "thermal_shock:vermillion_woods",
+          "thermal_shock:stardust_garden"
+        ],
+        "features": "thermal_shock:skorio",
+        "step": "vegetal_decoration"
+      },
+      "planned": {
+        "type": "neoforge:add_features",
+        "biomes": [
+          "thermal_shock_reforged:borean_forest",
+          "thermal_shock_reforged:vermillion_woods",
+          "thermal_shock_reforged:stardust_garden"
+        ],
+        "features": "thermal_shock_reforged:skorio",
+        "step": "vegetal_decoration"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/skorio_biome_modifier.json",
+      "ready": true,
+      "status": "ready"
+    },
+    {
+      "id": "spire_blooms_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/spire_blooms_biome_modifier.json",
+      "sourceSha256": "1b427c6f61016a62b8d9808dde32712a119eb81c7b723673d1947805215c88d4",
+      "source": {
+        "type": "forge:add_features",
+        "biomes": "thermal_shock:graveyard",
+        "features": "thermal_shock:spire_blooms",
+        "step": "vegetal_decoration"
+      },
+      "planned": {
+        "type": "neoforge:add_features",
+        "biomes": "thermal_shock_reforged:graveyard",
+        "features": "thermal_shock_reforged:spire_blooms",
+        "step": "vegetal_decoration"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/spire_blooms_biome_modifier.json",
+      "ready": true,
+      "status": "ready"
+    },
+    {
+      "id": "spireroot_thorns_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/spireroot_thorns_biome_modifier.json",
+      "sourceSha256": "3cb5b4fbcb4f13c288ffb56c17d691958f0298f9cac6bd2522e8d6cd6eca3351",
+      "source": {
+        "type": "forge:add_features",
+        "biomes": "thermal_shock:graveyard",
+        "features": "thermal_shock:spireroot_thorns",
+        "step": "vegetal_decoration"
+      },
+      "planned": {
+        "type": "neoforge:add_features",
+        "biomes": "thermal_shock_reforged:graveyard",
+        "features": "thermal_shock_reforged:spireroot_thorns",
+        "step": "vegetal_decoration"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/spireroot_thorns_biome_modifier.json",
+      "ready": true,
+      "status": "ready"
+    },
+    {
+      "id": "spore_pod_gen_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/spore_pod_gen_biome_modifier.json",
+      "sourceSha256": "ba380ed7d524c3bd867352b8f1dc2fcb368b279c280b59cc4b7ad91b7e268664",
+      "source": {
+        "type": "forge:add_features",
+        "biomes": "thermal_shock:graveyard",
+        "features": "thermal_shock:spore_pod_gen",
+        "step": "surface_structures"
+      },
+      "planned": {
+        "type": "neoforge:add_features",
+        "biomes": "thermal_shock_reforged:graveyard",
+        "features": "thermal_shock_reforged:spore_pod_gen",
+        "step": "surface_structures"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/spore_pod_gen_biome_modifier.json",
+      "ready": true,
+      "status": "ready"
+    },
+    {
+      "id": "sprintweed_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/sprintweed_biome_modifier.json",
+      "sourceSha256": "f0a9d61b056868c12297f425ef854c5d5ea058dc7549b3e3d291fe7204234cae",
+      "source": {
+        "type": "forge:add_features",
+        "biomes": [
+          "thermal_shock:borean_forest",
+          "thermal_shock:borean_tundra",
+          "thermal_shock:stardust_garden",
+          "thermal_shock:vermillion_woods"
+        ],
+        "features": "thermal_shock:sprintweed",
+        "step": "vegetal_decoration"
+      },
+      "planned": {
+        "type": "neoforge:add_features",
+        "biomes": [
+          "thermal_shock_reforged:borean_forest",
+          "thermal_shock_reforged:borean_tundra",
+          "thermal_shock_reforged:stardust_garden",
+          "thermal_shock_reforged:vermillion_woods"
+        ],
+        "features": "thermal_shock_reforged:sprintweed",
+        "step": "vegetal_decoration"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/sprintweed_biome_modifier.json",
+      "ready": true,
+      "status": "ready"
+    },
+    {
+      "id": "starfruit_tree_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/starfruit_tree_biome_modifier.json",
+      "sourceSha256": "1bf5a0b202880f32e8b10d53739182a6634d98f4eed410d516abea43c9d430cf",
+      "source": {
+        "type": "forge:add_features",
+        "biomes": [
+          "thermal_shock:borean_forest",
+          "thermal_shock:borean_tundra"
+        ],
+        "features": "thermal_shock:starfruit_tree",
+        "step": "vegetal_decoration"
+      },
+      "planned": {
+        "type": "neoforge:add_features",
+        "biomes": [
+          "thermal_shock_reforged:borean_forest",
+          "thermal_shock_reforged:borean_tundra"
+        ],
+        "features": "thermal_shock_reforged:starfruit_tree",
+        "step": "vegetal_decoration"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/starfruit_tree_biome_modifier.json",
+      "ready": true,
+      "status": "ready"
+    },
+    {
+      "id": "tall_loque_fern_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/tall_loque_fern_biome_modifier.json",
+      "sourceSha256": "e2ce15c6f5993c810b20e9fd97546fd70d0db95170209f23c4df3e675fc02977",
+      "source": {
+        "type": "forge:add_features",
+        "biomes": [
+          "thermal_shock:borean_forest",
+          "thermal_shock:cobalt_heights"
+        ],
+        "features": "thermal_shock:tall_loque_fern",
+        "step": "vegetal_decoration"
+      },
+      "planned": {
+        "type": "neoforge:add_features",
+        "biomes": [
+          "thermal_shock_reforged:borean_forest",
+          "thermal_shock_reforged:cobalt_heights"
+        ],
+        "features": "thermal_shock_reforged:tall_loque_fern",
+        "step": "vegetal_decoration"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/tall_loque_fern_biome_modifier.json",
+      "ready": true,
+      "status": "ready"
+    },
+    {
+      "id": "tall_vermillion_fern_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/tall_vermillion_fern_biome_modifier.json",
+      "sourceSha256": "f4f6e38e554ad3be19c039b7c7a7b51c9dd6e647f33e84a27ee352bda8dbf15a",
+      "source": {
+        "type": "forge:add_features",
+        "biomes": "thermal_shock:vermillion_woods",
+        "features": "thermal_shock:tall_vermillion_fern",
+        "step": "vegetal_decoration"
+      },
+      "planned": {
+        "type": "neoforge:add_features",
+        "biomes": "thermal_shock_reforged:vermillion_woods",
+        "features": "thermal_shock_reforged:tall_vermillion_fern",
+        "step": "vegetal_decoration"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/tall_vermillion_fern_biome_modifier.json",
+      "ready": true,
+      "status": "ready"
+    },
+    {
+      "id": "verdium_generation_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/verdium_generation_biome_modifier.json",
+      "sourceSha256": "4052bc35bbe6a4ea05bcca9915f1a641883aac60f5b3cf39af56a9d866126b7f",
+      "source": {
+        "type": "forge:add_features",
+        "biomes": "thermal_shock:luminous_sea",
+        "features": "thermal_shock:verdium_generation",
+        "step": "vegetal_decoration"
+      },
+      "planned": {
+        "type": "neoforge:add_features",
+        "biomes": "thermal_shock_reforged:luminous_sea",
+        "features": "thermal_shock_reforged:verdium_generation",
+        "step": "vegetal_decoration"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/verdium_generation_biome_modifier.json",
+      "ready": true,
+      "status": "ready"
+    },
+    {
+      "id": "vermilli_fungus_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/vermilli_fungus_biome_modifier.json",
+      "sourceSha256": "ac8e9255fe7935410b8790e6817f15096eff0a4502fb7d9df2b7fdbfb1dffd95",
+      "source": {
+        "type": "forge:add_features",
+        "biomes": [
+          "thermal_shock:vermillion_woods",
+          "thermal_shock:borean_forest"
+        ],
+        "features": "thermal_shock:vermilli_fungus",
+        "step": "underground_decoration"
+      },
+      "planned": {
+        "type": "neoforge:add_features",
+        "biomes": [
+          "thermal_shock_reforged:vermillion_woods",
+          "thermal_shock_reforged:borean_forest"
+        ],
+        "features": "thermal_shock_reforged:vermilli_fungus",
+        "step": "underground_decoration"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/vermilli_fungus_biome_modifier.json",
+      "ready": true,
+      "status": "ready"
+    },
+    {
+      "id": "vermillion_fern_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/vermillion_fern_biome_modifier.json",
+      "sourceSha256": "250156b38c67c0eaea834cc4fc55f4e6deff7c5b9396516337e5498e73b825aa",
+      "source": {
+        "type": "forge:add_features",
+        "biomes": "thermal_shock:vermillion_woods",
+        "features": "thermal_shock:vermillion_fern",
+        "step": "vegetal_decoration"
+      },
+      "planned": {
+        "type": "neoforge:add_features",
+        "biomes": "thermal_shock_reforged:vermillion_woods",
+        "features": "thermal_shock_reforged:vermillion_fern",
+        "step": "vegetal_decoration"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/vermillion_fern_biome_modifier.json",
+      "ready": true,
+      "status": "ready"
+    },
+    {
+      "id": "vermillion_hyphae_patch_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/vermillion_hyphae_patch_biome_modifier.json",
+      "sourceSha256": "8e8a0b1d3ff07a2f6a94d5f78ba7a52b47071c005643b8fc4b6fca4a16923c11",
+      "source": {
+        "type": "forge:add_features",
+        "biomes": [
+          "thermal_shock:vermillion_woods",
+          "thermal_shock:borean_forest"
+        ],
+        "features": "thermal_shock:vermillion_hyphae_patch",
+        "step": "underground_decoration"
+      },
+      "planned": {
+        "type": "neoforge:add_features",
+        "biomes": [
+          "thermal_shock_reforged:vermillion_woods",
+          "thermal_shock_reforged:borean_forest"
+        ],
+        "features": "thermal_shock_reforged:vermillion_hyphae_patch",
+        "step": "underground_decoration"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/vermillion_hyphae_patch_biome_modifier.json",
+      "ready": true,
+      "status": "ready"
+    },
+    {
+      "id": "vermillion_sparkler_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/vermillion_sparkler_biome_modifier.json",
+      "sourceSha256": "fab0b9434bb30b22239de31e44be7cac7cb36721506d54a22fdbbb3db616a344",
+      "source": {
+        "type": "forge:add_features",
+        "biomes": "thermal_shock:vermillion_woods",
+        "features": "thermal_shock:vermillion_sparkler",
+        "step": "vegetal_decoration"
+      },
+      "planned": {
+        "type": "neoforge:add_features",
+        "biomes": "thermal_shock_reforged:vermillion_woods",
+        "features": "thermal_shock_reforged:vermillion_sparkler",
+        "step": "vegetal_decoration"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/vermillion_sparkler_biome_modifier.json",
+      "ready": true,
+      "status": "ready"
+    },
+    {
+      "id": "vermillion_tree_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/vermillion_tree_biome_modifier.json",
+      "sourceSha256": "8522be9be6cb9a63d944b4deb047a17ef18956e4f8c6ba530be419a2e1251f8a",
+      "source": {
+        "type": "forge:add_features",
+        "biomes": "thermal_shock:vermillion_woods",
+        "features": "thermal_shock:vermillion_tree",
+        "step": "vegetal_decoration"
+      },
+      "planned": {
+        "type": "neoforge:add_features",
+        "biomes": "thermal_shock_reforged:vermillion_woods",
+        "features": "thermal_shock_reforged:vermillion_tree",
+        "step": "vegetal_decoration"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/vermillion_tree_biome_modifier.json",
+      "ready": true,
+      "status": "ready"
+    },
+    {
+      "id": "visi_bulb_feature_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/visi_bulb_feature_biome_modifier.json",
+      "sourceSha256": "4a34fdb7ad611f910db0626fddf04171df20b9d17e2cd0b2f963b7dd9bd86f0c",
+      "source": {
+        "type": "forge:add_features",
+        "biomes": "thermal_shock:glaciation",
+        "features": "thermal_shock:visi_bulb_feature",
+        "step": "underground_decoration"
+      },
+      "planned": {
+        "type": "neoforge:add_features",
+        "biomes": "thermal_shock_reforged:glaciation",
+        "features": "thermal_shock_reforged:visi_bulb_feature",
+        "step": "underground_decoration"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/visi_bulb_feature_biome_modifier.json",
+      "ready": true,
+      "status": "ready"
+    },
+    {
+      "id": "volt_flower_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/volt_flower_biome_modifier.json",
+      "sourceSha256": "c124e278451027ab904c83d3aa1e9a2024f20e3510441e4a89960f4a8a433623",
+      "source": {
+        "type": "forge:add_features",
+        "biomes": [
+          "thermal_shock:borean_tundra",
+          "thermal_shock:vermillion_woods",
+          "thermal_shock:stardust_garden"
+        ],
+        "features": "thermal_shock:volt_flower",
+        "step": "vegetal_decoration"
+      },
+      "planned": {
+        "type": "neoforge:add_features",
+        "biomes": [
+          "thermal_shock_reforged:borean_tundra",
+          "thermal_shock_reforged:vermillion_woods",
+          "thermal_shock_reforged:stardust_garden"
+        ],
+        "features": "thermal_shock_reforged:volt_flower",
+        "step": "vegetal_decoration"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/volt_flower_biome_modifier.json",
+      "ready": true,
+      "status": "ready"
+    }
+  ],
+  "missingPlaced": [
+    {
+      "id": "loque_birch_tree",
+      "sourcePath": "data/thermal_shock/worldgen/placed_feature/loque_birch_tree.json",
+      "sourceSha256": "73d6efe927e79d5223f6b304b89c8371051ee2e267deb778c9dd97a328cbafe9",
+      "source": {
+        "feature": "thermal_shock:loque_birch_tree",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": 3
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:height_range",
+            "height": {
+              "type": "minecraft:uniform",
+              "min_inclusive": {
+                "absolute": 65
+              },
+              "max_inclusive": {
+                "absolute": 86
+              }
+            }
+          },
+          {
+            "type": "minecraft:heightmap",
+            "heightmap": "MOTION_BLOCKING"
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "blocks": [
+                "thermal_shock:grassy_shale",
+                "thermal_shock:snowy_shale"
+              ],
+              "offset": [
+                0,
+                -1,
+                0
+              ]
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:would_survive",
+              "state": {
+                "Name": "minecraft:spruce_sapling"
+              }
+            }
+          }
+        ]
+      },
+      "planned": {
+        "feature": "thermal_shock_reforged:loque_birch_tree",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": 3
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:height_range",
+            "height": {
+              "type": "minecraft:uniform",
+              "min_inclusive": {
+                "absolute": 65
+              },
+              "max_inclusive": {
+                "absolute": 86
+              }
+            }
+          },
+          {
+            "type": "minecraft:heightmap",
+            "heightmap": "MOTION_BLOCKING"
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "blocks": [
+                "thermal_shock_reforged:grassy_shale",
+                "thermal_shock_reforged:snowy_shale"
+              ],
+              "offset": [
+                0,
+                -1,
+                0
+              ]
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:would_survive",
+              "state": {
+                "Name": "minecraft:spruce_sapling"
+              }
+            }
+          }
+        ]
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/loque_birch_tree.json"
+    },
+    {
+      "id": "shiverglitter_tree",
+      "sourcePath": "data/thermal_shock/worldgen/placed_feature/shiverglitter_tree.json",
+      "sourceSha256": "033660154fd093240a03b1eaba6f3da98a3680576798cd355215bb6d234115b4",
+      "source": {
+        "feature": "thermal_shock:shiverglitter_tree",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": 6
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:surface_water_depth_filter",
+            "max_water_depth": 0
+          },
+          {
+            "type": "minecraft:heightmap",
+            "heightmap": "OCEAN_FLOOR"
+          },
+          {
+            "type": "minecraft:biome"
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:would_survive",
+              "state": {
+                "Name": "minecraft:cherry_sapling"
+              }
+            }
+          }
+        ]
+      },
+      "planned": {
+        "feature": "thermal_shock_reforged:shiverglitter_tree",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": 6
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:surface_water_depth_filter",
+            "max_water_depth": 0
+          },
+          {
+            "type": "minecraft:heightmap",
+            "heightmap": "OCEAN_FLOOR"
+          },
+          {
+            "type": "minecraft:biome"
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:would_survive",
+              "state": {
+                "Name": "minecraft:cherry_sapling"
+              }
+            }
+          }
+        ]
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/shiverglitter_tree.json"
+    },
+    {
+      "id": "shiverglitter_tree_cobalt_heights",
+      "sourcePath": "data/thermal_shock/worldgen/placed_feature/shiverglitter_tree_cobalt_heights.json",
+      "sourceSha256": "074444df9cf5b15bcfb3389e096c7fc1edbcc13fd1fe63024567945fa09f0305",
+      "source": {
+        "feature": "thermal_shock:shiverglitter_tree_cobalt_heights",
+        "placement": [
+          {
+            "type": "minecraft:rarity_filter",
+            "chance": 3
+          },
+          {
+            "type": "minecraft:count",
+            "count": {
+              "type": "uniform",
+              "value": {
+                "min_inclusive": 1,
+                "max_inclusive": 2
+              }
+            }
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:surface_water_depth_filter",
+            "max_water_depth": 0
+          },
+          {
+            "type": "minecraft:heightmap",
+            "heightmap": "OCEAN_FLOOR"
+          },
+          {
+            "type": "minecraft:biome"
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:would_survive",
+              "state": {
+                "Name": "minecraft:cherry_sapling"
+              }
+            }
+          }
+        ]
+      },
+      "planned": {
+        "feature": "thermal_shock_reforged:shiverglitter_tree_cobalt_heights",
+        "placement": [
+          {
+            "type": "minecraft:rarity_filter",
+            "chance": 3
+          },
+          {
+            "type": "minecraft:count",
+            "count": {
+              "type": "uniform",
+              "min_inclusive": 1,
+              "max_inclusive": 2
+            }
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:surface_water_depth_filter",
+            "max_water_depth": 0
+          },
+          {
+            "type": "minecraft:heightmap",
+            "heightmap": "OCEAN_FLOOR"
+          },
+          {
+            "type": "minecraft:biome"
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:would_survive",
+              "state": {
+                "Name": "minecraft:cherry_sapling"
+              }
+            }
+          }
+        ]
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/shiverglitter_tree_cobalt_heights.json"
+    }
+  ],
+  "preserve": [
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/angler_bulb_feature.json",
+      "sha256": "0fcb4542825241742ba5a05adbe5d38f0ba3f8c285b2bd4264ebfda4371a3d80"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/barbubble.json",
+      "sha256": "fc9918db5ea31719027a94bbdd53ad0d34645882eab5cf5bb8750fa8cd9fd4ee"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/bounceweed.json",
+      "sha256": "fa715e27ce84ac62220259bd612d2289703f4b3054bc3e255934938294130cc8"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/ceruleum_generation.json",
+      "sha256": "e9154a4b941761f8408708d997a5bb7ac3f7ae85913d0b5776fb4822d60b6460"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/dull_shrub.json",
+      "sha256": "db8328b06fe05a0ac1931bc5de22ea99852d10c99ee227454ee3b8ba2a90cbb5"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/floatweed.json",
+      "sha256": "b167174ddc9426e7335729283652691f844283b8abcf839ae5e9c67a8cd96d7b"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/fuscium_generation.json",
+      "sha256": "c2bd05064a280b92abc8dafc114164b9a43bc42fcae1f77445df2ab85478829a"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/hanging_bulb_patch.json",
+      "sha256": "128e2896690db97d404890cd207af19b4092033c9050d860645d1bb92d6cca11"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/heights_weeds.json",
+      "sha256": "8285fefd62f1a271ab865b162e83835e39d5880e7805d0b99be0c2790d780bb5"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/loque_birch_tree.json",
+      "sha256": "9d166ae398e0e1209df50852e0eb2867672bc0f8391268ca78e6d7264a54b054"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/loque_fern.json",
+      "sha256": "21e156df63f2a915cb8a47153282edd371489f13f0739e1f980ff2c47fc5a190"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/lunalemon_tree.json",
+      "sha256": "4d4d62161d4532dcd0c1696cef310f7dbababaa0db23c3d6baee37717da7dc6b"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/shiverglitter_tree.json",
+      "sha256": "99cd9bdfd5987f06970fc01fe9269fe3e910896b1484e8d1687bb49b821aa984"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/shiverglitter_tree_cobalt_heights.json",
+      "sha256": "2491d011fef0beaa49dad0f368537cb98c8ef6ad3872170acbd66841bc669375"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/skorio.json",
+      "sha256": "8d8c347d45a685df9d64bab8594d150ce8a49ebfae20c8cefb893b224bc8965d"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/spire_blooms.json",
+      "sha256": "38d7103fffd227d23e21fe06f29c2baa1cebeea9e88b460828a43509bd4f321b"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/spireroot_thorns.json",
+      "sha256": "29bb10725bb13ea8597013560691a7ae3fac2cfd2beefe0f1c94f634152afe66"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/spore_pod_gen.json",
+      "sha256": "a12e4dd588ab4e635ebee717e003ccd339ba27cd5b0ba7cdf10429261edfc39d"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/sprintweed.json",
+      "sha256": "9e520fdfdeacffd42305bcad66742004d497f853326d15f953e0f2e5ee3bcbc6"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/starfruit_tree.json",
+      "sha256": "6db306f9224315de1513750a232084ffe8d4f9ffd52a54a27e5f339acf5f0fbb"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/tall_loque_fern.json",
+      "sha256": "eb9a27b4c6b8c32416956bb0427c35534ad52e39727a0a4203391ed7d17fe832"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/tall_vermillion_fern.json",
+      "sha256": "115ea69677768561e642016ef1e1cf665e32fc222e3b833a444c4013974000c4"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/verdium_generation.json",
+      "sha256": "27ae69499e197e81b49fa12cf3dabc9950547a7cb4770ba440b8b1361ce047f3"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/vermilli_fungus.json",
+      "sha256": "68088fe146daad62c50baaeed246de45edc33e15aa8b7f77f18d8334225c7ab3"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/vermillion_fern.json",
+      "sha256": "b4b002df5a222d6a3ea71a5356100f7f5f4bf7edfa8b82eff4fb3fcfe4e5809b"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/vermillion_hyphae_patch.json",
+      "sha256": "41d1ac42fcad4220ec9b79c5e1c2df3b18f1aad6d52270ef102a44e27ea08fdd"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/vermillion_sparkler.json",
+      "sha256": "d6bb2e9d7f42443c40a3fe9ee41aa3c52d46cb1c3e63b0d8a515bc89c9c74358"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/vermillion_tree.json",
+      "sha256": "c11cec5710a79c2c7cae1c07f6ca6573e7106984d890cb9390ca5dceed608ad9"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/visi_bulb_feature.json",
+      "sha256": "f120abdc07abf8bb3a81c8f3e9770bec412015f9fbbd97cf0751cf62ad9b00ec"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/volt_flower.json",
+      "sha256": "95902717d85572a400c168c7fc1fb07c048a291f82145e37bd6b8a51dc3727da"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/angler_bulb_feature.json",
+      "sha256": "9439be2f0d53dd4b1d52d3c24c544d06aac2faedc910f1015ae6c97d47225423"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/barbubble.json",
+      "sha256": "fb0df018865b352bf71f63397ef208adb123d7d2670e443ee51ea8cd7bf1268f"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/bounceweed.json",
+      "sha256": "2f46cf2cc19d9e4581bf14ca134d2b0b5d22bcf86221002a2db9229a1e66915f"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/ceruleum_generation.json",
+      "sha256": "baf79b035415cfc9fb5a3355d21871e5b9e31d0b4b569724164e52c75b05e7e1"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/dull_shrub.json",
+      "sha256": "9f37acb1cbbfaea65efe0feca90d5110681cea0c3056ea58027c74876a142630"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/floatweed.json",
+      "sha256": "02a2a408740c0601131070b75e734654e657acf176ec5ac7aa4ee5e5264e72d1"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/fuscium_generation.json",
+      "sha256": "903bad8f7f4465db08035098ff04ab61b454fb989c899d8ff8c39fa9cea7c213"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/hanging_bulb_patch.json",
+      "sha256": "f619ef34312850ae751c46c46aa90338e77ed2e5f55541c76ff60b0bb2254d67"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/heights_weeds.json",
+      "sha256": "3e2578d6a487c6f1ce9ae131075a1dd0117f88351e13ef799a5d71d06666b5e0"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/loque_fern.json",
+      "sha256": "4c4a61e23f4a1912234f4752cb178b8ea823dc9d69910b492edc50430724e561"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/lunalemon_tree.json",
+      "sha256": "635af8f2ac7698fafe7c5d0f023f137a0f9f8715b99b1ce58c39b8af8be68e8a"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/skorio.json",
+      "sha256": "507c4779d56ef007960a467075fce4942d665f384694847cad263b3cc4a5f37f"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/spire_blooms.json",
+      "sha256": "91fbc78b36d24b9ee8c90dae6cb71bd97fbadeaf55d16b2b24027211eca0dd9c"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/spireroot_thorns.json",
+      "sha256": "6143f7590f8fd541d4dccd6778eba21f922fac81dc5c8312422d4e6b4b0de787"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/spore_pod_gen.json",
+      "sha256": "70607be5cc3bddb9d3c6d6aca6980ad29fa9fe3a738d9c0c2765e83e08fa96ad"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/sprintweed.json",
+      "sha256": "224fd67e275da7412551a0ffc52c967ed4453337497e0be9ba8f909f4e5690ca"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/starfruit_tree.json",
+      "sha256": "8043554bd0496ececf4c6faf0bf780afd68bfcc06508b6312da217565c5999c5"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/tall_loque_fern.json",
+      "sha256": "012dbf4be7fc4193dda50bf0db3d54a756b8841c4f24155ea5ab3c46c2ec304f"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/tall_vermillion_fern.json",
+      "sha256": "7cb923e966048406ab7657f340381b3532c85a9408091376c124ddc0d77a8769"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/verdium_generation.json",
+      "sha256": "e97309f365fc1a860cc685196d547448d731abf0a35beb512e3436354588b727"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/vermilli_fungus.json",
+      "sha256": "e04d2e062cfd29a701b97e3d0841ff1644fc4ecd89ffe57d564f6ccc050c7af9"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/vermillion_fern.json",
+      "sha256": "30a2a141223bf6a7208ba20bbc824465da3b801210f0f14cbd2858942eafe070"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/vermillion_hyphae_patch.json",
+      "sha256": "27b87b9678e3825618971c0daa64a6e95d9ba03cbd819fdf4d933fdac7ee3eb2"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/vermillion_sparkler.json",
+      "sha256": "4faef8e9a6fa97076931d532b687ad304a207c9d1f2f481f430f0e77777dce73"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/vermillion_tree.json",
+      "sha256": "74b0fd9fe276669804a6b131e9a5942803400914ded59da7ce2e8d7722cc1d92"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/visi_bulb_feature.json",
+      "sha256": "bb71a363c90884414c9319a697d8e10c3a524ba3f6dafa64e34ef160aa7e79cb"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/volt_flower.json",
+      "sha256": "fd5a5d764e4b00953a76dcb82773112c7424b005fb6985f408e6473d161b9501"
+    }
+  ],
+  "biomes": {
+    "thermal_shock:vermillion_woods": {
+      "sourcePath": "data/thermal_shock/worldgen/biome/vermillion_woods.json",
+      "sourcePresent": true,
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/worldgen/biome/vermillion_woods.json",
+      "targetPresent": true,
+      "targetSha256": "56be300bcc95f85fba04d84962b8bc90f9866aa336b9434ec1c512fcbe401958",
+      "sourceSha256": "833914a61e15f675a92fd937020313afa2a59805579afe482d7d6d9df20a2594"
+    },
+    "thermal_shock:borean_forest": {
+      "sourcePath": "data/thermal_shock/worldgen/biome/borean_forest.json",
+      "sourcePresent": true,
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/worldgen/biome/borean_forest.json",
+      "targetPresent": true,
+      "targetSha256": "448e71e4425f0cb37b0cb2820fd047f64d4c86c2bcf574d0f7007cb00e2db301",
+      "sourceSha256": "28544c085f143ed12cdba29c2afe91eb75b1046fe60d402015e0bafd3b68e118"
+    },
+    "thermal_shock:stardust_garden": {
+      "sourcePath": "data/thermal_shock/worldgen/biome/stardust_garden.json",
+      "sourcePresent": true,
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/worldgen/biome/stardust_garden.json",
+      "targetPresent": true,
+      "targetSha256": "4fb2a0ee73e3836c466e9f872e56eb7df763e488d08c49ec763edaeb81593c79",
+      "sourceSha256": "a99fa163cb895fbdc1080c6d51e973363d9c71a12a5335b5cf65f47ec6473f78"
+    },
+    "thermal_shock:cobalt_heights": {
+      "sourcePath": "data/thermal_shock/worldgen/biome/cobalt_heights.json",
+      "sourcePresent": true,
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/worldgen/biome/cobalt_heights.json",
+      "targetPresent": true,
+      "targetSha256": "8f5082d7d47b27113ae5ec214dcc6c1ad296be3fafe0cf03c9b9253bc9b8a0dd",
+      "sourceSha256": "472cb0fb31d65d29d9d12e6124a249afe8a88bbbda92ffea69a17209f76da814"
+    },
+    "thermal_shock:luminous_sea": {
+      "sourcePath": "data/thermal_shock/worldgen/biome/luminous_sea.json",
+      "sourcePresent": true,
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/worldgen/biome/luminous_sea.json",
+      "targetPresent": true,
+      "targetSha256": "118ce5661a8e260490544bef3cf97d99b4ddbcfb98dc1c541e7f7ec247f51b69",
+      "sourceSha256": "dbfb0e72306686c2f5920c622bdb5b6b9cc29bb347dc438124941dc899ba47a3"
+    },
+    "thermal_shock:borean_tundra": {
+      "sourcePath": "data/thermal_shock/worldgen/biome/borean_tundra.json",
+      "sourcePresent": true,
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/worldgen/biome/borean_tundra.json",
+      "targetPresent": true,
+      "targetSha256": "9ed1da4b34811420380750217b4026f83c28fc776489d4ed4e2446fa99c48855",
+      "sourceSha256": "87ce151ca83b7a8aa9d7f9c108422b058f8e4cd8aaccf97e358dfbcdd96f5087"
+    },
+    "thermal_shock:graveyard": {
+      "sourcePath": "data/thermal_shock/worldgen/biome/graveyard.json",
+      "sourcePresent": true,
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/worldgen/biome/graveyard.json",
+      "targetPresent": true,
+      "targetSha256": "74d76e4c1c4b61c218d0c7c7b2f16d7ec30cd9d0da29988e6b0538a57c2b166c",
+      "sourceSha256": "cedca8d606463463e30e2d0c7d7e6443641c18f50efb3cc469af6caa88776817"
+    },
+    "#thermal_shock:purebiomes": {
+      "sourcePath": "data/thermal_shock/tags/worldgen/biome/purebiomes.json",
+      "sourcePresent": false,
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/tags/worldgen/biome/purebiomes.json",
+      "targetPresent": false,
+      "targetSha256": null,
+      "sourceSha256": null
+    },
+    "thermal_shock:glaciation": {
+      "sourcePath": "data/thermal_shock/worldgen/biome/glaciation.json",
+      "sourcePresent": true,
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/worldgen/biome/glaciation.json",
+      "targetPresent": true,
+      "targetSha256": "45d091ca49338f5bdfaeef8337761b4322f19a735260fc717a4cf4426a9fbe23",
+      "sourceSha256": "9bcd72927ffab8e8621c7cb147b3ced47fc0441bcfbaf397d78cca539101d4a7"
+    }
+  },
+  "sources": [
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\neoforged\\neoforge\\common\\world\\BiomeModifiers.java",
+      "sha256": "6accc01fea47e128b14e4e3dcce1853df974a26ac2522c95d69b9b4445dfe7a6",
+      "relevantLines": [
+        {
+          "line": 51,
+          "text": "            if (phase == Phase.ADD && this.biomes.contains(biome)) {"
+        },
+        {
+          "line": 53,
+          "text": "                this.features.forEach(holder -> generationSettings.addFeature(this.step, holder));"
+        },
+        {
+          "line": 162,
+          "text": "            if (phase == Phase.ADD && this.biomes.contains(biome)) {"
+        },
+        {
+          "line": 230,
+          "text": "            if (phase == Phase.ADD && this.biomes.contains(biome)) {"
+        },
+        {
+          "line": 309,
+          "text": "            if (phase == Phase.ADD) {"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\neoforged\\neoforge\\common\\NeoForgeMod.java",
+      "sha256": "4a51c8bd786b7b25ad39893fe97ffca3d2161287aba3e9cf5cf4a5421d97353a",
+      "relevantLines": [
+        {
+          "line": 217,
+          "text": "    public static final DeferredHolder<MapCodec<? extends IGlobalLootModifier>, MapCodec<AddTableLootModifier>> ADD_TABLE_LOOT_MODIFIER_TYPE = GLOBAL_LOOT_MODIFIER_SERIALIZERS.register(\"add_table\", () -> AddTableLootModifier.CODEC);"
+        },
+        {
+          "line": 230,
+          "text": "                            Biome.LIST_CODEC.fieldOf(\"biomes\").forGetter(AddFeaturesBiomeModifier::biomes),"
+        },
+        {
+          "line": 231,
+          "text": "                            PlacedFeature.LIST_CODEC.fieldOf(\"features\").forGetter(AddFeaturesBiomeModifier::features),"
+        },
+        {
+          "line": 232,
+          "text": "                            Decoration.CODEC.fieldOf(\"step\").forGetter(AddFeaturesBiomeModifier::step))"
+        },
+        {
+          "line": 241,
+          "text": "                            Biome.LIST_CODEC.fieldOf(\"biomes\").forGetter(RemoveFeaturesBiomeModifier::biomes),"
+        },
+        {
+          "line": 242,
+          "text": "                            PlacedFeature.LIST_CODEC.fieldOf(\"features\").forGetter(RemoveFeaturesBiomeModifier::features),"
+        },
+        {
+          "line": 243,
+          "text": "                            Codec.<List<Decoration>, Decoration>either(Decoration.CODEC.listOf(), Decoration.CODEC).<Set<Decoration>>xmap("
+        },
+        {
+          "line": 254,
+          "text": "                            Biome.LIST_CODEC.fieldOf(\"biomes\").forGetter(AddSpawnsBiomeModifier::biomes),"
+        },
+        {
+          "line": 257,
+          "text": "                            Codec.either(SpawnerData.CODEC.listOf(), SpawnerData.CODEC).xmap("
+        },
+        {
+          "line": 260,
+          "text": "                            ).fieldOf(\"spawners\").forGetter(AddSpawnsBiomeModifier::spawners))"
+        },
+        {
+          "line": 269,
+          "text": "                            Biome.LIST_CODEC.fieldOf(\"biomes\").forGetter(RemoveSpawnsBiomeModifier::biomes),"
+        },
+        {
+          "line": 270,
+          "text": "                            RegistryCodecs.homogeneousList(Registries.ENTITY_TYPE).fieldOf(\"entity_types\").forGetter(RemoveSpawnsBiomeModifier::entityTypes))"
+        },
+        {
+          "line": 277,
+          "text": "            Biome.LIST_CODEC.fieldOf(\"biomes\").forGetter(BiomeModifiers.AddCarversBiomeModifier::biomes),"
+        },
+        {
+          "line": 278,
+          "text": "            ConfiguredWorldCarver.LIST_CODEC.fieldOf(\"carvers\").forGetter(BiomeModifiers.AddCarversBiomeModifier::carvers),"
+        },
+        {
+          "line": 279,
+          "text": "            GenerationStep.Carving.CODEC.fieldOf(\"step\").forGetter(BiomeModifiers.AddCarversBiomeModifier::step)).apply(builder, BiomeModifiers.AddCarversBiomeModifier::new)));"
+        },
+        {
+          "line": 285,
+          "text": "            Biome.LIST_CODEC.fieldOf(\"biomes\").forGetter(BiomeModifiers.RemoveCarversBiomeModifier::biomes),"
+        },
+        {
+          "line": 286,
+          "text": "            ConfiguredWorldCarver.LIST_CODEC.fieldOf(\"carvers\").forGetter(BiomeModifiers.RemoveCarversBiomeModifier::carvers),"
+        },
+        {
+          "line": 287,
+          "text": "            Codec.either(GenerationStep.Carving.CODEC.listOf(), GenerationStep.Carving.CODEC).xmap("
+        },
+        {
+          "line": 296,
+          "text": "            Biome.LIST_CODEC.fieldOf(\"biomes\").forGetter(BiomeModifiers.AddSpawnCostsBiomeModifier::biomes),"
+        },
+        {
+          "line": 297,
+          "text": "            RegistryCodecs.homogeneousList(Registries.ENTITY_TYPE).fieldOf(\"entity_types\").forGetter(BiomeModifiers.AddSpawnCostsBiomeModifier::entityTypes),"
+        },
+        {
+          "line": 298,
+          "text": "            MobSpawnSettings.MobSpawnCost.CODEC.fieldOf(\"spawn_cost\").forGetter(BiomeModifiers.AddSpawnCostsBiomeModifier::spawnCost)).apply(builder, BiomeModifiers.AddSpawnCostsBiomeModifier::new)));"
+        },
+        {
+          "line": 304,
+          "text": "            Biome.LIST_CODEC.fieldOf(\"biomes\").forGetter(BiomeModifiers.RemoveSpawnCostsBiomeModifier::biomes),"
+        },
+        {
+          "line": 305,
+          "text": "            RegistryCodecs.homogeneousList(Registries.ENTITY_TYPE).fieldOf(\"entity_types\").forGetter(BiomeModifiers.RemoveSpawnCostsBiomeModifier::entityTypes)).apply(builder, BiomeModifiers.RemoveSpawnCostsBiomeModifier::new)));"
+        },
+        {
+          "line": 316,
+          "text": "            RegistryCodecs.homogeneousList(Registries.STRUCTURE, Structure.DIRECT_CODEC).fieldOf(\"structures\").forGetter(StructureModifiers.AddSpawnsStructureModifier::structures),"
+        },
+        {
+          "line": 319,
+          "text": "            Codec.either(SpawnerData.CODEC.listOf(), SpawnerData.CODEC).xmap("
+        },
+        {
+          "line": 322,
+          "text": "            ).fieldOf(\"spawners\").forGetter(StructureModifiers.AddSpawnsStructureModifier::spawners)).apply(builder, StructureModifiers.AddSpawnsStructureModifier::new)));"
+        },
+        {
+          "line": 328,
+          "text": "            RegistryCodecs.homogeneousList(Registries.STRUCTURE, Structure.DIRECT_CODEC).fieldOf(\"structures\").forGetter(StructureModifiers.RemoveSpawnsStructureModifier::structures),"
+        },
+        {
+          "line": 329,
+          "text": "            RegistryCodecs.homogeneousList(Registries.ENTITY_TYPE).fieldOf(\"entity_types\").forGetter(StructureModifiers.RemoveSpawnsStructureModifier::entityTypes)).apply(builder, StructureModifiers.RemoveSpawnsStructureModifier::new)));"
+        },
+        {
+          "line": 335,
+          "text": "            RegistryCodecs.homogeneousList(Registries.STRUCTURE, Structure.DIRECT_CODEC).fieldOf(\"structures\").forGetter(StructureModifiers.ClearSpawnsStructureModifier::structures),"
+        },
+        {
+          "line": 336,
+          "text": "            Codec.<List<MobCategory>, MobCategory>either(MobCategory.CODEC.listOf(), MobCategory.CODEC).<Set<MobCategory>>xmap("
+        },
+        {
+          "line": 364,
+          "text": "    public static final DeferredHolder<IngredientType<?>, IngredientType<CompoundIngredient>> COMPOUND_INGREDIENT_TYPE = INGREDIENT_TYPES.register(\"compound\", () -> new IngredientType<>(CompoundIngredient.CODEC));"
+        },
+        {
+          "line": 365,
+          "text": "    public static final DeferredHolder<IngredientType<?>, IngredientType<DataComponentIngredient>> DATA_COMPONENT_INGREDIENT_TYPE = INGREDIENT_TYPES.register(\"components\", () -> new IngredientType<>(DataComponentIngredient.CODEC));"
+        },
+        {
+          "line": 366,
+          "text": "    public static final DeferredHolder<IngredientType<?>, IngredientType<DifferenceIngredient>> DIFFERENCE_INGREDIENT_TYPE = INGREDIENT_TYPES.register(\"difference\", () -> new IngredientType<>(DifferenceIngredient.CODEC));"
+        },
+        {
+          "line": 367,
+          "text": "    public static final DeferredHolder<IngredientType<?>, IngredientType<IntersectionIngredient>> INTERSECTION_INGREDIENT_TYPE = INGREDIENT_TYPES.register(\"intersection\", () -> new IngredientType<>(IntersectionIngredient.CODEC));"
+        },
+        {
+          "line": 368,
+          "text": "    public static final DeferredHolder<IngredientType<?>, IngredientType<BlockTagIngredient>> BLOCK_TAG_INGREDIENT = INGREDIENT_TYPES.register(\"block_tag\", () -> new IngredientType<>(BlockTagIngredient.CODEC));"
+        },
+        {
+          "line": 371,
+          "text": "    public static final DeferredHolder<FluidIngredientType<?>, FluidIngredientType<SingleFluidIngredient>> SINGLE_FLUID_INGREDIENT_TYPE = FLUID_INGREDIENT_TYPES.register(\"single\", () -> new FluidIngredientType<>(SingleFluidIngredient.CODEC));"
+        },
+        {
+          "line": 372,
+          "text": "    public static final DeferredHolder<FluidIngredientType<?>, FluidIngredientType<TagFluidIngredient>> TAG_FLUID_INGREDIENT_TYPE = FLUID_INGREDIENT_TYPES.register(\"tag\", () -> new FluidIngredientType<>(TagFluidIngredient.CODEC));"
+        },
+        {
+          "line": 373,
+          "text": "    public static final DeferredHolder<FluidIngredientType<?>, FluidIngredientType<EmptyFluidIngredient>> EMPTY_FLUID_INGREDIENT_TYPE = FLUID_INGREDIENT_TYPES.register(\"empty\", () -> new FluidIngredientType<>(EmptyFluidIngredient.CODEC));"
+        },
+        {
+          "line": 374,
+          "text": "    public static final DeferredHolder<FluidIngredientType<?>, FluidIngredientType<CompoundFluidIngredient>> COMPOUND_FLUID_INGREDIENT_TYPE = FLUID_INGREDIENT_TYPES.register(\"compound\", () -> new FluidIngredientType<>(CompoundFluidIngredient.CODEC));"
+        },
+        {
+          "line": 375,
+          "text": "    public static final DeferredHolder<FluidIngredientType<?>, FluidIngredientType<DataComponentFluidIngredient>> DATA_COMPONENT_FLUID_INGREDIENT_TYPE = FLUID_INGREDIENT_TYPES.register(\"components\", () -> new FluidIngredientType<>(DataComponentFluidIngredient.CODEC));"
+        },
+        {
+          "line": 376,
+          "text": "    public static final DeferredHolder<FluidIngredientType<?>, FluidIngredientType<DifferenceFluidIngredient>> DIFFERENCE_FLUID_INGREDIENT_TYPE = FLUID_INGREDIENT_TYPES.register(\"difference\", () -> new FluidIngredientType<>(DifferenceFluidIngredient.CODEC));"
+        },
+        {
+          "line": 377,
+          "text": "    public static final DeferredHolder<FluidIngredientType<?>, FluidIngredientType<IntersectionFluidIngredient>> INTERSECTION_FLUID_INGREDIENT_TYPE = FLUID_INGREDIENT_TYPES.register(\"intersection\", () -> new FluidIngredientType<>(IntersectionFluidIngredient.CODEC));"
+        },
+        {
+          "line": 379,
+          "text": "    private static final DeferredRegister<MapCodec<? extends ICondition>> CONDITION_CODECS = DeferredRegister.create(NeoForgeRegistries.Keys.CONDITION_CODECS, NeoForgeVersion.MOD_ID);"
+        },
+        {
+          "line": 380,
+          "text": "    public static final DeferredHolder<MapCodec<? extends ICondition>, MapCodec<AndCondition>> AND_CONDITION = CONDITION_CODECS.register(\"and\", () -> AndCondition.CODEC);"
+        },
+        {
+          "line": 381,
+          "text": "    public static final DeferredHolder<MapCodec<? extends ICondition>, MapCodec<FalseCondition>> FALSE_CONDITION = CONDITION_CODECS.register(\"false\", () -> FalseCondition.CODEC);"
+        },
+        {
+          "line": 382,
+          "text": "    public static final DeferredHolder<MapCodec<? extends ICondition>, MapCodec<ItemExistsCondition>> ITEM_EXISTS_CONDITION = CONDITION_CODECS.register(\"item_exists\", () -> ItemExistsCondition.CODEC);"
+        },
+        {
+          "line": 383,
+          "text": "    public static final DeferredHolder<MapCodec<? extends ICondition>, MapCodec<ModLoadedCondition>> MOD_LOADED_CONDITION = CONDITION_CODECS.register(\"mod_loaded\", () -> ModLoadedCondition.CODEC);"
+        },
+        {
+          "line": 384,
+          "text": "    public static final DeferredHolder<MapCodec<? extends ICondition>, MapCodec<NotCondition>> NOT_CONDITION = CONDITION_CODECS.register(\"not\", () -> NotCondition.CODEC);"
+        },
+        {
+          "line": 385,
+          "text": "    public static final DeferredHolder<MapCodec<? extends ICondition>, MapCodec<OrCondition>> OR_CONDITION = CONDITION_CODECS.register(\"or\", () -> OrCondition.CODEC);"
+        },
+        {
+          "line": 386,
+          "text": "    public static final DeferredHolder<MapCodec<? extends ICondition>, MapCodec<TagEmptyCondition>> TAG_EMPTY_CONDITION = CONDITION_CODECS.register(\"tag_empty\", () -> TagEmptyCondition.CODEC);"
+        },
+        {
+          "line": 387,
+          "text": "    public static final DeferredHolder<MapCodec<? extends ICondition>, MapCodec<TrueCondition>> TRUE_CONDITION = CONDITION_CODECS.register(\"true\", () -> TrueCondition.CODEC);"
+        },
+        {
+          "line": 389,
+          "text": "    private static final DeferredRegister<MapCodec<? extends EntitySubPredicate>> ENTITY_PREDICATE_CODECS = DeferredRegister.create(Registries.ENTITY_SUB_PREDICATE_TYPE, NeoForgeVersion.MOD_ID);"
+        },
+        {
+          "line": 390,
+          "text": "    public static final DeferredHolder<MapCodec<? extends EntitySubPredicate>, MapCodec<PiglinNeutralArmorEntityPredicate>> PIGLIN_NEUTRAL_ARMOR_PREDICATE = ENTITY_PREDICATE_CODECS.register(\"piglin_neutral_armor\", () -> PiglinNeutralArmorEntityPredicate.CODEC);"
+        },
+        {
+          "line": 391,
+          "text": "    public static final DeferredHolder<MapCodec<? extends EntitySubPredicate>, MapCodec<SnowBootsEntityPredicate>> SNOW_BOOTS_PREDICATE = ENTITY_PREDICATE_CODECS.register(\"snow_boots\", () -> SnowBootsEntityPredicate.CODEC);"
+        },
+        {
+          "line": 547,
+          "text": "            event.dataPackRegistry(NeoForgeRegistries.Keys.BIOME_MODIFIERS, BiomeModifier.DIRECT_CODEC);"
+        },
+        {
+          "line": 548,
+          "text": "            event.dataPackRegistry(NeoForgeRegistries.Keys.STRUCTURE_MODIFIERS, StructureModifier.DIRECT_CODEC);"
+        },
+        {
+          "line": 561,
+          "text": "        ENTITY_PREDICATE_CODECS.register(modEventBus);"
+        },
+        {
+          "line": 565,
+          "text": "        CONDITION_CODECS.register(modEventBus);"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\util\\valueproviders\\IntProvider.java",
+      "sha256": "d0e23d96597664e5d050007ca036d8079eb4f83e23489dcee08ebe20744fda43",
+      "relevantLines": [
+        {
+          "line": 10,
+          "text": "    private static final Codec<Either<Integer, IntProvider>> CONSTANT_OR_DISPATCH_CODEC = Codec.either("
+        },
+        {
+          "line": 13,
+          "text": "    public static final Codec<IntProvider> CODEC = CONSTANT_OR_DISPATCH_CODEC.xmap("
+        },
+        {
+          "line": 17,
+          "text": "    public static final Codec<IntProvider> NON_NEGATIVE_CODEC = codec(0, Integer.MAX_VALUE);"
+        },
+        {
+          "line": 18,
+          "text": "    public static final Codec<IntProvider> POSITIVE_CODEC = codec(1, Integer.MAX_VALUE);"
+        },
+        {
+          "line": 21,
+          "text": "        return validateCodec(p_146546_, p_146547_, CODEC);"
+        },
+        {
+          "line": 38,
+          "text": "    public abstract int sample(RandomSource p_216855_);"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\util\\valueproviders\\UniformInt.java",
+      "sha256": "00c9cf02c7b1bf01d5139c0c86526c83a3e5b9c1299b643425cba332648a7875",
+      "relevantLines": [
+        {
+          "line": 12,
+          "text": "    public static final MapCodec<UniformInt> CODEC = RecordCodecBuilder.<UniformInt>mapCodec("
+        },
+        {
+          "line": 14,
+          "text": "                        Codec.INT.fieldOf(\"min_inclusive\").forGetter(p_146636_ -> p_146636_.minInclusive),"
+        },
+        {
+          "line": 15,
+          "text": "                        Codec.INT.fieldOf(\"max_inclusive\").forGetter(p_146633_ -> p_146633_.maxInclusive)"
+        },
+        {
+          "line": 39,
+          "text": "    public int sample(RandomSource p_216868_) {"
+        },
+        {
+          "line": 40,
+          "text": "        return Mth.randomBetweenInclusive(p_216868_, this.minInclusive, this.maxInclusive);"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\placement\\PlacedFeature.java",
+      "sha256": "7c21b727ae882b94ef42f7a2ff756ea7494026321e2b6ae506e8246f2e4f2b59",
+      "relevantLines": [
+        {
+          "line": 22,
+          "text": "    public static final Codec<PlacedFeature> DIRECT_CODEC = RecordCodecBuilder.create("
+        },
+        {
+          "line": 24,
+          "text": "                    ConfiguredFeature.CODEC.fieldOf(\"feature\").forGetter(p_204928_ -> p_204928_.feature),"
+        },
+        {
+          "line": 25,
+          "text": "                    PlacementModifier.CODEC.listOf().fieldOf(\"placement\").forGetter(p_191796_ -> p_191796_.placement)"
+        },
+        {
+          "line": 29,
+          "text": "    public static final Codec<Holder<PlacedFeature>> CODEC = RegistryFileCodec.create(Registries.PLACED_FEATURE, DIRECT_CODEC);"
+        },
+        {
+          "line": 30,
+          "text": "    public static final Codec<HolderSet<PlacedFeature>> LIST_CODEC = RegistryCodecs.homogeneousList(Registries.PLACED_FEATURE, DIRECT_CODEC);"
+        },
+        {
+          "line": 31,
+          "text": "    public static final Codec<List<HolderSet<PlacedFeature>>> LIST_OF_LISTS_CODEC = RegistryCodecs.homogeneousList("
+        },
+        {
+          "line": 32,
+          "text": "            Registries.PLACED_FEATURE, DIRECT_CODEC, true"
+        },
+        {
+          "line": 48,
+          "text": "            stream = stream.flatMap(p_226376_ -> placementmodifier.getPositions(p_226369_, p_226370_, p_226376_));"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\placement\\CountPlacement.java",
+      "sha256": "7bb0369f0b84988594c2b4fede2e9a6f2600db9eccc5a854a4fca7a99da6a6d8",
+      "relevantLines": [
+        {
+          "line": 10,
+          "text": "    public static final MapCodec<CountPlacement> CODEC = IntProvider.codec(0, 256).fieldOf(\"count\").xmap(CountPlacement::new, p_191633_ -> p_191633_.count);"
+        },
+        {
+          "line": 27,
+          "text": "        return this.count.sample(p_226333_);"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\placement\\InSquarePlacement.java",
+      "sha256": "ab178839d38c029d7c6d779f97b32531629c99d16cdcf0c67271f4f8db2ba8ee",
+      "relevantLines": [
+        {
+          "line": 10,
+          "text": "    public static final MapCodec<InSquarePlacement> CODEC = MapCodec.unit(() -> INSTANCE);"
+        },
+        {
+          "line": 18,
+          "text": "        int i = p_226349_.nextInt(16) + p_226350_.getX();"
+        },
+        {
+          "line": 19,
+          "text": "        int j = p_226349_.nextInt(16) + p_226350_.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\placement\\HeightRangePlacement.java",
+      "sha256": "1dc0e75861b283eb344d3db75cb06d22c1c358a579c10d8b6ece50c26ef68dc3",
+      "relevantLines": [
+        {
+          "line": 15,
+          "text": "    public static final MapCodec<HeightRangePlacement> CODEC = RecordCodecBuilder.mapCodec("
+        },
+        {
+          "line": 16,
+          "text": "        p_191679_ -> p_191679_.group(HeightProvider.CODEC.fieldOf(\"height\").forGetter(p_191686_ -> p_191686_.height))"
+        },
+        {
+          "line": 39,
+          "text": "        return Stream.of(p_226342_.atY(this.height.sample(p_226341_, p_226340_)));"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\placement\\HeightmapPlacement.java",
+      "sha256": "b4b75d28b0c7159dc660c04087b84c4d582878a51c2e872ebfbc45e29bf75935",
+      "relevantLines": [
+        {
+          "line": 12,
+          "text": "    public static final MapCodec<HeightmapPlacement> CODEC = RecordCodecBuilder.mapCodec("
+        },
+        {
+          "line": 13,
+          "text": "        p_191701_ -> p_191701_.group(Heightmap.Types.CODEC.fieldOf(\"heightmap\").forGetter(p_191705_ -> p_191705_.heightmap))"
+        },
+        {
+          "line": 30,
+          "text": "        int k = p_226344_.getHeight(this.heightmap, i, j);"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\placement\\BiomeFilter.java",
+      "sha256": "821fc1afb900e3403ef52cd4ff931d9ef9afbb938c625670f3a593a2903ca23d",
+      "relevantLines": [
+        {
+          "line": 11,
+          "text": "    public static MapCodec<BiomeFilter> CODEC = MapCodec.unit(() -> INSTANCE);"
+        },
+        {
+          "line": 25,
+          "text": "        return p_226317_.generator().getBiomeGenerationSettings(holder).hasFeature(placedfeature);"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\placement\\RarityFilter.java",
+      "sha256": "c372e19a60f5c0e01919cc267b977f97e87a08ca50d908c45dda3851ba637396",
+      "relevantLines": [
+        {
+          "line": 9,
+          "text": "    public static final MapCodec<RarityFilter> CODEC = ExtraCodecs.POSITIVE_INT.fieldOf(\"chance\").xmap(RarityFilter::new, p_191907_ -> p_191907_.chance);"
+        },
+        {
+          "line": 22,
+          "text": "        return p_226398_.nextFloat() < 1.0F / (float)this.chance;"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\placement\\SurfaceWaterDepthFilter.java",
+      "sha256": "4241e9d0d3bd4599e66db71579c071deef6b49d2599c27ffe721391f6f88464f",
+      "relevantLines": [
+        {
+          "line": 12,
+          "text": "    public static final MapCodec<SurfaceWaterDepthFilter> CODEC = RecordCodecBuilder.mapCodec("
+        },
+        {
+          "line": 13,
+          "text": "        p_191953_ -> p_191953_.group(Codec.INT.fieldOf(\"max_water_depth\").forGetter(p_191959_ -> p_191959_.maxWaterDepth))"
+        },
+        {
+          "line": 28,
+          "text": "        int i = p_226411_.getHeight(Heightmap.Types.OCEAN_FLOOR, p_226413_.getX(), p_226413_.getZ());"
+        },
+        {
+          "line": 29,
+          "text": "        int j = p_226411_.getHeight(Heightmap.Types.WORLD_SURFACE, p_226413_.getX(), p_226413_.getZ());"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\placement\\BlockPredicateFilter.java",
+      "sha256": "2b1a97eb95f4cad653e53831ee5c1fdf06477bb90ce1018a0c0cacac1f4a1a2e",
+      "relevantLines": [
+        {
+          "line": 11,
+          "text": "    public static final MapCodec<BlockPredicateFilter> CODEC = RecordCodecBuilder.mapCodec("
+        },
+        {
+          "line": 12,
+          "text": "        p_191575_ -> p_191575_.group(BlockPredicate.CODEC.fieldOf(\"predicate\").forGetter(p_191579_ -> p_191579_.predicate))"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\blockpredicates\\MatchingBlocksPredicate.java",
+      "sha256": "4f45a0da57ef6ebed49a0a1c7cd3a976ac43535e00218ba1dabba03945eb4983",
+      "relevantLines": [
+        {
+          "line": 15,
+          "text": "    public static final MapCodec<MatchingBlocksPredicate> CODEC = RecordCodecBuilder.mapCodec("
+        },
+        {
+          "line": 17,
+          "text": "                .and(RegistryCodecs.homogeneousList(Registries.BLOCK).fieldOf(\"blocks\").forGetter(p_204693_ -> p_204693_.blocks))"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\blockpredicates\\WouldSurvivePredicate.java",
+      "sha256": "9fa50a90b63e060c93055b508f9efde10c392445313ca4dd51c51ab093408fa8",
+      "relevantLines": [
+        {
+          "line": 12,
+          "text": "    public static final MapCodec<WouldSurvivePredicate> CODEC = RecordCodecBuilder.mapCodec("
+        },
+        {
+          "line": 15,
+          "text": "                    BlockState.CODEC.fieldOf(\"state\").forGetter(p_190579_ -> p_190579_.state)"
+        },
+        {
+          "line": 28,
+          "text": "        return this.state.canSurvive(p_190574_, p_190575_.offset(this.offset));"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\heightproviders\\UniformHeight.java",
+      "sha256": "ec771ecac16094a7b3a6b9ff2a83a0f43568fe306ea208004e4e26dd1f9d834f",
+      "relevantLines": [
+        {
+          "line": 16,
+          "text": "    public static final MapCodec<UniformHeight> CODEC = RecordCodecBuilder.mapCodec("
+        },
+        {
+          "line": 18,
+          "text": "                    VerticalAnchor.CODEC.fieldOf(\"min_inclusive\").forGetter(p_162043_ -> p_162043_.minInclusive),"
+        },
+        {
+          "line": 19,
+          "text": "                    VerticalAnchor.CODEC.fieldOf(\"max_inclusive\").forGetter(p_162038_ -> p_162038_.maxInclusive)"
+        },
+        {
+          "line": 38,
+          "text": "    public int sample(RandomSource p_226308_, WorldGenerationContext p_226309_) {"
+        },
+        {
+          "line": 48,
+          "text": "            return Mth.randomBetweenInclusive(p_226308_, i, j);"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\RandomSelectorFeature.java",
+      "sha256": "2426f9b8592c98d1b0a0aaff441fc3a7178b0af640b8d98420f534faa8b768b5",
+      "relevantLines": [
+        {
+          "line": 24,
+          "text": "            if (randomsource.nextFloat() < weightedplacedfeature.chance) {"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\SimpleRandomSelectorFeature.java",
+      "sha256": "8559cd959afaae95b66bd76d9a6be93cb76d73f9e4d8f722650defe9360aa5a7",
+      "relevantLines": [
+        {
+          "line": 23,
+          "text": "        int i = randomsource.nextInt(simplerandomfeatureconfiguration.features.size());"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\RandomPatchFeature.java",
+      "sha256": "9a5f443710866964e59a4abe7597c6b68f5b574bd837e9c088348573e67538c2",
+      "relevantLines": [
+        {
+          "line": 28,
+          "text": "                randomsource.nextInt(j) - randomsource.nextInt(j),"
+        },
+        {
+          "line": 29,
+          "text": "                randomsource.nextInt(k) - randomsource.nextInt(k),"
+        },
+        {
+          "line": 30,
+          "text": "                randomsource.nextInt(j) - randomsource.nextInt(j)"
+        }
+      ]
+    }
+  ],
+  "dependencyInventory": [
+    {
+      "feature": "angler_bulb_feature",
+      "kind": "configured_feature",
+      "sourcePath": "data/thermal_shock/worldgen/configured_feature/angler_bulb_feature.json",
+      "sourceSha256": "82d8e5e098d0684b214a65072a24bf81e9c098109f7921756514adeaee2174d0",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/angler_bulb_feature.json",
+        "sha256": "0fcb4542825241742ba5a05adbe5d38f0ba3f8c285b2bd4264ebfda4371a3d80"
+      },
+      "types": {
+        "minecraft:simple_random_selector": 1,
+        "minecraft:random_patch": 2,
+        "minecraft:simple_block": 2,
+        "minecraft:simple_state_provider": 2,
+        "minecraft:block_predicate_filter": 2,
+        "minecraft:all_of": 2,
+        "minecraft:matching_blocks": 4
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.config.features[0].feature.config.feature.feature.config.to_place.state.Name",
+          "id": "thermal_shock:angler_bulb",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[0].feature.config.feature.placement[0].predicate.predicates[1].blocks",
+          "id": "thermal_shock:vermillion_moss",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[1].feature.config.feature.feature.config.to_place.state.Name",
+          "id": "thermal_shock:tall_angler_bulb",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[1].feature.config.feature.placement[0].predicate.predicates[1].blocks",
+          "id": "thermal_shock:vermillion_moss",
+          "existingWorldgenResources": []
+        }
+      ]
+    },
+    {
+      "feature": "angler_bulb_feature",
+      "kind": "placed_feature",
+      "sourcePath": "data/thermal_shock/worldgen/placed_feature/angler_bulb_feature.json",
+      "sourceSha256": "a20e20e8da5527b33c8e19ddb2943955c24d14d96562e04d28072bfb8789be3c",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/angler_bulb_feature.json",
+        "sha256": "9439be2f0d53dd4b1d52d3c24c544d06aac2faedc910f1015ae6c97d47225423"
+      },
+      "types": {
+        "minecraft:count": 1,
+        "uniform": 1,
+        "minecraft:in_square": 1,
+        "minecraft:height_range": 1,
+        "minecraft:uniform": 1,
+        "minecraft:biome": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.feature",
+          "id": "thermal_shock:angler_bulb_feature",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/angler_bulb_feature.json",
+              "sha256": "0fcb4542825241742ba5a05adbe5d38f0ba3f8c285b2bd4264ebfda4371a3d80"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/angler_bulb_feature.json",
+              "sha256": "9439be2f0d53dd4b1d52d3c24c544d06aac2faedc910f1015ae6c97d47225423"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "feature": "barbubble",
+      "kind": "configured_feature",
+      "sourcePath": "data/thermal_shock/worldgen/configured_feature/barbubble.json",
+      "sourceSha256": "3c8ef7b42d9b3c5c88f0e8f0e2dd9f45b17ade39f2bcfa3a2d5ef73954d97c7f",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/barbubble.json",
+        "sha256": "fc9918db5ea31719027a94bbdd53ad0d34645882eab5cf5bb8750fa8cd9fd4ee"
+      },
+      "types": {
+        "minecraft:random_patch": 1,
+        "minecraft:simple_block": 1,
+        "minecraft:simple_state_provider": 1,
+        "minecraft:block_predicate_filter": 1,
+        "minecraft:matching_blocks": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.config.feature.feature.config.to_place.state.Name",
+          "id": "thermal_shock:barbubble",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/barbubble.json",
+              "sha256": "fc9918db5ea31719027a94bbdd53ad0d34645882eab5cf5bb8750fa8cd9fd4ee"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/barbubble.json",
+              "sha256": "fb0df018865b352bf71f63397ef208adb123d7d2670e443ee51ea8cd7bf1268f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "feature": "barbubble",
+      "kind": "placed_feature",
+      "sourcePath": "data/thermal_shock/worldgen/placed_feature/barbubble.json",
+      "sourceSha256": "e0fe20ed561f691455232171292d82d014bfac47c855216109fc30a982509777",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/barbubble.json",
+        "sha256": "fb0df018865b352bf71f63397ef208adb123d7d2670e443ee51ea8cd7bf1268f"
+      },
+      "types": {
+        "minecraft:count": 1,
+        "minecraft:rarity_filter": 1,
+        "minecraft:in_square": 1,
+        "minecraft:heightmap": 1,
+        "minecraft:biome": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.feature",
+          "id": "thermal_shock:barbubble",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/barbubble.json",
+              "sha256": "fc9918db5ea31719027a94bbdd53ad0d34645882eab5cf5bb8750fa8cd9fd4ee"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/barbubble.json",
+              "sha256": "fb0df018865b352bf71f63397ef208adb123d7d2670e443ee51ea8cd7bf1268f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "feature": "bounceweed",
+      "kind": "configured_feature",
+      "sourcePath": "data/thermal_shock/worldgen/configured_feature/bounceweed.json",
+      "sourceSha256": "af8add67caae015d04683d5b397ff3a8b11a42d50be55bc98281a29a5121a7f1",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/bounceweed.json",
+        "sha256": "fa715e27ce84ac62220259bd612d2289703f4b3054bc3e255934938294130cc8"
+      },
+      "types": {
+        "minecraft:random_patch": 1,
+        "minecraft:simple_block": 1,
+        "minecraft:simple_state_provider": 1,
+        "minecraft:block_predicate_filter": 1,
+        "minecraft:matching_blocks": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.config.feature.feature.config.to_place.state.Name",
+          "id": "thermal_shock:bounceweed",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/bounceweed.json",
+              "sha256": "fa715e27ce84ac62220259bd612d2289703f4b3054bc3e255934938294130cc8"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/bounceweed.json",
+              "sha256": "2f46cf2cc19d9e4581bf14ca134d2b0b5d22bcf86221002a2db9229a1e66915f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "feature": "bounceweed",
+      "kind": "placed_feature",
+      "sourcePath": "data/thermal_shock/worldgen/placed_feature/bounceweed.json",
+      "sourceSha256": "8baaed42b84861926273a675e90d59a719d8d10cddb38473f9a946eda3d39c3c",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/bounceweed.json",
+        "sha256": "2f46cf2cc19d9e4581bf14ca134d2b0b5d22bcf86221002a2db9229a1e66915f"
+      },
+      "types": {
+        "minecraft:count": 1,
+        "minecraft:in_square": 1,
+        "minecraft:heightmap": 1,
+        "minecraft:biome": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.feature",
+          "id": "thermal_shock:bounceweed",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/bounceweed.json",
+              "sha256": "fa715e27ce84ac62220259bd612d2289703f4b3054bc3e255934938294130cc8"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/bounceweed.json",
+              "sha256": "2f46cf2cc19d9e4581bf14ca134d2b0b5d22bcf86221002a2db9229a1e66915f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "feature": "ceruleum_generation",
+      "kind": "configured_feature",
+      "sourcePath": "data/thermal_shock/worldgen/configured_feature/ceruleum_generation.json",
+      "sourceSha256": "652493016428c829e5b6d68ed28f4884f5db4491fbcf90c2fb25ddbe29d50fbd",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/ceruleum_generation.json",
+        "sha256": "e9154a4b941761f8408708d997a5bb7ac3f7ae85913d0b5776fb4822d60b6460"
+      },
+      "types": {
+        "minecraft:simple_random_selector": 1,
+        "thermal_shock:structure_feature": 4
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.config.features[0].feature.type",
+          "id": "thermal_shock:structure_feature",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[0].feature.config.structure",
+          "id": "thermal_shock:ceruleum3",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[1].feature.type",
+          "id": "thermal_shock:structure_feature",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[1].feature.config.structure",
+          "id": "thermal_shock:ceruleum6",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[2].feature.type",
+          "id": "thermal_shock:structure_feature",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[2].feature.config.structure",
+          "id": "thermal_shock:ceruleum9",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[3].feature.type",
+          "id": "thermal_shock:structure_feature",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[3].feature.config.structure",
+          "id": "thermal_shock:ceruleum12",
+          "existingWorldgenResources": []
+        }
+      ]
+    },
+    {
+      "feature": "ceruleum_generation",
+      "kind": "placed_feature",
+      "sourcePath": "data/thermal_shock/worldgen/placed_feature/ceruleum_generation.json",
+      "sourceSha256": "347717048a5173f2ee741518c37b3be25a65755268d2194df3a15b3882a6f0c5",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/ceruleum_generation.json",
+        "sha256": "baf79b035415cfc9fb5a3355d21871e5b9e31d0b4b569724164e52c75b05e7e1"
+      },
+      "types": {
+        "minecraft:count": 1,
+        "uniform": 1,
+        "minecraft:in_square": 1,
+        "minecraft:height_range": 1,
+        "minecraft:uniform": 1,
+        "minecraft:block_predicate_filter": 1,
+        "minecraft:all_of": 1,
+        "minecraft:solid": 1,
+        "minecraft:matching_fluids": 1,
+        "minecraft:biome": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.feature",
+          "id": "thermal_shock:ceruleum_generation",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/ceruleum_generation.json",
+              "sha256": "e9154a4b941761f8408708d997a5bb7ac3f7ae85913d0b5776fb4822d60b6460"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/ceruleum_generation.json",
+              "sha256": "baf79b035415cfc9fb5a3355d21871e5b9e31d0b4b569724164e52c75b05e7e1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "feature": "dull_shrub",
+      "kind": "configured_feature",
+      "sourcePath": "data/thermal_shock/worldgen/configured_feature/dull_shrub.json",
+      "sourceSha256": "05026de438a0d8c95176268b99cf4ddb942690964d00ffe0754e500a353cc68f",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/dull_shrub.json",
+        "sha256": "db8328b06fe05a0ac1931bc5de22ea99852d10c99ee227454ee3b8ba2a90cbb5"
+      },
+      "types": {
+        "minecraft:random_patch": 1,
+        "minecraft:simple_block": 1,
+        "minecraft:simple_state_provider": 1,
+        "minecraft:block_predicate_filter": 1,
+        "minecraft:matching_blocks": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.config.feature.feature.config.to_place.state.Name",
+          "id": "thermal_shock:dull_shrub",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/dull_shrub.json",
+              "sha256": "db8328b06fe05a0ac1931bc5de22ea99852d10c99ee227454ee3b8ba2a90cbb5"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/dull_shrub.json",
+              "sha256": "9f37acb1cbbfaea65efe0feca90d5110681cea0c3056ea58027c74876a142630"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "feature": "dull_shrub",
+      "kind": "placed_feature",
+      "sourcePath": "data/thermal_shock/worldgen/placed_feature/dull_shrub.json",
+      "sourceSha256": "66d2837a35e8283cd66d0421e37098eafd14943eb21262e3e36803b29e4188e9",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/dull_shrub.json",
+        "sha256": "9f37acb1cbbfaea65efe0feca90d5110681cea0c3056ea58027c74876a142630"
+      },
+      "types": {
+        "minecraft:count": 1,
+        "minecraft:rarity_filter": 1,
+        "minecraft:in_square": 1,
+        "minecraft:heightmap": 1,
+        "minecraft:biome": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.feature",
+          "id": "thermal_shock:dull_shrub",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/dull_shrub.json",
+              "sha256": "db8328b06fe05a0ac1931bc5de22ea99852d10c99ee227454ee3b8ba2a90cbb5"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/dull_shrub.json",
+              "sha256": "9f37acb1cbbfaea65efe0feca90d5110681cea0c3056ea58027c74876a142630"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "feature": "floatweed",
+      "kind": "configured_feature",
+      "sourcePath": "data/thermal_shock/worldgen/configured_feature/floatweed.json",
+      "sourceSha256": "597dd52a9199b274c8f97ac133975a678b59f537e52bd3f841f33e231b5be628",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/floatweed.json",
+        "sha256": "b167174ddc9426e7335729283652691f844283b8abcf839ae5e9c67a8cd96d7b"
+      },
+      "types": {
+        "minecraft:random_patch": 1,
+        "minecraft:simple_block": 1,
+        "minecraft:simple_state_provider": 1,
+        "minecraft:block_predicate_filter": 1,
+        "minecraft:matching_blocks": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.config.feature.feature.config.to_place.state.Name",
+          "id": "thermal_shock:floatweed",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/floatweed.json",
+              "sha256": "b167174ddc9426e7335729283652691f844283b8abcf839ae5e9c67a8cd96d7b"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/floatweed.json",
+              "sha256": "02a2a408740c0601131070b75e734654e657acf176ec5ac7aa4ee5e5264e72d1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "feature": "floatweed",
+      "kind": "placed_feature",
+      "sourcePath": "data/thermal_shock/worldgen/placed_feature/floatweed.json",
+      "sourceSha256": "2e8c8c6f565fd49a3a3d1edadf249f19457f2680a391ea80324ac6d76f1b96a9",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/floatweed.json",
+        "sha256": "02a2a408740c0601131070b75e734654e657acf176ec5ac7aa4ee5e5264e72d1"
+      },
+      "types": {
+        "minecraft:count": 1,
+        "minecraft:in_square": 1,
+        "minecraft:heightmap": 1,
+        "minecraft:biome": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.feature",
+          "id": "thermal_shock:floatweed",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/floatweed.json",
+              "sha256": "b167174ddc9426e7335729283652691f844283b8abcf839ae5e9c67a8cd96d7b"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/floatweed.json",
+              "sha256": "02a2a408740c0601131070b75e734654e657acf176ec5ac7aa4ee5e5264e72d1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "feature": "fuscium_generation",
+      "kind": "configured_feature",
+      "sourcePath": "data/thermal_shock/worldgen/configured_feature/fuscium_generation.json",
+      "sourceSha256": "a569cd6389a6e72a220d70b605cf67955cadbda628a6d47dabeee27cc997a8a7",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/fuscium_generation.json",
+        "sha256": "c2bd05064a280b92abc8dafc114164b9a43bc42fcae1f77445df2ab85478829a"
+      },
+      "types": {
+        "minecraft:simple_random_selector": 1,
+        "thermal_shock:structure_feature": 4
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.config.features[0].feature.type",
+          "id": "thermal_shock:structure_feature",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[0].feature.config.structure",
+          "id": "thermal_shock:fuscium3",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[1].feature.type",
+          "id": "thermal_shock:structure_feature",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[1].feature.config.structure",
+          "id": "thermal_shock:fuscium6",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[2].feature.type",
+          "id": "thermal_shock:structure_feature",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[2].feature.config.structure",
+          "id": "thermal_shock:fuscium9",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[3].feature.type",
+          "id": "thermal_shock:structure_feature",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[3].feature.config.structure",
+          "id": "thermal_shock:fuscium12",
+          "existingWorldgenResources": []
+        }
+      ]
+    },
+    {
+      "feature": "fuscium_generation",
+      "kind": "placed_feature",
+      "sourcePath": "data/thermal_shock/worldgen/placed_feature/fuscium_generation.json",
+      "sourceSha256": "60c4d724b9726dd4bc68a25bca772f258f4d31b3bd93c103a90b2f8a7c46c630",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/fuscium_generation.json",
+        "sha256": "903bad8f7f4465db08035098ff04ab61b454fb989c899d8ff8c39fa9cea7c213"
+      },
+      "types": {
+        "minecraft:count": 1,
+        "uniform": 1,
+        "minecraft:in_square": 1,
+        "minecraft:height_range": 1,
+        "minecraft:uniform": 1,
+        "minecraft:block_predicate_filter": 1,
+        "minecraft:all_of": 1,
+        "minecraft:solid": 1,
+        "minecraft:matching_fluids": 1,
+        "minecraft:biome": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.feature",
+          "id": "thermal_shock:fuscium_generation",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/fuscium_generation.json",
+              "sha256": "c2bd05064a280b92abc8dafc114164b9a43bc42fcae1f77445df2ab85478829a"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/fuscium_generation.json",
+              "sha256": "903bad8f7f4465db08035098ff04ab61b454fb989c899d8ff8c39fa9cea7c213"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "feature": "hanging_bulb_patch",
+      "kind": "configured_feature",
+      "sourcePath": "data/thermal_shock/worldgen/configured_feature/hanging_bulb_patch.json",
+      "sourceSha256": "cdcda18dd170f38102cc75295a0abcf8648598e62a5279eb2458018afc2bb10d",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/hanging_bulb_patch.json",
+        "sha256": "128e2896690db97d404890cd207af19b4092033c9050d860645d1bb92d6cca11"
+      },
+      "types": {
+        "minecraft:random_patch": 1,
+        "minecraft:simple_block": 1,
+        "minecraft:simple_state_provider": 1,
+        "minecraft:block_predicate_filter": 1,
+        "minecraft:all_of": 1,
+        "minecraft:matching_blocks": 2
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.config.feature.feature.config.to_place.state.Name",
+          "id": "thermal_shock:hanging_sparkler_bulb",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.feature.placement[0].predicate.predicates[1].blocks[0]",
+          "id": "thermal_shock:shale",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.feature.placement[0].predicate.predicates[1].blocks[1]",
+          "id": "thermal_shock:mantlestone",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.feature.placement[0].predicate.predicates[1].blocks[2]",
+          "id": "thermal_shock:mossy_mantlestone",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.feature.placement[0].predicate.predicates[1].blocks[3]",
+          "id": "thermal_shock:vermillion_moss",
+          "existingWorldgenResources": []
+        }
+      ]
+    },
+    {
+      "feature": "hanging_bulb_patch",
+      "kind": "placed_feature",
+      "sourcePath": "data/thermal_shock/worldgen/placed_feature/hanging_bulb_patch.json",
+      "sourceSha256": "1016763f3a3fb3979d49ba6b64fa4063908a2d0eabb7a693e85944ec5d0b4773",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/hanging_bulb_patch.json",
+        "sha256": "f619ef34312850ae751c46c46aa90338e77ed2e5f55541c76ff60b0bb2254d67"
+      },
+      "types": {
+        "minecraft:count": 1,
+        "uniform": 1,
+        "minecraft:in_square": 1,
+        "minecraft:height_range": 1,
+        "minecraft:uniform": 1,
+        "minecraft:biome": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.feature",
+          "id": "thermal_shock:hanging_bulb_patch",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/hanging_bulb_patch.json",
+              "sha256": "128e2896690db97d404890cd207af19b4092033c9050d860645d1bb92d6cca11"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/hanging_bulb_patch.json",
+              "sha256": "f619ef34312850ae751c46c46aa90338e77ed2e5f55541c76ff60b0bb2254d67"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "feature": "heights_weeds",
+      "kind": "configured_feature",
+      "sourcePath": "data/thermal_shock/worldgen/configured_feature/heights_weeds.json",
+      "sourceSha256": "e258f5b076a8743b0c0cbbc09e7bd0ce3bc1e36c37f65e60e90c29352b7e0b0e",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/heights_weeds.json",
+        "sha256": "8285fefd62f1a271ab865b162e83835e39d5880e7805d0b99be0c2790d780bb5"
+      },
+      "types": {
+        "minecraft:simple_random_selector": 1,
+        "minecraft:random_patch": 2,
+        "minecraft:simple_block": 2,
+        "minecraft:simple_state_provider": 2,
+        "minecraft:block_predicate_filter": 2,
+        "minecraft:all_of": 2,
+        "minecraft:matching_blocks": 4
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.config.features[0].feature.config.feature.feature.config.to_place.state.Name",
+          "id": "thermal_shock:bounceweed",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/bounceweed.json",
+              "sha256": "fa715e27ce84ac62220259bd612d2289703f4b3054bc3e255934938294130cc8"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/bounceweed.json",
+              "sha256": "2f46cf2cc19d9e4581bf14ca134d2b0b5d22bcf86221002a2db9229a1e66915f"
+            }
+          ]
+        },
+        {
+          "path": "$.config.features[0].feature.config.feature.placement[0].predicate.predicates[1].blocks",
+          "id": "thermal_shock:snowy_cobalt",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[1].feature.config.feature.feature.config.to_place.state.Name",
+          "id": "thermal_shock:floatweed",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/floatweed.json",
+              "sha256": "b167174ddc9426e7335729283652691f844283b8abcf839ae5e9c67a8cd96d7b"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/floatweed.json",
+              "sha256": "02a2a408740c0601131070b75e734654e657acf176ec5ac7aa4ee5e5264e72d1"
+            }
+          ]
+        },
+        {
+          "path": "$.config.features[1].feature.config.feature.placement[0].predicate.predicates[1].blocks",
+          "id": "thermal_shock:snowy_cobalt",
+          "existingWorldgenResources": []
+        }
+      ]
+    },
+    {
+      "feature": "heights_weeds",
+      "kind": "placed_feature",
+      "sourcePath": "data/thermal_shock/worldgen/placed_feature/heights_weeds.json",
+      "sourceSha256": "e71b9b26df8d2ae59f945926f0ec17f8c11364e7b4a788517a445a478d204cea",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/heights_weeds.json",
+        "sha256": "3e2578d6a487c6f1ce9ae131075a1dd0117f88351e13ef799a5d71d06666b5e0"
+      },
+      "types": {
+        "minecraft:count": 1,
+        "uniform": 1,
+        "minecraft:in_square": 1,
+        "minecraft:height_range": 1,
+        "minecraft:uniform": 1,
+        "minecraft:biome": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.feature",
+          "id": "thermal_shock:heights_weeds",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/heights_weeds.json",
+              "sha256": "8285fefd62f1a271ab865b162e83835e39d5880e7805d0b99be0c2790d780bb5"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/heights_weeds.json",
+              "sha256": "3e2578d6a487c6f1ce9ae131075a1dd0117f88351e13ef799a5d71d06666b5e0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "feature": "loque_birch_tree",
+      "kind": "configured_feature",
+      "sourcePath": "data/thermal_shock/worldgen/configured_feature/loque_birch_tree.json",
+      "sourceSha256": "a6e5ef5608d9a6acb29d122e05b923df8c586bec86e02c35de94e6ed092be04f",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/loque_birch_tree.json",
+        "sha256": "9d166ae398e0e1209df50852e0eb2867672bc0f8391268ca78e6d7264a54b054"
+      },
+      "types": {
+        "minecraft:simple_random_selector": 1,
+        "minecraft:tree": 2,
+        "minecraft:simple_state_provider": 6,
+        "minecraft:spruce_foliage_placer": 2,
+        "minecraft:uniform": 2,
+        "uniform": 4,
+        "minecraft:straight_trunk_placer": 2,
+        "minecraft:two_layers_feature_size": 2
+      },
+      "providers": [
+        {
+          "path": "$.config.features[0].feature.config.dirt_provider",
+          "value": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock:shale"
+            }
+          }
+        },
+        {
+          "path": "$.config.features[0].feature.config.foliage_provider",
+          "value": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock:ochre_leaves"
+            }
+          }
+        },
+        {
+          "path": "$.config.features[0].feature.config.trunk_provider",
+          "value": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock:ochre_log"
+            }
+          }
+        },
+        {
+          "path": "$.config.features[1].feature.config.dirt_provider",
+          "value": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock:shale"
+            }
+          }
+        },
+        {
+          "path": "$.config.features[1].feature.config.foliage_provider",
+          "value": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock:bright_ochre_leaves"
+            }
+          }
+        },
+        {
+          "path": "$.config.features[1].feature.config.trunk_provider",
+          "value": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock:ochre_log"
+            }
+          }
+        }
+      ],
+      "customReferences": [
+        {
+          "path": "$.config.features[0].feature.config.dirt_provider.state.Name",
+          "id": "thermal_shock:shale",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[0].feature.config.foliage_provider.state.Name",
+          "id": "thermal_shock:ochre_leaves",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[0].feature.config.trunk_provider.state.Name",
+          "id": "thermal_shock:ochre_log",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[1].feature.config.dirt_provider.state.Name",
+          "id": "thermal_shock:shale",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[1].feature.config.foliage_provider.state.Name",
+          "id": "thermal_shock:bright_ochre_leaves",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[1].feature.config.trunk_provider.state.Name",
+          "id": "thermal_shock:ochre_log",
+          "existingWorldgenResources": []
+        }
+      ]
+    },
+    {
+      "feature": "loque_birch_tree",
+      "kind": "placed_feature",
+      "sourcePath": "data/thermal_shock/worldgen/placed_feature/loque_birch_tree.json",
+      "sourceSha256": "73d6efe927e79d5223f6b304b89c8371051ee2e267deb778c9dd97a328cbafe9",
+      "target": null,
+      "types": {
+        "minecraft:count": 1,
+        "minecraft:in_square": 1,
+        "minecraft:height_range": 1,
+        "minecraft:uniform": 1,
+        "minecraft:heightmap": 1,
+        "minecraft:block_predicate_filter": 2,
+        "minecraft:matching_blocks": 1,
+        "minecraft:biome": 1,
+        "minecraft:would_survive": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.feature",
+          "id": "thermal_shock:loque_birch_tree",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/loque_birch_tree.json",
+              "sha256": "9d166ae398e0e1209df50852e0eb2867672bc0f8391268ca78e6d7264a54b054"
+            }
+          ]
+        },
+        {
+          "path": "$.placement[4].predicate.blocks[0]",
+          "id": "thermal_shock:grassy_shale",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.placement[4].predicate.blocks[1]",
+          "id": "thermal_shock:snowy_shale",
+          "existingWorldgenResources": []
+        }
+      ]
+    },
+    {
+      "feature": "loque_fern",
+      "kind": "configured_feature",
+      "sourcePath": "data/thermal_shock/worldgen/configured_feature/loque_fern.json",
+      "sourceSha256": "84b893491426f8701bf1164fd692d435350775dd1b538b41fd2cdf4fab6b7a24",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/loque_fern.json",
+        "sha256": "21e156df63f2a915cb8a47153282edd371489f13f0739e1f980ff2c47fc5a190"
+      },
+      "types": {
+        "minecraft:random_patch": 1,
+        "minecraft:simple_block": 1,
+        "minecraft:simple_state_provider": 1,
+        "minecraft:block_predicate_filter": 1,
+        "minecraft:matching_blocks": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.config.feature.feature.config.to_place.state.Name",
+          "id": "thermal_shock:loque_fern",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/loque_fern.json",
+              "sha256": "21e156df63f2a915cb8a47153282edd371489f13f0739e1f980ff2c47fc5a190"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/loque_fern.json",
+              "sha256": "4c4a61e23f4a1912234f4752cb178b8ea823dc9d69910b492edc50430724e561"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "feature": "loque_fern",
+      "kind": "placed_feature",
+      "sourcePath": "data/thermal_shock/worldgen/placed_feature/loque_fern.json",
+      "sourceSha256": "c411c6546507703dce87946291186aff68d7331fbb66cba4364e4ae02baa3729",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/loque_fern.json",
+        "sha256": "4c4a61e23f4a1912234f4752cb178b8ea823dc9d69910b492edc50430724e561"
+      },
+      "types": {
+        "minecraft:count": 1,
+        "minecraft:in_square": 1,
+        "minecraft:heightmap": 1,
+        "minecraft:biome": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.feature",
+          "id": "thermal_shock:loque_fern",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/loque_fern.json",
+              "sha256": "21e156df63f2a915cb8a47153282edd371489f13f0739e1f980ff2c47fc5a190"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/loque_fern.json",
+              "sha256": "4c4a61e23f4a1912234f4752cb178b8ea823dc9d69910b492edc50430724e561"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "feature": "lunalemon_tree",
+      "kind": "configured_feature",
+      "sourcePath": "data/thermal_shock/worldgen/configured_feature/lunalemon_tree.json",
+      "sourceSha256": "eb67ced0d3f995ecb098dba870eadf5118ac8ff1522084bd42f7e04d145e40f5",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/lunalemon_tree.json",
+        "sha256": "4d4d62161d4532dcd0c1696cef310f7dbababaa0db23c3d6baee37717da7dc6b"
+      },
+      "types": {
+        "minecraft:tree": 1,
+        "minecraft:simple_state_provider": 4,
+        "minecraft:fancy_foliage_placer": 1,
+        "minecraft:fancy_trunk_placer": 1,
+        "minecraft:two_layers_feature_size": 1,
+        "minecraft:attached_to_leaves": 1
+      },
+      "providers": [
+        {
+          "path": "$.config.dirt_provider",
+          "value": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock:shale"
+            }
+          }
+        },
+        {
+          "path": "$.config.foliage_provider",
+          "value": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock:dark_loque_leaves"
+            }
+          }
+        },
+        {
+          "path": "$.config.trunk_provider",
+          "value": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "minecraft:birch_log"
+            }
+          }
+        },
+        {
+          "path": "$.config.decorators[0].block_provider",
+          "value": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock:lunalemon"
+            }
+          }
+        }
+      ],
+      "customReferences": [
+        {
+          "path": "$.config.dirt_provider.state.Name",
+          "id": "thermal_shock:shale",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.foliage_provider.state.Name",
+          "id": "thermal_shock:dark_loque_leaves",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.decorators[0].block_provider.state.Name",
+          "id": "thermal_shock:lunalemon",
+          "existingWorldgenResources": []
+        }
+      ]
+    },
+    {
+      "feature": "lunalemon_tree",
+      "kind": "placed_feature",
+      "sourcePath": "data/thermal_shock/worldgen/placed_feature/lunalemon_tree.json",
+      "sourceSha256": "92d1910d17ade59f792afe78a99e3cb5f10d2af48f9cc43efc94154be67ac6e3",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/lunalemon_tree.json",
+        "sha256": "635af8f2ac7698fafe7c5d0f023f137a0f9f8715b99b1ce58c39b8af8be68e8a"
+      },
+      "types": {
+        "minecraft:rarity_filter": 1,
+        "minecraft:in_square": 1,
+        "minecraft:heightmap": 1,
+        "environment_scan": 1,
+        "minecraft:matching_blocks": 2,
+        "minecraft:block_predicate_filter": 1,
+        "minecraft:biome": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.feature",
+          "id": "thermal_shock:lunalemon_tree",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/lunalemon_tree.json",
+              "sha256": "4d4d62161d4532dcd0c1696cef310f7dbababaa0db23c3d6baee37717da7dc6b"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/lunalemon_tree.json",
+              "sha256": "635af8f2ac7698fafe7c5d0f023f137a0f9f8715b99b1ce58c39b8af8be68e8a"
+            }
+          ]
+        },
+        {
+          "path": "$.placement[4].predicate.blocks[0]",
+          "id": "thermal_shock:grassy_shale",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.placement[4].predicate.blocks[1]",
+          "id": "thermal_shock:snowy_shale",
+          "existingWorldgenResources": []
+        }
+      ]
+    },
+    {
+      "feature": "shiverglitter_tree",
+      "kind": "configured_feature",
+      "sourcePath": "data/thermal_shock/worldgen/configured_feature/shiverglitter_tree.json",
+      "sourceSha256": "30be6d04768523437bb4e44f7dc90517d24482b4875229933e5071e363539168",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/shiverglitter_tree.json",
+        "sha256": "99cd9bdfd5987f06970fc01fe9269fe3e910896b1484e8d1687bb49b821aa984"
+      },
+      "types": {
+        "minecraft:simple_random_selector": 1,
+        "minecraft:tree": 2,
+        "minecraft:simple_state_provider": 9,
+        "minecraft:cherry_foliage_placer": 2,
+        "minecraft:cherry_trunk_placer": 2,
+        "uniform": 4,
+        "minecraft:uniform": 2,
+        "minecraft:two_layers_feature_size": 2,
+        "minecraft:alter_ground": 2,
+        "minecraft:attached_to_leaves": 1
+      },
+      "providers": [
+        {
+          "path": "$.config.features[0].feature.config.dirt_provider",
+          "value": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock:shale"
+            }
+          }
+        },
+        {
+          "path": "$.config.features[0].feature.config.foliage_provider",
+          "value": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock:shiver_leaves"
+            }
+          }
+        },
+        {
+          "path": "$.config.features[0].feature.config.trunk_provider",
+          "value": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock:shiver_log"
+            }
+          }
+        },
+        {
+          "path": "$.config.features[1].feature.config.dirt_provider",
+          "value": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock:shale"
+            }
+          }
+        },
+        {
+          "path": "$.config.features[1].feature.config.foliage_provider",
+          "value": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock:dark_shiver_leaves"
+            }
+          }
+        },
+        {
+          "path": "$.config.features[1].feature.config.trunk_provider",
+          "value": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock:shiver_log"
+            }
+          }
+        },
+        {
+          "path": "$.config.features[1].feature.config.decorators[1].block_provider",
+          "value": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock:glowstick"
+            }
+          }
+        }
+      ],
+      "customReferences": [
+        {
+          "path": "$.config.features[0].feature.config.dirt_provider.state.Name",
+          "id": "thermal_shock:shale",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[0].feature.config.foliage_provider.state.Name",
+          "id": "thermal_shock:shiver_leaves",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[0].feature.config.trunk_provider.state.Name",
+          "id": "thermal_shock:shiver_log",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[0].feature.config.decorators[0].provider.state.Name",
+          "id": "thermal_shock:grassy_shale",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[1].feature.config.dirt_provider.state.Name",
+          "id": "thermal_shock:shale",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[1].feature.config.foliage_provider.state.Name",
+          "id": "thermal_shock:dark_shiver_leaves",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[1].feature.config.trunk_provider.state.Name",
+          "id": "thermal_shock:shiver_log",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[1].feature.config.decorators[0].provider.state.Name",
+          "id": "thermal_shock:grassy_shale",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[1].feature.config.decorators[1].block_provider.state.Name",
+          "id": "thermal_shock:glowstick",
+          "existingWorldgenResources": []
+        }
+      ]
+    },
+    {
+      "feature": "shiverglitter_tree",
+      "kind": "placed_feature",
+      "sourcePath": "data/thermal_shock/worldgen/placed_feature/shiverglitter_tree.json",
+      "sourceSha256": "033660154fd093240a03b1eaba6f3da98a3680576798cd355215bb6d234115b4",
+      "target": null,
+      "types": {
+        "minecraft:count": 1,
+        "minecraft:in_square": 1,
+        "minecraft:surface_water_depth_filter": 1,
+        "minecraft:heightmap": 1,
+        "minecraft:biome": 1,
+        "minecraft:block_predicate_filter": 1,
+        "minecraft:would_survive": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.feature",
+          "id": "thermal_shock:shiverglitter_tree",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/shiverglitter_tree.json",
+              "sha256": "99cd9bdfd5987f06970fc01fe9269fe3e910896b1484e8d1687bb49b821aa984"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "feature": "shiverglitter_tree_cobalt_heights",
+      "kind": "configured_feature",
+      "sourcePath": "data/thermal_shock/worldgen/configured_feature/shiverglitter_tree_cobalt_heights.json",
+      "sourceSha256": "8330eb72153a9226290eae06967ccfa69df5a83759389f048980facc5fbfb1b6",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/shiverglitter_tree_cobalt_heights.json",
+        "sha256": "2491d011fef0beaa49dad0f368537cb98c8ef6ad3872170acbd66841bc669375"
+      },
+      "types": {
+        "minecraft:simple_random_selector": 1,
+        "minecraft:tree": 2,
+        "minecraft:simple_state_provider": 9,
+        "minecraft:cherry_foliage_placer": 2,
+        "minecraft:cherry_trunk_placer": 2,
+        "uniform": 4,
+        "minecraft:uniform": 2,
+        "minecraft:two_layers_feature_size": 2,
+        "minecraft:alter_ground": 2,
+        "minecraft:attached_to_leaves": 1
+      },
+      "providers": [
+        {
+          "path": "$.config.features[0].feature.config.dirt_provider",
+          "value": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock:cobalt"
+            }
+          }
+        },
+        {
+          "path": "$.config.features[0].feature.config.foliage_provider",
+          "value": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock:bright_ochre_leaves"
+            }
+          }
+        },
+        {
+          "path": "$.config.features[0].feature.config.trunk_provider",
+          "value": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock:shiver_log"
+            }
+          }
+        },
+        {
+          "path": "$.config.features[1].feature.config.dirt_provider",
+          "value": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock:cobalt"
+            }
+          }
+        },
+        {
+          "path": "$.config.features[1].feature.config.foliage_provider",
+          "value": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock:shiver_leaves"
+            }
+          }
+        },
+        {
+          "path": "$.config.features[1].feature.config.trunk_provider",
+          "value": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock:shiver_log"
+            }
+          }
+        },
+        {
+          "path": "$.config.features[1].feature.config.decorators[1].block_provider",
+          "value": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock:glowstick"
+            }
+          }
+        }
+      ],
+      "customReferences": [
+        {
+          "path": "$.config.features[0].feature.config.dirt_provider.state.Name",
+          "id": "thermal_shock:cobalt",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[0].feature.config.foliage_provider.state.Name",
+          "id": "thermal_shock:bright_ochre_leaves",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[0].feature.config.trunk_provider.state.Name",
+          "id": "thermal_shock:shiver_log",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[0].feature.config.decorators[0].provider.state.Name",
+          "id": "thermal_shock:cobalt",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[1].feature.config.dirt_provider.state.Name",
+          "id": "thermal_shock:cobalt",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[1].feature.config.foliage_provider.state.Name",
+          "id": "thermal_shock:shiver_leaves",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[1].feature.config.trunk_provider.state.Name",
+          "id": "thermal_shock:shiver_log",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[1].feature.config.decorators[0].provider.state.Name",
+          "id": "thermal_shock:cobalt",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[1].feature.config.decorators[1].block_provider.state.Name",
+          "id": "thermal_shock:glowstick",
+          "existingWorldgenResources": []
+        }
+      ]
+    },
+    {
+      "feature": "shiverglitter_tree_cobalt_heights",
+      "kind": "placed_feature",
+      "sourcePath": "data/thermal_shock/worldgen/placed_feature/shiverglitter_tree_cobalt_heights.json",
+      "sourceSha256": "074444df9cf5b15bcfb3389e096c7fc1edbcc13fd1fe63024567945fa09f0305",
+      "target": null,
+      "types": {
+        "minecraft:rarity_filter": 1,
+        "minecraft:count": 1,
+        "uniform": 1,
+        "minecraft:in_square": 1,
+        "minecraft:surface_water_depth_filter": 1,
+        "minecraft:heightmap": 1,
+        "minecraft:biome": 1,
+        "minecraft:block_predicate_filter": 1,
+        "minecraft:would_survive": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.feature",
+          "id": "thermal_shock:shiverglitter_tree_cobalt_heights",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/shiverglitter_tree_cobalt_heights.json",
+              "sha256": "2491d011fef0beaa49dad0f368537cb98c8ef6ad3872170acbd66841bc669375"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "feature": "skorio",
+      "kind": "configured_feature",
+      "sourcePath": "data/thermal_shock/worldgen/configured_feature/skorio.json",
+      "sourceSha256": "a05fab74892c9ad8f29513696e3c89810e3f1b422171424340ba311e0bd1b0c9",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/skorio.json",
+        "sha256": "8d8c347d45a685df9d64bab8594d150ce8a49ebfae20c8cefb893b224bc8965d"
+      },
+      "types": {
+        "minecraft:random_patch": 1,
+        "minecraft:simple_block": 1,
+        "minecraft:simple_state_provider": 1,
+        "minecraft:block_predicate_filter": 1,
+        "minecraft:matching_blocks": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.config.feature.feature.config.to_place.state.Name",
+          "id": "thermal_shock:skorio",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/skorio.json",
+              "sha256": "8d8c347d45a685df9d64bab8594d150ce8a49ebfae20c8cefb893b224bc8965d"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/skorio.json",
+              "sha256": "507c4779d56ef007960a467075fce4942d665f384694847cad263b3cc4a5f37f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "feature": "skorio",
+      "kind": "placed_feature",
+      "sourcePath": "data/thermal_shock/worldgen/placed_feature/skorio.json",
+      "sourceSha256": "6f8e4b5e404c8e888abad3b7c7a7734e271b1a7dc615eea34e112bdba131ebc0",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/skorio.json",
+        "sha256": "507c4779d56ef007960a467075fce4942d665f384694847cad263b3cc4a5f37f"
+      },
+      "types": {
+        "minecraft:count": 1,
+        "minecraft:rarity_filter": 1,
+        "minecraft:in_square": 1,
+        "minecraft:heightmap": 1,
+        "minecraft:biome": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.feature",
+          "id": "thermal_shock:skorio",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/skorio.json",
+              "sha256": "8d8c347d45a685df9d64bab8594d150ce8a49ebfae20c8cefb893b224bc8965d"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/skorio.json",
+              "sha256": "507c4779d56ef007960a467075fce4942d665f384694847cad263b3cc4a5f37f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "feature": "spire_blooms",
+      "kind": "configured_feature",
+      "sourcePath": "data/thermal_shock/worldgen/configured_feature/spire_blooms.json",
+      "sourceSha256": "3e9c90f3d10f963f9b87a2e2dafbda214980c071550ea6aa4c548cc465701988",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/spire_blooms.json",
+        "sha256": "38d7103fffd227d23e21fe06f29c2baa1cebeea9e88b460828a43509bd4f321b"
+      },
+      "types": {
+        "minecraft:block_column": 1,
+        "minecraft:matching_blocks": 1,
+        "uniform": 1,
+        "minecraft:simple_state_provider": 2
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.config.layers[0].provider.state.Name",
+          "id": "thermal_shock:spire_blossom_stem",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.layers[1].provider.state.Name",
+          "id": "thermal_shock:spire_bloom_rubicon",
+          "existingWorldgenResources": []
+        }
+      ]
+    },
+    {
+      "feature": "spire_blooms",
+      "kind": "placed_feature",
+      "sourcePath": "data/thermal_shock/worldgen/placed_feature/spire_blooms.json",
+      "sourceSha256": "e3c806a945d7033f16e1d9aae4847dff5e0dd9e5c4b7c2fddd5350b59eb0781d",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/spire_blooms.json",
+        "sha256": "91fbc78b36d24b9ee8c90dae6cb71bd97fbadeaf55d16b2b24027211eca0dd9c"
+      },
+      "types": {
+        "minecraft:rarity_filter": 1,
+        "minecraft:count_on_every_layer": 1,
+        "uniform": 1,
+        "minecraft:block_predicate_filter": 1,
+        "minecraft:would_survive": 1,
+        "minecraft:biome": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.feature",
+          "id": "thermal_shock:spire_blooms",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/spire_blooms.json",
+              "sha256": "38d7103fffd227d23e21fe06f29c2baa1cebeea9e88b460828a43509bd4f321b"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/spire_blooms.json",
+              "sha256": "91fbc78b36d24b9ee8c90dae6cb71bd97fbadeaf55d16b2b24027211eca0dd9c"
+            }
+          ]
+        },
+        {
+          "path": "$.placement[2].predicate.state.Name",
+          "id": "thermal_shock:loque_grass",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/loque_grass.json",
+              "sha256": "b25eca9e43defc2ebf4bbd372d9efbb6eab431b4de26cbe0f9d4effdb56f7a49"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/loque_grass.json",
+              "sha256": "a46b6b4fb070e1c3f1e589cfa03ac3ea6ef34aabf41d310a1887a1746c5a4b6e"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "feature": "spireroot_thorns",
+      "kind": "configured_feature",
+      "sourcePath": "data/thermal_shock/worldgen/configured_feature/spireroot_thorns.json",
+      "sourceSha256": "01499270584086c998cec202aebb5090033536a5d724dca33cb351c155a7d7be",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/spireroot_thorns.json",
+        "sha256": "29bb10725bb13ea8597013560691a7ae3fac2cfd2beefe0f1c94f634152afe66"
+      },
+      "types": {
+        "minecraft:random_patch": 1,
+        "minecraft:simple_block": 1,
+        "minecraft:simple_state_provider": 1,
+        "minecraft:block_predicate_filter": 1,
+        "minecraft:matching_blocks": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.config.feature.feature.config.to_place.state.Name",
+          "id": "thermal_shock:spireroot_thorns",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/spireroot_thorns.json",
+              "sha256": "29bb10725bb13ea8597013560691a7ae3fac2cfd2beefe0f1c94f634152afe66"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/spireroot_thorns.json",
+              "sha256": "6143f7590f8fd541d4dccd6778eba21f922fac81dc5c8312422d4e6b4b0de787"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "feature": "spireroot_thorns",
+      "kind": "placed_feature",
+      "sourcePath": "data/thermal_shock/worldgen/placed_feature/spireroot_thorns.json",
+      "sourceSha256": "43f7bb23ea3046fa4a77722518f956b3f8832436c627790b72ca4ef3e6a00c4e",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/spireroot_thorns.json",
+        "sha256": "6143f7590f8fd541d4dccd6778eba21f922fac81dc5c8312422d4e6b4b0de787"
+      },
+      "types": {
+        "minecraft:count": 1,
+        "minecraft:in_square": 1,
+        "minecraft:height_range": 1,
+        "minecraft:uniform": 1,
+        "minecraft:biome": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.feature",
+          "id": "thermal_shock:spireroot_thorns",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/spireroot_thorns.json",
+              "sha256": "29bb10725bb13ea8597013560691a7ae3fac2cfd2beefe0f1c94f634152afe66"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/spireroot_thorns.json",
+              "sha256": "6143f7590f8fd541d4dccd6778eba21f922fac81dc5c8312422d4e6b4b0de787"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "feature": "spore_pod_gen",
+      "kind": "configured_feature",
+      "sourcePath": "data/thermal_shock/worldgen/configured_feature/spore_pod_gen.json",
+      "sourceSha256": "ad5d1ccc1f56cf98cc27acf437849ba4be4ffbd3c3a9a6b6db6a46f77dab0814",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/spore_pod_gen.json",
+        "sha256": "a12e4dd588ab4e635ebee717e003ccd339ba27cd5b0ba7cdf10429261edfc39d"
+      },
+      "types": {
+        "minecraft:random_patch": 1,
+        "minecraft:simple_block": 1,
+        "minecraft:simple_state_provider": 1,
+        "minecraft:block_predicate_filter": 1,
+        "minecraft:all_of": 1,
+        "minecraft:matching_blocks": 2
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.config.feature.feature.config.to_place.state.Name",
+          "id": "thermal_shock:spore_pod",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.feature.placement[0].predicate.predicates[1].blocks",
+          "id": "thermal_shock:snowy_shale",
+          "existingWorldgenResources": []
+        }
+      ]
+    },
+    {
+      "feature": "spore_pod_gen",
+      "kind": "placed_feature",
+      "sourcePath": "data/thermal_shock/worldgen/placed_feature/spore_pod_gen.json",
+      "sourceSha256": "274eacbb5304a030300030ba73cdf3697e0fd42e7fd0e12451526a2f085f8172",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/spore_pod_gen.json",
+        "sha256": "70607be5cc3bddb9d3c6d6aca6980ad29fa9fe3a738d9c0c2765e83e08fa96ad"
+      },
+      "types": {
+        "minecraft:rarity_filter": 1,
+        "minecraft:in_square": 1,
+        "minecraft:heightmap": 1,
+        "minecraft:biome": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.feature",
+          "id": "thermal_shock:spore_pod_gen",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/spore_pod_gen.json",
+              "sha256": "a12e4dd588ab4e635ebee717e003ccd339ba27cd5b0ba7cdf10429261edfc39d"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/spore_pod_gen.json",
+              "sha256": "70607be5cc3bddb9d3c6d6aca6980ad29fa9fe3a738d9c0c2765e83e08fa96ad"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "feature": "sprintweed",
+      "kind": "configured_feature",
+      "sourcePath": "data/thermal_shock/worldgen/configured_feature/sprintweed.json",
+      "sourceSha256": "300717ae006d4344b86d4f4a34aa24b83d65a61783a71036a8e7d274dbd78d4c",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/sprintweed.json",
+        "sha256": "9e520fdfdeacffd42305bcad66742004d497f853326d15f953e0f2e5ee3bcbc6"
+      },
+      "types": {
+        "minecraft:random_patch": 1,
+        "minecraft:simple_block": 1,
+        "minecraft:simple_state_provider": 1,
+        "minecraft:block_predicate_filter": 1,
+        "minecraft:matching_blocks": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.config.feature.feature.config.to_place.state.Name",
+          "id": "thermal_shock:sprintweed",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/sprintweed.json",
+              "sha256": "9e520fdfdeacffd42305bcad66742004d497f853326d15f953e0f2e5ee3bcbc6"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/sprintweed.json",
+              "sha256": "224fd67e275da7412551a0ffc52c967ed4453337497e0be9ba8f909f4e5690ca"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "feature": "sprintweed",
+      "kind": "placed_feature",
+      "sourcePath": "data/thermal_shock/worldgen/placed_feature/sprintweed.json",
+      "sourceSha256": "3f458e1983dce3df140b0f2af1b0fa13820bd87c5e5421c387823a7125806dd3",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/sprintweed.json",
+        "sha256": "224fd67e275da7412551a0ffc52c967ed4453337497e0be9ba8f909f4e5690ca"
+      },
+      "types": {
+        "minecraft:count": 1,
+        "minecraft:rarity_filter": 1,
+        "minecraft:in_square": 1,
+        "minecraft:heightmap": 1,
+        "minecraft:biome": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.feature",
+          "id": "thermal_shock:sprintweed",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/sprintweed.json",
+              "sha256": "9e520fdfdeacffd42305bcad66742004d497f853326d15f953e0f2e5ee3bcbc6"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/sprintweed.json",
+              "sha256": "224fd67e275da7412551a0ffc52c967ed4453337497e0be9ba8f909f4e5690ca"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "feature": "starfruit_tree",
+      "kind": "configured_feature",
+      "sourcePath": "data/thermal_shock/worldgen/configured_feature/starfruit_tree.json",
+      "sourceSha256": "45f8797fd240f65ab623f40ad2203bd1b0de0269f9cff0dabc410a468cea14e3",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/starfruit_tree.json",
+        "sha256": "6db306f9224315de1513750a232084ffe8d4f9ffd52a54a27e5f339acf5f0fbb"
+      },
+      "types": {
+        "minecraft:tree": 1,
+        "minecraft:simple_state_provider": 4,
+        "minecraft:blob_foliage_placer": 1,
+        "minecraft:straight_trunk_placer": 1,
+        "minecraft:two_layers_feature_size": 1,
+        "minecraft:attached_to_leaves": 1
+      },
+      "providers": [
+        {
+          "path": "$.config.dirt_provider",
+          "value": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock:shale"
+            }
+          }
+        },
+        {
+          "path": "$.config.foliage_provider",
+          "value": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock:loque_leaves"
+            }
+          }
+        },
+        {
+          "path": "$.config.trunk_provider",
+          "value": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "minecraft:birch_log"
+            }
+          }
+        },
+        {
+          "path": "$.config.decorators[0].block_provider",
+          "value": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock:starfruit"
+            }
+          }
+        }
+      ],
+      "customReferences": [
+        {
+          "path": "$.config.dirt_provider.state.Name",
+          "id": "thermal_shock:shale",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.foliage_provider.state.Name",
+          "id": "thermal_shock:loque_leaves",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.decorators[0].block_provider.state.Name",
+          "id": "thermal_shock:starfruit",
+          "existingWorldgenResources": []
+        }
+      ]
+    },
+    {
+      "feature": "starfruit_tree",
+      "kind": "placed_feature",
+      "sourcePath": "data/thermal_shock/worldgen/placed_feature/starfruit_tree.json",
+      "sourceSha256": "c3a55e506e61e626e057f0f93c1e772d54329ff47080e283cf899355241e96bd",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/starfruit_tree.json",
+        "sha256": "8043554bd0496ececf4c6faf0bf780afd68bfcc06508b6312da217565c5999c5"
+      },
+      "types": {
+        "minecraft:rarity_filter": 1,
+        "minecraft:in_square": 1,
+        "minecraft:heightmap": 1,
+        "environment_scan": 1,
+        "minecraft:matching_blocks": 2,
+        "minecraft:block_predicate_filter": 1,
+        "minecraft:biome": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.feature",
+          "id": "thermal_shock:starfruit_tree",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/starfruit_tree.json",
+              "sha256": "6db306f9224315de1513750a232084ffe8d4f9ffd52a54a27e5f339acf5f0fbb"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/starfruit_tree.json",
+              "sha256": "8043554bd0496ececf4c6faf0bf780afd68bfcc06508b6312da217565c5999c5"
+            }
+          ]
+        },
+        {
+          "path": "$.placement[4].predicate.blocks[0]",
+          "id": "thermal_shock:grassy_shale",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.placement[4].predicate.blocks[1]",
+          "id": "thermal_shock:snowy_shale",
+          "existingWorldgenResources": []
+        }
+      ]
+    },
+    {
+      "feature": "tall_loque_fern",
+      "kind": "configured_feature",
+      "sourcePath": "data/thermal_shock/worldgen/configured_feature/tall_loque_fern.json",
+      "sourceSha256": "505cb80596c711751349517db6cd2d5ea90435c5633f89d048c032f4d47b7608",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/tall_loque_fern.json",
+        "sha256": "eb9a27b4c6b8c32416956bb0427c35534ad52e39727a0a4203391ed7d17fe832"
+      },
+      "types": {
+        "minecraft:random_patch": 1,
+        "minecraft:simple_block": 1,
+        "minecraft:simple_state_provider": 1,
+        "minecraft:block_predicate_filter": 1,
+        "minecraft:matching_blocks": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.config.feature.feature.config.to_place.state.Name",
+          "id": "thermal_shock:tall_loque_fern",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/tall_loque_fern.json",
+              "sha256": "eb9a27b4c6b8c32416956bb0427c35534ad52e39727a0a4203391ed7d17fe832"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/tall_loque_fern.json",
+              "sha256": "012dbf4be7fc4193dda50bf0db3d54a756b8841c4f24155ea5ab3c46c2ec304f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "feature": "tall_loque_fern",
+      "kind": "placed_feature",
+      "sourcePath": "data/thermal_shock/worldgen/placed_feature/tall_loque_fern.json",
+      "sourceSha256": "adbe19e931e77d637310f491ecd2133b7e7e626b44e454b563e595245ff7bc4a",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/tall_loque_fern.json",
+        "sha256": "012dbf4be7fc4193dda50bf0db3d54a756b8841c4f24155ea5ab3c46c2ec304f"
+      },
+      "types": {
+        "minecraft:count": 1,
+        "minecraft:in_square": 1,
+        "minecraft:heightmap": 1,
+        "minecraft:biome": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.feature",
+          "id": "thermal_shock:tall_loque_fern",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/tall_loque_fern.json",
+              "sha256": "eb9a27b4c6b8c32416956bb0427c35534ad52e39727a0a4203391ed7d17fe832"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/tall_loque_fern.json",
+              "sha256": "012dbf4be7fc4193dda50bf0db3d54a756b8841c4f24155ea5ab3c46c2ec304f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "feature": "tall_vermillion_fern",
+      "kind": "configured_feature",
+      "sourcePath": "data/thermal_shock/worldgen/configured_feature/tall_vermillion_fern.json",
+      "sourceSha256": "0d63d94e4f9acf179694a73dd573498a2ac8b6a39f5b0321b56e2e283ad3c655",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/tall_vermillion_fern.json",
+        "sha256": "115ea69677768561e642016ef1e1cf665e32fc222e3b833a444c4013974000c4"
+      },
+      "types": {
+        "minecraft:random_patch": 1,
+        "minecraft:simple_block": 1,
+        "minecraft:simple_state_provider": 1,
+        "minecraft:block_predicate_filter": 1,
+        "minecraft:matching_blocks": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.config.feature.feature.config.to_place.state.Name",
+          "id": "thermal_shock:tall_vermillion_fern",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/tall_vermillion_fern.json",
+              "sha256": "115ea69677768561e642016ef1e1cf665e32fc222e3b833a444c4013974000c4"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/tall_vermillion_fern.json",
+              "sha256": "7cb923e966048406ab7657f340381b3532c85a9408091376c124ddc0d77a8769"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "feature": "tall_vermillion_fern",
+      "kind": "placed_feature",
+      "sourcePath": "data/thermal_shock/worldgen/placed_feature/tall_vermillion_fern.json",
+      "sourceSha256": "55110ab396547cb6dbc79f10572b00bb73796f60bdf52d6f73b5c75ffe45106d",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/tall_vermillion_fern.json",
+        "sha256": "7cb923e966048406ab7657f340381b3532c85a9408091376c124ddc0d77a8769"
+      },
+      "types": {
+        "minecraft:count": 1,
+        "minecraft:in_square": 1,
+        "minecraft:heightmap": 1,
+        "minecraft:biome": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.feature",
+          "id": "thermal_shock:tall_vermillion_fern",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/tall_vermillion_fern.json",
+              "sha256": "115ea69677768561e642016ef1e1cf665e32fc222e3b833a444c4013974000c4"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/tall_vermillion_fern.json",
+              "sha256": "7cb923e966048406ab7657f340381b3532c85a9408091376c124ddc0d77a8769"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "feature": "verdium_generation",
+      "kind": "configured_feature",
+      "sourcePath": "data/thermal_shock/worldgen/configured_feature/verdium_generation.json",
+      "sourceSha256": "cf754792a75bdb22deef4fad739954aab2f82907437f380fae5159600dd30abd",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/verdium_generation.json",
+        "sha256": "27ae69499e197e81b49fa12cf3dabc9950547a7cb4770ba440b8b1361ce047f3"
+      },
+      "types": {
+        "minecraft:simple_random_selector": 1,
+        "thermal_shock:structure_feature": 4
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.config.features[0].feature.type",
+          "id": "thermal_shock:structure_feature",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[0].feature.config.structure",
+          "id": "thermal_shock:verdium3",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[1].feature.type",
+          "id": "thermal_shock:structure_feature",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[1].feature.config.structure",
+          "id": "thermal_shock:verdium6",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[2].feature.type",
+          "id": "thermal_shock:structure_feature",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[2].feature.config.structure",
+          "id": "thermal_shock:verdium9",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[3].feature.type",
+          "id": "thermal_shock:structure_feature",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[3].feature.config.structure",
+          "id": "thermal_shock:verdium12",
+          "existingWorldgenResources": []
+        }
+      ]
+    },
+    {
+      "feature": "verdium_generation",
+      "kind": "placed_feature",
+      "sourcePath": "data/thermal_shock/worldgen/placed_feature/verdium_generation.json",
+      "sourceSha256": "204d2282aa7b5639f2aeaf54195b50047708f685754be5d4d5d7e209d265a0ee",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/verdium_generation.json",
+        "sha256": "e97309f365fc1a860cc685196d547448d731abf0a35beb512e3436354588b727"
+      },
+      "types": {
+        "minecraft:count": 1,
+        "uniform": 1,
+        "minecraft:in_square": 1,
+        "minecraft:height_range": 1,
+        "minecraft:uniform": 1,
+        "minecraft:block_predicate_filter": 1,
+        "minecraft:all_of": 1,
+        "minecraft:solid": 1,
+        "minecraft:matching_fluids": 1,
+        "minecraft:biome": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.feature",
+          "id": "thermal_shock:verdium_generation",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/verdium_generation.json",
+              "sha256": "27ae69499e197e81b49fa12cf3dabc9950547a7cb4770ba440b8b1361ce047f3"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/verdium_generation.json",
+              "sha256": "e97309f365fc1a860cc685196d547448d731abf0a35beb512e3436354588b727"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "feature": "vermilli_fungus",
+      "kind": "configured_feature",
+      "sourcePath": "data/thermal_shock/worldgen/configured_feature/vermilli_fungus.json",
+      "sourceSha256": "78740629004bbb772c12d1811be17bfe9c93ea489e45181442d6542e25c0745c",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/vermilli_fungus.json",
+        "sha256": "68088fe146daad62c50baaeed246de45edc33e15aa8b7f77f18d8334225c7ab3"
+      },
+      "types": {
+        "minecraft:tree": 1,
+        "minecraft:simple_state_provider": 6,
+        "minecraft:mangrove_root_placer": 1,
+        "uniform": 1,
+        "minecraft:random_spread_foliage_placer": 1,
+        "minecraft:upwards_branching_trunk_placer": 1,
+        "minecraft:uniform": 2,
+        "minecraft:two_layers_feature_size": 1
+      },
+      "providers": [
+        {
+          "path": "$.config.dirt_provider",
+          "value": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock:vermillion_moss"
+            }
+          }
+        },
+        {
+          "path": "$.config.foliage_provider",
+          "value": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock:vermillion_moss"
+            }
+          }
+        },
+        {
+          "path": "$.config.trunk_provider",
+          "value": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock:stripped_vermilli_log"
+            }
+          }
+        },
+        {
+          "path": "$.config.root_placer.root_provider",
+          "value": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock:stripped_vermilli_log"
+            }
+          }
+        },
+        {
+          "path": "$.config.root_placer.above_root_placement.above_root_provider",
+          "value": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock:vermillion_roots"
+            }
+          }
+        },
+        {
+          "path": "$.config.root_placer.mangrove_root_placement.muddy_roots_provider",
+          "value": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock:vermillion_moss"
+            }
+          }
+        }
+      ],
+      "customReferences": [
+        {
+          "path": "$.config.dirt_provider.state.Name",
+          "id": "thermal_shock:vermillion_moss",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.foliage_provider.state.Name",
+          "id": "thermal_shock:vermillion_moss",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.trunk_provider.state.Name",
+          "id": "thermal_shock:stripped_vermilli_log",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.root_placer.root_provider.state.Name",
+          "id": "thermal_shock:stripped_vermilli_log",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.root_placer.above_root_placement.above_root_provider.state.Name",
+          "id": "thermal_shock:vermillion_roots",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.root_placer.mangrove_root_placement.muddy_roots_provider.state.Name",
+          "id": "thermal_shock:vermillion_moss",
+          "existingWorldgenResources": []
+        }
+      ]
+    },
+    {
+      "feature": "vermilli_fungus",
+      "kind": "placed_feature",
+      "sourcePath": "data/thermal_shock/worldgen/placed_feature/vermilli_fungus.json",
+      "sourceSha256": "4471c9e5607027f910ed02c198caaafaee809e3815239acb01b4a15af9f6a357",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/vermilli_fungus.json",
+        "sha256": "e04d2e062cfd29a701b97e3d0841ff1644fc4ecd89ffe57d564f6ccc050c7af9"
+      },
+      "types": {
+        "minecraft:count_on_every_layer": 1,
+        "environment_scan": 1,
+        "minecraft:matching_blocks": 2,
+        "minecraft:biome": 1,
+        "minecraft:block_predicate_filter": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.feature",
+          "id": "thermal_shock:vermilli_fungus",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/vermilli_fungus.json",
+              "sha256": "68088fe146daad62c50baaeed246de45edc33e15aa8b7f77f18d8334225c7ab3"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/vermilli_fungus.json",
+              "sha256": "e04d2e062cfd29a701b97e3d0841ff1644fc4ecd89ffe57d564f6ccc050c7af9"
+            }
+          ]
+        },
+        {
+          "path": "$.placement[3].predicate.blocks[0]",
+          "id": "thermal_shock:vermillion_moss",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.placement[3].predicate.blocks[1]",
+          "id": "thermal_shock:mossy_mantlestone",
+          "existingWorldgenResources": []
+        }
+      ]
+    },
+    {
+      "feature": "vermillion_fern",
+      "kind": "configured_feature",
+      "sourcePath": "data/thermal_shock/worldgen/configured_feature/vermillion_fern.json",
+      "sourceSha256": "2e505bfb4ad02f9410b51d999f0087c6f02d923ae4210b3aedfb5df7435d0e3b",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/vermillion_fern.json",
+        "sha256": "b4b002df5a222d6a3ea71a5356100f7f5f4bf7edfa8b82eff4fb3fcfe4e5809b"
+      },
+      "types": {
+        "minecraft:random_patch": 1,
+        "minecraft:simple_block": 1,
+        "minecraft:simple_state_provider": 1,
+        "minecraft:block_predicate_filter": 1,
+        "minecraft:matching_blocks": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.config.feature.feature.config.to_place.state.Name",
+          "id": "thermal_shock:vermillion_fern",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/vermillion_fern.json",
+              "sha256": "b4b002df5a222d6a3ea71a5356100f7f5f4bf7edfa8b82eff4fb3fcfe4e5809b"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/vermillion_fern.json",
+              "sha256": "30a2a141223bf6a7208ba20bbc824465da3b801210f0f14cbd2858942eafe070"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "feature": "vermillion_fern",
+      "kind": "placed_feature",
+      "sourcePath": "data/thermal_shock/worldgen/placed_feature/vermillion_fern.json",
+      "sourceSha256": "3b351bbc4ff52d4343b7a474e8ae1407d7867ecc1a2f1ef7a94469a436aa1520",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/vermillion_fern.json",
+        "sha256": "30a2a141223bf6a7208ba20bbc824465da3b801210f0f14cbd2858942eafe070"
+      },
+      "types": {
+        "minecraft:count": 1,
+        "minecraft:in_square": 1,
+        "minecraft:heightmap": 1,
+        "minecraft:biome": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.feature",
+          "id": "thermal_shock:vermillion_fern",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/vermillion_fern.json",
+              "sha256": "b4b002df5a222d6a3ea71a5356100f7f5f4bf7edfa8b82eff4fb3fcfe4e5809b"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/vermillion_fern.json",
+              "sha256": "30a2a141223bf6a7208ba20bbc824465da3b801210f0f14cbd2858942eafe070"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "feature": "vermillion_hyphae_patch",
+      "kind": "configured_feature",
+      "sourcePath": "data/thermal_shock/worldgen/configured_feature/vermillion_hyphae_patch.json",
+      "sourceSha256": "9fb4c2c6131bbe8d7f49293a5686d7f27fd147b7e9f71892d57168ebb23d21ed",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/vermillion_hyphae_patch.json",
+        "sha256": "41d1ac42fcad4220ec9b79c5e1c2df3b18f1aad6d52270ef102a44e27ea08fdd"
+      },
+      "types": {
+        "minecraft:random_patch": 1,
+        "minecraft:simple_block": 1,
+        "minecraft:simple_state_provider": 1,
+        "minecraft:block_predicate_filter": 1,
+        "minecraft:all_of": 1,
+        "minecraft:matching_blocks": 2
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.config.feature.feature.config.to_place.state.Name",
+          "id": "thermal_shock:vermillion_roots",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.feature.placement[0].predicate.predicates[1].blocks[0]",
+          "id": "thermal_shock:mossy_mantlestone",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.feature.placement[0].predicate.predicates[1].blocks[1]",
+          "id": "thermal_shock:vermillion_moss",
+          "existingWorldgenResources": []
+        }
+      ]
+    },
+    {
+      "feature": "vermillion_hyphae_patch",
+      "kind": "placed_feature",
+      "sourcePath": "data/thermal_shock/worldgen/placed_feature/vermillion_hyphae_patch.json",
+      "sourceSha256": "7df2899173be8e901ce4aa421a66f29f025f12272111b90c83e2ea456dff44e5",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/vermillion_hyphae_patch.json",
+        "sha256": "27b87b9678e3825618971c0daa64a6e95d9ba03cbd819fdf4d933fdac7ee3eb2"
+      },
+      "types": {
+        "minecraft:count": 1,
+        "uniform": 1,
+        "minecraft:in_square": 1,
+        "minecraft:height_range": 1,
+        "minecraft:uniform": 1,
+        "minecraft:biome": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.feature",
+          "id": "thermal_shock:vermillion_hyphae_patch",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/vermillion_hyphae_patch.json",
+              "sha256": "41d1ac42fcad4220ec9b79c5e1c2df3b18f1aad6d52270ef102a44e27ea08fdd"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/vermillion_hyphae_patch.json",
+              "sha256": "27b87b9678e3825618971c0daa64a6e95d9ba03cbd819fdf4d933fdac7ee3eb2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "feature": "vermillion_sparkler",
+      "kind": "configured_feature",
+      "sourcePath": "data/thermal_shock/worldgen/configured_feature/vermillion_sparkler.json",
+      "sourceSha256": "0162675541643a3304d93e2b49d42d5bc4b3972327901ec82fd916af0ba9e51a",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/vermillion_sparkler.json",
+        "sha256": "d6bb2e9d7f42443c40a3fe9ee41aa3c52d46cb1c3e63b0d8a515bc89c9c74358"
+      },
+      "types": {
+        "minecraft:simple_random_selector": 1,
+        "thermal_shock:structure_feature": 4
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.config.features[0].feature.type",
+          "id": "thermal_shock:structure_feature",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[0].feature.config.structure",
+          "id": "thermal_shock:sparkler1",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[0].feature.config.ignored_blocks",
+          "id": "thermal_shock:grassy_shale",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[1].feature.type",
+          "id": "thermal_shock:structure_feature",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[1].feature.config.structure",
+          "id": "thermal_shock:sparkler2",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[1].feature.config.ignored_blocks",
+          "id": "thermal_shock:grassy_shale",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[2].feature.type",
+          "id": "thermal_shock:structure_feature",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[2].feature.config.structure",
+          "id": "thermal_shock:sparkler3",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[2].feature.config.ignored_blocks",
+          "id": "thermal_shock:grassy_shale",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[3].feature.type",
+          "id": "thermal_shock:structure_feature",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[3].feature.config.structure",
+          "id": "thermal_shock:sparkler4",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[3].feature.config.ignored_blocks",
+          "id": "thermal_shock:grassy_shale",
+          "existingWorldgenResources": []
+        }
+      ]
+    },
+    {
+      "feature": "vermillion_sparkler",
+      "kind": "placed_feature",
+      "sourcePath": "data/thermal_shock/worldgen/placed_feature/vermillion_sparkler.json",
+      "sourceSha256": "031e5cf2817f300c3cce22069b62ca9171b9c62cd4d8683772114cb62b4e299c",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/vermillion_sparkler.json",
+        "sha256": "4faef8e9a6fa97076931d532b687ad304a207c9d1f2f481f430f0e77777dce73"
+      },
+      "types": {
+        "minecraft:rarity_filter": 1,
+        "minecraft:count": 1,
+        "minecraft:in_square": 1,
+        "minecraft:heightmap": 1,
+        "environment_scan": 1,
+        "minecraft:matching_blocks": 2,
+        "minecraft:block_predicate_filter": 1,
+        "minecraft:biome": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.feature",
+          "id": "thermal_shock:vermillion_sparkler",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/vermillion_sparkler.json",
+              "sha256": "d6bb2e9d7f42443c40a3fe9ee41aa3c52d46cb1c3e63b0d8a515bc89c9c74358"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/vermillion_sparkler.json",
+              "sha256": "4faef8e9a6fa97076931d532b687ad304a207c9d1f2f481f430f0e77777dce73"
+            }
+          ]
+        },
+        {
+          "path": "$.placement[5].predicate.blocks[0]",
+          "id": "thermal_shock:grassy_shale",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.placement[5].predicate.blocks[1]",
+          "id": "thermal_shock:snowy_shale",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.placement[5].predicate.blocks[2]",
+          "id": "thermal_shock:planter_pot",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.placement[5].predicate.blocks[3]",
+          "id": "thermal_shock:planter_box",
+          "existingWorldgenResources": []
+        }
+      ]
+    },
+    {
+      "feature": "vermillion_tree",
+      "kind": "configured_feature",
+      "sourcePath": "data/thermal_shock/worldgen/configured_feature/vermillion_tree.json",
+      "sourceSha256": "6a739d20623b1a180b9b39ec161a4369bf8fa26c25f391ac83bc78dc4c261b75",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/vermillion_tree.json",
+        "sha256": "c11cec5710a79c2c7cae1c07f6ca6573e7106984d890cb9390ca5dceed608ad9"
+      },
+      "types": {
+        "minecraft:simple_random_selector": 1,
+        "thermal_shock:structure_feature": 4
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.config.features[0].feature.type",
+          "id": "thermal_shock:structure_feature",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[0].feature.config.structure",
+          "id": "thermal_shock:vermillion_pine_1",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[1].feature.type",
+          "id": "thermal_shock:structure_feature",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[1].feature.config.structure",
+          "id": "thermal_shock:vermillion_pine_1b",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[2].feature.type",
+          "id": "thermal_shock:structure_feature",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[2].feature.config.structure",
+          "id": "thermal_shock:vermillion_pine_2",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[3].feature.type",
+          "id": "thermal_shock:structure_feature",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.features[3].feature.config.structure",
+          "id": "thermal_shock:vermillion_pine_2b",
+          "existingWorldgenResources": []
+        }
+      ]
+    },
+    {
+      "feature": "vermillion_tree",
+      "kind": "placed_feature",
+      "sourcePath": "data/thermal_shock/worldgen/placed_feature/vermillion_tree.json",
+      "sourceSha256": "3f2680e365dbe5ae042bbe7d330683952bb391cd0bde693828fd7d9c1d08cca6",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/vermillion_tree.json",
+        "sha256": "74b0fd9fe276669804a6b131e9a5942803400914ded59da7ce2e8d7722cc1d92"
+      },
+      "types": {
+        "minecraft:count": 1,
+        "uniform": 1,
+        "minecraft:in_square": 1,
+        "minecraft:height_range": 1,
+        "minecraft:uniform": 1,
+        "minecraft:heightmap": 1,
+        "minecraft:block_predicate_filter": 1,
+        "minecraft:matching_blocks": 1,
+        "minecraft:biome": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.feature",
+          "id": "thermal_shock:vermillion_tree",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/vermillion_tree.json",
+              "sha256": "c11cec5710a79c2c7cae1c07f6ca6573e7106984d890cb9390ca5dceed608ad9"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/vermillion_tree.json",
+              "sha256": "74b0fd9fe276669804a6b131e9a5942803400914ded59da7ce2e8d7722cc1d92"
+            }
+          ]
+        },
+        {
+          "path": "$.placement[4].predicate.blocks[0]",
+          "id": "thermal_shock:grassy_shale",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.placement[4].predicate.blocks[1]",
+          "id": "thermal_shock:snowy_shale",
+          "existingWorldgenResources": []
+        }
+      ]
+    },
+    {
+      "feature": "visi_bulb_feature",
+      "kind": "configured_feature",
+      "sourcePath": "data/thermal_shock/worldgen/configured_feature/visi_bulb_feature.json",
+      "sourceSha256": "be4524e6ad944ba6c71fd72998b0078b5252a893b025acc7edae22c6b248e279",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/visi_bulb_feature.json",
+        "sha256": "f120abdc07abf8bb3a81c8f3e9770bec412015f9fbbd97cf0751cf62ad9b00ec"
+      },
+      "types": {
+        "minecraft:random_patch": 1,
+        "minecraft:simple_block": 1,
+        "minecraft:simple_state_provider": 1,
+        "minecraft:block_predicate_filter": 1,
+        "minecraft:all_of": 1,
+        "minecraft:matching_blocks": 2
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.config.feature.feature.config.to_place.state.Name",
+          "id": "thermal_shock:visi_bulb",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.feature.placement[0].predicate.predicates[1].blocks[0]",
+          "id": "thermal_shock:shale",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.feature.placement[0].predicate.predicates[1].blocks[1]",
+          "id": "thermal_shock:permafrost",
+          "existingWorldgenResources": []
+        },
+        {
+          "path": "$.config.feature.placement[0].predicate.predicates[1].blocks[2]",
+          "id": "thermal_shock:mantlestone",
+          "existingWorldgenResources": []
+        }
+      ]
+    },
+    {
+      "feature": "visi_bulb_feature",
+      "kind": "placed_feature",
+      "sourcePath": "data/thermal_shock/worldgen/placed_feature/visi_bulb_feature.json",
+      "sourceSha256": "3e879386fa10bfa1c7212e452adbff542ca410b9249584982fabd028dc8b97eb",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/visi_bulb_feature.json",
+        "sha256": "bb71a363c90884414c9319a697d8e10c3a524ba3f6dafa64e34ef160aa7e79cb"
+      },
+      "types": {
+        "minecraft:count": 1,
+        "uniform": 1,
+        "minecraft:in_square": 1,
+        "minecraft:height_range": 1,
+        "minecraft:uniform": 1,
+        "minecraft:biome": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.feature",
+          "id": "thermal_shock:visi_bulb_feature",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/visi_bulb_feature.json",
+              "sha256": "f120abdc07abf8bb3a81c8f3e9770bec412015f9fbbd97cf0751cf62ad9b00ec"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/visi_bulb_feature.json",
+              "sha256": "bb71a363c90884414c9319a697d8e10c3a524ba3f6dafa64e34ef160aa7e79cb"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "feature": "volt_flower",
+      "kind": "configured_feature",
+      "sourcePath": "data/thermal_shock/worldgen/configured_feature/volt_flower.json",
+      "sourceSha256": "83c7a3e8528905532749a9dd7ff65c178be7b6bd991452c134b9d39f9ab8f9c4",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/volt_flower.json",
+        "sha256": "95902717d85572a400c168c7fc1fb07c048a291f82145e37bd6b8a51dc3727da"
+      },
+      "types": {
+        "minecraft:random_patch": 1,
+        "minecraft:simple_block": 1,
+        "minecraft:simple_state_provider": 1,
+        "minecraft:block_predicate_filter": 1,
+        "minecraft:matching_blocks": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.config.feature.feature.config.to_place.state.Name",
+          "id": "thermal_shock:volt_flower",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/volt_flower.json",
+              "sha256": "95902717d85572a400c168c7fc1fb07c048a291f82145e37bd6b8a51dc3727da"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/volt_flower.json",
+              "sha256": "fd5a5d764e4b00953a76dcb82773112c7424b005fb6985f408e6473d161b9501"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "feature": "volt_flower",
+      "kind": "placed_feature",
+      "sourcePath": "data/thermal_shock/worldgen/placed_feature/volt_flower.json",
+      "sourceSha256": "21df8138baef2008d173b9bdf37f2b6d3183eb4e68e4881f128491989910e39c",
+      "target": {
+        "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/volt_flower.json",
+        "sha256": "fd5a5d764e4b00953a76dcb82773112c7424b005fb6985f408e6473d161b9501"
+      },
+      "types": {
+        "minecraft:count": 1,
+        "minecraft:rarity_filter": 1,
+        "minecraft:in_square": 1,
+        "minecraft:heightmap": 1,
+        "minecraft:biome": 1
+      },
+      "providers": [],
+      "customReferences": [
+        {
+          "path": "$.feature",
+          "id": "thermal_shock:volt_flower",
+          "existingWorldgenResources": [
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/volt_flower.json",
+              "sha256": "95902717d85572a400c168c7fc1fb07c048a291f82145e37bd6b8a51dc3727da"
+            },
+            {
+              "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/volt_flower.json",
+              "sha256": "fd5a5d764e4b00953a76dcb82773112c7424b005fb6985f408e6473d161b9501"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "plannedProductionCount": 32,
+  "unresolved": [
+    "hanging_bulb_patch_biome_modifier: original purebiomes tag undefined; no guessed tag or invalid entrance"
+  ],
+  "noBuildOrGameTests": true,
+  "originalPurebiomesDefinitionPaths": [],
+  "existingModifierDuplicates": []
+}
