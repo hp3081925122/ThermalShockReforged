@@ -1,0 +1,497 @@
+{
+  "new_data_files": {
+    "src/main/resources/data/thermal_shock_reforged/structure/monolith.nbt": "c34666506dcec50d13e69ac3aa599391bdc3ff88bb72fa57b7de6a8b0523691d",
+    "src/main/resources/data/thermal_shock_reforged/structure/nu_monoluth.nbt": "e26d27cc4d3accaba273fe37076189a70df972740ff548bc4fddb19740c2e7e0",
+    "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/monolith_spire_biome_modifier.json": "cbc739e2b8cf27a7515896583b92e91a808ec4bd8ddade541a3f3eff1e2e20b0",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/monolith_spire.json": "1dd62bfe5e4b4b69f497b822b880a8bb2d3f1617d5714b02bb09a36bac6a73aa",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/monolith_spire.json": "2c21cdde04ee482003df76033464c26ecf516adf9f206ae716b8beef58007c33"
+  },
+  "reused_assets": {
+    "src/main/resources/assets/thermal_shock_reforged/animations/monolith.animation.json": "8f8f09875c685b71084ee1002cc18b321d24ee833804d1f3f3ed37002ef6c7f8",
+    "src/main/resources/assets/thermal_shock_reforged/geo/monolith.geo.json": "aa8c6dc7479babb7b94ff7bf04bba6c888a8745c5a36d02088220aae80da193a",
+    "src/main/resources/assets/thermal_shock_reforged/models/item/dormant_monolith_spawn_egg.json": "1ef9f0f7735ebd47f56abff752cab4c9f51cc09120725aed5c97a7852e467477",
+    "src/main/resources/assets/thermal_shock_reforged/sounds/stalkerstep1.ogg": "dfca7a4903bdb8b7f919fceba73a570a7c22fe20fdcd4419de27812e799f589f",
+    "src/main/resources/assets/thermal_shock_reforged/sounds/stalkerstep2.ogg": "915b4e11e6c62734fd872907f850bd57126f0c768106ce1d35750e104d5f6bf9",
+    "src/main/resources/assets/thermal_shock_reforged/sounds/stalkerstep3.ogg": "5207563aa3aa51c71eea28df04b69a777a25dabcf15945f31ed45d251994de83",
+    "src/main/resources/assets/thermal_shock_reforged/textures/entities/monolith.png": "17bc80801d6065f116102bc43690dafed9beb70b305d9955b6caa81abd2cc795",
+    "src/main/resources/assets/thermal_shock_reforged/textures/entities/monolith25.png": "0830e314cf27fd43075c54db0f8d10d719037cc46448cffe75d554428d42a58f",
+    "src/main/resources/assets/thermal_shock_reforged/textures/entities/monolith25glow.png": "7f1ec250ed3105291a6b24492abc2ae711008ed43d7934fb0ff713b613b12bb1",
+    "src/main/resources/assets/thermal_shock_reforged/textures/entities/monolithglow.png": "7daaf3002324ae6096268a78c4d243f9dd50704fd51262834f5f4769b572ff2f",
+    "src/main/resources/assets/thermal_shock_reforged/textures/entities/monolithsleep.png": "57281646710c13d08b2996d05a2642f8c816e6eaf9ce2b8a1d5975c12cd263b3",
+    "src/main/resources/assets/thermal_shock_reforged/textures/entities/monolithsleep25.png": "1a8912ac5673fa1c7bec6dd53a8183a0d7dbc36cab151e1204d5d2af1d9f91bd",
+    "src/main/resources/assets/thermal_shock_reforged/textures/item/monolith_egg.png": "54c34c40a19ea46d9399ff1ba8bdbf27eea4f0d013bda9693414a01a2328eab1",
+    "src/main/resources/assets/thermal_shock_reforged/sounds/stalkerambient1.ogg": "514d13f8cf4fd6f1d7b051969144f2871e77a54e2779c31b4baee32d5e1b8f26",
+    "src/main/resources/assets/thermal_shock_reforged/sounds/stalkerambient3.ogg": "ef76df379c2dd25c972131804935efc4cffaf6a0717d6c39de61411f78052fb8",
+    "src/main/resources/assets/thermal_shock_reforged/sounds/stalkerhurt1.ogg": "3145ce3450218de331b2545f3f51d6cbfb88d8361651d8a92d8db2f11f95b4f4",
+    "src/main/resources/assets/thermal_shock_reforged/sounds/stalkerhurt2.ogg": "bc4e39d6ccebb10d677857cafa4b72a86a9a2816cf2a8fcbc1dd1988d25cc07d",
+    "src/main/resources/assets/thermal_shock_reforged/sounds/stalkerdeath.ogg": "5b00311cf0d22ea13d220e5904d2227ad20e7db95e65ab345f9e81e0d4903af6",
+    "src/main/resources/assets/thermal_shock_reforged/sounds/metroid_explosion.ogg": "d6b361e665b34e7b4423dc9845a21b2bb7c157197ca74adcd052143a093e0841"
+  },
+  "new_java_files": {
+    "src/main/java/com/hp/thermalshockreforged/entity/monolith/DormantMonolithEntity.java": "3f42b3a3a3d01a8b90a14aa74273c32b9067ee0a71cbe7f55caf6631bb5c43a5",
+    "src/main/java/com/hp/thermalshockreforged/entity/monolith/MonolithBaseEntity.java": "ad45a8588fdad9c8a82e54207a74a9ad08ccddb7cdb18008f74cf624b676bde3",
+    "src/main/java/com/hp/thermalshockreforged/entity/monolith/MonolithConfig.java": "9a155f08dbb3ab48fea781f965aba8e32dc486a9af4d5ab329ed9a2aeb199b27",
+    "src/main/java/com/hp/thermalshockreforged/entity/monolith/MonolithContent.java": "f6b38015af330e6b06e8bb67d395cda45d02299a3433ba9c916faa07a8631d04",
+    "src/main/java/com/hp/thermalshockreforged/entity/monolith/MonolithEntity.java": "35abe71b203941ee3150daf4beac7763bfa0f33d1bfe45ffd2333ce181734af5",
+    "src/main/java/com/hp/thermalshockreforged/entity/monolith/MonolithTaskEntity.java": "49c2362f9dddf4132b997fd9ff20b24426dda79b9ac8cb7e4fefc361bb6dec18",
+    "src/main/java/com/hp/thermalshockreforged/client/monolith/MonolithRenderers.java": "5b451bf7691d91f9e7802e14d83c1563a9bcfbfe23a94158f3621ed34518c1b6"
+  },
+  "native_spire_source_closed": true,
+  "native_spire_chain": [
+    "graveyard",
+    "monolith_spire_biome_modifier",
+    "monolith_spire placed/configured",
+    "nu_monoluth",
+    "dormant_monolith",
+    "player-owned hurt",
+    "monolith"
+  ],
+  "converted_templates": {
+    "monolith": {
+      "source_sha256": "a15b97bfea36db73638b7dda2e161209bedc963f2f294f314c8efcfe517b737b",
+      "target_sha256": "c34666506dcec50d13e69ac3aa599391bdc3ff88bb72fa57b7de6a8b0523691d",
+      "conversion_counts": {
+        "entity_attributes": 1,
+        "forge_spawn_type_to_neoforge": 1
+      },
+      "source_entity_payload": [
+        {
+          "nbt": {
+            "Brain": {
+              "memories": {}
+            },
+            "HurtByTimestamp": 0,
+            "Attributes": [
+              {
+                "Base": 0.0,
+                "Name": "minecraft:generic.movement_speed"
+              },
+              {
+                "Base": 128.0,
+                "Modifiers": [
+                  {
+                    "Operation": 1,
+                    "UUID": [
+                      -1058563068,
+                      4735126,
+                      -1290631477,
+                      1348986890
+                    ],
+                    "Amount": 0.008315486686331744,
+                    "Name": "Random spawn bonus"
+                  }
+                ],
+                "Name": "minecraft:generic.follow_range"
+              },
+              {
+                "Base": 0.0,
+                "Name": "forge:step_height_addition"
+              },
+              {
+                "Base": 0.08,
+                "Name": "forge:entity_gravity"
+              }
+            ],
+            "Invulnerable": 0,
+            "FallFlying": 0,
+            "PortalCooldown": 0,
+            "AbsorptionAmount": 0.0,
+            "Texture": "monolithsleep",
+            "FallDistance": 0.0,
+            "CanUpdate": 1,
+            "DeathTime": 0,
+            "HandDropChances": [
+              0.08500000089406967,
+              0.08500000089406967
+            ],
+            "PersistenceRequired": 1,
+            "id": "thermal_shock:dormant_monolith",
+            "UUID": [
+              967816808,
+              596722144,
+              -1419339186,
+              1843961072
+            ],
+            "Motion": [
+              0.0,
+              -0.0784000015258789,
+              0.0
+            ],
+            "Health": 160.0,
+            "LeftHanded": 0,
+            "Air": 300,
+            "OnGround": 1,
+            "Rotation": [
+              130.94692993164062,
+              0.0
+            ],
+            "HandItems": [
+              {},
+              {}
+            ],
+            "ArmorDropChances": [
+              0.08500000089406967,
+              0.08500000089406967,
+              0.08500000089406967,
+              0.08500000089406967
+            ],
+            "Pos": [
+              390.5,
+              -59.0,
+              -450.5
+            ],
+            "Fire": -1,
+            "ArmorItems": [
+              {},
+              {},
+              {},
+              {}
+            ],
+            "CanPickUpLoot": 0,
+            "HurtTime": 0,
+            "forge:spawn_type": "SPAWN_EGG"
+          },
+          "blockPos": [
+            1,
+            0,
+            1
+          ],
+          "pos": [
+            1.5,
+            0.0,
+            1.5
+          ]
+        }
+      ],
+      "target_entity_payload": [
+        {
+          "nbt": {
+            "Brain": {
+              "memories": {}
+            },
+            "HurtByTimestamp": 0,
+            "Invulnerable": 0,
+            "FallFlying": 0,
+            "PortalCooldown": 0,
+            "AbsorptionAmount": 0.0,
+            "Texture": "monolithsleep",
+            "FallDistance": 0.0,
+            "CanUpdate": 1,
+            "DeathTime": 0,
+            "HandDropChances": [
+              0.08500000089406967,
+              0.08500000089406967
+            ],
+            "PersistenceRequired": 1,
+            "id": "thermal_shock_reforged:dormant_monolith",
+            "UUID": [
+              967816808,
+              596722144,
+              -1419339186,
+              1843961072
+            ],
+            "Motion": [
+              0.0,
+              -0.0784000015258789,
+              0.0
+            ],
+            "Health": 160.0,
+            "LeftHanded": 0,
+            "Air": 300,
+            "OnGround": 1,
+            "Rotation": [
+              130.94692993164062,
+              0.0
+            ],
+            "HandItems": [
+              {},
+              {}
+            ],
+            "ArmorDropChances": [
+              0.08500000089406967,
+              0.08500000089406967,
+              0.08500000089406967,
+              0.08500000089406967
+            ],
+            "Pos": [
+              390.5,
+              -59.0,
+              -450.5
+            ],
+            "Fire": -1,
+            "ArmorItems": [
+              {},
+              {},
+              {},
+              {}
+            ],
+            "CanPickUpLoot": 0,
+            "HurtTime": 0,
+            "attributes": [
+              {
+                "id": "minecraft:generic.movement_speed",
+                "base": 0.0
+              },
+              {
+                "id": "minecraft:generic.follow_range",
+                "base": 128.0,
+                "modifiers": [
+                  {
+                    "id": "minecraft:random_spawn_bonus",
+                    "amount": 0.008315486686331744,
+                    "operation": "add_multiplied_base"
+                  }
+                ]
+              },
+              {
+                "id": "minecraft:generic.step_height",
+                "base": 2.0
+              },
+              {
+                "id": "minecraft:generic.gravity",
+                "base": 0.08
+              }
+            ],
+            "neoforge:spawn_type": "SPAWN_EGG"
+          },
+          "blockPos": [
+            1,
+            0,
+            1
+          ],
+          "pos": [
+            1.5,
+            0.0,
+            1.5
+          ]
+        }
+      ],
+      "block_and_positions_unchanged": true
+    },
+    "nu_monoluth": {
+      "source_sha256": "97d601c1958188ca7fadfbca68048fe44fd3cd9173980cfb45dd69520d4a89d6",
+      "target_sha256": "e26d27cc4d3accaba273fe37076189a70df972740ff548bc4fddb19740c2e7e0",
+      "conversion_counts": {
+        "entity_attributes": 1,
+        "forge_spawn_type_to_neoforge": 1
+      },
+      "source_entity_payload": [
+        {
+          "nbt": {
+            "Brain": {
+              "memories": {}
+            },
+            "HurtByTimestamp": 0,
+            "Attributes": [
+              {
+                "Base": 0.0,
+                "Name": "forge:step_height_addition"
+              },
+              {
+                "Base": 128.0,
+                "Modifiers": [
+                  {
+                    "Operation": 1,
+                    "UUID": [
+                      -828721452,
+                      343100791,
+                      -1345783513,
+                      1032296478
+                    ],
+                    "Amount": 0.04272243777943615,
+                    "Name": "Random spawn bonus"
+                  }
+                ],
+                "Name": "minecraft:generic.follow_range"
+              },
+              {
+                "Base": 0.08,
+                "Name": "forge:entity_gravity"
+              },
+              {
+                "Base": 0.0,
+                "Name": "minecraft:generic.movement_speed"
+              }
+            ],
+            "Invulnerable": 0,
+            "FallFlying": 0,
+            "PortalCooldown": 0,
+            "AbsorptionAmount": 0.0,
+            "Texture": "monolithsleep25",
+            "FallDistance": 0.0,
+            "CanUpdate": 1,
+            "DeathTime": 0,
+            "HandDropChances": [
+              0.08500000089406967,
+              0.08500000089406967
+            ],
+            "PersistenceRequired": 1,
+            "id": "thermal_shock:dormant_monolith",
+            "UUID": [
+              1415946663,
+              -684044856,
+              -1487191898,
+              847279701
+            ],
+            "Motion": [
+              0.0,
+              -0.0784000015258789,
+              0.0
+            ],
+            "Health": 160.0,
+            "LeftHanded": 0,
+            "Air": 300,
+            "OnGround": 1,
+            "Rotation": [
+              -154.48907470703125,
+              0.0
+            ],
+            "HandItems": [
+              {},
+              {}
+            ],
+            "ArmorDropChances": [
+              0.08500000089406967,
+              0.08500000089406967,
+              0.08500000089406967,
+              0.08500000089406967
+            ],
+            "Pos": [
+              -3201.5,
+              72.0,
+              -5567.5
+            ],
+            "Fire": -1,
+            "ArmorItems": [
+              {},
+              {},
+              {},
+              {}
+            ],
+            "CanPickUpLoot": 0,
+            "HurtTime": 0,
+            "forge:spawn_type": "SPAWN_EGG"
+          },
+          "blockPos": [
+            1,
+            0,
+            1
+          ],
+          "pos": [
+            1.5,
+            0.0,
+            1.5
+          ]
+        }
+      ],
+      "target_entity_payload": [
+        {
+          "nbt": {
+            "Brain": {
+              "memories": {}
+            },
+            "HurtByTimestamp": 0,
+            "Invulnerable": 0,
+            "FallFlying": 0,
+            "PortalCooldown": 0,
+            "AbsorptionAmount": 0.0,
+            "Texture": "monolithsleep25",
+            "FallDistance": 0.0,
+            "CanUpdate": 1,
+            "DeathTime": 0,
+            "HandDropChances": [
+              0.08500000089406967,
+              0.08500000089406967
+            ],
+            "PersistenceRequired": 1,
+            "id": "thermal_shock_reforged:dormant_monolith",
+            "UUID": [
+              1415946663,
+              -684044856,
+              -1487191898,
+              847279701
+            ],
+            "Motion": [
+              0.0,
+              -0.0784000015258789,
+              0.0
+            ],
+            "Health": 160.0,
+            "LeftHanded": 0,
+            "Air": 300,
+            "OnGround": 1,
+            "Rotation": [
+              -154.48907470703125,
+              0.0
+            ],
+            "HandItems": [
+              {},
+              {}
+            ],
+            "ArmorDropChances": [
+              0.08500000089406967,
+              0.08500000089406967,
+              0.08500000089406967,
+              0.08500000089406967
+            ],
+            "Pos": [
+              -3201.5,
+              72.0,
+              -5567.5
+            ],
+            "Fire": -1,
+            "ArmorItems": [
+              {},
+              {},
+              {},
+              {}
+            ],
+            "CanPickUpLoot": 0,
+            "HurtTime": 0,
+            "attributes": [
+              {
+                "id": "minecraft:generic.step_height",
+                "base": 2.0
+              },
+              {
+                "id": "minecraft:generic.follow_range",
+                "base": 128.0,
+                "modifiers": [
+                  {
+                    "id": "minecraft:random_spawn_bonus",
+                    "amount": 0.04272243777943615,
+                    "operation": "add_multiplied_base"
+                  }
+                ]
+              },
+              {
+                "id": "minecraft:generic.gravity",
+                "base": 0.08
+              },
+              {
+                "id": "minecraft:generic.movement_speed",
+                "base": 0.0
+              }
+            ],
+            "neoforge:spawn_type": "SPAWN_EGG"
+          },
+          "blockPos": [
+            1,
+            0,
+            1
+          ],
+          "pos": [
+            1.5,
+            0.0,
+            1.5
+          ]
+        }
+      ],
+      "block_and_positions_unchanged": true
+    }
+  },
+  "original_custom_loot_tables": [],
+  "vilebath_natural_source_closed": false,
+  "gradle_run": false,
+  "game_run": false
+}

@@ -1,0 +1,90 @@
+package com.hp.thermalshockreforged.entity.monolith;
+
+import com.hp.thermalshockreforged.world.timing.*;
+import java.lang.ref.WeakReference;
+import java.util.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.damagesource.*;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.*;
+
+public final class MonolithTaskEntity extends Entity implements ServerEndTickTask {
+    private UUID caster;
+    private UUID target;
+    private int targetEntityId;
+    private boolean playerTarget;
+    private WeakReference<LivingEntity> originalPlayer;
+    private Vec3 origin = Vec3.ZERO;
+    private Vec3 casterOrigin = Vec3.ZERO;
+    private String dimension = "";
+    private double damage;
+    private int elapsed;
+    private boolean attack;
+    private boolean armed;
+    public MonolithTaskEntity(EntityType<? extends MonolithTaskEntity> type, Level level) { super(type, level); noPhysics = true; setNoGravity(true); }
+    static MonolithTaskEntity submitAttack(ServerLevel server, MonolithEntity owner, LivingEntity victim) {
+        var task = MonolithContent.TASK.get().create(server);
+        if (task == null) return null;
+        task.caster = owner.getUUID(); task.target = victim.getUUID(); task.targetEntityId = victim.getId(); task.playerTarget = victim instanceof Player;
+        if (task.playerTarget) task.originalPlayer = new WeakReference<>(victim);
+        task.origin = victim.position(); task.captureCaster(owner); task.attack = true; task.dimension = server.dimension().location().toString(); task.damage = finite(owner.getAttributeValue(Attributes.ATTACK_DAMAGE) * MonolithConfig.STRIKE_MULTIPLIER.get()); task.armed = true;
+        if (server.addFreshEntity(task)) return task;
+        task.discard(); return null;
+    }
+    static boolean submitInitialization(ServerLevel server, Vec3 position) {
+        var task = MonolithContent.TASK.get().create(server);
+        if (task == null) return false;
+        task.origin = position; task.casterOrigin = position; task.setPos(position); task.dimension = server.dimension().location().toString(); task.armed = true;
+        if (server.addFreshEntity(task)) return true;
+        task.discard(); return false;
+    }
+    void captureCaster(MonolithEntity owner) { casterOrigin = owner.position(); setPos(casterOrigin); }
+    private MonolithEntity owner(ServerLevel server) { return caster != null && server.getEntity(caster) instanceof MonolithEntity owner ? owner : null; }
+    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
+    @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
+    @Override public void onAddedToLevel() { super.onAddedToLevel(); if (armed && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
+    @Override public void tick() {
+        super.tick();
+        if (level() instanceof ServerLevel server) {
+            if (!armed || !dimension.equals(server.dimension().location().toString())) { discard(); return; }
+            var owner = owner(server); if (attack && owner != null) captureCaster(owner);
+            ServerEndTickTasks.schedule(server, getUUID());
+        }
+    }
+    @Override public void endTick(ServerLevel server) {
+        if (isRemoved() || !armed || !dimension.equals(server.dimension().location().toString())) return;
+        if (attack) {
+            var owner = owner(server);
+            if (owner != null) captureCaster(owner);
+            else for (var other : server.getServer().getAllLevels()) if (other != server && caster != null && other.getEntity(caster) != null) { armed = false; discard(); return; }
+        }
+        int current = ++elapsed;
+        if (attack && (current == 12 || current == 22)) {
+            server.playSound(null, BlockPos.containing(origin), MonolithEntity.sound("monolithhurt"), SoundSource.HOSTILE, 1, 5);
+            if (target != null && !target.equals(caster) && server.getEntity(target) instanceof LivingEntity victim && victim.isAlive() && (!playerTarget || victim.getId() == targetEntityId && originalPlayer != null && originalPlayer.get() == victim) && victim.position().distanceTo(casterOrigin) <= 6) {
+                float amount = (float)finite(damage - victim.getArmorValue() * .2);
+                if (amount > 0) victim.hurt(new DamageSource(server.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.GENERIC)), amount);
+            }
+        } else if (!attack && current == 20) {
+            var closest = server.getEntitiesOfClass(DormantMonolithEntity.class, AABB.ofSize(origin, 128, 128, 128), entity -> true).stream().min(Comparator.comparingDouble(entity -> entity.distanceToSqr(origin))).orElse(null);
+            if (closest != null) closest.hurt(new DamageSource(server.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.EXPLOSION)), 1);
+        }
+        if (current >= (attack ? 22 : 20)) { armed = false; discard(); } else ServerEndTickTasks.schedule(server, getUUID());
+    }
+    private static double finite(double value) { return Double.isFinite(value) ? Math.clamp(value, 0, Float.MAX_VALUE) : 0; }
+    private static boolean valid(Vec3 value) { return Double.isFinite(value.x) && Double.isFinite(value.y) && Double.isFinite(value.z); }
+    @Override protected void addAdditionalSaveData(CompoundTag tag) {
+        if (caster != null) tag.putUUID("MonolithTaskCaster", caster); if (target != null) tag.putUUID("MonolithTaskTarget", target); tag.putInt("MonolithTaskTargetEntityId", targetEntityId); tag.putBoolean("MonolithTaskPlayerTarget", playerTarget); tag.putDouble("MonolithTaskX", origin.x); tag.putDouble("MonolithTaskY", origin.y); tag.putDouble("MonolithTaskZ", origin.z); tag.putDouble("MonolithTaskCasterX", casterOrigin.x); tag.putDouble("MonolithTaskCasterY", casterOrigin.y); tag.putDouble("MonolithTaskCasterZ", casterOrigin.z); tag.putString("MonolithTaskDimension", dimension); tag.putDouble("MonolithTaskDamage", damage); tag.putInt("MonolithTaskElapsed", elapsed); tag.putBoolean("MonolithTaskAttack", attack); tag.putBoolean("MonolithTaskArmed", armed);
+    }
+    @Override protected void readAdditionalSaveData(CompoundTag tag) {
+        caster = tag.hasUUID("MonolithTaskCaster") ? tag.getUUID("MonolithTaskCaster") : null; target = tag.hasUUID("MonolithTaskTarget") ? tag.getUUID("MonolithTaskTarget") : null; targetEntityId = tag.getInt("MonolithTaskTargetEntityId"); playerTarget = !tag.contains("MonolithTaskPlayerTarget") || tag.getBoolean("MonolithTaskPlayerTarget"); originalPlayer = null; origin = new Vec3(tag.getDouble("MonolithTaskX"), tag.getDouble("MonolithTaskY"), tag.getDouble("MonolithTaskZ")); casterOrigin = new Vec3(tag.getDouble("MonolithTaskCasterX"), tag.getDouble("MonolithTaskCasterY"), tag.getDouble("MonolithTaskCasterZ")); dimension = tag.getString("MonolithTaskDimension"); damage = finite(tag.getDouble("MonolithTaskDamage")); elapsed = Math.clamp(tag.getInt("MonolithTaskElapsed"), 0, 22); attack = tag.getBoolean("MonolithTaskAttack"); armed = tag.getBoolean("MonolithTaskArmed") && valid(origin) && valid(casterOrigin) && elapsed < (attack ? 22 : 20) && (!attack || caster != null && target != null && !caster.equals(target)); noPhysics = true; setNoGravity(true);
+    }
+}

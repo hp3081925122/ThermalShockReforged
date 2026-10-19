@@ -1,0 +1,44 @@
+{
+  "scope": "第95批Monolith/DormantMonolith独占文件交付；共享增量待主聊天集成",
+  "production_file_count": 12,
+  "production_sha256": {
+    "src/main/java/com/hp/thermalshockreforged/entity/monolith/DormantMonolithEntity.java": "3f42b3a3a3d01a8b90a14aa74273c32b9067ee0a71cbe7f55caf6631bb5c43a5",
+    "src/main/java/com/hp/thermalshockreforged/entity/monolith/MonolithBaseEntity.java": "ad45a8588fdad9c8a82e54207a74a9ad08ccddb7cdb18008f74cf624b676bde3",
+    "src/main/java/com/hp/thermalshockreforged/entity/monolith/MonolithConfig.java": "9a155f08dbb3ab48fea781f965aba8e32dc486a9af4d5ab329ed9a2aeb199b27",
+    "src/main/java/com/hp/thermalshockreforged/entity/monolith/MonolithContent.java": "f6b38015af330e6b06e8bb67d395cda45d02299a3433ba9c916faa07a8631d04",
+    "src/main/java/com/hp/thermalshockreforged/entity/monolith/MonolithEntity.java": "35abe71b203941ee3150daf4beac7763bfa0f33d1bfe45ffd2333ce181734af5",
+    "src/main/java/com/hp/thermalshockreforged/entity/monolith/MonolithTaskEntity.java": "49c2362f9dddf4132b997fd9ff20b24426dda79b9ac8cb7e4fefc361bb6dec18",
+    "src/main/java/com/hp/thermalshockreforged/client/monolith/MonolithRenderers.java": "5b451bf7691d91f9e7802e14d83c1563a9bcfbfe23a94158f3621ed34518c1b6",
+    "src/main/resources/data/thermal_shock_reforged/structure/monolith.nbt": "c34666506dcec50d13e69ac3aa599391bdc3ff88bb72fa57b7de6a8b0523691d",
+    "src/main/resources/data/thermal_shock_reforged/structure/nu_monoluth.nbt": "e26d27cc4d3accaba273fe37076189a70df972740ff548bc4fddb19740c2e7e0",
+    "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/monolith_spire_biome_modifier.json": "cbc739e2b8cf27a7515896583b92e91a808ec4bd8ddade541a3f3eff1e2e20b0",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/monolith_spire.json": "1dd62bfe5e4b4b69f497b822b880a8bb2d3f1617d5714b02bb09a36bac6a73aa",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/monolith_spire.json": "2c21cdde04ee482003df76033464c26ecf516adf9f206ae716b8beef58007c33"
+  },
+  "aggregate_sha256": "c731ca7bba5ad9cb3067aeda02230c99e18051434b37ad1b4971c48303d6eff5",
+  "aggregate_rule": "按相对路径排序，每行path+TAB+sha256+LF，UTF8后SHA256",
+  "report_sha256": {
+    "docs/migration/monolith-batch95.md": "2ddfb9c39536ea8f0308b6d430cb63a3b1ce57a44bd45b9792f9eb03f55c4df2",
+    "docs/migration/monolith-dependencies95.json": "53f9940da2dc092d0e20e99bde872ab78ec55f712e58bbc93a5a39c502f4e374",
+    "docs/migration/monolith-integration95.json": "72da936a080a7736ee9f79469362422135310368b1fcd3047af714dd84fb5cde",
+    "docs/migration/monolith-investigation95.json": "005a0f97a42817453918c98c4ad55491b94159ab6ef24ebe56d40fa06fc55b78",
+    "docs/migration/monolith-resources95.json": "bde8f3053061ef1ba580ec4ac6514b572abcd2d50fae30fcbf254870b65b2c01",
+    "docs/migration/monolith-validation95.json": "984d51d325a9fdafea4bd6a92af63714e21893a33dc826b6f2a0ad361cf3ba83"
+  },
+  "diff_check_utf8_text_files": 16,
+  "static_validation": "17组通过，详情monolith-validation95.json",
+  "standalone_monolith_source_closed": true,
+  "vilebath_source_closed": false,
+  "vilebath_pending": [
+    "thermal_geyser",
+    "hanging_sparkler_bulb",
+    "bloodstone_halberd完整技能物品",
+    "原vilebath_bridges池缺失/名称不一致",
+    "共享旧模板属性/状态逐项审计"
+  ],
+  "gradle_run": false,
+  "server_test": false,
+  "client_or_render_preview_test": false,
+  "staged_or_committed": false,
+  "shared_integration_applied": false
+}

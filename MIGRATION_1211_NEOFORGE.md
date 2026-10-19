@@ -376,3 +376,11 @@ Shutterbug六页介绍/真实相机/摄影及图鉴任务、首次Shalespring完
 有意差异集中REFORGED_CHANGES.md：去除Lens同坐标tp副作用／重复视角；朝向修本维选择、Spirit只转施法者并选活着非旁观玩家；死亡／攻击任务幂等与保存、转换失败限频；Crasher接回原根路径loot表。更正第93批动画桥误判：EntityAnimationFactory真实存在，notice控制器是替代迁移，旧错误说明已同步改回。
 
 Vilebath两城堡还缺DormantMonolith／Monolith，Thrasher的Graver目标也尚缺真实实体；原生内容仍在待办，未作为跨模组联动延期。下批优先补这两家族及完整结构依赖，开工仍先把约半分给既有独立聊天。整模组未完整；外模组联动仅见DEFERRED_MOD_INTEGRATIONS.md，最终专服／客户端／Render Preview由子代理在全部代码完整后执行。Palace／Shalespring两处启动修复已在5048aa3本地提交，后续推送会一并包含；当前仍无remote，不虚报已推送。
+
+## 第95批统一收尾
+
+Graver、NeonLimeGraver、Assimilator、AssimilatedGraver、Razoraptor完整家族已迁入，保五实体真实尺寸／AI／亡灵语义／20tick死亡经验、四皮肤非均匀初始化、十万分之一稀有形态及可见红名／5345XP、击杀一换一、感染与全局掉落／相机链。Razoraptor保真实招架、两分支／完整动画／10 SERVER END尾击，伤害按基础攻击×5/7和原减甲，击退按用户要求适中并折抗性。原24模型／动画／贴图／蛋资源逐字节、四生成语义、11组标签机械通过。修Assimilator无效death/walk2引用及替身取消吞原体，详细依据见gravers-batch95.md与REFORGED_CHANGES。
+
+另一聊天完成两Monolith完整形态、初始化20 END、12/22 END双击、80CD／40减速、60/20死亡经验、原完整Geo／发光／声音／死亡15轮表现及独立spire自然链。7Java＋5数据与19原资产静态核对，五既有Vilebath模板不修改；两原生块thermal_geyser/hanging_sparkler_bulb、bloodstone_halberd、原缺桥池和旧属性仍需后续闭合。Graver避Monolith和甲虫锁Graver均接真实类，所有共享标签追加保既有成员。
+
+两路停止写生产文件后固定8202源码／资源输入，Java21离线compileJava/processResources首次统一成功1m30s，24任务／2执行；7551构建资源逐字节与2展开模板通过，Monolith12生产文件与交付哈希全同、无编译修复，原中英翻译值保留。最终证据docs/migration/main95-static-validation.json，主线证据gravers-static95.json，分工证据monolith-validation95.json。skill新增已核动画／初始化转换案例并校验通过。未启动游戏，整模组仍未完整，最终专服／客户端／Render Preview待全代码后由子代理执行。

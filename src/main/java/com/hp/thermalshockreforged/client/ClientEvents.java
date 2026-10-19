@@ -58,6 +58,8 @@ public final class ClientEvents {
         com.hp.thermalshockreforged.client.gaze.GazeRenderers.register(event);
         com.hp.thermalshockreforged.client.titans.TitanRenderers.register(event);
         com.hp.thermalshockreforged.client.beetles.BeetleRenderers.register(event);
+        com.hp.thermalshockreforged.client.monolith.MonolithRenderers.register(event);
+        com.hp.thermalshockreforged.client.gravers.GraverRenderers.register(event);
         com.hp.thermalshockreforged.client.glastrekker.GlastrekkerRenderers.register(event);
         event.registerEntityRenderer(com.hp.thermalshockreforged.entity.titans.TitanContent.SWING.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.weapons.WeaponContent.BLADE_IMPACT.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
