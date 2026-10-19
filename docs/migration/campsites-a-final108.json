@@ -1,0 +1,519 @@
+{
+  "batch": 108,
+  "owner": "迁移A",
+  "status": "停笔交付，等待主线集成whisper后固定输入统一构建",
+  "baseline_head": "758d15ac612aebff67f3cf84a6b068f0156fce79",
+  "head_at_delivery": "758d15ac612aebff67f3cf84a6b068f0156fce79",
+  "original_jar_sha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436",
+  "production_count": 18,
+  "json_count": 13,
+  "nbt_count": 5,
+  "production_digest_sha256": "e07c5e075138a5d3185566bd248995c4f71eeffd01ac21f9364634b204a5e031",
+  "production_files": [
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/structure/large_campsite.json",
+      "sha256": "9cc8552bdaf533ebae0cb63d7d71bf217414cf56ff767a0d37fcc212e2802cd1",
+      "bytes": 422,
+      "source": "data/thermal_shock/worldgen/structure/large_campsite.json",
+      "source_sha256": "95b2542edc2b1bc97460ba2e3181205910506ff826d9fd257c11ede6a372b9af"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/large_campsite.json",
+      "sha256": "e6980c67e880f55219e407b6320dd60853419fecf1e0cd250a87cfb0b8f7b13c",
+      "bytes": 240,
+      "source": "data/thermal_shock/worldgen/structure_set/large_campsite.json",
+      "source_sha256": "564d6a894c1a4ee1b096f490aeb48eee70b78608dbabe819a7e899358ebd5195"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/large_campsite.json",
+      "sha256": "353b2e76048aa86361d09289995cd0f29755841a4f1dba4a56705859acb9d582",
+      "bytes": 682,
+      "source": "data/thermal_shock/worldgen/template_pool/large_campsite.json",
+      "source_sha256": "3b9bb355ca8877a271348a3cf887db27880d12f66e1091a569a243c894836418"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/structure/medium_campsite.json",
+      "sha256": "48a899183c520276feee111187d417dcf72c7ae6bb9cd052a45a412ff3ffbd60",
+      "bytes": 423,
+      "source": "data/thermal_shock/worldgen/structure/medium_campsite.json",
+      "source_sha256": "a9f3677460104320285a63ae051f5d13c4c8cbdf402beeed4a39aa403bd00e15"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/medium_campsite.json",
+      "sha256": "77a0319f6d77a94b1bcb793b88b9a868052418fa388087c5b7dffaa9020c1215",
+      "bytes": 242,
+      "source": "data/thermal_shock/worldgen/structure_set/medium_campsite.json",
+      "source_sha256": "395d8b063df4f25d4d6c9f5c7abc3db4b7b2bceffdbd276ea37327d4b743315a"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/medium_campsite.json",
+      "sha256": "081f5ef73bfef477806d0bb978443d78aff8cd5609c2b91862e2f11f45a148e4",
+      "bytes": 678,
+      "source": "data/thermal_shock/worldgen/template_pool/medium_campsite.json",
+      "source_sha256": "1cf58e0ea35277718c9836579d1b570ab1c7085ff5dacd7baec716c938aa1a60"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/structure/small_campsite.json",
+      "sha256": "40dbd36f8d64ffde321c35983047e95c00a7ba6350971278862cd3e49258ace2",
+      "bytes": 422,
+      "source": "data/thermal_shock/worldgen/structure/small_campsite.json",
+      "source_sha256": "f9098e1fe48d1f3e61e3bcecade6a5e42138e1676dbdcc44d7da590d8d089ef9"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/small_campsite.json",
+      "sha256": "4f89b699c9631a54f09e00d0dcf281950b8e805c4d225a3453373189dba40403",
+      "bytes": 241,
+      "source": "data/thermal_shock/worldgen/structure_set/small_campsite.json",
+      "source_sha256": "286b9e91ff3393312c83959ac905b5047bd337ab053d87f46c00bb63229de9b0"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/small_campsite.json",
+      "sha256": "5f288d6640c940780181178b4ba68edaccd6466b7ebdee9ccbaaaae659e668b0",
+      "bytes": 679,
+      "source": "data/thermal_shock/worldgen/template_pool/small_campsite.json",
+      "source_sha256": "7ddf394343bb2b828f62a39faa9b9da6727b2fdd212f9c94f0615a26bfcabc94"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/structure/shalespring_grove.json",
+      "sha256": "f85c4de47d2aaca7adefcb7008c07a4147ab23caa81b1025742529717ea5ada7",
+      "bytes": 477,
+      "source": "data/thermal_shock/worldgen/structure/shalespring_grove.json",
+      "source_sha256": "2088ac85cc59bb801da48bfeb9031f0c3af784d539513b3c379061ea6e1f2417"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/shalespring_grove.json",
+      "sha256": "c749331d42a32855a0e391666cc989f4e55f746e91f90aef898a52005dbbec0b",
+      "bytes": 241,
+      "source": "data/thermal_shock/worldgen/structure_set/shalespring_grove.json",
+      "source_sha256": "744ea10ce5ff3155587facacd93529eb5f091ace2d8f926cb32d68ae4d253f83"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/shalespring_grove.json",
+      "sha256": "e4e24fc482b1eb9091dd6dee8aeba38dc90edca0b3d8c7648e4aceba5aed9236",
+      "bytes": 620,
+      "source": "data/thermal_shock/worldgen/template_pool/shalespring_grove.json",
+      "source_sha256": "85bd82c075f0d3adc8ee155df682da38b85183d0a384fb96c84cdec3110ee0f1"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/biome/non_biome.json",
+      "sha256": "e8263914de65fd5d8b375fc2a1460875b777b28979a57acd7bc33e029694703a",
+      "bytes": 1006,
+      "source": "data/thermal_shock/worldgen/biome/non_biome.json",
+      "source_sha256": "05b697fd7c9abf7600001f0cc0d908039676c0a23e74b40f74d7550f92459b07"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/campmed.nbt",
+      "sha256": "5a3bbe563282dfc17f4c028643de31a72cc5031a4a353cf9a60e19c9a7f19580",
+      "bytes": 3788,
+      "source": "data/thermal_shock/structures/campmed.nbt",
+      "source_sha256": "32622016baba8d3ce6ef15eaa679ce1c441472e17338f5505b51f8b71f45729f"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/campsmall.nbt",
+      "sha256": "db4c2a4ea14532e5fe51b21a314d46d68975a9d1030b7e2f9466b6778e04ab60",
+      "bytes": 1500,
+      "source": "data/thermal_shock/structures/campsmall.nbt",
+      "source_sha256": "98a19082eaf7d44ec4f1d7d7bb815d38375cb6ced2d46aee4e47078182dba0a3"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/shalespring_grove_derelict.nbt",
+      "sha256": "cefb3edc7357c702336ba77d3b45b1c412a49e530542e874276d99df787929fe",
+      "bytes": 80359,
+      "source": "data/thermal_shock/structures/shalespring_grove_derelict.nbt",
+      "source_sha256": "fc4849075d5d126d26c8fe6fa5d42425d20e59560d084e319c762a84af2672ca"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/blizzard_outpost.nbt",
+      "sha256": "2e72e1e36031fa4bb1e5a5f45f3775f32d9f61c682cdd6487f6acf2603612eb3",
+      "bytes": 306516,
+      "source": "data/thermal_shock/structures/blizzard_outpost.nbt",
+      "source_sha256": "9258e9228fbe1fc28e86482e3e1bcc8bcd1473b8c4609e12fba62872aa973726"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/blizzardoutpostrubicon.nbt",
+      "sha256": "65a433ece01a4975a7bf4f6106dad39f34ee3541a12e9b6d28ec2150753a8db2",
+      "bytes": 303790,
+      "source": "data/thermal_shock/structures/blizzardoutpostrubicon.nbt",
+      "source_sha256": "477d990ae6f496edeb4fe3d3ef82a433d31488b4d9ca7100ee979e92a1c79aa2"
+    }
+  ],
+  "whisper_main_integration": {
+    "target": "src/main/resources/data/thermal_shock_reforged/structure/whisper_home.nbt",
+    "current_sha256": "bc91edb478059ec27ce2620a616af43d60550d829c75521d1dcc15f6f9c1a980",
+    "delivery": "D:\\AI临时文件\\ThermalShockMigration\\batch108a\\whisper_home-corrected.nbt",
+    "delivery_sha256": "ce1484f7ce14e99ee26f2101efc20f56cee2dbb92bbe06379a4f8d25f482e256",
+    "typed_diff": [
+      {
+        "path": "/entities/0/nbt/forge:spawn_type",
+        "source": {
+          "type": 8,
+          "value": "SPAWN_EGG"
+        },
+        "target": null
+      },
+      {
+        "path": "/entities/0/nbt/attributes/1/modifiers/0/id",
+        "source": {
+          "type": 8,
+          "value": "minecraft:random_spawn_bonus"
+        },
+        "target": {
+          "type": 8,
+          "value": "minecraft:bff9d74f-b60f-402c-8fe2-0a7ed9af30be"
+        }
+      },
+      {
+        "path": "/entities/0/nbt/attributes/2/id",
+        "source": {
+          "type": 8,
+          "value": "minecraft:generic.step_height"
+        },
+        "target": {
+          "type": 8,
+          "value": "forge:step_height"
+        }
+      },
+      {
+        "path": "/entities/0/nbt/neoforge:spawn_type",
+        "source": null,
+        "target": {
+          "type": 8,
+          "value": "SPAWN_EGG"
+        }
+      }
+    ],
+    "note": "只改变随机修饰符ID、spawn字段键、以及先前误映射的未知forge:step_height属性ID。旧未知属性继续保持未知并由AttributeMap忽略，目标实体默认步高与原0.6f相同；没有把无效保存值0强制成生效的0步高。"
+  },
+  "documents": [
+    {
+      "path": "docs/migration/campsites-a-api108.json",
+      "sha256": "146e47a2945e5d33ba1b0c2228b6896fc70129796770a95888b4a45d3a37f0cf",
+      "bytes": 87835
+    },
+    {
+      "path": "docs/migration/campsites-a-assets108.json",
+      "sha256": "261016db2e1806fb33e9996c5d026d362f50d9309cc3badb2c4d2cba84fc4197",
+      "bytes": 157336
+    },
+    {
+      "path": "docs/migration/campsites-a-batch108.md",
+      "sha256": "62b8c2915033047a96d7f850ecccb9e03e1b720e57f4a7772e712b17e0e73b17",
+      "bytes": 6681
+    },
+    {
+      "path": "docs/migration/campsites-a-data108.json",
+      "sha256": "a5db28d5b1a4b098434d447b4e9f2e561656ba7258353537059794636a59cd91",
+      "bytes": 24549
+    },
+    {
+      "path": "docs/migration/campsites-a-integration108.json",
+      "sha256": "d2fe73b7d25f49bc4f84a412c034f4ab71b4ea81817eb2c561e2ae57ae8fd487",
+      "bytes": 12019
+    },
+    {
+      "path": "docs/migration/campsites-a-sources108.json",
+      "sha256": "867ca78cd1a784617321d9c4b33eddd7da5ca649371c6f621bd32593acee0ec9",
+      "bytes": 136150
+    },
+    {
+      "path": "docs/migration/campsites-a-structures108.json",
+      "sha256": "b8d2856a938f0d66567aa0331fc4f8d0ea29b0d415d0d2e2f8c8f9a55f2c522e",
+      "bytes": 5810
+    },
+    {
+      "path": "docs/migration/campsites-a-typed-diff108.json",
+      "sha256": "2b2f874a495379a9310285caa1897f25f0fe81cdc55491b2e260707dc45421c1",
+      "bytes": 1230698
+    },
+    {
+      "path": "docs/migration/campsites-a-validation108.json",
+      "sha256": "482bf3b60ece967c97bb9d2149e1329706fd5ac490118856c6242a8220b86e36",
+      "bytes": 1030535
+    }
+  ],
+  "scripts": [
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\inspect-campsites108a.py",
+      "sha256": "7ce63df3bd7166e7e6801f1ec4bd77c0d2ec4d692ef2222c5ff83db22b1ef624"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\source-campsites108a.py",
+      "sha256": "25e95d99d82b23886042e1905460486840fc124ee8061d4a1f7bd74b157f5f6f"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\produce-campsites108a.py",
+      "sha256": "a383e5497f4fba858aeb60b28f4c8e5f2502e2543096f375e5d7db4bacfab2e6"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\validate-campsites108a.py",
+      "sha256": "8a5393744446831d7a861096afef44a87418daad54a33eb393e29e7a5170afe7"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\audit-campsites108a.py",
+      "sha256": "32fcc42d3bc8a5980c6cab12414c3ab0ba6252d331900814d91c735fc06cf353"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\api-campsites108a.py",
+      "sha256": "828d9723a40a37869a02e8ee7fd45ceaf92449477806cb1d1e31d545280a3ca4"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\finalize-campsites108a.py",
+      "sha256": "e51db96101a7ed12e1026c317f824fdff87667a8e6d2d679953be2592fbb8cf8"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\structure_stream106.py",
+      "sha256": "ca6c9c181e06f2899f4c406083188f037dbe2b924db20439da5d50cbd931de6b"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\migrate_vilebath_nbt.py",
+      "sha256": "5d179d84b9760c8336ce421e54225600985b8e3607568e7dfe34e41261ddf52e"
+    }
+  ],
+  "validation": {
+    "checks": 5770,
+    "payloads_including_whisper_delivery": 329,
+    "geometry_blocks_including_whisper_delivery": 259303,
+    "palette_ids": 109,
+    "registered_ids": 108,
+    "legacy_unknown_ids": 1,
+    "property_values_checked": 994,
+    "asset_files_checked": 366
+  },
+  "unknown_original_palette_positions": [
+    {
+      "template": "campmed",
+      "positions": [
+        {
+          "index": 133,
+          "pos": [
+            0,
+            1,
+            0
+          ],
+          "state": 6
+        },
+        {
+          "index": 134,
+          "pos": [
+            0,
+            1,
+            2
+          ],
+          "state": 6
+        },
+        {
+          "index": 138,
+          "pos": [
+            0,
+            1,
+            6
+          ],
+          "state": 6
+        },
+        {
+          "index": 140,
+          "pos": [
+            1,
+            1,
+            1
+          ],
+          "state": 6
+        },
+        {
+          "index": 148,
+          "pos": [
+            2,
+            1,
+            0
+          ],
+          "state": 6
+        },
+        {
+          "index": 161,
+          "pos": [
+            3,
+            1,
+            4
+          ],
+          "state": 6
+        },
+        {
+          "index": 172,
+          "pos": [
+            5,
+            1,
+            1
+          ],
+          "state": 6
+        },
+        {
+          "index": 175,
+          "pos": [
+            5,
+            1,
+            4
+          ],
+          "state": 6
+        },
+        {
+          "index": 181,
+          "pos": [
+            6,
+            1,
+            5
+          ],
+          "state": 6
+        },
+        {
+          "index": 188,
+          "pos": [
+            7,
+            1,
+            6
+          ],
+          "state": 6
+        },
+        {
+          "index": 195,
+          "pos": [
+            8,
+            1,
+            5
+          ],
+          "state": 6
+        },
+        {
+          "index": 196,
+          "pos": [
+            8,
+            1,
+            6
+          ],
+          "state": 6
+        },
+        {
+          "index": 205,
+          "pos": [
+            0,
+            2,
+            0
+          ],
+          "state": 6
+        },
+        {
+          "index": 253,
+          "pos": [
+            6,
+            2,
+            5
+          ],
+          "state": 6
+        },
+        {
+          "index": 271,
+          "pos": [
+            8,
+            2,
+            6
+          ],
+          "state": 6
+        },
+        {
+          "index": 281,
+          "pos": [
+            0,
+            3,
+            0
+          ],
+          "state": 6
+        }
+      ]
+    },
+    {
+      "template": "campsmall",
+      "positions": [
+        {
+          "index": 60,
+          "pos": [
+            2,
+            1,
+            0
+          ],
+          "state": 6
+        },
+        {
+          "index": 65,
+          "pos": [
+            3,
+            1,
+            0
+          ],
+          "state": 6
+        },
+        {
+          "index": 66,
+          "pos": [
+            3,
+            1,
+            1
+          ],
+          "state": 6
+        },
+        {
+          "index": 67,
+          "pos": [
+            3,
+            1,
+            4
+          ],
+          "state": 6
+        },
+        {
+          "index": 69,
+          "pos": [
+            4,
+            1,
+            1
+          ],
+          "state": 6
+        },
+        {
+          "index": 71,
+          "pos": [
+            4,
+            1,
+            3
+          ],
+          "state": 6
+        },
+        {
+          "index": 85,
+          "pos": [
+            4,
+            2,
+            1
+          ],
+          "state": 6
+        }
+      ]
+    }
+  ],
+  "nested_jigsaw_payloads": [],
+  "no_simplification_review": {
+    "all_original_blocks_geometry_state_order_preserved": true,
+    "all_entities_and_block_entities_typed_independent_expected_equal": true,
+    "no_modifier_collapse": true,
+    "seven_levitation_not_slowness": true,
+    "eight_orb_Count_preserved": true,
+    "two_real_item_stacks_migrated": true,
+    "six_spawner_payloads_preserved": true,
+    "all_13_json_only_namespace_changes": true,
+    "no_synthetic_non_biome_distribution": true,
+    "external_caps_preserved_without_claiming_integration": true
+  },
+  "limits": [
+    "whisper生产由主线接D盘精确修正，未接之前本批复用入口尚有已列问题。",
+    "本线只完成静态源码、typed及资源核验，不将其当作真实Codec运行、构建、服务端或渲染通过。",
+    "客户端及Render Preview待完整迁移和无简化复审后主线安排子代理；不联系、不干预独立服务端测试。"
+  ]
+}

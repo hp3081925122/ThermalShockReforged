@@ -522,3 +522,17 @@ Loqendia门完整保黑曜石2..21×3..21框、X/Z轴薄碰撞形状、即时双
 旧四模板的DataVersion与DFU入口已进一步查证：未知模组choice不能保证自动升级，130个模组实体旧属性和七个grunt药效等载荷已排108显式转换，同时完整保vanilla库存/书/经验球，不只改版本号。第108批按parallel-batch108.md预分，A承担较多；107阶段提交后解除生产冻结继续。
 
 用户最新测试安排：服务端由独立线进行中，不能视作已通过；全部代码完整且无简化复审后由主线安排子代理进行客户端及Render Preview对照。当前未启动游戏、不联系或干预服务端测试。模组整体仍未完成；无Git remote，阶段本地提交不是远程发布。
+
+## 第108批最终集成验证
+
+迁移A完成四条structure/set/pool链、原non_biome、三营地/树林完整模板及两Blizzard载荷；主线完成slagway/test_jigsaw两链、附池和两小模板，以及Palace/Shalespring的完整显式升级。本批20份JSON、九份本线模板及一份精确whisper修正，共30份生产变更。六条结构保原起点、高度图、terrain_adaptation、处理器、盐/间距/分离、候选/权重和真实消费者；non_biome原无维度/Java分布，不捏造自然气候入口，Rubicon无原精确消费者也不补概率。
+
+主线四模板共943658条块记录、19实体、100方块实体，保14真实物品栈、四页作者原文、fortune1/unbreaking1两书、六旗帜15层、九套实体属性及八spawn/两持久数据转换。A五生产模板共251815块、134实体、183BE，完整保原几何和载荷、七处实际levitation、八经验球Count、两真实掉落栈、六刷怪笼。A独立5770项typed检查、994状态值和366项原资产核对；主线独立报告另附，数量不代表游戏测试次数。
+
+Random spawn bonus按原各UUID映为独立minecraft:<uuid>，保每条Amount/Operation，防目标canonical固定ID合并旧记录或使结构初始化跳过原抽样。whisper_home接A精确增量，保原无效forge:step_height的被忽略语义，不将旧零值误映为有效原生零步高；forge:step_height_addition按真实原步高处理，两类不混同。loque_bush为原本未注册的palette遗留，保数据及原生空气回退，不凭名称造方块。修复和版本差异集中REFORGED_CHANGES及mcreator-rework已核案例，skill验证通过。
+
+两路停笔固定8709份src/main输入，Java21离线compileJava/processResources --max-workers=2统一通过，日志1m 34s；本批仅资源生产，compileJava为UP-TO-DATE、processResources执行。A18份、主线11份与共享whisper一份精确hash全部保持；构建期间全部输入不变，7923直接复制资源逐字节一致、两展开模板通过。既有847中文/3338英文值全保。最终总证据main108-static-validation.json，不将编译或静态检查当作世界生成/客户端/服务端实测。
+
+新全量盘点remaining-template-schema108.json记录92个非活跃模板，四活跃模板另由两路核验。13个旧字段候选和17个canonical修饰符模板不是按DataVersion自动定缺陷，已逐类列109继续原件回查；whisper本批已修、两新营地已保独立UUID，扫描快照不能覆盖本批最终状态。第109批按parallel-batch109.md继续让A承担较多体量，不因目录齐全或本批构建通过宣称整模组完整。
+
+用户确认服务端正在独立测试，生产线不联系、干预或重复启动；全部代码完整并无简化复审后，由主线安排子代理进行客户端及E:/模组/发cf的模组/Render Preview原件对照。当前没有启动游戏，正在测试不等于通过。Git无remote，只做本地阶段提交。

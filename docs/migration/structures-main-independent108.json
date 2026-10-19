@@ -1,0 +1,44 @@
+{
+  "batch": 108,
+  "reviewer": "/root/remaining_inventory97",
+  "passed": true,
+  "original_jar_sha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436",
+  "checks": {
+    "all_seven_json_namespace_only_semantics": true,
+    "testjig_and_testsaw_only_namespace_and_version_change": true,
+    "palace_and_shalespring_typed_difference_after_independent_expected_conversion": 0,
+    "all_geometry_positions_palettes_and_other_payloads_preserved": true,
+    "item_stacks": 14,
+    "writable_book_pages": 4,
+    "stored_enchantment_books": {
+      "minecraft:fortune": 1,
+      "minecraft:unbreaking": 1
+    },
+    "banners": 6,
+    "banner_layers": 15,
+    "entity_attribute_payloads": 9,
+    "spawn_type_payloads": 8,
+    "persistent_data_payloads": 2,
+    "modifier_uuid_identity_preserved": true,
+    "jigsaw_pool_chain_closed": true,
+    "component_codecs_inspected": [
+      "WritableBookContent.CODEC",
+      "ItemEnchantments.CODEC"
+    ]
+  },
+  "production_sha256": {
+    "src/main/resources/data/thermal_shock_reforged/worldgen/structure/slagway.json": "e71f3778af990d75e106967cf7664aea135ed7b9856d6eb1f3036a22739ee0fa",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/structure/test_jigsaw.json": "f5dcac541d9c3644410842a61ec7f2c245b88b200eaa2f11d218a60b2e641718",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/slagway.json": "e22d3d4ce8a8b170f7c00aec6db61bb8187a10f6a70492624cd5ac806dfb12e1",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/test_jigsaw.json": "b224fc75dff5ace16d8a3b8be978fd6e436d0bf990e69ffb8a3832085e874b35",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/slagway.json": "b836266822ad4c769e5def545dec3ff2dec232f37101cbc2f43ad2be9d437063",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/test_jigsaw.json": "d362c231a7239087d39ba356c3783c9187e4199631b6fbf96435d18919f7a581",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/test_jigsaw_testchecker.json": "5dabedc35bbdea81373a87d91dd062a1fa89eba9ba608d79ffda3b26b05472e2",
+    "src/main/resources/data/thermal_shock_reforged/structure/lavender_palace.nbt": "d85fa1790e718f1cbc1ff2d9cdfc927ac6b2d9cca64c1adc07f6b58331d06146",
+    "src/main/resources/data/thermal_shock_reforged/structure/shalespring_august.nbt": "32723e3ca6eb52cab2dad3af84d66e497f932e38b5bed336e6f2f347ae788c04",
+    "src/main/resources/data/thermal_shock_reforged/structure/testjig.nbt": "727060f4848fe0eb6a8dcb22127cb14ff26324ff50538f42437bf69df661609d",
+    "src/main/resources/data/thermal_shock_reforged/structure/testsaw.nbt": "390e15405b224b94481ff54c9d4dc6d57f7352a9811a91c2f0c34987a6601bf7"
+  },
+  "hash_provenance": "Hashes read mechanically from current files and checked against production manifests; do not copy reviewer inline hash transcription, which contained a testjig typo.",
+  "limits": "Read-only source/schema and typed data review. No runtime DFU, codec decode, game or rendering tests."
+}

@@ -1,0 +1,13 @@
+# 第109批预分工：结构实体旧字段与随机修饰符身份回查
+
+第108批固定输入统一构建期间仅准备，不改src/main。108完成统一验证与本地阶段提交后，由主线明确解除109生产冻结。先建立各自迁移文档，再生产；继续按预计复杂度把更多工作交迁移A。
+
+依据remaining-template-schema108.json的92模板静态快照，不以旧DataVersion或文件名差集判功能缺失。13个模板有显式旧字段标记，17个模板保存canonical随机bonus；whisper_home在108已按精确增量处理，不再列109。campmed/campsmall在108已保独立UUID，不因扫描中目标canonical为0误报漏失。其它UUID数量差异需逐条核原Modifier和目标列表，不能只改现有canonical后遗漏被折叠的原记录。
+
+迁移A独占六份目标NBT：orb_sanctum、blizzard_base、sunken_blizzard_lab、vilebath_castle、vilebathrubicon、keystonerubicon。按数据体量、实体/药效复杂度承担较多份额，包含巨型圣所和两份Vilebath；不得裁减几何、实体、效果或库存。核每份实际旧spawn/持久数据/无效属性、完整原UUID修饰符和目标实体基值/加载/出生初始化；未知旧属性不直接当原生有效属性映射，先核其原注册和实际生效性。保106圣所高度修复在JSON不变、此前所有目标正确组件/效果/cures与已有合理修复。源模板多条UUID若曾折叠，完整恢复各条身份/amount/op，不以当前列表数量为需求。
+
+主线独占十二份目标NBT：benzor_home、cathedral、cathedral_base、junkyard、junkyard_rubicon、kiosk、machinist_lab、monolith、nu_monoluth、slagway1、whisperden、whisperdenalt。相同原则逐路径修已确认格式差异；完整保原几何、palette、实体和嵌套库存、外cap、特殊字段。原无效forge:step_height等属性须核旧注册与实体默认步高，不能让旧被忽略值变成目标有效零步高。原forge:step_height_addition与entity_gravity则按实际原基值和目标API处理，不能混同。
+
+两路只改独占NBT与lane新增文档。Java、共享语言/标签、全局进度文档、REF和skill仅主线写；无确定需求不改Java和worldgen入口。完整typed差异、几何流式哈希、原JAR字段对照及最终精确SHA交付后停笔，再固定全部src/main统一compileJava/processResources，不独立编译、不游戏、不stage/commit。所有临时/脚本放D:/AI临时文件，UTF-8。客户端/Render Preview在整模组完整及无简化复审后由主线交子代理，服务端独立测试不联系干预。
+
+当前：预分工已冻结，生产尚未解除。自然modifier56项的依赖仅进行只读准备，下一批单独排期，避免与本批模板共改或捏造重复自然入口。

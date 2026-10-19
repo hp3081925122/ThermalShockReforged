@@ -1,0 +1,724 @@
+{
+  "batch": 108,
+  "count": 13,
+  "files": [
+    {
+      "source": "data/thermal_shock/worldgen/structure/large_campsite.json",
+      "source_sha256": "95b2542edc2b1bc97460ba2e3181205910506ff826d9fd257c11ede6a372b9af",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/structure/large_campsite.json",
+      "sha256": "9cc8552bdaf533ebae0cb63d7d71bf217414cf56ff767a0d37fcc212e2802cd1",
+      "source_json": {
+        "type": "minecraft:jigsaw",
+        "start_pool": "thermal_shock:large_campsite",
+        "size": 1,
+        "max_distance_from_center": 64,
+        "spawn_overrides": {},
+        "step": "surface_structures",
+        "terrain_adaptation": "beard_thin",
+        "start_height": {
+          "absolute": 0
+        },
+        "project_start_to_heightmap": "MOTION_BLOCKING_NO_LEAVES",
+        "biomes": "thermal_shock:vermillion_woods",
+        "use_expansion_hack": false
+      },
+      "target_json": {
+        "type": "minecraft:jigsaw",
+        "start_pool": "thermal_shock_reforged:large_campsite",
+        "size": 1,
+        "max_distance_from_center": 64,
+        "spawn_overrides": {},
+        "step": "surface_structures",
+        "terrain_adaptation": "beard_thin",
+        "start_height": {
+          "absolute": 0
+        },
+        "project_start_to_heightmap": "MOTION_BLOCKING_NO_LEAVES",
+        "biomes": "thermal_shock_reforged:vermillion_woods",
+        "use_expansion_hack": false
+      },
+      "change": "仅模组命名空间"
+    },
+    {
+      "source": "data/thermal_shock/worldgen/structure_set/large_campsite.json",
+      "source_sha256": "564d6a894c1a4ee1b096f490aeb48eee70b78608dbabe819a7e899358ebd5195",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/large_campsite.json",
+      "sha256": "e6980c67e880f55219e407b6320dd60853419fecf1e0cd250a87cfb0b8f7b13c",
+      "source_json": {
+        "structures": [
+          {
+            "structure": "thermal_shock:large_campsite",
+            "weight": 1
+          }
+        ],
+        "placement": {
+          "type": "minecraft:random_spread",
+          "spacing": 33,
+          "separation": 25,
+          "salt": 447405730
+        }
+      },
+      "target_json": {
+        "structures": [
+          {
+            "structure": "thermal_shock_reforged:large_campsite",
+            "weight": 1
+          }
+        ],
+        "placement": {
+          "type": "minecraft:random_spread",
+          "spacing": 33,
+          "separation": 25,
+          "salt": 447405730
+        }
+      },
+      "change": "仅模组命名空间"
+    },
+    {
+      "source": "data/thermal_shock/worldgen/template_pool/large_campsite.json",
+      "source_sha256": "3b9bb355ca8877a271348a3cf887db27880d12f66e1091a569a243c894836418",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/large_campsite.json",
+      "sha256": "353b2e76048aa86361d09289995cd0f29755841a4f1dba4a56705859acb9d582",
+      "source_json": {
+        "name": "thermal_shock:large_campsite",
+        "fallback": "minecraft:empty",
+        "elements": [
+          {
+            "weight": 1,
+            "element": {
+              "element_type": "minecraft:single_pool_element",
+              "location": "thermal_shock:whisper_home",
+              "projection": "rigid",
+              "processors": {
+                "processors": [
+                  {
+                    "processor_type": "minecraft:block_ignore",
+                    "blocks": [
+                      {
+                        "Name": "minecraft:structure_block"
+                      },
+                      {
+                        "Name": "minecraft:air"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "target_json": {
+        "name": "thermal_shock_reforged:large_campsite",
+        "fallback": "minecraft:empty",
+        "elements": [
+          {
+            "weight": 1,
+            "element": {
+              "element_type": "minecraft:single_pool_element",
+              "location": "thermal_shock_reforged:whisper_home",
+              "projection": "rigid",
+              "processors": {
+                "processors": [
+                  {
+                    "processor_type": "minecraft:block_ignore",
+                    "blocks": [
+                      {
+                        "Name": "minecraft:structure_block"
+                      },
+                      {
+                        "Name": "minecraft:air"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "change": "仅模组命名空间"
+    },
+    {
+      "source": "data/thermal_shock/worldgen/structure/medium_campsite.json",
+      "source_sha256": "a9f3677460104320285a63ae051f5d13c4c8cbdf402beeed4a39aa403bd00e15",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/structure/medium_campsite.json",
+      "sha256": "48a899183c520276feee111187d417dcf72c7ae6bb9cd052a45a412ff3ffbd60",
+      "source_json": {
+        "type": "minecraft:jigsaw",
+        "start_pool": "thermal_shock:medium_campsite",
+        "size": 1,
+        "max_distance_from_center": 64,
+        "spawn_overrides": {},
+        "step": "surface_structures",
+        "terrain_adaptation": "beard_thin",
+        "start_height": {
+          "absolute": 0
+        },
+        "project_start_to_heightmap": "MOTION_BLOCKING_NO_LEAVES",
+        "biomes": "thermal_shock:vermillion_woods",
+        "use_expansion_hack": false
+      },
+      "target_json": {
+        "type": "minecraft:jigsaw",
+        "start_pool": "thermal_shock_reforged:medium_campsite",
+        "size": 1,
+        "max_distance_from_center": 64,
+        "spawn_overrides": {},
+        "step": "surface_structures",
+        "terrain_adaptation": "beard_thin",
+        "start_height": {
+          "absolute": 0
+        },
+        "project_start_to_heightmap": "MOTION_BLOCKING_NO_LEAVES",
+        "biomes": "thermal_shock_reforged:vermillion_woods",
+        "use_expansion_hack": false
+      },
+      "change": "仅模组命名空间"
+    },
+    {
+      "source": "data/thermal_shock/worldgen/structure_set/medium_campsite.json",
+      "source_sha256": "395d8b063df4f25d4d6c9f5c7abc3db4b7b2bceffdbd276ea37327d4b743315a",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/medium_campsite.json",
+      "sha256": "77a0319f6d77a94b1bcb793b88b9a868052418fa388087c5b7dffaa9020c1215",
+      "source_json": {
+        "structures": [
+          {
+            "structure": "thermal_shock:medium_campsite",
+            "weight": 1
+          }
+        ],
+        "placement": {
+          "type": "minecraft:random_spread",
+          "spacing": 29,
+          "separation": 24,
+          "salt": 2111122755
+        }
+      },
+      "target_json": {
+        "structures": [
+          {
+            "structure": "thermal_shock_reforged:medium_campsite",
+            "weight": 1
+          }
+        ],
+        "placement": {
+          "type": "minecraft:random_spread",
+          "spacing": 29,
+          "separation": 24,
+          "salt": 2111122755
+        }
+      },
+      "change": "仅模组命名空间"
+    },
+    {
+      "source": "data/thermal_shock/worldgen/template_pool/medium_campsite.json",
+      "source_sha256": "1cf58e0ea35277718c9836579d1b570ab1c7085ff5dacd7baec716c938aa1a60",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/medium_campsite.json",
+      "sha256": "081f5ef73bfef477806d0bb978443d78aff8cd5609c2b91862e2f11f45a148e4",
+      "source_json": {
+        "name": "thermal_shock:medium_campsite",
+        "fallback": "minecraft:empty",
+        "elements": [
+          {
+            "weight": 1,
+            "element": {
+              "element_type": "minecraft:single_pool_element",
+              "location": "thermal_shock:campmed",
+              "projection": "rigid",
+              "processors": {
+                "processors": [
+                  {
+                    "processor_type": "minecraft:block_ignore",
+                    "blocks": [
+                      {
+                        "Name": "minecraft:structure_block"
+                      },
+                      {
+                        "Name": "minecraft:air"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "target_json": {
+        "name": "thermal_shock_reforged:medium_campsite",
+        "fallback": "minecraft:empty",
+        "elements": [
+          {
+            "weight": 1,
+            "element": {
+              "element_type": "minecraft:single_pool_element",
+              "location": "thermal_shock_reforged:campmed",
+              "projection": "rigid",
+              "processors": {
+                "processors": [
+                  {
+                    "processor_type": "minecraft:block_ignore",
+                    "blocks": [
+                      {
+                        "Name": "minecraft:structure_block"
+                      },
+                      {
+                        "Name": "minecraft:air"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "change": "仅模组命名空间"
+    },
+    {
+      "source": "data/thermal_shock/worldgen/structure/small_campsite.json",
+      "source_sha256": "f9098e1fe48d1f3e61e3bcecade6a5e42138e1676dbdcc44d7da590d8d089ef9",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/structure/small_campsite.json",
+      "sha256": "40dbd36f8d64ffde321c35983047e95c00a7ba6350971278862cd3e49258ace2",
+      "source_json": {
+        "type": "minecraft:jigsaw",
+        "start_pool": "thermal_shock:small_campsite",
+        "size": 1,
+        "max_distance_from_center": 64,
+        "spawn_overrides": {},
+        "step": "surface_structures",
+        "terrain_adaptation": "beard_thin",
+        "start_height": {
+          "absolute": 0
+        },
+        "project_start_to_heightmap": "MOTION_BLOCKING_NO_LEAVES",
+        "biomes": "thermal_shock:vermillion_woods",
+        "use_expansion_hack": false
+      },
+      "target_json": {
+        "type": "minecraft:jigsaw",
+        "start_pool": "thermal_shock_reforged:small_campsite",
+        "size": 1,
+        "max_distance_from_center": 64,
+        "spawn_overrides": {},
+        "step": "surface_structures",
+        "terrain_adaptation": "beard_thin",
+        "start_height": {
+          "absolute": 0
+        },
+        "project_start_to_heightmap": "MOTION_BLOCKING_NO_LEAVES",
+        "biomes": "thermal_shock_reforged:vermillion_woods",
+        "use_expansion_hack": false
+      },
+      "change": "仅模组命名空间"
+    },
+    {
+      "source": "data/thermal_shock/worldgen/structure_set/small_campsite.json",
+      "source_sha256": "286b9e91ff3393312c83959ac905b5047bd337ab053d87f46c00bb63229de9b0",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/small_campsite.json",
+      "sha256": "4f89b699c9631a54f09e00d0dcf281950b8e805c4d225a3453373189dba40403",
+      "source_json": {
+        "structures": [
+          {
+            "structure": "thermal_shock:small_campsite",
+            "weight": 1
+          }
+        ],
+        "placement": {
+          "type": "minecraft:random_spread",
+          "spacing": 24,
+          "separation": 19,
+          "salt": 1195296416
+        }
+      },
+      "target_json": {
+        "structures": [
+          {
+            "structure": "thermal_shock_reforged:small_campsite",
+            "weight": 1
+          }
+        ],
+        "placement": {
+          "type": "minecraft:random_spread",
+          "spacing": 24,
+          "separation": 19,
+          "salt": 1195296416
+        }
+      },
+      "change": "仅模组命名空间"
+    },
+    {
+      "source": "data/thermal_shock/worldgen/template_pool/small_campsite.json",
+      "source_sha256": "7ddf394343bb2b828f62a39faa9b9da6727b2fdd212f9c94f0615a26bfcabc94",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/small_campsite.json",
+      "sha256": "5f288d6640c940780181178b4ba68edaccd6466b7ebdee9ccbaaaae659e668b0",
+      "source_json": {
+        "name": "thermal_shock:small_campsite",
+        "fallback": "minecraft:empty",
+        "elements": [
+          {
+            "weight": 1,
+            "element": {
+              "element_type": "minecraft:single_pool_element",
+              "location": "thermal_shock:campsmall",
+              "projection": "rigid",
+              "processors": {
+                "processors": [
+                  {
+                    "processor_type": "minecraft:block_ignore",
+                    "blocks": [
+                      {
+                        "Name": "minecraft:structure_block"
+                      },
+                      {
+                        "Name": "minecraft:air"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "target_json": {
+        "name": "thermal_shock_reforged:small_campsite",
+        "fallback": "minecraft:empty",
+        "elements": [
+          {
+            "weight": 1,
+            "element": {
+              "element_type": "minecraft:single_pool_element",
+              "location": "thermal_shock_reforged:campsmall",
+              "projection": "rigid",
+              "processors": {
+                "processors": [
+                  {
+                    "processor_type": "minecraft:block_ignore",
+                    "blocks": [
+                      {
+                        "Name": "minecraft:structure_block"
+                      },
+                      {
+                        "Name": "minecraft:air"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "change": "仅模组命名空间"
+    },
+    {
+      "source": "data/thermal_shock/worldgen/structure/shalespring_grove.json",
+      "source_sha256": "2088ac85cc59bb801da48bfeb9031f0c3af784d539513b3c379061ea6e1f2417",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/structure/shalespring_grove.json",
+      "sha256": "f85c4de47d2aaca7adefcb7008c07a4147ab23caa81b1025742529717ea5ada7",
+      "source_json": {
+        "type": "minecraft:jigsaw",
+        "start_pool": "thermal_shock:shalespring_grove",
+        "size": 1,
+        "max_distance_from_center": 64,
+        "spawn_overrides": {},
+        "step": "underground_structures",
+        "terrain_adaptation": "beard_thin",
+        "start_height": {
+          "type": "minecraft:uniform",
+          "min_inclusive": {
+            "absolute": 0
+          },
+          "max_inclusive": {
+            "absolute": 128
+          }
+        },
+        "biomes": "thermal_shock:non_biome",
+        "use_expansion_hack": false
+      },
+      "target_json": {
+        "type": "minecraft:jigsaw",
+        "start_pool": "thermal_shock_reforged:shalespring_grove",
+        "size": 1,
+        "max_distance_from_center": 64,
+        "spawn_overrides": {},
+        "step": "underground_structures",
+        "terrain_adaptation": "beard_thin",
+        "start_height": {
+          "type": "minecraft:uniform",
+          "min_inclusive": {
+            "absolute": 0
+          },
+          "max_inclusive": {
+            "absolute": 128
+          }
+        },
+        "biomes": "thermal_shock_reforged:non_biome",
+        "use_expansion_hack": false
+      },
+      "change": "仅模组命名空间"
+    },
+    {
+      "source": "data/thermal_shock/worldgen/structure_set/shalespring_grove.json",
+      "source_sha256": "744ea10ce5ff3155587facacd93529eb5f091ace2d8f926cb32d68ae4d253f83",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/shalespring_grove.json",
+      "sha256": "c749331d42a32855a0e391666cc989f4e55f746e91f90aef898a52005dbbec0b",
+      "source_json": {
+        "structures": [
+          {
+            "structure": "thermal_shock:shalespring_grove",
+            "weight": 1
+          }
+        ],
+        "placement": {
+          "type": "minecraft:random_spread",
+          "spacing": 5,
+          "separation": 2,
+          "salt": 390619096
+        }
+      },
+      "target_json": {
+        "structures": [
+          {
+            "structure": "thermal_shock_reforged:shalespring_grove",
+            "weight": 1
+          }
+        ],
+        "placement": {
+          "type": "minecraft:random_spread",
+          "spacing": 5,
+          "separation": 2,
+          "salt": 390619096
+        }
+      },
+      "change": "仅模组命名空间"
+    },
+    {
+      "source": "data/thermal_shock/worldgen/template_pool/shalespring_grove.json",
+      "source_sha256": "85bd82c075f0d3adc8ee155df682da38b85183d0a384fb96c84cdec3110ee0f1",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/shalespring_grove.json",
+      "sha256": "e4e24fc482b1eb9091dd6dee8aeba38dc90edca0b3d8c7648e4aceba5aed9236",
+      "source_json": {
+        "name": "thermal_shock:shalespring_grove",
+        "fallback": "minecraft:empty",
+        "elements": [
+          {
+            "weight": 1,
+            "element": {
+              "element_type": "minecraft:single_pool_element",
+              "location": "thermal_shock:shalespring_grove_derelict",
+              "projection": "rigid",
+              "processors": {
+                "processors": [
+                  {
+                    "processor_type": "minecraft:block_ignore",
+                    "blocks": [
+                      {
+                        "Name": "minecraft:structure_block"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "target_json": {
+        "name": "thermal_shock_reforged:shalespring_grove",
+        "fallback": "minecraft:empty",
+        "elements": [
+          {
+            "weight": 1,
+            "element": {
+              "element_type": "minecraft:single_pool_element",
+              "location": "thermal_shock_reforged:shalespring_grove_derelict",
+              "projection": "rigid",
+              "processors": {
+                "processors": [
+                  {
+                    "processor_type": "minecraft:block_ignore",
+                    "blocks": [
+                      {
+                        "Name": "minecraft:structure_block"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "change": "仅模组命名空间"
+    },
+    {
+      "source": "data/thermal_shock/worldgen/biome/non_biome.json",
+      "source_sha256": "05b697fd7c9abf7600001f0cc0d908039676c0a23e74b40f74d7550f92459b07",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/biome/non_biome.json",
+      "sha256": "e8263914de65fd5d8b375fc2a1460875b777b28979a57acd7bc33e029694703a",
+      "source_json": {
+        "has_precipitation": true,
+        "temperature": 0.1,
+        "downfall": 0.8,
+        "effects": {
+          "music": {
+            "sound": "thermal_shock:boreanforest",
+            "min_delay": 12000,
+            "max_delay": 24000,
+            "replace_current_music": true
+          },
+          "particle": {
+            "options": {
+              "type": "white_ash"
+            },
+            "probability": 0.015
+          },
+          "foliage_color": 10387789,
+          "grass_color": 9470285,
+          "sky_color": -11578009,
+          "fog_color": -8089689,
+          "water_color": -12824982,
+          "water_fog_color": -13486995
+        },
+        "spawners": {
+          "monster": [
+            {
+              "type": "enderman",
+              "weight": 8,
+              "minCount": 1,
+              "maxCount": 1
+            }
+          ],
+          "creature": [],
+          "ambient": [],
+          "axolotls": [],
+          "underground_water_creature": [],
+          "water_creature": [],
+          "water_ambient": [],
+          "misc": []
+        },
+        "spawn_costs": {},
+        "carvers": {},
+        "features": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ]
+      },
+      "target_json": {
+        "has_precipitation": true,
+        "temperature": 0.1,
+        "downfall": 0.8,
+        "effects": {
+          "music": {
+            "sound": "thermal_shock_reforged:boreanforest",
+            "min_delay": 12000,
+            "max_delay": 24000,
+            "replace_current_music": true
+          },
+          "particle": {
+            "options": {
+              "type": "white_ash"
+            },
+            "probability": 0.015
+          },
+          "foliage_color": 10387789,
+          "grass_color": 9470285,
+          "sky_color": -11578009,
+          "fog_color": -8089689,
+          "water_color": -12824982,
+          "water_fog_color": -13486995
+        },
+        "spawners": {
+          "monster": [
+            {
+              "type": "enderman",
+              "weight": 8,
+              "minCount": 1,
+              "maxCount": 1
+            }
+          ],
+          "creature": [],
+          "ambient": [],
+          "axolotls": [],
+          "underground_water_creature": [],
+          "water_creature": [],
+          "water_ambient": [],
+          "misc": []
+        },
+        "spawn_costs": {},
+        "carvers": {},
+        "features": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ]
+      },
+      "change": "仅模组命名空间"
+    }
+  ],
+  "original_references": {
+    "large_campsite": [
+      "data/thermal_shock/worldgen/structure/large_campsite.json",
+      "data/thermal_shock/worldgen/structure_set/large_campsite.json",
+      "data/thermal_shock/worldgen/template_pool/large_campsite.json"
+    ],
+    "medium_campsite": [
+      "data/thermal_shock/worldgen/structure/medium_campsite.json",
+      "data/thermal_shock/worldgen/structure_set/medium_campsite.json",
+      "data/thermal_shock/worldgen/template_pool/medium_campsite.json"
+    ],
+    "small_campsite": [
+      "data/thermal_shock/worldgen/structure/small_campsite.json",
+      "data/thermal_shock/worldgen/structure_set/small_campsite.json",
+      "data/thermal_shock/worldgen/template_pool/small_campsite.json"
+    ],
+    "shalespring_grove": [
+      "data/thermal_shock/worldgen/structure/shalespring_grove.json",
+      "data/thermal_shock/worldgen/structure_set/shalespring_grove.json",
+      "data/thermal_shock/worldgen/template_pool/shalespring_grove.json"
+    ],
+    "campmed": [
+      "data/thermal_shock/worldgen/template_pool/medium_campsite.json"
+    ],
+    "campsmall": [
+      "data/thermal_shock/worldgen/template_pool/small_campsite.json"
+    ],
+    "shalespring_grove_derelict": [
+      "data/thermal_shock/worldgen/template_pool/shalespring_grove.json"
+    ],
+    "whisper_home": [
+      "data/thermal_shock/worldgen/template_pool/large_campsite.json"
+    ],
+    "blizzard_outpost": [
+      "data/thermal_shock/worldgen/structure/blizzard_outpost.json",
+      "data/thermal_shock/worldgen/structure_set/blizzard_outpost.json",
+      "data/thermal_shock/worldgen/template_pool/blizzard_outpost.json"
+    ],
+    "blizzardoutpostrubicon": [],
+    "non_biome": [
+      "data/thermal_shock/worldgen/structure/shalespring_grove.json",
+      "data/thermal_shock/worldgen/structure/slagway.json",
+      "data/thermal_shock/worldgen/structure/test_jigsaw.json"
+    ]
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "batch": 108,
+  "structures": [
+    {
+      "id": "lavender_palace",
+      "source": "data/thermal_shock/structures/lavender_palace.nbt",
+      "source_sha256": "2fe007073a4baa8c0cd37be6cabfe31377f4811ff998c7dd6409155894187bfe",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/lavender_palace.nbt",
+      "sha256": "d85fa1790e718f1cbc1ff2d9cdfc927ac6b2d9cca64c1adc07f6b58331d06146",
+      "size": [
+        137,
+        32,
+        137
+      ],
+      "blocks": 600608,
+      "entities": 13,
+      "block_entities": 46,
+      "conversion_counts": {
+        "writable_book_pages": 4,
+        "item_stacks": 1,
+        "entities_with_attributes": 5,
+        "spawn_type": 5,
+        "uuid_identity_modifiers": 5
+      },
+      "geometry_sha256": "cba4b501f4048da4f46f2d5ff42e00b1229eb0b020b7981327378886d15cb4d9",
+      "geometry_equal": true,
+      "palette_namespace_only": true,
+      "external_caps_and_balm_typed_equal": true,
+      "source_and_target_roundtrip": true,
+      "typed_difference_count": 159
+    },
+    {
+      "id": "shalespring_august",
+      "source": "data/thermal_shock/structures/shalespring_august.nbt",
+      "source_sha256": "11043ed9ecfe914199b9602cfb20a1f97bcdef1f5a35f2677114e1e21a7a0a9d",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/shalespring_august.nbt",
+      "sha256": "32723e3ca6eb52cab2dad3af84d66e497f932e38b5bed336e6f2f347ae788c04",
+      "size": [
+        70,
+        70,
+        70
+      ],
+      "blocks": 343000,
+      "entities": 6,
+      "block_entities": 52,
+      "conversion_counts": {
+        "item_stacks": 13,
+        "banners": 6,
+        "banner_layers": 15,
+        "stored_enchantment_books": 2,
+        "entities_with_attributes": 4,
+        "spawn_type": 3,
+        "persistent_data": 2,
+        "uuid_identity_modifiers": 3
+      },
+      "geometry_sha256": "45e4dd8dd2319df96fa9ebf7a5f1e683c1f5fa97d6c87ede2138c55de2d23972",
+      "geometry_equal": true,
+      "palette_namespace_only": true,
+      "external_caps_and_balm_typed_equal": true,
+      "source_and_target_roundtrip": true,
+      "typed_difference_count": 396
+    },
+    {
+      "id": "testjig",
+      "source": "data/thermal_shock/structures/testjig.nbt",
+      "source_sha256": "113646aaf96b4ef9903fabceca12fe438223107627bd3d148176b54928067a46",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/testjig.nbt",
+      "sha256": "727060f4848fe0eb6a8dcb22127cb14ff26324ff50538f42437bf69df661609d",
+      "size": [
+        5,
+        5,
+        1
+      ],
+      "blocks": 25,
+      "entities": 0,
+      "block_entities": 1,
+      "conversion_counts": {},
+      "geometry_sha256": "05fcc9643c82a5eaada556b13a2f195e68c34dc43e23dabb943f8199a339a92e",
+      "geometry_equal": true,
+      "palette_namespace_only": true,
+      "external_caps_and_balm_typed_equal": true,
+      "source_and_target_roundtrip": true,
+      "typed_difference_count": 5
+    },
+    {
+      "id": "testsaw",
+      "source": "data/thermal_shock/structures/testsaw.nbt",
+      "source_sha256": "09f3713b9bd5edfe7c98ddc8d0f0cb4fffc52501aba1f614f38b728c331688fe",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/testsaw.nbt",
+      "sha256": "390e15405b224b94481ff54c9d4dc6d57f7352a9811a91c2f0c34987a6601bf7",
+      "size": [
+        5,
+        5,
+        1
+      ],
+      "blocks": 25,
+      "entities": 0,
+      "block_entities": 1,
+      "conversion_counts": {},
+      "geometry_sha256": "536a0502f27c66c398694ee7d9a3b0b7cd809ad5ec41ec64afa79e04a8473dee",
+      "geometry_equal": true,
+      "palette_namespace_only": true,
+      "external_caps_and_balm_typed_equal": true,
+      "source_and_target_roundtrip": true,
+      "typed_difference_count": 4
+    }
+  ],
+  "totals": {
+    "blocks": 943658,
+    "entities": 19,
+    "block_entities": 100,
+    "typed_difference_count": 564
+  }
+}

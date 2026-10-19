@@ -1,0 +1,337 @@
+{
+  "batch": 108,
+  "status": "所属18份生产资源和静态检查已完成，最终清单交付后停笔，待主线接whisper并统一构建。",
+  "shared_java_increment": [],
+  "shared_language_increment": [],
+  "shared_tags_increment": [],
+  "source_correction": "七个grunt效果的实际原件为minecraft:levitation/Id25/Amplifier1/Duration5，不是slowness。按原件迁移漂浮。",
+  "modifier_strategy": "Blizzard原有223条Random spawn bonus，全部保每条Amount/Operation及UUID身份，UUID映射minecraft:<uuid>，不合并成canonical random_spawn_bonus。原1.20.1每次finalizeSpawn新增随机UUID修饰符；目标有canonical才跳过采样。使用独立保存ID允许结构finalize继续消耗同样的随机采样并增加出生修饰符，保原全部记录与时机。",
+  "whisper_home_followup": {
+    "target": "src/main/resources/data/thermal_shock_reforged/structure/whisper_home.nbt",
+    "current_sha256": "bc91edb478059ec27ce2620a616af43d60550d829c75521d1dcc15f6f9c1a980",
+    "delivery": "D:\\AI临时文件\\ThermalShockMigration\\batch108a\\whisper_home-corrected.nbt",
+    "delivery_sha256": "ce1484f7ce14e99ee26f2101efc20f56cee2dbb92bbe06379a4f8d25f482e256",
+    "typed_diff": [
+      {
+        "path": "/entities/0/nbt/forge:spawn_type",
+        "source": {
+          "type": 8,
+          "value": "SPAWN_EGG"
+        },
+        "target": null
+      },
+      {
+        "path": "/entities/0/nbt/attributes/1/modifiers/0/id",
+        "source": {
+          "type": 8,
+          "value": "minecraft:random_spawn_bonus"
+        },
+        "target": {
+          "type": 8,
+          "value": "minecraft:bff9d74f-b60f-402c-8fe2-0a7ed9af30be"
+        }
+      },
+      {
+        "path": "/entities/0/nbt/attributes/2/id",
+        "source": {
+          "type": 8,
+          "value": "minecraft:generic.step_height"
+        },
+        "target": {
+          "type": 8,
+          "value": "forge:step_height"
+        }
+      },
+      {
+        "path": "/entities/0/nbt/neoforge:spawn_type",
+        "source": null,
+        "target": {
+          "type": 8,
+          "value": "SPAWN_EGG"
+        }
+      }
+    ],
+    "note": "只改变随机修饰符ID、spawn字段键、以及先前误映射的未知forge:step_height属性ID。旧未知属性继续保持未知并由AttributeMap忽略，目标实体默认步高与原0.6f相同；没有把无效保存值0强制成生效的0步高。",
+    "production_editor": "主线，本线未写该生产文件",
+    "logical_changes": 3,
+    "typed_diff_entries": 4,
+    "integrated_at_final_snapshot": false
+  },
+  "testing": "客户端/Render Preview待全部代码完整与无简化复审后由主线安排子代理；当前不启动，服务端独立进行不联系干预。",
+  "production_count": 18,
+  "production_manifest": "docs/migration/campsites-a-final108.json",
+  "production_digest_sha256": "e07c5e075138a5d3185566bd248995c4f71eeffd01ac21f9364634b204a5e031",
+  "production_sha256": {
+    "src/main/resources/data/thermal_shock_reforged/worldgen/structure/large_campsite.json": "9cc8552bdaf533ebae0cb63d7d71bf217414cf56ff767a0d37fcc212e2802cd1",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/large_campsite.json": "e6980c67e880f55219e407b6320dd60853419fecf1e0cd250a87cfb0b8f7b13c",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/large_campsite.json": "353b2e76048aa86361d09289995cd0f29755841a4f1dba4a56705859acb9d582",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/structure/medium_campsite.json": "48a899183c520276feee111187d417dcf72c7ae6bb9cd052a45a412ff3ffbd60",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/medium_campsite.json": "77a0319f6d77a94b1bcb793b88b9a868052418fa388087c5b7dffaa9020c1215",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/medium_campsite.json": "081f5ef73bfef477806d0bb978443d78aff8cd5609c2b91862e2f11f45a148e4",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/structure/small_campsite.json": "40dbd36f8d64ffde321c35983047e95c00a7ba6350971278862cd3e49258ace2",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/small_campsite.json": "4f89b699c9631a54f09e00d0dcf281950b8e805c4d225a3453373189dba40403",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/small_campsite.json": "5f288d6640c940780181178b4ba68edaccd6466b7ebdee9ccbaaaae659e668b0",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/structure/shalespring_grove.json": "f85c4de47d2aaca7adefcb7008c07a4147ab23caa81b1025742529717ea5ada7",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/shalespring_grove.json": "c749331d42a32855a0e391666cc989f4e55f746e91f90aef898a52005dbbec0b",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/shalespring_grove.json": "e4e24fc482b1eb9091dd6dee8aeba38dc90edca0b3d8c7648e4aceba5aed9236",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/biome/non_biome.json": "e8263914de65fd5d8b375fc2a1460875b777b28979a57acd7bc33e029694703a",
+    "src/main/resources/data/thermal_shock_reforged/structure/campmed.nbt": "5a3bbe563282dfc17f4c028643de31a72cc5031a4a353cf9a60e19c9a7f19580",
+    "src/main/resources/data/thermal_shock_reforged/structure/campsmall.nbt": "db4c2a4ea14532e5fe51b21a314d46d68975a9d1030b7e2f9466b6778e04ab60",
+    "src/main/resources/data/thermal_shock_reforged/structure/shalespring_grove_derelict.nbt": "cefb3edc7357c702336ba77d3b45b1c412a49e530542e874276d99df787929fe",
+    "src/main/resources/data/thermal_shock_reforged/structure/blizzard_outpost.nbt": "2e72e1e36031fa4bb1e5a5f45f3775f32d9f61c682cdd6487f6acf2603612eb3",
+    "src/main/resources/data/thermal_shock_reforged/structure/blizzardoutpostrubicon.nbt": "65a433ece01a4975a7bf4f6106dad39f34ee3541a12e9b6d28ec2150753a8db2"
+  },
+  "whisper_step_height_evidence": {
+    "source_registry": "原1.20.1 ForgeMod仅注册step_height_addition，不注册step_height。",
+    "original_consumer": "原AttributeMap.load查询未知属性后Ignoring unknown attribute；不应用Base0，原Whisper构造setMaxUpStep(0.6f)。",
+    "target_consumer": "目标AttributeMap.load同样忽略未知id。修正文件保forge:step_height/base0作为未知属性，实体原生默认STEP_HEIGHT0.6最终转float匹配原0.6f。",
+    "previous_error": "旧迁移把未知保存属性映射原生generic.step_height/base0，改变原有效步高。",
+    "proof": "docs/migration/campsites-a-api108.json"
+  },
+  "unknown_source_palette": {
+    "id": "thermal_shock:loque_bush",
+    "target_id": "thermal_shock_reforged:loque_bush",
+    "registered_original": false,
+    "registered_target": false,
+    "unchanged_behavior": "旧新NbtUtils在Holder查询为空时回退空气；未补造方块或改模板。",
+    "original_positions": [
+      {
+        "template": "campmed",
+        "positions": [
+          {
+            "index": 133,
+            "pos": [
+              0,
+              1,
+              0
+            ],
+            "state": 6
+          },
+          {
+            "index": 134,
+            "pos": [
+              0,
+              1,
+              2
+            ],
+            "state": 6
+          },
+          {
+            "index": 138,
+            "pos": [
+              0,
+              1,
+              6
+            ],
+            "state": 6
+          },
+          {
+            "index": 140,
+            "pos": [
+              1,
+              1,
+              1
+            ],
+            "state": 6
+          },
+          {
+            "index": 148,
+            "pos": [
+              2,
+              1,
+              0
+            ],
+            "state": 6
+          },
+          {
+            "index": 161,
+            "pos": [
+              3,
+              1,
+              4
+            ],
+            "state": 6
+          },
+          {
+            "index": 172,
+            "pos": [
+              5,
+              1,
+              1
+            ],
+            "state": 6
+          },
+          {
+            "index": 175,
+            "pos": [
+              5,
+              1,
+              4
+            ],
+            "state": 6
+          },
+          {
+            "index": 181,
+            "pos": [
+              6,
+              1,
+              5
+            ],
+            "state": 6
+          },
+          {
+            "index": 188,
+            "pos": [
+              7,
+              1,
+              6
+            ],
+            "state": 6
+          },
+          {
+            "index": 195,
+            "pos": [
+              8,
+              1,
+              5
+            ],
+            "state": 6
+          },
+          {
+            "index": 196,
+            "pos": [
+              8,
+              1,
+              6
+            ],
+            "state": 6
+          },
+          {
+            "index": 205,
+            "pos": [
+              0,
+              2,
+              0
+            ],
+            "state": 6
+          },
+          {
+            "index": 253,
+            "pos": [
+              6,
+              2,
+              5
+            ],
+            "state": 6
+          },
+          {
+            "index": 271,
+            "pos": [
+              8,
+              2,
+              6
+            ],
+            "state": 6
+          },
+          {
+            "index": 281,
+            "pos": [
+              0,
+              3,
+              0
+            ],
+            "state": 6
+          }
+        ]
+      },
+      {
+        "template": "campsmall",
+        "positions": [
+          {
+            "index": 60,
+            "pos": [
+              2,
+              1,
+              0
+            ],
+            "state": 6
+          },
+          {
+            "index": 65,
+            "pos": [
+              3,
+              1,
+              0
+            ],
+            "state": 6
+          },
+          {
+            "index": 66,
+            "pos": [
+              3,
+              1,
+              1
+            ],
+            "state": 6
+          },
+          {
+            "index": 67,
+            "pos": [
+              3,
+              1,
+              4
+            ],
+            "state": 6
+          },
+          {
+            "index": 69,
+            "pos": [
+              4,
+              1,
+              1
+            ],
+            "state": 6
+          },
+          {
+            "index": 71,
+            "pos": [
+              4,
+              1,
+              3
+            ],
+            "state": 6
+          },
+          {
+            "index": 85,
+            "pos": [
+              4,
+              2,
+              1
+            ],
+            "state": 6
+          }
+        ]
+      }
+    ]
+  },
+  "non_biome_consumers": [
+    "data/thermal_shock/worldgen/structure/shalespring_grove.json",
+    "data/thermal_shock/worldgen/structure/slagway.json",
+    "data/thermal_shock/worldgen/structure/test_jigsaw.json"
+  ],
+  "non_biome_dimension_distribution": "原维度JSON及Java无分布消费者；仅补资源，未创造自然入口。",
+  "rubicon_consumers": [],
+  "language_note": "原non_biome英文名Borean Forest已存在目标en_us，不重命名或在本线改共享语言。",
+  "static_validation": {
+    "checks": 5770,
+    "payloads_including_whisper_delivery": 329,
+    "geometry_blocks_including_whisper_delivery": 259303,
+    "palette_ids": 109,
+    "registered_ids": 108,
+    "legacy_unknown_ids": 1,
+    "property_values_checked": 994,
+    "asset_files_checked": 366
+  },
+  "other_template_findings": "按主线最新分工归109批，不临时修改其他NBT。",
+  "build": "本线未独立Gradle，主线固定两路src/main后统一构建。"
+}
