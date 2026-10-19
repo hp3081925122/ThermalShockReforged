@@ -173,6 +173,7 @@ public final class ClientEvents {
         event.registerSpriteSet(ModEntities.ZAP_PARTICLE.get(), ZapAttackParticle.Provider::new);
         event.registerSpriteSet(ModEntities.TELEPORT_FLASH.get(), TeleportFlashParticle.Provider::new);
         event.registerSpriteSet(com.hp.thermalshockreforged.entity.orb.OrbContent.BLUE_X_BLAST.get(), com.hp.thermalshockreforged.client.particle.BlueXBlastParticle.Provider::new);
+        event.registerSpriteSet(com.hp.thermalshockreforged.entity.projectile.ProjectileContent.GREEN_PARTICLE.get(), com.hp.thermalshockreforged.client.particle.GreenParticle.Provider::new);
         event.registerSpriteSet(com.hp.thermalshockreforged.entity.projectile.ProjectileContent.ORANGE_RING_BLAST.get(), com.hp.thermalshockreforged.client.particle.OrangeRingBlastParticle.Provider::new);
         event.registerSpriteSet(com.hp.thermalshockreforged.entity.projectile.ProjectileContent.VOLCANO_SPARK.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "volcanospark", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true, false, 0));
         event.registerSpriteSet(LoqendiaContent.GOLD_GLITTER.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "goldglitter", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true, false, 0));

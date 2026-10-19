@@ -11,5 +11,9 @@ public final class ProjectileRenderers {
         event.registerEntityRenderer(ProjectileContent.FLARE_BULLET.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(ProjectileContent.GRENADE_BULLET.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(ProjectileContent.VOLCANO_BULLET.get(), ThrownItemRenderer::new);
+        event.registerEntityRenderer(ProjectileContent.GHOSTGLASS_SWORD_BULLET.get(), ThrownItemRenderer::new);
+        event.registerEntityRenderer(ProjectileContent.MAGNET_CROSSBOW_BULLET.get(), ThrownItemRenderer::new);
+        event.registerEntityRenderer(ProjectileContent.THERMOBLASTER_BULLET.get(), ThrownItemRenderer::new);
+        event.registerEntityRenderer(ProjectileContent.THERMOBLASTER_SHOTGUN_BULLET.get(), ThrownItemRenderer::new);
     }
 }
