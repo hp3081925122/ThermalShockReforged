@@ -491,3 +491,11 @@ undead_mobs恢复原13成员并纠正第95/112批将两Monolith原生亡灵身�
 两路代码和共享接线统一执行`compileJava processResources --offline --max-workers=2`成功，耗时59秒；日志SHA256为`408280F86C99A177720572017A2FC6D1FE79C1EE5F20EFC0420F6AA285FF1F43`。本批没有启动游戏，没有修改用户测试文件；服务端继续由用户测试聊天负责。完整迁移尚未完成，客户端和`E:/模组/发cf的模组/Render Preview`验收在所有批次收口及无简化复审后进行。当前Git无remote，只有本地提交。
 
 下一批118继续按实体剩余依赖、跨入口行为矩阵和资源/注册闭合审计分工；开工时仍由迁移A承担约三分之二，主线承担余下和共享收口。
+
+## 第118批最终集成验证
+
+迁移A完成IceSquad五种投射物的80/80/80/20/5次SERVER END寿命、Mangler重复受击独立截止点、ZapWarning独立20 tick爆发载体、VolcanoBullet真实小激光渲染及对应静态交接；主线补齐Probosker服务端移动锁、Zap载体注册与Noop绑定、Volcano渲染接线，并修复Mangler仅在最后截止点清动画以及Zap跨区块失效UUID的幂等恢复。Guardian位置修复承接既有第51批结果，本批没有重复改写。
+
+本批统一执行`compileJava processResources --offline --max-workers=2`成功，最终日志SHA256为`E017161D9C3BC2C103035CF5D5647862E402CB69FF483F1FF11822DCD80E1F7F`。A静态审计511项中502项通过、9项为IceSquad未改方法的文本一致性检查失败，未将其冒充全部通过；目标编译实际成功。未启动游戏，服务端继续由用户测试线负责；完整迁移与无简化复审完成后再安排客户端和Render Preview验收。
+
+第119批开工前仍需先处理Cavebloomer四技能真实来源链、Shock/Poison调用闭合和其余实体/资源清单，继续由迁移A承担较多生产量，主线负责共享收口。

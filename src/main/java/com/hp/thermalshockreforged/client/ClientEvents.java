@@ -160,6 +160,7 @@ public final class ClientEvents {
         event.registerEntityRenderer(com.hp.thermalshockreforged.entity.ribbonblade.RibbonbladeContent.RIBBONBLADE.get(), com.hp.thermalshockreforged.client.ribbonblade.RibbonbladeRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.entity.ribbonblade.RibbonbladeContent.ACTION.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(ModEntities.ZAP.get(), InvisibleWarningRenderer::new);
+        event.registerEntityRenderer(com.hp.thermalshockreforged.entity.ZapDetonationEntity.TYPE.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
     }
     @SubscribeEvent
     public static void firearmLayers(EntityRenderersEvent.RegisterLayerDefinitions event) { com.hp.thermalshockreforged.client.weapons.FirearmBulletRenderer.layers(event); com.hp.thermalshockreforged.client.weapons.LiteprismDiskRenderer.layers(event); com.hp.thermalshockreforged.client.projectile.NetBulletRenderer.layers(event); }
