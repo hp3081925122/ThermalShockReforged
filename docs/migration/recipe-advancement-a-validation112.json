@@ -1,0 +1,3858 @@
+{
+  "batch": 112,
+  "limits": "本线仅静态核验；无独立Gradle/游戏/stage/commit。最终整包统一编译和客户端/Render Preview由主线安排；用户独立服务端测试不接管。",
+  "coverage": {
+    "sourceRecipes": 536,
+    "sourceAdvancements": 69,
+    "targetRecipes": 536,
+    "targetAdvancements": 69,
+    "parentEdges": [
+      [
+        "thermal_shock_reforged:bismuth_get",
+        "thermal_shock_reforged:lapidary_get"
+      ],
+      [
+        "thermal_shock_reforged:lapidary_get",
+        "thermal_shock_reforged:cobalt_get"
+      ],
+      [
+        "thermal_shock_reforged:cobalt_get",
+        "thermal_shock_reforged:loqendia_get"
+      ],
+      [
+        "thermal_shock_reforged:bloodstone_get",
+        "thermal_shock_reforged:lapidary_get"
+      ],
+      [
+        "thermal_shock_reforged:breather_sponge_get",
+        "thermal_shock_reforged:luminous_sea_get"
+      ],
+      [
+        "thermal_shock_reforged:luminous_sea_get",
+        "thermal_shock_reforged:stardust_garden_advancement"
+      ],
+      [
+        "thermal_shock_reforged:stardust_garden_advancement",
+        "thermal_shock_reforged:vermillion_woods_advancement"
+      ],
+      [
+        "thermal_shock_reforged:vermillion_woods_advancement",
+        "thermal_shock_reforged:borean_tundra_advancement"
+      ],
+      [
+        "thermal_shock_reforged:borean_tundra_advancement",
+        "thermal_shock_reforged:borean_forest_advancement"
+      ],
+      [
+        "thermal_shock_reforged:borean_forest_advancement",
+        "thermal_shock_reforged:loqendia_get"
+      ],
+      [
+        "thermal_shock_reforged:carborundum_get",
+        "thermal_shock_reforged:garden_plant_get"
+      ],
+      [
+        "thermal_shock_reforged:garden_plant_get",
+        "thermal_shock_reforged:graveyard_advancement"
+      ],
+      [
+        "thermal_shock_reforged:graveyard_advancement",
+        "thermal_shock_reforged:luminous_sea_get"
+      ],
+      [
+        "thermal_shock_reforged:cauldron_get",
+        "thermal_shock_reforged:spice_get"
+      ],
+      [
+        "thermal_shock_reforged:spice_get",
+        "thermal_shock_reforged:loqendia_get"
+      ],
+      [
+        "thermal_shock_reforged:climbing_pick_get",
+        "thermal_shock_reforged:fabricator_get"
+      ],
+      [
+        "thermal_shock_reforged:fabricator_get",
+        "thermal_shock_reforged:frigid_altar_get"
+      ],
+      [
+        "thermal_shock_reforged:frigid_altar_get",
+        "thermal_shock_reforged:lapidary_get"
+      ],
+      [
+        "thermal_shock_reforged:cobalt_heights_get",
+        "thermal_shock_reforged:loqendia_get"
+      ],
+      [
+        "thermal_shock_reforged:cooked_torpedo_consume_get",
+        "thermal_shock_reforged:torpedo_consume_get"
+      ],
+      [
+        "thermal_shock_reforged:torpedo_consume_get",
+        "thermal_shock_reforged:luminous_sea_get"
+      ],
+      [
+        "thermal_shock_reforged:drinking_straw_get",
+        "thermal_shock_reforged:breather_sponge_get"
+      ],
+      [
+        "thermal_shock_reforged:gardenling_get",
+        "thermal_shock_reforged:purifier_get"
+      ],
+      [
+        "thermal_shock_reforged:purifier_get",
+        "thermal_shock_reforged:graveyard_advancement"
+      ],
+      [
+        "thermal_shock_reforged:herald_get",
+        "thermal_shock_reforged:graveyard_advancement"
+      ],
+      [
+        "thermal_shock_reforged:keystone_get",
+        "minecraft:story/form_obsidian"
+      ],
+      [
+        "thermal_shock_reforged:knight_edge_get",
+        "thermal_shock_reforged:lod_pozar_get"
+      ],
+      [
+        "thermal_shock_reforged:lod_pozar_get",
+        "thermal_shock_reforged:fabricator_get"
+      ],
+      [
+        "thermal_shock_reforged:malachite_get",
+        "thermal_shock_reforged:lapidary_get"
+      ],
+      [
+        "thermal_shock_reforged:siibol_get",
+        "thermal_shock_reforged:stardust_garden_advancement"
+      ],
+      [
+        "thermal_shock_reforged:snowcone_consume_get",
+        "thermal_shock_reforged:luminous_sea_get"
+      ],
+      [
+        "thermal_shock_reforged:zap_gauntlet_get",
+        "thermal_shock_reforged:fabricator_get"
+      ],
+      [
+        "thermal_shock_reforged:zenith_get",
+        "thermal_shock_reforged:lapidary_get"
+      ]
+    ],
+    "meaning": "仅原路径覆盖与数据父图闭合，不声称全部旧行为已经完整迁移。"
+  },
+  "impossibleConstantPool": {
+    "classCount": 4577,
+    "originalExactIdClasses": {
+      "breather_sponge_get": [
+        {
+          "path": "net/mcreator/thermal_shock/procedures/BreatherSpongeOnBlockRightClickedProcedure.class",
+          "sha256": "9987bd7e85aa7deff5218289e36b91a63c3507aa326f2c01298265cac1440f68"
+        }
+      ],
+      "carborundum_get": [
+        {
+          "path": "net/mcreator/thermal_shock/procedures/CarborundumArmorEffectProcedure.class",
+          "sha256": "a14404e04b313845d07e8bc418cd699667cf401b3bdf542859b6e43f42971551"
+        }
+      ],
+      "cauldron_get": [],
+      "garden_plant_get": [
+        {
+          "path": "net/mcreator/thermal_shock/procedures/SkorioSeedOnBlockRightClickedProcedure.class",
+          "sha256": "1b012ce26bafbcdeaab6202066c0b732126172048c7631701544fe8efda10c9a"
+        }
+      ],
+      "zenith_get": [
+        {
+          "path": "net/mcreator/thermal_shock/procedures/BloodArmorEffectProcedure.class",
+          "sha256": "d2d36cdf52c0150917953ab03f0640bf0448e2c5e6ed6fe0facf1e7780af3b0b"
+        },
+        {
+          "path": "net/mcreator/thermal_shock/procedures/RubyArmorEffectProcedure.class",
+          "sha256": "9586a136fb8d506a3453e9e04c66ded609ca72cd42e371e236de6c34deca3d1e"
+        }
+      ]
+    },
+    "cauldronAnySubstringClasses": [],
+    "cauldronDataHits": [
+      {
+        "path": "data/thermal_shock/advancements/cauldron_get.json",
+        "sha256": "9b9d89d00560eb8ffb2bb4bcf1432e2547d52b945a41e538b7c8dec94776e6bf"
+      }
+    ],
+    "meaning": "四项真实程序授予链迁入原JSON；cauldron_get原impossible且无静态授予入口，保原悬空，不捏造获取/放置条件。"
+  },
+  "tags": [
+    {
+      "id": "thermal_shock_reforged:lodpozar_trophy",
+      "path": "src/main/resources/data/thermal_shock_reforged/tags/item/lodpozar_trophy.json",
+      "sha256": "8b4602435e424475bc2c564c46a0cde0797fc492252e94126189d5b55ee68d03",
+      "json": {
+        "replace": false,
+        "values": [
+          "thermal_shock_reforged:icidrogunner_trophy",
+          "thermal_shock_reforged:icidroburner_trophy"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:loqendiakelp",
+      "path": "src/main/resources/data/thermal_shock_reforged/tags/item/loqendiakelp.json",
+      "sha256": "c8ed9dffbffbfb0b2ff47e48b57f5051ef9bc1dd82b7a7364be6ef2e06a97d0a",
+      "json": {
+        "replace": false,
+        "values": [
+          "thermal_shock_reforged:fuscium",
+          "thermal_shock_reforged:ceruleum",
+          "thermal_shock_reforged:verdium"
+        ]
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:zenith",
+      "path": "src/main/resources/data/thermal_shock_reforged/tags/item/zenith.json",
+      "sha256": "fcce9e593e346e722d3d9d1f8461392753164998a15839f4c8e5e634faa1ced3",
+      "json": {
+        "replace": false,
+        "values": [
+          "thermal_shock_reforged:ruby_armor_helmet",
+          "thermal_shock_reforged:ruby_armor_chestplate",
+          "thermal_shock_reforged:ruby_armor_leggings",
+          "thermal_shock_reforged:ruby_armor_boots",
+          "thermal_shock_reforged:carborundum_armor_helmet",
+          "thermal_shock_reforged:carborundum_armor_chestplate",
+          "thermal_shock_reforged:carborundum_armor_leggings",
+          "thermal_shock_reforged:carborundum_armor_boots",
+          "thermal_shock_reforged:ruby_zenith_armor_helmet",
+          "thermal_shock_reforged:ruby_zenith_armor_chestplate",
+          "thermal_shock_reforged:ruby_zenith_armor_leggings",
+          "thermal_shock_reforged:ruby_zenith_armor_boots",
+          "thermal_shock_reforged:blood_zenith_armor_helmet",
+          "thermal_shock_reforged:blood_zenith_armor_chestplate",
+          "thermal_shock_reforged:blood_zenith_armor_leggings",
+          "thermal_shock_reforged:blood_zenith_armor_boots",
+          "thermal_shock_reforged:blood_armor_helmet",
+          "thermal_shock_reforged:blood_armor_chestplate",
+          "thermal_shock_reforged:blood_armor_leggings",
+          "thermal_shock_reforged:blood_armor_boots",
+          "thermal_shock_reforged:sentry_helmet",
+          "thermal_shock_reforged:sentry_chestplate",
+          "thermal_shock_reforged:corrial_diving_helmet_helmet",
+          "thermal_shock_reforged:silenced_armor_helmet",
+          "thermal_shock_reforged:silenced_armor_chestplate"
+        ]
+      }
+    }
+  ],
+  "muckConflict": {
+    "originalBothMatchOneBlock": true,
+    "cases": [
+      {
+        "grid": [
+          [
+            "thermal_shock_reforged:pure_muck",
+            null
+          ],
+          [
+            null,
+            null
+          ]
+        ],
+        "matches": [
+          "muck_button_recipe"
+        ]
+      },
+      {
+        "grid": [
+          [
+            null,
+            "thermal_shock_reforged:pure_muck"
+          ],
+          [
+            null,
+            null
+          ]
+        ],
+        "matches": [
+          "muck_button_recipe"
+        ]
+      },
+      {
+        "grid": [
+          [
+            null,
+            null
+          ],
+          [
+            "thermal_shock_reforged:pure_muck",
+            null
+          ]
+        ],
+        "matches": [
+          "muck_button_recipe"
+        ]
+      },
+      {
+        "grid": [
+          [
+            null,
+            null
+          ],
+          [
+            null,
+            "thermal_shock_reforged:pure_muck"
+          ]
+        ],
+        "matches": [
+          "muck_button_recipe"
+        ]
+      },
+      {
+        "grid": [
+          [
+            "thermal_shock_reforged:pure_muck",
+            "thermal_shock_reforged:pure_muck"
+          ],
+          [
+            null,
+            null
+          ]
+        ],
+        "matches": [
+          "pure_muck_uncraft"
+        ]
+      },
+      {
+        "grid": [
+          [
+            null,
+            null
+          ],
+          [
+            "thermal_shock_reforged:pure_muck",
+            "thermal_shock_reforged:pure_muck"
+          ]
+        ],
+        "matches": [
+          "pure_muck_uncraft"
+        ]
+      },
+      {
+        "grid": [
+          [
+            "thermal_shock_reforged:pure_muck",
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null
+          ]
+        ],
+        "matches": [
+          "muck_button_recipe"
+        ]
+      },
+      {
+        "grid": [
+          [
+            null,
+            "thermal_shock_reforged:pure_muck",
+            null
+          ],
+          [
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null
+          ]
+        ],
+        "matches": [
+          "muck_button_recipe"
+        ]
+      },
+      {
+        "grid": [
+          [
+            null,
+            null,
+            "thermal_shock_reforged:pure_muck"
+          ],
+          [
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null
+          ]
+        ],
+        "matches": [
+          "muck_button_recipe"
+        ]
+      },
+      {
+        "grid": [
+          [
+            null,
+            null,
+            null
+          ],
+          [
+            "thermal_shock_reforged:pure_muck",
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null
+          ]
+        ],
+        "matches": [
+          "muck_button_recipe"
+        ]
+      },
+      {
+        "grid": [
+          [
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            "thermal_shock_reforged:pure_muck",
+            null
+          ],
+          [
+            null,
+            null,
+            null
+          ]
+        ],
+        "matches": [
+          "muck_button_recipe"
+        ]
+      },
+      {
+        "grid": [
+          [
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            "thermal_shock_reforged:pure_muck"
+          ],
+          [
+            null,
+            null,
+            null
+          ]
+        ],
+        "matches": [
+          "muck_button_recipe"
+        ]
+      },
+      {
+        "grid": [
+          [
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null
+          ],
+          [
+            "thermal_shock_reforged:pure_muck",
+            null,
+            null
+          ]
+        ],
+        "matches": [
+          "muck_button_recipe"
+        ]
+      },
+      {
+        "grid": [
+          [
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            "thermal_shock_reforged:pure_muck",
+            null
+          ]
+        ],
+        "matches": [
+          "muck_button_recipe"
+        ]
+      },
+      {
+        "grid": [
+          [
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            "thermal_shock_reforged:pure_muck"
+          ]
+        ],
+        "matches": [
+          "muck_button_recipe"
+        ]
+      },
+      {
+        "grid": [
+          [
+            "thermal_shock_reforged:pure_muck",
+            "thermal_shock_reforged:pure_muck",
+            null
+          ],
+          [
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null
+          ]
+        ],
+        "matches": [
+          "pure_muck_uncraft"
+        ]
+      },
+      {
+        "grid": [
+          [
+            null,
+            "thermal_shock_reforged:pure_muck",
+            "thermal_shock_reforged:pure_muck"
+          ],
+          [
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null
+          ]
+        ],
+        "matches": [
+          "pure_muck_uncraft"
+        ]
+      },
+      {
+        "grid": [
+          [
+            null,
+            null,
+            null
+          ],
+          [
+            "thermal_shock_reforged:pure_muck",
+            "thermal_shock_reforged:pure_muck",
+            null
+          ],
+          [
+            null,
+            null,
+            null
+          ]
+        ],
+        "matches": [
+          "pure_muck_uncraft"
+        ]
+      },
+      {
+        "grid": [
+          [
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            "thermal_shock_reforged:pure_muck",
+            "thermal_shock_reforged:pure_muck"
+          ],
+          [
+            null,
+            null,
+            null
+          ]
+        ],
+        "matches": [
+          "pure_muck_uncraft"
+        ]
+      },
+      {
+        "grid": [
+          [
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null
+          ],
+          [
+            "thermal_shock_reforged:pure_muck",
+            "thermal_shock_reforged:pure_muck",
+            null
+          ]
+        ],
+        "matches": [
+          "pure_muck_uncraft"
+        ]
+      },
+      {
+        "grid": [
+          [
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            "thermal_shock_reforged:pure_muck",
+            "thermal_shock_reforged:pure_muck"
+          ]
+        ],
+        "matches": [
+          "pure_muck_uncraft"
+        ]
+      }
+    ],
+    "comparison": "扫描目标全部crafting_shaped/crafting_shapeless；按目标源码裁剪边界、平移、镜像和无序配方逐格匹配。两块拆解8球，配比不变。",
+    "limit": "其它模组动态注入的配方不在本批静态输入中。"
+  },
+  "assets": {
+    "files": [
+      {
+        "source": "assets/thermal_shock/models/block/bismuth_block.json",
+        "sourceSha256": "9456020e5f1fc737533afad7bd013b273f22df30654443107552a3cef6cc0f0d",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/block/bismuth_block.json",
+        "targetSha256": "209aa296b71c325ef61a737286758fd750a5a76fdf4030a4d90dfacd159bc626",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/block/breather_sponge.json",
+        "sourceSha256": "b40e4660eebed1322b8e857e73445653bcca2137fd9e79133e5d1e6f8924f438",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/block/breather_sponge.json",
+        "targetSha256": "8305d8a0a81470048d08bf027a953e656a3c8b7589a2706dc64c63cd3fd4239a",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/block/bright_ochre_leaves.json",
+        "sourceSha256": "d9945aee9a221fa8d91b07499377f0fa79bb4395b656daebdc891770ca5bcbc5",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/block/bright_ochre_leaves.json",
+        "targetSha256": "b7251041ef38e08a787d923c8650ed3ae71a121d87724d9444da99514126c1b4",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/block/cobalt.json",
+        "sourceSha256": "16a52a506b281a46f2b4e1813205e5dcfd656887bc685f9c4f6786dac006c14c",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/block/cobalt.json",
+        "targetSha256": "190af2f5f6fd9725fbc176f1a1e4307be50fa8d825cd6c73138abf04cc5e96a8",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/block/cobalt_block.json",
+        "sourceSha256": "13a5fc33c0a8165fdded3548ad75ca801c41cd3d23f8fa5ab1cf81f9cd23b677",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/block/cobalt_block.json",
+        "targetSha256": "6e4312e5731b19bfc0bcc4075d279fe84ffc18a03906810df9e185ad7e011ffa",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/block/dull_leaves.json",
+        "sourceSha256": "ccf7f1254ed7891dc7cfb4efb21dd2c0d60f92e8d313b6e6e282f4f0a002f37a",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/block/dull_leaves.json",
+        "targetSha256": "d8b0f59a6455213663d80a9eb38ad570069fd54a2712d3032fa8f69091876872",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/block/hazard_stripes.json",
+        "sourceSha256": "a4c33a59e11ddd15ba2777353b9dff0b40f200983e8f2aceaaacb01183ca3d59",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/block/hazard_stripes.json",
+        "targetSha256": "5af37d5ec539ced3f23bcb9af070ec7d6ade821a5df6dc3663927dd1f7112bde",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/block/malachite_block.json",
+        "sourceSha256": "a76840c454e1f22e3bbd455658ed1a8aaff8d86ddf0ea9c24a8a6f8942a8b927",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/block/malachite_block.json",
+        "targetSha256": "e9f65c9564d6056736e9c5e4d6c955467620badfbf7e255c6d483b01700b8955",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/block/muck_button_inventory.json",
+        "sourceSha256": "f43e099dbf8617d63a32380d3ccf4324ef9a718dee89ce01bb1ab428bf123452",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/block/muck_button_inventory.json",
+        "targetSha256": "a26f20e6049046cee4d59ffc90cc8192ddc6b451a48e784ed805ab25c3f3367c",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/block/ochre_leaves.json",
+        "sourceSha256": "c96d4bad1b740a16d1c9e3ad78ed54581ec8ab876664da7c2989c692e16f6b11",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/block/ochre_leaves.json",
+        "targetSha256": "ed70170b8cb8e3be91f571aa61d519b71b0ec285f827727b1be8dc8b70e1b004",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/block/permafrost.json",
+        "sourceSha256": "99d7c6be8df77d4c0ea729a9a3029bd5acafc2561c35586e79430c62637f4082",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/block/permafrost.json",
+        "targetSha256": "94e56434e29038abf166a0f012b80f946a58f5a05a1218b1f36742abacd8ecf9",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/block/pure_muck.json",
+        "sourceSha256": "ec033506f8316472e16440eb2652c19ba7e787826f4f6e81faa084be02105c1c",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/block/pure_muck.json",
+        "targetSha256": "5a228f5e66b4eb0cde2211a754bdf49a3234f677ddb41c5f50f2bc85d12c5758",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/block/pure_muck_stairs.json",
+        "sourceSha256": "e57757a50b44f28c08f8695527efd8ba9499a764d22e8e0a0d4dcbbc1b02d536",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/block/pure_muck_stairs.json",
+        "targetSha256": "ab741927ed1316496759a3cfc5f082056523c41e0934dcc1792e22060c3d055a",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/block/pure_muck_wall_inventory.json",
+        "sourceSha256": "ebf326dd9ec1770cb8e50ff79888e5e635196907d5b9c42d43b623e0dde48a46",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/block/pure_muck_wall_inventory.json",
+        "targetSha256": "430f989c476108f79b5b062596afe4e0eb577f3ca2ae12bab8d4a59157b86993",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/block/sanctum_bricks.json",
+        "sourceSha256": "30c61620511bb4ac6e8c10b695d623bd74e5d537ad636e9c81298690fe5729b3",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/block/sanctum_bricks.json",
+        "targetSha256": "7cda4bc2c7c53fa0c17f693059c3f9ab717d367f854033e822f3f52f95984394",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/block/slush.json",
+        "sourceSha256": "73ecc3f10e7220abdbaa9e5339daf69f442d87f2c3fa4f55395e85ec8128fc24",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/block/slush.json",
+        "targetSha256": "c332aa7bac267562fbf776bfb44a15bd15be2f48f2994076b9ef81775d9cbf44",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/custom/knights_edge.json",
+        "sourceSha256": "c5cd781a1ae368f8d39dc6b91266783c36f2f4a2bb5ddcc8a599fcbcc188d8fa",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/custom/knights_edge.json",
+        "targetSha256": "c5cd781a1ae368f8d39dc6b91266783c36f2f4a2bb5ddcc8a599fcbcc188d8fa",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/displaysettings/liteprism_laser.json",
+        "sourceSha256": "d3df555ca0d09c066e857821be81a967d21b8d22975c83c62ae36b60b56d772e",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/displaysettings/liteprism_laser.json",
+        "targetSha256": "d3df555ca0d09c066e857821be81a967d21b8d22975c83c62ae36b60b56d772e",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/displaysettings/pylon_core.item.json",
+        "sourceSha256": "60b9f09ce27e084803e5cb8734b6604285d3f91be7e79496ad1c671a72804032",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/displaysettings/pylon_core.item.json",
+        "targetSha256": "60b9f09ce27e084803e5cb8734b6604285d3f91be7e79496ad1c671a72804032",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/displaysettings/speleothem.json",
+        "sourceSha256": "bf6387cb12e69b8c092e07376cd15e60082f6ce5e909a9b163bedebaf0980904",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/displaysettings/speleothem.json",
+        "targetSha256": "bf6387cb12e69b8c092e07376cd15e60082f6ce5e909a9b163bedebaf0980904",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/bismuth.json",
+        "sourceSha256": "64cf3e7683183bbd7ad6f9ae7dd4683c1c83febc8b4e88b65074d8e52e8c9da4",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/bismuth.json",
+        "targetSha256": "d1addcaeba3f5af7b8d3922e597275ff9991828ac6267428b7ab916d2a7f72c2",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/bismuth_block.json",
+        "sourceSha256": "d93f021452cabd652b8234f0a73659b32c6545f483d5a5c495cc49f1062805b5",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/bismuth_block.json",
+        "targetSha256": "5de25f4fc67730752287c2bad7429da9e77591fb688e2e2910282741138c5928",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/bloodstone.json",
+        "sourceSha256": "962ac78a4a6af8de62e4a07e72252f8f7eae48937f1a37e0b741e5f5fc820f1b",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/bloodstone.json",
+        "targetSha256": "c9fea6452b768674110fd15a4e88f8e442b5ff0872807a4a19eb2203e7777111",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/bloodstone_sickle.json",
+        "sourceSha256": "521ec3c97fb62bac565336044203c261fb86b3d3ed10f06185e24513fc8f362f",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/bloodstone_sickle.json",
+        "targetSha256": "eabaad0e6e6ff5b36802267279590d906c5681688078fac6a6d62db14ec43b43",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/breather_sponge.json",
+        "sourceSha256": "553f3fe93b7d43696ecf03661cac88e8c745bdd6fb0618f862e1dc38da90bca9",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/breather_sponge.json",
+        "targetSha256": "57600509d5fecbe5818eeee9c4e43e45ac2ac38164c03d810269df6c26cdbdf1",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/bright_ochre_leaves.json",
+        "sourceSha256": "10ed286cbc5e22caea043816fdc32bdef409bbab78591e751c8e802d78f1ae68",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/bright_ochre_leaves.json",
+        "targetSha256": "09e833c3d1995f4070d5877e3e77ec4129601ffabe357bcd6d1aae6c4315038a",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/bucket_of_siibol.json",
+        "sourceSha256": "24a3dcea1c83140f8f75380bda7b3ebfde8823d56cfb3e48e2ae162c3e6b83ff",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/bucket_of_siibol.json",
+        "targetSha256": "1a7f6d90b82b6d84100d837997e64c3563c50f76d5147d628f61f2fc5af23028",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/carborundum_armor_helmet.json",
+        "sourceSha256": "8604e1c3885693fe74969b178c48abc031716e6b607810b232dba37274952685",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/carborundum_armor_helmet.json",
+        "targetSha256": "1dd7fc358bcf2d8c3697bf744990bef73cd509f778e4e6d9a6aded25fac1e62c",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/carborundum_sword.json",
+        "sourceSha256": "3e8fb20b635f978016d15e6b24c541189816b723fb17bbea744bfb5a5a24e5fa",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/carborundum_sword.json",
+        "targetSha256": "65189f735609d1eb1163363f214a6a2b114c5b0918ceb452ab41f2100d9d28b2",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/cauldron_of_trilobite.json",
+        "sourceSha256": "56b1d0ba5117161d9c63a992ea8d2e37c03698d4a101734efc25208ee895c5af",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/cauldron_of_trilobite.json",
+        "targetSha256": "ecfaac50a9b6ddfeb58f72f68725d8a3f62f03a6f4a26fe9cc4e4974dbbd15a2",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/cavebloomer_core.json",
+        "sourceSha256": "7c0894c3dee528fa733a42e8e09fb3f7979ad643c72090b85fa6f0e144e3d708",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/cavebloomer_core.json",
+        "targetSha256": "ea1e07273bc2b290f5cbee52ba454123af11b0f049116d0c91b3b08191a83c85",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/ceruleum.json",
+        "sourceSha256": "db53127348378834df9658608be31333fad1d140df042a05969652f955605559",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/ceruleum.json",
+        "targetSha256": "7c793316523c6451514d9b50c210aae6f507fe5404a6b41e5d2cc1fd19bfcde3",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/climbing_pick.json",
+        "sourceSha256": "54158f1d56505cafde8c0b843a3216c3fcaf3f62eb5e72315b29040fee830462",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/climbing_pick.json",
+        "targetSha256": "b46e6021a3c1cab60e95f9d2599e95a5d8cd08fd76594e2214faa73408e0c9bd",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/cobalt.json",
+        "sourceSha256": "d86df92f38cd36a5d3ff482e05ed0b1f7076306b88178c19ddf86d682b97fd71",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/cobalt.json",
+        "targetSha256": "9b076b76ec6bea47e2c11eacf0f982e171cc9d98f1033969697d03a450b5ad7c",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/cobalt_block.json",
+        "sourceSha256": "9cb7034cca54a435fdebf3116692905924086175a31ab3ae901f470baa518dbd",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/cobalt_block.json",
+        "targetSha256": "9a5faee159a048b76c8e6acd2923fe38e250d31af1fe8e4b68b0bda37d7ca025",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/cobalt_rod.json",
+        "sourceSha256": "8c025774f296faf72b2f9cfa1bc4dcb663ef431f9c6cb0353a0c34ba7ebe43ac",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/cobalt_rod.json",
+        "targetSha256": "1ff8cc1cff6a0026488dc77877c93d1e7cca67155dbaff1eb31a0bc585cdd234",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/cooked_torpedo.json",
+        "sourceSha256": "5d8d58527921feafb07529dd0aaa217de766442c7ff6b9dbef80cd3565bf7e31",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/cooked_torpedo.json",
+        "targetSha256": "4c53cbd2b5de836266bbe2cc680519e47933a9be1bfc4a2b32f3f3649d133ab7",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/cryonic_alloy.json",
+        "sourceSha256": "c9d0a8d3d6c13cb9d77ec1f8e713661b5b654f37a306b17a1f89888ae8ce0307",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/cryonic_alloy.json",
+        "targetSha256": "97bd8c843e2791161636db432927cdce0ef940324924aadde99c1e883061ae9c",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/dull_leaves.json",
+        "sourceSha256": "4bd4997be25f510992c52fa9f48040421ce80646cf70c99db69096bfb5bdaeae",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/dull_leaves.json",
+        "targetSha256": "cacc1f26ad127ba444464f002e630af59412973e44706484172ebbd2a5469d02",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/dull_thread_net.json",
+        "sourceSha256": "b5a818343912195e44303f9ed2b94586c02eb4705a698c1fa0c758d8784c84b9",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/dull_thread_net.json",
+        "targetSha256": "bcbdf194ff9ce916e648ae3a505f4ad740afcbf471cec6ff0acd0968e0413f9c",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/fabricator_constructor.json",
+        "sourceSha256": "1cf8f55d5160e7bc9b3a8bc1946b5b66f74fc165b1ee65ab64deb0c619d1d08e",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/fabricator_constructor.json",
+        "targetSha256": "cd5f0271946cdb51802cc9d853c0cd7a503e56e439bb8d32e51ddcf308abe9b6",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/ferrum_ingot.json",
+        "sourceSha256": "80f3b2354aedeedf87b48edcdd352f4b339fc1dd901068cf9efda07883f414af",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/ferrum_ingot.json",
+        "targetSha256": "aa461b9e7ffd6fc91e21b018ee7fa2aeb4baa77756417c6e0f14a7afc533a6d4",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/frozen_blade.json",
+        "sourceSha256": "b15a5d370771968e3e05025ab728aa236b54f139d2a1a04de993845771a22840",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/frozen_blade.json",
+        "targetSha256": "25e8baa2280a75d26c9776a2e2716b31af10abe86a97a094d88fe7442cc3793b",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/fuscium.json",
+        "sourceSha256": "56bc68e944aaa0e93b60cdb56eedf39a7b6c122b34ae0542e1b3c563c785590a",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/fuscium.json",
+        "targetSha256": "7aa7b27947c98eecac494ec21ca38377af995602f54eba4d092e6a0f237a2bcc",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/gardenling_constructor.json",
+        "sourceSha256": "d4464da1b7e29c7fd2b25c235a5794bd817ef1ac6efeb9cf82d9b3052e96579c",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/gardenling_constructor.json",
+        "targetSha256": "3ba938aec33ac74c43d0e849fd2f219ecc26e56e84f8e526ed0f9e561c890d35",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/hazard_stripes.json",
+        "sourceSha256": "939b9dff5d4d1601a25dc6ea65ec9666a492fbe8c41462ca462971468b547253",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/hazard_stripes.json",
+        "targetSha256": "4ba714c1630e050df59a0e8fe76b8aeffacb1afbe96ed81f5236ee717b75b03c",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/herald_key.json",
+        "sourceSha256": "e39e5344e81f31605ea040f049cbcaef6f71a7845850a0118f4a494743c2b03e",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/herald_key.json",
+        "targetSha256": "4a3d5f05c0e9f163238227b563823f416920ecd91bec53c7918abda569f65f5a",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/herald_spawn_egg.json",
+        "sourceSha256": "d094ae0666c41ae53d6cb5eff855a06897ff17e0b78a5d1e84511850f275c1f9",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/herald_spawn_egg.json",
+        "targetSha256": "8adc506dcdace73076f3ce28ca6c2c361c08b1f7f960b2a1b1b7ce0df577852d",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/icidroburner_trophy.json",
+        "sourceSha256": "2889c6654755eb07115e11c169609831ccd4925d9f3db51a57c3fac832333bda",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/icidroburner_trophy.json",
+        "targetSha256": "b059220f01054d7d7ac30bc98e8fcf68908891e75e52544e3f059665118e806a",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/icidrogunner_trophy.json",
+        "sourceSha256": "2889c6654755eb07115e11c169609831ccd4925d9f3db51a57c3fac832333bda",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/icidrogunner_trophy.json",
+        "targetSha256": "b059220f01054d7d7ac30bc98e8fcf68908891e75e52544e3f059665118e806a",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/icy_snowcone.json",
+        "sourceSha256": "fdac28ca9ee55b894ef05999472a869564bf2adb9cd8aface63a33195b17e6dc",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/icy_snowcone.json",
+        "targetSha256": "c7021d200b242c132eed1c43ff49dfc29c65974f6234caf2ba25a4795fa7de16",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/keystone.json",
+        "sourceSha256": "bb76730ebf3a5b889572fca945bfd99035ba8ffa9bdbee6285b26a9bdf2046a9",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/keystone.json",
+        "targetSha256": "fa8e08595eba8ef4a4f42539eb955e82f8769be0c62c778e7d12601a4b177916",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/knights_edge.json",
+        "sourceSha256": "2825ec8098b617fb5c393376a58188465d662d21e507fc333741d9cfa7609cf4",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/knights_edge.json",
+        "targetSha256": "6aa327adf9db0335a20b64347e163ed7dd94c6641ea7ba5211c5ca01715321eb",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/liteprism_sword.json",
+        "sourceSha256": "8a681f5c724c4b95bcf5e8c73784c71d4b946a87f1bbfd6f3fa2aaaeb5c75658",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/liteprism_sword.json",
+        "targetSha256": "bd93a76a34a58d205eab7214018eaa88799541127e02f3ddb8a6f0499b8169e5",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/malachite.json",
+        "sourceSha256": "c060c0f467d9c1e80b58a207e925a97f2129daff25cff3dbd0153cdcf401cb97",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/malachite.json",
+        "targetSha256": "22e8ee9691877f547680dc70be9048b27ab34f9fd0e94009456be48fc36914cf",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/malachite_block.json",
+        "sourceSha256": "e4abf167b073de22b6b376a2951c7adc58c4da08983fe24b6575700437076e35",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/malachite_block.json",
+        "targetSha256": "4b2ee3fcd7db53eff162326ab60dc1c8f4321c1c412349ce090d4b2553abf50d",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/muck_ball.json",
+        "sourceSha256": "734639a1c6159cdaa745dea3a89a80581648a6505279f735e484d5dc85e738f9",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/muck_ball.json",
+        "targetSha256": "098878557a44cb74b354e883dfdcf56bd9a5e132af86696d8c5612c12c486a01",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/muck_button.json",
+        "sourceSha256": "7c7c7ad4896850b355e14f84029435deb71347fc45f833a2273e3e8fc8eec1e8",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/muck_button.json",
+        "targetSha256": "98b5cefadefd1ef0f13242355e5483ce918671434d95c42e020537af44678a85",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/ochre_leaves.json",
+        "sourceSha256": "b5dea9ac2155f72fad688e920e81bb816e5e59772cfd8200c321146dd9360f5c",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/ochre_leaves.json",
+        "targetSha256": "7e930b5c13c9e72c714b479335b78fae28ebc57bdc58c33eada8e5bceb9b6fef",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/permafrost.json",
+        "sourceSha256": "b8cbedcc04befa282737d708be39470e0ceb3250a217955e55e04e71b4233f81",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/permafrost.json",
+        "targetSha256": "c5fef0d0d13f3713ee92fd2297939e144f6b8a1515edfc214344d65b2376a432",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/phobotite.json",
+        "sourceSha256": "92d7bb0ea8ce8e3969a63035e1b09a36c8bb22234feaca4c1a4401af104052e1",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/phobotite.json",
+        "targetSha256": "fc2dfa9743b907e7ddc47a5a69632e427469045c3580a3615dcb72ca49b09f06",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/pure_muck.json",
+        "sourceSha256": "ceb72772ded524df0ba9b8fdb171d055e750f88d320cc01c409fda9652d619ff",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/pure_muck.json",
+        "targetSha256": "f8e7f3a88f3406008c75ad52c6d6fe8c2d049c2bf54542940c87dc46510f6431",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/pure_muck_stairs.json",
+        "sourceSha256": "02b851feabd5f61e7eb045f2c7db5e49743a4c4611dd09005889b3847740f8cd",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/pure_muck_stairs.json",
+        "targetSha256": "5311ab843686c5b99164be8c31370cc16e2e4fdbeff25dcc9fb0e881b3c9262d",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/pure_muck_wall.json",
+        "sourceSha256": "4ed39bdd837c4ad5c21c26e9289c6ae6ccbdbda6c392b42da22830bad130095d",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/pure_muck_wall.json",
+        "targetSha256": "42c9724afc4de116ea9163216c103e6118ff4bc3bba43474ac312e1cc5dd5eda",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/pylon_core.json",
+        "sourceSha256": "cb0cc580afc3ad4acdfb7bfc6e5bec51f6113639a14d48638fdc2986cbc97889",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/pylon_core.json",
+        "targetSha256": "41c163d428a5cf8e4ab34ab8d7ae705abb455907a017feecb52af34fe314e91a",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/raw_torpedo.json",
+        "sourceSha256": "ab47b3dcc12a61463f392e3219cfb9814458028e108c41091a80185abad7b543",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/raw_torpedo.json",
+        "targetSha256": "c9422e97f73654fed3be4734310fbf92d526a3c0d2c8139b909d2d7be0de3b6f",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/ruby.json",
+        "sourceSha256": "75c35eac7ef51010437ae8ea1d1cb48a89f9ecd0f14a10428fcb0397c3876b3f",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/ruby.json",
+        "targetSha256": "defa44e138051f7b1bda4e0c2c42326bb4466a015d43a1c6874eacf935f973ab",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/ruby_sickle.json",
+        "sourceSha256": "da03932b2a233589fb381549f57fc7ca753f6fad90be0202ed336b7515528ac6",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/ruby_sickle.json",
+        "targetSha256": "6beecfd25bf374f226e99ee0de2759b402b054e8383e8d42f5d7b1ce0b573f7f",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/sanctum_bricks.json",
+        "sourceSha256": "40beb45d70e4a3dc9a4cea7056824f357b68883a750239a22167eaf00459065e",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/sanctum_bricks.json",
+        "targetSha256": "144cf376dd99176e0206a6cdf467362bc67ef77e2d0bc3f69ec3636f576c4634",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/silly_straw.json",
+        "sourceSha256": "369af3bc8d8e1a25a4d7c2ae15020350ba8dc4b38f928aa779416e40cd46569c",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/silly_straw.json",
+        "targetSha256": "c301759d5c9571e9ecb53836496325afae8a5e450d274f0aa102dd8fba25ee78",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/slush.json",
+        "sourceSha256": "0857e6b8ba6ef5525ccf10ea4eca8760229c6f5ab861b0310e9260af92ada05c",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/slush.json",
+        "targetSha256": "c3afa68dfe78466217a722c9f21da82072459f3bdc3fb700728e010d381b0c44",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/slushball.json",
+        "sourceSha256": "fcd7426d26247a170fdcf75e5b23e5e3c5c930d74f4aec7a1b89a2b61e254750",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/slushball.json",
+        "targetSha256": "7b74b43ea5282cc5cc8615543a2e4848b2318388b053268098915e2d87609ebd",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/speleothem.json",
+        "sourceSha256": "02df67d2752fbd7e9964af8ce540a0a7081c044df6e91a7e8f9f138d554c78a0",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/speleothem.json",
+        "targetSha256": "897b3684835e0e1bd7705752d1c5f59e0990da52243d447d8d7bcbf642e281d9",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/sprintweed.json",
+        "sourceSha256": "acc6d375b487b84ecef552eb51da1b3b44d4d3d8fa5cd295d9caeba5c7c49044",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/sprintweed.json",
+        "targetSha256": "6f9e87ba8449dd247249d4d6a59b307e7d8f5679f5075099c412a8609fbdd7cc",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/stratus_alloy.json",
+        "sourceSha256": "5f8d049ad0456c0bff2e0469001e0ba9b2f88c2ebb7fe9c79d4bd1a8eb66078f",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/stratus_alloy.json",
+        "targetSha256": "78b31c9e1c5b1e8d70b704ba8a0b77bd1c62f775e1b2a3c74f1c054651eeb858",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/trident_flower.json",
+        "sourceSha256": "e6856a46a2d7f8013c61f2dd1f6727b5f1966757cf357fead7a4fe767609e9ec",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/trident_flower.json",
+        "targetSha256": "b26a5867b726521e056a31c42b93cc0f0f6a389645b736546f1f20097bd33491",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/verdium.json",
+        "sourceSha256": "211fad7e6ac90c82ebf17261e8156a3b3804723e16b0dc220c27cd30e23f05d5",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/verdium.json",
+        "targetSha256": "8b13cb9969b2cfadfcefae5dd84a6448e354b99be16f1382b9f8efc81a5e4c1c",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/vermillion_lantern.json",
+        "sourceSha256": "7f20846895fd6df5c8798ae81037616972c8f2cacfd9bafba5a7cc7b4279724b",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/vermillion_lantern.json",
+        "targetSha256": "d6acad65023c6d3e3bf67ff40da56eb8a07afe434cd1ca2652c146239a75bdc9",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/vermillion_roots.json",
+        "sourceSha256": "7fc7bbc974ec435dd9e2fdc128c6688e71898fefa416a8a3966d08d6dc5baaba",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/vermillion_roots.json",
+        "targetSha256": "be401b8130aea82ee6a2cbbe7e50416bd6e4f82b56615761042a0f091ba6f7e8",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/watering_can.json",
+        "sourceSha256": "1dadaabdcb71c8b67eedcee0afa24aa5a687a941e17e85d37ca26624f24921e6",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/watering_can.json",
+        "targetSha256": "f07842352d669b2bca0a1c6d394503dc729ce7c627a5178cfae5f538d3343208",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/zap_gauntlet.json",
+        "sourceSha256": "9225e091efc061d7f76755cb181ecd88d080591d6ac4f1729d9cba0687fe6b34",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/zap_gauntlet.json",
+        "targetSha256": "4fa22b8af367ffdcb1658d360f4cea400310ce551003663e38a76a752cbbb23f",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/models/item/zenith_smithing_template.json",
+        "sourceSha256": "cb551df37b9105174e68fd199680373355a4f0d1f4151a1777fe8c55936b572c",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/zenith_smithing_template.json",
+        "targetSha256": "884a475b141ff77d7d3a980f64799d17dfe3a91ff641a2d68b3780635d7681cf",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/block/bismuth_block.png",
+        "sourceSha256": "fa9dabbcf96116603267bb931978dfe467ac32f16da1a55c08b41211dd35280a",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/block/bismuth_block.png",
+        "targetSha256": "fa9dabbcf96116603267bb931978dfe467ac32f16da1a55c08b41211dd35280a",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/block/breather_sponge.png",
+        "sourceSha256": "333eb4ef6efd303ddad7ba5ca0d197e6d180adc10b3e7b736c5b75a673624aec",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/block/breather_sponge.png",
+        "targetSha256": "333eb4ef6efd303ddad7ba5ca0d197e6d180adc10b3e7b736c5b75a673624aec",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/block/bright_ochre_leaves.png",
+        "sourceSha256": "9560ee04cc23c0b00213bc7d8aa0760f635af47bb792f281464ce3c85b3956af",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/block/bright_ochre_leaves.png",
+        "targetSha256": "9560ee04cc23c0b00213bc7d8aa0760f635af47bb792f281464ce3c85b3956af",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/block/ceruleanglower.png",
+        "sourceSha256": "8609e99bebd24225f7306111dd1883c1ed8c2e638ab8ee6d641fad92c9013626",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/block/ceruleanglower.png",
+        "targetSha256": "8609e99bebd24225f7306111dd1883c1ed8c2e638ab8ee6d641fad92c9013626",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/block/ceruleanglower.png.mcmeta",
+        "sourceSha256": "78fd0e7d9713e199ed5bd46972729f4878ff6ecf280fe96db5dfac8fe3b2777a",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/block/ceruleanglower.png.mcmeta",
+        "targetSha256": "78fd0e7d9713e199ed5bd46972729f4878ff6ecf280fe96db5dfac8fe3b2777a",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/block/cobalt.png",
+        "sourceSha256": "75bd2661b7c40f214404323d1200b8a15a1daf864a2b16b63e9c015129174b11",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/block/cobalt.png",
+        "targetSha256": "75bd2661b7c40f214404323d1200b8a15a1daf864a2b16b63e9c015129174b11",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/block/cobalt_block.png",
+        "sourceSha256": "9be93f2204975458106d43dae2a623a652ecd55d3d98f5ca03d9fbe4033b16a6",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/block/cobalt_block.png",
+        "targetSha256": "9be93f2204975458106d43dae2a623a652ecd55d3d98f5ca03d9fbe4033b16a6",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/block/cobalt_brick.png",
+        "sourceSha256": "9c4de9b691466121a4a8b3fbffcf52b145d1644b22c9e748a0bac34af55ae682",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/block/cobalt_brick.png",
+        "targetSha256": "9c4de9b691466121a4a8b3fbffcf52b145d1644b22c9e748a0bac34af55ae682",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/block/dull_net.png",
+        "sourceSha256": "14b8762ecd0d0b19ecfebd8e6c03639ed250e115158a84cfde0dea6ffabfe37b",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/block/dull_net.png",
+        "targetSha256": "14b8762ecd0d0b19ecfebd8e6c03639ed250e115158a84cfde0dea6ffabfe37b",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/block/fusciaglower.png",
+        "sourceSha256": "623a529cedea6bedc430dd7b271e73a358dfc99c5bb4631014e33a9df5764660",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/block/fusciaglower.png",
+        "targetSha256": "623a529cedea6bedc430dd7b271e73a358dfc99c5bb4631014e33a9df5764660",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/block/fusciaglower.png.mcmeta",
+        "sourceSha256": "78fd0e7d9713e199ed5bd46972729f4878ff6ecf280fe96db5dfac8fe3b2777a",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/block/fusciaglower.png.mcmeta",
+        "targetSha256": "78fd0e7d9713e199ed5bd46972729f4878ff6ecf280fe96db5dfac8fe3b2777a",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/block/knights_edge_rubicon.png",
+        "sourceSha256": "d535e5469f0bb2096bd4c58fd2c4380ab9e972b9cef03a7e1b04c1cc3eb91489",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/block/knights_edge_rubicon.png",
+        "targetSha256": "d535e5469f0bb2096bd4c58fd2c4380ab9e972b9cef03a7e1b04c1cc3eb91489",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/block/malachite_block.png",
+        "sourceSha256": "f8daf49332dca0cd3d5c601985e6542fde66b1118e09e8049045b0d90d44ce50",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/block/malachite_block.png",
+        "targetSha256": "f8daf49332dca0cd3d5c601985e6542fde66b1118e09e8049045b0d90d44ce50",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/block/muck_bricks.png",
+        "sourceSha256": "f35c0021b4a25d431343a79f09a5569c30862f1bc93449f07c82981f36433e66",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/block/muck_bricks.png",
+        "targetSha256": "f35c0021b4a25d431343a79f09a5569c30862f1bc93449f07c82981f36433e66",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/block/ochre_leaves.png",
+        "sourceSha256": "ce92380bde8df5ac686b603906630a283feaae13c4aa9beaefedc8ebd9188d80",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/block/ochre_leaves.png",
+        "targetSha256": "ce92380bde8df5ac686b603906630a283feaae13c4aa9beaefedc8ebd9188d80",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/block/permafrost_25b.png",
+        "sourceSha256": "d036a929409d05199ca230ca6cc71ae391d890e19ef29d92537cbe1479806057",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/block/permafrost_25b.png",
+        "targetSha256": "d036a929409d05199ca230ca6cc71ae391d890e19ef29d92537cbe1479806057",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/block/scrollinghazardstripes.png",
+        "sourceSha256": "87989ded9156b7bf51bea7338ab62865bf4e884af47e0c904c944a0b86fa2c6b",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/block/scrollinghazardstripes.png",
+        "targetSha256": "87989ded9156b7bf51bea7338ab62865bf4e884af47e0c904c944a0b86fa2c6b",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/block/scrollinghazardstripes.png.mcmeta",
+        "sourceSha256": "b38bdce28a3916cc45a5ecca465851b2f81842134aaf945505f7f9a3e2b45575",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/block/scrollinghazardstripes.png.mcmeta",
+        "targetSha256": "b38bdce28a3916cc45a5ecca465851b2f81842134aaf945505f7f9a3e2b45575",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/block/slush.png",
+        "sourceSha256": "558927216f47c048c7c2a707ecfc51348342959f627ca53d8d53f6e1536b9957",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/block/slush.png",
+        "targetSha256": "558927216f47c048c7c2a707ecfc51348342959f627ca53d8d53f6e1536b9957",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/block/slush_25.png",
+        "sourceSha256": "3eba0cf219ea72236b885c40a667d09e1f18e4c73f9594c3e51fa5ddf5d13801",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/block/slush_25.png",
+        "targetSha256": "3eba0cf219ea72236b885c40a667d09e1f18e4c73f9594c3e51fa5ddf5d13801",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/block/speedweed_top.png",
+        "sourceSha256": "9f5af10ac9958685a9514cf1e062ada3a4842c682cbbd21688d38cbd6b04516c",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/block/speedweed_top.png",
+        "targetSha256": "9f5af10ac9958685a9514cf1e062ada3a4842c682cbbd21688d38cbd6b04516c",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/block/trident_flower_top_rubicon.png",
+        "sourceSha256": "225aab4e4904ea7dea79a27ed0fbbaff9521b2e74f3707ca60796dab0bc53560",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/block/trident_flower_top_rubicon.png",
+        "targetSha256": "225aab4e4904ea7dea79a27ed0fbbaff9521b2e74f3707ca60796dab0bc53560",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/block/underbrush_leaves.png",
+        "sourceSha256": "388b1dd0505ae2ef60090e031915e48db85c1cb487a5a51f19613a7b24006450",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/block/underbrush_leaves.png",
+        "targetSha256": "388b1dd0505ae2ef60090e031915e48db85c1cb487a5a51f19613a7b24006450",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/block/verdium.png",
+        "sourceSha256": "d15bfeef2a73678a117eb47d5830d6cb185746202681504c3ed7f4f510042980",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/block/verdium.png",
+        "targetSha256": "d15bfeef2a73678a117eb47d5830d6cb185746202681504c3ed7f4f510042980",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/block/verdium.png.mcmeta",
+        "sourceSha256": "78fd0e7d9713e199ed5bd46972729f4878ff6ecf280fe96db5dfac8fe3b2777a",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/block/verdium.png.mcmeta",
+        "targetSha256": "78fd0e7d9713e199ed5bd46972729f4878ff6ecf280fe96db5dfac8fe3b2777a",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/item/bismuth_25.png",
+        "sourceSha256": "ed2c9ae9121278ec6ab7709fe51bcf6d972bde20a8612d7c3e472b01e57e2d4e",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/bismuth_25.png",
+        "targetSha256": "ed2c9ae9121278ec6ab7709fe51bcf6d972bde20a8612d7c3e472b01e57e2d4e",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/item/bloodstone_sickle.png",
+        "sourceSha256": "955a69fb68492c9a055f8c4735b67a23f4aae1466bd66db764d9a38f32e758a9",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/bloodstone_sickle.png",
+        "targetSha256": "955a69fb68492c9a055f8c4735b67a23f4aae1466bd66db764d9a38f32e758a9",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/item/carbor_helmet.png",
+        "sourceSha256": "16b057b454e223a44e323f680a1994575afbe542ab4cc18a7c0847103e3236c5",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/carbor_helmet.png",
+        "targetSha256": "16b057b454e223a44e323f680a1994575afbe542ab4cc18a7c0847103e3236c5",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/item/carborundumsword.png",
+        "sourceSha256": "f589571dadbfd153fe734f2ff1e9b8dd17c7159f36ad962d7578c53380002a4b",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/carborundumsword.png",
+        "targetSha256": "f589571dadbfd153fe734f2ff1e9b8dd17c7159f36ad962d7578c53380002a4b",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/item/carborundumsword.png.mcmeta",
+        "sourceSha256": "97f425d9cc3f80147ddf0e97b2d5dee265d9c7036ab540ef6c0218feb968afdc",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/carborundumsword.png.mcmeta",
+        "targetSha256": "97f425d9cc3f80147ddf0e97b2d5dee265d9c7036ab540ef6c0218feb968afdc",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/item/cavebloomer_core.png",
+        "sourceSha256": "5c6346642988fe9cfab962edf12867fd04aac0d983d807677ebc40a6b2ef02a2",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/cavebloomer_core.png",
+        "targetSha256": "5c6346642988fe9cfab962edf12867fd04aac0d983d807677ebc40a6b2ef02a2",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/item/climbing_pick.png",
+        "sourceSha256": "e5d1530af4d77116489416caa0c6a04878e278f85f85e02c3fe199c2814ecfa5",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/climbing_pick.png",
+        "targetSha256": "e5d1530af4d77116489416caa0c6a04878e278f85f85e02c3fe199c2814ecfa5",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/item/cobalt_rod.png",
+        "sourceSha256": "ec111c02e5ccd2f753f97ac5ba40b590a057c9925407a4c0d03e1be1ad4812f6",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/cobalt_rod.png",
+        "targetSha256": "ec111c02e5ccd2f753f97ac5ba40b590a057c9925407a4c0d03e1be1ad4812f6",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/item/cooked_torpedo.png",
+        "sourceSha256": "a92936b56b9e29fd29b33fe4f80b1bc5cacfbf4791792263f872093abf94c4a1",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/cooked_torpedo.png",
+        "targetSha256": "a92936b56b9e29fd29b33fe4f80b1bc5cacfbf4791792263f872093abf94c4a1",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/item/cryonic_alloy.png",
+        "sourceSha256": "c263a2824d0bec2098bc663810d7a28df16bf4095591e4cb547bbc1a8ac7819d",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/cryonic_alloy.png",
+        "targetSha256": "c263a2824d0bec2098bc663810d7a28df16bf4095591e4cb547bbc1a8ac7819d",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/item/fabricator_icon.png",
+        "sourceSha256": "c0707096d633551630194061a1712be8827b2e07f8491b30ada72257179ca9be",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/fabricator_icon.png",
+        "targetSha256": "c0707096d633551630194061a1712be8827b2e07f8491b30ada72257179ca9be",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/item/ferrum_alloy.png",
+        "sourceSha256": "5b87c5085517725294e2369c8b630ca58205ce9f6a7e3ff8ed5c07d3d272db03",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/ferrum_alloy.png",
+        "targetSha256": "5b87c5085517725294e2369c8b630ca58205ce9f6a7e3ff8ed5c07d3d272db03",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/item/frozen_blade.png",
+        "sourceSha256": "0543dc97852dc750c838a1c58e4d0b67ae102c7353621b6058f75505d054c4ba",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/frozen_blade.png",
+        "targetSha256": "0543dc97852dc750c838a1c58e4d0b67ae102c7353621b6058f75505d054c4ba",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/item/gardenling_constructor.png",
+        "sourceSha256": "82ff76690f5dbad4b364a9c20633bba6b7a499c5d47865f17107d5ea112c3aa2",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/gardenling_constructor.png",
+        "targetSha256": "82ff76690f5dbad4b364a9c20633bba6b7a499c5d47865f17107d5ea112c3aa2",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/item/herald_egg.png",
+        "sourceSha256": "bf82105d46f00d1e7c74548d980f38a9a96a01b6b96eeea8aefd6caeca212a05",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/herald_egg.png",
+        "targetSha256": "bf82105d46f00d1e7c74548d980f38a9a96a01b6b96eeea8aefd6caeca212a05",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/item/herald_key.png",
+        "sourceSha256": "87d53f89b4eed701cd9a7277de32b859bbc608576f9907da6e8119f28cea5c56",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/herald_key.png",
+        "targetSha256": "87d53f89b4eed701cd9a7277de32b859bbc608576f9907da6e8119f28cea5c56",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/item/keystone.png",
+        "sourceSha256": "179621d1075f3bdf7088b2b73838a74e9e43b6d344ac2830b24ab03803e4d47e",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/keystone.png",
+        "targetSha256": "179621d1075f3bdf7088b2b73838a74e9e43b6d344ac2830b24ab03803e4d47e",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/item/keystone.png.mcmeta",
+        "sourceSha256": "f8fcde6fee9dda1653746dfd2571508526df535dde3afde307b7535cfea9fde2",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/keystone.png.mcmeta",
+        "targetSha256": "f8fcde6fee9dda1653746dfd2571508526df535dde3afde307b7535cfea9fde2",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/item/knights_edge_icon_rubicon.png",
+        "sourceSha256": "c3f22a60779e02b00a25f61116430d353c4fd1db90ecfa4fbc18056876ddc0e8",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/knights_edge_icon_rubicon.png",
+        "targetSha256": "c3f22a60779e02b00a25f61116430d353c4fd1db90ecfa4fbc18056876ddc0e8",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/item/liteprism_sword.png",
+        "sourceSha256": "9c8bcb241c0a67623c3f67b7e4d1bb9cce209d57aa83e2694e41b0cf48a072e8",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/liteprism_sword.png",
+        "targetSha256": "9c8bcb241c0a67623c3f67b7e4d1bb9cce209d57aa83e2694e41b0cf48a072e8",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/item/lodpozar_relic.png",
+        "sourceSha256": "5fe2f056c1d83d9812b522ddf676bfddef286375391ceccbf447bc20fd25f95f",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/lodpozar_relic.png",
+        "targetSha256": "5fe2f056c1d83d9812b522ddf676bfddef286375391ceccbf447bc20fd25f95f",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/item/malachite.png",
+        "sourceSha256": "2e6a3445eb36adee041a0261093163ae9998e565331bd75ed523b00d14e4d89e",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/malachite.png",
+        "targetSha256": "2e6a3445eb36adee041a0261093163ae9998e565331bd75ed523b00d14e4d89e",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/item/muck.png",
+        "sourceSha256": "b839eddb97d806ecf96be0a92afbe114fc98bcd7d4916d7811fcdbfcd8bd72c3",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/muck.png",
+        "targetSha256": "b839eddb97d806ecf96be0a92afbe114fc98bcd7d4916d7811fcdbfcd8bd72c3",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/item/nuruby.png",
+        "sourceSha256": "8c02d5290875f26f90f2cea7b0a7842c1751b6077cb984f0b0caba61f9b31d01",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/nuruby.png",
+        "targetSha256": "8c02d5290875f26f90f2cea7b0a7842c1751b6077cb984f0b0caba61f9b31d01",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/item/phobotite_26.png",
+        "sourceSha256": "03a9d446746bfaf099f79944be282c988cfc2a610192c574295d41502636752a",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/phobotite_26.png",
+        "targetSha256": "03a9d446746bfaf099f79944be282c988cfc2a610192c574295d41502636752a",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/item/polished_bloodstone.png",
+        "sourceSha256": "ccfef99078f9fedc3b00466cd9e268b1cb0ec25bef5001ac7424174cf0b7b16d",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/polished_bloodstone.png",
+        "targetSha256": "ccfef99078f9fedc3b00466cd9e268b1cb0ec25bef5001ac7424174cf0b7b16d",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/item/raw_torpedo.png",
+        "sourceSha256": "419dd81ccbd2082320101e9c8f1e8873ae5d0028219354f32724d122a80594c6",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/raw_torpedo.png",
+        "targetSha256": "419dd81ccbd2082320101e9c8f1e8873ae5d0028219354f32724d122a80594c6",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/item/ruby_sickle.png",
+        "sourceSha256": "9758f7460b8ba5c03507f66d2b7195d057a915609a614e4687454c2ac184d12f",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/ruby_sickle.png",
+        "targetSha256": "9758f7460b8ba5c03507f66d2b7195d057a915609a614e4687454c2ac184d12f",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/item/siibol_bucket.png",
+        "sourceSha256": "37f4ed8ff5c737152381208dfeacd3e5e6f5f0487caed91b700040eda21f120e",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/siibol_bucket.png",
+        "targetSha256": "37f4ed8ff5c737152381208dfeacd3e5e6f5f0487caed91b700040eda21f120e",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/item/silly_straw.png",
+        "sourceSha256": "de8dedba257945d059085116f4162b67a4ccc561c12ff8b9b2922584c4971ef7",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/silly_straw.png",
+        "targetSha256": "de8dedba257945d059085116f4162b67a4ccc561c12ff8b9b2922584c4971ef7",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/item/slush_ball.png",
+        "sourceSha256": "007805bed92f5e3eb95d34d628cb90e03267904cc02e11080eb52be1b251df85",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/slush_ball.png",
+        "targetSha256": "007805bed92f5e3eb95d34d628cb90e03267904cc02e11080eb52be1b251df85",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/item/snowcone.png",
+        "sourceSha256": "92970125d278c5943705556b112fcc3580a6d7026538de7667cc756902cc8a27",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/snowcone.png",
+        "targetSha256": "92970125d278c5943705556b112fcc3580a6d7026538de7667cc756902cc8a27",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/item/speleothem.png",
+        "sourceSha256": "e984b0f461752be70ec34e1444fce1d394cf3a5ae09a73ca843f0a25f03270e2",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/speleothem.png",
+        "targetSha256": "e984b0f461752be70ec34e1444fce1d394cf3a5ae09a73ca843f0a25f03270e2",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/item/stratus_alloy.png",
+        "sourceSha256": "284922fe16456f0c62abb1c8d0e81ac157c96645e00dc4840fb3c39d2cd85c50",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/stratus_alloy.png",
+        "targetSha256": "284922fe16456f0c62abb1c8d0e81ac157c96645e00dc4840fb3c39d2cd85c50",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/item/trilocauld.png",
+        "sourceSha256": "983530c88cdef3dc4f608fd42c63786df8b9113ddad3ffa64e456988b3c950f6",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/trilocauld.png",
+        "targetSha256": "983530c88cdef3dc4f608fd42c63786df8b9113ddad3ffa64e456988b3c950f6",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/item/vermillion_lantern_icon.png",
+        "sourceSha256": "7446838bdce14c039ba0084858a5eb5483895a31cba177056505ae8b8c117985",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/vermillion_lantern_icon.png",
+        "targetSha256": "7446838bdce14c039ba0084858a5eb5483895a31cba177056505ae8b8c117985",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/item/vermillionhyphae.png",
+        "sourceSha256": "9556049794c792bcf71001bf0cfeca2a16ecbedf51c90f82062fb8be82e0e79d",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/vermillionhyphae.png",
+        "targetSha256": "9556049794c792bcf71001bf0cfeca2a16ecbedf51c90f82062fb8be82e0e79d",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/item/watering_can.png",
+        "sourceSha256": "b066ad3d8b74a52c2ce02b55b2965aaa47f6d581c2282421979918e86e88a54c",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/watering_can.png",
+        "targetSha256": "b066ad3d8b74a52c2ce02b55b2965aaa47f6d581c2282421979918e86e88a54c",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/item/zap_gauntlet_1.png",
+        "sourceSha256": "d506992a0b0f1a19659962173fdd465f79401dbaa2c72dcae3689ea48678dd8b",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/zap_gauntlet_1.png",
+        "targetSha256": "d506992a0b0f1a19659962173fdd465f79401dbaa2c72dcae3689ea48678dd8b",
+        "namespaceOnlyOrIdentical": true
+      },
+      {
+        "source": "assets/thermal_shock/textures/item/zenith_smithing_template.png",
+        "sourceSha256": "2c860692c4b60b6d638dced266b8a33f0380282d5a84769316e8e6f8ad1e42b1",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/zenith_smithing_template.png",
+        "targetSha256": "2c860692c4b60b6d638dced266b8a33f0380282d5a84769316e8e6f8ad1e42b1",
+        "namespaceOnlyOrIdentical": true
+      }
+    ],
+    "sourceMissingModels": [],
+    "existingDifferences": [],
+    "limit": "仅本批依赖的原物品模型/父模型/覆盖模型/纹理/动画元数据，不替代Geo实体渲染和实际客户端验收。"
+  },
+  "registry": [
+    {
+      "id": "thermal_shock_reforged:bismuth",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "1d6518d8cc39102c5850164eaf5cc09f6e9d2f7f78efbd10aca00f2494c8ed52"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:bismuth_block",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "1d6518d8cc39102c5850164eaf5cc09f6e9d2f7f78efbd10aca00f2494c8ed52"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:bloodstone",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "1d6518d8cc39102c5850164eaf5cc09f6e9d2f7f78efbd10aca00f2494c8ed52"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:bloodstone_sickle",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/WeaponContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "282fe23988271428636fbf4a6a59cd322a44cddcda64c74d8f9414b6c3980a7a"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:breather_sponge",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/terrain/TerrainContent.java",
+          "kind": "同类BLOCKS与SimpleBlockItem注册",
+          "sha256": "cd1805d6fdefa9f53b232f92b36ce7b04efbf3523ae6e80579155a6279e894df"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:bright_ochre_leaves",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/terrain/TerrainContent.java",
+          "kind": "同类BLOCKS与SimpleBlockItem注册",
+          "sha256": "cd1805d6fdefa9f53b232f92b36ce7b04efbf3523ae6e80579155a6279e894df"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:bucket_of_siibol",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/snobol/SnobolContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "24eeceaa1f548e13dadd6722319d71abaeaecd46d3dc42061d37df2a11f3ae46"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:carborundum_armor_helmet",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/armor/ArmorContent.java",
+          "kind": "四装备槽枚举真实ITEMS注册",
+          "sha256": "04ec0e6e0721222c1e867ef51f6e3fec82b460fbe31b835d0a2b260844fe1ed6"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:carborundum_sword",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/tools/ToolsContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "c2c8437f4d6a6e3d549399ded8763ace315417f000928707a9d8bbb57f4b94f0"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:cauldron_of_trilobite",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/fauna/FaunaEntities.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "e3992d2651aea9d75428815c7784adb190d59fe1cc22367951e4a7954df2405e"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:cavebloomer_core",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "1d6518d8cc39102c5850164eaf5cc09f6e9d2f7f78efbd10aca00f2494c8ed52"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:ceruleum",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "5b0d2eb62e57c4e625a248bd83a0169412c8410f0f8793894a2f1cf2ed46eddc"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:climbing_pick",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "40ee86d8134d47f806bd40f840a8f38a2b0ac70fa7bc5c1ece649e9050183b8d"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:cobalt",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/terrain/TerrainContent.java",
+          "kind": "同类BLOCKS与SimpleBlockItem注册",
+          "sha256": "cd1805d6fdefa9f53b232f92b36ce7b04efbf3523ae6e80579155a6279e894df"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:cobalt_block",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/dependencies/DependencyBlocks.java",
+          "kind": "同类BLOCKS与SimpleBlockItem注册",
+          "sha256": "29ce472f3fb9d5c557aee3cff492641fe5c82fb04dc50a0791c14e48ffec03ea"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:cobalt_rod",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "1d6518d8cc39102c5850164eaf5cc09f6e9d2f7f78efbd10aca00f2494c8ed52"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:cooked_torpedo",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "1d6518d8cc39102c5850164eaf5cc09f6e9d2f7f78efbd10aca00f2494c8ed52"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:cryonic_alloy",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "1d6518d8cc39102c5850164eaf5cc09f6e9d2f7f78efbd10aca00f2494c8ed52"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:dull_leaves",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/terrain/TerrainContent.java",
+          "kind": "同类BLOCKS与SimpleBlockItem注册",
+          "sha256": "cd1805d6fdefa9f53b232f92b36ce7b04efbf3523ae6e80579155a6279e894df"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:dull_thread_net",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "1d6518d8cc39102c5850164eaf5cc09f6e9d2f7f78efbd10aca00f2494c8ed52"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:fabricator_constructor",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java",
+          "kind": "同类BLOCKS与SimpleBlockItem注册",
+          "sha256": "b158a0665b55b54678ec9e36aabb5f5ded0c698c7d758fa344befb0c4d044001"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:ferrum_ingot",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "1d6518d8cc39102c5850164eaf5cc09f6e9d2f7f78efbd10aca00f2494c8ed52"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:frozen_blade",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/WeaponContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "282fe23988271428636fbf4a6a59cd322a44cddcda64c74d8f9414b6c3980a7a"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:fuscium",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "5b0d2eb62e57c4e625a248bd83a0169412c8410f0f8793894a2f1cf2ed46eddc"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:gardenling_constructor",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/gardenling/GardenlingContent.java",
+          "kind": "同类BLOCKS与SimpleBlockItem注册",
+          "sha256": "3c12956aa945e9df824f0ada5bff0998645daf0d95540f26f9c1aa86b7d21682"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:hazard_stripes",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "1d6518d8cc39102c5850164eaf5cc09f6e9d2f7f78efbd10aca00f2494c8ed52"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:herald_key",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "1d6518d8cc39102c5850164eaf5cc09f6e9d2f7f78efbd10aca00f2494c8ed52"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:herald_spawn_egg",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/mangler/ManglerContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "d0fb2b74b978ca25520911ba16a944d9bea2ce5e4574f0e3cf42ee10344b7392"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:icidroburner_trophy",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java",
+          "kind": "GeoDecorKind枚举ID及完整循环ITEMS注册",
+          "sha256": "84147bbf1ce0131a1d5240bfe33746fe48e064e02fc57e034abf48c8c44ddfb4",
+          "enumSha256": "c749f29bef0998ecc7d5f4ebe5a538c1b840349a6e1d87b548f8d73f3d5c92dc"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:icidrogunner_trophy",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java",
+          "kind": "GeoDecorKind枚举ID及完整循环ITEMS注册",
+          "sha256": "84147bbf1ce0131a1d5240bfe33746fe48e064e02fc57e034abf48c8c44ddfb4",
+          "enumSha256": "c749f29bef0998ecc7d5f4ebe5a538c1b840349a6e1d87b548f8d73f3d5c92dc"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:icy_snowcone",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "1d6518d8cc39102c5850164eaf5cc09f6e9d2f7f78efbd10aca00f2494c8ed52"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:keystone",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/atlas/AtlasContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "56e58161722760956a8361da15bee7ef466b1431eacb66d7759d294526e8af02"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:knights_edge",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/WeaponContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "282fe23988271428636fbf4a6a59cd322a44cddcda64c74d8f9414b6c3980a7a"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:liteprism_sword",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/WeaponContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "282fe23988271428636fbf4a6a59cd322a44cddcda64c74d8f9414b6c3980a7a"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:malachite",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "1d6518d8cc39102c5850164eaf5cc09f6e9d2f7f78efbd10aca00f2494c8ed52"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:malachite_block",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "1d6518d8cc39102c5850164eaf5cc09f6e9d2f7f78efbd10aca00f2494c8ed52"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:muck_ball",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "1d6518d8cc39102c5850164eaf5cc09f6e9d2f7f78efbd10aca00f2494c8ed52"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:muck_button",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "1d6518d8cc39102c5850164eaf5cc09f6e9d2f7f78efbd10aca00f2494c8ed52"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:ochre_leaves",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/terrain/TerrainContent.java",
+          "kind": "同类BLOCKS与SimpleBlockItem注册",
+          "sha256": "cd1805d6fdefa9f53b232f92b36ce7b04efbf3523ae6e80579155a6279e894df"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:permafrost",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "1d6518d8cc39102c5850164eaf5cc09f6e9d2f7f78efbd10aca00f2494c8ed52"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:phobotite",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "1d6518d8cc39102c5850164eaf5cc09f6e9d2f7f78efbd10aca00f2494c8ed52"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:pure_muck",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/dependencies/DependencyBlocks.java",
+          "kind": "同类BLOCKS与SimpleBlockItem注册",
+          "sha256": "29ce472f3fb9d5c557aee3cff492641fe5c82fb04dc50a0791c14e48ffec03ea"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:pure_muck_stairs",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "1d6518d8cc39102c5850164eaf5cc09f6e9d2f7f78efbd10aca00f2494c8ed52"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:pure_muck_wall",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "1d6518d8cc39102c5850164eaf5cc09f6e9d2f7f78efbd10aca00f2494c8ed52"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:pylon_core",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java",
+          "kind": "GeoDecorKind枚举ID及完整循环ITEMS注册",
+          "sha256": "84147bbf1ce0131a1d5240bfe33746fe48e064e02fc57e034abf48c8c44ddfb4",
+          "enumSha256": "c749f29bef0998ecc7d5f4ebe5a538c1b840349a6e1d87b548f8d73f3d5c92dc"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:raw_torpedo",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/fauna/FaunaEntities.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "e3992d2651aea9d75428815c7784adb190d59fe1cc22367951e4a7954df2405e"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:ruby",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "1d6518d8cc39102c5850164eaf5cc09f6e9d2f7f78efbd10aca00f2494c8ed52"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:ruby_sickle",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/WeaponContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "282fe23988271428636fbf4a6a59cd322a44cddcda64c74d8f9414b6c3980a7a"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:sanctum_bricks",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "1d6518d8cc39102c5850164eaf5cc09f6e9d2f7f78efbd10aca00f2494c8ed52"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:silly_straw",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "1d6518d8cc39102c5850164eaf5cc09f6e9d2f7f78efbd10aca00f2494c8ed52"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:slush",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/terrain/TerrainContent.java",
+          "kind": "同类BLOCKS与SimpleBlockItem注册",
+          "sha256": "cd1805d6fdefa9f53b232f92b36ce7b04efbf3523ae6e80579155a6279e894df"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:slushball",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "1d6518d8cc39102c5850164eaf5cc09f6e9d2f7f78efbd10aca00f2494c8ed52"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:speleothem",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/WeaponContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "282fe23988271428636fbf4a6a59cd322a44cddcda64c74d8f9414b6c3980a7a"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:sprintweed",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/plants/tall/TallPlantContent.java",
+          "kind": "同类BLOCKS与SimpleBlockItem注册",
+          "sha256": "c7d57ae2bb917f13d87117ccbf8fbe1d7fb1bf731d4dbbc5a0691fa62db6cf74"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:stratus_alloy",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "1d6518d8cc39102c5850164eaf5cc09f6e9d2f7f78efbd10aca00f2494c8ed52"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:trident_flower",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/plants/tall/TallPlantContent.java",
+          "kind": "同类BLOCKS与SimpleBlockItem注册",
+          "sha256": "c7d57ae2bb917f13d87117ccbf8fbe1d7fb1bf731d4dbbc5a0691fa62db6cf74"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:verdium",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "5b0d2eb62e57c4e625a248bd83a0169412c8410f0f8793894a2f1cf2ed46eddc"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:vermillion_lantern",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "1d6518d8cc39102c5850164eaf5cc09f6e9d2f7f78efbd10aca00f2494c8ed52"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:vermillion_roots",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/plants/SpecialPlantContent.java",
+          "kind": "同类BLOCKS与SimpleBlockItem注册",
+          "sha256": "faf447d55e21d906c0d882c2ce3eb00f407b976f7f5a72d747931a8ea7a2f780"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:watering_can",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "1d6518d8cc39102c5850164eaf5cc09f6e9d2f7f78efbd10aca00f2494c8ed52"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:zap_gauntlet",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/WeaponContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "282fe23988271428636fbf4a6a59cd322a44cddcda64c74d8f9414b6c3980a7a"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:zenith_smithing_template",
+      "evidence": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "kind": "真实ITEMS注册或已核helper",
+          "sha256": "1d6518d8cc39102c5850164eaf5cc09f6e9d2f7f78efbd10aca00f2494c8ed52"
+        }
+      ]
+    }
+  ],
+  "itemReferenceCount": 67,
+  "language": {
+    "enDelta": 0,
+    "zhEntries": 40,
+    "preservedEnglish": 40
+  },
+  "checks": [
+    "原07.9完整JAR SHA",
+    "独占生产45份数据",
+    "原件SHA:bloodstone_sickle_recipe",
+    "UTF8无旧命名空间:bloodstone_sickle_recipe",
+    "反向语义完整一致:bloodstone_sickle_recipe",
+    "原件SHA:cobalt_block_recipe",
+    "UTF8无旧命名空间:cobalt_block_recipe",
+    "反向语义完整一致:cobalt_block_recipe",
+    "原件SHA:cobalt_block_uncraft",
+    "UTF8无旧命名空间:cobalt_block_uncraft",
+    "反向语义完整一致:cobalt_block_uncraft",
+    "原件SHA:dull_thread_net_recipe",
+    "UTF8无旧命名空间:dull_thread_net_recipe",
+    "反向语义完整一致:dull_thread_net_recipe",
+    "原件SHA:fabricator_bism_recipe",
+    "UTF8无旧命名空间:fabricator_bism_recipe",
+    "反向语义完整一致:fabricator_bism_recipe",
+    "原件SHA:fabricator_recipe",
+    "UTF8无旧命名空间:fabricator_recipe",
+    "反向语义完整一致:fabricator_recipe",
+    "原件SHA:hazard_stripes_recipe",
+    "UTF8无旧命名空间:hazard_stripes_recipe",
+    "反向语义完整一致:hazard_stripes_recipe",
+    "原件SHA:liteprism_sword_recipe",
+    "UTF8无旧命名空间:liteprism_sword_recipe",
+    "反向语义完整一致:liteprism_sword_recipe",
+    "原件SHA:loqendia_glass_recipe",
+    "UTF8无旧命名空间:loqendia_glass_recipe",
+    "烹饪结果无额外字段:loqendia_glass_recipe",
+    "反向语义完整一致:loqendia_glass_recipe",
+    "原件SHA:loqendia_kelp_smelt",
+    "UTF8无旧命名空间:loqendia_kelp_smelt",
+    "烹饪结果无额外字段:loqendia_kelp_smelt",
+    "反向语义完整一致:loqendia_kelp_smelt",
+    "原件SHA:loqendia_kelp_smoke",
+    "UTF8无旧命名空间:loqendia_kelp_smoke",
+    "烹饪结果无额外字段:loqendia_kelp_smoke",
+    "反向语义完整一致:loqendia_kelp_smoke",
+    "原件SHA:muck_button_recipe",
+    "UTF8无旧命名空间:muck_button_recipe",
+    "反向语义完整一致:muck_button_recipe",
+    "原件SHA:muck_recipe",
+    "UTF8无旧命名空间:muck_recipe",
+    "反向语义完整一致:muck_recipe",
+    "原件SHA:permafrost_craft",
+    "UTF8无旧命名空间:permafrost_craft",
+    "反向语义完整一致:permafrost_craft",
+    "原件SHA:pure_muck_stair_recipe",
+    "UTF8无旧命名空间:pure_muck_stair_recipe",
+    "反向语义完整一致:pure_muck_stair_recipe",
+    "原件SHA:pure_muck_uncraft",
+    "UTF8无旧命名空间:pure_muck_uncraft",
+    "原单块返四球",
+    "反向语义完整一致:pure_muck_uncraft",
+    "原件SHA:pure_muck_wall_recipe",
+    "UTF8无旧命名空间:pure_muck_wall_recipe",
+    "反向语义完整一致:pure_muck_wall_recipe",
+    "原件SHA:ruby_sickle_recipe",
+    "UTF8无旧命名空间:ruby_sickle_recipe",
+    "反向语义完整一致:ruby_sickle_recipe",
+    "原件SHA:slush_ball_uncraft",
+    "UTF8无旧命名空间:slush_ball_uncraft",
+    "反向语义完整一致:slush_ball_uncraft",
+    "原件SHA:speleothem_recipe",
+    "UTF8无旧命名空间:speleothem_recipe",
+    "反向语义完整一致:speleothem_recipe",
+    "原件SHA:sprintweed_yellow_dye",
+    "UTF8无旧命名空间:sprintweed_yellow_dye",
+    "反向语义完整一致:sprintweed_yellow_dye",
+    "原件SHA:stratus_pity",
+    "UTF8无旧命名空间:stratus_pity",
+    "反向语义完整一致:stratus_pity",
+    "原件SHA:trident_flower_cyan_dye",
+    "UTF8无旧命名空间:trident_flower_cyan_dye",
+    "反向语义完整一致:trident_flower_cyan_dye",
+    "原件SHA:vermillion_lantern_recipe",
+    "UTF8无旧命名空间:vermillion_lantern_recipe",
+    "反向语义完整一致:vermillion_lantern_recipe",
+    "原件SHA:vermillion_roots_red_dye",
+    "UTF8无旧命名空间:vermillion_roots_red_dye",
+    "反向语义完整一致:vermillion_roots_red_dye",
+    "原件SHA:bismuth_get",
+    "UTF8无旧命名空间:bismuth_get",
+    "反向语义完整一致:bismuth_get",
+    "原件SHA:bloodstone_get",
+    "UTF8无旧命名空间:bloodstone_get",
+    "反向语义完整一致:bloodstone_get",
+    "原件SHA:breather_sponge_get",
+    "UTF8无旧命名空间:breather_sponge_get",
+    "反向语义完整一致:breather_sponge_get",
+    "原件SHA:carborundum_get",
+    "UTF8无旧命名空间:carborundum_get",
+    "反向语义完整一致:carborundum_get",
+    "原件SHA:cauldron_get",
+    "UTF8无旧命名空间:cauldron_get",
+    "反向语义完整一致:cauldron_get",
+    "原件SHA:climbing_pick_get",
+    "UTF8无旧命名空间:climbing_pick_get",
+    "反向语义完整一致:climbing_pick_get",
+    "原件SHA:cobalt_heights_get",
+    "UTF8无旧命名空间:cobalt_heights_get",
+    "反向语义完整一致:cobalt_heights_get",
+    "原件SHA:cooked_torpedo_consume_get",
+    "UTF8无旧命名空间:cooked_torpedo_consume_get",
+    "反向语义完整一致:cooked_torpedo_consume_get",
+    "原件SHA:drinking_straw_get",
+    "UTF8无旧命名空间:drinking_straw_get",
+    "反向语义完整一致:drinking_straw_get",
+    "原件SHA:garden_plant_get",
+    "UTF8无旧命名空间:garden_plant_get",
+    "反向语义完整一致:garden_plant_get",
+    "原件SHA:gardenling_get",
+    "UTF8无旧命名空间:gardenling_get",
+    "反向语义完整一致:gardenling_get",
+    "原件SHA:herald_get",
+    "UTF8无旧命名空间:herald_get",
+    "反向语义完整一致:herald_get",
+    "原件SHA:keystone_get",
+    "UTF8无旧命名空间:keystone_get",
+    "反向语义完整一致:keystone_get",
+    "原件SHA:knight_edge_get",
+    "UTF8无旧命名空间:knight_edge_get",
+    "反向语义完整一致:knight_edge_get",
+    "原件SHA:malachite_get",
+    "UTF8无旧命名空间:malachite_get",
+    "反向语义完整一致:malachite_get",
+    "原件SHA:siibol_get",
+    "UTF8无旧命名空间:siibol_get",
+    "反向语义完整一致:siibol_get",
+    "原件SHA:snowcone_consume_get",
+    "UTF8无旧命名空间:snowcone_consume_get",
+    "反向语义完整一致:snowcone_consume_get",
+    "原件SHA:torpedo_consume_get",
+    "UTF8无旧命名空间:torpedo_consume_get",
+    "反向语义完整一致:torpedo_consume_get",
+    "原件SHA:zap_gauntlet_get",
+    "UTF8无旧命名空间:zap_gauntlet_get",
+    "反向语义完整一致:zap_gauntlet_get",
+    "原件SHA:zenith_get",
+    "UTF8无旧命名空间:zenith_get",
+    "反向语义完整一致:zenith_get",
+    "全部69进度原路径覆盖",
+    "全部536配方原路径覆盖含主线Zenith",
+    "进度父图无环:bismuth_get:thermal_shock_reforged:bismuth_get",
+    "进度父文件存在:thermal_shock_reforged:bismuth_get",
+    "进度父图无环:bismuth_get:thermal_shock_reforged:lapidary_get",
+    "进度父文件存在:thermal_shock_reforged:lapidary_get",
+    "进度父图无环:bismuth_get:thermal_shock_reforged:cobalt_get",
+    "进度父文件存在:thermal_shock_reforged:cobalt_get",
+    "进度父图无环:bismuth_get:thermal_shock_reforged:loqendia_get",
+    "进度父文件存在:thermal_shock_reforged:loqendia_get",
+    "进度父图无环:bloodstone_get:thermal_shock_reforged:bloodstone_get",
+    "进度父文件存在:thermal_shock_reforged:bloodstone_get",
+    "进度父图无环:bloodstone_get:thermal_shock_reforged:lapidary_get",
+    "进度父文件存在:thermal_shock_reforged:lapidary_get",
+    "进度父图无环:bloodstone_get:thermal_shock_reforged:cobalt_get",
+    "进度父文件存在:thermal_shock_reforged:cobalt_get",
+    "进度父图无环:bloodstone_get:thermal_shock_reforged:loqendia_get",
+    "进度父文件存在:thermal_shock_reforged:loqendia_get",
+    "进度父图无环:breather_sponge_get:thermal_shock_reforged:breather_sponge_get",
+    "进度父文件存在:thermal_shock_reforged:breather_sponge_get",
+    "进度父图无环:breather_sponge_get:thermal_shock_reforged:luminous_sea_get",
+    "进度父文件存在:thermal_shock_reforged:luminous_sea_get",
+    "进度父图无环:breather_sponge_get:thermal_shock_reforged:stardust_garden_advancement",
+    "进度父文件存在:thermal_shock_reforged:stardust_garden_advancement",
+    "进度父图无环:breather_sponge_get:thermal_shock_reforged:vermillion_woods_advancement",
+    "进度父文件存在:thermal_shock_reforged:vermillion_woods_advancement",
+    "进度父图无环:breather_sponge_get:thermal_shock_reforged:borean_tundra_advancement",
+    "进度父文件存在:thermal_shock_reforged:borean_tundra_advancement",
+    "进度父图无环:breather_sponge_get:thermal_shock_reforged:borean_forest_advancement",
+    "进度父文件存在:thermal_shock_reforged:borean_forest_advancement",
+    "进度父图无环:breather_sponge_get:thermal_shock_reforged:loqendia_get",
+    "进度父文件存在:thermal_shock_reforged:loqendia_get",
+    "进度父图无环:carborundum_get:thermal_shock_reforged:carborundum_get",
+    "进度父文件存在:thermal_shock_reforged:carborundum_get",
+    "进度父图无环:carborundum_get:thermal_shock_reforged:garden_plant_get",
+    "进度父文件存在:thermal_shock_reforged:garden_plant_get",
+    "进度父图无环:carborundum_get:thermal_shock_reforged:graveyard_advancement",
+    "进度父文件存在:thermal_shock_reforged:graveyard_advancement",
+    "进度父图无环:carborundum_get:thermal_shock_reforged:luminous_sea_get",
+    "进度父文件存在:thermal_shock_reforged:luminous_sea_get",
+    "进度父图无环:carborundum_get:thermal_shock_reforged:stardust_garden_advancement",
+    "进度父文件存在:thermal_shock_reforged:stardust_garden_advancement",
+    "进度父图无环:carborundum_get:thermal_shock_reforged:vermillion_woods_advancement",
+    "进度父文件存在:thermal_shock_reforged:vermillion_woods_advancement",
+    "进度父图无环:carborundum_get:thermal_shock_reforged:borean_tundra_advancement",
+    "进度父文件存在:thermal_shock_reforged:borean_tundra_advancement",
+    "进度父图无环:carborundum_get:thermal_shock_reforged:borean_forest_advancement",
+    "进度父文件存在:thermal_shock_reforged:borean_forest_advancement",
+    "进度父图无环:carborundum_get:thermal_shock_reforged:loqendia_get",
+    "进度父文件存在:thermal_shock_reforged:loqendia_get",
+    "进度父图无环:cauldron_get:thermal_shock_reforged:cauldron_get",
+    "进度父文件存在:thermal_shock_reforged:cauldron_get",
+    "进度父图无环:cauldron_get:thermal_shock_reforged:spice_get",
+    "进度父文件存在:thermal_shock_reforged:spice_get",
+    "进度父图无环:cauldron_get:thermal_shock_reforged:loqendia_get",
+    "进度父文件存在:thermal_shock_reforged:loqendia_get",
+    "进度父图无环:climbing_pick_get:thermal_shock_reforged:climbing_pick_get",
+    "进度父文件存在:thermal_shock_reforged:climbing_pick_get",
+    "进度父图无环:climbing_pick_get:thermal_shock_reforged:fabricator_get",
+    "进度父文件存在:thermal_shock_reforged:fabricator_get",
+    "进度父图无环:climbing_pick_get:thermal_shock_reforged:frigid_altar_get",
+    "进度父文件存在:thermal_shock_reforged:frigid_altar_get",
+    "进度父图无环:climbing_pick_get:thermal_shock_reforged:lapidary_get",
+    "进度父文件存在:thermal_shock_reforged:lapidary_get",
+    "进度父图无环:climbing_pick_get:thermal_shock_reforged:cobalt_get",
+    "进度父文件存在:thermal_shock_reforged:cobalt_get",
+    "进度父图无环:climbing_pick_get:thermal_shock_reforged:loqendia_get",
+    "进度父文件存在:thermal_shock_reforged:loqendia_get",
+    "进度父图无环:cobalt_heights_get:thermal_shock_reforged:cobalt_heights_get",
+    "进度父文件存在:thermal_shock_reforged:cobalt_heights_get",
+    "进度父图无环:cobalt_heights_get:thermal_shock_reforged:loqendia_get",
+    "进度父文件存在:thermal_shock_reforged:loqendia_get",
+    "进度父图无环:cooked_torpedo_consume_get:thermal_shock_reforged:cooked_torpedo_consume_get",
+    "进度父文件存在:thermal_shock_reforged:cooked_torpedo_consume_get",
+    "进度父图无环:cooked_torpedo_consume_get:thermal_shock_reforged:torpedo_consume_get",
+    "进度父文件存在:thermal_shock_reforged:torpedo_consume_get",
+    "进度父图无环:cooked_torpedo_consume_get:thermal_shock_reforged:luminous_sea_get",
+    "进度父文件存在:thermal_shock_reforged:luminous_sea_get",
+    "进度父图无环:cooked_torpedo_consume_get:thermal_shock_reforged:stardust_garden_advancement",
+    "进度父文件存在:thermal_shock_reforged:stardust_garden_advancement",
+    "进度父图无环:cooked_torpedo_consume_get:thermal_shock_reforged:vermillion_woods_advancement",
+    "进度父文件存在:thermal_shock_reforged:vermillion_woods_advancement",
+    "进度父图无环:cooked_torpedo_consume_get:thermal_shock_reforged:borean_tundra_advancement",
+    "进度父文件存在:thermal_shock_reforged:borean_tundra_advancement",
+    "进度父图无环:cooked_torpedo_consume_get:thermal_shock_reforged:borean_forest_advancement",
+    "进度父文件存在:thermal_shock_reforged:borean_forest_advancement",
+    "进度父图无环:cooked_torpedo_consume_get:thermal_shock_reforged:loqendia_get",
+    "进度父文件存在:thermal_shock_reforged:loqendia_get",
+    "进度父图无环:drinking_straw_get:thermal_shock_reforged:drinking_straw_get",
+    "进度父文件存在:thermal_shock_reforged:drinking_straw_get",
+    "进度父图无环:drinking_straw_get:thermal_shock_reforged:breather_sponge_get",
+    "进度父文件存在:thermal_shock_reforged:breather_sponge_get",
+    "进度父图无环:drinking_straw_get:thermal_shock_reforged:luminous_sea_get",
+    "进度父文件存在:thermal_shock_reforged:luminous_sea_get",
+    "进度父图无环:drinking_straw_get:thermal_shock_reforged:stardust_garden_advancement",
+    "进度父文件存在:thermal_shock_reforged:stardust_garden_advancement",
+    "进度父图无环:drinking_straw_get:thermal_shock_reforged:vermillion_woods_advancement",
+    "进度父文件存在:thermal_shock_reforged:vermillion_woods_advancement",
+    "进度父图无环:drinking_straw_get:thermal_shock_reforged:borean_tundra_advancement",
+    "进度父文件存在:thermal_shock_reforged:borean_tundra_advancement",
+    "进度父图无环:drinking_straw_get:thermal_shock_reforged:borean_forest_advancement",
+    "进度父文件存在:thermal_shock_reforged:borean_forest_advancement",
+    "进度父图无环:drinking_straw_get:thermal_shock_reforged:loqendia_get",
+    "进度父文件存在:thermal_shock_reforged:loqendia_get",
+    "进度父图无环:garden_plant_get:thermal_shock_reforged:garden_plant_get",
+    "进度父文件存在:thermal_shock_reforged:garden_plant_get",
+    "进度父图无环:garden_plant_get:thermal_shock_reforged:graveyard_advancement",
+    "进度父文件存在:thermal_shock_reforged:graveyard_advancement",
+    "进度父图无环:garden_plant_get:thermal_shock_reforged:luminous_sea_get",
+    "进度父文件存在:thermal_shock_reforged:luminous_sea_get",
+    "进度父图无环:garden_plant_get:thermal_shock_reforged:stardust_garden_advancement",
+    "进度父文件存在:thermal_shock_reforged:stardust_garden_advancement",
+    "进度父图无环:garden_plant_get:thermal_shock_reforged:vermillion_woods_advancement",
+    "进度父文件存在:thermal_shock_reforged:vermillion_woods_advancement",
+    "进度父图无环:garden_plant_get:thermal_shock_reforged:borean_tundra_advancement",
+    "进度父文件存在:thermal_shock_reforged:borean_tundra_advancement",
+    "进度父图无环:garden_plant_get:thermal_shock_reforged:borean_forest_advancement",
+    "进度父文件存在:thermal_shock_reforged:borean_forest_advancement",
+    "进度父图无环:garden_plant_get:thermal_shock_reforged:loqendia_get",
+    "进度父文件存在:thermal_shock_reforged:loqendia_get",
+    "进度父图无环:gardenling_get:thermal_shock_reforged:gardenling_get",
+    "进度父文件存在:thermal_shock_reforged:gardenling_get",
+    "进度父图无环:gardenling_get:thermal_shock_reforged:purifier_get",
+    "进度父文件存在:thermal_shock_reforged:purifier_get",
+    "进度父图无环:gardenling_get:thermal_shock_reforged:graveyard_advancement",
+    "进度父文件存在:thermal_shock_reforged:graveyard_advancement",
+    "进度父图无环:gardenling_get:thermal_shock_reforged:luminous_sea_get",
+    "进度父文件存在:thermal_shock_reforged:luminous_sea_get",
+    "进度父图无环:gardenling_get:thermal_shock_reforged:stardust_garden_advancement",
+    "进度父文件存在:thermal_shock_reforged:stardust_garden_advancement",
+    "进度父图无环:gardenling_get:thermal_shock_reforged:vermillion_woods_advancement",
+    "进度父文件存在:thermal_shock_reforged:vermillion_woods_advancement",
+    "进度父图无环:gardenling_get:thermal_shock_reforged:borean_tundra_advancement",
+    "进度父文件存在:thermal_shock_reforged:borean_tundra_advancement",
+    "进度父图无环:gardenling_get:thermal_shock_reforged:borean_forest_advancement",
+    "进度父文件存在:thermal_shock_reforged:borean_forest_advancement",
+    "进度父图无环:gardenling_get:thermal_shock_reforged:loqendia_get",
+    "进度父文件存在:thermal_shock_reforged:loqendia_get",
+    "进度父图无环:herald_get:thermal_shock_reforged:herald_get",
+    "进度父文件存在:thermal_shock_reforged:herald_get",
+    "进度父图无环:herald_get:thermal_shock_reforged:graveyard_advancement",
+    "进度父文件存在:thermal_shock_reforged:graveyard_advancement",
+    "进度父图无环:herald_get:thermal_shock_reforged:luminous_sea_get",
+    "进度父文件存在:thermal_shock_reforged:luminous_sea_get",
+    "进度父图无环:herald_get:thermal_shock_reforged:stardust_garden_advancement",
+    "进度父文件存在:thermal_shock_reforged:stardust_garden_advancement",
+    "进度父图无环:herald_get:thermal_shock_reforged:vermillion_woods_advancement",
+    "进度父文件存在:thermal_shock_reforged:vermillion_woods_advancement",
+    "进度父图无环:herald_get:thermal_shock_reforged:borean_tundra_advancement",
+    "进度父文件存在:thermal_shock_reforged:borean_tundra_advancement",
+    "进度父图无环:herald_get:thermal_shock_reforged:borean_forest_advancement",
+    "进度父文件存在:thermal_shock_reforged:borean_forest_advancement",
+    "进度父图无环:herald_get:thermal_shock_reforged:loqendia_get",
+    "进度父文件存在:thermal_shock_reforged:loqendia_get",
+    "进度父图无环:keystone_get:thermal_shock_reforged:keystone_get",
+    "进度父文件存在:thermal_shock_reforged:keystone_get",
+    "原版父进度存在:minecraft:story/form_obsidian",
+    "进度父图无环:knight_edge_get:thermal_shock_reforged:knight_edge_get",
+    "进度父文件存在:thermal_shock_reforged:knight_edge_get",
+    "进度父图无环:knight_edge_get:thermal_shock_reforged:lod_pozar_get",
+    "进度父文件存在:thermal_shock_reforged:lod_pozar_get",
+    "进度父图无环:knight_edge_get:thermal_shock_reforged:fabricator_get",
+    "进度父文件存在:thermal_shock_reforged:fabricator_get",
+    "进度父图无环:knight_edge_get:thermal_shock_reforged:frigid_altar_get",
+    "进度父文件存在:thermal_shock_reforged:frigid_altar_get",
+    "进度父图无环:knight_edge_get:thermal_shock_reforged:lapidary_get",
+    "进度父文件存在:thermal_shock_reforged:lapidary_get",
+    "进度父图无环:knight_edge_get:thermal_shock_reforged:cobalt_get",
+    "进度父文件存在:thermal_shock_reforged:cobalt_get",
+    "进度父图无环:knight_edge_get:thermal_shock_reforged:loqendia_get",
+    "进度父文件存在:thermal_shock_reforged:loqendia_get",
+    "进度父图无环:malachite_get:thermal_shock_reforged:malachite_get",
+    "进度父文件存在:thermal_shock_reforged:malachite_get",
+    "进度父图无环:malachite_get:thermal_shock_reforged:lapidary_get",
+    "进度父文件存在:thermal_shock_reforged:lapidary_get",
+    "进度父图无环:malachite_get:thermal_shock_reforged:cobalt_get",
+    "进度父文件存在:thermal_shock_reforged:cobalt_get",
+    "进度父图无环:malachite_get:thermal_shock_reforged:loqendia_get",
+    "进度父文件存在:thermal_shock_reforged:loqendia_get",
+    "进度父图无环:siibol_get:thermal_shock_reforged:siibol_get",
+    "进度父文件存在:thermal_shock_reforged:siibol_get",
+    "进度父图无环:siibol_get:thermal_shock_reforged:stardust_garden_advancement",
+    "进度父文件存在:thermal_shock_reforged:stardust_garden_advancement",
+    "进度父图无环:siibol_get:thermal_shock_reforged:vermillion_woods_advancement",
+    "进度父文件存在:thermal_shock_reforged:vermillion_woods_advancement",
+    "进度父图无环:siibol_get:thermal_shock_reforged:borean_tundra_advancement",
+    "进度父文件存在:thermal_shock_reforged:borean_tundra_advancement",
+    "进度父图无环:siibol_get:thermal_shock_reforged:borean_forest_advancement",
+    "进度父文件存在:thermal_shock_reforged:borean_forest_advancement",
+    "进度父图无环:siibol_get:thermal_shock_reforged:loqendia_get",
+    "进度父文件存在:thermal_shock_reforged:loqendia_get",
+    "进度父图无环:snowcone_consume_get:thermal_shock_reforged:snowcone_consume_get",
+    "进度父文件存在:thermal_shock_reforged:snowcone_consume_get",
+    "进度父图无环:snowcone_consume_get:thermal_shock_reforged:luminous_sea_get",
+    "进度父文件存在:thermal_shock_reforged:luminous_sea_get",
+    "进度父图无环:snowcone_consume_get:thermal_shock_reforged:stardust_garden_advancement",
+    "进度父文件存在:thermal_shock_reforged:stardust_garden_advancement",
+    "进度父图无环:snowcone_consume_get:thermal_shock_reforged:vermillion_woods_advancement",
+    "进度父文件存在:thermal_shock_reforged:vermillion_woods_advancement",
+    "进度父图无环:snowcone_consume_get:thermal_shock_reforged:borean_tundra_advancement",
+    "进度父文件存在:thermal_shock_reforged:borean_tundra_advancement",
+    "进度父图无环:snowcone_consume_get:thermal_shock_reforged:borean_forest_advancement",
+    "进度父文件存在:thermal_shock_reforged:borean_forest_advancement",
+    "进度父图无环:snowcone_consume_get:thermal_shock_reforged:loqendia_get",
+    "进度父文件存在:thermal_shock_reforged:loqendia_get",
+    "进度父图无环:torpedo_consume_get:thermal_shock_reforged:torpedo_consume_get",
+    "进度父文件存在:thermal_shock_reforged:torpedo_consume_get",
+    "进度父图无环:torpedo_consume_get:thermal_shock_reforged:luminous_sea_get",
+    "进度父文件存在:thermal_shock_reforged:luminous_sea_get",
+    "进度父图无环:torpedo_consume_get:thermal_shock_reforged:stardust_garden_advancement",
+    "进度父文件存在:thermal_shock_reforged:stardust_garden_advancement",
+    "进度父图无环:torpedo_consume_get:thermal_shock_reforged:vermillion_woods_advancement",
+    "进度父文件存在:thermal_shock_reforged:vermillion_woods_advancement",
+    "进度父图无环:torpedo_consume_get:thermal_shock_reforged:borean_tundra_advancement",
+    "进度父文件存在:thermal_shock_reforged:borean_tundra_advancement",
+    "进度父图无环:torpedo_consume_get:thermal_shock_reforged:borean_forest_advancement",
+    "进度父文件存在:thermal_shock_reforged:borean_forest_advancement",
+    "进度父图无环:torpedo_consume_get:thermal_shock_reforged:loqendia_get",
+    "进度父文件存在:thermal_shock_reforged:loqendia_get",
+    "进度父图无环:zap_gauntlet_get:thermal_shock_reforged:zap_gauntlet_get",
+    "进度父文件存在:thermal_shock_reforged:zap_gauntlet_get",
+    "进度父图无环:zap_gauntlet_get:thermal_shock_reforged:fabricator_get",
+    "进度父文件存在:thermal_shock_reforged:fabricator_get",
+    "进度父图无环:zap_gauntlet_get:thermal_shock_reforged:frigid_altar_get",
+    "进度父文件存在:thermal_shock_reforged:frigid_altar_get",
+    "进度父图无环:zap_gauntlet_get:thermal_shock_reforged:lapidary_get",
+    "进度父文件存在:thermal_shock_reforged:lapidary_get",
+    "进度父图无环:zap_gauntlet_get:thermal_shock_reforged:cobalt_get",
+    "进度父文件存在:thermal_shock_reforged:cobalt_get",
+    "进度父图无环:zap_gauntlet_get:thermal_shock_reforged:loqendia_get",
+    "进度父文件存在:thermal_shock_reforged:loqendia_get",
+    "进度父图无环:zenith_get:thermal_shock_reforged:zenith_get",
+    "进度父文件存在:thermal_shock_reforged:zenith_get",
+    "进度父图无环:zenith_get:thermal_shock_reforged:lapidary_get",
+    "进度父文件存在:thermal_shock_reforged:lapidary_get",
+    "进度父图无环:zenith_get:thermal_shock_reforged:cobalt_get",
+    "进度父文件存在:thermal_shock_reforged:cobalt_get",
+    "进度父图无环:zenith_get:thermal_shock_reforged:loqendia_get",
+    "进度父文件存在:thermal_shock_reforged:loqendia_get",
+    "炼锅无原class常量授予",
+    "炼锅原数据仅自身声明",
+    "配方标签非空:thermal_shock_reforged:lodpozar_trophy",
+    "原配方标签值全保:thermal_shock_reforged:lodpozar_trophy",
+    "配方标签非空:thermal_shock_reforged:loqendiakelp",
+    "原配方标签值全保:thermal_shock_reforged:loqendiakelp",
+    "盔甲授予外层资格:carborundum_armor_helmet",
+    "盔甲授予外层资格:carborundum_armor_chestplate",
+    "盔甲授予外层资格:carborundum_armor_leggings",
+    "盔甲授予外层资格:carborundum_armor_boots",
+    "盔甲授予外层资格:ruby_zenith_armor_helmet",
+    "盔甲授予外层资格:ruby_zenith_armor_chestplate",
+    "盔甲授予外层资格:ruby_zenith_armor_leggings",
+    "盔甲授予外层资格:ruby_zenith_armor_boots",
+    "盔甲授予外层资格:blood_zenith_armor_helmet",
+    "盔甲授予外层资格:blood_zenith_armor_chestplate",
+    "盔甲授予外层资格:blood_zenith_armor_leggings",
+    "盔甲授予外层资格:blood_zenith_armor_boots",
+    "原单块双配方实际同匹配",
+    "原生网格无歧义:2x2/1/0,0",
+    "原生网格无歧义:2x2/1/1,0",
+    "原生网格无歧义:2x2/1/0,1",
+    "原生网格无歧义:2x2/1/1,1",
+    "原生网格无歧义:2x2/2/0,0",
+    "原生网格无歧义:2x2/2/0,1",
+    "原生网格无歧义:3x3/1/0,0",
+    "原生网格无歧义:3x3/1/1,0",
+    "原生网格无歧义:3x3/1/2,0",
+    "原生网格无歧义:3x3/1/0,1",
+    "原生网格无歧义:3x3/1/1,1",
+    "原生网格无歧义:3x3/1/2,1",
+    "原生网格无歧义:3x3/1/0,2",
+    "原生网格无歧义:3x3/1/1,2",
+    "原生网格无歧义:3x3/1/2,2",
+    "原生网格无歧义:3x3/2/0,0",
+    "原生网格无歧义:3x3/2/1,0",
+    "原生网格无歧义:3x3/2/0,1",
+    "原生网格无歧义:3x3/2/1,1",
+    "原生网格无歧义:3x3/2/0,2",
+    "原生网格无歧义:3x3/2/1,2",
+    "拆解每块四球比例保留",
+    "物品模型贴图存在:assets/thermal_shock/models/block/bismuth_block.json",
+    "物品模型贴图存在:assets/thermal_shock/models/block/breather_sponge.json",
+    "物品模型贴图存在:assets/thermal_shock/models/block/bright_ochre_leaves.json",
+    "物品模型贴图存在:assets/thermal_shock/models/block/cobalt.json",
+    "物品模型贴图存在:assets/thermal_shock/models/block/cobalt_block.json",
+    "物品模型贴图存在:assets/thermal_shock/models/block/dull_leaves.json",
+    "物品模型贴图存在:assets/thermal_shock/models/block/hazard_stripes.json",
+    "物品模型贴图存在:assets/thermal_shock/models/block/malachite_block.json",
+    "物品模型贴图存在:assets/thermal_shock/models/block/muck_button_inventory.json",
+    "物品模型贴图存在:assets/thermal_shock/models/block/ochre_leaves.json",
+    "物品模型贴图存在:assets/thermal_shock/models/block/permafrost.json",
+    "物品模型贴图存在:assets/thermal_shock/models/block/pure_muck.json",
+    "物品模型贴图存在:assets/thermal_shock/models/block/pure_muck_stairs.json",
+    "物品模型贴图存在:assets/thermal_shock/models/block/pure_muck_wall_inventory.json",
+    "物品模型贴图存在:assets/thermal_shock/models/block/sanctum_bricks.json",
+    "物品模型贴图存在:assets/thermal_shock/models/block/slush.json",
+    "物品模型贴图存在:assets/thermal_shock/models/custom/knights_edge.json",
+    "物品模型贴图存在:assets/thermal_shock/models/displaysettings/liteprism_laser.json",
+    "物品模型贴图存在:assets/thermal_shock/models/displaysettings/pylon_core.item.json",
+    "物品模型贴图存在:assets/thermal_shock/models/displaysettings/speleothem.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/bismuth.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/bismuth_block.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/bloodstone.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/bloodstone_sickle.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/breather_sponge.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/bright_ochre_leaves.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/bucket_of_siibol.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/carborundum_armor_helmet.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/carborundum_sword.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/cauldron_of_trilobite.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/cavebloomer_core.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/ceruleum.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/climbing_pick.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/cobalt.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/cobalt_block.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/cobalt_rod.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/cooked_torpedo.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/cryonic_alloy.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/dull_leaves.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/dull_thread_net.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/fabricator_constructor.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/ferrum_ingot.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/frozen_blade.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/fuscium.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/gardenling_constructor.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/hazard_stripes.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/herald_key.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/herald_spawn_egg.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/icidroburner_trophy.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/icidrogunner_trophy.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/icy_snowcone.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/keystone.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/knights_edge.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/liteprism_sword.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/malachite.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/malachite_block.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/muck_ball.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/muck_button.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/ochre_leaves.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/permafrost.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/phobotite.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/pure_muck.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/pure_muck_stairs.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/pure_muck_wall.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/pylon_core.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/raw_torpedo.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/ruby.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/ruby_sickle.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/sanctum_bricks.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/silly_straw.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/slush.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/slushball.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/speleothem.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/sprintweed.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/stratus_alloy.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/trident_flower.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/verdium.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/vermillion_lantern.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/vermillion_roots.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/watering_can.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/zap_gauntlet.json",
+    "物品模型贴图存在:assets/thermal_shock/models/item/zenith_smithing_template.json",
+    "物品模型贴图存在:assets/thermal_shock/textures/block/bismuth_block.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/block/breather_sponge.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/block/bright_ochre_leaves.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/block/ceruleanglower.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/block/ceruleanglower.png.mcmeta",
+    "物品模型贴图存在:assets/thermal_shock/textures/block/cobalt.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/block/cobalt_block.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/block/cobalt_brick.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/block/dull_net.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/block/fusciaglower.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/block/fusciaglower.png.mcmeta",
+    "物品模型贴图存在:assets/thermal_shock/textures/block/knights_edge_rubicon.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/block/malachite_block.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/block/muck_bricks.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/block/ochre_leaves.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/block/permafrost_25b.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/block/scrollinghazardstripes.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/block/scrollinghazardstripes.png.mcmeta",
+    "物品模型贴图存在:assets/thermal_shock/textures/block/slush.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/block/slush_25.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/block/speedweed_top.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/block/trident_flower_top_rubicon.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/block/underbrush_leaves.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/block/verdium.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/block/verdium.png.mcmeta",
+    "物品模型贴图存在:assets/thermal_shock/textures/item/bismuth_25.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/item/bloodstone_sickle.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/item/carbor_helmet.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/item/carborundumsword.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/item/carborundumsword.png.mcmeta",
+    "物品模型贴图存在:assets/thermal_shock/textures/item/cavebloomer_core.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/item/climbing_pick.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/item/cobalt_rod.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/item/cooked_torpedo.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/item/cryonic_alloy.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/item/fabricator_icon.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/item/ferrum_alloy.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/item/frozen_blade.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/item/gardenling_constructor.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/item/herald_egg.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/item/herald_key.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/item/keystone.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/item/keystone.png.mcmeta",
+    "物品模型贴图存在:assets/thermal_shock/textures/item/knights_edge_icon_rubicon.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/item/liteprism_sword.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/item/lodpozar_relic.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/item/malachite.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/item/muck.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/item/nuruby.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/item/phobotite_26.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/item/polished_bloodstone.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/item/raw_torpedo.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/item/ruby_sickle.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/item/siibol_bucket.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/item/silly_straw.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/item/slush_ball.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/item/snowcone.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/item/speleothem.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/item/stratus_alloy.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/item/trilocauld.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/item/vermillion_lantern_icon.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/item/vermillionhyphae.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/item/watering_can.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/item/zap_gauntlet_1.png",
+    "物品模型贴图存在:assets/thermal_shock/textures/item/zenith_smithing_template.png",
+    "原版物品注册:minecraft:cyan_dye",
+    "原版物品注册:minecraft:dried_kelp",
+    "原版玻璃方块物品注册",
+    "原版物品注册:minecraft:red_dye",
+    "原版物品注册:minecraft:yellow_dye",
+    "动态头盔真实注册",
+    "Geo装饰动态物品注册:thermal_shock_reforged:icidroburner_trophy",
+    "Geo装饰动态物品注册:thermal_shock_reforged:icidrogunner_trophy",
+    "Geo装饰动态物品注册:thermal_shock_reforged:pylon_core",
+    "所有模组物品引用真实注册",
+    "进度方块真实注册:thermal_shock_reforged:gardenling_constructor",
+    "进度真实群系:thermal_shock_reforged:cobalt_heights",
+    "共享无Java替换",
+    "40原英文保留",
+    "40中文精确增量",
+    "园丁专用授予提案已撤回"
+  ],
+  "checkCount": 584,
+  "evidence": {
+    "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/item/Items.java": {
+      "sha256": "06842ee1e1ac94d3698d174020a98f592a926ed645397d6bfd38cb4b5f652ef2",
+      "tokens": [
+        "\"cyan_dye\"",
+        "\"dried_kelp\"",
+        "\"glass\"",
+        "\"red_dye\"",
+        "\"yellow_dye\""
+      ],
+      "lines": [
+        {
+          "line": 1306,
+          "text": "    public static final Item YELLOW_DYE = registerItem(\"yellow_dye\", new DyeItem(DyeColor.YELLOW, new Item.Properties()));"
+        },
+        {
+          "line": 1311,
+          "text": "    public static final Item CYAN_DYE = registerItem(\"cyan_dye\", new DyeItem(DyeColor.CYAN, new Item.Properties()));"
+        },
+        {
+          "line": 1316,
+          "text": "    public static final Item RED_DYE = registerItem(\"red_dye\", new DyeItem(DyeColor.RED, new Item.Properties()));"
+        },
+        {
+          "line": 1350,
+          "text": "    public static final Item DRIED_KELP = registerItem(\"dried_kelp\", new Item(new Item.Properties().food(Foods.DRIED_KELP)));"
+        }
+      ]
+    },
+    "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/block/Blocks.java": {
+      "sha256": "c38a694404ba0e0317f744f368ae9a3a44a8bd95f03f3ac65ec9bc78d5d96a58",
+      "tokens": [
+        "\"glass\""
+      ],
+      "lines": [
+        {
+          "line": 687,
+          "text": "        \"glass\","
+        }
+      ]
+    },
+    "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java": {
+      "sha256": "1d6518d8cc39102c5850164eaf5cc09f6e9d2f7f78efbd10aca00f2494c8ed52",
+      "tokens": [
+        "\"bismuth\"",
+        "\"bismuth_block\"",
+        "\"bloodstone\"",
+        "\"cavebloomer_core\"",
+        "\"cobalt_rod\"",
+        "\"cooked_torpedo\"",
+        "\"cryonic_alloy\"",
+        "\"dull_thread_net\"",
+        "\"ferrum_ingot\"",
+        "\"hazard_stripes\"",
+        "\"herald_key\"",
+        "\"icy_snowcone\"",
+        "\"malachite\"",
+        "\"malachite_block\"",
+        "\"muck_ball\"",
+        "\"muck_button\"",
+        "\"permafrost\"",
+        "\"phobotite\"",
+        "\"pure_muck_stairs\"",
+        "\"pure_muck_wall\"",
+        "\"ruby\"",
+        "\"sanctum_bricks\"",
+        "\"silly_straw\"",
+        "\"slushball\"",
+        "\"stratus_alloy\"",
+        "\"vermillion_lantern\"",
+        "\"watering_can\"",
+        "\"zenith_smithing_template\"",
+        "ITEMS.register",
+        "registerSimpleBlockItem",
+        "void register("
+      ],
+      "lines": [
+        {
+          "line": 40,
+          "text": "        block(\"permafrost\", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.CLAY).instrument(NoteBlockInstrument.BASEDRUM).sound(new DeferredSoundType(1.0f, 1.0f, () -> sound(\"block.copper.break\"), () -> sound(\"thermal_shock_reforged:ceramicish_step\"), () -> sound(\"thermal_shock_reforged:ceramicish_place\"), () -> sound(\"thermal_shock_reforged:ceramic_mine\"), () -> sound(\"thermal_shock_reforged:ceramicish_step\"))).strength(0.8f, 2.0f).requiresCorrectToolForDrops(), 15));"
+        },
+        {
+          "line": 52,
+          "text": "        block(\"sanctum_bricks\", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BLUE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHER_BRICKS).strength(-1.0f, 3600000.0f).requiresCorrectToolForDrops().pushReaction(PushReaction.BLOCK), 15));"
+        },
+        {
+          "line": 60,
+          "text": "        block(\"malachite_block\", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).instrument(NoteBlockInstrument.HAT).sound(SoundType.GLASS).strength(2.0f).lightLevel(s -> 2).requiresCorrectToolForDrops().hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true), 15));"
+        },
+        {
+          "line": 143,
+          "text": "        block(\"hazard_stripes\", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_YELLOW).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.WOOL).strength(0.6f, 10.0f), 15));"
+        },
+        {
+          "line": 151,
+          "text": "        block(\"vermillion_lantern\", () -> new MaterialWallBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_RED).sound(SoundType.GLASS).strength(0.2f, 0.0f).lightLevel(s -> 15).requiresCorrectToolForDrops().hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).dynamicShape().forceSolidOn()));"
+        },
+        {
+          "line": 153,
+          "text": "        block(\"bismuth_block\", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_LIGHT_BLUE).instrument(NoteBlockInstrument.HAT).sound(SoundType.GLASS).strength(2.0f).lightLevel(s -> 2).requiresCorrectToolForDrops().hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true), 15));"
+        },
+        {
+          "line": 273,
+          "text": "        block(\"pure_muck_stairs\", () -> new MaterialStairBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).sound(SoundType.MUD).strength(0.8f, 4.0f).speedFactor(0.6f).jumpFactor(0.7f).dynamicShape(), 4F, false, -1, -1, -1, \"block.thermal_shock_reforged.pure_muck_stairs.description_0\"));"
+        },
+        {
+          "line": 302,
+          "text": "        block(\"dull_thread_net\", () -> DecorativeBlocks.bars(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOL).strength(2.0f, 1.7f).jumpFactor(1.5f), -1, 6, false));"
+        },
+        {
+          "line": 305,
+          "text": "        block(\"pure_muck_wall\", () -> DecorativeBlocks.wall(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).sound(SoundType.MUD).strength(0.8f, 4.0f).speedFactor(0.6f).jumpFactor(0.7f).dynamicShape().forceSolidOn(), -1, -1, false, \"block.thermal_shock_reforged.pure_muck_wall.description_0\"));"
+        },
+        {
+          "line": 347,
+          "text": "        block(\"muck_button\", () -> InteractiveBlocks.button(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).sound(SoundType.MUD).strength(0.8f, 4.0f).speedFactor(0.6f).jumpFactor(0.7f).dynamicShape(), BlockSetType.STONE, 20, -1, -1, \"block.thermal_shock_reforged.muck_button.description_0\"));"
+        },
+        {
+          "line": 388,
+          "text": "        item(\"ruby\", () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON)));"
+        },
+        {
+          "line": 391,
+          "text": "        item(\"muck_ball\", () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON)));"
+        },
+        {
+          "line": 392,
+          "text": "        item(\"cobalt_rod\", () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON)));"
+        },
+        {
+          "line": 399,
+          "text": "        item(\"cryonic_alloy\", () -> new DescribedItem(new Item.Properties().stacksTo(64).rarity(Rarity.UNCOMMON), \"item.thermal_shock_reforged.cryonic_alloy.description_0\"));"
+        },
+        {
+          "line": 402,
+          "text": "        item(\"malachite\", () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON)));"
+        },
+        {
+          "line": 404,
+          "text": "        item(\"phobotite\", () -> new DescribedItem(new Item.Properties().stacksTo(64).rarity(Rarity.UNCOMMON), \"item.thermal_shock_reforged.phobotite.description_0\"));"
+        },
+        {
+          "line": 416,
+          "text": "        item(\"bloodstone\", () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON)));"
+        },
+        {
+          "line": 420,
+          "text": "        item(\"zenith_smithing_template\", () -> new DescribedItem(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON), \"item.thermal_shock_reforged.zenith_smithing_template.description_0\"));"
+        },
+        {
+          "line": 424,
+          "text": "        item(\"slushball\", () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON)));"
+        },
+        {
+          "line": 425,
+          "text": "        item(\"icy_snowcone\", () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON).food(new FoodProperties.Builder().nutrition(8).saturationModifier(1.0f).build())));"
+        },
+        {
+          "line": 429,
+          "text": "        item(\"ferrum_ingot\", () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON)));"
+        },
+        {
+          "line": 435,
+          "text": "        item(\"silly_straw\", () -> new DescribedItem(new Item.Properties().durability(285).rarity(Rarity.COMMON), \"item.thermal_shock_reforged.silly_straw.description_0\", \"item.thermal_shock_reforged.silly_straw.description_1\"));"
+        },
+        {
+          "line": 439,
+          "text": "        item(\"cooked_torpedo\", () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.COMMON).food(new FoodProperties.Builder().nutrition(6).saturationModifier(1.5f).build())));"
+        },
+        {
+          "line": 449,
+          "text": "        item(\"stratus_alloy\", () -> new DescribedItem(new Item.Properties().stacksTo(64).rarity(Rarity.UNCOMMON), \"item.thermal_shock_reforged.stratus_alloy.description_0\"));"
+        },
+        {
+          "line": 456,
+          "text": "        item(\"herald_key\", () -> new DescribedItem(new Item.Properties().stacksTo(3).fireResistant().rarity(Rarity.UNCOMMON), \"item.thermal_shock_reforged.herald_key.description_0\", \"item.thermal_shock_reforged.herald_key.description_1\"));"
+        },
+        {
+          "line": 461,
+          "text": "        item(\"bismuth\", () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON)));"
+        },
+        {
+          "line": 465,
+          "text": "        item(\"watering_can\", () -> new DescribedItem(new Item.Properties().stacksTo(1).rarity(Rarity.COMMON), \"item.thermal_shock_reforged.watering_can.description_0\"));"
+        },
+        {
+          "line": 486,
+          "text": "        item(\"cavebloomer_core\", () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));"
+        },
+        {
+          "line": 500,
+          "text": "    public static void register(IEventBus bus) {"
+        },
+        {
+          "line": 502,
+          "text": "        ITEMS.register(bus);"
+        },
+        {
+          "line": 516,
+          "text": "        ITEM_ENTRIES.put(id, ITEMS.register(id, () -> new net.minecraft.world.item.BlockItem(block.get(), new Item.Properties())));"
+        },
+        {
+          "line": 520,
+          "text": "        ITEM_ENTRIES.put(id, ITEMS.register(id, factory));"
+        }
+      ]
+    },
+    "src/main/java/com/hp/thermalshockreforged/content/weapons/WeaponContent.java": {
+      "sha256": "282fe23988271428636fbf4a6a59cd322a44cddcda64c74d8f9414b6c3980a7a",
+      "tokens": [
+        "\"bloodstone_sickle\"",
+        "\"frozen_blade\"",
+        "\"knights_edge\"",
+        "\"liteprism_sword\"",
+        "\"ruby_sickle\"",
+        "\"speleothem\"",
+        "\"zap_gauntlet\"",
+        "ITEMS.register",
+        "registerSimpleBlockItem",
+        "void register("
+      ],
+      "lines": [
+        {
+          "line": 22,
+          "text": "    public static final DeferredItem<LiteprismDiskItem> LITEPRISM_DISK = ITEMS.register(\"liteprism_disk\", LiteprismDiskItem::new);"
+        },
+        {
+          "line": 23,
+          "text": "    public static final DeferredItem<LiteprismSwordItem> LITEPRISM_SWORD = ITEMS.register(\"liteprism_sword\", LiteprismSwordItem::new);"
+        },
+        {
+          "line": 28,
+          "text": "    public static final DeferredItem<BuzzsawItem> BUZZSAW = ITEMS.register(\"buzzsaw\", BuzzsawItem::new);"
+        },
+        {
+          "line": 29,
+          "text": "    public static final DeferredItem<LiteprismLaserItem> LITEPRISM_LASER = ITEMS.register(\"liteprism_laser\", LiteprismLaserItem::new);"
+        },
+        {
+          "line": 30,
+          "text": "    public static final DeferredItem<CoreEjectFlareGunItem> CORE_EJECT_FLARE_GUN = ITEMS.register(\"core_eject_flare_gun\", CoreEjectFlareGunItem::new);"
+        },
+        {
+          "line": 35,
+          "text": "    public static final DeferredItem<ZerkerGauntletItem> TITANIUM_MACE = ITEMS.register(\"titanium_mace\", ZerkerGauntletItem::new);"
+        },
+        {
+          "line": 36,
+          "text": "    public static final DeferredItem<CarborGlItem> CARBOR_GL = ITEMS.register(\"carbor_gl\", CarborGlItem::new);"
+        },
+        {
+          "line": 37,
+          "text": "    public static final DeferredItem<VolcanoItem> VOLCANO = ITEMS.register(\"volcano\", VolcanoItem::new);"
+        },
+        {
+          "line": 38,
+          "text": "    public static final DeferredItem<ThermoblasterItem> COBALT_THERMOBLASTER = ITEMS.register(\"cobalt_thermoblaster\", () -> new ThermoblasterItem(false));"
+        },
+        {
+          "line": 39,
+          "text": "    public static final DeferredItem<ThermoblasterItem> ZENITH_THERMOBLASTER = ITEMS.register(\"zenith_thermoblaster\", () -> new ThermoblasterItem(true));"
+        },
+        {
+          "line": 42,
+          "text": "    public static final DeferredItem<ElementalBladeItem> SHOCK_STICK = ITEMS.register(\"shock_stick\", () -> new ElementalBladeItem(ElementalBladeItem.Kind.SHOCK_STICK));"
+        },
+        {
+          "line": 43,
+          "text": "    public static final DeferredItem<ElementalBladeItem> KNIGHTS_EDGE = ITEMS.register(\"knights_edge\", () -> new ElementalBladeItem(ElementalBladeItem.Kind.KNIGHTS_EDGE));"
+        },
+        {
+          "line": 45,
+          "text": "    public static final DeferredItem<MagneticCrossbowItem> MAGNETIC_CROSSBOW = ITEMS.register(\"magnetic_crossbow\", MagneticCrossbowItem::new);"
+        },
+        {
+          "line": 46,
+          "text": "    public static final DeferredItem<MagneticCrossbowItem> ZENITH_CROSSBOW = ITEMS.register(\"zenith_crossbow\", () -> new MagneticCrossbowItem(true));"
+        },
+        {
+          "line": 51,
+          "text": "    public static final DeferredItem<FirearmItem> FLINTSTEEL_RIFLE = ITEMS.register(\"flintsteel_rifle\", () -> new FirearmItem(false));"
+        },
+        {
+          "line": 52,
+          "text": "    public static final DeferredItem<FirearmItem> HAILFALL = ITEMS.register(\"hailfall\", () -> new FirearmItem(true));"
+        },
+        {
+          "line": 53,
+          "text": "    public static final DeferredItem<SpearItem> SPELEOTHEM = ITEMS.register(\"speleothem\", () -> new SpearItem(SpearItem.Kind.SPELEOTHEM));"
+        },
+        {
+          "line": 54,
+          "text": "    public static final DeferredItem<SpearItem> RUBY_SPEAR = ITEMS.register(\"ruby_spear\", () -> new SpearItem(SpearItem.Kind.RUBY));"
+        },
+        {
+          "line": 55,
+          "text": "    public static final DeferredItem<SpearItem> CARBORUNDUM_SPEAR = ITEMS.register(\"carborundum_spear\", () -> new SpearItem(SpearItem.Kind.CARBORUNDUM));"
+        },
+        {
+          "line": 56,
+          "text": "    public static final DeferredItem<SpearItem> BLOODSTONE_HALBERD = ITEMS.register(\"bloodstone_halberd\", () -> new SpearItem(SpearItem.Kind.BLOODSTONE_HALBERD));"
+        },
+        {
+          "line": 57,
+          "text": "    public static final DeferredItem<SpearItem> CARBORUNDUM_HALBERD = ITEMS.register(\"carborundum_halberd\", () -> new SpearItem(SpearItem.Kind.CARBORUNDUM_HALBERD));"
+        },
+        {
+          "line": 58,
+          "text": "    public static final DeferredItem<SpearItem> HI_VOLT_LANCE = ITEMS.register(\"hi_volt_lance\", () -> new SpearItem(SpearItem.Kind.HI_VOLT));"
+        },
+        {
+          "line": 60,
+          "text": "    public static final DeferredItem<ZapGauntletItem> ZAP_GAUNTLET = ITEMS.register(\"zap_gauntlet\", ZapGauntletItem::new);"
+        },
+        {
+          "line": 61,
+          "text": "    public static final DeferredItem<RustyEdgeItem> RUSTY_EDGE = ITEMS.register(\"rusty_edge\", RustyEdgeItem::new);"
+        },
+        {
+          "line": 62,
+          "text": "    public static final DeferredItem<BlindingLanternItem> BLINDING_LANTERN = ITEMS.register(\"blinding_lantern\", BlindingLanternItem::new);"
+        },
+        {
+          "line": 63,
+          "text": "    public static final DeferredItem<ThistleBowItem> THISTLE_BOW = ITEMS.register(\"thistle_bow\", ThistleBowItem::new);"
+        },
+        {
+          "line": 64,
+          "text": "    public static final DeferredItem<SimpleElementalWeaponItem> FROZEN_BLADE = ITEMS.register(\"frozen_blade\", () -> new SimpleElementalWeaponItem(\"frozen_blade\"));"
+        },
+        {
+          "line": 65,
+          "text": "    public static final DeferredItem<SimpleElementalWeaponItem> MOLTEN_BAT = ITEMS.register(\"molten_bat\", () -> new SimpleElementalWeaponItem(\"molten_bat\"));"
+        },
+        {
+          "line": 66,
+          "text": "    public static final DeferredItem<SickleItem> STRATOSILVER_SICKLE = ITEMS.register(\"stratosilver_sickle\", () -> new SickleItem(\"stratosilver_sickle\", 5800, 50, \"stratus_alloy\", 4, 8));"
+        },
+        {
+          "line": 71,
+          "text": "    public static final DeferredItem<SickleItem> RUBY_SICKLE = ITEMS.register(\"ruby_sickle\", () -> new SickleItem(\"ruby_sickle\", 1200, 10, \"ruby\"));"
+        },
+        {
+          "line": 72,
+          "text": "    public static final DeferredItem<SickleItem> BLOODSTONE_SICKLE = ITEMS.register(\"bloodstone_sickle\", () -> new SickleItem(\"bloodstone_sickle\", 1500, 8, \"bloodstone\"));"
+        },
+        {
+          "line": 73,
+          "text": "    public static final DeferredItem<SickleItem> CARBORUNDUM_SICKLE = ITEMS.register(\"carborundum_sickle\", () -> new SickleItem(\"carborundum_sickle\", 900, 15, \"carborundum\", 4.5F, 16));"
+        },
+        {
+          "line": 79,
+          "text": "    public static void register(IEventBus bus) {"
+        },
+        {
+          "line": 80,
+          "text": "        ITEMS.register(bus); EFFECTS.register(bus); TYPES.register(bus); PARTICLES.register(bus);"
+        }
+      ]
+    },
+    "src/main/java/com/hp/thermalshockreforged/content/terrain/TerrainContent.java": {
+      "sha256": "cd1805d6fdefa9f53b232f92b36ce7b04efbf3523ae6e80579155a6279e894df",
+      "tokens": [
+        "\"breather_sponge\"",
+        "\"bright_ochre_leaves\"",
+        "\"cobalt\"",
+        "\"dull_leaves\"",
+        "\"ochre_leaves\"",
+        "\"slush\"",
+        "registerSimpleBlockItem(BREATHER_SPONGE",
+        "registerSimpleBlockItem(BRIGHT_OCHRE_LEAVES",
+        "registerSimpleBlockItem(COBALT",
+        "registerSimpleBlockItem(DULL_LEAVES",
+        "registerSimpleBlockItem(OCHRE_LEAVES",
+        "registerSimpleBlockItem(SLUSH",
+        "void register("
+      ],
+      "lines": [
+        {
+          "line": 41,
+          "text": "    public static final DeferredBlock<Block> SLUSH = BLOCKS.register(\"slush\", () -> new GrassyShaleBlock(true, BlockBehaviour.Properties.of().mapColor(MapColor.CLAY).sound(SoundType.GRAVEL).strength(0.8F, 4).friction(0.7F)));"
+        },
+        {
+          "line": 44,
+          "text": "    public static final DeferredBlock<Block> COBALT = BLOCKS.register(\"cobalt\", CobaltBlock::new);"
+        },
+        {
+          "line": 60,
+          "text": "    public static final DeferredBlock<Block> DULL_LEAVES = BLOCKS.register(\"dull_leaves\", UnderbrushLeaves.Dull::new);"
+        },
+        {
+          "line": 62,
+          "text": "    public static final DeferredBlock<Block> OCHRE_LEAVES = BLOCKS.register(\"ochre_leaves\", () -> new SnowCoveredLeaves(false));"
+        },
+        {
+          "line": 63,
+          "text": "    public static final DeferredBlock<Block> BRIGHT_OCHRE_LEAVES = BLOCKS.register(\"bright_ochre_leaves\", () -> new SnowCoveredLeaves(true));"
+        },
+        {
+          "line": 65,
+          "text": "    public static final DeferredBlock<Block> BREATHER_SPONGE = BLOCKS.register(\"breather_sponge\", BreatherSpongeBlock::new);"
+        },
+        {
+          "line": 76,
+          "text": "        ITEMS.registerSimpleBlockItem(COBALT);"
+        },
+        {
+          "line": 77,
+          "text": "        ITEMS.registerSimpleBlockItem(SLUSH);"
+        },
+        {
+          "line": 81,
+          "text": "        ITEMS.registerSimpleBlockItem(OCHRE_LEAVES);"
+        },
+        {
+          "line": 82,
+          "text": "        ITEMS.registerSimpleBlockItem(BRIGHT_OCHRE_LEAVES);"
+        },
+        {
+          "line": 84,
+          "text": "        ITEMS.registerSimpleBlockItem(BREATHER_SPONGE);"
+        },
+        {
+          "line": 88,
+          "text": "        ITEMS.registerSimpleBlockItem(DULL_LEAVES);"
+        },
+        {
+          "line": 99,
+          "text": "    public static void register(IEventBus bus) {"
+        }
+      ]
+    },
+    "src/main/java/com/hp/thermalshockreforged/entity/snobol/SnobolContent.java": {
+      "sha256": "24eeceaa1f548e13dadd6722319d71abaeaecd46d3dc42061d37df2a11f3ae46",
+      "tokens": [
+        "\"bucket_of_siibol\"",
+        "ITEMS.register",
+        "registerSimpleBlockItem",
+        "void register("
+      ],
+      "lines": [
+        {
+          "line": 26,
+          "text": "    public static final DeferredItem<Item> ANTITOXIN = ITEMS.register(\"antitoxin\", AntitoxinItem::new);"
+        },
+        {
+          "line": 27,
+          "text": "    public static final DeferredItem<Item> BUCKET_OF_SIIBOL = ITEMS.register(\"bucket_of_siibol\", BucketOfSiibolItem::new);"
+        },
+        {
+          "line": 30,
+          "text": "        ITEMS.register(\"snobol_spawn_egg\", () -> new DeferredSpawnEggItem(SNOBOL, -1, -1, new Item.Properties()));"
+        },
+        {
+          "line": 31,
+          "text": "        ITEMS.register(\"explosive_snobol_spawn_egg\", () -> new DeferredSpawnEggItem(EXPLOSIVE_SNOBOL, -1, -1, new Item.Properties()));"
+        },
+        {
+          "line": 32,
+          "text": "        ITEMS.register(\"siibol_spawn_egg\", () -> new DeferredSpawnEggItem(SIIBOL, -1, -1, new Item.Properties()));"
+        },
+        {
+          "line": 41,
+          "text": "    public static void register(IEventBus bus) {"
+        },
+        {
+          "line": 43,
+          "text": "        ITEMS.register(bus);"
+        }
+      ]
+    },
+    "src/main/java/com/hp/thermalshockreforged/content/armor/ArmorContent.java": {
+      "sha256": "04ec0e6e0721222c1e867ef51f6e3fec82b460fbe31b835d0a2b260844fe1ed6",
+      "tokens": [
+        "ArmorItem.Type.HELMET",
+        "CARBORUNDUM.add",
+        "ITEMS.register(bus)",
+        "for ("
+      ],
+      "lines": [
+        {
+          "line": 35,
+          "text": "            Map.of(ArmorItem.Type.HELMET, 6), 7, net.minecraft.core.Holder.direct(SoundEvents.EMPTY),"
+        },
+        {
+          "line": 43,
+          "text": "            Map.of(ArmorItem.Type.HELMET, 3, ArmorItem.Type.CHESTPLATE, 3), 9, SoundEvents.ARMOR_EQUIP_LEATHER,"
+        },
+        {
+          "line": 46,
+          "text": "    public static final DeferredItem<GeoSetArmorItem> CORRIAL_DIVING_HELMET = ITEMS.register(\"corrial_diving_helmet_helmet\", () -> new GeoSetArmorItem(DIVING_MATERIAL, ArmorItem.Type.HELMET, GeoSetArmorItem.Style.CORRIAL_DIVING, new Item.Properties().durability(330)));"
+        },
+        {
+          "line": 48,
+          "text": "    public static final DeferredItem<GeoSetArmorItem> STRANGESILK_HELMET = ITEMS.register(\"strangesilk_armour_helmet\", () -> new GeoSetArmorItem(STRANGESILK_MATERIAL, ArmorItem.Type.HELMET, GeoSetArmorItem.Style.STRANGESILK, new Item.Properties().durability(165)));"
+        },
+        {
+          "line": 56,
+          "text": "            Map.of(ArmorItem.Type.HELMET, 1, ArmorItem.Type.CHESTPLATE, 1), 9, SoundEvents.ARMOR_EQUIP_LEATHER,"
+        },
+        {
+          "line": 59,
+          "text": "            Map.of(ArmorItem.Type.HELMET, 7, ArmorItem.Type.CHESTPLATE, 7), 50, SoundEvents.ARMOR_EQUIP_LEATHER,"
+        },
+        {
+          "line": 65,
+          "text": "        RUSTSILK.add(ITEMS.register(\"rustsilk_armour_helmet\", () -> new GeoSetArmorItem(RUSTSILK_MATERIAL, ArmorItem.Type.HELMET, GeoSetArmorItem.Style.RUSTSILK, new Item.Properties().durability(55))));"
+        },
+        {
+          "line": 68,
+          "text": "        for (ArmorItem.Type type : List.of(ArmorItem.Type.HELMET, ArmorItem.Type.CHESTPLATE, ArmorItem.Type.LEGGINGS, ArmorItem.Type.BOOTS)) {"
+        },
+        {
+          "line": 70,
+          "text": "            CARBORUNDUM.add(ITEMS.register(\"carborundum_armor_\" + type.getName(), () -> new GeoSetArmorItem(CARBORUNDUM_MATERIAL, type, true, new Item.Properties().durability(type.getDurability(35)))));"
+        },
+        {
+          "line": 80,
+          "text": "        for (ArmorItem.Type type : List.of(ArmorItem.Type.HELMET, ArmorItem.Type.CHESTPLATE)) {"
+        },
+        {
+          "line": 88,
+          "text": "        return new ArmorMaterial(Map.of(ArmorItem.Type.HELMET, carbon ? 5 : 4, ArmorItem.Type.CHESTPLATE, carbon ? 8 : 7,"
+        },
+        {
+          "line": 97,
+          "text": "        return new ArmorMaterial(Map.of(ArmorItem.Type.HELMET, blood ? 5 : 4, ArmorItem.Type.CHESTPLATE, blood ? 8 : 7,"
+        },
+        {
+          "line": 107,
+          "text": "        ITEMS.register(bus);"
+        }
+      ]
+    },
+    "src/main/java/com/hp/thermalshockreforged/content/tools/ToolsContent.java": {
+      "sha256": "c2c8437f4d6a6e3d549399ded8763ace315417f000928707a9d8bbb57f4b94f0",
+      "tokens": [
+        "\"carborundum_sword\"",
+        "ITEMS.register",
+        "registerSimpleBlockItem",
+        "void register("
+      ],
+      "lines": [
+        {
+          "line": 44,
+          "text": "        register(\"carborundum_sword\", new NativeTier(900, 15.0f, 3.5f, BlockTags.INCORRECT_FOR_DIAMOND_TOOL, 16, () -> Ingredient.of(MaterialContent.items().get(\"carborundum\").get())), (tier) -> new SwordItem(tier, new Item.Properties().attributes(SwordItem.createAttributes(tier, 3, -2.4f))));"
+        },
+        {
+          "line": 58,
+          "text": "    public static void register(IEventBus bus) { ITEMS.register(bus); }"
+        },
+        {
+          "line": 62,
+          "text": "    private static void register(String id, Tier tier, java.util.function.Function<Tier, Item> factory) {"
+        },
+        {
+          "line": 63,
+          "text": "        ENTRIES.put(id, ITEMS.register(id, () -> factory.apply(tier)));"
+        }
+      ]
+    },
+    "src/main/java/com/hp/thermalshockreforged/entity/fauna/FaunaEntities.java": {
+      "sha256": "e3992d2651aea9d75428815c7784adb190d59fe1cc22367951e4a7954df2405e",
+      "tokens": [
+        "\"cauldron_of_trilobite\"",
+        "\"raw_torpedo\"",
+        "ITEMS.register",
+        "registerSimpleBlockItem",
+        "void register("
+      ],
+      "lines": [
+        {
+          "line": 26,
+          "text": "    public static final DeferredBlock<CauldronOfTrilobiteBlock> CAULDRON = BLOCKS.register(\"cauldron_of_trilobite\", CauldronOfTrilobiteBlock::new);"
+        },
+        {
+          "line": 27,
+          "text": "    public static final DeferredItem<CauldronOfTrilobiteItem> CAULDRON_ITEM = ITEMS.register(\"cauldron_of_trilobite\", () -> new CauldronOfTrilobiteItem(CAULDRON.get(), new Item.Properties()));"
+        },
+        {
+          "line": 28,
+          "text": "    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CauldronOfTrilobiteBlockEntity>> CAULDRON_ENTITY = BLOCK_ENTITIES.register(\"cauldron_of_trilobite\", () -> BlockEntityType.Builder.of(CauldronOfTrilobiteBlockEntity::new, CAULDRON.get()).build(null));"
+        },
+        {
+          "line": 39,
+          "text": "    public static final DeferredItem<RawTorpedoItem> RAW_TORPEDO = ITEMS.register(\"raw_torpedo\", RawTorpedoItem::new);"
+        },
+        {
+          "line": 42,
+          "text": "        ITEMS.register(\"bonerahna_spawn_egg\", () -> new DeferredSpawnEggItem(BONERAHNA, -1, -1, new Item.Properties()));"
+        },
+        {
+          "line": 43,
+          "text": "        ITEMS.register(\"chromefish_spawn_egg\", () -> new DeferredSpawnEggItem(CHROMEFISH, -1, -1, new Item.Properties()));"
+        },
+        {
+          "line": 44,
+          "text": "        ITEMS.register(\"torpedo_spawn_egg\", () -> new DeferredSpawnEggItem(TORPEDO, -1, -1, new Item.Properties()));"
+        },
+        {
+          "line": 45,
+          "text": "        ITEMS.register(\"trilobite_spawn_egg\", () -> new DeferredSpawnEggItem(TRILOBITE, -1, -1, new Item.Properties()));"
+        },
+        {
+          "line": 46,
+          "text": "        ITEMS.register(\"willograde_spawn_egg\", () -> new DeferredSpawnEggItem(WILLOGRADE, -1, -1, new Item.Properties()));"
+        },
+        {
+          "line": 47,
+          "text": "        ITEMS.register(\"flare_spawn_egg\", () -> new DeferredSpawnEggItem(FLARE, -1, -1, new Item.Properties()));"
+        },
+        {
+          "line": 64,
+          "text": "    public static void register(IEventBus bus) {"
+        },
+        {
+          "line": 67,
+          "text": "        ITEMS.register(bus);"
+        }
+      ]
+    },
+    "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthContent.java": {
+      "sha256": "5b0d2eb62e57c4e625a248bd83a0169412c8410f0f8793894a2f1cf2ed46eddc",
+      "tokens": [
+        "\"ceruleum\"",
+        "\"fuscium\"",
+        "\"verdium\"",
+        "ITEMS.register",
+        "registerSimpleBlockItem",
+        "void register("
+      ],
+      "lines": [
+        {
+          "line": 26,
+          "text": "    public static final DeferredBlock<Block> FUSCIUM = block(\"fuscium\", TallStemBlock.Waterlogged::new);"
+        },
+        {
+          "line": 27,
+          "text": "    public static final DeferredBlock<Block> CERULEUM = block(\"ceruleum\", TallStemBlock.Waterlogged::new);"
+        },
+        {
+          "line": 28,
+          "text": "    public static final DeferredBlock<Block> VERDIUM = block(\"verdium\", TallStemBlock.Waterlogged::new);"
+        },
+        {
+          "line": 36,
+          "text": "    public static final DeferredItem<GelBulbItem> GEL_BULB_ITEM = ITEMS.register(\"gel_bulb\", () -> new GelBulbItem(GEL_BULB.get()));"
+        },
+        {
+          "line": 48,
+          "text": "        ITEMS.registerSimpleBlockItem(holder);"
+        },
+        {
+          "line": 53,
+          "text": "    public static void register(IEventBus bus) {"
+        },
+        {
+          "line": 55,
+          "text": "        ITEMS.register(bus);"
+        }
+      ]
+    },
+    "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabContent.java": {
+      "sha256": "40ee86d8134d47f806bd40f840a8f38a2b0ac70fa7bc5c1ece649e9050183b8d",
+      "tokens": [
+        "\"climbing_pick\"",
+        "ITEMS.register",
+        "registerSimpleBlockItem",
+        "void register("
+      ],
+      "lines": [
+        {
+          "line": 41,
+          "text": "    public static final DeferredItem<LabMachineItem> ASSEMBLER_ITEM = ITEMS.register(\"assembler\", () -> new LabMachineItem(ASSEMBLER.get(), false));"
+        },
+        {
+          "line": 42,
+          "text": "    public static final DeferredItem<LabMachineItem> WALLBORE_ITEM = ITEMS.register(\"wallbore\", () -> new LabMachineItem(WALLBORE.get(), true));"
+        },
+        {
+          "line": 43,
+          "text": "    public static final DeferredItem<SylviaRifleItem> SYLVIA_RIFLE = ITEMS.register(\"sylvia_rifle\", SylviaRifleItem::new);"
+        },
+        {
+          "line": 44,
+          "text": "    public static final DeferredItem<EnderTentacleItem> ENDER_TENTACLE = ITEMS.register(\"ender_tentacle\", EnderTentacleItem::new);"
+        },
+        {
+          "line": 45,
+          "text": "    public static final DeferredItem<ClimbingPickItem> CLIMBING_PICK = ITEMS.register(\"climbing_pick\", () -> new ClimbingPickItem(false));"
+        },
+        {
+          "line": 46,
+          "text": "    public static final DeferredItem<ClimbingPickItem> JELLY_PICK = ITEMS.register(\"jelly_pick\", () -> new ClimbingPickItem(true));"
+        },
+        {
+          "line": 48,
+          "text": "        ITEMS.registerSimpleBlockItem(WALLBORE_CONSTRUCTOR); ITEMS.registerSimpleBlockItem(SUSPICIOUS_SAFE); ITEMS.registerSimpleBlockItem(STORM_BATTERY);"
+        },
+        {
+          "line": 49,
+          "text": "        ITEMS.register(\"lab_machinist_spawn_egg\", () -> new DeferredSpawnEggItem(LAB_MACHINIST, -1, -1, new Item.Properties()));"
+        },
+        {
+          "line": 77,
+          "text": "    public static void register(IEventBus bus) { TYPES.register(bus); ITEMS.register(bus); BLOCKS.register(bus); ENTITIES.register(bus); MENUS.register(bus); bus.addListener(LabContent::attributes); bus.addListener(LabContent::capabilities); }"
+        }
+      ]
+    },
+    "src/main/java/com/hp/thermalshockreforged/content/dependencies/DependencyBlocks.java": {
+      "sha256": "29ce472f3fb9d5c557aee3cff492641fe5c82fb04dc50a0791c14e48ffec03ea",
+      "tokens": [
+        "\"cobalt_block\"",
+        "\"pure_muck\"",
+        "registerSimpleBlockItem(COBALT_BLOCK",
+        "registerSimpleBlockItem(PURE_MUCK",
+        "void register("
+      ],
+      "lines": [
+        {
+          "line": 19,
+          "text": "    public static final DeferredBlock<Block> PURE_MUCK = BLOCKS.register(\"pure_muck\", Muck::new);"
+        },
+        {
+          "line": 20,
+          "text": "    public static final DeferredBlock<Block> COBALT_BLOCK = BLOCKS.register(\"cobalt_block\", Cobalt::new);"
+        },
+        {
+          "line": 21,
+          "text": "    static { ITEMS.registerSimpleBlockItem(PURE_MUCK); ITEMS.registerSimpleBlockItem(COBALT_BLOCK); }"
+        },
+        {
+          "line": 24,
+          "text": "    public static void register(IEventBus bus) { BLOCKS.register(bus); ITEMS.register(bus); }"
+        }
+      ]
+    },
+    "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java": {
+      "sha256": "b158a0665b55b54678ec9e36aabb5f5ded0c698c7d758fa344befb0c4d044001",
+      "tokens": [
+        "\"fabricator_constructor\"",
+        "registerSimpleBlockItem(FABRICATOR_CONSTRUCTOR",
+        "void register("
+      ],
+      "lines": [
+        {
+          "line": 35,
+          "text": "    public static final DeferredBlock<Block> FABRICATOR_CONSTRUCTOR = BLOCKS.register(\"fabricator_constructor\", FabricatorConstructorBlock::new);"
+        },
+        {
+          "line": 104,
+          "text": "        ITEMS.registerSimpleBlockItem(FABRICATOR_CONSTRUCTOR);"
+        },
+        {
+          "line": 110,
+          "text": "    public static void register(IEventBus bus) {"
+        }
+      ]
+    },
+    "src/main/java/com/hp/thermalshockreforged/entity/gardenling/GardenlingContent.java": {
+      "sha256": "3c12956aa945e9df824f0ada5bff0998645daf0d95540f26f9c1aa86b7d21682",
+      "tokens": [
+        "\"gardenling_constructor\"",
+        "registerSimpleBlockItem(CONSTRUCTOR",
+        "void register("
+      ],
+      "lines": [
+        {
+          "line": 17,
+          "text": "    public static final DeferredBlock<Block> CONSTRUCTOR = BLOCKS.register(\"gardenling_constructor\", GardenlingConstructorBlock::new);"
+        },
+        {
+          "line": 19,
+          "text": "    static { ITEMS.registerSimpleBlockItem(CONSTRUCTOR); }"
+        },
+        {
+          "line": 23,
+          "text": "    public static void register(IEventBus bus) {"
+        }
+      ]
+    },
+    "src/main/java/com/hp/thermalshockreforged/entity/mangler/ManglerContent.java": {
+      "sha256": "d0fb2b74b978ca25520911ba16a944d9bea2ce5e4574f0e3cf42ee10344b7392",
+      "tokens": [
+        "\"herald_spawn_egg\"",
+        "ITEMS.register",
+        "registerSimpleBlockItem",
+        "void register("
+      ],
+      "lines": [
+        {
+          "line": 27,
+          "text": "        ITEMS.register(\"mangler_spawn_egg\", () -> new DeferredSpawnEggItem(MANGLER, -1, -1, new Item.Properties()));"
+        },
+        {
+          "line": 28,
+          "text": "        ITEMS.register(\"summoned_mangler_spawn_egg\", () -> new DeferredSpawnEggItem(SUMMONED_MANGLER, -9632219, -65536, new Item.Properties()));"
+        },
+        {
+          "line": 29,
+          "text": "        ITEMS.register(\"herald_spawn_egg\", () -> new DeferredSpawnEggItem(HERALD, -1, -1, new Item.Properties()));"
+        },
+        {
+          "line": 32,
+          "text": "    public static void register(IEventBus bus) { TYPES.register(bus); ITEMS.register(bus); bus.addListener(ManglerContent::attributes); bus.addListener(ManglerContent::placements); NeoForge.EVENT_BUS.addListener(ManglerContent::attack); NeoForge.EVENT_BUS.addListener(ManglerContent::damaged); NeoForge.EVENT_BUS.addListener(ManglerContent::death); NeoForge.EVENT_BUS.addListener(ManglerContent::join); }"
+        }
+      ]
+    },
+    "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java": {
+      "sha256": "84147bbf1ce0131a1d5240bfe33746fe48e064e02fc57e034abf48c8c44ddfb4",
+      "tokens": [
+        "BLOCKS.register(kind.id",
+        "GeoDecorKind.values()",
+        "ITEMS.register(kind.id",
+        "void register("
+      ],
+      "lines": [
+        {
+          "line": 31,
+          "text": "        for (GeoDecorKind kind : GeoDecorKind.values()) {"
+        },
+        {
+          "line": 32,
+          "text": "            DeferredBlock<GeoDecorBlock> block = BLOCKS.register(kind.id, () -> switch (kind) {"
+        },
+        {
+          "line": 71,
+          "text": "            ITEM_VALUES.put(kind, ITEMS.register(kind.id, () -> new GeoDecorItem(block.get(), kind, new Item.Properties())));"
+        },
+        {
+          "line": 78,
+          "text": "    public static void register(IEventBus bus) {"
+        }
+      ]
+    },
+    "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java": {
+      "sha256": "c749f29bef0998ecc7d5f4ebe5a538c1b840349a6e1d87b548f8d73f3d5c92dc",
+      "tokens": [
+        "\"icidroburner_trophy\"",
+        "\"icidrogunner_trophy\"",
+        "\"pylon_core\""
+      ],
+      "lines": [
+        {
+          "line": 31,
+          "text": "    PYLON_CORE(\"pylon_core\", \"Pylon Core\", \"geo/pylon_core.geo.json\", \"textures/block/texturepyloncore.png\", \"animations/pylon_core.animation.json\", Block.box(2, 2, 2, 14, 14, 14), true, false),"
+        },
+        {
+          "line": 70,
+          "text": "    GUNNER_TROPHY(\"icidrogunner_trophy\", \"Icidrogunner Trophy\", \"geo/pozar_relic.geo.json\", \"textures/block/lodpozar_relic.png\", \"animations/pozar_relic.animation.json\", Shapes.block(), true, false),"
+        },
+        {
+          "line": 73,
+          "text": "    BURNER_TROPHY(\"icidroburner_trophy\", \"Icidroburner Trophy\", \"geo/lod_relic.geo.json\", \"textures/block/lodpozar_relic.png\", \"animations/lod_relic.animation.json\", Shapes.block(), true, false),"
+        }
+      ]
+    },
+    "src/main/java/com/hp/thermalshockreforged/content/atlas/AtlasContent.java": {
+      "sha256": "56e58161722760956a8361da15bee7ef466b1431eacb66d7759d294526e8af02",
+      "tokens": [
+        "\"keystone\"",
+        "ITEMS.register",
+        "registerSimpleBlockItem",
+        "void register("
+      ],
+      "lines": [
+        {
+          "line": 20,
+          "text": "    public static final DeferredItem<Item> VIRUSTONE = ITEMS.register(\"virustone\", VirustoneItem::new);"
+        },
+        {
+          "line": 21,
+          "text": "    public static final DeferredItem<Item> KEYSTONE = ITEMS.register(\"keystone\", KeystoneItem::new);"
+        },
+        {
+          "line": 25,
+          "text": "    public static void register(IEventBus bus) { ITEMS.register(bus); MENUS.register(bus); ENTITIES.register(bus); }"
+        }
+      ]
+    },
+    "src/main/java/com/hp/thermalshockreforged/content/plants/tall/TallPlantContent.java": {
+      "sha256": "c7d57ae2bb917f13d87117ccbf8fbe1d7fb1bf731d4dbbc5a0691fa62db6cf74",
+      "tokens": [
+        "\"sprintweed\"",
+        "\"trident_flower\"",
+        "registerSimpleBlockItem(SPRINTWEED",
+        "registerSimpleBlockItem(TRIDENT_FLOWER",
+        "void register("
+      ],
+      "lines": [
+        {
+          "line": 35,
+          "text": "    public static final DeferredBlock<Block> TRIDENT_FLOWER = BLOCKS.register(\"trident_flower\", () -> new TallPlant(glowing(7)));"
+        },
+        {
+          "line": 39,
+          "text": "    public static final DeferredBlock<Block> SPRINTWEED = BLOCKS.register(\"sprintweed\", () -> new Sprintweed(glowing(9)));"
+        },
+        {
+          "line": 45,
+          "text": "    public static void register(IEventBus bus) { BLOCKS.register(bus); ITEMS.register(bus); }"
+        }
+      ]
+    },
+    "src/main/java/com/hp/thermalshockreforged/content/plants/SpecialPlantContent.java": {
+      "sha256": "faf447d55e21d906c0d882c2ce3eb00f407b976f7f5a72d747931a8ea7a2f780",
+      "tokens": [
+        "\"vermillion_roots\"",
+        "registerSimpleBlockItem(VERMILLION_ROOTS",
+        "void register("
+      ],
+      "lines": [
+        {
+          "line": 19,
+          "text": "    public static final DeferredBlock<Block> VERMILLION_ROOTS = BLOCKS.register(\"vermillion_roots\", VermillionRootsBlock::new);"
+        },
+        {
+          "line": 29,
+          "text": "    public static void register(IEventBus bus) { BLOCKS.register(bus); ITEMS.register(bus); }"
+        }
+      ]
+    },
+    "src/main/resources/data/thermal_shock_reforged/worldgen/biome/cobalt_heights.json": {
+      "sha256": "8f5082d7d47b27113ae5ec214dcc6c1ad296be3fafe0cf03c9b9253bc9b8a0dd",
+      "tokens": [],
+      "lines": []
+    }
+  }
+}

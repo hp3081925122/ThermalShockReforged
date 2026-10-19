@@ -1,0 +1,2069 @@
+{
+  "batch": 112,
+  "status": "111统一编译期间仅只读准备，112生产未解冻；不修改src/main、不构建或游戏",
+  "recipes": [
+    {
+      "id": "bloodstone_sickle_recipe",
+      "sourcePath": "data/thermal_shock/recipes/bloodstone_sickle_recipe.json",
+      "sourceSha256": "d86156dc50af5cba0efc5fc3ad9e5081d026d9a0a3cfb43ac2d611b427c82bf2",
+      "sourceJson": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          " aa",
+          "  a",
+          "baa"
+        ],
+        "key": {
+          "a": {
+            "item": "thermal_shock:bloodstone"
+          },
+          "b": {
+            "item": "thermal_shock:cobalt_rod"
+          }
+        },
+        "result": {
+          "item": "thermal_shock:bloodstone_sickle",
+          "count": 1
+        }
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/recipe/bloodstone_sickle_recipe.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:bloodstone",
+        "thermal_shock:bloodstone_sickle",
+        "thermal_shock:cobalt_rod"
+      ],
+      "targetSameResultConsumers": []
+    },
+    {
+      "id": "cobalt_block_recipe",
+      "sourcePath": "data/thermal_shock/recipes/cobalt_block_recipe.json",
+      "sourceSha256": "8a19b2b153897e2216626b025f562f90bbc1f30c11c30a9cddf7cb23c03b7e3d",
+      "sourceJson": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          "aa",
+          "aa"
+        ],
+        "key": {
+          "a": {
+            "item": "thermal_shock:cobalt"
+          }
+        },
+        "result": {
+          "item": "thermal_shock:cobalt_block",
+          "count": 1
+        }
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/recipe/cobalt_block_recipe.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:cobalt",
+        "thermal_shock:cobalt_block"
+      ],
+      "targetSameResultConsumers": []
+    },
+    {
+      "id": "cobalt_block_uncraft",
+      "sourcePath": "data/thermal_shock/recipes/cobalt_block_uncraft.json",
+      "sourceSha256": "725416812350aa2be6341e687f38c5c882499e345c9abeb4492c82ab7bb0c242",
+      "sourceJson": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "thermal_shock:cobalt_block"
+          }
+        ],
+        "result": {
+          "item": "thermal_shock:cobalt_rod",
+          "count": 16
+        }
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/recipe/cobalt_block_uncraft.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:cobalt_block",
+        "thermal_shock:cobalt_rod"
+      ],
+      "targetSameResultConsumers": [
+        {
+          "path": "src/main/resources/data/thermal_shock_reforged/recipe/cobalt_rod_recipe.json",
+          "type": "minecraft:crafting_shapeless",
+          "sha256": "7191691ac2d4f597b1fcd0468b5e9645b8180ffa91e54c435028e412038330d9"
+        }
+      ]
+    },
+    {
+      "id": "dull_thread_net_recipe",
+      "sourcePath": "data/thermal_shock/recipes/dull_thread_net_recipe.json",
+      "sourceSha256": "682b4bdf6faad91a8486a8a5b5ae69a2524c092fef5b116b39b4e9a026848111",
+      "sourceJson": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          "aaa",
+          "aaa"
+        ],
+        "key": {
+          "a": {
+            "item": "thermal_shock:dull_leaves"
+          }
+        },
+        "result": {
+          "item": "thermal_shock:dull_thread_net",
+          "count": 16
+        }
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/recipe/dull_thread_net_recipe.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:dull_leaves",
+        "thermal_shock:dull_thread_net"
+      ],
+      "targetSameResultConsumers": []
+    },
+    {
+      "id": "fabricator_bism_recipe",
+      "sourcePath": "data/thermal_shock/recipes/fabricator_bism_recipe.json",
+      "sourceSha256": "854ec33f5fb30e8a23a8b70ee6a033815849c819862824d8ae525ad0b3554322",
+      "sourceJson": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          "aba",
+          "cdc",
+          "ded"
+        ],
+        "key": {
+          "a": {
+            "item": "thermal_shock:phobotite"
+          },
+          "b": {
+            "item": "thermal_shock:pylon_core"
+          },
+          "c": {
+            "item": "thermal_shock:cryonic_alloy"
+          },
+          "d": {
+            "item": "thermal_shock:cobalt_block"
+          },
+          "e": {
+            "item": "thermal_shock:bismuth_block"
+          }
+        },
+        "result": {
+          "item": "thermal_shock:fabricator_constructor",
+          "count": 1
+        }
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/recipe/fabricator_bism_recipe.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:bismuth_block",
+        "thermal_shock:cobalt_block",
+        "thermal_shock:cryonic_alloy",
+        "thermal_shock:fabricator_constructor",
+        "thermal_shock:phobotite",
+        "thermal_shock:pylon_core"
+      ],
+      "targetSameResultConsumers": []
+    },
+    {
+      "id": "fabricator_recipe",
+      "sourcePath": "data/thermal_shock/recipes/fabricator_recipe.json",
+      "sourceSha256": "cce9397bf4826baa2949799ba8dddd2dda5a9bf3529589e285013a63e5322fd0",
+      "sourceJson": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          "aba",
+          "cdc",
+          "ded"
+        ],
+        "key": {
+          "a": {
+            "item": "thermal_shock:phobotite"
+          },
+          "b": {
+            "item": "thermal_shock:pylon_core"
+          },
+          "c": {
+            "item": "thermal_shock:cryonic_alloy"
+          },
+          "d": {
+            "item": "thermal_shock:cobalt_block"
+          },
+          "e": {
+            "item": "thermal_shock:malachite_block"
+          }
+        },
+        "result": {
+          "item": "thermal_shock:fabricator_constructor",
+          "count": 1
+        }
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/recipe/fabricator_recipe.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:cobalt_block",
+        "thermal_shock:cryonic_alloy",
+        "thermal_shock:fabricator_constructor",
+        "thermal_shock:malachite_block",
+        "thermal_shock:phobotite",
+        "thermal_shock:pylon_core"
+      ],
+      "targetSameResultConsumers": []
+    },
+    {
+      "id": "hazard_stripes_recipe",
+      "sourcePath": "data/thermal_shock/recipes/hazard_stripes_recipe.json",
+      "sourceSha256": "aaa45c0eb5122c476a7b16c73f44cd34a7f5ae9551f1798c07fe4564a0b02be1",
+      "sourceJson": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          "aba",
+          "bab",
+          "aba"
+        ],
+        "key": {
+          "a": {
+            "item": "thermal_shock:bright_ochre_leaves"
+          },
+          "b": {
+            "item": "thermal_shock:ochre_leaves"
+          }
+        },
+        "result": {
+          "item": "thermal_shock:hazard_stripes",
+          "count": 4
+        }
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/recipe/hazard_stripes_recipe.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:bright_ochre_leaves",
+        "thermal_shock:hazard_stripes",
+        "thermal_shock:ochre_leaves"
+      ],
+      "targetSameResultConsumers": [
+        {
+          "path": "src/main/resources/data/thermal_shock_reforged/recipe/bordered_hazard_stripes_uncraft.json",
+          "type": "minecraft:crafting_shaped",
+          "sha256": "5f8a5794bda3b66262a5fb6885caa1221a2f7da2453e8a79c5885ece5859116d"
+        }
+      ]
+    },
+    {
+      "id": "liteprism_sword_recipe",
+      "sourcePath": "data/thermal_shock/recipes/liteprism_sword_recipe.json",
+      "sourceSha256": "fce359f4f8b4fd824d9a9f0709158b78f294bd95616a3621b0f3c0a99f04b932",
+      "sourceJson": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          "aaa",
+          "aba",
+          "aaa"
+        ],
+        "key": {
+          "a": {
+            "item": "thermal_shock:bismuth"
+          },
+          "b": {
+            "item": "thermal_shock:carborundum_sword"
+          }
+        },
+        "result": {
+          "item": "thermal_shock:liteprism_sword",
+          "count": 1
+        }
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/recipe/liteprism_sword_recipe.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:bismuth",
+        "thermal_shock:carborundum_sword",
+        "thermal_shock:liteprism_sword"
+      ],
+      "targetSameResultConsumers": [
+        {
+          "path": "src/main/resources/data/thermal_shock_reforged/recipe/fabrication/liteprism_sword.json",
+          "type": "thermal_shock_reforged:fabrication",
+          "sha256": "a2728c73612198ffcef1cbcc7ae24cd9b4ec7a21b154ea789890424b4a1c904c"
+        }
+      ]
+    },
+    {
+      "id": "loqendia_glass_recipe",
+      "sourcePath": "data/thermal_shock/recipes/loqendia_glass_recipe.json",
+      "sourceSha256": "1909a6f8639f7324da7ecd3269140ca0fd0f8217927227eec120ab584478e9be",
+      "sourceJson": {
+        "type": "minecraft:smelting",
+        "category": "misc",
+        "experience": 1,
+        "cookingtime": 35,
+        "ingredient": {
+          "item": "thermal_shock:pure_muck"
+        },
+        "result": "minecraft:glass"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/recipe/loqendia_glass_recipe.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:pure_muck"
+      ],
+      "targetSameResultConsumers": []
+    },
+    {
+      "id": "loqendia_kelp_smelt",
+      "sourcePath": "data/thermal_shock/recipes/loqendia_kelp_smelt.json",
+      "sourceSha256": "80132727f41c292ff146d6efa2ec67791fec588c2449ff293d81cda01b6c771e",
+      "sourceJson": {
+        "type": "minecraft:smelting",
+        "category": "misc",
+        "experience": 1,
+        "cookingtime": 200,
+        "ingredient": {
+          "tag": "thermal_shock:loqendiakelp"
+        },
+        "result": "minecraft:dried_kelp"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/recipe/loqendia_kelp_smelt.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:loqendiakelp"
+      ],
+      "targetSameResultConsumers": []
+    },
+    {
+      "id": "loqendia_kelp_smoke",
+      "sourcePath": "data/thermal_shock/recipes/loqendia_kelp_smoke.json",
+      "sourceSha256": "b417c6846639152a40c34ab5b477884c65d68109ba1be9d25b9a62d1909155bd",
+      "sourceJson": {
+        "type": "minecraft:smoking",
+        "category": "misc",
+        "experience": 1,
+        "cookingtime": 100,
+        "ingredient": {
+          "tag": "thermal_shock:loqendiakelp"
+        },
+        "result": "minecraft:dried_kelp"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/recipe/loqendia_kelp_smoke.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:loqendiakelp"
+      ],
+      "targetSameResultConsumers": []
+    },
+    {
+      "id": "muck_button_recipe",
+      "sourcePath": "data/thermal_shock/recipes/muck_button_recipe.json",
+      "sourceSha256": "dcb146f87e9ec517946596cbea99d57a2c7abbdf4fb1598e86031da1bf7dfa99",
+      "sourceJson": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          "a"
+        ],
+        "key": {
+          "a": {
+            "item": "thermal_shock:pure_muck"
+          }
+        },
+        "result": {
+          "item": "thermal_shock:muck_button",
+          "count": 1
+        }
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/recipe/muck_button_recipe.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:muck_button",
+        "thermal_shock:pure_muck"
+      ],
+      "targetSameResultConsumers": []
+    },
+    {
+      "id": "muck_recipe",
+      "sourcePath": "data/thermal_shock/recipes/muck_recipe.json",
+      "sourceSha256": "5d954171d8a815d1d4be2672329bf4a65dd72c33fd712387c5a70c69232de38d",
+      "sourceJson": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          "aa",
+          "aa"
+        ],
+        "key": {
+          "a": {
+            "item": "thermal_shock:muck_ball"
+          }
+        },
+        "result": {
+          "item": "thermal_shock:pure_muck",
+          "count": 1
+        }
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/recipe/muck_recipe.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:muck_ball",
+        "thermal_shock:pure_muck"
+      ],
+      "targetSameResultConsumers": []
+    },
+    {
+      "id": "permafrost_craft",
+      "sourcePath": "data/thermal_shock/recipes/permafrost_craft.json",
+      "sourceSha256": "2d586b2e6fc5fe27d5adf98cc310cc2eca6046ef0b77fad4a1fd91542b14035e",
+      "sourceJson": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "thermal_shock:slush"
+          },
+          {
+            "item": "thermal_shock:slush"
+          },
+          {
+            "item": "thermal_shock:slush"
+          },
+          {
+            "item": "thermal_shock:slush"
+          }
+        ],
+        "result": {
+          "item": "thermal_shock:permafrost",
+          "count": 1
+        }
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/recipe/permafrost_craft.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:permafrost",
+        "thermal_shock:slush"
+      ],
+      "targetSameResultConsumers": []
+    },
+    {
+      "id": "pure_muck_stair_recipe",
+      "sourcePath": "data/thermal_shock/recipes/pure_muck_stair_recipe.json",
+      "sourceSha256": "3db57057385736b4adeb89c439086b44760b778c482c13c4a806c8dd79c84b2a",
+      "sourceJson": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          "a  ",
+          "aa ",
+          "aaa"
+        ],
+        "key": {
+          "a": {
+            "item": "thermal_shock:pure_muck"
+          }
+        },
+        "result": {
+          "item": "thermal_shock:pure_muck_stairs",
+          "count": 4
+        }
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/recipe/pure_muck_stair_recipe.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:pure_muck",
+        "thermal_shock:pure_muck_stairs"
+      ],
+      "targetSameResultConsumers": []
+    },
+    {
+      "id": "pure_muck_uncraft",
+      "sourcePath": "data/thermal_shock/recipes/pure_muck_uncraft.json",
+      "sourceSha256": "fab8337382d291f10a6313d4e4fdc1fe5f7603ffc03c2414bb88d9f50bd773d6",
+      "sourceJson": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          "a"
+        ],
+        "key": {
+          "a": {
+            "item": "thermal_shock:pure_muck"
+          }
+        },
+        "result": {
+          "item": "thermal_shock:muck_ball",
+          "count": 4
+        }
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/recipe/pure_muck_uncraft.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:muck_ball",
+        "thermal_shock:pure_muck"
+      ],
+      "targetSameResultConsumers": []
+    },
+    {
+      "id": "pure_muck_wall_recipe",
+      "sourcePath": "data/thermal_shock/recipes/pure_muck_wall_recipe.json",
+      "sourceSha256": "ebf078641ca0379d677d37ffacb57651cedee9e5dae22c84d4a90789dffa0f7c",
+      "sourceJson": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          "aaa",
+          "aaa"
+        ],
+        "key": {
+          "a": {
+            "item": "thermal_shock:pure_muck"
+          }
+        },
+        "result": {
+          "item": "thermal_shock:pure_muck_wall",
+          "count": 6
+        }
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/recipe/pure_muck_wall_recipe.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:pure_muck",
+        "thermal_shock:pure_muck_wall"
+      ],
+      "targetSameResultConsumers": []
+    },
+    {
+      "id": "ruby_sickle_recipe",
+      "sourcePath": "data/thermal_shock/recipes/ruby_sickle_recipe.json",
+      "sourceSha256": "c966585b6170800236629fd02a0f1e3e0094392eb1808f229530023a3a7a9592",
+      "sourceJson": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          " aa",
+          "  a",
+          "baa"
+        ],
+        "key": {
+          "a": {
+            "item": "thermal_shock:ruby"
+          },
+          "b": {
+            "item": "thermal_shock:cobalt_rod"
+          }
+        },
+        "result": {
+          "item": "thermal_shock:ruby_sickle",
+          "count": 1
+        }
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/recipe/ruby_sickle_recipe.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:cobalt_rod",
+        "thermal_shock:ruby",
+        "thermal_shock:ruby_sickle"
+      ],
+      "targetSameResultConsumers": []
+    },
+    {
+      "id": "slush_ball_uncraft",
+      "sourcePath": "data/thermal_shock/recipes/slush_ball_uncraft.json",
+      "sourceSha256": "0b9ede1d949c7dfd195eebc4cc9c10df52c95a4a42d7751567fa2948db2d3c84",
+      "sourceJson": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "thermal_shock:slush"
+          }
+        ],
+        "result": {
+          "item": "thermal_shock:slushball",
+          "count": 2
+        }
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/recipe/slush_ball_uncraft.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:slush",
+        "thermal_shock:slushball"
+      ],
+      "targetSameResultConsumers": []
+    },
+    {
+      "id": "speleothem_recipe",
+      "sourcePath": "data/thermal_shock/recipes/speleothem_recipe.json",
+      "sourceSha256": "7f8ed0a0bc5f8496e7278f196f3ffa8069be9e0b010dc876d9f1e2d322f5211d",
+      "sourceJson": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          " ab",
+          "aba",
+          "ca "
+        ],
+        "key": {
+          "a": {
+            "item": "thermal_shock:permafrost"
+          },
+          "b": {
+            "item": "thermal_shock:frozen_blade"
+          },
+          "c": {
+            "item": "thermal_shock:cavebloomer_core"
+          }
+        },
+        "result": {
+          "item": "thermal_shock:speleothem",
+          "count": 1
+        }
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/recipe/speleothem_recipe.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:cavebloomer_core",
+        "thermal_shock:frozen_blade",
+        "thermal_shock:permafrost",
+        "thermal_shock:speleothem"
+      ],
+      "targetSameResultConsumers": []
+    },
+    {
+      "id": "sprintweed_yellow_dye",
+      "sourcePath": "data/thermal_shock/recipes/sprintweed_yellow_dye.json",
+      "sourceSha256": "65990f980d9c349b6b55bcc405258e72c3842b1d281a3f6adfd0b9be4d05c201",
+      "sourceJson": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          "a"
+        ],
+        "key": {
+          "a": {
+            "item": "thermal_shock:sprintweed"
+          }
+        },
+        "result": {
+          "item": "minecraft:yellow_dye",
+          "count": 1
+        }
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/recipe/sprintweed_yellow_dye.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:sprintweed"
+      ],
+      "targetSameResultConsumers": []
+    },
+    {
+      "id": "stratus_pity",
+      "sourcePath": "data/thermal_shock/recipes/stratus_pity.json",
+      "sourceSha256": "ca7513d837e3e86cc2b70d90eea500597a2bb5e27f67677ab3926caf9f5416c6",
+      "sourceJson": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          "aaa",
+          "aaa",
+          "aaa"
+        ],
+        "key": {
+          "a": {
+            "tag": "thermal_shock:lodpozar_trophy"
+          }
+        },
+        "result": {
+          "item": "thermal_shock:stratus_alloy",
+          "count": 5
+        }
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/recipe/stratus_pity.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:lodpozar_trophy",
+        "thermal_shock:stratus_alloy"
+      ],
+      "targetSameResultConsumers": [
+        {
+          "path": "src/main/resources/data/thermal_shock_reforged/recipe/stratus_allot_recipe.json",
+          "type": "minecraft:crafting_shapeless",
+          "sha256": "3d32d268ef9037d428a1024aaf454cb47cc3b94e05ac69e3df1bab118a88fe7d"
+        },
+        {
+          "path": "src/main/resources/data/thermal_shock_reforged/recipe/stratus_alloy_block_uncraft.json",
+          "type": "minecraft:crafting_shaped",
+          "sha256": "e7fb9cda997ca9ff780825a5a6da912e804669ba9c14638de60dafb4ba9faa36"
+        }
+      ]
+    },
+    {
+      "id": "trident_flower_cyan_dye",
+      "sourcePath": "data/thermal_shock/recipes/trident_flower_cyan_dye.json",
+      "sourceSha256": "8f014cee215217ec809ea3245a78ba8d545489d658d4fa785f7960d88e68c57a",
+      "sourceJson": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          "a"
+        ],
+        "key": {
+          "a": {
+            "item": "thermal_shock:trident_flower"
+          }
+        },
+        "result": {
+          "item": "minecraft:cyan_dye",
+          "count": 1
+        }
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/recipe/trident_flower_cyan_dye.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:trident_flower"
+      ],
+      "targetSameResultConsumers": [
+        {
+          "path": "src/main/resources/data/thermal_shock_reforged/recipe/dewleaf_cyan_dye.json",
+          "type": "minecraft:crafting_shaped",
+          "sha256": "dd0401268f4d3b07639adc6b7a1b98b26b8385f934f9db08111cbc671efaba0f"
+        }
+      ]
+    },
+    {
+      "id": "vermillion_lantern_recipe",
+      "sourcePath": "data/thermal_shock/recipes/vermillion_lantern_recipe.json",
+      "sourceSha256": "256f28d07b8b2575a47c794a8e9e0906870d0b97940dd71771398e64a576bbcc",
+      "sourceJson": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          "aba",
+          "aba",
+          "aba"
+        ],
+        "key": {
+          "a": {
+            "item": "thermal_shock:ferrum_ingot"
+          },
+          "b": {
+            "item": "thermal_shock:vermillion_roots"
+          }
+        },
+        "result": {
+          "item": "thermal_shock:vermillion_lantern",
+          "count": 3
+        }
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/recipe/vermillion_lantern_recipe.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:ferrum_ingot",
+        "thermal_shock:vermillion_lantern",
+        "thermal_shock:vermillion_roots"
+      ],
+      "targetSameResultConsumers": []
+    },
+    {
+      "id": "vermillion_roots_red_dye",
+      "sourcePath": "data/thermal_shock/recipes/vermillion_roots_red_dye.json",
+      "sourceSha256": "44dd3ec4f39c7c621a285cdeade2c238e658f02fd6773fe8b5ecdbc2097b2a03",
+      "sourceJson": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          "a"
+        ],
+        "key": {
+          "a": {
+            "item": "thermal_shock:vermillion_roots"
+          }
+        },
+        "result": {
+          "item": "minecraft:red_dye",
+          "count": 1
+        }
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/recipe/vermillion_roots_red_dye.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:vermillion_roots"
+      ],
+      "targetSameResultConsumers": [
+        {
+          "path": "src/main/resources/data/thermal_shock_reforged/recipe/volatine_red_dye.json",
+          "type": "minecraft:crafting_shaped",
+          "sha256": "55d8e0bfeb27587d7fd3139926696dee16637fd6f8688891020ec418df00e210"
+        }
+      ]
+    }
+  ],
+  "advancements": [
+    {
+      "id": "bismuth_get",
+      "sourcePath": "data/thermal_shock/advancements/bismuth_get.json",
+      "sourceSha256": "ac471f79ea74c6acdc6f48d4391161bd72b3f13d6358733bc17a6a7d4dca64e6",
+      "sourceJson": {
+        "display": {
+          "icon": {
+            "item": "thermal_shock:bismuth"
+          },
+          "title": {
+            "translate": "advancements.bismuth_get.title"
+          },
+          "description": {
+            "translate": "advancements.bismuth_get.descr"
+          },
+          "frame": "task",
+          "show_toast": true,
+          "announce_to_chat": true,
+          "hidden": false
+        },
+        "criteria": {
+          "bismuth_get_0": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+              "items": [
+                {
+                  "items": [
+                    "thermal_shock:bismuth"
+                  ],
+                  "count": {
+                    "min": 1,
+                    "max": 64
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "rewards": {
+          "experience": 10
+        },
+        "parent": "thermal_shock:lapidary_get"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/advancement/bismuth_get.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:bismuth",
+        "thermal_shock:lapidary_get"
+      ],
+      "javaReferences": {
+        "original": [],
+        "target": []
+      },
+      "sourceEnglish": {
+        "advancements.bismuth_get.title": "Deep Space 33",
+        "advancements.bismuth_get.descr": "Obtain Bismuth from an outcrop or geode. (Not all worlds will generate Bismuth.)"
+      }
+    },
+    {
+      "id": "bloodstone_get",
+      "sourcePath": "data/thermal_shock/advancements/bloodstone_get.json",
+      "sourceSha256": "b6af1bb3c7c2f9e0ecdb6f09c40df36ce34721c7b151b61544fdd933e039e01a",
+      "sourceJson": {
+        "display": {
+          "icon": {
+            "item": "thermal_shock:bloodstone"
+          },
+          "title": {
+            "translate": "advancements.bloodstone_get.title"
+          },
+          "description": {
+            "translate": "advancements.bloodstone_get.descr"
+          },
+          "frame": "task",
+          "show_toast": true,
+          "announce_to_chat": true,
+          "hidden": false
+        },
+        "criteria": {
+          "bloodstone_get_0": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+              "items": [
+                {
+                  "items": [
+                    "thermal_shock:bloodstone"
+                  ],
+                  "count": {
+                    "min": 1,
+                    "max": 64
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "rewards": {
+          "experience": 10
+        },
+        "parent": "thermal_shock:lapidary_get"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/advancement/bloodstone_get.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:bloodstone",
+        "thermal_shock:lapidary_get"
+      ],
+      "javaReferences": {
+        "original": [],
+        "target": []
+      },
+      "sourceEnglish": {
+        "advancements.bloodstone_get.title": "Black Ichor",
+        "advancements.bloodstone_get.descr": "Obtain polished Bloodstone. (Not all worlds will generate Bloodstone.)"
+      }
+    },
+    {
+      "id": "breather_sponge_get",
+      "sourcePath": "data/thermal_shock/advancements/breather_sponge_get.json",
+      "sourceSha256": "856f0e1cd2d16045c3ff2246fc11ee9679715a61207998475d2e9be33f88ad42",
+      "sourceJson": {
+        "display": {
+          "icon": {
+            "item": "thermal_shock:breather_sponge"
+          },
+          "title": {
+            "translate": "advancements.breather_sponge_get.title"
+          },
+          "description": {
+            "translate": "advancements.breather_sponge_get.descr"
+          },
+          "frame": "task",
+          "show_toast": true,
+          "announce_to_chat": true,
+          "hidden": false
+        },
+        "criteria": {
+          "breather_sponge_get_0": {
+            "trigger": "minecraft:impossible"
+          }
+        },
+        "parent": "thermal_shock:luminous_sea_get"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/advancement/breather_sponge_get.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:breather_sponge",
+        "thermal_shock:luminous_sea_get"
+      ],
+      "javaReferences": {
+        "original": [
+          {
+            "path": "procedures/BreatherSpongeOnBlockRightClickedProcedure.java",
+            "sha256": "5ea5f9357eea677b7b7322467aa573918090f74344b31f8ef022ca0203160090",
+            "matches": [
+              "breather_sponge_get"
+            ],
+            "lines": [
+              {
+                "line": 92,
+                "text": "                        _adv = _player.server.getAdvancements().getAdvancement(new ResourceLocation(\"thermal_shock:breather_sponge_get\"));"
+              },
+              {
+                "line": 160,
+                "text": "                    _adv = _player.server.getAdvancements().getAdvancement(new ResourceLocation(\"thermal_shock:breather_sponge_get\"));"
+              }
+            ]
+          }
+        ],
+        "target": [
+          {
+            "path": "com/hp/thermalshockreforged/content/terrain/BreatherSpongeBlock.java",
+            "sha256": "228e67eb56ecbbe9ea587c8c970d82cdfefc5f64cc8219725f46bb8ee584d32c",
+            "matches": [
+              "breather_sponge_get"
+            ],
+            "lines": [
+              {
+                "line": 55,
+                "text": "                var advancement = serverPlayer.server.getAdvancements().get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, \"breather_sponge_get\"));"
+              }
+            ]
+          }
+        ]
+      },
+      "sourceEnglish": {
+        "advancements.breather_sponge_get.title": "I NEEEEED IIIIIIIIIT.",
+        "advancements.breather_sponge_get.descr": "Use a Straw to absorb oxygen from a Breather Sponge."
+      }
+    },
+    {
+      "id": "carborundum_get",
+      "sourcePath": "data/thermal_shock/advancements/carborundum_get.json",
+      "sourceSha256": "0194facb9f9480ee35707297ec2b3c83b853943134d8ae059a8043d3c9d41c0f",
+      "sourceJson": {
+        "display": {
+          "icon": {
+            "item": "thermal_shock:carborundum_armor_helmet"
+          },
+          "title": {
+            "translate": "advancements.carborundum_get.title"
+          },
+          "description": {
+            "translate": "advancements.carborundum_get.descr"
+          },
+          "frame": "task",
+          "show_toast": true,
+          "announce_to_chat": true,
+          "hidden": false
+        },
+        "criteria": {
+          "carborundum_get_0": {
+            "trigger": "minecraft:impossible"
+          }
+        },
+        "rewards": {
+          "experience": 10
+        },
+        "parent": "thermal_shock:garden_plant_get"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/advancement/carborundum_get.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:carborundum_armor_helmet",
+        "thermal_shock:garden_plant_get"
+      ],
+      "javaReferences": {
+        "original": [
+          {
+            "path": "procedures/CarborundumArmorEffectProcedure.java",
+            "sha256": "8068937306acdccb4b91eb43152d5c2f50b878ce899f0019dc943ba13288a764",
+            "matches": [
+              "carborundum_get"
+            ],
+            "lines": [
+              {
+                "line": 65,
+                "text": "                            Advancement _adv = _player.server.getAdvancements().getAdvancement(new ResourceLocation(\"thermal_shock:carborundum_get\"));"
+              }
+            ]
+          }
+        ],
+        "target": [
+          {
+            "path": "com/hp/thermalshockreforged/content/armor/ArmorSetEvents.java",
+            "sha256": "91a8f6f341b6da19f497eb998dc492b0398387a0f329d8b98b41f50f1f05eef1",
+            "matches": [
+              "carborundum_get",
+              "zenith_get"
+            ],
+            "lines": [
+              {
+                "line": 30,
+                "text": "    private static final ResourceLocation ADVANCEMENT = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, \"carborundum_get\");"
+              },
+              {
+                "line": 34,
+                "text": "    private static final ResourceLocation ZENITH_ADVANCEMENT = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, \"zenith_get\");"
+              }
+            ]
+          }
+        ]
+      },
+      "sourceEnglish": {
+        "advancements.carborundum_get.title": "One Giant Leap",
+        "advancements.carborundum_get.descr": "Equip a full set of Carborundum Armor."
+      }
+    },
+    {
+      "id": "cauldron_get",
+      "sourcePath": "data/thermal_shock/advancements/cauldron_get.json",
+      "sourceSha256": "9b9d89d00560eb8ffb2bb4bcf1432e2547d52b945a41e538b7c8dec94776e6bf",
+      "sourceJson": {
+        "display": {
+          "icon": {
+            "item": "thermal_shock:cauldron_of_trilobite"
+          },
+          "title": {
+            "translate": "advancements.cauldron_get.title"
+          },
+          "description": {
+            "translate": "advancements.cauldron_get.descr"
+          },
+          "frame": "task",
+          "show_toast": true,
+          "announce_to_chat": true,
+          "hidden": false
+        },
+        "criteria": {
+          "cauldron_get_0": {
+            "trigger": "minecraft:impossible"
+          }
+        },
+        "parent": "thermal_shock:spice_get"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/advancement/cauldron_get.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:cauldron_of_trilobite",
+        "thermal_shock:spice_get"
+      ],
+      "javaReferences": {
+        "original": [],
+        "target": []
+      },
+      "sourceEnglish": {
+        "advancements.cauldron_get.title": "You can has Mithral :)",
+        "advancements.cauldron_get.descr": "Grab a Trilobite with a Cauldron and use it to combine a stack of Spice, or to dissolve a single node into a lower tier."
+      }
+    },
+    {
+      "id": "climbing_pick_get",
+      "sourcePath": "data/thermal_shock/advancements/climbing_pick_get.json",
+      "sourceSha256": "f90f95fa1a1fabc58b6bc5b39c0bd285b9b5079db4cc68c7a9b4885657ee62e3",
+      "sourceJson": {
+        "display": {
+          "icon": {
+            "item": "thermal_shock:climbing_pick"
+          },
+          "title": {
+            "translate": "advancements.climbing_pick_get.title"
+          },
+          "description": {
+            "translate": "advancements.climbing_pick_get.descr"
+          },
+          "frame": "task",
+          "show_toast": true,
+          "announce_to_chat": true,
+          "hidden": false
+        },
+        "criteria": {
+          "climbing_pick_get_0": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+              "items": [
+                {
+                  "items": [
+                    "thermal_shock:climbing_pick"
+                  ],
+                  "count": {
+                    "min": 1,
+                    "max": 1
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "rewards": {
+          "experience": 10
+        },
+        "parent": "thermal_shock:fabricator_get"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/advancement/climbing_pick_get.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:climbing_pick",
+        "thermal_shock:fabricator_get"
+      ],
+      "javaReferences": {
+        "original": [],
+        "target": []
+      },
+      "sourceEnglish": {
+        "advancements.climbing_pick_get.title": "Getting Over It",
+        "advancements.climbing_pick_get.descr": "Obtain a Climbing Pick, found in Glaciation bases."
+      }
+    },
+    {
+      "id": "cobalt_heights_get",
+      "sourcePath": "data/thermal_shock/advancements/cobalt_heights_get.json",
+      "sourceSha256": "cae9ebd60c6effb37803637d4c7106ce708c1397fbdf2245d7db1b59619c3217",
+      "sourceJson": {
+        "display": {
+          "icon": {
+            "item": "thermal_shock:sanctum_bricks"
+          },
+          "title": {
+            "translate": "advancements.cobalt_heights_get.title"
+          },
+          "description": {
+            "translate": "advancements.cobalt_heights_get.descr"
+          },
+          "frame": "task",
+          "show_toast": true,
+          "announce_to_chat": true,
+          "hidden": false
+        },
+        "criteria": {
+          "cobalt_heights_get_0": {
+            "trigger": "minecraft:location",
+            "conditions": {
+              "player": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "location": {
+                      "biome": "thermal_shock:cobalt_heights"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "parent": "thermal_shock:loqendia_get"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/advancement/cobalt_heights_get.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:cobalt_heights",
+        "thermal_shock:loqendia_get",
+        "thermal_shock:sanctum_bricks"
+      ],
+      "javaReferences": {
+        "original": [],
+        "target": []
+      },
+      "sourceEnglish": {
+        "advancements.cobalt_heights_get.title": "The Cobalt Heights",
+        "advancements.cobalt_heights_get.descr": "The air crackles with static electricity..."
+      }
+    },
+    {
+      "id": "cooked_torpedo_consume_get",
+      "sourcePath": "data/thermal_shock/advancements/cooked_torpedo_consume_get.json",
+      "sourceSha256": "8c2c08492df553be8345589e25a58db503d7096b11e53b54d35048323f9c6a03",
+      "sourceJson": {
+        "display": {
+          "icon": {
+            "item": "thermal_shock:cooked_torpedo"
+          },
+          "title": {
+            "translate": "advancements.cooked_torpedo_consume_get.title"
+          },
+          "description": {
+            "translate": "advancements.cooked_torpedo_consume_get.descr"
+          },
+          "frame": "challenge",
+          "show_toast": true,
+          "announce_to_chat": true,
+          "hidden": true
+        },
+        "criteria": {
+          "cooked_torpedo_consume_get_0": {
+            "trigger": "minecraft:consume_item",
+            "conditions": {
+              "item": {
+                "items": [
+                  "thermal_shock:cooked_torpedo"
+                ]
+              }
+            }
+          }
+        },
+        "parent": "thermal_shock:torpedo_consume_get"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/advancement/cooked_torpedo_consume_get.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:cooked_torpedo",
+        "thermal_shock:torpedo_consume_get"
+      ],
+      "javaReferences": {
+        "original": [],
+        "target": []
+      },
+      "sourceEnglish": {
+        "advancements.cooked_torpedo_consume_get.title": "BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO",
+        "advancements.cooked_torpedo_consume_get.descr": "you're lame"
+      }
+    },
+    {
+      "id": "drinking_straw_get",
+      "sourcePath": "data/thermal_shock/advancements/drinking_straw_get.json",
+      "sourceSha256": "cb1e0981d0d852782d6109299ed717116e4f08c89f52b8f9e236d4da35000f03",
+      "sourceJson": {
+        "display": {
+          "icon": {
+            "item": "thermal_shock:silly_straw"
+          },
+          "title": {
+            "translate": "advancements.drinking_straw_get.title"
+          },
+          "description": {
+            "translate": "advancements.drinking_straw_get.descr"
+          },
+          "frame": "goal",
+          "show_toast": true,
+          "announce_to_chat": true,
+          "hidden": false
+        },
+        "criteria": {
+          "drinking_straw_get_0": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+              "items": [
+                {
+                  "items": [
+                    "thermal_shock:silly_straw"
+                  ],
+                  "count": {
+                    "min": 1,
+                    "max": 64
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "parent": "thermal_shock:breather_sponge_get"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/advancement/drinking_straw_get.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:breather_sponge_get",
+        "thermal_shock:silly_straw"
+      ],
+      "javaReferences": {
+        "original": [],
+        "target": []
+      },
+      "sourceEnglish": {
+        "advancements.drinking_straw_get.title": "Slonk it Silly Style",
+        "advancements.drinking_straw_get.descr": "Craft a Silly Straw, because it's sillyyyy!!!"
+      }
+    },
+    {
+      "id": "garden_plant_get",
+      "sourcePath": "data/thermal_shock/advancements/garden_plant_get.json",
+      "sourceSha256": "a7691850397dc4f69ef2267e906ec032df86d3eef224b341dac5e97d54420a1b",
+      "sourceJson": {
+        "display": {
+          "icon": {
+            "item": "thermal_shock:watering_can"
+          },
+          "title": {
+            "translate": "advancements.garden_plant_get.title"
+          },
+          "description": {
+            "translate": "advancements.garden_plant_get.descr"
+          },
+          "frame": "task",
+          "show_toast": true,
+          "announce_to_chat": true,
+          "hidden": false
+        },
+        "criteria": {
+          "garden_plant_get_0": {
+            "trigger": "minecraft:impossible"
+          }
+        },
+        "rewards": {
+          "experience": 10
+        },
+        "parent": "thermal_shock:graveyard_advancement"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/advancement/garden_plant_get.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:graveyard_advancement",
+        "thermal_shock:watering_can"
+      ],
+      "javaReferences": {
+        "original": [
+          {
+            "path": "procedures/SkorioSeedOnBlockRightClickedProcedure.java",
+            "sha256": "256901aa71215b2eda0a11a53cbc7c457ea20efbdfcfdf7ba4a9c14c207d54f2",
+            "matches": [
+              "garden_plant_get"
+            ],
+            "lines": [
+              {
+                "line": 162,
+                "text": "                Advancement _adv = _player.server.getAdvancements().getAdvancement(new ResourceLocation(\"thermal_shock:garden_plant_get\"));"
+              }
+            ]
+          }
+        ],
+        "target": [
+          {
+            "path": "com/hp/thermalshockreforged/content/farming/FarmSeedBlock.java",
+            "sha256": "0fbcfb3d0e85f536f8d2c6d236f27a4fc4b8ee04a62a50273c0222e75b9a9216",
+            "matches": [
+              "garden_plant_get"
+            ],
+            "lines": [
+              {
+                "line": 107,
+                "text": "                var advancement = server.getServer().getAdvancements().get(ResourceLocation.fromNamespaceAndPath(\"thermal_shock_reforged\", \"garden_plant_get\"));"
+              }
+            ]
+          },
+          {
+            "path": "com/hp/thermalshockreforged/content/growth/GrowthSeedBlock.java",
+            "sha256": "91b7507ee0e32618a142e1641cdea5a0b99a498e15d38caa6cf9353bc574fa4a",
+            "matches": [
+              "garden_plant_get"
+            ],
+            "lines": [
+              {
+                "line": 105,
+                "text": "                var advancement = server.getServer().getAdvancements().get(ResourceLocation.fromNamespaceAndPath(\"thermal_shock_reforged\", \"garden_plant_get\"));"
+              }
+            ]
+          }
+        ]
+      },
+      "sourceEnglish": {
+        "advancements.garden_plant_get.title": "Green Thumb",
+        "advancements.garden_plant_get.descr": "Grow a seed in a pot"
+      }
+    },
+    {
+      "id": "gardenling_get",
+      "sourcePath": "data/thermal_shock/advancements/gardenling_get.json",
+      "sourceSha256": "383cb6d19d93e8607cf5e0e0d75248ecaf0ba11d5ea3955819d7929ad66fb99b",
+      "sourceJson": {
+        "display": {
+          "icon": {
+            "item": "thermal_shock:gardenling_constructor"
+          },
+          "title": {
+            "translate": "advancements.gardenling_get.title"
+          },
+          "description": {
+            "translate": "advancements.gardenling_get.descr"
+          },
+          "frame": "task",
+          "show_toast": true,
+          "announce_to_chat": true,
+          "hidden": false
+        },
+        "criteria": {
+          "gardenling_get_0": {
+            "trigger": "minecraft:placed_block",
+            "conditions": {
+              "location": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "thermal_shock:gardenling_constructor"
+                }
+              ]
+            }
+          }
+        },
+        "rewards": {
+          "experience": 49
+        },
+        "parent": "thermal_shock:purifier_get"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/advancement/gardenling_get.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:gardenling_constructor",
+        "thermal_shock:purifier_get"
+      ],
+      "javaReferences": {
+        "original": [],
+        "target": []
+      },
+      "sourceEnglish": {
+        "advancements.gardenling_get.title": "Fog in the Pool",
+        "advancements.gardenling_get.descr": "Craft a Gardenling"
+      }
+    },
+    {
+      "id": "herald_get",
+      "sourcePath": "data/thermal_shock/advancements/herald_get.json",
+      "sourceSha256": "8f0c2dfc3df5bed4169b616abdd154c7571e391f9e70eee6485abc05fdd15474",
+      "sourceJson": {
+        "display": {
+          "icon": {
+            "item": "thermal_shock:herald_spawn_egg"
+          },
+          "title": {
+            "translate": "advancements.herald_get.title"
+          },
+          "description": {
+            "translate": "advancements.herald_get.descr"
+          },
+          "frame": "task",
+          "show_toast": true,
+          "announce_to_chat": true,
+          "hidden": false
+        },
+        "criteria": {
+          "herald_get_0": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+              "items": [
+                {
+                  "items": [
+                    "thermal_shock:herald_key"
+                  ],
+                  "count": {
+                    "min": 1,
+                    "max": 1
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "rewards": {
+          "experience": 30
+        },
+        "parent": "thermal_shock:graveyard_advancement"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/advancement/herald_get.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:graveyard_advancement",
+        "thermal_shock:herald_key",
+        "thermal_shock:herald_spawn_egg"
+      ],
+      "javaReferences": {
+        "original": [],
+        "target": []
+      },
+      "sourceEnglish": {
+        "advancements.herald_get.title": "No Sound, No Memory",
+        "advancements.herald_get.descr": "Feed a Herald until it blooms and take it's key"
+      }
+    },
+    {
+      "id": "keystone_get",
+      "sourcePath": "data/thermal_shock/advancements/keystone_get.json",
+      "sourceSha256": "167928d1676a5f11f23f896fe886e0798ca79e7c68a54604d72cbb7750eb5cc1",
+      "sourceJson": {
+        "display": {
+          "icon": {
+            "item": "thermal_shock:keystone"
+          },
+          "title": {
+            "translate": "advancements.keystone_get.title"
+          },
+          "description": {
+            "translate": "advancements.keystone_get.descr"
+          },
+          "frame": "task",
+          "show_toast": true,
+          "announce_to_chat": true,
+          "hidden": false
+        },
+        "criteria": {
+          "keystone_get_0": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+              "items": [
+                {
+                  "items": [
+                    "thermal_shock:keystone"
+                  ],
+                  "count": {
+                    "min": 1,
+                    "max": 1
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "rewards": {
+          "experience": 100
+        },
+        "parent": "minecraft:story/form_obsidian"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/advancement/keystone_get.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:keystone"
+      ],
+      "javaReferences": {
+        "original": [],
+        "target": []
+      },
+      "sourceEnglish": {
+        "advancements.keystone_get.title": "Out of This World",
+        "advancements.keystone_get.descr": "Retrieve the Keystone from a mysterious sponsor, and place it in a 3x3 platform of obsidian..."
+      }
+    },
+    {
+      "id": "knight_edge_get",
+      "sourcePath": "data/thermal_shock/advancements/knight_edge_get.json",
+      "sourceSha256": "20782c6d9b3e5f651fd5f2adad3ede7385f529fd59816107eb6d6ed423e22243",
+      "sourceJson": {
+        "display": {
+          "icon": {
+            "item": "thermal_shock:knights_edge"
+          },
+          "title": {
+            "translate": "advancements.knight_edge_get.title"
+          },
+          "description": {
+            "translate": "advancements.knight_edge_get.descr"
+          },
+          "frame": "challenge",
+          "show_toast": true,
+          "announce_to_chat": true,
+          "hidden": false
+        },
+        "criteria": {
+          "knight_edge_get_0": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+              "items": [
+                {
+                  "items": [
+                    "thermal_shock:knights_edge"
+                  ],
+                  "count": {
+                    "min": 1,
+                    "max": 1
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "rewards": {
+          "experience": 500
+        },
+        "parent": "thermal_shock:lod_pozar_get"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/advancement/knight_edge_get.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:knights_edge",
+        "thermal_shock:lod_pozar_get"
+      ],
+      "javaReferences": {
+        "original": [],
+        "target": []
+      },
+      "sourceEnglish": {
+        "advancements.knight_edge_get.title": "You are WORTHY!",
+        "advancements.knight_edge_get.descr": "Obtain the Knight's Edge!"
+      }
+    },
+    {
+      "id": "malachite_get",
+      "sourcePath": "data/thermal_shock/advancements/malachite_get.json",
+      "sourceSha256": "3f3cc96330e592137606589602d4632090d0729123e18fcf09ef144c7e8b8a62",
+      "sourceJson": {
+        "display": {
+          "icon": {
+            "item": "thermal_shock:malachite"
+          },
+          "title": {
+            "translate": "advancements.malachite_get.title"
+          },
+          "description": {
+            "translate": "advancements.malachite_get.descr"
+          },
+          "frame": "task",
+          "show_toast": true,
+          "announce_to_chat": true,
+          "hidden": false
+        },
+        "criteria": {
+          "malachite_get_0": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+              "items": [
+                {
+                  "items": [
+                    "thermal_shock:malachite"
+                  ],
+                  "count": {
+                    "min": 1,
+                    "max": 64
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "rewards": {
+          "experience": 10
+        },
+        "parent": "thermal_shock:lapidary_get"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/advancement/malachite_get.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:lapidary_get",
+        "thermal_shock:malachite"
+      ],
+      "javaReferences": {
+        "original": [],
+        "target": []
+      },
+      "sourceEnglish": {
+        "advancements.malachite_get.title": "Enderite",
+        "advancements.malachite_get.descr": "Obtain Malachite from an outcrop or geode."
+      }
+    },
+    {
+      "id": "siibol_get",
+      "sourcePath": "data/thermal_shock/advancements/siibol_get.json",
+      "sourceSha256": "b4afd31b2f86c414faf02cb6204da9fb661db75e0ef6101f07effb02802c5666",
+      "sourceJson": {
+        "display": {
+          "icon": {
+            "item": "thermal_shock:bucket_of_siibol"
+          },
+          "title": {
+            "translate": "advancements.siibol_get.title"
+          },
+          "description": {
+            "translate": "advancements.siibol_get.descr"
+          },
+          "frame": "task",
+          "show_toast": true,
+          "announce_to_chat": true,
+          "hidden": false
+        },
+        "criteria": {
+          "siibol_get_0": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+              "items": [
+                {
+                  "items": [
+                    "thermal_shock:bucket_of_siibol"
+                  ],
+                  "count": {
+                    "min": 1,
+                    "max": 64
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "parent": "thermal_shock:stardust_garden_advancement"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/advancement/siibol_get.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:bucket_of_siibol",
+        "thermal_shock:stardust_garden_advancement"
+      ],
+      "javaReferences": {
+        "original": [],
+        "target": []
+      },
+      "sourceEnglish": {
+        "advancements.siibol_get.title": "Sick Cloud, Bro",
+        "advancements.siibol_get.descr": "Scoop up a Siibol with a bucket."
+      }
+    },
+    {
+      "id": "snowcone_consume_get",
+      "sourcePath": "data/thermal_shock/advancements/snowcone_consume_get.json",
+      "sourceSha256": "da18f813cc9894a31ea083f25387e767d99db66b11ae263064e33ba4dca1e0ff",
+      "sourceJson": {
+        "display": {
+          "icon": {
+            "item": "thermal_shock:icy_snowcone"
+          },
+          "title": {
+            "translate": "advancements.snowcone_consume_get.title"
+          },
+          "description": {
+            "translate": "advancements.snowcone_consume_get.descr"
+          },
+          "frame": "task",
+          "show_toast": true,
+          "announce_to_chat": true,
+          "hidden": false
+        },
+        "criteria": {
+          "snowcone_consume_get_0": {
+            "trigger": "minecraft:consume_item",
+            "conditions": {
+              "item": {
+                "items": [
+                  "thermal_shock:icy_snowcone"
+                ]
+              }
+            }
+          }
+        },
+        "parent": "thermal_shock:luminous_sea_get"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/advancement/snowcone_consume_get.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:icy_snowcone",
+        "thermal_shock:luminous_sea_get"
+      ],
+      "javaReferences": {
+        "original": [],
+        "target": []
+      },
+      "sourceEnglish": {
+        "advancements.snowcone_consume_get.title": "Brain Freeze!",
+        "advancements.snowcone_consume_get.descr": "Consume an Icy Snowcone."
+      }
+    },
+    {
+      "id": "torpedo_consume_get",
+      "sourcePath": "data/thermal_shock/advancements/torpedo_consume_get.json",
+      "sourceSha256": "9b8465dcc7f3c56c1adb21e2ce30aa36961db3b4de962c467dd9b5a4a50d22b6",
+      "sourceJson": {
+        "display": {
+          "icon": {
+            "item": "thermal_shock:raw_torpedo"
+          },
+          "title": {
+            "translate": "advancements.torpedo_consume_get.title"
+          },
+          "description": {
+            "translate": "advancements.torpedo_consume_get.descr"
+          },
+          "frame": "task",
+          "show_toast": true,
+          "announce_to_chat": true,
+          "hidden": false
+        },
+        "criteria": {
+          "torpedo_consume_get_0": {
+            "trigger": "minecraft:consume_item",
+            "conditions": {
+              "item": {
+                "items": [
+                  "thermal_shock:raw_torpedo"
+                ]
+              }
+            }
+          }
+        },
+        "rewards": {
+          "experience": 50
+        },
+        "parent": "thermal_shock:luminous_sea_get"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/advancement/torpedo_consume_get.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:luminous_sea_get",
+        "thermal_shock:raw_torpedo"
+      ],
+      "javaReferences": {
+        "original": [],
+        "target": []
+      },
+      "sourceEnglish": {
+        "advancements.torpedo_consume_get.title": "Go Big or go Home!",
+        "advancements.torpedo_consume_get.descr": "Put yours and your friends' lives on the line and consume a Raw Torpedo. (Cuz what if it's actually super yummy??????)"
+      }
+    },
+    {
+      "id": "zap_gauntlet_get",
+      "sourcePath": "data/thermal_shock/advancements/zap_gauntlet_get.json",
+      "sourceSha256": "b8aee839fa38357c319b918fc8a369939ce899336821371279a7b43720b0eeb9",
+      "sourceJson": {
+        "display": {
+          "icon": {
+            "item": "thermal_shock:zap_gauntlet"
+          },
+          "title": {
+            "translate": "advancements.zap_gauntlet_get.title"
+          },
+          "description": {
+            "translate": "advancements.zap_gauntlet_get.descr"
+          },
+          "frame": "task",
+          "show_toast": true,
+          "announce_to_chat": true,
+          "hidden": false
+        },
+        "criteria": {
+          "zap_gauntlet_get_0": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+              "items": [
+                {
+                  "items": [
+                    "thermal_shock:zap_gauntlet"
+                  ],
+                  "count": {
+                    "min": 1,
+                    "max": 1
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "rewards": {
+          "experience": 10
+        },
+        "parent": "thermal_shock:fabricator_get"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/advancement/zap_gauntlet_get.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:fabricator_get",
+        "thermal_shock:zap_gauntlet"
+      ],
+      "javaReferences": {
+        "original": [],
+        "target": []
+      },
+      "sourceEnglish": {
+        "advancements.zap_gauntlet_get.title": "Magnify",
+        "advancements.zap_gauntlet_get.descr": "Find and defeat a Kilolyte, commonly held in underground ocean bases."
+      }
+    },
+    {
+      "id": "zenith_get",
+      "sourcePath": "data/thermal_shock/advancements/zenith_get.json",
+      "sourceSha256": "81dda4fab1b71350a370d2793cc1248256a40e491c3936ca0c6dd5da0088ea3c",
+      "sourceJson": {
+        "display": {
+          "icon": {
+            "item": "thermal_shock:zenith_smithing_template"
+          },
+          "title": {
+            "translate": "advancements.zenith_get.title"
+          },
+          "description": {
+            "translate": "advancements.zenith_get.descr"
+          },
+          "frame": "task",
+          "show_toast": true,
+          "announce_to_chat": true,
+          "hidden": false
+        },
+        "criteria": {
+          "zenith_get_0": {
+            "trigger": "minecraft:impossible"
+          }
+        },
+        "rewards": {
+          "experience": 10
+        },
+        "parent": "thermal_shock:lapidary_get"
+      },
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/advancement/zenith_get.json",
+      "targetExists": false,
+      "targetSha256": null,
+      "sourceModReferences": [
+        "thermal_shock:lapidary_get",
+        "thermal_shock:zenith_smithing_template"
+      ],
+      "javaReferences": {
+        "original": [
+          {
+            "path": "procedures/BloodArmorEffectProcedure.java",
+            "sha256": "cf02cf3e385c1cb851900c8ad95e48c2592c63f0d1861f53102d33f781639ef3",
+            "matches": [
+              "zenith_get"
+            ],
+            "lines": [
+              {
+                "line": 76,
+                "text": "                        Advancement _adv = _player.server.getAdvancements().getAdvancement(new ResourceLocation(\"thermal_shock:zenith_get\"));"
+              }
+            ]
+          },
+          {
+            "path": "procedures/RubyArmorEffectProcedure.java",
+            "sha256": "0f5a164aa8bd4631ce781376409d5a95bd29ecda8c604a115e39e82e25b9c609",
+            "matches": [
+              "zenith_get"
+            ],
+            "lines": [
+              {
+                "line": 70,
+                "text": "                        Advancement _adv = _player.server.getAdvancements().getAdvancement(new ResourceLocation(\"thermal_shock:zenith_get\"));"
+              }
+            ]
+          }
+        ],
+        "target": [
+          {
+            "path": "com/hp/thermalshockreforged/content/armor/ArmorSetEvents.java",
+            "sha256": "91a8f6f341b6da19f497eb998dc492b0398387a0f329d8b98b41f50f1f05eef1",
+            "matches": [
+              "carborundum_get",
+              "zenith_get"
+            ],
+            "lines": [
+              {
+                "line": 30,
+                "text": "    private static final ResourceLocation ADVANCEMENT = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, \"carborundum_get\");"
+              },
+              {
+                "line": 34,
+                "text": "    private static final ResourceLocation ZENITH_ADVANCEMENT = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, \"zenith_get\");"
+              }
+            ]
+          }
+        ]
+      },
+      "sourceEnglish": {
+        "advancements.zenith_get.title": "Zenith would be proud.",
+        "advancements.zenith_get.descr": "Aquire a full set of Zenith armor."
+      }
+    }
+  ],
+  "sourceJarSha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436",
+  "allSourceRecipeCount": 536,
+  "allSourceAdvancementCount": 69,
+  "summary": {
+    "recipes": 25,
+    "advancements": 20,
+    "missingRecipesByPath": 25,
+    "missingAdvancementsByPath": 20,
+    "sourceJavaConsumers": 5,
+    "targetJavaConsumers": 4
+  }
+}

@@ -1,0 +1,35 @@
+# 第112批主线：Zenith弩与原生标签闭合
+
+生产前建立。111已本地提交12972090e286a245a7521ec06e6e479dfec23c53，54生产文件/8803固定输入统一构建2m11s成功，7998资源与两展开模板核验通过；现解除112生产冻结。迁移A承担25原生配方与20进度及真实授予链，主线负责本文件范围、共享标签/语言与最终集成，不共改A独占业务。
+
+## 原件与实现依据
+
+原07.9固定JAR SHA256为3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436。原ThermalShockModItems同时注册Magnetic和Zenith，两个原物品都耐久800/耐火/UNCOMMON/附魔值5，调用相同射击与持有过程；共同实现可以复用，独立注册、冷却、贴图、tooltip和升级链必须保留。目标现Magnetic已完整实现真实生成确认后扣弹/冷却、固定位置5/10/15 END装填音、有界动画缓存、内部禁近战/蹲下瞄准状态，不再另堆重复武器类。
+
+原Zenith模型明确复用geo/magnetic_crossbow.geo.json及animations/magnetic_crossbow.animation.json，但纹理为textures/item/zenith_crossbow.png。模型/动画/原物品模型/贴图资产都需逐份核原JAR，保透明层、手持变换、右手80+head.xRot姿态及两控制器0/1，不能只换英文名或创意字符串。现ZapGauntletArmPose实际lambda与原Zenith相同，可复用实际行为，不新增等价枚举姿态。
+
+MagneticCrossbowRightclickedProcedure按传入itemstack.getItem取冷却，所以两独立Item实例各40tick，不共享一把冷却。原只有instanceof MagneticCrossbowItem写geckoAnim，Zenith直接extends Item不会请求原存在clip1；已授权合理修复为两物品对实际栈各自同步clip1。保专用弹1/创造免弹、MAGNETIC_BOMB于BlockPos(x,y+1,z)的MOB_SUMMONED、视线向量×2、即时magnet_bow_25 .7/1及三段装填音、真实缓慢15/2和Recoil原速度2/0。原没有实际扣武器耐久，目标不能因durability800新增扣耐久。
+
+两tooltip原共同Sneak to Zoom/Fires Specialized Rounds，Magnetic原Slow Speed、Zenith原Moderate Speed，不能依实际共40tick擅改原描述。新增独立语言键保原英文格式和对应中文；已有翻译值保留。原Zenith smithing单独补齐，按用户既有要求把Zenith模板放template、原磁弩放base，addition/产物不变，不保反直觉原槽位。
+
+## 原生标签范围
+
+按native-tag-inventory112.md只读证据，在Zenith真实注册后恢复原weapon47/nomelee10及durability附魔资格。sustain_fire补原四原版方块，therm_projectile补十真注册实体，infectionimmune补七实体与character_mobs标签引用，sprintweed_blacklist补两实体，key/milk两标签及原空tombstones定义补齐。保replace:false/原顺序/嵌套引用，保目标已有合法额外项；不能用required:false掩盖未注册或因当前未见消费者删数据。
+
+原key两材质ID、milk的loque_milk及原版桶、所有新增实体ID及根注册链已由quick_explorer核实。将存源/目标SHA和有序差异，标签消费者如血甲和Sprintweed仍使用真实标签。不把标签数据完整或目录数量当整模组完整行为覆盖。
+
+## 验证与测试安排
+
+只做本批源码/资源/时序及独立机械核对，两路停笔后固定全src/main统一编译，不逐次小改编译、不提前启动游戏。完整代码和整模组无简化复审后安排子代理客户端及Render Preview真实对照，依client-final-acceptance-plan.md记录；服务端由用户独立线负责，不联系/不重复/不将进行中视为通过。脚本和临时仅D:/AI临时文件，UTF-8，Java不写注释。
+
+## 本线生产与停笔
+
+十四份独占生产已完成并停笔：三Java和十一JSON。保持一个完整武器实现，以两个独立Item实例分别注册/持有缓存/冷却/纹理和tooltip；两者都进入既有服务端/客户端定期prune与停止清理。原Geo/animation/两PNG/两物品模型及真实父模型anton_hammar七资源逐份与原JAR核对，只命名空间转换或PNG逐字节相等，已有资产不重复导出。不能仅按名字误用未被两物品模型消费的magnetic_crossbow显示设置；原真实parent为anton_hammar。
+
+原九标签全部按原顺序恢复，合并对应单复数相同副本且保replace:false；已有合法目标额外值保留。weapon47/nomelee10在Zenith真实注册后闭合，durability保持所有旧项只加Zenith。新增英文六tooltip逐字解析原Java unicode escape，中文八键为两名字/六tooltip，不覆盖既有译值；两语言最终哈希待A共享增量后固定。
+
+源/目标SHA、原配方槽位修正和完整新增tag成员见zenith-main-data112.json，十四生产/七原资产/八源Java及有效clip0/1证据见zenith-main-production112.json。已交quick_explorer独立核值，当前不以生产停笔或资产相同冒充构建/游戏通过；A共享授予桥接仍待集成。
+
+## 最终集成结果
+
+本线14生产独立静态通过，WeaponContent注册lambda编译更正由main112-compile-correction承接原SHA；A45与两locale合并后全61生产/8852固定输入统一离线构建1m 31s通过，8047资源字节相同及2模板核验通过。无共享授予Java改动；最终六英文/48中文新增、旧值全保。main112-static-validation为最终证据，仍未游戏或Render Preview测试。

@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "id": "thermal_shock_reforged:zenith_smithing_template"
+    },
+    "title": {
+      "translate": "advancements.zenith_get.title"
+    },
+    "description": {
+      "translate": "advancements.zenith_get.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "zenith_get_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 10
+  },
+  "parent": "thermal_shock_reforged:lapidary_get"
+}

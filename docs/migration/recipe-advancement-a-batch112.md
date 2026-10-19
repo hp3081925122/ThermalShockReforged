@@ -1,0 +1,49 @@
+# 第112批 A 线：配方与原生进度迁移
+
+生产前建立。111统一Java21离线构建2m11s通过，7998字节相同资源及2模板完成；主线提交12972090e286a245a7521ec06e6e479dfec23c53后已明确解除112冻结。原07.9固定JAR SHA256为3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436，目标1.21.1 NeoForge21.1.233、当前映射与既有数据目录。
+
+## 范围与归属
+
+本线25份recipe、20份advancement完整路径与原JSON/SHA见recipe-advancement-a-inventory112.json。原536recipe/69adv的路径差集仅为起点，不用目标总文件数或相同结果推等价。主线独占Zenith物品/客户端/独立升级配方、原生tag、共享语言和共享消费者；本线不修改这些文件。必要新增业务仅content/remainingadvancements及对应client；已有事件/菜单若需调整只交精确增量。
+
+本线不独立编译、启动游戏、stage或commit；两路停笔后由主线固定全src/main统一编译。脚本/临时只在D:/AI临时文件；UTF-8，Java不写注释。完整迁移和无简化复审后主线安排客户端与Render Preview，服务端用户独立测试对话不接管、不联系、不重复。
+
+## 转换与行为保留
+
+配方保原类别、shape/有序输入、数量、条件、烹饪类型/经验/时间；原有fabrication入口不能替代crafting/smelting。25项包含三份烹饪，其result按已核SimpleCookingSerializer的ItemStack.CODEC改对象；其它result.item改id。空间和shaped镜像规则沿原。双Fabricator分别使用bismuth_block/malachite_block，不合并掉替代材料路径。
+
+进度保criterion名字、原条件/奖励、parent、图标、标题/描述、frame、hidden/toast/chat/background。DisplayInfo以STRICT_CODEC读取图标ItemStack，icon.item改id；cobalt_heights_get位置谓词的biome按已核LocationPredicate.CODEC改biomes。gardenling的placed_block location谓词仍由ItemUsedOnLocationTrigger的ContextAwarePredicate读取，不擅自改成inventory触发。
+
+drinking_straw_get原实际条件为silly_straw，zenith_get原实际授予为Ruby Zenith/Blood Zenith整套穿戴；不能依据名称改成普通吸管或获取模板。cooked_torpedo进度为hidden challenge且无经验奖励，gardenling奖励49、knights_edge奖励500均保持原值。
+
+## 原配方冲突与授权修正
+
+原muck_button_recipe与pure_muck_uncraft都以单格一个pure_muck分别得到1按钮或4球，原shape/ingredient完全重合；仅改shaped为shapeless仍匹配同一输入，不能消除选择歧义。依用户允许修正不合理原实现的授权，保按钮常规单格，拆解改成并排两块pure_muck返8球，保持每块返4球的经济比例；代价是拆解须两块起做。其它配料、来源、输出不因此扩大调整。此项单列合理变化，不能在无简化对照中隐藏。
+
+## impossible完整链预核
+
+|进度|原入口与条件|目标当前消费者|
+|---|---|---|
+|breather_sponge_get|BreatherSponge方块右键，主手Drinking/Silly Straw且不在对应冷却，实际补气后授予|content/terrain/BreatherSpongeBlock.useItemOn，已有award但JSON缺失|
+|carborundum_get|ArmorEvents派发CarborundumArmorEffect，完整四件套且维度不是aqeron|content/armor/ArmorSetEvents.tick，已有carbon分支award但JSON缺失；继续核外层资格与真实事件注册|
+|garden_plant_get|SkorioSeed通用浇水procedure，浇水次数达到3并完成对应成熟分支后授予|FarmSeedBlock/GrowthSeedBlock.water，已有award但JSON缺失；继续核具体作物/结构与被调用入口|
+|zenith_get|ArmorEvents派发Ruby/BloodArmorEffect，完整升级四件套后授予|ArmorSetEvents.tick已有两分支award但JSON缺失；继续核外层资格与事件注册|
+|cauldron_get|原impossible，没有发现静态授予调用|Cauldron方块/物品/实体均已真实注册；须JAR常量池与全数据引用再确认原悬空，不据名称捏造触发条件|
+
+以上为生产前待核清单，最终证据已完成：四项真实授予均追到入口类注册、事件或方块交互、具体条件与剩余criteria授予；农业覆盖原12种SeedBlock，目标9种CropKind及3种GrowthKind。炼锅扫描原4577个class的常量池任意cauldron_get子串零命中，全data文本仅自身JSON命中，原右键程序只有桶换loque_milk，无进度或描述所宣称的香料/节点业务。保原impossible，标原悬空，不造自动触发。详chains112及validation112。
+
+## 来源、依赖与验收
+
+所有图标、输入、产物、标签、父进度和原语言值逐项核真实注册/数据链。没有查到调用者先存证，不把字符串当注册，也不造物品填图标。原LimboVault孤立菜单链沿111字节码证据单列后续缺口，不为填本批而新增正常获取入口。
+
+交付需列45项文件SHA、源码/资源证据SHA、共享语言/消费者增量、原悬空例外、无简化复核与限制；静态验证不代替游戏授予/烹饪/合成与渲染验收。
+
+## 园丁放置时序复核与撤回提案
+
+原GardenlingConstructorBlockAddedProcedure与目标GardenlingConstructorBlock.onPlace都在放置回调内移除构造器。只读BlockItem.place会误判原生criterion不可达；补查两个版本加载器后已纠正：旧ForgeHooks.onPlaceItemIntoWorld第584—588行和目标CommonHooks同方法第611—615行在useOn期间打开captureBlockSnapshots，LevelChunk在该标记下不调用onPlace。BlockItem内部PLACED_BLOCK.trigger先读到构造器，再由加载器成功分支回放onPlace执行移除。因此保原生placed_block，不新增授予或注册替换。已删除未集成的专用GardenlingConstructorItem及对应共享提案；生产清单仅45份数据。放置事件取消的原生授予时序沿原机制，不擅自扩大修复范围。
+
+## 最终无简化复核与交接
+
+45份JSON逐项反向还原后与原件结构完全一致，唯一玩法变化为上列淤泥拆解冲突修正；保有序输入、重复原料、成品数量、两种Fabricator材料入口、35/200/100烹饪tick与各1经验、全部图标/parent/criterion/条件/奖励/隐藏/广播设置。67项真实物品引用、群系与父图闭合；147份既有模型/贴图/元数据与原件字节相同或仅命名空间改写，本线未改视觉资产。全目标原路径覆盖536/536配方、69/69进度仅证明路径闭合，不代表整模组行为全部完整。
+
+资源/依赖验证584项通过，授予链/注册/Codec证据检查208项通过，共792项静态检查。精确共享增量仅中文40条（原英文40条已存在且值不变，英文增量0）；无Java、根注册、事件或现有消费者替换。主线还需合并语言、在REFORGED_CHANGES登记拆解修正并更正advancement-next-audit旧园丁判断。完整哈希、证据清单与限制见final112；主线两路固定全src/main后统一构建，本线不独立构建/游戏/stage/commit。

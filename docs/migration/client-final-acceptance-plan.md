@@ -1,6 +1,6 @@
 # 完整迁移后的客户端与渲染验收计划
 
-2026-10-20按用户最新分工记录：全部代码完整迁移并完成无简化复核后，由生产主线安排子代理进行客户端及Render Preview原件对照测试，保留具体结果与截图/日志。当前第111批仍在生产，未启动客户端。服务端由用户独立测试聊天负责，生产线不联系、不催促、不重复执行，也不把进行中视为通过。
+2026-10-20按用户最新分工记录：全部代码完整迁移并完成无简化复核后，由生产主线安排子代理进行客户端及Render Preview原件对照测试，保留具体结果与截图/日志。第111批已统一构建并本地提交，当前第112批生产/集成中，未启动客户端。服务端由用户独立测试聊天负责，生产线不联系、不催促、不重复执行，也不把进行中视为通过。
 
 ## 执行边界和记录
 
@@ -25,6 +25,8 @@ quick_explorer `/root/coverage101_inventory` 只读确认两个工程：
 
 只读快照显示Preview两个分支固定GeckoLib4.8.4，目标真实TOML要求[4.9.2,)，NeoForge分支未提供可覆盖版本的Gradle属性。`hpLocalMaven`只改变仓库，不能当版本覆盖参数。最终测试前需配置真正兼容的GeckoLib运行依赖，不编造命令，也不为省测试删低版本约束。
 
-目标还要求aaa_particles[2.3.3,)；Preview的previewHpJar仅接一份模组JAR，不自动提供AAA。所查目标/Preview/迁移临时目录与Gradle缓存未发现兼容AAA成品JAR，两Preview run/mods当前为空，目标build/libs当前尚无最终成品。此为有限搜索快照，不声称整机没有依赖；最终启动前定位真实兼容运行库及原件必需组合，再留版本/SHA。原件把AAA/Gecko声明为可选不证明省略AAA后完整效果仍可比较，原件测试同样应满足真实效果依赖。
+目标还要求aaa_particles[2.3.3,)；Preview的previewHpJar仅接一份模组JAR，不自动提供AAA。后续按真实构建坐标检查mavenLocal()，已定位AAA Particles 2.3.3及GeckoLib4.9.2真实JAR；先前按名称的有限缓存搜索漏掉mavenLocal坐标，不能继续作为缺库结论。路径、SHA及JAR内真实TOML/jarjar清单见client-dependency-preparation112.json。两库要求的最高最低NeoForge门槛为21.1.169，目标21.1.233及Preview21.1.251均满足；AAA嵌入Architectury13.0.8，Gecko无额外嵌入或必需外部库。最终仍须真正覆盖Preview固定Gecko4.8.4并提供AAA运行JAR，尚未启动验证。
+
+原件对照依赖仍有待办：限定AAA的mavenLocal/Gradle坐标缓存只发现上述1.21.1 NeoForge库，未发现Forge1.20.1兼容版本；不能将目标库放入原件客户端冒充兼容。原件把AAA/Gecko声明为可选不证明省略AAA后完整效果仍可比较，原件最终测试同样需要完整真实效果依赖。此为限定缓存范围结论，不声称整机没有旧版本依赖。
 
 当前仅准备文档，没有更改Preview工程、下载依赖、运行构建或启动游戏；以上准备不算客户端测试已通过，也不影响当前迁移继续推进。

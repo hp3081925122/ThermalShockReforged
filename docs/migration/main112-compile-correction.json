@@ -1,0 +1,12 @@
+{
+  "batch": 112,
+  "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/WeaponContent.java",
+  "initial_sha256": "282fe23988271428636fbf4a6a59cd322a44cddcda64c74d8f9414b6c3980a7a",
+  "integrated_sha256": "28a2b47dcf439e77b86a4ba204d7b83fea7e3a161cfd834163d29668f434396f",
+  "change": "Explicit zero-argument Supplier lambda instead of overloaded constructor reference; item behavior unchanged",
+  "reason": "NeoForge Items.register accepts Supplier and Function<ResourceLocation,...>; adding boolean constructor made MagneticCrossbowItem::new ambiguous",
+  "first_build_log": "D:\\AI临时文件\\ThermalShockMigration\\batch112-first-build-failed.log",
+  "first_build_log_sha256": "7cf67a9cbd818dd80f47ec0c52f833e4b1b5d797e24ac3f479356f277c0d270d",
+  "first_build_duration": "38s",
+  "first_build_frozen_manifest": "D:\\AI临时文件\\ThermalShockMigration\\frozen-inputs112-first-build.json"
+}

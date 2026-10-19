@@ -1,0 +1,33 @@
+{
+  "display": {
+    "icon": {
+      "id": "thermal_shock_reforged:raw_torpedo"
+    },
+    "title": {
+      "translate": "advancements.torpedo_consume_get.title"
+    },
+    "description": {
+      "translate": "advancements.torpedo_consume_get.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "torpedo_consume_get_0": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "items": [
+            "thermal_shock_reforged:raw_torpedo"
+          ]
+        }
+      }
+    }
+  },
+  "rewards": {
+    "experience": 50
+  },
+  "parent": "thermal_shock_reforged:luminous_sea_get"
+}

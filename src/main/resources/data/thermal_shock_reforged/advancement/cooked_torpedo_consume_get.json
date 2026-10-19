@@ -1,0 +1,30 @@
+{
+  "display": {
+    "icon": {
+      "id": "thermal_shock_reforged:cooked_torpedo"
+    },
+    "title": {
+      "translate": "advancements.cooked_torpedo_consume_get.title"
+    },
+    "description": {
+      "translate": "advancements.cooked_torpedo_consume_get.descr"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "cooked_torpedo_consume_get_0": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "items": [
+            "thermal_shock_reforged:cooked_torpedo"
+          ]
+        }
+      }
+    }
+  },
+  "parent": "thermal_shock_reforged:torpedo_consume_get"
+}

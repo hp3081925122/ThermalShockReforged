@@ -1,0 +1,669 @@
+{
+  "batch": 112,
+  "lane": "A",
+  "status": "45份独占生产保持停笔，无Java或注册替换；主线已回报完成locale合并，112统一编译运行中，结果待主线确认。本线仅补交接文档，113未开始生产。",
+  "mainIntegrationReported": {
+    "source": "主线交接消息，非本线独立验证",
+    "preservedEnglish": 3355,
+    "preservedChinese": 894,
+    "addedEnglish": 6,
+    "addedChinese": 48,
+    "laneAChineseIncluded": 40,
+    "buildStatus": "统一编译运行中，未宣称通过",
+    "productionFreeze": "src/main保持冻结，113未生产"
+  },
+  "sourceJarSha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436",
+  "baseCommit": "12972090e286a245a7521ec06e6e479dfec23c53",
+  "production": [
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/bloodstone_sickle_recipe.json",
+      "sha256": "21063c620cf2f35482383dcd6f9635cfa12c6ed476813a1954eb4c82a5653cc5",
+      "sourcePath": "data/thermal_shock/recipes/bloodstone_sickle_recipe.json",
+      "sourceSha256": "d86156dc50af5cba0efc5fc3ad9e5081d026d9a0a3cfb43ac2d611b427c82bf2",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "结果item字段改id，数量不变"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/cobalt_block_recipe.json",
+      "sha256": "b0578865bb91765b00244f4cd0acb51bfb5db04b1b9d21bab97b83ddd173c239",
+      "sourcePath": "data/thermal_shock/recipes/cobalt_block_recipe.json",
+      "sourceSha256": "8a19b2b153897e2216626b025f562f90bbc1f30c11c30a9cddf7cb23c03b7e3d",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "结果item字段改id，数量不变"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/cobalt_block_uncraft.json",
+      "sha256": "1a2733a970769449f20f73e0904c49f22964c67b4697fdf556215885f4ab7c70",
+      "sourcePath": "data/thermal_shock/recipes/cobalt_block_uncraft.json",
+      "sourceSha256": "725416812350aa2be6341e687f38c5c882499e345c9abeb4492c82ab7bb0c242",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "结果item字段改id，数量不变"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/dull_thread_net_recipe.json",
+      "sha256": "8290622ac178e4a49986165ad946e51160c36c3795adb69a2b2e7e7a76829f35",
+      "sourcePath": "data/thermal_shock/recipes/dull_thread_net_recipe.json",
+      "sourceSha256": "682b4bdf6faad91a8486a8a5b5ae69a2524c092fef5b116b39b4e9a026848111",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "结果item字段改id，数量不变"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/fabricator_bism_recipe.json",
+      "sha256": "0e438b9badba336169c69b0cbf4d442f98d6cee5bd3a9a4e3ff6f8952e1290a6",
+      "sourcePath": "data/thermal_shock/recipes/fabricator_bism_recipe.json",
+      "sourceSha256": "854ec33f5fb30e8a23a8b70ee6a033815849c819862824d8ae525ad0b3554322",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "结果item字段改id，数量不变"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/fabricator_recipe.json",
+      "sha256": "d862edc551881bb59caa558f8fa31277f20711600d316fcadc9b6e55dc85189e",
+      "sourcePath": "data/thermal_shock/recipes/fabricator_recipe.json",
+      "sourceSha256": "cce9397bf4826baa2949799ba8dddd2dda5a9bf3529589e285013a63e5322fd0",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "结果item字段改id，数量不变"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/hazard_stripes_recipe.json",
+      "sha256": "72eb465bf8a3c72c39b08d2775f7351d678006283e0a8c4b25969d4dbaee2a34",
+      "sourcePath": "data/thermal_shock/recipes/hazard_stripes_recipe.json",
+      "sourceSha256": "aaa45c0eb5122c476a7b16c73f44cd34a7f5ae9551f1798c07fe4564a0b02be1",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "结果item字段改id，数量不变"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/liteprism_sword_recipe.json",
+      "sha256": "e7465c0fcb20a01015d99254e15c9989b01944ae7832d36d60b31ef30c209de6",
+      "sourcePath": "data/thermal_shock/recipes/liteprism_sword_recipe.json",
+      "sourceSha256": "fce359f4f8b4fd824d9a9f0709158b78f294bd95616a3621b0f3c0a99f04b932",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "结果item字段改id，数量不变"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/loqendia_glass_recipe.json",
+      "sha256": "b922e21ba6e3237889cfd7eb8b64e321064713c161c99c3bacb1210a1a095e87",
+      "sourcePath": "data/thermal_shock/recipes/loqendia_glass_recipe.json",
+      "sourceSha256": "1909a6f8639f7324da7ecd3269140ca0fd0f8217927227eec120ab584478e9be",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "原烹饪字符串结果改ItemStack对象，原时间与经验不变"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/loqendia_kelp_smelt.json",
+      "sha256": "e1232bf622019ae9e51f1585b160f39d6bd0f9bb6f96fa21ab230c049cf0cb45",
+      "sourcePath": "data/thermal_shock/recipes/loqendia_kelp_smelt.json",
+      "sourceSha256": "80132727f41c292ff146d6efa2ec67791fec588c2449ff293d81cda01b6c771e",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "原烹饪字符串结果改ItemStack对象，原时间与经验不变"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/loqendia_kelp_smoke.json",
+      "sha256": "e398b2fccb53f966aa9905321a9920ddfa359d1600f6fb2ff0690e97261ccdcf",
+      "sourcePath": "data/thermal_shock/recipes/loqendia_kelp_smoke.json",
+      "sourceSha256": "b417c6846639152a40c34ab5b477884c65d68109ba1be9d25b9a62d1909155bd",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "原烹饪字符串结果改ItemStack对象，原时间与经验不变"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/muck_button_recipe.json",
+      "sha256": "28bd1f246784cb327b7f08a7df474f10c57846745e742e871d6970c4dd2b5e6a",
+      "sourcePath": "data/thermal_shock/recipes/muck_button_recipe.json",
+      "sourceSha256": "dcb146f87e9ec517946596cbea99d57a2c7abbdf4fb1598e86031da1bf7dfa99",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "结果item字段改id，数量不变"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/muck_recipe.json",
+      "sha256": "787d876fcf7e2e7f0028d24c791506b36d3db6dc062299894036ee8739427d4b",
+      "sourcePath": "data/thermal_shock/recipes/muck_recipe.json",
+      "sourceSha256": "5d954171d8a815d1d4be2672329bf4a65dd72c33fd712387c5a70c69232de38d",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "结果item字段改id，数量不变"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/permafrost_craft.json",
+      "sha256": "6a8815891f7cd8e08f3ca99aee009ecb093a7b0b92dd36e3549479a1276c89df",
+      "sourcePath": "data/thermal_shock/recipes/permafrost_craft.json",
+      "sourceSha256": "2d586b2e6fc5fe27d5adf98cc310cc2eca6046ef0b77fad4a1fd91542b14035e",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "结果item字段改id，数量不变"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/pure_muck_stair_recipe.json",
+      "sha256": "7d5525fba7a3e9b4722450358584df59d31ae3180619b756aabf732fce30cfd6",
+      "sourcePath": "data/thermal_shock/recipes/pure_muck_stair_recipe.json",
+      "sourceSha256": "3db57057385736b4adeb89c439086b44760b778c482c13c4a806c8dd79c84b2a",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "结果item字段改id，数量不变"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/pure_muck_uncraft.json",
+      "sha256": "59b392b7436ec89a1217b5340695bdcec48d07992f476fdbfb015f0d38861386",
+      "sourcePath": "data/thermal_shock/recipes/pure_muck_uncraft.json",
+      "sourceSha256": "fab8337382d291f10a6313d4e4fdc1fe5f7603ffc03c2414bb88d9f50bd773d6",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "结果item字段改id，数量不变",
+        "授权修复：与单格淤泥按钮输入完全重合；拆解改两块并排返8球，维持4球/块"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/pure_muck_wall_recipe.json",
+      "sha256": "7191881d76c4de382161fa93763dd04528f08a5f566a9fb98a3e6289cf710c56",
+      "sourcePath": "data/thermal_shock/recipes/pure_muck_wall_recipe.json",
+      "sourceSha256": "ebf078641ca0379d677d37ffacb57651cedee9e5dae22c84d4a90789dffa0f7c",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "结果item字段改id，数量不变"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/ruby_sickle_recipe.json",
+      "sha256": "d8c7a7b2069a8108f8606b75dd2da05eee16e75b65302d21ae61b90d3b72111e",
+      "sourcePath": "data/thermal_shock/recipes/ruby_sickle_recipe.json",
+      "sourceSha256": "c966585b6170800236629fd02a0f1e3e0094392eb1808f229530023a3a7a9592",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "结果item字段改id，数量不变"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/slush_ball_uncraft.json",
+      "sha256": "de8215d74f581c14e4937497c8e71aa1cbe660a12cda8f2fdc3f37df8f3af6da",
+      "sourcePath": "data/thermal_shock/recipes/slush_ball_uncraft.json",
+      "sourceSha256": "0b9ede1d949c7dfd195eebc4cc9c10df52c95a4a42d7751567fa2948db2d3c84",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "结果item字段改id，数量不变"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/speleothem_recipe.json",
+      "sha256": "d2dc9a34fcfe1faf8ddd46699c9d317e2cbcaa7a28cf77d91cb75342ba458601",
+      "sourcePath": "data/thermal_shock/recipes/speleothem_recipe.json",
+      "sourceSha256": "7f8ed0a0bc5f8496e7278f196f3ffa8069be9e0b010dc876d9f1e2d322f5211d",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "结果item字段改id，数量不变"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/sprintweed_yellow_dye.json",
+      "sha256": "513768b2ecaa80e729aeda4001de148f263a8da213d70c86f9b0057f021d7ad2",
+      "sourcePath": "data/thermal_shock/recipes/sprintweed_yellow_dye.json",
+      "sourceSha256": "65990f980d9c349b6b55bcc405258e72c3842b1d281a3f6adfd0b9be4d05c201",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "结果item字段改id，数量不变"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/stratus_pity.json",
+      "sha256": "1c1186f43579310f5105f5c765f0dc2fde9234c06c4a8186eddbc12ad2e7784e",
+      "sourcePath": "data/thermal_shock/recipes/stratus_pity.json",
+      "sourceSha256": "ca7513d837e3e86cc2b70d90eea500597a2bb5e27f67677ab3926caf9f5416c6",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "结果item字段改id，数量不变"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/trident_flower_cyan_dye.json",
+      "sha256": "62acfaaaf83bd709b70adcb9c4f30a4ebd3000196e0e5534930ad5c695d8ac73",
+      "sourcePath": "data/thermal_shock/recipes/trident_flower_cyan_dye.json",
+      "sourceSha256": "8f014cee215217ec809ea3245a78ba8d545489d658d4fa785f7960d88e68c57a",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "结果item字段改id，数量不变"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/vermillion_lantern_recipe.json",
+      "sha256": "8c13da41c2339f6221f89f3927a6ad662afbdba5f4a195a63938c5aafc66e73d",
+      "sourcePath": "data/thermal_shock/recipes/vermillion_lantern_recipe.json",
+      "sourceSha256": "256f28d07b8b2575a47c794a8e9e0906870d0b97940dd71771398e64a576bbcc",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "结果item字段改id，数量不变"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/vermillion_roots_red_dye.json",
+      "sha256": "80a59b55e339c9bd8d237969f56376160568966c92684d3e2d6801e613b25ff4",
+      "sourcePath": "data/thermal_shock/recipes/vermillion_roots_red_dye.json",
+      "sourceSha256": "44dd3ec4f39c7c621a285cdeade2c238e658f02fd6773fe8b5ecdbc2097b2a03",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "结果item字段改id，数量不变"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/advancement/bismuth_get.json",
+      "sha256": "aa0bbf10d89e1b75cd1bdfff80a638f53220ce882ca7309d22f92128be939817",
+      "sourcePath": "data/thermal_shock/advancements/bismuth_get.json",
+      "sourceSha256": "ac471f79ea74c6acdc6f48d4391161bd72b3f13d6358733bc17a6a7d4dca64e6",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "icon.item改icon.id，原完整显示/奖励/criterion/父项保留"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/advancement/bloodstone_get.json",
+      "sha256": "6cc7c618c0e702d58337759416227eb220d81b716458a8f18077b065022d73b7",
+      "sourcePath": "data/thermal_shock/advancements/bloodstone_get.json",
+      "sourceSha256": "b6af1bb3c7c2f9e0ecdb6f09c40df36ce34721c7b151b61544fdd933e039e01a",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "icon.item改icon.id，原完整显示/奖励/criterion/父项保留"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/advancement/breather_sponge_get.json",
+      "sha256": "d046854908efac5c23ef5dd02a6673e6eb89193dd48a8430dab9719ae014b22c",
+      "sourcePath": "data/thermal_shock/advancements/breather_sponge_get.json",
+      "sourceSha256": "856f0e1cd2d16045c3ff2246fc11ee9679715a61207998475d2e9be33f88ad42",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "icon.item改icon.id，原完整显示/奖励/criterion/父项保留"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/advancement/carborundum_get.json",
+      "sha256": "bca750a505bec22d839824cb270df6a7487de1ec25e0f905f2d87c47a5460a30",
+      "sourcePath": "data/thermal_shock/advancements/carborundum_get.json",
+      "sourceSha256": "0194facb9f9480ee35707297ec2b3c83b853943134d8ae059a8043d3c9d41c0f",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "icon.item改icon.id，原完整显示/奖励/criterion/父项保留"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/advancement/cauldron_get.json",
+      "sha256": "64d8d3f72a32feb8794ac89fe6fe467512b8271c50692eae8d6ceae8431ee826",
+      "sourcePath": "data/thermal_shock/advancements/cauldron_get.json",
+      "sourceSha256": "9b9d89d00560eb8ffb2bb4bcf1432e2547d52b945a41e538b7c8dec94776e6bf",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "icon.item改icon.id，原完整显示/奖励/criterion/父项保留"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/advancement/climbing_pick_get.json",
+      "sha256": "0a5e18c0dd4b33081e0e6cfd925ee95c70858fefcf4104eb18abce71f6328cb7",
+      "sourcePath": "data/thermal_shock/advancements/climbing_pick_get.json",
+      "sourceSha256": "f90f95fa1a1fabc58b6bc5b39c0bd285b9b5079db4cc68c7a9b4885657ee62e3",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "icon.item改icon.id，原完整显示/奖励/criterion/父项保留"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/advancement/cobalt_heights_get.json",
+      "sha256": "97edf02f9762f42632ba9632e86f10e09843e14c5a80fb4baa8fc4036c63b344",
+      "sourcePath": "data/thermal_shock/advancements/cobalt_heights_get.json",
+      "sourceSha256": "cae9ebd60c6effb37803637d4c7106ce708c1397fbdf2245d7db1b59619c3217",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "icon.item改icon.id，原完整显示/奖励/criterion/父项保留",
+        "位置谓词biome改目标Codec实际字段biomes，保群系条件"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/advancement/cooked_torpedo_consume_get.json",
+      "sha256": "47ce122f62dafe433e87e413f8e4d563d1e54cb160b2d4a848346f3c86dcdd30",
+      "sourcePath": "data/thermal_shock/advancements/cooked_torpedo_consume_get.json",
+      "sourceSha256": "8c2c08492df553be8345589e25a58db503d7096b11e53b54d35048323f9c6a03",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "icon.item改icon.id，原完整显示/奖励/criterion/父项保留"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/advancement/drinking_straw_get.json",
+      "sha256": "bed7dbd46de3428b98f548bbcbf34d5a70aa851fbeef4b127cfee8e7a9419caf",
+      "sourcePath": "data/thermal_shock/advancements/drinking_straw_get.json",
+      "sourceSha256": "cb1e0981d0d852782d6109299ed717116e4f08c89f52b8f9e236d4da35000f03",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "icon.item改icon.id，原完整显示/奖励/criterion/父项保留"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/advancement/garden_plant_get.json",
+      "sha256": "7b4ed11cf017874ffbbb39b09f74085f84a52529668237fb8f9a8855f5da0297",
+      "sourcePath": "data/thermal_shock/advancements/garden_plant_get.json",
+      "sourceSha256": "a7691850397dc4f69ef2267e906ec032df86d3eef224b341dac5e97d54420a1b",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "icon.item改icon.id，原完整显示/奖励/criterion/父项保留"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/advancement/gardenling_get.json",
+      "sha256": "f96af979d127476761c1c5291b6ae931d43ab4979ac83d8e3df56ca3661f5241",
+      "sourcePath": "data/thermal_shock/advancements/gardenling_get.json",
+      "sourceSha256": "383cb6d19d93e8607cf5e0e0d75248ecaf0ba11d5ea3955819d7929ad66fb99b",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "icon.item改icon.id，原完整显示/奖励/criterion/父项保留"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/advancement/herald_get.json",
+      "sha256": "afb6f6a508d4af0db81585d3cafef66c26e55f7b320040b6ba012605a06d8e4f",
+      "sourcePath": "data/thermal_shock/advancements/herald_get.json",
+      "sourceSha256": "8f0c2dfc3df5bed4169b616abdd154c7571e391f9e70eee6485abc05fdd15474",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "icon.item改icon.id，原完整显示/奖励/criterion/父项保留"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/advancement/keystone_get.json",
+      "sha256": "094ffd42364fdfb02656e27413cef28a4910d8044f022b0d2693d0834d50fcac",
+      "sourcePath": "data/thermal_shock/advancements/keystone_get.json",
+      "sourceSha256": "167928d1676a5f11f23f896fe886e0798ca79e7c68a54604d72cbb7750eb5cc1",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "icon.item改icon.id，原完整显示/奖励/criterion/父项保留"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/advancement/knight_edge_get.json",
+      "sha256": "12f33b49d90765adb4cc71be9630514eda053fd10803f5f1d781320a37293fac",
+      "sourcePath": "data/thermal_shock/advancements/knight_edge_get.json",
+      "sourceSha256": "20782c6d9b3e5f651fd5f2adad3ede7385f529fd59816107eb6d6ed423e22243",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "icon.item改icon.id，原完整显示/奖励/criterion/父项保留"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/advancement/malachite_get.json",
+      "sha256": "23363cc646c98c6dcde77e5712918b54814bd9dc1b0f0d18f386d7f7f525d0ca",
+      "sourcePath": "data/thermal_shock/advancements/malachite_get.json",
+      "sourceSha256": "3f3cc96330e592137606589602d4632090d0729123e18fcf09ef144c7e8b8a62",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "icon.item改icon.id，原完整显示/奖励/criterion/父项保留"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/advancement/siibol_get.json",
+      "sha256": "78cc5ddda6d5b9d6ef2ca4d46fb12d39512c600966bf10455b9844fd7c3a1f92",
+      "sourcePath": "data/thermal_shock/advancements/siibol_get.json",
+      "sourceSha256": "b4afd31b2f86c414faf02cb6204da9fb661db75e0ef6101f07effb02802c5666",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "icon.item改icon.id，原完整显示/奖励/criterion/父项保留"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/advancement/snowcone_consume_get.json",
+      "sha256": "af62da2b78f146c200c7955786f94b594313b1fcd7619805167ec22216a0ff47",
+      "sourcePath": "data/thermal_shock/advancements/snowcone_consume_get.json",
+      "sourceSha256": "da18f813cc9894a31ea083f25387e767d99db66b11ae263064e33ba4dca1e0ff",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "icon.item改icon.id，原完整显示/奖励/criterion/父项保留"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/advancement/torpedo_consume_get.json",
+      "sha256": "99889af19a5115d2d423ed12a6e2d74f30b0609803baf7b354d3ba947c368357",
+      "sourcePath": "data/thermal_shock/advancements/torpedo_consume_get.json",
+      "sourceSha256": "9b8465dcc7f3c56c1adb21e2ce30aa36961db3b4de962c467dd9b5a4a50d22b6",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "icon.item改icon.id，原完整显示/奖励/criterion/父项保留"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/advancement/zap_gauntlet_get.json",
+      "sha256": "1b282861d85c64f8fdeca0f1d0513ad343df03e1eea493591aa6bec190163bc5",
+      "sourcePath": "data/thermal_shock/advancements/zap_gauntlet_get.json",
+      "sourceSha256": "b8aee839fa38357c319b918fc8a369939ce899336821371279a7b43720b0eeb9",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "icon.item改icon.id，原完整显示/奖励/criterion/父项保留"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/advancement/zenith_get.json",
+      "sha256": "903e40e57bea49594200e5fe1bc543293f8677278c169c321b0734bd3d71ff8e",
+      "sourcePath": "data/thermal_shock/advancements/zenith_get.json",
+      "sourceSha256": "81dda4fab1b71350a370d2793cc1248256a40e491c3936ca0c6dd5da0088ea3c",
+      "changes": [
+        "命名空间thermal_shock改thermal_shock_reforged",
+        "数据目录按1.21.1单数",
+        "icon.item改icon.id，原完整显示/奖励/criterion/父项保留"
+      ]
+    }
+  ],
+  "productionCount": 45,
+  "productionAggregateSha256": "25371efaeb40fa4abb67af7cb190540f4eb4320fe5ed65f5522606324fbb59dd",
+  "aggregateDefinition": "按path字典序拼接path+U+0000+sha256+LF，再按UTF-8计算SHA256",
+  "documents": [
+    {
+      "path": "docs/migration/recipe-advancement-a-batch112.md",
+      "sha256": "5089c6e70c091677867980f289be26d783e96d8db6da680042dbbdd817556dfc"
+    },
+    {
+      "path": "docs/migration/recipe-advancement-a-inventory112.json",
+      "sha256": "d37d4418b14f5f87f24bfb901542be08cbff1c8b0faa257f0b6ee662382f716a"
+    },
+    {
+      "path": "docs/migration/recipe-advancement-a-production112.json",
+      "sha256": "a3713ad156106f361b3b4775e8da213e5023fde973d0f745b26cf7fc7d47189f"
+    },
+    {
+      "path": "docs/migration/recipe-advancement-a-shared112.json",
+      "sha256": "776feba37396af04086aa7076300289e04ddc4ebb13c076da6c33705533754f6"
+    },
+    {
+      "path": "docs/migration/recipe-advancement-a-validation112.json",
+      "sha256": "1bf0114b24abbe64a4379a8a2145fba2b2b2938b9b270308871221719840fa14"
+    },
+    {
+      "path": "docs/migration/recipe-advancement-a-chains112.json",
+      "sha256": "87cd20223a71c90e3a33b5d43ae7e4eef854eabc2e240101adae1d9c789a1e7d"
+    },
+    {
+      "path": "docs/migration/recipe-advancement-a-integration112.md",
+      "sha256": "3c6671b0221ea328f2b5b59e49e5727b1d8c1c35bfe383b64603ea7ef9272206"
+    }
+  ],
+  "scripts": [
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\inspect-recipe-advancement112a.py",
+      "sha256": "f7627bfd0b3a7589086b5bb690f8b7b53888d7f9f2d04fd3330a42fe6bf15d1b"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\produce-recipe-advancement112a.py",
+      "sha256": "e5d39d10ae6590872e9512bb4fc8f2b3a0a69a95b8c85a1ae49e0551d72010d7"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\validate-recipe-advancement112a.py",
+      "sha256": "e66861a7c0d22d9bebc60425d6f85ef950ef937f4af324284aa04e3d3e60f335"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\inspect-recipe-advancement-chains112a.py",
+      "sha256": "c7397e386069dc4c077ee2c01325ac5317340ad6c8260f375e3c01facc762738"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\finalize-recipe-advancement112a.py",
+      "sha256": "b004b00ffc3d98ca48a57c7aa8465ab50dac61174bc5313f86e761fbf7deea91"
+    }
+  ],
+  "independentAudit": {
+    "path": "docs/migration/recipe-advancement-a-independent112.json",
+    "sha256": "b6f0696ae91f9d29bae80ea7ee7d0a8d8fb274413d12afecb5016c3104b9157b",
+    "result": "PASS",
+    "snapshotCount": 45
+  },
+  "validation": {
+    "resourceChecks": 584,
+    "chainChecks": 208,
+    "totalStaticChecks": 792,
+    "itemReferences": 67,
+    "assetDependencies": 147,
+    "assetDifferences": 0,
+    "sourceClassConstantPoolsScanned": 4577,
+    "sourceClassesWithHashEvidence": 23,
+    "apiSourcesWithHashEvidence": 15
+  },
+  "shared": {
+    "path": "docs/migration/recipe-advancement-a-shared112.json",
+    "enDelta": 0,
+    "zhEntries": 40,
+    "preservedEnglish": 40,
+    "javaChanges": 0,
+    "rootRegistrations": 0,
+    "documentationDeltas": 2
+  },
+  "behaviorChanges": [
+    "原单格pure_muck拆解与按钮冲突；拆解同排两块返8球，保每块4球比例，须两块起做。其它24配方仅格式和命名空间转换；20进度原条件/显示/奖励完整。"
+  ],
+  "impossible": {
+    "breather_sponge_get": {
+      "id": "breather_sponge_get",
+      "source": "原BreatherSpongeBlock.use → BreatherSpongeOnBlockRightClickedProcedure",
+      "target": "入口类TerrainContent注册 → BreatherSpongeBlock.useItemOn → ServerPlayer剩余criteria授予",
+      "condition": "主手普通/滑稽吸管且对应冷却未生效；执行补气/耐久/声音分支后授予，不要求父进度先完成。"
+    },
+    "carborundum_get": {
+      "id": "carborundum_get",
+      "source": "原@EventBusSubscriber ZenithTick END → CarborundumArmorEffect",
+      "target": "入口类ArmorContent → NeoForge.EVENT_BUS PlayerTick.Post → ArmorSetEvents.carbon → award",
+      "condition": "头或脚命中#zenith、四槽全碳化硅且维度不是aqeron。目标#zenith包含完整对应装备；未改为只获取头盔。"
+    },
+    "zenith_get": {
+      "id": "zenith_get",
+      "source": "原ZenithTick END → RubyArmorEffect/BloodArmorEffect",
+      "target": "同ArmorSetEvents.tick两套wearing分支 → award(ZENITH_ADVANCEMENT)",
+      "condition": "头或脚命中#zenith且完整Ruby Zenith或Blood Zenith四件套；非普通红宝石/血石套装，非只获得模板。"
+    },
+    "garden_plant_get": {
+      "id": "garden_plant_get",
+      "source": "原12种SeedBlock.use → SkorioSeedOnBlockRightClickedProcedure",
+      "target": "入口类Farming/GrowthContent → 9+3真实Seed/BE注册 → useItemOn/useWithoutItem → water → 成熟后剩余criteria",
+      "condition": "主手浇水壶并thirsty时增加waterings，成熟判断waterings==3；原第三次后的成熟检查位于浇水if外，目标保持。已有双高植物上方空间防覆盖规则不改。",
+      "sourceCallers": [
+        "AncientBarbubbleSeedBlock.java",
+        "AncientSkorioSeedBlock.java",
+        "BarbubbleSeedBlock.java",
+        "DewleafSeedBlock.java",
+        "FrostLotusSeedBlock.java",
+        "GelBulbSeedBlock.java",
+        "HearthflyBranchSeedBlock.java",
+        "NeoflormSeedBlock.java",
+        "SkorioSeedBlock.java",
+        "SparklerSeedBlock.java",
+        "VisiBulbSeedBlock.java",
+        "VolatineSeedBlock.java"
+      ],
+      "targetCropIds": [
+        "skorio",
+        "barbubble",
+        "ancient_skorio",
+        "ancient_barbubble",
+        "dewleaf",
+        "hearthfly_branch",
+        "frost_lotus",
+        "neoflorm",
+        "volatine"
+      ],
+      "targetGrowthIds": [
+        "sparkler",
+        "gel_bulb",
+        "visi_bulb"
+      ]
+    },
+    "cauldron_get": {
+      "id": "cauldron_get",
+      "source": "原impossible；原4577个class常量池任意cauldron_get子串零命中、全data文本仅自身JSON",
+      "target": "保原impossible；真实炼锅方块/Item/BE均存在",
+      "condition": "原无可达自动授予；不依据描述中的香料合并/节点降级捏造业务，具体全扫描见validation112。"
+    }
+  },
+  "gardenlingCorrection": "正常玩家放置由Forge/NeoForge捕获快照延后onPlace，原生PLACED_BLOCK先触发；撤回先前不可达判断、删除专用Item和共享替换提案，保原条件及49经验。",
+  "limits": [
+    "本线没有独立Gradle/游戏/stage/commit；本批构建结果以主线最终固定输入验证为准。",
+    "原路径536/536配方、69/69进度闭合仅为数据覆盖，不代表全模组行为完整。",
+    "原cauldron_get无静态授予，继续保原impossible；原无入口菜单不能因此删除，113冻结后续完整处理。",
+    "完整迁移及无简化复审后主线安排客户端/Render Preview，用户独立服务端测试不接管、不联系、不重复。"
+  ]
+}
