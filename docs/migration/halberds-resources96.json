@@ -1,0 +1,55 @@
+{
+  "assets": [
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/geo/bloodhalberd.geo.json",
+      "sha256": "071da76a5e412783dba3f005b75ced393c28b12cfc5a0908e873d8e6aad21615"
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/animations/bloodhalberd.animation.json",
+      "sha256": "3e5abb7a265a6a87d2fe531a0daaf2635b99eb4348eb497b8100fd0a3d3d0a5a"
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/models/displaysettings/bloodhalberd.json",
+      "sha256": "ed3941d56ea8bc839f11e0c8c80aa09d5740093cf48b319add7f98133e0fde20"
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/textures/item/bloodhalberd.png",
+      "sha256": "9d03726a5c59c554b74f9efaf6c52fc2f78c5ae2a8c9dfa80f8cef732013fe17"
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/textures/item/carborundum_halberd.png",
+      "sha256": "208274c36da37909ff8aa58768c3b69ca35f4fd65b20f61a7c2b54c923e2d6b8"
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/models/item/bloodstone_halberd.json",
+      "sha256": "3e0c258981e7b46d0e3c8411dd4121ecdc27e3c288bacc4d5987750dc713b328"
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/models/item/carborundum_halberd.json",
+      "sha256": "1013dc228d25f1f15a7efac5e662bfe90e42f636c472bedd39400d4fa1bcd668"
+    }
+  ],
+  "recipes": [
+    "src/main/resources/data/thermal_shock_reforged/recipe/halberd_recipe.json",
+    "src/main/resources/data/thermal_shock_reforged/recipe/carborundum_halberd_recipe.json"
+  ],
+  "tags": [
+    "src/main/resources/data/thermal_shock_reforged/tags/item/weapon.json"
+  ],
+  "languages": [
+    {
+      "locale": "en_us",
+      "values": {
+        "item.thermal_shock_reforged.spear.lunge": "§7Right click to lunge."
+      }
+    },
+    {
+      "locale": "zh_cn",
+      "values": {
+        "item.thermal_shock_reforged.spear.lunge": "§7右键突进。",
+        "item.thermal_shock_reforged.bloodstone_halberd": "血石长戟",
+        "item.thermal_shock_reforged.carborundum_halberd": "碳化硅长戟"
+      }
+    }
+  ]
+}

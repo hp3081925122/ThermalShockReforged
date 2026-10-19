@@ -1,0 +1,81 @@
+{
+  "java_syntax_utf8_no_comments_no_client_loading": 5,
+  "no_custom_state_properties_original_and_target": true,
+  "block_physics_strength_light_instrument_and_mapcolor": true,
+  "client_smoke_and_ambient_sound_original_caller_side": true,
+  "actual_ast_blast_and_particle_parameters_and_ephemeral_queue": true,
+  "reference_chain_callback_counts_preserve_projectile_plus_self_blast": {
+    "small_reference_cases": [
+      {
+        "nodes": 1,
+        "projectile": false,
+        "explosions": 1,
+        "end_rod_count": 20
+      },
+      {
+        "nodes": 1,
+        "projectile": true,
+        "explosions": 2,
+        "end_rod_count": 40
+      },
+      {
+        "nodes": 2,
+        "projectile": false,
+        "explosions": 2,
+        "end_rod_count": 40
+      },
+      {
+        "nodes": 2,
+        "projectile": true,
+        "explosions": 3,
+        "end_rod_count": 60
+      },
+      {
+        "nodes": 3,
+        "projectile": false,
+        "explosions": 3,
+        "end_rod_count": 60
+      },
+      {
+        "nodes": 3,
+        "projectile": true,
+        "explosions": 4,
+        "end_rod_count": 80
+      },
+      {
+        "nodes": 3,
+        "projectile": false,
+        "explosions": 3,
+        "end_rod_count": 60
+      },
+      {
+        "nodes": 3,
+        "projectile": true,
+        "explosions": 4,
+        "end_rod_count": 80
+      },
+      {
+        "nodes": 2,
+        "projectile": false,
+        "explosions": 1,
+        "end_rod_count": 20
+      },
+      {
+        "nodes": 2,
+        "projectile": true,
+        "explosions": 2,
+        "end_rod_count": 40
+      }
+    ],
+    "iterative_10000_nodes": 10001,
+    "scope": "控制流模型，不是运行时爆炸物理测试；同tick FIFO改变连锁顺序已记差异"
+  },
+  "real_nine_slot_inventory_persistence_capabilities_menu_and_no_new_rightclick": true,
+  "inventory_drop_only_block_replacement_and_vanilla_comparator": true,
+  "three_templates_full_typed_roundtrip_palette_be_and_position_preservation": true,
+  "seven_json_exact_original_with_int_provider_codec_conversion_empty_bulb_loot": true,
+  "original_missing_purebiomes_recorded_without_guessed_tag_or_injection": true,
+  "shared_integration_applied": false,
+  "gradle_run": false,
+  "game_run": false
+}

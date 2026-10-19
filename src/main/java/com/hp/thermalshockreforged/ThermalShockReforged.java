@@ -93,6 +93,7 @@ public final class ThermalShockReforged {
         MaterialContent.register(bus);
         MusicContent.register(bus);
         NativeDecorContent.register(bus);
+        com.hp.thermalshockreforged.content.vilebathblocks.VilebathBlocksContent.register(bus);
         com.hp.thermalshockreforged.content.fabrication.FabricationContent.register(bus);
         com.hp.thermalshockreforged.content.machines.MachineContent.register(bus);
         GeoDecorContent.register(bus);

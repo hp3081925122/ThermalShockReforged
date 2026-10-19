@@ -1,0 +1,2309 @@
+{
+  "original_jar_sha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436",
+  "inventory": {
+    "original_jar": "D:\\AI临时文件\\ThermalShockMigration\\thermal_shock-07.9-original.jar",
+    "original_jar_sha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436",
+    "scan_terms": [
+      "thermal_geyser",
+      "hanging_sparkler_bulb",
+      "THERMAL_GEYSER",
+      "HANGING_SPARKLER_BULB"
+    ],
+    "original_hits": [
+      {
+        "path": "assets/thermal_shock/blockstates/hanging_sparkler_bulb.json",
+        "matched": [
+          "hanging_sparkler_bulb",
+          "HANGING_SPARKLER_BULB"
+        ],
+        "bytes": 98,
+        "sha256": "db170eeae18f420d25272f812f3071f98f36fb1041ed8123aed4ecfeb8cfe915"
+      },
+      {
+        "path": "assets/thermal_shock/blockstates/thermal_geyser.json",
+        "matched": [
+          "thermal_geyser",
+          "THERMAL_GEYSER"
+        ],
+        "bytes": 91,
+        "sha256": "be631ffceff707c9767837a1f884fdd10a2c2717215ee4e7099d6d7eae50b9ea"
+      },
+      {
+        "path": "assets/thermal_shock/lang/en_us.json",
+        "matched": [
+          "thermal_geyser",
+          "hanging_sparkler_bulb"
+        ],
+        "bytes": 249330,
+        "sha256": "fdf8b2f085d5d20bff80d25c856df05a05da97ab27c3936f3a231afbbb5217e6"
+      },
+      {
+        "path": "assets/thermal_shock/models/block/hanging_sparkler_bulb.json",
+        "matched": [
+          "hanging_sparkler_bulb",
+          "HANGING_SPARKLER_BULB"
+        ],
+        "bytes": 507,
+        "sha256": "bc321d020e308641a9572f7bcec70c394595f92b5d264e426d393d001f5f8ee2"
+      },
+      {
+        "path": "assets/thermal_shock/models/block/thermal_geyser.json",
+        "matched": [
+          "thermal_geyser",
+          "THERMAL_GEYSER"
+        ],
+        "bytes": 460,
+        "sha256": "77ef2c8c81b16cba20b6b5d9b9de48045ff2cd56d635091abd2a989af9b1c937"
+      },
+      {
+        "path": "assets/thermal_shock/models/item/hanging_sparkler_bulb.json",
+        "matched": [
+          "hanging_sparkler_bulb",
+          "HANGING_SPARKLER_BULB"
+        ],
+        "bytes": 311,
+        "sha256": "93a16a1a20e811ba437f2fd767dde94207a44c62ab1a18029d78738fc68ca007"
+      },
+      {
+        "path": "assets/thermal_shock/models/item/thermal_geyser.json",
+        "matched": [
+          "thermal_geyser",
+          "THERMAL_GEYSER"
+        ],
+        "bytes": 304,
+        "sha256": "f1c7168e89f9f28c1240d08dd50c2f51e1d4d4981a224c847cf3538a0eb03d19"
+      },
+      {
+        "path": "data/minecraft/tags/block/mineable/axe.json",
+        "matched": [
+          "hanging_sparkler_bulb"
+        ],
+        "bytes": 2250,
+        "sha256": "eac2aa7674af6558abb354fa6473fb3bb40d10498b3cd513d0f70c59a1bec673"
+      },
+      {
+        "path": "data/minecraft/tags/blocks/mineable/axe.json",
+        "matched": [
+          "hanging_sparkler_bulb"
+        ],
+        "bytes": 3473,
+        "sha256": "faa4849041899a121f09dc7b0ff3c412ac37739d8189e7c66020ef3b2224d547"
+      },
+      {
+        "path": "data/minecraft/tags/blocks/mineable/pickaxe.json",
+        "matched": [
+          "thermal_geyser"
+        ],
+        "bytes": 14484,
+        "sha256": "bb343fa5e54ee937dd57e302c610fce53fc250770db764bfb6ece930937f46cd"
+      },
+      {
+        "path": "data/thermal_shock/forge/biome_modifier/thermal_geyser_generation_biome_modifier.json",
+        "matched": [
+          "thermal_geyser",
+          "THERMAL_GEYSER"
+        ],
+        "bytes": 210,
+        "sha256": "845483da2057a3a7861b3f999e5339274dba19be598128dc301efcac9fae113f"
+      },
+      {
+        "path": "data/thermal_shock/loot_tables/blocks/hanging_sparkler_bulb.json",
+        "matched": [
+          "hanging_sparkler_bulb",
+          "HANGING_SPARKLER_BULB"
+        ],
+        "bytes": 98,
+        "sha256": "d6de71e3b3e9d0924144aa7d80e9eb2278db271087d7b31e49e81a2478060ddd"
+      },
+      {
+        "path": "data/thermal_shock/loot_tables/blocks/thermal_geyser.json",
+        "matched": [
+          "thermal_geyser",
+          "THERMAL_GEYSER"
+        ],
+        "bytes": 378,
+        "sha256": "5a0434a67bceefa20aea18d31a2b3d7900e4b4350bad7770ffdcc871ffb0fb27"
+      },
+      {
+        "path": "data/thermal_shock/worldgen/configured_feature/hanging_bulb_patch.json",
+        "matched": [
+          "hanging_sparkler_bulb"
+        ],
+        "bytes": 1186,
+        "sha256": "cdcda18dd170f38102cc75295a0abcf8648598e62a5279eb2458018afc2bb10d"
+      },
+      {
+        "path": "data/thermal_shock/worldgen/configured_feature/thermal_geyser_generation.json",
+        "matched": [
+          "thermal_geyser",
+          "THERMAL_GEYSER"
+        ],
+        "bytes": 873,
+        "sha256": "8e0b3fb79ebce6844636e3c7a834452d51411d289cba6b0f5dc753b674821b2c"
+      },
+      {
+        "path": "data/thermal_shock/worldgen/placed_feature/thermal_geyser_generation.json",
+        "matched": [
+          "thermal_geyser",
+          "THERMAL_GEYSER"
+        ],
+        "bytes": 1028,
+        "sha256": "3df2ceb24f596f26a2eee93058e93e5367e7607b28608b69775c0de240bb8126"
+      },
+      {
+        "path": "net/mcreator/thermal_shock/block/entity/ThermalGeyserBlockEntity.class",
+        "matched": [
+          "thermal_geyser",
+          "THERMAL_GEYSER"
+        ],
+        "bytes": 7059,
+        "sha256": "bad90bfb7ce8b2bf499c42770f5af3289bbd7d2b9d197357c8f1ef37316f460b"
+      },
+      {
+        "path": "net/mcreator/thermal_shock/init/ThermalShockModBlockEntities.class",
+        "matched": [
+          "thermal_geyser",
+          "THERMAL_GEYSER"
+        ],
+        "bytes": 62851,
+        "sha256": "7010b01348527aa8db9353aadf58c66478737ffc5a5bbfbfb9f92042beba182e"
+      },
+      {
+        "path": "net/mcreator/thermal_shock/init/ThermalShockModBlocks.class",
+        "matched": [
+          "thermal_geyser",
+          "hanging_sparkler_bulb",
+          "THERMAL_GEYSER",
+          "HANGING_SPARKLER_BULB"
+        ],
+        "bytes": 161748,
+        "sha256": "397b66f5976f8ff35583d5ccb4c4ff7b1afa6fca248cef67609ff0a506e4d945"
+      },
+      {
+        "path": "net/mcreator/thermal_shock/init/ThermalShockModItems.class",
+        "matched": [
+          "THERMAL_GEYSER",
+          "HANGING_SPARKLER_BULB"
+        ],
+        "bytes": 147461,
+        "sha256": "6a009ad57938537b214d3c8acc2daee9eee179582ed3bc1b2225b9d853a25455"
+      },
+      {
+        "path": "net/mcreator/thermal_shock/init/ThermalShockModJeiInformation.class",
+        "matched": [
+          "THERMAL_GEYSER"
+        ],
+        "bytes": 8992,
+        "sha256": "c85be04d2d0f26647c0e872310b1c6dbb733726eb96586d96049602bf68d7724"
+      },
+      {
+        "path": "net/mcreator/thermal_shock/init/ThermalShockModTabs.class",
+        "matched": [
+          "THERMAL_GEYSER",
+          "HANGING_SPARKLER_BULB"
+        ],
+        "bytes": 52361,
+        "sha256": "a0adf82df3ac64f231511d81d8a3d7db1375eee8a6ffb7f3175f2399bdd642ce"
+      },
+      {
+        "path": "net/mcreator/thermal_shock/procedures/LapidarianWorkbenchNeighbourBlockChangesProcedure.class",
+        "matched": [
+          "THERMAL_GEYSER"
+        ],
+        "bytes": 17231,
+        "sha256": "bcc8b2ef90b9854d2a1250d6da8a953ec24106853abaa443107e56f94fbeed7b"
+      }
+    ],
+    "original_selected_resources": [
+      {
+        "block": "thermal_geyser",
+        "path": "data/thermal_shock/worldgen/configured_feature/thermal_geyser_generation.json",
+        "bytes": 873,
+        "sha256": "8e0b3fb79ebce6844636e3c7a834452d51411d289cba6b0f5dc753b674821b2c",
+        "json": {
+          "type": "minecraft:simple_random_selector",
+          "config": {
+            "features": [
+              {
+                "feature": {
+                  "type": "thermal_shock:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock:thermalvent1",
+                    "ignored_blocks": "minecraft:air"
+                  }
+                },
+                "placement": []
+              },
+              {
+                "feature": {
+                  "type": "thermal_shock:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock:thermalvent2",
+                    "ignored_blocks": "minecraft:air"
+                  }
+                },
+                "placement": []
+              },
+              {
+                "feature": {
+                  "type": "thermal_shock:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock:thermalvent3",
+                    "ignored_blocks": "minecraft:air"
+                  }
+                },
+                "placement": []
+              }
+            ]
+          }
+        }
+      },
+      {
+        "block": "thermal_geyser",
+        "path": "data/thermal_shock/worldgen/placed_feature/thermal_geyser_generation.json",
+        "bytes": 1028,
+        "sha256": "3df2ceb24f596f26a2eee93058e93e5367e7607b28608b69775c0de240bb8126",
+        "json": {
+          "feature": "thermal_shock:thermal_geyser_generation",
+          "placement": [
+            {
+              "type": "minecraft:count",
+              "count": {
+                "type": "uniform",
+                "value": {
+                  "min_inclusive": 8,
+                  "max_inclusive": 17
+                }
+              }
+            },
+            {
+              "type": "minecraft:in_square"
+            },
+            {
+              "type": "minecraft:height_range",
+              "height": {
+                "type": "minecraft:uniform",
+                "min_inclusive": {
+                  "absolute": 0
+                },
+                "max_inclusive": {
+                  "absolute": 49
+                }
+              }
+            },
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:all_of",
+                "predicates": [
+                  {
+                    "type": "minecraft:solid",
+                    "offset": [
+                      0,
+                      -1,
+                      0
+                    ]
+                  },
+                  {
+                    "type": "minecraft:matching_fluids",
+                    "fluids": "minecraft:water"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "minecraft:biome"
+            }
+          ]
+        }
+      },
+      {
+        "block": "thermal_geyser",
+        "path": "data/thermal_shock/forge/biome_modifier/thermal_geyser_generation_biome_modifier.json",
+        "bytes": 210,
+        "sha256": "845483da2057a3a7861b3f999e5339274dba19be598128dc301efcac9fae113f",
+        "json": {
+          "type": "forge:add_features",
+          "biomes": [
+            "thermal_shock:luminous_sea",
+            "thermal_shock:borean_tundra"
+          ],
+          "features": "thermal_shock:thermal_geyser_generation",
+          "step": "vegetal_decoration"
+        }
+      },
+      {
+        "block": "thermal_geyser",
+        "path": "data/thermal_shock/loot_tables/blocks/thermal_geyser.json",
+        "bytes": 378,
+        "sha256": "5a0434a67bceefa20aea18d31a2b3d7900e4b4350bad7770ffdcc871ffb0fb27",
+        "json": {
+          "type": "minecraft:block",
+          "random_sequence": "thermal_shock:blocks/thermal_geyser",
+          "pools": [
+            {
+              "rolls": 1.0,
+              "conditions": [
+                {
+                  "condition": "minecraft:survives_explosion"
+                }
+              ],
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "thermal_shock:thermal_geyser"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "block": "thermal_geyser",
+        "path": "data/minecraft/tags/blocks/mineable/pickaxe.json",
+        "bytes": 14484,
+        "sha256": "bb343fa5e54ee937dd57e302c610fce53fc250770db764bfb6ece930937f46cd",
+        "json": {
+          "replace": false,
+          "values": [
+            "thermal_shock:crystal_sopel_trophy",
+            "thermal_shock:super_cryonic_cache",
+            "thermal_shock:archive_glass",
+            "thermal_shock:flowering_shale",
+            "thermal_shock:cavebloomer_trophy",
+            "thermal_shock:storm_battery",
+            "thermal_shock:capsule",
+            "thermal_shock:archive_cube",
+            "thermal_shock:red_sanctum_light",
+            "thermal_shock:assembler",
+            "thermal_shock:kilolyte_spawner",
+            "thermal_shock:trapped_archive_cube",
+            "thermal_shock:trapped_cache_pad",
+            "thermal_shock:trapped_darksteel_block",
+            "thermal_shock:darksteel_light",
+            "thermal_shock:sanctum_light",
+            "thermal_shock:sanctum_tile",
+            "thermal_shock:sanctum_pillar",
+            "thermal_shock:protoi_server",
+            "thermal_shock:suspicious_archive_cabinet",
+            "thermal_shock:crammed_archive_cabinet",
+            "thermal_shock:modest_archive_cabinet",
+            "thermal_shock:empty_archive_cabinet",
+            "thermal_shock:itty_bitty",
+            "thermal_shock:stellar_bliss_floor",
+            "thermal_shock:pale_stellar_bliss_floor",
+            "thermal_shock:stellar_bliss_cubbies",
+            "thermal_shock:stellar_bliss_beam_trim",
+            "thermal_shock:pale_stellar_bliss_block",
+            "thermal_shock:stellar_bliss_wall",
+            "thermal_shock:stellar_bliss_stairs",
+            "thermal_shock:stellar_bliss_slab",
+            "thermal_shock:stellar_bliss_tile_wall",
+            "thermal_shock:stellar_bliss_tile_stairs",
+            "thermal_shock:stellar_bliss_tile_slab",
+            "thermal_shock:soapstone_wall",
+            "thermal_shock:soapstone_stairs",
+            "thermal_shock:soapstone_slab",
+            "thermal_shock:metallic_debris",
+            "thermal_shock:soapstone",
+            "thermal_shock:stellar_bliss_tile",
+            "thermal_shock:stellar_bliss_block",
+            "thermal_shock:shale_wall",
+            "thermal_shock:shale_stairs",
+            "thermal_shock:shale_slab",
+            "thermal_shock:glace_wall",
+            "thermal_shock:mantlestone_brick_wall",
+            "thermal_shock:vermillion_wax_wall",
+            "thermal_shock:stellar_void_tile_wall",
+            "thermal_shock:stellar_void_tile_stairs",
+            "thermal_shock:stellar_void_tile_slab",
+            "thermal_shock:darksteel_trapdoor",
+            "thermal_shock:darksteel_door",
+            "thermal_shock:darksteel_pressure_plate",
+            "thermal_shock:darksteel_button",
+            "thermal_shock:darksteel_tile_wall",
+            "thermal_shock:darksteel_tile_stairs",
+            "thermal_shock:darksteel_tile_slab",
+            "thermal_shock:darksteel_tiles",
+            "thermal_shock:stellar_void_wall",
+            "thermal_shock:darksteel_wall",
+            "thermal_shock:darksteel_stairs",
+            "thermal_shock:darksteel_slab",
+            "thermal_shock:ferrum_plating_wall",
+            "thermal_shock:dark_frostrock_block_wall",
+            "thermal_shock:dark_frostrock_block_stairs",
+            "thermal_shock:dark_frostrock_block_slab",
+            "thermal_shock:dark_frostrock_pressure_plate",
+            "thermal_shock:dark_frostrock_button",
+            "thermal_shock:dark_frostrock_trapdoor",
+            "thermal_shock:dark_frostrock_wall",
+            "thermal_shock:frostrock_pressure_plate",
+            "thermal_shock:frostrock_button",
+            "thermal_shock:frostrock_trapdoor",
+            "thermal_shock:frostrock_door",
+            "thermal_shock:frostrock_brick_wall",
+            "thermal_shock:frostrock_wall",
+            "thermal_shock:frostrock_stairs",
+            "thermal_shock:frostrock_slab",
+            "thermal_shock:muck_trapdoor",
+            "thermal_shock:muck_door",
+            "thermal_shock:permafrost_pressure_plate",
+            "thermal_shock:permafrost_button",
+            "thermal_shock:permafrost_trapdoor",
+            "thermal_shock:permafrost_tile_wall",
+            "thermal_shock:mantlestone_pressure_plate",
+            "thermal_shock:mantlestone_button",
+            "thermal_shock:mantlestone_trapdoor",
+            "thermal_shock:mantlestone_wall",
+            "thermal_shock:mantlestone_stairs",
+            "thermal_shock:mantlestone_slab",
+            "thermal_shock:shale_pressure_plate",
+            "thermal_shock:shale_button",
+            "thermal_shock:cobbled_shale_wall",
+            "thermal_shock:shale_trapdoor",
+            "thermal_shock:vermillion_wax_stairs",
+            "thermal_shock:vermillion_wax_slab",
+            "thermal_shock:vermillion_wax_cells",
+            "thermal_shock:vermillion_wax_tiles",
+            "thermal_shock:vermillion_wax_panel",
+            "thermal_shock:vermillion_wax_block",
+            "thermal_shock:violet_seaglass_pane",
+            "thermal_shock:marine_seaglass_pane",
+            "thermal_shock:hologram_monitor",
+            "thermal_shock:glitterdrop_icicle",
+            "thermal_shock:surge_pylon",
+            "thermal_shock:permafrost_door",
+            "thermal_shock:helion_hololattice",
+            "thermal_shock:jellercel_hololattice",
+            "thermal_shock:phobotite_hololattice",
+            "thermal_shock:stellar_void_slab",
+            "thermal_shock:stellar_void_stairs",
+            "thermal_shock:snowy_sanctum_bricks",
+            "thermal_shock:snowy_cobalt",
+            "thermal_shock:stellar_void_pressure_plate",
+            "thermal_shock:stellar_void_button",
+            "thermal_shock:stellar_void_trapdoor",
+            "thermal_shock:stellar_void_door",
+            "thermal_shock:stellar_void_lamp",
+            "thermal_shock:constellation_block",
+            "thermal_shock:stellar_void_tiles",
+            "thermal_shock:stellar_void_panel",
+            "thermal_shock:stellar_void_block",
+            "thermal_shock:steelstem_bars",
+            "thermal_shock:steelstem_fence",
+            "thermal_shock:snowy_cobbled_shale_slab",
+            "thermal_shock:snowy_cobbled_shale_stairs",
+            "thermal_shock:snowy_cobbled_shale",
+            "thermal_shock:snowy_glace_slab",
+            "thermal_shock:snowy_glace_stairs",
+            "thermal_shock:glace_slab",
+            "thermal_shock:glace_stairs",
+            "thermal_shock:greenhouse_glass_pane",
+            "thermal_shock:cobbled_shale_stairs",
+            "thermal_shock:cobbled_shale_slab",
+            "thermal_shock:polished_permafrost_wall",
+            "thermal_shock:polished_shale_wall",
+            "thermal_shock:polished_shale_slab",
+            "thermal_shock:polished_shale_stairs",
+            "thermal_shock:dissolver_gemlock",
+            "thermal_shock:snowy_glace",
+            "thermal_shock:glace",
+            "thermal_shock:brick_climbing_wall",
+            "thermal_shock:rock_climbing_wall",
+            "thermal_shock:darksteel_beam",
+            "thermal_shock:darksteel_block",
+            "thermal_shock:wallbore",
+            "thermal_shock:greenhouse_glass",
+            "thermal_shock:chromatic_shale_lamp",
+            "thermal_shock:glittery_shale",
+            "thermal_shock:polished_shale",
+            "thermal_shock:blue_carborundum",
+            "thermal_shock:purple_carborundum_block",
+            "thermal_shock:lunar_panel",
+            "thermal_shock:frigid_crate",
+            "thermal_shock:stratus_alloy_block",
+            "thermal_shock:stratosilver_block",
+            "thermal_shock:frost_pearl_block",
+            "thermal_shock:hearth_honey_block",
+            "thermal_shock:centrifuge",
+            "thermal_shock:phobotite_gemlock",
+            "thermal_shock:bismuth_gemlock",
+            "thermal_shock:malachite_gemlock",
+            "thermal_shock:ruby_gemlock",
+            "thermal_shock:moonrock",
+            "thermal_shock:corrial_crate",
+            "thermal_shock:ferrum_crate",
+            "thermal_shock:planter_pot",
+            "thermal_shock:world_tour_trophy",
+            "thermal_shock:shale_lamp",
+            "thermal_shock:dark_frostrock_door",
+            "thermal_shock:mantlestone_door",
+            "thermal_shock:shale_door",
+            "thermal_shock:bismuth_crystal",
+            "thermal_shock:malachite_crystal",
+            "thermal_shock:cobalt_block_liteprism",
+            "thermal_shock:cobalt_liteprism",
+            "thermal_shock:mantle_bricks_liteprism",
+            "thermal_shock:mantle_liteprism",
+            "thermal_shock:shale_bricks_liteprism",
+            "thermal_shock:shale_liteprism",
+            "thermal_shock:liteprism_window",
+            "thermal_shock:bismuth_block",
+            "thermal_shock:bismuth_ore",
+            "thermal_shock:bismuth_outcrop",
+            "thermal_shock:statue_of_litany",
+            "thermal_shock:vermillion_lantern",
+            "thermal_shock:pyrogenic_pylon_core",
+            "thermal_shock:impervium_pylon_ring",
+            "thermal_shock:wrought_bar_corner",
+            "thermal_shock:wrought_bars",
+            "thermal_shock:extractor",
+            "thermal_shock:purified_grassy_shale",
+            "thermal_shock:icidroburner_trophy",
+            "thermal_shock:icidrogunner_trophy",
+            "thermal_shock:stratus_reactor_core",
+            "thermal_shock:rain_drum",
+            "thermal_shock:fog_machine",
+            "thermal_shock:red_grid_corruption",
+            "thermal_shock:black_grid_corruption",
+            "thermal_shock:corruption",
+            "thermal_shock:rinthium_z",
+            "thermal_shock:rinthium_y",
+            "thermal_shock:rinthium_x",
+            "thermal_shock:rinthium_w",
+            "thermal_shock:rinthium_v",
+            "thermal_shock:rinthium_u",
+            "thermal_shock:rinthium_t",
+            "thermal_shock:rinthium_s",
+            "thermal_shock:rinthium_r",
+            "thermal_shock:rinthium_q",
+            "thermal_shock:rinthium_p",
+            "thermal_shock:rinthium_o",
+            "thermal_shock:rinthium_n",
+            "thermal_shock:rinthium_m",
+            "thermal_shock:rinthium_l",
+            "thermal_shock:rinthium_k",
+            "thermal_shock:rinthium_j",
+            "thermal_shock:rinthium_i",
+            "thermal_shock:rinthium_h",
+            "thermal_shock:rinthium_g",
+            "thermal_shock:rinthium_f",
+            "thermal_shock:rinthium_e",
+            "thermal_shock:rinthium_d",
+            "thermal_shock:rinthium_c",
+            "thermal_shock:rinthium_b",
+            "thermal_shock:rinthium_a",
+            "thermal_shock:helion_lamp_block",
+            "thermal_shock:phobotite_block",
+            "thermal_shock:atlas",
+            "thermal_shock:atlas_base_centre",
+            "thermal_shock:atlas_base_edge",
+            "thermal_shock:atlas_base_corner",
+            "thermal_shock:sigil_rinthium_block_b",
+            "thermal_shock:chiseled_rinthium_block",
+            "thermal_shock:rinthium_tiles",
+            "thermal_shock:rinthium_bricks",
+            "thermal_shock:rinthium_block",
+            "thermal_shock:dark_rinthium_grid_block",
+            "thermal_shock:dark_rinthium_block",
+            "thermal_shock:cracked_shale_pillar_block",
+            "thermal_shock:shale_pillar_block",
+            "thermal_shock:thermal_geyser",
+            "thermal_shock:dark_frostrock_brick_stairs",
+            "thermal_shock:dark_frostrock_brick_slab",
+            "thermal_shock:amalgel_trophy",
+            "thermal_shock:twilit_grassy_shale",
+            "thermal_shock:ferrum_plating_stairs",
+            "thermal_shock:ferrum_plating_slab",
+            "thermal_shock:reinforced_window",
+            "thermal_shock:violet_seaglass_window",
+            "thermal_shock:marine_seaglass_window",
+            "thermal_shock:corroded_block",
+            "thermal_shock:corrial_plating",
+            "thermal_shock:ferrum_plating",
+            "thermal_shock:corroded_mantlestone",
+            "thermal_shock:corroded_shale",
+            "thermal_shock:golden_pillar",
+            "thermal_shock:shale_pillar_var_8",
+            "thermal_shock:shale_pillar_var_7",
+            "thermal_shock:shale_pillar_var_6",
+            "thermal_shock:shale_pillar_var_5",
+            "thermal_shock:shale_pillar_var_4",
+            "thermal_shock:shale_pillar_var_3",
+            "thermal_shock:shale_pillar_var_2",
+            "thermal_shock:shale_pillar",
+            "thermal_shock:cracked_shale_bricks",
+            "thermal_shock:phobotite_mantle_outcrop",
+            "thermal_shock:pathiolite_outcrop",
+            "thermal_shock:chiseled_shale",
+            "thermal_shock:muck_brick_wall",
+            "thermal_shock:muck_brick_stairs",
+            "thermal_shock:muck_brick_slab",
+            "thermal_shock:neon_bricks",
+            "thermal_shock:muck_bricks",
+            "thermal_shock:cauldron_of_trilobite",
+            "thermal_shock:transmutator",
+            "thermal_shock:mantle_bloodstone_ore",
+            "thermal_shock:crimson_bloodstone_block",
+            "thermal_shock:bloodstone_block",
+            "thermal_shock:bloodstone_ore",
+            "thermal_shock:dark_frostrock_stairs",
+            "thermal_shock:dark_frostrock_slab",
+            "thermal_shock:dark_frostrock",
+            "thermal_shock:chiseled_dark_frostrock_block",
+            "thermal_shock:eyespy_frostrock_block",
+            "thermal_shock:dark_frostrock_block",
+            "thermal_shock:phaser",
+            "thermal_shock:smiley_lantern",
+            "thermal_shock:fabricator",
+            "thermal_shock:phobotite_outcrop",
+            "thermal_shock:shale_cache_pad",
+            "thermal_shock:enchanted_cache",
+            "thermal_shock:ferrous_cache_pad",
+            "thermal_shock:ferrous_altar",
+            "thermal_shock:ferrous_block",
+            "thermal_shock:ferrous_mantlestone",
+            "thermal_shock:ferrous_shale",
+            "thermal_shock:cryonic_cache",
+            "thermal_shock:cache_pad",
+            "thermal_shock:cryonic_lamp",
+            "thermal_shock:dark_frostrock_brick_fence",
+            "thermal_shock:dark_frostrock_brick_wall",
+            "thermal_shock:dark_frostrock_bricks",
+            "thermal_shock:sanctum_brick_wall",
+            "thermal_shock:frostrock_brick_slab",
+            "thermal_shock:frostrock_brick_stairs",
+            "thermal_shock:polished_mantle_wall",
+            "thermal_shock:polished_frostrock_wall",
+            "thermal_shock:polished_frostrock_slab",
+            "thermal_shock:polished_frostrock_stairs",
+            "thermal_shock:chiseled_frostrock",
+            "thermal_shock:frostrock_bricks",
+            "thermal_shock:polished_frostrock",
+            "thermal_shock:frostrock",
+            "thermal_shock:steelstem_block",
+            "thermal_shock:spice_geyser",
+            "thermal_shock:cobalt_block_ghostglass",
+            "thermal_shock:mantle_brick_ghostglass",
+            "thermal_shock:shale_brick_ghostglass",
+            "thermal_shock:spiral_mantlestone",
+            "thermal_shock:chiseled_mantlestone",
+            "thermal_shock:blue_crystalleye_lamp",
+            "thermal_shock:red_crystalleye_lamp",
+            "thermal_shock:cobalt_ghostglass",
+            "thermal_shock:mantle_ghostglass",
+            "thermal_shock:shale_ghostglass",
+            "thermal_shock:mantlestone_brick_stairs",
+            "thermal_shock:mantlestone_brick_slab",
+            "thermal_shock:polished_mantlestone_stairs",
+            "thermal_shock:polished_mantlestone_slab",
+            "thermal_shock:mantlestone_bricks",
+            "thermal_shock:polished_mantlestone",
+            "thermal_shock:malachite_block",
+            "thermal_shock:malachite_outcrop",
+            "thermal_shock:malachite_ore",
+            "thermal_shock:ghostglass_block",
+            "thermal_shock:mossy_cobbled_shale",
+            "thermal_shock:bouncer",
+            "thermal_shock:cobbled_shale",
+            "thermal_shock:thermite",
+            "thermal_shock:frigid_altar",
+            "thermal_shock:cobalt_block",
+            "thermal_shock:cobalt",
+            "thermal_shock:sanctum_brick_slab",
+            "thermal_shock:shale_brick_slab",
+            "thermal_shock:shale_brick_stairs",
+            "thermal_shock:shale_brick_wall",
+            "thermal_shock:sanctum_brick_stairs",
+            "thermal_shock:shale_bricks",
+            "thermal_shock:sanctum_lamp",
+            "thermal_shock:pylon_ring",
+            "thermal_shock:pylon_core",
+            "thermal_shock:sanctum_bricks",
+            "thermal_shock:icicles",
+            "thermal_shock:permafrost_tile_slab",
+            "thermal_shock:permafrost_tile_stairs",
+            "thermal_shock:polished_permafrost_slab",
+            "thermal_shock:polished_permafrost_stairs",
+            "thermal_shock:chiseled_permafrost",
+            "thermal_shock:permafrost_tiles",
+            "thermal_shock:cut_polished_permafrost",
+            "thermal_shock:polished_permafrost",
+            "thermal_shock:snowy_permafrost",
+            "thermal_shock:mantle_ruby_ore",
+            "thermal_shock:mossy_mantlestone",
+            "thermal_shock:permafrost",
+            "thermal_shock:mantlestone",
+            "thermal_shock:snowy_shale",
+            "thermal_shock:grassy_shale",
+            "thermal_shock:shale",
+            "thermal_shock:rough_ruby_block",
+            "thermal_shock:ruby_block",
+            "thermal_shock:ruby_ore"
+          ]
+        }
+      },
+      {
+        "block": "thermal_geyser",
+        "path": "data/minecraft/tags/block/mineable/pickaxe.json",
+        "bytes": 4234,
+        "sha256": "fd1097085596efa61a7869509b4d214a588a86c2fde4df9d19b1262224bd88f7",
+        "json": {
+          "replace": false,
+          "values": [
+            "thermal_shock:phaser",
+            "thermal_shock:smiley_lantern",
+            "thermal_shock:hanging_ghostglass_bulb",
+            "thermal_shock:ghostglass_bulb",
+            "thermal_shock:ghostglass_chandelier",
+            "thermal_shock:mineswarmer_spawner",
+            "thermal_shock:rough_malachite_block",
+            "thermal_shock:helion_ore",
+            "thermal_shock:fabricator",
+            "thermal_shock:phobotite_outcrop",
+            "thermal_shock:shale_cache_pad",
+            "thermal_shock:enchanted_cache",
+            "thermal_shock:ferrous_cache_pad",
+            "thermal_shock:ferrous_altar",
+            "thermal_shock:ferrous_block",
+            "thermal_shock:ferrous_mantlestone",
+            "thermal_shock:ferrous_shale",
+            "thermal_shock:sword_in_stone",
+            "thermal_shock:cryonic_cache",
+            "thermal_shock:cache_pad",
+            "thermal_shock:cryonic_lamp",
+            "thermal_shock:dark_frostrock_brick_fence",
+            "thermal_shock:dark_frostrock_brick_wall",
+            "thermal_shock:dark_frostrock_bricks",
+            "thermal_shock:cracked_sanctum_brick_wall",
+            "thermal_shock:sanctum_brick_wall",
+            "thermal_shock:frostrock_brick_slab",
+            "thermal_shock:frostrock_brick_stairs",
+            "thermal_shock:polished_mantle_wall",
+            "thermal_shock:polished_frostrock_wall",
+            "thermal_shock:polished_frostrock_slab",
+            "thermal_shock:polished_frostrock_stairs",
+            "thermal_shock:cracked_sanctum_bricks",
+            "thermal_shock:chiseled_frostrock",
+            "thermal_shock:frostrock_bricks",
+            "thermal_shock:polished_frostrock",
+            "thermal_shock:frostrock",
+            "thermal_shock:steelstem_block",
+            "thermal_shock:spice_geyser",
+            "thermal_shock:cobalt_block_ghostglass",
+            "thermal_shock:mantle_brick_ghostglass",
+            "thermal_shock:shale_brick_ghostglass",
+            "thermal_shock:spiral_mantlestone",
+            "thermal_shock:magmatic_mantlestone",
+            "thermal_shock:chiseled_mantlestone",
+            "thermal_shock:blue_crystalleye_lamp",
+            "thermal_shock:red_crystalleye_lamp",
+            "thermal_shock:cobalt_ghostglass",
+            "thermal_shock:mantle_ghostglass",
+            "thermal_shock:shale_ghostglass",
+            "thermal_shock:mantlestone_brick_stairs",
+            "thermal_shock:mantlestone_brick_slab",
+            "thermal_shock:polished_mantlestone_stairs",
+            "thermal_shock:polished_mantlestone_slab",
+            "thermal_shock:mantlestone_bricks",
+            "thermal_shock:polished_mantlestone",
+            "thermal_shock:malachite_block",
+            "thermal_shock:malachite_outcrop",
+            "thermal_shock:malachite_ore",
+            "thermal_shock:ghostglass_block",
+            "thermal_shock:mossy_cobbled_shale",
+            "thermal_shock:bouncer",
+            "thermal_shock:ashen_thermite",
+            "thermal_shock:cobbled_shale",
+            "thermal_shock:thermite",
+            "thermal_shock:frigid_altar",
+            "thermal_shock:cobalt_block",
+            "thermal_shock:cobalt",
+            "thermal_shock:sanctum_brick_slab",
+            "thermal_shock:shale_brick_slab",
+            "thermal_shock:shale_brick_stairs",
+            "thermal_shock:shale_brick_wall",
+            "thermal_shock:sanctum_brick_stairs",
+            "thermal_shock:shale_bricks",
+            "thermal_shock:sanctum_lamp",
+            "thermal_shock:pylon_ring",
+            "thermal_shock:pylon_core",
+            "thermal_shock:sanctum_bricks",
+            "thermal_shock:cracked_pillarrakc",
+            "thermal_shock:fluorite_outcrop",
+            "thermal_shock:six_sided_pillarrack",
+            "thermal_shock:pillarrack_slab",
+            "thermal_shock:icicles",
+            "thermal_shock:rockspines",
+            "thermal_shock:pillarrack_brick",
+            "thermal_shock:pillarrack",
+            "thermal_shock:permafrost_tile_slab",
+            "thermal_shock:permafrost_tile_stairs",
+            "thermal_shock:polished_permafrost_slab",
+            "thermal_shock:polished_permafrost_stairs",
+            "thermal_shock:chiseled_permafrost",
+            "thermal_shock:permafrost_tiles",
+            "thermal_shock:cut_polished_permafrost",
+            "thermal_shock:polished_permafrost",
+            "thermal_shock:snowy_permafrost",
+            "thermal_shock:mantle_sapphire_ore",
+            "thermal_shock:mantle_ruby_ore",
+            "thermal_shock:mossy_mantlestone",
+            "thermal_shock:permafrost",
+            "thermal_shock:mantlestone",
+            "thermal_shock:snowy_shale",
+            "thermal_shock:grassy_shale",
+            "thermal_shock:shale",
+            "thermal_shock:rough_sapphire_block",
+            "thermal_shock:rough_ruby_block",
+            "thermal_shock:sapphire_block",
+            "thermal_shock:sapphire_ore",
+            "thermal_shock:ruby_block",
+            "thermal_shock:ruby_ore"
+          ]
+        }
+      },
+      {
+        "block": "thermal_geyser",
+        "path": "assets/thermal_shock/blockstates/thermal_geyser.json",
+        "bytes": 91,
+        "sha256": "be631ffceff707c9767837a1f884fdd10a2c2717215ee4e7099d6d7eae50b9ea",
+        "json": {
+          "variants": {
+            "": {
+              "model": "thermal_shock:block/thermal_geyser"
+            }
+          }
+        }
+      },
+      {
+        "block": "thermal_geyser",
+        "path": "assets/thermal_shock/models/block/thermal_geyser.json",
+        "bytes": 460,
+        "sha256": "77ef2c8c81b16cba20b6b5d9b9de48045ff2cd56d635091abd2a989af9b1c937",
+        "json": {
+          "parent": "block/cube",
+          "textures": {
+            "down": "thermal_shock:block/hollow_shale_pillar",
+            "up": "thermal_shock:block/thermal_vent_top",
+            "north": "thermal_shock:block/thermal_vent_side_2",
+            "east": "thermal_shock:block/thermal_vent_side_2",
+            "south": "thermal_shock:block/thermal_vent_side_2",
+            "west": "thermal_shock:block/thermal_vent_side_2",
+            "particle": "thermal_shock:block/hollow_shale_pillar"
+          },
+          "render_type": "solid"
+        }
+      },
+      {
+        "block": "thermal_geyser",
+        "path": "assets/thermal_shock/models/item/thermal_geyser.json",
+        "bytes": 304,
+        "sha256": "f1c7168e89f9f28c1240d08dd50c2f51e1d4d4981a224c847cf3538a0eb03d19",
+        "json": {
+          "parent": "thermal_shock:block/thermal_geyser",
+          "display": {
+            "thirdperson": {
+              "rotation": [
+                10,
+                -45,
+                170
+              ],
+              "translation": [
+                0,
+                1.5,
+                -2.75
+              ],
+              "scale": [
+                0.375,
+                0.375,
+                0.375
+              ]
+            }
+          }
+        }
+      },
+      {
+        "block": "hanging_sparkler_bulb",
+        "path": "data/thermal_shock/worldgen/configured_feature/hanging_bulb_patch.json",
+        "bytes": 1186,
+        "sha256": "cdcda18dd170f38102cc75295a0abcf8648598e62a5279eb2458018afc2bb10d",
+        "json": {
+          "type": "minecraft:random_patch",
+          "config": {
+            "tries": 4,
+            "xz_spread": 10,
+            "feature": {
+              "feature": {
+                "type": "minecraft:simple_block",
+                "config": {
+                  "to_place": {
+                    "type": "minecraft:simple_state_provider",
+                    "state": {
+                      "Name": "thermal_shock:hanging_sparkler_bulb"
+                    }
+                  }
+                }
+              },
+              "placement": [
+                {
+                  "type": "minecraft:block_predicate_filter",
+                  "predicate": {
+                    "type": "minecraft:all_of",
+                    "predicates": [
+                      {
+                        "type": "minecraft:matching_blocks",
+                        "blocks": "minecraft:air"
+                      },
+                      {
+                        "type": "minecraft:matching_blocks",
+                        "blocks": [
+                          "thermal_shock:shale",
+                          "thermal_shock:mantlestone",
+                          "thermal_shock:mossy_mantlestone",
+                          "thermal_shock:vermillion_moss"
+                        ],
+                        "offset": [
+                          0,
+                          1,
+                          0
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "block": "hanging_sparkler_bulb",
+        "path": "data/thermal_shock/loot_tables/blocks/hanging_sparkler_bulb.json",
+        "bytes": 98,
+        "sha256": "d6de71e3b3e9d0924144aa7d80e9eb2278db271087d7b31e49e81a2478060ddd",
+        "json": {
+          "type": "minecraft:block",
+          "random_sequence": "thermal_shock:blocks/hanging_sparkler_bulb"
+        }
+      },
+      {
+        "block": "hanging_sparkler_bulb",
+        "path": "data/minecraft/tags/blocks/mineable/axe.json",
+        "bytes": 3473,
+        "sha256": "faa4849041899a121f09dc7b0ff3c412ac37739d8189e7c66020ef3b2224d547",
+        "json": {
+          "replace": false,
+          "values": [
+            "thermal_shock:mavros_door",
+            "thermal_shock:mavros_planks",
+            "thermal_shock:mavros_log",
+            "thermal_shock:infested_log",
+            "thermal_shock:hollowed_log",
+            "thermal_shock:glowcap_block",
+            "thermal_shock:glowcap_stem",
+            "thermal_shock:spirewood_log",
+            "thermal_shock:planter_box",
+            "thermal_shock:spire_blossom",
+            "thermal_shock:spirewood_fence_gate",
+            "thermal_shock:bordered_spirewood_wall",
+            "thermal_shock:bordered_spirewood_planks",
+            "thermal_shock:spirewood_trapdoor",
+            "thermal_shock:spirewood_door",
+            "thermal_shock:spirewood_button",
+            "thermal_shock:spirewood_pressure_plate",
+            "thermal_shock:spirewood_fence",
+            "thermal_shock:spirewood_slab",
+            "thermal_shock:spirewood_stairs",
+            "thermal_shock:spirewood_planks",
+            "thermal_shock:stripped_kyaneos_wood",
+            "thermal_shock:stripped_kyaneos_log",
+            "thermal_shock:bordered_shiverglitter_wall",
+            "thermal_shock:bordered_vermillion_wall",
+            "thermal_shock:bordered_ochre_wall",
+            "thermal_shock:bordered_kyaneos_wall",
+            "thermal_shock:bordered_kyaneos_planks",
+            "thermal_shock:kyaneos_trapdoor",
+            "thermal_shock:kyaneos_door",
+            "thermal_shock:glauko_stem",
+            "thermal_shock:kyaneos_planks",
+            "thermal_shock:kyaneos_log",
+            "thermal_shock:kyaneos_wood",
+            "thermal_shock:tourmaline_spice_block",
+            "thermal_shock:bordered_shiverglitter_planks",
+            "thermal_shock:shiverglitter_plank_trapdoor",
+            "thermal_shock:shiverglitter_plank_door",
+            "thermal_shock:shiverglitter_plank_button",
+            "thermal_shock:shiverglitter_plank_pressure_plate",
+            "thermal_shock:shiverglitter_plank_fence_gate",
+            "thermal_shock:shiverglitter_plank_fence",
+            "thermal_shock:shiverglitter_plank_slab",
+            "thermal_shock:shiverglitter_plank_stairs",
+            "thermal_shock:shiverglitter_planks",
+            "thermal_shock:stripped_shiverglitter_wood",
+            "thermal_shock:stripped_shiverglitter_log",
+            "thermal_shock:shiverglitter_wood",
+            "thermal_shock:stripped_ochre_wood",
+            "thermal_shock:stripped_ochre_log",
+            "thermal_shock:bordered_ochre_planks",
+            "thermal_shock:bordered_vermillion_planks",
+            "thermal_shock:ochre_plank_button",
+            "thermal_shock:ochre_plank_pressure_plate",
+            "thermal_shock:ochre_plank_fence_gate",
+            "thermal_shock:ochre_plank_fence",
+            "thermal_shock:ochre_plank_slab",
+            "thermal_shock:ochre_plank_stairs",
+            "thermal_shock:thin_stem",
+            "thermal_shock:dull_log",
+            "thermal_shock:ochre_trapdoor",
+            "thermal_shock:ochre_door",
+            "thermal_shock:ochre_planks",
+            "thermal_shock:ochre_wood",
+            "thermal_shock:ochre_log",
+            "thermal_shock:thin_spire_bulb",
+            "thermal_shock:spire_tendrils",
+            "thermal_shock:spire_bulb",
+            "thermal_shock:spire_base",
+            "thermal_shock:spire_stem",
+            "thermal_shock:shiver_log",
+            "thermal_shock:lapidarian_workbench",
+            "thermal_shock:stripped_vermilli_wood",
+            "thermal_shock:hanging_sparkler_bulb",
+            "thermal_shock:stripped_vermilli_log",
+            "thermal_shock:vermilli_trapdoor",
+            "thermal_shock:vermilli_door",
+            "thermal_shock:vermilli_button",
+            "thermal_shock:vermilli_pressure_plate",
+            "thermal_shock:vermilli_fence_gate",
+            "thermal_shock:vermilli_fence",
+            "thermal_shock:vermilli_slab",
+            "thermal_shock:vermilli_stairs",
+            "thermal_shock:vermilli_planks",
+            "thermal_shock:vermilli_log",
+            "thermal_shock:vermilli_wood",
+            "thermal_shock:sparkler_bulb"
+          ]
+        }
+      },
+      {
+        "block": "hanging_sparkler_bulb",
+        "path": "data/minecraft/tags/block/mineable/axe.json",
+        "bytes": 2250,
+        "sha256": "eac2aa7674af6558abb354fa6473fb3bb40d10498b3cd513d0f70c59a1bec673",
+        "json": {
+          "replace": false,
+          "values": [
+            "thermal_shock:tourmaline_spice_block",
+            "thermal_shock:bordered_shiverglitter_planks",
+            "thermal_shock:shiverglitter_plank_trapdoor",
+            "thermal_shock:shiverglitter_plank_door",
+            "thermal_shock:shiverglitter_plank_button",
+            "thermal_shock:shiverglitter_plank_pressure_plate",
+            "thermal_shock:shiverglitter_plank_fence_gate",
+            "thermal_shock:shiverglitter_plank_fence",
+            "thermal_shock:shiverglitter_plank_slab",
+            "thermal_shock:shiverglitter_plank_stairs",
+            "thermal_shock:shiverglitter_planks",
+            "thermal_shock:stripped_shiverglitter_wood",
+            "thermal_shock:stripped_shiverglitter_log",
+            "thermal_shock:shiverglitter_wood",
+            "thermal_shock:stripped_ochre_wood",
+            "thermal_shock:stripped_ochre_log",
+            "thermal_shock:bordered_ochre_planks",
+            "thermal_shock:bordered_vermillion_planks",
+            "thermal_shock:ochre_plank_button",
+            "thermal_shock:ochre_plank_pressure_plate",
+            "thermal_shock:ochre_plank_fence_gate",
+            "thermal_shock:ochre_plank_fence",
+            "thermal_shock:ochre_plank_slab",
+            "thermal_shock:ochre_plank_stairs",
+            "thermal_shock:thin_stem",
+            "thermal_shock:pillarshroom_stem",
+            "thermal_shock:pillarshroom_cap",
+            "thermal_shock:dull_log",
+            "thermal_shock:ochre_trapdoor",
+            "thermal_shock:ochre_door",
+            "thermal_shock:ochre_planks",
+            "thermal_shock:ochre_wood",
+            "thermal_shock:ochre_log",
+            "thermal_shock:thin_spire_bulb",
+            "thermal_shock:spire_tendrils",
+            "thermal_shock:spire_bulb",
+            "thermal_shock:spire_base",
+            "thermal_shock:spire_stem",
+            "thermal_shock:shiver_log",
+            "thermal_shock:lapidarian_workbench",
+            "thermal_shock:stripped_vermilli_wood",
+            "thermal_shock:hanging_sparkler_bulb",
+            "thermal_shock:stripped_vermilli_log",
+            "thermal_shock:vermilli_trapdoor",
+            "thermal_shock:vermilli_door",
+            "thermal_shock:vermilli_button",
+            "thermal_shock:vermilli_pressure_plate",
+            "thermal_shock:vermilli_fence_gate",
+            "thermal_shock:vermilli_fence",
+            "thermal_shock:vermilli_slab",
+            "thermal_shock:vermilli_stairs",
+            "thermal_shock:vermilli_planks",
+            "thermal_shock:vermilli_log",
+            "thermal_shock:vermilli_wood",
+            "thermal_shock:sparkler_bulb"
+          ]
+        }
+      },
+      {
+        "block": "hanging_sparkler_bulb",
+        "path": "assets/thermal_shock/blockstates/hanging_sparkler_bulb.json",
+        "bytes": 98,
+        "sha256": "db170eeae18f420d25272f812f3071f98f36fb1041ed8123aed4ecfeb8cfe915",
+        "json": {
+          "variants": {
+            "": {
+              "model": "thermal_shock:block/hanging_sparkler_bulb"
+            }
+          }
+        }
+      },
+      {
+        "block": "hanging_sparkler_bulb",
+        "path": "assets/thermal_shock/models/block/hanging_sparkler_bulb.json",
+        "bytes": 507,
+        "sha256": "bc321d020e308641a9572f7bcec70c394595f92b5d264e426d393d001f5f8ee2",
+        "json": {
+          "parent": "block/cube",
+          "textures": {
+            "down": "thermal_shock:block/glittershroom_block_top",
+            "up": "thermal_shock:block/glittershroom_block_bottom",
+            "north": "thermal_shock:block/glittershroom_block_side_b",
+            "east": "thermal_shock:block/glittershroom_block_side_b",
+            "south": "thermal_shock:block/glittershroom_block_side_b",
+            "west": "thermal_shock:block/glittershroom_block_side_b",
+            "particle": "thermal_shock:block/glittershroom_block_top"
+          },
+          "render_type": "cutout"
+        }
+      },
+      {
+        "block": "hanging_sparkler_bulb",
+        "path": "assets/thermal_shock/models/item/hanging_sparkler_bulb.json",
+        "bytes": 311,
+        "sha256": "93a16a1a20e811ba437f2fd767dde94207a44c62ab1a18029d78738fc68ca007",
+        "json": {
+          "parent": "thermal_shock:block/hanging_sparkler_bulb",
+          "display": {
+            "thirdperson": {
+              "rotation": [
+                10,
+                -45,
+                170
+              ],
+              "translation": [
+                0,
+                1.5,
+                -2.75
+              ],
+              "scale": [
+                0.375,
+                0.375,
+                0.375
+              ]
+            }
+          }
+        }
+      },
+      {
+        "block": "thermal_geyser",
+        "path": "assets/thermal_shock/textures/block/hollow_shale_pillar.png",
+        "bytes": 363,
+        "sha256": "0268a586d0240a8bc0acf946aa8eb646c1903ed8b167fbc034705ce0f2b90d49"
+      },
+      {
+        "block": "thermal_geyser",
+        "path": "assets/thermal_shock/textures/block/thermal_vent_top.png",
+        "bytes": 642,
+        "sha256": "f626a336ef88be8a029c07acc2ba28cb894166d8385c23e9e7118ff934b5a58a"
+      },
+      {
+        "block": "thermal_geyser",
+        "path": "assets/thermal_shock/textures/block/thermal_vent_side_2.png",
+        "bytes": 714,
+        "sha256": "40bc519a8faa41be41eef8153d35e08368edb1b358ac6a957a06f05e58ef8bc8"
+      },
+      {
+        "block": "thermal_geyser",
+        "path": "assets/thermal_shock/textures/block/thermal_vent_side_2.png",
+        "bytes": 714,
+        "sha256": "40bc519a8faa41be41eef8153d35e08368edb1b358ac6a957a06f05e58ef8bc8"
+      },
+      {
+        "block": "thermal_geyser",
+        "path": "assets/thermal_shock/textures/block/thermal_vent_side_2.png",
+        "bytes": 714,
+        "sha256": "40bc519a8faa41be41eef8153d35e08368edb1b358ac6a957a06f05e58ef8bc8"
+      },
+      {
+        "block": "thermal_geyser",
+        "path": "assets/thermal_shock/textures/block/thermal_vent_side_2.png",
+        "bytes": 714,
+        "sha256": "40bc519a8faa41be41eef8153d35e08368edb1b358ac6a957a06f05e58ef8bc8"
+      },
+      {
+        "block": "thermal_geyser",
+        "path": "assets/thermal_shock/textures/block/hollow_shale_pillar.png",
+        "bytes": 363,
+        "sha256": "0268a586d0240a8bc0acf946aa8eb646c1903ed8b167fbc034705ce0f2b90d49"
+      },
+      {
+        "block": "hanging_sparkler_bulb",
+        "path": "assets/thermal_shock/textures/block/glittershroom_block_top.png",
+        "bytes": 267,
+        "sha256": "0b6ac91947d16de35d405ec0d20ba7e0932ae325aa1a8fbab61503ce6c38772e"
+      },
+      {
+        "block": "hanging_sparkler_bulb",
+        "path": "assets/thermal_shock/textures/block/glittershroom_block_bottom.png",
+        "bytes": 249,
+        "sha256": "99818e8f6664a7b363a7e4f917184900b4d7f710a1cf57ea28c3346022cadbe1"
+      },
+      {
+        "block": "hanging_sparkler_bulb",
+        "path": "assets/thermal_shock/textures/block/glittershroom_block_side_b.png",
+        "bytes": 465,
+        "sha256": "d44814c6b324986e98791eb03b6a7f8ba807151eaa80f511ecd3a34d237c4b23"
+      },
+      {
+        "block": "hanging_sparkler_bulb",
+        "path": "assets/thermal_shock/textures/block/glittershroom_block_side_b.png",
+        "bytes": 465,
+        "sha256": "d44814c6b324986e98791eb03b6a7f8ba807151eaa80f511ecd3a34d237c4b23"
+      },
+      {
+        "block": "hanging_sparkler_bulb",
+        "path": "assets/thermal_shock/textures/block/glittershroom_block_side_b.png",
+        "bytes": 465,
+        "sha256": "d44814c6b324986e98791eb03b6a7f8ba807151eaa80f511ecd3a34d237c4b23"
+      },
+      {
+        "block": "hanging_sparkler_bulb",
+        "path": "assets/thermal_shock/textures/block/glittershroom_block_side_b.png",
+        "bytes": 465,
+        "sha256": "d44814c6b324986e98791eb03b6a7f8ba807151eaa80f511ecd3a34d237c4b23"
+      },
+      {
+        "block": "hanging_sparkler_bulb",
+        "path": "assets/thermal_shock/textures/block/glittershroom_block_top.png",
+        "bytes": 267,
+        "sha256": "0b6ac91947d16de35d405ec0d20ba7e0932ae325aa1a8fbab61503ce6c38772e"
+      },
+      {
+        "block": "hanging_sparkler_bulb",
+        "path": "data/thermal_shock/worldgen/placed_feature/hanging_bulb_patch.json",
+        "bytes": 594,
+        "sha256": "1016763f3a3fb3979d49ba6b64fa4063908a2d0eabb7a693e85944ec5d0b4773",
+        "json": {
+          "feature": "thermal_shock:hanging_bulb_patch",
+          "placement": [
+            {
+              "type": "minecraft:count",
+              "count": {
+                "type": "uniform",
+                "value": {
+                  "min_inclusive": 1,
+                  "max_inclusive": 3
+                }
+              }
+            },
+            {
+              "type": "minecraft:in_square"
+            },
+            {
+              "type": "minecraft:height_range",
+              "height": {
+                "type": "minecraft:uniform",
+                "min_inclusive": {
+                  "absolute": -30
+                },
+                "max_inclusive": {
+                  "absolute": 45
+                }
+              }
+            },
+            {
+              "type": "minecraft:biome"
+            }
+          ]
+        }
+      },
+      {
+        "block": "hanging_sparkler_bulb",
+        "path": "data/thermal_shock/forge/biome_modifier/hanging_bulb_patch_biome_modifier.json",
+        "bytes": 161,
+        "sha256": "c6c11aa6dcb2056446287173b953eb6e8250a866d9c8e54ca7755318fa8c9871",
+        "json": {
+          "type": "forge:add_features",
+          "biomes": "#thermal_shock:purebiomes",
+          "features": "thermal_shock:hanging_bulb_patch",
+          "step": "underground_decoration"
+        }
+      }
+    ],
+    "original_model_json": [
+      {
+        "path": "assets/thermal_shock/models/block/thermal_geyser.json",
+        "json": {
+          "parent": "block/cube",
+          "textures": {
+            "down": "thermal_shock:block/hollow_shale_pillar",
+            "up": "thermal_shock:block/thermal_vent_top",
+            "north": "thermal_shock:block/thermal_vent_side_2",
+            "east": "thermal_shock:block/thermal_vent_side_2",
+            "south": "thermal_shock:block/thermal_vent_side_2",
+            "west": "thermal_shock:block/thermal_vent_side_2",
+            "particle": "thermal_shock:block/hollow_shale_pillar"
+          },
+          "render_type": "solid"
+        }
+      },
+      {
+        "path": "assets/thermal_shock/models/item/thermal_geyser.json",
+        "json": {
+          "parent": "thermal_shock:block/thermal_geyser",
+          "display": {
+            "thirdperson": {
+              "rotation": [
+                10,
+                -45,
+                170
+              ],
+              "translation": [
+                0,
+                1.5,
+                -2.75
+              ],
+              "scale": [
+                0.375,
+                0.375,
+                0.375
+              ]
+            }
+          }
+        }
+      },
+      {
+        "path": "assets/thermal_shock/models/block/hanging_sparkler_bulb.json",
+        "json": {
+          "parent": "block/cube",
+          "textures": {
+            "down": "thermal_shock:block/glittershroom_block_top",
+            "up": "thermal_shock:block/glittershroom_block_bottom",
+            "north": "thermal_shock:block/glittershroom_block_side_b",
+            "east": "thermal_shock:block/glittershroom_block_side_b",
+            "south": "thermal_shock:block/glittershroom_block_side_b",
+            "west": "thermal_shock:block/glittershroom_block_side_b",
+            "particle": "thermal_shock:block/glittershroom_block_top"
+          },
+          "render_type": "cutout"
+        }
+      },
+      {
+        "path": "assets/thermal_shock/models/item/hanging_sparkler_bulb.json",
+        "json": {
+          "parent": "thermal_shock:block/hanging_sparkler_bulb",
+          "display": {
+            "thirdperson": {
+              "rotation": [
+                10,
+                -45,
+                170
+              ],
+              "translation": [
+                0,
+                1.5,
+                -2.75
+              ],
+              "scale": [
+                0.375,
+                0.375,
+                0.375
+              ]
+            }
+          }
+        }
+      }
+    ],
+    "original_sound_registry": [
+      {
+        "path": "assets/thermal_shock/sounds.json",
+        "event_count": 118,
+        "events": [
+          "mantle_lever",
+          "thermalshockjingle",
+          "stalkerstep",
+          "disc33",
+          "ambushtheme",
+          "preyintro",
+          "preyloop",
+          "preyend",
+          "loq_disc_04",
+          "phoboswin",
+          "loq_disc_01",
+          "loq_disc_02",
+          "loq_disc_03",
+          "infestorkill",
+          "flintsteelfire",
+          "magnetcrossbowfire",
+          "ghostbullet",
+          "hailfire",
+          "volcanofire",
+          "monolithambient",
+          "monolithhurt",
+          "monolithdeath",
+          "windchime",
+          "nomnomnom",
+          "loq_disc_legacy_01",
+          "lanternflashattack",
+          "flarealtshoot",
+          "flareshoot",
+          "flarecoreexplode",
+          "thermoblasterburstfire",
+          "thermoblasterspreadfire",
+          "boss_spawn_roar",
+          "sparkhum",
+          "sparkexplode",
+          "amalgeltheme",
+          "amalgelloopthemeloop",
+          "propulsionbootsactivate",
+          "cooldownend",
+          "boreanforest",
+          "boreantundra",
+          "vermillionwoods",
+          "stardustgarden",
+          "graveyard",
+          "luminoussea",
+          "jellyumbrellamabient",
+          "jellyumbrelladeploy",
+          "loq_disc_05",
+          "loqbossdisc01",
+          "lensambient",
+          "galvaniteambient",
+          "galvanitehurt",
+          "galvanitedeath",
+          "rain_drum_random",
+          "rain_drum_01",
+          "angry_rain_drum_random",
+          "phobosdisc",
+          "petrichordisc",
+          "floor33disc",
+          "strangerdisc",
+          "mob_death_explode",
+          "flint_gun_25",
+          "bone_hit",
+          "buzzsaw",
+          "magnet_bow_25",
+          "magnet_bomb",
+          "misc_gun_1",
+          "misc_gun_2",
+          "organ_disc",
+          "hanahaki_disc",
+          "supernova_charge",
+          "supernova_blast",
+          "weapon_swing",
+          "laser_fires",
+          "prism_breakout",
+          "thermoid_cries",
+          "whistler_hurt",
+          "whistler_death",
+          "whistler_ambient",
+          "camera_shutters",
+          "camera_success",
+          "npcbuy",
+          "spinebreaking_disc",
+          "ignition_detector_click",
+          "unette_main_speak",
+          "unette_ok",
+          "surge_pylon_breaks",
+          "surge_pylon_pulses",
+          "frostbitten",
+          "ribbonblade_spawns",
+          "ribbonblade_taunting",
+          "ribbonblade_win",
+          "ribbonblade_block",
+          "ribbonblade_hurts",
+          "ceramicish_place",
+          "ceramic_mine",
+          "ceramicish_step",
+          "qo_main_speak",
+          "qo_em1_speak",
+          "qo_em2_speak",
+          "cavebloomer_detonates",
+          "budbloomer_hurt",
+          "budbloomer_death",
+          "budbloomer_ambient",
+          "cavebloomer_roar",
+          "cavebloomer_squeak",
+          "cavebloomer_hurt",
+          "cavebloomer_death",
+          "delta_ambient",
+          "delta_death",
+          "delta_hurt",
+          "delta_step",
+          "gamma_hurt",
+          "protoi_cry",
+          "sopel_main_speak",
+          "azure_grey_disc",
+          "leafcutter",
+          "bunker_door",
+          "sickle_slash"
+        ]
+      }
+    ],
+    "target_source_and_resource_hits": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/LapidarianWorkbenchBlock.java",
+        "matched": [
+          "thermal_geyser",
+          "THERMAL_GEYSER"
+        ],
+        "sha256": "fb20f75f18369c8a3ef12aabcab6f387c52b16953e3882c49dcdace94eab040e"
+      },
+      {
+        "path": "src/main/resources/assets/thermal_shock_reforged/creative_tabs.json",
+        "matched": [
+          "thermal_geyser",
+          "hanging_sparkler_bulb",
+          "THERMAL_GEYSER",
+          "HANGING_SPARKLER_BULB"
+        ],
+        "sha256": "2f64d33e836ab688a538f5d574468e75d24cbabca861ec959cc588990f144737"
+      },
+      {
+        "path": "src/main/resources/assets/thermal_shock_reforged/blockstates/hanging_sparkler_bulb.json",
+        "matched": [
+          "hanging_sparkler_bulb",
+          "HANGING_SPARKLER_BULB"
+        ],
+        "sha256": "0090d9cfd0e8b304171ff6ef9d6f655683f6f556e787c8443d6a98e60e1306b0"
+      },
+      {
+        "path": "src/main/resources/assets/thermal_shock_reforged/blockstates/thermal_geyser.json",
+        "matched": [
+          "thermal_geyser",
+          "THERMAL_GEYSER"
+        ],
+        "sha256": "84a954706c01f136c6ca930bef561b0a4e686498e5907877b46879bafbacfd2d"
+      },
+      {
+        "path": "src/main/resources/assets/thermal_shock_reforged/lang/en_us.json",
+        "matched": [
+          "thermal_geyser",
+          "hanging_sparkler_bulb",
+          "THERMAL_GEYSER",
+          "HANGING_SPARKLER_BULB"
+        ],
+        "sha256": "dfa57a9ad78e2d9b8be92c20ea4d69da0d21bf7739a1921af79ecd977657da03"
+      },
+      {
+        "path": "src/main/resources/assets/thermal_shock_reforged/models/item/hanging_sparkler_bulb.json",
+        "matched": [
+          "hanging_sparkler_bulb",
+          "HANGING_SPARKLER_BULB"
+        ],
+        "sha256": "4060632bb6a08f4cc4a9df04519f8795370fbb15a095da1c43ca5daf68dfbd04"
+      },
+      {
+        "path": "src/main/resources/assets/thermal_shock_reforged/models/item/thermal_geyser.json",
+        "matched": [
+          "thermal_geyser",
+          "THERMAL_GEYSER"
+        ],
+        "sha256": "c42d655468faee243a7da4b0a5c30f7e73df2ac772b330b9e40d43033f4d3133"
+      }
+    ],
+    "target_selected_asset_presence": [
+      {
+        "path": "src/main/resources/assets/thermal_shock_reforged/blockstates/thermal_geyser.json",
+        "bytes": 100,
+        "sha256": "84a954706c01f136c6ca930bef561b0a4e686498e5907877b46879bafbacfd2d"
+      },
+      {
+        "path": "src/main/resources/assets/thermal_shock_reforged/blockstates/hanging_sparkler_bulb.json",
+        "bytes": 107,
+        "sha256": "0090d9cfd0e8b304171ff6ef9d6f655683f6f556e787c8443d6a98e60e1306b0"
+      },
+      {
+        "path": "src/main/resources/assets/thermal_shock_reforged/models/block/thermal_geyser.json",
+        "bytes": 523,
+        "sha256": "9a3c036b2048579e199bd00f2539681143b856bb7cf301fac92a0440c5894267"
+      },
+      {
+        "path": "src/main/resources/assets/thermal_shock_reforged/models/item/thermal_geyser.json",
+        "bytes": 313,
+        "sha256": "c42d655468faee243a7da4b0a5c30f7e73df2ac772b330b9e40d43033f4d3133"
+      },
+      {
+        "path": "src/main/resources/assets/thermal_shock_reforged/models/block/hanging_sparkler_bulb.json",
+        "bytes": 570,
+        "sha256": "08ed7b51e400b123dd4720fb02d1fea64681149549afceb1be9a96104ecc5bd2"
+      },
+      {
+        "path": "src/main/resources/assets/thermal_shock_reforged/models/item/hanging_sparkler_bulb.json",
+        "bytes": 320,
+        "sha256": "4060632bb6a08f4cc4a9df04519f8795370fbb15a095da1c43ca5daf68dfbd04"
+      }
+    ],
+    "target_registration_status": {
+      "thermal_geyser": {
+        "block": false,
+        "block_entity": false,
+        "block_item": false,
+        "evidence": "No matching registration declaration in src/main/java; LapidarianWorkbenchBlock.java references id only for processing classification."
+      },
+      "hanging_sparkler_bulb": {
+        "block": false,
+        "block_entity": false,
+        "block_item": false,
+        "evidence": "No matching registration declaration in src/main/java."
+      }
+    },
+    "normal_source_summary": {
+      "thermal_geyser": {
+        "normal_obtainment": "world generation; old placed_feature -> configured_feature thermalvent1/2/3 structure selector -> forge biome modifier in luminous_sea and borean_tundra, vegetal_decoration; separate block loot drops itself; no matching recipe entry found in original JAR scan.",
+        "block_mineable_tag": "minecraft:mineable/pickaxe",
+        "generation_files": [
+          "data/thermal_shock/worldgen/configured_feature/thermal_geyser_generation.json",
+          "data/thermal_shock/worldgen/placed_feature/thermal_geyser_generation.json",
+          "data/thermal_shock/forge/biome_modifier/thermal_geyser_generation_biome_modifier.json"
+        ]
+      },
+      "hanging_sparkler_bulb": {
+        "normal_obtainment": "world generation via hanging_bulb_patch configured feature; its own block loot table exists; no matching recipe entry found in original JAR scan.",
+        "block_mineable_tag": "minecraft:mineable/axe",
+        "generation_file": "data/thermal_shock/worldgen/configured_feature/hanging_bulb_patch.json",
+        "generation_files": [
+          "data/thermal_shock/worldgen/configured_feature/hanging_bulb_patch.json",
+          "data/thermal_shock/worldgen/placed_feature/hanging_bulb_patch.json",
+          "data/thermal_shock/forge/biome_modifier/hanging_bulb_patch_biome_modifier.json"
+        ],
+        "generation": "1-3 per chunk, uniform Y -30..45, in_square; biome modifier tag #thermal_shock:purebiomes at underground_decoration."
+      }
+    },
+    "exact_target_tag_increment": {
+      "data/minecraft/tags/block/mineable/pickaxe.json": [
+        "thermal_shock_reforged:thermal_geyser"
+      ],
+      "data/minecraft/tags/block/mineable/axe.json": [
+        "thermal_shock_reforged:hanging_sparkler_bulb"
+      ]
+    },
+    "tag_path_note": "1.21.1 target uses singular tags/block; original JAR contains legacy plural tags/blocks and singular tags/block. Both IDs are explicitly present in the original mineable lists.",
+    "target_referenced_textures": [
+      {
+        "referenced_by": "src/main/resources/assets/thermal_shock_reforged/models/block/thermal_geyser.json",
+        "resource": "assets/thermal_shock_reforged/textures/block/hollow_shale_pillar.png",
+        "present": true,
+        "sha256": "0268a586d0240a8bc0acf946aa8eb646c1903ed8b167fbc034705ce0f2b90d49"
+      },
+      {
+        "referenced_by": "src/main/resources/assets/thermal_shock_reforged/models/block/thermal_geyser.json",
+        "resource": "assets/thermal_shock_reforged/textures/block/thermal_vent_side_2.png",
+        "present": true,
+        "sha256": "40bc519a8faa41be41eef8153d35e08368edb1b358ac6a957a06f05e58ef8bc8"
+      },
+      {
+        "referenced_by": "src/main/resources/assets/thermal_shock_reforged/models/block/thermal_geyser.json",
+        "resource": "assets/thermal_shock_reforged/textures/block/thermal_vent_top.png",
+        "present": true,
+        "sha256": "f626a336ef88be8a029c07acc2ba28cb894166d8385c23e9e7118ff934b5a58a"
+      },
+      {
+        "referenced_by": "src/main/resources/assets/thermal_shock_reforged/models/block/hanging_sparkler_bulb.json",
+        "resource": "assets/thermal_shock_reforged/textures/block/glittershroom_block_bottom.png",
+        "present": true,
+        "sha256": "99818e8f6664a7b363a7e4f917184900b4d7f710a1cf57ea28c3346022cadbe1"
+      },
+      {
+        "referenced_by": "src/main/resources/assets/thermal_shock_reforged/models/block/hanging_sparkler_bulb.json",
+        "resource": "assets/thermal_shock_reforged/textures/block/glittershroom_block_side_b.png",
+        "present": true,
+        "sha256": "d44814c6b324986e98791eb03b6a7f8ba807151eaa80f511ecd3a34d237c4b23"
+      },
+      {
+        "referenced_by": "src/main/resources/assets/thermal_shock_reforged/models/block/hanging_sparkler_bulb.json",
+        "resource": "assets/thermal_shock_reforged/textures/block/glittershroom_block_top.png",
+        "present": true,
+        "sha256": "0b6ac91947d16de35d405ec0d20ba7e0932ae325aa1a8fbab61503ce6c38772e"
+      }
+    ],
+    "target_tag_state": {
+      "data/minecraft/tags/block/mineable/axe.json": {
+        "path": "src/main/resources/data/minecraft/tags/block/mineable/axe.json",
+        "contains_thermal_geyser": false,
+        "contains_hanging_sparkler_bulb": false
+      },
+      "data/minecraft/tags/block/mineable/pickaxe.json": {
+        "path": "src/main/resources/data/minecraft/tags/block/mineable/pickaxe.json",
+        "contains_thermal_geyser": false,
+        "contains_hanging_sparkler_bulb": false
+      }
+    },
+    "target_missing_resources": [
+      "data/thermal_shock_reforged/loot_table/blocks/thermal_geyser.json",
+      "data/thermal_shock_reforged/loot_table/blocks/hanging_sparkler_bulb.json",
+      "data/thermal_shock_reforged/worldgen/configured_feature/thermal_geyser_generation.json",
+      "data/thermal_shock_reforged/worldgen/placed_feature/thermal_geyser_generation.json",
+      "data/neoforge/biome_modifier/thermal_geyser_generation_biome_modifier.json",
+      "data/thermal_shock_reforged/worldgen/placed_feature/hanging_bulb_patch.json",
+      "data/neoforge/biome_modifier/hanging_bulb_patch_biome_modifier.json",
+      "data/thermal_shock_reforged/worldgen/configured_feature/hanging_bulb_patch.json"
+    ],
+    "original_recipe_findings": "No recipe JSON entry in the original JAR scan references either identifier.",
+    "sound_findings": "No original sound event or sound asset name contains either block identifier; existing block models/JSON do not declare a dedicated per-block sound resource. The JAR does contain unrelated shared sound assets; they are not inferred as dependencies.",
+    "target_sound_findings": "No target sound event/resource name references either block identifier.",
+    "target_scan_root": "src/main/java and src/main/resources; literal occurrences are listed in target_source_and_resource_hits."
+  },
+  "original_pending_hanging_biome_modifier": {
+    "type": "forge:add_features",
+    "biomes": "#thermal_shock:purebiomes",
+    "features": "thermal_shock:hanging_bulb_patch",
+    "step": "underground_decoration"
+  },
+  "original_purebiomes_definition_files": [],
+  "purebiomes_java_references": [],
+  "native_dependencies": {
+    "thermalvents": [
+      "cracked_shale_pillar_block",
+      "thermal_geyser"
+    ],
+    "thermal_geyser_biomes": [
+      "luminous_sea",
+      "borean_tundra"
+    ],
+    "hanging_support": [
+      "shale",
+      "mantlestone",
+      "mossy_mantlestone",
+      "vermillion_moss"
+    ]
+  },
+  "converted_templates": {
+    "thermalvent1": {
+      "source_sha256": "9edfb571105d0e482271a9aeadf7824734f2673a7d7960b0d0f612c32c64f496",
+      "target_sha256": "9286f472fae1e765f7cec69a9103683cf7227e758a1d1e09c6fcd3cb89f6f27e",
+      "conversion_counts": {},
+      "original": {
+        "size": [
+          1,
+          2,
+          1
+        ],
+        "entities": [],
+        "blocks": [
+          {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "state": 0
+          },
+          {
+            "nbt": {
+              "Items": [],
+              "id": "thermal_shock:thermal_geyser"
+            },
+            "pos": [
+              0,
+              1,
+              0
+            ],
+            "state": 1
+          }
+        ],
+        "palette": [
+          {
+            "Properties": {
+              "axis": "y"
+            },
+            "Name": "thermal_shock:cracked_shale_pillar_block"
+          },
+          {
+            "Name": "thermal_shock:thermal_geyser"
+          }
+        ],
+        "DataVersion": 3465
+      },
+      "target": {
+        "size": [
+          1,
+          2,
+          1
+        ],
+        "entities": [],
+        "blocks": [
+          {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "state": 0
+          },
+          {
+            "nbt": {
+              "Items": [],
+              "id": "thermal_shock_reforged:thermal_geyser"
+            },
+            "pos": [
+              0,
+              1,
+              0
+            ],
+            "state": 1
+          }
+        ],
+        "palette": [
+          {
+            "Properties": {
+              "axis": "y"
+            },
+            "Name": "thermal_shock_reforged:cracked_shale_pillar_block"
+          },
+          {
+            "Name": "thermal_shock_reforged:thermal_geyser"
+          }
+        ],
+        "DataVersion": 3955
+      }
+    },
+    "thermalvent2": {
+      "source_sha256": "631f458b62eff4d28ced36433ab84bafd1c288a046aaf88666ca2d0ab93860cf",
+      "target_sha256": "408ad16d4e6b61a1d27d23fbea73f731a6702a577e9cfe166b273bb97447b96d",
+      "conversion_counts": {},
+      "original": {
+        "size": [
+          1,
+          4,
+          1
+        ],
+        "entities": [],
+        "blocks": [
+          {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "state": 0
+          },
+          {
+            "pos": [
+              0,
+              1,
+              0
+            ],
+            "state": 0
+          },
+          {
+            "pos": [
+              0,
+              2,
+              0
+            ],
+            "state": 0
+          },
+          {
+            "nbt": {
+              "Items": [],
+              "id": "thermal_shock:thermal_geyser"
+            },
+            "pos": [
+              0,
+              3,
+              0
+            ],
+            "state": 1
+          }
+        ],
+        "palette": [
+          {
+            "Properties": {
+              "axis": "y"
+            },
+            "Name": "thermal_shock:cracked_shale_pillar_block"
+          },
+          {
+            "Name": "thermal_shock:thermal_geyser"
+          }
+        ],
+        "DataVersion": 3465
+      },
+      "target": {
+        "size": [
+          1,
+          4,
+          1
+        ],
+        "entities": [],
+        "blocks": [
+          {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "state": 0
+          },
+          {
+            "pos": [
+              0,
+              1,
+              0
+            ],
+            "state": 0
+          },
+          {
+            "pos": [
+              0,
+              2,
+              0
+            ],
+            "state": 0
+          },
+          {
+            "nbt": {
+              "Items": [],
+              "id": "thermal_shock_reforged:thermal_geyser"
+            },
+            "pos": [
+              0,
+              3,
+              0
+            ],
+            "state": 1
+          }
+        ],
+        "palette": [
+          {
+            "Properties": {
+              "axis": "y"
+            },
+            "Name": "thermal_shock_reforged:cracked_shale_pillar_block"
+          },
+          {
+            "Name": "thermal_shock_reforged:thermal_geyser"
+          }
+        ],
+        "DataVersion": 3955
+      }
+    },
+    "thermalvent3": {
+      "source_sha256": "2e4e96af85a8f804b4345e452c2265486c11a0e215dc87ba68673664ef159c8b",
+      "target_sha256": "fdad89d9e64401ff68dee87f1714cbfcdf9e5f03407b1f6373ca2211516314b0",
+      "conversion_counts": {},
+      "original": {
+        "size": [
+          1,
+          6,
+          1
+        ],
+        "entities": [],
+        "blocks": [
+          {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "state": 0
+          },
+          {
+            "pos": [
+              0,
+              1,
+              0
+            ],
+            "state": 0
+          },
+          {
+            "pos": [
+              0,
+              2,
+              0
+            ],
+            "state": 0
+          },
+          {
+            "pos": [
+              0,
+              3,
+              0
+            ],
+            "state": 0
+          },
+          {
+            "pos": [
+              0,
+              4,
+              0
+            ],
+            "state": 0
+          },
+          {
+            "nbt": {
+              "Items": [],
+              "id": "thermal_shock:thermal_geyser"
+            },
+            "pos": [
+              0,
+              5,
+              0
+            ],
+            "state": 1
+          }
+        ],
+        "palette": [
+          {
+            "Properties": {
+              "axis": "y"
+            },
+            "Name": "thermal_shock:cracked_shale_pillar_block"
+          },
+          {
+            "Name": "thermal_shock:thermal_geyser"
+          }
+        ],
+        "DataVersion": 3465
+      },
+      "target": {
+        "size": [
+          1,
+          6,
+          1
+        ],
+        "entities": [],
+        "blocks": [
+          {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "state": 0
+          },
+          {
+            "pos": [
+              0,
+              1,
+              0
+            ],
+            "state": 0
+          },
+          {
+            "pos": [
+              0,
+              2,
+              0
+            ],
+            "state": 0
+          },
+          {
+            "pos": [
+              0,
+              3,
+              0
+            ],
+            "state": 0
+          },
+          {
+            "pos": [
+              0,
+              4,
+              0
+            ],
+            "state": 0
+          },
+          {
+            "nbt": {
+              "Items": [],
+              "id": "thermal_shock_reforged:thermal_geyser"
+            },
+            "pos": [
+              0,
+              5,
+              0
+            ],
+            "state": 1
+          }
+        ],
+        "palette": [
+          {
+            "Properties": {
+              "axis": "y"
+            },
+            "Name": "thermal_shock_reforged:cracked_shale_pillar_block"
+          },
+          {
+            "Name": "thermal_shock_reforged:thermal_geyser"
+          }
+        ],
+        "DataVersion": 3955
+      }
+    }
+  },
+  "source_behavior_evidence": {
+    "geyser": "ThermalGeyserBlock.animateTick calls SpiceGeyserOnRandomClientDisplayTickProcedure => CAMPFIRE_SIGNAL_SMOKE; unused ThermalGeyserOnRandomTickProcedure COSY_SMOKE has no callers",
+    "bulb_ambient": "Only animateTick client caller; ServerLevel branch sending five END_ROD at absolute .5/.5/.5 unreachable for this block; retained .4 local conduit sound",
+    "bulb_detonation": "onDestroyedByPlayer/wasExploded/onProjectileHit => explode(null, x,y,z,1,BLOCK) then END_ROD20 offsets1 speed.3",
+    "geyser_inventory": "9 actual slots, six sided wrappers, null-side unavailable, no right-click use override; old ChestMenu.threeRows(id,inventory) creates a detached 27-slot container"
+  },
+  "lapidary_dependency_evidence": {
+    "target_loot_table": {
+      "path": "src/main/resources/data/thermal_shock_reforged/loot_table/thermal_vent_lapidary.json",
+      "sha256": "9321ae20c3961d821f09ffb510164458073d9f374a6636f99002cceaae0e4baa",
+      "non_vanilla_item_ids": [
+        {
+          "id": "thermal_shock_reforged:cobbled_shale",
+          "loot_table_path": "src/main/resources/data/thermal_shock_reforged/loot_table/thermal_vent_lapidary.json",
+          "loot_table_name_lines": [
+            13
+          ],
+          "real_java_registration": [
+            {
+              "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+              "line": 58,
+              "declaration": "block(\"cobbled_shale\", ...)"
+            },
+            {
+              "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+              "line": 513,
+              "declaration": "block helper registers into BLOCKS"
+            },
+            {
+              "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+              "line": 516,
+              "declaration": "same helper registers corresponding BlockItem into ITEMS"
+            },
+            {
+              "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+              "line": 500,
+              "declaration": "register(IEventBus)"
+            },
+            {
+              "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+              "line": 502,
+              "declaration": "ITEMS.register(bus)"
+            }
+          ]
+        },
+        {
+          "id": "thermal_shock_reforged:helion_slag",
+          "loot_table_path": "src/main/resources/data/thermal_shock_reforged/loot_table/thermal_vent_lapidary.json",
+          "loot_table_name_lines": [
+            43
+          ],
+          "real_java_registration": [
+            {
+              "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+              "line": 413,
+              "declaration": "item(\"helion_slag\", ...)"
+            },
+            {
+              "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+              "line": 520,
+              "declaration": "item helper registers into ITEMS"
+            },
+            {
+              "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+              "line": 502,
+              "declaration": "ITEMS.register(bus)"
+            }
+          ]
+        },
+        {
+          "id": "thermal_shock_reforged:ferrous_rock",
+          "loot_table_path": "src/main/resources/data/thermal_shock_reforged/loot_table/thermal_vent_lapidary.json",
+          "loot_table_name_lines": [
+            88
+          ],
+          "real_java_registration": [
+            {
+              "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+              "line": 405,
+              "declaration": "item(\"ferrous_rock\", ...)"
+            },
+            {
+              "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+              "line": 520,
+              "declaration": "item helper registers into ITEMS"
+            },
+            {
+              "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+              "line": 502,
+              "declaration": "ITEMS.register(bus)"
+            }
+          ]
+        },
+        {
+          "id": "thermal_shock_reforged:adamantine_spice",
+          "loot_table_path": "src/main/resources/data/thermal_shock_reforged/loot_table/thermal_vent_lapidary.json",
+          "loot_table_name_lines": [
+            123
+          ],
+          "real_java_registration": [
+            {
+              "path": "src/main/java/com/hp/thermalshockreforged/content/utility/UtilityContent.java",
+              "line": 22,
+              "declaration": "ITEMS.register(\"adamantine_spice\", ...)"
+            },
+            {
+              "path": "src/main/java/com/hp/thermalshockreforged/content/utility/UtilityContent.java",
+              "line": 39,
+              "declaration": "register(IEventBus)"
+            },
+            {
+              "path": "src/main/java/com/hp/thermalshockreforged/content/utility/UtilityContent.java",
+              "line": 40,
+              "declaration": "ITEMS.register(bus)"
+            }
+          ]
+        },
+        {
+          "id": "thermal_shock_reforged:mithral_spice",
+          "loot_table_path": "src/main/resources/data/thermal_shock_reforged/loot_table/thermal_vent_lapidary.json",
+          "loot_table_name_lines": [
+            138
+          ],
+          "real_java_registration": [
+            {
+              "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java",
+              "line": 94,
+              "declaration": "ITEMS.register(\"mithral_spice\", ...)"
+            },
+            {
+              "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java",
+              "line": 106,
+              "declaration": "register(IEventBus)"
+            },
+            {
+              "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java",
+              "line": 108,
+              "declaration": "ITEMS.register(bus)"
+            }
+          ]
+        }
+      ]
+    },
+    "purebiomes_original_jar_path_scan": {
+      "jar": "D:\\AI临时文件\\ThermalShockMigration\\thermal_shock-07.9-original.jar",
+      "jar_sha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436",
+      "entry_path_contains_purebiomes": [],
+      "count": 0
+    },
+    "purebiomes_original_java_source_scan": {
+      "root": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock",
+      "java_file_count": 3578,
+      "literal_hits": [],
+      "count": 0
+    }
+  }
+}

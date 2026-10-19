@@ -1,0 +1,28 @@
+{
+  "name": "thermal_shock_reforged:vilebath_castle_vilebath_bridges",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 3,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "thermal_shock_reforged:vilebath_bridge",
+        "projection": "rigid",
+        "processors": {
+          "processors": []
+        }
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "thermal_shock_reforged:vilebath_bridge_split",
+        "projection": "rigid",
+        "processors": {
+          "processors": []
+        }
+      }
+    }
+  ]
+}

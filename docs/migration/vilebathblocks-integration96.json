@@ -1,0 +1,61 @@
+{
+  "base_head": "8568f29",
+  "applied_by_this_chat": false,
+  "java_patches": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/ThermalShockReforged.java",
+      "operation": "insert_after_exact_line",
+      "anchor": "        NativeDecorContent.register(bus);",
+      "insert": "        com.hp.thermalshockreforged.content.vilebathblocks.VilebathBlocksContent.register(bus);"
+    }
+  ],
+  "ClientEvents_patch_required": false,
+  "client_reason": "原方块为已有solid/cutout普通JSON模型，原生ChestMenu屏幕及原版粒子，无新自定义renderer/菜单类型/音频",
+  "language_merge_keep_others": {
+    "src/main/resources/assets/thermal_shock_reforged/lang/zh_cn.json": {
+      "block.thermal_shock_reforged.thermal_geyser": "热喷泉",
+      "block.thermal_shock_reforged.hanging_sparkler_bulb": "悬挂闪光球茎"
+    }
+  },
+  "english_existing_keys_keep": {
+    "block.thermal_shock_reforged.thermal_geyser": "Thermal Geyser",
+    "block.thermal_shock_reforged.hanging_sparkler_bulb": "Hanging Glister Bomb"
+  },
+  "block_tag_append_unique_keep_existing": {
+    "src/main/resources/data/minecraft/tags/block/mineable/pickaxe.json": [
+      "thermal_shock_reforged:thermal_geyser"
+    ],
+    "src/main/resources/data/minecraft/tags/block/mineable/axe.json": [
+      "thermal_shock_reforged:hanging_sparkler_bulb"
+    ]
+  },
+  "custom_block_state_properties": {
+    "thermal_geyser": [],
+    "hanging_sparkler_bulb": []
+  },
+  "block_entity_registration": "thermal_geyser -> ThermalGeyserBlockEntity，RandomizableContainer/WorldlyContainer真实9格，保Items与LootTable，自动化capability在本类自行注册",
+  "existing_shared_dependencies_unchanged": [
+    "FarmInventoryBlockEntity",
+    "LapidarianWorkbenchBlock及thermal_vent_lapidary",
+    "CreativeTabs已含两BlockItem",
+    "原六模型/blockstate、六纹理",
+    "主线五Vilebath NBT、四结构/池、武器"
+  ],
+  "pending_original_source": [
+    "Hanging独立biome modifier引用purebiomes，原JAR和3578份原Java均未定义；未写该modifier或猜空tag，原JSON在investigation96中"
+  ],
+  "new_api_differences": [
+    "Forge LazyOptional/getCapability -> RegisterCapabilitiesEvent + SidedInvWrapper",
+    "NBT load/save/updateTag使用HolderLookup.Provider，复用已迁FarmInventoryBlockEntity",
+    "目标BlockBehaviour回调protected覆写；无新增BlockState属性",
+    "UniformInt min/max从value展平，保范围和分布；forge:add_features->neoforge:add_features",
+    "原脱离BE的27格菜单改绑定真实9格，仍不新增右键入口"
+  ],
+  "recorded_behavior_differences": [
+    "失败破坏不再触发爆炸，投射物验证当前块",
+    "连锁改同tick同步FIFO并finally清理ThreadLocal，所有回调/自毁第二爆炸/20END_ROD保留；密集连锁物理/无敌帧结算顺序可能不同",
+    "补COLOR_GRAY/SAND地图色，无Xaero运行验收"
+  ],
+  "gradle_run": false,
+  "game_run": false
+}

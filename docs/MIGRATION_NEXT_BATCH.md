@@ -216,3 +216,5 @@ Spectre 已接完整实体、原0.3速度/仰角0.1/5基础箭伤/零击退音�
 Vilebath两城堡还缺DormantMonolith／Monolith，Thrasher的Graver目标也尚缺真实实体；原生内容仍在待办，未作为跨模组联动延期。下批优先补这两家族及完整结构依赖，开工仍先把约半分给既有独立聊天。整模组未完整；外模组联动仅见DEFERRED_MOD_INTEGRATIONS.md，最终专服／客户端／Render Preview由子代理在全部代码完整后执行。Palace／Shalespring两处启动修复已在5048aa3本地提交，后续推送会一并包含；当前仍无remote，不虚报已推送。
 
 第95批：Graver／NeonLimeGraver／Assimilator／AssimilatedGraver／Razoraptor和两Monolith完整家族已迁，保全部原资产、招架／感染／转换／生成和实际死亡时序。17新Java、四Graver生成及Monolith5数据；统一8202固定输入、7551构建资源通过，Java21离线compileJava/processResources首次成功1m30s，未运行游戏。详见migration/main95-static-validation.json、gravers-batch95.md、monolith-batch95.md。Vilebath仍缺thermal_geyser、hanging_sparkler_bulb、bloodstone_halberd及原桥池名／旧属性修复，见monolith-dependencies95.json；先完整迁真实内部功能再启城堡，不能按外模组联动延期。后续每批继续约半派既有另一聊天，Luna已恢复仅负责只读盘点／核对。整模组和最终两端／Render Preview仍未完成。
+
+第96批完成两长戟、两Vilebath功能方块、五完整城堡/桥模板及四自然JSON，覆盖第95批城堡三项真实注册缺口。保828118块记录/90实体及原3:1桥池，修7处失效池引用。5新Java/主线4共享武器类/真实九格和全部爆炸粒子已编译；固定8223输入、7567资源通过，统一compileJava/processResources首次1m4s。证据migration/main96-static-validation.json；没有启动游戏。仍待原purebiomes独立灯泡注入范围，见vilebathblocks-investigation96.json，不能当外模组联动延期，也不能造空tag。下一批继续先约半给同一聊天，Luna已能做只读盘点；整模组和最终测试未完成。

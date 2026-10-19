@@ -1,0 +1,49 @@
+{
+  "scope": "第96批ThermalGeyser/HangingSparklerBulb，独占文件冻结交付；共享补丁待主线接入",
+  "production_file_count": 15,
+  "production_sha256": {
+    "src/main/java/com/hp/thermalshockreforged/content/vilebathblocks/HangingSparklerBulbBlock.java": "f021d9462b7c5953d8590053c14903170f27f08c8317e97dc1dd9fb280730be1",
+    "src/main/java/com/hp/thermalshockreforged/content/vilebathblocks/SparklerDetonations.java": "beb2840b931925bbfc4dcd4f193b48cfc366ba385e9aca62cc8cb124ddf777fe",
+    "src/main/java/com/hp/thermalshockreforged/content/vilebathblocks/ThermalGeyserBlock.java": "997d88c49bed565df442e1656e597915561cca5feaed003773b6b0693e616180",
+    "src/main/java/com/hp/thermalshockreforged/content/vilebathblocks/ThermalGeyserBlockEntity.java": "98625c3928d7cdd93e0d3faa341165b358a80cca70cda1a489b6eb1615c13bbc",
+    "src/main/java/com/hp/thermalshockreforged/content/vilebathblocks/VilebathBlocksContent.java": "9ea31fc97c1c7de7f2efa2f08e4890d665b08f5bac7ddd45032078eda74328a2",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/thermal_geyser.json": "f0004046244419500125bac84dba82d0603d2fa3eac6c5b89ad51213007720d2",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/hanging_sparkler_bulb.json": "0d177b8bf875ae27a6147f2f062cbae7c71ce5dfbccf71dca6e7cee6d66c68d1",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/thermal_geyser_generation.json": "bdb4b476e9997f0030d268daec9ed445ba77a94d38498991c89766117482679a",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/hanging_bulb_patch.json": "128e2896690db97d404890cd207af19b4092033c9050d860645d1bb92d6cca11",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/thermal_geyser_generation.json": "135eede790ac2a4ddd18a37a261d16b5361da43a73a58f47222799cc6debb807",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/hanging_bulb_patch.json": "f619ef34312850ae751c46c46aa90338e77ed2e5f55541c76ff60b0bb2254d67",
+    "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/thermal_geyser_generation_biome_modifier.json": "414207fb3a75c817bbcaef2b29368493c3fcc5a14923b16504a0fe930389f5e1",
+    "src/main/resources/data/thermal_shock_reforged/structure/thermalvent1.nbt": "9286f472fae1e765f7cec69a9103683cf7227e758a1d1e09c6fcd3cb89f6f27e",
+    "src/main/resources/data/thermal_shock_reforged/structure/thermalvent2.nbt": "408ad16d4e6b61a1d27d23fbea73f731a6702a577e9cfe166b273bb97447b96d",
+    "src/main/resources/data/thermal_shock_reforged/structure/thermalvent3.nbt": "fdad89d9e64401ff68dee87f1714cbfcdf9e5f03407b1f6373ca2211516314b0"
+  },
+  "aggregate_sha256": "01a219d9387b81916e3e3406ec6149769d1bbc5542677b7a9886ee3dc214d10c",
+  "aggregate_rule": "相对路径排序，每行path+TAB+sha256+LF，UTF8后SHA256",
+  "report_sha256": {
+    "docs/migration/vilebathblocks-batch96.md": "7cd0f87d43c9eaeb19362eaaf3a2e9f5081d1b4fc44784c5a59799e8ced70ca1",
+    "docs/migration/vilebathblocks-integration96.json": "4fa89d8b7b28d670db8ebea6eb35ab7c3b1236120afc78a1e417314ff95b6b7a",
+    "docs/migration/vilebathblocks-investigation96.json": "c7f5d1048d76dc93db786977076a7f1f4da8daf93472e81683474c59b1ccfaf8",
+    "docs/migration/vilebathblocks-resources96.json": "c3c1f09c8aaea458627a56f1b613d630f8dd41d17fa5485c6db11b765e866ef4",
+    "docs/migration/vilebathblocks-validation96.json": "234b9aa3fc63b75908850f24530d91cb8bb3ca9b1e842a633afa0e4eedcfb067"
+  },
+  "reused_dependency_code_sha256": {
+    "src/main/java/com/hp/thermalshockreforged/content/farming/FarmInventoryBlockEntity.java": "2bcbf8591e63e7921d92ae73def60aea39ef771297a81bb5486fedfef7f50b04"
+  },
+  "text_utf8_diff_check_count": 17,
+  "static_validation": "11组通过，含回调计数模型；不是运行时爆炸测试",
+  "blockstate_custom_properties": {
+    "thermal_geyser": [],
+    "hanging_sparkler_bulb": []
+  },
+  "thermal_geyser_natural_source_closed_after_entry_registration": true,
+  "hanging_independent_biome_injection_closed": false,
+  "pending_original_source": "purebiomes原无定义；保事实待办，不构造范围。主线城堡自然源不依赖此tag。",
+  "shared_files_modified_by_this_chat": [],
+  "gradle_run": false,
+  "server_test": false,
+  "client_or_render_preview_test": false,
+  "staged_or_committed": false,
+  "shared_integration_applied": false,
+  "frozen": true
+}

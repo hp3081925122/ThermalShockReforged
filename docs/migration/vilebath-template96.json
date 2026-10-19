@@ -1,0 +1,125 @@
+{
+  "templates": {
+    "vilebath_castle": {
+      "original_uncompressed_sha256": "97bbd49b6630bf62544c94671b18e8969671ab3620871d0b9d61543f7ccd7c6b",
+      "target_sha256": "e24cb07cfd18d570837ad1084ed7a2642ac13d2de940c6339682583301ad6ebe",
+      "size": [
+        79,
+        43,
+        87
+      ],
+      "blocks": 295539,
+      "entities": 45,
+      "palette": 154,
+      "conversions": {
+        "banners": 27,
+        "entity_attributes": 39,
+        "persistent_data": 39,
+        "active_effects": 16,
+        "legacy_curative_stacks": 16,
+        "item_stacks": 6
+      },
+      "spawn_type_keys": 39,
+      "jigsaw_pool_name_fixes": 0,
+      "all_positions_states_palette_preserved": true,
+      "typed_nbt_roundtrip": true
+    },
+    "vilebathrubicon": {
+      "original_uncompressed_sha256": "3bf37ae159408893642b5f8e059c70d160c4182d526c9fe052470236ec696c1d",
+      "target_sha256": "a3165dd2debb90060b35ecc83835ff42274c537ce2351ee39ab6c568850dbb1a",
+      "size": [
+        79,
+        64,
+        87
+      ],
+      "blocks": 439872,
+      "entities": 45,
+      "palette": 153,
+      "conversions": {
+        "banners": 27,
+        "entity_attributes": 39,
+        "persistent_data": 39,
+        "active_effects": 16,
+        "legacy_curative_stacks": 16,
+        "item_stacks": 6
+      },
+      "spawn_type_keys": 39,
+      "jigsaw_pool_name_fixes": 0,
+      "all_positions_states_palette_preserved": true,
+      "typed_nbt_roundtrip": true
+    },
+    "vilebath_bridge": {
+      "original_uncompressed_sha256": "812aa173909ba05e4add43c1d77371253ea597c8245b792f2679e2e8a265d2ad",
+      "target_sha256": "1ee15da44f78653cd67ed3501ea1cb6aaf4f91df41e9d25fe27b1028283c86f3",
+      "size": [
+        21,
+        25,
+        49
+      ],
+      "blocks": 24549,
+      "entities": 0,
+      "palette": 14,
+      "conversions": {},
+      "spawn_type_keys": 0,
+      "jigsaw_pool_name_fixes": 1,
+      "all_positions_states_palette_preserved": true,
+      "typed_nbt_roundtrip": true
+    },
+    "vilebath_bridge_center": {
+      "original_uncompressed_sha256": "7f14939ac8f602bf6478ef2cf557da1fc26a300aea1d6e956d33a6784581aa49",
+      "target_sha256": "a8ff8fe4f08044843a7b93b3e5379d53ccbe26627d558036ad8e269bf3d14621",
+      "size": [
+        31,
+        25,
+        31
+      ],
+      "blocks": 22833,
+      "entities": 0,
+      "palette": 28,
+      "conversions": {},
+      "spawn_type_keys": 0,
+      "jigsaw_pool_name_fixes": 4,
+      "all_positions_states_palette_preserved": true,
+      "typed_nbt_roundtrip": true
+    },
+    "vilebath_bridge_split": {
+      "original_uncompressed_sha256": "bd25b984dee2b712b4c2ccc330f732a7fa9535344204562b68bbbd12c01a3935",
+      "target_sha256": "4e3d09c6491e12026c24ccbed585e96cd122b750c9544518215b57926997d7a1",
+      "size": [
+        37,
+        25,
+        49
+      ],
+      "blocks": 45325,
+      "entities": 0,
+      "palette": 32,
+      "conversions": {},
+      "spawn_type_keys": 0,
+      "jigsaw_pool_name_fixes": 2,
+      "all_positions_states_palette_preserved": true,
+      "typed_nbt_roundtrip": true
+    }
+  },
+  "worldgen": {
+    "src/main/resources/data/thermal_shock_reforged/worldgen/structure/vilebath_castle.json": {
+      "original_sha256": "785507f4c5c7ce4033d096d1bf4feb1a76c2f6e5e34b1df8a1ebcc1621a48bb8",
+      "target_sha256": "e45a5d5839e120c0ab96c3c3f2ee3ba550f59bb329597b01438e5ad0a03a7fa1",
+      "original_semantics_preserved_except_namespace": true
+    },
+    "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/vilebath_castle.json": {
+      "original_sha256": "0ecca486ad582effb6f21be01473c9623f7adfac29bc8b946e6d9ba2539fb6c3",
+      "target_sha256": "f7bd52231eefbebb37f66df8a9ec8cea56c04c30d3ae79d9d2b219150069c454",
+      "original_semantics_preserved_except_namespace": true
+    },
+    "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/vilebath_castle.json": {
+      "original_sha256": "a94bca8adfac573fec406163ea4d20947ec3ed04a737e8814b7bf4767216e405",
+      "target_sha256": "e47001b05e16ecc47e23d3102394efcd8d9bdf04ccc7d08327c5196037686da1",
+      "original_semantics_preserved_except_namespace": true
+    },
+    "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/vilebath_castle_vilebath_bridges.json": {
+      "original_sha256": "fa7ca3cfba40e7cf0126501c89d851e8f32d0968de0d3bba9a5215fdbcd31793",
+      "target_sha256": "4d1c1e93bed642a545a23422bc1cdae766b72ecf9b945406206977bb26f98dc6",
+      "original_semantics_preserved_except_namespace": true
+    }
+  }
+}
