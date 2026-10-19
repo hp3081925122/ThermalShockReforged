@@ -1,0 +1,14 @@
+{
+  "display": {
+    "icon": { "id": "thermal_shock_reforged:surge_pylon" },
+    "title": { "translate": "advancements.sanctum_get.title" },
+    "description": { "translate": "advancements.sanctum_get.descr" },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": { "sanctum_get_0": { "trigger": "minecraft:impossible" } },
+  "rewards": { "experience": 100 },
+  "parent": "thermal_shock_reforged:fabricator_get"
+}

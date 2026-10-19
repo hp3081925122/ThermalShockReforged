@@ -1,0 +1,14 @@
+{
+  "display": {
+    "icon": { "id": "thermal_shock_reforged:keystone" },
+    "title": { "translate": "advancements.beta_complete.title" },
+    "description": { "translate": "advancements.beta_complete.descr" },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": { "beta_complete_0": { "trigger": "minecraft:impossible" } },
+  "rewards": { "experience": 1000, "loot": ["thermal_shock_reforged:advancements/beta_complete"] },
+  "parent": "thermal_shock_reforged:sanctum_get"
+}

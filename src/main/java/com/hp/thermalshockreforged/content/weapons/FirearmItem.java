@@ -1,0 +1,79 @@
+package com.hp.thermalshockreforged.content.weapons;
+
+import com.hp.thermalshockreforged.ThermalShockReforged;
+import com.hp.thermalshockreforged.content.MaterialContent;
+import java.util.List;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.*;
+import net.minecraft.world.*;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.Level;
+import software.bernie.geckolib.animatable.GeoItem;
+import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.animation.*;
+
+public final class FirearmItem extends Item implements GeoItem {
+    private final boolean hailfall;
+    private final BoundedItemAnimationCache animations = new BoundedItemAnimationCache(this);
+    public FirearmItem(boolean hailfall) {
+        super(new Properties().durability(hailfall ? 1000 : 920).fireResistant().rarity(Rarity.UNCOMMON));
+        this.hailfall = hailfall; GeoItem.registerSyncedAnimatable(this);
+    }
+    public boolean isHailfall() { return hailfall; }
+    @Override public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) { return false; }
+    @Override public int getEnchantmentValue() { return 5; }
+    @Override public UseAnim getUseAnimation(ItemStack stack) { return hailfall ? UseAnim.BOW : super.getUseAnimation(stack); }
+    @Override public int getUseDuration(ItemStack stack, LivingEntity entity) { return hailfall ? 60 : super.getUseDuration(stack, entity); }
+    @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+        var result = super.use(level, player, hand);
+        if (hailfall) fire(player, result.getObject());
+        return result;
+    }
+    @Override public boolean onEntitySwing(ItemStack stack, LivingEntity wielder, InteractionHand hand) { fire(wielder, stack); return false; }
+    @Override public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
+        super.inventoryTick(stack, level, entity, slot, selected);
+        if (level instanceof ServerLevel server) GeoItem.getOrAssignId(stack, server);
+        if (selected && entity instanceof LivingEntity living && (!hailfall || living.isUsingItem())) {
+            HeldWeaponState.refreshNoMelee(living);
+            if (hailfall) fire(living, stack);
+        }
+    }
+    private void fire(LivingEntity wielder, ItemStack stack) {
+        if (!(wielder instanceof Player player) || !(player.level() instanceof ServerLevel server) || player.getCooldowns().isOnCooldown(this)) return;
+        Item ammo = MaterialContent.items().get("light_round").get();
+        if (!player.getAbilities().instabuild && !player.getInventory().contains(new ItemStack(ammo))) {
+            server.playSound(null, player.blockPosition(), SoundEvents.STONE_BUTTON_CLICK_ON, SoundSource.NEUTRAL, 1, 5); return;
+        }
+        var bullet = (hailfall ? WeaponContent.HAILFALL_BULLET : WeaponContent.FLINTSTEEL_RIFLE_BULLET).get().create(server);
+        if (bullet == null) return;
+        bullet.setOwner(player); bullet.setBaseDamage(hailfall ? .2F : 1); bullet.setSilent(true); bullet.setCritArrow(false);
+        bullet.setPos(player.getX(), player.getY() + 1.5, player.getZ());
+        var look = player.getLookAngle(); bullet.shoot(look.x, look.y, look.z, 6, hailfall ? 2 : 0);
+        if (!server.addFreshEntity(bullet)) return;
+        player.getCooldowns().addCooldown(this, hailfall ? 5 : 11);
+        triggerAnim(player, GeoItem.getOrAssignId(stack, server), "procedure", "1");
+        server.playSound(null, player.blockPosition(), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, hailfall ? "misc_gun_2" : "flint_gun_25")), SoundSource.NEUTRAL, 1, hailfall ? .75F : 1 + server.random.nextInt(2));
+        if (!hailfall) RifleCycleSoundEntity.submit(server, player.getX(), player.getY(), player.getZ());
+        if (!player.getAbilities().instabuild && (!hailfall || server.random.nextDouble() < .7)) player.getInventory().clearOrCountMatchingItems(candidate -> candidate.is(ammo), 1, player.inventoryMenu.getCraftSlots());
+    }
+    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) {
+        super.appendHoverText(stack, context, lines, flag);
+        lines.add(Component.literal(hailfall ? "§9- Cryo" : "§9- Pyro"));
+        if (hailfall) lines.add(Component.literal("§c- Select Fire"));
+        lines.add(Component.literal("§9- Moderate Speed")); lines.add(Component.literal("§9- Fires §eLight Rounds"));
+        if (hailfall) lines.add(Component.literal("§9- 30% Chance not to use Ammo"));
+    }
+    public void pruneAnimations() { animations.prune(); }
+    public void clearAnimations() { animations.clear(); }
+    @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+        var procedure = new AnimationController<>(this, "procedure", 0, state -> PlayState.STOP).triggerableAnim("1", RawAnimation.begin().thenPlay("1"));
+        controllers.add(procedure);
+        controllers.add(new AnimationController<>(this, "idle", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop("0"))));
+    }
+    @Override public AnimatableInstanceCache getAnimatableInstanceCache() { return animations; }
+}
