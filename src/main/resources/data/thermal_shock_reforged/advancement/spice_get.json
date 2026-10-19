@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "id": "thermal_shock_reforged:adamantine_spice"
+    },
+    "title": {
+      "translate": "advancements.spice_get.title"
+    },
+    "description": {
+      "translate": "advancements.spice_get.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "spice_get_0": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "thermal_shock_reforged:adamantine_spice"
+            ],
+            "count": {
+              "min": 1,
+              "max": 64
+            }
+          }
+        ]
+      }
+    }
+  },
+  "parent": "thermal_shock_reforged:loqendia_get"
+}

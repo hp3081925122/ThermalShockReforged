@@ -1,0 +1,113 @@
+{
+  "source_jar_sha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436",
+  "pages": 16,
+  "labels": 53,
+  "images": 46,
+  "buttons": 3,
+  "language_entries_per_locale": 67,
+  "all_label_and_narration_keys_bilingual": true,
+  "all_image_dimensions_match": true,
+  "source_and_target_asset_hashes_identical": {
+    "textures/screens/mainspeechbox.png": "12894af8cfa75443411767e123b9c3e66c72b81b21085b2e383e5f7040bb9ea5",
+    "textures/screens/mainlabelbox.png": "633b9d4f6971f9e2e173893b11889a588813a132963edcbd3c85154bca6d9dd6",
+    "textures/screens/qoidleportrait.png": "9e40b2cb78758642c6e974e83064dbd236cf4403b056d979a9926fa3088c3b6e",
+    "textures/screens/qoem1portrait.png": "570381f9d8b3fb8fcd9f9394a9e12c8e26bc14e2613d0930e3be5d95f277051d",
+    "textures/screens/qoem3portrait.png": "dce3f0365cc444379399d3080d2d73eaf745da4aa13a09873e37c51f463d5ec9",
+    "textures/screens/qoem2portrait.png": "cbb56f5203afadde6a1a0ce41e4a4676f37bf579379e7dd384041b97b22f6e4d",
+    "textures/screens/atlas/imagebutton_nextbuttona.png": "0c3e332bdc97c682d9c96cca3217a534bbe8d26eba61471f6756e1063cf4c70f",
+    "textures/screens/atlas/imagebutton_yesbuttonb.png": "1826a11cc5209e906f3c449a78b941b02de44c7c207fa7e0d46df2fcb27d489b",
+    "textures/screens/atlas/imagebutton_nobuttonb.png": "a40601b75e0b5d27235a165ccb698ba4ed728beb54c73c3c0eb811b7cc94e385",
+    "textures/screens/qoem4portrait.png": "cde9c450e632616c9a70712b301f66fda0b8c4fcaa44a2e7378d8d6ca325f42c",
+    "geo/qo.geo.json": "3ab26748bdc5257d41a3098d8977487a7b24c59be05017c88fa511956ed91cd2",
+    "animations/qo.animation.json": "4b725a786d1f5934e7336aaf1ae2eb193687187102476a74c0745921bd2d6a38",
+    "textures/entities/qo.png": "79b5dab9f8f61e797eb06824969899c25536d2273d9b5f721c80e7ea99cb0571",
+    "geo/thermoid.geo.json": "ac8878fbf00e3edb2066dc2ece09741764c9f63b631bf2fd967d916928030359",
+    "animations/thermoid.animation.json": "c663fee1f9a7ca9045cf24802890292eedc0fc7221c174ec32039aa583043fd9",
+    "textures/entities/thermoid.png": "6c4c2f5c9f1bf6eb22f09ad74fa4f9e3276526d8cf16bcaada4b0c88c16a8110",
+    "sounds/qotalk4.ogg": "8849a5720356ed59a0d9c295416a336c18c4005153e6ca8d287879ac8806d889",
+    "sounds/qotalk3.ogg": "7dca33c6aae9b99f00a144c372767b392c2fe7cf945a670c9cb57af21583d0ea",
+    "sounds/qotalk2.ogg": "f52e296bf6015f9b0c7685617f3d7dc2f17371a3cfa36e6860668be91eec47ab",
+    "sounds/qotalk1.ogg": "1a844c73ca797e8ea93ee992be6f65f0c523a8b5ff306f698a47969f034e3e6e",
+    "sounds/qoem1talk2.ogg": "92a3dd1db89e5cc6a5a85fcda4501ab8c74c66b482448fe45d0f04f2a32191dd",
+    "sounds/qoem1talk1.ogg": "7c3e331b5d9b3c29adb8319e8f24d8bc838530db1cfb147f7685889221fd628d",
+    "sounds/qoem2talk2.ogg": "25f19871e4413944dc648841833020cf88e3ca5c0bf5ef4676fdb72541cefc35",
+    "sounds/qoem2talk1.ogg": "978b2db4b1612c16aa195b0dc6b38bc40d2ec9a4071d0a0709c744668a2fab8d",
+    "sounds/thermoid1.ogg": "c49f649245e01c16df9eff85f5c69ad9263a972d10d553d630bd047001304af4",
+    "sounds/thermoid2.ogg": "341cc1f6ec7a6c06e09ab9b2f77dfb3d77f272f150b297b343350c363e56bfb1",
+    "sounds/jingle.ogg": "1621a62dfa378aa5916b7938d99fa4e2054a3efb922c63240d07a4aacd983ae0"
+  },
+  "java_sha256": {
+    "src/main/java/com/hp/thermalshockreforged/entity/qo/DefectorMachinistEntity.java": "a3b3172de88cbd0c5e0ab8f3abe0836d6cdfc33f8123dbedc4fdc69f9d6bf412",
+    "src/main/java/com/hp/thermalshockreforged/entity/qo/IceArtifactItem.java": "bf06e62454671f6ce8e861bc19e32bed53f8b8ca3e5503da21cd693c6911bec1",
+    "src/main/java/com/hp/thermalshockreforged/entity/qo/QoContent.java": "621160f4ce5e5e97a7676f7d6d39f0bfdadc155e8cea447454e8cf469e2698b2",
+    "src/main/java/com/hp/thermalshockreforged/entity/qo/QoMenu.java": "b64faf6bc36afdfb93b553cbf5b59a22447bad94dd8a8123368bd9ec2505721b",
+    "src/main/java/com/hp/thermalshockreforged/entity/qo/QoPage.java": "770c2add07061cea7f48358c928c08f9754bdda173eacb2202110fed858b11ae",
+    "src/main/java/com/hp/thermalshockreforged/entity/qo/QoProgressData.java": "7bf64168bbfce61823b240dd5ff1a7d28a6e8caf4e953c8bb974b4407c70e944",
+    "src/main/java/com/hp/thermalshockreforged/entity/qo/ThermoidEntity.java": "d71c5b39bda6f6c114d53a918a29d5ab1e252b1679d8ad4d11e102a077a4aaed",
+    "src/main/java/com/hp/thermalshockreforged/entity/qo/UneasyAllianceBundleItem.java": "a3f8053676536b67340ea78a655234b79876736bd0617eeb701cadbaa55c9eff",
+    "src/main/java/com/hp/thermalshockreforged/client/qo/QoClient.java": "abcfe069573308f188761399f2e5feef4f5acf25fb0f5670965721c25e0a1764",
+    "src/main/java/com/hp/thermalshockreforged/client/qo/QoScreen.java": "1e541b4c7f6d9a04e50935142398adbf461c5c6621d2b92fe41c80b68fee7fc9"
+  },
+  "shared_entrypoints_and_language_files_written": false,
+  "compile": "未执行，主聊天统一",
+  "server_client_render_preview": "未执行，全模组完整后统一",
+  "loot_pools": 6,
+  "loot_weights_and_rolls_preserved": true,
+  "structure_checks": {
+    "junkyard": {
+      "size": [
+        31,
+        20,
+        31
+      ],
+      "blocks": 19220,
+      "block_entities": 13,
+      "entities": 2,
+      "inventory_stacks": [],
+      "qo_idle_cooldown": 0,
+      "sha256": "38844b4834dc3bf7f58013d22b0bcf5c53cf1f5c9df33bbbad8910a14e95e972",
+      "geometry_and_entity_positions_unchanged": true
+    },
+    "junkyard_rubicon": {
+      "size": [
+        31,
+        31,
+        31
+      ],
+      "blocks": 29791,
+      "block_entities": 13,
+      "entities": 2,
+      "inventory_stacks": [
+        {
+          "Slot": 0,
+          "id": "thermal_shock_reforged:muck_pie",
+          "count": 1
+        },
+        {
+          "Slot": 1,
+          "id": "thermal_shock_reforged:muck_pie",
+          "count": 1
+        },
+        {
+          "Slot": 9,
+          "id": "thermal_shock_reforged:muck_pie",
+          "count": 1
+        },
+        {
+          "Slot": 16,
+          "id": "thermal_shock_reforged:loqendian_disc_shard",
+          "count": 1
+        },
+        {
+          "Slot": 18,
+          "id": "thermal_shock_reforged:muck_pie",
+          "count": 1
+        }
+      ],
+      "qo_idle_cooldown": 96,
+      "sha256": "e1ae1d249918c9167fa0859251ea7a3d7e90e8cd69669dc6f48cbcd3aced914a",
+      "geometry_and_entity_positions_unchanged": true
+    }
+  },
+  "worldgen_exact_except_namespace": true
+}

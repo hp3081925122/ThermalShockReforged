@@ -1,0 +1,18 @@
+{
+  "batch": 90,
+  "entities": 3,
+  "biomes": 6,
+  "nativeUndeadSemanticTags": 6,
+  "ownTagsChecked": 2,
+  "resources": 15,
+  "sourceOnlyStatic": true,
+  "runtimeTested": false,
+  "followup90_91": {
+    "dimensionInitialization": "constructor refreshDimensions once",
+    "nonPlayerIdentity": "UUID across normal reload",
+    "playerIdentity": "runtime id plus weak original reference, reload cannot hit new player",
+    "advancementIcons": "1.21 id schema corrected",
+    "compile": "Java21 offline combined batch success",
+    "runtimeTested": false
+  }
+}

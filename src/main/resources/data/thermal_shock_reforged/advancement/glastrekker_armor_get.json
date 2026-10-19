@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "id": "thermal_shock_reforged:glastrekker_armor"
+    },
+    "title": {
+      "translate": "advancements.glastrekker_armor_get.title"
+    },
+    "description": {
+      "translate": "advancements.glastrekker_armor_get.descr"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "glastrekker_armor_get_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "thermal_shock_reforged:corroded_get"
+}

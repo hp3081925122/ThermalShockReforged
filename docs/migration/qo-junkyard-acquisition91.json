@@ -1,0 +1,464 @@
+{
+  "source_jar_sha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436",
+  "original_dependency_audit": "D:\\AI临时文件\\ThermalShockMigration\\kofoni-junkyard-dependency-audit.json",
+  "conversion_script": "D:\\AI临时文件\\ThermalShockMigration\\migrate_qo_junkyard91.py",
+  "conversion": {
+    "junkyard": {
+      "size": [
+        31,
+        20,
+        31
+      ],
+      "blocks": 19220,
+      "palette": 64,
+      "entities": 2,
+      "conversions": {
+        "entity_attributes": 2,
+        "persistent_data": 2
+      },
+      "geometry_palette_positions_preserved": true,
+      "original_byte_roundtrip": true,
+      "converted_roundtrip": true,
+      "sha256": "38844b4834dc3bf7f58013d22b0bcf5c53cf1f5c9df33bbbad8910a14e95e972"
+    },
+    "junkyard_rubicon": {
+      "size": [
+        31,
+        31,
+        31
+      ],
+      "blocks": 29791,
+      "palette": 65,
+      "entities": 2,
+      "conversions": {
+        "qo_internal_cooldown": 1,
+        "item_stacks": 5,
+        "entity_attributes": 2,
+        "persistent_data": 2
+      },
+      "geometry_palette_positions_preserved": true,
+      "original_byte_roundtrip": true,
+      "converted_roundtrip": true,
+      "sha256": "e1ae1d249918c9167fa0859251ea7a3d7e90e8cd69669dc6f48cbcd3aced914a"
+    },
+    "resource_patches": {
+      "data/thermal_shock_reforged/structure/junkyard.nbt": "D:\\AI临时文件\\ThermalShockMigration\\qo91-staging\\data\\thermal_shock_reforged\\structure\\junkyard.nbt",
+      "data/thermal_shock_reforged/structure/junkyard_rubicon.nbt": "D:\\AI临时文件\\ThermalShockMigration\\qo91-staging\\data\\thermal_shock_reforged\\structure\\junkyard_rubicon.nbt",
+      "data/thermal_shock_reforged/worldgen/structure/junkyard.json": "D:\\AI临时文件\\ThermalShockMigration\\qo91-staging\\data\\thermal_shock_reforged\\worldgen\\structure\\junkyard.json",
+      "data/thermal_shock_reforged/worldgen/structure_set/junkyard.json": "D:\\AI临时文件\\ThermalShockMigration\\qo91-staging\\data\\thermal_shock_reforged\\worldgen\\structure_set\\junkyard.json",
+      "data/thermal_shock_reforged/worldgen/template_pool/junkyard.json": "D:\\AI临时文件\\ThermalShockMigration\\qo91-staging\\data\\thermal_shock_reforged\\worldgen\\template_pool\\junkyard.json"
+    },
+    "applied_to_project": true
+  },
+  "original_registry_factory_evidence": {
+    "blocks": [
+      {
+        "id": "thermal_shock:big_glass_bottle",
+        "status": "registered_active",
+        "factory_evidence": [
+          {
+            "file": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+            "line": 52,
+            "registered_by": "GeoDecorContent loop",
+            "registration_file": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java",
+            "registration_line": 23,
+            "active_entrypoint_bus_registration": true
+          }
+        ]
+      },
+      {
+        "id": "thermal_shock:bouncer",
+        "status": "registered_active",
+        "factory_evidence": [
+          {
+            "file": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java",
+            "line": 36,
+            "active_entrypoint_bus_registration": true
+          }
+        ]
+      },
+      {
+        "id": "thermal_shock:cache_pad",
+        "status": "registered_active",
+        "factory_evidence": [
+          {
+            "file": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+            "line": 43,
+            "registered_by": "GeoDecorContent loop",
+            "registration_file": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java",
+            "registration_line": 23,
+            "active_entrypoint_bus_registration": true
+          }
+        ]
+      },
+      {
+        "id": "thermal_shock:cobbled_shale",
+        "status": "registered_active",
+        "factory_evidence": [
+          {
+            "file": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+            "line": 58,
+            "active_entrypoint_bus_registration": true
+          }
+        ]
+      },
+      {
+        "id": "thermal_shock:cryonic_cache",
+        "status": "registered_active",
+        "factory_evidence": [
+          {
+            "file": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+            "line": 35,
+            "registered_by": "GeoDecorContent loop",
+            "registration_file": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java",
+            "registration_line": 23,
+            "active_entrypoint_bus_registration": true
+          }
+        ]
+      },
+      {
+        "id": "thermal_shock:ferrous_block",
+        "status": "registered_active",
+        "factory_evidence": [
+          {
+            "file": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+            "line": 80,
+            "active_entrypoint_bus_registration": true
+          }
+        ]
+      },
+      {
+        "id": "thermal_shock:grassy_shale",
+        "status": "registered_active",
+        "factory_evidence": [
+          {
+            "file": "src/main/java/com/hp/thermalshockreforged/content/terrain/TerrainContent.java",
+            "line": 37,
+            "active_entrypoint_bus_registration": true
+          }
+        ]
+      },
+      {
+        "id": "thermal_shock:impervium_brick_stairs",
+        "status": "registered_active",
+        "factory_evidence": [
+          {
+            "file": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+            "line": 254,
+            "active_entrypoint_bus_registration": true
+          }
+        ]
+      },
+      {
+        "id": "thermal_shock:impervium_bricks",
+        "status": "registered_active",
+        "factory_evidence": [
+          {
+            "file": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+            "line": 150,
+            "active_entrypoint_bus_registration": true
+          }
+        ]
+      },
+      {
+        "id": "thermal_shock:loque_grass",
+        "status": "registered_active",
+        "factory_evidence": [
+          {
+            "file": "src/main/java/com/hp/thermalshockreforged/content/terrain/TerrainContent.java",
+            "line": 45,
+            "active_entrypoint_bus_registration": true
+          }
+        ]
+      },
+      {
+        "id": "thermal_shock:mossy_cobbled_shale",
+        "status": "registered_active",
+        "factory_evidence": [
+          {
+            "file": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java",
+            "line": 56,
+            "active_entrypoint_bus_registration": true
+          }
+        ]
+      },
+      {
+        "id": "thermal_shock:muck",
+        "status": "registered_active",
+        "factory_evidence": [
+          {
+            "file": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java",
+            "line": 53,
+            "active_entrypoint_bus_registration": true
+          }
+        ]
+      },
+      {
+        "id": "thermal_shock:muck_brick_slab",
+        "status": "registered_active",
+        "factory_evidence": [
+          {
+            "file": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+            "line": 93,
+            "active_entrypoint_bus_registration": true
+          }
+        ]
+      },
+      {
+        "id": "thermal_shock:muck_brick_stairs",
+        "status": "registered_active",
+        "factory_evidence": [
+          {
+            "file": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+            "line": 249,
+            "active_entrypoint_bus_registration": true
+          }
+        ]
+      },
+      {
+        "id": "thermal_shock:muck_brick_wall",
+        "status": "registered_active",
+        "factory_evidence": [
+          {
+            "file": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+            "line": 94,
+            "active_entrypoint_bus_registration": true
+          }
+        ]
+      },
+      {
+        "id": "thermal_shock:muck_bricks",
+        "status": "registered_active",
+        "factory_evidence": [
+          {
+            "file": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+            "line": 91,
+            "active_entrypoint_bus_registration": true
+          }
+        ]
+      },
+      {
+        "id": "thermal_shock:polished_impervium",
+        "status": "registered_active",
+        "factory_evidence": [
+          {
+            "file": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+            "line": 167,
+            "active_entrypoint_bus_registration": true
+          }
+        ]
+      },
+      {
+        "id": "thermal_shock:polished_mantlestone_slab",
+        "status": "registered_active",
+        "factory_evidence": [
+          {
+            "file": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+            "line": 63,
+            "active_entrypoint_bus_registration": true
+          }
+        ]
+      },
+      {
+        "id": "thermal_shock:shale",
+        "status": "registered_active",
+        "factory_evidence": [
+          {
+            "file": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+            "line": 38,
+            "active_entrypoint_bus_registration": true
+          }
+        ]
+      },
+      {
+        "id": "thermal_shock:shale_pillar_var_5",
+        "status": "registered_active",
+        "factory_evidence": [
+          {
+            "file": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+            "line": 31,
+            "registered_by": "GeoDecorContent loop",
+            "registration_file": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java",
+            "registration_line": 23,
+            "active_entrypoint_bus_registration": true
+          }
+        ]
+      },
+      {
+        "id": "thermal_shock:shale_pot",
+        "status": "registered_active",
+        "factory_evidence": [
+          {
+            "file": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+            "line": 37,
+            "registered_by": "GeoDecorContent loop",
+            "registration_file": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java",
+            "registration_line": 23,
+            "active_entrypoint_bus_registration": true
+          }
+        ]
+      },
+      {
+        "id": "thermal_shock:steelstem_block",
+        "status": "registered_active",
+        "factory_evidence": [
+          {
+            "file": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+            "line": 374,
+            "active_entrypoint_bus_registration": true
+          }
+        ]
+      },
+      {
+        "id": "thermal_shock:volt_flower",
+        "status": "registered_active",
+        "factory_evidence": [
+          {
+            "file": "src/main/java/com/hp/thermalshockreforged/content/plants/tall/TallPlantContent.java",
+            "line": 36,
+            "active_entrypoint_bus_registration": true
+          }
+        ]
+      },
+      {
+        "id": "thermal_shock:wrought_bar_corner",
+        "status": "registered_active",
+        "factory_evidence": [
+          {
+            "file": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java",
+            "line": 73,
+            "active_entrypoint_bus_registration": true
+          }
+        ]
+      }
+    ],
+    "block_entities": [
+      {
+        "id": "thermal_shock:big_glass_bottle",
+        "status": "registered_active",
+        "factory_evidence": [
+          {
+            "file": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+            "line": 52,
+            "registered_by": "GeoDecorContent loop",
+            "registration_file": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java",
+            "registration_line": 23,
+            "active_entrypoint_bus_registration": true
+          }
+        ]
+      },
+      {
+        "id": "thermal_shock:cache_pad",
+        "status": "registered_active",
+        "factory_evidence": [
+          {
+            "file": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+            "line": 43,
+            "registered_by": "GeoDecorContent loop",
+            "registration_file": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java",
+            "registration_line": 23,
+            "active_entrypoint_bus_registration": true
+          }
+        ]
+      },
+      {
+        "id": "thermal_shock:cryonic_cache",
+        "status": "registered_active",
+        "factory_evidence": [
+          {
+            "file": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+            "line": 35,
+            "registered_by": "GeoDecorContent loop",
+            "registration_file": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java",
+            "registration_line": 23,
+            "active_entrypoint_bus_registration": true
+          }
+        ]
+      },
+      {
+        "id": "thermal_shock:shale_pillar_var_5",
+        "status": "registered_active",
+        "factory_evidence": [
+          {
+            "file": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+            "line": 31,
+            "registered_by": "GeoDecorContent loop",
+            "registration_file": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java",
+            "registration_line": 23,
+            "active_entrypoint_bus_registration": true
+          }
+        ]
+      },
+      {
+        "id": "thermal_shock:shale_pot",
+        "status": "registered_active",
+        "factory_evidence": [
+          {
+            "file": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+            "line": 37,
+            "registered_by": "GeoDecorContent loop",
+            "registration_file": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java",
+            "registration_line": 23,
+            "active_entrypoint_bus_registration": true
+          }
+        ]
+      }
+    ],
+    "entities": [
+      {
+        "id": "thermal_shock:defector_machinist",
+        "status": "missing_factory",
+        "factory_evidence": []
+      },
+      {
+        "id": "thermal_shock:kofoni",
+        "status": "factory_defined_but_not_connected",
+        "factory_evidence": [
+          {
+            "file": "src/main/java/com/hp/thermalshockreforged/entity/kofoni/KofoniContent.java",
+            "line": 25,
+            "active_entrypoint_bus_registration": false
+          }
+        ]
+      }
+    ],
+    "items": [
+      {
+        "id": "thermal_shock:loqendian_disc_shard",
+        "status": "registered_active",
+        "factory_evidence": [
+          {
+            "file": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+            "line": 419,
+            "active_entrypoint_bus_registration": true
+          }
+        ]
+      },
+      {
+        "id": "thermal_shock:muck_pie",
+        "status": "registered_active",
+        "factory_evidence": [
+          {
+            "file": "src/main/java/com/hp/thermalshockreforged/content/utility/UtilityContent.java",
+            "line": 23,
+            "active_entrypoint_bus_registration": true
+          }
+        ]
+      }
+    ],
+    "effects": [
+      {
+        "id": "thermal_shock:cooldown",
+        "status": "missing_factory",
+        "factory_evidence": []
+      }
+    ]
+  },
+  "native_gap_resolution": {
+    "defector_machinist": "完整工厂与可达业务位于entity/qo，等待主聊天共享入口接线",
+    "cooldown": "Rubicon96tick转换为QoIdleCooldown，不保留活动效果",
+    "kofoni": "第90批完整工厂，由主聊天集成",
+    "lab_machinist": "另一个原生NPC，无Defector直接可达路由，后续独立批次"
+  },
+  "runtime": "未执行，主聊天全项目统一阶段验收"
+}

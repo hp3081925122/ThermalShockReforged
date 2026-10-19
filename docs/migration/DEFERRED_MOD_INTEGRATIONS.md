@@ -13,6 +13,7 @@
 | Foggy Pale Garden 雾预设 | 原件包含 `assets/foggypalegarden/preset.json`；目标已保留该资源并换为新群系命名空间。仅有资源不能证明第三方当前版本成功消费 | 保留现有文件，本轮不验证或修第三方预设格式；以后核目标模组版本、条件匹配、深度/天光/雾距及与本模组原生天空雾的关系 |
 | Untagged Mobs 换皮彩蛋 | 原 `procedures/ConciergeRightClickProcedure.java` 按手持物品 ID `untagged_mobs:scrambler` 切换 Concierge 纹理 | 原皮肤资源保留，外部物品交互入口延期；以后核对对方实际物品与触发条件，原生 Concierge 任务、头像和交易继续迁移 |
 | Structure Gel 传送能力字段 | Vilebath 原结构实体 NBT 留有 `ForgeCaps.structure_gel:gel_entity.portal=structure_gel:empty`；独立对话集成清单已列来源 | 保留原字段证据，本轮不激活或重写第三方 portal 能力，不增加强依赖；内部结构与实体功能继续迁移 |
+| Junkyard / Rubicon 外部能力字段 | 原 Junkyard 实体含 `ForgeCaps.structure_gel:gel_entity`，Rubicon 含 `embers:scales`，见 Kofoni 结构盘点与D盘暂存模板 | 保留原 NBT 证据，延期第三方能力迁移；Qo/Kofoni 与 Junkyard 的本模组自然来源仍须完整接通 |
 | 其他尚未提出的联动 | 本轮不新增 Tetra、匠魂、其他地图模组或战斗模组的专用适配代码；已有源码盘点未找到相应专用 API 调用 | 按用户后续需求单独查对方源码并确定范围，不能把推测写成已经存在的原功能 |
 
 JEI、Jade 和 Just Enough Characters 的现有示例依赖保留；可选联动不新增到模组 TOML。上述“当前未发现”仅指本次源码入口盘点，不能当作所有历史资源都无联动的证明。

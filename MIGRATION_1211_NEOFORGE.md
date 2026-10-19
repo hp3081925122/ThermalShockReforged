@@ -328,3 +328,12 @@ Shutterbug六页介绍/真实相机/摄影及图鉴任务、首次Shalespring完
 
 
 第87—89批已完成Core Eject Flare Gun/FlareGunCore、Liteprism Disk/真实蓄积及0/3/6 END共鸣，并集成独立对话Concierge完整20页/七交易/任务结算。原模型/动画/特效/声音保留；核心递归队列化、取消死亡不爆、飞盘防复制、菜单绑定与一次性结算等调整集中到REFORGED_CHANGES.md。独立对话停笔后整组compileJava/processResources首轮1m6s通过；两武器22原资产/34构建路径、飞盘八几何、NPC35原资产/20页96标签41按钮及构建复制静态通过。Fabricator31活动/0待产物、70/70引用闭合；不等于整模组完成。七模板仅准备，自然生成仍缺内部实体/方块等依赖，FrostTitan/CarborGL/Kofoni/全局元素及Glastrekker骑乘等仍待；最终客户端、服务端和Render Preview留到全代码完整。用户明确暂缓外模组联动，唯一清单为docs/migration/DEFERRED_MOD_INTEGRATIONS.md，JEI/Jade示例依赖保留，原生酿造、正常挖掘/地图属性、Gecko/AAA完整效果继续迁移。
+
+第90批已闭合两路独立工作：主对话迁入 Skeletitan/Frost Titan/Mantletitan 三种巨人，另一个聊天迁入 Kofoni 实体与完整11页界面。巨人保原三实体注册、六群系Skeletitan自然生成、Mantlestone/12% Frost替换、六个1.21亡灵语义标签、20tick蓄力挥击、7点无归属伤害、Mantle点火与完整原生烟火粒子、Mantle发光层、Frost水下增益和Frost核心挑战依赖；Kofoni保原属性/免疫/唤醒计时、11页/19按钮/整叠磁碟交换、20经验和逐次重采样奖励。Kofoni的真实 `spice_get` 父进度、`whisper_advancement`、`lore_tablet` 标签已由主对话补接；Junkyard自然结构仍因同场Defector Machinist尚未迁移而未启用，不把内部缺口归为可选联动。
+
+本批通过 `compileJava processResources --offline`（24 tasks，2 executed，5个既有弃用/未检查警告），并通过巨人静态校验（3实体、6群系、6原生亡灵标签、15份原资源、原标签/参数/调用链）。未启动客户端、服务端或Render Preview；完整迁移仍未完成。跨模组联动继续单独记录在 `docs/migration/DEFERRED_MOD_INTEGRATIONS.md`。
+
+
+第91批两路完整集成：主对话迁入Carbor GL完整真实榴弹发射/连续使用/原两配方，以及Glastrekker两形态/真实装甲转化/完整原生骑乘/蛋孵化与Luminous Sea自然链；另一聊天迁入Qo完整16页/53文字/46图层/3按钮、世界共享剧情/一次合金委托、IceArtifact/Thermoid/六池奖励袋和Junkyard两模板/原自然池。保全原模型/动画/特效/声音；统一整组compileJava/processResources首轮1m8s通过，静态证据见main91-static-validation.json、qo-validation91.json和qo91-integration-validation.json。第90批进度icon格式/语言字节/巨人初始尺寸与挥击持久身份及动画桥误判已收尾修正，Kofoni自然入口现在真实接通。原character_mobs缺项已补已注册7成员，未注册四NPC留后续。行为差异集中REFORGED_CHANGES，外模组联动仍独立延期。下一批开工先分约半给既有独立聊天：LabMachinist及21页实验室业务是自然候选；主对话补剩余全局元素/生物与其他真实缺口。整模组仍未完整，最终客户端/服务端/Render Preview未开始。
+
+第91批最终资源复制43s成功，本轮全部修改/新增资源39份源码与build逐字节一致；详见集成报告。历史独立交付报告里的未接线/未编译由本条覆盖，不等于运行测试完成。

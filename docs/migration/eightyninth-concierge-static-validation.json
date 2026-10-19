@@ -211,7 +211,7 @@
   "intentional_changes": [
     "绑定NPC UUID/实体ID/距离/维度/当前容器，服务端原子交易与一次性任务结算",
     "把原没有任何可达入口的Panacea交易接入完成任务后的交易循环；费用数量不变",
-    "原notice写入未被动画predicate读取的字段，改真实同步原动画",
+    "原notice经EntityAnimationFactory全局桥接到animationprocedure，目标保真实同步原动画",
     "原999击退抗性在目标版本等效满抗性1，取消逐tick固定尺寸刷新"
   ],
   "pending": [

@@ -1,0 +1,98 @@
+{
+  "runtimeTested": false,
+  "originalAssets": [
+    {
+      "file": "geo/grenade_launcher.geo.json",
+      "sha256": "17d3d521090000de5b2576f700cf8f94e1d573d2ab40723aaee5006eab204631"
+    },
+    {
+      "file": "animations/grenade_launcher.animation.json",
+      "sha256": "d6e1702915675e440dae3db20ff8415226bb969863d9a045efbeaca0e060f642"
+    },
+    {
+      "file": "textures/item/grenade_launcer.png",
+      "sha256": "5c0df7c8c67fd6676f7b9038cf78ced54fd90e7480a549962e338ea9354555a2"
+    },
+    {
+      "file": "geo/sea_treader.geo.json",
+      "sha256": "90bb78c91488c901dc047ca214ec61f77d29bfe500e0a1c78968a0509135f70a"
+    },
+    {
+      "file": "animations/sea_treader.animation.json",
+      "sha256": "6c218b58d7598f44543d2400ab38e2706a5c6cc9905b2ca54f1a62298f4d2a21"
+    },
+    {
+      "file": "textures/entities/seatreader.png",
+      "sha256": "d415b608f06157afd2de07485b9a716adcccdd7ce6b4f0f2193d265cb90183ca"
+    },
+    {
+      "file": "textures/entities/seatreadercorrialarmor.png",
+      "sha256": "96c5ea82769637687402b3c1206d9bc32b775393297be0a0bcbf3e56073aa3ea"
+    },
+    {
+      "file": "geo/skeletitan.geo.json",
+      "sha256": "ab8c2065c549ef98d1ca9bf8a72ef65bf0f9f7b2c20cdd72cde1fddd1b875b1a"
+    },
+    {
+      "file": "geo/frosttitan.geo.json",
+      "sha256": "b2e9f813f8673c713ddadf353053d4f72596af676a0a3b8ef7269f025dc83882"
+    },
+    {
+      "file": "animations/skeletitan.animation.json",
+      "sha256": "8932e5ef8d04da05866328cf76e02d3576b8a3d8e4b4e6940f1494874d370d6e"
+    },
+    {
+      "file": "animations/frosttitan.animation.json",
+      "sha256": "0433a6b2e2de08347b59faef02d660e52d56d60fcb99c4cffde81d926d00d077"
+    },
+    {
+      "file": "textures/entities/skeletitan.png",
+      "sha256": "e46bd65020266aeae2ae8a4f8dcb4e85aa2ae73a2b7cc3496daf423bdc27ea1b"
+    },
+    {
+      "file": "textures/entities/frost_titan.png",
+      "sha256": "3ca7fcb74801236e0c90cb4f6d01a0850276df69ba514bd6dc494bd17f3b1d04"
+    },
+    {
+      "file": "textures/entities/mantletitannoglow.png",
+      "sha256": "c46755a3698dc8123b3c215650ea6e8386365cb35edd40f7b2bbc28fc485dff2"
+    },
+    {
+      "file": "textures/entities/mantletitanglow.png",
+      "sha256": "de9a968365ba9bef0bc012c20dcc0988b5dcc96fdf827ed5f75ef62453c2d138"
+    }
+  ],
+  "convertedData": [
+    "data/thermal_shock_reforged/recipe/carbor_gl_recipe.json",
+    "data/thermal_shock_reforged/recipe/carbor_gl_bismuth_recipe.json",
+    "data/thermal_shock_reforged/neoforge/biome_modifier/glastrekker_biome_modifier.json",
+    "data/thermal_shock_reforged/neoforge/biome_modifier/glastrekker_egg_feature_biome_modifier.json",
+    "data/thermal_shock_reforged/loot_table/blocks/glastrekker_egg.json",
+    "data/thermal_shock_reforged/worldgen/configured_feature/glastrekker_egg_feature.json",
+    "data/thermal_shock_reforged/worldgen/placed_feature/glastrekker_egg_feature.json",
+    "data/thermal_shock_reforged/advancement/glastrekker_armor_get.json",
+    "data/thermal_shock_reforged/advancement/corroded_get.json",
+    "data/thermal_shock_reforged/advancement/spice_get.json",
+    "data/thermal_shock_reforged/advancement/whisper_advancement.json",
+    "models/item/carbor_gl.json",
+    "models/displaysettings/grenade_launcher.json",
+    "blockstates/glastrekker_egg.json",
+    "models/block/glastrekker_egg.json",
+    "models/item/glastrekker_egg.json",
+    "models/item/glastrekker_spawn_egg.json"
+  ],
+  "language": {
+    "en_us": {
+      "oldKeysPreserved": 3243,
+      "added": 24
+    },
+    "zh_cn": {
+      "oldKeysPreserved": 219,
+      "added": 156
+    }
+  },
+  "scope": "batch90 corrections and main batch91 only",
+  "compile": "compileJava processResources --offline SUCCESS 1m8s 24 tasks",
+  "resourceFollowup": "processResources --offline SUCCESS 43s",
+  "buildCopiesChecked": 39
+}
