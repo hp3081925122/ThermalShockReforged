@@ -1,0 +1,65 @@
+{
+  "batch": 100,
+  "base_head": "00bbd5801c3d373d0d239637de9dd69f2f5974d5",
+  "status": "本路停笔，主线接管共享集成与统一编译",
+  "entities": [
+    "high_director_sopel",
+    "sentrarius",
+    "blinding_lantern_flash_ring",
+    "giant_laser_test"
+  ],
+  "production_file_count": 15,
+  "production_sha256": {
+    "src/main/java/com/hp/thermalshockreforged/client/flashring/BlindingLanternFlashRingRenderer.java": "db6df42a27e98dffbfb229a1507bd6d45a5a712d34ce17fcf1eb15d78b5515c1",
+    "src/main/java/com/hp/thermalshockreforged/client/giantlaser/GiantLaserTestRenderer.java": "bb7feb52a9e9be707fe52b60fd3aa8b0191aed25f9d67e932d626597bcb99bd7",
+    "src/main/java/com/hp/thermalshockreforged/client/sentrarius/SentrariusRenderer.java": "a747227387947c309160ebd49ec70504630b017e67b9bb8f55b84dfa21926183",
+    "src/main/java/com/hp/thermalshockreforged/client/sopel/HighDirectorSopelRenderer.java": "a55f4a743778aa4235e86e9fb9638e16efc11abdc988d30937d2aadbbf94757e",
+    "src/main/java/com/hp/thermalshockreforged/entity/flashring/BlindingLanternFlashRingContent.java": "9da51cfe78087edbbd1c926dad372efa04f0eebd54f0f2bddb05bc6c657a877b",
+    "src/main/java/com/hp/thermalshockreforged/entity/flashring/BlindingLanternFlashRingEntity.java": "340408a21a44f15232d7d220bdc6118e296df8a6cfa1c6f1036c31ad65874038",
+    "src/main/java/com/hp/thermalshockreforged/entity/giantlaser/GiantLaserTestContent.java": "aa8d289c12c07fab03ae1b6fa8574f4ee7a895f1553979127b97cd68982e1ad5",
+    "src/main/java/com/hp/thermalshockreforged/entity/giantlaser/GiantLaserTestEntity.java": "8938e847a95ebd0ecdb3c8c09290662de592b749d20b674f3c8442a75ac2cecb",
+    "src/main/java/com/hp/thermalshockreforged/entity/sentrarius/SentrariusContent.java": "c2415319d6b5cba548e95de2e15a69a5c2ea8e591e1e48b0bebcf8e803bc72a3",
+    "src/main/java/com/hp/thermalshockreforged/entity/sentrarius/SentrariusEntity.java": "f883519371831ada3f11b42e424ce71c69d566470e1ee7cd7b9c28d5efd24d69",
+    "src/main/java/com/hp/thermalshockreforged/entity/sopel/HighDirectorSopelEntity.java": "01299aad660c5df764ca387466762eb421f587f64a88406bbe4d0711b4453a0f",
+    "src/main/java/com/hp/thermalshockreforged/entity/sopel/SopelConfig.java": "d94649fe39d64c9e957979da36fd5df75d1f1dd8d53a74f68f7719b55d118bcf",
+    "src/main/java/com/hp/thermalshockreforged/entity/sopel/SopelEntityContent.java": "eaa00aa93a13b3a20165b6524aa420aa00cc033c7953f5a461d8ea4eb86b0417",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/entities/sentrarius.json": "cb4062f51fa29d111ac02e1e1ad45543b2ab82db4a6f1df01e15acbc013f90c1",
+    "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/sentrarius_biome_modifier.json": "7541e69fb02ab9365dd25b6db7c5f23bb3c65ad050fa62ecd9e1c640b5eaa0e2"
+  },
+  "production_aggregate_sha256": "7f57a912264af68c41d8cca6697b9119e6a34c6bfbae6aa2f12562cb5fab5253",
+  "aggregate_algorithm": "相对路径排序，每行path+TAB+sha256+LF，UTF-8后SHA256",
+  "report_sha256": {
+    "docs/migration/sopel-four-batch100.md": "755b4e654a6bf14887989a0314b8563d386388e211e80bcdc06d66a69d65b55a",
+    "docs/migration/sopel-four-bytecode100.json": "7aae0793e68b2db0a028d79bf95983cea1782957deb71c3a5c22178b803bdd6c",
+    "docs/migration/sopel-four-investigation100.json": "ae53d7507dcfdb7bcfd647e1325128f74c50e97334350b4da78ef266cf5b232e",
+    "docs/migration/sopel-four-resources100.json": "6051d3b6861e3bb2e37b1ce609fb5da4a651dd421e5d2467aba4e8a6036819b6",
+    "docs/migration/sopel-four-integration100.json": "7b3b1546025c5131bbf7fb6f28d2db597a9770bf3718c81fb780d635d0c1a45d",
+    "docs/migration/sopel-four-validation100.json": "864245368fcdd049d82756395505189f5b9ead9907a375001d4e4b6eaf56b7a3"
+  },
+  "static_passed_checks": 53,
+  "reused_assets": 16,
+  "shared_increment": "sopel-four-integration100.json，四处Java插入、四标签文件五值、zh5真键；en现有",
+  "native_pending": [],
+  "external_mod_pending": [],
+  "original_source_limits": "Sopel/FlashRing/Giant原无蛋、自然、模板或业务生成入口；真实注册与管理员入口完整保留，不造技能/蛋。Sentrarius真蛋/自然/喂食/loot来源完整迁入。Sopel已有DeskDirector七页GUI不重复创建。",
+  "original_behavior_facts": [
+    "Sopel取消原伤且无任何生命伤害，四方向仅三个传送owner，未读selector不构成四技能",
+    "Sentrarius主手骨头喂食30tick，库存/craft/cursor消费且creative不豁免，一份后20%独立第二份，死亡不强制结算",
+    "FlashRing只有finalize后10END删除，无致盲/光照/攻击",
+    "Giant为PathfinderMob、type MONSTER、实际碰撞9×30、renderer另3倍、普通重力、512追踪，无激光技能或寿命"
+  ],
+  "intentional_changes": [
+    "假药水内部状态自身保存，保清除全部效果；不保管理员按假效果ID操纵接口",
+    "Sopel推力默认0.6折抗性，满抗/零不覆已有运动；原三传送仍保",
+    "服务端权威喂食/声画，冷却先提交防再入；有限END寿命存档续期",
+    "固定尺寸去除每tick重复刷新，初始即9×30"
+  ],
+  "compiled": false,
+  "server_tested": false,
+  "client_tested": false,
+  "render_preview_tested": false,
+  "shared_files_modified": false,
+  "staged": false,
+  "committed": false,
+  "next": "主线统一集成编译；全迁移最终专服与Render Preview；按最新用户授权本路停笔后可托管两路Luna继续独立8397254提前测试，由指定测试聊天协调。"
+}

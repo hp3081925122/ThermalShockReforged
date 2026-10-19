@@ -52,6 +52,7 @@ public abstract class LivingEntityStatusMixin {
     @Inject(method = "removeAllEffects", at = @At("TAIL"), cancellable = true)
     private void thermalShockReforged$clearArrival(CallbackInfoReturnable<Boolean> callback) {
         LivingEntity entity = (LivingEntity)(Object)this;
+        if (com.hp.thermalshockreforged.entity.sopel.SopelEntityContent.clearOwnerCooldown(entity)) callback.setReturnValue(true);
         if (entity.hasEffect(net.minecraft.world.effect.MobEffects.DAMAGE_RESISTANCE)) return;
         if (!entity.level().isClientSide && entity instanceof com.hp.thermalshockreforged.content.atlas.AtlasArrivalState arrival && arrival.arrivalProtectionTicks() > 0) { arrival.beginArrivalProtection(0); callback.setReturnValue(true); }
     }

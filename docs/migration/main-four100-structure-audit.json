@@ -1,0 +1,19 @@
+{
+  "schema": "main-four100-structure-audit-v1",
+  "worldgen": {
+    "structure": "src/main/resources/data/thermal_shock_reforged/worldgen/structure/blizzard_outpost.json",
+    "structure_set": "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/blizzard_outpost.json",
+    "template_pool": "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/blizzard_outpost.json",
+    "biomes": ["thermal_shock_reforged:borean_forest", "thermal_shock_reforged:borean_tundra"],
+    "step": "surface_structures",
+    "placement": {"spacing": 50, "separation": 46, "salt": 1508343520},
+    "consumer_status": "closed"
+  },
+  "nbt": {
+    "blizzard_outpost.nbt": {"target": "src/main/resources/data/thermal_shock_reforged/structure/blizzard_outpost.nbt", "size": [48, 48, 48], "data_version": 3465, "blocks": 110592, "palette": 122, "entities": 66, "direct_effigy": 3, "spawner_icidrogrunt": 3, "external_caps": ["structure_gel:gel_entity"], "consumer": "blizzard_outpost worldgen chain"},
+    "blizzardoutpostrubicon.nbt": {"target": "src/main/resources/data/thermal_shock_reforged/structure/blizzardoutpostrubicon.nbt", "size": [48, 48, 48], "data_version": 3465, "blocks": 110592, "palette": 122, "entities": 66, "direct_effigy": 3, "spawner_icidrogrunt": 3, "external_caps": ["structure_gel:gel_entity"], "consumer": "no original structure/pool/set or Java consumer; template only"},
+    "slagway1.nbt": {"target": "src/main/resources/data/thermal_shock_reforged/structure/slagway1.nbt", "size": [9, 13, 108], "data_version": 3465, "blocks": 12636, "palette": 9, "entities": 1, "direct_icidroviathan": 1, "external_caps": ["curios:inventory", "structure_gel:gel_entity"], "consumer": "no original structure/pool/set or Java consumer; template only"}
+  },
+  "dependency_status": {"direct_entities_registered": true, "spawner_entities_registered": true, "block_entities_registered": true, "nonempty_inventory_items": false, "external_caps_preserved_without_mod_toml_dependency": true},
+  "verification": {"conversion_report": "D:/AI临时文件/ThermalShockMigration/four100-structure-conversion.json", "geometry_counts_data_version_preserved": true, "gradle_compiled": false, "current_batch_game_tested": false}
+}
