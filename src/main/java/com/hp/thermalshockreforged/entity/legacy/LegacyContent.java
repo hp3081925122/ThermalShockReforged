@@ -31,6 +31,8 @@ public final class LegacyContent {
     public static final DeferredHolder<Item, Item> SOLA_EGG = ITEMS.register("sola_spawn_egg", () -> new DeferredSpawnEggItem(SOLA, -1, -1, new Item.Properties()));
     public static final DeferredHolder<EntityType<?>, EntityType<SpectreEntity>> SPECTRE = TYPES.register("spectre", () -> EntityType.Builder.of(SpectreEntity::new, MobCategory.MONSTER).sized(.8F, 1.7F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":spectre"));
     public static final DeferredHolder<Item, Item> SPECTRE_EGG = ITEMS.register("spectre_spawn_egg", () -> new DeferredSpawnEggItem(SPECTRE, -1, -1, new Item.Properties()));
+    public static final DeferredHolder<EntityType<?>, EntityType<LilJellyEntity>> LIL_JELLY = TYPES.register("lil_jelly", () -> EntityType.Builder.of(LilJellyEntity::new, MobCategory.MONSTER).sized(.9F, 1.6F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).fireImmune().build(ThermalShockReforged.MOD_ID + ":lil_jelly"));
+    public static final DeferredHolder<Item, Item> AMALJELLY_CANISTER = ITEMS.register("amaljelly_canister", AmaljellyCanisterItem::new);
     private LegacyContent() { }
     public static void register(IEventBus bus) { TYPES.register(bus); ITEMS.register(bus); bus.addListener(LegacyContent::attributes); bus.addListener(LegacyContent::placements); NeoForge.EVENT_BUS.addListener(LegacyContent::attack); }
     private static void placements(RegisterSpawnPlacementsEvent event) {
@@ -43,5 +45,5 @@ public final class LegacyContent {
             spectre.beginAttack(event.getEntity());
         }
     }
-    private static void attributes(EntityAttributeCreationEvent event) { event.put(SOLA.get(), SolaEntity.createAttributes().build()); event.put(SPECTRE.get(), SpectreEntity.createAttributes().build()); }
+    private static void attributes(EntityAttributeCreationEvent event) { event.put(SOLA.get(), SolaEntity.createAttributes().build()); event.put(SPECTRE.get(), SpectreEntity.createAttributes().build()); event.put(LIL_JELLY.get(), LilJellyEntity.createAttributes().build()); }
 }

@@ -14,6 +14,9 @@ public final class MagnetCrossbowBulletEntity extends GreenOrbBulletBase {
         var bullet = new MagnetCrossbowBulletEntity(owner, level); var view = owner.getViewVector(1); bullet.shoot(view.x, view.y, view.z, power * 2, 0); bullet.setSilent(true); bullet.setCritArrow(false); bullet.setBaseDamage(damage); bullet.setImpactKnockback(knockback); level.addFreshEntity(bullet); return bullet;
     }
     public static MagnetCrossbowBulletEntity shoot(LivingEntity owner, LivingEntity target) {
-        var bullet = new MagnetCrossbowBulletEntity(owner, owner.level()); double dx = target.getX() - owner.getX(), dy = target.getY() + target.getEyeHeight() - 1.1, dz = target.getZ() - owner.getZ(); bullet.shoot(dx, dy - bullet.getY() + Math.hypot(dx, dz) * .2F, dz, 1.4F, 12); bullet.setSilent(true); bullet.setBaseDamage(5); bullet.setImpactKnockback(1); bullet.setCritArrow(false); owner.level().addFreshEntity(bullet); return bullet;
+        return shoot(owner, target, 5);
+    }
+    public static MagnetCrossbowBulletEntity shoot(LivingEntity owner, LivingEntity target, double damage) {
+        var bullet = new MagnetCrossbowBulletEntity(owner, owner.level()); double dx = target.getX() - owner.getX(), dy = target.getY() + target.getEyeHeight() - 1.1, dz = target.getZ() - owner.getZ(); bullet.shoot(dx, dy - bullet.getY() + Math.hypot(dx, dz) * .2F, dz, 1.4F, 12); bullet.setSilent(true); bullet.setBaseDamage(damage); bullet.setImpactKnockback(1); bullet.setCritArrow(false); owner.level().addFreshEntity(bullet); return bullet;
     }
 }

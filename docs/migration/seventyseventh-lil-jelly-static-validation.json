@@ -1,0 +1,76 @@
+{
+  "assets": [
+    {
+      "path": "geo/liljelly.geo.json",
+      "normalized_original_matches": true,
+      "sha256": "2487cb67a9d93c4bac652d6e0554d2a1ecb19bb51926cc03cff49e36925dde54"
+    },
+    {
+      "path": "animations/liljelly.animation.json",
+      "normalized_original_matches": true,
+      "sha256": "9989f983e88eaf12684efabe543bcac8d5c858662912264da06eab265601cb1b"
+    },
+    {
+      "path": "textures/entities/lil_jelly.png",
+      "normalized_original_matches": true,
+      "sha256": "bb0ace5c24d4872759fe03d3771049fc6ede14015e039eee697b1e4e996c0de6"
+    },
+    {
+      "path": "models/item/amaljelly_canister.json",
+      "normalized_original_matches": true,
+      "sha256": "e9cb4d4167e4df99f51fa994541456719975a81d9616021901ce8c37f2545b86"
+    },
+    {
+      "path": "models/item/empty_amaljelly_canister.json",
+      "normalized_original_matches": true,
+      "sha256": "e8cb4624d055ce2442adb66d5059cf708791b49ff4eaa6b2c9ee713ba8540ffd"
+    },
+    {
+      "path": "textures/item/bucket_of_amalgelly.png",
+      "normalized_original_matches": true,
+      "sha256": "78067dadbe24c7614a28c2ddaa88c1b1f0f585a6bef123f63a778b01e1bbad9e"
+    },
+    {
+      "path": "textures/item/empty_canister.png",
+      "normalized_original_matches": true,
+      "sha256": "6e4d2ebe525d3973e68fc6e69652cd37c9fe8a67f9d118bb2c08b85b08c83973"
+    }
+  ],
+  "custom_tags": [
+    {
+      "id": "infectionimmune",
+      "original_membership_restored": true,
+      "source_json_valid": true,
+      "build_copy": "pending_next_grouped_resource_build"
+    },
+    {
+      "id": "sprintweed_blacklist",
+      "original_membership_restored": true,
+      "source_json_valid": true,
+      "build_copy": "pending_next_grouped_resource_build"
+    }
+  ],
+  "runtime_tests": "pending_full_mod_migration",
+  "acquisition": "original second Fabricator guide page button8 -> actual manufacture page; remains pending with complete Fabricator recipe UI, not replaced by normal crafting",
+  "reviewed_behavior_evidence": {
+    "scope": "原实体/子目标/调用过程/注册/目标API人工复审；非运行验证",
+    "entity": "Monster, MONSTER, fire immune, .9x1.6, tracking64/update3, XP0, health99/armor base99/attack3, movement0/flying0, always-visible green name, persistent/no-far-despawn",
+    "combat": "nearest Monster(false,true), native matching RangedAttackGoal(1.25,20,10) with canUse continuation, arrow speed1.4/inaccuracy12/base attack*5/3/KB1, no invented attack clip",
+    "immunities": "individual original direct-source and DamageTypes checks; retain PLAYER_EXPLOSION distinction, no blanket invulnerability",
+    "render": "translucent original liljelly model/texture, full idle4s/transition4, head tracking, shadow.2, no original glow layer",
+    "deployment": "original centered floor(player.x,player.y+1,player.z), MOB_SUMMONED, randomized yaw, 5 POOF(.1/.1), 15 WITCH(1/.1), cast spell volume1/pitch3, cooldown60, one empty return",
+    "fixes": "server-authoritative exchange on actual interacting hand; preserve single-container conversion including creative, consume exactly1, preserve excess/full-inventory items; discard capture before granting filled canister; failed/cancelled/unadded spawn does not consume",
+    "deferred": "complete manufacture UI/acquisition, two newly restored tag build copies, final runtime and rendering"
+  },
+  "build": {
+    "tasks": [
+      "compileJava",
+      "processResources"
+    ],
+    "result": "passed",
+    "duration_seconds": 48,
+    "executed": 2,
+    "up_to_date": 22,
+    "scope": "all Java and entity/item/language resources validated; two subsequently restored tag JSONs statically validated, build copies intentionally deferred to next grouped build"
+  }
+}
