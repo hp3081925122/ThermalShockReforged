@@ -1,0 +1,53 @@
+package com.hp.thermalshockreforged.content.remainingcombat;
+
+import com.hp.thermalshockreforged.ThermalShockReforged;
+import com.hp.thermalshockreforged.content.MaterialContent;
+import com.hp.thermalshockreforged.content.weapons.WeaponContent;
+import java.util.List;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.*;
+import net.minecraft.world.damagesource.DamageTypes;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+
+public final class ClawSickleItem extends HoeItem {
+    private static final Tier TIER = new Tier() {
+        @Override public int getUses() { return 1200; }
+        @Override public float getSpeed() { return 10; }
+        @Override public float getAttackDamageBonus() { return 4.5F; }
+        @Override public TagKey<Block> getIncorrectBlocksForDrops() { return BlockTags.INCORRECT_FOR_DIAMOND_TOOL; }
+        @Override public int getEnchantmentValue() { return 21; }
+        @Override public Ingredient getRepairIngredient() { return Ingredient.of(MaterialContent.items().get("beetle_claw").get(), MaterialContent.items().get("ferrum_ingot").get()); }
+    };
+    public ClawSickleItem() { super(TIER, new Properties().attributes(DiggerItem.createAttributes(TIER, 0, -2))); }
+    @Override public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
+        super.inventoryTick(stack, level, entity, slot, selected);
+        if (selected && entity instanceof LivingEntity living) RemainingCombatState.refreshNoKnockback(living);
+    }
+    @Override public boolean hurtEnemy(ItemStack stack, LivingEntity victim, LivingEntity attacker) {
+        boolean result = super.hurtEnemy(stack, victim, attacker);
+        if (!victim.level().isClientSide) {
+            var existing = victim.getEffect(WeaponContent.SICKLE_WOUND);
+            int amplifier = existing == null ? 0 : existing.getAmplifier() + 1;
+            if (amplifier < 2) victim.addEffect(new MobEffectInstance(WeaponContent.SICKLE_WOUND, 20, amplifier));
+            else {
+                victim.removeEffect(WeaponContent.SICKLE_WOUND);
+                victim.level().playSound(null, victim.blockPosition(), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "sickle_slash")), SoundSource.NEUTRAL, 1, 1);
+                float bonus = attacker.getMainHandItem().is(RemainingCombatContent.CLAW_SICKLE.get()) ? 12 : attacker.getMainHandItem().is(WeaponContent.STRATOSILVER_SICKLE.get()) ? 14 : 10;
+                victim.hurt(victim.damageSources().source(DamageTypes.GENERIC), bonus);
+            }
+        }
+        return result;
+    }
+    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) {
+        super.appendHoverText(stack, context, lines, flag);
+        for (int line = 0; line < 3; line++) lines.add(Component.translatable("item.thermal_shock_reforged.claw_sickle.description_" + line));
+    }
+}

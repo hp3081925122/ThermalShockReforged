@@ -60,6 +60,10 @@ public final class MagnetiteEntity extends AnimatedMonsterEntity implements Rang
     @Override public boolean hurt(DamageSource source, float amount) {
         return !(source.getDirectEntity() instanceof AbstractArrow) && !source.is(DamageTypes.FALL) && !source.is(DamageTypes.DROWN) && super.hurt(source, amount);
     }
+    @Override protected void tickEffects() {
+        if (!com.hp.thermalshockreforged.content.remainingcombat.CryoCooldownVisual.tickClientEffects(
+                this, false, (effect, refresh) -> onEffectUpdated(effect, refresh, null))) super.tickEffects();
+    }
     @Override protected SoundEvent getAmbientSound() { return SoundEvents.BLAZE_AMBIENT; }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.BLAZE_HURT; }
     @Override protected SoundEvent getDeathSound() { return SoundEvents.BLAZE_DEATH; }

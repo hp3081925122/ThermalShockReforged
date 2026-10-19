@@ -7,3 +7,7 @@
 代理机械确认Zenith与当前Magnetic的公共射击数值包括耐久800/耐火/UNCOMMON/附魔5、专用弹/40tick/视线乘2。实体生成失败后副作用与内部状态实现差异须结合已记录合理修复核对，不能把共有参数相同当完整物品迁移。nomelee/weapon原标签真实消费者仍须追查；当前HeldWeaponState存在不是自动等价证明。
 
 原注册证据readable/init/ThermalShockModItems.java:614与939；原item/ZenithCrossbowItem.java、item/MagneticCrossbowItem.java。目标WeaponContent.java:45、CreativeTabsContent.java:60..69与creative_tabs.json:542/761。原smithing配方全文可直接从固定原JAR读取。此文记录静态纠正，不是客户端/服务端或渲染测试结果；先前109快照保留作审计历史，不覆盖本结论。
+
+后续只读精确路径盘点再纠正：目标单数tags/item中nomelee与weapon确实已有文件，原10/47条，目标7/29条，不能把未找到旧复数路径说成标签完全不存在。两弩当前均缺在这两目标标签。原nomelee在固定JAR全部class及readable未见消费者；weapon真实由BloodArmorEffectProcedure读取主手，目标ArmorSetEvents也保消费者，因此weapon差集是需要恢复的真实联动参数。原两弩冷却按传入实际item分别记；仅动画字段设置instanceof MagneticCrossbowItem导致原Zenith不会请求该字段动画，应在完整自身渲染链中另核，不将冷却也误并成一把。
+
+第111批最终集成后weapon/nomelee已分别恢复原顺序46/9项，只缺待112真实注册的Zenith；上述7/29为110只读历史快照，不代表111最终状态。其余16项已真实注册且统一编译/资源核验通过，仍未进行游戏验收。

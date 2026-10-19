@@ -2,10 +2,8 @@ package com.hp.thermalshockreforged.entity.gaze;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.status.aura.AuraContent;
-import com.hp.thermalshockreforged.content.status.LegacyEffectParticles;
 import com.hp.thermalshockreforged.entity.base.AnimatedMonsterEntity;
 import java.util.List;
-import java.util.ArrayList;
 import net.minecraft.commands.arguments.EntityAnchorArgument.Anchor;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -52,7 +50,7 @@ public final class SpiritEntity extends AnimatedMonsterEntity {
         controllers.add(procedure);
     }
     public void beginAttack(Player victim) {
-        if (!(level() instanceof ServerLevel server) || !isAlive() || victim.level() != level() || cooldown > 0) return;
+        if (!(level() instanceof ServerLevel server) || !isAlive() || victim.level() != level() || cooldown > 0 || com.hp.thermalshockreforged.content.remainingcombat.RemainingCombatState.blocksCryoAttack(this)) return;
         cooldown = 40;
         entityData.set(COOLDOWN_VISIBLE, true);
         Player nearest = null;
@@ -79,13 +77,8 @@ public final class SpiritEntity extends AnimatedMonsterEntity {
     }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(COOLDOWN_VISIBLE, false); }
     @Override protected void tickEffects() {
-        if (!level().isClientSide || !entityData.get(COOLDOWN_VISIBLE)) { super.tickEffects(); return; }
-        for (var effect : new ArrayList<>(getActiveEffects())) {
-            boolean active = effect.tick(this, () -> onEffectUpdated(effect, true, null));
-            if (active && effect.getDuration() % 600 == 0) onEffectUpdated(effect, false, null);
-        }
-        boolean emit = isInvisible() ? random.nextInt(15) == 0 : random.nextBoolean();
-        if (emit) LegacyEffectParticles.emit(this, -1, 2);
+        if (!com.hp.thermalshockreforged.content.remainingcombat.CryoCooldownVisual.tickClientEffects(
+                this, entityData.get(COOLDOWN_VISIBLE), (effect, refresh) -> onEffectUpdated(effect, refresh, null))) super.tickEffects();
     }
     @Override public boolean hurt(DamageSource source, float amount) {
         return !source.is(DamageTypes.FALL) && !source.is(DamageTypes.DROWN) && !source.is(DamageTypes.WITHER) && !source.is(DamageTypes.WITHER_SKULL) && super.hurt(source, amount);

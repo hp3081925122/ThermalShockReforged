@@ -1,0 +1,81 @@
+{
+  "batch": 111,
+  "sound_groups": [
+    {
+      "event": "infestorkill",
+      "source_group": {
+        "subtitle": "subtitles.infestorkill",
+        "sounds": [
+          {
+            "name": "thermal_shock:infestorkill1",
+            "stream": false
+          },
+          {
+            "name": "thermal_shock:infestorkill2",
+            "stream": false
+          }
+        ]
+      },
+      "target_group": {
+        "subtitle": "subtitles.infestorkill",
+        "sounds": [
+          {
+            "name": "thermal_shock_reforged:infestorkill1",
+            "stream": false
+          },
+          {
+            "name": "thermal_shock_reforged:infestorkill2",
+            "stream": false
+          }
+        ]
+      },
+      "json_namespace_only": true,
+      "audio": [
+        {
+          "source": "assets/thermal_shock/sounds/infestorkill1.ogg",
+          "path": "src/main/resources/assets/thermal_shock_reforged/sounds/infestorkill1.ogg",
+          "sha256": "88b44971d105655171fcc6f2f289739ccba1639b552f197e019badce8fa59b98",
+          "byte_equal": true
+        },
+        {
+          "source": "assets/thermal_shock/sounds/infestorkill2.ogg",
+          "path": "src/main/resources/assets/thermal_shock_reforged/sounds/infestorkill2.ogg",
+          "sha256": "cc8ffe025633ab1fa44be53de34dc2abbf0924fe9b309e4d5194b586af018b86",
+          "byte_equal": true
+        }
+      ]
+    },
+    {
+      "event": "ignition_detector_click",
+      "source_group": {
+        "subtitle": "subtitles.ignition_detector_click",
+        "sounds": [
+          {
+            "name": "thermal_shock:igniton_detector",
+            "stream": false
+          }
+        ]
+      },
+      "target_group": {
+        "subtitle": "subtitles.ignition_detector_click",
+        "sounds": [
+          {
+            "name": "thermal_shock_reforged:igniton_detector",
+            "stream": false
+          }
+        ]
+      },
+      "json_namespace_only": true,
+      "audio": [
+        {
+          "source": "assets/thermal_shock/sounds/igniton_detector.ogg",
+          "path": "src/main/resources/assets/thermal_shock_reforged/sounds/igniton_detector.ogg",
+          "sha256": "098c8a9135ecae32a1c174eb450ad341c0feb133fd086d0c763a76e97710244e",
+          "byte_equal": true
+        }
+      ]
+    }
+  ],
+  "game_test": false,
+  "scope": "Original sound-group parameters and audio bytes, not runtime playback"
+}

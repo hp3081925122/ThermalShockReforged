@@ -55,6 +55,7 @@ import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 public final class ClientEvents {
     @SubscribeEvent
     public static void renderers(EntityRenderersEvent.RegisterRenderers event) {
+        com.hp.thermalshockreforged.client.remainingcombat.RemainingCombatClient.renderers(event);
         com.hp.thermalshockreforged.client.outcrops.OutcropRenderers.register(event);
         com.hp.thermalshockreforged.client.gaze.GazeRenderers.register(event);
         com.hp.thermalshockreforged.client.squall.SquallRenderers.register(event);
@@ -203,6 +204,7 @@ public final class ClientEvents {
 
     @SubscribeEvent
     public static void extensions(RegisterClientExtensionsEvent event) {
+        com.hp.thermalshockreforged.client.remainingcombat.RemainingCombatClient.extensions(event);
         com.hp.thermalshockreforged.client.outcrops.OutcropRenderers.extensions(event);
         StatusClient.register(event);
         ArmorClient.extensions(event);
@@ -227,6 +229,7 @@ public final class ClientEvents {
 
     @SubscribeEvent
     public static void particles(RegisterParticleProvidersEvent event) {
+        com.hp.thermalshockreforged.client.remainingcombat.RemainingCombatClient.particles(event);
         com.hp.thermalshockreforged.client.decor.geo.GeoDecorRenderers.particles(event);
         com.hp.thermalshockreforged.client.gaze.GazeRenderers.particles(event);
         com.hp.thermalshockreforged.client.squall.SquallRenderers.particles(event);

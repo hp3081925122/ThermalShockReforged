@@ -82,7 +82,10 @@ public final class WorldProgressData extends SavedData {
     }
     public void finishShalespringPlacement(boolean placed) {
         shalespringPlacing = false;
-        if (placed && !shalespringExists) {
+        if (placed) markShalespringExists();
+    }
+    public void markShalespringExists() {
+        if (!shalespringExists) {
             shalespringExists = true;
             setDirty();
         }

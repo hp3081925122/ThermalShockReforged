@@ -58,6 +58,10 @@ public final class SolaEntity extends AnimatedMonsterEntity {
         return result;
     }
 
+    @Override protected void tickEffects() {
+        if (!com.hp.thermalshockreforged.content.remainingcombat.CryoCooldownVisual.tickClientEffects(
+                this, false, (effect, refresh) -> onEffectUpdated(effect, refresh, null))) super.tickEffects();
+    }
     @Override public boolean hurt(DamageSource source, float amount) { return !source.is(DamageTypes.IN_FIRE) && super.hurt(source, amount); }
     @Override protected void playStepSound(BlockPos pos, BlockState state) { playSound(SoundEvents.SLIME_JUMP, .15F, 1); }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.SLIME_HURT; }

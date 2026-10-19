@@ -35,7 +35,7 @@ public abstract class LegacyArrowEntity extends AbstractArrow implements ItemSup
     @Override protected ItemStack getPickupItem() { return ItemStack.EMPTY; }
     @Override public void setOwner(Entity owner) { super.setOwner(owner); pickup = Pickup.DISALLOWED; }
     @Override protected void doPostHurtEffects(LivingEntity entity) { super.doPostHurtEffects(entity); entity.setArrowCount(Math.max(0, entity.getArrowCount() - 1)); }
-    protected void setImpactKnockback(double value) { impactKnockback = Double.isFinite(value) ? Math.clamp(value, 0, 20) : 0; }
+    public void setImpactKnockback(double value) { impactKnockback = Double.isFinite(value) ? Math.clamp(value, 0, 20) : 0; }
     @Override protected void doKnockback(LivingEntity target, DamageSource source) {
         Vec3 direction = getDeltaMovement().multiply(1, 0, 1).normalize();
         double resistance = Math.max(0, 1 - target.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE));

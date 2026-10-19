@@ -1,0 +1,1427 @@
+{
+  "limits": "本线静态源/资源/时序核对；未独立编译、启动游戏或替代最终客户端/Render Preview验收。",
+  "acquisition": {
+    "nbtScanned": 164,
+    "nbtOwnedItemHits": [],
+    "limboVaultOpenerClassReferences": [
+      "net/mcreator/thermal_shock/procedures/LimboVaultOnBlockRightClickedProcedure$1.class",
+      "net/mcreator/thermal_shock/procedures/LimboVaultOnBlockRightClickedProcedure.class"
+    ],
+    "javaFieldReferences": {
+      "CHORUSIAN_ANTENNAE_HELMET": [
+        "init/ThermalShockModItems.java",
+        "procedures/Limbovaultcode1Procedure.java"
+      ],
+      "THE_JUDGE": [
+        "init/ThermalShockModItems.java"
+      ]
+    },
+    "helmetConclusion": "原DumbBug按钮处理确实可给头盔，但打开该菜单的procedure仅自身/匿名类引用，无正常调用者；原保留孤立GUI链，不捏造配方。",
+    "judgeConclusion": "结合全量Java字段、全JSON与全NBT扫描判断原来源，不以只搜ID作结论。"
+  },
+  "assets": [
+    {
+      "source": "assets/thermal_shock/animations/chorantenna.animation.json",
+      "sourceSha256": "5dc1670b2566e12faa921e463710db72c90470ecee643fd41d92412bec2a9c58",
+      "target": "src/main/resources/assets/thermal_shock_reforged/animations/chorantenna.animation.json",
+      "targetSha256": "5dc1670b2566e12faa921e463710db72c90470ecee643fd41d92412bec2a9c58"
+    },
+    {
+      "source": "assets/thermal_shock/animations/cobalt_fist.animation.json",
+      "sourceSha256": "0a21f2c4da63b62b8a3f652f0cc3147fd9efc9a12763a9b9d00c3547164dffca",
+      "target": "src/main/resources/assets/thermal_shock_reforged/animations/cobalt_fist.animation.json",
+      "targetSha256": "0a21f2c4da63b62b8a3f652f0cc3147fd9efc9a12763a9b9d00c3547164dffca"
+    },
+    {
+      "source": "assets/thermal_shock/animations/jellyumbrella.animation.json",
+      "sourceSha256": "113ca66f44599c4f4fb8849011b01eeeba52deb268934cefc4bd5c17b66f4407",
+      "target": "src/main/resources/assets/thermal_shock_reforged/animations/jellyumbrella.animation.json",
+      "targetSha256": "113ca66f44599c4f4fb8849011b01eeeba52deb268934cefc4bd5c17b66f4407"
+    },
+    {
+      "source": "assets/thermal_shock/animations/net_launcher.animation.json",
+      "sourceSha256": "9fad4c2c083907719d9d507f12019593066e413933ca7897f14efbc93f1a9d22",
+      "target": "src/main/resources/assets/thermal_shock_reforged/animations/net_launcher.animation.json",
+      "targetSha256": "9fad4c2c083907719d9d507f12019593066e413933ca7897f14efbc93f1a9d22"
+    },
+    {
+      "source": "assets/thermal_shock/animations/super_shotgun.animation.json",
+      "sourceSha256": "81f43a2ab50aaefdbb368e96c205ca174285d482570f6b4a4d54d2e0c014c1d2",
+      "target": "src/main/resources/assets/thermal_shock_reforged/animations/super_shotgun.animation.json",
+      "targetSha256": "81f43a2ab50aaefdbb368e96c205ca174285d482570f6b4a4d54d2e0c014c1d2"
+    },
+    {
+      "source": "assets/thermal_shock/geo/chorantenna.geo.json",
+      "sourceSha256": "ac35e263ef5fb88b0fcb70cc78d6bc3af0be6dc80bbc1c0e3e72fde480c34c18",
+      "target": "src/main/resources/assets/thermal_shock_reforged/geo/chorantenna.geo.json",
+      "targetSha256": "ac35e263ef5fb88b0fcb70cc78d6bc3af0be6dc80bbc1c0e3e72fde480c34c18"
+    },
+    {
+      "source": "assets/thermal_shock/geo/cobalt_fist.geo.json",
+      "sourceSha256": "5ec508606052fb26b3d1319d8104ef98272ba0b2373734d116ab977787cfbe82",
+      "target": "src/main/resources/assets/thermal_shock_reforged/geo/cobalt_fist.geo.json",
+      "targetSha256": "5ec508606052fb26b3d1319d8104ef98272ba0b2373734d116ab977787cfbe82"
+    },
+    {
+      "source": "assets/thermal_shock/geo/jellyumbrella.geo.json",
+      "sourceSha256": "36d55c6c6469fe92ca9c92af934bb193492cff4304dd2ad0d7c312b89eb3e6da",
+      "target": "src/main/resources/assets/thermal_shock_reforged/geo/jellyumbrella.geo.json",
+      "targetSha256": "36d55c6c6469fe92ca9c92af934bb193492cff4304dd2ad0d7c312b89eb3e6da"
+    },
+    {
+      "source": "assets/thermal_shock/geo/net_launcher.geo.json",
+      "sourceSha256": "6ac7c7f31e455c52f5816c4bdcf253e33b2fef97967233fc9733e08343ea84e1",
+      "target": "src/main/resources/assets/thermal_shock_reforged/geo/net_launcher.geo.json",
+      "targetSha256": "6ac7c7f31e455c52f5816c4bdcf253e33b2fef97967233fc9733e08343ea84e1"
+    },
+    {
+      "source": "assets/thermal_shock/geo/super_shotgun.geo.json",
+      "sourceSha256": "f3efb2132c3fbb191f054863142bb93fb2ba754028c9efde3c399c0e8eddd513",
+      "target": "src/main/resources/assets/thermal_shock_reforged/geo/super_shotgun.geo.json",
+      "targetSha256": "f3efb2132c3fbb191f054863142bb93fb2ba754028c9efde3c399c0e8eddd513"
+    },
+    {
+      "source": "assets/thermal_shock/models/displaysettings/cobalt_fist.json",
+      "sourceSha256": "60b8a810bc30cefb9e325ad18a6424812df6b28225e01ade04380001c40c17d4",
+      "target": "src/main/resources/assets/thermal_shock_reforged/models/displaysettings/cobalt_fist.json",
+      "targetSha256": "60b8a810bc30cefb9e325ad18a6424812df6b28225e01ade04380001c40c17d4"
+    },
+    {
+      "source": "assets/thermal_shock/models/displaysettings/flint-steel_rifle.json",
+      "sourceSha256": "f2bb7c104a2d5938e7f17ed91cdccb4574168851af99ea5656a9766f076e74d5",
+      "target": "src/main/resources/assets/thermal_shock_reforged/models/displaysettings/flint-steel_rifle.json",
+      "targetSha256": "6d0203459f4b8b490b7f76dbea0349dad9a4a89152860cccbc7fa20e0d0f254c"
+    },
+    {
+      "source": "assets/thermal_shock/models/displaysettings/jelly_umbrella.item.json",
+      "sourceSha256": "a530dbe4965f1f1ac4f02cbd13d5683baab33fe296a5158f3536509e64f6d335",
+      "target": "src/main/resources/assets/thermal_shock_reforged/models/displaysettings/jelly_umbrella.item.json",
+      "targetSha256": "a530dbe4965f1f1ac4f02cbd13d5683baab33fe296a5158f3536509e64f6d335"
+    },
+    {
+      "source": "assets/thermal_shock/models/displaysettings/super_shotgun.json",
+      "sourceSha256": "12bd3de4b438453b607187cd82561a82e635169b3a00d17ca7529d3ee5f791da",
+      "target": "src/main/resources/assets/thermal_shock_reforged/models/displaysettings/super_shotgun.json",
+      "targetSha256": "12bd3de4b438453b607187cd82561a82e635169b3a00d17ca7529d3ee5f791da"
+    },
+    {
+      "source": "assets/thermal_shock/models/item/chorusian_antennae_helmet.json",
+      "sourceSha256": "04238239278762c3655dfb4ede399b8c2c811fd04a638e3eb6855ce28664a42d",
+      "target": "src/main/resources/assets/thermal_shock_reforged/models/item/chorusian_antennae_helmet.json",
+      "targetSha256": "d8ccf12cd04c4d882ac7c598a3170db44b755877b843449ae4e8f7c722182dbc"
+    },
+    {
+      "source": "assets/thermal_shock/models/item/claw_sickle.json",
+      "sourceSha256": "0c67ea07f78c130b5ae932699469eaedf36cd42122c08536dcf3be17a069e7f6",
+      "target": "src/main/resources/assets/thermal_shock_reforged/models/item/claw_sickle.json",
+      "targetSha256": "fe71da1ecb297f617ea5aefde7f392ba4bc8200c27985175e89653b1b80349c0"
+    },
+    {
+      "source": "assets/thermal_shock/models/item/flower_bomb.json",
+      "sourceSha256": "f89decaed410ceb601dfdbded9048f7ec676d459f565af7895b360049507aa9f",
+      "target": "src/main/resources/assets/thermal_shock_reforged/models/item/flower_bomb.json",
+      "targetSha256": "4ee7ad7a8ba20af29a6d906cdfc451d1f0ef55901e3208b42b3cb8317687e6df"
+    },
+    {
+      "source": "assets/thermal_shock/models/item/ice_bomb.json",
+      "sourceSha256": "491584883ea262ebd5471eba8c5dc2ae8d365dc6f163a11a985d54220b3e2d6f",
+      "target": "src/main/resources/assets/thermal_shock_reforged/models/item/ice_bomb.json",
+      "targetSha256": "55f1b6db2964b53fa0dda6f290906d511f24004534529a989d19f1324817c45d"
+    },
+    {
+      "source": "assets/thermal_shock/models/item/jelly_umbrella.json",
+      "sourceSha256": "db838cf0a870403135fb21cb2f1db219d3f4c6e873c3a30280fadff312583c40",
+      "target": "src/main/resources/assets/thermal_shock_reforged/models/item/jelly_umbrella.json",
+      "targetSha256": "6e420dec64f5e72f244ce3df490d56b7fc557f83e075510a4b41051053117f75"
+    },
+    {
+      "source": "assets/thermal_shock/models/item/legendary_jelly_umbrella.json",
+      "sourceSha256": "db838cf0a870403135fb21cb2f1db219d3f4c6e873c3a30280fadff312583c40",
+      "target": "src/main/resources/assets/thermal_shock_reforged/models/item/legendary_jelly_umbrella.json",
+      "targetSha256": "6e420dec64f5e72f244ce3df490d56b7fc557f83e075510a4b41051053117f75"
+    },
+    {
+      "source": "assets/thermal_shock/models/item/net_launcher.json",
+      "sourceSha256": "261a7cc136ade349aca516d33a37234115359b1433867257ad1d815c7b597620",
+      "target": "src/main/resources/assets/thermal_shock_reforged/models/item/net_launcher.json",
+      "targetSha256": "89e5499a5094a5824ab41d5686cb7f5e72836b62f45e8de9b9ea48968f2ec065"
+    },
+    {
+      "source": "assets/thermal_shock/models/item/piston_gauntlet.json",
+      "sourceSha256": "98f1eed1bfc30bb6a088f015a2c5cda5267ce6a9c537a7bac747e4dbb3b15a82",
+      "target": "src/main/resources/assets/thermal_shock_reforged/models/item/piston_gauntlet.json",
+      "targetSha256": "80a29154ccd42034c0493a9cfc480ac5344a5d89ef861fecf4fd75e4ae26e560"
+    },
+    {
+      "source": "assets/thermal_shock/models/item/the_judge.json",
+      "sourceSha256": "0f76eb42236994fabb33e096067f92047414a9a1376c282ff111c914a5b5bcb5",
+      "target": "src/main/resources/assets/thermal_shock_reforged/models/item/the_judge.json",
+      "targetSha256": "a880e295344cdef0cbd025ee036af46fdadef78e5038c6a155a81a58d95b6811"
+    },
+    {
+      "source": "assets/thermal_shock/particles/ice_bomb_effect.json",
+      "sourceSha256": "991816875359f43c33fab61eed88887c8c620ef0c0528b5bc3d2771866151262",
+      "target": "src/main/resources/assets/thermal_shock_reforged/particles/ice_bomb_effect.json",
+      "targetSha256": "0907bedad005d8aab4dff5ff10c9c3e825095153d8f6c162531d969b790ff64b"
+    },
+    {
+      "source": "assets/thermal_shock/textures/item/chorantennaealt.png",
+      "sourceSha256": "8bf7488c3dd68eb271a275fe8de3dac1fceb59a4bdc2a6a52292f0b1d71265fe",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/chorantennaealt.png",
+      "targetSha256": "8bf7488c3dd68eb271a275fe8de3dac1fceb59a4bdc2a6a52292f0b1d71265fe"
+    },
+    {
+      "source": "assets/thermal_shock/textures/item/chorusianantennae.png",
+      "sourceSha256": "8b6b8c6cfa5440fa46fc22e2cbd7ca3998d13ab3ad5fbe1504b84bce49c45f55",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/chorusianantennae.png",
+      "targetSha256": "8b6b8c6cfa5440fa46fc22e2cbd7ca3998d13ab3ad5fbe1504b84bce49c45f55"
+    },
+    {
+      "source": "assets/thermal_shock/textures/item/claw_sickle.png",
+      "sourceSha256": "0df8383302e2422698eccee29578664a952b86ae14886ee389832a5fd6dd32f3",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/claw_sickle.png",
+      "targetSha256": "0df8383302e2422698eccee29578664a952b86ae14886ee389832a5fd6dd32f3"
+    },
+    {
+      "source": "assets/thermal_shock/textures/item/cobalt_fist.png",
+      "sourceSha256": "1773e2fd4dc0523cb224106208be67351e38de73a78de7c54d52aad3dbece2b1",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/cobalt_fist.png",
+      "targetSha256": "1773e2fd4dc0523cb224106208be67351e38de73a78de7c54d52aad3dbece2b1"
+    },
+    {
+      "source": "assets/thermal_shock/textures/item/flowerbomb.png",
+      "sourceSha256": "42b01fbdcf0fe75c3622a7d7876e928494ebe806e11cfb0d27fb2fa9f7fd8fe2",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/flowerbomb.png",
+      "targetSha256": "42b01fbdcf0fe75c3622a7d7876e928494ebe806e11cfb0d27fb2fa9f7fd8fe2"
+    },
+    {
+      "source": "assets/thermal_shock/textures/item/flowerbomb.png.mcmeta",
+      "sourceSha256": "34fabbcb88611aa54f83ac5b8e6bc9b2a9096239466437e5bd653a6e09650021",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/flowerbomb.png.mcmeta",
+      "targetSha256": "34fabbcb88611aa54f83ac5b8e6bc9b2a9096239466437e5bd653a6e09650021"
+    },
+    {
+      "source": "assets/thermal_shock/textures/item/icebomb.png",
+      "sourceSha256": "fe3717145ae357f18d555093e5207e02a1c1c1ebd9af9eda8de6c444571d0d5c",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/icebomb.png",
+      "targetSha256": "fe3717145ae357f18d555093e5207e02a1c1c1ebd9af9eda8de6c444571d0d5c"
+    },
+    {
+      "source": "assets/thermal_shock/textures/item/icebomb.png.mcmeta",
+      "sourceSha256": "d50f4ecba2e7d908c6710aa964fba958dcfc227c2f2276a1208899972179b972",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/icebomb.png.mcmeta",
+      "targetSha256": "d50f4ecba2e7d908c6710aa964fba958dcfc227c2f2276a1208899972179b972"
+    },
+    {
+      "source": "assets/thermal_shock/textures/item/jellumnbra.png",
+      "sourceSha256": "cac79465ff98071056831d56c2147a45f87ce17de98e31497c16ab0a0e81259e",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/jellumnbra.png",
+      "targetSha256": "cac79465ff98071056831d56c2147a45f87ce17de98e31497c16ab0a0e81259e"
+    },
+    {
+      "source": "assets/thermal_shock/textures/item/net_launcher.png",
+      "sourceSha256": "6be73bfbe2fd7a30a6be12738eb8c852d8199bb4c52d6f8f7e2ee48da7e9573b",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/net_launcher.png",
+      "targetSha256": "6be73bfbe2fd7a30a6be12738eb8c852d8199bb4c52d6f8f7e2ee48da7e9573b"
+    },
+    {
+      "source": "assets/thermal_shock/textures/item/supershotgun.png",
+      "sourceSha256": "b0252a6f49d2ab3c30723338a1eaa939d0325239291b2cd192c990eb81568c34",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/supershotgun.png",
+      "targetSha256": "b0252a6f49d2ab3c30723338a1eaa939d0325239291b2cd192c990eb81568c34"
+    },
+    {
+      "source": "assets/thermal_shock/textures/particle/ice_bomb_effect.png",
+      "sourceSha256": "7074f74f39a8ad752db14a876089e9867d92b2425c37a6d44a74660f900a877d",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/particle/ice_bomb_effect.png",
+      "targetSha256": "7074f74f39a8ad752db14a876089e9867d92b2425c37a6d44a74660f900a877d"
+    }
+  ],
+  "aaaWholeSubtree": [
+    {
+      "source": "assets/thermal_shock/effeks/Material/mat_eff_hit_himatsu.efkmat",
+      "sha256": "3db76ab81a431b90d99ce69164e8e2d77c5443325fdc11484e948617d6b00e6e",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Material/mat_eff_hit_himatsu.efkmat"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Material/mat_eff_yugami.efkmat",
+      "sha256": "509ef8b4037c9c53bc2d09f0447fcf7e79e89a4740c5d1db597c9786e75f2408",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Material/mat_eff_yugami.efkmat"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/Blood Splot.png",
+      "sha256": "17a91b6bacee13a6d4b8cc1666b9ee837c9b06ecc339dd050636409b650fb6f3",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/Blood Splot.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/Bomb Ball.png",
+      "sha256": "0211aa5756b0b00a3b792f7a5489f5a6cc6731bcc4b47808fd8356de1847c55f",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/Bomb Ball.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/Bomb Explosion.png",
+      "sha256": "d80a945fe3824ddc8ad712207e0db51f3233462dbcdaf1881bd1e46a9d1b5c7a",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/Bomb Explosion.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/ColorNoise.png",
+      "sha256": "35cce4876b3dafa11ce28088bc7c9e011b78d440bddaa83870d5e1e8cba793a8",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/ColorNoise.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/Crosshair.png",
+      "sha256": "cc73a2cf047a73777797bbf180136c2087ec26815aac224da87f4e1a019435f8",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/Crosshair.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/Electric Glow.png",
+      "sha256": "5ff9ec07ea226592a8f848ffbc4b0845ce0ac256806e8288365156316b87558d",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/Electric Glow.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/Fire Bomb.png",
+      "sha256": "c8fca6879675005d545716e04609c77d8031aede5939118552c5836f0e0fc0de",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/Fire Bomb.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/Fire_Blur.png",
+      "sha256": "157f6de7c6d6fa8f508b0f6ce442b078ab66ec05a70472d0cbd8b91494c04895",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/Fire_Blur.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/Fire_Single.png",
+      "sha256": "18240f4ab6e124c7763a4b3fae59c010ad09c3c1964088a014b8cb9532db0fa7",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/Fire_Single.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/Flash01.png",
+      "sha256": "3d8ea0b1aeb6e265360e21184dcfea1ee7851dabe1b5a5695b83cef53cc06532",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/Flash01.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/Fog3001.png",
+      "sha256": "7f18f963d22828765e445e92b02dbd08eeabdd5e32f57dc1eb58df4cde6b76c2",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/Fog3001.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/FrostbiteRing.png",
+      "sha256": "d32ab14c691619b0a2626d40f799797f836a10b21829ecd246ddd483cc817dd3",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/FrostbiteRing.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/Ghost Glitter.png",
+      "sha256": "7eb1d21b31c3cdfe67eb8c4f771d1996e4b5d56a453bc23421dc0428262ccdb4",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/Ghost Glitter.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/Golden Glitter.png",
+      "sha256": "28037ad384bc65f94b40dd31b5cfd67f72a90ba4dac356918fa9d9935d8ff9a5",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/Golden Glitter.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/Hitfx Cloro.png",
+      "sha256": "20d14037498dfdd1f8be4d5e4786d96dfec498d29d71723ae85c0048fec67298",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/Hitfx Cloro.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/Hitfx Cryo.png",
+      "sha256": "d19549ee9fdb7a1ffbc512fc55cb7fd4e97bedce47ab9443d178aee5f677c1e0",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/Hitfx Cryo.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/Hitfx Ferro.png",
+      "sha256": "9b88cdafef7f9473ecafbfcbd803cecdcd2ca950cc4b4136bf536c1e3b42aef1",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/Hitfx Ferro.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/Hitfx Pyro.png",
+      "sha256": "887257699a5fb1b217d8f40d4030af96b693a11051c12257a3404bfcf0f4414a",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/Hitfx Pyro.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/Hitfx Resist.png",
+      "sha256": "8ca311104da6148257741468ebdec5ec345bf2dae4311d34b34c7c7669dff597",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/Hitfx Resist.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/Holo Director1 Striped.png",
+      "sha256": "23703fba38dca54c883d20c023ba7e147fb776af0b44c067fb57558f9d3e018b",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/Holo Director1 Striped.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/Holo Frostilyte1 Striped.png",
+      "sha256": "c05d2c85bc387dd0dd853a9998bb9c693c23c98501b8beb55be99c73154ae61a",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/Holo Frostilyte1 Striped.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/Holo Qo1 Striped.png",
+      "sha256": "e1636a8deda5d3e776300cb7bce52228404d33a5da50da200f088b368fdc305a",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/Holo Qo1 Striped.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/Holo Qo2 Striped.png",
+      "sha256": "23aa6a3580b132b7004cc1949e974370a07b5806f80e471be81a9fe3e7f6f356",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/Holo Qo2 Striped.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/Holo Sopel1 Striped.png",
+      "sha256": "34839462de738d402cef49be59ed7e72707331f101795519a398265942ab07b0",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/Holo Sopel1 Striped.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/Ice Bomb.png",
+      "sha256": "b6d1569652fea9cc936d444e268ff3eca80521ca86f69c51743d3be2765a20b6",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/Ice Bomb.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/LaserMain02.png",
+      "sha256": "e24c27453e96396cbda9fb6fb39b38ef8b55f4d60949732d2431e7b6bfe3c4f2",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/LaserMain02.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/New Piskel.png",
+      "sha256": "e7e8a7a63f3cc662482326809ffc210d9e58f7afb8709f64832ca45fbcd019a2",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/New Piskel.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/Particle01.png",
+      "sha256": "b1346d2bfafa6e783661453680b282edc6bc0e0b85711414b9914aac03a3a881",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/Particle01.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/Particle02.png",
+      "sha256": "efeb5ca9b193248f4807fc289e4d36b4de291955ee1055b6280cb6c047191317",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/Particle02.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/Particle1.png",
+      "sha256": "ed9a5512b20ee079fd91e8628861fa89ac9e5663d25c24d335fdf54fae136a29",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/Particle1.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/Shock_wave_ring001.png",
+      "sha256": "a902c3169287c337accf458dd651105210c9660da8770fbc535091e235eb8dac",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/Shock_wave_ring001.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/Shock_wave_ring001_long.png",
+      "sha256": "ab79a98eb2bd086fe7a1805d9c4a9512b2418ea9663c3106782760dc2ae646da",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/Shock_wave_ring001_long.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/Shock_wave_ring002.png",
+      "sha256": "0eb910b56c1a4c0a168817096162dbfd95f9b1555a638a38105251e58de77d32",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/Shock_wave_ring002.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/Spark Proj 1.png",
+      "sha256": "b3417651f3a5c391b37f974c6f6e8b1e33cc8a30e0cff9baba7c32923bb3ba29",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/Spark Proj 1.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/Spark Proj 2.png",
+      "sha256": "980565cf2d9847b718bd7dfb9ba9a004e27a9c944611b51ef2d7e714df7ad514",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/Spark Proj 2.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/Spark Proj 3.png",
+      "sha256": "50c829a66a2909adebf5d013d5e3b74af204f2b9d359b17badfd7cc8e165bad3",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/Spark Proj 3.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/Splash.png",
+      "sha256": "e51d5df1a6477b3e5213ffa889b1c72b48bc7311faeb5130d2c6a80ea350a554",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/Splash.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/Thunder01.png",
+      "sha256": "020afb852c0b4e39d07a560be6437563de4e437848ebab3957ecccbcf84498ac",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/Thunder01.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/Wind01.png",
+      "sha256": "64398f834d8a7cb1cf259308c32fa6e6265649a90691e75cfb3ce9cbe17217ae",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/Wind01.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/actionlines.png",
+      "sha256": "7baf6d8c42cf2c8d9851e064cd9e3de37649c0f30aa25ed3268feba5dedc140f",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/actionlines.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/aurora01.png",
+      "sha256": "062c50f0a10f922a1ae8ef7fa47462d8338c2224e09d97edc5abc3a2b7337770",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/aurora01.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/black.png",
+      "sha256": "9b82ca9ad9610b9568ac3fbdcea4b88968f8633f04e2bcfe1cdddee8bc149554",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/black.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/bloomeraura.png",
+      "sha256": "fb344332d560d8c386b320ceb7d683532d8de2fb05b690551925f8efb8692a00",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/bloomeraura.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/burst02_red.png",
+      "sha256": "13e88397f35b67a53dfd29e67a72554659a62cc04e18b6b2f4b273c07caf144a",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/burst02_red.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/bwgradation1216.png",
+      "sha256": "0842a7717d956a288e1d3dca6dcfda5363349354c4d9fe33e7dd8c91d9884ce4",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/bwgradation1216.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/bwgradation1229.png",
+      "sha256": "92506c425c174eec59ad235a0da205551cdea3ec35b1c3939891548bf3ff60e7",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/bwgradation1229.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/camphoto.png",
+      "sha256": "a849f89a2ebc812756a1883b4da494f88e03cb4897560911e54a37b40541754f",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/camphoto.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/camsparkle.png",
+      "sha256": "1c89b46c503ce41d0c745196ab3c6889a6fc47734e8d1311d0a1cc139eae2c94",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/camsparkle.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/clockHand.png",
+      "sha256": "2b34cf91f3f419aaa36ac46dfaaaf780d65900ece9ccc6cbcbdac8fc0cf1071f",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/clockHand.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/double-shockwave.png",
+      "sha256": "7c047afcf8cf96598c7816c5f01de7cc37b87a05b239107c8b0880f896bbcaa0",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/double-shockwave.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/drillshi.png",
+      "sha256": "844e99ca98aee9a199cf820a6b71ef19f08413689e48492c8db1a78ddf1b841e",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/drillshi.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/ef_common_flashlight01_t.png",
+      "sha256": "915229c28f24c554ce18a672e6d50130dad941a31f55378f9c25046f01288dc1",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/ef_common_flashlight01_t.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/eggzero.png",
+      "sha256": "e3fe3b89498159f9f28a6579fb1627720f4f9aad949e89c75cdd92817442491c",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/eggzero.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/errbotlayer.png",
+      "sha256": "15c655bd0bc92aac38ecca9cce7eb7df4aa87fab03ff621fb8a375de74857998",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/errbotlayer.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/errtext.png",
+      "sha256": "72f38fade7a8dcd5af8a487aa9e553f2590b4b32bd0b89e2916870bf72b755c1",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/errtext.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/errtoplayer.png",
+      "sha256": "6592a239cb29ef812524f7465d0b26698a735379ea5638d45d5820eb8ba8e98b",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/errtoplayer.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/fire_tex.png",
+      "sha256": "cde3a45c51db47989d7fbb55368c889da4c9fb519b53b2a719634959083cdcb6",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/fire_tex.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/hit.png",
+      "sha256": "f22e59b91c26c46ffbfed79ced284384652d30a56a752eb13db4ef25f249f338",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/hit.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/howaa128.png",
+      "sha256": "81030dae6fd3e8de7cfa00d0ed0439cbfc910c84153197052e23ad2704b6ff64",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/howaa128.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/orb_colored.png",
+      "sha256": "cc343dba5edb97740a47e0d548ec903b1a6a5bdbf2cd5bffe6b87ead5c0d9563",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/orb_colored.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/prism_crystal.png",
+      "sha256": "8b46e3ef4c0946f29116f51bbf91c28fe90b1f42efbd4f37c58cdf87dfbcc6eb",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/prism_crystal.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/redorblight64.png",
+      "sha256": "0dd6e6a68bd5544ef0cc9ca293857f9d09a38cd8728243a7c08253557dabe14e",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/redorblight64.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/ribbon01_trans.png",
+      "sha256": "827afb074486cfa61d1fd7bf5d96a8eb4bab1669a429e9c0297777fe21ce709d",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/ribbon01_trans.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/shockattack.png",
+      "sha256": "198a9e9b8c1be9ed652e5233872288f61c3e83527b5bc3bd0d414cecdd892609",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/shockattack.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/shockwarn.png",
+      "sha256": "94aa00badb22aa3b6d82e57a7353558c8feb08909b1434288dd3635f51d63c16",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/shockwarn.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/shrapnel.png",
+      "sha256": "9107d5d018ededd43f5358f57603e34bff542acd516f47b7473f8eed175f258c",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/shrapnel.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/smoke_tex.png",
+      "sha256": "953d069e80f5374c430ddc278b9e27a9a8480af64615f68803cb6f05c7ac9e51",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/smoke_tex.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/squareWave.png",
+      "sha256": "da009f08b6f789a592175f045b30d60e30f936d21edd0ff2d0aa64daf27ce184",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/squareWave.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/squareWave03_192.png",
+      "sha256": "1c410b54bd9da368203b8240c264f38b30b3d3a9827817785a940b31f9428fd8",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/squareWave03_192.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/squareWave03_384.png",
+      "sha256": "fec64fed89c55afe30e5f32134e81fb4a8c0b03558f4bf822c919c1cd5883916",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/squareWave03_384.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/starpart_.png",
+      "sha256": "2087f287ab59ad92e601446642e5b81fc0a1065ee2b968c37a99bc79e02b9091",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/starpart_.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/tex_eff_hit_common_02.png",
+      "sha256": "b9ad217c3c07536dceaf13180c4d81aa835b01ce6076ae020706b061ba574f87",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/tex_eff_hit_common_02.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/tex_eff_light02.png",
+      "sha256": "5594643cf1d3a3a3ec5228871bdb8000324f08aa900512fa6cae9e36ac8def42",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/tex_eff_light02.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/zapattack.png",
+      "sha256": "d70e07ee03fc043eb7942a18034a77db25f183d89621dc72cc8721e2b95ff25e",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/zapattack.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/Texture/zapwarn.png",
+      "sha256": "6d8c4741867b5747b34d9aacd1369392d223625606893999643acf8d030c60d4",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/zapwarn.png"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/bigredshortorb.efkefc",
+      "sha256": "299f08f35bdc3d2f0ba8e5aacdb76dda010752a58d020a55ad93714bb09b955d",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/bigredshortorb.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/bloodattack.efkefc",
+      "sha256": "1df4d53039035557b44de9fc2fbe825ac06a35b5a816234480d0541548d2364e",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/bloodattack.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/bloodmoon.efkefc",
+      "sha256": "3661783b1610f669013ad9085d1238278ae38631905bd6cbb58e4d05a5ca1b60",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/bloodmoon.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/bloodspiral.efkefc",
+      "sha256": "f4307b698487446e9c5a62dc014d7bb3bb887341bd0e1da332a1ae8ed7bb54d4",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/bloodspiral.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/bloodsplatter.efkefc",
+      "sha256": "ea289baab2d203a72e77bf987ddc746d1c1134e54110613ad5aa3ec24d2b742a",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/bloodsplatter.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/bloomeraura.efkefc",
+      "sha256": "809b58283fa42c70dceb48746ce559a815a42210914265184a2dc54c3821dbe4",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/bloomeraura.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/boomshroom.efkefc",
+      "sha256": "480c0683a8083c1759950eefbedd791cd2beb15cb3f898a387e8c3e62e51f1d1",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/boomshroom.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/boss_death.efkproj",
+      "sha256": "2b287228dd3d91784da013d6c387338ab33f3e6bcaf51cda82d38d1a4e74b4eb",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/boss_death.efkproj"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/camphoto.efkefc",
+      "sha256": "669e63f599d0db6128bc600f1b0c879a288cef4f8b8735a75a608631f32f1bcd",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/camphoto.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/corexplode.efkefc",
+      "sha256": "23f996cc85a57e3e7e4ab203313bb4c609ffb53aa342357fc9ec18f666aa8d34",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/corexplode.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/crosshair.efkefc",
+      "sha256": "f59a8150689997985f71c6159ec6cab3c2351011a2a8f005e472a9c2047bfb3c",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/crosshair.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/electricglow.efkefc",
+      "sha256": "d06c4c6ba4c5284482ce78f04e4f3beecd22c91374e0931bef742d9c923179b8",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/electricglow.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/err.efkefc",
+      "sha256": "e9ed1dd1168fbf333d5e6d4a7b6126a7e15c06beb2d0d9b981dfc24dbba9d97d",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/err.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/firebomb.efkefc",
+      "sha256": "3bc1eb1bd7c2cf8bc1534c445ae9fd3184d2a31fd94634d2cc3cb9b11816a01e",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/firebomb.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/fogcloud.efkefc",
+      "sha256": "41c9e76e93aa40486ba5124afc8d0c368dfe4450e6cf485e21994c4db5a1ba0a",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/fogcloud.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/frostring.efkefc",
+      "sha256": "270c9634896df81beeb900ae7cd3e417c16c85f36b564c1e30e182595dad7d38",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/frostring.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/ghostglitter.efkefc",
+      "sha256": "a6ec8267601409c4311c4ea7650aec5065456b14e19c8b3bc10be73298fb85f5",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/ghostglitter.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/goldglitter.efkefc",
+      "sha256": "8ba32c850a9e7d99e3078d3bc409f5311bf3d41cdc0145335f267eff2cbdfc0a",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/goldglitter.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/greenexplode.efkefc",
+      "sha256": "dd004f14beed748a878f7e774de971f32e6e4550d0c76d163dd971def46c4c8b",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/greenexplode.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/hit_hanmado_0409.efkefc",
+      "sha256": "221b34a1851287959be53b67c080ee2d79cf2144795fc4caffaf24968071cf5f",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/hit_hanmado_0409.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/hitcloro.efkefc",
+      "sha256": "73e92e14641f2548d366dd5d13188b6c03b1e1abd40e6c7e30268388ced77073",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/hitcloro.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/hitcryo.efkefc",
+      "sha256": "abcabe058f73ba6efbb5cd576799be51007f1d21eabcc336cc56e9e81025f810",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/hitcryo.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/hitferro.efkefc",
+      "sha256": "7587e0d2fe5b307d10f9d6e1b36db308dfb2548b1acbff3e41d9d67912019dfb",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/hitferro.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/hitpyro.efkefc",
+      "sha256": "f6ec823047db964ca17c80524484fcd5fce4d6242e2fe5f7ad3525b84d9a762d",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/hitpyro.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/hitresist.efkefc",
+      "sha256": "5a8495b992faa98c6c4cffb64d9174905dd3b07d16c7a9b3f019980c9cb7cafd",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/hitresist.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/holo1.efkefc",
+      "sha256": "cdf287d5c9773d81b579c370c9189e2ee161e32c5e44c0699aef790a5133f0d0",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/holo1.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/holo2.efkefc",
+      "sha256": "7c1f6b591274c6d8ff53658815419f4b43d88b5fae1f7357839e53cb06a8274c",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/holo2.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/holo3.efkefc",
+      "sha256": "0a50463080597611f91d727493ed4811dad7815dffa573e9fe916dd757bb4dfa",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/holo3.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/holo4.efkefc",
+      "sha256": "9fb91abb7e85b62b18ffb1682986afaa5bb005a834c84b75fc550a52f35c627f",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/holo4.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/holo5.efkefc",
+      "sha256": "26ae7f0aacdc76f035b9168ec44dab4f12215119632c5d5521e3003298b1354f",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/holo5.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/icebomb.efkefc",
+      "sha256": "de232384d671f5b4d33b6b5dd5a1a139d052ceca633768e6e3004272feaf846f",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/icebomb.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/kiloattack.efkefc",
+      "sha256": "51df0e2b5b33835ce098e1c889824d50ed946177d9cba7d23c60cad785553a33",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/kiloattack.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/magneticboom.efkefc",
+      "sha256": "2d3c1e24a69471d4d029ba96b1cda8b3f84688c85f9f46b5edc68210293ac903",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/magneticboom.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/poisoncloud.efkefc",
+      "sha256": "ca020e52daad2ecb8079c922c4440fb661f7d4dbbfa19d80cf0d51d2b7d0fcb4",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/poisoncloud.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/prismaticboom.efkefc",
+      "sha256": "28d076a4836919ad0ca9cfa4cbc1aa66bd2b1583a97168a23bbedd315b8bc62a",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/prismaticboom.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/prismcluster.efkefc",
+      "sha256": "54f9106f65617e9eec4155a2ab4666cbe5d3d684c55083bcf7475cb2e61d2524",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/prismcluster.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/projhit.efkefc",
+      "sha256": "76d986c102cca36a4aa53bbc062a14030a398da39aa5ba72e10d0099b2966019",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/projhit.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/purpleexplode.efkefc",
+      "sha256": "bb98065774c5460c55f79d8b6d2831349f847b4b38ba5419770044ad59067482",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/purpleexplode.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/redexplode.efkefc",
+      "sha256": "8e6206db27e1941b8d29fa920e516de6381af4ebbc9fb1d7a8a9a49776b40333",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/redexplode.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/redorb.efkefc",
+      "sha256": "b2c53046f807d04f31bf5f18cc665f61813041ef05ced46f542317916c5677d5",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/redorb.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/redshortorb.efkefc",
+      "sha256": "9788d8728df5fb70801ffd4b3b3d4e588ef79e305861823d8a45013112902b0b",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/redshortorb.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/shockattack.efkefc",
+      "sha256": "a0b6af5005e68e9468fbb3b1a4bcf840e3d1aca77bc430180ed878c43b1034ca",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/shockattack.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/shockwavereactor.efkefc",
+      "sha256": "62dc705e697dfa8482afa828369a993b3a7a7781d39a1cd54bde0411eb25aa19",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/shockwavereactor.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/shockwavespawn.efkefc",
+      "sha256": "82d474115789c95a7be87dca97fc16ac215426e99e791c7bf3a1cc0418251be7",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/shockwavespawn.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/smallredshortorb.efkefc",
+      "sha256": "948ce7cb3b5fb9bfbfba4d35b111fc0e7e265e15444c085b62dca2fdf767e07c",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/smallredshortorb.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/squallsmoke.efkefc",
+      "sha256": "b56cbaed8ba2ca22cdc4d062fb3a7d519e6b56d753c4178b2252d5ba38a8c212",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/squallsmoke.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/teleportflash.efkefc",
+      "sha256": "138081a05841e2d728c59d47fcc8d448c9a2a701b29e28d98e01ffb9424ec8d3",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/teleportflash.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/turqexplode.efkefc",
+      "sha256": "3b12b5000908a6ce988fbe0a8638b730d2c22f013f41ac7832d5c0840bf2c0ca",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/turqexplode.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/violetexplode.efkefc",
+      "sha256": "638f6f13cafbade259048fbea00e8ba3de1503dcb678bf3700546d5dd82c4515",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/violetexplode.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/volcanospark.efkefc",
+      "sha256": "b4db9f7d73e30878851c98178ac858fb5cc69cc516b54068244528a7d8a8a64c",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/volcanospark.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/whiteorb.efkefc",
+      "sha256": "48777d5a05143748ff3cf1ed494c60c010e6aaef04fe8f9f92d7422056ed171e",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/whiteorb.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/yellowexplode.efkefc",
+      "sha256": "8a596d7163ec9351249a51296285e7f1fb2e561d05f3ca5398480ad523796a55",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/yellowexplode.efkefc"
+    },
+    {
+      "source": "assets/thermal_shock/effeks/zapattack.efkefc",
+      "sha256": "a47ece9892852a0e04da8c8e14361feeb472fa7c463cb089319f04e14b71154e",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/zapattack.efkefc"
+    }
+  ],
+  "soundSchedules": [
+    {
+      "source": "NetLauncherFiringProcedure.java",
+      "kind": 2,
+      "sourceDerived": [
+        [
+          10,
+          "minecraft:item.crossbow.loading_start",
+          1.5,
+          -4.0
+        ],
+        [
+          20,
+          "minecraft:block.stone_button.click_off",
+          1.5,
+          2.0
+        ]
+      ],
+      "targetAstDerived": [
+        [
+          10,
+          "minecraft:item.crossbow.loading_start",
+          1.5,
+          -4
+        ],
+        [
+          20,
+          "minecraft:block.stone_button.click_off",
+          1.5,
+          2
+        ]
+      ]
+    },
+    {
+      "source": "JudgeFiringProcedure.java",
+      "kind": 3,
+      "sourceDerived": [
+        [
+          20,
+          "minecraft:block.lever.click",
+          0.7,
+          5.0
+        ],
+        [
+          20,
+          "minecraft:block.piston.extend",
+          0.7,
+          3.0
+        ],
+        [
+          21,
+          "minecraft:block.lever.click",
+          0.8,
+          6.0
+        ],
+        [
+          28,
+          "minecraft:block.stone_button.click_on",
+          1.0,
+          2.0
+        ],
+        [
+          30,
+          "minecraft:block.piston.contract",
+          1.0,
+          2.0
+        ]
+      ],
+      "targetAstDerived": [
+        [
+          20,
+          "minecraft:block.lever.click",
+          0.7,
+          5
+        ],
+        [
+          20,
+          "minecraft:block.piston.extend",
+          0.7,
+          3
+        ],
+        [
+          21,
+          "minecraft:block.lever.click",
+          0.8,
+          6
+        ],
+        [
+          28,
+          "minecraft:block.stone_button.click_on",
+          1,
+          2
+        ],
+        [
+          30,
+          "minecraft:block.piston.contract",
+          1,
+          2
+        ]
+      ]
+    },
+    {
+      "source": "IceBombPlayerFinishesUsingItemProcedure.java",
+      "kind": 0,
+      "sourceDerived": [
+        [
+          20,
+          "thermal_shock_reforged:flarecoreexplode",
+          1.0,
+          1.0
+        ]
+      ],
+      "targetAstDerived": [
+        [
+          20,
+          "thermal_shock_reforged:flarecoreexplode",
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "source": "FlowerBombUseProcedure.java",
+      "kind": 1,
+      "sourceDerived": [
+        [
+          20,
+          "minecraft:block.rooted_dirt.break",
+          1.0,
+          1.0
+        ],
+        [
+          20,
+          "thermal_shock_reforged:flarecoreexplode",
+          1.0,
+          1.0
+        ]
+      ],
+      "targetAstDerived": [
+        [
+          20,
+          "minecraft:block.rooted_dirt.break",
+          1,
+          1
+        ],
+        [
+          20,
+          "thermal_shock_reforged:flarecoreexplode",
+          1,
+          1
+        ]
+      ]
+    }
+  ],
+  "checksPassed": 311,
+  "checks": [
+    "Java语法:AnimatedCombatItem.java",
+    "Java语法:BombItem.java",
+    "Java语法:ChorusianAntennaeItem.java",
+    "Java语法:ClawSickleItem.java",
+    "Java语法:CombatAnimationCache.java",
+    "Java语法:CombatItemTaskEntity.java",
+    "Java语法:CryoCooldownVisual.java",
+    "Java语法:PistonGauntletItem.java",
+    "Java语法:RemainingCombatContent.java",
+    "Java语法:RemainingCombatState.java",
+    "Java语法:RemainingGunItem.java",
+    "Java语法:UmbrellaItem.java",
+    "Java语法:RemainingCombatClient.java",
+    "独占Java文件13",
+    "Java无注释:AnimatedCombatItem.java",
+    "服务端无客户端类:AnimatedCombatItem.java",
+    "Java无注释:BombItem.java",
+    "服务端无客户端类:BombItem.java",
+    "Java无注释:ChorusianAntennaeItem.java",
+    "服务端无客户端类:ChorusianAntennaeItem.java",
+    "Java无注释:ClawSickleItem.java",
+    "服务端无客户端类:ClawSickleItem.java",
+    "Java无注释:CombatAnimationCache.java",
+    "服务端无客户端类:CombatAnimationCache.java",
+    "Java无注释:CombatItemTaskEntity.java",
+    "服务端无客户端类:CombatItemTaskEntity.java",
+    "Java无注释:CryoCooldownVisual.java",
+    "服务端无客户端类:CryoCooldownVisual.java",
+    "Java无注释:PistonGauntletItem.java",
+    "服务端无客户端类:PistonGauntletItem.java",
+    "Java无注释:RemainingCombatContent.java",
+    "服务端无客户端类:RemainingCombatContent.java",
+    "Java无注释:RemainingCombatState.java",
+    "服务端无客户端类:RemainingCombatState.java",
+    "Java无注释:RemainingGunItem.java",
+    "服务端无客户端类:RemainingGunItem.java",
+    "Java无注释:UmbrellaItem.java",
+    "服务端无客户端类:UmbrellaItem.java",
+    "Java无注释:RemainingCombatClient.java",
+    "原JAR固定SHA",
+    "原类:item/ChorusianAntennaeItem.java",
+    "原反编译:item/ChorusianAntennaeItem.java",
+    "原类:item/ClawSickleItem.java",
+    "原反编译:item/ClawSickleItem.java",
+    "原类:item/FlowerBombItem.java",
+    "原反编译:item/FlowerBombItem.java",
+    "原类:item/IceBombItem.java",
+    "原反编译:item/IceBombItem.java",
+    "原类:item/JellyUmbrellaItem.java",
+    "原反编译:item/JellyUmbrellaItem.java",
+    "原类:item/LegendaryJellyUmbrellaItem.java",
+    "原反编译:item/LegendaryJellyUmbrellaItem.java",
+    "原类:item/NetLauncherItem.java",
+    "原反编译:item/NetLauncherItem.java",
+    "原类:item/PistonGauntletItem.java",
+    "原反编译:item/PistonGauntletItem.java",
+    "原类:item/TheJudgeItem.java",
+    "原反编译:item/TheJudgeItem.java",
+    "原类:init/ItemAnimationFactory.java",
+    "原反编译:init/ItemAnimationFactory.java",
+    "原类:init/ArmorAnimationFactory.java",
+    "原反编译:init/ArmorAnimationFactory.java",
+    "原类:ThermalShockMod.java",
+    "原反编译:ThermalShockMod.java",
+    "原类:client/renderer/ChorusianAntennaeArmorRenderer.java",
+    "原反编译:client/renderer/ChorusianAntennaeArmorRenderer.java",
+    "原类:procedures/RubySickleToolInHandTickProcedure.java",
+    "原反编译:procedures/RubySickleToolInHandTickProcedure.java",
+    "原类:procedures/SickleHitsEntityProcedure.java",
+    "原反编译:procedures/SickleHitsEntityProcedure.java",
+    "原类:procedures/FlowerBombUseProcedure.java",
+    "原反编译:procedures/FlowerBombUseProcedure.java",
+    "原类:procedures/IceBombPlayerFinishesUsingItemProcedure.java",
+    "原反编译:procedures/IceBombPlayerFinishesUsingItemProcedure.java",
+    "原类:item/renderer/JellyUmbrellaItemRenderer.java",
+    "原反编译:item/renderer/JellyUmbrellaItemRenderer.java",
+    "原类:procedures/JellyUmbrellaRightclickedProcedure.java",
+    "原反编译:procedures/JellyUmbrellaRightclickedProcedure.java",
+    "原类:item/renderer/LegendaryJellyUmbrellaItemRenderer.java",
+    "原反编译:item/renderer/LegendaryJellyUmbrellaItemRenderer.java",
+    "原类:procedures/LegendaryJellyUmbrellaRightclickedProcedure.java",
+    "原反编译:procedures/LegendaryJellyUmbrellaRightclickedProcedure.java",
+    "原类:item/renderer/NetLauncherItemRenderer.java",
+    "原反编译:item/renderer/NetLauncherItemRenderer.java",
+    "原类:procedures/CoreEjectFlareGunItemInHandTickProcedure.java",
+    "原反编译:procedures/CoreEjectFlareGunItemInHandTickProcedure.java",
+    "原类:procedures/NetLauncherFiringProcedure.java",
+    "原反编译:procedures/NetLauncherFiringProcedure.java",
+    "原类:item/renderer/PistonGauntletItemRenderer.java",
+    "原反编译:item/renderer/PistonGauntletItemRenderer.java",
+    "原类:procedures/PistonGauntletRightclickedProcedure.java",
+    "原反编译:procedures/PistonGauntletRightclickedProcedure.java",
+    "原类:item/renderer/TheJudgeItemRenderer.java",
+    "原反编译:item/renderer/TheJudgeItemRenderer.java",
+    "原类:procedures/JudgeFiringProcedure.java",
+    "原反编译:procedures/JudgeFiringProcedure.java",
+    "原类:item/model/ChorusianAntennaeModel.java",
+    "原反编译:item/model/ChorusianAntennaeModel.java",
+    "原类:item/model/JellyUmbrellaItemModel.java",
+    "原反编译:item/model/JellyUmbrellaItemModel.java",
+    "原类:item/model/LegendaryJellyUmbrellaItemModel.java",
+    "原反编译:item/model/LegendaryJellyUmbrellaItemModel.java",
+    "原类:item/model/NetLauncherItemModel.java",
+    "原反编译:item/model/NetLauncherItemModel.java",
+    "原类:entity/NetBulletEntity.java",
+    "原反编译:entity/NetBulletEntity.java",
+    "原类:procedures/RecoilEffectProcedure.java",
+    "原反编译:procedures/RecoilEffectProcedure.java",
+    "原类:item/model/PistonGauntletItemModel.java",
+    "原反编译:item/model/PistonGauntletItemModel.java",
+    "原类:item/model/TheJudgeItemModel.java",
+    "原反编译:item/model/TheJudgeItemModel.java",
+    "原类:entity/VolcanoBulletEntity.java",
+    "原反编译:entity/VolcanoBulletEntity.java",
+    "原类:procedures/NetBulletWhileProjectileFlyingTickProcedure.java",
+    "原反编译:procedures/NetBulletWhileProjectileFlyingTickProcedure.java",
+    "原类:procedures/VolcanoBulletTickProcedure.java",
+    "原反编译:procedures/VolcanoBulletTickProcedure.java",
+    "原类:procedures/VolcanoHitProcedure.java",
+    "原反编译:procedures/VolcanoHitProcedure.java",
+    "资源完整语义:assets/thermal_shock/animations/chorantenna.animation.json",
+    "资源完整语义:assets/thermal_shock/animations/cobalt_fist.animation.json",
+    "资源完整语义:assets/thermal_shock/animations/jellyumbrella.animation.json",
+    "资源完整语义:assets/thermal_shock/animations/net_launcher.animation.json",
+    "资源完整语义:assets/thermal_shock/animations/super_shotgun.animation.json",
+    "资源完整语义:assets/thermal_shock/geo/chorantenna.geo.json",
+    "资源完整语义:assets/thermal_shock/geo/cobalt_fist.geo.json",
+    "资源完整语义:assets/thermal_shock/geo/jellyumbrella.geo.json",
+    "资源完整语义:assets/thermal_shock/geo/net_launcher.geo.json",
+    "资源完整语义:assets/thermal_shock/geo/super_shotgun.geo.json",
+    "资源完整语义:assets/thermal_shock/models/displaysettings/cobalt_fist.json",
+    "资源完整语义:assets/thermal_shock/models/displaysettings/flint-steel_rifle.json",
+    "资源完整语义:assets/thermal_shock/models/displaysettings/jelly_umbrella.item.json",
+    "资源完整语义:assets/thermal_shock/models/displaysettings/super_shotgun.json",
+    "资源完整语义:assets/thermal_shock/models/item/chorusian_antennae_helmet.json",
+    "资源完整语义:assets/thermal_shock/models/item/claw_sickle.json",
+    "资源完整语义:assets/thermal_shock/models/item/flower_bomb.json",
+    "资源完整语义:assets/thermal_shock/models/item/ice_bomb.json",
+    "资源完整语义:assets/thermal_shock/models/item/jelly_umbrella.json",
+    "资源完整语义:assets/thermal_shock/models/item/legendary_jelly_umbrella.json",
+    "资源完整语义:assets/thermal_shock/models/item/net_launcher.json",
+    "资源完整语义:assets/thermal_shock/models/item/piston_gauntlet.json",
+    "资源完整语义:assets/thermal_shock/models/item/the_judge.json",
+    "资源完整语义:assets/thermal_shock/particles/ice_bomb_effect.json",
+    "资源字节:assets/thermal_shock/textures/item/chorantennaealt.png",
+    "资源字节:assets/thermal_shock/textures/item/chorusianantennae.png",
+    "资源字节:assets/thermal_shock/textures/item/claw_sickle.png",
+    "资源字节:assets/thermal_shock/textures/item/cobalt_fist.png",
+    "资源字节:assets/thermal_shock/textures/item/flowerbomb.png",
+    "资源完整语义:assets/thermal_shock/textures/item/flowerbomb.png.mcmeta",
+    "资源字节:assets/thermal_shock/textures/item/icebomb.png",
+    "资源完整语义:assets/thermal_shock/textures/item/icebomb.png.mcmeta",
+    "资源字节:assets/thermal_shock/textures/item/jellumnbra.png",
+    "资源字节:assets/thermal_shock/textures/item/net_launcher.png",
+    "资源字节:assets/thermal_shock/textures/item/supershotgun.png",
+    "资源字节:assets/thermal_shock/textures/particle/ice_bomb_effect.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Material/mat_eff_hit_himatsu.efkmat",
+    "AAA完整资源:assets/thermal_shock/effeks/Material/mat_eff_yugami.efkmat",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/Blood Splot.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/Bomb Ball.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/Bomb Explosion.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/ColorNoise.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/Crosshair.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/Electric Glow.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/Fire Bomb.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/Fire_Blur.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/Fire_Single.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/Flash01.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/Fog3001.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/FrostbiteRing.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/Ghost Glitter.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/Golden Glitter.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/Hitfx Cloro.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/Hitfx Cryo.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/Hitfx Ferro.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/Hitfx Pyro.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/Hitfx Resist.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/Holo Director1 Striped.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/Holo Frostilyte1 Striped.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/Holo Qo1 Striped.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/Holo Qo2 Striped.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/Holo Sopel1 Striped.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/Ice Bomb.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/LaserMain02.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/New Piskel.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/Particle01.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/Particle02.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/Particle1.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/Shock_wave_ring001.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/Shock_wave_ring001_long.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/Shock_wave_ring002.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/Spark Proj 1.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/Spark Proj 2.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/Spark Proj 3.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/Splash.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/Thunder01.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/Wind01.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/actionlines.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/aurora01.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/black.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/bloomeraura.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/burst02_red.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/bwgradation1216.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/bwgradation1229.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/camphoto.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/camsparkle.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/clockHand.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/double-shockwave.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/drillshi.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/ef_common_flashlight01_t.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/eggzero.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/errbotlayer.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/errtext.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/errtoplayer.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/fire_tex.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/hit.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/howaa128.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/orb_colored.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/prism_crystal.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/redorblight64.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/ribbon01_trans.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/shockattack.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/shockwarn.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/shrapnel.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/smoke_tex.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/squareWave.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/squareWave03_192.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/squareWave03_384.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/starpart_.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/tex_eff_hit_common_02.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/tex_eff_light02.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/zapattack.png",
+    "AAA完整资源:assets/thermal_shock/effeks/Texture/zapwarn.png",
+    "AAA完整资源:assets/thermal_shock/effeks/bigredshortorb.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/bloodattack.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/bloodmoon.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/bloodspiral.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/bloodsplatter.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/bloomeraura.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/boomshroom.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/boss_death.efkproj",
+    "AAA完整资源:assets/thermal_shock/effeks/camphoto.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/corexplode.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/crosshair.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/electricglow.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/err.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/firebomb.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/fogcloud.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/frostring.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/ghostglitter.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/goldglitter.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/greenexplode.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/hit_hanmado_0409.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/hitcloro.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/hitcryo.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/hitferro.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/hitpyro.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/hitresist.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/holo1.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/holo2.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/holo3.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/holo4.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/holo5.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/icebomb.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/kiloattack.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/magneticboom.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/poisoncloud.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/prismaticboom.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/prismcluster.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/projhit.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/purpleexplode.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/redexplode.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/redorb.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/redshortorb.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/shockattack.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/shockwavereactor.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/shockwavespawn.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/smallredshortorb.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/squallsmoke.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/teleportflash.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/turqexplode.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/violetexplode.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/volcanospark.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/whiteorb.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/yellowexplode.efkefc",
+    "AAA完整资源:assets/thermal_shock/effeks/zapattack.efkefc",
+    "完整配方/战利品:src/main/resources/data/thermal_shock_reforged/loot_table/entities/protoi_delta.json",
+    "生产资源SHA:src/main/resources/data/thermal_shock_reforged/loot_table/entities/protoi_delta.json",
+    "完整配方/战利品:src/main/resources/data/thermal_shock_reforged/recipe/claw_sickle_recipe.json",
+    "生产资源SHA:src/main/resources/data/thermal_shock_reforged/recipe/claw_sickle_recipe.json",
+    "完整配方/战利品:src/main/resources/data/thermal_shock_reforged/recipe/flower_bomb_recipe.json",
+    "生产资源SHA:src/main/resources/data/thermal_shock_reforged/recipe/flower_bomb_recipe.json",
+    "完整配方/战利品:src/main/resources/data/thermal_shock_reforged/recipe/ice_bomb_recipe.json",
+    "生产资源SHA:src/main/resources/data/thermal_shock_reforged/recipe/ice_bomb_recipe.json",
+    "完整配方/战利品:src/main/resources/data/thermal_shock_reforged/recipe/jelly_umbrella_recipe.json",
+    "生产资源SHA:src/main/resources/data/thermal_shock_reforged/recipe/jelly_umbrella_recipe.json",
+    "完整配方/战利品:src/main/resources/data/thermal_shock_reforged/recipe/legendary_jelly_umbrella_recipe.json",
+    "生产资源SHA:src/main/resources/data/thermal_shock_reforged/recipe/legendary_jelly_umbrella_recipe.json",
+    "完整配方/战利品:src/main/resources/data/thermal_shock_reforged/recipe/net_launcher_recipe.json",
+    "生产资源SHA:src/main/resources/data/thermal_shock_reforged/recipe/net_launcher_recipe.json",
+    "完整配方/战利品:src/main/resources/data/thermal_shock_reforged/recipe/piston_gauntlet_recipe.json",
+    "生产资源SHA:src/main/resources/data/thermal_shock_reforged/recipe/piston_gauntlet_recipe.json",
+    "LimboVault入口仅自身与匿名内部类，无外部调用",
+    "声音原队列对照:NetLauncherFiringProcedure.java",
+    "声音原队列对照:JudgeFiringProcedure.java",
+    "声音原队列对照:IceBombPlayerFinishesUsingItemProcedure.java",
+    "声音原队列对照:FlowerBombUseProcedure.java",
+    "终段消费锁与discard先于任一终段回调",
+    "全部七项任务字段保存与加载对称",
+    "已消费任务阻止endTick重入",
+    "载入已终结阶段不能重新armed"
+  ],
+  "productionJava": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/remainingcombat/AnimatedCombatItem.java",
+      "sha256": "3d3749a3ec652c9c59c613e5fb3ed3031d4064cd3b8f2cf7a505dbb0adca206f"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/remainingcombat/BombItem.java",
+      "sha256": "b03f1c7ce63dce6f41016a58d798d74ff14ca19723508316a02c3e63e8640cfb"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/remainingcombat/ChorusianAntennaeItem.java",
+      "sha256": "6f151610c11f98001edae95f63b1c7019b965c76231de51252e6118262a0a6af"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/remainingcombat/ClawSickleItem.java",
+      "sha256": "49bf93b2e3a24546dfc14dc120a856219f28773aa2533f9fc80346a3764abf0a"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/remainingcombat/CombatAnimationCache.java",
+      "sha256": "9f477c174da6bdcb76536260ec561050422d7924646a958405ef6ebf79d88242"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/remainingcombat/CombatItemTaskEntity.java",
+      "sha256": "52311ced41d24cfba3d709d7fb8aef2808fff37ed3c69b01bd99197ace8a87ac"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/remainingcombat/CryoCooldownVisual.java",
+      "sha256": "9d803a51b2895ea7e2d4374c35aeff7d24d2391a1c43b08370759c8b438777e5"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/remainingcombat/PistonGauntletItem.java",
+      "sha256": "f42ee1c4599f2f9b052a1893d7d4c9b250ed0062fce23aec2a254a0f4ed8b51b"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/remainingcombat/RemainingCombatContent.java",
+      "sha256": "b6d193642d00821c04764297356cc41f81496f3401963d78cd27a0f6101b38be"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/remainingcombat/RemainingCombatState.java",
+      "sha256": "09e1d059b46b56ad53408f0b1889a7cc2f60f9c01d9fb18bddb4f08aa61ec989"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/remainingcombat/RemainingGunItem.java",
+      "sha256": "f2205201a79d632f859731b4f821402b2d86d5cd06120335a3c3833eaa83477b"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/remainingcombat/UmbrellaItem.java",
+      "sha256": "7dee73b27f2e15f2093e56bd08a57f4090250cfb899044dcd5ce18662ac34e0e"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/remainingcombat/RemainingCombatClient.java",
+      "sha256": "d499be57f81ec5eed57684fcc289a8dc3b151e7c8c2a3e4fe9638103a0730c00"
+    }
+  ],
+  "sharedIntegrationRequired": [
+    "根register",
+    "客户端extensions/renderers/particles",
+    "LegacyArrowEntity公开setImpactKnockback",
+    "Spirit/Burner外部冰弹门槛",
+    "六实体粒子旧频率与混色桥",
+    "语言与标准工具/盔甲标签"
+  ],
+  "persistenceLimits": "静态检查字段对称、终段先消费与重入门槛；未将纯事件列表分割计作保存/加载运行时测试。卸载/重启须最终游戏验收。",
+  "sharedIntegratedVerification": {
+    "languageAndTagChecks": 35,
+    "mainSharedFilesShaVerified": 20
+  }
+}
