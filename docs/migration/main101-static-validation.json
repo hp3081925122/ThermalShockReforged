@@ -1,0 +1,90 @@
+{
+  "batch": 101,
+  "base_head": "c7e32cefec14746ebc0d08b551bc9f9cf861add0",
+  "scope": "Frozen production inputs, delivery hashes, copied resources and language changes; not game tests",
+  "frozen_inputs": 8363,
+  "production_files": 25,
+  "production_sha256": {
+    "src/main/java/com/hp/thermalshockreforged/ThermalShockReforged.java": "2f767f37d69e18c896a2326fc26771af85e943936e984373c306b0c07753a8da",
+    "src/main/java/com/hp/thermalshockreforged/client/ClientEvents.java": "060c5f78fe5838b0f2cadfb3b438767b1f4d460c5d0bdc009ae6eb0377e33158",
+    "src/main/java/com/hp/thermalshockreforged/content/vilebathblocks/FogMachineBlock.java": "3be2169fe0a83b365dba6b2d2ea752498cd35c6339a904d2a0d9a8fc63e0d04c",
+    "src/main/java/com/hp/thermalshockreforged/content/vilebathblocks/VilebathBlocksContent.java": "c98565df31f1dbd38107799878b0aba8041a21622c6d6183799ea7123532e279",
+    "src/main/java/com/hp/thermalshockreforged/content/weatherutility/PurifierBlock.java": "687ddce0584ceea98ec5831229f42c1bc53056a533933a15dafa591e90c51207",
+    "src/main/java/com/hp/thermalshockreforged/content/weatherutility/PurifierBlockEntity.java": "c5672404c9d14439dd23b37294131b6f21a663942a131f4293d7cabe6bd09c70",
+    "src/main/java/com/hp/thermalshockreforged/content/weatherutility/PurifierPulseEntity.java": "ab2fc69f7e79fffeeb7f2485fe8bda7bbf4ae95bc07c2484333d34120b0dadc3",
+    "src/main/java/com/hp/thermalshockreforged/content/weatherutility/RainDrumBlock.java": "da0d5adc0a866a64bc726ce502e01ec4a5b6a4f12c818546fbd8af7779124c5d",
+    "src/main/java/com/hp/thermalshockreforged/content/weatherutility/WeatherUtilityContent.java": "8dbc7c6c72cc15daaa6edf692a621a9c659fd8c944c359ed73cb9b9a44ad84ec",
+    "src/main/resources/assets/thermal_shock_reforged/lang/en_us.json": "a82eba8ca1b0014d67bbe136c366edec0be9dd8c4767e37cd338fe562870df02",
+    "src/main/resources/assets/thermal_shock_reforged/lang/zh_cn.json": "f5dbed5bf479f8b2dbf8bad5e86a354d1549f023e2e3255773f3cf81c67f3e7b",
+    "src/main/resources/data/minecraft/tags/block/mineable/pickaxe.json": "b5e8a59f2449bf9f3e3c842e9e40c133857e2c79e30a61540b3737c0e1db973d",
+    "src/main/resources/data/thermal_shock_reforged/advancement/graveyard_advancement.json": "de912f821276693252d7ad92af979e48c5567503943410b5d6fea80a20f8a2af",
+    "src/main/resources/data/thermal_shock_reforged/advancement/luminous_sea_get.json": "f3744ae6e41975ef909d97fb450f1e6655e9130ca3dd44fe0ccaab228191baf9",
+    "src/main/resources/data/thermal_shock_reforged/advancement/purifier_get.json": "dd9302b3299360a59efbfe35d91ffef632839a3423fbba037c7f6573f6c609e0",
+    "src/main/resources/data/thermal_shock_reforged/advancement/rain_drum_get.json": "5f138981f56422bbad26e916624f24ddee3493acc40e42a707afa4b937f55b90",
+    "src/main/resources/data/thermal_shock_reforged/advancement/stardust_garden_advancement.json": "e00695afda175b64e4a6b84a3869a51561731f2badf83f73de21aca814a5d51a",
+    "src/main/resources/data/thermal_shock_reforged/advancement/vermillion_woods_advancement.json": "2fa9b0fb312c8b49a4f7ae8b78059e77a96cf3794caf05a4ad354a50355fc10c",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/fog_machine.json": "4d44f7764741312b8dbd6b085e4a9208ba6f5ac159ad3deec308669c9bbee9ad",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/purifier.json": "51f24b079cb40f816eed1600c60f629eaa1691c9d4c06974aef66bede7189c73",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/rain_drum.json": "802ae3d17c6b0f1f54c703b903d84262fbd2371b236b84a373951665a8f0a7d0",
+    "src/main/resources/data/thermal_shock_reforged/recipe/fog_machine_recipe.json": "2d98d1fe956e34858776aad5cb1dfd234ed6baaf1fdc0a15aabac2758cdbca67",
+    "src/main/resources/data/thermal_shock_reforged/recipe/purifier_bism_recipe.json": "159c51e7bea1aa544a350d290471c10242316429c1830541f83a8869569c2c5c",
+    "src/main/resources/data/thermal_shock_reforged/recipe/purifier_recipe.json": "85fbc8e591930daebdc3fdea2985de789eeb091231981279d1e8491449d40bb8",
+    "src/main/resources/data/thermal_shock_reforged/recipe/rain_drum_recipe.json": "61ffb85dae737e9af92785a52ac1c30f7ffcbd48a6cd06ed7a4750ef59a420e0"
+  },
+  "peer_production_files": 16,
+  "peer_production_changes": [],
+  "byte_equal_resources": 7618,
+  "expanded_templates": 2,
+  "language": {
+    "zh_cn": {
+      "preserved_values": 750,
+      "changed_values": {},
+      "new_keys": [
+        "advancements.graveyard_advancement.descr",
+        "advancements.graveyard_advancement.title",
+        "advancements.luminous_sea_get.descr",
+        "advancements.luminous_sea_get.title",
+        "advancements.purifier_get.descr",
+        "advancements.purifier_get.title",
+        "advancements.rain_drum_get.descr",
+        "advancements.rain_drum_get.title",
+        "advancements.stardust_garden_advancement.descr",
+        "advancements.stardust_garden_advancement.title",
+        "advancements.vermillion_woods_advancement.descr",
+        "advancements.vermillion_woods_advancement.title",
+        "block.thermal_shock_reforged.fog_machine",
+        "block.thermal_shock_reforged.purifier",
+        "block.thermal_shock_reforged.purifier.description_0",
+        "block.thermal_shock_reforged.purifier.description_1",
+        "block.thermal_shock_reforged.rain_drum",
+        "subtitles.angry_rain_drum_random",
+        "subtitles.rain_drum_01",
+        "subtitles.rain_drum_random"
+      ]
+    },
+    "en_us": {
+      "preserved_values": 3327,
+      "changed_values": {
+        "block.thermal_shock_reforged.purifier.description_0": {
+          "before": "§7On right click, purifies nearby frozen flora, and kills infected blocks.",
+          "after": "§7On placement, purifies nearby frozen flora, and kills infected blocks."
+        }
+      },
+      "new_keys": []
+    }
+  },
+  "errors": [],
+  "passed": true,
+  "build": {
+    "command": "gradlew.bat compileJava processResources --offline --max-workers=2 --console=plain",
+    "java": "21.0.11",
+    "exit_code": 0,
+    "duration": "1m 16s",
+    "tasks": 24,
+    "executed": 2,
+    "up_to_date": 22,
+    "existing_deprecation_warnings": 5,
+    "log": "D:\\AI临时文件\\ThermalShockMigration\\batch101-unified-build.log",
+    "log_sha256": "5bdce02e75cd9f6a0f7b717cbaa101e5e661c1207135d4b3d8fa9458479b94a6"
+  }
+}

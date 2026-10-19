@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "id": "thermal_shock_reforged:seaglass_block"
+    },
+    "title": {
+      "translate": "advancements.luminous_sea_get.title"
+    },
+    "description": {
+      "translate": "advancements.luminous_sea_get.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "luminous_sea_get_0": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biomes": "thermal_shock_reforged:luminous_sea"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "parent": "thermal_shock_reforged:stardust_garden_advancement"
+}

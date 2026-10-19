@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "id": "thermal_shock_reforged:vermilli_log"
+    },
+    "title": {
+      "translate": "advancements.vermillion_woods_advancement.title"
+    },
+    "description": {
+      "translate": "advancements.vermillion_woods_advancement.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "vermillion_woods_advancement_0": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biomes": "thermal_shock_reforged:vermillion_woods"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "parent": "thermal_shock_reforged:borean_tundra_advancement"
+}

@@ -1,0 +1,73 @@
+{
+  "batch": 101,
+  "base_head": "c7e32cefec14746ebc0d08b551bc9f9cf861add0",
+  "status": "共享增量，由主聊天唯一应用；本路不修改共享文件",
+  "java": [
+    {
+      "file": "src/main/java/com/hp/thermalshockreforged/ThermalShockReforged.java",
+      "method": "ThermalShockReforged",
+      "after": "com.hp.thermalshockreforged.content.reactor.ReactorContent.register(bus);",
+      "code": "com.hp.thermalshockreforged.content.weatherutility.WeatherUtilityContent.register(bus);"
+    },
+    {
+      "file": "src/main/java/com/hp/thermalshockreforged/client/ClientEvents.java",
+      "method": "renderers",
+      "after": "event.registerEntityRenderer(com.hp.thermalshockreforged.content.reactor.ReactorContent.SEQUENCE.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);",
+      "code": "event.registerEntityRenderer(com.hp.thermalshockreforged.content.weatherutility.WeatherUtilityContent.PURIFIER_PULSE.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);"
+    }
+  ],
+  "tags": [
+    {
+      "file": "src/main/resources/data/minecraft/tags/block/mineable/pickaxe.json",
+      "append_values": ["thermal_shock_reforged:rain_drum"],
+      "preserve_replace": true
+    }
+  ],
+  "en_us": {
+    "block.thermal_shock_reforged.purifier.description_0": "§7On placement, purifies nearby frozen flora, and kills infected blocks."
+  },
+  "zh_cn": {
+    "block.thermal_shock_reforged.rain_drum": "雨鼓",
+    "block.thermal_shock_reforged.purifier": "净化器",
+    "block.thermal_shock_reforged.purifier.description_0": "§7放置后净化附近的冰冻植物，并清除感染方块。",
+    "block.thermal_shock_reforged.purifier.description_1": "§c[放置即用！]",
+    "advancements.rain_drum_get.title": "我的天，是 Amen Break！太酷了，和我最喜欢的、也有 Amen Break 的游戏一样！太棒了，每一首歌真的都应该用它，我爱 Amen Break！",
+    "advancements.rain_drum_get.descr": "将雨鼓放在 Thermite 方块上",
+    "advancements.purifier_get.title": "失落的洛肯迪亚",
+    "advancements.purifier_get.descr": "净化进行中……",
+    "advancements.luminous_sea_get.title": "冰泥海岸与发光之海",
+    "advancements.luminous_sea_get.descr": "……仿佛低头凝视着夜空",
+    "advancements.graveyard_advancement.title": "墓地与 Vilebath",
+    "advancements.graveyard_advancement.descr": "空气中弥漫着呕血的气味……",
+    "advancements.stardust_garden_advancement.title": "星尘花园",
+    "advancements.stardust_garden_advancement.descr": "闪着绿光的晶莹云雾笼罩着天空……",
+    "advancements.vermillion_woods_advancement.title": "朱红树林",
+    "advancements.vermillion_woods_advancement.descr": "你感受到地底传来的震动……",
+    "subtitles.rain_drum_random": "雨鼓奏响",
+    "subtitles.angry_rain_drum_random": "雨鼓奏响",
+    "subtitles.rain_drum_01": "雨鼓奏响"
+  },
+  "already_present": {
+    "sound_events": ["rain_drum_random", "angry_rain_drum_random", "rain_drum_01"],
+    "creative_items": ["thermal_shock_reforged:rain_drum", "thermal_shock_reforged:purifier"],
+    "assets": "两方块blockstates、block/item模型、实际PNG与19段OGG已在目标；不覆盖。"
+  },
+  "intentional_differences": [
+    "Purifier按原真实onPlace入口启动；原右键提示改放置，未新增右键净化。",
+    "原全局闭包改20 SERVER END有限持久任务；到期邻块未加载时暂停，不强制加载，保原体拆除后的合法净化和粒子。",
+    "无ticker归属BE令牌防旧尾任务删除后来放置的块；同块状态变化不重复初始化，任务加入失败回滚并20tick后重试。",
+    "新增BE使Purifier不能被原生活塞推动；不提供新库存、菜单、客户端ticker或渲染器。",
+    "RainDrum和Purifier按实际顶面贴图补地图色紫色和白色；不改变原透明度、遮挡、lightBlock或Purifier的emissiveRendering。"
+  ],
+  "preservation_notes": [
+    "RainDrum保全原天气条件、随机客户端显示、通电邻居回调、原15/4随机音频、音量音高和单NOTE粒子，不新增天气控制或限频。",
+    "Purifier半径15球、y/x/z顺序、全部七组转换和60%概率、同名属性、flag3、无掉落销毁、15开心村民+10POOF原参数全部保留。",
+    "Purifier原无pickaxe或等级标签且requiresCorrectToolForDrops为true，保该原采集语义；只追加原RainDrum镐标签，不新增Purifier可回收路径或最高采集等级。",
+    "原普通爆炸生存loot及原两种Purifier配方均保留，不擅加新掉落门槛。",
+    "两个直接进度及缺失的四个原父进度接回既有borean_tundra_advancement，保10/200经验、原图标和原location条件。"
+  ],
+  "compiled": false,
+  "server_tested": false,
+  "client_tested": false,
+  "render_preview_tested": false
+}

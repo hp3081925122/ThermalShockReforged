@@ -1,0 +1,53 @@
+{
+  "schema": "rain-purifier-final101-v1",
+  "batch": 101,
+  "base_head": "c7e32cefec14746ebc0d08b551bc9f9cf861add0",
+  "status": "本路生产停笔，共享增量已由主聊天应用，等待统一冻结编译",
+  "production_file_count": 16,
+  "production_sha256": {
+    "src/main/java/com/hp/thermalshockreforged/content/weatherutility/PurifierBlock.java": "687ddce0584ceea98ec5831229f42c1bc53056a533933a15dafa591e90c51207",
+    "src/main/java/com/hp/thermalshockreforged/content/weatherutility/PurifierBlockEntity.java": "c5672404c9d14439dd23b37294131b6f21a663942a131f4293d7cabe6bd09c70",
+    "src/main/java/com/hp/thermalshockreforged/content/weatherutility/PurifierPulseEntity.java": "ab2fc69f7e79fffeeb7f2485fe8bda7bbf4ae95bc07c2484333d34120b0dadc3",
+    "src/main/java/com/hp/thermalshockreforged/content/weatherutility/RainDrumBlock.java": "da0d5adc0a866a64bc726ce502e01ec4a5b6a4f12c818546fbd8af7779124c5d",
+    "src/main/java/com/hp/thermalshockreforged/content/weatherutility/WeatherUtilityContent.java": "8dbc7c6c72cc15daaa6edf692a621a9c659fd8c944c359ed73cb9b9a44ad84ec",
+    "src/main/resources/data/thermal_shock_reforged/advancement/graveyard_advancement.json": "de912f821276693252d7ad92af979e48c5567503943410b5d6fea80a20f8a2af",
+    "src/main/resources/data/thermal_shock_reforged/advancement/luminous_sea_get.json": "f3744ae6e41975ef909d97fb450f1e6655e9130ca3dd44fe0ccaab228191baf9",
+    "src/main/resources/data/thermal_shock_reforged/advancement/purifier_get.json": "dd9302b3299360a59efbfe35d91ffef632839a3423fbba037c7f6573f6c609e0",
+    "src/main/resources/data/thermal_shock_reforged/advancement/rain_drum_get.json": "5f138981f56422bbad26e916624f24ddee3493acc40e42a707afa4b937f55b90",
+    "src/main/resources/data/thermal_shock_reforged/advancement/stardust_garden_advancement.json": "e00695afda175b64e4a6b84a3869a51561731f2badf83f73de21aca814a5d51a",
+    "src/main/resources/data/thermal_shock_reforged/advancement/vermillion_woods_advancement.json": "2fa9b0fb312c8b49a4f7ae8b78059e77a96cf3794caf05a4ad354a50355fc10c",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/purifier.json": "51f24b079cb40f816eed1600c60f629eaa1691c9d4c06974aef66bede7189c73",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/rain_drum.json": "802ae3d17c6b0f1f54c703b903d84262fbd2371b236b84a373951665a8f0a7d0",
+    "src/main/resources/data/thermal_shock_reforged/recipe/purifier_bism_recipe.json": "159c51e7bea1aa544a350d290471c10242316429c1830541f83a8869569c2c5c",
+    "src/main/resources/data/thermal_shock_reforged/recipe/purifier_recipe.json": "85fbc8e591930daebdc3fdea2985de789eeb091231981279d1e8491449d40bb8",
+    "src/main/resources/data/thermal_shock_reforged/recipe/rain_drum_recipe.json": "61ffb85dae737e9af92785a52ac1c30f7ffcbd48a6cd06ed7a4750ef59a420e0"
+  },
+  "production_aggregate_sha256": "22d7037079025a2c3e7837f5e7271c2e799c46ded067ab3b4ee3a480c0f52444",
+  "aggregate_algorithm": "相对路径按字符排序，每行path+TAB+sha256+LF，UTF-8后SHA256",
+  "reports_sha256": {
+    "docs/migration/rain-purifier-batch101.md": "a5506f1857024a0a28fbc272bad16d09062be546877b30f2ca6b3c46b5938aed",
+    "docs/migration/rain-purifier-integration101.json": "786936cff9379841b66c957cb0c77db633494143187510591c8b334cd81e778e",
+    "docs/migration/rain-purifier-validation101.json": "3f8e428e6bf1412dfa5938f2cefa9a94a60d594a8179387c9ef843809247d4aa",
+    "docs/migration/rain-purifier-resources101.json": "b8c97f45dd90c18e475c292306f46777ea9e67fac63f87eb98b5a4f74df54e2b"
+  },
+  "static_passed_checks": 18,
+  "reused_asset_files": 28,
+  "shared_integration_applied_verified": true,
+  "integration_changed_after_main_application": false,
+  "shared_files_edited_by_this_lane": false,
+  "intentional_changes": [
+    "Purifier按原真实onPlace入口启动；原右键提示改放置，未新增右键净化。",
+    "原全局闭包改20 SERVER END有限持久任务；到期邻块未加载时暂停，不强制加载，保原体拆除后的合法净化和粒子。",
+    "无ticker归属BE令牌防旧尾任务删除后来放置的块；同块状态变化不重复初始化，任务加入失败回滚并20tick后重试。",
+    "新增BE使Purifier不能被原生活塞推动；不提供新库存、菜单、客户端ticker或渲染器。",
+    "RainDrum和Purifier按实际顶面贴图补地图色紫色和白色；不改变原透明度、遮挡、lightBlock或Purifier的emissiveRendering。"
+  ],
+  "native_production_gaps": [],
+  "compiled": false,
+  "server_tested": false,
+  "client_tested": false,
+  "render_preview_tested": false,
+  "staging_performed_by_this_lane": false,
+  "commit_performed_by_this_lane": false,
+  "next": "主聊天对两路固定输入统一compileJava/processResources及资源验证后提交；游戏与Render Preview由用户独立安排。第102六Geo链尚未生产，等待主聊天解除下一批冻结。"
+}

@@ -114,6 +114,7 @@ public final class ClientEvents {
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.atlas.AtlasContent.ACTIVATION.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.labworldgen.LabWorldgenContent.DISSOLVER_CYCLE.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.reactor.ReactorContent.SEQUENCE.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
+        event.registerEntityRenderer(com.hp.thermalshockreforged.content.weatherutility.WeatherUtilityContent.PURIFIER_PULSE.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.weapons.WeaponContent.MAGNETIC_CYCLE_SOUND.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.food.FerroCakeConsumption.TYPE.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         com.hp.thermalshockreforged.client.springslime.SpringslimeRenderers.register(event);

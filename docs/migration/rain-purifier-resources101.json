@@ -1,0 +1,235 @@
+{
+  "batch": 101,
+  "data": [
+    {
+      "source": "data/thermal_shock/recipes/rain_drum_recipe.json",
+      "source_sha256": "b6ba8fdb5a72a42959ffb2dc03de27a3bff66e9eb4c1c4e287977e87102f3e7c",
+      "target": "src/main/resources/data/thermal_shock_reforged/recipe/rain_drum_recipe.json",
+      "target_sha256": "61ffb85dae737e9af92785a52ac1c30f7ffcbd48a6cd06ed7a4750ef59a420e0"
+    },
+    {
+      "source": "data/thermal_shock/recipes/purifier_recipe.json",
+      "source_sha256": "adabb60cb04ab883cc88926369b08e8c74504d2b15854ac95142c79006eec0b7",
+      "target": "src/main/resources/data/thermal_shock_reforged/recipe/purifier_recipe.json",
+      "target_sha256": "85fbc8e591930daebdc3fdea2985de789eeb091231981279d1e8491449d40bb8"
+    },
+    {
+      "source": "data/thermal_shock/recipes/purifier_bism_recipe.json",
+      "source_sha256": "b32d2bbc802b8bb590994456f76a362ab8404d9bc46b113bdb90ee74441369d7",
+      "target": "src/main/resources/data/thermal_shock_reforged/recipe/purifier_bism_recipe.json",
+      "target_sha256": "159c51e7bea1aa544a350d290471c10242316429c1830541f83a8869569c2c5c"
+    },
+    {
+      "source": "data/thermal_shock/loot_tables/blocks/rain_drum.json",
+      "source_sha256": "7e1e8e817df48ce8a00acd2a95ff8e9c35d269863e4e1554f7e013e55d52a816",
+      "target": "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/rain_drum.json",
+      "target_sha256": "802ae3d17c6b0f1f54c703b903d84262fbd2371b236b84a373951665a8f0a7d0"
+    },
+    {
+      "source": "data/thermal_shock/loot_tables/blocks/purifier.json",
+      "source_sha256": "aba538e30be3f9866db8caba578600c98ea65f934adb43d1a6f3e53ef72a94cb",
+      "target": "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/purifier.json",
+      "target_sha256": "51f24b079cb40f816eed1600c60f629eaa1691c9d4c06974aef66bede7189c73"
+    },
+    {
+      "source": "data/thermal_shock/advancements/rain_drum_get.json",
+      "source_sha256": "03fa0c70fa8885c52330ff5a909e8e8714e64ab1df6d92a2af2dfc0f4e71f5b4",
+      "target": "src/main/resources/data/thermal_shock_reforged/advancement/rain_drum_get.json",
+      "target_sha256": "5f138981f56422bbad26e916624f24ddee3493acc40e42a707afa4b937f55b90"
+    },
+    {
+      "source": "data/thermal_shock/advancements/purifier_get.json",
+      "source_sha256": "d77600847759ff92ea0a5e10f1bf3b8232624f0eea71b8013b538c8b1700878d",
+      "target": "src/main/resources/data/thermal_shock_reforged/advancement/purifier_get.json",
+      "target_sha256": "dd9302b3299360a59efbfe35d91ffef632839a3423fbba037c7f6573f6c609e0"
+    },
+    {
+      "source": "data/thermal_shock/advancements/luminous_sea_get.json",
+      "source_sha256": "c63449f9f97109afc3a593037d387899e45f098d7954e27b766ad9eaeda55b79",
+      "target": "src/main/resources/data/thermal_shock_reforged/advancement/luminous_sea_get.json",
+      "target_sha256": "f3744ae6e41975ef909d97fb450f1e6655e9130ca3dd44fe0ccaab228191baf9"
+    },
+    {
+      "source": "data/thermal_shock/advancements/graveyard_advancement.json",
+      "source_sha256": "f842f07c563bb81618cf280ec2aaa5be84a416b7b00be07c9ae3506187dd2a7f",
+      "target": "src/main/resources/data/thermal_shock_reforged/advancement/graveyard_advancement.json",
+      "target_sha256": "de912f821276693252d7ad92af979e48c5567503943410b5d6fea80a20f8a2af"
+    },
+    {
+      "source": "data/thermal_shock/advancements/stardust_garden_advancement.json",
+      "source_sha256": "0b0833af5fd4b5a0f78836f7bd128da0a9479f00b7b467a53629c8efa3b2fdf4",
+      "target": "src/main/resources/data/thermal_shock_reforged/advancement/stardust_garden_advancement.json",
+      "target_sha256": "e00695afda175b64e4a6b84a3869a51561731f2badf83f73de21aca814a5d51a"
+    },
+    {
+      "source": "data/thermal_shock/advancements/vermillion_woods_advancement.json",
+      "source_sha256": "c5d661d0cffee0ceb3b56e49423e6172a6a7a7f708a2cc51bb35f49071d706be",
+      "target": "src/main/resources/data/thermal_shock_reforged/advancement/vermillion_woods_advancement.json",
+      "target_sha256": "2fa9b0fb312c8b49a4f7ae8b78059e77a96cf3794caf05a4ad354a50355fc10c"
+    }
+  ],
+  "reused_assets": [
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/blockstates/rain_drum.json",
+      "sha256": "25cb0281fb620e9a0ff2b4276cde32faf84c106ba4567c7a81fa95df592af11a",
+      "equivalent_to_original": true
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/blockstates/purifier.json",
+      "sha256": "6f8522ed73240a4d763ae38836887e988ed1333257e9cab92767b6f9a6052bba",
+      "equivalent_to_original": true
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/models/block/rain_drum.json",
+      "sha256": "3bfaa5db9f9c179ef3556178b4eaf222a1ed4a44d07dc58d4f95a3b43034908c",
+      "equivalent_to_original": true
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/models/block/purifier.json",
+      "sha256": "f72fb1edf4705f9174bd6b70563d4bb500425a4eab2b6bef68414c8798f2afe1",
+      "equivalent_to_original": true
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/models/item/rain_drum.json",
+      "sha256": "f811c4de0302dd031b3b94f0733abb2d6a34750003db33201e7589921dd0d70a",
+      "equivalent_to_original": true
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/models/item/purifier.json",
+      "sha256": "596749e9bdd416a60389413b04b816c3717c9a8aa0ee7c33d729abc9d98ee493",
+      "equivalent_to_original": true
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/textures/block/rain_drum.png",
+      "sha256": "90b8ef92a7bf5464e15f37ff8802c579deed8e687fd9d118649f71e140d80739",
+      "equivalent_to_original": true
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/textures/block/rain_drum_top.png",
+      "sha256": "03b5284638f7f14e457946bb5d287a30144935ea09be45c30d13ece79979bca3",
+      "equivalent_to_original": true
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/textures/block/purifier26.png",
+      "sha256": "b4f111e9dcbc69acbc2536bb2a0dd530ec9fa141a4d7bc6bea7c3c6c1a9f8596",
+      "equivalent_to_original": true
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/sounds/angrydrum01.ogg",
+      "sha256": "ebfa3fe49cbd0184810a1038c56deb3a3471e48dee21ce2aa3af89eb143ff01b",
+      "equivalent_to_original": true
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/sounds/angrydrum02.ogg",
+      "sha256": "0f48017dd8ea1c2a5d58f794db786549cdebf3488fd84d7c0a1d23f0a154b646",
+      "equivalent_to_original": true
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/sounds/angrydrum03.ogg",
+      "sha256": "55b4564c5f343bd4da1cc3cac88894e83ad8a9ad2157cf3327374eee4b433d9c",
+      "equivalent_to_original": true
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/sounds/angrydrum04.ogg",
+      "sha256": "d7acabdb32a0f8624d2ed7106973346b80c1b7dd3e71078d43507d63650ed9be",
+      "equivalent_to_original": true
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/sounds/raindrum01.ogg",
+      "sha256": "b36dc21df58f536aec7ea75a8d66b1a3ce66badeec3ca4b7de451a187637b810",
+      "equivalent_to_original": true
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/sounds/raindrum02.ogg",
+      "sha256": "3f212b84002b66fbebcb8604afdc2d0966c04f9529568d583865c9dfcfbdd5f8",
+      "equivalent_to_original": true
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/sounds/raindrum03.ogg",
+      "sha256": "2c200e44633a9b36ea954dd4df4eea771852b0af53839835826c472e7ed9b215",
+      "equivalent_to_original": true
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/sounds/raindrum04.ogg",
+      "sha256": "0354ae9fa51bc2b0f001c1ca33197a9ca54346de733657f2efc3517006f5e43a",
+      "equivalent_to_original": true
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/sounds/raindrum05.ogg",
+      "sha256": "ec0e50d45e145ae4bd859bd79f905cbd378ee005a336c38c9f29f84972b9e0fa",
+      "equivalent_to_original": true
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/sounds/raindrum06.ogg",
+      "sha256": "3468d4e816eca52f61d688ec54835a94549a6210c2d5c84f2d4ded57d2d150af",
+      "equivalent_to_original": true
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/sounds/raindrum07.ogg",
+      "sha256": "e9928e5edb455c7f4b3bb4f507d2a988aa3b48b3c5a96ba6831938cec5cbbb8a",
+      "equivalent_to_original": true
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/sounds/raindrum08.ogg",
+      "sha256": "29adbb83263770ffe1bf977975db0434aa64c42fe4f9df6d312921602e4ab58f",
+      "equivalent_to_original": true
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/sounds/raindrum09.ogg",
+      "sha256": "454d8ebbeb09b90ed953191458df43f1a7f92d0d2c7ad5e9dbda8ded0a5500ff",
+      "equivalent_to_original": true
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/sounds/raindrum10.ogg",
+      "sha256": "b7cce1ac85c4865ded2bcce9c03a8f79aa41b0041f37ddfdac383d197a9873fa",
+      "equivalent_to_original": true
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/sounds/raindrum11.ogg",
+      "sha256": "cda1a496da61fc6a0794cb9703c21f9a18ee95c4a9360f5aa07621af90812626",
+      "equivalent_to_original": true
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/sounds/raindrum12.ogg",
+      "sha256": "0ec26d4f0c36607918f668a0f8b1226680b6ef6d73537b99e3fab434d157cbd8",
+      "equivalent_to_original": true
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/sounds/raindrum13.ogg",
+      "sha256": "6464eddab827a45323a820cb77f4be860996d95eb60868a7d578f1de0880237f",
+      "equivalent_to_original": true
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/sounds/raindrum14.ogg",
+      "sha256": "3a997a02d0c237390ed83a15af5f0880ed859a81bbd9513aa690881c3f34410e",
+      "equivalent_to_original": true
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/sounds/raindrum15.ogg",
+      "sha256": "c46a7b84e8e0dad9509fdb6c156e486b0e5478215d8d4e7fc305fb4ff3fdc5ff",
+      "equivalent_to_original": true
+    }
+  ],
+  "sound_sets": {
+    "rain_drum_random": 15,
+    "angry_rain_drum_random": 4,
+    "rain_drum_01": 1
+  },
+  "namespace_and_target_format_only": true,
+  "schema": "rain-purifier-resources101-v1",
+  "source_jar_sha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436",
+  "reference_sha256": {
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\RainDrumBlock.java": "3b7276e003a2835e9aec7a509a71b10016c26198f726c8572b5f7b60994dfb72",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\PurifierBlock.java": "8c7919a14511ba0455f5b46d53102abaa353b6836234732bcd48425a2f2156a1",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\RainDrumBlockIsPlacedByProcedure.java": "987a8d61dc287deb4d17e8ba471bb1e797b393a9e5a9b92a577f8110be83c8f7",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\RainDrumOnRandomClientDisplayTickProcedure.java": "6cab23132a563d481ddf1bab5cf12162d862c0cc9ace4262386c9409a75a3aa7",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\PurifierBlockIsPlacedByProcedure.java": "2dc556947698cdb2d08ca4f0b183e8cc9dbfb5c0852bc4903af1cfb4f9cac2a1",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\PurifierOnBlockRightClickedProcedure.java": "5bd2bca4f812070dc1f88336a60bba1a21b965ed30e973a41756c535aa127428",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\ThermalShockMod.java": "171e15daecaa9383f2d126d108460ab6d2b4b6e915bc24cc2f3c08c15493e7d0"
+  },
+  "bytecode": {
+    "path": "D:\\AI临时文件\\ThermalShockMigration\\purifier-procedure-bytecode101.txt",
+    "sha256": "d8fcbc43c0b0c81ba8e1747f5e1a41a65129833c3f82a0f3cd96330ea11543a7",
+    "finding": "四个Spire本体种类先ixor再统一60%判定，反编译文本缺括号不能作为概率依据。"
+  }
+}

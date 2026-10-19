@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "id": "thermal_shock_reforged:purified_grassy_shale"
+    },
+    "title": {
+      "translate": "advancements.purifier_get.title"
+    },
+    "description": {
+      "translate": "advancements.purifier_get.descr"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "purifier_get_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 200
+  },
+  "parent": "thermal_shock_reforged:graveyard_advancement"
+}

@@ -153,6 +153,7 @@ public final class ThermalShockReforged {
         com.hp.thermalshockreforged.entity.labmachinist.LabContent.register(bus);
         com.hp.thermalshockreforged.content.labworldgen.LabWorldgenContent.register(bus);
         com.hp.thermalshockreforged.content.reactor.ReactorContent.register(bus);
+        com.hp.thermalshockreforged.content.weatherutility.WeatherUtilityContent.register(bus);
         com.hp.thermalshockreforged.entity.squall.SquallContent.register(bus);
         com.hp.thermalshockreforged.entity.huntress.HuntressContent.register(bus);
         com.hp.thermalshockreforged.entity.benzor.BenzorContent.register(bus);
