@@ -34,7 +34,7 @@ public class GeoDecorBlockEntity extends RandomizableContainerBlockEntity implem
     public GeoDecorBlockEntity(GeoDecorKind kind, BlockPos position, BlockState state) {
         super(GeoDecorContent.entity(kind), position, state);
         this.kind = kind;
-        previousVariant = kind == GeoDecorKind.CIVILIAN ? state.getValue(DialogueBlock.VARIANT) : kind == GeoDecorKind.CAPSULE ? state.getValue(CapsuleBlock.VARIANT) : state.hasProperty(ShalePotBlock.VARIANT) ? state.getValue(ShalePotBlock.VARIANT) : 0;
+        previousVariant = kind == GeoDecorKind.HOLOGRAM_MONITOR ? state.getValue(HologramMonitorBlock.VARIANT) : kind == GeoDecorKind.CIVILIAN ? state.getValue(DialogueBlock.VARIANT) : kind == GeoDecorKind.CAPSULE ? state.getValue(CapsuleBlock.VARIANT) : state.hasProperty(ShalePotBlock.VARIANT) ? state.getValue(ShalePotBlock.VARIANT) : 0;
     }
 
     public IItemHandler itemHandler(Direction side) { return side == null ? null : handlers[side.ordinal()]; }
@@ -85,8 +85,8 @@ public class GeoDecorBlockEntity extends RandomizableContainerBlockEntity implem
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(new AnimationController<>(this, "controller", 0, state -> {
-            int variant = kind == GeoDecorKind.CIVILIAN ? getBlockState().getValue(DialogueBlock.VARIANT) : kind == GeoDecorKind.CAPSULE ? getBlockState().getValue(CapsuleBlock.VARIANT) : kind == GeoDecorKind.SHALE_POT ? getBlockState().getValue(ShalePotBlock.VARIANT) : 0;
-            if ((kind == GeoDecorKind.SHALE_POT || kind == GeoDecorKind.CIVILIAN || kind == GeoDecorKind.CAPSULE) && previousVariant != variant) {
+            int variant = kind == GeoDecorKind.HOLOGRAM_MONITOR ? getBlockState().getValue(HologramMonitorBlock.VARIANT) : kind == GeoDecorKind.CIVILIAN ? getBlockState().getValue(DialogueBlock.VARIANT) : kind == GeoDecorKind.CAPSULE ? getBlockState().getValue(CapsuleBlock.VARIANT) : kind == GeoDecorKind.SHALE_POT ? getBlockState().getValue(ShalePotBlock.VARIANT) : 0;
+            if ((kind == GeoDecorKind.HOLOGRAM_MONITOR || kind == GeoDecorKind.SHALE_POT || kind == GeoDecorKind.CIVILIAN || kind == GeoDecorKind.CAPSULE) && previousVariant != variant) {
                 previousVariant = variant;
                 state.getController().forceAnimationReset();
                 return PlayState.STOP;

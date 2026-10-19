@@ -1,0 +1,216 @@
+{
+  "batch": 103,
+  "owner": "迁移A",
+  "base_head": "de91e13d13ff288fec1af26942665f899fb4bf63",
+  "original_jar_sha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436",
+  "owned_production_frozen": true,
+  "production_files_count": 21,
+  "java_files": 11,
+  "new_data_files": 10,
+  "production_aggregate_algorithm": "SHA256(UTF8(sorted path + space + sha256, joined with LF, no trailing LF))",
+  "production_aggregate_sha256": "23f4bcddf9ed19ac9e078c2a24b992f8614aa35c3fd044590d07b52535b39a7a",
+  "production_files": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/decor/geo/GeoDecorRenderers.java",
+      "sha256": "4fb7e01184457d0e8f2c46b09bcc34b986e8774a6657e61004a603713f71cfe9",
+      "bytes": 4922
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/BrimstoneCakeBlock.java",
+      "sha256": "4c6184e00af2182803b7e04c01176cba43d95fd067a93707750cb1e3f2851dc1",
+      "bytes": 1586
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/BrimstoneCakeConsumption.java",
+      "sha256": "9adbc1ebbe83ecbb4fa6f5e94022d3ccc612d78367d5c0c0daf16f29949b7897",
+      "bytes": 8524
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlockEntity.java",
+      "sha256": "763bd63a15dfe647a1981d0f388857b4d8f43a575ac1c6c872c311f913ce37c7",
+      "bytes": 6707
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java",
+      "sha256": "84147bbf1ce0131a1d5240bfe33746fe48e064e02fc57e034abf48c8c44ddfb4",
+      "bytes": 7245
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorItem.java",
+      "sha256": "1760b7f674c8f07eb777a2cb9e0edeff56b1ae5011f25969367095107f287e56",
+      "bytes": 1210
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+      "sha256": "c749f29bef0998ecc7d5f4ebe5a538c1b840349a6e1d87b548f8d73f3d5c92dc",
+      "bytes": 32452
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/HologramConstructorBlock.java",
+      "sha256": "dcac59c2031c87002ab01dac50b5be917c0df8822c3334fad865a1e41449b7ae",
+      "bytes": 2182
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/HologramMonitorBlock.java",
+      "sha256": "50647a053e132ce13335be716cba4f340ca18cce8cf1b5963a51e62b6cd8c5c3",
+      "bytes": 2826
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/HologramRecordings.java",
+      "sha256": "07401c6341aa84eb0078bc4b84992d364bc0e92c6631d1b405c162c1faa17a2d",
+      "bytes": 5144
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/LunarPanelBlock.java",
+      "sha256": "b58a965c4ac0526c83a6ed0a3d9537c5dcc3e765029d743432cfeb3726e077ca",
+      "bytes": 1389
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/advancement/lod_pozar_get.json",
+      "sha256": "b8a57b5b5e759bc42e2a8ae05070058079307d83f6c1d0e7a900712cd2a66356",
+      "bytes": 1294
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/advancement/thermofebruary_get.json",
+      "sha256": "9b6f453971f2d4e6d05ec5bbe3962981ad6dcaaff41679fb4780dda73d940a35",
+      "bytes": 646
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/jukebox_song/arctic_warmth_legacy.json",
+      "sha256": "42097b5ce93d16d8f5b8bd51bf42aa69dca524f56f48f23aabe6efa6d51aa09c",
+      "bytes": 227
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/hologram_constructor.json",
+      "sha256": "6f9818dda791880a0ee1a561000487eb93261ff1eafb4dc069ed91c0606e05ab",
+      "bytes": 429
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/loot_table/lod_pozar_first_kill.json",
+      "sha256": "ad3d98139fe2e2d3811a304674082070be50fa1318325cc3baa5a3928db414db",
+      "bytes": 543
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/loot_table/thermofebruary.json",
+      "sha256": "9f3410b0d4f1f2bc76b7fc9edf866316e463faa9ba379ca5841135e962367259",
+      "bytes": 957
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/brimstone_cake_recipe.json",
+      "sha256": "9f49947adc02d4b1ba6487ca2daa65fd169b5d042befab74d447352d9f3e893a",
+      "bytes": 747
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/hologram_monitor_recipe.json",
+      "sha256": "afbb729492a3659236f11631a91023d8bef1624e22cd622aac866c157c7d2331",
+      "bytes": 551
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/lunar_panel_recipe.json",
+      "sha256": "ffdda6fc1e45799b7095b7fee99da2f7b7d0dce0f370e19d6b73bcf0e168689f",
+      "bytes": 447
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/monitor_alt_recipe.json",
+      "sha256": "9d9db39e391f48e8392754aae8badcb8d193b6ed43944f627ed2b921fe27f7d6",
+      "bytes": 570
+    }
+  ],
+  "documentation_files": [
+    {
+      "path": "docs/migration/geo-functional-batch103.md",
+      "sha256": "64db6aa44808ff56988ddd04b4c4239301a04c42a47a9e76b8c7bd56156b4743",
+      "bytes": 6424
+    },
+    {
+      "path": "docs/migration/geo-functional-data103.json",
+      "sha256": "ebdd71f41393fb0e3f69aee9de74855288685cc3c05a938173f80f4347630018",
+      "bytes": 3774
+    },
+    {
+      "path": "docs/migration/geo-functional-integration103.json",
+      "sha256": "770a1df5374fa49f5be697aa354ef93dcbdab4a5356afe1a938b76b48af686f7",
+      "bytes": 14910
+    },
+    {
+      "path": "docs/migration/geo-functional-resources103.json",
+      "sha256": "1ae83267574beabd5c13e24968e7556e64058b85228977b127d2d4bae580610d",
+      "bytes": 11884
+    },
+    {
+      "path": "docs/migration/geo-functional-sources103.json",
+      "sha256": "bf46b925aba185fb6dda5f8f3e1b7fce7423e065905b0a6295dcdb0c3ca13c5b",
+      "bytes": 4934
+    },
+    {
+      "path": "docs/migration/geo-functional-validation103.json",
+      "sha256": "71cca0eae06818177e8261ed0bab254b4248d87c4f1a2b8fccfa85b91235a2f5",
+      "bytes": 52238
+    }
+  ],
+  "shared_applied_snapshot": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/ClientEvents.java",
+      "sha256": "9bbe8e98c3507827fa2e20195e60ae5c7c50078663c76e98229505ccf8846af5",
+      "bytes": 26564
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/music/MusicContent.java",
+      "sha256": "f21e72df638ec1dcfab463c786e125d756f7639be349aff8d775b00ed3258ce0",
+      "bytes": 3578
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/lang/en_us.json",
+      "sha256": "60825c599456735f7e69dc43125d724489aa19a07b7aa77ee6cd294478a6b8c0",
+      "bytes": 292742
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/lang/zh_cn.json",
+      "sha256": "1c380700e0636200e5873fdd4c32ce13b2a269389f3ccf4b49889bb17db951f6",
+      "bytes": 78130
+    },
+    {
+      "path": "src/main/resources/data/minecraft/tags/block/mineable/pickaxe.json",
+      "sha256": "09f3e6982b8056ed7bb0c846c27b21ea5d9934f8f2e1626b74decf9961aacbd5",
+      "bytes": 17726
+    }
+  ],
+  "integration_sha256": "770a1df5374fa49f5be697aa354ef93dcbdab4a5356afe1a938b76b48af686f7",
+  "validation": {
+    "checks_passed": 233,
+    "lunar_source_ast_cases": 72,
+    "reused_original_assets": 59,
+    "original_recordings": 9,
+    "original_recording_characters": 4496,
+    "diff_check": "git -c core.whitespace=cr-at-eol -c core.safecrlf=false diff --check：成功"
+  },
+  "delivered": [
+    "BrimstoneCake完整四轮直接加食物/饱和、抗火260tick/II、切片和所有声音、主机二月日期进度/完整两物品奖励",
+    "食品有限持久化任务及同tick SERVER END时序、加入确认/失败回滚、归属保护和死亡身份",
+    "LunarPanel逐计划tick、白昼null面canReceive→5否则150、下方UP面能力原生receiveEnergy",
+    "HologramMonitor九软盘/十状态/原4496字符/中文/原五AAA全息、切状态动画重置、构造器入口",
+    "三项9格/六面自动化和Geo原模型/贴图/动画/透明渲染；Icebreaker公共metadata/两工厂/物品loop0"
+  ],
+  "intentional_differences": [
+    "服务端权威交互避免客户端重复副作用",
+    "任务只保存值、有限寿命、持久化和幂等阶段，代替原全局捕获闭包；卸载后暂停/重载续跑，不强加载",
+    "拆换块后继续合法尾声音/食物阶段，但不删除新方块；死亡后不奖励重生玩家，离线不补发已错过轮次",
+    "月光板/监视器沿既有Geo基类正常返还库存，修复原onRemove未返还吞物问题；蛋糕原有库存返还保留",
+    "原9格BE菜单绑定真实9格，补合理地图色；未新增比较器或右键菜单入口"
+  ],
+  "native_followups": [
+    {
+      "id": "sunken_blizzard_lab",
+      "reason": "主线明确指定后续完整原生结构迁移；原81x28x68模板含监视器1台、13实体、32BE，本批不导缩减结构",
+      "source": "data/thermal_shock/structures/sunken_blizzard_lab.nbt",
+      "evidence": "docs/migration/geo-functional-sources103.json"
+    }
+  ],
+  "original_source_note": "软盘8原只有注册/创意页和监视器读取引用，原全量JSON与结构NBT无实物获取入口，不新增配方",
+  "compiled_by_this_lane": false,
+  "server_tested": false,
+  "client_tested": false,
+  "render_preview_tested": false,
+  "compile_owner": "主线固定本批所有src/main输入后统一编译与资源核对",
+  "next_batch": "104仅可只读准备；等待主线103统一验证并提交后明确解除生产冻结"
+}

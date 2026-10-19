@@ -1,0 +1,29 @@
+{
+  "display": {
+    "icon": {
+      "id": "thermal_shock_reforged:brimstone_cake"
+    },
+    "title": {
+      "translate": "advancements.thermofebruary_get.title"
+    },
+    "description": {
+      "translate": "advancements.thermofebruary_get.descr"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "thermofebruary_get_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 100,
+    "loot": [
+      "thermal_shock_reforged:thermofebruary"
+    ]
+  },
+  "parent": "thermal_shock_reforged:yoylecake"
+}

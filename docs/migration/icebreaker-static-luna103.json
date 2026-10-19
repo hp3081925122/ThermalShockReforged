@@ -1,0 +1,170 @@
+{
+  "report": "icebreaker-static-luna103",
+  "scope": "仅核对当前 Icebreaker 源码与原源码事实；不评价未完成的 GeoDecorKind/GeoDecorContent 元数据注册；不运行编译或游戏。",
+  "target_project": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged",
+  "old_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+  "entrypoints": {
+    "root_registration": {
+      "status": "confirmed",
+      "path": "src/main/java/com/hp/thermalshockreforged/ThermalShockReforged.java",
+      "line": 158,
+      "detail": "calls IcebreakerContent.register(bus)"
+    },
+    "content_registration": {
+      "status": "confirmed_for_pulse_entity",
+      "path": "src/main/java/com/hp/thermalshockreforged/content/icebreaker/IcebreakerContent.java",
+      "lines": "12-19",
+      "detail": "registers ICEBREAKER_PULSE EntityType and binds ENTITIES register to mod bus; block item/GeoDecor kind mapping is delegated to shared GeoDecor metadata and excluded from final defect assessment"
+    },
+    "client_renderer": {
+      "status": "confirmed",
+      "path": "src/main/java/com/hp/thermalshockreforged/client/ClientEvents.java",
+      "line": 118,
+      "detail": "registers NoopRenderer for ICEBREAKER_PULSE entity"
+    },
+    "recipe": {
+      "status": "confirmed",
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/icebreaker_recipe.json",
+      "lines": "2-23",
+      "detail": "shaped recipe using cobalt_block, ferrum_ingot and glowcap; result thermal_shock_reforged:icebreaker count 8; source recipe also yields 8"
+    },
+    "chinese_translation": {
+      "status": "confirmed",
+      "path": "src/main/resources/assets/thermal_shock_reforged/lang/zh_cn.json",
+      "line": 788,
+      "key": "block.thermal_shock_reforged.icebreaker",
+      "value": "破冰器"
+    }
+  },
+  "source_behavior": {
+    "files": {
+      "block": "src/main/java/com/hp/thermalshockreforged/content/icebreaker/IcebreakerBlock.java",
+      "block_entity": "src/main/java/com/hp/thermalshockreforged/content/icebreaker/IcebreakerBlockEntity.java",
+      "pulse_entity": "src/main/java/com/hp/thermalshockreforged/content/icebreaker/IcebreakerPulseEntity.java",
+      "entity_content": "src/main/java/com/hp/thermalshockreforged/content/icebreaker/IcebreakerContent.java"
+    },
+    "timeline": {
+      "placement_sound": {
+        "target_path": "IcebreakerBlock.java:21-24,30-37",
+        "sound": "PLAYER_BREATH",
+        "source": "original IcebreakerBlockAddedProcedure.java:22-30",
+        "detail": "Target plays server-side when pulse is accepted; original dispatches breath sound on server or locally on client at placement."
+      },
+      "melt_at_end_tick": 20,
+      "removal_at_end_tick": 30,
+      "target_evidence": "IcebreakerPulseEntity.java:25,84-106 initializes remaining 20; at phase 0 expiry performs melt and sets remaining 10; second expiry removes anchor block and emits final effect.",
+      "original_evidence": "readable/net/mcreator/thermal_shock/procedures/IcebreakerBlockAddedProcedure.java:31-32 and 60-61 schedules melting after 20 ticks and block removal after 30 ticks."
+    },
+    "melt_volume": {
+      "original_radius": 9,
+      "target_radius": 9,
+      "shape": "ellipsoid; x/y/z offsets range -9 through 9, accepted when x^2/81 + y^2/81 + z^2/81 <= 1",
+      "old_evidence": "readable/net/mcreator/thermal_shock/procedures/IcebreakerBlockAddedProcedure.java:46-53",
+      "target_evidence": "IcebreakerPulseEntity.java:73-81,110-120"
+    },
+    "melt_filter_and_result": {
+      "original": "Only Blocks.ICE in ellipsoid becomes Blocks.WATER",
+      "target": "Only Blocks.ICE in ellipsoid is tested; setBlock to Blocks.WATER with flags 3",
+      "evidence": "original IcebreakerBlockAddedProcedure.java:52-53; target IcebreakerPulseEntity.java:116-119"
+    },
+    "ice_event": {
+      "original_chance": 0.7,
+      "target_chance": 0.7,
+      "event_id": 2001,
+      "event_data": "Block.getId(Blocks.ICE.defaultBlockState())",
+      "evidence": "original IcebreakerBlockAddedProcedure.java:54-55; target IcebreakerPulseEntity.java:119"
+    },
+    "sounds": [
+      {
+        "sound": "PLAYER_BREATH",
+        "volume": 1,
+        "pitch": 1,
+        "when": "accepted on placement/activation",
+        "target": "IcebreakerBlock.java:36",
+        "source": "IcebreakerBlockAddedProcedure.java:26-28"
+      },
+      {
+        "sound": "ANVIL_PLACE",
+        "volume": 1,
+        "pitch": 1,
+        "when": "melt phase",
+        "target": "IcebreakerPulseEntity.java:111",
+        "source": "IcebreakerBlockAddedProcedure.java:37-40"
+      }
+    ],
+    "particles": {
+      "total_count": 20,
+      "melt_smoke": {
+        "type": "CAMPFIRE_COSY_SMOKE",
+        "count": 10,
+        "position_offset": [
+          0.7,
+          0.1,
+          0.7
+        ],
+        "spread": [
+          1,
+          0,
+          1
+        ],
+        "speed": 0,
+        "target": "IcebreakerPulseEntity.java:112",
+        "source": "IcebreakerBlockAddedProcedure.java:44"
+      },
+      "removal_poof": {
+        "type": "POOF",
+        "count": 10,
+        "position_offset": [
+          0.5,
+          0.5,
+          0.5
+        ],
+        "spread": [
+          1,
+          1,
+          1
+        ],
+        "speed": 0,
+        "target": "IcebreakerPulseEntity.java:104",
+        "source": "IcebreakerBlockAddedProcedure.java:63-64"
+      }
+    },
+    "chunk_loading": {
+      "status": "no_force_load_call_found",
+      "evidence": [
+        "IcebreakerPulseEntity.java:73-81 checks level.hasChunk for every intersecting chunk in the radius-9 footprint and returns false when unavailable.",
+        "IcebreakerPulseEntity.java:86-89 reschedules phase-0 processing while areaLoaded is false.",
+        "ServerEndTickTasks.java:19-30 stores server/dimension UUID work and resolves existing level entities; no chunk ticket or forced-chunk call."
+      ],
+      "observed_effect": "Operation waits for chunks to already be present; source inspection found no explicit force-loading API call."
+    },
+    "saved_state": {
+      "pulse_entity_fields": [
+        "IcebreakerAnchor packed BlockPos long",
+        "IcebreakerDimension string",
+        "IcebreakerPhase int",
+        "IcebreakerRemaining int",
+        "IcebreakerArmed boolean"
+      ],
+      "pulse_entity_save": "IcebreakerPulseEntity.java:124-129",
+      "pulse_entity_load": "IcebreakerPulseEntity.java:132-139",
+      "owner_block_entity_field": "IcebreakerPulse UUID",
+      "owner_save_load": "IcebreakerBlockEntity.java:20-28",
+      "ownership_checks": "IcebreakerBlockEntity.java:16-18 and IcebreakerPulseEntity.java:100-102; anchor block is removed only when owner UUID equals pulse entity UUID",
+      "registration_failure_rollback": "IcebreakerPulseEntity.java:42-47 assigns pulse UUID before addFreshEntity; if entity insertion fails, discards task and clears the UUID if the same owner still owns it."
+    },
+    "inventory": {
+      "original_container": "IcebreakerTileEntity extends RandomizableContainerBlockEntity and stores 9 ItemStacks; readable/net/mcreator/thermal_shock/block/entity/IcebreakerTileEntity.java:43-48,98-107,119-120",
+      "target_container": "GeoDecorBlockEntity stores/saves 9 slots; src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlockEntity.java:25-27,43-53,63",
+      "target_removal": "GeoDecorBlock.java:54-60 invokes Containers.dropContents on server when block type changes, then superclass onRemove.",
+      "original_removal": "Old IcebreakerBlock has no onRemove override. Forge 1.20.1 BaseEntityBlock.java has no onRemove override; inherited BlockBehaviour.java:163-168 only removes its block entity and does not call Containers.dropContents or drop container stacks.",
+      "difference": "When the Icebreaker is cleared by the pulse, inherited GeoDecorBlock onRemove drops the 9-slot container contents. The original Icebreaker block's inherited onRemove only removes its block entity; no inventory-drop call is present in the old Icebreaker implementation or default method."
+    }
+  },
+  "comparison_notes": [
+    "The implementation expresses the original 20/30 tick timings as ServerEndTickTasks end-of-server-tick phases: 20 ticks to melt, then 10 more to remove.",
+    "Two sound events, their volume/pitch, the 9-block ellipsoid test, ICE to WATER conversion, 70 percent block event, and both 10-count particle emissions match the source values checked here.",
+    "The NoopRenderer registration applies to the small pulse task entity; it is not evidence about the block's GeoDecor rendering metadata.",
+    "The shared GeoDecorKind/GeoDecorContent registration metadata is being handled separately; this report makes no final registration-gap conclusion."
+  ]
+}

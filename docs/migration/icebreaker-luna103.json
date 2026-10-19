@@ -1,0 +1,200 @@
+{
+  "report": "icebreaker-luna103",
+  "source_jar": "D:\\AI临时文件\\ThermalShockMigration\\thermal_shock-07.9-original.jar",
+  "readable_source_root": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock",
+  "target_project": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged",
+  "scope": "Icebreaker 注册/内容引用/资产的确定性只读清单；未涉及其他机器，未运行 Gradle 或游戏，未改工程。",
+  "registration_and_creative": {
+    "source_block": {
+      "status": "confirmed",
+      "id": "thermal_shock:icebreaker",
+      "evidence": "readable/net/mcreator/thermal_shock/init/ThermalShockModBlocks.java:1055 registers IcebreakerBlock"
+    },
+    "source_block_item": {
+      "status": "confirmed",
+      "evidence": "readable/net/mcreator/thermal_shock/init/ThermalShockModItems.java:985 registers IcebreakerDisplayItem under the block path"
+    },
+    "source_block_entity": {
+      "status": "confirmed",
+      "evidence": "readable/net/mcreator/thermal_shock/init/ThermalShockModBlockEntities.java:192 binds IcebreakerTileEntity to ICEBREAKER"
+    },
+    "source_creative_order": {
+      "status": "confirmed",
+      "evidence": "readable/net/mcreator/thermal_shock/init/ThermalShockModTabs.java:732-736; preceding HPSM, Icebreaker, following liftbug_constructor, rain_drum, fog_machine"
+    },
+    "target_block_registration": {
+      "status": "not_found_in_target_java_search",
+      "searched": "src/main/java/com/hp/thermalshockreforged; Icebreaker and icebreaker search results contain only labmachinist progression references"
+    },
+    "target_block_item_registration": {
+      "status": "not_found_in_target_java_search",
+      "note": "No Icebreaker block or item registration was found."
+    },
+    "target_creative_manifest": {
+      "status": "entry_present_but_registry_unconfirmed",
+      "path": "src/main/resources/assets/thermal_shock_reforged/creative_tabs.json",
+      "line": 720,
+      "item": "thermal_shock_reforged:icebreaker",
+      "order_context": "hpsm, icebreaker, liftbug_constructor, rain_drum, fog_machine"
+    }
+  },
+  "data_consumers": {
+    "source_recipe": {
+      "status": "confirmed",
+      "path": "thermal_shock-07.9-original.jar!/data/thermal_shock/recipes/icebreaker_recipe.json",
+      "detail": "shaped recipe result thermal_shock:icebreaker count 8; key items cobalt_block, ferrum_ingot, glowcap"
+    },
+    "target_recipe": {
+      "status": "not_found",
+      "searched_target_data": "src/main/resources/data/thermal_shock_reforged; no icebreaker recipe file or target JSON reference to thermal_shock_reforged:icebreaker found"
+    },
+    "loot_tables": {
+      "source": "no Icebreaker loot table path or JSON reference found in original JAR",
+      "target": "no Icebreaker loot table path found in target data"
+    },
+    "tags": {
+      "source": "no original data tag JSON references icebreaker",
+      "target": "no target data/minecraft tag references thermal_shock_reforged:icebreaker"
+    },
+    "advancements": [
+      {
+        "id": "icebreaker_1",
+        "source": "data/thermal_shock/advancements/icebreaker_1.json",
+        "target": "src/main/resources/data/thermal_shock_reforged/advancement/icebreaker_1.json",
+        "target_present": true,
+        "evidence": "target icon id thermal_shock_reforged:frigid_altar_key; parent thermal_shock_reforged:errands_get"
+      },
+      {
+        "id": "icebreaker_2",
+        "source": "data/thermal_shock/advancements/icebreaker_2.json",
+        "target": "src/main/resources/data/thermal_shock_reforged/advancement/icebreaker_2.json",
+        "target_present": true,
+        "evidence": "target icon id thermal_shock_reforged:virustone; parent thermal_shock_reforged:icebreaker_1"
+      }
+    ],
+    "target_java_progression_references": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabMachineBlock.java",
+        "line": 57,
+        "detail": "opens Assembler or Assembler touch page based on icebreaker_1 completion"
+      },
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabMenu.java",
+        "lines": "47,57-58,62,67,74",
+        "detail": "gates Assembler output and errand flow using icebreaker_1/icebreaker_2, awards advancements; this is progression usage, not block registration"
+      }
+    ],
+    "source_java_and_json_consumers": [
+      {
+        "path": "readable/net/mcreator/thermal_shock/block/IcebreakerBlock.java",
+        "lines": "40-45,53-54,65-70,89-91",
+        "detail": "block has animation integer property 0..1 and facing; creates IcebreakerTileEntity; onPlace invokes IcebreakerBlockAddedProcedure"
+      },
+      {
+        "path": "readable/net/mcreator/thermal_shock/procedures/IcebreakerBlockAddedProcedure.java",
+        "lines": "22-64",
+        "detail": "placement consumer plays sounds, schedules water/ice effects over radius 9 and removes the placed block after 30 ticks"
+      },
+      {
+        "path": "readable/net/mcreator/thermal_shock/block/entity/IcebreakerTileEntity.java",
+        "lines": "57-83",
+        "detail": "reads block animation property and chooses an animation controller clip by its string value"
+      },
+      {
+        "path": "readable/net/mcreator/thermal_shock/block/model/IcebreakerBlockModel.java",
+        "lines": "12-21",
+        "detail": "block model references icebreaker animation, geo model, and block texture"
+      },
+      {
+        "path": "readable/net/mcreator/thermal_shock/block/model/IcebreakerDisplayModel.java",
+        "lines": "12-21",
+        "detail": "display item model references the same animation, geo model, and texture"
+      },
+      {
+        "path": "thermal_shock-07.9-original.jar!/data/thermal_shock/recipes/icebreaker_recipe.json",
+        "detail": "crafting JSON creates 8 Icebreaker items"
+      }
+    ],
+    "nbt_consumers": {
+      "status": "not_found",
+      "searched": "all original JAR .nbt entries; no icebreaker byte-string reference found"
+    }
+  },
+  "asset_comparison": {
+    "comparison_method": "Parse JSON then replace thermal_shock namespace with thermal_shock_reforged and compare values; compare PNG bytes directly and report SHA-256.",
+    "assets": [
+      {
+        "resource": "assets/thermal_shock/geo/icebreaker.geo.json",
+        "target": "src/main/resources/assets/thermal_shock_reforged/geo/icebreaker.geo.json",
+        "target_present": true,
+        "namespace_normalized_equal": true,
+        "source_sha256": "0d33bf71478cc18a16d802830a818fec6d5fa6ca557a0b0258013c870478157d",
+        "target_sha256": "0d33bf71478cc18a16d802830a818fec6d5fa6ca557a0b0258013c870478157d"
+      },
+      {
+        "resource": "assets/thermal_shock/animations/icebreaker.animation.json",
+        "target": "src/main/resources/assets/thermal_shock_reforged/animations/icebreaker.animation.json",
+        "target_present": true,
+        "namespace_normalized_equal": true,
+        "source_sha256": "f3809d1dd0e450ca01bda764bdbb1ba4559bef3c3bb22652d62b32be163879d0a",
+        "target_sha256": "f3809d1dd0e450ca01bda764bdbb1ba4559bef3c3bb22652d62b32be163879d0a",
+        "clips": [
+          {
+            "name": "0",
+            "animation_length": 1.5,
+            "loop": "hold_on_last_frame",
+            "bones": [
+              "bone",
+              "bone2"
+            ]
+          }
+        ]
+      },
+      {
+        "resource": "assets/thermal_shock/textures/block/icebreaker.png",
+        "target": "src/main/resources/assets/thermal_shock_reforged/textures/block/icebreaker.png",
+        "target_present": true,
+        "byte_equal": true,
+        "source_size": 1047,
+        "target_size": 1047,
+        "source_sha256": "06fe52d8ea10c041c815e228a34f9218bda590356f4763c8043398420b1bb96d",
+        "target_sha256": "06fe52d8ea10c041c815e228a34f9218bda590356f4763c8043398420b1bb96d"
+      }
+    ],
+    "models": [
+      {
+        "resource": "assets/thermal_shock/blockstates/icebreaker.json",
+        "target": "src/main/resources/assets/thermal_shock_reforged/blockstates/icebreaker.json",
+        "target_present": true,
+        "namespace_normalized_equal": true,
+        "source_sha256": "f1af239fe45ecd62bb3b3e44c8c23f313c27192fd0a6d1ada24d9931f8e2ed75",
+        "target_sha256": "94394f85308c601dc6616683ae9ee3722438fd29dc10b156c2eef73e932a6404",
+        "source_and_target_variants": "facing north/east/south/west; model custom/icebreaker_particle; east/south/west rotations 90/180/270 degrees"
+      },
+      {
+        "resource": "assets/thermal_shock/models/item/icebreaker.json",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/item/icebreaker.json",
+        "target_present": true,
+        "namespace_normalized_equal": true,
+        "source_sha256": "53a14d712cd6b37194e6d3de38a1a7aa0a2e6874eb607f386ea2538e208172e5",
+        "target_sha256": "c230cf41ca5f253bc7301d59268b23b4059a541a7033b5002573a11d5cfec44f",
+        "parent": "displaysettings/voltflower_bulb.item"
+      },
+      {
+        "resource": "assets/thermal_shock/models/custom/icebreaker_particle.json",
+        "target": "src/main/resources/assets/thermal_shock_reforged/models/custom/icebreaker_particle.json",
+        "target_present": true,
+        "namespace_normalized_equal": true,
+        "source_sha256": "d73300b7d77855263a6084c323b9e13f284d756fdc0387e4dd2e7f0409bb257b",
+        "target_sha256": "5904360bd8e22a11168d400d99976bce287ad54874573fe820aa5312f6fdcc8a"
+      }
+    ]
+  },
+  "differences_and_limits": [
+    "源 Icebreaker block、专用 BlockItem 与 block entity 均有注册证据；目标 Java 中未找到对应方块或 BlockItem 注册，但目标 creative manifest 仍列出该 ID。",
+    "原方块 recipe 产出 8 个 Icebreaker；目标数据中未找到该 recipe。目标仍有 icebreaker_1/2 progression advancement 与 LabMenu 流程引用。",
+    "原 JAR 没有 Icebreaker loot table、tag JSON 或 NBT consumer。",
+    "资源 JSON namespace 归一化后相等，PNG 字节完全相等；BlockState 与 item model 原始哈希不同但 JSON 归一化相等。",
+    "动画 JSON 实际只有名为 0 的 clip，长度 1.5 秒，hold_on_last_frame；读取的原方块 blockstate 仅有 facing 四方向 variants。"
+  ]
+}

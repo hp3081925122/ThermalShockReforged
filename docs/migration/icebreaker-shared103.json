@@ -1,6 +1,6 @@
 {
   "batch": 103,
-  "status": "预先冻结接口，生产待第102批提交后明确解冻",
+  "status": "第102批已提交de91e13d13ff288fec1af26942665f899fb4bf63，已解除第103批生产冻结；公开接口保持下述合同",
   "geo_package_owner": "迁移A",
   "implementation_owner": "主线content/icebreaker",
   "kind": {
@@ -19,6 +19,7 @@
   "factories": {
     "GeoDecorContent_block_switch": "case ICEBREAKER -> new com.hp.thermalshockreforged.content.icebreaker.IcebreakerBlock();",
     "GeoDecorContent_entity_switch": "case ICEBREAKER -> new com.hp.thermalshockreforged.content.icebreaker.IcebreakerBlockEntity(pos, state);",
+    "GeoDecorItem_controller": "ICEBREAKER必须加入thenLoop(0)分支；原IcebreakerDisplayItem.predicate明确循环0，不能沿用静态物品default CONTINUE。",
     "normal_placement": "主线IcebreakerBlock.newBlockEntity同样返回IcebreakerBlockEntity，不只接反序列化工厂。"
   },
   "root_public_contract": {

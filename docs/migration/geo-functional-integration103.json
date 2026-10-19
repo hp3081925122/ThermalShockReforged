@@ -1,0 +1,92 @@
+{
+  "batch": 103,
+  "base_head": "de91e13d13ff288fec1af26942665f899fb4bf63",
+  "java": [
+    {
+      "file": "src/main/java/com/hp/thermalshockreforged/client/ClientEvents.java",
+      "method": "particles(RegisterParticleProvidersEvent)",
+      "code": "com.hp.thermalshockreforged.client.decor.geo.GeoDecorRenderers.particles(event);"
+    },
+    {
+      "file": "src/main/java/com/hp/thermalshockreforged/content/music/MusicContent.java",
+      "before": "private MusicContent() { }",
+      "code": "public static final ResourceKey<JukeboxSong> ARCTIC_WARMTH_LEGACY_SONG = ResourceKey.create(Registries.JUKEBOX_SONG, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, \"arctic_warmth_legacy\"));\n    public static final DeferredItem<Item> ARCTIC_WARMTH_LEGACY = ITEMS.register(\"arctic_warmth_legacy\", () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC).jukeboxPlayable(ARCTIC_WARMTH_LEGACY_SONG)));"
+    }
+  ],
+  "tags": [
+    {
+      "file": "src/main/resources/data/minecraft/tags/block/mineable/pickaxe.json",
+      "append_values": [
+        "thermal_shock_reforged:hologram_monitor",
+        "thermal_shock_reforged:lunar_panel"
+      ],
+      "source_values": [
+        "thermal_shock_reforged:hologram_monitor",
+        "thermal_shock_reforged:lunar_panel"
+      ],
+      "preserve_replace": true
+    }
+  ],
+  "en_us": {
+    "block.thermal_shock_reforged.brimstone_cake": "§aBrimstone Cake",
+    "block.thermal_shock_reforged.lunar_panel": "Lunar Panel",
+    "block.thermal_shock_reforged.hologram_monitor": "Hologram Monitor",
+    "block.thermal_shock_reforged.hologram_constructor": "Hologram Monitor",
+    "block.thermal_shock_reforged.hologram_constructor.description_0": "§7Reads Diskettes.",
+    "item.thermal_shock_reforged.arctic_warmth_legacy": "§aGolden Music Disc",
+    "item.thermal_shock_reforged.arctic_warmth_legacy.desc": "ThermaDev - Arctic Warmth [Legacy]",
+    "advancements.thermofebruary_get.title": "Thermo-February!",
+    "advancements.thermofebruary_get.descr": "Eat a Brimstone Cake during the Thermo-February event and redeem a cool gift",
+    "advancements.lod_pozar_get.title": "Brothers In Arms",
+    "advancements.lod_pozar_get.descr": "Defeat Lód and Pożar, the Blizzard Project's strongest machine duo",
+    "message.thermal_shock_reforged.hologram_monitor.recording_1": "§7Replaying recording:\n§7----------\n§b\"This is personal log 107, cycle date 255K029.\n§7----------\n§bI can NOT believe I got moved to Outpost Lookout! I mean- I spent the better part of a hundredd cycles studying necrotics, and THIS is what my certificate get's me?? It's too cold, too bright, the wind keeps blowing the bottom shelf bugs' papers in my face, and everything smells like paint and §kXXXX§r§b! They're experimenting with some kind of energy recycling tech here, I guess they trashed the Protoi Sunbeam and swapped it for an altar. Couldn't tell you why, I- ugh, we have laboratories for this! What difference is a little dead sunlight supposed to make for our research? And I'm not alone on this! Arita's pissed too, she says she's bringing videogames tommorrow, cuz, I mean, we're getting paid either way. That's probably the best news I've heard all cycle. Screw this.\"",
+    "message.thermal_shock_reforged.hologram_monitor.recording_2": "§7Replaying recording:\n§7----------\n§b\"Personal log 040, cycle date 254K788.\n§7----------\n§bHey, I'm just gonna say it, I'm not a big fan of the new director. I don-... what?? I'm right to do so and you know it! ... Alright then, tell me- nonono, tell me this; why haven't we had a donut break in 200 cycles? ... No- it IS important, It's- it- it- it's indicative of a bigger problem! ... Look at Qo, he just came back from her office- look how fed up he looks... Wha- who's side are you on???\"",
+    "message.thermal_shock_reforged.hologram_monitor.recording_3": "§7Replaying transmission:\n§7----------\n§b\"Ok...\n§7----------\n§bI'm having the worst headache ever, so I'll make this quick. I need those experimental prototypes from Stratus done now. Today. Same goes for Incognito Biomechanical. Your \"Kilolyte\" has been \"Work In Progress\" for 50 cycles now. Today. No more excuses.\"",
+    "message.thermal_shock_reforged.hologram_monitor.recording_4": "§7Replaying recording:\n§7----------\n§b\"Dear High Director...\n§7----------\n§bMy colleagues and I have some growing concerns regarding your... \"orders.\" Between the experimental modular Icidrone XL models, and the 8 Icidrone L revisions you've had us make in the past 5 sundamned cycles, we're noticing a concerning militaristic shift in scope. We are not an ordanance designery. We make satellites and weather balloons. Please TRY to communicate any major changes to the Stratus Division's scope before moving forward, thanks.\n§7----------\n§bSincerely, Qo from the Stratus Divison. On behalf of the Universal Workerbugs' Union\"",
+    "message.thermal_shock_reforged.hologram_monitor.recording_5": "§7Replaying recording:\n§7----------\n§b\"Very funny, Miss Director.\n§7----------\n§bI really wanted to be civil about this, but after THIS? 27 pages of revisions due in 3 cycles??? Sorry lady, but it's just not happening. We can't prototype a 12 block battletank in that time, we're not centipedes! Frankly, we're all pretty burnt out. The Universal Workerbugs' Union has decided to cease work at the Stratus Division until further notice. Some other representative will be getting in touch soon to discuss... whatever- you get the point!\"",
+    "message.thermal_shock_reforged.hologram_monitor.recording_6": "§7Replaying recording:\n§7----------\n§b\"Are we rolling? mkay, look at this...\n§7----------\n§bWell, there's Qo. Employee of the centumcycle. Twice now, actually... Ya'll know what that means, right? \"Promotion.\" He- ... yeah, surgeons will be here any minute now, and they'll uhm... He never showed up in many personal logs, so, figured we'd get one more in before, uh, the procedure. Well, here's to a lenient surgery with minimal brain alteration.\"",
+    "message.thermal_shock_reforged.hologram_monitor.recording_7": "§7Replaying recording:\n§7----------\n§b\"This is personal log 261, cycle date 255K003.\n§7----------\n§bWe found something. We actually found something! Just a couple hours we dug into this, uhh, it's like- a big dandelion garden, with this huge stone roof and- ... hear that? There's these, like, bug plants. We've never seen anything like this! Hey, look, here comes one n-\"",
+    "message.thermal_shock_reforged.hologram_monitor.recording_8": "§7Replaying transmission:\n§7----------\n§b\"Guys, we gotta move out, 86 the whole operation.\n§7----------\n§bN- no, we're heading back, we're down by 5 bugs. No! It's okay, we'll catch up- just move back out the perimiter. I- listen, we didn't even get past the first wall! Perr's tank had, like, 10 wasps on top. Sun damn it, just- I don't care, tell High Director we're not getting in this hive. I'd rather be demoted than beheaded!\"",
+    "message.thermal_shock_reforged.hologram_monitor.recording_9": "§7Replaying recording:\n§7----------\n§b\"Req Derektor 4203. Ziqel 1K977.\n§7----------\n§bProjekt ztatoz ekzel. tranzver zekzez 47. Invekzia ztatoz minor, puri 59. Notel; Sujekt 7202 evoluzia orol atvanzia, sujekt 841 evoluzia praza metenenz divizia nekro, sujekt 1009 ditto azziztenz. Theor zu projekt konkluzia. Zu zekzez puri total, pluz perzonel.\n§7----------\n§b\"Req Derektor 4203, fin.\""
+  },
+  "zh_cn": {
+    "block.thermal_shock_reforged.brimstone_cake": "§a硫磺蛋糕",
+    "block.thermal_shock_reforged.lunar_panel": "月光板",
+    "block.thermal_shock_reforged.hologram_monitor": "全息监视器",
+    "block.thermal_shock_reforged.hologram_constructor": "全息监视器",
+    "block.thermal_shock_reforged.hologram_constructor.description_0": "§7读取软盘。",
+    "item.thermal_shock_reforged.arctic_warmth_legacy": "音乐唱片",
+    "item.thermal_shock_reforged.arctic_warmth_legacy.desc": "ThermaDev - 极地暖意（旧版）",
+    "advancements.thermofebruary_get.title": "热能二月！",
+    "advancements.thermofebruary_get.descr": "在热能二月活动期间吃一份硫磺蛋糕，并领取一份酷炫礼物",
+    "advancements.lod_pozar_get.title": "冰霜双雄",
+    "advancements.lod_pozar_get.descr": "获得冰霜枪手和冰霜燃烧者的奖杯",
+    "message.thermal_shock_reforged.hologram_monitor.recording_1": "§7正在回放录音：\n§7----------\n§b\"个人日志107，周期日期255K029。\n§7----------\n§b真不敢相信他们把我调到瞭望前哨了！我是说，我花了差不多一百个周期研究死灵学，结果这张证书就给我换来这个？？这里太冷，太亮，风老把底层虫子的文件吹到我脸上，到处都是油漆和§kXXXX§r§b的味道！他们在这里试验某种能量回收技术，我猜他们扔掉了Protoi阳光束，换了座祭坛。别问我为什么，我——唉，我们明明有实验室！一点死去的阳光能给我们的研究带来什么不同？而且不只我这么想！Arita也气坏了，她说明天要带电子游戏来，因为，反正我们照样领工资。这大概是我这一整个周期听到的最好的消息了。去他的。\"",
+    "message.thermal_shock_reforged.hologram_monitor.recording_2": "§7正在回放录音：\n§7----------\n§b\"个人日志040，周期日期254K788。\n§7----------\n§b嘿，我直说了，我不太喜欢这位新主管。我不——……什么？？我这么想有理，你也知道！……好，那你告诉我——不不不，先回答这个：我们为什么已经200个周期没休过甜甜圈茶歇了？……不——这当然重要！这——这——这说明还有更大的问题！……看看Qo，他刚从她办公室出来——看他那一脸受够了的样子……什——你到底站哪边的？？？\"",
+    "message.thermal_shock_reforged.hologram_monitor.recording_3": "§7正在回放通讯：\n§7----------\n§b\"好吧……\n§7----------\n§b我现在头疼得要命，所以长话短说。Stratus那边的实验原型，我现在就要。今天就要。Incognito生物机械部门也一样。你们那个“Kilolyte”已经“开发中”50个周期了。今天。别再找借口。\"",
+    "message.thermal_shock_reforged.hologram_monitor.recording_4": "§7正在回放录音：\n§7----------\n§b\"尊敬的最高主管……\n§7----------\n§b我和同事们对您的……“命令”越来越担忧。您让我们制作实验型模块化Icidrone XL，又在过去5个该死的太阳周期里，要求我们给Icidrone L做了8版修订。我们注意到工作方向正令人不安地转向军事化。我们不是军械设计所。我们造的是卫星和气象气球。Stratus部门的职责若有重大变化，请您在推进之前尽量沟通，谢谢。\n§7----------\n§b此致，Stratus部门的Qo，代表宇宙工虫联合会。\"",
+    "message.thermal_shock_reforged.hologram_monitor.recording_5": "§7正在回放录音：\n§7----------\n§b\"真好笑，主管女士。\n§7----------\n§b我本来真想心平气和地处理这事，可您现在倒好！27页修订，3个周期交齐？？？抱歉，女士，办不到。我们不可能在那点时间里做出一辆12格战车的原型，我们又不是蜈蚣！坦白说，大家都已经精疲力尽了。宇宙工虫联合会决定停止Stratus部门的工作，直至另行通知。之后会有其他代表联系您，讨论……算了——您明白我的意思！\"",
+    "message.thermal_shock_reforged.hologram_monitor.recording_6": "§7正在回放录音：\n§7----------\n§b\"开始录了吗？嗯，好，看这边……\n§7----------\n§b嗯，那就是Qo。百周期最佳员工。其实已经两次了……你们都知道这意味着什么，对吧？“晋升”。他——……是啊，外科医生随时都会到，然后他们会，呃……他的身影从来没怎么出现在私人日志里，所以，想着在，呃，手术之前再录一次。嗯，祝手术手下留情，尽量少改动他的脑子。\"",
+    "message.thermal_shock_reforged.hologram_monitor.recording_7": "§7正在回放录音：\n§7----------\n§b\"个人日志261，周期日期255K003。\n§7----------\n§b我们找到东西了。我们真的找到东西了！几个小时前我们挖进了这个，呃，就像——一个巨大的蒲公英花园，上面有很大的石头顶棚，还——……听到了吗？这里有些像虫子一样的植物。我们从没见过这种东西！嘿，看，有一只正过来——\"",
+    "message.thermal_shock_reforged.hologram_monitor.recording_8": "§7正在回放通讯：\n§7----------\n§b\"伙计们，得撤了，整个行动取消。\n§7----------\n§b不——不，我们要回去，我们已经少了5只虫子。不！没事，我们会追上——先退到外围去。我——听着，我们连第一道墙都没过去！Perr的坦克顶上大概爬了10只黄蜂。该死的太阳，快——我不管，告诉最高主管，这个蜂巢我们进不去。我宁愿被降职，也不想被砍头！\"",
+    "message.thermal_shock_reforged.hologram_monitor.recording_9": "§7正在回放录音：\n§7----------\n§b\"Req Derektor 4203. Ziqel 1K977.\n§7----------\n§bProjekt ztatoz ekzel. tranzver zekzez 47. Invekzia ztatoz minor, puri 59. Notel; Sujekt 7202 evoluzia orol atvanzia, sujekt 841 evoluzia praza metenenz divizia nekro, sujekt 1009 ditto azziztenz. Theor zu projekt konkluzia. Zu zekzez puri total, pluz perzonel.\n§7----------\n§b\"Req Derektor 4203, fin.\""
+  },
+  "already_connected": [
+    "GeoDecorContent已有根入口，内部注册BrimstoneCakeConsumption及5粒子",
+    "GeoDecorRenderers已有客户端入口，内部注册食品任务NoopRenderer",
+    "九软盘已有真实注册与原有创意排序",
+    "hologram_constructor恢复原有创意入口，不新增原无的monitor创意条目",
+    "Icebreaker四公共元数据和方块/BE工厂、物品loop0已接入"
+  ],
+  "acquisition": {
+    "cake": "四轮食品与二月进度、金柱+旧版唱片奖励闭合；旧版唱片共享注册由主线应用",
+    "monitor": "原监视器配方及替代配方、构造器创意入口与放置转换",
+    "panel": "原3种材料配方",
+    "disk4": "保原双奖杯inventory_changed进度和3000经验/原软盘奖励；父fabricator_get原已迁入",
+    "other_disks": "既有宝箱1/2/3/5、祭坛6、战利品包7、可疑柜9；原软盘8仅注册/创意页及本监视器消费方，原JAR全部JSON与结构NBT无实物获取引用，不虚构新配方"
+  },
+  "compiled": false,
+  "server_tested": false,
+  "client_tested": false,
+  "render_preview_tested": false
+}

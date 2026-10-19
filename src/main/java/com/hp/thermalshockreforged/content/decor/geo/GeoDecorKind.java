@@ -8,6 +8,10 @@ import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.shapes.*;
 
 public enum GeoDecorKind {
+    BRIMSTONE_CAKE("brimstone_cake", "Brimstone Cake", "geo/yoylecake.geo.json", "textures/block/brimstonecake4.png", "animations/yoylecake.animation.json", Block.box(1, .1, 1, 15, 7, 15), false, true),
+    LUNAR_PANEL("lunar_panel", "Lunar Panel", "geo/lunar_panel.geo.json", "textures/block/lunar_panel.png", "animations/lunar_panel.animation.json", Shapes.block(), true, false),
+    HOLOGRAM_MONITOR("hologram_monitor", "Hologram Monitor", "geo/hologram_monitor.geo.json", "textures/block/hologram_monitor.png", "animations/hologram_monitor.animation.json", Block.box(4, .1, 4, 15.9, 15.9, 15.9), true, false),
+    ICEBREAKER("icebreaker", "Icebreaker", "geo/icebreaker.geo.json", "textures/block/icebreaker.png", "animations/icebreaker.animation.json", Shapes.block(), true, false),
     AMALGEL_TROPHY("amalgel_trophy", "\u00a7cA\u00a76m\u00a7ea\u00a7al\u00a73g\u00a79e\u00a75l \u00a76T\u00a7er\u00a7ao\u00a73p\u00a79h\u00a75y", "geo/amalgel_relic.geo.json", "textures/block/amalgeglrelic.png", "animations/amalgel_relic.animation.json", Shapes.block(), true, false),
     WORLD_TOUR_TROPHY("world_tour_trophy", "World Tour Trophy", "geo/world_tour_trophy.geo.json", "textures/block/world_tour_trophy.png", "animations/world_tour_trophy.animation.json", Shapes.block(), true, false),
     PYROGENIC_PYLON_CORE("pyrogenic_pylon_core", "Pyrogenic Pylon Core", "geo/pylon_core.geo.json", "textures/block/pyrogenic_core.png", "animations/pylon_core.animation.json", Block.box(2, 2, 2, 14, 14, 14), false, false),
@@ -103,6 +107,10 @@ public enum GeoDecorKind {
     }
     public BlockBehaviour.Properties properties() {
         return switch (this) {
+            case BRIMSTONE_CAKE -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).sound(SoundType.WOOL).strength(1, 0).noOcclusion().pushReaction(PushReaction.DESTROY).isRedstoneConductor((state, level, pos) -> false).noLootTable();
+            case LUNAR_PANEL -> BlockBehaviour.Properties.of().mapColor(MapColor.METAL).sound(SoundType.METAL).strength(3, 999);
+            case HOLOGRAM_MONITOR -> BlockBehaviour.Properties.of().mapColor(MapColor.METAL).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.LODESTONE).strength(1, 999).lightLevel(state -> 15).requiresCorrectToolForDrops().noOcclusion().randomTicks().pushReaction(PushReaction.BLOCK).isRedstoneConductor((state, level, pos) -> false);
+            case ICEBREAKER -> BlockBehaviour.Properties.of().mapColor(MapColor.ICE).sound(SoundType.NETHERITE_BLOCK).strength(999.0F).lightLevel(state -> 10).noOcclusion().isRedstoneConductor((state, level, pos) -> false);
             case EXTRACTOR -> BlockBehaviour.Properties.of().mapColor(MapColor.METAL).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.SHROOMLIGHT).strength(10, 999).lightLevel(state -> 13).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((state, level, pos) -> false);
             case GRAND_BLASPHEMER -> BlockBehaviour.Properties.of().mapColor(MapColor.STONE).sound(SoundType.STONE).strength(-1, 3600000).pushReaction(PushReaction.BLOCK);
             case JELLERCEL, LARGE_JELLERCEL -> {

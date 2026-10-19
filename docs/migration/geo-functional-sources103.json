@@ -1,0 +1,197 @@
+{
+  "structures": [
+    {
+      "source": "data/thermal_shock/structures/sunken_blizzard_lab.nbt",
+      "counts": {
+        "thermal_shock:hologram_monitor": 2
+      },
+      "monitor_placements": [
+        [
+          45,
+          14,
+          57
+        ]
+      ],
+      "target_exists": false,
+      "target_counts": {},
+      "status": "主线明确留后续完整原生结构迁移，本批不导缩减模板"
+    }
+  ],
+  "effects": [
+    {
+      "source": "assets/thermal_shock/effeks/holo1.efkefc",
+      "sha256": "cdf287d5c9773d81b579c370c9189e2ee161e32c5e44c0699aef790a5133f0d0",
+      "chunks": [
+        {
+          "name": "INFO",
+          "size": 94,
+          "refs": [
+            "Texture/Holo Frostilyte1 Striped.png"
+          ]
+        },
+        {
+          "name": "EDIT",
+          "size": 587,
+          "refs": [
+            "Texture/Holo Frostilyte1 Striped.png"
+          ]
+        },
+        {
+          "name": "BIN_",
+          "size": 863,
+          "refs": [
+            "Texture/Holo Frostilyte1 Striped.png"
+          ]
+        }
+      ],
+      "dependencies": [
+        {
+          "source": "assets/thermal_shock/effeks/Texture/Holo Frostilyte1 Striped.png",
+          "source_exists": true,
+          "target_exists": true,
+          "byte_equal": true
+        }
+      ]
+    },
+    {
+      "source": "assets/thermal_shock/effeks/holo2.efkefc",
+      "sha256": "7c1f6b591274c6d8ff53658815419f4b43d88b5fae1f7357839e53cb06a8274c",
+      "chunks": [
+        {
+          "name": "INFO",
+          "size": 84,
+          "refs": [
+            "Texture/Holo Sopel1 Striped.png"
+          ]
+        },
+        {
+          "name": "EDIT",
+          "size": 582,
+          "refs": [
+            "Texture/Holo Sopel1 Striped.png"
+          ]
+        },
+        {
+          "name": "BIN_",
+          "size": 853,
+          "refs": [
+            "Texture/Holo Sopel1 Striped.png"
+          ]
+        }
+      ],
+      "dependencies": [
+        {
+          "source": "assets/thermal_shock/effeks/Texture/Holo Sopel1 Striped.png",
+          "source_exists": true,
+          "target_exists": true,
+          "byte_equal": true
+        }
+      ]
+    },
+    {
+      "source": "assets/thermal_shock/effeks/holo3.efkefc",
+      "sha256": "0a50463080597611f91d727493ed4811dad7815dffa573e9fe916dd757bb4dfa",
+      "chunks": [
+        {
+          "name": "INFO",
+          "size": 78,
+          "refs": [
+            "Texture/Holo Qo1 Striped.png"
+          ]
+        },
+        {
+          "name": "EDIT",
+          "size": 580,
+          "refs": [
+            "Texture/Holo Qo1 Striped.png"
+          ]
+        },
+        {
+          "name": "BIN_",
+          "size": 847,
+          "refs": [
+            "Texture/Holo Qo1 Striped.png"
+          ]
+        }
+      ],
+      "dependencies": [
+        {
+          "source": "assets/thermal_shock/effeks/Texture/Holo Qo1 Striped.png",
+          "source_exists": true,
+          "target_exists": true,
+          "byte_equal": true
+        }
+      ]
+    },
+    {
+      "source": "assets/thermal_shock/effeks/holo4.efkefc",
+      "sha256": "9fb91abb7e85b62b18ffb1682986afaa5bb005a834c84b75fc550a52f35c627f",
+      "chunks": [
+        {
+          "name": "INFO",
+          "size": 90,
+          "refs": [
+            "Texture/Holo Director1 Striped.png"
+          ]
+        },
+        {
+          "name": "EDIT",
+          "size": 586,
+          "refs": [
+            "Texture/Holo Director1 Striped.png"
+          ]
+        },
+        {
+          "name": "BIN_",
+          "size": 859,
+          "refs": [
+            "Texture/Holo Director1 Striped.png"
+          ]
+        }
+      ],
+      "dependencies": [
+        {
+          "source": "assets/thermal_shock/effeks/Texture/Holo Director1 Striped.png",
+          "source_exists": true,
+          "target_exists": true,
+          "byte_equal": true
+        }
+      ]
+    },
+    {
+      "source": "assets/thermal_shock/effeks/holo5.efkefc",
+      "sha256": "26ae7f0aacdc76f035b9168ec44dab4f12215119632c5d5521e3003298b1354f",
+      "chunks": [
+        {
+          "name": "INFO",
+          "size": 78,
+          "refs": [
+            "Texture/Holo Qo2 Striped.png"
+          ]
+        },
+        {
+          "name": "EDIT",
+          "size": 580,
+          "refs": [
+            "Texture/Holo Qo2 Striped.png"
+          ]
+        },
+        {
+          "name": "BIN_",
+          "size": 847,
+          "refs": [
+            "Texture/Holo Qo2 Striped.png"
+          ]
+        }
+      ],
+      "dependencies": [
+        {
+          "source": "assets/thermal_shock/effeks/Texture/Holo Qo2 Striped.png",
+          "source_exists": true,
+          "target_exists": true,
+          "byte_equal": true
+        }
+      ]
+    }
+  ]
+}

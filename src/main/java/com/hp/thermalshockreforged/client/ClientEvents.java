@@ -115,6 +115,7 @@ public final class ClientEvents {
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.labworldgen.LabWorldgenContent.DISSOLVER_CYCLE.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.reactor.ReactorContent.SEQUENCE.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.weatherutility.WeatherUtilityContent.PURIFIER_PULSE.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
+        event.registerEntityRenderer(com.hp.thermalshockreforged.content.icebreaker.IcebreakerContent.ICEBREAKER_PULSE.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.weapons.WeaponContent.MAGNETIC_CYCLE_SOUND.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.food.FerroCakeConsumption.TYPE.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         com.hp.thermalshockreforged.client.springslime.SpringslimeRenderers.register(event);
@@ -223,6 +224,7 @@ public final class ClientEvents {
 
     @SubscribeEvent
     public static void particles(RegisterParticleProvidersEvent event) {
+        com.hp.thermalshockreforged.client.decor.geo.GeoDecorRenderers.particles(event);
         com.hp.thermalshockreforged.client.gaze.GazeRenderers.particles(event);
         com.hp.thermalshockreforged.client.squall.SquallRenderers.particles(event);
         event.registerSpriteSet(com.hp.thermalshockreforged.combat.ElementalCombat.HIT_CRYO.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "hitcryo", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true));
