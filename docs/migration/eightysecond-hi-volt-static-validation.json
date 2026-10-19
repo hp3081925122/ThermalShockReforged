@@ -1,0 +1,133 @@
+{
+  "scope": "原JAR/真实调用/目标API/注册与构建副本静态验证；非游戏运行测试",
+  "runtime_tests": "pending_full_mod_migration_primary_agent_only",
+  "summary": {
+    "real_weapons": 1,
+    "full_original_assets_including_sounds": 10,
+    "data_build_paths": 8,
+    "fabrication_output_closed": "hi_volt_lance",
+    "spear_death_cancellation_fix": true,
+    "native_durability_enchantment_eligibility_restored": 6
+  },
+  "original_behavior": {
+    "durability": 1200,
+    "attack_modifier": 6,
+    "attack_speed_modifier": -2.4,
+    "enchantability": 0,
+    "normal_item_base": true,
+    "left_cooldown_sound": [
+      16,
+      16
+    ],
+    "right_cooldown": 120,
+    "slow_duration_amplifier": [
+      20,
+      1
+    ],
+    "pulse_end_stages": [
+      0,
+      2,
+      4,
+      6,
+      8,
+      10,
+      12,
+      14,
+      16,
+      18
+    ],
+    "damage_each": 1.5,
+    "area": "固定原锚点inflate2.5 AABB/全部Entity/距排序；排自身和原使用者UUID",
+    "electrified_end_duration_amplifier": [
+      20,
+      360,
+      0
+    ],
+    "ready_sound_end_stages": [
+      120,
+      122
+    ],
+    "real_hand_tick": "RubySpear公共过程，CD禁近战3tick/无CD原生范围+3",
+    "all_clips": {
+      "0": {
+        "loop": true
+      },
+      "1": {
+        "animation_length": 0.75
+      },
+      "2": {
+        "animation_length": 1.5833
+      }
+    },
+    "source_has_only_ferro_type_no_weapon_tag": true
+  },
+  "implementation": {
+    "single_finite_saved_task_max_end": 122,
+    "no_strong_entity_reference": true,
+    "no_chunk_force": true,
+    "actual_noop_renderer": true,
+    "per_stack_synced_animation_and_cache_cleanup": true,
+    "physical_hit_uses_full_spear_advancement_parent": true
+  },
+  "assets": [
+    {
+      "path": "geo/hi_volt_lance.geo.json",
+      "sha256": "7eeb8de769f9cef13a99ce13e9c679a60db580880ffeeea4287276e57b44165b"
+    },
+    {
+      "path": "animations/hi_volt_lance.animation.json",
+      "sha256": "f025546f1ff9d436f4355a1cdf440996e993d19b68eb43a7f2d6f83947ee3ffc"
+    },
+    {
+      "path": "textures/item/hi_volt_lance.png",
+      "sha256": "515c4f84247b89c5575b45dcfd165b792676e87398c06dbad2e66cb6257d6ddd"
+    },
+    {
+      "path": "models/item/hi_volt_lance.json",
+      "sha256": "db3516a54d91829934819d69623d360165a016150b12ad2d623e103ac07c7d7f"
+    },
+    {
+      "path": "models/displaysettings/hi_volt_lance.json",
+      "sha256": "f574032862482277bb7b465016f96ed4f17dfc96e7c4071cb3bca0d84067695c"
+    },
+    {
+      "path": "sounds/force-field-335797.ogg",
+      "sha256": "ec8adb8a9bc6a12c5f5fa75a8f20feb45474521a296bccde2079ac06c903cd42"
+    },
+    {
+      "path": "sounds/galvanitehurt1.ogg",
+      "sha256": "473e55e0cac7a02d1b8de4726e21e54d3e93e6af8b444bcf77908feb1aadbc44"
+    },
+    {
+      "path": "sounds/galvanitehurt2.ogg",
+      "sha256": "caa01dc565bc3e2ba6c1aab17c5256fee8d203e73b95b8f85089408f7981ab55"
+    },
+    {
+      "path": "sounds/galvanitehurt3.ogg",
+      "sha256": "444d13fa5f73971884b069434b1cdd22aad7870ea2f5d3b50d628e9be729a8e3"
+    },
+    {
+      "path": "sounds/galvanitehurt4.ogg",
+      "sha256": "b45e0b7effd362901e6b9cb6e9213e64a6ad70e71066a3d9103622bfcd03128a"
+    }
+  ],
+  "data_build_paths": [
+    "assets/thermal_shock_reforged/sounds.json",
+    "data/thermal_shock_reforged/advancement/spear_kill_get.json",
+    "data/thermal_shock_reforged/recipe/fabrication/hi_volt_lance.json",
+    "data/minecraft/tags/item/enchantable/durability.json",
+    "thermal_shock_reforged.mixins.json",
+    "data/thermal_shock_reforged/tags/item/ferro_type.json",
+    "assets/thermal_shock_reforged/lang/en_us.json",
+    "assets/thermal_shock_reforged/lang/zh_cn.json"
+  ],
+  "build": {
+    "compileJava_processResources": "passed",
+    "subagents": false,
+    "game_runtime_started": false
+  },
+  "pending": [
+    "全局Ferro余项和Thermoblaster/Buzzsaw/Liteprism等其他真实制造产物仍待",
+    "全模组代码完成后主对话测试范围/时序/卸载重载/死亡取消及两端与Render Preview"
+  ]
+}

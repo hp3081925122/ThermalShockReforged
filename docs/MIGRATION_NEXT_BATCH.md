@@ -153,3 +153,6 @@ Spectre 已接完整实体、原0.3速度/仰角0.1/5基础箭伤/零击退音�
 
 
 第81批主对话迁入Zerker Gauntlet（titanium_mace）与Volcano真实Item、完整Geo/0-1动画/手势。拳套保原命中和挥手顺序、80tickCD/Slow35amp4/上抛并单次折抗性，按精确类型和确认死亡奖完整挑战；Volcano保31tickCD、一Heavy Round五连发、同步首发与1/2/3/4 END后续、固定锚点/动态方向/原3伤4速20散布穿透2/KB1、16/20 END装填声与完整已有Spark。有限持久任务只持UUID/实体ID及数据，原生Owner访问器仅用于新弹离线归属；未增加耐久消耗。核旧BREAKABLE与新durability标签保两件附魔资格，修父模型粒子贴图缺命名空间。整组Java/资源首轮56s通过，标签复核后只复制资源；10原资产和11数据/语言/Mixin构建路径静态通过。Fabricator当前23活动/8待实际产物实现。详gauntlet-volcano-next-audit.md与eightyfirst-gauntlet-volcano-static-validation.json。全局元素其余分支、其他普通Item耐久附魔、Vilebath/Concierge与其余未迁模块仍待；整模组未完整，最终两端/Render Preview留到全代码完成后主对话执行。未启动游戏，无子代理。
+
+
+第82批主对话迁入Hi-Volt Lance完整真实SpearItem类型：保1200/攻击+6/攻速-2.4/附魔默认0、16tick挥手和120tick右键CD、真实RubySpear手持入口与+3范围/冷却禁近战、原完整Geo0/1/2及显示变换。同步+2/4/…/18 END共十次固定初始inflate2.5 AABB/全Entity排序/1.5 ownerless伤，20END带电360amp0双声、120/122提示声；有限122END持久任务仅UUID/数据、NoopRenderer、按栈动画与缓存回收实际接线。公共四长枪击杀进度改确认原生dead，避免死亡取消误奖；逐类核原普通Item后补六件durability附魔资格。整组首轮编译52s通过，10原资产和8路径构建副本静态核对，保已修正三电池费用；Fabricator现24活动/7待真实产物。详hi-volt-lance-batch.md与eightysecond-hi-volt-static-validation.json。Thermoblaster环境模式/Zenith左右键已初查但尚未迁入，不提前启用制造；其余未迁及全局元素仍待，整模组未完整，最终两端/Render Preview到全部代码完成后主对话执行。无子代理，无运行游戏。

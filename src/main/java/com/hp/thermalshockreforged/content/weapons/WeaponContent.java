@@ -34,6 +34,8 @@ public final class WeaponContent {
     public static final DeferredItem<SpearItem> SPELEOTHEM = ITEMS.register("speleothem", () -> new SpearItem(SpearItem.Kind.SPELEOTHEM));
     public static final DeferredItem<SpearItem> RUBY_SPEAR = ITEMS.register("ruby_spear", () -> new SpearItem(SpearItem.Kind.RUBY));
     public static final DeferredItem<SpearItem> CARBORUNDUM_SPEAR = ITEMS.register("carborundum_spear", () -> new SpearItem(SpearItem.Kind.CARBORUNDUM));
+    public static final DeferredItem<SpearItem> HI_VOLT_LANCE = ITEMS.register("hi_volt_lance", () -> new SpearItem(SpearItem.Kind.HI_VOLT));
+    public static final DeferredHolder<EntityType<?>, EntityType<HiVoltPulseEntity>> HI_VOLT_PULSE = TYPES.register("hi_volt_pulse_task", () -> EntityType.Builder.<HiVoltPulseEntity>of(HiVoltPulseEntity::new, MobCategory.MISC).noSummon().sized(.01F, .01F).clientTrackingRange(0).updateInterval(20).build(ThermalShockReforged.MOD_ID + ":hi_volt_pulse_task"));
     public static final DeferredItem<ZapGauntletItem> ZAP_GAUNTLET = ITEMS.register("zap_gauntlet", ZapGauntletItem::new);
     public static final DeferredItem<RustyEdgeItem> RUSTY_EDGE = ITEMS.register("rusty_edge", RustyEdgeItem::new);
     public static final DeferredItem<BlindingLanternItem> BLINDING_LANTERN = ITEMS.register("blinding_lantern", BlindingLanternItem::new);
@@ -56,8 +58,8 @@ public final class WeaponContent {
         NeoForge.EVENT_BUS.addListener(WeaponContent::serverStopped);
     }
 
-    public static void pruneAnimations() { TITANIUM_MACE.get().pruneAnimations(); VOLCANO.get().pruneAnimations(); MAGNETIC_CROSSBOW.get().pruneAnimations(); BLINDING_LANTERN.get().pruneAnimations(); ZAP_GAUNTLET.get().pruneAnimations(); FLINTSTEEL_RIFLE.get().pruneAnimations(); HAILFALL.get().pruneAnimations(); SPELEOTHEM.get().pruneAnimations(); RUBY_SPEAR.get().pruneAnimations(); CARBORUNDUM_SPEAR.get().pruneAnimations(); }
-    public static void clearAnimations() { TITANIUM_MACE.get().clearAnimations(); VOLCANO.get().clearAnimations(); MAGNETIC_CROSSBOW.get().clearAnimations(); BLINDING_LANTERN.get().clearAnimations(); ZAP_GAUNTLET.get().clearAnimations(); FLINTSTEEL_RIFLE.get().clearAnimations(); HAILFALL.get().clearAnimations(); SPELEOTHEM.get().clearAnimations(); RUBY_SPEAR.get().clearAnimations(); CARBORUNDUM_SPEAR.get().clearAnimations(); }
+    public static void pruneAnimations() { HI_VOLT_LANCE.get().pruneAnimations(); TITANIUM_MACE.get().pruneAnimations(); VOLCANO.get().pruneAnimations(); MAGNETIC_CROSSBOW.get().pruneAnimations(); BLINDING_LANTERN.get().pruneAnimations(); ZAP_GAUNTLET.get().pruneAnimations(); FLINTSTEEL_RIFLE.get().pruneAnimations(); HAILFALL.get().pruneAnimations(); SPELEOTHEM.get().pruneAnimations(); RUBY_SPEAR.get().pruneAnimations(); CARBORUNDUM_SPEAR.get().pruneAnimations(); }
+    public static void clearAnimations() { HI_VOLT_LANCE.get().clearAnimations(); TITANIUM_MACE.get().clearAnimations(); VOLCANO.get().clearAnimations(); MAGNETIC_CROSSBOW.get().clearAnimations(); BLINDING_LANTERN.get().clearAnimations(); ZAP_GAUNTLET.get().clearAnimations(); FLINTSTEEL_RIFLE.get().clearAnimations(); HAILFALL.get().clearAnimations(); SPELEOTHEM.get().clearAnimations(); RUBY_SPEAR.get().clearAnimations(); CARBORUNDUM_SPEAR.get().clearAnimations(); }
     private static void serverTick(ServerTickEvent.Post event) { pruneAnimations(); }
     private static void serverStopped(ServerStoppedEvent event) { clearAnimations(); }
 }
