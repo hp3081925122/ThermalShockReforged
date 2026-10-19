@@ -56,6 +56,7 @@ public final class ClientEvents {
     @SubscribeEvent
     public static void renderers(EntityRenderersEvent.RegisterRenderers event) {
         com.hp.thermalshockreforged.client.gaze.GazeRenderers.register(event);
+        com.hp.thermalshockreforged.client.squall.SquallRenderers.register(event);
         com.hp.thermalshockreforged.client.titans.TitanRenderers.register(event);
         com.hp.thermalshockreforged.client.beetles.BeetleRenderers.register(event);
         com.hp.thermalshockreforged.client.monolith.MonolithRenderers.register(event);
@@ -101,6 +102,7 @@ public final class ClientEvents {
         CavebloomerClient.renderers(event);
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.atlas.AtlasContent.ACTIVATION.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.labworldgen.LabWorldgenContent.DISSOLVER_CYCLE.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
+        event.registerEntityRenderer(com.hp.thermalshockreforged.content.reactor.ReactorContent.SEQUENCE.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.weapons.WeaponContent.MAGNETIC_CYCLE_SOUND.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.food.FerroCakeConsumption.TYPE.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         com.hp.thermalshockreforged.client.springslime.SpringslimeRenderers.register(event);
@@ -202,6 +204,7 @@ public final class ClientEvents {
     @SubscribeEvent
     public static void particles(RegisterParticleProvidersEvent event) {
         com.hp.thermalshockreforged.client.gaze.GazeRenderers.particles(event);
+        com.hp.thermalshockreforged.client.squall.SquallRenderers.particles(event);
         event.registerSpriteSet(com.hp.thermalshockreforged.combat.ElementalCombat.HIT_CRYO.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "hitcryo", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true));
         event.registerSpriteSet(com.hp.thermalshockreforged.combat.ElementalCombat.HIT_PYRO.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "hitpyro", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true));
         event.registerSpriteSet(com.hp.thermalshockreforged.combat.ElementalCombat.HIT_RESIST.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "hitresist", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true));
@@ -230,6 +233,7 @@ public final class ClientEvents {
         AmbientRenderers.particles(event);
         AuraClient.particles(event);
         PodRenderers.particles(event);
+        event.registerSpriteSet(com.hp.thermalshockreforged.content.reactor.ReactorContent.SHOCKWAVE.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "shockwavereactor", 7, ParticleRenderType.PARTICLE_SHEET_LIT, true, true, 1));
         FarmingRenderers.particles(event);
     }
 

@@ -392,3 +392,12 @@ Graver、NeonLimeGraver、Assimilator、AssimilatedGraver、Razoraptor完整家�
 Vilebath五完整模板保828118块记录／90实体／全部几何状态、图框武器、库存和旗帜，重做typed目标数据转换。三桥7处失效pool引用改实际原池，保3:1权重和原四自然JSON完整参数。两缺失原生功能块由另一聊天迁入：热喷泉真实九槽／自动化／原信号烟和三完整热泉模板，灯泡完整起爆／自毁二次回调／20粒子和全部连锁；深栈改同tickFIFO，结算顺序差异明确记录。两块补标准采集与合理地图色；其12原资产未改。
 
 两路停笔后固定8223输入，Java21离线compileJava/processResources首次成功1m4s，24任务／2执行；7567构建资源逐字节与2展开模板通过，分工15生产交付哈希不变，无编译修复。总证据docs/migration/main96-static-validation.json，halberds-static96.json／vilebath-template96.json／vilebathblocks-validation96.json提供原件与模块证据。灯泡独立注入原purebiomes从未定义，未猜范围或造空tag，仍为原生内容待办，城堡来源不依赖该tag。已提醒最大城堡439872块记录的生成成本。整模组尚未完整，未启游戏，最终专服／客户端／Render Preview仍待全代码后由子代理执行。
+
+
+## 第97批最终集成验证
+
+主线反应堆4 Java与分工Squall6 Java/3数据完成，8处共享Java、两语言与三标签增量已接。固定8240份src/main输入，统一compileJava/processResources --offline首次通过1m6s，24任务/2执行/22缓存；7574构建资源逐字节相同、2模板展开通过。Squall交付9份生产文件哈希均保持，没有编译修复。原13反应堆资产、13 Squall资产、两进度完整父链、18格与25轮1900 END逻辑在持续加载条件下核对通过；邻块卸载暂停可延长实际结束时间，已明确记录。总证据docs/migration/main97-static-validation.json，Luna反应堆机械审计reactor-static97.json和分工11组squall-validation97.json，均非游戏实测。
+
+整个模组仍未完整，最终专服/客户端/Render Preview验收未开始。本地阶段提交不代表远程发布；当前无Git remote。后续待迁实体按基线原154注册ID及枚举helper复核，修正旧三巨人与三水母漏计；本批Squall接入后尚有18个旧ID注册缺口：aerocel、benzor、blinding_lantern_flash_ring、effigy、electric_sphere、giant_laser_test、high_director_sopel、huntress、huntress_boss、icidroviathan、liftbug、maiden、moonoid、ribbonblade_galvanite、sentrarius、starrite、tesla_reed、whisper。该清单只描述实体注册，不能代替全功能覆盖或完成百分比。
+
+其他原生待办含FogMachine完整粒子消费者、灯泡purebiomes未定义范围及其他世界/物品/GUI真实调用闭合；不能列入外模组联动延期。Squall确认旧自身骑乘偏移不能误映射载具挂点，其他实体只读对应审计已交另一聊天，Luna接口不可用时由该聊天直接只读盘点，后续按源码逐项处理，不机械全量反号。每新批次继续约半派既有聊天，主线负责余下生产。

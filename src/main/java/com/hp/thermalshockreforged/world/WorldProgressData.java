@@ -12,6 +12,7 @@ public final class WorldProgressData extends SavedData {
     private static final java.util.concurrent.ConcurrentMap<net.minecraft.server.MinecraftServer, WorldProgressData> LOADED = new java.util.concurrent.ConcurrentHashMap<>();
     private double worldCrux;
     private volatile boolean altarUnlocked;
+    private volatile boolean squallSpawn = true;
     private boolean palaceExists;
     private boolean palacePlacing;
     private boolean shalespringExists;
@@ -40,6 +41,7 @@ public final class WorldProgressData extends SavedData {
         return data;
     }
     public boolean altarUnlocked() { return altarUnlocked; }
+    public boolean squallSpawn() { return squallSpawn; }
     public boolean unlockAltars() {
         if (altarUnlocked) return false;
         altarUnlocked = true; setDirty(); return true;
@@ -121,6 +123,7 @@ public final class WorldProgressData extends SavedData {
         double value = tag.getDouble("WorldCrux");
         data.worldCrux = Double.isFinite(value) ? Math.max(0, value) : 0;
         data.altarUnlocked = tag.getBoolean("AltarUnlocked");
+        data.squallSpawn = !tag.contains("SquallSpawn") || tag.getBoolean("SquallSpawn");
         data.palaceExists = tag.getBoolean("PalaceExists");
         data.shalespringExists = tag.getBoolean("ShalespringExists");
         data.keystoneExists = tag.getBoolean("KeystoneExists");
@@ -136,6 +139,7 @@ public final class WorldProgressData extends SavedData {
     @Override public CompoundTag save(CompoundTag tag, HolderLookup.Provider lookup) {
         tag.putDouble("WorldCrux", worldCrux);
         tag.putBoolean("AltarUnlocked", altarUnlocked);
+        tag.putBoolean("SquallSpawn", squallSpawn);
         tag.putBoolean("PalaceExists", palaceExists);
         tag.putBoolean("ShalespringExists", shalespringExists);
         tag.putBoolean("KeystoneExists", keystoneExists);
