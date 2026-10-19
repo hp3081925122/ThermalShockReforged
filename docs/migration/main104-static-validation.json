@@ -1,0 +1,85 @@
+{
+  "batch": 104,
+  "base_head": "0623a5156f29b3882f6af89e93011ac37202a244",
+  "scope": "Frozen production inputs, delivery hashes, copied resources and language changes; not game tests",
+  "frozen_inputs": 8453,
+  "production_files": 35,
+  "production_sha256": {
+    "src/main/java/com/hp/thermalshockreforged/ThermalShockReforged.java": "81d8a0240caaed0e45be50280c1d3eb3fa8061235f716f5c9ffe45d8b7e29157",
+    "src/main/java/com/hp/thermalshockreforged/client/ClientEvents.java": "f3ebefdfcb952e87093c6fac00e391180e4f4cff6de74ae7e854832aa54bba6b",
+    "src/main/java/com/hp/thermalshockreforged/client/centrifuge/CentrifugeScreen.java": "515d012156f76bb82211136b7dfe9a045f8f0812a6040cd8b02367e96dc5f478",
+    "src/main/java/com/hp/thermalshockreforged/content/centrifuge/CentrifugeBlock.java": "117f7131c839694e5ff22a316a77e187d98d1eb3997372e43b27ae0e26b063d8",
+    "src/main/java/com/hp/thermalshockreforged/content/centrifuge/CentrifugeBlockEntity.java": "fc3d250acec681827a507938d9ebfcb13a4a069f8cfb841413f0793f5f7d17a9",
+    "src/main/java/com/hp/thermalshockreforged/content/centrifuge/CentrifugeContent.java": "bc6806d884f56659003b3afacb9734ac2ff2075beb1d4199af6bd47ab0aaffa5",
+    "src/main/java/com/hp/thermalshockreforged/content/centrifuge/CentrifugeMenu.java": "265def26fc5fb60f1e244e230d2431799971ba647d8e614f235b40500092d6ab",
+    "src/main/java/com/hp/thermalshockreforged/content/displayutility/DisplayUtilityContent.java": "d10d7243a3db2fa63cd2da54d4d307f76347d2816714b7cb33d4a55283728f02",
+    "src/main/java/com/hp/thermalshockreforged/content/displayutility/ReinforcedWindowBlock.java": "f28c114406e3ac6104b6d2c50d11d752159282240229335ad7ef89c0c1078254",
+    "src/main/java/com/hp/thermalshockreforged/content/displayutility/TridentLampBlock.java": "263da7b61e667529c763483e34738bd5bb31d76c48820e064e731992145daf2e",
+    "src/main/java/com/hp/thermalshockreforged/content/gemlocks/GemlockBlock.java": "fbccaeb88cd0ee10306724a0f482d7a017c717d0dc947a9a12e9b5bd68426aa0",
+    "src/main/java/com/hp/thermalshockreforged/content/gemlocks/GemlockKind.java": "35be0c9be8ab33d2f78575fa5db31f613350669cbdb9f2f2fd8a912160642ae0",
+    "src/main/java/com/hp/thermalshockreforged/content/gemlocks/GemlocksContent.java": "159d6a194f93270ef01ff96331236ef3d5b02f736c0378fd2079b24f7db21d8c",
+    "src/main/resources/assets/thermal_shock_reforged/lang/en_us.json": "4d335df86104c2e68893b20c8e310f442243fe8711c10586859638733486cca1",
+    "src/main/resources/assets/thermal_shock_reforged/lang/zh_cn.json": "8d3847901b0c873b88c3c4bbaca175c0e8ec26ef1b662cb0f2405b9e516a3ad0",
+    "src/main/resources/data/minecraft/tags/block/incorrect_for_gold_tool.json": "2d3972159eec9b94ba230209c7af7dbd7189b686b05cff48e05c01e5d7a09178",
+    "src/main/resources/data/minecraft/tags/block/incorrect_for_wooden_tool.json": "5be612887a2524459406c18eb1117af1b4031156fef9db67d69b522d5524d9b8",
+    "src/main/resources/data/minecraft/tags/block/mineable/pickaxe.json": "53910ae1d468eae07b08d6b7d9e11253b254537067c24c9fe185f169f78abc2e",
+    "src/main/resources/data/minecraft/tags/block/needs_stone_tool.json": "a13a1e61947d9ecd5b009bfe19d50a9fb8da2d2725423a24f3b6c80ab45ef22d",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/bismuth_gemlock.json": "7762bba2c0010970a807599c1f3bc6bd2c36c41111ebc7902b38e29d1d74d207",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/centrifuge.json": "6262a1f1729ef660d125e099da341cde72dd25f8ede52d384e5608c4f522d914",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/malachite_gemlock.json": "4431654eb5408479d11c69692edf7b87fa1eeb12364cbefe1b0b9144c8155e26",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/phobotite_gemlock.json": "585220384e8782fefd17a434dec98ef089df44634d94f1d2ea4072619f8128fd",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/reinforced_window.json": "3e79945e2f5fc0464505f89e9da90a9f63ccabe2609439719dfe1c10d23682bf",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/ruby_gemlock.json": "c4b5d0992a3a61c9ef8540b73b18ce82aea5fcc590f80a4c790786947bad24b7",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/trident_lamp.json": "78686c8a84f9950d916d25c27116aee607dcb08715d10c5afb3a19278ea9ad07",
+    "src/main/resources/data/thermal_shock_reforged/recipe/bismuth_gemlock_recipe.json": "3151224c4f7cf605f9882fbe9e1b021d1d8f382d25636e50a2c430484bd05061",
+    "src/main/resources/data/thermal_shock_reforged/recipe/centrifuge_recipe.json": "9918ef2112014f2a320939970d59a8c8d6983fa1157dfe0115c487f0d8f5d3ba",
+    "src/main/resources/data/thermal_shock_reforged/recipe/malachite_gemlock_recipe.json": "6910cac711ac50784331a9a1a9491b4ffc761b44756634d1f4fecb24548ae0da",
+    "src/main/resources/data/thermal_shock_reforged/recipe/phobotite_gemlock_recipe.json": "9c6108bf9db345b6f2c30eedf6ae5956932a8c96b4648bd86303dd27391c55f1",
+    "src/main/resources/data/thermal_shock_reforged/recipe/reinforced_window_recipe.json": "3ea224e54fbbdd6be7c2981136fade10f2e8dac959d7ee520c642fdfbe58c4cf",
+    "src/main/resources/data/thermal_shock_reforged/recipe/ruby_gemlock_recipe.json": "ae8897894cae334f714e36ec940ed6dfd324a3dd9e970cca154e86a3cc81c226",
+    "src/main/resources/data/thermal_shock_reforged/recipe/trident_lamp_recipe.json": "b8529ddb460c686a14f4dbcf18100ba91e4a71772defdee73e3e26192ac218a8",
+    "src/main/resources/data/thermal_shock_reforged/tags/item/centrifuge_ingredients.json": "5c6c61281632f0c0ac55c65da38b804e47803f475c43491ca3ffbf3b51f56c70",
+    "src/main/resources/data/thermal_shock_reforged/tags/item/energy.json": "5275980a01db1799e265ed78d813c5a28f229494bd803343d6467ad81b05b716"
+  },
+  "peer_production_files": 18,
+  "peer_production_changes": [],
+  "byte_equal_resources": 7679,
+  "expanded_templates": 2,
+  "language": {
+    "zh_cn": {
+      "preserved_values": 807,
+      "changed_values": {},
+      "new_keys": [
+        "block.thermal_shock_reforged.bismuth_gemlock",
+        "block.thermal_shock_reforged.centrifuge",
+        "block.thermal_shock_reforged.centrifuge.description_0",
+        "block.thermal_shock_reforged.malachite_gemlock",
+        "block.thermal_shock_reforged.phobotite_gemlock",
+        "block.thermal_shock_reforged.reinforced_window",
+        "block.thermal_shock_reforged.reinforced_window.description_0",
+        "block.thermal_shock_reforged.ruby_gemlock",
+        "block.thermal_shock_reforged.trident_lamp",
+        "block.thermal_shock_reforged.trident_lamp.description_0",
+        "gui.thermal_shock_reforged.centrifuge_page.button_convert",
+        "gui.thermal_shock_reforged.centrifuge_page.label_centrifuge",
+        "gui.thermal_shock_reforged.centrifuge_page.tooltip_place_frost_pearl_or_hearth_hone",
+        "gui.thermal_shock_reforged.centrifuge_page.tooltip_place_two_same_energies_in_the_l"
+      ]
+    },
+    "en_us": {
+      "preserved_values": 3337,
+      "changed_values": {},
+      "new_keys": [
+        "gui.thermal_shock_reforged.centrifuge_page.button_convert"
+      ]
+    }
+  },
+  "build": {
+    "log": "D:\\AI临时文件\\ThermalShockMigration\\batch104-unified-build.log",
+    "log_sha256": "c780bba6fc8b04df547c77b06bfeb365243fe5e6a36acf74087120c8f3fe76b6",
+    "successful": true,
+    "duration": "1m 24s"
+  },
+  "errors": [],
+  "passed": true
+}

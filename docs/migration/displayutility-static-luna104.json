@@ -1,0 +1,102 @@
+{
+  "batch": 104,
+  "base_head": "0623a5156f29b3882f6af89e93011ac37202a244",
+  "provider": "/root/coverage104_inventory; read-only report saved by root",
+  "scope": "Original registration, recipes/loot, Java parameters, recursive model and texture equivalence; not game tests",
+  "assets": {
+    "namespace_normalized_json_equal": [
+      "blockstates/reinforced_window.json",
+      "blockstates/trident_lamp.json",
+      "models/item/reinforced_window.json",
+      "models/item/trident_lamp.json",
+      "models/block/reinforced_window.json",
+      "models/block/reinforced_window_states_blockstate_0.json",
+      "models/block/reinforced_window_states_blockstate_1.json",
+      "models/block/reinforced_window_states_blockstate_2.json",
+      "models/block/reinforced_window_states_blockstate_3.json",
+      "models/block/reinforced_window_states_blockstate_4.json",
+      "models/block/trident_lamp.json",
+      "models/block/trident_lamp_blockstates_blockstate_0.json",
+      "models/block/trident_lamp_blockstates_blockstate_1.json"
+    ],
+    "json_count": 13,
+    "source_target_png_sha256_equal": {
+      "textures/block/reinforced_window.png": "876cd5e541d4288a3e0ac722e503b3a20aca47ee88b263d2d1416ee0fe5ce220",
+      "textures/block/reinforced_window_x2_bottom.png": "eff46985ad8b1defb165dc1a57bf7a963699d87be3029dff35a9de4f17d5803c",
+      "textures/block/reinforced_window_x2_top.png": "1746f52093ea6cba24ab0e00558a0ab90f61c73d93b6331430f8170daeaccf56",
+      "textures/block/reinforced_window_x3_bottom.png": "6826df03c855707d0de8fee117ccc31d8234e47862db43b12c251455e39916e0",
+      "textures/block/reinforced_window_x3_middle.png": "9c3057b1a38ec4071ed8911762a970c769affec0781e44baaa4621cd305a0541",
+      "textures/block/reinforced_window_x3_top.png": "e9a4b3bac4f99784a2a90881602345c8b033b51eb3c1f5c01ef01b0357ecbde2",
+      "textures/block/trident_lamp_1.png": "fa5d1782f58fed9ab94003732850b29e2fc701447d98f859dbe135a3a48bf633",
+      "textures/block/trident_lamp_2.png": "7e3b00f722fea7d1b842a785e65e460d370e5f47104e8d907af48cb4c1b8a671",
+      "textures/block/trident_lamp_3.png": "7efe3e0680c4b6a89393ace7399cb146b905d734a74f155a0d599665d5b1c323",
+      "textures/item/trident_lamp_3.png": "7efe3e0680c4b6a89393ace7399cb146b905d734a74f155a0d599665d5b1c323"
+    },
+    "png_count": 10,
+    "render_layers": {
+      "all_block_models": "cutout",
+      "trident_lamp_item": "translucent"
+    }
+  },
+  "items": "Original block(...) helper creates default BlockItem; target registerSimpleBlockItem keeps default properties",
+  "source_consumers": {
+    "json_exact_id_files": [
+      "data/thermal_shock/recipes/reinforced_window_recipe.json",
+      "data/thermal_shock/recipes/trident_lamp_recipe.json",
+      "data/thermal_shock/loot_tables/blocks/reinforced_window.json",
+      "data/thermal_shock/loot_tables/blocks/trident_lamp.json",
+      "data/minecraft/tags/blocks/needs_stone_tool.json",
+      "data/minecraft/tags/blocks/mineable/pickaxe.json"
+    ],
+    "additional_java": [
+      "creative tab entries",
+      "JEI display information; integration is deferred separately"
+    ],
+    "nbt": [
+      {
+        "path": "data/thermal_shock/structures/sunken_blizzard_lab.nbt",
+        "id": "thermal_shock:trident_lamp",
+        "count": 1,
+        "pos": [
+          45,
+          10,
+          29
+        ]
+      }
+    ]
+  },
+  "source_code": [
+    "readable/net/mcreator/thermal_shock/block/ReinforcedWindowBlock.java",
+    "readable/net/mcreator/thermal_shock/block/TridentLampBlock.java",
+    "readable/net/mcreator/thermal_shock/procedures/ReinforcedWindowKeystoneCycleProcedure.java",
+    "readable/net/mcreator/thermal_shock/procedures/TridentLampOnBlockRightClickedProcedure.java"
+  ],
+  "behavior_checked": [
+    "six and three state loops",
+    "original sound ID/NEUTRAL/1/1",
+    "no chisel consumption",
+    "original success/pass policies in normal main-hand path",
+    "opacity, skylight, collision/selection/visual shapes",
+    "window culling/overlay and lamp light/postprocess/emissive",
+    "no new periodic work"
+  ],
+  "intentional_map_color_additions": {
+    "reinforced_window": "METAL",
+    "trident_lamp": "COLOR_CYAN"
+  },
+  "pre_fix_findings": [
+    "Original procedure ignores callback hand and reads main-hand item; initial target unnecessarily required MAIN_HAND",
+    "Initial target tags lacked original reinforced_window stone and pickaxe membership"
+  ],
+  "root_followup": "Independent incremental confirmation by /root/coverage104_inventory: both callbacks share the original main-hand selector, all four tool tags present, and all three current Java hashes match. No repeated asset audit or game test.",
+  "current_java_sha256": {
+    "src/main/java/com/hp/thermalshockreforged/content/displayutility/DisplayUtilityContent.java": "d10d7243a3db2fa63cd2da54d4d307f76347d2816714b7cb33d4a55283728f02",
+    "src/main/java/com/hp/thermalshockreforged/content/displayutility/ReinforcedWindowBlock.java": "f28c114406e3ac6104b6d2c50d11d752159282240229335ad7ef89c0c1078254",
+    "src/main/java/com/hp/thermalshockreforged/content/displayutility/TridentLampBlock.java": "263da7b61e667529c763483e34738bd5bb31d76c48820e064e731992145daf2e"
+  },
+  "compiled": false,
+  "server_tested": false,
+  "client_tested": false,
+  "render_preview_tested": false,
+  "incremental_independent_confirmation": true
+}

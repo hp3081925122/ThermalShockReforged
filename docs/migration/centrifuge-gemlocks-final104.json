@@ -1,0 +1,208 @@
+{
+  "batch": 104,
+  "baseline": "0623a5156f29b3882f6af89e93011ac37202a244",
+  "head_observed": "0623a5156f29b3882f6af89e93011ac37202a244",
+  "production_files": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/centrifuge/CentrifugeScreen.java",
+      "sha256": "515d012156f76bb82211136b7dfe9a045f8f0812a6040cd8b02367e96dc5f478",
+      "bytes": 3886
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/centrifuge/CentrifugeBlock.java",
+      "sha256": "117f7131c839694e5ff22a316a77e187d98d1eb3997372e43b27ae0e26b063d8",
+      "bytes": 2926
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/centrifuge/CentrifugeBlockEntity.java",
+      "sha256": "fc3d250acec681827a507938d9ebfcb13a4a069f8cfb841413f0793f5f7d17a9",
+      "bytes": 3178
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/centrifuge/CentrifugeContent.java",
+      "sha256": "bc6806d884f56659003b3afacb9734ac2ff2075beb1d4199af6bd47ab0aaffa5",
+      "bytes": 2161
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/centrifuge/CentrifugeMenu.java",
+      "sha256": "265def26fc5fb60f1e244e230d2431799971ba647d8e614f235b40500092d6ab",
+      "bytes": 7848
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/gemlocks/GemlockBlock.java",
+      "sha256": "fbccaeb88cd0ee10306724a0f482d7a017c717d0dc947a9a12e9b5bd68426aa0",
+      "bytes": 3602
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/gemlocks/GemlockKind.java",
+      "sha256": "35be0c9be8ab33d2f78575fa5db31f613350669cbdb9f2f2fd8a912160642ae0",
+      "bytes": 696
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/gemlocks/GemlocksContent.java",
+      "sha256": "159d6a194f93270ef01ff96331236ef3d5b02f736c0378fd2079b24f7db21d8c",
+      "bytes": 1093
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/bismuth_gemlock.json",
+      "sha256": "7762bba2c0010970a807599c1f3bc6bd2c36c41111ebc7902b38e29d1d74d207",
+      "bytes": 419
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/centrifuge.json",
+      "sha256": "6262a1f1729ef660d125e099da341cde72dd25f8ede52d384e5608c4f522d914",
+      "bytes": 409
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/malachite_gemlock.json",
+      "sha256": "4431654eb5408479d11c69692edf7b87fa1eeb12364cbefe1b0b9144c8155e26",
+      "bytes": 423
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/phobotite_gemlock.json",
+      "sha256": "585220384e8782fefd17a434dec98ef089df44634d94f1d2ea4072619f8128fd",
+      "bytes": 423
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/ruby_gemlock.json",
+      "sha256": "c4b5d0992a3a61c9ef8540b73b18ce82aea5fcc590f80a4c790786947bad24b7",
+      "bytes": 413
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/bismuth_gemlock_recipe.json",
+      "sha256": "3151224c4f7cf605f9882fbe9e1b021d1d8f382d25636e50a2c430484bd05061",
+      "bytes": 497
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/centrifuge_recipe.json",
+      "sha256": "9918ef2112014f2a320939970d59a8c8d6983fa1157dfe0115c487f0d8f5d3ba",
+      "bytes": 501
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/malachite_gemlock_recipe.json",
+      "sha256": "6910cac711ac50784331a9a1a9491b4ffc761b44756634d1f4fecb24548ae0da",
+      "bytes": 501
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/phobotite_gemlock_recipe.json",
+      "sha256": "9c6108bf9db345b6f2c30eedf6ae5956932a8c96b4648bd86303dd27391c55f1",
+      "bytes": 501
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/recipe/ruby_gemlock_recipe.json",
+      "sha256": "ae8897894cae334f714e36ec940ed6dfd324a3dd9e970cca154e86a3cc81c226",
+      "bytes": 491
+    }
+  ],
+  "production_count": 18,
+  "production_aggregate_sha256": "715e0bed2efa0f31cb6d0353e8f90866695ad24f998620e7a0d73c6e4545b58b",
+  "aggregate_format": "UTF-8, absolute ordering by Path; repository-relative POSIX path + TAB + lowercase SHA256 + LF per file",
+  "evidence": [
+    {
+      "path": "docs/migration/centrifuge-gemlocks-batch104.md",
+      "sha256": "5d1efd1a9ea1f998155bf412a0c1fc1a0a234b40a9f5437e7fd4fd71cf9ee736"
+    },
+    {
+      "path": "docs/migration/centrifuge-gemlocks-data104.json",
+      "sha256": "c225809d4c689c0d8cdd59b8e0fc2ddf4504a057855dc23a7334c6201f9790d6"
+    },
+    {
+      "path": "docs/migration/centrifuge-gemlocks-integration104.json",
+      "sha256": "c95880339406d288a21148cddb94059e4443b67dd0108f6cacadad880e4c9cd8"
+    },
+    {
+      "path": "docs/migration/centrifuge-gemlocks-resources104.json",
+      "sha256": "e67da077cf31ff7c6e9521d2d5fe7e849a0b8d252ea1346fcba2424d08e78375"
+    },
+    {
+      "path": "docs/migration/centrifuge-gemlocks-sources104.json",
+      "sha256": "e9285217f7de346b8764d14424bbf2885302397ac10289615bcfaa1fdd50617e"
+    },
+    {
+      "path": "docs/migration/centrifuge-gemlocks-validation104.json",
+      "sha256": "878b5f69affbfb94e0ac442aba7fa6d285355808e8b3f8c8e0a4a3a05743b078"
+    }
+  ],
+  "shared_integrated_observation": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/ThermalShockReforged.java",
+      "sha256": "81d8a0240caaed0e45be50280c1d3eb3fa8061235f716f5c9ffe45d8b7e29157",
+      "checks": 2,
+      "owner": "主线",
+      "observed_only": true
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/ClientEvents.java",
+      "sha256": "f3ebefdfcb952e87093c6fac00e391180e4f4cff6de74ae7e854832aa54bba6b",
+      "checks": 1,
+      "owner": "主线",
+      "observed_only": true
+    },
+    {
+      "path": "src/main/resources/data/minecraft/tags/block/mineable/pickaxe.json",
+      "sha256": "53910ae1d468eae07b08d6b7d9e11253b254537067c24c9fe185f169f78abc2e",
+      "checks": 6,
+      "owner": "主线",
+      "observed_only": true
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/tags/item/centrifuge_ingredients.json",
+      "sha256": "5c6c61281632f0c0ac55c65da38b804e47803f475c43491ca3ffbf3b51f56c70",
+      "checks": 3,
+      "owner": "主线",
+      "observed_only": true
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/tags/item/energy.json",
+      "sha256": "5275980a01db1799e265ed78d813c5a28f229494bd803343d6467ad81b05b716",
+      "checks": 4,
+      "owner": "主线",
+      "observed_only": true
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/lang/en_us.json",
+      "sha256": "4d335df86104c2e68893b20c8e310f442243fe8711c10586859638733486cca1",
+      "checks": 10,
+      "owner": "主线",
+      "observed_only": true
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/lang/zh_cn.json",
+      "sha256": "8d3847901b0c873b88c3c4bbaca175c0e8ec26ef1b662cb0f2405b9e516a3ad0",
+      "checks": 10,
+      "owner": "主线",
+      "observed_only": true
+    }
+  ],
+  "shared_integration_passed": true,
+  "static_checks": 3845,
+  "source_ast_cases": {
+    "conversion": 1372,
+    "button_guards": 48,
+    "quick_move": 512,
+    "gemlocks": 576,
+    "redstone_directions": 12
+  },
+  "status": "迁移A第104批18生产文件停笔，交主线统一固定输入编译与资源验证",
+  "gradle_run_by_this_lane": false,
+  "game_or_render_tested_by_this_lane": false,
+  "staged_or_committed_by_this_lane": false,
+  "testing_owner": "用户独立控制测试聊天，双方均不联系、不安排、不等待",
+  "native_followup": [
+    {
+      "source": "data/thermal_shock/structures/blizzard_base.nbt",
+      "counts": {
+        "thermal_shock:phobotite_gemlock": 1
+      },
+      "target_exists": false,
+      "actual_blocks": 86258,
+      "actual_gemlock_blocks": 1,
+      "entities": 21,
+      "block_entities": 21,
+      "source_report": "docs/migration/centrifuge-gemlocks-sources104.json",
+      "status": "后续原生完整结构批，保全模板及三JSON自然生成链"
+    }
+  ],
+  "next_batch": "按主线后续分工，当前仅只读准备，不写下一批src/main",
+  "environment_note": "误建的1211-neofforge兄弟空目录没有文件；代码已移回正确项目。两次空目录清理均被自动审批策略拒绝，原文blocked by policy；未绕过策略，空目录不属于生产清单。"
+}

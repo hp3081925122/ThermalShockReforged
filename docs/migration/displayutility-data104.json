@@ -1,0 +1,66 @@
+{
+  "batch": 104,
+  "scope": "Two original recipes and loot tables; namespace and 1.21.1 result format only",
+  "records": [
+    {
+      "source": "data/thermal_shock/recipes/reinforced_window_recipe.json",
+      "source_sha256": "ee1debf23c3cd45a4b16fecbaeb8fdbdc511b0db75c695405737726da9360aff",
+      "target": "src/main/resources/data/thermal_shock_reforged/recipe/reinforced_window_recipe.json",
+      "target_sha256": "3ea224e54fbbdd6be7c2981136fade10f2e8dac959d7ee520c642fdfbe58c4cf"
+    },
+    {
+      "source": "data/thermal_shock/recipes/trident_lamp_recipe.json",
+      "source_sha256": "8c507c355f87a12f401de9e275f08db86cbbf0f4dd7430f96b32f6629a61265f",
+      "target": "src/main/resources/data/thermal_shock_reforged/recipe/trident_lamp_recipe.json",
+      "target_sha256": "b8529ddb460c686a14f4dbcf18100ba91e4a71772defdee73e3e26192ac218a8"
+    },
+    {
+      "source": "data/thermal_shock/loot_tables/blocks/reinforced_window.json",
+      "source_sha256": "a587b4403dcbfbf961a6df7835ae76aa53a48b9493c7319f34f1bc036192607f",
+      "target": "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/reinforced_window.json",
+      "target_sha256": "3e79945e2f5fc0464505f89e9da90a9f63ccabe2609439719dfe1c10d23682bf"
+    },
+    {
+      "source": "data/thermal_shock/loot_tables/blocks/trident_lamp.json",
+      "source_sha256": "0594ac60f4b4c73378ade563fdbe7de124fea4beb39a24be45ada7104917166e",
+      "target": "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/trident_lamp.json",
+      "target_sha256": "78686c8a84f9950d916d25c27116aee607dcb08715d10c5afb3a19278ea9ad07"
+    }
+  ],
+  "tool_tags": [
+    {
+      "target": "src/main/resources/data/minecraft/tags/block/mineable/pickaxe.json",
+      "sha256": "2fddf126cfa8b92b83849e380d9b71e6074e70a250a59d12d9c29f57750792f4",
+      "value": "thermal_shock_reforged:reinforced_window",
+      "original_membership": true
+    },
+    {
+      "target": "src/main/resources/data/minecraft/tags/block/needs_stone_tool.json",
+      "sha256": "a13a1e61947d9ecd5b009bfe19d50a9fb8da2d2725423a24f3b6c80ab45ef22d",
+      "value": "thermal_shock_reforged:reinforced_window",
+      "original_membership": true
+    },
+    {
+      "target": "src/main/resources/data/minecraft/tags/block/incorrect_for_wooden_tool.json",
+      "sha256": "5be612887a2524459406c18eb1117af1b4031156fef9db67d69b522d5524d9b8",
+      "value": "thermal_shock_reforged:reinforced_window",
+      "original_membership": false
+    },
+    {
+      "target": "src/main/resources/data/minecraft/tags/block/incorrect_for_gold_tool.json",
+      "sha256": "2d3972159eec9b94ba230209c7af7dbd7189b686b05cff48e05c01e5d7a09178",
+      "value": "thermal_shock_reforged:reinforced_window",
+      "original_membership": false
+    }
+  ],
+  "tool_tag_mapping": "Original stone-or-better gate; target Tiers WOOD/GOLD use incorrect_for_wooden_tool and incorrect_for_gold_tool",
+  "existing_ingredient_tag_semantically_equal": true,
+  "language_additions": {
+    "block.thermal_shock_reforged.reinforced_window": "强化窗",
+    "block.thermal_shock_reforged.trident_lamp": "三叉灯",
+    "block.thermal_shock_reforged.reinforced_window.description_0": "§7可使用§e凿子§7改变此方块的外观。",
+    "block.thermal_shock_reforged.trident_lamp.description_0": "§7可使用§e凿子§7改变此方块的外观。"
+  },
+  "compiled": false,
+  "game_tested": false
+}

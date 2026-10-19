@@ -1,0 +1,15 @@
+# 第105批预分工：两矿物突起、两完整基地与Loqendia传送门
+
+迁移前建立本文。第104批正在固定输入统一编译；在第104批通过并阶段提交、主线明确解除冻结前，两路只读准备，不写第105批src/main。原件07.9只读，SHA256为3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436。目标Minecraft1.21.1、NeoForge21.1.233、Java21、Gecko4.9.2。
+
+用户要求继续给迁移A更多工作，按预计复杂度约六至七成分配，不以文件数或方块数量冒充工时。本批A负责malachite_outcrop与bismuth_outcrop完整行为、原掉落、工具标签和真实来源；同时负责blizzard_base与sunken_blizzard_lab完整typed NBT以及各自structure、structure_set、template_pool三JSON自然生成链。主线负责LoqendiaPortal方块、形状校验、POI、目的门搜索/生成、实体跨维和完整声画，及两路共享接线和统一编译。测试聊天仍由用户独立负责，双方不联系、不安排、不等待。
+
+A独占新增content/outcrops、对应独有配方/掉落及已确认真实自然来源；两基地模板和以blizzard_base、sunken_blizzard_base命名的六份世界生成JSON也由A唯一写。若新增Java世界生成代码，先约定独占目录。主线独占新增world/loqendiaportal及对应传送门原资源/数据；已有world/LoqendiaContent.java、根入口、ClientEvents、语言、全部共享标签、总文档、REFORGED_CHANGES与skill由主线唯一写。需要共享变更交精确增量，不并发改同一文件；不得覆盖另一聊天或测试聊天改动。
+
+原blizzard_base为59×34×43、86258条方块记录、21实体、21BE，含一个实际放置的phobotite_gemlock；sunken_blizzard_lab为81×28×68、32174条方块记录、13实体、32BE，含强化灯、缓存、垫板、月光瓶和全息监视器等真实业务。全部几何、状态、实体、画、容器库存、嵌套NBT、连接字段和外部capability载荷按类型保留并做必要目标格式转换。不能裁模板、删生物或库存来规避依赖，也不能把原生结构列为外模组联动延期。原IntegratedAPI处理器需核已迁WaterloggingFixProcessor的等价复用，不能仅因缺外模组而删除其效果。
+
+两自然链分别为glaciation/underground_structures与luminous_sea/underground_structures；具体盐、间距、定位、投影、高度和调整须逐项核原JSON，不按相近结构猜。结构NBT目录差集不是自然生成缺失清单；其他template_pool/configured_feature消费者按structure-consumers104.json另追。检查palette、实体和所有嵌套库存/刷怪笼/乘客依赖是否真实注册，注册数量不等于行为完整。
+
+传送门原为黑曜石框、内宽2..21/高3..21、X/Z轴、立即跨维、入门后冷却，往Loqendia并从Loqendia回主世界。保完整4份粒子、原环境声概率、坐标缩放/边界、最近门POI/票据、仅玩家缺门时建门、入口相对位置/旋转/速度与安全碰撞调整。新版使用已核DimensionTransition机制，不照抄旧手动ServerPlayer换世界/包同步。原portalSpawn尚未找到真实点火调用者，必须沿注册字段/类引用/JAR确认；不可凭空增点火物或自然入口。NetherPortalBlock父类额外原生PortalShape校验可能与自定义门冲突，须按实际目标源码判定并记录合理修复。
+
+Java不写注释，UTF-8，调试日志英文；脚本和临时文件仅D:/AI临时文件。Luna/quick_explorer仅做确定性只读盘点/核值/机械对照，回结构化文本由主线保存；不写生产代码。每路完成交原行为/资产证据、生产路径和SHA256、共享精确增量后停笔，主线固定全部输入一次统一compileJava/processResources；A不单独运行Gradle、游戏、stage或commit。合理修复写REFORGED_CHANGES，新确认可复用坑更新skill。
