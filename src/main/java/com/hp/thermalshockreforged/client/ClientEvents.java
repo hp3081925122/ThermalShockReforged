@@ -58,6 +58,8 @@ public final class ClientEvents {
         com.hp.thermalshockreforged.client.gaze.GazeRenderers.register(event);
         com.hp.thermalshockreforged.client.squall.SquallRenderers.register(event);
         com.hp.thermalshockreforged.client.huntress.HuntressRenderers.register(event);
+        com.hp.thermalshockreforged.client.benzor.BenzorRenderer.register(event);
+        com.hp.thermalshockreforged.client.maiden.MaidenRenderer.register(event);
         com.hp.thermalshockreforged.client.whisper.PassiveTrioRenderers.register(event);
         com.hp.thermalshockreforged.client.titans.TitanRenderers.register(event);
         com.hp.thermalshockreforged.client.beetles.BeetleRenderers.register(event);
@@ -140,6 +142,11 @@ public final class ClientEvents {
         event.registerEntityRenderer(ModEntities.CRYSTAL_KOI.get(), CrystalKoiRenderer::new);
         event.registerEntityRenderer(ModEntities.FORECAST.get(), ForecastRenderer::new);
         event.registerEntityRenderer(ModEntities.GALVANITE.get(), GalvaniteRenderer::new);
+        event.registerEntityRenderer(com.hp.thermalshockreforged.entity.teslareed.TeslaReedContent.TESLA_REED.get(), com.hp.thermalshockreforged.client.teslareed.TeslaReedRenderer::new);
+        event.registerEntityRenderer(com.hp.thermalshockreforged.entity.teslareed.TeslaReedContent.PULSE.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
+        event.registerEntityRenderer(com.hp.thermalshockreforged.entity.electricsphere.ElectricSphereContent.ELECTRIC_SPHERE.get(), com.hp.thermalshockreforged.client.electricsphere.ElectricSphereRenderer::new);
+        event.registerEntityRenderer(com.hp.thermalshockreforged.entity.ribbonblade.RibbonbladeContent.RIBBONBLADE.get(), com.hp.thermalshockreforged.client.ribbonblade.RibbonbladeRenderer::new);
+        event.registerEntityRenderer(com.hp.thermalshockreforged.entity.ribbonblade.RibbonbladeContent.ACTION.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(ModEntities.ZAP.get(), InvisibleWarningRenderer::new);
     }
     @SubscribeEvent
@@ -176,6 +183,7 @@ public final class ClientEvents {
         com.hp.thermalshockreforged.client.qo.QoClient.screens(event);
         com.hp.thermalshockreforged.client.labmachinist.LabClient.screens(event);
         com.hp.thermalshockreforged.client.npc.huntress.HuntressScreen.register(event);
+        com.hp.thermalshockreforged.client.npc.benzor.BenzorScreen.register(event);
         com.hp.thermalshockreforged.client.dialogue.DialogueScreen.register(event);
         event.register(NativeDecorContent.DESK_PHOTO_SCREEN.get(), DeskPhotoScreen::new);
         event.register(com.hp.thermalshockreforged.content.atlas.AtlasContent.MENU.get(), com.hp.thermalshockreforged.client.atlas.AtlasScreen::new);
@@ -225,6 +233,7 @@ public final class ClientEvents {
         event.registerSpriteSet(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.ERR_EFFECT.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "err", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true, false, 0));
         event.registerSpriteSet(ModEntities.ZAP_PARTICLE.get(), ZapAttackParticle.Provider::new);
         event.registerSpriteSet(ModEntities.TELEPORT_FLASH.get(), TeleportFlashParticle.Provider::new);
+        event.registerSpriteSet(com.hp.thermalshockreforged.entity.electricsphere.ElectricSphereContent.ELECTRIC_GLOW.get(), com.hp.thermalshockreforged.client.electricsphere.ElectricGlowParticle.Provider::new);
         event.registerSpriteSet(com.hp.thermalshockreforged.entity.orb.OrbContent.BLUE_X_BLAST.get(), com.hp.thermalshockreforged.client.particle.BlueXBlastParticle.Provider::new);
         event.registerSpriteSet(com.hp.thermalshockreforged.entity.projectile.ProjectileContent.GREEN_PARTICLE.get(), com.hp.thermalshockreforged.client.particle.GreenParticle.Provider::new);
         event.registerSpriteSet(com.hp.thermalshockreforged.entity.projectile.ProjectileContent.ORANGE_RING_BLAST.get(), com.hp.thermalshockreforged.client.particle.OrangeRingBlastParticle.Provider::new);

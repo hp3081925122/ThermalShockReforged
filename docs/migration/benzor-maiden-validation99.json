@@ -1,0 +1,311 @@
+{
+  "schema": "benzor-maiden99-validation-v1",
+  "java_syntax_utf8_no_comments": 12,
+  "compile": "Not run: main thread compiles fixed combined inputs",
+  "server_client_render": "Not run: entire mod migration is not complete",
+  "nine_gui_original_metadata_exact": {
+    "BenzorBlackpowderInfo": {
+      "labels": 4,
+      "images": 3,
+      "buttons": 1,
+      "size": [
+        276,
+        182
+      ]
+    },
+    "BenzorBlizzardInfo": {
+      "labels": 5,
+      "images": 3,
+      "buttons": 1,
+      "size": [
+        276,
+        182
+      ]
+    },
+    "BenzorInfectionInfo": {
+      "labels": 5,
+      "images": 3,
+      "buttons": 1,
+      "size": [
+        276,
+        182
+      ]
+    },
+    "BenzorInfo": {
+      "labels": 0,
+      "images": 1,
+      "buttons": 5,
+      "size": [
+        212,
+        116
+      ]
+    },
+    "BenzorMain": {
+      "labels": 1,
+      "images": 3,
+      "buttons": 2,
+      "size": [
+        276,
+        182
+      ]
+    },
+    "BenzorSelfInfo": {
+      "labels": 5,
+      "images": 3,
+      "buttons": 1,
+      "size": [
+        276,
+        182
+      ]
+    },
+    "BenzorSpiceEpl": {
+      "labels": 3,
+      "images": 3,
+      "buttons": 1,
+      "size": [
+        276,
+        182
+      ]
+    },
+    "BenzorSpiceInfo": {
+      "labels": 4,
+      "images": 3,
+      "buttons": 1,
+      "size": [
+        276,
+        182
+      ]
+    },
+    "BenzorSpice": {
+      "labels": 0,
+      "images": 1,
+      "buttons": 1,
+      "size": [
+        206,
+        196
+      ]
+    }
+  },
+  "maiden_volley": {
+    "frames_from_original_queue": {
+      "single": [
+        29
+      ],
+      "triple": [
+        29,
+        34,
+        39
+      ]
+    },
+    "projectiles": [
+      8,
+      24
+    ],
+    "original_arrow_base_coefficients": [
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      7.0,
+      7.0,
+      7.0,
+      7.0,
+      7.0,
+      7.0,
+      7.0,
+      5.0
+    ],
+    "world_axis_vectors": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        -1,
+        0
+      ],
+      [
+        -1,
+        -1
+      ],
+      [
+        0,
+        -1
+      ],
+      [
+        1,
+        -1
+      ],
+      [
+        -1,
+        1
+      ]
+    ],
+    "save_read_field_count": 17,
+    "phase_consumed_before_emission": true,
+    "bounded_carrier": true,
+    "resume_no_replay_cases": 80,
+    "knockback_zero": true,
+    "removed_caster_owner_uuid_preserved_with_complete_projectile_payload": true
+  },
+  "shield_and_events": {
+    "real_stunned_gate": true,
+    "cooldown_owned_bullet_not_canceled": true,
+    "native_melee_does_not_deal_new_base_damage": true,
+    "death_event_cancellation_respected": true
+  },
+  "default_projectile_coefficients_from_config": [
+    10.0,
+    7.0,
+    5.0
+  ],
+  "trade": {
+    "xp_weights": [
+      2,
+      4,
+      8
+    ],
+    "all_normal_slot_count_combinations": 274625,
+    "max_normal_xp": 896,
+    "consumed_before_reward": true,
+    "server_page_npc_checks": true,
+    "close_returns_input_once": true,
+    "blackpowder_server_gate_and_sync": true
+  },
+  "integration": {
+    "java_patches": 4,
+    "tag_additions": 2,
+    "chinese_keys": 55
+  },
+  "animation_clips": {
+    "original": {
+      "benzor": [
+        "idle",
+        "idle2"
+      ],
+      "maiden": [
+        "idle",
+        "walk",
+        "attack1",
+        "attack2",
+        "fall"
+      ]
+    },
+    "maiden_fall_original_unreachable_preserved_as_asset": true
+  },
+  "original_assets_identical": [
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/animations/benzor.animation.json",
+      "sha256": "f86592f6f35ef9db6db2740cb52992570653cbafa9c9352034d59996297b9bb6"
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/geo/benzor.geo.json",
+      "sha256": "b0e684c16dd22287377305317aa2d0efd47ede73c49a8e0b01e775a4bce9ce1c"
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/textures/entities/benzor.png",
+      "sha256": "9329b65d1fe0a4c7288807b9099ecb7f17657e91ff947024a0c8a1d2593c395b"
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/textures/item/benzor_egg.png",
+      "sha256": "d166351451f842aeb2b7d66035ad7b938f59a2569c8fcf8b1f86d9ebcf9f1aef"
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/animations/maiden.animation.json",
+      "sha256": "904f400f3fae27f07b91acdfa27f7603533c05090617ba9d2357a2d4f4047539"
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/geo/maiden.geo.json",
+      "sha256": "a9add6953a7b02431df0e11d930c8461ed00cc2d214db13cabd0411401038c5d"
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/textures/entities/maiden.png",
+      "sha256": "37575b206a1449d4501711122952a9cb992faf2417ee5d672544d9d3dc879d28"
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/textures/item/maiden_egg.png",
+      "sha256": "e861bce2a883ed2948863541bf5ddd795009d04a509286944fbd2b2ab90eaf30"
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/textures/entities/benzorglow.png",
+      "sha256": "4771aa425c5d570300ddb5de0993da9b600960c50168b769c706df524cc20295"
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/textures/entities/rozneb.png",
+      "sha256": "3643fac5695a129bc42fdf6899ae2e6c358e941659c5c7a0400c5199d7657631"
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/textures/screens/atlas/imagebutton_infobenzor.png",
+      "sha256": "89e2dd36bdd32ca22bab3403d066f4364786659dddcc92362a919a392de866bb"
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/textures/screens/atlas/imagebutton_infoblackpowder.png",
+      "sha256": "2170520fd96da43fdde3d09fa2859c15a48fd227e63f196431b9ab191c7758fa"
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/textures/screens/atlas/imagebutton_infoblizzard.png",
+      "sha256": "4e6ccf805e97d4c60f15da176809c1f02427f88734d887fd9cc8596a50c15686"
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/textures/screens/atlas/imagebutton_infoinfection.png",
+      "sha256": "d313aab231628e8031f877479e7c372823525a7bbd5f55ce979c5c7c3c4ec5bf"
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/textures/screens/atlas/imagebutton_infospice.png",
+      "sha256": "85e97f266d23bc60f2e72b27de56fac626ea3bd17273afcb5e909b51f9a596a6"
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/textures/screens/atlas/imagebutton_maininfobuttona.png",
+      "sha256": "7c7afaddbb70b6b0f43ad046e87340dcd0100e712a5ef307ff2e46953fcc16fa"
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/textures/screens/atlas/imagebutton_maintradebuttona.png",
+      "sha256": "9a4da845718acc3294efd6e21e8e67064ff28b887b740f0128340c3ea830111c"
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/textures/screens/atlas/imagebutton_nextbuttona.png",
+      "sha256": "0c3e332bdc97c682d9c96cca3217a534bbe8d26eba61471f6756e1063cf4c70f"
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/textures/screens/atlas/imagebutton_tradebuttona.png",
+      "sha256": "6d8c2897450b0f5414ba325ddba06ca4de09deb9689b3000506c24edcd64019a"
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/textures/screens/benzoridlerubiconstatic.png",
+      "sha256": "234dc719796d75609a95e8c99274f665da5032b39d71797209e7e9576d612154"
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/textures/screens/benzorinfobox.png",
+      "sha256": "b15e059c252329bda606fa915e7a1679cdd84c961a9ba5de47da1ca5d9d34734"
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/textures/screens/benzorspicemenu.png",
+      "sha256": "1f067d8ba3dd2320e35e87a2a3ea65b3fb66dcdaf9f2e683e4650755d51823d6"
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/textures/screens/mainflavourboxes.png",
+      "sha256": "80a2cf18e8d36b3a9b7bbe138d0fef25338fb9176daabead538c784abe941cf3"
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/textures/screens/mainlabelbox.png",
+      "sha256": "633b9d4f6971f9e2e173893b11889a588813a132963edcbd3c85154bca6d9dd6"
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/textures/screens/mainspeechbox.png",
+      "sha256": "12894af8cfa75443411767e123b9c3e66c72b81b21085b2e383e5f7040bb9ea5"
+    }
+  ],
+  "owned_java_diff_check": "passed"
+}

@@ -1,0 +1,31 @@
+package com.hp.thermalshockreforged.client.npc.benzor;
+
+import com.hp.thermalshockreforged.content.npc.benzor.*;
+import com.hp.thermalshockreforged.entity.benzor.BenzorContent;
+import com.mojang.blaze3d.systems.RenderSystem;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.components.AbstractButton;
+import net.minecraft.client.gui.narration.NarrationElementOutput;
+import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.player.Inventory;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
+
+public final class BenzorScreen extends AbstractContainerScreen<BenzorMenu> {
+    public BenzorScreen(BenzorMenu menu, Inventory inventory, Component title) { super(menu, inventory, title); imageWidth = menu.page.width; imageHeight = menu.page.height; }
+    public static void register(RegisterMenuScreensEvent event) { for (var page : BenzorPage.values()) event.register(BenzorMenus.menu(page), BenzorScreen::new); }
+    private static ResourceLocation texture(String name) { return BenzorContent.id("textures/screens/" + name + ".png"); }
+    @Override protected void init() { super.init(); for (var button : menu.page.buttons) addRenderableWidget(new ImageButton(button)); }
+    @Override public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) { for (var child : children()) if (child instanceof ImageButton button) button.visible = menu.page != BenzorPage.INFO || button.action != 4 || menu.blackpowderAllowed(); super.render(graphics, mouseX, mouseY, partialTick); renderTooltip(graphics, mouseX, mouseY); }
+    @Override protected void renderBg(GuiGraphics graphics, float partialTick, int mouseX, int mouseY) { RenderSystem.setShaderColor(1, 1, 1, 1); RenderSystem.enableBlend(); RenderSystem.defaultBlendFunc(); for (var image : menu.page.images) graphics.blit(texture(image.texture()), leftPos + image.x(), topPos + image.y(), 0, 0, image.width(), image.height(), image.textureWidth(), image.textureHeight()); RenderSystem.disableBlend(); }
+    @Override protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) { if (menu.page == BenzorPage.MAIN) graphics.drawString(font, Component.translatable("gui.thermal_shock_reforged.benzor.intro_" + (menu.intro == 1 ? "1" : menu.intro == 2 ? "2" : "fallback")), 9, 112, -1, false); for (var line : menu.page.lines) graphics.drawString(font, Component.translatable(line.key()), line.x(), line.y(), line.color(), false); }
+    private final class ImageButton extends AbstractButton {
+        private final int action;
+        private final ResourceLocation texture;
+        ImageButton(BenzorPage.Button button) { super(leftPos + button.x(), topPos + button.y(), button.width(), button.height(), Component.translatable("gui.thermal_shock_reforged.benzor.button_" + button.texture())); action = button.action(); texture = texture("atlas/imagebutton_" + button.texture()); }
+        @Override public void onPress() { if (visible && minecraft != null && minecraft.gameMode != null) minecraft.gameMode.handleInventoryButtonClick(menu.containerId, action); }
+        @Override protected void renderWidget(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) { RenderSystem.enableBlend(); RenderSystem.defaultBlendFunc(); graphics.blit(texture, getX(), getY(), 0, isHoveredOrFocused() ? height : 0, width, height, width, height * 2); RenderSystem.disableBlend(); }
+        @Override protected void updateWidgetNarration(NarrationElementOutput output) { defaultButtonNarrationText(output); }
+    }
+}

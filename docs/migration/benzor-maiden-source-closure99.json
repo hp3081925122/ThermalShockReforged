@@ -1,0 +1,1834 @@
+{
+  "schema": "benzor-maiden99-source-closure-v1",
+  "jar": "D:\\AI临时文件\\ThermalShockMigration\\thermal_shock-07.9-original.jar",
+  "jar_sha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436",
+  "head": "8397254821278a42c577addcb6f1f34e53c97ebc",
+  "benzor_home": {
+    "source": "data/thermal_shock/structures/benzor_home.nbt",
+    "sha256": "982d7aec65b3282e20a6069e80aa8744d3ee5f62e208eeb244717519abcc6ed7",
+    "target": "src/main/resources/data/thermal_shock_reforged/structure/benzor_home.nbt",
+    "target_state": {
+      "exists_worktree": true,
+      "sha256_worktree": "89b7ecb3aee2d7bfe8cbd826807b4e6617f628805944c5b49e1d9a59e326e5a8",
+      "sha256_head": null
+    },
+    "root_data_version": 3465,
+    "size": [
+      17,
+      15,
+      15
+    ],
+    "palette_length": 39,
+    "placed_block_count": 3825,
+    "entity_count": 1,
+    "palette": [
+      {
+        "index": 0,
+        "block": "thermal_shock:chiseled_shale",
+        "properties": {},
+        "placed_state_count": 28
+      },
+      {
+        "index": 1,
+        "block": "thermal_shock:shale_pillar_block",
+        "properties": {
+          "axis": "z"
+        },
+        "placed_state_count": 42
+      },
+      {
+        "index": 2,
+        "block": "thermal_shock:shale_pillar_block",
+        "properties": {
+          "axis": "x"
+        },
+        "placed_state_count": 56
+      },
+      {
+        "index": 3,
+        "block": "thermal_shock:mantlestone_bricks",
+        "properties": {},
+        "placed_state_count": 155
+      },
+      {
+        "index": 4,
+        "block": "thermal_shock:vermillion_moss",
+        "properties": {},
+        "placed_state_count": 97
+      },
+      {
+        "index": 5,
+        "block": "thermal_shock:mossy_mantlestone",
+        "properties": {},
+        "placed_state_count": 153
+      },
+      {
+        "index": 6,
+        "block": "thermal_shock:polished_mantlestone",
+        "properties": {},
+        "placed_state_count": 192
+      },
+      {
+        "index": 7,
+        "block": "thermal_shock:mantlestone",
+        "properties": {},
+        "placed_state_count": 26
+      },
+      {
+        "index": 8,
+        "block": "minecraft:bedrock",
+        "properties": {},
+        "placed_state_count": 9
+      },
+      {
+        "index": 9,
+        "block": "thermal_shock:adamantine_spice_block",
+        "properties": {},
+        "placed_state_count": 1
+      },
+      {
+        "index": 10,
+        "block": "thermal_shock:shale_bricks",
+        "properties": {},
+        "placed_state_count": 15
+      },
+      {
+        "index": 11,
+        "block": "thermal_shock:shale_pillar_block",
+        "properties": {
+          "axis": "y"
+        },
+        "placed_state_count": 485
+      },
+      {
+        "index": 12,
+        "block": "thermal_shock:spiral_mantlestone",
+        "properties": {},
+        "placed_state_count": 6
+      },
+      {
+        "index": 13,
+        "block": "thermal_shock:cracked_shale_pillar_block",
+        "properties": {
+          "axis": "y"
+        },
+        "placed_state_count": 12
+      },
+      {
+        "index": 14,
+        "block": "thermal_shock:cracked_shale_bricks",
+        "properties": {},
+        "placed_state_count": 1
+      },
+      {
+        "index": 15,
+        "block": "minecraft:redstone_lamp",
+        "properties": {
+          "lit": "false"
+        },
+        "placed_state_count": 1
+      },
+      {
+        "index": 16,
+        "block": "minecraft:air",
+        "properties": {},
+        "placed_state_count": 2489
+      },
+      {
+        "index": 17,
+        "block": "thermal_shock:shale_brick_stairs",
+        "properties": {
+          "half": "bottom",
+          "waterlogged": "false",
+          "shape": "straight",
+          "facing": "north"
+        },
+        "placed_state_count": 3
+      },
+      {
+        "index": 18,
+        "block": "thermal_shock:shale_brick_stairs",
+        "properties": {
+          "half": "bottom",
+          "waterlogged": "false",
+          "shape": "straight",
+          "facing": "east"
+        },
+        "placed_state_count": 1
+      },
+      {
+        "index": 19,
+        "block": "thermal_shock:shale_brick_stairs",
+        "properties": {
+          "half": "bottom",
+          "waterlogged": "false",
+          "shape": "straight",
+          "facing": "west"
+        },
+        "placed_state_count": 2
+      },
+      {
+        "index": 20,
+        "block": "thermal_shock:vermilli_button",
+        "properties": {
+          "face": "wall",
+          "powered": "false",
+          "facing": "west"
+        },
+        "placed_state_count": 3
+      },
+      {
+        "index": 21,
+        "block": "thermal_shock:polished_mantle_wall",
+        "properties": {
+          "east": "low",
+          "waterlogged": "false",
+          "south": "low",
+          "north": "none",
+          "west": "none",
+          "up": "true"
+        },
+        "placed_state_count": 1
+      },
+      {
+        "index": 22,
+        "block": "thermal_shock:polished_mantle_wall",
+        "properties": {
+          "east": "low",
+          "waterlogged": "false",
+          "south": "none",
+          "north": "low",
+          "west": "none",
+          "up": "true"
+        },
+        "placed_state_count": 1
+      },
+      {
+        "index": 23,
+        "block": "thermal_shock:vermilli_button",
+        "properties": {
+          "face": "wall",
+          "powered": "false",
+          "facing": "north"
+        },
+        "placed_state_count": 3
+      },
+      {
+        "index": 24,
+        "block": "thermal_shock:vermilli_button",
+        "properties": {
+          "face": "wall",
+          "powered": "false",
+          "facing": "south"
+        },
+        "placed_state_count": 3
+      },
+      {
+        "index": 25,
+        "block": "thermal_shock:polished_mantle_wall",
+        "properties": {
+          "east": "none",
+          "waterlogged": "false",
+          "south": "low",
+          "north": "none",
+          "west": "low",
+          "up": "true"
+        },
+        "placed_state_count": 1
+      },
+      {
+        "index": 26,
+        "block": "thermal_shock:polished_mantle_wall",
+        "properties": {
+          "east": "none",
+          "waterlogged": "false",
+          "south": "none",
+          "north": "low",
+          "west": "low",
+          "up": "true"
+        },
+        "placed_state_count": 1
+      },
+      {
+        "index": 27,
+        "block": "thermal_shock:vermilli_button",
+        "properties": {
+          "face": "wall",
+          "powered": "false",
+          "facing": "east"
+        },
+        "placed_state_count": 3
+      },
+      {
+        "index": 28,
+        "block": "thermal_shock:shale_brick_stairs",
+        "properties": {
+          "half": "bottom",
+          "waterlogged": "false",
+          "shape": "straight",
+          "facing": "south"
+        },
+        "placed_state_count": 2
+      },
+      {
+        "index": 29,
+        "block": "thermal_shock:shale_brick_stairs",
+        "properties": {
+          "half": "top",
+          "waterlogged": "false",
+          "shape": "straight",
+          "facing": "south"
+        },
+        "placed_state_count": 2
+      },
+      {
+        "index": 30,
+        "block": "minecraft:lever",
+        "properties": {
+          "face": "ceiling",
+          "powered": "false",
+          "facing": "east"
+        },
+        "placed_state_count": 1
+      },
+      {
+        "index": 31,
+        "block": "thermal_shock:shale_brick_stairs",
+        "properties": {
+          "half": "top",
+          "waterlogged": "false",
+          "shape": "straight",
+          "facing": "east"
+        },
+        "placed_state_count": 1
+      },
+      {
+        "index": 32,
+        "block": "thermal_shock:shale_brick_stairs",
+        "properties": {
+          "half": "top",
+          "waterlogged": "false",
+          "shape": "straight",
+          "facing": "west"
+        },
+        "placed_state_count": 3
+      },
+      {
+        "index": 33,
+        "block": "thermal_shock:spirewood_fence",
+        "properties": {
+          "east": "true",
+          "waterlogged": "false",
+          "south": "true",
+          "north": "true",
+          "west": "true"
+        },
+        "placed_state_count": 6
+      },
+      {
+        "index": 34,
+        "block": "thermal_shock:thermal_geyser",
+        "properties": {},
+        "placed_state_count": 7
+      },
+      {
+        "index": 35,
+        "block": "thermal_shock:shale_pillar",
+        "properties": {
+          "waterlogged": "false",
+          "facing": "north",
+          "animation": "0"
+        },
+        "placed_state_count": 3
+      },
+      {
+        "index": 36,
+        "block": "thermal_shock:shale_pillar",
+        "properties": {
+          "waterlogged": "false",
+          "facing": "west",
+          "animation": "0"
+        },
+        "placed_state_count": 5
+      },
+      {
+        "index": 37,
+        "block": "thermal_shock:shale_pillar",
+        "properties": {
+          "waterlogged": "false",
+          "facing": "east",
+          "animation": "0"
+        },
+        "placed_state_count": 3
+      },
+      {
+        "index": 38,
+        "block": "thermal_shock:shale_pillar",
+        "properties": {
+          "waterlogged": "false",
+          "facing": "south",
+          "animation": "0"
+        },
+        "placed_state_count": 2
+      }
+    ],
+    "block_entities": [
+      {
+        "block_index": 3805,
+        "position": [
+          5,
+          0,
+          10
+        ],
+        "state_index": 34,
+        "nbt_id": "thermal_shock:thermal_geyser",
+        "keys": [
+          "Items",
+          "id"
+        ],
+        "items": []
+      },
+      {
+        "block_index": 3806,
+        "position": [
+          6,
+          0,
+          11
+        ],
+        "state_index": 34,
+        "nbt_id": "thermal_shock:thermal_geyser",
+        "keys": [
+          "Items",
+          "id"
+        ],
+        "items": []
+      },
+      {
+        "block_index": 3807,
+        "position": [
+          8,
+          0,
+          2
+        ],
+        "state_index": 34,
+        "nbt_id": "thermal_shock:thermal_geyser",
+        "keys": [
+          "Items",
+          "id"
+        ],
+        "items": []
+      },
+      {
+        "block_index": 3808,
+        "position": [
+          12,
+          0,
+          3
+        ],
+        "state_index": 34,
+        "nbt_id": "thermal_shock:thermal_geyser",
+        "keys": [
+          "Items",
+          "id"
+        ],
+        "items": []
+      },
+      {
+        "block_index": 3809,
+        "position": [
+          13,
+          0,
+          4
+        ],
+        "state_index": 34,
+        "nbt_id": "thermal_shock:thermal_geyser",
+        "keys": [
+          "Items",
+          "id"
+        ],
+        "items": []
+      },
+      {
+        "block_index": 3810,
+        "position": [
+          13,
+          0,
+          10
+        ],
+        "state_index": 34,
+        "nbt_id": "thermal_shock:thermal_geyser",
+        "keys": [
+          "Items",
+          "id"
+        ],
+        "items": []
+      },
+      {
+        "block_index": 3811,
+        "position": [
+          14,
+          0,
+          2
+        ],
+        "state_index": 34,
+        "nbt_id": "thermal_shock:thermal_geyser",
+        "keys": [
+          "Items",
+          "id"
+        ],
+        "items": []
+      },
+      {
+        "block_index": 3812,
+        "position": [
+          12,
+          1,
+          12
+        ],
+        "state_index": 35,
+        "nbt_id": "thermal_shock:shale_pillar",
+        "keys": [
+          "Items",
+          "id"
+        ],
+        "items": []
+      },
+      {
+        "block_index": 3813,
+        "position": [
+          0,
+          2,
+          4
+        ],
+        "state_index": 36,
+        "nbt_id": "thermal_shock:shale_pillar",
+        "keys": [
+          "Items",
+          "id"
+        ],
+        "items": []
+      },
+      {
+        "block_index": 3814,
+        "position": [
+          0,
+          2,
+          10
+        ],
+        "state_index": 36,
+        "nbt_id": "thermal_shock:shale_pillar",
+        "keys": [
+          "Items",
+          "id"
+        ],
+        "items": []
+      },
+      {
+        "block_index": 3815,
+        "position": [
+          4,
+          2,
+          2
+        ],
+        "state_index": 37,
+        "nbt_id": "thermal_shock:shale_pillar",
+        "keys": [
+          "Items",
+          "id"
+        ],
+        "items": []
+      },
+      {
+        "block_index": 3816,
+        "position": [
+          6,
+          2,
+          0
+        ],
+        "state_index": 35,
+        "nbt_id": "thermal_shock:shale_pillar",
+        "keys": [
+          "Items",
+          "id"
+        ],
+        "items": []
+      },
+      {
+        "block_index": 3817,
+        "position": [
+          6,
+          2,
+          14
+        ],
+        "state_index": 38,
+        "nbt_id": "thermal_shock:shale_pillar",
+        "keys": [
+          "Items",
+          "id"
+        ],
+        "items": []
+      },
+      {
+        "block_index": 3818,
+        "position": [
+          10,
+          2,
+          5
+        ],
+        "state_index": 36,
+        "nbt_id": "thermal_shock:shale_pillar",
+        "keys": [
+          "Items",
+          "id"
+        ],
+        "items": []
+      },
+      {
+        "block_index": 3819,
+        "position": [
+          12,
+          2,
+          0
+        ],
+        "state_index": 35,
+        "nbt_id": "thermal_shock:shale_pillar",
+        "keys": [
+          "Items",
+          "id"
+        ],
+        "items": []
+      },
+      {
+        "block_index": 3820,
+        "position": [
+          12,
+          2,
+          14
+        ],
+        "state_index": 38,
+        "nbt_id": "thermal_shock:shale_pillar",
+        "keys": [
+          "Items",
+          "id"
+        ],
+        "items": []
+      },
+      {
+        "block_index": 3821,
+        "position": [
+          13,
+          2,
+          7
+        ],
+        "state_index": 36,
+        "nbt_id": "thermal_shock:shale_pillar",
+        "keys": [
+          "Items",
+          "id"
+        ],
+        "items": []
+      },
+      {
+        "block_index": 3822,
+        "position": [
+          14,
+          2,
+          4
+        ],
+        "state_index": 36,
+        "nbt_id": "thermal_shock:shale_pillar",
+        "keys": [
+          "Items",
+          "id"
+        ],
+        "items": []
+      },
+      {
+        "block_index": 3823,
+        "position": [
+          16,
+          2,
+          4
+        ],
+        "state_index": 37,
+        "nbt_id": "thermal_shock:shale_pillar",
+        "keys": [
+          "Items",
+          "id"
+        ],
+        "items": []
+      },
+      {
+        "block_index": 3824,
+        "position": [
+          16,
+          2,
+          10
+        ],
+        "state_index": 37,
+        "nbt_id": "thermal_shock:shale_pillar",
+        "keys": [
+          "Items",
+          "id"
+        ],
+        "items": []
+      }
+    ],
+    "entity_entries": [
+      {
+        "index": 0,
+        "id": "thermal_shock:benzor",
+        "position": [
+          9.5,
+          1.0,
+          7.5
+        ],
+        "nbt_keys": [
+          "Brain",
+          "HurtByTimestamp",
+          "ForgeData",
+          "Attributes",
+          "Invulnerable",
+          "FallFlying",
+          "PortalCooldown",
+          "AbsorptionAmount",
+          "Texture",
+          "FallDistance",
+          "CanUpdate",
+          "DeathTime",
+          "ForgeCaps",
+          "HandDropChances",
+          "PersistenceRequired",
+          "id",
+          "UUID",
+          "BalmData",
+          "Motion",
+          "Health",
+          "LeftHanded",
+          "Air",
+          "OnGround",
+          "Rotation",
+          "HandItems",
+          "ArmorDropChances",
+          "CustomName",
+          "Pos",
+          "Fire",
+          "ArmorItems",
+          "CanPickUpLoot",
+          "HurtTime",
+          "forge:spawn_type",
+          "CustomNameVisible"
+        ]
+      }
+    ],
+    "nested_namespace_ids": [
+      {
+        "path": "$.entities[0].nbt.Attributes[0].Name",
+        "value": "minecraft:generic.movement_speed"
+      },
+      {
+        "path": "$.entities[0].nbt.Attributes[1].Name",
+        "value": "forge:entity_gravity"
+      },
+      {
+        "path": "$.entities[0].nbt.Attributes[2].Name",
+        "value": "minecraft:generic.follow_range"
+      },
+      {
+        "path": "$.entities[0].nbt.Attributes[3].Name",
+        "value": "forge:step_height"
+      },
+      {
+        "path": "$.entities[0].nbt.ForgeCaps.structure_gel:gel_entity.portal",
+        "value": "structure_gel:empty"
+      },
+      {
+        "path": "$.entities[0].nbt.id",
+        "value": "thermal_shock:benzor"
+      },
+      {
+        "path": "$.blocks[3805].nbt.id",
+        "value": "thermal_shock:thermal_geyser"
+      },
+      {
+        "path": "$.blocks[3806].nbt.id",
+        "value": "thermal_shock:thermal_geyser"
+      },
+      {
+        "path": "$.blocks[3807].nbt.id",
+        "value": "thermal_shock:thermal_geyser"
+      },
+      {
+        "path": "$.blocks[3808].nbt.id",
+        "value": "thermal_shock:thermal_geyser"
+      },
+      {
+        "path": "$.blocks[3809].nbt.id",
+        "value": "thermal_shock:thermal_geyser"
+      },
+      {
+        "path": "$.blocks[3810].nbt.id",
+        "value": "thermal_shock:thermal_geyser"
+      },
+      {
+        "path": "$.blocks[3811].nbt.id",
+        "value": "thermal_shock:thermal_geyser"
+      },
+      {
+        "path": "$.blocks[3812].nbt.id",
+        "value": "thermal_shock:shale_pillar"
+      },
+      {
+        "path": "$.blocks[3813].nbt.id",
+        "value": "thermal_shock:shale_pillar"
+      },
+      {
+        "path": "$.blocks[3814].nbt.id",
+        "value": "thermal_shock:shale_pillar"
+      },
+      {
+        "path": "$.blocks[3815].nbt.id",
+        "value": "thermal_shock:shale_pillar"
+      },
+      {
+        "path": "$.blocks[3816].nbt.id",
+        "value": "thermal_shock:shale_pillar"
+      },
+      {
+        "path": "$.blocks[3817].nbt.id",
+        "value": "thermal_shock:shale_pillar"
+      },
+      {
+        "path": "$.blocks[3818].nbt.id",
+        "value": "thermal_shock:shale_pillar"
+      },
+      {
+        "path": "$.blocks[3819].nbt.id",
+        "value": "thermal_shock:shale_pillar"
+      },
+      {
+        "path": "$.blocks[3820].nbt.id",
+        "value": "thermal_shock:shale_pillar"
+      },
+      {
+        "path": "$.blocks[3821].nbt.id",
+        "value": "thermal_shock:shale_pillar"
+      },
+      {
+        "path": "$.blocks[3822].nbt.id",
+        "value": "thermal_shock:shale_pillar"
+      },
+      {
+        "path": "$.blocks[3823].nbt.id",
+        "value": "thermal_shock:shale_pillar"
+      },
+      {
+        "path": "$.blocks[3824].nbt.id",
+        "value": "thermal_shock:shale_pillar"
+      },
+      {
+        "path": "$.palette[0].Name",
+        "value": "thermal_shock:chiseled_shale"
+      },
+      {
+        "path": "$.palette[1].Name",
+        "value": "thermal_shock:shale_pillar_block"
+      },
+      {
+        "path": "$.palette[2].Name",
+        "value": "thermal_shock:shale_pillar_block"
+      },
+      {
+        "path": "$.palette[3].Name",
+        "value": "thermal_shock:mantlestone_bricks"
+      },
+      {
+        "path": "$.palette[4].Name",
+        "value": "thermal_shock:vermillion_moss"
+      },
+      {
+        "path": "$.palette[5].Name",
+        "value": "thermal_shock:mossy_mantlestone"
+      },
+      {
+        "path": "$.palette[6].Name",
+        "value": "thermal_shock:polished_mantlestone"
+      },
+      {
+        "path": "$.palette[7].Name",
+        "value": "thermal_shock:mantlestone"
+      },
+      {
+        "path": "$.palette[8].Name",
+        "value": "minecraft:bedrock"
+      },
+      {
+        "path": "$.palette[9].Name",
+        "value": "thermal_shock:adamantine_spice_block"
+      },
+      {
+        "path": "$.palette[10].Name",
+        "value": "thermal_shock:shale_bricks"
+      },
+      {
+        "path": "$.palette[11].Name",
+        "value": "thermal_shock:shale_pillar_block"
+      },
+      {
+        "path": "$.palette[12].Name",
+        "value": "thermal_shock:spiral_mantlestone"
+      },
+      {
+        "path": "$.palette[13].Name",
+        "value": "thermal_shock:cracked_shale_pillar_block"
+      },
+      {
+        "path": "$.palette[14].Name",
+        "value": "thermal_shock:cracked_shale_bricks"
+      },
+      {
+        "path": "$.palette[15].Name",
+        "value": "minecraft:redstone_lamp"
+      },
+      {
+        "path": "$.palette[16].Name",
+        "value": "minecraft:air"
+      },
+      {
+        "path": "$.palette[17].Name",
+        "value": "thermal_shock:shale_brick_stairs"
+      },
+      {
+        "path": "$.palette[18].Name",
+        "value": "thermal_shock:shale_brick_stairs"
+      },
+      {
+        "path": "$.palette[19].Name",
+        "value": "thermal_shock:shale_brick_stairs"
+      },
+      {
+        "path": "$.palette[20].Name",
+        "value": "thermal_shock:vermilli_button"
+      },
+      {
+        "path": "$.palette[21].Name",
+        "value": "thermal_shock:polished_mantle_wall"
+      },
+      {
+        "path": "$.palette[22].Name",
+        "value": "thermal_shock:polished_mantle_wall"
+      },
+      {
+        "path": "$.palette[23].Name",
+        "value": "thermal_shock:vermilli_button"
+      },
+      {
+        "path": "$.palette[24].Name",
+        "value": "thermal_shock:vermilli_button"
+      },
+      {
+        "path": "$.palette[25].Name",
+        "value": "thermal_shock:polished_mantle_wall"
+      },
+      {
+        "path": "$.palette[26].Name",
+        "value": "thermal_shock:polished_mantle_wall"
+      },
+      {
+        "path": "$.palette[27].Name",
+        "value": "thermal_shock:vermilli_button"
+      },
+      {
+        "path": "$.palette[28].Name",
+        "value": "thermal_shock:shale_brick_stairs"
+      },
+      {
+        "path": "$.palette[29].Name",
+        "value": "thermal_shock:shale_brick_stairs"
+      },
+      {
+        "path": "$.palette[30].Name",
+        "value": "minecraft:lever"
+      },
+      {
+        "path": "$.palette[31].Name",
+        "value": "thermal_shock:shale_brick_stairs"
+      },
+      {
+        "path": "$.palette[32].Name",
+        "value": "thermal_shock:shale_brick_stairs"
+      },
+      {
+        "path": "$.palette[33].Name",
+        "value": "thermal_shock:spirewood_fence"
+      },
+      {
+        "path": "$.palette[34].Name",
+        "value": "thermal_shock:thermal_geyser"
+      },
+      {
+        "path": "$.palette[35].Name",
+        "value": "thermal_shock:shale_pillar"
+      },
+      {
+        "path": "$.palette[36].Name",
+        "value": "thermal_shock:shale_pillar"
+      },
+      {
+        "path": "$.palette[37].Name",
+        "value": "thermal_shock:shale_pillar"
+      },
+      {
+        "path": "$.palette[38].Name",
+        "value": "thermal_shock:shale_pillar"
+      }
+    ],
+    "nested_items": [],
+    "loot_table_references": [],
+    "dependency_registration_checks": [
+      {
+        "id": "forge:entity_gravity",
+        "status": {
+          "kind": "external_namespace",
+          "original_registration_found": false,
+          "target_registration_found": false
+        }
+      },
+      {
+        "id": "forge:step_height",
+        "status": {
+          "kind": "external_namespace",
+          "original_registration_found": false,
+          "target_registration_found": false
+        }
+      },
+      {
+        "id": "minecraft:air",
+        "status": {
+          "kind": "vanilla",
+          "registered": null
+        }
+      },
+      {
+        "id": "minecraft:bedrock",
+        "status": {
+          "kind": "vanilla",
+          "registered": null
+        }
+      },
+      {
+        "id": "minecraft:generic.follow_range",
+        "status": {
+          "kind": "vanilla",
+          "registered": null
+        }
+      },
+      {
+        "id": "minecraft:generic.movement_speed",
+        "status": {
+          "kind": "vanilla",
+          "registered": null
+        }
+      },
+      {
+        "id": "minecraft:lever",
+        "status": {
+          "kind": "vanilla",
+          "registered": null
+        }
+      },
+      {
+        "id": "minecraft:redstone_lamp",
+        "status": {
+          "kind": "vanilla",
+          "registered": null
+        }
+      },
+      {
+        "id": "structure_gel:empty",
+        "status": {
+          "kind": "external_namespace",
+          "original_registration_found": false,
+          "target_registration_found": false
+        }
+      },
+      {
+        "id": "thermal_shock:adamantine_spice_block",
+        "status": {
+          "kind": "mod_id",
+          "original_registration_found": true,
+          "original_registration_files": [
+            "init\\ThermalShockModBlocks.java"
+          ],
+          "target_registration_found": true,
+          "target_registration": [
+            {
+              "file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\terrain\\TerrainContent.java",
+              "line": 51
+            }
+          ]
+        }
+      },
+      {
+        "id": "thermal_shock:benzor",
+        "status": {
+          "kind": "mod_id",
+          "original_registration_found": true,
+          "original_registration_files": [
+            "init\\ThermalShockModEntities.java"
+          ],
+          "target_registration_found": true,
+          "target_registration": [
+            {
+              "file": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\benzor\\BenzorContent.java",
+              "line": 17
+            }
+          ]
+        }
+      },
+      {
+        "id": "thermal_shock:chiseled_shale",
+        "status": {
+          "kind": "mod_id",
+          "original_registration_found": true,
+          "original_registration_files": [
+            "init\\ThermalShockModBlocks.java"
+          ],
+          "target_registration_found": true,
+          "target_registration": [
+            {
+              "file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\MaterialContent.java",
+              "line": 95,
+              "helper": "MaterialContent.block/item"
+            }
+          ]
+        }
+      },
+      {
+        "id": "thermal_shock:cracked_shale_bricks",
+        "status": {
+          "kind": "mod_id",
+          "original_registration_found": true,
+          "original_registration_files": [
+            "init\\ThermalShockModBlocks.java"
+          ],
+          "target_registration_found": true,
+          "target_registration": [
+            {
+              "file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\MaterialContent.java",
+              "line": 96,
+              "helper": "MaterialContent.block/item"
+            }
+          ]
+        }
+      },
+      {
+        "id": "thermal_shock:cracked_shale_pillar_block",
+        "status": {
+          "kind": "mod_id",
+          "original_registration_found": true,
+          "original_registration_files": [
+            "init\\ThermalShockModBlocks.java"
+          ],
+          "target_registration_found": true,
+          "target_registration": [
+            {
+              "file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\MaterialContent.java",
+              "line": 378,
+              "helper": "MaterialContent.block/item"
+            }
+          ]
+        }
+      },
+      {
+        "id": "thermal_shock:mantlestone",
+        "status": {
+          "kind": "mod_id",
+          "original_registration_found": true,
+          "original_registration_files": [
+            "init\\ThermalShockModBlocks.java"
+          ],
+          "target_registration_found": true,
+          "target_registration": [
+            {
+              "file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\MaterialContent.java",
+              "line": 39,
+              "helper": "MaterialContent.block/item"
+            }
+          ]
+        }
+      },
+      {
+        "id": "thermal_shock:mantlestone_bricks",
+        "status": {
+          "kind": "mod_id",
+          "original_registration_found": true,
+          "original_registration_files": [
+            "init\\ThermalShockModBlocks.java"
+          ],
+          "target_registration_found": true,
+          "target_registration": [
+            {
+              "file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\MaterialContent.java",
+              "line": 62,
+              "helper": "MaterialContent.block/item"
+            }
+          ]
+        }
+      },
+      {
+        "id": "thermal_shock:mossy_mantlestone",
+        "status": {
+          "kind": "mod_id",
+          "original_registration_found": true,
+          "original_registration_files": [
+            "init\\ThermalShockModBlocks.java"
+          ],
+          "target_registration_found": true,
+          "target_registration": [
+            {
+              "file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\MaterialContent.java",
+              "line": 41,
+              "helper": "MaterialContent.block/item"
+            }
+          ]
+        }
+      },
+      {
+        "id": "thermal_shock:polished_mantle_wall",
+        "status": {
+          "kind": "mod_id",
+          "original_registration_found": true,
+          "original_registration_files": [
+            "init\\ThermalShockModBlocks.java"
+          ],
+          "target_registration_found": true,
+          "target_registration": [
+            {
+              "file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\MaterialContent.java",
+              "line": 72,
+              "helper": "MaterialContent.block/item"
+            }
+          ]
+        }
+      },
+      {
+        "id": "thermal_shock:polished_mantlestone",
+        "status": {
+          "kind": "mod_id",
+          "original_registration_found": true,
+          "original_registration_files": [
+            "init\\ThermalShockModBlocks.java"
+          ],
+          "target_registration_found": true,
+          "target_registration": [
+            {
+              "file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\MaterialContent.java",
+              "line": 61,
+              "helper": "MaterialContent.block/item"
+            }
+          ]
+        }
+      },
+      {
+        "id": "thermal_shock:shale_brick_stairs",
+        "status": {
+          "kind": "mod_id",
+          "original_registration_found": true,
+          "original_registration_files": [
+            "init\\ThermalShockModBlocks.java"
+          ],
+          "target_registration_found": true,
+          "target_registration": [
+            {
+              "file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\MaterialContent.java",
+              "line": 241,
+              "helper": "MaterialContent.block/item"
+            }
+          ]
+        }
+      },
+      {
+        "id": "thermal_shock:shale_bricks",
+        "status": {
+          "kind": "mod_id",
+          "original_registration_found": true,
+          "original_registration_files": [
+            "init\\ThermalShockModBlocks.java"
+          ],
+          "target_registration_found": true,
+          "target_registration": [
+            {
+              "file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\MaterialContent.java",
+              "line": 54,
+              "helper": "MaterialContent.block/item"
+            }
+          ]
+        }
+      },
+      {
+        "id": "thermal_shock:shale_pillar",
+        "status": {
+          "kind": "mod_id",
+          "original_registration_found": true,
+          "original_registration_files": [
+            "init\\ThermalShockModBlockEntities.java",
+            "init\\ThermalShockModBlocks.java"
+          ],
+          "target_registration_found": true,
+          "target_registration": [
+            {
+              "file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\GeoDecorKind.java",
+              "line": 27,
+              "helper": "GeoDecorContent enum loop registration"
+            }
+          ]
+        }
+      },
+      {
+        "id": "thermal_shock:shale_pillar_block",
+        "status": {
+          "kind": "mod_id",
+          "original_registration_found": true,
+          "original_registration_files": [
+            "init\\ThermalShockModBlocks.java"
+          ],
+          "target_registration_found": true,
+          "target_registration": [
+            {
+              "file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\MaterialContent.java",
+              "line": 377,
+              "helper": "MaterialContent.block/item"
+            }
+          ]
+        }
+      },
+      {
+        "id": "thermal_shock:spiral_mantlestone",
+        "status": {
+          "kind": "mod_id",
+          "original_registration_found": true,
+          "original_registration_files": [
+            "init\\ThermalShockModBlocks.java"
+          ],
+          "target_registration_found": true,
+          "target_registration": [
+            {
+              "file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\MaterialContent.java",
+              "line": 65,
+              "helper": "MaterialContent.block/item"
+            }
+          ]
+        }
+      },
+      {
+        "id": "thermal_shock:spirewood_fence",
+        "status": {
+          "kind": "mod_id",
+          "original_registration_found": true,
+          "original_registration_files": [
+            "init\\ThermalShockModBlocks.java"
+          ],
+          "target_registration_found": true,
+          "target_registration": [
+            {
+              "file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\MaterialContent.java",
+              "line": 147,
+              "helper": "MaterialContent.block/item"
+            }
+          ]
+        }
+      },
+      {
+        "id": "thermal_shock:thermal_geyser",
+        "status": {
+          "kind": "mod_id",
+          "original_registration_found": true,
+          "original_registration_files": [
+            "init\\ThermalShockModBlockEntities.java",
+            "init\\ThermalShockModBlocks.java"
+          ],
+          "target_registration_found": true,
+          "target_registration": [
+            {
+              "file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\vilebathblocks\\VilebathBlocksContent.java",
+              "line": 16
+            },
+            {
+              "file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\vilebathblocks\\VilebathBlocksContent.java",
+              "line": 18
+            }
+          ]
+        }
+      },
+      {
+        "id": "thermal_shock:vermilli_button",
+        "status": {
+          "kind": "mod_id",
+          "original_registration_found": true,
+          "original_registration_files": [
+            "init\\ThermalShockModBlocks.java"
+          ],
+          "target_registration_found": true,
+          "target_registration": [
+            {
+              "file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\MaterialContent.java",
+              "line": 308,
+              "helper": "MaterialContent.block/item"
+            }
+          ]
+        }
+      },
+      {
+        "id": "thermal_shock:vermillion_moss",
+        "status": {
+          "kind": "mod_id",
+          "original_registration_found": true,
+          "original_registration_files": [
+            "init\\ThermalShockModBlocks.java"
+          ],
+          "target_registration_found": true,
+          "target_registration": [
+            {
+              "file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\terrain\\TerrainContent.java",
+              "line": 48
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "benzor_home_worldgen": [
+    {
+      "source": "data/thermal_shock/worldgen/structure/benzor_home.json",
+      "original_sha256": "b20605733c3e42e0340defed6480eb171338880c20e7e81177614ea9309d3faf",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/structure/benzor_home.json",
+      "target_state": {
+        "exists_worktree": true,
+        "sha256_worktree": "f3f9ad04b359c2b87a3960211c8b5e4ee05ad7b3c4be01b6327f70f638100ec7",
+        "sha256_head": null
+      },
+      "json": {
+        "type": "minecraft:jigsaw",
+        "start_pool": "thermal_shock:benzor_home",
+        "size": 1,
+        "max_distance_from_center": 64,
+        "spawn_overrides": {},
+        "step": "underground_structures",
+        "terrain_adaptation": "beard_box",
+        "start_height": {
+          "type": "minecraft:uniform",
+          "min_inclusive": {
+            "absolute": -36
+          },
+          "max_inclusive": {
+            "absolute": 30
+          }
+        },
+        "biomes": [
+          "thermal_shock:vermillion_woods",
+          "thermal_shock:borean_tundra"
+        ],
+        "use_expansion_hack": false
+      },
+      "references": [
+        "thermal_shock:vermillion_woods",
+        "thermal_shock:borean_tundra",
+        "thermal_shock:benzor_home"
+      ],
+      "source_json_sha256": "b20605733c3e42e0340defed6480eb171338880c20e7e81177614ea9309d3faf"
+    },
+    {
+      "source": "data/thermal_shock/worldgen/structure_set/benzor_home.json",
+      "original_sha256": "238d5ccd14d567648dec7b8a2c0a1ab83e8f3f8ab86756af7cc00afff8d93b4f",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/benzor_home.json",
+      "target_state": {
+        "exists_worktree": true,
+        "sha256_worktree": "d6600f7ecb654d1f8125e766328b9abeac3066feabb815ca2683040bfbf2f908",
+        "sha256_head": null
+      },
+      "json": {
+        "structures": [
+          {
+            "structure": "thermal_shock:benzor_home",
+            "weight": 1
+          }
+        ],
+        "placement": {
+          "type": "minecraft:random_spread",
+          "spacing": 37,
+          "separation": 29,
+          "salt": 1835144946
+        }
+      },
+      "references": [
+        "thermal_shock:benzor_home"
+      ],
+      "source_json_sha256": "238d5ccd14d567648dec7b8a2c0a1ab83e8f3f8ab86756af7cc00afff8d93b4f"
+    },
+    {
+      "source": "data/thermal_shock/worldgen/template_pool/benzor_home.json",
+      "original_sha256": "5fab7fba1a867dee8c401eb5769fbdea29409aff9930bd7503926c865af439ef",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/benzor_home.json",
+      "target_state": {
+        "exists_worktree": true,
+        "sha256_worktree": "f1e05ff78aadb481f6135d3b1b2747a79e6801f6b32f41ed5db2afcc8cbc8f1d",
+        "sha256_head": null
+      },
+      "json": {
+        "name": "thermal_shock:benzor_home",
+        "fallback": "minecraft:empty",
+        "elements": [
+          {
+            "weight": 1,
+            "element": {
+              "element_type": "minecraft:single_pool_element",
+              "location": "thermal_shock:benzor_home",
+              "projection": "rigid",
+              "processors": {
+                "processors": [
+                  {
+                    "processor_type": "minecraft:block_ignore",
+                    "blocks": [
+                      {
+                        "Name": "minecraft:structure_block"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "references": [
+        "thermal_shock:benzor_home",
+        "thermal_shock:benzor_home"
+      ],
+      "source_json_sha256": "5fab7fba1a867dee8c401eb5769fbdea29409aff9930bd7503926c865af439ef"
+    }
+  ],
+  "maiden_chamber": {
+    "source": "data/thermal_shock/structures/maiden_chamber.nbt",
+    "sha256": "aecd7708935db3454842615d9ec48b350b37f82588894e03937aa6654588b95a",
+    "target": "src/main/resources/data/thermal_shock_reforged/structure/maiden_chamber.nbt",
+    "target_state": {
+      "exists_worktree": false,
+      "sha256_worktree": null,
+      "sha256_head": null
+    },
+    "size": [
+      17,
+      20,
+      17
+    ],
+    "blocks": 5780,
+    "entities": [
+      {
+        "index": 0,
+        "id": "thermal_shock:boss_spawner",
+        "position": [
+          8.5,
+          3.0,
+          8.5
+        ],
+        "inventory_custom": {
+          "Size": 1,
+          "Items": [
+            {
+              "Slot": 0,
+              "id": "thermal_shock:maiden_spawn_egg",
+              "Count": 1
+            }
+          ]
+        }
+      },
+      {
+        "index": 1,
+        "id": "thermal_shock:boss_spawner",
+        "position": [
+          4.5,
+          3.0,
+          4.5
+        ],
+        "inventory_custom": {
+          "Size": 1,
+          "Items": [
+            {
+              "Slot": 0,
+              "id": "thermal_shock:maiden_micah_spawn_egg",
+              "Count": 1
+            }
+          ]
+        }
+      },
+      {
+        "index": 2,
+        "id": "thermal_shock:boss_spawner",
+        "position": [
+          12.5,
+          3.0,
+          12.5
+        ],
+        "inventory_custom": {
+          "Size": 1,
+          "Items": [
+            {
+              "Slot": 0,
+              "id": "thermal_shock:maiden_umabel_spawn_egg",
+              "Count": 1
+            }
+          ]
+        }
+      }
+    ],
+    "namespaced_refs": [
+      "forge:entity_gravity",
+      "forge:step_height_addition",
+      "minecraft:air",
+      "minecraft:generic.follow_range",
+      "minecraft:generic.movement_speed",
+      "thermal_shock:boss_spawner",
+      "thermal_shock:darksteel_beam",
+      "thermal_shock:darksteel_block",
+      "thermal_shock:ferrum_plating",
+      "thermal_shock:ferrum_plating_slab",
+      "thermal_shock:ferrum_plating_stairs",
+      "thermal_shock:maiden_micah_spawn_egg",
+      "thermal_shock:maiden_spawn_egg",
+      "thermal_shock:maiden_umabel_spawn_egg",
+      "thermal_shock:mantleslag",
+      "thermal_shock:mantlestone",
+      "thermal_shock:mantlestone_bricks",
+      "thermal_shock:polished_mantlestone"
+    ],
+    "nonfile_archive_references_to_basename": [],
+    "java_references_to_basename": [],
+    "inference": "未找到除该NBT自身文件名以外的JAR项引用，也没有原生Java注册字段；原JAR未显示实际放置/获取入口。"
+  },
+  "maiden_biome_modifier": {
+    "source": "data/thermal_shock/forge/biome_modifier/maiden_biome_modifier.json",
+    "sha256": "a3833ba91cb30e63e90516933971fff0ed5b4b50b0e42e3ef11d3cac83cddd0c",
+    "json": {
+      "type": "forge:add_spawns",
+      "biomes": [
+        "thermal_shock:borean_forest",
+        "thermal_shock:borean_tundra",
+        "thermal_shock:graveyard",
+        "thermal_shock:vermillion_woods"
+      ],
+      "spawners": {
+        "type": "thermal_shock:maiden",
+        "weight": 1,
+        "minCount": 1,
+        "maxCount": 1
+      }
+    },
+    "target": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/maiden_biome_modifier.json",
+    "target_state": {
+      "exists_worktree": true,
+      "sha256_worktree": "bc7b9d668ccf886c441ed16da0fe2d070d598ed8bb173f6d4aae9c75a72765be",
+      "sha256_head": null
+    }
+  },
+  "spawn_eggs": {
+    "benzor": {
+      "original_item_registered": true,
+      "registrations": [
+        {
+          "line": 904,
+          "text": "public static final RegistryObject<Item> BENZOR_SPAWN_EGG = REGISTRY.register(\"benzor_spawn_egg\", () -> new ForgeSpawnEggItem(ThermalShockModEntities.BENZOR, -1, -1, new Item.Properties()));",
+          "base_color": "-1",
+          "spots_color": "-1"
+        }
+      ],
+      "target_registration": [
+        {
+          "file": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\benzor\\BenzorContent.java",
+          "line": 18
+        }
+      ],
+      "creative_tab_evidence": [
+        {
+          "line": 970,
+          "text": "tabData.accept((ItemLike)ThermalShockModItems.BENZOR_SPAWN_EGG.get());"
+        }
+      ]
+    },
+    "maiden": {
+      "original_item_registered": true,
+      "registrations": [
+        {
+          "line": 1082,
+          "text": "public static final RegistryObject<Item> MAIDEN_SPAWN_EGG = REGISTRY.register(\"maiden_spawn_egg\", () -> new ForgeSpawnEggItem(ThermalShockModEntities.MAIDEN, -1, -1, new Item.Properties()));",
+          "base_color": "-1",
+          "spots_color": "-1"
+        }
+      ],
+      "target_registration": [
+        {
+          "file": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\maiden\\MaidenContent.java",
+          "line": 24
+        }
+      ],
+      "creative_tab_evidence": [
+        {
+          "line": 882,
+          "text": "tabData.accept((ItemLike)ThermalShockModItems.MAIDEN_SPAWN_EGG.get());"
+        }
+      ]
+    },
+    "maiden_micah": {
+      "original_item_registered": false,
+      "registrations": [],
+      "target_registration": [],
+      "creative_tab_evidence": []
+    },
+    "maiden_umabel": {
+      "original_item_registered": false,
+      "registrations": [],
+      "target_registration": [],
+      "creative_tab_evidence": []
+    }
+  },
+  "unresolved_source_ids": {
+    "boss_spawner": {
+      "original_java_references": [],
+      "original_literal_registration_found": false,
+      "target_literal_registration": []
+    },
+    "maiden_micah_spawn_egg": {
+      "original_java_references": [],
+      "original_literal_registration_found": false,
+      "target_literal_registration": []
+    },
+    "maiden_umabel_spawn_egg": {
+      "original_java_references": [],
+      "original_literal_registration_found": false,
+      "target_literal_registration": []
+    }
+  },
+  "blackpowder_advancement": {
+    "procedure_evidence": [
+      {
+        "file": "procedures/BenzorBlackpowderCheckProcedure.java",
+        "line": 17,
+        "text": "return entity instanceof ServerPlayer && (_plr0 = (ServerPlayer)entity).level() instanceof ServerLevel && _plr0.getAdvancements().getOrStartProgress(_plr0.server.getAdvancements().getAdvancement(new ResourceLocation(\"thermal_shock:blackpowder_get\"))).isDone();"
+      }
+    ],
+    "parent_chain": [
+      {
+        "id": "blackpowder_get",
+        "source": "data/thermal_shock/advancements/blackpowder_get.json",
+        "original_sha256": "14ba8de4cd40e3bbaf0dda8884f29dbe7360cd1d28123b613bdc965abc010f1b",
+        "target": "src/main/resources/data/thermal_shock_reforged/advancement/blackpowder_get.json",
+        "target_state": {
+          "exists_worktree": true,
+          "sha256_worktree": "492fcf7251feca2fb333dd7a7a25d360a99ddb73ffa00ceda32af0ed53b560b7",
+          "sha256_head": null
+        },
+        "parent": "thermal_shock:spice_get",
+        "criteria": [
+          "blackpowder_get_0"
+        ],
+        "criteria_json": {
+          "blackpowder_get_0": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+              "items": [
+                {
+                  "items": [
+                    "thermal_shock:blackpowder_spice"
+                  ],
+                  "count": {
+                    "min": 1,
+                    "max": 64
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "id": "spice_get",
+        "source": "data/thermal_shock/advancements/spice_get.json",
+        "original_sha256": "46f3c4674cf119960abdce7f7e90938114724ddd684aba37c6e82d855e862e70",
+        "target": "src/main/resources/data/thermal_shock_reforged/advancement/spice_get.json",
+        "target_state": {
+          "exists_worktree": true,
+          "sha256_worktree": "1631c4cb7525c572e046a9b483cd80520238881ca700fa9af6bf75f395ec8acf",
+          "sha256_head": "1631c4cb7525c572e046a9b483cd80520238881ca700fa9af6bf75f395ec8acf"
+        },
+        "parent": "thermal_shock:loqendia_get",
+        "criteria": [
+          "spice_get_0"
+        ],
+        "criteria_json": {
+          "spice_get_0": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+              "items": [
+                {
+                  "items": [
+                    "thermal_shock:adamantine_spice"
+                  ],
+                  "count": {
+                    "min": 1,
+                    "max": 64
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "id": "loqendia_get",
+        "source": "data/thermal_shock/advancements/loqendia_get.json",
+        "original_sha256": "16a9e9b9373de535eb575e86f039fe77bfab5133ba73270e92825ec58f9f0a12",
+        "target": "src/main/resources/data/thermal_shock_reforged/advancement/loqendia_get.json",
+        "target_state": {
+          "exists_worktree": true,
+          "sha256_worktree": "00db950c339409da712f5dd5473fd83118796357566beb4d4c17d107f8520f09",
+          "sha256_head": "6ed38fa761ff416411d98c8fda63f47e54836fb751ca31b6b5b4443ce6f3ea56"
+        },
+        "parent": null,
+        "criteria": [
+          "loqendia_get_0"
+        ],
+        "criteria_json": {
+          "loqendia_get_0": {
+            "trigger": "minecraft:changed_dimension",
+            "conditions": {
+              "to": "thermal_shock:loqendia"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "external_capability_dependencies": {
+    "references": [
+      {
+        "path": "$.entities[0].nbt.ForgeCaps.structure_gel:gel_entity.portal",
+        "value": "structure_gel:empty"
+      }
+    ],
+    "source_mod_dependency_declared": false,
+    "target_project_reference_files": [],
+    "finding": "BenzorHome 实体 ForgeCaps 持有 structure_gel:empty capability payload；JAR mods.toml 未声明该依赖，当前 target src/main 无同名映射。需主线决定保留/迁移能力载荷还是由原生等效兼容逻辑承接，不能视为已闭合。"
+  },
+  "counts": {
+    "benzor_palette_entries": 39,
+    "benzor_unique_palette_ids": 22,
+    "benzor_block_entities": 20,
+    "benzor_nested_items": 0,
+    "benzor_loot_tables": 0,
+    "benzor_namespaced_string_refs": 65,
+    "worldgen_jsons": 3,
+    "maiden_biome_jsons": 1,
+    "maidenchamber_literal_archive_refs": 0,
+    "maidenchamber_java_refs": 0
+  }
+}

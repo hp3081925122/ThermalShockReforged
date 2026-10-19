@@ -1,0 +1,171 @@
+{
+  "schema": "benzor-maiden99-integration-v1",
+  "production_baseline": "8397254821278a42c577addcb6f1f34e53c97ebc",
+  "java_patches": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/ThermalShockReforged.java",
+      "anchor": "        com.hp.thermalshockreforged.entity.huntress.HuntressContent.register(bus);",
+      "insert_after": [
+        "        com.hp.thermalshockreforged.entity.benzor.BenzorContent.register(bus);",
+        "        com.hp.thermalshockreforged.entity.maiden.MaidenContent.register(bus);"
+      ]
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/ThermalShockReforged.java",
+      "anchor": "        container.registerConfig(ModConfig.Type.COMMON, com.hp.thermalshockreforged.entity.huntress.HuntressConfig.SPEC, \"thermal_shock_reforged-huntress.toml\");",
+      "insert_after": [
+        "        container.registerConfig(ModConfig.Type.COMMON, com.hp.thermalshockreforged.entity.maiden.MaidenConfig.SPEC, \"thermal_shock_reforged-maiden.toml\");"
+      ]
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/ClientEvents.java",
+      "anchor": "        com.hp.thermalshockreforged.client.huntress.HuntressRenderers.register(event);",
+      "insert_after": [
+        "        com.hp.thermalshockreforged.client.benzor.BenzorRenderer.register(event);",
+        "        com.hp.thermalshockreforged.client.maiden.MaidenRenderer.register(event);"
+      ]
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/ClientEvents.java",
+      "anchor": "        com.hp.thermalshockreforged.client.npc.huntress.HuntressScreen.register(event);",
+      "insert_after": [
+        "        com.hp.thermalshockreforged.client.npc.benzor.BenzorScreen.register(event);"
+      ]
+    }
+  ],
+  "json_value_additions": [
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/tags/entity_type/character_mobs.json",
+      "values": [
+        "thermal_shock_reforged:benzor"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/tags/entity_type/cloro_weak.json",
+      "values": [
+        "thermal_shock_reforged:maiden"
+      ]
+    }
+  ],
+  "language": {
+    "en_us": {
+      "entity.thermal_shock_reforged.benzor": "Benzor",
+      "entity.thermal_shock_reforged.maiden": "Maiden",
+      "item.thermal_shock_reforged.benzor_spawn_egg": "Benzor Spawn Egg",
+      "item.thermal_shock_reforged.maiden_spawn_egg": "Maiden Spawn Egg",
+      "entity.thermal_shock_reforged.benzor.display_name": "Benzor",
+      "gui.thermal_shock_reforged.benzor.intro_1": "❄ Hrm... You bring §espice§f for §aBenzor§f?",
+      "gui.thermal_shock_reforged.benzor.intro_2": "❄ §aStranger§f, you bring more §espice§f?",
+      "gui.thermal_shock_reforged.benzor.intro_fallback": "❄ kutty",
+      "advancements.blackpowder_get.title": "...This is your brain on spice",
+      "advancements.blackpowder_get.descr": "Obtain Blackpowder Spice... You probably shouldn't, tho.",
+      "gui.thermal_shock_reforged.benzor.button_nextbuttona": "Next",
+      "gui.thermal_shock_reforged.benzor.button_infobenzor": "About Benzor",
+      "gui.thermal_shock_reforged.benzor.button_infospice": "About spice",
+      "gui.thermal_shock_reforged.benzor.button_infoinfection": "About the infection",
+      "gui.thermal_shock_reforged.benzor.button_infoblizzard": "About the blizzard",
+      "gui.thermal_shock_reforged.benzor.button_infoblackpowder": "About blackpowder spice",
+      "gui.thermal_shock_reforged.benzor.button_maininfobuttona": "Information",
+      "gui.thermal_shock_reforged.benzor.button_maintradebuttona": "Spice",
+      "gui.thermal_shock_reforged.benzor.button_tradebuttona": "Trade spice for experience",
+      "gui.thermal_shock_reforged.benzor.title_benzor_main": "Benzor",
+      "gui.thermal_shock_reforged.benzor.title_benzor_info": "Benzor: information",
+      "gui.thermal_shock_reforged.benzor.title_benzor_self_info": "About Benzor",
+      "gui.thermal_shock_reforged.benzor.title_benzor_spice_info": "About spice",
+      "gui.thermal_shock_reforged.benzor.title_benzor_infection_info": "About the infection",
+      "gui.thermal_shock_reforged.benzor.title_benzor_blizzard_info": "About the blizzard",
+      "gui.thermal_shock_reforged.benzor.title_benzor_blackpowder_info": "About blackpowder spice",
+      "gui.thermal_shock_reforged.benzor.title_benzor_spice_epl": "Spice exchange introduction",
+      "gui.thermal_shock_reforged.benzor.title_benzor_spice": "Spice exchange"
+    },
+    "zh_cn": {
+      "gui.thermal_shock_reforged.benzor_blackpowder_info.label_kutty": "❄ 陌生人找到黑火药了？？？",
+      "gui.thermal_shock_reforged.benzor_blackpowder_info.label_concierge": "本佐尔",
+      "gui.thermal_shock_reforged.benzor_blackpowder_info.label_empty": "❄ 唔……本佐尔答应过，不再吃它。",
+      "gui.thermal_shock_reforged.benzor_blackpowder_info.label_the_surface_people_say_benzor": "❄ 这种香料很神圣，却也太危险。",
+      "gui.thermal_shock_reforged.benzor_blizzard_info.label_kutty": "❄ 本佐尔对这场暴风雪不太了解。",
+      "gui.thermal_shock_reforged.benzor_blizzard_info.label_concierge": "本佐尔",
+      "gui.thermal_shock_reforged.benzor_blizzard_info.label_empty": "❄ 也许他们是旧政府的人？",
+      "gui.thermal_shock_reforged.benzor_blizzard_info.label_the_surface_people_say_benzor": "❄ 但本佐尔觉得，他们想重建已经太迟。",
+      "gui.thermal_shock_reforged.benzor_blizzard_info.label_this_is_why_benzor_stay_down_h": "❄ 地表已经跟死了一样……",
+      "gui.thermal_shock_reforged.benzor_infection_info.label_kutty": "❄ 本佐尔记得事情发生的那一天。",
+      "gui.thermal_shock_reforged.benzor_infection_info.label_concierge": "本佐尔",
+      "gui.thermal_shock_reforged.benzor_infection_info.label_empty": "❄ 全镇的人都病了，身体腐烂、融化，黏合在一起。",
+      "gui.thermal_shock_reforged.benzor_infection_info.label_the_surface_people_say_benzor": "❄ 亲眼看见，真是骇人……",
+      "gui.thermal_shock_reforged.benzor_infection_info.label_this_is_why_benzor_stay_down_h": "❄ 所以本佐尔待在地下，这里安全多了！",
+      "gui.thermal_shock_reforged.benzor_main.label_concierge": "本佐尔",
+      "gui.thermal_shock_reforged.benzor_self_info.label_kutty": "❄ 本佐尔就是喜欢香料，仅此而已。",
+      "gui.thermal_shock_reforged.benzor_self_info.label_concierge": "本佐尔",
+      "gui.thermal_shock_reforged.benzor_self_info.label_more_spice_more_exp_yes": "❄ 本佐尔也许吃得有点多，但没那么糟！",
+      "gui.thermal_shock_reforged.benzor_self_info.label_empty": "❄ 很久以前，本佐尔也是个虔诚的人。",
+      "gui.thermal_shock_reforged.benzor_self_info.label_the_surface_people_say_benzor": "❄ 大教堂的人说，本佐尔的饥饿是一种罪。",
+      "gui.thermal_shock_reforged.benzor_spice_epl.label_kutty": "❄ 你给本佐尔§e香料§f，本佐尔给你珍贵的§e经验§f。",
+      "gui.thermal_shock_reforged.benzor_spice_epl.label_concierge": "本佐尔",
+      "gui.thermal_shock_reforged.benzor_spice_epl.label_more_spice_more_exp_yes": "❄ 更多香料，更多§e经验§f，对吧？",
+      "gui.thermal_shock_reforged.benzor_spice_info.label_kutty": "❄ 很珍贵的资源，也很美味。",
+      "gui.thermal_shock_reforged.benzor_spice_info.label_concierge": "本佐尔",
+      "gui.thermal_shock_reforged.benzor_spice_info.label_empty": "❄ 大多数人拿香料当燃料，真浪费！",
+      "gui.thermal_shock_reforged.benzor_spice_info.label_the_surface_people_say_benzor": "❄ 香料可是太阳亲自赐福的食粮！",
+      "entity.thermal_shock_reforged.benzor": "本佐尔",
+      "entity.thermal_shock_reforged.maiden": "少女",
+      "item.thermal_shock_reforged.benzor_spawn_egg": "本佐尔刷怪蛋",
+      "item.thermal_shock_reforged.maiden_spawn_egg": "少女刷怪蛋",
+      "entity.thermal_shock_reforged.benzor.display_name": "本佐尔",
+      "gui.thermal_shock_reforged.benzor.intro_1": "❄ 唔……你带了§e香料§f给§a本佐尔§f？",
+      "gui.thermal_shock_reforged.benzor.intro_2": "❄ §a陌生人§f，你又带来§e香料§f了？",
+      "gui.thermal_shock_reforged.benzor.intro_fallback": "❄ 库蒂",
+      "advancements.blackpowder_get.title": "……吸了香料，脑子就成这样",
+      "advancements.blackpowder_get.descr": "获得黑火药香料……不过，你大概不该碰它。",
+      "gui.thermal_shock_reforged.benzor.button_nextbuttona": "下一页",
+      "gui.thermal_shock_reforged.benzor.button_infobenzor": "关于本佐尔",
+      "gui.thermal_shock_reforged.benzor.button_infospice": "关于香料",
+      "gui.thermal_shock_reforged.benzor.button_infoinfection": "关于感染",
+      "gui.thermal_shock_reforged.benzor.button_infoblizzard": "关于暴风雪",
+      "gui.thermal_shock_reforged.benzor.button_infoblackpowder": "关于黑火药香料",
+      "gui.thermal_shock_reforged.benzor.button_maininfobuttona": "问些事情",
+      "gui.thermal_shock_reforged.benzor.button_maintradebuttona": "香料",
+      "gui.thermal_shock_reforged.benzor.button_tradebuttona": "用香料换取经验",
+      "gui.thermal_shock_reforged.benzor.title_benzor_main": "本佐尔",
+      "gui.thermal_shock_reforged.benzor.title_benzor_info": "本佐尔：问些事情",
+      "gui.thermal_shock_reforged.benzor.title_benzor_self_info": "关于本佐尔",
+      "gui.thermal_shock_reforged.benzor.title_benzor_spice_info": "关于香料",
+      "gui.thermal_shock_reforged.benzor.title_benzor_infection_info": "关于感染",
+      "gui.thermal_shock_reforged.benzor.title_benzor_blizzard_info": "关于暴风雪",
+      "gui.thermal_shock_reforged.benzor.title_benzor_blackpowder_info": "关于黑火药香料",
+      "gui.thermal_shock_reforged.benzor.title_benzor_spice_epl": "香料交易介绍",
+      "gui.thermal_shock_reforged.benzor.title_benzor_spice": "香料交易"
+    }
+  },
+  "already_integrated_by_main": [
+    "BloodBulletEntity.setSkillKnockback(double): calls protected setImpactKnockback; Maiden passes zero"
+  ],
+  "no_changes_needed": [
+    "creative manifest: both real spawn eggs already listed",
+    "CameraCatalog: both real entity descriptions already exist"
+  ],
+  "deferred_mod_integration": "Benzor：原主手持 untagged_mobs:scrambler 时将 Texture 改为 rozneb，并提示 Skin Acquired: §eRozneb。本批按用户要求单独延期跨模组联动；Benzor 本体、普通交互和 rozneb 原贴图仍保留。不得写入可选依赖 TOML。",
+  "facts_for_shared_changelog": [
+    "Maiden: retain original 9/29 single and 9/29/34/39 triple timing; triple ring last direction has base coefficient 5, not 7; real STUNNED shield window retained.",
+    "Benzor: restore client visibility of blackpowder information through server-synced advancement gate; original ServerPlayer-only display check could never pass on LocalPlayer.",
+    "Original Benzor regeneration effect command is invalid in 1.20.1; retain actual no-gravity initialization without inventing permanent regeneration.",
+    "KofoniBenzorCheck has no execute callers; do not introduce new Kofoni information unlock gate.",
+    "Maiden death visual begins only after native dead is committed; canceled LivingDeath does not emit explosion.",
+    "Removed Maiden tail arrows preserve native Owner UUID using complete LegacyArrow add/readAdditionalSaveData roundtrip before skill parameters; no retained removed Entity reference.",
+    "BenzorHome native worldgen and Maiden four-biome natural spawn complete; external Structure Gel payload deferred separately."
+  ],
+  "deferred_mod_integrations": [
+    "Benzor：原主手持 untagged_mobs:scrambler 时将 Texture 改为 rozneb，并提示 Skin Acquired: §eRozneb。本批按用户要求单独延期跨模组联动；Benzor 本体、普通交互和 rozneb 原贴图仍保留。不得写入可选依赖 TOML。",
+    "BenzorHome：原ForgeCaps.structure_gel:gel_entity.portal=structure_gel:empty随NBT原样保留为证据。本批按用户授权延期第三方能力联动；不新增可选TOML，不阻止本模组BenzorHome原生世界生成。"
+  ],
+  "source_status": {
+    "benzor_home": "Integrated: all native palette/BE/entity references closed; original geometry and worldgen preserved",
+    "maiden_natural": "Integrated: original four-biome weight1 single spawn",
+    "maiden_chamber": "No real original consumer found; boss_spawner and Micah/Umabel eggs not registered in original JAR. Do not fabricate or activate this dormant standalone artifact."
+  },
+  "skill_verified_cases_suggestions": [
+    "NPC显示条件若只接受ServerPlayer，直接在客户端Screen调用会永远失败；用服务端权威条件及DataSlot同步可见性，并在服务端按钮处理再次验证。Benzor黑火药页已证实此问题。",
+    "原版箭setBaseDamage是系数，最终伤害还乘速度；迁移八向弹幕不能把系数误写为固定命中伤害。Maiden三圈末方向原系数5，其余7须逐箭核字节码。",
+    "实体注册扫描须展开MaterialContent.block/item与枚举循环注册，不能仅匹配register字面量；BenzorHome本批已纠正helper误报。",
+    "技能尾箭在施法者移除后也要保存Owner UUID；已核LegacyArrow公开add/readAdditionalSaveData可完整往返payload只补Owner，不用空NBT调用Entity.load。"
+  ]
+}
