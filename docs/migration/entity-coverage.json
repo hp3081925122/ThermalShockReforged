@@ -867,7 +867,19 @@
       "status": "not_migrated"
     },
     "protoi_sunbeam": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshockreforged.entity.protoi.ProtoiSunbeamEntity",
+      "migration_document": "protoi-sunbeam-batch.md",
+      "prepared_tests": [
+        "directAttackCanceledAnd120TickCooldown",
+        "full28EndBeamAnimationAndSounds",
+        "deathDoesNotDropCommittedShot",
+        "fifteenDeathBurstsAnd100ExperienceAt60Ticks",
+        "fullGlowHeadPoseAndZeroDeathRotation"
+      ],
+      "pending": [
+        "整模组完整后的服务端、客户端及Render Preview验收"
+      ]
     },
     "portrait_character": {
       "status": "not_migrated"
@@ -888,7 +900,18 @@
       ]
     },
     "sunbeam_bullet": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshockreforged.entity.protoi.SunbeamBulletEntity",
+      "migration_document": "protoi-sunbeam-batch.md",
+      "prepared_tests": [
+        "base20Speed5Piercing5AndGravity",
+        "nativePiercingDamageAndNoPickup",
+        "knockbackUsesConfiguredLowImpulseAndResistanceOnce",
+        "blockHitNukeCloudAtOriginalIntegerPosition"
+      ],
+      "pending": [
+        "整模组完整后的服务端、客户端及Render Preview验收"
+      ]
     },
     "sanctum_errant": {
       "status": "not_migrated"
@@ -952,6 +975,10 @@
     "delta_volley_task": {
       "status": "implemented_pending_full_validation",
       "purpose": "20 END起每3 END一次共8发有限连射，允许来源先移除"
+    },
+    "sunbeam_attack_task": {
+      "status": "implemented_pending_full_validation",
+      "purpose": "28 SERVER END完整光束与固定受击锚点声音，有限持久UUID任务"
     }
   }
 }

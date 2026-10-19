@@ -1,0 +1,86 @@
+{
+  "asset_checks": [
+    {
+      "path": "geo/protoi_sunbeam.geo.json",
+      "normalized_original_matches": true,
+      "sha256": "daf2b6a4d4a9e5dea67542c5bd8d19c5fd2e607683a570d5befde9fea27bf144"
+    },
+    {
+      "path": "animations/protoi_sunbeam.animation.json",
+      "normalized_original_matches": true,
+      "sha256": "a0f244858bebe4a78b936373b28b71ac824f1e271fa7b88cc1ffe66bc5348513"
+    },
+    {
+      "path": "textures/entities/protoi_sunbeam.png",
+      "normalized_original_matches": true,
+      "sha256": "3d7d29deadcf982572f4dd88ceaf5d97444ecb85db864b207deef1a64ccbb732"
+    },
+    {
+      "path": "textures/entities/sunbeam_glow.png",
+      "normalized_original_matches": true,
+      "sha256": "738f5a7a354b74a0c47768b30d6b7eab84cae6fa60dcd0e3d912d8e2c4cf5007"
+    },
+    {
+      "path": "models/item/light_blocking_barrier.json",
+      "normalized_original_matches": true,
+      "sha256": "39c96dd512d84c594c6b15ba261deed0bebbfd532ffc97c636bbd2009c28b9c3"
+    }
+  ],
+  "sound_checks": [
+    {
+      "id": "protoi_cry",
+      "normalized_original_matches": true
+    },
+    {
+      "id": "cavebloomer_detonates",
+      "normalized_original_matches": true
+    },
+    {
+      "id": "delta_hurt",
+      "normalized_original_matches": true
+    },
+    {
+      "id": "delta_death",
+      "normalized_original_matches": true
+    },
+    {
+      "id": "mob_death_explode",
+      "normalized_original_matches": true
+    }
+  ],
+  "runtime_tests": "pending_full_mod_migration",
+  "original_unreachable_tick_procedure_class_references": [
+    "net/mcreator/thermal_shock/procedures/ProtoiSunbeamOnEntityTickUpdateProcedure.class"
+  ],
+  "animation_clips": [
+    "idle",
+    "attack"
+  ],
+  "verified_source_timing": {
+    "beam_end_tick": 28,
+    "cooldown": 120,
+    "base_arrow_damage": 20,
+    "speed": 5,
+    "piercing": 5,
+    "corpse_removal_tick": 60,
+    "experience": 100,
+    "death_bursts": 15,
+    "death_burst_interval_end_ticks": 4
+  },
+  "intentional_user_required_adjustments": [
+    "默认基础攻击由0改20，光束默认倍率1，初次近战仍取消，原20基础箭伤保留",
+    "原raw击退5改默认1且配置上限2；水平按raw×0.6×(1-抗性)，避免过高击退"
+  ],
+  "build": {
+    "tasks": [
+      "compileJava",
+      "processResources"
+    ],
+    "result": "passed",
+    "duration_seconds": 35,
+    "executed_tasks": 1,
+    "up_to_date_tasks": 23,
+    "repair": "首编发现1.21.1原生穿透setter私有，修为复用既有ArrowPiercingAccess；完整复编通过",
+    "warning": "既有ClientEvents EventBusSubscriber弃用警告"
+  }
+}
