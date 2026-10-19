@@ -1,0 +1,40 @@
+{
+  "status": "applied_static_passed_pending_main_integration_and_compile",
+  "java": [
+    {
+      "file": "src/main/java/com/hp/thermalshockreforged/content/labworldgen/DissolverCycleEntity.java",
+      "sha256": "7b49570aadafb4d89e0b2afbe9e9cb774912afbf04f4708a8be5f41fa52f23a6"
+    },
+    {
+      "file": "src/main/java/com/hp/thermalshockreforged/content/labworldgen/DissolverGemlockBlock.java",
+      "sha256": "bc3246e3b5237f1f82552ae2f6e0476e4b857558d796a20cf69db8c2bb0254e5"
+    },
+    {
+      "file": "src/main/java/com/hp/thermalshockreforged/content/labworldgen/LabWorldgenContent.java",
+      "sha256": "b7039d6a6183d21f035726ee17423bc66b1fdb25851c8a7646f9af815042c6e2"
+    }
+  ],
+  "nbt_exact_expected_conversion": true,
+  "size": [
+    26,
+    16,
+    26
+  ],
+  "blocks": 10816,
+  "palette": 41,
+  "block_entities": 8,
+  "paintings_preserved": 3,
+  "npc_attributes_preserved": 4,
+  "spawn_type_remapped": true,
+  "waterlogged_palette_false_preserved": 11,
+  "sphere_candidates": {
+    "1": 7,
+    "2": 33,
+    "4": 257
+  },
+  "timer_model": "END 20/25/30; nested voices 33/50 per NPC; zero NPC ends at30; save/restore and unloaded-neighbor pause model passed",
+  "worldgen_exact_except_namespace_and_processor_id": true,
+  "compiled": false,
+  "runtime_tested": false,
+  "source_main_written": true
+}

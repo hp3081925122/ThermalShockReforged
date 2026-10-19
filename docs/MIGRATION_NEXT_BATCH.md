@@ -186,3 +186,18 @@ Spectre 已接完整实体、原0.3速度/仰角0.1/5基础箭伤/零击退音�
 独立聊天17文件原交付哈希保留，编译修复后的最终哈希另列集成报告，不把旧报告当最新源码验证。实验室自然入口仍缺真实溶解锁机关；已有原生WaterloggingFixProcessor将按行为复用，不误列必须第三方联动。其他实体／武器／世界链仍有缺口，整模组未完整，不启动游戏或最终验收。
 
 第93批继续约半分工：另一聊天负责Dissolver Gemlock／Phobotite多轮溶解及machinist_lab完整自然链；主聊天负责Liteprism Sword／Prismatic Supernova完整表现与真实获取入口。见parallel-batch93.md。全部代码完整后，最终服务端、客户端及Render Preview验收由子代理执行；外模组联动仍只记DEFERRED_MOD_INTEGRATIONS.md。
+
+
+## 第93批统一收尾
+
+主聊天迁入Liteprism Sword／Prismatic Supernova完整属性、40 SERVER END蓄力、4格非玩家范围伤、原完整AAA、透明与发光模型及制造页。原900生命／无AI／逐项免伤／0.8尺寸保留，原击退抗性999在旧原生已受范围限制，目标用有效值1；不将其当有近战攻击的Boss改写伤害。独立有限任务保存UUID／倒计时／位置，保原施法实体死亡后已合法排入的爆发，生成取消不留爆发，整次消费锁在伤害前提交。原普通挥手声保留，服务端单次广播；潜行生成仍用10格BlockPos／MOB_SUMMONED，成功入世界才20tick冷却，非玩家也加同等20tick限频。
+
+原完整制造页没有真实打开调用，原JAR类引用与网络／GUI源码均核对；按既有合理修复授权接到制造机武器页新按钮，页面六标签／原坐标／原按钮保留，费用为20铋＋10紫晶碎片＋5赫利昂残渣＋1铁剑和1低温能量，未改价格。原32项制造产物现有真实剑来源；不把原先只有31项可达页的计数当全部原件覆盖。
+
+另一聊天迁入Dissolver Gemlock与三轮20／25／30 END溶解、逐NPC notice及33／50 END语音、持久有界任务和machinist_lab完整自然生成。原26×16×26／10816方块／41palette／8BE／3幅画／库存和机械师保留，属性／生成类型字段按目标转换；现有原生waterlogging_fix真实复用，原两群系／间距37／分离29／salt／processor完整闭合。暂停缺邻区块的轮次而不强加载，重载不重扣宝石／不重放已完成轮，合法后续不因锁被拆而消失。补STONE地图色和原版镐标签，旧notice同步断链改Gecko触发控制器。
+
+两路停笔后整组compileJava processResources --offline首轮成功（1分6秒，24任务／2执行22最新）。主线6原资产／4原字节码／3声音组、9独占实验室生产文件、两语言旧值、3共享Java以及7536构建资源字节核对通过，证据见main93-static-validation.json、lab-worldgen-final93.json及lab-worldgen-validation93.json。本聊天未启动游戏；最终专服／客户端／Render Preview仍待整模组代码完整后由子代理执行。
+
+用户要求另一个聊天两处进度事件监听修复下次一并推送，已纳入本阶段提交范围；对应修复依据和独立验证保留在advancement-listener-startup-fix.md。当前工程没有Git远程配置，不能凭空选择目标仓库；本阶段先保存本地，配置有效GitHub remote后使用系统现有代理推送。
+
+整个模组仍有其他未迁实体／武器／剧情／结构链，未标完整；下一批继续在开工时约一半分给另一聊天。外模组联动仍唯一记在DEFERRED_MOD_INTEGRATIONS.md。

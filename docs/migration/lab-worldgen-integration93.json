@@ -1,0 +1,46 @@
+{
+  "status": "self_owned_files_applied_ready_for_main_shared_integration",
+  "java_replacements": [
+    {
+      "file": "src/main/java/com/hp/thermalshockreforged/ThermalShockReforged.java",
+      "before": "        com.hp.thermalshockreforged.entity.labmachinist.LabContent.register(bus);",
+      "after": "        com.hp.thermalshockreforged.entity.labmachinist.LabContent.register(bus);\n        com.hp.thermalshockreforged.content.labworldgen.LabWorldgenContent.register(bus);"
+    },
+    {
+      "file": "src/main/java/com/hp/thermalshockreforged/client/ClientEvents.java",
+      "before": "        event.registerEntityRenderer(com.hp.thermalshockreforged.content.atlas.AtlasContent.ACTIVATION.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);",
+      "after": "        event.registerEntityRenderer(com.hp.thermalshockreforged.content.atlas.AtlasContent.ACTIVATION.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);\n        event.registerEntityRenderer(com.hp.thermalshockreforged.content.labworldgen.LabWorldgenContent.DISSOLVER_CYCLE.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);"
+    },
+    {
+      "file": "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabMachinistEntity.java",
+      "before": "    @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) { controllers.add(new AnimationController<>(this, \"movement\", 4, state -> state.setAndContinue(RawAnimation.begin().thenLoop(\"idle\")))); }",
+      "after": "    @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n        var procedure = new AnimationController<>(this, \"procedure\", 4, state -> PlayState.STOP).triggerableAnim(\"notice\", RawAnimation.begin().thenPlay(\"notice\"));\n        controllers.add(new AnimationController<>(this, \"movement\", 4, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(\"idle\"))));\n        controllers.add(procedure);\n    }"
+    }
+  ],
+  "json_members_to_merge": {
+    "src/main/resources/assets/thermal_shock_reforged/lang/zh_cn.json": {
+      "block.thermal_shock_reforged.dissolver_gemlock": "溶解宝石锁"
+    }
+  },
+  "json_tag_values_to_add": {
+    "src/main/resources/data/minecraft/tags/block/mineable/pickaxe.json": [
+      "thermal_shock_reforged:dissolver_gemlock"
+    ]
+  },
+  "existing_english_name": "Dissolver Gemlock",
+  "existing_chinese_name": null,
+  "creative_manifest_already_contains_id": true,
+  "existing_processor_to_reuse": "thermal_shock_reforged:waterlogging_fix",
+  "no_changes_to_LoqendiaContent": true,
+  "staging_apply_command": "Already applied; do not reapply shared sources from staging",
+  "apply_requires_explicit_release": false,
+  "files_do_not_belong_to_this_chat": [
+    "PalaceGeneration.java",
+    "ShalespringGeneration.java"
+  ],
+  "compiled": false,
+  "runtime_tested": false,
+  "source_release_received": true,
+  "main92_commit_at_release": "8eff90a",
+  "shared_required_before_compile": true
+}

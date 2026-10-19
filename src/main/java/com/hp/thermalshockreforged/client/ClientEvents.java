@@ -59,6 +59,8 @@ public final class ClientEvents {
         com.hp.thermalshockreforged.client.glastrekker.GlastrekkerRenderers.register(event);
         event.registerEntityRenderer(com.hp.thermalshockreforged.entity.titans.TitanContent.SWING.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.weapons.WeaponContent.BLADE_IMPACT.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
+        event.registerEntityRenderer(com.hp.thermalshockreforged.content.weapons.WeaponContent.PRISMATIC_SUPERNOVA.get(), com.hp.thermalshockreforged.client.weapons.PrismaticSupernovaRenderer::new);
+        event.registerEntityRenderer(com.hp.thermalshockreforged.content.weapons.WeaponContent.SUPERNOVA_BLAST.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.weapons.WeaponContent.VOLCANO_BURST.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.weapons.WeaponContent.HI_VOLT_PULSE.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.weapons.WeaponContent.THERMOBLASTER_BURST.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
@@ -94,6 +96,7 @@ public final class ClientEvents {
         com.hp.thermalshockreforged.client.labmachinist.LabClient.renderers(event);
         CavebloomerClient.renderers(event);
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.atlas.AtlasContent.ACTIVATION.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
+        event.registerEntityRenderer(com.hp.thermalshockreforged.content.labworldgen.LabWorldgenContent.DISSOLVER_CYCLE.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.weapons.WeaponContent.MAGNETIC_CYCLE_SOUND.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.food.FerroCakeConsumption.TYPE.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         com.hp.thermalshockreforged.client.springslime.SpringslimeRenderers.register(event);

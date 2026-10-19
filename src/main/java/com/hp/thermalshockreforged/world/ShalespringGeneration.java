@@ -17,8 +17,11 @@ public final class ShalespringGeneration {
     private static final BlockPos ORIGIN = new BlockPos(316, 53, 299);
 
     private ShalespringGeneration() { }
-    public static void register() { NeoForge.EVENT_BUS.addListener(ShalespringGeneration::advancement); }
-    private static void advancement(AdvancementEvent event) {
+    public static void register() {
+        NeoForge.EVENT_BUS.addListener(ShalespringGeneration::advancement);
+        ThermalShockReforged.LOGGER.debug("Registered Shalespring generation listener for AdvancementEarnEvent: advancement={}", ARRIVAL);
+    }
+    private static void advancement(AdvancementEvent.AdvancementEarnEvent event) {
         if (!ARRIVAL.equals(event.getAdvancement().id()) || !(event.getEntity().level() instanceof ServerLevel level)
                 || !level.getGameRules().getBoolean(ModGameRules.LOQENDIA_GENERATE_SPECIAL_STRUCTURES)) return;
         WorldProgressData progress = WorldProgressData.get(level);
