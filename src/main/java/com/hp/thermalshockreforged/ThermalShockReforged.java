@@ -89,6 +89,7 @@ public final class ThermalShockReforged {
         MaterialContent.register(bus);
         MusicContent.register(bus);
         NativeDecorContent.register(bus);
+        com.hp.thermalshockreforged.content.fabrication.FabricationContent.register(bus);
         GeoDecorContent.register(bus);
         com.hp.thermalshockreforged.content.npc.laut.LautContent.register(bus);
         com.hp.thermalshockreforged.content.npc.florist.FloristContent.register(bus);
