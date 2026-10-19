@@ -226,4 +226,17 @@ Vilebath两城堡还缺DormantMonolith／Monolith，Thrasher的Graver目标也�
 
 整个模组仍未完整，最终专服/客户端/Render Preview验收未开始。本地阶段提交不代表远程发布；当前无Git remote。后续待迁实体按基线原154注册ID及枚举helper复核，修正旧三巨人与三水母漏计；本批Squall接入后尚有18个旧ID注册缺口：aerocel、benzor、blinding_lantern_flash_ring、effigy、electric_sphere、giant_laser_test、high_director_sopel、huntress、huntress_boss、icidroviathan、liftbug、maiden、moonoid、ribbonblade_galvanite、sentrarius、starrite、tesla_reed、whisper。该清单只描述实体注册，不能代替全功能覆盖或完成百分比。
 
-其他原生待办含FogMachine完整粒子消费者、灯泡purebiomes未定义范围及其他世界/物品/GUI真实调用闭合；不能列入外模组联动延期。Squall确认旧自身骑乘偏移不能误映射载具挂点，其他实体只读对应审计已交另一聊天，Luna接口不可用时由该聊天直接只读盘点，后续按源码逐项处理，不机械全量反号。每新批次继续约半派既有聊天，主线负责余下生产。
+其他原生待办含FogMachine完整粒子消费者、灯泡purebiomes未定义范围及其他世界/物品/GUI真实调用闭合；不能列入外模组联动延期。Squall确认旧自身骑乘偏移不能误映射载具挂点，其他实体骑乘只读审计实际由Luna完成，早先接口不可用判断已纠正；第98批按原/目标公式逐项处理，不机械全量反号。每新批次继续约半派既有聊天，主线负责余下生产。
+
+
+## 第98批最终集成验证
+
+Whisper/Liftbug/Aerocel及完整菜单/构造方块/真实Floor33唱片，与分工Huntress/HuntressBoss完整行为和四菜单完成；共22新Java，全部原有效动画、Geo、透明/头部跟随与声画/特效保留。Whisper12页/51静态文本/26图层/30按钮和8真实交易逐项核对；三Whisper模板保12903块/17实体及全部几何/typed数据，不捏造原无来源。骑乘只读报告据旧0.75h与新full-height公式修正7ID承载高度，Squall反号不动，装甲Glastrekker固定额外1.2保留。
+
+主线先后两次较大批统一编译：首轮Java/资源成功1m33s，随后机械核对修正Liftbug原无蛋注册、补8中文名/描述，最终统一compileJava/processResources --offline成功1m20s，24任务/2执行；8273最终固定输入验证不变，7585构建资源逐字节相同、2展开模板通过。分工10Java交付哈希全同，无编译修复。总证据docs/migration/main98-static-validation.json，主线资源/三结构几何证据passive98-resources.json，分工36组静态证据huntress-validation98.json及最终清单huntress-final98.json。
+
+合理差异已集中REFORGED_CHANGES和各模块文档；skill新增旧无效元数据在目标变真实能力的陷阱、先消费构造器/被取消生成损失和原无效命令等核实案例并验证通过。Luna确定性只读恢复使用；其清单小结误列cloudercel缺失已按pre-batch HEAD纠正，原三资源本来存在且与原件相同，本批接真实渲染引用。Huntress原三按钮确为空回调、无真实交易/剧情入口，保原空按钮显示/悬停，不造功能；NPC无效再生命令不升级为真无敌。
+
+整个模组仍未完整。按原154注册ID基线，本批5实体ID接入后尚有13旧ID缺口：benzor、blinding_lantern_flash_ring、effigy、electric_sphere、giant_laser_test、high_director_sopel、icidroviathan、maiden、moonoid、ribbonblade_galvanite、sentrarius、starrite、tesla_reed。仍有FogMachine与其他原生世界/物品/GUI调用链待闭合，注册计数不是功能完成率。未启动服务端、客户端或Render Preview；最终全功能测试待全代码完整后交子代理。Git仍无remote，本地提交不等于远程发布。
+
+第99批已先建文档和约半分工：主线TeslaReed/ElectricSphere/RibbonbladeGalvanite，既有另一聊天Benzor/Maiden；前批固定输入验证/提交完成前双方仅只读准备。

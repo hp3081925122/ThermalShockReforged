@@ -1,0 +1,54 @@
+{
+  "batch": 98,
+  "base_head": "f519ebd",
+  "handoff_status": "停笔，主线统一共享集成与固定输入编译",
+  "production_file_count": 10,
+  "production_sha256": {
+    "src/main/java/com/hp/thermalshockreforged/client/huntress/HuntressRenderers.java": "cbf9107c513729a87d93b8d213644aa204d0a8c2e49331ae825bb49f0f5e3015",
+    "src/main/java/com/hp/thermalshockreforged/client/npc/huntress/HuntressScreen.java": "4ce39bc9d54db2fc200ca6df14a6cf5e23e1f80bd5220d1b643ae255708f3c1d",
+    "src/main/java/com/hp/thermalshockreforged/content/npc/huntress/HuntressEntity.java": "b03aed33c50dbd3dc9a8892ba06643cc95d30ee51d0f41b77871938feab1d86c",
+    "src/main/java/com/hp/thermalshockreforged/content/npc/huntress/HuntressMenu.java": "493aadd57fb6c160ebfee657596a50f797563428a92a03dc9c8e00d04f2cec4b",
+    "src/main/java/com/hp/thermalshockreforged/content/npc/huntress/HuntressMenus.java": "4ea412e498d1e4f69a43f873faed689aaee08f57ef94e5628016fe1b3c8a097b",
+    "src/main/java/com/hp/thermalshockreforged/content/npc/huntress/HuntressPage.java": "d3fe5afea4ce4464359dda0d6c33ede081d88cc0bce013469945355c47feac03",
+    "src/main/java/com/hp/thermalshockreforged/entity/huntress/HuntressBossEntity.java": "35b6fb90899079be8f53b49900956659698ebe63e07f6e5eadd73dee0e8418f1",
+    "src/main/java/com/hp/thermalshockreforged/entity/huntress/HuntressConfig.java": "f3fd70e7dcf2f90217a2ad87d37d02bfe185c6c1a9e4f2c8add1495de1e1525e",
+    "src/main/java/com/hp/thermalshockreforged/entity/huntress/HuntressContent.java": "46a9334a10f660081f449e9f3c79de2ed7b7023228f764e654b5b509134ab42a",
+    "src/main/java/com/hp/thermalshockreforged/entity/huntress/HuntressTaskEntity.java": "3a6cb39e44020b7cb521480d5abc1372b226fd7d560705d664c2cc55a60192df"
+  },
+  "production_aggregate_sha256": "c3fadd38116f80f9df3d2ab50a3e429d39d8d1355e4f2f68affbcc859a439361",
+  "aggregate_algorithm": "相对路径排序，每行path+TAB+sha256+LF，UTF8后SHA256",
+  "report_sha256": {
+    "docs/migration/huntress-batch98.md": "7cfb7f9b5ad400106305665625d9c27156a55d3a509e6696f689c82ca4dbc4ae",
+    "docs/migration/huntress-integration98.json": "e8844946637094a87944176d4dfd1755cdb07edf56cea50a70d87c0393500396",
+    "docs/migration/huntress-investigation98.json": "4e50129b4cd38b14df1bb3c42d2c7743adf2981e5b20d5161869715b778f886c",
+    "docs/migration/huntress-resources98.json": "9f731dbbd9601d9c1e6cdb1e6d43d8fcb7cd705feeebd63aed6f7b6904f7f9e6",
+    "docs/migration/huntress-validation98.json": "5fe978fda9d3e958768c5ab5004a6fc99f0de0aaf5a4d1ad25a75a02a62dad5b"
+  },
+  "static_validation": "36组通过，10Java及5份报告diff--check通过；静态结果不等于编译或游戏通过",
+  "shared_increment": "huntress-integration98.json：4Java插入、2标签增量、en8/zh30键",
+  "shared_files_modified": false,
+  "source_findings": [
+    "原两实体无真实刷怪蛋/自然/模板/转换/专用loot来源，命令ID保留",
+    "MAIN三按钮字节码为空，三子页无正常进入链，保注册/声画/返回MAIN，不捏造交易/任务/Boss转换",
+    "原Benzor再生命令无效，只保真实无重力",
+    "原全局EntityAnimationFactory包含两实体桥，目标等效替换"
+  ],
+  "behavior_changes": [
+    "原占位attackDamage0改技能基数8，默认8×1/1.25保8/10减甲0.6；有限非负伤害",
+    "内部状态实体保存，有限幂等载体保两次斩击和44END砸击/三次盾声",
+    "适中可配击退折抗性，零强度不覆既有运动",
+    "重力恢复兜底、失败重试与提交防再入",
+    "各玩家NPC菜单时钟与权限/当前菜单/距离验证"
+  ],
+  "compiled": false,
+  "server_tested": false,
+  "client_tested": false,
+  "render_preview_tested": false,
+  "staged": false,
+  "committed": false,
+  "main_thread_next": [
+    "合并共享增量并保其它并行修改",
+    "统一编译，按真实编译结果修API",
+    "整个模组完整迁移后由子代理专服全功能与Render Preview原件对照"
+  ]
+}

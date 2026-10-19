@@ -1,0 +1,91 @@
+{
+  "batch": 98,
+  "java_insertions": [
+    {
+      "file": "src/main/java/com/hp/thermalshockreforged/ThermalShockReforged.java",
+      "operation": "insert_after",
+      "anchor": "        com.hp.thermalshockreforged.entity.squall.SquallContent.register(bus);",
+      "text": "        com.hp.thermalshockreforged.entity.huntress.HuntressContent.register(bus);"
+    },
+    {
+      "file": "src/main/java/com/hp/thermalshockreforged/ThermalShockReforged.java",
+      "operation": "insert_after",
+      "anchor": "        container.registerConfig(ModConfig.Type.COMMON, com.hp.thermalshockreforged.entity.squall.SquallConfig.SPEC, \"thermal_shock_reforged-squall.toml\");",
+      "text": "        container.registerConfig(ModConfig.Type.COMMON, com.hp.thermalshockreforged.entity.huntress.HuntressConfig.SPEC, \"thermal_shock_reforged-huntress.toml\");"
+    },
+    {
+      "file": "src/main/java/com/hp/thermalshockreforged/client/ClientEvents.java",
+      "operation": "insert_after",
+      "anchor": "        com.hp.thermalshockreforged.client.squall.SquallRenderers.register(event);",
+      "text": "        com.hp.thermalshockreforged.client.huntress.HuntressRenderers.register(event);"
+    },
+    {
+      "file": "src/main/java/com/hp/thermalshockreforged/client/ClientEvents.java",
+      "operation": "insert_after",
+      "anchor": "        com.hp.thermalshockreforged.client.labmachinist.LabClient.screens(event);",
+      "text": "        com.hp.thermalshockreforged.client.npc.huntress.HuntressScreen.register(event);"
+    }
+  ],
+  "tag_value_additions": {
+    "data/thermal_shock_reforged/tags/entity_type/character_mobs.json": [
+      "thermal_shock_reforged:huntress"
+    ],
+    "data/thermal_shock_reforged/tags/entity_type/infectionimmune.json": [
+      "thermal_shock_reforged:huntress",
+      "thermal_shock_reforged:huntress_boss"
+    ]
+  },
+  "language_additions": {
+    "en_us": {
+      "entity.thermal_shock_reforged.huntress.display_name": "Huntress",
+      "gui.thermal_shock_reforged.huntress.intro_1": "❄ You require my assistance?",
+      "gui.thermal_shock_reforged.huntress.intro_2": "❄ At your service, fellow expeditioner.",
+      "gui.thermal_shock_reforged.huntress.intro_fallback": "❄ kutty",
+      "gui.thermal_shock_reforged.huntress.button_maininfobuttona": "Information",
+      "gui.thermal_shock_reforged.huntress.button_maintradebuttona": "Trade",
+      "gui.thermal_shock_reforged.huntress.button_mainerrandsbuttona": "Errands",
+      "gui.thermal_shock_reforged.huntress.button_nextbuttona": "Continue"
+    },
+    "zh_cn": {
+      "entity.thermal_shock_reforged.huntress": "女猎手",
+      "entity.thermal_shock_reforged.huntress_boss": "女猎手",
+      "entity.thermal_shock_reforged.huntress.display_name": "女猎手",
+      "gui.thermal_shock_reforged.huntress.intro_1": "❄ 需要我帮忙吗？",
+      "gui.thermal_shock_reforged.huntress.intro_2": "❄ 乐意效劳，探险同伴。",
+      "gui.thermal_shock_reforged.huntress.intro_fallback": "❄ kutty",
+      "gui.thermal_shock_reforged.huntress.button_maininfobuttona": "信息",
+      "gui.thermal_shock_reforged.huntress.button_maintradebuttona": "交易",
+      "gui.thermal_shock_reforged.huntress.button_mainerrandsbuttona": "委托",
+      "gui.thermal_shock_reforged.huntress.button_nextbuttona": "继续",
+      "gui.thermal_shock_reforged.huntress_main.label_concierge": "女猎手",
+      "gui.thermal_shock_reforged.huntress_intro.label_concierge": "女猎手",
+      "gui.thermal_shock_reforged.huntress_intro.label_kutty": "❄ 看来是我误会了，你显然",
+      "gui.thermal_shock_reforged.huntress_intro.label_suitable_land_to_expand_out_terr": "不是感染者。",
+      "gui.thermal_shock_reforged.huntress_intro.label_we_build_our_nests_in": "❄ 你也在冒险吗？也是一名猎人？",
+      "gui.thermal_shock_reforged.huntress_intro.label_birth_to_hunt_survive_and_defe": "❄ 无论如何，你让我刮目相看。",
+      "gui.thermal_shock_reforged.huntress_intro.label_fight_against_the_infection": "如果愿意，可以在我的领地暂留片刻。",
+      "gui.thermal_shock_reforged.huntress_self_info.label_concierge": "女猎手",
+      "gui.thermal_shock_reforged.huntress_self_info.label_kutty": "❄ 我来自桑格雷黄蜂帝国，正在寻找",
+      "gui.thermal_shock_reforged.huntress_self_info.label_suitable_land_to_expand_out_terr": "适合扩张领土的土地。",
+      "gui.thermal_shock_reforged.huntress_self_info.label_we_build_our_nests_in": "❄ 我和数百名同族自出生起就接受训练，",
+      "gui.thermal_shock_reforged.huntress_self_info.label_birth_to_hunt_survive_and_defe": "学会独自狩猎、抵御严寒，",
+      "gui.thermal_shock_reforged.huntress_self_info.label_fight_against_the_infection": "与感染抗争。",
+      "gui.thermal_shock_reforged.huntress_vilebath_info.label_concierge": "女猎手",
+      "gui.thermal_shock_reforged.huntress_vilebath_info.label_kutty": "❄ 啊，甲虫王国……",
+      "gui.thermal_shock_reforged.huntress_vilebath_info.label_suitable_land_to_expand_out_terr": "❄ 大雪前，我们视他们为可敬的盟友，",
+      "gui.thermal_shock_reforged.huntress_vilebath_info.label_we_build_our_nests_in": "直到疾病与谵妄吞噬了费拉克的心智。",
+      "gui.thermal_shock_reforged.huntress_vilebath_info.label_birth_to_hunt_survive_and_defe": "听说如今他们称他为“大亵渎者”。",
+      "gui.thermal_shock_reforged.huntress_vilebath_info.label_fight_against_the_infection": "❄ 那是我出生很久以前的事了，可惜",
+      "gui.thermal_shock_reforged.huntress_vilebath_info.label_i_missed_their_prime": "我错过了他们的鼎盛时期。"
+    }
+  },
+  "notes": [
+    "只由主线合并，不覆盖Whisper或其它并行增量",
+    "无真实刷怪蛋注册，不补闲置蛋语言键，不新增蛋或创意条目",
+    "两ID在CameraCatalog已有原资料，不改相机",
+    "HuntressContent.register内部注册HuntressMenus，无额外公共依赖",
+    "errant_damage现有数据、AttackAttemptEvent桥和ServerEndTickTasks均已接好，不重复注册",
+    "原主菜单三按钮空回调；其它三页无正常进入链，仅保注册布局与返回MAIN，不新造导航/交易/挑战",
+    "主线REFORGED_CHANGES请记录基础技能攻击8×1/1.25、有限任务、自有CD/移动锁、抗性击退、重力恢复、会话菜单权限及无效再生命令原事实"
+  ]
+}

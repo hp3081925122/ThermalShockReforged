@@ -57,6 +57,8 @@ public final class ClientEvents {
     public static void renderers(EntityRenderersEvent.RegisterRenderers event) {
         com.hp.thermalshockreforged.client.gaze.GazeRenderers.register(event);
         com.hp.thermalshockreforged.client.squall.SquallRenderers.register(event);
+        com.hp.thermalshockreforged.client.huntress.HuntressRenderers.register(event);
+        com.hp.thermalshockreforged.client.whisper.PassiveTrioRenderers.register(event);
         com.hp.thermalshockreforged.client.titans.TitanRenderers.register(event);
         com.hp.thermalshockreforged.client.beetles.BeetleRenderers.register(event);
         com.hp.thermalshockreforged.client.monolith.MonolithRenderers.register(event);
@@ -162,6 +164,7 @@ public final class ClientEvents {
 
     @SubscribeEvent
     public static void screens(RegisterMenuScreensEvent event) {
+        com.hp.thermalshockreforged.client.whisper.WhisperScreen.register(event);
         com.hp.thermalshockreforged.client.npc.laut.LautClient.screens(event);
         com.hp.thermalshockreforged.client.npc.portrait.PortraitClient.screens(event);
         com.hp.thermalshockreforged.client.npc.ly.LyClient.screens(event);
@@ -172,6 +175,7 @@ public final class ClientEvents {
         com.hp.thermalshockreforged.client.kofoni.KofoniClient.screens(event);
         com.hp.thermalshockreforged.client.qo.QoClient.screens(event);
         com.hp.thermalshockreforged.client.labmachinist.LabClient.screens(event);
+        com.hp.thermalshockreforged.client.npc.huntress.HuntressScreen.register(event);
         com.hp.thermalshockreforged.client.dialogue.DialogueScreen.register(event);
         event.register(NativeDecorContent.DESK_PHOTO_SCREEN.get(), DeskPhotoScreen::new);
         event.register(com.hp.thermalshockreforged.content.atlas.AtlasContent.MENU.get(), com.hp.thermalshockreforged.client.atlas.AtlasScreen::new);

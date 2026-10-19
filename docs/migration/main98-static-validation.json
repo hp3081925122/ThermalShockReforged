@@ -1,0 +1,125 @@
+{
+  "base_head": "f519ebd61123fe31065083f4bb5d273a2dc690e2",
+  "source_inputs_verified": 8273,
+  "compile": [
+    "BUILD SUCCESSFUL in 1m 20s",
+    "24 actionable tasks: 2 executed, 22 up-to-date"
+  ],
+  "build_resources": {
+    "byte_equal": 7585,
+    "expanded_templates": 2
+  },
+  "followup_verification_corrections": {
+    "first_compile": "BUILD SUCCESSFUL in 1m 33s",
+    "changed_sources": [
+      "src/main/java/com/hp/thermalshockreforged/entity/liftbug/LiftbugContent.java",
+      "src/main/resources/assets/thermal_shock_reforged/lang/zh_cn.json"
+    ],
+    "reason": "Removed unregistered original Liftbug egg; completed 8 Chinese entity/block/egg/disc names and description; final compile covers both."
+  },
+  "huntress": {
+    "production_files": 10,
+    "hashes_unchanged": true,
+    "aggregate": "c3fadd38116f80f9df3d2ab50a3e429d39d8d1355e4f2f68affbcc859a439361",
+    "static_checks": 36,
+    "compile_repairs": []
+  },
+  "passive_resources": {
+    "asset_and_json_records": 53,
+    "templates": {
+      "whisper_home": {
+        "size": [
+          24,
+          13,
+          24
+        ],
+        "blocks": 7488,
+        "entities": 1,
+        "conversions": {
+          "entity_attributes": 1,
+          "persistent_data": 1
+        },
+        "geometry_unchanged": true,
+        "typed_roundtrip": true
+      },
+      "whisperden": {
+        "size": [
+          19,
+          9,
+          15
+        ],
+        "blocks": 2565,
+        "entities": 8,
+        "conversions": {
+          "entity_attributes": 8
+        },
+        "geometry_unchanged": true,
+        "typed_roundtrip": true
+      },
+      "whisperdenalt": {
+        "size": [
+          19,
+          10,
+          15
+        ],
+        "blocks": 2850,
+        "entities": 8,
+        "conversions": {
+          "entity_attributes": 8
+        },
+        "geometry_unchanged": true,
+        "typed_roundtrip": true
+      }
+    },
+    "preexisting_cloudercel_corrected": [
+      {
+        "target": "assets/thermal_shock_reforged/geo/cloudercel.geo.json",
+        "exists_in_pre_batch_HEAD": true,
+        "currently_exists": true
+      },
+      {
+        "target": "assets/thermal_shock_reforged/animations/cloudercel.animation.json",
+        "exists_in_pre_batch_HEAD": true,
+        "currently_exists": true
+      },
+      {
+        "target": "assets/thermal_shock_reforged/textures/entities/cloudercel.png",
+        "exists_in_pre_batch_HEAD": true,
+        "currently_exists": true
+      }
+    ]
+  },
+  "whisper_pages": {
+    "pages": 12,
+    "static_text_lines": 51,
+    "images": 26,
+    "buttons": 30,
+    "trades": 8
+  },
+  "locales": {
+    "en_us": {
+      "preserved_old_values": 3287,
+      "intended_huntress_translation_changes": {},
+      "added_keys": 19
+    },
+    "zh_cn": {
+      "preserved_old_values": 578,
+      "intended_huntress_translation_changes": {},
+      "added_keys": 100
+    }
+  },
+  "source_boundary_checks": [
+    "Whisper immunity/finite-positive incoming vanish",
+    "Whisper own speed modifier/no potion erasure",
+    "current Level/NPC UUID/menu/distance bound",
+    "all-material and level checks precede all deductions",
+    "Liftbug real passenger and persistent mode",
+    "Constructor server-first placement and actual-world insertion",
+    "Aerocel complete AABB loaded collision guard",
+    "old effective type tags retained without inert undead activation",
+    "native Floor33 195 seconds and comparator 7",
+    "five old mount formulas corrected; Squall untouched"
+  ],
+  "new_java_utf8_no_comments": 22,
+  "runtime": "全模组尚未完整，按用户要求未启动游戏；专服/客户端/Render Preview等待最终子代理验收"
+}

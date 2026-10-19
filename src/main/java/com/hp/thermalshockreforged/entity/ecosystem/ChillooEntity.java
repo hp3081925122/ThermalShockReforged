@@ -51,7 +51,7 @@ public final class ChillooEntity extends PathfinderMob implements GeoEntity {
 
     @Override
     protected net.minecraft.world.phys.Vec3 getPassengerAttachmentPoint(Entity passenger, EntityDimensions dimensions, float partialTick) {
-        return super.getPassengerAttachmentPoint(passenger, dimensions, partialTick).add(0, 0.4, 0);
+        return new net.minecraft.world.phys.Vec3(0, dimensions.height() * .75 + .4, 0);
     }
 
     @Override

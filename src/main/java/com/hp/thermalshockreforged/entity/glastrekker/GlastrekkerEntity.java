@@ -101,7 +101,7 @@ public final class GlastrekkerEntity extends AnimatedMonsterEntity {
         } else super.travel(movement);
     }
     @Override protected Vec3 getPassengerAttachmentPoint(Entity passenger, EntityDimensions dimensions, float scale) {
-        return armored ? new Vec3(0, dimensions.height() * .75 + 1.2 * scale, 0) : super.getPassengerAttachmentPoint(passenger, dimensions, scale);
+        return new Vec3(0, dimensions.height() * .75 + (armored ? 1.2 : 0), 0);
     }
     public static AttributeSupplier.Builder attributes(boolean armored) {
         return createMobAttributes().add(Attributes.MAX_HEALTH, 70).add(Attributes.MOVEMENT_SPEED, armored ? .35 : .3)

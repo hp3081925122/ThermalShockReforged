@@ -177,7 +177,7 @@ public final class RazorwingEntity extends TamableAnimal implements GeoEntity {
     }
     @Override
     protected Vec3 getPassengerAttachmentPoint(Entity passenger, EntityDimensions dimensions, float partialTick) {
-        return super.getPassengerAttachmentPoint(passenger, dimensions, partialTick).add(0, -0.2, 0);
+        return new Vec3(0, dimensions.height() * .75 - .2, 0);
     }
     @Override
     public AgeableMob getBreedOffspring(ServerLevel server, AgeableMob other) {

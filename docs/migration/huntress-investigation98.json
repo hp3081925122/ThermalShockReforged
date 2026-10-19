@@ -1,0 +1,1172 @@
+{
+  "batch": 98,
+  "source_references": {
+    "client\\gui\\HuntressIntroScreen.java": [
+      {
+        "line": 9,
+        "text": "import net.mcreator.thermal_shock.network.HuntressIntroButtonMessage;"
+      },
+      {
+        "line": 11,
+        "text": "import net.mcreator.thermal_shock.world.inventory.HuntressIntroMenu;"
+      },
+      {
+        "line": 24,
+        "text": "public class HuntressIntroScreen"
+      },
+      {
+        "line": 25,
+        "text": "extends AbstractContainerScreen<HuntressIntroMenu> {"
+      },
+      {
+        "line": 26,
+        "text": "    private static final HashMap<String, Object> guistate = HuntressIntroMenu.guistate;"
+      },
+      {
+        "line": 34,
+        "text": "    public HuntressIntroScreen(HuntressIntroMenu container, Inventory inventory, Component text) {"
+      },
+      {
+        "line": 57,
+        "text": "        guiGraphics.blit(new ResourceLocation(\"thermal_shock:textures/screens/huntressidleportrait.png\"), this.leftPos + -29, this.topPos + -23, 0.0f, (float)Mth.clamp((int)((int)WhisperMainOpenTickProcedure.execute() * 128), (int)0, (int)1408), 128, 128, 128, 1536);"
+      },
+      {
+        "line": 70,
+        "text": "        guiGraphics.drawString(this.font, (Component)Component.translatable((String)\"gui.thermal_shock.huntress_intro.label_kutty\"), 9, 112, -1, false);"
+      },
+      {
+        "line": 71,
+        "text": "        guiGraphics.drawString(this.font, (Component)Component.translatable((String)\"gui.thermal_shock.huntress_intro.label_concierge\"), 67, 92, -1, false);"
+      },
+      {
+        "line": 72,
+        "text": "        guiGraphics.drawString(this.font, (Component)Component.translatable((String)\"gui.thermal_shock.huntress_intro.label_suitable_land_to_expand_out_terr\"), 9, 121, -1, false);"
+      },
+      {
+        "line": 73,
+        "text": "        guiGraphics.drawString(this.font, (Component)Component.translatable((String)\"gui.thermal_shock.huntress_intro.label_we_build_our_nests_in\"), 9, 130, -1, false);"
+      },
+      {
+        "line": 74,
+        "text": "        guiGraphics.drawString(this.font, (Component)Component.translatable((String)\"gui.thermal_shock.huntress_intro.label_birth_to_hunt_survive_and_defe\"), 9, 140, -1, false);"
+      },
+      {
+        "line": 75,
+        "text": "        guiGraphics.drawString(this.font, (Component)Component.translatable((String)\"gui.thermal_shock.huntress_intro.label_fight_against_the_infection\"), 9, 149, -1, false);"
+      },
+      {
+        "line": 81,
+        "text": "            ThermalShockMod.PACKET_HANDLER.sendToServer((Object)new HuntressIntroButtonMessage(0, this.x, this.y, this.z));"
+      },
+      {
+        "line": 82,
+        "text": "            HuntressIntroButtonMessage.handleButtonAction(this.entity, 0, this.x, this.y, this.z);"
+      }
+    ],
+    "client\\gui\\HuntressMainScreen.java": [
+      {
+        "line": 8,
+        "text": "import net.mcreator.thermal_shock.procedures.HuntressSetIntroTextProcedure;"
+      },
+      {
+        "line": 10,
+        "text": "import net.mcreator.thermal_shock.world.inventory.HuntressMainMenu;"
+      },
+      {
+        "line": 23,
+        "text": "public class HuntressMainScreen"
+      },
+      {
+        "line": 24,
+        "text": "extends AbstractContainerScreen<HuntressMainMenu> {"
+      },
+      {
+        "line": 25,
+        "text": "    private static final HashMap<String, Object> guistate = HuntressMainMenu.guistate;"
+      },
+      {
+        "line": 35,
+        "text": "    public HuntressMainScreen(HuntressMainMenu container, Inventory inventory, Component text) {"
+      },
+      {
+        "line": 58,
+        "text": "        guiGraphics.blit(new ResourceLocation(\"thermal_shock:textures/screens/huntressidleportrait.png\"), this.leftPos + -29, this.topPos + -23, 0.0f, (float)Mth.clamp((int)((int)WhisperMainOpenTickProcedure.execute() * 128), (int)0, (int)1408), 128, 128, 128, 1536);"
+      },
+      {
+        "line": 71,
+        "text": "        guiGraphics.drawString(this.font, HuntressSetIntroTextProcedure.execute(), 9, 112, -1, false);"
+      },
+      {
+        "line": 72,
+        "text": "        guiGraphics.drawString(this.font, (Component)Component.translatable((String)\"gui.thermal_shock.huntress_main.label_concierge\"), 67, 92, -1, false);"
+      }
+    ],
+    "client\\gui\\HuntressSelfInfoScreen.java": [
+      {
+        "line": 9,
+        "text": "import net.mcreator.thermal_shock.network.HuntressSelfInfoButtonMessage;"
+      },
+      {
+        "line": 11,
+        "text": "import net.mcreator.thermal_shock.world.inventory.HuntressSelfInfoMenu;"
+      },
+      {
+        "line": 24,
+        "text": "public class HuntressSelfInfoScreen"
+      },
+      {
+        "line": 25,
+        "text": "extends AbstractContainerScreen<HuntressSelfInfoMenu> {"
+      },
+      {
+        "line": 26,
+        "text": "    private static final HashMap<String, Object> guistate = HuntressSelfInfoMenu.guistate;"
+      },
+      {
+        "line": 34,
+        "text": "    public HuntressSelfInfoScreen(HuntressSelfInfoMenu container, Inventory inventory, Component text) {"
+      },
+      {
+        "line": 57,
+        "text": "        guiGraphics.blit(new ResourceLocation(\"thermal_shock:textures/screens/huntressidleportrait.png\"), this.leftPos + -29, this.topPos + -23, 0.0f, (float)Mth.clamp((int)((int)WhisperMainOpenTickProcedure.execute() * 128), (int)0, (int)1408), 128, 128, 128, 1536);"
+      },
+      {
+        "line": 70,
+        "text": "        guiGraphics.drawString(this.font, (Component)Component.translatable((String)\"gui.thermal_shock.huntress_self_info.label_kutty\"), 9, 112, -1, false);"
+      },
+      {
+        "line": 71,
+        "text": "        guiGraphics.drawString(this.font, (Component)Component.translatable((String)\"gui.thermal_shock.huntress_self_info.label_concierge\"), 67, 92, -1, false);"
+      },
+      {
+        "line": 72,
+        "text": "        guiGraphics.drawString(this.font, (Component)Component.translatable((String)\"gui.thermal_shock.huntress_self_info.label_suitable_land_to_expand_out_terr\"), 9, 121, -1, false);"
+      },
+      {
+        "line": 73,
+        "text": "        guiGraphics.drawString(this.font, (Component)Component.translatable((String)\"gui.thermal_shock.huntress_self_info.label_we_build_our_nests_in\"), 9, 130, -1, false);"
+      },
+      {
+        "line": 74,
+        "text": "        guiGraphics.drawString(this.font, (Component)Component.translatable((String)\"gui.thermal_shock.huntress_self_info.label_birth_to_hunt_survive_and_defe\"), 9, 139, -1, false);"
+      },
+      {
+        "line": 75,
+        "text": "        guiGraphics.drawString(this.font, (Component)Component.translatable((String)\"gui.thermal_shock.huntress_self_info.label_fight_against_the_infection\"), 9, 149, -1, false);"
+      },
+      {
+        "line": 81,
+        "text": "            ThermalShockMod.PACKET_HANDLER.sendToServer((Object)new HuntressSelfInfoButtonMessage(0, this.x, this.y, this.z));"
+      },
+      {
+        "line": 82,
+        "text": "            HuntressSelfInfoButtonMessage.handleButtonAction(this.entity, 0, this.x, this.y, this.z);"
+      }
+    ],
+    "client\\gui\\HuntressVilebathInfoScreen.java": [
+      {
+        "line": 9,
+        "text": "import net.mcreator.thermal_shock.network.HuntressVilebathInfoButtonMessage;"
+      },
+      {
+        "line": 11,
+        "text": "import net.mcreator.thermal_shock.world.inventory.HuntressVilebathInfoMenu;"
+      },
+      {
+        "line": 24,
+        "text": "public class HuntressVilebathInfoScreen"
+      },
+      {
+        "line": 25,
+        "text": "extends AbstractContainerScreen<HuntressVilebathInfoMenu> {"
+      },
+      {
+        "line": 26,
+        "text": "    private static final HashMap<String, Object> guistate = HuntressVilebathInfoMenu.guistate;"
+      },
+      {
+        "line": 34,
+        "text": "    public HuntressVilebathInfoScreen(HuntressVilebathInfoMenu container, Inventory inventory, Component text) {"
+      },
+      {
+        "line": 57,
+        "text": "        guiGraphics.blit(new ResourceLocation(\"thermal_shock:textures/screens/huntressidleportrait.png\"), this.leftPos + -29, this.topPos + -23, 0.0f, (float)Mth.clamp((int)((int)WhisperMainOpenTickProcedure.execute() * 128), (int)0, (int)1408), 128, 128, 128, 1536);"
+      },
+      {
+        "line": 70,
+        "text": "        guiGraphics.drawString(this.font, (Component)Component.translatable((String)\"gui.thermal_shock.huntress_vilebath_info.label_kutty\"), 9, 112, -1, false);"
+      },
+      {
+        "line": 71,
+        "text": "        guiGraphics.drawString(this.font, (Component)Component.translatable((String)\"gui.thermal_shock.huntress_vilebath_info.label_concierge\"), 67, 92, -1, false);"
+      },
+      {
+        "line": 72,
+        "text": "        guiGraphics.drawString(this.font, (Component)Component.translatable((String)\"gui.thermal_shock.huntress_vilebath_info.label_suitable_land_to_expand_out_terr\"), 9, 121, -1, false);"
+      },
+      {
+        "line": 73,
+        "text": "        guiGraphics.drawString(this.font, (Component)Component.translatable((String)\"gui.thermal_shock.huntress_vilebath_info.label_we_build_our_nests_in\"), 9, 130, -1, false);"
+      },
+      {
+        "line": 74,
+        "text": "        guiGraphics.drawString(this.font, (Component)Component.translatable((String)\"gui.thermal_shock.huntress_vilebath_info.label_birth_to_hunt_survive_and_defe\"), 9, 140, -1, false);"
+      },
+      {
+        "line": 75,
+        "text": "        guiGraphics.drawString(this.font, (Component)Component.translatable((String)\"gui.thermal_shock.huntress_vilebath_info.label_fight_against_the_infection\"), 9, 149, -1, false);"
+      },
+      {
+        "line": 76,
+        "text": "        guiGraphics.drawString(this.font, (Component)Component.translatable((String)\"gui.thermal_shock.huntress_vilebath_info.label_i_missed_their_prime\"), 9, 158, -1, false);"
+      },
+      {
+        "line": 82,
+        "text": "            ThermalShockMod.PACKET_HANDLER.sendToServer((Object)new HuntressVilebathInfoButtonMessage(0, this.x, this.y, this.z));"
+      },
+      {
+        "line": 83,
+        "text": "            HuntressVilebathInfoButtonMessage.handleButtonAction(this.entity, 0, this.x, this.y, this.z);"
+      }
+    ],
+    "client\\renderer\\HuntressBossRenderer.java": [
+      {
+        "line": 8,
+        "text": "import net.mcreator.thermal_shock.entity.HuntressBossEntity;"
+      },
+      {
+        "line": 9,
+        "text": "import net.mcreator.thermal_shock.entity.model.HuntressBossModel;"
+      },
+      {
+        "line": 19,
+        "text": "public class HuntressBossRenderer"
+      },
+      {
+        "line": 20,
+        "text": "extends GeoEntityRenderer<HuntressBossEntity> {"
+      },
+      {
+        "line": 21,
+        "text": "    public HuntressBossRenderer(EntityRendererProvider.Context renderManager) {"
+      },
+      {
+        "line": 22,
+        "text": "        super(renderManager, (GeoModel)new HuntressBossModel());"
+      },
+      {
+        "line": 26,
+        "text": "    public RenderType getRenderType(HuntressBossEntity animatable, ResourceLocation texture, MultiBufferSource bufferSource, float partialTick) {"
+      },
+      {
+        "line": 30,
+        "text": "    public void preRender(PoseStack poseStack, HuntressBossEntity entity, BakedGeoModel model, MultiBufferSource bufferSource, VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {"
+      }
+    ],
+    "client\\renderer\\HuntressRenderer.java": [
+      {
+        "line": 8,
+        "text": "import net.mcreator.thermal_shock.entity.HuntressEntity;"
+      },
+      {
+        "line": 9,
+        "text": "import net.mcreator.thermal_shock.entity.model.HuntressModel;"
+      },
+      {
+        "line": 19,
+        "text": "public class HuntressRenderer"
+      },
+      {
+        "line": 20,
+        "text": "extends GeoEntityRenderer<HuntressEntity> {"
+      },
+      {
+        "line": 21,
+        "text": "    public HuntressRenderer(EntityRendererProvider.Context renderManager) {"
+      },
+      {
+        "line": 22,
+        "text": "        super(renderManager, (GeoModel)new HuntressModel());"
+      },
+      {
+        "line": 26,
+        "text": "    public RenderType getRenderType(HuntressEntity animatable, ResourceLocation texture, MultiBufferSource bufferSource, float partialTick) {"
+      },
+      {
+        "line": 30,
+        "text": "    public void preRender(PoseStack poseStack, HuntressEntity entity, BakedGeoModel model, MultiBufferSource bufferSource, VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {"
+      }
+    ],
+    "entity\\HuntressBossEntity.java": [
+      {
+        "line": 52,
+        "text": "public class HuntressBossEntity"
+      },
+      {
+        "line": 55,
+        "text": "    public static final EntityDataAccessor<Boolean> SHOOT = SynchedEntityData.defineId(HuntressBossEntity.class, (EntityDataSerializer)EntityDataSerializers.BOOLEAN);"
+      },
+      {
+        "line": 56,
+        "text": "    public static final EntityDataAccessor<String> ANIMATION = SynchedEntityData.defineId(HuntressBossEntity.class, (EntityDataSerializer)EntityDataSerializers.STRING);"
+      },
+      {
+        "line": 57,
+        "text": "    public static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(HuntressBossEntity.class, (EntityDataSerializer)EntityDataSerializers.STRING);"
+      },
+      {
+        "line": 66,
+        "text": "    public HuntressBossEntity(PlayMessages.SpawnEntity packet, Level world) {"
+      },
+      {
+        "line": 67,
+        "text": "        this((EntityType<HuntressBossEntity>)((EntityType)ThermalShockModEntities.HUNTRESS_BOSS.get()), world);"
+      },
+      {
+        "line": 70,
+        "text": "    public HuntressBossEntity(EntityType<HuntressBossEntity> type, Level world) {"
+      },
+      {
+        "line": 81,
+        "text": "        this.entityData.define(TEXTURE, (Object)\"huntress\");"
+      }
+    ],
+    "entity\\HuntressEntity.java": [
+      {
+        "line": 8,
+        "text": "import net.mcreator.thermal_shock.procedures.HuntressOnInitialEntitySpawnProcedure;"
+      },
+      {
+        "line": 9,
+        "text": "import net.mcreator.thermal_shock.procedures.HuntressRightClickedOnEntityProcedure;"
+      },
+      {
+        "line": 57,
+        "text": "public class HuntressEntity"
+      },
+      {
+        "line": 60,
+        "text": "    public static final EntityDataAccessor<Boolean> SHOOT = SynchedEntityData.defineId(HuntressEntity.class, (EntityDataSerializer)EntityDataSerializers.BOOLEAN);"
+      },
+      {
+        "line": 61,
+        "text": "    public static final EntityDataAccessor<String> ANIMATION = SynchedEntityData.defineId(HuntressEntity.class, (EntityDataSerializer)EntityDataSerializers.STRING);"
+      },
+      {
+        "line": 62,
+        "text": "    public static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(HuntressEntity.class, (EntityDataSerializer)EntityDataSerializers.STRING);"
+      },
+      {
+        "line": 70,
+        "text": "    public HuntressEntity(PlayMessages.SpawnEntity packet, Level world) {"
+      },
+      {
+        "line": 71,
+        "text": "        this((EntityType<HuntressEntity>)((EntityType)ThermalShockModEntities.HUNTRESS.get()), world);"
+      },
+      {
+        "line": 74,
+        "text": "    public HuntressEntity(EntityType<HuntressEntity> type, Level world) {"
+      },
+      {
+        "line": 79,
+        "text": "        this.setCustomName((Component)Component.literal((String)\"\\u00a7aHuntress\"));"
+      },
+      {
+        "line": 88,
+        "text": "        this.entityData.define(TEXTURE, (Object)\"huntress\");"
+      },
+      {
+        "line": 162,
+        "text": "        HuntressOnInitialEntitySpawnProcedure.execute((LevelAccessor)world, this.getX(), this.getY(), this.getZ(), (Entity)this);"
+      },
+      {
+        "line": 185,
+        "text": "        HuntressEntity entity = this;"
+      },
+      {
+        "line": 187,
+        "text": "        HuntressRightClickedOnEntityProcedure.execute((LevelAccessor)world, x, y, z, (Entity)sourceentity);"
+      }
+    ],
+    "entity\\model\\HuntressBossModel.java": [
+      {
+        "line": 6,
+        "text": "import net.mcreator.thermal_shock.entity.HuntressBossEntity;"
+      },
+      {
+        "line": 14,
+        "text": "public class HuntressBossModel"
+      },
+      {
+        "line": 15,
+        "text": "extends GeoModel<HuntressBossEntity> {"
+      },
+      {
+        "line": 16,
+        "text": "    public ResourceLocation getAnimationResource(HuntressBossEntity entity) {"
+      },
+      {
+        "line": 17,
+        "text": "        return new ResourceLocation(\"thermal_shock\", \"animations/huntress.animation.json\");"
+      },
+      {
+        "line": 20,
+        "text": "    public ResourceLocation getModelResource(HuntressBossEntity entity) {"
+      },
+      {
+        "line": 21,
+        "text": "        return new ResourceLocation(\"thermal_shock\", \"geo/huntress.geo.json\");"
+      },
+      {
+        "line": 24,
+        "text": "    public ResourceLocation getTextureResource(HuntressBossEntity entity) {"
+      },
+      {
+        "line": 28,
+        "text": "    public void setCustomAnimations(HuntressBossEntity animatable, long instanceId, AnimationState animationState) {"
+      }
+    ],
+    "entity\\model\\HuntressModel.java": [
+      {
+        "line": 6,
+        "text": "import net.mcreator.thermal_shock.entity.HuntressEntity;"
+      },
+      {
+        "line": 14,
+        "text": "public class HuntressModel"
+      },
+      {
+        "line": 15,
+        "text": "extends GeoModel<HuntressEntity> {"
+      },
+      {
+        "line": 16,
+        "text": "    public ResourceLocation getAnimationResource(HuntressEntity entity) {"
+      },
+      {
+        "line": 17,
+        "text": "        return new ResourceLocation(\"thermal_shock\", \"animations/huntress.animation.json\");"
+      },
+      {
+        "line": 20,
+        "text": "    public ResourceLocation getModelResource(HuntressEntity entity) {"
+      },
+      {
+        "line": 21,
+        "text": "        return new ResourceLocation(\"thermal_shock\", \"geo/huntress.geo.json\");"
+      },
+      {
+        "line": 24,
+        "text": "    public ResourceLocation getTextureResource(HuntressEntity entity) {"
+      },
+      {
+        "line": 28,
+        "text": "    public void setCustomAnimations(HuntressEntity animatable, long instanceId, AnimationState animationState) {"
+      }
+    ],
+    "init\\EntityAnimationFactory.java": [
+      {
+        "line": 53,
+        "text": "import net.mcreator.thermal_shock.entity.HuntressBossEntity;"
+      },
+      {
+        "line": 54,
+        "text": "import net.mcreator.thermal_shock.entity.HuntressEntity;"
+      },
+      {
+        "line": 502,
+        "text": "            if ((animation = event.getEntity()) instanceof HuntressBossEntity && !((String)(animation = (syncable = (HuntressBossEntity)((Object)animation)).getSyncedAnimation())).equals(\"undefined\")) {"
+      },
+      {
+        "line": 506,
+        "text": "            if ((animation = event.getEntity()) instanceof HuntressEntity && !((String)(animation = (syncable = (HuntressEntity)((Object)animation)).getSyncedAnimation())).equals(\"undefined\")) {"
+      }
+    ],
+    "init\\ThermalShockModEntities.java": [
+      {
+        "line": 64,
+        "text": "import net.mcreator.thermal_shock.entity.HuntressBossEntity;"
+      },
+      {
+        "line": 65,
+        "text": "import net.mcreator.thermal_shock.entity.HuntressEntity;"
+      },
+      {
+        "line": 294,
+        "text": "    public static final RegistryObject<EntityType<HuntressBossEntity>> HUNTRESS_BOSS = ThermalShockModEntities.register(\"huntress_boss\", EntityType.Builder.of(HuntressBossEntity::new, (MobCategory)MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(HuntressBossEntity::new).sized(1.2f, 4.4f));"
+      },
+      {
+        "line": 295,
+        "text": "    public static final RegistryObject<EntityType<HuntressEntity>> HUNTRESS = ThermalShockModEntities.register(\"huntress\", EntityType.Builder.of(HuntressEntity::new, (MobCategory)MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(HuntressEntity::new).fireImmune().sized(1.2f, 4.4f));"
+      },
+      {
+        "line": 430,
+        "text": "            HuntressBossEntity.init();"
+      },
+      {
+        "line": 431,
+        "text": "            HuntressEntity.init();"
+      },
+      {
+        "line": 560,
+        "text": "        event.put((EntityType)HUNTRESS_BOSS.get(), HuntressBossEntity.createAttributes().build());"
+      },
+      {
+        "line": 561,
+        "text": "        event.put((EntityType)HUNTRESS.get(), HuntressEntity.createAttributes().build());"
+      }
+    ],
+    "init\\ThermalShockModEntityRenderers.java": [
+      {
+        "line": 56,
+        "text": "import net.mcreator.thermal_shock.client.renderer.HuntressBossRenderer;"
+      },
+      {
+        "line": 57,
+        "text": "import net.mcreator.thermal_shock.client.renderer.HuntressRenderer;"
+      },
+      {
+        "line": 269,
+        "text": "        event.registerEntityRenderer((EntityType)ThermalShockModEntities.HUNTRESS_BOSS.get(), HuntressBossRenderer::new);"
+      },
+      {
+        "line": 270,
+        "text": "        event.registerEntityRenderer((EntityType)ThermalShockModEntities.HUNTRESS.get(), HuntressRenderer::new);"
+      }
+    ],
+    "init\\ThermalShockModMenus.java": [
+      {
+        "line": 66,
+        "text": "import net.mcreator.thermal_shock.world.inventory.HuntressIntroMenu;"
+      },
+      {
+        "line": 67,
+        "text": "import net.mcreator.thermal_shock.world.inventory.HuntressMainMenu;"
+      },
+      {
+        "line": 68,
+        "text": "import net.mcreator.thermal_shock.world.inventory.HuntressSelfInfoMenu;"
+      },
+      {
+        "line": 69,
+        "text": "import net.mcreator.thermal_shock.world.inventory.HuntressVilebathInfoMenu;"
+      },
+      {
+        "line": 382,
+        "text": "    public static final RegistryObject<MenuType<HuntressMainMenu>> HUNTRESS_MAIN = REGISTRY.register(\"huntress_main\", () -> IForgeMenuType.create(HuntressMainMenu::new));"
+      },
+      {
+        "line": 383,
+        "text": "    public static final RegistryObject<MenuType<HuntressSelfInfoMenu>> HUNTRESS_SELF_INFO = REGISTRY.register(\"huntress_self_info\", () -> IForgeMenuType.create(HuntressSelfInfoMenu::new));"
+      },
+      {
+        "line": 384,
+        "text": "    public static final RegistryObject<MenuType<HuntressVilebathInfoMenu>> HUNTRESS_VILEBATH_INFO = REGISTRY.register(\"huntress_vilebath_info\", () -> IForgeMenuType.create(HuntressVilebathInfoMenu::new));"
+      },
+      {
+        "line": 385,
+        "text": "    public static final RegistryObject<MenuType<HuntressIntroMenu>> HUNTRESS_INTRO = REGISTRY.register(\"huntress_intro\", () -> IForgeMenuType.create(HuntressIntroMenu::new));"
+      }
+    ],
+    "init\\ThermalShockModScreens.java": [
+      {
+        "line": 66,
+        "text": "import net.mcreator.thermal_shock.client.gui.HuntressIntroScreen;"
+      },
+      {
+        "line": 67,
+        "text": "import net.mcreator.thermal_shock.client.gui.HuntressMainScreen;"
+      },
+      {
+        "line": 68,
+        "text": "import net.mcreator.thermal_shock.client.gui.HuntressSelfInfoScreen;"
+      },
+      {
+        "line": 69,
+        "text": "import net.mcreator.thermal_shock.client.gui.HuntressVilebathInfoScreen;"
+      },
+      {
+        "line": 386,
+        "text": "            MenuScreens.register((MenuType)((MenuType)ThermalShockModMenus.HUNTRESS_MAIN.get()), HuntressMainScreen::new);"
+      },
+      {
+        "line": 387,
+        "text": "            MenuScreens.register((MenuType)((MenuType)ThermalShockModMenus.HUNTRESS_SELF_INFO.get()), HuntressSelfInfoScreen::new);"
+      },
+      {
+        "line": 388,
+        "text": "            MenuScreens.register((MenuType)((MenuType)ThermalShockModMenus.HUNTRESS_VILEBATH_INFO.get()), HuntressVilebathInfoScreen::new);"
+      },
+      {
+        "line": 389,
+        "text": "            MenuScreens.register((MenuType)((MenuType)ThermalShockModMenus.HUNTRESS_INTRO.get()), HuntressIntroScreen::new);"
+      }
+    ],
+    "network\\HuntressIntroButtonMessage.java": [
+      {
+        "line": 10,
+        "text": "import net.mcreator.thermal_shock.world.inventory.HuntressIntroMenu;"
+      },
+      {
+        "line": 24,
+        "text": "public class HuntressIntroButtonMessage {"
+      },
+      {
+        "line": 30,
+        "text": "    public HuntressIntroButtonMessage(FriendlyByteBuf buffer) {"
+      },
+      {
+        "line": 37,
+        "text": "    public HuntressIntroButtonMessage(int buttonID, int x, int y, int z) {"
+      },
+      {
+        "line": 44,
+        "text": "    public static void buffer(HuntressIntroButtonMessage message, FriendlyByteBuf buffer) {"
+      },
+      {
+        "line": 51,
+        "text": "    public static void handler(HuntressIntroButtonMessage message, Supplier<NetworkEvent.Context> contextSupplier) {"
+      },
+      {
+        "line": 59,
+        "text": "            HuntressIntroButtonMessage.handleButtonAction((Player)entity, buttonID, x, y, z);"
+      },
+      {
+        "line": 66,
+        "text": "        HashMap<String, Object> guistate = HuntressIntroMenu.guistate;"
+      },
+      {
+        "line": 77,
+        "text": "        ThermalShockMod.addNetworkMessage(HuntressIntroButtonMessage.class, HuntressIntroButtonMessage::buffer, HuntressIntroButtonMessage::new, HuntressIntroButtonMessage::handler);"
+      }
+    ],
+    "network\\HuntressSelfInfoButtonMessage.java": [
+      {
+        "line": 10,
+        "text": "import net.mcreator.thermal_shock.world.inventory.HuntressSelfInfoMenu;"
+      },
+      {
+        "line": 24,
+        "text": "public class HuntressSelfInfoButtonMessage {"
+      },
+      {
+        "line": 30,
+        "text": "    public HuntressSelfInfoButtonMessage(FriendlyByteBuf buffer) {"
+      },
+      {
+        "line": 37,
+        "text": "    public HuntressSelfInfoButtonMessage(int buttonID, int x, int y, int z) {"
+      },
+      {
+        "line": 44,
+        "text": "    public static void buffer(HuntressSelfInfoButtonMessage message, FriendlyByteBuf buffer) {"
+      },
+      {
+        "line": 51,
+        "text": "    public static void handler(HuntressSelfInfoButtonMessage message, Supplier<NetworkEvent.Context> contextSupplier) {"
+      },
+      {
+        "line": 59,
+        "text": "            HuntressSelfInfoButtonMessage.handleButtonAction((Player)entity, buttonID, x, y, z);"
+      },
+      {
+        "line": 66,
+        "text": "        HashMap<String, Object> guistate = HuntressSelfInfoMenu.guistate;"
+      },
+      {
+        "line": 77,
+        "text": "        ThermalShockMod.addNetworkMessage(HuntressSelfInfoButtonMessage.class, HuntressSelfInfoButtonMessage::buffer, HuntressSelfInfoButtonMessage::new, HuntressSelfInfoButtonMessage::handler);"
+      }
+    ],
+    "network\\HuntressVilebathInfoButtonMessage.java": [
+      {
+        "line": 10,
+        "text": "import net.mcreator.thermal_shock.world.inventory.HuntressVilebathInfoMenu;"
+      },
+      {
+        "line": 24,
+        "text": "public class HuntressVilebathInfoButtonMessage {"
+      },
+      {
+        "line": 30,
+        "text": "    public HuntressVilebathInfoButtonMessage(FriendlyByteBuf buffer) {"
+      },
+      {
+        "line": 37,
+        "text": "    public HuntressVilebathInfoButtonMessage(int buttonID, int x, int y, int z) {"
+      },
+      {
+        "line": 44,
+        "text": "    public static void buffer(HuntressVilebathInfoButtonMessage message, FriendlyByteBuf buffer) {"
+      },
+      {
+        "line": 51,
+        "text": "    public static void handler(HuntressVilebathInfoButtonMessage message, Supplier<NetworkEvent.Context> contextSupplier) {"
+      },
+      {
+        "line": 59,
+        "text": "            HuntressVilebathInfoButtonMessage.handleButtonAction((Player)entity, buttonID, x, y, z);"
+      },
+      {
+        "line": 66,
+        "text": "        HashMap<String, Object> guistate = HuntressVilebathInfoMenu.guistate;"
+      },
+      {
+        "line": 77,
+        "text": "        ThermalShockMod.addNetworkMessage(HuntressVilebathInfoButtonMessage.class, HuntressVilebathInfoButtonMessage::buffer, HuntressVilebathInfoButtonMessage::new, HuntressVilebathInfoButtonMessage::handler);"
+      }
+    ],
+    "procedures\\HuntOpenMainProcedure.java": [
+      {
+        "line": 7,
+        "text": "import net.mcreator.thermal_shock.world.inventory.HuntressMainMenu;"
+      },
+      {
+        "line": 31,
+        "text": "                    return Component.literal((String)\"HuntressMain\");"
+      },
+      {
+        "line": 35,
+        "text": "                    return new HuntressMainMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));"
+      }
+    ],
+    "procedures\\HuntressAttackProcedure.java": [
+      {
+        "line": 10,
+        "text": "import net.mcreator.thermal_shock.entity.HuntressBossEntity;"
+      },
+      {
+        "line": 43,
+        "text": "public class HuntressAttackProcedure {"
+      },
+      {
+        "line": 47,
+        "text": "            HuntressAttackProcedure.execute((Event)event, (LevelAccessor)event.getEntity().level(), event.getEntity().getX(), event.getEntity().getY(), event.getEntity().getZ(), (Entity)event.getEntity(), event.getSource().getEntity());"
+      },
+      {
+        "line": 52,
+        "text": "        HuntressAttackProcedure.execute(null, world, x, y, z, entity, sourceentity);"
+      },
+      {
+        "line": 62,
+        "text": "        if (sourceentity instanceof HuntressBossEntity) {"
+      },
+      {
+        "line": 71,
+        "text": "                    if (sourceentity instanceof HuntressBossEntity) {"
+      },
+      {
+        "line": 72,
+        "text": "                        ((HuntressBossEntity)sourceentity).setAnimation(\"rollback\");"
+      },
+      {
+        "line": 80,
+        "text": "                    if (sourceentity instanceof HuntressBossEntity) {"
+      },
+      {
+        "line": 81,
+        "text": "                        ((HuntressBossEntity)sourceentity).setAnimation(\"triplehit\");"
+      },
+      {
+        "line": 152,
+        "text": "                    if (sourceentity instanceof HuntressBossEntity) {"
+      },
+      {
+        "line": 153,
+        "text": "                        ((HuntressBossEntity)sourceentity).setAnimation(\"dissa\");"
+      },
+      {
+        "line": 170,
+        "text": "                        if (sourceentity instanceof HuntressBossEntity) {"
+      },
+      {
+        "line": 171,
+        "text": "                            ((HuntressBossEntity)sourceentity).setAnimation(\"reappear2\");"
+      }
+    ],
+    "procedures\\HuntressOnInitialEntitySpawnProcedure.java": [
+      {
+        "line": 7,
+        "text": "import net.mcreator.thermal_shock.entity.HuntressEntity;"
+      },
+      {
+        "line": 18,
+        "text": "public class HuntressOnInitialEntitySpawnProcedure {"
+      },
+      {
+        "line": 24,
+        "text": "        if (entity instanceof HuntressEntity) {"
+      },
+      {
+        "line": 25,
+        "text": "            ((HuntressEntity)entity).setAnimation(\"npcspawn\");"
+      }
+    ],
+    "procedures\\HuntressRightClickedOnEntityProcedure.java": [
+      {
+        "line": 7,
+        "text": "import net.mcreator.thermal_shock.world.inventory.HuntressMainMenu;"
+      },
+      {
+        "line": 20,
+        "text": "public class HuntressRightClickedOnEntityProcedure {"
+      },
+      {
+        "line": 31,
+        "text": "                    return Component.literal((String)\"HuntressMain\");"
+      },
+      {
+        "line": 35,
+        "text": "                    return new HuntressMainMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));"
+      }
+    ],
+    "procedures\\HuntressSetIntroTextProcedure.java": [
+      {
+        "line": 8,
+        "text": "public class HuntressSetIntroTextProcedure {"
+      }
+    ],
+    "procedures\\WideAngleRightclickedProcedure.java": [
+      {
+        "line": 45,
+        "text": "import net.mcreator.thermal_shock.entity.HuntressBossEntity;"
+      },
+      {
+        "line": 46,
+        "text": "import net.mcreator.thermal_shock.entity.HuntressEntity;"
+      },
+      {
+        "line": 414,
+        "text": "                if (!(world.getEntitiesOfClass(HuntressEntity.class, AABB.ofSize((Vec3)new Vec3((double)entity.level().clip(new ClipContext(entity.getEyePosition(1.0f), entity.getEyePosition(1.0f).add(entity.getViewVector(1.0f).scale(5.0)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, entity)).getBlockPos().getX(), (double)entity.level().clip(new ClipContext(entity.getEyePosition(1.0f), entity.getEyePosition(1.0f).add(entity.getViewVector(1.0f).scale(5.0)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, entity)).getBlockPos().getY(), (double)entity.level().clip(new ClipContext(entity.getEyePosition(1.0f), entity.getEyePosition(1.0f).add(entity.getViewVector(1.0f).scale(5.0)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, entity)).getBlockPos().getZ()), (double)4.0, (double)4.0, (double)4.0), e -> true).isEmpty() && world.getEntitiesOfClass(HuntressBossEntity.class, AABB.ofSize((Vec3)new Vec3((double)entity.level().clip(new ClipContext(entity.getEyePosition(1.0f), entity.getEyePosition(1.0f).add(entity.getViewVector(1.0f).scale(5.0)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, entity)).getBlockPos().getX(), (double)entity.level().clip(new ClipContext(entity.getEyePosition(1.0f), entity.getEyePosition(1.0f).add(entity.getViewVector(1.0f).scale(5.0)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, entity)).getBlockPos().getY(), (double)entity.level().clip(new ClipContext(entity.getEyePosition(1.0f), entity.getEyePosition(1.0f).add(entity.getViewVector(1.0f).scale(5.0)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, entity)).getBlockPos().getZ())"
+      },
+      {
+        "line": 415,
+        "text": "                    _player.displayClientMessage((Component)Component.literal((String)\"\\u00a7a\\\"The Huntress.\\\" \\u00a7rOne in a million... or maybe just a couple hundred\\nType: Medius Bug\"), false);"
+      }
+    ],
+    "world\\inventory\\HuntressIntroMenu.java": [
+      {
+        "line": 32,
+        "text": "public class HuntressIntroMenu"
+      },
+      {
+        "line": 49,
+        "text": "    public HuntressIntroMenu(int id, Inventory inv, FriendlyByteBuf extraData) {"
+      },
+      {
+        "line": 50,
+        "text": "        super((MenuType)ThermalShockModMenus.HUNTRESS_INTRO.get(), id);"
+      },
+      {
+        "line": 92,
+        "text": "        if (event.phase == TickEvent.Phase.END && entity.containerMenu instanceof HuntressIntroMenu) {"
+      }
+    ],
+    "world\\inventory\\HuntressMainMenu.java": [
+      {
+        "line": 32,
+        "text": "public class HuntressMainMenu"
+      },
+      {
+        "line": 49,
+        "text": "    public HuntressMainMenu(int id, Inventory inv, FriendlyByteBuf extraData) {"
+      },
+      {
+        "line": 50,
+        "text": "        super((MenuType)ThermalShockModMenus.HUNTRESS_MAIN.get(), id);"
+      },
+      {
+        "line": 92,
+        "text": "        if (event.phase == TickEvent.Phase.END && entity.containerMenu instanceof HuntressMainMenu) {"
+      }
+    ],
+    "world\\inventory\\HuntressSelfInfoMenu.java": [
+      {
+        "line": 32,
+        "text": "public class HuntressSelfInfoMenu"
+      },
+      {
+        "line": 49,
+        "text": "    public HuntressSelfInfoMenu(int id, Inventory inv, FriendlyByteBuf extraData) {"
+      },
+      {
+        "line": 50,
+        "text": "        super((MenuType)ThermalShockModMenus.HUNTRESS_SELF_INFO.get(), id);"
+      },
+      {
+        "line": 92,
+        "text": "        if (event.phase == TickEvent.Phase.END && entity.containerMenu instanceof HuntressSelfInfoMenu) {"
+      }
+    ],
+    "world\\inventory\\HuntressVilebathInfoMenu.java": [
+      {
+        "line": 32,
+        "text": "public class HuntressVilebathInfoMenu"
+      },
+      {
+        "line": 49,
+        "text": "    public HuntressVilebathInfoMenu(int id, Inventory inv, FriendlyByteBuf extraData) {"
+      },
+      {
+        "line": 50,
+        "text": "        super((MenuType)ThermalShockModMenus.HUNTRESS_VILEBATH_INFO.get(), id);"
+      },
+      {
+        "line": 92,
+        "text": "        if (event.phase == TickEvent.Phase.END && entity.containerMenu instanceof HuntressVilebathInfoMenu) {"
+      }
+    ]
+  },
+  "jar_class_references": {
+    "net/mcreator/thermal_shock/client/gui/HuntressIntroScreen.class": [
+      "HuntressIntroMenu"
+    ],
+    "net/mcreator/thermal_shock/client/gui/HuntressMainScreen.class": [
+      "HuntressMainMenu"
+    ],
+    "net/mcreator/thermal_shock/client/gui/HuntressSelfInfoScreen.class": [
+      "HuntressSelfInfoMenu"
+    ],
+    "net/mcreator/thermal_shock/client/gui/HuntressVilebathInfoScreen.class": [
+      "HuntressVilebathInfoMenu"
+    ],
+    "net/mcreator/thermal_shock/client/renderer/HuntressBossRenderer.class": [
+      "HuntressBossEntity"
+    ],
+    "net/mcreator/thermal_shock/client/renderer/HuntressRenderer.class": [
+      "HuntressEntity"
+    ],
+    "net/mcreator/thermal_shock/entity/HuntressBossEntity$1.class": [
+      "HuntressBossEntity"
+    ],
+    "net/mcreator/thermal_shock/entity/HuntressBossEntity.class": [
+      "HuntressBossEntity",
+      "HUNTRESS_BOSS",
+      "HUNTRESS"
+    ],
+    "net/mcreator/thermal_shock/entity/HuntressEntity.class": [
+      "HuntressEntity",
+      "HUNTRESS"
+    ],
+    "net/mcreator/thermal_shock/entity/model/HuntressBossModel.class": [
+      "HuntressBossEntity"
+    ],
+    "net/mcreator/thermal_shock/entity/model/HuntressModel.class": [
+      "HuntressEntity"
+    ],
+    "net/mcreator/thermal_shock/init/EntityAnimationFactory.class": [
+      "HuntressEntity",
+      "HuntressBossEntity"
+    ],
+    "net/mcreator/thermal_shock/init/ThermalShockModEntities.class": [
+      "HuntressEntity",
+      "HuntressBossEntity",
+      "HUNTRESS_BOSS",
+      "HUNTRESS"
+    ],
+    "net/mcreator/thermal_shock/init/ThermalShockModEntityRenderers.class": [
+      "HUNTRESS_BOSS",
+      "HUNTRESS"
+    ],
+    "net/mcreator/thermal_shock/init/ThermalShockModMenus.class": [
+      "HuntressMainMenu",
+      "HuntressSelfInfoMenu",
+      "HuntressIntroMenu",
+      "HuntressVilebathInfoMenu",
+      "HUNTRESS"
+    ],
+    "net/mcreator/thermal_shock/init/ThermalShockModScreens.class": [
+      "HuntressMainMenu",
+      "HuntressSelfInfoMenu",
+      "HuntressIntroMenu",
+      "HuntressVilebathInfoMenu",
+      "HUNTRESS"
+    ],
+    "net/mcreator/thermal_shock/network/HuntressIntroButtonMessage.class": [
+      "HuntressIntroMenu"
+    ],
+    "net/mcreator/thermal_shock/network/HuntressSelfInfoButtonMessage.class": [
+      "HuntressSelfInfoMenu"
+    ],
+    "net/mcreator/thermal_shock/network/HuntressVilebathInfoButtonMessage.class": [
+      "HuntressVilebathInfoMenu"
+    ],
+    "net/mcreator/thermal_shock/procedures/HuntOpenMainProcedure$1.class": [
+      "HuntressMainMenu"
+    ],
+    "net/mcreator/thermal_shock/procedures/HuntressAttackProcedure.class": [
+      "HuntressBossEntity"
+    ],
+    "net/mcreator/thermal_shock/procedures/HuntressOnInitialEntitySpawnProcedure.class": [
+      "HuntressEntity"
+    ],
+    "net/mcreator/thermal_shock/procedures/HuntressRightClickedOnEntityProcedure$1.class": [
+      "HuntressMainMenu"
+    ],
+    "net/mcreator/thermal_shock/procedures/HuntressRightClickedOnEntityProcedure.class": [],
+    "net/mcreator/thermal_shock/procedures/HuntressSetIntroTextProcedure.class": [],
+    "net/mcreator/thermal_shock/procedures/WideAngleRightclickedProcedure.class": [
+      "HuntressEntity",
+      "HuntressBossEntity"
+    ],
+    "net/mcreator/thermal_shock/world/inventory/HuntressIntroMenu.class": [
+      "HuntressIntroMenu",
+      "HUNTRESS"
+    ],
+    "net/mcreator/thermal_shock/world/inventory/HuntressMainMenu.class": [
+      "HuntressMainMenu",
+      "HUNTRESS"
+    ],
+    "net/mcreator/thermal_shock/world/inventory/HuntressSelfInfoMenu.class": [
+      "HuntressSelfInfoMenu",
+      "HUNTRESS"
+    ],
+    "net/mcreator/thermal_shock/world/inventory/HuntressVilebathInfoMenu.class": [
+      "HuntressVilebathInfoMenu",
+      "HUNTRESS"
+    ]
+  },
+  "json_references": {
+    "data/thermal_shock/tags/entity_types/character_mobs.json": {
+      "replace": false,
+      "values": [
+        "thermal_shock:benzor",
+        "thermal_shock:concierge",
+        "thermal_shock:whisper",
+        "thermal_shock:kofoni",
+        "thermal_shock:defector_machinist",
+        "thermal_shock:huntress",
+        "thermal_shock:shutterbug",
+        "thermal_shock:florist",
+        "thermal_shock:laut",
+        "thermal_shock:ly",
+        "thermal_shock:lab_machinist"
+      ]
+    },
+    "data/thermal_shock/tags/entity_types/infectionimmune.json": {
+      "replace": false,
+      "values": [
+        "thermal_shock:blighted_spore",
+        "thermal_shock:blinding_lantern_flash_ring",
+        "thermal_shock:blizzard_drop_pod",
+        "thermal_shock:dormant_monolith",
+        "thermal_shock:flare_gun_core",
+        "thermal_shock:frost_titan",
+        "thermal_shock:frostilyte",
+        "thermal_shock:frostilyte_cryomancer",
+        "thermal_shock:frostilyte_soldier",
+        "thermal_shock:herald",
+        "thermal_shock:icidroburner",
+        "thermal_shock:icidrogrunt",
+        "thermal_shock:icidrogunner",
+        "thermal_shock:icidrone",
+        "thermal_shock:icidrostrider",
+        "thermal_shock:icidrozerk",
+        "thermal_shock:infestophage_seed",
+        "thermal_shock:lil_jelly",
+        "thermal_shock:sootle_idle",
+        "thermal_shock:springslime",
+        "thermal_shock:squall",
+        "thermal_shock:whisper",
+        "#thermal_shock:character_mobs",
+        "thermal_shock:florist",
+        "thermal_shock:huntress",
+        "thermal_shock:huntress_boss",
+        "thermal_shock:laut",
+        "thermal_shock:ly",
+        "thermal_shock:protoi_gamma",
+        "thermal_shock:shutterbug",
+        "thermal_shock:zap_attack_entity"
+      ]
+    }
+  },
+  "nbt_references": {},
+  "assets": {
+    "assets/thermal_shock/animations/huntress.animation.json": {
+      "original_sha256": "889ed5dd061058f8a47d1e466a8bac3a0b05984e3bb6e18756ffc91d5527d5fc",
+      "target_exists": true,
+      "target_sha256": "889ed5dd061058f8a47d1e466a8bac3a0b05984e3bb6e18756ffc91d5527d5fc"
+    },
+    "assets/thermal_shock/geo/huntress.geo.json": {
+      "original_sha256": "bdbb4ff60274a92f56a432a7d0998b8b080c48ac8a7f10243a8da20f7d54a7f0",
+      "target_exists": true,
+      "target_sha256": "bdbb4ff60274a92f56a432a7d0998b8b080c48ac8a7f10243a8da20f7d54a7f0"
+    },
+    "assets/thermal_shock/textures/entities/huntress.png": {
+      "original_sha256": "8627d4ec80f0e58a7c5d4eaf421e7b9a7d880b86fcd4c530c7ac1ddc52dca93b",
+      "target_exists": true,
+      "target_sha256": "8627d4ec80f0e58a7c5d4eaf421e7b9a7d880b86fcd4c530c7ac1ddc52dca93b"
+    },
+    "assets/thermal_shock/textures/screens/atlas/imagebutton_mainerrandsbuttona.png": {
+      "original_sha256": "5d1debd3befb57e2e98c6817e7a0ca5b026aabf5f7038508b31283feb2c0f67e",
+      "target_exists": true,
+      "target_sha256": "5d1debd3befb57e2e98c6817e7a0ca5b026aabf5f7038508b31283feb2c0f67e"
+    },
+    "assets/thermal_shock/textures/screens/atlas/imagebutton_maininfobuttona.png": {
+      "original_sha256": "7c7afaddbb70b6b0f43ad046e87340dcd0100e712a5ef307ff2e46953fcc16fa",
+      "target_exists": true,
+      "target_sha256": "7c7afaddbb70b6b0f43ad046e87340dcd0100e712a5ef307ff2e46953fcc16fa"
+    },
+    "assets/thermal_shock/textures/screens/atlas/imagebutton_maintradebuttona.png": {
+      "original_sha256": "9a4da845718acc3294efd6e21e8e67064ff28b887b740f0128340c3ea830111c",
+      "target_exists": true,
+      "target_sha256": "9a4da845718acc3294efd6e21e8e67064ff28b887b740f0128340c3ea830111c"
+    },
+    "assets/thermal_shock/textures/screens/atlas/imagebutton_nextbuttona.png": {
+      "original_sha256": "0c3e332bdc97c682d9c96cca3217a534bbe8d26eba61471f6756e1063cf4c70f",
+      "target_exists": true,
+      "target_sha256": "0c3e332bdc97c682d9c96cca3217a534bbe8d26eba61471f6756e1063cf4c70f"
+    },
+    "assets/thermal_shock/textures/screens/huntressidleportrait.png": {
+      "original_sha256": "a2706f721d75eb2910bc6f4215ba653b7facf710288dd2783aa62e4a65855689",
+      "target_exists": true,
+      "target_sha256": "a2706f721d75eb2910bc6f4215ba653b7facf710288dd2783aa62e4a65855689"
+    },
+    "assets/thermal_shock/textures/screens/mainflavourboxes.png": {
+      "original_sha256": "80a2cf18e8d36b3a9b7bbe138d0fef25338fb9176daabead538c784abe941cf3",
+      "target_exists": true,
+      "target_sha256": "80a2cf18e8d36b3a9b7bbe138d0fef25338fb9176daabead538c784abe941cf3"
+    },
+    "assets/thermal_shock/textures/screens/mainlabelbox.png": {
+      "original_sha256": "633b9d4f6971f9e2e173893b11889a588813a132963edcbd3c85154bca6d9dd6",
+      "target_exists": true,
+      "target_sha256": "633b9d4f6971f9e2e173893b11889a588813a132963edcbd3c85154bca6d9dd6"
+    },
+    "assets/thermal_shock/textures/screens/mainspeechbox.png": {
+      "original_sha256": "12894af8cfa75443411767e123b9c3e66c72b81b21085b2e383e5f7040bb9ea5",
+      "target_exists": true,
+      "target_sha256": "12894af8cfa75443411767e123b9c3e66c72b81b21085b2e383e5f7040bb9ea5"
+    }
+  },
+  "language": {
+    "en_us": {
+      "gui.thermal_shock_reforged.huntress_intro.label_birth_to_hunt_survive_and_defe": "❄ Regardless, I am impressed. You may remain in my",
+      "gui.thermal_shock_reforged.huntress_intro.label_kutty": "❄ It seems I've made a mistake, clearly you are",
+      "gui.thermal_shock_reforged.huntress_intro.label_suitable_land_to_expand_out_terr": "not one of the infected.",
+      "gui.thermal_shock_reforged.huntress_self_info.label_fight_against_the_infection": "fight against The Infection.",
+      "gui.thermal_shock_reforged.huntress_vilebath_info.label_fight_against_the_infection": "❄ That was long before my time, a pity",
+      "entity.thermal_shock_reforged.huntress": "Huntress",
+      "item.thermal_shock_reforged.huntress_spawn_egg": "Huntress Spawn Egg",
+      "gui.thermal_shock_reforged.huntress_vilebath_info.label_kutty": "❄ Ah, the Beetle Kingdom...",
+      "gui.thermal_shock_reforged.huntress_self_info.label_suitable_land_to_expand_out_terr": "suitable land to expand out territory.",
+      "gui.thermal_shock_reforged.huntress_self_info.label_birth_to_hunt_survive_and_defe": "birth to hunt for ourselves, weather the cold, and",
+      "gui.thermal_shock_reforged.huntress_vilebath_info.label_suitable_land_to_expand_out_terr": "❄ Before the snow, we saw them as honorable allies,",
+      "gui.thermal_shock_reforged.huntress_intro.label_fight_against_the_infection": "territory for a moment if you wish.",
+      "gui.thermal_shock_reforged.huntress_self_info.label_concierge": "HUNTRESS",
+      "gui.thermal_shock_reforged.huntress_self_info.label_we_build_our_nests_in": "❄ Me, and hundreds of my kin, are trained from",
+      "entity.thermal_shock_reforged.huntress_boss": "Huntress",
+      "gui.thermal_shock_reforged.huntress_intro.label_i_missed_their_prime": "I missed their prime.",
+      "gui.thermal_shock_reforged.huntress_vilebath_info.label_i_missed_their_prime": "I missed their prime.",
+      "gui.thermal_shock_reforged.huntress_main.label_concierge": "HUNTRESS",
+      "gui.thermal_shock_reforged.huntress_vilebath_info.label_we_build_our_nests_in": "until disease and delrium claimed Ferraq's mind,",
+      "gui.thermal_shock_reforged.huntress_intro.label_we_build_our_nests_in": "❄ Are you an adventurer like me? A fellow hunter?",
+      "gui.thermal_shock_reforged.huntress_vilebath_info.label_concierge": "HUNTRESS",
+      "gui.thermal_shock_reforged.huntress_self_info.label_kutty": "❄ I come from the Sanqre Wasp empire, in search of",
+      "item.thermal_shock_reforged.huntress_boss_spawn_egg": "Huntress Spawn Egg",
+      "gui.thermal_shock_reforged.huntress_vilebath_info.label_birth_to_hunt_survive_and_defe": "\"Grand Blasphemer,\" I hear they call him now.",
+      "gui.thermal_shock_reforged.huntress_intro.label_concierge": "HUNTRESS"
+    },
+    "zh_cn": {}
+  }
+}
