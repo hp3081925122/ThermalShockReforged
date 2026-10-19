@@ -1,0 +1,585 @@
+{
+  "scope": "递归原Vilebath两城堡+三桥模板、嵌套刷怪笼/库存/物品展示框/乘客/战利品/拼图；核原自然池和生产注册源码，不以资产或语言当注册证据",
+  "template_sha256_before_handoff": {
+    "src/main/resources/data/thermal_shock_reforged/structure/vilebath_bridge.nbt": "0866301284eaa977ce2db00b8a8393dedbae152c7c1e19efcd1732702259ec27",
+    "src/main/resources/data/thermal_shock_reforged/structure/vilebath_bridge_center.nbt": "e56ff588b166f29dd73bf0ad3e5c59ad05fbe612ad84933e58a80283cbd496bc",
+    "src/main/resources/data/thermal_shock_reforged/structure/vilebath_bridge_split.nbt": "284dbcc2a8cc54eb1ca02b75440f7d538b4947755aa20729775087245e1418f7",
+    "src/main/resources/data/thermal_shock_reforged/structure/vilebath_castle.nbt": "480d70ddcaac7669d8adc7d8e15d304fa2c46a2787e7902ccaca3a50ae3df2e3",
+    "src/main/resources/data/thermal_shock_reforged/structure/vilebathrubicon.nbt": "96660d99a2be972835d7ba48020bae555baef184176978fa7cf9f1ce09680e7e"
+  },
+  "block_registry_evidence": {
+    "blood": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/fluids/FluidContent.java",
+        "line": 27,
+        "text": "public static final DeferredHolder<FluidType, FluidType> BLOOD_TYPE = TYPES.register(\"blood\", () -> new FluidType("
+      },
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/fluids/FluidContent.java",
+        "line": 31,
+        "text": "public static final DeferredHolder<Fluid, BaseFlowingFluid.Source> BLOOD = FLUIDS.register(\"blood\", () -> new BaseFlowingFluid.Source(flowProperties(false)));"
+      },
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/fluids/FluidContent.java",
+        "line": 34,
+        "text": "public static final DeferredBlock<ReactiveFluidBlock> BLOOD_BLOCK = BLOCKS.register(\"blood\", () -> new ReactiveFluidBlock(BLOOD.get(), false, blockProperties()));"
+      }
+    ],
+    "bordered_spirewood_planks": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+        "line": 148,
+        "text": "block(\"bordered_spirewood_planks\", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_CYAN).ignitedByLava().sound(SoundType.STEM).strength(1.8f, 30.0f).requiresCorrectToolForDrops(), 15));"
+      }
+    ],
+    "bordered_spirewood_wall": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+        "line": 149,
+        "text": "block(\"bordered_spirewood_wall\", () -> new MaterialWallBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_CYAN).ignitedByLava().sound(SoundType.STEM).strength(1.8f, 30.0f).requiresCorrectToolForDrops().dynamicShape().forceSolidOn()));"
+      }
+    ],
+    "cobbled_shale": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+        "line": 58,
+        "text": "block(\"cobbled_shale\", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_CYAN).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERRACK).strength(1.0f, 5.0f).requiresCorrectToolForDrops(), 15));"
+      }
+    ],
+    "cracked_shale_pillar_block": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+        "line": 378,
+        "text": "block(\"cracked_shale_pillar_block\", () -> new MaterialPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERRACK).strength(1.0f, 5.0f).requiresCorrectToolForDrops(), -1));"
+      }
+    ],
+    "cryonic_cache": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "line": 35,
+        "text": "CRYONIC_CACHE(\"cryonic_cache\", \"Cryonic Cache\", \"geo/enchanted_cache.geo.json\", \"textures/block/blizzardcache.png\", \"animations/enchanted_cache.animation.json\", Block.box(0, 0, 0, 16, 28, 16), false, false),"
+      }
+    ],
+    "enchanted_cache": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "line": 36,
+        "text": "ENCHANTED_CACHE(\"enchanted_cache\", \"Enchanted Cache\", \"geo/enchanted_cache.geo.json\", \"textures/block/textureenchantcache.png\", \"animations/enchanted_cache.animation.json\", Block.box(0, 0, 0, 16, 28, 16), false, false),"
+      }
+    ],
+    "ferrous_cache_pad": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "line": 44,
+        "text": "FERROUS_CACHE_PAD(\"ferrous_cache_pad\", \"Cache Pad\", \"geo/cachepad.geo.json\", \"textures/block/ferrous_cache_pad.png\", \"animations/cachepad.animation.json\", Shapes.block(), false, false),"
+      }
+    ],
+    "ferrum_plating_slab": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+        "line": 103,
+        "text": "block(\"ferrum_plating_slab\", () -> new SlabBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERITE_BLOCK).strength(2.0f, 30.0f).requiresCorrectToolForDrops().dynamicShape()));"
+      }
+    ],
+    "glowcap": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java",
+        "line": 50,
+        "text": "public static final DeferredBlock<Block> GLOWCAP = BLOCKS.register(\"glowcap\", () -> new NativeDecorBlock(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).sound(SoundType.FUNGUS).strength(0.2f, 0.0f).lightLevel(s -> 7).noCollission().noOcclusion().hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).isRedstoneConductor((bs, br, bp) -> false), new NativeDecorBlock.Traits(0, true, true, false, 0F, 0, false, false), Block.box(5, 0, 5, 11, 16, 11)));"
+      }
+    ],
+    "grand_blasphemer": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "line": 12,
+        "text": "GRAND_BLASPHEMER(\"grand_blasphemer\", \"Grand Blasphemer\", \"geo/grand_blasphemer.geo.json\", \"textures/block/blasty.png\", \"animations/grand_blasphemer.animation.json\", Shapes.block(), true, true),"
+      }
+    ],
+    "hanging_sparkler_bulb": [],
+    "hazard_stripes": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+        "line": 143,
+        "text": "block(\"hazard_stripes\", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_YELLOW).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.WOOL).strength(0.6f, 10.0f), 15));"
+      }
+    ],
+    "impervium_brick_stairs": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+        "line": 254,
+        "text": "block(\"impervium_brick_stairs\", () -> new MaterialStairBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).sound(SoundType.NETHER_BRICKS).strength(-1.0f, 3600000.0f).pushReaction(PushReaction.BLOCK).dynamicShape(), 999.0F, false, -1, -1, -1));"
+      }
+    ],
+    "impervium_bricks": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+        "line": 150,
+        "text": "block(\"impervium_bricks\", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).sound(SoundType.NETHER_BRICKS).strength(-1.0f, 3600000.0f).pushReaction(PushReaction.BLOCK), 15));"
+      }
+    ],
+    "mantle_bloodstone_ore": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+        "line": 90,
+        "text": "block(\"mantle_bloodstone_ore\", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WARPED_HYPHAE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.BASALT).strength(3.5f, 6.915809f).requiresCorrectToolForDrops(), 15));"
+      }
+    ],
+    "mantle_ruby_ore": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+        "line": 42,
+        "text": "block(\"mantle_ruby_ore\", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WARPED_HYPHAE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.BASALT).strength(3.4f, 6.915809f).requiresCorrectToolForDrops(), 15));"
+      }
+    ],
+    "mantlestone": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+        "line": 39,
+        "text": "block(\"mantlestone\", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GRAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.BASALT).strength(2.0f, 30.0f).requiresCorrectToolForDrops(), 15));"
+      }
+    ],
+    "mantlestone_brick_slab": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+        "line": 64,
+        "text": "block(\"mantlestone_brick_slab\", () -> new SlabBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GRAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.BASALT).strength(2.0f, 30.0f).requiresCorrectToolForDrops().dynamicShape()));"
+      }
+    ],
+    "mantlestone_brick_stairs": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+        "line": 243,
+        "text": "block(\"mantlestone_brick_stairs\", () -> new MaterialStairBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GRAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.BASALT).strength(2.0f, 30.0f).requiresCorrectToolForDrops().dynamicShape(), 30.0F, false, -1, -1, -1));"
+      }
+    ],
+    "mantlestone_bricks": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+        "line": 62,
+        "text": "block(\"mantlestone_bricks\", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GRAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.BASALT).strength(2.0f, 30.0f).requiresCorrectToolForDrops(), 15));"
+      }
+    ],
+    "maw_door": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/doors/DoorKind.java",
+        "line": 12,
+        "text": "MAW(\"maw_door\", \"Maw Door\", \"mawdoor\"),"
+      }
+    ],
+    "mossy_mantlestone": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+        "line": 41,
+        "text": "block(\"mossy_mantlestone\", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WARPED_HYPHAE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.BASALT).strength(2.0f, 30.0f).requiresCorrectToolForDrops(), 15));"
+      }
+    ],
+    "phobotite_mantle_outcrop": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "line": 18,
+        "text": "PHOBOTITE_MANTLE_OUTCROP(\"phobotite_mantle_outcrop\", \"Phobotite Mantle Outcrop\", \"geo/fluorite_ore.geo.json\", \"textures/block/phobotite_mantle_outcrop.png\", \"animations/fluorite_ore.animation.json\", Shapes.block(), false, false),"
+      }
+    ],
+    "polished_mantle_wall": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+        "line": 72,
+        "text": "block(\"polished_mantle_wall\", () -> new WallBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GRAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.BASALT).strength(2.0f, 30.0f).requiresCorrectToolForDrops().dynamicShape().forceSolidOn()));"
+      }
+    ],
+    "polished_mantlestone": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+        "line": 61,
+        "text": "block(\"polished_mantlestone\", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GRAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.BASALT).strength(2.0f, 30.0f).requiresCorrectToolForDrops(), 15));"
+      }
+    ],
+    "polished_mantlestone_slab": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+        "line": 63,
+        "text": "block(\"polished_mantlestone_slab\", () -> new SlabBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GRAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.BASALT).strength(2.0f, 30.0f).requiresCorrectToolForDrops().dynamicShape()));"
+      }
+    ],
+    "polished_mantlestone_stairs": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+        "line": 242,
+        "text": "block(\"polished_mantlestone_stairs\", () -> new MaterialStairBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GRAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.BASALT).strength(2.0f, 30.0f).requiresCorrectToolForDrops().dynamicShape(), 30.0F, false, -1, -1, -1));"
+      }
+    ],
+    "red_crystalleye_lamp": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java",
+        "line": 41,
+        "text": "public static final DeferredBlock<Block> RED_CRYSTALLEYE_LAMP = BLOCKS.register(\"red_crystalleye_lamp\", () -> new CrystalleyeBlock(1));"
+      }
+    ],
+    "shale_pillar": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "line": 27,
+        "text": "SHALE_PILLAR(\"shale_pillar\", \"Shale Pillar §d[Blank]\", \"geo/pillar_statue.geo.json\", \"textures/block/pillarextended.png\", \"animations/pillar_statue.animation.json\", Block.box(1, 0.1, 1, 15, 47.9, 15), true, false),"
+      }
+    ],
+    "shale_pillar_block": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+        "line": 377,
+        "text": "block(\"shale_pillar_block\", () -> new MaterialPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_CYAN).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERRACK).strength(1.0f, 5.0f).requiresCorrectToolForDrops(), -1));"
+      }
+    ],
+    "shale_pot": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "line": 37,
+        "text": "SHALE_POT(\"shale_pot\", \"Shale Pot\", \"geo/stone_pot.geo.json\", \"textures/block/pot1.png\", \"animations/stone_pot.animation.json\", Block.box(2, 0, 2, 14, 16, 14), false, false),"
+      }
+    ],
+    "spiral_mantlestone": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+        "line": 65,
+        "text": "block(\"spiral_mantlestone\", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GRAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.BASALT).strength(2.0f, 30.0f).requiresCorrectToolForDrops(), 15));"
+      }
+    ],
+    "spire_base": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java",
+        "line": 54,
+        "text": "public static final DeferredBlock<Block> SPIRE_BASE = BLOCKS.register(\"spire_base\", () -> new NativeDecorBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).sound(SoundType.STEM).strength(2.35f, 30.0f).requiresCorrectToolForDrops(), new NativeDecorBlock.Traits(15, false, false, false, 0F, 0, true, false), null));"
+      }
+    ],
+    "spire_bulb": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+        "line": 49,
+        "text": "block(\"spire_bulb\", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.RAW_IRON).ignitedByLava().sound(SoundType.SHROOMLIGHT).strength(1.2f, 10.0f).lightLevel(s -> 15).requiresCorrectToolForDrops().hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true), 15));"
+      }
+    ],
+    "spire_stem": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+        "line": 48,
+        "text": "block(\"spire_stem\", () -> new MaterialWallBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).ignitedByLava().sound(SoundType.STEM).strength(2.35f, 30.0f).requiresCorrectToolForDrops().dynamicShape().forceSolidOn()));"
+      }
+    ],
+    "spire_tendrils": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+        "line": 50,
+        "text": "block(\"spire_tendrils\", () -> new MaterialFenceBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).ignitedByLava().sound(SoundType.STEM).strength(2.35f, 30.0f).requiresCorrectToolForDrops().dynamicShape().forceSolidOn()));"
+      }
+    ],
+    "spirewood_door": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+        "line": 325,
+        "text": "block(\"spirewood_door\", () -> InteractiveBlocks.door(BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).ignitedByLava().sound(SoundType.STEM).strength(1.35f, 15.0f).requiresCorrectToolForDrops().dynamicShape(), BlockSetType.STONE, 0, -1));"
+      }
+    ],
+    "spirewood_planks": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+        "line": 145,
+        "text": "block(\"spirewood_planks\", () -> new MaterialBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).ignitedByLava().sound(SoundType.STEM).strength(1.35f, 15.0f).requiresCorrectToolForDrops(), 15));"
+      }
+    ],
+    "spirewood_trapdoor": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+        "line": 326,
+        "text": "block(\"spirewood_trapdoor\", () -> InteractiveBlocks.trapdoor(BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).ignitedByLava().sound(SoundType.STEM).strength(1.35f, 15.0f).requiresCorrectToolForDrops().dynamicShape(), BlockSetType.STONE, 0, -1));"
+      }
+    ],
+    "steelstem_block": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+        "line": 374,
+        "text": "block(\"steelstem_block\", () -> new MaterialPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BLUE).ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.LANTERN).strength(1.0f, 3.8f).requiresCorrectToolForDrops(), -1));"
+      }
+    ],
+    "thermal_geyser": [],
+    "thin_spire_bulb": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+        "line": 51,
+        "text": "block(\"thin_spire_bulb\", () -> new WallBlock(BlockBehaviour.Properties.of().mapColor(MapColor.RAW_IRON).ignitedByLava().sound(SoundType.SHROOMLIGHT).strength(1.2f, 10.0f).lightLevel(s -> 15).hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).dynamicShape().forceSolidOn()));"
+      }
+    ],
+    "tourmaline_spice_block": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java",
+        "line": 64,
+        "text": "public static final DeferredBlock<Block> TOURMALINE_SPICE_BLOCK = BLOCKS.register(\"tourmaline_spice_block\", () -> new SpiceFallingBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WARPED_HYPHAE).instrument(NoteBlockInstrument.SNARE).sound(SoundType.GRAVEL).strength(0.7f, 12.0f)));"
+      }
+    ],
+    "veinroot_ends": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/terrain/TerrainContent.java",
+        "line": 43,
+        "text": "public static final DeferredBlock<Block> VEINROOT_ENDS = BLOCKS.register(\"veinroot_ends\", VeinrootBlock::new);"
+      }
+    ],
+    "vermilli_trapdoor": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+        "line": 310,
+        "text": "block(\"vermilli_trapdoor\", () -> InteractiveBlocks.trapdoor(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).ignitedByLava().instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2.4f, 3.471093f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false).dynamicShape(), BlockSetType.OAK, -1, 6));"
+      }
+    ],
+    "vermillion_lantern": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+        "line": 151,
+        "text": "block(\"vermillion_lantern\", () -> new MaterialWallBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_RED).sound(SoundType.GLASS).strength(0.2f, 0.0f).lightLevel(s -> 15).requiresCorrectToolForDrops().hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).dynamicShape().forceSolidOn()));"
+      }
+    ],
+    "wrought_bars": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java",
+        "line": 72,
+        "text": "public static final DeferredBlock<Block> WROUGHT_BARS = BLOCKS.register(\"wrought_bars\", () -> new FacingDecorBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.ANCIENT_DEBRIS).strength(1.0f, 5.0f).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((bs, br, bp) -> false), new NativeDecorBlock.Traits(0, true, true, false, 0F, 0, false, false), FacingDecorBlock.Outline.BARS));"
+      }
+    ]
+  },
+  "entity_registry_evidence": {
+    "beetle_thrasher": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/entity/beetles/BeetleContent.java",
+        "line": 18,
+        "text": "public static final DeferredHolder<EntityType<?>, EntityType<BeetleThrasherEntity>> THRASHER = TYPES.register(\"beetle_thrasher\", () -> EntityType.Builder.of(BeetleThrasherEntity::new, MobCategory.MONSTER).sized(.8F, 2.3F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(id(\"beetle_thrasher\").toString()));"
+      }
+    ],
+    "dormant_beetle_crasher": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/entity/beetles/BeetleContent.java",
+        "line": 19,
+        "text": "public static final DeferredHolder<EntityType<?>, EntityType<DormantBeetleCrasherEntity>> DORMANT = TYPES.register(\"dormant_beetle_crasher\", () -> EntityType.Builder.of(DormantBeetleCrasherEntity::new, MobCategory.AMBIENT).sized(0, 0).fireImmune().setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(id(\"dormant_beetle_crasher\").toString()));"
+      }
+    ],
+    "dormant_monolith": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/entity/monolith/MonolithContent.java",
+        "line": 18,
+        "text": "public static final DeferredHolder<EntityType<?>, EntityType<DormantMonolithEntity>> DORMANT = TYPES.register(\"dormant_monolith\", () -> EntityType.Builder.of(DormantMonolithEntity::new, MobCategory.AMBIENT).sized(.8F, 7.6F).fireImmune().setShouldReceiveVelocityUpdates(true).clientTrackingRange(128).updateInterval(3).build(id(\"dormant_monolith\").toString()));"
+      }
+    ],
+    "frostilyte": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/entity/hunters/HuntersContent.java",
+        "line": 19,
+        "text": "public static final DeferredHolder<EntityType<?>, EntityType<FrostilyteEntity>> FROSTILYTE = TYPES.register(\"frostilyte\", () -> EntityType.Builder.of(FrostilyteEntity::new, MobCategory.MONSTER).sized(0.6F, 1.7F).clientTrackingRange(64).updateInterval(3).build(\"thermal_shock_reforged:frostilyte\"));"
+      }
+    ],
+    "herald": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/entity/mangler/ManglerContent.java",
+        "line": 24,
+        "text": "public static final DeferredHolder<EntityType<?>, EntityType<HeraldEntity>> HERALD = TYPES.register(\"herald\", () -> EntityType.Builder.of(HeraldEntity::new, MobCategory.MONSTER).fireImmune().sized(2.1F, 7.6F).clientTrackingRange(64).updateInterval(3).build(\"thermal_shock_reforged:herald\"));"
+      }
+    ],
+    "infestophage_seed": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/entity/infestation/InfestationEntities.java",
+        "line": 17,
+        "text": "public static final DeferredHolder<EntityType<?>, EntityType<InfestophageSeedEntity>> SEED = TYPES.register(\"infestophage_seed\", () -> EntityType.Builder.of(InfestophageSeedEntity::new, MobCategory.AMBIENT).sized(0, 0).fireImmune().clientTrackingRange(64).updateInterval(3).build(\"thermal_shock_reforged:infestophage_seed\"));"
+      }
+    ],
+    "sootle": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/entity/sootle/SootleContent.java",
+        "line": 16,
+        "text": "public static final DeferredHolder<EntityType<?>, EntityType<SootleEntity>> SOOTLE = TYPES.register(\"sootle\", () -> EntityType.Builder.of(SootleEntity::new, MobCategory.MONSTER).fireImmune().sized(0.6F, 1.8F).clientTrackingRange(64).updateInterval(3).build(\"thermal_shock_reforged:sootle\"));"
+      }
+    ],
+    "sootling": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/entity/ambient/AmbientContent.java",
+        "line": 22,
+        "text": "public static final DeferredHolder<EntityType<?>, EntityType<SootlingEntity>> SOOTLING = TYPES.register(\"sootling\", () -> EntityType.Builder.of(SootlingEntity::new, MobCategory.MONSTER).fireImmune().sized(0.6F, 1.8F).clientTrackingRange(64).updateInterval(3).build(\"thermal_shock_reforged:sootling\"));"
+      }
+    ]
+  },
+  "missing_native_block_registrations": [
+    "hanging_sparkler_bulb",
+    "thermal_geyser"
+  ],
+  "native_entity_dependency_closed_after_this_batch": true,
+  "nested_spawner_entities": [
+    "thermal_shock:beetle_thrasher",
+    "thermal_shock:sootling"
+  ],
+  "spawner_registry_evidence": {
+    "thermal_shock:beetle_thrasher": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/entity/beetles/BeetleContent.java",
+        "line": 18,
+        "text": "public static final DeferredHolder<EntityType<?>, EntityType<BeetleThrasherEntity>> THRASHER = TYPES.register(\"beetle_thrasher\", () -> EntityType.Builder.of(BeetleThrasherEntity::new, MobCategory.MONSTER).sized(.8F, 2.3F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(id(\"beetle_thrasher\").toString()));"
+      }
+    ],
+    "thermal_shock:sootling": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/entity/ambient/AmbientContent.java",
+        "line": 22,
+        "text": "public static final DeferredHolder<EntityType<?>, EntityType<SootlingEntity>> SOOTLING = TYPES.register(\"sootling\", () -> EntityType.Builder.of(SootlingEntity::new, MobCategory.MONSTER).fireImmune().sized(0.6F, 1.8F).clientTrackingRange(64).updateInterval(3).build(\"thermal_shock_reforged:sootling\"));"
+      }
+    ]
+  },
+  "recursive_functional_strings": {
+    "data/thermal_shock/structures/vilebath_bridge.nbt": {
+      "$.blocks[0].nbt.pool": "thermal_shock:vilebath_bridges",
+      "$.blocks[0].nbt.final_state": "thermal_shock:mantlestone",
+      "$.blocks[0].nbt.target": "thermal_shock:vilebath_bridge",
+      "$.blocks[1].nbt.pool": "minecraft:empty",
+      "$.blocks[1].nbt.final_state": "thermal_shock:mantlestone",
+      "$.blocks[1].nbt.target": "minecraft:empty"
+    },
+    "data/thermal_shock/structures/vilebath_bridge_center.nbt": {
+      "$.blocks[0].nbt.pool": "thermal_shock:vilebath_bridges",
+      "$.blocks[0].nbt.final_state": "thermal_shock:mantlestone",
+      "$.blocks[0].nbt.target": "thermal_shock:vilebath_bridge",
+      "$.blocks[1].nbt.pool": "thermal_shock:vilebath_bridges",
+      "$.blocks[1].nbt.final_state": "thermal_shock:mantlestone",
+      "$.blocks[1].nbt.target": "thermal_shock:vilebath_bridge",
+      "$.blocks[2].nbt.pool": "thermal_shock:vilebath_bridges",
+      "$.blocks[2].nbt.final_state": "thermal_shock:mantlestone",
+      "$.blocks[2].nbt.target": "thermal_shock:vilebath_bridge",
+      "$.blocks[3].nbt.pool": "thermal_shock:vilebath_bridges",
+      "$.blocks[3].nbt.final_state": "thermal_shock:mantlestone",
+      "$.blocks[3].nbt.target": "thermal_shock:vilebath_bridge"
+    },
+    "data/thermal_shock/structures/vilebath_bridge_split.nbt": {
+      "$.blocks[0].nbt.pool": "thermal_shock:vilebath_bridges",
+      "$.blocks[0].nbt.final_state": "thermal_shock:mantlestone",
+      "$.blocks[0].nbt.target": "thermal_shock:vilebath_bridge",
+      "$.blocks[1].nbt.pool": "minecraft:empty",
+      "$.blocks[1].nbt.final_state": "thermal_shock:mantlestone",
+      "$.blocks[1].nbt.target": "minecraft:empty",
+      "$.blocks[2].nbt.pool": "thermal_shock:vilebath_bridges",
+      "$.blocks[2].nbt.final_state": "thermal_shock:mantlestone",
+      "$.blocks[2].nbt.target": "thermal_shock:vilebath_bridge"
+    },
+    "data/thermal_shock/structures/vilebath_castle.nbt": {
+      "$.entities[7].nbt.Item.id": "thermal_shock:bloodstone_sword",
+      "$.entities[8].nbt.Item.id": "thermal_shock:bloodstone_sword",
+      "$.entities[9].nbt.Item.id": "thermal_shock:bloodstone_sword",
+      "$.entities[41].nbt.Item.id": "thermal_shock:bloodstone_halberd",
+      "$.entities[41].nbt.Item.tag.geckoAnim": "",
+      "$.entities[42].nbt.Item.id": "thermal_shock:bloodstone_halberd",
+      "$.entities[42].nbt.Item.tag.geckoAnim": "",
+      "$.entities[43].nbt.Item.id": "thermal_shock:bloodstone_halberd",
+      "$.blocks[24].nbt.SpawnData.entity.id": "thermal_shock:beetle_thrasher",
+      "$.blocks[43].nbt.SpawnData.entity.id": "thermal_shock:sootling"
+    },
+    "data/thermal_shock/structures/vilebathrubicon.nbt": {
+      "$.blocks[19].nbt.SpawnData.entity.id": "thermal_shock:beetle_thrasher",
+      "$.blocks[42].nbt.SpawnData.entity.id": "thermal_shock:sootling",
+      "$.entities[3].nbt.Item.id": "thermal_shock:bloodstone_halberd",
+      "$.entities[3].nbt.Item.tag.geckoAnim": "",
+      "$.entities[4].nbt.Item.id": "thermal_shock:bloodstone_halberd",
+      "$.entities[4].nbt.Item.tag.geckoAnim": "",
+      "$.entities[5].nbt.Item.id": "thermal_shock:bloodstone_halberd",
+      "$.entities[38].nbt.Item.id": "thermal_shock:bloodstone_sword",
+      "$.entities[39].nbt.Item.id": "thermal_shock:bloodstone_sword",
+      "$.entities[40].nbt.Item.id": "thermal_shock:bloodstone_sword"
+    }
+  },
+  "inventory_and_item_frame_nonvanilla_items": [
+    "thermal_shock:bloodstone_halberd",
+    "thermal_shock:bloodstone_sword"
+  ],
+  "inventory_item_registry_evidence": {
+    "thermal_shock:bloodstone_halberd": [],
+    "thermal_shock:bloodstone_sword": [
+      {
+        "path": "src/main/java/com/hp/thermalshockreforged/content/tools/ToolsContent.java",
+        "line": 35,
+        "text": "register(\"bloodstone_sword\", new NativeTier(1500, 10.0f, 2.0f, BlockTags.INCORRECT_FOR_DIAMOND_TOOL, 21, () -> Ingredient.of(MaterialContent.items().get(\"bloodstone\").get())), (tier) -> new SwordItem(tier, new Item.Properties().attributes(SwordItem.createAttributes(tier, 3, -2.4f))));"
+      }
+    ]
+  },
+  "jigsaw_pool_ids": [
+    "minecraft:empty",
+    "thermal_shock:vilebath_bridges"
+  ],
+  "original_pool_files_matching_jigsaw_ids": {
+    "thermal_shock:vilebath_bridges": []
+  },
+  "original_pool_name_mismatch": "原桥/分岔/中心NBT引用thermal_shock:vilebath_bridges，原JAR只有vilebath_castle_vilebath_bridges.json，未发现别名。两城堡无jigsaw块，因此不能假定桥已可达，也不能擅改原模板或额外扩展结构。",
+  "original_worldgen_and_current_presence": {
+    "data/thermal_shock/worldgen/configured_feature/vilebath_infected_mass_patch.json": false,
+    "data/thermal_shock/worldgen/configured_feature/vilebath_pools.json": false,
+    "data/thermal_shock/worldgen/configured_feature/vilebath_veinroots.json": false,
+    "data/thermal_shock/worldgen/placed_feature/vilebath_infected_mass_patch.json": false,
+    "data/thermal_shock/worldgen/placed_feature/vilebath_pools.json": false,
+    "data/thermal_shock/worldgen/placed_feature/vilebath_veinroots.json": false,
+    "data/thermal_shock/worldgen/structure/vilebath_castle.json": false,
+    "data/thermal_shock/worldgen/structure_set/vilebath_castle.json": false,
+    "data/thermal_shock/worldgen/template_pool/vilebath_castle.json": false,
+    "data/thermal_shock/worldgen/template_pool/vilebath_castle_vilebath_bridges.json": false
+  },
+  "known_transitive_functional_dependencies": [
+    {
+      "block": "cryonic_cache",
+      "implementation": "content/decor/geo/CryonicCacheBlock.java",
+      "dependencies": [
+        "blocks/cryonic_cache",
+        "FaunaEntities.BONERAHNA"
+      ],
+      "status": "真实原生实现与表已存在；源码实际引用blocks/cryonic_cache，不是cryonic_cache_loot"
+    },
+    {
+      "block": "enchanted_cache",
+      "implementation": "content/decor/geo/EnchantedCacheBlock.java",
+      "dependencies": [
+        "enchanted_cache_loot"
+      ],
+      "status": "真实原生实现与表已存在"
+    },
+    {
+      "block": "shale_pot",
+      "implementation": "content/decor/geo/ShalePotBlock.java",
+      "dependencies": [
+        "PotContent.SKULLSCOR"
+      ],
+      "status": "真实原生实现已存在"
+    },
+    {
+      "block": "grand_blasphemer",
+      "implementation": "content/decor/geo/GrandBlasphemerBlockEntity.java",
+      "dependencies": [
+        "MachineContent",
+        "BlasphemerProcessEntity",
+        "blasphemy_2"
+      ],
+      "status": "真实原生实现已存在"
+    },
+    {
+      "block": "phobotite_mantle_outcrop",
+      "implementation": "content/decor/geo/PhobotiteOutcropBlock.java",
+      "dependencies": [
+        "phobotite"
+      ],
+      "status": "真实原生实现已存在"
+    },
+    {
+      "block": "ferrous_cache_pad",
+      "implementation": "content/decor/geo/GeoDecorContent.java -> GeoDecorBlock/GeoDecorBlockEntity",
+      "status": "现有原生注册及原模板容器数据保留，不能仅当作无来源删除"
+    },
+    {
+      "block": "maw_door",
+      "implementation": "content/doors/SpecialDoorsContent.java/DoorKind.MAW/SpecialDoorBlock",
+      "status": "真实原生实现已存在"
+    }
+  ],
+  "legacy_target_payload_observation": "既有castle中Dormant.attributes仍可见forge:step_height；本批新独立模板已正确转minecraft:generic.step_height。共享城堡模板后续还需逐属性/状态映射验证，不共改旧NBT。",
+  "structure_gel_scope": "原城堡实体ForgeCaps内structure_gel:empty是外模组遗留cap数据；不新增Structure Gel依赖，亦不拿该遗留数据替代两项缺失的原生方块",
+  "decision": "不接入Vilebath四自然结构/池JSON，不修改五既有模板。后续先迁原生thermal_geyser、hanging_sparkler_bulb及bloodstone_halberd完整玩法并完成目标模板属性/方块状态审计，再处理原池名缺陷并接原城堡生成链。",
+  "standalone_monolith_source": "monolith_spire原三JSON和nu_monoluth模板仅需已存在grassy_shale/snowy_shale/structure_feature及本批Dormant，已完整迁入；原备用monolith模板亦保留，未将备用模板虚构为自然入口。",
+  "runtime_verified": false,
+  "missing_native_item_registrations": [
+    "thermal_shock:bloodstone_halberd"
+  ]
+}

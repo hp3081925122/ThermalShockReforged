@@ -1,0 +1,5026 @@
+{
+  "jar_sha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436",
+  "json_references": {
+    "data/thermal_shock/forge/biome_modifier/monolith_spire_biome_modifier.json": {
+      "type": "forge:add_features",
+      "biomes": "thermal_shock:graveyard",
+      "features": "thermal_shock:monolith_spire",
+      "step": "surface_structures"
+    },
+    "data/thermal_shock/tags/entity_types/graveyard_mobs.json": {
+      "replace": false,
+      "values": [
+        "thermal_shock:assimilated_graver",
+        "thermal_shock:assimilator",
+        "thermal_shock:blighted_spore",
+        "thermal_shock:dormant_monolith",
+        "thermal_shock:flare",
+        "thermal_shock:infestophage",
+        "thermal_shock:infestophage_seed",
+        "thermal_shock:mangler",
+        "thermal_shock:monolith",
+        "thermal_shock:razoraptor"
+      ]
+    },
+    "data/thermal_shock/tags/entity_types/infecting_mobs.json": {
+      "replace": false,
+      "values": [
+        "thermal_shock:assimilated_graver",
+        "thermal_shock:assimilator",
+        "thermal_shock:infestophage",
+        "thermal_shock:monolith",
+        "thermal_shock:razoraptor"
+      ]
+    },
+    "data/thermal_shock/tags/entity_types/infectionimmune.json": {
+      "replace": false,
+      "values": [
+        "thermal_shock:blighted_spore",
+        "thermal_shock:blinding_lantern_flash_ring",
+        "thermal_shock:blizzard_drop_pod",
+        "thermal_shock:dormant_monolith",
+        "thermal_shock:flare_gun_core",
+        "thermal_shock:frost_titan",
+        "thermal_shock:frostilyte",
+        "thermal_shock:frostilyte_cryomancer",
+        "thermal_shock:frostilyte_soldier",
+        "thermal_shock:herald",
+        "thermal_shock:icidroburner",
+        "thermal_shock:icidrogrunt",
+        "thermal_shock:icidrogunner",
+        "thermal_shock:icidrone",
+        "thermal_shock:icidrostrider",
+        "thermal_shock:icidrozerk",
+        "thermal_shock:infestophage_seed",
+        "thermal_shock:lil_jelly",
+        "thermal_shock:sootle_idle",
+        "thermal_shock:springslime",
+        "thermal_shock:squall",
+        "thermal_shock:whisper",
+        "#thermal_shock:character_mobs",
+        "thermal_shock:florist",
+        "thermal_shock:huntress",
+        "thermal_shock:huntress_boss",
+        "thermal_shock:laut",
+        "thermal_shock:ly",
+        "thermal_shock:protoi_gamma",
+        "thermal_shock:shutterbug",
+        "thermal_shock:zap_attack_entity"
+      ]
+    },
+    "data/thermal_shock/tags/entity_types/pyro_weak.json": {
+      "replace": false,
+      "values": [
+        "thermal_shock:icidrozerk",
+        "thermal_shock:icidrogrunt",
+        "thermal_shock:icidrogunner",
+        "thermal_shock:icidrone",
+        "thermal_shock:frost_titan",
+        "thermal_shock:frostilyte",
+        "thermal_shock:frostilyte_cryomancer",
+        "thermal_shock:frostilyte_gunner",
+        "thermal_shock:frostilyte_soldier",
+        "thermal_shock:effigy",
+        "thermal_shock:galvanite",
+        "thermal_shock:ribbonblade_galvanite",
+        "thermal_shock:ripple",
+        "thermal_shock:forecast",
+        "thermal_shock:angry_cavebloomer",
+        "thermal_shock:monolith"
+      ]
+    },
+    "data/thermal_shock/tags/entity_types/sprintweed_blacklist.json": {
+      "replace": false,
+      "values": [
+        "thermal_shock:blighted_spore",
+        "thermal_shock:blinding_lantern_flash_ring",
+        "thermal_shock:blizzard_drop_pod",
+        "thermal_shock:dormant_monolith",
+        "thermal_shock:flare_gun_core",
+        "thermal_shock:giant_laser_test",
+        "thermal_shock:icidroburner",
+        "thermal_shock:icidrogunner",
+        "thermal_shock:infestophage_seed",
+        "thermal_shock:lens",
+        "thermal_shock:lil_jelly",
+        "thermal_shock:monolith",
+        "thermal_shock:pixie",
+        "thermal_shock:skullscor",
+        "thermal_shock:springling",
+        "thermal_shock:springslime",
+        "thermal_shock:squall",
+        "thermal_shock:whisper"
+      ]
+    },
+    "data/thermal_shock/worldgen/configured_feature/monolith_spire.json": {
+      "type": "thermal_shock:structure_feature",
+      "config": {
+        "structure": "thermal_shock:nu_monoluth",
+        "random_rotation": true,
+        "ignored_blocks": "minecraft:structure_block",
+        "offset": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    "data/thermal_shock/worldgen/placed_feature/monolith_spire.json": {
+      "feature": "thermal_shock:monolith_spire",
+      "placement": [
+        {
+          "type": "minecraft:rarity_filter",
+          "chance": 12
+        },
+        {
+          "type": "minecraft:in_square"
+        },
+        {
+          "type": "minecraft:heightmap",
+          "heightmap": "MOTION_BLOCKING"
+        },
+        {
+          "type": "environment_scan",
+          "direction_of_search": "up",
+          "target_condition": {
+            "type": "minecraft:matching_blocks",
+            "blocks": [
+              "minecraft:air",
+              "minecraft:water"
+            ]
+          },
+          "allowed_search_condition": {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:air"
+          },
+          "max_steps": 15
+        },
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:matching_blocks",
+            "blocks": [
+              "thermal_shock:grassy_shale",
+              "thermal_shock:snowy_shale"
+            ],
+            "offset": [
+              0,
+              -1,
+              0
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "assets": {
+    "assets/thermal_shock/animations/monolith.animation.json": "8f8f09875c685b71084ee1002cc18b321d24ee833804d1f3f3ed37002ef6c7f8",
+    "assets/thermal_shock/geo/monolith.geo.json": "aa8c6dc7479babb7b94ff7bf04bba6c888a8745c5a36d02088220aae80da193a",
+    "assets/thermal_shock/models/item/dormant_monolith_spawn_egg.json": "a8e5a90a30f4ab45bd1beec6651410476b7a2b7988badf213bbce49cc68143fa",
+    "assets/thermal_shock/sounds/stalkerstep1.ogg": "dfca7a4903bdb8b7f919fceba73a570a7c22fe20fdcd4419de27812e799f589f",
+    "assets/thermal_shock/sounds/stalkerstep2.ogg": "915b4e11e6c62734fd872907f850bd57126f0c768106ce1d35750e104d5f6bf9",
+    "assets/thermal_shock/sounds/stalkerstep3.ogg": "5207563aa3aa51c71eea28df04b69a777a25dabcf15945f31ed45d251994de83",
+    "assets/thermal_shock/textures/entities/monolith.png": "17bc80801d6065f116102bc43690dafed9beb70b305d9955b6caa81abd2cc795",
+    "assets/thermal_shock/textures/entities/monolith25.png": "0830e314cf27fd43075c54db0f8d10d719037cc46448cffe75d554428d42a58f",
+    "assets/thermal_shock/textures/entities/monolith25glow.png": "7f1ec250ed3105291a6b24492abc2ae711008ed43d7934fb0ff713b613b12bb1",
+    "assets/thermal_shock/textures/entities/monolithglow.png": "7daaf3002324ae6096268a78c4d243f9dd50704fd51262834f5f4769b572ff2f",
+    "assets/thermal_shock/textures/entities/monolithsleep.png": "57281646710c13d08b2996d05a2642f8c816e6eaf9ce2b8a1d5975c12cd263b3",
+    "assets/thermal_shock/textures/entities/monolithsleep25.png": "1a8912ac5673fa1c7bec6dd53a8183a0d7dbc36cab151e1204d5d2af1d9f91bd",
+    "assets/thermal_shock/textures/item/monolith_egg.png": "54c34c40a19ea46d9399ff1ba8bdbf27eea4f0d013bda9693414a01a2328eab1",
+    "assets/thermal_shock/sounds/stalkerambient1.ogg": "514d13f8cf4fd6f1d7b051969144f2871e77a54e2779c31b4baee32d5e1b8f26",
+    "assets/thermal_shock/sounds/stalkerambient3.ogg": "ef76df379c2dd25c972131804935efc4cffaf6a0717d6c39de61411f78052fb8",
+    "assets/thermal_shock/sounds/stalkerhurt1.ogg": "3145ce3450218de331b2545f3f51d6cbfb88d8361651d8a92d8db2f11f95b4f4",
+    "assets/thermal_shock/sounds/stalkerhurt2.ogg": "bc4e39d6ccebb10d677857cafa4b72a86a9a2816cf2a8fcbc1dd1988d25cc07d",
+    "assets/thermal_shock/sounds/stalkerdeath.ogg": "5b00311cf0d22ea13d220e5904d2227ad20e7db95e65ab345f9e81e0d4903af6",
+    "assets/thermal_shock/sounds/metroid_explosion.ogg": "d6b361e665b34e7b4423dc9845a21b2bb7c157197ca74adcd052143a093e0841"
+  },
+  "sound_groups": {
+    "stalkerstep": {
+      "subtitle": "subtitles.stalkerstep",
+      "sounds": [
+        {
+          "name": "thermal_shock:stalkerstep1",
+          "stream": false
+        },
+        {
+          "name": "thermal_shock:stalkerstep2",
+          "stream": false
+        },
+        {
+          "name": "thermal_shock:stalkerstep3",
+          "stream": false
+        }
+      ]
+    },
+    "monolithambient": {
+      "subtitle": "subtitles.monolithambient",
+      "sounds": [
+        {
+          "name": "thermal_shock:stalkerambient1",
+          "stream": false
+        },
+        {
+          "name": "thermal_shock:stalkerambient3",
+          "stream": false
+        }
+      ]
+    },
+    "monolithhurt": {
+      "subtitle": "subtitles.monolithhurt",
+      "sounds": [
+        {
+          "name": "thermal_shock:stalkerhurt1",
+          "stream": false
+        },
+        {
+          "name": "thermal_shock:stalkerhurt2",
+          "stream": false
+        }
+      ]
+    },
+    "monolithdeath": {
+      "subtitle": "subtitles.monolithdeath",
+      "sounds": [
+        {
+          "name": "thermal_shock:stalkerdeath",
+          "stream": false
+        }
+      ]
+    },
+    "mob_death_explode": {
+      "subtitle": "subtitles.mob_death_explode",
+      "sounds": [
+        {
+          "name": "thermal_shock:metroid_explosion",
+          "stream": false
+        }
+      ]
+    }
+  },
+  "language": {
+    "en_us": {
+      "subtitles.monolithambient": "Monolith Cries",
+      "entity.thermal_shock.monolith": "Monolith",
+      "subtitles.monolithdeath": "Monolith Dies",
+      "item.thermal_shock.dormant_monolith_spawn_egg": "Monolith Spawn Egg",
+      "item.thermal_shock.monolith_spawn_egg": "Monolith Spawn Egg",
+      "subtitles.monolithhurt": "Monolith Pains",
+      "entity.thermal_shock.dormant_monolith": "Monolith"
+    }
+  },
+  "nbt_monolith_references": {
+    "data/thermal_shock/structures/monolith.nbt": [
+      {
+        "path": "$.entities[0].nbt.Texture",
+        "value": "monolithsleep"
+      },
+      {
+        "path": "$.entities[0].nbt.id",
+        "value": "thermal_shock:dormant_monolith"
+      }
+    ],
+    "data/thermal_shock/structures/nu_monoluth.nbt": [
+      {
+        "path": "$.entities[0].nbt.Texture",
+        "value": "monolithsleep25"
+      },
+      {
+        "path": "$.entities[0].nbt.id",
+        "value": "thermal_shock:dormant_monolith"
+      }
+    ],
+    "data/thermal_shock/structures/vilebath_castle.nbt": [
+      {
+        "path": "$.entities[3].nbt.Texture",
+        "value": "monolithsleep25"
+      },
+      {
+        "path": "$.entities[3].nbt.id",
+        "value": "thermal_shock:dormant_monolith"
+      }
+    ],
+    "data/thermal_shock/structures/vilebathrubicon.nbt": [
+      {
+        "path": "$.entities[41].nbt.Texture",
+        "value": "monolithsleep25"
+      },
+      {
+        "path": "$.entities[41].nbt.id",
+        "value": "thermal_shock:dormant_monolith"
+      }
+    ]
+  },
+  "vilebath_templates": {
+    "data/thermal_shock/structures/vilebath_bridge.nbt": {
+      "target_path": "src/main/resources/data/thermal_shock_reforged/structure/vilebath_bridge.nbt",
+      "target_sha256": "0866301284eaa977ce2db00b8a8393dedbae152c7c1e19efcd1732702259ec27",
+      "size": [
+        21,
+        25,
+        49
+      ],
+      "entities": {},
+      "block_palette": [
+        {
+          "Name": "thermal_shock:mantlestone_bricks"
+        },
+        {
+          "Name": "thermal_shock:mantlestone"
+        },
+        {
+          "Name": "minecraft:air"
+        },
+        {
+          "Properties": {
+            "half": "top",
+            "waterlogged": "false",
+            "shape": "straight",
+            "facing": "north"
+          },
+          "Name": "thermal_shock:mantlestone_brick_stairs"
+        },
+        {
+          "Properties": {
+            "half": "top",
+            "waterlogged": "false",
+            "shape": "straight",
+            "facing": "south"
+          },
+          "Name": "thermal_shock:mantlestone_brick_stairs"
+        },
+        {
+          "Properties": {
+            "waterlogged": "false",
+            "type": "top"
+          },
+          "Name": "thermal_shock:mantlestone_brick_slab"
+        },
+        {
+          "Properties": {
+            "waterlogged": "false",
+            "type": "bottom"
+          },
+          "Name": "thermal_shock:mantlestone_brick_slab"
+        },
+        {
+          "Properties": {
+            "east": "false",
+            "waterlogged": "false",
+            "south": "false",
+            "north": "false",
+            "west": "false"
+          },
+          "Name": "minecraft:nether_brick_fence"
+        },
+        {
+          "Properties": {
+            "east": "false",
+            "waterlogged": "false",
+            "south": "true",
+            "north": "false",
+            "west": "false"
+          },
+          "Name": "minecraft:nether_brick_fence"
+        },
+        {
+          "Properties": {
+            "east": "false",
+            "waterlogged": "false",
+            "south": "true",
+            "north": "true",
+            "west": "false"
+          },
+          "Name": "minecraft:nether_brick_fence"
+        },
+        {
+          "Properties": {
+            "east": "false",
+            "waterlogged": "false",
+            "south": "false",
+            "north": "true",
+            "west": "false"
+          },
+          "Name": "minecraft:nether_brick_fence"
+        },
+        {
+          "Properties": {
+            "east": "none",
+            "waterlogged": "false",
+            "south": "none",
+            "north": "none",
+            "west": "none",
+            "up": "true"
+          },
+          "Name": "thermal_shock:thin_spire_bulb"
+        },
+        {
+          "Properties": {
+            "orientation": "north_up"
+          },
+          "Name": "minecraft:jigsaw"
+        },
+        {
+          "Properties": {
+            "orientation": "south_up"
+          },
+          "Name": "minecraft:jigsaw"
+        }
+      ],
+      "nonvanilla_all_recursive_ids": {
+        "thermal_shock:vilebath_bridges": 1,
+        "thermal_shock:mantlestone": 3,
+        "thermal_shock:vilebath_bridge": 2,
+        "thermal_shock:mantlestone_bricks": 1,
+        "thermal_shock:mantlestone_brick_stairs": 2,
+        "thermal_shock:mantlestone_brick_slab": 2,
+        "thermal_shock:thin_spire_bulb": 1
+      },
+      "functional_nested_values": {
+        "$.blocks[0].nbt.pool": "thermal_shock:vilebath_bridges",
+        "$.blocks[0].nbt.final_state": "thermal_shock:mantlestone",
+        "$.blocks[0].nbt.target": "thermal_shock:vilebath_bridge",
+        "$.blocks[1].nbt.pool": "minecraft:empty",
+        "$.blocks[1].nbt.final_state": "thermal_shock:mantlestone",
+        "$.blocks[1].nbt.target": "minecraft:empty"
+      },
+      "original_monolith_payloads": [],
+      "target_monolith_payloads": [],
+      "jigsaw_blocks": [
+        {
+          "nbt": {
+            "joint": "rollable",
+            "name": "minecraft:empty",
+            "pool": "thermal_shock:vilebath_bridges",
+            "final_state": "thermal_shock:mantlestone",
+            "id": "minecraft:jigsaw",
+            "target": "thermal_shock:vilebath_bridge"
+          },
+          "pos": [
+            10,
+            12,
+            0
+          ],
+          "state": 12
+        },
+        {
+          "nbt": {
+            "joint": "rollable",
+            "name": "thermal_shock:vilebath_bridge",
+            "pool": "minecraft:empty",
+            "final_state": "thermal_shock:mantlestone",
+            "id": "minecraft:jigsaw",
+            "target": "minecraft:empty"
+          },
+          "pos": [
+            10,
+            12,
+            48
+          ],
+          "state": 13
+        }
+      ]
+    },
+    "data/thermal_shock/structures/vilebath_bridge_center.nbt": {
+      "target_path": "src/main/resources/data/thermal_shock_reforged/structure/vilebath_bridge_center.nbt",
+      "target_sha256": "e56ff588b166f29dd73bf0ad3e5c59ad05fbe612ad84933e58a80283cbd496bc",
+      "size": [
+        31,
+        25,
+        31
+      ],
+      "entities": {},
+      "block_palette": [
+        {
+          "Name": "thermal_shock:mantlestone_bricks"
+        },
+        {
+          "Name": "thermal_shock:mantlestone"
+        },
+        {
+          "Name": "thermal_shock:polished_mantlestone"
+        },
+        {
+          "Name": "thermal_shock:spire_base"
+        },
+        {
+          "Name": "thermal_shock:spiral_mantlestone"
+        },
+        {
+          "Name": "thermal_shock:spire_bulb"
+        },
+        {
+          "Name": "minecraft:air"
+        },
+        {
+          "Properties": {
+            "half": "top",
+            "waterlogged": "false",
+            "shape": "straight",
+            "facing": "west"
+          },
+          "Name": "thermal_shock:mantlestone_brick_stairs"
+        },
+        {
+          "Properties": {
+            "half": "top",
+            "waterlogged": "false",
+            "shape": "straight",
+            "facing": "east"
+          },
+          "Name": "thermal_shock:mantlestone_brick_stairs"
+        },
+        {
+          "Properties": {
+            "half": "top",
+            "waterlogged": "false",
+            "shape": "straight",
+            "facing": "north"
+          },
+          "Name": "thermal_shock:mantlestone_brick_stairs"
+        },
+        {
+          "Properties": {
+            "half": "top",
+            "waterlogged": "false",
+            "shape": "straight",
+            "facing": "south"
+          },
+          "Name": "thermal_shock:mantlestone_brick_stairs"
+        },
+        {
+          "Properties": {
+            "waterlogged": "false",
+            "type": "top"
+          },
+          "Name": "thermal_shock:mantlestone_brick_slab"
+        },
+        {
+          "Properties": {
+            "waterlogged": "false",
+            "type": "bottom"
+          },
+          "Name": "thermal_shock:mantlestone_brick_slab"
+        },
+        {
+          "Properties": {
+            "east": "tall",
+            "waterlogged": "false",
+            "south": "none",
+            "north": "none",
+            "west": "none",
+            "up": "true"
+          },
+          "Name": "thermal_shock:spire_stem"
+        },
+        {
+          "Properties": {
+            "east": "none",
+            "waterlogged": "false",
+            "south": "tall",
+            "north": "none",
+            "west": "none",
+            "up": "true"
+          },
+          "Name": "thermal_shock:spire_stem"
+        },
+        {
+          "Properties": {
+            "east": "none",
+            "waterlogged": "false",
+            "south": "none",
+            "north": "tall",
+            "west": "none",
+            "up": "true"
+          },
+          "Name": "thermal_shock:spire_stem"
+        },
+        {
+          "Properties": {
+            "east": "none",
+            "waterlogged": "false",
+            "south": "none",
+            "north": "none",
+            "west": "tall",
+            "up": "true"
+          },
+          "Name": "thermal_shock:spire_stem"
+        },
+        {
+          "Properties": {
+            "east": "true",
+            "waterlogged": "false",
+            "south": "false",
+            "north": "false",
+            "west": "false"
+          },
+          "Name": "thermal_shock:spire_tendrils"
+        },
+        {
+          "Properties": {
+            "east": "false",
+            "waterlogged": "false",
+            "south": "true",
+            "north": "false",
+            "west": "false"
+          },
+          "Name": "thermal_shock:spire_tendrils"
+        },
+        {
+          "Properties": {
+            "east": "false",
+            "waterlogged": "false",
+            "south": "false",
+            "north": "true",
+            "west": "false"
+          },
+          "Name": "thermal_shock:spire_tendrils"
+        },
+        {
+          "Properties": {
+            "east": "false",
+            "waterlogged": "false",
+            "south": "false",
+            "north": "false",
+            "west": "true"
+          },
+          "Name": "thermal_shock:spire_tendrils"
+        },
+        {
+          "Properties": {
+            "east": "none",
+            "waterlogged": "false",
+            "south": "none",
+            "north": "none",
+            "west": "none",
+            "up": "true"
+          },
+          "Name": "thermal_shock:spire_stem"
+        },
+        {
+          "Properties": {
+            "east": "false",
+            "waterlogged": "false",
+            "south": "false",
+            "north": "false",
+            "west": "false"
+          },
+          "Name": "thermal_shock:spire_tendrils"
+        },
+        {
+          "Properties": {
+            "east": "none",
+            "waterlogged": "false",
+            "south": "none",
+            "north": "none",
+            "west": "none",
+            "up": "true"
+          },
+          "Name": "thermal_shock:thin_spire_bulb"
+        },
+        {
+          "Properties": {
+            "orientation": "west_up"
+          },
+          "Name": "minecraft:jigsaw"
+        },
+        {
+          "Properties": {
+            "orientation": "north_up"
+          },
+          "Name": "minecraft:jigsaw"
+        },
+        {
+          "Properties": {
+            "orientation": "south_up"
+          },
+          "Name": "minecraft:jigsaw"
+        },
+        {
+          "Properties": {
+            "orientation": "east_up"
+          },
+          "Name": "minecraft:jigsaw"
+        }
+      ],
+      "nonvanilla_all_recursive_ids": {
+        "thermal_shock:vilebath_bridges": 4,
+        "thermal_shock:mantlestone": 5,
+        "thermal_shock:vilebath_bridge": 4,
+        "thermal_shock:mantlestone_bricks": 1,
+        "thermal_shock:polished_mantlestone": 1,
+        "thermal_shock:spire_base": 1,
+        "thermal_shock:spiral_mantlestone": 1,
+        "thermal_shock:spire_bulb": 1,
+        "thermal_shock:mantlestone_brick_stairs": 4,
+        "thermal_shock:mantlestone_brick_slab": 2,
+        "thermal_shock:spire_stem": 5,
+        "thermal_shock:spire_tendrils": 5,
+        "thermal_shock:thin_spire_bulb": 1
+      },
+      "functional_nested_values": {
+        "$.blocks[0].nbt.pool": "thermal_shock:vilebath_bridges",
+        "$.blocks[0].nbt.final_state": "thermal_shock:mantlestone",
+        "$.blocks[0].nbt.target": "thermal_shock:vilebath_bridge",
+        "$.blocks[1].nbt.pool": "thermal_shock:vilebath_bridges",
+        "$.blocks[1].nbt.final_state": "thermal_shock:mantlestone",
+        "$.blocks[1].nbt.target": "thermal_shock:vilebath_bridge",
+        "$.blocks[2].nbt.pool": "thermal_shock:vilebath_bridges",
+        "$.blocks[2].nbt.final_state": "thermal_shock:mantlestone",
+        "$.blocks[2].nbt.target": "thermal_shock:vilebath_bridge",
+        "$.blocks[3].nbt.pool": "thermal_shock:vilebath_bridges",
+        "$.blocks[3].nbt.final_state": "thermal_shock:mantlestone",
+        "$.blocks[3].nbt.target": "thermal_shock:vilebath_bridge"
+      },
+      "original_monolith_payloads": [],
+      "target_monolith_payloads": [],
+      "jigsaw_blocks": [
+        {
+          "nbt": {
+            "joint": "rollable",
+            "name": "minecraft:empty",
+            "pool": "thermal_shock:vilebath_bridges",
+            "final_state": "thermal_shock:mantlestone",
+            "id": "minecraft:jigsaw",
+            "target": "thermal_shock:vilebath_bridge"
+          },
+          "pos": [
+            0,
+            12,
+            15
+          ],
+          "state": 24
+        },
+        {
+          "nbt": {
+            "joint": "rollable",
+            "name": "minecraft:empty",
+            "pool": "thermal_shock:vilebath_bridges",
+            "final_state": "thermal_shock:mantlestone",
+            "id": "minecraft:jigsaw",
+            "target": "thermal_shock:vilebath_bridge"
+          },
+          "pos": [
+            15,
+            12,
+            0
+          ],
+          "state": 25
+        },
+        {
+          "nbt": {
+            "joint": "rollable",
+            "name": "minecraft:empty",
+            "pool": "thermal_shock:vilebath_bridges",
+            "final_state": "thermal_shock:mantlestone",
+            "id": "minecraft:jigsaw",
+            "target": "thermal_shock:vilebath_bridge"
+          },
+          "pos": [
+            15,
+            12,
+            30
+          ],
+          "state": 26
+        },
+        {
+          "nbt": {
+            "joint": "rollable",
+            "name": "minecraft:empty",
+            "pool": "thermal_shock:vilebath_bridges",
+            "final_state": "thermal_shock:mantlestone",
+            "id": "minecraft:jigsaw",
+            "target": "thermal_shock:vilebath_bridge"
+          },
+          "pos": [
+            30,
+            12,
+            15
+          ],
+          "state": 27
+        }
+      ]
+    },
+    "data/thermal_shock/structures/vilebath_bridge_split.nbt": {
+      "target_path": "src/main/resources/data/thermal_shock_reforged/structure/vilebath_bridge_split.nbt",
+      "target_sha256": "284dbcc2a8cc54eb1ca02b75440f7d538b4947755aa20729775087245e1418f7",
+      "size": [
+        37,
+        25,
+        49
+      ],
+      "entities": {},
+      "block_palette": [
+        {
+          "Name": "minecraft:red_stained_glass"
+        },
+        {
+          "Name": "thermal_shock:mantlestone_bricks"
+        },
+        {
+          "Name": "thermal_shock:mantlestone"
+        },
+        {
+          "Name": "thermal_shock:spire_bulb"
+        },
+        {
+          "Name": "thermal_shock:polished_mantlestone"
+        },
+        {
+          "Name": "minecraft:air"
+        },
+        {
+          "Properties": {
+            "half": "top",
+            "waterlogged": "false",
+            "shape": "straight",
+            "facing": "north"
+          },
+          "Name": "thermal_shock:mantlestone_brick_stairs"
+        },
+        {
+          "Properties": {
+            "half": "top",
+            "waterlogged": "false",
+            "shape": "straight",
+            "facing": "south"
+          },
+          "Name": "thermal_shock:mantlestone_brick_stairs"
+        },
+        {
+          "Properties": {
+            "half": "top",
+            "waterlogged": "false",
+            "shape": "straight",
+            "facing": "west"
+          },
+          "Name": "thermal_shock:mantlestone_brick_stairs"
+        },
+        {
+          "Properties": {
+            "half": "top",
+            "waterlogged": "false",
+            "shape": "straight",
+            "facing": "east"
+          },
+          "Name": "thermal_shock:mantlestone_brick_stairs"
+        },
+        {
+          "Properties": {
+            "waterlogged": "false",
+            "type": "top"
+          },
+          "Name": "thermal_shock:mantlestone_brick_slab"
+        },
+        {
+          "Properties": {
+            "waterlogged": "false",
+            "type": "bottom"
+          },
+          "Name": "thermal_shock:mantlestone_brick_slab"
+        },
+        {
+          "Properties": {
+            "east": "false",
+            "waterlogged": "false",
+            "south": "false",
+            "north": "false",
+            "west": "false"
+          },
+          "Name": "minecraft:nether_brick_fence"
+        },
+        {
+          "Properties": {
+            "east": "none",
+            "waterlogged": "false",
+            "south": "none",
+            "north": "none",
+            "west": "none",
+            "up": "true"
+          },
+          "Name": "thermal_shock:polished_mantle_wall"
+        },
+        {
+          "Properties": {
+            "half": "top",
+            "waterlogged": "false",
+            "shape": "straight",
+            "facing": "east"
+          },
+          "Name": "thermal_shock:polished_mantlestone_stairs"
+        },
+        {
+          "Properties": {
+            "half": "top",
+            "waterlogged": "false",
+            "shape": "straight",
+            "facing": "south"
+          },
+          "Name": "thermal_shock:polished_mantlestone_stairs"
+        },
+        {
+          "Properties": {
+            "half": "top",
+            "waterlogged": "false",
+            "shape": "straight",
+            "facing": "north"
+          },
+          "Name": "thermal_shock:polished_mantlestone_stairs"
+        },
+        {
+          "Properties": {
+            "half": "top",
+            "waterlogged": "false",
+            "shape": "straight",
+            "facing": "west"
+          },
+          "Name": "thermal_shock:polished_mantlestone_stairs"
+        },
+        {
+          "Properties": {
+            "east": "none",
+            "waterlogged": "false",
+            "south": "none",
+            "north": "none",
+            "west": "none",
+            "up": "true"
+          },
+          "Name": "thermal_shock:thin_spire_bulb"
+        },
+        {
+          "Properties": {
+            "east": "true",
+            "waterlogged": "false",
+            "south": "false",
+            "north": "false",
+            "west": "false"
+          },
+          "Name": "minecraft:nether_brick_fence"
+        },
+        {
+          "Properties": {
+            "east": "false",
+            "waterlogged": "false",
+            "south": "true",
+            "north": "false",
+            "west": "false"
+          },
+          "Name": "minecraft:nether_brick_fence"
+        },
+        {
+          "Properties": {
+            "east": "false",
+            "waterlogged": "false",
+            "south": "false",
+            "north": "true",
+            "west": "false"
+          },
+          "Name": "minecraft:nether_brick_fence"
+        },
+        {
+          "Properties": {
+            "east": "false",
+            "waterlogged": "false",
+            "south": "false",
+            "north": "false",
+            "west": "true"
+          },
+          "Name": "minecraft:nether_brick_fence"
+        },
+        {
+          "Properties": {
+            "east": "false",
+            "waterlogged": "false",
+            "south": "true",
+            "north": "true",
+            "west": "false"
+          },
+          "Name": "minecraft:nether_brick_fence"
+        },
+        {
+          "Properties": {
+            "half": "bottom",
+            "waterlogged": "false",
+            "shape": "straight",
+            "facing": "east"
+          },
+          "Name": "thermal_shock:polished_mantlestone_stairs"
+        },
+        {
+          "Properties": {
+            "half": "bottom",
+            "waterlogged": "false",
+            "shape": "straight",
+            "facing": "south"
+          },
+          "Name": "thermal_shock:polished_mantlestone_stairs"
+        },
+        {
+          "Properties": {
+            "half": "bottom",
+            "waterlogged": "false",
+            "shape": "straight",
+            "facing": "north"
+          },
+          "Name": "thermal_shock:polished_mantlestone_stairs"
+        },
+        {
+          "Properties": {
+            "half": "bottom",
+            "waterlogged": "false",
+            "shape": "straight",
+            "facing": "west"
+          },
+          "Name": "thermal_shock:polished_mantlestone_stairs"
+        },
+        {
+          "Properties": {
+            "east": "true",
+            "waterlogged": "false",
+            "south": "false",
+            "north": "false",
+            "west": "true"
+          },
+          "Name": "minecraft:nether_brick_fence"
+        },
+        {
+          "Properties": {
+            "orientation": "south_up"
+          },
+          "Name": "minecraft:jigsaw"
+        },
+        {
+          "Properties": {
+            "orientation": "north_up"
+          },
+          "Name": "minecraft:jigsaw"
+        },
+        {
+          "Properties": {
+            "orientation": "east_up"
+          },
+          "Name": "minecraft:jigsaw"
+        }
+      ],
+      "nonvanilla_all_recursive_ids": {
+        "thermal_shock:vilebath_bridges": 2,
+        "thermal_shock:mantlestone": 4,
+        "thermal_shock:vilebath_bridge": 3,
+        "thermal_shock:mantlestone_bricks": 1,
+        "thermal_shock:spire_bulb": 1,
+        "thermal_shock:polished_mantlestone": 1,
+        "thermal_shock:mantlestone_brick_stairs": 4,
+        "thermal_shock:mantlestone_brick_slab": 2,
+        "thermal_shock:polished_mantle_wall": 1,
+        "thermal_shock:polished_mantlestone_stairs": 8,
+        "thermal_shock:thin_spire_bulb": 1
+      },
+      "functional_nested_values": {
+        "$.blocks[0].nbt.pool": "thermal_shock:vilebath_bridges",
+        "$.blocks[0].nbt.final_state": "thermal_shock:mantlestone",
+        "$.blocks[0].nbt.target": "thermal_shock:vilebath_bridge",
+        "$.blocks[1].nbt.pool": "minecraft:empty",
+        "$.blocks[1].nbt.final_state": "thermal_shock:mantlestone",
+        "$.blocks[1].nbt.target": "minecraft:empty",
+        "$.blocks[2].nbt.pool": "thermal_shock:vilebath_bridges",
+        "$.blocks[2].nbt.final_state": "thermal_shock:mantlestone",
+        "$.blocks[2].nbt.target": "thermal_shock:vilebath_bridge"
+      },
+      "original_monolith_payloads": [],
+      "target_monolith_payloads": [],
+      "jigsaw_blocks": [
+        {
+          "nbt": {
+            "joint": "rollable",
+            "name": "minecraft:empty",
+            "pool": "thermal_shock:vilebath_bridges",
+            "final_state": "thermal_shock:mantlestone",
+            "id": "minecraft:jigsaw",
+            "target": "thermal_shock:vilebath_bridge"
+          },
+          "pos": [
+            10,
+            12,
+            48
+          ],
+          "state": 29
+        },
+        {
+          "nbt": {
+            "joint": "rollable",
+            "name": "thermal_shock:vilebath_bridge",
+            "pool": "minecraft:empty",
+            "final_state": "thermal_shock:mantlestone",
+            "id": "minecraft:jigsaw",
+            "target": "minecraft:empty"
+          },
+          "pos": [
+            16,
+            12,
+            0
+          ],
+          "state": 30
+        },
+        {
+          "nbt": {
+            "joint": "rollable",
+            "name": "minecraft:empty",
+            "pool": "thermal_shock:vilebath_bridges",
+            "final_state": "thermal_shock:mantlestone",
+            "id": "minecraft:jigsaw",
+            "target": "thermal_shock:vilebath_bridge"
+          },
+          "pos": [
+            36,
+            12,
+            26
+          ],
+          "state": 31
+        }
+      ]
+    },
+    "data/thermal_shock/structures/vilebath_castle.nbt": {
+      "target_path": "src/main/resources/data/thermal_shock_reforged/structure/vilebath_castle.nbt",
+      "target_sha256": "480d70ddcaac7669d8adc7d8e15d304fa2c46a2787e7902ccaca3a50ae3df2e3",
+      "size": [
+        79,
+        43,
+        87
+      ],
+      "entities": {
+        "thermal_shock:sootle": 7,
+        "thermal_shock:beetle_thrasher": 16,
+        "thermal_shock:dormant_beetle_crasher": 5,
+        "thermal_shock:dormant_monolith": 1,
+        "minecraft:item_frame": 6,
+        "thermal_shock:sootling": 1,
+        "thermal_shock:herald": 3,
+        "thermal_shock:infestophage_seed": 5,
+        "thermal_shock:frostilyte": 1
+      },
+      "block_palette": [
+        {
+          "Name": "thermal_shock:mantlestone"
+        },
+        {
+          "Name": "thermal_shock:mossy_mantlestone"
+        },
+        {
+          "Name": "thermal_shock:impervium_bricks"
+        },
+        {
+          "Name": "thermal_shock:cobbled_shale"
+        },
+        {
+          "Name": "thermal_shock:mantle_ruby_ore"
+        },
+        {
+          "Properties": {
+            "axis": "y"
+          },
+          "Name": "thermal_shock:cracked_shale_pillar_block"
+        },
+        {
+          "Name": "thermal_shock:mantle_bloodstone_ore"
+        },
+        {
+          "Name": "thermal_shock:spire_base"
+        },
+        {
+          "Name": "thermal_shock:mantlestone_bricks"
+        },
+        {
+          "Name": "minecraft:magenta_stained_glass"
+        },
+        {
+          "Properties": {
+            "axis": "y"
+          },
+          "Name": "thermal_shock:shale_pillar_block"
+        },
+        {
+          "Name": "thermal_shock:polished_mantlestone"
+        },
+        {
+          "Properties": {
+            "axis": "y"
+          },
+          "Name": "thermal_shock:steelstem_block"
+        },
+        {
+          "Name": "thermal_shock:red_crystalleye_lamp"
+        },
+        {
+          "Name": "thermal_shock:spiral_mantlestone"
+        },
+        {
+          "Name": "thermal_shock:bordered_spirewood_planks"
+        },
+        {
+          "Name": "thermal_shock:spirewood_planks"
+        },
+        {
+          "Name": "thermal_shock:tourmaline_spice_block"
+        },
+        {
+          "Name": "minecraft:red_stained_glass"
+        },
+        {
+          "Name": "thermal_shock:hazard_stripes"
+        },
+        {
+          "Name": "minecraft:barrier"
+        },
+        {
+          "Properties": {
+            "axis": "x"
+          },
+          "Name": "thermal_shock:steelstem_block"
+        },
+        {
+          "Name": "minecraft:blue_terracotta"
+        },
+        {
+          "Name": "minecraft:purple_concrete"
+        },
+        {
+          "Name": "thermal_shock:hanging_sparkler_bulb"
+        },
+        {
+          "Name": "minecraft:air"
+        },
+        {
+          "Properties": {
+            "east": "false",
+            "waterlogged": "false",
+            "south": "false",
+            "north": "false",
+            "west": "false"
+          },
+          "Name": "minecraft:nether_brick_fence"
+        },
+        {
+          "Properties": {
+            "half": "bottom",
+            "waterlogged": "false",
+            "shape": "straight",
+            "facing": "east"
+          },
+          "Name": "thermal_shock:mantlestone_brick_stairs"
+        },
+        {
+          "Properties": {
+            "level": "0"
+          },
+          "Name": "thermal_shock:blood"
+        },
+        {
+          "Properties": {
+            "waterlogged": "false",
+            "type": "bottom"
+          },
+          "Name": "thermal_shock:polished_mantlestone_slab"
+        },
+        {
+          "Properties": {
+            "waterlogged": "false",
+            "facing": "north"
+          },
+          "Name": "thermal_shock:wrought_bars"
+        },
+        {
+          "Properties": {
+            "waterlogged": "false",
+            "type": "bottom"
+          },
+          "Name": "thermal_shock:mantlestone_brick_slab"
+        },
+        {
+          "Properties": {
+            "waterlogged": "false",
+            "lit": "true",
+            "candles": "3"
+          },
+          "Name": "minecraft:black_candle"
+        },
+        {
+          "Properties": {
+            "waterlogged": "false",
+            "lit": "true",
+            "candles": "2"
+          },
+          "Name": "minecraft:black_candle"
+        },
+        {
+          "Properties": {
+            "half": "bottom",
+            "waterlogged": "false",
+            "shape": "straight",
+            "facing": "south"
+          },
+          "Name": "thermal_shock:mantlestone_brick_stairs"
+        },
+        {
+          "Properties": {
+            "waterlogged": "false",
+            "facing": "west"
+          },
+          "Name": "thermal_shock:wrought_bars"
+        },
+        {
+          "Properties": {
+            "east": "true",
+            "waterlogged": "false",
+            "south": "true",
+            "north": "true",
+            "west": "false"
+          },
+          "Name": "thermal_shock:spire_tendrils"
+        },
+        {
+          "Properties": {
+            "east": "false",
+            "waterlogged": "false",
+            "south": "true",
+            "north": "true",
+            "west": "true"
+          },
+          "Name": "thermal_shock:spire_tendrils"
+        },
+        {
+          "Properties": {
+            "level": "8"
+          },
+          "Name": "thermal_shock:blood"
+        },
+        {
+          "Properties": {
+            "waterlogged": "false",
+            "lit": "true",
+            "candles": "4"
+          },
+          "Name": "minecraft:black_candle"
+        },
+        {
+          "Properties": {
+            "waterlogged": "false",
+            "facing": "east"
+          },
+          "Name": "thermal_shock:wrought_bars"
+        },
+        {
+          "Properties": {
+            "half": "top",
+            "waterlogged": "false",
+            "shape": "straight",
+            "facing": "south"
+          },
+          "Name": "thermal_shock:mantlestone_brick_stairs"
+        },
+        {
+          "Properties": {
+            "half": "bottom",
+            "waterlogged": "false",
+            "shape": "straight",
+            "facing": "west"
+          },
+          "Name": "thermal_shock:mantlestone_brick_stairs"
+        },
+        {
+          "Properties": {
+            "east": "tall",
+            "waterlogged": "false",
+            "south": "tall",
+            "north": "none",
+            "west": "low",
+            "up": "true"
+          },
+          "Name": "thermal_shock:polished_mantle_wall"
+        },
+        {
+          "Properties": {
+            "half": "top",
+            "waterlogged": "false",
+            "shape": "straight",
+            "facing": "north"
+          },
+          "Name": "thermal_shock:mantlestone_brick_stairs"
+        },
+        {
+          "Properties": {
+            "half": "bottom",
+            "waterlogged": "false",
+            "powered": "false",
+            "facing": "north",
+            "open": "true"
+          },
+          "Name": "thermal_shock:spirewood_trapdoor"
+        },
+        {
+          "Properties": {
+            "half": "top",
+            "waterlogged": "false",
+            "shape": "straight",
+            "facing": "west"
+          },
+          "Name": "thermal_shock:mantlestone_brick_stairs"
+        },
+        {
+          "Properties": {
+            "waterlogged": "false",
+            "type": "top"
+          },
+          "Name": "thermal_shock:mantlestone_brick_slab"
+        },
+        {
+          "Properties": {
+            "half": "top",
+            "waterlogged": "false",
+            "shape": "straight",
+            "facing": "east"
+          },
+          "Name": "thermal_shock:mantlestone_brick_stairs"
+        },
+        {
+          "Properties": {
+            "east": "tall",
+            "waterlogged": "false",
+            "south": "tall",
+            "north": "none",
+            "west": "none",
+            "up": "true"
+          },
+          "Name": "thermal_shock:polished_mantle_wall"
+        },
+        {
+          "Properties": {
+            "east": "true",
+            "waterlogged": "false",
+            "south": "false",
+            "north": "false",
+            "west": "false"
+          },
+          "Name": "minecraft:nether_brick_fence"
+        },
+        {
+          "Properties": {
+            "east": "true",
+            "waterlogged": "false",
+            "south": "false",
+            "north": "false",
+            "west": "true"
+          },
+          "Name": "minecraft:nether_brick_fence"
+        },
+        {
+          "Properties": {
+            "east": "false",
+            "waterlogged": "false",
+            "south": "false",
+            "north": "false",
+            "west": "true"
+          },
+          "Name": "minecraft:nether_brick_fence"
+        },
+        {
+          "Properties": {
+            "east": "low",
+            "waterlogged": "false",
+            "south": "tall",
+            "north": "none",
+            "west": "tall",
+            "up": "true"
+          },
+          "Name": "thermal_shock:polished_mantle_wall"
+        },
+        {
+          "Properties": {
+            "waterlogged": "false",
+            "lit": "true",
+            "candles": "1"
+          },
+          "Name": "minecraft:black_candle"
+        },
+        {
+          "Properties": {
+            "east": "false",
+            "waterlogged": "false",
+            "south": "true",
+            "north": "false",
+            "west": "false"
+          },
+          "Name": "minecraft:nether_brick_fence"
+        },
+        {
+          "Properties": {
+            "east": "false",
+            "waterlogged": "false",
+            "south": "true",
+            "north": "true",
+            "west": "false"
+          },
+          "Name": "minecraft:nether_brick_fence"
+        },
+        {
+          "Properties": {
+            "east": "false",
+            "waterlogged": "false",
+            "south": "false",
+            "north": "true",
+            "west": "false"
+          },
+          "Name": "minecraft:nether_brick_fence"
+        },
+        {
+          "Properties": {
+            "east": "none",
+            "waterlogged": "false",
+            "south": "none",
+            "north": "none",
+            "west": "none",
+            "up": "true"
+          },
+          "Name": "thermal_shock:vermillion_lantern"
+        },
+        {
+          "Properties": {
+            "waterlogged": "false",
+            "hanging": "true"
+          },
+          "Name": "minecraft:lantern"
+        },
+        {
+          "Properties": {
+            "east": "none",
+            "waterlogged": "false",
+            "south": "tall",
+            "north": "none",
+            "west": "tall",
+            "up": "true"
+          },
+          "Name": "thermal_shock:polished_mantle_wall"
+        },
+        {
+          "Properties": {
+            "east": "true",
+            "waterlogged": "false",
+            "south": "false",
+            "north": "false",
+            "west": "true"
+          },
+          "Name": "thermal_shock:spire_tendrils"
+        },
+        {
+          "Properties": {
+            "waterlogged": "false",
+            "facing": "south"
+          },
+          "Name": "thermal_shock:wrought_bars"
+        },
+        {
+          "Properties": {
+            "waterlogged": "false",
+            "type": "bottom"
+          },
+          "Name": "thermal_shock:ferrum_plating_slab"
+        },
+        {
+          "Properties": {
+            "waterlogged": "false",
+            "lit": "true",
+            "candles": "4"
+          },
+          "Name": "minecraft:red_candle"
+        },
+        {
+          "Properties": {
+            "waterlogged": "false",
+            "lit": "true",
+            "candles": "1"
+          },
+          "Name": "minecraft:red_candle"
+        },
+        {
+          "Properties": {
+            "waterlogged": "false",
+            "lit": "true",
+            "candles": "2"
+          },
+          "Name": "minecraft:red_candle"
+        },
+        {
+          "Properties": {
+            "east": "tall",
+            "waterlogged": "false",
+            "south": "none",
+            "north": "tall",
+            "west": "tall",
+            "up": "true"
+          },
+          "Name": "thermal_shock:bordered_spirewood_wall"
+        },
+        {
+          "Properties": {
+            "waterlogged": "false",
+            "level": "15"
+          },
+          "Name": "minecraft:light"
+        },
+        {
+          "Properties": {
+            "waterlogged": "false",
+            "type": "top"
+          },
+          "Name": "thermal_shock:ferrum_plating_slab"
+        },
+        {
+          "Properties": {
+            "east": "low",
+            "waterlogged": "false",
+            "south": "low",
+            "north": "none",
+            "west": "none",
+            "up": "true"
+          },
+          "Name": "thermal_shock:polished_mantle_wall"
+        },
+        {
+          "Properties": {
+            "east": "low",
+            "waterlogged": "false",
+            "south": "none",
+            "north": "low",
+            "west": "none",
+            "up": "true"
+          },
+          "Name": "thermal_shock:polished_mantle_wall"
+        },
+        {
+          "Properties": {
+            "half": "top",
+            "waterlogged": "false",
+            "powered": "false",
+            "facing": "south",
+            "open": "true"
+          },
+          "Name": "thermal_shock:vermilli_trapdoor"
+        },
+        {
+          "Properties": {
+            "east": "none",
+            "waterlogged": "false",
+            "south": "low",
+            "north": "none",
+            "west": "low",
+            "up": "true"
+          },
+          "Name": "thermal_shock:polished_mantle_wall"
+        },
+        {
+          "Properties": {
+            "east": "none",
+            "waterlogged": "false",
+            "south": "none",
+            "north": "low",
+            "west": "low",
+            "up": "true"
+          },
+          "Name": "thermal_shock:polished_mantle_wall"
+        },
+        {
+          "Properties": {
+            "east": "none",
+            "waterlogged": "false",
+            "south": "low",
+            "north": "low",
+            "west": "none",
+            "up": "false"
+          },
+          "Name": "thermal_shock:polished_mantle_wall"
+        },
+        {
+          "Properties": {
+            "east": "none",
+            "waterlogged": "false",
+            "south": "low",
+            "north": "low",
+            "west": "none",
+            "up": "true"
+          },
+          "Name": "thermal_shock:polished_mantle_wall"
+        },
+        {
+          "Name": "thermal_shock:glowcap"
+        },
+        {
+          "Properties": {
+            "east": "tall",
+            "waterlogged": "false",
+            "south": "tall",
+            "north": "none",
+            "west": "tall",
+            "up": "true"
+          },
+          "Name": "thermal_shock:polished_mantle_wall"
+        },
+        {
+          "Properties": {
+            "waterlogged": "false",
+            "axis": "y"
+          },
+          "Name": "minecraft:chain"
+        },
+        {
+          "Properties": {
+            "waterlogged": "false",
+            "type": "top"
+          },
+          "Name": "thermal_shock:polished_mantlestone_slab"
+        },
+        {
+          "Properties": {
+            "waterlogged": "false",
+            "lit": "true",
+            "candles": "3"
+          },
+          "Name": "minecraft:red_candle"
+        },
+        {
+          "Properties": {
+            "lit": "true"
+          },
+          "Name": "minecraft:redstone_torch"
+        },
+        {
+          "Properties": {
+            "level": "2"
+          },
+          "Name": "thermal_shock:blood"
+        },
+        {
+          "Properties": {
+            "half": "top",
+            "waterlogged": "false",
+            "shape": "straight",
+            "facing": "south"
+          },
+          "Name": "thermal_shock:polished_mantlestone_stairs"
+        },
+        {
+          "Properties": {
+            "half": "top",
+            "waterlogged": "false",
+            "shape": "straight",
+            "facing": "east"
+          },
+          "Name": "thermal_shock:polished_mantlestone_stairs"
+        },
+        {
+          "Properties": {
+            "half": "top",
+            "waterlogged": "false",
+            "shape": "straight",
+            "facing": "west"
+          },
+          "Name": "thermal_shock:polished_mantlestone_stairs"
+        },
+        {
+          "Properties": {
+            "half": "top",
+            "waterlogged": "false",
+            "shape": "straight",
+            "facing": "north"
+          },
+          "Name": "thermal_shock:polished_mantlestone_stairs"
+        },
+        {
+          "Properties": {
+            "east": "none",
+            "waterlogged": "false",
+            "south": "none",
+            "north": "tall",
+            "west": "none",
+            "up": "true"
+          },
+          "Name": "thermal_shock:thin_spire_bulb"
+        },
+        {
+          "Properties": {
+            "east": "none",
+            "waterlogged": "false",
+            "south": "tall",
+            "north": "tall",
+            "west": "none",
+            "up": "false"
+          },
+          "Name": "thermal_shock:bordered_spirewood_wall"
+        },
+        {
+          "Properties": {
+            "east": "none",
+            "waterlogged": "false",
+            "south": "none",
+            "north": "none",
+            "west": "tall",
+            "up": "true"
+          },
+          "Name": "thermal_shock:polished_mantle_wall"
+        },
+        {
+          "Properties": {
+            "east": "false",
+            "waterlogged": "false",
+            "south": "false",
+            "north": "false",
+            "west": "true"
+          },
+          "Name": "thermal_shock:spire_tendrils"
+        },
+        {
+          "Properties": {
+            "east": "false",
+            "waterlogged": "false",
+            "south": "false",
+            "north": "true",
+            "west": "true"
+          },
+          "Name": "thermal_shock:spire_tendrils"
+        },
+        {
+          "Properties": {
+            "east": "false",
+            "waterlogged": "false",
+            "south": "true",
+            "north": "false",
+            "west": "true"
+          },
+          "Name": "thermal_shock:spire_tendrils"
+        },
+        {
+          "Properties": {
+            "east": "none",
+            "waterlogged": "false",
+            "south": "none",
+            "north": "tall",
+            "west": "tall",
+            "up": "true"
+          },
+          "Name": "thermal_shock:polished_mantle_wall"
+        },
+        {
+          "Properties": {
+            "east": "tall",
+            "waterlogged": "false",
+            "south": "none",
+            "north": "tall",
+            "west": "none",
+            "up": "true"
+          },
+          "Name": "thermal_shock:polished_mantle_wall"
+        },
+        {
+          "Properties": {
+            "east": "tall",
+            "waterlogged": "false",
+            "south": "none",
+            "north": "none",
+            "west": "none",
+            "up": "true"
+          },
+          "Name": "thermal_shock:polished_mantle_wall"
+        },
+        {
+          "Properties": {
+            "east": "true",
+            "waterlogged": "false",
+            "south": "true",
+            "north": "false",
+            "west": "false"
+          },
+          "Name": "thermal_shock:spire_tendrils"
+        },
+        {
+          "Properties": {
+            "half": "top",
+            "waterlogged": "false",
+            "powered": "false",
+            "facing": "west",
+            "open": "true"
+          },
+          "Name": "thermal_shock:vermilli_trapdoor"
+        },
+        {
+          "Properties": {
+            "east": "none",
+            "waterlogged": "false",
+            "south": "low",
+            "north": "tall",
+            "west": "tall",
+            "up": "true"
+          },
+          "Name": "thermal_shock:polished_mantle_wall"
+        },
+        {
+          "Properties": {
+            "east": "none",
+            "waterlogged": "false",
+            "south": "tall",
+            "north": "low",
+            "west": "tall",
+            "up": "true"
+          },
+          "Name": "thermal_shock:polished_mantle_wall"
+        },
+        {
+          "Properties": {
+            "east": "true",
+            "waterlogged": "false",
+            "south": "false",
+            "north": "true",
+            "west": "false"
+          },
+          "Name": "thermal_shock:spire_tendrils"
+        },
+        {
+          "Properties": {
+            "half": "bottom",
+            "waterlogged": "false",
+            "powered": "false",
+            "facing": "west",
+            "open": "false"
+          },
+          "Name": "thermal_shock:spirewood_trapdoor"
+        },
+        {
+          "Name": "minecraft:light_gray_carpet"
+        },
+        {
+          "Name": "minecraft:white_carpet"
+        },
+        {
+          "Properties": {
+            "east": "none",
+            "waterlogged": "false",
+            "south": "none",
+            "north": "low",
+            "west": "tall",
+            "up": "true"
+          },
+          "Name": "thermal_shock:polished_mantle_wall"
+        },
+        {
+          "Properties": {
+            "half": "bottom",
+            "waterlogged": "false",
+            "shape": "straight",
+            "facing": "north"
+          },
+          "Name": "thermal_shock:polished_mantlestone_stairs"
+        },
+        {
+          "Properties": {
+            "east": "tall",
+            "waterlogged": "false",
+            "south": "none",
+            "north": "low",
+            "west": "none",
+            "up": "true"
+          },
+          "Name": "thermal_shock:polished_mantle_wall"
+        },
+        {
+          "Name": "thermal_shock:veinroot_ends"
+        },
+        {
+          "Properties": {
+            "half": "top",
+            "waterlogged": "false",
+            "powered": "false",
+            "facing": "west",
+            "open": "false"
+          },
+          "Name": "thermal_shock:spirewood_trapdoor"
+        },
+        {
+          "Properties": {
+            "east": "true",
+            "waterlogged": "false",
+            "south": "false",
+            "north": "false",
+            "west": "false"
+          },
+          "Name": "thermal_shock:spire_tendrils"
+        },
+        {
+          "Properties": {
+            "hinge": "left",
+            "half": "lower",
+            "powered": "false",
+            "facing": "east",
+            "open": "false"
+          },
+          "Name": "thermal_shock:spirewood_door"
+        },
+        {
+          "Properties": {
+            "waterlogged": "false",
+            "hanging": "false"
+          },
+          "Name": "minecraft:lantern"
+        },
+        {
+          "Properties": {
+            "half": "bottom",
+            "waterlogged": "false",
+            "shape": "straight",
+            "facing": "east"
+          },
+          "Name": "thermal_shock:polished_mantlestone_stairs"
+        },
+        {
+          "Properties": {
+            "half": "bottom",
+            "waterlogged": "false",
+            "shape": "straight",
+            "facing": "west"
+          },
+          "Name": "thermal_shock:polished_mantlestone_stairs"
+        },
+        {
+          "Properties": {
+            "hinge": "left",
+            "half": "upper",
+            "powered": "false",
+            "facing": "east",
+            "open": "false"
+          },
+          "Name": "thermal_shock:spirewood_door"
+        },
+        {
+          "Properties": {
+            "east": "none",
+            "waterlogged": "false",
+            "south": "tall",
+            "north": "none",
+            "west": "low",
+            "up": "true"
+          },
+          "Name": "thermal_shock:polished_mantle_wall"
+        },
+        {
+          "Properties": {
+            "east": "none",
+            "waterlogged": "false",
+            "south": "none",
+            "north": "tall",
+            "west": "low",
+            "up": "true"
+          },
+          "Name": "thermal_shock:polished_mantle_wall"
+        },
+        {
+          "Properties": {
+            "east": "low",
+            "waterlogged": "false",
+            "south": "tall",
+            "north": "none",
+            "west": "none",
+            "up": "true"
+          },
+          "Name": "thermal_shock:polished_mantle_wall"
+        },
+        {
+          "Properties": {
+            "east": "low",
+            "waterlogged": "false",
+            "south": "none",
+            "north": "tall",
+            "west": "none",
+            "up": "true"
+          },
+          "Name": "thermal_shock:polished_mantle_wall"
+        },
+        {
+          "Properties": {
+            "east": "none",
+            "waterlogged": "false",
+            "south": "low",
+            "north": "none",
+            "west": "none",
+            "up": "true"
+          },
+          "Name": "thermal_shock:polished_mantle_wall"
+        },
+        {
+          "Properties": {
+            "east": "none",
+            "waterlogged": "false",
+            "south": "none",
+            "north": "low",
+            "west": "none",
+            "up": "true"
+          },
+          "Name": "thermal_shock:polished_mantle_wall"
+        },
+        {
+          "Properties": {
+            "east": "none",
+            "waterlogged": "false",
+            "south": "low",
+            "north": "none",
+            "west": "tall",
+            "up": "true"
+          },
+          "Name": "thermal_shock:polished_mantle_wall"
+        },
+        {
+          "Properties": {
+            "east": "tall",
+            "waterlogged": "false",
+            "south": "low",
+            "north": "none",
+            "west": "none",
+            "up": "true"
+          },
+          "Name": "thermal_shock:polished_mantle_wall"
+        },
+        {
+          "Properties": {
+            "east": "tall",
+            "waterlogged": "false",
+            "south": "tall",
+            "north": "low",
+            "west": "none",
+            "up": "true"
+          },
+          "Name": "thermal_shock:polished_mantle_wall"
+        },
+        {
+          "Properties": {
+            "east": "tall",
+            "waterlogged": "false",
+            "south": "tall",
+            "north": "tall",
+            "west": "tall",
+            "up": "false"
+          },
+          "Name": "thermal_shock:polished_mantle_wall"
+        },
+        {
+          "Properties": {
+            "east": "none",
+            "waterlogged": "false",
+            "south": "tall",
+            "north": "tall",
+            "west": "tall",
+            "up": "true"
+          },
+          "Name": "thermal_shock:polished_mantle_wall"
+        },
+        {
+          "Properties": {
+            "east": "true",
+            "waterlogged": "false",
+            "south": "false",
+            "north": "true",
+            "west": "true"
+          },
+          "Name": "thermal_shock:spire_tendrils"
+        },
+        {
+          "Properties": {
+            "east": "tall",
+            "waterlogged": "false",
+            "south": "tall",
+            "north": "tall",
+            "west": "none",
+            "up": "true"
+          },
+          "Name": "thermal_shock:polished_mantle_wall"
+        },
+        {
+          "Properties": {
+            "east": "tall",
+            "waterlogged": "false",
+            "south": "none",
+            "north": "none",
+            "west": "tall",
+            "up": "false"
+          },
+          "Name": "thermal_shock:bordered_spirewood_wall"
+        },
+        {
+          "Properties": {
+            "east": "tall",
+            "waterlogged": "false",
+            "south": "none",
+            "north": "none",
+            "west": "tall",
+            "up": "false"
+          },
+          "Name": "thermal_shock:polished_mantle_wall"
+        },
+        {
+          "Properties": {
+            "half": "top",
+            "waterlogged": "false",
+            "powered": "false",
+            "facing": "north",
+            "open": "true"
+          },
+          "Name": "thermal_shock:vermilli_trapdoor"
+        },
+        {
+          "Properties": {
+            "half": "bottom",
+            "waterlogged": "false",
+            "shape": "straight",
+            "facing": "west"
+          },
+          "Name": "thermal_shock:impervium_brick_stairs"
+        },
+        {
+          "Properties": {
+            "half": "top",
+            "waterlogged": "false",
+            "shape": "straight",
+            "facing": "south"
+          },
+          "Name": "thermal_shock:impervium_brick_stairs"
+        },
+        {
+          "Properties": {
+            "half": "bottom",
+            "waterlogged": "false",
+            "shape": "inner_left",
+            "facing": "north"
+          },
+          "Name": "thermal_shock:impervium_brick_stairs"
+        },
+        {
+          "Properties": {
+            "half": "bottom",
+            "waterlogged": "false",
+            "shape": "outer_left",
+            "facing": "south"
+          },
+          "Name": "thermal_shock:impervium_brick_stairs"
+        },
+        {
+          "Properties": {
+            "half": "bottom",
+            "waterlogged": "false",
+            "shape": "straight",
+            "facing": "east"
+          },
+          "Name": "thermal_shock:impervium_brick_stairs"
+        },
+        {
+          "Properties": {
+            "half": "bottom",
+            "waterlogged": "false",
+            "shape": "straight",
+            "facing": "north"
+          },
+          "Name": "thermal_shock:impervium_brick_stairs"
+        },
+        {
+          "Properties": {
+            "half": "bottom",
+            "waterlogged": "false",
+            "shape": "straight",
+            "facing": "south"
+          },
+          "Name": "thermal_shock:impervium_brick_stairs"
+        },
+        {
+          "Properties": {
+            "half": "bottom",
+            "waterlogged": "false",
+            "shape": "outer_right",
+            "facing": "east"
+          },
+          "Name": "thermal_shock:impervium_brick_stairs"
+        },
+        {
+          "Properties": {
+            "half": "bottom",
+            "waterlogged": "false",
+            "shape": "inner_right",
+            "facing": "east"
+          },
+          "Name": "thermal_shock:impervium_brick_stairs"
+        },
+        {
+          "Name": "thermal_shock:thermal_geyser"
+        },
+        {
+          "Properties": {
+            "animation": "0"
+          },
+          "Name": "thermal_shock:ferrous_cache_pad"
+        },
+        {
+          "Properties": {
+            "animation": "0"
+          },
+          "Name": "thermal_shock:enchanted_cache"
+        },
+        {
+          "Properties": {
+            "animation": "0"
+          },
+          "Name": "thermal_shock:phobotite_mantle_outcrop"
+        },
+        {
+          "Properties": {
+            "animation": "0"
+          },
+          "Name": "thermal_shock:cryonic_cache"
+        },
+        {
+          "Properties": {
+            "waterlogged": "false",
+            "facing": "north",
+            "animation": "0"
+          },
+          "Name": "thermal_shock:shale_pillar"
+        },
+        {
+          "Name": "minecraft:spawner"
+        },
+        {
+          "Properties": {
+            "facing": "south"
+          },
+          "Name": "minecraft:red_wall_banner"
+        },
+        {
+          "Properties": {
+            "facing": "north"
+          },
+          "Name": "minecraft:red_wall_banner"
+        },
+        {
+          "Properties": {
+            "facing": "north",
+            "blockstate": "0",
+            "animation": "0"
+          },
+          "Name": "thermal_shock:maw_door"
+        },
+        {
+          "Properties": {
+            "facing": "north",
+            "animation": "0"
+          },
+          "Name": "thermal_shock:grand_blasphemer"
+        },
+        {
+          "Properties": {
+            "blockstate": "0",
+            "animation": "0"
+          },
+          "Name": "thermal_shock:shale_pot"
+        },
+        {
+          "Properties": {
+            "facing": "west"
+          },
+          "Name": "minecraft:red_wall_banner"
+        }
+      ],
+      "nonvanilla_all_recursive_ids": {
+        "forge:step_height": 39,
+        "forge:entity_gravity": 39,
+        "structure_gel:empty": 45,
+        "thermal_shock:sootle": 7,
+        "thermal_shock:beetle_thrasher": 17,
+        "thermal_shock:dormant_beetle_crasher": 5,
+        "thermal_shock:dormant_monolith": 1,
+        "thermal_shock:bloodstone_sword": 3,
+        "thermal_shock:sootling": 2,
+        "thermal_shock:herald": 3,
+        "thermal_shock:infestophage_seed": 5,
+        "thermal_shock:frostilyte": 1,
+        "thermal_shock:bloodstone_halberd": 3,
+        "thermal_shock:thermal_geyser": 6,
+        "thermal_shock:ferrous_cache_pad": 13,
+        "thermal_shock:enchanted_cache": 10,
+        "thermal_shock:phobotite_mantle_outcrop": 10,
+        "thermal_shock:cryonic_cache": 4,
+        "thermal_shock:shale_pillar": 6,
+        "thermal_shock:maw_door": 2,
+        "thermal_shock:grand_blasphemer": 2,
+        "thermal_shock:shale_pot": 3,
+        "thermal_shock:mantlestone": 1,
+        "thermal_shock:mossy_mantlestone": 1,
+        "thermal_shock:impervium_bricks": 1,
+        "thermal_shock:cobbled_shale": 1,
+        "thermal_shock:mantle_ruby_ore": 1,
+        "thermal_shock:cracked_shale_pillar_block": 1,
+        "thermal_shock:mantle_bloodstone_ore": 1,
+        "thermal_shock:spire_base": 1,
+        "thermal_shock:mantlestone_bricks": 1,
+        "thermal_shock:shale_pillar_block": 1,
+        "thermal_shock:polished_mantlestone": 1,
+        "thermal_shock:steelstem_block": 2,
+        "thermal_shock:red_crystalleye_lamp": 1,
+        "thermal_shock:spiral_mantlestone": 1,
+        "thermal_shock:bordered_spirewood_planks": 1,
+        "thermal_shock:spirewood_planks": 1,
+        "thermal_shock:tourmaline_spice_block": 1,
+        "thermal_shock:hazard_stripes": 1,
+        "thermal_shock:hanging_sparkler_bulb": 1,
+        "thermal_shock:mantlestone_brick_stairs": 7,
+        "thermal_shock:blood": 3,
+        "thermal_shock:polished_mantlestone_slab": 2,
+        "thermal_shock:wrought_bars": 4,
+        "thermal_shock:mantlestone_brick_slab": 2,
+        "thermal_shock:spire_tendrils": 10,
+        "thermal_shock:polished_mantle_wall": 32,
+        "thermal_shock:spirewood_trapdoor": 3,
+        "thermal_shock:vermillion_lantern": 1,
+        "thermal_shock:ferrum_plating_slab": 2,
+        "thermal_shock:bordered_spirewood_wall": 3,
+        "thermal_shock:vermilli_trapdoor": 3,
+        "thermal_shock:glowcap": 1,
+        "thermal_shock:polished_mantlestone_stairs": 7,
+        "thermal_shock:thin_spire_bulb": 1,
+        "thermal_shock:veinroot_ends": 1,
+        "thermal_shock:spirewood_door": 2,
+        "thermal_shock:impervium_brick_stairs": 9
+      },
+      "functional_nested_values": {
+        "$.entities[7].nbt.Item.id": "thermal_shock:bloodstone_sword",
+        "$.entities[8].nbt.Item.id": "thermal_shock:bloodstone_sword",
+        "$.entities[9].nbt.Item.id": "thermal_shock:bloodstone_sword",
+        "$.entities[41].nbt.Item.id": "thermal_shock:bloodstone_halberd",
+        "$.entities[41].nbt.Item.tag.geckoAnim": "",
+        "$.entities[42].nbt.Item.id": "thermal_shock:bloodstone_halberd",
+        "$.entities[42].nbt.Item.tag.geckoAnim": "",
+        "$.entities[43].nbt.Item.id": "thermal_shock:bloodstone_halberd",
+        "$.blocks[24].nbt.SpawnData.entity.id": "thermal_shock:beetle_thrasher",
+        "$.blocks[43].nbt.SpawnData.entity.id": "thermal_shock:sootling"
+      },
+      "original_monolith_payloads": [
+        {
+          "nbt": {
+            "Brain": {
+              "memories": {}
+            },
+            "HurtByTimestamp": 0,
+            "ForgeData": {},
+            "Attributes": [
+              {
+                "Base": 0.0,
+                "Name": "forge:step_height"
+              },
+              {
+                "Base": 0.0,
+                "Name": "minecraft:generic.movement_speed"
+              },
+              {
+                "Base": 0.08,
+                "Name": "forge:entity_gravity"
+              },
+              {
+                "Base": 128.0,
+                "Modifiers": [
+                  {
+                    "Operation": 1,
+                    "UUID": [],
+                    "Amount": -0.02869119987547273,
+                    "Name": "Random spawn bonus"
+                  }
+                ],
+                "Name": "minecraft:generic.follow_range"
+              }
+            ],
+            "Invulnerable": 0,
+            "FallFlying": 0,
+            "PortalCooldown": 0,
+            "AbsorptionAmount": 0.0,
+            "Texture": "monolithsleep25",
+            "FallDistance": 0.0,
+            "CanUpdate": 1,
+            "DeathTime": 0,
+            "ForgeCaps": {
+              "structure_gel:gel_entity": {
+                "portal": "structure_gel:empty"
+              }
+            },
+            "HandDropChances": [
+              0.08500000089406967,
+              0.08500000089406967
+            ],
+            "PersistenceRequired": 1,
+            "id": "thermal_shock:dormant_monolith",
+            "UUID": [],
+            "BalmData": {},
+            "Motion": [
+              0.0,
+              -0.0784000015258789,
+              0.0
+            ],
+            "Health": 160.0,
+            "LeftHanded": 0,
+            "Air": 300,
+            "OnGround": 1,
+            "Rotation": [
+              -23.17852783203125,
+              0.0
+            ],
+            "HandItems": [
+              {},
+              {}
+            ],
+            "ArmorDropChances": [
+              0.08500000089406967,
+              0.08500000089406967,
+              0.08500000089406967,
+              0.08500000089406967
+            ],
+            "Pos": [
+              75.40026949458284,
+              126.0,
+              319.5764546562886
+            ],
+            "Fire": -1,
+            "ArmorItems": [
+              {},
+              {},
+              {},
+              {}
+            ],
+            "CanPickUpLoot": 0,
+            "HurtTime": 0,
+            "forge:spawn_type": "SPAWN_EGG"
+          },
+          "blockPos": [
+            12,
+            14,
+            45
+          ],
+          "pos": [
+            12.400269494582844,
+            14.0,
+            45.576454656288604
+          ]
+        }
+      ],
+      "target_monolith_payloads": [
+        {
+          "nbt": {
+            "Brain": {
+              "memories": {}
+            },
+            "HurtByTimestamp": 0,
+            "Invulnerable": 0,
+            "FallFlying": 0,
+            "PortalCooldown": 0,
+            "AbsorptionAmount": 0.0,
+            "Texture": "monolithsleep25",
+            "FallDistance": 0.0,
+            "CanUpdate": 1,
+            "DeathTime": 0,
+            "ForgeCaps": {
+              "structure_gel:gel_entity": {
+                "portal": "structure_gel:empty"
+              }
+            },
+            "HandDropChances": [
+              0.08500000089406967,
+              0.08500000089406967
+            ],
+            "PersistenceRequired": 1,
+            "id": "thermal_shock_reforged:dormant_monolith",
+            "UUID": [],
+            "BalmData": {},
+            "Motion": [
+              0.0,
+              -0.0784000015258789,
+              0.0
+            ],
+            "Health": 160.0,
+            "LeftHanded": 0,
+            "Air": 300,
+            "OnGround": 1,
+            "Rotation": [
+              -23.17852783203125,
+              0.0
+            ],
+            "HandItems": [
+              {},
+              {}
+            ],
+            "ArmorDropChances": [
+              0.08500000089406967,
+              0.08500000089406967,
+              0.08500000089406967,
+              0.08500000089406967
+            ],
+            "Pos": [
+              75.40026949458284,
+              126.0,
+              319.5764546562886
+            ],
+            "Fire": -1,
+            "ArmorItems": [
+              {},
+              {},
+              {},
+              {}
+            ],
+            "CanPickUpLoot": 0,
+            "HurtTime": 0,
+            "forge:spawn_type": "SPAWN_EGG",
+            "attributes": [
+              {
+                "id": "forge:step_height",
+                "base": 0.0
+              },
+              {
+                "id": "minecraft:generic.movement_speed",
+                "base": 0.0
+              },
+              {
+                "id": "minecraft:generic.gravity",
+                "base": 0.08
+              },
+              {
+                "id": "minecraft:generic.follow_range",
+                "base": 128.0,
+                "modifiers": [
+                  {
+                    "id": "minecraft:random_spawn_bonus",
+                    "amount": -0.02869119987547273,
+                    "operation": "add_multiplied_base"
+                  }
+                ]
+              }
+            ],
+            "NeoForgeData": {}
+          },
+          "blockPos": [
+            12,
+            14,
+            45
+          ],
+          "pos": [
+            12.400269494582844,
+            14.0,
+            45.576454656288604
+          ]
+        }
+      ],
+      "jigsaw_blocks": []
+    },
+    "data/thermal_shock/structures/vilebathrubicon.nbt": {
+      "target_path": "src/main/resources/data/thermal_shock_reforged/structure/vilebathrubicon.nbt",
+      "target_sha256": "96660d99a2be972835d7ba48020bae555baef184176978fa7cf9f1ce09680e7e",
+      "size": [
+        79,
+        64,
+        87
+      ],
+      "entities": {
+        "thermal_shock:infestophage_seed": 5,
+        "thermal_shock:beetle_thrasher": 16,
+        "minecraft:item_frame": 6,
+        "thermal_shock:herald": 3,
+        "thermal_shock:dormant_beetle_crasher": 5,
+        "thermal_shock:frostilyte": 1,
+        "thermal_shock:sootle": 7,
+        "thermal_shock:sootling": 1,
+        "thermal_shock:dormant_monolith": 1
+      },
+      "block_palette": [
+        {
+          "Name": "thermal_shock:mantlestone"
+        },
+        {
+          "Name": "thermal_shock:mossy_mantlestone"
+        },
+        {
+          "Name": "thermal_shock:impervium_bricks"
+        },
+        {
+          "Name": "thermal_shock:spire_base"
+        },
+        {
+          "Name": "thermal_shock:cobbled_shale"
+        },
+        {
+          "Name": "thermal_shock:mantle_bloodstone_ore"
+        },
+        {
+          "Name": "thermal_shock:cracked_shale_pillar_block",
+          "Properties": {
+            "axis": "y"
+          }
+        },
+        {
+          "Name": "thermal_shock:mantle_ruby_ore"
+        },
+        {
+          "Name": "thermal_shock:mantlestone_bricks"
+        },
+        {
+          "Name": "thermal_shock:polished_mantlestone"
+        },
+        {
+          "Name": "thermal_shock:shale_pillar_block",
+          "Properties": {
+            "axis": "y"
+          }
+        },
+        {
+          "Name": "thermal_shock:steelstem_block",
+          "Properties": {
+            "axis": "y"
+          }
+        },
+        {
+          "Name": "thermal_shock:red_crystalleye_lamp"
+        },
+        {
+          "Name": "thermal_shock:spiral_mantlestone"
+        },
+        {
+          "Name": "thermal_shock:bordered_spirewood_planks"
+        },
+        {
+          "Name": "thermal_shock:spirewood_planks"
+        },
+        {
+          "Name": "thermal_shock:tourmaline_spice_block"
+        },
+        {
+          "Name": "minecraft:red_stained_glass"
+        },
+        {
+          "Name": "thermal_shock:hazard_stripes"
+        },
+        {
+          "Name": "minecraft:barrier"
+        },
+        {
+          "Name": "thermal_shock:steelstem_block",
+          "Properties": {
+            "axis": "x"
+          }
+        },
+        {
+          "Name": "minecraft:blue_terracotta"
+        },
+        {
+          "Name": "minecraft:purple_concrete"
+        },
+        {
+          "Name": "thermal_shock:hanging_sparkler_bulb"
+        },
+        {
+          "Name": "minecraft:air"
+        },
+        {
+          "Name": "thermal_shock:mantlestone_brick_slab",
+          "Properties": {
+            "type": "bottom",
+            "waterlogged": "false"
+          }
+        },
+        {
+          "Name": "minecraft:nether_brick_fence",
+          "Properties": {
+            "waterlogged": "false",
+            "west": "false",
+            "east": "false",
+            "south": "false",
+            "north": "false"
+          }
+        },
+        {
+          "Name": "thermal_shock:spire_tendrils",
+          "Properties": {
+            "waterlogged": "false",
+            "west": "false",
+            "east": "true",
+            "south": "true",
+            "north": "true"
+          }
+        },
+        {
+          "Name": "thermal_shock:spire_tendrils",
+          "Properties": {
+            "waterlogged": "false",
+            "west": "true",
+            "east": "false",
+            "south": "true",
+            "north": "true"
+          }
+        },
+        {
+          "Name": "thermal_shock:wrought_bars",
+          "Properties": {
+            "waterlogged": "false",
+            "facing": "east"
+          }
+        },
+        {
+          "Name": "thermal_shock:mantlestone_brick_stairs",
+          "Properties": {
+            "waterlogged": "false",
+            "half": "bottom",
+            "facing": "north",
+            "shape": "straight"
+          }
+        },
+        {
+          "Name": "thermal_shock:blood",
+          "Properties": {
+            "level": "0"
+          }
+        },
+        {
+          "Name": "thermal_shock:wrought_bars",
+          "Properties": {
+            "waterlogged": "false",
+            "facing": "south"
+          }
+        },
+        {
+          "Name": "thermal_shock:mantlestone_brick_stairs",
+          "Properties": {
+            "waterlogged": "false",
+            "half": "bottom",
+            "facing": "west",
+            "shape": "straight"
+          }
+        },
+        {
+          "Name": "minecraft:black_candle",
+          "Properties": {
+            "waterlogged": "false",
+            "lit": "true",
+            "candles": "2"
+          }
+        },
+        {
+          "Name": "minecraft:black_candle",
+          "Properties": {
+            "waterlogged": "false",
+            "lit": "true",
+            "candles": "3"
+          }
+        },
+        {
+          "Name": "thermal_shock:polished_mantlestone_slab",
+          "Properties": {
+            "type": "bottom",
+            "waterlogged": "false"
+          }
+        },
+        {
+          "Name": "thermal_shock:mantlestone_brick_stairs",
+          "Properties": {
+            "waterlogged": "false",
+            "half": "top",
+            "facing": "north",
+            "shape": "straight"
+          }
+        },
+        {
+          "Name": "thermal_shock:wrought_bars",
+          "Properties": {
+            "waterlogged": "false",
+            "facing": "west"
+          }
+        },
+        {
+          "Name": "thermal_shock:blood",
+          "Properties": {
+            "level": "8"
+          }
+        },
+        {
+          "Name": "minecraft:black_candle",
+          "Properties": {
+            "waterlogged": "false",
+            "lit": "true",
+            "candles": "4"
+          }
+        },
+        {
+          "Name": "thermal_shock:mantlestone_brick_stairs",
+          "Properties": {
+            "waterlogged": "false",
+            "half": "top",
+            "facing": "south",
+            "shape": "straight"
+          }
+        },
+        {
+          "Name": "thermal_shock:polished_mantle_wall",
+          "Properties": {
+            "waterlogged": "false",
+            "up": "true",
+            "west": "tall",
+            "east": "low",
+            "south": "none",
+            "north": "tall"
+          }
+        },
+        {
+          "Name": "thermal_shock:mantlestone_brick_stairs",
+          "Properties": {
+            "waterlogged": "false",
+            "half": "bottom",
+            "facing": "east",
+            "shape": "straight"
+          }
+        },
+        {
+          "Name": "thermal_shock:polished_mantle_wall",
+          "Properties": {
+            "waterlogged": "false",
+            "up": "true",
+            "west": "tall",
+            "east": "none",
+            "south": "none",
+            "north": "tall"
+          }
+        },
+        {
+          "Name": "thermal_shock:mantlestone_brick_slab",
+          "Properties": {
+            "type": "top",
+            "waterlogged": "false"
+          }
+        },
+        {
+          "Name": "thermal_shock:mantlestone_brick_stairs",
+          "Properties": {
+            "waterlogged": "false",
+            "half": "top",
+            "facing": "east",
+            "shape": "straight"
+          }
+        },
+        {
+          "Name": "thermal_shock:mantlestone_brick_stairs",
+          "Properties": {
+            "waterlogged": "false",
+            "half": "top",
+            "facing": "west",
+            "shape": "straight"
+          }
+        },
+        {
+          "Name": "thermal_shock:spirewood_trapdoor",
+          "Properties": {
+            "waterlogged": "false",
+            "half": "bottom",
+            "powered": "false",
+            "open": "true",
+            "facing": "south"
+          }
+        },
+        {
+          "Name": "minecraft:nether_brick_fence",
+          "Properties": {
+            "waterlogged": "false",
+            "west": "false",
+            "east": "true",
+            "south": "false",
+            "north": "false"
+          }
+        },
+        {
+          "Name": "minecraft:nether_brick_fence",
+          "Properties": {
+            "waterlogged": "false",
+            "west": "true",
+            "east": "true",
+            "south": "false",
+            "north": "false"
+          }
+        },
+        {
+          "Name": "minecraft:nether_brick_fence",
+          "Properties": {
+            "waterlogged": "false",
+            "west": "true",
+            "east": "false",
+            "south": "false",
+            "north": "false"
+          }
+        },
+        {
+          "Name": "minecraft:nether_brick_fence",
+          "Properties": {
+            "waterlogged": "false",
+            "west": "false",
+            "east": "false",
+            "south": "true",
+            "north": "false"
+          }
+        },
+        {
+          "Name": "minecraft:nether_brick_fence",
+          "Properties": {
+            "waterlogged": "false",
+            "west": "false",
+            "east": "false",
+            "south": "true",
+            "north": "true"
+          }
+        },
+        {
+          "Name": "minecraft:nether_brick_fence",
+          "Properties": {
+            "waterlogged": "false",
+            "west": "false",
+            "east": "false",
+            "south": "false",
+            "north": "true"
+          }
+        },
+        {
+          "Name": "minecraft:black_candle",
+          "Properties": {
+            "waterlogged": "false",
+            "lit": "true",
+            "candles": "1"
+          }
+        },
+        {
+          "Name": "thermal_shock:polished_mantle_wall",
+          "Properties": {
+            "waterlogged": "false",
+            "up": "true",
+            "west": "low",
+            "east": "tall",
+            "south": "none",
+            "north": "tall"
+          }
+        },
+        {
+          "Name": "minecraft:light",
+          "Properties": {
+            "waterlogged": "false",
+            "level": "15"
+          }
+        },
+        {
+          "Name": "minecraft:red_candle",
+          "Properties": {
+            "waterlogged": "false",
+            "lit": "true",
+            "candles": "1"
+          }
+        },
+        {
+          "Name": "thermal_shock:bordered_spirewood_wall",
+          "Properties": {
+            "waterlogged": "false",
+            "up": "true",
+            "west": "tall",
+            "east": "tall",
+            "south": "tall",
+            "north": "none"
+          }
+        },
+        {
+          "Name": "thermal_shock:vermillion_lantern",
+          "Properties": {
+            "waterlogged": "false",
+            "up": "true",
+            "west": "none",
+            "east": "none",
+            "south": "none",
+            "north": "none"
+          }
+        },
+        {
+          "Name": "minecraft:red_candle",
+          "Properties": {
+            "waterlogged": "false",
+            "lit": "true",
+            "candles": "2"
+          }
+        },
+        {
+          "Name": "minecraft:red_candle",
+          "Properties": {
+            "waterlogged": "false",
+            "lit": "true",
+            "candles": "4"
+          }
+        },
+        {
+          "Name": "thermal_shock:ferrum_plating_slab",
+          "Properties": {
+            "type": "bottom",
+            "waterlogged": "false"
+          }
+        },
+        {
+          "Name": "thermal_shock:wrought_bars",
+          "Properties": {
+            "waterlogged": "false",
+            "facing": "north"
+          }
+        },
+        {
+          "Name": "thermal_shock:spire_tendrils",
+          "Properties": {
+            "waterlogged": "false",
+            "west": "true",
+            "east": "true",
+            "south": "false",
+            "north": "false"
+          }
+        },
+        {
+          "Name": "thermal_shock:polished_mantle_wall",
+          "Properties": {
+            "waterlogged": "false",
+            "up": "true",
+            "west": "none",
+            "east": "tall",
+            "south": "none",
+            "north": "tall"
+          }
+        },
+        {
+          "Name": "minecraft:lantern",
+          "Properties": {
+            "waterlogged": "false",
+            "hanging": "true"
+          }
+        },
+        {
+          "Name": "thermal_shock:vermilli_trapdoor",
+          "Properties": {
+            "waterlogged": "false",
+            "half": "top",
+            "powered": "false",
+            "open": "true",
+            "facing": "north"
+          }
+        },
+        {
+          "Name": "thermal_shock:polished_mantle_wall",
+          "Properties": {
+            "waterlogged": "false",
+            "up": "true",
+            "west": "none",
+            "east": "low",
+            "south": "low",
+            "north": "none"
+          }
+        },
+        {
+          "Name": "thermal_shock:polished_mantle_wall",
+          "Properties": {
+            "waterlogged": "false",
+            "up": "true",
+            "west": "none",
+            "east": "low",
+            "south": "none",
+            "north": "low"
+          }
+        },
+        {
+          "Name": "thermal_shock:polished_mantle_wall",
+          "Properties": {
+            "waterlogged": "false",
+            "up": "true",
+            "west": "low",
+            "east": "none",
+            "south": "low",
+            "north": "none"
+          }
+        },
+        {
+          "Name": "thermal_shock:polished_mantle_wall",
+          "Properties": {
+            "waterlogged": "false",
+            "up": "true",
+            "west": "low",
+            "east": "none",
+            "south": "none",
+            "north": "low"
+          }
+        },
+        {
+          "Name": "thermal_shock:ferrum_plating_slab",
+          "Properties": {
+            "type": "top",
+            "waterlogged": "false"
+          }
+        },
+        {
+          "Name": "minecraft:red_candle",
+          "Properties": {
+            "waterlogged": "false",
+            "lit": "true",
+            "candles": "3"
+          }
+        },
+        {
+          "Name": "thermal_shock:polished_mantlestone_slab",
+          "Properties": {
+            "type": "top",
+            "waterlogged": "false"
+          }
+        },
+        {
+          "Name": "minecraft:chain",
+          "Properties": {
+            "waterlogged": "false",
+            "axis": "y"
+          }
+        },
+        {
+          "Name": "thermal_shock:polished_mantle_wall",
+          "Properties": {
+            "waterlogged": "false",
+            "up": "true",
+            "west": "tall",
+            "east": "tall",
+            "south": "none",
+            "north": "tall"
+          }
+        },
+        {
+          "Name": "thermal_shock:glowcap"
+        },
+        {
+          "Name": "thermal_shock:polished_mantle_wall",
+          "Properties": {
+            "waterlogged": "false",
+            "up": "false",
+            "west": "none",
+            "east": "none",
+            "south": "low",
+            "north": "low"
+          }
+        },
+        {
+          "Name": "thermal_shock:polished_mantle_wall",
+          "Properties": {
+            "waterlogged": "false",
+            "up": "true",
+            "west": "none",
+            "east": "none",
+            "south": "low",
+            "north": "low"
+          }
+        },
+        {
+          "Name": "minecraft:redstone_torch",
+          "Properties": {
+            "lit": "true"
+          }
+        },
+        {
+          "Name": "thermal_shock:polished_mantlestone_stairs",
+          "Properties": {
+            "waterlogged": "false",
+            "half": "top",
+            "facing": "north",
+            "shape": "straight"
+          }
+        },
+        {
+          "Name": "thermal_shock:polished_mantlestone_stairs",
+          "Properties": {
+            "waterlogged": "false",
+            "half": "top",
+            "facing": "south",
+            "shape": "straight"
+          }
+        },
+        {
+          "Name": "thermal_shock:polished_mantlestone_stairs",
+          "Properties": {
+            "waterlogged": "false",
+            "half": "top",
+            "facing": "east",
+            "shape": "straight"
+          }
+        },
+        {
+          "Name": "thermal_shock:polished_mantlestone_stairs",
+          "Properties": {
+            "waterlogged": "false",
+            "half": "top",
+            "facing": "west",
+            "shape": "straight"
+          }
+        },
+        {
+          "Name": "thermal_shock:blood",
+          "Properties": {
+            "level": "2"
+          }
+        },
+        {
+          "Name": "thermal_shock:thin_spire_bulb",
+          "Properties": {
+            "waterlogged": "false",
+            "up": "true",
+            "west": "none",
+            "east": "none",
+            "south": "tall",
+            "north": "none"
+          }
+        },
+        {
+          "Name": "thermal_shock:polished_mantle_wall",
+          "Properties": {
+            "waterlogged": "false",
+            "up": "true",
+            "west": "tall",
+            "east": "none",
+            "south": "none",
+            "north": "none"
+          }
+        },
+        {
+          "Name": "thermal_shock:spire_tendrils",
+          "Properties": {
+            "waterlogged": "false",
+            "west": "true",
+            "east": "false",
+            "south": "false",
+            "north": "true"
+          }
+        },
+        {
+          "Name": "thermal_shock:polished_mantle_wall",
+          "Properties": {
+            "waterlogged": "false",
+            "up": "true",
+            "west": "tall",
+            "east": "none",
+            "south": "tall",
+            "north": "none"
+          }
+        },
+        {
+          "Name": "thermal_shock:polished_mantle_wall",
+          "Properties": {
+            "waterlogged": "false",
+            "up": "true",
+            "west": "none",
+            "east": "tall",
+            "south": "none",
+            "north": "none"
+          }
+        },
+        {
+          "Name": "thermal_shock:polished_mantle_wall",
+          "Properties": {
+            "waterlogged": "false",
+            "up": "true",
+            "west": "none",
+            "east": "tall",
+            "south": "tall",
+            "north": "none"
+          }
+        },
+        {
+          "Name": "thermal_shock:spire_tendrils",
+          "Properties": {
+            "waterlogged": "false",
+            "west": "false",
+            "east": "true",
+            "south": "false",
+            "north": "true"
+          }
+        },
+        {
+          "Name": "thermal_shock:spire_tendrils",
+          "Properties": {
+            "waterlogged": "false",
+            "west": "false",
+            "east": "true",
+            "south": "true",
+            "north": "false"
+          }
+        },
+        {
+          "Name": "thermal_shock:spire_tendrils",
+          "Properties": {
+            "waterlogged": "false",
+            "west": "false",
+            "east": "true",
+            "south": "false",
+            "north": "false"
+          }
+        },
+        {
+          "Name": "thermal_shock:bordered_spirewood_wall",
+          "Properties": {
+            "waterlogged": "false",
+            "up": "false",
+            "west": "none",
+            "east": "none",
+            "south": "tall",
+            "north": "tall"
+          }
+        },
+        {
+          "Name": "minecraft:white_carpet"
+        },
+        {
+          "Name": "minecraft:light_gray_carpet"
+        },
+        {
+          "Name": "thermal_shock:spirewood_trapdoor",
+          "Properties": {
+            "waterlogged": "false",
+            "half": "bottom",
+            "powered": "false",
+            "open": "false",
+            "facing": "east"
+          }
+        },
+        {
+          "Name": "thermal_shock:spire_tendrils",
+          "Properties": {
+            "waterlogged": "false",
+            "west": "true",
+            "east": "false",
+            "south": "true",
+            "north": "false"
+          }
+        },
+        {
+          "Name": "thermal_shock:polished_mantle_wall",
+          "Properties": {
+            "waterlogged": "false",
+            "up": "true",
+            "west": "none",
+            "east": "tall",
+            "south": "low",
+            "north": "tall"
+          }
+        },
+        {
+          "Name": "thermal_shock:polished_mantle_wall",
+          "Properties": {
+            "waterlogged": "false",
+            "up": "true",
+            "west": "none",
+            "east": "tall",
+            "south": "tall",
+            "north": "low"
+          }
+        },
+        {
+          "Name": "thermal_shock:vermilli_trapdoor",
+          "Properties": {
+            "waterlogged": "false",
+            "half": "top",
+            "powered": "false",
+            "open": "true",
+            "facing": "east"
+          }
+        },
+        {
+          "Name": "thermal_shock:spirewood_trapdoor",
+          "Properties": {
+            "waterlogged": "false",
+            "half": "top",
+            "powered": "false",
+            "open": "false",
+            "facing": "east"
+          }
+        },
+        {
+          "Name": "thermal_shock:veinroot_ends"
+        },
+        {
+          "Name": "thermal_shock:polished_mantle_wall",
+          "Properties": {
+            "waterlogged": "false",
+            "up": "true",
+            "west": "tall",
+            "east": "none",
+            "south": "low",
+            "north": "none"
+          }
+        },
+        {
+          "Name": "thermal_shock:polished_mantlestone_stairs",
+          "Properties": {
+            "waterlogged": "false",
+            "half": "bottom",
+            "facing": "south",
+            "shape": "straight"
+          }
+        },
+        {
+          "Name": "thermal_shock:polished_mantle_wall",
+          "Properties": {
+            "waterlogged": "false",
+            "up": "true",
+            "west": "none",
+            "east": "tall",
+            "south": "low",
+            "north": "none"
+          }
+        },
+        {
+          "Name": "minecraft:lantern",
+          "Properties": {
+            "waterlogged": "false",
+            "hanging": "false"
+          }
+        },
+        {
+          "Name": "thermal_shock:spirewood_door",
+          "Properties": {
+            "half": "lower",
+            "powered": "false",
+            "open": "false",
+            "hinge": "left",
+            "facing": "west"
+          }
+        },
+        {
+          "Name": "thermal_shock:spire_tendrils",
+          "Properties": {
+            "waterlogged": "false",
+            "west": "true",
+            "east": "false",
+            "south": "false",
+            "north": "false"
+          }
+        },
+        {
+          "Name": "thermal_shock:spirewood_door",
+          "Properties": {
+            "half": "upper",
+            "powered": "false",
+            "open": "false",
+            "hinge": "left",
+            "facing": "west"
+          }
+        },
+        {
+          "Name": "thermal_shock:polished_mantlestone_stairs",
+          "Properties": {
+            "waterlogged": "false",
+            "half": "bottom",
+            "facing": "east",
+            "shape": "straight"
+          }
+        },
+        {
+          "Name": "thermal_shock:polished_mantlestone_stairs",
+          "Properties": {
+            "waterlogged": "false",
+            "half": "bottom",
+            "facing": "west",
+            "shape": "straight"
+          }
+        },
+        {
+          "Name": "thermal_shock:polished_mantle_wall",
+          "Properties": {
+            "waterlogged": "false",
+            "up": "true",
+            "west": "low",
+            "east": "none",
+            "south": "tall",
+            "north": "none"
+          }
+        },
+        {
+          "Name": "thermal_shock:polished_mantle_wall",
+          "Properties": {
+            "waterlogged": "false",
+            "up": "true",
+            "west": "low",
+            "east": "none",
+            "south": "none",
+            "north": "tall"
+          }
+        },
+        {
+          "Name": "thermal_shock:polished_mantle_wall",
+          "Properties": {
+            "waterlogged": "false",
+            "up": "true",
+            "west": "none",
+            "east": "low",
+            "south": "tall",
+            "north": "none"
+          }
+        },
+        {
+          "Name": "thermal_shock:polished_mantle_wall",
+          "Properties": {
+            "waterlogged": "false",
+            "up": "true",
+            "west": "none",
+            "east": "low",
+            "south": "none",
+            "north": "tall"
+          }
+        },
+        {
+          "Name": "thermal_shock:polished_mantle_wall",
+          "Properties": {
+            "waterlogged": "false",
+            "up": "true",
+            "west": "tall",
+            "east": "none",
+            "south": "low",
+            "north": "tall"
+          }
+        },
+        {
+          "Name": "thermal_shock:polished_mantle_wall",
+          "Properties": {
+            "waterlogged": "false",
+            "up": "true",
+            "west": "tall",
+            "east": "none",
+            "south": "none",
+            "north": "low"
+          }
+        },
+        {
+          "Name": "thermal_shock:polished_mantle_wall",
+          "Properties": {
+            "waterlogged": "false",
+            "up": "true",
+            "west": "none",
+            "east": "tall",
+            "south": "none",
+            "north": "low"
+          }
+        },
+        {
+          "Name": "thermal_shock:polished_mantle_wall",
+          "Properties": {
+            "waterlogged": "false",
+            "up": "true",
+            "west": "none",
+            "east": "none",
+            "south": "low",
+            "north": "none"
+          }
+        },
+        {
+          "Name": "thermal_shock:polished_mantle_wall",
+          "Properties": {
+            "waterlogged": "false",
+            "up": "true",
+            "west": "none",
+            "east": "none",
+            "south": "none",
+            "north": "low"
+          }
+        },
+        {
+          "Name": "thermal_shock:polished_mantle_wall",
+          "Properties": {
+            "waterlogged": "false",
+            "up": "false",
+            "west": "tall",
+            "east": "tall",
+            "south": "tall",
+            "north": "tall"
+          }
+        },
+        {
+          "Name": "thermal_shock:polished_mantle_wall",
+          "Properties": {
+            "waterlogged": "false",
+            "up": "true",
+            "west": "tall",
+            "east": "none",
+            "south": "tall",
+            "north": "tall"
+          }
+        },
+        {
+          "Name": "thermal_shock:spire_tendrils",
+          "Properties": {
+            "waterlogged": "false",
+            "west": "true",
+            "east": "true",
+            "south": "true",
+            "north": "false"
+          }
+        },
+        {
+          "Name": "thermal_shock:polished_mantle_wall",
+          "Properties": {
+            "waterlogged": "false",
+            "up": "true",
+            "west": "none",
+            "east": "tall",
+            "south": "tall",
+            "north": "tall"
+          }
+        },
+        {
+          "Name": "thermal_shock:bordered_spirewood_wall",
+          "Properties": {
+            "waterlogged": "false",
+            "up": "false",
+            "west": "tall",
+            "east": "tall",
+            "south": "none",
+            "north": "none"
+          }
+        },
+        {
+          "Name": "thermal_shock:vermilli_trapdoor",
+          "Properties": {
+            "waterlogged": "false",
+            "half": "top",
+            "powered": "false",
+            "open": "true",
+            "facing": "south"
+          }
+        },
+        {
+          "Name": "thermal_shock:polished_mantle_wall",
+          "Properties": {
+            "waterlogged": "false",
+            "up": "false",
+            "west": "tall",
+            "east": "tall",
+            "south": "none",
+            "north": "none"
+          }
+        },
+        {
+          "Name": "thermal_shock:impervium_brick_stairs",
+          "Properties": {
+            "waterlogged": "false",
+            "half": "bottom",
+            "facing": "east",
+            "shape": "straight"
+          }
+        },
+        {
+          "Name": "thermal_shock:impervium_brick_stairs",
+          "Properties": {
+            "waterlogged": "false",
+            "half": "top",
+            "facing": "north",
+            "shape": "straight"
+          }
+        },
+        {
+          "Name": "thermal_shock:impervium_brick_stairs",
+          "Properties": {
+            "waterlogged": "false",
+            "half": "bottom",
+            "facing": "west",
+            "shape": "straight"
+          }
+        },
+        {
+          "Name": "thermal_shock:impervium_brick_stairs",
+          "Properties": {
+            "waterlogged": "false",
+            "half": "bottom",
+            "facing": "west",
+            "shape": "inner_right"
+          }
+        },
+        {
+          "Name": "thermal_shock:impervium_brick_stairs",
+          "Properties": {
+            "waterlogged": "false",
+            "half": "bottom",
+            "facing": "north",
+            "shape": "straight"
+          }
+        },
+        {
+          "Name": "thermal_shock:impervium_brick_stairs",
+          "Properties": {
+            "waterlogged": "false",
+            "half": "bottom",
+            "facing": "south",
+            "shape": "straight"
+          }
+        },
+        {
+          "Name": "thermal_shock:impervium_brick_stairs",
+          "Properties": {
+            "waterlogged": "false",
+            "half": "bottom",
+            "facing": "west",
+            "shape": "outer_right"
+          }
+        },
+        {
+          "Name": "thermal_shock:impervium_brick_stairs",
+          "Properties": {
+            "waterlogged": "false",
+            "half": "bottom",
+            "facing": "north",
+            "shape": "outer_left"
+          }
+        },
+        {
+          "Name": "thermal_shock:impervium_brick_stairs",
+          "Properties": {
+            "waterlogged": "false",
+            "half": "bottom",
+            "facing": "south",
+            "shape": "inner_left"
+          }
+        },
+        {
+          "Name": "thermal_shock:ferrous_cache_pad",
+          "Properties": {
+            "animation": "0"
+          }
+        },
+        {
+          "Name": "thermal_shock:thermal_geyser"
+        },
+        {
+          "Name": "thermal_shock:phobotite_mantle_outcrop",
+          "Properties": {
+            "animation": "0"
+          }
+        },
+        {
+          "Name": "thermal_shock:cryonic_cache",
+          "Properties": {
+            "animation": "0"
+          }
+        },
+        {
+          "Name": "thermal_shock:enchanted_cache",
+          "Properties": {
+            "animation": "0"
+          }
+        },
+        {
+          "Name": "minecraft:spawner"
+        },
+        {
+          "Name": "thermal_shock:shale_pillar",
+          "Properties": {
+            "waterlogged": "false",
+            "facing": "south",
+            "animation": "0"
+          }
+        },
+        {
+          "Name": "minecraft:red_wall_banner",
+          "Properties": {
+            "facing": "south"
+          }
+        },
+        {
+          "Name": "minecraft:red_wall_banner",
+          "Properties": {
+            "facing": "north"
+          }
+        },
+        {
+          "Name": "thermal_shock:shale_pot",
+          "Properties": {
+            "blockstate": "0",
+            "animation": "0"
+          }
+        },
+        {
+          "Name": "thermal_shock:grand_blasphemer",
+          "Properties": {
+            "facing": "south",
+            "animation": "0"
+          }
+        },
+        {
+          "Name": "thermal_shock:maw_door",
+          "Properties": {
+            "blockstate": "0",
+            "facing": "south",
+            "animation": "0"
+          }
+        },
+        {
+          "Name": "minecraft:red_wall_banner",
+          "Properties": {
+            "facing": "east"
+          }
+        }
+      ],
+      "nonvanilla_all_recursive_ids": {
+        "thermal_shock:ferrous_cache_pad": 13,
+        "thermal_shock:thermal_geyser": 6,
+        "thermal_shock:phobotite_mantle_outcrop": 10,
+        "thermal_shock:cryonic_cache": 4,
+        "thermal_shock:enchanted_cache": 10,
+        "thermal_shock:beetle_thrasher": 17,
+        "thermal_shock:shale_pillar": 6,
+        "thermal_shock:sootling": 2,
+        "thermal_shock:shale_pot": 3,
+        "thermal_shock:grand_blasphemer": 2,
+        "thermal_shock:maw_door": 2,
+        "thermal_shock:mantlestone": 1,
+        "thermal_shock:mossy_mantlestone": 1,
+        "thermal_shock:impervium_bricks": 1,
+        "thermal_shock:spire_base": 1,
+        "thermal_shock:cobbled_shale": 1,
+        "thermal_shock:mantle_bloodstone_ore": 1,
+        "thermal_shock:cracked_shale_pillar_block": 1,
+        "thermal_shock:mantle_ruby_ore": 1,
+        "thermal_shock:mantlestone_bricks": 1,
+        "thermal_shock:polished_mantlestone": 1,
+        "thermal_shock:shale_pillar_block": 1,
+        "thermal_shock:steelstem_block": 2,
+        "thermal_shock:red_crystalleye_lamp": 1,
+        "thermal_shock:spiral_mantlestone": 1,
+        "thermal_shock:bordered_spirewood_planks": 1,
+        "thermal_shock:spirewood_planks": 1,
+        "thermal_shock:tourmaline_spice_block": 1,
+        "thermal_shock:hazard_stripes": 1,
+        "thermal_shock:hanging_sparkler_bulb": 1,
+        "thermal_shock:mantlestone_brick_slab": 2,
+        "thermal_shock:spire_tendrils": 10,
+        "thermal_shock:wrought_bars": 4,
+        "thermal_shock:mantlestone_brick_stairs": 7,
+        "thermal_shock:blood": 3,
+        "thermal_shock:polished_mantlestone_slab": 2,
+        "thermal_shock:polished_mantle_wall": 32,
+        "thermal_shock:spirewood_trapdoor": 3,
+        "thermal_shock:bordered_spirewood_wall": 3,
+        "thermal_shock:vermillion_lantern": 1,
+        "thermal_shock:ferrum_plating_slab": 2,
+        "thermal_shock:vermilli_trapdoor": 3,
+        "thermal_shock:glowcap": 1,
+        "thermal_shock:polished_mantlestone_stairs": 7,
+        "thermal_shock:thin_spire_bulb": 1,
+        "thermal_shock:veinroot_ends": 1,
+        "thermal_shock:spirewood_door": 2,
+        "thermal_shock:impervium_brick_stairs": 9,
+        "forge:entity_gravity": 39,
+        "forge:step_height_addition": 39,
+        "structure_gel:empty": 45,
+        "thermal_shock:infestophage_seed": 5,
+        "thermal_shock:bloodstone_halberd": 3,
+        "thermal_shock:herald": 3,
+        "thermal_shock:dormant_beetle_crasher": 5,
+        "thermal_shock:frostilyte": 1,
+        "thermal_shock:sootle": 7,
+        "thermal_shock:bloodstone_sword": 3,
+        "thermal_shock:dormant_monolith": 1
+      },
+      "functional_nested_values": {
+        "$.blocks[19].nbt.SpawnData.entity.id": "thermal_shock:beetle_thrasher",
+        "$.blocks[42].nbt.SpawnData.entity.id": "thermal_shock:sootling",
+        "$.entities[3].nbt.Item.id": "thermal_shock:bloodstone_halberd",
+        "$.entities[3].nbt.Item.tag.geckoAnim": "",
+        "$.entities[4].nbt.Item.id": "thermal_shock:bloodstone_halberd",
+        "$.entities[4].nbt.Item.tag.geckoAnim": "",
+        "$.entities[5].nbt.Item.id": "thermal_shock:bloodstone_halberd",
+        "$.entities[38].nbt.Item.id": "thermal_shock:bloodstone_sword",
+        "$.entities[39].nbt.Item.id": "thermal_shock:bloodstone_sword",
+        "$.entities[40].nbt.Item.id": "thermal_shock:bloodstone_sword"
+      },
+      "original_monolith_payloads": [
+        {
+          "blockPos": [
+            66,
+            14,
+            41
+          ],
+          "pos": [
+            66.59973050541714,
+            14.0,
+            41.423545343711396
+          ],
+          "nbt": {
+            "CanUpdate": 1,
+            "DeathTime": 0,
+            "OnGround": 1,
+            "LeftHanded": 0,
+            "AbsorptionAmount": 0.0,
+            "Attributes": [
+              {
+                "Name": "forge:entity_gravity",
+                "Base": 0.08
+              },
+              {
+                "Name": "minecraft:generic.movement_speed",
+                "Base": 0.0
+              },
+              {
+                "Name": "minecraft:generic.follow_range",
+                "Base": 128.0,
+                "Modifiers": [
+                  {
+                    "Amount": -0.02869119987547273,
+                    "Operation": 1,
+                    "UUID": [],
+                    "Name": "Random spawn bonus"
+                  },
+                  {
+                    "Amount": -0.07696647569393808,
+                    "Operation": 1,
+                    "UUID": [],
+                    "Name": "Random spawn bonus"
+                  }
+                ]
+              },
+              {
+                "Name": "forge:step_height_addition",
+                "Base": 0.0
+              }
+            ],
+            "Invulnerable": 0,
+            "Brain": {
+              "memories": {}
+            },
+            "ForgeCaps": {
+              "structure_gel:gel_entity": {
+                "portal": "structure_gel:empty"
+              }
+            },
+            "HurtByTimestamp": 0,
+            "Rotation": [
+              156.82147216796875,
+              0.0
+            ],
+            "ArmorDropChances": [
+              0.08500000089406967,
+              0.08500000089406967,
+              0.08500000089406967,
+              0.08500000089406967
+            ],
+            "HandDropChances": [
+              0.08500000089406967,
+              0.08500000089406967
+            ],
+            "Texture": "monolithsleep25",
+            "BalmData": {},
+            "ArmorItems": [
+              {},
+              {},
+              {},
+              {}
+            ],
+            "Air": 300,
+            "HandItems": [
+              {},
+              {}
+            ],
+            "ForgeData": {},
+            "UUID": [],
+            "FallDistance": 0.0,
+            "Motion": [
+              0.0,
+              -0.0784000015258789,
+              0.0
+            ],
+            "id": "thermal_shock:dormant_monolith",
+            "PersistenceRequired": 1,
+            "FallFlying": 0,
+            "CanPickUpLoot": 0,
+            "HurtTime": 0,
+            "Health": 160.0,
+            "Pos": [
+              -171.40026949458286,
+              -39.0,
+              -44.576454656288604
+            ],
+            "Fire": -1,
+            "PortalCooldown": 0,
+            "forge:spawn_type": "STRUCTURE"
+          }
+        }
+      ],
+      "target_monolith_payloads": [
+        {
+          "blockPos": [
+            66,
+            14,
+            41
+          ],
+          "pos": [
+            66.59973050541714,
+            14.0,
+            41.423545343711396
+          ],
+          "nbt": {
+            "CanUpdate": 1,
+            "DeathTime": 0,
+            "OnGround": 1,
+            "LeftHanded": 0,
+            "AbsorptionAmount": 0.0,
+            "Invulnerable": 0,
+            "Brain": {
+              "memories": {}
+            },
+            "ForgeCaps": {
+              "structure_gel:gel_entity": {
+                "portal": "structure_gel:empty"
+              }
+            },
+            "HurtByTimestamp": 0,
+            "Rotation": [
+              156.82147216796875,
+              0.0
+            ],
+            "ArmorDropChances": [
+              0.08500000089406967,
+              0.08500000089406967,
+              0.08500000089406967,
+              0.08500000089406967
+            ],
+            "HandDropChances": [
+              0.08500000089406967,
+              0.08500000089406967
+            ],
+            "Texture": "monolithsleep25",
+            "BalmData": {},
+            "ArmorItems": [
+              {},
+              {},
+              {},
+              {}
+            ],
+            "Air": 300,
+            "HandItems": [
+              {},
+              {}
+            ],
+            "UUID": [],
+            "FallDistance": 0.0,
+            "Motion": [
+              0.0,
+              -0.0784000015258789,
+              0.0
+            ],
+            "id": "thermal_shock_reforged:dormant_monolith",
+            "PersistenceRequired": 1,
+            "FallFlying": 0,
+            "CanPickUpLoot": 0,
+            "HurtTime": 0,
+            "Health": 160.0,
+            "Pos": [
+              -171.40026949458286,
+              -39.0,
+              -44.576454656288604
+            ],
+            "Fire": -1,
+            "PortalCooldown": 0,
+            "forge:spawn_type": "STRUCTURE",
+            "attributes": [
+              {
+                "id": "minecraft:generic.gravity",
+                "base": 0.08
+              },
+              {
+                "id": "minecraft:generic.movement_speed",
+                "base": 0.0
+              },
+              {
+                "id": "minecraft:generic.follow_range",
+                "base": 128.0,
+                "modifiers": [
+                  {
+                    "id": "minecraft:random_spawn_bonus",
+                    "amount": -0.1056576755694108,
+                    "operation": "add_multiplied_base"
+                  }
+                ]
+              },
+              {
+                "id": "minecraft:generic.step_height",
+                "base": 2.0
+              }
+            ],
+            "NeoForgeData": {}
+          }
+        }
+      ],
+      "jigsaw_blocks": []
+    }
+  },
+  "vilebath_worldgen": {
+    "data/thermal_shock/worldgen/configured_feature/vilebath_infected_mass_patch.json": {
+      "type": "minecraft:netherrack_replace_blobs",
+      "config": {
+        "target": {
+          "Name": "thermal_shock:mantlestone"
+        },
+        "state": {
+          "Name": "thermal_shock:spire_base"
+        },
+        "radius": {
+          "type": "uniform",
+          "value": {
+            "min_inclusive": 3,
+            "max_inclusive": 7
+          }
+        }
+      }
+    },
+    "data/thermal_shock/worldgen/configured_feature/vilebath_pools.json": {
+      "type": "minecraft:lake",
+      "config": {
+        "fluid": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "thermal_shock:blood"
+          }
+        },
+        "barrier": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "thermal_shock:mantlestone"
+          }
+        }
+      }
+    },
+    "data/thermal_shock/worldgen/configured_feature/vilebath_veinroots.json": {
+      "type": "minecraft:block_column",
+      "config": {
+        "allowed_placement": {
+          "type": "minecraft:matching_blocks",
+          "blocks": "minecraft:air"
+        },
+        "direction": "down",
+        "prioritize_tip": true,
+        "layers": [
+          {
+            "height": {
+              "type": "weighted_list",
+              "distribution": [
+                {
+                  "data": {
+                    "type": "uniform",
+                    "value": {
+                      "min_inclusive": 0,
+                      "max_inclusive": 19
+                    }
+                  },
+                  "weight": 2
+                },
+                {
+                  "data": {
+                    "type": "uniform",
+                    "value": {
+                      "min_inclusive": 0,
+                      "max_inclusive": 2
+                    }
+                  },
+                  "weight": 3
+                },
+                {
+                  "data": {
+                    "type": "uniform",
+                    "value": {
+                      "min_inclusive": 0,
+                      "max_inclusive": 6
+                    }
+                  },
+                  "weight": 10
+                }
+              ]
+            },
+            "provider": {
+              "type": "minecraft:weighted_state_provider",
+              "entries": [
+                {
+                  "data": {
+                    "Name": "thermal_shock:veinroot"
+                  },
+                  "weight": 4
+                }
+              ]
+            }
+          },
+          {
+            "height": 1,
+            "provider": {
+              "type": "minecraft:weighted_state_provider",
+              "entries": [
+                {
+                  "data": {
+                    "Name": "thermal_shock:veinroot_ends"
+                  },
+                  "weight": 4
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "data/thermal_shock/worldgen/placed_feature/vilebath_infected_mass_patch.json": {
+      "feature": "thermal_shock:vilebath_infected_mass_patch",
+      "placement": [
+        {
+          "type": "minecraft:count",
+          "count": 25
+        },
+        {
+          "type": "minecraft:in_square"
+        },
+        {
+          "type": "minecraft:height_range",
+          "height": {
+            "type": "minecraft:uniform",
+            "min_inclusive": {
+              "absolute": -64
+            },
+            "max_inclusive": {
+              "absolute": 0
+            }
+          }
+        },
+        {
+          "type": "minecraft:biome"
+        }
+      ]
+    },
+    "data/thermal_shock/worldgen/placed_feature/vilebath_pools.json": {
+      "feature": "thermal_shock:vilebath_pools",
+      "placement": [
+        {
+          "type": "minecraft:count",
+          "count": 8
+        },
+        {
+          "type": "minecraft:in_square"
+        },
+        {
+          "type": "minecraft:height_range",
+          "height": {
+            "type": "minecraft:uniform",
+            "min_inclusive": {
+              "absolute": -64
+            },
+            "max_inclusive": {
+              "absolute": 10
+            }
+          }
+        },
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:matching_blocks",
+            "blocks": [
+              "thermal_shock:mantlestone",
+              "thermal_shock:spire_base"
+            ]
+          }
+        },
+        {
+          "type": "minecraft:biome"
+        }
+      ]
+    },
+    "data/thermal_shock/worldgen/placed_feature/vilebath_veinroots.json": {
+      "feature": "thermal_shock:vilebath_veinroots",
+      "placement": [
+        {
+          "type": "minecraft:count",
+          "count": 32
+        },
+        {
+          "type": "minecraft:in_square"
+        },
+        {
+          "type": "minecraft:height_range",
+          "height": {
+            "type": "minecraft:uniform",
+            "min_inclusive": {
+              "absolute": -56
+            },
+            "max_inclusive": {
+              "absolute": 0
+            }
+          }
+        },
+        {
+          "type": "environment_scan",
+          "direction_of_search": "up",
+          "target_condition": {
+            "type": "minecraft:solid"
+          },
+          "allowed_search_condition": {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:air"
+          },
+          "max_steps": 12
+        },
+        {
+          "type": "minecraft:random_offset",
+          "xz_spread": 0,
+          "y_spread": -1
+        },
+        {
+          "type": "minecraft:biome"
+        }
+      ]
+    },
+    "data/thermal_shock/worldgen/structure/vilebath_castle.json": {
+      "type": "minecraft:jigsaw",
+      "start_pool": "thermal_shock:vilebath_castle",
+      "size": 2,
+      "max_distance_from_center": 116,
+      "spawn_overrides": {},
+      "step": "underground_structures",
+      "terrain_adaptation": "beard_box",
+      "start_height": {
+        "type": "minecraft:uniform",
+        "min_inclusive": {
+          "absolute": -60
+        },
+        "max_inclusive": {
+          "absolute": -50
+        }
+      },
+      "biomes": "thermal_shock:graveyard",
+      "use_expansion_hack": false
+    },
+    "data/thermal_shock/worldgen/structure_set/vilebath_castle.json": {
+      "structures": [
+        {
+          "structure": "thermal_shock:vilebath_castle",
+          "weight": 1
+        }
+      ],
+      "placement": {
+        "type": "minecraft:random_spread",
+        "spacing": 23,
+        "separation": 22,
+        "salt": 1689906940
+      }
+    },
+    "data/thermal_shock/worldgen/template_pool/vilebath_castle.json": {
+      "name": "thermal_shock:vilebath_castle",
+      "fallback": "minecraft:empty",
+      "elements": [
+        {
+          "weight": 1,
+          "element": {
+            "element_type": "minecraft:single_pool_element",
+            "location": "thermal_shock:vilebathrubicon",
+            "projection": "rigid",
+            "processors": {
+              "processors": [
+                {
+                  "processor_type": "minecraft:block_ignore",
+                  "blocks": [
+                    {
+                      "Name": "minecraft:structure_block"
+                    },
+                    {
+                      "Name": "minecraft:magenta_stained_glass"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "data/thermal_shock/worldgen/template_pool/vilebath_castle_vilebath_bridges.json": {
+      "name": "thermal_shock:vilebath_castle_vilebath_bridges",
+      "fallback": "minecraft:empty",
+      "elements": [
+        {
+          "weight": 3,
+          "element": {
+            "element_type": "minecraft:single_pool_element",
+            "location": "thermal_shock:vilebath_bridge",
+            "projection": "rigid",
+            "processors": {
+              "processors": []
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "element": {
+            "element_type": "minecraft:single_pool_element",
+            "location": "thermal_shock:vilebath_bridge_split",
+            "projection": "rigid",
+            "processors": {
+              "processors": []
+            }
+          }
+        }
+      ]
+    }
+  },
+  "source_references": {
+    "net\\mcreator\\thermal_shock\\client\\renderer\\DormantMonolithRenderer.java": [
+      {
+        "line": 8,
+        "text": "import net.mcreator.thermal_shock.entity.DormantMonolithEntity;"
+      },
+      {
+        "line": 20,
+        "text": "extends GeoEntityRenderer<DormantMonolithEntity> {"
+      },
+      {
+        "line": 26,
+        "text": "    public RenderType getRenderType(DormantMonolithEntity animatable, ResourceLocation texture, MultiBufferSource bufferSource, float partialTick) {"
+      },
+      {
+        "line": 30,
+        "text": "    public void preRender(PoseStack poseStack, DormantMonolithEntity entity, BakedGeoModel model, MultiBufferSource bufferSource, VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {"
+      }
+    ],
+    "net\\mcreator\\thermal_shock\\client\\renderer\\MonolithRenderer.java": [
+      {
+        "line": 8,
+        "text": "import net.mcreator.thermal_shock.entity.MonolithEntity;"
+      },
+      {
+        "line": 22,
+        "text": "extends GeoEntityRenderer<MonolithEntity> {"
+      },
+      {
+        "line": 26,
+        "text": "        this.addRenderLayer(new MonolithLayer((GeoRenderer<MonolithEntity>)this));"
+      },
+      {
+        "line": 29,
+        "text": "    public RenderType getRenderType(MonolithEntity animatable, ResourceLocation texture, MultiBufferSource bufferSource, float partialTick) {"
+      },
+      {
+        "line": 33,
+        "text": "    public void preRender(PoseStack poseStack, MonolithEntity entity, BakedGeoModel model, MultiBufferSource bufferSource, VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {"
+      },
+      {
+        "line": 40,
+        "text": "    protected float getDeathMaxRotation(MonolithEntity entityLivingBaseIn) {"
+      }
+    ],
+    "net\\mcreator\\thermal_shock\\entity\\AssimilatedGraverEntity.java": [
+      {
+        "line": 6,
+        "text": "import net.mcreator.thermal_shock.entity.MonolithEntity;"
+      },
+      {
+        "line": 115,
+        "text": "        this.goalSelector.addGoal(6, (Goal)new AvoidEntityGoal((PathfinderMob)this, MonolithEntity.class, 6.0f, 1.0, 1.2));"
+      }
+    ],
+    "net\\mcreator\\thermal_shock\\entity\\AssimilatorEntity.java": [
+      {
+        "line": 7,
+        "text": "import net.mcreator.thermal_shock.entity.MonolithEntity;"
+      },
+      {
+        "line": 116,
+        "text": "        this.goalSelector.addGoal(8, (Goal)new AvoidEntityGoal((PathfinderMob)this, MonolithEntity.class, 24.0f, 1.0, 1.2));"
+      }
+    ],
+    "net\\mcreator\\thermal_shock\\entity\\DormantMonolithEntity.java": [
+      {
+        "line": 7,
+        "text": "import net.mcreator.thermal_shock.procedures.DormantMonolithEntityIsHurtProcedure;"
+      },
+      {
+        "line": 41,
+        "text": "public class DormantMonolithEntity"
+      },
+      {
+        "line": 44,
+        "text": "    public static final EntityDataAccessor<Boolean> SHOOT = SynchedEntityData.defineId(DormantMonolithEntity.class, (EntityDataSerializer)EntityDataSerializers.BOOLEAN);"
+      },
+      {
+        "line": 45,
+        "text": "    public static final EntityDataAccessor<String> ANIMATION = SynchedEntityData.defineId(DormantMonolithEntity.class, (EntityDataSerializer)EntityDataSerializers.STRING);"
+      },
+      {
+        "line": 46,
+        "text": "    public static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(DormantMonolithEntity.class, (EntityDataSerializer)EntityDataSerializers.STRING);"
+      },
+      {
+        "line": 54,
+        "text": "    public DormantMonolithEntity(PlayMessages.SpawnEntity packet, Level world) {"
+      },
+      {
+        "line": 55,
+        "text": "        this((EntityType<DormantMonolithEntity>)((EntityType)ThermalShockModEntities.DORMANT_MONOLITH.get()), world);"
+      },
+      {
+        "line": 58,
+        "text": "    public DormantMonolithEntity(EntityType<DormantMonolithEntity> type, Level world) {"
+      },
+      {
+        "line": 86,
+        "text": "        DormantMonolithEntity entity = this;"
+      },
+      {
+        "line": 111,
+        "text": "        DormantMonolithEntityIsHurtProcedure.execute((LevelAccessor)this.level(), (Entity)this, source.getEntity());"
+      }
+    ],
+    "net\\mcreator\\thermal_shock\\entity\\ExplosiveSnobolEntity.java": [
+      {
+        "line": 6,
+        "text": "import net.mcreator.thermal_shock.entity.MonolithEntity;"
+      },
+      {
+        "line": 103,
+        "text": "        this.goalSelector.addGoal(5, (Goal)new AvoidEntityGoal((PathfinderMob)this, MonolithEntity.class, 6.0f, 1.0, 1.2));"
+      }
+    ],
+    "net\\mcreator\\thermal_shock\\entity\\GraverEntity.java": [
+      {
+        "line": 7,
+        "text": "import net.mcreator.thermal_shock.entity.MonolithEntity;"
+      },
+      {
+        "line": 122,
+        "text": "        this.goalSelector.addGoal(6, (Goal)new AvoidEntityGoal((PathfinderMob)this, MonolithEntity.class, 6.0f, 1.0, 1.2));"
+      }
+    ],
+    "net\\mcreator\\thermal_shock\\entity\\HeraldEntity.java": [
+      {
+        "line": 111,
+        "text": "        return (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:monolithambient\"));"
+      },
+      {
+        "line": 115,
+        "text": "        return (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:monolithhurt\"));"
+      },
+      {
+        "line": 119,
+        "text": "        return (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:monolithdeath\"));"
+      }
+    ],
+    "net\\mcreator\\thermal_shock\\entity\\LouseEntity.java": [
+      {
+        "line": 7,
+        "text": "import net.mcreator.thermal_shock.entity.MonolithEntity;"
+      },
+      {
+        "line": 116,
+        "text": "        this.goalSelector.addGoal(7, (Goal)new AvoidEntityGoal((PathfinderMob)this, MonolithEntity.class, 6.0f, 1.0, 1.2));"
+      }
+    ],
+    "net\\mcreator\\thermal_shock\\entity\\MonolithEntity.java": [
+      {
+        "line": 61,
+        "text": "public class MonolithEntity"
+      },
+      {
+        "line": 64,
+        "text": "    public static final EntityDataAccessor<Boolean> SHOOT = SynchedEntityData.defineId(MonolithEntity.class, (EntityDataSerializer)EntityDataSerializers.BOOLEAN);"
+      },
+      {
+        "line": 65,
+        "text": "    public static final EntityDataAccessor<String> ANIMATION = SynchedEntityData.defineId(MonolithEntity.class, (EntityDataSerializer)EntityDataSerializers.STRING);"
+      },
+      {
+        "line": 66,
+        "text": "    public static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(MonolithEntity.class, (EntityDataSerializer)EntityDataSerializers.STRING);"
+      },
+      {
+        "line": 74,
+        "text": "    public MonolithEntity(PlayMessages.SpawnEntity packet, Level world) {"
+      },
+      {
+        "line": 75,
+        "text": "        this((EntityType<MonolithEntity>)((EntityType)ThermalShockModEntities.MONOLITH.get()), world);"
+      },
+      {
+        "line": 78,
+        "text": "    public MonolithEntity(EntityType<MonolithEntity> type, Level world) {"
+      },
+      {
+        "line": 128,
+        "text": "        return (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:monolithambient\"));"
+      },
+      {
+        "line": 136,
+        "text": "        return (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:monolithhurt\"));"
+      },
+      {
+        "line": 140,
+        "text": "        return (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:monolithdeath\"));"
+      }
+    ],
+    "net\\mcreator\\thermal_shock\\entity\\ProboskerEntity.java": [
+      {
+        "line": 10,
+        "text": "import net.mcreator.thermal_shock.entity.MonolithEntity;"
+      },
+      {
+        "line": 144,
+        "text": "        this.goalSelector.addGoal(10, (Goal)new AvoidEntityGoal((PathfinderMob)this, MonolithEntity.class, 6.0f, 1.0, 1.2));"
+      }
+    ],
+    "net\\mcreator\\thermal_shock\\entity\\RaincatcherEntity.java": [
+      {
+        "line": 6,
+        "text": "import net.mcreator.thermal_shock.entity.MonolithEntity;"
+      },
+      {
+        "line": 115,
+        "text": "        this.goalSelector.addGoal(6, (Goal)new AvoidEntityGoal((PathfinderMob)this, MonolithEntity.class, 6.0f, 1.0, 1.2));"
+      }
+    ],
+    "net\\mcreator\\thermal_shock\\entity\\RazorwingEntity.java": [
+      {
+        "line": 7,
+        "text": "import net.mcreator.thermal_shock.entity.MonolithEntity;"
+      },
+      {
+        "line": 121,
+        "text": "        this.goalSelector.addGoal(4, (Goal)new AvoidEntityGoal((PathfinderMob)this, MonolithEntity.class, 6.0f, 1.0, 1.2));"
+      }
+    ],
+    "net\\mcreator\\thermal_shock\\entity\\SnobolEntity.java": [
+      {
+        "line": 6,
+        "text": "import net.mcreator.thermal_shock.entity.MonolithEntity;"
+      },
+      {
+        "line": 110,
+        "text": "        this.goalSelector.addGoal(5, (Goal)new AvoidEntityGoal((PathfinderMob)this, MonolithEntity.class, 6.0f, 1.0, 1.2));"
+      }
+    ],
+    "net\\mcreator\\thermal_shock\\entity\\layer\\MonolithLayer.java": [
+      {
+        "line": 8,
+        "text": "import net.mcreator.thermal_shock.entity.MonolithEntity;"
+      },
+      {
+        "line": 19,
+        "text": "extends GeoRenderLayer<MonolithEntity> {"
+      },
+      {
+        "line": 22,
+        "text": "    public MonolithLayer(GeoRenderer<MonolithEntity> entityRenderer) {"
+      },
+      {
+        "line": 26,
+        "text": "    public void render(PoseStack poseStack, MonolithEntity animatable, BakedGeoModel bakedModel, RenderType renderType, MultiBufferSource bufferSource, VertexConsumer buffer, float partialTick, int packedLight, int packedOverlay) {"
+      }
+    ],
+    "net\\mcreator\\thermal_shock\\entity\\model\\DormantMonolithModel.java": [
+      {
+        "line": 6,
+        "text": "import net.mcreator.thermal_shock.entity.DormantMonolithEntity;"
+      },
+      {
+        "line": 11,
+        "text": "extends GeoModel<DormantMonolithEntity> {"
+      },
+      {
+        "line": 12,
+        "text": "    public ResourceLocation getAnimationResource(DormantMonolithEntity entity) {"
+      },
+      {
+        "line": 16,
+        "text": "    public ResourceLocation getModelResource(DormantMonolithEntity entity) {"
+      },
+      {
+        "line": 20,
+        "text": "    public ResourceLocation getTextureResource(DormantMonolithEntity entity) {"
+      }
+    ],
+    "net\\mcreator\\thermal_shock\\entity\\model\\MonolithModel.java": [
+      {
+        "line": 6,
+        "text": "import net.mcreator.thermal_shock.entity.MonolithEntity;"
+      },
+      {
+        "line": 15,
+        "text": "extends GeoModel<MonolithEntity> {"
+      },
+      {
+        "line": 16,
+        "text": "    public ResourceLocation getAnimationResource(MonolithEntity entity) {"
+      },
+      {
+        "line": 20,
+        "text": "    public ResourceLocation getModelResource(MonolithEntity entity) {"
+      },
+      {
+        "line": 24,
+        "text": "    public ResourceLocation getTextureResource(MonolithEntity entity) {"
+      },
+      {
+        "line": 28,
+        "text": "    public void setCustomAnimations(MonolithEntity animatable, long instanceId, AnimationState animationState) {"
+      }
+    ],
+    "net\\mcreator\\thermal_shock\\init\\EntityAnimationFactory.java": [
+      {
+        "line": 28,
+        "text": "import net.mcreator.thermal_shock.entity.DormantMonolithEntity;"
+      },
+      {
+        "line": 79,
+        "text": "import net.mcreator.thermal_shock.entity.MonolithEntity;"
+      },
+      {
+        "line": 266,
+        "text": "            if ((animation = event.getEntity()) instanceof MonolithEntity && !((String)(animation = (syncable = (MonolithEntity)((Object)animation)).getSyncedAnimation())).equals(\"undefined\")) {"
+      },
+      {
+        "line": 270,
+        "text": "            if ((animation = event.getEntity()) instanceof DormantMonolithEntity && !((String)(animation = (syncable = (DormantMonolithEntity)((Object)animation)).getSyncedAnimation())).equals(\"undefined\")) {"
+      }
+    ],
+    "net\\mcreator\\thermal_shock\\init\\ThermalShockModEntities.java": [
+      {
+        "line": 31,
+        "text": "import net.mcreator.thermal_shock.entity.DormantMonolithEntity;"
+      },
+      {
+        "line": 97,
+        "text": "import net.mcreator.thermal_shock.entity.MonolithEntity;"
+      },
+      {
+        "line": 218,
+        "text": "    public static final RegistryObject<EntityType<MonolithEntity>> MONOLITH = ThermalShockModEntities.register(\"monolith\", EntityType.Builder.of(MonolithEntity::new, (MobCategory)MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(128).setUpdateInterval(3).setCustomClientFactory(MonolithEntity::new).fireImmune().sized(1.2f, 7.6f));"
+      },
+      {
+        "line": 219,
+        "text": "    public static final RegistryObject<EntityType<DormantMonolithEntity>> DORMANT_MONOLITH = ThermalShockModEntities.register(\"dormant_monolith\", EntityType.Builder.of(DormantMonolithEntity::new, (MobCategory)MobCategory.AMBIENT).setShouldReceiveVelocityUpdates(true).setTrackingRange(128).setUpdateInterval(3).setCustomClientFactory(DormantMonolithEntity::new).fireImmune().sized(0.8f, 7.6f));"
+      },
+      {
+        "line": 369,
+        "text": "            MonolithEntity.init();"
+      },
+      {
+        "line": 370,
+        "text": "            DormantMonolithEntity.init();"
+      },
+      {
+        "line": 499,
+        "text": "        event.put((EntityType)MONOLITH.get(), MonolithEntity.createAttributes().build());"
+      },
+      {
+        "line": 500,
+        "text": "        event.put((EntityType)DORMANT_MONOLITH.get(), DormantMonolithEntity.createAttributes().build());"
+      }
+    ],
+    "net\\mcreator\\thermal_shock\\init\\ThermalShockModEntityRenderers.java": [
+      {
+        "line": 193,
+        "text": "        event.registerEntityRenderer((EntityType)ThermalShockModEntities.MONOLITH.get(), MonolithRenderer::new);"
+      },
+      {
+        "line": 194,
+        "text": "        event.registerEntityRenderer((EntityType)ThermalShockModEntities.DORMANT_MONOLITH.get(), DormantMonolithRenderer::new);"
+      }
+    ],
+    "net\\mcreator\\thermal_shock\\init\\ThermalShockModItems.java": [
+      {
+        "line": 670,
+        "text": "    public static final RegistryObject<Item> DORMANT_MONOLITH_SPAWN_EGG = REGISTRY.register(\"dormant_monolith_spawn_egg\", () -> new ForgeSpawnEggItem(ThermalShockModEntities.DORMANT_MONOLITH, -1, -1, new Item.Properties()));"
+      }
+    ],
+    "net\\mcreator\\thermal_shock\\init\\ThermalShockModSounds.java": [
+      {
+        "line": 34,
+        "text": "    public static final RegistryObject<SoundEvent> MONOLITHAMBIENT = REGISTRY.register(\"monolithambient\", () -> SoundEvent.createVariableRangeEvent((ResourceLocation)new ResourceLocation(\"thermal_shock\", \"monolithambient\")));"
+      },
+      {
+        "line": 35,
+        "text": "    public static final RegistryObject<SoundEvent> MONOLITHHURT = REGISTRY.register(\"monolithhurt\", () -> SoundEvent.createVariableRangeEvent((ResourceLocation)new ResourceLocation(\"thermal_shock\", \"monolithhurt\")));"
+      },
+      {
+        "line": 36,
+        "text": "    public static final RegistryObject<SoundEvent> MONOLITHDEATH = REGISTRY.register(\"monolithdeath\", () -> SoundEvent.createVariableRangeEvent((ResourceLocation)new ResourceLocation(\"thermal_shock\", \"monolithdeath\")));"
+      }
+    ],
+    "net\\mcreator\\thermal_shock\\init\\ThermalShockModTabs.java": [
+      {
+        "line": 883,
+        "text": "        tabData.accept((ItemLike)ThermalShockModItems.DORMANT_MONOLITH_SPAWN_EGG.get());"
+      }
+    ],
+    "net\\mcreator\\thermal_shock\\procedures\\DormantMonolithEntityIsHurtProcedure.java": [
+      {
+        "line": 15,
+        "text": "public class DormantMonolithEntityIsHurtProcedure {"
+      },
+      {
+        "line": 23,
+        "text": "                Entity entityToSpawn = ((EntityType)ThermalShockModEntities.MONOLITH.get()).spawn(_level, BlockPos.containing((double)entity.getX(), (double)entity.getY(), (double)entity.getZ()), MobSpawnType.MOB_SUMMONED);"
+      }
+    ],
+    "net\\mcreator\\thermal_shock\\procedures\\MonolithAttackProcedure.java": [
+      {
+        "line": 8,
+        "text": "import net.mcreator.thermal_shock.entity.MonolithEntity;"
+      },
+      {
+        "line": 48,
+        "text": "        if (sourceentity instanceof MonolithEntity) {"
+      },
+      {
+        "line": 55,
+        "text": "                if (sourceentity instanceof MonolithEntity) {"
+      },
+      {
+        "line": 56,
+        "text": "                    ((MonolithEntity)sourceentity).setAnimation(\"attack\");"
+      },
+      {
+        "line": 67,
+        "text": "                        _level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:monolithambient\")), SoundSource.HOSTILE, 1.0f, 5.0f);"
+      },
+      {
+        "line": 69,
+        "text": "                        _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:monolithambient\")), SoundSource.HOSTILE, 1.0f, 5.0f, false);"
+      },
+      {
+        "line": 76,
+        "text": "                            _level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:monolithhurt\")), SoundSource.HOSTILE, 1.0f, 5.0f);"
+      },
+      {
+        "line": 78,
+        "text": "                            _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:monolithhurt\")), SoundSource.HOSTILE, 1.0f, 5.0f, false);"
+      },
+      {
+        "line": 97,
+        "text": "                                _level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:monolithhurt\")), SoundSource.HOSTILE, 1.0f, 5.0f);"
+      },
+      {
+        "line": 99,
+        "text": "                                _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:monolithhurt\")), SoundSource.HOSTILE, 1.0f, 5.0f, false);"
+      }
+    ],
+    "net\\mcreator\\thermal_shock\\procedures\\MonolithOnEntityTickUpdateProcedure.java": [
+      {
+        "line": 28,
+        "text": "                Entity entityToSpawn = ((EntityType)ThermalShockModEntities.DORMANT_MONOLITH.get()).spawn(_level, BlockPos.containing((double)entity.getX(), (double)entity.getY(), (double)entity.getZ()), MobSpawnType.MOB_SUMMONED);"
+      }
+    ],
+    "net\\mcreator\\thermal_shock\\procedures\\MonolithOnInitialEntitySpawnProcedure.java": [
+      {
+        "line": 8,
+        "text": "import net.mcreator.thermal_shock.entity.DormantMonolithEntity;"
+      },
+      {
+        "line": 27,
+        "text": "            if (!world.getEntitiesOfClass(DormantMonolithEntity.class, AABB.ofSize((Vec3)new Vec3(x, y, z), (double)128.0, (double)128.0, (double)128.0), e -> true).isEmpty()) {"
+      },
+      {
+        "line": 28,
+        "text": "                ((Entity)world.getEntitiesOfClass(DormantMonolithEntity.class, AABB.ofSize((Vec3)new Vec3(x, y, z), (double)128.0, (double)128.0, (double)128.0), e -> true).stream().sorted(new Object(){"
+      },
+      {
+        "line": 39,
+        "text": "                _level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:monolithhurt\")), SoundSource.NEUTRAL, 0.5f, 2.0f);"
+      },
+      {
+        "line": 41,
+        "text": "                _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:monolithhurt\")), SoundSource.NEUTRAL, 0.5f, 2.0f, false);"
+      }
+    ],
+    "net\\mcreator\\thermal_shock\\procedures\\SquallAttackProcedure.java": [
+      {
+        "line": 75,
+        "text": "                        _level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:monolithhurt\")), SoundSource.HOSTILE, 1.0f, -3.0f);"
+      },
+      {
+        "line": 77,
+        "text": "                        _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"thermal_shock:monolithhurt\")), SoundSource.HOSTILE, 1.0f, -3.0f, false);"
+      }
+    ],
+    "net\\mcreator\\thermal_shock\\procedures\\WideAngleRightclickedProcedure.java": [
+      {
+        "line": 26,
+        "text": "import net.mcreator.thermal_shock.entity.DormantMonolithEntity;"
+      },
+      {
+        "line": 66,
+        "text": "import net.mcreator.thermal_shock.entity.MonolithEntity;"
+      },
+      {
+        "line": 339,
+        "text": "                if (!world.getEntitiesOfClass(MonolithEntity.class, AABB.ofSize((Vec3)new Vec3((double)entity.level().clip(new ClipContext(entity.getEyePosition(1.0f), entity.getEyePosition(1.0f).add(entity.getViewVector(1.0f).scale(5.0)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, entity)).getBlockPos().getX(), (double)entity.level().clip(new ClipContext(entity.getEyePosition(1.0f), entity.getEyePosition(1.0f).add(entity.getViewVector(1.0f).scale(5.0)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, entity)).getBlockPos().getY(), (double)entity.level().clip(new ClipContext(entity.getEyePosition(1.0f), entity.getEyePosition(1.0f).add(entity.getViewVector(1.0f).scale(5.0)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, entity)).getBlockPos().getZ()), (double)4.0, (double)4.0, (double)4.0), e -> true).isEmpty() && entity instanceof Player && !(_player = (Player)entity).level().isClientSide()) {"
+      },
+      {
+        "line": 342,
+        "text": "                if (!world.getEntitiesOfClass(DormantMonolithEntity.class, AABB.ofSize((Vec3)new Vec3((double)entity.level().clip(new ClipContext(entity.getEyePosition(1.0f), entity.getEyePosition(1.0f).add(entity.getViewVector(1.0f).scale(5.0)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, entity)).getBlockPos().getX(), (double)entity.level().clip(new ClipContext(entity.getEyePosition(1.0f), entity.getEyePosition(1.0f).add(entity.getViewVector(1.0f).scale(5.0)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, entity)).getBlockPos().getY(), (double)entity.level().clip(new ClipContext(entity.getEyePosition(1.0f), entity.getEyePosition(1.0f).add(entity.getViewVector(1.0f).scale(5.0)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, entity)).getBlockPos().getZ()), (double)4.0, (double)4.0, (double)4.0), e -> true).isEmpty() && entity instanceof Player && !(_player = (Player)entity).level().isClientSide()) {"
+      }
+    ]
+  }
+}

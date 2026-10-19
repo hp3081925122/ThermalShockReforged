@@ -1,0 +1,103 @@
+{
+  "base_head": "bc6b2b5",
+  "applied_by_this_chat": false,
+  "java_patches": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/ThermalShockReforged.java",
+      "operation": "insert_after_exact_line",
+      "anchor": "        com.hp.thermalshockreforged.entity.beetles.BeetleContent.register(bus);",
+      "insert": "        com.hp.thermalshockreforged.entity.monolith.MonolithContent.register(bus);"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/ThermalShockReforged.java",
+      "operation": "insert_after_exact_line",
+      "anchor": "        container.registerConfig(ModConfig.Type.COMMON, com.hp.thermalshockreforged.entity.beetles.BeetleConfig.SPEC, \"thermal_shock_reforged-beetles.toml\");",
+      "insert": "        container.registerConfig(ModConfig.Type.COMMON, com.hp.thermalshockreforged.entity.monolith.MonolithConfig.SPEC, \"thermal_shock_reforged-monolith.toml\");"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/ClientEvents.java",
+      "operation": "insert_after_exact_line",
+      "anchor": "        com.hp.thermalshockreforged.client.beetles.BeetleRenderers.register(event);",
+      "insert": "        com.hp.thermalshockreforged.client.monolith.MonolithRenderers.register(event);"
+    }
+  ],
+  "entity_type_tag_append_unique_keep_existing": {
+    "src/main/resources/data/thermal_shock_reforged/tags/entity_type/graveyard_mobs.json": [
+      "thermal_shock_reforged:monolith",
+      "thermal_shock_reforged:dormant_monolith"
+    ],
+    "src/main/resources/data/thermal_shock_reforged/tags/entity_type/infecting_mobs.json": [
+      "thermal_shock_reforged:monolith"
+    ],
+    "src/main/resources/data/thermal_shock_reforged/tags/entity_type/infectionimmune.json": [
+      "thermal_shock_reforged:dormant_monolith"
+    ],
+    "src/main/resources/data/thermal_shock_reforged/tags/entity_type/pyro_weak.json": [
+      "thermal_shock_reforged:monolith"
+    ],
+    "src/main/resources/data/thermal_shock_reforged/tags/entity_type/sprintweed_blacklist.json": [
+      "thermal_shock_reforged:monolith",
+      "thermal_shock_reforged:dormant_monolith"
+    ],
+    "src/main/resources/data/thermal_shock_reforged/tags/entity_type/undead_mobs.json": [
+      "thermal_shock_reforged:monolith",
+      "thermal_shock_reforged:dormant_monolith"
+    ],
+    "src/main/resources/data/minecraft/tags/entity_type/can_breathe_under_water.json": [
+      "thermal_shock_reforged:monolith",
+      "thermal_shock_reforged:dormant_monolith"
+    ],
+    "src/main/resources/data/minecraft/tags/entity_type/ignores_poison_and_regen.json": [
+      "thermal_shock_reforged:monolith",
+      "thermal_shock_reforged:dormant_monolith"
+    ],
+    "src/main/resources/data/minecraft/tags/entity_type/inverted_healing_and_harm.json": [
+      "thermal_shock_reforged:monolith",
+      "thermal_shock_reforged:dormant_monolith"
+    ],
+    "src/main/resources/data/minecraft/tags/entity_type/sensitive_to_smite.json": [
+      "thermal_shock_reforged:monolith",
+      "thermal_shock_reforged:dormant_monolith"
+    ],
+    "src/main/resources/data/minecraft/tags/entity_type/undead.json": [
+      "thermal_shock_reforged:monolith",
+      "thermal_shock_reforged:dormant_monolith"
+    ],
+    "src/main/resources/data/minecraft/tags/entity_type/wither_friends.json": [
+      "thermal_shock_reforged:monolith",
+      "thermal_shock_reforged:dormant_monolith"
+    ]
+  },
+  "language_merge_keep_others": {
+    "src/main/resources/assets/thermal_shock_reforged/lang/zh_cn.json": {
+      "entity.thermal_shock_reforged.monolith": "巨碑",
+      "entity.thermal_shock_reforged.dormant_monolith": "巨碑",
+      "item.thermal_shock_reforged.dormant_monolith_spawn_egg": "巨碑刷怪蛋",
+      "subtitles.monolithambient": "巨碑啼鸣",
+      "subtitles.monolithhurt": "巨碑受伤",
+      "subtitles.monolithdeath": "巨碑死亡"
+    }
+  },
+  "english_existing_keys_keep": [
+    "entity.thermal_shock_reforged.monolith",
+    "entity.thermal_shock_reforged.dormant_monolith",
+    "item.thermal_shock_reforged.dormant_monolith_spawn_egg",
+    "subtitles.monolithambient",
+    "subtitles.monolithhurt",
+    "subtitles.monolithdeath"
+  ],
+  "no_shared_change_required": [
+    "ModSounds五组已有",
+    "CameraCatalog两ID已有",
+    "creative已有Dormant真蛋",
+    "ServerEndTickTasks已有注册",
+    "BossDeathEffectEntity复用Mangler已注册类型与renderer"
+  ],
+  "notes": [
+    "不新增monolith_spawn_egg；原只有Dormant真蛋",
+    "两形态亡灵语义均接回；原GENERIC技能无owner不改归属来强制触发infecting_mobs",
+    "标签追加不得覆盖主聊天Graver增量",
+    "Vilebath不启用；缺两原生方块、bloodstone_halberd、原pool名缺陷与旧共享NBT属性审计",
+    "本聊天不改共享AnimatedMonsterEntity或Aura公式"
+  ]
+}
