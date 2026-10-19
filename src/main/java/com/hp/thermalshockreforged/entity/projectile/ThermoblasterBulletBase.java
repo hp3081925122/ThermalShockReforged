@@ -5,9 +5,9 @@ import com.hp.thermalshockreforged.content.ModDamageTypes;
 import com.hp.thermalshockreforged.content.MaterialContent;
 import com.hp.thermalshockreforged.content.decor.geo.GeoDecorContent;
 import com.hp.thermalshockreforged.content.decor.geo.GeoDecorKind;
+import com.hp.thermalshockreforged.entity.orb.OrbContent;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -26,28 +26,31 @@ import net.minecraft.world.phys.EntityHitResult;
 
 public abstract class ThermoblasterBulletBase extends LegacyArrowEntity {
     private static final TagKey<EntityType<?>> PYRO_WEAK = TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "pyro_weak"));
-    private int remainingTicks = 40;
+    private static final TagKey<EntityType<?>> CRYO_WEAK = TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "cryo_weak"));
     protected ThermoblasterBulletBase(EntityType<? extends ThermoblasterBulletBase> type, Level level) { super(type, level); }
-    protected ThermoblasterBulletBase(EntityType<? extends ThermoblasterBulletBase> type, LivingEntity owner, Level level) { super(type, owner, level, ItemStack.EMPTY); setRemainingFireTicks(100); }
+    protected ThermoblasterBulletBase(EntityType<? extends ThermoblasterBulletBase> type, LivingEntity owner, Level level) { super(type, owner, level, ItemStack.EMPTY); }
     protected abstract boolean shotgun();
+    @Override protected boolean fliesWithoutGravity() { return !shotgun(); }
+    @Override protected int lifetimeTicks() { return 40; }
     @Override protected ItemStack projectileItem() { return new ItemStack(shotgun() ? MaterialContent.items().get("cobalt_splatter").get() : GeoDecorContent.item(GeoDecorKind.BLUE_ORB)); }
     @Override public void tick() {
         super.tick();
         if (!shotgun() && level().isClientSide) level().addParticle(net.minecraft.core.particles.ParticleTypes.SOUL_FIRE_FLAME, getX(), getY(), getZ(), 0, 0, 0);
-        if (!level().isClientSide && --remainingTicks <= 0) discard();
     }
-    @Override protected void onHitEntity(EntityHitResult hit) { super.onHitEntity(hit); impact(hit.getEntity(), hit.getEntity().blockPosition()); }
-    @Override protected void onHitBlock(BlockHitResult hit) { super.onHitBlock(hit); impact(null, hit.getBlockPos()); }
-    private void impact(Entity target, BlockPos pos) {
+    @Override protected void onHitEntity(EntityHitResult hit) { super.onHitEntity(hit); impact(hit.getEntity(), blockPosition(), shotgun(), getX(), getY(), getZ(), true); }
+    @Override protected void onHitBlock(BlockHitResult hit) {
+        super.onHitBlock(hit);
+        BlockPos pos = hit.getBlockPos();
+        impact(getOwner(), pos, false, pos.getX(), pos.getY(), pos.getZ(), false);
+    }
+    private void impact(Entity target, BlockPos pos, boolean scatter, double x, double y, double z, boolean applyDamage) {
         if (!(level() instanceof ServerLevel server)) return;
         if (target != null && !(target instanceof Player)) {
             server.playSound(null, pos, SoundEvents.GENERIC_HURT, SoundSource.NEUTRAL, 1, 1);
             server.playSound(null, pos, SoundEvents.FIREWORK_ROCKET_BLAST, SoundSource.NEUTRAL, 1, 1);
-            if (shotgun() && target instanceof LivingEntity living) living.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 60, 3, false, false));
-            if (target.getType().is(PYRO_WEAK)) target.hurt(new net.minecraft.world.damagesource.DamageSource(server.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ModDamageTypes.THERM_IFRAME_BYPASS)), 6);
+            if (!scatter) server.sendParticles(OrbContent.BLUE_X_BLAST.get(), x, y, z, 1, .1, .1, .1, 0);
+            if (scatter && target instanceof LivingEntity living) living.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 60, 3, false, false));
+            if (applyDamage && target.getType().is(scatter ? PYRO_WEAK : CRYO_WEAK)) target.hurt(new net.minecraft.world.damagesource.DamageSource(server.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ModDamageTypes.THERM_IFRAME_BYPASS)), 6);
         }
-        discard();
     }
-    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putInt("ThermoblasterRemainingTicks", remainingTicks); }
-    @Override public void readAdditionalSaveData(CompoundTag tag) { super.readAdditionalSaveData(tag); remainingTicks = Math.clamp(tag.getInt("ThermoblasterRemainingTicks"), 1, 40); setRemainingFireTicks(100); }
 }

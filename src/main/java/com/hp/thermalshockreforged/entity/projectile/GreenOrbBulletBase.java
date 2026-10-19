@@ -1,9 +1,11 @@
 package com.hp.thermalshockreforged.entity.projectile;
 
+import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.decor.geo.GeoDecorContent;
 import com.hp.thermalshockreforged.content.decor.geo.GeoDecorKind;
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -17,34 +19,39 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
+import net.minecraft.world.phys.Vec3;
 
 public abstract class GreenOrbBulletBase extends LegacyArrowEntity {
-    private int remainingTicks = 40;
     protected GreenOrbBulletBase(EntityType<? extends GreenOrbBulletBase> type, Level level) { super(type, level); }
     protected GreenOrbBulletBase(EntityType<? extends GreenOrbBulletBase> type, LivingEntity owner, Level level) { super(type, owner, level, ItemStack.EMPTY); }
     @Override protected ItemStack projectileItem() { return new ItemStack(GeoDecorContent.item(GeoDecorKind.GREEN_ORB)); }
+    @Override protected boolean fliesWithoutGravity() { return true; }
+    @Override protected int lifetimeTicks() { return 40; }
+    protected boolean affects(Entity target) {
+        return target != null && !(target instanceof Player)
+                && !BuiltInRegistries.ENTITY_TYPE.getKey(target.getType()).equals(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "lil_jelly"));
+    }
+    protected boolean discardAfterEntityEffects() { return true; }
     @Override public void tick() {
         super.tick();
         if (level().isClientSide) level().addParticle(ProjectileContent.GREEN_PARTICLE.get(), getX(), getY(), getZ(), 0, 0, 0);
-        if (!level().isClientSide && --remainingTicks <= 0) discard();
     }
-    @Override protected void onHitEntity(EntityHitResult hit) { super.onHitEntity(hit); impact(hit.getEntity().blockPosition(), hit.getEntity()); }
-    @Override protected void onHitBlock(BlockHitResult hit) { super.onHitBlock(hit); impact(hit.getBlockPos(), null); }
-    private void impact(BlockPos pos, Entity target) {
-        if (!(level() instanceof ServerLevel server)) return;
-        if (target != null && !(target instanceof Player) && !isLilJelly(target)) {
-            server.sendParticles(ProjectileContent.GREEN_PARTICLE.get(), getX(), getY(), getZ(), 10, .2, .2, .2, .1);
-            server.playSound(null, pos, SoundEvents.GENERIC_EXTINGUISH_FIRE, SoundSource.NEUTRAL, 1, 1);
-            server.playSound(null, pos, SoundEvents.GLASS_BREAK, SoundSource.NEUTRAL, .5F, -3);
-            if (target instanceof LivingEntity living && server.getRandom().nextFloat() < .2F) living.addEffect(new MobEffectInstance(MobEffects.POISON, 40, 1, true, true));
-        } else if (target == null) {
-            server.sendParticles(ProjectileContent.GREEN_PARTICLE.get(), getX(), getY(), getZ(), 10, .2, .2, .2, .1);
-            server.playSound(null, pos, SoundEvents.GENERIC_EXTINGUISH_FIRE, SoundSource.NEUTRAL, 1, 1);
-            server.playSound(null, pos, SoundEvents.GLASS_BREAK, SoundSource.NEUTRAL, .5F, -3);
-        }
-        discard();
+    @Override protected void onHitEntity(EntityHitResult hit) {
+        super.onHitEntity(hit);
+        applyGreenEffects(hit.getEntity(), position(), true);
+        if (level() instanceof ServerLevel && affects(hit.getEntity()) && discardAfterEntityEffects()) discard();
     }
-    private static boolean isLilJelly(Entity target) { return net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.getKey(target.getType()).getPath().equals("lil_jelly"); }
-    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putInt("GreenBulletRemainingTicks", remainingTicks); }
-    @Override public void readAdditionalSaveData(CompoundTag tag) { super.readAdditionalSaveData(tag); remainingTicks = Math.clamp(tag.getInt("GreenBulletRemainingTicks"), 1, 40); }
+    @Override protected void onHitBlock(BlockHitResult hit) {
+        super.onHitBlock(hit);
+        BlockPos pos = hit.getBlockPos();
+        applyGreenEffects(getOwner(), new Vec3(pos.getX(), pos.getY(), pos.getZ()), false);
+        if (level() instanceof ServerLevel && affects(getOwner())) discard();
+    }
+    protected final void applyGreenEffects(Entity target, Vec3 origin, boolean poison) {
+        if (!(level() instanceof ServerLevel server) || !affects(target)) return;
+        server.sendParticles(ProjectileContent.GREEN_PARTICLE.get(), origin.x, origin.y, origin.z, 10, .2, .2, .2, .1);
+        server.playSound(null, BlockPos.containing(origin), SoundEvents.GENERIC_EXTINGUISH_FIRE, SoundSource.NEUTRAL, 1, 1);
+        server.playSound(null, BlockPos.containing(origin), SoundEvents.GLASS_BREAK, SoundSource.NEUTRAL, .5F, -3);
+        if (poison && target instanceof LivingEntity living && server.getRandom().nextFloat() < .2F) living.addEffect(new MobEffectInstance(MobEffects.POISON, 40, 1, true, true));
+    }
 }
