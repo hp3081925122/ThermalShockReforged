@@ -1,0 +1,96 @@
+{
+  "scope": "原真实物品工厂/队列/渲染类/几何/全部原资产与目标注册静态对照，不等于游戏或性能实测",
+  "runtime_tests": "pending_full_mod_migration_primary_agent_only",
+  "summary": {
+    "real_weapons": 1,
+    "full_original_assets_including_audio": 7,
+    "data_build_paths": 7,
+    "corrected_full_beam_renderers": [
+      "liteprism_beam",
+      "thistle_beam"
+    ],
+    "fabrication_output_closed": "liteprism_laser"
+  },
+  "original_behavior": {
+    "durability": 1000,
+    "rarity": "UNCOMMON",
+    "enchantability": 5,
+    "use_duration": 20,
+    "right_click_mode_added": false,
+    "no_extra_durability_consumption": true,
+    "player_cooldown": 5,
+    "ammo_per_trigger": 1,
+    "ammo": "specialized_round，创造免耗",
+    "unobstructed_segments": 20,
+    "segment_origins": "眼位+look*0..19",
+    "projectiles": "原生箭碰撞、速度1/散布0/baseDamage7/KB0/穿透5/silent/非暴击",
+    "lifetime": "5 SERVER END，复用既有有限局部计时",
+    "end_rod": "每段一粒子，原零速度",
+    "clips": {
+      "0": {
+        "loop": true,
+        "animation_length": 20
+      },
+      "1": {
+        "animation_length": 0.2083
+      },
+      "2": {
+        "animation_length": 0.5
+      }
+    }
+  },
+  "intentional_changes": [
+    "原无方块遮挡检测会在墙后生成后续beam；以原生箭COLLIDER/Fluid.NONE截断段起点，无遮挡仍完整20段",
+    "声音与END_ROD由服务器单次广播，修本地重复声和旁观者特效"
+  ],
+  "migration_omission_fixed": "原Liteprism/Thistle两beam是完整Small Laser Beam和zerkglow cutout渲染，改回原模型/纹理/角度，共用已注册原几何层；不再显示为bismuth物品",
+  "assets": [
+    {
+      "path": "geo/liteprism_laser.geo.json",
+      "sha256": "25fcf19842e7508d09f7ffab8868d1e8696ecc2e14885713167b2f8052b2cff2"
+    },
+    {
+      "path": "animations/liteprism_laser.animation.json",
+      "sha256": "31b7fa81bf87e54caefb714c673c67864f78edad14b7e112f10bcd16638e6614"
+    },
+    {
+      "path": "textures/item/prismgauntlet.png",
+      "sha256": "733c86ed6ec23c196965e2b0e0e247029ffa7bcc20d36d8f7bf4fcbe5a096260"
+    },
+    {
+      "path": "models/item/liteprism_laser.json",
+      "sha256": "6c67319c8919e0f0753bbe2d83c4e8c7267a7d90630e0d35ba1e0d3aa2cd7782"
+    },
+    {
+      "path": "textures/entities/zerkglow.png",
+      "sha256": "0fe2976ac9b9bde9cc37cc09b79d1fb34a3a3394cf1b5c5ea986aef2f0fef58b"
+    },
+    {
+      "path": "models/displaysettings/liteprism_laser.json",
+      "sha256": "d3df555ca0d09c066e857821be81a967d21b8d22975c83c62ae36b60b56d772e"
+    },
+    {
+      "path": "sounds/laser1.ogg",
+      "sha256": "720ff4e982a6ef49273085a8b585ddd5408bc23ddffa97a70fa93070f12ddd6c"
+    }
+  ],
+  "data_build_paths": [
+    "assets/thermal_shock_reforged/sounds.json",
+    "data/thermal_shock_reforged/recipe/fabrication/liteprism_laser.json",
+    "data/minecraft/tags/item/enchantable/durability.json",
+    "data/thermal_shock_reforged/tags/item/cloro_type.json",
+    "data/thermal_shock_reforged/tags/item/weapon.json",
+    "assets/thermal_shock_reforged/lang/en_us.json",
+    "assets/thermal_shock_reforged/lang/zh_cn.json"
+  ],
+  "build": {
+    "compileJava_processResources": "passed",
+    "subagents": false,
+    "game_runtime_started": false
+  },
+  "pending": [
+    "Liteprism Disk/buildup/PrismCluster/FlareGunCore联动仍待完整迁入",
+    "全局Cloro和其他未迁内容",
+    "全代码完成后两端及Render Preview核原模型、20段/遮挡/穿透/耗弹/CD"
+  ]
+}

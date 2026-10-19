@@ -352,7 +352,7 @@
       "page": "LiteprismLaserPage",
       "output": "thermal_shock_reforged:liteprism_laser",
       "materials_match_original_actual_removal": true,
-      "active": false,
+      "active": true,
       "original_threshold_mismatch_fixed": false
     },
     {
@@ -387,7 +387,7 @@
       "page": "PropulsionBootsPage",
       "output": "thermal_shock_reforged:propulsion_boots_boots",
       "materials_match_original_actual_removal": true,
-      "active": false,
+      "active": true,
       "original_threshold_mismatch_fixed": false
     },
     {
@@ -415,14 +415,14 @@
       "page": "SilencedHelmetPage",
       "output": "thermal_shock_reforged:silenced_armor_helmet",
       "materials_match_original_actual_removal": true,
-      "active": false,
+      "active": true,
       "original_threshold_mismatch_fixed": false
     },
     {
       "page": "SilencedChestplatePage",
       "output": "thermal_shock_reforged:silenced_armor_chestplate",
       "materials_match_original_actual_removal": true,
-      "active": false,
+      "active": true,
       "original_threshold_mismatch_fixed": false
     }
   ],
@@ -578,15 +578,11 @@
     "buttons": 68,
     "textures": 36,
     "defined_recipes": 31,
-    "active_closed_recipes": 26,
-    "pending_real_output_implementation": 5,
+    "active_closed_recipes": 30,
+    "pending_real_output_implementation": 1,
     "all_active_recipe_references_have_registration_evidence": true,
     "pending_recipe_outputs": [
-      "thermal_shock_reforged:liteprism_disk",
-      "thermal_shock_reforged:liteprism_laser",
-      "thermal_shock_reforged:propulsion_boots_boots",
-      "thermal_shock_reforged:silenced_armor_chestplate",
-      "thermal_shock_reforged:silenced_armor_helmet"
+      "thermal_shock_reforged:liteprism_disk"
     ],
     "late_batch77_tags_build_copies": [
       "infectionimmune",

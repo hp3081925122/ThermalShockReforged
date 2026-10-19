@@ -1,0 +1,425 @@
+{
+  "status": "integrated_static_and_compile_passed_runtime_pending",
+  "date": "2026-10-19",
+  "target": {
+    "minecraft": "1.21.1",
+    "neoforge": "21.1.233",
+    "java": 21,
+    "geckolib": "4.9"
+  },
+  "original": {
+    "jar": "D:\\AI临时文件\\ThermalShockMigration\\thermal_shock-07.9-original.jar",
+    "minecraft": "1.20.1",
+    "sha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436"
+  },
+  "owned_java_files": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/armor/fabricated/FabricatedArmorContent.java",
+      "sha256": "5ee186dbd52b6e5bb0a056293ee2ec13f42ba86be50ccca77edc70ca38b7f1c3"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/armor/fabricated/FabricatedArmorEvents.java",
+      "sha256": "7526de051fafffba988f4a3834c911d14ddbe70f221356c65e479619b9b964c9"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/armor/fabricated/FabricatedArmorItem.java",
+      "sha256": "a192b968487ee6f955b2939ede84dfc7da5460d0b65a7c6779a82a30f217df90"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/armor/fabricated/FabricatedArmorPayloads.java",
+      "sha256": "18b0b33885cba0805d6a3f3bc1e3e3b34b5397093e1c91afc9e6bc8d6690a9e3"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/armor/fabricated/FabricatedArmorClient.java",
+      "sha256": "34674a44b6bc9cf5faee18e0e5e2b54af8ae217153a5be32acd6279faf444a0f"
+    }
+  ],
+  "common_entry": {
+    "call": "com.hp.thermalshockreforged.content.armor.fabricated.FabricatedArmorContent.register(modBus);",
+    "location": "ThermalShockReforged构造器，沿现有ArmorContent注册相邻加入。仅调用一次。",
+    "includes": [
+      "两种ArmorMaterial",
+      "三件真实Geo装甲",
+      "仅负责显示的propulsion_boots_cooldown效果",
+      "C2S/S2C网络注册",
+      "玩家冷却tick、死亡/克隆/登录/换维度/开始追踪",
+      "EffectParticleModificationEvent原生粒子抑制"
+    ]
+  },
+  "client_entries": [
+    {
+      "call": "com.hp.thermalshockreforged.client.armor.fabricated.FabricatedArmorClient.extensions(event);",
+      "event": "RegisterClientExtensionsEvent",
+      "location": "ClientEvents的客户端扩展事件处理方法，调用一次",
+      "includes": [
+        "三件透明GeoArmorRenderer",
+        "隐藏冷却效果HUD与背包",
+        "接收视觉包",
+        "注册客户端tick与退出清理"
+      ]
+    },
+    {
+      "call": "com.hp.thermalshockreforged.client.armor.fabricated.FabricatedArmorClient.keys(event);",
+      "event": "RegisterKeyMappingsEvent",
+      "location": "仅客户端MOD事件总线；可在ClientEvents新增对应@SubscribeEvent方法",
+      "includes": [
+        "默认左Shift340，允许重绑定，按下沿即时发送，避免ClientTick.Post时疾跑已被潜行取消"
+      ]
+    }
+  ],
+  "shared_required_changes": [
+    {
+      "file": "src/main/java/com/hp/thermalshockreforged/content/armor/ArmorSetEvents.java",
+      "method": "serverTick(ServerTickEvent.Post)",
+      "change": "既有每20tick先汇集穿戴者的if条件改为 eligible && player.isShiftKeyDown() && wearing(player, ArmorContent.SENTRY) || com.hp.thermalshockreforged.content.armor.fabricated.FabricatedArmorEvents.silencedSet(player)。注意括号。silencedSet已自带存活、潜行、头/脚zenith、头胸正确ID检查。",
+      "retain": "只共享原有一次全服扫描，所有维度已加载存活LivingEntity且实体类型feature启用；GLOWING21tick等级1、ambient=false、visible=true。不要再注册额外全服tick监听。",
+      "reason": "原SilencedArmorEffectProcedure和Sentry同源/effect give @e glowing 1 1。用户已授权每秒批次。"
+    },
+    {
+      "file": "src/main/java/com/hp/thermalshockreforged/content/armor/SpecialArmorEvents.java",
+      "method": "hurt(LivingDamageEvent.Pre)",
+      "change": "无需改动；当前实现已通过silenced_armor_chestplate ID判断完整复用受伤反击。保留现有监听，禁止另加一次。",
+      "evidence": "原DevScarfEffectProcedure中DEV_SCARF_CHESTPLATE或SILENCED_ARMOR_CHESTPLATE、Player、Math.random()<0.5分支。"
+    }
+  ],
+  "language_entries": {
+    "item.thermal_shock_reforged.propulsion_boots_boots": {
+      "en_us": "Propulsion Boots",
+      "zh_cn": "推进靴"
+    },
+    "item.thermal_shock_reforged.silenced_armor_helmet": {
+      "en_us": "§aSilenced Helmet",
+      "zh_cn": "§a静默头盔"
+    },
+    "item.thermal_shock_reforged.silenced_armor_chestplate": {
+      "en_us": "§aSilenced Cloak",
+      "zh_cn": "§a静默斗篷"
+    },
+    "key.thermal_shock_reforged.propulsion_boots_ability": {
+      "en_us": "Propulsion Boots Ability",
+      "zh_cn": "推进靴能力"
+    },
+    "effect.thermal_shock_reforged.propulsion_boots_cooldown": {
+      "en_us": "Propulsion Boots Cooldown",
+      "zh_cn": "推进靴冷却"
+    },
+    "tooltip.thermal_shock_reforged.propulsion_boots.ability": {
+      "en_us": "§7press LShift while sprinting to launch upwards and forwards while not on cooldown.",
+      "zh_cn": "§7冷却结束后，在疾跑时按左 Shift 向前上方推进。"
+    },
+    "tooltip.thermal_shock_reforged.silenced_armor.helmet.ability": {
+      "en_us": "§7Grants passive Water Breathing when worn.",
+      "zh_cn": "§7穿戴时持续获得水下呼吸。"
+    },
+    "tooltip.thermal_shock_reforged.silenced_armor.chestplate.ability": {
+      "en_us": "§7Attackers have a 50% chance of getting set on fire.",
+      "zh_cn": "§7攻击者有 50% 的概率被点燃。"
+    },
+    "tooltip.thermal_shock_reforged.silenced_armor.set_bonus": {
+      "en_us": "§6Set Bonus: Afflicts all nearby mobs with Glowing while sneaking.",
+      "zh_cn": "§6套装效果：潜行时使附近生物发光。"
+    },
+    "tooltip.thermal_shock_reforged.silenced_armor.helmet.quote": {
+      "en_us": "§8§o\"All beliefs are meant to crumble.\"",
+      "zh_cn": "§8§o“所有信仰终将崩塌。”"
+    },
+    "tooltip.thermal_shock_reforged.silenced_armor.chestplate.quote": {
+      "en_us": "§8§o\"Our vows and duties are long forgotten.\"",
+      "zh_cn": "§8§o“我们的誓言与职责早已被遗忘。”"
+    },
+    "jei.thermal_shock_reforged.jei_propulsion_boots": {
+      "en_us": "Crafted at a Fabricator.\n\n> Cryonic Alloy x8\n> Stratus Alloy x1\n> Cavebloomer Core x1",
+      "zh_cn": "在制造机中制造。\n\n> 低温合金 ×8\n> 层云合金 ×1\n> 洞穴绽放者核心 ×1"
+    },
+    "jei.thermal_shock_reforged.jei_silenced_helmet": {
+      "en_us": "Crafted at a Fabricator.\n\n> Stratus Alloy x1\n> Tainted Energy x20\n> Sentry Hood x1\n> Corrial Diving Helmet",
+      "zh_cn": "在制造机中制造。\n\n> 层云合金 ×1\n> 污染能量 ×20\n> 哨兵兜帽 ×1\n> 珊瑚潜水头盔 ×1"
+    },
+    "jei.thermal_shock_reforged.jei_silenced_cloak": {
+      "en_us": "Crafted at a Fabricator.\n\n> Stratus Alloy x1\n> Tainted Energy x25\n> Sentry Pauldrons x1\n> Voidflare Scarf x1",
+      "zh_cn": "在制造机中制造。\n\n> 层云合金 ×1\n> 污染能量 ×25\n> 哨兵肩甲 ×1\n> 虚焰围巾 ×1"
+    }
+  },
+  "language_notes": [
+    "原两件静默装备名称乱码修为有效§a绿色格式。",
+    "独立实现提供原文证据，主对话集成时已将附近发光/仅攻击者起火修为真实全服已加载LivingEntity范围/受伤50%点燃邻近Mob；范围玩法不缩减。",
+    "三项jei说明与真实制造配方统一；本批不另注册JEI插件。"
+  ],
+  "original_tags": [
+    {
+      "target": "data/thermal_shock_reforged/tags/item/zenith.json",
+      "add": [
+        "thermal_shock_reforged:silenced_armor_helmet",
+        "thermal_shock_reforged:silenced_armor_chestplate"
+      ],
+      "replace": false
+    }
+  ],
+  "native_1211_tags": [
+    {
+      "target": "data/minecraft/tags/item/foot_armor.json",
+      "add": [
+        "thermal_shock_reforged:propulsion_boots_boots"
+      ]
+    },
+    {
+      "target": "data/minecraft/tags/item/head_armor.json",
+      "add": [
+        "thermal_shock_reforged:silenced_armor_helmet"
+      ]
+    },
+    {
+      "target": "data/minecraft/tags/item/chest_armor.json",
+      "add": [
+        "thermal_shock_reforged:silenced_armor_chestplate"
+      ]
+    }
+  ],
+  "enchantment_note": "原原生ArmorItem无禁附魔覆写。新增到三个原版装备分类标签，由原版enchantable标签继承；不可只依赖ArmorMaterial附魔值。无需添加推进靴到zenith。",
+  "creative_order": {
+    "source": "原ThermalShockModTabs",
+    "entries": [
+      "propulsion_boots_boots",
+      "silenced_armor_helmet",
+      "silenced_armor_chestplate"
+    ],
+    "note": "三件依原顺序相邻，位于原装备段；统一创意页集成由主对话负责。"
+  },
+  "fabrication_recipes": [
+    {
+      "pending": "docs/migration/pending-fabrication-recipes/propulsion_boots_boots.json",
+      "enable_as": "src/main/resources/data/thermal_shock_reforged/recipe/fabrication/propulsion_boots_boots.json",
+      "definition": {
+        "type": "thermal_shock_reforged:fabrication",
+        "materials": [
+          {
+            "item": "thermal_shock_reforged:cryonic_alloy",
+            "count": 8
+          },
+          {
+            "item": "thermal_shock_reforged:stratus_alloy",
+            "count": 1
+          },
+          {
+            "item": "thermal_shock_reforged:cavebloomer_core",
+            "count": 1
+          }
+        ],
+        "energy": {
+          "item": "thermal_shock_reforged:cryonic_energy",
+          "count": 1
+        },
+        "result": {
+          "id": "thermal_shock_reforged:propulsion_boots_boots",
+          "count": 1
+        }
+      }
+    },
+    {
+      "pending": "docs/migration/pending-fabrication-recipes/silenced_armor_helmet.json",
+      "enable_as": "src/main/resources/data/thermal_shock_reforged/recipe/fabrication/silenced_armor_helmet.json",
+      "definition": {
+        "type": "thermal_shock_reforged:fabrication",
+        "materials": [
+          {
+            "item": "thermal_shock_reforged:stratus_alloy",
+            "count": 1
+          },
+          {
+            "item": "thermal_shock_reforged:tainted_energy",
+            "count": 20
+          },
+          {
+            "item": "thermal_shock_reforged:sentry_helmet",
+            "count": 1
+          },
+          {
+            "item": "thermal_shock_reforged:corrial_diving_helmet_helmet",
+            "count": 1
+          }
+        ],
+        "energy": {
+          "item": "thermal_shock_reforged:cryonic_energy",
+          "count": 1
+        },
+        "result": {
+          "id": "thermal_shock_reforged:silenced_armor_helmet",
+          "count": 1
+        }
+      }
+    },
+    {
+      "pending": "docs/migration/pending-fabrication-recipes/silenced_armor_chestplate.json",
+      "enable_as": "src/main/resources/data/thermal_shock_reforged/recipe/fabrication/silenced_armor_chestplate.json",
+      "definition": {
+        "type": "thermal_shock_reforged:fabrication",
+        "materials": [
+          {
+            "item": "thermal_shock_reforged:stratus_alloy",
+            "count": 1
+          },
+          {
+            "item": "thermal_shock_reforged:tainted_energy",
+            "count": 25
+          },
+          {
+            "item": "thermal_shock_reforged:sentry_chestplate",
+            "count": 1
+          },
+          {
+            "item": "thermal_shock_reforged:dev_scarf_chestplate",
+            "count": 1
+          }
+        ],
+        "energy": {
+          "item": "thermal_shock_reforged:cryonic_energy",
+          "count": 1
+        },
+        "result": {
+          "id": "thermal_shock_reforged:silenced_armor_chestplate",
+          "count": 1
+        }
+      }
+    }
+  ],
+  "fabrication_note": "已核真实RecipeProcedure计数阈值及产物；统一Fabricator启用时确认实际recipe目录约定。推进靴原guide GUI显示5/2/4与真实8/1/1不符，应沿现pending真实配方而不是照抄guide。原SparkstridersRecipeProcedure的Ingred3=Ingred4+count是错误累计；目标现原生配方合并计数消除此缺陷。",
+  "assets": {
+    "added": [],
+    "rewritten": [],
+    "existing_verified": [
+      {
+        "path": "src/main/resources/assets/thermal_shock_reforged/geo/spark_striders.geo.json",
+        "sha256": "51fa3cd2fa6ce4aed2b1509cdc22ca1db593354e7710c726a5bbe315b408688d",
+        "original_equivalent": true
+      },
+      {
+        "path": "src/main/resources/assets/thermal_shock_reforged/geo/silenced_armor.geo.json",
+        "sha256": "f7389c1d3ab5c2951e6f86d6976a3235e8d72881ef20d47df8f7566eae1236ac",
+        "original_equivalent": true
+      },
+      {
+        "path": "src/main/resources/assets/thermal_shock_reforged/animations/spark_striders.animation.json",
+        "sha256": "a76784486ada5aeafe76538ba5b50780449aa4e8bc56de2288c6b55618710b09",
+        "original_equivalent": true
+      },
+      {
+        "path": "src/main/resources/assets/thermal_shock_reforged/animations/silenced_armor.animation.json",
+        "sha256": "0c1255da75cc031269de2af3fa1caad99f9265cd61466c974d7dbbd9eeb5fcde",
+        "original_equivalent": true
+      },
+      {
+        "path": "src/main/resources/assets/thermal_shock_reforged/textures/item/spark_striders.png",
+        "sha256": "3615d0d7da0d51a117d20844355a5acf58c0fc2e68218171e335d5020d4164a6",
+        "original_equivalent": true
+      },
+      {
+        "path": "src/main/resources/assets/thermal_shock_reforged/textures/item/silenced_armor.png",
+        "sha256": "58ca62a034c39f0a25f0fe04db5e38b5bc9ee46318e946e1ffc82119097b11f3",
+        "original_equivalent": true
+      },
+      {
+        "path": "src/main/resources/assets/thermal_shock_reforged/models/item/propulsion_boots_boots.json",
+        "sha256": "c6ba4ae20295a9d1c23d627bd885ed70f5fdfd52421c83d3de6770b593379021",
+        "original_equivalent": true
+      },
+      {
+        "path": "src/main/resources/assets/thermal_shock_reforged/models/item/silenced_armor_helmet.json",
+        "sha256": "1b619624b24c9e2c61ee84126b3027054c63d5e26a86f6ddfaed1471c508b7e0",
+        "original_equivalent": true
+      },
+      {
+        "path": "src/main/resources/assets/thermal_shock_reforged/models/item/silenced_armor_chestplate.json",
+        "sha256": "4ac9b6391dd307a1524793c825b31c825371f5a24266da81fb31bf12076460db",
+        "original_equivalent": true
+      },
+      {
+        "path": "src/main/resources/assets/thermal_shock_reforged/sounds/propulsionbootslaunch.ogg",
+        "sha256": "a2d32c0821504f67140caf5ce06760285bbd500a9f03f0ce12604cfee200c423",
+        "original_equivalent": true
+      },
+      {
+        "path": "src/main/resources/assets/thermal_shock_reforged/sounds/cooldownend.ogg",
+        "sha256": "204e147320bfdc780db22087c7e59bb830219c7a41ba17b42d1adc82153b4455",
+        "original_equivalent": true
+      },
+      {
+        "path": "src/main/resources/assets/thermal_shock_reforged/textures/mob_effect/propulsion_boots_cooldown.png",
+        "sha256": "ffcb310a3b7f29625126ff258aa3cac8ab89c066cc201bc1697963f0b7d6678b",
+        "original_equivalent": true
+      }
+    ],
+    "emissive": "原两renderer只有entityTranslucent，JAR无对应glowmask/mcmeta且无AutoGlowingGeoLayer，未捏造全亮层。",
+    "animations": {
+      "spark_striders": [
+        "0",
+        "1"
+      ],
+      "silenced_armor": [
+        "0"
+      ]
+    },
+    "animation_contract": "默认0循环，两个控制器transition5；每实体/槽/stack绑定独立缓存；支持CUSTOM_DATA.geckoAnim观察及empty重置，原三件procedure未见实际写入动作1，保留文件和兼容入口，不强行新增推进时动作1。"
+  },
+  "network": {
+    "register_included": true,
+    "version": "1",
+    "c2s": "thermal_shock_reforged:propulsion_boots_launch 无参数；MAIN线程重新校验存活/疾跑/脚部/135tick冷却/区块有效",
+    "s2c": "thermal_shock_reforged:propulsion_boots_visual entityId VarInt, UUID, color int, active boolean；MAIN线程回调仅客户端extensions安装，公共类无客户端类型依赖",
+    "sync_policy": "开始/结束及混色变化广播tracking+self；StartTracking补快照；登录/换维度重新发送；无每tick广播。"
+  },
+  "state": {
+    "authority": "玩家persistentData thermal_shock_reforged_propulsion_remaining，0..135",
+    "visual_marker": "propulsion_boots_cooldown 无限期等级1隐藏无属性效果，只用于驱动原生effectsDirty/同步，所有逻辑检查只读persistentData；不可牛奶清除。无进度或能力依赖该effect。",
+    "visual_math": "原非ambient灰0x999999，等级1权重2，与其它visible效果按amplifier+1混色；通过EffectParticleModificationEvent抑制1.21.1的随机独立色/每4tick粒子，S2C同步混色客户端按原可见1/2、隐身1/15抽样，getRandomX(.5)/getRandomY/getRandomZ(.5)。",
+    "lifecycle": "死亡清理且不播结束声；非死亡Clone复制剩余；换维度保持；退出/重启按剩余保存，离线冻结；脱靴继续计时；登录/换维度补显示，结束声一次。",
+    "cache": "仅primitive持久状态；客户端map以entityId+UUID验证、实体移除/换世界/退出清理；装甲缓存弱引用并清理。"
+  },
+  "validation": {
+    "compile": "未执行，用户要求主对话统一Gradle",
+    "runtime": "未启动客户端/专服/Render Preview，遵守完整迁移前限制",
+    "static_passed": [
+      "5个独占Java文件UTF-8、无注释、无TODO/空方法占位、括号平衡",
+      "三个物品ID在当前Java注册器唯一",
+      "12项资源与原JAR字节一致或JSON仅命名空间转换",
+      "3份pending配方JSON解析成功、真实procedure阈值核对",
+      "目标NeoForge源码确认事件/扩展/PacketDistributor/MAIN默认线程",
+      "目标Minecraft源码确认粒子算法、velocity包/UUID/ServerPlayer API",
+      "目标GeckoLib4.9 JAR javap确认缓存managers protected及renderer currentEntity/currentStack/currentSlot/实例ID、prepForRender/GeoItem ID方法"
+    ]
+  },
+  "verification_todo": [
+    "主对话接线与标签/语言/Fabricator后统一compileJava",
+    "最终专服：三物品注册与无client类误加载，材质值/修复/附魔/防火/耐久",
+    "疾跑+按键成功及错误脚装/不疾跑/重复伪包拒绝；速度向量/135tick/换维度/退出重启/非死亡Clone/死亡",
+    "推进激活声、POOF12粒、原灰粒混色与可见/隐身抽样、结束声仅一次；多人tracking后加入可见、离开清理",
+    "头盔水呼吸60tick、脱下余效；静默套接入每秒共享全服发光，单/多穿戴者不重复扫，远维度生物范围",
+    "胸甲50%邻近Mob立方inflate2点燃2秒、15紫粒、离散pitch1或2烟花，无重复反击监听",
+    "Fabricator真实扣料和能量/输出容量/合成入口，三件附魔台和铁砧修复",
+    "Render Preview对照原两Geo模型与0动画、推进靴额外1资源、透明贴图、armorstand/多人不同槽独立状态"
+  ],
+  "shared_integration": {
+    "status": "integrated_static_and_compile_passed_runtime_pending",
+    "entry": "ThermalShockReforged -> FabricatedArmorContent.register(bus)",
+    "client": "ClientEvents.extensions/armorKeys -> FabricatedArmorClient.extensions/keys",
+    "global_glowing": "ArmorSetEvents.serverTick，Sentry和Silenced资格合并，20tick最多一次全服扫描、21tick发光",
+    "chest_retaliation": "复用现有SpecialArmorEvents，没有重复注册",
+    "recipes_enabled": [
+      "thermal_shock_reforged:propulsion_boots_boots",
+      "thermal_shock_reforged:silenced_armor_helmet",
+      "thermal_shock_reforged:silenced_armor_chestplate"
+    ],
+    "language_corrections": {
+      "tooltip.thermal_shock_reforged.silenced_armor.chestplate.ability": {
+        "en_us": "§7When hurt, has a 50% chance to ignite nearby mobs.",
+        "zh_cn": "§7受伤时有 50% 的概率点燃附近生物。"
+      },
+      "tooltip.thermal_shock_reforged.silenced_armor.set_bonus": {
+        "en_us": "§6Set Bonus: While sneaking, reveals loaded living entities across dimensions once per second.",
+        "zh_cn": "§6套装效果：潜行时每秒使各维度已加载的生物（含玩家）发光。"
+      }
+    },
+    "compile": "compileJava/processResources同Liteprism第85批一次固定快照首轮通过，1m3s，24任务2执行22最新，4项依赖弃用警告",
+    "runtime": "pending_full_mod_migration",
+    "static_report": "docs/migration/eightysixth-fabricated-armor-static-validation.json"
+  }
+}

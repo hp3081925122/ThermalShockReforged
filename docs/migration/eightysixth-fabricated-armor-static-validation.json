@@ -1,0 +1,72 @@
+{
+  "scope": "独立对话产物集成后的原资源、真实入口、配方、分类附魔标签、创意页、语言与构建副本机械复核；不代替玩法/网络/性能/渲染实测",
+  "summary": {
+    "real_armor_items": 3,
+    "owned_java_files": 5,
+    "original_assets": 12,
+    "data_build_paths": 11,
+    "fabrication_outputs_enabled": 3
+  },
+  "entry_reachability": {
+    "common": "ThermalShockReforged -> FabricatedArmorContent.register",
+    "client": "ClientEvents -> extensions/keys",
+    "glowing": "ArmorSetEvents复用20tick门槛和一次全服扫描",
+    "retaliation": "既有SpecialArmorEvents唯一监听"
+  },
+  "original_assets": [
+    "assets/thermal_shock_reforged/geo/spark_striders.geo.json",
+    "assets/thermal_shock_reforged/geo/silenced_armor.geo.json",
+    "assets/thermal_shock_reforged/animations/spark_striders.animation.json",
+    "assets/thermal_shock_reforged/animations/silenced_armor.animation.json",
+    "assets/thermal_shock_reforged/textures/item/spark_striders.png",
+    "assets/thermal_shock_reforged/textures/item/silenced_armor.png",
+    "assets/thermal_shock_reforged/models/item/propulsion_boots_boots.json",
+    "assets/thermal_shock_reforged/models/item/silenced_armor_helmet.json",
+    "assets/thermal_shock_reforged/models/item/silenced_armor_chestplate.json",
+    "assets/thermal_shock_reforged/sounds/propulsionbootslaunch.ogg",
+    "assets/thermal_shock_reforged/sounds/cooldownend.ogg",
+    "assets/thermal_shock_reforged/textures/mob_effect/propulsion_boots_cooldown.png"
+  ],
+  "data_build_paths": [
+    "assets/thermal_shock_reforged/creative_tabs.json",
+    "assets/thermal_shock_reforged/sounds.json",
+    "data/thermal_shock_reforged/recipe/fabrication/propulsion_boots_boots.json",
+    "data/thermal_shock_reforged/recipe/fabrication/silenced_armor_helmet.json",
+    "data/thermal_shock_reforged/recipe/fabrication/silenced_armor_chestplate.json",
+    "data/thermal_shock_reforged/tags/item/zenith.json",
+    "data/minecraft/tags/item/foot_armor.json",
+    "data/minecraft/tags/item/head_armor.json",
+    "data/minecraft/tags/item/chest_armor.json",
+    "assets/thermal_shock_reforged/lang/en_us.json",
+    "assets/thermal_shock_reforged/lang/zh_cn.json"
+  ],
+  "source_sha256": {
+    "src/main/java/com/hp/thermalshockreforged/content/armor/fabricated/FabricatedArmorContent.java": "5ee186dbd52b6e5bb0a056293ee2ec13f42ba86be50ccca77edc70ca38b7f1c3",
+    "src/main/java/com/hp/thermalshockreforged/content/armor/fabricated/FabricatedArmorEvents.java": "7526de051fafffba988f4a3834c911d14ddbe70f221356c65e479619b9b964c9",
+    "src/main/java/com/hp/thermalshockreforged/content/armor/fabricated/FabricatedArmorItem.java": "a192b968487ee6f955b2939ede84dfc7da5460d0b65a7c6779a82a30f217df90",
+    "src/main/java/com/hp/thermalshockreforged/content/armor/fabricated/FabricatedArmorPayloads.java": "18b0b33885cba0805d6a3f3bc1e3e3b34b5397093e1c91afc9e6bc8d6690a9e3",
+    "src/main/java/com/hp/thermalshockreforged/client/armor/fabricated/FabricatedArmorClient.java": "34674a44b6bc9cf5faee18e0e5e2b54af8ae217153a5be32acd6279faf444a0f"
+  },
+  "intentional_changes": [
+    "持久135tick权威冷却，灰色药水仅显示并保旧混色粒子，不能牛奶/换装绕过",
+    "服务端校验并同步原推进速度及声音",
+    "静默与Sentry共享每秒一次全服发光",
+    "更正文案与乱码名称，原可达玩法、模型、动画、音频保留"
+  ],
+  "build": {
+    "compileJava_processResources": "passed",
+    "source_mutations_during_compile": false,
+    "independent_thread_stopped_before_compile": true
+  },
+  "runtime_tests": "pending_full_mod_migration",
+  "runtime_todo": [
+    "主对话接线与标签/语言/Fabricator后统一compileJava",
+    "最终专服：三物品注册与无client类误加载，材质值/修复/附魔/防火/耐久",
+    "疾跑+按键成功及错误脚装/不疾跑/重复伪包拒绝；速度向量/135tick/换维度/退出重启/非死亡Clone/死亡",
+    "推进激活声、POOF12粒、原灰粒混色与可见/隐身抽样、结束声仅一次；多人tracking后加入可见、离开清理",
+    "头盔水呼吸60tick、脱下余效；静默套接入每秒共享全服发光，单/多穿戴者不重复扫，远维度生物范围",
+    "胸甲50%邻近Mob立方inflate2点燃2秒、15紫粒、离散pitch1或2烟花，无重复反击监听",
+    "Fabricator真实扣料和能量/输出容量/合成入口，三件附魔台和铁砧修复",
+    "Render Preview对照原两Geo模型与0动画、推进靴额外1资源、透明贴图、armorstand/多人不同槽独立状态"
+  ]
+}
