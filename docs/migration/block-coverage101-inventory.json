@@ -1,0 +1,1770 @@
+{
+  "summary": {
+    "inventory_source": "docs/migration/remaining-block-behavior-groups.md",
+    "scope": "G8/G12 rows with old owner unassigned",
+    "total": 88,
+    "G8": 53,
+    "G12": 35,
+    "dynamic_geo_enum": 39,
+    "explicit_java_register": 27,
+    "not_found_java_registration": 19,
+    "method": "GeoDecorKind ID literals plus Java register(id) calls; resources do not count as registration",
+    "unregistered_with_resource_files": 22,
+    "helper_derived_growth_block": 3,
+    "confirmed_registrations_total": 69,
+    "not_found_needs_manual_check": 19,
+    "supplementary_method": "Checked MaterialContent helper registrations, NativeDecorContent registrations/lists, GrowthContent helper and GrowthKind derived seeds, FarmingContent/CropKind derived ids, plus registerBlock/registerPillar/registerItem searches. Unfound means not found in reviewed Java paths and requires manual check."
+  },
+  "shared_evidence": [
+    "docs/migration/remaining-block-behavior-groups.md",
+    "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+    "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java",
+    "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java"
+  ],
+  "records": [
+    {
+      "id": "sparkler_bulb",
+      "group": "G12_special_callback_blocks",
+      "source_type": "Block",
+      "source_be_slots": "无",
+      "old_callbacks": [
+        "SparklerBulbBlockDestroyedByPlayerProcedure",
+        "SparklerbulbUpdateTickProcedure"
+      ],
+      "old_owner": "unassigned",
+      "target_registration": "not_found_needs_manual_check",
+      "target_registration_evidence": [],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/sparkler_bulb.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/block/sparkler_bulb.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/sparkler_bulb.json"
+      ],
+      "target_implementation_path": null,
+      "manual_check_status": "not_found_in_reviewed_java_registration_paths"
+    },
+    {
+      "id": "hanging_sparkler_bulb",
+      "group": "G12_special_callback_blocks",
+      "source_type": "Block",
+      "source_be_slots": "无",
+      "old_callbacks": [
+        "SparklerBulbBlockDestroyedByPlayerProcedure",
+        "SparklerbulbUpdateTickProcedure"
+      ],
+      "old_owner": "unassigned",
+      "target_registration": "java_register_literal",
+      "target_registration_evidence": "Java register(\"hanging_sparkler_bulb\") call",
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/hanging_sparkler_bulb.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/block/hanging_sparkler_bulb.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/hanging_sparkler_bulb.json"
+      ],
+      "target_registration_file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\vilebathblocks\\VilebathBlocksContent.java"
+    },
+    {
+      "id": "glitter_lotus",
+      "group": "G12_special_callback_blocks",
+      "source_type": "Block",
+      "source_be_slots": "无",
+      "old_callbacks": "GlowcapUpdateTickProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "java_register_literal",
+      "target_registration_evidence": "Java register(\"glitter_lotus\") call",
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/glitter_lotus.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/block/glitter_lotus.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/glitter_lotus.json"
+      ],
+      "target_registration_file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\nativeblocks\\NativeDecorContent.java"
+    },
+    {
+      "id": "starfruit",
+      "group": "G12_special_callback_blocks",
+      "source_type": "Block",
+      "source_be_slots": "无",
+      "old_callbacks": [
+        "StarfruitBlockDestroyedByPlayerProcedure",
+        "StarfruitNeighbourBlockChangesProcedure"
+      ],
+      "old_owner": "unassigned",
+      "target_registration": "helper_derived_growth_block",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthContent.java",
+        "private block(String id, Supplier<Block> factory) calls BLOCKS.register(id, factory) and ITEMS.registerSimpleBlockItem(holder)"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/starfruit.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/block/starfruit.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/starfruit.json"
+      ],
+      "target_implementation_path": "src/main/java/com/hp/thermalshockreforged/content/growth/HangingFruitBlock.java",
+      "target_registration_path": "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthContent.java"
+    },
+    {
+      "id": "lunalemon",
+      "group": "G12_special_callback_blocks",
+      "source_type": "Block",
+      "source_be_slots": "无",
+      "old_callbacks": [
+        "LunalemonBlockDestroyedByPlayerProcedure",
+        "StarfruitNeighbourBlockChangesProcedure"
+      ],
+      "old_owner": "unassigned",
+      "target_registration": "helper_derived_growth_block",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthContent.java",
+        "private block(String id, Supplier<Block> factory) calls BLOCKS.register(id, factory) and ITEMS.registerSimpleBlockItem(holder)"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/lunalemon.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/block/lunalemon.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/lunalemon.json"
+      ],
+      "target_implementation_path": "src/main/java/com/hp/thermalshockreforged/content/growth/HangingFruitBlock.java",
+      "target_registration_path": "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthContent.java"
+    },
+    {
+      "id": "lapidarian_workbench",
+      "group": "G12_special_callback_blocks",
+      "source_type": "Block",
+      "source_be_slots": "无",
+      "old_callbacks": "LapidarianWorkbenchNeighbourBlockChangesProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "java_register_literal",
+      "target_registration_evidence": "Java register(\"lapidarian_workbench\") call",
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/lapidarian_workbench.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/block/lapidarian_workbench.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/lapidarian_workbench.json"
+      ],
+      "target_registration_file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\nativeblocks\\NativeDecorContent.java"
+    },
+    {
+      "id": "icicles",
+      "group": "G12_special_callback_blocks",
+      "source_type": "Block",
+      "source_be_slots": "无",
+      "old_callbacks": [
+        "IciclesOnBlockRightClickedProcedure",
+        "RockspinesEntityCollidesInTheBlockProcedure",
+        "StarfruitNeighbourBlockChangesProcedure"
+      ],
+      "old_owner": "unassigned",
+      "target_registration": "java_register_literal",
+      "target_registration_evidence": "Java register(\"icicles\") call",
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/icicles.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/block/icicles.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/icicles.json"
+      ],
+      "target_registration_file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\nativeblocks\\NativeDecorContent.java"
+    },
+    {
+      "id": "pylon_core",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "PylonCoreTileEntity:9",
+      "old_callbacks": "PylonCoreBlockAddedProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "dynamic_geo_enum",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/pylon_core.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/pylon_core.json"
+      ],
+      "target_class_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java"
+    },
+    {
+      "id": "frigid_altar",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "FrigidAltarTileEntity:9",
+      "old_callbacks": "FrigidAltarOnBlockRightClickedProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "dynamic_geo_enum",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/frigid_altar.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/frigid_altar.json"
+      ],
+      "target_class_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java"
+    },
+    {
+      "id": "bottle_of_starlight",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "BottleOfStarlightTileEntity:9",
+      "old_callbacks": "BottleOfStarlightOnBlockRightClickedProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "dynamic_geo_enum",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/bottle_of_starlight.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/bottle_of_starlight.json"
+      ],
+      "target_class_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java"
+    },
+    {
+      "id": "bottle_of_lunarlight",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "BottleOfLunarlightTileEntity:9",
+      "old_callbacks": "BottleOfStarlightOnBlockRightClickedProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "dynamic_geo_enum",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/bottle_of_lunarlight.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/bottle_of_lunarlight.json"
+      ],
+      "target_class_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java"
+    },
+    {
+      "id": "thermite",
+      "group": "G12_special_callback_blocks",
+      "source_type": "Block",
+      "source_be_slots": "无",
+      "old_callbacks": "ThermiteBlockDestroyedByExplosionProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "java_register_literal",
+      "target_registration_evidence": "Java register(\"thermite\") call",
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/thermite.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/block/thermite.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/thermite.json"
+      ],
+      "target_registration_file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\nativeblocks\\NativeDecorContent.java"
+    },
+    {
+      "id": "bouncer",
+      "group": "G12_special_callback_blocks",
+      "source_type": "Block",
+      "source_be_slots": "无",
+      "old_callbacks": "BouncerEntityWalksOnTheBlockProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "java_register_literal",
+      "target_registration_evidence": "Java register(\"bouncer\") call",
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/bouncer.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/block/bouncer.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/bouncer.json"
+      ],
+      "target_registration_file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\nativeblocks\\NativeDecorContent.java"
+    },
+    {
+      "id": "keystone_pedestal",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "KeystonePedestalTileEntity:9",
+      "old_callbacks": "KeystonePedestalOnBlockRightClickedProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "dynamic_geo_enum",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/keystone_pedestal.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/keystone_pedestal.json"
+      ],
+      "target_class_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java"
+    },
+    {
+      "id": "inactive_keystone_pedestal",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "InactiveKeystonePedestalTileEntity:9",
+      "old_callbacks": "InactiveKeystonePedestalOnBlockRightClickedProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "dynamic_geo_enum",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/inactive_keystone_pedestal.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/inactive_keystone_pedestal.json"
+      ],
+      "target_class_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java"
+    },
+    {
+      "id": "chiseled_mantlestone",
+      "group": "G12_special_callback_blocks",
+      "source_type": "Block",
+      "source_be_slots": "无",
+      "old_callbacks": "ChiseledMantlestoneOnBlockRightClickedProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "java_register_literal",
+      "target_registration_evidence": "Java register(\"chiseled_mantlestone\") call",
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/chiseled_mantlestone.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/block/chiseled_mantlestone.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/chiseled_mantlestone.json"
+      ],
+      "target_registration_file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\nativeblocks\\NativeDecorContent.java"
+    },
+    {
+      "id": "spice_geyser",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "Block",
+      "source_be_slots": "SpiceGeyserBlockEntity:9",
+      "old_callbacks": "SpiceGeyserOnRandomClientDisplayTickProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "java_register_literal",
+      "target_registration_evidence": "Java register(\"spice_geyser\") call",
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/spice_geyser.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/block/spice_geyser.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/spice_geyser.json"
+      ],
+      "target_registration_file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\ModBlockEntities.java"
+    },
+    {
+      "id": "little_spring",
+      "group": "G12_special_callback_blocks",
+      "source_type": "SlabBlock",
+      "source_be_slots": "无",
+      "old_callbacks": "BouncerEntityWalksOnTheBlockProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "java_register_literal",
+      "target_registration_evidence": "Java register(\"little_spring\") call",
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/little_spring.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/block/little_spring.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/little_spring.json"
+      ],
+      "target_registration_file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\nativeblocks\\NativeDecorContent.java"
+    },
+    {
+      "id": "cryonic_cache",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "CryonicCacheTileEntity:9",
+      "old_callbacks": [
+        "CryonicCacheBlockDestroyedByPlayerProcedure",
+        "CryonicCacheStartDestroyProcedure"
+      ],
+      "old_owner": "unassigned",
+      "target_registration": "dynamic_geo_enum",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/cryonic_cache.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/cryonic_cache.json"
+      ],
+      "target_class_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java"
+    },
+    {
+      "id": "ferrous_altar",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "FerrousAltarTileEntity:9",
+      "old_callbacks": "FrigidAltarOnBlockRightClickedProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "dynamic_geo_enum",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/ferrous_altar.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/ferrous_altar.json"
+      ],
+      "target_class_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java"
+    },
+    {
+      "id": "enchanted_cache",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "EnchantedCacheTileEntity:9",
+      "old_callbacks": [
+        "EnchantedCacheDestroyedProcedure",
+        "EnchantedCachePlayerStartsToDestroyProcedure"
+      ],
+      "old_owner": "unassigned",
+      "target_registration": "dynamic_geo_enum",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/enchanted_cache.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/enchanted_cache.json"
+      ],
+      "target_class_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java"
+    },
+    {
+      "id": "fabricator",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "FabricatorTileEntity:2",
+      "old_callbacks": [
+        "FabricatorOnBlockRightClickedProcedure",
+        "FabricatorOnTickUpdateProcedure"
+      ],
+      "old_owner": "unassigned",
+      "target_registration": "dynamic_geo_enum",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/fabricator.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/fabricator.json"
+      ],
+      "target_class_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java"
+    },
+    {
+      "id": "jellercel",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "JellercelTileEntity:9",
+      "old_callbacks": "JellercelEntityCollidesInTheBlockProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "dynamic_geo_enum",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/jellercel.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/jellercel.json"
+      ],
+      "target_class_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java"
+    },
+    {
+      "id": "phaser",
+      "group": "G12_special_callback_blocks",
+      "source_type": "Block",
+      "source_be_slots": "无",
+      "old_callbacks": [
+        "PhaserCollideProcedure",
+        "PhaserOnRandomClientDisplayTickProcedure"
+      ],
+      "old_owner": "unassigned",
+      "target_registration": "java_register_literal",
+      "target_registration_evidence": "Java register(\"phaser\") call",
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/phaser.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/block/phaser.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/phaser.json"
+      ],
+      "target_registration_file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\nativeblocks\\NativeDecorContent.java"
+    },
+    {
+      "id": "shale_pot",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "ShalePotTileEntity:9",
+      "old_callbacks": "ShalePotBlockDestroyedByPlayerProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "dynamic_geo_enum",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/shale_pot.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/shale_pot.json"
+      ],
+      "target_class_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java"
+    },
+    {
+      "id": "transmutator",
+      "group": "G12_special_callback_blocks",
+      "source_type": "Block",
+      "source_be_slots": "无",
+      "old_callbacks": [
+        "TransmutateClickProcedure",
+        "TransmutatorOnRandomClientDisplayTickProcedure"
+      ],
+      "old_owner": "unassigned",
+      "target_registration": "java_register_literal",
+      "target_registration_evidence": "Java register(\"transmutator\") call",
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/transmutator.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/block/transmutator.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/transmutator.json"
+      ],
+      "target_registration_file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\machines\\MachineContent.java"
+    },
+    {
+      "id": "ferro_cake",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "FerroCakeTileEntity:9",
+      "old_callbacks": "FerroCakeOnBlockRightClickedProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "dynamic_geo_enum",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/ferro_cake.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/ferro_cake.json"
+      ],
+      "target_class_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java"
+    },
+    {
+      "id": "shale_pillar",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "ShalePillarTileEntity:9",
+      "old_callbacks": "ShalePillarRightClickProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "dynamic_geo_enum",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/shale_pillar.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/shale_pillar.json"
+      ],
+      "target_class_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java"
+    },
+    {
+      "id": "shale_pillar_var_2",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "ShalePillarVar2TileEntity:9",
+      "old_callbacks": "SpawnPillarRightClickProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "dynamic_geo_enum",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/shale_pillar_var_2.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/shale_pillar_var_2.json"
+      ],
+      "target_class_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java"
+    },
+    {
+      "id": "shale_pillar_var_3",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "ShalePillarVar3TileEntity:9",
+      "old_callbacks": "FuzzPillarRightClickProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "dynamic_geo_enum",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/shale_pillar_var_3.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/shale_pillar_var_3.json"
+      ],
+      "target_class_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java"
+    },
+    {
+      "id": "shale_pillar_var_4",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "ShalePillarVar4TileEntity:9",
+      "old_callbacks": "DepthPillarRightClickProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "dynamic_geo_enum",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/shale_pillar_var_4.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/shale_pillar_var_4.json"
+      ],
+      "target_class_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java"
+    },
+    {
+      "id": "shale_pillar_var_5",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "ShalePillarVar5TileEntity:9",
+      "old_callbacks": "GardenPillarRightClickProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "dynamic_geo_enum",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/shale_pillar_var_5.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/shale_pillar_var_5.json"
+      ],
+      "target_class_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java"
+    },
+    {
+      "id": "shale_pillar_var_6",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "ShalePillarVar6TileEntity:9",
+      "old_callbacks": "PathosPillarRightClickProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "dynamic_geo_enum",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/shale_pillar_var_6.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/shale_pillar_var_6.json"
+      ],
+      "target_class_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java"
+    },
+    {
+      "id": "shale_pillar_var_7",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "ShalePillarVar7TileEntity:9",
+      "old_callbacks": "AzazelPillarRightClickProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "dynamic_geo_enum",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/shale_pillar_var_7.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/shale_pillar_var_7.json"
+      ],
+      "target_class_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java"
+    },
+    {
+      "id": "shale_pillar_var_8",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "ShalePillarVar8TileEntity:9",
+      "old_callbacks": "ShalePillarRightClickProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "dynamic_geo_enum",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/shale_pillar_var_8.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/shale_pillar_var_8.json"
+      ],
+      "target_class_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java"
+    },
+    {
+      "id": "brimstone_cake",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "BrimstoneCakeTileEntity:9",
+      "old_callbacks": "BrimCakeRightClickProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "not_found_needs_manual_check",
+      "target_registration_evidence": [],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/brimstone_cake.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/brimstone_cake.json"
+      ],
+      "target_implementation_path": null,
+      "manual_check_status": "not_found_in_reviewed_java_registration_paths"
+    },
+    {
+      "id": "slush",
+      "group": "G12_special_callback_blocks",
+      "source_type": "Block",
+      "source_be_slots": "无",
+      "old_callbacks": "GrassyShaleOnBlockRightClickedProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "java_register_literal",
+      "target_registration_evidence": "Java register(\"slush\") call",
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/slush.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/block/slush.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/slush.json"
+      ],
+      "target_registration_file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\terrain\\TerrainContent.java"
+    },
+    {
+      "id": "twilit_grassy_shale",
+      "group": "G12_special_callback_blocks",
+      "source_type": "Block",
+      "source_be_slots": "无",
+      "old_callbacks": "GrassyShaleOnBlockRightClickedProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "not_found_needs_manual_check",
+      "target_registration_evidence": [],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/twilit_grassy_shale.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/block/twilit_grassy_shale.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/twilit_grassy_shale.json"
+      ],
+      "target_implementation_path": null,
+      "manual_check_status": "not_found_in_reviewed_java_registration_paths"
+    },
+    {
+      "id": "large_jellercel",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "LargeJellercelTileEntity:9",
+      "old_callbacks": [
+        "JellercelEntityCollidesInTheBlockProcedure",
+        "LargeJellercelBlockAddedProcedure",
+        "LargeJellercelBlockDestroyedByPlayerProcedure"
+      ],
+      "old_owner": "unassigned",
+      "target_registration": "dynamic_geo_enum",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/large_jellercel.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/large_jellercel.json"
+      ],
+      "target_class_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/LargeJellercelBlock.java",
+      "target_implementation_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/LargeJellercelBlock.java",
+      "target_registration_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java (loop over GeoDecorKind.values())"
+    },
+    {
+      "id": "large_jellercell_collision",
+      "group": "G12_special_callback_blocks",
+      "source_type": "Block",
+      "source_be_slots": "无",
+      "old_callbacks": [
+        "JellercelEntityCollidesInTheBlockProcedure",
+        "LargeJellercellCollisionBlockDestroyedByPlayerProcedure"
+      ],
+      "old_owner": "unassigned",
+      "target_registration": "java_register_literal",
+      "target_registration_evidence": "Java register(\"large_jellercell_collision\") call",
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/large_jellercell_collision.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/block/large_jellercell_collision.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/large_jellercell_collision.json"
+      ],
+      "target_registration_file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\GeoDecorContent.java"
+    },
+    {
+      "id": "amalgel_trophy",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "AmalgelTrophyTileEntity:9",
+      "old_callbacks": "AmalgelTrophyOnRandomClientDisplayTickProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "not_found_needs_manual_check",
+      "target_registration_evidence": [],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/amalgel_trophy.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/amalgel_trophy.json"
+      ],
+      "target_implementation_path": null,
+      "manual_check_status": "not_found_in_reviewed_java_registration_paths"
+    },
+    {
+      "id": "thermal_geyser",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "Block",
+      "source_be_slots": "ThermalGeyserBlockEntity:9",
+      "old_callbacks": "SpiceGeyserOnRandomClientDisplayTickProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "java_register_literal",
+      "target_registration_evidence": "Java register(\"thermal_geyser\") call",
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/thermal_geyser.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/block/thermal_geyser.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/thermal_geyser.json"
+      ],
+      "target_registration_file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\vilebathblocks\\VilebathBlocksContent.java"
+    },
+    {
+      "id": "atlas",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "AtlasTileEntity:9",
+      "old_callbacks": [
+        "AtlasBlockAddedProcedure",
+        "AtlasOnBlockRightClickedProcedure"
+      ],
+      "old_owner": "unassigned",
+      "target_registration": "dynamic_geo_enum",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/atlas.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/atlas.json"
+      ],
+      "target_class_path": "src/main/java/com/hp/thermalshockreforged/content/atlas/AtlasBlock.java",
+      "target_implementation_path": "src/main/java/com/hp/thermalshockreforged/content/atlas/AtlasBlock.java",
+      "target_registration_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java (loop over GeoDecorKind.values())"
+    },
+    {
+      "id": "rinthium_button",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "RinthiumButtonTileEntity:9",
+      "old_callbacks": "RedMantlestoneLeverOnBlockRightClickedProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "dynamic_geo_enum",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/rinthium_button.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/rinthium_button.json"
+      ],
+      "target_class_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java"
+    },
+    {
+      "id": "rinthium_lever",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "RinthiumLeverTileEntity:9",
+      "old_callbacks": "InactiveKeystonePedestalOnBlockRightClickedProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "dynamic_geo_enum",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/rinthium_lever.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/rinthium_lever.json"
+      ],
+      "target_class_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java"
+    },
+    {
+      "id": "fog_machine",
+      "group": "G12_special_callback_blocks",
+      "source_type": "Block",
+      "source_be_slots": "无",
+      "old_callbacks": "FogMachineOnRandomClientDisplayTickProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "not_found_needs_manual_check",
+      "target_registration_evidence": [],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/fog_machine.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/block/fog_machine.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/fog_machine.json"
+      ],
+      "target_implementation_path": null,
+      "manual_check_status": "not_found_in_reviewed_java_registration_paths"
+    },
+    {
+      "id": "rain_drum",
+      "group": "G12_special_callback_blocks",
+      "source_type": "Block",
+      "source_be_slots": "无",
+      "old_callbacks": [
+        "RainDrumBlockIsPlacedByProcedure",
+        "RainDrumOnRandomClientDisplayTickProcedure"
+      ],
+      "old_owner": "unassigned",
+      "target_registration": "not_found_needs_manual_check",
+      "target_registration_evidence": [],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/rain_drum.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/block/rain_drum.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/rain_drum.json"
+      ],
+      "target_implementation_path": null,
+      "manual_check_status": "not_found_in_reviewed_java_registration_paths"
+    },
+    {
+      "id": "stratus_reactor_core",
+      "group": "G12_special_callback_blocks",
+      "source_type": "Block",
+      "source_be_slots": "无",
+      "old_callbacks": [
+        "StratusReactorCoreAdditionalHarvestConditionProcedure",
+        "StratusReactorCoreOnBlockRightClickedProcedure"
+      ],
+      "old_owner": "unassigned",
+      "target_registration": "java_register_literal",
+      "target_registration_evidence": "Java register(\"stratus_reactor_core\") call",
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/stratus_reactor_core.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/block/stratus_reactor_core.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/stratus_reactor_core.json"
+      ],
+      "target_registration_file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\reactor\\ReactorContent.java"
+    },
+    {
+      "id": "icidrogunner_trophy",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "IcidrogunnerTrophyTileEntity:9",
+      "old_callbacks": "AmalgelTrophyOnRandomClientDisplayTickProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "dynamic_geo_enum",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/icidrogunner_trophy.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/icidrogunner_trophy.json"
+      ],
+      "target_class_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java",
+      "target_implementation_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java",
+      "target_registration_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java (loop over GeoDecorKind.values())"
+    },
+    {
+      "id": "icidroburner_trophy",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "IcidroburnerTrophyTileEntity:9",
+      "old_callbacks": "AmalgelTrophyOnRandomClientDisplayTickProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "dynamic_geo_enum",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/icidroburner_trophy.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/icidroburner_trophy.json"
+      ],
+      "target_class_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java",
+      "target_implementation_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java",
+      "target_registration_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java (loop over GeoDecorKind.values())"
+    },
+    {
+      "id": "spire_bloom",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "SpireBloomTileEntity:9",
+      "old_callbacks": "SpireBloomNeighbourBlockChangesProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "not_found_needs_manual_check",
+      "target_registration_evidence": [],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/spire_bloom.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/spire_bloom.json"
+      ],
+      "target_implementation_path": null,
+      "manual_check_status": "not_found_in_reviewed_java_registration_paths"
+    },
+    {
+      "id": "extractor",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "ExtractorTileEntity:9",
+      "old_callbacks": "ExtractorOnBlockRightClickedProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "dynamic_geo_enum",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/extractor.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/extractor.json"
+      ],
+      "target_class_path": "src/main/java/com/hp/thermalshockreforged/content/machines/ExtractorBlock.java",
+      "target_implementation_path": "src/main/java/com/hp/thermalshockreforged/content/machines/ExtractorBlock.java",
+      "target_registration_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java (loop over GeoDecorKind.values())"
+    },
+    {
+      "id": "large_spider_lily",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "LargeSpiderLilyTileEntity:9",
+      "old_callbacks": [
+        "LargeSpiderLilyOnRandomClientDisplayTickProcedure",
+        "SpireBloomNeighbourBlockChangesProcedure"
+      ],
+      "old_owner": "unassigned",
+      "target_registration": "not_found_needs_manual_check",
+      "target_registration_evidence": [],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/large_spider_lily.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/large_spider_lily.json"
+      ],
+      "target_implementation_path": null,
+      "manual_check_status": "not_found_in_reviewed_java_registration_paths"
+    },
+    {
+      "id": "spider_lilies",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "SpiderLiliesTileEntity:9",
+      "old_callbacks": [
+        "LargeSpiderLilyOnRandomClientDisplayTickProcedure",
+        "SpiderLiliesOnBlockRightClickedProcedure",
+        "SpireBloomNeighbourBlockChangesProcedure"
+      ],
+      "old_owner": "unassigned",
+      "target_registration": "not_found_needs_manual_check",
+      "target_registration_evidence": [],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/spider_lilies.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/spider_lilies.json"
+      ],
+      "target_implementation_path": null,
+      "manual_check_status": "not_found_in_reviewed_java_registration_paths"
+    },
+    {
+      "id": "grand_blasphemer",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "GrandBlasphemerTileEntity:9",
+      "old_callbacks": "GrandBlasphemerOnBlockRightClickedProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "dynamic_geo_enum",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/grand_blasphemer.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/grand_blasphemer.json"
+      ],
+      "target_class_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GrandBlasphemerBlock.java",
+      "target_implementation_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GrandBlasphemerBlock.java",
+      "target_registration_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java (loop over GeoDecorKind.values())"
+    },
+    {
+      "id": "purifier",
+      "group": "G12_special_callback_blocks",
+      "source_type": "Block",
+      "source_be_slots": "无",
+      "old_callbacks": [
+        "PurifierBlockIsPlacedByProcedure",
+        "PurifierOnBlockRightClickedProcedure"
+      ],
+      "old_owner": "unassigned",
+      "target_registration": "not_found_needs_manual_check",
+      "target_registration_evidence": [],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/purifier.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/block/purifier.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/purifier.json"
+      ],
+      "target_implementation_path": null,
+      "manual_check_status": "not_found_in_reviewed_java_registration_paths"
+    },
+    {
+      "id": "pyrogenic_pylon_core",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "PyrogenicPylonCoreTileEntity:9",
+      "old_callbacks": "PyrogenicPylonCoreBlockDestroyedByPlayerProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "not_found_needs_manual_check",
+      "target_registration_evidence": [],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/pyrogenic_pylon_core.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/pyrogenic_pylon_core.json"
+      ],
+      "target_implementation_path": null,
+      "manual_check_status": "not_found_in_reviewed_java_registration_paths"
+    },
+    {
+      "id": "world_tour_trophy",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "WorldTourTrophyTileEntity:9",
+      "old_callbacks": "AmalgelTrophyOnRandomClientDisplayTickProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "not_found_needs_manual_check",
+      "target_registration_evidence": [],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/world_tour_trophy.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/world_tour_trophy.json"
+      ],
+      "target_implementation_path": null,
+      "manual_check_status": "not_found_in_reviewed_java_registration_paths"
+    },
+    {
+      "id": "icebreaker",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "IcebreakerTileEntity:9",
+      "old_callbacks": "IcebreakerBlockAddedProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "not_found_needs_manual_check",
+      "target_registration_evidence": [],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/icebreaker.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/icebreaker.json"
+      ],
+      "target_implementation_path": null,
+      "manual_check_status": "not_found_in_reviewed_java_registration_paths"
+    },
+    {
+      "id": "stratosilver_block",
+      "group": "G12_special_callback_blocks",
+      "source_type": "Block",
+      "source_be_slots": "无",
+      "old_callbacks": "StratosilverBlockBlockAddedProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "not_found_needs_manual_check",
+      "target_registration_evidence": [],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/stratosilver_block.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/block/stratosilver_block.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/stratosilver_block.json"
+      ],
+      "target_implementation_path": null,
+      "manual_check_status": "not_found_in_reviewed_java_registration_paths"
+    },
+    {
+      "id": "stratus_alloy_block",
+      "group": "G12_special_callback_blocks",
+      "source_type": "Block",
+      "source_be_slots": "无",
+      "old_callbacks": "StratosilverBlockBlockAddedProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "not_found_needs_manual_check",
+      "target_registration_evidence": [],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/stratus_alloy_block.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/block/stratus_alloy_block.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/stratus_alloy_block.json"
+      ],
+      "target_implementation_path": null,
+      "manual_check_status": "not_found_in_reviewed_java_registration_paths"
+    },
+    {
+      "id": "lunar_panel",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "LunarPanelTileEntity:9",
+      "old_callbacks": "LunarPanelOnTickUpdateProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "not_found_needs_manual_check",
+      "target_registration_evidence": [],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/lunar_panel.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/lunar_panel.json"
+      ],
+      "target_implementation_path": null,
+      "manual_check_status": "not_found_in_reviewed_java_registration_paths"
+    },
+    {
+      "id": "glastrekker_egg",
+      "group": "G12_special_callback_blocks",
+      "source_type": "Block",
+      "source_be_slots": "无",
+      "old_callbacks": "GlastrekkerEggOnBlockRightClickedProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "java_register_literal",
+      "target_registration_evidence": "Java register(\"glastrekker_egg\") call",
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/glastrekker_egg.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/block/glastrekker_egg.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/glastrekker_egg.json"
+      ],
+      "target_registration_file": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\glastrekker\\GlastrekkerContent.java"
+    },
+    {
+      "id": "glittery_shale",
+      "group": "G12_special_callback_blocks",
+      "source_type": "Block",
+      "source_be_slots": "无",
+      "old_callbacks": "GlitteryShaleOnRandomClientDisplayTickProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "not_found_needs_manual_check",
+      "target_registration_evidence": [],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/glittery_shale.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/block/glittery_shale.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/glittery_shale.json"
+      ],
+      "target_implementation_path": null,
+      "manual_check_status": "not_found_in_reviewed_java_registration_paths"
+    },
+    {
+      "id": "wallbore",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "WallboreTileEntity:0",
+      "old_callbacks": [
+        "WallboreAdditionalHarvestConditionProcedure",
+        "WallboreBlockAddedProcedure",
+        "WallboreOnBlockRightClickedProcedure",
+        "WallboreOnTickUpdateProcedure"
+      ],
+      "old_owner": "unassigned",
+      "target_registration": "java_register_literal",
+      "target_registration_evidence": "Java register(\"wallbore\") call",
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/wallbore.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/wallbore.json"
+      ],
+      "target_registration_file": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\labmachinist\\LabContent.java"
+    },
+    {
+      "id": "mantleslag",
+      "group": "G12_special_callback_blocks",
+      "source_type": "Block",
+      "source_be_slots": "无",
+      "old_callbacks": "MantleslagEntityCollidesInTheBlockProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "java_register_literal",
+      "target_registration_evidence": "Java register(\"mantleslag\") call",
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/mantleslag.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/block/mantleslag.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/mantleslag.json"
+      ],
+      "target_registration_file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\nativeblocks\\NativeDecorContent.java"
+    },
+    {
+      "id": "rock_climbing_wall",
+      "group": "G12_special_callback_blocks",
+      "source_type": "Block",
+      "source_be_slots": "无",
+      "old_callbacks": [
+        "RockClimbingWallBlockAddedProcedure",
+        "RockClimbingWallOnBlockRightClickedProcedure"
+      ],
+      "old_owner": "unassigned",
+      "target_registration": "java_register_literal",
+      "target_registration_evidence": "Java register(\"rock_climbing_wall\") call",
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/rock_climbing_wall.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/block/rock_climbing_wall.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/rock_climbing_wall.json"
+      ],
+      "target_registration_file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\nativeblocks\\NativeDecorContent.java"
+    },
+    {
+      "id": "brick_climbing_wall",
+      "group": "G12_special_callback_blocks",
+      "source_type": "Block",
+      "source_be_slots": "无",
+      "old_callbacks": [
+        "RockClimbingWallBlockAddedProcedure",
+        "RockClimbingWallOnBlockRightClickedProcedure"
+      ],
+      "old_owner": "unassigned",
+      "target_registration": "java_register_literal",
+      "target_registration_evidence": "Java register(\"brick_climbing_wall\") call",
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/brick_climbing_wall.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/block/brick_climbing_wall.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/brick_climbing_wall.json"
+      ],
+      "target_registration_file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\nativeblocks\\NativeDecorContent.java"
+    },
+    {
+      "id": "constellation_block",
+      "group": "G12_special_callback_blocks",
+      "source_type": "Block",
+      "source_be_slots": "无",
+      "old_callbacks": "ConstellationBlockOnBlockRightClickedProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "not_found_needs_manual_check",
+      "target_registration_evidence": [],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/constellation_block.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/block/constellation_block.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/constellation_block.json"
+      ],
+      "target_implementation_path": null,
+      "manual_check_status": "not_found_in_reviewed_java_registration_paths"
+    },
+    {
+      "id": "surge_pylon",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "SurgePylonTileEntity:9",
+      "old_callbacks": "SurgePylonOnRandomClientDisplayTickProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "dynamic_geo_enum",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/surge_pylon.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/surge_pylon.json"
+      ],
+      "target_class_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java"
+    },
+    {
+      "id": "glitterdrop_icicle",
+      "group": "G12_special_callback_blocks",
+      "source_type": "Block",
+      "source_be_slots": "无",
+      "old_callbacks": [
+        "RockspinesEntityCollidesInTheBlockProcedure",
+        "StarfruitNeighbourBlockChangesProcedure"
+      ],
+      "old_owner": "unassigned",
+      "target_registration": "java_register_literal",
+      "target_registration_evidence": "Java register(\"glitterdrop_icicle\") call",
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/glitterdrop_icicle.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/block/glitterdrop_icicle.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/glitterdrop_icicle.json"
+      ],
+      "target_registration_file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\nativeblocks\\NativeDecorContent.java"
+    },
+    {
+      "id": "civilian",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "CivilianTileEntity:9",
+      "old_callbacks": "CivilianOnBlockRightClickedProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "dynamic_geo_enum",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/civilian.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/civilian.json"
+      ],
+      "target_class_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java"
+    },
+    {
+      "id": "rusty_radio",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "RustyRadioTileEntity:9",
+      "old_callbacks": "RustyRadioOnBlockRightClickedProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "dynamic_geo_enum",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/rusty_radio.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/rusty_radio.json"
+      ],
+      "target_class_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java"
+    },
+    {
+      "id": "hologram_monitor",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "HologramMonitorTileEntity:9",
+      "old_callbacks": [
+        "HologramMonitorOnBlockRightClickedProcedure",
+        "HologramMonitorOnTickUpdateProcedure"
+      ],
+      "old_owner": "unassigned",
+      "target_registration": "not_found_needs_manual_check",
+      "target_registration_evidence": [],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/hologram_monitor.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/hologram_monitor.json"
+      ],
+      "target_implementation_path": null,
+      "manual_check_status": "not_found_in_reviewed_java_registration_paths"
+    },
+    {
+      "id": "spire_bloom_rubicon",
+      "group": "G12_special_callback_blocks",
+      "source_type": "Block",
+      "source_be_slots": "无",
+      "old_callbacks": "SpireBloomNeighbourBlockChangesProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "helper_derived_growth_block",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthContent.java",
+        "private block(String id, Supplier<Block> factory) calls BLOCKS.register(id, factory) and ITEMS.registerSimpleBlockItem(holder)"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/spire_bloom_rubicon.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/block/spire_bloom_rubicon.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/spire_bloom_rubicon.json"
+      ],
+      "target_implementation_path": "src/main/java/com/hp/thermalshockreforged/content/growth/SpireTipBlock.java",
+      "target_registration_path": "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthContent.java"
+    },
+    {
+      "id": "therma_dev_plush",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "ThermaDevPlushTileEntity:9",
+      "old_callbacks": "ThermaDevPlushOnBlockRightClickedProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "dynamic_geo_enum",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/therma_dev_plush.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/therma_dev_plush.json"
+      ],
+      "target_class_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java"
+    },
+    {
+      "id": "trapped_archive_cube",
+      "group": "G12_special_callback_blocks",
+      "source_type": "Block",
+      "source_be_slots": "无",
+      "old_callbacks": "TrappedArchiveCubeBlockDestroyedByPlayerProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "java_register_literal",
+      "target_registration_evidence": "Java register(\"trapped_archive_cube\") call",
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/trapped_archive_cube.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/block/trapped_archive_cube.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/trapped_archive_cube.json"
+      ],
+      "target_registration_file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\nativeblocks\\NativeDecorContent.java"
+    },
+    {
+      "id": "assembler",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "AssemblerTileEntity:1",
+      "old_callbacks": [
+        "AssemblerOnBlockRightClickedProcedure",
+        "FabricatorOnTickUpdateProcedure"
+      ],
+      "old_owner": "unassigned",
+      "target_registration": "java_register_literal",
+      "target_registration_evidence": "Java register(\"assembler\") call",
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/assembler.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/assembler.json"
+      ],
+      "target_registration_file": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\labmachinist\\LabContent.java"
+    },
+    {
+      "id": "capsule",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "CapsuleTileEntity:9",
+      "old_callbacks": "CapsuleOnBlockRightClickedProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "dynamic_geo_enum",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/capsule.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/capsule.json"
+      ],
+      "target_class_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java"
+    },
+    {
+      "id": "storm_battery",
+      "group": "G12_special_callback_blocks",
+      "source_type": "Block",
+      "source_be_slots": "无",
+      "old_callbacks": "StratosilverBlockBlockAddedProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "java_register_literal",
+      "target_registration_evidence": "Java register(\"storm_battery\") call",
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/storm_battery.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/block/storm_battery.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/storm_battery.json"
+      ],
+      "target_registration_file": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\labmachinist\\LabContent.java"
+    },
+    {
+      "id": "suspicious_safe",
+      "group": "G12_special_callback_blocks",
+      "source_type": "Block",
+      "source_be_slots": "无",
+      "old_callbacks": "SuspiciousSafeOnBlockRightClickedProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "java_register_literal",
+      "target_registration_evidence": "Java register(\"suspicious_safe\") call",
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/suspicious_safe.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/block/suspicious_safe.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/suspicious_safe.json"
+      ],
+      "target_registration_file": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\labmachinist\\LabContent.java"
+    },
+    {
+      "id": "suspicious_cavebloomer",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "SuspiciousCavebloomerTileEntity:9",
+      "old_callbacks": "SuspiciousCavebloomerOnBlockRightClickedProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "dynamic_geo_enum",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/suspicious_cavebloomer.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/suspicious_cavebloomer.json"
+      ],
+      "target_class_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java"
+    },
+    {
+      "id": "cavebloomer_trophy",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "CavebloomerTrophyTileEntity:9",
+      "old_callbacks": "AmalgelTrophyOnRandomClientDisplayTickProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "dynamic_geo_enum",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/cavebloomer_trophy.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/cavebloomer_trophy.json"
+      ],
+      "target_class_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java",
+      "target_implementation_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java",
+      "target_registration_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java (loop over GeoDecorKind.values())"
+    },
+    {
+      "id": "desk_director",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "DeskDirectorTileEntity:0",
+      "old_callbacks": "DeskDirectorOnBlockRightClickedProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "dynamic_geo_enum",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/desk_director.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/desk_director.json"
+      ],
+      "target_class_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java"
+    },
+    {
+      "id": "superbouncer",
+      "group": "G12_special_callback_blocks",
+      "source_type": "SlabBlock",
+      "source_be_slots": "无",
+      "old_callbacks": "BouncerEntityWalksOnTheBlockProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "java_register_literal",
+      "target_registration_evidence": "Java register(\"superbouncer\") call",
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/superbouncer.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/block/superbouncer.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/superbouncer.json"
+      ],
+      "target_registration_file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\nativeblocks\\NativeDecorContent.java"
+    },
+    {
+      "id": "super_cryonic_cache",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "SuperCryonicCacheTileEntity:9",
+      "old_callbacks": [
+        "CryonicCacheStartDestroyProcedure",
+        "SuperCryonicCacheOpenProcedure"
+      ],
+      "old_owner": "unassigned",
+      "target_registration": "dynamic_geo_enum",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/super_cryonic_cache.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/super_cryonic_cache.json"
+      ],
+      "target_class_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java"
+    },
+    {
+      "id": "crystal_sopel_trophy",
+      "group": "G8_BE_procedure_systems",
+      "source_type": "BaseEntityBlock",
+      "source_be_slots": "CrystalSopelTrophyTileEntity:9",
+      "old_callbacks": "AmalgelTrophyOnRandomClientDisplayTickProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "dynamic_geo_enum",
+      "target_registration_evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+      ],
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/crystal_sopel_trophy.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/crystal_sopel_trophy.json"
+      ],
+      "target_class_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java",
+      "target_implementation_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java",
+      "target_registration_path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java (loop over GeoDecorKind.values())"
+    },
+    {
+      "id": "train_terminal",
+      "group": "G12_special_callback_blocks",
+      "source_type": "Block",
+      "source_be_slots": "无",
+      "old_callbacks": "TrainTerminalOnBlockRightClickedProcedure",
+      "old_owner": "unassigned",
+      "target_registration": "java_register_literal",
+      "target_registration_evidence": "Java register(\"train_terminal\") call",
+      "resource_evidence": [
+        "src/main/resources/assets/thermal_shock_reforged/blockstates/train_terminal.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/block/train_terminal.json",
+        "src/main/resources/assets/thermal_shock_reforged/models/item/train_terminal.json"
+      ],
+      "target_registration_file": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\nativeblocks\\NativeDecorContent.java"
+    }
+  ],
+  "supplementary_22_audit": {
+    "reviewed_registry_sources": [
+      "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+      "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java",
+      "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthContent.java",
+      "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthKind.java",
+      "src/main/java/com/hp/thermalshockreforged/content/farming/FarmingContent.java",
+      "src/main/java/com/hp/thermalshockreforged/content/farming/CropKind.java"
+    ],
+    "reviewed_helper_patterns": [
+      "block(String id, Supplier<Block>)",
+      "item(String id, Supplier<Item>)",
+      "registerBlock/registerPillar/registerItem searches",
+      "enum id loops and id-derived suffix registration"
+    ],
+    "newly_confirmed_registrations": [
+      {
+        "id": "starfruit",
+        "registration_path": "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthContent.java",
+        "implementation_path": "src/main/java/com/hp/thermalshockreforged/content/growth/HangingFruitBlock.java"
+      },
+      {
+        "id": "lunalemon",
+        "registration_path": "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthContent.java",
+        "implementation_path": "src/main/java/com/hp/thermalshockreforged/content/growth/HangingFruitBlock.java"
+      },
+      {
+        "id": "spire_bloom_rubicon",
+        "registration_path": "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthContent.java",
+        "implementation_path": "src/main/java/com/hp/thermalshockreforged/content/growth/SpireTipBlock.java"
+      }
+    ],
+    "remaining_registration_not_found_needs_manual_check": [
+      "sparkler_bulb",
+      "brimstone_cake",
+      "twilit_grassy_shale",
+      "amalgel_trophy",
+      "fog_machine",
+      "rain_drum",
+      "spire_bloom",
+      "large_spider_lily",
+      "spider_lilies",
+      "purifier",
+      "pyrogenic_pylon_core",
+      "world_tour_trophy",
+      "icebreaker",
+      "stratosilver_block",
+      "stratus_alloy_block",
+      "lunar_panel",
+      "glittery_shale",
+      "constellation_block",
+      "hologram_monitor"
+    ],
+    "special_check": {
+      "stratosilver_block": "No literal registration or generated id path found in MaterialContent; block helper does not establish this block.",
+      "stratus_alloy_block": "No literal registration or generated id path found in MaterialContent; stratus_alloy is an item registration only.",
+      "note": "No NativeDecorKind enum or registerPillar helper was found under target content sources."
+    }
+  },
+  "rain_drum_source_and_gap": {
+    "source_block": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/block/RainDrumBlock.java",
+    "source_procedures": [
+      "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/procedures/RainDrumBlockIsPlacedByProcedure.java",
+      "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/procedures/RainDrumOnRandomClientDisplayTickProcedure.java"
+    ],
+    "call_paths": [
+      "setPlacedBy -> RainDrumBlockIsPlacedByProcedure: placed atop thermite awards rain_drum advancement",
+      "neighborChanged when redstone signal > 0 -> display procedure",
+      "client animateTick -> display procedure",
+      "display procedure: when raining and air above, play regular/angry drum sound according to thermite below and emit NOTE particle"
+    ],
+    "target_gap": "No target Java registration path found in this review; blockstate/model and sound IDs are resources/data, not block registration."
+  },
+  "purifier_source_and_gap": {
+    "source_block": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/block/PurifierBlock.java",
+    "source_procedures": [
+      "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/procedures/PurifierBlockIsPlacedByProcedure.java",
+      "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/procedures/PurifierOnBlockRightClickedProcedure.java"
+    ],
+    "call_paths": [
+      "setPlacedBy -> awards purifier advancement to placer",
+      "onPlace -> PurifierOnBlockRightClickedProcedure: beacon activation sound; queue 20 ticks; process radius-15 ellipsoid to replace listed permafrost/shale/loque/spire blocks; remove purifier; emit particles"
+    ],
+    "target_gap": "No target Java registration path found in this review; blockstate/model resources do not establish block or callback registration."
+  },
+  "focus": [
+    {
+      "id": "atlas",
+      "target": "registered dynamic Geo, dedicated AtlasBlock",
+      "registration": "GeoDecorKind.ATLAS -> GeoDecorContent enum loop",
+      "implementation": "src/main/java/com/hp/thermalshockreforged/content/atlas/AtlasBlock.java",
+      "evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java",
+        "src/main/java/com/hp/thermalshockreforged/content/atlas/AtlasBlock.java",
+        "src/main/java/com/hp/thermalshockreforged/content/atlas/AtlasMenu.java",
+        "src/main/java/com/hp/thermalshockreforged/content/atlas/AtlasTravel.java"
+      ]
+    },
+    {
+      "id": "large_jellercel",
+      "target": "registered dynamic Geo, dedicated multiblock behavior",
+      "implementation": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/LargeJellercelBlock.java",
+      "evidence": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/LargeJellercelBlock.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/geo/JellercelCollisionBlock.java"
+      ]
+    },
+    {
+      "id": "grand_blasphemer",
+      "target": "registered dynamic Geo, dedicated right-click interaction and block entity",
+      "implementation": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GrandBlasphemerBlock.java",
+      "support": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GrandBlasphemerBlockEntity.java"
+    },
+    {
+      "id": "extractor",
+      "target": "registered dynamic Geo mapped to machine ExtractorBlock",
+      "implementation": "src/main/java/com/hp/thermalshockreforged/content/machines/ExtractorBlock.java",
+      "registration": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+    },
+    {
+      "id": "trophies",
+      "registered": [
+        "cavebloomer_trophy",
+        "crystal_sopel_trophy",
+        "icidrogunner_trophy",
+        "icidroburner_trophy"
+      ],
+      "shared_behavior": "GeoDecorBlock.Directional; END_ROD animateTick",
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java",
+      "resource_only": [
+        "amalgel_trophy",
+        "world_tour_trophy"
+      ]
+    }
+  ],
+  "snapshot_context": {
+    "base_head": "c7e32cefec14746ebc0d08b551bc9f9cf861add0",
+    "phase": "before batch101 production",
+    "limits": "Registration evidence only, not complete behavior coverage; FogMachine/RainDrum/Purifier are being implemented after this snapshot."
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "batch": 101,
+  "scope": "FogMachine resource conversion and existing assets/creative entry; not runtime",
+  "assets": [
+    {
+      "original": "assets/thermal_shock/blockstates/fog_machine.json",
+      "target": "src/main/resources/assets/thermal_shock_reforged/blockstates/fog_machine.json",
+      "comparison_mode": "namespace-normalized JSON",
+      "byte_equal": false,
+      "namespace_normalized_equal": true
+    },
+    {
+      "original": "assets/thermal_shock/models/block/fog_machine.json",
+      "target": "src/main/resources/assets/thermal_shock_reforged/models/block/fog_machine.json",
+      "comparison_mode": "namespace-normalized JSON",
+      "byte_equal": false,
+      "namespace_normalized_equal": true
+    },
+    {
+      "original": "assets/thermal_shock/models/item/fog_machine.json",
+      "target": "src/main/resources/assets/thermal_shock_reforged/models/item/fog_machine.json",
+      "comparison_mode": "namespace-normalized JSON",
+      "byte_equal": false,
+      "namespace_normalized_equal": true
+    },
+    {
+      "original": "assets/thermal_shock/textures/block/fog_machine_bottom.png",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/block/fog_machine_bottom.png",
+      "comparison_mode": "byte equality",
+      "byte_equal": true,
+      "namespace_normalized_equal": true
+    },
+    {
+      "original": "assets/thermal_shock/textures/block/fog_machine_side.png",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/block/fog_machine_side.png",
+      "comparison_mode": "byte equality",
+      "byte_equal": true,
+      "namespace_normalized_equal": true
+    },
+    {
+      "original": "assets/thermal_shock/textures/block/fog_machine_top.png",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/block/fog_machine_top.png",
+      "comparison_mode": "byte equality",
+      "byte_equal": true,
+      "namespace_normalized_equal": true
+    }
+  ],
+  "recipe": {
+    "type": "minecraft:crafting_shaped",
+    "category": "misc",
+    "pattern": [
+      "aaa",
+      "aba",
+      "cdc"
+    ],
+    "key": {
+      "a": {
+        "item": "minecraft:iron_ingot"
+      },
+      "b": {
+        "item": "thermal_shock_reforged:stellar_scrap"
+      },
+      "c": {
+        "item": "thermal_shock_reforged:ferrum_ingot"
+      },
+      "d": {
+        "item": "minecraft:redstone"
+      }
+    },
+    "result": {
+      "count": 1,
+      "id": "thermal_shock_reforged:fog_machine"
+    }
+  },
+  "loot": {
+    "type": "minecraft:block",
+    "random_sequence": "thermal_shock_reforged:blocks/fog_machine",
+    "pools": [
+      {
+        "rolls": 1.0,
+        "conditions": [
+          {
+            "condition": "minecraft:survives_explosion"
+          }
+        ],
+        "entries": [
+          {
+            "type": "minecraft:item",
+            "name": "thermal_shock_reforged:fog_machine"
+          }
+        ]
+      }
+    ]
+  },
+  "creative_entries": [
+    [
+      "thermal_shock_reforged:thermal_shock_reforged",
+      714
+    ]
+  ],
+  "original_pickaxe_tag_preserved": true,
+  "english_name_preserved": true,
+  "chinese_name": "造雾机",
+  "passed": true
+}

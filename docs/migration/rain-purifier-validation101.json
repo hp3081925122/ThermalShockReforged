@@ -1,0 +1,154 @@
+{
+  "batch": 101,
+  "checks": [
+    {
+      "check": "PurifierBlock.java：UTF8/AST语法/无注释/无行尾空格",
+      "passed": true,
+      "evidence": "src/main/java/com/hp/thermalshockreforged/content/weatherutility/PurifierBlock.java"
+    },
+    {
+      "check": "PurifierBlockEntity.java：UTF8/AST语法/无注释/无行尾空格",
+      "passed": true,
+      "evidence": "src/main/java/com/hp/thermalshockreforged/content/weatherutility/PurifierBlockEntity.java"
+    },
+    {
+      "check": "PurifierPulseEntity.java：UTF8/AST语法/无注释/无行尾空格",
+      "passed": true,
+      "evidence": "src/main/java/com/hp/thermalshockreforged/content/weatherutility/PurifierPulseEntity.java"
+    },
+    {
+      "check": "RainDrumBlock.java：UTF8/AST语法/无注释/无行尾空格",
+      "passed": true,
+      "evidence": "src/main/java/com/hp/thermalshockreforged/content/weatherutility/RainDrumBlock.java"
+    },
+    {
+      "check": "WeatherUtilityContent.java：UTF8/AST语法/无注释/无行尾空格",
+      "passed": true,
+      "evidence": "src/main/java/com/hp/thermalshockreforged/content/weatherutility/WeatherUtilityContent.java"
+    },
+    {
+      "check": "独占Java数量",
+      "passed": true,
+      "evidence": [
+        "PurifierBlock.java",
+        "PurifierBlockEntity.java",
+        "PurifierPulseEntity.java",
+        "RainDrumBlock.java",
+        "WeatherUtilityContent.java"
+      ]
+    },
+    {
+      "check": "原y/x/z遍历顺序与完整半径",
+      "passed": true,
+      "evidence": {
+        "y": [
+          -15,
+          15
+        ],
+        "x": [
+          -15,
+          15
+        ],
+        "z": [
+          -15,
+          15
+        ]
+      }
+    },
+    {
+      "check": "实际AST球形条件与原double球逐坐标等价",
+      "passed": true,
+      "evidence": {
+        "candidates": 29791,
+        "sphere_points": 14147,
+        "difference": 0
+      }
+    },
+    {
+      "check": "五组真实概率均60%且按条件短路",
+      "passed": true,
+      "evidence": [
+        "random.nextDouble() < .6",
+        "random.nextDouble() < .6",
+        "random.nextDouble() < .6",
+        "random.nextDouble() < .6",
+        "random.nextDouble() < .6"
+      ]
+    },
+    {
+      "check": "原Spire概率字节码防反编译误读",
+      "passed": true,
+      "evidence": {
+        "ixor": 3,
+        "random_after_four_type_checks": true
+      }
+    },
+    {
+      "check": "实际END条件与原20次END独立时钟一致且只提交一次",
+      "passed": true,
+      "evidence": {
+        "original_queue_delay": 20,
+        "actual_end_fired": [
+          20
+        ]
+      }
+    },
+    {
+      "check": "到期未加载暂停/重载后只完成一次",
+      "passed": true,
+      "evidence": {
+        "paused_end_calls": 50,
+        "remaining": 1,
+        "resume_fired_once": true
+      }
+    },
+    {
+      "check": "归属令牌与加入失败回滚",
+      "passed": true,
+      "evidence": "先消费armed；仅归属原块能被尾任务删除；加入失败回滚；finally移除有限载体"
+    },
+    {
+      "check": "原体移除不取消合法净化",
+      "passed": true,
+      "evidence": "独立任务先执行全部净化，再检查原块归属"
+    },
+    {
+      "check": "无全局闭包/命令/假药效及客户端类加载",
+      "passed": true,
+      "evidence": "复用既有UUID END调度；块端animateTick不引用Minecraft客户端类"
+    },
+    {
+      "check": "11份数据格式/父进度/群系引用与哈希",
+      "passed": true,
+      "evidence": [
+        "src/main/resources/data/thermal_shock_reforged/recipe/rain_drum_recipe.json",
+        "src/main/resources/data/thermal_shock_reforged/recipe/purifier_recipe.json",
+        "src/main/resources/data/thermal_shock_reforged/recipe/purifier_bism_recipe.json",
+        "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/rain_drum.json",
+        "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/purifier.json",
+        "src/main/resources/data/thermal_shock_reforged/advancement/rain_drum_get.json",
+        "src/main/resources/data/thermal_shock_reforged/advancement/purifier_get.json",
+        "src/main/resources/data/thermal_shock_reforged/advancement/luminous_sea_get.json",
+        "src/main/resources/data/thermal_shock_reforged/advancement/graveyard_advancement.json",
+        "src/main/resources/data/thermal_shock_reforged/advancement/stardust_garden_advancement.json",
+        "src/main/resources/data/thermal_shock_reforged/advancement/vermillion_woods_advancement.json"
+      ]
+    },
+    {
+      "check": "28复用资产与原音频集合完整",
+      "passed": true,
+      "evidence": "原件转换器已逐字节或逐JSON结构比较全部资源"
+    },
+    {
+      "check": "共享增量锚点与19个真实语言键",
+      "passed": true,
+      "evidence": "两Java插入、RainDrum标签、19个已有英文的中文键、英文触发提示纠正"
+    }
+  ],
+  "passed_checks": 18,
+  "compiled": false,
+  "server_tested": false,
+  "client_tested": false,
+  "render_preview_tested": false,
+  "limitations": "仅静态AST/字节码/数据资源与数值模型；不冒充Java类型编译或游戏运行验证。共享增量由主聊天应用，随后统一编译。"
+}

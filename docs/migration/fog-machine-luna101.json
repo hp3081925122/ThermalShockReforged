@@ -1,0 +1,295 @@
+{
+  "audit": "FogMachine 原始实现与 ThermalShockReforged 目标源码/资源只读核对",
+  "conclusion": "主要行为条件、粒子类型、概率及坐标范围与原实现相符；存在目标新增显式地图颜色，三个模型 JSON 仅命名空间变更而非字节相同；配方/战利品/标签目录完成 1.21.1 复数转单数路径调整。",
+  "no_runtime_test": "仅源码与文件核对；未运行 Gradle、游戏或测试。",
+  "behavior": {
+    "coal_block_branch": {
+      "evidence": [
+        "readable/net/mcreator/thermal_shock/procedures/FogMachineOnRandomClientDisplayTickProcedure.java:20-21",
+        "readable/net/mcreator/thermal_shock/init/ThermalShockModParticleTypes.java:23",
+        "src/main/java/com/hp/thermalshockreforged/content/vilebathblocks/FogMachineBlock.java:31-32",
+        "src/main/java/com/hp/thermalshockreforged/entity/squall/SquallContent.java:26"
+      ],
+      "original": "下方为 Blocks.COAL_BLOCK 时发 SQUALL_SMOKE，位置 x+0.5,y,z+0.5，速度 0,0,0；优先于普通雾分支",
+      "status": "一致",
+      "target": "相同方块条件、粒子、位置和速度；煤块分支优先"
+    },
+    "ordinary_fog_branch": {
+      "evidence": [
+        "readable/net/mcreator/thermal_shock/procedures/FogMachineOnRandomClientDisplayTickProcedure.java:22-23",
+        "readable/net/mcreator/thermal_shock/init/ThermalShockModParticleTypes.java:27",
+        "src/main/java/com/hp/thermalshockreforged/content/vilebathblocks/FogMachineBlock.java:33-35",
+        "src/main/java/com/hp/thermalshockreforged/entity/icesquad/IceSquadContent.java:28"
+      ],
+      "original": "煤块条件不成立且 Math.random()<0.5 时生成 FOG_CLOUD；x/z 分别为坐标减2再加均匀随机值*5，即 [坐标-2, 坐标+3)；y不变；速度 0,0,0",
+      "status": "概率、范围和参数一致；随机数实现/序列不同",
+      "target": "煤块条件不成立且 random.nextDouble()<0.5；x/z同为[坐标-2,坐标+3)，y不变，速度0,0,0"
+    },
+    "particle_types": [
+      {
+        "target_id": "thermal_shock_reforged:squall_smoke",
+        "registered_particle_type": "SimpleParticleType(false)",
+        "evidence": [
+          "readable/net/mcreator/thermal_shock/init/ThermalShockModParticleTypes.java:23",
+          "src/main/java/com/hp/thermalshockreforged/entity/squall/SquallContent.java:26"
+        ],
+        "old_id": "thermal_shock:squall_smoke",
+        "status": "路径名一致，namespace迁移"
+      },
+      {
+        "target_id": "thermal_shock_reforged:fog_cloud",
+        "registered_particle_type": "SimpleParticleType(true)",
+        "evidence": [
+          "readable/net/mcreator/thermal_shock/init/ThermalShockModParticleTypes.java:27",
+          "src/main/java/com/hp/thermalshockreforged/entity/icesquad/IceSquadContent.java:28"
+        ],
+        "old_id": "thermal_shock:fog_cloud",
+        "status": "路径名一致，namespace迁移"
+      }
+    ],
+    "redstone_gate": {
+      "evidence": [
+        "readable/net/mcreator/thermal_shock/procedures/FogMachineOnRandomClientDisplayTickProcedure.java:19",
+        "src/main/java/com/hp/thermalshockreforged/content/vilebathblocks/FogMachineBlock.java:29-30"
+      ],
+      "original": "Level.hasNeighborSignal(BlockPos.containing(x,y,z)) 为真才继续",
+      "status": "条件一致",
+      "target": "level.hasNeighborSignal(pos) 为真才继续"
+    },
+    "properties": [
+      {
+        "target": "SoundType.METAL",
+        "evidence": [
+          "readable/net/mcreator/thermal_shock/block/FogMachineBlock.java:28",
+          "src/main/java/com/hp/thermalshockreforged/content/vilebathblocks/FogMachineBlock.java:21"
+        ],
+        "original": "SoundType.METAL",
+        "status": "一致",
+        "property": "sound"
+      },
+      {
+        "target": "strength(1, 10)",
+        "evidence": [
+          "readable/net/mcreator/thermal_shock/block/FogMachineBlock.java:28",
+          "src/main/java/com/hp/thermalshockreforged/content/vilebathblocks/FogMachineBlock.java:21"
+        ],
+        "original": "strength(1.0f, 10.0f)",
+        "status": "一致",
+        "property": "hardness/resistance"
+      },
+      {
+        "target": "requiresCorrectToolForDrops()",
+        "evidence": [
+          "readable/net/mcreator/thermal_shock/block/FogMachineBlock.java:28",
+          "src/main/java/com/hp/thermalshockreforged/content/vilebathblocks/FogMachineBlock.java:22"
+        ],
+        "original": "requiresCorrectToolForDrops()",
+        "status": "一致",
+        "property": "correct_tool_for_drops"
+      },
+      {
+        "target": "noOcclusion()",
+        "evidence": [
+          "readable/net/mcreator/thermal_shock/block/FogMachineBlock.java:28",
+          "src/main/java/com/hp/thermalshockreforged/content/vilebathblocks/FogMachineBlock.java:22"
+        ],
+        "original": "noOcclusion()",
+        "status": "一致",
+        "property": "no_occlusion"
+      },
+      {
+        "target": "isRedstoneConductor(... -> false)",
+        "evidence": [
+          "readable/net/mcreator/thermal_shock/block/FogMachineBlock.java:28",
+          "src/main/java/com/hp/thermalshockreforged/content/vilebathblocks/FogMachineBlock.java:22"
+        ],
+        "original": "isRedstoneConductor(... -> false)",
+        "status": "一致",
+        "property": "redstone_conductor"
+      },
+      {
+        "target": "getLightBlock returns 15",
+        "evidence": [
+          "readable/net/mcreator/thermal_shock/block/FogMachineBlock.java:31-33",
+          "src/main/java/com/hp/thermalshockreforged/content/vilebathblocks/FogMachineBlock.java:25"
+        ],
+        "original": "getLightBlock returns 15",
+        "status": "一致",
+        "property": "light_block"
+      },
+      {
+        "target": "Shapes.empty()",
+        "evidence": [
+          "readable/net/mcreator/thermal_shock/block/FogMachineBlock.java:35-37",
+          "src/main/java/com/hp/thermalshockreforged/content/vilebathblocks/FogMachineBlock.java:26"
+        ],
+        "original": "Shapes.empty()",
+        "status": "一致",
+        "property": "visual_shape"
+      },
+      {
+        "target": "always true",
+        "evidence": [
+          "readable/net/mcreator/thermal_shock/block/FogMachineBlock.java:39-41",
+          "src/main/java/com/hp/thermalshockreforged/content/vilebathblocks/FogMachineBlock.java:27"
+        ],
+        "original": "always true",
+        "status": "一致",
+        "property": "can_connect_redstone"
+      },
+      {
+        "target": "MapColor.METAL",
+        "evidence": [
+          "readable/net/mcreator/thermal_shock/block/FogMachineBlock.java:27-28",
+          "src/main/java/com/hp/thermalshockreforged/content/vilebathblocks/FogMachineBlock.java:14,20-22"
+        ],
+        "original": "未显式设置",
+        "status": "目标新增显式属性；效果差异无法由源码静态判定",
+        "property": "map_color"
+      }
+    ]
+  },
+  "assets": [
+    {
+      "target_sha256": "073d09f8304944be6a77f064d92bbf5e32a47a53e367461c848c470cfbebd9ce",
+      "original_sha256": "05fd5a136239d923eb8c2699e97a58f6c2ad1d98c2c97b24f044b0f0b7f41441",
+      "original": "assets/thermal_shock/blockstates/fog_machine.json",
+      "target": "src/main/resources/assets/thermal_shock_reforged/blockstates/fog_machine.json",
+      "difference": "model资源命名空间 thermal_shock -> thermal_shock_reforged",
+      "byte_equal": false,
+      "comparison_mode": "parsed_json_after_namespace_normalization",
+      "namespace_normalized_equal": true
+    },
+    {
+      "target_sha256": "3066ffb5e8ada8fb94377216cf195ce9be7fe720161211bfba09eae4bf94ad23",
+      "original_sha256": "c97b4b9a8e2d0a5b5f6bfc768f9414d967ab20efdf06f84eba0969a1bcc96b3e",
+      "original": "assets/thermal_shock/models/block/fog_machine.json",
+      "target": "src/main/resources/assets/thermal_shock_reforged/models/block/fog_machine.json",
+      "difference": "6个纹理引用命名空间 thermal_shock -> thermal_shock_reforged；其他模型字段一致",
+      "byte_equal": false,
+      "comparison_mode": "parsed_json_after_namespace_normalization",
+      "namespace_normalized_equal": true
+    },
+    {
+      "target_sha256": "1bbebbc9fe6582ee6d7725b5015c7b5657b057671dc0d55060db31361efc5fb8",
+      "original_sha256": "2732328f2fe66d81bf91947861634066dd8e9f7d7f1ba56da9337fcaa14d4340",
+      "original": "assets/thermal_shock/models/item/fog_machine.json",
+      "target": "src/main/resources/assets/thermal_shock_reforged/models/item/fog_machine.json",
+      "difference": "parent模型命名空间 thermal_shock -> thermal_shock_reforged；display字段一致",
+      "byte_equal": false,
+      "comparison_mode": "parsed_json_after_namespace_normalization",
+      "namespace_normalized_equal": true
+    },
+    {
+      "sha256": "b62734b3fe1651e1c0107730a2e13404373d8b219e1fa7140a6948be357ea956",
+      "byte_equal": true,
+      "original": "assets/thermal_shock/textures/block/fog_machine_bottom.png",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/block/fog_machine_bottom.png",
+      "comparison_mode": "raw_bytes_sha256",
+      "namespace_normalized_equal": null
+    },
+    {
+      "sha256": "8dd20e01047b7bca867dffe159a12aea65aa08d330b1d564572fcab374bfb450",
+      "byte_equal": true,
+      "original": "assets/thermal_shock/textures/block/fog_machine_side.png",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/block/fog_machine_side.png",
+      "comparison_mode": "raw_bytes_sha256",
+      "namespace_normalized_equal": null
+    },
+    {
+      "sha256": "3c86e5c06140626f5e131bb3f329a70aee5badc6b037b50c0aed870f7154b8f2",
+      "byte_equal": true,
+      "original": "assets/thermal_shock/textures/block/fog_machine_top.png",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/block/fog_machine_top.png",
+      "comparison_mode": "raw_bytes_sha256",
+      "namespace_normalized_equal": null
+    }
+  ],
+  "recipe": {
+    "target_evidence": "target recipe lines 2-25",
+    "original": "data/thermal_shock/recipes/fog_machine_recipe.json",
+    "preserved": [
+      "minecraft:crafting_shaped",
+      "category misc",
+      "pattern aaa/aba/cdc",
+      "key a iron_ingot, b stellar_scrap, c ferrum_ingot, d redstone",
+      "result count 1"
+    ],
+    "target": "src/main/resources/data/thermal_shock_reforged/recipe/fog_machine_recipe.json",
+    "conversion": [
+      "recipes/ -> recipe/",
+      "namespace thermal_shock -> thermal_shock_reforged",
+      "result.item -> result.id"
+    ],
+    "original_evidence": "thermal_shock-07.9-original.jar:data/thermal_shock/recipes/fog_machine_recipe.json"
+  },
+  "loot": {
+    "status": "结构与掉落条件/内容一致",
+    "target_evidence": "target loot lines 2-16",
+    "original": "data/thermal_shock/loot_tables/blocks/fog_machine.json",
+    "preserved": [
+      "minecraft:block",
+      "1 roll",
+      "minecraft:survives_explosion",
+      "drop fog_machine item",
+      "random_sequence path blocks/fog_machine"
+    ],
+    "target": "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/fog_machine.json",
+    "conversion": [
+      "loot_tables/ -> loot_table/",
+      "namespace thermal_shock -> thermal_shock_reforged"
+    ]
+  },
+  "pickaxe_tag": {
+    "target_line": 355,
+    "original_singular_path": "data/minecraft/tags/block/mineable/pickaxe.json",
+    "original_singular_contains_fog_machine": false,
+    "target": "src/main/resources/data/minecraft/tags/block/mineable/pickaxe.json",
+    "original_plural_path": "data/minecraft/tags/blocks/mineable/pickaxe.json",
+    "original_plural_contains_fog_machine": true,
+    "status": "旧 plural blocks 文件中条目迁至目标 singular block 文件；mod namespace 更新",
+    "target_contains": "thermal_shock_reforged:fog_machine"
+  },
+  "localization": {
+    "chinese": {
+      "status": "目标中文键存在；原 JAR 无对应 zh_cn 文件，无法确认该中文文本来自原模组",
+      "original_jar_file": "assets/thermal_shock/lang/zh_cn.json",
+      "original_file_found": false,
+      "target_evidence": "assets/thermal_shock_reforged/lang/zh_cn.json:752",
+      "target_key": "block.thermal_shock_reforged.fog_machine",
+      "target_value": "造雾机"
+    },
+    "english": {
+      "original_key": "block.thermal_shock.fog_machine",
+      "target_evidence": "assets/thermal_shock_reforged/lang/en_us.json:921",
+      "target_key": "block.thermal_shock_reforged.fog_machine",
+      "target_value": "Fog Machine",
+      "status": "文案保留，namespace更新",
+      "original_value": "Fog Machine"
+    }
+  },
+  "creative_tab": {
+    "status": "原/目标均列在主创意栏",
+    "original_old_source": "readable/net/mcreator/thermal_shock/init/ThermalShockModTabs.java:736",
+    "target_tab": "thermal_shock_reforged:thermal_shock_reforged",
+    "target_line": 723,
+    "target_file": "src/main/resources/assets/thermal_shock_reforged/creative_tabs.json",
+    "target_item": "thermal_shock_reforged:fog_machine"
+  },
+  "registry": {
+    "original_block_item": "readable/net/mcreator/thermal_shock/init/ThermalShockModItems.java:857",
+    "target_block_item": "src/main/java/com/hp/thermalshockreforged/content/vilebathblocks/VilebathBlocksContent.java:20",
+    "original_block": "readable/net/mcreator/thermal_shock/init/ThermalShockModBlocks.java:983",
+    "target_block": "src/main/java/com/hp/thermalshockreforged/content/vilebathblocks/VilebathBlocksContent.java:18"
+  },
+  "discrepancies": [
+    "目标 FogMachineBlock 新增显式 MapColor.METAL，原始 FogMachineBlock 未显式设置 mapColor。",
+    "原 JAR 未包含 assets/thermal_shock/lang/zh_cn.json，故无法以原 JAR 证实中文译名来源。",
+    "概率和坐标分布相同，但原实现对概率用 Math.random、对两坐标分别创建 RandomSource；目标统一使用 animateTick 的 RandomSource，因此具体随机序列不同。"
+  ],
+  "cannot_confirm": [
+    "未启动客户端验证两种粒子在画面中的实际外观；这里只核对注册 ID 和源码参数。",
+    "未运行配方/战利品数据加载验证；只核对 JSON 文件内容和目录格式。"
+  ],
+  "asset_comparison_note": "三个 JSON 文件按结构化 JSON 比较，在 thermal_shock -> thermal_shock_reforged namespace 归一化后相等；原始字节不同是预期转换。三张 PNG 按原始字节 SHA-256 比较且相等。旧资源清单 equal 字段使用 namespace 归一化后的语义比较。"
+}

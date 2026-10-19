@@ -197,3 +197,12 @@ Qo集成保全世界共享剧情、真实16页与奖励链，服务端验证同�
 - Effigy原LivingAttack过程会取消Effigy作为攻击源的攻击，再以19个服务端END延迟结算`8 - armor * 0.6`。目标改为注册的独立EffigyStrikeEntity，保存施法者/目标UUID、伤害快照、倒计时和声音位置；同一施法者的多个合法任务分别跟踪，施法者移除后保留已提交阶段。
 - Icidroviathan非Mantleslag地面减速保留原5tick等级3隐形缓慢的`.15F`倍率和尾时长，改为局部属性修正；骑乘控制使用实际第一乘客与原生tickRidden/travel入口。
 - Blizzard Outpost按原structure、structure_set、template_pool链接入；三份NBT只转换目标命名空间、`forge:spawn_type`到`neoforge:spawn_type`及旧重力/台阶属性ID，保DataVersion3465、几何、位置、库存和外部cap载荷。Rubicon与Slagway没有原结构入口或Java消费者，保留模板但不新增生成概率。
+
+## 第101批功能方块
+
+- FogMachine补METAL地图色，保原遮光15、空视觉形状和全立方碰撞；采集走原版镐标签，不绑定工具具体类。
+- 客户端造雾沿用animateTick提供的RandomSource，替代原每次创建随机源及未使用的Minecraft.player读取，保通电条件、煤块优先、一颗粒子、50%普通雾概率、XZ均匀[-2,3)和零速度；没有添加服务端扫描、额外更新或新粒子。
+- 旧G8/G12清单不是当前完成状态。核对发现GrowthContent派生注册的starfruit、lunalemon与spire_bloom_rubicon在直接register字面量搜索中会漏计；修正盘点为69项可确认注册、19项待人工核，保留第101批生产前快照，不以注册计数宣称全部功能已迁。
+- Purifier原真实入口是放置，英文右键提示改为放置并补中文提示；不增加第二个右键启动入口。原20 SERVER END全局闭包改有限持久任务，保半径15整球、七组转换、概率、同名属性、完整声音与粒子，以及原块提前拆除后的合法尾阶段；邻块未加载时暂停，不强制加载。
+- 净化器使用无ticker方块实体保存激活任务UUID，防同块状态重入和旧任务误删后来放置的新块；任务被世界拒绝时回滚归属并20tick后重试。新增方块实体使其不能被原生活塞推动，这是明确机械变化；不增加库存、菜单或额外逐tick扫描。原未提供采集工具标签的语义保留，不擅增可回收入口。
+- RainDrum补紫色地图色、Purifier补白色地图色，保原遮光、遮挡与发光渲染属性。雨鼓仍按原雨天/上方空气/红石邻居或客户端显示回调发声，15段普通和4段Thermite鼓声、原NOTE粒子完整保留，不增加天气控制或擅改播放频率。

@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "id": "thermal_shock_reforged:spire_base"
+    },
+    "title": {
+      "translate": "advancements.graveyard_advancement.title"
+    },
+    "description": {
+      "translate": "advancements.graveyard_advancement.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "graveyard_advancement_0": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biomes": "thermal_shock_reforged:graveyard"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "parent": "thermal_shock_reforged:luminous_sea_get"
+}
