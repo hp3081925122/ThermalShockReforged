@@ -1,0 +1,107 @@
+package com.hp.thermalshockreforged.entity.labmachinist;
+
+import java.util.List;
+
+public enum LabPage {
+    FEDDY("qo_feddy_fivebears", "QoFeddyFivebears", "qo_main_speak", 276, 182, false, true, false,
+            List.of(new Line("gui.thermal_shock_reforged.qo_feddy_fivebears.label_kutty", 9, 112, -1), new Line("gui.thermal_shock_reforged.qo_feddy_fivebears.label_concierge", 67, 93, -1)),
+            List.of(new Image("mainspeechbox", 0, 103, 276, 276, 276, 276, -1), new Image("mainlabelbox", 62, -30, 134, 134, 134, 134, -1), new Image("untitled1132_20260207185451", 163, -25, 128, 128, 128, 128, -1), new Image("qostaticportrait", -5, -24, 128, 128, 128, 128, 0)),
+            List.of()),
+    ASSEMBLER_TOUCH_ALT("qo_lab_assembler_touch_alt", "QoLabAssemblerTouchAlt", "qo_em1_speak", 276, 182, true, true, false,
+            List.of(new Line("gui.thermal_shock_reforged.qo_lab_assembler_touch_alt.label_kutty", 9, 112, -1), new Line("gui.thermal_shock_reforged.qo_lab_assembler_touch_alt.label_concierge", 67, 93, -1)),
+            List.of(new Image("mainspeechbox", 0, 103, 276, 276, 276, 276, -1), new Image("mainlabelbox", 62, -30, 134, 134, 134, 134, -1), new Image("qoem4portrait", -5, -24, 128, 128, 128, 128, 0)),
+            List.of()),
+    ASSEMBLER_TOUCH("qo_lab_assembler_touch", "QoLabAssemblerTouch", "qo_em1_speak", 276, 182, true, true, false,
+            List.of(new Line("gui.thermal_shock_reforged.qo_lab_assembler_touch.label_kutty", 9, 112, -1), new Line("gui.thermal_shock_reforged.qo_lab_assembler_touch.label_concierge", 67, 93, -1)),
+            List.of(new Image("mainspeechbox", 0, 103, 276, 276, 276, 276, -1), new Image("mainlabelbox", 62, -30, 134, 134, 134, 134, -1), new Image("qoem1portrait", -15, -24, 128, 128, 128, 1536, 1408)),
+            List.of()),
+    ERRAND_B("qo_lab_errand_1_b", "QoLabErrand1B", "qo_main_speak", 276, 182, true, true, false,
+            List.of(new Line("gui.thermal_shock_reforged.qo_lab_errand_1_b.label_kutty", 9, 112, -1), new Line("gui.thermal_shock_reforged.qo_lab_errand_1_b.label_concierge", 67, 93, -1), new Line("gui.thermal_shock_reforged.qo_lab_errand_1_b.label_are_you_trying_to_blow_us_up", 9, 122, -1), new Line("gui.thermal_shock_reforged.qo_lab_errand_1_b.label_i_could_actually_do_with_s", 9, 132, -1), new Line("gui.thermal_shock_reforged.qo_lab_errand_1_b.label_full_of_valuables_and_ancient_sc", 9, 142, -1), new Line("gui.thermal_shock_reforged.qo_lab_errand_1_b.label_id_like_to_say_its_free_game", 9, 152, -1)),
+            List.of(new Image("mainspeechbox", 0, 103, 276, 276, 276, 276, -1), new Image("mainlabelbox", 62, -30, 134, 134, 134, 134, -1), new Image("qoem2portrait", -15, -24, 128, 128, 128, 1536, 1408)),
+            List.of(new Button(0, 237, 161, 38, 20, "nextbuttona"))),
+    ERRAND_C("qo_lab_errand_1_c", "QoLabErrand1C", "qo_main_speak", 276, 182, false, true, false,
+            List.of(new Line("gui.thermal_shock_reforged.qo_lab_errand_1_c.label_kutty", 9, 112, -1), new Line("gui.thermal_shock_reforged.qo_lab_errand_1_c.label_concierge", 67, 93, -1), new Line("gui.thermal_shock_reforged.qo_lab_errand_1_c.label_are_you_trying_to_blow_us_up", 9, 122, -1), new Line("gui.thermal_shock_reforged.qo_lab_errand_1_c.label_i_could_actually_do_with_s", 9, 132, -1), new Line("gui.thermal_shock_reforged.qo_lab_errand_1_c.label_full_of_valuables_and_ancient_sc", 9, 142, -1), new Line("gui.thermal_shock_reforged.qo_lab_errand_1_c.label_id_like_to_say_its_free_game", 9, 152, -1), new Line("gui.thermal_shock_reforged.qo_lab_errand_1_c.label_a_stronger_key", 9, 162, -1)),
+            List.of(new Image("mainspeechbox", 0, 103, 276, 276, 276, 276, -1), new Image("mainlabelbox", 62, -30, 134, 134, 134, 134, -1), new Image("qoidleportrait", -15, -24, 128, 128, 128, 1536, 1408)),
+            List.of(new Button(0, 237, 161, 38, 20, "nextbuttona"))),
+    ERRAND_D("qo_lab_errand_1_d", "QoLabErrand1D", "qo_main_speak", 276, 182, true, true, false,
+            List.of(new Line("gui.thermal_shock_reforged.qo_lab_errand_1_d.label_kutty", 9, 112, -1), new Line("gui.thermal_shock_reforged.qo_lab_errand_1_d.label_concierge", 67, 93, -1), new Line("gui.thermal_shock_reforged.qo_lab_errand_1_d.label_are_you_trying_to_blow_us_up", 9, 122, -1), new Line("gui.thermal_shock_reforged.qo_lab_errand_1_d.label_i_could_actually_do_with_s", 9, 132, -1), new Line("gui.thermal_shock_reforged.qo_lab_errand_1_d.label_full_of_valuables_and_ancient_sc", 9, 142, -1), new Line("gui.thermal_shock_reforged.qo_lab_errand_1_d.label_id_like_to_say_its_free_game", 9, 152, -1), new Line("gui.thermal_shock_reforged.qo_lab_errand_1_d.label_a_stronger_key", 9, 162, -1)),
+            List.of(new Image("mainspeechbox", 0, 103, 276, 276, 276, 276, -1), new Image("mainlabelbox", 62, -30, 134, 134, 134, 134, -1), new Image("qoem1portrait", -15, -24, 128, 128, 128, 1536, 1408)),
+            List.of(new Button(0, 237, 161, 38, 20, "nextbuttona"))),
+    ERRAND_E("qo_lab_errand_1_e", "QoLabErrand1E", "qo_main_speak", 276, 182, true, true, false,
+            List.of(new Line("gui.thermal_shock_reforged.qo_lab_errand_1_e.label_kutty", 9, 112, -1), new Line("gui.thermal_shock_reforged.qo_lab_errand_1_e.label_concierge", 67, 93, -1), new Line("gui.thermal_shock_reforged.qo_lab_errand_1_e.label_are_you_trying_to_blow_us_up", 9, 122, -1), new Line("gui.thermal_shock_reforged.qo_lab_errand_1_e.label_i_could_actually_do_with_s", 9, 162, -1), new Line("gui.thermal_shock_reforged.qo_lab_errand_1_e.label_full_of_valuables_and_ancient_sc", 9, 132, -1), new Line("gui.thermal_shock_reforged.qo_lab_errand_1_e.label_id_like_to_say_its_free_game", 9, 142, -1), new Line("gui.thermal_shock_reforged.qo_lab_errand_1_e.label_a_stronger_key", 9, 152, -1)),
+            List.of(new Image("mainspeechbox", 0, 103, 276, 276, 276, 276, -1), new Image("mainlabelbox", 62, -30, 134, 134, 134, 134, -1), new Image("frigid_altar_key", 242, 24, 16, 16, 16, 16, -1), new Image("storm_battery", 222, 23, 16, 16, 16, 16, -1), new Image("zap_gauntlet_icon", 198, 22, 16, 16, 16, 16, -1), new Image("qoidleportrait", -15, -24, 128, 128, 128, 1536, 1408)),
+            List.of(new Button(0, 237, 161, 38, 20, "nextbuttona"))),
+    ERRAND("qo_lab_errand_1", "QoLabErrand1", "qo_em2_speak", 276, 182, true, true, false,
+            List.of(new Line("gui.thermal_shock_reforged.qo_lab_errand_1.label_kutty", 9, 112, -1), new Line("gui.thermal_shock_reforged.qo_lab_errand_1.label_concierge", 67, 93, -1), new Line("gui.thermal_shock_reforged.qo_lab_errand_1.label_are_you_trying_to_blow_us_up", 9, 122, -1), new Line("gui.thermal_shock_reforged.qo_lab_errand_1.label_i_could_actually_do_with_s", 9, 132, -1)),
+            List.of(new Image("mainspeechbox", 0, 103, 276, 276, 276, 276, -1), new Image("mainlabelbox", 62, -30, 134, 134, 134, 134, -1), new Image("qoidleportrait", -15, -24, 128, 128, 128, 1536, 1408)),
+            List.of(new Button(0, 237, 161, 38, 20, "nextbuttona"))),
+    ERRAND_NULL("qo_lab_errand_null", "QoLabErrandNull", "qo_main_speak", 276, 182, true, true, false,
+            List.of(new Line("gui.thermal_shock_reforged.qo_lab_errand_null.label_kutty", 9, 112, -1), new Line("gui.thermal_shock_reforged.qo_lab_errand_null.label_concierge", 67, 93, -1), new Line("gui.thermal_shock_reforged.qo_lab_errand_null.label_are_you_trying_to_blow_us_up", 9, 122, -1)),
+            List.of(new Image("mainspeechbox", 0, 103, 276, 276, 276, 276, -1), new Image("mainlabelbox", 62, -30, 134, 134, 134, 134, -1), new Image("qoem4portrait", -5, -24, 128, 128, 128, 128, 0)),
+            List.of(new Button(0, 237, 161, 38, 20, "nextbuttona"))),
+    INTRO("qo_lab_intro_1", "QoLabIntro1", "qo_main_speak", 276, 182, true, true, false,
+            List.of(new Line("gui.thermal_shock_reforged.qo_lab_intro_1.label_kutty", 9, 112, -1), new Line("gui.thermal_shock_reforged.qo_lab_intro_1.label_concierge", 67, 92, -1), new Line("gui.thermal_shock_reforged.qo_lab_intro_1.label_are_you_trying_to_blow_us_up", 9, 122, -1), new Line("gui.thermal_shock_reforged.qo_lab_intro_1.label_i_could_actually_do_with_s", 9, 132, -1), new Line("gui.thermal_shock_reforged.qo_lab_intro_1.label_my_stockpiles_been_running_low", 9, 142, -1)),
+            List.of(new Image("mainspeechbox", 0, 103, 276, 276, 276, 276, -1), new Image("mainlabelbox", 62, -30, 134, 134, 134, 134, -1), new Image("qoem3portrait", -15, -24, 128, 128, 128, 1536, 1408)),
+            List.of(new Button(0, 237, 161, 38, 20, "nextbuttona"))),
+    SAFE_1("qo_lab_safe_1", "QoLabSafe1", "qo_em2_speak", 276, 182, true, true, false,
+            List.of(new Line("gui.thermal_shock_reforged.qo_lab_safe_1.label_kutty", 9, 112, -1), new Line("gui.thermal_shock_reforged.qo_lab_safe_1.label_concierge", 67, 93, -1), new Line("gui.thermal_shock_reforged.qo_lab_safe_1.label_are_you_trying_to_blow_us_up", 9, 122, -1), new Line("gui.thermal_shock_reforged.qo_lab_safe_1.label_full_of_valuables_and_ancient_sc", 9, 132, -1), new Line("gui.thermal_shock_reforged.qo_lab_safe_1.label_id_like_to_say_its_free_game", 9, 142, -1)),
+            List.of(new Image("mainspeechbox", 0, 103, 276, 276, 276, 276, -1), new Image("mainlabelbox", 62, -30, 134, 134, 134, 134, -1), new Image("qoidleportrait", -15, -24, 128, 128, 128, 1536, 1408)),
+            List.of(new Button(0, 237, 161, 38, 20, "nextbuttona"))),
+    SAFE_2("qo_lab_safe_2", "QoLabSafe2", "qo_em1_speak", 276, 182, true, true, false,
+            List.of(new Line("gui.thermal_shock_reforged.qo_lab_safe_2.label_kutty", 9, 112, -1), new Line("gui.thermal_shock_reforged.qo_lab_safe_2.label_concierge", 67, 93, -1), new Line("gui.thermal_shock_reforged.qo_lab_safe_2.label_are_you_trying_to_blow_us_up", 9, 122, -1), new Line("gui.thermal_shock_reforged.qo_lab_safe_2.label_full_of_valuables_and_ancient_sc", 9, 132, -1), new Line("gui.thermal_shock_reforged.qo_lab_safe_2.label_id_like_to_say_its_free_game", 9, 142, -1)),
+            List.of(new Image("mainspeechbox", 0, 103, 276, 276, 276, 276, -1), new Image("mainlabelbox", 62, -30, 134, 134, 134, 134, -1), new Image("qoem5portrait", -5, -24, 128, 128, 128, 128, 0)),
+            List.of(new Button(0, 237, 161, 38, 20, "nextbuttona"))),
+    MAIN("qo_main", "QoMain", "qo_main_speak", 276, 182, true, true, false,
+            List.of(new Line("gui.thermal_shock_reforged.qo_main.label_concierge", 67, 93, -1)),
+            List.of(new Image("mainspeechbox", 0, 103, 276, 276, 276, 276, -1), new Image("mainflavourboxes", 62, -110, 214, 214, 214, 214, -1), new Image("qoidleportrait", -15, -24, 128, 128, 128, 1536, 1408)),
+            List.of(new Button(0, 203, -6, 65, 22, "maintradebuttona"), new Button(1, 203, 17, 65, 22, "mainerrandsbuttona"))),
+    TRADE_INTRO("qo_trade_epl", "QoTradeEpl", "qo_main_speak", 276, 182, true, true, false,
+            List.of(new Line("gui.thermal_shock_reforged.qo_trade_epl.label_kutty", 9, 112, -1), new Line("gui.thermal_shock_reforged.qo_trade_epl.label_concierge", 67, 93, -1), new Line("gui.thermal_shock_reforged.qo_trade_epl.label_are_you_trying_to_blow_us_up", 9, 122, -1), new Line("gui.thermal_shock_reforged.qo_trade_epl.label_i_could_actually_do_with_s", 9, 132, -1), new Line("gui.thermal_shock_reforged.qo_trade_epl.label_full_of_valuables_and_ancient_sc", 9, 142, -1), new Line("gui.thermal_shock_reforged.qo_trade_epl.label_id_like_to_say_its_free_game", 9, 152, -1)),
+            List.of(new Image("mainspeechbox", 0, 103, 276, 276, 276, 276, -1), new Image("mainlabelbox", 62, -30, 134, 134, 134, 134, -1), new Image("qoem1portrait", -15, -24, 128, 128, 128, 1536, 1408)),
+            List.of(new Button(0, 237, 161, 38, 20, "nextbuttona"))),
+    KINETIC_HOOK("qo_trade_kinetic_laserhook", "QoTradeKineticLaserhook", "qo_main_speak", 206, 196, false, false, true,
+            List.of(new Line("gui.thermal_shock_reforged.qo_trade_kinetic_laserhook.label_xx", 49, 52, -4124383), new Line("gui.thermal_shock_reforged.qo_trade_kinetic_laserhook.label_xx1", 69, 52, -15427946), new Line("gui.thermal_shock_reforged.qo_trade_kinetic_laserhook.label_xx2", 89, 52, -6218527), new Line("gui.thermal_shock_reforged.qo_trade_kinetic_laserhook.label_xxx", 49, 72, -5577638), new Line("gui.thermal_shock_reforged.qo_trade_kinetic_laserhook.label_lorem_ipsum", 68, 29, -1)),
+            List.of(new Image("qotrademenu", -20, 0, 246, 180, 246, 180, -1), new Image("kinetic_laserhook", 47, 26, 16, 16, 16, 16, -1)),
+            List.of(new Button(0, 84, 73, 38, 20, "tradebuttona"), new Button(1, 167, 50, 14, 21, "adamantine_spice"), new Button(2, 25, 50, 14, 21, "tabcycleleft"))),
+    PYLON_CORE("qo_trade_pylon_core", "QoTradePylonCore", "qo_main_speak", 206, 196, false, false, true,
+            List.of(new Line("gui.thermal_shock_reforged.qo_trade_pylon_core.label_xx", 49, 52, -4124383), new Line("gui.thermal_shock_reforged.qo_trade_pylon_core.label_xx1", 69, 52, -15427946), new Line("gui.thermal_shock_reforged.qo_trade_pylon_core.label_xx2", 89, 52, -6218527), new Line("gui.thermal_shock_reforged.qo_trade_pylon_core.label_xxx", 49, 72, -5577638), new Line("gui.thermal_shock_reforged.qo_trade_pylon_core.label_lorem_ipsum", 68, 29, -1)),
+            List.of(new Image("qotrademenu", -20, 0, 246, 180, 246, 180, -1), new Image("zap_gauntlet_icon", 47, 26, 16, 16, 16, 16, -1)),
+            List.of(new Button(0, 84, 73, 38, 20, "tradebuttona"), new Button(1, 167, 50, 14, 21, "adamantine_spice"), new Button(2, 25, 50, 14, 21, "tabcycleleft"))),
+    SHOCK_STICK("qo_trade_shock_stick", "QoTradeShockStick", "qo_main_speak", 206, 196, false, false, true,
+            List.of(new Line("gui.thermal_shock_reforged.qo_trade_shock_stick.label_xx", 49, 52, -4124383), new Line("gui.thermal_shock_reforged.qo_trade_shock_stick.label_xx1", 69, 52, -15427946), new Line("gui.thermal_shock_reforged.qo_trade_shock_stick.label_xx2", 89, 52, -6218527), new Line("gui.thermal_shock_reforged.qo_trade_shock_stick.label_xxx", 49, 72, -5577638), new Line("gui.thermal_shock_reforged.qo_trade_shock_stick.label_lorem_ipsum", 68, 29, -1)),
+            List.of(new Image("qotrademenu", -20, 0, 246, 180, 246, 180, -1), new Image("shock_stick", 47, 26, 16, 16, 16, 16, -1)),
+            List.of(new Button(0, 84, 73, 38, 20, "tradebuttona"), new Button(1, 167, 50, 14, 21, "adamantine_spice"), new Button(2, 25, 50, 14, 21, "tabcycleleft"))),
+    SYLVIA_RIFLE("qo_trade_sylvia_rifle", "QoTradeSylviaRifle", "qo_main_speak", 206, 196, false, false, true,
+            List.of(new Line("gui.thermal_shock_reforged.qo_trade_sylvia_rifle.label_xx", 49, 52, -4124383), new Line("gui.thermal_shock_reforged.qo_trade_sylvia_rifle.label_xx1", 69, 52, -15427946), new Line("gui.thermal_shock_reforged.qo_trade_sylvia_rifle.label_xx2", 89, 52, -6218527), new Line("gui.thermal_shock_reforged.qo_trade_sylvia_rifle.label_xxx", 49, 72, -5577638), new Line("gui.thermal_shock_reforged.qo_trade_sylvia_rifle.label_lorem_ipsum", 68, 29, -1)),
+            List.of(new Image("qotrademenu", -20, 0, 246, 180, 246, 180, -1), new Image("seed_packet_skorio", 47, 26, 16, 16, 16, 16, -1)),
+            List.of(new Button(0, 84, 73, 38, 20, "tradebuttona"), new Button(1, 167, 50, 14, 21, "adamantine_spice"), new Button(2, 25, 50, 14, 21, "tabcycleleft"))),
+    WALLBORE("qo_trade_wallbore", "QoTradeWallbore", "qo_main_speak", 206, 196, false, false, true,
+            List.of(new Line("gui.thermal_shock_reforged.qo_trade_wallbore.label_xx", 49, 52, -4124383), new Line("gui.thermal_shock_reforged.qo_trade_wallbore.label_xx1", 69, 52, -15427946), new Line("gui.thermal_shock_reforged.qo_trade_wallbore.label_xx2", 89, 52, -6218527), new Line("gui.thermal_shock_reforged.qo_trade_wallbore.label_xxx", 49, 72, -5577638), new Line("gui.thermal_shock_reforged.qo_trade_wallbore.label_lorem_ipsum", 68, 29, -1)),
+            List.of(new Image("qotrademenu", -20, 0, 246, 180, 246, 180, -1), new Image("zap_gauntlet_icon", 47, 26, 16, 16, 16, 16, -1)),
+            List.of(new Button(0, 84, 73, 38, 20, "tradebuttona"), new Button(1, 167, 50, 14, 21, "adamantine_spice"), new Button(2, 25, 50, 14, 21, "tabcycleleft"))),
+    ZAP_GAUNTLET("qo_trade_zap_gauntlet", "QoTradeZapGauntlet", "qo_main_speak", 206, 196, false, false, true,
+            List.of(new Line("gui.thermal_shock_reforged.qo_trade_zap_gauntlet.label_xx", 49, 52, -4124383), new Line("gui.thermal_shock_reforged.qo_trade_zap_gauntlet.label_xx1", 69, 52, -15427946), new Line("gui.thermal_shock_reforged.qo_trade_zap_gauntlet.label_xx2", 89, 52, -6218527), new Line("gui.thermal_shock_reforged.qo_trade_zap_gauntlet.label_xxx", 49, 72, -5577638), new Line("gui.thermal_shock_reforged.qo_trade_zap_gauntlet.label_lorem_ipsum", 68, 29, -1)),
+            List.of(new Image("qotrademenu", -20, 0, 246, 180, 246, 180, -1), new Image("zap_gauntlet_icon", 47, 26, 16, 16, 16, 16, -1)),
+            List.of(new Button(0, 84, 73, 38, 20, "tradebuttona"), new Button(1, 167, 50, 14, 21, "adamantine_spice"), new Button(2, 25, 50, 14, 21, "tabcycleleft"))),
+    ZENITH("qo_trade_zenith", "QoTradeZenith", "qo_main_speak", 206, 196, false, false, true,
+            List.of(new Line("gui.thermal_shock_reforged.qo_trade_zenith.label_xx", 49, 52, -4124383), new Line("gui.thermal_shock_reforged.qo_trade_zenith.label_xx1", 69, 52, -15427946), new Line("gui.thermal_shock_reforged.qo_trade_zenith.label_xx2", 89, 52, -6218527), new Line("gui.thermal_shock_reforged.qo_trade_zenith.label_xxx", 49, 72, -5577638), new Line("gui.thermal_shock_reforged.qo_trade_zenith.label_lorem_ipsum", 68, 29, -1)),
+            List.of(new Image("qotrademenu", -20, 0, 246, 180, 246, 180, -1), new Image("zenith_smithing_template", 47, 26, 16, 16, 16, 16, -1)),
+            List.of(new Button(0, 84, 73, 38, 20, "tradebuttona"), new Button(1, 167, 50, 14, 21, "adamantine_spice"), new Button(2, 25, 50, 14, 21, "tabcycleleft"))),
+    ASSEMBLY("backdoor_scarab_assembly_page", "BackdoorScarabAssemblyPage", "qo_main_speak", 246, 163, false, false, true,
+            List.of(new Line("gui.thermal_shock_reforged.backdoor_scarab_assembly_page.label_fabricator_guide", 5, -13, -1), new Line("gui.thermal_shock_reforged.backdoor_scarab_assembly_page.label_tools", 163, -13, -1), new Line("gui.thermal_shock_reforged.backdoor_scarab_assembly_page.label_slot_1_cryonic_alloy_x5", 14, 14, -1), new Line("gui.thermal_shock_reforged.backdoor_scarab_assembly_page.label_slot_4_iron_ingot_x10", 14, 32, -1), new Line("gui.thermal_shock_reforged.backdoor_scarab_assembly_page.label_zap_gauntlet", 14, 23, -1), new Line("gui.thermal_shock_reforged.backdoor_scarab_assembly_page.label_keystone_x1", 14, 41, -1)),
+            List.of(new Image("fabricator_panel", 0, 0, 246, 163, 246, 163, -1), new Image("archive_cube", 15, 123, 16, 16, 16, 16, -1)),
+            List.of(new Button(0, 174, 38, 40, 18, "fabricator_craft_button")));
+    public final String id, title, sound;
+    public final int width, height;
+    public final boolean voice, clock, inventory;
+    public final List<Line> lines;
+    public final List<Image> images;
+    public final List<Button> buttons;
+    LabPage(String id, String title, String sound, int width, int height, boolean voice, boolean clock, boolean inventory, List<Line> lines, List<Image> images, List<Button> buttons) {
+        this.id = id; this.title = title; this.sound = sound; this.width = width; this.height = height; this.voice = voice; this.clock = clock; this.inventory = inventory; this.lines = lines; this.images = images; this.buttons = buttons;
+    }
+    public boolean trade() { return inventory && this != ASSEMBLY; }
+    public record Line(String key, int x, int y, int color) { }
+    public record Image(String texture, int x, int y, int width, int height, int textureWidth, int textureHeight, int frameMax) { }
+    public record Button(int action, int x, int y, int width, int height, String texture) { }
+}

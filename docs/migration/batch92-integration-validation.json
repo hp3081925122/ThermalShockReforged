@@ -1,0 +1,67 @@
+{
+  "scope": "第92批统一集成；静态和编译，不代表游戏运行验收",
+  "input_count": 8141,
+  "known_post_delivery_compile_repairs": [
+    "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabUtilityBlock.java",
+    "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/SylviaRifleItem.java",
+    "src/main/java/com/hp/thermalshockreforged/entity/projectile/LiteprismBeamEntity.java"
+  ],
+  "foreign_user_bugfix_files_preserved_not_committed": [
+    "src/main/java/com/hp/thermalshockreforged/world/PalaceGeneration.java",
+    "src/main/java/com/hp/thermalshockreforged/world/ShalespringGeneration.java"
+  ],
+  "foreign_edit_source": "用户在独立聊天01a15331-d167-7a71-9b52-2cca3bce92d9要求修复启动事件；保留该聊天两文件及其文档，不纳入本批提交",
+  "language": {
+    "en_us": {
+      "delivery_entries": 131,
+      "old_values_preserved": 3267,
+      "added": 17
+    },
+    "zh_cn": {
+      "delivery_entries": 131,
+      "old_values_preserved": 375,
+      "added": 146
+    }
+  },
+  "delivered_original_resources_checked": 84,
+  "all_build_resources_byte_identical": 7529,
+  "gradle_expanded_resources_verified": [
+    "pack.mcmeta",
+    "neoforge.mods.toml"
+  ],
+  "final_java_hashes": {
+    "src/main/java/com/hp/thermalshockreforged/client/labmachinist/LabClient.java": "b78e33d6b26f7a2f3f1018b8e0300f9ddba37b8e4c085fd065d5781daa2077cf",
+    "src/main/java/com/hp/thermalshockreforged/client/labmachinist/LabDialogueClock.java": "365c8ea2d860a2b342b2352973dfad23cc80b88712cc99d0d68c36e25289f5d6",
+    "src/main/java/com/hp/thermalshockreforged/client/labmachinist/LabScreen.java": "10100ab8af2ccdf3205595b5e0d253c21033378262aa20ce959fcaab0c310d26",
+    "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/ClimbingPickItem.java": "11d33199c644b67b5e5c3df8213e0fcfe89201a35d1435a643b6fa1e4b4163be",
+    "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/EnderTentacleItem.java": "08400fd017ab0b5adb6533bb6f1469313146f6ab3cc7ccb806a4ec0a1c8cb1f9",
+    "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabContent.java": "40ee86d8134d47f806bd40f840a8f38a2b0ac70fa7bc5c1ece649e9050183b8d",
+    "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabItemAnimationCache.java": "23837c85505c5be4266c7c9531907e90ba56e113b27ca90a73d25321518667cd",
+    "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabMachineBlock.java": "8d05b74bb26db1ec88efd8a6aa1c1cebc2a3944f16f28f63074d76ed18eac133",
+    "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabMachineBlockEntity.java": "2b41e5eab12ac91484c0fb012cc6b60d2cfda0e97bc139456741128d0af90bc2",
+    "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabMachineItem.java": "4e0646aad16100d2d446b94ab6b3f77eff4a7d008203c3356205a37d171eebf0",
+    "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabMachinistEntity.java": "575645330794685c96bff4a6844717454d7c0d2a35304dba46f5e0d4686b219c",
+    "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabMenu.java": "f514e90bbdecf515712849f45f57553a9eb757cb2b2fa8a496e516c0ba0ff2bb",
+    "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabPage.java": "589d3459e327a47ca41b8edcbce5a3ec605b953b768e282cdf2c4c55bb59f097",
+    "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabPlayerState.java": "8ba1bf9b30d5a07d63674834e426c79be43f516c784631045a5f5eaaee39db6b",
+    "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabUtilityBlock.java": "481c2dc6f576be940503de4e1721831c067b5940c01a7dd2b76bade3df592f9f",
+    "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/SylviaRifleItem.java": "ce259f97f991b38d1d8f15f2fbfff5137d4198a7ceeac4e1a07b1efb039b4f50",
+    "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/WallboreCycleEntity.java": "9eef97da3e0d0bbf418394316c94fb0c0f0837c72846bf40413ce88662c71951",
+    "src/main/java/com/hp/thermalshockreforged/entity/projectile/LiteprismBeamEntity.java": "3bfa67c2234be515a1315c8ba77f4912bb78589491032d2b44b79ecf3f127d53"
+  },
+  "shared_java_integrations_checked": 13,
+  "tag_additions_checked": 9,
+  "compile": [
+    "BUILD SUCCESSFUL in 5m 38s",
+    "25 actionable tasks: 4 executed, 21 up-to-date"
+  ],
+  "resource_utf8_followup": [
+    "BUILD SUCCESSFUL in 1m 39s"
+  ],
+  "stable_input_compile_after_foreign_changes": [
+    "BUILD SUCCESSFUL in 26s",
+    "23 actionable tasks: 23 up-to-date"
+  ],
+  "build_script_sha256": "06790427b7e2edbc6ceb6f5de13bcbd278aa970f5acb0e4d428d3ada3b9b80d7",
+  "tests": "本聊天未启动游戏或认定最终验收；用户另一个聊天曾独立runClient排启动问题，非本批验收。整个模组代码完整后由子代理执行完整专服、客户端与Render Preview验收"
+}

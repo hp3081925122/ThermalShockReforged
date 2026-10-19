@@ -65,6 +65,8 @@ dependencies {
 }
 
 tasks.withType(ProcessResources).configureEach {
+    def utf8ModProperties = new Properties()
+    project.file('gradle.properties').withReader('UTF-8') { utf8ModProperties.load(it) }
     def replaceProperties = [
             minecraft_version: project.minecraft_version,
             minecraft_version_range: project.minecraft_version_range,
@@ -76,7 +78,7 @@ tasks.withType(ProcessResources).configureEach {
             mod_license: project.mod_license,
             mod_version: project.mod_version,
             mod_authors: project.mod_authors,
-            mod_description: project.mod_description
+            mod_description: gradle.startParameter.projectProperties.get('mod_description') ?: utf8ModProperties.getProperty('mod_description', project.mod_description)
     ]
     inputs.properties replaceProperties
 

@@ -38,7 +38,7 @@ public final class SickleItem extends HoeItem {
                 victim.removeEffect(WeaponContent.SICKLE_WOUND);
                 var sound = BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "sickle_slash"));
                 victim.level().playSound(null, victim.blockPosition(), sound, SoundSource.NEUTRAL, 1, 1);
-                victim.hurt(victim.damageSources().source(DamageTypes.GENERIC), 10);
+                victim.hurt(victim.damageSources().source(DamageTypes.GENERIC), attacker.getMainHandItem().is(WeaponContent.STRATOSILVER_SICKLE.get()) ? 14 : 10);
             } else victim.addEffect(new MobEffectInstance(WeaponContent.SICKLE_WOUND, 20, level));
         }
         return result;
@@ -47,6 +47,7 @@ public final class SickleItem extends HoeItem {
         super.appendHoverText(stack, context, lines, flag);
         lines.add(Component.translatable("item." + ThermalShockReforged.MOD_ID + "." + id + ".description_0"));
         lines.add(Component.translatable("item." + ThermalShockReforged.MOD_ID + "." + id + ".description_1"));
+        if (id.equals("stratosilver_sickle")) lines.add(Component.translatable("item." + ThermalShockReforged.MOD_ID + "." + id + ".description_2"));
     }
     private record SickleTier(int durability, float speed, String repair, float damage, int enchantmentValue) implements Tier {
         @Override public int getUses() { return durability; }

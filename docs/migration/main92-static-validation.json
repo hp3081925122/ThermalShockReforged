@@ -1,0 +1,409 @@
+{
+  "scope": "第92批主线全局元素与十项原生酿造；仅静态核对，不代表运行测试",
+  "bytecode": {
+    "CryoHurtBonusProcedure": {
+      "xor": true,
+      "ownerless_secondary": true,
+      "entity_type_source": "causingEntity",
+      "sha256": "c0c46cac6960817d55101d0bc928011976c53ce1752b3ed51b0e843a5b563499"
+    },
+    "CryoHurtResistProcedure": {
+      "xor": true,
+      "ownerless_secondary": true,
+      "entity_type_source": "causingEntity",
+      "sha256": "144b30724688c6efdb932190d9da32838433f1978592f1df157af92c619a7e98"
+    },
+    "PyroHurtBonusProcedure": {
+      "xor": true,
+      "ownerless_secondary": true,
+      "entity_type_source": "directEntity",
+      "sha256": "584e872b470fc03b9e79cb52a11ec9667b508c9369dfd855cb07bed980ef6897"
+    },
+    "PyroHurtResistProcedure": {
+      "xor": true,
+      "ownerless_secondary": true,
+      "entity_type_source": "directEntity",
+      "sha256": "ca34968883da302ccb669a3f54e21333459b498fb999988e3964cadaa8444abe"
+    },
+    "FerroHurtBonusProcedure": {
+      "xor": true,
+      "ownerless_secondary": true,
+      "entity_type_source": "causingEntity",
+      "sha256": "4e27e2b4b23152003b08a40142afeec314bfd216326de8a744a7bd6c35058570"
+    },
+    "FerroHurtResistProcedure": {
+      "xor": true,
+      "ownerless_secondary": true,
+      "entity_type_source": "causingEntity",
+      "sha256": "3a5f767cb77ba27595fbb601e80545991fe231074fb8e85165f9e9e90f5fe520"
+    },
+    "CloroHurtBonusProcedure": {
+      "xor": true,
+      "ownerless_secondary": true,
+      "entity_type_source": "causingEntity",
+      "sha256": "b30ab299c77c9ff60e73ab96b0eb04134ebfe1d2a7b51ef756977f8da90e59b2"
+    },
+    "CloroHurtResistProcedure": {
+      "xor": true,
+      "ownerless_secondary": true,
+      "entity_type_source": "causingEntity",
+      "sha256": "2572947db21b7f44530fc2e3610440551cd7fe12314d7a60404dfe94f5e8b4ba"
+    }
+  },
+  "binary_assets": {
+    "effeks/hitcryo.efkefc": "abcabe058f73ba6efbb5cd576799be51007f1d21eabcc336cc56e9e81025f810",
+    "effeks/hitpyro.efkefc": "f6ec823047db964ca17c80524484fcd5fce4d6242e2fe5f7ad3525b84d9a762d",
+    "effeks/hitresist.efkefc": "5a8495b992faa98c6c4cffb64d9174905dd3b07d16c7a9b3f019980c9cb7cafd",
+    "effeks/Texture/Hitfx Cryo.png": "d19549ee9fdb7a1ffbc512fc55cb7fd4e97bedce47ab9443d178aee5f677c1e0",
+    "effeks/Texture/Hitfx Pyro.png": "887257699a5fb1b217d8f40d4030af96b693a11051c12257a3404bfcf0f4414a",
+    "effeks/Texture/Hitfx Resist.png": "8ca311104da6148257741468ebdec5ec345bf2dae4311d34b34c7c7669dff597",
+    "effeks/Texture/shrapnel.png": "9107d5d018ededd43f5358f57603e34bff542acd516f47b7473f8eed175f258c",
+    "textures/particle/hit_cryo.png": "7074f74f39a8ad752db14a876089e9867d92b2425c37a6d44a74660f900a877d",
+    "textures/particle/hit_pyro.png": "7074f74f39a8ad752db14a876089e9867d92b2425c37a6d44a74660f900a877d",
+    "textures/particle/hit_resist.png": "7074f74f39a8ad752db14a876089e9867d92b2425c37a6d44a74660f900a877d",
+    "effeks/hitferro.efkefc": "7587e0d2fe5b307d10f9d6e1b36db308dfb2548b1acbff3e41d9d67912019dfb",
+    "effeks/hitcloro.efkefc": "73e92e14641f2548d366dd5d13188b6c03b1e1abd40e6c7e30268388ced77073",
+    "animations/bottle_of_starlight.animation.json": "006ac71a6bf4d74f8acd960dfbe9f9ba989f64eba2e9d3ce4e2103d3da458a09",
+    "geo/bottle_of_starlight.geo.json": "41f7388f38d000b5ef768eccd525958c71dbc35170147b24bf477093d99c2920",
+    "textures/block/texturestarbottle.png": "6f0ed4c66211f9b42b1a70a1bbfef1b707c40a828eab42d9b15a9d53befe82a8",
+    "textures/block/texturelunabottle.png": "0a32b528fa666263c3c8f4d94067505f0745313a6c7b29ab47134f17f7f372db",
+    "textures/item/frozen_blade.png": "0543dc97852dc750c838a1c58e4d0b67ae102c7353621b6058f75505d054c4ba",
+    "textures/item/molten_bat.png": "3c17fbfcf5775ee7bf0c756ca50b69e0a22e7458e172f8a2829491751f4b4449",
+    "textures/item/stratosilver_sickle.png": "35409d5f51b97404b014626b83eceb1091cedf697719b0cad295aaec5c3a394d",
+    "animations/thistle_bow.animation.json": "c85a23f15c57c89198e4a0a2117ca871fab73c20b0ae7f71edee03f35838886a",
+    "geo/thistle_bow.geo.json": "c8c09edac331c6a2d8fd2afddbd23ae8b1a2381b2e3d11862435f400c0dbab4c",
+    "textures/item/thistle_bow.png": "86240b918f83f085636d92917cf347eeecc79c7631426cefd7cda9812ac608f4"
+  },
+  "converted_json": [
+    "particles/hit_cryo.json",
+    "particles/hit_pyro.json",
+    "particles/hit_resist.json",
+    "blockstates/bottle_of_starlight.json",
+    "blockstates/bottle_of_lunarlight.json",
+    "models/item/bottle_of_starlight.json",
+    "models/item/bottle_of_lunarlight.json",
+    "models/custom/bottle_of_starlight_particle.json",
+    "models/custom/bottle_of_lunarlight_particle.json",
+    "models/displaysettings/bottle_of_starlight.item.json",
+    "models/item/frozen_blade.json",
+    "models/item/molten_bat.json",
+    "models/item/stratosilver_sickle.json",
+    "models/displaysettings/thistle_bow.json",
+    "models/item/thistle_bow.json"
+  ],
+  "element_tags": {
+    "items/cryo_type.json": [
+      "thermal_shock_reforged:stratosilver_drill",
+      "thermal_shock_reforged:stratosilver_chainsaw",
+      "thermal_shock_reforged:stratosilver_auger",
+      "thermal_shock_reforged:hailfall",
+      "thermal_shock_reforged:titanium_mace",
+      "thermal_shock_reforged:speleothem",
+      "thermal_shock_reforged:frozen_blade",
+      "thermal_shock_reforged:stratosilver_sickle"
+    ],
+    "entity_types/cryo_type.json": [
+      "thermal_shock_reforged:hailfall_bullet"
+    ],
+    "entity_types/cryo_weak.json": [
+      "thermal_shock_reforged:icidroburner",
+      "thermal_shock_reforged:sola",
+      "thermal_shock_reforged:magnetite"
+    ],
+    "entity_types/cryo_resist.json": [
+      "thermal_shock_reforged:forecast",
+      "thermal_shock_reforged:frostilyte",
+      "thermal_shock_reforged:icidrozerk",
+      "thermal_shock_reforged:frostilyte_cryomancer",
+      "thermal_shock_reforged:frostilyte_soldier",
+      "thermal_shock_reforged:icidroburner",
+      "thermal_shock_reforged:icidrogunner",
+      "thermal_shock_reforged:galvanite",
+      "thermal_shock_reforged:ripple",
+      "thermal_shock_reforged:frostilyte_gunner",
+      "thermal_shock_reforged:kilolyte",
+      "thermal_shock_reforged:frost_titan"
+    ],
+    "items/pyro_type.json": [
+      "thermal_shock_reforged:core_eject_flare_gun",
+      "thermal_shock_reforged:flintsteel_rifle",
+      "thermal_shock_reforged:volcano",
+      "thermal_shock_reforged:molten_bat"
+    ],
+    "entity_types/pyro_type.json": [
+      "thermal_shock_reforged:flintsteel_rifle_bullet",
+      "thermal_shock_reforged:flare_bullet",
+      "thermal_shock_reforged:volcano_bullet"
+    ],
+    "entity_types/pyro_weak.json": [
+      "thermal_shock_reforged:forecast",
+      "thermal_shock_reforged:frostilyte",
+      "thermal_shock_reforged:icidrozerk",
+      "thermal_shock_reforged:icidrone",
+      "thermal_shock_reforged:frostilyte_cryomancer",
+      "thermal_shock_reforged:frostilyte_soldier",
+      "thermal_shock_reforged:icidrogrunt",
+      "thermal_shock_reforged:icidrogunner",
+      "thermal_shock_reforged:galvanite",
+      "thermal_shock_reforged:angry_cavebloomer",
+      "thermal_shock_reforged:ripple",
+      "thermal_shock_reforged:frostilyte_gunner",
+      "thermal_shock_reforged:frost_titan"
+    ],
+    "entity_types/pyro_resist.json": [
+      "thermal_shock_reforged:sootling",
+      "thermal_shock_reforged:sootle",
+      "thermal_shock_reforged:icidroburner"
+    ],
+    "items/ferro_type.json": [
+      "thermal_shock_reforged:hi_volt_lance",
+      "thermal_shock_reforged:rusty_edge",
+      "thermal_shock_reforged:bone_axe",
+      "thermal_shock_reforged:bone_pickaxe",
+      "thermal_shock_reforged:bone_sword",
+      "thermal_shock_reforged:bone_shovel",
+      "thermal_shock_reforged:shock_stick"
+    ],
+    "entity_types/ferro_type.json": [],
+    "entity_types/ferro_weak.json": [
+      "thermal_shock_reforged:bonerahna",
+      "thermal_shock_reforged:skullscor",
+      "thermal_shock_reforged:errant",
+      "thermal_shock_reforged:frost_titan",
+      "thermal_shock_reforged:mantletitan",
+      "thermal_shock_reforged:skeletitan"
+    ],
+    "entity_types/ferro_resist.json": [
+      "thermal_shock_reforged:sootling",
+      "thermal_shock_reforged:sootle",
+      "thermal_shock_reforged:galvanite",
+      "thermal_shock_reforged:angry_cavebloomer",
+      "thermal_shock_reforged:ripple",
+      "thermal_shock_reforged:kilolyte",
+      "thermal_shock_reforged:spectre"
+    ],
+    "items/cloro_type.json": [
+      "thermal_shock_reforged:ghostglass_pick",
+      "thermal_shock_reforged:ghostglass_sword",
+      "thermal_shock_reforged:magnetic_crossbow",
+      "thermal_shock_reforged:liteprism_disk",
+      "thermal_shock_reforged:liteprism_laser",
+      "thermal_shock_reforged:knights_edge",
+      "thermal_shock_reforged:thistle_bow"
+    ],
+    "entity_types/cloro_type.json": [
+      "thermal_shock_reforged:liteprism_beam",
+      "thermal_shock_reforged:liteprism_disk_projectile",
+      "thermal_shock_reforged:magnetic_bomb",
+      "thermal_shock_reforged:thistle_beam"
+    ],
+    "entity_types/cloro_weak.json": [
+      "thermal_shock_reforged:flare",
+      "thermal_shock_reforged:infestophage",
+      "thermal_shock_reforged:blighted_spore",
+      "thermal_shock_reforged:mangler",
+      "thermal_shock_reforged:spectre",
+      "thermal_shock_reforged:frost_titan",
+      "thermal_shock_reforged:mantletitan",
+      "thermal_shock_reforged:skeletitan"
+    ],
+    "entity_types/cloro_resist.json": [
+      "thermal_shock_reforged:pillbud",
+      "thermal_shock_reforged:gardenling",
+      "thermal_shock_reforged:gelshooter",
+      "thermal_shock_reforged:angry_cavebloomer",
+      "thermal_shock_reforged:kilolyte"
+    ]
+  },
+  "pending_tag_members": {
+    "items/cryo_type.json": [],
+    "entity_types/cryo_type.json": [],
+    "entity_types/cryo_weak.json": [
+      "thermal_shock_reforged:lanternbearer",
+      "thermal_shock_reforged:lens",
+      "thermal_shock_reforged:spirit"
+    ],
+    "entity_types/cryo_resist.json": [
+      "thermal_shock_reforged:ribbonblade_galvanite"
+    ],
+    "items/pyro_type.json": [],
+    "entity_types/pyro_type.json": [],
+    "entity_types/pyro_weak.json": [
+      "thermal_shock_reforged:effigy",
+      "thermal_shock_reforged:monolith",
+      "thermal_shock_reforged:ribbonblade_galvanite"
+    ],
+    "entity_types/pyro_resist.json": [
+      "thermal_shock_reforged:beetle_crasher",
+      "thermal_shock_reforged:beetle_thrasher",
+      "thermal_shock_reforged:lanternbearer"
+    ],
+    "items/ferro_type.json": [],
+    "entity_types/ferro_type.json": [],
+    "entity_types/ferro_weak.json": [
+      "thermal_shock_reforged:graver"
+    ],
+    "entity_types/ferro_resist.json": [
+      "thermal_shock_reforged:beetle_crasher",
+      "thermal_shock_reforged:beetle_thrasher",
+      "thermal_shock_reforged:effigy",
+      "thermal_shock_reforged:ribbonblade_galvanite",
+      "thermal_shock_reforged:spirit"
+    ],
+    "items/cloro_type.json": [
+      "thermal_shock_reforged:liteprism_sword"
+    ],
+    "entity_types/cloro_type.json": [],
+    "entity_types/cloro_weak.json": [
+      "thermal_shock_reforged:assimilated_graver",
+      "thermal_shock_reforged:assimilator",
+      "thermal_shock_reforged:graver",
+      "thermal_shock_reforged:maiden",
+      "thermal_shock_reforged:razoraptor",
+      "thermal_shock_reforged:spirit"
+    ],
+    "entity_types/cloro_resist.json": [
+      "thermal_shock_reforged:lens",
+      "thermal_shock_reforged:tesla_reed"
+    ]
+  },
+  "native_brewing": {
+    "original_recipes": [
+      {
+        "file": "CocoaRecipeBrewingRecipe.java",
+        "fields": [
+          "LOQUE_MILK_BOTTLE",
+          "COCOA_BEANS",
+          "COCOA"
+        ]
+      },
+      {
+        "file": "DewRegenerationBrewBrewingRecipe.java",
+        "fields": [
+          "DEW_BOTTLE",
+          "HEARTH_HONEY",
+          "POTION",
+          "REGENERATION"
+        ]
+      },
+      {
+        "file": "ElectricPotionRecipeBrewingRecipe.java",
+        "fields": [
+          "POTION",
+          "SPLASH_POTION",
+          "LINGERING_POTION",
+          "AWKWARD",
+          "BIOELECTRIC_CELL",
+          "ELECTRIFYING"
+        ]
+      },
+      {
+        "file": "FizzySnowconeRecipeBrewingRecipe.java",
+        "fields": [
+          "ICY_SNOWCONE",
+          "BARBUBBLE_MELON_SLICE",
+          "FIZZY_SNOWCONE"
+        ]
+      },
+      {
+        "file": "LunarlightRecipeBrewingRecipe.java",
+        "fields": [
+          "GLASS_BOTTLE",
+          "LUNALEMON_ITEM",
+          "BOTTLE_OF_LUNARLIGHT"
+        ]
+      },
+      {
+        "file": "LunarSnowconeRecipeBrewingRecipe.java",
+        "fields": [
+          "ICY_SNOWCONE",
+          "LUNALEMON_ITEM",
+          "LUNAR_SNOWCONE"
+        ]
+      },
+      {
+        "file": "MilkBottleRecipeBrewingRecipe.java",
+        "fields": [
+          "GLASS_BOTTLE",
+          "LOQUE_MILK",
+          "LOQUE_MILK_BOTTLE"
+        ]
+      },
+      {
+        "file": "StarlightRecipeBrewingRecipe.java",
+        "fields": [
+          "GLASS_BOTTLE",
+          "STARFRUIT_ITEM",
+          "BOTTLE_OF_STARLIGHT"
+        ]
+      },
+      {
+        "file": "StarrySnowconeRecipeBrewingRecipe.java",
+        "fields": [
+          "ICY_SNOWCONE",
+          "STARFRUIT_ITEM",
+          "STARRY_SNOWCONE"
+        ]
+      },
+      {
+        "file": "WaterBreathingSpongeRecipeBrewingRecipe.java",
+        "fields": [
+          "POTION",
+          "SPLASH_POTION",
+          "LINGERING_POTION",
+          "AWKWARD",
+          "BREATHER_SPONGE",
+          "WATER_BREATHING"
+        ]
+      }
+    ],
+    "target_regular": 8,
+    "target_potion_mix": 2,
+    "effect_duration": 360,
+    "effect_amplifier": 1,
+    "runtime_test": "待整模组完整后执行"
+  },
+  "reviewed_boundaries": [
+    "LOWEST不接已取消AttackAttemptEvent",
+    "ownerless secondary使元素入口立即返回",
+    "Pyro directEntity，另三系causingEntity",
+    "同系OR去重、多系抗性只替换一次",
+    "两特殊剑主手排除、原本地固定弱点伤保留",
+    "Living直接来源回动单次折抗性",
+    "原生药水Mix保三容器、不复制输入额外组件",
+    "原生任意输入槽与LoqueMilk桶剩余物",
+    "两满瓶完整0/1控制器/九槽/比较器/透明渲染",
+    "吸管真实手、服务端单次替块成功后加5/6并原生封顶"
+  ],
+  "aaa_texture_dependencies": {
+    "effeks/hitcryo.efkefc": [
+      "Texture/Hitfx Cryo.png",
+      "Texture/shrapnel.png"
+    ],
+    "effeks/hitpyro.efkefc": [
+      "Texture/Hitfx Pyro.png",
+      "Texture/shrapnel.png"
+    ],
+    "effeks/hitresist.efkefc": [
+      "Texture/Hitfx Resist.png"
+    ]
+  },
+  "converted_recipes": [
+    "frozen_blade_recipe",
+    "molten_bat_recipe",
+    "thistle_bow_recipe"
+  ],
+  "new_sources": {
+    "src/main/java/com/hp/thermalshockreforged/combat/ElementalCombat.java": "7ae40cae1332873cf9d064e8e049a2c31f688a6e464b88350211fdc98cb6a93e",
+    "src/main/java/com/hp/thermalshockreforged/content/brewing/NativeBrewing.java": "add5d9527e8dc30398c0025315a530b60dbaf7966f484356ceb0b02adcbc0dcd",
+    "src/main/java/com/hp/thermalshockreforged/content/decor/geo/StarlightBottleBlock.java": "b0851ca586ee779b7789da526e450bc97c683b2597f978fcd00b5247b3f931c7",
+    "src/main/java/com/hp/thermalshockreforged/content/weapons/SimpleElementalWeaponItem.java": "dbbc077ec626fc68047e3dda6e06267763af026d8ccd7dfd0826f04d7d97758e",
+    "src/main/java/com/hp/thermalshockreforged/content/weapons/ThistleBowItem.java": "ee7056d7ea1533fa7cc345cd16780b804920b32f5136d2887646170223b247a5",
+    "src/main/java/com/hp/thermalshockreforged/client/weapons/ThistleBowClient.java": "851e33b717ef40b31bea298eadd154faf3bbb59b75834156518e4f96f5b522c2"
+  },
+  "compile": [
+    "BUILD SUCCESSFUL in 5m 38s",
+    "25 actionable tasks: 4 executed, 21 up-to-date"
+  ],
+  "integrated_report": "batch92-integration-validation.json"
+}

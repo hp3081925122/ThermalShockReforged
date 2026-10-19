@@ -6,6 +6,25 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 
 public final class LiteprismBeamEntity extends ShortBeamEntity {
+    public static int fireSylviaLine(net.minecraft.server.level.ServerLevel level, LivingEntity shooter) {
+        var origin = shooter.getEyePosition();
+        var direction = shooter.getLookAngle();
+        var obstacle = level.clip(new net.minecraft.world.level.ClipContext(origin, origin.add(direction.scale(48)), net.minecraft.world.level.ClipContext.Block.COLLIDER, net.minecraft.world.level.ClipContext.Fluid.NONE, shooter));
+        double visibleLength = obstacle.getType() == net.minecraft.world.phys.HitResult.Type.MISS ? 48 : origin.distanceTo(obstacle.getLocation());
+        int emitted = 0;
+        for (int segment = 0; segment < 48 && segment < visibleLength; segment++) {
+            var position = origin.add(direction.scale(segment));
+            var beam = new LiteprismBeamEntity(ProjectileContent.LITEPRISM_BEAM.get(), level);
+            beam.setOwner(shooter); beam.setPos(position); beam.setBaseDamage(35); beam.setImpactKnockback(2); beam.setSilent(true); beam.setCritArrow(false);
+            ((com.hp.thermalshockreforged.mixin.ArrowPiercingAccess) (Object) beam).thermalShockReforged$setPierceLevel((byte) 5);
+            beam.shoot(direction.x, direction.y, direction.z, 1, 0);
+            if (level.addFreshEntity(beam)) {
+                emitted++;
+                level.sendParticles(net.minecraft.core.particles.ParticleTypes.SONIC_BOOM, position.x, position.y, position.z, 1, 0, 0, 0, 0);
+            }
+        }
+        return emitted;
+    }
     public static int fireWeaponLine(net.minecraft.server.level.ServerLevel level, LivingEntity shooter) {
         var origin = shooter.getEyePosition();
         var direction = shooter.getLookAngle();

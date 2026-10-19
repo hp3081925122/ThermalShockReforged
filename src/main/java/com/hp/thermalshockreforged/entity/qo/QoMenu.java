@@ -27,7 +27,7 @@ public final class QoMenu extends AbstractContainerMenu {
     public QoMenu(QoPage page, int id, Inventory inventory, int npcId, UUID npcUuid, BlockPos anchor, String openingSound) {
         super(QoContent.menu(page), id); this.page = page; this.openingSound = openingSound; this.npcId = npcId; this.npcUuid = npcUuid; this.anchor = anchor.immutable(); owner = inventory.player; level = owner.level();
     }
-    private DefectorMachinistEntity npc() { return level.getEntity(npcId) instanceof DefectorMachinistEntity npc && npc.getUUID().equals(npcUuid) ? npc : null; }
+    private net.minecraft.world.entity.PathfinderMob npc() { return level.getEntity(npcId) instanceof net.minecraft.world.entity.PathfinderMob npc && (npc instanceof DefectorMachinistEntity || npc instanceof com.hp.thermalshockreforged.entity.labmachinist.LabMachinistEntity) && npc.getUUID().equals(npcUuid) ? npc : null; }
     @Override public boolean stillValid(Player player) { var npc = npc(); return !closed && player == owner && player.level() == level && player.isAlive() && npc != null && npc.isAlive() && !npc.isRemoved() && player.distanceToSqr(npc) <= 64; }
     public static boolean completed(ServerPlayer player, String id) { var advancement = player.server.getAdvancements().get(QoContent.id(id)); return advancement != null && player.getAdvancements().getOrStartProgress(advancement).isDone(); }
     @Override public boolean clickMenuButton(Player player, int button) {
