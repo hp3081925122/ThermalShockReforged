@@ -13,3 +13,8 @@
 原blizzard_sanctum在cobalt_heights/surface_structures、高度均匀145..240、spacing30/separation20/salt1202105222，实际池location为orb_sanctum。这些值作为初始机械核对点而非替代原完整JSON。主线三个地面结构保各原高度图/terrain_adaptation/忽略方块处理器/盐与间距，不擅自统一。1.21.1数据Codec差异须核目标源码，特别value provider与结构大小/边界，不只namespace替换。
 
 Java不写注释、UTF-8、调试日志英文，临时/脚本仅D:/AI临时文件。Luna/quick_explorer限确定性只读盘点和机械核对。两路生产完交最终SHA、行为/原资产/typed转换证据后停笔，主线固定输入整批compileJava/processResources；A不单独Gradle/游戏/stage/commit。原无消费者的其他模板仍单独追踪，不制造自然入口；当前差集不能当功能完成率。
+
+
+第105批已统一构建并提交 cbf0f9c05c9e9b7083579598bf3351f888d8c2c0。主线现明确解除本批生产冻结，双方按上述文件归属开始生产，测试仍由用户独立管理。
+
+第106批两路已停笔并完成统一验证：76份生产资源，29个完整模板共1596262条方块记录、31实体、365方块实体。固定8557份src/main输入；Java21离线compileJava/processResources通过，compileJava为UP-TO-DATE，processResources执行，日志48秒。7773份直接复制资源及2份展开模板验证通过，全部既有语言值保留。详见main106-static-validation.json。圣所原145..240中72个起点会截掉实块，已按授权修复将上界改为168，保原145..168全部有效起点与完整模板。

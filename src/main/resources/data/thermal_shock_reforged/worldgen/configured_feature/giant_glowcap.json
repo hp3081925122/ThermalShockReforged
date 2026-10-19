@@ -1,0 +1,52 @@
+{
+  "type": "minecraft:simple_random_selector",
+  "config": {
+    "features": [
+      {
+        "feature": {
+          "type": "thermal_shock_reforged:structure_feature",
+          "config": {
+            "structure": "thermal_shock_reforged:giant_glowcap_1",
+            "ignored_blocks": "minecraft:air",
+            "offset": [
+              -1,
+              0,
+              -1
+            ]
+          }
+        },
+        "placement": []
+      },
+      {
+        "feature": {
+          "type": "thermal_shock_reforged:structure_feature",
+          "config": {
+            "structure": "thermal_shock_reforged:giant_glowcap_2",
+            "ignored_blocks": "minecraft:air",
+            "offset": [
+              -1,
+              0,
+              -1
+            ]
+          }
+        },
+        "placement": []
+      },
+      {
+        "feature": {
+          "type": "thermal_shock_reforged:structure_feature",
+          "config": {
+            "structure": "thermal_shock_reforged:giant_glowcap_3",
+            "ignored_blocks": "minecraft:air",
+            "offset": [
+              -1,
+              0,
+              -1
+            ]
+          }
+        },
+        "placement": []
+      }
+    ]
+  }
+}

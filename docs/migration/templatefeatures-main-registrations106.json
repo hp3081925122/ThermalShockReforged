@@ -1,0 +1,72 @@
+{
+  "batch": 106,
+  "provider": "/root/coverage101_inventory",
+  "phase": "Read-only target registration check before main106 production",
+  "base_head": "cbf0f9c05c9e9b7083579598bf3351f888d8c2c0",
+  "feature_templates": {
+    "glowcap_block": "content/decor/nativeblocks/NativeDecorContent.java:78",
+    "glowcap_stem": "content/MaterialContent.java:382",
+    "dark_frostrock": "content/MaterialContent.java:85",
+    "jellercel": "content/decor/geo/GeoDecorKind.java:80; GeoDecorContent.java:32-74 factory",
+    "large_jellercel": "content/decor/geo/GeoDecorKind.java:81; GeoDecorContent.java:32-74 factory",
+    "large_jellercell_collision": "content/decor/geo/GeoDecorContent.java:26",
+    "twilit_shrub": "content/plants/PlantContent.java:27"
+  },
+  "structure_templates": {
+    "kiosk": {
+      "size": [10, 9, 9], "blocks": 810, "palette_ids": 14, "block_entities": 6, "entities": 2,
+      "block_registrations": {
+        "planter_pot": "content/farming/FarmingContent.java:26",
+        "shale_bricks": "content/MaterialContent.java:54",
+        "snow_bricks": "content/MaterialContent.java:156",
+        "snow_brick_slab": "content/MaterialContent.java:157",
+        "thin_stem": "content/MaterialContent.java:277",
+        "vermilli_trapdoor": "content/MaterialContent.java:310",
+        "vermilli_fence_gate": "content/MaterialContent.java:276",
+        "snowy_permafrost": "content/decor/nativeblocks/NativeDecorContent.java:54",
+        "vermilli_planks": "content/decor/nativeblocks/NativeDecorContent.java:53",
+        "volt_flower": "content/plants/tall/TallPlantContent.java:36"
+      },
+      "entity": "content/npc/ly/LyContent.java:25",
+      "painting": "data/thermal_shock_reforged/painting_variant/kiosk_sign.json",
+      "inventory": "Six native chiseled bookshelves with empty Items; Ly has legacy entity attributes needing conversion."
+    },
+    "pylon": {
+      "size": [5, 11, 5], "blocks": 275, "palette_ids": 7, "block_entities": 2, "entities": 0,
+      "block_registrations": {
+        "pylon_core": "content/decor/geo/GeoDecorKind.java:31 and GeoDecorContent factory",
+        "pylon_ring": "content/decor/geo/GeoDecorKind.java:49 and GeoDecorContent factory",
+        "sanctum_bricks": "content/MaterialContent.java:52",
+        "sanctum_brick_stairs": "content/MaterialContent.java:53",
+        "sanctum_lamp": "content/MaterialContent.java:240",
+        "snowy_shale": "content/terrain/TerrainContent.java:42"
+      },
+      "block_entity_registration": "GeoDecorContent.java:72, each kind real factory",
+      "inventory": "Both Items lists empty."
+    },
+    "snowtower": {
+      "size": [21, 19, 27], "blocks": 10773, "palette_ids": 21, "block_entities": 8, "entities": 0,
+      "block_registrations": {
+        "bouncer": "content/decor/nativeblocks/NativeDecorContent.java:36",
+        "phaser": "content/decor/nativeblocks/NativeDecorContent.java:33",
+        "spice_geyser": "content/decor/nativeblocks/NativeDecorContent.java:29",
+        "cobbled_shale": "content/MaterialContent.java:58",
+        "cut_polished_permafrost": "content/MaterialContent.java:363",
+        "ochre_plank_slab": "content/MaterialContent.java:278",
+        "snow_brick_slab": "content/MaterialContent.java:157",
+        "snow_brick_stairs": "content/MaterialContent.java:255",
+        "snow_brick_wall": "content/MaterialContent.java:193",
+        "snow_bricks": "content/MaterialContent.java:156",
+        "snowy_cobbled_shale": "content/MaterialContent.java:176",
+        "frigid_crate": "content/crates/CrateContent.java:18",
+        "itty_bitty": "content/decor/geo/GeoDecorKind.java:69 and GeoDecorContent factory",
+        "pylon_core": "content/decor/geo/GeoDecorKind.java:31 and GeoDecorContent factory",
+        "snowy_shale": "content/terrain/TerrainContent.java:42"
+      },
+      "block_entity_registration": "content/ModBlockEntities.java:17 spice_geyser; GeoDecorContent.java:72 itty_bitty/pylon_core; native chiseled bookshelf",
+      "inventory": "Two native enchanted books (looting, smite) and one writable book. StoredEnchantments/pages require real components; no mod item IDs."
+    }
+  },
+  "preproduction_presence": {"configured_features": "0/6", "placed_features": "0/4", "biome_modifiers": "0/4", "three_structure_templates": "0/3"},
+  "limit": "Paths are source evidence as reported at this snapshot, not a runtime registry freeze or proof of structure generation. Java paths are relative to src/main/java/com/hp/thermalshockreforged unless otherwise stated."
+}

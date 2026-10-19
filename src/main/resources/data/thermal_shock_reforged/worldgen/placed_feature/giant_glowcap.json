@@ -1,0 +1,73 @@
+{
+  "feature": "thermal_shock_reforged:giant_glowcap",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": {
+        "type": "uniform",
+        "min_inclusive": 10,
+        "max_inclusive": 20
+      }
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:height_range",
+      "height": {
+        "type": "minecraft:uniform",
+        "min_inclusive": {
+          "absolute": -30
+        },
+        "max_inclusive": {
+          "absolute": 45
+        }
+      }
+    },
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:all_of",
+        "predicates": [
+          {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:air"
+          },
+          {
+            "type": "minecraft:matching_blocks",
+            "blocks": [
+              "thermal_shock_reforged:shale",
+              "thermal_shock_reforged:mossy_mantlestone",
+              "thermal_shock_reforged:vermillion_moss",
+              "thermal_shock_reforged:mantlestone"
+            ],
+            "offset": [
+              0,
+              -1,
+              0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "environment_scan",
+      "direction_of_search": "up",
+      "target_condition": {
+        "type": "minecraft:matching_blocks",
+        "blocks": [
+          "minecraft:air",
+          "minecraft:water"
+        ]
+      },
+      "allowed_search_condition": {
+        "type": "minecraft:matching_blocks",
+        "blocks": "minecraft:air"
+      },
+      "max_steps": 6
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

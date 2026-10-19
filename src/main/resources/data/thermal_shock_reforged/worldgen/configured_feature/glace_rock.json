@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:simple_random_selector",
+  "config": {
+    "features": [
+      {
+        "feature": {
+          "type": "thermal_shock_reforged:structure_feature",
+          "config": {
+            "structure": "thermal_shock_reforged:glace_rock_1",
+            "ignored_blocks": "minecraft:air",
+            "offset": [
+              -2,
+              0,
+              -2
+            ]
+          }
+        },
+        "placement": []
+      },
+      {
+        "feature": {
+          "type": "thermal_shock_reforged:structure_feature",
+          "config": {
+            "structure": "thermal_shock_reforged:glace_rock_2",
+            "ignored_blocks": "minecraft:air",
+            "offset": [
+              -1,
+              0,
+              -1
+            ]
+          }
+        },
+        "placement": []
+      }
+    ]
+  }
+}

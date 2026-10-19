@@ -1,0 +1,114 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": {
+        "type": "thermal_shock_reforged:structure_feature",
+        "config": {
+          "structure": "thermal_shock_reforged:cobalt_7hex_1",
+          "ignored_blocks": "minecraft:air",
+          "offset": [
+            -4,
+            -25,
+            -4
+          ]
+        }
+      },
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.5,
+        "feature": {
+          "feature": {
+            "type": "minecraft:random_selector",
+            "config": {
+              "default": {
+                "feature": {
+                  "type": "thermal_shock_reforged:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock_reforged:cobalt_9hex_1",
+                    "ignored_blocks": "minecraft:air",
+                    "offset": [
+                      -5,
+                      -15,
+                      -5
+                    ]
+                  }
+                },
+                "placement": []
+              },
+              "features": [
+                {
+                  "chance": 0.2,
+                  "feature": {
+                    "feature": {
+                      "type": "thermal_shock_reforged:structure_feature",
+                      "config": {
+                        "structure": "thermal_shock_reforged:cobalt_9hex_surge",
+                        "ignored_blocks": "minecraft:air",
+                        "offset": [
+                          -5,
+                          -15,
+                          -5
+                        ]
+                      }
+                    },
+                    "placement": []
+                  }
+                }
+              ]
+            }
+          },
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.3,
+        "feature": {
+          "feature": {
+            "type": "minecraft:random_selector",
+            "config": {
+              "default": {
+                "feature": {
+                  "type": "thermal_shock_reforged:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock_reforged:cobalt_15hex_1",
+                    "ignored_blocks": "minecraft:air",
+                    "offset": [
+                      -8,
+                      -2,
+                      -8
+                    ]
+                  }
+                },
+                "placement": []
+              },
+              "features": [
+                {
+                  "chance": 0.2,
+                  "feature": {
+                    "feature": {
+                      "type": "thermal_shock_reforged:structure_feature",
+                      "config": {
+                        "structure": "thermal_shock_reforged:cobalt_15hex_surge",
+                        "ignored_blocks": "minecraft:air",
+                        "offset": [
+                          -8,
+                          -2,
+                          -8
+                        ]
+                      }
+                    },
+                    "placement": []
+                  }
+                }
+              ]
+            }
+          },
+          "placement": []
+        }
+      }
+    ]
+  }
+}

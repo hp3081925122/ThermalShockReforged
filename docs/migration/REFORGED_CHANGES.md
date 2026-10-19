@@ -248,3 +248,12 @@ Qo集成保全世界共享剧情、真实16页与奖励链，服务端验证同�
 
 - 两矿簇原真实九格可供六面自动化写入，但拆块会吞掉库存；目标按正常容器返还，保原九格64上限、无右键打开入口/无比较器。原createMenu错误构造临时27槽，改为真实九格；不借修菜单添加新玩法入口。
 - 两基地完整保全部原几何和嵌套载荷，只做1.21.1必要格式转换。原18处darksteel_frame没有注册/类/模型贴图，保全部原记录和缺注册时空气回退，不捏造方块。wrought_bars原模板携带未定义waterlogged=false，保记录并注明原生忽略。外部capability载荷保留不表示外模组联动已实现。尚未进行游戏实测。
+
+
+### 第106批：模板物品组件和完整结构边界
+
+- snowtower原两附魔书的StoredEnchantments转入minecraft:stored_enchantments，避免只将原字段藏入custom_data而丢原生附魔书功能；looting2/smite2、数量/槽位及可写书三页原文保留。这是必要版本迁移，不是更改原奖励。
+- 原模板中已转新实体/旗帜字段时显式使用目标DataVersion，避免缺版本标记的模板再按旧默认版本进行二次升级；全部原无须转换的typed载荷和几何保留。个别旧整数provider的value嵌套按目标MapCodec展平，保原范围/分布。
+- 6个IntProvider旧value层按1.21.1 UniformInt MapCodec展平，保原参数与Placement顺序。
+- orb_sanctum完整保留；核顶界320/ground_level_delta1/最高实块相对152/最高实体110，原起点169..240共72高度会截实块，均匀上界240改168，保原145..168全部24个有效高度等概率，顶部6层纯空气不误判为实块。
+- 19模板原均显式DataVersion3465，目标均3955；本线没有缺少DataVersion的原模板，不会按StructureTemplateManager默认500再次升级新格式。

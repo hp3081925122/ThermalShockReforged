@@ -1,0 +1,49 @@
+{
+  "provider": "/root/remaining_inventory97",
+  "snapshot_head": "cbf0f9c05c9e9b7083579598bf3351f888d8c2c0",
+  "scope": "Read-only stable target structure snapshot; 91 templates present, skip 19 active A106 templates, scan 72; zero parse errors or changed files",
+  "initial_candidate_count": 31,
+  "corrected_classification": {"visible_block_entity_inventory_or_book": 12, "entity_item_or_armor": 4, "legacy_effect_curative_items": 7, "experience_orb_entity_false_positives": 8},
+  "source_and_target_data_version": 3465,
+  "templates": {
+    "blizzard_outpost": {
+      "sha256": "8185ce224811d28f61f4e0b5a7534c1bcb6a7b97bc6ed99101c07082ffc1a5e2",
+      "visible_items": ["$.entities[22].nbt.Item: minecraft:item entity, phobotite count1"],
+      "curative_items": ["$.entities[37].nbt.ActiveEffects[0].CurativeItems[0]", "$.entities[39].nbt.ActiveEffects[0].CurativeItems[0]", "$.entities[40].nbt.ActiveEffects[0].CurativeItems[0]", "$.entities[48].nbt.ActiveEffects[0].CurativeItems[0]"],
+      "curative_context": "icidrogrunt entity, milk_bucket count1; legacy effect field, not inventory",
+      "experience_orb_false_positive_indices": [0, 10, 41, 54],
+      "entry": "worldgen/structure -> structure_set -> template_pool/blizzard_outpost.json -> NBT"
+    },
+    "blizzardoutpostrubicon": {
+      "sha256": "36047e9c9ba0558b6fc54ebf4dffa4a4b533e048e826eacc4d8890fa88c750f4",
+      "visible_items": ["$.entities[17].nbt.Item: minecraft:item entity, phobotite count1"],
+      "curative_items": ["$.entities[28].nbt.ActiveEffects[0].CurativeItems[0]", "$.entities[30].nbt.ActiveEffects[0].CurativeItems[0]", "$.entities[31].nbt.ActiveEffects[0].CurativeItems[0]"],
+      "curative_context": "icidrogrunt entity, milk_bucket count1; legacy effect field, not inventory",
+      "experience_orb_false_positive_indices": [32, 49, 54, 60],
+      "entry": "Retained template; no current exact Java/structure/set/pool consumer found"
+    },
+    "lavender_palace": {
+      "sha256": "fd6316fc6a245424078f71b028c2f53b23a32b00c1ecc4210ec896bd65f9973f",
+      "visible_items": ["$.blocks[600562].nbt.Book: minecraft:lectern, writable_book count1, tag.pages"],
+      "entry": "world/PalaceGeneration.java:16,31 uses level.getStructureManager().get(TEMPLATE), then placeInWorld"
+    },
+    "shalespring_august": {
+      "sha256": "98d77ff4703482264e67f92d9a80399ad09605f314ca323db88cf8011cf537de",
+      "visible_items": [
+        "$.blocks[342950].nbt.Items[0..2]: minecraft:chest, cobalt_axe/train_pass/e_xpolar_camera count1 each",
+        "$.blocks[342991].nbt.Items[0..3], blocks[342995].nbt.Items[0], blocks[342997].nbt.Items[0]: minecraft:chiseled_bookshelf, native book count1",
+        "$.blocks[342994].nbt.Items[0..1]: minecraft:chiseled_bookshelf, enchanted_book count1 with tag.StoredEnchantments",
+        "$.entities[2].nbt.ArmorItems[2..3]: minecraft:armor_stand, rustsilk_armour_chestplate/helmet count1"
+      ],
+      "entry": "world/ShalespringGeneration.java:16,31 uses level.getStructureManager().get(TEMPLATE), then placeInWorld"
+    }
+  },
+  "native_source_evidence": [
+    "StructureTemplateManager.java:241-250 reads input DataVersion then DataFixTypes.STRUCTURE.updateToCurrentVersion",
+    "DataFixTypes.java:22,74-84 uses runtime current data version",
+    "V1460.java:279-289 schema recursively declares entities[].nbt, blocks[].nbt and palette and dispatches known entity/block-entity types"
+  ],
+  "conclusion": "Presence of legacy item fields alone is not proof of lost inventory or book function because these four templates intentionally retain old version and use the native DFU load path. No template changed by this inventory.",
+  "remaining_review": "Unknown mod entity/BE IDs and custom legacy fields are not guaranteed to receive schema conversion. Audit their actual loader/readAdditionalSaveData and original payload before deciding whether an explicit conversion is needed; especially original icidrogrunt ActiveEffects and attribute payloads.",
+  "limits": ["Static source and data inspection, not actual DFU execution or a game test", "No migration completion percentage can be derived", "Initial id+Count filter included eight experience orb roots; corrected by payload context"]
+}
