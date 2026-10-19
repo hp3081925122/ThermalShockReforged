@@ -1,0 +1,1132 @@
+{
+  "batch": 116,
+  "lane": "A",
+  "counts": {
+    "roots": 54,
+    "rootsWithStatements": 54
+  },
+  "rows": [
+    {
+      "ordinal": 1,
+      "sourcePath": "item/AmaljellyCanisterItem.java",
+      "registryIds": [
+        "amaljelly_canister"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/entity/legacy/AmaljellyCanisterItem.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/legacy/LegacyContent.java",
+          "fileSHA256": "9fea4df5e0ca0ed3f90c7364a4e27165b7da5866c3021bae498b3d5b25e31cee",
+          "line": 35,
+          "statementSHA256": "59ccc052aca60e7241a930479676d13c72fef9cf12adb909f4e486e553768f96",
+          "statement": "public static final DeferredHolder<Item, Item> AMALJELLY_CANISTER = ITEMS.register(\"amaljelly_canister\", AmaljellyCanisterItem::new);"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 2,
+      "sourcePath": "item/AngryCavebloomerBossBoxItem.java",
+      "registryIds": [
+        "angry_cavebloomer_boss_box"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/entity/cavebloomer/CavebloomerBossBoxItem.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/cavebloomer/CavebloomerContent.java",
+          "fileSHA256": "f53f786c259982a2fca28fef73cca4c24f759738a25267aa32e1812952869bd6",
+          "line": 48,
+          "statementSHA256": "9aef4281dbf5554c22022460d52479c0a2aaabf24364756238013cbde325d5e5",
+          "statement": "public static final DeferredItem<CavebloomerBossBoxItem> BOSS_BOX = ITEMS.register(\"angry_cavebloomer_boss_box\", CavebloomerBossBoxItem::new);"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 3,
+      "sourcePath": "item/AntitoxinItem.java",
+      "registryIds": [
+        "antitoxin"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/entity/snobol/AntitoxinItem.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/snobol/SnobolContent.java",
+          "fileSHA256": "24eeceaa1f548e13dadd6722319d71abaeaecd46d3dc42061d37df2a11f3ae46",
+          "line": 26,
+          "statementSHA256": "927e8ae13e1fb0760c90b886a7be0c7419cd8879e93d01d579f1ace91635143e",
+          "statement": "public static final DeferredItem<Item> ANTITOXIN = ITEMS.register(\"antitoxin\", AntitoxinItem::new);"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 4,
+      "sourcePath": "item/BlindingLanternItem.java",
+      "registryIds": [
+        "blinding_lantern"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/weapons/BlindingLanternItem.java",
+        "src/main/java/com/hp/thermalshockreforged/content/weapons/HeldWeaponState.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/WeaponContent.java",
+          "fileSHA256": "28a2b47dcf439e77b86a4ba204d7b83fea7e3a161cfd834163d29668f434396f",
+          "line": 62,
+          "statementSHA256": "5a21fda4d862d7dcd11b86e97e6650f00f826dfe7fec6c31f535cb79b4b8adb2",
+          "statement": "public static final DeferredItem<BlindingLanternItem> BLINDING_LANTERN = ITEMS.register(\"blinding_lantern\", BlindingLanternItem::new);"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 5,
+      "sourcePath": "item/BloodPopItem.java",
+      "registryIds": [
+        "blood_pop"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/utility/UtilityContent.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/utility/UtilityContent.java",
+          "fileSHA256": "7f2a7b66e1187aba2013bcc80063ce75ab9e9a4bca2219cbfd9aba9d6968d2b3",
+          "line": 27,
+          "statementSHA256": "98b3dd86bfaec0e738dd999fe7d2d5f9140afcffa265d5730d3d1b5e2fde70af",
+          "statement": "public static final DeferredItem<Item> BLOOD_POP = ITEMS.register(\"blood_pop\", () -> new NourishingFoodItem(UseAnim.DRINK));"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 6,
+      "sourcePath": "item/BloodstoneHalberdItem.java",
+      "registryIds": [
+        "bloodstone_halberd"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/weapons/SpearItem.java",
+        "src/main/java/com/hp/thermalshockreforged/content/weapons/HeldWeaponState.java",
+        "src/main/java/com/hp/thermalshockreforged/content/weapons/SpeleothemSoundEntity.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/WeaponContent.java",
+          "fileSHA256": "28a2b47dcf439e77b86a4ba204d7b83fea7e3a161cfd834163d29668f434396f",
+          "line": 56,
+          "statementSHA256": "45eb305129ba4f224c2b8794e0e9c04e023b70cffff4ce64f28389b90932b27c",
+          "statement": "public static final DeferredItem<SpearItem> BLOODSTONE_HALBERD = ITEMS.register(\"bloodstone_halberd\", () -> new SpearItem(SpearItem.Kind.BLOODSTONE_HALBERD));"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 7,
+      "sourcePath": "item/BloodstoneSickleItem.java",
+      "registryIds": [
+        "bloodstone_sickle"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/weapons/SickleItem.java",
+        "src/main/java/com/hp/thermalshockreforged/content/weapons/HeldWeaponState.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/WeaponContent.java",
+          "fileSHA256": "28a2b47dcf439e77b86a4ba204d7b83fea7e3a161cfd834163d29668f434396f",
+          "line": 72,
+          "statementSHA256": "175a935b230599a63666e09f670e076083a0f0c03ca6fa87424c70d87c797e08",
+          "statement": "public static final DeferredItem<SickleItem> BLOODSTONE_SICKLE = ITEMS.register(\"bloodstone_sickle\", () -> new SickleItem(\"bloodstone_sickle\", 1500, 8, \"bloodstone\"));"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 8,
+      "sourcePath": "item/BoneSwordItem.java",
+      "registryIds": [
+        "bone_sword"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/tools/ToolsContent.java",
+        "src/main/java/com/hp/thermalshockreforged/content/weapons/HeldWeaponState.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/tools/ToolsContent.java",
+          "fileSHA256": "c2c8437f4d6a6e3d549399ded8763ace315417f000928707a9d8bbb57f4b94f0",
+          "line": 39,
+          "statementSHA256": "2e40963d1adea0838cbd3e56c663d99d01aea6a0cd4685abb185b48e2bbf09c6",
+          "statement": "register(\"bone_sword\", new NativeTier(100, 5.0f, 0.5f, BlockTags.INCORRECT_FOR_STONE_TOOL, 5, () -> Ingredient.of(MaterialContent.items().get(\"ashen_bone\").get(), Items.BONE)), (tier) -> new DescribedSword(tier, new Item.Properties().attributes(SwordItem.createAttributes(tier, 3, -2.2f).withModifierAdded(Attributes.ENTITY_INTERACTION_RANGE, new AttributeModifier(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, \"bone_sword_reach\"), 2, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)), \"item.thermal_shock_reforged.bone_sword.description_0\", \"item.thermal_shock_reforged.bone_sword.description_1\"));"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 9,
+      "sourcePath": "item/BottledPixieItem.java",
+      "registryIds": [
+        "bottled_pixie"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/entity/ambient/BottledPixieItem.java",
+        "src/main/java/com/hp/thermalshockreforged/entity/ambient/PixieBottleEntity.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/ambient/AmbientContent.java",
+          "fileSHA256": "29a082fd68dc8b40dd3e32a1a7f2daa6a7eb9eb7a97fdb91bc151dd473332f25",
+          "line": 24,
+          "statementSHA256": "f87d37111f69614428c4c6b08b5ff7ff3a00d41219d6767486eff8953e80b220",
+          "statement": "public static final DeferredItem<BottledPixieItem> BOTTLED_PIXIE = ITEMS.register(\"bottled_pixie\", BottledPixieItem::new);"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 10,
+      "sourcePath": "item/BucketOfSiibolItem.java",
+      "registryIds": [
+        "bucket_of_siibol"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/entity/snobol/BucketOfSiibolItem.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/snobol/SnobolContent.java",
+          "fileSHA256": "24eeceaa1f548e13dadd6722319d71abaeaecd46d3dc42061d37df2a11f3ae46",
+          "line": 27,
+          "statementSHA256": "3444f1d4a09066372ec77c25f821986f372a4740e95400a1817e11204a2d77fd",
+          "statement": "public static final DeferredItem<Item> BUCKET_OF_SIIBOL = ITEMS.register(\"bucket_of_siibol\", BucketOfSiibolItem::new);"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 11,
+      "sourcePath": "item/BuzzsawItem.java",
+      "registryIds": [
+        "buzzsaw"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/weapons/BuzzsawItem.java",
+        "src/main/java/com/hp/thermalshockreforged/content/weapons/BuzzsawSweepEntity.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/WeaponContent.java",
+          "fileSHA256": "28a2b47dcf439e77b86a4ba204d7b83fea7e3a161cfd834163d29668f434396f",
+          "line": 28,
+          "statementSHA256": "2e17a35964422f2168e8838fcc35b1e75de39fc33f6af16e6890ec1443731245",
+          "statement": "public static final DeferredItem<BuzzsawItem> BUZZSAW = ITEMS.register(\"buzzsaw\", BuzzsawItem::new);"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 12,
+      "sourcePath": "item/CarborGLItem.java",
+      "registryIds": [
+        "carbor_gl"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/weapons/CarborGlItem.java",
+        "src/main/java/com/hp/thermalshockreforged/content/weapons/HeldWeaponState.java",
+        "src/main/java/com/hp/thermalshockreforged/entity/projectile/GrenadeBulletEntity.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/WeaponContent.java",
+          "fileSHA256": "28a2b47dcf439e77b86a4ba204d7b83fea7e3a161cfd834163d29668f434396f",
+          "line": 36,
+          "statementSHA256": "8a89046973a7f609170dd06f39ae0b2d23616ea78d9a13c10b2025a81382c9fd",
+          "statement": "public static final DeferredItem<CarborGlItem> CARBOR_GL = ITEMS.register(\"carbor_gl\", CarborGlItem::new);"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 13,
+      "sourcePath": "item/CarborundumHalberdItem.java",
+      "registryIds": [
+        "carborundum_halberd"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/weapons/SpearItem.java",
+        "src/main/java/com/hp/thermalshockreforged/content/weapons/HeldWeaponState.java",
+        "src/main/java/com/hp/thermalshockreforged/content/weapons/SpeleothemSoundEntity.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/WeaponContent.java",
+          "fileSHA256": "28a2b47dcf439e77b86a4ba204d7b83fea7e3a161cfd834163d29668f434396f",
+          "line": 57,
+          "statementSHA256": "98a1bd600429b1f920bdaf52acb633467fdb4261425ecfdbb93e14887c9213cd",
+          "statement": "public static final DeferredItem<SpearItem> CARBORUNDUM_HALBERD = ITEMS.register(\"carborundum_halberd\", () -> new SpearItem(SpearItem.Kind.CARBORUNDUM_HALBERD));"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 14,
+      "sourcePath": "item/CarborundumSickleItem.java",
+      "registryIds": [
+        "carborundum_sickle"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/weapons/SickleItem.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/WeaponContent.java",
+          "fileSHA256": "28a2b47dcf439e77b86a4ba204d7b83fea7e3a161cfd834163d29668f434396f",
+          "line": 73,
+          "statementSHA256": "b83d576f3d354a5572e6cb52400366d0bdb2bfc70ed4c7d0882d02828b02ab8a",
+          "statement": "public static final DeferredItem<SickleItem> CARBORUNDUM_SICKLE = ITEMS.register(\"carborundum_sickle\", () -> new SickleItem(\"carborundum_sickle\", 900, 15, \"carborundum\", 4.5F, 16));"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 15,
+      "sourcePath": "item/CarborundumSpearItem.java",
+      "registryIds": [
+        "carborundum_spear"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/weapons/SpearItem.java",
+        "src/main/java/com/hp/thermalshockreforged/content/weapons/HeldWeaponState.java",
+        "src/main/java/com/hp/thermalshockreforged/content/weapons/SpeleothemSoundEntity.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/WeaponContent.java",
+          "fileSHA256": "28a2b47dcf439e77b86a4ba204d7b83fea7e3a161cfd834163d29668f434396f",
+          "line": 55,
+          "statementSHA256": "1b99c89a0da5144d5d699df156a22801a749f77a19f2eafbf65764e915fb2e48",
+          "statement": "public static final DeferredItem<SpearItem> CARBORUNDUM_SPEAR = ITEMS.register(\"carborundum_spear\", () -> new SpearItem(SpearItem.Kind.CARBORUNDUM));"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 16,
+      "sourcePath": "item/ChalkCandyItem.java",
+      "registryIds": [
+        "chalk_candy"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/utility/UtilityContent.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/utility/UtilityContent.java",
+          "fileSHA256": "7f2a7b66e1187aba2013bcc80063ce75ab9e9a4bca2219cbfd9aba9d6968d2b3",
+          "line": 28,
+          "statementSHA256": "53e734968f239c56f156a3cd97b7641ac7f9041b597ad99cfe9fc9a967f82d1b",
+          "statement": "public static final DeferredItem<Item> CHALK_CANDY = ITEMS.register(\"chalk_candy\", () -> new NourishingFoodItem(UseAnim.EAT));"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 17,
+      "sourcePath": "item/ChiselItem.java",
+      "registryIds": [
+        "chisel"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/utility/ChiselItem.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/utility/UtilityContent.java",
+          "fileSHA256": "7f2a7b66e1187aba2013bcc80063ce75ab9e9a4bca2219cbfd9aba9d6968d2b3",
+          "line": 36,
+          "statementSHA256": "e5ead6bbb8046f2c475cc9a23657aaae8bc3318859320daa2a302a8230ba97a3",
+          "statement": "public static final DeferredItem<Item> CHISEL = ITEMS.register(\"chisel\", ChiselItem::new);"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 18,
+      "sourcePath": "item/ClawSickleItem.java",
+      "registryIds": [
+        "claw_sickle"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/remainingcombat/ClawSickleItem.java",
+        "src/main/java/com/hp/thermalshockreforged/content/remainingcombat/RemainingCombatState.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/remainingcombat/RemainingCombatContent.java",
+          "fileSHA256": "b6d193642d00821c04764297356cc41f81496f3401963d78cd27a0f6101b38be",
+          "line": 31,
+          "statementSHA256": "eb2a9fe2299a4828195f1b193e10489d9ee2e30f8780a570b6d1b8cc60340f7a",
+          "statement": "public static final DeferredItem<ClawSickleItem> CLAW_SICKLE = ITEMS.register(\"claw_sickle\", ClawSickleItem::new);"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 19,
+      "sourcePath": "item/ClimbingPickItem.java",
+      "registryIds": [
+        "climbing_pick"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/ClimbingPickItem.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabContent.java",
+          "fileSHA256": "40ee86d8134d47f806bd40f840a8f38a2b0ac70fa7bc5c1ece649e9050183b8d",
+          "line": 45,
+          "statementSHA256": "c2725b985d2cc930fb8e05d66e65fa951e08107dea8c1db135a32165c8fac354",
+          "statement": "public static final DeferredItem<ClimbingPickItem> CLIMBING_PICK = ITEMS.register(\"climbing_pick\", () -> new ClimbingPickItem(false));"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 20,
+      "sourcePath": "item/CobaltAxeItem.java",
+      "registryIds": [
+        "cobalt_axe"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/tools/CobaltAxe.java",
+        "src/main/java/com/hp/thermalshockreforged/content/tools/ToolsContent.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/tools/ToolsContent.java",
+          "fileSHA256": "c2c8437f4d6a6e3d549399ded8763ace315417f000928707a9d8bbb57f4b94f0",
+          "line": 45,
+          "statementSHA256": "5fb8799d4b27ae70fa1b0f75d0e0060af5c89eaab4d23ec60f52531126f32eb2",
+          "statement": "register(\"cobalt_axe\", new NativeTier(400, 7.0f, 5.0f, BlockTags.INCORRECT_FOR_DIAMOND_TOOL, 5, () -> Ingredient.of(TerrainContent.COBALT.get())), (tier) -> new CobaltAxe(tier, new Item.Properties().attributes(DiggerItem.createAttributes(tier, 1.0f, -3.0f))));"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 21,
+      "sourcePath": "item/CobaltThermoblasterItem.java",
+      "registryIds": [
+        "cobalt_thermoblaster"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/weapons/ThermoblasterItem.java",
+        "src/main/java/com/hp/thermalshockreforged/content/weapons/HeldWeaponState.java",
+        "src/main/java/com/hp/thermalshockreforged/content/weapons/ThermoblasterBurstEntity.java",
+        "src/main/java/com/hp/thermalshockreforged/entity/projectile/ThermoblasterBulletBase.java",
+        "src/main/java/com/hp/thermalshockreforged/entity/projectile/ThermoblasterBulletEntity.java",
+        "src/main/java/com/hp/thermalshockreforged/entity/projectile/ThermoblasterShotgunBulletEntity.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/WeaponContent.java",
+          "fileSHA256": "28a2b47dcf439e77b86a4ba204d7b83fea7e3a161cfd834163d29668f434396f",
+          "line": 38,
+          "statementSHA256": "e3d18cfddfbc3fd2fb506ca964dbb2d185028fc7be99fad37044ff0cbfbaedc5",
+          "statement": "public static final DeferredItem<ThermoblasterItem> COBALT_THERMOBLASTER = ITEMS.register(\"cobalt_thermoblaster\", () -> new ThermoblasterItem(false));"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 22,
+      "sourcePath": "item/CocoaItem.java",
+      "registryIds": [
+        "cocoa"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/status/CocoaItem.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/status/StatusContent.java",
+          "fileSHA256": "940aaea4cc50d31ec2178c3b0c88e9dd07143bc49fc988414a98f0708e490c1b",
+          "line": 29,
+          "statementSHA256": "a4bd68cc92f63b591e5e3d9fa125a9f758a65b4e051a1c3dcf7e2f41b72c564c",
+          "statement": "public static final DeferredItem<Item> COCOA = ITEMS.register(\"cocoa\", CocoaItem::new);"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 23,
+      "sourcePath": "item/CompressedSpringslimeItem.java",
+      "registryIds": [
+        "compressed_springslime"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/entity/springslime/CompressedSpringslimeItem.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/springslime/SpringslimeContent.java",
+          "fileSHA256": "be8cc75966d998c56a0d25375e8bce8ac1a364297aad39c89bfb3cbdfd4ee39f",
+          "line": 17,
+          "statementSHA256": "ceb88e725bbbc33b8a54df50c5e603ac852a2171a6a92fef340f62e2589d0a67",
+          "statement": "public static final DeferredItem<Item> COMPRESSED = ITEMS.register(\"compressed_springslime\", CompressedSpringslimeItem::new);"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 24,
+      "sourcePath": "item/CoreEjectFlareGunItem.java",
+      "registryIds": [
+        "core_eject_flare_gun"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/weapons/CoreEjectFlareGunItem.java",
+        "src/main/java/com/hp/thermalshockreforged/content/weapons/HeldWeaponState.java",
+        "src/main/java/com/hp/thermalshockreforged/content/weapons/FlareGunCycleEntity.java",
+        "src/main/java/com/hp/thermalshockreforged/entity/projectile/FlareBulletEntity.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/WeaponContent.java",
+          "fileSHA256": "28a2b47dcf439e77b86a4ba204d7b83fea7e3a161cfd834163d29668f434396f",
+          "line": 30,
+          "statementSHA256": "361eea352a0dfece92d347bee956ff5d86155ab362cd63fc61d023f5c0c97b25",
+          "statement": "public static final DeferredItem<CoreEjectFlareGunItem> CORE_EJECT_FLARE_GUN = ITEMS.register(\"core_eject_flare_gun\", CoreEjectFlareGunItem::new);"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 25,
+      "sourcePath": "item/DevDeletorItem.java",
+      "registryIds": [
+        "dev_deletor"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/remainingutility/DevCharacterToolItem.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/remainingutility/RemainingUtilityContent.java",
+          "fileSHA256": "8cd50df03abe9d65321dac7b29a32e6c860662269c718fc00bc24a573a725070",
+          "line": 14,
+          "statementSHA256": "7b43421c5edc89ad9d39c60b7df9dfde6b102108a825bc4a6a06f1bc56aa93d5",
+          "statement": "public static final DeferredItem<DevCharacterToolItem> DEV_DELETOR = ITEMS.register(\"dev_deletor\", () -> new DevCharacterToolItem(true));"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 26,
+      "sourcePath": "item/DevRotatorItem.java",
+      "registryIds": [
+        "dev_rotator"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/remainingutility/DevCharacterToolItem.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/remainingutility/RemainingUtilityContent.java",
+          "fileSHA256": "8cd50df03abe9d65321dac7b29a32e6c860662269c718fc00bc24a573a725070",
+          "line": 15,
+          "statementSHA256": "3d82a269793313bd684a777927e8f31b5cc46d699261a243213122a4e56dd9c5",
+          "statement": "public static final DeferredItem<DevCharacterToolItem> DEV_ROTATOR = ITEMS.register(\"dev_rotator\", () -> new DevCharacterToolItem(false));"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 27,
+      "sourcePath": "item/EXpolarCameraItem.java",
+      "registryIds": [
+        "e_xpolar_camera"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/camera/CameraItem.java",
+        "src/main/java/com/hp/thermalshockreforged/content/camera/CameraCatalog.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/camera/CameraContent.java",
+          "fileSHA256": "c64fc670aea1c13c6af1b05cfb03402c1e73b30b45d3e1913bf8781405cee375",
+          "line": 12,
+          "statementSHA256": "2f60f1769390095322c736a3f9ef16f7953ca3aab4854ad3ca33cc9c52435288",
+          "statement": "public static final DeferredItem<CameraItem> CAMERA = ITEMS.register(\"e_xpolar_camera\", () -> new CameraItem(true));"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 28,
+      "sourcePath": "item/EnderTentacleItem.java",
+      "registryIds": [
+        "ender_tentacle"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/EnderTentacleItem.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabContent.java",
+          "fileSHA256": "40ee86d8134d47f806bd40f840a8f38a2b0ac70fa7bc5c1ece649e9050183b8d",
+          "line": 44,
+          "statementSHA256": "c05d1f6bb0123494771c84e247fb9720abf9cc9c1698f1e5593b5035fa07270b",
+          "statement": "public static final DeferredItem<EnderTentacleItem> ENDER_TENTACLE = ITEMS.register(\"ender_tentacle\", EnderTentacleItem::new);"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 29,
+      "sourcePath": "item/FireBombItem.java",
+      "registryIds": [
+        "fire_bomb"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/entity/sanctum/FireBombItem.java",
+        "src/main/java/com/hp/thermalshockreforged/entity/sanctum/FireBombActivationEntity.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/sanctum/SanctumContent.java",
+          "fileSHA256": "7a1632467179892480213eeab6f2d75d22d5b4312d2d0abfad31ea3074c0b58f",
+          "line": 24,
+          "statementSHA256": "55e35e54c29191ecf08e66924c5c17b7ea9dbdc768e2cbd6298e5c0c40f1d5ac",
+          "statement": "public static final DeferredItem<FireBombItem> FIRE_BOMB = ITEMS.register(\"fire_bomb\", FireBombItem::new);"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 30,
+      "sourcePath": "item/FlintsteelRifleItem.java",
+      "registryIds": [
+        "flintsteel_rifle"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/weapons/FirearmItem.java",
+        "src/main/java/com/hp/thermalshockreforged/content/weapons/RifleCycleSoundEntity.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/WeaponContent.java",
+          "fileSHA256": "28a2b47dcf439e77b86a4ba204d7b83fea7e3a161cfd834163d29668f434396f",
+          "line": 51,
+          "statementSHA256": "93e5df5cf8d273164124498c6916bcddc37ff15322ce180aa770e6b621a4bc75",
+          "statement": "public static final DeferredItem<FirearmItem> FLINTSTEEL_RIFLE = ITEMS.register(\"flintsteel_rifle\", () -> new FirearmItem(false));"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 31,
+      "sourcePath": "item/FlowerBombItem.java",
+      "registryIds": [
+        "flower_bomb"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/remainingcombat/BombItem.java",
+        "src/main/java/com/hp/thermalshockreforged/content/remainingcombat/CombatItemTaskEntity.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/remainingcombat/RemainingCombatContent.java",
+          "fileSHA256": "b6d193642d00821c04764297356cc41f81496f3401963d78cd27a0f6101b38be",
+          "line": 32,
+          "statementSHA256": "6175856e6eabc25152181970b8db418662f090f7c5040d31ecce53cabe123aad",
+          "statement": "public static final DeferredItem<BombItem> FLOWER_BOMB = ITEMS.register(\"flower_bomb\", () -> new BombItem(false));"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 32,
+      "sourcePath": "item/GhostglassPickItem.java",
+      "registryIds": [
+        "ghostglass_pick"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/tools/GhostglassPickItem.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/tools/ToolsContent.java",
+          "fileSHA256": "c2c8437f4d6a6e3d549399ded8763ace315417f000928707a9d8bbb57f4b94f0",
+          "line": 40,
+          "statementSHA256": "32a5a3fb4b3f63af7013be3eacd0bc165c3369f1154018ed10d058f6140070ed",
+          "statement": "register(\"ghostglass_pick\", new NativeTier(422, 29, 0, BlockTags.INCORRECT_FOR_IRON_TOOL, 19, () -> Ingredient.of(MaterialContent.items().get(\"malachite\").get())), tier -> new GhostglassPickItem(tier, new Item.Properties().attributes(DiggerItem.createAttributes(tier, 1, -2.8F))));"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 33,
+      "sourcePath": "item/GhostglassSwordItem.java",
+      "registryIds": [
+        "ghostglass_sword"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/tools/GhostglassSwordItem.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/tools/ToolsContent.java",
+          "fileSHA256": "c2c8437f4d6a6e3d549399ded8763ace315417f000928707a9d8bbb57f4b94f0",
+          "line": 30,
+          "statementSHA256": "b814654b150254cd5c1c449fa6db5d72f38a38564f2a41f880ef993d9978e92b",
+          "statement": "register(\"ghostglass_sword\", new NativeTier(500, 10, -1.5F, BlockTags.INCORRECT_FOR_IRON_TOOL, 19, () -> Ingredient.of(MaterialContent.items().get(\"malachite\").get())), tier -> new GhostglassSwordItem(tier, new Item.Properties().attributes(SwordItem.createAttributes(tier, 3, 2))));"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 34,
+      "sourcePath": "item/HPSMItem.java",
+      "registryIds": [
+        "hpsm"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/remainingutility/SnowMelterItem.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/remainingutility/RemainingUtilityContent.java",
+          "fileSHA256": "8cd50df03abe9d65321dac7b29a32e6c860662269c718fc00bc24a573a725070",
+          "line": 16,
+          "statementSHA256": "712b6f10cb023c26856115dc4ac9843c654422dc407a2d2751d82678391fa66e",
+          "statement": "public static final DeferredItem<SnowMelterItem> HPSM = ITEMS.register(\"hpsm\", SnowMelterItem::new);"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 35,
+      "sourcePath": "item/HailfallItem.java",
+      "registryIds": [
+        "hailfall"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/weapons/FirearmItem.java",
+        "src/main/java/com/hp/thermalshockreforged/content/weapons/RifleCycleSoundEntity.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/WeaponContent.java",
+          "fileSHA256": "28a2b47dcf439e77b86a4ba204d7b83fea7e3a161cfd834163d29668f434396f",
+          "line": 52,
+          "statementSHA256": "72b8682ae17a1e91fa3860e67ce028980ec116045eeb50af73b2470eb9b8719c",
+          "statement": "public static final DeferredItem<FirearmItem> HAILFALL = ITEMS.register(\"hailfall\", () -> new FirearmItem(true));"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 36,
+      "sourcePath": "item/HeartCrystalItem.java",
+      "registryIds": [
+        "heart_crystal"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/HeartCrystalItem.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+          "fileSHA256": "1d6518d8cc39102c5850164eaf5cc09f6e9d2f7f78efbd10aca00f2494c8ed52",
+          "line": 33,
+          "statementSHA256": "3f470b9d860a2b67573678fed64f10dd55f6b2b67d28f55850f96bbf74c66a59",
+          "statement": "item(\"heart_crystal\", () -> new HeartCrystalItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 37,
+      "sourcePath": "item/HiVoltLanceItem.java",
+      "registryIds": [
+        "hi_volt_lance"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/weapons/SpearItem.java",
+        "src/main/java/com/hp/thermalshockreforged/content/weapons/HeldWeaponState.java",
+        "src/main/java/com/hp/thermalshockreforged/content/weapons/HiVoltPulseEntity.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/WeaponContent.java",
+          "fileSHA256": "28a2b47dcf439e77b86a4ba204d7b83fea7e3a161cfd834163d29668f434396f",
+          "line": 58,
+          "statementSHA256": "894a22fc1f6ed78aee5fa7e3c69db49c3b24cf55354913269bfb1e649a0357fb",
+          "statement": "public static final DeferredItem<SpearItem> HI_VOLT_LANCE = ITEMS.register(\"hi_volt_lance\", () -> new SpearItem(SpearItem.Kind.HI_VOLT));"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 38,
+      "sourcePath": "item/IceArtifactItem.java",
+      "registryIds": [
+        "ice_artifact"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/entity/qo/IceArtifactItem.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/qo/QoContent.java",
+          "fileSHA256": "def8c7c5743022f794753c94026a3bd9601d683c29836f9d9d2060cbf54cb79a",
+          "line": 28,
+          "statementSHA256": "25ecc96d3c58c54fe4efb5914b8044088a542fdd5a7cadd849ea0e7b9716ac95",
+          "statement": "public static final DeferredItem<IceArtifactItem> ICE_ARTIFACT = ITEMS.register(\"ice_artifact\", IceArtifactItem::new);"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 39,
+      "sourcePath": "item/IceBombItem.java",
+      "registryIds": [
+        "ice_bomb"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/remainingcombat/BombItem.java",
+        "src/main/java/com/hp/thermalshockreforged/content/remainingcombat/CombatItemTaskEntity.java",
+        "src/main/java/com/hp/thermalshockreforged/content/remainingcombat/RemainingCombatState.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/remainingcombat/RemainingCombatContent.java",
+          "fileSHA256": "b6d193642d00821c04764297356cc41f81496f3401963d78cd27a0f6101b38be",
+          "line": 33,
+          "statementSHA256": "4d0ada94492ac0e029f6652473e20073572a29073c6dd79b922bbfb409ee1e5e",
+          "statement": "public static final DeferredItem<BombItem> ICE_BOMB = ITEMS.register(\"ice_bomb\", () -> new BombItem(true));"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 40,
+      "sourcePath": "item/IgnitionDetectorItem.java",
+      "registryIds": [
+        "ignition_detector"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/remainingutility/IgnitionDetectorItem.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/remainingutility/RemainingUtilityContent.java",
+          "fileSHA256": "8cd50df03abe9d65321dac7b29a32e6c860662269c718fc00bc24a573a725070",
+          "line": 17,
+          "statementSHA256": "a4d5a92c93da0a54520ff81675768fb6bb49ef97570c9659c015d1711aff20fc",
+          "statement": "public static final DeferredItem<IgnitionDetectorItem> IGNITION_DETECTOR = ITEMS.register(\"ignition_detector\", IgnitionDetectorItem::new);"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 41,
+      "sourcePath": "item/JellyPickItem.java",
+      "registryIds": [
+        "jelly_pick"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/ClimbingPickItem.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabContent.java",
+          "fileSHA256": "40ee86d8134d47f806bd40f840a8f38a2b0ac70fa7bc5c1ece649e9050183b8d",
+          "line": 46,
+          "statementSHA256": "649106b2c5d5f21b851cd895b1734eef6f0ba59d2b2c56d835aa845b23b25761",
+          "statement": "public static final DeferredItem<ClimbingPickItem> JELLY_PICK = ITEMS.register(\"jelly_pick\", () -> new ClimbingPickItem(true));"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 42,
+      "sourcePath": "item/JellyUmbrellaItem.java",
+      "registryIds": [
+        "jelly_umbrella"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/remainingcombat/UmbrellaItem.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/remainingcombat/RemainingCombatContent.java",
+          "fileSHA256": "b6d193642d00821c04764297356cc41f81496f3401963d78cd27a0f6101b38be",
+          "line": 34,
+          "statementSHA256": "c0a4d40507c94f57b63b935b15c6aa7b084420ce507c219e0ad8a69597845689",
+          "statement": "public static final DeferredItem<UmbrellaItem> JELLY_UMBRELLA = ITEMS.register(\"jelly_umbrella\", () -> new UmbrellaItem(false));"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 43,
+      "sourcePath": "item/KeystoneItem.java",
+      "registryIds": [
+        "keystone"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/atlas/KeystoneItem.java",
+        "src/main/java/com/hp/thermalshockreforged/content/atlas/AtlasActivationEntity.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/atlas/AtlasContent.java",
+          "fileSHA256": "56e58161722760956a8361da15bee7ef466b1431eacb66d7759d294526e8af02",
+          "line": 21,
+          "statementSHA256": "a0b5e0146ec923f4882da578435c12a66f7b2f9fa3baa2e3539356ce64dc8cae",
+          "statement": "public static final DeferredItem<Item> KEYSTONE = ITEMS.register(\"keystone\", KeystoneItem::new);"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 44,
+      "sourcePath": "item/KnightsEdgeItem.java",
+      "registryIds": [
+        "knights_edge"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/weapons/ElementalBladeItem.java",
+        "src/main/java/com/hp/thermalshockreforged/content/weapons/BladeImpactEntity.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/WeaponContent.java",
+          "fileSHA256": "28a2b47dcf439e77b86a4ba204d7b83fea7e3a161cfd834163d29668f434396f",
+          "line": 43,
+          "statementSHA256": "0ebeec578e12dc922ed7da99930357641827c6d046ed27ff40462ef9fce72ac7",
+          "statement": "public static final DeferredItem<ElementalBladeItem> KNIGHTS_EDGE = ITEMS.register(\"knights_edge\", () -> new ElementalBladeItem(ElementalBladeItem.Kind.KNIGHTS_EDGE));"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 45,
+      "sourcePath": "item/LeafItToMeLootBundleItem.java",
+      "registryIds": [
+        "leaf_it_to_me_loot_bundle"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/camera/QuestLootBundleItem.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/camera/CameraContent.java",
+          "fileSHA256": "c64fc670aea1c13c6af1b05cfb03402c1e73b30b45d3e1913bf8781405cee375",
+          "line": 14,
+          "statementSHA256": "d102c947bfc8f08ae799d37ff60c24cc8d5a9107db251dda482a9feb039df4e0",
+          "statement": "public static final DeferredItem<QuestLootBundleItem> BUNDLE = ITEMS.register(\"leaf_it_to_me_loot_bundle\", QuestLootBundleItem::new);"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 46,
+      "sourcePath": "item/LeafcutterItem.java",
+      "registryIds": [
+        "leafcutter"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/npc/florist/LeafcutterItem.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/npc/florist/FloristContent.java",
+          "fileSHA256": "566daf4f4dbc06c8a2db9f462d9dfab250ff96e7e4f3cf461665f4049d0f0e60",
+          "line": 29,
+          "statementSHA256": "f49ac8925cfc0bcf9203c49f7f91d943542d233d04cc9d54c23224c823fb987c",
+          "statement": "ITEMS.register(\"leafcutter\", LeafcutterItem::new);"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 47,
+      "sourcePath": "item/LegendaryJellyUmbrellaItem.java",
+      "registryIds": [
+        "legendary_jelly_umbrella"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/remainingcombat/UmbrellaItem.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/remainingcombat/RemainingCombatContent.java",
+          "fileSHA256": "b6d193642d00821c04764297356cc41f81496f3401963d78cd27a0f6101b38be",
+          "line": 35,
+          "statementSHA256": "9ed91cbc0c4a69e121509121e6c3ea6b7e51e65f6e4b8136a34d0a230d59536d",
+          "statement": "public static final DeferredItem<UmbrellaItem> LEGENDARY_JELLY_UMBRELLA = ITEMS.register(\"legendary_jelly_umbrella\", () -> new UmbrellaItem(true));"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 48,
+      "sourcePath": "item/LiteprismLaserItem.java",
+      "registryIds": [
+        "liteprism_laser"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/weapons/LiteprismLaserItem.java",
+        "src/main/java/com/hp/thermalshockreforged/content/weapons/HeldWeaponState.java",
+        "src/main/java/com/hp/thermalshockreforged/entity/projectile/LiteprismBeamEntity.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/WeaponContent.java",
+          "fileSHA256": "28a2b47dcf439e77b86a4ba204d7b83fea7e3a161cfd834163d29668f434396f",
+          "line": 29,
+          "statementSHA256": "289459b9baaa292f43e888767e4df0b4a60f610187293d5ed3eb27ab63279f28",
+          "statement": "public static final DeferredItem<LiteprismLaserItem> LITEPRISM_LASER = ITEMS.register(\"liteprism_laser\", LiteprismLaserItem::new);"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 49,
+      "sourcePath": "item/LiteprismSwordItem.java",
+      "registryIds": [
+        "liteprism_sword"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/weapons/LiteprismSwordItem.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/WeaponContent.java",
+          "fileSHA256": "28a2b47dcf439e77b86a4ba204d7b83fea7e3a161cfd834163d29668f434396f",
+          "line": 23,
+          "statementSHA256": "31c328ce873d75e028728df356712d59b17a10911fe17b829411b068cdaac86c",
+          "statement": "public static final DeferredItem<LiteprismSwordItem> LITEPRISM_SWORD = ITEMS.register(\"liteprism_sword\", LiteprismSwordItem::new);"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 50,
+      "sourcePath": "item/LoquesicleItem.java",
+      "registryIds": [
+        "loquesicle"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/utility/UtilityContent.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/utility/UtilityContent.java",
+          "fileSHA256": "7f2a7b66e1187aba2013bcc80063ce75ab9e9a4bca2219cbfd9aba9d6968d2b3",
+          "line": 26,
+          "statementSHA256": "183f41b5e97494fec7ce2eb133096f1ba0eb52f65f13cd6b35f1292b6cc4baac",
+          "statement": "public static final DeferredItem<Item> LOQUESICLE = ITEMS.register(\"loquesicle\", () -> new NourishingFoodItem(UseAnim.EAT));"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 51,
+      "sourcePath": "item/LuckTicketItem.java",
+      "registryIds": [
+        "luck_ticket"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/utility/UtilityContent.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/utility/UtilityContent.java",
+          "fileSHA256": "7f2a7b66e1187aba2013bcc80063ce75ab9e9a4bca2219cbfd9aba9d6968d2b3",
+          "line": 29,
+          "statementSHA256": "a195ab6708854e34ad5ad395fa5bf9de7f57adee0636a87cd8609886e12ad9f5",
+          "statement": "public static final DeferredItem<Item> LUCK_TICKET = ITEMS.register(\"luck_ticket\", () -> new NourishingFoodItem(UseAnim.EAT));"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 52,
+      "sourcePath": "item/MagneticCrossbowItem.java",
+      "registryIds": [
+        "magnetic_crossbow"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/weapons/MagneticCrossbowItem.java",
+        "src/main/java/com/hp/thermalshockreforged/content/weapons/HeldWeaponState.java",
+        "src/main/java/com/hp/thermalshockreforged/content/weapons/MagneticCycleSoundEntity.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/WeaponContent.java",
+          "fileSHA256": "28a2b47dcf439e77b86a4ba204d7b83fea7e3a161cfd834163d29668f434396f",
+          "line": 45,
+          "statementSHA256": "43f3af58fe367d52be07d919afc3097b9e0d861a2b2ef6ffe0c6d28e7621c9bc",
+          "statement": "public static final DeferredItem<MagneticCrossbowItem> MAGNETIC_CROSSBOW = ITEMS.register(\"magnetic_crossbow\", () -> new MagneticCrossbowItem());"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 53,
+      "sourcePath": "item/MicroDomeItem.java",
+      "registryIds": [
+        "micro_dome"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/remainingutility/FixedStructureItem.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/remainingutility/RemainingUtilityContent.java",
+          "fileSHA256": "8cd50df03abe9d65321dac7b29a32e6c860662269c718fc00bc24a573a725070",
+          "line": 18,
+          "statementSHA256": "e5986ddfb012a7ffde1d38e617079ea01971f8cdbf50d8356eebd9562146af05",
+          "statement": "public static final DeferredItem<FixedStructureItem> MICRO_DOME = ITEMS.register(\"micro_dome\", () -> new FixedStructureItem(\"shalespring_august\", true));"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    },
+    {
+      "ordinal": 54,
+      "sourcePath": "item/ModelTrainItem.java",
+      "registryIds": [
+        "model_train"
+      ],
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/remainingutility/FixedStructureItem.java"
+      ],
+      "declarations": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/remainingutility/RemainingUtilityContent.java",
+          "fileSHA256": "8cd50df03abe9d65321dac7b29a32e6c860662269c718fc00bc24a573a725070",
+          "line": 19,
+          "statementSHA256": "9cc5d875e41f790728e90d410436689707c401dcb95cec3bba57f0896f3c2698",
+          "statement": "public static final DeferredItem<FixedStructureItem> MODEL_TRAIN = ITEMS.register(\"model_train\", () -> new FixedStructureItem(\"shalespring_trainstation\", false));"
+        }
+      ],
+      "status": "注册语句存证；与矩阵真实构造/回调结合审读，不凭名称视为功能覆盖"
+    }
+  ],
+  "limitations": [
+    "只取register/item真实调用首参数的精确ID，保留构造/方法引用语句全文，仍须结合矩阵回调",
+    "共享注册文件只读，未修改注册"
+  ]
+}

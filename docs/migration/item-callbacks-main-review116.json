@@ -1,0 +1,37 @@
+{
+  "batch": 116,
+  "lane": "main",
+  "baseCommit": "1cabc413ee2ab063ac1fc8357323e120484cf8cc",
+  "scope": {
+    "mainRoots": 26,
+    "mainActualCallbackCalls": 46,
+    "mainTransitiveProcedures": 38,
+    "parallelRoots": 54,
+    "parallelActualCallbackCalls": 82,
+    "parallelTransitiveProcedures": 60,
+    "totalRoots": 80,
+    "totalActualCallbackCalls": 128
+  },
+  "staticReview": {
+    "rootMappingsReviewed": true,
+    "boneSwordShortReachMerge": "fixed",
+    "thingamabobDeploymentTiming": "ServerEndTickTasks",
+    "panacea": "self-effect result retained; original iterator wrote to consumer",
+    "pesticide": "consumes the actually used hand stack",
+    "rawTorpedo": "owner attack scaling retained as approved migration difference",
+    "rubySpearSwingCooldown": 21,
+    "sickleNoKnockback": "native attack-knockback attribute correction retained",
+    "knownRuntimeOnlyChecks": [
+      "Uneasy Alliance server sound visibility",
+      "all item callbacks in a live client/server world"
+    ]
+  },
+  "validation": {
+    "compileJavaBeforeFinalBuild": "passed",
+    "finalUnifiedBuild": "passed; Java21 offline compileJava processResources; 24 tasks up-to-date; logSha256=091535B9E949BD41D4899619834750D1984D25DFE6F9F426C6B3FAFF5DF35A14",
+    "clientTest": "deferred until full migration",
+    "serverTest": "owned by separate user test chat",
+    "gameStarted": false
+  },
+  "status": "batch116 production, static review and unified build complete; local commit pending"
+}

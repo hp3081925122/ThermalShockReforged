@@ -1,0 +1,1227 @@
+{
+  "batch": 116,
+  "baseCommit": "1cabc413ee2ab063ac1fc8357323e120484cf8cc",
+  "inventoryRawSha256": "a462f72ee6ffd538d148c15776e235377406bda40fd73d0dd32c81816e6567a3",
+  "partition": "item unique sourcePath case-sensitive ordinal sort; first54 A, last26 main; multi-callback class never split",
+  "counts": {
+    "all": 80,
+    "A": 54,
+    "main": 26,
+    "actualDirectCalls": 128
+  },
+  "entries": [
+    {
+      "ordinal": 1,
+      "lane": "A",
+      "sourcePath": "item/AmaljellyCanisterItem.java",
+      "sourceSHA256": "427580b69aa03fe367a2329aaf6337e047fc6861421533b29bb471db43f8fb1b",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "AmaljellyCanisterRightclickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 2,
+      "lane": "A",
+      "sourcePath": "item/AngryCavebloomerBossBoxItem.java",
+      "sourceSHA256": "e38f75adc4d1775b6ba1f396c42ea0daeb064ed935325a22133aac1be5adaf6d",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "CavebloomerBossBoxOpenProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 3,
+      "lane": "A",
+      "sourcePath": "item/AntitoxinItem.java",
+      "sourceSHA256": "55d863ba5c79800f595dde7dc41974ac58f50da63d871e2c278e3eab26db49c7",
+      "candidateCallbacks": [
+        "finishUsingItem"
+      ],
+      "procedures": [
+        "AntitoxinPlayerFinishesUsingItemProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 4,
+      "lane": "A",
+      "sourcePath": "item/BlindingLanternItem.java",
+      "sourceSHA256": "e284890b4baad50483deddeee27351502f46f5cf7394d71feda655287771023c",
+      "candidateCallbacks": [
+        "inventoryTick",
+        "onEntitySwing"
+      ],
+      "procedures": [
+        "BlindingLanternRightclickedProcedure",
+        "CoreEjectFlareGunItemInHandTickProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 5,
+      "lane": "A",
+      "sourcePath": "item/BloodPopItem.java",
+      "sourceSHA256": "081968586cf897d57178f8e7c806cb0382fd43413b61be12a0699467e039f681",
+      "candidateCallbacks": [
+        "finishUsingItem"
+      ],
+      "procedures": [
+        "SnowdaePlayerFinishesUsingItemProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 6,
+      "lane": "A",
+      "sourcePath": "item/BloodstoneHalberdItem.java",
+      "sourceSHA256": "f9d03ec72f719094cdcb5378c01897d0df3d3ed15886f11850e1da94cbd9ccf1",
+      "candidateCallbacks": [
+        "hurtEnemy",
+        "inventoryTick",
+        "onEntitySwing",
+        "use"
+      ],
+      "procedures": [
+        "BloodHalberdSwingProcedure",
+        "BloodstoneHalberdRightClickedProcedure",
+        "RubySpearItemInHandTickProcedure",
+        "RubySpearLivingEntityIsHitWithItemProcedure"
+      ],
+      "callOccurrences": 4,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 7,
+      "lane": "A",
+      "sourcePath": "item/BloodstoneSickleItem.java",
+      "sourceSHA256": "2654bdc74765fee0ad51c3e3262e42fe41e2789527426646c566713dda3e2e7e",
+      "candidateCallbacks": [
+        "hurtEnemy",
+        "inventoryTick"
+      ],
+      "procedures": [
+        "RubySickleToolInHandTickProcedure",
+        "SickleHitsEntityProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 8,
+      "lane": "A",
+      "sourcePath": "item/BoneSwordItem.java",
+      "sourceSHA256": "e87be293f6764bf052ad03b0b85f818942b3b5562cf7745473942e928846247c",
+      "candidateCallbacks": [
+        "inventoryTick"
+      ],
+      "procedures": [
+        "BoneswordTickProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 9,
+      "lane": "A",
+      "sourcePath": "item/BottledPixieItem.java",
+      "sourceSHA256": "7995f001f69f9d2193819e1577ae4be73a8d8c88f430174fe641de042d191169",
+      "candidateCallbacks": [
+        "releaseUsing"
+      ],
+      "procedures": [
+        "BottledPixieRangedItemShootsProjectileProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 10,
+      "lane": "A",
+      "sourcePath": "item/BucketOfSiibolItem.java",
+      "sourceSHA256": "05f011a45a92198b702f29ad89235e53d43a9231efc05a345656c78857d522d4",
+      "candidateCallbacks": [
+        "useOn"
+      ],
+      "procedures": [
+        "BucketOfSiibolRightclickedOnBlockProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 11,
+      "lane": "A",
+      "sourcePath": "item/BuzzsawItem.java",
+      "sourceSHA256": "ea47c75e763350bd8710b0a0d271148aaafbfabdaf8e3410623f9acc8d8dd3d3",
+      "candidateCallbacks": [
+        "inventoryTick",
+        "onEntitySwing"
+      ],
+      "procedures": [
+        "BuzzsawFiringProcedure",
+        "CoreEjectFlareGunItemInHandTickProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 12,
+      "lane": "A",
+      "sourcePath": "item/CarborGLItem.java",
+      "sourceSHA256": "18d5a112f00502007e3b77f095832f9cbf1238306ee99f3e2438b9810e5011c5",
+      "candidateCallbacks": [
+        "inventoryTick",
+        "onEntitySwing",
+        "use"
+      ],
+      "procedures": [
+        "GrenadeLauncherFiringProcedure",
+        "HailfallItemInHandTickProcedure"
+      ],
+      "callOccurrences": 3,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 13,
+      "lane": "A",
+      "sourcePath": "item/CarborundumHalberdItem.java",
+      "sourceSHA256": "9730966f32d30b6e167d09a5188d64bad1688223f90d34f5ebe716cefc019563",
+      "candidateCallbacks": [
+        "hurtEnemy",
+        "inventoryTick",
+        "onEntitySwing",
+        "use"
+      ],
+      "procedures": [
+        "BloodHalberdSwingProcedure",
+        "BloodstoneHalberdRightClickedProcedure",
+        "RubySpearItemInHandTickProcedure",
+        "RubySpearLivingEntityIsHitWithItemProcedure"
+      ],
+      "callOccurrences": 4,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 14,
+      "lane": "A",
+      "sourcePath": "item/CarborundumSickleItem.java",
+      "sourceSHA256": "429ac0648098b592e64e3cf2279aa011ad232147b906676193be22e3ead84d6c",
+      "candidateCallbacks": [
+        "hurtEnemy",
+        "inventoryTick"
+      ],
+      "procedures": [
+        "RubySickleToolInHandTickProcedure",
+        "SickleHitsEntityProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 15,
+      "lane": "A",
+      "sourcePath": "item/CarborundumSpearItem.java",
+      "sourceSHA256": "7333b097f00e6bacf720d5c532a10847b0fa54ad67e41371cf2816c07b62ae63",
+      "candidateCallbacks": [
+        "hurtEnemy",
+        "inventoryTick",
+        "onEntitySwing",
+        "use"
+      ],
+      "procedures": [
+        "RubySpearEntitySwingsItemProcedure",
+        "RubySpearItemInHandTickProcedure",
+        "RubySpearLivingEntityIsHitWithItemProcedure",
+        "RubySpearRightclickedProcedure"
+      ],
+      "callOccurrences": 4,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 16,
+      "lane": "A",
+      "sourcePath": "item/ChalkCandyItem.java",
+      "sourceSHA256": "f7dc4e373b95c3c6f3c5eeed415ddd8006b6df7fb5679caec389f81ceb978fb5",
+      "candidateCallbacks": [
+        "finishUsingItem"
+      ],
+      "procedures": [
+        "SnowdaePlayerFinishesUsingItemProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 17,
+      "lane": "A",
+      "sourcePath": "item/ChiselItem.java",
+      "sourceSHA256": "eaffe428e9b7c6cfabe422bac8ccc5f9e57e9cfe03620a3e4691005a3745db1e",
+      "candidateCallbacks": [
+        "useOn"
+      ],
+      "procedures": [
+        "ChiselRightclickedOnBlockProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 18,
+      "lane": "A",
+      "sourcePath": "item/ClawSickleItem.java",
+      "sourceSHA256": "8b3143820848c38ef0a7f13fcab8200062be22a3f62ea6b2b5958496dae6c60e",
+      "candidateCallbacks": [
+        "hurtEnemy",
+        "inventoryTick"
+      ],
+      "procedures": [
+        "RubySickleToolInHandTickProcedure",
+        "SickleHitsEntityProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 19,
+      "lane": "A",
+      "sourcePath": "item/ClimbingPickItem.java",
+      "sourceSHA256": "8a583212b14c24b757d72586870d68bb0222a7c31de60c374eaa126ddc6accf4",
+      "candidateCallbacks": [
+        "useOn"
+      ],
+      "procedures": [
+        "ClimbingPickRightClickProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 20,
+      "lane": "A",
+      "sourcePath": "item/CobaltAxeItem.java",
+      "sourceSHA256": "e7f8e027a4dcfa95f37efc08c76d086456a8f467291fd2b65f09450511b0587b",
+      "candidateCallbacks": [
+        "useOn"
+      ],
+      "procedures": [
+        "CobaltAxeRightclickedOnBlockProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 21,
+      "lane": "A",
+      "sourcePath": "item/CobaltThermoblasterItem.java",
+      "sourceSHA256": "a21d2b66f726dca0f1037258d38b5d7843df1732e1a003c43d04dcd8bc49db5e",
+      "candidateCallbacks": [
+        "inventoryTick",
+        "onEntitySwing"
+      ],
+      "procedures": [
+        "CoreEjectFlareGunItemInHandTickProcedure",
+        "ThermoblasterEnvironProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 22,
+      "lane": "A",
+      "sourcePath": "item/CocoaItem.java",
+      "sourceSHA256": "54cfb6f525db4ba9225f92f138243c07bf4bcca0554ed35701dc19d1348d17f3",
+      "candidateCallbacks": [
+        "finishUsingItem"
+      ],
+      "procedures": [
+        "CocoaPlayerFinishesUsingItemProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 23,
+      "lane": "A",
+      "sourcePath": "item/CompressedSpringslimeItem.java",
+      "sourceSHA256": "21d5c8f4f68ce404a8e02ca2fc7d6406b21a2e5ce675f73838075e336087c32e",
+      "candidateCallbacks": [
+        "releaseUsing"
+      ],
+      "procedures": [
+        "CompressedSpringslimeRangedItemShootsProjectileProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 24,
+      "lane": "A",
+      "sourcePath": "item/CoreEjectFlareGunItem.java",
+      "sourceSHA256": "581373fd6d67c3ce7de9673a6fc7c4c5a3adbde20c58604d41a948f166e97077",
+      "candidateCallbacks": [
+        "inventoryTick",
+        "onEntitySwing",
+        "use"
+      ],
+      "procedures": [
+        "CEFGAltFiringProcedure",
+        "CEFGFiringProcedure",
+        "CoreEjectFlareGunItemInHandTickProcedure"
+      ],
+      "callOccurrences": 3,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 25,
+      "lane": "A",
+      "sourcePath": "item/DevDeletorItem.java",
+      "sourceSHA256": "51cfab654f93e0c395567eb047582b04caf011eeca0a4a0480b4a3a1a094a4ae",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "DevDeletorRightclickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 26,
+      "lane": "A",
+      "sourcePath": "item/DevRotatorItem.java",
+      "sourceSHA256": "3798502af9cf27cb8cafdb0ebcc1c9ddbab42abd7844e2a86b88d27eb0c0c7a1",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "DevRotatorRightclickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 27,
+      "lane": "A",
+      "sourcePath": "item/EXpolarCameraItem.java",
+      "sourceSHA256": "a6f3d6103692991c875a3ed292ce81ebd763bed6e49dd55808c3c36b97b735e4",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "WideAngleRightclickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 28,
+      "lane": "A",
+      "sourcePath": "item/EnderTentacleItem.java",
+      "sourceSHA256": "f5d300f99ba56fbc752d223b0bec0ab9d392713c3f91bb0f8d673d3645baffb0",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "EnderTentacleRightclickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 29,
+      "lane": "A",
+      "sourcePath": "item/FireBombItem.java",
+      "sourceSHA256": "3cdfb2b04d2550e1f6ed195b21a26e0949e90fca0a7c1fbf92babb019200a1a3",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "FireBombPlayerFinishesUsingItemProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 30,
+      "lane": "A",
+      "sourcePath": "item/FlintsteelRifleItem.java",
+      "sourceSHA256": "fbd249cde4c6cf4a7bf7128d22cf9f070990ad9d0bc896e19bfd100dd2ff007e",
+      "candidateCallbacks": [
+        "inventoryTick",
+        "onEntitySwing"
+      ],
+      "procedures": [
+        "CoreEjectFlareGunItemInHandTickProcedure",
+        "FlintsteelFiringProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 31,
+      "lane": "A",
+      "sourcePath": "item/FlowerBombItem.java",
+      "sourceSHA256": "5364c89a4d30f9e3cfdc7d985dc4103ec7f7352ca2e519f8609385804c440c5c",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "FlowerBombUseProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 32,
+      "lane": "A",
+      "sourcePath": "item/GhostglassPickItem.java",
+      "sourceSHA256": "c04f5ba8824eb93239ebb48894e6c1b467575d40dbea626ec454b5d5da471f82",
+      "candidateCallbacks": [
+        "useOn"
+      ],
+      "procedures": [
+        "ClimbingPickRightClickProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 33,
+      "lane": "A",
+      "sourcePath": "item/GhostglassSwordItem.java",
+      "sourceSHA256": "81c7a94f1b11d7dc3b5897c459e262c243e8db3d5ef4c71e46a49fcdd18d6133",
+      "candidateCallbacks": [
+        "onEntitySwing"
+      ],
+      "procedures": [
+        "GhostglassSwordEntitySwingsItemProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 34,
+      "lane": "A",
+      "sourcePath": "item/HPSMItem.java",
+      "sourceSHA256": "451da78b0f7d3c4fb84eef2c0efcbc187319523066391bfddce5b6ab874034c1",
+      "candidateCallbacks": [
+        "useOn"
+      ],
+      "procedures": [
+        "HPSMRightclickedOnBlockProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 35,
+      "lane": "A",
+      "sourcePath": "item/HailfallItem.java",
+      "sourceSHA256": "dda2943f34c34418582bcfbfb9b6a0f90d21c56fa0c6547a8abcd1d0456232bc",
+      "candidateCallbacks": [
+        "inventoryTick",
+        "onEntitySwing",
+        "use"
+      ],
+      "procedures": [
+        "HailfallFiringProcedure",
+        "HailfallItemInHandTickProcedure"
+      ],
+      "callOccurrences": 3,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 36,
+      "lane": "A",
+      "sourcePath": "item/HeartCrystalItem.java",
+      "sourceSHA256": "c157d134207a49769b4dba6afc2075e107c2ce2184a970467307f2b506007a96",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "HeartCrystalRightclickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 37,
+      "lane": "A",
+      "sourcePath": "item/HiVoltLanceItem.java",
+      "sourceSHA256": "0ecad06b04f5afc857771ead11e73d86e050729df8b101da80ac7dd9b9fc4f47",
+      "candidateCallbacks": [
+        "hurtEnemy",
+        "inventoryTick",
+        "onEntitySwing",
+        "use"
+      ],
+      "procedures": [
+        "HiVoltLanceRightclickedProcedure",
+        "HiVoltLanceSwingProcedure",
+        "RubySpearItemInHandTickProcedure",
+        "RubySpearLivingEntityIsHitWithItemProcedure"
+      ],
+      "callOccurrences": 4,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 38,
+      "lane": "A",
+      "sourcePath": "item/IceArtifactItem.java",
+      "sourceSHA256": "2e3d74cf3868de5d07c939ae87fc17289314c0b1bbc0ca4693d69bd82a1d2901",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "IceArtifactRightclickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 39,
+      "lane": "A",
+      "sourcePath": "item/IceBombItem.java",
+      "sourceSHA256": "6252968747416c46e8452a168ca3bb08c6f3ab81c5421e811fdb8907b934ea1c",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "IceBombPlayerFinishesUsingItemProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 40,
+      "lane": "A",
+      "sourcePath": "item/IgnitionDetectorItem.java",
+      "sourceSHA256": "532a3e05f76725eb05f7e26998754bb9668299c98f8a840e27168f03b3b01677",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "IgnitionDetectorRightclickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 41,
+      "lane": "A",
+      "sourcePath": "item/JellyPickItem.java",
+      "sourceSHA256": "f5daa6bc6cd350b324fcc2bfbeab1560774756779f65108c17f1efe7dc36e934",
+      "candidateCallbacks": [
+        "useOn"
+      ],
+      "procedures": [
+        "JellyPickRightClickProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 42,
+      "lane": "A",
+      "sourcePath": "item/JellyUmbrellaItem.java",
+      "sourceSHA256": "fceff9dc0cd97afefb40c93950e7be6e8324a937cd807836dd14bacc86c0bfa4",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "JellyUmbrellaRightclickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 43,
+      "lane": "A",
+      "sourcePath": "item/KeystoneItem.java",
+      "sourceSHA256": "4e4c7efebe691a4968bdab3ed7753ec7203e7446c45d1d2f1e60e904135ddb83",
+      "candidateCallbacks": [
+        "useOn"
+      ],
+      "procedures": [
+        "KeystoneRightclickedOnBlockProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 44,
+      "lane": "A",
+      "sourcePath": "item/KnightsEdgeItem.java",
+      "sourceSHA256": "a886d68d95639b26eeaa9a27bfedc0b0f1b8b1676ecf628391f584c70168dc4f",
+      "candidateCallbacks": [
+        "hurtEnemy",
+        "use"
+      ],
+      "procedures": [
+        "KnightsEdgeLivingEntityIsHitWithToolProcedure",
+        "KnightsEdgeRightclickedProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 45,
+      "lane": "A",
+      "sourcePath": "item/LeafItToMeLootBundleItem.java",
+      "sourceSHA256": "e56f94e86a4825d231cee27e297471ace72f22befed56f9d366914516525c608",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "LeafItToMeeLootBundleOpenProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 46,
+      "lane": "A",
+      "sourcePath": "item/LeafcutterItem.java",
+      "sourceSHA256": "f5b939064c1e2fef125937501cde44182e913a4b87008d42e9de6aa55eededd6",
+      "candidateCallbacks": [
+        "mineBlock"
+      ],
+      "procedures": [
+        "LeafcutterBlockDestroyedWithToolProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 47,
+      "lane": "A",
+      "sourcePath": "item/LegendaryJellyUmbrellaItem.java",
+      "sourceSHA256": "2e5b8862e6c69c304906eff062e547e380c0646737e8ccba04795ab17ce2782a",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "LegendaryJellyUmbrellaRightclickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 48,
+      "lane": "A",
+      "sourcePath": "item/LiteprismLaserItem.java",
+      "sourceSHA256": "52d1e848ef862b80ee94b038117fda33a8dbfeec1e1953d78ed584f97f247687",
+      "candidateCallbacks": [
+        "inventoryTick",
+        "onEntitySwing"
+      ],
+      "procedures": [
+        "CoreEjectFlareGunItemInHandTickProcedure",
+        "LiteprismConstructorEntitySwingsItemProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 49,
+      "lane": "A",
+      "sourcePath": "item/LiteprismSwordItem.java",
+      "sourceSHA256": "6f0319cdc83e890b281b828917a1ea45a1eb03830d3e020df680a067992af0a4",
+      "candidateCallbacks": [
+        "onEntitySwing"
+      ],
+      "procedures": [
+        "LiteprismSwordSwingProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 50,
+      "lane": "A",
+      "sourcePath": "item/LoquesicleItem.java",
+      "sourceSHA256": "75bb1f618e0e6b2c4646014222ce7684d947eaed8ff3756116403846018fa073",
+      "candidateCallbacks": [
+        "finishUsingItem"
+      ],
+      "procedures": [
+        "SnowdaePlayerFinishesUsingItemProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 51,
+      "lane": "A",
+      "sourcePath": "item/LuckTicketItem.java",
+      "sourceSHA256": "77bf4ed2eff7aa3b925f7777c550374e616de281b816ba12d6175ca4d6343a19",
+      "candidateCallbacks": [
+        "finishUsingItem"
+      ],
+      "procedures": [
+        "SnowdaePlayerFinishesUsingItemProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 52,
+      "lane": "A",
+      "sourcePath": "item/MagneticCrossbowItem.java",
+      "sourceSHA256": "a8d8ce8e9a413893803852e7a0b1c1622098579df09697f7396c50e70bdc68eb",
+      "candidateCallbacks": [
+        "inventoryTick",
+        "onEntitySwing"
+      ],
+      "procedures": [
+        "MagneticCrossbowItemInHandTickProcedure",
+        "MagneticCrossbowRightclickedProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 53,
+      "lane": "A",
+      "sourcePath": "item/MicroDomeItem.java",
+      "sourceSHA256": "56d222fba5131d58597d2eda40bf64b53220872cd8e434964209c00eadecb6e9",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "MicroDomeRightclickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 54,
+      "lane": "A",
+      "sourcePath": "item/ModelTrainItem.java",
+      "sourceSHA256": "f3b6085bd60d7f3e564a84790fe59ff83955159b3fad00e203e27fd26d1042ad",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "ModelTrainRightclickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 55,
+      "lane": "main",
+      "sourcePath": "item/MuckPieItem.java",
+      "sourceSHA256": "6ad472214bb3327a2b7d42ca13a4c412ce4899a794ea8e063af078fdfbaa5f99",
+      "candidateCallbacks": [
+        "finishUsingItem"
+      ],
+      "procedures": [
+        "SnowdaePlayerFinishesUsingItemProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 56,
+      "lane": "main",
+      "sourcePath": "item/NetLauncherItem.java",
+      "sourceSHA256": "057b8434430c10a895dea689b538973de9efc474927654bdd6f7c5f513e3a5a3",
+      "candidateCallbacks": [
+        "inventoryTick",
+        "onEntitySwing"
+      ],
+      "procedures": [
+        "CoreEjectFlareGunItemInHandTickProcedure",
+        "NetLauncherFiringProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 57,
+      "lane": "main",
+      "sourcePath": "item/PanaceaItem.java",
+      "sourceSHA256": "9a89ff263f17d67506e82153393cee0a5992c3845dc5700a54a7e394b2e160cf",
+      "candidateCallbacks": [
+        "finishUsingItem"
+      ],
+      "procedures": [
+        "PanaceaPlayerFinishesUsingItemProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 58,
+      "lane": "main",
+      "sourcePath": "item/PesticideItem.java",
+      "sourceSHA256": "24168c150664ae21927f3dbd6dc6d2c398af732759765873e05e20326917bf53",
+      "candidateCallbacks": [
+        "finishUsingItem"
+      ],
+      "procedures": [
+        "PesticidePlayerFinishesUsingItemProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 59,
+      "lane": "main",
+      "sourcePath": "item/PistonGauntletItem.java",
+      "sourceSHA256": "400bfc1aa487287bd4d8aa761070d645ba8e61656d4910cca60532ed17cae6d8",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "PistonGauntletRightclickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 60,
+      "lane": "main",
+      "sourcePath": "item/RawTorpedoItem.java",
+      "sourceSHA256": "f0c7352cb953779b4ce098a3749c631c86a2e8f9dfe09bee638004f6204b4e8f",
+      "candidateCallbacks": [
+        "finishUsingItem"
+      ],
+      "procedures": [
+        "RawTorpedoPlayerFinishesUsingItemProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 61,
+      "lane": "main",
+      "sourcePath": "item/RubySickleItem.java",
+      "sourceSHA256": "35159fad0dd2457cd0217adc4f324122335dfddb9930a23f0e77e37a39064313",
+      "candidateCallbacks": [
+        "hurtEnemy",
+        "inventoryTick"
+      ],
+      "procedures": [
+        "RubySickleToolInHandTickProcedure",
+        "SickleHitsEntityProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 62,
+      "lane": "main",
+      "sourcePath": "item/RubySpearItem.java",
+      "sourceSHA256": "2371c8c0fde9c8739c22c025e2622434cebc09490cd2f89d1bd37ce0ec484311",
+      "candidateCallbacks": [
+        "hurtEnemy",
+        "inventoryTick",
+        "onEntitySwing",
+        "use"
+      ],
+      "procedures": [
+        "RubySpearEntitySwingsItemProcedure",
+        "RubySpearItemInHandTickProcedure",
+        "RubySpearLivingEntityIsHitWithItemProcedure",
+        "RubySpearRightclickedProcedure"
+      ],
+      "callOccurrences": 4,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 63,
+      "lane": "main",
+      "sourcePath": "item/RustyEdgeItem.java",
+      "sourceSHA256": "e2fece3ed44510e580c21022aba189d6bdc6a41dcb7ad56821c4452d690a6d11",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "RustyEdgeRightclickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 64,
+      "lane": "main",
+      "sourcePath": "item/ShockStickItem.java",
+      "sourceSHA256": "4fe21757d00cd4a806c6700e8804c6ca28072d712163f16a85e8a9b455d96ffd",
+      "candidateCallbacks": [
+        "hurtEnemy"
+      ],
+      "procedures": [
+        "ShockStickLivingEntityIsHitWithToolProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 65,
+      "lane": "main",
+      "sourcePath": "item/SnowdaeItem.java",
+      "sourceSHA256": "22960db06821f9dd4fb8971b7a6cac75cec8c56335828999239e4e8fa0c17218",
+      "candidateCallbacks": [
+        "finishUsingItem"
+      ],
+      "procedures": [
+        "SnowdaePlayerFinishesUsingItemProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 66,
+      "lane": "main",
+      "sourcePath": "item/SpeleothemItem.java",
+      "sourceSHA256": "9ca566e6f04e53fae24a7b114f12b5defcb103786aa6fd33afb2245aed002e83",
+      "candidateCallbacks": [
+        "hurtEnemy",
+        "inventoryTick",
+        "onEntitySwing",
+        "use"
+      ],
+      "procedures": [
+        "RubySpearLivingEntityIsHitWithItemProcedure",
+        "RubySpearRightclickedProcedure",
+        "SpeleothemHandTickProcedure",
+        "SpeleothemSwingProcedure"
+      ],
+      "callOccurrences": 4,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 67,
+      "lane": "main",
+      "sourcePath": "item/SprintweedSodaItem.java",
+      "sourceSHA256": "7143ec2e58e334743bf123934414cff081e5ada9d795581dba8f9636e2be901a",
+      "candidateCallbacks": [
+        "finishUsingItem"
+      ],
+      "procedures": [
+        "SprintweedSodaPlayerFinishesUsingItemProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 68,
+      "lane": "main",
+      "sourcePath": "item/StratosilverSickleItem.java",
+      "sourceSHA256": "2de015678c2dee06b9baf8bfa993f6adf74dfe51ed0a6e8170cdaa92d0c5aca7",
+      "candidateCallbacks": [
+        "hurtEnemy",
+        "inventoryTick"
+      ],
+      "procedures": [
+        "RubySickleToolInHandTickProcedure",
+        "SickleHitsEntityProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 69,
+      "lane": "main",
+      "sourcePath": "item/SylviaRifleItem.java",
+      "sourceSHA256": "3bda92733a5123c5ca383b2ed96b77d2889b634e8caf67b5950f7c3441f97009",
+      "candidateCallbacks": [
+        "inventoryTick",
+        "onEntitySwing",
+        "use"
+      ],
+      "procedures": [
+        "CoreEjectFlareGunItemInHandTickProcedure",
+        "SylviaRifleFiringProcedure",
+        "SylviaRifleRightclickedProcedure"
+      ],
+      "callOccurrences": 3,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 70,
+      "lane": "main",
+      "sourcePath": "item/TheJudgeItem.java",
+      "sourceSHA256": "56cae6a81dee55e0fe8a777c3b609cbfa5816a53ef0c9ab8f43f7bfef22e0e4e",
+      "candidateCallbacks": [
+        "inventoryTick",
+        "onEntitySwing"
+      ],
+      "procedures": [
+        "CoreEjectFlareGunItemInHandTickProcedure",
+        "JudgeFiringProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 71,
+      "lane": "main",
+      "sourcePath": "item/ThingamabobItem.java",
+      "sourceSHA256": "7d525afc67cc952317f95ad7a22da5c68d10e00e23bc2df7135e65df314e5420",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "ThingamabobRightClickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 72,
+      "lane": "main",
+      "sourcePath": "item/ThistleBowItem.java",
+      "sourceSHA256": "30ad5b72b065a2dd458b69cbb9daae68534d9517fa2b2857188ee89192dad1ba",
+      "candidateCallbacks": [
+        "inventoryTick",
+        "onEntitySwing",
+        "use"
+      ],
+      "procedures": [
+        "HailfallItemInHandTickProcedure",
+        "ThistleBowSwingProcedure"
+      ],
+      "callOccurrences": 3,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 73,
+      "lane": "main",
+      "sourcePath": "item/TitaniumMaceItem.java",
+      "sourceSHA256": "e71261c5fd7343c6eb55bf256d6473e49c86b467f03b71b618b758ea7d8d2328",
+      "candidateCallbacks": [
+        "hurtEnemy",
+        "onEntitySwing"
+      ],
+      "procedures": [
+        "ZerkerGauntletEntitySwingsItemProcedure",
+        "ZerkerGauntletLivingEntityIsHitWithItemProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 74,
+      "lane": "main",
+      "sourcePath": "item/UneasyAllianceLootBundleItem.java",
+      "sourceSHA256": "5f70d94b9ad48bf17bbf1b58f12c27f4819ff7b286ac2e8b4261891968cc0cf9",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "UneasyAllianceLootBundleOpenProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 75,
+      "lane": "main",
+      "sourcePath": "item/VirustoneItem.java",
+      "sourceSHA256": "47977a79b5c0c069557c8511ab03e3d0ca03a7693fa8b2857553914a423b3875",
+      "candidateCallbacks": [
+        "useOn"
+      ],
+      "procedures": [
+        "KeystoneRightclickedOnBlockProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 76,
+      "lane": "main",
+      "sourcePath": "item/VolcanoItem.java",
+      "sourceSHA256": "96fd414dd7c621cd44592fc02178b90420a903716d96afbc28670ad9dee98a7c",
+      "candidateCallbacks": [
+        "inventoryTick",
+        "onEntitySwing"
+      ],
+      "procedures": [
+        "CoreEjectFlareGunItemInHandTickProcedure",
+        "VolcanoFiringProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 77,
+      "lane": "main",
+      "sourcePath": "item/WideAngleItem.java",
+      "sourceSHA256": "e4d8674b76700139d692d85fe39703af158a2f71a8e8f1e8ae3f77cb40fb7d30",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "WideAngleRightclickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 78,
+      "lane": "main",
+      "sourcePath": "item/ZapGauntletItem.java",
+      "sourceSHA256": "8c2bf584aaff73b470a19dd289fb77762bb267e07e1a1fa112e37df54624d588",
+      "candidateCallbacks": [
+        "inventoryTick",
+        "onEntitySwing"
+      ],
+      "procedures": [
+        "CoreEjectFlareGunItemInHandTickProcedure",
+        "ZapGauntletRightClickedProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 79,
+      "lane": "main",
+      "sourcePath": "item/ZenithCrossbowItem.java",
+      "sourceSHA256": "2db500f4dae59b2a41d6bfbc6ac5da2695ef75f1623289ff2e7a6558fd47985f",
+      "candidateCallbacks": [
+        "inventoryTick",
+        "onEntitySwing"
+      ],
+      "procedures": [
+        "MagneticCrossbowItemInHandTickProcedure",
+        "MagneticCrossbowRightclickedProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    },
+    {
+      "ordinal": 80,
+      "lane": "main",
+      "sourcePath": "item/ZenithThermoblasterItem.java",
+      "sourceSHA256": "ed3b4b949a1036c9512a65b3673546d6778a00f731f2770d4feb2c9252d312fb",
+      "candidateCallbacks": [
+        "inventoryTick",
+        "onEntitySwing",
+        "use"
+      ],
+      "procedures": [
+        "CoreEjectFlareGunItemInHandTickProcedure",
+        "ThermoblasterAltFireProcedure",
+        "ThermoblasterMainFireProcedure"
+      ],
+      "callOccurrences": 3,
+      "targetStatus": "未人工映射，不据原生同名或注册存在判完整"
+    }
+  ]
+}

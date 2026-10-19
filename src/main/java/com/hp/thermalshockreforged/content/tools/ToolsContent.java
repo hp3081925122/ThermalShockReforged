@@ -3,6 +3,7 @@ package com.hp.thermalshockreforged.content.tools;
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.MaterialContent;
 import com.hp.thermalshockreforged.content.terrain.TerrainContent;
+import com.hp.thermalshockreforged.content.weapons.HeldWeaponState;
 import java.util.List;
 import java.util.Collections;
 import java.util.LinkedHashMap;
@@ -13,6 +14,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EquipmentSlotGroup;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.*;
@@ -36,7 +39,7 @@ public final class ToolsContent {
         register("bone_axe", new NativeTier(100, 5.0f, 4.5f, BlockTags.INCORRECT_FOR_STONE_TOOL, 5, () -> Ingredient.of(MaterialContent.items().get("ashen_bone").get(), Items.BONE)), (tier) -> new DescribedAxe(tier, new Item.Properties().attributes(DiggerItem.createAttributes(tier, 1.0f, -3.0f)), "item.thermal_shock_reforged.bone_axe.description_0"));
         register("bone_pickaxe", new NativeTier(100, 5.0f, -0.5f, BlockTags.INCORRECT_FOR_STONE_TOOL, 5, () -> Ingredient.of(MaterialContent.items().get("ashen_bone").get(), Items.BONE)), (tier) -> new DescribedPickaxe(tier, new Item.Properties().attributes(DiggerItem.createAttributes(tier, 1, -2.8f)), "item.thermal_shock_reforged.bone_pickaxe.description_0"));
         register("bone_shovel", new NativeTier(100, 5.0f, -0.5f, BlockTags.INCORRECT_FOR_STONE_TOOL, 5, () -> Ingredient.of(MaterialContent.items().get("ashen_bone").get(), Items.BONE)), (tier) -> new DescribedShovel(tier, new Item.Properties().attributes(DiggerItem.createAttributes(tier, 1.0f, -2.8f)), "item.thermal_shock_reforged.bone_shovel.description_0"));
-        register("bone_sword", new NativeTier(100, 5.0f, 0.5f, BlockTags.INCORRECT_FOR_STONE_TOOL, 5, () -> Ingredient.of(MaterialContent.items().get("ashen_bone").get(), Items.BONE)), (tier) -> new DescribedSword(tier, new Item.Properties().attributes(SwordItem.createAttributes(tier, 3, -2.2f).withModifierAdded(Attributes.ENTITY_INTERACTION_RANGE, new AttributeModifier(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "bone_sword_reach"), 2, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)), "item.thermal_shock_reforged.bone_sword.description_0", "item.thermal_shock_reforged.bone_sword.description_1"));
+        register("bone_sword", new NativeTier(100, 5.0f, 0.5f, BlockTags.INCORRECT_FOR_STONE_TOOL, 5, () -> Ingredient.of(MaterialContent.items().get("ashen_bone").get(), Items.BONE)), (tier) -> new DescribedSword(tier, new Item.Properties().attributes(SwordItem.createAttributes(tier, 3, -2.2f)), 2, "item.thermal_shock_reforged.bone_sword.description_0", "item.thermal_shock_reforged.bone_sword.description_1"));
         register("ghostglass_pick", new NativeTier(422, 29, 0, BlockTags.INCORRECT_FOR_IRON_TOOL, 19, () -> Ingredient.of(MaterialContent.items().get("malachite").get())), tier -> new GhostglassPickItem(tier, new Item.Properties().attributes(DiggerItem.createAttributes(tier, 1, -2.8F))));
         register("carborundum_axe", new NativeTier(900, 15.0f, 9.0f, BlockTags.INCORRECT_FOR_DIAMOND_TOOL, 16, () -> Ingredient.of(MaterialContent.items().get("carborundum").get())), (tier) -> new AxeItem(tier, new Item.Properties().attributes(DiggerItem.createAttributes(tier, 1.0f, -2.8f))));
         register("carborundum_pickaxe", new NativeTier(900, 15.0f, 1.0f, BlockTags.INCORRECT_FOR_DIAMOND_TOOL, 16, () -> Ingredient.of(MaterialContent.items().get("carborundum").get())), (tier) -> new PickaxeItem(tier, new Item.Properties().attributes(DiggerItem.createAttributes(tier, 1, -2.8f))));
@@ -113,11 +116,21 @@ public final class ToolsContent {
         }
     }
 
-    private static final class DescribedSword extends SwordItem {
+    private static class DescribedSword extends SwordItem {
         private final List<String> descriptions;
+        private final int reach;
         private DescribedSword(Tier tier, Properties properties, String... descriptions) {
+            this(tier, properties, 0, descriptions);
+        }
+        private DescribedSword(Tier tier, Properties properties, int reach, String... descriptions) {
             super(tier, properties);
             this.descriptions = List.of(descriptions);
+            this.reach = reach;
+        }
+        @Override
+        public void inventoryTick(ItemStack stack, net.minecraft.world.level.Level level, Entity entity, int slot, boolean selected) {
+            super.inventoryTick(stack, level, entity, slot, selected);
+            if (reach > 0 && selected && entity instanceof LivingEntity living) HeldWeaponState.refreshReach(living, reach);
         }
         @Override
         public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) {
