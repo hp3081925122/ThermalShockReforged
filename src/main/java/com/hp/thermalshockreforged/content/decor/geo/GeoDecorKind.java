@@ -8,6 +8,8 @@ import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.shapes.*;
 
 public enum GeoDecorKind {
+    EXTRACTOR("extractor", "Extractor", "geo/extractor.geo.json", "textures/block/extractor.png", "animations/extractor.animation.json", Block.box(.1, .1, .1, 15.9, 14, 15.9), true, true),
+    GRAND_BLASPHEMER("grand_blasphemer", "Grand Blasphemer", "geo/grand_blasphemer.geo.json", "textures/block/blasty.png", "animations/grand_blasphemer.animation.json", Shapes.block(), true, true),
     FABRICATOR("fabricator", "Fabricator", "geo/fabricator.geo.json", "textures/block/texturefabricator.png", "animations/fabricator.animation.json", Block.box(.1, .1, .1, 15.9, 14, 15.9), false, true),
     CRYSTAL_SOPEL_TROPHY("crystal_sopel_trophy", "Crystal Sopel Trophy", "geo/sopel_relic.geo.json", "textures/block/rubicon_trophy.png", "animations/sopel_relic.animation.json", Shapes.block(), true, false),
     DESK_DIRECTOR("desk_director", "Desk Director", "geo/sopel_desk.geo.json", "textures/block/sopel_desk.png", "animations/sopel_desk.animation.json", Block.box(-16, .1, -16, 32, 15.9, 32), true, false),
@@ -93,6 +95,8 @@ public enum GeoDecorKind {
     }
     public BlockBehaviour.Properties properties() {
         return switch (this) {
+            case EXTRACTOR -> BlockBehaviour.Properties.of().mapColor(MapColor.METAL).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.SHROOMLIGHT).strength(10, 999).lightLevel(state -> 13).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((state, level, pos) -> false);
+            case GRAND_BLASPHEMER -> BlockBehaviour.Properties.of().mapColor(MapColor.STONE).sound(SoundType.STONE).strength(-1, 3600000).pushReaction(PushReaction.BLOCK);
             case JELLERCEL, LARGE_JELLERCEL -> {
                 var properties = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PINK).sound(SoundType.SLIME_BLOCK).strength(this == JELLERCEL ? .5F : 2, 1).lightLevel(state -> 10)
                         .noOcclusion().hasPostProcess((state, level, pos) -> true).emissiveRendering((state, level, pos) -> true).isRedstoneConductor((state, level, pos) -> false);
