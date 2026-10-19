@@ -103,3 +103,6 @@ Thermite/EnchantedCache/GhostglassPick/六地下模板已真实接入，Loqendia
 
 
 第67批复审纠正第63至66批投射物行为差异，补齐Magnetite真实命中过程，按原分支恢复重力、100秒着火、热能单发cryo_weak/蓝X与散射pyro_weak/缓慢IV、Net准确AABB和单次查询；击退抗性只算一次，关闭装饰弹拾取并避免EMPTY武器构造异常。寿命移至SERVER END，Volcano最多三项独立延迟状态保留弹体移除后剩余火花与原声音锚点。详见migration/projectile-fidelity-batch.md。本批主体统一离线编译通过（38秒），Volcano 3 END弹体寿命兜底随下一批验证；整个模组及最终三端验收仍未完成。
+
+
+第68批迁入MagneticBomb/EpsilonBomb两真实实体、40+10 SERVER END阶段、原尺寸/免疫/双动画/各发光层/完整MAGNETIC_BOOM AAA；Magnetic原范围循环误伤自身修为对实际目标10点generic，Epsilon原30tick缓慢XIII保留。死亡与定时入口幂等，只提交一份独立有限范围结算，死亡提前移除不吞已提交反馈。补Ghostglass Sword完整Tier/两tooltip/原挥动1.5箭伤和5tickCD，而非套static helper参数；原版swords标签继承附魔分类。补原8 Malachite包Carborundum Sword工作台配方；实际磁弓/ProtoiEpsilon攻击与遗留Fabricator入口继续待迁，详情migration/magnetic-bombs-ghostglass-batch.md；统一离线复编通过（2分18秒，24任务中2执行），七视觉资产对照一致；末尾配方做独立数据核对，尚未最终游戏验收。接续已读源码审计见migration/magnetic-crossbow-epsilon-next-audit.md。

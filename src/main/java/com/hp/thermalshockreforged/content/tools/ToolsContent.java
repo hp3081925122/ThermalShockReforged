@@ -27,6 +27,7 @@ public final class ToolsContent {
     private static final Map<String, DeferredItem<Item>> ENTRIES = new LinkedHashMap<>();
 
     static {
+        register("ghostglass_sword", new NativeTier(500, 10, -1.5F, BlockTags.INCORRECT_FOR_IRON_TOOL, 19, () -> Ingredient.of(MaterialContent.items().get("malachite").get())), tier -> new GhostglassSwordItem(tier, new Item.Properties().attributes(SwordItem.createAttributes(tier, 3, 2))));
         register("bloodstone_axe", new NativeTier(1500, 8.0f, 7.0f, BlockTags.INCORRECT_FOR_DIAMOND_TOOL, 21, () -> Ingredient.of(MaterialContent.items().get("bloodstone").get())), (tier) -> new AxeItem(tier, new Item.Properties().attributes(DiggerItem.createAttributes(tier, 1.0f, -3.0f))));
         register("bloodstone_hoe", new NativeTier(1500, 8.0f, 2.0f, BlockTags.INCORRECT_FOR_DIAMOND_TOOL, 21, () -> Ingredient.of(MaterialContent.items().get("bloodstone").get())), (tier) -> new HoeItem(tier, new Item.Properties().attributes(DiggerItem.createAttributes(tier, 0, -3.0f))));
         register("bloodstone_pickaxe", new NativeTier(1500, 8.0f, 1.0f, BlockTags.INCORRECT_FOR_DIAMOND_TOOL, 21, () -> Ingredient.of(MaterialContent.items().get("bloodstone").get())), (tier) -> new PickaxeItem(tier, new Item.Properties().attributes(DiggerItem.createAttributes(tier, 1, -2.8f))));

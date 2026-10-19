@@ -230,7 +230,13 @@
       "status": "not_migrated"
     },
     "magnetite_bullet": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshockreforged.entity.magnetite.MagnetiteBulletEntity",
+      "migration_document": "projectile-fidelity-batch.md",
+      "pending": [
+        "全部真实武器或生物调用入口及生成链继续逐项闭合",
+        "整模组完整后的服务端、客户端及Render Preview验收"
+      ]
     },
     "blighted_spore": {
       "status": "implemented_pending_full_validation",
@@ -245,13 +251,31 @@
       "status": "not_migrated"
     },
     "ghostglass_sword_bullet": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshockreforged.entity.projectile.GhostglassSwordBulletEntity",
+      "migration_document": "projectile-fidelity-batch.md",
+      "pending": [
+        "全部真实武器或生物调用入口及生成链继续逐项闭合",
+        "整模组完整后的服务端、客户端及Render Preview验收"
+      ]
     },
     "magnet_crossbow_bullet": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshockreforged.entity.projectile.MagnetCrossbowBulletEntity",
+      "migration_document": "projectile-fidelity-batch.md",
+      "pending": [
+        "全部真实武器或生物调用入口及生成链继续逐项闭合",
+        "整模组完整后的服务端、客户端及Render Preview验收"
+      ]
     },
     "volcano_bullet": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshockreforged.entity.projectile.VolcanoBulletEntity",
+      "migration_document": "projectile-fidelity-batch.md",
+      "pending": [
+        "全部真实武器或生物调用入口及生成链继续逐项闭合",
+        "整模组完整后的服务端、客户端及Render Preview验收"
+      ]
     },
     "flintsteel_rifle_bullet": {
       "status": "not_migrated"
@@ -339,13 +363,31 @@
       "status": "not_migrated"
     },
     "flare_bullet": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshockreforged.entity.projectile.FlareBulletEntity",
+      "migration_document": "projectile-fidelity-batch.md",
+      "pending": [
+        "全部真实武器或生物调用入口及生成链继续逐项闭合",
+        "整模组完整后的服务端、客户端及Render Preview验收"
+      ]
     },
     "thermoblaster_bullet": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshockreforged.entity.projectile.ThermoblasterBulletEntity",
+      "migration_document": "projectile-fidelity-batch.md",
+      "pending": [
+        "全部真实武器或生物调用入口及生成链继续逐项闭合",
+        "整模组完整后的服务端、客户端及Render Preview验收"
+      ]
     },
     "thermoblaster_shotgun_bullet": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshockreforged.entity.projectile.ThermoblasterShotgunBulletEntity",
+      "migration_document": "projectile-fidelity-batch.md",
+      "pending": [
+        "全部真实武器或生物调用入口及生成链继续逐项闭合",
+        "整模组完整后的服务端、客户端及Render Preview验收"
+      ]
     },
     "siibol": {
       "status": "implemented_pending_full_validation",
@@ -480,7 +522,13 @@
       ]
     },
     "magnetic_bomb": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshockreforged.entity.projectile.MagneticBombEntity",
+      "migration_document": "magnetic-bombs-ghostglass-batch.md",
+      "pending": [
+        "全部真实武器或生物调用入口及生成链继续逐项闭合",
+        "整模组完整后的服务端、客户端及Render Preview验收"
+      ]
     },
     "neon_lime_graver": {
       "status": "not_migrated"
@@ -501,7 +549,13 @@
       "status": "not_migrated"
     },
     "liteprism_beam": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshockreforged.entity.projectile.LiteprismBeamEntity",
+      "migration_document": "projectile-fidelity-batch.md",
+      "pending": [
+        "全部真实武器或生物调用入口及生成链继续逐项闭合",
+        "整模组完整后的服务端、客户端及Render Preview验收"
+      ]
     },
     "lanternbearer": {
       "status": "not_migrated"
@@ -544,13 +598,25 @@
       "status": "not_migrated"
     },
     "grenade_bullet": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshockreforged.entity.projectile.GrenadeBulletEntity",
+      "migration_document": "projectile-fidelity-batch.md",
+      "pending": [
+        "全部真实武器或生物调用入口及生成链继续逐项闭合",
+        "整模组完整后的服务端、客户端及Render Preview验收"
+      ]
     },
     "spectre": {
       "status": "not_migrated"
     },
     "whistler_note": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshockreforged.entity.orb.WhistlerNoteEntity",
+      "migration_document": "projectile-fidelity-batch.md",
+      "pending": [
+        "全部真实武器或生物调用入口及生成链继续逐项闭合",
+        "整模组完整后的服务端、客户端及Render Preview验收"
+      ]
     },
     "spirit": {
       "status": "not_migrated"
@@ -595,7 +661,13 @@
       ]
     },
     "net_bullet": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshockreforged.entity.projectile.NetBulletEntity",
+      "migration_document": "projectile-fidelity-batch.md",
+      "pending": [
+        "全部真实武器或生物调用入口及生成链继续逐项闭合",
+        "整模组完整后的服务端、客户端及Render Preview验收"
+      ]
     },
     "liftbug": {
       "status": "not_migrated"
@@ -641,7 +713,13 @@
       "status": "not_migrated"
     },
     "blood_bullet": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshockreforged.entity.projectile.BloodBulletEntity",
+      "migration_document": "projectile-fidelity-batch.md",
+      "pending": [
+        "全部真实武器或生物调用入口及生成链继续逐项闭合",
+        "整模组完整后的服务端、客户端及Render Preview验收"
+      ]
     },
     "frostilyte_gunner": {
       "status": "not_migrated"
@@ -759,7 +837,13 @@
       "status": "not_migrated"
     },
     "thistle_beam": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshockreforged.entity.projectile.ThistleBeamEntity",
+      "migration_document": "projectile-fidelity-batch.md",
+      "pending": [
+        "全部真实武器或生物调用入口及生成链继续逐项闭合",
+        "整模组完整后的服务端、客户端及Render Preview验收"
+      ]
     },
     "stopper_orb": {
       "status": "not_migrated"
@@ -795,7 +879,13 @@
       "status": "not_migrated"
     },
     "epsilon_bomb": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshockreforged.entity.projectile.MagneticBombEntity",
+      "migration_document": "magnetic-bombs-ghostglass-batch.md",
+      "pending": [
+        "全部真实武器或生物调用入口及生成链继续逐项闭合",
+        "整模组完整后的服务端、客户端及Render Preview验收"
+      ]
     },
     "electric_sphere": {
       "status": "not_migrated"
@@ -805,6 +895,14 @@
     "snobol_blast": {
       "status": "implemented_pending_full_validation",
       "purpose": "原全局延时爆炸改归属明确、可持久化的多任务攻击载体，不是原新生物占位"
+    },
+    "volcano_spark_task": {
+      "status": "implemented_pending_full_validation",
+      "purpose": "最多三项有限状态保留已提交延迟火花"
+    },
+    "magnetic_detonation_task": {
+      "status": "implemented_pending_full_validation",
+      "purpose": "幂等提交10 SERVER END范围结算，允许来源先移除"
     }
   }
 }
