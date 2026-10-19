@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:jigsaw",
+  "start_pool": "thermal_shock_reforged:pyrogenic_pylon",
+  "size": 1,
+  "max_distance_from_center": 64,
+  "spawn_overrides": {},
+  "step": "surface_structures",
+  "terrain_adaptation": "beard_thin",
+  "start_height": {
+    "type": "minecraft:uniform",
+    "min_inclusive": {
+      "absolute": -64
+    },
+    "max_inclusive": {
+      "absolute": -12
+    }
+  },
+  "biomes": [
+    "thermal_shock_reforged:borean_forest",
+    "thermal_shock_reforged:borean_tundra",
+    "thermal_shock_reforged:stardust_garden",
+    "thermal_shock_reforged:vermillion_woods"
+  ],
+  "use_expansion_hack": false
+}

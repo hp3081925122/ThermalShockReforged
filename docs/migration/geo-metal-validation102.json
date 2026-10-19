@@ -1,0 +1,1212 @@
+{
+  "batch": 102,
+  "kind": "Java AST与原件资源/数据静态差异验证，非编译或运行时测试",
+  "passed": 156,
+  "checks": [
+    {
+      "check": "GeoDecorKind UTF8/JavaAST/无注释",
+      "passed": true,
+      "evidence": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java"
+    },
+    {
+      "check": "GeoDecorContent UTF8/JavaAST/无注释",
+      "passed": true,
+      "evidence": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java"
+    },
+    {
+      "check": "GeoDecorBlock UTF8/JavaAST/无注释",
+      "passed": true,
+      "evidence": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java"
+    },
+    {
+      "check": "GeoDecorItem UTF8/JavaAST/无注释",
+      "passed": true,
+      "evidence": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorItem.java"
+    },
+    {
+      "check": "GeoFlowerBlock UTF8/JavaAST/无注释",
+      "passed": true,
+      "evidence": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoFlowerBlock.java"
+    },
+    {
+      "check": "SpiderLiliesBlock UTF8/JavaAST/无注释",
+      "passed": true,
+      "evidence": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/SpiderLiliesBlock.java"
+    },
+    {
+      "check": "PyrogenicPylonCoreBlock UTF8/JavaAST/无注释",
+      "passed": true,
+      "evidence": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/PyrogenicPylonCoreBlock.java"
+    },
+    {
+      "check": "WorldTourRedemption UTF8/JavaAST/无注释",
+      "passed": true,
+      "evidence": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/WorldTourRedemption.java"
+    },
+    {
+      "check": "MetalBlocksContent UTF8/JavaAST/无注释",
+      "passed": true,
+      "evidence": "src/main/java/com/hp/thermalshockreforged/content/metalblocks/MetalBlocksContent.java"
+    },
+    {
+      "check": "MetalStorageBlock UTF8/JavaAST/无注释",
+      "passed": true,
+      "evidence": "src/main/java/com/hp/thermalshockreforged/content/metalblocks/MetalStorageBlock.java"
+    },
+    {
+      "check": "Geo精确ID无重复",
+      "passed": true,
+      "evidence": {
+        "count": 68,
+        "new_ids": [
+          "amalgel_trophy",
+          "world_tour_trophy",
+          "pyrogenic_pylon_core",
+          "spire_bloom",
+          "large_spider_lily",
+          "spider_lilies"
+        ]
+      }
+    },
+    {
+      "check": "AMALGEL_TROPHY 原硬度/音色/碰撞/活塞/工具属性",
+      "passed": true,
+      "evidence": {
+        "instrument": [],
+        "sound": [
+          [
+            "SoundType.COPPER"
+          ]
+        ],
+        "strength": [
+          [
+            1.0,
+            10.0
+          ]
+        ],
+        "instabreak": [],
+        "requiresCorrectToolForDrops": [
+          []
+        ],
+        "noCollission": [],
+        "noOcclusion": [
+          []
+        ],
+        "pushReaction": []
+      }
+    },
+    {
+      "check": "AMALGEL_TROPHY lightLevel",
+      "passed": true,
+      "evidence": [
+        "7"
+      ]
+    },
+    {
+      "check": "AMALGEL_TROPHY hasPostProcess",
+      "passed": true,
+      "evidence": []
+    },
+    {
+      "check": "AMALGEL_TROPHY emissiveRendering",
+      "passed": true,
+      "evidence": []
+    },
+    {
+      "check": "AMALGEL_TROPHY isRedstoneConductor",
+      "passed": true,
+      "evidence": [
+        "false"
+      ]
+    },
+    {
+      "check": "AMALGEL_TROPHY 原选择框",
+      "passed": true,
+      "evidence": []
+    },
+    {
+      "check": "AMALGEL_TROPHY 原9格和六面自动化证据",
+      "passed": true,
+      "evidence": "AmalgelTrophyTileEntity"
+    },
+    {
+      "check": "WORLD_TOUR_TROPHY 原硬度/音色/碰撞/活塞/工具属性",
+      "passed": true,
+      "evidence": {
+        "instrument": [],
+        "sound": [
+          [
+            "SoundType.METAL"
+          ]
+        ],
+        "strength": [
+          [
+            1.0,
+            999.0
+          ]
+        ],
+        "instabreak": [],
+        "requiresCorrectToolForDrops": [
+          []
+        ],
+        "noCollission": [],
+        "noOcclusion": [
+          []
+        ],
+        "pushReaction": []
+      }
+    },
+    {
+      "check": "WORLD_TOUR_TROPHY lightLevel",
+      "passed": true,
+      "evidence": [
+        "15"
+      ]
+    },
+    {
+      "check": "WORLD_TOUR_TROPHY hasPostProcess",
+      "passed": true,
+      "evidence": []
+    },
+    {
+      "check": "WORLD_TOUR_TROPHY emissiveRendering",
+      "passed": true,
+      "evidence": []
+    },
+    {
+      "check": "WORLD_TOUR_TROPHY isRedstoneConductor",
+      "passed": true,
+      "evidence": [
+        "false"
+      ]
+    },
+    {
+      "check": "WORLD_TOUR_TROPHY 原选择框",
+      "passed": true,
+      "evidence": []
+    },
+    {
+      "check": "WORLD_TOUR_TROPHY 原9格和六面自动化证据",
+      "passed": true,
+      "evidence": "WorldTourTrophyTileEntity"
+    },
+    {
+      "check": "PYROGENIC_PYLON_CORE 原硬度/音色/碰撞/活塞/工具属性",
+      "passed": true,
+      "evidence": {
+        "instrument": [
+          [
+            "NoteBlockInstrument.BASEDRUM"
+          ]
+        ],
+        "sound": [
+          [
+            "SoundType.GLASS"
+          ]
+        ],
+        "strength": [
+          [
+            10.0,
+            999.0
+          ]
+        ],
+        "instabreak": [],
+        "requiresCorrectToolForDrops": [
+          []
+        ],
+        "noCollission": [],
+        "noOcclusion": [
+          []
+        ],
+        "pushReaction": [
+          [
+            "PushReaction.BLOCK"
+          ]
+        ]
+      }
+    },
+    {
+      "check": "PYROGENIC_PYLON_CORE lightLevel",
+      "passed": true,
+      "evidence": [
+        "15"
+      ]
+    },
+    {
+      "check": "PYROGENIC_PYLON_CORE hasPostProcess",
+      "passed": true,
+      "evidence": [
+        "true"
+      ]
+    },
+    {
+      "check": "PYROGENIC_PYLON_CORE emissiveRendering",
+      "passed": true,
+      "evidence": [
+        "true"
+      ]
+    },
+    {
+      "check": "PYROGENIC_PYLON_CORE isRedstoneConductor",
+      "passed": true,
+      "evidence": [
+        "false"
+      ]
+    },
+    {
+      "check": "PYROGENIC_PYLON_CORE 原选择框",
+      "passed": true,
+      "evidence": [
+        [
+          2.0,
+          2.0,
+          2.0,
+          14.0,
+          14.0,
+          14.0
+        ]
+      ]
+    },
+    {
+      "check": "PYROGENIC_PYLON_CORE 原9格和六面自动化证据",
+      "passed": true,
+      "evidence": "PyrogenicPylonCoreTileEntity"
+    },
+    {
+      "check": "SPIRE_BLOOM 原硬度/音色/碰撞/活塞/工具属性",
+      "passed": true,
+      "evidence": {
+        "instrument": [],
+        "sound": [
+          [
+            "SoundType.SLIME_BLOCK"
+          ]
+        ],
+        "strength": [],
+        "instabreak": [
+          []
+        ],
+        "requiresCorrectToolForDrops": [],
+        "noCollission": [
+          []
+        ],
+        "noOcclusion": [
+          []
+        ],
+        "pushReaction": []
+      }
+    },
+    {
+      "check": "SPIRE_BLOOM lightLevel",
+      "passed": true,
+      "evidence": [
+        "7"
+      ]
+    },
+    {
+      "check": "SPIRE_BLOOM hasPostProcess",
+      "passed": true,
+      "evidence": []
+    },
+    {
+      "check": "SPIRE_BLOOM emissiveRendering",
+      "passed": true,
+      "evidence": []
+    },
+    {
+      "check": "SPIRE_BLOOM isRedstoneConductor",
+      "passed": true,
+      "evidence": [
+        "false"
+      ]
+    },
+    {
+      "check": "SPIRE_BLOOM 原选择框",
+      "passed": true,
+      "evidence": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          15.9,
+          15.9,
+          15.9
+        ]
+      ]
+    },
+    {
+      "check": "SPIRE_BLOOM 原9格和六面自动化证据",
+      "passed": true,
+      "evidence": "SpireBloomTileEntity"
+    },
+    {
+      "check": "LARGE_SPIDER_LILY 原硬度/音色/碰撞/活塞/工具属性",
+      "passed": true,
+      "evidence": {
+        "instrument": [],
+        "sound": [
+          [
+            "SoundType.GRASS"
+          ]
+        ],
+        "strength": [],
+        "instabreak": [
+          []
+        ],
+        "requiresCorrectToolForDrops": [],
+        "noCollission": [
+          []
+        ],
+        "noOcclusion": [
+          []
+        ],
+        "pushReaction": []
+      }
+    },
+    {
+      "check": "LARGE_SPIDER_LILY lightLevel",
+      "passed": true,
+      "evidence": []
+    },
+    {
+      "check": "LARGE_SPIDER_LILY hasPostProcess",
+      "passed": true,
+      "evidence": []
+    },
+    {
+      "check": "LARGE_SPIDER_LILY emissiveRendering",
+      "passed": true,
+      "evidence": []
+    },
+    {
+      "check": "LARGE_SPIDER_LILY isRedstoneConductor",
+      "passed": true,
+      "evidence": [
+        "false"
+      ]
+    },
+    {
+      "check": "LARGE_SPIDER_LILY 原选择框",
+      "passed": true,
+      "evidence": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          15.9,
+          15.9,
+          15.9
+        ]
+      ]
+    },
+    {
+      "check": "LARGE_SPIDER_LILY 原9格和六面自动化证据",
+      "passed": true,
+      "evidence": "LargeSpiderLilyTileEntity"
+    },
+    {
+      "check": "SPIDER_LILIES 原硬度/音色/碰撞/活塞/工具属性",
+      "passed": true,
+      "evidence": {
+        "instrument": [],
+        "sound": [
+          [
+            "SoundType.GRASS"
+          ]
+        ],
+        "strength": [],
+        "instabreak": [
+          []
+        ],
+        "requiresCorrectToolForDrops": [],
+        "noCollission": [
+          []
+        ],
+        "noOcclusion": [
+          []
+        ],
+        "pushReaction": [
+          [
+            "PushReaction.DESTROY"
+          ]
+        ]
+      }
+    },
+    {
+      "check": "SPIDER_LILIES lightLevel",
+      "passed": true,
+      "evidence": []
+    },
+    {
+      "check": "SPIDER_LILIES hasPostProcess",
+      "passed": true,
+      "evidence": []
+    },
+    {
+      "check": "SPIDER_LILIES emissiveRendering",
+      "passed": true,
+      "evidence": []
+    },
+    {
+      "check": "SPIDER_LILIES isRedstoneConductor",
+      "passed": true,
+      "evidence": [
+        "false"
+      ]
+    },
+    {
+      "check": "SPIDER_LILIES 原选择框",
+      "passed": true,
+      "evidence": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          15.9,
+          4.0,
+          15.9
+        ]
+      ]
+    },
+    {
+      "check": "SPIDER_LILIES 原9格和六面自动化证据",
+      "passed": true,
+      "evidence": "SpiderLiliesTileEntity"
+    },
+    {
+      "check": "共用BE保库存/自动化/持久数据/更新包",
+      "passed": true,
+      "evidence": "复用现有GeoDecorBlockEntity与GeoDecorRenderers，不新增客户端ticker"
+    },
+    {
+      "check": "AMALGEL_TROPHY 原物品动画开关",
+      "passed": true,
+      "evidence": {
+        "target_loop": false
+      }
+    },
+    {
+      "check": "AMALGEL_TROPHY 有效idle动画",
+      "passed": true,
+      "evidence": [
+        "0"
+      ]
+    },
+    {
+      "check": "WORLD_TOUR_TROPHY 原物品动画开关",
+      "passed": true,
+      "evidence": {
+        "target_loop": true
+      }
+    },
+    {
+      "check": "WORLD_TOUR_TROPHY 有效idle动画",
+      "passed": true,
+      "evidence": [
+        "0"
+      ]
+    },
+    {
+      "check": "PYROGENIC_PYLON_CORE 原物品动画开关",
+      "passed": true,
+      "evidence": {
+        "target_loop": true
+      }
+    },
+    {
+      "check": "PYROGENIC_PYLON_CORE 有效idle动画",
+      "passed": true,
+      "evidence": [
+        "0",
+        "1"
+      ]
+    },
+    {
+      "check": "SPIRE_BLOOM 原物品动画开关",
+      "passed": true,
+      "evidence": {
+        "target_loop": false
+      }
+    },
+    {
+      "check": "SPIRE_BLOOM 有效idle动画",
+      "passed": true,
+      "evidence": [
+        "0"
+      ]
+    },
+    {
+      "check": "LARGE_SPIDER_LILY 原物品动画开关",
+      "passed": true,
+      "evidence": {
+        "target_loop": false
+      }
+    },
+    {
+      "check": "LARGE_SPIDER_LILY 有效idle动画",
+      "passed": true,
+      "evidence": [
+        "0"
+      ]
+    },
+    {
+      "check": "SPIDER_LILIES 原物品动画开关",
+      "passed": true,
+      "evidence": {
+        "target_loop": true
+      }
+    },
+    {
+      "check": "SPIDER_LILIES 有效idle动画",
+      "passed": true,
+      "evidence": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "check": "原SpiderLilies有效clip为0至3",
+      "passed": true,
+      "evidence": {
+        "AMALGEL_TROPHY": [
+          "0"
+        ],
+        "WORLD_TOUR_TROPHY": [
+          "0"
+        ],
+        "PYROGENIC_PYLON_CORE": [
+          "0",
+          "1"
+        ],
+        "SPIRE_BLOOM": [
+          "0"
+        ],
+        "LARGE_SPIDER_LILY": [
+          "0"
+        ],
+        "SPIDER_LILIES": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ]
+      }
+    },
+    {
+      "check": "原数据语义 recipe/stratosilver_block_craft.json",
+      "passed": true,
+      "evidence": "src/main/resources/data/thermal_shock_reforged/recipe/stratosilver_block_craft.json"
+    },
+    {
+      "check": "原数据语义 recipe/stratosilver_block_uncraft.json",
+      "passed": true,
+      "evidence": "src/main/resources/data/thermal_shock_reforged/recipe/stratosilver_block_uncraft.json"
+    },
+    {
+      "check": "原数据语义 recipe/stratus_alloy_block_craft.json",
+      "passed": true,
+      "evidence": "src/main/resources/data/thermal_shock_reforged/recipe/stratus_alloy_block_craft.json"
+    },
+    {
+      "check": "原数据语义 recipe/stratus_alloy_block_uncraft.json",
+      "passed": true,
+      "evidence": "src/main/resources/data/thermal_shock_reforged/recipe/stratus_alloy_block_uncraft.json"
+    },
+    {
+      "check": "原数据语义 recipe/slag_pity.json",
+      "passed": true,
+      "evidence": "src/main/resources/data/thermal_shock_reforged/recipe/slag_pity.json"
+    },
+    {
+      "check": "原数据语义 recipe/hanahaki_disc_recipe.json",
+      "passed": true,
+      "evidence": "src/main/resources/data/thermal_shock_reforged/recipe/hanahaki_disc_recipe.json"
+    },
+    {
+      "check": "原数据语义 loot_table/blocks/stratosilver_block.json",
+      "passed": true,
+      "evidence": "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/stratosilver_block.json"
+    },
+    {
+      "check": "原数据语义 loot_table/blocks/stratus_alloy_block.json",
+      "passed": true,
+      "evidence": "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/stratus_alloy_block.json"
+    },
+    {
+      "check": "原数据语义 worldgen/structure/cathedral.json",
+      "passed": true,
+      "evidence": "src/main/resources/data/thermal_shock_reforged/worldgen/structure/cathedral.json"
+    },
+    {
+      "check": "原数据语义 worldgen/structure_set/cathedral.json",
+      "passed": true,
+      "evidence": "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/cathedral.json"
+    },
+    {
+      "check": "原数据语义 worldgen/template_pool/cathedral.json",
+      "passed": true,
+      "evidence": "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/cathedral.json"
+    },
+    {
+      "check": "原数据语义 worldgen/structure/pyrogenic_pylon.json",
+      "passed": true,
+      "evidence": "src/main/resources/data/thermal_shock_reforged/worldgen/structure/pyrogenic_pylon.json"
+    },
+    {
+      "check": "原数据语义 worldgen/structure_set/pyrogenic_pylon.json",
+      "passed": true,
+      "evidence": "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/pyrogenic_pylon.json"
+    },
+    {
+      "check": "原数据语义 worldgen/template_pool/pyrogenic_pylon.json",
+      "passed": true,
+      "evidence": "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/pyrogenic_pylon.json"
+    },
+    {
+      "check": "cathedral 原结构几何/状态和完整palette",
+      "passed": true,
+      "evidence": {
+        "size": [
+          73,
+          73,
+          31
+        ],
+        "blocks": 165199,
+        "palette": 196,
+        "entities": 2
+      }
+    },
+    {
+      "check": "cathedral 无旧命名空间残留",
+      "passed": true,
+      "evidence": []
+    },
+    {
+      "check": "cathedral_base 原结构几何/状态和完整palette",
+      "passed": true,
+      "evidence": {
+        "size": [
+          73,
+          72,
+          31
+        ],
+        "blocks": 162936,
+        "palette": 195,
+        "entities": 2
+      }
+    },
+    {
+      "check": "cathedral_base 无旧命名空间残留",
+      "passed": true,
+      "evidence": []
+    },
+    {
+      "check": "pyrogenic_pylon 原结构几何/状态和完整palette",
+      "passed": true,
+      "evidence": {
+        "size": [
+          5,
+          13,
+          5
+        ],
+        "blocks": 325,
+        "palette": 9,
+        "entities": 0
+      }
+    },
+    {
+      "check": "pyrogenic_pylon 无旧命名空间残留",
+      "passed": true,
+      "evidence": []
+    },
+    {
+      "check": "stratosilver_block Luna资源报告",
+      "passed": true,
+      "evidence": "native-six-resources102.json"
+    },
+    {
+      "check": "stratosilver_block 完整12种face/facing模型",
+      "passed": true,
+      "evidence": [
+        "face=ceiling,facing=east",
+        "face=ceiling,facing=north",
+        "face=ceiling,facing=south",
+        "face=ceiling,facing=west",
+        "face=floor,facing=east",
+        "face=floor,facing=north",
+        "face=floor,facing=south",
+        "face=floor,facing=west",
+        "face=wall,facing=east",
+        "face=wall,facing=north",
+        "face=wall,facing=south",
+        "face=wall,facing=west"
+      ]
+    },
+    {
+      "check": "stratus_alloy_block Luna资源报告",
+      "passed": true,
+      "evidence": "native-six-resources102.json"
+    },
+    {
+      "check": "stratus_alloy_block 完整12种face/facing模型",
+      "passed": true,
+      "evidence": [
+        "face=ceiling,facing=east",
+        "face=ceiling,facing=north",
+        "face=ceiling,facing=south",
+        "face=ceiling,facing=west",
+        "face=floor,facing=east",
+        "face=floor,facing=north",
+        "face=floor,facing=south",
+        "face=floor,facing=west",
+        "face=wall,facing=east",
+        "face=wall,facing=north",
+        "face=wall,facing=south",
+        "face=wall,facing=west"
+      ]
+    },
+    {
+      "check": "两金属块放置朝向实际AST逐输入对照",
+      "passed": true,
+      "evidence": {
+        "combinations": 48,
+        "direction_source": "getNearestLookingDirection，不用clickedFace"
+      }
+    },
+    {
+      "check": "原10颗电火花/偏移/速度",
+      "passed": true,
+      "evidence": {
+        "original": [
+          "ParticleTypes.ELECTRIC_SPARK",
+          "x + 0.5",
+          "y + 0.5",
+          "z + 0.5",
+          10.0,
+          0.5,
+          0.5,
+          0.5,
+          0.04
+        ],
+        "target": [
+          "ParticleTypes.ELECTRIC_SPARK",
+          "pos.getX() + .5",
+          "pos.getY() + .5",
+          "pos.getZ() + .5",
+          10.0,
+          0.5,
+          0.5,
+          0.5,
+          0.04
+        ]
+      }
+    },
+    {
+      "check": "金属状态变化仍执行onPlace粒子",
+      "passed": true,
+      "evidence": "未添加旧状态同块短路"
+    },
+    {
+      "check": "花簇主手/上限/不消费/持久同步",
+      "passed": true,
+      "evidence": "保原0到3、主手判定和不扣物品；新增setChanged落盘"
+    },
+    {
+      "check": "花簇保原0至4声明",
+      "passed": true,
+      "evidence": "4为原元数据，无有效clip4；不新增交互可达4"
+    },
+    {
+      "check": "三花原无支持掉Rubicon一份",
+      "passed": true,
+      "evidence": "共享GeoFlowerBlock，不改为按自身掉落"
+    },
+    {
+      "check": "核心能量掉落/危险寻路/声画完整",
+      "passed": true,
+      "evidence": "破坏回调保原成功与失败分支；不新增真实爆炸"
+    },
+    {
+      "check": "原兑奖命令/身份/单次/声画/克隆",
+      "passed": true,
+      "evidence": "服务器权威登记与持久化，无无条件兑奖入口"
+    },
+    {
+      "check": "已有资产哈希 geo/amalgel_relic.geo.json",
+      "passed": true,
+      "evidence": "7c0422157cce766072ff93961581e5a735f936d91552f598529d66e8ce80f2cb"
+    },
+    {
+      "check": "已有资产哈希 animations/amalgel_relic.animation.json",
+      "passed": true,
+      "evidence": "5f5ee197875529fd08d5750e5aa3aaa9d295ec1cedf44aa8ef36465af8ff4c35"
+    },
+    {
+      "check": "已有资产哈希 textures/block/amalgeglrelic.png",
+      "passed": true,
+      "evidence": "45293b02b52c24eafda4e82bd70778c73c44aa2d236f5fd77a4467947e8c8d3f"
+    },
+    {
+      "check": "已有资产哈希 blockstates/amalgel_trophy.json",
+      "passed": true,
+      "evidence": "c5e108057889f4cd5e62c351ebfb2592e43af4d0338b829966d5a638c2a02aba"
+    },
+    {
+      "check": "已有资产哈希 models/item/amalgel_trophy.json",
+      "passed": true,
+      "evidence": "a9e78c2ba92d03511d1fac1018e52dc16326758b013e9b82575009be5330e630"
+    },
+    {
+      "check": "已有资产哈希 textures/item/amalgel_relic.png",
+      "passed": true,
+      "evidence": "fd1b21306090fd80f649755d2372b0fdb1250b2d120ac8619f3c4e489728a58c"
+    },
+    {
+      "check": "已有资产哈希 models/custom/amalgel_trophy_particle.json",
+      "passed": true,
+      "evidence": "211b6b2c4a6f0913e88e03bc9546140afbf9cdad081f44970a862a76d35c4510"
+    },
+    {
+      "check": "已有资产哈希 models/displaysettings/voltflower_bulb.item.json",
+      "passed": true,
+      "evidence": "4d8e015aa4421eb139d320f2016e27152fa09eb52442f256aff81f4b75fe9cc0"
+    },
+    {
+      "check": "已有资产哈希 geo/world_tour_trophy.geo.json",
+      "passed": true,
+      "evidence": "421df3104a120f3c158cbc4295f2bb7272dc5a229518508915306376aefded75"
+    },
+    {
+      "check": "已有资产哈希 animations/world_tour_trophy.animation.json",
+      "passed": true,
+      "evidence": "0e9ea8057e67f5b1e87cd570433702ec7d2eed088a559e46994866cf0ec6664c"
+    },
+    {
+      "check": "已有资产哈希 textures/block/world_tour_trophy.png",
+      "passed": true,
+      "evidence": "8b57389bf97fce69f9739c4e0c58b27d26bfd3c86a382a7d55765eae1c8119a9"
+    },
+    {
+      "check": "已有资产哈希 blockstates/world_tour_trophy.json",
+      "passed": true,
+      "evidence": "3e4ebba509f5e5c1b776d7034d2f1bb2f9afedf1d90656901afc24519a7e6842"
+    },
+    {
+      "check": "已有资产哈希 models/item/world_tour_trophy.json",
+      "passed": true,
+      "evidence": "c230cf41ca5f253bc7301d59268b23b4059a541a7033b5002573a11d5cfec44f"
+    },
+    {
+      "check": "已有资产哈希 models/custom/world_tour_trophy_particle.json",
+      "passed": true,
+      "evidence": "4bc76864cdef8efa93e212b3abfabef4711bffaf42265da1bc25d27325665b4e"
+    },
+    {
+      "check": "已有资产哈希 geo/pylon_core.geo.json",
+      "passed": true,
+      "evidence": "369d083fd42aa5b7caee10eb55504ae22f2277e558075892c31c58f1aa54dae9"
+    },
+    {
+      "check": "已有资产哈希 animations/pylon_core.animation.json",
+      "passed": true,
+      "evidence": "7a2b8c09ed66b0f2a12868533d3671928c8d2edb65284457674de8a91d2dee83"
+    },
+    {
+      "check": "已有资产哈希 textures/block/pyrogenic_core.png",
+      "passed": true,
+      "evidence": "6e058e9378e4dac7bf939c7b850accfa143afc83b4868085bb0f1db72dd4ebd7"
+    },
+    {
+      "check": "已有资产哈希 blockstates/pyrogenic_pylon_core.json",
+      "passed": true,
+      "evidence": "9a9258492fcdb77165f798dd94d26a9518ea77e549cd21586263d2e8f13a066d"
+    },
+    {
+      "check": "已有资产哈希 models/item/pyrogenic_pylon_core.json",
+      "passed": true,
+      "evidence": "41c163d428a5cf8e4ab34ab8d7ae705abb455907a017feecb52af34fe314e91a"
+    },
+    {
+      "check": "已有资产哈希 models/displaysettings/pylon_core.item.json",
+      "passed": true,
+      "evidence": "60b9f09ce27e084803e5cb8734b6604285d3f91be7e79496ad1c671a72804032"
+    },
+    {
+      "check": "已有资产哈希 models/custom/pyrogenic_pylon_core_particle.json",
+      "passed": true,
+      "evidence": "5650118a4469d52ab114ed86dce5307fad9342eec3104482d5a541401ec0cfe3"
+    },
+    {
+      "check": "已有资产哈希 geo/small_spire_blossom.geo.json",
+      "passed": true,
+      "evidence": "4109def21df5c5f111c48a325f7ce27b73e7e259ee4e9040ec2921874e81ef33"
+    },
+    {
+      "check": "已有资产哈希 animations/small_spire_blossom.animation.json",
+      "passed": true,
+      "evidence": "cc71ffbcc70b27ae81053a8f9c89a14ef63602b34e2c1a17eab9f16c9b4ecf15"
+    },
+    {
+      "check": "已有资产哈希 textures/block/small_spire_blossom.png",
+      "passed": true,
+      "evidence": "7317606412e3c53464734f93be1c85dbce58504200de546ea7f53bfbdac8d8e8"
+    },
+    {
+      "check": "已有资产哈希 blockstates/spire_bloom.json",
+      "passed": true,
+      "evidence": "cfbe1058b457294215994be12c1d6aa19e34c30abf21c1542e80abfa32e4072d"
+    },
+    {
+      "check": "已有资产哈希 models/item/spire_bloom.json",
+      "passed": true,
+      "evidence": "c230cf41ca5f253bc7301d59268b23b4059a541a7033b5002573a11d5cfec44f"
+    },
+    {
+      "check": "已有资产哈希 models/custom/spire_bloom_particle.json",
+      "passed": true,
+      "evidence": "0c263230e615683da7fc39722775ef84f73eae8e97e636de520b5087ee79cc14"
+    },
+    {
+      "check": "已有资产哈希 textures/block/spire_base_25.png",
+      "passed": true,
+      "evidence": "1099c0e0f3d13a34fa139438b3d930d086a8ea26dc141776fd77ce341cbd5708"
+    },
+    {
+      "check": "已有资产哈希 textures/block/spider_lily.png",
+      "passed": true,
+      "evidence": "300678686f9748d01170b3c372298d5ccb02d3f4ac5d59080a807d2d881e4060"
+    },
+    {
+      "check": "已有资产哈希 blockstates/large_spider_lily.json",
+      "passed": true,
+      "evidence": "89203a053b0a7edb156863338b622dd66b44661840bd28c12d16558547742b6b"
+    },
+    {
+      "check": "已有资产哈希 models/item/large_spider_lily.json",
+      "passed": true,
+      "evidence": "c230cf41ca5f253bc7301d59268b23b4059a541a7033b5002573a11d5cfec44f"
+    },
+    {
+      "check": "已有资产哈希 models/custom/large_spider_lily_particle.json",
+      "passed": true,
+      "evidence": "11b573fe05069eed06967ac6cc11b6a8016ec5d7839dc12e36cf24b751e146e9"
+    },
+    {
+      "check": "已有资产哈希 geo/spider_lilies.geo.json",
+      "passed": true,
+      "evidence": "e31256fa52801ccc2f1297bbe6f70175b8ff806bd8810b8dca46d2727aee77e1"
+    },
+    {
+      "check": "已有资产哈希 animations/spider_lilies.animation.json",
+      "passed": true,
+      "evidence": "ba2a2ebcee7d78606ca0858652809f51a0f2ccbff6fb30cdf6b95abbc6df0e5f"
+    },
+    {
+      "check": "已有资产哈希 textures/block/spider_lilies_4.png",
+      "passed": true,
+      "evidence": "fd38d61ac447f2e8bfa524c54b064350107ad4862bb6b67fbb39155ba6b14f2c"
+    },
+    {
+      "check": "已有资产哈希 blockstates/spider_lilies.json",
+      "passed": true,
+      "evidence": "180ccb20cf9b886e31891be4a49a52e78d3d38f5844a65a0a57f26e80a7ace01"
+    },
+    {
+      "check": "已有资产哈希 models/item/spider_lilies.json",
+      "passed": true,
+      "evidence": "0d6fc0d062ba6197bc89a9541525d0ea94fbe6fb77ba620c602bcef244aba227"
+    },
+    {
+      "check": "已有资产哈希 textures/item/spider_lily_item.png",
+      "passed": true,
+      "evidence": "025733b6170e97d8f3a5864b9d501d2d3416092098f94b94537a4058f3e061cc"
+    },
+    {
+      "check": "已有资产哈希 models/custom/spider_lilies_particle.json",
+      "passed": true,
+      "evidence": "149d0539be10886bbdebe10af532661d50a2c7c20807da7fc2845ba8c672e7ec"
+    },
+    {
+      "check": "已有资产哈希 models/item/hanahaki.json",
+      "passed": true,
+      "evidence": "36d8eb92795452e80d35524ddc26d16520a34a6efbe21a7a7117909531eca93d"
+    },
+    {
+      "check": "已有资产哈希 textures/item/hanahaki_disc.png",
+      "passed": true,
+      "evidence": "bef1ab644b106b8196a58ddf4a6a2ac0e0110dd4de34aa84480f251a601ce384"
+    },
+    {
+      "check": "已有资产哈希 sounds/jingle.ogg",
+      "passed": true,
+      "evidence": "1621a62dfa378aa5916b7938d99fa4e2054a3efb922c63240d07a4aacd983ae0"
+    },
+    {
+      "check": "已有资产哈希 sounds/thermoid1.ogg",
+      "passed": true,
+      "evidence": "c49f649245e01c16df9eff85f5c69ad9263a972d10d553d630bd047001304af4"
+    },
+    {
+      "check": "已有资产哈希 sounds/thermoid2.ogg",
+      "passed": true,
+      "evidence": "341cc1f6ec7a6c06e09ab9b2f77dfb3d77f272f150b297b343350c363e56bfb1"
+    },
+    {
+      "check": "已有资产哈希 sounds/hanahaki.ogg",
+      "passed": true,
+      "evidence": "77cc8ae60f9f687699c6a48aa716fca6bb4ff564e4e4e6fc44a749df27528f62"
+    },
+    {
+      "check": "Hanahaki保5000tick和比较器8",
+      "passed": true,
+      "evidence": "歌曲数据已产出，原生唱片注册交主线共享增量"
+    },
+    {
+      "check": "cathedral 生成链文件/群系入口闭合",
+      "passed": true,
+      "evidence": {
+        "biomes": [
+          "thermal_shock_reforged:graveyard"
+        ],
+        "spacing": 47
+      }
+    },
+    {
+      "check": "pyrogenic_pylon 生成链文件/群系入口闭合",
+      "passed": true,
+      "evidence": {
+        "biomes": [
+          "thermal_shock_reforged:borean_forest",
+          "thermal_shock_reforged:borean_tundra",
+          "thermal_shock_reforged:stardust_garden",
+          "thermal_shock_reforged:vermillion_woods"
+        ],
+        "spacing": 16
+      }
+    },
+    {
+      "check": "创意页使用原既有条目",
+      "passed": true,
+      "evidence": [
+        "large_spider_lily",
+        "pyrogenic_pylon_core",
+        "spider_lilies",
+        "stratosilver_block",
+        "stratus_alloy_block"
+      ]
+    },
+    {
+      "check": "百合原交易参数闭合",
+      "passed": true,
+      "evidence": "现有动态交易在真实注册后可访问"
+    },
+    {
+      "check": "共享Java接线 ThermalShockReforged.java",
+      "passed": true,
+      "evidence": "com.hp.thermalshockreforged.content.metalblocks.MetalBlocksContent.register(bus);"
+    },
+    {
+      "check": "共享Java接线 MusicContent.java",
+      "passed": true,
+      "evidence": "public static final ResourceKey<JukeboxSong> HANAHAKI_SONG = ResourceKey.create(Registries.JUKEBOX_SONG, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, \"hanahaki\"));\n    public static final DeferredItem<Item> HANAHAKI = ITEMS.register(\"hanahaki\", () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(HANAHAKI_SONG)));"
+    },
+    {
+      "check": "共享原生采集标签 mineable/pickaxe.json",
+      "passed": true,
+      "evidence": [
+        "thermal_shock_reforged:stratus_alloy_block",
+        "thermal_shock_reforged:stratosilver_block",
+        "thermal_shock_reforged:world_tour_trophy",
+        "thermal_shock_reforged:pyrogenic_pylon_core",
+        "thermal_shock_reforged:amalgel_trophy"
+      ]
+    },
+    {
+      "check": "共享原生采集标签 needs_diamond_tool.json",
+      "passed": true,
+      "evidence": [
+        "thermal_shock_reforged:stratus_alloy_block",
+        "thermal_shock_reforged:stratosilver_block",
+        "thermal_shock_reforged:pyrogenic_pylon_core"
+      ]
+    },
+    {
+      "check": "共享语言 en_us",
+      "passed": true,
+      "evidence": {
+        "keys": 10
+      }
+    },
+    {
+      "check": "共享语言 zh_cn",
+      "passed": true,
+      "evidence": {
+        "keys": 10
+      }
+    },
+    {
+      "check": "共享应用后integration未变更",
+      "passed": true,
+      "evidence": "215a089aaa3e8e9f15bec1b29e654849b29709d36f0978b2f629daaaab494952"
+    }
+  ],
+  "production_files": [
+    "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+    "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java",
+    "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java",
+    "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorItem.java",
+    "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoFlowerBlock.java",
+    "src/main/java/com/hp/thermalshockreforged/content/decor/geo/SpiderLiliesBlock.java",
+    "src/main/java/com/hp/thermalshockreforged/content/decor/geo/PyrogenicPylonCoreBlock.java",
+    "src/main/java/com/hp/thermalshockreforged/content/decor/geo/WorldTourRedemption.java",
+    "src/main/java/com/hp/thermalshockreforged/content/metalblocks/MetalBlocksContent.java",
+    "src/main/java/com/hp/thermalshockreforged/content/metalblocks/MetalStorageBlock.java",
+    "src/main/resources/data/thermal_shock_reforged/recipe/stratosilver_block_craft.json",
+    "src/main/resources/data/thermal_shock_reforged/recipe/stratosilver_block_uncraft.json",
+    "src/main/resources/data/thermal_shock_reforged/recipe/stratus_alloy_block_craft.json",
+    "src/main/resources/data/thermal_shock_reforged/recipe/stratus_alloy_block_uncraft.json",
+    "src/main/resources/data/thermal_shock_reforged/recipe/slag_pity.json",
+    "src/main/resources/data/thermal_shock_reforged/recipe/hanahaki_disc_recipe.json",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/stratosilver_block.json",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/stratus_alloy_block.json",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/structure/cathedral.json",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/cathedral.json",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/cathedral.json",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/structure/pyrogenic_pylon.json",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/pyrogenic_pylon.json",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/pyrogenic_pylon.json",
+    "src/main/resources/data/thermal_shock_reforged/jukebox_song/hanahaki.json",
+    "src/main/resources/data/thermal_shock_reforged/structure/pyrogenic_pylon.nbt"
+  ],
+  "animation_clips": {
+    "AMALGEL_TROPHY": [
+      "0"
+    ],
+    "WORLD_TOUR_TROPHY": [
+      "0"
+    ],
+    "PYROGENIC_PYLON_CORE": [
+      "0",
+      "1"
+    ],
+    "SPIRE_BLOOM": [
+      "0"
+    ],
+    "LARGE_SPIDER_LILY": [
+      "0"
+    ],
+    "SPIDER_LILIES": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ]
+  },
+  "shared_integration_applied_verified": true,
+  "compiled": false,
+  "server_tested": false,
+  "client_tested": false,
+  "render_preview_tested": false
+}

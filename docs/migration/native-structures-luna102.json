@@ -1,0 +1,349 @@
+{
+  "report": "native-structures102-inventory",
+  "scope": "只读机械证据盘点；未运行 Gradle 或游戏；未判断未找到的引用代表功能缺失",
+  "source_jar": "D:\\AI临时文件\\ThermalShockMigration\\thermal_shock-07.9-original.jar",
+  "typed_nbt_parser": "D:\\AI临时文件\\ThermalShockMigration\\migrate_qo_junkyard91.py（read() 返回 typed NBT tag；本报告未记录文件哈希）",
+  "structures": [
+    {
+      "id": "thermal_shock:glaukorubicon",
+      "source_entry": "data/thermal_shock/structures/glaukorubicon.nbt",
+      "data_version": 3465,
+      "size": [
+        5,
+        13,
+        5
+      ],
+      "block_count": 325,
+      "palette_count": 10,
+      "block_entity_count": 0,
+      "block_entities": [],
+      "entity_count": 0,
+      "entities": [],
+      "recursive_item_stack_ids": [],
+      "palette": [
+        {
+          "index": 0,
+          "name": "thermal_shock:kyaneos_log",
+          "properties": {
+            "axis": "y"
+          },
+          "count": 4
+        },
+        {
+          "index": 1,
+          "name": "thermal_shock:glauko_flower",
+          "properties": {},
+          "count": 5
+        },
+        {
+          "index": 2,
+          "name": "minecraft:water",
+          "properties": {
+            "level": "0"
+          },
+          "count": 296
+        },
+        {
+          "index": 3,
+          "name": "thermal_shock:glauko_stem",
+          "properties": {
+            "east": "false",
+            "waterlogged": "true",
+            "south": "false",
+            "north": "false",
+            "west": "false"
+          },
+          "count": 8
+        },
+        {
+          "index": 4,
+          "name": "thermal_shock:glauko_stem",
+          "properties": {
+            "east": "true",
+            "waterlogged": "true",
+            "south": "false",
+            "north": "false",
+            "west": "false"
+          },
+          "count": 2
+        },
+        {
+          "index": 5,
+          "name": "thermal_shock:glauko_stem",
+          "properties": {
+            "east": "true",
+            "waterlogged": "true",
+            "south": "false",
+            "north": "false",
+            "west": "true"
+          },
+          "count": 2
+        },
+        {
+          "index": 6,
+          "name": "thermal_shock:glauko_stem",
+          "properties": {
+            "east": "false",
+            "waterlogged": "true",
+            "south": "false",
+            "north": "false",
+            "west": "true"
+          },
+          "count": 2
+        },
+        {
+          "index": 7,
+          "name": "thermal_shock:glauko_stem",
+          "properties": {
+            "east": "false",
+            "waterlogged": "true",
+            "south": "true",
+            "north": "false",
+            "west": "false"
+          },
+          "count": 2
+        },
+        {
+          "index": 8,
+          "name": "thermal_shock:glauko_stem",
+          "properties": {
+            "east": "false",
+            "waterlogged": "true",
+            "south": "true",
+            "north": "true",
+            "west": "false"
+          },
+          "count": 2
+        },
+        {
+          "index": 9,
+          "name": "thermal_shock:glauko_stem",
+          "properties": {
+            "east": "false",
+            "waterlogged": "true",
+            "south": "false",
+            "north": "true",
+            "west": "false"
+          },
+          "count": 2
+        }
+      ],
+      "target_template_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\data\\thermal_shock_reforged\\structure\\glaukorubicon.nbt",
+      "target_template_file_exists": false
+    },
+    {
+      "id": "thermal_shock:sparkler_bulb (bulbfloor template block)",
+      "source_entry": "data/thermal_shock/structures/bulbfloor.nbt",
+      "data_version": 3465,
+      "size": [
+        1,
+        1,
+        1
+      ],
+      "block_count": 1,
+      "palette_count": 1,
+      "block_entity_count": 0,
+      "block_entities": [],
+      "entity_count": 0,
+      "entities": [],
+      "recursive_item_stack_ids": [],
+      "palette": [
+        {
+          "index": 0,
+          "name": "thermal_shock:sparkler_bulb",
+          "properties": {},
+          "count": 1
+        }
+      ],
+      "target_template_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\data\\thermal_shock_reforged\\structure\\bulbfloor.nbt",
+      "target_template_file_exists": false
+    }
+  ],
+  "target_registry_checks": [
+    {
+      "id": "thermal_shock_reforged:kyaneos_log",
+      "category": "block_and_block_item",
+      "status": "confirmed",
+      "evidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\MaterialContent.java",
+          "line": 376,
+          "detail": "block(\"kyaneos_log\", ...)"
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\MaterialContent.java",
+          "line": 514,
+          "detail": "共享 helper 调用 BLOCKS.register(id, factory)"
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\MaterialContent.java",
+          "line": 516,
+          "detail": "共享 helper 为同 ID 注册 BlockItem"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:glauko_flower",
+      "category": "block_and_block_item",
+      "status": "confirmed",
+      "evidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\nativeblocks\\NativeDecorContent.java",
+          "line": 79,
+          "detail": "BLOCKS.register(\"glauko_flower\", ...)"
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\nativeblocks\\NativeDecorContent.java",
+          "line": 105,
+          "detail": "GLAUKO_FLOWER 在 registerSimpleBlockItem 列表中"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:glauko_stem",
+      "category": "block_and_block_item",
+      "status": "confirmed",
+      "evidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\MaterialContent.java",
+          "line": 287,
+          "detail": "block(\"glauko_stem\", ...)"
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\MaterialContent.java",
+          "line": 514,
+          "detail": "共享 helper 调用 BLOCKS.register(id, factory)"
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\MaterialContent.java",
+          "line": 516,
+          "detail": "共享 helper 为同 ID 注册 BlockItem"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:sparkler_bulb",
+      "category": "block_and_block_item",
+      "status": "confirmed",
+      "evidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\vilebathblocks\\VilebathBlocksContent.java",
+          "line": 18,
+          "detail": "BLOCKS.register(\"sparkler_bulb\", HangingSparklerBulbBlock::new)"
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\vilebathblocks\\VilebathBlocksContent.java",
+          "line": 21,
+          "detail": "ITEMS.registerSimpleBlockItem(SPARKLER_BULB)"
+        }
+      ]
+    },
+    {
+      "id": "thermal_shock_reforged:twilit_grassy_shale",
+      "category": "worldgen block dependency",
+      "status": "confirmed",
+      "evidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\terrain\\TerrainContent.java",
+          "line": 38,
+          "detail": "BLOCKS.register(\"twilit_grassy_shale\", ...)"
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\terrain\\TerrainContent.java",
+          "line": 73,
+          "detail": "ITEMS.registerSimpleBlockItem(TWILIT_GRASSY_SHALE)"
+        }
+      ]
+    }
+  ],
+  "source_consumers": {
+    "glaukorubicon": {
+      "status": "confirmed data consumer chain and generic Java placement consumer",
+      "evidence": [
+        {
+          "path": "thermal_shock-07.9-original.jar!/data/thermal_shock/worldgen/configured_feature/glauko_trees.json",
+          "detail": "type thermal_shock:structure_feature; config.structure thermal_shock:glaukorubicon; random_rotation true; offset [-2,0,-2]"
+        },
+        {
+          "path": "thermal_shock-07.9-original.jar!/data/thermal_shock/worldgen/placed_feature/glauko_trees.json",
+          "detail": "places configured feature glauko_trees 25 times; predicate permits mossy_cobbled_shale or twilit_grassy_shale below and requires water"
+        },
+        {
+          "path": "thermal_shock-07.9-original.jar!/data/thermal_shock/forge/biome_modifier/glauko_trees_biome_modifier.json",
+          "detail": "adds glauko_trees to luminous_sea at vegetal_decoration"
+        },
+        {
+          "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\world\\features\\StructureFeature.java",
+          "lines": "31-32,45-48",
+          "detail": "registers structure_feature; loads config.structure through StructureTemplateManager and places the template"
+        },
+        {
+          "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\world\\features\\configurations\\StructureFeatureConfiguration.java",
+          "lines": "19-21",
+          "detail": "configuration codec includes structure ResourceLocation"
+        }
+      ]
+    },
+    "bulbfloor": {
+      "status": "consumer reference not found in searched readable sources and original JAR JSON",
+      "searched": [
+        "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock",
+        "thermal_shock-07.9-original.jar JSON entries"
+      ],
+      "note": "通用 StructureFeature 只能证明结构模板放置机制存在，不能证明 bulbfloor 被调用；未据此判定功能缺失。"
+    }
+  },
+  "biome_modifier_chains": [
+    {
+      "feature": "thermal_shock:twilit_grass_patch",
+      "source_entries": [
+        "thermal_shock-07.9-original.jar!/data/thermal_shock/worldgen/configured_feature/twilit_grass_patch.json",
+        "thermal_shock-07.9-original.jar!/data/thermal_shock/worldgen/placed_feature/twilit_grass_patch.json",
+        "thermal_shock-07.9-original.jar!/data/thermal_shock/forge/biome_modifier/twilit_grass_patch_biome_modifier.json"
+      ],
+      "source_detail": "configured feature 是 size 40 的 minecraft:ore，目标方块为 thermal_shock:twilit_grassy_shale；placed count 为 3 至 6；biome modifier 将 feature 加入 luminous_sea 的 underground_decoration。",
+      "target_paths_present": [
+        "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/twilit_grass_patch.json",
+        "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/twilit_grass_patch.json",
+        "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/twilit_grass_patch_biome_modifier.json"
+      ],
+      "target_evidence": "biome modifier 为 neoforge:add_features，biome luminous_sea，feature twilit_grass_patch，step underground_decoration。"
+    },
+    {
+      "feature": "thermal_shock:glauko_trees",
+      "source_entries": [
+        "thermal_shock-07.9-original.jar!/data/thermal_shock/worldgen/configured_feature/glauko_trees.json",
+        "thermal_shock-07.9-original.jar!/data/thermal_shock/worldgen/placed_feature/glauko_trees.json",
+        "thermal_shock-07.9-original.jar!/data/thermal_shock/forge/biome_modifier/glauko_trees_biome_modifier.json"
+      ],
+      "target_paths_present": [
+        "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/glauko_trees.json",
+        "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/glauko_trees.json",
+        "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/glauko_trees_biome_modifier.json"
+      ],
+      "target_evidence": [
+        {
+          "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/glauko_trees.json",
+          "line": 4,
+          "detail": "structure thermal_shock_reforged:glaukorubicon"
+        },
+        {
+          "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/glauko_trees.json",
+          "line": 36,
+          "detail": "below-block predicate includes thermal_shock_reforged:twilit_grassy_shale"
+        },
+        {
+          "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/glauko_trees_biome_modifier.json",
+          "lines": "2-5",
+          "detail": "adds glauko_trees to luminous_sea at vegetal_decoration"
+        }
+      ]
+    }
+  ],
+  "target_template_inventory": {
+    "structure_directory": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\data\\thermal_shock_reforged\\structure",
+    "glaukorubicon.nbt": "not found by directory listing and exact path check",
+    "bulbfloor.nbt": "not found by directory listing and exact path check",
+    "interpretation": "文件搜索结果；未验证游戏运行时行为或资源提供机制。"
+  }
+}

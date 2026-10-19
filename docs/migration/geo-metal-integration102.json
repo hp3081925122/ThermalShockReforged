@@ -1,0 +1,102 @@
+{
+  "batch": 102,
+  "base_head": "79803184d007c2542044ffc307b8f6c2940a6d25",
+  "java": [
+    {
+      "file": "src/main/java/com/hp/thermalshockreforged/ThermalShockReforged.java",
+      "after": "com.hp.thermalshockreforged.content.weatherutility.WeatherUtilityContent.register(bus);",
+      "code": "com.hp.thermalshockreforged.content.metalblocks.MetalBlocksContent.register(bus);"
+    },
+    {
+      "file": "src/main/java/com/hp/thermalshockreforged/content/music/MusicContent.java",
+      "before": "private MusicContent() { }",
+      "code": "public static final ResourceKey<JukeboxSong> HANAHAKI_SONG = ResourceKey.create(Registries.JUKEBOX_SONG, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, \"hanahaki\"));\n    public static final DeferredItem<Item> HANAHAKI = ITEMS.register(\"hanahaki\", () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(HANAHAKI_SONG)));"
+    }
+  ],
+  "tags": [
+    {
+      "file": "src/main/resources/data/minecraft/tags/block/mineable/pickaxe.json",
+      "append_values": [
+        "thermal_shock_reforged:stratus_alloy_block",
+        "thermal_shock_reforged:stratosilver_block",
+        "thermal_shock_reforged:world_tour_trophy",
+        "thermal_shock_reforged:pyrogenic_pylon_core",
+        "thermal_shock_reforged:amalgel_trophy"
+      ],
+      "source_values": [
+        "thermal_shock_reforged:stratus_alloy_block",
+        "thermal_shock_reforged:stratosilver_block",
+        "thermal_shock_reforged:world_tour_trophy",
+        "thermal_shock_reforged:pyrogenic_pylon_core",
+        "thermal_shock_reforged:amalgel_trophy"
+      ],
+      "preserve_replace": true
+    },
+    {
+      "file": "src/main/resources/data/minecraft/tags/block/needs_diamond_tool.json",
+      "append_values": [
+        "thermal_shock_reforged:stratus_alloy_block",
+        "thermal_shock_reforged:stratosilver_block",
+        "thermal_shock_reforged:pyrogenic_pylon_core"
+      ],
+      "source_values": [
+        "thermal_shock_reforged:stratus_alloy_block",
+        "thermal_shock_reforged:stratosilver_block",
+        "thermal_shock_reforged:pyrogenic_pylon_core"
+      ],
+      "preserve_replace": true
+    }
+  ],
+  "en_us": {
+    "block.thermal_shock_reforged.spire_bloom": "§cSpire Bloom [Deprecated]",
+    "block.thermal_shock_reforged.amalgel_trophy": "§cA§6m§ea§al§3g§9e§5l §6T§er§ao§3p§9h§5y",
+    "block.thermal_shock_reforged.world_tour_trophy": "World Tour Trophy",
+    "block.thermal_shock_reforged.stratosilver_block": "Stratosilver Block",
+    "block.thermal_shock_reforged.stratus_alloy_block": "Stratus Alloy Block",
+    "block.thermal_shock_reforged.pyrogenic_pylon_core": "Pyrogenic Pylon Core",
+    "item.thermal_shock_reforged.hanahaki.desc": "ThermaDev - Hanahaki",
+    "block.thermal_shock_reforged.spider_lilies": "Spider Lily",
+    "item.thermal_shock_reforged.hanahaki": "Music Disc",
+    "block.thermal_shock_reforged.large_spider_lily": "Spider Lily"
+  },
+  "zh_cn": {
+    "block.thermal_shock_reforged.amalgel_trophy": "Amalgel 奖杯",
+    "block.thermal_shock_reforged.world_tour_trophy": "世界巡演奖杯",
+    "block.thermal_shock_reforged.pyrogenic_pylon_core": "炽热晶塔核心",
+    "block.thermal_shock_reforged.spire_bloom": "尖塔花",
+    "block.thermal_shock_reforged.large_spider_lily": "大型彼岸花",
+    "block.thermal_shock_reforged.spider_lilies": "彼岸花丛",
+    "block.thermal_shock_reforged.stratosilver_block": "层银块",
+    "block.thermal_shock_reforged.stratus_alloy_block": "层云合金块",
+    "item.thermal_shock_reforged.hanahaki": "音乐唱片",
+    "item.thermal_shock_reforged.hanahaki.desc": "花吐症"
+  },
+  "already_present": {
+    "geo_registration": "GeoDecorContent.register与GeoDecorRenderers按GeoDecorKind枚举接线，无新增共享客户端接线",
+    "concierge_trades": {
+      "spider_lilies": "2 adamantine_spice -> 8",
+      "large_spider_lily": "4 adamantine_spice -> 1"
+    },
+    "creative_manifest": "保现有原条目顺序；不添加原无创意条目的奖杯和spire_bloom",
+    "cathedral_nbt": [
+      "structure/cathedral.nbt",
+      "structure/cathedral_base.nbt"
+    ],
+    "sound_events": [
+      "thermalshockjingle",
+      "thermoid_cries",
+      "hanahaki_disc"
+    ]
+  },
+  "intentional_differences": [
+    "按实际贴图补地图色，保原透明度和遮挡属性",
+    "SpiderLilies写PetalCount时setChanged，保证修改落盘，保原不消耗物品",
+    "支持邻居丢失由服务端权威销毁和生成掉落，避免客户端重复销毁",
+    "领取标志改PlayerPersisted内本模组命名空间持久化；保HasFschtTrophy语义和死亡克隆，不再同步无客户端消费者的旧capability全集",
+    "控制台执行TSredeem仍在命令来源位置播放原失败音；省去只用于失败分支的虚假玩家"
+  ],
+  "compiled": false,
+  "server_tested": false,
+  "client_tested": false,
+  "render_preview_tested": false
+}

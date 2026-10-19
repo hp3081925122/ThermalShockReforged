@@ -1,0 +1,382 @@
+{
+  "report": "native-four-luna102",
+  "scope": "四方块只读机械复核，不含游戏内测试；仅写入本 D 盘报告",
+  "target_project": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged",
+  "source_jar": "D:\\AI临时文件\\ThermalShockMigration\\thermal_shock-07.9-original.jar",
+  "counts": {
+    "blocks": 4,
+    "block_items_confirmed": 4,
+    "creative_entries_confirmed": 4,
+    "source_mineable_tags_checked": 3,
+    "loot_tables_present_namespace_normalized_equal": 4,
+    "natural_worldgen_json_present": 12,
+    "new_zh_cn_keys": 6
+  },
+  "blocks": [
+    {
+      "id": "thermal_shock_reforged:sparkler_bulb",
+      "registration": {
+        "status": "confirmed",
+        "path": "src/main/java/com/hp/thermalshockreforged/content/vilebathblocks/VilebathBlocksContent.java",
+        "line": 18
+      },
+      "block_item": {
+        "status": "confirmed",
+        "path": "src/main/java/com/hp/thermalshockreforged/content/vilebathblocks/VilebathBlocksContent.java",
+        "line": 21
+      },
+      "creative": {
+        "status": "confirmed",
+        "path": "src/main/resources/assets/thermal_shock_reforged/creative_tabs.json",
+        "line": 139
+      },
+      "source_mineable": "minecraft:mineable/axe from data/minecraft/tags/blocks/mineable/axe.json",
+      "target_mineable": {
+        "path": "src/main/resources/data/minecraft/tags/block/mineable/axe.json",
+        "line": 90
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:glittery_shale",
+      "registration": {
+        "status": "confirmed",
+        "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java",
+        "line": 41
+      },
+      "block_item": {
+        "status": "confirmed",
+        "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java",
+        "line": 101
+      },
+      "creative": {
+        "status": "confirmed",
+        "path": "src/main/resources/assets/thermal_shock_reforged/creative_tabs.json",
+        "line": 426
+      },
+      "source_mineable": "minecraft:mineable/pickaxe from data/minecraft/tags/blocks/mineable/pickaxe.json",
+      "target_mineable": {
+        "path": "src/main/resources/data/minecraft/tags/block/mineable/pickaxe.json",
+        "line": 358
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:constellation_block",
+      "registration": {
+        "status": "confirmed",
+        "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java",
+        "line": 42
+      },
+      "block_item": {
+        "status": "confirmed",
+        "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java",
+        "line": 102
+      },
+      "creative": {
+        "status": "confirmed",
+        "path": "src/main/resources/assets/thermal_shock_reforged/creative_tabs.json",
+        "line": 378
+      },
+      "source_mineable": "minecraft:mineable/pickaxe from data/minecraft/tags/blocks/mineable/pickaxe.json",
+      "target_mineable": {
+        "path": "src/main/resources/data/minecraft/tags/block/mineable/pickaxe.json",
+        "line": 357
+      }
+    },
+    {
+      "id": "thermal_shock_reforged:twilit_grassy_shale",
+      "registration": {
+        "status": "confirmed",
+        "path": "src/main/java/com/hp/thermalshockreforged/content/terrain/TerrainContent.java",
+        "line": 38
+      },
+      "block_item": {
+        "status": "confirmed",
+        "path": "src/main/java/com/hp/thermalshockreforged/content/terrain/TerrainContent.java",
+        "line": 73
+      },
+      "creative": {
+        "status": "confirmed",
+        "path": "src/main/resources/assets/thermal_shock_reforged/creative_tabs.json",
+        "line": 12
+      },
+      "source_mineable": "minecraft:mineable/pickaxe from data/minecraft/tags/blocks/mineable/pickaxe.json",
+      "target_mineable": {
+        "path": "src/main/resources/data/minecraft/tags/block/mineable/pickaxe.json",
+        "line": 359
+      }
+    }
+  ],
+  "loot_tables": {
+    "comparison": "Parsed source and target JSON; normalize thermal_shock namespace to thermal_shock_reforged and compare structure and values.",
+    "results": [
+      {
+        "id": "sparkler_bulb",
+        "source": "data/thermal_shock/loot_tables/blocks/sparkler_bulb.json",
+        "target": "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/sparkler_bulb.json",
+        "present": true,
+        "namespace_normalized_equal": true,
+        "drop": "sparkler_bulb"
+      },
+      {
+        "id": "glittery_shale",
+        "source": "data/thermal_shock/loot_tables/blocks/glittery_shale.json",
+        "target": "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/glittery_shale.json",
+        "present": true,
+        "namespace_normalized_equal": true,
+        "drop": "glittery_shale"
+      },
+      {
+        "id": "constellation_block",
+        "source": "data/thermal_shock/loot_tables/blocks/constellation_block.json",
+        "target": "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/constellation_block.json",
+        "present": true,
+        "namespace_normalized_equal": true,
+        "drop": "constellation_block"
+      },
+      {
+        "id": "twilit_grassy_shale",
+        "source": "data/thermal_shock/loot_tables/blocks/twilit_grassy_shale.json",
+        "target": "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/twilit_grassy_shale.json",
+        "present": true,
+        "namespace_normalized_equal": true,
+        "drop": "cobbled_shale"
+      }
+    ]
+  },
+  "natural_worldgen_json_references": [
+    {
+      "target_refs": [
+        "thermal_shock_reforged:sparkler_bulb"
+      ],
+      "kind": "configured_feature",
+      "present": true,
+      "source": "data/thermal_shock/worldgen/configured_feature/sparkler_bulb_patch.json",
+      "block": "sparkler_bulb",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/sparkler_bulb_patch.json"
+    },
+    {
+      "target_refs": [
+        "thermal_shock_reforged:sparkler_bulb_patch"
+      ],
+      "kind": "placed_feature",
+      "present": true,
+      "source": "data/thermal_shock/worldgen/placed_feature/sparkler_bulb_patch.json",
+      "block": "sparkler_bulb",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/sparkler_bulb_patch.json"
+    },
+    {
+      "target_refs": [
+        "thermal_shock_reforged:glittery_shale"
+      ],
+      "kind": "configured_feature",
+      "present": true,
+      "source": "data/thermal_shock/worldgen/configured_feature/glittery_shale_feature.json",
+      "block": "glittery_shale",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/glittery_shale_feature.json"
+    },
+    {
+      "target_refs": [
+        "thermal_shock_reforged:glittery_shale_feature"
+      ],
+      "kind": "placed_feature",
+      "present": true,
+      "source": "data/thermal_shock/worldgen/placed_feature/glittery_shale_feature.json",
+      "block": "glittery_shale",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/glittery_shale_feature.json"
+    },
+    {
+      "target_refs": [
+        "thermal_shock_reforged:glaukorubicon"
+      ],
+      "kind": "configured_feature",
+      "present": true,
+      "source": "data/thermal_shock/worldgen/configured_feature/glauko_trees.json",
+      "block": "glaukorubicon",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/glauko_trees.json"
+    },
+    {
+      "target_refs": [
+        "thermal_shock_reforged:glauko_trees",
+        "thermal_shock_reforged:twilit_grassy_shale"
+      ],
+      "kind": "placed_feature predicate",
+      "present": true,
+      "source": "data/thermal_shock/worldgen/placed_feature/glauko_trees.json",
+      "block": "twilit_grassy_shale",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/glauko_trees.json"
+    },
+    {
+      "target_refs": [
+        "thermal_shock_reforged:mossy_cobbled_shale",
+        "thermal_shock_reforged:twilit_grassy_shale"
+      ],
+      "kind": "configured_feature",
+      "present": true,
+      "source": "data/thermal_shock/worldgen/configured_feature/twilit_grass_patch.json",
+      "block": "twilit_grassy_shale",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/twilit_grass_patch.json"
+    },
+    {
+      "target_refs": [
+        "thermal_shock_reforged:twilit_grass_patch"
+      ],
+      "kind": "placed_feature",
+      "present": true,
+      "source": "data/thermal_shock/worldgen/placed_feature/twilit_grass_patch.json",
+      "block": "twilit_grassy_shale",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/twilit_grass_patch.json"
+    },
+    {
+      "target_refs": [
+        "thermal_shock_reforged:sparkler_bulb_patch"
+      ],
+      "kind": "biome_modifier",
+      "present": true,
+      "source": "data/thermal_shock/forge/biome_modifier/sparkler_bulb_patch_biome_modifier.json",
+      "block": "sparkler_bulb",
+      "target": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/sparkler_bulb_patch_biome_modifier.json"
+    },
+    {
+      "target_refs": [
+        "thermal_shock_reforged:glittery_shale_feature"
+      ],
+      "kind": "biome_modifier",
+      "present": true,
+      "source": "data/thermal_shock/forge/biome_modifier/glittery_shale_feature_biome_modifier.json",
+      "block": "glittery_shale",
+      "target": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/glittery_shale_feature_biome_modifier.json"
+    },
+    {
+      "target_refs": [
+        "thermal_shock_reforged:luminous_sea",
+        "thermal_shock_reforged:glauko_trees"
+      ],
+      "kind": "biome_modifier",
+      "present": true,
+      "source": "data/thermal_shock/forge/biome_modifier/glauko_trees_biome_modifier.json",
+      "block": "glauko_trees",
+      "target": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/glauko_trees_biome_modifier.json"
+    },
+    {
+      "target_refs": [
+        "thermal_shock_reforged:luminous_sea",
+        "thermal_shock_reforged:twilit_grass_patch"
+      ],
+      "kind": "biome_modifier",
+      "present": true,
+      "source": "data/thermal_shock/forge/biome_modifier/twilit_grass_patch_biome_modifier.json",
+      "block": "twilit_grass_patch",
+      "target": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/twilit_grass_patch_biome_modifier.json"
+    }
+  ],
+  "structures": {
+    "prior_inventory": "D:\\AI临时文件\\ThermalShockMigration\\native-structures102-inventory.json",
+    "glaukorubicon": {
+      "source_entry": "data/thermal_shock/structures/glaukorubicon.nbt",
+      "DataVersion": 3465,
+      "source_size": [
+        5,
+        13,
+        5
+      ],
+      "target_structure_path_present": true,
+      "source_consumer": "glauko_trees configured feature to placed feature to luminous_sea biome modifier; generic Java template placement is recorded in prior inventory",
+      "target_path": "src/main/resources/data/thermal_shock_reforged/structure/glaukorubicon.nbt",
+      "original_sha256": "923142f1b43e19d33ac66be812eddf973fc2b44681f8fe903148eb8742536724",
+      "target_sha256": "478e3d583231898eec8d4c79dda35c8c24313240edffb57ca5e26e706b1ad7c6",
+      "data_version": 3465,
+      "size": [
+        5,
+        13,
+        5
+      ],
+      "original_byte_roundtrip": true,
+      "target_byte_roundtrip": true,
+      "only_namespace_changed_typed_payload": true
+    },
+    "bulbfloor": {
+      "source_entry": "data/thermal_shock/structures/bulbfloor.nbt",
+      "DataVersion": 3465,
+      "source_size": [
+        1,
+        1,
+        1
+      ],
+      "palette_block": "thermal_shock:sparkler_bulb",
+      "target_structure_path_present": true,
+      "source_consumer": "not found in readable source or original JAR JSON search",
+      "target_path": "src/main/resources/data/thermal_shock_reforged/structure/bulbfloor.nbt",
+      "original_sha256": "007e31a242734043c661b3908b98a2333c1d0d2e51fcab0e885a7305e76c6a1c",
+      "target_sha256": "75a6f19ee3118b6b68be187ab4359c3c97f2fc05b0e2cf8a000c08a8b5798b85",
+      "data_version": 3465,
+      "size": [
+        1,
+        1,
+        1
+      ],
+      "original_byte_roundtrip": true,
+      "target_byte_roundtrip": true,
+      "only_namespace_changed_typed_payload": true
+    },
+    "conversion_report": {
+      "available": true,
+      "evidence": "两目标 SHA-256 与转换报告 target_sha256 相同；转换报告记录 original_byte_roundtrip 和 target_byte_roundtrip 均 true，且 only_namespace_changed_typed_payload 为 true。原 JAR NBT 条目 SHA-256 与报告 original_sha256 相同。",
+      "original_and_target_hashes_match_report": true,
+      "path": "docs/migration/native-structure-conversion102.json",
+      "only_namespace_changed_typed_payload": true
+    }
+  },
+  "language": {
+    "original": "thermal_shock-07.9-original.jar!/assets/thermal_shock/lang/en_us.json",
+    "target_english": "src/main/resources/assets/thermal_shock_reforged/lang/en_us.json",
+    "target_chinese": "src/main/resources/assets/thermal_shock_reforged/lang/zh_cn.json",
+    "original_english_values": {
+      "sparkler_bulb": "Glister Bomb",
+      "sparkler_bulb_legacy_v": "Sparkler Bomb",
+      "glittery_shale": "Glittery Shale",
+      "glittery_shale_description": "Can be extracted at a Lapidarian's Workbench.",
+      "constellation_block": "Constellation Block",
+      "constellation_block_description": "This block's appearance can be altered by a Chisel.",
+      "twilit_grassy_shale": "Twilit Grassy Shale"
+    },
+    "target_english_status": "All four canonical block names and both description keys exist; legacy Sparkler Bomb _v key also exists at en_us.json line 211.",
+    "new_zh_cn_keys": [
+      {
+        "key": "block.thermal_shock_reforged.sparkler_bulb",
+        "value": "闪光炸弹"
+      },
+      {
+        "key": "block.thermal_shock_reforged.glittery_shale",
+        "value": "闪光页岩"
+      },
+      {
+        "key": "block.thermal_shock_reforged.constellation_block",
+        "value": "星座方块"
+      },
+      {
+        "key": "block.thermal_shock_reforged.twilit_grassy_shale",
+        "value": "暮光覆草页岩"
+      },
+      {
+        "key": "block.thermal_shock_reforged.glittery_shale.description_0",
+        "value": "§7可在§e宝石匠工作台§7提取。"
+      },
+      {
+        "key": "block.thermal_shock_reforged.constellation_block.description_0",
+        "value": "§7使用§e凿子§7可改变此方块的图案。"
+      }
+    ],
+    "target_zh_line_evidence": "zh_cn.json lines 772-777"
+  },
+  "assets_gold_glitter": {
+    "reuse_report": "D:\\AI临时文件\\ThermalShockMigration\\native-six-resources102.json",
+    "hashes_recomputed": false,
+    "existing_report_facts": "That report records glittery_shale blockstate/model normalized equality and glitteryshale.png byte equality. It also contains Gold Glitter registry, particle class, JSON, texture and effect mapping; no hashes were recalculated in this review."
+  },
+  "differences_and_limits": [
+    "四个目标 biome_modifier 文件均存在并引用对应目标 feature ID；自然生成 JSON 文件合计 12 个，其中 configured_feature、placed_feature 8 个，biome_modifier 4 个。",
+    "glaukorubicon.nbt 与 bulbfloor.nbt 均存在于单数 structure 目录；target SHA-256 与工程 docs/migration/native-structure-conversion102.json 一致。报告记录 typed payload 除 namespace 外不变，且原始/目标 byte roundtrip 均通过。",
+    "bulbfloor 原消费者未找到；glaukorubicon 在原世界生成链中有引用。",
+    "未做游戏内掉落、世界生成、语言界面或渲染验证。"
+  ]
+}

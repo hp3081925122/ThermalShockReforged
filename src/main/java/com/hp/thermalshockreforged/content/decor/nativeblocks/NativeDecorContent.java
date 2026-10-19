@@ -38,6 +38,8 @@ public final class NativeDecorContent {
     public static final DeferredBlock<Block> SUPERBOUNCER = BLOCKS.register("superbouncer", () -> new BounceBlocks.Slab(true));
     public static final DeferredBlock<Block> TRAIN_TERMINAL = BLOCKS.register("train_terminal", TrainTerminalBlock::new);
     public static final DeferredBlock<Block> CHISELED_MANTLESTONE = BLOCKS.register("chiseled_mantlestone", () -> new CrystalleyeBlock(0));
+    public static final DeferredBlock<Block> GLITTERY_SHALE = BLOCKS.register("glittery_shale", GlitteryShaleBlock::new);
+    public static final DeferredBlock<Block> CONSTELLATION_BLOCK = BLOCKS.register("constellation_block", ConstellationBlock::new);
     public static final DeferredBlock<Block> RED_CRYSTALLEYE_LAMP = BLOCKS.register("red_crystalleye_lamp", () -> new CrystalleyeBlock(1));
     public static final DeferredBlock<Block> BLUE_CRYSTALLEYE_LAMP = BLOCKS.register("blue_crystalleye_lamp", () -> new CrystalleyeBlock(2));
     public static final DeferredBlock<Block> THERMITE = BLOCKS.register("thermite", ThermiteBlock::new);
@@ -96,6 +98,8 @@ public final class NativeDecorContent {
     public static final DeferredItem<Item> BLACKPOWDER_SPICE = ITEMS.register("blackpowder_spice", () -> new SpiceItem(new Item.Properties().stacksTo(64).rarity(Rarity.UNCOMMON), "item.thermal_shock_reforged.blackpowder_spice.description_0"));
 
     static {
+        ITEMS.registerSimpleBlockItem(GLITTERY_SHALE);
+        ITEMS.registerSimpleBlockItem(CONSTELLATION_BLOCK);
         ITEMS.registerSimpleBlockItem(LAPIDARIAN_WORKBENCH);
         ITEMS.registerSimpleBlockItem(FABRICATOR_CONSTRUCTOR);
         for (var block : List.of(SPICE_GEYSER, ROCK_CLIMBING_WALL, BRICK_CLIMBING_WALL, MANTLESLAG, PHASER, BOUNCER, LITTLE_SPRING, SUPERBOUNCER, TRAIN_TERMINAL, CHISELED_MANTLESTONE, RED_CRYSTALLEYE_LAMP, BLUE_CRYSTALLEYE_LAMP, THERMITE, SHALE_LAMP, CHROMATIC_SHALE_LAMP, DESK_PHOTO, ICICLES, GLITTERDROP_ICICLE, GLITTER_LOTUS, GLOWCAP, VERMILLI_PLANKS, SNOWY_PERMAFROST, MUCK, SPIRE_BASE, OCHRE_PLANKS, MOSSY_COBBLED_SHALE, BORDERED_VERMILLION_PLANKS, BORDERED_OCHRE_PLANKS, SHIVERGLITTER_PLANKS, BORDERED_SHIVERGLITTER_PLANKS, SPARKLY_MUCK, JELLERCEL_CELL_BLOCK, MITHRAL_SPICE_BLOCK, TOURMALINE_SPICE_BLOCK, KYANEOS_PLANKS, BORDERED_KYANEOS_PLANKS, ATLAS_BASE_EDGE, BLACK_GRID_CORRUPTION, RED_GRID_CORRUPTION, PURIFIED_GRASSY_SHALE, BLACKPOWDER_SPICE_BLOCK, WROUGHT_BARS, WROUGHT_BAR_CORNER, RUSTY_MACHINE, CHERRY_MESH_BLOCK, GLOWCAP_BLOCK, GLAUKO_FLOWER, SNOWY_SANCTUM_BRICKS, LIGHT_BLOCKING_BARRIER, MAVROS_PLANKS, METALLIC_DEBRIS, BOX_VOLTFLOWER, MODEST_ARCHIVE_CABINET, CRAMMED_ARCHIVE_CABINET, PROTOI_SERVER, SEA_CARCASS_MEMBRANE, SEA_CARCASS_HEAD, KILOLYTE_SPAWNER, TRAPPED_ARCHIVE_CUBE, ARCHIVE_CUBE, FLOWERING_SHALE, LAPTOP, MANTLESTONE_DOORMAT)) ITEMS.registerSimpleBlockItem(block);

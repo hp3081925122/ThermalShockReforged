@@ -26,6 +26,9 @@ public final class GeoDecorContent {
                 case FRIGID_ALTAR, FERROUS_ALTAR -> new AltarBlock(kind);
                 case PHOBOTITE_OUTCROP, PHOBOTITE_MANTLE_OUTCROP -> new PhobotiteOutcropBlock(kind);
                 case PYLON_CORE -> new PylonCoreBlock();
+                case PYROGENIC_PYLON_CORE -> new PyrogenicPylonCoreBlock();
+                case SPIRE_BLOOM, LARGE_SPIDER_LILY -> new GeoFlowerBlock(kind);
+                case SPIDER_LILIES -> new SpiderLiliesBlock();
                 case JELLERCEL -> new JellercelBlock(kind);
                 case LARGE_JELLERCEL -> new LargeJellercelBlock();
                 case SURGE_PYLON -> new SurgePylonBlock();
@@ -49,7 +52,7 @@ public final class GeoDecorContent {
                 case PATHIOLITE_OUTCROP -> new PathioliteOutcropBlock();
                 case SUSPICIOUS_CAVEBLOOMER -> new SuspiciousCavebloomerBlock();
                 case CRYONIC_LAMP, GLAUKO_BLOOM -> new GeoDecorBlock.Waterlogged(kind);
-                case STATUE_OF_LITANY, ITTY_BITTY, GUNNER_TROPHY, BURNER_TROPHY, CAVEBLOOMER_TROPHY, CRYSTAL_SOPEL_TROPHY -> new GeoDecorBlock.Directional(kind);
+                case STATUE_OF_LITANY, ITTY_BITTY, GUNNER_TROPHY, BURNER_TROPHY, CAVEBLOOMER_TROPHY, CRYSTAL_SOPEL_TROPHY, AMALGEL_TROPHY, WORLD_TOUR_TROPHY -> new GeoDecorBlock.Directional(kind);
                 default -> new GeoDecorBlock(kind);
             });
             BLOCK_VALUES.put(kind, block);
@@ -65,6 +68,8 @@ public final class GeoDecorContent {
         ITEMS.register(bus);
         ENTITIES.register(bus);
         bus.addListener(GeoDecorContent::capabilities);
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(WorldTourRedemption::commands);
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(WorldTourRedemption::clonePlayer);
     }
     private static void capabilities(RegisterCapabilitiesEvent event) {
         for (var type : ENTITY_VALUES.values()) event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, type.get(), (entity, side) -> entity.itemHandler(side));

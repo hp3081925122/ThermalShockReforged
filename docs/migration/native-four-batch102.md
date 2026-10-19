@@ -1,0 +1,17 @@
+# 第102批主线四方块
+
+基线79803184d007c2542044ffc307b8f6c2940a6d25；原07.9及目标环境沿用parallel-batch102.md。先建立分工文档、核原block/procedure/必要字节码与目标实际API，再生产。Luna只读核原资产，迁移A独占另八项，不共改Geo/metalblocks包。
+
+SparklerBulb与原HangingSparklerBulb逐方法相同，复用已经迁入的完整方块实现与SparklerDetonations迭代真实爆炸，不再复制同一类。两个独立注册ID、BlockItem和资源仍分别存在。保FUNGUS声、硬度0.45/抗爆0、光14、全立方碰撞/透天光、遮光0、emissive/postprocess、40%客户端导管声、三种破坏入口的power1/BLOCK爆炸和20颗END_ROD参数；原显示procedure仅ServerLevel分支的5颗粒子在客户端animateTick不可达，不虚构新的常驻粒子。
+
+GlitteryShale保原STONE地图色、NETHERRACK声、硬度1/抗爆5、光3、遮光15、原随机更新属性和描述。客户端6%概率在顶面中心发1颗既有GOLD_GLITTER，复用原AAA效果，不注册简化替代粒子。采集、loot、原生生成与已有切石战利品消费者一并核对。
+
+ConstellationBlock保六朝向、42种状态组合、七套原模型、全立方碰撞、原遮光15、emissive/postprocess、NETHERITE_BLOCK声、硬度2/抗爆30及原描述。状态0亮度0，其余15。原JAR字节码确认交互在5回0，导致合法状态6不能正常访问；按用户合理修复授权改为0..6完整循环，主手凿子仅服务端改状态，无额外耐久/材料/声音。无凿子仍消费方块交互，保持原返回SUCCESS语义。补黑色地图色，不改透明属性。
+
+TwilitGrassyShale复用目标现有真实GrassyShaleBlock/PlantSoilBlock机制，保原NETHERRACK声、硬度1/抗爆5、遮光15、正确工具掉落和可承载植物；本变体骨粉顶面种原TWILIT_SHRUB，其他已迁变体分支不变。沿既有合理修复，仅可替换上方方块时服务端种植、实际成功才从使用主手扣1骨粉，避免原覆盖任意实体方块、失败仍全背包扣费；潜行和非顶面不触发。补紫色地图色。
+
+原四掉落、四套configured/placed/biome_modifier共十六份JSON已迁入。IntProvider按目标Codec扁平转换，HeightProvider原有布局不变。SparklerBulb保原四明确群系与原5次patch、count1..3、Y−30..45；GlitteryShale保glaciation群系、count14..20、半径1和原暴露面条件。TwilitGrassPatch保luminous_sea、40矿脉大小及mossy_cobbled_shale替换目标；GlaukoTrees保25次放置、原水体/地表条件、偏移和原随机旋转，不新增概率或改模板大小。复用既有完整StructureFeature，而非重复注册另一套模板特征。
+
+glaukorubicon完整325块/10状态/5×13×5，bulbfloor完整1块/1状态，均无实体、方块实体或物品栈。typed NBT只替命名空间，保DataVersion3465、数值类型、全部水方块、几何与状态，原/目标二进制往返验证通过。前者通过原GlaukoTrees链自然生成；后者未找到原Java/JSON调用入口，保留模板但不造生成来源。证据见native-structure-conversion102.json。GlitteryShale既有LapidarianWorkbench和gameplay/glittery_shale_lapidary战利品已存在，直接连通真实来源。
+
+原采集标签精确并入：灯泡斧、其他三块镐，星座方块石质工具门槛。四BlockItem和全部原creative tab条目使用真实注册；四名称和两原描述补中文，未重写既有英语。模型/纹理/金光粒子的机械比对由Luna独立报告；不把仅有注册或编译当完整运行验收。两路停笔后统一编译，游戏/渲染由用户独立负责。

@@ -23,6 +23,8 @@ public final class MusicContent {
     public static final DeferredItem<Item> TRAMPLING_FLOWERS = ITEMS.register("trampling_flowers", () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(TRAMPLING_FLOWERS_SONG)));
     public static final ResourceKey<JukeboxSong> FLOOR_33_SONG = ResourceKey.create(Registries.JUKEBOX_SONG, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "floor_33"));
     public static final DeferredItem<Item> FLOOR_33 = ITEMS.register("floor_33", () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(FLOOR_33_SONG)));
+    public static final ResourceKey<JukeboxSong> HANAHAKI_SONG = ResourceKey.create(Registries.JUKEBOX_SONG, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "hanahaki"));
+    public static final DeferredItem<Item> HANAHAKI = ITEMS.register("hanahaki", () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(HANAHAKI_SONG)));
     private MusicContent() { }
     public static void register(IEventBus bus) { ITEMS.register(bus); }
 }

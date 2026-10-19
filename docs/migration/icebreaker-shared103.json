@@ -1,0 +1,37 @@
+{
+  "batch": 103,
+  "status": "预先冻结接口，生产待第102批提交后明确解冻",
+  "geo_package_owner": "迁移A",
+  "implementation_owner": "主线content/icebreaker",
+  "kind": {
+    "enum": "ICEBREAKER",
+    "id": "icebreaker",
+    "caption": "Icebreaker",
+    "model": "geo/icebreaker.geo.json",
+    "texture": "textures/block/icebreaker.png",
+    "animation": "animations/icebreaker.animation.json",
+    "shape": "Shapes.block()",
+    "fallbackDrop": true,
+    "comparator": false,
+    "properties": "BlockBehaviour.Properties.of().mapColor(MapColor.ICE).sound(SoundType.NETHERITE_BLOCK).strength(999.0F).lightLevel(state -> 10).noOcclusion().isRedstoneConductor((state, level, pos) -> false)",
+    "notes": "原无requiresCorrectToolForDrops/原生采集标签，不擅增工具门槛；原透天光/遮光0由GeoDecorBlock保留，原动画0..1由基类保留。"
+  },
+  "factories": {
+    "GeoDecorContent_block_switch": "case ICEBREAKER -> new com.hp.thermalshockreforged.content.icebreaker.IcebreakerBlock();",
+    "GeoDecorContent_entity_switch": "case ICEBREAKER -> new com.hp.thermalshockreforged.content.icebreaker.IcebreakerBlockEntity(pos, state);",
+    "normal_placement": "主线IcebreakerBlock.newBlockEntity同样返回IcebreakerBlockEntity，不只接反序列化工厂。"
+  },
+  "root_public_contract": {
+    "block": "public final IcebreakerBlock extends GeoDecorBlock.Directional，公开无参构造",
+    "block_entity": "public final IcebreakerBlockEntity extends GeoDecorBlockEntity，公开(BlockPos, BlockState)构造；保原9格库存/自动化/更新包，另存有限任务归属UUID",
+    "task_registration": "新增IcebreakerContent由主线根入口注册有限任务Entity和Noop renderer，不由A修改共享根入口。"
+  },
+  "independent_inventory": "D:/AI临时文件/ThermalShockMigration/icebreaker-luna103.json",
+  "source_evidence": [
+    "readable/net/mcreator/thermal_shock/block/IcebreakerBlock.java",
+    "readable/net/mcreator/thermal_shock/block/entity/IcebreakerTileEntity.java",
+    "readable/net/mcreator/thermal_shock/block/model/IcebreakerBlockModel.java",
+    "readable/net/mcreator/thermal_shock/block/model/IcebreakerDisplayModel.java",
+    "readable/net/mcreator/thermal_shock/procedures/IcebreakerBlockAddedProcedure.java"
+  ]
+}

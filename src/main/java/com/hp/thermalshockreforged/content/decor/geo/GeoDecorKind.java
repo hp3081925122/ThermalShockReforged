@@ -8,6 +8,12 @@ import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.shapes.*;
 
 public enum GeoDecorKind {
+    AMALGEL_TROPHY("amalgel_trophy", "\u00a7cA\u00a76m\u00a7ea\u00a7al\u00a73g\u00a79e\u00a75l \u00a76T\u00a7er\u00a7ao\u00a73p\u00a79h\u00a75y", "geo/amalgel_relic.geo.json", "textures/block/amalgeglrelic.png", "animations/amalgel_relic.animation.json", Shapes.block(), true, false),
+    WORLD_TOUR_TROPHY("world_tour_trophy", "World Tour Trophy", "geo/world_tour_trophy.geo.json", "textures/block/world_tour_trophy.png", "animations/world_tour_trophy.animation.json", Shapes.block(), true, false),
+    PYROGENIC_PYLON_CORE("pyrogenic_pylon_core", "Pyrogenic Pylon Core", "geo/pylon_core.geo.json", "textures/block/pyrogenic_core.png", "animations/pylon_core.animation.json", Block.box(2, 2, 2, 14, 14, 14), false, false),
+    SPIRE_BLOOM("spire_bloom", "\u00a7cSpire Bloom [Deprecated]", "geo/small_spire_blossom.geo.json", "textures/block/small_spire_blossom.png", "animations/small_spire_blossom.animation.json", Block.box(.1, .1, .1, 15.9, 15.9, 15.9), true, false),
+    LARGE_SPIDER_LILY("large_spider_lily", "Spider Lily", "geo/small_spire_blossom.geo.json", "textures/block/spider_lily.png", "animations/small_spire_blossom.animation.json", Block.box(.1, .1, .1, 15.9, 15.9, 15.9), true, false),
+    SPIDER_LILIES("spider_lilies", "Spider Lily", "geo/spider_lilies.geo.json", "textures/block/spider_lilies_4.png", "animations/spider_lilies.animation.json", Block.box(.1, .1, .1, 15.9, 4, 15.9), true, false),
     EXTRACTOR("extractor", "Extractor", "geo/extractor.geo.json", "textures/block/extractor.png", "animations/extractor.animation.json", Block.box(.1, .1, .1, 15.9, 14, 15.9), true, true),
     GRAND_BLASPHEMER("grand_blasphemer", "Grand Blasphemer", "geo/grand_blasphemer.geo.json", "textures/block/blasty.png", "animations/grand_blasphemer.animation.json", Shapes.block(), true, true),
     FABRICATOR("fabricator", "Fabricator", "geo/fabricator.geo.json", "textures/block/texturefabricator.png", "animations/fabricator.animation.json", Block.box(.1, .1, .1, 15.9, 14, 15.9), false, true),
@@ -111,7 +117,7 @@ public enum GeoDecorKind {
                         .strength(this == FRIGID_ALTAR ? -1 : 10, this == FRIGID_ALTAR ? 3600000 : 999).lightLevel(state -> 5).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((state, level, pos) -> false);
                 yield this == FRIGID_ALTAR ? properties.noLootTable() : properties;
             }
-            case PYLON_CORE -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.GLASS).strength(10, 999).lightLevel(state -> 15)
+            case PYLON_CORE, PYROGENIC_PYLON_CORE -> BlockBehaviour.Properties.of().mapColor(this == PYLON_CORE ? MapColor.COLOR_LIGHT_BLUE : MapColor.COLOR_ORANGE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.GLASS).strength(10, 999).lightLevel(state -> 15)
                     .requiresCorrectToolForDrops().noOcclusion().pushReaction(PushReaction.BLOCK).hasPostProcess((state, level, pos) -> true).emissiveRendering((state, level, pos) -> true).isRedstoneConductor((state, level, pos) -> false);
             case SURGE_PYLON -> SurgePylonBlock.createPylonProperties();
             case SHALE_PILLAR, SHALE_PILLAR_VAR_2, SHALE_PILLAR_VAR_3, SHALE_PILLAR_VAR_4, SHALE_PILLAR_VAR_5, SHALE_PILLAR_VAR_6, SHALE_PILLAR_VAR_7, SHALE_PILLAR_VAR_8 -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).sound(SoundType.BASALT).strength(2, 10).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((state, level, pos) -> false);
@@ -126,6 +132,11 @@ public enum GeoDecorKind {
             case CAPSULE -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).sound(SoundType.BASALT).strength(-1, 3600000).requiresCorrectToolForDrops().noOcclusion().pushReaction(PushReaction.BLOCK).isRedstoneConductor((state, level, pos) -> false);
             case ATLAS -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).sound(SoundType.STONE).strength(3, 100).lightLevel(state -> 15).requiresCorrectToolForDrops().noCollission().pushReaction(PushReaction.BLOCK);
             case CRYSTAL_SOPEL_TROPHY -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).sound(SoundType.COPPER).strength(1, 10).lightLevel(state -> 7).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((state, level, pos) -> false);
+            case AMALGEL_TROPHY -> BlockBehaviour.Properties.of().mapColor(MapColor.GOLD).sound(SoundType.COPPER).strength(1, 10).lightLevel(state -> 7).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((state, level, pos) -> false);
+            case WORLD_TOUR_TROPHY -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).sound(SoundType.METAL).strength(1, 999).lightLevel(state -> 15).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((state, level, pos) -> false);
+            case SPIRE_BLOOM -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).sound(SoundType.SLIME_BLOCK).instabreak().lightLevel(state -> 7).noCollission().noOcclusion().isRedstoneConductor((state, level, pos) -> false);
+            case LARGE_SPIDER_LILY -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).sound(SoundType.GRASS).instabreak().noCollission().noOcclusion().isRedstoneConductor((state, level, pos) -> false);
+            case SPIDER_LILIES -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).sound(SoundType.GRASS).instabreak().noCollission().noOcclusion().pushReaction(PushReaction.DESTROY).isRedstoneConductor((state, level, pos) -> false);
             case FABRICATOR -> BlockBehaviour.Properties.of().mapColor(MapColor.METAL).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.LODESTONE).strength(10, 999).lightLevel(state -> 13).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((state, level, pos) -> false);
             case DESK_DIRECTOR -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).sound(SoundType.STONE).strength(-1, 3600000).noOcclusion().isRedstoneConductor((state, level, pos) -> false);
             case SUPER_CRYONIC_CACHE -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.AMETHYST_CLUSTER).strength(-1, 3600000).lightLevel(state -> 12).noOcclusion().pushReaction(PushReaction.BLOCK).isRedstoneConductor((state, level, pos) -> false).noLootTable();

@@ -1,0 +1,93 @@
+{
+  "schema": "geo-metal-final102-v1",
+  "batch": 102,
+  "base_head": "79803184d007c2542044ffc307b8f6c2940a6d25",
+  "status": "本路26份生产文件停笔，共享增量已由主线应用并复核，交统一冻结编译",
+  "production_file_count": 26,
+  "production_sha256": {
+    "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java": "c5d196fcf05e8ce2530e235ce8f10d68c062460c1266ae4bc8c529db0cbe3e31",
+    "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java": "32be6438fed4a96aff1aa2e9f2a07e3074d02b2f772a5fe0fe6ad264959a9f36",
+    "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorItem.java": "766dec4db98b63176c7ac8acf008bc9eda38f911afbb28d865beb9c2519d1143",
+    "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java": "a6163767911812a64dbbd0949f99f6d8b5f9cdddaed4fc4069d780a3c935fe4b",
+    "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoFlowerBlock.java": "156302971263fed1e27c8bfe954776e550051314182c607b3ff7439803a09e8a",
+    "src/main/java/com/hp/thermalshockreforged/content/decor/geo/PyrogenicPylonCoreBlock.java": "5730025cf0852655f425a12ba16f5bf03f3d843567ad8a533099f632fab007f4",
+    "src/main/java/com/hp/thermalshockreforged/content/decor/geo/SpiderLiliesBlock.java": "d976fac0f010483bab4bdc2a09dc4e090773acc2ffaa918a5ced8f622f41f78c",
+    "src/main/java/com/hp/thermalshockreforged/content/decor/geo/WorldTourRedemption.java": "7d7cb871fe7da792fce3ff5b144e31ca6c214d650ebd735b0917353bf99e0bb3",
+    "src/main/java/com/hp/thermalshockreforged/content/metalblocks/MetalBlocksContent.java": "e563241fc22249a32d95af583c8221c96cfbcfb40fb37964a19b8004cd048015",
+    "src/main/java/com/hp/thermalshockreforged/content/metalblocks/MetalStorageBlock.java": "cf41b12d6f591ec97f4352a03f5a3555b922b6519c854a258cff39609a44a9ea",
+    "src/main/resources/data/thermal_shock_reforged/jukebox_song/hanahaki.json": "3c1841dde7ef32d986bf903e5c719b616a99e631193727296ec6a7fef55621db",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/stratosilver_block.json": "2ecdb3bbddaf81d79ba10bebddeeb06a9a175a631b11dedcda6ccdb1195f09ea",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/stratus_alloy_block.json": "c8bcee05c5807a5cb38b707babf5899adc6d2891035e8ad85613415aea534d1c",
+    "src/main/resources/data/thermal_shock_reforged/recipe/hanahaki_disc_recipe.json": "41333bf980f6b9270b47aeda578ecc45d5bd077aa6b4f4451db8daaac95fbbf5",
+    "src/main/resources/data/thermal_shock_reforged/recipe/slag_pity.json": "141fb2b7badecea59dd5289e62e8d66b0bc917dd15fc1749ffab40fa0c52ef4e",
+    "src/main/resources/data/thermal_shock_reforged/recipe/stratosilver_block_craft.json": "c7f95204428c967c003948f6b3841774ae07708672ce9bea975b130ec42e3c52",
+    "src/main/resources/data/thermal_shock_reforged/recipe/stratosilver_block_uncraft.json": "90da25c2ce494b86f4daef7ce13ef9266128eee116c60dad359d1ec743df89f0",
+    "src/main/resources/data/thermal_shock_reforged/recipe/stratus_alloy_block_craft.json": "745bae90817f5ba78a4a3773fced6cef01cb56e7fbec60bdc9ce022e4aa73023",
+    "src/main/resources/data/thermal_shock_reforged/recipe/stratus_alloy_block_uncraft.json": "e7fb9cda997ca9ff780825a5a6da912e804669ba9c14638de60dafb4ba9faa36",
+    "src/main/resources/data/thermal_shock_reforged/structure/pyrogenic_pylon.nbt": "12688264a6cb5a5876317299b34686908d438e3c5df77c66398115b462a1173f",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/structure/cathedral.json": "a221cc357c1d3b3033236b6650cf1beb23b4b43851333c766ff680bfd3b0e1be",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/structure/pyrogenic_pylon.json": "7a8b834a4a0b77676091ed9b7084d86a7adfe808076b194910de7a62d28e24b4",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/cathedral.json": "45238aa6dbdbefe18b6841d89180013ea8505eba11a1236bd1d94ed8ac735128",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/pyrogenic_pylon.json": "b93ad8924a440dfde0a8fe3a332ec26a5f83bc29becd70902bdc24381681851d",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/cathedral.json": "ec91b1cf86046dac3ac0d4b8f7855b55f7f2a7f9e9d1c6601a222b9dabf5368a",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/pyrogenic_pylon.json": "fcc4f429dcc6fd8420da2638fce304aa10880cbd64361d1301b10d985ca22d5d"
+  },
+  "production_aggregate_sha256": "6e15f3a430ab46b662d57988cc058a8b9f6414e0a30c17334252fe769c0f2482",
+  "aggregate_algorithm": "相对路径按字符排序，每行path+TAB+sha256+LF，UTF-8后SHA256",
+  "reports_sha256": {
+    "docs/migration/geo-metal-batch102.md": "4353a8d08a8a5906520902439bc34b7acd66c3e18e4503ce8dfd83a78ed753f7",
+    "docs/migration/geo-metal-integration102.json": "215a089aaa3e8e9f15bec1b29e654849b29709d36f0978b2f629daaaab494952",
+    "docs/migration/geo-metal-validation102.json": "df4558e92d4efe244e41bdf97018dddd49baa286925b31ff147eadb63a845d86",
+    "docs/migration/geo-metal-resources102.json": "150738a85e726d89f7bf251691c014347f9ed1b3e2cc555c78341d14d8cd71f6",
+    "docs/migration/geo-metal-shared-applied102.json": "7a7b443ae79a14fb62cd8d7655648942cfb7df16784a471eba28541bacf6ee4c"
+  },
+  "static_passed_checks": 156,
+  "placement_ast_cases": 48,
+  "reused_geo_asset_files": 45,
+  "metal_resource_evidence": {
+    "provider": "Luna",
+    "path": "D:\\AI临时文件\\ThermalShockMigration\\native-six-resources102.json",
+    "sha256": "fe1d1e0a7c8feef233726e57a53f903a8d87a2c40cd7b290b238b239c91abe08",
+    "rechecked_by_this_lane": false
+  },
+  "shared_integration_applied_verified": true,
+  "integration_changed_after_main_application": false,
+  "shared_files_edited_by_this_lane": false,
+  "intentional_changes": [
+    "按实际贴图补地图色，保原透明度和遮挡属性",
+    "SpiderLilies写PetalCount时setChanged，保证修改落盘，保原不消耗物品",
+    "支持邻居丢失由服务端权威销毁和生成掉落，避免客户端重复销毁",
+    "领取标志改PlayerPersisted内本模组命名空间持久化；保HasFschtTrophy语义和死亡克隆，不再同步无客户端消费者的旧capability全集",
+    "控制台执行TSredeem仍在命令来源位置播放原失败音；省去只用于失败分支的虚假玩家"
+  ],
+  "preserved_original_quirks": [
+    "两种百合失支撑均掉spire_bloom_rubicon",
+    "SpiderLilies仅查主手、不扣物品、PetalCount正常0到3，原animation0..4但有效clip仅0..3",
+    "百合血瓣过程仅客户端调用且仅ServerLevel分支发粒子，原不可达表现未凭名称新增",
+    "Pyrogenic核心保原onDestroyedByPlayer无条件声画，无新增真实爆炸",
+    "金属同块状态变化仍发原放置电火花",
+    "Amalgel和Deprecated SpireBloom原未确认自然来源，不新增虚构获取路径"
+  ],
+  "native_production_gaps": [],
+  "compiled": false,
+  "server_tested": false,
+  "client_tested": false,
+  "render_preview_tested": false,
+  "staging_performed_by_this_lane": false,
+  "commit_performed_by_this_lane": false,
+  "next_batch": {
+    "number": 103,
+    "status": "未生产，等待102提交并明确解冻",
+    "lane_a": [
+      "brimstone_cake",
+      "lunar_panel",
+      "hologram_monitor"
+    ],
+    "main": [
+      "icebreaker"
+    ],
+    "geo_owner": "迁移A统一接Icebreaker元数据与工厂增量",
+    "workload": "本路预计六至七成，接受parallel-batch103.md边界"
+  },
+  "next": "主线固定两路src/main输入后统一compileJava/processResources、构建复制资源核对和阶段提交；游戏与Render Preview由用户独立安排。"
+}
