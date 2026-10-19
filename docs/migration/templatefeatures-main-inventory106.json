@@ -1,0 +1,27 @@
+{
+  "batch": 106,
+  "phase": "Read-only preparation while batch105 remains active",
+  "evidence_provider": "/root/coverage101_inventory",
+  "scope": "Original exact JSON references and typed NBT dependencies; target registration not verified here",
+  "source": "D:/AI临时文件/ThermalShockMigration/thermal_shock-07.9-original.jar",
+  "configured_feature_chains": [
+    {"id": "giant_glowcap", "placed_feature": "worldgen/placed_feature/giant_glowcap.json", "biome_modifier": "forge/biome_modifier/giant_glowcap_biome_modifier.json", "biomes": ["borean_forest", "stardust_garden", "vermillion_woods", "borean_tundra"], "step": "underground_decoration", "templates": ["giant_glowcap_1", "giant_glowcap_2", "giant_glowcap_3"]},
+    {"id": "giant_urchin", "placed_feature": "worldgen/placed_feature/giant_urchin.json", "biome_modifier": "forge/biome_modifier/giant_urchin_biome_modifier.json", "biomes": ["luminous_sea"], "step": "vegetal_decoration", "templates": ["gianturchin"]},
+    {"id": "jellercel_generation", "placed_feature": null, "biome_modifier": null, "other_exact_upper_json_consumer_found": false, "templates": ["jellercellogged"]},
+    {"id": "large_jellercel_generation", "placed_feature": null, "biome_modifier": null, "other_exact_upper_json_consumer_found": false, "templates": ["largejellercel"]},
+    {"id": "twilit_shrub_alt", "placed_feature": "worldgen/placed_feature/twilit_shrub_alt.json", "biome_modifier": "forge/biome_modifier/twilit_shrub_alt_biome_modifier.json", "biomes": ["luminous_sea"], "step": "vegetal_decoration", "templates": ["twilitgrass"]},
+    {"id": "twilit_shrub_generation", "placed_feature": "worldgen/placed_feature/twilit_shrub_generation.json", "biome_modifier": "forge/biome_modifier/twilit_shrub_generation_biome_modifier.json", "biomes": ["luminous_sea"], "step": "vegetal_decoration", "templates": ["twilitgrass"]}
+  ],
+  "java_literal_callers_found": [],
+  "templates": [
+    {"id": "giant_glowcap_1", "size": [3, 3, 3], "blocks": 27, "actual_blocks_by_id": {"minecraft:air": 16, "thermal_shock:glowcap_block": 9, "thermal_shock:glowcap_stem": 2}, "block_entities": 0, "entities": 0},
+    {"id": "giant_glowcap_2", "size": [3, 4, 3], "blocks": 36, "actual_blocks_by_id": {"minecraft:air": 24, "thermal_shock:glowcap_block": 9, "thermal_shock:glowcap_stem": 3}, "block_entities": 0, "entities": 0},
+    {"id": "giant_glowcap_3", "size": [3, 5, 3], "blocks": 45, "actual_blocks_by_id": {"minecraft:air": 32, "thermal_shock:glowcap_block": 9, "thermal_shock:glowcap_stem": 4}, "block_entities": 0, "entities": 0},
+    {"id": "gianturchin", "size": [17, 17, 17], "blocks": 4913, "actual_blocks_by_id": {"minecraft:air": 4328, "thermal_shock:dark_frostrock": 585}, "block_entities": 0, "entities": 0},
+    {"id": "jellercellogged", "size": [1, 1, 1], "blocks": 1, "actual_blocks_by_id": {"thermal_shock:jellercel": 1}, "block_entities": 1, "block_entity_ids": ["thermal_shock:jellercel"], "item_lists": [], "entities": 0},
+    {"id": "largejellercel", "size": [2, 2, 2], "blocks": 8, "actual_blocks_by_id": {"thermal_shock:large_jellercel": 1, "thermal_shock:large_jellercell_collision": 7}, "block_entities": 1, "block_entity_ids": ["thermal_shock:large_jellercel"], "item_lists": [], "entities": 0},
+    {"id": "twilitgrass", "size": [1, 1, 1], "blocks": 1, "actual_blocks_by_id": {"thermal_shock:twilit_shrub": 1}, "block_entities": 0, "entities": 0}
+  ],
+  "totals": {"blocks": 5031, "block_entities": 2, "entities": 0, "nested_item_ids": []},
+  "limits": "No exact data/Java literal consumer found does not rule out reflective access or all external consumers. Do not invent placed features for the two Jellercel definitions. Existing generic StructureFeature is inspected separately by root."
+}

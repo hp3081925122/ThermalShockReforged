@@ -1,6 +1,6 @@
 # 第105批预分工：两矿物突起、两完整基地与Loqendia传送门
 
-迁移前建立本文。第104批正在固定输入统一编译；在第104批通过并阶段提交、主线明确解除冻结前，两路只读准备，不写第105批src/main。原件07.9只读，SHA256为3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436。目标Minecraft1.21.1、NeoForge21.1.233、Java21、Gecko4.9.2。
+迁移前建立本文。第104批固定输入统一编译和全部构建资源核对已通过，阶段提交ebec2f23e7a111ff7575b51dcfd7823d79d59b2a。现以上述提交为第105批基线，解除生产冻结，两路按本文件归属开工。原件07.9只读，SHA256为3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436。目标Minecraft1.21.1、NeoForge21.1.233、Java21、Gecko4.9.2。
 
 用户要求继续给迁移A更多工作，按预计复杂度约六至七成分配，不以文件数或方块数量冒充工时。本批A负责malachite_outcrop与bismuth_outcrop完整行为、原掉落、工具标签和真实来源；同时负责blizzard_base与sunken_blizzard_lab完整typed NBT以及各自structure、structure_set、template_pool三JSON自然生成链。主线负责LoqendiaPortal方块、形状校验、POI、目的门搜索/生成、实体跨维和完整声画，及两路共享接线和统一编译。测试聊天仍由用户独立负责，双方不联系、不安排、不等待。
 

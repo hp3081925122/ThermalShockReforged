@@ -1,0 +1,82 @@
+{
+  "batch": 105,
+  "base_head": "ebec2f23e7a111ff7575b51dcfd7823d79d59b2a",
+  "scope": "Frozen production inputs, delivery hashes, copied resources and language changes; not game tests",
+  "frozen_inputs": 8481,
+  "production_files": 39,
+  "production_sha256": {
+    "src/main/java/com/hp/thermalshockreforged/ThermalShockReforged.java": "51d22dd2a44e924c720f6165d47948c0f15513820a3b4c2a39792c9610100765",
+    "src/main/java/com/hp/thermalshockreforged/client/ClientEvents.java": "24f582fda37a69823c5fa885790b1586e63cbd5a65fa5c350bbc53ccd09f26a6",
+    "src/main/java/com/hp/thermalshockreforged/client/outcrops/OutcropRenderers.java": "f66e532727aa1f96a4cd234ac4574ed86c1f5ca7596624127656ca78c91c8d9c",
+    "src/main/java/com/hp/thermalshockreforged/content/outcrops/OutcropBlock.java": "f6ecdd2a84f7702578b771dbdde74071f8cab0864c1085feeda2e29679ea584f",
+    "src/main/java/com/hp/thermalshockreforged/content/outcrops/OutcropBlockEntity.java": "2ae8878fd460ea36e687b787f860ee11c71a293660de0c42050e2128c30304d3",
+    "src/main/java/com/hp/thermalshockreforged/content/outcrops/OutcropContent.java": "e1f80ea5f004f5ae5c2863222acb96bcaee0c385082e4165eebbf64da3790965",
+    "src/main/java/com/hp/thermalshockreforged/content/outcrops/OutcropFeature.java": "ad7fc199c999c5f8c022c6a928ff590c10b22fcc0111059a69911b14466b72a1",
+    "src/main/java/com/hp/thermalshockreforged/content/outcrops/OutcropItem.java": "db5ce0bc581e4001bd51896231e8addda3b02fafff37e1d2ee7459be60881f07",
+    "src/main/java/com/hp/thermalshockreforged/content/outcrops/OutcropKind.java": "25a40cb7ec4814b181bb7ba899a569427cb11930c75ca7d7c2f31df99eb97001",
+    "src/main/java/com/hp/thermalshockreforged/world/LoqendiaContent.java": "2949c4bb837e3837858a4d78ab8b494d50c7d56a00ef43a805d1f1a0b64319d6",
+    "src/main/java/com/hp/thermalshockreforged/world/loqendiaportal/LoqendiaPortalBlock.java": "56e60fbc97e58f7d7771b9a4dfc0451b5d5016cc2df4005cbe93d3f457a578f0",
+    "src/main/java/com/hp/thermalshockreforged/world/loqendiaportal/LoqendiaPortalShape.java": "065f3d7f8d86056c497d2b748231e8362e308728488d148a3c01111fea66a836",
+    "src/main/java/com/hp/thermalshockreforged/world/loqendiaportal/LoqendiaPortalTravel.java": "ae986cecab7277ff0a4b58e85e9896f59ed4781308ecb7d3fc859c9f4eb89d15",
+    "src/main/resources/assets/thermal_shock_reforged/lang/en_us.json": "5ea06066647ab2b6d488f99da2b923f6aff7682885d6c6430cbb68eb6000b809",
+    "src/main/resources/assets/thermal_shock_reforged/lang/zh_cn.json": "a728f4ec0f07167c59a86492e39c401f10d10a1259e0400b9c0f601be41882c6",
+    "src/main/resources/data/minecraft/tags/block/incorrect_for_gold_tool.json": "a668e8fc8a3341949049eff2c4c19c2c0522beb62ea733bb4e8fec6a5e4dd990",
+    "src/main/resources/data/minecraft/tags/block/incorrect_for_iron_tool.json": "419c7105eb24d2d43a4fbe678f49e384499aac2355562577213bb137d5af979a",
+    "src/main/resources/data/minecraft/tags/block/incorrect_for_stone_tool.json": "fe55653893bb9f8604541c1ec6982a085ee464cdbb68f49f9df82b49d3e9b841",
+    "src/main/resources/data/minecraft/tags/block/incorrect_for_wooden_tool.json": "a77ca04819114d2d44d40ce2872a5c0960a5798b0112e1a9d253b9af048b51f1",
+    "src/main/resources/data/minecraft/tags/block/mineable/pickaxe.json": "c61e9520ac5e40ae6b12b4a587152e50046a7906403ed42edd2217b5b5a93308",
+    "src/main/resources/data/minecraft/tags/block/needs_diamond_tool.json": "4f8307b6c49e6623660892b52340e41f3fc7ad98af3ce414692a11184dd79051",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/bismuth_outcrop.json": "53301024a4acd9b74999fc2f63fee94dc4e37866991f510df77234fc7d127e85",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/malachite_outcrop.json": "8051207f0ecf384bf4801857b48c6e40e748b4636404160d5faead4ec9282da6",
+    "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/bismuth_outcrop_generation_biome_modifier.json": "b7a4615e57ff491db0c0e82e6681e16403886a963d12a86506d000e75942cfd0",
+    "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/malachite_outcrop_generation_biome_modifier.json": "c9990c2f2f000457e950a3a331d40698e07bbdae629e60495779c50ff74f1a2b",
+    "src/main/resources/data/thermal_shock_reforged/structure/blizzard_base.nbt": "3014ae5d3bbd9a93e1d07d8159d30008bcb0ea2c4b62783f97549379c475a7aa",
+    "src/main/resources/data/thermal_shock_reforged/structure/loqportal.nbt": "4609126a5509b112f237baedb6a5e3e098a6dfb81a24dc1ab3e84403623dee73",
+    "src/main/resources/data/thermal_shock_reforged/structure/sunken_blizzard_lab.nbt": "57b90bf3b7c45e1afd99effb218098252c1b653877629d2cdccf6eff71d2fd84",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/bismuth_outcrop_generation.json": "c602ad68d6ab9c774e0b9f11683a29b5e68c180d513d8dbbba8d446f5fe7a32f",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/malachite_outcrop_generation.json": "66fd7acf8121f26322e0547901d3b63689192d30600fd892a2247d44dd93f45f",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/bismuth_outcrop_generation.json": "7ebd9cd84ac773e204966437ef57a31f1b609535856e3ba683602a2dacc5e19e",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/malachite_outcrop_generation.json": "d1caae68d10eb3c18f8730c239833e35b1ac5819930cf6d1663d76503f1a08ff",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/processor_list/blizzard_base_processor.json": "cc7d8fa1077fcb188365e74fb1429e3e26a4a5154ecf529f4d429658bfbab130",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/structure/blizzard_base.json": "265859ddb15c40ef6eaf00bc404fb16c5738a085189fcbd5ee96c62f3e08dbeb",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/structure/sunken_blizzard_base.json": "43810eeb5bbe9e5e704d6b3504500436151315653694cec8950fafc05d0de62c",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/blizzard_base.json": "76c4a0abe5a4654b9f4d75125fbe06a8767bc56290bec302c27afd7b89c8eeba",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/sunken_blizzard_base.json": "a9c8be7504c46bd43cb0fcfe41a945a7568583d7527e1877279c64f2cfa388ef",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/blizzard_base.json": "e869ee408401d5ee3397c60215dbc16f0c150a73c99731916aa63bee0ceb375e",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/sunken_blizzard_base.json": "6a8138f57a8d90a6b01d1899c976c4f47d6a5058cbf9e79e1baed625aeebbef5"
+  },
+  "peer_production_files": 24,
+  "peer_production_changes": [],
+  "byte_equal_resources": 7697,
+  "expanded_templates": 2,
+  "language": {
+    "zh_cn": {
+      "preserved_values": 821,
+      "changed_values": {},
+      "new_keys": [
+        "block.thermal_shock_reforged.bismuth_outcrop",
+        "block.thermal_shock_reforged.malachite_outcrop"
+      ]
+    },
+    "en_us": {
+      "preserved_values": 3338,
+      "changed_values": {},
+      "new_keys": []
+    }
+  },
+  "build": {
+    "log": "D:\\AI临时文件\\ThermalShockMigration\\batch105-unified-build.log",
+    "log_sha256": "e52ab6b5275fc75121c76e6dd2ebe7ea2165bc769476e60a1346863f872a1e88",
+    "successful": true,
+    "duration": "1m 11s",
+    "first_attempt": {
+      "successful": false,
+      "log": "D:\\AI临时文件\\ThermalShockMigration\\batch105-first-build-failed.log",
+      "log_sha256": "d398bc3828365f440d346d789581daebc7911ac3be7ca2a1ed3e2e4fb242013b",
+      "cause": "Ambiguous DeferredRegister constructor method reference",
+      "repair": "Explicit zero-argument supplier; no behavior changes"
+    }
+  },
+  "errors": [],
+  "passed": true
+}

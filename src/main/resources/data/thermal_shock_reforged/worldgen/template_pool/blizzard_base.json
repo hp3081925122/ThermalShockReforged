@@ -1,0 +1,15 @@
+{
+  "name": "thermal_shock_reforged:blizzard_base",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "thermal_shock_reforged:blizzard_base",
+        "projection": "rigid",
+        "processors": "thermal_shock_reforged:blizzard_base_processor"
+      }
+    }
+  ]
+}

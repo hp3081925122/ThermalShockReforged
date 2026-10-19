@@ -1,0 +1,38 @@
+{
+  "evidence_provider": "/root/coverage104_inventory",
+  "snapshot_head": "ebec2f23e7a111ff7575b51dcfd7823d79d59b2a",
+  "scope": "Read-only source JAR versus current working-tree same-path JSON presence. Includes in-progress batch105 data. Not proof of missing behavior, Java replacement or dynamic registration.",
+  "source_prefix": "data/thermal_shock/",
+  "target_prefix": "src/main/resources/data/thermal_shock_reforged/",
+  "mapping": "forge/biome_modifier -> neoforge/biome_modifier",
+  "counts": {
+    "worldgen": {"source": 298, "present": 166, "missing": 132},
+    "dimension": {"source": 2, "present": 2, "missing": 0},
+    "dimension_type": {"source": 2, "present": 2, "missing": 0},
+    "biome_modifier": {"source": 162, "present": 59, "missing": 103}
+  },
+  "batch105_missing_in_this_snapshot": [],
+  "batch106_assigned": {
+    "A_features": ["cobalt_pillar", "glace_rock", "gravetree", "lost_boat", "louse_log", "lower_cobalt_pillar", "spire"],
+    "A_feature_paths": ["worldgen/configured_feature/{id}.json", "worldgen/placed_feature/{id}.json", "neoforge/biome_modifier/{id}_biome_modifier.json"],
+    "main_features": ["giant_glowcap", "giant_urchin", "jellercel_generation", "large_jellercel_generation", "twilit_shrub_alt", "twilit_shrub_generation"],
+    "main_placed_and_modifiers_only": ["giant_glowcap", "giant_urchin", "twilit_shrub_alt", "twilit_shrub_generation"],
+    "A_structure": ["blizzard_sanctum"],
+    "main_structures": ["kiosk", "pylon", "snowtower"],
+    "structure_paths": ["worldgen/structure/{id}.json", "worldgen/structure_set/{id}.json", "worldgen/template_pool/{id}.json"],
+    "worldgen_missing_paths_assigned_count": 36,
+    "biome_modifier_missing_paths_assigned_count": 11
+  },
+  "unassigned_missing_worldgen": {
+    "biome": ["non_biome"],
+    "configured_feature": ["bismuth_geode", "blu_to_pure_purification", "breather_sponge_generation", "cobble_patch", "corroded_rock_generation", "dead_trees", "dull_birch_tree", "forest_boulder", "forest_lake", "frigid_crate_feature", "geyser_cluster", "glitter_lotus_plant", "glittershroom_plant", "grassy_shale_patch", "graveyard_cobble_patch", "large_grave_tree", "large_tundra_islands", "large_voltflower", "loque_bush_feature", "loque_grass", "malachite_geode", "mavros_tree", "metallic_debris_generation", "mossy_shale_patch", "mossy_shale_patch_b", "seaglass_patch", "seaglass_sprinkle", "shale_boulder", "short_loque_grass", "snow_poff_generation", "soapstone_pile", "tall_frosted_grass", "tundra_islands", "tundra_vermillion_tree", "vilebath_infected_mass_patch", "vilebath_pools", "vilebath_veinroots"],
+    "placed_feature": ["bismuth_geode", "breather_sponge_generation", "cobble_patch", "corroded_rock_generation", "dead_trees", "dull_birch_tree", "forest_boulder", "forest_lake", "frigid_crate_feature", "geyser_cluster", "glitter_lotus_plant", "glittershroom_plant", "grassy_shale_patch", "graveyard_cobble_patch", "large_grave_tree", "large_tundra_islands", "large_voltflower", "loque_birch_tree", "loque_bush_feature", "loque_grass", "malachite_geode", "mavros_tree", "metallic_debris_generation", "mossy_shale_patch", "mossy_shale_patch_b", "seaglass_patch", "seaglass_sprinkle", "shale_boulder", "shiverglitter_tree", "shiverglitter_tree_cobalt_heights", "short_loque_grass", "snow_poff_generation", "soapstone_pile", "tall_frosted_grass", "tundra_islands", "tundra_vermillion_tree", "vilebath_infected_mass_patch", "vilebath_pools", "vilebath_veinroots"],
+    "structure": ["large_campsite", "medium_campsite", "shalespring_grove", "slagway", "small_campsite", "test_jigsaw"],
+    "structure_set": ["large_campsite", "medium_campsite", "shalespring_grove", "slagway", "small_campsite", "test_jigsaw"],
+    "template_pool": ["large_campsite", "medium_campsite", "shalespring_grove", "slagway", "small_campsite", "test_jigsaw", "test_jigsaw_testchecker"]
+  },
+  "unassigned_missing_biome_modifiers": ["angler_bulb_feature", "barbubble", "bismuth_geode", "blighted_spore", "bonerahna", "bounceweed", "breather_sponge_generation", "ceruleum_generation", "chilloo", "chromefish", "cobble_patch", "corroded_rock_generation", "crystal_koi", "dead_trees", "dull_birch_tree", "dull_shrub", "flare", "floatweed", "forecast", "forest_boulder", "forest_lake", "frigid_crate_feature", "fuscium_generation", "galvanite", "geyser_cluster", "glitter_lotus_plant", "glittershroom_plant", "grassy_shale_patch", "graveyard_cobble_patch", "hanging_bulb_patch", "heights_weeds", "infestophage_seed", "large_grave_tree", "large_tundra_islands", "large_voltflower", "loque_birch_tree", "loque_bush_feature", "loque_fern", "loque_grass", "louse", "lunalemon_tree", "malachite_geode", "mangler", "mavros_tree", "metallic_debris_generation", "mossy_shale_patch_b", "mossy_shale_patch", "pillbud", "pixie", "pondler", "probosker", "protoi_delta", "protoi_epsilon", "protoi_gamma", "raincatcher", "razorwing", "scarlet_ray", "seaglass_patch", "seaglass_sprinkle", "shale_boulder", "shiverglitter_tree", "shiverglitter_tree_cobalt_heights", "short_loque_grass", "siibol", "skorio", "snobol", "snow_poff_generation", "soapstone_pile", "spire_blooms", "spireroot_thorns", "spore_pod_gen", "sprintweed", "starfruit_tree", "tall_frosted_grass", "tall_loque_fern", "tall_vermillion_fern", "torpedo", "trilobite", "tundra_islands", "tundra_vermillion_tree", "verdium_generation", "vermilli_fungus", "vermillion_fern", "vermillion_hyphae_patch", "vermillion_sparkler", "vermillion_tree", "vilebath_infected_mass_patch", "vilebath_pools", "vilebath_veinroots", "visi_bulb_feature", "volt_flower", "willograde"],
+  "path_expansion": "Worldgen lists are IDs under worldgen/{category}/{id}.json; modifier IDs expand to neoforge/biome_modifier/{id}_biome_modifier.json.",
+  "report_correction": "Provider initially repeated lost_boat/louse_log/lower_cobalt_pillar placed paths in unassigned and assigned. Root removed these known batch106 assigned duplicates. Provider independently confirmed worldgen 96 unassigned + 36 assigned = 132 and biome modifiers 92 + 11 = 103.",
+  "limits": ["Some missing same-name modifier files may have equivalent Java spawn injection or combined modifiers; audit before migrating to avoid duplicate generation.", "Legacy biome/structure IDs may be inert or invalid; preserve original evidence, do not invent entries.", "No game or rendering tests performed."]
+}
