@@ -1,0 +1,45 @@
+{
+  "batch": 117,
+  "baseCommit": "27f8be1",
+  "lane": "main",
+  "roots": 43,
+  "actualCalls": 81,
+  "reviewedAliases": {
+    "stopper_orb": {
+      "target": "OrbEntityBase",
+      "result": "equivalent",
+      "evidence": "OrbGraceTicks is a bounded persistent native timer reset to 100 during finalizeSpawn; it replaces the original hidden COOLDOWN effect and preserves the 100 tick damage window without a gameplay status effect."
+    },
+    "strider_attack": {
+      "target": "IceSquadProjectileEntity",
+      "result": "equivalent",
+      "evidence": "The strider branch sets no gravity and expires after five server ticks with bounded saved age."
+    },
+    "springslime_projectile": {
+      "target": "SpringslimeProjectile",
+      "result": "equivalent",
+      "evidence": "A server block hit spawns one Spring at block position plus (1,1,1), clears its motion, and consumes the projectile once."
+    },
+    "veridian_jellercel": {
+      "target": "JellercelEntity/JellercelKind",
+      "result": "corrected",
+      "evidence": "The original entity attribute attack damage is zero; collision damage comes from the cactus damage procedure and remains one point. The target now preserves both meanings."
+    }
+  },
+  "deferred": [
+    "Runtime server behavior remains in the user's separate testing chat.",
+    "Client and Render Preview checks begin only after the complete migration is frozen."
+  ],
+  "integratedSharedFixes": [
+    "BloomlingBurstEntity is registered on the mod event bus and uses a NoopRenderer client binding.",
+    "NetBulletRenderer is bound to net_bullet and its model layer is registered.",
+    "CavebloomerImpactEntity shock branch now uses a persistent 20 SERVER END countdown; poison remains synchronous.",
+    "Shutterbug's shared original regeneration command remains intentionally absent: the original command orders arguments as `/effect @s minecraft:regeneration 255 infinite true`, which does not match the verified 1.21.1 EffectCommands grammar and therefore is not a valid gameplay effect."
+  ],
+  "build": {
+    "command": "compileJava processResources --offline --max-workers=2",
+    "status": "success",
+    "log": "D:/AI临时文件/ThermalShockMigration/batch117-unified-build.log",
+    "logSha256": "408280F86C99A177720572017A2FC6D1FE79C1EE5F20EFC0420F6AA285FF1F43"
+  }
+}

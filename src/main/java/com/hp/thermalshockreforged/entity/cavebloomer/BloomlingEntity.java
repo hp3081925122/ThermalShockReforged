@@ -1,11 +1,9 @@
 package com.hp.thermalshockreforged.entity.cavebloomer;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
-import java.util.Comparator;
 import com.hp.thermalshockreforged.entity.summon.SummonLedger;
 import java.util.UUID;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
@@ -19,7 +17,6 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.*;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.*;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.*;
@@ -39,7 +36,8 @@ public final class BloomlingEntity extends Monster implements GeoEntity {
     private boolean initialized, deathCommitted, experiencePending;
     private UUID experienceAttacker, attackTarget;
     private int cooldown, movementLock, burstKind, burstRemaining;
-    private long burstStartedAt;
+    private UUID burstTask;
+    private int burstRetry;
     private Vec3 soundOrigin = Vec3.ZERO;
     private double targetEyeHeight, burstDamage;
 
@@ -104,20 +102,29 @@ public final class BloomlingEntity extends Monster implements GeoEntity {
             SummonLedger.get(server).replace(summonOwner, getUUID(), getUUID(), summonExpiresAt);
         }
         cooldown = 120; movementLock = 75; updateMovementLock(); setAnimation("volley");
-        armBurst(1, 19, target.position(), target.getEyeHeight(), target.getUUID(), 1);
+        armBurst(1, 20, target.position(), target.getEyeHeight(), target.getUUID(), 1);
         server.playSound(null, BlockPos.containing(soundOrigin), SoundEvents.CREEPER_PRIMED, SoundSource.HOSTILE, 1, 3);
     }
     private void armBurst(int kind, int remaining, Vec3 sound, double eyeHeight, UUID target, double multiplier) {
-        burstKind = kind; burstRemaining = remaining; burstStartedAt = level().getGameTime();
+        burstKind = kind; burstRemaining = remaining;
         soundOrigin = sound; targetEyeHeight = eyeHeight; attackTarget = target;
         double value = getAttributeValue(Attributes.ATTACK_DAMAGE) * multiplier;
         burstDamage = Double.isFinite(value) ? Math.clamp(value, 0, Float.MAX_VALUE) : 0;
+        submitBurst();
     }
+    private void submitBurst() {
+        if (!(level() instanceof ServerLevel server) || burstKind == 0 || burstTask != null || burstRetry > 0 || isRemoved()) return;
+        var task = BloomlingBurstEntity.submit(server, this, burstKind, burstRemaining, soundOrigin, attackTarget, targetEyeHeight, burstDamage, summonOwner == null ? -1 : summonExpiresAt);
+        if (task != null) { burstTask = task.getUUID(); burstRemaining = 0; }
+        else { burstRetry = 20; ThermalShockReforged.LOGGER.debug("Bloomling burst insertion failed: caster={}, kind={}", getUUID(), burstKind); }
+    }
+    void completeBurst(UUID task) { if (task.equals(burstTask)) { burstKind = 0; burstTask = null; burstRemaining = 0; } }
+    @Override public void onAddedToLevel() { super.onAddedToLevel(); submitBurst(); }
     @Override public void die(DamageSource source) {
         super.die(source);
         if (!dead || deathCommitted || !(level() instanceof ServerLevel)) return;
         deathCommitted = true;
-        if (!dandy() && source.getEntity() != null) armBurst(2, 39, position(), 0, null, 10.0 / 6.0);
+        if (!dandy() && source.getEntity() != null) armBurst(2, 40, position(), 0, null, 10.0 / 6.0);
     }
     public void bindSummon(UUID owner, long expiresAt) { summonOwner = owner; summonExpiresAt = expiresAt; }
     public boolean expireIfDue(ServerLevel server) {
@@ -125,6 +132,10 @@ public final class BloomlingEntity extends Monster implements GeoEntity {
         discard(); return true;
     }
     @Override public void remove(RemovalReason reason) {
+        if (burstTask != null && level() instanceof ServerLevel server && server.getEntity(burstTask) instanceof BloomlingBurstEntity task) {
+            task.captureCaster(this);
+            if (reason.shouldDestroy() && reason != RemovalReason.KILLED) task.cancel();
+        }
         if (reason.shouldDestroy() && summonOwner != null && level() instanceof ServerLevel server) SummonLedger.get(server).release(summonOwner, getUUID());
         super.remove(reason);
     }
@@ -133,10 +144,8 @@ public final class BloomlingEntity extends Monster implements GeoEntity {
             if (expireIfDue(server)) return;
             if (cooldown > 0) cooldown--;
             if (movementLock > 0 && --movementLock == 0) updateMovementLock();
-            if (burstKind != 0 && level().getGameTime() != burstStartedAt && --burstRemaining <= 0) {
-                int kind = burstKind; burstKind = 0; burstRemaining = 0;
-                if (kind == 1) explodeDandy(server); else explodeBudding(server);
-            }
+            if (burstRetry > 0) burstRetry--;
+            submitBurst();
         }
         if (!isRemoved()) super.tick();
     }
@@ -144,43 +153,6 @@ public final class BloomlingEntity extends Monster implements GeoEntity {
         var attribute = getAttribute(Attributes.MOVEMENT_SPEED);
         if (movementLock > 0 && !attribute.hasModifier(MOVEMENT_LOCK)) attribute.addTransientModifier(new AttributeModifier(MOVEMENT_LOCK, -1, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
         else if (movementLock == 0) attribute.removeModifier(MOVEMENT_LOCK);
-    }
-    private void explodeDandy(ServerLevel server) {
-        server.playSound(null, BlockPos.containing(soundOrigin), SoundEvents.FIREWORK_ROCKET_BLAST, SoundSource.HOSTILE, 1, 1);
-        Entity target = attackTarget == null ? null : server.getEntity(attackTarget);
-        double eye = target == null ? targetEyeHeight : target.getEyeHeight();
-        server.sendParticles(ParticleTypes.EXPLOSION, soundOrigin.x, soundOrigin.y + eye, soundOrigin.z, 4, 0.7, 0.7, 0.7, 0);
-        var center = position();
-        var victims = server.getEntitiesOfClass(Entity.class, new AABB(center, center).inflate(3), entity -> entity != this && !(entity instanceof ItemEntity)
-                && !(entity instanceof BloomlingEntity bloom && bloom.dandy()) && !CavebloomerContent.isBoss(entity));
-        victims.sort(Comparator.comparingDouble(entity -> entity.distanceToSqr(center)));
-        DamageSource damage = damageSources().source(DamageTypes.EXPLOSION);
-        for (var victim : victims) {
-            if (victim instanceof LivingEntity living && living.isBlocking()) CavebloomerCombat.damageBlockingItem(living, 1);
-            else {
-                victim.hurt(damage, (float)burstDamage);
-                if (victim instanceof LivingEntity living) living.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 220, 1));
-            }
-        }
-        discard();
-    }
-    private void explodeBudding(ServerLevel server) {
-        server.playSound(null, BlockPos.containing(soundOrigin), SoundEvents.GENERIC_EXPLODE.value(), SoundSource.HOSTILE, 1, 1);
-        server.playSound(null, BlockPos.containing(soundOrigin), SoundEvents.FIREWORK_ROCKET_TWINKLE, SoundSource.HOSTILE, 1, 1);
-        server.sendParticles(CavebloomerContent.RED_EXPLODE.get(), getX(), getEyeY(), getZ(), 3, 1, 1, 1, 0);
-        server.sendParticles(CavebloomerContent.MAGNETIC_BOOM.get(), getX(), getEyeY(), getZ(), 3, 1, 1, 1, 0);
-        var center = position();
-        var victims = server.getEntitiesOfClass(Entity.class, new AABB(center, center).inflate(4), entity -> !(entity instanceof BloomlingEntity bloom && !bloom.dandy()));
-        victims.sort(Comparator.comparingDouble(entity -> entity.distanceToSqr(center)));
-        DamageSource damage = damageSources().source(DamageTypes.EXPLOSION);
-        var look = getLookAngle();
-        for (var victim : victims) {
-            if (victim instanceof LivingEntity living && living.isBlocking()) CavebloomerCombat.damageBlockingItem(living, 10);
-            else {
-                victim.hurt(damage, (float)burstDamage);
-                CavebloomerCombat.setResistedVelocity(victim, new Vec3(look.x * 0.1, 0.3, look.z * 0.1));
-            }
-        }
     }
     @Override protected void dropExperience(Entity attacker) { experiencePending = true; experienceAttacker = attacker == null ? null : attacker.getUUID(); }
     @Override protected void tickDeath() {
@@ -198,7 +170,8 @@ public final class BloomlingEntity extends Monster implements GeoEntity {
         if (experienceAttacker != null) tag.putUUID("BloomExperienceAttacker", experienceAttacker);
         if (attackTarget != null) tag.putUUID("BloomAttackTarget", attackTarget);
         tag.putInt("BloomCooldown", cooldown); tag.putInt("BloomMovementLock", movementLock);
-        tag.putInt("BloomBurstKind", burstKind); tag.putInt("BloomBurstRemaining", burstRemaining); tag.putLong("BloomBurstStartedAt", burstStartedAt);
+        tag.putInt("BloomBurstKind", burstKind); tag.putInt("BloomBurstRemaining", burstRemaining); tag.putBoolean("BloomBurstUsesEndTicks", true); tag.putInt("BloomBurstRetry", burstRetry);
+        if (burstTask != null) tag.putUUID("BloomBurstTask", burstTask);
         tag.putDouble("BloomSoundX", soundOrigin.x); tag.putDouble("BloomSoundY", soundOrigin.y); tag.putDouble("BloomSoundZ", soundOrigin.z);
         tag.putDouble("BloomTargetEyeHeight", targetEyeHeight); tag.putDouble("BloomBurstDamage", burstDamage);
     }
@@ -208,7 +181,10 @@ public final class BloomlingEntity extends Monster implements GeoEntity {
         experienceAttacker = tag.hasUUID("BloomExperienceAttacker") ? tag.getUUID("BloomExperienceAttacker") : null;
         attackTarget = tag.hasUUID("BloomAttackTarget") ? tag.getUUID("BloomAttackTarget") : null;
         cooldown = Math.clamp(tag.getInt("BloomCooldown"), 0, 120); movementLock = Math.clamp(tag.getInt("BloomMovementLock"), 0, 75);
-        burstKind = tag.getInt("BloomBurstKind"); burstRemaining = Math.clamp(tag.getInt("BloomBurstRemaining"), 0, 39); burstStartedAt = tag.getLong("BloomBurstStartedAt");
+        burstKind = tag.getInt("BloomBurstKind"); burstTask = tag.hasUUID("BloomBurstTask") ? tag.getUUID("BloomBurstTask") : null;
+        burstRemaining = Math.clamp(tag.getInt("BloomBurstRemaining"), 0, dandy() ? 20 : 40);
+        if (burstTask == null && burstKind != 0) burstRemaining = Math.max(1, burstRemaining);
+        burstRetry = Math.clamp(tag.getInt("BloomBurstRetry"), 0, 20);
         if (burstKind != (dandy() ? 1 : 2)) burstKind = 0;
         double x = tag.getDouble("BloomSoundX"), y = tag.getDouble("BloomSoundY"), z = tag.getDouble("BloomSoundZ");
         if (Double.isFinite(x) && Double.isFinite(y) && Double.isFinite(z)) soundOrigin = new Vec3(x, y, z); else { soundOrigin = position(); burstKind = 0; }

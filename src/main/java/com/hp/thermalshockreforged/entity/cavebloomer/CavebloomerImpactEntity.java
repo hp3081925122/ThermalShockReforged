@@ -1,6 +1,8 @@
 package com.hp.thermalshockreforged.entity.cavebloomer;
 
 import com.hp.thermalshockreforged.entity.attack.AttackCarrierBody;
+import com.hp.thermalshockreforged.world.timing.ServerEndTickTask;
+import com.hp.thermalshockreforged.world.timing.ServerEndTickTasks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -21,11 +23,10 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import java.util.Comparator;
 
-public final class CavebloomerImpactEntity extends AttackCarrierBody {
+public final class CavebloomerImpactEntity extends AttackCarrierBody implements ServerEndTickTask {
     private boolean initialized;
     private boolean committed;
-    private int remaining = 19;
-    private long startedAt = Long.MIN_VALUE;
+    private int remaining = 20;
     private Vec3 origin = Vec3.ZERO;
     private String dimension = "";
     private double damage = -1;
@@ -39,13 +40,18 @@ public final class CavebloomerImpactEntity extends AttackCarrierBody {
     @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType reason, SpawnGroupData data) {
         SpawnGroupData result = super.finalizeSpawn(level, difficulty, reason, data);
         if (!initialized && level instanceof ServerLevel server) {
-            initialized = true; origin = position(); dimension = server.dimension().location().toString(); startedAt = server.getGameTime();
+            initialized = true; origin = position(); dimension = server.dimension().location().toString(); remaining = 20;
             if (damage < 0) damage = poison() ? 6 : 10;
             server.sendParticles((poison() ? CavebloomerContent.POISON_CLOUD : CavebloomerContent.SHOCK_ATTACK).get(), origin.x, origin.y, origin.z, 0, 0, 0, 0, 1);
             server.playSound(null, BlockPos.containing(origin), poison() ? SoundEvents.ZOMBIE_VILLAGER_CURE : SoundEvents.CREEPER_PRIMED, SoundSource.NEUTRAL, 1, poison() ? 1 : 3);
             if (poison()) detonate(server);
+            else ServerEndTickTasks.schedule(server, getUUID());
         }
         return result;
+    }
+    @Override public void onAddedToLevel() {
+        super.onAddedToLevel();
+        if (initialized && !committed && !poison() && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
     }
     private void detonate(ServerLevel server) {
         if (committed) return;
@@ -65,19 +71,23 @@ public final class CavebloomerImpactEntity extends AttackCarrierBody {
         super.tick();
         if (!(level() instanceof ServerLevel server)) return;
         if (!initialized || committed || !dimension.equals(server.dimension().location().toString())) { discard(); return; }
-        if (server.getGameTime() != startedAt && --remaining <= 0) detonate(server);
+        if (!poison()) ServerEndTickTasks.schedule(server, getUUID());
+    }
+    @Override public void endTick(ServerLevel server) {
+        if (!initialized || committed || poison()) return;
+        if (!dimension.equals(server.dimension().location().toString())) { discard(); return; }
+        if (--remaining <= 0) detonate(server); else ServerEndTickTasks.schedule(server, getUUID());
     }
     @Override public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
         tag.putBoolean("ImpactInitialized", initialized); tag.putBoolean("ImpactCommitted", committed); tag.putInt("ImpactRemaining", remaining);
-        tag.putLong("ImpactStartedAt", startedAt); tag.putString("ImpactDimension", dimension); tag.putDouble("ImpactDamage", damage);
+        tag.putString("ImpactDimension", dimension); tag.putDouble("ImpactDamage", damage);
         tag.putDouble("ImpactX", origin.x); tag.putDouble("ImpactY", origin.y); tag.putDouble("ImpactZ", origin.z);
     }
     @Override public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
         initialized = tag.getBoolean("ImpactInitialized"); committed = tag.getBoolean("ImpactCommitted");
-        remaining = tag.contains("ImpactRemaining") ? Math.clamp(tag.getInt("ImpactRemaining"), 0, 19) : 19;
-        startedAt = tag.contains("ImpactStartedAt") ? tag.getLong("ImpactStartedAt") : Long.MIN_VALUE;
+        remaining = tag.contains("ImpactRemaining") ? Math.clamp(tag.getInt("ImpactRemaining"), 0, 20) : 20;
         dimension = tag.getString("ImpactDimension"); damage = tag.contains("ImpactDamage") ? tag.getDouble("ImpactDamage") : poison() ? 6 : 10;
         damage = Double.isFinite(damage) ? Math.clamp(damage, 0, Float.MAX_VALUE) : 0;
         origin = new Vec3(tag.getDouble("ImpactX"), tag.getDouble("ImpactY"), tag.getDouble("ImpactZ"));

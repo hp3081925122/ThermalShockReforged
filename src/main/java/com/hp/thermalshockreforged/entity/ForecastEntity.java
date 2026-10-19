@@ -3,6 +3,8 @@ package com.hp.thermalshockreforged.entity;
 import com.hp.thermalshockreforged.config.CombatConfig;
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.combat.AttackAttemptEvent;
+import com.hp.thermalshockreforged.world.timing.ServerEndTickTask;
+import com.hp.thermalshockreforged.world.timing.ServerEndTickTasks;
 import com.mojang.brigadier.StringReader;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import net.minecraft.commands.arguments.EntityAnchorArgument;
@@ -48,12 +50,13 @@ import software.bernie.geckolib.animation.RawAnimation;
 import software.bernie.geckolib.util.GeckoLibUtil;
 import java.util.UUID;
 
-public final class ForecastEntity extends Monster implements GeoEntity {
+public final class ForecastEntity extends Monster implements GeoEntity, ServerEndTickTask {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(ForecastEntity.class, EntityDataSerializers.STRING);
     private static final ResourceLocation DRIFT_SPEED = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "forecast_drift_speed");
     private static final EntitySelector NEAREST_PLAYER = nearestSelector();
     private final AnimatableInstanceCache animations = GeckoLibUtil.createInstanceCache(this);
     private int driftCooldown;
+    private boolean driftMovePending;
     private boolean driftSlowPending;
     private int attackCooldown;
     private boolean spawnInitialized;
@@ -135,24 +138,15 @@ public final class ForecastEntity extends Monster implements GeoEntity {
         if (!level().isClientSide) {
             if (attackCooldown > 0) attackCooldown--;
             if (driftCooldown > 0) driftCooldown--;
+            if (isAlive() && driftCooldown == 0 && !hasEffect(MobEffects.MOVEMENT_SLOWDOWN)) driftMovePending = true;
             updateDriftSpeed();
+            if ((driftMovePending || driftSlowPending) && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
         }
     }
 
     @Override public void tick() {
         super.tick();
         if (!(level() instanceof ServerLevel server) || !isAlive()) return;
-        boolean pulse = driftCooldown == 0 && !hasEffect(MobEffects.MOVEMENT_SLOWDOWN);
-        if (pulse) {
-            setDeltaMovement(new Vec3(random.nextDouble() * 2 - 1, random.nextDouble() * 0.4 - 0.2, random.nextDouble() * 2 - 1));
-            hasImpulse = true;
-        }
-        if (driftSlowPending) {
-            driftCooldown = 40;
-            driftSlowPending = false;
-            updateDriftSpeed();
-        }
-        if (pulse) driftSlowPending = true;
         if (!server.getEntitiesOfClass(Player.class, AABB.ofSize(position(), 10, 10, 10), player -> true).isEmpty()) {
             try {
                 var players = NEAREST_PLAYER.findPlayers(createCommandSourceStack().withPermission(2));
@@ -163,6 +157,28 @@ public final class ForecastEntity extends Monster implements GeoEntity {
             } catch (CommandSyntaxException failure) {
                 ThermalShockReforged.LOGGER.debug("Forecast nearest-player query failed: uuid={}", getUUID(), failure);
             }
+        }
+    }
+
+    @Override public void onAddedToLevel() {
+        super.onAddedToLevel();
+        if ((driftMovePending || driftSlowPending) && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
+    }
+
+    @Override public void endTick(ServerLevel server) {
+        if (isRemoved() || !isAlive()) { driftMovePending = false; driftSlowPending = false; return; }
+        if (driftSlowPending) {
+            driftCooldown = 40;
+            driftSlowPending = false;
+            updateDriftSpeed();
+        }
+        if (driftMovePending) {
+            driftMovePending = false;
+            setDeltaMovement(new Vec3(random.nextDouble() * 2 - 1, random.nextDouble() * 0.4 - 0.2, random.nextDouble() * 2 - 1));
+            hasImpulse = true;
+            driftSlowPending = true;
+            ThermalShockReforged.LOGGER.debug("Forecast drift pulse: entity={}, slowPending={}", getUUID(), driftSlowPending);
+            ServerEndTickTasks.schedule(server, getUUID());
         }
     }
 
@@ -210,7 +226,7 @@ public final class ForecastEntity extends Monster implements GeoEntity {
     @Override public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
         tag.putString("Texture", texture()); tag.putInt("ZapCooldown", attackCooldown); tag.putInt("DriftCooldown", driftCooldown);
-        tag.putBoolean("DriftSlowPending", driftSlowPending); tag.putBoolean("ForecastSpawnInitialized", spawnInitialized);
+        tag.putBoolean("DriftMovePending", driftMovePending); tag.putBoolean("DriftSlowPending", driftSlowPending); tag.putBoolean("ForecastSpawnInitialized", spawnInitialized);
         tag.putBoolean("ForecastExperiencePending", experiencePending);
         if (experienceAttacker != null) tag.putUUID("ForecastExperienceAttacker", experienceAttacker);
     }
@@ -219,7 +235,7 @@ public final class ForecastEntity extends Monster implements GeoEntity {
         if (tag.contains("Texture")) setTexture(tag.getString("Texture"));
         attackCooldown = Math.clamp(tag.getInt("ZapCooldown"), 0, 72000);
         driftCooldown = Math.clamp(tag.getInt("DriftCooldown"), 0, 40);
-        driftSlowPending = tag.getBoolean("DriftSlowPending"); spawnInitialized = tag.getBoolean("ForecastSpawnInitialized");
+        driftMovePending = tag.getBoolean("DriftMovePending"); driftSlowPending = tag.getBoolean("DriftSlowPending"); spawnInitialized = tag.getBoolean("ForecastSpawnInitialized");
         experiencePending = tag.getBoolean("ForecastExperiencePending");
         experienceAttacker = tag.hasUUID("ForecastExperienceAttacker") ? tag.getUUID("ForecastExperienceAttacker") : null;
         applyConfiguredAttributes(false);

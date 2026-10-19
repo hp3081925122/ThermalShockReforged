@@ -1,5 +1,10 @@
 package com.hp.thermalshockreforged.entity.snobol;
 
+import com.hp.thermalshockreforged.ThermalShockReforged;
+import com.hp.thermalshockreforged.world.timing.ServerEndTickTask;
+import com.hp.thermalshockreforged.world.timing.ServerEndTickTasks;
+import net.minecraft.server.level.ServerLevel;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
@@ -18,12 +23,11 @@ import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animation.*;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
-public final class ExplosiveSnobolEntity extends Monster implements GeoEntity {
+public final class ExplosiveSnobolEntity extends Monster implements GeoEntity, ServerEndTickTask {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(ExplosiveSnobolEntity.class, EntityDataSerializers.STRING);
     private final AnimatableInstanceCache animations = GeckoLibUtil.createInstanceCache(this);
 
     private int fuseRemaining;
-    private long fuseStarted;
     private net.minecraft.world.phys.Vec3 fuseOrigin;
     private double fuseDamage;
     private String fuseDimension = "";
@@ -76,12 +80,13 @@ public final class ExplosiveSnobolEntity extends Monster implements GeoEntity {
         if (level() instanceof net.minecraft.server.level.ServerLevel server && isAlive() && fuseRemaining == 0
                 && amount > 0 && !source.is(DamageTypes.FALL) && !isInvulnerableTo(source)) {
             fuseRemaining = 20;
-            fuseStarted = server.getGameTime();
             fuseDimension = server.dimension().location().toString();
             fuseOrigin = position();
             fuseDamage = getAttributeValue(Attributes.ATTACK_DAMAGE);
             setAnimation("bounce");
             server.playSound(null, blockPosition(), SoundEvents.TNT_PRIMED, SoundSource.NEUTRAL, 1, 3);
+            ServerEndTickTasks.schedule(server, getUUID());
+            ThermalShockReforged.LOGGER.debug("Explosive Snobol fuse armed: entity={}, remainingEndTicks={}, origin={}", getUUID(), fuseRemaining, fuseOrigin);
         }
         return !source.is(DamageTypes.FALL) && super.hurt(source, amount);
     }
@@ -89,14 +94,28 @@ public final class ExplosiveSnobolEntity extends Monster implements GeoEntity {
     @Override
     public void tick() {
         super.tick();
-        if (!(level() instanceof net.minecraft.server.level.ServerLevel server) || fuseRemaining <= 0 || !isAlive()) return;
-        if (!fuseDimension.equals(server.dimension().location().toString())) { fuseRemaining = 0; return; }
-        if (fuseStarted == server.getGameTime()) return;
+        if (fuseRemaining > 0 && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
+    }
+
+    @Override
+    public void onAddedToLevel() {
+        super.onAddedToLevel();
+        if (fuseRemaining > 0 && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
+    }
+
+    @Override
+    public void endTick(ServerLevel server) {
+        if (isRemoved() || fuseRemaining <= 0) return;
+        if (!isAlive() || !fuseDimension.equals(server.dimension().location().toString())) {
+            fuseRemaining = 0;
+            ThermalShockReforged.LOGGER.debug("Explosive Snobol fuse cancelled: entity={}, alive={}, dimension={}", getUUID(), isAlive(), server.dimension().location());
+            return;
+        }
         if (--fuseRemaining == 0) {
             var origin = fuseOrigin == null ? position() : fuseOrigin;
             discard();
             SnobolBlastEntity.detonate(server, origin, fuseDamage);
-        }
+        } else ServerEndTickTasks.schedule(server, getUUID());
     }
 
     @Override
@@ -122,7 +141,6 @@ public final class ExplosiveSnobolEntity extends Monster implements GeoEntity {
         fuseOrigin = tag.contains("FuseX") ? new net.minecraft.world.phys.Vec3(tag.getDouble("FuseX"), tag.getDouble("FuseY"), tag.getDouble("FuseZ")) : position();
         fuseDamage = Math.max(0, tag.getDouble("FuseDamage"));
         if (!Double.isFinite(fuseDamage)) fuseDamage = 0;
-        fuseStarted = Long.MIN_VALUE;
         fuseDimension = tag.getString("FuseDimension");
     }
 

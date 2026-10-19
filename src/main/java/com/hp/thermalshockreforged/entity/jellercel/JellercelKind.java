@@ -32,7 +32,7 @@ public enum JellercelKind {
 
     public AttributeSupplier.Builder attributes() {
         return Mob.createMobAttributes().add(Attributes.MOVEMENT_SPEED, speed).add(Attributes.MAX_HEALTH, health)
-                .add(Attributes.ARMOR, 4).add(Attributes.ATTACK_DAMAGE, 1).add(Attributes.FOLLOW_RANGE, 16)
+                .add(Attributes.ARMOR, 4).add(Attributes.ATTACK_DAMAGE, 0).add(Attributes.FOLLOW_RANGE, 16)
                 .add(Attributes.STEP_HEIGHT, .6).add(Attributes.KNOCKBACK_RESISTANCE, this == VERIDIAN ? 1 : 0)
                 .add(NeoForgeMod.SWIM_SPEED, speed);
     }

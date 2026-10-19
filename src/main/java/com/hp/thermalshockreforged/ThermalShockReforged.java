@@ -85,6 +85,7 @@ public final class ThermalShockReforged {
         ModEntities.register(bus);
         com.hp.thermalshockreforged.entity.sanctum.SanctumContent.register(bus);
         CavebloomerContent.register(bus);
+        com.hp.thermalshockreforged.entity.cavebloomer.BloomlingBurstEntity.register(bus);
         com.hp.thermalshockreforged.entity.pots.PotContent.register(bus);
         com.hp.thermalshockreforged.world.LoqendiaContent.register(bus);
         com.hp.thermalshockreforged.world.WorldProgressData.register();

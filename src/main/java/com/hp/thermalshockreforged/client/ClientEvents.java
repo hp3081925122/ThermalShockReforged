@@ -113,6 +113,7 @@ public final class ClientEvents {
         com.hp.thermalshockreforged.client.qo.QoClient.renderers(event);
         com.hp.thermalshockreforged.client.labmachinist.LabClient.renderers(event);
         CavebloomerClient.renderers(event);
+        event.registerEntityRenderer(com.hp.thermalshockreforged.entity.cavebloomer.BloomlingBurstEntity.TYPE.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.atlas.AtlasContent.ACTIVATION.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.labworldgen.LabWorldgenContent.DISSOLVER_CYCLE.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.reactor.ReactorContent.SEQUENCE.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
@@ -161,7 +162,7 @@ public final class ClientEvents {
         event.registerEntityRenderer(ModEntities.ZAP.get(), InvisibleWarningRenderer::new);
     }
     @SubscribeEvent
-    public static void firearmLayers(EntityRenderersEvent.RegisterLayerDefinitions event) { com.hp.thermalshockreforged.client.weapons.FirearmBulletRenderer.layers(event); com.hp.thermalshockreforged.client.weapons.LiteprismDiskRenderer.layers(event); }
+    public static void firearmLayers(EntityRenderersEvent.RegisterLayerDefinitions event) { com.hp.thermalshockreforged.client.weapons.FirearmBulletRenderer.layers(event); com.hp.thermalshockreforged.client.weapons.LiteprismDiskRenderer.layers(event); com.hp.thermalshockreforged.client.projectile.NetBulletRenderer.layers(event); }
 
     @SubscribeEvent
     public static void orbLayers(EntityRenderersEvent.RegisterLayerDefinitions event) { com.hp.thermalshockreforged.client.orb.OrbRenderers.layers(event); }

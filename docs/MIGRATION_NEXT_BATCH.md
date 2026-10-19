@@ -479,3 +479,15 @@ undead_mobs恢复原13成员并纠正第95/112批将两Monolith原生亡灵身�
 主线修正Bone Sword短时触距，使用原生持有状态合并语义承接当前层、隐藏层、刷新和重载，避免用永久属性修饰符改变未持有状态。Thingamabob请求、空投舱15/25阶段及终段后双兵均改用ServerEndTickTasks，固定锚点和有限保存保留。Panacea自愈结果、Pesticide实际手持栈消费、Raw Torpedo攻击缩放、Sickle原击退修正与Ruby Spear的21 tick挥击冷却均已逐项记录；这些修复和差异集中在`REFORGED_CHANGES.md`，并已写入mcreator-rework核案例。
 
 第116批生产代码已通过Java21离线`compileJava`；统一`compileJava processResources`在提交前执行。客户端和Render Preview仍待全模组迁移及无简化复审后进行，服务端由用户独立测试线负责；本批未启动游戏，不把静态检查或编译当运行通过。Git仍无remote，本批只做本地阶段提交。下一批117继续处理实体回调及传递过程，迁移A承担约三分之二，主线承担余下部分。
+
+## 第117批最终集成验证
+
+本批覆盖原实体回调根129个、241处实际调用和177种传递过程；迁移A承担86根/160调用，主线承担43根/81调用。A的1256项静态检查全部通过，完整根/过程/渲染绑定/资源哈希见`entity-callbacks-a-batch117-manifest.json`、`entity-callbacks-a-batch117-validation.json`和`entity-callbacks-a-batch117-render.json`；这些数量是静态证据，不是游戏测试次数。
+
+共享别名逐项核实：Stopper Orb用100 tick保存计时替代原隐藏COOLDOWN；Strider Attack保持5 tick无重力；Springslime投射物命中方块在偏移(1,1,1)生成Spring并清零速度；三种Jellercel共享实现但恢复原攻击属性0和独立1点仙人掌碰撞伤害。原Shutterbug再生命令参数顺序不符合目标EffectCommands语法，确认它是无效旧命令，不把它迁成伪无敌。
+
+本批修复Concierge/Kofoni通知、Explosive Snobol引信、Gore Flayer Orb寿命、Forecast/Icidrone漂移的普通tick时序；Angry Cavebloomer死亡序列改有限SERVER END，Bloomling死亡爆炸用可保存、幂等的独立载体承接本体移除后的合法尾阶段。Cavebloomer Shock载体改20次SERVER END，Poison仍同步结算。捕网弹恢复原专用网面几何、UV、纹理、旋转和模型层，接入真实渲染器。
+
+两路代码和共享接线统一执行`compileJava processResources --offline --max-workers=2`成功，耗时59秒；日志SHA256为`408280F86C99A177720572017A2FC6D1FE79C1EE5F20EFC0420F6AA285FF1F43`。本批没有启动游戏，没有修改用户测试文件；服务端继续由用户测试聊天负责。完整迁移尚未完成，客户端和`E:/模组/发cf的模组/Render Preview`验收在所有批次收口及无简化复审后进行。当前Git无remote，只有本地提交。
+
+下一批118继续按实体剩余依赖、跨入口行为矩阵和资源/注册闭合审计分工；开工时仍由迁移A承担约三分之二，主线承担余下和共享收口。

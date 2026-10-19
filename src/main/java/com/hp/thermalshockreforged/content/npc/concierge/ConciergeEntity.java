@@ -1,5 +1,10 @@
 package com.hp.thermalshockreforged.content.npc.concierge;
 
+import com.hp.thermalshockreforged.ThermalShockReforged;
+import com.hp.thermalshockreforged.world.timing.ServerEndTickTask;
+import com.hp.thermalshockreforged.world.timing.ServerEndTickTasks;
+import net.minecraft.server.level.ServerLevel;
+
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.syncher.*;
@@ -16,10 +21,10 @@ import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animation.*;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
-public final class ConciergeEntity extends PathfinderMob implements GeoEntity {
+public final class ConciergeEntity extends PathfinderMob implements GeoEntity, ServerEndTickTask {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(ConciergeEntity.class, EntityDataSerializers.STRING);
     private final AnimatableInstanceCache animations = GeckoLibUtil.createInstanceCache(this);
-    private int noticeTicks;
+    private int noticeSchedule;
     public ConciergeEntity(EntityType<? extends ConciergeEntity> type, Level level) { super(type, level); xpReward = 0; setCustomName(Component.translatable("entity.thermal_shock_reforged.concierge.display_name")); setCustomNameVisible(true); setPersistenceRequired(); }
     public static AttributeSupplier.Builder createAttributes() { return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 75).add(Attributes.ARMOR, 64).add(Attributes.MOVEMENT_SPEED, 0).add(Attributes.ATTACK_DAMAGE, 0).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.KNOCKBACK_RESISTANCE, 1).add(Attributes.STEP_HEIGHT, 0); }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, "concierge"); }
@@ -35,7 +40,9 @@ public final class ConciergeEntity extends PathfinderMob implements GeoEntity {
         if (player instanceof ServerPlayer serverPlayer) {
             if (isShiftKeyDown()) {
                 triggerAnim("procedure", "notice");
-                noticeTicks = 20;
+                noticeSchedule |= 1 << 19;
+                ServerEndTickTasks.schedule(serverPlayer.serverLevel(), getUUID());
+                ThermalShockReforged.LOGGER.debug("Concierge notice armed: entity={}, pendingEndTickSlots={}", getUUID(), Integer.bitCount(noticeSchedule));
             } else {
                 ConciergeContent.open(serverPlayer, this, blockPosition(), ConciergePage.MAIN);
             }
@@ -45,16 +52,25 @@ public final class ConciergeEntity extends PathfinderMob implements GeoEntity {
     @Override public SpawnGroupData finalizeSpawn(net.minecraft.world.level.ServerLevelAccessor world, net.minecraft.world.DifficultyInstance difficulty, MobSpawnType reason, SpawnGroupData group) { var result = super.finalizeSpawn(world, difficulty, reason, group); setNoGravity(true); return result; }
     @Override public void tick() {
         super.tick();
-        if (!level().isClientSide && noticeTicks > 0 && --noticeTicks == 0) setShiftKeyDown(false);
+        if (noticeSchedule != 0 && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
+    }
+    @Override public void onAddedToLevel() { super.onAddedToLevel(); if (noticeSchedule != 0 && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
+    @Override public void endTick(ServerLevel server) {
+        if (isRemoved() || noticeSchedule == 0) return;
+        boolean completed = (noticeSchedule & 1) != 0;
+        noticeSchedule >>>= 1;
+        if (completed) setShiftKeyDown(false);
+        if (noticeSchedule != 0) ServerEndTickTasks.schedule(server, getUUID());
     }
     @Override protected void tickDeath() { if (++deathTime >= 20) remove(RemovalReason.KILLED); }
-    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); tag.putInt("ConciergeNoticeTicks", noticeTicks); }
+    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); tag.putInt("ConciergeNoticeSchedule", noticeSchedule); tag.putBoolean("ConciergeNoticeShifted", isShiftKeyDown()); }
     @Override public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
         if (!tag.contains("NeoForgeData", 10) && tag.contains("ForgeData", 10)) getPersistentData().merge(tag.getCompound("ForgeData"));
         if (tag.contains("Texture")) entityData.set(TEXTURE, tag.getString("Texture"));
-        noticeTicks = Math.clamp(tag.getInt("ConciergeNoticeTicks"), 0, 20);
-        if (noticeTicks > 0) setShiftKeyDown(true);
+        int legacyTicks = Math.clamp(tag.getInt("ConciergeNoticeTicks"), 0, 20);
+        noticeSchedule = tag.contains("ConciergeNoticeSchedule") ? tag.getInt("ConciergeNoticeSchedule") & 0xfffff : legacyTicks > 0 ? 1 << (legacyTicks - 1) : 0;
+        if (noticeSchedule != 0) setShiftKeyDown(!tag.contains("ConciergeNoticeShifted") || tag.getBoolean("ConciergeNoticeShifted"));
         setPersistenceRequired();
     }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {

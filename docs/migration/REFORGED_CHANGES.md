@@ -338,3 +338,10 @@ Qo集成保全世界共享剧情、真实16页与奖励链，服务端验证同�
 - 骨剑原为选中时3tick、amp1的触距效果。移除目标常驻+2属性，改为选中刷新+2；HeldWeaponState补当前层与隐藏层保存、倒计时和切换，避免骨剑与长矛独立modifier叠加。此处使用原生属性状态替代伪药水，不复制MCR假效果。
 - Panacea原AABB循环实际重复给消费实体添加PURIFIED，目标一次添加的最终效果和原可观察状态相同；不把反编译变量名误读成附近实体净化。Pesticide保Skullscor筛选、间接魔法50、POISON_CLOUD及80tick冷却，改为实际使用栈原子消费。
 - Thingamabob链的22请求、Pod的15烟雾/25终段、终段后1tick两兵均改用ServerEndTickTasks，删除旧实体tick的createdAt/startedAt门槛，保固定坐标、有限保存及阶段消费锁。此为计时阶段修复，静态编译不等于运行验收。
+
+### 第117批：实体回调时序、独立延迟载体与真实渲染绑定
+
+- 迁移A逐根核对86个实体根、160处调用和1256项静态检查；主线核对43根及别名实现。`StopperOrb`的隐藏COOLDOWN改为保存的100 tick `OrbGraceTicks`，`strider_attack`保5 tick无重力寿命，`springslime_projectile`保命中方块偏移(1,1,1)生成Spring并清零速度。三种Jellercel共享实现时恢复原攻击属性0，碰撞过程继续独立造成1点仙人掌伤害。
+- Bloomling的20/40 SERVER END爆炸不再依赖已移除本体的普通tick，使用有界、可保存、幂等的`BloomlingBurstEntity`；正常死亡保留合法尾阶段，管理员删除载体或召唤生命周期到期会取消，区块卸载与重载不重复提交。Cavebloomer的Shock载体改为20次SERVER END，Poison分支仍在初始化时同步结算。
+- Concierge/Kofoni通知、Explosive Snobol引信、Gore Flayer Orb寿命、Forecast/Icidrone漂移阶段改为局部SERVER END状态，保跨重载和维度取消边界。捕网弹恢复原随弹道旋转的网面几何、UV、纹理和模型层绑定；不再使用通用物品渲染器。原Shutterbug共享再生命令参数顺序不符合目标EffectCommands语法，确认其是无效旧命令，不补成新的伪无敌效果。
+- 第117批统一`compileJava processResources --offline --max-workers=2`成功；日志SHA256为`408280F86C99A177720572017A2FC6D1FE79C1EE5F20EFC0420F6AA285FF1F43`。服务端运行和客户端/Render Preview仍按最终验收安排执行。

@@ -1,0 +1,673 @@
+{
+  "batch": 117,
+  "lane": "main",
+  "baseCommit": "27f8be1",
+  "sourceJarSha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436",
+  "assignedRoots": 43,
+  "actualCallbackCalls": 81,
+  "roots": [
+    {
+      "sourcePath": "entity/PortraitCharacterEntity.java",
+      "sourceSHA256": "6106d4807e2b59b6bd1ccac5fc7008a2841e9ee00a86068973f0b00228a2482e",
+      "methods": [
+        {
+          "method": "getDimensions",
+          "procedure": "PortraitCharacterEntityVisualScaleProcedure",
+          "line": 193
+        },
+        {
+          "method": "mobInteract",
+          "procedure": "PortraitCharacterRightClickedOnEntityProcedure",
+          "line": 178
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/PrismaticSupernovaEntity.java",
+      "sourceSHA256": "20d12560e9d5a76ac38365dedbd4912a3e91afd3a469ffd52c700ea2611d8c66",
+      "methods": [
+        {
+          "method": "finalizeSpawn",
+          "procedure": "PrismaticSupernovaOnInitialEntitySpawnProcedure",
+          "line": 148
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/ProboskerEntity.java",
+      "sourceSHA256": "23769649776da1ffb162bec6fd73dc3e7d537600b10df49e29f23e7d75217a45",
+      "methods": [
+        {
+          "method": "baseTick",
+          "procedure": "ProboskerOnEntityTickUpdateProcedure",
+          "line": 241
+        },
+        {
+          "method": "finalizeSpawn",
+          "procedure": "ProboskerOnInitialEntitySpawnProcedure",
+          "line": 176
+        },
+        {
+          "method": "init",
+          "procedure": "RazorwingNaturalEntitySpawningConditionProcedure",
+          "line": 269
+        },
+        {
+          "method": "mobInteract",
+          "procedure": "ProboskerRightClickedOnEntityProcedure",
+          "line": 235
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/ProtoiDeltaEntity.java",
+      "sourceSHA256": "729882ced94fd2a7cac9ec1cdd6a3457b1011d809e952277c5a3ff31bed7a35d",
+      "methods": [
+        {
+          "method": "init",
+          "procedure": "SurfaceSpawnConditionProcedure",
+          "line": 184
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/ProtoiEpsilonEntity.java",
+      "sourceSHA256": "02a935215e4886df0c5d27408947e04ed935ff59d5c5c3baebd807b3f40f3a93",
+      "methods": [
+        {
+          "method": "baseTick",
+          "procedure": "IcidroneOnTickProcedure",
+          "line": 176
+        },
+        {
+          "method": "finalizeSpawn",
+          "procedure": "ForecastOnInitialEntitySpawnProcedure",
+          "line": 158
+        },
+        {
+          "method": "init",
+          "procedure": "AerocelNaturalEntitySpawningConditionProcedure",
+          "line": 202
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/ProtoiGammaEntity.java",
+      "sourceSHA256": "cdac444a2ce5b37ca41e12beb7f1f9464b104731c6916673e5506a80f1f841bf",
+      "methods": [
+        {
+          "method": "init",
+          "procedure": "SurfaceSpawnConditionProcedure",
+          "line": 173
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/ProtoiSunbeamEntity.java",
+      "sourceSHA256": "93e8a071636e25388edffde6a041ee4e8e298f2d94362ee8189277b16a930b7c",
+      "methods": [
+        {
+          "method": "die",
+          "procedure": "BigBossDeathProcedure",
+          "line": 155
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/RaincatcherEntity.java",
+      "sourceSHA256": "b87cbd5ae0f27cb07519ceb7a63306a703ad3ef403a77862a2156e0ab3b49f41",
+      "methods": [
+        {
+          "method": "init",
+          "procedure": "GalvaniteNaturalEntitySpawningConditionProcedure",
+          "line": 169
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/RazorwingEntity.java",
+      "sourceSHA256": "d599403612a90e25557ccb8132156e6cb56d5af35edbd2f59b73a8e2e589fbbe",
+      "methods": [
+        {
+          "method": "init",
+          "procedure": "RazorwingNaturalEntitySpawningConditionProcedure",
+          "line": 248
+        },
+        {
+          "method": "mobInteract",
+          "procedure": "RazorwingRightClickedOnEntityProcedure",
+          "line": 215
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/RibbonbladeGalvaniteEntity.java",
+      "sourceSHA256": "e81bfa63544fb5c3bd3f7387292a0b558a2216ef3143bc98d782384d931438d1",
+      "methods": [
+        {
+          "method": "awardKillScore",
+          "procedure": "RibbonbladeGalvaniteThisEntityKillsAnotherOneProcedure",
+          "line": 169
+        },
+        {
+          "method": "die",
+          "procedure": "GalvaniteEntityDiesProcedure",
+          "line": 146
+        },
+        {
+          "method": "finalizeSpawn",
+          "procedure": "RibbonbladeGalvaniteOnInitialEntitySpawnProcedure",
+          "line": 151
+        },
+        {
+          "method": "hurt",
+          "procedure": "RibbonbladeGalvaniteEntityIsHurtProcedure",
+          "line": 137
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/RippleEntity.java",
+      "sourceSHA256": "a66529d23b5964ebeaaef1431f69138c60977acbf6e6a4ce0c0dba9d31243fe5",
+      "methods": [
+        {
+          "method": "die",
+          "procedure": "GalvaniteEntityDiesProcedure",
+          "line": 152
+        },
+        {
+          "method": "init",
+          "procedure": "GalvaniteNaturalEntitySpawningConditionProcedure",
+          "line": 181
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/SanctumErrantEntity.java",
+      "sourceSHA256": "3bb2375d5d74f63ed831a3bd1d0fb251b6f46cfeff8604ab3dd282ac0a8437f4",
+      "methods": [
+        {
+          "method": "die",
+          "procedure": "ErrantEntityDiesProcedure",
+          "line": 133
+        },
+        {
+          "method": "hurt",
+          "procedure": "ErrantEntityIsHurtProcedure",
+          "line": 127
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/SanctumRippleEntity.java",
+      "sourceSHA256": "eb4b3cf7b9fece3a679910dc9ceebced3d1d97d7dfec08149ad241391499678d",
+      "methods": [
+        {
+          "method": "die",
+          "procedure": "GalvaniteEntityDiesProcedure",
+          "line": 152
+        },
+        {
+          "method": "init",
+          "procedure": "GalvaniteNaturalEntitySpawningConditionProcedure",
+          "line": 181
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/SentrariusEntity.java",
+      "sourceSHA256": "a02f934c6e411825f87ac5a5e2ff99bc7dd64d91aa8acc6fe0325bb7b77ae096",
+      "methods": [
+        {
+          "method": "init",
+          "procedure": "TitanSpawnConditionProcedure",
+          "line": 174
+        },
+        {
+          "method": "mobInteract",
+          "procedure": "TitanRightClickedOnEntityProcedure",
+          "line": 151
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/ShockAttackEntityEntity.java",
+      "sourceSHA256": "2f375c953f805480172480b028bd4182c72fa0ab0c34b966f04d8e77f5b9b79f",
+      "methods": [
+        {
+          "method": "finalizeSpawn",
+          "procedure": "ShockAttackEntitySpawnProcedure",
+          "line": 126
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/ShutterbugEntity.java",
+      "sourceSHA256": "42d026a6a928636e21e8a58c528ee7cb417331e663c04f1e49c0a80789103fbd",
+      "methods": [
+        {
+          "method": "finalizeSpawn",
+          "procedure": "BenzorOnInitialEntitySpawnProcedure",
+          "line": 157
+        },
+        {
+          "method": "mobInteract",
+          "procedure": "ShutterbugRightClickedOnEntityProcedure",
+          "line": 182
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/SiibolEntity.java",
+      "sourceSHA256": "7466d1395224203992fb9a3dce5592db7d8b53d04c5603813c5630888e21840a",
+      "methods": [
+        {
+          "method": "init",
+          "procedure": "SpringlingNaturalEntitySpawningConditionProcedure",
+          "line": 190
+        },
+        {
+          "method": "mobInteract",
+          "procedure": "SiibolRightClickedOnEntityProcedure",
+          "line": 167
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/SkeletitanEntity.java",
+      "sourceSHA256": "e022945f3f6b24859d7217beacbbb03f127629e7b39fdb9696f9fc8bb331c341",
+      "methods": [
+        {
+          "method": "finalizeSpawn",
+          "procedure": "SkeletitanOnInitialEntitySpawnProcedure",
+          "line": 149
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/SnobolEntity.java",
+      "sourceSHA256": "357094619d4739e6975d9577625ecd9e712ae9fbe6f10bdce1d70d120bdab288",
+      "methods": [
+        {
+          "method": "init",
+          "procedure": "SurfaceSpawnConditionProcedure",
+          "line": 189
+        },
+        {
+          "method": "mobInteract",
+          "procedure": "SnobolRightClickedOnEntityProcedure",
+          "line": 167
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/SolaEntity.java",
+      "sourceSHA256": "4abac1727889b3dac28ae446a37fc0d1b17197fdc170c0ac9a7ce9050d3144ed",
+      "methods": [
+        {
+          "method": "finalizeSpawn",
+          "procedure": "SolaOnInitialEntitySpawnProcedure",
+          "line": 153
+        },
+        {
+          "method": "getDimensions",
+          "procedure": "SolaEntityVisualScaleProcedure",
+          "line": 180
+        },
+        {
+          "method": "init",
+          "procedure": "SolaNaturalEntitySpawningConditionProcedure",
+          "line": 188
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/SootleIdleEntity.java",
+      "sourceSHA256": "cec8b7ffa161519360dd14e0ec28daca3b13845a2666a2ba9a0f55d2ba8b8c00",
+      "methods": [
+        {
+          "method": "hurt",
+          "procedure": "SootleIdleEntityIsHurtProcedure",
+          "line": 123
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/SpiritEntity.java",
+      "sourceSHA256": "1b28af121823d41f88908da2bc7904c2dce3eb3b8a3d951f3662b30905fa8464",
+      "methods": [
+        {
+          "method": "baseTick",
+          "procedure": "SpiritOnEntityTickUpdateProcedure",
+          "line": 158
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/SpringlingEntity.java",
+      "sourceSHA256": "8ab116544ff5ff317e1595bd14287a18915610e7733ef8b19310b5efe9f2e9ff",
+      "methods": [
+        {
+          "method": "init",
+          "procedure": "SpringlingNaturalEntitySpawningConditionProcedure",
+          "line": 163
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/SpringslimeEntity.java",
+      "sourceSHA256": "0b1e60a6b646bef4684c88610a64799d31100d6ea4e46f5e5305bd76c7f07760",
+      "methods": [
+        {
+          "method": "playerTouch",
+          "procedure": "SpringslimePlayerCollidesWithThisEntityProcedure",
+          "line": 133
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/SpringslimeProjectileEntity.java",
+      "sourceSHA256": "cd4f9a555647c16300884aff641ce9236380fe91cb754ed201ca5b40d03b8009",
+      "methods": [
+        {
+          "method": "onHitBlock",
+          "procedure": "SpringslimeProjectileProjectileHitsBlockProcedure",
+          "line": 73
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/SquallEntity.java",
+      "sourceSHA256": "7f848db857a74757e3b23b2aed1d4c39d1465d8e64e9dd8f7649116a5ed42021",
+      "methods": [
+        {
+          "method": "baseTick",
+          "procedure": "CaretakerOnEntityTickUpdateProcedure",
+          "line": 123
+        },
+        {
+          "method": "die",
+          "procedure": "SquallEntityDiesProcedure",
+          "line": 118
+        },
+        {
+          "method": "init",
+          "procedure": "SquallNaturalEntitySpawningConditionProcedure",
+          "line": 149
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/StopperOrbEntity.java",
+      "sourceSHA256": "bee0339bbe932dd77b8bfe52c065723c4df58bc7265ffb590c2f14f5108928b4",
+      "methods": [
+        {
+          "method": "baseTick",
+          "procedure": "StopperOrbOnEntityTickUpdateProcedure",
+          "line": 136
+        },
+        {
+          "method": "finalizeSpawn",
+          "procedure": "StopperOrbOnInitialEntitySpawnProcedure",
+          "line": 130
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/StriderAttackEntity.java",
+      "sourceSHA256": "5cec00538ce793b213f4260f24a3e2be5e41165710c7e5a1028498b79862a0b3",
+      "methods": [
+        {
+          "method": "tick",
+          "procedure": "StriderAttackWhileProjectileFlyingTickProcedure",
+          "line": 68
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/SummonedManglerEntity.java",
+      "sourceSHA256": "0c23f9b149115123d5ea7bbf33dba9df8310c0de27f9924dd89e0a04396cf440",
+      "methods": [
+        {
+          "method": "baseTick",
+          "procedure": "SummonedManglerOnEntityTickUpdateProcedure",
+          "line": 181
+        },
+        {
+          "method": "finalizeSpawn",
+          "procedure": "SummonedManglerOnInitialEntitySpawnProcedure",
+          "line": 163
+        },
+        {
+          "method": "hurt",
+          "procedure": "ManglerEntityIsHurtProcedure",
+          "line": 157
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/SunbeamBulletEntity.java",
+      "sourceSHA256": "126dd988242740a2d00d5019c5dddb694e2f0aa23052bc80a9a4f1d2a2974004",
+      "methods": [
+        {
+          "method": "onHitBlock",
+          "procedure": "SunbeamBulletProjectileHitsBlockProcedure",
+          "line": 69
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/TeslaReedEntity.java",
+      "sourceSHA256": "6d56285b8ca611dc2545acb42cea160e2212439471900d6f1cf5e3286db00278",
+      "methods": [
+        {
+          "method": "finalizeSpawn",
+          "procedure": "LilJellyOnInitialEntitySpawnProcedure",
+          "line": 143
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/ThermoblasterBulletEntity.java",
+      "sourceSHA256": "7e4af15da0bf076268846cc7675a81f95c05060916822bbdc0a46c4a7868e864",
+      "methods": [
+        {
+          "method": "onHitBlock",
+          "procedure": "ThermoblasterBulletHitProcedure",
+          "line": 76
+        },
+        {
+          "method": "onHitEntity",
+          "procedure": "ThermoblasterBulletHitProcedure",
+          "line": 71
+        },
+        {
+          "method": "tick",
+          "procedure": "ThermoblasterBulletTickProcedure",
+          "line": 81
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/ThermoblasterShotgunBulletEntity.java",
+      "sourceSHA256": "1f86f7dbca23bb8e920dbc23ae7d69b3cfde725ce8047b2fd2c93a5f8eff29ad",
+      "methods": [
+        {
+          "method": "onHitBlock",
+          "procedure": "ThermoblasterBulletHitProcedure",
+          "line": 77
+        },
+        {
+          "method": "onHitEntity",
+          "procedure": "ThermoblasterShotgunHitProcedure",
+          "line": 72
+        },
+        {
+          "method": "tick",
+          "procedure": "ThermoblasterShotgunTickProcedure",
+          "line": 82
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/ThermoidEntity.java",
+      "sourceSHA256": "d9ee5d7b52482714524f894a0d7cb3a2286efd00520d11f39e137a0355be41c3",
+      "methods": [
+        {
+          "method": "baseTick",
+          "procedure": "ThermoidOnEntityTickUpdateProcedure",
+          "line": 227
+        },
+        {
+          "method": "finalizeSpawn",
+          "procedure": "ThermoidOnInitialEntitySpawnProcedure",
+          "line": 209
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/ThistleBeamEntity.java",
+      "sourceSHA256": "4ff992579f4651e896742bd5dfc56c1b6f8b4da06258741d6e337eb4f08cbbcf",
+      "methods": [
+        {
+          "method": "onHitEntity",
+          "procedure": "ThistleBeamProjectileHitsLivingEntityProcedure",
+          "line": 70
+        },
+        {
+          "method": "tick",
+          "procedure": "LiteprismBeamWhileProjectileFlyingTickProcedure",
+          "line": 75
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/TorpedoEntity.java",
+      "sourceSHA256": "6029be6358ae135267b520c72ed4510311510fba5ea05b727d2debde4c4277a4",
+      "methods": [
+        {
+          "method": "init",
+          "procedure": "TorpedoNaturalEntitySpawningConditionProcedure",
+          "line": 236
+        },
+        {
+          "method": "playerTouch",
+          "procedure": "TorpedoPlayerCollidesWithThisEntityProcedure",
+          "line": 216
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/TrilobiteEntity.java",
+      "sourceSHA256": "fd0c6668e357a6361fc82c945cfcbf349338365944c7e48d77ce9077454cda98",
+      "methods": [
+        {
+          "method": "baseTick",
+          "procedure": "TrilobiteOnEntityTickUpdateProcedure",
+          "line": 173
+        },
+        {
+          "method": "mobInteract",
+          "procedure": "TrilobiteRightClickedOnEntityProcedure",
+          "line": 168
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/VeridianJellercelEntity.java",
+      "sourceSHA256": "a3ce58e155cea6075e04612a339b01415dda7304f5a786ab00b7da47a8741a27",
+      "methods": [
+        {
+          "method": "playerTouch",
+          "procedure": "CeruleanJellercelPlayerCollidesWithThisEntityProcedure",
+          "line": 203
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/VolcanoBulletEntity.java",
+      "sourceSHA256": "5eb6f904e498af02eefe9f06b57da03e406768d313d70daa259a4aee9bb3b681",
+      "methods": [
+        {
+          "method": "onHitBlock",
+          "procedure": "VolcanoHitProcedure",
+          "line": 76
+        },
+        {
+          "method": "onHitEntity",
+          "procedure": "VolcanoHitProcedure",
+          "line": 71
+        },
+        {
+          "method": "tick",
+          "procedure": "VolcanoBulletTickProcedure",
+          "line": 81
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/WhisperEntity.java",
+      "sourceSHA256": "2e24523f4558b06c241fa4a4fa570e7fa5662f3d1ca9498f8bd79f796bd477aa",
+      "methods": [
+        {
+          "method": "baseTick",
+          "procedure": "WhisperOnEntityTickUpdateProcedure",
+          "line": 191
+        },
+        {
+          "method": "hurt",
+          "procedure": "WhisperEntityIsHurtProcedure",
+          "line": 142
+        },
+        {
+          "method": "init",
+          "procedure": "SurfaceSpawnConditionProcedure",
+          "line": 209
+        },
+        {
+          "method": "mobInteract",
+          "procedure": "WhisperRightClickedOnEntityProcedure",
+          "line": 185
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/WhistlerNoteEntity.java",
+      "sourceSHA256": "9aa447cf21154e916ee02ece1c66b84804de285c4dce12c143e3bbbdf206e2cb",
+      "methods": [
+        {
+          "method": "tick",
+          "procedure": "GoreFlayerOrbWhileProjectileFlyingTickProcedure",
+          "line": 68
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/WillogradeEntity.java",
+      "sourceSHA256": "400e9797fa90c97168e5c4c74e357097ce0878d2415d630a4af41a4a510fbadf",
+      "methods": [
+        {
+          "method": "init",
+          "procedure": "WillogradeNaturalEntitySpawningConditionProcedure",
+          "line": 161
+        },
+        {
+          "method": "mobInteract",
+          "procedure": "WillogradeRightClickedOnEntityProcedure",
+          "line": 138
+        }
+      ]
+    },
+    {
+      "sourcePath": "entity/ZapAttackEntityEntity.java",
+      "sourceSHA256": "7368cb34ee44040119ba2a46d4cece0a96608888fa6630dc02b2110245728467",
+      "methods": [
+        {
+          "method": "finalizeSpawn",
+          "procedure": "ZapAttackEntityOnInitialEntitySpawnProcedure",
+          "line": 126
+        }
+      ]
+    }
+  ]
+}

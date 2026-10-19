@@ -16,7 +16,6 @@ import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.PathfinderMob;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.RandomSwimmingGoal;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.ai.navigation.WaterBoundPathNavigation;
@@ -68,7 +67,7 @@ public final class JellercelEntity extends PathfinderMob implements GeoEntity {
 
     @Override public void playerTouch(Player player) {
         super.playerTouch(player);
-        if (!level().isClientSide) player.hurt(damageSources().cactus(), (float) getAttributeValue(Attributes.ATTACK_DAMAGE));
+        if (!level().isClientSide) player.hurt(damageSources().cactus(), 1.0F);
     }
 
     @Override protected void dropCustomDeathLoot(ServerLevel level, DamageSource source, boolean recentlyHit) {

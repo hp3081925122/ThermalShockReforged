@@ -1,0 +1,218 @@
+{
+  "batch": 117,
+  "lane": "A",
+  "status": "A独占生产代码冻结交接；共享接线及矩阵明确余项未验收，不声称完整迁移已完成",
+  "baseCommit": "27f8be1af82d413fb582ca3b10572e028b32a80f",
+  "workspace": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged",
+  "sourceJar": {
+    "path": "D:\\AI临时文件\\ThermalShockMigration\\thermal_shock-07.9-original.jar",
+    "sha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436"
+  },
+  "productionFiles": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/projectile/NetBulletRenderer.java",
+      "sha256": "80da341173510d267c9f358abfc9224156534cac3e2613d86ebf9d4469408697",
+      "bytes": 2993,
+      "change": "新增",
+      "baselineSHA256": null
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/npc/concierge/ConciergeEntity.java",
+      "sha256": "ed37737ca707d7321db27c71a9dfe35e8ec477709fa2d9b1dfe9192608503f71",
+      "bytes": 6575,
+      "change": "修改",
+      "baselineSHA256": "35983069392de8c84cd2706b78588317a10c445856d62b35bcfc273de98ef1cd"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/ForecastEntity.java",
+      "sha256": "ce15e44af1d318b8b9ed31bc4bb718d99cb924cd8d888763e011df5f90b47bd4",
+      "bytes": 14001,
+      "change": "修改",
+      "baselineSHA256": "4b96c90429ad680c30aaed31afa24b25840c26b68058c116e41ae92d5fbf7bb8"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/boss/BossDeathSequence.java",
+      "sha256": "aee1cd15bfc2384897ab4030d8ee671a96657ab950bf021d4654d239617aa16d",
+      "bytes": 2610,
+      "change": "修改",
+      "baselineSHA256": "1541ab92c0dd00c76877389b5451464d645b7cf04a64afb892bb0b31c3c2e532"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/cavebloomer/AngryCavebloomerEntity.java",
+      "sha256": "6a1cd8a9fac09b3ee48012386edc3dca2e924d7b0e73c5b84513773b3ee5f7ba",
+      "bytes": 12011,
+      "change": "修改",
+      "baselineSHA256": "57bd080491a30fc71795e66070dc44a4c9bf5180e8bd6fb1631bce38aebed2c3"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/cavebloomer/BloomlingBurstEntity.java",
+      "sha256": "ad550dba9713962e1a189c06f12205072189911fcbdde0f6cf4641197f4560fc",
+      "bytes": 10728,
+      "change": "新增",
+      "baselineSHA256": null
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/cavebloomer/BloomlingEntity.java",
+      "sha256": "2c0d264ebbca67a198e8cafa7266016c33c228099f76ba253c33ed3339023d9a",
+      "bytes": 14797,
+      "change": "修改",
+      "baselineSHA256": "1e9ba8771808c8c40f89b2f13d27175b681c8db2e0dec168d3e606c00edda62c"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/fauna/GoreFlayerOrbEntity.java",
+      "sha256": "3d8f897b7e9481b46c42c0085548a2af10e3b9b66b164132a87ac9b15d1a0fc5",
+      "bytes": 4528,
+      "change": "修改",
+      "baselineSHA256": "be204842d54c371e49e84f24ea628671211ef50e2c00cdfeb7cd825b2e7847fd"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/ice/IceCreatureEntity.java",
+      "sha256": "6d0eb4c5c351c6fd59ef5409b52df3ad5c1bbb01f4dfecdf05e6a67b594e5215",
+      "bytes": 25593,
+      "change": "修改",
+      "baselineSHA256": "357da7e2a95fafc4637f7339612d48d5660e8d1f2d1e8c33888aca99faa6cbf7"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/kofoni/KofoniEntity.java",
+      "sha256": "46e0d958f41928f39a9d12d248825a2024d70fe62701e48f2e77677380d76f48",
+      "bytes": 6500,
+      "change": "修改",
+      "baselineSHA256": "d6d0a60fb4d140ca12591bb992b34dc45a3aa20e3f8e353b81a1978904b0d252"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/snobol/ExplosiveSnobolEntity.java",
+      "sha256": "392173b7ebe08927f94922b761dcd7b48fe15b8521dc839bb2d56f4d38b7f200",
+      "bytes": 7605,
+      "change": "修改",
+      "baselineSHA256": "f48b0c01dd77a5130d75be716164a9b09cdc79489d60002e07f01c7c80065a03"
+    }
+  ],
+  "documentationFiles": [
+    {
+      "path": "docs/migration/entity-callbacks-a-batch117.md",
+      "sha256": "ed55b1282fb7e1453d0b0012d859a87d546fe6d1fc1d511c049d9fc8f5927228",
+      "bytes": 7651
+    },
+    {
+      "path": "docs/migration/entity-callbacks-a-batch117-source.json",
+      "sha256": "f34918ba34cfa2e1e1b43b95ce3da8c895482f423c762572b97cddc90e14fe7b",
+      "bytes": 2342058
+    },
+    {
+      "path": "docs/migration/entity-callbacks-a-batch117-matrix.json",
+      "sha256": "15ec54a662926c512a71ff8ede20eaf5291f2267ff4c4f72dab21fa99d01886b",
+      "bytes": 1585226
+    },
+    {
+      "path": "docs/migration/entity-callbacks-a-batch117-ownership.json",
+      "sha256": "bfcfa7f890df4309aa5cc3f3d0945967937365a57f67b346f394de0b6d4f7230",
+      "bytes": 4100
+    },
+    {
+      "path": "docs/migration/entity-callbacks-a-batch117-shared.md",
+      "sha256": "3632b80d5e50684d7a268d42b394227043f438f7fcadb199df50ac5880581f4d",
+      "bytes": 5514
+    },
+    {
+      "path": "docs/migration/entity-callbacks-a-batch117-validation.json",
+      "sha256": "4b3761548e543d356e4a1dfc161a2d1acd372e8f792528697435fe7d7887ef8a",
+      "bytes": 170863
+    },
+    {
+      "path": "docs/migration/entity-callbacks-a-batch117-assets.json",
+      "sha256": "9131eb56894303c0c8d87bcd0efd2cfc328dd786aa4310e981901432004067d1",
+      "bytes": 467902
+    },
+    {
+      "path": "docs/migration/entity-callbacks-a-batch117-helpers.json",
+      "sha256": "9f26031eadaf622c1555b79320f9d34c1446ef14503c4d6246edd3c6a50d5e0a",
+      "bytes": 118283
+    },
+    {
+      "path": "docs/migration/entity-callbacks-a-batch117-render.json",
+      "sha256": "1a219eb0817d73e467d07ed4ad24cfba97becc3a33d5a7485a73bc6576f4b60e",
+      "bytes": 408943
+    }
+  ],
+  "temporaryValidationScripts": [
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\inspect-entity-callbacks117a.py",
+      "sha256": "285130620454d7ac1547fe27961f5c3d29988931b0f7a27a295aee067ace8279"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\map-entity-callbacks117a.py",
+      "sha256": "0bc3b42b1ffe541abd76f0c14e3567a784f4bf84094148d19d737b46baae15d6"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\reviews_entity117a.py",
+      "sha256": "1ef81fbcf050331059e1926a64c2b9f77a9072cdf65456704d2cd8e42e9e7fa8"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\read-entity-source117a.py",
+      "sha256": "13a04c4de1cf4fbbd820e6d46a150ea4d67a603cead283b284158f1ad0fa8c42"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\assets-entity-callbacks117a.py",
+      "sha256": "af69ff405d5fb0bcb9693970ce843210a201e1efab36ce6984a3508c8f39916e"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\helpers-entity-callbacks117a.py",
+      "sha256": "30dc7c60ba88fae8d0e17c0229e23a4af57c0bee9dd8315f28fb9ce6c19cbfc0"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\render-entity-callbacks117a.py",
+      "sha256": "2243747251b49af5d8ed9f322289957ee02b811516b4055b9b90d9c33d91a836"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\validate-entity-callbacks117a.py",
+      "sha256": "122bbd32ccba6c8dbb894594300921b4c1c6933e0add3b97e1e3ab8367176b1c"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\manifest-entity-callbacks117a.py",
+      "sha256": "4d629269946de89e65a940d1ae4c594fb4850a6e3593c811af5093e82f9b0f61"
+    }
+  ],
+  "productionTreeSHA256": "780ba47daa611218ac7e7db9dea554e54e960a673c3cd21583bf9d908e859ab4",
+  "documentationTreeSHA256": "5de0f0934f8fd1f7325a6cd84fb1ee7b3e7d77d163d5a7aab2f64f7ef386aed3",
+  "hashFormat": "按path区分大小写排序，将每个sha256、两个ASCII空格、path、LF连结后取UTF-8字节SHA256；manifest本身不加入其文档树哈希",
+  "counts": {
+    "productionFiles": 11,
+    "modifiedProductionFiles": 9,
+    "newProductionFiles": 2,
+    "documentationFiles": 9,
+    "checks": 1256,
+    "passed": 1256,
+    "failed": 0,
+    "primaryTargetFiles": 74,
+    "rootsWithInitialReview": 86
+  },
+  "notPerformed": [
+    "Java编译",
+    "启动游戏",
+    "服务端测试",
+    "客户端/Render Preview",
+    "git stage",
+    "git commit",
+    "git push"
+  ],
+  "readOnlyOthers": [
+    "docs/testing/*",
+    "主线JellercelEntity/JellercelKind及其他共享生产文件",
+    "主线117文档与分工表"
+  ],
+  "integrationRequired": [
+    "BloomlingBurstEntity.register(bus)",
+    "BloomlingBurstEntity NoopRenderer绑定",
+    "NET_BULLET改为NetBulletRenderer绑定",
+    "NetBulletRenderer.layers(event)",
+    "IceSquadProjectile有限SERVER END寿命",
+    "ShockImpact20 SERVER END且Poison同步",
+    "Mangler60 SERVER END解除复核",
+    "Guardian死亡粒子原固定坐标差异决策及REF记录"
+  ],
+  "limitations": [
+    "矩阵86根均有初审笔记，pending未整体闭合；全部助手/外部写入/菜单/视觉/运行仍不能据此宣称完整",
+    "1256是静态输入/结构/参考模型检查数量，不是1256个实服功能测试",
+    "共享源码快照属于取证输入，主线继续修改后需刷新快照及验证；冻结哈希约束仅本路明确11个生产文件和9个文档"
+  ]
+}

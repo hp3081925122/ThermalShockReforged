@@ -1,9 +1,13 @@
 package com.hp.thermalshockreforged.entity.kofoni;
 
+import com.hp.thermalshockreforged.ThermalShockReforged;
+import com.hp.thermalshockreforged.world.timing.ServerEndTickTask;
+import com.hp.thermalshockreforged.world.timing.ServerEndTickTasks;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.syncher.*;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.*;
 import net.minecraft.world.damagesource.*;
 import net.minecraft.world.entity.*;
@@ -16,10 +20,10 @@ import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animation.*;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
-public final class KofoniEntity extends PathfinderMob implements GeoEntity {
+public final class KofoniEntity extends PathfinderMob implements GeoEntity, ServerEndTickTask {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(KofoniEntity.class, EntityDataSerializers.STRING);
     private final AnimatableInstanceCache animations = GeckoLibUtil.createInstanceCache(this);
-    private int wakeTicks;
+    private int wakeSchedule;
     public KofoniEntity(EntityType<? extends KofoniEntity> type, Level level) { super(type, level); xpReward = 0; setCustomName(Component.translatable("entity.thermal_shock_reforged.kofoni.display_name")); setCustomNameVisible(true); setPersistenceRequired(); }
     public static AttributeSupplier.Builder createAttributes() { return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 75).add(Attributes.ARMOR, 64).add(Attributes.MOVEMENT_SPEED, 0).add(Attributes.ATTACK_DAMAGE, 0).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.KNOCKBACK_RESISTANCE, 1).add(Attributes.STEP_HEIGHT, 0); }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, "kofoni"); }
@@ -35,7 +39,9 @@ public final class KofoniEntity extends PathfinderMob implements GeoEntity {
         if (player instanceof ServerPlayer serverPlayer) {
             if (isShiftKeyDown()) {
                 triggerAnim("procedure", "wake");
-                if (wakeTicks == 0) wakeTicks = 20;
+                wakeSchedule |= 1 << 19;
+                ServerEndTickTasks.schedule(serverPlayer.serverLevel(), getUUID());
+                ThermalShockReforged.LOGGER.debug("Kofoni wake armed: entity={}, pendingEndTickSlots={}", getUUID(), Integer.bitCount(wakeSchedule));
             } else {
                 KofoniContent.open(serverPlayer, this, blockPosition(), KofoniPage.MAIN);
             }
@@ -45,16 +51,25 @@ public final class KofoniEntity extends PathfinderMob implements GeoEntity {
     @Override public SpawnGroupData finalizeSpawn(net.minecraft.world.level.ServerLevelAccessor world, net.minecraft.world.DifficultyInstance difficulty, MobSpawnType reason, SpawnGroupData group) { var result = super.finalizeSpawn(world, difficulty, reason, group); setNoGravity(true); return result; }
     @Override public void tick() {
         super.tick();
-        if (!level().isClientSide && wakeTicks > 0 && --wakeTicks == 0) setShiftKeyDown(false);
+        if (wakeSchedule != 0 && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
+    }
+    @Override public void onAddedToLevel() { super.onAddedToLevel(); if (wakeSchedule != 0 && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
+    @Override public void endTick(ServerLevel server) {
+        if (isRemoved() || wakeSchedule == 0) return;
+        boolean completed = (wakeSchedule & 1) != 0;
+        wakeSchedule >>>= 1;
+        if (completed) setShiftKeyDown(false);
+        if (wakeSchedule != 0) ServerEndTickTasks.schedule(server, getUUID());
     }
     @Override protected void tickDeath() { if (++deathTime >= 20) remove(RemovalReason.KILLED); }
-    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); tag.putInt("KofoniWakeTicks", wakeTicks); }
+    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); tag.putInt("KofoniWakeSchedule", wakeSchedule); tag.putBoolean("KofoniWakeShifted", isShiftKeyDown()); }
     @Override public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
         if (!tag.contains("NeoForgeData", 10) && tag.contains("ForgeData", 10)) getPersistentData().merge(tag.getCompound("ForgeData"));
         if (tag.contains("Texture")) entityData.set(TEXTURE, tag.getString("Texture"));
-        wakeTicks = Math.clamp(tag.getInt("KofoniWakeTicks"), 0, 20);
-        if (wakeTicks > 0) setShiftKeyDown(true);
+        int legacyTicks = Math.clamp(tag.getInt("KofoniWakeTicks"), 0, 20);
+        wakeSchedule = tag.contains("KofoniWakeSchedule") ? tag.getInt("KofoniWakeSchedule") & 0xfffff : legacyTicks > 0 ? 1 << (legacyTicks - 1) : 0;
+        if (wakeSchedule != 0) setShiftKeyDown(!tag.contains("KofoniWakeShifted") || tag.getBoolean("KofoniWakeShifted"));
         setPersistenceRequired();
     }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
