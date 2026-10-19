@@ -1,0 +1,66 @@
+{
+  "asset_checks": [
+    {
+      "asset": "geo/magnetic_bomb.geo.json",
+      "matches_original": true
+    },
+    {
+      "asset": "animations/magnetic_bomb.animation.json",
+      "matches_original": true
+    },
+    {
+      "asset": "textures/entities/magnetic_bomb_base.png",
+      "matches_original": true
+    },
+    {
+      "asset": "textures/entities/magnetic_bomb_glow.png",
+      "matches_original": true
+    },
+    {
+      "asset": "textures/entities/epsilon_bomb.png",
+      "matches_original": true
+    },
+    {
+      "asset": "models/item/ghostglass_sword.json",
+      "matches_original": true
+    },
+    {
+      "asset": "textures/item/ghostglass_sword.png",
+      "matches_original": true
+    }
+  ],
+  "entity_coverage_updates": [
+    "whistler_note",
+    "blood_bullet",
+    "flare_bullet",
+    "grenade_bullet",
+    "volcano_bullet",
+    "ghostglass_sword_bullet",
+    "magnet_crossbow_bullet",
+    "thermoblaster_bullet",
+    "thermoblaster_shotgun_bullet",
+    "net_bullet",
+    "liteprism_beam",
+    "thistle_beam",
+    "magnetite_bullet",
+    "magnetic_bomb",
+    "epsilon_bomb"
+  ],
+  "runtime_validation": "pending_full_migration",
+  "recipe": {
+    "id": "thermal_shock_reforged:ghostglass_sword_recipe",
+    "normalized_original_matches": true,
+    "ingredient_registrations_present": true
+  },
+  "build": {
+    "tasks": [
+      "compileJava",
+      "processResources"
+    ],
+    "result": "passed",
+    "duration_seconds": 138,
+    "executed_tasks": 2,
+    "up_to_date_tasks": 22,
+    "note": "配方在编译后补入，单独对照原JAR与1.21.1结果字段；不宣称已在游戏加载"
+  }
+}

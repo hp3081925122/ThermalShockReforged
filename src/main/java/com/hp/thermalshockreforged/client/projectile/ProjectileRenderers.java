@@ -7,6 +7,9 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 public final class ProjectileRenderers {
     private ProjectileRenderers() { }
     public static void register(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerEntityRenderer(ProjectileContent.MAGNETIC_BOMB.get(), MagneticBombRenderer::new);
+        event.registerEntityRenderer(ProjectileContent.EPSILON_BOMB.get(), MagneticBombRenderer::new);
+        event.registerEntityRenderer(ProjectileContent.MAGNETIC_DETONATION.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(ProjectileContent.VOLCANO_SPARK_TASK.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(ProjectileContent.BLOOD_BULLET.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(ProjectileContent.FLARE_BULLET.get(), ThrownItemRenderer::new);

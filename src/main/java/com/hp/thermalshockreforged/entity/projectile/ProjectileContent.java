@@ -12,7 +12,10 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public final class ProjectileContent {
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<net.minecraft.core.particles.ParticleType<?>> PARTICLES = DeferredRegister.create(Registries.PARTICLE_TYPE, ThermalShockReforged.MOD_ID);
-    public static final DeferredHolder<EntityType<?>, EntityType<VolcanoSparkEntity>> VOLCANO_SPARK_TASK = TYPES.register("volcano_spark_task", () -> EntityType.Builder.<VolcanoSparkEntity>of(VolcanoSparkEntity::new, MobCategory.MISC).sized(.01F, .01F).clientTrackingRange(1).updateInterval(20).build("thermal_shock_reforged:volcano_spark_task"));
+    public static final DeferredHolder<EntityType<?>, EntityType<MagneticBombEntity>> MAGNETIC_BOMB = TYPES.register("magnetic_bomb", () -> EntityType.Builder.<MagneticBombEntity>of(MagneticBombEntity::new, MobCategory.MONSTER).fireImmune().sized(.8F, .8F).clientTrackingRange(64).updateInterval(3).build("thermal_shock_reforged:magnetic_bomb"));
+    public static final DeferredHolder<EntityType<?>, EntityType<MagneticBombEntity>> EPSILON_BOMB = TYPES.register("epsilon_bomb", () -> EntityType.Builder.<MagneticBombEntity>of(MagneticBombEntity::new, MobCategory.MONSTER).fireImmune().sized(1.5F, 1.5F).clientTrackingRange(64).updateInterval(3).build("thermal_shock_reforged:epsilon_bomb"));
+    public static final DeferredHolder<EntityType<?>, EntityType<MagneticDetonationEntity>> MAGNETIC_DETONATION = TYPES.register("magnetic_detonation_task", () -> EntityType.Builder.<MagneticDetonationEntity>of(MagneticDetonationEntity::new, MobCategory.MISC).noSummon().sized(.01F, .01F).clientTrackingRange(0).updateInterval(20).build("thermal_shock_reforged:magnetic_detonation_task"));
+    public static final DeferredHolder<EntityType<?>, EntityType<VolcanoSparkEntity>> VOLCANO_SPARK_TASK = TYPES.register("volcano_spark_task", () -> EntityType.Builder.<VolcanoSparkEntity>of(VolcanoSparkEntity::new, MobCategory.MISC).noSummon().sized(.01F, .01F).clientTrackingRange(1).updateInterval(20).build("thermal_shock_reforged:volcano_spark_task"));
     public static final DeferredHolder<EntityType<?>, EntityType<BloodBulletEntity>> BLOOD_BULLET = TYPES.register("blood_bullet", () -> EntityType.Builder.<BloodBulletEntity>of(BloodBulletEntity::new, MobCategory.MISC).sized(.5F, .5F).clientTrackingRange(64).updateInterval(1).build("thermal_shock_reforged:blood_bullet"));
     public static final DeferredHolder<EntityType<?>, EntityType<FlareBulletEntity>> FLARE_BULLET = TYPES.register("flare_bullet", () -> EntityType.Builder.<FlareBulletEntity>of(FlareBulletEntity::new, MobCategory.MISC).sized(.5F, .5F).clientTrackingRange(64).updateInterval(1).build("thermal_shock_reforged:flare_bullet"));
     public static final DeferredHolder<EntityType<?>, EntityType<GrenadeBulletEntity>> GRENADE_BULLET = TYPES.register("grenade_bullet", () -> EntityType.Builder.<GrenadeBulletEntity>of(GrenadeBulletEntity::new, MobCategory.MISC).sized(.5F, .5F).clientTrackingRange(64).updateInterval(1).build("thermal_shock_reforged:grenade_bullet"));
@@ -29,5 +32,11 @@ public final class ProjectileContent {
     public static final DeferredHolder<net.minecraft.core.particles.ParticleType<?>, SimpleParticleType> VOLCANO_SPARK = PARTICLES.register("volcano_spark", () -> new SimpleParticleType(false));
 
     private ProjectileContent() { }
-    public static void register(IEventBus bus) { TYPES.register(bus); PARTICLES.register(bus); }
+    public static void register(IEventBus bus) {
+        TYPES.register(bus); PARTICLES.register(bus);
+        bus.addListener((net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent event) -> {
+            event.put(MAGNETIC_BOMB.get(), MagneticBombEntity.attributes(false).build());
+            event.put(EPSILON_BOMB.get(), MagneticBombEntity.attributes(true).build());
+        });
+    }
 }
