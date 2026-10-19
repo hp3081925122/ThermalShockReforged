@@ -1,0 +1,15 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": [
+    "thermal_shock_reforged:borean_forest",
+    "thermal_shock_reforged:borean_tundra",
+    "thermal_shock_reforged:vermillion_woods",
+    "thermal_shock_reforged:glaciation"
+  ],
+  "spawners": {
+    "type": "thermal_shock_reforged:spectre",
+    "weight": 2,
+    "minCount": 1,
+    "maxCount": 2
+  }
+}

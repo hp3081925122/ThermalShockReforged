@@ -129,3 +129,11 @@ Delta完整8发连射（20/23/26/29/32/35/38/41 END）、100tickCD、真实direc
 Sunbeam已补120tickCD、attack动画、28 END速度5/pierce5/20基础箭伤光束与两固定目标锚点声，原生重力与方块NUKE_CLOUD、完整发光/透明/head跟随/零死亡侧翻、15次每4 END爆炸和60tick死亡100经验。技能基础攻击默认20×1保原20箭伤；按用户要求将原过高raw5击退降默认1、可配0～2并只折抗性一次。复用已注册ArrowPiercingAccess处理1.21.1 private setter，复用现有BossDeathEffectEntity保完整死亡反馈。
 
 五视觉资产、五声音组对照原JAR一致；原JAR所有class字节检查ProtoiSunbeamOnEntityTickUpdateProcedure仅自引用，没有真实调用，不添加其“每tick朝向玩家”过程。统一离线compileJava/processResources修复后通过（35秒，24任务中1执行23最新），详见migration/protoi-sunbeam-batch.md和migration/seventysecond-sunbeam-static-validation.json。无子代理、未启动最终游戏验收；Sola/Magnetite余项、Spectre等旧实体、武器/获取入口和Fabricator详情仍待完整迁移与覆盖复审。
+
+## 接续点更新：第73、74批
+
+Sola/Magnetite 恢复真实 Monster 继承及各自免疫/消失规则；Sola 保50%初始6生命、模型与碰撞随生命缩放、攻击点燃4秒、原掉落/声音/发光与生成门槛。Magnetite 恢复1台阶、原尺寸/追踪/发光/head；按原近战范围互斥选择修复相同优先级AI阻塞，保80tick射击与原弹体参数，默认3攻击×2/3倍率为2基础箭伤。两份原群系刷怪注入、cryo_weak和磁弹therm_projectile标签已补，既有全局食物掉落保留而不重复。
+
+Spectre 已接完整实体、原0.3速度/仰角0.1/5基础箭伤/零击退音符入口，50tick CD与20tick原生移动属性锁；按3攻击×5/3倍率配置，移除全场转向命令，仅处理施法者最近玩家朝向。补owner防来源碰撞，并放行direct WhistlerNote伤害防再入施法；修原动画写错对象/同步字段未消费/同帧复位，真实开火触发完整attack。保四群系刷怪、原弱点/抗性、六原版亡灵标签、发光/透明/原模型与声音、死亡经验/概率食物，创意页原条目随注册自动显示。
+
+本次两批代码完成后统一编译，最终 compileJava/processResources 通过（52秒，24任务中2执行22最新）；原件视觉与声音、刷怪表、标签和13份构建输出数据已静态核对。详细证据见 migration/sola-magnetite-batch.md、migration/spectre-batch.md 及对应 JSON 报告。没有使用子代理或启动游戏。旧覆盖表仍有已迁移 ID 标 not_migrated（例如 Springslime/IceSquad/轨道球），后续应按真实注册工厂和既有批次文档复核，不能直接计数给总进度；其余未闭合功能、武器/获取入口和 Fabricator 等仍需完成后才能进行最终两端/Render Preview 验收。

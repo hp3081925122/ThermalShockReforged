@@ -1,0 +1,139 @@
+{
+  "asset_checks": [
+    {
+      "path": "geo/specter.geo.json",
+      "normalized_original_matches": true,
+      "sha256": "4bc50e7433af5c8aadbba4c5d0777536ca0299eb9dbfd07bde20573297c8ac5c"
+    },
+    {
+      "path": "animations/specter.animation.json",
+      "normalized_original_matches": true,
+      "sha256": "af0a56b834d3f1c6bf93a3b326e2be754122d0f780b173590e030c132409af2d"
+    },
+    {
+      "path": "textures/entities/specter.png",
+      "normalized_original_matches": true,
+      "sha256": "51bffd19d2688add72602adbb65001d968434af64bbd91fa031442fd2b332e22"
+    },
+    {
+      "path": "models/item/spectre_spawn_egg.json",
+      "normalized_original_matches": true,
+      "sha256": "292f288d1ed79215fcdead8e5e83792c0fa4baf101b4297b45d976fc76f46666"
+    },
+    {
+      "path": "models/item/note_projectile_item.json",
+      "normalized_original_matches": true,
+      "sha256": "a80932e6592525f2ea096cadb8a0aab43f896def1bdaf64c483024cdcb299ad1"
+    }
+  ],
+  "sound_checks": [
+    {
+      "id": "whistler_ambient",
+      "normalized_original_matches": true,
+      "audio_matches": true
+    },
+    {
+      "id": "whistler_hurt",
+      "normalized_original_matches": true,
+      "audio_matches": true
+    },
+    {
+      "id": "whistler_death",
+      "normalized_original_matches": true,
+      "audio_matches": true
+    }
+  ],
+  "runtime_tests": "pending_full_mod_migration",
+  "spawn_data": {
+    "type": "neoforge:add_spawns",
+    "biomes": [
+      "thermal_shock_reforged:borean_forest",
+      "thermal_shock_reforged:borean_tundra",
+      "thermal_shock_reforged:vermillion_woods",
+      "thermal_shock_reforged:glaciation"
+    ],
+    "spawners": {
+      "type": "thermal_shock_reforged:spectre",
+      "weight": 2,
+      "minCount": 1,
+      "maxCount": 2
+    },
+    "normalized_original_matches": true
+  },
+  "custom_tag_checks": [
+    {
+      "tag": "cloro_weak",
+      "spectre_restored": true
+    },
+    {
+      "tag": "ferro_resist",
+      "spectre_restored": true
+    }
+  ],
+  "native_undead_tags": [
+    "undead",
+    "sensitive_to_smite",
+    "inverted_healing_and_harm",
+    "ignores_poison_and_regen",
+    "can_breathe_under_water",
+    "wither_friends"
+  ],
+  "creative_egg_entry": "present in original-order manifest; resolved by existing dynamic CreativeTabsContent after registration",
+  "animation_clips": [
+    "idle",
+    "attack"
+  ],
+  "reviewed_behavior_evidence": {
+    "scope": "源码、目标API和实际发射入口人工复审；不代表运行测试",
+    "actual_shot": {
+      "spawn": "caster exact eye position",
+      "speed": 0.3,
+      "look_y_offset": 0.1,
+      "base_arrow_damage": 5,
+      "base_attack": 3,
+      "multiplier": 1.6666666666666667,
+      "knockback": 0,
+      "cooldown": 50,
+      "movement_lock": 20,
+      "projectile_lifetime_end_ticks": 40
+    },
+    "source_unowned_note_fix": "Set projectile owner to avoid caster collision and restore attribution; early attack event excludes direct WhistlerNote so legitimate note damage cannot resubmit the skill",
+    "source_global_rotation_fix": "Face only casting Spectre toward nearest non-spectator player feet; remove global @e command affecting every Spectre",
+    "source_animation_fix": "Replace victim animation write and same-frame lastSwing+0 reset with synchronized caster attack clip; keep both original clips and four-tick transition",
+    "source_internal_effect_replacement": "Persist local cooldown and movement lock, transient total movement multiplier -1, no internal potions or global queue",
+    "undead_source": "Original getMobType UNDEAD; original 1.20.1 LivingEntity source confirms underwater breathing, poison/regen immunity and inverted healing semantics",
+    "death": {
+      "corpse_ticks": 20,
+      "xp": 5,
+      "luck_ticket_chance": 0.004,
+      "food_drop_gamerule": "doEntityDrops",
+      "pickup_delay": 10
+    }
+  },
+  "build": {
+    "tasks": [
+      "compileJava",
+      "processResources"
+    ],
+    "result": "passed",
+    "duration_seconds": 52,
+    "executed_tasks": 2,
+    "up_to_date_tasks": 22,
+    "warning": "既有NeoGradle、ClientEvents弃用及OrbRenderers未经检查提示"
+  },
+  "copied_resource_checks": [
+    "data/thermal_shock_reforged/neoforge/biome_modifier/sola_biome_modifier.json",
+    "data/thermal_shock_reforged/neoforge/biome_modifier/magnetite_biome_modifier.json",
+    "data/thermal_shock_reforged/neoforge/biome_modifier/spectre_biome_modifier.json",
+    "data/minecraft/tags/entity_type/undead.json",
+    "data/minecraft/tags/entity_type/sensitive_to_smite.json",
+    "data/minecraft/tags/entity_type/inverted_healing_and_harm.json",
+    "data/minecraft/tags/entity_type/ignores_poison_and_regen.json",
+    "data/minecraft/tags/entity_type/can_breathe_under_water.json",
+    "data/minecraft/tags/entity_type/wither_friends.json",
+    "data/thermal_shock_reforged/tags/entity_type/cryo_weak.json",
+    "data/thermal_shock_reforged/tags/entity_type/therm_projectile.json",
+    "data/thermal_shock_reforged/tags/entity_type/cloro_weak.json",
+    "data/thermal_shock_reforged/tags/entity_type/ferro_resist.json"
+  ]
+}

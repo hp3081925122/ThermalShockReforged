@@ -1,0 +1,183 @@
+{
+  "asset_checks": [
+    {
+      "path": "geo/sola.geo.json",
+      "normalized_original_matches": true,
+      "sha256": "16046b47e55c0fd8948d038b4cfc4b9165859bdfa79ea1383b49142916479215"
+    },
+    {
+      "path": "animations/sola.animation.json",
+      "normalized_original_matches": true,
+      "sha256": "074c279c55e778b76752dbbb9ea9b1b73fc18dd07c3ce938f5be7524cfa673fe"
+    },
+    {
+      "path": "textures/entities/zerkglow.png",
+      "normalized_original_matches": true,
+      "sha256": "0fe2976ac9b9bde9cc37cc09b79d1fb34a3a3394cf1b5c5ea986aef2f0fef58b"
+    },
+    {
+      "path": "textures/entities/sola.png",
+      "normalized_original_matches": true,
+      "sha256": "a0d1c2426cd0c01de7723c7b0aaad298df1e8025cb13dc1a8f4d122ab303d6d9"
+    },
+    {
+      "path": "geo/magnetite.geo.json",
+      "normalized_original_matches": true,
+      "sha256": "aa5450b0afe8470cdf6b493e3ed5d609c27c4393868a159ce21c008b7ca3c0f1"
+    },
+    {
+      "path": "animations/magnetite.animation.json",
+      "normalized_original_matches": true,
+      "sha256": "36a91603de5b0b27d523bc192f7b21e6b97950302439cdd12940cf8c85f43446"
+    },
+    {
+      "path": "textures/entities/magnetite.png",
+      "normalized_original_matches": true,
+      "sha256": "f514e943e84b15968c47312e797989b8b06f11f586a531b8557eb285dae7ad59"
+    },
+    {
+      "path": "textures/entities/magnetite_glow.png",
+      "normalized_original_matches": true,
+      "sha256": "12f67334d28f65a87ad690a62ca20194cc60fea68aae0872d3ddb6b3e66f4e14"
+    }
+  ],
+  "spawn_data_checks": [
+    {
+      "entity": "sola",
+      "normalized_original_matches": true,
+      "biomes": [
+        "thermal_shock_reforged:borean_forest",
+        "thermal_shock_reforged:borean_tundra",
+        "thermal_shock_reforged:graveyard",
+        "thermal_shock_reforged:luminous_sea",
+        "thermal_shock_reforged:stardust_garden",
+        "thermal_shock_reforged:vermillion_woods"
+      ],
+      "spawner": {
+        "type": "thermal_shock_reforged:sola",
+        "weight": 7,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      "biome_files_present": true
+    },
+    {
+      "entity": "magnetite",
+      "normalized_original_matches": true,
+      "biomes": [
+        "thermal_shock_reforged:borean_forest",
+        "thermal_shock_reforged:borean_tundra",
+        "thermal_shock_reforged:luminous_sea",
+        "thermal_shock_reforged:stardust_garden",
+        "thermal_shock_reforged:vermillion_woods"
+      ],
+      "spawner": {
+        "type": "thermal_shock_reforged:magnetite",
+        "weight": 1,
+        "minCount": 1,
+        "maxCount": 1
+      },
+      "biome_files_present": true
+    }
+  ],
+  "tag_checks": [
+    {
+      "tag": "cryo_weak",
+      "restored_original_entries": [
+        "sola",
+        "magnetite"
+      ],
+      "full_original_tag_review": "pending_other_migration_batches"
+    },
+    {
+      "tag": "therm_projectile",
+      "restored_original_entries": [
+        "magnetite_bullet"
+      ],
+      "full_original_tag_review": "pending_other_migration_batches"
+    }
+  ],
+  "runtime_tests": "pending_full_mod_migration",
+  "sound_checks": [
+    {
+      "id": "ghostbullet",
+      "normalized_original_matches": true,
+      "audio_matches": [
+        "sounds/ghostbullet.ogg"
+      ]
+    }
+  ],
+  "animation_clips": {
+    "sola": [
+      "idle",
+      "walk"
+    ],
+    "magnetite": [
+      "idle",
+      "walk",
+      "shield"
+    ]
+  },
+  "reviewed_behavior_evidence": {
+    "scope": "人工核对原实体、全局过程、目标版本源码和本批改动；不代表游戏运行测试",
+    "original_parent": "Monster for both entities; restored hostile semantics and natural despawn",
+    "sola": {
+      "initial_health": [
+        6,
+        9
+      ],
+      "initial_health_chance": 0.5,
+      "visual_and_collision_scale": "health < 4 ? 1 : health / 3",
+      "fire_on_attributed_attack_seconds": 4,
+      "corpse_ticks": 20,
+      "xp": 10,
+      "scrap_count": 1,
+      "spawn_gate": "mantlestone below and global altarUnlocked"
+    },
+    "magnetite": {
+      "base_attack": 3,
+      "bullet_multiplier": 0.6666666666666666,
+      "default_arrow_base_damage": 2,
+      "bullet_speed": 1.4,
+      "inaccuracy": 12,
+      "shot_interval": 80,
+      "attack_radius": 10,
+      "corpse_ticks": 20,
+      "xp": 7,
+      "loquesicle_chance": 0.01,
+      "food_drop_gamerule": "doEntityDrops",
+      "spawn_gate": "original predicate returns true in both branches"
+    },
+    "ai_fix": "Original equal-priority melee/ranged share MOVE/LOOK; WrappedGoal replacement requires strictly lower priority number. Use mutually exclusive original melee range to enable both modes; default ranged parameters unchanged.",
+    "render_api": "javap of configured curse:maven:geckolib-388172:8350073 confirms preRender packed int color signature",
+    "knockback": "LegacyArrowEntity native-style impulse folds target resistance once; default raw1 and configurable range0..2",
+    "cross_events": "FaunaEvents registered by FaunaEntities bridges early AttackAttemptEvent; existing UtilityContent registers FoodDrops LivingDeathEvent without duplicate local drops"
+  },
+  "build": {
+    "tasks": [
+      "compileJava",
+      "processResources"
+    ],
+    "result": "passed",
+    "duration_seconds": 20,
+    "executed_tasks": 1,
+    "up_to_date_tasks": 23,
+    "resource_data_added_after_build": "validated_by_resource_refresh",
+    "warnings": "既有NeoGradle弃用提示及ClientEvents EventBusSubscriber弃用警告"
+  },
+  "resource_refresh": {
+    "batch": 74,
+    "tasks": [
+      "compileJava",
+      "processResources"
+    ],
+    "result": "passed",
+    "duration_seconds": 52,
+    "copied_data_verified": [
+      "sola spawn table",
+      "magnetite spawn table",
+      "cryo_weak",
+      "therm_projectile"
+    ]
+  }
+}

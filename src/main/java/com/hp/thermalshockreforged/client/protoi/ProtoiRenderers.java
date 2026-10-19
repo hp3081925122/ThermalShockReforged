@@ -19,7 +19,7 @@ import software.bernie.geckolib.model.GeoModel;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 import software.bernie.geckolib.renderer.layer.GeoRenderLayer;
 import com.hp.thermalshockreforged.entity.magnetite.MagnetiteContent;
-import com.hp.thermalshockreforged.entity.legacy.LegacyContent;
+import com.hp.thermalshockreforged.client.legacy.LegacyMonsterRenderers;
 
 public final class ProtoiRenderers {
     private ProtoiRenderers() { }
@@ -32,9 +32,8 @@ public final class ProtoiRenderers {
         event.registerEntityRenderer(ProtoiContent.SUNBEAM_ATTACK.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(ProtoiContent.SUNBEAM.get(), context -> new Renderer(context, "protoi_sunbeam", 1, 1));
         event.registerEntityRenderer(ProtoiContent.SUNBEAM_BULLET.get(), ThrownItemRenderer::new);
-        event.registerEntityRenderer(MagnetiteContent.MAGNETITE.get(), context -> new Renderer(context, "magnetite", 1, .5F));
         event.registerEntityRenderer(MagnetiteContent.BULLET.get(), ThrownItemRenderer::new);
-        event.registerEntityRenderer(LegacyContent.SOLA.get(), context -> new Renderer(context, "sola", 1, .5F));
+        LegacyMonsterRenderers.register(event);
     }
     private static final class Model extends GeoModel<ProtoiEntityBase> {
         private final String id;
