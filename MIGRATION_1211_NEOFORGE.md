@@ -319,3 +319,6 @@ Shutterbug六页介绍/真实相机/摄影及图鉴任务、首次Shalespring完
 
 
 第83批主对话迁入Cobalt/Zenith Thermoblaster完整两枪：保水下/陆地或左右键真实模式、三连发同步及2/4 END/固定位置动态方向、六散弹、原全部参数/耗弹/CD/四动画及双纹理透明手持；不误用会点火的弹体辅助工厂。修空弹双声、Zenith原错类动画，按用户授权修锻造为模板槽/枪装备槽并保原枪组件。原完整制造费用闭合，Fabricator现25活动/6真实产物待迁。较大整组Java/资源92秒通过，后续配方JSON仅processResources，九原资产/八构建路径静态通过。详thermoblaster-batch.md/eightythird-thermoblaster-static-validation.json；主动行为调整集中到docs/migration/REFORGED_CHANGES.md。整模组未完整，继续其余设备/装甲、全局元素和世界/NPC缺口，全部代码完成后主对话最终两端/Render Preview，无子代理、未启动游戏。
+
+
+第84批主对话迁入Buzzsaw完整冲刺/五轮当前坐标范围伤害/原Geo动画/完整血液AAA和烟雾；保11CD、2伤与客户端即时冲刺，修非玩家自伤、重复声音、旁观者特效及失去原使用者后的残留判定，集中记录REFORGED_CHANGES.md。十二原资产含AAA二进制引用贴图与七构建路径静态通过，整组Java/资源55秒首轮通过；真实费用启用后Fabricator26活动/5待实现。见buzzsaw-batch.md/eightyfourth-buzzsaw-static-validation.json。用户授权新建独立对话迁推进靴/静默头胸，按armor-thread-handoff.md独占文件，主对话继续武器和共享集成；仍无子代理，不在全代码完整前启动两端/Render Preview。
