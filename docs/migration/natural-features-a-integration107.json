@@ -1,0 +1,34 @@
+{
+  "batch": 107,
+  "owner": "迁移A",
+  "status": "本线生产及静态验收完成，75文件最终SHA见natural-features-a-final107.json；停笔交主线统一构建",
+  "root_increment": {
+    "file": "src/main/java/com/hp/thermalshockreforged/ThermalShockReforged.java",
+    "insert_after": "com.hp.thermalshockreforged.world.ore.OreContent.register(bus);",
+    "statement": "com.hp.thermalshockreforged.world.geodes.GeodeContent.register(bus);",
+    "reason": "注册真实原自定义晶洞，孔雀石依赖oreTier2=1，铋依赖oreTier2=2；不替代或重复矿石Feature。",
+    "integrated_by_main": true,
+    "verified_exactly_one_call": true
+  },
+  "shared_tags_increment": [],
+  "shared_language_increment": [],
+  "purification": {
+    "configured_feature": "thermal_shock_reforged:blu_to_pure_purification",
+    "natural_placement_added": false,
+    "original_procedure": "net/mcreator/thermal_shock/procedures/HelionStabilizerOnBlockRightClickedProcedure.java",
+    "source_read_result": "原4577个类常量池及全反编译源码扫描确认无其他类引用该程序，净化ID常量只出现此孤立程序，原JAR仅有配置资源、没有稳定器方块。保留配置定义，不凭程序名字增加玩法入口。"
+  },
+  "reforged_changes_increment": [
+    "恢复24项原真实自然来源的configured/placed/群系注入链及孤立净化配置定义，包含两种按原世界矿种进度短路的完整原生晶洞。生成参数、放置顺序、全部内联候选及随机时机不改。",
+    "22处旧整数UniformInt的value包装展平至1.21.1 MapCodec形状；保闭区间与均匀分布，不误改HeightProvider或樱花分枝起点的直接UniformInt编码。"
+  ],
+  "shared_file_observation": "一次全仓git diff --check对主线正在编辑的lang/zh_cn.json报告CRLF尾部空白；本线未修改该共享文件，75个本线生产文件另由最终脚本独立检查UTF8/LF/尾部空白。",
+  "validation": "本线只做原件、注册与Codec静态核验，停笔后主线统一compileJava/processResources；无本线游戏测试。",
+  "final_testing_arrangement": {
+    "client_status": "待验，当前不提前启动客户端",
+    "client_gate": "全部代码完整迁移并通过无简化复审",
+    "client_owner": "主线安排子代理执行客户端及Render Preview完整原件对照",
+    "server_status": "独立测试进行中，未据此认定通过",
+    "server_boundary": "本线不联系、不干预独立服务端测试"
+  }
+}

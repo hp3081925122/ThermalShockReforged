@@ -27,6 +27,19 @@ public final class MusicContent {
     public static final DeferredItem<Item> HANAHAKI = ITEMS.register("hanahaki", () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(HANAHAKI_SONG)));
     public static final ResourceKey<JukeboxSong> ARCTIC_WARMTH_LEGACY_SONG = ResourceKey.create(Registries.JUKEBOX_SONG, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "arctic_warmth_legacy"));
     public static final DeferredItem<Item> ARCTIC_WARMTH_LEGACY = ITEMS.register("arctic_warmth_legacy", () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC).jukeboxPlayable(ARCTIC_WARMTH_LEGACY_SONG)));
+    public static final DeferredItem<Item> ARCTIC_WARMTH = disc("arctic_warmth");
+    public static final DeferredItem<Item> BOUNDLESS = disc("boundless");
+    public static final DeferredItem<Item> HARD_THERMOLOGY_SHOCK = disc("hard_thermology_shock");
+    public static final DeferredItem<Item> RAINBOW_COAST = disc("rainbow_coast");
+    public static final DeferredItem<Item> SOMEPLACE = disc("someplace");
+    public static final DeferredItem<Item> STRANGERS_THEME = disc("strangers_theme");
+    public static final DeferredItem<Item> THE_ORGAN_ORGAN = disc("the_organ_organ");
+    public static final DeferredItem<Item> THREE_THREE_DISC = disc("three_three_disc");
     private MusicContent() { }
+    private static DeferredItem<Item> disc(String id) {
+        ResourceKey<JukeboxSong> song = ResourceKey.create(Registries.JUKEBOX_SONG, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, id));
+        return ITEMS.register(id, () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(song)));
+    }
+
     public static void register(IEventBus bus) { ITEMS.register(bus); }
 }

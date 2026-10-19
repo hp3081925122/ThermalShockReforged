@@ -1,0 +1,1121 @@
+{
+  "snapshot": {
+    "head": "dbd3cc89ae3bc6ae8a34cf2d69ca65d2647b9621",
+    "sourceJar": "D:\\AI临时文件\\ThermalShockMigration\\thermal_shock-07.9-original.jar",
+    "sourceDirectory": "data/thermal_shock/forge/biome_modifier/",
+    "targetDirectory": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\data\\thermal_shock_reforged\\neoforge\\biome_modifier",
+    "sourceFileCount": 162,
+    "targetFileCount": 106
+  },
+  "counts": {
+    "sourceTypes": {
+      "forge:add_spawns": 52,
+      "forge:add_features": 110
+    },
+    "targetTypes": {
+      "neoforge:add_spawns": 26,
+      "neoforge:add_features": 80
+    },
+    "sameFilenameCount": 106,
+    "remaining": 56,
+    "remainingByType": {
+      "forge:add_features": 30,
+      "forge:add_spawns": 26
+    }
+  },
+  "javaInjectionScan": {
+    "patterns": [
+      "addSpawn",
+      "addSpawns",
+      "addMobSpawn",
+      "addFeature",
+      "addFeatures",
+      "BiomeLoadingEvent",
+      "BiomeModifier",
+      "BiomeGenerationSettingsBuilder",
+      "SpawnerData (case-insensitive)"
+    ],
+    "matchCount": 0,
+    "sites": [],
+    "interpretation": "No direct Java-side biome spawn/feature injection API occurrence found; ordinary entity/block registration does not count as injection."
+  },
+  "targetParseErrors": [],
+  "remaining": [
+    {
+      "id": "angler_bulb_feature_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/angler_bulb_feature_biome_modifier.json",
+      "sourceSha256": "fe298aaa60e8f970f266d290fe55ab52675c6f8b4b67783a0741af4366bb22a3",
+      "type": "forge:add_features",
+      "biomes": "thermal_shock:vermillion_woods",
+      "spawners": null,
+      "features": "thermal_shock:angler_bulb_feature",
+      "step": "underground_decoration",
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "barbubble_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/barbubble_biome_modifier.json",
+      "sourceSha256": "99863c927dc09ff6342e99bc0aeaffeb11cc67cb27d6ab9d820b56aa7c4fdd81",
+      "type": "forge:add_features",
+      "biomes": [
+        "thermal_shock:borean_forest",
+        "thermal_shock:vermillion_woods",
+        "thermal_shock:stardust_garden"
+      ],
+      "spawners": null,
+      "features": "thermal_shock:barbubble",
+      "step": "vegetal_decoration",
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "blighted_spore_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/blighted_spore_biome_modifier.json",
+      "sourceSha256": "a102386be6aac5e8b5bae35f86210068d5da582c053368ea0e3b421597b46237",
+      "type": "forge:add_spawns",
+      "biomes": "thermal_shock:graveyard",
+      "spawners": {
+        "type": "thermal_shock:blighted_spore",
+        "weight": 28,
+        "minCount": 3,
+        "maxCount": 6
+      },
+      "features": null,
+      "step": null,
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "bonerahna_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/bonerahna_biome_modifier.json",
+      "sourceSha256": "07369703f4db79bf4904d40e3f5ab8fc6edf935dcde8bdf8fd242730d1e921c1",
+      "type": "forge:add_spawns",
+      "biomes": [
+        "thermal_shock:graveyard",
+        "thermal_shock:luminous_sea",
+        "thermal_shock:vermillion_woods",
+        "thermal_shock:borean_forest",
+        "thermal_shock:borean_tundra"
+      ],
+      "spawners": {
+        "type": "thermal_shock:bonerahna",
+        "weight": 40,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      "features": null,
+      "step": null,
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "bounceweed_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/bounceweed_biome_modifier.json",
+      "sourceSha256": "d8cdf17895ef50542f37203f274af5eafa0be38be1e33809511b4494b22ef86b",
+      "type": "forge:add_features",
+      "biomes": "thermal_shock:cobalt_heights",
+      "spawners": null,
+      "features": "thermal_shock:bounceweed",
+      "step": "vegetal_decoration",
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "ceruleum_generation_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/ceruleum_generation_biome_modifier.json",
+      "sourceSha256": "363edd3f2f55f485d524e2cc292cca7e18c9ef4b81cfe23b0b1df159c6d14945",
+      "type": "forge:add_features",
+      "biomes": "thermal_shock:luminous_sea",
+      "spawners": null,
+      "features": "thermal_shock:ceruleum_generation",
+      "step": "vegetal_decoration",
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "chilloo_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/chilloo_biome_modifier.json",
+      "sourceSha256": "1465574fd902a71a55dcc036a62fa00c6e6a14e132d8432b1630a118b5f86cfd",
+      "type": "forge:add_spawns",
+      "biomes": "thermal_shock:glaciation",
+      "spawners": {
+        "type": "thermal_shock:chilloo",
+        "weight": 20,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      "features": null,
+      "step": null,
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "chromefish_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/chromefish_biome_modifier.json",
+      "sourceSha256": "2c153365021024bd91eb5d4cf13cd1592145b61c08a0a3d37b745d7b98941275",
+      "type": "forge:add_spawns",
+      "biomes": [
+        "thermal_shock:stardust_garden",
+        "thermal_shock:luminous_sea",
+        "thermal_shock:glaciation"
+      ],
+      "spawners": {
+        "type": "thermal_shock:chromefish",
+        "weight": 50,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      "features": null,
+      "step": null,
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "crystal_koi_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/crystal_koi_biome_modifier.json",
+      "sourceSha256": "79bfdc52627ba6c052bc6338157fdb95d956a6914305a0bf03423f25c369db2f",
+      "type": "forge:add_spawns",
+      "biomes": [
+        "thermal_shock:borean_forest",
+        "thermal_shock:borean_tundra",
+        "thermal_shock:stardust_garden",
+        "thermal_shock:vermillion_woods",
+        "thermal_shock:luminous_sea"
+      ],
+      "spawners": {
+        "type": "thermal_shock:crystal_koi",
+        "weight": 70,
+        "minCount": 2,
+        "maxCount": 3
+      },
+      "features": null,
+      "step": null,
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "dull_shrub_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/dull_shrub_biome_modifier.json",
+      "sourceSha256": "fb3e69c68b2eef8b8c1b34277b68569e84154bbb182a9706e7620e542c6d58f6",
+      "type": "forge:add_features",
+      "biomes": [
+        "thermal_shock:borean_tundra",
+        "thermal_shock:graveyard",
+        "thermal_shock:vermillion_woods"
+      ],
+      "spawners": null,
+      "features": "thermal_shock:dull_shrub",
+      "step": "vegetal_decoration",
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "flare_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/flare_biome_modifier.json",
+      "sourceSha256": "023b6c39daa8213f3e298b15af30a66e01c1fa659ae6a58f87c118e6b67306ca",
+      "type": "forge:add_spawns",
+      "biomes": "thermal_shock:graveyard",
+      "spawners": {
+        "type": "thermal_shock:flare",
+        "weight": 50,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      "features": null,
+      "step": null,
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "floatweed_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/floatweed_biome_modifier.json",
+      "sourceSha256": "c2908bc80ad11de242a4fc5d55fb929ba4a5ebe03b2546a5f561f118eb92e295",
+      "type": "forge:add_features",
+      "biomes": "thermal_shock:cobalt_heights",
+      "spawners": null,
+      "features": "thermal_shock:floatweed",
+      "step": "vegetal_decoration",
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "forecast_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/forecast_biome_modifier.json",
+      "sourceSha256": "bb56742bef1652b40b3da0762339148a07565a19ba17ca371b20ba4a6e37c344",
+      "type": "forge:add_spawns",
+      "biomes": [
+        "thermal_shock:cobalt_heights",
+        "thermal_shock:borean_tundra"
+      ],
+      "spawners": {
+        "type": "thermal_shock:forecast",
+        "weight": 5,
+        "minCount": 2,
+        "maxCount": 3
+      },
+      "features": null,
+      "step": null,
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "fuscium_generation_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/fuscium_generation_biome_modifier.json",
+      "sourceSha256": "5cc53d5206cb09994bba1c87bd454a65f647cac29392ffe35909b03a278efc44",
+      "type": "forge:add_features",
+      "biomes": "thermal_shock:luminous_sea",
+      "spawners": null,
+      "features": "thermal_shock:fuscium_generation",
+      "step": "vegetal_decoration",
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "galvanite_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/galvanite_biome_modifier.json",
+      "sourceSha256": "cd8c3226e5da7a7a338d417172e95128a4408782e68a2dd719f429bc1c045c28",
+      "type": "forge:add_spawns",
+      "biomes": [
+        "thermal_shock:borean_forest",
+        "thermal_shock:borean_tundra",
+        "thermal_shock:graveyard",
+        "thermal_shock:luminous_sea",
+        "thermal_shock:stardust_garden",
+        "thermal_shock:vermillion_woods",
+        "thermal_shock:cobalt_heights"
+      ],
+      "spawners": {
+        "type": "thermal_shock:galvanite",
+        "weight": 20,
+        "minCount": 1,
+        "maxCount": 1
+      },
+      "features": null,
+      "step": null,
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "hanging_bulb_patch_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/hanging_bulb_patch_biome_modifier.json",
+      "sourceSha256": "c6c11aa6dcb2056446287173b953eb6e8250a866d9c8e54ca7755318fa8c9871",
+      "type": "forge:add_features",
+      "biomes": "#thermal_shock:purebiomes",
+      "spawners": null,
+      "features": "thermal_shock:hanging_bulb_patch",
+      "step": "underground_decoration",
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "heights_weeds_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/heights_weeds_biome_modifier.json",
+      "sourceSha256": "60b9c254451c0bff75da0a5b746424392daf12aaf1e0b70642260c9d178c4969",
+      "type": "forge:add_features",
+      "biomes": "thermal_shock:cobalt_heights",
+      "spawners": null,
+      "features": "thermal_shock:heights_weeds",
+      "step": "vegetal_decoration",
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "infestophage_seed_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/infestophage_seed_biome_modifier.json",
+      "sourceSha256": "2f847613879a818bb3fd5bf3f59c586358345dd591f49b93aa66679a5fd559e0",
+      "type": "forge:add_spawns",
+      "biomes": [
+        "thermal_shock:borean_tundra",
+        "thermal_shock:graveyard",
+        "thermal_shock:vermillion_woods"
+      ],
+      "spawners": {
+        "type": "thermal_shock:infestophage_seed",
+        "weight": 3,
+        "minCount": 1,
+        "maxCount": 1
+      },
+      "features": null,
+      "step": null,
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "loque_birch_tree_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/loque_birch_tree_biome_modifier.json",
+      "sourceSha256": "a7832a1a7aa7408efd44fe18378c17f4c3b9d9927621f423242fd50c8392ddc7",
+      "type": "forge:add_features",
+      "biomes": "thermal_shock:borean_forest",
+      "spawners": null,
+      "features": "thermal_shock:loque_birch_tree",
+      "step": "vegetal_decoration",
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "loque_fern_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/loque_fern_biome_modifier.json",
+      "sourceSha256": "b1c1667c395d1675ec67afdd99968fee0dddd28de26effa54531bb1524c41b9f",
+      "type": "forge:add_features",
+      "biomes": [
+        "thermal_shock:borean_forest",
+        "thermal_shock:vermillion_woods",
+        "thermal_shock:cobalt_heights"
+      ],
+      "spawners": null,
+      "features": "thermal_shock:loque_fern",
+      "step": "vegetal_decoration",
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "louse_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/louse_biome_modifier.json",
+      "sourceSha256": "cefac5cfca018c84d078a86258ad4ac5b67f8ea56217d30807f954eb241c7218",
+      "type": "forge:add_spawns",
+      "biomes": [
+        "thermal_shock:borean_forest",
+        "thermal_shock:borean_tundra",
+        "thermal_shock:vermillion_woods"
+      ],
+      "spawners": {
+        "type": "thermal_shock:louse",
+        "weight": 20,
+        "minCount": 2,
+        "maxCount": 4
+      },
+      "features": null,
+      "step": null,
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "lunalemon_tree_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/lunalemon_tree_biome_modifier.json",
+      "sourceSha256": "4ece12ed9eb24b2dc61196fe6593ef3fc53c321610924d4928eec13f808e1778",
+      "type": "forge:add_features",
+      "biomes": [
+        "thermal_shock:vermillion_woods",
+        "thermal_shock:stardust_garden"
+      ],
+      "spawners": null,
+      "features": "thermal_shock:lunalemon_tree",
+      "step": "surface_structures",
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "mangler_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/mangler_biome_modifier.json",
+      "sourceSha256": "f7349c4de71fafe5fcb744992636095c68ef3c09ade03657dcd72e35feda04c1",
+      "type": "forge:add_spawns",
+      "biomes": "thermal_shock:graveyard",
+      "spawners": {
+        "type": "thermal_shock:mangler",
+        "weight": 15,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      "features": null,
+      "step": null,
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "pillbud_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/pillbud_biome_modifier.json",
+      "sourceSha256": "e12771174f5edd5bb931b3a46ad0fcdd31de9b19c33055ea2ba241710244cbb4",
+      "type": "forge:add_spawns",
+      "biomes": "thermal_shock:vermillion_woods",
+      "spawners": {
+        "type": "thermal_shock:pillbud",
+        "weight": 5,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      "features": null,
+      "step": null,
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "pixie_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/pixie_biome_modifier.json",
+      "sourceSha256": "e59758315579972da2d2ab70ea55972f73a93ce13a5ffb5d4ad2550ab7e19831",
+      "type": "forge:add_spawns",
+      "biomes": "thermal_shock:stardust_garden",
+      "spawners": {
+        "type": "thermal_shock:pixie",
+        "weight": 20,
+        "minCount": 3,
+        "maxCount": 5
+      },
+      "features": null,
+      "step": null,
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "pondler_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/pondler_biome_modifier.json",
+      "sourceSha256": "2b9367ca2f90e89f9abcff4605fdb42cb941d255d94b1a9e88354c205042383e",
+      "type": "forge:add_spawns",
+      "biomes": "thermal_shock:vermillion_woods",
+      "spawners": {
+        "type": "thermal_shock:pondler",
+        "weight": 70,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      "features": null,
+      "step": null,
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "probosker_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/probosker_biome_modifier.json",
+      "sourceSha256": "c06eb3867c42a7203a8debbd1468fb0564838f12ca609c95b93b3af90652f823",
+      "type": "forge:add_spawns",
+      "biomes": [
+        "thermal_shock:borean_forest",
+        "thermal_shock:borean_tundra",
+        "thermal_shock:vermillion_woods"
+      ],
+      "spawners": {
+        "type": "thermal_shock:probosker",
+        "weight": 75,
+        "minCount": 1,
+        "maxCount": 1
+      },
+      "features": null,
+      "step": null,
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "protoi_delta_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/protoi_delta_biome_modifier.json",
+      "sourceSha256": "dd3b66bb70a1ea62caa921f75790599c9954cf37ebe19d5afb98a73af2438c47",
+      "type": "forge:add_spawns",
+      "biomes": [
+        "thermal_shock:borean_forest",
+        "thermal_shock:borean_tundra",
+        "thermal_shock:cobalt_heights",
+        "thermal_shock:vermillion_woods"
+      ],
+      "spawners": {
+        "type": "thermal_shock:protoi_delta",
+        "weight": 25,
+        "minCount": 1,
+        "maxCount": 1
+      },
+      "features": null,
+      "step": null,
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "protoi_epsilon_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/protoi_epsilon_biome_modifier.json",
+      "sourceSha256": "d199f284b40a56a6630683003e6a67b630f438db7c0e74d83e8a065dc0d934dd",
+      "type": "forge:add_spawns",
+      "biomes": "thermal_shock:cobalt_heights",
+      "spawners": {
+        "type": "thermal_shock:protoi_epsilon",
+        "weight": 4,
+        "minCount": 1,
+        "maxCount": 1
+      },
+      "features": null,
+      "step": null,
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "protoi_gamma_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/protoi_gamma_biome_modifier.json",
+      "sourceSha256": "828a91f6ef72d8855ef58378a6dcd3c714389e4c778e4ea30cbae3a845de011a",
+      "type": "forge:add_spawns",
+      "biomes": [
+        "thermal_shock:borean_forest",
+        "thermal_shock:borean_tundra",
+        "thermal_shock:vermillion_woods"
+      ],
+      "spawners": {
+        "type": "thermal_shock:protoi_gamma",
+        "weight": 45,
+        "minCount": 1,
+        "maxCount": 1
+      },
+      "features": null,
+      "step": null,
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "raincatcher_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/raincatcher_biome_modifier.json",
+      "sourceSha256": "704d5339565cc0777f3ca0069ad425abb415daad2d666c29a7491622026d17fa",
+      "type": "forge:add_spawns",
+      "biomes": "thermal_shock:cobalt_heights",
+      "spawners": {
+        "type": "thermal_shock:raincatcher",
+        "weight": 9,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      "features": null,
+      "step": null,
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "razorwing_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/razorwing_biome_modifier.json",
+      "sourceSha256": "41715d86bd277b28b2fe13532ef58fc6faaa6788f9f44199aac61d0e8c7544c3",
+      "type": "forge:add_spawns",
+      "biomes": [
+        "thermal_shock:stardust_garden",
+        "thermal_shock:vermillion_woods"
+      ],
+      "spawners": {
+        "type": "thermal_shock:razorwing",
+        "weight": 65,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      "features": null,
+      "step": null,
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "scarlet_ray_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/scarlet_ray_biome_modifier.json",
+      "sourceSha256": "8f2740053ee4bef667c6cf94a2c84a2fa527ecf2b1f88d7654364fabe9739bb9",
+      "type": "forge:add_spawns",
+      "biomes": "thermal_shock:luminous_sea",
+      "spawners": {
+        "type": "thermal_shock:scarlet_ray",
+        "weight": 80,
+        "minCount": 2,
+        "maxCount": 2
+      },
+      "features": null,
+      "step": null,
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "shiverglitter_tree_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/shiverglitter_tree_biome_modifier.json",
+      "sourceSha256": "7a925ee7891765da50b25b4394ce3b1e45d38c46e46785166811528db1109cb0",
+      "type": "forge:add_features",
+      "biomes": "thermal_shock:stardust_garden",
+      "spawners": null,
+      "features": "thermal_shock:shiverglitter_tree",
+      "step": "vegetal_decoration",
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "shiverglitter_tree_cobalt_heights_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/shiverglitter_tree_cobalt_heights_biome_modifier.json",
+      "sourceSha256": "46becc4ced5a27134b7164324cccb2e377a4ba1a2d93df0ffc4b3c2b25f6208e",
+      "type": "forge:add_features",
+      "biomes": "thermal_shock:cobalt_heights",
+      "spawners": null,
+      "features": "thermal_shock:shiverglitter_tree_cobalt_heights",
+      "step": "vegetal_decoration",
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "siibol_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/siibol_biome_modifier.json",
+      "sourceSha256": "73dd285abe28e466b2521e6fde370456101f42ee288da0af94926d493365e45d",
+      "type": "forge:add_spawns",
+      "biomes": [
+        "thermal_shock:luminous_sea",
+        "thermal_shock:stardust_garden",
+        "thermal_shock:borean_tundra"
+      ],
+      "spawners": {
+        "type": "thermal_shock:siibol",
+        "weight": 10,
+        "minCount": 1,
+        "maxCount": 1
+      },
+      "features": null,
+      "step": null,
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "skorio_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/skorio_biome_modifier.json",
+      "sourceSha256": "d27d87c01f776b8f5380bd82e0c99b0fc1c67e88936a60dd3e7a028624bcd989",
+      "type": "forge:add_features",
+      "biomes": [
+        "thermal_shock:borean_forest",
+        "thermal_shock:vermillion_woods",
+        "thermal_shock:stardust_garden"
+      ],
+      "spawners": null,
+      "features": "thermal_shock:skorio",
+      "step": "vegetal_decoration",
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "snobol_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/snobol_biome_modifier.json",
+      "sourceSha256": "0981ba49ad83ec3d3682b751001e94405b83bba15919f351a19e6f5604de40d9",
+      "type": "forge:add_spawns",
+      "biomes": [
+        "thermal_shock:borean_forest",
+        "thermal_shock:borean_tundra",
+        "thermal_shock:stardust_garden",
+        "thermal_shock:cobalt_heights"
+      ],
+      "spawners": {
+        "type": "thermal_shock:snobol",
+        "weight": 100,
+        "minCount": 3,
+        "maxCount": 5
+      },
+      "features": null,
+      "step": null,
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "spire_blooms_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/spire_blooms_biome_modifier.json",
+      "sourceSha256": "1b427c6f61016a62b8d9808dde32712a119eb81c7b723673d1947805215c88d4",
+      "type": "forge:add_features",
+      "biomes": "thermal_shock:graveyard",
+      "spawners": null,
+      "features": "thermal_shock:spire_blooms",
+      "step": "vegetal_decoration",
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "spireroot_thorns_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/spireroot_thorns_biome_modifier.json",
+      "sourceSha256": "3cb5b4fbcb4f13c288ffb56c17d691958f0298f9cac6bd2522e8d6cd6eca3351",
+      "type": "forge:add_features",
+      "biomes": "thermal_shock:graveyard",
+      "spawners": null,
+      "features": "thermal_shock:spireroot_thorns",
+      "step": "vegetal_decoration",
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "spore_pod_gen_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/spore_pod_gen_biome_modifier.json",
+      "sourceSha256": "ba380ed7d524c3bd867352b8f1dc2fcb368b279c280b59cc4b7ad91b7e268664",
+      "type": "forge:add_features",
+      "biomes": "thermal_shock:graveyard",
+      "spawners": null,
+      "features": "thermal_shock:spore_pod_gen",
+      "step": "surface_structures",
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "sprintweed_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/sprintweed_biome_modifier.json",
+      "sourceSha256": "f0a9d61b056868c12297f425ef854c5d5ea058dc7549b3e3d291fe7204234cae",
+      "type": "forge:add_features",
+      "biomes": [
+        "thermal_shock:borean_forest",
+        "thermal_shock:borean_tundra",
+        "thermal_shock:stardust_garden",
+        "thermal_shock:vermillion_woods"
+      ],
+      "spawners": null,
+      "features": "thermal_shock:sprintweed",
+      "step": "vegetal_decoration",
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "starfruit_tree_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/starfruit_tree_biome_modifier.json",
+      "sourceSha256": "1bf5a0b202880f32e8b10d53739182a6634d98f4eed410d516abea43c9d430cf",
+      "type": "forge:add_features",
+      "biomes": [
+        "thermal_shock:borean_forest",
+        "thermal_shock:borean_tundra"
+      ],
+      "spawners": null,
+      "features": "thermal_shock:starfruit_tree",
+      "step": "vegetal_decoration",
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "tall_loque_fern_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/tall_loque_fern_biome_modifier.json",
+      "sourceSha256": "e2ce15c6f5993c810b20e9fd97546fd70d0db95170209f23c4df3e675fc02977",
+      "type": "forge:add_features",
+      "biomes": [
+        "thermal_shock:borean_forest",
+        "thermal_shock:cobalt_heights"
+      ],
+      "spawners": null,
+      "features": "thermal_shock:tall_loque_fern",
+      "step": "vegetal_decoration",
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "tall_vermillion_fern_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/tall_vermillion_fern_biome_modifier.json",
+      "sourceSha256": "f4f6e38e554ad3be19c039b7c7a7b51c9dd6e647f33e84a27ee352bda8dbf15a",
+      "type": "forge:add_features",
+      "biomes": "thermal_shock:vermillion_woods",
+      "spawners": null,
+      "features": "thermal_shock:tall_vermillion_fern",
+      "step": "vegetal_decoration",
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "torpedo_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/torpedo_biome_modifier.json",
+      "sourceSha256": "5ccd13ac0b114a526f6fff03c0ddbf670252806f779840d9c61bed47a88a56d7",
+      "type": "forge:add_spawns",
+      "biomes": "thermal_shock:luminous_sea",
+      "spawners": {
+        "type": "thermal_shock:torpedo",
+        "weight": 60,
+        "minCount": 1,
+        "maxCount": 1
+      },
+      "features": null,
+      "step": null,
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "trilobite_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/trilobite_biome_modifier.json",
+      "sourceSha256": "fcdce119b58b853562108f00f30cddf9fca39aeb886731f8cd14392e25ba12c5",
+      "type": "forge:add_spawns",
+      "biomes": [
+        "thermal_shock:vermillion_woods",
+        "thermal_shock:borean_tundra"
+      ],
+      "spawners": {
+        "type": "thermal_shock:trilobite",
+        "weight": 12,
+        "minCount": 1,
+        "maxCount": 1
+      },
+      "features": null,
+      "step": null,
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "verdium_generation_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/verdium_generation_biome_modifier.json",
+      "sourceSha256": "4052bc35bbe6a4ea05bcca9915f1a641883aac60f5b3cf39af56a9d866126b7f",
+      "type": "forge:add_features",
+      "biomes": "thermal_shock:luminous_sea",
+      "spawners": null,
+      "features": "thermal_shock:verdium_generation",
+      "step": "vegetal_decoration",
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "vermilli_fungus_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/vermilli_fungus_biome_modifier.json",
+      "sourceSha256": "ac8e9255fe7935410b8790e6817f15096eff0a4502fb7d9df2b7fdbfb1dffd95",
+      "type": "forge:add_features",
+      "biomes": [
+        "thermal_shock:vermillion_woods",
+        "thermal_shock:borean_forest"
+      ],
+      "spawners": null,
+      "features": "thermal_shock:vermilli_fungus",
+      "step": "underground_decoration",
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "vermillion_fern_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/vermillion_fern_biome_modifier.json",
+      "sourceSha256": "250156b38c67c0eaea834cc4fc55f4e6deff7c5b9396516337e5498e73b825aa",
+      "type": "forge:add_features",
+      "biomes": "thermal_shock:vermillion_woods",
+      "spawners": null,
+      "features": "thermal_shock:vermillion_fern",
+      "step": "vegetal_decoration",
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "vermillion_hyphae_patch_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/vermillion_hyphae_patch_biome_modifier.json",
+      "sourceSha256": "8e8a0b1d3ff07a2f6a94d5f78ba7a52b47071c005643b8fc4b6fca4a16923c11",
+      "type": "forge:add_features",
+      "biomes": [
+        "thermal_shock:vermillion_woods",
+        "thermal_shock:borean_forest"
+      ],
+      "spawners": null,
+      "features": "thermal_shock:vermillion_hyphae_patch",
+      "step": "underground_decoration",
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "vermillion_sparkler_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/vermillion_sparkler_biome_modifier.json",
+      "sourceSha256": "fab0b9434bb30b22239de31e44be7cac7cb36721506d54a22fdbbb3db616a344",
+      "type": "forge:add_features",
+      "biomes": "thermal_shock:vermillion_woods",
+      "spawners": null,
+      "features": "thermal_shock:vermillion_sparkler",
+      "step": "vegetal_decoration",
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "vermillion_tree_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/vermillion_tree_biome_modifier.json",
+      "sourceSha256": "8522be9be6cb9a63d944b4deb047a17ef18956e4f8c6ba530be419a2e1251f8a",
+      "type": "forge:add_features",
+      "biomes": "thermal_shock:vermillion_woods",
+      "spawners": null,
+      "features": "thermal_shock:vermillion_tree",
+      "step": "vegetal_decoration",
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "visi_bulb_feature_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/visi_bulb_feature_biome_modifier.json",
+      "sourceSha256": "4a34fdb7ad611f910db0626fddf04171df20b9d17e2cd0b2f963b7dd9bd86f0c",
+      "type": "forge:add_features",
+      "biomes": "thermal_shock:glaciation",
+      "spawners": null,
+      "features": "thermal_shock:visi_bulb_feature",
+      "step": "underground_decoration",
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "volt_flower_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/volt_flower_biome_modifier.json",
+      "sourceSha256": "c124e278451027ab904c83d3aa1e9a2024f20e3510441e4a89960f4a8a433623",
+      "type": "forge:add_features",
+      "biomes": [
+        "thermal_shock:borean_tundra",
+        "thermal_shock:vermillion_woods",
+        "thermal_shock:stardust_garden"
+      ],
+      "spawners": null,
+      "features": "thermal_shock:volt_flower",
+      "step": "vegetal_decoration",
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    },
+    {
+      "id": "willograde_biome_modifier",
+      "sourcePath": "data/thermal_shock/forge/biome_modifier/willograde_biome_modifier.json",
+      "sourceSha256": "670ac8d02dc7f346e86d54b55c6ea29ede4b7a8197e6ae184a21d6450d5f1594",
+      "type": "forge:add_spawns",
+      "biomes": [
+        "thermal_shock:vermillion_woods",
+        "thermal_shock:borean_forest"
+      ],
+      "spawners": {
+        "type": "thermal_shock:willograde",
+        "weight": 45,
+        "minCount": 2,
+        "maxCount": 4
+      },
+      "features": null,
+      "step": null,
+      "targetSameFilename": false,
+      "equivalentTargetModifiers": [],
+      "sameEntityOrFeatureTargetModifiers": [],
+      "javaExplicitInjectionSearch": "none_found",
+      "classification": "no exact target modifier equivalence found; this is a residual path difference, not proof of missing behavior"
+    }
+  ]
+}

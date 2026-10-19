@@ -1,0 +1,2127 @@
+{
+  "batch": 107,
+  "base_head": "dbd3cc89ae3bc6ae8a34cf2d69ca65d2647b9621",
+  "owner": "主线",
+  "features": [
+    "loque_grass",
+    "seaglass_patch",
+    "seaglass_sprinkle",
+    "shale_boulder",
+    "short_loque_grass",
+    "snow_poff_generation",
+    "soapstone_pile",
+    "tall_frosted_grass",
+    "tundra_islands",
+    "tundra_vermillion_tree",
+    "vilebath_infected_mass_patch",
+    "vilebath_pools"
+  ],
+  "configured": 12,
+  "placed": 12,
+  "modifiers": 12,
+  "new_java": 0,
+  "schema_changes": 9,
+  "files": [
+    {
+      "id": "loque_grass",
+      "source": "data/thermal_shock/worldgen/configured_feature/loque_grass.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/loque_grass.json",
+      "original_sha256": "138cd730e4760037df82e55b92257e88d731b5904450661f898f471ed7d3b513",
+      "sha256": "b25eca9e43defc2ebf4bbd372d9efbb6eab431b4de26cbe0f9d4effdb56f7a49",
+      "schema_changes": [],
+      "source_json": {
+        "type": "minecraft:random_patch",
+        "config": {
+          "tries": 48,
+          "feature": {
+            "feature": {
+              "type": "minecraft:simple_block",
+              "config": {
+                "to_place": {
+                  "type": "minecraft:simple_state_provider",
+                  "state": {
+                    "Name": "thermal_shock:loque_grass"
+                  }
+                }
+              }
+            },
+            "placement": [
+              {
+                "type": "minecraft:block_predicate_filter",
+                "predicate": {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "target_json": {
+        "type": "minecraft:random_patch",
+        "config": {
+          "tries": 48,
+          "feature": {
+            "feature": {
+              "type": "minecraft:simple_block",
+              "config": {
+                "to_place": {
+                  "type": "minecraft:simple_state_provider",
+                  "state": {
+                    "Name": "thermal_shock_reforged:loque_grass"
+                  }
+                }
+              }
+            },
+            "placement": [
+              {
+                "type": "minecraft:block_predicate_filter",
+                "predicate": {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "loque_grass",
+      "source": "data/thermal_shock/worldgen/placed_feature/loque_grass.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/loque_grass.json",
+      "original_sha256": "5a494a19aab63ad1af1ca3a963821875c0c705618dcdb0e62db0450bcb3ba093",
+      "sha256": "a46b6b4fb070e1c3f1e589cfa03ac3ea6ef34aabf41d310a1887a1746c5a4b6e",
+      "schema_changes": [],
+      "source_json": {
+        "feature": "thermal_shock:loque_grass",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": 5
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:heightmap",
+            "heightmap": "MOTION_BLOCKING"
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      },
+      "target_json": {
+        "feature": "thermal_shock_reforged:loque_grass",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": 5
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:heightmap",
+            "heightmap": "MOTION_BLOCKING"
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      }
+    },
+    {
+      "id": "loque_grass",
+      "source": "data/thermal_shock/forge/biome_modifier/loque_grass_biome_modifier.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/loque_grass_biome_modifier.json",
+      "original_sha256": "2cb132673d8cb795195eef349b1650ac1be8fc445aa081b3153f037dd84f21b2",
+      "sha256": "c8b059b5046475e2120be10de54fe0fa7fe8d2404c57ce9885d87177aa6f009a",
+      "schema_changes": [],
+      "source_json": {
+        "type": "forge:add_features",
+        "biomes": [
+          "thermal_shock:borean_forest",
+          "thermal_shock:stardust_garden"
+        ],
+        "features": "thermal_shock:loque_grass",
+        "step": "vegetal_decoration"
+      },
+      "target_json": {
+        "type": "neoforge:add_features",
+        "biomes": [
+          "thermal_shock_reforged:borean_forest",
+          "thermal_shock_reforged:stardust_garden"
+        ],
+        "features": "thermal_shock_reforged:loque_grass",
+        "step": "vegetal_decoration"
+      }
+    },
+    {
+      "id": "seaglass_patch",
+      "source": "data/thermal_shock/worldgen/configured_feature/seaglass_patch.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/seaglass_patch.json",
+      "original_sha256": "0fc5744be0348bbb056e9b9cdfe0c5357f683157c15b4a2268014e19e6fd1f28",
+      "sha256": "eb4caadb7310095e3f2e9dcbbf8123f25560ccaefd1d94023910a6afee4398f5",
+      "schema_changes": [
+        {
+          "path": "$/config/radius",
+          "min_inclusive": 2,
+          "max_inclusive": 4,
+          "change": "Flatten legacy UniformInt.value to target MapCodec dispatch fields; preserve distribution"
+        }
+      ],
+      "source_json": {
+        "type": "minecraft:disk",
+        "config": {
+          "radius": {
+            "type": "uniform",
+            "value": {
+              "min_inclusive": 2,
+              "max_inclusive": 4
+            }
+          },
+          "half_height": 1,
+          "target": {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:water"
+          },
+          "state_provider": {
+            "fallback": {
+              "type": "minecraft:simple_state_provider",
+              "state": {
+                "Name": "thermal_shock:seaglass"
+              }
+            },
+            "rules": []
+          }
+        }
+      },
+      "target_json": {
+        "type": "minecraft:disk",
+        "config": {
+          "radius": {
+            "type": "uniform",
+            "min_inclusive": 2,
+            "max_inclusive": 4
+          },
+          "half_height": 1,
+          "target": {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:water"
+          },
+          "state_provider": {
+            "fallback": {
+              "type": "minecraft:simple_state_provider",
+              "state": {
+                "Name": "thermal_shock_reforged:seaglass"
+              }
+            },
+            "rules": []
+          }
+        }
+      }
+    },
+    {
+      "id": "seaglass_patch",
+      "source": "data/thermal_shock/worldgen/placed_feature/seaglass_patch.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/seaglass_patch.json",
+      "original_sha256": "be5a8d32e2eaa9cd62c0536ccd59258834ccf2b41976b44ddc643b24e70cedfa",
+      "sha256": "6586ce5e5a0dbc59650e0ab6dea254205f387e731eceeab09c22d40066b9c6b3",
+      "schema_changes": [
+        {
+          "path": "$/placement/0/count",
+          "min_inclusive": 20,
+          "max_inclusive": 24,
+          "change": "Flatten legacy UniformInt.value to target MapCodec dispatch fields; preserve distribution"
+        }
+      ],
+      "source_json": {
+        "feature": "thermal_shock:seaglass_patch",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": {
+              "type": "uniform",
+              "value": {
+                "min_inclusive": 20,
+                "max_inclusive": 24
+              }
+            }
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:height_range",
+            "height": {
+              "type": "minecraft:uniform",
+              "min_inclusive": {
+                "absolute": 62
+              },
+              "max_inclusive": {
+                "absolute": 62
+              }
+            }
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "blocks": "thermal_shock:mossy_cobbled_shale",
+              "offset": [
+                0,
+                -1,
+                0
+              ]
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      },
+      "target_json": {
+        "feature": "thermal_shock_reforged:seaglass_patch",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": {
+              "type": "uniform",
+              "min_inclusive": 20,
+              "max_inclusive": 24
+            }
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:height_range",
+            "height": {
+              "type": "minecraft:uniform",
+              "min_inclusive": {
+                "absolute": 62
+              },
+              "max_inclusive": {
+                "absolute": 62
+              }
+            }
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "blocks": "thermal_shock_reforged:mossy_cobbled_shale",
+              "offset": [
+                0,
+                -1,
+                0
+              ]
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      }
+    },
+    {
+      "id": "seaglass_patch",
+      "source": "data/thermal_shock/forge/biome_modifier/seaglass_patch_biome_modifier.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/seaglass_patch_biome_modifier.json",
+      "original_sha256": "d09a44b5667228eff043eddee7dc6d260bafa987c3c803352d2859e37fbb71a4",
+      "sha256": "ed902cf878e08a0ff6bc26897bdd7d73a6e4ae63126227c0dd26cc22c9355e88",
+      "schema_changes": [],
+      "source_json": {
+        "type": "forge:add_features",
+        "biomes": "thermal_shock:luminous_sea",
+        "features": "thermal_shock:seaglass_patch",
+        "step": "underground_ores"
+      },
+      "target_json": {
+        "type": "neoforge:add_features",
+        "biomes": "thermal_shock_reforged:luminous_sea",
+        "features": "thermal_shock_reforged:seaglass_patch",
+        "step": "underground_ores"
+      }
+    },
+    {
+      "id": "seaglass_sprinkle",
+      "source": "data/thermal_shock/worldgen/configured_feature/seaglass_sprinkle.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/seaglass_sprinkle.json",
+      "original_sha256": "477b60d96009b41ce1c7ea5cdcaf7dbdb909a627361a200cb9f648b391244982",
+      "sha256": "aeccaf0d02442b89e0f330d5ab3c256ec4706396e5631133d3a671286c6b02aa",
+      "schema_changes": [],
+      "source_json": {
+        "type": "minecraft:replace_single_block",
+        "config": {
+          "targets": [
+            {
+              "target": {
+                "predicate_type": "block_match",
+                "block": "thermal_shock:seaglass"
+              },
+              "state": {
+                "Name": "thermal_shock:seaglass_block"
+              }
+            }
+          ]
+        }
+      },
+      "target_json": {
+        "type": "minecraft:replace_single_block",
+        "config": {
+          "targets": [
+            {
+              "target": {
+                "predicate_type": "block_match",
+                "block": "thermal_shock_reforged:seaglass"
+              },
+              "state": {
+                "Name": "thermal_shock_reforged:seaglass_block"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "seaglass_sprinkle",
+      "source": "data/thermal_shock/worldgen/placed_feature/seaglass_sprinkle.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/seaglass_sprinkle.json",
+      "original_sha256": "018eae044ab1760da4d96cecd8923d647d6529495da9155f480371d77a9a67c6",
+      "sha256": "781788fb666e3d7e97fe3f3185d5640f599d0030588118fc82324522a1e4670c",
+      "schema_changes": [
+        {
+          "path": "$/placement/0/count",
+          "min_inclusive": 6,
+          "max_inclusive": 12,
+          "change": "Flatten legacy UniformInt.value to target MapCodec dispatch fields; preserve distribution"
+        }
+      ],
+      "source_json": {
+        "feature": "thermal_shock:seaglass_sprinkle",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": {
+              "type": "uniform",
+              "value": {
+                "min_inclusive": 6,
+                "max_inclusive": 12
+              }
+            }
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:height_range",
+            "height": {
+              "type": "minecraft:uniform",
+              "min_inclusive": {
+                "absolute": 62
+              },
+              "max_inclusive": {
+                "absolute": 62
+              }
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      },
+      "target_json": {
+        "feature": "thermal_shock_reforged:seaglass_sprinkle",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": {
+              "type": "uniform",
+              "min_inclusive": 6,
+              "max_inclusive": 12
+            }
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:height_range",
+            "height": {
+              "type": "minecraft:uniform",
+              "min_inclusive": {
+                "absolute": 62
+              },
+              "max_inclusive": {
+                "absolute": 62
+              }
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      }
+    },
+    {
+      "id": "seaglass_sprinkle",
+      "source": "data/thermal_shock/forge/biome_modifier/seaglass_sprinkle_biome_modifier.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/seaglass_sprinkle_biome_modifier.json",
+      "original_sha256": "a6a21213e8b26a1a46e70d18a9febd71499b338ef94790a93af6ca5d9d9460d3",
+      "sha256": "5abb4e412e604d6ee83a20ef9cde1e285a0cab48ccf9458dae40ae38247e6c7c",
+      "schema_changes": [],
+      "source_json": {
+        "type": "forge:add_features",
+        "biomes": "thermal_shock:luminous_sea",
+        "features": "thermal_shock:seaglass_sprinkle",
+        "step": "underground_decoration"
+      },
+      "target_json": {
+        "type": "neoforge:add_features",
+        "biomes": "thermal_shock_reforged:luminous_sea",
+        "features": "thermal_shock_reforged:seaglass_sprinkle",
+        "step": "underground_decoration"
+      }
+    },
+    {
+      "id": "shale_boulder",
+      "source": "data/thermal_shock/worldgen/configured_feature/shale_boulder.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/shale_boulder.json",
+      "original_sha256": "0006be8279ae0af903cb922dceae758ceb74246b1c1c037646549bc73d92aab1",
+      "sha256": "f8a7c67f3778e559c9a6560b7ecdfde600a8822a2c9a2e0cda44421a2c1cee8d",
+      "schema_changes": [],
+      "source_json": {
+        "type": "minecraft:netherrack_replace_blobs",
+        "config": {
+          "target": {
+            "Name": "minecraft:air"
+          },
+          "state": {
+            "Name": "thermal_shock:snowy_cobbled_shale"
+          },
+          "radius": 1
+        }
+      },
+      "target_json": {
+        "type": "minecraft:netherrack_replace_blobs",
+        "config": {
+          "target": {
+            "Name": "minecraft:air"
+          },
+          "state": {
+            "Name": "thermal_shock_reforged:snowy_cobbled_shale"
+          },
+          "radius": 1
+        }
+      }
+    },
+    {
+      "id": "shale_boulder",
+      "source": "data/thermal_shock/worldgen/placed_feature/shale_boulder.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/shale_boulder.json",
+      "original_sha256": "246e26e472ef2c63084017b6707e535c9c1fda62465220bd262c2c6172784b53",
+      "sha256": "21ca8f684a84695c7e8fa53201e79dbae7695805bc10fbb5f916a18571db8687",
+      "schema_changes": [],
+      "source_json": {
+        "feature": "thermal_shock:shale_boulder",
+        "placement": [
+          {
+            "type": "minecraft:rarity_filter",
+            "chance": 2
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:heightmap",
+            "heightmap": "MOTION_BLOCKING"
+          },
+          {
+            "type": "minecraft:biome"
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:all_of",
+              "predicates": [
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air"
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": [
+                    "thermal_shock:grassy_shale",
+                    "thermal_shock:snowy_shale"
+                  ],
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "target_json": {
+        "feature": "thermal_shock_reforged:shale_boulder",
+        "placement": [
+          {
+            "type": "minecraft:rarity_filter",
+            "chance": 2
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:heightmap",
+            "heightmap": "MOTION_BLOCKING"
+          },
+          {
+            "type": "minecraft:biome"
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:all_of",
+              "predicates": [
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air"
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": [
+                    "thermal_shock_reforged:grassy_shale",
+                    "thermal_shock_reforged:snowy_shale"
+                  ],
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "shale_boulder",
+      "source": "data/thermal_shock/forge/biome_modifier/shale_boulder_biome_modifier.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/shale_boulder_biome_modifier.json",
+      "original_sha256": "36e5a3e789320353d825bf06aa5ac66a65488261c24a048757583911038826e8",
+      "sha256": "55f7d7d61ba06f7ce39ef472986e229b7a75954c44daad8d6902d452e6416c7f",
+      "schema_changes": [],
+      "source_json": {
+        "type": "forge:add_features",
+        "biomes": [
+          "thermal_shock:borean_forest",
+          "thermal_shock:borean_tundra",
+          "thermal_shock:stardust_garden"
+        ],
+        "features": "thermal_shock:shale_boulder",
+        "step": "vegetal_decoration"
+      },
+      "target_json": {
+        "type": "neoforge:add_features",
+        "biomes": [
+          "thermal_shock_reforged:borean_forest",
+          "thermal_shock_reforged:borean_tundra",
+          "thermal_shock_reforged:stardust_garden"
+        ],
+        "features": "thermal_shock_reforged:shale_boulder",
+        "step": "vegetal_decoration"
+      }
+    },
+    {
+      "id": "short_loque_grass",
+      "source": "data/thermal_shock/worldgen/configured_feature/short_loque_grass.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/short_loque_grass.json",
+      "original_sha256": "6846bb152cc4fde5056a6501fd3ac72a3b63f689e1d6a214e0ad338eaf263d63",
+      "sha256": "a740fad562e55897f5d4d3b261cdc9a8a8c61ddb0ae1d40edb72856f0c5ed16f",
+      "schema_changes": [],
+      "source_json": {
+        "type": "minecraft:random_patch",
+        "config": {
+          "tries": 10,
+          "feature": {
+            "feature": {
+              "type": "minecraft:simple_block",
+              "config": {
+                "to_place": {
+                  "type": "minecraft:simple_state_provider",
+                  "state": {
+                    "Name": "thermal_shock:short_loque_grass"
+                  }
+                }
+              }
+            },
+            "placement": [
+              {
+                "type": "minecraft:block_predicate_filter",
+                "predicate": {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "target_json": {
+        "type": "minecraft:random_patch",
+        "config": {
+          "tries": 10,
+          "feature": {
+            "feature": {
+              "type": "minecraft:simple_block",
+              "config": {
+                "to_place": {
+                  "type": "minecraft:simple_state_provider",
+                  "state": {
+                    "Name": "thermal_shock_reforged:short_loque_grass"
+                  }
+                }
+              }
+            },
+            "placement": [
+              {
+                "type": "minecraft:block_predicate_filter",
+                "predicate": {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "short_loque_grass",
+      "source": "data/thermal_shock/worldgen/placed_feature/short_loque_grass.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/short_loque_grass.json",
+      "original_sha256": "88fdab5120096ed4557121a441743dfa2c4ccc967e4ff8c645ae63561cca2cb4",
+      "sha256": "127a20c38ba2487729640ce460db78aee2794338470b201f593efd4f454012f3",
+      "schema_changes": [],
+      "source_json": {
+        "feature": "thermal_shock:short_loque_grass",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": 8
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:heightmap",
+            "heightmap": "MOTION_BLOCKING"
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      },
+      "target_json": {
+        "feature": "thermal_shock_reforged:short_loque_grass",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": 8
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:heightmap",
+            "heightmap": "MOTION_BLOCKING"
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      }
+    },
+    {
+      "id": "short_loque_grass",
+      "source": "data/thermal_shock/forge/biome_modifier/short_loque_grass_biome_modifier.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/short_loque_grass_biome_modifier.json",
+      "original_sha256": "961e153236f0d72da80d0899cc265f7a569da65528e734f1edc40662f40b8f6d",
+      "sha256": "ce66e35e2783db75a53bf90bcdf6538f83d9998f73c90babc900d7722d294077",
+      "schema_changes": [],
+      "source_json": {
+        "type": "forge:add_features",
+        "biomes": [
+          "thermal_shock:borean_tundra",
+          "thermal_shock:graveyard",
+          "thermal_shock:cobalt_heights"
+        ],
+        "features": "thermal_shock:short_loque_grass",
+        "step": "vegetal_decoration"
+      },
+      "target_json": {
+        "type": "neoforge:add_features",
+        "biomes": [
+          "thermal_shock_reforged:borean_tundra",
+          "thermal_shock_reforged:graveyard",
+          "thermal_shock_reforged:cobalt_heights"
+        ],
+        "features": "thermal_shock_reforged:short_loque_grass",
+        "step": "vegetal_decoration"
+      }
+    },
+    {
+      "id": "snow_poff_generation",
+      "source": "data/thermal_shock/worldgen/configured_feature/snow_poff_generation.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/snow_poff_generation.json",
+      "original_sha256": "1941ebe514473e66150cd946680aa1361eca64c4c7e71a2b0cbc4a83036ad3b6",
+      "sha256": "c83b57315b4c6839b06a6b66b702d026af2ab1d53f4cbec6fabdab978278d76a",
+      "schema_changes": [],
+      "source_json": {
+        "type": "minecraft:simple_block",
+        "config": {
+          "to_place": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock:snow_poff"
+            }
+          }
+        }
+      },
+      "target_json": {
+        "type": "minecraft:simple_block",
+        "config": {
+          "to_place": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock_reforged:snow_poff"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "snow_poff_generation",
+      "source": "data/thermal_shock/worldgen/placed_feature/snow_poff_generation.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/snow_poff_generation.json",
+      "original_sha256": "86c9947a19fc6c79959bb7a095a7dac29a887d50e1cd118650f352a0588ec928",
+      "sha256": "d70d3e07525d88a43bde8fad25c8c9821d9bf6b26d6e1079d09a77b2526c876b",
+      "schema_changes": [],
+      "source_json": {
+        "feature": "thermal_shock:snow_poff_generation",
+        "placement": [
+          {
+            "type": "minecraft:rarity_filter",
+            "chance": 10
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:heightmap",
+            "heightmap": "MOTION_BLOCKING"
+          },
+          {
+            "type": "minecraft:biome"
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:all_of",
+              "predicates": [
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air"
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": [
+                    "thermal_shock:grassy_shale",
+                    "thermal_shock:snowy_shale",
+                    "thermal_shock:snowy_cobalt",
+                    "thermal_shock:snowy_sanctum_bricks"
+                  ],
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "target_json": {
+        "feature": "thermal_shock_reforged:snow_poff_generation",
+        "placement": [
+          {
+            "type": "minecraft:rarity_filter",
+            "chance": 10
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:heightmap",
+            "heightmap": "MOTION_BLOCKING"
+          },
+          {
+            "type": "minecraft:biome"
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:all_of",
+              "predicates": [
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air"
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": [
+                    "thermal_shock_reforged:grassy_shale",
+                    "thermal_shock_reforged:snowy_shale",
+                    "thermal_shock_reforged:snowy_cobalt",
+                    "thermal_shock_reforged:snowy_sanctum_bricks"
+                  ],
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "snow_poff_generation",
+      "source": "data/thermal_shock/forge/biome_modifier/snow_poff_generation_biome_modifier.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/snow_poff_generation_biome_modifier.json",
+      "original_sha256": "ed12799835d38e82b1be5cf32e0b883b2de3b37f5a0e112f84099713f7aaed7e",
+      "sha256": "3d6a33b728f05c2eba0b8e0ea3ee2a0231c8c90bbf33d40fdd968088aa7c3de6",
+      "schema_changes": [],
+      "source_json": {
+        "type": "forge:add_features",
+        "biomes": [
+          "thermal_shock:borean_forest",
+          "thermal_shock:borean_tundra",
+          "thermal_shock:stardust_garden",
+          "thermal_shock:cobalt_heights",
+          "thermal_shock:graveyard",
+          "thermal_shock:vermillion_woods"
+        ],
+        "features": "thermal_shock:snow_poff_generation",
+        "step": "vegetal_decoration"
+      },
+      "target_json": {
+        "type": "neoforge:add_features",
+        "biomes": [
+          "thermal_shock_reforged:borean_forest",
+          "thermal_shock_reforged:borean_tundra",
+          "thermal_shock_reforged:stardust_garden",
+          "thermal_shock_reforged:cobalt_heights",
+          "thermal_shock_reforged:graveyard",
+          "thermal_shock_reforged:vermillion_woods"
+        ],
+        "features": "thermal_shock_reforged:snow_poff_generation",
+        "step": "vegetal_decoration"
+      }
+    },
+    {
+      "id": "soapstone_pile",
+      "source": "data/thermal_shock/worldgen/configured_feature/soapstone_pile.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/soapstone_pile.json",
+      "original_sha256": "c5c556a04d9a0cb738d75fbe9f0c1f26e3bb1d332f0604912d00f57ca00e18da",
+      "sha256": "6bf6b516c2fcdce4a7f6fc35c6c02275b2e3886c793d1f4764801c7b02e92ef9",
+      "schema_changes": [],
+      "source_json": {
+        "type": "minecraft:block_pile",
+        "config": {
+          "state_provider": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock:soapstone"
+            }
+          }
+        }
+      },
+      "target_json": {
+        "type": "minecraft:block_pile",
+        "config": {
+          "state_provider": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock_reforged:soapstone"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "soapstone_pile",
+      "source": "data/thermal_shock/worldgen/placed_feature/soapstone_pile.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/soapstone_pile.json",
+      "original_sha256": "e280086b06b17d13d9bd08faaee840dbd2df043106c758b49af11ee359465943",
+      "sha256": "1bf04fc5c03194bc14832f867b73102ff05487211d3ab6ef96d3b44ab23b2716",
+      "schema_changes": [],
+      "source_json": {
+        "feature": "thermal_shock:soapstone_pile",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": 48
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:height_range",
+            "height": {
+              "type": "minecraft:uniform",
+              "min_inclusive": {
+                "absolute": 0
+              },
+              "max_inclusive": {
+                "absolute": 60
+              }
+            }
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:all_of",
+              "predicates": [
+                {
+                  "type": "minecraft:solid",
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:water"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "target_json": {
+        "feature": "thermal_shock_reforged:soapstone_pile",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": 48
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:height_range",
+            "height": {
+              "type": "minecraft:uniform",
+              "min_inclusive": {
+                "absolute": 0
+              },
+              "max_inclusive": {
+                "absolute": 60
+              }
+            }
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:all_of",
+              "predicates": [
+                {
+                  "type": "minecraft:solid",
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:water"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "soapstone_pile",
+      "source": "data/thermal_shock/forge/biome_modifier/soapstone_pile_biome_modifier.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/soapstone_pile_biome_modifier.json",
+      "original_sha256": "a499ae49edfe925a731c6c48eb2a8ffe72988a7e1b0686d15ba53c7fbb78bc6c",
+      "sha256": "5ee04e52099b86e6db48adfbbc9a0a13cf851ba5c9c234fb0055deb11648ac41",
+      "schema_changes": [],
+      "source_json": {
+        "type": "forge:add_features",
+        "biomes": "thermal_shock:luminous_sea",
+        "features": "thermal_shock:soapstone_pile",
+        "step": "underground_ores"
+      },
+      "target_json": {
+        "type": "neoforge:add_features",
+        "biomes": "thermal_shock_reforged:luminous_sea",
+        "features": "thermal_shock_reforged:soapstone_pile",
+        "step": "underground_ores"
+      }
+    },
+    {
+      "id": "tall_frosted_grass",
+      "source": "data/thermal_shock/worldgen/configured_feature/tall_frosted_grass.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/tall_frosted_grass.json",
+      "original_sha256": "6750adf6c438e0e8c557086f98dbb60181eeca4106bc633f87fa2556aab8c8be",
+      "sha256": "a644c50da6571926d8e8cfe1491d0e8bd672a9294dd8420bbd10f0b7c5ded970",
+      "schema_changes": [],
+      "source_json": {
+        "type": "minecraft:random_patch",
+        "config": {
+          "tries": 9,
+          "feature": {
+            "feature": {
+              "type": "minecraft:simple_block",
+              "config": {
+                "to_place": {
+                  "type": "minecraft:simple_state_provider",
+                  "state": {
+                    "Name": "thermal_shock:tall_frosted_grass"
+                  }
+                }
+              }
+            },
+            "placement": [
+              {
+                "type": "minecraft:block_predicate_filter",
+                "predicate": {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "target_json": {
+        "type": "minecraft:random_patch",
+        "config": {
+          "tries": 9,
+          "feature": {
+            "feature": {
+              "type": "minecraft:simple_block",
+              "config": {
+                "to_place": {
+                  "type": "minecraft:simple_state_provider",
+                  "state": {
+                    "Name": "thermal_shock_reforged:tall_frosted_grass"
+                  }
+                }
+              }
+            },
+            "placement": [
+              {
+                "type": "minecraft:block_predicate_filter",
+                "predicate": {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "tall_frosted_grass",
+      "source": "data/thermal_shock/worldgen/placed_feature/tall_frosted_grass.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/tall_frosted_grass.json",
+      "original_sha256": "24d990194d0f4121d0ae2afcdb13e24f8081c2d306906cac10c8cdd4b45af39f",
+      "sha256": "378a493add67a009214bb9dc2cedae0c72f48ed421a9616d57b8229150b957d3",
+      "schema_changes": [],
+      "source_json": {
+        "feature": "thermal_shock:tall_frosted_grass",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": 3
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:heightmap",
+            "heightmap": "MOTION_BLOCKING"
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      },
+      "target_json": {
+        "feature": "thermal_shock_reforged:tall_frosted_grass",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": 3
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:heightmap",
+            "heightmap": "MOTION_BLOCKING"
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      }
+    },
+    {
+      "id": "tall_frosted_grass",
+      "source": "data/thermal_shock/forge/biome_modifier/tall_frosted_grass_biome_modifier.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/tall_frosted_grass_biome_modifier.json",
+      "original_sha256": "682810852912a0dcffe7b7e8c393f7150cdbcd911f9be4b656697dbbaf9eb5b6",
+      "sha256": "136715b69e85f1b256fc387540184d534a5d3042fe30ab70311e883aff2d0f61",
+      "schema_changes": [],
+      "source_json": {
+        "type": "forge:add_features",
+        "biomes": "thermal_shock:luminous_sea",
+        "features": "thermal_shock:tall_frosted_grass",
+        "step": "vegetal_decoration"
+      },
+      "target_json": {
+        "type": "neoforge:add_features",
+        "biomes": "thermal_shock_reforged:luminous_sea",
+        "features": "thermal_shock_reforged:tall_frosted_grass",
+        "step": "vegetal_decoration"
+      }
+    },
+    {
+      "id": "tundra_islands",
+      "source": "data/thermal_shock/worldgen/configured_feature/tundra_islands.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/tundra_islands.json",
+      "original_sha256": "966ae3358951c7698df09b37740138fdf0af9ceb0253da34928c367bba2fcc97",
+      "sha256": "9aa850b5b9d215c574bd4d8c66807ba6d318d13f2bb6c18e6af8fc9f49bfee9a",
+      "schema_changes": [],
+      "source_json": {
+        "type": "minecraft:random_selector",
+        "config": {
+          "default": {
+            "feature": {
+              "type": "minecraft:ore",
+              "config": {
+                "size": 20,
+                "discard_chance_on_air_exposure": 0,
+                "targets": [
+                  {
+                    "target": {
+                      "predicate_type": "block_match",
+                      "block": "minecraft:water"
+                    },
+                    "state": {
+                      "Name": "thermal_shock:frostrock"
+                    }
+                  },
+                  {
+                    "target": {
+                      "predicate_type": "block_match",
+                      "block": "minecraft:air"
+                    },
+                    "state": {
+                      "Name": "thermal_shock:permafrost"
+                    }
+                  }
+                ]
+              }
+            },
+            "placement": []
+          },
+          "features": [
+            {
+              "chance": 0.6,
+              "feature": {
+                "feature": {
+                  "type": "minecraft:ore",
+                  "config": {
+                    "size": 20,
+                    "discard_chance_on_air_exposure": 0,
+                    "targets": [
+                      {
+                        "target": {
+                          "predicate_type": "block_match",
+                          "block": "minecraft:water"
+                        },
+                        "state": {
+                          "Name": "thermal_shock:frostrock"
+                        }
+                      },
+                      {
+                        "target": {
+                          "predicate_type": "block_match",
+                          "block": "minecraft:air"
+                        },
+                        "state": {
+                          "Name": "thermal_shock:permafrost"
+                        }
+                      }
+                    ]
+                  }
+                },
+                "placement": []
+              }
+            },
+            {
+              "chance": 0.4,
+              "feature": {
+                "feature": {
+                  "type": "minecraft:ore",
+                  "config": {
+                    "size": 23,
+                    "discard_chance_on_air_exposure": 0,
+                    "targets": [
+                      {
+                        "target": {
+                          "predicate_type": "block_match",
+                          "block": "minecraft:water"
+                        },
+                        "state": {
+                          "Name": "thermal_shock:permafrost"
+                        }
+                      },
+                      {
+                        "target": {
+                          "predicate_type": "block_match",
+                          "block": "minecraft:air"
+                        },
+                        "state": {
+                          "Name": "thermal_shock:slush"
+                        }
+                      }
+                    ]
+                  }
+                },
+                "placement": []
+              }
+            }
+          ]
+        }
+      },
+      "target_json": {
+        "type": "minecraft:random_selector",
+        "config": {
+          "default": {
+            "feature": {
+              "type": "minecraft:ore",
+              "config": {
+                "size": 20,
+                "discard_chance_on_air_exposure": 0,
+                "targets": [
+                  {
+                    "target": {
+                      "predicate_type": "block_match",
+                      "block": "minecraft:water"
+                    },
+                    "state": {
+                      "Name": "thermal_shock_reforged:frostrock"
+                    }
+                  },
+                  {
+                    "target": {
+                      "predicate_type": "block_match",
+                      "block": "minecraft:air"
+                    },
+                    "state": {
+                      "Name": "thermal_shock_reforged:permafrost"
+                    }
+                  }
+                ]
+              }
+            },
+            "placement": []
+          },
+          "features": [
+            {
+              "chance": 0.6,
+              "feature": {
+                "feature": {
+                  "type": "minecraft:ore",
+                  "config": {
+                    "size": 20,
+                    "discard_chance_on_air_exposure": 0,
+                    "targets": [
+                      {
+                        "target": {
+                          "predicate_type": "block_match",
+                          "block": "minecraft:water"
+                        },
+                        "state": {
+                          "Name": "thermal_shock_reforged:frostrock"
+                        }
+                      },
+                      {
+                        "target": {
+                          "predicate_type": "block_match",
+                          "block": "minecraft:air"
+                        },
+                        "state": {
+                          "Name": "thermal_shock_reforged:permafrost"
+                        }
+                      }
+                    ]
+                  }
+                },
+                "placement": []
+              }
+            },
+            {
+              "chance": 0.4,
+              "feature": {
+                "feature": {
+                  "type": "minecraft:ore",
+                  "config": {
+                    "size": 23,
+                    "discard_chance_on_air_exposure": 0,
+                    "targets": [
+                      {
+                        "target": {
+                          "predicate_type": "block_match",
+                          "block": "minecraft:water"
+                        },
+                        "state": {
+                          "Name": "thermal_shock_reforged:permafrost"
+                        }
+                      },
+                      {
+                        "target": {
+                          "predicate_type": "block_match",
+                          "block": "minecraft:air"
+                        },
+                        "state": {
+                          "Name": "thermal_shock_reforged:slush"
+                        }
+                      }
+                    ]
+                  }
+                },
+                "placement": []
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "tundra_islands",
+      "source": "data/thermal_shock/worldgen/placed_feature/tundra_islands.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/tundra_islands.json",
+      "original_sha256": "e5ea5cd913c40cf6334032f22179c42be7fe7b811ed7e2033d0431625dd66402",
+      "sha256": "784476043a4dfef837a84a1ae361bbff39e396cb21a027803387a5cd4a2e6b14",
+      "schema_changes": [
+        {
+          "path": "$/placement/0/count",
+          "min_inclusive": 1,
+          "max_inclusive": 2,
+          "change": "Flatten legacy UniformInt.value to target MapCodec dispatch fields; preserve distribution"
+        }
+      ],
+      "source_json": {
+        "feature": "thermal_shock:tundra_islands",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": {
+              "type": "uniform",
+              "value": {
+                "min_inclusive": 1,
+                "max_inclusive": 2
+              }
+            }
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:height_range",
+            "height": {
+              "type": "minecraft:uniform",
+              "min_inclusive": {
+                "absolute": 63
+              },
+              "max_inclusive": {
+                "absolute": 63
+              }
+            }
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "blocks": "minecraft:water",
+              "offset": [
+                0,
+                -1,
+                0
+              ]
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      },
+      "target_json": {
+        "feature": "thermal_shock_reforged:tundra_islands",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": {
+              "type": "uniform",
+              "min_inclusive": 1,
+              "max_inclusive": 2
+            }
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:height_range",
+            "height": {
+              "type": "minecraft:uniform",
+              "min_inclusive": {
+                "absolute": 63
+              },
+              "max_inclusive": {
+                "absolute": 63
+              }
+            }
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "blocks": "minecraft:water",
+              "offset": [
+                0,
+                -1,
+                0
+              ]
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      }
+    },
+    {
+      "id": "tundra_islands",
+      "source": "data/thermal_shock/forge/biome_modifier/tundra_islands_biome_modifier.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/tundra_islands_biome_modifier.json",
+      "original_sha256": "3986373b3ae936501c1183400290921cf5ebd5e0843f371d383c0ba69a49a3fa",
+      "sha256": "7bd558efcf115bb0e790d94041c2ada26655f8a949c37f417062dbc1d24bdb0d",
+      "schema_changes": [],
+      "source_json": {
+        "type": "forge:add_features",
+        "biomes": [
+          "thermal_shock:borean_tundra",
+          "thermal_shock:luminous_sea"
+        ],
+        "features": "thermal_shock:tundra_islands",
+        "step": "underground_decoration"
+      },
+      "target_json": {
+        "type": "neoforge:add_features",
+        "biomes": [
+          "thermal_shock_reforged:borean_tundra",
+          "thermal_shock_reforged:luminous_sea"
+        ],
+        "features": "thermal_shock_reforged:tundra_islands",
+        "step": "underground_decoration"
+      }
+    },
+    {
+      "id": "tundra_vermillion_tree",
+      "source": "data/thermal_shock/worldgen/configured_feature/tundra_vermillion_tree.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/tundra_vermillion_tree.json",
+      "original_sha256": "ab67be5fe241a853e66f8ac0705265979aaaf1afca82a8da66a70e90befcb364",
+      "sha256": "27e88354e8df8a6256098962e10d02d02eae4cac71af98c113f4926fc4c40694",
+      "schema_changes": [
+        {
+          "path": "$/config/foliage_placer/offset",
+          "min_inclusive": 0,
+          "max_inclusive": 2,
+          "change": "Flatten legacy UniformInt.value to target MapCodec dispatch fields; preserve distribution"
+        },
+        {
+          "path": "$/config/foliage_placer/radius",
+          "min_inclusive": 7,
+          "max_inclusive": 12,
+          "change": "Flatten legacy UniformInt.value to target MapCodec dispatch fields; preserve distribution"
+        },
+        {
+          "path": "$/config/foliage_placer/trunk_height",
+          "min_inclusive": 12,
+          "max_inclusive": 18,
+          "change": "Flatten legacy UniformInt.value to target MapCodec dispatch fields; preserve distribution"
+        }
+      ],
+      "source_json": {
+        "type": "minecraft:tree",
+        "config": {
+          "dirt_provider": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock:shale"
+            }
+          },
+          "foliage_provider": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock:loque_leaves"
+            }
+          },
+          "trunk_provider": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock:vermilli_log"
+            }
+          },
+          "force_dirt": false,
+          "ignore_vines": true,
+          "foliage_placer": {
+            "type": "minecraft:spruce_foliage_placer",
+            "offset": {
+              "type": "minecraft:uniform",
+              "value": {
+                "min_inclusive": 0,
+                "max_inclusive": 2
+              }
+            },
+            "radius": {
+              "type": "uniform",
+              "value": {
+                "min_inclusive": 7,
+                "max_inclusive": 12
+              }
+            },
+            "trunk_height": {
+              "type": "uniform",
+              "value": {
+                "min_inclusive": 12,
+                "max_inclusive": 18
+              }
+            }
+          },
+          "trunk_placer": {
+            "type": "minecraft:straight_trunk_placer",
+            "base_height": 13,
+            "height_rand_a": 6,
+            "height_rand_b": 4
+          },
+          "minimum_size": {
+            "type": "minecraft:two_layers_feature_size",
+            "limit": 2,
+            "lower_size": 0,
+            "upper_size": 2
+          },
+          "decorators": []
+        }
+      },
+      "target_json": {
+        "type": "minecraft:tree",
+        "config": {
+          "dirt_provider": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock_reforged:shale"
+            }
+          },
+          "foliage_provider": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock_reforged:loque_leaves"
+            }
+          },
+          "trunk_provider": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock_reforged:vermilli_log"
+            }
+          },
+          "force_dirt": false,
+          "ignore_vines": true,
+          "foliage_placer": {
+            "type": "minecraft:spruce_foliage_placer",
+            "offset": {
+              "type": "minecraft:uniform",
+              "min_inclusive": 0,
+              "max_inclusive": 2
+            },
+            "radius": {
+              "type": "uniform",
+              "min_inclusive": 7,
+              "max_inclusive": 12
+            },
+            "trunk_height": {
+              "type": "uniform",
+              "min_inclusive": 12,
+              "max_inclusive": 18
+            }
+          },
+          "trunk_placer": {
+            "type": "minecraft:straight_trunk_placer",
+            "base_height": 13,
+            "height_rand_a": 6,
+            "height_rand_b": 4
+          },
+          "minimum_size": {
+            "type": "minecraft:two_layers_feature_size",
+            "limit": 2,
+            "lower_size": 0,
+            "upper_size": 2
+          },
+          "decorators": []
+        }
+      }
+    },
+    {
+      "id": "tundra_vermillion_tree",
+      "source": "data/thermal_shock/worldgen/placed_feature/tundra_vermillion_tree.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/tundra_vermillion_tree.json",
+      "original_sha256": "b0e2843c95b033a27889cc7c858bdd7fe0c020d8ec5d39dfbd99544062c269b0",
+      "sha256": "b1cad4a2be926053fd0f1b1ad32f494a717292047bd78eae282b3058019249da",
+      "schema_changes": [
+        {
+          "path": "$/placement/1/count",
+          "min_inclusive": 2,
+          "max_inclusive": 3,
+          "change": "Flatten legacy UniformInt.value to target MapCodec dispatch fields; preserve distribution"
+        }
+      ],
+      "source_json": {
+        "feature": "thermal_shock:tundra_vermillion_tree",
+        "placement": [
+          {
+            "type": "minecraft:rarity_filter",
+            "chance": 50
+          },
+          {
+            "type": "minecraft:count",
+            "count": {
+              "type": "uniform",
+              "value": {
+                "min_inclusive": 2,
+                "max_inclusive": 3
+              }
+            }
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:height_range",
+            "height": {
+              "type": "minecraft:uniform",
+              "min_inclusive": {
+                "absolute": 48
+              },
+              "max_inclusive": {
+                "absolute": 70
+              }
+            }
+          },
+          {
+            "type": "minecraft:heightmap",
+            "heightmap": "MOTION_BLOCKING"
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "blocks": [
+                "thermal_shock:grassy_shale",
+                "thermal_shock:snowy_shale"
+              ],
+              "offset": [
+                0,
+                -1,
+                0
+              ]
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      },
+      "target_json": {
+        "feature": "thermal_shock_reforged:tundra_vermillion_tree",
+        "placement": [
+          {
+            "type": "minecraft:rarity_filter",
+            "chance": 50
+          },
+          {
+            "type": "minecraft:count",
+            "count": {
+              "type": "uniform",
+              "min_inclusive": 2,
+              "max_inclusive": 3
+            }
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:height_range",
+            "height": {
+              "type": "minecraft:uniform",
+              "min_inclusive": {
+                "absolute": 48
+              },
+              "max_inclusive": {
+                "absolute": 70
+              }
+            }
+          },
+          {
+            "type": "minecraft:heightmap",
+            "heightmap": "MOTION_BLOCKING"
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "blocks": [
+                "thermal_shock_reforged:grassy_shale",
+                "thermal_shock_reforged:snowy_shale"
+              ],
+              "offset": [
+                0,
+                -1,
+                0
+              ]
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      }
+    },
+    {
+      "id": "tundra_vermillion_tree",
+      "source": "data/thermal_shock/forge/biome_modifier/tundra_vermillion_tree_biome_modifier.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/tundra_vermillion_tree_biome_modifier.json",
+      "original_sha256": "299a7406353f75eae123d70025e109d836db4f358059c6c323dcac6615b38e20",
+      "sha256": "7b1b7868b4ff217b3ae2f93870d4ffa8c03ca2504dc31e8834a1d18f58abc775",
+      "schema_changes": [],
+      "source_json": {
+        "type": "forge:add_features",
+        "biomes": "thermal_shock:borean_tundra",
+        "features": "thermal_shock:tundra_vermillion_tree",
+        "step": "vegetal_decoration"
+      },
+      "target_json": {
+        "type": "neoforge:add_features",
+        "biomes": "thermal_shock_reforged:borean_tundra",
+        "features": "thermal_shock_reforged:tundra_vermillion_tree",
+        "step": "vegetal_decoration"
+      }
+    },
+    {
+      "id": "vilebath_infected_mass_patch",
+      "source": "data/thermal_shock/worldgen/configured_feature/vilebath_infected_mass_patch.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/vilebath_infected_mass_patch.json",
+      "original_sha256": "f41177e3cf39f726dc8d4bb8712f6011efabc6fdf0177387558e6da362292d92",
+      "sha256": "e1f3ded462c307748a741d3361e02753b24889f311d9d3fa63dd32d4b94653a3",
+      "schema_changes": [
+        {
+          "path": "$/config/radius",
+          "min_inclusive": 3,
+          "max_inclusive": 7,
+          "change": "Flatten legacy UniformInt.value to target MapCodec dispatch fields; preserve distribution"
+        }
+      ],
+      "source_json": {
+        "type": "minecraft:netherrack_replace_blobs",
+        "config": {
+          "target": {
+            "Name": "thermal_shock:mantlestone"
+          },
+          "state": {
+            "Name": "thermal_shock:spire_base"
+          },
+          "radius": {
+            "type": "uniform",
+            "value": {
+              "min_inclusive": 3,
+              "max_inclusive": 7
+            }
+          }
+        }
+      },
+      "target_json": {
+        "type": "minecraft:netherrack_replace_blobs",
+        "config": {
+          "target": {
+            "Name": "thermal_shock_reforged:mantlestone"
+          },
+          "state": {
+            "Name": "thermal_shock_reforged:spire_base"
+          },
+          "radius": {
+            "type": "uniform",
+            "min_inclusive": 3,
+            "max_inclusive": 7
+          }
+        }
+      }
+    },
+    {
+      "id": "vilebath_infected_mass_patch",
+      "source": "data/thermal_shock/worldgen/placed_feature/vilebath_infected_mass_patch.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/vilebath_infected_mass_patch.json",
+      "original_sha256": "16bbc5c448121c186573d2c6150d0cec582cacf3b70dd743e69c595180356cff",
+      "sha256": "49a758b9b339dd8dfd4327d651f4a66737654d2a1c32d9d185a7e2031e972740",
+      "schema_changes": [],
+      "source_json": {
+        "feature": "thermal_shock:vilebath_infected_mass_patch",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": 25
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:height_range",
+            "height": {
+              "type": "minecraft:uniform",
+              "min_inclusive": {
+                "absolute": -64
+              },
+              "max_inclusive": {
+                "absolute": 0
+              }
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      },
+      "target_json": {
+        "feature": "thermal_shock_reforged:vilebath_infected_mass_patch",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": 25
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:height_range",
+            "height": {
+              "type": "minecraft:uniform",
+              "min_inclusive": {
+                "absolute": -64
+              },
+              "max_inclusive": {
+                "absolute": 0
+              }
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      }
+    },
+    {
+      "id": "vilebath_infected_mass_patch",
+      "source": "data/thermal_shock/forge/biome_modifier/vilebath_infected_mass_patch_biome_modifier.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/vilebath_infected_mass_patch_biome_modifier.json",
+      "original_sha256": "fd9c3d11134c703255430cede07c47c5c4ebbe0664265203df54f0b4feaf9c46",
+      "sha256": "48af96d7d25b925ba3e4cf29cb619c8d73bd2862e25d3da3bdd2dc5589828445",
+      "schema_changes": [],
+      "source_json": {
+        "type": "forge:add_features",
+        "biomes": "thermal_shock:graveyard",
+        "features": "thermal_shock:vilebath_infected_mass_patch",
+        "step": "underground_decoration"
+      },
+      "target_json": {
+        "type": "neoforge:add_features",
+        "biomes": "thermal_shock_reforged:graveyard",
+        "features": "thermal_shock_reforged:vilebath_infected_mass_patch",
+        "step": "underground_decoration"
+      }
+    },
+    {
+      "id": "vilebath_pools",
+      "source": "data/thermal_shock/worldgen/configured_feature/vilebath_pools.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/vilebath_pools.json",
+      "original_sha256": "e6d396f782b733bc9d818d65639acf06314cf6263e31ce7c467247aa11c4b573",
+      "sha256": "43f25fe4527a81a0cd4044776cdcc4130748cd8b9b70ef6e5a5e6b006a0fc7dc",
+      "schema_changes": [],
+      "source_json": {
+        "type": "minecraft:lake",
+        "config": {
+          "fluid": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock:blood"
+            }
+          },
+          "barrier": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock:mantlestone"
+            }
+          }
+        }
+      },
+      "target_json": {
+        "type": "minecraft:lake",
+        "config": {
+          "fluid": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock_reforged:blood"
+            }
+          },
+          "barrier": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "thermal_shock_reforged:mantlestone"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "vilebath_pools",
+      "source": "data/thermal_shock/worldgen/placed_feature/vilebath_pools.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/vilebath_pools.json",
+      "original_sha256": "fe431a9557c7079f8111a6ad2c1125c505bd1d58dec4ca4c8fc2670d6d68fe52",
+      "sha256": "5d1cdc68c263c1536d1953ed152009c80f752ce9676c9520f92b6b8afaf31735",
+      "schema_changes": [],
+      "source_json": {
+        "feature": "thermal_shock:vilebath_pools",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": 8
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:height_range",
+            "height": {
+              "type": "minecraft:uniform",
+              "min_inclusive": {
+                "absolute": -64
+              },
+              "max_inclusive": {
+                "absolute": 10
+              }
+            }
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "blocks": [
+                "thermal_shock:mantlestone",
+                "thermal_shock:spire_base"
+              ]
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      },
+      "target_json": {
+        "feature": "thermal_shock_reforged:vilebath_pools",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": 8
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:height_range",
+            "height": {
+              "type": "minecraft:uniform",
+              "min_inclusive": {
+                "absolute": -64
+              },
+              "max_inclusive": {
+                "absolute": 10
+              }
+            }
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "blocks": [
+                "thermal_shock_reforged:mantlestone",
+                "thermal_shock_reforged:spire_base"
+              ]
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      }
+    },
+    {
+      "id": "vilebath_pools",
+      "source": "data/thermal_shock/forge/biome_modifier/vilebath_pools_biome_modifier.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/vilebath_pools_biome_modifier.json",
+      "original_sha256": "c7a27d5f43a6ff292cb667f35b145d30a5b6b8e15f49d316b800fc1430a9ae15",
+      "sha256": "9e051588e083c7b26e4c4dc784b85ddca9313512e957bb3669ada3e67b79243a",
+      "schema_changes": [],
+      "source_json": {
+        "type": "forge:add_features",
+        "biomes": "thermal_shock:graveyard",
+        "features": "thermal_shock:vilebath_pools",
+        "step": "underground_decoration"
+      },
+      "target_json": {
+        "type": "neoforge:add_features",
+        "biomes": "thermal_shock_reforged:graveyard",
+        "features": "thermal_shock_reforged:vilebath_pools",
+        "step": "underground_decoration"
+      }
+    }
+  ]
+}

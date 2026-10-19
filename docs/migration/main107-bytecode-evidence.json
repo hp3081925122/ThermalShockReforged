@@ -1,0 +1,74 @@
+{
+  "batch": 107,
+  "reason": "Unified Gradle log marks compileJava UP-TO-DATE despite batch Java additions; inspect actual build outputs for all five changed/new classes",
+  "passed": true,
+  "classes": [
+    {
+      "class": "com.hp.thermalshockreforged.ThermalShockReforged",
+      "source_sha256": "cc9a8c4d3ce1eec90ebb44eb67e7fbd9ed580402b0ec87b20c63788ad5f1ee43",
+      "class_sha256": "5f963137e1c5ed265f8c4006bd2b9bf4d98fea970d30ce89cfead21bbe2fe6b7",
+      "source_modified_ns": 1792426740278637600,
+      "class_modified_ns": 1792426795366564200,
+      "required_bytecode_symbols": [
+        "GeodeContent.register"
+      ],
+      "passed": true
+    },
+    {
+      "class": "com.hp.thermalshockreforged.content.music.MusicContent",
+      "source_sha256": "dd14b0a7af1a5270f3a532b31297b799a6fc4bb1a93179bc0fc7e003ef5589fb",
+      "class_sha256": "008021040aaec1d5ff559d27f1877eecb9a24a3c0f98b52bacee251e511f35de",
+      "source_modified_ns": 1792426670462721000,
+      "class_modified_ns": 1792426793408742600,
+      "required_bytecode_symbols": [
+        "ARCTIC_WARMTH;",
+        "BOUNDLESS;",
+        "HARD_THERMOLOGY_SHOCK;",
+        "RAINBOW_COAST;",
+        "SOMEPLACE;",
+        "STRANGERS_THEME;",
+        "THE_ORGAN_ORGAN;",
+        "THREE_THREE_DISC;"
+      ],
+      "passed": true
+    },
+    {
+      "class": "com.hp.thermalshockreforged.entity.icesquad.IceSquadContent",
+      "source_sha256": "99d3ce5054903d57801265a5ace34cc3d00a4abcfe6ae72e3c0f1ff227eb51a8",
+      "class_sha256": "58410ab26e7b4d43a60b9f3eb19134257a973d595452cbba7e0004c714ffed90",
+      "source_modified_ns": 1792426549863199700,
+      "class_modified_ns": 1792426794606823000,
+      "required_bytecode_symbols": [
+        "GRUNT_EGG;",
+        "icidrogrunt_spawn_egg"
+      ],
+      "passed": true
+    },
+    {
+      "class": "com.hp.thermalshockreforged.world.geodes.GeodeContent",
+      "source_sha256": "963818ed74553bef5f692f60975734101398144bdb9f82eb860ec9483e4d7bd0",
+      "class_sha256": "de0d3a211c71840e06bc1ab43ac66fd4c7a43c4f38def7875270ae488c43f813",
+      "source_modified_ns": 1792426489195232500,
+      "class_modified_ns": 1792426795379744900,
+      "required_bytecode_symbols": [
+        "malachite_geode",
+        "bismuth_geode",
+        "ConditionalGeodeFeature"
+      ],
+      "passed": true
+    },
+    {
+      "class": "com.hp.thermalshockreforged.world.geodes.ConditionalGeodeFeature",
+      "source_sha256": "31702f5507e58783b6d3d6bc7ee3b4c22b726e554d55f669345361c528ca8b32",
+      "class_sha256": "8be9b435765b9cd6dd77252361e79f451a483666c98368a50dd339af2f3f0223",
+      "source_modified_ns": 1792426489194233900,
+      "class_modified_ns": 1792426715664712700,
+      "required_bytecode_symbols": [
+        "oreTier2",
+        "GeodeFeature.place"
+      ],
+      "passed": true
+    }
+  ],
+  "limits": "Presence of new symbols plus stable Gradle inputs supports current build outputs; not a runtime test or independent full semantic bytecode proof"
+}

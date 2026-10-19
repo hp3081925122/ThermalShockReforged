@@ -11,3 +11,5 @@ Luna基于worldgen-path-inventory105.json的37个未分配configured_feature读�
 A独占新增world/geodes与上述A独有JSON；若原实现有既有共用Feature则复用不造重复。根入口、共享标签、语言、ClientEvents、总迁移文档、REFORGED_CHANGES和skill由主线唯一写，A交精确增量。若需修改其他既有共享Java先交接口/范围再明确唯一编辑者。按原真实namespace/字段/调用链核，不只搜索同名文件；无原消费者的定义保留并记录边界，不额外制造生成概率。原字段转换逐项查目标Codec，均匀整数/权重/状态provider/树木树叶的原生变化须保语义。
 
 Java不写注释，UTF-8，新增debug英文，脚本/临时仅D:/AI临时文件。Luna限确定性只读和机械比对。两路生产完成交源码与资源证据及最终SHA后停笔，由主线固定全部src/main整批compileJava/processResources。禁止每小改编译、禁止两路编译期间继续写输入。不在本批安排游戏测试或发布。
+
+第107批已两路停笔并统一验证通过：131份生产，A75/主线56；37配置+36placed+36modifier、两条件晶洞、八唱片及七原配方和一个loot定义、原grunt蛋、24中文键。固定8684份src/main输入；详见main107-static-validation.json。第108批预分工见parallel-batch108.md，阶段提交后解除冻结。最新测试分工：服务端独立进行；全部代码完整及无简化复审后主线安排子代理进行客户端与Render Preview对照，当前未启动客户端。

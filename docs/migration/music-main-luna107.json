@@ -1,0 +1,30 @@
+{
+  "provider": "/root/coverage101_inventory",
+  "passed": true,
+  "scope": "独立只读原件/目标参数、注册、来源与声画资源机械核对，主线保存代理返回结果；不是运行测试",
+  "report_inputs": {
+    "docs/migration/music-main-data107.json": "6ceb9b766d50c2aebe5dba82f8540925b5542258020869259e0a9d2d8257064c",
+    "docs/migration/music-main-sources107.json": "4c4e29807d6aecfe1f9b42201d713f9d919522df3b97eefc4e2b163de2aba270"
+  },
+  "results": {
+    "new_songs": "8/8事件、比较器和原tick除20秒一致；helper按原ID注册RARE/stack1与同名song",
+    "old_songs": "既有7项参数/注册保持",
+    "recipes": "7/7原JSON仅namespace及result.item转id，全部材料/数量/顺序保留且有真实目标物品",
+    "loot": "enterloqtablet仅namespace转换；原Java/advancement无精确消费者，保定义不造自然来源",
+    "manifest": "15曲和grunt蛋在原顺序创意清单中可达",
+    "grunt_egg": "绑定完整GRUNT，保原-1/-1色和cryospark_egg模型；既有实体声画资源保留",
+    "sound_events": "15/15动态注册，原与目标sounds.json的stream均true，音频名归一化一致",
+    "ogg": "15/15原件与目标SHA256相同",
+    "models": "15/15只namespace差异的语义相同",
+    "textures": "15/15原件与目标逐字节相同"
+  },
+  "corrections": [
+    "原thermofebruary奖励Legacy，先前把regular当来源是子串误命中，已有表保持",
+    "Arctic Warmth与Legacy是两独立原音轨，不能视同曲别名"
+  ],
+  "limits": [
+    "代理角色仅只读，故由主线保存其返回结果；代理没有自行写报告文件",
+    "代理额外返回75文件aggregate但未给完整文件列表，本报告不引用该aggregate作为冻结依据；主线另固定精确56文件名单与全部哈希",
+    "没有编译、游戏、客户端、服务端或Render Preview运行测试"
+  ]
+}

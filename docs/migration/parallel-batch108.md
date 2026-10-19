@@ -1,0 +1,13 @@
+# 第108批预分工：剩余结构自然入口与旧模板载荷升级
+
+第107批生产尚未统一冻结，本批只读准备；107两路停笔、统一构建和本地阶段提交后，由主线明确解除本批生产冻结。测试聊天仍由用户独立管理，不联系、不启动或等待测试。按用户要求继续把较多工作交迁移A。
+
+原件静态盘点见structures-next-inventory107.json和legacy-template-dfu-followup107.json。原生STRUCTURE入口存在，不证明未知模组entity/BE choice会被完整数据修复；四份保3465模板的实体属性/药效及vanilla库存/书籍须显式闭合，不能仅写3955。完整保typed NBT几何、palette、容器、entity与乘客、刷怪笼、外caps。经验球根Count不能按ItemStack转换；药效CurativeItems也不算可见库存。外caps保留和真实原生功能分开记录。
+
+迁移A负责：large_campsite、medium_campsite、small_campsite、shalespring_grove四条structure/set/pool完整自然链；完整campmed、campsmall、shalespring_grove_derelict三模板，复用已迁whisper_home并核该模板原消费者及完整数据；补原non_biome配置（如仍缺）并核其真实自然/引用语义，不制造其他入口。另独占原blizzard_outpost、blizzardoutpostrubicon两份现有模板的完整新格式载荷转换，包含122个模组实体的属性、七个grunt药效、vanilla物品/经验球及所有BE；保Rubicon原无精确消费者的边界，不替它创造自然概率。
+
+主线负责：slagway、test_jigsaw两条structure/set/pool及test_jigsaw_testchecker额外pool完整链，完整testjig/testsaw模板，复用已迁slagway1并核真实依赖。另独占lavender_palace、shalespring_august两现有模板的显式载荷转换，包含八个模组NPC属性、spawn字段、空ForgeData以及讲台/附魔书/书架/容器/盔甲架等全部真实库存。保原所有位置、书页、附魔、槽位和组件，不因旧字段异常裁模板或丢载荷。
+
+具体结构ID和实际NBT名字分别核：large_campsite实际whisper_home，medium实际campmed，small实际campsmall，grove实际shalespring_grove_derelict，slagway实际slagway1，test_jigsaw实际testjig，附池实际testsaw。原起点/高度图/terrain_adaptation/processor/salt/spacing/separation/候选权重/抽样与实体不得简化。non_biome不因名称被当作无需迁移或随便改群系。Jigsaw嵌套pool消费者须递归闭合。
+
+A只写独占资源与本线新增文档；主线唯一写根入口、共享语言/标签、总迁移文档、REFORGED_CHANGES和skill。脚本/临时仅D:/AI临时文件，UTF-8，Java不写注释，新增调试英文。复用已核typed转换机制但逐字段补齐新载荷，拒绝经验球误判和未知附魔/书组件兜底。各自先建迁移文档，再生产，最终交SHA、原件结构化差异和真实源码依据后停笔，固定全src/main统一编译。尚未解除生产冻结。

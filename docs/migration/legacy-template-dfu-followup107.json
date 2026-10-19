@@ -1,0 +1,27 @@
+{
+  "scope": "对legacy-template-schema-inventory106的未知模组类型DFU缺口进行源码复核；非运行测试",
+  "provider": "/root/remaining_inventory97",
+  "templates": ["blizzard_outpost", "blizzardoutpostrubicon", "lavender_palace", "shalespring_august"],
+  "data_version": 3465,
+  "schema_findings": [
+    "STRUCTURE确实递归entities/blocks，但ENTITY/BLOCK_ENTITY通过id对应taggedChoiceLazy选择schema已知映射",
+    "NamespacedSchema.ensureNamespaced仅规范ID，不按运行时注册表注册模组choice",
+    "DFU8.0.16 TaggedChoiceType.getMapCodec对未知key返回Unsupported key",
+    "NeoForgeEntityLegacyAttributesFix没有新增模组choice；MobEffectIdFix也不能证明未知choice已被遍历",
+    "IcidrogruntEntity没有读取旧ActiveEffects/Attributes的兼容桥，父LivingEntity只读目标active_effects/attributes"
+  ],
+  "mod_entities": {
+    "total": 130,
+    "blizzard_outpost": 61,
+    "blizzardoutpostrubicon": 61,
+    "lavender_palace": 5,
+    "shalespring_august": 3,
+    "all_have": ["Attributes", "ForgeCaps", "BalmData", "Texture"],
+    "blizzard_effect_carriers": {"blizzard_outpost": 4, "blizzardoutpostrubicon": 3},
+    "special_templates": "Palace/Shalespring带旧forge:spawn_type、forge:entity_gravity、forge:step_height_addition；laut/shutterbug有空ForgeData",
+    "external_caps": "保留structure_gel:gel_entity及palace的embers:scales数据；这不等于延期联动功能已实现"
+  },
+  "mod_block_entities": "四模板中的模组BE均只见空Items及空ForgeCaps，没有新增非空自定义库存载荷；vanilla物品/讲台/书架仍按上一盘点单独完整迁移",
+  "next_action": "后续批次显式转换四份模板的全部已核载荷，按真实上下文区分物品/经验球/CurativeItems，完整保几何、属性、状态、库存与书籍后同步目标DataVersion；不能只改版本标记或依赖未知choice必定升级",
+  "limits": ["未执行DFU，未知choice导致的实际失败后回退行为未由运行结果确认", "源码证据证明不能把原生升级入口当作已完成payload升级；没有宣称游戏已实际丢失效果"]
+}

@@ -1,0 +1,69 @@
+{
+  "type": "minecraft:block_column",
+  "config": {
+    "allowed_placement": {
+      "type": "minecraft:matching_blocks",
+      "blocks": "minecraft:air"
+    },
+    "direction": "down",
+    "prioritize_tip": true,
+    "layers": [
+      {
+        "height": {
+          "type": "minecraft:weighted_list",
+          "distribution": [
+            {
+              "data": {
+                "type": "minecraft:uniform",
+                "min_inclusive": 0,
+                "max_inclusive": 19
+              },
+              "weight": 2
+            },
+            {
+              "data": {
+                "type": "minecraft:uniform",
+                "min_inclusive": 0,
+                "max_inclusive": 2
+              },
+              "weight": 3
+            },
+            {
+              "data": {
+                "type": "minecraft:uniform",
+                "min_inclusive": 0,
+                "max_inclusive": 6
+              },
+              "weight": 10
+            }
+          ]
+        },
+        "provider": {
+          "type": "minecraft:weighted_state_provider",
+          "entries": [
+            {
+              "data": {
+                "Name": "thermal_shock_reforged:veinroot"
+              },
+              "weight": 4
+            }
+          ]
+        }
+      },
+      {
+        "height": 1,
+        "provider": {
+          "type": "minecraft:weighted_state_provider",
+          "entries": [
+            {
+              "data": {
+                "Name": "thermal_shock_reforged:veinroot_ends"
+              },
+              "weight": 4
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

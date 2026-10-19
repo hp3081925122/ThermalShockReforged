@@ -93,6 +93,7 @@ public final class ThermalShockReforged {
         com.hp.thermalshockreforged.content.atlas.AqeronEvents.register();
         com.hp.thermalshockreforged.world.KeystoneChamberGeneration.register();
         com.hp.thermalshockreforged.world.ore.OreContent.register(bus);
+        com.hp.thermalshockreforged.world.geodes.GeodeContent.register(bus);
         com.hp.thermalshockreforged.world.thermite.ThermiteContent.register(bus);
         com.hp.thermalshockreforged.world.timing.ServerEndTickTasks.register();
         MaterialContent.register(bus);

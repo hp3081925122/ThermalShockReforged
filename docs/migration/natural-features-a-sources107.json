@@ -1,0 +1,2052 @@
+{
+  "batch": 107,
+  "source_version": "Minecraft 1.20.1 Forge，原模组行为及原生实现对照",
+  "target_version": "Minecraft 1.21.1 NeoForge 21.1.233",
+  "original_mod_sources": [
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\world\\features\\BismuthGeodeFeature.java",
+      "sha256": "b6713e3dbe84d0eab916785ed11f9631e02c984c366e5103712e0c0d06ddf0cf"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\world\\features\\MalachiteGeodeFeature.java",
+      "sha256": "82b1f58af4a17cc0006ce51b9d15952617461771fe1a07d327c2de45f9031b0f"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\BismuthGenVarProcedure.java",
+      "sha256": "5912cb71eb117334f3215ceb946c57d99a5c0bb80116f2bf7f74058f41c3bfee"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\MalachiteGenVarProcedure.java",
+      "sha256": "563bbbb71017cf61ae70ecc711ed3f4f93354ada3069200f7fe0a5c4e3b83f64"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\HelionStabilizerOnBlockRightClickedProcedure.java",
+      "sha256": "a360eba7136bf673488befe2b791f0fc7d8f9da25a4861d633d707a3cdb2dfc6"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModFeatures.java",
+      "sha256": "fc6bf715c68b19dcab1601eb81217237462bb03b57f736708c57f4136007406c"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\network\\ThermalShockModVariables.java",
+      "sha256": "e9681e0177749c59ce51fe03a452e8b450db9d9dbb0b1bf31b20c8ed330f4289"
+    }
+  ],
+  "original_vanilla_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+  "original_vanilla_source_jar_sha256": "4bd6656a7cbe3809da68f3b709ca0f2fa186575f58538668c58ce30cb38c4932",
+  "vanilla_sources": [
+    {
+      "name": "net/minecraft/util/valueproviders/IntProvider.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "656b64656315e9df057978c9ec1a3365426f652ae49af8a4aaa49f92ecde6fea",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\util\\valueproviders\\IntProvider.java",
+      "target_sha256": "d0e23d96597664e5d050007ca036d8079eb4f83e23489dcee08ebe20744fda43",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/util/valueproviders/UniformInt.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "6b1929cd2f0b3b44068112fa406bba06c5bdd394c1ee679e007257466646f3fe",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\util\\valueproviders\\UniformInt.java",
+      "target_sha256": "00c9cf02c7b1bf01d5139c0c86526c83a3e5b9c1299b643425cba332648a7875",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/util/valueproviders/WeightedListInt.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "602c2cc56fa9b709f5b53fcfd9e75031d8d4dbb17c330e0dc8a38322f41e39f3",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\util\\valueproviders\\WeightedListInt.java",
+      "target_sha256": "d31a2fbb337e7037130ca3017a1e95251aceddf8c7c6b95fe7d23b439853fd8b",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/util/valueproviders/ConstantInt.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "dc8c7f5aede1405450e49b96b3e112cae830c607ac46fa79d6c8d4c1438313db",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\util\\valueproviders\\ConstantInt.java",
+      "target_sha256": "a96a1c6a2a82e86ff9ca9d8e069fb30b5fb10248658e8bb4125575d8895e25ed",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/util/valueproviders/IntProviderType.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "c39351d1cc58bd66a013f5832c57eb87460f1bd45affb134109b2e9298af2dff",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\util\\valueproviders\\IntProviderType.java",
+      "target_sha256": "5c980ab72121860b52e2bacda559d14b0a9f86af15b4d3216a4f618d3f19030e",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/util/random/SimpleWeightedRandomList.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "6c430e46d9787bf06ded62cd289a589c463edb66480ad61bed92e3f2b397a66c",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\util\\random\\SimpleWeightedRandomList.java",
+      "target_sha256": "46ef2c38bdccab27662970e0042746ceeea92be60b0886cde28033fdc0706fcb",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/util/random/WeightedRandomList.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "4554e550e28102be999ca290d01ec6a1829dd9d1887aec03635843c89151a1a2",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\util\\random\\WeightedRandomList.java",
+      "target_sha256": "b7a6471327bd9b669654c904f6c0b43d86494e345ad73dde7e659fa0fdf83b26",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/util/random/WeightedEntry.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "4060b73227d9c815e02368760d965cf0ea2de6cb43af1f27e07faf7c638e31c0",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\util\\random\\WeightedEntry.java",
+      "target_sha256": "89cdb71f35e521f3be5dc7572273b5ef4e3b30bd7e35abe850cf8b218b8294de",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/GeodeBlockSettings.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "6852320035cbfd6e028ee8b72ba3cd42b7f448ad631040240d39e2ddaa8c5129",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\GeodeBlockSettings.java",
+      "target_sha256": "6705a202657d37bab651f5afc7342813f4318f4ef86e8d05251e891a8b9cde46",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/GeodeLayerSettings.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "0acdb5b140ff5278057f4a316e04e2df2d7606c8b13037697975fe814e7d8d72",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\GeodeLayerSettings.java",
+      "target_sha256": "36d5936c7b92686bc9c26a9ab4bac00b1e731cfeabb34c924353728f3f7a12cf",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/GeodeCrackSettings.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "2514d3bbda34916757ef15d0550b231a8d6a5af5bdfdb17758e3f5db59d74146",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\GeodeCrackSettings.java",
+      "target_sha256": "d80c4fd662a03ebcbaf91d14406d565210dbbc34e2bacb0c0c79b94bf54cd71c",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/Feature.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "7a5fb414ea2630f9593745d414c88f5ebdd29831620112de4640526c35cb02e6",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\Feature.java",
+      "target_sha256": "a77b2d10358a0dbb04af34731953ab14e642e9ed0ea36104a5f6e1cfb268e375",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/GeodeFeature.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "fae3edd2baf7c202871797b208913c32ad5111d54ca72b2db16fa31dffc217e9",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\GeodeFeature.java",
+      "target_sha256": "cee8b607785c2d9cadec71833f988307a36e33eea377a2429cf8b0404e85e8b2",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/TreeFeature.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "61c2840b50826fbcf77c7020427f6dfbcf69e099f1cc89b6fcc52306cb4630e5",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\TreeFeature.java",
+      "target_sha256": "18ad5de3ceb89b4e080a7ea8d3088abac6dd75845369ddf1838c86cde6a95c33",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/LakeFeature.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "401e13486fed237d7149a8c352b6512f1a391bbbd2a4e483b10b11d2bc38653c",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\LakeFeature.java",
+      "target_sha256": "c82359a04d15f706888f1cdfb0405e41768cb8786c5ede06757e60cd8d1c6d58",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/RandomPatchFeature.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "f02f30c1ff5c01387d17809c9a1ee574fb5250524930c766a3cd890c7e1c5245",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\RandomPatchFeature.java",
+      "target_sha256": "9a5f443710866964e59a4abe7597c6b68f5b574bd837e9c088348573e67538c2",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/SimpleBlockFeature.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "e250368f96f90ee966440a429faf540514763fce4a7d56588e9c2a5489968028",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\SimpleBlockFeature.java",
+      "target_sha256": "3c42ff92cf10f961268cffbe6819b6dd453c6cfd2b2493afcd238c5bc99f81ba",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/BlockBlobFeature.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "e72143ae235284dcc7764f3b4a316d1eb2614e8a13c80470d326f616b188bb87",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\BlockBlobFeature.java",
+      "target_sha256": "ce06893ad8fa89fe2afa2a9f457523ad7be9aecd2a318d3c9fc56e345ba2bfe3",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/BlockColumnFeature.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "046908f4158f4f00cd2ec7c6c7ee8c118cbcc1d371f00d0a1d782eb4b8a6c87e",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\BlockColumnFeature.java",
+      "target_sha256": "390258635adacc8aee7cb41627f5b34b319dbead70707505d6fc627a74172b3c",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/ReplaceBlobsFeature.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "8d84d7eb7cfeb63195416fa22c46273f7fb7eca13a013299cd3df00606718e5c",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\ReplaceBlobsFeature.java",
+      "target_sha256": "267721ba1adda0dfcf47606f8f19c368e360ce1bd8a139ef7f5b86b6b4d66883",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/BlockPileFeature.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "db8bebca7965421c4dd09e57349df3548658b59d94eadf16a9c5f8b154fa5252",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\BlockPileFeature.java",
+      "target_sha256": "a3f7012894c78a6cb0177bf20913f11443fe934aab73e8718dbee08a63a52d6d",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/OreFeature.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "9d237e4e2262bd03a59bd5e12930a40bd8a0618a5534b37aa7253f752babadcb",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\OreFeature.java",
+      "target_sha256": "d3fa953b2d3c17d7ebf0373e6d80492b1f0d3b7d4b7c139b2dfb48169b7ee69a",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/ScatteredOreFeature.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "4fde747c8b9fcc4b341f4b12b139306b8ecd5d1e9d01ddbe2bd662dad43fdb7e",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\ScatteredOreFeature.java",
+      "target_sha256": "f113caaf7817861c09eb292eb43789d2efb4f2ba87e34ff8ba345890644947be",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/RandomSelectorFeature.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "93e61a6a853d35104c74a51ad8f9f99368dceddcb67e661ea0f2d349e31b5aad",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\RandomSelectorFeature.java",
+      "target_sha256": "2426f9b8592c98d1b0a0aaff441fc3a7178b0af640b8d98420f534faa8b768b5",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/ConfiguredFeature.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "8b6da8f6d314f56ff92bb84d24ddbad0b20c8a581bd9fd9c7284b65c6637aa53",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\ConfiguredFeature.java",
+      "target_sha256": "8c53a09f5a5c4ac2b28322c5928254058feb270520d7e5a8e108917212085803",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/FeaturePlaceContext.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "88fcfc869dd441897b8f6a879742d53110b49ac508726f5ab48447cdacbf9e1c",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\FeaturePlaceContext.java",
+      "target_sha256": "6dcd45208e26279c6d60380afc69867a18ccae9b58a5b297a720941e61cc9800",
+      "normalized_tokens_equal": true
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/configurations/GeodeConfiguration.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "813925058f150131a0b223c04b9bfee62df7484d676bb2695c4d99e891a6736e",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\configurations\\GeodeConfiguration.java",
+      "target_sha256": "f9021ab0b6ea905cab0b69c3f446b4cba119c822bc6e311c0decce8e81eb06d8",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/configurations/TreeConfiguration.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "71d22c09242910d3518107357ab5d456bef7f207877ddecbdab9e7a79669c9c2",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\configurations\\TreeConfiguration.java",
+      "target_sha256": "f28e6691d234a1af95645db955e80290d7f7a9e2e5f9d36cde10c1fcca09e7d6",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/configurations/RandomPatchConfiguration.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "5424bf4e2c10f26dbefe09660e414c134338d06ecb1086390747472f0d2a8408",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\configurations\\RandomPatchConfiguration.java",
+      "target_sha256": "74f41efee06f23a1c94c58530c147f4cddf7efa4fa44f789d25b6d4f7bd1df67",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/configurations/SimpleBlockConfiguration.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "e1ca54d3f0a14bc64852b06ba89eb6de3d33062e1fcb1c44a3b67a59177ae113",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\configurations\\SimpleBlockConfiguration.java",
+      "target_sha256": "93f772bfb12104d20d6893e912177522b8a7c9711e0997288434eed689b93118",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/configurations/BlockStateConfiguration.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "3bd83be07f8d7d383934f33eca0c2b94e8a02e1f5960e8681244bdfdeffced94",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\configurations\\BlockStateConfiguration.java",
+      "target_sha256": "6ea3b6e31f16a6488508942f7725f47d1ec9ce34b93cae7bc00a80242046dd03",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/configurations/BlockColumnConfiguration.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "7e18821790a03b8ee0bd36867b130f219dbcab070dbd5d89b51f2d62e563cd28",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\configurations\\BlockColumnConfiguration.java",
+      "target_sha256": "c534d6b9dc5d7b2dd387ac215e5efb0ddb0dab82ba86f8a06a7f3904295db517",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/configurations/ReplaceSphereConfiguration.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "c3c6997fb3db3f4a1f3c35596af7339b4cff008fda0cbd8469e6407566e8b1e5",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\configurations\\ReplaceSphereConfiguration.java",
+      "target_sha256": "ce28d32e32d81c171b26acad76cacf65236ff511b38c2d5498ded0abed857b27",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/configurations/BlockPileConfiguration.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "cb9e3589d23e96994ee0266100bc69de397d6dc67a0394963d4aa987d813e1a9",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\configurations\\BlockPileConfiguration.java",
+      "target_sha256": "f703f1f2be13f364a2af5630fed1c0e160093ed0445b2c0ed6d57877650b4fef",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/configurations/OreConfiguration.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "47d83ae9b0eafc038dade545d9af93bb115c15dccb70d11f475051979e967905",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\configurations\\OreConfiguration.java",
+      "target_sha256": "d19dd6a8a5594f5b50a5eabfcdda2538226a6cd8151f25889a1abc3fff6b413c",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/configurations/RandomFeatureConfiguration.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "e254dd23a904ac490360623412bb19937ba962963684e0a884d178b847998503",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\configurations\\RandomFeatureConfiguration.java",
+      "target_sha256": "ac8d8747debb39d6d0837ef6220fc3a00cbd603f3f49e811cc552a7cfaad4da2",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/trunkplacers/CherryTrunkPlacer.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "d8a3e0e890d63915e1aec3c5e6c3f7b5e1c0bd1b867ac002ed3c6176aceee686",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\trunkplacers\\CherryTrunkPlacer.java",
+      "target_sha256": "03f8705371e871af933d9877ec6de562406c46d04cab1c32cff2bc3d520f0a59",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/trunkplacers/StraightTrunkPlacer.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "17c7bc228b097b5cc9a1a0dfd6ae0355aa9040d58662d32e113805c050a08428",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\trunkplacers\\StraightTrunkPlacer.java",
+      "target_sha256": "f27fb7ad5577a0e052553ca97d38cf991fc14b42d19d9eb5846297dad9ff051c",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/trunkplacers/TrunkPlacer.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "df2fe4628cbce364d641310d70fadfafe8d295f610413bd53c3d5c26337fbf69",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\trunkplacers\\TrunkPlacer.java",
+      "target_sha256": "be0a68782d95b96bb695c9b674fc3001b504b7817fc073824f8633d53cf89d2e",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/trunkplacers/TrunkPlacerType.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "ec08ab19442ed127a14c824e932210e938240a1cd8acf6f0986791441849486e",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\trunkplacers\\TrunkPlacerType.java",
+      "target_sha256": "a6d19ac2fd0394aa200bd9caaf23b78342aac4047c5bfae65166bd6a8d22fedf",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/foliageplacers/CherryFoliagePlacer.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "4903c093ad8c0eea6d25bd06b52eccfeec31af659000e6eb3769ca5c8a62e878",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\foliageplacers\\CherryFoliagePlacer.java",
+      "target_sha256": "3244075c767baa85a2b6fc2583614ee66fd901dbff7a85cf5783dc6bffaef6a0",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/foliageplacers/SpruceFoliagePlacer.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "42fee7ac5384887934659b611955434411187651384c5733f154b6aea00bd9e2",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\foliageplacers\\SpruceFoliagePlacer.java",
+      "target_sha256": "b41b91a61016fdf482f510de4349d579c8aa377c6cd6d245a509485c46cdfbb6",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/foliageplacers/BushFoliagePlacer.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "8cce24f990fc376257ecd59a71e600c39af8c078df2e789a2675b02c9d49d3e5",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\foliageplacers\\BushFoliagePlacer.java",
+      "target_sha256": "d93b24c9fd26697bc146ea9f091ec8dd48043082b68d9253412c92b2518b0b34",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/foliageplacers/FoliagePlacer.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "416ec5d58ecd13c01966e74d5b4075662554b6e7c29889aef45d2454abef9b67",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\foliageplacers\\FoliagePlacer.java",
+      "target_sha256": "980d38a3a467d4337504c979f959e5f132913ae91f2d42c07419194738d29dd0",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/foliageplacers/FoliagePlacerType.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "6e72b06acd14aeba713de893802ce828267f3e3ec27a29c4a5fe274ec0fd6b36",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\foliageplacers\\FoliagePlacerType.java",
+      "target_sha256": "93f8a77fc6bab8cf3cd077829672b156bc66eb9e821196d0af4e7f5d74f3387f",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/foliageplacers/BlobFoliagePlacer.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "6c2a948eee2023aa8fc01127cbdcc04ed0da345e040a1e0f959a762e46802885",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\foliageplacers\\BlobFoliagePlacer.java",
+      "target_sha256": "53fbbb59de30f836ef015254df468d41ebbf391bff79255370c155b0e038ad29",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/WeightedPlacedFeature.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "6f1a05d90670f0cb0c37f6d5064f5c9bc4229af836aab5a5e69472509184dd29",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\WeightedPlacedFeature.java",
+      "target_sha256": "274dad67761ec5bd9fc398b64df528b7966009f9f3e1e8276670aebb4bf1266f",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/featuresize/FeatureSize.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "6454c16fec1eaf7f0035a6bb83de20d8ff541c28edca4c18edbf25dd5badc2a4",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\featuresize\\FeatureSize.java",
+      "target_sha256": "af1e668ecefe546e56655afbbe441fee0d9361e67eae6ed858f19275dd7f5404",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/featuresize/TwoLayersFeatureSize.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "f288e484dd936dffc181c5fc809f0f1e484351cdc7922e4c71007684bf1bd6ef",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\featuresize\\TwoLayersFeatureSize.java",
+      "target_sha256": "359e15cf9978482070bc64f19f5ac7a93ec04023f30cd7bfb7ffcb639a0a168d",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/featuresize/FeatureSizeType.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "54bcd39cbc88928dff30fb95a12cf28b64e900597bbe5c29e92ab0ce276cafc5",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\featuresize\\FeatureSizeType.java",
+      "target_sha256": "999d0149919f53a294c3f876bab821534029e28b1488637efd61c3fdbceeb70d",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/stateproviders/BlockStateProvider.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "ac2c4fcd8f28ba545ae409b3b32c0f065595fc46e0ea94313c59a5f6421ad182",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\stateproviders\\BlockStateProvider.java",
+      "target_sha256": "c8b38e01b260c64e2a75ca1772d56aaef84723511ffcd964d661b348a749b2c1",
+      "normalized_tokens_equal": true
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/stateproviders/BlockStateProviderType.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "fc71ce32c0489359791feda370087858b36f0a3b4d0776cfee705cbd45957b7d",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\stateproviders\\BlockStateProviderType.java",
+      "target_sha256": "318034397adb3de376239a8310337ad7196c01d167df77abae8171f82cb831fc",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/stateproviders/SimpleStateProvider.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "0018cf2600701322b3266abdea48754a1e7b60fe9c43565f072d06fc5151a863",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\stateproviders\\SimpleStateProvider.java",
+      "target_sha256": "6c226668d1de292fcaa157b2aa818fb29f215153bbcd2778d0d46025761418db",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/feature/stateproviders/WeightedStateProvider.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "c7aadf29e90eb30d3e9e7128ca2bb74bd9a8eb49c2790eba1bf6820c827ad1a0",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\stateproviders\\WeightedStateProvider.java",
+      "target_sha256": "6cf37ac59586ef0723b112349ed4230e6455ac4b1da2aa1cfc248f3a95f517b4",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/placement/PlacedFeature.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "8c3c3a07b897eb865f1bfab4f0059827e5bcf3e9645dacfa649e25e2729aab09",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\placement\\PlacedFeature.java",
+      "target_sha256": "7c21b727ae882b94ef42f7a2ff756ea7494026321e2b6ae506e8246f2e4f2b59",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/placement/PlacementModifier.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "495960be9d570d8468635222f442e02d93c3b8b5fbeab65c73f99dedadda541e",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\placement\\PlacementModifier.java",
+      "target_sha256": "3bf3157025f0cf96959e5d389d8d91ff4a8c5cabcf1e8d15307fcf0143915f0a",
+      "normalized_tokens_equal": true
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/placement/PlacementModifierType.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "d1f66825ccd97886d73c64c04e4ce96ff62008b731625b8a4a0420fcab21967d",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\placement\\PlacementModifierType.java",
+      "target_sha256": "ee85d6ebae0b39acec3b8885ce1ed0f661dd0f29fbfc785eaea7e20737e600a4",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/placement/CountPlacement.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "e21afcedbc8da5eaecb2c8f82bea0f2c4cedeaaaab5290a144d39b17e529964c",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\placement\\CountPlacement.java",
+      "target_sha256": "7bb0369f0b84988594c2b4fede2e9a6f2600db9eccc5a854a4fca7a99da6a6d8",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/placement/RarityFilter.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "dd966b269a8802486c7abca79d9c57487420371a4cfa23ccd6b6b7195c07fa21",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\placement\\RarityFilter.java",
+      "target_sha256": "c372e19a60f5c0e01919cc267b977f97e87a08ca50d908c45dda3851ba637396",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/placement/InSquarePlacement.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "290e9d154b4e1cb4677216ce9991a54cf4becd68c14dc20204a20ade53a6fd81",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\placement\\InSquarePlacement.java",
+      "target_sha256": "ab178839d38c029d7c6d779f97b32531629c99d16cdcf0c67271f4f8db2ba8ee",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/placement/HeightRangePlacement.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "dbdb81c92d759a7c337de5decfd5b3cbbe9803caa0f392852e3ed59060a8ebd7",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\placement\\HeightRangePlacement.java",
+      "target_sha256": "1dc0e75861b283eb344d3db75cb06d22c1c358a579c10d8b6ece50c26ef68dc3",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/placement/HeightmapPlacement.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "d253e2997d10c8493580e2383178e4b062527634014e956620f00a01d2616e3a",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\placement\\HeightmapPlacement.java",
+      "target_sha256": "b4b75d28b0c7159dc660c04087b84c4d582878a51c2e872ebfbc45e29bf75935",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/placement/BlockPredicateFilter.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "a9fbe81f4e9f33d2675082dac7d89665b088d7b25e3fec115bd765a4eea4c735",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\placement\\BlockPredicateFilter.java",
+      "target_sha256": "2b1a97eb95f4cad653e53831ee5c1fdf06477bb90ce1018a0c0cacac1f4a1a2e",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/placement/EnvironmentScanPlacement.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "14b4e437235f9b827e92b8fcb9861b11c4c65d3ddb80b98c564ad7386425e423",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\placement\\EnvironmentScanPlacement.java",
+      "target_sha256": "db9d5fbe8d950041609682a79167e789770298ebcebdf0da72221ad379e8666a",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/placement/BiomeFilter.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "15d42cf27f9153d5211b44a7c953537e4de2318e51e725efa5fc1e2549bcc90b",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\placement\\BiomeFilter.java",
+      "target_sha256": "821fc1afb900e3403ef52cd4ff931d9ef9afbb938c625670f3a593a2903ca23d",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/placement/SurfaceWaterDepthFilter.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "cdf72ee2c07652c9231114b7a80fe76a2d1ceb7414e709ab4c21ffd65ef44a24",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\placement\\SurfaceWaterDepthFilter.java",
+      "target_sha256": "4241e9d0d3bd4599e66db71579c071deef6b49d2599c27ffe721391f6f88464f",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/placement/RandomOffsetPlacement.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "416910455f332d87b0a8efec825538c0f67af5d897679d63b37fa538bd64682d",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\placement\\RandomOffsetPlacement.java",
+      "target_sha256": "eca8b3bc27618d083e0801bca09b718627f1aa492805096257d8c78a3b2266da",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/blockpredicates/BlockPredicate.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "5d3bd3e19cda78b26e3b1001c24210016b469b957def0b3611fe1bbcf83a4327",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\blockpredicates\\BlockPredicate.java",
+      "target_sha256": "c3d7c9c1904f84db4e8dacedfc03f84fe546941724e5c800d8c4f6b7b1907bd6",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/blockpredicates/BlockPredicateType.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "601c13a5dfdba4106f7eba12aa1f70cae6a7dc7ae711fd692754631af5c5d0ed",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\blockpredicates\\BlockPredicateType.java",
+      "target_sha256": "f37da56d4e2ffe25c043c4a3fb04c1782044cc9daa74431f2f154e1d02838dc8",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/blockpredicates/MatchingBlocksPredicate.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "27cce4eaa9bb463f8e6a878ea6bc25ef05b56495c6886143fbc5d25b4c5987be",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\blockpredicates\\MatchingBlocksPredicate.java",
+      "target_sha256": "4f45a0da57ef6ebed49a0a1c7cd3a976ac43535e00218ba1dabba03945eb4983",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/blockpredicates/MatchingFluidsPredicate.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "fef761c850bb284a711045fe17ee02824b1666c4e89ebeb87282d385e0e62240",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\blockpredicates\\MatchingFluidsPredicate.java",
+      "target_sha256": "77649d67995350ed989118e06599100f8f536130dd8cb4e68b1b00262ec92202",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/blockpredicates/StateTestingPredicate.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "24155d50e0cdeeab26e72888199ab6ed7f76bd63267cfbc50d6f891787014148",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\blockpredicates\\StateTestingPredicate.java",
+      "target_sha256": "5f7c9ce4258cda5e3e0c0c0ecc27df5e4b87153cfe29090bab4858c0f126931e",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/blockpredicates/SolidPredicate.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "2d58248eb483c1ad2f2811b33f341cfea472b59a876ead47b241e4ec087fa4e3",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\blockpredicates\\SolidPredicate.java",
+      "target_sha256": "061cb3cb23926bb484bb1f1dea9bb02591b4771715cf6f820119811f382a515d",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/blockpredicates/WouldSurvivePredicate.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "8a6b8ea29c4c4a7b0604e6b95a84e0b7c5ffbf75d217c4bc94d69b008a68c10c",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\blockpredicates\\WouldSurvivePredicate.java",
+      "target_sha256": "9fa50a90b63e060c93055b508f9efde10c392445313ca4dd51c51ab093408fa8",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/blockpredicates/CombiningPredicate.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "e9a9788634d24d36102dcdb863d00add4c3b4e92afb890ee2c671071d0bc21f4",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\blockpredicates\\CombiningPredicate.java",
+      "target_sha256": "e943a97475272fd922c725bededf3c3fbf21c3af8e1bbebf8e278ac77b385c4d",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/blockpredicates/AllOfPredicate.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "d8d0c58c1b5871911bcc2aa3a1edb3e58ea5cfd01fe91d5925777b62c51ed85a",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\blockpredicates\\AllOfPredicate.java",
+      "target_sha256": "78eabff5ccb85096e9983d75da6dbb3f1c33a3f7029d426e2802b45429ced493",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/blockpredicates/NotPredicate.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "7e9dc1823985dcd2baa35df7063b3aee8afa401f45fde7392ebad084da45a24e",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\blockpredicates\\NotPredicate.java",
+      "target_sha256": "57f1fb120c42f157ad93005fb10094071411ccfdff09716ae9cce4042e8efe10",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/heightproviders/HeightProvider.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "d1b4af574162920daf1a53d4fca01186a757f5f8bd33ad57c176a02271ed8bab",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\heightproviders\\HeightProvider.java",
+      "target_sha256": "c592cdba93c980456d7f5d0e6175f17caa1430fc31da70418f21b0be02af8af8",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/heightproviders/HeightProviderType.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "4d2e90620d40a78618fd40d38df802a23069619b2f3ac584feb003d73e38220e",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\heightproviders\\HeightProviderType.java",
+      "target_sha256": "3dce102cafd9cef816b9398416b5a28414520dd998a85d409742e3fcd8624f44",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/heightproviders/UniformHeight.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "6960ba0279d587d8f98be912839f6eaba23fcc4a026f0821b6ff67483854f21d",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\heightproviders\\UniformHeight.java",
+      "target_sha256": "ec771ecac16094a7b3a6b9ff2a83a0f43568fe306ea208004e4e26dd1f9d834f",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/heightproviders/TrapezoidHeight.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "64ac6f955f924afcd8ed7d024b70c48c7e671412c784b051d514beb504066826",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\heightproviders\\TrapezoidHeight.java",
+      "target_sha256": "df7ddec84520d5c9278d81442de3bf4ccd154c41101e2c16df7a75a6ccad9a7b",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/structure/templatesystem/RuleTest.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "8bb8561efc970219f378d5408075a0d32e6795b9a646dc43efaf94dd5e61fc7d",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\structure\\templatesystem\\RuleTest.java",
+      "target_sha256": "589848232c3e5169cb23167d58e875e6a043d84a3a5fb61476e1532250693385",
+      "normalized_tokens_equal": true
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/structure/templatesystem/RuleTestType.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "e9fb39d589047598aa8553550e5913cb6b49951bfb8c32698818ccb1d029beb6",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\structure\\templatesystem\\RuleTestType.java",
+      "target_sha256": "0fd46e3cf3d97fb4536bb5c376148a39d5e271ffd0fa4a1f1ead4538f44c938f",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/structure/templatesystem/BlockMatchTest.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "a6d999308580cfabd58d194e4d54444b81a000d03d7613257c11d4ce17df67cc",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\structure\\templatesystem\\BlockMatchTest.java",
+      "target_sha256": "30bbd5a0f7bbfed39efed5b176bc838ca993bb627095fbfb62ffb121bb5f7777",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/tags/TagKey.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "620b1b9c01b18311925ef2a73e27f9a69eb8358ab397dc5e20370cad15c6a317",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\tags\\TagKey.java",
+      "target_sha256": "301b63c9bb2bdf059f566813b8ea912988adcb8932a49cfa93ce5465cfed3821",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/block/state/BlockState.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "d8724d7f225a880977df454c8027191e67082f7101aa8c371d3d4a8f20a44e33",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\block\\state\\BlockState.java",
+      "target_sha256": "b73b650315479db0997cec9a129cf7991a06e37d093229e3ddf27488cfee513f",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/block/state/StateHolder.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "7b5e42d958275c268e5d9c03dd8e2f8b61d0dc2db1f5235481c2fd303f632f4b",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\block\\state\\StateHolder.java",
+      "target_sha256": "83de0e7ca4b2ca38abd235be84a888e1c74020c0d76b44f9fbbc3458b86c8b7f",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/block/LeavesBlock.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "9e46a0467670d4a3084465cddf4f64b3b6f861f5fbc15ac36e39c1ca77c1aec5",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\block\\LeavesBlock.java",
+      "target_sha256": "7132037d164ea0075414e4400bfb5d1c64e0334259a2c5f888ef660d918aa06e",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/block/SaplingBlock.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "8a4b38f6185b464848fdf3347304950c4357cdb5b4ab9a4c0d37138926f1cfcd",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\block\\SaplingBlock.java",
+      "target_sha256": "1307c169f2b2810c937d5a7069f284b0a5ef2354baa0d57736de80f93683eccf",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/Heightmap.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "3dacc5603987db91d4e3716863776b93a1bee51f15ac3ac0ec48204caa8c2fc5",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\Heightmap.java",
+      "target_sha256": "baf7ff966362bbe2c8664a1ad3778673d74d98dba2f373ebcbb7e9f72910d4fd",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/GenerationStep.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "f157a5001e24b81a03b5ebaaf91053f276c0b2e3600901843637ce2aa07c2f08",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\GenerationStep.java",
+      "target_sha256": "cef2a5ecdd6bc41edb2f8d101a3773b676edaa0e8a255fc83f3edddd128e55dc",
+      "normalized_tokens_equal": false
+    },
+    {
+      "name": "net/minecraft/world/level/levelgen/VerticalAnchor.java",
+      "original_source_jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "original_sha256": "16fdc4aa7451e2700e934c78c623583c0ec78e3b3961b802925019ddf83b3d7c",
+      "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\VerticalAnchor.java",
+      "target_sha256": "5b322948f2526141340af968b4e80ecb80729a97500006abc49fab9429dda829",
+      "normalized_tokens_equal": false
+    }
+  ],
+  "method_comparisons": [
+    {
+      "source": "net/minecraft/world/level/levelgen/feature/GeodeFeature.java",
+      "method": "boolean place(",
+      "original_method_sha256": "8737382a8a0a1587eb12da6bc689085b5ceb371210e4a4c5753e912c5d962591",
+      "target_method_sha256": "b8da71ad57e46dcfb87ba10309edcbcae2cfb81f40ec58868f5e81e74217c154",
+      "normalized_equal": true,
+      "remaining_token_differences": []
+    },
+    {
+      "source": "net/minecraft/world/level/levelgen/feature/RandomSelectorFeature.java",
+      "method": "boolean place(",
+      "original_method_sha256": "ec88de93fa613b469ec941bcdad1be0244506232d8961a92c91a9def2cf54873",
+      "target_method_sha256": "dabf10522942385a13465a8f49a5335a85a6f3f6e17e477701b5fe2b0cf5ab0e",
+      "normalized_equal": true,
+      "remaining_token_differences": []
+    },
+    {
+      "source": "net/minecraft/world/level/levelgen/feature/RandomPatchFeature.java",
+      "method": "boolean place(",
+      "original_method_sha256": "32ce12a5bd1c1c3ae7735c8d2b63c3aa7cbee9f90380c1953d25b28af6b488c3",
+      "target_method_sha256": "a7aead5b586414665e91451093f903890b7cfa5f67c325a7a08e27fcc1b7e41a",
+      "normalized_equal": true,
+      "remaining_token_differences": []
+    },
+    {
+      "source": "net/minecraft/world/level/levelgen/feature/BlockColumnFeature.java",
+      "method": "boolean place(",
+      "original_method_sha256": "178f657e31e8d8ce88ba349a0ed28ca126fb3d51171e5b67ca8070ef11723a7c",
+      "target_method_sha256": "0c0ded88d0de7292af97dcc1aabac230f36178eecfbf42cb47135775f2336655",
+      "normalized_equal": true,
+      "remaining_token_differences": []
+    },
+    {
+      "source": "net/minecraft/world/level/levelgen/feature/ReplaceBlobsFeature.java",
+      "method": "boolean place(",
+      "original_method_sha256": "bea34c49fae04224bcc34efd4664a4d4ab3ed748c754ba93ebd77d4dc62ee8ea",
+      "target_method_sha256": "00f0d8e77e30a8dd03603b46bf6f4fc57639eceefb1cca54423d8c831705594c",
+      "normalized_equal": true,
+      "remaining_token_differences": []
+    },
+    {
+      "source": "net/minecraft/world/level/levelgen/feature/ScatteredOreFeature.java",
+      "method": "boolean place(",
+      "original_method_sha256": "ad8c52c27b6a4fa7eb59e297d2ceb69a5e2990a1ed63ed566d744bf323fe4b8d",
+      "target_method_sha256": "ce555d09e66fca1bd196be4b8bcb4704c3cf64fde3793b8ac203a9dc6b978e56",
+      "normalized_equal": true,
+      "remaining_token_differences": []
+    },
+    {
+      "source": "net/minecraft/world/level/levelgen/feature/OreFeature.java",
+      "method": "boolean place(",
+      "original_method_sha256": "fb290f494599a80bd356fcc62ffe89586fc64ab1a7a3fed43b7fbf80447b63c1",
+      "target_method_sha256": "9bf99a2845191f289b1172615812e792600db0c037ab565d6c9ac84d795a3c18",
+      "normalized_equal": true,
+      "remaining_token_differences": []
+    },
+    {
+      "source": "net/minecraft/world/level/levelgen/feature/SimpleBlockFeature.java",
+      "method": "boolean place(",
+      "original_method_sha256": "e682128d3ad59368706ba9b415316be0fb7030946d7f13c169c44ee0f1238d40",
+      "target_method_sha256": "964d3d96f2c9158427af56694589af12021681063c99affe905b574522e4d355",
+      "normalized_equal": true,
+      "remaining_token_differences": []
+    },
+    {
+      "source": "net/minecraft/world/level/levelgen/feature/BlockBlobFeature.java",
+      "method": "boolean place(",
+      "original_method_sha256": "8b6953a546825a6328a1feb0085b7abfb8a5720268808eb0702a7129379ddf04",
+      "target_method_sha256": "91a2a893b8e319ac9ea5d4094d507796f298d0c2b0d16ff475038b1b7c3e514f",
+      "normalized_equal": true,
+      "remaining_token_differences": []
+    },
+    {
+      "source": "net/minecraft/world/level/levelgen/feature/BlockPileFeature.java",
+      "method": "boolean place(",
+      "original_method_sha256": "33f6d08189098b2d55e2ec3f85fa6de9b18956d1de18adb17377f70ff10fb662",
+      "target_method_sha256": "a47372d492eb1577397daf6979fe6afa96f427364f4e0883178b30773728c0cb",
+      "normalized_equal": true,
+      "remaining_token_differences": []
+    },
+    {
+      "source": "net/minecraft/world/level/levelgen/feature/LakeFeature.java",
+      "method": "boolean place(",
+      "original_method_sha256": "732f729a4a30f36cfae5d7c41d8a4b7d50fa00801dae95e2708819278a709197",
+      "target_method_sha256": "2830930bb27d0ec985081e13225a9993746e704250989c711027244822813cc5",
+      "normalized_equal": true,
+      "remaining_token_differences": []
+    },
+    {
+      "source": "net/minecraft/world/level/levelgen/feature/TreeFeature.java",
+      "method": "boolean place(",
+      "original_method_sha256": "4e4eb49d95a6493d27ebb343b24232ad7e9537b16f69800c3abeda93812f538b",
+      "target_method_sha256": "afc70afcdde68491219a2dea2ad925e0e24d6fb5d67d9e1a133fc73a5227d30a",
+      "normalized_equal": true,
+      "remaining_token_differences": []
+    },
+    {
+      "source": "net/minecraft/world/level/levelgen/feature/TreeFeature.java",
+      "method": "private boolean doPlace(",
+      "original_method_sha256": "587873ceb97764bde3ecb35cbeb238fb5039fdd89e3924be6faec4519d177186",
+      "target_method_sha256": "a36ded5ea9c51c24f0df849264805f292210b8461e46b3287f78e2fa5d943de0",
+      "normalized_equal": true,
+      "remaining_token_differences": []
+    },
+    {
+      "source": "net/minecraft/world/level/levelgen/feature/TreeFeature.java",
+      "method": "private int getMaxFreeTreeHeight(",
+      "original_method_sha256": "cfc373bac4eab45f446ceb043d8ef9bb0ca7f3e3f379d47c0fc547c3687b619a",
+      "target_method_sha256": "13503742377b9e6dff7fb3694a5f7621ca5a8502232e854106351085a2b5eca3",
+      "normalized_equal": true,
+      "remaining_token_differences": []
+    },
+    {
+      "source": "net/minecraft/world/level/levelgen/feature/trunkplacers/CherryTrunkPlacer.java",
+      "method": "public List<FoliagePlacer.FoliageAttachment> placeTrunk(",
+      "original_method_sha256": "5127b582ec889067b71cd7cc07b7ba3d61286883d00f574e5c9620163aa13a74",
+      "target_method_sha256": "2901fe5f1c0257b4193540b1be65bba3cf91c0888cd808afbc37ed11e547073d",
+      "normalized_equal": true,
+      "remaining_token_differences": []
+    },
+    {
+      "source": "net/minecraft/world/level/levelgen/feature/trunkplacers/CherryTrunkPlacer.java",
+      "method": "private FoliagePlacer.FoliageAttachment generateBranch(",
+      "original_method_sha256": "2abe44d0cf6ac2de764b641e0bb991e0c7a582963dc5ecaf9bcd1dfc3ff972d4",
+      "target_method_sha256": "e169d03c7ac78698d366c5347422de25fccc64c5b18ceee51fe2498d84bbc821",
+      "normalized_equal": true,
+      "remaining_token_differences": []
+    },
+    {
+      "source": "net/minecraft/world/level/levelgen/feature/foliageplacers/CherryFoliagePlacer.java",
+      "method": "protected void createFoliage(",
+      "original_method_sha256": "253281a01ceaaedfcd75f730c0b1d18fbec161b06f6b0c0d19002e94be8577a2",
+      "target_method_sha256": "a81ec75395cf724532101de79c22e454bda1b6f231358273ff38c1bd18ddf200",
+      "normalized_equal": true,
+      "remaining_token_differences": []
+    },
+    {
+      "source": "net/minecraft/world/level/levelgen/feature/foliageplacers/SpruceFoliagePlacer.java",
+      "method": "protected void createFoliage(",
+      "original_method_sha256": "9e9bc1a77ed9400181909226b03edcb37d8dc5f91571acc46df46185f09b879b",
+      "target_method_sha256": "a7ee6bebf188b784133fcbc177fa8e6e8764edf2687e29b0426d3f90c1b46d94",
+      "normalized_equal": true,
+      "remaining_token_differences": []
+    },
+    {
+      "source": "net/minecraft/world/level/levelgen/feature/foliageplacers/BushFoliagePlacer.java",
+      "method": "protected void createFoliage(",
+      "original_method_sha256": "01646c762572224a1b7ec85b4e2c6df157fa8a1210785f9734fedbe7708f0afb",
+      "target_method_sha256": "4a0e4c4e2ce9466cde5e54af6269751daec8c70fec22a42f8941d1c95465ebbe",
+      "normalized_equal": true,
+      "remaining_token_differences": []
+    }
+  ],
+  "default_value_comparisons": [
+    {
+      "source": "net/minecraft/world/level/levelgen/GeodeLayerSettings.java",
+      "original_defaults": {
+        "filling": "1.7",
+        "inner_layer": "2.2",
+        "middle_layer": "3.2",
+        "outer_layer": "4.2"
+      },
+      "target_defaults": {
+        "filling": "1.7",
+        "inner_layer": "2.2",
+        "middle_layer": "3.2",
+        "outer_layer": "4.2"
+      },
+      "equal": true
+    },
+    {
+      "source": "net/minecraft/world/level/levelgen/GeodeCrackSettings.java",
+      "original_defaults": {
+        "generate_crack_chance": "1.0",
+        "base_crack_size": "2.0",
+        "crack_point_offset": "2"
+      },
+      "target_defaults": {
+        "generate_crack_chance": "1.0",
+        "base_crack_size": "2.0",
+        "crack_point_offset": "2"
+      },
+      "equal": true
+    },
+    {
+      "source": "net/minecraft/world/level/levelgen/feature/configurations/GeodeConfiguration.java",
+      "original_defaults": {
+        "use_potential_placements_chance": "0.35",
+        "use_alternate_layer0_chance": "0.0",
+        "placements_require_layer0_alternate": "true",
+        "outer_wall_distance": "UniformInt.of(4,5)",
+        "distribution_points": "UniformInt.of(3,4)",
+        "point_offset": "UniformInt.of(1,2)",
+        "min_gen_offset": "-16",
+        "max_gen_offset": "16",
+        "noise_multiplier": "0.05"
+      },
+      "target_defaults": {
+        "use_potential_placements_chance": "0.35",
+        "use_alternate_layer0_chance": "0.0",
+        "placements_require_layer0_alternate": "true",
+        "outer_wall_distance": "UniformInt.of(4,5)",
+        "distribution_points": "UniformInt.of(3,4)",
+        "point_offset": "UniformInt.of(1,2)",
+        "min_gen_offset": "-16",
+        "max_gen_offset": "16",
+        "noise_multiplier": "0.05"
+      },
+      "equal": true
+    },
+    {
+      "source": "net/minecraft/world/level/levelgen/feature/configurations/RandomPatchConfiguration.java",
+      "original_defaults": {
+        "tries": "128",
+        "xz_spread": "7",
+        "y_spread": "3"
+      },
+      "target_defaults": {
+        "tries": "128",
+        "xz_spread": "7",
+        "y_spread": "3"
+      },
+      "equal": true
+    },
+    {
+      "source": "net/minecraft/world/level/levelgen/feature/configurations/TreeConfiguration.java",
+      "original_defaults": {
+        "ignore_vines": "false",
+        "force_dirt": "false"
+      },
+      "target_defaults": {
+        "ignore_vines": "false",
+        "force_dirt": "false"
+      },
+      "equal": true
+    }
+  ],
+  "normalization_limits": "仅移除格式、Override标注、已推导的BlockPos类型参数、反编译单表达式lambda外壳、循环更新的自增/自减前后形式、先加一再比较和if内前缀加一的等价形式、double字面量后缀及Pair<Integer>显式拆箱；不是编译器等价证明。全部19个所选方法均无剩余差异。",
+  "target_mod_sources": [
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\block\\Blocks.java",
+      "sha256": "c38a694404ba0e0317f744f368ae9a3a44a8bd95f03f3ac65ec9bc78d5d96a58"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\neoforged\\neoforge\\common\\NeoForgeMod.java",
+      "sha256": "4a51c8bd786b7b25ad39893fe97ffca3d2161287aba3e9cf5cf4a5421d97353a"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\neoforged\\neoforge\\common\\world\\BiomeModifiers.java",
+      "sha256": "6accc01fea47e128b14e4e3dcce1853df974a26ac2522c95d69b9b4445dfe7a6"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\crates\\CrateContent.java",
+      "sha256": "bf2cf75698d6ae1fa0b0266e68f24ca1c70bc933d3de78822c1e41f6b831be06"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\nativeblocks\\NativeDecorContent.java",
+      "sha256": "b158a0665b55b54678ec9e36aabb5f5ded0c698c7d758fa344befb0c4d044001"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\MaterialContent.java",
+      "sha256": "1d6518d8cc39102c5850164eaf5cc09f6e9d2f7f78efbd10aca00f2494c8ed52"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\terrain\\TerrainContent.java",
+      "sha256": "cd1805d6fdefa9f53b232f92b36ce7b04efbf3523ae6e80579155a6279e894df"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\terrain\\UnderbrushLeaves.java",
+      "sha256": "c519422d70b0bbb25fd25445352c61967f10b6d18d10aa66c9b0fa4e88618f54"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\world\\geodes\\ConditionalGeodeFeature.java",
+      "sha256": "31702f5507e58783b6d3d6bc7ee3b4c22b726e554d55f669345361c528ca8b32"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\world\\geodes\\GeodeContent.java",
+      "sha256": "963818ed74553bef5f692f60975734101398144bdb9f82eb860ec9483e4d7bd0"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\world\\ore\\ConditionalOreFeature.java",
+      "sha256": "72f80411222a8480ce08423ed7aaf7d5c225df210859da2b505b876111243d8b"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\world\\WorldProgressData.java",
+      "sha256": "881fd97b4093278b1504a183b25d43538f3f8d42f49fc25a9aae7da641424f9e"
+    }
+  ],
+  "vanilla_geode_tags": [
+    {
+      "jar": "C:\\Users\\30819\\.gradle\\caches\\neoformruntime\\artifacts\\minecraft_1.21.1_client.jar",
+      "path": "data/minecraft/tags/block/features_cannot_replace.json",
+      "sha256": "a117e03f857eacf14ff5862ba6f885bb02b476a844b683c2be61211202a9a10d",
+      "data": {
+        "values": [
+          "minecraft:bedrock",
+          "minecraft:spawner",
+          "minecraft:chest",
+          "minecraft:end_portal_frame",
+          "minecraft:reinforced_deepslate",
+          "minecraft:trial_spawner",
+          "minecraft:vault"
+        ]
+      },
+      "original_path": "data/minecraft/tags/blocks/features_cannot_replace.json",
+      "original_sha256": "9889d933507a46feaf61e9317e4c9cc61a89498b2cd23bae8232861e98fdbbe6",
+      "original_data": {
+        "values": [
+          "minecraft:bedrock",
+          "minecraft:spawner",
+          "minecraft:chest",
+          "minecraft:end_portal_frame",
+          "minecraft:reinforced_deepslate"
+        ]
+      },
+      "all_original_members_preserved": true,
+      "new_vanilla_members": [
+        "minecraft:trial_spawner",
+        "minecraft:vault"
+      ]
+    },
+    {
+      "jar": "C:\\Users\\30819\\.gradle\\caches\\neoformruntime\\artifacts\\minecraft_1.21.1_client.jar",
+      "path": "data/minecraft/tags/block/geode_invalid_blocks.json",
+      "sha256": "bdf2c9f19d40e9648c58eb6ebe9583e32102a88acda417d89bb8ec8151b93313",
+      "data": {
+        "values": [
+          "minecraft:bedrock",
+          "minecraft:water",
+          "minecraft:lava",
+          "minecraft:ice",
+          "minecraft:packed_ice",
+          "minecraft:blue_ice"
+        ]
+      },
+      "original_path": "data/minecraft/tags/blocks/geode_invalid_blocks.json",
+      "original_sha256": "bdf2c9f19d40e9648c58eb6ebe9583e32102a88acda417d89bb8ec8151b93313",
+      "original_data": {
+        "values": [
+          "minecraft:bedrock",
+          "minecraft:water",
+          "minecraft:lava",
+          "minecraft:ice",
+          "minecraft:packed_ice",
+          "minecraft:blue_ice"
+        ]
+      },
+      "all_original_members_preserved": true,
+      "new_vanilla_members": []
+    }
+  ],
+  "limits": "基于实际依赖源码核Codec/随机逻辑，不声明已运行游戏、Codec解码或渲染。",
+  "original_mod_classes": [
+    {
+      "path": "world/features/BismuthGeodeFeature.class",
+      "sha256": "7cb9575c3a872d381630859fedc0520c6305dd4aef603d0eaff55813291a2e4c"
+    },
+    {
+      "path": "world/features/MalachiteGeodeFeature.class",
+      "sha256": "d7c3ba817b45046f842657632ebeea463ebf2939a72ff48124a2db1ae3eed452"
+    },
+    {
+      "path": "procedures/BismuthGenVarProcedure.class",
+      "sha256": "592c366c8fd726a605e09910b72b5906421a0076da7f320682209c2a8edc8c0e"
+    },
+    {
+      "path": "procedures/MalachiteGenVarProcedure.class",
+      "sha256": "313557578b3f1a400c75b7596f4a9359aeec1ebfe7859a7d9ba72cace003d7cd"
+    },
+    {
+      "path": "procedures/HelionStabilizerOnBlockRightClickedProcedure.class",
+      "sha256": "a7a5d09fe85c17c5bd278445be75e58ecf152931fcd0175d09fcecb969548718"
+    },
+    {
+      "path": "init/ThermalShockModFeatures.class",
+      "sha256": "86f2f019137dfd9d43f05f8c2a684d80f1a0c99fc75d70519565a014227dee10"
+    },
+    {
+      "path": "network/ThermalShockModVariables.class",
+      "sha256": "aa14ed66447947557a2a93bdc70bb6c0a473f976134acbd5b7c257424c8b65d1"
+    }
+  ],
+  "codec_field_evidence": [
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\util\\valueproviders\\IntProvider.java",
+      "sha256": "d0e23d96597664e5d050007ca036d8079eb4f83e23489dcee08ebe20744fda43",
+      "fields_and_dispatch": [
+        {
+          "line": 11,
+          "context": "    private static final Codec<Either<Integer, IntProvider>> CONSTANT_OR_DISPATCH_CODEC = Codec.either(\n        Codec.INT, BuiltInRegistries.INT_PROVIDER_TYPE.byNameCodec().dispatch(IntProvider::getType, IntProviderType::codec)\n    );"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\util\\valueproviders\\UniformInt.java",
+      "sha256": "00c9cf02c7b1bf01d5139c0c86526c83a3e5b9c1299b643425cba332648a7875",
+      "fields_and_dispatch": [
+        {
+          "line": 14,
+          "context": "            p_146628_ -> p_146628_.group(\n                        Codec.INT.fieldOf(\"min_inclusive\").forGetter(p_146636_ -> p_146636_.minInclusive),\n                        Codec.INT.fieldOf(\"max_inclusive\").forGetter(p_146633_ -> p_146633_.maxInclusive)"
+        },
+        {
+          "line": 15,
+          "context": "                        Codec.INT.fieldOf(\"min_inclusive\").forGetter(p_146636_ -> p_146636_.minInclusive),\n                        Codec.INT.fieldOf(\"max_inclusive\").forGetter(p_146633_ -> p_146633_.maxInclusive)\n                    )"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\util\\valueproviders\\WeightedListInt.java",
+      "sha256": "d31a2fbb337e7037130ca3017a1e95251aceddf8c7c6b95fe7d23b439853fd8b",
+      "fields_and_dispatch": [
+        {
+          "line": 14,
+          "context": "        p_185920_ -> p_185920_.group(\n                    SimpleWeightedRandomList.wrappedCodec(IntProvider.CODEC).fieldOf(\"distribution\").forGetter(p_185918_ -> p_185918_.distribution)\n                )"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\util\\valueproviders\\ConstantInt.java",
+      "sha256": "a96a1c6a2a82e86ff9ca9d8e069fb30b5fb10248658e8bb4125575d8895e25ed",
+      "fields_and_dispatch": [
+        {
+          "line": 9,
+          "context": "    public static final ConstantInt ZERO = new ConstantInt(0);\n    public static final MapCodec<ConstantInt> CODEC = Codec.INT.fieldOf(\"value\").xmap(ConstantInt::of, ConstantInt::getValue);\n    private final int value;"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\util\\random\\WeightedEntry.java",
+      "sha256": "89cdb71f35e521f3be5dc7572273b5ef4e3b30bd7e35abe850cf8b218b8294de",
+      "fields_and_dispatch": [
+        {
+          "line": 42,
+          "context": "                p_146309_ -> p_146309_.group(\n                            p_146306_.fieldOf(\"data\").forGetter((Function<WeightedEntry.Wrapper<E>, E>)(WeightedEntry.Wrapper::data)),\n                            Weight.CODEC.fieldOf(\"weight\").forGetter(WeightedEntry.Wrapper::weight)"
+        },
+        {
+          "line": 43,
+          "context": "                            p_146306_.fieldOf(\"data\").forGetter((Function<WeightedEntry.Wrapper<E>, E>)(WeightedEntry.Wrapper::data)),\n                            Weight.CODEC.fieldOf(\"weight\").forGetter(WeightedEntry.Wrapper::weight)\n                        )"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\GeodeBlockSettings.java",
+      "sha256": "6705a202657d37bab651f5afc7342813f4318f4ef86e8d05251e891a8b9cde46",
+      "fields_and_dispatch": [
+        {
+          "line": 25,
+          "context": "        p_158307_ -> p_158307_.group(\n                    BlockStateProvider.CODEC.fieldOf(\"filling_provider\").forGetter(p_158323_ -> p_158323_.fillingProvider),\n                    BlockStateProvider.CODEC.fieldOf(\"inner_layer_provider\").forGetter(p_158321_ -> p_158321_.innerLayerProvider),"
+        },
+        {
+          "line": 26,
+          "context": "                    BlockStateProvider.CODEC.fieldOf(\"filling_provider\").forGetter(p_158323_ -> p_158323_.fillingProvider),\n                    BlockStateProvider.CODEC.fieldOf(\"inner_layer_provider\").forGetter(p_158321_ -> p_158321_.innerLayerProvider),\n                    BlockStateProvider.CODEC.fieldOf(\"alternate_inner_layer_provider\").forGetter(p_158319_ -> p_158319_.alternateInnerLayerProvider),"
+        },
+        {
+          "line": 27,
+          "context": "                    BlockStateProvider.CODEC.fieldOf(\"inner_layer_provider\").forGetter(p_158321_ -> p_158321_.innerLayerProvider),\n                    BlockStateProvider.CODEC.fieldOf(\"alternate_inner_layer_provider\").forGetter(p_158319_ -> p_158319_.alternateInnerLayerProvider),\n                    BlockStateProvider.CODEC.fieldOf(\"middle_layer_provider\").forGetter(p_158317_ -> p_158317_.middleLayerProvider),"
+        },
+        {
+          "line": 28,
+          "context": "                    BlockStateProvider.CODEC.fieldOf(\"alternate_inner_layer_provider\").forGetter(p_158319_ -> p_158319_.alternateInnerLayerProvider),\n                    BlockStateProvider.CODEC.fieldOf(\"middle_layer_provider\").forGetter(p_158317_ -> p_158317_.middleLayerProvider),\n                    BlockStateProvider.CODEC.fieldOf(\"outer_layer_provider\").forGetter(p_158315_ -> p_158315_.outerLayerProvider),"
+        },
+        {
+          "line": 29,
+          "context": "                    BlockStateProvider.CODEC.fieldOf(\"middle_layer_provider\").forGetter(p_158317_ -> p_158317_.middleLayerProvider),\n                    BlockStateProvider.CODEC.fieldOf(\"outer_layer_provider\").forGetter(p_158315_ -> p_158315_.outerLayerProvider),\n                    ExtraCodecs.nonEmptyList(BlockState.CODEC.listOf()).fieldOf(\"inner_placements\").forGetter(p_158313_ -> p_158313_.innerPlacements),"
+        },
+        {
+          "line": 30,
+          "context": "                    BlockStateProvider.CODEC.fieldOf(\"outer_layer_provider\").forGetter(p_158315_ -> p_158315_.outerLayerProvider),\n                    ExtraCodecs.nonEmptyList(BlockState.CODEC.listOf()).fieldOf(\"inner_placements\").forGetter(p_158313_ -> p_158313_.innerPlacements),\n                    TagKey.hashedCodec(Registries.BLOCK).fieldOf(\"cannot_replace\").forGetter(p_204566_ -> p_204566_.cannotReplace),"
+        },
+        {
+          "line": 31,
+          "context": "                    ExtraCodecs.nonEmptyList(BlockState.CODEC.listOf()).fieldOf(\"inner_placements\").forGetter(p_158313_ -> p_158313_.innerPlacements),\n                    TagKey.hashedCodec(Registries.BLOCK).fieldOf(\"cannot_replace\").forGetter(p_204566_ -> p_204566_.cannotReplace),\n                    TagKey.hashedCodec(Registries.BLOCK).fieldOf(\"invalid_blocks\").forGetter(p_204564_ -> p_204564_.invalidBlocks)"
+        },
+        {
+          "line": 32,
+          "context": "                    TagKey.hashedCodec(Registries.BLOCK).fieldOf(\"cannot_replace\").forGetter(p_204566_ -> p_204566_.cannotReplace),\n                    TagKey.hashedCodec(Registries.BLOCK).fieldOf(\"invalid_blocks\").forGetter(p_204564_ -> p_204564_.invalidBlocks)\n                )"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\GeodeLayerSettings.java",
+      "sha256": "36d5936c7b92686bc9c26a9ab4bac00b1e731cfeabb34c924353728f3f7a12cf",
+      "fields_and_dispatch": [
+        {
+          "line": 11,
+          "context": "        p_158354_ -> p_158354_.group(\n                    LAYER_RANGE.fieldOf(\"filling\").orElse(1.7).forGetter(p_158362_ -> p_158362_.filling),\n                    LAYER_RANGE.fieldOf(\"inner_layer\").orElse(2.2).forGetter(p_158360_ -> p_158360_.innerLayer),"
+        },
+        {
+          "line": 12,
+          "context": "                    LAYER_RANGE.fieldOf(\"filling\").orElse(1.7).forGetter(p_158362_ -> p_158362_.filling),\n                    LAYER_RANGE.fieldOf(\"inner_layer\").orElse(2.2).forGetter(p_158360_ -> p_158360_.innerLayer),\n                    LAYER_RANGE.fieldOf(\"middle_layer\").orElse(3.2).forGetter(p_158358_ -> p_158358_.middleLayer),"
+        },
+        {
+          "line": 13,
+          "context": "                    LAYER_RANGE.fieldOf(\"inner_layer\").orElse(2.2).forGetter(p_158360_ -> p_158360_.innerLayer),\n                    LAYER_RANGE.fieldOf(\"middle_layer\").orElse(3.2).forGetter(p_158358_ -> p_158358_.middleLayer),\n                    LAYER_RANGE.fieldOf(\"outer_layer\").orElse(4.2).forGetter(p_158356_ -> p_158356_.outerLayer)"
+        },
+        {
+          "line": 14,
+          "context": "                    LAYER_RANGE.fieldOf(\"middle_layer\").orElse(3.2).forGetter(p_158358_ -> p_158358_.middleLayer),\n                    LAYER_RANGE.fieldOf(\"outer_layer\").orElse(4.2).forGetter(p_158356_ -> p_158356_.outerLayer)\n                )"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\GeodeCrackSettings.java",
+      "sha256": "d80c4fd662a03ebcbaf91d14406d565210dbbc34e2bacb0c0c79b94bf54cd71c",
+      "fields_and_dispatch": [
+        {
+          "line": 11,
+          "context": "        p_158334_ -> p_158334_.group(\n                    GeodeConfiguration.CHANCE_RANGE.fieldOf(\"generate_crack_chance\").orElse(1.0).forGetter(p_158340_ -> p_158340_.generateCrackChance),\n                    Codec.doubleRange(0.0, 5.0).fieldOf(\"base_crack_size\").orElse(2.0).forGetter(p_158338_ -> p_158338_.baseCrackSize),"
+        },
+        {
+          "line": 12,
+          "context": "                    GeodeConfiguration.CHANCE_RANGE.fieldOf(\"generate_crack_chance\").orElse(1.0).forGetter(p_158340_ -> p_158340_.generateCrackChance),\n                    Codec.doubleRange(0.0, 5.0).fieldOf(\"base_crack_size\").orElse(2.0).forGetter(p_158338_ -> p_158338_.baseCrackSize),\n                    Codec.intRange(0, 10).fieldOf(\"crack_point_offset\").orElse(2).forGetter(p_158336_ -> p_158336_.crackPointOffset)"
+        },
+        {
+          "line": 13,
+          "context": "                    Codec.doubleRange(0.0, 5.0).fieldOf(\"base_crack_size\").orElse(2.0).forGetter(p_158338_ -> p_158338_.baseCrackSize),\n                    Codec.intRange(0, 10).fieldOf(\"crack_point_offset\").orElse(2).forGetter(p_158336_ -> p_158336_.crackPointOffset)\n                )"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\Feature.java",
+      "sha256": "a77b2d10358a0dbb04af34731953ab14e642e9ed0ea36104a5f6e1cfb268e375",
+      "fields_and_dispatch": [
+        {
+          "line": 166,
+          "context": "    public Feature(Codec<FC> p_65786_) {\n        this.configuredCodec = p_65786_.fieldOf(\"config\").xmap(p_65806_ -> new ConfiguredFeature<>(this, (FC)p_65806_), ConfiguredFeature::config);\n    }"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\LakeFeature.java",
+      "sha256": "c82359a04d15f706888f1cdfb0405e41768cb8786c5ede06757e60cd8d1c6d58",
+      "fields_and_dispatch": [
+        {
+          "line": 157,
+          "context": "            p_190962_ -> p_190962_.group(\n                        BlockStateProvider.CODEC.fieldOf(\"fluid\").forGetter(LakeFeature.Configuration::fluid),\n                        BlockStateProvider.CODEC.fieldOf(\"barrier\").forGetter(LakeFeature.Configuration::barrier)"
+        },
+        {
+          "line": 158,
+          "context": "                        BlockStateProvider.CODEC.fieldOf(\"fluid\").forGetter(LakeFeature.Configuration::fluid),\n                        BlockStateProvider.CODEC.fieldOf(\"barrier\").forGetter(LakeFeature.Configuration::barrier)\n                    )"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\ConfiguredFeature.java",
+      "sha256": "8c53a09f5a5c4ac2b28322c5928254058feb270520d7e5a8e108917212085803",
+      "fields_and_dispatch": [
+        {
+          "line": 20,
+          "context": "        .byNameCodec()\n        .dispatch(p_65391_ -> p_65391_.feature, Feature::configuredCodec);\n    public static final Codec<Holder<ConfiguredFeature<?, ?>>> CODEC = RegistryFileCodec.create(Registries.CONFIGURED_FEATURE, DIRECT_CODEC);"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\configurations\\GeodeConfiguration.java",
+      "sha256": "f9021ab0b6ea905cab0b69c3f446b4cba119c822bc6e311c0decce8e81eb06d8",
+      "fields_and_dispatch": [
+        {
+          "line": 16,
+          "context": "        p_160842_ -> p_160842_.group(\n                    GeodeBlockSettings.CODEC.fieldOf(\"blocks\").forGetter(p_160868_ -> p_160868_.geodeBlockSettings),\n                    GeodeLayerSettings.CODEC.fieldOf(\"layers\").forGetter(p_160866_ -> p_160866_.geodeLayerSettings),"
+        },
+        {
+          "line": 17,
+          "context": "                    GeodeBlockSettings.CODEC.fieldOf(\"blocks\").forGetter(p_160868_ -> p_160868_.geodeBlockSettings),\n                    GeodeLayerSettings.CODEC.fieldOf(\"layers\").forGetter(p_160866_ -> p_160866_.geodeLayerSettings),\n                    GeodeCrackSettings.CODEC.fieldOf(\"crack\").forGetter(p_160864_ -> p_160864_.geodeCrackSettings),"
+        },
+        {
+          "line": 18,
+          "context": "                    GeodeLayerSettings.CODEC.fieldOf(\"layers\").forGetter(p_160866_ -> p_160866_.geodeLayerSettings),\n                    GeodeCrackSettings.CODEC.fieldOf(\"crack\").forGetter(p_160864_ -> p_160864_.geodeCrackSettings),\n                    CHANCE_RANGE.fieldOf(\"use_potential_placements_chance\").orElse(0.35).forGetter(p_160862_ -> p_160862_.usePotentialPlacementsChance),"
+        },
+        {
+          "line": 19,
+          "context": "                    GeodeCrackSettings.CODEC.fieldOf(\"crack\").forGetter(p_160864_ -> p_160864_.geodeCrackSettings),\n                    CHANCE_RANGE.fieldOf(\"use_potential_placements_chance\").orElse(0.35).forGetter(p_160862_ -> p_160862_.usePotentialPlacementsChance),\n                    CHANCE_RANGE.fieldOf(\"use_alternate_layer0_chance\").orElse(0.0).forGetter(p_160860_ -> p_160860_.useAlternateLayer0Chance),"
+        },
+        {
+          "line": 20,
+          "context": "                    CHANCE_RANGE.fieldOf(\"use_potential_placements_chance\").orElse(0.35).forGetter(p_160862_ -> p_160862_.usePotentialPlacementsChance),\n                    CHANCE_RANGE.fieldOf(\"use_alternate_layer0_chance\").orElse(0.0).forGetter(p_160860_ -> p_160860_.useAlternateLayer0Chance),\n                    Codec.BOOL.fieldOf(\"placements_require_layer0_alternate\").orElse(true).forGetter(p_160858_ -> p_160858_.placementsRequireLayer0Alternate),"
+        },
+        {
+          "line": 21,
+          "context": "                    CHANCE_RANGE.fieldOf(\"use_alternate_layer0_chance\").orElse(0.0).forGetter(p_160860_ -> p_160860_.useAlternateLayer0Chance),\n                    Codec.BOOL.fieldOf(\"placements_require_layer0_alternate\").orElse(true).forGetter(p_160858_ -> p_160858_.placementsRequireLayer0Alternate),\n                    IntProvider.codec(1, 20).fieldOf(\"outer_wall_distance\").orElse(UniformInt.of(4, 5)).forGetter(p_160856_ -> p_160856_.outerWallDistance),"
+        },
+        {
+          "line": 22,
+          "context": "                    Codec.BOOL.fieldOf(\"placements_require_layer0_alternate\").orElse(true).forGetter(p_160858_ -> p_160858_.placementsRequireLayer0Alternate),\n                    IntProvider.codec(1, 20).fieldOf(\"outer_wall_distance\").orElse(UniformInt.of(4, 5)).forGetter(p_160856_ -> p_160856_.outerWallDistance),\n                    IntProvider.codec(1, 20).fieldOf(\"distribution_points\").orElse(UniformInt.of(3, 4)).forGetter(p_160854_ -> p_160854_.distributionPoints),"
+        },
+        {
+          "line": 23,
+          "context": "                    IntProvider.codec(1, 20).fieldOf(\"outer_wall_distance\").orElse(UniformInt.of(4, 5)).forGetter(p_160856_ -> p_160856_.outerWallDistance),\n                    IntProvider.codec(1, 20).fieldOf(\"distribution_points\").orElse(UniformInt.of(3, 4)).forGetter(p_160854_ -> p_160854_.distributionPoints),\n                    IntProvider.codec(0, 10).fieldOf(\"point_offset\").orElse(UniformInt.of(1, 2)).forGetter(p_160852_ -> p_160852_.pointOffset),"
+        },
+        {
+          "line": 24,
+          "context": "                    IntProvider.codec(1, 20).fieldOf(\"distribution_points\").orElse(UniformInt.of(3, 4)).forGetter(p_160854_ -> p_160854_.distributionPoints),\n                    IntProvider.codec(0, 10).fieldOf(\"point_offset\").orElse(UniformInt.of(1, 2)).forGetter(p_160852_ -> p_160852_.pointOffset),\n                    Codec.INT.fieldOf(\"min_gen_offset\").orElse(-16).forGetter(p_160850_ -> p_160850_.minGenOffset),"
+        },
+        {
+          "line": 25,
+          "context": "                    IntProvider.codec(0, 10).fieldOf(\"point_offset\").orElse(UniformInt.of(1, 2)).forGetter(p_160852_ -> p_160852_.pointOffset),\n                    Codec.INT.fieldOf(\"min_gen_offset\").orElse(-16).forGetter(p_160850_ -> p_160850_.minGenOffset),\n                    Codec.INT.fieldOf(\"max_gen_offset\").orElse(16).forGetter(p_160848_ -> p_160848_.maxGenOffset),"
+        },
+        {
+          "line": 26,
+          "context": "                    Codec.INT.fieldOf(\"min_gen_offset\").orElse(-16).forGetter(p_160850_ -> p_160850_.minGenOffset),\n                    Codec.INT.fieldOf(\"max_gen_offset\").orElse(16).forGetter(p_160848_ -> p_160848_.maxGenOffset),\n                    CHANCE_RANGE.fieldOf(\"noise_multiplier\").orElse(0.05).forGetter(p_160846_ -> p_160846_.noiseMultiplier),"
+        },
+        {
+          "line": 27,
+          "context": "                    Codec.INT.fieldOf(\"max_gen_offset\").orElse(16).forGetter(p_160848_ -> p_160848_.maxGenOffset),\n                    CHANCE_RANGE.fieldOf(\"noise_multiplier\").orElse(0.05).forGetter(p_160846_ -> p_160846_.noiseMultiplier),\n                    Codec.INT.fieldOf(\"invalid_blocks_threshold\").forGetter(p_160844_ -> p_160844_.invalidBlocksThreshold)"
+        },
+        {
+          "line": 28,
+          "context": "                    CHANCE_RANGE.fieldOf(\"noise_multiplier\").orElse(0.05).forGetter(p_160846_ -> p_160846_.noiseMultiplier),\n                    Codec.INT.fieldOf(\"invalid_blocks_threshold\").forGetter(p_160844_ -> p_160844_.invalidBlocksThreshold)\n                )"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\configurations\\TreeConfiguration.java",
+      "sha256": "f28e6691d234a1af95645db955e80290d7f7a9e2e5f9d36cde10c1fcca09e7d6",
+      "fields_and_dispatch": [
+        {
+          "line": 20,
+          "context": "        p_225468_ -> p_225468_.group(\n                    BlockStateProvider.CODEC.fieldOf(\"trunk_provider\").forGetter(p_161248_ -> p_161248_.trunkProvider),\n                    TrunkPlacer.CODEC.fieldOf(\"trunk_placer\").forGetter(p_161246_ -> p_161246_.trunkPlacer),"
+        },
+        {
+          "line": 21,
+          "context": "                    BlockStateProvider.CODEC.fieldOf(\"trunk_provider\").forGetter(p_161248_ -> p_161248_.trunkProvider),\n                    TrunkPlacer.CODEC.fieldOf(\"trunk_placer\").forGetter(p_161246_ -> p_161246_.trunkPlacer),\n                    BlockStateProvider.CODEC.fieldOf(\"foliage_provider\").forGetter(p_161244_ -> p_161244_.foliageProvider),"
+        },
+        {
+          "line": 22,
+          "context": "                    TrunkPlacer.CODEC.fieldOf(\"trunk_placer\").forGetter(p_161246_ -> p_161246_.trunkPlacer),\n                    BlockStateProvider.CODEC.fieldOf(\"foliage_provider\").forGetter(p_161244_ -> p_161244_.foliageProvider),\n                    FoliagePlacer.CODEC.fieldOf(\"foliage_placer\").forGetter(p_191357_ -> p_191357_.foliagePlacer),"
+        },
+        {
+          "line": 23,
+          "context": "                    BlockStateProvider.CODEC.fieldOf(\"foliage_provider\").forGetter(p_161244_ -> p_161244_.foliageProvider),\n                    FoliagePlacer.CODEC.fieldOf(\"foliage_placer\").forGetter(p_191357_ -> p_191357_.foliagePlacer),\n                    RootPlacer.CODEC.optionalFieldOf(\"root_placer\").forGetter(p_225478_ -> p_225478_.rootPlacer),"
+        },
+        {
+          "line": 24,
+          "context": "                    FoliagePlacer.CODEC.fieldOf(\"foliage_placer\").forGetter(p_191357_ -> p_191357_.foliagePlacer),\n                    RootPlacer.CODEC.optionalFieldOf(\"root_placer\").forGetter(p_225478_ -> p_225478_.rootPlacer),\n                    BlockStateProvider.CODEC.fieldOf(\"dirt_provider\").forGetter(p_225476_ -> p_225476_.dirtProvider),"
+        },
+        {
+          "line": 25,
+          "context": "                    RootPlacer.CODEC.optionalFieldOf(\"root_placer\").forGetter(p_225478_ -> p_225478_.rootPlacer),\n                    BlockStateProvider.CODEC.fieldOf(\"dirt_provider\").forGetter(p_225476_ -> p_225476_.dirtProvider),\n                    FeatureSize.CODEC.fieldOf(\"minimum_size\").forGetter(p_225474_ -> p_225474_.minimumSize),"
+        },
+        {
+          "line": 26,
+          "context": "                    BlockStateProvider.CODEC.fieldOf(\"dirt_provider\").forGetter(p_225476_ -> p_225476_.dirtProvider),\n                    FeatureSize.CODEC.fieldOf(\"minimum_size\").forGetter(p_225474_ -> p_225474_.minimumSize),\n                    TreeDecorator.CODEC.listOf().fieldOf(\"decorators\").forGetter(p_225472_ -> p_225472_.decorators),"
+        },
+        {
+          "line": 27,
+          "context": "                    FeatureSize.CODEC.fieldOf(\"minimum_size\").forGetter(p_225474_ -> p_225474_.minimumSize),\n                    TreeDecorator.CODEC.listOf().fieldOf(\"decorators\").forGetter(p_225472_ -> p_225472_.decorators),\n                    Codec.BOOL.fieldOf(\"ignore_vines\").orElse(false).forGetter(p_161232_ -> p_161232_.ignoreVines),"
+        },
+        {
+          "line": 28,
+          "context": "                    TreeDecorator.CODEC.listOf().fieldOf(\"decorators\").forGetter(p_225472_ -> p_225472_.decorators),\n                    Codec.BOOL.fieldOf(\"ignore_vines\").orElse(false).forGetter(p_161232_ -> p_161232_.ignoreVines),\n                    Codec.BOOL.fieldOf(\"force_dirt\").orElse(false).forGetter(p_225470_ -> p_225470_.forceDirt)"
+        },
+        {
+          "line": 29,
+          "context": "                    Codec.BOOL.fieldOf(\"ignore_vines\").orElse(false).forGetter(p_161232_ -> p_161232_.ignoreVines),\n                    Codec.BOOL.fieldOf(\"force_dirt\").orElse(false).forGetter(p_225470_ -> p_225470_.forceDirt)\n                )"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\configurations\\RandomPatchConfiguration.java",
+      "sha256": "74f41efee06f23a1c94c58530c147f4cddf7efa4fa44f789d25b6d4f7bd1df67",
+      "fields_and_dispatch": [
+        {
+          "line": 13,
+          "context": "        p_191312_ -> p_191312_.group(\n                    ExtraCodecs.POSITIVE_INT.fieldOf(\"tries\").orElse(128).forGetter(RandomPatchConfiguration::tries),\n                    ExtraCodecs.NON_NEGATIVE_INT.fieldOf(\"xz_spread\").orElse(7).forGetter(RandomPatchConfiguration::xzSpread),"
+        },
+        {
+          "line": 14,
+          "context": "                    ExtraCodecs.POSITIVE_INT.fieldOf(\"tries\").orElse(128).forGetter(RandomPatchConfiguration::tries),\n                    ExtraCodecs.NON_NEGATIVE_INT.fieldOf(\"xz_spread\").orElse(7).forGetter(RandomPatchConfiguration::xzSpread),\n                    ExtraCodecs.NON_NEGATIVE_INT.fieldOf(\"y_spread\").orElse(3).forGetter(RandomPatchConfiguration::ySpread),"
+        },
+        {
+          "line": 15,
+          "context": "                    ExtraCodecs.NON_NEGATIVE_INT.fieldOf(\"xz_spread\").orElse(7).forGetter(RandomPatchConfiguration::xzSpread),\n                    ExtraCodecs.NON_NEGATIVE_INT.fieldOf(\"y_spread\").orElse(3).forGetter(RandomPatchConfiguration::ySpread),\n                    PlacedFeature.CODEC.fieldOf(\"feature\").forGetter(RandomPatchConfiguration::feature)"
+        },
+        {
+          "line": 16,
+          "context": "                    ExtraCodecs.NON_NEGATIVE_INT.fieldOf(\"y_spread\").orElse(3).forGetter(RandomPatchConfiguration::ySpread),\n                    PlacedFeature.CODEC.fieldOf(\"feature\").forGetter(RandomPatchConfiguration::feature)\n                )"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\configurations\\SimpleBlockConfiguration.java",
+      "sha256": "93f772bfb12104d20d6893e912177522b8a7c9711e0997288434eed689b93118",
+      "fields_and_dispatch": [
+        {
+          "line": 10,
+          "context": "    public static final Codec<SimpleBlockConfiguration> CODEC = RecordCodecBuilder.create(\n        p_191331_ -> p_191331_.group(BlockStateProvider.CODEC.fieldOf(\"to_place\").forGetter(p_161168_ -> p_161168_.toPlace))\n                .apply(p_191331_, SimpleBlockConfiguration::new)"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\configurations\\BlockStateConfiguration.java",
+      "sha256": "6ea3b6e31f16a6488508942f7725f47d1ec9ce34b93cae7bc00a80242046dd03",
+      "fields_and_dispatch": [
+        {
+          "line": 8,
+          "context": "    public static final Codec<BlockStateConfiguration> CODEC = BlockState.CODEC\n        .fieldOf(\"state\")\n        .xmap(BlockStateConfiguration::new, p_67552_ -> p_67552_.state)"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\configurations\\BlockColumnConfiguration.java",
+      "sha256": "c534d6b9dc5d7b2dd387ac215e5efb0ddb0dab82ba86f8a06a7f3904295db517",
+      "fields_and_dispatch": [
+        {
+          "line": 16,
+          "context": "        p_191222_ -> p_191222_.group(\n                    BlockColumnConfiguration.Layer.CODEC.listOf().fieldOf(\"layers\").forGetter(BlockColumnConfiguration::layers),\n                    Direction.CODEC.fieldOf(\"direction\").forGetter(BlockColumnConfiguration::direction),"
+        },
+        {
+          "line": 17,
+          "context": "                    BlockColumnConfiguration.Layer.CODEC.listOf().fieldOf(\"layers\").forGetter(BlockColumnConfiguration::layers),\n                    Direction.CODEC.fieldOf(\"direction\").forGetter(BlockColumnConfiguration::direction),\n                    BlockPredicate.CODEC.fieldOf(\"allowed_placement\").forGetter(BlockColumnConfiguration::allowedPlacement),"
+        },
+        {
+          "line": 18,
+          "context": "                    Direction.CODEC.fieldOf(\"direction\").forGetter(BlockColumnConfiguration::direction),\n                    BlockPredicate.CODEC.fieldOf(\"allowed_placement\").forGetter(BlockColumnConfiguration::allowedPlacement),\n                    Codec.BOOL.fieldOf(\"prioritize_tip\").forGetter(BlockColumnConfiguration::prioritizeTip)"
+        },
+        {
+          "line": 19,
+          "context": "                    BlockPredicate.CODEC.fieldOf(\"allowed_placement\").forGetter(BlockColumnConfiguration::allowedPlacement),\n                    Codec.BOOL.fieldOf(\"prioritize_tip\").forGetter(BlockColumnConfiguration::prioritizeTip)\n                )"
+        },
+        {
+          "line": 35,
+          "context": "            p_191242_ -> p_191242_.group(\n                        IntProvider.NON_NEGATIVE_CODEC.fieldOf(\"height\").forGetter(BlockColumnConfiguration.Layer::height),\n                        BlockStateProvider.CODEC.fieldOf(\"provider\").forGetter(BlockColumnConfiguration.Layer::state)"
+        },
+        {
+          "line": 36,
+          "context": "                        IntProvider.NON_NEGATIVE_CODEC.fieldOf(\"height\").forGetter(BlockColumnConfiguration.Layer::height),\n                        BlockStateProvider.CODEC.fieldOf(\"provider\").forGetter(BlockColumnConfiguration.Layer::state)\n                    )"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\configurations\\ReplaceSphereConfiguration.java",
+      "sha256": "ce28d32e32d81c171b26acad76cacf65236ff511b38c2d5498ded0abed857b27",
+      "fields_and_dispatch": [
+        {
+          "line": 12,
+          "context": "        p_68048_ -> p_68048_.group(\n                    BlockState.CODEC.fieldOf(\"target\").forGetter(p_161100_ -> p_161100_.targetState),\n                    BlockState.CODEC.fieldOf(\"state\").forGetter(p_161098_ -> p_161098_.replaceState),"
+        },
+        {
+          "line": 13,
+          "context": "                    BlockState.CODEC.fieldOf(\"target\").forGetter(p_161100_ -> p_161100_.targetState),\n                    BlockState.CODEC.fieldOf(\"state\").forGetter(p_161098_ -> p_161098_.replaceState),\n                    IntProvider.codec(0, 12).fieldOf(\"radius\").forGetter(p_161095_ -> p_161095_.radius)"
+        },
+        {
+          "line": 14,
+          "context": "                    BlockState.CODEC.fieldOf(\"state\").forGetter(p_161098_ -> p_161098_.replaceState),\n                    IntProvider.codec(0, 12).fieldOf(\"radius\").forGetter(p_161095_ -> p_161095_.radius)\n                )"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\configurations\\BlockPileConfiguration.java",
+      "sha256": "f703f1f2be13f364a2af5630fed1c0e160093ed0445b2c0ed6d57877650b4fef",
+      "fields_and_dispatch": [
+        {
+          "line": 8,
+          "context": "    public static final Codec<BlockPileConfiguration> CODEC = BlockStateProvider.CODEC\n        .fieldOf(\"state_provider\")\n        .xmap(BlockPileConfiguration::new, p_67545_ -> p_67545_.stateProvider)"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\configurations\\OreConfiguration.java",
+      "sha256": "d19dd6a8a5594f5b50a5eabfcdda2538226a6cd8151f25889a1abc3fff6b413c",
+      "fields_and_dispatch": [
+        {
+          "line": 14,
+          "context": "        p_67849_ -> p_67849_.group(\n                    Codec.list(OreConfiguration.TargetBlockState.CODEC).fieldOf(\"targets\").forGetter(p_161027_ -> p_161027_.targetStates),\n                    Codec.intRange(0, 64).fieldOf(\"size\").forGetter(p_161025_ -> p_161025_.size),"
+        },
+        {
+          "line": 15,
+          "context": "                    Codec.list(OreConfiguration.TargetBlockState.CODEC).fieldOf(\"targets\").forGetter(p_161027_ -> p_161027_.targetStates),\n                    Codec.intRange(0, 64).fieldOf(\"size\").forGetter(p_161025_ -> p_161025_.size),\n                    Codec.floatRange(0.0F, 1.0F).fieldOf(\"discard_chance_on_air_exposure\").forGetter(p_161020_ -> p_161020_.discardChanceOnAirExposure)"
+        },
+        {
+          "line": 16,
+          "context": "                    Codec.intRange(0, 64).fieldOf(\"size\").forGetter(p_161025_ -> p_161025_.size),\n                    Codec.floatRange(0.0F, 1.0F).fieldOf(\"discard_chance_on_air_exposure\").forGetter(p_161020_ -> p_161020_.discardChanceOnAirExposure)\n                )"
+        },
+        {
+          "line": 49,
+          "context": "            p_161039_ -> p_161039_.group(\n                        RuleTest.CODEC.fieldOf(\"target\").forGetter(p_161043_ -> p_161043_.target),\n                        BlockState.CODEC.fieldOf(\"state\").forGetter(p_161041_ -> p_161041_.state)"
+        },
+        {
+          "line": 50,
+          "context": "                        RuleTest.CODEC.fieldOf(\"target\").forGetter(p_161043_ -> p_161043_.target),\n                        BlockState.CODEC.fieldOf(\"state\").forGetter(p_161041_ -> p_161041_.state)\n                    )"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\configurations\\RandomFeatureConfiguration.java",
+      "sha256": "ac8d8747debb39d6d0837ef6220fc3a00cbd603f3f49e811cc552a7cfaad4da2",
+      "fields_and_dispatch": [
+        {
+          "line": 17,
+          "context": "                RandomFeatureConfiguration::new,\n                WeightedPlacedFeature.CODEC.listOf().fieldOf(\"features\").forGetter(p_161053_ -> p_161053_.features),\n                PlacedFeature.CODEC.fieldOf(\"default\").forGetter(p_204816_ -> p_204816_.defaultFeature)"
+        },
+        {
+          "line": 18,
+          "context": "                WeightedPlacedFeature.CODEC.listOf().fieldOf(\"features\").forGetter(p_161053_ -> p_161053_.features),\n                PlacedFeature.CODEC.fieldOf(\"default\").forGetter(p_204816_ -> p_204816_.defaultFeature)\n            )"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\trunkplacers\\CherryTrunkPlacer.java",
+      "sha256": "03f8705371e871af933d9877ec6de562406c46d04cab1c32cff2bc3d520f0a59",
+      "fields_and_dispatch": [
+        {
+          "line": 35,
+          "context": "                    p_338099_.group(\n                        IntProvider.codec(1, 3).fieldOf(\"branch_count\").forGetter(p_272644_ -> p_272644_.branchCount),\n                        IntProvider.codec(2, 16).fieldOf(\"branch_horizontal_length\").forGetter(p_273612_ -> p_273612_.branchHorizontalLength),"
+        },
+        {
+          "line": 36,
+          "context": "                        IntProvider.codec(1, 3).fieldOf(\"branch_count\").forGetter(p_272644_ -> p_272644_.branchCount),\n                        IntProvider.codec(2, 16).fieldOf(\"branch_horizontal_length\").forGetter(p_273612_ -> p_273612_.branchHorizontalLength),\n                        IntProvider.validateCodec(-16, 0, BRANCH_START_CODEC)"
+        },
+        {
+          "line": 38,
+          "context": "                        IntProvider.validateCodec(-16, 0, BRANCH_START_CODEC)\n                            .fieldOf(\"branch_start_offset_from_top\")\n                            .forGetter(p_272705_ -> p_272705_.branchStartOffsetFromTop),"
+        },
+        {
+          "line": 40,
+          "context": "                            .forGetter(p_272705_ -> p_272705_.branchStartOffsetFromTop),\n                        IntProvider.codec(-16, 16).fieldOf(\"branch_end_offset_from_top\").forGetter(p_273633_ -> p_273633_.branchEndOffsetFromTop)\n                    )"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\trunkplacers\\TrunkPlacer.java",
+      "sha256": "be0a68782d95b96bb695c9b674fc3001b504b7817fc073824f8633d53cf89d2e",
+      "fields_and_dispatch": [
+        {
+          "line": 23,
+          "context": "public abstract class TrunkPlacer {\n    public static final Codec<TrunkPlacer> CODEC = BuiltInRegistries.TRUNK_PLACER_TYPE.byNameCodec().dispatch(TrunkPlacer::type, TrunkPlacerType::codec);\n    private static final int MAX_BASE_HEIGHT = 32;"
+        },
+        {
+          "line": 33,
+          "context": "        return p_70306_.group(\n            Codec.intRange(0, 32).fieldOf(\"base_height\").forGetter(p_70314_ -> p_70314_.baseHeight),\n            Codec.intRange(0, 24).fieldOf(\"height_rand_a\").forGetter(p_70312_ -> p_70312_.heightRandA),"
+        },
+        {
+          "line": 34,
+          "context": "            Codec.intRange(0, 32).fieldOf(\"base_height\").forGetter(p_70314_ -> p_70314_.baseHeight),\n            Codec.intRange(0, 24).fieldOf(\"height_rand_a\").forGetter(p_70312_ -> p_70312_.heightRandA),\n            Codec.intRange(0, 24).fieldOf(\"height_rand_b\").forGetter(p_70308_ -> p_70308_.heightRandB)"
+        },
+        {
+          "line": 35,
+          "context": "            Codec.intRange(0, 24).fieldOf(\"height_rand_a\").forGetter(p_70312_ -> p_70312_.heightRandA),\n            Codec.intRange(0, 24).fieldOf(\"height_rand_b\").forGetter(p_70308_ -> p_70308_.heightRandB)\n        );"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\foliageplacers\\CherryFoliagePlacer.java",
+      "sha256": "3244075c767baa85a2b6fc2583614ee66fd901dbff7a85cf5783dc6bffaef6a0",
+      "fields_and_dispatch": [
+        {
+          "line": 18,
+          "context": "                    p_273246_.group(\n                        IntProvider.codec(4, 16).fieldOf(\"height\").forGetter(p_273527_ -> p_273527_.height),\n                        Codec.floatRange(0.0F, 1.0F).fieldOf(\"wide_bottom_layer_hole_chance\").forGetter(p_273760_ -> p_273760_.wideBottomLayerHoleChance),"
+        },
+        {
+          "line": 19,
+          "context": "                        IntProvider.codec(4, 16).fieldOf(\"height\").forGetter(p_273527_ -> p_273527_.height),\n                        Codec.floatRange(0.0F, 1.0F).fieldOf(\"wide_bottom_layer_hole_chance\").forGetter(p_273760_ -> p_273760_.wideBottomLayerHoleChance),\n                        Codec.floatRange(0.0F, 1.0F).fieldOf(\"corner_hole_chance\").forGetter(p_273020_ -> p_273020_.wideBottomLayerHoleChance),"
+        },
+        {
+          "line": 20,
+          "context": "                        Codec.floatRange(0.0F, 1.0F).fieldOf(\"wide_bottom_layer_hole_chance\").forGetter(p_273760_ -> p_273760_.wideBottomLayerHoleChance),\n                        Codec.floatRange(0.0F, 1.0F).fieldOf(\"corner_hole_chance\").forGetter(p_273020_ -> p_273020_.wideBottomLayerHoleChance),\n                        Codec.floatRange(0.0F, 1.0F).fieldOf(\"hanging_leaves_chance\").forGetter(p_273148_ -> p_273148_.hangingLeavesChance),"
+        },
+        {
+          "line": 21,
+          "context": "                        Codec.floatRange(0.0F, 1.0F).fieldOf(\"corner_hole_chance\").forGetter(p_273020_ -> p_273020_.wideBottomLayerHoleChance),\n                        Codec.floatRange(0.0F, 1.0F).fieldOf(\"hanging_leaves_chance\").forGetter(p_273148_ -> p_273148_.hangingLeavesChance),\n                        Codec.floatRange(0.0F, 1.0F).fieldOf(\"hanging_leaves_extension_chance\").forGetter(p_273098_ -> p_273098_.hangingLeavesExtensionChance)"
+        },
+        {
+          "line": 22,
+          "context": "                        Codec.floatRange(0.0F, 1.0F).fieldOf(\"hanging_leaves_chance\").forGetter(p_273148_ -> p_273148_.hangingLeavesChance),\n                        Codec.floatRange(0.0F, 1.0F).fieldOf(\"hanging_leaves_extension_chance\").forGetter(p_273098_ -> p_273098_.hangingLeavesExtensionChance)\n                    )"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\foliageplacers\\SpruceFoliagePlacer.java",
+      "sha256": "b41b91a61016fdf482f510de4349d579c8aa377c6cd6d245a509485c46cdfbb6",
+      "fields_and_dispatch": [
+        {
+          "line": 15,
+          "context": "        p_68735_ -> foliagePlacerParts(p_68735_)\n                .and(IntProvider.codec(0, 24).fieldOf(\"trunk_height\").forGetter(p_161553_ -> p_161553_.trunkHeight))\n                .apply(p_68735_, SpruceFoliagePlacer::new)"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\foliageplacers\\FoliagePlacer.java",
+      "sha256": "980d38a3a467d4337504c979f959e5f132913ae91f2d42c07419194738d29dd0",
+      "fields_and_dispatch": [
+        {
+          "line": 23,
+          "context": "        .byNameCodec()\n        .dispatch(FoliagePlacer::type, FoliagePlacerType::codec);\n    protected final IntProvider radius;"
+        },
+        {
+          "line": 29,
+          "context": "        return p_68574_.group(\n            IntProvider.codec(0, 16).fieldOf(\"radius\").forGetter(p_161449_ -> p_161449_.radius),\n            IntProvider.codec(0, 16).fieldOf(\"offset\").forGetter(p_161447_ -> p_161447_.offset)"
+        },
+        {
+          "line": 30,
+          "context": "            IntProvider.codec(0, 16).fieldOf(\"radius\").forGetter(p_161449_ -> p_161449_.radius),\n            IntProvider.codec(0, 16).fieldOf(\"offset\").forGetter(p_161447_ -> p_161447_.offset)\n        );"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\foliageplacers\\BlobFoliagePlacer.java",
+      "sha256": "53fbbb59de30f836ef015254df468d41ebbf391bff79255370c155b0e038ad29",
+      "fields_and_dispatch": [
+        {
+          "line": 19,
+          "context": "    protected static <P extends BlobFoliagePlacer> P3<Mu<P>, IntProvider, IntProvider, Integer> blobParts(Instance<P> p_68414_) {\n        return foliagePlacerParts(p_68414_).and(Codec.intRange(0, 16).fieldOf(\"height\").forGetter(p_68412_ -> p_68412_.height));\n    }"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\WeightedPlacedFeature.java",
+      "sha256": "274dad67761ec5bd9fc398b64df528b7966009f9f3e1e8276670aebb4bf1266f",
+      "fields_and_dispatch": [
+        {
+          "line": 16,
+          "context": "        p_191187_ -> p_191187_.group(\n                    PlacedFeature.CODEC.fieldOf(\"feature\").forGetter(p_204789_ -> p_204789_.feature),\n                    Codec.floatRange(0.0F, 1.0F).fieldOf(\"chance\").forGetter(p_191189_ -> p_191189_.chance)"
+        },
+        {
+          "line": 17,
+          "context": "                    PlacedFeature.CODEC.fieldOf(\"feature\").forGetter(p_204789_ -> p_204789_.feature),\n                    Codec.floatRange(0.0F, 1.0F).fieldOf(\"chance\").forGetter(p_191189_ -> p_191189_.chance)\n                )"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\featuresize\\FeatureSize.java",
+      "sha256": "af1e668ecefe546e56655afbbe441fee0d9361e67eae6ed858f19275dd7f5404",
+      "fields_and_dispatch": [
+        {
+          "line": 10,
+          "context": "public abstract class FeatureSize {\n    public static final Codec<FeatureSize> CODEC = BuiltInRegistries.FEATURE_SIZE_TYPE.byNameCodec().dispatch(FeatureSize::type, FeatureSizeType::codec);\n    protected static final int MAX_WIDTH = 16;"
+        },
+        {
+          "line": 16,
+          "context": "        return Codec.intRange(0, 80)\n            .optionalFieldOf(\"min_clipped_height\")\n            .xmap("
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\featuresize\\TwoLayersFeatureSize.java",
+      "sha256": "359e15cf9978482070bc64f19f5ac7a93ec04023f30cd7bfb7ffcb639a0a168d",
+      "fields_and_dispatch": [
+        {
+          "line": 12,
+          "context": "        p_68356_ -> p_68356_.group(\n                    Codec.intRange(0, 81).fieldOf(\"limit\").orElse(1).forGetter(p_161341_ -> p_161341_.limit),\n                    Codec.intRange(0, 16).fieldOf(\"lower_size\").orElse(0).forGetter(p_161339_ -> p_161339_.lowerSize),"
+        },
+        {
+          "line": 13,
+          "context": "                    Codec.intRange(0, 81).fieldOf(\"limit\").orElse(1).forGetter(p_161341_ -> p_161341_.limit),\n                    Codec.intRange(0, 16).fieldOf(\"lower_size\").orElse(0).forGetter(p_161339_ -> p_161339_.lowerSize),\n                    Codec.intRange(0, 16).fieldOf(\"upper_size\").orElse(1).forGetter(p_161337_ -> p_161337_.upperSize),"
+        },
+        {
+          "line": 14,
+          "context": "                    Codec.intRange(0, 16).fieldOf(\"lower_size\").orElse(0).forGetter(p_161339_ -> p_161339_.lowerSize),\n                    Codec.intRange(0, 16).fieldOf(\"upper_size\").orElse(1).forGetter(p_161337_ -> p_161337_.upperSize),\n                    minClippedHeightCodec()"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\stateproviders\\BlockStateProvider.java",
+      "sha256": "c8b38e01b260c64e2a75ca1772d56aaef84723511ffcd964d661b348a749b2c1",
+      "fields_and_dispatch": [
+        {
+          "line": 13,
+          "context": "        .byNameCodec()\n        .dispatch(BlockStateProvider::type, BlockStateProviderType::codec);\n"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\stateproviders\\SimpleStateProvider.java",
+      "sha256": "6c226668d1de292fcaa157b2aa818fb29f215153bbcd2778d0d46025761418db",
+      "fields_and_dispatch": [
+        {
+          "line": 9,
+          "context": "public class SimpleStateProvider extends BlockStateProvider {\n    public static final MapCodec<SimpleStateProvider> CODEC = BlockState.CODEC.fieldOf(\"state\").xmap(SimpleStateProvider::new, p_68804_ -> p_68804_.state);\n    private final BlockState state;"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\feature\\stateproviders\\WeightedStateProvider.java",
+      "sha256": "6cf37ac59586ef0723b112349ed4230e6455ac4b1da2aa1cfc248f3a95f517b4",
+      "fields_and_dispatch": [
+        {
+          "line": 13,
+          "context": "        .comapFlatMap(WeightedStateProvider::create, p_161600_ -> p_161600_.weightedList)\n        .fieldOf(\"entries\");\n    private final SimpleWeightedRandomList<BlockState> weightedList;"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\placement\\PlacedFeature.java",
+      "sha256": "7c21b727ae882b94ef42f7a2ff756ea7494026321e2b6ae506e8246f2e4f2b59",
+      "fields_and_dispatch": [
+        {
+          "line": 24,
+          "context": "        p_191788_ -> p_191788_.group(\n                    ConfiguredFeature.CODEC.fieldOf(\"feature\").forGetter(p_204928_ -> p_204928_.feature),\n                    PlacementModifier.CODEC.listOf().fieldOf(\"placement\").forGetter(p_191796_ -> p_191796_.placement)"
+        },
+        {
+          "line": 25,
+          "context": "                    ConfiguredFeature.CODEC.fieldOf(\"feature\").forGetter(p_204928_ -> p_204928_.feature),\n                    PlacementModifier.CODEC.listOf().fieldOf(\"placement\").forGetter(p_191796_ -> p_191796_.placement)\n                )"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\placement\\PlacementModifier.java",
+      "sha256": "3bf3157025f0cf96959e5d389d8d91ff4a8c5cabcf1e8d15307fcf0143915f0a",
+      "fields_and_dispatch": [
+        {
+          "line": 12,
+          "context": "        .byNameCodec()\n        .dispatch(PlacementModifier::type, PlacementModifierType::codec);\n"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\placement\\CountPlacement.java",
+      "sha256": "7bb0369f0b84988594c2b4fede2e9a6f2600db9eccc5a854a4fca7a99da6a6d8",
+      "fields_and_dispatch": [
+        {
+          "line": 10,
+          "context": "public class CountPlacement extends RepeatingPlacement {\n    public static final MapCodec<CountPlacement> CODEC = IntProvider.codec(0, 256).fieldOf(\"count\").xmap(CountPlacement::new, p_191633_ -> p_191633_.count);\n    private final IntProvider count;"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\placement\\RarityFilter.java",
+      "sha256": "c372e19a60f5c0e01919cc267b977f97e87a08ca50d908c45dda3851ba637396",
+      "fields_and_dispatch": [
+        {
+          "line": 9,
+          "context": "public class RarityFilter extends PlacementFilter {\n    public static final MapCodec<RarityFilter> CODEC = ExtraCodecs.POSITIVE_INT.fieldOf(\"chance\").xmap(RarityFilter::new, p_191907_ -> p_191907_.chance);\n    private final int chance;"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\placement\\HeightRangePlacement.java",
+      "sha256": "1dc0e75861b283eb344d3db75cb06d22c1c358a579c10d8b6ece50c26ef68dc3",
+      "fields_and_dispatch": [
+        {
+          "line": 16,
+          "context": "    public static final MapCodec<HeightRangePlacement> CODEC = RecordCodecBuilder.mapCodec(\n        p_191679_ -> p_191679_.group(HeightProvider.CODEC.fieldOf(\"height\").forGetter(p_191686_ -> p_191686_.height))\n                .apply(p_191679_, HeightRangePlacement::new)"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\placement\\HeightmapPlacement.java",
+      "sha256": "b4b75d28b0c7159dc660c04087b84c4d582878a51c2e872ebfbc45e29bf75935",
+      "fields_and_dispatch": [
+        {
+          "line": 13,
+          "context": "    public static final MapCodec<HeightmapPlacement> CODEC = RecordCodecBuilder.mapCodec(\n        p_191701_ -> p_191701_.group(Heightmap.Types.CODEC.fieldOf(\"heightmap\").forGetter(p_191705_ -> p_191705_.heightmap))\n                .apply(p_191701_, HeightmapPlacement::new)"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\placement\\BlockPredicateFilter.java",
+      "sha256": "2b1a97eb95f4cad653e53831ee5c1fdf06477bb90ce1018a0c0cacac1f4a1a2e",
+      "fields_and_dispatch": [
+        {
+          "line": 12,
+          "context": "    public static final MapCodec<BlockPredicateFilter> CODEC = RecordCodecBuilder.mapCodec(\n        p_191575_ -> p_191575_.group(BlockPredicate.CODEC.fieldOf(\"predicate\").forGetter(p_191579_ -> p_191579_.predicate))\n                .apply(p_191575_, BlockPredicateFilter::new)"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\placement\\EnvironmentScanPlacement.java",
+      "sha256": "db9d5fbe8d950041609682a79167e789770298ebcebdf0da72221ad379e8666a",
+      "fields_and_dispatch": [
+        {
+          "line": 22,
+          "context": "                    // Neo: Allow any direction, not just vertical. The code already handles it fine.\n                    Direction.CODEC.fieldOf(\"direction_of_search\").forGetter(p_191672_ -> p_191672_.directionOfSearch),\n                    BlockPredicate.CODEC.fieldOf(\"target_condition\").forGetter(p_191670_ -> p_191670_.targetCondition),"
+        },
+        {
+          "line": 23,
+          "context": "                    Direction.CODEC.fieldOf(\"direction_of_search\").forGetter(p_191672_ -> p_191672_.directionOfSearch),\n                    BlockPredicate.CODEC.fieldOf(\"target_condition\").forGetter(p_191670_ -> p_191670_.targetCondition),\n                    BlockPredicate.CODEC"
+        },
+        {
+          "line": 25,
+          "context": "                    BlockPredicate.CODEC\n                        .optionalFieldOf(\"allowed_search_condition\", BlockPredicate.alwaysTrue())\n                        .forGetter(p_191668_ -> p_191668_.allowedSearchCondition),"
+        },
+        {
+          "line": 27,
+          "context": "                        .forGetter(p_191668_ -> p_191668_.allowedSearchCondition),\n                    Codec.intRange(1, 32).fieldOf(\"max_steps\").forGetter(p_191652_ -> p_191652_.maxSteps)\n                )"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\placement\\SurfaceWaterDepthFilter.java",
+      "sha256": "4241e9d0d3bd4599e66db71579c071deef6b49d2599c27ffe721391f6f88464f",
+      "fields_and_dispatch": [
+        {
+          "line": 13,
+          "context": "    public static final MapCodec<SurfaceWaterDepthFilter> CODEC = RecordCodecBuilder.mapCodec(\n        p_191953_ -> p_191953_.group(Codec.INT.fieldOf(\"max_water_depth\").forGetter(p_191959_ -> p_191959_.maxWaterDepth))\n                .apply(p_191953_, SurfaceWaterDepthFilter::new)"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\placement\\RandomOffsetPlacement.java",
+      "sha256": "eca8b3bc27618d083e0801bca09b718627f1aa492805096257d8c78a3b2266da",
+      "fields_and_dispatch": [
+        {
+          "line": 15,
+          "context": "        p_191883_ -> p_191883_.group(\n                    IntProvider.codec(-16, 16).fieldOf(\"xz_spread\").forGetter(p_191894_ -> p_191894_.xzSpread),\n                    IntProvider.codec(-16, 16).fieldOf(\"y_spread\").forGetter(p_191885_ -> p_191885_.ySpread)"
+        },
+        {
+          "line": 16,
+          "context": "                    IntProvider.codec(-16, 16).fieldOf(\"xz_spread\").forGetter(p_191894_ -> p_191894_.xzSpread),\n                    IntProvider.codec(-16, 16).fieldOf(\"y_spread\").forGetter(p_191885_ -> p_191885_.ySpread)\n                )"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\blockpredicates\\BlockPredicate.java",
+      "sha256": "c3d7c9c1904f84db4e8dacedfc03f84fe546941724e5c800d8c4f6b7b1907bd6",
+      "fields_and_dispatch": [
+        {
+          "line": 20,
+          "context": "public interface BlockPredicate extends BiPredicate<WorldGenLevel, BlockPos> {\n    Codec<BlockPredicate> CODEC = BuiltInRegistries.BLOCK_PREDICATE_TYPE.byNameCodec().dispatch(BlockPredicate::type, BlockPredicateType::codec);\n    BlockPredicate ONLY_IN_AIR_PREDICATE = matchesBlocks(Blocks.AIR);"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\blockpredicates\\MatchingBlocksPredicate.java",
+      "sha256": "4f45a0da57ef6ebed49a0a1c7cd3a976ac43535e00218ba1dabba03945eb4983",
+      "fields_and_dispatch": [
+        {
+          "line": 17,
+          "context": "        p_259004_ -> stateTestingCodec(p_259004_)\n                .and(RegistryCodecs.homogeneousList(Registries.BLOCK).fieldOf(\"blocks\").forGetter(p_204693_ -> p_204693_.blocks))\n                .apply(p_259004_, MatchingBlocksPredicate::new)"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\blockpredicates\\MatchingFluidsPredicate.java",
+      "sha256": "77649d67995350ed989118e06599100f8f536130dd8cb4e68b1b00262ec92202",
+      "fields_and_dispatch": [
+        {
+          "line": 17,
+          "context": "        p_259005_ -> stateTestingCodec(p_259005_)\n                .and(RegistryCodecs.homogeneousList(Registries.FLUID).fieldOf(\"fluids\").forGetter(p_204698_ -> p_204698_.fluids))\n                .apply(p_259005_, MatchingFluidsPredicate::new)"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\blockpredicates\\StateTestingPredicate.java",
+      "sha256": "5f7c9ce4258cda5e3e0c0c0ecc27df5e4b87153cfe29090bab4858c0f126931e",
+      "fields_and_dispatch": [
+        {
+          "line": 15,
+          "context": "    protected static <P extends StateTestingPredicate> P1<Mu<P>, Vec3i> stateTestingCodec(Instance<P> p_190547_) {\n        return p_190547_.group(Vec3i.offsetCodec(16).optionalFieldOf(\"offset\", Vec3i.ZERO).forGetter(p_190549_ -> p_190549_.offset));\n    }"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\blockpredicates\\WouldSurvivePredicate.java",
+      "sha256": "9fa50a90b63e060c93055b508f9efde10c392445313ca4dd51c51ab093408fa8",
+      "fields_and_dispatch": [
+        {
+          "line": 14,
+          "context": "        p_190577_ -> p_190577_.group(\n                    Vec3i.offsetCodec(16).optionalFieldOf(\"offset\", Vec3i.ZERO).forGetter(p_190581_ -> p_190581_.offset),\n                    BlockState.CODEC.fieldOf(\"state\").forGetter(p_190579_ -> p_190579_.state)"
+        },
+        {
+          "line": 15,
+          "context": "                    Vec3i.offsetCodec(16).optionalFieldOf(\"offset\", Vec3i.ZERO).forGetter(p_190581_ -> p_190581_.offset),\n                    BlockState.CODEC.fieldOf(\"state\").forGetter(p_190579_ -> p_190579_.state)\n                )"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\blockpredicates\\CombiningPredicate.java",
+      "sha256": "e943a97475272fd922c725bededf3c3fbf21c3af8e1bbebf8e278ac77b385c4d",
+      "fields_and_dispatch": [
+        {
+          "line": 18,
+          "context": "        return RecordCodecBuilder.mapCodec(\n            p_190462_ -> p_190462_.group(BlockPredicate.CODEC.listOf().fieldOf(\"predicates\").forGetter(p_190457_ -> p_190457_.predicates))\n                    .apply(p_190462_, p_190459_)"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\blockpredicates\\NotPredicate.java",
+      "sha256": "57f1fb120c42f157ad93005fb10094071411ccfdff09716ae9cce4042e8efe10",
+      "fields_and_dispatch": [
+        {
+          "line": 11,
+          "context": "    public static final MapCodec<NotPredicate> CODEC = RecordCodecBuilder.mapCodec(\n        p_190515_ -> p_190515_.group(BlockPredicate.CODEC.fieldOf(\"predicate\").forGetter(p_190517_ -> p_190517_.predicate)).apply(p_190515_, NotPredicate::new)\n    );"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\heightproviders\\HeightProvider.java",
+      "sha256": "c592cdba93c980456d7f5d0e6175f17caa1430fc31da70418f21b0be02af8af8",
+      "fields_and_dispatch": [
+        {
+          "line": 12,
+          "context": "    private static final Codec<Either<VerticalAnchor, HeightProvider>> CONSTANT_OR_DISPATCH_CODEC = Codec.either(\n        VerticalAnchor.CODEC, BuiltInRegistries.HEIGHT_PROVIDER_TYPE.byNameCodec().dispatch(HeightProvider::getType, HeightProviderType::codec)\n    );"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\heightproviders\\UniformHeight.java",
+      "sha256": "ec771ecac16094a7b3a6b9ff2a83a0f43568fe306ea208004e4e26dd1f9d834f",
+      "fields_and_dispatch": [
+        {
+          "line": 18,
+          "context": "        p_162033_ -> p_162033_.group(\n                    VerticalAnchor.CODEC.fieldOf(\"min_inclusive\").forGetter(p_162043_ -> p_162043_.minInclusive),\n                    VerticalAnchor.CODEC.fieldOf(\"max_inclusive\").forGetter(p_162038_ -> p_162038_.maxInclusive)"
+        },
+        {
+          "line": 19,
+          "context": "                    VerticalAnchor.CODEC.fieldOf(\"min_inclusive\").forGetter(p_162043_ -> p_162043_.minInclusive),\n                    VerticalAnchor.CODEC.fieldOf(\"max_inclusive\").forGetter(p_162038_ -> p_162038_.maxInclusive)\n                )"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\heightproviders\\TrapezoidHeight.java",
+      "sha256": "df7ddec84520d5c9278d81442de3bf4ccd154c41101e2c16df7a75a6ccad9a7b",
+      "fields_and_dispatch": [
+        {
+          "line": 17,
+          "context": "        p_162005_ -> p_162005_.group(\n                    VerticalAnchor.CODEC.fieldOf(\"min_inclusive\").forGetter(p_162021_ -> p_162021_.minInclusive),\n                    VerticalAnchor.CODEC.fieldOf(\"max_inclusive\").forGetter(p_162019_ -> p_162019_.maxInclusive),"
+        },
+        {
+          "line": 18,
+          "context": "                    VerticalAnchor.CODEC.fieldOf(\"min_inclusive\").forGetter(p_162021_ -> p_162021_.minInclusive),\n                    VerticalAnchor.CODEC.fieldOf(\"max_inclusive\").forGetter(p_162019_ -> p_162019_.maxInclusive),\n                    Codec.INT.optionalFieldOf(\"plateau\", Integer.valueOf(0)).forGetter(p_162014_ -> p_162014_.plateau)"
+        },
+        {
+          "line": 19,
+          "context": "                    VerticalAnchor.CODEC.fieldOf(\"max_inclusive\").forGetter(p_162019_ -> p_162019_.maxInclusive),\n                    Codec.INT.optionalFieldOf(\"plateau\", Integer.valueOf(0)).forGetter(p_162014_ -> p_162014_.plateau)\n                )"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\structure\\templatesystem\\RuleTest.java",
+      "sha256": "589848232c3e5169cb23167d58e875e6a043d84a3a5fb61476e1532250693385",
+      "fields_and_dispatch": [
+        {
+          "line": 9,
+          "context": "public abstract class RuleTest {\n    public static final Codec<RuleTest> CODEC = BuiltInRegistries.RULE_TEST.byNameCodec().dispatch(\"predicate_type\", RuleTest::getType, RuleTestType::codec);\n"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\structure\\templatesystem\\BlockMatchTest.java",
+      "sha256": "30bbd5a0f7bbfed39efed5b176bc838ca993bb627095fbfb62ffb121bb5f7777",
+      "fields_and_dispatch": [
+        {
+          "line": 12,
+          "context": "        .byNameCodec()\n        .fieldOf(\"block\")\n        .xmap(BlockMatchTest::new, p_74073_ -> p_74073_.block);"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\block\\state\\StateHolder.java",
+      "sha256": "83de0e7ca4b2ca38abd235be84a888e1c74020c0d76b44f9fbbc3458b86c8b7f",
+      "fields_and_dispatch": [
+        {
+          "line": 166,
+          "context": "    protected static <O, S extends StateHolder<O, S>> Codec<S> codec(Codec<O> p_61128_, Function<O, S> p_61129_) {\n        return p_61128_.dispatch(\n            \"Name\","
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\block\\SaplingBlock.java",
+      "sha256": "1307c169f2b2810c937d5a7069f284b0a5ef2354baa0d57736de80f93683eccf",
+      "fields_and_dispatch": [
+        {
+          "line": 23,
+          "context": "    public static final MapCodec<SaplingBlock> CODEC = RecordCodecBuilder.mapCodec(\n        p_308834_ -> p_308834_.group(TreeGrower.CODEC.fieldOf(\"tree\").forGetter(p_304391_ -> p_304391_.treeGrower), propertiesCodec())\n                .apply(p_308834_, SaplingBlock::new)"
+        }
+      ]
+    },
+    {
+      "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\VerticalAnchor.java",
+      "sha256": "5b322948f2526141340af968b4e80ecb80729a97500006abc49fab9429dda829",
+      "fields_and_dispatch": [
+        {
+          "line": 52,
+          "context": "        public static final Codec<VerticalAnchor.AboveBottom> CODEC = Codec.intRange(DimensionType.MIN_Y, DimensionType.MAX_Y)\n            .fieldOf(\"above_bottom\")\n            .xmap(VerticalAnchor.AboveBottom::new, VerticalAnchor.AboveBottom::offset)"
+        },
+        {
+          "line": 69,
+          "context": "        public static final Codec<VerticalAnchor.Absolute> CODEC = Codec.intRange(DimensionType.MIN_Y, DimensionType.MAX_Y)\n            .fieldOf(\"absolute\")\n            .xmap(VerticalAnchor.Absolute::new, VerticalAnchor.Absolute::y)"
+        },
+        {
+          "line": 86,
+          "context": "        public static final Codec<VerticalAnchor.BelowTop> CODEC = Codec.intRange(DimensionType.MIN_Y, DimensionType.MAX_Y)\n            .fieldOf(\"below_top\")\n            .xmap(VerticalAnchor.BelowTop::new, VerticalAnchor.BelowTop::offset)"
+        }
+      ]
+    }
+  ]
+}

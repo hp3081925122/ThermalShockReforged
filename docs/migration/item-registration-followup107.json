@@ -1,0 +1,29 @@
+{
+  "scope": "对第106批注册候选的独立只读复核；本报告为本批生产前证据，不代表行为验收",
+  "previous_accounting": "1000 = 971 same-ID + 28 candidates + 1 possible alias",
+  "corrected_preproduction_accounting": "1000 = 974 same-ID + 25 same-ID not found + 1 separately tracked arctic_warmth",
+  "confirmed_dynamic_same_id": {
+    "ids": ["skeletitan_spawn_egg", "frost_titan_spawn_egg", "mantletitan_spawn_egg"],
+    "evidence": ["entity/titans/TitanContent.java:33-36", "entity/titans/SkeletalTitanEntity.java Kind.id"],
+    "conclusion": "由kind.id()加_spawn_egg动态注册，纠正上一版候选误报"
+  },
+  "arctic_warmth": {
+    "original_track": "loq_disc_01",
+    "legacy_original_track": "loq_disc_legacy_01",
+    "conclusion": "原件有两独立物品和音轨，已有legacy物品不能替代原arctic_warmth"
+  },
+  "renamed_behavior_lineage": {
+    "original": "zenith_crossbow",
+    "target": "magnetic_crossbow",
+    "evidence": "原ZenithCrossbowItem调用MagneticCrossbowRightclickedProcedure与MagneticCrossbowItemInHandTickProcedure；目标WeaponContent注册MagneticCrossbowItem",
+    "limits": "原ID未注册，已确认对应程序链，完整参数与ID处理仍需复核"
+  },
+  "remaining_same_id_not_found_before_batch107": [
+    "boundless", "chorusian_antennae_helmet", "claw_sickle", "dev_deletor", "dev_rotator", "flower_bomb", "hard_thermology_shock", "hpsm", "ice_bomb", "icidrogrunt_spawn_egg", "ignition_detector", "jelly_umbrella", "legendary_jelly_umbrella", "micro_dome", "model_train", "net_launcher", "piston_gauntlet", "rainbow_coast", "someplace", "sprintweed_soda", "strangers_theme", "the_judge", "the_organ_organ", "three_three_disc", "zenith_crossbow"
+  ],
+  "limits": [
+    "未找到同ID不是完整功能缺失定论；已注册也不代表完整行为或真实获取来源已验收",
+    "开发工具dev_deletor/dev_rotator仍是原内容，不能未经授权删除",
+    "本批主线明确增加八曲完整唱片及grunt蛋，完成后另记录生产哈希与验证，保留本盘点快照"
+  ]
+}

@@ -510,3 +510,15 @@ Loqendia门完整保黑曜石2..21×3..21框、X/Z轴薄碰撞形状、即时双
 巨型圣所保全部1513694条原方块记录，生成/加载仍有明显成本，未裁模板、删实体、降低特效或改生成时序。实际高度/版本修复与边界核对见A最终交付和REFORGED_CHANGES。整模组尚未完整，测试聊天由用户独立负责，本线没有启动游戏，不联系或等待测试。当前Git无remote，阶段本地提交不是远程发布。
 
 第107批先建parallel-batch107.md，A负责25项完整特征（含两个原自定义晶洞、树/湖/列及较复杂分布），主线负责12项及集成。106阶段提交后解除107生产冻结继续，不等待测试。
+
+## 第107批最终集成验证
+
+迁移A完成25项配置及其24条真实自然链，73份JSON与两份条件晶洞Java；主线完成其余12条完整自然链36JSON及共享入口。合计37个configured、36个placed、36个群系modifier，恢复两种按原oreTier2短路的完整原生晶洞。31处旧UniformInt.value必要展平，保原均匀分布/边界、所有候选、顺序和抽样时机；不误改HeightProvider或樱花树干的直接编码。原净化配置只有孤立稳定器程序引用，原4577类常量池无其他调用，保定义不造入口。
+
+主线另补八张原唱片、原七配方、原enterloqtablet战利品表定义及grunt刷怪蛋。15张唱片的原比较器、音轨、时长、rarity与堆叠逐项核；Forge Supplier原时长单位为tick，目标song除20为秒。全部原音频/stream/模型/纹理保留。Arctic Warmth与Legacy是不同原物品/音轨，不互当别名。thermofebruary原奖励Legacy，既有表正确且不改；strangers_theme的enterloqtablet原无Java/advancement精确消费者，保定义和创意页，不猜自然奖励。补24中文键而保全部旧值。
+
+两路停笔固定8684份src/main输入，Java21离线compileJava/processResources --max-workers=2统一通过，日志1m 19s；compileJava为UP-TO-DATE，processResources执行。对本批五个新增/修改Java的实际class做javap，确认新增唱片/蛋/晶洞及根入口符号已在编译产物，证据main107-bytecode-evidence.json，不将UP-TO-DATE说成再次编译。131份生产变更，A75交付与主线文件哈希保留；构建期间全部输入不变，7898直接复制资源逐字节相同，2展开模板通过。独立36JSON及唱片/获取链机械报告另存，静态检查不是游戏测试。
+
+旧四模板的DataVersion与DFU入口已进一步查证：未知模组choice不能保证自动升级，130个模组实体旧属性和七个grunt药效等载荷已排108显式转换，同时完整保vanilla库存/书/经验球，不只改版本号。第108批按parallel-batch108.md预分，A承担较多；107阶段提交后解除生产冻结继续。
+
+用户最新测试安排：服务端由独立线进行中，不能视作已通过；全部代码完整且无简化复审后由主线安排子代理进行客户端及Render Preview对照。当前未启动游戏、不联系或干预服务端测试。模组整体仍未完成；无Git remote，阶段本地提交不是远程发布。
