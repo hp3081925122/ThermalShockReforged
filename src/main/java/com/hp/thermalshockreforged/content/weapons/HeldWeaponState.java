@@ -14,8 +14,20 @@ public final class HeldWeaponState {
     private static final String REACH_REMAINING = "thermal_shock_reforged:held_reach_remaining";
     private static final String REACH_CREATED = "thermal_shock_reforged:held_reach_created";
     private static final ResourceLocation REACH_MODIFIER = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "held_reach");
+    private static final String ZOOM_REMAINING = "thermal_shock_reforged:magnetic_zoom_remaining";
+    private static final String ZOOM_CREATED = "thermal_shock_reforged:magnetic_zoom_created";
+    private static final ResourceLocation ZOOM_MODIFIER = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "magnetic_zoom");
 
     private HeldWeaponState() { }
+
+    public static void refreshMagneticZoom(LivingEntity entity) {
+        if (entity.level().isClientSide) return;
+        var speed = entity.getAttribute(Attributes.MOVEMENT_SPEED);
+        if (speed == null) return;
+        if (!speed.hasModifier(ZOOM_MODIFIER)) speed.addTransientModifier(new AttributeModifier(ZOOM_MODIFIER, -1, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
+        entity.getPersistentData().putInt(ZOOM_REMAINING, 1);
+        entity.getPersistentData().putLong(ZOOM_CREATED, entity.level().getGameTime());
+    }
 
     public static void refreshReach(LivingEntity entity, int amount) {
         if (entity.level().isClientSide) return;
@@ -47,6 +59,11 @@ public final class HeldWeaponState {
     public static void tick(EntityTickEvent.Post event) {
         if (!(event.getEntity() instanceof LivingEntity entity) || entity.level().isClientSide) return;
         var data = entity.getPersistentData();
+        if (data.contains(ZOOM_REMAINING) && (!entity.isAlive() || data.getLong(ZOOM_CREATED) != entity.level().getGameTime())) {
+            var speed = entity.getAttribute(Attributes.MOVEMENT_SPEED);
+            if (speed != null) speed.removeModifier(ZOOM_MODIFIER);
+            data.remove(ZOOM_REMAINING); data.remove(ZOOM_CREATED);
+        }
         if (data.contains(REACH_REMAINING) && (!entity.isAlive() || data.getLong(REACH_CREATED) != entity.level().getGameTime())) {
             int remaining = entity.isAlive() ? data.getInt(REACH_REMAINING) - 1 : 0;
             if (remaining > 0) data.putInt(REACH_REMAINING, remaining);
@@ -71,6 +88,11 @@ public final class HeldWeaponState {
     public static void join(EntityJoinLevelEvent event) {
         if (!(event.getEntity() instanceof LivingEntity entity) || event.getLevel().isClientSide || !entity.isAlive()) return;
         var data = entity.getPersistentData();
+        if (data.getInt(ZOOM_REMAINING) > 0) {
+            var speed = entity.getAttribute(Attributes.MOVEMENT_SPEED);
+            if (speed != null && !speed.hasModifier(ZOOM_MODIFIER)) speed.addTransientModifier(new AttributeModifier(ZOOM_MODIFIER, -1, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
+            data.putInt(ZOOM_REMAINING, 1); data.putLong(ZOOM_CREATED, Long.MIN_VALUE);
+        }
         if (data.getInt(REACH_REMAINING) > 0) {
             var range = entity.getAttribute(Attributes.ENTITY_INTERACTION_RANGE);
             int amount = Math.clamp(data.getInt("thermal_shock_reforged:held_reach_amount"), 0, 5);

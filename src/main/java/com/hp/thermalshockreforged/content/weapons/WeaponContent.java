@@ -13,6 +13,8 @@ import net.neoforged.neoforge.registries.*;
 public final class WeaponContent {
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
+    public static final DeferredHolder<EntityType<?>, EntityType<MagneticCycleSoundEntity>> MAGNETIC_CYCLE_SOUND = TYPES.register("magnetic_cycle_sound_task", () -> EntityType.Builder.<MagneticCycleSoundEntity>of(MagneticCycleSoundEntity::new, MobCategory.MISC).noSummon().sized(.01F, .01F).clientTrackingRange(0).updateInterval(20).build(ThermalShockReforged.MOD_ID + ":magnetic_cycle_sound_task"));
+    public static final DeferredItem<MagneticCrossbowItem> MAGNETIC_CROSSBOW = ITEMS.register("magnetic_crossbow", MagneticCrossbowItem::new);
     public static final DeferredHolder<EntityType<?>, EntityType<FirearmBulletEntity>> FLINTSTEEL_RIFLE_BULLET = bullet("flintsteel_rifle_bullet");
     public static final DeferredHolder<EntityType<?>, EntityType<FirearmBulletEntity>> HAILFALL_BULLET = bullet("hailfall_bullet");
     public static final DeferredHolder<EntityType<?>, EntityType<RifleCycleSoundEntity>> RIFLE_CYCLE_SOUND = TYPES.register("rifle_cycle_sound_task", () -> EntityType.Builder.<RifleCycleSoundEntity>of(RifleCycleSoundEntity::new, MobCategory.MISC).noSummon().sized(.01F, .01F).clientTrackingRange(0).updateInterval(20).build(ThermalShockReforged.MOD_ID + ":rifle_cycle_sound_task"));
@@ -44,8 +46,8 @@ public final class WeaponContent {
         NeoForge.EVENT_BUS.addListener(WeaponContent::serverStopped);
     }
 
-    public static void pruneAnimations() { BLINDING_LANTERN.get().pruneAnimations(); ZAP_GAUNTLET.get().pruneAnimations(); FLINTSTEEL_RIFLE.get().pruneAnimations(); HAILFALL.get().pruneAnimations(); SPELEOTHEM.get().pruneAnimations(); RUBY_SPEAR.get().pruneAnimations(); CARBORUNDUM_SPEAR.get().pruneAnimations(); }
-    public static void clearAnimations() { BLINDING_LANTERN.get().clearAnimations(); ZAP_GAUNTLET.get().clearAnimations(); FLINTSTEEL_RIFLE.get().clearAnimations(); HAILFALL.get().clearAnimations(); SPELEOTHEM.get().clearAnimations(); RUBY_SPEAR.get().clearAnimations(); CARBORUNDUM_SPEAR.get().clearAnimations(); }
+    public static void pruneAnimations() { MAGNETIC_CROSSBOW.get().pruneAnimations(); BLINDING_LANTERN.get().pruneAnimations(); ZAP_GAUNTLET.get().pruneAnimations(); FLINTSTEEL_RIFLE.get().pruneAnimations(); HAILFALL.get().pruneAnimations(); SPELEOTHEM.get().pruneAnimations(); RUBY_SPEAR.get().pruneAnimations(); CARBORUNDUM_SPEAR.get().pruneAnimations(); }
+    public static void clearAnimations() { MAGNETIC_CROSSBOW.get().clearAnimations(); BLINDING_LANTERN.get().clearAnimations(); ZAP_GAUNTLET.get().clearAnimations(); FLINTSTEEL_RIFLE.get().clearAnimations(); HAILFALL.get().clearAnimations(); SPELEOTHEM.get().clearAnimations(); RUBY_SPEAR.get().clearAnimations(); CARBORUNDUM_SPEAR.get().clearAnimations(); }
     private static void serverTick(ServerTickEvent.Post event) { pruneAnimations(); }
     private static void serverStopped(ServerStoppedEvent event) { clearAnimations(); }
 }

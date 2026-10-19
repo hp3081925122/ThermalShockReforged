@@ -876,7 +876,20 @@
       "status": "not_migrated"
     },
     "protoi_epsilon": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshockreforged.entity.protoi.ProtoiEpsilonEntity",
+      "migration_document": "protoi-epsilon-batch.md",
+      "prepared_tests": [
+        "initialAttackCanceledAndCooldownPersists",
+        "bombAt20EndAndDashAuraAt40End",
+        "committedCallbacksSurviveEarlyDeath",
+        "twoDriftImpulsesAndLocksMatchOriginalTiming",
+        "externalSlownessDoesNotMultiplyInternalDrift",
+        "fullGlowBodyPoseAndAnimations"
+      ],
+      "pending": [
+        "整模组完整后的服务端、客户端及Render Preview验收"
+      ]
     },
     "epsilon_bomb": {
       "status": "implemented_pending_full_validation",
@@ -903,6 +916,14 @@
     "magnetic_detonation_task": {
       "status": "implemented_pending_full_validation",
       "purpose": "幂等提交10 SERVER END范围结算，允许来源先移除"
+    },
+    "magnetic_cycle_sound_task": {
+      "status": "implemented_pending_full_validation",
+      "purpose": "磁弓5/10/15 END固定锚点装填声，三阶段持久有限任务"
+    },
+    "epsilon_attack_task": {
+      "status": "implemented_pending_full_validation",
+      "purpose": "Epsilon20/40 END攻击，UUID和值快照保已提交死亡后反馈"
     }
   }
 }

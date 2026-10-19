@@ -36,7 +36,7 @@ public abstract class ProtoiEntityBase extends PathfinderMob implements GeoEntit
         this.texture = texture;
         this.flying = flying;
         this.attackReach = attackReach;
-        setPersistenceRequired();
+        if (persistentByDefault()) setPersistenceRequired();
         if (flying) moveControl = new FlyingMoveControl(this, 10, true);
     }
 
@@ -54,9 +54,11 @@ public abstract class ProtoiEntityBase extends PathfinderMob implements GeoEntit
     public String texture() { return texture; }
     public void triggerProcedure(String animation) { if (animation != null && !animation.isBlank() && !animation.equals("empty")) procedure = animation; }
     public boolean flyingProtoi() { return flying; }
+    protected boolean persistentByDefault() { return true; }
+    protected boolean ignoresDamage(DamageSource source) { return source.is(DamageTypes.IN_FIRE) || source.is(DamageTypes.FALL) || source.is(DamageTypes.DROWN); }
     @Override public boolean removeWhenFarAway(double distance) { return false; }
     @Override public boolean causeFallDamage(float distance, float multiplier, DamageSource source) { return false; }
-    @Override public boolean hurt(DamageSource source, float amount) { return source.is(DamageTypes.IN_FIRE) || source.is(DamageTypes.FALL) || source.is(DamageTypes.DROWN) ? false : super.hurt(source, amount); }
+    @Override public boolean hurt(DamageSource source, float amount) { return !ignoresDamage(source) && super.hurt(source, amount); }
     @Override protected void playStepSound(BlockPos pos, net.minecraft.world.level.block.state.BlockState state) { }
     @Override protected SoundEvent getAmbientSound() { return null; }
     @Override protected void defineSynchedData(net.minecraft.network.syncher.SynchedEntityData.Builder builder) { super.defineSynchedData(builder); }
