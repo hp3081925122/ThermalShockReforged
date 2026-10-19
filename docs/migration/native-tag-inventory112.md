@@ -16,6 +16,6 @@
 |item/milk|整份文件缺失，loque_milk、minecraft:milk_bucket|UtilityContent真实注册及原版物品，原单复数副本合并|
 |item/tombstones|原空标签整份缺失|保原空定义，不造墓碑成员|
 
-undead_mobs没有原成员缺项，目标额外monolith、dormant_monolith是既有迁移内容；后续不整体覆盖而丢掉既有合法增量。当前未找到sustain_fire、therm_projectile、infectionimmune、nomelee、key、milk的直接Java消费者，仅能说明当前搜索结果，不证明原数据可删或行为已覆盖。
+undead_mobs没有原成员缺项，初次盘点曾把目标额外monolith、dormant_monolith视为既有合法增量；该判断在第114批撤回：原生亡灵类型与自定义掉落tag不同，原13成员全保并移除误扩两项，原版亡灵语义标签不变。第114批亦已确认sustain_fire真实消费者为原ExtinguishFire过程并补全目标放置入口。其余先前未定位消费者的tag不能据此删除或认定覆盖。
 
 112生产必须在111统一构建/核验/提交后解除冻结；中央集成保原顺序、replace语义、标签引用及既有合法额外项，所有新增成员先有真实注册，不用optional掩盖漏注册。此盘点未修改生产输入、未编译、未启动游戏，标签恢复最终证据另建生产清单。

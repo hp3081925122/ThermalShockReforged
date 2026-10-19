@@ -1,5 +1,6 @@
 package com.hp.thermalshockreforged.content.status;
 
+import com.hp.thermalshockreforged.combat.PreArmorDamageEvent;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
@@ -33,13 +34,10 @@ public final class StatusEvents {
         }
     }
 
-    public static void onDamage(LivingDamageEvent.Pre event) {
+    public static void onDamage(PreArmorDamageEvent event) {
         LivingEntity entity = event.getEntity();
         if (entity.level().isClientSide || !entity.hasEffect(StatusContent.ELECTRIFIED)) return;
-        float incomingDamage = event.getNewDamage();
-        incomingDamage += event.getContainer().getReduction(net.neoforged.neoforge.common.damagesource.DamageContainer.Reduction.ARMOR);
-        incomingDamage += event.getContainer().getReduction(net.neoforged.neoforge.common.damagesource.DamageContainer.Reduction.ENCHANTMENTS);
-        incomingDamage += event.getContainer().getReduction(net.neoforged.neoforge.common.damagesource.DamageContainer.Reduction.MOB_EFFECTS);
+        float incomingDamage = event.getAmount();
         if (!(incomingDamage > 0) || !Float.isFinite(incomingDamage)) return;
         Propagation active = PROPAGATION.get();
         if (active != null) {

@@ -18,6 +18,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
+import net.neoforged.neoforge.event.entity.living.LivingFallEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import net.neoforged.neoforge.event.tick.ServerTickEvent;
@@ -84,6 +85,10 @@ final class ArmorSetEvents {
             if (!player.getItemBySlot(item.getEquipmentSlot()).is(item)) return false;
         }
         return true;
+    }
+
+    static void fall(LivingFallEvent event) {
+        if (event.getEntity() instanceof Player player && wearing(player, ArmorContent.CARBORUNDUM)) event.setCanceled(true);
     }
 
     static void serverTick(ServerTickEvent.Post event) {

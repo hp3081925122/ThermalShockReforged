@@ -1,0 +1,693 @@
+{
+  "batch": 114,
+  "scope": "26 original non-LivingAttack subscriptions; source/static evidence only",
+  "originalJarSha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436",
+  "inventorySha256": "d7e7717377bbf679da1b7d10c5a9d887f2495223615ed6c0087a2d432c77a56b",
+  "entries": [
+    {
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/atlas/AqeronEvents.java",
+        "src/main/java/com/hp/thermalshockreforged/content/atlas/AtlasCoordinates.java",
+        "src/main/java/com/hp/thermalshockreforged/content/atlas/AtlasTravel.java"
+      ],
+      "behavior": [
+        "Aqeron玩家死亡取消，读取PALACE保存坐标或(0,194,0)回传；真实Atlas传入保存原点"
+      ],
+      "difference": "保第30批已记录的有限正血量恢复及正确维度坐标修复；不恢复原0血反复死亡",
+      "reviewer": "root源码复审",
+      "verification": "源码/原JAR/静态比对；未运行客户端或服务端",
+      "originalClass": "AqeronDeathOverrideProcedure",
+      "originalEvent": "LivingDeathEvent",
+      "sourceSha256": "fdb9f68ef010ad54521e008289b76a469aedb97164a8371c19a466af51dbd8cf",
+      "originalClassSha256": "66b0dc75e946748a6f0e8b11ecda2b0543b5d616dd0cd20bd20b2023f4d58905",
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/atlas/AqeronEvents.java",
+          "sha256": "b867c5b13b4ee41342e5f817530751fa516fa2537c705d405d131c85b991b090"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/atlas/AtlasCoordinates.java",
+          "sha256": "2bbfc543c86cb8ec9182628e3caf60dfd18db53488bb726147fff4a6ebc276e1"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/atlas/AtlasTravel.java",
+          "sha256": "9207579ad9dcc4007564d3b43af54a93e10e05a6300c2679dff34e60b7107601"
+        }
+      ]
+    },
+    {
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/atlas/AqeronEvents.java",
+        "src/main/java/com/hp/thermalshockreforged/world/sanctum/PylonBuildingLock.java",
+        "src/main/java/com/hp/thermalshockreforged/entity/sanctum/GuardianPylonEntity.java"
+      ],
+      "behavior": [
+        "破坏者为Player且非创造；在Aqeron或原NO_BREAK等价100tick自有锁时取消"
+      ],
+      "difference": "不恢复隐藏高等级药水充当锁",
+      "reviewer": "root源码复审",
+      "verification": "源码/原JAR/静态比对；未运行客户端或服务端",
+      "originalClass": "AqeronEntityEffectsProcedure",
+      "originalEvent": "BlockEvent.BreakEvent",
+      "sourceSha256": "5bc069efad31b755fe60b0a35cdda63373b34ee8fea1242ee82a05e8dd13bb0a",
+      "originalClassSha256": "36c33fb79ee6ed93f2fc02e481ffba8c574ba7df44454295185aa02a4bbf4ad7",
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/atlas/AqeronEvents.java",
+          "sha256": "b867c5b13b4ee41342e5f817530751fa516fa2537c705d405d131c85b991b090"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/world/sanctum/PylonBuildingLock.java",
+          "sha256": "1c900c4d676ce6befce35dbe021cce67be5c85907544ad6977db0d3a822a9020"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/sanctum/GuardianPylonEntity.java",
+          "sha256": "40f0d8b9af2e3b4aa785a225f9ac6f6302a6fc4777e644e1251040cd573deade"
+        }
+      ]
+    },
+    {
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/atlas/AqeronEvents.java"
+      ],
+      "behavior": [
+        "同原玩家/创造/维度或建造锁门槛"
+      ],
+      "difference": "保已记录的原生取消放置返实际物品栈，替代原dropResources+destroyBlock(false)后的事后回收",
+      "reviewer": "root源码复审",
+      "verification": "源码/原JAR/静态比对；未运行客户端或服务端",
+      "originalClass": "AqeronPlaceStopProcedure",
+      "originalEvent": "BlockEvent.EntityPlaceEvent",
+      "sourceSha256": "dc6b19b9c534510d3edeeecf89c92a921e6a0ba05ba8d46fc0139be1bbc3a8ee",
+      "originalClassSha256": "c2bfffa88955f6423c17e3d7df93dafb535b05188df5a06f5e80650ce8756837",
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/atlas/AqeronEvents.java",
+          "sha256": "b867c5b13b4ee41342e5f817530751fa516fa2537c705d405d131c85b991b090"
+        }
+      ]
+    },
+    {
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/BounceBlocks.java",
+        "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java"
+      ],
+      "behavior": [
+        "LivingFall时脚下当前方块或下一格为bouncer/little_spring/superbouncer则取消，不加潜行门槛；原stepOn弹跳独立保留"
+      ],
+      "difference": "本批补漏，不能把弹跳动作视为摔伤取消已迁",
+      "reviewer": "quick_explorer remaining_inventory97 + root",
+      "verification": "源码/原JAR/静态比对；未运行客户端或服务端",
+      "originalClass": "BouncerfalldamageoverrideProcedure",
+      "originalEvent": "LivingFallEvent",
+      "sourceSha256": "55c302289626aaf07576cccba1cec087455b0268c4e90df179d036be88b3f38a",
+      "originalClassSha256": "8551bd4c5cebfb17bf55d848ef9a637fb2509d9dba03a82e244a2e3a2a4fdfe9",
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/BounceBlocks.java",
+          "sha256": "a941fbab2d54a07111fe293d70016068ebacbed9cf0c96c8d20bfbdc6c35d6b1"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java",
+          "sha256": "95f62f003c698a9e48f0205740b598fb24f79c419d25cba85ce0d5b779d8e852"
+        }
+      ]
+    },
+    {
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/armor/ArmorSetEvents.java",
+        "src/main/java/com/hp/thermalshockreforged/content/armor/ArmorContent.java"
+      ],
+      "behavior": [
+        "只有Player精确穿齐原四部位Carborundum套装才取消Fall；此独立事件无Zenith或非Aqeron门槛"
+      ],
+      "difference": "本批补漏，保装备tick低重力的独立门槛",
+      "reviewer": "quick_explorer remaining_inventory97 + root",
+      "verification": "源码/原JAR/静态比对；未运行客户端或服务端",
+      "originalClass": "CarborundumFallOverrideProcedure",
+      "originalEvent": "LivingFallEvent",
+      "sourceSha256": "1cecf9606cdabbf194a9131b1661d10beb1e33c6cb0e48a86139fc7ddf2569ed",
+      "originalClassSha256": "f6a1a8f59e2d9e514da194f98c2eaa4bb2c0b4fae209156e855994e428504dc6",
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/armor/ArmorSetEvents.java",
+          "sha256": "26366f4537a4255f068e7d97115670e8b35c1fbc3427e9b86bf87f6be22e02a2"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/armor/ArmorContent.java",
+          "sha256": "f26ac3085d2eadbd51cb8b6e83ae9b1860027756fc00efbaaaee2e24ed29721a"
+        }
+      ]
+    },
+    {
+      "targetPaths": [],
+      "behavior": [
+        "原execute(Event)仅两个double局部置0并返回，无实际副作用"
+      ],
+      "difference": "不造空PlayerTick监听或猜测点火能力",
+      "reviewer": "quick_explorer remaining_inventory97原class机械核",
+      "verification": "源码/原JAR/静态比对；未运行客户端或服务端",
+      "originalClass": "CobaltHeightsIgnitionEffectProcedure",
+      "originalEvent": "TickEvent.PlayerTickEvent",
+      "sourceSha256": "4ef5ff73cf76ceec6baecb336882d99bb018f0a3564307fafcfa2c6819d1eb8d",
+      "originalClassSha256": "60023a211e88ac3370b055fccb48c7afa02f2ff1b77c20f55c912dec2426517b",
+      "targetFiles": []
+    },
+    {
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/world/LoqendiaRules.java",
+        "src/main/java/com/hp/thermalshockreforged/world/LoqendiaContent.java"
+      ],
+      "behavior": [
+        "EntityJoinLevel：Loqendia维度且entity instanceof Pig直接取消，保客户端/服务端原入口边界，不扫全世界"
+      ],
+      "difference": "本批补漏；英文DEBUG带UUID及loadedFromDisk",
+      "reviewer": "root源码复审",
+      "verification": "源码/原JAR/静态比对；未运行客户端或服务端",
+      "originalClass": "DepiginatorProcedure",
+      "originalEvent": "EntityJoinLevelEvent",
+      "sourceSha256": "8f67ab46d134607a3492191aca42ba9a680ea96c1e8ba9e24f719ee065aa7a28",
+      "originalClassSha256": "46d9d48423952c736556118bdb0e87bcb3f766b5c6afe17d509f5199b3e630ac",
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/world/LoqendiaRules.java",
+          "sha256": "3454360325c8248b935d5c655f6c0132b830c82f14b8328fa510b7cde721d47e"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/world/LoqendiaContent.java",
+          "sha256": "4e07d398ce86d06ab06a504fe7380fb2e47b693e3d9f11fa46638cb9daec4061"
+        }
+      ]
+    },
+    {
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/armor/SpecialArmorEvents.java",
+        "src/main/java/com/hp/thermalshockreforged/combat/PreArmorDamageEvent.java",
+        "src/main/java/com/hp/thermalshockreforged/mixin/LivingEntityStatusMixin.java",
+        "src/main/java/com/hp/thermalshockreforged/mixin/PlayerInfectionStatusMixin.java",
+        "src/main/java/com/hp/thermalshockreforged/content/armor/ArmorContent.java"
+      ],
+      "behavior": [
+        "Player胸部DevScarf或SilencedChest且50%；原烟花声NEUTRAL1/随机1或2；15 PURPLE_SPARKLE位于Y+1.2偏移(1,.1,1)；2格立方Mob烧2秒",
+        "恢复旧LivingHurt护甲/魔法/吸收减伤之前，沿actuallyHurt真实无敌帧差值；玩家与Living各一次"
+      ],
+      "difference": "本批修正同名事件跨版本阶段不等价；有限非负输入保原0伤亦可触发",
+      "reviewer": "quick_explorer remaining_inventory97 + root",
+      "verification": "源码/原JAR/静态比对；未运行客户端或服务端",
+      "originalClass": "DevScarfEffectProcedure",
+      "originalEvent": "LivingHurtEvent",
+      "sourceSha256": "38f7a73f649be9e85e526bdf4f35a0ecbc4b5b3bd154de2d5eede1525916570e",
+      "originalClassSha256": "bd291b19bf4f639e75d179b70f857bc0f4924788a848f0fc0899938642e379e7",
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/armor/SpecialArmorEvents.java",
+          "sha256": "f94b064705a7ce7e91d11e7f8149b69dbfa2a160cb221469a8b91c307c36b31b"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/combat/PreArmorDamageEvent.java",
+          "sha256": "5a3bd2d1d90a6dbce50689e835f9d9d46ce4dfc9aa6ec133ee97ff77f96b5953"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/mixin/LivingEntityStatusMixin.java",
+          "sha256": "8839dccfc6fd7512e2dcb81fe215ede8ad0fd95cd74e29f8c8b488b60628d2e9"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/mixin/PlayerInfectionStatusMixin.java",
+          "sha256": "dad25d14dbe57dc4bc157105ce76a521d455d8b32929a04fcb835dde09fddf23"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/armor/ArmorContent.java",
+          "sha256": "f26ac3085d2eadbd51cb8b6e83ae9b1860027756fc00efbaaaee2e24ed29721a"
+        }
+      ]
+    },
+    {
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/status/StatusEvents.java",
+        "src/main/java/com/hp/thermalshockreforged/combat/PreArmorDamageEvent.java",
+        "src/main/java/com/hp/thermalshockreforged/mixin/LivingEntityStatusMixin.java",
+        "src/main/java/com/hp/thermalshockreforged/mixin/PlayerInfectionStatusMixin.java"
+      ],
+      "behavior": [
+        "真实ELECTRIFIED目标，inflate4按距离的其他带电Living，保原来源及二分之一incoming伤",
+        "取旧护甲前真实方法参数，不以新版减伤后金额反加猜测；整链迭代visited/queued和finally清理仍保"
+      ],
+      "difference": "本批修时序；保此前已授权整链去重，避免多路径组合放大/递归",
+      "reviewer": "quick_explorer remaining_inventory97 + root",
+      "verification": "源码/原JAR/静态比对；未运行客户端或服务端",
+      "originalClass": "ElectrifiedHitProcedure",
+      "originalEvent": "LivingHurtEvent",
+      "sourceSha256": "5e9c01a1cc28cdbb2e244a36a65e238c5d8cf4cfa86628337b11d65656493b36",
+      "originalClassSha256": "92ef987f786c86f530ed05c63da9a481edbed22a378a5ec29cab4ce7d8031d4e",
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/status/StatusEvents.java",
+          "sha256": "1e6dcc4fc0eab7a9efda38705c2e7e222f1d4392360b06241d47cd8139a0ca25"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/combat/PreArmorDamageEvent.java",
+          "sha256": "5a3bd2d1d90a6dbce50689e835f9d9d46ce4dfc9aa6ec133ee97ff77f96b5953"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/mixin/LivingEntityStatusMixin.java",
+          "sha256": "8839dccfc6fd7512e2dcb81fe215ede8ad0fd95cd74e29f8c8b488b60628d2e9"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/mixin/PlayerInfectionStatusMixin.java",
+          "sha256": "dad25d14dbe57dc4bc157105ce76a521d455d8b32929a04fcb835dde09fddf23"
+        }
+      ]
+    },
+    {
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/world/LoqendiaRules.java",
+        "src/main/java/com/hp/thermalshockreforged/content/ModGameRules.java",
+        "src/main/resources/data/thermal_shock_reforged/tags/block/sustain_fire.json"
+      ],
+      "behavior": [
+        "实体放置且实体维度Loqendia；真实FIRE且loqendiaFireExtinguishes=true；下方不在sustain_fire则AIR flags3并FIRE_EXTINGUISH/NEUTRAL1/1",
+        "规则UPDATES默认true；sustain_fire原五成员全保；不扩到灵魂火或随机tick"
+      ],
+      "difference": "本批补漏，两逻辑均原生状态API，不执行命令",
+      "reviewer": "root源码复审",
+      "verification": "源码/原JAR/静态比对；未运行客户端或服务端",
+      "originalClass": "ExtinguishFireProcedure",
+      "originalEvent": "BlockEvent.EntityPlaceEvent",
+      "sourceSha256": "5a0ead471e039b86cbffbde23a2c3fc727422970bbe03053b42a205507a85e23",
+      "originalClassSha256": "6f4a707710bf39d01b654ac537cb7c29d6bf65b67b3520689c40e72179ed83a0",
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/world/LoqendiaRules.java",
+          "sha256": "3454360325c8248b935d5c655f6c0132b830c82f14b8328fa510b7cde721d47e"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/ModGameRules.java",
+          "sha256": "4dd066daf5c6a2da6be746a44c53d8fd05ab27894a815cc653271c2763ee1af9"
+        },
+        {
+          "path": "src/main/resources/data/thermal_shock_reforged/tags/block/sustain_fire.json",
+          "sha256": "814e93ff35149b75345e643291ec400bfde416c92702af4e26bd879d43db7002"
+        }
+      ]
+    },
+    {
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/world/LoqendiaRules.java",
+        "src/main/java/com/hp/thermalshockreforged/content/ModGameRules.java"
+      ],
+      "behavior": [
+        "实体放置且实体维度Loqendia；MAGMA_BLOCK且loqendiaMagmaFreezesUnderwater=true；正上方Blocks.WATER才变NETHERRACK flags3并LAVA_EXTINGUISH/NEUTRAL1/1",
+        "规则UPDATES默认true；不把任意waterlogged方块当WATER"
+      ],
+      "difference": "本批补漏，不新增全世界/全tick检查",
+      "reviewer": "root源码复审",
+      "verification": "源码/原JAR/静态比对；未运行客户端或服务端",
+      "originalClass": "FreezeMagmaProcedure",
+      "originalEvent": "BlockEvent.EntityPlaceEvent",
+      "sourceSha256": "7d1fdd145131b1edca8633c856229eaee3e1808a7e082ca07922a877f7c62329",
+      "originalClassSha256": "627de4351fc6859299c29f904459e21211ca3dac4ac8e66f842bc0f38142ac00",
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/world/LoqendiaRules.java",
+          "sha256": "3454360325c8248b935d5c655f6c0132b830c82f14b8328fa510b7cde721d47e"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/ModGameRules.java",
+          "sha256": "4dd066daf5c6a2da6be746a44c53d8fd05ab27894a815cc653271c2763ee1af9"
+        }
+      ]
+    },
+    {
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/status/StatusEvents.java"
+      ],
+      "behavior": [
+        "真实FROSTBITE时LivingHeal取消；服务端frostbitten/AMBIENT1/1声，不缩小治疗来源"
+      ],
+      "difference": "",
+      "reviewer": "root源码复审",
+      "verification": "源码/原JAR/静态比对；未运行客户端或服务端",
+      "originalClass": "FrostbiteHealstopProcedure",
+      "originalEvent": "LivingHealEvent",
+      "sourceSha256": "3855ebe3766f2a189197b53d7d6cbf667e7b8dc586d0405768ad3324709e56cc",
+      "originalClassSha256": "f2cbf0a216b07fd15a4567f121497e1c689493ad9771ce9bf25cc8c0c454632b",
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/status/StatusEvents.java",
+          "sha256": "1e6dcc4fc0eab7a9efda38705c2e7e222f1d4392360b06241d47cd8139a0ca25"
+        }
+      ]
+    },
+    {
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/entity/infestation/GraveyardDrops.java",
+        "src/main/resources/data/thermal_shock_reforged/tags/entity_type/undead_mobs.json"
+      ],
+      "behavior": [
+        "doEntityDrops门槛；graveyard70%感染种子；skeletitan50%骨头1..2；undead_mobs10%tainted_energy1；Razoraptor/Mangler/Flare30%infected_flesh1",
+        "种子数量原for每轮条件重新round均匀1..5，精确4096权重[512,1344,1400,735,105]；目标阈值512/1856/3256/3991等价；原/目标pickup10"
+      ],
+      "difference": "纠正第95/112批将Monolith的原生亡灵身份误等于自定义undead_mobs，去额外两成员，不改原版亡灵标签；代理最初单采样误读已撤回",
+      "reviewer": "quick_explorer coverage104_inventory字节码机械核及纠正 + root",
+      "verification": "源码/原JAR/静态比对；未运行客户端或服务端",
+      "originalClass": "GraveMobDropsProcedure",
+      "originalEvent": "LivingDeathEvent",
+      "sourceSha256": "d294f6dfa750d1211e6f1be1d095a7912f86dea250d345152d77736dccb3133b",
+      "originalClassSha256": "0fc47e0546cca4266ec2a4f353e44e417aa96614db8ad5dfddc5c86a18e78783",
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/infestation/GraveyardDrops.java",
+          "sha256": "6a537fca998d99e3deff65a4fafd5bedd322ff8cc39b8e805f57e52bf78bd555"
+        },
+        {
+          "path": "src/main/resources/data/thermal_shock_reforged/tags/entity_type/undead_mobs.json",
+          "sha256": "a7bd91910f05a060223b99f0e1b38919a8df768f75aab260717ebd609af569d2"
+        }
+      ]
+    },
+    {
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/entity/mangler/ManglerContent.java",
+        "src/main/java/com/hp/thermalshockreforged/entity/mangler/HeraldEntity.java",
+        "src/main/java/com/hp/thermalshockreforged/world/timing/ServerEndTickTasks.java"
+      ],
+      "behavior": [
+        "inflate8立方内每合法Herald独立计数；10次；双随机动画、两血粒子与原warden/bell声；原死者位置20次SERVER END后两声+1钥匙/pickup10",
+        "本批将本体tick递减改原SERVER END逐次递减，包含排入当tick的END；UUID集合单tick去重，保存remaining/origin，先消费锁再掉物"
+      ],
+      "difference": "明确保mangler-herald-next-audit.md第32/90行早已批准的死亡/换维取消；未恢复死尸参与计数或死后给钥匙。跨维回退9；不是把旧生命周期误称原等价",
+      "reviewer": "quick_explorer coverage104_inventory原lambda/END机械核 + root",
+      "verification": "源码/原JAR/静态比对；未运行客户端或服务端",
+      "originalClass": "HeraldSiphonBloodProcedure",
+      "originalEvent": "LivingDeathEvent",
+      "sourceSha256": "2246d29a0f1ab0f7821f1726609804f92770ef58fee27ed55aba55d411984228",
+      "originalClassSha256": "6971f306a3336d14ed8706c8faeb3f5ae83a3e93b9b452473d2370b7ac375cf3",
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/mangler/ManglerContent.java",
+          "sha256": "d0fb2b74b978ca25520911ba16a944d9bea2ce5e4574f0e3cf42ee10344b7392"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/mangler/HeraldEntity.java",
+          "sha256": "e1f7654a49b1cfc0c88009cecb17e5cda30b327ce4761de8e9ba592335547f4c"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/world/timing/ServerEndTickTasks.java",
+          "sha256": "dba6d1c195d3ece00aa5409b6cf48c9033099d9c611d1e73f1d88e18da361b5b"
+        }
+      ]
+    },
+    {
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/entity/drops/IceMobDrops.java",
+        "src/main/resources/data/thermal_shock_reforged/tags/entity_type/ice.json"
+      ],
+      "behavior": [
+        "原ice标签门槛下10%chip与70%phobotite等分支；Icidrozerk额外2/3/Keyfragment、FrostilyteCryomancer分支及原Drone/粒子/声全保",
+        "原1.20.1有效entity_types/ice有5成员含FrostTitan；同JAR无效singular目录只有4，目标完整保5。Cryomancer原未在该tag不凭分支名擅加"
+      ],
+      "difference": "本批最初按singular4误删FrostTitan，独立复核发现双目录差异后已恢复，最终该生产文件与HEAD完全一致；不更改原生寒系玩法/属性",
+      "reviewer": "quick_explorer coverage104_inventory、remaining_inventory97 + root原JAR双目录核",
+      "verification": "源码/原JAR/静态比对；未运行客户端或服务端",
+      "originalClass": "IceMobDropsProcedure",
+      "originalEvent": "LivingDeathEvent",
+      "sourceSha256": "29356397096c301a62fc8e85dd175787919af7f7dcdd6215c4da5efe7402677a",
+      "originalClassSha256": "9c1a8bc1f0b5482af296bd06f42400f155601229a40c3e388dfdf44ba1a9e5d7",
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/drops/IceMobDrops.java",
+          "sha256": "1e00c6510a2148d8e0aadf63b1ad1766cb4f092e2bbe6df57033e2898ab47f4f"
+        },
+        {
+          "path": "src/main/resources/data/thermal_shock_reforged/tags/entity_type/ice.json",
+          "sha256": "4a0e77fe57358901ed35d0568b7dc75d480b370614fddc519675884a9a43deee"
+        }
+      ]
+    },
+    {
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/utility/FoodDrops.java",
+        "src/main/java/com/hp/thermalshockreforged/content/utility/UtilityContent.java",
+        "src/main/java/com/hp/thermalshockreforged/mixin/LivingDeathStateAccess.java"
+      ],
+      "behavior": [
+        "doEntityDrops；Effigy .007 Snowdae、Magnetite .01 Loquesicle、BeetleThrasher .01 BloodPop、Lens .01 ChalkCandy、Bonerahna .004 MuckPie、Spectre .004 LuckTicket；每次1，pickup10",
+        "恢复原LivingDeath阶段，位于killer.killedEntity/dropAllDeathLoot/可取消LivingDrops之前；排removed或原生dead已提交的重复die，不用永久布尔吞合法复活再死亡"
+      ],
+      "difference": "此差异不是doMobLoot门槛：目标LivingDrops发布本在RULE_DOMOBLOOT判断之外，原/目标另外都检查doEntityDrops",
+      "reviewer": "quick_explorer coverage104_inventory更正及remaining_inventory97 + root",
+      "verification": "源码/原JAR/静态比对；未运行客户端或服务端",
+      "originalClass": "MiscFoodDropsProcedure",
+      "originalEvent": "LivingDeathEvent",
+      "sourceSha256": "8ef98f16bdf788d9fc8f3477b18f3014de87d398e6a42c74a274a5cff0b2139c",
+      "originalClassSha256": "40586dd108d3986f6c28545ff0709ff3dcd8329fd97f4eb308e9d0154085f45e",
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/utility/FoodDrops.java",
+          "sha256": "69f735c19f89c153a35b6053be5215aeff987d4b3f0ff9dbdbeb8c7ea5088d95"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/utility/UtilityContent.java",
+          "sha256": "7f2a7b66e1187aba2013bcc80063ce75ab9e9a4bca2219cbfd9aba9d6968d2b3"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/mixin/LivingDeathStateAccess.java",
+          "sha256": "669c64a2b559e87d917e0c2213e7e492b4694036b7d78b4a858d2e9f57f25472"
+        }
+      ]
+    },
+    {
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/mixin/DimensionSkyTexturesMixin.java",
+        "src/main/resources/thermal_shock_reforged.mixins.json"
+      ],
+      "behavior": [
+        "保Loqendia:loque_sun+aqeron_phases，Aqeron:loque_sun+loqendia_phases原交叉命名；其它维原天空纹理",
+        "真实client-only renderSky两个纹理调用处替换，require2，不再每PlayerTick覆写全局TextureManager"
+      ],
+      "difference": "全局污染修复已记录；实际天空渲染待最终客户端",
+      "reviewer": "root源码复审",
+      "verification": "源码/原JAR/静态比对；未运行客户端或服务端",
+      "originalClass": "MoonPhasesTexturerProcedure",
+      "originalEvent": "TickEvent.PlayerTickEvent",
+      "sourceSha256": "a7e97acaa6461b5438b5636c75e552c8413d9cae1481e2cda3622ce81fc06ce8",
+      "originalClassSha256": "1c3505cda5869ae9433a85b5d8be3d1087ad594558177128458648e9a5e81bb2",
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/mixin/DimensionSkyTexturesMixin.java",
+          "sha256": "568f74465466cd8b9c7a425e40d907896ac21e832e152b5dacf5f9fbb0cfd442"
+        },
+        {
+          "path": "src/main/resources/thermal_shock_reforged.mixins.json",
+          "sha256": "1044803394b37d47f052455b604694cec197d3ab2aca5bc4107a46fe2232d345"
+        }
+      ]
+    },
+    {
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/world/PalaceGeneration.java"
+      ],
+      "behavior": [
+        "lavender_palace完整模板，原(-74,178,-132)，NONE/NONE/ignoreEntities=false/flags3，主世界共享SavedData"
+      ],
+      "difference": "保AdvancementEarnEvent具体事件启动修复及真实成功后才exists",
+      "reviewer": "quick_explorer coverage101_inventory + root",
+      "verification": "源码/原JAR/静态比对；未运行客户端或服务端",
+      "originalClass": "PalaceSpawnProcedure",
+      "originalEvent": "AdvancementEvent",
+      "sourceSha256": "a172c91a4e6c8b525c6c79f98cbab3b789a26ad8d71a0b27746df2b7e9224bee",
+      "originalClassSha256": "23f96598b7f7bc700201a12c985832c8474f21b8a566f6f0493db259b146173b",
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/world/PalaceGeneration.java",
+          "sha256": "19fd965be0b66b12cc652771b03330653ee5e1268a5677840a036b11fcdcf15d"
+        }
+      ]
+    },
+    {
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/status/ParryingStatus.java",
+        "src/main/java/com/hp/thermalshockreforged/mixin/LivingEntityStatusMixin.java",
+        "src/main/java/com/hp/thermalshockreforged/mixin/PlayerInfectionStatusMixin.java"
+      ],
+      "behavior": [
+        "原没有取消伤害；armor前消费真实Parrying，原声/EXPLOSION1/邻2 STUNNED20amp9/REGEN20amp9+SLOW20amp1/KnightsCharge40均保"
+      ],
+      "difference": "原名HitCancel不代表cancel；保已授权反冲.6×(1-resistance)，不恢复高反冲",
+      "reviewer": "root旧/新actuallyHurt源码复核",
+      "verification": "源码/原JAR/静态比对；未运行客户端或服务端",
+      "originalClass": "ParryingHitCancelProcedure",
+      "originalEvent": "LivingHurtEvent",
+      "sourceSha256": "0788df91a2749188d3a97e4aae66e63aec5a0e0fa52f4b043d1e00c82bfceee5",
+      "originalClassSha256": "7cfee54a4213cd23af786849f2e35ade360ab993c59afaa4b6940128983cf90b",
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/status/ParryingStatus.java",
+          "sha256": "943609d5c5090ce82e5950a1d131a03c0bf2d35dfe272fec140544848d00f184"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/mixin/LivingEntityStatusMixin.java",
+          "sha256": "8839dccfc6fd7512e2dcb81fe215ede8ad0fd95cd74e29f8c8b488b60628d2e9"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/mixin/PlayerInfectionStatusMixin.java",
+          "sha256": "dad25d14dbe57dc4bc157105ce76a521d455d8b32929a04fcb835dde09fddf23"
+        }
+      ]
+    },
+    {
+      "targetPaths": [],
+      "behavior": [
+        "原PreyActive仅静态初始化false和logout再写false，原全JAR无读取/无true写；保三声音资源"
+      ],
+      "difference": "不造无实际业务的退出监听或凭名字新增音乐系统",
+      "reviewer": "quick_explorer remaining_inventory97全class常量池核",
+      "verification": "源码/原JAR/静态比对；未运行客户端或服务端",
+      "originalClass": "PreyStopLeaveWorldProcedure",
+      "originalEvent": "PlayerEvent.PlayerLoggedOutEvent",
+      "sourceSha256": "c00dda4b398adcc2693fe1752f115713b6bfc7c5981a9aa8a4cf6c3515c47183",
+      "originalClassSha256": "6f7f5390af0b10ebcc68d9dd78d89fecb9a819ebf2fd2847179b6d51e64ac6c7",
+      "targetFiles": []
+    },
+    {
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/armor/ArmorSetEvents.java"
+      ],
+      "behavior": [
+        "Player归属击杀且精确四RubyZenith+主手ruby tag，REGEN60amp1及原glowitemframe/NEUTRAL1/3；ruby原16成员保"
+      ],
+      "difference": "",
+      "reviewer": "quick_explorer coverage104_inventory + root",
+      "verification": "源码/原JAR/静态比对；未运行客户端或服务端",
+      "originalClass": "RubyWeaponBuffProcedure",
+      "originalEvent": "LivingDeathEvent",
+      "sourceSha256": "118179636c35c55a95e865d985c2444006292ca64b939065d1f5ae410af84b9f",
+      "originalClassSha256": "5d346038f26b2ff88dc649aa5d962729a59f6903c67d33370b74cebead4e0804",
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/armor/ArmorSetEvents.java",
+          "sha256": "26366f4537a4255f068e7d97115670e8b35c1fbc3427e9b86bf87f6be22e02a2"
+        }
+      ]
+    },
+    {
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/world/ShalespringGeneration.java"
+      ],
+      "behavior": [
+        "shalespring_august完整模板，原(316,53,299)，NONE/NONE/ignoreEntities=false/flags3，主世界共享SavedData"
+      ],
+      "difference": "保AdvancementEarnEvent具体事件启动修复及真实成功后才exists",
+      "reviewer": "quick_explorer coverage101_inventory + root",
+      "verification": "源码/原JAR/静态比对；未运行客户端或服务端",
+      "originalClass": "ShalespringSpawnProcedure",
+      "originalEvent": "AdvancementEvent",
+      "sourceSha256": "748053e1877d1f556e90faba06af9600d896b95974a040f2f8caf52a4e8a33c3",
+      "originalClassSha256": "42b56a25bc18f199fda83ed381dda41c5d6e4199cdfdf4f13b670817b9c87ec0",
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/world/ShalespringGeneration.java",
+          "sha256": "ec20ee9110719300e8c1792256d2ed112e0f5e70cf6ca55591dd92535bd25554"
+        }
+      ]
+    },
+    {
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/world/KeystoneChamberGeneration.java"
+      ],
+      "behavior": [
+        "原强制和普通两Wake都订阅并竞争同exists；目标共享一次成功提交及持久剧情"
+      ],
+      "difference": "保第39批已明确记录的单一Wake修复：遵循普通gameRule/进度资格，成功后标志；不恢复Force旁路，不删81000块/100、145、200END文字和原声",
+      "reviewer": "root源码复审",
+      "verification": "源码/原JAR/静态比对；未运行客户端或服务端",
+      "originalClass": "SpawnForceKeystoneChamberProcedure",
+      "originalEvent": "PlayerWakeUpEvent",
+      "sourceSha256": "d6499cdca134e3ab0b72ce02401000a4a1ad4d5556a80d054e88d9cd91ae397a",
+      "originalClassSha256": "2c5e3571baed771ffb98fc6c4374921d1d3183e8f3a2fda94635bae44dda15a4",
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/world/KeystoneChamberGeneration.java",
+          "sha256": "1ad4f28f71e32e08f798dd84dac524a1c1024e078580a64e280b43d7cbaa0d3d"
+        }
+      ]
+    },
+    {
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/world/KeystoneChamberGeneration.java"
+      ],
+      "behavior": [
+        "正常Wake的gameRule、玩家未loqendia_get、世界一次性生成，完整45×40×45/81000块及三段延时剧情"
+      ],
+      "difference": "同上，已有完整持久时间线，不重复加监听",
+      "reviewer": "root源码复审",
+      "verification": "源码/原JAR/静态比对；未运行客户端或服务端",
+      "originalClass": "SpawnKeystoneChamberSpawnnProcedure",
+      "originalEvent": "PlayerWakeUpEvent",
+      "sourceSha256": "2191eb8a75535bdbe32085992a1892e63d9784d08fcd39494dd67b27718a9a45",
+      "originalClassSha256": "385cba24df9d1783504acc73d464cfd329802e98b6ef1b61d190f22c3e2206cf",
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/world/KeystoneChamberGeneration.java",
+          "sha256": "1ad4f28f71e32e08f798dd84dac524a1c1024e078580a64e280b43d7cbaa0d3d"
+        }
+      ]
+    },
+    {
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/npc/concierge/ConciergeQuest.java"
+      ],
+      "behavior": [
+        "blasphemy_4进度写玩家INFO状态，clone保，真实后续消费者查INFO或progress"
+      ],
+      "difference": "不恢复无客户端消费者的旧capability全字段同步",
+      "reviewer": "quick_explorer coverage101_inventory + root",
+      "verification": "源码/原JAR/静态比对；未运行客户端或服务端",
+      "originalClass": "VilebathGetInfoLogicProcedure",
+      "originalEvent": "AdvancementEvent",
+      "sourceSha256": "6f9e74b680b1e952093dd69af86d58fe0c3b4f308a8d1cdd51be9391d126a43b",
+      "originalClassSha256": "256c98433319476b8721695eba57ec6369c4409347b872b74f857464f0c79b71",
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/npc/concierge/ConciergeQuest.java",
+          "sha256": "2b0d39f8f4678948eff0b729c46f50f806b65b7615afa46e4e2aefa882efd488"
+        }
+      ]
+    },
+    {
+      "targetPaths": [
+        "src/main/java/com/hp/thermalshockreforged/content/armor/ArmorSetEvents.java",
+        "src/main/java/com/hp/thermalshockreforged/content/armor/ArmorContent.java",
+        "src/main/java/com/hp/thermalshockreforged/content/armor/fabricated/FabricatedArmorEvents.java"
+      ],
+      "behavior": [
+        "原头或脚zenith入口，六过程各自全套及潜行/主手/维度门槛：RubyHaste20/0或Zenith20/1；BloodResistance20/0及主手weapon真Slow20/1；CorDivWaterBreath60/0；Silenced套装发光及呼吸；Carborundum非Aqeron低重力10/5与进度",
+        "原六子过程无音效，真实Geo装甲另有动画；Sentry/Silenced原全维已加载Living发光按用户明确要求每20tick扫描、21tick效果续接"
+      ],
+      "difference": "不把原六分支混为一套；保已有低重力自有属性状态及Sentry每秒授权差异",
+      "reviewer": "quick_explorer coverage101_inventory六子过程核 + root",
+      "verification": "源码/原JAR/静态比对；未运行客户端或服务端",
+      "originalClass": "ZenithTickProcedure",
+      "originalEvent": "TickEvent.PlayerTickEvent",
+      "sourceSha256": "ff3c1889559c8f674ce24942b208c55654d3550a34046540eb3c137897ac95e8",
+      "originalClassSha256": "2e7e2b2f4ecb5d95e0cda2b726c14048242648236f1e72de186800fb0c935b5c",
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/armor/ArmorSetEvents.java",
+          "sha256": "26366f4537a4255f068e7d97115670e8b35c1fbc3427e9b86bf87f6be22e02a2"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/armor/ArmorContent.java",
+          "sha256": "f26ac3085d2eadbd51cb8b6e83ae9b1860027756fc00efbaaaee2e24ed29721a"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/armor/fabricated/FabricatedArmorEvents.java",
+          "sha256": "7526de051fafffba988f4a3834c911d14ddbe70f221356c65e479619b9b964c9"
+        }
+      ]
+    }
+  ],
+  "clientTested": false,
+  "serverTesting": "用户独立执行，主线未联系/未运行/不代判结果",
+  "allModComplete": false
+}

@@ -14,9 +14,13 @@ public final class ModGameRules {
             "loqendiaEnforceProgression", GameRules.Category.UPDATES, GameRules.BooleanValue.create(true));
     public static final GameRules.Key<GameRules.BooleanValue> LOQENDIA_PYLON_CORES_EXPLODE = GameRules.register(
             "loqendiaPylonCoresExplode", GameRules.Category.UPDATES, GameRules.BooleanValue.create(true));
+    public static final GameRules.Key<GameRules.BooleanValue> LOQENDIA_FIRE_EXTINGUISHES = GameRules.register(
+            "loqendiaFireExtinguishes", GameRules.Category.UPDATES, GameRules.BooleanValue.create(true));
+    public static final GameRules.Key<GameRules.BooleanValue> LOQENDIA_MAGMA_FREEZES_UNDERWATER = GameRules.register(
+            "loqendiaMagmaFreezesUnderwater", GameRules.Category.UPDATES, GameRules.BooleanValue.create(true));
 
     private ModGameRules() { }
     public static void initialize() {
-        ThermalShockReforged.LOGGER.debug("Thermal Shock Reforged gamerules initialized: loqendiaDropHeartCrystals, loqendiaGenerateSpecialStructures");
+        ThermalShockReforged.LOGGER.debug("Thermal Shock Reforged gamerules initialized: loqendiaDropHeartCrystals, loqendiaGenerateSpecialStructures, loqendiaEnforceProgression, loqendiaPylonCoresExplode, loqendiaFireExtinguishes, loqendiaMagmaFreezesUnderwater");
     }
 }

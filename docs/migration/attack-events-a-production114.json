@@ -1,0 +1,17 @@
+{
+  "batch": 114,
+  "lane": "A",
+  "frozen": true,
+  "production": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/combat/LegacyAttackRules.java",
+      "sha256": "868e20b9f839d8269e855ed7734a21a8743e0815d129523977266c0f75aa9c92"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/cavebloomer/CavebloomerContent.java",
+      "sha256": "f53f786c259982a2fca28fef73cca4c24f759738a25267aa32e1812952869bd6"
+    }
+  ],
+  "productionAggregateSha256": "53da157c35f4a5c6d65c55b7480d48a1c22afcb386c4f3799b57b5cf896490de",
+  "aggregateDefinition": "按path字典序拼接path+U+0000+sha256+LF，UTF-8计算SHA256"
+}

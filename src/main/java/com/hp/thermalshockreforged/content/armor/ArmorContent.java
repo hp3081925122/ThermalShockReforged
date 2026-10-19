@@ -109,6 +109,7 @@ public final class ArmorContent {
         NeoForge.EVENT_BUS.addListener(ArmorSetEvents::death);
         NeoForge.EVENT_BUS.addListener(ArmorSetEvents::clonePlayer);
         NeoForge.EVENT_BUS.addListener(ArmorSetEvents::serverTick);
+        NeoForge.EVENT_BUS.addListener(ArmorSetEvents::fall);
         NeoForge.EVENT_BUS.addListener(SpecialArmorEvents::hurt);
     }
 }

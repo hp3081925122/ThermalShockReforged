@@ -1,0 +1,31 @@
+{
+  "batch": 114,
+  "lane": "A",
+  "status": "本线生产停笔；共享接线待主线集成，统一构建尚未运行",
+  "sharedCode": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/ThermalShockReforged.java",
+      "anchor": "        ModEntities.register(bus);",
+      "placement": "before",
+      "addition": "        com.hp.thermalshockreforged.combat.LegacyAttackRules.register();",
+      "reason": "同NORMAL优先级，在各实体起手监听前执行原角色tag保护、mod:ice概率反伤和低温群系冻伤；不接收已经取消的事件。先按角色tag取消并返回，避免角色被元素追加伤或技能取代普通伤害后漏保护。"
+    }
+  ],
+  "languages": [],
+  "config": [],
+  "sharedFilesNotEdited": [
+    "combat/ElementalCombat.java",
+    "content/status/StatusEvents.java",
+    "content/atlas/AqeronEvents.java",
+    "content/armor/SpecialArmorEvents.java",
+    "content/armor/ArmorContent.java",
+    "mixin/LivingEntityStatusMixin.java",
+    "mixin/PlayerInfectionStatusMixin.java"
+  ],
+  "documentationDeltas": [
+    {
+      "path": "docs/migration/REFORGED_CHANGES.md",
+      "addition": "第114批攻击事件复审核出并补回三个通用入口：character_mobs按tag早期取消、原mod:ice攻击玩家时20%给予攻击方2点无归属PLAYER_ATTACK及玻璃声（原不取消）、ignition_-1群系内由cryo_resist归属者攻击时70%给予受害者Frostbite120/0。保原标签命名空间，不擅自把mod:ice改为本模组ice。另补BuddingBloomer原20%取消普通攻击并按look水平1.3/垂直1跃进和原HOSTILE烟花发射声1/1，无额外冷却。"
+    }
+  ]
+}

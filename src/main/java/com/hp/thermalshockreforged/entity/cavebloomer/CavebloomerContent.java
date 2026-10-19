@@ -60,6 +60,14 @@ public final class CavebloomerContent {
         if (event.getEntity() instanceof BloomlingEntity bloom && event.getLevel() instanceof ServerLevel server && bloom.expireIfDue(server)) event.setCanceled(true);
     }
     private static void attack(AttackAttemptEvent event) {
+        if (event.getSource().getEntity() instanceof BloomlingEntity bloom && !bloom.dandy() && bloom.level() instanceof ServerLevel level && bloom.getRandom().nextDouble() < .2) {
+            event.setCanceled(true);
+            var look = bloom.getLookAngle();
+            bloom.setDeltaMovement(look.x * 1.3, 1, look.z * 1.3);
+            bloom.hasImpulse = true;
+            level.playSound(null, bloom.blockPosition(), net.minecraft.sounds.SoundEvents.FIREWORK_ROCKET_LAUNCH, net.minecraft.sounds.SoundSource.HOSTILE, 1, 1);
+            ThermalShockReforged.LOGGER.debug("Budding bloomer attack leap: caster={}, victim={}", bloom.getUUID(), event.getEntity().getUUID());
+        }
         if (event.getSource().getEntity() != null && event.getSource().getDirectEntity() instanceof AngryCavebloomerEntity boss) {
             event.setCanceled(true); boss.beginAttack(event.getEntity());
         }

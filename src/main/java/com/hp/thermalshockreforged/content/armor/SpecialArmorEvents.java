@@ -1,6 +1,7 @@
 package com.hp.thermalshockreforged.content.armor;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
+import com.hp.thermalshockreforged.combat.PreArmorDamageEvent;
 import java.util.Comparator;
 import java.util.concurrent.ThreadLocalRandom;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -9,12 +10,11 @@ import net.minecraft.sounds.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.AABB;
-import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 
 final class SpecialArmorEvents {
     private SpecialArmorEvents() { }
-    static void hurt(LivingDamageEvent.Pre event) {
-        if (!(event.getEntity() instanceof Player player) || !(player.level() instanceof ServerLevel server) || !Float.isFinite(event.getOriginalDamage()) || event.getOriginalDamage() <= 0) return;
+    static void hurt(PreArmorDamageEvent event) {
+        if (!(event.getEntity() instanceof Player player) || !(player.level() instanceof ServerLevel server) || !Float.isFinite(event.getAmount()) || event.getAmount() < 0) return;
         var chest = player.getItemBySlot(EquipmentSlot.CHEST);
         var id = BuiltInRegistries.ITEM.getKey(chest.getItem());
         boolean silenced = id.getNamespace().equals(ThermalShockReforged.MOD_ID) && id.getPath().equals("silenced_armor_chestplate");

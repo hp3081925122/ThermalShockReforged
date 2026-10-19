@@ -111,5 +111,6 @@ public final class NativeDecorContent {
         BLOCKS.register(bus);
         ITEMS.register(bus);
         MENUS.register(bus);
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(BounceBlocks::fall);
     }
 }

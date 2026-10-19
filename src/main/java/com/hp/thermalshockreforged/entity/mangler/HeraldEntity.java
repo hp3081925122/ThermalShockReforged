@@ -5,6 +5,8 @@ import com.hp.thermalshockreforged.entity.summon.SummonLedger;
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.MaterialContent;
 import com.hp.thermalshockreforged.content.status.StatusContent;
+import com.hp.thermalshockreforged.world.timing.ServerEndTickTask;
+import com.hp.thermalshockreforged.world.timing.ServerEndTickTasks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
@@ -27,13 +29,12 @@ import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animation.*;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
-public final class HeraldEntity extends Monster implements GeoEntity {
+public final class HeraldEntity extends Monster implements GeoEntity, ServerEndTickTask {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(HeraldEntity.class, EntityDataSerializers.STRING);
     private final AnimatableInstanceCache animations = GeckoLibUtil.createInstanceCache(this);
     private Vec3 anchor;
     private String anchorDimension = "";
     private long summonReadyAt;
-    private long activationStartedAt;
     private int killCount;
     private int activationRemaining = -1;
     private Vec3 activationOrigin = Vec3.ZERO;
@@ -91,7 +92,7 @@ public final class HeraldEntity extends Monster implements GeoEntity {
         setAnimation(random.nextDouble() < 0.5 ? "siphon" : "siphon2");
         soundAt(origin, SoundEvents.WARDEN_EMERGE, 6); soundAt(origin, SoundEvents.BELL_BLOCK, -3);
         killCount++;
-        if (killCount >= 10) { activationRemaining = 20; activationStartedAt = SummonLedger.clock(server); activationOrigin = origin; }
+        if (killCount >= 10) { activationRemaining = 20; activationOrigin = origin; ServerEndTickTasks.schedule(server, getUUID()); }
     }
     private void soundAt(Vec3 origin, SoundEvent sound, float pitch) { level().playSound(null, BlockPos.containing(origin), sound, SoundSource.HOSTILE, 1, pitch); }
     @Override
@@ -108,13 +109,25 @@ public final class HeraldEntity extends Monster implements GeoEntity {
         if (position().distanceToSqr(anchor) > 1.0E-10) teleportTo(anchor.x, anchor.y, anchor.z);
     }
     @Override
+    public void onAddedToLevel() {
+        super.onAddedToLevel();
+        if (activationRemaining >= 0 && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
+    }
+    @Override
     public void tick() {
-        int previousActivation = activationRemaining;
         super.tick();
-        if (level().isClientSide) return;
+        if (activationRemaining >= 0 && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
+    }
+    @Override
+    public void endTick(ServerLevel server) {
+        if (isRemoved() || activationRemaining < 0) return;
         if (!isAlive()) { activationRemaining = -1; return; }
-        if (activationRemaining < 0 || previousActivation < 0 || level() instanceof ServerLevel server && SummonLedger.clock(server) == activationStartedAt) return;
-        if (--activationRemaining > 0) return;
+        if (!anchorDimension.isEmpty() && !anchorDimension.equals(server.dimension().location().toString())) {
+            activationRemaining = -1;
+            if (!active && !keyDropped) killCount = Math.min(killCount, 9);
+            return;
+        }
+        if (--activationRemaining > 0) { ServerEndTickTasks.schedule(server, getUUID()); return; }
         activationRemaining = -1; active = true; keyDropped = true; setShiftKeyDown(true);
         soundAt(activationOrigin, SoundEvents.BELL_RESONATE, 1); soundAt(activationOrigin, SoundEvents.BEACON_ACTIVATE, -2);
         var key = new ItemEntity(level(), activationOrigin.x, activationOrigin.y, activationOrigin.z, new ItemStack(MaterialContent.items().get("herald_key").get())); key.setPickUpDelay(10); level().addFreshEntity(key);
@@ -145,7 +158,8 @@ public final class HeraldEntity extends Monster implements GeoEntity {
         applyConfiguredAttributes();
         if (tag.contains("Texture")) setTexture(tag.getString("Texture")); summonReadyAt = tag.getLong("SummonReadyAt");
         var legacy = getPersistentData(); killCount = Math.max(0, Math.min(10, tag.contains("HeraldKillCount") ? tag.getInt("HeraldKillCount") : (int) legacy.getDouble("HeraldKillCount"))); active = tag.getBoolean("HeraldBloom") || legacy.getString("HeraldActive").equals("Yup"); keyDropped = tag.getBoolean("KeyDropped") || active; deathVisualStarted = tag.getBoolean("DeathVisualStarted");
-        activationRemaining = !keyDropped && tag.contains("ActivationRemaining") ? tag.getInt("ActivationRemaining") : -1; activationOrigin = new Vec3(tag.getDouble("ActivationX"), tag.getDouble("ActivationY"), tag.getDouble("ActivationZ")); activationStartedAt = level() instanceof ServerLevel server ? SummonLedger.clock(server) : 0;
+        activationRemaining = !keyDropped && tag.contains("ActivationRemaining") ? Math.clamp(tag.getInt("ActivationRemaining"), -1, 20) : -1; activationOrigin = new Vec3(tag.getDouble("ActivationX"), tag.getDouble("ActivationY"), tag.getDouble("ActivationZ"));
+        if (!Double.isFinite(activationOrigin.x) || !Double.isFinite(activationOrigin.y) || !Double.isFinite(activationOrigin.z)) activationRemaining = -1;
         var anchorTag = tag.contains("HeraldXpos") ? tag : legacy;
         if (anchorTag.contains("HeraldXpos") && anchorTag.contains("HeraldYpos") && anchorTag.contains("HeraldZpos")) { anchor = new Vec3(anchorTag.getDouble("HeraldXpos"), anchorTag.getDouble("HeraldYpos"), anchorTag.getDouble("HeraldZpos")); anchorDimension = tag.contains("AnchorDimension") ? tag.getString("AnchorDimension") : level().dimension().location().toString(); }
     }
