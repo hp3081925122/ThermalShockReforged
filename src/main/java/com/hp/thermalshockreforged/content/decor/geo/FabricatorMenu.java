@@ -1,29 +1,139 @@
 package com.hp.thermalshockreforged.content.decor.geo;
 
+import com.hp.thermalshockreforged.ThermalShockReforged;
+import com.hp.thermalshockreforged.content.decor.nativeblocks.NativeDecorContent;
+import com.hp.thermalshockreforged.content.fabrication.FabricationRecipe;
+import com.hp.thermalshockreforged.content.fabrication.FabricatorPage;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.MenuProvider;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.Container;
+import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.MenuType;
+import net.minecraft.world.inventory.ClickType;
+import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.neoforged.neoforge.common.extensions.IMenuTypeExtension;
-import net.neoforged.neoforge.registries.DeferredHolder;
 
 public final class FabricatorMenu extends AbstractContainerMenu {
-    public static final class Provider implements MenuProvider {
-        private final Level level; private final BlockPos pos;
-        public Provider(Level level, BlockPos pos) { this.level = level; this.pos = pos.immutable(); }
-        @Override public Component getDisplayName() { return Component.translatable("block.thermal_shock_reforged.fabricator"); }
-        @Override public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) { return new FabricatorMenu(id, inventory, pos); }
+    public final FabricatorPage page;
+    private final Level level;
+    private final BlockPos pos;
+    private final Player owner;
+    private final Inventory inventory;
+    private final GeoDecorBlockEntity attached;
+    private final Container storage;
+    private boolean changedPage;
+
+    public FabricatorMenu(int id, Inventory inventory, RegistryFriendlyByteBuf data) {
+        this(id, inventory, data.readBlockPos(), FabricatorPage.byIndex(data.readVarInt()));
     }
-    private final Level level; private final BlockPos pos; private final Player owner;
-    public FabricatorMenu(int id, Inventory inventory, RegistryFriendlyByteBuf data) { this(id, inventory, data.readBlockPos()); }
-    public FabricatorMenu(int id, Inventory inventory, BlockPos pos) { super(com.hp.thermalshockreforged.content.decor.nativeblocks.NativeDecorContent.FABRICATOR_MENU.get(), id); this.level = inventory.player.level(); this.pos = pos.immutable(); this.owner = inventory.player; }
-    @Override public boolean stillValid(Player player) { return player == owner && player.isAlive() && player.level() == level && level.hasChunkAt(pos) && player.distanceToSqr(pos.getCenter()) <= 64 && level.getBlockState(pos).is(GeoDecorContent.block(GeoDecorKind.FABRICATOR)); }
-    @Override public ItemStack quickMoveStack(Player player, int index) { return ItemStack.EMPTY; }
+
+    private FabricatorMenu(int id, Inventory inventory, BlockPos pos, FabricatorPage page) {
+        super(NativeDecorContent.FABRICATOR_MENU.get(), id);
+        this.inventory = inventory;
+        this.level = inventory.player.level();
+        this.pos = pos.immutable();
+        this.owner = inventory.player;
+        this.page = page;
+        attached = level.hasChunkAt(pos) && level.getBlockEntity(pos) instanceof GeoDecorBlockEntity entity && entity.kind == GeoDecorKind.FABRICATOR ? entity : null;
+        storage = !level.isClientSide && attached != null ? attached : new SimpleContainer(9);
+        if (!page.isGuide()) {
+            addSlot(new Slot(storage, 0, 186, 15) {
+                @Override public boolean mayPlace(ItemStack stack) { return false; }
+            });
+            addSlot(new Slot(storage, 1, 15, 123));
+            for (int row = 0; row < 3; row++) for (int column = 0; column < 9; column++) {
+                addSlot(new Slot(inventory, column + (row + 1) * 9, 43 + column * 18, 82 + row * 18));
+            }
+            for (int column = 0; column < 9; column++) addSlot(new Slot(inventory, column, 43 + column * 18, 140));
+        }
+    }
+
+    public static boolean open(ServerPlayer player, BlockPos pos, FabricatorPage page) {
+        var level = player.serverLevel();
+        if (!player.isAlive() || !level.hasChunkAt(pos) || player.distanceToSqr(pos.getCenter()) > 64
+                || !level.getBlockState(pos).is(GeoDecorContent.block(GeoDecorKind.FABRICATOR))
+                || !(level.getBlockEntity(pos) instanceof GeoDecorBlockEntity entity) || entity.kind != GeoDecorKind.FABRICATOR) return false;
+        var fixed = pos.immutable();
+        return player.openMenu(new SimpleMenuProvider((id, inventory, owner) -> new FabricatorMenu(id, inventory, fixed, page),
+                Component.translatable("block.thermal_shock_reforged.fabricator")), buffer -> {
+            buffer.writeBlockPos(fixed);
+            buffer.writeVarInt(page.ordinal());
+        }).isPresent();
+    }
+
+    @Override public boolean stillValid(Player player) {
+        return player == owner && player.isAlive() && player.level() == level && level.hasChunkAt(pos)
+                && player.distanceToSqr(pos.getCenter()) <= 64 && level.getBlockState(pos).is(GeoDecorContent.block(GeoDecorKind.FABRICATOR))
+                && (level.isClientSide || attached != null && !attached.isRemoved() && level.getBlockEntity(pos) == attached);
+    }
+
+    @Override public boolean clickMenuButton(Player player, int button) {
+        if (changedPage || !(player instanceof ServerPlayer server) || player.containerMenu != this || !stillValid(player)) return false;
+        if (page.isGuide()) {
+            var next = page.next(button);
+            if (next == null) return false;
+            changedPage = true;
+            if (open(server, pos, next)) return true;
+            changedPage = false;
+            return false;
+        }
+        return button == 0 && fabricate(server);
+    }
+
+    private boolean fabricate(ServerPlayer player) {
+        var holder = level.getRecipeManager().byKey(page.recipe).orElse(null);
+        if (holder == null || !(holder.value() instanceof FabricationRecipe recipe)) {
+            ThermalShockReforged.LOGGER.debug("Fabrication recipe unavailable: recipe={}, player={}, position={}", page.recipe, player.getUUID(), pos);
+            return false;
+        }
+        var input = new FabricationRecipe.Input(inventory.items, storage.getItem(1));
+        var plan = recipe.removalPlan(input);
+        if (plan == null) return false;
+        var result = recipe.assemble(input, level.registryAccess());
+        var previous = storage.getItem(0);
+        int existing = previous.isEmpty() ? 0 : previous.getCount();
+        if (result.isEmpty() || !previous.isEmpty() && !ItemStack.isSameItemSameComponents(previous, result)
+                || result.getCount() > storage.getMaxStackSize(result) - existing) return false;
+        result.grow(existing);
+        for (int slot = 0; slot < plan.length; slot++) if (plan[slot] > 0) inventory.removeItem(slot, plan[slot]);
+        storage.removeItem(1, recipe.energyCount());
+        storage.setItem(0, result);
+        storage.setChanged();
+        inventory.setChanged();
+        broadcastChanges();
+        level.playSound(null, pos, SoundEvents.CONDUIT_ACTIVATE, SoundSource.NEUTRAL, 1, 2);
+        level.playSound(null, pos, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.NEUTRAL, 1, 1);
+        ThermalShockReforged.LOGGER.debug("Fabrication completed: recipe={}, player={}, position={}", page.recipe, player.getUUID(), pos);
+        return true;
+    }
+
+    @Override public void clicked(int slot, int button, ClickType type, Player player) {
+        if (!changedPage && stillValid(player)) super.clicked(slot, button, type, player);
+    }
+
+    @Override public ItemStack quickMoveStack(Player player, int index) {
+        if (changedPage || page.isGuide() || !stillValid(player) || index < 0 || index >= slots.size()) return ItemStack.EMPTY;
+        var slot = slots.get(index);
+        if (!slot.hasItem() || !slot.mayPickup(player)) return ItemStack.EMPTY;
+        var stack = slot.getItem();
+        var original = stack.copy();
+        if (index < 2) {
+            if (!moveItemStackTo(stack, 2, slots.size(), true)) return ItemStack.EMPTY;
+            slot.onQuickCraft(stack, original);
+        } else if (!moveItemStackTo(stack, 1, 2, false)) {
+            if (index < 29 ? !moveItemStackTo(stack, 29, slots.size(), true) : !moveItemStackTo(stack, 2, 29, false)) return ItemStack.EMPTY;
+        }
+        if (stack.isEmpty()) slot.set(ItemStack.EMPTY); else slot.setChanged();
+        if (stack.getCount() == original.getCount()) return ItemStack.EMPTY;
+        slot.onTake(player, stack);
+        return original;
+    }
 }

@@ -1,6 +1,6 @@
 package com.hp.thermalshockreforged.content.decor.geo;
 
-import com.hp.thermalshockreforged.content.decor.nativeblocks.NativeDecorContent;
+import com.hp.thermalshockreforged.content.fabrication.FabricatorPage;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
@@ -25,7 +25,7 @@ public final class FabricatorBlock extends GeoDecorBlock {
     @Override protected BlockState rotate(BlockState state, Rotation rotation) { return state.setValue(FACING, rotation.rotate(state.getValue(FACING))); }
     @Override protected BlockState mirror(BlockState state, Mirror mirror) { return state.rotate(mirror.getRotation(state.getValue(FACING))); }
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
-        if (!level.isClientSide && player instanceof ServerPlayer server) server.openMenu(new FabricatorMenu.Provider(level, pos));
+        if (!level.isClientSide && player instanceof ServerPlayer server) FabricatorMenu.open(server, pos, FabricatorPage.TOOLS);
         return InteractionResult.sidedSuccess(level.isClientSide);
     }
     @Override public void animateTick(BlockState state, Level level, BlockPos pos, net.minecraft.util.RandomSource random) {

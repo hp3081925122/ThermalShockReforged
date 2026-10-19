@@ -41,17 +41,17 @@
       "id": "infectionimmune",
       "original_membership_restored": true,
       "source_json_valid": true,
-      "build_copy": "pending_next_grouped_resource_build"
+      "build_copy": "passed_with_batch78_grouped_build"
     },
     {
       "id": "sprintweed_blacklist",
       "original_membership_restored": true,
       "source_json_valid": true,
-      "build_copy": "pending_next_grouped_resource_build"
+      "build_copy": "passed_with_batch78_grouped_build"
     }
   ],
   "runtime_tests": "pending_full_mod_migration",
-  "acquisition": "original second Fabricator guide page button8 -> actual manufacture page; remains pending with complete Fabricator recipe UI, not replaced by normal crafting",
+  "acquisition": "batch78: second Fabricator guide page button8 -> native server menu AMALJELLY_CANISTER -> active fabrication/amaljelly_canister recipe; exact 8 Corrial Ingot,12 Jellercel Cell,1 Bucket of Siibol,1 energy. Real manufacture/UI source now implemented; final gameplay pending.",
   "reviewed_behavior_evidence": {
     "scope": "原实体/子目标/调用过程/注册/目标API人工复审；非运行验证",
     "entity": "Monster, MONSTER, fire immune, .9x1.6, tracking64/update3, XP0, health99/armor base99/attack3, movement0/flying0, always-visible green name, persistent/no-far-despawn",
@@ -60,7 +60,7 @@
     "render": "translucent original liljelly model/texture, full idle4s/transition4, head tracking, shadow.2, no original glow layer",
     "deployment": "original centered floor(player.x,player.y+1,player.z), MOB_SUMMONED, randomized yaw, 5 POOF(.1/.1), 15 WITCH(1/.1), cast spell volume1/pitch3, cooldown60, one empty return",
     "fixes": "server-authoritative exchange on actual interacting hand; preserve single-container conversion including creative, consume exactly1, preserve excess/full-inventory items; discard capture before granting filled canister; failed/cancelled/unadded spawn does not consume",
-    "deferred": "complete manufacture UI/acquisition, two newly restored tag build copies, final runtime and rendering"
+    "deferred": "final runtime and rendering; batch78 completed this canister manufacture/UI/acquisition and the two late tag build copies"
   },
   "build": {
     "tasks": [
@@ -71,6 +71,6 @@
     "duration_seconds": 48,
     "executed": 2,
     "up_to_date": 22,
-    "scope": "all Java and entity/item/language resources validated; two subsequently restored tag JSONs statically validated, build copies intentionally deferred to next grouped build"
+    "scope": "initial batch77 Java/resources passed; batch78 grouped Java/resources build plus final resource processing now also verified both late tag JSON build copies"
   }
 }

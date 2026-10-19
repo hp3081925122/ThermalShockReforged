@@ -301,3 +301,6 @@ Shutterbug六页介绍/真实相机/摄影及图鉴任务、首次Shalespring完
 
 
 第57批保存WIP检查点：DeskDirector真实Geo与Sopel全部7页/36标签、6页原语音/完整肖像与Choice/分支/原生安全翻页代码已写；CrystalSopelTrophy真实方向Geo/原粒子、PhobosLament与AzureGrey原唱片、CarborundumSickle及4件护甲/穿戴反击/完整PurpleSparkle已迁，原配方/原版附魔类别标签同时补齐。Luna静态核资产/原参数/控制器/标签继承与最后同Level时钟隔离通过，最新Java21离线三任务16秒/25任务1执行24最新/exit0（前两WIP56秒与47秒亦成功）。这不是整批闭合：Super完整4池38输出只剩FlintsteelRifle/Hailfall/Speleothem三真实物品未迁；Sopel结尾beta_complete父链仍需真实FabricatorConstructor/Fabricator及制造站点，未删父/换图标或奖物，缺进度当前保Choice。详见sanctum-director-cache-batch.md与fiftyseventh-sopel-cache-wip-static-validation.json。下步完整三武器及站点/进度依赖，再接ProtoiSunbeam/嵌套Icidrogrunt/完整场景；整个模组及最终两端/RenderPreview仍未完成，不启游戏。
+
+
+第78批由主对话完成 Fabricator 公共制造链，未调用子代理。3页引导＋31详情的34页、186标签、68按钮和36张原贴图完整迁入，一个原生菜单/屏幕配合 fabrication 配方类型，保实际9槽BE的0号输出与1号能量。修原Sentry Hood门槛/Hi-Volt电池数量不一致、直接覆盖输出、双端制造和客户端坐标越权；材料、能量和完整输出容量全部检查后才一次扣除。31费用定义完成，实际注册复查发现14产物尚未迁入，因此17闭合配方进入运行数据包，14定义保存在pending-fabrication-recipes并明确待补真实功能，未注册占位物品。凝胶罐正常制造链及第77批后补标签构建副本已闭合。Java/资源整批编译1分钟通过，再仅处理资源42秒；全部页面布局/资产/31费用静态比对通过。详见fabricator-batch.md、seventyeighth-fabricator-static-validation.json。整个模组仍未完整，后续先补这14项真实设备/武器/装甲，再继续其他未迁内容，全部代码完整后由主对话进行两端及Render Preview验收。

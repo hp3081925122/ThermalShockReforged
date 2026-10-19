@@ -1,0 +1,610 @@
+{
+  "scope": "静态源/原JAR资产/注册引用及构建副本比对；不等于游戏运行验证",
+  "runtime_tests": "pending_full_mod_migration",
+  "pages": [
+    {
+      "source": "FabicGuidePageOne",
+      "target": "TOOLS",
+      "geometry_labels_sprites_match": true,
+      "buttons": 10
+    },
+    {
+      "source": "FabicGuidePageTwo",
+      "target": "WEAPONS",
+      "geometry_labels_sprites_match": true,
+      "buttons": 15
+    },
+    {
+      "source": "FabricGuidePageThree",
+      "target": "ARMOR",
+      "geometry_labels_sprites_match": true,
+      "buttons": 12
+    },
+    {
+      "source": "GhostglassPickaxePage",
+      "target": "GHOSTGLASS_PICK",
+      "geometry_labels_sprites_match": true,
+      "buttons": 1
+    },
+    {
+      "source": "FerrousAltarPage",
+      "target": "FERROUS_ALTAR",
+      "geometry_labels_sprites_match": true,
+      "buttons": 1
+    },
+    {
+      "source": "TransmutatorPage",
+      "target": "TRANSMUTATOR",
+      "geometry_labels_sprites_match": true,
+      "buttons": 1
+    },
+    {
+      "source": "ThingamabobPage",
+      "target": "THINGAMABOB",
+      "geometry_labels_sprites_match": true,
+      "buttons": 1
+    },
+    {
+      "source": "StratusDrillPage",
+      "target": "STRATOSILVER_DRILL",
+      "geometry_labels_sprites_match": true,
+      "buttons": 1
+    },
+    {
+      "source": "StratusChainsawPage",
+      "target": "STRATOSILVER_CHAINSAW",
+      "geometry_labels_sprites_match": true,
+      "buttons": 1
+    },
+    {
+      "source": "StratusAugerPage",
+      "target": "STRATOSILVER_AUGER",
+      "geometry_labels_sprites_match": true,
+      "buttons": 1
+    },
+    {
+      "source": "ExtractorPage",
+      "target": "EXTRACTOR_CONSTRUCTOR",
+      "geometry_labels_sprites_match": true,
+      "buttons": 1
+    },
+    {
+      "source": "FlintsteelRiflePage",
+      "target": "FLINTSTEEL_RIFLE",
+      "geometry_labels_sprites_match": true,
+      "buttons": 1
+    },
+    {
+      "source": "VolcanoPage",
+      "target": "VOLCANO",
+      "geometry_labels_sprites_match": true,
+      "buttons": 1
+    },
+    {
+      "source": "HailstormPage",
+      "target": "HAILFALL",
+      "geometry_labels_sprites_match": true,
+      "buttons": 1
+    },
+    {
+      "source": "MagneticCrossbowPage",
+      "target": "MAGNETIC_CROSSBOW",
+      "geometry_labels_sprites_match": true,
+      "buttons": 1
+    },
+    {
+      "source": "ZerkerGauntletPage",
+      "target": "TITANIUM_MACE",
+      "geometry_labels_sprites_match": true,
+      "buttons": 1
+    },
+    {
+      "source": "ThermoblasterPage",
+      "target": "COBALT_THERMOBLASTER",
+      "geometry_labels_sprites_match": true,
+      "buttons": 1
+    },
+    {
+      "source": "AmaljellyCanisterPage",
+      "target": "AMALJELLY_CANISTER",
+      "geometry_labels_sprites_match": true,
+      "buttons": 1
+    },
+    {
+      "source": "ShockStickPage",
+      "target": "SHOCK_STICK",
+      "geometry_labels_sprites_match": true,
+      "buttons": 1
+    },
+    {
+      "source": "KnightsEdgePage",
+      "target": "KNIGHTS_EDGE",
+      "geometry_labels_sprites_match": true,
+      "buttons": 1
+    },
+    {
+      "source": "HiVoltLancePage",
+      "target": "HI_VOLT_LANCE",
+      "geometry_labels_sprites_match": true,
+      "buttons": 1
+    },
+    {
+      "source": "BuzzsawPage",
+      "target": "BUZZSAW",
+      "geometry_labels_sprites_match": true,
+      "buttons": 1
+    },
+    {
+      "source": "LiteprismDiskPage",
+      "target": "LITEPRISM_DISK",
+      "geometry_labels_sprites_match": true,
+      "buttons": 1
+    },
+    {
+      "source": "LiteprismLaserPage",
+      "target": "LITEPRISM_LASER",
+      "geometry_labels_sprites_match": true,
+      "buttons": 1
+    },
+    {
+      "source": "SentryHoodPage",
+      "target": "SENTRY_HELMET",
+      "geometry_labels_sprites_match": true,
+      "buttons": 1
+    },
+    {
+      "source": "SentryPauldronsPage",
+      "target": "SENTRY_CHESTPLATE",
+      "geometry_labels_sprites_match": true,
+      "buttons": 1
+    },
+    {
+      "source": "VoidflareScarfPage",
+      "target": "DEV_SCARF_CHESTPLATE",
+      "geometry_labels_sprites_match": true,
+      "buttons": 1
+    },
+    {
+      "source": "CorDivHelmetPage",
+      "target": "CORRIAL_DIVING_HELMET_HELMET",
+      "geometry_labels_sprites_match": true,
+      "buttons": 1
+    },
+    {
+      "source": "PropulsionBootsPage",
+      "target": "PROPULSION_BOOTS_BOOTS",
+      "geometry_labels_sprites_match": true,
+      "buttons": 1
+    },
+    {
+      "source": "GlastrekkerArmorPage",
+      "target": "GLASTREKKER_ARMOR",
+      "geometry_labels_sprites_match": true,
+      "buttons": 1
+    },
+    {
+      "source": "StrangeHatPage",
+      "target": "STRANGESILK_ARMOUR_HELMET",
+      "geometry_labels_sprites_match": true,
+      "buttons": 1
+    },
+    {
+      "source": "StrangeCloackPage",
+      "target": "STRANGESILK_ARMOUR_CHESTPLATE",
+      "geometry_labels_sprites_match": true,
+      "buttons": 1
+    },
+    {
+      "source": "SilencedHelmetPage",
+      "target": "SILENCED_ARMOR_HELMET",
+      "geometry_labels_sprites_match": true,
+      "buttons": 1
+    },
+    {
+      "source": "SilencedChestplatePage",
+      "target": "SILENCED_ARMOR_CHESTPLATE",
+      "geometry_labels_sprites_match": true,
+      "buttons": 1
+    }
+  ],
+  "recipes": [
+    {
+      "page": "GhostglassPickaxePage",
+      "output": "thermal_shock_reforged:ghostglass_pick",
+      "materials_match_original_actual_removal": true,
+      "active": true,
+      "original_threshold_mismatch_fixed": false
+    },
+    {
+      "page": "FerrousAltarPage",
+      "output": "thermal_shock_reforged:ferrous_altar",
+      "materials_match_original_actual_removal": true,
+      "active": true,
+      "original_threshold_mismatch_fixed": false
+    },
+    {
+      "page": "TransmutatorPage",
+      "output": "thermal_shock_reforged:transmutator",
+      "materials_match_original_actual_removal": true,
+      "active": false,
+      "original_threshold_mismatch_fixed": false
+    },
+    {
+      "page": "ThingamabobPage",
+      "output": "thermal_shock_reforged:thingamabob",
+      "materials_match_original_actual_removal": true,
+      "active": true,
+      "original_threshold_mismatch_fixed": false
+    },
+    {
+      "page": "StratusDrillPage",
+      "output": "thermal_shock_reforged:stratosilver_drill",
+      "materials_match_original_actual_removal": true,
+      "active": true,
+      "original_threshold_mismatch_fixed": false
+    },
+    {
+      "page": "StratusChainsawPage",
+      "output": "thermal_shock_reforged:stratosilver_chainsaw",
+      "materials_match_original_actual_removal": true,
+      "active": true,
+      "original_threshold_mismatch_fixed": false
+    },
+    {
+      "page": "StratusAugerPage",
+      "output": "thermal_shock_reforged:stratosilver_auger",
+      "materials_match_original_actual_removal": true,
+      "active": true,
+      "original_threshold_mismatch_fixed": false
+    },
+    {
+      "page": "ExtractorPage",
+      "output": "thermal_shock_reforged:extractor_constructor",
+      "materials_match_original_actual_removal": true,
+      "active": false,
+      "original_threshold_mismatch_fixed": false
+    },
+    {
+      "page": "FlintsteelRiflePage",
+      "output": "thermal_shock_reforged:flintsteel_rifle",
+      "materials_match_original_actual_removal": true,
+      "active": true,
+      "original_threshold_mismatch_fixed": false
+    },
+    {
+      "page": "VolcanoPage",
+      "output": "thermal_shock_reforged:volcano",
+      "materials_match_original_actual_removal": true,
+      "active": false,
+      "original_threshold_mismatch_fixed": false
+    },
+    {
+      "page": "HailstormPage",
+      "output": "thermal_shock_reforged:hailfall",
+      "materials_match_original_actual_removal": true,
+      "active": true,
+      "original_threshold_mismatch_fixed": false
+    },
+    {
+      "page": "MagneticCrossbowPage",
+      "output": "thermal_shock_reforged:magnetic_crossbow",
+      "materials_match_original_actual_removal": true,
+      "active": true,
+      "original_threshold_mismatch_fixed": false
+    },
+    {
+      "page": "ZerkerGauntletPage",
+      "output": "thermal_shock_reforged:titanium_mace",
+      "materials_match_original_actual_removal": true,
+      "active": false,
+      "original_threshold_mismatch_fixed": false
+    },
+    {
+      "page": "ThermoblasterPage",
+      "output": "thermal_shock_reforged:cobalt_thermoblaster",
+      "materials_match_original_actual_removal": true,
+      "active": false,
+      "original_threshold_mismatch_fixed": false
+    },
+    {
+      "page": "AmaljellyCanisterPage",
+      "output": "thermal_shock_reforged:amaljelly_canister",
+      "materials_match_original_actual_removal": true,
+      "active": true,
+      "original_threshold_mismatch_fixed": false
+    },
+    {
+      "page": "ShockStickPage",
+      "output": "thermal_shock_reforged:shock_stick",
+      "materials_match_original_actual_removal": true,
+      "active": false,
+      "original_threshold_mismatch_fixed": false
+    },
+    {
+      "page": "KnightsEdgePage",
+      "output": "thermal_shock_reforged:knights_edge",
+      "materials_match_original_actual_removal": true,
+      "active": false,
+      "original_threshold_mismatch_fixed": false
+    },
+    {
+      "page": "HiVoltLancePage",
+      "output": "thermal_shock_reforged:hi_volt_lance",
+      "materials_match_original_actual_removal": true,
+      "active": false,
+      "original_threshold_mismatch_fixed": true
+    },
+    {
+      "page": "BuzzsawPage",
+      "output": "thermal_shock_reforged:buzzsaw",
+      "materials_match_original_actual_removal": true,
+      "active": false,
+      "original_threshold_mismatch_fixed": false
+    },
+    {
+      "page": "LiteprismDiskPage",
+      "output": "thermal_shock_reforged:liteprism_disk",
+      "materials_match_original_actual_removal": true,
+      "active": false,
+      "original_threshold_mismatch_fixed": false
+    },
+    {
+      "page": "LiteprismLaserPage",
+      "output": "thermal_shock_reforged:liteprism_laser",
+      "materials_match_original_actual_removal": true,
+      "active": false,
+      "original_threshold_mismatch_fixed": false
+    },
+    {
+      "page": "SentryHoodPage",
+      "output": "thermal_shock_reforged:sentry_helmet",
+      "materials_match_original_actual_removal": true,
+      "active": true,
+      "original_threshold_mismatch_fixed": true
+    },
+    {
+      "page": "SentryPauldronsPage",
+      "output": "thermal_shock_reforged:sentry_chestplate",
+      "materials_match_original_actual_removal": true,
+      "active": true,
+      "original_threshold_mismatch_fixed": false
+    },
+    {
+      "page": "VoidflareScarfPage",
+      "output": "thermal_shock_reforged:dev_scarf_chestplate",
+      "materials_match_original_actual_removal": true,
+      "active": true,
+      "original_threshold_mismatch_fixed": false
+    },
+    {
+      "page": "CorDivHelmetPage",
+      "output": "thermal_shock_reforged:corrial_diving_helmet_helmet",
+      "materials_match_original_actual_removal": true,
+      "active": true,
+      "original_threshold_mismatch_fixed": false
+    },
+    {
+      "page": "PropulsionBootsPage",
+      "output": "thermal_shock_reforged:propulsion_boots_boots",
+      "materials_match_original_actual_removal": true,
+      "active": false,
+      "original_threshold_mismatch_fixed": false
+    },
+    {
+      "page": "GlastrekkerArmorPage",
+      "output": "thermal_shock_reforged:glastrekker_armor",
+      "materials_match_original_actual_removal": true,
+      "active": true,
+      "original_threshold_mismatch_fixed": false
+    },
+    {
+      "page": "StrangeHatPage",
+      "output": "thermal_shock_reforged:strangesilk_armour_helmet",
+      "materials_match_original_actual_removal": true,
+      "active": true,
+      "original_threshold_mismatch_fixed": false
+    },
+    {
+      "page": "StrangeCloackPage",
+      "output": "thermal_shock_reforged:strangesilk_armour_chestplate",
+      "materials_match_original_actual_removal": true,
+      "active": true,
+      "original_threshold_mismatch_fixed": false
+    },
+    {
+      "page": "SilencedHelmetPage",
+      "output": "thermal_shock_reforged:silenced_armor_helmet",
+      "materials_match_original_actual_removal": true,
+      "active": false,
+      "original_threshold_mismatch_fixed": false
+    },
+    {
+      "page": "SilencedChestplatePage",
+      "output": "thermal_shock_reforged:silenced_armor_chestplate",
+      "materials_match_original_actual_removal": true,
+      "active": false,
+      "original_threshold_mismatch_fixed": false
+    }
+  ],
+  "assets": [
+    {
+      "path": "textures/screens/atlas/imagebutton_buzzsaw_icon.png",
+      "sha256": "675afb33d15ea106ad76161d771ca067d9618ca364bc951f14d3e59448ed5c81"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_cobaltleftarrow.png",
+      "sha256": "055a9920a4d98ca50f0e192f9ef1c7c3da8d3f37dc3bca3eafc9fc87c6be821d"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_cobaltrightarrow.png",
+      "sha256": "2a3f574607a99281567c12c41e2ced5fabfac8247b7cfbd5d22ff206322c3524"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_corrial_diving_helmet.png",
+      "sha256": "14ac0e972950b60dc736360fa86ed52ceefb279a17fcb56b2d45529469edb932"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_corrial_glastrekker_armor.png",
+      "sha256": "0bb79a54b0db13f40b4604ad34dc19d60421098a67bbcad1c5b94cc67c466348"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_extractor_icon.png",
+      "sha256": "2143f07fee906d498e00fd10fd2466c6b335c9ad9751b8971581216504f605ce"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_fabricator_craft_button.png",
+      "sha256": "aa68aca59fb8e7cf8e7f251ab458b4cfbabefe4e7276b506fd4298e060e643d6"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_ferrousaltar.png",
+      "sha256": "d3dd91a2fc5ae51b3085686675e970a7a4db6e9dbda4d8801a56ff2ebf851dd5"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_flintsteelrifle.png",
+      "sha256": "d7d429d65c7678ce918d693154980e25777050e31f064e90174931e4fec91d16"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_gel_tentacle.png",
+      "sha256": "8ea0177933fe7d2369dba2662ad9ef8870bd77415ad5e05b8644258f48991818"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_ghostglass_pickaxe.png",
+      "sha256": "40625e2933549e13c49f89c0a0f4e73eaf85fcdab432204c8c3d30b076861657"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_hailfall.png",
+      "sha256": "7ddfebfdc7d0bfae7ff537234a54b002f2d5dd6cba63adb72538f976c48c50fc"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_hi_volt_spear.png",
+      "sha256": "30cc12ae19f995de02f4a2d6a0cbac9e5fdce229e409be21be58e40f803a3a56"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_knights_dredge.png",
+      "sha256": "d730654efeb6460714c2205d54ea24ad8ce6b7f637a8be8ca7fb01ba2ef5b93b"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_liteprism_disk.png",
+      "sha256": "96acfd3bf5ae09c3c44f71bf27f759ace9ed96cc35dbf7d26470108e57a83506"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_liteprism_laser_icon.png",
+      "sha256": "16eb31539c3ffaa4e8e1b6c53417cf74b811ff3a230a1d16def95fe8b6917ada"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_magnetic_crossbow.png",
+      "sha256": "990ca207facb0e0d87a478347076e7d73e500b05e26d1223a5729a1475b8cc9d"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_sentry_hood.png",
+      "sha256": "034c3738d9be57ffa65924750369aa0753099a5d828a6174f25112a3091b60da"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_sentry_pauldrons.png",
+      "sha256": "746868f55ce57ef6b57d734a596247652af4a963a67ad51823607a73a9439409"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_shock_stick.png",
+      "sha256": "499bab0fbfef06b1a67f0035055558e7fa7350e4234ac74d660c7e47fa0642e1"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_silenced_cloak.png",
+      "sha256": "bf06564c9c592348c382de0500ddcb1217c00b15a2e10254106ed5d1220b39dd"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_silenced_helmet.png",
+      "sha256": "01e9caee1612bbc3d7bad864486479cee989c6eb0b8c03c98702b20603373b47"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_spark_striders_icon.png",
+      "sha256": "b2c43ace56f70767c136cff94c0070c83ecc04c8f6b233113248d2e5542fde25"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_strange_cloak.png",
+      "sha256": "a2cf9f59f67924005f4b07e6b42ebc4c53b3e02631e0aec3180ebbe12d791575"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_strange_hat.png",
+      "sha256": "10c0a7bb5c0f46d19941526eb0630d5951f9dcafddddb0957c795460397d4a8a"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_stratus_auger.png",
+      "sha256": "537775b74040101f295b1b0b6de83a4f09b0b734f9f42327b0388449f8c45b10"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_stratus_drill.png",
+      "sha256": "0068d47e533c91583d24946f8c3f11f87bd4470f2f9345dc6a86398ac0e106ee"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_stratus_saw.png",
+      "sha256": "8ca93208a3e587bb4be13cbbd65e737af9c38ad733fe621fa9cea3d1687523ff"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_thermoblastericon.png",
+      "sha256": "d99f9362d3db2aa8e86fcba3c7870c770a15cdd69d29938fa2fedb42f749f0a5"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_thingamabob.png",
+      "sha256": "723955199ece5504979a05896bb984d501ca47374ef7b39fe224aecfc809e952"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_trans.png",
+      "sha256": "fa05c85ec0323a7c73e4eacba2d0cf4da6f3743f54ff736d90731d110eaea46d"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_voidflarescarfitem.png",
+      "sha256": "e59cb06c7ccf33ff1656d6c70d89579cb8429c272e49f5616a7bb100418941cc"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_volcano.png",
+      "sha256": "d400b332f53711d9a49f38df102426bfa3c5147c57c1323709c1931cb1555c86"
+    },
+    {
+      "path": "textures/screens/atlas/imagebutton_zerker_gauntlet.png",
+      "sha256": "f8218ecef12267cc3e6ace6da9986b0c3f334308006bcccbfa9b6abed93549ce"
+    },
+    {
+      "path": "textures/screens/fabricator_panel.png",
+      "sha256": "c65c998915c6458e9b9659f2d1cac4a2fd979e6d79dbe4d542b31d450026860a"
+    },
+    {
+      "path": "textures/screens/page.png",
+      "sha256": "a2ff5621a62b6ea082e8e919dd05b11d563396516203cb12795cbd5270c0b728"
+    }
+  ],
+  "summary": {
+    "pages": 34,
+    "labels": 186,
+    "buttons": 68,
+    "textures": 36,
+    "defined_recipes": 31,
+    "active_closed_recipes": 17,
+    "pending_real_output_implementation": 14,
+    "all_active_recipe_references_have_registration_evidence": true,
+    "pending_recipe_outputs": [
+      "thermal_shock_reforged:buzzsaw",
+      "thermal_shock_reforged:cobalt_thermoblaster",
+      "thermal_shock_reforged:extractor_constructor",
+      "thermal_shock_reforged:hi_volt_lance",
+      "thermal_shock_reforged:knights_edge",
+      "thermal_shock_reforged:liteprism_disk",
+      "thermal_shock_reforged:liteprism_laser",
+      "thermal_shock_reforged:propulsion_boots_boots",
+      "thermal_shock_reforged:shock_stick",
+      "thermal_shock_reforged:silenced_armor_chestplate",
+      "thermal_shock_reforged:silenced_armor_helmet",
+      "thermal_shock_reforged:titanium_mace",
+      "thermal_shock_reforged:transmutator",
+      "thermal_shock_reforged:volcano"
+    ],
+    "late_batch77_tags_build_copies": [
+      "infectionimmune",
+      "sprintweed_blacklist"
+    ]
+  },
+  "build": {
+    "compileJava_and_initial_processResources": "passed_in_1m_24_tasks_2_executed_22_up_to_date",
+    "final_processResources_after_registry_closure_staging": "passed",
+    "runtime_or_rendering_started": false
+  }
+}
