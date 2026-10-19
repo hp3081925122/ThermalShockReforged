@@ -1,0 +1,1193 @@
+{
+  "batch": 106,
+  "source_structure": "data/thermal_shock/worldgen/structure/blizzard_sanctum.json",
+  "dimension": {
+    "source_min_y": -64,
+    "source_height": 384,
+    "target_min_y": -64,
+    "target_exclusive_top": 320
+  },
+  "source_start_height": [
+    145,
+    240
+  ],
+  "fixed_start_height": [
+    145,
+    168
+  ],
+  "ground_level_delta": 1,
+  "root_y_formula": "start_height - 1，无project_start_to_heightmap/start_jigsaw_name。",
+  "template_size": [
+    106,
+    159,
+    106
+  ],
+  "top_nonair_layer": 152,
+  "top_nonair_states": {
+    "thermal_shock:cryonic_lamp": 1
+  },
+  "bounding_volume_safe_start_max": 162,
+  "air_margin": "相对Y153..158六层纯空气；起点163..168仅该无实块/实体的空气余量越过顶界，原实际结构完整，不删除这些原有效高度。NBT全部记录仍保留。",
+  "entities": [
+    {
+      "id": "thermal_shock:frostilyte_soldier",
+      "relative_pos": [
+        30.5,
+        77.0,
+        34.5
+      ],
+      "height": 1.7
+    },
+    {
+      "id": "thermal_shock:frostilyte_gunner",
+      "relative_pos": [
+        32.5,
+        77.0,
+        26.5
+      ],
+      "height": 1.7
+    },
+    {
+      "id": "thermal_shock:frostilyte_cryomancer",
+      "relative_pos": [
+        34.539585180120696,
+        78.0,
+        23.76249998807907
+      ],
+      "height": 1.7
+    },
+    {
+      "id": "thermal_shock:frostilyte_soldier",
+      "relative_pos": [
+        32.5,
+        77.0,
+        42.5
+      ],
+      "height": 1.7
+    },
+    {
+      "id": "thermal_shock:frostilyte_cryomancer",
+      "relative_pos": [
+        39.5,
+        77.0,
+        54.5
+      ],
+      "height": 1.7
+    },
+    {
+      "id": "thermal_shock:icidrozerk",
+      "relative_pos": [
+        33.5,
+        77.0,
+        75.5
+      ],
+      "height": 2.2
+    },
+    {
+      "id": "thermal_shock:icidrozerk",
+      "relative_pos": [
+        36.5,
+        77.0,
+        72.5
+      ],
+      "height": 2.2
+    },
+    {
+      "id": "thermal_shock:frostilyte_cryomancer",
+      "relative_pos": [
+        50.5,
+        87.0,
+        20.5
+      ],
+      "height": 1.7
+    },
+    {
+      "id": "thermal_shock:frostilyte_soldier",
+      "relative_pos": [
+        45.5,
+        65.0,
+        29.5
+      ],
+      "height": 1.7
+    },
+    {
+      "id": "thermal_shock:frostilyte_soldier",
+      "relative_pos": [
+        45.5,
+        65.0,
+        30.5
+      ],
+      "height": 1.7
+    },
+    {
+      "id": "thermal_shock:frostilyte_soldier",
+      "relative_pos": [
+        45.5,
+        65.0,
+        31.5
+      ],
+      "height": 1.7
+    },
+    {
+      "id": "thermal_shock:frostilyte_soldier",
+      "relative_pos": [
+        45.5,
+        65.0,
+        32.5
+      ],
+      "height": 1.7
+    },
+    {
+      "id": "thermal_shock:frostilyte_gunner",
+      "relative_pos": [
+        52.5,
+        77.0,
+        58.5
+      ],
+      "height": 1.7
+    },
+    {
+      "id": "thermal_shock:frostilyte_gunner",
+      "relative_pos": [
+        54.5,
+        77.0,
+        58.5
+      ],
+      "height": 1.7
+    },
+    {
+      "id": "thermal_shock:frostilyte_gunner",
+      "relative_pos": [
+        53.5,
+        77.0,
+        58.5
+      ],
+      "height": 1.7
+    },
+    {
+      "id": "thermal_shock:frostilyte_soldier",
+      "relative_pos": [
+        50.5,
+        75.0,
+        89.5
+      ],
+      "height": 1.7
+    },
+    {
+      "id": "thermal_shock:frostilyte",
+      "relative_pos": [
+        49.5,
+        75.0,
+        94.5
+      ],
+      "height": 1.7
+    },
+    {
+      "id": "thermal_shock:frostilyte",
+      "relative_pos": [
+        49.5,
+        75.0,
+        95.5
+      ],
+      "height": 1.7
+    },
+    {
+      "id": "thermal_shock:frostilyte",
+      "relative_pos": [
+        49.5,
+        75.0,
+        96.5
+      ],
+      "height": 1.7
+    },
+    {
+      "id": "thermal_shock:frostilyte_gunner",
+      "relative_pos": [
+        43.5,
+        82.0,
+        97.5
+      ],
+      "height": 1.7
+    },
+    {
+      "id": "thermal_shock:frostilyte_gunner",
+      "relative_pos": [
+        43.5,
+        82.0,
+        93.5
+      ],
+      "height": 1.7
+    },
+    {
+      "id": "thermal_shock:icidrozerk",
+      "relative_pos": [
+        59.21724425451686,
+        68.0,
+        52.734969903747015
+      ],
+      "height": 2.2
+    },
+    {
+      "id": "thermal_shock:guardian_pylon",
+      "relative_pos": [
+        63.5,
+        71.0,
+        52.5
+      ],
+      "height": 1.0
+    },
+    {
+      "id": "thermal_shock:protoi_sunbeam",
+      "relative_pos": [
+        63.5,
+        90.0,
+        52.5
+      ],
+      "height": 3.0
+    },
+    {
+      "id": "thermal_shock:protoi_sunbeam",
+      "relative_pos": [
+        63.5,
+        107.0,
+        52.5
+      ],
+      "height": 3.0
+    },
+    {
+      "id": "thermal_shock:frostilyte_gunner",
+      "relative_pos": [
+        64.5,
+        77.0,
+        78.5
+      ],
+      "height": 1.7
+    },
+    {
+      "id": "thermal_shock:frostilyte_gunner",
+      "relative_pos": [
+        64.5,
+        77.0,
+        74.5
+      ],
+      "height": 1.7
+    },
+    {
+      "id": "thermal_shock:icidrozerk",
+      "relative_pos": [
+        75.5,
+        77.0,
+        76.5
+      ],
+      "height": 2.2
+    },
+    {
+      "id": "thermal_shock:frostilyte",
+      "relative_pos": [
+        90.5,
+        77.0,
+        76.5
+      ],
+      "height": 1.7
+    }
+  ],
+  "highest_entity_top_relative": 110.0,
+  "height_cases": [
+    {
+      "start_height": 145,
+      "root_y": 144,
+      "bbox_max_y": 302,
+      "entity_max_y": 254.0,
+      "nonair_blocks_outside_height": 0,
+      "all_nonair_blocks_and_entities_fit": true,
+      "entire_bounding_volume_within_height": true
+    },
+    {
+      "start_height": 146,
+      "root_y": 145,
+      "bbox_max_y": 303,
+      "entity_max_y": 255.0,
+      "nonair_blocks_outside_height": 0,
+      "all_nonair_blocks_and_entities_fit": true,
+      "entire_bounding_volume_within_height": true
+    },
+    {
+      "start_height": 147,
+      "root_y": 146,
+      "bbox_max_y": 304,
+      "entity_max_y": 256.0,
+      "nonair_blocks_outside_height": 0,
+      "all_nonair_blocks_and_entities_fit": true,
+      "entire_bounding_volume_within_height": true
+    },
+    {
+      "start_height": 148,
+      "root_y": 147,
+      "bbox_max_y": 305,
+      "entity_max_y": 257.0,
+      "nonair_blocks_outside_height": 0,
+      "all_nonair_blocks_and_entities_fit": true,
+      "entire_bounding_volume_within_height": true
+    },
+    {
+      "start_height": 149,
+      "root_y": 148,
+      "bbox_max_y": 306,
+      "entity_max_y": 258.0,
+      "nonair_blocks_outside_height": 0,
+      "all_nonair_blocks_and_entities_fit": true,
+      "entire_bounding_volume_within_height": true
+    },
+    {
+      "start_height": 150,
+      "root_y": 149,
+      "bbox_max_y": 307,
+      "entity_max_y": 259.0,
+      "nonair_blocks_outside_height": 0,
+      "all_nonair_blocks_and_entities_fit": true,
+      "entire_bounding_volume_within_height": true
+    },
+    {
+      "start_height": 151,
+      "root_y": 150,
+      "bbox_max_y": 308,
+      "entity_max_y": 260.0,
+      "nonair_blocks_outside_height": 0,
+      "all_nonair_blocks_and_entities_fit": true,
+      "entire_bounding_volume_within_height": true
+    },
+    {
+      "start_height": 152,
+      "root_y": 151,
+      "bbox_max_y": 309,
+      "entity_max_y": 261.0,
+      "nonair_blocks_outside_height": 0,
+      "all_nonair_blocks_and_entities_fit": true,
+      "entire_bounding_volume_within_height": true
+    },
+    {
+      "start_height": 153,
+      "root_y": 152,
+      "bbox_max_y": 310,
+      "entity_max_y": 262.0,
+      "nonair_blocks_outside_height": 0,
+      "all_nonair_blocks_and_entities_fit": true,
+      "entire_bounding_volume_within_height": true
+    },
+    {
+      "start_height": 154,
+      "root_y": 153,
+      "bbox_max_y": 311,
+      "entity_max_y": 263.0,
+      "nonair_blocks_outside_height": 0,
+      "all_nonair_blocks_and_entities_fit": true,
+      "entire_bounding_volume_within_height": true
+    },
+    {
+      "start_height": 155,
+      "root_y": 154,
+      "bbox_max_y": 312,
+      "entity_max_y": 264.0,
+      "nonair_blocks_outside_height": 0,
+      "all_nonair_blocks_and_entities_fit": true,
+      "entire_bounding_volume_within_height": true
+    },
+    {
+      "start_height": 156,
+      "root_y": 155,
+      "bbox_max_y": 313,
+      "entity_max_y": 265.0,
+      "nonair_blocks_outside_height": 0,
+      "all_nonair_blocks_and_entities_fit": true,
+      "entire_bounding_volume_within_height": true
+    },
+    {
+      "start_height": 157,
+      "root_y": 156,
+      "bbox_max_y": 314,
+      "entity_max_y": 266.0,
+      "nonair_blocks_outside_height": 0,
+      "all_nonair_blocks_and_entities_fit": true,
+      "entire_bounding_volume_within_height": true
+    },
+    {
+      "start_height": 158,
+      "root_y": 157,
+      "bbox_max_y": 315,
+      "entity_max_y": 267.0,
+      "nonair_blocks_outside_height": 0,
+      "all_nonair_blocks_and_entities_fit": true,
+      "entire_bounding_volume_within_height": true
+    },
+    {
+      "start_height": 159,
+      "root_y": 158,
+      "bbox_max_y": 316,
+      "entity_max_y": 268.0,
+      "nonair_blocks_outside_height": 0,
+      "all_nonair_blocks_and_entities_fit": true,
+      "entire_bounding_volume_within_height": true
+    },
+    {
+      "start_height": 160,
+      "root_y": 159,
+      "bbox_max_y": 317,
+      "entity_max_y": 269.0,
+      "nonair_blocks_outside_height": 0,
+      "all_nonair_blocks_and_entities_fit": true,
+      "entire_bounding_volume_within_height": true
+    },
+    {
+      "start_height": 161,
+      "root_y": 160,
+      "bbox_max_y": 318,
+      "entity_max_y": 270.0,
+      "nonair_blocks_outside_height": 0,
+      "all_nonair_blocks_and_entities_fit": true,
+      "entire_bounding_volume_within_height": true
+    },
+    {
+      "start_height": 162,
+      "root_y": 161,
+      "bbox_max_y": 319,
+      "entity_max_y": 271.0,
+      "nonair_blocks_outside_height": 0,
+      "all_nonair_blocks_and_entities_fit": true,
+      "entire_bounding_volume_within_height": true
+    },
+    {
+      "start_height": 163,
+      "root_y": 162,
+      "bbox_max_y": 320,
+      "entity_max_y": 272.0,
+      "nonair_blocks_outside_height": 0,
+      "all_nonair_blocks_and_entities_fit": true,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 164,
+      "root_y": 163,
+      "bbox_max_y": 321,
+      "entity_max_y": 273.0,
+      "nonair_blocks_outside_height": 0,
+      "all_nonair_blocks_and_entities_fit": true,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 165,
+      "root_y": 164,
+      "bbox_max_y": 322,
+      "entity_max_y": 274.0,
+      "nonair_blocks_outside_height": 0,
+      "all_nonair_blocks_and_entities_fit": true,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 166,
+      "root_y": 165,
+      "bbox_max_y": 323,
+      "entity_max_y": 275.0,
+      "nonair_blocks_outside_height": 0,
+      "all_nonair_blocks_and_entities_fit": true,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 167,
+      "root_y": 166,
+      "bbox_max_y": 324,
+      "entity_max_y": 276.0,
+      "nonair_blocks_outside_height": 0,
+      "all_nonair_blocks_and_entities_fit": true,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 168,
+      "root_y": 167,
+      "bbox_max_y": 325,
+      "entity_max_y": 277.0,
+      "nonair_blocks_outside_height": 0,
+      "all_nonair_blocks_and_entities_fit": true,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 169,
+      "root_y": 168,
+      "bbox_max_y": 326,
+      "entity_max_y": 278.0,
+      "nonair_blocks_outside_height": 1,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 170,
+      "root_y": 169,
+      "bbox_max_y": 327,
+      "entity_max_y": 279.0,
+      "nonair_blocks_outside_height": 2,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 171,
+      "root_y": 170,
+      "bbox_max_y": 328,
+      "entity_max_y": 280.0,
+      "nonair_blocks_outside_height": 3,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 172,
+      "root_y": 171,
+      "bbox_max_y": 329,
+      "entity_max_y": 281.0,
+      "nonair_blocks_outside_height": 4,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 173,
+      "root_y": 172,
+      "bbox_max_y": 330,
+      "entity_max_y": 282.0,
+      "nonair_blocks_outside_height": 5,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 174,
+      "root_y": 173,
+      "bbox_max_y": 331,
+      "entity_max_y": 283.0,
+      "nonair_blocks_outside_height": 6,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 175,
+      "root_y": 174,
+      "bbox_max_y": 332,
+      "entity_max_y": 284.0,
+      "nonair_blocks_outside_height": 7,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 176,
+      "root_y": 175,
+      "bbox_max_y": 333,
+      "entity_max_y": 285.0,
+      "nonair_blocks_outside_height": 8,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 177,
+      "root_y": 176,
+      "bbox_max_y": 334,
+      "entity_max_y": 286.0,
+      "nonair_blocks_outside_height": 9,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 178,
+      "root_y": 177,
+      "bbox_max_y": 335,
+      "entity_max_y": 287.0,
+      "nonair_blocks_outside_height": 10,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 179,
+      "root_y": 178,
+      "bbox_max_y": 336,
+      "entity_max_y": 288.0,
+      "nonair_blocks_outside_height": 11,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 180,
+      "root_y": 179,
+      "bbox_max_y": 337,
+      "entity_max_y": 289.0,
+      "nonair_blocks_outside_height": 12,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 181,
+      "root_y": 180,
+      "bbox_max_y": 338,
+      "entity_max_y": 290.0,
+      "nonair_blocks_outside_height": 13,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 182,
+      "root_y": 181,
+      "bbox_max_y": 339,
+      "entity_max_y": 291.0,
+      "nonair_blocks_outside_height": 14,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 183,
+      "root_y": 182,
+      "bbox_max_y": 340,
+      "entity_max_y": 292.0,
+      "nonair_blocks_outside_height": 15,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 184,
+      "root_y": 183,
+      "bbox_max_y": 341,
+      "entity_max_y": 293.0,
+      "nonair_blocks_outside_height": 16,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 185,
+      "root_y": 184,
+      "bbox_max_y": 342,
+      "entity_max_y": 294.0,
+      "nonair_blocks_outside_height": 17,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 186,
+      "root_y": 185,
+      "bbox_max_y": 343,
+      "entity_max_y": 295.0,
+      "nonair_blocks_outside_height": 18,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 187,
+      "root_y": 186,
+      "bbox_max_y": 344,
+      "entity_max_y": 296.0,
+      "nonair_blocks_outside_height": 19,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 188,
+      "root_y": 187,
+      "bbox_max_y": 345,
+      "entity_max_y": 297.0,
+      "nonair_blocks_outside_height": 508,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 189,
+      "root_y": 188,
+      "bbox_max_y": 346,
+      "entity_max_y": 298.0,
+      "nonair_blocks_outside_height": 601,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 190,
+      "root_y": 189,
+      "bbox_max_y": 347,
+      "entity_max_y": 299.0,
+      "nonair_blocks_outside_height": 669,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 191,
+      "root_y": 190,
+      "bbox_max_y": 348,
+      "entity_max_y": 300.0,
+      "nonair_blocks_outside_height": 737,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 192,
+      "root_y": 191,
+      "bbox_max_y": 349,
+      "entity_max_y": 301.0,
+      "nonair_blocks_outside_height": 805,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 193,
+      "root_y": 192,
+      "bbox_max_y": 350,
+      "entity_max_y": 302.0,
+      "nonair_blocks_outside_height": 947,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 194,
+      "root_y": 193,
+      "bbox_max_y": 351,
+      "entity_max_y": 303.0,
+      "nonair_blocks_outside_height": 1015,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 195,
+      "root_y": 194,
+      "bbox_max_y": 352,
+      "entity_max_y": 304.0,
+      "nonair_blocks_outside_height": 1083,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 196,
+      "root_y": 195,
+      "bbox_max_y": 353,
+      "entity_max_y": 305.0,
+      "nonair_blocks_outside_height": 1151,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 197,
+      "root_y": 196,
+      "bbox_max_y": 354,
+      "entity_max_y": 306.0,
+      "nonair_blocks_outside_height": 1220,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 198,
+      "root_y": 197,
+      "bbox_max_y": 355,
+      "entity_max_y": 307.0,
+      "nonair_blocks_outside_height": 1494,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 199,
+      "root_y": 198,
+      "bbox_max_y": 356,
+      "entity_max_y": 308.0,
+      "nonair_blocks_outside_height": 1983,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 200,
+      "root_y": 199,
+      "bbox_max_y": 357,
+      "entity_max_y": 309.0,
+      "nonair_blocks_outside_height": 2047,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 201,
+      "root_y": 200,
+      "bbox_max_y": 358,
+      "entity_max_y": 310.0,
+      "nonair_blocks_outside_height": 2111,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 202,
+      "root_y": 201,
+      "bbox_max_y": 359,
+      "entity_max_y": 311.0,
+      "nonair_blocks_outside_height": 2175,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 203,
+      "root_y": 202,
+      "bbox_max_y": 360,
+      "entity_max_y": 312.0,
+      "nonair_blocks_outside_height": 2246,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 204,
+      "root_y": 203,
+      "bbox_max_y": 361,
+      "entity_max_y": 313.0,
+      "nonair_blocks_outside_height": 2323,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 205,
+      "root_y": 204,
+      "bbox_max_y": 362,
+      "entity_max_y": 314.0,
+      "nonair_blocks_outside_height": 2812,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 206,
+      "root_y": 205,
+      "bbox_max_y": 363,
+      "entity_max_y": 315.0,
+      "nonair_blocks_outside_height": 2881,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 207,
+      "root_y": 206,
+      "bbox_max_y": 364,
+      "entity_max_y": 316.0,
+      "nonair_blocks_outside_height": 2950,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 208,
+      "root_y": 207,
+      "bbox_max_y": 365,
+      "entity_max_y": 317.0,
+      "nonair_blocks_outside_height": 3019,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 209,
+      "root_y": 208,
+      "bbox_max_y": 366,
+      "entity_max_y": 318.0,
+      "nonair_blocks_outside_height": 3088,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 210,
+      "root_y": 209,
+      "bbox_max_y": 367,
+      "entity_max_y": 319.0,
+      "nonair_blocks_outside_height": 3153,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 211,
+      "root_y": 210,
+      "bbox_max_y": 368,
+      "entity_max_y": 320.0,
+      "nonair_blocks_outside_height": 3232,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 212,
+      "root_y": 211,
+      "bbox_max_y": 369,
+      "entity_max_y": 321.0,
+      "nonair_blocks_outside_height": 3347,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 213,
+      "root_y": 212,
+      "bbox_max_y": 370,
+      "entity_max_y": 322.0,
+      "nonair_blocks_outside_height": 3482,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 214,
+      "root_y": 213,
+      "bbox_max_y": 371,
+      "entity_max_y": 323.0,
+      "nonair_blocks_outside_height": 3620,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 215,
+      "root_y": 214,
+      "bbox_max_y": 372,
+      "entity_max_y": 324.0,
+      "nonair_blocks_outside_height": 3784,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 216,
+      "root_y": 215,
+      "bbox_max_y": 373,
+      "entity_max_y": 325.0,
+      "nonair_blocks_outside_height": 4338,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 217,
+      "root_y": 216,
+      "bbox_max_y": 374,
+      "entity_max_y": 326.0,
+      "nonair_blocks_outside_height": 4453,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 218,
+      "root_y": 217,
+      "bbox_max_y": 375,
+      "entity_max_y": 327.0,
+      "nonair_blocks_outside_height": 4568,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 219,
+      "root_y": 218,
+      "bbox_max_y": 376,
+      "entity_max_y": 328.0,
+      "nonair_blocks_outside_height": 4683,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 220,
+      "root_y": 219,
+      "bbox_max_y": 377,
+      "entity_max_y": 329.0,
+      "nonair_blocks_outside_height": 4820,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 221,
+      "root_y": 220,
+      "bbox_max_y": 378,
+      "entity_max_y": 330.0,
+      "nonair_blocks_outside_height": 4945,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 222,
+      "root_y": 221,
+      "bbox_max_y": 379,
+      "entity_max_y": 331.0,
+      "nonair_blocks_outside_height": 5537,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 223,
+      "root_y": 222,
+      "bbox_max_y": 380,
+      "entity_max_y": 332.0,
+      "nonair_blocks_outside_height": 5672,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 224,
+      "root_y": 223,
+      "bbox_max_y": 381,
+      "entity_max_y": 333.0,
+      "nonair_blocks_outside_height": 5840,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 225,
+      "root_y": 224,
+      "bbox_max_y": 382,
+      "entity_max_y": 334.0,
+      "nonair_blocks_outside_height": 5980,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 226,
+      "root_y": 225,
+      "bbox_max_y": 383,
+      "entity_max_y": 335.0,
+      "nonair_blocks_outside_height": 6445,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 227,
+      "root_y": 226,
+      "bbox_max_y": 384,
+      "entity_max_y": 336.0,
+      "nonair_blocks_outside_height": 7038,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 228,
+      "root_y": 227,
+      "bbox_max_y": 385,
+      "entity_max_y": 337.0,
+      "nonair_blocks_outside_height": 7614,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 229,
+      "root_y": 228,
+      "bbox_max_y": 386,
+      "entity_max_y": 338.0,
+      "nonair_blocks_outside_height": 8236,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 230,
+      "root_y": 229,
+      "bbox_max_y": 387,
+      "entity_max_y": 339.0,
+      "nonair_blocks_outside_height": 8890,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 231,
+      "root_y": 230,
+      "bbox_max_y": 388,
+      "entity_max_y": 340.0,
+      "nonair_blocks_outside_height": 9576,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 232,
+      "root_y": 231,
+      "bbox_max_y": 389,
+      "entity_max_y": 341.0,
+      "nonair_blocks_outside_height": 10189,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 233,
+      "root_y": 232,
+      "bbox_max_y": 390,
+      "entity_max_y": 342.0,
+      "nonair_blocks_outside_height": 10943,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 234,
+      "root_y": 233,
+      "bbox_max_y": 391,
+      "entity_max_y": 343.0,
+      "nonair_blocks_outside_height": 12305,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 235,
+      "root_y": 234,
+      "bbox_max_y": 392,
+      "entity_max_y": 344.0,
+      "nonair_blocks_outside_height": 13917,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 236,
+      "root_y": 235,
+      "bbox_max_y": 393,
+      "entity_max_y": 345.0,
+      "nonair_blocks_outside_height": 15408,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 237,
+      "root_y": 236,
+      "bbox_max_y": 394,
+      "entity_max_y": 346.0,
+      "nonair_blocks_outside_height": 16763,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 238,
+      "root_y": 237,
+      "bbox_max_y": 395,
+      "entity_max_y": 347.0,
+      "nonair_blocks_outside_height": 18216,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 239,
+      "root_y": 238,
+      "bbox_max_y": 396,
+      "entity_max_y": 348.0,
+      "nonair_blocks_outside_height": 19609,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    },
+    {
+      "start_height": 240,
+      "root_y": 239,
+      "bbox_max_y": 397,
+      "entity_max_y": 349.0,
+      "nonair_blocks_outside_height": 21069,
+      "all_nonair_blocks_and_entities_fit": false,
+      "entire_bounding_volume_within_height": false
+    }
+  ],
+  "original_valid_heights": 24,
+  "original_clipping_heights": 72,
+  "rotations": "Jigsaw随机Y轴四旋转只改X/Z；SinglePoolElement没有设mirror，保持NONE，均不改变Y。",
+  "range_semantics": "Jigsaw size1为池深度；max_distance64限制子片搜索空间，初始完整根片先加入且不会自动按维度顶界下移。",
+  "fix": "仅将起点均匀上界240改168，保原145..168全部24个实块/实体完整的有效高度等概率，不裁模板、不改生成时序、间距、群系或池参数。",
+  "api_sources": [
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\structure\\pools\\JigsawPlacement.java",
+      "sha256": "79eabed9da8b498201073cef036e5a299fbd3c2241efb66f8afcb21fb72a8d45"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\structure\\pools\\StructurePoolElement.java",
+      "sha256": "4f1d108441b64e35a54f8861cc6a00bfae14de8fe29a60d0d5aeeb5eaaa08edd"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\structure\\pools\\SinglePoolElement.java",
+      "sha256": "8d4310fee5be72dd6d16f4d912ec7f8a1659690251a632de5c8adf003537a513"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\structure\\templatesystem\\StructureTemplate.java",
+      "sha256": "e2b63ca8afc2f951a7f78eb021216ce7e711db3b4707a6baa2300d4cb9162eec"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\chunk\\ProtoChunk.java",
+      "sha256": "0d0d3af2b8701b37ded5a3aa66271fabc99e91fbfee83184a51f442c354e9698"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\structure\\structures\\JigsawStructure.java",
+      "sha256": "ac73b963a562d4cfff4d6d46f751e76a912382add2db275630484389a7c6edcc"
+    }
+  ],
+  "limits": "源码、完整原NBT和全部96起点枚举证明；未运行游戏。"
+}

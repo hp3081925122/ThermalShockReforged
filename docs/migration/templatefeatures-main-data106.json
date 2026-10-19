@@ -1,0 +1,1204 @@
+{
+  "files": [
+    {
+      "source": "data/thermal_shock/worldgen/configured_feature/giant_glowcap.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/giant_glowcap.json",
+      "original_sha256": "71bade1e04f182d289a135a7c43d7e919368fbc8eabf3ea220a20781b5ed71fd",
+      "sha256": "3a8d314e4d45ce1ae147027c997b44bfe702225c603735f5ac9af9be015ba1cb",
+      "schema_changes": [],
+      "source_json": {
+        "type": "minecraft:simple_random_selector",
+        "config": {
+          "features": [
+            {
+              "feature": {
+                "type": "thermal_shock:structure_feature",
+                "config": {
+                  "structure": "thermal_shock:giant_glowcap_1",
+                  "ignored_blocks": "minecraft:air",
+                  "offset": [
+                    -1,
+                    0,
+                    -1
+                  ]
+                }
+              },
+              "placement": []
+            },
+            {
+              "feature": {
+                "type": "thermal_shock:structure_feature",
+                "config": {
+                  "structure": "thermal_shock:giant_glowcap_2",
+                  "ignored_blocks": "minecraft:air",
+                  "offset": [
+                    -1,
+                    0,
+                    -1
+                  ]
+                }
+              },
+              "placement": []
+            },
+            {
+              "feature": {
+                "type": "thermal_shock:structure_feature",
+                "config": {
+                  "structure": "thermal_shock:giant_glowcap_3",
+                  "ignored_blocks": "minecraft:air",
+                  "offset": [
+                    -1,
+                    0,
+                    -1
+                  ]
+                }
+              },
+              "placement": []
+            }
+          ]
+        }
+      },
+      "target_json": {
+        "type": "minecraft:simple_random_selector",
+        "config": {
+          "features": [
+            {
+              "feature": {
+                "type": "thermal_shock_reforged:structure_feature",
+                "config": {
+                  "structure": "thermal_shock_reforged:giant_glowcap_1",
+                  "ignored_blocks": "minecraft:air",
+                  "offset": [
+                    -1,
+                    0,
+                    -1
+                  ]
+                }
+              },
+              "placement": []
+            },
+            {
+              "feature": {
+                "type": "thermal_shock_reforged:structure_feature",
+                "config": {
+                  "structure": "thermal_shock_reforged:giant_glowcap_2",
+                  "ignored_blocks": "minecraft:air",
+                  "offset": [
+                    -1,
+                    0,
+                    -1
+                  ]
+                }
+              },
+              "placement": []
+            },
+            {
+              "feature": {
+                "type": "thermal_shock_reforged:structure_feature",
+                "config": {
+                  "structure": "thermal_shock_reforged:giant_glowcap_3",
+                  "ignored_blocks": "minecraft:air",
+                  "offset": [
+                    -1,
+                    0,
+                    -1
+                  ]
+                }
+              },
+              "placement": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source": "data/thermal_shock/worldgen/configured_feature/giant_urchin.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/giant_urchin.json",
+      "original_sha256": "eb750b0eae48b34082630a47ee517727459aab59d53ab5382cee57aea7762668",
+      "sha256": "8d30f5ddf083ae829254e079373f3bea0138e18c5bece9adbca5816f2de4494b",
+      "schema_changes": [],
+      "source_json": {
+        "type": "thermal_shock:structure_feature",
+        "config": {
+          "structure": "thermal_shock:gianturchin",
+          "ignored_blocks": "minecraft:air",
+          "offset": [
+            -8,
+            -8,
+            -8
+          ]
+        }
+      },
+      "target_json": {
+        "type": "thermal_shock_reforged:structure_feature",
+        "config": {
+          "structure": "thermal_shock_reforged:gianturchin",
+          "ignored_blocks": "minecraft:air",
+          "offset": [
+            -8,
+            -8,
+            -8
+          ]
+        }
+      }
+    },
+    {
+      "source": "data/thermal_shock/worldgen/configured_feature/jellercel_generation.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/jellercel_generation.json",
+      "original_sha256": "47b020654e167eb5dc24908f089e1875e8f0f669a8621f2deb812fc73cabfdf5",
+      "sha256": "b698e4a47fe153a9565222ab53e9334ef3b9a88df6ec2a3cf7225e9c8688abb1",
+      "schema_changes": [],
+      "source_json": {
+        "type": "thermal_shock:structure_feature",
+        "config": {
+          "structure": "thermal_shock:jellercellogged",
+          "ignored_blocks": "minecraft:air"
+        }
+      },
+      "target_json": {
+        "type": "thermal_shock_reforged:structure_feature",
+        "config": {
+          "structure": "thermal_shock_reforged:jellercellogged",
+          "ignored_blocks": "minecraft:air"
+        }
+      }
+    },
+    {
+      "source": "data/thermal_shock/worldgen/configured_feature/large_jellercel_generation.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/large_jellercel_generation.json",
+      "original_sha256": "1d7c1a59139dd184cdfcad1ddd07b071f6750dbd248a0d10c71ab113eda176a4",
+      "sha256": "e2e6ab88a7fd1872ebc371747cb3203700234cc355fa8ece6face0b882c329cd",
+      "schema_changes": [],
+      "source_json": {
+        "type": "thermal_shock:structure_feature",
+        "config": {
+          "structure": "thermal_shock:largejellercel",
+          "ignored_blocks": "minecraft:air"
+        }
+      },
+      "target_json": {
+        "type": "thermal_shock_reforged:structure_feature",
+        "config": {
+          "structure": "thermal_shock_reforged:largejellercel",
+          "ignored_blocks": "minecraft:air"
+        }
+      }
+    },
+    {
+      "source": "data/thermal_shock/worldgen/configured_feature/twilit_shrub_alt.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/twilit_shrub_alt.json",
+      "original_sha256": "b35cd490d6a85c158850b410ac47014dd7d269a7f25f3320ef8d14f99caf5c58",
+      "sha256": "c3ad87895e607b55de8bb8662841c4868170cefe4e9ae4945b922bdf90692d14",
+      "schema_changes": [],
+      "source_json": {
+        "type": "thermal_shock:structure_feature",
+        "config": {
+          "structure": "thermal_shock:twilitgrass",
+          "ignored_blocks": "minecraft:air"
+        }
+      },
+      "target_json": {
+        "type": "thermal_shock_reforged:structure_feature",
+        "config": {
+          "structure": "thermal_shock_reforged:twilitgrass",
+          "ignored_blocks": "minecraft:air"
+        }
+      }
+    },
+    {
+      "source": "data/thermal_shock/worldgen/configured_feature/twilit_shrub_generation.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/twilit_shrub_generation.json",
+      "original_sha256": "b35cd490d6a85c158850b410ac47014dd7d269a7f25f3320ef8d14f99caf5c58",
+      "sha256": "c3ad87895e607b55de8bb8662841c4868170cefe4e9ae4945b922bdf90692d14",
+      "schema_changes": [],
+      "source_json": {
+        "type": "thermal_shock:structure_feature",
+        "config": {
+          "structure": "thermal_shock:twilitgrass",
+          "ignored_blocks": "minecraft:air"
+        }
+      },
+      "target_json": {
+        "type": "thermal_shock_reforged:structure_feature",
+        "config": {
+          "structure": "thermal_shock_reforged:twilitgrass",
+          "ignored_blocks": "minecraft:air"
+        }
+      }
+    },
+    {
+      "source": "data/thermal_shock/worldgen/placed_feature/giant_glowcap.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/giant_glowcap.json",
+      "original_sha256": "9badddf3a8a4df9edfb73e51e7d58c26c6fa4f8a80f9864dae68706f1ddd2dd4",
+      "sha256": "14d512756ee41864699d93b8a215d8b98898cd6cee9f4abe67890cbe2e8a9fcc",
+      "schema_changes": [
+        {
+          "path": "$/placement/0/count",
+          "before": {
+            "type": "uniform",
+            "value": {
+              "min_inclusive": 10,
+              "max_inclusive": 20
+            }
+          },
+          "reason": "Target UniformInt MapCodec uses fields at dispatch level; same inclusive range and sampling."
+        }
+      ],
+      "source_json": {
+        "feature": "thermal_shock:giant_glowcap",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": {
+              "type": "uniform",
+              "value": {
+                "min_inclusive": 10,
+                "max_inclusive": 20
+              }
+            }
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:height_range",
+            "height": {
+              "type": "minecraft:uniform",
+              "min_inclusive": {
+                "absolute": -30
+              },
+              "max_inclusive": {
+                "absolute": 45
+              }
+            }
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:all_of",
+              "predicates": [
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air"
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": [
+                    "thermal_shock:shale",
+                    "thermal_shock:mossy_mantlestone",
+                    "thermal_shock:vermillion_moss",
+                    "thermal_shock:mantlestone"
+                  ],
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "type": "environment_scan",
+            "direction_of_search": "up",
+            "target_condition": {
+              "type": "minecraft:matching_blocks",
+              "blocks": [
+                "minecraft:air",
+                "minecraft:water"
+              ]
+            },
+            "allowed_search_condition": {
+              "type": "minecraft:matching_blocks",
+              "blocks": "minecraft:air"
+            },
+            "max_steps": 6
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      },
+      "target_json": {
+        "feature": "thermal_shock_reforged:giant_glowcap",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": {
+              "type": "uniform",
+              "min_inclusive": 10,
+              "max_inclusive": 20
+            }
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:height_range",
+            "height": {
+              "type": "minecraft:uniform",
+              "min_inclusive": {
+                "absolute": -30
+              },
+              "max_inclusive": {
+                "absolute": 45
+              }
+            }
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:all_of",
+              "predicates": [
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air"
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": [
+                    "thermal_shock_reforged:shale",
+                    "thermal_shock_reforged:mossy_mantlestone",
+                    "thermal_shock_reforged:vermillion_moss",
+                    "thermal_shock_reforged:mantlestone"
+                  ],
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "type": "environment_scan",
+            "direction_of_search": "up",
+            "target_condition": {
+              "type": "minecraft:matching_blocks",
+              "blocks": [
+                "minecraft:air",
+                "minecraft:water"
+              ]
+            },
+            "allowed_search_condition": {
+              "type": "minecraft:matching_blocks",
+              "blocks": "minecraft:air"
+            },
+            "max_steps": 6
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      }
+    },
+    {
+      "source": "data/thermal_shock/worldgen/placed_feature/giant_urchin.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/giant_urchin.json",
+      "original_sha256": "6048b38a7dde8148c92a97e73dd6cba75aea24f13f91d6de166bfff1989e79a1",
+      "sha256": "4d21ee788b6e26eab7b8be2c61935e7dc562c90d67449cea63de85d597c47e80",
+      "schema_changes": [],
+      "source_json": {
+        "feature": "thermal_shock:giant_urchin",
+        "placement": [
+          {
+            "type": "minecraft:rarity_filter",
+            "chance": 8
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:heightmap",
+            "heightmap": "MOTION_BLOCKING"
+          },
+          {
+            "type": "minecraft:biome"
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:all_of",
+              "predicates": [
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air"
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "thermal_shock:slush",
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "target_json": {
+        "feature": "thermal_shock_reforged:giant_urchin",
+        "placement": [
+          {
+            "type": "minecraft:rarity_filter",
+            "chance": 8
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:heightmap",
+            "heightmap": "MOTION_BLOCKING"
+          },
+          {
+            "type": "minecraft:biome"
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:all_of",
+              "predicates": [
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air"
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "thermal_shock_reforged:slush",
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "source": "data/thermal_shock/worldgen/placed_feature/twilit_shrub_alt.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/twilit_shrub_alt.json",
+      "original_sha256": "f967b32cc1d26c8242bcd15401bd1d025fa29556f4bf9dd4aaf04b7e643b0fb9",
+      "sha256": "66998ce9934067f381bb3c35226e65b1fbdda2e2894313e27fe867ff7082ce5e",
+      "schema_changes": [],
+      "source_json": {
+        "feature": "thermal_shock:twilit_shrub_alt",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": 200
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:height_range",
+            "height": {
+              "type": "minecraft:uniform",
+              "min_inclusive": {
+                "absolute": 0
+              },
+              "max_inclusive": {
+                "absolute": 50
+              }
+            }
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:all_of",
+              "predicates": [
+                {
+                  "type": "minecraft:solid",
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_fluids",
+                  "fluids": "minecraft:water"
+                }
+              ]
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      },
+      "target_json": {
+        "feature": "thermal_shock_reforged:twilit_shrub_alt",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": 200
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:height_range",
+            "height": {
+              "type": "minecraft:uniform",
+              "min_inclusive": {
+                "absolute": 0
+              },
+              "max_inclusive": {
+                "absolute": 50
+              }
+            }
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:all_of",
+              "predicates": [
+                {
+                  "type": "minecraft:solid",
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_fluids",
+                  "fluids": "minecraft:water"
+                }
+              ]
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      }
+    },
+    {
+      "source": "data/thermal_shock/worldgen/placed_feature/twilit_shrub_generation.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/twilit_shrub_generation.json",
+      "original_sha256": "af94fe77121fe597a9d283e363b0eb5326083a41fd366ca28f0be4cb02d68fed",
+      "sha256": "c4ced4b82e47812d0a57409cf6685e09b553df79f982e4acca83780d3657ee71",
+      "schema_changes": [],
+      "source_json": {
+        "feature": "thermal_shock:twilit_shrub_generation",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": 200
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:height_range",
+            "height": {
+              "type": "minecraft:uniform",
+              "min_inclusive": {
+                "absolute": 0
+              },
+              "max_inclusive": {
+                "absolute": 61
+              }
+            }
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:all_of",
+              "predicates": [
+                {
+                  "type": "minecraft:solid",
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_fluids",
+                  "fluids": "minecraft:water"
+                }
+              ]
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      },
+      "target_json": {
+        "feature": "thermal_shock_reforged:twilit_shrub_generation",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": 200
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:height_range",
+            "height": {
+              "type": "minecraft:uniform",
+              "min_inclusive": {
+                "absolute": 0
+              },
+              "max_inclusive": {
+                "absolute": 61
+              }
+            }
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:all_of",
+              "predicates": [
+                {
+                  "type": "minecraft:solid",
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_fluids",
+                  "fluids": "minecraft:water"
+                }
+              ]
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      }
+    },
+    {
+      "source": "data/thermal_shock/forge/biome_modifier/giant_glowcap_biome_modifier.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/giant_glowcap_biome_modifier.json",
+      "original_sha256": "22ae75825d3aeabeb5254b172063fa9a54eb5ba90843edc40ff9cac0c8ab0491",
+      "sha256": "9c6af3118346b2a26d4554ea79354f328b8fcde08300bc4ce6c63ef2a40c58d8",
+      "schema_changes": [],
+      "source_json": {
+        "type": "forge:add_features",
+        "biomes": [
+          "thermal_shock:borean_forest",
+          "thermal_shock:stardust_garden",
+          "thermal_shock:vermillion_woods",
+          "thermal_shock:borean_tundra"
+        ],
+        "features": "thermal_shock:giant_glowcap",
+        "step": "underground_decoration"
+      },
+      "target_json": {
+        "type": "neoforge:add_features",
+        "biomes": [
+          "thermal_shock_reforged:borean_forest",
+          "thermal_shock_reforged:stardust_garden",
+          "thermal_shock_reforged:vermillion_woods",
+          "thermal_shock_reforged:borean_tundra"
+        ],
+        "features": "thermal_shock_reforged:giant_glowcap",
+        "step": "underground_decoration"
+      }
+    },
+    {
+      "source": "data/thermal_shock/forge/biome_modifier/giant_urchin_biome_modifier.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/giant_urchin_biome_modifier.json",
+      "original_sha256": "9d9710d729be43ab72b58472b01c480956eaac1afb0c53f368556a2f5a37181d",
+      "sha256": "b6ec76cad24780ee8cbefbc1bbb5f499bc9f19ae370432ea4805f51682fc6f6b",
+      "schema_changes": [],
+      "source_json": {
+        "type": "forge:add_features",
+        "biomes": "thermal_shock:luminous_sea",
+        "features": "thermal_shock:giant_urchin",
+        "step": "vegetal_decoration"
+      },
+      "target_json": {
+        "type": "neoforge:add_features",
+        "biomes": "thermal_shock_reforged:luminous_sea",
+        "features": "thermal_shock_reforged:giant_urchin",
+        "step": "vegetal_decoration"
+      }
+    },
+    {
+      "source": "data/thermal_shock/forge/biome_modifier/twilit_shrub_alt_biome_modifier.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/twilit_shrub_alt_biome_modifier.json",
+      "original_sha256": "563a0e9ad2148299ad14ab07a3fd59f1ca6883ec9bd535b08ddd741e5bc016b6",
+      "sha256": "1e7e454255c0f74d86334639ee3dcc354ae2e5b0caa1f2d761566271cc88ade9",
+      "schema_changes": [],
+      "source_json": {
+        "type": "forge:add_features",
+        "biomes": "thermal_shock:luminous_sea",
+        "features": "thermal_shock:twilit_shrub_alt",
+        "step": "vegetal_decoration"
+      },
+      "target_json": {
+        "type": "neoforge:add_features",
+        "biomes": "thermal_shock_reforged:luminous_sea",
+        "features": "thermal_shock_reforged:twilit_shrub_alt",
+        "step": "vegetal_decoration"
+      }
+    },
+    {
+      "source": "data/thermal_shock/forge/biome_modifier/twilit_shrub_generation_biome_modifier.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/twilit_shrub_generation_biome_modifier.json",
+      "original_sha256": "6c79f64fab5ad9731acf6293a990e5de4f645b0d0ad49a455aacf80137657c9a",
+      "sha256": "5147d0612f7db8cbde93104d7b45c9414963767fb50347086c958ceb96d39a30",
+      "schema_changes": [],
+      "source_json": {
+        "type": "forge:add_features",
+        "biomes": "thermal_shock:luminous_sea",
+        "features": "thermal_shock:twilit_shrub_generation",
+        "step": "vegetal_decoration"
+      },
+      "target_json": {
+        "type": "neoforge:add_features",
+        "biomes": "thermal_shock_reforged:luminous_sea",
+        "features": "thermal_shock_reforged:twilit_shrub_generation",
+        "step": "vegetal_decoration"
+      }
+    },
+    {
+      "source": "data/thermal_shock/worldgen/structure/kiosk.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/structure/kiosk.json",
+      "original_sha256": "1a60b201fb0d1a74c40f5c14af59b65638f857d847f6c4f2d2a735e3f01b88e9",
+      "sha256": "70d9152a172544aeccc8650b58c7b6ee3a2aa0f7245ffb17c6e729a19110b345",
+      "schema_changes": [],
+      "source_json": {
+        "type": "minecraft:jigsaw",
+        "start_pool": "thermal_shock:kiosk",
+        "size": 1,
+        "max_distance_from_center": 64,
+        "spawn_overrides": {},
+        "step": "surface_structures",
+        "terrain_adaptation": "beard_thin",
+        "start_height": {
+          "absolute": 0
+        },
+        "project_start_to_heightmap": "MOTION_BLOCKING_NO_LEAVES",
+        "biomes": [
+          "thermal_shock:borean_forest",
+          "thermal_shock:borean_tundra",
+          "thermal_shock:stardust_garden",
+          "thermal_shock:vermillion_woods"
+        ],
+        "use_expansion_hack": false
+      },
+      "target_json": {
+        "type": "minecraft:jigsaw",
+        "start_pool": "thermal_shock_reforged:kiosk",
+        "size": 1,
+        "max_distance_from_center": 64,
+        "spawn_overrides": {},
+        "step": "surface_structures",
+        "terrain_adaptation": "beard_thin",
+        "start_height": {
+          "absolute": 0
+        },
+        "project_start_to_heightmap": "MOTION_BLOCKING_NO_LEAVES",
+        "biomes": [
+          "thermal_shock_reforged:borean_forest",
+          "thermal_shock_reforged:borean_tundra",
+          "thermal_shock_reforged:stardust_garden",
+          "thermal_shock_reforged:vermillion_woods"
+        ],
+        "use_expansion_hack": false
+      }
+    },
+    {
+      "source": "data/thermal_shock/worldgen/structure/pylon.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/structure/pylon.json",
+      "original_sha256": "317e74b95d65879c7c3fa3e1abaacc40811f64235e85e991d21ba3fc68cf0089",
+      "sha256": "1df0479b5bc94f519fa339990a20af83098ff9502dd61c0ba5d2e3ba1b575d16",
+      "schema_changes": [],
+      "source_json": {
+        "type": "minecraft:jigsaw",
+        "start_pool": "thermal_shock:pylon",
+        "size": 1,
+        "max_distance_from_center": 64,
+        "spawn_overrides": {},
+        "step": "surface_structures",
+        "terrain_adaptation": "beard_thin",
+        "start_height": {
+          "absolute": 0
+        },
+        "project_start_to_heightmap": "WORLD_SURFACE_WG",
+        "biomes": [
+          "thermal_shock:borean_forest",
+          "thermal_shock:borean_tundra",
+          "thermal_shock:stardust_garden",
+          "thermal_shock:vermillion_woods"
+        ],
+        "use_expansion_hack": false
+      },
+      "target_json": {
+        "type": "minecraft:jigsaw",
+        "start_pool": "thermal_shock_reforged:pylon",
+        "size": 1,
+        "max_distance_from_center": 64,
+        "spawn_overrides": {},
+        "step": "surface_structures",
+        "terrain_adaptation": "beard_thin",
+        "start_height": {
+          "absolute": 0
+        },
+        "project_start_to_heightmap": "WORLD_SURFACE_WG",
+        "biomes": [
+          "thermal_shock_reforged:borean_forest",
+          "thermal_shock_reforged:borean_tundra",
+          "thermal_shock_reforged:stardust_garden",
+          "thermal_shock_reforged:vermillion_woods"
+        ],
+        "use_expansion_hack": false
+      }
+    },
+    {
+      "source": "data/thermal_shock/worldgen/structure/snowtower.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/structure/snowtower.json",
+      "original_sha256": "1aa4b47f49426b031c65da6a23b49804800bcc13fa84673c350ea7f30a7cc8bb",
+      "sha256": "2b5db60242629a5a0ce8eccb1e2b72deaf3631f60b37528730a6a76cad436f5e",
+      "schema_changes": [],
+      "source_json": {
+        "type": "minecraft:jigsaw",
+        "start_pool": "thermal_shock:snowtower",
+        "size": 1,
+        "max_distance_from_center": 64,
+        "spawn_overrides": {},
+        "step": "surface_structures",
+        "terrain_adaptation": "beard_thin",
+        "start_height": {
+          "absolute": 0
+        },
+        "project_start_to_heightmap": "MOTION_BLOCKING_NO_LEAVES",
+        "biomes": [
+          "thermal_shock:borean_forest",
+          "thermal_shock:borean_tundra"
+        ],
+        "use_expansion_hack": false
+      },
+      "target_json": {
+        "type": "minecraft:jigsaw",
+        "start_pool": "thermal_shock_reforged:snowtower",
+        "size": 1,
+        "max_distance_from_center": 64,
+        "spawn_overrides": {},
+        "step": "surface_structures",
+        "terrain_adaptation": "beard_thin",
+        "start_height": {
+          "absolute": 0
+        },
+        "project_start_to_heightmap": "MOTION_BLOCKING_NO_LEAVES",
+        "biomes": [
+          "thermal_shock_reforged:borean_forest",
+          "thermal_shock_reforged:borean_tundra"
+        ],
+        "use_expansion_hack": false
+      }
+    },
+    {
+      "source": "data/thermal_shock/worldgen/structure_set/kiosk.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/kiosk.json",
+      "original_sha256": "3a611b373f35dce831d5aa83eb11a22b31e399a33684337d536c647486dd4f9c",
+      "sha256": "1af5812a254e1f4ae2b6003d28c24565f289360946a4b2efbb080a3e6203bd9f",
+      "schema_changes": [],
+      "source_json": {
+        "structures": [
+          {
+            "structure": "thermal_shock:kiosk",
+            "weight": 1
+          }
+        ],
+        "placement": {
+          "type": "minecraft:random_spread",
+          "spacing": 26,
+          "separation": 18,
+          "salt": 485155634
+        }
+      },
+      "target_json": {
+        "structures": [
+          {
+            "structure": "thermal_shock_reforged:kiosk",
+            "weight": 1
+          }
+        ],
+        "placement": {
+          "type": "minecraft:random_spread",
+          "spacing": 26,
+          "separation": 18,
+          "salt": 485155634
+        }
+      }
+    },
+    {
+      "source": "data/thermal_shock/worldgen/structure_set/pylon.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/pylon.json",
+      "original_sha256": "e228910bc7591b890e8cb92d33aea8347de1f8a3095008e6af1a578062b32f56",
+      "sha256": "290bb2dc32c12b2b886cf0bf6bd6e88886a548171e8882f25c9da0f354c2f854",
+      "schema_changes": [],
+      "source_json": {
+        "structures": [
+          {
+            "structure": "thermal_shock:pylon",
+            "weight": 1
+          }
+        ],
+        "placement": {
+          "type": "minecraft:random_spread",
+          "spacing": 16,
+          "separation": 10,
+          "salt": 615818626
+        }
+      },
+      "target_json": {
+        "structures": [
+          {
+            "structure": "thermal_shock_reforged:pylon",
+            "weight": 1
+          }
+        ],
+        "placement": {
+          "type": "minecraft:random_spread",
+          "spacing": 16,
+          "separation": 10,
+          "salt": 615818626
+        }
+      }
+    },
+    {
+      "source": "data/thermal_shock/worldgen/structure_set/snowtower.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/snowtower.json",
+      "original_sha256": "1b4bc425a08aa45f744d44597f7019b6a080063442c86d0919452466e2f3d87f",
+      "sha256": "f50aa6d8650973d4b714586f9b33b0d174ebf83f299fdc94e1c9c1384987792d",
+      "schema_changes": [],
+      "source_json": {
+        "structures": [
+          {
+            "structure": "thermal_shock:snowtower",
+            "weight": 1
+          }
+        ],
+        "placement": {
+          "type": "minecraft:random_spread",
+          "spacing": 40,
+          "separation": 23,
+          "salt": 398845038
+        }
+      },
+      "target_json": {
+        "structures": [
+          {
+            "structure": "thermal_shock_reforged:snowtower",
+            "weight": 1
+          }
+        ],
+        "placement": {
+          "type": "minecraft:random_spread",
+          "spacing": 40,
+          "separation": 23,
+          "salt": 398845038
+        }
+      }
+    },
+    {
+      "source": "data/thermal_shock/worldgen/template_pool/kiosk.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/kiosk.json",
+      "original_sha256": "788b2eadf7808a6d9bb5a54581330d48662df66f3f3ba36dd5b443f8fb0b570a",
+      "sha256": "abad47559e046f9fc61cdf6d86ce2bed340ece7c8d28d56c840f5a83d5df4255",
+      "schema_changes": [],
+      "source_json": {
+        "name": "thermal_shock:kiosk",
+        "fallback": "minecraft:empty",
+        "elements": [
+          {
+            "weight": 1,
+            "element": {
+              "element_type": "minecraft:single_pool_element",
+              "location": "thermal_shock:kiosk",
+              "projection": "rigid",
+              "processors": {
+                "processors": [
+                  {
+                    "processor_type": "minecraft:block_ignore",
+                    "blocks": [
+                      {
+                        "Name": "minecraft:structure_block"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "target_json": {
+        "name": "thermal_shock_reforged:kiosk",
+        "fallback": "minecraft:empty",
+        "elements": [
+          {
+            "weight": 1,
+            "element": {
+              "element_type": "minecraft:single_pool_element",
+              "location": "thermal_shock_reforged:kiosk",
+              "projection": "rigid",
+              "processors": {
+                "processors": [
+                  {
+                    "processor_type": "minecraft:block_ignore",
+                    "blocks": [
+                      {
+                        "Name": "minecraft:structure_block"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "source": "data/thermal_shock/worldgen/template_pool/pylon.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/pylon.json",
+      "original_sha256": "dda816aee0b7370046ef9bb448fba9ee9c68562177f6a8c178b841be9f4d17c5",
+      "sha256": "170744c178a9a2169353a72258eb1b6a8f0880a276d45643d8b243f14f1e99bb",
+      "schema_changes": [],
+      "source_json": {
+        "name": "thermal_shock:pylon",
+        "fallback": "minecraft:empty",
+        "elements": [
+          {
+            "weight": 1,
+            "element": {
+              "element_type": "minecraft:single_pool_element",
+              "location": "thermal_shock:pylon",
+              "projection": "rigid",
+              "processors": {
+                "processors": [
+                  {
+                    "processor_type": "minecraft:block_ignore",
+                    "blocks": [
+                      {
+                        "Name": "minecraft:structure_block"
+                      },
+                      {
+                        "Name": "minecraft:air"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "target_json": {
+        "name": "thermal_shock_reforged:pylon",
+        "fallback": "minecraft:empty",
+        "elements": [
+          {
+            "weight": 1,
+            "element": {
+              "element_type": "minecraft:single_pool_element",
+              "location": "thermal_shock_reforged:pylon",
+              "projection": "rigid",
+              "processors": {
+                "processors": [
+                  {
+                    "processor_type": "minecraft:block_ignore",
+                    "blocks": [
+                      {
+                        "Name": "minecraft:structure_block"
+                      },
+                      {
+                        "Name": "minecraft:air"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "source": "data/thermal_shock/worldgen/template_pool/snowtower.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/snowtower.json",
+      "original_sha256": "711d2fd077be69d84fa6877d0a2caf3f69bf2365cbebf5d0cd0f71857bba0403",
+      "sha256": "0a9726c52479aa11158293dd371510e8567d4e1c6c2e58e8075ac8f936930f08",
+      "schema_changes": [],
+      "source_json": {
+        "name": "thermal_shock:snowtower",
+        "fallback": "minecraft:empty",
+        "elements": [
+          {
+            "weight": 1,
+            "element": {
+              "element_type": "minecraft:single_pool_element",
+              "location": "thermal_shock:snowtower",
+              "projection": "rigid",
+              "processors": {
+                "processors": [
+                  {
+                    "processor_type": "minecraft:block_ignore",
+                    "blocks": [
+                      {
+                        "Name": "minecraft:structure_block"
+                      },
+                      {
+                        "Name": "minecraft:air"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "target_json": {
+        "name": "thermal_shock_reforged:snowtower",
+        "fallback": "minecraft:empty",
+        "elements": [
+          {
+            "weight": 1,
+            "element": {
+              "element_type": "minecraft:single_pool_element",
+              "location": "thermal_shock_reforged:snowtower",
+              "projection": "rigid",
+              "processors": {
+                "processors": [
+                  {
+                    "processor_type": "minecraft:block_ignore",
+                    "blocks": [
+                      {
+                        "Name": "minecraft:structure_block"
+                      },
+                      {
+                        "Name": "minecraft:air"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "count": 23
+}

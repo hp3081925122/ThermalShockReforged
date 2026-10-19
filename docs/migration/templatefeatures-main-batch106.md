@@ -1,0 +1,16 @@
+# 第106批主线：三个原生结构与六项模板特征
+
+迁移前建立本文，基线cbf0f9c05c9e9b7083579598bf3351f888d8c2c0。原件Thermal Shock07.9固定SHA256，目标1.21.1 NeoForge21.1.233/Java21。A负责较大份额的圣所及七项自然特征，本线只负责kiosk/pylon/snowtower和giant_glowcap/giant_urchin/jellercel_generation/large_jellercel_generation/twilit_shrub_alt/twilit_shrub_generation，不接触测试聊天。
+
+三个结构各完整保structure/structure_set/template_pool三JSON，保原群系、高度图、terrain_adaptation、结构池处理器、原概率和盐。十个typed NBT全部保尺寸、几何、方块状态、实体/画、九格容器与书架载荷；kiosk保Ly及kiosk_sign画，snowtower保附魔书和可写书，不把旧tag当custom_data就算功能迁移。两附魔书StoredEnchantments要转换为minecraft:stored_enchantments组件，保附魔ID/等级；可写书页面转writable_book_content，逐页文本不变。
+
+六特征复用已经完整迁入并注册的content/terrain/vermilli/StructureFeature及Configuration，原来13模板特征没有13个独立Java类，不造重复抽象。保原ignored_blocks、offset、随机采样和置放顺序。巨型发光菌三候选等概率/每区块10..20次、高度-30..45、四种支撑物及原扫描；海胆rarity8/原高度图/下方slush及三轴-8；两暮光灌木各200次、高度上界50/61、水与下方solid条件。两个Jellercel原仅configured定义，没有placed/modifier或精确上层消费者，完整保定义与模板，不捏造自然入口。
+
+七feature模板共5031条方块记录/2BE，无实体/嵌套物品；三个结构共11858条方块记录/16BE/2实体。Luna已核全部模组palette/BE/entity/painting目标注册，详见清单。必要版本转换按当前原生Codec确认，尤其UniformInt旧value嵌套展平、物品组件和实体属性/NeoForge字段。不能用注册存在或路径计数当实际生成通过。
+
+生产完成后保存原JSON归一化/必要格式差异和每模板typed转换清单与哈希，交Luna机械核对。两路停笔固定src/main统一compileJava/processResources；本批不启动游戏或渲染测试。当前状态：生产准备完成，待实施。
+
+
+主线生产已完成并停笔：23JSON/10NBT，共16889条方块记录、2实体、18BE和3栈物品，全部保留；88项typed差异均为62命名空间/16实体物品格式/10DataVersion。Luna直接原JAR与目标逐项独立对照通过，附魔书looting2/smite2、三书数量/槽位及三页原文不变，33文件聚合SHA256为7888384276dc1945b3dec6350f932e2a461925d4db18c57159717f6a34e3ad82，见templatefeatures-main-luna106.json和-final106.json。暂未统一构建，等待A停笔后固定全部输入；未运行游戏。新嵌套附魔书组件坑已更新mcreator-rework并通过skill校验。
+
+两路最终统一构建和全部资源复制核对已通过，证据main106-static-validation.json；上文待构建为生产阶段记录。未运行游戏或渲染测试。

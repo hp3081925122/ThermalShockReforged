@@ -1,0 +1,18 @@
+{
+  "batch": 106,
+  "baseline": "cbf0f9c05c9e9b7083579598bf3351f888d8c2c0",
+  "shared_changes_required": [],
+  "new_java": [],
+  "reuse": {
+    "feature": "thermal_shock_reforged:structure_feature",
+    "registered_by": "content/terrain/vermilli/VermilliContent.java"
+  },
+  "source_fields_absent": [
+    "所有19模板内无Count/StoredEnchantments/Enchantments/pages/ActiveEffects/ForgeData，不调用旧converter对未知组件作兜底。"
+  ],
+  "needed_ref_notes": [
+    "6个IntProvider旧value层按1.21.1 UniformInt MapCodec展平，保原参数与Placement顺序。",
+    "orb_sanctum完整保留；核顶界320/ground_level_delta1/最高实块相对152/最高实体110，原起点169..240共72高度会截实块，均匀上界240改168，保原145..168全部24个有效高度等概率，顶部6层纯空气不误判为实块。",
+    "19模板原均显式DataVersion3465，目标均3955；本线没有缺少DataVersion的原模板，不会按StructureTemplateManager默认500再次升级新格式。"
+  ]
+}

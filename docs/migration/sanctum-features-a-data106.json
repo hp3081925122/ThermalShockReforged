@@ -1,0 +1,3562 @@
+{
+  "files": [
+    {
+      "source": "data/thermal_shock/forge/biome_modifier/cobalt_pillar_biome_modifier.json",
+      "source_sha256": "3046ef79b64e67e02504caf871b24f7e45d7c5b60131c0a2b3c71b342796dc20",
+      "target": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/cobalt_pillar_biome_modifier.json",
+      "sha256": "377f13daf6e42642060b1a3a7026a185c2e5563b7d2d60a7c270385222e2d846",
+      "source_json": {
+        "type": "forge:add_features",
+        "biomes": "thermal_shock:cobalt_heights",
+        "features": "thermal_shock:cobalt_pillar",
+        "step": "raw_generation"
+      },
+      "target_json": {
+        "type": "neoforge:add_features",
+        "biomes": "thermal_shock_reforged:cobalt_heights",
+        "features": "thermal_shock_reforged:cobalt_pillar",
+        "step": "raw_generation"
+      },
+      "provider_changes": [],
+      "behavior_changes": []
+    },
+    {
+      "source": "data/thermal_shock/forge/biome_modifier/glace_rock_biome_modifier.json",
+      "source_sha256": "adfefa8600912e0e15001ad32a86abd2eea3be38428e7188a70c91eac2490833",
+      "target": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/glace_rock_biome_modifier.json",
+      "sha256": "d5d526b0f6a932d5ed0bdb0fe1e518491a2fd7544945f02fec6d057f3f584894",
+      "source_json": {
+        "type": "forge:add_features",
+        "biomes": "thermal_shock:glaciation",
+        "features": "thermal_shock:glace_rock",
+        "step": "local_modifications"
+      },
+      "target_json": {
+        "type": "neoforge:add_features",
+        "biomes": "thermal_shock_reforged:glaciation",
+        "features": "thermal_shock_reforged:glace_rock",
+        "step": "local_modifications"
+      },
+      "provider_changes": [],
+      "behavior_changes": []
+    },
+    {
+      "source": "data/thermal_shock/forge/biome_modifier/gravetree_biome_modifier.json",
+      "source_sha256": "12455ecf918c59c1a41995eaa4856c8626d7ed2c0edd88499448dd6b4ea06d71",
+      "target": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/gravetree_biome_modifier.json",
+      "sha256": "6091c0ecaea4ce2725351f127e0fa768bbf3b72f38e77bb0c296a93771b82d4d",
+      "source_json": {
+        "type": "forge:add_features",
+        "biomes": "thermal_shock:graveyard",
+        "features": "thermal_shock:gravetree",
+        "step": "vegetal_decoration"
+      },
+      "target_json": {
+        "type": "neoforge:add_features",
+        "biomes": "thermal_shock_reforged:graveyard",
+        "features": "thermal_shock_reforged:gravetree",
+        "step": "vegetal_decoration"
+      },
+      "provider_changes": [],
+      "behavior_changes": []
+    },
+    {
+      "source": "data/thermal_shock/forge/biome_modifier/lost_boat_biome_modifier.json",
+      "source_sha256": "f2818eb4d7ca908644eaa874d05b3f11d8ee07aa6cecbcbdf24929d4713f9377",
+      "target": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/lost_boat_biome_modifier.json",
+      "sha256": "982b3f62bc431fef6985fd28aa05aaecdf47e5c009800aed0d9505b43dbf69e5",
+      "source_json": {
+        "type": "forge:add_features",
+        "biomes": "thermal_shock:luminous_sea",
+        "features": "thermal_shock:lost_boat",
+        "step": "vegetal_decoration"
+      },
+      "target_json": {
+        "type": "neoforge:add_features",
+        "biomes": "thermal_shock_reforged:luminous_sea",
+        "features": "thermal_shock_reforged:lost_boat",
+        "step": "vegetal_decoration"
+      },
+      "provider_changes": [],
+      "behavior_changes": []
+    },
+    {
+      "source": "data/thermal_shock/forge/biome_modifier/louse_log_biome_modifier.json",
+      "source_sha256": "e4a38aafe0b14c834ee87188ac57914ddde5715af622af561ed4f103debd081a",
+      "target": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/louse_log_biome_modifier.json",
+      "sha256": "24649b94abdfbea7ea490cc492688c153516aa80cfa340dcb1f12b8dcc02eaed",
+      "source_json": {
+        "type": "forge:add_features",
+        "biomes": [
+          "thermal_shock:vermillion_woods",
+          "thermal_shock:borean_forest",
+          "thermal_shock:stardust_garden"
+        ],
+        "features": "thermal_shock:louse_log",
+        "step": "vegetal_decoration"
+      },
+      "target_json": {
+        "type": "neoforge:add_features",
+        "biomes": [
+          "thermal_shock_reforged:vermillion_woods",
+          "thermal_shock_reforged:borean_forest",
+          "thermal_shock_reforged:stardust_garden"
+        ],
+        "features": "thermal_shock_reforged:louse_log",
+        "step": "vegetal_decoration"
+      },
+      "provider_changes": [],
+      "behavior_changes": []
+    },
+    {
+      "source": "data/thermal_shock/forge/biome_modifier/lower_cobalt_pillar_biome_modifier.json",
+      "source_sha256": "faf77f630906e79575d620200e2b3f3af464a02a54bd361e3720f5a9188abbc6",
+      "target": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/lower_cobalt_pillar_biome_modifier.json",
+      "sha256": "26e1e0e11c4a7744b01d4ff79bd2d0b60e97ac07a8b4fef376e66fbb9fc82fd0",
+      "source_json": {
+        "type": "forge:add_features",
+        "biomes": "thermal_shock:cobalt_heights",
+        "features": "thermal_shock:lower_cobalt_pillar",
+        "step": "raw_generation"
+      },
+      "target_json": {
+        "type": "neoforge:add_features",
+        "biomes": "thermal_shock_reforged:cobalt_heights",
+        "features": "thermal_shock_reforged:lower_cobalt_pillar",
+        "step": "raw_generation"
+      },
+      "provider_changes": [],
+      "behavior_changes": []
+    },
+    {
+      "source": "data/thermal_shock/forge/biome_modifier/spire_biome_modifier.json",
+      "source_sha256": "30ee3ad543b29e237c3cdf548fca0234ded97d36a095fe34756bbaa713e7d9a8",
+      "target": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/spire_biome_modifier.json",
+      "sha256": "4fb78efe4da5d62a0a299d03c666956eb3785005495a38a36f83fc6afe86dbf6",
+      "source_json": {
+        "type": "forge:add_features",
+        "biomes": "thermal_shock:graveyard",
+        "features": "thermal_shock:spire",
+        "step": "vegetal_decoration"
+      },
+      "target_json": {
+        "type": "neoforge:add_features",
+        "biomes": "thermal_shock_reforged:graveyard",
+        "features": "thermal_shock_reforged:spire",
+        "step": "vegetal_decoration"
+      },
+      "provider_changes": [],
+      "behavior_changes": []
+    },
+    {
+      "source": "data/thermal_shock/worldgen/configured_feature/cobalt_pillar.json",
+      "source_sha256": "3e3adbc2a60abe9432bcbf9838e24841ff967670985630e54d81f6f7d200a5df",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/cobalt_pillar.json",
+      "sha256": "88bed2c15a16df407dc68484ea46d15fe66dc639683e1e60a3985a9c32833d5b",
+      "source_json": {
+        "type": "minecraft:random_selector",
+        "config": {
+          "default": {
+            "feature": {
+              "type": "thermal_shock:structure_feature",
+              "config": {
+                "structure": "thermal_shock:cobalt_7hex_1",
+                "ignored_blocks": "minecraft:air",
+                "offset": [
+                  -4,
+                  -25,
+                  -4
+                ]
+              }
+            },
+            "placement": []
+          },
+          "features": [
+            {
+              "chance": 0.5,
+              "feature": {
+                "feature": {
+                  "type": "minecraft:random_selector",
+                  "config": {
+                    "default": {
+                      "feature": {
+                        "type": "thermal_shock:structure_feature",
+                        "config": {
+                          "structure": "thermal_shock:cobalt_9hex_1",
+                          "ignored_blocks": "minecraft:air",
+                          "offset": [
+                            -5,
+                            -15,
+                            -5
+                          ]
+                        }
+                      },
+                      "placement": []
+                    },
+                    "features": [
+                      {
+                        "chance": 0.2,
+                        "feature": {
+                          "feature": {
+                            "type": "thermal_shock:structure_feature",
+                            "config": {
+                              "structure": "thermal_shock:cobalt_9hex_surge",
+                              "ignored_blocks": "minecraft:air",
+                              "offset": [
+                                -5,
+                                -15,
+                                -5
+                              ]
+                            }
+                          },
+                          "placement": []
+                        }
+                      }
+                    ]
+                  }
+                },
+                "placement": []
+              }
+            },
+            {
+              "chance": 0.3,
+              "feature": {
+                "feature": {
+                  "type": "minecraft:random_selector",
+                  "config": {
+                    "default": {
+                      "feature": {
+                        "type": "thermal_shock:structure_feature",
+                        "config": {
+                          "structure": "thermal_shock:cobalt_15hex_1",
+                          "ignored_blocks": "minecraft:air",
+                          "offset": [
+                            -8,
+                            -2,
+                            -8
+                          ]
+                        }
+                      },
+                      "placement": []
+                    },
+                    "features": [
+                      {
+                        "chance": 0.2,
+                        "feature": {
+                          "feature": {
+                            "type": "thermal_shock:structure_feature",
+                            "config": {
+                              "structure": "thermal_shock:cobalt_15hex_surge",
+                              "ignored_blocks": "minecraft:air",
+                              "offset": [
+                                -8,
+                                -2,
+                                -8
+                              ]
+                            }
+                          },
+                          "placement": []
+                        }
+                      }
+                    ]
+                  }
+                },
+                "placement": []
+              }
+            }
+          ]
+        }
+      },
+      "target_json": {
+        "type": "minecraft:random_selector",
+        "config": {
+          "default": {
+            "feature": {
+              "type": "thermal_shock_reforged:structure_feature",
+              "config": {
+                "structure": "thermal_shock_reforged:cobalt_7hex_1",
+                "ignored_blocks": "minecraft:air",
+                "offset": [
+                  -4,
+                  -25,
+                  -4
+                ]
+              }
+            },
+            "placement": []
+          },
+          "features": [
+            {
+              "chance": 0.5,
+              "feature": {
+                "feature": {
+                  "type": "minecraft:random_selector",
+                  "config": {
+                    "default": {
+                      "feature": {
+                        "type": "thermal_shock_reforged:structure_feature",
+                        "config": {
+                          "structure": "thermal_shock_reforged:cobalt_9hex_1",
+                          "ignored_blocks": "minecraft:air",
+                          "offset": [
+                            -5,
+                            -15,
+                            -5
+                          ]
+                        }
+                      },
+                      "placement": []
+                    },
+                    "features": [
+                      {
+                        "chance": 0.2,
+                        "feature": {
+                          "feature": {
+                            "type": "thermal_shock_reforged:structure_feature",
+                            "config": {
+                              "structure": "thermal_shock_reforged:cobalt_9hex_surge",
+                              "ignored_blocks": "minecraft:air",
+                              "offset": [
+                                -5,
+                                -15,
+                                -5
+                              ]
+                            }
+                          },
+                          "placement": []
+                        }
+                      }
+                    ]
+                  }
+                },
+                "placement": []
+              }
+            },
+            {
+              "chance": 0.3,
+              "feature": {
+                "feature": {
+                  "type": "minecraft:random_selector",
+                  "config": {
+                    "default": {
+                      "feature": {
+                        "type": "thermal_shock_reforged:structure_feature",
+                        "config": {
+                          "structure": "thermal_shock_reforged:cobalt_15hex_1",
+                          "ignored_blocks": "minecraft:air",
+                          "offset": [
+                            -8,
+                            -2,
+                            -8
+                          ]
+                        }
+                      },
+                      "placement": []
+                    },
+                    "features": [
+                      {
+                        "chance": 0.2,
+                        "feature": {
+                          "feature": {
+                            "type": "thermal_shock_reforged:structure_feature",
+                            "config": {
+                              "structure": "thermal_shock_reforged:cobalt_15hex_surge",
+                              "ignored_blocks": "minecraft:air",
+                              "offset": [
+                                -8,
+                                -2,
+                                -8
+                              ]
+                            }
+                          },
+                          "placement": []
+                        }
+                      }
+                    ]
+                  }
+                },
+                "placement": []
+              }
+            }
+          ]
+        }
+      },
+      "provider_changes": [],
+      "behavior_changes": []
+    },
+    {
+      "source": "data/thermal_shock/worldgen/configured_feature/glace_rock.json",
+      "source_sha256": "1c770a9aaf2a33e341b3a2f7d614f7d865b891d00f5f4a0a9979fdbc6c802ee2",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/glace_rock.json",
+      "sha256": "577b563cde001292fc8d70d164000df4d48ac38f7a3db56d6d0d22d4c6e0115e",
+      "source_json": {
+        "type": "minecraft:simple_random_selector",
+        "config": {
+          "features": [
+            {
+              "feature": {
+                "type": "thermal_shock:structure_feature",
+                "config": {
+                  "structure": "thermal_shock:glace_rock_1",
+                  "ignored_blocks": "minecraft:air",
+                  "offset": [
+                    -2,
+                    0,
+                    -2
+                  ]
+                }
+              },
+              "placement": []
+            },
+            {
+              "feature": {
+                "type": "thermal_shock:structure_feature",
+                "config": {
+                  "structure": "thermal_shock:glace_rock_2",
+                  "ignored_blocks": "minecraft:air",
+                  "offset": [
+                    -1,
+                    0,
+                    -1
+                  ]
+                }
+              },
+              "placement": []
+            }
+          ]
+        }
+      },
+      "target_json": {
+        "type": "minecraft:simple_random_selector",
+        "config": {
+          "features": [
+            {
+              "feature": {
+                "type": "thermal_shock_reforged:structure_feature",
+                "config": {
+                  "structure": "thermal_shock_reforged:glace_rock_1",
+                  "ignored_blocks": "minecraft:air",
+                  "offset": [
+                    -2,
+                    0,
+                    -2
+                  ]
+                }
+              },
+              "placement": []
+            },
+            {
+              "feature": {
+                "type": "thermal_shock_reforged:structure_feature",
+                "config": {
+                  "structure": "thermal_shock_reforged:glace_rock_2",
+                  "ignored_blocks": "minecraft:air",
+                  "offset": [
+                    -1,
+                    0,
+                    -1
+                  ]
+                }
+              },
+              "placement": []
+            }
+          ]
+        }
+      },
+      "provider_changes": [],
+      "behavior_changes": []
+    },
+    {
+      "source": "data/thermal_shock/worldgen/configured_feature/gravetree.json",
+      "source_sha256": "692dbbdd3f68802f8bfbdf99ee9e19e7e7138bac7c4db25c0ef458f576dae807",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/gravetree.json",
+      "sha256": "8f0fed2a417093a77d543504bce391c3c3d2a13879fef05039c3beb72c478945",
+      "source_json": {
+        "type": "minecraft:simple_random_selector",
+        "config": {
+          "features": [
+            {
+              "feature": {
+                "type": "thermal_shock:structure_feature",
+                "config": {
+                  "structure": "thermal_shock:gravetree1",
+                  "ignored_blocks": "minecraft:air",
+                  "offset": [
+                    -1,
+                    -1,
+                    -1
+                  ]
+                }
+              },
+              "placement": []
+            },
+            {
+              "feature": {
+                "type": "thermal_shock:structure_feature",
+                "config": {
+                  "structure": "thermal_shock:gravetree2",
+                  "ignored_blocks": "minecraft:air",
+                  "offset": [
+                    -1,
+                    -1,
+                    -1
+                  ]
+                }
+              },
+              "placement": []
+            }
+          ]
+        }
+      },
+      "target_json": {
+        "type": "minecraft:simple_random_selector",
+        "config": {
+          "features": [
+            {
+              "feature": {
+                "type": "thermal_shock_reforged:structure_feature",
+                "config": {
+                  "structure": "thermal_shock_reforged:gravetree1",
+                  "ignored_blocks": "minecraft:air",
+                  "offset": [
+                    -1,
+                    -1,
+                    -1
+                  ]
+                }
+              },
+              "placement": []
+            },
+            {
+              "feature": {
+                "type": "thermal_shock_reforged:structure_feature",
+                "config": {
+                  "structure": "thermal_shock_reforged:gravetree2",
+                  "ignored_blocks": "minecraft:air",
+                  "offset": [
+                    -1,
+                    -1,
+                    -1
+                  ]
+                }
+              },
+              "placement": []
+            }
+          ]
+        }
+      },
+      "provider_changes": [],
+      "behavior_changes": []
+    },
+    {
+      "source": "data/thermal_shock/worldgen/configured_feature/lost_boat.json",
+      "source_sha256": "3248044c74505f249160c7d4e130275c77568c28288595f1581593ede532867e",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/lost_boat.json",
+      "sha256": "04abcba2b41e830d242a1cd6c4e792eb0aeec168450e259a49df8a764cc769d7",
+      "source_json": {
+        "type": "minecraft:simple_random_selector",
+        "config": {
+          "features": [
+            {
+              "feature": {
+                "type": "thermal_shock:structure_feature",
+                "config": {
+                  "structure": "thermal_shock:lostboat1",
+                  "random_rotation": true,
+                  "ignored_blocks": "minecraft:air",
+                  "offset": [
+                    0,
+                    -2,
+                    0
+                  ]
+                }
+              },
+              "placement": []
+            },
+            {
+              "feature": {
+                "type": "thermal_shock:structure_feature",
+                "config": {
+                  "structure": "thermal_shock:lostboat2",
+                  "random_rotation": true,
+                  "ignored_blocks": "minecraft:air",
+                  "offset": [
+                    0,
+                    -2,
+                    0
+                  ]
+                }
+              },
+              "placement": []
+            },
+            {
+              "feature": {
+                "type": "thermal_shock:structure_feature",
+                "config": {
+                  "structure": "thermal_shock:lostboat3",
+                  "random_rotation": true,
+                  "ignored_blocks": "minecraft:air",
+                  "offset": [
+                    0,
+                    -2,
+                    0
+                  ]
+                }
+              },
+              "placement": []
+            }
+          ]
+        }
+      },
+      "target_json": {
+        "type": "minecraft:simple_random_selector",
+        "config": {
+          "features": [
+            {
+              "feature": {
+                "type": "thermal_shock_reforged:structure_feature",
+                "config": {
+                  "structure": "thermal_shock_reforged:lostboat1",
+                  "random_rotation": true,
+                  "ignored_blocks": "minecraft:air",
+                  "offset": [
+                    0,
+                    -2,
+                    0
+                  ]
+                }
+              },
+              "placement": []
+            },
+            {
+              "feature": {
+                "type": "thermal_shock_reforged:structure_feature",
+                "config": {
+                  "structure": "thermal_shock_reforged:lostboat2",
+                  "random_rotation": true,
+                  "ignored_blocks": "minecraft:air",
+                  "offset": [
+                    0,
+                    -2,
+                    0
+                  ]
+                }
+              },
+              "placement": []
+            },
+            {
+              "feature": {
+                "type": "thermal_shock_reforged:structure_feature",
+                "config": {
+                  "structure": "thermal_shock_reforged:lostboat3",
+                  "random_rotation": true,
+                  "ignored_blocks": "minecraft:air",
+                  "offset": [
+                    0,
+                    -2,
+                    0
+                  ]
+                }
+              },
+              "placement": []
+            }
+          ]
+        }
+      },
+      "provider_changes": [],
+      "behavior_changes": []
+    },
+    {
+      "source": "data/thermal_shock/worldgen/configured_feature/louse_log.json",
+      "source_sha256": "a34053bc0cb18bec53cbe5ef25520d96ab3df79bc3dc4e5110bacd79a67e23be",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/louse_log.json",
+      "sha256": "121d337dfd0268bf69bca2d0037d89b8e39b197ad44c3fcf75f3b8cdcc83bb4a",
+      "source_json": {
+        "type": "minecraft:simple_random_selector",
+        "config": {
+          "features": [
+            {
+              "feature": {
+                "type": "thermal_shock:structure_feature",
+                "config": {
+                  "structure": "thermal_shock:louse_log_1",
+                  "ignored_blocks": "minecraft:air",
+                  "offset": [
+                    -1,
+                    0,
+                    -1
+                  ]
+                }
+              },
+              "placement": []
+            },
+            {
+              "feature": {
+                "type": "thermal_shock:structure_feature",
+                "config": {
+                  "structure": "thermal_shock:louse_log_2",
+                  "ignored_blocks": "minecraft:air",
+                  "offset": [
+                    -1,
+                    0,
+                    -1
+                  ]
+                }
+              },
+              "placement": []
+            },
+            {
+              "feature": {
+                "type": "thermal_shock:structure_feature",
+                "config": {
+                  "structure": "thermal_shock:louse_log_3",
+                  "ignored_blocks": "minecraft:air",
+                  "offset": [
+                    -1,
+                    0,
+                    -1
+                  ]
+                }
+              },
+              "placement": []
+            }
+          ]
+        }
+      },
+      "target_json": {
+        "type": "minecraft:simple_random_selector",
+        "config": {
+          "features": [
+            {
+              "feature": {
+                "type": "thermal_shock_reforged:structure_feature",
+                "config": {
+                  "structure": "thermal_shock_reforged:louse_log_1",
+                  "ignored_blocks": "minecraft:air",
+                  "offset": [
+                    -1,
+                    0,
+                    -1
+                  ]
+                }
+              },
+              "placement": []
+            },
+            {
+              "feature": {
+                "type": "thermal_shock_reforged:structure_feature",
+                "config": {
+                  "structure": "thermal_shock_reforged:louse_log_2",
+                  "ignored_blocks": "minecraft:air",
+                  "offset": [
+                    -1,
+                    0,
+                    -1
+                  ]
+                }
+              },
+              "placement": []
+            },
+            {
+              "feature": {
+                "type": "thermal_shock_reforged:structure_feature",
+                "config": {
+                  "structure": "thermal_shock_reforged:louse_log_3",
+                  "ignored_blocks": "minecraft:air",
+                  "offset": [
+                    -1,
+                    0,
+                    -1
+                  ]
+                }
+              },
+              "placement": []
+            }
+          ]
+        }
+      },
+      "provider_changes": [],
+      "behavior_changes": []
+    },
+    {
+      "source": "data/thermal_shock/worldgen/configured_feature/lower_cobalt_pillar.json",
+      "source_sha256": "82cf424ea7efda39944d8c3f70f75aba6d2799ea89a48af3518657f2c748c394",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/lower_cobalt_pillar.json",
+      "sha256": "ed02101d668bec751a46193905a59f383eb2e9d70180653c9335f1088dac7079",
+      "source_json": {
+        "type": "minecraft:random_selector",
+        "config": {
+          "default": {
+            "feature": {
+              "type": "thermal_shock:structure_feature",
+              "config": {
+                "structure": "thermal_shock:cobalt_7hex_1",
+                "ignored_blocks": "minecraft:air",
+                "offset": [
+                  -4,
+                  -32,
+                  -4
+                ]
+              }
+            },
+            "placement": []
+          },
+          "features": [
+            {
+              "chance": 0.5,
+              "feature": {
+                "feature": {
+                  "type": "thermal_shock:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock:cobalt_9hex_1",
+                    "ignored_blocks": "minecraft:air",
+                    "offset": [
+                      -5,
+                      -20,
+                      -5
+                    ]
+                  }
+                },
+                "placement": []
+              }
+            },
+            {
+              "chance": 0.2,
+              "feature": {
+                "feature": {
+                  "type": "thermal_shock:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock:cobalt_15hex_1",
+                    "ignored_blocks": "minecraft:air",
+                    "offset": [
+                      -8,
+                      -2,
+                      -8
+                    ]
+                  }
+                },
+                "placement": []
+              }
+            }
+          ]
+        }
+      },
+      "target_json": {
+        "type": "minecraft:random_selector",
+        "config": {
+          "default": {
+            "feature": {
+              "type": "thermal_shock_reforged:structure_feature",
+              "config": {
+                "structure": "thermal_shock_reforged:cobalt_7hex_1",
+                "ignored_blocks": "minecraft:air",
+                "offset": [
+                  -4,
+                  -32,
+                  -4
+                ]
+              }
+            },
+            "placement": []
+          },
+          "features": [
+            {
+              "chance": 0.5,
+              "feature": {
+                "feature": {
+                  "type": "thermal_shock_reforged:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock_reforged:cobalt_9hex_1",
+                    "ignored_blocks": "minecraft:air",
+                    "offset": [
+                      -5,
+                      -20,
+                      -5
+                    ]
+                  }
+                },
+                "placement": []
+              }
+            },
+            {
+              "chance": 0.2,
+              "feature": {
+                "feature": {
+                  "type": "thermal_shock_reforged:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock_reforged:cobalt_15hex_1",
+                    "ignored_blocks": "minecraft:air",
+                    "offset": [
+                      -8,
+                      -2,
+                      -8
+                    ]
+                  }
+                },
+                "placement": []
+              }
+            }
+          ]
+        }
+      },
+      "provider_changes": [],
+      "behavior_changes": []
+    },
+    {
+      "source": "data/thermal_shock/worldgen/configured_feature/spire.json",
+      "source_sha256": "7268d2865a130ed8d1d0e23c488a3c5f2fc9d60d232d0677a7f76bcd4c8890d6",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/spire.json",
+      "sha256": "b7b0468f51171e2afe4f59dac6a7ee721820f98b2972210e803bd419cce01c91",
+      "source_json": {
+        "type": "minecraft:random_selector",
+        "config": {
+          "default": {
+            "feature": {
+              "type": "minecraft:simple_random_selector",
+              "config": {
+                "features": [
+                  {
+                    "feature": {
+                      "type": "thermal_shock:structure_feature",
+                      "config": {
+                        "structure": "thermal_shock:spire1_25",
+                        "random_rotation": true,
+                        "ignored_blocks": "minecraft:air",
+                        "offset": [
+                          -1,
+                          -2,
+                          -1
+                        ]
+                      }
+                    },
+                    "placement": []
+                  },
+                  {
+                    "feature": {
+                      "type": "thermal_shock:structure_feature",
+                      "config": {
+                        "structure": "thermal_shock:spire2_25",
+                        "random_rotation": true,
+                        "ignored_blocks": "minecraft:air",
+                        "offset": [
+                          -1,
+                          -2,
+                          -1
+                        ]
+                      }
+                    },
+                    "placement": []
+                  }
+                ]
+              }
+            },
+            "placement": []
+          },
+          "features": [
+            {
+              "chance": 0.2,
+              "feature": {
+                "feature": {
+                  "type": "thermal_shock:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock:spire3_25",
+                    "random_rotation": true,
+                    "ignored_blocks": "minecraft:air",
+                    "offset": [
+                      -1,
+                      -2,
+                      -1
+                    ]
+                  }
+                },
+                "placement": []
+              }
+            }
+          ]
+        }
+      },
+      "target_json": {
+        "type": "minecraft:random_selector",
+        "config": {
+          "default": {
+            "feature": {
+              "type": "minecraft:simple_random_selector",
+              "config": {
+                "features": [
+                  {
+                    "feature": {
+                      "type": "thermal_shock_reforged:structure_feature",
+                      "config": {
+                        "structure": "thermal_shock_reforged:spire1_25",
+                        "random_rotation": true,
+                        "ignored_blocks": "minecraft:air",
+                        "offset": [
+                          -1,
+                          -2,
+                          -1
+                        ]
+                      }
+                    },
+                    "placement": []
+                  },
+                  {
+                    "feature": {
+                      "type": "thermal_shock_reforged:structure_feature",
+                      "config": {
+                        "structure": "thermal_shock_reforged:spire2_25",
+                        "random_rotation": true,
+                        "ignored_blocks": "minecraft:air",
+                        "offset": [
+                          -1,
+                          -2,
+                          -1
+                        ]
+                      }
+                    },
+                    "placement": []
+                  }
+                ]
+              }
+            },
+            "placement": []
+          },
+          "features": [
+            {
+              "chance": 0.2,
+              "feature": {
+                "feature": {
+                  "type": "thermal_shock_reforged:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock_reforged:spire3_25",
+                    "random_rotation": true,
+                    "ignored_blocks": "minecraft:air",
+                    "offset": [
+                      -1,
+                      -2,
+                      -1
+                    ]
+                  }
+                },
+                "placement": []
+              }
+            }
+          ]
+        }
+      },
+      "provider_changes": [],
+      "behavior_changes": []
+    },
+    {
+      "source": "data/thermal_shock/worldgen/placed_feature/cobalt_pillar.json",
+      "source_sha256": "e57c7f7afe2c91ce549549ceec0bd5a31627f3122668d5a1ff5b44d92dd30a00",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/cobalt_pillar.json",
+      "sha256": "32ed96fbab7b7bc5bbda28aa08f488711159701353bc734266822eb4b7fd66a4",
+      "source_json": {
+        "feature": "thermal_shock:cobalt_pillar",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": {
+              "type": "uniform",
+              "value": {
+                "min_inclusive": 3,
+                "max_inclusive": 5
+              }
+            }
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:heightmap",
+            "heightmap": "OCEAN_FLOOR_WG"
+          },
+          {
+            "type": "minecraft:random_offset",
+            "xz_spread": 0,
+            "y_spread": {
+              "type": "uniform",
+              "value": {
+                "min_inclusive": -8,
+                "max_inclusive": 0
+              }
+            }
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:solid",
+              "offset": [
+                0,
+                -1,
+                0
+              ]
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      },
+      "target_json": {
+        "feature": "thermal_shock_reforged:cobalt_pillar",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": {
+              "type": "minecraft:uniform",
+              "min_inclusive": 3,
+              "max_inclusive": 5
+            }
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:heightmap",
+            "heightmap": "OCEAN_FLOOR_WG"
+          },
+          {
+            "type": "minecraft:random_offset",
+            "xz_spread": 0,
+            "y_spread": {
+              "type": "minecraft:uniform",
+              "min_inclusive": -8,
+              "max_inclusive": 0
+            }
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:solid",
+              "offset": [
+                0,
+                -1,
+                0
+              ]
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      },
+      "provider_changes": [
+        {
+          "path": "/placement/0/count",
+          "old": {
+            "type": "uniform",
+            "value": {
+              "min_inclusive": 3,
+              "max_inclusive": 5
+            }
+          },
+          "new": {
+            "type": "minecraft:uniform",
+            "min_inclusive": 3,
+            "max_inclusive": 5
+          }
+        },
+        {
+          "path": "/placement/3/y_spread",
+          "old": {
+            "type": "uniform",
+            "value": {
+              "min_inclusive": -8,
+              "max_inclusive": 0
+            }
+          },
+          "new": {
+            "type": "minecraft:uniform",
+            "min_inclusive": -8,
+            "max_inclusive": 0
+          }
+        }
+      ],
+      "behavior_changes": []
+    },
+    {
+      "source": "data/thermal_shock/worldgen/placed_feature/glace_rock.json",
+      "source_sha256": "9342ec74e64ca184b0dd79f74f0af58166a11f0fd383ffdcfbe87045ba5b1726",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/glace_rock.json",
+      "sha256": "ef35650893396b76cc5587a6956414ea0bdbb301d69d6762d8f50b2b780ef3ee",
+      "source_json": {
+        "feature": "thermal_shock:glace_rock",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": 128
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:height_range",
+            "height": {
+              "type": "minecraft:uniform",
+              "min_inclusive": {
+                "absolute": -20
+              },
+              "max_inclusive": {
+                "absolute": 56
+              }
+            }
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:all_of",
+              "predicates": [
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air"
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": [
+                    "thermal_shock:shale",
+                    "thermal_shock:permafrost",
+                    "thermal_shock:mantlestone"
+                  ],
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "type": "minecraft:random_offset",
+            "xz_spread": 0,
+            "y_spread": {
+              "type": "uniform",
+              "value": {
+                "min_inclusive": -6,
+                "max_inclusive": -2
+              }
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      },
+      "target_json": {
+        "feature": "thermal_shock_reforged:glace_rock",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": 128
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:height_range",
+            "height": {
+              "type": "minecraft:uniform",
+              "min_inclusive": {
+                "absolute": -20
+              },
+              "max_inclusive": {
+                "absolute": 56
+              }
+            }
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:all_of",
+              "predicates": [
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air"
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": [
+                    "thermal_shock_reforged:shale",
+                    "thermal_shock_reforged:permafrost",
+                    "thermal_shock_reforged:mantlestone"
+                  ],
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "type": "minecraft:random_offset",
+            "xz_spread": 0,
+            "y_spread": {
+              "type": "minecraft:uniform",
+              "min_inclusive": -6,
+              "max_inclusive": -2
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      },
+      "provider_changes": [
+        {
+          "path": "/placement/4/y_spread",
+          "old": {
+            "type": "uniform",
+            "value": {
+              "min_inclusive": -6,
+              "max_inclusive": -2
+            }
+          },
+          "new": {
+            "type": "minecraft:uniform",
+            "min_inclusive": -6,
+            "max_inclusive": -2
+          }
+        }
+      ],
+      "behavior_changes": []
+    },
+    {
+      "source": "data/thermal_shock/worldgen/placed_feature/gravetree.json",
+      "source_sha256": "e081d69ead94389e07eb596d75d6474486f757e75447d2f01031b402e1241c25",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/gravetree.json",
+      "sha256": "fc81d09b7a886a25bb7399a90ac8ee2f64e74be96c6a8001a738854adfac333f",
+      "source_json": {
+        "feature": "thermal_shock:gravetree",
+        "placement": [
+          {
+            "type": "minecraft:rarity_filter",
+            "chance": 2
+          },
+          {
+            "type": "minecraft:count",
+            "count": {
+              "type": "uniform",
+              "value": {
+                "min_inclusive": 1,
+                "max_inclusive": 3
+              }
+            }
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:heightmap",
+            "heightmap": "MOTION_BLOCKING"
+          },
+          {
+            "type": "environment_scan",
+            "direction_of_search": "up",
+            "target_condition": {
+              "type": "minecraft:matching_blocks",
+              "blocks": "minecraft:air"
+            },
+            "max_steps": 8
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "blocks": [
+                "thermal_shock:grassy_shale",
+                "thermal_shock:snowy_shale"
+              ],
+              "offset": [
+                0,
+                -1,
+                0
+              ]
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      },
+      "target_json": {
+        "feature": "thermal_shock_reforged:gravetree",
+        "placement": [
+          {
+            "type": "minecraft:rarity_filter",
+            "chance": 2
+          },
+          {
+            "type": "minecraft:count",
+            "count": {
+              "type": "minecraft:uniform",
+              "min_inclusive": 1,
+              "max_inclusive": 3
+            }
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:heightmap",
+            "heightmap": "MOTION_BLOCKING"
+          },
+          {
+            "type": "environment_scan",
+            "direction_of_search": "up",
+            "target_condition": {
+              "type": "minecraft:matching_blocks",
+              "blocks": "minecraft:air"
+            },
+            "max_steps": 8
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "blocks": [
+                "thermal_shock_reforged:grassy_shale",
+                "thermal_shock_reforged:snowy_shale"
+              ],
+              "offset": [
+                0,
+                -1,
+                0
+              ]
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      },
+      "provider_changes": [
+        {
+          "path": "/placement/1/count",
+          "old": {
+            "type": "uniform",
+            "value": {
+              "min_inclusive": 1,
+              "max_inclusive": 3
+            }
+          },
+          "new": {
+            "type": "minecraft:uniform",
+            "min_inclusive": 1,
+            "max_inclusive": 3
+          }
+        }
+      ],
+      "behavior_changes": []
+    },
+    {
+      "source": "data/thermal_shock/worldgen/placed_feature/lost_boat.json",
+      "source_sha256": "e544e57b3856410f094995a58e4d8f1e6c98d756db9f791d7ef2aece4b0b2fe5",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/lost_boat.json",
+      "sha256": "e713b9f9613b394818de4de44ae2cf24d76158874e3683e715f3f4f4aa9fae0d",
+      "source_json": {
+        "feature": "thermal_shock:lost_boat",
+        "placement": [
+          {
+            "type": "minecraft:rarity_filter",
+            "chance": 100
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:heightmap",
+            "heightmap": "MOTION_BLOCKING"
+          },
+          {
+            "type": "minecraft:biome"
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:all_of",
+              "predicates": [
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air"
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:water",
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "target_json": {
+        "feature": "thermal_shock_reforged:lost_boat",
+        "placement": [
+          {
+            "type": "minecraft:rarity_filter",
+            "chance": 100
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:heightmap",
+            "heightmap": "MOTION_BLOCKING"
+          },
+          {
+            "type": "minecraft:biome"
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:all_of",
+              "predicates": [
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air"
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:water",
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "provider_changes": [],
+      "behavior_changes": []
+    },
+    {
+      "source": "data/thermal_shock/worldgen/placed_feature/louse_log.json",
+      "source_sha256": "bbd3a3ce4973202b89234b246e0f07da8a7dbf8887e332e8230c2d4789363785",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/louse_log.json",
+      "sha256": "4b50f62ef90827d9aa828df7c87bba6b8a1627c565ab3f10ef92120009983743",
+      "source_json": {
+        "feature": "thermal_shock:louse_log",
+        "placement": [
+          {
+            "type": "minecraft:rarity_filter",
+            "chance": 20
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:heightmap",
+            "heightmap": "MOTION_BLOCKING"
+          },
+          {
+            "type": "environment_scan",
+            "direction_of_search": "up",
+            "target_condition": {
+              "type": "minecraft:matching_blocks",
+              "blocks": "minecraft:air"
+            },
+            "max_steps": 5
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "blocks": [
+                "thermal_shock:grassy_shale",
+                "thermal_shock:snowy_shale"
+              ],
+              "offset": [
+                0,
+                -1,
+                0
+              ]
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      },
+      "target_json": {
+        "feature": "thermal_shock_reforged:louse_log",
+        "placement": [
+          {
+            "type": "minecraft:rarity_filter",
+            "chance": 20
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:heightmap",
+            "heightmap": "MOTION_BLOCKING"
+          },
+          {
+            "type": "environment_scan",
+            "direction_of_search": "up",
+            "target_condition": {
+              "type": "minecraft:matching_blocks",
+              "blocks": "minecraft:air"
+            },
+            "max_steps": 5
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "blocks": [
+                "thermal_shock_reforged:grassy_shale",
+                "thermal_shock_reforged:snowy_shale"
+              ],
+              "offset": [
+                0,
+                -1,
+                0
+              ]
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      },
+      "provider_changes": [],
+      "behavior_changes": []
+    },
+    {
+      "source": "data/thermal_shock/worldgen/placed_feature/lower_cobalt_pillar.json",
+      "source_sha256": "2621cf1fd6a04681e778350526ec768c2580c0c106f45812673d5290fa65f264",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/lower_cobalt_pillar.json",
+      "sha256": "ffaf53bb7f59d443f9eb13bb930525869f2a96a91a91aae19314b78eea87b33a",
+      "source_json": {
+        "feature": "thermal_shock:lower_cobalt_pillar",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": {
+              "type": "uniform",
+              "value": {
+                "min_inclusive": 4,
+                "max_inclusive": 6
+              }
+            }
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:heightmap",
+            "heightmap": "OCEAN_FLOOR_WG"
+          },
+          {
+            "type": "minecraft:random_offset",
+            "xz_spread": 0,
+            "y_spread": {
+              "type": "uniform",
+              "value": {
+                "min_inclusive": -8,
+                "max_inclusive": 0
+              }
+            }
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:solid",
+              "offset": [
+                0,
+                -1,
+                0
+              ]
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      },
+      "target_json": {
+        "feature": "thermal_shock_reforged:lower_cobalt_pillar",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": {
+              "type": "minecraft:uniform",
+              "min_inclusive": 4,
+              "max_inclusive": 6
+            }
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:heightmap",
+            "heightmap": "OCEAN_FLOOR_WG"
+          },
+          {
+            "type": "minecraft:random_offset",
+            "xz_spread": 0,
+            "y_spread": {
+              "type": "minecraft:uniform",
+              "min_inclusive": -8,
+              "max_inclusive": 0
+            }
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:solid",
+              "offset": [
+                0,
+                -1,
+                0
+              ]
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      },
+      "provider_changes": [
+        {
+          "path": "/placement/0/count",
+          "old": {
+            "type": "uniform",
+            "value": {
+              "min_inclusive": 4,
+              "max_inclusive": 6
+            }
+          },
+          "new": {
+            "type": "minecraft:uniform",
+            "min_inclusive": 4,
+            "max_inclusive": 6
+          }
+        },
+        {
+          "path": "/placement/3/y_spread",
+          "old": {
+            "type": "uniform",
+            "value": {
+              "min_inclusive": -8,
+              "max_inclusive": 0
+            }
+          },
+          "new": {
+            "type": "minecraft:uniform",
+            "min_inclusive": -8,
+            "max_inclusive": 0
+          }
+        }
+      ],
+      "behavior_changes": []
+    },
+    {
+      "source": "data/thermal_shock/worldgen/placed_feature/spire.json",
+      "source_sha256": "bf5e80b15c3a08b38ff27d98e1cac00af184c6966bbed21dbb32fdaeff89080f",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/spire.json",
+      "sha256": "2ff7aa818d4bfa5799d0b392645ac2b4578459541cefa6e78de1189941607f9f",
+      "source_json": {
+        "feature": "thermal_shock:spire",
+        "placement": [
+          {
+            "type": "minecraft:rarity_filter",
+            "chance": 2
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:heightmap",
+            "heightmap": "MOTION_BLOCKING"
+          },
+          {
+            "type": "environment_scan",
+            "direction_of_search": "up",
+            "target_condition": {
+              "type": "minecraft:matching_blocks",
+              "blocks": "minecraft:air"
+            },
+            "max_steps": 15
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "blocks": [
+                "thermal_shock:grassy_shale",
+                "thermal_shock:snowy_shale"
+              ],
+              "offset": [
+                0,
+                -1,
+                0
+              ]
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      },
+      "target_json": {
+        "feature": "thermal_shock_reforged:spire",
+        "placement": [
+          {
+            "type": "minecraft:rarity_filter",
+            "chance": 2
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:heightmap",
+            "heightmap": "MOTION_BLOCKING"
+          },
+          {
+            "type": "environment_scan",
+            "direction_of_search": "up",
+            "target_condition": {
+              "type": "minecraft:matching_blocks",
+              "blocks": "minecraft:air"
+            },
+            "max_steps": 15
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "blocks": [
+                "thermal_shock_reforged:grassy_shale",
+                "thermal_shock_reforged:snowy_shale"
+              ],
+              "offset": [
+                0,
+                -1,
+                0
+              ]
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          }
+        ]
+      },
+      "provider_changes": [],
+      "behavior_changes": []
+    },
+    {
+      "source": "data/thermal_shock/worldgen/structure/blizzard_sanctum.json",
+      "source_sha256": "3aca40c39a07ca5f1845688c59a9fd78678a3d8a733b7d0b831e7d7991a0de79",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/structure/blizzard_sanctum.json",
+      "sha256": "05f582374914c08516b1dcdecf8b78aec764d0e0ff22100b90ad1f655a433f48",
+      "source_json": {
+        "type": "minecraft:jigsaw",
+        "start_pool": "thermal_shock:blizzard_sanctum",
+        "size": 1,
+        "max_distance_from_center": 64,
+        "spawn_overrides": {},
+        "step": "surface_structures",
+        "terrain_adaptation": "none",
+        "start_height": {
+          "type": "minecraft:uniform",
+          "min_inclusive": {
+            "absolute": 145
+          },
+          "max_inclusive": {
+            "absolute": 240
+          }
+        },
+        "biomes": "thermal_shock:cobalt_heights",
+        "use_expansion_hack": false
+      },
+      "target_json": {
+        "type": "minecraft:jigsaw",
+        "start_pool": "thermal_shock_reforged:blizzard_sanctum",
+        "size": 1,
+        "max_distance_from_center": 64,
+        "spawn_overrides": {},
+        "step": "surface_structures",
+        "terrain_adaptation": "none",
+        "start_height": {
+          "type": "minecraft:uniform",
+          "min_inclusive": {
+            "absolute": 145
+          },
+          "max_inclusive": {
+            "absolute": 168
+          }
+        },
+        "biomes": "thermal_shock_reforged:cobalt_heights",
+        "use_expansion_hack": false
+      },
+      "provider_changes": [],
+      "behavior_changes": [
+        {
+          "path": "/start_height/max_inclusive/absolute",
+          "old": 240,
+          "new": 168,
+          "evidence": "docs/migration/sanctum-features-a-height106.json"
+        }
+      ]
+    },
+    {
+      "source": "data/thermal_shock/worldgen/structure_set/blizzard_sanctum.json",
+      "source_sha256": "cdc7f75e635f7625d936f0bab6d7138738814ed3c1506e7e53034e7d2fca8218",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/blizzard_sanctum.json",
+      "sha256": "9c7e1b5704e56d6f50307c7d260ca75171d26674c8803c36f60ad2fe8401770a",
+      "source_json": {
+        "structures": [
+          {
+            "structure": "thermal_shock:blizzard_sanctum",
+            "weight": 1
+          }
+        ],
+        "placement": {
+          "type": "minecraft:random_spread",
+          "spacing": 30,
+          "separation": 20,
+          "salt": 1202105222
+        }
+      },
+      "target_json": {
+        "structures": [
+          {
+            "structure": "thermal_shock_reforged:blizzard_sanctum",
+            "weight": 1
+          }
+        ],
+        "placement": {
+          "type": "minecraft:random_spread",
+          "spacing": 30,
+          "separation": 20,
+          "salt": 1202105222
+        }
+      },
+      "provider_changes": [],
+      "behavior_changes": []
+    },
+    {
+      "source": "data/thermal_shock/worldgen/template_pool/blizzard_sanctum.json",
+      "source_sha256": "264cd31d028baaed61a94d9a95620d04bcb4106c6bfb42e19f4036bc8d50e016",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/blizzard_sanctum.json",
+      "sha256": "ac020f146536c9f68aa795a74fd8dc1d21877e011648ee36c71fccf54b1e811a",
+      "source_json": {
+        "name": "thermal_shock:blizzard_sanctum",
+        "fallback": "minecraft:empty",
+        "elements": [
+          {
+            "weight": 1,
+            "element": {
+              "element_type": "minecraft:single_pool_element",
+              "location": "thermal_shock:orb_sanctum",
+              "projection": "rigid",
+              "processors": {
+                "processors": [
+                  {
+                    "processor_type": "minecraft:block_ignore",
+                    "blocks": [
+                      {
+                        "Name": "minecraft:structure_block"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "target_json": {
+        "name": "thermal_shock_reforged:blizzard_sanctum",
+        "fallback": "minecraft:empty",
+        "elements": [
+          {
+            "weight": 1,
+            "element": {
+              "element_type": "minecraft:single_pool_element",
+              "location": "thermal_shock_reforged:orb_sanctum",
+              "projection": "rigid",
+              "processors": {
+                "processors": [
+                  {
+                    "processor_type": "minecraft:block_ignore",
+                    "blocks": [
+                      {
+                        "Name": "minecraft:structure_block"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "provider_changes": [],
+      "behavior_changes": []
+    }
+  ],
+  "count": 24,
+  "all_actual_consumers": {
+    "orb_sanctum": [
+      {
+        "source": "data/thermal_shock/worldgen/template_pool/blizzard_sanctum.json",
+        "data": {
+          "name": "thermal_shock:blizzard_sanctum",
+          "fallback": "minecraft:empty",
+          "elements": [
+            {
+              "weight": 1,
+              "element": {
+                "element_type": "minecraft:single_pool_element",
+                "location": "thermal_shock:orb_sanctum",
+                "projection": "rigid",
+                "processors": {
+                  "processors": [
+                    {
+                      "processor_type": "minecraft:block_ignore",
+                      "blocks": [
+                        {
+                          "Name": "minecraft:structure_block"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "cobalt_15hex_1": [
+      {
+        "source": "data/thermal_shock/worldgen/configured_feature/cobalt_pillar.json",
+        "data": {
+          "type": "minecraft:random_selector",
+          "config": {
+            "default": {
+              "feature": {
+                "type": "thermal_shock:structure_feature",
+                "config": {
+                  "structure": "thermal_shock:cobalt_7hex_1",
+                  "ignored_blocks": "minecraft:air",
+                  "offset": [
+                    -4,
+                    -25,
+                    -4
+                  ]
+                }
+              },
+              "placement": []
+            },
+            "features": [
+              {
+                "chance": 0.5,
+                "feature": {
+                  "feature": {
+                    "type": "minecraft:random_selector",
+                    "config": {
+                      "default": {
+                        "feature": {
+                          "type": "thermal_shock:structure_feature",
+                          "config": {
+                            "structure": "thermal_shock:cobalt_9hex_1",
+                            "ignored_blocks": "minecraft:air",
+                            "offset": [
+                              -5,
+                              -15,
+                              -5
+                            ]
+                          }
+                        },
+                        "placement": []
+                      },
+                      "features": [
+                        {
+                          "chance": 0.2,
+                          "feature": {
+                            "feature": {
+                              "type": "thermal_shock:structure_feature",
+                              "config": {
+                                "structure": "thermal_shock:cobalt_9hex_surge",
+                                "ignored_blocks": "minecraft:air",
+                                "offset": [
+                                  -5,
+                                  -15,
+                                  -5
+                                ]
+                              }
+                            },
+                            "placement": []
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "placement": []
+                }
+              },
+              {
+                "chance": 0.3,
+                "feature": {
+                  "feature": {
+                    "type": "minecraft:random_selector",
+                    "config": {
+                      "default": {
+                        "feature": {
+                          "type": "thermal_shock:structure_feature",
+                          "config": {
+                            "structure": "thermal_shock:cobalt_15hex_1",
+                            "ignored_blocks": "minecraft:air",
+                            "offset": [
+                              -8,
+                              -2,
+                              -8
+                            ]
+                          }
+                        },
+                        "placement": []
+                      },
+                      "features": [
+                        {
+                          "chance": 0.2,
+                          "feature": {
+                            "feature": {
+                              "type": "thermal_shock:structure_feature",
+                              "config": {
+                                "structure": "thermal_shock:cobalt_15hex_surge",
+                                "ignored_blocks": "minecraft:air",
+                                "offset": [
+                                  -8,
+                                  -2,
+                                  -8
+                                ]
+                              }
+                            },
+                            "placement": []
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "placement": []
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "source": "data/thermal_shock/worldgen/configured_feature/lower_cobalt_pillar.json",
+        "data": {
+          "type": "minecraft:random_selector",
+          "config": {
+            "default": {
+              "feature": {
+                "type": "thermal_shock:structure_feature",
+                "config": {
+                  "structure": "thermal_shock:cobalt_7hex_1",
+                  "ignored_blocks": "minecraft:air",
+                  "offset": [
+                    -4,
+                    -32,
+                    -4
+                  ]
+                }
+              },
+              "placement": []
+            },
+            "features": [
+              {
+                "chance": 0.5,
+                "feature": {
+                  "feature": {
+                    "type": "thermal_shock:structure_feature",
+                    "config": {
+                      "structure": "thermal_shock:cobalt_9hex_1",
+                      "ignored_blocks": "minecraft:air",
+                      "offset": [
+                        -5,
+                        -20,
+                        -5
+                      ]
+                    }
+                  },
+                  "placement": []
+                }
+              },
+              {
+                "chance": 0.2,
+                "feature": {
+                  "feature": {
+                    "type": "thermal_shock:structure_feature",
+                    "config": {
+                      "structure": "thermal_shock:cobalt_15hex_1",
+                      "ignored_blocks": "minecraft:air",
+                      "offset": [
+                        -8,
+                        -2,
+                        -8
+                      ]
+                    }
+                  },
+                  "placement": []
+                }
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "cobalt_15hex_surge": [
+      {
+        "source": "data/thermal_shock/worldgen/configured_feature/cobalt_pillar.json",
+        "data": {
+          "type": "minecraft:random_selector",
+          "config": {
+            "default": {
+              "feature": {
+                "type": "thermal_shock:structure_feature",
+                "config": {
+                  "structure": "thermal_shock:cobalt_7hex_1",
+                  "ignored_blocks": "minecraft:air",
+                  "offset": [
+                    -4,
+                    -25,
+                    -4
+                  ]
+                }
+              },
+              "placement": []
+            },
+            "features": [
+              {
+                "chance": 0.5,
+                "feature": {
+                  "feature": {
+                    "type": "minecraft:random_selector",
+                    "config": {
+                      "default": {
+                        "feature": {
+                          "type": "thermal_shock:structure_feature",
+                          "config": {
+                            "structure": "thermal_shock:cobalt_9hex_1",
+                            "ignored_blocks": "minecraft:air",
+                            "offset": [
+                              -5,
+                              -15,
+                              -5
+                            ]
+                          }
+                        },
+                        "placement": []
+                      },
+                      "features": [
+                        {
+                          "chance": 0.2,
+                          "feature": {
+                            "feature": {
+                              "type": "thermal_shock:structure_feature",
+                              "config": {
+                                "structure": "thermal_shock:cobalt_9hex_surge",
+                                "ignored_blocks": "minecraft:air",
+                                "offset": [
+                                  -5,
+                                  -15,
+                                  -5
+                                ]
+                              }
+                            },
+                            "placement": []
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "placement": []
+                }
+              },
+              {
+                "chance": 0.3,
+                "feature": {
+                  "feature": {
+                    "type": "minecraft:random_selector",
+                    "config": {
+                      "default": {
+                        "feature": {
+                          "type": "thermal_shock:structure_feature",
+                          "config": {
+                            "structure": "thermal_shock:cobalt_15hex_1",
+                            "ignored_blocks": "minecraft:air",
+                            "offset": [
+                              -8,
+                              -2,
+                              -8
+                            ]
+                          }
+                        },
+                        "placement": []
+                      },
+                      "features": [
+                        {
+                          "chance": 0.2,
+                          "feature": {
+                            "feature": {
+                              "type": "thermal_shock:structure_feature",
+                              "config": {
+                                "structure": "thermal_shock:cobalt_15hex_surge",
+                                "ignored_blocks": "minecraft:air",
+                                "offset": [
+                                  -8,
+                                  -2,
+                                  -8
+                                ]
+                              }
+                            },
+                            "placement": []
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "placement": []
+                }
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "cobalt_7hex_1": [
+      {
+        "source": "data/thermal_shock/worldgen/configured_feature/cobalt_pillar.json",
+        "data": {
+          "type": "minecraft:random_selector",
+          "config": {
+            "default": {
+              "feature": {
+                "type": "thermal_shock:structure_feature",
+                "config": {
+                  "structure": "thermal_shock:cobalt_7hex_1",
+                  "ignored_blocks": "minecraft:air",
+                  "offset": [
+                    -4,
+                    -25,
+                    -4
+                  ]
+                }
+              },
+              "placement": []
+            },
+            "features": [
+              {
+                "chance": 0.5,
+                "feature": {
+                  "feature": {
+                    "type": "minecraft:random_selector",
+                    "config": {
+                      "default": {
+                        "feature": {
+                          "type": "thermal_shock:structure_feature",
+                          "config": {
+                            "structure": "thermal_shock:cobalt_9hex_1",
+                            "ignored_blocks": "minecraft:air",
+                            "offset": [
+                              -5,
+                              -15,
+                              -5
+                            ]
+                          }
+                        },
+                        "placement": []
+                      },
+                      "features": [
+                        {
+                          "chance": 0.2,
+                          "feature": {
+                            "feature": {
+                              "type": "thermal_shock:structure_feature",
+                              "config": {
+                                "structure": "thermal_shock:cobalt_9hex_surge",
+                                "ignored_blocks": "minecraft:air",
+                                "offset": [
+                                  -5,
+                                  -15,
+                                  -5
+                                ]
+                              }
+                            },
+                            "placement": []
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "placement": []
+                }
+              },
+              {
+                "chance": 0.3,
+                "feature": {
+                  "feature": {
+                    "type": "minecraft:random_selector",
+                    "config": {
+                      "default": {
+                        "feature": {
+                          "type": "thermal_shock:structure_feature",
+                          "config": {
+                            "structure": "thermal_shock:cobalt_15hex_1",
+                            "ignored_blocks": "minecraft:air",
+                            "offset": [
+                              -8,
+                              -2,
+                              -8
+                            ]
+                          }
+                        },
+                        "placement": []
+                      },
+                      "features": [
+                        {
+                          "chance": 0.2,
+                          "feature": {
+                            "feature": {
+                              "type": "thermal_shock:structure_feature",
+                              "config": {
+                                "structure": "thermal_shock:cobalt_15hex_surge",
+                                "ignored_blocks": "minecraft:air",
+                                "offset": [
+                                  -8,
+                                  -2,
+                                  -8
+                                ]
+                              }
+                            },
+                            "placement": []
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "placement": []
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "source": "data/thermal_shock/worldgen/configured_feature/lower_cobalt_pillar.json",
+        "data": {
+          "type": "minecraft:random_selector",
+          "config": {
+            "default": {
+              "feature": {
+                "type": "thermal_shock:structure_feature",
+                "config": {
+                  "structure": "thermal_shock:cobalt_7hex_1",
+                  "ignored_blocks": "minecraft:air",
+                  "offset": [
+                    -4,
+                    -32,
+                    -4
+                  ]
+                }
+              },
+              "placement": []
+            },
+            "features": [
+              {
+                "chance": 0.5,
+                "feature": {
+                  "feature": {
+                    "type": "thermal_shock:structure_feature",
+                    "config": {
+                      "structure": "thermal_shock:cobalt_9hex_1",
+                      "ignored_blocks": "minecraft:air",
+                      "offset": [
+                        -5,
+                        -20,
+                        -5
+                      ]
+                    }
+                  },
+                  "placement": []
+                }
+              },
+              {
+                "chance": 0.2,
+                "feature": {
+                  "feature": {
+                    "type": "thermal_shock:structure_feature",
+                    "config": {
+                      "structure": "thermal_shock:cobalt_15hex_1",
+                      "ignored_blocks": "minecraft:air",
+                      "offset": [
+                        -8,
+                        -2,
+                        -8
+                      ]
+                    }
+                  },
+                  "placement": []
+                }
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "cobalt_9hex_1": [
+      {
+        "source": "data/thermal_shock/worldgen/configured_feature/cobalt_pillar.json",
+        "data": {
+          "type": "minecraft:random_selector",
+          "config": {
+            "default": {
+              "feature": {
+                "type": "thermal_shock:structure_feature",
+                "config": {
+                  "structure": "thermal_shock:cobalt_7hex_1",
+                  "ignored_blocks": "minecraft:air",
+                  "offset": [
+                    -4,
+                    -25,
+                    -4
+                  ]
+                }
+              },
+              "placement": []
+            },
+            "features": [
+              {
+                "chance": 0.5,
+                "feature": {
+                  "feature": {
+                    "type": "minecraft:random_selector",
+                    "config": {
+                      "default": {
+                        "feature": {
+                          "type": "thermal_shock:structure_feature",
+                          "config": {
+                            "structure": "thermal_shock:cobalt_9hex_1",
+                            "ignored_blocks": "minecraft:air",
+                            "offset": [
+                              -5,
+                              -15,
+                              -5
+                            ]
+                          }
+                        },
+                        "placement": []
+                      },
+                      "features": [
+                        {
+                          "chance": 0.2,
+                          "feature": {
+                            "feature": {
+                              "type": "thermal_shock:structure_feature",
+                              "config": {
+                                "structure": "thermal_shock:cobalt_9hex_surge",
+                                "ignored_blocks": "minecraft:air",
+                                "offset": [
+                                  -5,
+                                  -15,
+                                  -5
+                                ]
+                              }
+                            },
+                            "placement": []
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "placement": []
+                }
+              },
+              {
+                "chance": 0.3,
+                "feature": {
+                  "feature": {
+                    "type": "minecraft:random_selector",
+                    "config": {
+                      "default": {
+                        "feature": {
+                          "type": "thermal_shock:structure_feature",
+                          "config": {
+                            "structure": "thermal_shock:cobalt_15hex_1",
+                            "ignored_blocks": "minecraft:air",
+                            "offset": [
+                              -8,
+                              -2,
+                              -8
+                            ]
+                          }
+                        },
+                        "placement": []
+                      },
+                      "features": [
+                        {
+                          "chance": 0.2,
+                          "feature": {
+                            "feature": {
+                              "type": "thermal_shock:structure_feature",
+                              "config": {
+                                "structure": "thermal_shock:cobalt_15hex_surge",
+                                "ignored_blocks": "minecraft:air",
+                                "offset": [
+                                  -8,
+                                  -2,
+                                  -8
+                                ]
+                              }
+                            },
+                            "placement": []
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "placement": []
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "source": "data/thermal_shock/worldgen/configured_feature/lower_cobalt_pillar.json",
+        "data": {
+          "type": "minecraft:random_selector",
+          "config": {
+            "default": {
+              "feature": {
+                "type": "thermal_shock:structure_feature",
+                "config": {
+                  "structure": "thermal_shock:cobalt_7hex_1",
+                  "ignored_blocks": "minecraft:air",
+                  "offset": [
+                    -4,
+                    -32,
+                    -4
+                  ]
+                }
+              },
+              "placement": []
+            },
+            "features": [
+              {
+                "chance": 0.5,
+                "feature": {
+                  "feature": {
+                    "type": "thermal_shock:structure_feature",
+                    "config": {
+                      "structure": "thermal_shock:cobalt_9hex_1",
+                      "ignored_blocks": "minecraft:air",
+                      "offset": [
+                        -5,
+                        -20,
+                        -5
+                      ]
+                    }
+                  },
+                  "placement": []
+                }
+              },
+              {
+                "chance": 0.2,
+                "feature": {
+                  "feature": {
+                    "type": "thermal_shock:structure_feature",
+                    "config": {
+                      "structure": "thermal_shock:cobalt_15hex_1",
+                      "ignored_blocks": "minecraft:air",
+                      "offset": [
+                        -8,
+                        -2,
+                        -8
+                      ]
+                    }
+                  },
+                  "placement": []
+                }
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "cobalt_9hex_surge": [
+      {
+        "source": "data/thermal_shock/worldgen/configured_feature/cobalt_pillar.json",
+        "data": {
+          "type": "minecraft:random_selector",
+          "config": {
+            "default": {
+              "feature": {
+                "type": "thermal_shock:structure_feature",
+                "config": {
+                  "structure": "thermal_shock:cobalt_7hex_1",
+                  "ignored_blocks": "minecraft:air",
+                  "offset": [
+                    -4,
+                    -25,
+                    -4
+                  ]
+                }
+              },
+              "placement": []
+            },
+            "features": [
+              {
+                "chance": 0.5,
+                "feature": {
+                  "feature": {
+                    "type": "minecraft:random_selector",
+                    "config": {
+                      "default": {
+                        "feature": {
+                          "type": "thermal_shock:structure_feature",
+                          "config": {
+                            "structure": "thermal_shock:cobalt_9hex_1",
+                            "ignored_blocks": "minecraft:air",
+                            "offset": [
+                              -5,
+                              -15,
+                              -5
+                            ]
+                          }
+                        },
+                        "placement": []
+                      },
+                      "features": [
+                        {
+                          "chance": 0.2,
+                          "feature": {
+                            "feature": {
+                              "type": "thermal_shock:structure_feature",
+                              "config": {
+                                "structure": "thermal_shock:cobalt_9hex_surge",
+                                "ignored_blocks": "minecraft:air",
+                                "offset": [
+                                  -5,
+                                  -15,
+                                  -5
+                                ]
+                              }
+                            },
+                            "placement": []
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "placement": []
+                }
+              },
+              {
+                "chance": 0.3,
+                "feature": {
+                  "feature": {
+                    "type": "minecraft:random_selector",
+                    "config": {
+                      "default": {
+                        "feature": {
+                          "type": "thermal_shock:structure_feature",
+                          "config": {
+                            "structure": "thermal_shock:cobalt_15hex_1",
+                            "ignored_blocks": "minecraft:air",
+                            "offset": [
+                              -8,
+                              -2,
+                              -8
+                            ]
+                          }
+                        },
+                        "placement": []
+                      },
+                      "features": [
+                        {
+                          "chance": 0.2,
+                          "feature": {
+                            "feature": {
+                              "type": "thermal_shock:structure_feature",
+                              "config": {
+                                "structure": "thermal_shock:cobalt_15hex_surge",
+                                "ignored_blocks": "minecraft:air",
+                                "offset": [
+                                  -8,
+                                  -2,
+                                  -8
+                                ]
+                              }
+                            },
+                            "placement": []
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "placement": []
+                }
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "spire1_25": [
+      {
+        "source": "data/thermal_shock/worldgen/configured_feature/spire.json",
+        "data": {
+          "type": "minecraft:random_selector",
+          "config": {
+            "default": {
+              "feature": {
+                "type": "minecraft:simple_random_selector",
+                "config": {
+                  "features": [
+                    {
+                      "feature": {
+                        "type": "thermal_shock:structure_feature",
+                        "config": {
+                          "structure": "thermal_shock:spire1_25",
+                          "random_rotation": true,
+                          "ignored_blocks": "minecraft:air",
+                          "offset": [
+                            -1,
+                            -2,
+                            -1
+                          ]
+                        }
+                      },
+                      "placement": []
+                    },
+                    {
+                      "feature": {
+                        "type": "thermal_shock:structure_feature",
+                        "config": {
+                          "structure": "thermal_shock:spire2_25",
+                          "random_rotation": true,
+                          "ignored_blocks": "minecraft:air",
+                          "offset": [
+                            -1,
+                            -2,
+                            -1
+                          ]
+                        }
+                      },
+                      "placement": []
+                    }
+                  ]
+                }
+              },
+              "placement": []
+            },
+            "features": [
+              {
+                "chance": 0.2,
+                "feature": {
+                  "feature": {
+                    "type": "thermal_shock:structure_feature",
+                    "config": {
+                      "structure": "thermal_shock:spire3_25",
+                      "random_rotation": true,
+                      "ignored_blocks": "minecraft:air",
+                      "offset": [
+                        -1,
+                        -2,
+                        -1
+                      ]
+                    }
+                  },
+                  "placement": []
+                }
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "spire2_25": [
+      {
+        "source": "data/thermal_shock/worldgen/configured_feature/spire.json",
+        "data": {
+          "type": "minecraft:random_selector",
+          "config": {
+            "default": {
+              "feature": {
+                "type": "minecraft:simple_random_selector",
+                "config": {
+                  "features": [
+                    {
+                      "feature": {
+                        "type": "thermal_shock:structure_feature",
+                        "config": {
+                          "structure": "thermal_shock:spire1_25",
+                          "random_rotation": true,
+                          "ignored_blocks": "minecraft:air",
+                          "offset": [
+                            -1,
+                            -2,
+                            -1
+                          ]
+                        }
+                      },
+                      "placement": []
+                    },
+                    {
+                      "feature": {
+                        "type": "thermal_shock:structure_feature",
+                        "config": {
+                          "structure": "thermal_shock:spire2_25",
+                          "random_rotation": true,
+                          "ignored_blocks": "minecraft:air",
+                          "offset": [
+                            -1,
+                            -2,
+                            -1
+                          ]
+                        }
+                      },
+                      "placement": []
+                    }
+                  ]
+                }
+              },
+              "placement": []
+            },
+            "features": [
+              {
+                "chance": 0.2,
+                "feature": {
+                  "feature": {
+                    "type": "thermal_shock:structure_feature",
+                    "config": {
+                      "structure": "thermal_shock:spire3_25",
+                      "random_rotation": true,
+                      "ignored_blocks": "minecraft:air",
+                      "offset": [
+                        -1,
+                        -2,
+                        -1
+                      ]
+                    }
+                  },
+                  "placement": []
+                }
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "spire3_25": [
+      {
+        "source": "data/thermal_shock/worldgen/configured_feature/spire.json",
+        "data": {
+          "type": "minecraft:random_selector",
+          "config": {
+            "default": {
+              "feature": {
+                "type": "minecraft:simple_random_selector",
+                "config": {
+                  "features": [
+                    {
+                      "feature": {
+                        "type": "thermal_shock:structure_feature",
+                        "config": {
+                          "structure": "thermal_shock:spire1_25",
+                          "random_rotation": true,
+                          "ignored_blocks": "minecraft:air",
+                          "offset": [
+                            -1,
+                            -2,
+                            -1
+                          ]
+                        }
+                      },
+                      "placement": []
+                    },
+                    {
+                      "feature": {
+                        "type": "thermal_shock:structure_feature",
+                        "config": {
+                          "structure": "thermal_shock:spire2_25",
+                          "random_rotation": true,
+                          "ignored_blocks": "minecraft:air",
+                          "offset": [
+                            -1,
+                            -2,
+                            -1
+                          ]
+                        }
+                      },
+                      "placement": []
+                    }
+                  ]
+                }
+              },
+              "placement": []
+            },
+            "features": [
+              {
+                "chance": 0.2,
+                "feature": {
+                  "feature": {
+                    "type": "thermal_shock:structure_feature",
+                    "config": {
+                      "structure": "thermal_shock:spire3_25",
+                      "random_rotation": true,
+                      "ignored_blocks": "minecraft:air",
+                      "offset": [
+                        -1,
+                        -2,
+                        -1
+                      ]
+                    }
+                  },
+                  "placement": []
+                }
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "lostboat1": [
+      {
+        "source": "data/thermal_shock/worldgen/configured_feature/lost_boat.json",
+        "data": {
+          "type": "minecraft:simple_random_selector",
+          "config": {
+            "features": [
+              {
+                "feature": {
+                  "type": "thermal_shock:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock:lostboat1",
+                    "random_rotation": true,
+                    "ignored_blocks": "minecraft:air",
+                    "offset": [
+                      0,
+                      -2,
+                      0
+                    ]
+                  }
+                },
+                "placement": []
+              },
+              {
+                "feature": {
+                  "type": "thermal_shock:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock:lostboat2",
+                    "random_rotation": true,
+                    "ignored_blocks": "minecraft:air",
+                    "offset": [
+                      0,
+                      -2,
+                      0
+                    ]
+                  }
+                },
+                "placement": []
+              },
+              {
+                "feature": {
+                  "type": "thermal_shock:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock:lostboat3",
+                    "random_rotation": true,
+                    "ignored_blocks": "minecraft:air",
+                    "offset": [
+                      0,
+                      -2,
+                      0
+                    ]
+                  }
+                },
+                "placement": []
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "lostboat2": [
+      {
+        "source": "data/thermal_shock/worldgen/configured_feature/lost_boat.json",
+        "data": {
+          "type": "minecraft:simple_random_selector",
+          "config": {
+            "features": [
+              {
+                "feature": {
+                  "type": "thermal_shock:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock:lostboat1",
+                    "random_rotation": true,
+                    "ignored_blocks": "minecraft:air",
+                    "offset": [
+                      0,
+                      -2,
+                      0
+                    ]
+                  }
+                },
+                "placement": []
+              },
+              {
+                "feature": {
+                  "type": "thermal_shock:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock:lostboat2",
+                    "random_rotation": true,
+                    "ignored_blocks": "minecraft:air",
+                    "offset": [
+                      0,
+                      -2,
+                      0
+                    ]
+                  }
+                },
+                "placement": []
+              },
+              {
+                "feature": {
+                  "type": "thermal_shock:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock:lostboat3",
+                    "random_rotation": true,
+                    "ignored_blocks": "minecraft:air",
+                    "offset": [
+                      0,
+                      -2,
+                      0
+                    ]
+                  }
+                },
+                "placement": []
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "lostboat3": [
+      {
+        "source": "data/thermal_shock/worldgen/configured_feature/lost_boat.json",
+        "data": {
+          "type": "minecraft:simple_random_selector",
+          "config": {
+            "features": [
+              {
+                "feature": {
+                  "type": "thermal_shock:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock:lostboat1",
+                    "random_rotation": true,
+                    "ignored_blocks": "minecraft:air",
+                    "offset": [
+                      0,
+                      -2,
+                      0
+                    ]
+                  }
+                },
+                "placement": []
+              },
+              {
+                "feature": {
+                  "type": "thermal_shock:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock:lostboat2",
+                    "random_rotation": true,
+                    "ignored_blocks": "minecraft:air",
+                    "offset": [
+                      0,
+                      -2,
+                      0
+                    ]
+                  }
+                },
+                "placement": []
+              },
+              {
+                "feature": {
+                  "type": "thermal_shock:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock:lostboat3",
+                    "random_rotation": true,
+                    "ignored_blocks": "minecraft:air",
+                    "offset": [
+                      0,
+                      -2,
+                      0
+                    ]
+                  }
+                },
+                "placement": []
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "louse_log_1": [
+      {
+        "source": "data/thermal_shock/worldgen/configured_feature/louse_log.json",
+        "data": {
+          "type": "minecraft:simple_random_selector",
+          "config": {
+            "features": [
+              {
+                "feature": {
+                  "type": "thermal_shock:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock:louse_log_1",
+                    "ignored_blocks": "minecraft:air",
+                    "offset": [
+                      -1,
+                      0,
+                      -1
+                    ]
+                  }
+                },
+                "placement": []
+              },
+              {
+                "feature": {
+                  "type": "thermal_shock:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock:louse_log_2",
+                    "ignored_blocks": "minecraft:air",
+                    "offset": [
+                      -1,
+                      0,
+                      -1
+                    ]
+                  }
+                },
+                "placement": []
+              },
+              {
+                "feature": {
+                  "type": "thermal_shock:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock:louse_log_3",
+                    "ignored_blocks": "minecraft:air",
+                    "offset": [
+                      -1,
+                      0,
+                      -1
+                    ]
+                  }
+                },
+                "placement": []
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "louse_log_2": [
+      {
+        "source": "data/thermal_shock/worldgen/configured_feature/louse_log.json",
+        "data": {
+          "type": "minecraft:simple_random_selector",
+          "config": {
+            "features": [
+              {
+                "feature": {
+                  "type": "thermal_shock:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock:louse_log_1",
+                    "ignored_blocks": "minecraft:air",
+                    "offset": [
+                      -1,
+                      0,
+                      -1
+                    ]
+                  }
+                },
+                "placement": []
+              },
+              {
+                "feature": {
+                  "type": "thermal_shock:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock:louse_log_2",
+                    "ignored_blocks": "minecraft:air",
+                    "offset": [
+                      -1,
+                      0,
+                      -1
+                    ]
+                  }
+                },
+                "placement": []
+              },
+              {
+                "feature": {
+                  "type": "thermal_shock:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock:louse_log_3",
+                    "ignored_blocks": "minecraft:air",
+                    "offset": [
+                      -1,
+                      0,
+                      -1
+                    ]
+                  }
+                },
+                "placement": []
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "louse_log_3": [
+      {
+        "source": "data/thermal_shock/worldgen/configured_feature/louse_log.json",
+        "data": {
+          "type": "minecraft:simple_random_selector",
+          "config": {
+            "features": [
+              {
+                "feature": {
+                  "type": "thermal_shock:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock:louse_log_1",
+                    "ignored_blocks": "minecraft:air",
+                    "offset": [
+                      -1,
+                      0,
+                      -1
+                    ]
+                  }
+                },
+                "placement": []
+              },
+              {
+                "feature": {
+                  "type": "thermal_shock:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock:louse_log_2",
+                    "ignored_blocks": "minecraft:air",
+                    "offset": [
+                      -1,
+                      0,
+                      -1
+                    ]
+                  }
+                },
+                "placement": []
+              },
+              {
+                "feature": {
+                  "type": "thermal_shock:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock:louse_log_3",
+                    "ignored_blocks": "minecraft:air",
+                    "offset": [
+                      -1,
+                      0,
+                      -1
+                    ]
+                  }
+                },
+                "placement": []
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "gravetree1": [
+      {
+        "source": "data/thermal_shock/worldgen/configured_feature/gravetree.json",
+        "data": {
+          "type": "minecraft:simple_random_selector",
+          "config": {
+            "features": [
+              {
+                "feature": {
+                  "type": "thermal_shock:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock:gravetree1",
+                    "ignored_blocks": "minecraft:air",
+                    "offset": [
+                      -1,
+                      -1,
+                      -1
+                    ]
+                  }
+                },
+                "placement": []
+              },
+              {
+                "feature": {
+                  "type": "thermal_shock:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock:gravetree2",
+                    "ignored_blocks": "minecraft:air",
+                    "offset": [
+                      -1,
+                      -1,
+                      -1
+                    ]
+                  }
+                },
+                "placement": []
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "gravetree2": [
+      {
+        "source": "data/thermal_shock/worldgen/configured_feature/gravetree.json",
+        "data": {
+          "type": "minecraft:simple_random_selector",
+          "config": {
+            "features": [
+              {
+                "feature": {
+                  "type": "thermal_shock:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock:gravetree1",
+                    "ignored_blocks": "minecraft:air",
+                    "offset": [
+                      -1,
+                      -1,
+                      -1
+                    ]
+                  }
+                },
+                "placement": []
+              },
+              {
+                "feature": {
+                  "type": "thermal_shock:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock:gravetree2",
+                    "ignored_blocks": "minecraft:air",
+                    "offset": [
+                      -1,
+                      -1,
+                      -1
+                    ]
+                  }
+                },
+                "placement": []
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "glace_rock_1": [
+      {
+        "source": "data/thermal_shock/worldgen/configured_feature/glace_rock.json",
+        "data": {
+          "type": "minecraft:simple_random_selector",
+          "config": {
+            "features": [
+              {
+                "feature": {
+                  "type": "thermal_shock:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock:glace_rock_1",
+                    "ignored_blocks": "minecraft:air",
+                    "offset": [
+                      -2,
+                      0,
+                      -2
+                    ]
+                  }
+                },
+                "placement": []
+              },
+              {
+                "feature": {
+                  "type": "thermal_shock:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock:glace_rock_2",
+                    "ignored_blocks": "minecraft:air",
+                    "offset": [
+                      -1,
+                      0,
+                      -1
+                    ]
+                  }
+                },
+                "placement": []
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "glace_rock_2": [
+      {
+        "source": "data/thermal_shock/worldgen/configured_feature/glace_rock.json",
+        "data": {
+          "type": "minecraft:simple_random_selector",
+          "config": {
+            "features": [
+              {
+                "feature": {
+                  "type": "thermal_shock:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock:glace_rock_1",
+                    "ignored_blocks": "minecraft:air",
+                    "offset": [
+                      -2,
+                      0,
+                      -2
+                    ]
+                  }
+                },
+                "placement": []
+              },
+              {
+                "feature": {
+                  "type": "thermal_shock:structure_feature",
+                  "config": {
+                    "structure": "thermal_shock:glace_rock_2",
+                    "ignored_blocks": "minecraft:air",
+                    "offset": [
+                      -1,
+                      0,
+                      -1
+                    ]
+                  }
+                },
+                "placement": []
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "value_provider_changes": 6
+}

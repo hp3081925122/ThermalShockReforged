@@ -1,0 +1,37 @@
+{
+  "batch": 106,
+  "scope": "只读Java物品注册盘点，不代表行为覆盖率；后续别名和真实功能审计另记",
+  "source_jar_sha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436",
+  "original_unique_ids": 1000,
+  "original_literal_items": 354,
+  "original_block_derived_items": 646,
+  "target_same_id_confirmed": 971,
+  "same_id_unconfirmed": 29,
+  "candidate_count": 28,
+  "candidates": [
+    "boundless", "chorusian_antennae_helmet", "claw_sickle", "dev_deletor", "dev_rotator", "flower_bomb", "frost_titan_spawn_egg", "hard_thermology_shock", "hpsm", "ice_bomb", "icidrogrunt_spawn_egg", "ignition_detector", "jelly_umbrella", "legendary_jelly_umbrella", "mantletitan_spawn_egg", "micro_dome", "model_train", "net_launcher", "piston_gauntlet", "rainbow_coast", "skeletitan_spawn_egg", "someplace", "sprintweed_soda", "strangers_theme", "the_judge", "the_organ_organ", "three_three_disc", "zenith_crossbow"
+  ],
+  "possible_alias": {
+    "original": "arctic_warmth",
+    "target_candidate": "arctic_warmth_legacy",
+    "status": "目标MusicContent中有legacy物品和song key，真实行为与产品语义待核，不能直接计同ID覆盖"
+  },
+  "verified_dynamic_registration_evidence": [
+    "SpecialDoorsContent.java:22-25 DoorKind同ID物品",
+    "GrowthContent.java:22-50 block helper、seed与GEL_BULB_ITEM",
+    "GardenlingContent.java:17-19 CONSTRUCTOR物品",
+    "MaterialContent 自动BlockItem及item辅助方法",
+    "GemlockKind.java:7-15与GemlocksContent.java:14-18",
+    "JellercelKind.java:8-20与JellercelContent.java:25-30",
+    "ArmorContent.java:68-83",
+    "CropKind与FarmingContent.java:34-43",
+    "GeoDecorKind与GeoDecorContent.java:37-74",
+    "OutcropContent.java:23-27",
+    "ToolsContent.java:62-64"
+  ],
+  "limits": [
+    "候选表示未找到同ID注册，不表示相应完整功能一定缺失；需追目标别名和真实调用链",
+    "已请求继续逐项核对原行为、来源、目标别名、开发工具及联动占位分类",
+    "没有启动游戏、运行DFU或修改生产代码"
+  ]
+}

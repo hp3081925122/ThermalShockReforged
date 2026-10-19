@@ -1,0 +1,37 @@
+{
+  "batch": 106,
+  "provider": "/root/coverage101_inventory",
+  "scope": "Independent direct source JAR versus target resource comparison; no file writes, build or game launch by provider",
+  "production_files": 33,
+  "production_aggregate_sha256": "7888384276dc1945b3dec6350f932e2a461925d4db18c57159717f6a34e3ad82",
+  "aggregate_algorithm": "Sort by project-relative path; each line sha256 + two spaces + path + LF; hash UTF-8 bytes with SHA256",
+  "json": {
+    "compared": 23,
+    "equal_after_necessary_conversions": 23,
+    "allowed_conversions": ["thermal_shock to thermal_shock_reforged resource namespace", "forge:add_features to neoforge:add_features", "UniformInt legacy value object flattened at provider dispatch level"],
+    "array_order_preserved": true
+  },
+  "nbt": {
+    "templates": 10,
+    "all_geometry_palette_properties_block_positions_states_entity_wrappers_preserved": true,
+    "all_other_typed_values_preserved_except_version_conversions": true,
+    "typed_differences": {"namespace_only": 62, "entity_item_schema": 16, "data_version": 10, "total": 88},
+    "kiosk_spawn_type": "Both forge:spawn_type removal and neoforge:spawn_type addition explicitly present in schema group; value retained",
+    "reference_conversion_note": "Eight complete typed trees equal previous converter output. kiosk additionally converts spawn_type to NeoForge. snowtower deliberately uses actual stored_enchantments component where legacy converter would leave inert custom_data.",
+    "snowtower_items": {
+      "stacks": 3,
+      "counts": [1, 1, 1],
+      "slots_preserved": [3, 1, 4],
+      "enchanted_books": [{"enchantment": "minecraft:looting", "level": 2}, {"enchantment": "minecraft:smite", "level": 2}],
+      "target_component": "minecraft:stored_enchantments.levels",
+      "writable_book_pages": 3,
+      "all_page_strings_identical": true,
+      "all_other_block_entity_typed_values_retained": true
+    },
+    "external_caps_typed_equal": true
+  },
+  "per_file_hash_manifests": ["templatefeatures-main-data106.json", "templatefeatures-main-structures106.json", "templatefeatures-main-final106.json"],
+  "errors": [],
+  "passed": true,
+  "limits": "Static resource and schema comparison only; no runtime Codec decoding, generation, entity behavior, inventory opening, rendering or game validation. Unified build waits for both lanes to stop."
+}

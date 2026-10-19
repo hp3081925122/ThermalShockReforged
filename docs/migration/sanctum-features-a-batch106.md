@@ -1,0 +1,43 @@
+# 第106批迁移A：巨型圣所与七组模板特征
+
+迁移前建立本文。基线cbf0f9c05c9e9b7083579598bf3351f888d8c2c0；原件Thermal Shock07.9只读，SHA256为3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436。目标Minecraft1.21.1、NeoForge21.1.233、Java21、GeckoLib4.9.2。第105批已统一验证提交，本线不再修改。
+
+本线独占blizzard_sanctum三JSON自然链与实际orb_sanctum完整NBT；cobalt_pillar、lower_cobalt_pillar、spire、lost_boat、louse_log、gravetree、glace_rock七个configured_feature及所有原实际上下游和18个独有模板。复用已注册的content/terrain/vermilli/StructureFeature，不新建重复Java。若原实际分支另需独有实现，限world/templatefeaturesa。主线的三小结构、六feature和全部共享文件不写，必要共享增量另交清单。
+
+原orb_sanctum有1513694条方块记录、249palette、29实体、335BE，尺寸106×159×106。原天然具有明显加载、放置和区块生成成本，该风险已提前告知；保留全部几何、实体、库存、刷怪笼和外caps，不裁模板或改生成时序。核原自然高度/随机/位置/边界、目标Jigsaw尺寸距离限制，区分模板尺寸与池深度，不仅因NBT可解析即判合法或不卡。
+
+全部结构逐类型核对；原件和目标需roundtrip，独立比对允许转换后的完整树及全部原载荷。检查所有嵌套ItemStack、StoredEnchantments、书籍、组件、实体属性、效果、刷怪笼和外命名空间，不能机械复用旧converter便宣称完整。StoredEnchantments必须转stored_enchantments有效组件，书页按对应实际Codec保全；不将有效业务标签藏进custom_data代替。
+
+先核原源码/资源/消费者及目标Codec，迁入完整configured/placed/biome_modifier链，保随机采样时机、旋转、mirror、offset、ignored_blocks及实体放置。完成后复审是否简化，交生产SHA256、typed差异、资源/来源证据及精确共享增量后停笔。本线不单独Gradle、游戏、stage或commit；主线统一固定输入编译与资源核验，用户独立控制游戏和Render Preview测试聊天，本线不联系、不安排、不等待。
+
+## 完成范围与完整性
+
+实际交付43个生产文件，24个JSON和19个NBT，无新增Java。七组特征各有原configured_feature、placed_feature和biome_modifier，另有blizzard_sanctum的structure、structure_set、template_pool三JSON。所有实际JSON消费者已扫描，未找到这七组入口或19模板的直接Java消费者，不制造新入口；原StructureFeature实际注册和当前VermilliContent根接线均已确认。
+
+19模板共1579373条方块记录、347BE、29实体，包含完整1513694条记录的orb_sanctum。原和目标逐字节往返一致；全部位置、状态索引、原未修改字段按顺序取得相同几何哈希，独立核对全部376个BE/实体载荷的typed预期树。347个实际方块与BE类型对应，109种模组方块有当前注册依据，948项状态属性范围通过。原source_step分别核真实实体源码：五种冰系0.6，GuardianPylon和ProtoiSunbeam为0.0，未统一猜成0.6。
+
+结构内所有339个Items列表为空，没有Count、StoredEnchantments、Enchantments、pages、filtered_pages、ActiveEffects或ForgeData，不用通用custom_data兜底。29套Attributes转为当前attributes，29个生成来源字段forge改neoforge，4个空旗帜Patterns按新组件读取格式转patterns；所有364个ForgeCaps及29个BalmData逐类型保留，包括原外部structure_gel/Embers元数据。不宣称外模组业务通过。Cobalt模板Railways_DataVersion等根元数据也原样保留。
+
+原19份模板均显式DataVersion3465，目标均为当前3955。本线没有缺少版本号的原模板。当前StructureTemplateManager.readStructure会对缺少版本号按500升级，所以目标版本标记已逐份独立确认，不将已转换字段再交旧版本DataFixer重处理。typed差异865项均属于身份、必要格式或版本转换，几何和真实载荷未删减。
+
+## 生成算法与来源
+
+复用现有StructureFeature完整实现：原位置offset、随机旋转、原两个mirror枚举采样、忽略方块集合、setIgnoreEntities(false)、同origin/pivot、place flags4和原返回true行为。18个内联模板配置逐项对应原JSON，保随机selector顺序及各轮抽样，不新增同类Feature注册。
+
+cobalt_pillar的实际分布为9hex_surge 1/10、9hex_1 2/5、15hex_surge 3/100、15hex_1 3/25、7hex_1 7/20；lower_cobalt_pillar为9hex_1 1/2、15hex_1 1/10、7hex_1 2/5；spire3为1/5，其余两款各2/5；另四个简单selector均保原等概率。原高度图、原offset、生成前提、每区块count/rarity和群系注入顺序逐树等价。
+
+六个IntProvider原type uniform/value嵌套按当前UniformInt MapCodec改为同层min_inclusive/max_inclusive并使用minecraft命名空间，保原整数范围和分布。不误改HeightProvider现有合法层级。474份复用资源对照原件等价，涵盖全部实际palette模型/材质及Geo模型/动画、四种胶囊和三种壶的动态材质，没有复制新占位资源。
+
+## 圣所越顶修复
+
+已按最新授权修复正常生成会截断实块的问题。原和目标Loqendia都是min_y=-64、height384，最高可写方块Y319。原Jigsaw无project_start_to_heightmap或start_jigsaw_name；根片ground_level_delta为1，因此根Y=start_height-1。四个Y轴旋转不改Y，实际SinglePoolElement默认mirror NONE；size1为池深度，max_distance64约束子片搜索空间，不会把初始根片自动下移到维度顶界以内。
+
+完整扫描原1513694条记录证实：模板159格高度中，相对Y153..158六层全为空气，最高实块在Y152，是一个cryonic_lamp；全部29个实体按真实注册尺寸核最高边界为相对Y110，无额外Scale属性或尺寸覆写。起点145..168共24个高度全部保实块和实体完整，169..240共72个高度实际会截实块；起点240有21069个非空气块越界。仅将均匀起点上界240改168，下界145不动，保全部原有效高度等概率。不裁模板、不删顶部空气记录，不改变间距30、separation20、salt1202105222、群系cobalt_heights、rigid池、随机旋转或生成时序。
+
+若只按159格包围盒会把上界压到162，额外删除163..168六个原实块/实体完整的有效高度。因此本次按实际载荷确定168，保留纯空气余量与原有效分布；高度报告逐项列出全部96起点的包围盒、实体和非空气越界数量。模板原有加载和放置成本仍在，不作静态FPS/MSPT保证。
+
+## 验证与交付
+
+3249项静态检查通过，独立来源证据包含35份目标注册/行为源码及实际目标Codec；948项属性范围、474份资源及全部376个typed载荷均通过。生产清单和SHA256见sanctum-features-a-final106.json。共享入口、客户端、语言和tag均无需改动；integration106仅交主线集中记录六处provider格式变化、圣所高度修复和明确DataVersion的依据。
+
+本线没有运行Gradle、服务端、客户端或Render Preview，没有stage/commit；上述静态验证不能代替真实生成、战斗/交互和渲染。用户独立游戏验收范围：完整圣所顶部灯/实体/两个Icidrogrunt刷怪笼、机关/缓存/胶囊及NPC入口；七组自然特征的生成分布/锚点/旋转与原画面，包含含SurgePylon变体和船旗帜。巨型结构加载成本需实际观察。交付冻结后停笔，第107批未生产，待主线提交106并明确解冻。
