@@ -54,6 +54,10 @@ public final class LabMachinistEntity extends PathfinderMob implements GeoEntity
     @Override protected void tickDeath() { if (++deathTime >= 20) remove(RemovalReason.KILLED); }
     @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); }
     @Override public void readAdditionalSaveData(CompoundTag tag) { super.readAdditionalSaveData(tag); if (!tag.contains("NeoForgeData", 10) && tag.contains("ForgeData", 10)) getPersistentData().merge(tag.getCompound("ForgeData")); if (tag.contains("Texture")) entityData.set(TEXTURE, tag.getString("Texture")); setPersistenceRequired(); }
-    @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) { controllers.add(new AnimationController<>(this, "movement", 4, state -> state.setAndContinue(RawAnimation.begin().thenLoop("idle")))); }
+    @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+        var procedure = new AnimationController<>(this, "procedure", 4, state -> PlayState.STOP).triggerableAnim("notice", RawAnimation.begin().thenPlay("notice"));
+        controllers.add(new AnimationController<>(this, "movement", 4, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop("idle"))));
+        controllers.add(procedure);
+    }
     @Override public AnimatableInstanceCache getAnimatableInstanceCache() { return animations; }
 }

@@ -1,0 +1,342 @@
+{
+  "status": "delivered_stopped_pending_main_shared_integration_and_unified_compile",
+  "main92_commit_at_release": "8eff90a",
+  "owned_production_files": {
+    "src/main/java/com/hp/thermalshockreforged/content/labworldgen/DissolverCycleEntity.java": "7b49570aadafb4d89e0b2afbe9e9cb774912afbf04f4708a8be5f41fa52f23a6",
+    "src/main/java/com/hp/thermalshockreforged/content/labworldgen/DissolverGemlockBlock.java": "bc3246e3b5237f1f82552ae2f6e0476e4b857558d796a20cf69db8c2bb0254e5",
+    "src/main/java/com/hp/thermalshockreforged/content/labworldgen/LabWorldgenContent.java": "b7039d6a6183d21f035726ee17423bc66b1fdb25851c8a7646f9af815042c6e2",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/dissolver_gemlock.json": "ad67358e6f8feb0c1060838c490e3f0fdfc5ab783219f9204556295af7299a41",
+    "src/main/resources/data/thermal_shock_reforged/structure/machinist_lab.nbt": "bd53d07fc4a4b78230020b4343777f25a18ea2a81d066a5dbde3bd7d4f5cf8a0",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/processor_list/machinist_lab_processor.json": "630e3c0e0788d2dddf60d9c1e53d6d870a99772d51bc215d9651783e03e157e7",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/structure/machinist_lab.json": "c82d72a8e63696d2bf5895b91a1e766b549334fda80e64de57c476fa82dbab12",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/machinist_lab.json": "0e71b8205a5131a5c0c3beda7352c9b33fa1a3500eb527b4828bd08006140630",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/machinist_lab.json": "940017d7539cb593855d406858915698839b9def83b9eca446ff95750d5340a3"
+  },
+  "owned_production_file_count": 9,
+  "production_manifest_sha256": "8c4df591a392d159f035cd60ce6495a643207e06374ce5ebb68f1cf341a84f99",
+  "existing_resource_byte_matches": [
+    "src/main/resources/assets/thermal_shock_reforged/blockstates/dissolver_gemlock.json",
+    "src/main/resources/assets/thermal_shock_reforged/models/block/dissolver_gemlock.json",
+    "src/main/resources/assets/thermal_shock_reforged/models/block/dissolver_gemlock_state_blockstate_0.json",
+    "src/main/resources/assets/thermal_shock_reforged/models/item/dissolver_gemlock.json",
+    "src/main/resources/assets/thermal_shock_reforged/textures/block/dissolver_gemlock.png",
+    "src/main/resources/assets/thermal_shock_reforged/textures/block/filled_dissolver_gemlock.png"
+  ],
+  "shared_integration_report": "docs/migration/lab-worldgen-integration93.json",
+  "static_validation_report": "docs/migration/lab-worldgen-validation93.json",
+  "palette_custom_entries_checked": [
+    {
+      "block": "thermal_shock_reforged:impervium_bricks",
+      "properties": {},
+      "blockstate_resource_exists": true,
+      "registration_sources": [
+        "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java"
+      ]
+    },
+    {
+      "block": "thermal_shock_reforged:polished_impervium",
+      "properties": {},
+      "blockstate_resource_exists": true,
+      "registration_sources": [
+        "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java"
+      ]
+    },
+    {
+      "block": "thermal_shock_reforged:darksteel_tiles",
+      "properties": {},
+      "blockstate_resource_exists": true,
+      "registration_sources": [
+        "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java"
+      ]
+    },
+    {
+      "block": "thermal_shock_reforged:darksteel_block",
+      "properties": {},
+      "blockstate_resource_exists": true,
+      "registration_sources": [
+        "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java"
+      ]
+    },
+    {
+      "block": "thermal_shock_reforged:bordered_hazard_stripes",
+      "properties": {},
+      "blockstate_resource_exists": true,
+      "registration_sources": [
+        "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java"
+      ]
+    },
+    {
+      "block": "thermal_shock_reforged:polished_permafrost",
+      "properties": {},
+      "blockstate_resource_exists": true,
+      "registration_sources": [
+        "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java"
+      ]
+    },
+    {
+      "block": "thermal_shock_reforged:darksteel_beam",
+      "properties": {
+        "axis": "y"
+      },
+      "blockstate_resource_exists": true,
+      "registration_sources": [
+        "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java"
+      ]
+    },
+    {
+      "block": "thermal_shock_reforged:glowcap_stem",
+      "properties": {
+        "axis": "y"
+      },
+      "blockstate_resource_exists": true,
+      "registration_sources": [
+        "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java"
+      ]
+    },
+    {
+      "block": "thermal_shock_reforged:dissolving_impervium",
+      "properties": {},
+      "blockstate_resource_exists": true,
+      "registration_sources": [
+        "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+        "src/main/java/com/hp/thermalshockreforged/content/labworldgen/DissolverCycleEntity.java"
+      ]
+    },
+    {
+      "block": "thermal_shock_reforged:sanctum_pillar",
+      "properties": {
+        "axis": "y"
+      },
+      "blockstate_resource_exists": true,
+      "registration_sources": [
+        "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java"
+      ]
+    },
+    {
+      "block": "thermal_shock_reforged:shale_lamp",
+      "properties": {
+        "blockstate": "1"
+      },
+      "blockstate_resource_exists": true,
+      "registration_sources": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java"
+      ]
+    },
+    {
+      "block": "thermal_shock_reforged:dark_frostrock_bricks",
+      "properties": {},
+      "blockstate_resource_exists": true,
+      "registration_sources": [
+        "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java"
+      ]
+    },
+    {
+      "block": "thermal_shock_reforged:planter_pot",
+      "properties": {},
+      "blockstate_resource_exists": true,
+      "registration_sources": [
+        "src/main/java/com/hp/thermalshockreforged/content/farming/FarmingContent.java",
+        "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthSoil.java",
+        "src/main/java/com/hp/thermalshockreforged/content/npc/florist/FloristPage.java"
+      ]
+    },
+    {
+      "block": "thermal_shock_reforged:dark_frostrock",
+      "properties": {},
+      "blockstate_resource_exists": true,
+      "registration_sources": [
+        "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java"
+      ]
+    },
+    {
+      "block": "thermal_shock_reforged:suspicious_safe",
+      "properties": {
+        "facing": "west"
+      },
+      "blockstate_resource_exists": true,
+      "registration_sources": [
+        "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabContent.java"
+      ]
+    },
+    {
+      "block": "thermal_shock_reforged:shale_lamp",
+      "properties": {
+        "blockstate": "0"
+      },
+      "blockstate_resource_exists": true,
+      "registration_sources": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java"
+      ]
+    },
+    {
+      "block": "thermal_shock_reforged:darksteel_beam",
+      "properties": {
+        "axis": "x"
+      },
+      "blockstate_resource_exists": true,
+      "registration_sources": [
+        "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java"
+      ]
+    },
+    {
+      "block": "thermal_shock_reforged:darksteel_beam",
+      "properties": {
+        "axis": "z"
+      },
+      "blockstate_resource_exists": true,
+      "registration_sources": [
+        "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java"
+      ]
+    },
+    {
+      "block": "thermal_shock_reforged:dissolver_gemlock",
+      "properties": {
+        "blockstate": "0"
+      },
+      "blockstate_resource_exists": true,
+      "registration_sources": [
+        "src/main/java/com/hp/thermalshockreforged/content/labworldgen/LabWorldgenContent.java"
+      ]
+    },
+    {
+      "block": "thermal_shock_reforged:permafrost_tiles",
+      "properties": {},
+      "blockstate_resource_exists": true,
+      "registration_sources": [
+        "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java"
+      ]
+    },
+    {
+      "block": "thermal_shock_reforged:glowcap",
+      "properties": {},
+      "blockstate_resource_exists": true,
+      "registration_sources": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java"
+      ]
+    },
+    {
+      "block": "thermal_shock_reforged:sanctum_brick_stairs",
+      "properties": {
+        "half": "top",
+        "waterlogged": "false",
+        "shape": "straight",
+        "facing": "east"
+      },
+      "blockstate_resource_exists": true,
+      "registration_sources": [
+        "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java"
+      ]
+    },
+    {
+      "block": "thermal_shock_reforged:sanctum_brick_stairs",
+      "properties": {
+        "half": "top",
+        "waterlogged": "false",
+        "shape": "straight",
+        "facing": "south"
+      },
+      "blockstate_resource_exists": true,
+      "registration_sources": [
+        "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java"
+      ]
+    },
+    {
+      "block": "thermal_shock_reforged:sanctum_brick_stairs",
+      "properties": {
+        "half": "top",
+        "waterlogged": "false",
+        "shape": "straight",
+        "facing": "north"
+      },
+      "blockstate_resource_exists": true,
+      "registration_sources": [
+        "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java"
+      ]
+    },
+    {
+      "block": "thermal_shock_reforged:sanctum_brick_stairs",
+      "properties": {
+        "half": "top",
+        "waterlogged": "false",
+        "shape": "straight",
+        "facing": "west"
+      },
+      "blockstate_resource_exists": true,
+      "registration_sources": [
+        "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java"
+      ]
+    },
+    {
+      "block": "thermal_shock_reforged:polished_permafrost_slab",
+      "properties": {
+        "waterlogged": "false",
+        "type": "top"
+      },
+      "blockstate_resource_exists": true,
+      "registration_sources": [
+        "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java"
+      ]
+    },
+    {
+      "block": "thermal_shock_reforged:shale_brick_slab",
+      "properties": {
+        "waterlogged": "false",
+        "type": "bottom"
+      },
+      "blockstate_resource_exists": true,
+      "registration_sources": [
+        "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java"
+      ]
+    },
+    {
+      "block": "thermal_shock_reforged:thin_stem",
+      "properties": {
+        "east": "false",
+        "waterlogged": "false",
+        "south": "false",
+        "north": "false",
+        "west": "false"
+      },
+      "blockstate_resource_exists": true,
+      "registration_sources": [
+        "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java"
+      ]
+    },
+    {
+      "block": "thermal_shock_reforged:box_voltflower",
+      "properties": {},
+      "blockstate_resource_exists": true,
+      "registration_sources": [
+        "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java"
+      ]
+    },
+    {
+      "block": "thermal_shock_reforged:assembler",
+      "properties": {
+        "waterlogged": "false",
+        "facing": "west",
+        "animation": "0"
+      },
+      "blockstate_resource_exists": true,
+      "registration_sources": [
+        "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabContent.java",
+        "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabMachineBlockEntity.java"
+      ]
+    }
+  ],
+  "source_main_written_only_in_owned_paths": true,
+  "foreign_generation_files_edited": false,
+  "all_staged_bytes_equal_applied": true,
+  "java_comment_count": 0,
+  "compiled": false,
+  "runtime_tested": false,
+  "git_staged_or_committed": false,
+  "shared_patches_applied_by_this_chat": false,
+  "known_intentional_fixes": [
+    "Real main hand atomic one-item payment and server-only sound",
+    "Persistent bounded activation task resumes after unload/restart",
+    "Unloaded sphere chunks pause without forced generation",
+    "Original notice synchronization gap requires main-chat Gecko triggerable controller patch",
+    "Reuse existing original-equivalent 1.20.1 waterlogging processor, no external dependency"
+  ]
+}

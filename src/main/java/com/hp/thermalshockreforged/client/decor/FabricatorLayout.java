@@ -39,7 +39,8 @@ final class FabricatorLayout {
                     new SpriteButton(11, 83, 13, 16, 16, 0, 0, 16, "textures/screens/atlas/imagebutton_hi_volt_spear.png", 16, 32, "gui.thermal_shock_reforged.hi_volt_lance_page.label_tools"),
                     new SpriteButton(12, 65, 13, 16, 16, 0, 0, 16, "textures/screens/atlas/imagebutton_buzzsaw_icon.png", 16, 32, "gui.thermal_shock_reforged.buzzsaw_page.label_tools"),
                     new SpriteButton(13, 47, 49, 16, 16, 0, 0, 16, "textures/screens/atlas/imagebutton_liteprism_disk.png", 16, 32, "gui.thermal_shock_reforged.liteprism_disk_page.label_tools"),
-                    new SpriteButton(14, 119, 31, 16, 16, 0, 0, 16, "textures/screens/atlas/imagebutton_liteprism_laser_icon.png", 16, 32, "gui.thermal_shock_reforged.liteprism_laser_page.label_tools")));
+                    new SpriteButton(14, 119, 31, 16, 16, 0, 0, 16, "textures/screens/atlas/imagebutton_liteprism_laser_icon.png", 16, 32, "gui.thermal_shock_reforged.liteprism_laser_page.label_tools"),
+                    new SpriteButton(15, 83, 49, 16, 16, 0, 0, 16, "textures/screens/atlas/imagebutton_liteprism_sword.png", 16, 32, "gui.thermal_shock_reforged.liteprism_sword_page.label_tools")));
             case ARMOR -> new Layout(240, 196, 32, "textures/screens/page.png", List.of(
                     new Label("gui.thermal_shock_reforged.fabric_guide_page_three.label_fabricator_guide", 29, -14, -1),
                     new Label("gui.thermal_shock_reforged.fabric_guide_page_three.label_tools", 182, -14, -1)), List.of(
@@ -203,6 +204,14 @@ final class FabricatorLayout {
                     new Label("gui.thermal_shock_reforged.buzzsaw_page.label_slot_1_cryonic_alloy_x5", 14, 14, -1),
                     new Label("gui.thermal_shock_reforged.buzzsaw_page.label_slot_2_cobalt_block_x2", 14, 23, -1),
                     new Label("gui.thermal_shock_reforged.buzzsaw_page.label_slot_3_polished_permafrost_x4", 14, 32, -1)), List.of(
+                    new SpriteButton(0, 174, 38, 40, 18, 0, 0, 18, "textures/screens/atlas/imagebutton_fabricator_craft_button.png", 40, 36, "gui.thermal_shock_reforged.fabricator.craft")));
+            case LITEPRISM_SWORD -> new Layout(246, 163, 0, "textures/screens/fabricator_panel.png", List.of(
+                    new Label("gui.thermal_shock_reforged.liteprism_sword_page.label_fabricator_guide", 5, -13, -1),
+                    new Label("gui.thermal_shock_reforged.liteprism_sword_page.label_tools", 167, -13, -1),
+                    new Label("gui.thermal_shock_reforged.liteprism_sword_page.label_slot_1_cryonic_alloy_x5", 14, 14, -1),
+                    new Label("gui.thermal_shock_reforged.liteprism_sword_page.label_slot_2_cobalt_block_x2", 14, 23, -1),
+                    new Label("gui.thermal_shock_reforged.liteprism_sword_page.label_slot_3_polished_permafrost_x4", 14, 32, -1),
+                    new Label("gui.thermal_shock_reforged.liteprism_sword_page.label_slot_4_iron_ingot_x10", 14, 41, -1)), List.of(
                     new SpriteButton(0, 174, 38, 40, 18, 0, 0, 18, "textures/screens/atlas/imagebutton_fabricator_craft_button.png", 40, 36, "gui.thermal_shock_reforged.fabricator.craft")));
             case LITEPRISM_DISK -> new Layout(246, 163, 0, "textures/screens/fabricator_panel.png", List.of(
                     new Label("gui.thermal_shock_reforged.liteprism_disk_page.label_fabricator_guide", 5, -13, -1),

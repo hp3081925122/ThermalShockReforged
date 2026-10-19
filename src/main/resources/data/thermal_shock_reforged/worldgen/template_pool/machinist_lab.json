@@ -1,0 +1,15 @@
+{
+  "name": "thermal_shock_reforged:machinist_lab",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "thermal_shock_reforged:machinist_lab",
+        "projection": "rigid",
+        "processors": "thermal_shock_reforged:machinist_lab_processor"
+      }
+    }
+  ]
+}
