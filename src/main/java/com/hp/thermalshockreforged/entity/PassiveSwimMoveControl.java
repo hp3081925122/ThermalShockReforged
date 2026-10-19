@@ -4,10 +4,10 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.MoveControl;
 
-final class PassiveSwimMoveControl extends MoveControl {
+public final class PassiveSwimMoveControl extends MoveControl {
     private final net.minecraft.world.entity.PathfinderMob fish;
 
-    PassiveSwimMoveControl(net.minecraft.world.entity.PathfinderMob fish) {
+    public PassiveSwimMoveControl(net.minecraft.world.entity.PathfinderMob fish) {
         super(fish);
         this.fish = fish;
     }

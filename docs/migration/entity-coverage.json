@@ -798,13 +798,40 @@
       "status": "not_migrated"
     },
     "cerulean_jellercel": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshockreforged.entity.jellercel.JellercelEntity",
+      "kind": "cerulean_jellercel",
+      "migration_document": "jellercels-batch.md",
+      "static_evidence": "seventyfifth-jellercels-static-validation.json",
+      "pending": [
+        "整模组完整后服务端验证各自属性/自然生成/玩家接触伤害/20tick死亡/存档",
+        "Render Preview逐种对照原模型/idle/透明体/发光层",
+        "关联动画Jellercel的自然结构/feature完整生成链"
+      ]
     },
     "fuschia_jellercel": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshockreforged.entity.jellercel.JellercelEntity",
+      "kind": "fuschia_jellercel",
+      "migration_document": "jellercels-batch.md",
+      "static_evidence": "seventyfifth-jellercels-static-validation.json",
+      "pending": [
+        "整模组完整后服务端验证各自属性/自然生成/玩家接触伤害/20tick死亡/存档",
+        "Render Preview逐种对照原模型/idle/透明体/发光层",
+        "关联动画Jellercel的自然结构/feature完整生成链"
+      ]
     },
     "veridian_jellercel": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshockreforged.entity.jellercel.JellercelEntity",
+      "kind": "veridian_jellercel",
+      "migration_document": "jellercels-batch.md",
+      "static_evidence": "seventyfifth-jellercels-static-validation.json",
+      "pending": [
+        "整模组完整后服务端验证各自属性/自然生成/玩家接触伤害/20tick死亡/存档",
+        "Render Preview逐种对照原模型/idle/透明体/发光层",
+        "关联动画Jellercel的自然结构/feature完整生成链"
+      ]
     },
     "err": {
       "status": "not_migrated"

@@ -64,7 +64,7 @@ public class GeoDecorBlock extends Block implements EntityBlock {
     @Override protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {
         return kind.comparator && level.getBlockEntity(pos) instanceof GeoDecorBlockEntity entity ? AbstractContainerMenu.getRedstoneSignalFromContainer(entity) : 0;
     }
-    public static final class Waterlogged extends GeoDecorBlock implements SimpleWaterloggedBlock {
+    public static class Waterlogged extends GeoDecorBlock implements SimpleWaterloggedBlock {
         public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
         public Waterlogged(GeoDecorKind kind) { super(kind); registerDefaultState(defaultBlockState().setValue(WATERLOGGED, false)); }
         @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { super.createBlockStateDefinition(builder); builder.add(WATERLOGGED); }

@@ -1,0 +1,178 @@
+{
+  "asset_checks": [
+    {
+      "path": "geo/cerulean_jellercel.geo.json",
+      "normalized_original_matches": true,
+      "sha256": "80a985c1f813a16325655469968bce61fc98ad7f62feae8aaaee08fc296ebbb2"
+    },
+    {
+      "path": "animations/cerulean_jellercel.animation.json",
+      "normalized_original_matches": true,
+      "sha256": "0b510d67ec22fa4d5a8dee21d76cda69c08d8af5f3ce47a3e2593321843b99ef"
+    },
+    {
+      "path": "textures/entities/cerulean_jellercel_black.png",
+      "normalized_original_matches": true,
+      "sha256": "5e64aeef0130ab337115d456fcb9d3bf5809efa594ea0a80dd202d325067ecbf"
+    },
+    {
+      "path": "textures/entities/cerulean_jellercel.png",
+      "normalized_original_matches": true,
+      "sha256": "512a2d12e8479d63c03206a474d526132acd83a731c45f5c7fc240dcc63de71b"
+    },
+    {
+      "path": "models/item/cerulean_jellercel_spawn_egg.json",
+      "normalized_original_matches": true,
+      "sha256": "93e6e973c1678f21ff84c2b3022a55e20b9574cf3a5d04b26737cc32c9d25d04"
+    },
+    {
+      "path": "geo/fuschia_jellercel.geo.json",
+      "normalized_original_matches": true,
+      "sha256": "20ae9bc4fa5b2f1b10b845e0022ffcbe90ce55e22bb81cf225c120e663c5b722"
+    },
+    {
+      "path": "animations/fuschia_jellercel.animation.json",
+      "normalized_original_matches": true,
+      "sha256": "3b6f85982a9c666409e2e6e9085660733a55874d8764d14e5ce7e68ce9698dfa"
+    },
+    {
+      "path": "textures/entities/fuschia_jellercel_black.png",
+      "normalized_original_matches": true,
+      "sha256": "e7d4ba23fec08176c2c75c6df6dd7c538fbe7cdd96d996d8751eb228ae9cf119"
+    },
+    {
+      "path": "textures/entities/fuschia_jellercel_glow.png",
+      "normalized_original_matches": true,
+      "sha256": "1ba99a84abb001adf99a9a299a898258370747427beffc2a66793e99905fffd5"
+    },
+    {
+      "path": "models/item/fuschia_jellercel_spawn_egg.json",
+      "normalized_original_matches": true,
+      "sha256": "99cf7860619e98d6208e3d55a006b471cfe0498a413c61af26dc6458a5bd39ba"
+    },
+    {
+      "path": "geo/veridian_jellercel.geo.json",
+      "normalized_original_matches": true,
+      "sha256": "e866c22704995ec009346a1e4f7edb1e66f557e98281051e3323f30d448fc0c5"
+    },
+    {
+      "path": "animations/veridian_jellercel.animation.json",
+      "normalized_original_matches": true,
+      "sha256": "4c59a245b72da7bf942c6fc288856d96a5bcfc1e6eea067c73c9b5de02160568"
+    },
+    {
+      "path": "textures/entities/veridian_jellercel_black.png",
+      "normalized_original_matches": true,
+      "sha256": "92cf008b2466ec1137f845f8caf3c6da5d42ae06453c84c8009954d3b9870fc2"
+    },
+    {
+      "path": "textures/entities/veridian_jellercel_glow.png",
+      "normalized_original_matches": true,
+      "sha256": "88bc94efec27626942b24c5010c3ab90605c46d9a822f5a839931b09245ae57b"
+    },
+    {
+      "path": "models/item/veridian_jellercel_spawn_egg.json",
+      "normalized_original_matches": true,
+      "sha256": "844c43758c2c67361656d8331785d38b7b44607d79113cebabc5b06835771fac"
+    }
+  ],
+  "spawns": [
+    {
+      "type": "neoforge:add_spawns",
+      "biomes": "thermal_shock_reforged:luminous_sea",
+      "spawners": {
+        "type": "thermal_shock_reforged:cerulean_jellercel",
+        "weight": 60,
+        "minCount": 2,
+        "maxCount": 3
+      }
+    },
+    {
+      "type": "neoforge:add_spawns",
+      "biomes": "thermal_shock_reforged:luminous_sea",
+      "spawners": {
+        "type": "thermal_shock_reforged:fuschia_jellercel",
+        "weight": 55,
+        "minCount": 1,
+        "maxCount": 2
+      }
+    },
+    {
+      "type": "neoforge:add_spawns",
+      "biomes": "thermal_shock_reforged:luminous_sea",
+      "spawners": {
+        "type": "thermal_shock_reforged:veridian_jellercel",
+        "weight": 50,
+        "minCount": 1,
+        "maxCount": 1
+      }
+    }
+  ],
+  "runtime_tests": "pending_full_mod_migration",
+  "native_aquatic_tags": [
+    "aquatic",
+    "sensitive_to_impaling",
+    "can_breathe_under_water"
+  ],
+  "reviewed_behavior_evidence": {
+    "scope": "原源码/目标API人工复审；属性和时序尚未进行游戏运行验证",
+    "family": "PathfinderMob; WATER_AMBIENT; 64 tracking/3 update; no forced persistence or attack AI",
+    "kind_values": {
+      "cerulean": {
+        "size": [
+          0.4,
+          0.4
+        ],
+        "health": 4,
+        "movement_swim": 1,
+        "swim_goal": 1,
+        "shadow": 0.2
+      },
+      "fuschia": {
+        "size": [
+          1.2,
+          1
+        ],
+        "health": 6,
+        "movement_swim": 1,
+        "swim_goal": 0.8,
+        "shadow": 0.2
+      },
+      "veridian": {
+        "size": [
+          2,
+          2
+        ],
+        "health": 10,
+        "movement_swim": 0.1,
+        "swim_goal": 1,
+        "shadow": 1,
+        "effective_knockback_resistance": 1
+      }
+    },
+    "touch": "server-only, unowned CACTUS, base attack 1 x multiplier 1, vanilla immunity frames, no scans or extra cooldown",
+    "swimming": "exact existing PassiveSwimMoveControl; no invented fish flop/travel overrides; RandomSwimmingGoal interval 40",
+    "death": "one Cell, corpse 20 ticks, deferred one-time XP1, texture and pending experience persisted",
+    "animation": "one full idle clip per kind; transition 4; translucent body and independent glow layer; no head rotation"
+  },
+  "creative_eggs": "three entries present; existing dynamic resolver now sees registered items",
+  "camera_catalog": "all three IDs already in original Jellercel dialogue group",
+  "copied_data": [
+    "data/thermal_shock_reforged/neoforge/biome_modifier/cerulean_jellercel_biome_modifier.json",
+    "data/thermal_shock_reforged/neoforge/biome_modifier/fuschia_jellercel_biome_modifier.json",
+    "data/thermal_shock_reforged/neoforge/biome_modifier/veridian_jellercel_biome_modifier.json",
+    "data/minecraft/tags/entity_type/aquatic.json",
+    "data/minecraft/tags/entity_type/sensitive_to_impaling.json",
+    "data/minecraft/tags/entity_type/can_breathe_under_water.json"
+  ],
+  "build": {
+    "tasks": [
+      "compileJava",
+      "processResources"
+    ],
+    "result": "passed",
+    "duration_seconds": 59,
+    "initial_attempt": "22s compile failure: BlockGetter clone signature changed; corrected to verified native LevelReader three-argument override",
+    "scope": "Java compilation and resource copy; no game runtime"
+  }
+}
