@@ -17,6 +17,13 @@ public final class CombatConfig {
     public static final ModConfigSpec.DoubleValue EPSILON_RESISTANCE;
     public static final ModConfigSpec.DoubleValue EPSILON_AURA_MULTIPLIER;
     public static final ModConfigSpec.IntValue EPSILON_COOLDOWN;
+    public static final ModConfigSpec.DoubleValue DELTA_HEALTH;
+    public static final ModConfigSpec.DoubleValue DELTA_ARMOR;
+    public static final ModConfigSpec.DoubleValue DELTA_DAMAGE;
+    public static final ModConfigSpec.DoubleValue DELTA_SPEED;
+    public static final ModConfigSpec.DoubleValue DELTA_FOLLOW_RANGE;
+    public static final ModConfigSpec.DoubleValue DELTA_BULLET_MULTIPLIER;
+    public static final ModConfigSpec.IntValue DELTA_COOLDOWN;
 
     static {
         ModConfigSpec.Builder builder = new ModConfigSpec.Builder();
@@ -36,6 +43,15 @@ public final class CombatConfig {
         EPSILON_RESISTANCE = builder.defineInRange("knockbackResistance", 1.0, 0.0, 1.0);
         EPSILON_AURA_MULTIPLIER = builder.defineInRange("auraMultiplier", 2.0, 0.0, 1000.0);
         EPSILON_COOLDOWN = builder.defineInRange("attackCooldown", 100, 40, 72000);
+        builder.pop();
+        builder.push("protoiDelta");
+        DELTA_HEALTH = builder.defineInRange("maxHealth", 50.0, 1.0, 1000000.0);
+        DELTA_ARMOR = builder.defineInRange("armor", 8.0, 0.0, 1000.0);
+        DELTA_DAMAGE = builder.defineInRange("attackDamage", 5.0, 0.0, 1000000.0);
+        DELTA_SPEED = builder.defineInRange("movementSpeed", .25, 0.0, 2.0);
+        DELTA_FOLLOW_RANGE = builder.defineInRange("followRange", 16.0, 1.0, 256.0);
+        DELTA_BULLET_MULTIPLIER = builder.defineInRange("bulletMultiplier", .8, 0.0, 1000.0);
+        DELTA_COOLDOWN = builder.defineInRange("attackCooldown", 100, 42, 72000);
         builder.pop();
         SPEC = builder.build();
     }

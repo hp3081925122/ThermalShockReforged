@@ -2,8 +2,11 @@ package com.hp.thermalshockreforged.entity.ice;
 
 import com.hp.thermalshockreforged.content.MaterialContent;
 import com.hp.thermalshockreforged.entity.fauna.FaunaEntities;
+import com.hp.thermalshockreforged.world.timing.ServerEndTickTask;
+import com.hp.thermalshockreforged.world.timing.ServerEndTickTasks;
 import java.util.UUID;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -11,11 +14,13 @@ import net.minecraft.world.entity.projectile.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
-public final class IceBulletEntity extends AbstractArrow implements ItemSupplier {
+public final class IceBulletEntity extends AbstractArrow implements ItemSupplier, ServerEndTickTask {
     private UUID caster;
     private int lifetime;
     private double impactKnockback;
-    public IceBulletEntity(EntityType<? extends IceBulletEntity> type, Level level) { super(type, level); }
+    public IceBulletEntity(EntityType<? extends IceBulletEntity> type, Level level) { super(type, level); pickup = Pickup.DISALLOWED; }
+    @Override protected ItemStack getPickupItem() { return ItemStack.EMPTY; }
+    @Override public void setOwner(Entity owner) { super.setOwner(owner); pickup = Pickup.DISALLOWED; }
     @Override public ItemStack getItem() { return new ItemStack(MaterialContent.items().get("ice_projectile").get()); }
     @Override protected ItemStack getDefaultPickupItem() { return new ItemStack(MaterialContent.items().get("ice_projectile").get()); }
     public void configure(IceCreatureEntity source, boolean owned, double multiplier, double knockback) {
@@ -46,8 +51,10 @@ public final class IceBulletEntity extends AbstractArrow implements ItemSupplier
         super.tick();
         setNoGravity(true);
         level().addParticle(FaunaEntities.WHITE_ORB.get(), getX(), getY(), getZ(), 0, 0, 0);
-        if (inGround || !level().isClientSide && ++lifetime >= 40) discard();
+        if (inGround) discard();
+        if (!isRemoved() && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
     }
+    @Override public void endTick(ServerLevel level) { if (!isRemoved() && ++lifetime >= 40) discard(); }
     @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putInt("IceLifetime", lifetime); tag.putDouble("IceKnockback", impactKnockback); if (caster != null) tag.putUUID("IceCaster", caster); }
-    @Override public void readAdditionalSaveData(CompoundTag tag) { super.readAdditionalSaveData(tag); lifetime = Math.max(0, Math.min(40, tag.getInt("IceLifetime"))); double kb = tag.getDouble("IceKnockback"); impactKnockback = Double.isFinite(kb) ? Math.max(0, Math.min(2, kb)) : 0; caster = tag.hasUUID("IceCaster") ? tag.getUUID("IceCaster") : null; if (!Double.isFinite(getBaseDamage()) || getBaseDamage() < 0) setBaseDamage(0); }
+    @Override public void readAdditionalSaveData(CompoundTag tag) { super.readAdditionalSaveData(tag); pickup = Pickup.DISALLOWED; lifetime = Math.max(0, Math.min(40, tag.getInt("IceLifetime"))); double kb = tag.getDouble("IceKnockback"); impactKnockback = Double.isFinite(kb) ? Math.max(0, Math.min(2, kb)) : 0; caster = tag.hasUUID("IceCaster") ? tag.getUUID("IceCaster") : null; if (!Double.isFinite(getBaseDamage()) || getBaseDamage() < 0) setBaseDamage(0); }
 }

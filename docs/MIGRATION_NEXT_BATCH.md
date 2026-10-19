@@ -115,3 +115,10 @@ Thermite/EnchantedCache/GhostglassPick/六地下模板已真实接入，Loqendia
 磁弓真实onEntitySwing入口已接MagneticBomb，保消耗、40tickCD、全部手部变换/动画/短期真实药效及5/10/15 END装填音；内部潜行零移动属性保原版FOV反馈。Protoi Epsilon已恢复20+20 END投弹/冲刺、100tick局部CD、完整飞行两次冲量与两次期限刷新、自然生成/声音/免疫/消失/眼高/发光与body朝向；光环按基础攻击×配置倍率，原默认6点。九视觉资源与三声音组对照原JAR一致，记录见migration/seventieth-magnetic-epsilon-static-validation.json。编译结论以该报告build字段为准，静态不等于运行通过。
 
 此前第59批普通Protoi注册不能代表完整行为。Delta真实攻击仍应取消初次伤害，20 END起每3 END射冰弹共8发（4基础箭伤、0.6速度、KB0），100tickCD；Sunbeam仍缺28 END完整穿透光束、tick反馈、Boss死亡与发光层，Gamma/Delta原始生成、目标和完整动画也待逐项复核。Spectre/其余旧实体、武器与Fabricator详情入口仍待闭合；不据注册数量或旧清单的not_migrated字段给整体百分比。
+
+
+## 接续点更新：第71批
+
+Delta完整8发连射（20/23/26/29/32/35/38/41 END）、100tickCD、真实directEntity判定、死亡后独立连射及完整AI/渲染已补齐；冰弹40 END、WHITE_ORB、禁拾取闭合。Gamma保受伤反击，修原targetSelector错放近战造成MOVE/LOOK争用，保动态距离、完整AI、原缩放/透明/阴影/掉落。贴图同步与保存统一在Protoi基类，Epsilon复用；三个实体补MeleeAttackGoal.canUse寻路失败的距离入口。
+
+统一离线compileJava/processResources通过（40秒，24任务中1执行23最新），六视觉资产、七声音组与所有五动画片段对照原JAR一致；详见migration/protoi-delta-gamma-batch.md和migration/seventyfirst-protoi-static-validation.json。仍不使用子代理，整模组完成后才最终运行两端及Render Preview。Sunbeam完整光束/每tick/死亡反馈、Sola/Magnetite余项、其他旧实体和Fabricator详情等仍待闭合。

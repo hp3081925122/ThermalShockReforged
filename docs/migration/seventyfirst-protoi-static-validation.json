@@ -1,0 +1,110 @@
+{
+  "asset_checks": [
+    {
+      "path": "geo/protoi_gamma.geo.json",
+      "normalized_original_matches": true,
+      "sha256": "259453a24caf542684d25f25bf531d5414950f8c0f422b21e4da4f2f9ae61857"
+    },
+    {
+      "path": "animations/protoi_gamma.animation.json",
+      "normalized_original_matches": true,
+      "sha256": "16130faf3e787e0d35b2a2c19d716c902df09ed4ea14ee48788593642287f2ed"
+    },
+    {
+      "path": "textures/entities/protoi_gamma.png",
+      "normalized_original_matches": true,
+      "sha256": "04d21e43c42a99791bacca206e7c761f4d96fd0f7ee390eabffd20f5dc8c0d44"
+    },
+    {
+      "path": "geo/protoi_delta.geo.json",
+      "normalized_original_matches": true,
+      "sha256": "ff5d3b1b4031a870f462f8a410ac659ad6543580f508f41839402a420c61ae0e"
+    },
+    {
+      "path": "animations/protoi_delta.animation.json",
+      "normalized_original_matches": true,
+      "sha256": "d53a582f7c28bc9f47abe86f31602f891f29b6c15f9a0a1ba529264d094229df"
+    },
+    {
+      "path": "textures/entities/protoi_delta.png",
+      "normalized_original_matches": true,
+      "sha256": "3a8457c4b82afa213eefae4f1e0751eb9d7e9a2537559fdbaf75ad7722e322d0"
+    }
+  ],
+  "sound_checks": [
+    {
+      "id": "delta_ambient",
+      "normalized_original_matches": true
+    },
+    {
+      "id": "delta_step",
+      "normalized_original_matches": true
+    },
+    {
+      "id": "delta_hurt",
+      "normalized_original_matches": true
+    },
+    {
+      "id": "delta_death",
+      "normalized_original_matches": true
+    },
+    {
+      "id": "gamma_hurt",
+      "normalized_original_matches": true
+    },
+    {
+      "id": "protoi_cry",
+      "normalized_original_matches": true
+    },
+    {
+      "id": "laser_fires",
+      "normalized_original_matches": true
+    }
+  ],
+  "runtime_tests": "pending_full_mod_migration",
+  "animation_clips": {
+    "protoi_gamma": [
+      "idle",
+      "walk"
+    ],
+    "protoi_delta": [
+      "idle",
+      "walk",
+      "shoot"
+    ]
+  },
+  "verified_source_timing": {
+    "delta_shots": [
+      20,
+      23,
+      26,
+      29,
+      32,
+      35,
+      38,
+      41
+    ],
+    "cooldown": 100,
+    "base_arrow_damage": 4,
+    "speed": 0.6,
+    "knockback": 0,
+    "ice_lifetime_end_ticks": 40
+  },
+  "verified_corrections": [
+    "Delta只取消本体directEntity攻击，不吞其拥有冰弹的伤害",
+    "Gamma受伤反击，不额外主动锁定玩家",
+    "Gamma模型1倍缩放与0.3阴影，Delta0.8阴影及head跟随",
+    "MeleeAttackGoal寻路失败的canUse距离入口与命中判定共同迁移"
+  ],
+  "build": {
+    "tasks": [
+      "compileJava",
+      "processResources"
+    ],
+    "result": "passed",
+    "duration_seconds": 40,
+    "executed_tasks": 1,
+    "up_to_date_tasks": 23,
+    "warning": "既有ClientEvents EventBusSubscriber弃用警告"
+  }
+}

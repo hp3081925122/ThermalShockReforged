@@ -2,6 +2,9 @@ package com.hp.thermalshockreforged.entity.protoi;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
@@ -26,14 +29,14 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 
 public abstract class ProtoiEntityBase extends PathfinderMob implements GeoEntity {
     private final AnimatableInstanceCache animations = GeckoLibUtil.createInstanceCache(this);
-    private final String texture;
+    private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(ProtoiEntityBase.class, EntityDataSerializers.STRING);
     private final boolean flying;
     private final double attackReach;
     private String procedure = "empty";
 
     protected ProtoiEntityBase(EntityType<? extends ProtoiEntityBase> type, Level level, String texture, boolean flying, double attackReach) {
         super(type, level);
-        this.texture = texture;
+        entityData.set(TEXTURE, texture);
         this.flying = flying;
         this.attackReach = attackReach;
         if (persistentByDefault()) setPersistenceRequired();
@@ -51,7 +54,8 @@ public abstract class ProtoiEntityBase extends PathfinderMob implements GeoEntit
         goalSelector.addGoal(5, new RandomLookAroundGoal(this));
     }
 
-    public String texture() { return texture; }
+    public String texture() { return entityData.get(TEXTURE); }
+    public void setTexture(String texture) { entityData.set(TEXTURE, texture); }
     public void triggerProcedure(String animation) { if (animation != null && !animation.isBlank() && !animation.equals("empty")) procedure = animation; }
     public boolean flyingProtoi() { return flying; }
     protected boolean persistentByDefault() { return true; }
@@ -61,9 +65,9 @@ public abstract class ProtoiEntityBase extends PathfinderMob implements GeoEntit
     @Override public boolean hurt(DamageSource source, float amount) { return !ignoresDamage(source) && super.hurt(source, amount); }
     @Override protected void playStepSound(BlockPos pos, net.minecraft.world.level.block.state.BlockState state) { }
     @Override protected SoundEvent getAmbientSound() { return null; }
-    @Override protected void defineSynchedData(net.minecraft.network.syncher.SynchedEntityData.Builder builder) { super.defineSynchedData(builder); }
-    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putString("Texture", texture); tag.putString("Procedure", procedure); }
-    @Override public void readAdditionalSaveData(CompoundTag tag) { super.readAdditionalSaveData(tag); procedure = tag.getString("Procedure"); }
+    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, ""); }
+    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); tag.putString("Procedure", procedure); }
+    @Override public void readAdditionalSaveData(CompoundTag tag) { super.readAdditionalSaveData(tag); if (tag.contains("Texture")) setTexture(tag.getString("Texture")); procedure = tag.contains("Procedure") ? tag.getString("Procedure") : "empty"; }
     @Override public void aiStep() { super.aiStep(); if (flying) setNoGravity(true); updateSwingTime(); }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(new AnimationController<>(this, "movement", 4, state -> {

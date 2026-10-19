@@ -1,0 +1,15 @@
+# 第71批：Delta完整连射与Gamma行为复审
+
+Delta原初始伤害仅在directEntity为Delta时取消，不取消其拥有的IceBullet伤害。100tick冷却；先按双方脚位确定旧yaw/pitch并播protoi_cry，20 END后重新面向眼位，随即每3 END发射一次，共8发，最后为41 END。每发laser_fires使用当时施法者位置；箭生于眼位、0.6速度、4基础箭伤、KB0且silent。用独立8发有限任务保死亡后原已提交连射；伤害改默认基础5×0.8配置倍率，避免写死与后续属性脱节。CD配置下限42tick避免重叠。
+
+Delta原追击允许失去视线、目标须视线、4格避让玩家、12格看玩家、同类受伤警戒、零速WaterAvoidingRandomStroll及RandomLook均保留。补1.1眼高、1格STEP_HEIGHT、8经验死亡20tick结算、自然消失与原四声音。渲染保透明、0.8阴影、head眼位跟随和idle/walk/shoot全部动画；原技能没有自动设置shoot，不因资源存在新增时机。
+
+Gamma只因受伤反击并警戒，不主动锁定玩家；原生成器把MeleeAttackGoal错放targetSelector，目标按常规goalSelector修复其移动与随机散步争用，仍保1.2追击、动态平方距离width²+target.width、漂浮和随机看。保0经验、1格台阶、原单个Helion Coagulate掉落、原火/跌落/溺水免疫及自然消失。恢复原模型1倍缩放、0.3阴影、透明、零过渡动画；原0.9误当模型缩放已修正。
+
+两类生成保NO_RESTRICTIONS及四种表层块+可见天空，没有新增和平/亮度门槛。贴图同步/保存由既有Protoi基类统一处理，避免每子类重复。IceBullet保原WHITE_ORB、首tick之后无重力、40 SERVER END寿命与命中父箭语义；装饰物禁拾取，沿用现有低击退配置，Delta的KB0不改变其他生物配置。
+
+源码/API/资产机械核对后统一编译，整模组完整之前不运行游戏。后续Sunbeam、Sola/Magnetite余项与其他未迁实体继续待办，本批不宣称完整Protoi家族。
+
+目标MeleeAttackGoal.canUse在寻路失败时通过Mob.isWithinMeleeAttackRange判定可启动；仅重写canPerformAttack不足以覆盖此入口。本批同时补Gamma、Delta、Epsilon对应距离钩子，避免远距离技能在无路径时根本没有开始。Gamma原targetSelector和goalSelector各自持有独立lockedFlags，前者运行后后者仍可另占MOVE/LOOK；迁入常规goalSelector后共享互斥旗标，修正原移动争用。
+
+统一离线compileJava/processResources通过：40秒、24任务中1执行23最新，仅既有弃用警告。六视觉资产与七声音组对照原JAR通过，所有五个动画片段完整保留；报告seventyfirst-protoi-static-validation.json。服务端/客户端/Render Preview仍待整模组完整后验收。
