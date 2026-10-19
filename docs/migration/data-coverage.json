@@ -1785,6 +1785,101 @@
         "minecraft:soul_soil",
         "minecraft:magma_block"
       ]
+    },
+    "data/minecraft/tags/items/swords.json": {
+      "loaded": [
+        "thermal_shock:bone_sword",
+        "thermal_shock:carborundum_sword",
+        "thermal_shock:rusty_edge",
+        "thermal_shock:knights_edge",
+        "thermal_shock:shock_stick",
+        "thermal_shock:bloodstone_sword",
+        "thermal_shock:ghostglass_sword",
+        "thermal_shock:ruby_sword"
+      ],
+      "pending": [
+        "thermal_shock:liteprism_sword"
+      ]
+    },
+    "data/thermal_shock/tags/items/cloro_type.json": {
+      "loaded": [
+        "thermal_shock:knights_edge"
+      ],
+      "pending": [
+        "thermal_shock:ghostglass_pick",
+        "thermal_shock:ghostglass_sword",
+        "thermal_shock:magnetic_crossbow",
+        "thermal_shock:liteprism_sword",
+        "thermal_shock:liteprism_disk",
+        "thermal_shock:liteprism_laser",
+        "thermal_shock:thistle_bow"
+      ]
+    },
+    "data/thermal_shock/tags/items/ferro_type.json": {
+      "loaded": [
+        "thermal_shock:shock_stick"
+      ],
+      "pending": [
+        "thermal_shock:hi_volt_lance",
+        "thermal_shock:rusty_edge",
+        "thermal_shock:bone_axe",
+        "thermal_shock:bone_pickaxe",
+        "thermal_shock:bone_sword",
+        "thermal_shock:bone_shovel"
+      ]
+    },
+    "data/thermal_shock/tags/items/weapon.json": {
+      "loaded": [
+        "thermal_shock:ruby_axe",
+        "thermal_shock:ruby_sword",
+        "thermal_shock:muck",
+        "thermal_shock:sparkly_muck",
+        "thermal_shock:flintsteel_rifle",
+        "thermal_shock:bloodstone_axe",
+        "thermal_shock:bloodstone_sword",
+        "thermal_shock:ruby_spear",
+        "thermal_shock:shock_stick",
+        "thermal_shock:stratosilver_chainsaw",
+        "thermal_shock:knights_edge",
+        "thermal_shock:carborundum_axe",
+        "thermal_shock:carborundum_sword",
+        "thermal_shock:carborundum_sickle",
+        "thermal_shock:fire_bomb",
+        "thermal_shock:carborundum_spear",
+        "thermal_shock:speleothem",
+        "thermal_shock:bone_axe",
+        "thermal_shock:bone_sword"
+      ],
+      "pending": [
+        "thermal_shock:pure_muck",
+        "thermal_shock:ghostglass_sword",
+        "thermal_shock:magnetic_crossbow",
+        "thermal_shock:volcano",
+        "thermal_shock:bloodstone_halberd",
+        "thermal_shock:titanium_mace",
+        "thermal_shock:blinding_lantern",
+        "thermal_shock:core_eject_flare_gun",
+        "thermal_shock:cobalt_thermoblaster",
+        "thermal_shock:rusty_edge",
+        "thermal_shock:buzzsaw",
+        "thermal_shock:zenith_crossbow",
+        "thermal_shock:liteprism_sword",
+        "thermal_shock:liteprism_disk",
+        "thermal_shock:ruby_sickle",
+        "thermal_shock:bloodstone_sickle",
+        "thermal_shock:claw_sickle",
+        "thermal_shock:stratosilver_sickle",
+        "thermal_shock:ice_bomb",
+        "thermal_shock:net_launcher",
+        "thermal_shock:molten_bat",
+        "thermal_shock:frozen_blade",
+        "thermal_shock:sylvia_rifle",
+        "thermal_shock:carborundum_halberd",
+        "thermal_shock:liteprism_laser",
+        "thermal_shock:zap_gauntlet",
+        "thermal_shock:flower_bomb",
+        "thermal_shock:thistle_bow"
+      ]
     }
   },
   "pending": {
@@ -2813,7 +2908,10 @@
     "data/thermal_shock/tags/entity_type/therm_projectile.json",
     "data/thermal_shock/tags/item/ruby.json",
     "data/thermal_shock/tags/item/weapon.json",
-    "data/thermal_shock/tags/item/zenith.json"
+    "data/thermal_shock/tags/item/zenith.json",
+    "data/minecraft/tags/item/swords.json",
+    "data/thermal_shock/tags/item/cloro_type.json",
+    "data/thermal_shock/tags/item/ferro_type.json"
   ],
   "structure_templates": [
     "data/thermal_shock/structure/vermillion_pine_1.nbt",

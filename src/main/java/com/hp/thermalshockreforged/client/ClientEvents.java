@@ -55,6 +55,8 @@ import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 public final class ClientEvents {
     @SubscribeEvent
     public static void renderers(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerEntityRenderer(com.hp.thermalshockreforged.content.weapons.WeaponContent.BLADE_IMPACT.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
+        event.registerEntityRenderer(com.hp.thermalshockreforged.content.machines.MachineContent.BLASPHEMER_PROCESS.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         com.hp.thermalshockreforged.client.weapons.FirearmBulletRenderer.register(event);
         event.registerEntityRenderer(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.CORE_ACTIVATION.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.FIRE_BOMB_ACTIVATION.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
@@ -166,6 +168,9 @@ public final class ClientEvents {
 
     @SubscribeEvent
     public static void particles(RegisterParticleProvidersEvent event) {
+        event.registerSpriteSet(com.hp.thermalshockreforged.content.weapons.WeaponContent.HIT_FERRO.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "hitferro", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true));
+        event.registerSpriteSet(com.hp.thermalshockreforged.content.weapons.WeaponContent.HIT_CLORO.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "hitcloro", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true));
+        event.registerSpriteSet(com.hp.thermalshockreforged.content.weapons.WeaponContent.BLUE_PLUS_BLAST.get(), com.hp.thermalshockreforged.client.particle.BluePlusBlastParticle.Provider::new);
         event.registerSpriteSet(com.hp.thermalshockreforged.content.armor.ArmorContent.PURPLE_SPARKLE.get(), com.hp.thermalshockreforged.client.armor.PurpleSparkleParticle.Provider::new);
         CavebloomerClient.particles(event);
         event.registerSpriteSet(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.TURQ_EXPLODE.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "turqexplode", 0, ParticleRenderType.PARTICLE_SHEET_OPAQUE, false, true, 0));
