@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:jigsaw",
+  "start_pool": "thermal_shock_reforged:vilebath_castle",
+  "size": 2,
+  "max_distance_from_center": 116,
+  "spawn_overrides": {},
+  "step": "underground_structures",
+  "terrain_adaptation": "beard_box",
+  "start_height": {
+    "type": "minecraft:uniform",
+    "min_inclusive": {
+      "absolute": -60
+    },
+    "max_inclusive": {
+      "absolute": -50
+    }
+  },
+  "biomes": "thermal_shock_reforged:graveyard",
+  "use_expansion_hack": false
+}

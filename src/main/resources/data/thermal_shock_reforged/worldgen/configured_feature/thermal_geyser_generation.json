@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:simple_random_selector",
+  "config": {
+    "features": [
+      {
+        "feature": {
+          "type": "thermal_shock_reforged:structure_feature",
+          "config": {
+            "structure": "thermal_shock_reforged:thermalvent1",
+            "ignored_blocks": "minecraft:air"
+          }
+        },
+        "placement": []
+      },
+      {
+        "feature": {
+          "type": "thermal_shock_reforged:structure_feature",
+          "config": {
+            "structure": "thermal_shock_reforged:thermalvent2",
+            "ignored_blocks": "minecraft:air"
+          }
+        },
+        "placement": []
+      },
+      {
+        "feature": {
+          "type": "thermal_shock_reforged:structure_feature",
+          "config": {
+            "structure": "thermal_shock_reforged:thermalvent3",
+            "ignored_blocks": "minecraft:air"
+          }
+        },
+        "placement": []
+      }
+    ]
+  }
+}

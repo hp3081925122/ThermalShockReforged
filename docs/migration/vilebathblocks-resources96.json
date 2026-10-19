@@ -1,0 +1,41 @@
+{
+  "new_java_files": {
+    "src/main/java/com/hp/thermalshockreforged/content/vilebathblocks/HangingSparklerBulbBlock.java": "f021d9462b7c5953d8590053c14903170f27f08c8317e97dc1dd9fb280730be1",
+    "src/main/java/com/hp/thermalshockreforged/content/vilebathblocks/SparklerDetonations.java": "beb2840b931925bbfc4dcd4f193b48cfc366ba385e9aca62cc8cb124ddf777fe",
+    "src/main/java/com/hp/thermalshockreforged/content/vilebathblocks/ThermalGeyserBlock.java": "997d88c49bed565df442e1656e597915561cca5feaed003773b6b0693e616180",
+    "src/main/java/com/hp/thermalshockreforged/content/vilebathblocks/ThermalGeyserBlockEntity.java": "98625c3928d7cdd93e0d3faa341165b358a80cca70cda1a489b6eb1615c13bbc",
+    "src/main/java/com/hp/thermalshockreforged/content/vilebathblocks/VilebathBlocksContent.java": "9ea31fc97c1c7de7f2efa2f08e4890d665b08f5bac7ddd45032078eda74328a2"
+  },
+  "new_data_files": {
+    "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/thermal_geyser.json": "f0004046244419500125bac84dba82d0603d2fa3eac6c5b89ad51213007720d2",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/hanging_sparkler_bulb.json": "0d177b8bf875ae27a6147f2f062cbae7c71ce5dfbccf71dca6e7cee6d66c68d1",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/thermal_geyser_generation.json": "bdb4b476e9997f0030d268daec9ed445ba77a94d38498991c89766117482679a",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/hanging_bulb_patch.json": "128e2896690db97d404890cd207af19b4092033c9050d860645d1bb92d6cca11",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/thermal_geyser_generation.json": "135eede790ac2a4ddd18a37a261d16b5361da43a73a58f47222799cc6debb807",
+    "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/hanging_bulb_patch.json": "f619ef34312850ae751c46c46aa90338e77ed2e5f55541c76ff60b0bb2254d67",
+    "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/thermal_geyser_generation_biome_modifier.json": "414207fb3a75c817bbcaef2b29368493c3fcc5a14923b16504a0fe930389f5e1",
+    "src/main/resources/data/thermal_shock_reforged/structure/thermalvent1.nbt": "9286f472fae1e765f7cec69a9103683cf7227e758a1d1e09c6fcd3cb89f6f27e",
+    "src/main/resources/data/thermal_shock_reforged/structure/thermalvent2.nbt": "408ad16d4e6b61a1d27d23fbea73f731a6702a577e9cfe166b273bb97447b96d",
+    "src/main/resources/data/thermal_shock_reforged/structure/thermalvent3.nbt": "fdad89d9e64401ff68dee87f1714cbfcdf9e5f03407b1f6373ca2211516314b0"
+  },
+  "reused_assets": {
+    "src/main/resources/assets/thermal_shock_reforged/blockstates/thermal_geyser.json": "84a954706c01f136c6ca930bef561b0a4e686498e5907877b46879bafbacfd2d",
+    "src/main/resources/assets/thermal_shock_reforged/blockstates/hanging_sparkler_bulb.json": "0090d9cfd0e8b304171ff6ef9d6f655683f6f556e787c8443d6a98e60e1306b0",
+    "src/main/resources/assets/thermal_shock_reforged/models/block/thermal_geyser.json": "9a3c036b2048579e199bd00f2539681143b856bb7cf301fac92a0440c5894267",
+    "src/main/resources/assets/thermal_shock_reforged/models/item/thermal_geyser.json": "c42d655468faee243a7da4b0a5c30f7e73df2ac772b330b9e40d43033f4d3133",
+    "src/main/resources/assets/thermal_shock_reforged/models/block/hanging_sparkler_bulb.json": "08ed7b51e400b123dd4720fb02d1fea64681149549afceb1be9a96104ecc5bd2",
+    "src/main/resources/assets/thermal_shock_reforged/models/item/hanging_sparkler_bulb.json": "4060632bb6a08f4cc4a9df04519f8795370fbb15a095da1c43ca5daf68dfbd04",
+    "src/main/resources/assets/thermal_shock_reforged/textures/block/hollow_shale_pillar.png": "0268a586d0240a8bc0acf946aa8eb646c1903ed8b167fbc034705ce0f2b90d49",
+    "src/main/resources/assets/thermal_shock_reforged/textures/block/thermal_vent_side_2.png": "40bc519a8faa41be41eef8153d35e08368edb1b358ac6a957a06f05e58ef8bc8",
+    "src/main/resources/assets/thermal_shock_reforged/textures/block/thermal_vent_top.png": "f626a336ef88be8a029c07acc2ba28cb894166d8385c23e9e7118ff934b5a58a",
+    "src/main/resources/assets/thermal_shock_reforged/textures/block/glittershroom_block_bottom.png": "99818e8f6664a7b363a7e4f917184900b4d7f710a1cf57ea28c3346022cadbe1",
+    "src/main/resources/assets/thermal_shock_reforged/textures/block/glittershroom_block_side_b.png": "d44814c6b324986e98791eb03b6a7f8ba807151eaa80f511ecd3a34d237c4b23",
+    "src/main/resources/assets/thermal_shock_reforged/textures/block/glittershroom_block_top.png": "0b6ac91947d16de35d405ec0d20ba7e0932ae325aa1a8fbab61503ce6c38772e"
+  },
+  "thermal_geyser_source_closed_after_entry_registration": true,
+  "hanging_independent_injection_closed": false,
+  "hanging_pending_reason": "原JAR及Java未定义所引用purebiomes，未猜群系范围/新增空标签；configured+placed已迁，modifier原文留调查报告",
+  "vilebath_templates_and_structure_integration": "由主线负责，本聊天不修改五城堡模板或四结构/池JSON",
+  "gradle_run": false,
+  "game_run": false
+}

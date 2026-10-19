@@ -14,11 +14,19 @@ public final class SpeleothemSoundEntity extends Entity implements ServerEndTick
     private int remaining = 35;
     private int firstRemaining = 3;
     private boolean armed;
+    private boolean single;
+    private float singleVolume = .7F;
+    private float singlePitch = 3;
     public SpeleothemSoundEntity(EntityType<? extends SpeleothemSoundEntity> type, Level level) { super(type, level); noPhysics = true; setNoGravity(true); }
     public static void submit(ServerLevel level, double x, double y, double z, int first, int last) {
         var task = WeaponContent.SPELEOTHEM_SOUND.get().create(level);
         if (task == null) return;
         task.setPos(x, y, z); task.remaining = last; task.firstRemaining = last - first; task.armed = true; level.addFreshEntity(task);
+    }
+    public static void submitSingle(ServerLevel level, double x, double y, double z, int delay, float volume, float pitch) {
+        var task = WeaponContent.SPELEOTHEM_SOUND.get().create(level);
+        if (task == null) return;
+        task.setPos(x, y, z); task.remaining = delay; task.single = true; task.singleVolume = volume; task.singlePitch = pitch; task.armed = true; level.addFreshEntity(task);
     }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); if (armed && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
     @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
@@ -26,11 +34,20 @@ public final class SpeleothemSoundEntity extends Entity implements ServerEndTick
     @Override public void endTick(ServerLevel level) {
         if (!armed || isRemoved()) return;
         remaining--;
+        if (single) {
+            if (remaining <= 0) { armed = false; level.playSound(null, blockPosition(), SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.NEUTRAL, singleVolume, singlePitch); discard(); }
+            else ServerEndTickTasks.schedule(level, getUUID());
+            return;
+        }
         if (remaining == firstRemaining) level.playSound(null, blockPosition(), SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.NEUTRAL, .4F, 3);
         if (remaining == 0) { level.playSound(null, blockPosition(), SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.NEUTRAL, .4F, 1); armed = false; discard(); }
         else ServerEndTickTasks.schedule(level, getUUID());
     }
     @Override protected void defineSynchedData(net.minecraft.network.syncher.SynchedEntityData.Builder builder) { }
-    @Override protected void addAdditionalSaveData(CompoundTag tag) { tag.putInt("SpearSoundRemaining", remaining); tag.putInt("SpearSoundFirst", firstRemaining); tag.putBoolean("SpearSoundArmed", armed); }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) { remaining = Math.clamp(tag.getInt("SpearSoundRemaining"), 1, 55); firstRemaining = Math.clamp(tag.getInt("SpearSoundFirst"), 1, 29); armed = tag.getBoolean("SpearSoundArmed"); }
+    @Override protected void addAdditionalSaveData(CompoundTag tag) { tag.putInt("SpearSoundRemaining", remaining); tag.putInt("SpearSoundFirst", firstRemaining); tag.putBoolean("SpearSoundArmed", armed); tag.putBoolean("SpearSoundSingle", single); tag.putFloat("SpearSoundVolume", singleVolume); tag.putFloat("SpearSoundPitch", singlePitch); }
+    @Override protected void readAdditionalSaveData(CompoundTag tag) {
+        remaining = Math.clamp(tag.getInt("SpearSoundRemaining"), 1, 55); firstRemaining = Math.clamp(tag.getInt("SpearSoundFirst"), 1, 29); armed = tag.getBoolean("SpearSoundArmed"); single = tag.getBoolean("SpearSoundSingle");
+        singleVolume = Float.isFinite(tag.getFloat("SpearSoundVolume")) ? Math.clamp(tag.getFloat("SpearSoundVolume"), 0, 1) : .7F;
+        singlePitch = Float.isFinite(tag.getFloat("SpearSoundPitch")) ? Math.clamp(tag.getFloat("SpearSoundPitch"), 0, 4) : 3;
+    }
 }

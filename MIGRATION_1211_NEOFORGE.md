@@ -384,3 +384,11 @@ Graver、NeonLimeGraver、Assimilator、AssimilatedGraver、Razoraptor完整家�
 另一聊天完成两Monolith完整形态、初始化20 END、12/22 END双击、80CD／40减速、60/20死亡经验、原完整Geo／发光／声音／死亡15轮表现及独立spire自然链。7Java＋5数据与19原资产静态核对，五既有Vilebath模板不修改；两原生块thermal_geyser/hanging_sparkler_bulb、bloodstone_halberd、原缺桥池和旧属性仍需后续闭合。Graver避Monolith和甲虫锁Graver均接真实类，所有共享标签追加保既有成员。
 
 两路停止写生产文件后固定8202源码／资源输入，Java21离线compileJava/processResources首次统一成功1m30s，24任务／2执行；7551构建资源逐字节与2展开模板通过，Monolith12生产文件与交付哈希全同、无编译修复，原中英翻译值保留。最终证据docs/migration/main95-static-validation.json，主线证据gravers-static95.json，分工证据monolith-validation95.json。skill新增已核动画／初始化转换案例并校验通过。未启动游戏，整模组仍未完整，最终专服／客户端／Render Preview待全代码后由子代理执行。
+
+## 第96批统一收尾
+
+血石／碳化硅两长戟已完整接入既有Spear模块，保原耐久／主手属性／普通命中与击杀进度／手持距离及禁攻击状态、全部0/1/2动画与姿态，长戟特有随机两挥／原音高／20 END单声／17tick amp3真Aura和26/55 END两提示均有独立参数；四既有长矛Kind未改值。7原资产、两原配方／weapon标签和原创意条目核对通过，动画缓存清理完整，提示补中英。
+
+Vilebath五完整模板保828118块记录／90实体／全部几何状态、图框武器、库存和旗帜，重做typed目标数据转换。三桥7处失效pool引用改实际原池，保3:1权重和原四自然JSON完整参数。两缺失原生功能块由另一聊天迁入：热喷泉真实九槽／自动化／原信号烟和三完整热泉模板，灯泡完整起爆／自毁二次回调／20粒子和全部连锁；深栈改同tickFIFO，结算顺序差异明确记录。两块补标准采集与合理地图色；其12原资产未改。
+
+两路停笔后固定8223输入，Java21离线compileJava/processResources首次成功1m4s，24任务／2执行；7567构建资源逐字节与2展开模板通过，分工15生产交付哈希不变，无编译修复。总证据docs/migration/main96-static-validation.json，halberds-static96.json／vilebath-template96.json／vilebathblocks-validation96.json提供原件与模块证据。灯泡独立注入原purebiomes从未定义，未猜范围或造空tag，仍为原生内容待办，城堡来源不依赖该tag。已提醒最大城堡439872块记录的生成成本。整模组尚未完整，未启游戏，最终专服／客户端／Render Preview仍待全代码后由子代理执行。

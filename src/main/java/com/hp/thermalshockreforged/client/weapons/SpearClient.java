@@ -27,7 +27,7 @@ final class SpearClient {
                 if (player.getUseItem() == stack) pose.translate(.05, .05, .05);
                 return true;
             }
-        }, WeaponContent.SPELEOTHEM.get(), WeaponContent.RUBY_SPEAR.get(), WeaponContent.CARBORUNDUM_SPEAR.get(), WeaponContent.HI_VOLT_LANCE.get());
+        }, WeaponContent.SPELEOTHEM.get(), WeaponContent.RUBY_SPEAR.get(), WeaponContent.CARBORUNDUM_SPEAR.get(), WeaponContent.HI_VOLT_LANCE.get(), WeaponContent.BLOODSTONE_HALBERD.get(), WeaponContent.CARBORUNDUM_HALBERD.get());
     }
     private static final class Renderer extends GeoItemRenderer<SpearItem> {
         private Renderer() { super(new Model()); }
