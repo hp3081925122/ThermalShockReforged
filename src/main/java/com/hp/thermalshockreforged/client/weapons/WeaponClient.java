@@ -22,6 +22,7 @@ public final class WeaponClient {
         FirearmClient.extensions(event);
         MagneticCrossbowClient.extensions(event);
         SpearClient.extensions(event);
+        GauntletVolcanoClient.extensions(event);
         event.registerItem(new IClientItemExtensions() {
             private Renderer renderer;
             @Override

@@ -18,6 +18,9 @@ public final class WeaponContent {
     public static final DeferredHolder<net.minecraft.core.particles.ParticleType<?>, net.minecraft.core.particles.SimpleParticleType> HIT_CLORO = PARTICLES.register("hit_cloro", () -> new net.minecraft.core.particles.SimpleParticleType(true));
     public static final DeferredHolder<net.minecraft.core.particles.ParticleType<?>, net.minecraft.core.particles.SimpleParticleType> BLUE_PLUS_BLAST = PARTICLES.register("blue_plus_blast", () -> new net.minecraft.core.particles.SimpleParticleType(false));
     public static final DeferredHolder<EntityType<?>, EntityType<BladeImpactEntity>> BLADE_IMPACT = TYPES.register("blade_impact_task", () -> EntityType.Builder.<BladeImpactEntity>of(BladeImpactEntity::new, MobCategory.MISC).noSummon().sized(.01F, .01F).clientTrackingRange(0).updateInterval(20).build(ThermalShockReforged.MOD_ID + ":blade_impact_task"));
+    public static final DeferredItem<ZerkerGauntletItem> TITANIUM_MACE = ITEMS.register("titanium_mace", ZerkerGauntletItem::new);
+    public static final DeferredItem<VolcanoItem> VOLCANO = ITEMS.register("volcano", VolcanoItem::new);
+    public static final DeferredHolder<EntityType<?>, EntityType<VolcanoBurstEntity>> VOLCANO_BURST = TYPES.register("volcano_burst_task", () -> EntityType.Builder.<VolcanoBurstEntity>of(VolcanoBurstEntity::new, MobCategory.MISC).noSummon().sized(.01F, .01F).clientTrackingRange(0).updateInterval(20).build(ThermalShockReforged.MOD_ID + ":volcano_burst_task"));
     public static final DeferredItem<ElementalBladeItem> SHOCK_STICK = ITEMS.register("shock_stick", () -> new ElementalBladeItem(ElementalBladeItem.Kind.SHOCK_STICK));
     public static final DeferredItem<ElementalBladeItem> KNIGHTS_EDGE = ITEMS.register("knights_edge", () -> new ElementalBladeItem(ElementalBladeItem.Kind.KNIGHTS_EDGE));
     public static final DeferredHolder<EntityType<?>, EntityType<MagneticCycleSoundEntity>> MAGNETIC_CYCLE_SOUND = TYPES.register("magnetic_cycle_sound_task", () -> EntityType.Builder.<MagneticCycleSoundEntity>of(MagneticCycleSoundEntity::new, MobCategory.MISC).noSummon().sized(.01F, .01F).clientTrackingRange(0).updateInterval(20).build(ThermalShockReforged.MOD_ID + ":magnetic_cycle_sound_task"));
@@ -53,8 +56,8 @@ public final class WeaponContent {
         NeoForge.EVENT_BUS.addListener(WeaponContent::serverStopped);
     }
 
-    public static void pruneAnimations() { MAGNETIC_CROSSBOW.get().pruneAnimations(); BLINDING_LANTERN.get().pruneAnimations(); ZAP_GAUNTLET.get().pruneAnimations(); FLINTSTEEL_RIFLE.get().pruneAnimations(); HAILFALL.get().pruneAnimations(); SPELEOTHEM.get().pruneAnimations(); RUBY_SPEAR.get().pruneAnimations(); CARBORUNDUM_SPEAR.get().pruneAnimations(); }
-    public static void clearAnimations() { MAGNETIC_CROSSBOW.get().clearAnimations(); BLINDING_LANTERN.get().clearAnimations(); ZAP_GAUNTLET.get().clearAnimations(); FLINTSTEEL_RIFLE.get().clearAnimations(); HAILFALL.get().clearAnimations(); SPELEOTHEM.get().clearAnimations(); RUBY_SPEAR.get().clearAnimations(); CARBORUNDUM_SPEAR.get().clearAnimations(); }
+    public static void pruneAnimations() { TITANIUM_MACE.get().pruneAnimations(); VOLCANO.get().pruneAnimations(); MAGNETIC_CROSSBOW.get().pruneAnimations(); BLINDING_LANTERN.get().pruneAnimations(); ZAP_GAUNTLET.get().pruneAnimations(); FLINTSTEEL_RIFLE.get().pruneAnimations(); HAILFALL.get().pruneAnimations(); SPELEOTHEM.get().pruneAnimations(); RUBY_SPEAR.get().pruneAnimations(); CARBORUNDUM_SPEAR.get().pruneAnimations(); }
+    public static void clearAnimations() { TITANIUM_MACE.get().clearAnimations(); VOLCANO.get().clearAnimations(); MAGNETIC_CROSSBOW.get().clearAnimations(); BLINDING_LANTERN.get().clearAnimations(); ZAP_GAUNTLET.get().clearAnimations(); FLINTSTEEL_RIFLE.get().clearAnimations(); HAILFALL.get().clearAnimations(); SPELEOTHEM.get().clearAnimations(); RUBY_SPEAR.get().clearAnimations(); CARBORUNDUM_SPEAR.get().clearAnimations(); }
     private static void serverTick(ServerTickEvent.Post event) { pruneAnimations(); }
     private static void serverStopped(ServerStoppedEvent event) { clearAnimations(); }
 }

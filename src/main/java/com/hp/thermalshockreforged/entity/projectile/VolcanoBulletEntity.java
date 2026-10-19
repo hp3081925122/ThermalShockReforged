@@ -20,6 +20,14 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 
 public final class VolcanoBulletEntity extends LegacyArrowEntity {
+    public static void fireBurstShot(net.minecraft.server.level.ServerLevel level, LivingEntity shooter, java.util.UUID owner, net.minecraft.world.phys.Vec3 origin, net.minecraft.world.phys.Vec3 direction) {
+        var bullet = new VolcanoBulletEntity(ProjectileContent.VOLCANO_BULLET.get(), level);
+        if (shooter != null) bullet.setOwner(shooter);
+        else ((com.hp.thermalshockreforged.mixin.ProjectileOwnerAccess) (Object) bullet).thermalShockReforged$setOwnerUUID(owner);
+        bullet.setPos(origin); bullet.setBaseDamage(3); bullet.setImpactKnockback(1); bullet.setSilent(true); bullet.setCritArrow(false);
+        ((com.hp.thermalshockreforged.mixin.ArrowPiercingAccess) (Object) bullet).thermalShockReforged$setPierceLevel((byte) 2);
+        bullet.shoot(direction.x, direction.y, direction.z, 4, 20); level.addFreshEntity(bullet);
+    }
     private java.util.UUID sparkTask;
     private int sparkSubmissions;
     public VolcanoBulletEntity(EntityType<? extends VolcanoBulletEntity> type, Level level) { super(type, level); setImpactKnockback(1); }

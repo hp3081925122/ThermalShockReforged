@@ -6,7 +6,8 @@
   "mixins": [
     "LivingEntityStatusMixin",
     "PlayerInfectionStatusMixin",
-    "ArrowPiercingAccess"
+    "ArrowPiercingAccess",
+    "ProjectileOwnerAccess"
   ],
   "injectors": {
     "defaultRequire": 1

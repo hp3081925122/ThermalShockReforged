@@ -1,0 +1,55 @@
+package com.hp.thermalshockreforged.content.weapons;
+
+import com.hp.thermalshockreforged.content.MaterialContent;
+import java.util.List;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.*;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.Level;
+import software.bernie.geckolib.animatable.GeoItem;
+import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.animation.*;
+
+public final class VolcanoItem extends Item implements GeoItem {
+    private final BoundedItemAnimationCache animations = new BoundedItemAnimationCache(this);
+    public VolcanoItem() {
+        super(new Properties().durability(920).rarity(Rarity.UNCOMMON).fireResistant());
+        GeoItem.registerSyncedAnimatable(this);
+    }
+    @Override public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) { return false; }
+    @Override public int getEnchantmentValue() { return 5; }
+    @Override public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
+        super.inventoryTick(stack, level, entity, slot, selected);
+        if (level instanceof ServerLevel server) GeoItem.getOrAssignId(stack, server);
+        if (selected && entity instanceof LivingEntity living) HeldWeaponState.refreshNoMelee(living);
+    }
+    @Override public boolean onEntitySwing(ItemStack stack, LivingEntity wielder, InteractionHand hand) {
+        if (!(wielder instanceof Player player) || !(player.level() instanceof ServerLevel server) || player.getCooldowns().isOnCooldown(this)) return false;
+        Item ammo = MaterialContent.items().get("heavy_round").get();
+        if (!player.getAbilities().instabuild && !player.getInventory().contains(new ItemStack(ammo))) {
+            server.playSound(null, player.blockPosition(), SoundEvents.STONE_BUTTON_CLICK_ON, SoundSource.NEUTRAL, 1, 5);
+            return false;
+        }
+        if (!VolcanoBurstEntity.submit(server, player)) return false;
+        player.getCooldowns().addCooldown(this, 31);
+        triggerAnim(player, GeoItem.getOrAssignId(stack, server), "procedure", "1");
+        if (!player.getAbilities().instabuild) player.getInventory().clearOrCountMatchingItems(candidate -> candidate.is(ammo), 1, player.inventoryMenu.getCraftSlots());
+        return false;
+    }
+    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) {
+        super.appendHoverText(stack, context, lines, flag);
+        for (int line = 0; line < 3; line++) lines.add(Component.translatable("item.thermal_shock_reforged.volcano.description_" + line));
+    }
+    public void pruneAnimations() { animations.prune(); }
+    public void clearAnimations() { animations.clear(); }
+    @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+        var procedure = new AnimationController<>(this, "procedure", 0, state -> PlayState.STOP).triggerableAnim("1", RawAnimation.begin().thenPlay("1"));
+        controllers.add(procedure);
+        controllers.add(new AnimationController<>(this, "idle", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop("0"))));
+    }
+    @Override public AnimatableInstanceCache getAnimatableInstanceCache() { return animations; }
+}
