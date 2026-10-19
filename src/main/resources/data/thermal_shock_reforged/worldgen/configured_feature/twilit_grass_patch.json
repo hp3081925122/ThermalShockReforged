@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:ore",
+  "config": {
+    "size": 40,
+    "discard_chance_on_air_exposure": 0,
+    "targets": [
+      {
+        "target": {
+          "predicate_type": "block_match",
+          "block": "thermal_shock_reforged:mossy_cobbled_shale"
+        },
+        "state": {
+          "Name": "thermal_shock_reforged:twilit_grassy_shale"
+        }
+      }
+    ]
+  }
+}

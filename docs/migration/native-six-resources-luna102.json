@@ -1,0 +1,879 @@
+{
+  "source_jar": "D:\\AI临时文件\\ThermalShockMigration\\thermal_shock-07.9-original.jar",
+  "target_project": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged",
+  "scope": "六方块资源图谱与逐项比较；目标数据文件仅报告原对应路径转换后已存在的路径。",
+  "comparison_rules": {
+    "json": "解析JSON后将 thermal_shock: namespace 替换为 thermal_shock_reforged: 再比较结构；PNG按SHA-256原始字节比较",
+    "asset_roots": "旧 blockstate 变体模型、旧 models/block 与 models/item 模型 parent 链递归纹理；目标独立扫描同路径 blockstate 与 item/block 模型 parent 链"
+  },
+  "blocks": [
+    {
+      "id": "sparkler_bulb",
+      "blockstate": {
+        "original": "assets/thermal_shock/blockstates/sparkler_bulb.json",
+        "target": "assets/thermal_shock_reforged/blockstates/sparkler_bulb.json",
+        "target_exists": true,
+        "namespace_normalized_equal": true,
+        "original_model_refs": [
+          "thermal_shock:block/sparkler_bulb"
+        ],
+        "target_model_refs": [
+          "thermal_shock_reforged:block/sparkler_bulb"
+        ]
+      },
+      "models": {
+        "original_recursive_files": [
+          "assets/thermal_shock/models/block/sparkler_bulb.json",
+          "assets/thermal_shock/models/item/sparkler_bulb.json"
+        ],
+        "target_recursive_files": [
+          "assets/thermal_shock_reforged/models/block/sparkler_bulb.json",
+          "assets/thermal_shock_reforged/models/item/sparkler_bulb.json"
+        ],
+        "original_to_target": [
+          {
+            "original_file": "assets/thermal_shock/models/block/sparkler_bulb.json",
+            "target_file": "assets/thermal_shock_reforged/models/block/sparkler_bulb.json",
+            "target_exists": true,
+            "namespace_normalized_equal": true
+          },
+          {
+            "original_file": "assets/thermal_shock/models/item/sparkler_bulb.json",
+            "target_file": "assets/thermal_shock_reforged/models/item/sparkler_bulb.json",
+            "target_exists": true,
+            "namespace_normalized_equal": true
+          }
+        ],
+        "target_only_files": []
+      },
+      "textures": {
+        "original_recursive_refs": [
+          "thermal_shock:block/glittershroom_block_bottom",
+          "thermal_shock:block/glittershroom_block_side",
+          "thermal_shock:block/glittershroom_block_top"
+        ],
+        "target_recursive_refs": [
+          "thermal_shock_reforged:block/glittershroom_block_bottom",
+          "thermal_shock_reforged:block/glittershroom_block_side",
+          "thermal_shock_reforged:block/glittershroom_block_top"
+        ],
+        "original_to_target": [
+          {
+            "resource": "thermal_shock:block/glittershroom_block_bottom",
+            "original_file": "assets/thermal_shock/textures/block/glittershroom_block_bottom.png",
+            "original_exists": true,
+            "target_file": "assets/thermal_shock_reforged/textures/block/glittershroom_block_bottom.png",
+            "target_exists": true,
+            "byte_equal": true,
+            "original_sha256": "99818e8f6664a7b363a7e4f917184900b4d7f710a1cf57ea28c3346022cadbe1",
+            "target_sha256": "99818e8f6664a7b363a7e4f917184900b4d7f710a1cf57ea28c3346022cadbe1"
+          },
+          {
+            "resource": "thermal_shock:block/glittershroom_block_side",
+            "original_file": "assets/thermal_shock/textures/block/glittershroom_block_side.png",
+            "original_exists": true,
+            "target_file": "assets/thermal_shock_reforged/textures/block/glittershroom_block_side.png",
+            "target_exists": true,
+            "byte_equal": true,
+            "original_sha256": "6267e077600328e4e6b4b4f4728cba7e050a8ddfd53af6c503c47fa398634650",
+            "target_sha256": "6267e077600328e4e6b4b4f4728cba7e050a8ddfd53af6c503c47fa398634650"
+          },
+          {
+            "resource": "thermal_shock:block/glittershroom_block_top",
+            "original_file": "assets/thermal_shock/textures/block/glittershroom_block_top.png",
+            "original_exists": true,
+            "target_file": "assets/thermal_shock_reforged/textures/block/glittershroom_block_top.png",
+            "target_exists": true,
+            "byte_equal": true,
+            "original_sha256": "0b6ac91947d16de35d405ec0d20ba7e0932ae325aa1a8fbab61503ce6c38772e",
+            "target_sha256": "0b6ac91947d16de35d405ec0d20ba7e0932ae325aa1a8fbab61503ce6c38772e"
+          }
+        ],
+        "target_missing_original_refs": []
+      }
+    },
+    {
+      "id": "stratosilver_block",
+      "blockstate": {
+        "original": "assets/thermal_shock/blockstates/stratosilver_block.json",
+        "target": "assets/thermal_shock_reforged/blockstates/stratosilver_block.json",
+        "target_exists": true,
+        "namespace_normalized_equal": true,
+        "original_model_refs": [
+          "thermal_shock:block/stratosilver_block",
+          "thermal_shock:block/stratosilver_block",
+          "thermal_shock:block/stratosilver_block",
+          "thermal_shock:block/stratosilver_block",
+          "thermal_shock:block/stratosilver_block",
+          "thermal_shock:block/stratosilver_block",
+          "thermal_shock:block/stratosilver_block",
+          "thermal_shock:block/stratosilver_block",
+          "thermal_shock:block/stratosilver_block",
+          "thermal_shock:block/stratosilver_block",
+          "thermal_shock:block/stratosilver_block",
+          "thermal_shock:block/stratosilver_block"
+        ],
+        "target_model_refs": [
+          "thermal_shock_reforged:block/stratosilver_block",
+          "thermal_shock_reforged:block/stratosilver_block",
+          "thermal_shock_reforged:block/stratosilver_block",
+          "thermal_shock_reforged:block/stratosilver_block",
+          "thermal_shock_reforged:block/stratosilver_block",
+          "thermal_shock_reforged:block/stratosilver_block",
+          "thermal_shock_reforged:block/stratosilver_block",
+          "thermal_shock_reforged:block/stratosilver_block",
+          "thermal_shock_reforged:block/stratosilver_block",
+          "thermal_shock_reforged:block/stratosilver_block",
+          "thermal_shock_reforged:block/stratosilver_block",
+          "thermal_shock_reforged:block/stratosilver_block"
+        ]
+      },
+      "models": {
+        "original_recursive_files": [
+          "assets/thermal_shock/models/block/stratosilver_block.json",
+          "assets/thermal_shock/models/item/stratosilver_block.json"
+        ],
+        "target_recursive_files": [
+          "assets/thermal_shock_reforged/models/block/stratosilver_block.json",
+          "assets/thermal_shock_reforged/models/item/stratosilver_block.json"
+        ],
+        "original_to_target": [
+          {
+            "original_file": "assets/thermal_shock/models/block/stratosilver_block.json",
+            "target_file": "assets/thermal_shock_reforged/models/block/stratosilver_block.json",
+            "target_exists": true,
+            "namespace_normalized_equal": true
+          },
+          {
+            "original_file": "assets/thermal_shock/models/item/stratosilver_block.json",
+            "target_file": "assets/thermal_shock_reforged/models/item/stratosilver_block.json",
+            "target_exists": true,
+            "namespace_normalized_equal": true
+          }
+        ],
+        "target_only_files": []
+      },
+      "textures": {
+        "original_recursive_refs": [
+          "thermal_shock:block/stratosilve_block_top",
+          "thermal_shock:block/stratosilver_block_bottom",
+          "thermal_shock:block/stratosilver_block_side"
+        ],
+        "target_recursive_refs": [
+          "thermal_shock_reforged:block/stratosilve_block_top",
+          "thermal_shock_reforged:block/stratosilver_block_bottom",
+          "thermal_shock_reforged:block/stratosilver_block_side"
+        ],
+        "original_to_target": [
+          {
+            "resource": "thermal_shock:block/stratosilve_block_top",
+            "original_file": "assets/thermal_shock/textures/block/stratosilve_block_top.png",
+            "original_exists": true,
+            "target_file": "assets/thermal_shock_reforged/textures/block/stratosilve_block_top.png",
+            "target_exists": true,
+            "byte_equal": true,
+            "original_sha256": "ca84c74373333cba1a5747827c4e03aced088466bd450e4ec804bbcb25990a32",
+            "target_sha256": "ca84c74373333cba1a5747827c4e03aced088466bd450e4ec804bbcb25990a32"
+          },
+          {
+            "resource": "thermal_shock:block/stratosilver_block_bottom",
+            "original_file": "assets/thermal_shock/textures/block/stratosilver_block_bottom.png",
+            "original_exists": true,
+            "target_file": "assets/thermal_shock_reforged/textures/block/stratosilver_block_bottom.png",
+            "target_exists": true,
+            "byte_equal": true,
+            "original_sha256": "83defdd8168d03e2d6556f0e438b978db8d83b3ed690eca613d8e4a735150323",
+            "target_sha256": "83defdd8168d03e2d6556f0e438b978db8d83b3ed690eca613d8e4a735150323"
+          },
+          {
+            "resource": "thermal_shock:block/stratosilver_block_side",
+            "original_file": "assets/thermal_shock/textures/block/stratosilver_block_side.png",
+            "original_exists": true,
+            "target_file": "assets/thermal_shock_reforged/textures/block/stratosilver_block_side.png",
+            "target_exists": true,
+            "byte_equal": true,
+            "original_sha256": "67f327f19ad8c98a252f73a9a4e6278ebbda41ddda846d6a65ae277b2f21d2f7",
+            "target_sha256": "67f327f19ad8c98a252f73a9a4e6278ebbda41ddda846d6a65ae277b2f21d2f7"
+          }
+        ],
+        "target_missing_original_refs": []
+      }
+    },
+    {
+      "id": "stratus_alloy_block",
+      "blockstate": {
+        "original": "assets/thermal_shock/blockstates/stratus_alloy_block.json",
+        "target": "assets/thermal_shock_reforged/blockstates/stratus_alloy_block.json",
+        "target_exists": true,
+        "namespace_normalized_equal": true,
+        "original_model_refs": [
+          "thermal_shock:block/stratus_alloy_block",
+          "thermal_shock:block/stratus_alloy_block",
+          "thermal_shock:block/stratus_alloy_block",
+          "thermal_shock:block/stratus_alloy_block",
+          "thermal_shock:block/stratus_alloy_block",
+          "thermal_shock:block/stratus_alloy_block",
+          "thermal_shock:block/stratus_alloy_block",
+          "thermal_shock:block/stratus_alloy_block",
+          "thermal_shock:block/stratus_alloy_block",
+          "thermal_shock:block/stratus_alloy_block",
+          "thermal_shock:block/stratus_alloy_block",
+          "thermal_shock:block/stratus_alloy_block"
+        ],
+        "target_model_refs": [
+          "thermal_shock_reforged:block/stratus_alloy_block",
+          "thermal_shock_reforged:block/stratus_alloy_block",
+          "thermal_shock_reforged:block/stratus_alloy_block",
+          "thermal_shock_reforged:block/stratus_alloy_block",
+          "thermal_shock_reforged:block/stratus_alloy_block",
+          "thermal_shock_reforged:block/stratus_alloy_block",
+          "thermal_shock_reforged:block/stratus_alloy_block",
+          "thermal_shock_reforged:block/stratus_alloy_block",
+          "thermal_shock_reforged:block/stratus_alloy_block",
+          "thermal_shock_reforged:block/stratus_alloy_block",
+          "thermal_shock_reforged:block/stratus_alloy_block",
+          "thermal_shock_reforged:block/stratus_alloy_block"
+        ]
+      },
+      "models": {
+        "original_recursive_files": [
+          "assets/thermal_shock/models/block/stratus_alloy_block.json",
+          "assets/thermal_shock/models/item/stratus_alloy_block.json"
+        ],
+        "target_recursive_files": [
+          "assets/thermal_shock_reforged/models/block/stratus_alloy_block.json",
+          "assets/thermal_shock_reforged/models/item/stratus_alloy_block.json"
+        ],
+        "original_to_target": [
+          {
+            "original_file": "assets/thermal_shock/models/block/stratus_alloy_block.json",
+            "target_file": "assets/thermal_shock_reforged/models/block/stratus_alloy_block.json",
+            "target_exists": true,
+            "namespace_normalized_equal": true
+          },
+          {
+            "original_file": "assets/thermal_shock/models/item/stratus_alloy_block.json",
+            "target_file": "assets/thermal_shock_reforged/models/item/stratus_alloy_block.json",
+            "target_exists": true,
+            "namespace_normalized_equal": true
+          }
+        ],
+        "target_only_files": []
+      },
+      "textures": {
+        "original_recursive_refs": [
+          "thermal_shock:block/stratosilver_block_bottom",
+          "thermal_shock:block/stratus_alloy_block_side",
+          "thermal_shock:block/stratus_alloy_block_top"
+        ],
+        "target_recursive_refs": [
+          "thermal_shock_reforged:block/stratosilver_block_bottom",
+          "thermal_shock_reforged:block/stratus_alloy_block_side",
+          "thermal_shock_reforged:block/stratus_alloy_block_top"
+        ],
+        "original_to_target": [
+          {
+            "resource": "thermal_shock:block/stratosilver_block_bottom",
+            "original_file": "assets/thermal_shock/textures/block/stratosilver_block_bottom.png",
+            "original_exists": true,
+            "target_file": "assets/thermal_shock_reforged/textures/block/stratosilver_block_bottom.png",
+            "target_exists": true,
+            "byte_equal": true,
+            "original_sha256": "83defdd8168d03e2d6556f0e438b978db8d83b3ed690eca613d8e4a735150323",
+            "target_sha256": "83defdd8168d03e2d6556f0e438b978db8d83b3ed690eca613d8e4a735150323"
+          },
+          {
+            "resource": "thermal_shock:block/stratus_alloy_block_side",
+            "original_file": "assets/thermal_shock/textures/block/stratus_alloy_block_side.png",
+            "original_exists": true,
+            "target_file": "assets/thermal_shock_reforged/textures/block/stratus_alloy_block_side.png",
+            "target_exists": true,
+            "byte_equal": true,
+            "original_sha256": "c4169bfc51ece2b392688dbce43c564f9f4505d85fbc85dd9451229bdcd45783",
+            "target_sha256": "c4169bfc51ece2b392688dbce43c564f9f4505d85fbc85dd9451229bdcd45783"
+          },
+          {
+            "resource": "thermal_shock:block/stratus_alloy_block_top",
+            "original_file": "assets/thermal_shock/textures/block/stratus_alloy_block_top.png",
+            "original_exists": true,
+            "target_file": "assets/thermal_shock_reforged/textures/block/stratus_alloy_block_top.png",
+            "target_exists": true,
+            "byte_equal": true,
+            "original_sha256": "328dc674873ed62202c32c45bc4776821711977805e2c76d5ee36d28040ebd56",
+            "target_sha256": "328dc674873ed62202c32c45bc4776821711977805e2c76d5ee36d28040ebd56"
+          }
+        ],
+        "target_missing_original_refs": []
+      }
+    },
+    {
+      "id": "glittery_shale",
+      "blockstate": {
+        "original": "assets/thermal_shock/blockstates/glittery_shale.json",
+        "target": "assets/thermal_shock_reforged/blockstates/glittery_shale.json",
+        "target_exists": true,
+        "namespace_normalized_equal": true,
+        "original_model_refs": [
+          "thermal_shock:block/glittery_shale"
+        ],
+        "target_model_refs": [
+          "thermal_shock_reforged:block/glittery_shale"
+        ]
+      },
+      "models": {
+        "original_recursive_files": [
+          "assets/thermal_shock/models/block/glittery_shale.json",
+          "assets/thermal_shock/models/item/glittery_shale.json"
+        ],
+        "target_recursive_files": [
+          "assets/thermal_shock_reforged/models/block/glittery_shale.json",
+          "assets/thermal_shock_reforged/models/item/glittery_shale.json"
+        ],
+        "original_to_target": [
+          {
+            "original_file": "assets/thermal_shock/models/block/glittery_shale.json",
+            "target_file": "assets/thermal_shock_reforged/models/block/glittery_shale.json",
+            "target_exists": true,
+            "namespace_normalized_equal": true
+          },
+          {
+            "original_file": "assets/thermal_shock/models/item/glittery_shale.json",
+            "target_file": "assets/thermal_shock_reforged/models/item/glittery_shale.json",
+            "target_exists": true,
+            "namespace_normalized_equal": true
+          }
+        ],
+        "target_only_files": []
+      },
+      "textures": {
+        "original_recursive_refs": [
+          "thermal_shock:block/glitteryshale"
+        ],
+        "target_recursive_refs": [
+          "thermal_shock_reforged:block/glitteryshale"
+        ],
+        "original_to_target": [
+          {
+            "resource": "thermal_shock:block/glitteryshale",
+            "original_file": "assets/thermal_shock/textures/block/glitteryshale.png",
+            "original_exists": true,
+            "target_file": "assets/thermal_shock_reforged/textures/block/glitteryshale.png",
+            "target_exists": true,
+            "byte_equal": true,
+            "original_sha256": "4c0c22b9d97dbddd0e5295f3c438b2d1bec0e18db58c820a8196635e98d9c7a4",
+            "target_sha256": "4c0c22b9d97dbddd0e5295f3c438b2d1bec0e18db58c820a8196635e98d9c7a4"
+          }
+        ],
+        "target_missing_original_refs": []
+      }
+    },
+    {
+      "id": "constellation_block",
+      "blockstate": {
+        "original": "assets/thermal_shock/blockstates/constellation_block.json",
+        "target": "assets/thermal_shock_reforged/blockstates/constellation_block.json",
+        "target_exists": true,
+        "namespace_normalized_equal": true,
+        "original_model_refs": [
+          "thermal_shock:block/constellation_block",
+          "thermal_shock:block/constellation_block",
+          "thermal_shock:block/constellation_block",
+          "thermal_shock:block/constellation_block",
+          "thermal_shock:block/constellation_block",
+          "thermal_shock:block/constellation_block",
+          "thermal_shock:block/constellation_block_states_blockstate_0",
+          "thermal_shock:block/constellation_block_states_blockstate_0",
+          "thermal_shock:block/constellation_block_states_blockstate_0",
+          "thermal_shock:block/constellation_block_states_blockstate_0",
+          "thermal_shock:block/constellation_block_states_blockstate_0",
+          "thermal_shock:block/constellation_block_states_blockstate_0",
+          "thermal_shock:block/constellation_block_states_blockstate_1",
+          "thermal_shock:block/constellation_block_states_blockstate_1",
+          "thermal_shock:block/constellation_block_states_blockstate_1",
+          "thermal_shock:block/constellation_block_states_blockstate_1",
+          "thermal_shock:block/constellation_block_states_blockstate_1",
+          "thermal_shock:block/constellation_block_states_blockstate_1",
+          "thermal_shock:block/constellation_block_states_blockstate_2",
+          "thermal_shock:block/constellation_block_states_blockstate_2",
+          "thermal_shock:block/constellation_block_states_blockstate_2",
+          "thermal_shock:block/constellation_block_states_blockstate_2",
+          "thermal_shock:block/constellation_block_states_blockstate_2",
+          "thermal_shock:block/constellation_block_states_blockstate_2",
+          "thermal_shock:block/constellation_block_states_blockstate_3",
+          "thermal_shock:block/constellation_block_states_blockstate_3",
+          "thermal_shock:block/constellation_block_states_blockstate_3",
+          "thermal_shock:block/constellation_block_states_blockstate_3",
+          "thermal_shock:block/constellation_block_states_blockstate_3",
+          "thermal_shock:block/constellation_block_states_blockstate_3",
+          "thermal_shock:block/constellation_block_states_blockstate_4",
+          "thermal_shock:block/constellation_block_states_blockstate_4",
+          "thermal_shock:block/constellation_block_states_blockstate_4",
+          "thermal_shock:block/constellation_block_states_blockstate_4",
+          "thermal_shock:block/constellation_block_states_blockstate_4",
+          "thermal_shock:block/constellation_block_states_blockstate_4",
+          "thermal_shock:block/constellation_block_states_blockstate_5",
+          "thermal_shock:block/constellation_block_states_blockstate_5",
+          "thermal_shock:block/constellation_block_states_blockstate_5",
+          "thermal_shock:block/constellation_block_states_blockstate_5",
+          "thermal_shock:block/constellation_block_states_blockstate_5",
+          "thermal_shock:block/constellation_block_states_blockstate_5"
+        ],
+        "target_model_refs": [
+          "thermal_shock_reforged:block/constellation_block",
+          "thermal_shock_reforged:block/constellation_block",
+          "thermal_shock_reforged:block/constellation_block",
+          "thermal_shock_reforged:block/constellation_block",
+          "thermal_shock_reforged:block/constellation_block",
+          "thermal_shock_reforged:block/constellation_block",
+          "thermal_shock_reforged:block/constellation_block_states_blockstate_0",
+          "thermal_shock_reforged:block/constellation_block_states_blockstate_0",
+          "thermal_shock_reforged:block/constellation_block_states_blockstate_0",
+          "thermal_shock_reforged:block/constellation_block_states_blockstate_0",
+          "thermal_shock_reforged:block/constellation_block_states_blockstate_0",
+          "thermal_shock_reforged:block/constellation_block_states_blockstate_0",
+          "thermal_shock_reforged:block/constellation_block_states_blockstate_1",
+          "thermal_shock_reforged:block/constellation_block_states_blockstate_1",
+          "thermal_shock_reforged:block/constellation_block_states_blockstate_1",
+          "thermal_shock_reforged:block/constellation_block_states_blockstate_1",
+          "thermal_shock_reforged:block/constellation_block_states_blockstate_1",
+          "thermal_shock_reforged:block/constellation_block_states_blockstate_1",
+          "thermal_shock_reforged:block/constellation_block_states_blockstate_2",
+          "thermal_shock_reforged:block/constellation_block_states_blockstate_2",
+          "thermal_shock_reforged:block/constellation_block_states_blockstate_2",
+          "thermal_shock_reforged:block/constellation_block_states_blockstate_2",
+          "thermal_shock_reforged:block/constellation_block_states_blockstate_2",
+          "thermal_shock_reforged:block/constellation_block_states_blockstate_2",
+          "thermal_shock_reforged:block/constellation_block_states_blockstate_3",
+          "thermal_shock_reforged:block/constellation_block_states_blockstate_3",
+          "thermal_shock_reforged:block/constellation_block_states_blockstate_3",
+          "thermal_shock_reforged:block/constellation_block_states_blockstate_3",
+          "thermal_shock_reforged:block/constellation_block_states_blockstate_3",
+          "thermal_shock_reforged:block/constellation_block_states_blockstate_3",
+          "thermal_shock_reforged:block/constellation_block_states_blockstate_4",
+          "thermal_shock_reforged:block/constellation_block_states_blockstate_4",
+          "thermal_shock_reforged:block/constellation_block_states_blockstate_4",
+          "thermal_shock_reforged:block/constellation_block_states_blockstate_4",
+          "thermal_shock_reforged:block/constellation_block_states_blockstate_4",
+          "thermal_shock_reforged:block/constellation_block_states_blockstate_4",
+          "thermal_shock_reforged:block/constellation_block_states_blockstate_5",
+          "thermal_shock_reforged:block/constellation_block_states_blockstate_5",
+          "thermal_shock_reforged:block/constellation_block_states_blockstate_5",
+          "thermal_shock_reforged:block/constellation_block_states_blockstate_5",
+          "thermal_shock_reforged:block/constellation_block_states_blockstate_5",
+          "thermal_shock_reforged:block/constellation_block_states_blockstate_5"
+        ]
+      },
+      "models": {
+        "original_recursive_files": [
+          "assets/thermal_shock/models/block/constellation_block.json",
+          "assets/thermal_shock/models/block/constellation_block_states_blockstate_0.json",
+          "assets/thermal_shock/models/block/constellation_block_states_blockstate_1.json",
+          "assets/thermal_shock/models/block/constellation_block_states_blockstate_2.json",
+          "assets/thermal_shock/models/block/constellation_block_states_blockstate_3.json",
+          "assets/thermal_shock/models/block/constellation_block_states_blockstate_4.json",
+          "assets/thermal_shock/models/block/constellation_block_states_blockstate_5.json",
+          "assets/thermal_shock/models/item/constellation_block.json"
+        ],
+        "target_recursive_files": [
+          "assets/thermal_shock_reforged/models/block/constellation_block.json",
+          "assets/thermal_shock_reforged/models/block/constellation_block_states_blockstate_0.json",
+          "assets/thermal_shock_reforged/models/block/constellation_block_states_blockstate_1.json",
+          "assets/thermal_shock_reforged/models/block/constellation_block_states_blockstate_2.json",
+          "assets/thermal_shock_reforged/models/block/constellation_block_states_blockstate_3.json",
+          "assets/thermal_shock_reforged/models/block/constellation_block_states_blockstate_4.json",
+          "assets/thermal_shock_reforged/models/block/constellation_block_states_blockstate_5.json",
+          "assets/thermal_shock_reforged/models/item/constellation_block.json"
+        ],
+        "original_to_target": [
+          {
+            "original_file": "assets/thermal_shock/models/block/constellation_block.json",
+            "target_file": "assets/thermal_shock_reforged/models/block/constellation_block.json",
+            "target_exists": true,
+            "namespace_normalized_equal": true
+          },
+          {
+            "original_file": "assets/thermal_shock/models/block/constellation_block_states_blockstate_0.json",
+            "target_file": "assets/thermal_shock_reforged/models/block/constellation_block_states_blockstate_0.json",
+            "target_exists": true,
+            "namespace_normalized_equal": true
+          },
+          {
+            "original_file": "assets/thermal_shock/models/block/constellation_block_states_blockstate_1.json",
+            "target_file": "assets/thermal_shock_reforged/models/block/constellation_block_states_blockstate_1.json",
+            "target_exists": true,
+            "namespace_normalized_equal": true
+          },
+          {
+            "original_file": "assets/thermal_shock/models/block/constellation_block_states_blockstate_2.json",
+            "target_file": "assets/thermal_shock_reforged/models/block/constellation_block_states_blockstate_2.json",
+            "target_exists": true,
+            "namespace_normalized_equal": true
+          },
+          {
+            "original_file": "assets/thermal_shock/models/block/constellation_block_states_blockstate_3.json",
+            "target_file": "assets/thermal_shock_reforged/models/block/constellation_block_states_blockstate_3.json",
+            "target_exists": true,
+            "namespace_normalized_equal": true
+          },
+          {
+            "original_file": "assets/thermal_shock/models/block/constellation_block_states_blockstate_4.json",
+            "target_file": "assets/thermal_shock_reforged/models/block/constellation_block_states_blockstate_4.json",
+            "target_exists": true,
+            "namespace_normalized_equal": true
+          },
+          {
+            "original_file": "assets/thermal_shock/models/block/constellation_block_states_blockstate_5.json",
+            "target_file": "assets/thermal_shock_reforged/models/block/constellation_block_states_blockstate_5.json",
+            "target_exists": true,
+            "namespace_normalized_equal": true
+          },
+          {
+            "original_file": "assets/thermal_shock/models/item/constellation_block.json",
+            "target_file": "assets/thermal_shock_reforged/models/item/constellation_block.json",
+            "target_exists": true,
+            "namespace_normalized_equal": true
+          }
+        ],
+        "target_only_files": []
+      },
+      "textures": {
+        "original_recursive_refs": [
+          "thermal_shock:block/cosmos_constellation_corner",
+          "thermal_shock:block/cosmos_constellation_duo_junction",
+          "thermal_shock:block/cosmos_constellation_end",
+          "thermal_shock:block/cosmos_constellation_line",
+          "thermal_shock:block/cosmos_constellation_quad_junction",
+          "thermal_shock:block/cosmos_constellation_trio_junction",
+          "thermal_shock:block/cosmos_tile"
+        ],
+        "target_recursive_refs": [
+          "thermal_shock_reforged:block/cosmos_constellation_corner",
+          "thermal_shock_reforged:block/cosmos_constellation_duo_junction",
+          "thermal_shock_reforged:block/cosmos_constellation_end",
+          "thermal_shock_reforged:block/cosmos_constellation_line",
+          "thermal_shock_reforged:block/cosmos_constellation_quad_junction",
+          "thermal_shock_reforged:block/cosmos_constellation_trio_junction",
+          "thermal_shock_reforged:block/cosmos_tile"
+        ],
+        "original_to_target": [
+          {
+            "resource": "thermal_shock:block/cosmos_constellation_corner",
+            "original_file": "assets/thermal_shock/textures/block/cosmos_constellation_corner.png",
+            "original_exists": true,
+            "target_file": "assets/thermal_shock_reforged/textures/block/cosmos_constellation_corner.png",
+            "target_exists": true,
+            "byte_equal": true,
+            "original_sha256": "77bbd06c8417314879a442a8f5ae46ad6efa439776be753c5ba53b9bcdc3e7bb",
+            "target_sha256": "77bbd06c8417314879a442a8f5ae46ad6efa439776be753c5ba53b9bcdc3e7bb"
+          },
+          {
+            "resource": "thermal_shock:block/cosmos_constellation_duo_junction",
+            "original_file": "assets/thermal_shock/textures/block/cosmos_constellation_duo_junction.png",
+            "original_exists": true,
+            "target_file": "assets/thermal_shock_reforged/textures/block/cosmos_constellation_duo_junction.png",
+            "target_exists": true,
+            "byte_equal": true,
+            "original_sha256": "7286b9c24211cbd356369144b16fc281df192ce6effaec9a0d10980770016e4b",
+            "target_sha256": "7286b9c24211cbd356369144b16fc281df192ce6effaec9a0d10980770016e4b"
+          },
+          {
+            "resource": "thermal_shock:block/cosmos_constellation_end",
+            "original_file": "assets/thermal_shock/textures/block/cosmos_constellation_end.png",
+            "original_exists": true,
+            "target_file": "assets/thermal_shock_reforged/textures/block/cosmos_constellation_end.png",
+            "target_exists": true,
+            "byte_equal": true,
+            "original_sha256": "b539676e6d75baca1ecb9741e7c462c9f5ae4eb5429e4dbbfeced69c4fe5277c",
+            "target_sha256": "b539676e6d75baca1ecb9741e7c462c9f5ae4eb5429e4dbbfeced69c4fe5277c"
+          },
+          {
+            "resource": "thermal_shock:block/cosmos_constellation_line",
+            "original_file": "assets/thermal_shock/textures/block/cosmos_constellation_line.png",
+            "original_exists": true,
+            "target_file": "assets/thermal_shock_reforged/textures/block/cosmos_constellation_line.png",
+            "target_exists": true,
+            "byte_equal": true,
+            "original_sha256": "8973b38c57ea392ba793d326a81658e4843311621f0c6c8198105a00f00382c5",
+            "target_sha256": "8973b38c57ea392ba793d326a81658e4843311621f0c6c8198105a00f00382c5"
+          },
+          {
+            "resource": "thermal_shock:block/cosmos_constellation_quad_junction",
+            "original_file": "assets/thermal_shock/textures/block/cosmos_constellation_quad_junction.png",
+            "original_exists": true,
+            "target_file": "assets/thermal_shock_reforged/textures/block/cosmos_constellation_quad_junction.png",
+            "target_exists": true,
+            "byte_equal": true,
+            "original_sha256": "49902e2e89348a13ed1db88e47364cdd113122539f63db1d78921238b4aabb68",
+            "target_sha256": "49902e2e89348a13ed1db88e47364cdd113122539f63db1d78921238b4aabb68"
+          },
+          {
+            "resource": "thermal_shock:block/cosmos_constellation_trio_junction",
+            "original_file": "assets/thermal_shock/textures/block/cosmos_constellation_trio_junction.png",
+            "original_exists": true,
+            "target_file": "assets/thermal_shock_reforged/textures/block/cosmos_constellation_trio_junction.png",
+            "target_exists": true,
+            "byte_equal": true,
+            "original_sha256": "3cb88e1bfef81816fae86d58393cbce51e0dd2dc91b7fda9f63356c3aa21704c",
+            "target_sha256": "3cb88e1bfef81816fae86d58393cbce51e0dd2dc91b7fda9f63356c3aa21704c"
+          },
+          {
+            "resource": "thermal_shock:block/cosmos_tile",
+            "original_file": "assets/thermal_shock/textures/block/cosmos_tile.png",
+            "original_exists": true,
+            "target_file": "assets/thermal_shock_reforged/textures/block/cosmos_tile.png",
+            "target_exists": true,
+            "byte_equal": true,
+            "original_sha256": "1621e218f1e40552c8d2ce1dd4a8085eeb9099355a52ba8e01a47904f0e2fe6d",
+            "target_sha256": "1621e218f1e40552c8d2ce1dd4a8085eeb9099355a52ba8e01a47904f0e2fe6d"
+          }
+        ],
+        "target_missing_original_refs": []
+      }
+    },
+    {
+      "id": "twilit_grassy_shale",
+      "blockstate": {
+        "original": "assets/thermal_shock/blockstates/twilit_grassy_shale.json",
+        "target": "assets/thermal_shock_reforged/blockstates/twilit_grassy_shale.json",
+        "target_exists": true,
+        "namespace_normalized_equal": true,
+        "original_model_refs": [
+          "thermal_shock:block/twilit_grassy_shale"
+        ],
+        "target_model_refs": [
+          "thermal_shock_reforged:block/twilit_grassy_shale"
+        ]
+      },
+      "models": {
+        "original_recursive_files": [
+          "assets/thermal_shock/models/block/twilit_grassy_shale.json",
+          "assets/thermal_shock/models/item/twilit_grassy_shale.json"
+        ],
+        "target_recursive_files": [
+          "assets/thermal_shock_reforged/models/block/twilit_grassy_shale.json",
+          "assets/thermal_shock_reforged/models/item/twilit_grassy_shale.json"
+        ],
+        "original_to_target": [
+          {
+            "original_file": "assets/thermal_shock/models/block/twilit_grassy_shale.json",
+            "target_file": "assets/thermal_shock_reforged/models/block/twilit_grassy_shale.json",
+            "target_exists": true,
+            "namespace_normalized_equal": true
+          },
+          {
+            "original_file": "assets/thermal_shock/models/item/twilit_grassy_shale.json",
+            "target_file": "assets/thermal_shock_reforged/models/item/twilit_grassy_shale.json",
+            "target_exists": true,
+            "namespace_normalized_equal": true
+          }
+        ],
+        "target_only_files": []
+      },
+      "textures": {
+        "original_recursive_refs": [
+          "thermal_shock:block/twilight_moss",
+          "thermal_shock:block/twilit_cobbled_shale",
+          "thermal_shock:block/twilit_shale"
+        ],
+        "target_recursive_refs": [
+          "thermal_shock_reforged:block/twilight_moss",
+          "thermal_shock_reforged:block/twilit_cobbled_shale",
+          "thermal_shock_reforged:block/twilit_shale"
+        ],
+        "original_to_target": [
+          {
+            "resource": "thermal_shock:block/twilight_moss",
+            "original_file": "assets/thermal_shock/textures/block/twilight_moss.png",
+            "original_exists": true,
+            "target_file": "assets/thermal_shock_reforged/textures/block/twilight_moss.png",
+            "target_exists": true,
+            "byte_equal": true,
+            "original_sha256": "ef105827d133f1cca2a0750aba31eefb8f15ad38635d767c5c15df4c87a17704",
+            "target_sha256": "ef105827d133f1cca2a0750aba31eefb8f15ad38635d767c5c15df4c87a17704"
+          },
+          {
+            "resource": "thermal_shock:block/twilit_cobbled_shale",
+            "original_file": "assets/thermal_shock/textures/block/twilit_cobbled_shale.png",
+            "original_exists": true,
+            "target_file": "assets/thermal_shock_reforged/textures/block/twilit_cobbled_shale.png",
+            "target_exists": true,
+            "byte_equal": true,
+            "original_sha256": "13eae5207c211c5b1dba079efb1de53350ffd63e778b68063c7df1de29bdef63",
+            "target_sha256": "13eae5207c211c5b1dba079efb1de53350ffd63e778b68063c7df1de29bdef63"
+          },
+          {
+            "resource": "thermal_shock:block/twilit_shale",
+            "original_file": "assets/thermal_shock/textures/block/twilit_shale.png",
+            "original_exists": true,
+            "target_file": "assets/thermal_shock_reforged/textures/block/twilit_shale.png",
+            "target_exists": true,
+            "byte_equal": true,
+            "original_sha256": "4b788c224ab271d6df86e705f870fd79b6dcedb4c9e6ce9b5df4a2061204e138",
+            "target_sha256": "4b788c224ab271d6df86e705f870fd79b6dcedb4c9e6ce9b5df4a2061204e138"
+          }
+        ],
+        "target_missing_original_refs": []
+      }
+    }
+  ],
+  "original_data_references": [
+    {
+      "id": "sparkler_bulb",
+      "references": [
+        {
+          "original_file": "data/thermal_shock/forge/biome_modifier/sparkler_bulb_patch_biome_modifier.json",
+          "target_converted_file": "data/thermal_shock_reforged/neoforge/biome_modifier/sparkler_bulb_patch_biome_modifier.json",
+          "target_exists": false
+        },
+        {
+          "original_file": "data/thermal_shock/loot_tables/blocks/sparkler_bulb.json",
+          "target_converted_file": "data/thermal_shock_reforged/loot_table/blocks/sparkler_bulb.json",
+          "target_exists": false
+        },
+        {
+          "original_file": "data/thermal_shock/worldgen/configured_feature/sparkler_bulb_patch.json",
+          "target_converted_file": "data/thermal_shock_reforged/worldgen/configured_feature/sparkler_bulb_patch.json",
+          "target_exists": false
+        },
+        {
+          "original_file": "data/thermal_shock/worldgen/placed_feature/sparkler_bulb_patch.json",
+          "target_converted_file": "data/thermal_shock_reforged/worldgen/placed_feature/sparkler_bulb_patch.json",
+          "target_exists": false
+        }
+      ],
+      "target_existing_converted_paths": []
+    },
+    {
+      "id": "stratosilver_block",
+      "references": [
+        {
+          "original_file": "data/thermal_shock/loot_tables/blocks/stratosilver_block.json",
+          "target_converted_file": "data/thermal_shock_reforged/loot_table/blocks/stratosilver_block.json",
+          "target_exists": false
+        },
+        {
+          "original_file": "data/thermal_shock/recipes/stratosilver_block_craft.json",
+          "target_converted_file": "data/thermal_shock_reforged/recipe/stratosilver_block_craft.json",
+          "target_exists": false
+        },
+        {
+          "original_file": "data/thermal_shock/recipes/stratosilver_block_uncraft.json",
+          "target_converted_file": "data/thermal_shock_reforged/recipe/stratosilver_block_uncraft.json",
+          "target_exists": false
+        }
+      ],
+      "target_existing_converted_paths": []
+    },
+    {
+      "id": "stratus_alloy_block",
+      "references": [
+        {
+          "original_file": "data/thermal_shock/loot_tables/blocks/stratus_alloy_block.json",
+          "target_converted_file": "data/thermal_shock_reforged/loot_table/blocks/stratus_alloy_block.json",
+          "target_exists": false
+        },
+        {
+          "original_file": "data/thermal_shock/recipes/stratus_alloy_block_craft.json",
+          "target_converted_file": "data/thermal_shock_reforged/recipe/stratus_alloy_block_craft.json",
+          "target_exists": false
+        },
+        {
+          "original_file": "data/thermal_shock/recipes/stratus_alloy_block_uncraft.json",
+          "target_converted_file": "data/thermal_shock_reforged/recipe/stratus_alloy_block_uncraft.json",
+          "target_exists": false
+        }
+      ],
+      "target_existing_converted_paths": []
+    },
+    {
+      "id": "glittery_shale",
+      "references": [
+        {
+          "original_file": "data/thermal_shock/forge/biome_modifier/glittery_shale_feature_biome_modifier.json",
+          "target_converted_file": "data/thermal_shock_reforged/neoforge/biome_modifier/glittery_shale_feature_biome_modifier.json",
+          "target_exists": false
+        },
+        {
+          "original_file": "data/thermal_shock/loot_tables/blocks/glittery_shale.json",
+          "target_converted_file": "data/thermal_shock_reforged/loot_table/blocks/glittery_shale.json",
+          "target_exists": false
+        },
+        {
+          "original_file": "data/thermal_shock/loot_tables/gameplay/glittery_shale_lapidary.json",
+          "target_converted_file": "data/thermal_shock_reforged/loot_table/gameplay/glittery_shale_lapidary.json",
+          "target_exists": true
+        },
+        {
+          "original_file": "data/thermal_shock/worldgen/configured_feature/glittery_shale_feature.json",
+          "target_converted_file": "data/thermal_shock_reforged/worldgen/configured_feature/glittery_shale_feature.json",
+          "target_exists": false
+        },
+        {
+          "original_file": "data/thermal_shock/worldgen/placed_feature/glittery_shale_feature.json",
+          "target_converted_file": "data/thermal_shock_reforged/worldgen/placed_feature/glittery_shale_feature.json",
+          "target_exists": false
+        }
+      ],
+      "target_existing_converted_paths": [
+        "data/thermal_shock_reforged/loot_table/gameplay/glittery_shale_lapidary.json"
+      ]
+    },
+    {
+      "id": "constellation_block",
+      "references": [
+        {
+          "original_file": "data/thermal_shock/loot_tables/blocks/constellation_block.json",
+          "target_converted_file": "data/thermal_shock_reforged/loot_table/blocks/constellation_block.json",
+          "target_exists": false
+        }
+      ],
+      "target_existing_converted_paths": []
+    },
+    {
+      "id": "twilit_grassy_shale",
+      "references": [
+        {
+          "original_file": "data/thermal_shock/loot_tables/blocks/twilit_grassy_shale.json",
+          "target_converted_file": "data/thermal_shock_reforged/loot_table/blocks/twilit_grassy_shale.json",
+          "target_exists": false
+        },
+        {
+          "original_file": "data/thermal_shock/worldgen/configured_feature/twilit_grass_patch.json",
+          "target_converted_file": "data/thermal_shock_reforged/worldgen/configured_feature/twilit_grass_patch.json",
+          "target_exists": false
+        },
+        {
+          "original_file": "data/thermal_shock/worldgen/placed_feature/glauko_trees.json",
+          "target_converted_file": "data/thermal_shock_reforged/worldgen/placed_feature/glauko_trees.json",
+          "target_exists": false
+        }
+      ],
+      "target_existing_converted_paths": []
+    }
+  ],
+  "gold_glitter": {
+    "original_registry": "readable/net/mcreator/thermal_shock/init/ThermalShockModParticleTypes.java:51",
+    "original_id": "thermal_shock:gold_glitter",
+    "original_factory": "readable/net/mcreator/thermal_shock/init/ThermalShockModParticles.java:105 -> GoldGlitterParticle::provider",
+    "original_class": "readable/net/mcreator/thermal_shock/client/particle/GoldGlitterParticle.java:21-67",
+    "original_particle_json": "assets/thermal_shock/particles/gold_glitter.json",
+    "original_particle_json_texture": "thermal_shock:gold_glitter",
+    "original_actual_texture": "assets/thermal_shock/textures/particle/gold_glitter.png",
+    "original_effekseer_emitter": "assets/thermal_shock/effeks/goldglitter.efkefc",
+    "class_effect_id": "thermal_shock:goldglitter",
+    "target_registry": "src/main/java/com/hp/thermalshockreforged/world/LoqendiaContent.java:16",
+    "target_id": "thermal_shock_reforged:gold_glitter",
+    "target_factory": "src/main/java/com/hp/thermalshockreforged/client/ClientEvents.java:249 -> AaaStationaryParticle.Provider",
+    "target_particle_json": "src/main/resources/assets/thermal_shock_reforged/particles/gold_glitter.json",
+    "target_particle_json_texture": "thermal_shock_reforged:gold_glitter",
+    "target_actual_texture": "src/main/resources/assets/thermal_shock_reforged/textures/particle/gold_glitter.png",
+    "target_effekseer_emitter": "src/main/resources/assets/thermal_shock_reforged/effeks/goldglitter.efkefc",
+    "provider_effect_id": "thermal_shock_reforged:goldglitter",
+    "texture_exists": true,
+    "effect_exists": true,
+    "particle_json_namespace_normalized_equal": true,
+    "texture_png_byte_equal": true,
+    "original_texture_sha256": "7074f74f39a8ad752db14a876089e9867d92b2425c37a6d44a74660f900a877d",
+    "target_texture_sha256": "7074f74f39a8ad752db14a876089e9867d92b2425c37a6d44a74660f900a877d"
+  }
+}

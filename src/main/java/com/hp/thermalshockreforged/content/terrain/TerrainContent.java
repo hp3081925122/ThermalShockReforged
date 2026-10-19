@@ -35,6 +35,9 @@ public final class TerrainContent {
     private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
     public static final DeferredBlock<Block> GRASSY_SHALE = BLOCKS.register("grassy_shale", () -> new GrassyShaleBlock(false));
+    public static final DeferredBlock<Block> TWILIT_GRASSY_SHALE = BLOCKS.register("twilit_grassy_shale", () -> new GrassyShaleBlock(false,
+            BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).instrument(NoteBlockInstrument.BASEDRUM)
+                    .sound(SoundType.NETHERRACK).strength(1, 5).requiresCorrectToolForDrops()));
     public static final DeferredBlock<Block> SLUSH = BLOCKS.register("slush", () -> new GrassyShaleBlock(true, BlockBehaviour.Properties.of().mapColor(MapColor.CLAY).sound(SoundType.GRAVEL).strength(0.8F, 4).friction(0.7F)));
     public static final DeferredBlock<Block> SNOWY_SHALE = BLOCKS.register("snowy_shale", () -> new GrassyShaleBlock(true));
     public static final DeferredBlock<Block> SNOWY_COBALT = BLOCKS.register("snowy_cobalt", () -> new PlantSoilBlock(cobaltProperties(MapColor.SNOW)));
@@ -67,6 +70,7 @@ public final class TerrainContent {
 
     static {
         ITEMS.registerSimpleBlockItem(GRASSY_SHALE);
+        ITEMS.registerSimpleBlockItem(TWILIT_GRASSY_SHALE);
         ITEMS.registerSimpleBlockItem(SNOWY_SHALE);
         ITEMS.registerSimpleBlockItem(SNOWY_COBALT);
         ITEMS.registerSimpleBlockItem(COBALT);
@@ -130,7 +134,8 @@ public final class TerrainContent {
                 return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
             }
             if (!level.isClientSide) {
-                Block plant = snowy ? (level.random.nextBoolean() ? TALL_FROSTED_GRASS.get() : SHORT_LOQUE_GRASS.get()) : LOQUE_GRASS.get();
+                Block plant = state.is(TWILIT_GRASSY_SHALE.get()) ? com.hp.thermalshockreforged.content.plants.PlantContent.TWILIT_SHRUB.get()
+                        : snowy ? (level.random.nextBoolean() ? TALL_FROSTED_GRASS.get() : SHORT_LOQUE_GRASS.get()) : LOQUE_GRASS.get();
                 if (level.setBlock(pos.above(), plant.defaultBlockState(), 3)) {
                     player.getMainHandItem().shrink(1);
                 }

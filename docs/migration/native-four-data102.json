@@ -1,0 +1,139 @@
+{
+  "batch": 102,
+  "scope": "four native blocks and original dependent generation JSON; templates audited separately, not runtime tests",
+  "data_files": [
+    {
+      "original": "data/thermal_shock/forge/biome_modifier/glauko_trees_biome_modifier.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/glauko_trees_biome_modifier.json",
+      "original_sha256": "947721794eae8a6a2dbdda465f1e63918b3180f9e691a89c613e30e2d64bce2b",
+      "target_sha256": "6d8d32044b4e1f300ce5ab0254285020e464a4fcbe0cbc2a39c810d01f90a208",
+      "conversion": "namespace; NeoForge biome modifier; flattened integer value providers; singular loot_table directory"
+    },
+    {
+      "original": "data/thermal_shock/forge/biome_modifier/glittery_shale_feature_biome_modifier.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/glittery_shale_feature_biome_modifier.json",
+      "original_sha256": "e2e448d9f55bc2a710f5e93e10bd67248a1261f4e44d0eb9e453186dc54d7b45",
+      "target_sha256": "5bdbd49b527c07c248bac13dd135a70e115dcb304c5f1ec779834b5f3af9661c",
+      "conversion": "namespace; NeoForge biome modifier; flattened integer value providers; singular loot_table directory"
+    },
+    {
+      "original": "data/thermal_shock/forge/biome_modifier/sparkler_bulb_patch_biome_modifier.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/sparkler_bulb_patch_biome_modifier.json",
+      "original_sha256": "7b2a42b12671b4b82c19044febae6701ccb54013235b17f12b6ff31ff78bea35",
+      "target_sha256": "b40d2c49dd2b809c767edf9a58c504a388925d88ca09d722f6e39a1b67afb2f7",
+      "conversion": "namespace; NeoForge biome modifier; flattened integer value providers; singular loot_table directory"
+    },
+    {
+      "original": "data/thermal_shock/forge/biome_modifier/twilit_grass_patch_biome_modifier.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/twilit_grass_patch_biome_modifier.json",
+      "original_sha256": "e539c4121d33e8acf0d3726c0e2f677fe2e313960b085fbdaa245828c616bd56",
+      "target_sha256": "ed2e54b52e40040f7aac0ec7c0906092daaef4c7932108dcf05ee3a63efa51cd",
+      "conversion": "namespace; NeoForge biome modifier; flattened integer value providers; singular loot_table directory"
+    },
+    {
+      "original": "data/thermal_shock/loot_tables/blocks/constellation_block.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/constellation_block.json",
+      "original_sha256": "398027a0610402e02577ed0bd8abe6143388e1bad0816ede4bc395b909eba9d3",
+      "target_sha256": "1287a0b1e4e20e1215282d6643de881871715023babed516b63326221b6eb96c",
+      "conversion": "namespace; NeoForge biome modifier; flattened integer value providers; singular loot_table directory"
+    },
+    {
+      "original": "data/thermal_shock/loot_tables/blocks/glittery_shale.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/glittery_shale.json",
+      "original_sha256": "4ac4fa6b4f289b3a386ce025a2f3138aff3275c74111cdc9104ffcda35af5656",
+      "target_sha256": "c1852a2c4d5fa34d271a71fa11ffbfb90fe3f23068adca6cd140ab440f2bd65a",
+      "conversion": "namespace; NeoForge biome modifier; flattened integer value providers; singular loot_table directory"
+    },
+    {
+      "original": "data/thermal_shock/loot_tables/blocks/sparkler_bulb.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/sparkler_bulb.json",
+      "original_sha256": "98188ff385f76ddf080d8ace5fe31f58cd977d1e4ef760d94f8ac8cce3ff781e",
+      "target_sha256": "410c6b185ee35a5809c06c7f621f4450fe407d899c03419cd051416f5223148f",
+      "conversion": "namespace; NeoForge biome modifier; flattened integer value providers; singular loot_table directory"
+    },
+    {
+      "original": "data/thermal_shock/loot_tables/blocks/twilit_grassy_shale.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/twilit_grassy_shale.json",
+      "original_sha256": "5db886d67bc8d78fc8be570760c67c49c4820704679ccbfeac6e201a4ff7c8ec",
+      "target_sha256": "dffef5731ee7318eb5c9b0ad6a2d6678d3a623f1be6b934d7ec2c7a6abac4259",
+      "conversion": "namespace; NeoForge biome modifier; flattened integer value providers; singular loot_table directory"
+    },
+    {
+      "original": "data/thermal_shock/worldgen/configured_feature/glauko_trees.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/glauko_trees.json",
+      "original_sha256": "4e20aacb92475e50eda72b8be6188fc7066ab271afcc5796215ea90ff91ce2da",
+      "target_sha256": "4c183320b5e7b4f108a863a9f0a602ec5b5e19a1f1f902044d760b87810ea2b4",
+      "conversion": "namespace; NeoForge biome modifier; flattened integer value providers; singular loot_table directory"
+    },
+    {
+      "original": "data/thermal_shock/worldgen/configured_feature/glittery_shale_feature.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/glittery_shale_feature.json",
+      "original_sha256": "1bb6f878e6f73d5b4a12d2b3f2fddd8efee3dd017cccd8db70ba6de8ceb155a3",
+      "target_sha256": "c3a15f6cbce7dbf329649f2eab685bb5c0f6461a1ba866bb90beae12255fe0e3",
+      "conversion": "namespace; NeoForge biome modifier; flattened integer value providers; singular loot_table directory"
+    },
+    {
+      "original": "data/thermal_shock/worldgen/configured_feature/sparkler_bulb_patch.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/sparkler_bulb_patch.json",
+      "original_sha256": "0c64c603df115c766aeb0c624a86b60113525ff13f577fae410a2eb713a816ef",
+      "target_sha256": "3e1795f1e7b0051f441c22d019ed8e746e8de552d921ae166c87083b0da873ab",
+      "conversion": "namespace; NeoForge biome modifier; flattened integer value providers; singular loot_table directory"
+    },
+    {
+      "original": "data/thermal_shock/worldgen/configured_feature/twilit_grass_patch.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/twilit_grass_patch.json",
+      "original_sha256": "85c0f05e7066850fc151e95f37a8e808abc49414cbf31d53467b52a46d79714c",
+      "target_sha256": "4f3ff97588b34cc6d0c0162c86f6d593ce8ef96b442ad0e90d95486bf55b785a",
+      "conversion": "namespace; NeoForge biome modifier; flattened integer value providers; singular loot_table directory"
+    },
+    {
+      "original": "data/thermal_shock/worldgen/placed_feature/glauko_trees.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/glauko_trees.json",
+      "original_sha256": "7cd99bfc2885b8e5c6b1c2edeee94601b427bfa9f2dcc70af2d52717679076e6",
+      "target_sha256": "e06ccdd129da2ee0694aa8a44c1f8b860edc1e7f7befe2155728f4e1b3185f9a",
+      "conversion": "namespace; NeoForge biome modifier; flattened integer value providers; singular loot_table directory"
+    },
+    {
+      "original": "data/thermal_shock/worldgen/placed_feature/glittery_shale_feature.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/glittery_shale_feature.json",
+      "original_sha256": "22162f69901bd3c5d0b9299a1d3e1e7479a73fb8904c1fe8e5e80a71ac543b34",
+      "target_sha256": "358d47873d9f9fc1f8fcf648ad6743499f950b9555bbdcf37ebb6c71f2fb870f",
+      "conversion": "namespace; NeoForge biome modifier; flattened integer value providers; singular loot_table directory"
+    },
+    {
+      "original": "data/thermal_shock/worldgen/placed_feature/sparkler_bulb_patch.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/sparkler_bulb_patch.json",
+      "original_sha256": "ec2470b6be5d46af90dfb958fd7de5d67c6df66e0f315634511a5bbf3a2d0926",
+      "target_sha256": "f6a29ecef012d61f3510769ce93fe6a4debf1bc2ae173688bc13eb278e294580",
+      "conversion": "namespace; NeoForge biome modifier; flattened integer value providers; singular loot_table directory"
+    },
+    {
+      "original": "data/thermal_shock/worldgen/placed_feature/twilit_grass_patch.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/twilit_grass_patch.json",
+      "original_sha256": "d04ea2e55cd51bf06547eeb090179bba3c8b133903c4b11c62d7805b2633873a",
+      "target_sha256": "a67e9ea81d9f910419194f2d81a486421f682bef00ceae50211fe2bc046c899c",
+      "conversion": "namespace; NeoForge biome modifier; flattened integer value providers; singular loot_table directory"
+    }
+  ],
+  "tags": {
+    "data/minecraft/tags/block/mineable/axe.json": [
+      "thermal_shock_reforged:sparkler_bulb"
+    ],
+    "data/minecraft/tags/block/mineable/pickaxe.json": [
+      "thermal_shock_reforged:constellation_block",
+      "thermal_shock_reforged:glittery_shale",
+      "thermal_shock_reforged:twilit_grassy_shale"
+    ],
+    "data/minecraft/tags/block/needs_stone_tool.json": [
+      "thermal_shock_reforged:constellation_block"
+    ]
+  },
+  "chinese_keys": {
+    "block.thermal_shock_reforged.sparkler_bulb": "闪光炸弹",
+    "block.thermal_shock_reforged.glittery_shale": "闪光页岩",
+    "block.thermal_shock_reforged.constellation_block": "星座方块",
+    "block.thermal_shock_reforged.twilit_grassy_shale": "暮光覆草页岩",
+    "block.thermal_shock_reforged.glittery_shale.description_0": "§7可在§e宝石匠工作台§7提取。",
+    "block.thermal_shock_reforged.constellation_block.description_0": "§7使用§e凿子§7可改变此方块的图案。"
+  }
+}
