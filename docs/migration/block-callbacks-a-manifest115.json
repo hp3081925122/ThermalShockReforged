@@ -1,0 +1,455 @@
+{
+  "batch": 115,
+  "lane": "A",
+  "status": "生产停笔，独占证据收口交主线统一构建",
+  "productionChangesByA": [],
+  "counts": {
+    "roots": 110,
+    "callbacks": 184,
+    "targetCandidateFiles": 83,
+    "semanticReviewedCallbacks": 184,
+    "reviewedCallbacks": 183,
+    "closedCallbacks": 183,
+    "pendingRoots": [
+      28
+    ]
+  },
+  "staticValidation": {
+    "passed": 1118,
+    "failed": 0
+  },
+  "openRecord": "root28 Civilian既存创造模式7回0差异已核，未找到独立批准记录，主线补总差异表；不是生产待写或编译障碍",
+  "integratedByMain": "Icicle精确AIR及成功移除后掉物，A未修改共享文件",
+  "files": [
+    {
+      "path": "docs/migration/block-callbacks-a-batch115.md",
+      "sha256": "cdd226acd93675a4c02d795c6c742fd883828629a51981997d61085d76be2739"
+    },
+    {
+      "path": "docs/migration/block-callbacks-a-pipeline115.json",
+      "sha256": "74036f7dda18488efcb4cd0a9e7e6740522d1bf7b3588719c47227c53f698592"
+    },
+    {
+      "path": "docs/migration/block-callbacks-a-source115.json",
+      "sha256": "9e765b8857e415df008751fd272c19fbc549e76a145faab7a8e56604c89c4ca6"
+    },
+    {
+      "path": "docs/migration/block-callbacks-a-ownership115.json",
+      "sha256": "203d978d88eb59954968f3af74a524397709254e21dd8ee8f81e648477ccd138"
+    },
+    {
+      "path": "docs/migration/block-callbacks-a-matrix115.json",
+      "sha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb"
+    },
+    {
+      "path": "docs/migration/block-callbacks-a-shared115.json",
+      "sha256": "0f09ef92ba9b6db7ab01628c309fc3a764e560a83e4d96fbcc03d01030ffdb60"
+    },
+    {
+      "path": "docs/migration/block-callbacks-a-validation115.json",
+      "sha256": "8e2375f9a888c95425dcf768b78c914043eb4efe08d37f8f16277982ecd8a614"
+    }
+  ],
+  "referencedProductionSnapshots": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/PondlerEggBlock.java",
+      "sha256": "7171163082d8d6eea8031d640503137d7e7f5a2ade4b617f46a2b1890422cd99"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/PondlerEggBlockEntity.java",
+      "sha256": "fe24099015de81eddc2265b16cf42cb616739a4de87270d2fb9395fe3710ddbb"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/atlas/AtlasBlock.java",
+      "sha256": "6a69c1b120413631a6824dd407e456110dd83f71ad94e4f63a6cbc6446c7d123"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/atlas/AtlasCoordinates.java",
+      "sha256": "2bbfc543c86cb8ec9182628e3caf60dfd18db53488bb726147fff4a6ebc276e1"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/AltarBlock.java",
+      "sha256": "d0f1fd999c1c0efdf61e743f6907acc9d86004cda0cf4712e674d99e99d55adf"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/BrimstoneCakeBlock.java",
+      "sha256": "4c6184e00af2182803b7e04c01176cba43d95fd067a93707750cb1e3f2851dc1"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/BrimstoneCakeConsumption.java",
+      "sha256": "9adbc1ebbe83ecbb4fa6f5e94022d3ccc612d78367d5c0c0daf16f29949b7897"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/CapsuleBlock.java",
+      "sha256": "8d5dc3d2a8858ae21a14ed7a0cddd5751dfe1af5fffeeff53a0431ac8480ddf0"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/CryonicCacheBlock.java",
+      "sha256": "da25999b50e8c9692e94ba41a8878d1ded07c85f90f57a23fb498d6b7cc32106"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/DeskDirectorBlock.java",
+      "sha256": "ac633fb379074c52bf984fdfbe3c95351fada4d6b9f67f9a285dc695539ddd79"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/DialogueBlock.java",
+      "sha256": "1467b51ff32215e2e479d742bc93934797f95b91c232398a2a8399c620752806"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/EnchantedCacheBlock.java",
+      "sha256": "d1064c7db5914f637963c0d243f7fd26b8d23b03b9f5ddf04a57b9eddd8fabb2"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/FabricatorBlock.java",
+      "sha256": "315eeb229c7fe26176dccf5b9db2adfcb52d99dd4343fb5b66f08ffea6b49626"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/FerroCakeBlock.java",
+      "sha256": "81cb9d6746e6146a7534af3ebe7578afa9a38d321dbb43df63cee0cd03579c4c"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java",
+      "sha256": "c5d196fcf05e8ce2530e235ce8f10d68c062460c1266ae4bc8c529db0cbe3e31"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoFlowerBlock.java",
+      "sha256": "a9f29617534dd5cb522ecc33cc0100d091499a6e15b39d2ad3a439986ee287c3"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GrandBlasphemerBlock.java",
+      "sha256": "7682052957070c4120e9b9119041eaf00e5a0e1f978b30445bb64d23c871bae3"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GrandBlasphemerBlockEntity.java",
+      "sha256": "99aa87c91adccfe743fcd6054eb30772e7e3441ff93248ff3c018b4f37a7cdf0"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/HologramConstructorBlock.java",
+      "sha256": "dcac59c2031c87002ab01dac50b5be917c0df8822c3334fad865a1e41449b7ae"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/HologramMonitorBlock.java",
+      "sha256": "50647a053e132ce13335be716cba4f340ca18cce8cf1b5963a51e62b6cd8c5c3"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/HologramRecordings.java",
+      "sha256": "07401c6341aa84eb0078bc4b84992d364bc0e92c6631d1b405c162c1faa17a2d"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/JellercelBlock.java",
+      "sha256": "6ec2c54a5924f17c4e3ee8024cea38ec71f851b0886c919d071051065a9211ad"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/JellercelCollisionBlock.java",
+      "sha256": "2b9819c50c21884707b528ea7caac2d862ce019e7c75e4b932946aea31535614"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/KeystonePuzzleBlock.java",
+      "sha256": "c34f593b194c67217dd60331c68434c9fa86f789f106713c7c4fd166b13c6603"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/LargeJellercelBlock.java",
+      "sha256": "e41abf772e6e26b32f0410645d824e83f95f1834bd55d3482c7c28b280b9cff9"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/LunarPanelBlock.java",
+      "sha256": "b58a965c4ac0526c83a6ed0a3d9537c5dcc3e765029d743432cfeb3726e077ca"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/PathioliteOutcropBlock.java",
+      "sha256": "133a6a7ef56198de1ecffdda15a94f80cd30cb3c4a536e3e41f6844045cfe06a"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/PhobotiteOutcropBlock.java",
+      "sha256": "cc60562519c8ad43326f53fae1802753620da8d48f47a0788467b23ed95f3162"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/PylonCoreBlock.java",
+      "sha256": "3716401535a4deb767ea9b6fe9853af9d6e0f07e758cf23527a060e63a97381e"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/PyrogenicPylonCoreBlock.java",
+      "sha256": "5730025cf0852655f425a12ba16f5bf03f3d843567ad8a533099f632fab007f4"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/ShalePillarBlock.java",
+      "sha256": "e77713f412eb6f69a39aaa26f85101d85de4b4eca5a76fee882d2497cdf9227f"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/StarlightBottleBlock.java",
+      "sha256": "b0851ca586ee779b7789da526e450bc97c683b2597f978fcd00b5247b3f931c7"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/BounceBlocks.java",
+      "sha256": "a941fbab2d54a07111fe293d70016068ebacbed9cf0c96c8d20bfbdc6c35d6b1"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/ConstellationBlock.java",
+      "sha256": "fdc40b9430c7fa2700c7b327fa85c23094f902b7c940261ab1e08cca0678f573"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/CrystalleyeBlock.java",
+      "sha256": "043167da49ca91fdc8de840b96a16f5a84a449fa0f9a0061e6b7472c9eee966e"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/FabricatorConstructorBlock.java",
+      "sha256": "b89afa34e2ff9ca7952df79dafeb081f083be4c05522bf78c6afcf83664276b5"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/GlitterLotusBlock.java",
+      "sha256": "85832b3edb4af53583896e70828cf39a00b94792507b4c6bee6e294dd27c5a33"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/GlitteryShaleBlock.java",
+      "sha256": "c9df2c9375cd3fef1b91cc91a24aa7f1650fa9ebea50b0487e3c7462373f4f33"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/IcicleDecorBlock.java",
+      "sha256": "10175c9d95fe89299ebb81131de4ffa12ea7e46df483aa0b574f9c6ba3f719c5"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/LapidarianWorkbenchBlock.java",
+      "sha256": "fb20f75f18369c8a3ef12aabcab6f387c52b16953e3882c49dcdace94eab040e"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/MantleslagBlock.java",
+      "sha256": "9442dee59e1933b3faa74e0ecab78858b3422f25c985d888142e198011c7e827"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/PhaserBlock.java",
+      "sha256": "97d41591301631d2293c398c3b06ad7616b57e6d803449da16d99f92a8e7d588"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/RockClimbingWallBlock.java",
+      "sha256": "2bac982cdb1c8552fd171dc5a3b04d9785f644ed9759ab3dec47892864ecba8a"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/ShaleLampBlock.java",
+      "sha256": "4b08612e6e625bf0406e996bf69a8a5fedceaded3331e99686e31a30fbd00480"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/displayutility/ReinforcedWindowBlock.java",
+      "sha256": "f28c114406e3ac6104b6d2c50d11d752159282240229335ad7ef89c0c1078254"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/doors/SpecialDoorBlock.java",
+      "sha256": "ce1191f52441d0a597757ef8e7c8f367b0c15e7cdc4eead4d9b954d9e75dd44a"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/farming/BarbubbleBlock.java",
+      "sha256": "732fe2ca7aa9ee11ebb4fd0d51aaf55097dc60c3ffdaa5790c0b83d7f2892f48"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/farming/CropKind.java",
+      "sha256": "de622ac78a57d6250918c96c11624378691753229a0a66fccde8847ebc06403e"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/farming/FarmInventoryBlockEntity.java",
+      "sha256": "2bcbf8591e63e7921d92ae73def60aea39ef771297a81bb5486fedfef7f50b04"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/farming/FarmSeedBlock.java",
+      "sha256": "dadd0187ccf48e79c340751970a4744d10b30ff2eb6106845643ab104319792d"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/farming/GeoCropBlock.java",
+      "sha256": "d21be61d7a29cd262569738d8cee77cd7e379d2fcd44a8aeaaef3dc19fbfd49b"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/farming/SeedBlockEntity.java",
+      "sha256": "911dee6e826caf8e3ff57ab17b30ede917f8a7d0574439c4d3a561cf62a11a78"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/farming/SickleHarvesting.java",
+      "sha256": "57c219447c614b7ae7d1a6ca667d0b00c26c7feeffe1ca96fc964396b8b6c6ec"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/fluids/ReactiveFluidBlock.java",
+      "sha256": "7f1cc525e8c80ca04c5987fa99270364b8cc0061419ee94f6c96f28860403aca"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/food/FerroCakeConsumption.java",
+      "sha256": "9cfc3d9dd1883682d75251e8c1241e45787c6bd195e52526a9f8bbdf7782a854"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/gemlocks/GemlockBlock.java",
+      "sha256": "fbccaeb88cd0ee10306724a0f482d7a017c717d0dc947a9a12e9b5bd68426aa0"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/gemlocks/GemlockKind.java",
+      "sha256": "35be0c9be8ab33d2f78575fa5db31f613350669cbdb9f2f2fd8a912160642ae0"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/growth/GelBulbBlock.java",
+      "sha256": "1d13c72440b8dcda8234be8c516b6ec620309b9550474fa7d2797b164107d7b7"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/growth/GelshooterSeedBlock.java",
+      "sha256": "f736503db0070eefb923d717c6ac611bc829685233278407a69a8a602796600d"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthContent.java",
+      "sha256": "5b0d2eb62e57c4e625a248bd83a0169412c8410f0f8793894a2f1cf2ed46eddc"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthHarvest.java",
+      "sha256": "a52aafd855ad7258fb91d1a6a1ef428c398ac461f64dd86aa2522b9689c3e11b"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthInventoryBlockEntity.java",
+      "sha256": "f8853c56badeac513116e1750434d8c3cd752be98bd77183ef91fdcbde1375e4"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthKind.java",
+      "sha256": "844b18aee6b59e5da51786ca5cdf0fbacdac14614a9c07be5a5363dc4cb277fa"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthSeedBlock.java",
+      "sha256": "87d1964d6b7e525b18c32eaed0282c69f3fd96612d9824201c0a70210105bfe4"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthSoil.java",
+      "sha256": "4af2cce543fafee2fb589287b3e8c229bebb58922e6bc61f5e4a812dfd4795a2"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/growth/HangingFruitBlock.java",
+      "sha256": "6ec5fed1b6144f215916b0a72c8ef461e5da4cf02f300bd9c94e0def734805b4"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/icebreaker/IcebreakerBlock.java",
+      "sha256": "1282169680f09b702defeaeeaea3f895e8c7a356ce1926f7974085591b0eea02"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/icebreaker/IcebreakerPulseEntity.java",
+      "sha256": "9b5a1afb01b2024921bdaaab294a40bbcc2779812e851bad3adf3e4fbc255513"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/labworldgen/DissolverCycleEntity.java",
+      "sha256": "7b49570aadafb4d89e0b2afbe9e9cb774912afbf04f4708a8be5f41fa52f23a6"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/labworldgen/DissolverGemlockBlock.java",
+      "sha256": "f0b859da01b9bfb43b9d9d3316edff37f9a38db2711e308617d62789a636ba22"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/lights/GlowstickBlock.java",
+      "sha256": "3ebefd62763f560b9c8f2c8f228829e90b015a9640e5af20859bcbdd968540ca"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/machines/BlasphemerProcessEntity.java",
+      "sha256": "bab492145bcba0f9265bcf43a927d87b469cfcfa5fb09d158ec28a5b9a6d5b16"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/machines/ExtractorBlock.java",
+      "sha256": "4622e5aeccb97ac5c486e42788be99aeca891c7cd5236a89160623beaeb001ac"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/machines/ExtractorConstructorBlock.java",
+      "sha256": "2dbd0f043f7d7242926385bc587b83bebb0690e1344c5953a41192af9f44c6b5"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/plants/BuffWeedBlock.java",
+      "sha256": "aeb642831a0158f98139e3819904c497dd2e58a76b4edc561601cc2271191534"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/plants/DandelionBlock.java",
+      "sha256": "e0ba4ad4b582fa6a03533bc86bed0bfa1ed1bb3cca5ebf52f2f7a5c91580e93e"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/terrain/BreatherSpongeBlock.java",
+      "sha256": "228e67eb56ecbbe9ea587c8c970d82cdfefc5f64cc8219725f46bb8ee584d32c"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/terrain/InfestedLogBlock.java",
+      "sha256": "30bd0f39d3702cf9f364c3795ae889e8bbfea39328971d5e316d95a97a961cbe"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/terrain/SnowCoveredLeaves.java",
+      "sha256": "5431bab5a3407cc971124a81f8955af31d62e8b8bbc4fca2cd7989e17ba64fd5"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/terrain/TerrainContent.java",
+      "sha256": "cd1805d6fdefa9f53b232f92b36ce7b04efbf3523ae6e80579155a6279e894df"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/vilebathblocks/FogMachineBlock.java",
+      "sha256": "3be2169fe0a83b365dba6b2d2ea752498cd35c6339a904d2a0d9a8fc63e0d04c"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/vilebathblocks/HangingSparklerBulbBlock.java",
+      "sha256": "f021d9462b7c5953d8590053c14903170f27f08c8317e97dc1dd9fb280730be1"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/vilebathblocks/SparklerDetonations.java",
+      "sha256": "beb2840b931925bbfc4dcd4f193b48cfc366ba385e9aca62cc8cb124ddf777fe"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/weatherutility/PurifierBlock.java",
+      "sha256": "687ddce0584ceea98ec5831229f42c1bc53056a533933a15dafa591e90c51207"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/weatherutility/PurifierPulseEntity.java",
+      "sha256": "ab2fc69f7e79fffeeb7f2485fe8bda7bbf4ae95bc07c2484333d34120b0dadc3"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/weatherutility/RainDrumBlock.java",
+      "sha256": "da0d5adc0a866a64bc726ce502e01ec4a5b6a4f12c818546fbd8af7779124c5d"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/ecosystem/block/ChillooEggBlock.java",
+      "sha256": "8d7e9158cea332a08ec4eff870940439eb90d849b741988dda3854ae662fef0c"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/ecosystem/block/ChillooEggBlockEntity.java",
+      "sha256": "01fcccd2e93aba3cc2954fe48214df7593f5762d8c74719f4a50aac0174fbe0d"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/electricsphere/ElectricSphereConstructorBlock.java",
+      "sha256": "49189250537403cbab81079178323ee3e75a4ab8538587fcecee54956ed0e1c7"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/fauna/block/CauldronOfTrilobiteBlock.java",
+      "sha256": "fc5077489a798513783dcec534798e3bb6cde95399f8a92876207a12058f15d7"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/gardenling/GardenlingConstructorBlock.java",
+      "sha256": "c95fbf9895dba9976146a5a8ec9d1dd67f65014dead91198f4dd2cd4f637ae7c"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/glastrekker/GlastrekkerEggBlock.java",
+      "sha256": "6b2ef4306b0ee641e172a6b7f83de1baf8d016a8e7f20cf9a8688f9b7fa6fb4d"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/icesquad/StriderConstructorBlock.java",
+      "sha256": "72087cfe30005131b05e6d218352ca8836c424d2a35eee9b714f75f014fed84f"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabMachineBlock.java",
+      "sha256": "3c2aa424e3a3caff3cc430c431820102104c735b5bc26062b2c5ef28d7a94203"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/liftbug/LiftbugConstructorBlock.java",
+      "sha256": "78fa4afc553c7fd420f6a76298c733409455f02ace1014d05ad88107edb80146"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/sanctum/PylonCoreActivationEntity.java",
+      "sha256": "4773469da5d5ca001a15fbde7bd5124a71afb05c0ead26ad91e1378f070fdf5a"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/world/WorldProgressData.java",
+      "sha256": "77e393024ace0055e90dfab2d3cc1a65ee11c12aee93d1d62a915dd23df3679a"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/world/timing/ServerEndTickTasks.java",
+      "sha256": "dba6d1c195d3ece00aa5409b6cf48c9033099d9c611d1e73f1d88e18da361b5b"
+    }
+  ],
+  "snapshotBoundary": "均为收口时读取的真实生产快照；主线后续修改由整批总验证承接，不把A只读引用算A生产改动。manifest本身不纳入自身哈希",
+  "notRun": [
+    "Gradle编译",
+    "客户端",
+    "Render Preview",
+    "服务端"
+  ],
+  "testOwnership": "完整迁移后主线安排子代理客户端和Render Preview；服务端用户独立测，本线不接管、不修改docs/testing"
+}

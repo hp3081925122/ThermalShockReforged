@@ -24,8 +24,9 @@ class IcicleDecorBlock extends NativeDecorBlock {
                 new Traits(0, true, true, false, 0, 0, false, false), Shapes.block());
     }
     private void checkAttachment(Level level, BlockPos pos) {
-        if (!level.isClientSide && level.getBlockState(pos).is(this) && level.getBlockState(pos.above()).isAir()) {
-            Block.dropResources(level.getBlockState(pos), level, pos, null); level.destroyBlock(pos, false);
+        if (!level.isClientSide && level.getBlockState(pos).is(this) && level.getBlockState(pos.above()).is(Blocks.AIR)) {
+            BlockState current = level.getBlockState(pos);
+            if (level.destroyBlock(pos, false) && !level.getBlockState(pos).is(this)) Block.dropResources(current, level, pos, null);
         }
     }
     @Override protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState oldState, boolean moving) {

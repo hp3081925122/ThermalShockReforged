@@ -49,10 +49,26 @@ public abstract class LabMachineBlock extends Block implements EntityBlock {
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         if (player instanceof ServerPlayer server) {
             if (wallbore()) {
-                if (state.getValue(MODE) == 1 && player.getMainHandItem().is(Items.LAVA_BUCKET)) {
-                    if (player.getInventory().clearOrCountMatchingItems(stack -> stack.is(Items.LAVA_BUCKET), 1, player.inventoryMenu.getCraftSlots()) != 1) return InteractionResult.FAIL;
-                    if (level.getBlockEntity(pos) instanceof LabMachineBlockEntity machine) { machine.getPersistentData().putDouble("effic", 0); machine.setChanged(); }
-                    level.setBlock(pos, state.setValue(MODE, 0), 3); com.hp.thermalshockreforged.entity.qo.QoContent.give(server, new ItemStack(Items.BUCKET)); level.playSound(null, pos, SoundEvents.LAVA_EXTINGUISH, SoundSource.NEUTRAL, 1, 1);
+                BlockState current = level.getBlockState(pos);
+                if (current.is(this) && current.getValue(MODE) == 1 && player.getMainHandItem().is(Items.LAVA_BUCKET)
+                        && level.getBlockEntity(pos) instanceof LabMachineBlockEntity machine) {
+                    ItemStack payment = player.getMainHandItem().split(1);
+                    double previousEffic = machine.getPersistentData().getDouble("effic");
+                    machine.getPersistentData().putDouble("effic", 0);
+                    machine.setChanged();
+                    if (!level.setBlock(pos, current.setValue(MODE, 0), 3)
+                            || level.getBlockEntity(pos) != machine || !level.getBlockState(pos).is(this) || level.getBlockState(pos).getValue(MODE) != 0) {
+                        if (level.getBlockEntity(pos) == machine && level.getBlockState(pos).equals(current)) {
+                            machine.getPersistentData().putDouble("effic", previousEffic);
+                            machine.setChanged();
+                        }
+                        com.hp.thermalshockreforged.entity.qo.QoContent.give(server, payment);
+                        com.hp.thermalshockreforged.ThermalShockReforged.LOGGER.debug("Wallbore refuelling rejected: position={}, player={}", pos, player.getUUID());
+                        return InteractionResult.FAIL;
+                    }
+                    com.hp.thermalshockreforged.entity.qo.QoContent.give(server, new ItemStack(Items.BUCKET));
+                    level.playSound(null, pos, SoundEvents.LAVA_EXTINGUISH, SoundSource.NEUTRAL, 1, 1);
+                    com.hp.thermalshockreforged.ThermalShockReforged.LOGGER.debug("Wallbore refuelled: position={}, player={}, previousEffic={}", pos, player.getUUID(), previousEffic);
                 }
             } else LabContent.openBlock(server, pos, QoMenu.completed(server, "icebreaker_1") ? LabPage.ASSEMBLY : LabPage.ASSEMBLER_TOUCH);
         }

@@ -14,8 +14,8 @@ public class GeoFlowerBlock extends GeoDecorBlock {
 
     @Override protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block neighbor, BlockPos from, boolean moving) {
         super.neighborChanged(state, level, pos, neighbor, from, moving);
-        if (level instanceof ServerLevel server && level.isEmptyBlock(pos.below())) {
-            level.destroyBlock(pos, false);
+        if (level instanceof ServerLevel server && level.isEmptyBlock(pos.below()) && level.getBlockState(pos).is(this)
+                && level.destroyBlock(pos, false) && !level.getBlockState(pos).is(this)) {
             ItemEntity drop = new ItemEntity(server, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(GrowthContent.SPIRE_BLOOM_RUBICON.get()));
             drop.setPickUpDelay(10);
             server.addFreshEntity(drop);

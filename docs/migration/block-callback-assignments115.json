@@ -1,0 +1,2556 @@
+{
+  "batch": 115,
+  "baseCommit": "a86a4abb6cd0dd768d4827b92e35a59d60b02602",
+  "partition": "block unique sourcePath case-sensitive lexicographic order; first110 A, last57 main",
+  "counts": {
+    "all": 167,
+    "A": 110,
+    "main": 57
+  },
+  "entries": [
+    {
+      "ordinal": 1,
+      "lane": "A",
+      "sourcePath": "block/AmalgelTrophyBlock.java",
+      "sourceSHA256": "faea382062143ff1a8bd1b015d0b3b5cc6a90a6c93d3e39e54ed04b351b644ff",
+      "candidateCallbacks": [
+        "animateTick"
+      ],
+      "procedures": [
+        "AmalgelTrophyOnRandomClientDisplayTickProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 2,
+      "lane": "A",
+      "sourcePath": "block/AncientBarbubbleBlock.java",
+      "sourceSHA256": "de5010b08ec64a457e4caf1186eac52913e04ce3fc7f9f937317ae947a5c6ab3",
+      "candidateCallbacks": [
+        "onDestroyedByPlayer",
+        "onPlace"
+      ],
+      "procedures": [
+        "DewleafBlockAddedProcedure",
+        "SickleHarvestingProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 3,
+      "lane": "A",
+      "sourcePath": "block/AncientBarbubbleSeedBlock.java",
+      "sourceSHA256": "4ffeb3476ac4da669617330a793c3436a1a08b937aa0343752b3805934680728",
+      "candidateCallbacks": [
+        "neighborChanged",
+        "onPlace",
+        "tick",
+        "use"
+      ],
+      "procedures": [
+        "DewleafSeedOnTickUpdateProcedure",
+        "SkorioSeedBlockAddedProcedure",
+        "SkorioSeedNeighbourBlockChangesProcedure",
+        "SkorioSeedOnBlockRightClickedProcedure"
+      ],
+      "callOccurrences": 4,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 4,
+      "lane": "A",
+      "sourcePath": "block/AncientSkorioBlock.java",
+      "sourceSHA256": "27ccc535ebe5814cee4af9752135c3fb009b4c83fc009a62fddacef768871746",
+      "candidateCallbacks": [
+        "onDestroyedByPlayer",
+        "onPlace"
+      ],
+      "procedures": [
+        "DewleafBlockAddedProcedure",
+        "SickleHarvestingProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 5,
+      "lane": "A",
+      "sourcePath": "block/AncientSkorioSeedBlock.java",
+      "sourceSHA256": "c310e5e6bbc58fc262b60ca047cdd6a5f14b18447066211447389e3d7835b106",
+      "candidateCallbacks": [
+        "neighborChanged",
+        "onPlace",
+        "tick",
+        "use"
+      ],
+      "procedures": [
+        "DewleafSeedOnTickUpdateProcedure",
+        "SkorioSeedBlockAddedProcedure",
+        "SkorioSeedNeighbourBlockChangesProcedure",
+        "SkorioSeedOnBlockRightClickedProcedure"
+      ],
+      "callOccurrences": 4,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 6,
+      "lane": "A",
+      "sourcePath": "block/AssemblerBlock.java",
+      "sourceSHA256": "1bca92807609e649591567e1526cb6c1ec8e4eb2a26b649695b38d3b89a2f78f",
+      "candidateCallbacks": [
+        "animateTick",
+        "use"
+      ],
+      "procedures": [
+        "AssemblerOnBlockRightClickedProcedure",
+        "FabricatorOnTickUpdateProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 7,
+      "lane": "A",
+      "sourcePath": "block/AtlasBlock.java",
+      "sourceSHA256": "c1f2a8f262ea0a57c0860cda48ca63a69e7be898b5cfffe21fab7742ce5caa67",
+      "candidateCallbacks": [
+        "onPlace",
+        "use"
+      ],
+      "procedures": [
+        "AtlasBlockAddedProcedure",
+        "AtlasOnBlockRightClickedProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 8,
+      "lane": "A",
+      "sourcePath": "block/BarbubbleBlock.java",
+      "sourceSHA256": "b08399d225494a88a5b65eaf512c94234862a2f01ecd9dc31e9c77752eafd610",
+      "candidateCallbacks": [
+        "onDestroyedByPlayer"
+      ],
+      "procedures": [
+        "SickleHarvestingProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 9,
+      "lane": "A",
+      "sourcePath": "block/BarbubbleSeedBlock.java",
+      "sourceSHA256": "c836a2c1d958cb984eaab8adf270b0b658146ccbe91a5756c3bb80c7637ec748",
+      "candidateCallbacks": [
+        "neighborChanged",
+        "onPlace",
+        "tick",
+        "use"
+      ],
+      "procedures": [
+        "SkorioSeedBlockAddedProcedure",
+        "SkorioSeedNeighbourBlockChangesProcedure",
+        "SkorioSeedOnBlockRightClickedProcedure",
+        "SkorioSeedOnTickUpdateProcedure"
+      ],
+      "callOccurrences": 4,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 10,
+      "lane": "A",
+      "sourcePath": "block/BismuthGemlockBlock.java",
+      "sourceSHA256": "179176e279b490f0babe7d28ba0617bde22edc0765d20a43b0239baa3a561b40",
+      "candidateCallbacks": [
+        "getSignal",
+        "use"
+      ],
+      "procedures": [
+        "BismuthGemlockRightClickProcedure",
+        "RubyGemlockEmittedRedstonePowerProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 11,
+      "lane": "A",
+      "sourcePath": "block/BloodBlock.java",
+      "sourceSHA256": "b7c0c2357b2735e8a4c4a05fe5ac7415b85e30d6145214f9c493187ce1c34b61",
+      "candidateCallbacks": [
+        "animateTick",
+        "entityInside"
+      ],
+      "procedures": [
+        "BloodMobplayerCollidesBlockProcedure",
+        "BloodOnRandomClientDisplayTickProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 12,
+      "lane": "A",
+      "sourcePath": "block/BlueCrystalleyeLampBlock.java",
+      "sourceSHA256": "e252e4c03045606c24342e1472454b3a60ae84a467dd94c6d15dc070e60bd6f9",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "Chismantleclick3Procedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 13,
+      "lane": "A",
+      "sourcePath": "block/BottleOfLunarlightBlock.java",
+      "sourceSHA256": "64d90b8608e08ede0a8c05b00b1e1dbd7afe81915d487da225a777d95d2e32d0",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "BottleOfStarlightOnBlockRightClickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 14,
+      "lane": "A",
+      "sourcePath": "block/BottleOfStarlightBlock.java",
+      "sourceSHA256": "820d4c08ef51693359e857ee693a5331bccbf7d1485259f21735e38ccd4f1d88",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "BottleOfStarlightOnBlockRightClickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 15,
+      "lane": "A",
+      "sourcePath": "block/BouncerBlock.java",
+      "sourceSHA256": "72836d06d491d5e366980fcc27caa723388e45c803bbc39b0622fe9cbd993c98",
+      "candidateCallbacks": [
+        "stepOn"
+      ],
+      "procedures": [
+        "BouncerEntityWalksOnTheBlockProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 16,
+      "lane": "A",
+      "sourcePath": "block/BounceweedBlock.java",
+      "sourceSHA256": "c19865122ce1d1f36a90c1d15a5c9b48f7004153d85f07cadef2b7fae4cb33ce",
+      "candidateCallbacks": [
+        "entityInside"
+      ],
+      "procedures": [
+        "SprintweedMobplayerCollidesWithPlantProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 17,
+      "lane": "A",
+      "sourcePath": "block/BreatherSpongeBlock.java",
+      "sourceSHA256": "464bfaa9e803c902198d29f0d0174450e24c0711a8c70e800317b779b635c75c",
+      "candidateCallbacks": [
+        "animateTick",
+        "use"
+      ],
+      "procedures": [
+        "BreatherSpongeOnBlockRightClickedProcedure",
+        "BreatherSpongeOnRandomClientDisplayTickProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 18,
+      "lane": "A",
+      "sourcePath": "block/BrickClimbingWallBlock.java",
+      "sourceSHA256": "529a813da74e29202aa9c92b5e3970dbf0f87545c454af6a359370adedb763e3",
+      "candidateCallbacks": [
+        "onPlace",
+        "use"
+      ],
+      "procedures": [
+        "RockClimbingWallBlockAddedProcedure",
+        "RockClimbingWallOnBlockRightClickedProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 19,
+      "lane": "A",
+      "sourcePath": "block/BrightOchreLeavesBlock.java",
+      "sourceSHA256": "b2a59bad2ca26576f3353f50c298587840e0e9a562cedcf6f6c939d36f11c70c",
+      "candidateCallbacks": [
+        "neighborChanged"
+      ],
+      "procedures": [
+        "VermilliLeavesNeighbourBlockChangesProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 20,
+      "lane": "A",
+      "sourcePath": "block/BrimstoneCakeBlock.java",
+      "sourceSHA256": "1a289660bbd44d1de4cc468b244755f213d92585da9671ae6e093858fddfa046",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "BrimCakeRightClickProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 21,
+      "lane": "A",
+      "sourcePath": "block/BunkerDoorBlock.java",
+      "sourceSHA256": "621c2563eb5bf01900c58ecc27338cb915a412b76c0e58b61ec18b070f9efd98",
+      "candidateCallbacks": [
+        "neighborChanged"
+      ],
+      "procedures": [
+        "BunkerDoorRedstoneOnProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 22,
+      "lane": "A",
+      "sourcePath": "block/CapsuleBlock.java",
+      "sourceSHA256": "4710995bb8ffe18debca6dad1547a56238df01b9feac018dc27190fd76710331",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "CapsuleOnBlockRightClickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 23,
+      "lane": "A",
+      "sourcePath": "block/CauldronOfTrilobiteBlock.java",
+      "sourceSHA256": "c87f14b0407371dfa6a1f8e2c72428ecb4ddd666aaea55aee94a65879c86533b",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "TriloCauldronClickProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 24,
+      "lane": "A",
+      "sourcePath": "block/CavebloomerTrophyBlock.java",
+      "sourceSHA256": "cd191ee6e64b6d33ae6022c6682511bb4b4c017a551918b02da6010eb0398c45",
+      "candidateCallbacks": [
+        "animateTick"
+      ],
+      "procedures": [
+        "AmalgelTrophyOnRandomClientDisplayTickProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 25,
+      "lane": "A",
+      "sourcePath": "block/ChillooEggBlock.java",
+      "sourceSHA256": "80eca84db670d28d1e1189146e154f36bb9f789e10009156b44e5678a3fadfdb",
+      "candidateCallbacks": [
+        "tick"
+      ],
+      "procedures": [
+        "PondlerEggOnTickUpdateProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 26,
+      "lane": "A",
+      "sourcePath": "block/ChiseledMantlestoneBlock.java",
+      "sourceSHA256": "847a40cbf63f99b79c6832c1ffcecbc7ee964a0a5d60f7c2e809432070aa3cd7",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "ChiseledMantlestoneOnBlockRightClickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 27,
+      "lane": "A",
+      "sourcePath": "block/ChromaticShaleLampBlock.java",
+      "sourceSHA256": "5a0a031040904c8100506ef00a390f89a79c40cd7e4b51ab68d0dd141bf8df04",
+      "candidateCallbacks": [
+        "tick",
+        "use"
+      ],
+      "procedures": [
+        "ChromaticShaleLampRightClickedProcedure",
+        "ShaleLampOnTickUpdateProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 28,
+      "lane": "A",
+      "sourcePath": "block/CivilianBlock.java",
+      "sourceSHA256": "80318bb56ef7912f409809ccedb031021112a3aa3ffb969be5011cd04abbdf2c",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "CivilianOnBlockRightClickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 29,
+      "lane": "A",
+      "sourcePath": "block/CobaltBlock.java",
+      "sourceSHA256": "7aa888e1c8208f09e5f2cf07d22b5313b6005af783b8b91db91a715fe0341fae",
+      "candidateCallbacks": [
+        "onPlace"
+      ],
+      "procedures": [
+        "CobaltBlockAddedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 30,
+      "lane": "A",
+      "sourcePath": "block/ConstellationBlockBlock.java",
+      "sourceSHA256": "9a590fe972eaa5106562eff84fc30fd08f3ad981624e0928f4c8baeacbfd3ccc",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "ConstellationBlockOnBlockRightClickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 31,
+      "lane": "A",
+      "sourcePath": "block/CryonicCacheBlock.java",
+      "sourceSHA256": "de1933671eab7615e82a183ac2d33daee0adf5eaef78d1b73cb1ff17df99d200",
+      "candidateCallbacks": [
+        "attack",
+        "use"
+      ],
+      "procedures": [
+        "CryonicCacheBlockDestroyedByPlayerProcedure",
+        "CryonicCacheStartDestroyProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 32,
+      "lane": "A",
+      "sourcePath": "block/CrystalSopelTrophyBlock.java",
+      "sourceSHA256": "b27885a57b885405cb17779f347630b5e66e208d796dae3dc3fb5002b4415e68",
+      "candidateCallbacks": [
+        "animateTick"
+      ],
+      "procedures": [
+        "AmalgelTrophyOnRandomClientDisplayTickProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 33,
+      "lane": "A",
+      "sourcePath": "block/DarkShiverLeavesBlock.java",
+      "sourceSHA256": "09f53ec02b7bae64432d030037a594a2357f973cb33b4b4fa1aac1a2517c9f64",
+      "candidateCallbacks": [
+        "neighborChanged"
+      ],
+      "procedures": [
+        "VermilliLeavesNeighbourBlockChangesProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 34,
+      "lane": "A",
+      "sourcePath": "block/DeskDirectorBlock.java",
+      "sourceSHA256": "0559c57398b4c267893c3cea47280caf7854da7207fe5aa64c3cf0ca61bbe2a1",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "DeskDirectorOnBlockRightClickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 35,
+      "lane": "A",
+      "sourcePath": "block/DewleafBlock.java",
+      "sourceSHA256": "54333add9d3d4305acd20ab109bad1d840805b37a88415b09c92fe9963a7844a",
+      "candidateCallbacks": [
+        "onDestroyedByPlayer",
+        "onPlace"
+      ],
+      "procedures": [
+        "DewleafBlockAddedProcedure",
+        "SickleHarvestingProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 36,
+      "lane": "A",
+      "sourcePath": "block/DewleafSeedBlock.java",
+      "sourceSHA256": "1f7bb2ebb30377349d9050b0a85bb4192e5fb7dbd2b5ec36d866fb28825212e5",
+      "candidateCallbacks": [
+        "neighborChanged",
+        "onPlace",
+        "tick",
+        "use"
+      ],
+      "procedures": [
+        "DewleafSeedOnTickUpdateProcedure",
+        "SkorioSeedBlockAddedProcedure",
+        "SkorioSeedNeighbourBlockChangesProcedure",
+        "SkorioSeedOnBlockRightClickedProcedure"
+      ],
+      "callOccurrences": 4,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 37,
+      "lane": "A",
+      "sourcePath": "block/DissolverGemlockBlock.java",
+      "sourceSHA256": "0e06fb3b380de14de95ccc2269a3f464c7aacaa2e98b2ca53176161d0ba226e9",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "DissolverGemlockRightClickProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 38,
+      "lane": "A",
+      "sourcePath": "block/ElectricSphereConstructorBlock.java",
+      "sourceSHA256": "6dfef08dd50833577c387eb6e67cefe5cc53e51573e510f1729e9c7b59fdada9",
+      "candidateCallbacks": [
+        "onPlace"
+      ],
+      "procedures": [
+        "ElectricSphereConstructorBlockAddedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 39,
+      "lane": "A",
+      "sourcePath": "block/EnchantedCacheBlock.java",
+      "sourceSHA256": "f1bff8ad5a0fc9b3ce7c8bc3cb128848b594177dbc08d46e849cf188113f2eed",
+      "candidateCallbacks": [
+        "attack",
+        "use"
+      ],
+      "procedures": [
+        "EnchantedCacheDestroyedProcedure",
+        "EnchantedCachePlayerStartsToDestroyProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 40,
+      "lane": "A",
+      "sourcePath": "block/ExtractorBlock.java",
+      "sourceSHA256": "69527cd45f58d4498241b5b0bb8801735fc0174221f822cb47f37ab271afc250",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "ExtractorOnBlockRightClickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 41,
+      "lane": "A",
+      "sourcePath": "block/ExtractorConstructorBlock.java",
+      "sourceSHA256": "c710c9b75d14e1be3dfe198e0d7013a4e0b9ca839361a96744b35c9ff85619dd",
+      "candidateCallbacks": [
+        "onPlace"
+      ],
+      "procedures": [
+        "ExtractorConstructorBlockAddedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 42,
+      "lane": "A",
+      "sourcePath": "block/FabricatorBlock.java",
+      "sourceSHA256": "5601956ab8492d63e727c838e9b554c801c2cd489a604b565fed26a2aaba00fa",
+      "candidateCallbacks": [
+        "animateTick",
+        "use"
+      ],
+      "procedures": [
+        "FabricatorOnBlockRightClickedProcedure",
+        "FabricatorOnTickUpdateProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 43,
+      "lane": "A",
+      "sourcePath": "block/FabricatorConstructorBlock.java",
+      "sourceSHA256": "18596e595cfc814c782a36b9c63b8df46cf99165cd7e0e8bc77ddf305bf2df88",
+      "candidateCallbacks": [
+        "onPlace"
+      ],
+      "procedures": [
+        "FabricatorConstructorBlockAddedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 44,
+      "lane": "A",
+      "sourcePath": "block/FerroCakeBlock.java",
+      "sourceSHA256": "315ca6b783b0e0c9aaff5731f4d7e9bf1fad1f5b98913b6aaa0a5e02614cd6d7",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "FerroCakeOnBlockRightClickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 45,
+      "lane": "A",
+      "sourcePath": "block/FerrousAltarBlock.java",
+      "sourceSHA256": "7d2e69d453e4d6585aa2be0b5d401483ae6460055062434af5937e99545a90cf",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "FrigidAltarOnBlockRightClickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 46,
+      "lane": "A",
+      "sourcePath": "block/FloatweedBlock.java",
+      "sourceSHA256": "a5efe990a6bd1d1530a56c85944ba282b53dac42496a0f6721aa582af7cb4f44",
+      "candidateCallbacks": [
+        "entityInside"
+      ],
+      "procedures": [
+        "SprintweedMobplayerCollidesWithPlantProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 47,
+      "lane": "A",
+      "sourcePath": "block/FogMachineBlock.java",
+      "sourceSHA256": "b3ba95d91908cacc388afb8db0f173da87ff5fb91c8db8181ae7b29a586bdc95",
+      "candidateCallbacks": [
+        "animateTick"
+      ],
+      "procedures": [
+        "FogMachineOnRandomClientDisplayTickProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 48,
+      "lane": "A",
+      "sourcePath": "block/FrigidAltarBlock.java",
+      "sourceSHA256": "f711cacbfb7b6600620136dec3c41c2689706f3a387763102a1c7d684dbd773c",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "FrigidAltarOnBlockRightClickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 49,
+      "lane": "A",
+      "sourcePath": "block/FrostLotusBlock.java",
+      "sourceSHA256": "4a4b190efcb1f3633652e62262b5b2dbcc8d51fa56dee68d328d25a9023a6977",
+      "candidateCallbacks": [
+        "onDestroyedByPlayer",
+        "onPlace"
+      ],
+      "procedures": [
+        "DewleafBlockAddedProcedure",
+        "SickleHarvestingProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 50,
+      "lane": "A",
+      "sourcePath": "block/FrostLotusSeedBlock.java",
+      "sourceSHA256": "b79c86f2fbf8419063ffba17219d3383025369bf4416d830aeb494628d181e96",
+      "candidateCallbacks": [
+        "neighborChanged",
+        "onPlace",
+        "tick",
+        "use"
+      ],
+      "procedures": [
+        "DewleafSeedOnTickUpdateProcedure",
+        "SkorioSeedBlockAddedProcedure",
+        "SkorioSeedNeighbourBlockChangesProcedure",
+        "SkorioSeedOnBlockRightClickedProcedure"
+      ],
+      "callOccurrences": 4,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 51,
+      "lane": "A",
+      "sourcePath": "block/GardenlingConstructorBlock.java",
+      "sourceSHA256": "d01ecb0bce9e74f6661b1fefbdb614cb3a57083c66bd4b884d15e4266ce5f68e",
+      "candidateCallbacks": [
+        "onPlace"
+      ],
+      "procedures": [
+        "GardenlingConstructorBlockAddedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 52,
+      "lane": "A",
+      "sourcePath": "block/GelBulbBlock.java",
+      "sourceSHA256": "edcb6fd3108392e4e2ee61bd210bc282f7708a194584e2f92335f10daaf369db",
+      "candidateCallbacks": [
+        "onDestroyedByPlayer",
+        "onPlace"
+      ],
+      "procedures": [
+        "DewleafBlockAddedProcedure",
+        "SickleHarvestingProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 53,
+      "lane": "A",
+      "sourcePath": "block/GelBulbSeedBlock.java",
+      "sourceSHA256": "db1a79533a9c86daa5ebaa7e13848d1584e30ff41e333024c337d247780cbe14",
+      "candidateCallbacks": [
+        "neighborChanged",
+        "onPlace",
+        "tick",
+        "use"
+      ],
+      "procedures": [
+        "SkorioSeedBlockAddedProcedure",
+        "SkorioSeedNeighbourBlockChangesProcedure",
+        "SkorioSeedOnBlockRightClickedProcedure",
+        "SkorioSeedOnTickUpdateProcedure"
+      ],
+      "callOccurrences": 4,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 54,
+      "lane": "A",
+      "sourcePath": "block/GelshooterSeedBlock.java",
+      "sourceSHA256": "f24589bee6ad6a06413192784e72e81df01cfc937a7673ea6cd3ef95fbb690b6",
+      "candidateCallbacks": [
+        "onPlace"
+      ],
+      "procedures": [
+        "GelshooterSeedAddedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 55,
+      "lane": "A",
+      "sourcePath": "block/GlastrekkerEggBlock.java",
+      "sourceSHA256": "f72134057fef925f73f373d05125e86c18d92052ca7d49f9a51012770064a4b4",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "GlastrekkerEggOnBlockRightClickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 56,
+      "lane": "A",
+      "sourcePath": "block/GlitterLotusBlock.java",
+      "sourceSHA256": "d403ab91eb86a969d3f8720abc94d1c04f1694b0788f0f0d947490d98012238e",
+      "candidateCallbacks": [
+        "animateTick"
+      ],
+      "procedures": [
+        "GlowcapUpdateTickProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 57,
+      "lane": "A",
+      "sourcePath": "block/GlitterdropIcicleBlock.java",
+      "sourceSHA256": "2589e5fe21b5581b941b5355536ccbecbe6981ecf8b439a111940f43777151e7",
+      "candidateCallbacks": [
+        "entityInside",
+        "neighborChanged",
+        "onPlace"
+      ],
+      "procedures": [
+        "RockspinesEntityCollidesInTheBlockProcedure",
+        "StarfruitNeighbourBlockChangesProcedure"
+      ],
+      "callOccurrences": 3,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 58,
+      "lane": "A",
+      "sourcePath": "block/GlitteryShaleBlock.java",
+      "sourceSHA256": "ce4d02225c1c0ccabda2aa50fd46e5a5ce067e193a500b33f6dd3a015b24a33d",
+      "candidateCallbacks": [
+        "animateTick"
+      ],
+      "procedures": [
+        "GlitteryShaleOnRandomClientDisplayTickProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 59,
+      "lane": "A",
+      "sourcePath": "block/GlowstickBlock.java",
+      "sourceSHA256": "c84cfa710e025c4a196e632711b6caa7e5b1b63ee2487f8bca204179fc26d701",
+      "candidateCallbacks": [
+        "neighborChanged",
+        "onPlace"
+      ],
+      "procedures": [
+        "StarfruitNeighbourBlockChangesProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 60,
+      "lane": "A",
+      "sourcePath": "block/GrandBlasphemerBlock.java",
+      "sourceSHA256": "f44af722b0d929267e5742f7b96510aafaa92a8870d64a5d6b3ad32bd1481aec",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "GrandBlasphemerOnBlockRightClickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 61,
+      "lane": "A",
+      "sourcePath": "block/GrassyShaleBlock.java",
+      "sourceSHA256": "2dd404d05dc71acf6a7c796ae09f71ed45464146a84ce6dc7ded5af3c2f7d1b2",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "GrassyShaleOnBlockRightClickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 62,
+      "lane": "A",
+      "sourcePath": "block/HangingSparklerBulbBlock.java",
+      "sourceSHA256": "4167339e3784e036d617a6858c73e5112b299b86120cad2514b6f2e552ce9e9b",
+      "candidateCallbacks": [
+        "animateTick",
+        "onDestroyedByPlayer",
+        "onProjectileHit",
+        "wasExploded"
+      ],
+      "procedures": [
+        "SparklerBulbBlockDestroyedByPlayerProcedure",
+        "SparklerbulbUpdateTickProcedure"
+      ],
+      "callOccurrences": 4,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 63,
+      "lane": "A",
+      "sourcePath": "block/HearthflyBranchBlock.java",
+      "sourceSHA256": "dbf94814e42ed8f63a3f771dacbf45fe018b3f176619b5c8fb5b8d48fe06bcc8",
+      "candidateCallbacks": [
+        "animateTick",
+        "onDestroyedByPlayer",
+        "onPlace"
+      ],
+      "procedures": [
+        "DewleafBlockAddedProcedure",
+        "HearthflyBranchOnRandomClientDisplayTickProcedure",
+        "SickleHarvestingProcedure"
+      ],
+      "callOccurrences": 3,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 64,
+      "lane": "A",
+      "sourcePath": "block/HearthflyBranchSeedBlock.java",
+      "sourceSHA256": "05e7ea36f7975e5564d74b3735773602412d13829c31330fc5dbf9bc257ee3f1",
+      "candidateCallbacks": [
+        "neighborChanged",
+        "onPlace",
+        "tick",
+        "use"
+      ],
+      "procedures": [
+        "DewleafSeedOnTickUpdateProcedure",
+        "SkorioSeedBlockAddedProcedure",
+        "SkorioSeedNeighbourBlockChangesProcedure",
+        "SkorioSeedOnBlockRightClickedProcedure"
+      ],
+      "callOccurrences": 4,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 65,
+      "lane": "A",
+      "sourcePath": "block/HologramConstructorBlock.java",
+      "sourceSHA256": "5cac5fff010482df0f62c647d7d25687daff7cd7cceb80032601d792d8b2e4e6",
+      "candidateCallbacks": [
+        "onPlace"
+      ],
+      "procedures": [
+        "HologramConstructorAddedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 66,
+      "lane": "A",
+      "sourcePath": "block/HologramMonitorBlock.java",
+      "sourceSHA256": "8c43365ee3b2373b495b06e70eda43617b5e8fca6baf1c8aaa6c73ed5f424c53",
+      "candidateCallbacks": [
+        "animateTick",
+        "use"
+      ],
+      "procedures": [
+        "HologramMonitorOnBlockRightClickedProcedure",
+        "HologramMonitorOnTickUpdateProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 67,
+      "lane": "A",
+      "sourcePath": "block/IcebreakerBlock.java",
+      "sourceSHA256": "7d6e32b7c0bafb5779357cd1b71b57fa3806ab50225f5cc9b3a887ffd4d4d4d4",
+      "candidateCallbacks": [
+        "onPlace"
+      ],
+      "procedures": [
+        "IcebreakerBlockAddedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 68,
+      "lane": "A",
+      "sourcePath": "block/IciclesBlock.java",
+      "sourceSHA256": "d3533c9f132173de7fb3386dc4c7cf3b11040e3dceb5da53005aab46c4f29cac",
+      "candidateCallbacks": [
+        "entityInside",
+        "neighborChanged",
+        "onPlace",
+        "use"
+      ],
+      "procedures": [
+        "IciclesOnBlockRightClickedProcedure",
+        "RockspinesEntityCollidesInTheBlockProcedure",
+        "StarfruitNeighbourBlockChangesProcedure"
+      ],
+      "callOccurrences": 4,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 69,
+      "lane": "A",
+      "sourcePath": "block/IcidroburnerTrophyBlock.java",
+      "sourceSHA256": "ddb9202e91afcb3e92020d82d195c32912208496ee7e10bc22ccf7482b1686c1",
+      "candidateCallbacks": [
+        "animateTick"
+      ],
+      "procedures": [
+        "AmalgelTrophyOnRandomClientDisplayTickProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 70,
+      "lane": "A",
+      "sourcePath": "block/IcidrogunnerTrophyBlock.java",
+      "sourceSHA256": "d04277bf81c7727995f18ce03bf266d26b6036f6676669c0606b574325f56341",
+      "candidateCallbacks": [
+        "animateTick"
+      ],
+      "procedures": [
+        "AmalgelTrophyOnRandomClientDisplayTickProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 71,
+      "lane": "A",
+      "sourcePath": "block/IcidrostriderConstructorBlock.java",
+      "sourceSHA256": "46b6d80047973c15932bf5d2f70d31b8ffc71c45a4274ac613d6d5eaa73f6116",
+      "candidateCallbacks": [
+        "onPlace"
+      ],
+      "procedures": [
+        "IcidrostriderConstructorBlockAddedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 72,
+      "lane": "A",
+      "sourcePath": "block/InactiveKeystonePedestalBlock.java",
+      "sourceSHA256": "dbd5020350d516977ffc2f5f2c66c0ccbd15949fc19a0e0061175bbe56e93223",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "InactiveKeystonePedestalOnBlockRightClickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 73,
+      "lane": "A",
+      "sourcePath": "block/InfestedLogBlock.java",
+      "sourceSHA256": "660f1b7e9014de5ee5311f58e0a9e7d6417b998db2c9893757d6ad4af3d9aa00",
+      "candidateCallbacks": [
+        "onDestroyedByPlayer"
+      ],
+      "procedures": [
+        "InfestedLogBlockDestroyedByPlayerProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 74,
+      "lane": "A",
+      "sourcePath": "block/JellercelBlock.java",
+      "sourceSHA256": "c67dc8200aa3d35ef238b62cdbf6f06f241352d28ab82bbaf21fc2ab6f3ea3e8",
+      "candidateCallbacks": [
+        "entityInside"
+      ],
+      "procedures": [
+        "JellercelEntityCollidesInTheBlockProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 75,
+      "lane": "A",
+      "sourcePath": "block/KeystonePedestalBlock.java",
+      "sourceSHA256": "a56daa02c11ad723115d30891d15a0c04d527b7276ae57b80a431ceb2e748991",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "KeystonePedestalOnBlockRightClickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 76,
+      "lane": "A",
+      "sourcePath": "block/LapidarianWorkbenchBlock.java",
+      "sourceSHA256": "6fad5d1817536b0eebcb923d4b90839cc9dde17664054c4f4c90bc9b3e8ca278",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "LapidarianWorkbenchNeighbourBlockChangesProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 77,
+      "lane": "A",
+      "sourcePath": "block/LargeJellercelBlock.java",
+      "sourceSHA256": "e4915b9af923443eda63365b0bc09674fe04c6a309992034d18e3c2bf625808a",
+      "candidateCallbacks": [
+        "entityInside",
+        "onDestroyedByPlayer",
+        "onPlace",
+        "wasExploded"
+      ],
+      "procedures": [
+        "JellercelEntityCollidesInTheBlockProcedure",
+        "LargeJellercelBlockAddedProcedure",
+        "LargeJellercelBlockDestroyedByPlayerProcedure"
+      ],
+      "callOccurrences": 4,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 78,
+      "lane": "A",
+      "sourcePath": "block/LargeJellercellCollisionBlock.java",
+      "sourceSHA256": "3af74d7dd8240c98abea5f6c900d7718cc771756911c128767878c0f6ffc5a9a",
+      "candidateCallbacks": [
+        "entityInside",
+        "onDestroyedByPlayer",
+        "stepOn",
+        "wasExploded"
+      ],
+      "procedures": [
+        "JellercelEntityCollidesInTheBlockProcedure",
+        "LargeJellercellCollisionBlockDestroyedByPlayerProcedure"
+      ],
+      "callOccurrences": 4,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 79,
+      "lane": "A",
+      "sourcePath": "block/LargeSpiderLilyBlock.java",
+      "sourceSHA256": "1d399b98435d277dfc62fee67c09dac70b78a29cb3530af7825fac03017d813c",
+      "candidateCallbacks": [
+        "animateTick",
+        "neighborChanged"
+      ],
+      "procedures": [
+        "LargeSpiderLilyOnRandomClientDisplayTickProcedure",
+        "SpireBloomNeighbourBlockChangesProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 80,
+      "lane": "A",
+      "sourcePath": "block/LiftbugConstructorBlock.java",
+      "sourceSHA256": "8c542486f3efb860fa1f8fbea27d8c11ad5b74b5685e212f4aa2d60256178430",
+      "candidateCallbacks": [
+        "onPlace"
+      ],
+      "procedures": [
+        "LiftbugConstructorBlockAddedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 81,
+      "lane": "A",
+      "sourcePath": "block/LittleSpringBlock.java",
+      "sourceSHA256": "93ab07492b8e4b244b3ed0e8c97d30d67da6eebac5e75905deed05fceebec6f7",
+      "candidateCallbacks": [
+        "stepOn"
+      ],
+      "procedures": [
+        "BouncerEntityWalksOnTheBlockProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 82,
+      "lane": "A",
+      "sourcePath": "block/LoqueDandelionBlock.java",
+      "sourceSHA256": "6da94011df59acfcd9f1af5c5b061209225bcea283e2f0623ec21ca5d10b5cdc",
+      "candidateCallbacks": [
+        "entityInside",
+        "use"
+      ],
+      "procedures": [
+        "LoqueDandelionMobplayerCollidesWithPlantProcedure",
+        "LoqueDandelionPlantRightClickedProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 83,
+      "lane": "A",
+      "sourcePath": "block/LunalemonBlock.java",
+      "sourceSHA256": "92e75d4f4d9edbe0871f94ea87998b63d8439409f32a6747c192eed8ac95db63",
+      "candidateCallbacks": [
+        "neighborChanged",
+        "onDestroyedByPlayer",
+        "onPlace"
+      ],
+      "procedures": [
+        "LunalemonBlockDestroyedByPlayerProcedure",
+        "StarfruitNeighbourBlockChangesProcedure"
+      ],
+      "callOccurrences": 3,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 84,
+      "lane": "A",
+      "sourcePath": "block/LunarPanelBlock.java",
+      "sourceSHA256": "8b853fcf27981f1c38901b051a716092a6cb568883716b6f34a01496267854f8",
+      "candidateCallbacks": [
+        "tick"
+      ],
+      "procedures": [
+        "LunarPanelOnTickUpdateProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 85,
+      "lane": "A",
+      "sourcePath": "block/MalachiteGemlockBlock.java",
+      "sourceSHA256": "7e5569ec765aad657cadbbad20507cdb681dd5295826e40db29eca76f94dd616",
+      "candidateCallbacks": [
+        "getSignal",
+        "use"
+      ],
+      "procedures": [
+        "MalachiteGemlockRightClickProcedure",
+        "RubyGemlockEmittedRedstonePowerProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 86,
+      "lane": "A",
+      "sourcePath": "block/MantleslagBlock.java",
+      "sourceSHA256": "329de1eb7e0a73667a78dbfe20c4aaa1e21d3cdd241fb06f8db19db51b99d215",
+      "candidateCallbacks": [
+        "entityInside"
+      ],
+      "procedures": [
+        "MantleslagEntityCollidesInTheBlockProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 87,
+      "lane": "A",
+      "sourcePath": "block/MawDoorBlock.java",
+      "sourceSHA256": "5cabcb772f0456e953f8eb50ceb9cc78b06089441a36018f9256411f6e4888f1",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "MawDoorOnBlockRightClickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 88,
+      "lane": "A",
+      "sourcePath": "block/NeoflormBlock.java",
+      "sourceSHA256": "290002b9435977d4bde885b863f346a4f895118d170905507f511f94ecab2ef6",
+      "candidateCallbacks": [
+        "onDestroyedByPlayer",
+        "onPlace"
+      ],
+      "procedures": [
+        "DewleafBlockAddedProcedure",
+        "SickleHarvestingProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 89,
+      "lane": "A",
+      "sourcePath": "block/NeoflormSeedBlock.java",
+      "sourceSHA256": "3584baf890ab15d99853ed2bf25237e9ae539e8f18c433365b33820df7d21f71",
+      "candidateCallbacks": [
+        "neighborChanged",
+        "onPlace",
+        "tick",
+        "use"
+      ],
+      "procedures": [
+        "SkorioSeedBlockAddedProcedure",
+        "SkorioSeedNeighbourBlockChangesProcedure",
+        "SkorioSeedOnBlockRightClickedProcedure",
+        "SkorioSeedOnTickUpdateProcedure"
+      ],
+      "callOccurrences": 4,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 90,
+      "lane": "A",
+      "sourcePath": "block/OchreLeavesBlock.java",
+      "sourceSHA256": "094c98d8bbb82252dcea614a25d841f692cf05831806c85ff5cc12015230dc8b",
+      "candidateCallbacks": [
+        "neighborChanged"
+      ],
+      "procedures": [
+        "VermilliLeavesNeighbourBlockChangesProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 91,
+      "lane": "A",
+      "sourcePath": "block/PathioliteOutcropBlock.java",
+      "sourceSHA256": "6cfb6e6f36d3e6c5430bbbf94ee3d31d471daaf30613e9704a6bc3eb2b497595",
+      "candidateCallbacks": [
+        "onDestroyedByPlayer",
+        "wasExploded"
+      ],
+      "procedures": [
+        "MagmaticMantlestoneBlockDestroyedByPlayerProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 92,
+      "lane": "A",
+      "sourcePath": "block/PhaserBlock.java",
+      "sourceSHA256": "9d03c3935204fad694a8cc45905068341348925449ddb784d4eb2fd0a4fab08c",
+      "candidateCallbacks": [
+        "animateTick",
+        "entityInside"
+      ],
+      "procedures": [
+        "PhaserCollideProcedure",
+        "PhaserOnRandomClientDisplayTickProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 93,
+      "lane": "A",
+      "sourcePath": "block/PhobotiteGemlockBlock.java",
+      "sourceSHA256": "e73576302d4d953037737ea33464c1253d3cc13bfa56018f0e519e099e62bc5c",
+      "candidateCallbacks": [
+        "getSignal",
+        "use"
+      ],
+      "procedures": [
+        "PhobotiteGemockRightClickProcedure",
+        "RubyGemlockEmittedRedstonePowerProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 94,
+      "lane": "A",
+      "sourcePath": "block/PhobotiteMantleOutcropBlock.java",
+      "sourceSHA256": "c2efa14af107c5ae052821d03ddbbbabd872a982bac7a138a6b3b60bdc20fef9",
+      "candidateCallbacks": [
+        "attack",
+        "canHarvestBlock"
+      ],
+      "procedures": [
+        "AltarCheckConditionProcedure",
+        "PhobotiteOutcropPlayerStartsToDestroyProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 95,
+      "lane": "A",
+      "sourcePath": "block/PhobotiteOutcropBlock.java",
+      "sourceSHA256": "ba133359c635601455343fe6edd642d27a08a78b2bc1f954174a0307114eff7f",
+      "candidateCallbacks": [
+        "attack",
+        "canHarvestBlock"
+      ],
+      "procedures": [
+        "AltarCheckConditionProcedure",
+        "PhobotiteOutcropPlayerStartsToDestroyProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 96,
+      "lane": "A",
+      "sourcePath": "block/PondlerEggBlock.java",
+      "sourceSHA256": "f04975232b580be964a071324e4614d48f2f6a3fa9a62fb9f93851fa74953fdd",
+      "candidateCallbacks": [
+        "tick"
+      ],
+      "procedures": [
+        "PondlerEggOnTickUpdateProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 97,
+      "lane": "A",
+      "sourcePath": "block/PurifierBlock.java",
+      "sourceSHA256": "8c7919a14511ba0455f5b46d53102abaa353b6836234732bcd48425a2f2156a1",
+      "candidateCallbacks": [
+        "onPlace",
+        "setPlacedBy"
+      ],
+      "procedures": [
+        "PurifierBlockIsPlacedByProcedure",
+        "PurifierOnBlockRightClickedProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 98,
+      "lane": "A",
+      "sourcePath": "block/PylonCoreBlock.java",
+      "sourceSHA256": "0efecf1dead40921aa36cf41c1202735e2db476eae1a4ec4b487b41684d09b24",
+      "candidateCallbacks": [
+        "onPlace"
+      ],
+      "procedures": [
+        "PylonCoreBlockAddedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 99,
+      "lane": "A",
+      "sourcePath": "block/PyrogenicPylonCoreBlock.java",
+      "sourceSHA256": "8a576dea59e9b2bb281db23f89c8035181f4a22c0e2422990d0341e1d8560b53",
+      "candidateCallbacks": [
+        "onDestroyedByPlayer"
+      ],
+      "procedures": [
+        "PyrogenicPylonCoreBlockDestroyedByPlayerProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 100,
+      "lane": "A",
+      "sourcePath": "block/RainDrumBlock.java",
+      "sourceSHA256": "3b7276e003a2835e9aec7a509a71b10016c26198f726c8572b5f7b60994dfb72",
+      "candidateCallbacks": [
+        "animateTick",
+        "neighborChanged",
+        "setPlacedBy"
+      ],
+      "procedures": [
+        "RainDrumBlockIsPlacedByProcedure",
+        "RainDrumOnRandomClientDisplayTickProcedure"
+      ],
+      "callOccurrences": 3,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 101,
+      "lane": "A",
+      "sourcePath": "block/RedCrystalleyeLampBlock.java",
+      "sourceSHA256": "b43e31efd6b2f7a2679c2f3776cc6516c0d91244c95cbef1334c5046467d6bdb",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "Chismantleclick2Procedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 102,
+      "lane": "A",
+      "sourcePath": "block/ReinforcedWindowBlock.java",
+      "sourceSHA256": "9d7c23c390fe47341cd7afa8976374cd702d2e6c074c08ad8e1ce4224c921fc6",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "ReinforcedWindowKeystoneCycleProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 103,
+      "lane": "A",
+      "sourcePath": "block/RinthiumButtonBlock.java",
+      "sourceSHA256": "61e291126e8555d3e8f42da12ff16200b241b7df5580e3d0cbd92c21a55ab25c",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "RedMantlestoneLeverOnBlockRightClickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 104,
+      "lane": "A",
+      "sourcePath": "block/RinthiumLeverBlock.java",
+      "sourceSHA256": "db9e359a4e22a40d1443aff7c8dde328ca2a035a54e599d00182996d101d2b5b",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "InactiveKeystonePedestalOnBlockRightClickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 105,
+      "lane": "A",
+      "sourcePath": "block/RockClimbingWallBlock.java",
+      "sourceSHA256": "1185215b083569f68937657e72dc1b3de3ffc9ae71ceceda2253f3cf909b4061",
+      "candidateCallbacks": [
+        "onPlace",
+        "use"
+      ],
+      "procedures": [
+        "RockClimbingWallBlockAddedProcedure",
+        "RockClimbingWallOnBlockRightClickedProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 106,
+      "lane": "A",
+      "sourcePath": "block/RubyGemlockBlock.java",
+      "sourceSHA256": "d59af27a1560be00094f6f4c8e99c9e00998753528113a8ca767f70cedaa2c76",
+      "candidateCallbacks": [
+        "getSignal",
+        "use"
+      ],
+      "procedures": [
+        "RubyGemlockEmittedRedstonePowerProcedure",
+        "RubyGemlockOnBlockRightClickedProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 107,
+      "lane": "A",
+      "sourcePath": "block/RustyRadioBlock.java",
+      "sourceSHA256": "f2df9dcc1de653ab886402712d3096576e765199f300fe535be1970c655d9ee7",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "RustyRadioOnBlockRightClickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 108,
+      "lane": "A",
+      "sourcePath": "block/ShaleLampBlock.java",
+      "sourceSHA256": "a23e65f627fa0435cce08b6d0d853c075dc5ac153f97a6bb92ee4b4569f90c54",
+      "candidateCallbacks": [
+        "tick",
+        "use"
+      ],
+      "procedures": [
+        "ShaleLampOnBlockRightClickedProcedure",
+        "ShaleLampOnTickUpdateProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 109,
+      "lane": "A",
+      "sourcePath": "block/ShalePillarBlock.java",
+      "sourceSHA256": "e37d0440c2cc4954d665383268ea5ca124e058f57c5acb96c3fa4e1bfe95ba42",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "ShalePillarRightClickProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 110,
+      "lane": "A",
+      "sourcePath": "block/ShalePillarVar2Block.java",
+      "sourceSHA256": "207253c8e3769efae9d69cfa45c05af608dd979205825ff205588661a0d271b5",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "SpawnPillarRightClickProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 111,
+      "lane": "main",
+      "sourcePath": "block/ShalePillarVar3Block.java",
+      "sourceSHA256": "3f002a404ac0f598f0d5ab984b173462881cf45b11271c293a28cd21efb4e92a",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "FuzzPillarRightClickProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 112,
+      "lane": "main",
+      "sourcePath": "block/ShalePillarVar4Block.java",
+      "sourceSHA256": "9cd8e2f918f51fb12dc0ccf2a932fe8b05fdabfc06ccf245427b7449ef3c5650",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "DepthPillarRightClickProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 113,
+      "lane": "main",
+      "sourcePath": "block/ShalePillarVar5Block.java",
+      "sourceSHA256": "80670a46d6e48916e24a21c029a072ac29b3f73777746e94d237e091925ebc18",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "GardenPillarRightClickProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 114,
+      "lane": "main",
+      "sourcePath": "block/ShalePillarVar6Block.java",
+      "sourceSHA256": "9d353e189f76ca275354e57b4982384f5303c1beec7dd27fe822d1eef0f38bd7",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "PathosPillarRightClickProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 115,
+      "lane": "main",
+      "sourcePath": "block/ShalePillarVar7Block.java",
+      "sourceSHA256": "28a3c084c8d8b2b950585f4c400d086004a98daf043e3a4f3d4bb24c932e4825",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "AzazelPillarRightClickProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 116,
+      "lane": "main",
+      "sourcePath": "block/ShalePillarVar8Block.java",
+      "sourceSHA256": "58cd8090c96cc8ebe4b5084a0a9d52e6ea56bb017f8cdc3c310a5b5e56757a34",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "ShalePillarRightClickProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 117,
+      "lane": "main",
+      "sourcePath": "block/ShalePotBlock.java",
+      "sourceSHA256": "83f89f1a066c6982b3f76689c454c423c195d76b60985000dad0c397eab5fbf3",
+      "candidateCallbacks": [
+        "onDestroyedByPlayer"
+      ],
+      "procedures": [
+        "ShalePotBlockDestroyedByPlayerProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 118,
+      "lane": "main",
+      "sourcePath": "block/ShiverLeavesBlock.java",
+      "sourceSHA256": "392111460953d621ce06a5cf1d71526c405b27b98071f2e3871b28ad20dd7d63",
+      "candidateCallbacks": [
+        "neighborChanged"
+      ],
+      "procedures": [
+        "VermilliLeavesNeighbourBlockChangesProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 119,
+      "lane": "main",
+      "sourcePath": "block/SkorioBlock.java",
+      "sourceSHA256": "c13b85b11768883acaf8168b67dde1aab4bcf36b0876fed6326f42d915ca19bc",
+      "candidateCallbacks": [
+        "onDestroyedByPlayer"
+      ],
+      "procedures": [
+        "SickleHarvestingProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 120,
+      "lane": "main",
+      "sourcePath": "block/SkorioSeedBlock.java",
+      "sourceSHA256": "21e0361200085c83c5fbc7d65b92af5053d98b60ae2504804f57d5039558fa75",
+      "candidateCallbacks": [
+        "neighborChanged",
+        "onPlace",
+        "tick",
+        "use"
+      ],
+      "procedures": [
+        "SkorioSeedBlockAddedProcedure",
+        "SkorioSeedNeighbourBlockChangesProcedure",
+        "SkorioSeedOnBlockRightClickedProcedure",
+        "SkorioSeedOnTickUpdateProcedure"
+      ],
+      "callOccurrences": 4,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 121,
+      "lane": "main",
+      "sourcePath": "block/SlushBlock.java",
+      "sourceSHA256": "dd97058f8ef131272f4f15d74f584d38c820ab62a2d68ff0c65fdbbb21172af9",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "GrassyShaleOnBlockRightClickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 122,
+      "lane": "main",
+      "sourcePath": "block/SnowyCobaltBlock.java",
+      "sourceSHA256": "6922dabb82c1e331c6f832f717ab6150c157c1df1afd258f7afbfbed6e86ebf1",
+      "candidateCallbacks": [
+        "onPlace"
+      ],
+      "procedures": [
+        "CobaltBlockAddedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 123,
+      "lane": "main",
+      "sourcePath": "block/SnowyShaleBlock.java",
+      "sourceSHA256": "b4c00a3ecafbb3600cee5668f07c3aee1bba136508de7205d666dbbd5bc1ad4d",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "GrassyShaleOnBlockRightClickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 124,
+      "lane": "main",
+      "sourcePath": "block/SparklerBulbBlock.java",
+      "sourceSHA256": "bbb4587aeda7ef3a216656d19e44186c27ac9856ea0d5d23ed739076c2c3af8d",
+      "candidateCallbacks": [
+        "animateTick",
+        "onDestroyedByPlayer",
+        "onProjectileHit",
+        "wasExploded"
+      ],
+      "procedures": [
+        "SparklerBulbBlockDestroyedByPlayerProcedure",
+        "SparklerbulbUpdateTickProcedure"
+      ],
+      "callOccurrences": 4,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 125,
+      "lane": "main",
+      "sourcePath": "block/SparklerSeedBlock.java",
+      "sourceSHA256": "60c992e7ae45381f01b8340c9969c94237d4b432ca0357f8904a0d56edafa477",
+      "candidateCallbacks": [
+        "neighborChanged",
+        "onPlace",
+        "tick",
+        "use"
+      ],
+      "procedures": [
+        "SkorioSeedBlockAddedProcedure",
+        "SkorioSeedNeighbourBlockChangesProcedure",
+        "SkorioSeedOnBlockRightClickedProcedure",
+        "SkorioSeedOnTickUpdateProcedure"
+      ],
+      "callOccurrences": 4,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 126,
+      "lane": "main",
+      "sourcePath": "block/SpiceGeyserBlock.java",
+      "sourceSHA256": "022c3b7708eeb2c650470a42fdf871069de69a1c8201fe7ea4de29d9f497af19",
+      "candidateCallbacks": [
+        "animateTick"
+      ],
+      "procedures": [
+        "SpiceGeyserOnRandomClientDisplayTickProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 127,
+      "lane": "main",
+      "sourcePath": "block/SpiderLiliesBlock.java",
+      "sourceSHA256": "07a9876aca70ea09cb82385cad02ab4b71632e8037e6c47ac692043f12c2d7d1",
+      "candidateCallbacks": [
+        "animateTick",
+        "neighborChanged",
+        "use"
+      ],
+      "procedures": [
+        "LargeSpiderLilyOnRandomClientDisplayTickProcedure",
+        "SpiderLiliesOnBlockRightClickedProcedure",
+        "SpireBloomNeighbourBlockChangesProcedure"
+      ],
+      "callOccurrences": 3,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 128,
+      "lane": "main",
+      "sourcePath": "block/SpireBloomBlock.java",
+      "sourceSHA256": "6bb559b4bbe8fe1f3c765d269382f97cbe0645a57647525f3f953ee4e7394777",
+      "candidateCallbacks": [
+        "neighborChanged"
+      ],
+      "procedures": [
+        "SpireBloomNeighbourBlockChangesProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 129,
+      "lane": "main",
+      "sourcePath": "block/SpireBloomRubiconBlock.java",
+      "sourceSHA256": "94e2981dc553f03a26ebe32bde42c718f3a9a6cb3be295f84454eb7e37225889",
+      "candidateCallbacks": [
+        "neighborChanged"
+      ],
+      "procedures": [
+        "SpireBloomNeighbourBlockChangesProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 130,
+      "lane": "main",
+      "sourcePath": "block/SpirerootThornsBlock.java",
+      "sourceSHA256": "a60c89847ec0c1542f0503456056a59e85d6e657e81f7d5e9403e6d88adc211b",
+      "candidateCallbacks": [
+        "entityInside"
+      ],
+      "procedures": [
+        "SpirerootThornsMobplayerCollidesWithPlantProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 131,
+      "lane": "main",
+      "sourcePath": "block/SporePodBlock.java",
+      "sourceSHA256": "d9912f39c4d40c268e00300788cec3b28d44b9f98dc90a120ff13e196301b5f0",
+      "candidateCallbacks": [
+        "entityInside",
+        "onDestroyedByPlayer",
+        "onProjectileHit",
+        "stepOn",
+        "wasExploded"
+      ],
+      "procedures": [
+        "SporePodBlockDestroyedByPlayerProcedure"
+      ],
+      "callOccurrences": 5,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 132,
+      "lane": "main",
+      "sourcePath": "block/SpringelatinBlock.java",
+      "sourceSHA256": "12d6de898735fc0ddca18f070bc0922e182bc0c1eaccafd3911e67d869578ca2",
+      "candidateCallbacks": [
+        "entityInside"
+      ],
+      "procedures": [
+        "SpringelatinMobplayerCollidesBlockProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 133,
+      "lane": "main",
+      "sourcePath": "block/SprintweedBlock.java",
+      "sourceSHA256": "7b5f83713f43341dfc8364f285e5ca927370ed23264644154181173982b010e2",
+      "candidateCallbacks": [
+        "entityInside"
+      ],
+      "procedures": [
+        "SprintweedMobplayerCollidesWithPlantProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 134,
+      "lane": "main",
+      "sourcePath": "block/StarfruitBlock.java",
+      "sourceSHA256": "db96de8ed4d196ab2fab2bddea07cb6792268be4e0915b3bdf507a7efe5d0f3e",
+      "candidateCallbacks": [
+        "neighborChanged",
+        "onDestroyedByPlayer",
+        "onPlace"
+      ],
+      "procedures": [
+        "StarfruitBlockDestroyedByPlayerProcedure",
+        "StarfruitNeighbourBlockChangesProcedure"
+      ],
+      "callOccurrences": 3,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 135,
+      "lane": "main",
+      "sourcePath": "block/StormBatteryBlock.java",
+      "sourceSHA256": "3489659bbcdaa3a28dff4a7894e7c8449f87a7d21d96f8f44ac0f7b698845ccd",
+      "candidateCallbacks": [
+        "onPlace"
+      ],
+      "procedures": [
+        "StratosilverBlockBlockAddedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 136,
+      "lane": "main",
+      "sourcePath": "block/StratosilverBlockBlock.java",
+      "sourceSHA256": "27a186786438cffd88ba35ffd166c2631c6e208cbe100ee783483c1db86d0e51",
+      "candidateCallbacks": [
+        "onPlace"
+      ],
+      "procedures": [
+        "StratosilverBlockBlockAddedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 137,
+      "lane": "main",
+      "sourcePath": "block/StratusAlloyBlockBlock.java",
+      "sourceSHA256": "f135917c6e4d34fb34e4772bc0d393d163478ddcdaef0cf92461c3e3beafbb2b",
+      "candidateCallbacks": [
+        "onPlace"
+      ],
+      "procedures": [
+        "StratosilverBlockBlockAddedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 138,
+      "lane": "main",
+      "sourcePath": "block/StratusReactorCoreBlock.java",
+      "sourceSHA256": "c350cdfbb7ced3274a771986683eda4563eaba4e101dd947688d9f11a89c8bce",
+      "candidateCallbacks": [
+        "canHarvestBlock",
+        "use"
+      ],
+      "procedures": [
+        "StratusReactorCoreAdditionalHarvestConditionProcedure",
+        "StratusReactorCoreOnBlockRightClickedProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 139,
+      "lane": "main",
+      "sourcePath": "block/SuperCryonicCacheBlock.java",
+      "sourceSHA256": "7dd16e9484ed3653711c94755bad7566e666838704da48acc404dc337de4459a",
+      "candidateCallbacks": [
+        "attack",
+        "use"
+      ],
+      "procedures": [
+        "CryonicCacheStartDestroyProcedure",
+        "SuperCryonicCacheOpenProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 140,
+      "lane": "main",
+      "sourcePath": "block/SuperbouncerBlock.java",
+      "sourceSHA256": "178438a6880a110651f293d29676c0a1610c6deeaac65c97143a308dd546e0f3",
+      "candidateCallbacks": [
+        "stepOn"
+      ],
+      "procedures": [
+        "BouncerEntityWalksOnTheBlockProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 141,
+      "lane": "main",
+      "sourcePath": "block/SurgePylonBlock.java",
+      "sourceSHA256": "e20839a9cf9b6f330840af591d7aab13e90ad605eb4a08488ad1ed778a84dc5d",
+      "candidateCallbacks": [
+        "tick"
+      ],
+      "procedures": [
+        "SurgePylonOnRandomClientDisplayTickProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 142,
+      "lane": "main",
+      "sourcePath": "block/SuspiciousCavebloomerBlock.java",
+      "sourceSHA256": "ec3729e442266f550c0cd982cc339a2a1aa5871277bb2bd4531d9e955f61844a",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "SuspiciousCavebloomerOnBlockRightClickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 143,
+      "lane": "main",
+      "sourcePath": "block/SuspiciousSafeBlock.java",
+      "sourceSHA256": "26246882e84e4e0a335a8410500d10b9139e26f3d5f097368ca32a56c3fa2018",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "SuspiciousSafeOnBlockRightClickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 144,
+      "lane": "main",
+      "sourcePath": "block/TeslaReedSeedBlock.java",
+      "sourceSHA256": "6f9106587ef49bce5c8039feb15758128e4f231bffd8a54669dcc101cef7f432",
+      "candidateCallbacks": [
+        "onPlace"
+      ],
+      "procedures": [
+        "TeslaSeedAddedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 145,
+      "lane": "main",
+      "sourcePath": "block/ThermaDevPlushBlock.java",
+      "sourceSHA256": "96ed5500545e3ce51a23e884aa46364d799d9c3e6e96ee97a2ec98895ebc2296",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "ThermaDevPlushOnBlockRightClickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 146,
+      "lane": "main",
+      "sourcePath": "block/ThermalGeyserBlock.java",
+      "sourceSHA256": "e87778e0eb7848ace3e79a9815124b291699349ce540dd0ab91f253daa86edf6",
+      "candidateCallbacks": [
+        "animateTick"
+      ],
+      "procedures": [
+        "SpiceGeyserOnRandomClientDisplayTickProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 147,
+      "lane": "main",
+      "sourcePath": "block/ThermiteBlock.java",
+      "sourceSHA256": "b53ba825e0e706a72beddc49cc8cc7e113eeb923daf4689c6243115d558aaa31",
+      "candidateCallbacks": [
+        "wasExploded"
+      ],
+      "procedures": [
+        "ThermiteBlockDestroyedByExplosionProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 148,
+      "lane": "main",
+      "sourcePath": "block/TrainTerminalBlock.java",
+      "sourceSHA256": "e1569ff00689dc0bcb1cfd4680441f92624331d6527c7956d87d363bea023f82",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "TrainTerminalOnBlockRightClickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 149,
+      "lane": "main",
+      "sourcePath": "block/TransmutatorBlock.java",
+      "sourceSHA256": "98bba9027ac914c4e386050b4c8b4eb5376234ed2c995422ed2e79a343487183",
+      "candidateCallbacks": [
+        "animateTick",
+        "use"
+      ],
+      "procedures": [
+        "TransmutateClickProcedure",
+        "TransmutatorOnRandomClientDisplayTickProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 150,
+      "lane": "main",
+      "sourcePath": "block/TrappedArchiveCubeBlock.java",
+      "sourceSHA256": "82be935e08264ea800a7939b022fb2c1ee13aace1cd735b62a1e64e09ac5dd39",
+      "candidateCallbacks": [
+        "onDestroyedByPlayer"
+      ],
+      "procedures": [
+        "TrappedArchiveCubeBlockDestroyedByPlayerProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 151,
+      "lane": "main",
+      "sourcePath": "block/TridentLampBlock.java",
+      "sourceSHA256": "23823fe23ce9c7684a160bedb7a603ce1a066b7bfae93ddb634ae875b2901478",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "TridentLampOnBlockRightClickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 152,
+      "lane": "main",
+      "sourcePath": "block/TwilitGrassyShaleBlock.java",
+      "sourceSHA256": "eaad6ff9d334e4b85f611764e098ee7ea8cdb379112360bc6211363e27ce80fe",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "GrassyShaleOnBlockRightClickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 153,
+      "lane": "main",
+      "sourcePath": "block/VeinrootBlock.java",
+      "sourceSHA256": "2ff04a4f9e521a0ff5455617e8d9293ba1e6f10a7b96ac55060a648eba4ee284",
+      "candidateCallbacks": [
+        "neighborChanged"
+      ],
+      "procedures": [
+        "VeinrootNeighbourBlockChangesProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 154,
+      "lane": "main",
+      "sourcePath": "block/VeinrootEndsBlock.java",
+      "sourceSHA256": "620325f771d9026623149f1b5dc54f389e1adf90a4c562c424b021130e3ed533",
+      "candidateCallbacks": [
+        "neighborChanged"
+      ],
+      "procedures": [
+        "VeinrootNeighbourBlockChangesProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 155,
+      "lane": "main",
+      "sourcePath": "block/VermilliLeavesBlock.java",
+      "sourceSHA256": "68a2a58f0f894178f6470322c484d0d6a3b898193127f6676f7190687132b36e",
+      "candidateCallbacks": [
+        "neighborChanged"
+      ],
+      "procedures": [
+        "VermilliLeavesNeighbourBlockChangesProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 156,
+      "lane": "main",
+      "sourcePath": "block/VermillionSparklerStemBlock.java",
+      "sourceSHA256": "20036c0224ff6688a810ec0d007ab3542ae25165b259103f12dc5a7b36998f68",
+      "candidateCallbacks": [
+        "neighborChanged",
+        "onDestroyedByPlayer",
+        "onPlace"
+      ],
+      "procedures": [
+        "SickleHarvestingProcedure",
+        "VermillionSparklerStemBlockAddedProcedure"
+      ],
+      "callOccurrences": 3,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 157,
+      "lane": "main",
+      "sourcePath": "block/VermillionSparklerTop1Block.java",
+      "sourceSHA256": "adc3ee195e8456c44cec4e858500aa611cced90a6b2794c9b19ffdbeb9b61d1e",
+      "candidateCallbacks": [
+        "neighborChanged",
+        "onDestroyedByPlayer",
+        "onPlace"
+      ],
+      "procedures": [
+        "SickleHarvestingProcedure",
+        "VermillionSparklerStemBlockAddedProcedure"
+      ],
+      "callOccurrences": 3,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 158,
+      "lane": "main",
+      "sourcePath": "block/VermillionSparklerTop2Block.java",
+      "sourceSHA256": "1f9eae60c8e84cc5ea1096fd53efd924584b14b43e50687e0ac7d86dcb5510e7",
+      "candidateCallbacks": [
+        "neighborChanged",
+        "onDestroyedByPlayer",
+        "onPlace"
+      ],
+      "procedures": [
+        "SickleHarvestingProcedure",
+        "VermillionSparklerStemBlockAddedProcedure"
+      ],
+      "callOccurrences": 3,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 159,
+      "lane": "main",
+      "sourcePath": "block/VermillionSparklerTop3Block.java",
+      "sourceSHA256": "67b4d8340953dbb664a7c7d283991d850110987e21c58195f6498e651817b653",
+      "candidateCallbacks": [
+        "neighborChanged",
+        "onDestroyedByPlayer",
+        "onPlace"
+      ],
+      "procedures": [
+        "SickleHarvestingProcedure",
+        "VermillionSparklerStemBlockAddedProcedure"
+      ],
+      "callOccurrences": 3,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 160,
+      "lane": "main",
+      "sourcePath": "block/VisiBulbBlock.java",
+      "sourceSHA256": "2e749a9d3d76dfa21408ea54abeb809f6920decfb85efee4de3d735b1b7b0d2d",
+      "candidateCallbacks": [
+        "onDestroyedByPlayer",
+        "onPlace",
+        "use"
+      ],
+      "procedures": [
+        "DewleafBlockAddedProcedure",
+        "SickleHarvestingProcedure",
+        "VisiBulbOnBlockRightClickedProcedure"
+      ],
+      "callOccurrences": 3,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 161,
+      "lane": "main",
+      "sourcePath": "block/VisiBulbSeedBlock.java",
+      "sourceSHA256": "4c63a1e13a77fe0597880c84a8bf224c948c81856663332275c9aefafd4893b7",
+      "candidateCallbacks": [
+        "neighborChanged",
+        "onPlace",
+        "tick",
+        "use"
+      ],
+      "procedures": [
+        "SkorioSeedBlockAddedProcedure",
+        "SkorioSeedNeighbourBlockChangesProcedure",
+        "SkorioSeedOnBlockRightClickedProcedure",
+        "SkorioSeedOnTickUpdateProcedure"
+      ],
+      "callOccurrences": 4,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 162,
+      "lane": "main",
+      "sourcePath": "block/VolatineBlock.java",
+      "sourceSHA256": "5724fc0f5319ccd103302428cc85fba29b804c0d4e40559035d6295dfbdeb8d6",
+      "candidateCallbacks": [
+        "onDestroyedByPlayer",
+        "onPlace"
+      ],
+      "procedures": [
+        "DewleafBlockAddedProcedure",
+        "SickleHarvestingProcedure"
+      ],
+      "callOccurrences": 2,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 163,
+      "lane": "main",
+      "sourcePath": "block/VolatineSeedBlock.java",
+      "sourceSHA256": "610ef7ba5beef0c3c78cac7b76c6b03ad19d596e09777ea2f58008d4721ee384",
+      "candidateCallbacks": [
+        "neighborChanged",
+        "onPlace",
+        "tick",
+        "use"
+      ],
+      "procedures": [
+        "SkorioSeedBlockAddedProcedure",
+        "SkorioSeedNeighbourBlockChangesProcedure",
+        "SkorioSeedOnBlockRightClickedProcedure",
+        "SkorioSeedOnTickUpdateProcedure"
+      ],
+      "callOccurrences": 4,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 164,
+      "lane": "main",
+      "sourcePath": "block/WallboreBlock.java",
+      "sourceSHA256": "504a0f311cb7989c4bb792e07710adbde45fa66bca1a41591a6ed5b0e878476c",
+      "candidateCallbacks": [
+        "canHarvestBlock",
+        "onPlace",
+        "tick",
+        "use"
+      ],
+      "procedures": [
+        "WallboreAdditionalHarvestConditionProcedure",
+        "WallboreBlockAddedProcedure",
+        "WallboreOnBlockRightClickedProcedure",
+        "WallboreOnTickUpdateProcedure"
+      ],
+      "callOccurrences": 4,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 165,
+      "lane": "main",
+      "sourcePath": "block/WallboreConstructorBlock.java",
+      "sourceSHA256": "20c616eb03f99d0d5ed25c2c88e4980bb8bb3f7773b2ab18a9d6270acb5061f8",
+      "candidateCallbacks": [
+        "onPlace"
+      ],
+      "procedures": [
+        "WallboreConstructorBlockAddedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 166,
+      "lane": "main",
+      "sourcePath": "block/WindblownLoqueDandelionBlock.java",
+      "sourceSHA256": "c1bed586af18948a68bfc0a6d5598245873c4442595ffb646e8d969ae1139f16",
+      "candidateCallbacks": [
+        "use"
+      ],
+      "procedures": [
+        "WindblownLoqueDandelionPlantRightClickedProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    },
+    {
+      "ordinal": 167,
+      "lane": "main",
+      "sourcePath": "block/WorldTourTrophyBlock.java",
+      "sourceSHA256": "de11a4f97938c4904a187ba62b28bd266f3964093edb05b0db3cbec39f585cb3",
+      "candidateCallbacks": [
+        "animateTick"
+      ],
+      "procedures": [
+        "AmalgelTrophyOnRandomClientDisplayTickProcedure"
+      ],
+      "callOccurrences": 1,
+      "targetStatus": "未人工映射，不代表完整"
+    }
+  ]
+}

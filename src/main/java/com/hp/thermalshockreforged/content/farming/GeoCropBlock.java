@@ -49,8 +49,7 @@ public class GeoCropBlock extends Block implements EntityBlock {
         if (level.isClientSide) return;
         String soil = BuiltInRegistries.BLOCK.getKey(level.getBlockState(pos.below()).getBlock()).toString();
         if (!java.util.Set.of("thermal_shock_reforged:purified_grassy_shale", "thermal_shock_reforged:grassy_shale", "thermal_shock_reforged:snowy_shale", "thermal_shock_reforged:planter_pot", "thermal_shock_reforged:planter_box").contains(soil)) {
-            Block.dropResources(state, level, pos, null);
-            level.destroyBlock(pos, false);
+            if (level.getBlockState(pos).is(this) && level.destroyBlock(pos, false) && !level.getBlockState(pos).is(this)) Block.dropResources(state, level, pos, null);
         }
     }
     @Override public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
@@ -61,7 +60,7 @@ public class GeoCropBlock extends Block implements EntityBlock {
     }
     @Override public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean harvest, FluidState fluid) {
         boolean result = super.onDestroyedByPlayer(state, level, pos, player, harvest, fluid);
-        SickleHarvesting.harvest(level, pos, kind, player);
+        if (result && !level.getBlockState(pos).is(this)) SickleHarvesting.harvest(level, pos, kind, player);
         return result;
     }
     @Override protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState replacement, boolean moving) {

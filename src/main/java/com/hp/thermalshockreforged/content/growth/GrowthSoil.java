@@ -15,8 +15,8 @@ final class GrowthSoil {
     }
     static void checkMature(Level level, BlockPos pos) {
         if (!level.isClientSide && !accepts(level, pos, false)) {
-            Block.dropResources(level.getBlockState(pos), level, pos, null);
-            level.destroyBlock(pos, false);
+            var current = level.getBlockState(pos);
+            if (level.destroyBlock(pos, false) && !level.getBlockState(pos).is(current.getBlock())) Block.dropResources(current, level, pos, null);
         }
     }
 }

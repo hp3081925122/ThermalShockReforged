@@ -1,0 +1,41 @@
+{
+  "batch": 115,
+  "lane": "A",
+  "increments": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/IcicleDecorBlock.java",
+      "method": "checkAttachment",
+      "roots": [57, 68],
+      "originalProcedure": "StarfruitNeighbourBlockChangesProcedure",
+      "evidence": "原过程明确getBlock()==Blocks.AIR；目标isAir()包含CAVE_AIR与VOID_AIR。原根onPlace/neighborChanged均实际调用该过程。",
+      "requestedChange": "level.getBlockState(pos.above()).isAir() 改为 level.getBlockState(pos.above()).is(Blocks.AIR)",
+      "status": "主线已集成精确AIR及成功移除才掉物；A未修改生产，统一构建由主线承接",
+      "validation": "AIR触发掉落，CAVE_AIR/VOID_AIR/其它方块不触发；目标先确认destroy(false)成功且本块不再存在才掉资源，防移除失败刷物。"
+    }
+  ],
+  "corrections": [
+    "BuffWeed只注册Bounceweed/Floatweed，二者120正确；Sprintweed在TallPlantContent独立实现220，无需修改BuffWeed。",
+    "BrightOchre/DarkShiver/Ochre叶实际注册在TerrainContent，回调落点SnowCoveredLeaves.neighborChanged；不是VermilliContent。",
+    "普通种子原源码否定号位于匿名类表达式前；原源码、原JAR与目标本来均为!thirsty。此前阅读遗漏已纠正，不是CFR反相，也不是死锁修复。",
+    "GelBulbSeed目标为GrowthSeedBlock，继承GrowthInventoryBlockEntity到FarmInventoryBlockEntity，不是FarmSeedBlock。",
+    "两蛋共用的原孵化过程没有20POOF或显式随机yaw；撤回矩阵早期错误笔记，不增加伪效果。"
+  ],
+  "existingDifferences": [
+    {
+      "root": 28,
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/DialogueBlock.java",
+      "method": "interact",
+      "original": "Civilian创造模式state+1，只有值在0..7才写；7停住",
+      "target": "既存state.cycle(VARIANT)使7回0；生存仍对应八页面",
+      "status": "源码差异已核，未找到单独批准记录；交主线补总差异记录，本批不改生产"
+    },
+    {
+      "roots": [57, 68],
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/IcicleDecorBlock.java",
+      "method": "entityInside",
+      "original": "先STALAGMITE伤害1再destroy(false)",
+      "target": "既存先实际移除成功再伤害1",
+      "status": "正常路径伤害数值完整；取消移除时不再伤害。单列既存事务门槛差异，不冒称原版顺序相同"
+    }
+  ]
+}

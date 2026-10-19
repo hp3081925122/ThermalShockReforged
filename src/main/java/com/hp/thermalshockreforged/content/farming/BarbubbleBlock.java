@@ -15,7 +15,7 @@ public final class BarbubbleBlock extends DoublePlantBlock {
     @Override public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction face) { return 60; }
     @Override public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean harvest, FluidState fluid) {
         boolean result = super.onDestroyedByPlayer(state, level, pos, player, harvest, fluid);
-        SickleHarvesting.harvest(level, pos, CropKind.BARBUBBLE, player);
+        if (result && !level.getBlockState(pos).is(this)) SickleHarvesting.harvest(level, pos, CropKind.BARBUBBLE, player);
         return result;
     }
 }

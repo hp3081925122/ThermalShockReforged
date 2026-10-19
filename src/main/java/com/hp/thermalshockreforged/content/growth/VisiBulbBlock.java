@@ -30,11 +30,16 @@ public final class VisiBulbBlock extends Block implements EntityBlock {
     @Override protected VoxelShape getVisualShape(BlockState state,BlockGetter level,BlockPos pos,CollisionContext context) { return Shapes.empty(); }
     @Override public BlockEntity newBlockEntity(BlockPos pos,BlockState state) { return new GrowthInventoryBlockEntity(pos,state); }
     @Override protected void onPlace(BlockState state,Level level,BlockPos pos,BlockState previous,boolean moving) { super.onPlace(state,level,pos,previous,moving); GrowthSoil.checkMature(level,pos); }
-    @Override public boolean onDestroyedByPlayer(BlockState state,Level level,BlockPos pos,Player player,boolean harvest,FluidState fluid) { boolean result=super.onDestroyedByPlayer(state,level,pos,player,harvest,fluid); GrowthHarvest.harvest(level,pos,GrowthKind.VISI_BULB,player); return result; }
+    @Override public boolean onDestroyedByPlayer(BlockState state,Level level,BlockPos pos,Player player,boolean harvest,FluidState fluid) { boolean result=super.onDestroyedByPlayer(state,level,pos,player,harvest,fluid); if (result && !level.getBlockState(pos).is(this)) GrowthHarvest.harvest(level,pos,GrowthKind.VISI_BULB,player); return result; }
     private void use(Level level,BlockPos pos,Player player) {
-        if (!(level instanceof ServerLevel server)||level.getBlockState(pos).getValue(BLOCKSTATE)!=0) return;
+        if (!(level instanceof ServerLevel server)) return;
+        BlockState current = level.getBlockState(pos);
+        if (!current.is(this) || current.getValue(BLOCKSTATE) != 0) return;
+        if (!level.setBlock(pos, current.setValue(BLOCKSTATE,1),3)) {
+            com.hp.thermalshockreforged.ThermalShockReforged.LOGGER.debug("Visi bulb consumption rejected: position={}, player={}", pos, player.getUUID());
+            return;
+        }
         player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION,1300,0));
-        level.setBlock(pos,level.getBlockState(pos).setValue(BLOCKSTATE,1),3);
         level.playSound(null,pos,SoundEvents.HONEY_BLOCK_BREAK,SoundSource.NEUTRAL,1,1);
         level.playSound(null,pos,SoundEvents.BUBBLE_COLUMN_BUBBLE_POP,SoundSource.NEUTRAL,1,1);
         server.sendParticles(ParticleTypes.SPLASH,pos.getX()+.5,pos.getY()+.5,pos.getZ()+.5,5,.4,.4,.4,.1);
