@@ -1,0 +1,25 @@
+# 第114批主线：26项非攻击事件复审
+
+第113批已提交bab4c383889cf12550cf9c47f203d2451227673c，第114批正式解冻。原07.9 JAR与81方法机器源哈希见global-events-inventory114.json，主线负责lane=main的26项，迁移A负责55攻击项。生产前建立本文档，不把候选映射当行为通过。
+
+26项包括6死亡、1破坏、3放置、2摔落、3玩家tick、1实体加入、3伤害事件、1治疗、3进度、1退出、2醒来。六死亡的确定性数值/来源桥比对交quick_explorer负责，主线不重复全集调查；其余20项由主线核源码及当前版本API。找到真实缺口再修改，不用新增重复监听来“补齐计数”。
+
+复审重点为真实触发端和阶段、取消规则、维度与玩家资格、属性与状态持久化、原多次独立随机、真实声音/粒子/动画、事件处理和原生回调是否等价。原药水伪内部标记按当前状态系统迁入，真实施加玩家的效果须保。实体加入替换与注销清理要防复制/重复移除，冷却不依赖跨世界无界静态集合。
+
+根/状态/元素战斗/装备与配置为共享接入，迁移A只给精确增量，主线最后合。双方整批停笔后固定全src/main统一构建；本批不开客户端、不重做用户服务端测试。完整代码及无简化复审后再安排子代理客户端与Render Preview，未通过项如实列待验。
+
+## 本批生产与复审结果
+
+逐项原文件和class机器SHA、目标真实路径、值与差异见nonattack-events-main-matrix114.json，26项全部定位；其中Cobalt原空执行、Prey仅两处false写且无读取，明确存证不造空监听。MoonPhase采用已有client-only天空纹理Mixin，原Loqendia/Aqeron交叉命名贴图保留；两Wake按第39批单一入口及成功提交修复，不恢复Force绕规则旁路；三进度和Zenith六子过程保持既有完整链。该矩阵属于静态复审，不是整个模组或运行验收完成。
+
+本批补三类真实缺口：Bouncer/LittleSpring/Superbouncer脚下与下一格取消摔落伤害；精确四件Carborundum的Player摔落免伤（独立事件不加Zenith/维度门槛）；Loqendia拒Pig加入、按两原UPDATES默认true游戏规则处理实体放置的火和水下岩浆，保全部原状态条件/flags3/音效，不添加全tick世界扫描。两Fall原过程都真实订阅，独立代理初报“没有独立Fall”因读错相邻walk/装备过程已正式撤回。
+
+旧Forge的LivingHurt位于actuallyHurt的armor/magic/absorption之前，新NeoForge的LivingDamageEvent.Pre在armor/magic之后，不能只改事件名。新增PreArmorDamageEvent在现有两实际armor前注入点发出，Living路径跳过Player，Player override单发；先保原Parrying消费，再让DevScarf/电荷传播取得真实无敌帧差值。去掉后减伤数值反推，保原范围、声画、概率及已授权整链去重；Parrying原并未cancel伤害，不按类名另加无敌。此处新事件仅服务已核业务，不接管外模组可取消/改伤事件契约。
+
+FoodDrops恢复原LivingDeath早期阶段，排removed或原生dead已提交的重复die，不保永久food_drop_committed，避免吞合法复活后的再次掉落。六机会、数量1、pickup10和doEntityDrops保留。必须区分事件阶段与规则：目标CommonHooks.onLivingDrops本来就位于RULE_DOMOBLOOT条件之外，不能声称切换阶段修了doMobLoot；恢复的是killer.killedEntity/dropAllDeathLoot/可取消LivingDrops之前的原路径。后续监听再取消死亡仍可能已掉食物，原监听亦如此，本批不悄然改为死亡提交后奖励。
+
+undead_mobs恢复原13成员：Monolith与DormantMonolith原MobType.UNDEAD需保原版亡灵语义，但不因此获得自定义tainted_energy额外掉落，移除第95批误扩两成员，原版亡灵相关标签不动。ice则必须保FrostTitan：原JAR同时有无效singular4和1.20.1实际plural5成员，主线最初只取4导致本轮误删，复核两原JSON后恢复5，最终ice与批次基线相同。Cryomancer仍按原标签真实资格，不凭掉落分支名擅加成员。墓地种子for每轮重新抽上界，精确4096权重[512,1344,1400,735,105]与目标阈值相同；代理初报单次均匀抽样已由原goto66字节码撤回。
+
+Herald20次延迟从本体tick移到原SERVER END，入队当tick的END扣第一次，UUID集合每tick只执行一次；重载保存remaining/origin，不延后一tick，消费锁先于两声和钥匙生成。保旧审计32/90行明确批准的死亡取消、跨维回退9，未恢复死尸参与或死后奖励；此为既有合理差异，不能误报原闭包会自行取消。未新增独立任务载体，也未增加每tick维度扫描。
+
+独立机械核由coverage104_inventory（六死亡/Herald字节码）、coverage101_inventory（六套装/三进度）和remaining_inventory97（空事件/两规则/新伤害桥/Fall及标签）完成；报告中的错误与快照过期均纠正后采用。最终目标SHA与构建证据以主线固定输入报告为准，不把初始快照SHA当最新生产结果。

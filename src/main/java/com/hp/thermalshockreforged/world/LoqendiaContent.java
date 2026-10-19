@@ -25,5 +25,5 @@ public final class LoqendiaContent {
     private static final DeferredRegister<StructureProcessorType<?>> PROCESSORS = DeferredRegister.create(Registries.STRUCTURE_PROCESSOR, ThermalShockReforged.MOD_ID);
     public static final DeferredHolder<StructureProcessorType<?>, StructureProcessorType<WaterloggingFixProcessor>> WATERLOGGING_FIX = PROCESSORS.register("waterlogging_fix", () -> () -> WaterloggingFixProcessor.CODEC);
     private LoqendiaContent() { }
-    public static void register(IEventBus bus) { BLOCKS.register(bus); POI_TYPES.register(bus); PARTICLES.register(bus); PROCESSORS.register(bus); }
+    public static void register(IEventBus bus) { BLOCKS.register(bus); POI_TYPES.register(bus); PARTICLES.register(bus); PROCESSORS.register(bus); LoqendiaRules.register(); }
 }

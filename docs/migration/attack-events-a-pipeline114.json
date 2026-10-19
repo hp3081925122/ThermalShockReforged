@@ -1,0 +1,144 @@
+{
+  "batch": 114,
+  "evidence": [
+    {
+      "origin": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "path": "net/minecraft/world/entity/LivingEntity.java",
+      "sha256": "96358c942018379244e5ffd6c01513f38ff26f56b99ce4747fa891490332f6c8",
+      "blocks": [
+        {
+          "line": 1058,
+          "start": 1050,
+          "text": "   public void setHealth(float p_21154_) {\n      this.entityData.set(DATA_HEALTH_ID, Mth.clamp(p_21154_, 0.0F, this.getMaxHealth()));\n   }\n\n   public boolean isDeadOrDying() {\n      return this.getHealth() <= 0.0F;\n   }\n\n   public boolean hurt(DamageSource p_21016_, float p_21017_) {\n      if (!net.minecraftforge.common.ForgeHooks.onLivingAttack(this, p_21016_, p_21017_)) return false;\n      if (this.isInvulnerableTo(p_21016_)) {\n         return false;\n      } else if (this.level().isClientSide) {\n         return false;\n      } else if (this.isDeadOrDying()) {\n         return false;\n      } else if (p_21016_.is(DamageTypeTags.IS_FIRE) && this.hasEffect(MobEffects.FIRE_RESISTANCE)) {"
+        },
+        {
+          "line": 1059,
+          "start": 1051,
+          "text": "      this.entityData.set(DATA_HEALTH_ID, Mth.clamp(p_21154_, 0.0F, this.getMaxHealth()));\n   }\n\n   public boolean isDeadOrDying() {\n      return this.getHealth() <= 0.0F;\n   }\n\n   public boolean hurt(DamageSource p_21016_, float p_21017_) {\n      if (!net.minecraftforge.common.ForgeHooks.onLivingAttack(this, p_21016_, p_21017_)) return false;\n      if (this.isInvulnerableTo(p_21016_)) {\n         return false;\n      } else if (this.level().isClientSide) {\n         return false;\n      } else if (this.isDeadOrDying()) {\n         return false;\n      } else if (p_21016_.is(DamageTypeTags.IS_FIRE) && this.hasEffect(MobEffects.FIRE_RESISTANCE)) {\n         return false;"
+        }
+      ]
+    },
+    {
+      "origin": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "path": "net/minecraft/world/entity/player/Player.java",
+      "sha256": "b8197ac11ae6fa3c5d1bc111db25b491facec6512036b980fae0e652c74125db",
+      "blocks": [
+        {
+          "line": 811,
+          "start": 803,
+          "text": "         return !this.level().getGameRules().getBoolean(GameRules.RULE_FIRE_DAMAGE);\n      } else if (p_36249_.is(DamageTypeTags.IS_FREEZING)) {\n         return !this.level().getGameRules().getBoolean(GameRules.RULE_FREEZE_DAMAGE);\n      } else {\n         return false;\n      }\n   }\n\n   public boolean hurt(DamageSource p_36154_, float p_36155_) {\n      if (!net.minecraftforge.common.ForgeHooks.onPlayerAttack(this, p_36154_, p_36155_)) return false;\n      if (this.isInvulnerableTo(p_36154_)) {\n         return false;\n      } else if (this.abilities.invulnerable && !p_36154_.is(DamageTypeTags.BYPASSES_INVULNERABILITY)) {\n         return false;\n      } else {\n         this.noActionTime = 0;\n         if (this.isDeadOrDying()) {"
+        },
+        {
+          "line": 812,
+          "start": 804,
+          "text": "      } else if (p_36249_.is(DamageTypeTags.IS_FREEZING)) {\n         return !this.level().getGameRules().getBoolean(GameRules.RULE_FREEZE_DAMAGE);\n      } else {\n         return false;\n      }\n   }\n\n   public boolean hurt(DamageSource p_36154_, float p_36155_) {\n      if (!net.minecraftforge.common.ForgeHooks.onPlayerAttack(this, p_36154_, p_36155_)) return false;\n      if (this.isInvulnerableTo(p_36154_)) {\n         return false;\n      } else if (this.abilities.invulnerable && !p_36154_.is(DamageTypeTags.BYPASSES_INVULNERABILITY)) {\n         return false;\n      } else {\n         this.noActionTime = 0;\n         if (this.isDeadOrDying()) {\n            return false;"
+        },
+        {
+          "line": 1089,
+          "start": 1081,
+          "text": "   }\n\n   // Forge: Don't update this method to use IForgeEntity#getStepHeight() - https://github.com/MinecraftForge/MinecraftForge/issues/9376\n   private boolean isAboveGround() {\n      return this.onGround() || this.fallDistance < this.maxUpStep() && !this.level().noCollision(this, this.getBoundingBox().move(0.0D, (double)(this.fallDistance - this.maxUpStep()), 0.0D));\n   }\n\n   public void attack(Entity p_36347_) {\n      if (!net.minecraftforge.common.ForgeHooks.onPlayerAttackTarget(this, p_36347_)) return;\n      if (p_36347_.isAttackable()) {\n         if (!p_36347_.skipAttackInteraction(this)) {\n            float f = (float)this.getAttributeValue(Attributes.ATTACK_DAMAGE);\n            float f1;\n            if (p_36347_ instanceof LivingEntity) {\n               f1 = EnchantmentHelper.getDamageBonus(this.getMainHandItem(), ((LivingEntity)p_36347_).getMobType());\n            } else {\n               f1 = EnchantmentHelper.getDamageBonus(this.getMainHandItem(), MobType.UNDEFINED);"
+        }
+      ]
+    },
+    {
+      "origin": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "path": "net/minecraftforge/common/ForgeHooks.java",
+      "sha256": "5d2d8ef8e8a9f2f6c37c0933ea2f09bed21e119d681239c1b4021ddee3f75dee",
+      "blocks": [
+        {
+          "line": 270,
+          "start": 262,
+          "text": "        return brainBuilder.makeBrain(dynamic);\n    }\n\n    public static boolean onLivingTick(LivingEntity entity)\n    {\n        return MinecraftForge.EVENT_BUS.post(new LivingTickEvent(entity));\n    }\n\n    public static boolean onLivingAttack(LivingEntity entity, DamageSource src, float amount)\n    {\n        return entity instanceof Player || !MinecraftForge.EVENT_BUS.post(new LivingAttackEvent(entity, src, amount));\n    }\n\n    public static boolean onPlayerAttack(LivingEntity entity, DamageSource src, float amount)\n    {\n        return !MinecraftForge.EVENT_BUS.post(new LivingAttackEvent(entity, src, amount));\n    }"
+        },
+        {
+          "line": 275,
+          "start": 267,
+          "text": "        return MinecraftForge.EVENT_BUS.post(new LivingTickEvent(entity));\n    }\n\n    public static boolean onLivingAttack(LivingEntity entity, DamageSource src, float amount)\n    {\n        return entity instanceof Player || !MinecraftForge.EVENT_BUS.post(new LivingAttackEvent(entity, src, amount));\n    }\n\n    public static boolean onPlayerAttack(LivingEntity entity, DamageSource src, float amount)\n    {\n        return !MinecraftForge.EVENT_BUS.post(new LivingAttackEvent(entity, src, amount));\n    }\n\n    public static LivingKnockBackEvent onLivingKnockBack(LivingEntity target, float strength, double ratioX, double ratioZ)\n    {\n        LivingKnockBackEvent event = new LivingKnockBackEvent(target, strength, ratioX, ratioZ);\n        MinecraftForge.EVENT_BUS.post(event);"
+        },
+        {
+          "line": 737,
+          "start": 729,
+          "text": "                ForgeEventFactory.onPlayerDestroyItem(craftingPlayer.get(), stack, null);\n                return ItemStack.EMPTY;\n            }\n            return stack;\n        }\n        return ItemStack.EMPTY;\n    }\n\n    public static boolean onPlayerAttackTarget(Player player, Entity target)\n    {\n        if (MinecraftForge.EVENT_BUS.post(new AttackEntityEvent(player, target))) return false;\n        ItemStack stack = player.getMainHandItem();\n        return stack.isEmpty() || !stack.getItem().onLeftClickEntity(stack, player, target);\n    }\n\n    public static boolean onTravelToDimension(Entity entity, ResourceKey<Level> dimension)\n    {"
+        }
+      ]
+    },
+    {
+      "origin": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "path": "net/minecraftforge/event/entity/living/LivingAttackEvent.java",
+      "sha256": "ca20bf6604f74ff12670bf8ab5d598f010bb8ea91aefb883db237278b72c984f",
+      "blocks": [
+        {
+          "line": 34,
+          "start": 26,
+          "text": " * This event is {@link net.minecraftforge.eventbus.api.Cancelable}.<br>\n * If this event is canceled, the Entity does not take attack damage.<br>\n * <br>\n * This event does not have a result. {@link HasResult}<br>\n *<br>\n * This event is fired on the {@link MinecraftForge#EVENT_BUS}.\n **/\n@Cancelable\npublic class LivingAttackEvent extends LivingEvent\n{\n    private final DamageSource source;\n    private final float amount;\n    public LivingAttackEvent(LivingEntity entity, DamageSource source, float amount)\n    {\n        super(entity);\n        this.source = source;\n        this.amount = amount;"
+        }
+      ]
+    },
+    {
+      "origin": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed",
+      "path": "net/minecraft/world/entity/LivingEntity.java",
+      "sha256": "1bbe1b37d6f73eadefdcdfe6f5822106e410fbc80d20c163a4eb5feefb317731",
+      "blocks": [
+        {
+          "line": 467,
+          "start": 459,
+          "text": "        if (this.isAlive() && (this.isInWaterRainOrBubble() || this.isInPowderSnow || this.isInFluidType((fluidType, height) -> this.canFluidExtinguish(fluidType)))) {\n            this.extinguishFire();\n        }\n\n        if (this.hurtTime > 0) {\n            this.hurtTime--;\n        }\n\n        if (this.invulnerableTime > 0 && !(this instanceof ServerPlayer)) {\n            this.invulnerableTime--;\n        }\n\n        if (this.isDeadOrDying() && this.level().shouldTickDeath(this)) {\n            this.tickDeath();\n        }\n\n        if (this.lastHurtByPlayerTime > 0) {"
+        },
+        {
+          "line": 1114,
+          "start": 1106,
+          "text": "        this.entityData.set(DATA_HEALTH_ID, Mth.clamp(p_21154_, 0.0F, this.getMaxHealth()));\n    }\n\n    public boolean isDeadOrDying() {\n        return this.getHealth() <= 0.0F;\n    }\n\n    @Override\n    public boolean hurt(DamageSource p_21016_, float p_21017_) {\n        if (this.isInvulnerableTo(p_21016_)) {\n            return false;\n        } else if (this.level().isClientSide) {\n            return false;\n        } else if (this.isDeadOrDying()) {\n            return false;\n        } else if (p_21016_.is(DamageTypeTags.IS_FIRE) && this.hasEffect(MobEffects.FIRE_RESISTANCE)) {\n            return false;"
+        },
+        {
+          "line": 1115,
+          "start": 1107,
+          "text": "    }\n\n    public boolean isDeadOrDying() {\n        return this.getHealth() <= 0.0F;\n    }\n\n    @Override\n    public boolean hurt(DamageSource p_21016_, float p_21017_) {\n        if (this.isInvulnerableTo(p_21016_)) {\n            return false;\n        } else if (this.level().isClientSide) {\n            return false;\n        } else if (this.isDeadOrDying()) {\n            return false;\n        } else if (p_21016_.is(DamageTypeTags.IS_FIRE) && this.hasEffect(MobEffects.FIRE_RESISTANCE)) {\n            return false;\n        } else {"
+        },
+        {
+          "line": 1125,
+          "start": 1117,
+          "text": "        } else if (this.level().isClientSide) {\n            return false;\n        } else if (this.isDeadOrDying()) {\n            return false;\n        } else if (p_21016_.is(DamageTypeTags.IS_FIRE) && this.hasEffect(MobEffects.FIRE_RESISTANCE)) {\n            return false;\n        } else {\n            this.damageContainers.push(new net.neoforged.neoforge.common.damagesource.DamageContainer(p_21016_, p_21017_));\n            if (net.neoforged.neoforge.common.CommonHooks.onEntityIncomingDamage(this, this.damageContainers.peek())) return false;\n            if (this.isSleeping() && !this.level().isClientSide) {\n                this.stopSleeping();\n            }\n\n            this.noActionTime = 0;\n            p_21017_ = this.damageContainers.peek().getNewDamage(); //Neo: enforce damage container as source of truth for damage amount\n            float f = p_21017_;\n            boolean flag = false;"
+        },
+        {
+          "line": 1162,
+          "start": 1154,
+          "text": "            if (p_21016_.is(DamageTypeTags.DAMAGES_HELMET) && !this.getItemBySlot(EquipmentSlot.HEAD).isEmpty()) {\n                this.hurtHelmet(p_21016_, p_21017_);\n                p_21017_ *= 0.75F;\n            }\n\n            this.damageContainers.peek().setNewDamage(p_21017_); //update container with vanilla changes\n            this.walkAnimation.setSpeed(1.5F);\n            boolean flag1 = true;\n            if ((float)this.invulnerableTime > 10.0F && !p_21016_.is(DamageTypeTags.BYPASSES_COOLDOWN)) {\n                if (p_21017_ <= this.lastHurt) {\n                    this.damageContainers.pop();\n                    return false;\n                }\n\n                this.damageContainers.peek().setReduction(net.neoforged.neoforge.common.damagesource.DamageContainer.Reduction.INVULNERABILITY, this.lastHurt);\n                this.actuallyHurt(p_21016_, p_21017_ - this.lastHurt);\n                this.lastHurt = p_21017_;"
+        }
+      ]
+    },
+    {
+      "origin": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed",
+      "path": "net/minecraft/world/entity/player/Player.java",
+      "sha256": "750fc78b308139047c444bf6ac766d4afa5285154b2d69c9da20bdda046515c8",
+      "blocks": [
+        {
+          "line": 889,
+          "start": 881,
+          "text": "        } else if (p_36249_.is(DamageTypeTags.IS_FIRE)) {\n            return !this.level().getGameRules().getBoolean(GameRules.RULE_FIRE_DAMAGE);\n        } else {\n            return p_36249_.is(DamageTypeTags.IS_FREEZING) ? !this.level().getGameRules().getBoolean(GameRules.RULE_FREEZE_DAMAGE) : false;\n        }\n    }\n\n    @Override\n    public boolean hurt(DamageSource p_36154_, float p_36155_) {\n        if (this.isInvulnerableTo(p_36154_)) {\n            return false;\n        } else if (this.abilities.invulnerable && !p_36154_.is(DamageTypeTags.BYPASSES_INVULNERABILITY)) {\n            return false;\n        } else {\n            this.noActionTime = 0;\n            if (this.isDeadOrDying()) {\n                return false;"
+        }
+      ]
+    },
+    {
+      "origin": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed",
+      "path": "net/minecraft/world/damagesource/DamageSources.java",
+      "sha256": "60d17da8d58d3d1e2db618043fca3da7879d1f8bddaf86bf331b1c487d513d68",
+      "blocks": [
+        {
+          "line": 73,
+          "start": 65,
+          "text": "        this.dryOut = this.source(DamageTypes.DRY_OUT);\n        this.sweetBerryBush = this.source(DamageTypes.SWEET_BERRY_BUSH);\n        this.freeze = this.source(DamageTypes.FREEZE);\n        this.stalagmite = this.source(DamageTypes.STALAGMITE);\n        this.outsideBorder = this.source(DamageTypes.OUTSIDE_BORDER);\n        this.genericKill = this.source(DamageTypes.GENERIC_KILL);\n    }\n\n    public DamageSource source(ResourceKey<DamageType> p_270957_) {\n        return new DamageSource(this.damageTypes.getHolderOrThrow(p_270957_));\n    }\n\n    public DamageSource source(ResourceKey<DamageType> p_270142_, @Nullable Entity p_270696_) {\n        return new DamageSource(this.damageTypes.getHolderOrThrow(p_270142_), p_270696_);\n    }\n\n    public DamageSource source(ResourceKey<DamageType> p_270076_, @Nullable Entity p_270656_, @Nullable Entity p_270242_) {"
+        },
+        {
+          "line": 77,
+          "start": 69,
+          "text": "        this.outsideBorder = this.source(DamageTypes.OUTSIDE_BORDER);\n        this.genericKill = this.source(DamageTypes.GENERIC_KILL);\n    }\n\n    public DamageSource source(ResourceKey<DamageType> p_270957_) {\n        return new DamageSource(this.damageTypes.getHolderOrThrow(p_270957_));\n    }\n\n    public DamageSource source(ResourceKey<DamageType> p_270142_, @Nullable Entity p_270696_) {\n        return new DamageSource(this.damageTypes.getHolderOrThrow(p_270142_), p_270696_);\n    }\n\n    public DamageSource source(ResourceKey<DamageType> p_270076_, @Nullable Entity p_270656_, @Nullable Entity p_270242_) {\n        return new DamageSource(this.damageTypes.getHolderOrThrow(p_270076_), p_270656_, p_270242_);\n    }\n\n    public DamageSource inFire() {"
+        },
+        {
+          "line": 81,
+          "start": 73,
+          "text": "    public DamageSource source(ResourceKey<DamageType> p_270957_) {\n        return new DamageSource(this.damageTypes.getHolderOrThrow(p_270957_));\n    }\n\n    public DamageSource source(ResourceKey<DamageType> p_270142_, @Nullable Entity p_270696_) {\n        return new DamageSource(this.damageTypes.getHolderOrThrow(p_270142_), p_270696_);\n    }\n\n    public DamageSource source(ResourceKey<DamageType> p_270076_, @Nullable Entity p_270656_, @Nullable Entity p_270242_) {\n        return new DamageSource(this.damageTypes.getHolderOrThrow(p_270076_), p_270656_, p_270242_);\n    }\n\n    public DamageSource inFire() {\n        return this.inFire;\n    }\n\n    public DamageSource campfire() {"
+        }
+      ]
+    }
+  ]
+}

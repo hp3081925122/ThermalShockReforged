@@ -1,0 +1,78 @@
+{
+  "batch": 114,
+  "base_head": "bab4c383889cf12550cf9c47f203d2451227673c",
+  "scope": "81 source subscriptions reviewed by root/A; fixed source compile/resource validation, not gameplay acceptance",
+  "frozen_inputs": 8864,
+  "frozen_manifest_sha256": "3821bbc149465273f501117784f4c00fe22b580c249b894dff9696dc312a4641",
+  "production_files": 18,
+  "production_sha256": {
+    "src/main/java/com/hp/thermalshockreforged/ThermalShockReforged.java": "af6bdd83ba931842c129c8aa7c5ec1183c8d434e38e1bafc315c05d07c69c109",
+    "src/main/java/com/hp/thermalshockreforged/combat/LegacyAttackRules.java": "868e20b9f839d8269e855ed7734a21a8743e0815d129523977266c0f75aa9c92",
+    "src/main/java/com/hp/thermalshockreforged/combat/PreArmorDamageEvent.java": "5a3bd2d1d90a6dbce50689e835f9d9d46ce4dfc9aa6ec133ee97ff77f96b5953",
+    "src/main/java/com/hp/thermalshockreforged/content/ModGameRules.java": "4dd066daf5c6a2da6be746a44c53d8fd05ab27894a815cc653271c2763ee1af9",
+    "src/main/java/com/hp/thermalshockreforged/content/armor/ArmorContent.java": "f26ac3085d2eadbd51cb8b6e83ae9b1860027756fc00efbaaaee2e24ed29721a",
+    "src/main/java/com/hp/thermalshockreforged/content/armor/ArmorSetEvents.java": "26366f4537a4255f068e7d97115670e8b35c1fbc3427e9b86bf87f6be22e02a2",
+    "src/main/java/com/hp/thermalshockreforged/content/armor/SpecialArmorEvents.java": "f94b064705a7ce7e91d11e7f8149b69dbfa2a160cb221469a8b91c307c36b31b",
+    "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/BounceBlocks.java": "a941fbab2d54a07111fe293d70016068ebacbed9cf0c96c8d20bfbdc6c35d6b1",
+    "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java": "95f62f003c698a9e48f0205740b598fb24f79c419d25cba85ce0d5b779d8e852",
+    "src/main/java/com/hp/thermalshockreforged/content/status/StatusEvents.java": "1e6dcc4fc0eab7a9efda38705c2e7e222f1d4392360b06241d47cd8139a0ca25",
+    "src/main/java/com/hp/thermalshockreforged/content/utility/FoodDrops.java": "69f735c19f89c153a35b6053be5215aeff987d4b3f0ff9dbdbeb8c7ea5088d95",
+    "src/main/java/com/hp/thermalshockreforged/entity/cavebloomer/CavebloomerContent.java": "f53f786c259982a2fca28fef73cca4c24f759738a25267aa32e1812952869bd6",
+    "src/main/java/com/hp/thermalshockreforged/entity/mangler/HeraldEntity.java": "e1f7654a49b1cfc0c88009cecb17e5cda30b327ce4761de8e9ba592335547f4c",
+    "src/main/java/com/hp/thermalshockreforged/mixin/LivingEntityStatusMixin.java": "8839dccfc6fd7512e2dcb81fe215ede8ad0fd95cd74e29f8c8b488b60628d2e9",
+    "src/main/java/com/hp/thermalshockreforged/mixin/PlayerInfectionStatusMixin.java": "dad25d14dbe57dc4bc157105ce76a521d455d8b32929a04fcb835dde09fddf23",
+    "src/main/java/com/hp/thermalshockreforged/world/LoqendiaContent.java": "4e07d398ce86d06ab06a504fe7380fb2e47b693e3d9f11fa46638cb9daec4061",
+    "src/main/java/com/hp/thermalshockreforged/world/LoqendiaRules.java": "3454360325c8248b935d5c655f6c0132b830c82f14b8328fa510b7cde721d47e",
+    "src/main/resources/data/thermal_shock_reforged/tags/entity_type/undead_mobs.json": "a7bd91910f05a060223b99f0e1b38919a8df768f75aab260717ebd609af569d2"
+  },
+  "main_production_files": 15,
+  "peer_production_files": 2,
+  "shared_production_files": 1,
+  "originalEvents": {
+    "all": 81,
+    "A": 55,
+    "main": 26
+  },
+  "effectiveOriginalTags": [
+    {
+      "originalPath": "data/thermal_shock/tags/entity_types/ice.json",
+      "originalSha256": "c50618a9179dc5571a313b666aa9559d1c74fc54e3e5e2f917138004f82aa7b5",
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/tags/entity_type/ice.json",
+      "targetSha256": "4a0e77fe57358901ed35d0568b7dc75d480b370614fddc519675884a9a43deee",
+      "effectiveOriginalMembers": 5,
+      "equalAfterNamespaceChange": true
+    },
+    {
+      "originalPath": "data/thermal_shock/tags/entity_types/undead_mobs.json",
+      "originalSha256": "01e22b29d09d97f6ba18597eb15a422357d2c409c9a8a41e4ff868a87b805cdc",
+      "targetPath": "src/main/resources/data/thermal_shock_reforged/tags/entity_type/undead_mobs.json",
+      "targetSha256": "a7bd91910f05a060223b99f0e1b38919a8df768f75aab260717ebd609af569d2",
+      "effectiveOriginalMembers": 13,
+      "equalAfterNamespaceChange": true
+    }
+  ],
+  "byte_equal_resources": 8048,
+  "expanded_templates": 2,
+  "language": {
+    "en_us": {
+      "unchanged_bytes": true,
+      "entries": 3365
+    },
+    "zh_cn": {
+      "unchanged_bytes": true,
+      "entries": 981
+    }
+  },
+  "build": {
+    "log": "D:\\AI临时文件\\ThermalShockMigration\\batch114-unified-build.log",
+    "log_sha256": "145feb69f4e3e8aa7f768b5563fc3ff9a9f3fd1bc92c591c502f7d0d28a88bc0",
+    "successful": true,
+    "duration": "2m 7s",
+    "compile_java_up_to_date": false
+  },
+  "runtime_tests": false,
+  "client_tests_pending_full_migration": true,
+  "server_testing_user_owned": true,
+  "errors": [],
+  "passed": true
+}

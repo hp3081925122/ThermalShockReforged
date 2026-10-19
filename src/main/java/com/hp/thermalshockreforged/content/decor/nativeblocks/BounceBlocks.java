@@ -8,8 +8,18 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
+import net.neoforged.neoforge.event.entity.living.LivingFallEvent;
 
 final class BounceBlocks {
+    static void fall(LivingFallEvent event) {
+        var entity = event.getEntity();
+        var pos = entity.blockPosition();
+        var current = entity.level().getBlockState(pos).getBlock();
+        var below = entity.level().getBlockState(pos.below()).getBlock();
+        if (current == NativeDecorContent.BOUNCER.get() || current == NativeDecorContent.LITTLE_SPRING.get() || current == NativeDecorContent.SUPERBOUNCER.get()
+                || below == NativeDecorContent.BOUNCER.get() || below == NativeDecorContent.LITTLE_SPRING.get() || below == NativeDecorContent.SUPERBOUNCER.get()) event.setCanceled(true);
+    }
+
     private static void bounce(Level level, BlockPos pos, Entity entity, boolean strong) {
         if (entity.isShiftKeyDown()) return;
         if (strong && !level.isClientSide) level.playSound(null, pos, SoundEvents.FIREWORK_ROCKET_LAUNCH, SoundSource.BLOCKS, 1, 1);

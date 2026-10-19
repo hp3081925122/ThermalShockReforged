@@ -1,0 +1,109 @@
+{
+  "batch": 114,
+  "lane": "A",
+  "status": "自有两份生产已停笔；55项攻击事件语义审计及四缺口补齐，等待主线共享接线与统一构建",
+  "frozenAtUTC": "2026-10-19T19:01:06.317341+00:00",
+  "baseCommit": "bab4c383889cf12550cf9c47f203d2451227673c",
+  "sourceJarSha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436",
+  "productionCount": 2,
+  "production": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/combat/LegacyAttackRules.java",
+      "sha256": "868e20b9f839d8269e855ed7734a21a8743e0815d129523977266c0f75aa9c92"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/cavebloomer/CavebloomerContent.java",
+      "sha256": "f53f786c259982a2fca28fef73cca4c24f759738a25267aa32e1812952869bd6"
+    }
+  ],
+  "productionAggregateSha256": "53da157c35f4a5c6d65c55b7480d48a1c22afcb386c4f3799b57b5cf896490de",
+  "aggregateDefinition": "按path字典序拼接path+U+0000+sha256+LF，UTF-8计算SHA256",
+  "documents": [
+    {
+      "path": "docs/migration/attack-events-a-batch114.md",
+      "sha256": "793604bc52f5693e8f055bf1c574f0446d04108adb78d46365f40184d30f1380"
+    },
+    {
+      "path": "docs/migration/attack-events-a-source114.json",
+      "sha256": "904da655ea53d3c5cb703b57f6684402b6063b2b603864f12db2b5dbd5d77016"
+    },
+    {
+      "path": "docs/migration/attack-events-a-pipeline114.json",
+      "sha256": "21964d0f648e4be3cec140d149a2152a1942a711d87cce9b81879777a2cdd718"
+    },
+    {
+      "path": "docs/migration/attack-events-a-mapping114.json",
+      "sha256": "2977f23f4e77a6114ab3f137a47255d237658889b02a7c0db181643f8ec22ff1"
+    },
+    {
+      "path": "docs/migration/attack-events-a-validation114.json",
+      "sha256": "47d9499e155b548766d77d4980b4596086cecc317fed30ee4410840539771909"
+    },
+    {
+      "path": "docs/migration/attack-events-a-shared114.json",
+      "sha256": "24246cbb1f96ede04dcfb287bbe3cf2b3392e1389ce70ead1560ae98af7c93b6"
+    },
+    {
+      "path": "docs/migration/attack-events-a-production114.json",
+      "sha256": "c9c2c5004f8b3607a06253a3e4456f140161a02ed232e82208031477fe002982"
+    }
+  ],
+  "scripts": [
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\inspect-attack-events114a.py",
+      "sha256": "38d318f2d44eb39dc49c858ac5449afe3a92d0849841242bbb51b7ee4923b687"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\inspect-attack-pipeline114a.py",
+      "sha256": "3a6f7f4b16532278f5b305241b13598ac8a43d300483655bfe28f03de383fe6c"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\map-attack-events114a.py",
+      "sha256": "5d72fda4888e71f5e0915b739e698344b1f0e9e6b0d98a60b61dbaf0cebce328"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\validate-attack-events114a.py",
+      "sha256": "76343e5d6a49068ce4a09bd65ccf502b637ccdac148970bd89184a0ed10fd2a6"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\finalize-attack-events114a.py",
+      "sha256": "5803b04dfab9f42ed97ae39993c95f5fe61c86a795a2cbc99f1ea05928f87c70"
+    }
+  ],
+  "coverage": {
+    "inventory": 81,
+    "laneA": 55,
+    "delegatedMain": 26,
+    "newFixedGaps": 4,
+    "staticChecksPassed": 85,
+    "originalVsTargetConditionCases": 1152,
+    "mappedTargetFiles": 91,
+    "pipelineEvidence": 7
+  },
+  "sharedIntegration": {
+    "manifest": "docs/migration/attack-events-a-shared114.json",
+    "rootRegisteredBeforeEntitiesAtFreeze": false,
+    "pending": [
+      "根注册在ModEntities.register之前调用LegacyAttackRules.register"
+    ],
+    "sharedTargetSnapshotDrift": [],
+    "note": "主线所有权文件可继续变更；此处只固定自有两份生产，主线后续固定全src/main统一构建"
+  },
+  "notPerformed": [
+    "Gradle/Java构建",
+    "暂存或提交",
+    "用户独立服务端测试",
+    "客户端游戏",
+    "Render Preview"
+  ],
+  "remainingVerification": [
+    "主线集成共享接线并统一构建、资源及全项目无简化复审",
+    "完整后安排客户端与Render Preview真实原件对照；服务端由用户独立测试",
+    "冰炸弹检查覆盖默认cryo_weak六成员；任意数据包扩展到其他技能实体的全部CD契约未穷尽，不宣称已验证"
+  ],
+  "coordinationNotes": [
+    "Herald死亡取消/跨维回退9保既有明确批准，root独占HeraldEntity校正20SERVER END",
+    "root恢复undead_mobs原plural13成员，ice保原plural5含FrostTitan，不能用singular4覆盖；本线Cold反射保原mod:ice，与本模组ice掉落tag不同",
+    "主线PreArmorDamageEvent及相关Mixin/status/armor文件均未由本线编辑"
+  ]
+}

@@ -443,3 +443,18 @@ Char原customSlots为零，保36背包槽与三原按钮，主交易缺槽时安
 
 下一批114按parallel-batch114.md：原81订阅（55攻击/26其他）已由只读代理盘点、主线直接机器保存完整源哈希；迁移A承担较多的55攻击事件，主线26其他。无同名监听不直接判漏，逐项核原阶段和目标真实回调。完整代码及无简化复审后我们安排子代理客户端/Render Preview；服务端用户独立测试，不联系、不重复、不当作已通过。当前无Git remote，只本地阶段提交。
 
+
+
+## 第114批最终集成验证
+
+原81个全局订阅已逐项静态复审：迁移A承担55攻击事件，主线26其他；原class/source哈希、真实目标调用、触发阶段、取消规则和差异分别见attack-events-a-mapping114.json及nonattack-events-main-matrix114.json。只读Luna独立核六死亡、六套装/三进度及新桥/规则，误读随机循环、错看相邻Fall过程和新旧tag目录的结论均已撤回更正，不把订阅数量当整模组行为全部完整。
+
+A补回character_mobs原早期保护、原mod:ice归属者攻击玩家20%受2点无归属PLAYER_ATTACK反射及玻璃声、ignition_-1群系cryo_resist来源70%Frostbite120/0，以及BuddingBloomer20%取消普攻并look水平1.3/Y1跃进和原烟花声；不将mod:ice擅改本模组ice，不给原未取消反射另加取消，不删其余80%普通近战。LegacyAttackRules在实体监听注册前接通，已取消事件不继续技能或元素追加。55原哈希/85静态检查与1152条件组合属于静态证据，非游戏测试次数。
+
+主线补完整两Fall事件、Loqendia禁Pig/原两UPDATES默认true规则及原放置状态/音效，修DevScarf和电荷传播到真实armor前输入，不用护甲后反推值；玩家和普通Living两桥各发一次。FoodDrops回原LivingDeath阶段及原六机会/doEntityDrops/pickup10，去永久锁但保原生dead重复die防护；明确这不是doMobLoot变化。Herald计数后保旧已批准死亡/跨维取消，正常延迟修为20次SERVER END含排入当tick，不丢两声、原死亡锚点钥匙或持久剩余时间。所有具体保留与差异见主线矩阵和REFORGED_CHANGES。
+
+undead_mobs恢复原13成员并纠正第95/112批将两Monolith原生亡灵身份混为自定义掉落资格的误扩，原版亡灵标签不动。ice原旧plural为5项含FrostTitan，原singular4在1.20.1无效；本轮最初误删已恢复，最终该文件与批次HEAD相同。空Cobalt过程、Prey无读且仅false写、已统一处理的Force重复旁路等按原及既有修复如实存证，不补空功能或撤回已记录合理变化。
+
+最终18生产（A2、主线15、共享1）固定8864份src/main输入，Java21离线compileJava/processResources --max-workers=2统一通过，日志2m 7s，compileJava实际执行。全输入在构建期保持，8048份直接复制资源逐字节相同、2展开模板通过，中英文资产字节未改。总证据main114-static-validation.json；全输入快照batch114-verified-inputs.json。mcreator-rework更新事件阶段/自定义tag资格/原双目录与审计误判边界，quick_validate通过。
+
+整模组尚未宣称完整，后续按真实回调根及传递依赖继续无简化复审，缺口立即补齐，不仅按注册/资源文件数验收。完整代码和复核完成后主线安排子代理实际客户端与E:/模组/发cf的模组/Render Preview原件对照；本批未启动游戏。服务端由用户独立线测试，不联系、不接管、不重复、不将进行中当通过。Git无remote，阶段变化仅本地提交。

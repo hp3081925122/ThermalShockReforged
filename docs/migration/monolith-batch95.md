@@ -14,7 +14,7 @@
 |---|---|
 |主动属性|HP160、护甲16、攻击14、移速0.3、追踪128、台阶2；注册1.2×7.6、碰撞尺寸和渲染均乘1.7，影子0.5；防火、常驻|
 |眠体属性|仍继承Monster，但注册分类AMBIENT；HP160、护甲16、攻击12、移速0；注册0.8×7.6，尺寸及渲染乘1.7；保持实体碰撞，无AI goals|
-|免疫与亡灵|两形态保持火中、摔落、仙人掌、溺水免疫；原MobType.UNDEAD通过现版本六个原版语义标签和项目undead_mobs接回，共享标签待集成|
+|免疫与亡灵|两形态保持火中、摔落、仙人掌、溺水免疫；原MobType.UNDEAD通过现版本六个原版语义标签接回。第114批纠正此处原将自定义undead_mobs也加入的误判：它控制额外掉落，原件无两形态，现已移除误扩，保原生亡灵标签|
 |AI|近战priority1、speed1.2、距离平方≤16；HurtBy priority2、闲逛priority3/speed0.8、随机转头priority4、玩家priority5且mustSee=true/mustReach=true|
 |双击|立即attack动画及受害者固定原点monolithambient HOSTILE1/5；12 END、22 END分别在该固定原点播放monolithhurt HOSTILE1/5，当前受害者距离施法者≤6时尝试伤害；保留原无敌帧|
 |伤害|原每击6−护甲×0.2，目标基础攻击×可配置倍率6/14−护甲×0.2；GENERIC无owner不变，无虚构技能击退或弹体；有限非负保护|
