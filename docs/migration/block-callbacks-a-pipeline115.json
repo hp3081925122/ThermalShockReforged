@@ -1,0 +1,199 @@
+{
+  "batch": 115,
+  "lane": "A",
+  "baseCommit": "a86a4abb6cd0dd768d4827b92e35a59d60b02602",
+  "purpose": "分工清单前只读准备的公共回调基线；不代表110根审计完成或生产所有权",
+  "evidence": [
+    {
+      "origin": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "path": "net/minecraft/world/level/block/state/BlockBehaviour.java",
+      "sha256": "a1ca6e4f0ba3ff9544393d261978ef7a5bc3a3271a30c7894f4cfe965f5020da",
+      "methods": [
+        {
+          "method": "onPlace",
+          "line": 157,
+          "sha256": "df5dc41cb5ce5506fc679ede2b87aca5f0b7770ea1c6e29d746497a82a851101",
+          "text": "@Deprecated\r\n   public void onPlace(BlockState p_60566_, Level p_60567_, BlockPos p_60568_, BlockState p_60569_, boolean p_60570_) {\r\n   }"
+        },
+        {
+          "method": "onRemove",
+          "line": 162,
+          "sha256": "d9de4db653a232b5317e2f7b3675f48e14155aa1f52f156c8fe8379a8a1de07e",
+          "text": "@Deprecated\r\n   public void onRemove(BlockState p_60515_, Level p_60516_, BlockPos p_60517_, BlockState p_60518_, boolean p_60519_) {\r\n      if (p_60515_.hasBlockEntity() && (!p_60515_.is(p_60518_.getBlock()) || !p_60518_.hasBlockEntity())) {\r\n         p_60516_.removeBlockEntity(p_60517_);\r\n      }\r\n\r\n   }"
+        },
+        {
+          "method": "randomTick",
+          "line": 352,
+          "sha256": "35b742d665a369c865fb957ab0bcf50551f4517950c2fec9c93c8bd63a3d6540",
+          "text": "@Deprecated\r\n   public void randomTick(BlockState p_222954_, ServerLevel p_222955_, BlockPos p_222956_, RandomSource p_222957_) {\r\n      this.tick(p_222954_, p_222955_, p_222956_, p_222957_);\r\n   }"
+        },
+        {
+          "method": "tick",
+          "line": 358,
+          "sha256": "275a412d573b65ded57cc25891565827cccdc96405730b92376cd263ad76e8e1",
+          "text": "@Deprecated\r\n   public void tick(BlockState p_222945_, ServerLevel p_222946_, BlockPos p_222947_, RandomSource p_222948_) {\r\n   }"
+        },
+        {
+          "method": "onPlace",
+          "line": 749,
+          "sha256": "357d47daad02f02dd931b409ce936e31681421aa233f833634d58d832121b94c",
+          "text": "public void onPlace(Level p_60697_, BlockPos p_60698_, BlockState p_60699_, boolean p_60700_) {\r\n         this.getBlock().onPlace(this.asState(), p_60697_, p_60698_, p_60699_, p_60700_);\r\n      }"
+        },
+        {
+          "method": "onRemove",
+          "line": 753,
+          "sha256": "4314cc0f9f0b5c784fdb3d7bcd8b395eeb8855a1aa74877496cf3d23a64b7aa4",
+          "text": "public void onRemove(Level p_60754_, BlockPos p_60755_, BlockState p_60756_, boolean p_60757_) {\r\n         this.getBlock().onRemove(this.asState(), p_60754_, p_60755_, p_60756_, p_60757_);\r\n      }"
+        },
+        {
+          "method": "tick",
+          "line": 757,
+          "sha256": "51bd55c4e96bad9ca12b2671775fde1a6c19923035bba52d27b27ad9c1f928af",
+          "text": "public void tick(ServerLevel p_222964_, BlockPos p_222965_, RandomSource p_222966_) {\r\n         this.getBlock().tick(this.asState(), p_222964_, p_222965_, p_222966_);\r\n      }"
+        },
+        {
+          "method": "randomTick",
+          "line": 761,
+          "sha256": "1f19b9d85f92793ad40ce81a5499dfe09e3bbb1f9b38ce20c177b7c6751f60a8",
+          "text": "public void randomTick(ServerLevel p_222973_, BlockPos p_222974_, RandomSource p_222975_) {\r\n         this.getBlock().randomTick(this.asState(), p_222973_, p_222974_, p_222975_);\r\n      }"
+        }
+      ]
+    },
+    {
+      "origin": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "path": "net/minecraft/world/level/chunk/LevelChunk.java",
+      "sha256": "23bbf3b264f84e8930c0430f92048d4c9da39568f791c87777c7c044c6bace4a",
+      "methods": [
+        {
+          "method": "setBlockState",
+          "line": 212,
+          "sha256": "451a386f7e04a62434ab407dd18ecfdf2f606d0e76916252b432d75fde263813",
+          "text": "@Nullable\r\n   public BlockState setBlockState(BlockPos p_62865_, BlockState p_62866_, boolean p_62867_) {\r\n      int i = p_62865_.getY();\r\n      LevelChunkSection levelchunksection = this.getSection(this.getSectionIndex(i));\r\n      boolean flag = levelchunksection.hasOnlyAir();\r\n      if (flag && p_62866_.isAir()) {\r\n         return null;\r\n      } else {\r\n         int j = p_62865_.getX() & 15;\r\n         int k = i & 15;\r\n         int l = p_62865_.getZ() & 15;\r\n         BlockState blockstate = levelchunksection.setBlockState(j, k, l, p_62866_);\r\n         if (blockstate == p_62866_) {\r\n            return null;\r\n         } else {\r\n            Block block = p_62866_.getBlock();\r\n            this.heightmaps.get(Heightmap.Types.MOTION_BLOCKING).update(j, i, l, p_62866_);\r\n            this.heightmaps.get(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES).update(j, i, l, p_62866_);\r\n            this.heightmaps.get(Heightmap.Types.OCEAN_FLOOR).update(j, i, l, p_62866_);\r\n            this.heightmaps.get(Heightmap.Types.WORLD_SURFACE).update(j, i, l, p_62866_);\r\n            boolean flag1 = levelchunksection.hasOnlyAir();\r\n            if (flag != flag1) {\r\n               this.level.getChunkSource().getLightEngine().updateSectionStatus(p_62865_, flag1);\r\n            }\r\n\r\n            if (LightEngine.hasDifferentLightProperties(this, p_62865_, blockstate, p_62866_)) {\r\n               ProfilerFiller profilerfiller = this.level.getProfiler();\r\n               profilerfiller.push(\"updateSkyLightSources\");\r\n               this.skyLightSources.update(this, j, i, l);\r\n               profilerfiller.popPush(\"queueCheckLight\");\r\n               this.level.getChunkSource().getLightEngine().checkBlock(p_62865_);\r\n               profilerfiller.pop();\r\n            }\r\n\r\n            boolean flag2 = blockstate.hasBlockEntity();\r\n            if (!this.level.isClientSide) {\r\n               blockstate.onRemove(this.level, p_62865_, p_62866_, p_62867_);\r\n         } else if ((!blockstate.is(block) || !p_62866_.hasBlockEntity()) && flag2) {\r\n               this.removeBlockEntity(p_62865_);\r\n            }\r\n\r\n            if (!levelchunksection.getBlockState(j, k, l).is(block)) {\r\n               return null;\r\n            } else {\r\n            if (!this.level.isClientSide && !this.level.captureBlockSnapshots) {\r\n                  p_62866_.onPlace(this.level, p_62865_, blockstate, p_62867_);\r\n               }\r\n\r\n               if (p_62866_.hasBlockEntity()) {\r\n                  BlockEntity blockentity = this.getBlockEntity(p_62865_, LevelChunk.EntityCreationType.CHECK);\r\n                  if (blockentity == null) {\r\n                     blockentity = ((EntityBlock)block).newBlockEntity(p_62865_, p_62866_);\r\n                     if (blockentity != null) {\r\n                        this.addAndRegisterBlockEntity(blockentity);\r\n                     }\r\n                  } else {\r\n                     blockentity.setBlockState(p_62866_);\r\n                     this.updateBlockEntityTicker(blockentity);\r\n                  }\r\n               }\r\n\r\n               this.unsaved = true;\r\n               return blockstate;\r\n            }\r\n         }\r\n      }\r\n   }"
+        }
+      ]
+    },
+    {
+      "origin": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "path": "net/minecraft/world/item/BlockItem.java",
+      "sha256": "ed88aeb265b654a623dfb54ac337ab46e3d8b43c345553b68ace230f17f92c04",
+      "methods": [
+        {
+          "method": "place",
+          "line": 55,
+          "sha256": "20ebad29fa959cd88170c4309f89f0611cea09d62c353499c1906c79f7c13d23",
+          "text": "public InteractionResult place(BlockPlaceContext p_40577_) {\r\n      if (!this.getBlock().isEnabled(p_40577_.getLevel().enabledFeatures())) {\r\n         return InteractionResult.FAIL;\r\n      } else if (!p_40577_.canPlace()) {\r\n         return InteractionResult.FAIL;\r\n      } else {\r\n         BlockPlaceContext blockplacecontext = this.updatePlacementContext(p_40577_);\r\n         if (blockplacecontext == null) {\r\n            return InteractionResult.FAIL;\r\n         } else {\r\n            BlockState blockstate = this.getPlacementState(blockplacecontext);\r\n            if (blockstate == null) {\r\n               return InteractionResult.FAIL;\r\n            } else if (!this.placeBlock(blockplacecontext, blockstate)) {\r\n               return InteractionResult.FAIL;\r\n            } else {\r\n               BlockPos blockpos = blockplacecontext.getClickedPos();\r\n               Level level = blockplacecontext.getLevel();\r\n               Player player = blockplacecontext.getPlayer();\r\n               ItemStack itemstack = blockplacecontext.getItemInHand();\r\n               BlockState blockstate1 = level.getBlockState(blockpos);\r\n               if (blockstate1.is(blockstate.getBlock())) {\r\n                  blockstate1 = this.updateBlockStateFromTag(blockpos, level, itemstack, blockstate1);\r\n                  this.updateCustomBlockEntityTag(blockpos, level, player, itemstack, blockstate1);\r\n                  blockstate1.getBlock().setPlacedBy(level, blockpos, blockstate1, player, itemstack);\r\n                  if (player instanceof ServerPlayer) {\r\n                     CriteriaTriggers.PLACED_BLOCK.trigger((ServerPlayer)player, blockpos, itemstack);\r\n                  }\r\n               }\r\n\r\n               SoundType soundtype = blockstate1.getSoundType(level, blockpos, p_40577_.getPlayer());\r\n               level.playSound(player, blockpos, this.getPlaceSound(blockstate1, level, blockpos, p_40577_.getPlayer()), SoundSource.BLOCKS, (soundtype.getVolume() + 1.0F) / 2.0F, soundtype.getPitch() * 0.8F);\r\n               level.gameEvent(GameEvent.BLOCK_PLACE, blockpos, GameEvent.Context.of(player, blockstate1));\r\n               if (player == null || !player.getAbilities().instabuild) {\r\n                  itemstack.shrink(1);\r\n               }\r\n\r\n               return InteractionResult.sidedSuccess(level.isClientSide);\r\n            }\r\n         }\r\n      }\r\n   }"
+        }
+      ]
+    },
+    {
+      "origin": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed",
+      "path": "net/minecraft/world/level/block/state/BlockBehaviour.java",
+      "sha256": "410ae028d36585b6c210e853720ea3fb973154a4d7800a082d541293cf355014",
+      "methods": [
+        {
+          "method": "onPlace",
+          "line": 169,
+          "sha256": "f64a81ee73bd8e86a27be75dce0d65267f2845fef28622540056fbbaaf078066",
+          "text": "protected void onPlace(BlockState p_60566_, Level p_60567_, BlockPos p_60568_, BlockState p_60569_, boolean p_60570_) {\n    }"
+        },
+        {
+          "method": "onRemove",
+          "line": 172,
+          "sha256": "f6c3fba3a6c5e485f812c0490514974cd18bf9687dbc1f3bf343362dd93d57da",
+          "text": "protected void onRemove(BlockState p_60515_, Level p_60516_, BlockPos p_60517_, BlockState p_60518_, boolean p_60519_) {\n        if (p_60515_.hasBlockEntity() && !p_60515_.is(p_60518_.getBlock())) {\n            p_60516_.removeBlockEntity(p_60517_);\n        }\n    }"
+        },
+        {
+          "method": "randomTick",
+          "line": 337,
+          "sha256": "9032f65e955a630b141c94f232325ac22bf0899e101a6449aa7fd124b9085d9f",
+          "text": "protected void randomTick(BlockState p_222954_, ServerLevel p_222955_, BlockPos p_222956_, RandomSource p_222957_) {\n    }"
+        },
+        {
+          "method": "tick",
+          "line": 340,
+          "sha256": "5952dad6308b05fb933e40b7a202ab89b9c9755e7b74d8741671aef6392f2a11",
+          "text": "protected void tick(BlockState p_222945_, ServerLevel p_222946_, BlockPos p_222947_, RandomSource p_222948_) {\n    }"
+        },
+        {
+          "method": "onPlace",
+          "line": 719,
+          "sha256": "b49a04671d77e103c58e65f8de1106ee4ad03bd05ec79739827b9a29a5422f40",
+          "text": "public void onPlace(Level p_60697_, BlockPos p_60698_, BlockState p_60699_, boolean p_60700_) {\n            this.getBlock().onPlace(this.asState(), p_60697_, p_60698_, p_60699_, p_60700_);\n        }"
+        },
+        {
+          "method": "onRemove",
+          "line": 723,
+          "sha256": "ee84b0bfb971bb05b267e4ed34672a07ae7a19a68e38cb0adb8dd0ce0255431b",
+          "text": "public void onRemove(Level p_60754_, BlockPos p_60755_, BlockState p_60756_, boolean p_60757_) {\n            this.getBlock().onRemove(this.asState(), p_60754_, p_60755_, p_60756_, p_60757_);\n        }"
+        },
+        {
+          "method": "tick",
+          "line": 731,
+          "sha256": "2cd2c84ab9f2613a2858a53d7b839648a9800254b9fa4fbf1365efa8f1d6d6ee",
+          "text": "public void tick(ServerLevel p_222964_, BlockPos p_222965_, RandomSource p_222966_) {\n            this.getBlock().tick(this.asState(), p_222964_, p_222965_, p_222966_);\n        }"
+        },
+        {
+          "method": "randomTick",
+          "line": 735,
+          "sha256": "872c9b9a9000ea756c5a57aee6b5405759111b83cc844f49e9012eb3e43c5d24",
+          "text": "public void randomTick(ServerLevel p_222973_, BlockPos p_222974_, RandomSource p_222975_) {\n            this.getBlock().randomTick(this.asState(), p_222973_, p_222974_, p_222975_);\n        }"
+        }
+      ]
+    },
+    {
+      "origin": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed",
+      "path": "net/minecraft/world/level/chunk/LevelChunk.java",
+      "sha256": "c014a13e2ef391901113b080362ad6db4bdd4a65c7ad47b8c6aecd8bd89b6223",
+      "methods": [
+        {
+          "method": "setBlockState",
+          "line": 237,
+          "sha256": "550039efae8c7b98bdfeb92b6fb0081dd316fa7554a11cc1536f3445affb300b",
+          "text": "@Nullable\r\n    @Override\r\n    public BlockState setBlockState(BlockPos p_62865_, BlockState p_62866_, boolean p_62867_) {\r\n        int i = p_62865_.getY();\r\n        LevelChunkSection levelchunksection = this.getSection(this.getSectionIndex(i));\r\n        boolean flag = levelchunksection.hasOnlyAir();\r\n        if (flag && p_62866_.isAir()) {\r\n            return null;\r\n        } else {\r\n            int j = p_62865_.getX() & 15;\r\n            int k = i & 15;\r\n            int l = p_62865_.getZ() & 15;\r\n            BlockState blockstate = levelchunksection.setBlockState(j, k, l, p_62866_);\r\n            if (blockstate == p_62866_) {\r\n                return null;\r\n            } else {\r\n                Block block = p_62866_.getBlock();\r\n                this.heightmaps.get(Heightmap.Types.MOTION_BLOCKING).update(j, i, l, p_62866_);\r\n                this.heightmaps.get(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES).update(j, i, l, p_62866_);\r\n                this.heightmaps.get(Heightmap.Types.OCEAN_FLOOR).update(j, i, l, p_62866_);\r\n                this.heightmaps.get(Heightmap.Types.WORLD_SURFACE).update(j, i, l, p_62866_);\r\n                boolean flag1 = levelchunksection.hasOnlyAir();\r\n                if (flag != flag1) {\r\n                    this.level.getChunkSource().getLightEngine().updateSectionStatus(p_62865_, flag1);\r\n                }\r\n\r\n                if (LightEngine.hasDifferentLightProperties(this, p_62865_, blockstate, p_62866_)) {\r\n                    ProfilerFiller profilerfiller = this.level.getProfiler();\r\n                    profilerfiller.push(\"updateSkyLightSources\");\r\n                    this.skyLightSources.update(this, j, i, l);\r\n                    profilerfiller.popPush(\"queueCheckLight\");\r\n                    this.level.getChunkSource().getLightEngine().checkBlock(p_62865_);\r\n                    profilerfiller.pop();\r\n                }\r\n\r\n                boolean flag2 = blockstate.hasBlockEntity();\r\n                if (!this.level.isClientSide) {\r\n                    blockstate.onRemove(this.level, p_62865_, p_62866_, p_62867_);\r\n                } else if (!blockstate.is(block) && flag2) {\r\n                    this.removeBlockEntity(p_62865_);\r\n                }\r\n\r\n                if (!levelchunksection.getBlockState(j, k, l).is(block)) {\r\n                    return null;\r\n                } else {\r\n                    if (!this.level.isClientSide && !this.level.captureBlockSnapshots) {\r\n                        p_62866_.onPlace(this.level, p_62865_, blockstate, p_62867_);\r\n                    }\r\n\r\n                    if (p_62866_.hasBlockEntity()) {\r\n                        BlockEntity blockentity = this.getBlockEntity(p_62865_, LevelChunk.EntityCreationType.CHECK);\r\n                        if (blockentity != null && !blockentity.isValidBlockState(p_62866_)) {\r\n                            this.removeBlockEntity(p_62865_);\r\n                            blockentity = null;\r\n                        }\r\n\r\n                        if (blockentity == null) {\r\n                            blockentity = ((EntityBlock)block).newBlockEntity(p_62865_, p_62866_);\r\n                            if (blockentity != null) {\r\n                                this.addAndRegisterBlockEntity(blockentity);\r\n                            }\r\n                        } else {\r\n                            blockentity.setBlockState(p_62866_);\r\n                            this.updateBlockEntityTicker(blockentity);\r\n                        }\r\n                    }\r\n\r\n                    this.unsaved = true;\r\n                    return blockstate;\r\n                }\r\n            }\r\n        }\r\n    }"
+        }
+      ]
+    },
+    {
+      "origin": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed",
+      "path": "net/minecraft/world/item/BlockItem.java",
+      "sha256": "f26f291ad73176d372d7916d05eb396358f41d08dbffcca02f1d425972b5c7ea",
+      "methods": [
+        {
+          "method": "place",
+          "line": 54,
+          "sha256": "325a4800d0447821bab3b6370171e928430227acc229f0d1e28a992e68adf255",
+          "text": "public InteractionResult place(BlockPlaceContext p_40577_) {\r\n        if (!this.getBlock().isEnabled(p_40577_.getLevel().enabledFeatures())) {\r\n            return InteractionResult.FAIL;\r\n        } else if (!p_40577_.canPlace()) {\r\n            return InteractionResult.FAIL;\r\n        } else {\r\n            BlockPlaceContext blockplacecontext = this.updatePlacementContext(p_40577_);\r\n            if (blockplacecontext == null) {\r\n                return InteractionResult.FAIL;\r\n            } else {\r\n                BlockState blockstate = this.getPlacementState(blockplacecontext);\r\n                if (blockstate == null) {\r\n                    return InteractionResult.FAIL;\r\n                } else if (!this.placeBlock(blockplacecontext, blockstate)) {\r\n                    return InteractionResult.FAIL;\r\n                } else {\r\n                    BlockPos blockpos = blockplacecontext.getClickedPos();\r\n                    Level level = blockplacecontext.getLevel();\r\n                    Player player = blockplacecontext.getPlayer();\r\n                    ItemStack itemstack = blockplacecontext.getItemInHand();\r\n                    BlockState blockstate1 = level.getBlockState(blockpos);\r\n                    if (blockstate1.is(blockstate.getBlock())) {\r\n                        blockstate1 = this.updateBlockStateFromTag(blockpos, level, itemstack, blockstate1);\r\n                        this.updateCustomBlockEntityTag(blockpos, level, player, itemstack, blockstate1);\r\n                        updateBlockEntityComponents(level, blockpos, itemstack);\r\n                        blockstate1.getBlock().setPlacedBy(level, blockpos, blockstate1, player, itemstack);\r\n                        if (player instanceof ServerPlayer) {\r\n                            CriteriaTriggers.PLACED_BLOCK.trigger((ServerPlayer)player, blockpos, itemstack);\r\n                        }\r\n                    }\r\n\r\n                    SoundType soundtype = blockstate1.getSoundType(level, blockpos, p_40577_.getPlayer());\r\n                    level.playSound(\r\n                        player,\r\n                        blockpos,\r\n                        this.getPlaceSound(blockstate1, level, blockpos, p_40577_.getPlayer()),\r\n                        SoundSource.BLOCKS,\r\n                        (soundtype.getVolume() + 1.0F) / 2.0F,\r\n                        soundtype.getPitch() * 0.8F\r\n                    );\r\n                    level.gameEvent(GameEvent.BLOCK_PLACE, blockpos, GameEvent.Context.of(player, blockstate1));\r\n                    itemstack.consume(1, player);\r\n                    return InteractionResult.sidedSuccess(level.isClientSide);\r\n                }\r\n            }\r\n        }\r\n    }"
+        }
+      ]
+    },
+    {
+      "origin": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock",
+      "path": "ThermalShockMod.java",
+      "sha256": "171e15daecaa9383f2d126d108460ab6d2b4b6e915bc24cc2f3c08c15493e7d0",
+      "methods": [
+        {
+          "method": "queueServerWork",
+          "line": 77,
+          "sha256": "53eb00e50c7051af5564aac4d0ea2009b412e9139f5221355ba70d29dbefa4c6",
+          "text": "public static void queueServerWork(int tick, Runnable action) {\r\n        if (Thread.currentThread().getThreadGroup() == SidedThreadGroups.SERVER) {\r\n            workQueue.add(new AbstractMap.SimpleEntry<Runnable, Integer>(action, tick));\r\n        }\r\n    }"
+        },
+        {
+          "method": "tick",
+          "line": 83,
+          "sha256": "4702e54f7c24143fb7ef6beae19a77960d64cde86ab10ba9c59dc26a3916fd8f",
+          "text": "@SubscribeEvent\r\n    public void tick(TickEvent.ServerTickEvent event) {\r\n        if (event.phase == TickEvent.Phase.END) {\r\n            ArrayList actions = new ArrayList();\r\n            workQueue.forEach(work -> {\r\n                work.setValue((Integer)work.getValue() - 1);\r\n                if ((Integer)work.getValue() == 0) {\r\n                    actions.add(work);\r\n                }\r\n            });\r\n            actions.forEach(e -> ((Runnable)e.getKey()).run());\r\n            workQueue.removeAll(actions);\r\n        }\r\n    }"
+        }
+      ]
+    }
+  ],
+  "confirmed": [
+    "旧BlockBehaviour.randomTick调用tick，目标默认randomTick为空；目标须按实际原回调接线",
+    "放置需连同LevelChunk.setBlockState、BlockItem.place及加载器快照回放判断，不能从单个onPlace片段推定完整顺序",
+    "原队列以服务器线程组门槛及SERVER END处理为准，逐技能核嵌套入队，不统一替换为本体tick倒计时"
+  ],
+  "limitations": [
+    "原类回调及完整传递过程尚待机器110根分工后逐一读取",
+    "部分加载器快照逻辑在ForgeHooks/NeoForge事件工厂，以上三原生类不是全部调用链",
+    "没有构建、游戏或渲染运行结论"
+  ]
+}

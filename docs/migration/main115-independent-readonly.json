@@ -1,0 +1,106 @@
+{
+  "batch": 115,
+  "reviewer": "/root/coverage101_inventory",
+  "role": "quick_explorer",
+  "transcription": "由主线按只读代理最终结构化消息保存；代理未自行写文件，未编译或启动游戏",
+  "baselineHead": "a86a4abb6cd0dd768d4827b92e35a59d60b02602",
+  "production": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoFlowerBlock.java",
+      "sha256": "a9f29617534dd5cb522ecc33cc0100d091499a6e15b39d2ad3a439986ee287c3"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/IcicleDecorBlock.java",
+      "sha256": "10175c9d95fe89299ebb81131de4ffa12ea7e46df483aa0b574f9c6ba3f719c5"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/farming/BarbubbleBlock.java",
+      "sha256": "732fe2ca7aa9ee11ebb4fd0d51aaf55097dc60c3ffdaa5790c0b83d7f2892f48"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/farming/FarmSeedBlock.java",
+      "sha256": "dadd0187ccf48e79c340751970a4744d10b30ff2eb6106845643ab104319792d"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/farming/GeoCropBlock.java",
+      "sha256": "d21be61d7a29cd262569738d8cee77cd7e379d2fcd44a8aeaaef3dc19fbfd49b"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/farming/SkorioBlock.java",
+      "sha256": "0d6106f9bf9326cb4756b50f0d818c46ed1fa3a638614c44289eae6c50d054b7"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/growth/GelBulbBlock.java",
+      "sha256": "1d13c72440b8dcda8234be8c516b6ec620309b9550474fa7d2797b164107d7b7"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthSeedBlock.java",
+      "sha256": "87d1964d6b7e525b18c32eaed0282c69f3fd96612d9824201c0a70210105bfe4"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthSoil.java",
+      "sha256": "4af2cce543fafee2fb589287b3e8c229bebb58922e6bc61f5e4a812dfd4795a2"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/growth/HangingFruitBlock.java",
+      "sha256": "6ec5fed1b6144f215916b0a72c8ef461e5da4cf02f300bd9c94e0def734805b4"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/growth/SparklerBlock.java",
+      "sha256": "6132de4d36f272e54a7d715127b89f5a2865a8adcfedac46724d2e81dee2ce2c"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/growth/SpireTipBlock.java",
+      "sha256": "54d61a0ab468db75b68fe4c1e454c41216ee174dfeb92bdadf241aac2b17f4a3"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/growth/VisiBulbBlock.java",
+      "sha256": "76d095e01be970193ca5f66738a6d5bbd70ffab3a0695788a7fb424c33378805"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabMachineBlock.java",
+      "sha256": "3c2aa424e3a3caff3cc430c431820102104c735b5bc26062b2c5ef28d7a94203"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/teslareed/TeslaReedSeedBlock.java",
+      "sha256": "8074ee04956c5110bc853ba4c5534a30e5bad0457f905d9acaf137fc82102b5c"
+    }
+  ],
+  "aggregateAlgorithm": "sort relative paths; sha256 + two spaces + path + LF, encoded UTF8",
+  "aggregateSha256": "c632b530c5a8b0fd488e411528b0771550d5930c68b1b2f22921970c6edd0e82",
+  "strictUtf8Passed": true,
+  "addedJavaComments": 0,
+  "resourcePathsChangedFromBase": 0,
+  "findings": [
+    "六处收割调用均核父类result与原方块实际移除；HangingFruit额外20%种子抽样同样受门槛约束",
+    "GrowthSoil比较读取的current.getBlock而非this；支撑失效先销毁成功再额外掉物，库存仍onRemove释放",
+    "Icicle精确Blocks.AIR匹配原过程，洞穴空气及虚空空气不扩大资格；实际移除失败不掉物",
+    "Visi保夜视1300/0、两原声1/1、SPLASH5/.4/.1，在状态0变1成功后授予",
+    "Tesla移除成功后才spawn并检查世界实际接纳；失败返种，成功保20POOF/.5/0及原声1/2",
+    "Wallbore保60周期、19END、.5效率/30冻结及12x2/7x3声；主手split保components、成功空桶、失败原栈退款",
+    "Wallbore同BE/MODE0才算成功，facing变化不影响成功；失败不覆写后来不同BE/其它块。同BE MODE1若facing改变未还effic仍是MODE1，没有证据证明正常路径出现免费MODE0工作，未列已知漏洞"
+  ],
+  "originalEvidence": [
+    {
+      "path": "procedures/StarfruitNeighbourBlockChangesProcedure.java",
+      "sha256": "19472a75c40dec4fa090b30dcfa0657da77123a8055e01a008f4cc7f7e4dcca2"
+    },
+    {
+      "path": "procedures/VisiBulbOnBlockRightClickedProcedure.java",
+      "sha256": "11769c1a2add85d5d0b4bbfdfd2743c1ed5019e58b30a0b893c791b595dc6862"
+    },
+    {
+      "path": "procedures/TeslaSeedAddedProcedure.java",
+      "sha256": "098428c29a9bb5f8bf6e1e3c2014ff45063e0df4dc1e463db0e65db12e924ccc"
+    },
+    {
+      "path": "procedures/WallboreOnBlockRightClickedProcedure.java",
+      "sha256": "14b9f77c7799aaf49aadc557b3001437d533079b405a16994fffa130aedb8bd1"
+    }
+  ],
+  "limitations": [
+    "只读静态对照不是运行测试",
+    "资源无本批差异不等于独立核过全部资源与原件等价",
+    "先前14处guard误记已纠正为六实际收割调用"
+  ]
+}

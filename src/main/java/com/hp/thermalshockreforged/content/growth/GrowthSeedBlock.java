@@ -42,8 +42,8 @@ public final class GrowthSeedBlock extends Block implements EntityBlock {
     private boolean checkSoil(Level level, BlockPos pos) {
         if (level.getBlockState(pos.below()).is(FarmingContent.PLANTER_POT.get()) || level.getBlockState(pos.below()).is(FarmingContent.PLANTER_BOX.get())) return true;
         if (!level.isClientSide) {
-            Block.dropResources(level.getBlockState(pos), level, pos, null);
-            level.destroyBlock(pos, false);
+            var current = level.getBlockState(pos);
+            if (current.is(this) && level.destroyBlock(pos, false) && !level.getBlockState(pos).is(this)) Block.dropResources(current, level, pos, null);
         }
         return false;
     }

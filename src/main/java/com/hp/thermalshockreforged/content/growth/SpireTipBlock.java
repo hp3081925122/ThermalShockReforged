@@ -17,8 +17,8 @@ public final class SpireTipBlock extends Block {
     @Override protected VoxelShape getVisualShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) { return Shapes.empty(); }
     @Override protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block block, BlockPos from, boolean moving) {
         super.neighborChanged(state, level, pos, block, from, moving);
-        if (level instanceof ServerLevel server && level.isEmptyBlock(pos.below())) {
-            level.destroyBlock(pos, false);
+        if (level instanceof ServerLevel server && level.isEmptyBlock(pos.below()) && level.getBlockState(pos).is(this)
+                && level.destroyBlock(pos, false) && !level.getBlockState(pos).is(this)) {
             var drop = new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(this));
             drop.setPickUpDelay(10);
             server.addFreshEntity(drop);

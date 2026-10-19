@@ -33,7 +33,7 @@ public final class GelBulbBlock extends Block implements EntityBlock {
     @Override protected List<ItemStack> getDrops(BlockState state,LootParams.Builder builder) { var drops=super.getDrops(state,builder); return drops.isEmpty()?List.of(new ItemStack(this)):drops; }
     @Override public boolean onDestroyedByPlayer(BlockState state,Level level,BlockPos pos,Player player,boolean harvest,FluidState fluid) {
         boolean result=super.onDestroyedByPlayer(state,level,pos,player,harvest,fluid);
-        GrowthHarvest.harvest(level,pos,GrowthKind.GEL_BULB,player);
+        if (result && !level.getBlockState(pos).is(this)) GrowthHarvest.harvest(level,pos,GrowthKind.GEL_BULB,player);
         return result;
     }
     @Override protected MenuProvider getMenuProvider(BlockState state,Level level,BlockPos pos) { return level.getBlockEntity(pos) instanceof GelBulbBlockEntity entity?entity:null; }

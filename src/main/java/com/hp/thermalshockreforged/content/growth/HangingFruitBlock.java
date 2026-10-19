@@ -25,14 +25,14 @@ public final class HangingFruitBlock extends Block {
     @Override protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) { return box(5, lunar ? 11 : 0, 5, 11, 16, 11); }
     private void checkAbove(Level level, BlockPos pos) {
         if (level.isClientSide || !level.getBlockState(pos.above()).is(Blocks.AIR)) return;
-        dropResources(level.getBlockState(pos), level, pos, null);
-        level.destroyBlock(pos, false);
+        var state = level.getBlockState(pos);
+        if (state.is(this) && level.destroyBlock(pos, false) && !level.getBlockState(pos).is(this)) dropResources(state, level, pos, null);
     }
     @Override protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState previous, boolean moving) { super.onPlace(state, level, pos, previous, moving); checkAbove(level, pos); }
     @Override protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block block, BlockPos from, boolean moving) { super.neighborChanged(state, level, pos, block, from, moving); checkAbove(level, pos); }
     @Override public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean harvest, FluidState fluid) {
         boolean result = super.onDestroyedByPlayer(state, level, pos, player, harvest, fluid);
-        if (level instanceof ServerLevel server && server.random.nextDouble() < .2) {
+        if (result && !level.getBlockState(pos).is(this) && level instanceof ServerLevel server && server.random.nextDouble() < .2) {
             var drop = new ItemEntity(level, pos.getX() - .5, pos.getY() - .5, pos.getZ() - .5, new ItemStack(lunar ? GrowthContent.LUNALEMON_SEED.get() : GrowthContent.STARFRUIT_SEED.get()));
             drop.setPickUpDelay(10);
             server.addFreshEntity(drop);

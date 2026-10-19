@@ -1,0 +1,2270 @@
+{
+  "batch": 115,
+  "lane": "main",
+  "baseCommit": "a86a4abb6cd0dd768d4827b92e35a59d60b02602",
+  "sourceEvidenceSha256": "a46f033ed64dcb3e5672306571e837f520d422d4e7faae1bd117928b810bf68a",
+  "counts": {
+    "roots": 57,
+    "callbackCalls": 97,
+    "transitiveProcedures": 55
+  },
+  "inventoryHashNote": {
+    "rawFileSha256": "a462f72ee6ffd538d148c15776e235377406bda40fd73d0dd32c81816e6567a3",
+    "lfNormalizedSha256": "4e461921787753681c0b8d993ab3794839e1ab2708280f9763e383351ece7ade",
+    "cause": "初次通报摘要为写盘前LF编码，Windows write_text落盘为CRLF；两副本原始bytes相等，canonical650行摘要不变"
+  },
+  "roots": [
+    {
+      "ordinal": 111,
+      "sourcePath": "block/ShalePillarVar3Block.java",
+      "sourceSHA256": "3f002a404ac0f598f0d5ab984b173462881cf45b11271c293a28cd21efb4e92a",
+      "classSHA256": "2319075f1fc6f92abe48990dcf0b0c08936171f2e787a93988530652eea0aff1",
+      "registryIds": [
+        "shale_pillar_var_3"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "FuzzPillarRightClickProcedure",
+          "method": "use",
+          "line": 135,
+          "call": "FuzzPillarRightClickProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "8e96a800f28539982d8bb5fbffe71637fd3c607d9a6898a3e9f945227e3379c1"
+        }
+      ],
+      "transitiveProcedures": [
+        "FuzzPillarRightClickProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/ShalePillarBlock.java",
+          "sha256": "e77713f412eb6f69a39aaa26f85101d85de4b4eca5a76fee882d2497cdf9227f"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java",
+          "sha256": "84147bbf1ce0131a1d5240bfe33746fe48e064e02fc57e034abf48c8c44ddfb4"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "主手Chisel不消耗；同名属性保朝向/含水/动画，2001 cobbled_shale事件与END_PORTAL_FRAME_FILL NEUTRAL1/1；BE完整转移且失败恢复。",
+      "approvedDifferences": "第28批完整八样式循环：原7回基础且8只到2，现7到8且8回基础；保全部八个独立ID与原资产。"
+    },
+    {
+      "ordinal": 112,
+      "sourcePath": "block/ShalePillarVar4Block.java",
+      "sourceSHA256": "9cd8e2f918f51fb12dc0ccf2a932fe8b05fdabfc06ccf245427b7449ef3c5650",
+      "classSHA256": "ab9132f93444b44f8059db5afdfec9643a8bd2a25ac5aed6a02466f9a1111ac0",
+      "registryIds": [
+        "shale_pillar_var_4"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "DepthPillarRightClickProcedure",
+          "method": "use",
+          "line": 135,
+          "call": "DepthPillarRightClickProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "c8df3697c17ae4b36fb74309bea602bb26c2b77a5c8ccee8154e85eb8d2fe739"
+        }
+      ],
+      "transitiveProcedures": [
+        "DepthPillarRightClickProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/ShalePillarBlock.java",
+          "sha256": "e77713f412eb6f69a39aaa26f85101d85de4b4eca5a76fee882d2497cdf9227f"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java",
+          "sha256": "84147bbf1ce0131a1d5240bfe33746fe48e064e02fc57e034abf48c8c44ddfb4"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "主手Chisel不消耗；同名属性保朝向/含水/动画，2001 cobbled_shale事件与END_PORTAL_FRAME_FILL NEUTRAL1/1；BE完整转移且失败恢复。",
+      "approvedDifferences": "第28批完整八样式循环：原7回基础且8只到2，现7到8且8回基础；保全部八个独立ID与原资产。"
+    },
+    {
+      "ordinal": 113,
+      "sourcePath": "block/ShalePillarVar5Block.java",
+      "sourceSHA256": "80670a46d6e48916e24a21c029a072ac29b3f73777746e94d237e091925ebc18",
+      "classSHA256": "c8166de08ca2fd95a85329ff1b8bed23872883f2a40fb69a7910461216f7eede",
+      "registryIds": [
+        "shale_pillar_var_5"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "GardenPillarRightClickProcedure",
+          "method": "use",
+          "line": 135,
+          "call": "GardenPillarRightClickProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "848e6b1c6c5891b36644b4be95111bd54f570e9b97a378fc545e57edfb400e48"
+        }
+      ],
+      "transitiveProcedures": [
+        "GardenPillarRightClickProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/ShalePillarBlock.java",
+          "sha256": "e77713f412eb6f69a39aaa26f85101d85de4b4eca5a76fee882d2497cdf9227f"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java",
+          "sha256": "84147bbf1ce0131a1d5240bfe33746fe48e064e02fc57e034abf48c8c44ddfb4"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "主手Chisel不消耗；同名属性保朝向/含水/动画，2001 cobbled_shale事件与END_PORTAL_FRAME_FILL NEUTRAL1/1；BE完整转移且失败恢复。",
+      "approvedDifferences": "第28批完整八样式循环：原7回基础且8只到2，现7到8且8回基础；保全部八个独立ID与原资产。"
+    },
+    {
+      "ordinal": 114,
+      "sourcePath": "block/ShalePillarVar6Block.java",
+      "sourceSHA256": "9d353e189f76ca275354e57b4982384f5303c1beec7dd27fe822d1eef0f38bd7",
+      "classSHA256": "9adde05c41803b63c4971f38d0b8ed191ced909ed2df2e23c8ecd428874e5270",
+      "registryIds": [
+        "shale_pillar_var_6"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "PathosPillarRightClickProcedure",
+          "method": "use",
+          "line": 135,
+          "call": "PathosPillarRightClickProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "cbd4812677abab9a2b3b9e802482ebd46bcb24d4e3d2fb4367dfa442ff1ac07c"
+        }
+      ],
+      "transitiveProcedures": [
+        "PathosPillarRightClickProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/ShalePillarBlock.java",
+          "sha256": "e77713f412eb6f69a39aaa26f85101d85de4b4eca5a76fee882d2497cdf9227f"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java",
+          "sha256": "84147bbf1ce0131a1d5240bfe33746fe48e064e02fc57e034abf48c8c44ddfb4"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "主手Chisel不消耗；同名属性保朝向/含水/动画，2001 cobbled_shale事件与END_PORTAL_FRAME_FILL NEUTRAL1/1；BE完整转移且失败恢复。",
+      "approvedDifferences": "第28批完整八样式循环：原7回基础且8只到2，现7到8且8回基础；保全部八个独立ID与原资产。"
+    },
+    {
+      "ordinal": 115,
+      "sourcePath": "block/ShalePillarVar7Block.java",
+      "sourceSHA256": "28a3c084c8d8b2b950585f4c400d086004a98daf043e3a4f3d4bb24c932e4825",
+      "classSHA256": "dd0d7f20d98a1142696aa845e438cc44765dfda9017730092e21ea59b10b0436",
+      "registryIds": [
+        "shale_pillar_var_7"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "AzazelPillarRightClickProcedure",
+          "method": "use",
+          "line": 135,
+          "call": "AzazelPillarRightClickProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "20a94632ae4fdf54696d42e5be5ef44ce3f5bb37e896f9c8fb0530bd3eb9c068"
+        }
+      ],
+      "transitiveProcedures": [
+        "AzazelPillarRightClickProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/ShalePillarBlock.java",
+          "sha256": "e77713f412eb6f69a39aaa26f85101d85de4b4eca5a76fee882d2497cdf9227f"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java",
+          "sha256": "84147bbf1ce0131a1d5240bfe33746fe48e064e02fc57e034abf48c8c44ddfb4"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "主手Chisel不消耗；同名属性保朝向/含水/动画，2001 cobbled_shale事件与END_PORTAL_FRAME_FILL NEUTRAL1/1；BE完整转移且失败恢复。",
+      "approvedDifferences": "第28批完整八样式循环：原7回基础且8只到2，现7到8且8回基础；保全部八个独立ID与原资产。"
+    },
+    {
+      "ordinal": 116,
+      "sourcePath": "block/ShalePillarVar8Block.java",
+      "sourceSHA256": "58cd8090c96cc8ebe4b5084a0a9d52e6ea56bb017f8cdc3c310a5b5e56757a34",
+      "classSHA256": "c017bbd7133d7a0a43942543115f350c9b2082270192c93d77a465cd7126f2b2",
+      "registryIds": [
+        "shale_pillar_var_8"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "ShalePillarRightClickProcedure",
+          "method": "use",
+          "line": 135,
+          "call": "ShalePillarRightClickProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "51896de82793315cb7f83f33c4babe2c1daff4ed1757842f6a502d57857b6976"
+        }
+      ],
+      "transitiveProcedures": [
+        "ShalePillarRightClickProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/ShalePillarBlock.java",
+          "sha256": "e77713f412eb6f69a39aaa26f85101d85de4b4eca5a76fee882d2497cdf9227f"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java",
+          "sha256": "84147bbf1ce0131a1d5240bfe33746fe48e064e02fc57e034abf48c8c44ddfb4"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "主手Chisel不消耗；同名属性保朝向/含水/动画，2001 cobbled_shale事件与END_PORTAL_FRAME_FILL NEUTRAL1/1；BE完整转移且失败恢复。",
+      "approvedDifferences": "第28批完整八样式循环：原7回基础且8只到2，现7到8且8回基础；保全部八个独立ID与原资产。"
+    },
+    {
+      "ordinal": 117,
+      "sourcePath": "block/ShalePotBlock.java",
+      "sourceSHA256": "83f89f1a066c6982b3f76689c454c423c195d76b60985000dad0c397eab5fbf3",
+      "classSHA256": "ed2879c6e9a32eed3b95d8c3f31c277f55f89aa2402c2ee72ea8611ae6706195",
+      "registryIds": [
+        "shale_pot"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "ShalePotBlockDestroyedByPlayerProcedure",
+          "method": "onDestroyedByPlayer",
+          "line": 94,
+          "call": "ShalePotBlockDestroyedByPlayerProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "0b4082ca6a1f7863d5150041fbd8aa44733bd9b715ff13db9358337f2e6aeea6"
+        }
+      ],
+      "transitiveProcedures": [
+        "ShalePotBlockDestroyedByPlayerProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/ShalePotBlock.java",
+          "sha256": "8638e85c704e861807a9fea05db0cde6f73cb1087796df3aa2911198ce805ff5"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "父类破坏成功且当前已移除才按2.5%尝试Skullscor；MOB_SUMMONED/初速0。",
+      "approvedDifferences": "既有失败不生成保护；正常概率保留。"
+    },
+    {
+      "ordinal": 118,
+      "sourcePath": "block/ShiverLeavesBlock.java",
+      "sourceSHA256": "392111460953d621ce06a5cf1d71526c405b27b98071f2e3871b28ad20dd7d63",
+      "classSHA256": "a86edb993cf79f3c93af0884c54d15b48c72729c9933ec865b6c3dc9a855e7c9",
+      "registryIds": [
+        "shiver_leaves"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "VermilliLeavesNeighbourBlockChangesProcedure",
+          "method": "neighborChanged",
+          "line": 58,
+          "call": "VermilliLeavesNeighbourBlockChangesProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "0643a42b801d31023d2e3613f557e712ad6d5e9bbdb9835ffe6e39f863239e49"
+        }
+      ],
+      "transitiveProcedures": [
+        "VermilliLeavesNeighbourBlockChangesProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/terrain/SnowCoveredLeaves.java",
+          "sha256": "5431bab5a3407cc971124a81f8955af31d62e8b8bbc4fca2cd7989e17ba64fd5"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/terrain/UnderbrushLeaves.java",
+          "sha256": "c519422d70b0bbb25fd25445352c61967f10b6d18d10aa66c9b0fa4e88618f54"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/terrain/TerrainContent.java",
+          "sha256": "cd1805d6fdefa9f53b232f92b36ce7b04efbf3523ae6e80579155a6279e894df"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/terrain/vermilli/VermilliContent.java",
+          "sha256": "62133e03584b2d5701072400a06f24718033c2b6d7a17c12c9b8741284da8927"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "上方精确Blocks.SNOW决定blockstate1/0；继承LeavesBlock原生随机枯萎/含水等；server仅状态改变才flags3，不反复发送同值。",
+      "approvedDifferences": "无本批正常行为变化；运行待验"
+    },
+    {
+      "ordinal": 119,
+      "sourcePath": "block/SkorioBlock.java",
+      "sourceSHA256": "c13b85b11768883acaf8168b67dde1aab4bcf36b0876fed6326f42d915ca19bc",
+      "classSHA256": "45ccb57c1450214025b1f61c65306a776f18e188e7bda22c5083a63ab1d7dee0",
+      "registryIds": [
+        "skorio"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "SickleHarvestingProcedure",
+          "method": "onDestroyedByPlayer",
+          "line": 43,
+          "call": "SickleHarvestingProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ(), blockstate, (Entity)entity)",
+          "enclosingMethodSha256": "26923828c89f3f869dbb334a6cd6465515be2dba3572767c901bcac7cb35ca9f"
+        }
+      ],
+      "transitiveProcedures": [
+        "SickleHarvestingProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/farming/SkorioBlock.java",
+          "sha256": "0d6106f9bf9326cb4756b50f0d818c46ed1fa3a638614c44289eae6c50d054b7"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/farming/SickleHarvesting.java",
+          "sha256": "57c219447c614b7ae7d1a6ca667d0b00c26c7feeffe1ca96fc964396b8b6c6ec"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "共享Sickle完整工具/三档与fallback；循环条件逐次抽样，种子无限寿命和pickup10。",
+      "approvedDifferences": "本批父类实际移除成功才收割；原错误种子/fallback/Claw分支修复见farming-batch既有36分支表。"
+    },
+    {
+      "ordinal": 120,
+      "sourcePath": "block/SkorioSeedBlock.java",
+      "sourceSHA256": "21e0361200085c83c5fbc7d65b92af5053d98b60ae2504804f57d5039558fa75",
+      "classSHA256": "29d752c7ea8c8d4369cf29077c8885975adc559af9cceab6a898dac25176c105",
+      "registryIds": [
+        "skorio_seed"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "SkorioSeedBlockAddedProcedure",
+          "method": "onPlace",
+          "line": 68,
+          "call": "SkorioSeedBlockAddedProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "70ddff70d3de49e3fedf7f1c676c222585bf6412922a58199796a7a3bed6a52e"
+        },
+        {
+          "procedure": "SkorioSeedNeighbourBlockChangesProcedure",
+          "method": "neighborChanged",
+          "line": 73,
+          "call": "SkorioSeedNeighbourBlockChangesProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "db241f07b462e7ff27391653514d7d82f37ed1fbe5c7fb4dece6873b3ce54c85"
+        },
+        {
+          "procedure": "SkorioSeedOnTickUpdateProcedure",
+          "method": "tick",
+          "line": 81,
+          "call": "SkorioSeedOnTickUpdateProcedure.execute((LevelAccessor)world, x, y, z)",
+          "enclosingMethodSha256": "198ef3c1dd03adc5d73ce1f18d70a5c56efd00f9ead6dc900b6b9cc8793fb02c"
+        },
+        {
+          "procedure": "SkorioSeedOnBlockRightClickedProcedure",
+          "method": "use",
+          "line": 94,
+          "call": "SkorioSeedOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "19b272bd717c55c67fdb5a3758f7838bfe4d4c18c2f62401ee1898f096f752d0"
+        }
+      ],
+      "transitiveProcedures": [
+        "SkorioSeedBlockAddedProcedure",
+        "SkorioSeedNeighbourBlockChangesProcedure",
+        "SkorioSeedOnBlockRightClickedProcedure",
+        "SkorioSeedOnTickUpdateProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/farming/FarmSeedBlock.java",
+          "sha256": "dadd0187ccf48e79c340751970a4744d10b30ff2eb6106845643ab104319792d"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/farming/FarmingContent.java",
+          "sha256": "64022c1d59b9684b97d85ae8ebd6b545d4e45529d95b6c66d26ee542daf0a0b7"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "PlanterPot/Box；初始化false/0，30tick自排程，!thirsty且.0026，5水滴；主手水壶、恰3.0成熟、双瓶空声/杜鹃声/15HAPPY/原进度；9槽/持久同步保留。",
+      "approvedDifferences": "本批不合底座时先实际移除后掉种子；原匿名类表达式前!已读全，非反编译错误；原正常成熟及概率不变。"
+    },
+    {
+      "ordinal": 121,
+      "sourcePath": "block/SlushBlock.java",
+      "sourceSHA256": "dd97058f8ef131272f4f15d74f584d38c820ab62a2d68ff0c65fdbbb21172af9",
+      "classSHA256": "69203d06b6cd82db16e0f37ee9bf552c43e59662ac7da15abcc2d0de5537c4e9",
+      "registryIds": [
+        "slush"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "GrassyShaleOnBlockRightClickedProcedure",
+          "method": "use",
+          "line": 47,
+          "call": "GrassyShaleOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, blockstate, direction, (Entity)entity)",
+          "enclosingMethodSha256": "2cfa76017a87327936630bb825e0e67a17059998cf38f30b79fe00cfa4658122"
+        }
+      ],
+      "transitiveProcedures": [
+        "GrassyShaleOnBlockRightClickedProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/terrain/TerrainContent.java",
+          "sha256": "cd1805d6fdefa9f53b232f92b36ce7b04efbf3523ae6e80579155a6279e894df"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "非潜行、主手骨粉、顶面；Slush/SnowyShale 50% TallFrosted/ShortLoque，Twilit为原TwilitShrub。",
+      "approvedDifferences": "既有可替换空间及成功才扣实际主手一份，修任意覆盖/背包扣其它栈；无额外骨粉或地图兼容模块。"
+    },
+    {
+      "ordinal": 122,
+      "sourcePath": "block/SnowyCobaltBlock.java",
+      "sourceSHA256": "6922dabb82c1e331c6f832f717ab6150c157c1df1afd258f7afbfbed6e86ebf1",
+      "classSHA256": "77666e2c1bce474f2c2f27bb7a64230dfff53d7c5821743b6818d4746ea466bf",
+      "registryIds": [
+        "snowy_cobalt"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "CobaltBlockAddedProcedure",
+          "method": "onPlace",
+          "line": 35,
+          "call": "CobaltBlockAddedProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "cb4fff2823291a5a88de28c7809126923e4375163eb228f6594107fca2de894c"
+        }
+      ],
+      "transitiveProcedures": [
+        "CobaltBlockAddedProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/terrain/TerrainContent.java",
+          "sha256": "cd1805d6fdefa9f53b232f92b36ce7b04efbf3523ae6e80579155a6279e894df"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "原调用CobaltAdded但SnowyCobalt无blockstate属性，三个分支均无写入；目标普通PlantSoil不造不存在的发光状态。Cobalt本体另保Y16/-32及0/5/15光。",
+      "approvedDifferences": "无本批正常行为变化；运行待验"
+    },
+    {
+      "ordinal": 123,
+      "sourcePath": "block/SnowyShaleBlock.java",
+      "sourceSHA256": "b4c00a3ecafbb3600cee5668f07c3aee1bba136508de7205d666dbbd5bc1ad4d",
+      "classSHA256": "aad3b3b5487fed65b19153112e5c924a617cd08921017df600e169d9473fcdf8",
+      "registryIds": [
+        "snowy_shale"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "GrassyShaleOnBlockRightClickedProcedure",
+          "method": "use",
+          "line": 48,
+          "call": "GrassyShaleOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, blockstate, direction, (Entity)entity)",
+          "enclosingMethodSha256": "2cfa76017a87327936630bb825e0e67a17059998cf38f30b79fe00cfa4658122"
+        }
+      ],
+      "transitiveProcedures": [
+        "GrassyShaleOnBlockRightClickedProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/terrain/TerrainContent.java",
+          "sha256": "cd1805d6fdefa9f53b232f92b36ce7b04efbf3523ae6e80579155a6279e894df"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "非潜行、主手骨粉、顶面；Slush/SnowyShale 50% TallFrosted/ShortLoque，Twilit为原TwilitShrub。",
+      "approvedDifferences": "既有可替换空间及成功才扣实际主手一份，修任意覆盖/背包扣其它栈；无额外骨粉或地图兼容模块。"
+    },
+    {
+      "ordinal": 124,
+      "sourcePath": "block/SparklerBulbBlock.java",
+      "sourceSHA256": "bbb4587aeda7ef3a216656d19e44186c27ac9856ea0d5d23ed739076c2c3af8d",
+      "classSHA256": "ec9901bcc72bb45a73627f04b5c92a4c961514671d0732ecfa72a8092bf4eeec",
+      "registryIds": [
+        "sparkler_bulb"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "SparklerbulbUpdateTickProcedure",
+          "method": "animateTick",
+          "line": 49,
+          "call": "SparklerbulbUpdateTickProcedure.execute((LevelAccessor)world, x, y, z)",
+          "enclosingMethodSha256": "b52ecc658f7e9d969415d8cfc78e7cfecfc5afb0ba24bf3fda4c7addf41fcce4"
+        },
+        {
+          "procedure": "SparklerBulbBlockDestroyedByPlayerProcedure",
+          "method": "onDestroyedByPlayer",
+          "line": 54,
+          "call": "SparklerBulbBlockDestroyedByPlayerProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "520421fdafbd86eb99b04142d0a2fbf0ce9e907a40c9867c535b2c11b2f3f6a1"
+        },
+        {
+          "procedure": "SparklerBulbBlockDestroyedByPlayerProcedure",
+          "method": "wasExploded",
+          "line": 60,
+          "call": "SparklerBulbBlockDestroyedByPlayerProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "33e85d898f3e072d316479077bedc236b0f9113768dda616339509b65c04f39e"
+        },
+        {
+          "procedure": "SparklerBulbBlockDestroyedByPlayerProcedure",
+          "method": "onProjectileHit",
+          "line": 64,
+          "call": "SparklerBulbBlockDestroyedByPlayerProcedure.execute((LevelAccessor)world, hit.getBlockPos().getX(), hit.getBlockPos().getY(), hit.getBlockPos().getZ())",
+          "enclosingMethodSha256": "a064aa1f1beaf46fc4bc7101b78d200ec2e1ad17aa262968433068a2ea39d012"
+        }
+      ],
+      "transitiveProcedures": [
+        "SparklerBulbBlockDestroyedByPlayerProcedure",
+        "SparklerbulbUpdateTickProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/vilebathblocks/HangingSparklerBulbBlock.java",
+          "sha256": "f021d9462b7c5953d8590053c14903170f27f08c8317e97dc1dd9fb280730be1"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/vilebathblocks/SparklerDetonations.java",
+          "sha256": "beb2840b931925bbfc4dcd4f193b48cfc366ba385e9aca62cc8cb124ddf777fe"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/vilebathblocks/VilebathBlocksContent.java",
+          "sha256": "66565a2d13e1637e85fba17285352d3184968b8de822da49ccd75afa0bb3e95e"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/sanctum/GuardianPylonEntity.java",
+          "sha256": "40f0d8b9af2e3b4aa785a225f9ac6f6302a6fc4777e644e1251040cd573deade"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "破坏/爆炸/投射物真power1 BLOCK爆炸与20END_ROD spread1 speed.3；animate仅40%conduit声，原ServerLevel粒子在客户端入口无效；另Guardian死亡服务端5粒实际入口已保。",
+      "approvedDifferences": "既有失败破坏不爆、当前块确认、同tick FIFO防递归；Guardian旧绝对原点粒子定位修复沿原记录，不向灯泡新增无效分支效果。"
+    },
+    {
+      "ordinal": 125,
+      "sourcePath": "block/SparklerSeedBlock.java",
+      "sourceSHA256": "60c992e7ae45381f01b8340c9969c94237d4b432ca0357f8904a0d56edafa477",
+      "classSHA256": "d37a9626e81a83c95cb8871abc48aa954cace0a9857a50f47ba9f77300198a3e",
+      "registryIds": [
+        "sparkler_seed"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "SkorioSeedBlockAddedProcedure",
+          "method": "onPlace",
+          "line": 68,
+          "call": "SkorioSeedBlockAddedProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "70ddff70d3de49e3fedf7f1c676c222585bf6412922a58199796a7a3bed6a52e"
+        },
+        {
+          "procedure": "SkorioSeedNeighbourBlockChangesProcedure",
+          "method": "neighborChanged",
+          "line": 73,
+          "call": "SkorioSeedNeighbourBlockChangesProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "db241f07b462e7ff27391653514d7d82f37ed1fbe5c7fb4dece6873b3ce54c85"
+        },
+        {
+          "procedure": "SkorioSeedOnTickUpdateProcedure",
+          "method": "tick",
+          "line": 81,
+          "call": "SkorioSeedOnTickUpdateProcedure.execute((LevelAccessor)world, x, y, z)",
+          "enclosingMethodSha256": "198ef3c1dd03adc5d73ce1f18d70a5c56efd00f9ead6dc900b6b9cc8793fb02c"
+        },
+        {
+          "procedure": "SkorioSeedOnBlockRightClickedProcedure",
+          "method": "use",
+          "line": 94,
+          "call": "SkorioSeedOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "19b272bd717c55c67fdb5a3758f7838bfe4d4c18c2f62401ee1898f096f752d0"
+        }
+      ],
+      "transitiveProcedures": [
+        "SkorioSeedBlockAddedProcedure",
+        "SkorioSeedNeighbourBlockChangesProcedure",
+        "SkorioSeedOnBlockRightClickedProcedure",
+        "SkorioSeedOnTickUpdateProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthSeedBlock.java",
+          "sha256": "87d1964d6b7e525b18c32eaed0282c69f3fd96612d9824201c0a70210105bfe4"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthContent.java",
+          "sha256": "5b0d2eb62e57c4e625a248bd83a0169412c8410f0f8793894a2f1cf2ed46eddc"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "对应动态种子真实注册，30tick/!thirsty/.0026/5水滴、盆与9槽、原水壶/3.0/完整声画进度；Sparkler完整3高原模板。",
+      "approvedDifferences": "既有上2格可替换且高度合法才消费最后一次浇水；本批不合支撑实际移除后掉物。"
+    },
+    {
+      "ordinal": 126,
+      "sourcePath": "block/SpiceGeyserBlock.java",
+      "sourceSHA256": "022c3b7708eeb2c650470a42fdf871069de69a1c8201fe7ea4de29d9f497af19",
+      "classSHA256": "6064d4202b5fee5f1bf6d6613c545c60e6031e75902a9e53c2d3b5508725eeb9",
+      "registryIds": [
+        "spice_geyser"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "SpiceGeyserOnRandomClientDisplayTickProcedure",
+          "method": "animateTick",
+          "line": 47,
+          "call": "SpiceGeyserOnRandomClientDisplayTickProcedure.execute((LevelAccessor)world, x, y, z)",
+          "enclosingMethodSha256": "2a97f61776c7ab16180ec33d946badc721006a81c491d1ffc56deceac902e804"
+        }
+      ],
+      "transitiveProcedures": [
+        "SpiceGeyserOnRandomClientDisplayTickProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/SpiceGeyserBlock.java",
+          "sha256": "533fec01c36b294b29dd27c89e9cf900b58e72c79587df4ea2939f9d4beec9a7"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/SpiceGeyserBlockEntity.java",
+          "sha256": "0b152e72696b4bb9189e5936441bc0bea27c33887a860993336329ab6fb46688"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "animate单颗CAMPFIRE_SIGNAL_SMOKE中心上1、Y速.1；真实9槽/持久化/菜单桥/比较器/自动化，无捏造右键菜单入口。",
+      "approvedDifferences": "无本批正常行为变化；运行待验"
+    },
+    {
+      "ordinal": 127,
+      "sourcePath": "block/SpiderLiliesBlock.java",
+      "sourceSHA256": "07a9876aca70ea09cb82385cad02ab4b71632e8037e6c47ac692043f12c2d7d1",
+      "classSHA256": "08ffaabf81cce701691e67db802bc2d01a4071247a5efaaee24ac22693a59dc6",
+      "registryIds": [
+        "spider_lilies"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "SpireBloomNeighbourBlockChangesProcedure",
+          "method": "neighborChanged",
+          "line": 115,
+          "call": "SpireBloomNeighbourBlockChangesProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "f29dd49e505dcebd36a09ed8ea936f12a0e4b7089a4ba4a4e460c9336e4c7ced"
+        },
+        {
+          "procedure": "LargeSpiderLilyOnRandomClientDisplayTickProcedure",
+          "method": "animateTick",
+          "line": 125,
+          "call": "LargeSpiderLilyOnRandomClientDisplayTickProcedure.execute((LevelAccessor)world, x, y, z)",
+          "enclosingMethodSha256": "df9d272523a7b8e20b974586fa6a7789a7e3509e3055cc74cae6c37b4e170807"
+        },
+        {
+          "procedure": "SpiderLiliesOnBlockRightClickedProcedure",
+          "method": "use",
+          "line": 137,
+          "call": "SpiderLiliesOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "c9937153ab8d45771cb130446faedd562354e3ed4703d047c19ab482ac2814c3"
+        }
+      ],
+      "transitiveProcedures": [
+        "LargeSpiderLilyOnRandomClientDisplayTickProcedure",
+        "SpiderLiliesOnBlockRightClickedProcedure",
+        "SpireBloomNeighbourBlockChangesProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/SpiderLiliesBlock.java",
+          "sha256": "d976fac0f010483bab4bdc2a09dc4e090773acc2ffaa918a5ced8f622f41f78c"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoFlowerBlock.java",
+          "sha256": "a9f29617534dd5cb522ecc33cc0100d091499a6e15b39d2ad3a439986ee287c3"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlockEntity.java",
+          "sha256": "763bd63a15dfe647a1981d0f388857b4d8f43a575ac1c6c872c311f913ce37c7"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "同名主手物品且PetalCount<3，不扣物；持久计数/animation/grass.place1/1；下方空变Rubicon。原5%ServerLevel血瓣在唯一客户端入口无效，不新增常驻效果。",
+      "approvedDifferences": "既有setChanged防丢进度；本批确认移除成功才掉Rubicon，不减少实际有效原表现。"
+    },
+    {
+      "ordinal": 128,
+      "sourcePath": "block/SpireBloomBlock.java",
+      "sourceSHA256": "6bb559b4bbe8fe1f3c765d269382f97cbe0645a57647525f3f953ee4e7394777",
+      "classSHA256": "e65c0124a68b879d479b81c5187d1f6282f6463075986e7303a391fc89f29edf",
+      "registryIds": [
+        "spire_bloom"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "SpireBloomNeighbourBlockChangesProcedure",
+          "method": "neighborChanged",
+          "line": 82,
+          "call": "SpireBloomNeighbourBlockChangesProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "f29dd49e505dcebd36a09ed8ea936f12a0e4b7089a4ba4a4e460c9336e4c7ced"
+        }
+      ],
+      "transitiveProcedures": [
+        "SpireBloomNeighbourBlockChangesProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoFlowerBlock.java",
+          "sha256": "a9f29617534dd5cb522ecc33cc0100d091499a6e15b39d2ad3a439986ee287c3"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "neighbor下方空才销毁并给原Rubicon一份，原整数坐标/pickup10；无新增onPlace检查。",
+      "approvedDifferences": "本批当前块且移除成功才掉物，防失败复制。"
+    },
+    {
+      "ordinal": 129,
+      "sourcePath": "block/SpireBloomRubiconBlock.java",
+      "sourceSHA256": "94e2981dc553f03a26ebe32bde42c718f3a9a6cb3be295f84454eb7e37225889",
+      "classSHA256": "da7d0feaa10d645dd65980d53b93103f8b4054fcbfba341ff8834f687b14c907",
+      "registryIds": [
+        "spire_bloom_rubicon"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "SpireBloomNeighbourBlockChangesProcedure",
+          "method": "neighborChanged",
+          "line": 39,
+          "call": "SpireBloomNeighbourBlockChangesProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "f29dd49e505dcebd36a09ed8ea936f12a0e4b7089a4ba4a4e460c9336e4c7ced"
+        }
+      ],
+      "transitiveProcedures": [
+        "SpireBloomNeighbourBlockChangesProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/growth/SpireTipBlock.java",
+          "sha256": "54d61a0ab468db75b68fe4c1e454c41216ee174dfeb92bdadf241aac2b17f4a3"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "neighbor下方空，实际移除后返自身Rubicon，整数坐标/pickup10。",
+      "approvedDifferences": "本批加当前块及移除成功条件。"
+    },
+    {
+      "ordinal": 130,
+      "sourcePath": "block/SpirerootThornsBlock.java",
+      "sourceSHA256": "a60c89847ec0c1542f0503456056a59e85d6e657e81f7d5e9403e6d88adc211b",
+      "classSHA256": "d45c351dd3dd2d1bb0dc3118ae92e852f93d279cb8f6502ee66623782d485416",
+      "registryIds": [
+        "spireroot_thorns"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "SpirerootThornsMobplayerCollidesWithPlantProcedure",
+          "method": "entityInside",
+          "line": 41,
+          "call": "SpirerootThornsMobplayerCollidesWithPlantProcedure.execute((LevelAccessor)world, entity)",
+          "enclosingMethodSha256": "44f3e46cb7c4b3fa91ae23dfe4b3ef39dabb4c6e74e24b6f06a7167692cc378f"
+        }
+      ],
+      "transitiveProcedures": [
+        "SpirerootThornsMobplayerCollidesWithPlantProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/plants/tall/TallPlantContent.java",
+          "sha256": "c7d57ae2bb917f13d87117ccbf8fbe1d7fb1bf731d4dbbc5a0691fa62db6cf74"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "原谓词是非Living或非亡灵，因此物品等非Living仍受CACTUS1；目标用原生UNDEAD语义标签保留。",
+      "approvedDifferences": "无本批正常行为变化；运行待验"
+    },
+    {
+      "ordinal": 131,
+      "sourcePath": "block/SporePodBlock.java",
+      "sourceSHA256": "d9912f39c4d40c268e00300788cec3b28d44b9f98dc90a120ff13e196301b5f0",
+      "classSHA256": "cb53545613e87fb03fd3d1f6c8b1fc9ee0d94dc1b801690f2cb1b4e8c341077b",
+      "registryIds": [
+        "spore_pod"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "SporePodBlockDestroyedByPlayerProcedure",
+          "method": "onDestroyedByPlayer",
+          "line": 99,
+          "call": "SporePodBlockDestroyedByPlayerProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "ea5fa0c22dd18a7171f575e8278d6152c2dc696a541262bfe58fc273c32b5ed4"
+        },
+        {
+          "procedure": "SporePodBlockDestroyedByPlayerProcedure",
+          "method": "wasExploded",
+          "line": 105,
+          "call": "SporePodBlockDestroyedByPlayerProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "968f670a725437f5b7ff79f861ac22e61a0cdbe9a662a99e62e54b7b8fc98ce3"
+        },
+        {
+          "procedure": "SporePodBlockDestroyedByPlayerProcedure",
+          "method": "entityInside",
+          "line": 110,
+          "call": "SporePodBlockDestroyedByPlayerProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "4d90a66f6ec36c68a193381444233d8c9b18ba42ad337a1a8b1280967fd5f157"
+        },
+        {
+          "procedure": "SporePodBlockDestroyedByPlayerProcedure",
+          "method": "stepOn",
+          "line": 115,
+          "call": "SporePodBlockDestroyedByPlayerProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "7dab53cea73fbd7b55d24d6f84061375c98ce5f7df58e4dde71794dab0383382"
+        },
+        {
+          "procedure": "SporePodBlockDestroyedByPlayerProcedure",
+          "method": "onProjectileHit",
+          "line": 119,
+          "call": "SporePodBlockDestroyedByPlayerProcedure.execute((LevelAccessor)world, hit.getBlockPos().getX(), hit.getBlockPos().getY(), hit.getBlockPos().getZ())",
+          "enclosingMethodSha256": "af50407401d5f4cccc16a6fc39bbc7e02cfb36b123d0c60f2d9e92e52ad87f88"
+        }
+      ],
+      "transitiveProcedures": [
+        "SporePodBlockDestroyedByPlayerProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/spore/block/SporePodBlock.java",
+          "sha256": "6f313fee54d64129c7c974a042632267d56f071664ce04013b9d2f94f404ddcf"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/spore/block/SporePodBlockEntity.java",
+          "sha256": "858d1e5685414fd134d13c61b307bb2b890182cd2a62d208bd02ac80033dc062"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "五真实触发均50%单次尝试，失败随机保未破坏pod；成功先消费/销毁才生BlightedSpore，BlockPos取整/MOB_SUMMONED/Y.2；9槽释放保。",
+      "approvedDifferences": "既有持久消费锁防多入口重复、失败移除不生成；不把触碰/step入口简化成只破坏触发。"
+    },
+    {
+      "ordinal": 132,
+      "sourcePath": "block/SpringelatinBlock.java",
+      "sourceSHA256": "12d6de898735fc0ddca18f070bc0922e182bc0c1eaccafd3911e67d869578ca2",
+      "classSHA256": "905ffd8c73a7c4ac12ce39a16696af095be3358a183b35bbdcb13df1f2344667",
+      "registryIds": [
+        "springelatin"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "SpringelatinMobplayerCollidesBlockProcedure",
+          "method": "entityInside",
+          "line": 27,
+          "call": "SpringelatinMobplayerCollidesBlockProcedure.execute(entity)",
+          "enclosingMethodSha256": "ab225681bd2a2b2671edb0d346ad129bb4215b9d232e8d9e1a92b5cd626284c6"
+        }
+      ],
+      "transitiveProcedures": [
+        "SpringelatinMobplayerCollidesBlockProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/fluids/ReactiveFluidBlock.java",
+          "sha256": "7f1cc525e8c80ca04c5987fa99270364b8cc0061419ee94f6c96f28860403aca"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/fluids/FluidContent.java",
+          "sha256": "c1bd142659c81d3ba3daca23397ea33ff7975e7510b733c629b720705628d97a"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "entityInside保任意实体速度(0,.55,0)，原流体父类先调用；真实FluidType/流动/桶与动态表现另有完整记录。",
+      "approvedDifferences": "无本批正常行为变化；运行待验"
+    },
+    {
+      "ordinal": 133,
+      "sourcePath": "block/SprintweedBlock.java",
+      "sourceSHA256": "7b5f83713f43341dfc8364f285e5ca927370ed23264644154181173982b010e2",
+      "classSHA256": "990864c4023313f32ba5040df1a9c185080e425cf906b838f6f1da1fd6258501",
+      "registryIds": [
+        "sprintweed"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "SprintweedMobplayerCollidesWithPlantProcedure",
+          "method": "entityInside",
+          "line": 40,
+          "call": "SprintweedMobplayerCollidesWithPlantProcedure.execute(blockstate, entity)",
+          "enclosingMethodSha256": "a56eaa3583a224417804fe668ec8b8e64a9d877ea72a63deb896b268c7c375ce"
+        }
+      ],
+      "transitiveProcedures": [
+        "SprintweedMobplayerCollidesWithPlantProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/plants/tall/TallPlantContent.java",
+          "sha256": "c7d57ae2bb917f13d87117ccbf8fbe1d7fb1bf731d4dbbc5a0691fa62db6cf74"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "非sprintweed_blacklist且Living/server，加真实MOVEMENT_SPEED220/1 ambient/visible皆true；不拿内部状态替换真buff。",
+      "approvedDifferences": "无本批正常行为变化；运行待验"
+    },
+    {
+      "ordinal": 134,
+      "sourcePath": "block/StarfruitBlock.java",
+      "sourceSHA256": "db96de8ed4d196ab2fab2bddea07cb6792268be4e0915b3bdf507a7efe5d0f3e",
+      "classSHA256": "8206a434137c6a5d875da1f5c9fc6e8effb942d8d28caf18f8550dbaec56e9ea",
+      "registryIds": [
+        "starfruit"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "StarfruitNeighbourBlockChangesProcedure",
+          "method": "onPlace",
+          "line": 47,
+          "call": "StarfruitNeighbourBlockChangesProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "08a7de9c97c2d4680e6895c5561570a75dc945bc1e18eb4790f4358fca99d7fa"
+        },
+        {
+          "procedure": "StarfruitNeighbourBlockChangesProcedure",
+          "method": "neighborChanged",
+          "line": 52,
+          "call": "StarfruitNeighbourBlockChangesProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "8a40a13ee823eb3c5a67a4464ed12b34277c1848285dfb399bb74869ab64d017"
+        },
+        {
+          "procedure": "StarfruitBlockDestroyedByPlayerProcedure",
+          "method": "onDestroyedByPlayer",
+          "line": 57,
+          "call": "StarfruitBlockDestroyedByPlayerProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "8d0b6a1f8975da2d21de33637833c5c53576591f14053d215975eed76e1941f1"
+        }
+      ],
+      "transitiveProcedures": [
+        "StarfruitBlockDestroyedByPlayerProcedure",
+        "StarfruitNeighbourBlockChangesProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/growth/HangingFruitBlock.java",
+          "sha256": "6ec5fed1b6144f215916b0a72c8ef461e5da4cf02f300bd9c94e0def734805b4"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "onPlace/neighbor上方精确AIR掉自身；破坏后20%starfruit_seed在xyz-.5，pickup10。",
+      "approvedDifferences": "本批支撑自毁及20%抽样均要求实际移除成功；共享Lunalemon同修，不改正常果树/种子概率。"
+    },
+    {
+      "ordinal": 135,
+      "sourcePath": "block/StormBatteryBlock.java",
+      "sourceSHA256": "3489659bbcdaa3a28dff4a7894e7c8449f87a7d21d96f8f44ac0f7b698845ccd",
+      "classSHA256": "82f33ca469fffa43f25d5bbf94fb958d6437c9017b9bab9b4644ad41782b52f8",
+      "registryIds": [
+        "storm_battery"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "StratosilverBlockBlockAddedProcedure",
+          "method": "onPlace",
+          "line": 68,
+          "call": "StratosilverBlockBlockAddedProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "99bc207a3a191151703f956e369323a3520e02c0879b0302b5a5d86ad2e5adfa"
+        }
+      ],
+      "transitiveProcedures": [
+        "StratosilverBlockBlockAddedProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabUtilityBlock.java",
+          "sha256": "481c2dc6f576be940503de4e1721831c067b5940c01a7dd2b76bade3df592f9f"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "onPlace 10ELECTRIC_SPARK @中心/spread.5/speed.04；保facing/attach_face与原工具标签，不把每属性变化的粒子误当效率初始化。",
+      "approvedDifferences": "无本批正常行为变化；运行待验"
+    },
+    {
+      "ordinal": 136,
+      "sourcePath": "block/StratosilverBlockBlock.java",
+      "sourceSHA256": "27a186786438cffd88ba35ffd166c2631c6e208cbe100ee783483c1db86d0e51",
+      "classSHA256": "331fffb4ceec9f954cc74a4eac18260a1494802281e3127e0f0d2ed2f266ef75",
+      "registryIds": [
+        "stratosilver_block"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "StratosilverBlockBlockAddedProcedure",
+          "method": "onPlace",
+          "line": 68,
+          "call": "StratosilverBlockBlockAddedProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "99bc207a3a191151703f956e369323a3520e02c0879b0302b5a5d86ad2e5adfa"
+        }
+      ],
+      "transitiveProcedures": [
+        "StratosilverBlockBlockAddedProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/metalblocks/MetalStorageBlock.java",
+          "sha256": "cf41b12d6f591ec97f4352a03f5a3555b922b6519c854a258cff39609a44a9ea"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/metalblocks/MetalBlocksContent.java",
+          "sha256": "e563241fc22249a32d95af583c8221c96cfbcfb40fb37964a19b8004cd048015"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "两动态独立注册共用onPlace原10电花/.5/.04与facing/attach_face；目标类真实覆写已核。",
+      "approvedDifferences": "无本批正常行为变化；运行待验"
+    },
+    {
+      "ordinal": 137,
+      "sourcePath": "block/StratusAlloyBlockBlock.java",
+      "sourceSHA256": "f135917c6e4d34fb34e4772bc0d393d163478ddcdaef0cf92461c3e3beafbb2b",
+      "classSHA256": "24f91c758dc4d3ad8d8cfe247311031c512fea91f9618f6d9e92d286f8bc2e6d",
+      "registryIds": [
+        "stratus_alloy_block"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "StratosilverBlockBlockAddedProcedure",
+          "method": "onPlace",
+          "line": 68,
+          "call": "StratosilverBlockBlockAddedProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "99bc207a3a191151703f956e369323a3520e02c0879b0302b5a5d86ad2e5adfa"
+        }
+      ],
+      "transitiveProcedures": [
+        "StratosilverBlockBlockAddedProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/metalblocks/MetalStorageBlock.java",
+          "sha256": "cf41b12d6f591ec97f4352a03f5a3555b922b6519c854a258cff39609a44a9ea"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/metalblocks/MetalBlocksContent.java",
+          "sha256": "e563241fc22249a32d95af583c8221c96cfbcfb40fb37964a19b8004cd048015"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "两动态独立注册共用onPlace原10电花/.5/.04与facing/attach_face；目标类真实覆写已核。",
+      "approvedDifferences": "无本批正常行为变化；运行待验"
+    },
+    {
+      "ordinal": 138,
+      "sourcePath": "block/StratusReactorCoreBlock.java",
+      "sourceSHA256": "c350cdfbb7ced3274a771986683eda4563eaba4e101dd947688d9f11a89c8bce",
+      "classSHA256": "d5861e7f8bbafc33309707b32335a5b8979df24a035a12d8db2d0e0ddac02b51",
+      "registryIds": [
+        "stratus_reactor_core"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "StratusReactorCoreAdditionalHarvestConditionProcedure",
+          "method": "canHarvestBlock",
+          "line": 75,
+          "call": "StratusReactorCoreAdditionalHarvestConditionProcedure.execute(state)",
+          "enclosingMethodSha256": "59f5f252457d6819cdd14070b945c2e1a824a19cc5de53dba26cbd7f27e396f7"
+        },
+        {
+          "procedure": "StratusReactorCoreOnBlockRightClickedProcedure",
+          "method": "use",
+          "line": 87,
+          "call": "StratusReactorCoreOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, blockstate, (Entity)entity)",
+          "enclosingMethodSha256": "d0abb6cc837dc6a1953266598fdce92cbfdfd0e315ff9eed2cd2fe3730f4712e"
+        }
+      ],
+      "transitiveProcedures": [
+        "StratusReactorCoreAdditionalHarvestConditionProcedure",
+        "StratusReactorCoreOnBlockRightClickedProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/reactor/StratusReactorCoreBlock.java",
+          "sha256": "b89d70bd7e85dae7c0300dfe55a418d8069d74934f422dc0386520e730eac25a"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/reactor/ReactorCoreBlockEntity.java",
+          "sha256": "872d23c1d9a36152ba64ee66866b2efbb9f2611992b5918ddf449a41b96b00dd"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/reactor/ReactorSequenceEntity.java",
+          "sha256": "8648d928c95dafc9033bbb2c3f6e9a86d757c6e9974d44adc0b6ab1475f77dac"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "原两状态与采集n!=1、完整材料阵列；25波t0/60END后续、.9/.7概率与[-7,8)坐标/原声粒子/1900END Squall，有限持久任务及UUID归属。",
+      "approvedDifferences": "沿第97批完整四角/激活loot/失败回滚/不强载区块/不误删新核心改进，不恢复已批准原重复角/复用漏洞。"
+    },
+    {
+      "ordinal": 139,
+      "sourcePath": "block/SuperCryonicCacheBlock.java",
+      "sourceSHA256": "7dd16e9484ed3653711c94755bad7566e666838704da48acc404dc337de4459a",
+      "classSHA256": "5080cabc12fcbe2f14eac497e562527be1950587d95b92fe354821996c2d3434",
+      "registryIds": [
+        "super_cryonic_cache"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "CryonicCacheStartDestroyProcedure",
+          "method": "attack",
+          "line": 78,
+          "call": "CryonicCacheStartDestroyProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ(), (Entity)entity)",
+          "enclosingMethodSha256": "58741e26b2af25bcb224cfd12e218a475ba4650a546949f7a3c13a308d0af9d9"
+        },
+        {
+          "procedure": "SuperCryonicCacheOpenProcedure",
+          "method": "use",
+          "line": 90,
+          "call": "SuperCryonicCacheOpenProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "cec79c28f3b0daed9228e31b9ab1be859cc78b30e8b5f9fbd77b970fd9d11c6c"
+        }
+      ],
+      "transitiveProcedures": [
+        "CryonicCacheStartDestroyProcedure",
+        "SuperCryonicCacheOpenProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/CryonicCacheBlock.java",
+          "sha256": "da25999b50e8c9692e94ba41a8878d1ded07c85f90f57a23fb498d6b7cc32106"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/CacheBlockEntity.java",
+          "sha256": "18923f5b0394722692635ef389588699c849f9534a7eb31b1283bf2dfecf9113"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "attack或非key use原Locked提示+NOTE_BASS NEUTRAL1/1；真实key一份、完整super_cryonic_cache表中心掉物/pickup10、glass .5/-4。",
+      "approvedDifferences": "既有服务端事务、缺loot保入口、消费锁/失败移除不扣key、不发奖。"
+    },
+    {
+      "ordinal": 140,
+      "sourcePath": "block/SuperbouncerBlock.java",
+      "sourceSHA256": "178438a6880a110651f293d29676c0a1610c6deeaac65c97143a308dd546e0f3",
+      "classSHA256": "5058c1d7e5e85c5c9b5689224883779feb15a154c600698f71bd999e57ca1cad",
+      "registryIds": [
+        "superbouncer"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "BouncerEntityWalksOnTheBlockProcedure",
+          "method": "stepOn",
+          "line": 25,
+          "call": "BouncerEntityWalksOnTheBlockProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ(), entity)",
+          "enclosingMethodSha256": "725433a13362cef68d1fc1dbe2583ea49b59fe483c0da09312d38aae054ccc9e"
+        }
+      ],
+      "transitiveProcedures": [
+        "BouncerEntityWalksOnTheBlockProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/BounceBlocks.java",
+          "sha256": "a941fbab2d54a07111fe293d70016068ebacbed9cf0c96c8d20bfbdc6c35d6b1"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java",
+          "sha256": "95f62f003c698a9e48f0205740b598fb24f79c419d25cba85ce0d5b779d8e852"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "step非潜行速度(0,3,0)+FIREWORK_ROCKET_LAUNCH BLOCKS1/1；原114补回独立LivingFall取消，不以step推免摔。",
+      "approvedDifferences": "无本批正常行为变化；运行待验"
+    },
+    {
+      "ordinal": 141,
+      "sourcePath": "block/SurgePylonBlock.java",
+      "sourceSHA256": "e20839a9cf9b6f330840af591d7aab13e90ad605eb4a08488ad1ed778a84dc5d",
+      "classSHA256": "288fd483239f585706ccdd5a058070b7574b7ccda896eafa0b41a8919298d685",
+      "registryIds": [
+        "surge_pylon"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "SurgePylonOnRandomClientDisplayTickProcedure",
+          "method": "tick",
+          "line": 92,
+          "call": "SurgePylonOnRandomClientDisplayTickProcedure.execute((LevelAccessor)world, x, y, z)",
+          "enclosingMethodSha256": "d72379b75f0941f84e27a0c405aa0832fc7fe49fcaca3029063902a36c94f0d9"
+        }
+      ],
+      "transitiveProcedures": [
+        "SurgePylonOnRandomClientDisplayTickProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/SurgePylonBlock.java",
+          "sha256": "01c1207c8e9f7a5329724b8354e13b45116f59aa0540c6c9b4a44cdc38733a3a"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "旧randomTicks由BlockBehaviour.randomTick委派tick是真入口，目标显式两方法pulse；AMBIENT脉冲1/1、FROST_RING1 @y+1/.0001/1、inflate16生存玩家FROSTBITE1200/0隐藏。",
+      "approvedDifferences": "既有仅查真实ServerPlayer不全Entity排序，范围与生存资格不变；不改固定周期。"
+    },
+    {
+      "ordinal": 142,
+      "sourcePath": "block/SuspiciousCavebloomerBlock.java",
+      "sourceSHA256": "ec3729e442266f550c0cd982cc339a2a1aa5871277bb2bd4531d9e955f61844a",
+      "classSHA256": "7908a2f140f769f00372d471fe1147d13b3a643553bc07273b89e02c8a93bc5a",
+      "registryIds": [
+        "suspicious_cavebloomer"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "SuspiciousCavebloomerOnBlockRightClickedProcedure",
+          "method": "use",
+          "line": 113,
+          "call": "SuspiciousCavebloomerOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z)",
+          "enclosingMethodSha256": "9428bbb55c33e716340c99bdafb797c2cb28225e9976a9a891179bdec9d600c7"
+        }
+      ],
+      "transitiveProcedures": [
+        "SuspiciousCavebloomerOnBlockRightClickedProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/SuspiciousCavebloomerBlock.java",
+          "sha256": "e73e64a89db2514e7a2174da7c6965ff07ecfb4d2943c302cec5062aa05bc513"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/SuspiciousCavebloomerBlockEntity.java",
+          "sha256": "135c7adad95bc840228393dbe533ffb5d06bac4174c16ec1f4a60d7d45550eea"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "双阶段与4次t0/6/13/20，XYZ取整/原随机yaw；32立方任意Budding含尸体阻Boss，完整广播/声/NUKE；原真实Geo与库存。",
+      "approvedDifferences": "沿第19批明确批准pending结束前禁二阶段、删除块取消未生成阶段；finite BE/暂停重载，成功接纳Boss才消费和成功声画。"
+    },
+    {
+      "ordinal": 143,
+      "sourcePath": "block/SuspiciousSafeBlock.java",
+      "sourceSHA256": "26246882e84e4e0a335a8410500d10b9139e26f3d5f097368ca32a56c3fa2018",
+      "classSHA256": "504b6d91b837ee149a11f4230863f605dd75e43ee3347f830da484285086112f",
+      "registryIds": [
+        "suspicious_safe"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "SuspiciousSafeOnBlockRightClickedProcedure",
+          "method": "use",
+          "line": 69,
+          "call": "SuspiciousSafeOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "82105d3964e74a4af4089fb6d3d420cc1514ed1c2e0bd5850e8cc11e41e7462a"
+        }
+      ],
+      "transitiveProcedures": [
+        "SuspiciousSafeOnBlockRightClickedProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabUtilityBlock.java",
+          "sha256": "481c2dc6f576be940503de4e1721831c067b5940c01a7dd2b76bade3df592f9f"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "Safe主手两种pick→StormBattery保方向+ITEM_BREAK1/-1+SAFE2，否则SAFE1；Constructor放置替Wallbore保朝向，非同state循环。",
+      "approvedDifferences": "无本批正常行为变化；运行待验"
+    },
+    {
+      "ordinal": 144,
+      "sourcePath": "block/TeslaReedSeedBlock.java",
+      "sourceSHA256": "6f9106587ef49bce5c8039feb15758128e4f231bffd8a54669dcc101cef7f432",
+      "classSHA256": "6b8b9554a7879845acf5bd3ed1ab08488d5e3d4d54ae7498f56cc49e64020929",
+      "registryIds": [
+        "tesla_reed_seed"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "TeslaSeedAddedProcedure",
+          "method": "onPlace",
+          "line": 28,
+          "call": "TeslaSeedAddedProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "565ff9acd3c8c5eab8b7cf2e55b2d7f1969c97d894fe693cfe3c0e025aa039d3"
+        }
+      ],
+      "transitiveProcedures": [
+        "TeslaSeedAddedProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/teslareed/TeslaReedSeedBlock.java",
+          "sha256": "8074ee04956c5110bc853ba4c5534a30e5bad0457f905d9acaf137fc82102b5c"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "onPlace一次实际消费后尝试真实TeslaReed，POOF20中心/.5/0和GRASS_PLACE BLOCKS1/2；失败spawn退seed。",
+      "approvedDifferences": "既有服务端/异块门槛与失败退款；本批增加实际移除成功门槛，防源块留存而生成实体。"
+    },
+    {
+      "ordinal": 145,
+      "sourcePath": "block/ThermaDevPlushBlock.java",
+      "sourceSHA256": "96ed5500545e3ce51a23e884aa46364d799d9c3e6e96ee97a2ec98895ebc2296",
+      "classSHA256": "c66a796ea97c361901fdf9049727f0a0fdca1c722942e4b0d6b9af6c9b5c6b7f",
+      "registryIds": [
+        "therma_dev_plush"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "ThermaDevPlushOnBlockRightClickedProcedure",
+          "method": "use",
+          "line": 113,
+          "call": "ThermaDevPlushOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z)",
+          "enclosingMethodSha256": "96e87ed8d447129ec9771f1689479846592328faabff235b96aa7e51ebd822da"
+        }
+      ],
+      "transitiveProcedures": [
+        "ThermaDevPlushOnBlockRightClickedProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/ThermaDevPlushBlock.java",
+          "sha256": "c207caeb5ca2b6dae05c11246c0bf75af7a5d0f17d35c02448350e9497c98b31"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "use消耗本体再掉原资源，正常九槽由onRemove释放，Geo全部保。",
+      "approvedDifferences": "沿43批先真移除后drop修复，不恢复失败复制。"
+    },
+    {
+      "ordinal": 146,
+      "sourcePath": "block/ThermalGeyserBlock.java",
+      "sourceSHA256": "e87778e0eb7848ace3e79a9815124b291699349ce540dd0ab91f253daa86edf6",
+      "classSHA256": "198c712208c2ebbe48d5ff02088e14491bbcf07c0d5c9b5be25a85451a741f21",
+      "registryIds": [
+        "thermal_geyser"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "SpiceGeyserOnRandomClientDisplayTickProcedure",
+          "method": "animateTick",
+          "line": 47,
+          "call": "SpiceGeyserOnRandomClientDisplayTickProcedure.execute((LevelAccessor)world, x, y, z)",
+          "enclosingMethodSha256": "2a97f61776c7ab16180ec33d946badc721006a81c491d1ffc56deceac902e804"
+        }
+      ],
+      "transitiveProcedures": [
+        "SpiceGeyserOnRandomClientDisplayTickProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/vilebathblocks/ThermalGeyserBlock.java",
+          "sha256": "997d88c49bed565df442e1656e597915561cca5feaed003773b6b0693e616180"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/vilebathblocks/ThermalGeyserBlockEntity.java",
+          "sha256": "98625c3928d7cdd93e0d3faa341165b358a80cca70cda1a489b6eb1615c13bbc"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "与Spice共享原烟参数，但独立块/BE与原自然模板；保9槽及原渲染/亮度/能力。",
+      "approvedDifferences": "无本批正常行为变化；运行待验"
+    },
+    {
+      "ordinal": 147,
+      "sourcePath": "block/ThermiteBlock.java",
+      "sourceSHA256": "b53ba825e0e706a72beddc49cc8cc7e113eeb923daf4689c6243115d558aaa31",
+      "classSHA256": "bcf3fe3b5644e6ca0708b9f8de1974a5d92b16a9b106830893817e6f81bfefb2",
+      "registryIds": [
+        "thermite"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "ThermiteBlockDestroyedByExplosionProcedure",
+          "method": "wasExploded",
+          "line": 40,
+          "call": "ThermiteBlockDestroyedByExplosionProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "6549f3b0ded34b9f96f3c808d4e0584e15a8410ef5278ad471f32d339cc85c51"
+        }
+      ],
+      "transitiveProcedures": [
+        "ThermiteBlockDestroyedByExplosionProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/ThermiteBlock.java",
+          "sha256": "a3627feb1cf85a484f53389fdd46d96ec254b135fd46029245e1485b90ef94be"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/world/thermite/ThermiteDetonationEntity.java",
+          "sha256": "890ff6990941abca154a1e388399b9a61bdfccea69555a323086e3a22da9e63b"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "wasExploded原3 SERVER END后power1 BLOCK爆炸；有界持久任务同tick去重，锚点/维度/3END剩余/已消费保存，不误用原生TNT替代。",
+      "approvedDifferences": "无本批正常行为变化；运行待验"
+    },
+    {
+      "ordinal": 148,
+      "sourcePath": "block/TrainTerminalBlock.java",
+      "sourceSHA256": "e1569ff00689dc0bcb1cfd4680441f92624331d6527c7956d87d363bea023f82",
+      "classSHA256": "63d2f6cb78bac5e9dba6a3adf961813fe433c167e4dea90c1a1fc05289a1a127",
+      "registryIds": [
+        "train_terminal"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "TrainTerminalOnBlockRightClickedProcedure",
+          "method": "use",
+          "line": 88,
+          "call": "TrainTerminalOnBlockRightClickedProcedure.execute((Entity)entity)",
+          "enclosingMethodSha256": "432aa5ec28ecc3b635c06a431adf3a524ae96351b9bda9c424f8ef44a5d90725"
+        }
+      ],
+      "transitiveProcedures": [
+        "TrainTerminalOnBlockRightClickedProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/TrainTerminalBlock.java",
+          "sha256": "c55b4cef3184d010d0ee9d483ca295701b3309e05727df6e1ec6a069cc0637de"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "原use仅实体参数；主手train_pass且server Player原Not enough credit actionbar，不扣票、不加原不存在传送逻辑。",
+      "approvedDifferences": "无本批正常行为变化；运行待验"
+    },
+    {
+      "ordinal": 149,
+      "sourcePath": "block/TransmutatorBlock.java",
+      "sourceSHA256": "98bba9027ac914c4e386050b4c8b4eb5376234ed2c995422ed2e79a343487183",
+      "classSHA256": "a3133813337fc0fa35fac6266fff987119d2bfb6953779a69de928c6d3a8cc0a",
+      "registryIds": [
+        "transmutator"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "TransmutatorOnRandomClientDisplayTickProcedure",
+          "method": "animateTick",
+          "line": 54,
+          "call": "TransmutatorOnRandomClientDisplayTickProcedure.execute((LevelAccessor)world, x, y, z)",
+          "enclosingMethodSha256": "ead272dd2dff6525e7beaec447b172629cc6b2030c2dd2908bd5423fcd6cc21b"
+        },
+        {
+          "procedure": "TransmutateClickProcedure",
+          "method": "use",
+          "line": 66,
+          "call": "TransmutateClickProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "0be37e9e8442ab225afd0573ef65d250e3a9f0e1a5a3f68ed7cb6e552fbb220c"
+        }
+      ],
+      "transitiveProcedures": [
+        "TransmutateClickProcedure",
+        "TransmutatorOnRandomClientDisplayTickProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/machines/TransmutatorBlock.java",
+          "sha256": "3edc2fa74fe37fa4ac22b7d0c50877dd526df7a69e50ef13fb623dcd9c16437f"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/machines/MachineContent.java",
+          "sha256": "f221cc425a7eccfa0e9f42940369a10b9eaffe9952bb9b762ff1483c62433798"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "六材料1:1双向rough ruby/bloodstone、ruby/bloodstone、malachite/bismuth；产物中心上1/pickup10，COPPER_PLACE1/3，10%单END_ROD @y+1/Y.2。",
+      "approvedDifferences": "既有扣实际交互栈替全背包匹配、支持实际使用手、服务端成功掉物才发声，失败退款；此作用手差异明确记录。"
+    },
+    {
+      "ordinal": 150,
+      "sourcePath": "block/TrappedArchiveCubeBlock.java",
+      "sourceSHA256": "82be935e08264ea800a7939b022fb2c1ee13aace1cd735b62a1e64e09ac5dd39",
+      "classSHA256": "b441c2a7ab52fd9c73e11d7254b2df2e269b46f8fb9da6718463772c4acb3040",
+      "registryIds": [
+        "trapped_archive_cube"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "TrappedArchiveCubeBlockDestroyedByPlayerProcedure",
+          "method": "onDestroyedByPlayer",
+          "line": 36,
+          "call": "TrappedArchiveCubeBlockDestroyedByPlayerProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "dc705ca0edaf42fd13f1c8439a7e8b1adb3546106cba35bb07aeaa45d292e6de"
+        }
+      ],
+      "transitiveProcedures": [
+        "TrappedArchiveCubeBlockDestroyedByPlayerProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/TrappedArchiveCubeBlock.java",
+          "sha256": "ec5e616adf15f9912d06ae7c9017fab953da5706334b084f3fbd998de14d58e8"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "父类破坏成功后7立方Y/X/Z循环，清Cube、Spawner→AIRflags3+每个Turq1/Kilolyte随机yaw/初始pos surge_break1/-3。",
+      "approvedDifferences": "既有确认实际移除才发每次伏击；不缩7立方/每Spawner数量/声音次数。"
+    },
+    {
+      "ordinal": 151,
+      "sourcePath": "block/TridentLampBlock.java",
+      "sourceSHA256": "23823fe23ce9c7684a160bedb7a603ce1a066b7bfae93ddb634ae875b2901478",
+      "classSHA256": "65db98bc6abf7635eea982b8b2e039ef110209e46b8de52fad2b9b58edf44630",
+      "registryIds": [
+        "trident_lamp"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "TridentLampOnBlockRightClickedProcedure",
+          "method": "use",
+          "line": 90,
+          "call": "TridentLampOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, blockstate, (Entity)entity)",
+          "enclosingMethodSha256": "d173fdb5368179f3ed7ea703e480c3d226f48108555522a0e78c639abd72dfdd"
+        }
+      ],
+      "transitiveProcedures": [
+        "TridentLampOnBlockRightClickedProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/displayutility/TridentLampBlock.java",
+          "sha256": "263da7b61e667529c763483e34738bd5bb31d76c48820e064e731992145daf2e"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "主手chisel不消耗，blockstate0→1→2→0flags3与CROP_PLANTED NEUTRAL1/1；全部光15及原渲染。",
+      "approvedDifferences": "无本批正常行为变化；运行待验"
+    },
+    {
+      "ordinal": 152,
+      "sourcePath": "block/TwilitGrassyShaleBlock.java",
+      "sourceSHA256": "eaad6ff9d334e4b85f611764e098ee7ea8cdb379112360bc6211363e27ce80fe",
+      "classSHA256": "98b1ca97d8971d730c1651c7581f538f1ca471854143d0c8b57fda3db575ada0",
+      "registryIds": [
+        "twilit_grassy_shale"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "GrassyShaleOnBlockRightClickedProcedure",
+          "method": "use",
+          "line": 47,
+          "call": "GrassyShaleOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, blockstate, direction, (Entity)entity)",
+          "enclosingMethodSha256": "2cfa76017a87327936630bb825e0e67a17059998cf38f30b79fe00cfa4658122"
+        }
+      ],
+      "transitiveProcedures": [
+        "GrassyShaleOnBlockRightClickedProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/terrain/TerrainContent.java",
+          "sha256": "cd1805d6fdefa9f53b232f92b36ce7b04efbf3523ae6e80579155a6279e894df"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "非潜行、主手骨粉、顶面；Slush/SnowyShale 50% TallFrosted/ShortLoque，Twilit为原TwilitShrub。",
+      "approvedDifferences": "既有可替换空间及成功才扣实际主手一份，修任意覆盖/背包扣其它栈；无额外骨粉或地图兼容模块。"
+    },
+    {
+      "ordinal": 153,
+      "sourcePath": "block/VeinrootBlock.java",
+      "sourceSHA256": "2ff04a4f9e521a0ff5455617e8d9293ba1e6f10a7b96ac55060a648eba4ee284",
+      "classSHA256": "7626244b8f6b6dd2d56473eac5d0516ae69be60681b29f708a1ff99533a95704",
+      "registryIds": [
+        "veinroot"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "VeinrootNeighbourBlockChangesProcedure",
+          "method": "neighborChanged",
+          "line": 39,
+          "call": "VeinrootNeighbourBlockChangesProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "aa74d87b46e34ddc945da848fd9dfbce2e30128b0f097736dc7f6ae13a160956"
+        }
+      ],
+      "transitiveProcedures": [
+        "VeinrootNeighbourBlockChangesProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/terrain/VeinrootBlock.java",
+          "sha256": "1da7515b960d578431e28232054fde3e52f638163825d4d274a90b283fd7c287"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/terrain/TerrainContent.java",
+          "sha256": "cd1805d6fdefa9f53b232f92b36ce7b04efbf3523ae6e80579155a6279e894df"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "neighbor上方isEmptyBlock才destroy false不掉物，独立两ID共用真正相同的回调，不加onPlace。",
+      "approvedDifferences": "无本批正常行为变化；运行待验"
+    },
+    {
+      "ordinal": 154,
+      "sourcePath": "block/VeinrootEndsBlock.java",
+      "sourceSHA256": "620325f771d9026623149f1b5dc54f389e1adf90a4c562c424b021130e3ed533",
+      "classSHA256": "fc9e1d45f807b683eaf53681e6549c4d276f3e1cb3395523614ee50ff46a3f3c",
+      "registryIds": [
+        "veinroot_ends"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "VeinrootNeighbourBlockChangesProcedure",
+          "method": "neighborChanged",
+          "line": 39,
+          "call": "VeinrootNeighbourBlockChangesProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "aa74d87b46e34ddc945da848fd9dfbce2e30128b0f097736dc7f6ae13a160956"
+        }
+      ],
+      "transitiveProcedures": [
+        "VeinrootNeighbourBlockChangesProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/terrain/VeinrootBlock.java",
+          "sha256": "1da7515b960d578431e28232054fde3e52f638163825d4d274a90b283fd7c287"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/terrain/TerrainContent.java",
+          "sha256": "cd1805d6fdefa9f53b232f92b36ce7b04efbf3523ae6e80579155a6279e894df"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "neighbor上方isEmptyBlock才destroy false不掉物，独立两ID共用真正相同的回调，不加onPlace。",
+      "approvedDifferences": "无本批正常行为变化；运行待验"
+    },
+    {
+      "ordinal": 155,
+      "sourcePath": "block/VermilliLeavesBlock.java",
+      "sourceSHA256": "68a2a58f0f894178f6470322c484d0d6a3b898193127f6676f7190687132b36e",
+      "classSHA256": "0b0cd3ef6fdc0a312a64726f13e35e642256e004e2ed1e20d041c65fd114666d",
+      "registryIds": [
+        "vermilli_leaves"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "VermilliLeavesNeighbourBlockChangesProcedure",
+          "method": "neighborChanged",
+          "line": 58,
+          "call": "VermilliLeavesNeighbourBlockChangesProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "0643a42b801d31023d2e3613f557e712ad6d5e9bbdb9835ffe6e39f863239e49"
+        }
+      ],
+      "transitiveProcedures": [
+        "VermilliLeavesNeighbourBlockChangesProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/terrain/SnowCoveredLeaves.java",
+          "sha256": "5431bab5a3407cc971124a81f8955af31d62e8b8bbc4fca2cd7989e17ba64fd5"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/terrain/UnderbrushLeaves.java",
+          "sha256": "c519422d70b0bbb25fd25445352c61967f10b6d18d10aa66c9b0fa4e88618f54"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/terrain/TerrainContent.java",
+          "sha256": "cd1805d6fdefa9f53b232f92b36ce7b04efbf3523ae6e80579155a6279e894df"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/terrain/vermilli/VermilliContent.java",
+          "sha256": "62133e03584b2d5701072400a06f24718033c2b6d7a17c12c9b8741284da8927"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "上方精确Blocks.SNOW决定blockstate1/0；继承LeavesBlock原生随机枯萎/含水等；server仅状态改变才flags3，不反复发送同值。",
+      "approvedDifferences": "无本批正常行为变化；运行待验"
+    },
+    {
+      "ordinal": 156,
+      "sourcePath": "block/VermillionSparklerStemBlock.java",
+      "sourceSHA256": "20036c0224ff6688a810ec0d007ab3542ae25165b259103f12dc5a7b36998f68",
+      "classSHA256": "f3fcbd2b7211af8396cbf71f68862ac867aa5c9a2582146161ed66ccbfabe8d3",
+      "registryIds": [
+        "vermillion_sparkler_stem"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "VermillionSparklerStemBlockAddedProcedure",
+          "method": "onPlace",
+          "line": 79,
+          "call": "VermillionSparklerStemBlockAddedProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "75df8b3f1d5cb9076f39a9c63835cf544bdccfd574ccb0214c91764b1874ac88"
+        },
+        {
+          "procedure": "VermillionSparklerStemBlockAddedProcedure",
+          "method": "neighborChanged",
+          "line": 84,
+          "call": "VermillionSparklerStemBlockAddedProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "2bf68d5e19b8db1829425d14b829010ab0cbc68001477f524d12b82061681754"
+        },
+        {
+          "procedure": "SickleHarvestingProcedure",
+          "method": "onDestroyedByPlayer",
+          "line": 89,
+          "call": "SickleHarvestingProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ(), blockstate, (Entity)entity)",
+          "enclosingMethodSha256": "26923828c89f3f869dbb334a6cd6465515be2dba3572767c901bcac7cb35ca9f"
+        }
+      ],
+      "transitiveProcedures": [
+        "SickleHarvestingProcedure",
+        "VermillionSparklerStemBlockAddedProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/growth/SparklerBlock.java",
+          "sha256": "6132de4d36f272e54a7d715127b89f5a2865a8adcfedac46724d2e81dee2ce2c"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthSoil.java",
+          "sha256": "4af2cce543fafee2fb589287b3e8c229bebb58922e6bc61f5e4a812dfd4795a2"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthHarvest.java",
+          "sha256": "a52aafd855ad7258fb91d1a6a1ef428c398ac461f64dd86aa2522b9689c3e11b"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthContent.java",
+          "sha256": "5b0d2eb62e57c4e625a248bd83a0169412c8410f0f8793894a2f1cf2ed46eddc"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "onPlace/neighbor八类精确支撑；失败原steelstem @中心/pickup10；完整三档收获/逐轮随机/种子无限寿命，四独立注册与原模板保。",
+      "approvedDifferences": "本批移除成功才steelstem或收割，父类失败不额外产物。"
+    },
+    {
+      "ordinal": 157,
+      "sourcePath": "block/VermillionSparklerTop1Block.java",
+      "sourceSHA256": "adc3ee195e8456c44cec4e858500aa611cced90a6b2794c9b19ffdbeb9b61d1e",
+      "classSHA256": "b4bf3c59190ca7d1444419695ebcaf0d9a10d720b1d30a83d7c944567167cdee",
+      "registryIds": [
+        "vermillion_sparkler_top_1"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "VermillionSparklerStemBlockAddedProcedure",
+          "method": "onPlace",
+          "line": 79,
+          "call": "VermillionSparklerStemBlockAddedProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "75df8b3f1d5cb9076f39a9c63835cf544bdccfd574ccb0214c91764b1874ac88"
+        },
+        {
+          "procedure": "VermillionSparklerStemBlockAddedProcedure",
+          "method": "neighborChanged",
+          "line": 84,
+          "call": "VermillionSparklerStemBlockAddedProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "2bf68d5e19b8db1829425d14b829010ab0cbc68001477f524d12b82061681754"
+        },
+        {
+          "procedure": "SickleHarvestingProcedure",
+          "method": "onDestroyedByPlayer",
+          "line": 89,
+          "call": "SickleHarvestingProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ(), blockstate, (Entity)entity)",
+          "enclosingMethodSha256": "26923828c89f3f869dbb334a6cd6465515be2dba3572767c901bcac7cb35ca9f"
+        }
+      ],
+      "transitiveProcedures": [
+        "SickleHarvestingProcedure",
+        "VermillionSparklerStemBlockAddedProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/growth/SparklerBlock.java",
+          "sha256": "6132de4d36f272e54a7d715127b89f5a2865a8adcfedac46724d2e81dee2ce2c"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthSoil.java",
+          "sha256": "4af2cce543fafee2fb589287b3e8c229bebb58922e6bc61f5e4a812dfd4795a2"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthHarvest.java",
+          "sha256": "a52aafd855ad7258fb91d1a6a1ef428c398ac461f64dd86aa2522b9689c3e11b"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthContent.java",
+          "sha256": "5b0d2eb62e57c4e625a248bd83a0169412c8410f0f8793894a2f1cf2ed46eddc"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "onPlace/neighbor八类精确支撑；失败原steelstem @中心/pickup10；完整三档收获/逐轮随机/种子无限寿命，四独立注册与原模板保。",
+      "approvedDifferences": "本批移除成功才steelstem或收割，父类失败不额外产物。"
+    },
+    {
+      "ordinal": 158,
+      "sourcePath": "block/VermillionSparklerTop2Block.java",
+      "sourceSHA256": "1f9eae60c8e84cc5ea1096fd53efd924584b14b43e50687e0ac7d86dcb5510e7",
+      "classSHA256": "5468a751cbf6213a427716a5c52973c6856607e6538c63fa299b18213d8947b7",
+      "registryIds": [
+        "vermillion_sparkler_top_2"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "VermillionSparklerStemBlockAddedProcedure",
+          "method": "onPlace",
+          "line": 79,
+          "call": "VermillionSparklerStemBlockAddedProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "75df8b3f1d5cb9076f39a9c63835cf544bdccfd574ccb0214c91764b1874ac88"
+        },
+        {
+          "procedure": "VermillionSparklerStemBlockAddedProcedure",
+          "method": "neighborChanged",
+          "line": 84,
+          "call": "VermillionSparklerStemBlockAddedProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "2bf68d5e19b8db1829425d14b829010ab0cbc68001477f524d12b82061681754"
+        },
+        {
+          "procedure": "SickleHarvestingProcedure",
+          "method": "onDestroyedByPlayer",
+          "line": 89,
+          "call": "SickleHarvestingProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ(), blockstate, (Entity)entity)",
+          "enclosingMethodSha256": "26923828c89f3f869dbb334a6cd6465515be2dba3572767c901bcac7cb35ca9f"
+        }
+      ],
+      "transitiveProcedures": [
+        "SickleHarvestingProcedure",
+        "VermillionSparklerStemBlockAddedProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/growth/SparklerBlock.java",
+          "sha256": "6132de4d36f272e54a7d715127b89f5a2865a8adcfedac46724d2e81dee2ce2c"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthSoil.java",
+          "sha256": "4af2cce543fafee2fb589287b3e8c229bebb58922e6bc61f5e4a812dfd4795a2"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthHarvest.java",
+          "sha256": "a52aafd855ad7258fb91d1a6a1ef428c398ac461f64dd86aa2522b9689c3e11b"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthContent.java",
+          "sha256": "5b0d2eb62e57c4e625a248bd83a0169412c8410f0f8793894a2f1cf2ed46eddc"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "onPlace/neighbor八类精确支撑；失败原steelstem @中心/pickup10；完整三档收获/逐轮随机/种子无限寿命，四独立注册与原模板保。",
+      "approvedDifferences": "本批移除成功才steelstem或收割，父类失败不额外产物。"
+    },
+    {
+      "ordinal": 159,
+      "sourcePath": "block/VermillionSparklerTop3Block.java",
+      "sourceSHA256": "67b4d8340953dbb664a7c7d283991d850110987e21c58195f6498e651817b653",
+      "classSHA256": "96bf6b727dd45e59877b789ca75187b68b0343520168c7e562b661b7581e4273",
+      "registryIds": [
+        "vermillion_sparkler_top_3"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "VermillionSparklerStemBlockAddedProcedure",
+          "method": "onPlace",
+          "line": 79,
+          "call": "VermillionSparklerStemBlockAddedProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "75df8b3f1d5cb9076f39a9c63835cf544bdccfd574ccb0214c91764b1874ac88"
+        },
+        {
+          "procedure": "VermillionSparklerStemBlockAddedProcedure",
+          "method": "neighborChanged",
+          "line": 84,
+          "call": "VermillionSparklerStemBlockAddedProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "2bf68d5e19b8db1829425d14b829010ab0cbc68001477f524d12b82061681754"
+        },
+        {
+          "procedure": "SickleHarvestingProcedure",
+          "method": "onDestroyedByPlayer",
+          "line": 89,
+          "call": "SickleHarvestingProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ(), blockstate, (Entity)entity)",
+          "enclosingMethodSha256": "26923828c89f3f869dbb334a6cd6465515be2dba3572767c901bcac7cb35ca9f"
+        }
+      ],
+      "transitiveProcedures": [
+        "SickleHarvestingProcedure",
+        "VermillionSparklerStemBlockAddedProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/growth/SparklerBlock.java",
+          "sha256": "6132de4d36f272e54a7d715127b89f5a2865a8adcfedac46724d2e81dee2ce2c"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthSoil.java",
+          "sha256": "4af2cce543fafee2fb589287b3e8c229bebb58922e6bc61f5e4a812dfd4795a2"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthHarvest.java",
+          "sha256": "a52aafd855ad7258fb91d1a6a1ef428c398ac461f64dd86aa2522b9689c3e11b"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthContent.java",
+          "sha256": "5b0d2eb62e57c4e625a248bd83a0169412c8410f0f8793894a2f1cf2ed46eddc"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "onPlace/neighbor八类精确支撑；失败原steelstem @中心/pickup10；完整三档收获/逐轮随机/种子无限寿命，四独立注册与原模板保。",
+      "approvedDifferences": "本批移除成功才steelstem或收割，父类失败不额外产物。"
+    },
+    {
+      "ordinal": 160,
+      "sourcePath": "block/VisiBulbBlock.java",
+      "sourceSHA256": "2e749a9d3d76dfa21408ea54abeb809f6920decfb85efee4de3d735b1b7b0d2d",
+      "classSHA256": "1e17780d9d0237e1eb4a8622331efbc844558bb7daa21b2537f4e1b3d4ec19bf",
+      "registryIds": [
+        "visi_bulb"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "DewleafBlockAddedProcedure",
+          "method": "onPlace",
+          "line": 82,
+          "call": "DewleafBlockAddedProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "29736423153d8c75c41492774946e55b5400b4aedacae96fea15fdc6d1084582"
+        },
+        {
+          "procedure": "SickleHarvestingProcedure",
+          "method": "onDestroyedByPlayer",
+          "line": 87,
+          "call": "SickleHarvestingProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ(), blockstate, (Entity)entity)",
+          "enclosingMethodSha256": "26923828c89f3f869dbb334a6cd6465515be2dba3572767c901bcac7cb35ca9f"
+        },
+        {
+          "procedure": "VisiBulbOnBlockRightClickedProcedure",
+          "method": "use",
+          "line": 100,
+          "call": "VisiBulbOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, blockstate, (Entity)entity)",
+          "enclosingMethodSha256": "70a0bf5968f042c75fe93fda1dc762b5d65baaca9d7d33ea0ab9b99231de1edc"
+        }
+      ],
+      "transitiveProcedures": [
+        "DewleafBlockAddedProcedure",
+        "SickleHarvestingProcedure",
+        "VisiBulbOnBlockRightClickedProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/growth/VisiBulbBlock.java",
+          "sha256": "76d095e01be970193ca5f66738a6d5bbd70ffab3a0695788a7fb424c33378805"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthSoil.java",
+          "sha256": "4af2cce543fafee2fb589287b3e8c229bebb58922e6bc61f5e4a812dfd4795a2"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthHarvest.java",
+          "sha256": "a52aafd855ad7258fb91d1a6a1ef428c398ac461f64dd86aa2522b9689c3e11b"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "onPlace五类精确土壤；三档收获种子/fallback本体；use state0→1，夜视1300/0，原双声1/1、SPLASH5中心/.4/.1，永久state1。",
+      "approvedDifferences": "本批确认当前同块并state提交成功后加夜视/声粒子；破坏失败不收割，不改变正常耗用效果。"
+    },
+    {
+      "ordinal": 161,
+      "sourcePath": "block/VisiBulbSeedBlock.java",
+      "sourceSHA256": "4c63a1e13a77fe0597880c84a8bf224c948c81856663332275c9aefafd4893b7",
+      "classSHA256": "7cc3c4d1d73b8356645d55eead4521f50e94d035641c35d2a38228d1a7523597",
+      "registryIds": [
+        "visi_bulb_seed"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "SkorioSeedBlockAddedProcedure",
+          "method": "onPlace",
+          "line": 68,
+          "call": "SkorioSeedBlockAddedProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "70ddff70d3de49e3fedf7f1c676c222585bf6412922a58199796a7a3bed6a52e"
+        },
+        {
+          "procedure": "SkorioSeedNeighbourBlockChangesProcedure",
+          "method": "neighborChanged",
+          "line": 73,
+          "call": "SkorioSeedNeighbourBlockChangesProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "db241f07b462e7ff27391653514d7d82f37ed1fbe5c7fb4dece6873b3ce54c85"
+        },
+        {
+          "procedure": "SkorioSeedOnTickUpdateProcedure",
+          "method": "tick",
+          "line": 81,
+          "call": "SkorioSeedOnTickUpdateProcedure.execute((LevelAccessor)world, x, y, z)",
+          "enclosingMethodSha256": "198ef3c1dd03adc5d73ce1f18d70a5c56efd00f9ead6dc900b6b9cc8793fb02c"
+        },
+        {
+          "procedure": "SkorioSeedOnBlockRightClickedProcedure",
+          "method": "use",
+          "line": 94,
+          "call": "SkorioSeedOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "19b272bd717c55c67fdb5a3758f7838bfe4d4c18c2f62401ee1898f096f752d0"
+        }
+      ],
+      "transitiveProcedures": [
+        "SkorioSeedBlockAddedProcedure",
+        "SkorioSeedNeighbourBlockChangesProcedure",
+        "SkorioSeedOnBlockRightClickedProcedure",
+        "SkorioSeedOnTickUpdateProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthSeedBlock.java",
+          "sha256": "87d1964d6b7e525b18c32eaed0282c69f3fd96612d9824201c0a70210105bfe4"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/growth/GrowthContent.java",
+          "sha256": "5b0d2eb62e57c4e625a248bd83a0169412c8410f0f8793894a2f1cf2ed46eddc"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "对应动态种子真实注册，30tick/!thirsty/.0026/5水滴、盆与9槽、原水壶/3.0/完整声画进度；Sparkler完整3高原模板。",
+      "approvedDifferences": "既有上2格可替换且高度合法才消费最后一次浇水；本批不合支撑实际移除后掉物。"
+    },
+    {
+      "ordinal": 162,
+      "sourcePath": "block/VolatineBlock.java",
+      "sourceSHA256": "5724fc0f5319ccd103302428cc85fba29b804c0d4e40559035d6295dfbdeb8d6",
+      "classSHA256": "9edfdd1464f04114171f6cda8dca82dca599091892097268490d7eeacc4d1145",
+      "registryIds": [
+        "volatine"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "DewleafBlockAddedProcedure",
+          "method": "onPlace",
+          "line": 83,
+          "call": "DewleafBlockAddedProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "29736423153d8c75c41492774946e55b5400b4aedacae96fea15fdc6d1084582"
+        },
+        {
+          "procedure": "SickleHarvestingProcedure",
+          "method": "onDestroyedByPlayer",
+          "line": 88,
+          "call": "SickleHarvestingProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ(), blockstate, (Entity)entity)",
+          "enclosingMethodSha256": "26923828c89f3f869dbb334a6cd6465515be2dba3572767c901bcac7cb35ca9f"
+        }
+      ],
+      "transitiveProcedures": [
+        "DewleafBlockAddedProcedure",
+        "SickleHarvestingProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/farming/GeoCropBlock.java",
+          "sha256": "d21be61d7a29cd262569738d8cee77cd7e379d2fcd44a8aeaaef3dc19fbfd49b"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/farming/SickleHarvesting.java",
+          "sha256": "57c219447c614b7ae7d1a6ca667d0b00c26c7feeffe1ca96fc964396b8b6c6ec"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/farming/FarmingContent.java",
+          "sha256": "64022c1d59b9684b97d85ae8ebd6b545d4e45529d95b6c66d26ee542daf0a0b7"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "onPlace原五土壤，三档火药2+逐轮种子1..2无限寿命/pickup10，fallback原本体。",
+      "approvedDifferences": "本批移除失败不自掉/收割，正常声画/原Geo不变。"
+    },
+    {
+      "ordinal": 163,
+      "sourcePath": "block/VolatineSeedBlock.java",
+      "sourceSHA256": "610ef7ba5beef0c3c78cac7b76c6b03ad19d596e09777ea2f58008d4721ee384",
+      "classSHA256": "171b5b95b78197e0a0a15e4317d6c15ba14880066f50293fd031a4c42a5b9c1d",
+      "registryIds": [
+        "volatine_seed"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "SkorioSeedBlockAddedProcedure",
+          "method": "onPlace",
+          "line": 68,
+          "call": "SkorioSeedBlockAddedProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "70ddff70d3de49e3fedf7f1c676c222585bf6412922a58199796a7a3bed6a52e"
+        },
+        {
+          "procedure": "SkorioSeedNeighbourBlockChangesProcedure",
+          "method": "neighborChanged",
+          "line": 73,
+          "call": "SkorioSeedNeighbourBlockChangesProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "db241f07b462e7ff27391653514d7d82f37ed1fbe5c7fb4dece6873b3ce54c85"
+        },
+        {
+          "procedure": "SkorioSeedOnTickUpdateProcedure",
+          "method": "tick",
+          "line": 81,
+          "call": "SkorioSeedOnTickUpdateProcedure.execute((LevelAccessor)world, x, y, z)",
+          "enclosingMethodSha256": "198ef3c1dd03adc5d73ce1f18d70a5c56efd00f9ead6dc900b6b9cc8793fb02c"
+        },
+        {
+          "procedure": "SkorioSeedOnBlockRightClickedProcedure",
+          "method": "use",
+          "line": 94,
+          "call": "SkorioSeedOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "19b272bd717c55c67fdb5a3758f7838bfe4d4c18c2f62401ee1898f096f752d0"
+        }
+      ],
+      "transitiveProcedures": [
+        "SkorioSeedBlockAddedProcedure",
+        "SkorioSeedNeighbourBlockChangesProcedure",
+        "SkorioSeedOnBlockRightClickedProcedure",
+        "SkorioSeedOnTickUpdateProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/farming/FarmSeedBlock.java",
+          "sha256": "dadd0187ccf48e79c340751970a4744d10b30ff2eb6106845643ab104319792d"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/farming/FarmingContent.java",
+          "sha256": "64022c1d59b9684b97d85ae8ebd6b545d4e45529d95b6c66d26ee542daf0a0b7"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "PlanterPot/Box；初始化false/0，30tick自排程，!thirsty且.0026，5水滴；主手水壶、恰3.0成熟、双瓶空声/杜鹃声/15HAPPY/原进度；9槽/持久同步保留。",
+      "approvedDifferences": "本批不合底座时先实际移除后掉种子；原匿名类表达式前!已读全，非反编译错误；原正常成熟及概率不变。"
+    },
+    {
+      "ordinal": 164,
+      "sourcePath": "block/WallboreBlock.java",
+      "sourceSHA256": "504a0f311cb7989c4bb792e07710adbde45fa66bca1a41591a6ed5b0e878476c",
+      "classSHA256": "972a099999234fb6fcefc0b1bf58c406953d107ec445d69917dab97b7953a848",
+      "registryIds": [
+        "wallbore"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "WallboreAdditionalHarvestConditionProcedure",
+          "method": "canHarvestBlock",
+          "line": 121,
+          "call": "WallboreAdditionalHarvestConditionProcedure.execute(state)",
+          "enclosingMethodSha256": "6cbd4689438526741a3ae442c405952d594128dbffe64c2a191d59f119e15156"
+        },
+        {
+          "procedure": "WallboreBlockAddedProcedure",
+          "method": "onPlace",
+          "line": 135,
+          "call": "WallboreBlockAddedProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "d6dea27c64aae83996cebc67dad46711d1eff22859d1242d11c856750a65d74d"
+        },
+        {
+          "procedure": "WallboreOnTickUpdateProcedure",
+          "method": "tick",
+          "line": 143,
+          "call": "WallboreOnTickUpdateProcedure.execute((LevelAccessor)world, x, y, z, blockstate)",
+          "enclosingMethodSha256": "1e5a92f567730462516d46dda4723dce0ad38943507c32f7a7c9eede536e8abc"
+        },
+        {
+          "procedure": "WallboreOnBlockRightClickedProcedure",
+          "method": "use",
+          "line": 156,
+          "call": "WallboreOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, blockstate, (Entity)entity)",
+          "enclosingMethodSha256": "cdcb061ae5c71f1172ae83e25f3f2abe5c534fcb14deae1697faa25c3926979c"
+        }
+      ],
+      "transitiveProcedures": [
+        "WallboreAdditionalHarvestConditionProcedure",
+        "WallboreBlockAddedProcedure",
+        "WallboreOnBlockRightClickedProcedure",
+        "WallboreOnTickUpdateProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabMachineBlock.java",
+          "sha256": "3c2aa424e3a3caff3cc430c431820102104c735b5bc26062b2c5ef28d7a94203"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabMachineBlockEntity.java",
+          "sha256": "2b41e5eab12ac91484c0fb012cc6b60d2cfda0e97bc139456741128d0af90bc2"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/WallboreCycleEntity.java",
+          "sha256": "9eef97da3e0d0bbf418394316c94fb0c0f0837c72846bf40413ce88662c71951"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "原MODE0采集、60tick周期/19SERVER END、朝向背后4格精确shale/MODE快照/原CHESTloot；deepslate12次间隔2及netherbricks7次间隔3/.5效率/==30冻住。",
+      "approvedDifferences": "沿92批仅异块放置初始化、拆机取消旧token/不循环重置effic；本批补料保实际主手组件、原子提交/失败退款/不返假空桶，不重排周期。"
+    },
+    {
+      "ordinal": 165,
+      "sourcePath": "block/WallboreConstructorBlock.java",
+      "sourceSHA256": "20c616eb03f99d0d5ed25c2c88e4980bb8bb3f7773b2ab18a9d6270acb5061f8",
+      "classSHA256": "33bc2103a5fbb03189a0acacc4c31a866f451d227d07d8e9f8a8037cfe70ee6a",
+      "registryIds": [
+        "wallbore_constructor"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "WallboreConstructorBlockAddedProcedure",
+          "method": "onPlace",
+          "line": 67,
+          "call": "WallboreConstructorBlockAddedProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "882a7eb692cfa0385969065f64871cc56d00763de253c21bbc2f8cbad8571d21"
+        }
+      ],
+      "transitiveProcedures": [
+        "WallboreConstructorBlockAddedProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabUtilityBlock.java",
+          "sha256": "481c2dc6f576be940503de4e1721831c067b5940c01a7dd2b76bade3df592f9f"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "Safe主手两种pick→StormBattery保方向+ITEM_BREAK1/-1+SAFE2，否则SAFE1；Constructor放置替Wallbore保朝向，非同state循环。",
+      "approvedDifferences": "无本批正常行为变化；运行待验"
+    },
+    {
+      "ordinal": 166,
+      "sourcePath": "block/WindblownLoqueDandelionBlock.java",
+      "sourceSHA256": "c1bed586af18948a68bfc0a6d5598245873c4442595ffb646e8d969ae1139f16",
+      "classSHA256": "78b5ba22d85b10dbfbec9142663a4d246e31887cfd4141ddfa75f5323bf2478e",
+      "registryIds": [
+        "windblown_loque_dandelion"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "WindblownLoqueDandelionPlantRightClickedProcedure",
+          "method": "use",
+          "line": 45,
+          "call": "WindblownLoqueDandelionPlantRightClickedProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ(), (Entity)entity)",
+          "enclosingMethodSha256": "37323ef7730b5594229ec508e8f2ca59d41c7373f1767ad5567f3ecf42a0377d"
+        }
+      ],
+      "transitiveProcedures": [
+        "WindblownLoqueDandelionPlantRightClickedProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/plants/DandelionBlock.java",
+          "sha256": "e0ba4ad4b582fa6a03533bc86bed0bfa1ed1bb3cca5ebf52f2f7a5c91580e93e"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/plants/SpecialPlantContent.java",
+          "sha256": "faf447d55e21d906c0d882c2ce3eb00f407b976f7f5a72d747931a8ea7a2f780"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "主手骨粉使windblown回普通，保原BONE_MEAL_USE NEUTRAL1/1及两真实独立注册。",
+      "approvedDifferences": "既有成功转换才扣实际主手，避免失败仍背包扣费；A若本批调整共享作用手以最终manifest为准。"
+    },
+    {
+      "ordinal": 167,
+      "sourcePath": "block/WorldTourTrophyBlock.java",
+      "sourceSHA256": "de11a4f97938c4904a187ba62b28bd266f3964093edb05b0db3cbec39f585cb3",
+      "classSHA256": "76048159e3eaea84424f912a7493fa15fdf7e865e21d8f7d56efc503b75dc1b5",
+      "registryIds": [
+        "world_tour_trophy"
+      ],
+      "actualCallbacks": [
+        {
+          "procedure": "AmalgelTrophyOnRandomClientDisplayTickProcedure",
+          "method": "animateTick",
+          "line": 101,
+          "call": "AmalgelTrophyOnRandomClientDisplayTickProcedure.execute((LevelAccessor)world, x, y, z)",
+          "enclosingMethodSha256": "ec8e68e2be2645d9ec8a1cc66f196e9e493af245ee52fec9c01011abcb0cab82"
+        }
+      ],
+      "transitiveProcedures": [
+        "AmalgelTrophyOnRandomClientDisplayTickProcedure"
+      ],
+      "targetFiles": [
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorBlock.java",
+          "sha256": "c5d196fcf05e8ce2530e235ce8f10d68c062460c1266ae4bc8c529db0cbe3e31"
+        },
+        {
+          "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+          "sha256": "c749f29bef0998ecc7d5f4ebe5a538c1b840349a6e1d87b548f8d73f3d5c92dc"
+        }
+      ],
+      "reviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "review": "animate每次一END_ROD，XZ[0,1)/Y[0,2)，速度(0,.1,0)，完整原Geo/贴图/动画；不增加世界生成或伪造获取入口。",
+      "approvedDifferences": "无本批正常行为变化；运行待验"
+    }
+  ],
+  "limitations": [
+    "静态行为证据不等于实际客户端/专服/渲染已通过",
+    "本批只审167中主线57个直接方块回调根，不能外推实体/物品/其它入口",
+    "source全文与JAR class SHA在source115，关键匿名类否定须从if全表达式读取"
+  ]
+}
