@@ -1,0 +1,209 @@
+{
+  "scope": "原JAR/真实调用/目标原生API/注册与资产构建副本静态比对；不等于运行验证",
+  "runtime_tests": "pending_full_mod_migration_primary_agent_only",
+  "summary": {
+    "weapons": 2,
+    "new_particle_types": 3,
+    "delayed_end_ticks": 5,
+    "assets": 34,
+    "tag_files": 4,
+    "two_fabricator_outputs_closed": true,
+    "original_item_stats_match": true,
+    "native_sword_enchantment_inheritance_verified": true
+  },
+  "asset_routes": {
+    "shock_stick": "item/handheld + 原PNG两帧每帧8tick/非插值",
+    "knights_edge": "custom/knights_edge完整原几何/显示变换，未改平面图标",
+    "blue_plus_blast": "原9帧/8tick/quad16/fullbright/LIT",
+    "hit_effects": {
+      "hitferro": [
+        "Texture/Hitfx Ferro.png",
+        "Texture/shrapnel.png"
+      ],
+      "hitcloro": [
+        "Texture/Hitfx Cloro.png",
+        "Texture/shrapnel.png"
+      ],
+      "redexplode": [
+        "Texture/Bomb Explosion.png"
+      ]
+    }
+  },
+  "source_review": {
+    "weak_bonus": [
+      7,
+      9
+    ],
+    "charged_area_damage": 10,
+    "charged_area_aabb_inflate": 3,
+    "exclude_owner_items_all_tamed_animals_and_task": true,
+    "charge_not_consumed_by_hit": true,
+    "parry_windows": {
+      "normal": 18,
+      "hard": 12,
+      "other": 25
+    },
+    "right_click_cooldown": 100,
+    "original_parry_does_not_cancel_damage": true,
+    "electrified_duration_amplifier": [
+      240,
+      1
+    ],
+    "delayed_anchor_does_not_follow_victim": true,
+    "finite_saved_tasks_no_strong_entity_references": true
+  },
+  "assets": [
+    {
+      "path": "effeks/Texture/Bomb Explosion.png",
+      "sha256": "d80a945fe3824ddc8ad712207e0db51f3233462dbcdaf1881bd1e46a9d1b5c7a"
+    },
+    {
+      "path": "effeks/Texture/Hitfx Cloro.png",
+      "sha256": "20d14037498dfdd1f8be4d5e4786d96dfec498d29d71723ae85c0048fec67298"
+    },
+    {
+      "path": "effeks/Texture/Hitfx Ferro.png",
+      "sha256": "9b88cdafef7f9473ecafbfcbd803cecdcd2ca950cc4b4136bf536c1e3b42aef1"
+    },
+    {
+      "path": "effeks/Texture/shrapnel.png",
+      "sha256": "9107d5d018ededd43f5358f57603e34bff542acd516f47b7473f8eed175f258c"
+    },
+    {
+      "path": "effeks/hitcloro.efkefc",
+      "sha256": "73e92e14641f2548d366dd5d13188b6c03b1e1abd40e6c7e30268388ced77073"
+    },
+    {
+      "path": "effeks/hitferro.efkefc",
+      "sha256": "7587e0d2fe5b307d10f9d6e1b36db308dfb2548b1acbff3e41d9d67912019dfb"
+    },
+    {
+      "path": "effeks/redexplode.efkefc",
+      "sha256": "8e6206db27e1941b8d29fa920e516de6381af4ebbc9fb1d7a8a9a49776b40333"
+    },
+    {
+      "path": "models/custom/knights_edge.json",
+      "sha256": "c5cd781a1ae368f8d39dc6b91266783c36f2f4a2bb5ddcc8a599fcbcc188d8fa"
+    },
+    {
+      "path": "models/item/knights_edge.json",
+      "sha256": "6aa327adf9db0335a20b64347e163ed7dd94c6641ea7ba5211c5ca01715321eb"
+    },
+    {
+      "path": "models/item/shock_stick.json",
+      "sha256": "5e6266feab76a4b29db65ce4b887851bd8555e46f0339711d0e59f71cf6d1ba3"
+    },
+    {
+      "path": "particles/blue_plus_blast.json",
+      "sha256": "054890da6c00dd05292ba903def2369f1ac2f5063bcfb41dcb1331a61dff7526"
+    },
+    {
+      "path": "particles/hit_cloro.json",
+      "sha256": "dd5af252b34e3e1b59559cd61a970c78aaa15c23de054e07b8c68f86c4bbc4c6"
+    },
+    {
+      "path": "particles/hit_ferro.json",
+      "sha256": "c09344e7afe045766882cea9bb1452d1f621379037d56717bfc759544fa6f865"
+    },
+    {
+      "path": "particles/red_explode.json",
+      "sha256": "4701c9a073ce89886179eab5d79fd8a9df6e62f081b77d8bf4d7709bea3e8522"
+    },
+    {
+      "path": "sounds/electric-impact-37128_1.ogg",
+      "sha256": "87f2631a3f7a6d4913abf81c206b2905c454e4870c3e1906eb33dca41f1afa6f"
+    },
+    {
+      "path": "textures/block/knights_edge_rubicon.png",
+      "sha256": "d535e5469f0bb2096bd4c58fd2c4380ab9e972b9cef03a7e1b04c1cc3eb91489"
+    },
+    {
+      "path": "textures/item/knights_edge_icon_rubicon.png",
+      "sha256": "c3f22a60779e02b00a25f61116430d353c4fd1db90ecfa4fbc18056876ddc0e8"
+    },
+    {
+      "path": "textures/item/shockstickanim.png",
+      "sha256": "215cca7268fe87dec33024c6ae567262db5d1c8ae9190a3df9ee92c76bb8ca1c"
+    },
+    {
+      "path": "textures/item/shockstickanim.png.mcmeta",
+      "sha256": "f62d2f631db30c497346797bf5ea86a3a553f6ae712fa15eb88e8d2a9755b294"
+    },
+    {
+      "path": "textures/mob_effect/electrified.png",
+      "sha256": "77910b226792e070d89cd4a6c8561cc13d342493d0b4bab88cce1d6e94a64a61"
+    },
+    {
+      "path": "textures/mob_effect/knights_edge_charge.png",
+      "sha256": "c3f22a60779e02b00a25f61116430d353c4fd1db90ecfa4fbc18056876ddc0e8"
+    },
+    {
+      "path": "textures/mob_effect/parrying.png",
+      "sha256": "1b5f91e5f1fb436fcf18bd407af10cafa7bf3c89afe3e7337bfbd721c5e15b9c"
+    },
+    {
+      "path": "textures/particle/blue_plus_blast_1.png",
+      "sha256": "0504ae640d51545ba4f58472325349103b486226d60f45b6f8dbbad3e44554f8"
+    },
+    {
+      "path": "textures/particle/blue_plus_blast_2.png",
+      "sha256": "46d07cbfd7d7fe6a2840e026f9fd937203a3b49871bde94ddd73c791d28085cb"
+    },
+    {
+      "path": "textures/particle/blue_plus_blast_3.png",
+      "sha256": "ce301d360275f22dcccad6d7af027f88e1234ef90c94410592e894614d121688"
+    },
+    {
+      "path": "textures/particle/blue_plus_blast_4.png",
+      "sha256": "7074f74f39a8ad752db14a876089e9867d92b2425c37a6d44a74660f900a877d"
+    },
+    {
+      "path": "textures/particle/blue_plus_blast_5.png",
+      "sha256": "7074f74f39a8ad752db14a876089e9867d92b2425c37a6d44a74660f900a877d"
+    },
+    {
+      "path": "textures/particle/blue_plus_blast_6.png",
+      "sha256": "7074f74f39a8ad752db14a876089e9867d92b2425c37a6d44a74660f900a877d"
+    },
+    {
+      "path": "textures/particle/blue_plus_blast_7.png",
+      "sha256": "7074f74f39a8ad752db14a876089e9867d92b2425c37a6d44a74660f900a877d"
+    },
+    {
+      "path": "textures/particle/blue_plus_blast_8.png",
+      "sha256": "7074f74f39a8ad752db14a876089e9867d92b2425c37a6d44a74660f900a877d"
+    },
+    {
+      "path": "textures/particle/blue_plus_blast_9.png",
+      "sha256": "7074f74f39a8ad752db14a876089e9867d92b2425c37a6d44a74660f900a877d"
+    },
+    {
+      "path": "textures/particle/hit_cloro.png",
+      "sha256": "7074f74f39a8ad752db14a876089e9867d92b2425c37a6d44a74660f900a877d"
+    },
+    {
+      "path": "textures/particle/hit_ferro.png",
+      "sha256": "7074f74f39a8ad752db14a876089e9867d92b2425c37a6d44a74660f900a877d"
+    },
+    {
+      "path": "textures/particle/red_explode.png",
+      "sha256": "7074f74f39a8ad752db14a876089e9867d92b2425c37a6d44a74660f900a877d"
+    }
+  ],
+  "data_build_paths": [
+    "data/minecraft/tags/item/swords.json",
+    "data/thermal_shock_reforged/tags/item/cloro_type.json",
+    "data/thermal_shock_reforged/tags/item/ferro_type.json",
+    "data/thermal_shock_reforged/tags/item/weapon.json",
+    "data/thermal_shock_reforged/recipe/fabrication/shock_stick.json",
+    "data/thermal_shock_reforged/recipe/fabrication/knights_edge.json"
+  ],
+  "pending": [
+    "Qo原商人来源及全局Ferro/Cloro系统其他分支仍待完整迁移",
+    "全模组完整后主对话最终两端/Render Preview核命中、传导、充能、范围、帧及重载边界"
+  ],
+  "build": {
+    "compileJava_processResources": "passed",
+    "runtime_or_rendering_started": false
+  }
+}

@@ -13,6 +13,13 @@ import net.neoforged.neoforge.registries.*;
 public final class WeaponContent {
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister<net.minecraft.core.particles.ParticleType<?>> PARTICLES = DeferredRegister.create(Registries.PARTICLE_TYPE, ThermalShockReforged.MOD_ID);
+    public static final DeferredHolder<net.minecraft.core.particles.ParticleType<?>, net.minecraft.core.particles.SimpleParticleType> HIT_FERRO = PARTICLES.register("hit_ferro", () -> new net.minecraft.core.particles.SimpleParticleType(true));
+    public static final DeferredHolder<net.minecraft.core.particles.ParticleType<?>, net.minecraft.core.particles.SimpleParticleType> HIT_CLORO = PARTICLES.register("hit_cloro", () -> new net.minecraft.core.particles.SimpleParticleType(true));
+    public static final DeferredHolder<net.minecraft.core.particles.ParticleType<?>, net.minecraft.core.particles.SimpleParticleType> BLUE_PLUS_BLAST = PARTICLES.register("blue_plus_blast", () -> new net.minecraft.core.particles.SimpleParticleType(false));
+    public static final DeferredHolder<EntityType<?>, EntityType<BladeImpactEntity>> BLADE_IMPACT = TYPES.register("blade_impact_task", () -> EntityType.Builder.<BladeImpactEntity>of(BladeImpactEntity::new, MobCategory.MISC).noSummon().sized(.01F, .01F).clientTrackingRange(0).updateInterval(20).build(ThermalShockReforged.MOD_ID + ":blade_impact_task"));
+    public static final DeferredItem<ElementalBladeItem> SHOCK_STICK = ITEMS.register("shock_stick", () -> new ElementalBladeItem(ElementalBladeItem.Kind.SHOCK_STICK));
+    public static final DeferredItem<ElementalBladeItem> KNIGHTS_EDGE = ITEMS.register("knights_edge", () -> new ElementalBladeItem(ElementalBladeItem.Kind.KNIGHTS_EDGE));
     public static final DeferredHolder<EntityType<?>, EntityType<MagneticCycleSoundEntity>> MAGNETIC_CYCLE_SOUND = TYPES.register("magnetic_cycle_sound_task", () -> EntityType.Builder.<MagneticCycleSoundEntity>of(MagneticCycleSoundEntity::new, MobCategory.MISC).noSummon().sized(.01F, .01F).clientTrackingRange(0).updateInterval(20).build(ThermalShockReforged.MOD_ID + ":magnetic_cycle_sound_task"));
     public static final DeferredItem<MagneticCrossbowItem> MAGNETIC_CROSSBOW = ITEMS.register("magnetic_crossbow", MagneticCrossbowItem::new);
     public static final DeferredHolder<EntityType<?>, EntityType<FirearmBulletEntity>> FLINTSTEEL_RIFLE_BULLET = bullet("flintsteel_rifle_bullet");
@@ -39,7 +46,7 @@ public final class WeaponContent {
     }
 
     public static void register(IEventBus bus) {
-        ITEMS.register(bus); EFFECTS.register(bus); TYPES.register(bus);
+        ITEMS.register(bus); EFFECTS.register(bus); TYPES.register(bus); PARTICLES.register(bus);
         NeoForge.EVENT_BUS.addListener(HeldWeaponState::tick);
         NeoForge.EVENT_BUS.addListener(HeldWeaponState::join);
         NeoForge.EVENT_BUS.addListener(WeaponContent::serverTick);

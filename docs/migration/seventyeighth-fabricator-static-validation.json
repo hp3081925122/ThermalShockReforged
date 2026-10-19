@@ -317,14 +317,14 @@
       "page": "ShockStickPage",
       "output": "thermal_shock_reforged:shock_stick",
       "materials_match_original_actual_removal": true,
-      "active": false,
+      "active": true,
       "original_threshold_mismatch_fixed": false
     },
     {
       "page": "KnightsEdgePage",
       "output": "thermal_shock_reforged:knights_edge",
       "materials_match_original_actual_removal": true,
-      "active": false,
+      "active": true,
       "original_threshold_mismatch_fixed": false
     },
     {
@@ -578,18 +578,16 @@
     "buttons": 68,
     "textures": 36,
     "defined_recipes": 31,
-    "active_closed_recipes": 19,
-    "pending_real_output_implementation": 12,
+    "active_closed_recipes": 21,
+    "pending_real_output_implementation": 10,
     "all_active_recipe_references_have_registration_evidence": true,
     "pending_recipe_outputs": [
       "thermal_shock_reforged:buzzsaw",
       "thermal_shock_reforged:cobalt_thermoblaster",
       "thermal_shock_reforged:hi_volt_lance",
-      "thermal_shock_reforged:knights_edge",
       "thermal_shock_reforged:liteprism_disk",
       "thermal_shock_reforged:liteprism_laser",
       "thermal_shock_reforged:propulsion_boots_boots",
-      "thermal_shock_reforged:shock_stick",
       "thermal_shock_reforged:silenced_armor_chestplate",
       "thermal_shock_reforged:silenced_armor_helmet",
       "thermal_shock_reforged:titanium_mace",
