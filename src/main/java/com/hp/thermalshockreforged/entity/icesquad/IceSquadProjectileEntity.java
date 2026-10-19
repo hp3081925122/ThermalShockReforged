@@ -1,5 +1,8 @@
 package com.hp.thermalshockreforged.entity.icesquad;
 
+import com.hp.thermalshockreforged.ThermalShockReforged;
+import com.hp.thermalshockreforged.world.timing.ServerEndTickTask;
+import com.hp.thermalshockreforged.world.timing.ServerEndTickTasks;
 import com.hp.thermalshockreforged.content.decor.geo.GeoDecorContent;
 import com.hp.thermalshockreforged.content.decor.geo.GeoDecorKind;
 import com.hp.thermalshockreforged.content.decor.nativeblocks.NativeDecorContent;
@@ -7,6 +10,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -23,9 +27,10 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import java.util.UUID;
 
-public final class IceSquadProjectileEntity extends AbstractArrow implements ItemSupplier {
+public final class IceSquadProjectileEntity extends AbstractArrow implements ItemSupplier, ServerEndTickTask {
     private UUID caster;
-    private int age;
+    private int remainingEndTicks;
+    private boolean lifetimeStarted;
     private double impactKnockback;
     private boolean hitConsumed;
     public IceSquadProjectileEntity(EntityType<? extends IceSquadProjectileEntity> type, Level level) { super(type, level); }
@@ -91,21 +96,43 @@ public final class IceSquadProjectileEntity extends AbstractArrow implements Ite
         else level().playSound(null, BlockPos.containing(x, y, z), sound, SoundSource.NEUTRAL, 1, pitch);
     }
     @Override public void tick() {
-        if (!level().isClientSide && age >= lifetime()) { discard(); return; }
+        if (!level().isClientSide && lifetimeStarted && remainingEndTicks <= 0) { discard(); return; }
         super.tick();
         if (flame()) level().addParticle(ParticleTypes.FLAME, getX() + 0.5, getY() + 0.5, getZ() + 0.5, 0, 0, 0);
         else {
             if (!strider()) level().addParticle(ParticleTypes.SOUL_FIRE_FLAME, getX(), getY(), getZ(), 0, 0, 0);
             setNoGravity(true);
         }
-        if (inGround || !level().isClientSide && ++age >= lifetime()) discard();
+        if (inGround) discard();
+        if (!isRemoved() && level() instanceof ServerLevel server) {
+            if (!lifetimeStarted) {
+                lifetimeStarted = true; remainingEndTicks = lifetime();
+                ThermalShockReforged.LOGGER.debug("Ice squad projectile lifetime armed: entity={}, kind={}, remainingEndTicks={}", getUUID(), kind(), remainingEndTicks);
+            }
+            ServerEndTickTasks.schedule(server, getUUID());
+        }
+    }
+    @Override public void onAddedToLevel() {
+        super.onAddedToLevel();
+        if (lifetimeStarted && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
+    }
+    @Override public void endTick(ServerLevel server) {
+        if (isRemoved() || !lifetimeStarted) return;
+        if (--remainingEndTicks <= 0) {
+            ThermalShockReforged.LOGGER.debug("Ice squad projectile lifetime expired: entity={}, kind={}", getUUID(), kind());
+            discard();
+        } else ServerEndTickTasks.schedule(server, getUUID());
     }
     @Override public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag); tag.putInt("SquadProjectileAge", age); tag.putDouble("SquadProjectileKnockback", impactKnockback); tag.putBoolean("SquadProjectileHit", hitConsumed);
+        super.addAdditionalSaveData(tag); tag.putInt("SquadProjectileRemainingEndTicks", remainingEndTicks); tag.putBoolean("SquadProjectileLifetimeStarted", lifetimeStarted);
+        tag.putDouble("SquadProjectileKnockback", impactKnockback); tag.putBoolean("SquadProjectileHit", hitConsumed);
         if (caster != null) tag.putUUID("SquadProjectileCaster", caster);
     }
     @Override public void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag); pickup = Pickup.DISALLOWED; age = Math.clamp(tag.getInt("SquadProjectileAge"), 0, lifetime());
+        super.readAdditionalSaveData(tag); pickup = Pickup.DISALLOWED;
+        int legacyAge = Math.clamp(tag.getInt("SquadProjectileAge"), 0, lifetime());
+        lifetimeStarted = tag.contains("SquadProjectileLifetimeStarted") ? tag.getBoolean("SquadProjectileLifetimeStarted") : legacyAge > 0;
+        remainingEndTicks = tag.contains("SquadProjectileRemainingEndTicks") ? Math.clamp(tag.getInt("SquadProjectileRemainingEndTicks"), 0, lifetime()) : lifetime() - legacyAge;
         impactKnockback = Double.isFinite(tag.getDouble("SquadProjectileKnockback")) ? Math.clamp(tag.getDouble("SquadProjectileKnockback"), 0, 0.6) : 0;
         hitConsumed = tag.getBoolean("SquadProjectileHit"); caster = tag.hasUUID("SquadProjectileCaster") ? tag.getUUID("SquadProjectileCaster") : null;
         if (!Double.isFinite(getBaseDamage()) || getBaseDamage() < 0) setBaseDamage(0);

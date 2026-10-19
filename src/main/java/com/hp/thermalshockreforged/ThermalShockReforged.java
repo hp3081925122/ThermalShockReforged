@@ -83,6 +83,7 @@ public final class ThermalShockReforged {
         container.registerConfig(ModConfig.Type.COMMON, com.hp.thermalshockreforged.entity.sopel.SopelConfig.SPEC, "thermal_shock_reforged-sopel.toml");
         com.hp.thermalshockreforged.combat.LegacyAttackRules.register();
         ModEntities.register(bus);
+        com.hp.thermalshockreforged.entity.ZapDetonationEntity.register(bus);
         com.hp.thermalshockreforged.entity.sanctum.SanctumContent.register(bus);
         CavebloomerContent.register(bus);
         com.hp.thermalshockreforged.entity.cavebloomer.BloomlingBurstEntity.register(bus);

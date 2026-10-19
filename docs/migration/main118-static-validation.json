@@ -1,0 +1,26 @@
+{
+  "batch": 118,
+  "baseCommit": "90665ea",
+  "buildCommand": ".\\gradlew.bat compileJava processResources --offline --max-workers=2",
+  "buildExitCode": 0,
+  "buildLog": "D:\\AI临时文件\\ThermalShockMigration\\batch118-unified-build-final.log",
+  "buildLogSha256": "E017161D9C3BC2C103035CF5D5647862E402CB69FF483F1FF11822DCD80E1F7F",
+  "aStaticAudit": {
+    "checks": 511,
+    "passed": 502,
+    "failed": 9,
+    "failedScope": "IceSquad未修改方法的文本一致性比较"
+  },
+  "productionFileSha256": {
+    "src/main/java/com/hp/thermalshockreforged/ThermalShockReforged.java": "8CFAC1301B2B6638874E322E1ED6190F8A168126CCC4AFF9E0494848ADF45F88",
+    "src/main/java/com/hp/thermalshockreforged/client/ClientEvents.java": "F430C2014F17B523E9F5C0461E07B90EAB55EE489C71EB1CEAE81481FBA535F5",
+    "src/main/java/com/hp/thermalshockreforged/client/projectile/ProjectileRenderers.java": "55CCFF3B12BA79DA4848C6B0B791CA96D4AF48D973004A0BB6E7EDC09155E6AF",
+    "src/main/java/com/hp/thermalshockreforged/client/projectile/SmallBeamRenderer.java": "147CFFA437479901786C1B2F4C06F090F5AF1F22E422AC18EA4A9862B7F8A16E",
+    "src/main/java/com/hp/thermalshockreforged/entity/ProboskerEntity.java": "108D4B183C31852BC493B28A84D8494AB4CF1CB02762490CAD2CAA110CFC0A4B",
+    "src/main/java/com/hp/thermalshockreforged/entity/ZapWarningEntity.java": "444954538FF9081EE91D9C031FCFBD7D4903F173E0227C0AD1FAAE5FA2287F6E",
+    "src/main/java/com/hp/thermalshockreforged/entity/ZapDetonationEntity.java": "E6ADF8962186CCCB64E39CBB01014B189C81594720FCBEA16C2713D4EC459703",
+    "src/main/java/com/hp/thermalshockreforged/entity/icesquad/IceSquadProjectileEntity.java": "A0FD30573B2E01CA8ACD3D5781AB514D80E05186824AC67A99E9BA47A199BE96",
+    "src/main/java/com/hp/thermalshockreforged/entity/mangler/ManglerEntity.java": "AD8D84C48788E7DBAEEB29B06CD16CA1AC95CE8E96C62FB5C1C8926009F86067"
+  },
+  "runtimeTesting": "未启动游戏；服务端由用户测试线负责；客户端和Render Preview待完整迁移后"
+}

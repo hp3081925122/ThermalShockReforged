@@ -345,3 +345,9 @@ Qo集成保全世界共享剧情、真实16页与奖励链，服务端验证同�
 - Bloomling的20/40 SERVER END爆炸不再依赖已移除本体的普通tick，使用有界、可保存、幂等的`BloomlingBurstEntity`；正常死亡保留合法尾阶段，管理员删除载体或召唤生命周期到期会取消，区块卸载与重载不重复提交。Cavebloomer的Shock载体改为20次SERVER END，Poison分支仍在初始化时同步结算。
 - Concierge/Kofoni通知、Explosive Snobol引信、Gore Flayer Orb寿命、Forecast/Icidrone漂移阶段改为局部SERVER END状态，保跨重载和维度取消边界。捕网弹恢复原随弹道旋转的网面几何、UV、纹理和模型层绑定；不再使用通用物品渲染器。原Shutterbug共享再生命令参数顺序不符合目标EffectCommands语法，确认其是无效旧命令，不补成新的伪无敌效果。
 - 第117批统一`compileJava processResources --offline --max-workers=2`成功；日志SHA256为`408280F86C99A177720572017A2FC6D1FE79C1EE5F20EFC0420F6AA285FF1F43`。服务端运行和客户端/Render Preview仍按最终验收安排执行。
+
+### 第118批：共享投射物寿命、跨区块尾阶段与真实渲染
+
+- IceSquad的AltCryonic、Cryonic、GunnerBullet、BurnerFlame和StriderAttack分别保80/80/80/20/5次SERVER END寿命、粒子、无重力、燃烧、命中和基础攻击倍率；保存旧Age字段并在首次实际tick启动寿命，避免把构造时刻误当发射时刻。Mangler重复受击用有界60位待办保留每次独立截止点，只有最后一个截止点完成才清眩晕动画，避免较早命中清掉较晚命中的状态。
+- ZapWarning的20 tick爆发改为独立可保存载体，保固定锚、伤害快照、忽略施法者筛选、范围伤害、声音和Noop客户端绑定；重载发现旧载体UUID不存在时幂等收口，避免跨区块载体完成后留下永久警告。VolcanoBullet恢复原小激光方柱模型、旋转和`zerkglow`纹理，复用SmallBeamRenderer，不再使用ThrownItemRenderer。
+- 第118批统一Java21离线编译成功，日志SHA256为`E017161D9C3BC2C103035CF5D5647862E402CB69FF483F1FF11822DCD80E1F7F`；这些仍是静态与构建证据，客户端、Render Preview和服务端行为待最终验收。

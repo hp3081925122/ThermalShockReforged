@@ -1,0 +1,56 @@
+{
+  "batch": "118A",
+  "baseline": "90665ea",
+  "productionFileCount": 5,
+  "checks": 511,
+  "passed": 502,
+  "failed": 9,
+  "allChecksPassed": false,
+  "compiled": false,
+  "runtimeTested": false,
+  "sharedWiringPending": true,
+  "aggregateConvention": "SHA256 of UTF-8 lines sha256 + two spaces + relative path, LF separators, no final LF; manifest excluded",
+  "aggregateSha256": "cc0cd3350b7c801f9fd4bd892bc50df653fa53a097ad45b7b5304ecd27fd74d8",
+  "files": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/icesquad/IceSquadProjectileEntity.java",
+      "sha256": "a0fd30573b2e01ca8acd3d5781ab514d80e05186824ac67a99e9ba47a199be96"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/mangler/ManglerEntity.java",
+      "sha256": "ed7d8daf130e15fe1108bed789ce9be642a831c3dbd150e7150592757a7ba6cb"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/projectile/SmallBeamRenderer.java",
+      "sha256": "147cffa437479901786c1b2f4c06f090f5af1f22e422ac18ea4a9862b7f8a16e"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/ZapWarningEntity.java",
+      "sha256": "25a2a41d22fd26404644433b2fe43937ec3f23f0e070f23bb3ca74f777eaf9ff"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/ZapDetonationEntity.java",
+      "sha256": "e6adf8962186cccb64e39cbb01014b189c81594720fcbea16c2713d4ec459703"
+    },
+    {
+      "path": "docs/migration/remaining-entity-dependencies-a118.md",
+      "sha256": "6b9d4f5c7de9a93773a37c7016eadf745a62212751abc8e188e997e7f8a96298"
+    },
+    {
+      "path": "docs/migration/remaining-entity-dependencies-a118-shared.md",
+      "sha256": "dd9df7aad9d2a3d7f93d69ce490a7bc846dadb76ac61b8e7dafc34f4aa96292a"
+    },
+    {
+      "path": "docs/migration/remaining-entity-dependencies-a118-source.json",
+      "sha256": "b7e0e83bb2f1f7b8388a213b15d872ff73ec4f3722e3db936e34914136d6e515"
+    },
+    {
+      "path": "docs/migration/remaining-entity-dependencies-a118-matrix.json",
+      "sha256": "7f85a3b06fcebc517b2222d4f6f8ed0d0ea344361d903e996167378692523bff"
+    },
+    {
+      "path": "docs/migration/remaining-entity-dependencies-a118-validation.json",
+      "sha256": "710d4a6674796340c551dc66c9069a3752ab5b46b8ba936c7e0f75e2c6c650c8"
+    }
+  ]
+}

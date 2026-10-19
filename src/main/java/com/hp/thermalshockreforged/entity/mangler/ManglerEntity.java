@@ -1,8 +1,12 @@
 package com.hp.thermalshockreforged.entity.mangler;
 
+import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.status.aura.AuraContent;
+import com.hp.thermalshockreforged.world.timing.ServerEndTickTask;
+import com.hp.thermalshockreforged.world.timing.ServerEndTickTasks;
 import net.minecraft.core.particles.*;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.network.syncher.*;
 import net.minecraft.world.damagesource.*;
 import net.minecraft.world.effect.*;
@@ -22,13 +26,14 @@ import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animation.*;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
-public class ManglerEntity extends Monster implements GeoEntity {
+public class ManglerEntity extends Monster implements GeoEntity, ServerEndTickTask {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(ManglerEntity.class, EntityDataSerializers.STRING);
     private static final EntityDataAccessor<Boolean> COOLDOWN_VISIBLE = SynchedEntityData.defineId(ManglerEntity.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Boolean> COOLDOWN_AMBIENT = SynchedEntityData.defineId(ManglerEntity.class, EntityDataSerializers.BOOLEAN);
     private final AnimatableInstanceCache animations = GeckoLibUtil.createInstanceCache(this);
     private int attackCooldown;
-    private int stunRemaining;
+    private long stunSchedule;
+    private boolean stunnedAnimation;
     private boolean resumeStun;
     private String combatDimension = "";
     public ManglerEntity(EntityType<? extends ManglerEntity> type, Level level) { super(type, level); xpReward = this instanceof SummonedManglerEntity ? 0 : 6; moveControl = new FlyingMoveControl(this, 10, true); }
@@ -37,7 +42,7 @@ public class ManglerEntity extends Monster implements GeoEntity {
     protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, this instanceof SummonedManglerEntity ? "summoned_mangler" : "mangler25"); builder.define(COOLDOWN_VISIBLE, false); builder.define(COOLDOWN_AMBIENT, false); }
     public String texture() { return entityData.get(TEXTURE); }
     public void setTexture(String value) { entityData.set(TEXTURE, value); }
-    public void setAnimation(String value) { if (value.equals("empty")) stopTriggeredAnim("procedure", null); else triggerAnim("procedure", value); }
+    public void setAnimation(String value) { stunnedAnimation = value.equals("stunned"); if (value.equals("empty")) stopTriggeredAnim("procedure", null); else triggerAnim("procedure", value); }
     @Override
     protected PathNavigation createNavigation(Level level) { return new FlyingPathNavigation(this, level); }
     @Override
@@ -65,9 +70,11 @@ public class ManglerEntity extends Monster implements GeoEntity {
     @Override
     public boolean hurt(DamageSource source, float amount) {
         if (!level().isClientSide && isAlive()) {
-            combatDimension = level().dimension().location().toString(); attackCooldown = 60; stunRemaining = 60;
+            combatDimension = level().dimension().location().toString(); attackCooldown = 60; stunSchedule |= 1L << 59;
             entityData.set(COOLDOWN_VISIBLE, true); entityData.set(COOLDOWN_AMBIENT, true); setAnimation("stunned");
             addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 60, 1, true, true));
+            if (level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
+            ThermalShockReforged.LOGGER.debug("Mangler stun armed: entity={}, summoned={}, pendingEndTickSlots={}", getUUID(), this instanceof SummonedManglerEntity, Long.bitCount(stunSchedule));
             if (!(this instanceof SummonedManglerEntity)) { var look = getLookAngle(); double recoil = 0.6 * (1 - getAttributeValue(Attributes.KNOCKBACK_RESISTANCE)); setDeltaMovement(-look.x * recoil, 0, -look.z * recoil); hasImpulse = true; }
         }
         return (this instanceof SummonedManglerEntity || !source.is(DamageTypes.IN_FIRE)) && super.hurt(source, amount);
@@ -75,12 +82,24 @@ public class ManglerEntity extends Monster implements GeoEntity {
     @Override
     public void tick() {
         if (!level().isClientSide) {
-            if (resumeStun) { if (stunRemaining > 0) setAnimation("stunned"); resumeStun = false; }
-            if (!combatDimension.isEmpty() && !combatDimension.equals(level().dimension().location().toString())) { attackCooldown = 0; stunRemaining = 0; setAnimation("empty"); }
+            if (resumeStun) { if (stunnedAnimation) setAnimation("stunned"); resumeStun = false; }
+            if (!combatDimension.isEmpty() && !combatDimension.equals(level().dimension().location().toString())) { attackCooldown = 0; stunSchedule = 0; entityData.set(COOLDOWN_VISIBLE, false); setAnimation("empty"); combatDimension = level().dimension().location().toString(); }
             if (attackCooldown > 0 && --attackCooldown == 0) entityData.set(COOLDOWN_VISIBLE, false);
-            if (stunRemaining > 0 && --stunRemaining == 0) setAnimation("empty");
+            if (stunSchedule != 0 && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
         }
         super.tick();
+    }
+    @Override public void onAddedToLevel() {
+        super.onAddedToLevel();
+        if (stunSchedule != 0 && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
+    }
+    @Override public void endTick(ServerLevel server) {
+        if (isRemoved() || stunSchedule == 0) return;
+        if (!combatDimension.isEmpty() && !combatDimension.equals(server.dimension().location().toString())) { attackCooldown = 0; stunSchedule = 0; entityData.set(COOLDOWN_VISIBLE, false); setAnimation("empty"); combatDimension = server.dimension().location().toString(); return; }
+        boolean completed = (stunSchedule & 1L) != 0;
+        stunSchedule >>>= 1;
+        if (completed && stunSchedule == 0) setAnimation("empty");
+        if (stunSchedule != 0) ServerEndTickTasks.schedule(server, getUUID());
     }
     @Override
     protected void tickEffects() {
@@ -110,9 +129,15 @@ public class ManglerEntity extends Monster implements GeoEntity {
     @Override
     public void aiStep() { super.aiStep(); setNoGravity(true); }
     @Override
-    public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); tag.putInt("AttackCooldown", attackCooldown); tag.putInt("StunRemaining", stunRemaining); tag.putString("CombatDimension", combatDimension); tag.putBoolean("CooldownVisible", entityData.get(COOLDOWN_VISIBLE)); tag.putBoolean("CooldownAmbient", entityData.get(COOLDOWN_AMBIENT)); }
+    public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); tag.putInt("AttackCooldown", attackCooldown); tag.putLong("StunEndSchedule", stunSchedule); tag.putBoolean("StunAnimation", stunnedAnimation); tag.putString("CombatDimension", combatDimension); tag.putBoolean("CooldownVisible", entityData.get(COOLDOWN_VISIBLE)); tag.putBoolean("CooldownAmbient", entityData.get(COOLDOWN_AMBIENT)); }
     @Override
-    public void readAdditionalSaveData(CompoundTag tag) { super.readAdditionalSaveData(tag); if (tag.contains("Texture")) setTexture(tag.getString("Texture")); attackCooldown = Math.max(0, tag.getInt("AttackCooldown")); stunRemaining = Math.max(0, Math.min(60, tag.getInt("StunRemaining"))); combatDimension = tag.getString("CombatDimension"); entityData.set(COOLDOWN_VISIBLE, attackCooldown > 0 && tag.getBoolean("CooldownVisible")); entityData.set(COOLDOWN_AMBIENT, tag.getBoolean("CooldownAmbient")); resumeStun = stunRemaining > 0; }
+    public void readAdditionalSaveData(CompoundTag tag) {
+        super.readAdditionalSaveData(tag); if (tag.contains("Texture")) setTexture(tag.getString("Texture")); attackCooldown = Math.max(0, tag.getInt("AttackCooldown"));
+        int legacyRemaining = Math.clamp(tag.getInt("StunRemaining"), 0, 60);
+        stunSchedule = tag.contains("StunEndSchedule") ? tag.getLong("StunEndSchedule") & 0x0fffffffffffffffL : legacyRemaining > 0 ? 1L << (legacyRemaining - 1) : 0;
+        stunnedAnimation = tag.contains("StunAnimation") ? tag.getBoolean("StunAnimation") : stunSchedule != 0;
+        combatDimension = tag.getString("CombatDimension"); entityData.set(COOLDOWN_VISIBLE, attackCooldown > 0 && tag.getBoolean("CooldownVisible")); entityData.set(COOLDOWN_AMBIENT, tag.getBoolean("CooldownAmbient")); resumeStun = stunnedAnimation;
+    }
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         var procedure = new AnimationController<>(this, "procedure", 4, state -> PlayState.STOP).triggerableAnim("boost", RawAnimation.begin().thenPlay("boost")).triggerableAnim("stunned", RawAnimation.begin().thenPlay("stunned")).triggerableAnim("chase", RawAnimation.begin().thenPlay("chase")).triggerableAnim("chaseloop", RawAnimation.begin().thenPlay("chaseloop"));

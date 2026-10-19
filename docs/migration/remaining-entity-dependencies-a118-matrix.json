@@ -1,0 +1,217 @@
+{
+  "batch": 118,
+  "lane": "A",
+  "baseCommit": "90665ea",
+  "ownedProductionFiles": [
+    "entity/icesquad/IceSquadProjectileEntity.java",
+    "entity/mangler/ManglerEntity.java",
+    "client/projectile/SmallBeamRenderer.java",
+    "entity/ZapWarningEntity.java",
+    "entity/ZapDetonationEntity.java"
+  ],
+  "cases": [
+    {
+      "id": "alt_cryonic_projectile",
+      "originalPaths": [
+        "entity/AltCryonicProjectileEntity.java",
+        "procedures/CryonicProjectileWhileProjectileFlyingTickProcedure.java"
+      ],
+      "targetPaths": [
+        "entity/icesquad/IceSquadProjectileEntity.java"
+      ],
+      "finding": "实体tick寿命阶段与原SERVER END不同",
+      "result": "已改有限END剩余；保粒子/重力/命中等非计时代码，旧Age转换",
+      "remaining": [
+        "统一Java编译",
+        "真实服务端/客户端及Render Preview按覆盖范围验收"
+      ]
+    },
+    {
+      "id": "cryonic_projectile",
+      "originalPaths": [
+        "entity/CryonicProjectileEntity.java",
+        "procedures/CryonicProjectileWhileProjectileFlyingTickProcedure.java"
+      ],
+      "targetPaths": [
+        "entity/icesquad/IceSquadProjectileEntity.java"
+      ],
+      "finding": "实体tick寿命阶段与原SERVER END不同",
+      "result": "已改有限END剩余；保粒子/重力/命中等非计时代码，旧Age转换",
+      "remaining": [
+        "统一Java编译",
+        "真实服务端/客户端及Render Preview按覆盖范围验收"
+      ]
+    },
+    {
+      "id": "icidrogunner_bullet",
+      "originalPaths": [
+        "entity/IcidrogunnerBulletEntity.java",
+        "procedures/CryonicProjectileWhileProjectileFlyingTickProcedure.java"
+      ],
+      "targetPaths": [
+        "entity/icesquad/IceSquadProjectileEntity.java"
+      ],
+      "finding": "实体tick寿命阶段与原SERVER END不同",
+      "result": "已改有限END剩余；保粒子/重力/命中等非计时代码，旧Age转换",
+      "remaining": [
+        "统一Java编译",
+        "真实服务端/客户端及Render Preview按覆盖范围验收"
+      ]
+    },
+    {
+      "id": "icidroburner_flame",
+      "originalPaths": [
+        "entity/IcidroburnerFlameEntity.java",
+        "procedures/BurnerFlameTickProcedure.java"
+      ],
+      "targetPaths": [
+        "entity/icesquad/IceSquadProjectileEntity.java"
+      ],
+      "finding": "实体tick寿命阶段与原SERVER END不同",
+      "result": "已改有限END剩余；保粒子/重力/命中等非计时代码，旧Age转换",
+      "remaining": [
+        "统一Java编译",
+        "真实服务端/客户端及Render Preview按覆盖范围验收"
+      ]
+    },
+    {
+      "id": "strider_attack",
+      "originalPaths": [
+        "entity/StriderAttackEntity.java",
+        "procedures/StriderAttackWhileProjectileFlyingTickProcedure.java"
+      ],
+      "targetPaths": [
+        "entity/icesquad/IceSquadProjectileEntity.java"
+      ],
+      "finding": "实体tick寿命阶段与原SERVER END不同",
+      "result": "已改有限END剩余；保粒子/重力/命中等非计时代码，旧Age转换",
+      "remaining": [
+        "统一Java编译",
+        "真实服务端/客户端及Render Preview按覆盖范围验收"
+      ]
+    },
+    {
+      "id": "mangler_stun",
+      "originalPaths": [
+        "entity/ManglerEntity.java",
+        "entity/SummonedManglerEntity.java",
+        "procedures/ManglerEntityIsHurtProcedure.java"
+      ],
+      "targetPaths": [
+        "entity/mangler/ManglerEntity.java"
+      ],
+      "finding": "单一60实体tick重设计时丢失原每次hurt独立解除时点",
+      "result": "60位有限END待办，保存真实动画；换维同时清可见CD，保Slow/CD刷新/反冲",
+      "remaining": [
+        "统一Java编译",
+        "真实服务端/客户端及Render Preview按覆盖范围验收"
+      ]
+    },
+    {
+      "id": "guardian_coordinates",
+      "originalPaths": [
+        "entity/GuardianPylonEntity.java",
+        "procedures/SparklerbulbUpdateTickProcedure.java"
+      ],
+      "targetPaths": [
+        "entity/sanctum/GuardianPylonEntity.java"
+      ],
+      "finding": "117未决判断遗漏第51批实施文档已有坐标修复记录",
+      "result": "保现有柱子坐标，撤回本批试改；对90665ea无Git语义差异",
+      "remaining": [
+        "统一Java编译",
+        "真实服务端/客户端及Render Preview按覆盖范围验收"
+      ]
+    },
+    {
+      "id": "volcano_render",
+      "originalPaths": [
+        "client/renderer/VolcanoBulletRenderer.java",
+        "client/renderer/ThistleBeamRenderer.java",
+        "client/model/ModelSmall_Laser_Beam.java"
+      ],
+      "targetPaths": [
+        "client/projectile/SmallBeamRenderer.java"
+      ],
+      "finding": "Volcano原小激光方柱被ThrownItemRenderer替代",
+      "result": "泛化并复用完整SmallBeam，原模型层/zerkglow/两轴旋转不改；主线替换VOLCANO绑定",
+      "remaining": [
+        "统一Java编译",
+        "真实服务端/客户端及Render Preview按覆盖范围验收"
+      ]
+    },
+    {
+      "id": "primitive_renderer_inventory",
+      "originalPaths": [
+        "client/renderer/FlintsteelRifleBulletRenderer.java",
+        "client/renderer/HailfallBulletRenderer.java",
+        "client/renderer/LiteprismBeamRenderer.java",
+        "client/renderer/LiteprismDiskProjectileRenderer.java",
+        "client/renderer/NetBulletRenderer.java",
+        "client/renderer/ThistleBeamRenderer.java",
+        "client/renderer/VolcanoBulletRenderer.java"
+      ],
+      "targetPaths": [
+        "client/weapons/FirearmBulletRenderer.java",
+        "client/weapons/LiteprismDiskRenderer.java",
+        "client/projectile/NetBulletRenderer.java",
+        "client/projectile/SmallBeamRenderer.java"
+      ],
+      "finding": "原显式非Gecko EntityRenderer全体共7个，防漏client/model路径",
+      "result": "原7入口均已定位；Volcano是本批新增简化修复，Net沿117已接，其他保现有模型",
+      "remaining": [
+        "统一Java编译",
+        "真实服务端/客户端及Render Preview按覆盖范围验收"
+      ]
+    },
+    {
+      "id": "zap_end_tail",
+      "originalPaths": [
+        "entity/ZapAttackEntityEntity.java",
+        "procedures/ZapAttackEntityOnInitialEntitySpawnProcedure.java"
+      ],
+      "targetPaths": [
+        "entity/ZapWarningEntity.java",
+        "entity/ZapDetonationEntity.java"
+      ],
+      "finding": "19未来实体tick与原20 SERVER END阶段不同，普通尸体移除不能吞电击",
+      "result": "独立有限持久载体，保持调用签名/伤害快照/锚/忽略施法者标志/范围和声音；主线接注册/Noop",
+      "remaining": [
+        "统一Java编译",
+        "真实服务端/客户端及Render Preview按覆盖范围验收"
+      ]
+    },
+    {
+      "id": "reviewed_existing_dependencies",
+      "originalPaths": [
+        "procedures/ManglerTickChaseProcedure.java",
+        "procedures/MagneticBombOnInitialEntitySpawnProcedure.java",
+        "procedures/MagneticBombEntityDiesProcedure.java"
+      ],
+      "targetPaths": [
+        "entity/projectile/MagneticBombEntity.java",
+        "entity/projectile/MagneticDetonationEntity.java",
+        "entity/sanctum/ErrFieldEntity.java",
+        "entity/orb/OrbEntityBase.java"
+      ],
+      "finding": "复核117助手待项，区分无调用孤立过程、原药效寿命与END任务",
+      "result": "保既有磁弹40 END嵌套10 END、Err180/Orb100原生寿命；不启用已证实孤立的ManglerTickChase，不扩展新生产范围",
+      "remaining": [
+        "统一Java编译",
+        "真实服务端/客户端及Render Preview按覆盖范围验收"
+      ]
+    }
+  ],
+  "readOnly": [
+    "Probosker",
+    "Cavebloomer攻击/载体",
+    "共享根入口",
+    "ClientEvents",
+    "配置/语言/标签",
+    "docs/testing"
+  ],
+  "limitations": [
+    "本批明确范围静态收尾，不宣称117所有86根pending整体闭合",
+    "不编译/启动/stage/commit；共享接线由主线完成"
+  ]
+}

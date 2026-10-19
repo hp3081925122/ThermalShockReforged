@@ -7,6 +7,7 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -18,6 +19,7 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.*;
@@ -37,6 +39,7 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 
 public final class ProboskerEntity extends TamableAnimal implements GeoEntity {
     private static final EntityDataAccessor<Boolean> PURPLE = SynchedEntityData.defineId(ProboskerEntity.class, EntityDataSerializers.BOOLEAN);
+    private static final ResourceLocation MOVEMENT_LOCK = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "probosker_movement_lock");
     private static final RawAnimation WALK = RawAnimation.begin().thenLoop("walk");
     private static final RawAnimation SIT = RawAnimation.begin().thenLoop("sit");
     private static final RawAnimation IDLE = RawAnimation.begin().thenLoop("idle");
@@ -131,6 +134,7 @@ public final class ProboskerEntity extends TamableAnimal implements GeoEntity {
             return result;
         }
         if (isOwnedBy(player) && !isFood(stack)) {
+            setShiftKeyDown(!isShiftKeyDown());
             setOrderedToSit(!isOrderedToSit());
             setInSittingPose(isOrderedToSit());
             navigation.stop();
@@ -176,6 +180,23 @@ public final class ProboskerEntity extends TamableAnimal implements GeoEntity {
     public void aiStep() {
         super.aiStep();
         updateSwingTime();
+    }
+
+    @Override
+    public void baseTick() {
+        super.baseTick();
+        if (!level().isClientSide()) {
+            var speed = getAttribute(Attributes.MOVEMENT_SPEED);
+            if (speed != null) {
+                if (isShiftKeyDown()) {
+                    if (!speed.hasModifier(MOVEMENT_LOCK)) {
+                        speed.addTransientModifier(new AttributeModifier(MOVEMENT_LOCK, -1, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
+                    }
+                } else {
+                    speed.removeModifier(MOVEMENT_LOCK);
+                }
+            }
+        }
     }
 
     @Override
