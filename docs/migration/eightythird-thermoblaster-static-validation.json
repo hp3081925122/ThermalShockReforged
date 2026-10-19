@@ -1,0 +1,158 @@
+{
+  "scope": "原JAR/真实入口/分支字节码/注册及原资产构建副本静态核查；不等于游戏运行测试",
+  "runtime_tests": "pending_full_mod_migration_primary_agent_only",
+  "summary": {
+    "real_weapons": 2,
+    "full_original_assets_including_audio": 9,
+    "data_build_paths": 8,
+    "fabrication_output_closed": "cobalt_thermoblaster",
+    "normal_zenith_smithing_route_restored": true
+  },
+  "original_behavior": {
+    "stats": {
+      "durability": 1400,
+      "enchantability": 5,
+      "fire_resistant": false,
+      "no_added_durability_consumption": true
+    },
+    "cobalt": {
+      "underwater": "三连发",
+      "land": "六散弹",
+      "right_click_new_mode_added": false
+    },
+    "zenith": {
+      "left_click": "三连发，不依环境",
+      "right_click": "六散弹"
+    },
+    "burst": {
+      "stages": [
+        "immediate",
+        2,
+        4
+      ],
+      "anchor": "原始x,y+1.5,z",
+      "aim": "同一玩家逐发当前look/离线保最近方向",
+      "damage": 0.5,
+      "speed_cobalt_zenith": [
+        8,
+        10
+      ],
+      "spread": 1,
+      "knockback": 0,
+      "cooldown": 10,
+      "animation_retrigger_on_each_shot": true
+    },
+    "shotgun": {
+      "count": 6,
+      "damage": 8,
+      "speed": 0.8,
+      "spread": 20,
+      "knockback": 1,
+      "pierce": 2,
+      "cooldown": 20
+    },
+    "ammo": "每次触发一Specialized Round/创造不耗",
+    "original_weapon_factories_do_not_ignite_arrows": true,
+    "existing_full_hit_trail_lifetime_preserved": true,
+    "all_animation_clips": {
+      "0": {
+        "loop": true
+      },
+      "1": {
+        "animation_length": 0.125
+      },
+      "2": {
+        "animation_length": 0.25
+      },
+      "3": {
+        "animation_length": 0.0625
+      }
+    }
+  },
+  "source_defects_fixed": [
+    "Cobalt陆地无弹会经过两个失败声分支，现服务端单次反馈；不发弹/不加CD/不扣料",
+    "Zenith次要开火误检查Cobalt类型而未播放动画，改由真实Zenith触发完整动画2",
+    "按用户要求修正锻造槽位：模板放template，枪放base；原生升级结果复制枪的组件"
+  ],
+  "source_tags": {
+    "data/thermal_shock/tags/items/nomelee.json": [
+      "thermal_shock:cobalt_thermoblaster",
+      "thermal_shock:zenith_thermoblaster"
+    ],
+    "data/thermal_shock/tags/items/weapon.json": [
+      "thermal_shock:cobalt_thermoblaster"
+    ]
+  },
+  "smithing": {
+    "template": "zenith_smithing_template",
+    "base": "cobalt_thermoblaster",
+    "addition": "stratus_alloy",
+    "original_slots_corrected": true,
+    "base_components_copied_from_gun_by_native_recipe": true
+  },
+  "implementation": {
+    "finite_saved_task_end": 4,
+    "owner_uuid_and_entity_id": true,
+    "per_stack_original_animation_id": true,
+    "no_strong_entity_or_stack_reference": true,
+    "no_chunk_force": true,
+    "actual_noop_renderer": true
+  },
+  "assets": [
+    {
+      "path": "geo/cobalt_thermoblaster.geo.json",
+      "sha256": "c4e7704ca5fec0c0aaf378bd1788c9cb290123185fbc2d164daa9622a12966cc"
+    },
+    {
+      "path": "animations/cobalt_thermoblaster.animation.json",
+      "sha256": "d6e042742485b4acfb04693e17a035b12ac9541d9c401e56ecaaccd8d5a25528"
+    },
+    {
+      "path": "textures/item/cobaltthermoblaster.png",
+      "sha256": "ec63d8e70e7f7e0235b7d8056fb38e9f0aec527f7403a6a38831d0eb47df577f"
+    },
+    {
+      "path": "textures/item/zeniththermoblaster.png",
+      "sha256": "bc3200cca322ae165ea948b61cff0f5f9bb788f59631251eaf4103d26873cdc3"
+    },
+    {
+      "path": "models/item/cobalt_thermoblaster.json",
+      "sha256": "0faba5506c02993621df1e34c47f2867269f68b83aefdad29785b5b03145e86f"
+    },
+    {
+      "path": "models/displaysettings/thermoblaster.json",
+      "sha256": "703d2aacf02280b1de297f453b199bd8a28f2ebfc7222a994a3dc039ae7e586e"
+    },
+    {
+      "path": "models/item/zenith_thermoblaster.json",
+      "sha256": "71cef00e8407cd7bf08cebd2865a0132ed7a3207f81903a832567c95bd6bdd8f"
+    },
+    {
+      "path": "sounds/thermoblasterburstfire.ogg",
+      "sha256": "f7a8a7a23e8117c3f1041e23117177678a0f7694edfc6f5802a8016cefff734d"
+    },
+    {
+      "path": "sounds/thermoblasterspreadfire.ogg",
+      "sha256": "93e219cd8280fc7281dc8674e79db244811e4f129e4d221f73e35dc70e2ca535"
+    }
+  ],
+  "data_build_paths": [
+    "assets/thermal_shock_reforged/sounds.json",
+    "data/thermal_shock_reforged/recipe/zenith_thermoblaster_recipe.json",
+    "data/thermal_shock_reforged/recipe/fabrication/cobalt_thermoblaster.json",
+    "data/minecraft/tags/item/enchantable/durability.json",
+    "data/thermal_shock_reforged/tags/item/nomelee.json",
+    "data/thermal_shock_reforged/tags/item/weapon.json",
+    "assets/thermal_shock_reforged/lang/en_us.json",
+    "assets/thermal_shock_reforged/lang/zh_cn.json"
+  ],
+  "build": {
+    "compileJava_processResources": "passed",
+    "subagents": false,
+    "game_runtime_started": false
+  },
+  "pending": [
+    "其余真实制造产物/全局元素/原结构与商人来源等未迁内容",
+    "全部代码完成后主对话最终两端及Render Preview核水陆模式/左右键/散布/换枪动画/锻造槽位/重载"
+  ]
+}

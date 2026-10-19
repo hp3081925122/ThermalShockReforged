@@ -25,6 +25,14 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 
 public abstract class ThermoblasterBulletBase extends LegacyArrowEntity {
+    public static void fireWeaponShot(ServerLevel level, LivingEntity shooter, java.util.UUID owner, net.minecraft.world.phys.Vec3 origin, net.minecraft.world.phys.Vec3 direction, boolean shotgun, float speed) {
+        ThermoblasterBulletBase bullet = shotgun ? new ThermoblasterShotgunBulletEntity(ProjectileContent.THERMOBLASTER_SHOTGUN_BULLET.get(), level) : new ThermoblasterBulletEntity(ProjectileContent.THERMOBLASTER_BULLET.get(), level);
+        if (shooter != null) bullet.setOwner(shooter);
+        else ((com.hp.thermalshockreforged.mixin.ProjectileOwnerAccess) (Object) bullet).thermalShockReforged$setOwnerUUID(owner);
+        bullet.setPos(origin); bullet.setBaseDamage(shotgun ? 8 : .5); bullet.setImpactKnockback(shotgun ? 1 : 0); bullet.setSilent(true); bullet.setCritArrow(false);
+        if (shotgun) ((com.hp.thermalshockreforged.mixin.ArrowPiercingAccess) (Object) bullet).thermalShockReforged$setPierceLevel((byte) 2);
+        bullet.shoot(direction.x, direction.y, direction.z, speed, shotgun ? 20 : 1); level.addFreshEntity(bullet);
+    }
     private static final TagKey<EntityType<?>> PYRO_WEAK = TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "pyro_weak"));
     private static final TagKey<EntityType<?>> CRYO_WEAK = TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "cryo_weak"));
     protected ThermoblasterBulletBase(EntityType<? extends ThermoblasterBulletBase> type, Level level) { super(type, level); }
