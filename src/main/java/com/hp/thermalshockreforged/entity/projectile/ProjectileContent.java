@@ -1,0 +1,24 @@
+package com.hp.thermalshockreforged.entity.projectile;
+
+import com.hp.thermalshockreforged.ThermalShockReforged;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.core.particles.SimpleParticleType;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobCategory;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
+
+public final class ProjectileContent {
+    private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister<net.minecraft.core.particles.ParticleType<?>> PARTICLES = DeferredRegister.create(Registries.PARTICLE_TYPE, ThermalShockReforged.MOD_ID);
+    public static final DeferredHolder<EntityType<?>, EntityType<BloodBulletEntity>> BLOOD_BULLET = TYPES.register("blood_bullet", () -> EntityType.Builder.<BloodBulletEntity>of(BloodBulletEntity::new, MobCategory.MISC).sized(.5F, .5F).clientTrackingRange(64).updateInterval(1).build("thermal_shock_reforged:blood_bullet"));
+    public static final DeferredHolder<EntityType<?>, EntityType<FlareBulletEntity>> FLARE_BULLET = TYPES.register("flare_bullet", () -> EntityType.Builder.<FlareBulletEntity>of(FlareBulletEntity::new, MobCategory.MISC).sized(.5F, .5F).clientTrackingRange(64).updateInterval(1).build("thermal_shock_reforged:flare_bullet"));
+    public static final DeferredHolder<EntityType<?>, EntityType<GrenadeBulletEntity>> GRENADE_BULLET = TYPES.register("grenade_bullet", () -> EntityType.Builder.<GrenadeBulletEntity>of(GrenadeBulletEntity::new, MobCategory.MISC).sized(.5F, .5F).clientTrackingRange(64).updateInterval(1).build("thermal_shock_reforged:grenade_bullet"));
+    public static final DeferredHolder<EntityType<?>, EntityType<VolcanoBulletEntity>> VOLCANO_BULLET = TYPES.register("volcano_bullet", () -> EntityType.Builder.<VolcanoBulletEntity>of(VolcanoBulletEntity::new, MobCategory.MISC).sized(.5F, .5F).clientTrackingRange(64).updateInterval(1).build("thermal_shock_reforged:volcano_bullet"));
+    public static final DeferredHolder<net.minecraft.core.particles.ParticleType<?>, SimpleParticleType> ORANGE_RING_BLAST = PARTICLES.register("orange_ring_blast", () -> new SimpleParticleType(false));
+    public static final DeferredHolder<net.minecraft.core.particles.ParticleType<?>, SimpleParticleType> VOLCANO_SPARK = PARTICLES.register("volcano_spark", () -> new SimpleParticleType(false));
+
+    private ProjectileContent() { }
+    public static void register(IEventBus bus) { TYPES.register(bus); PARTICLES.register(bus); }
+}

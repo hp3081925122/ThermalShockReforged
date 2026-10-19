@@ -95,6 +95,8 @@ public final class ClientEvents {
         IceRenderers.register(event);
         IceSquadRenderers.register(event);
         com.hp.thermalshockreforged.client.protoi.ProtoiRenderers.register(event);
+        com.hp.thermalshockreforged.client.orb.OrbRenderers.register(event);
+        com.hp.thermalshockreforged.client.projectile.ProjectileRenderers.register(event);
         StriderRenderers.register(event);
         BastionRenderers.register(event);
         PodRenderers.register(event);
@@ -112,6 +114,9 @@ public final class ClientEvents {
     }
     @SubscribeEvent
     public static void firearmLayers(EntityRenderersEvent.RegisterLayerDefinitions event) { com.hp.thermalshockreforged.client.weapons.FirearmBulletRenderer.layers(event); }
+
+    @SubscribeEvent
+    public static void orbLayers(EntityRenderersEvent.RegisterLayerDefinitions event) { com.hp.thermalshockreforged.client.orb.OrbRenderers.layers(event); }
 
     @SubscribeEvent
     public static void dimensionEffects(net.neoforged.neoforge.client.event.RegisterDimensionSpecialEffectsEvent event) {
@@ -167,6 +172,9 @@ public final class ClientEvents {
         event.registerSpriteSet(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.ERR_EFFECT.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "err", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true, false, 0));
         event.registerSpriteSet(ModEntities.ZAP_PARTICLE.get(), ZapAttackParticle.Provider::new);
         event.registerSpriteSet(ModEntities.TELEPORT_FLASH.get(), TeleportFlashParticle.Provider::new);
+        event.registerSpriteSet(com.hp.thermalshockreforged.entity.orb.OrbContent.BLUE_X_BLAST.get(), com.hp.thermalshockreforged.client.particle.BlueXBlastParticle.Provider::new);
+        event.registerSpriteSet(com.hp.thermalshockreforged.entity.projectile.ProjectileContent.ORANGE_RING_BLAST.get(), com.hp.thermalshockreforged.client.particle.OrangeRingBlastParticle.Provider::new);
+        event.registerSpriteSet(com.hp.thermalshockreforged.entity.projectile.ProjectileContent.VOLCANO_SPARK.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "volcanospark", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true, false, 0));
         event.registerSpriteSet(LoqendiaContent.GOLD_GLITTER.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "goldglitter", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true, false, 0));
         event.registerSpriteSet(com.hp.thermalshockreforged.content.camera.CameraContent.CAM_PHOTO.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "camphoto", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true));
         FaunaRenderers.particles(event);
