@@ -1,0 +1,17 @@
+# 第109批主线：十二份结构模板的实体数据精确回查
+
+生产前建档。基线第108批提交8d83cc6da750da0106060b7d63ba3698b070e771，原件Thermal Shock07.9固定JAR；目标1.21.1 NeoForge21.1.233。主线独占parallel-batch109.md十二模板，迁移A六份复杂大模板不共改。已据remaining-template-schema108.json盘点，并进一步直接读取原/目标各实体属性与状态（D盘main109-payload-inventory.json），不只凭旧字段标记或DataVersion判断。
+
+主线逐项恢复原Random spawn bonus的所有UUID身份、Amount/Operation；junkyard_rubicon两实体各原两条，目标曾合并成一条，需恢复四条而非只改现存ID。slagway1仍有旧大写Attributes，按原件完整迁新，保Icidroviathan原0步高、0.15移速、16跟随和0.08重力；只改已核字段并同步3955。其他旧forge:spawn_type/ForgeData分别迁真实NeoForge键，不改值。
+
+forge:step_height在原1.20.1没有注册，旧AttributeMap忽略；Benzor、Concierge、DefectorMachinist与Kofoni原setMaxUpStep0，目标默认STEP_HEIGHT也0，保未知旧属性身份而不捏造原生有效值。真正step_height_addition按原实体setMaxUpStep的Java float值加保存addition；Ly/LabMachinist为0、DormantMonolith为2、Pixie/Snobol/Whisper/Springling为0.6f。gravity和swim_speed依据原/目标实际注册转对应ID，逐条保Base与修饰符。
+
+只变十二NBT的已核实体属性、持久数据/spawn键及必要版本。保当前目标已完成的全部原几何、palette、库存组件、书页、药效/cures、内部冷却替代字段、Caps/Balm和其他实体数据，不从原件整体重导覆盖先前修复。未知字段拒绝兜底。独立typed差异、几何/位置哈希与最终生产SHA后，两路停笔再统一编译；当前未游戏测试。客户端/Render Preview待全部代码完整及无简化复审后交子代理，服务端由用户独立测试线处理。
+
+## 主线生产完成，待独立核验和整批构建
+
+十二份模板保410891条方块记录，共28个实体属性载荷；全部block/palette/size序列化哈希保持，实体其他字段和wrapper位置保持。恢复30条原UUID修饰符（包括junkyard_rubicon原四条），五处原未知step_height恢复原被忽略身份；23处旧spawn键迁新，一份ForgeData迁NeoForgeData，一份大写Attributes迁新，slagway1同步目标版本。产生99项typed差异，精确路径和前后值见templates-main-typed-diff109.json，前后SHA和原属性来源见templates-main-production109.json。
+
+0.6f基值按原Java float实值保存为double，旧目标double0.6在原生maxUpStep返回float时等价；这部分只是保存精度归一，不宣称改了实际步高。原字段有非零额外步高或未知修饰符时脚本拒绝兜底，本批未触发。现已停笔交独立机械复核，迁移A六份复杂模板尚在本批流程中；未提前编译或运行游戏。
+
+独立机械核验已通过（templates-main-independent109.json），两路固定输入统一构建与资源复制核对通过（main109-static-validation.json）。上文待验为生产期间状态；游戏和渲染仍待整模组完整后验收。

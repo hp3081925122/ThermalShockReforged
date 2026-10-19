@@ -1,0 +1,15 @@
+# 第110批预分工：剩余自然特征与生物生成入口
+
+第109批两路生产/统一验证前仅只读准备。109阶段提交后由主线明确解除110生产冻结，不因配置文件存在就当生成链完整。依据remaining-biome-modifiers107.json和remaining-biome-dependencies108.json先保盘点快照，再逐项核原JAR、目标Java/helper、数据引用及Codec；路径差集和注册覆盖不代表行为缺失或完成率。
+
+迁移A承担较多复杂度：30个add_features入口差集的完整核对与闭合，包含原placed/configured及递归inline/reference feature、所有provider、候选/权重/顺序/次数/高度/群系/生成阶段。原30configured在目标存在、27同名placed存在，loque_birch_tree、shiverglitter_tree、shiverglitter_tree_cobalt_heights三同名placed未找到；不可整体重导覆盖已有正确手工Codec转换或造重复入口。先核全部原目标语义差异及真实消费者，再补各自真实modifier和缺依赖。原type为simple_random_selector10、random_patch16、tree3、block_column1；nested引用也需追完整，必要Java变更只交精确增量给主线。
+
+主线承担26个add_spawns差集的完整自然生成入口：按原生物注册MobCategory、权重/最小最大群体、群系/群系tag、placement和目标已有modifier合并/别名逐条核，保生成条件不另造限制，不因实体注册已存在就跳过自然来源。已读机械核对26实体真实注册存在、指定群系资源存在、目标modifier未见同entity重复；helper注册razorwing和MOD_ID拼接galvanite已核，仍须用真正回调/目标源码核参数。独占26个neoforge/biome_modifier/<原id>.json及必要独有tag；任何与A共享文件只由主线接精确增量。
+
+A只改30feature相关独占数据与lane文档，主线只改26spawn相关独占数据、共享入口/语言/标签及总文档/REF/skill。脚本/临时仅D:/AI临时文件，UTF-8，Java不写注释。两路交全部源码依据、原JAR差异和精确SHA后停笔，固定src/main统一构建；不启动游戏。全部迁移完整及无简化复审后客户端/Render Preview由主线安排子代理；服务端独立线不联系干预。
+
+当前只读准备，生产尚未解除；先完成109，不与109模板交叉覆盖。
+
+只读补充：quick_explorer直接递归原/目标对比，namespace归一及已正确UniformInt展平后，30configured与27placed全语义相同，没有发现其它嵌套引用差异。A保现正确数据，只补确认缺失链/入口并复核。26实体原/目标类别一致（15AMBIENT、6WATER_AMBIENT、5MONSTER）；crystal_koi、forecast、galvanite、pondler、probosker、scarlet_ray六个未在各自注册类找到专用placement handler，主线须查目标共享注册和原placement语义，不能据单类搜索认定缺功能。此结果未运行游戏或Codec；完整机械源哈希未由代理交付，不引用未存在的聚合证据。
+
+主线跟进已核：上述六项全部由ModEntities.register(bus)接spawnPlacements共享监听，当前第70..88行完整注册。三水生保持原IN_WATER与连续两格原版水；Galvanite/Forecast保ON_GROUND、无树叶高度图、雷暴与两种雪地，原重复snowy_cobalt条件去重不改逻辑；Probosker保NO_RESTRICTIONS、草质/雪页岩、可见天空且白天。与原各init及两原生成procedure一致，本次没有缺placement，不为单类搜索漏报新增重复handler。

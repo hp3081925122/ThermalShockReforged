@@ -1,0 +1,45 @@
+# 第109批 A 线：六模板载荷与修饰符回查
+
+迁移前建立，最初仅获只读准备授权，当时未解除生产冻结。沿用1.21.1 NeoForge项目和原Thermal Shock 07.9固定JAR；原件SHA256为3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436。当时108正由主线统一构建及提交，本线保持src/main不变。
+
+后续授权：主线已完成108统一验证并提交8d83cc6da750da0106060b7d63ba3698b070e771，明确解除109生产冻结；本线按六NBT独占范围继续，仍不独立构建/测试。只读输入哈希与现有正确格式已固定在本线inventory及D盘typed快照。
+
+## 独占范围
+
+orb_sanctum、blizzard_base、sunken_blizzard_lab、vilebath_castle、vilebathrubicon、keystonerubicon六份NBT。只读盘原件与当前目标完整载荷、已修组件与cures、旧出生/持久字段、实际属性注册、原UUID修饰符及目标列表；保全部几何、实体和外部元数据。106已修圣所生成高度的JSON不改，世界生成入口、Java、共享语言/标签和总文档归主线。
+
+## 核验方案
+
+复用已核typed序列化与流式方块扫描，只读取原JAR和当前文件，全部临时/脚本写D:/AI临时文件。记录源与目标SHA、DataVersion、全几何原字节哈希、所有BE和实体位置、载荷typed哈希与差异，保留原物品/效果/库存/外cap证据。不能以旧marker或不同UUID数量直接认定少功能。
+
+重复UUID需按原AttributeInstance.load、getModifiers、AttributeModifier.equals/hashCode与目标加载器逐条解释。原modifierById对重复UUID保最后条，按operation分类的HashSet以UUID判等而保同operation第一条，permanentModifiers也以UUID去重；目标各map对同ID保最后条。先核是否实际存在不同Amount/Operation的冲突，再决定转换，不能给同UUID重复条目捏造新身份而让原本未生效条目叠加。
+
+forge:step_height_addition按原实体实际float基础步高与额外属性生效关系核；forge:step_height在已核1.20.1 Forge未注册，不能把保存的零值直接变成目标原生有效零步高。已有正确原生组件和效果/cures独立保留，不以custom_data兜底冒充恢复功能。canonical随机bonus需对照原完整UUID列表，不对当前collapsed列表做简单改名。
+
+## 验收边界
+
+本阶段仅交只读盘点及后续精确修改计划；收到主线明确解除109冻结后才生产。之后以独立typed预期、源/目标几何和全部真实字段对照复查无简化，交生产SHA后停笔，由主线固定两路输入统一compileJava/processResources。完整迁移和无简化复审后客户端及Render Preview由主线安排子代理；服务端独立测试不联系、不干预、不视为已通过。
+
+只读准备阶段已完成，之后按主线明确解除冻结的授权生产。
+
+## 已核问题与生产方案
+
+六份模板共2448537方块记录、153实体、554方块实体；流式对照原JAR和现目标，几何、palette命名空间外数据、实体包裹位置及BE索引位置一致。盘得180条原随机bonus、32条原缓慢修饰符；同一实体属性列表内没有重复UUID。跨实体/跨模板相同UUID不意味着同一属性重复生效，不做全局去重。
+
+orb_sanctum有29条、blizzard_base21条、sunken_blizzard_lab13条、vilebath_castle39条、vilebathrubicon78条随机bonus。Rubicon每个实体两条不同UUID曾合并为39条canonical；从原完整列表恢复180条独立minecraft:<uuid>身份、原Amount及运算，允许原Jigsaw finalize出生再次采样。已有32条minecraft:effect.slowness属于真实原生效果身份，不能一并改随机UUID。
+
+城堡39个forge:step_height在原Forge未注册，当前错误映成原生STEP_HEIGHT0；只恢复未知属性ID并保base0，让目标与原一样忽略旧字段，使用实体自身已核默认步高（含休眠独石2和Herald0）。102个有效step_height_addition的既有转换及四条neoforge:swim_speed保持；先按float返回值核等价，不为double字面量差异重写已正确参数。
+
+两Vilebath共12个原版物品展示框的空ForgeData改为NeoForgeData；keystonerubicon按钮一个空持久字段同样改名，全部载荷现格式闭合后标3955。此前已正确的出生字段、32处缓慢/牛奶及图腾cures、13个物品组件compound、全部库存/旗帜/外cap与根元数据保留。生产以当前目标为底做最小typed修改，从原件补随机修饰符，不运行旧通用converter重置已有正确迁移。
+
+## 本批完成与复查
+
+六份独占NBT已生产，除这些NBT与本线文档外不改生产资源。新增207项typed差异；原180条随机修饰符全部保原Amount、Operation及UUID映射身份，其中Rubicon补回39条先前被合并的独立记录。39个错误生效的城堡步高ID已恢复未知旧ID，八类实体默认步高逐个对原构造float核一致；13处空持久数据改名，keystone改3955。没有将已有32条缓慢原生修饰符改成随机身份。
+
+独立核验13027项全部通过：对原件、108基线、当前目标完整NBT字节往返；2448537个方块记录的位置、状态及顺序几何字节哈希一致；153实体包裹位置与554BE原索引/位置完整；707份载荷分别构造独立预期并typed比较，不以只检查修改处代替保留检查。所有根字段（含外元数据）保留；当前正确新格式部分均保基线typed值，并额外对原件核15件真实物品/槽位/数量、13组件compound、32个缓慢效果/参数/cures、32条缓慢属性修饰符、102项额外步高float结果、四项游泳属性与所有属性条目。
+
+原UUID跨独立实体或模板共40组共享（其中缓慢固定UUID32次）；同一属性内0组重复。按实例各自保留，不做全局去重，也没有为原本同身份的条目捏造新身份。当前六模板无canonical随机bonus、旧活跃Attributes/ActiveEffects/ForgeData/spawn字段或旧物品Count。保留的forge:step_height是现代attributes列表中的原未注册属性ID，按旧新消费者同样忽略，不是未转换旧schema。
+
+完整源与生产SHA、207项typed差异、707份载荷证明及源码依据见templates-a-production109/typed-diff109/validation109/sources109；最终清单与集成说明另交final109/integration109。106高度修复及所有worldgen JSON、Java、共享语言/标签未动，root十二模板和110范围未动。
+
+当前：本线生产及静态核验完成，封存清单后停笔供主线固定两路输入统一构建。未独立Gradle、游戏、stage或commit，未联系服务端测试；没有把静态通过说成服务端/客户端或Render Preview通过。完整功能与渲染仍按主线完整迁移后统一安排。
