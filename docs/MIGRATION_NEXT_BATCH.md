@@ -471,3 +471,11 @@ undead_mobs恢复原13成员并纠正第95/112批将两Monolith原生亡灵身�
 双方生产停笔固定8864份src/main，Java21离线compileJava/processResources --max-workers=2统一通过，31s，compileJava实际执行；构建前后全输入相同，8048直接资源逐字节一致、2展开模板通过，3365英文/981中文及所有资源字节未改。总证据main115-static-validation.json及batch115-verified-inputs.json；A早期共享源快照由最终生产SHA承接，Civilian剩余记录已纳入REFORGED_CHANGES。mcreator-rework补实际移除与有效入口核验，quick_validate通过。
 
 本批未启动游戏。整模组继续物品/实体及其它入口无简化复审，167直接方块根不覆盖所有继承覆写。完整迁移及复审结束后主线安排子代理客户端和E:/模组/发cf的模组/Render Preview原件对照；服务端用户独立测试，不联系、不接管、不重复、不把进行中视为通过。Git无remote，仅本地阶段提交。下一批116先复审原80个直接物品回调根及128实际调用，迁移A约三分之二、主线余下与共享集成，生产所有权按实际目标文件冻结。
+
+## 第116批最终集成验证
+
+第116批覆盖原80个直接物品回调根、128处实际回调调用和98种传递过程：迁移A承担54根/82调用/60过程，主线承担26根/46调用/38过程，重叠过程按真实目标去重。A完成只读语义矩阵与资产核对，主线完成剩余26根的语义复核及必要修复；证据见`item-callbacks-a-batch116-validation.json`、`item-callbacks-main-review116.json`。
+
+主线修正Bone Sword短时触距，使用原生持有状态合并语义承接当前层、隐藏层、刷新和重载，避免用永久属性修饰符改变未持有状态。Thingamabob请求、空投舱15/25阶段及终段后双兵均改用ServerEndTickTasks，固定锚点和有限保存保留。Panacea自愈结果、Pesticide实际手持栈消费、Raw Torpedo攻击缩放、Sickle原击退修正与Ruby Spear的21 tick挥击冷却均已逐项记录；这些修复和差异集中在`REFORGED_CHANGES.md`，并已写入mcreator-rework核案例。
+
+第116批生产代码已通过Java21离线`compileJava`；统一`compileJava processResources`在提交前执行。客户端和Render Preview仍待全模组迁移及无简化复审后进行，服务端由用户独立测试线负责；本批未启动游戏，不把静态检查或编译当运行通过。Git仍无remote，本批只做本地阶段提交。下一批117继续处理实体回调及传递过程，迁移A承担约三分之二，主线承担余下部分。

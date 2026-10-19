@@ -1,0 +1,419 @@
+{
+  "batch": 116,
+  "lane": "A",
+  "baseCommit": "1cabc413ee2ab063ac1fc8357323e120484cf8cc",
+  "status": "静态交接快照；共享触距待主线，生产修改0，未独立构建或游戏测试",
+  "counts": {
+    "roots": 54,
+    "actualCalls": 82,
+    "procedures": 60,
+    "reviewedTargetFiles": 62,
+    "productionAndRegistrationInputs": 78,
+    "checksPassed": 530,
+    "checksFailed": 0,
+    "documents": 8,
+    "scripts": 7
+  },
+  "documents": [
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\item-callbacks-a-batch116-camera.json",
+      "sha256": "55040630f4ef7f1b31404756960de8598fa6da9ab3c9ecb277b5337c81ebb6a3",
+      "bytes": 58848
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\item-callbacks-a-batch116-matrix.json",
+      "sha256": "7b1fd4364f77044a32b0bb694f60bd47293f87bb1cae5e47b08367b491f7fae0",
+      "bytes": 1644334
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\item-callbacks-a-batch116-ownership.json",
+      "sha256": "63c8ca1237591ca723a5bd26271b06c9745065e278452e563bbd32212a450104",
+      "bytes": 2408
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\item-callbacks-a-batch116-registrations.json",
+      "sha256": "8186d1b2868b2d8d78ee755518dd22ac7abef4db661484df72e73d4f0c00a480",
+      "bytes": 54436
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\item-callbacks-a-batch116-shared.md",
+      "sha256": "9173436f587c2c0e06b1e36443cb9c44c322b9eff3d993d92d7eaee8e1253ccc",
+      "bytes": 3839
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\item-callbacks-a-batch116-source.json",
+      "sha256": "71c211c3b1b723911b3445f24add24220a0b7c520fe15b853407f42ff2cd5484",
+      "bytes": 888272
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\item-callbacks-a-batch116-validation.json",
+      "sha256": "8ad808a34cd1beae90f02f062981e00e4d184ea0ad324b8e5f392b040ef1821d",
+      "bytes": 89199
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\item-callbacks-a-batch116.md",
+      "sha256": "af7ddde5da89e22aaa46ff7b09284902465521b3043a595ab18020a275ac9d25",
+      "bytes": 5272
+    }
+  ],
+  "scripts": [
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\inspect-item-callbacks116a.py",
+      "sha256": "b3655ce82e2fef5df193150177534aa271380435bb6b40584958a9d781b61431",
+      "bytes": 6713
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\read-item-source116a.py",
+      "sha256": "1760a6e554048ff3784bb54c37f129ee120d2667e06cc2ecfd70cca2631d15bd",
+      "bytes": 1956
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\map-item-callbacks116a.py",
+      "sha256": "956aa56e942dc03a946abc09d95885aa3ceb61b82931097f0c8ac90acc2b204f",
+      "bytes": 21206
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\audit-camera116a.py",
+      "sha256": "46e0392a7680a57193af78cff9d1cc784f8974ea7f40770b322b866512f75630",
+      "bytes": 4963
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\registrations-item-callbacks116a.py",
+      "sha256": "388862025464889757114e80e7fab3ab839db4cc71059e508bdbb4ca88015222",
+      "bytes": 3570
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\validate-item-callbacks116a.py",
+      "sha256": "caeb8f9dcdc1ec481c67a3bf989926ac0215620b5fb1d98929e8d1d0a84c0003",
+      "bytes": 8432
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\manifest-item-callbacks116a.py",
+      "sha256": "8d2785a02bcd43a339b75040c2645083a356022a2ea4b3bfaeedbe355a3fd4fa",
+      "bytes": 2533
+    }
+  ],
+  "targetInputs": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/HeartCrystalItem.java",
+      "sha256": "fe0f9ba4eb8eb12ddaf6db6a28d6869467efaea318ee0b80cf42fc977a1ffd67"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/MaterialContent.java",
+      "sha256": "1d6518d8cc39102c5850164eaf5cc09f6e9d2f7f78efbd10aca00f2494c8ed52"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/atlas/AtlasActivationEntity.java",
+      "sha256": "212cd1c2f543e36ea77ea4ad6bc68b13eba189117deec914f6dc33d435161eb1"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/atlas/AtlasContent.java",
+      "sha256": "56e58161722760956a8361da15bee7ef466b1431eacb66d7759d294526e8af02"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/atlas/KeystoneItem.java",
+      "sha256": "3596d61a0b25a14a193cc99ca9739c4f3d67d301c6dfaafc9a75c514af8977be"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/camera/CameraCatalog.java",
+      "sha256": "317e36a0552f0a25d255864a2550b6ca6a5189fcda382f4919db1fe8bd0eb5dd"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/camera/CameraContent.java",
+      "sha256": "c64fc670aea1c13c6af1b05cfb03402c1e73b30b45d3e1913bf8781405cee375"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/camera/CameraItem.java",
+      "sha256": "c70c7a6d741653375400f7108f10be83059847b9b378b88a6ee98915150f7d07"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/camera/QuestLootBundleItem.java",
+      "sha256": "ca4601ed948dcdb28f582ceb3a684086d28036af5bb185328c32b9fc5c093199"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/npc/florist/FloristContent.java",
+      "sha256": "566daf4f4dbc06c8a2db9f462d9dfab250ff96e7e4f3cf461665f4049d0f0e60"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/npc/florist/LeafcutterItem.java",
+      "sha256": "f2138bf6d2bbdb3278ad22914e6e4d7061f81d92ef3bbf4f73c2c10fff64b5a6"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/remainingcombat/BombItem.java",
+      "sha256": "b03f1c7ce63dce6f41016a58d798d74ff14ca19723508316a02c3e63e8640cfb"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/remainingcombat/ClawSickleItem.java",
+      "sha256": "49bf93b2e3a24546dfc14dc120a856219f28773aa2533f9fc80346a3764abf0a"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/remainingcombat/CombatItemTaskEntity.java",
+      "sha256": "52311ced41d24cfba3d709d7fb8aef2808fff37ed3c69b01bd99197ace8a87ac"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/remainingcombat/RemainingCombatContent.java",
+      "sha256": "b6d193642d00821c04764297356cc41f81496f3401963d78cd27a0f6101b38be"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/remainingcombat/RemainingCombatState.java",
+      "sha256": "09e1d059b46b56ad53408f0b1889a7cc2f60f9c01d9fb18bddb4f08aa61ec989"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/remainingcombat/UmbrellaItem.java",
+      "sha256": "7dee73b27f2e15f2093e56bd08a57f4090250cfb899044dcd5ce18662ac34e0e"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/remainingutility/DevCharacterToolItem.java",
+      "sha256": "b3f0296a4d730080e00511640e4bb96cc0187227150259dbe1dbbfa2d8762b12"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/remainingutility/FixedStructureItem.java",
+      "sha256": "8b26852ed57db166ebc16acf25a23141a300a1e45c5ac5fc95b8f4c0edf18db5"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/remainingutility/IgnitionDetectorItem.java",
+      "sha256": "18633289808cfb1074f7f3c6f1d04dabef68c4c4ed966f344370c44c26f8592f"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/remainingutility/RemainingUtilityContent.java",
+      "sha256": "8cd50df03abe9d65321dac7b29a32e6c860662269c718fc00bc24a573a725070"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/remainingutility/SnowMelterItem.java",
+      "sha256": "1e308b9e784653c49a0b18f09325eb0b25f413c782e23988957f51c29e373086"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/status/CocoaItem.java",
+      "sha256": "f86428db5eb4d296f65f09a0d1a6eb1aee4659bf8f5cca7f8521e93a40a783f5"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/status/StatusContent.java",
+      "sha256": "940aaea4cc50d31ec2178c3b0c88e9dd07143bc49fc988414a98f0708e490c1b"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/tools/CobaltAxe.java",
+      "sha256": "f9e2279814cfe79dca6c367f10542b72e965099aa1f3c679d1136099396cbe05"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/tools/GhostglassPickItem.java",
+      "sha256": "bcf16dbd7f958f31484a48c5e7af3d18cb3a647d5bab9a359fdecf524d8ea730"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/tools/GhostglassSwordItem.java",
+      "sha256": "23ae392323b2dacd8bcf60a72b61db72bc0bab1d8176bc59340245b5aab5d0bd"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/tools/ToolsContent.java",
+      "sha256": "c2c8437f4d6a6e3d549399ded8763ace315417f000928707a9d8bbb57f4b94f0"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/utility/ChiselItem.java",
+      "sha256": "44c875b085695d1560b4c5a1ea916321fde700ab0d15ea16839be7c72c3bf31c"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/utility/UtilityContent.java",
+      "sha256": "7f2a7b66e1187aba2013bcc80063ce75ab9e9a4bca2219cbfd9aba9d6968d2b3"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/BladeImpactEntity.java",
+      "sha256": "e2d210ba15bb706bab81b34cab2c598ce06c0165c049a5ced0528f5462694fb2"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/BlindingLanternItem.java",
+      "sha256": "bc322fb2ea110e1133fb2e932a5aa140eeae5858944933e20f2483b44a8f95dc"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/BuzzsawItem.java",
+      "sha256": "f4d6865531e97e65e7c1ff1235fd2730020a2355face0fd715692d93740f9b07"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/BuzzsawSweepEntity.java",
+      "sha256": "662c62454eb4c2b4c7ceb3554d5abe6588c6c666d5f1e16ef67c7e021e8a34b7"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/CarborGlItem.java",
+      "sha256": "6227d2f9529c1591a96e84936fa38863bdfba5144d018dbfcd7eebe91adad519"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/CoreEjectFlareGunItem.java",
+      "sha256": "74007adaf4e88de0d2a2dc66722a4f289f9855068f022b49b2f61637069de530"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/ElementalBladeItem.java",
+      "sha256": "cb7bbf2f7e17f8a2d3c2d4cae00675053eace0490300c208400ad4a79a699de4"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/FirearmItem.java",
+      "sha256": "8038386a2598467333e32088ae72edd1a3b92be7cc3f4b83e42129fe9f142ff7"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/FlareGunCycleEntity.java",
+      "sha256": "ad89e352820cea6e2e998885e5b0115a6edbc5578ddf1ebbf9af0af8a77b6936"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/HeldWeaponState.java",
+      "sha256": "fb1bf923b9f6b974ac567f459ffbeaeec14fc5b58b4a98c6c1820e3858807746"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/HiVoltPulseEntity.java",
+      "sha256": "d9b52ddb1d49340483e18d38dd4e104d4b6f69dee9b7d147da8a8498ef32a5e8"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/LiteprismLaserItem.java",
+      "sha256": "840f10ad002182b2ef8ec7208120bf1b661ba2d62a2105361057d3437353057a"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/LiteprismSwordItem.java",
+      "sha256": "d9bb1f124908dec3b54dd6a33be97b75c59dc3e2187dcfcf23d37cc76f158bb2"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/MagneticCrossbowItem.java",
+      "sha256": "6933f6a057c5b31403dbd570c87faf2d9920edf534a3f05b0af5d32341b50633"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/MagneticCycleSoundEntity.java",
+      "sha256": "18834d94a4f04382d20b448a431916ad517ac2f387b073f92bcf5bc266735dac"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/RifleCycleSoundEntity.java",
+      "sha256": "8f5cd680a88a9dd89ba560499c2bfe88041ca8b7d6abaad097aa841ef7f8adc3"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/SickleItem.java",
+      "sha256": "58d4f6becd40063b9b529eba036df0d2f06e8d50d49ff958fa47000bcf0e3974"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/SpearItem.java",
+      "sha256": "49caea5c362c36ece5d7eb8184d1bfe74e92543cc7274724599dc4da64d0aca6"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/SpeleothemSoundEntity.java",
+      "sha256": "1539544ff82b450efb95123a85cf8d18f254d04191cadf81126c3c08470f0757"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/ThermoblasterBurstEntity.java",
+      "sha256": "45f0f7b32d4904f78f2eae5b0dab089bfc2b6439080b58c2eaa7d949fa21e894"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/ThermoblasterItem.java",
+      "sha256": "ad99f905e9a4d0516e070a844c8142f42f4eb68a336a79b12648d3b0a88e00bd"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/WeaponContent.java",
+      "sha256": "28a2b47dcf439e77b86a4ba204d7b83fea7e3a161cfd834163d29668f434396f"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/ambient/AmbientContent.java",
+      "sha256": "29a082fd68dc8b40dd3e32a1a7f2daa6a7eb9eb7a97fdb91bc151dd473332f25"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/ambient/BottledPixieItem.java",
+      "sha256": "8a957f6bc866aca74858fff7b610a78a0a0522a0b9c260646c305e3dafaeb651"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/ambient/PixieBottleEntity.java",
+      "sha256": "a3ceff7809e84aca0b08c3a4e07d7dcc250c52cab187e71f385bed1bee6eebc1"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/cavebloomer/CavebloomerBossBoxItem.java",
+      "sha256": "2f423ce2b1b83a9146e9456cfe5fad699e93aa4b8eab9dc410879917ecbc65c0"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/cavebloomer/CavebloomerContent.java",
+      "sha256": "f53f786c259982a2fca28fef73cca4c24f759738a25267aa32e1812952869bd6"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/ClimbingPickItem.java",
+      "sha256": "11d33199c644b67b5e5c3df8213e0fcfe89201a35d1435a643b6fa1e4b4163be"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/EnderTentacleItem.java",
+      "sha256": "08400fd017ab0b5adb6533bb6f1469313146f6ab3cc7ccb806a4ec0a1c8cb1f9"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabContent.java",
+      "sha256": "40ee86d8134d47f806bd40f840a8f38a2b0ac70fa7bc5c1ece649e9050183b8d"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/legacy/AmaljellyCanisterItem.java",
+      "sha256": "ce2d5b0a0f4115ee6196be0b27790ba6ff977936f06fdfb19ecfc12166694b80"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/legacy/LegacyContent.java",
+      "sha256": "9fea4df5e0ca0ed3f90c7364a4e27165b7da5866c3021bae498b3d5b25e31cee"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/projectile/FlareBulletEntity.java",
+      "sha256": "f24f1cd856ee9eda1927fe6a4fc79ed9e83142eea402e5d5b440860a2d558d6d"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/projectile/GrenadeBulletEntity.java",
+      "sha256": "0ca7ebe4477cd27c65079fe889cd7eab4e371ea95e9e9655895c1ce621b2c9b0"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/projectile/LiteprismBeamEntity.java",
+      "sha256": "3bfa67c2234be515a1315c8ba77f4912bb78589491032d2b44b79ecf3f127d53"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/projectile/ThermoblasterBulletBase.java",
+      "sha256": "d4ae891a06333ed78c00ef29416a5e686a73e8895ee5848caa7cb867566eff62"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/projectile/ThermoblasterBulletEntity.java",
+      "sha256": "f2e8bd255f7e2bd509016cd09b928f1a5ece4280eecbe3efcded1fa10be38fe3"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/projectile/ThermoblasterShotgunBulletEntity.java",
+      "sha256": "03010a5566aad660dcb61529aff3d81eb631b007a93d60424f045c4d45662541"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/qo/IceArtifactItem.java",
+      "sha256": "bf06e62454671f6ce8e861bc19e32bed53f8b8ca3e5503da21cd693c6911bec1"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/qo/QoContent.java",
+      "sha256": "def8c7c5743022f794753c94026a3bd9601d683c29836f9d9d2060cbf54cb79a"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/sanctum/FireBombActivationEntity.java",
+      "sha256": "4765bca935cb9229a47ff2b7cfefcef96102547043dd0eb37d6b8cfe926e1622"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/sanctum/FireBombItem.java",
+      "sha256": "668956938cb2d918fda89e11a2cfd9d3e8e3bd41c9911937bbbd17c967e6a626"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/sanctum/SanctumContent.java",
+      "sha256": "7a1632467179892480213eeab6f2d75d22d5b4312d2d0abfad31ea3074c0b58f"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/snobol/AntitoxinItem.java",
+      "sha256": "95232da6b591899d1393824e73209c578faec8c9e028cc3e48873e08e8249d3c"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/snobol/BucketOfSiibolItem.java",
+      "sha256": "9693b4c6edaa2c7485b193f679dc35b1625b0c031263ca32ff702e2cda6a1170"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/snobol/SnobolContent.java",
+      "sha256": "24eeceaa1f548e13dadd6722319d71abaeaecd46d3dc42061d37df2a11f3ae46"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/springslime/CompressedSpringslimeItem.java",
+      "sha256": "183130ac0a4132eb6befcb62624cba2961102bf34e979a1fd2ade68eec3a3d15"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/springslime/SpringslimeContent.java",
+      "sha256": "be8cc75966d998c56a0d25375e8bce8ac1a364297aad39c89bfb3cbdfd4ee39f"
+    }
+  ],
+  "pendingRoots": [
+    6,
+    8,
+    13,
+    15,
+    37
+  ],
+  "sharedIncrement": "item-callbacks-a-batch116-shared.md",
+  "nextGate": "主线处理ToolsContent/HeldWeaponState强弱合并与3tick余时、补REF，重新生成快照后统一整批构建；运行验收另行"
+}

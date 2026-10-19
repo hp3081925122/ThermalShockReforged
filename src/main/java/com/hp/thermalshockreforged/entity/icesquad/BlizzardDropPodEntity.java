@@ -1,6 +1,8 @@
 package com.hp.thermalshockreforged.entity.icesquad;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
+import com.hp.thermalshockreforged.world.timing.ServerEndTickTask;
+import com.hp.thermalshockreforged.world.timing.ServerEndTickTasks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
@@ -23,7 +25,7 @@ import software.bernie.geckolib.animation.*;
 import software.bernie.geckolib.util.GeckoLibUtil;
 import java.util.UUID;
 
-public final class BlizzardDropPodEntity extends Monster implements GeoEntity {
+public final class BlizzardDropPodEntity extends Monster implements GeoEntity, ServerEndTickTask {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(BlizzardDropPodEntity.class, EntityDataSerializers.STRING);
     private final AnimatableInstanceCache animations = GeckoLibUtil.createInstanceCache(this);
     private boolean initialized;
@@ -32,7 +34,6 @@ public final class BlizzardDropPodEntity extends Monster implements GeoEntity {
     private int deploymentAge;
     private Vec3 anchor = Vec3.ZERO;
     private String dimension = "";
-    private long startedAt = Long.MIN_VALUE;
     private boolean attributesApplied;
     private boolean loadedFromSave;
     private boolean experiencePending;
@@ -62,10 +63,11 @@ public final class BlizzardDropPodEntity extends Monster implements GeoEntity {
     @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType reason, SpawnGroupData group) {
         var result = super.finalizeSpawn(level, difficulty, reason, group);
         if (!level.isClientSide() && !initialized && !handedOff) {
-            initialized = true; anchor = position(); dimension = level().dimension().location().toString(); startedAt = level().getGameTime(); deploymentAge = 0;
+            initialized = true; anchor = position(); dimension = level().dimension().location().toString(); deploymentAge = 0;
         }
         return result;
     }
+    @Override public void onAddedToLevel() { super.onAddedToLevel(); if (initialized && !handedOff && isAlive() && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
     @Override public void tick() {
         if (!level().isClientSide) applyConfiguredAttributes();
         super.tick();
@@ -73,7 +75,11 @@ public final class BlizzardDropPodEntity extends Monster implements GeoEntity {
         if (handedOff) { discard(); return; }
         if (!initialized) return;
         if (!isAlive() || !dimension.equals(server.dimension().location().toString())) { initialized = false; return; }
-        if (server.getGameTime() == startedAt) return;
+        ServerEndTickTasks.schedule(server, getUUID());
+    }
+    @Override public void endTick(ServerLevel server) {
+        if (!initialized || handedOff || isRemoved()) return;
+        if (!isAlive() || !dimension.equals(server.dimension().location().toString())) { initialized = false; return; }
         int age = ++deploymentAge;
         if (age >= 15 && !smokeSent) {
             smokeSent = true;
@@ -86,7 +92,7 @@ public final class BlizzardDropPodEntity extends Monster implements GeoEntity {
             server.playSound(null, BlockPos.containing(anchor), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "magnetcrossbowfire")), SoundSource.HOSTILE, 1, -3);
             if (!DeploymentTaskEntity.submit(server, anchor, getUUID(), false)) ThermalShockReforged.LOGGER.debug("Blizzard final deployment rejected: pod={}, anchor={}", getUUID(), anchor);
             discard();
-        }
+        } else ServerEndTickTasks.schedule(server, getUUID());
     }
     @Override protected void dropExperience(Entity attacker) { experiencePending = true; experienceAttacker = attacker == null ? null : attacker.getUUID(); }
     @Override protected void tickDeath() {
@@ -96,14 +102,14 @@ public final class BlizzardDropPodEntity extends Monster implements GeoEntity {
         }
     }
     @Override public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); tag.putBoolean("PodInitialized", initialized); tag.putBoolean("PodSmokeSent", smokeSent); tag.putBoolean("PodHandedOff", handedOff); tag.putInt("PodAge", deploymentAge); tag.putLong("PodStartedAt", startedAt);
+        super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); tag.putBoolean("PodInitialized", initialized); tag.putBoolean("PodSmokeSent", smokeSent); tag.putBoolean("PodHandedOff", handedOff); tag.putInt("PodAge", deploymentAge);
         tag.putDouble("PodAnchorX", anchor.x); tag.putDouble("PodAnchorY", anchor.y); tag.putDouble("PodAnchorZ", anchor.z); tag.putString("PodDimension", dimension);
         tag.putBoolean("PodExperiencePending", experiencePending); if (experienceAttacker != null) tag.putUUID("PodExperienceAttacker", experienceAttacker);
     }
     @Override public void readAdditionalSaveData(CompoundTag tag) {
         loadedFromSave = true; super.readAdditionalSaveData(tag); attributesApplied = false; applyConfiguredAttributes(); setPersistenceRequired(); if (tag.contains("Texture")) setTexture(tag.getString("Texture"));
         initialized = tag.getBoolean("PodInitialized"); smokeSent = tag.getBoolean("PodSmokeSent"); handedOff = tag.getBoolean("PodHandedOff"); deploymentAge = Math.clamp(tag.getInt("PodAge"), 0, 25);
-        anchor = new Vec3(tag.getDouble("PodAnchorX"), tag.getDouble("PodAnchorY"), tag.getDouble("PodAnchorZ")); dimension = tag.getString("PodDimension"); startedAt = tag.contains("PodStartedAt") ? tag.getLong("PodStartedAt") : Long.MIN_VALUE;
+        anchor = new Vec3(tag.getDouble("PodAnchorX"), tag.getDouble("PodAnchorY"), tag.getDouble("PodAnchorZ")); dimension = tag.getString("PodDimension");
         if (!Double.isFinite(anchor.x) || !Double.isFinite(anchor.y) || !Double.isFinite(anchor.z)) initialized = false;
         experiencePending = tag.getBoolean("PodExperiencePending"); experienceAttacker = tag.hasUUID("PodExperienceAttacker") ? tag.getUUID("PodExperienceAttacker") : null;
     }

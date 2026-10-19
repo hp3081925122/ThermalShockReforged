@@ -13,6 +13,9 @@ public final class HeldWeaponState {
     private static final ResourceLocation MODIFIER = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "held_no_melee");
     private static final String REACH_REMAINING = "thermal_shock_reforged:held_reach_remaining";
     private static final String REACH_CREATED = "thermal_shock_reforged:held_reach_created";
+    private static final String REACH_CURRENT = "thermal_shock_reforged:held_reach_current";
+    private static final String REACH_HIDDEN = "thermal_shock_reforged:held_reach_hidden";
+    private static final String REACH_HIDDEN_REMAINING = "thermal_shock_reforged:held_reach_hidden_remaining";
     private static final ResourceLocation REACH_MODIFIER = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "held_reach");
     private static final String ZOOM_REMAINING = "thermal_shock_reforged:magnetic_zoom_remaining";
     private static final String ZOOM_CREATED = "thermal_shock_reforged:magnetic_zoom_created";
@@ -33,13 +36,30 @@ public final class HeldWeaponState {
         if (entity.level().isClientSide) return;
         var range = entity.getAttribute(Attributes.ENTITY_INTERACTION_RANGE);
         if (range == null) return;
-        var modifier = range.getModifier(REACH_MODIFIER);
-        if (modifier == null || modifier.amount() != amount) {
-            range.removeModifier(REACH_MODIFIER);
-            range.addTransientModifier(new AttributeModifier(REACH_MODIFIER, amount, AttributeModifier.Operation.ADD_VALUE));
+        var data = entity.getPersistentData();
+        int current = data.getInt(REACH_CURRENT);
+        int remaining = data.getInt(REACH_REMAINING);
+        if (current <= 0) {
+            current = amount;
+            remaining = 3;
+        } else if (amount > current) {
+            data.putInt(REACH_HIDDEN, current);
+            data.putInt(REACH_HIDDEN_REMAINING, remaining);
+            current = amount;
+            remaining = 3;
+        } else if (amount == current) {
+            remaining = 3;
+        } else if (remaining < 3) {
+            data.putInt(REACH_HIDDEN, amount);
+            data.putInt(REACH_HIDDEN_REMAINING, 3);
         }
-        entity.getPersistentData().putInt("thermal_shock_reforged:held_reach_amount", amount);
-        entity.getPersistentData().putInt(REACH_REMAINING, 3);
+        var modifier = range.getModifier(REACH_MODIFIER);
+        if (modifier == null || modifier.amount() != current) {
+            range.removeModifier(REACH_MODIFIER);
+            range.addTransientModifier(new AttributeModifier(REACH_MODIFIER, current, AttributeModifier.Operation.ADD_VALUE));
+        }
+        data.putInt(REACH_CURRENT, current);
+        data.putInt(REACH_REMAINING, remaining);
         entity.getPersistentData().putLong(REACH_CREATED, entity.level().getGameTime());
     }
 
@@ -65,15 +85,37 @@ public final class HeldWeaponState {
             data.remove(ZOOM_REMAINING); data.remove(ZOOM_CREATED);
         }
         if (data.contains(REACH_REMAINING) && (!entity.isAlive() || data.getLong(REACH_CREATED) != entity.level().getGameTime())) {
+            var reachRange = entity.getAttribute(Attributes.ENTITY_INTERACTION_RANGE);
+            int hiddenRemaining = data.getInt(REACH_HIDDEN_REMAINING);
+            if (hiddenRemaining > 0 && entity.isAlive()) data.putInt(REACH_HIDDEN_REMAINING, hiddenRemaining - 1);
             int remaining = entity.isAlive() ? data.getInt(REACH_REMAINING) - 1 : 0;
-            if (remaining > 0) data.putInt(REACH_REMAINING, remaining);
-            else {
-                var range = entity.getAttribute(Attributes.ENTITY_INTERACTION_RANGE);
-                if (range != null) range.removeModifier(REACH_MODIFIER);
+            if (remaining > 0) {
+                data.putInt(REACH_REMAINING, remaining);
+            } else if (data.getInt(REACH_HIDDEN_REMAINING) > 0) {
+                int hidden = data.getInt(REACH_HIDDEN);
+                hiddenRemaining = data.getInt(REACH_HIDDEN_REMAINING);
+                if (hiddenRemaining > 0 && entity.isAlive()) {
+                    data.putInt(REACH_CURRENT, hidden);
+                    data.putInt(REACH_REMAINING, hiddenRemaining);
+                    data.remove(REACH_HIDDEN);
+                    data.remove(REACH_HIDDEN_REMAINING);
+                    if (reachRange != null) {
+                        reachRange.removeModifier(REACH_MODIFIER);
+                        reachRange.addTransientModifier(new AttributeModifier(REACH_MODIFIER, hidden, AttributeModifier.Operation.ADD_VALUE));
+                    }
+                } else {
+                    data.remove(REACH_REMAINING);
+                    data.remove(REACH_CURRENT);
+                    data.remove(REACH_HIDDEN);
+                    data.remove(REACH_HIDDEN_REMAINING);
+                    if (reachRange != null) reachRange.removeModifier(REACH_MODIFIER);
+                }
+            } else {
+                if (reachRange != null) reachRange.removeModifier(REACH_MODIFIER);
                 data.remove(REACH_REMAINING);
-                data.remove(REACH_CREATED);
-                data.remove("thermal_shock_reforged:held_reach_amount");
+                data.remove(REACH_CURRENT);
             }
+            data.remove(REACH_CREATED);
         }
         if (!data.contains(REMAINING)) return;
         if (entity.isAlive() && data.getLong(CREATED) == entity.level().getGameTime()) return;
@@ -95,7 +137,7 @@ public final class HeldWeaponState {
         }
         if (data.getInt(REACH_REMAINING) > 0) {
             var range = entity.getAttribute(Attributes.ENTITY_INTERACTION_RANGE);
-            int amount = Math.clamp(data.getInt("thermal_shock_reforged:held_reach_amount"), 0, 5);
+            int amount = Math.clamp(data.getInt(REACH_CURRENT), 0, 5);
             if (range != null && !range.hasModifier(REACH_MODIFIER)) range.addTransientModifier(new AttributeModifier(REACH_MODIFIER, amount, AttributeModifier.Operation.ADD_VALUE));
             data.putInt(REACH_REMAINING, Math.clamp(data.getInt(REACH_REMAINING), 1, 3));
             data.putLong(REACH_CREATED, Long.MIN_VALUE);
