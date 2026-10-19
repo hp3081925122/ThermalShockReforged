@@ -1,0 +1,27 @@
+{
+  "pages": 11,
+  "labels": 43,
+  "images": 29,
+  "buttons": 19,
+  "source_files": 6,
+  "all_image_dimensions_match": true,
+  "all_label_and_button_keys_have_both_languages": true,
+  "animations": [
+    "idle2",
+    "sneak",
+    "wake"
+  ],
+  "java_scope_and_removed_legacy_mechanisms_checked": true,
+  "compile": "未执行，主聊天统一",
+  "runtime": "未执行，整模组完整后统一",
+  "source_sha256": {
+    "src/main/java/com/hp/thermalshockreforged/entity/kofoni/KofoniContent.java": "d0abbd772983fbcca6eb64a32bcb242cd413fd8d2d83e8908310e7f47d3906c3",
+    "src/main/java/com/hp/thermalshockreforged/entity/kofoni/KofoniEntity.java": "658dd42053e7795ce1282844ed39237d4fe6d2180244b0a7262d27aa21d0477c",
+    "src/main/java/com/hp/thermalshockreforged/entity/kofoni/KofoniMenu.java": "318d43da93ee1d03a01a7a82b5a9bdc0db5b7cde53324a42ff262540535d615f",
+    "src/main/java/com/hp/thermalshockreforged/entity/kofoni/KofoniPage.java": "23428f2dab0a30ff3a60a5122c24f1e0c6160447a7cf135662a5ab8be3113bc0",
+    "src/main/java/com/hp/thermalshockreforged/client/kofoni/KofoniClient.java": "443a8a35a76690eda24e7f80c08d6cec51173105c55074c40f2d8a59ed7dddff",
+    "src/main/java/com/hp/thermalshockreforged/client/kofoni/KofoniScreen.java": "ca8f5815be76f5837c7e8de01c8ce5d5a1a04118c1f76df17a7df0a3058adf9b"
+  },
+  "acquisition": "Junkyard完整转换staging已核；Defector原生依赖未闭合，未启用自然生成",
+  "shared_files_written_by_this_batch": []
+}

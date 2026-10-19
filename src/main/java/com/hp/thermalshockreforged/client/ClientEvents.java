@@ -55,6 +55,9 @@ import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 public final class ClientEvents {
     @SubscribeEvent
     public static void renderers(EntityRenderersEvent.RegisterRenderers event) {
+        com.hp.thermalshockreforged.client.titans.TitanRenderers.register(event);
+        com.hp.thermalshockreforged.client.glastrekker.GlastrekkerRenderers.register(event);
+        event.registerEntityRenderer(com.hp.thermalshockreforged.entity.titans.TitanContent.SWING.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.weapons.WeaponContent.BLADE_IMPACT.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.weapons.WeaponContent.VOLCANO_BURST.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.weapons.WeaponContent.HI_VOLT_PULSE.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
@@ -86,6 +89,8 @@ public final class ClientEvents {
         com.hp.thermalshockreforged.client.npc.florist.FloristClient.renderers(event);
         com.hp.thermalshockreforged.client.npc.shutterbug.ShutterbugClient.renderers(event);
         com.hp.thermalshockreforged.client.npc.concierge.ConciergeClient.renderers(event);
+        com.hp.thermalshockreforged.client.kofoni.KofoniClient.renderers(event);
+        com.hp.thermalshockreforged.client.qo.QoClient.renderers(event);
         CavebloomerClient.renderers(event);
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.atlas.AtlasContent.ACTIVATION.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.weapons.WeaponContent.MAGNETIC_CYCLE_SOUND.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
@@ -154,6 +159,8 @@ public final class ClientEvents {
         com.hp.thermalshockreforged.client.npc.florist.FloristClient.screens(event);
         com.hp.thermalshockreforged.client.npc.shutterbug.ShutterbugClient.screens(event);
         com.hp.thermalshockreforged.client.npc.concierge.ConciergeClient.screens(event);
+        com.hp.thermalshockreforged.client.kofoni.KofoniClient.screens(event);
+        com.hp.thermalshockreforged.client.qo.QoClient.screens(event);
         com.hp.thermalshockreforged.client.dialogue.DialogueScreen.register(event);
         event.register(NativeDecorContent.DESK_PHOTO_SCREEN.get(), DeskPhotoScreen::new);
         event.register(com.hp.thermalshockreforged.content.atlas.AtlasContent.MENU.get(), com.hp.thermalshockreforged.client.atlas.AtlasScreen::new);

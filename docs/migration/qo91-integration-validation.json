@@ -1,0 +1,26 @@
+{
+  "sourceFiles": 10,
+  "pages": 16,
+  "buttons": 3,
+  "root": true,
+  "screens": true,
+  "renderers": true,
+  "mergedTags": [
+    "character_mobs"
+  ],
+  "twoStructures": true,
+  "runtimeTested": false,
+  "summonCommit": "requireActualAddedToLevelBeforeCooldown",
+  "compile": "Java21 compileJava processResources --offline SUCCESS 1m8s; 24 tasks 2 executed 22 up-to-date",
+  "compiledSnapshotUnchangedFiles": 8112,
+  "characterMobMembers": 7,
+  "pendingCharacterMobEntities": [
+    "benzor",
+    "whisper",
+    "huntress",
+    "lab_machinist"
+  ],
+  "resourceOnlyFollowup": "processResources --offline SUCCESS 43s; 1 executed",
+  "buildResourceCopiesVerified": 39,
+  "postCompileFormattingOnly": "Removed redundant empty final line in KofoniEntity; git diff --cached --check verified"
+}

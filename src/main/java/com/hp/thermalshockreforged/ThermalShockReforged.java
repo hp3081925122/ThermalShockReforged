@@ -67,6 +67,7 @@ public final class ThermalShockReforged {
         LOGGER.debug("Thermal Shock Reforged startup reached mod initialization with an isolated mixin namespace");
         ModGameRules.initialize();
         container.registerConfig(ModConfig.Type.COMMON, CombatConfig.SPEC);
+        container.registerConfig(ModConfig.Type.COMMON, com.hp.thermalshockreforged.entity.titans.TitanCombatConfig.SPEC, "thermal_shock_reforged-titans.toml");
         container.registerConfig(ModConfig.Type.COMMON, BastionCombatConfig.SPEC, "thermal_shock_reforged-bastions.toml");
         container.registerConfig(ModConfig.Type.COMMON, IceCombatConfig.SPEC, "thermal_shock_reforged-ice.toml");
         container.registerConfig(ModConfig.Type.COMMON, ManglerCombatConfig.SPEC, "thermal_shock_reforged-mangler.toml");
@@ -133,6 +134,10 @@ public final class ThermalShockReforged {
         ProtoiContent.register(bus);
         MagnetiteContent.register(bus);
         LegacyContent.register(bus);
+        com.hp.thermalshockreforged.entity.titans.TitanContent.register(bus);
+        com.hp.thermalshockreforged.entity.glastrekker.GlastrekkerContent.register(bus);
+        com.hp.thermalshockreforged.entity.kofoni.KofoniContent.register(bus);
+        com.hp.thermalshockreforged.entity.qo.QoContent.register(bus);
         com.hp.thermalshockreforged.entity.jellercel.JellercelContent.register(bus);
         com.hp.thermalshockreforged.entity.orb.OrbContent.register(bus);
         com.hp.thermalshockreforged.entity.projectile.ProjectileContent.register(bus);
