@@ -1,0 +1,54 @@
+{
+  "batch": 113,
+  "base_head": "4b5a97269b0a235dd4f62aa5ba90903c5d33285f",
+  "scope": "Fixed source/resource inputs, unified compile and copied resources; no runtime or rendering test",
+  "frozen_inputs": 8861,
+  "frozen_manifest_sha256": "5696b5610275677b5ad7b8cc0b8372af4e2d1f84e901fae042a65e30d2ef8ccc",
+  "production_files": 13,
+  "production_sha256": {
+    "src/main/java/com/hp/thermalshockreforged/ThermalShockReforged.java": "16c9cfa024119230679eb6d5ac7811be9ca019c88c85fb84b31dde942d9cea2d",
+    "src/main/java/com/hp/thermalshockreforged/client/ClientEvents.java": "bc908bcd916088093e425d7aef5fd3abcc673f11ebc74030a9021a100a88567e",
+    "src/main/java/com/hp/thermalshockreforged/client/legacyfabricator/LegacyFabricatorScreen.java": "f7eded6ec4c9508a52d8854a2145c1e9df505f8281991f4e57222b6050323b3b",
+    "src/main/java/com/hp/thermalshockreforged/client/remaininggui/RemainingGuiScreen.java": "a1654fe65783497f554aee3590b518146d907e494afb03d319241847d340cc14",
+    "src/main/java/com/hp/thermalshockreforged/content/legacyfabricator/LegacyFabricatorContent.java": "7b35f57bba7be9dda232d9da26668044ca9b9d486a4deecce7be00370be0f39a",
+    "src/main/java/com/hp/thermalshockreforged/content/legacyfabricator/LegacyFabricatorMenu.java": "c4a7222388d878444cdfc96fc675eb56290a51c853f7d8308168c2b9a173bfe6",
+    "src/main/java/com/hp/thermalshockreforged/content/remaininggui/RemainingGuiContent.java": "4100cc24af6f967db9611c4fffa7b1f6e5e1f9409bbce6d29dade8e83d248852",
+    "src/main/java/com/hp/thermalshockreforged/content/remaininggui/RemainingGuiMenu.java": "823b0eea663fb30f1737decb4185e751303e5db6eb6a4cddc7e536f71e8c6efd",
+    "src/main/java/com/hp/thermalshockreforged/content/remaininggui/RemainingGuiPage.java": "cd3c1b1d4909c396fc3eb303d20a1bd1fc469dd1c0b2aa8036f96ef3b74bae82",
+    "src/main/java/com/hp/thermalshockreforged/content/remaininggui/VaultCodePayload.java": "6094a8d83e7f3e768f9ad21499f4746b11d680d5d1b51fe762444c27e1589347",
+    "src/main/resources/assets/thermal_shock_reforged/lang/en_us.json": "f8ed378f9a4aa2c0dda3499098e69b5ec5e741265504280df4a5ac693cae3742",
+    "src/main/resources/assets/thermal_shock_reforged/lang/zh_cn.json": "0ba3db9410113940dadf6878872d7f1c5211523e0cf195bf6f993fb9c199fc6f",
+    "src/main/resources/data/thermal_shock_reforged/recipe/fabrication/ender_tentacle.json": "be6edde9592de882b3daef4ebb6247bab6f13da739131f7bf0e983e53ee1cab7"
+  },
+  "main_production_files": 4,
+  "peer_production_files": 5,
+  "shared_production_files": 4,
+  "byte_equal_resources": 8048,
+  "expanded_templates": 2,
+  "language": {
+    "en_us": {
+      "preserved_values": 3361,
+      "old_values_unchanged": true,
+      "added_values": 4,
+      "final_entries": 3365
+    },
+    "zh_cn": {
+      "preserved_values": 942,
+      "old_values_unchanged": true,
+      "added_values": 39,
+      "final_entries": 981
+    }
+  },
+  "build": {
+    "log": "D:\\AI临时文件\\ThermalShockMigration\\batch113-unified-build.log",
+    "log_sha256": "9f187d7b302b75bed839e7174ab7fba420e8004f140e490bc6d5384cb6f37dfb",
+    "successful": true,
+    "duration": "2m 5s",
+    "compile_java_up_to_date": false
+  },
+  "runtime_tests": false,
+  "client_tests_pending_full_migration": true,
+  "server_testing_user_owned": true,
+  "errors": [],
+  "passed": true
+}

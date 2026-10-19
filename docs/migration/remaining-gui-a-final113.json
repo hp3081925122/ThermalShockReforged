@@ -1,0 +1,130 @@
+{
+  "batch": 113,
+  "lane": "A",
+  "status": "五份独占Java已停笔，原五页独立MenuType/Screen完整迁入实现；共享root/ClientEvents/语言/变更总表交主线集成，固定全src/main后统一构建。",
+  "baseCommit": "4b5a97269b0a235dd4f62aa5ba90903c5d33285f",
+  "sourceJarSha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436",
+  "production": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/remaininggui/RemainingGuiContent.java",
+      "sha256": "4100cc24af6f967db9611c4fffa7b1f6e5e1f9409bbce6d29dade8e83d248852"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/remaininggui/RemainingGuiMenu.java",
+      "sha256": "823b0eea663fb30f1737decb4185e751303e5db6eb6a4cddc7e536f71e8c6efd"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/remaininggui/RemainingGuiPage.java",
+      "sha256": "cd3c1b1d4909c396fc3eb303d20a1bd1fc469dd1c0b2aa8036f96ef3b74bae82"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/remaininggui/VaultCodePayload.java",
+      "sha256": "6094a8d83e7f3e768f9ad21499f4746b11d680d5d1b51fe762444c27e1589347"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/remaininggui/RemainingGuiScreen.java",
+      "sha256": "a1654fe65783497f554aee3590b518146d907e494afb03d319241847d340cc14"
+    }
+  ],
+  "productionCount": 5,
+  "productionAggregateSha256": "648a2cb0a691ba61e3271f0df0073606c79ce3e33c6152472eddaa97976a2a27",
+  "aggregateDefinition": "按path字典序拼接path+U+0000+sha256+LF，按UTF-8计算SHA256",
+  "documents": [
+    {
+      "path": "docs/migration/remaining-gui-a-batch113.md",
+      "sha256": "2cef5c4e032d24bde7951a88ceb1eea007ff249cc668f0401297c6baa5e6f175"
+    },
+    {
+      "path": "docs/migration/remaining-gui-a-inventory113.json",
+      "sha256": "5d9aed856f75b54db197d2d2f6d613abbedbc630fa7ea32afe5e1a50b4b4c56e"
+    },
+    {
+      "path": "docs/migration/remaining-gui-a-production113.json",
+      "sha256": "140f201dbb2fb6ccf9a4cf69cc36c89a13ccba2eb4dc4aeda46489532d0c1e3a"
+    },
+    {
+      "path": "docs/migration/remaining-gui-a-shared113.json",
+      "sha256": "44538cdc37c21c2c9ec4aff6b0f8dc6258d52032c96cbbf5d9143a1ff3c5ad7d"
+    },
+    {
+      "path": "docs/migration/remaining-gui-a-validation113.json",
+      "sha256": "8ce57bb7f22bc5eda56045627a67a8740c19865ffa7c21a5f81ed1f45580cf5d"
+    },
+    {
+      "path": "docs/migration/remaining-gui-a-integration113.md",
+      "sha256": "e47e44b8dad0cf8ef15ce8c9d17ae6a5da776768d6e046809bc6139329c6a9d2"
+    }
+  ],
+  "scripts": [
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\inspect-remaining-gui113a.py",
+      "sha256": "f01b61f3c88bec7e8cb4479acd701072b78fd7a3d8720f9be171ffd0ecda6d41"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\prepare-remaining-gui-shared113a.py",
+      "sha256": "79799d409e3c901ba6757f7ffc11cdaa36696198a2c952a1b6d727a321554648"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\validate-remaining-gui113a.py",
+      "sha256": "1009f6ecf74b71e80eff340732fb5be8671e0edc65a8ecc13861bee5d198adba"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\finalize-remaining-gui113a.py",
+      "sha256": "1421feb6a6b248d400f0995fd869ea23566f13f3e5d52e315e2083fdad4db6e4"
+    }
+  ],
+  "coverage": {
+    "pageIds": [
+      "clash_page_1",
+      "clash_no_signal",
+      "char_trade_template",
+      "civil_8_tlk_2",
+      "limbo_vault_gui"
+    ],
+    "labels": 23,
+    "images": 6,
+    "imageButtons": 4,
+    "playerSlots": 36,
+    "customSlots": 0,
+    "assetDependencies": 10,
+    "newOrChangedAssets": 0,
+    "originalSourceClasses": 18,
+    "allOriginalClassesScanned": 4577
+  },
+  "validation": {
+    "staticChecks": 812,
+    "vaultAstGuardCases": 576,
+    "result": "PASS",
+    "meaning": "源/目标数据及AST求值检查，不是独立Java构建、网络往返、游戏或渲染实测。"
+  },
+  "shared": {
+    "path": "docs/migration/remaining-gui-a-shared113.json",
+    "rootLines": 1,
+    "clientEventsLines": 1,
+    "englishAdded": 4,
+    "chineseEntries": 28,
+    "preservedEnglish": 24,
+    "oldDialoguePageChanges": 0,
+    "normalOpeningSourcesAdded": 0,
+    "documentationDeltas": 1
+  },
+  "behaviorChanges": [
+    "Char模板保零customSlots，主按钮在读原0/1/2槽前拒绝缺槽，避免原NPE；不新增交易输入或拿背包槽冒充。保真实槽供应时原2/4/8经验、清槽与whisper进度。",
+    "Limbo原消息不传文本、服务端读静态客户端EditBox，现传完整原上限文本及容器ID，服务端核当前已开菜单/拥有者/有效/坐标已加载/非旁观后按原密码发1头盔和原声画；不额外加冷却/一次性限制。",
+    "Civil8无本页时钟图像读取，保0..13客户端页面时钟，按当前目标既有模式隔离原跨玩家静态变量，不添加原无肖像。"
+  ],
+  "originalOrphans": {
+    "fourPagesWithoutOpeningConstructors": [
+      "clash_page_1",
+      "clash_no_signal",
+      "char_trade_template",
+      "civil_8_tlk_2"
+    ],
+    "limbo": "仅原LimboVaultOnBlockRightClickedProcedure构造打开，该procedure原常量池仅自类和匿名类引用。保五独立注册及构造能力，不伪造正常入口。"
+  },
+  "limits": [
+    "本线没有编译、启动游戏、stage或commit，主线最终接线及locale集成后统一固定输入构建。",
+    "五页既有10资源逐字节保留，几何静态对照通过不等于实际客户端/Render Preview已一致。",
+    "完整迁移及无简化复审后由主线安排客户端/Render Preview；用户独立服务端测试不接管、不联系、不重复。"
+  ]
+}

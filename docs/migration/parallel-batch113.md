@@ -6,6 +6,10 @@
 
 主线负责ender_tentacle_page、ghostglass_sword_page完整独立页及所有共享接入。quick_explorer /root/coverage104_inventory已只读核：Ender原有slot1 Cryonic Energy、背包Springelatin Ball×20/Ender Pearl×32/Helion Slag×16/Cryonic Alloy×10/Slag×2、slot0输出Ender Tentacle及两声；原EnderTentacleOpenProcedure存在但未查到调用者。目标Lab的KINETIC_HOOK独立交易花40 adamantine_spice、1 mithral_spice和12等级，给背包，不能替代旧材料制作。
 
-Ghostglass原页只有四标签（Fabricator Guide、Cryonic Alloy×5、To the crafting table、Check JEI for the new recipe），没有按钮，未查到原菜单打开入口。孤立GhostglassSwordFabricateProcedure虽有材料扣款，但无调用点且与界面文字不一致，不能捏造按钮把它变成原有玩法。目标已有Malachite×8+Carborundum Sword×1的工作台配方是原真实来源，保留。完整迁页时分别核可视布局、真实存储、菜单有效性和原注册能力，不以补配方冒充补界面。
+Ghostglass原页只有四标签，实际英文为Fabricator、This recipe has been moved、to the Crafting Table.、Check JEI for the new recipe!；没有按钮，未查到原菜单打开入口。旧label_slot_1_cryonic_alloy_x5只是复用的语言键名，并不显示Cryonic Alloy×5，初步盘点按键名描述已在本次实际语言核值后纠正。孤立GhostglassSwordFabricateProcedure虽有材料扣款但无调用点，不能捏造按钮把它变成原有玩法。目标已有Malachite×8+Carborundum Sword×1的工作台配方是原真实来源，保留。完整迁页时分别核可视布局、真实存储、菜单有效性和原注册能力，不以补配方冒充补界面。
 
 先写具体迁移文档再生产，原正常来源和原孤立页分别存证。保所有原资源/动画/GUI，合理修复记录REFORGED_CHANGES。UTF-8，Java不写注释，脚本临时全在D:/AI临时文件。完整两路停笔/共享集成后固定全src/main统一构建；当前不开游戏。全部迁移和无简化复审后由主线安排子代理客户端与Render Preview真实对照，服务端用户独立负责。
+
+## 最终统一结果
+
+13生产/8861固定输入统一离线编译2m5s通过，8048资源字节及2模板核验通过；原locale全保，新增4英文/39中文。最终main113-static-validation.json承接独立核对与共享集成，未运行游戏。下一批全局事件复审见parallel-batch114.md。

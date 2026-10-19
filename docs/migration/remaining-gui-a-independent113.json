@@ -1,0 +1,51 @@
+{
+  "batch": 113,
+  "reviewer": "quick_explorer /root/coverage104_inventory",
+  "scope": "Read-only mechanical source/API/asset comparison; no build or runtime execution",
+  "production": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/remaininggui/RemainingGuiContent.java",
+      "sha256": "4100cc24af6f967db9611c4fffa7b1f6e5e1f9409bbce6d29dade8e83d248852"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/remaininggui/RemainingGuiMenu.java",
+      "sha256": "823b0eea663fb30f1737decb4185e751303e5db6eb6a4cddc7e536f71e8c6efd"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/remaininggui/RemainingGuiPage.java",
+      "sha256": "cd3c1b1d4909c396fc3eb303d20a1bd1fc469dd1c0b2aa8036f96ef3b74bae82"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/remaininggui/VaultCodePayload.java",
+      "sha256": "6094a8d83e7f3e768f9ad21499f4746b11d680d5d1b51fe762444c27e1589347"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/remaininggui/RemainingGuiScreen.java",
+      "sha256": "a1654fe65783497f554aee3590b518146d907e494afb03d319241847d340cc14"
+    }
+  ],
+  "passed": true,
+  "findings": {
+    "five_page_sizes": [
+      "176x166",
+      "176x166",
+      "206x196",
+      "276x182",
+      "276x76"
+    ],
+    "original_actual_english_labels_equal": 23,
+    "label_positions_and_colors_equal": true,
+    "input_placeholder_equal": true,
+    "image_button_assets_byte_equal": 4,
+    "button_hover_preserved": true,
+    "char_inventory_slots": 36,
+    "char_custom_slots": 0,
+    "char_missing_slot_guard_before_payment": true,
+    "limbo_input_max_length": 32767,
+    "limbo_payload": "Current container ID and full bounded text, server validation",
+    "limbo_password": "DumbBug",
+    "limbo_reward": "chorusian_antennae_helmet x1",
+    "limbo_sound": "entity.experience_orb.pickup NEUTRAL volume=1 pitch=1",
+    "shared_hooks_at_review_snapshot": "Pending root integration; separately recorded in main113-shared-production.json"
+  }
+}

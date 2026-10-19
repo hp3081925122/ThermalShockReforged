@@ -1,0 +1,191 @@
+{
+  "batch": 113,
+  "sharedCode": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/ThermalShockReforged.java",
+      "operation": "在构造器已有DialogueContent.register(bus)之后追加一次",
+      "anchor": "com.hp.thermalshockreforged.content.dialogue.DialogueContent.register(bus);",
+      "addition": "com.hp.thermalshockreforged.content.remaininggui.RemainingGuiContent.register(bus);"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/ClientEvents.java",
+      "operation": "在screens(RegisterMenuScreensEvent event)已有DialogueScreen.register(event)之后追加一次",
+      "anchor": "com.hp.thermalshockreforged.client.dialogue.DialogueScreen.register(event);",
+      "addition": "com.hp.thermalshockreforged.client.remaininggui.RemainingGuiScreen.register(event);"
+    }
+  ],
+  "languages": {
+    "en_us": {
+      "gui.thermal_shock_reforged.remaininggui.button_tradebuttona": {
+        "source": "Trade",
+        "origin": "图片按钮无障碍朗读名，不显示额外文本或tooltip"
+      },
+      "gui.thermal_shock_reforged.remaininggui.button_adamantine_spice": {
+        "source": "Adamantine Spice",
+        "origin": "图片按钮无障碍朗读名，不显示额外文本或tooltip"
+      },
+      "gui.thermal_shock_reforged.remaininggui.button_tabcycleleft": {
+        "source": "Previous Tab",
+        "origin": "图片按钮无障碍朗读名，不显示额外文本或tooltip"
+      },
+      "gui.thermal_shock_reforged.remaininggui.button_textarrow": {
+        "source": "Submit",
+        "origin": "图片按钮无障碍朗读名，不显示额外文本或tooltip"
+      }
+    },
+    "zh_cn": {
+      "gui.thermal_shock_reforged.clash_page_1.label_execute_kgcfunc_33": {
+        "source": "❄ /execute kgcfunc 33",
+        "origin": "对应原值翻译，保原命令/报告文件名/占位字样，既有中文优先"
+      },
+      "gui.thermal_shock_reforged.clash_page_1.label_find_their_way": {
+        "source": "找到路的。",
+        "origin": "对应原值翻译，保原命令/报告文件名/占位字样，既有中文优先"
+      },
+      "gui.thermal_shock_reforged.clash_page_1.label_func33_report_103txt": {
+        "source": "-- [Func33_Report_107.txt]",
+        "origin": "对应原值翻译，保原命令/报告文件名/占位字样，既有中文优先"
+      },
+      "gui.thermal_shock_reforged.clash_page_1.label_goodbye": {
+        "source": "❄ 再见 :^)",
+        "origin": "对应原值翻译，保原命令/报告文件名/占位字样，既有中文优先"
+      },
+      "gui.thermal_shock_reforged.clash_page_1.label_how_will_i_find_them": {
+        "source": "❄ 我要怎样找到他们？",
+        "origin": "对应原值翻译，保原命令/报告文件名/占位字样，既有中文优先"
+      },
+      "gui.thermal_shock_reforged.clash_page_1.label_message_not_sent_try_again": {
+        "source": "-- 消息未发送，",
+        "origin": "对应原值翻译，保原命令/报告文件名/占位字样，既有中文优先"
+      },
+      "gui.thermal_shock_reforged.clash_page_1.label_no_signal": {
+        "source": "❄ 就是今天。",
+        "origin": "对应原值翻译，保原命令/报告文件名/占位字样，既有中文优先"
+      },
+      "gui.thermal_shock_reforged.clash_page_1.label_shortly": {
+        "source": "就快了。",
+        "origin": "对应原值翻译，保原命令/报告文件名/占位字样，既有中文优先"
+      },
+      "gui.thermal_shock_reforged.clash_page_1.label_take_a_look": {
+        "source": "❄ 看看吧。",
+        "origin": "对应原值翻译，保原命令/报告文件名/占位字样，既有中文优先"
+      },
+      "gui.thermal_shock_reforged.clash_page_1.label_they_are_ready_they_will_find": {
+        "source": "他们会来找你的。他们会",
+        "origin": "对应原值翻译，保原命令/报告文件名/占位字样，既有中文优先"
+      },
+      "gui.thermal_shock_reforged.clash_page_1.label_they_will_be_arriving_shortly": {
+        "source": "❄ 他们就快到了。",
+        "origin": "对应原值翻译，保原命令/报告文件名/占位字样，既有中文优先"
+      },
+      "gui.thermal_shock_reforged.clash_page_1.label_they_will_come_to_you": {
+        "source": "❄ 等他们准备好了，",
+        "origin": "对应原值翻译，保原命令/报告文件名/占位字样，既有中文优先"
+      },
+      "gui.thermal_shock_reforged.clash_page_1.label_try_again_yn": {
+        "source": "   重试？[Y/N]",
+        "origin": "对应原值翻译，保原命令/报告文件名/占位字样，既有中文优先"
+      },
+      "gui.thermal_shock_reforged.clash_page_1.label_wait": {
+        "source": "❄ 等等",
+        "origin": "对应原值翻译，保原命令/报告文件名/占位字样，既有中文优先"
+      },
+      "gui.thermal_shock_reforged.clash_no_signal.label_no_signal": {
+        "source": "无信号！",
+        "origin": "对应原值翻译，保原命令/报告文件名/占位字样，既有中文优先"
+      },
+      "gui.thermal_shock_reforged.char_trade_template.label_lorem_ipsum": {
+        "source": "LOREM IPSUM",
+        "origin": "对应原值翻译，保原命令/报告文件名/占位字样，既有中文优先"
+      },
+      "gui.thermal_shock_reforged.char_trade_template.label_xx": {
+        "source": "XX",
+        "origin": "对应原值翻译，保原命令/报告文件名/占位字样，既有中文优先"
+      },
+      "gui.thermal_shock_reforged.char_trade_template.label_xx1": {
+        "source": "XX",
+        "origin": "对应原值翻译，保原命令/报告文件名/占位字样，既有中文优先"
+      },
+      "gui.thermal_shock_reforged.char_trade_template.label_xx2": {
+        "source": "XX",
+        "origin": "对应原值翻译，保原命令/报告文件名/占位字样，既有中文优先"
+      },
+      "gui.thermal_shock_reforged.char_trade_template.label_xxx": {
+        "source": "XXX",
+        "origin": "对应原值翻译，保原命令/报告文件名/占位字样，既有中文优先"
+      },
+      "gui.thermal_shock_reforged.civil_8_tlk_2.label_concierge": {
+        "source": "蟑螂",
+        "origin": "对应原值翻译，保原命令/报告文件名/占位字样，既有中文优先"
+      },
+      "gui.thermal_shock_reforged.civil_8_tlk_2.label_kutty": {
+        "source": "❄ 暖和 :)",
+        "origin": "对应原值翻译，保原命令/报告文件名/占位字样，既有中文优先"
+      },
+      "gui.thermal_shock_reforged.limbo_vault_gui.label_limbo_vault": {
+        "source": "虚境保险库",
+        "origin": "对应原值翻译，保原命令/报告文件名/占位字样，既有中文优先"
+      },
+      "gui.thermal_shock_reforged.limbo_vault_gui.vaultcodeslot": {
+        "source": "...",
+        "origin": "对应原值翻译，保原命令/报告文件名/占位字样，既有中文优先"
+      },
+      "gui.thermal_shock_reforged.remaininggui.button_tradebuttona": {
+        "source": "交易",
+        "origin": "图片按钮无障碍朗读名，不显示额外文本或tooltip"
+      },
+      "gui.thermal_shock_reforged.remaininggui.button_adamantine_spice": {
+        "source": "精金香料",
+        "origin": "图片按钮无障碍朗读名，不显示额外文本或tooltip"
+      },
+      "gui.thermal_shock_reforged.remaininggui.button_tabcycleleft": {
+        "source": "上一页",
+        "origin": "图片按钮无障碍朗读名，不显示额外文本或tooltip"
+      },
+      "gui.thermal_shock_reforged.remaininggui.button_textarrow": {
+        "source": "提交",
+        "origin": "图片按钮无障碍朗读名，不显示额外文本或tooltip"
+      }
+    }
+  },
+  "preservedEnglish": {
+    "gui.thermal_shock_reforged.clash_page_1.label_execute_kgcfunc_33": "❄ /execute kgcfunc 33",
+    "gui.thermal_shock_reforged.clash_page_1.label_find_their_way": "FIND THEIR WAY.",
+    "gui.thermal_shock_reforged.clash_page_1.label_func33_report_103txt": "-- [Func33_Report_107.txt]",
+    "gui.thermal_shock_reforged.clash_page_1.label_goodbye": "❄ GOODBYE :^)",
+    "gui.thermal_shock_reforged.clash_page_1.label_how_will_i_find_them": "❄ How will I find them?",
+    "gui.thermal_shock_reforged.clash_page_1.label_message_not_sent_try_again": "-- Message not sent,",
+    "gui.thermal_shock_reforged.clash_page_1.label_no_signal": "❄ TODAY IS THE DAY.",
+    "gui.thermal_shock_reforged.clash_page_1.label_shortly": "SHORTLY.",
+    "gui.thermal_shock_reforged.clash_page_1.label_take_a_look": "❄ TAKE A LOOK.",
+    "gui.thermal_shock_reforged.clash_page_1.label_they_are_ready_they_will_find": "THEY ARE READY. THEY WILL",
+    "gui.thermal_shock_reforged.clash_page_1.label_they_will_be_arriving_shortly": "❄ THEY WILL BE ARRIVING",
+    "gui.thermal_shock_reforged.clash_page_1.label_they_will_come_to_you": "❄ THEY WILL COME TO YOU WHEN",
+    "gui.thermal_shock_reforged.clash_page_1.label_try_again_yn": "   try again? [Y/N]",
+    "gui.thermal_shock_reforged.clash_page_1.label_wait": "❄ Wait",
+    "gui.thermal_shock_reforged.clash_no_signal.label_no_signal": "NO SIGNAL!",
+    "gui.thermal_shock_reforged.char_trade_template.label_lorem_ipsum": "LOREM IPSUM",
+    "gui.thermal_shock_reforged.char_trade_template.label_xx": "XX",
+    "gui.thermal_shock_reforged.char_trade_template.label_xx1": "XX",
+    "gui.thermal_shock_reforged.char_trade_template.label_xx2": "XX",
+    "gui.thermal_shock_reforged.char_trade_template.label_xxx": "XXX",
+    "gui.thermal_shock_reforged.civil_8_tlk_2.label_concierge": "ROACH",
+    "gui.thermal_shock_reforged.civil_8_tlk_2.label_kutty": "❄ warm :)",
+    "gui.thermal_shock_reforged.limbo_vault_gui.label_limbo_vault": "Limbo Vault",
+    "gui.thermal_shock_reforged.limbo_vault_gui.vaultcodeslot": "..."
+  },
+  "documentationDeltas": [
+    {
+      "path": "docs/migration/REFORGED_CHANGES.md",
+      "operation": "追加GUI修正两条",
+      "text": "第113批：原char_trade_template实际零自定义槽，按钮0调用BenzorSpiceTrade时直接解引用不存在的0/1/2槽；保原36背包槽和按钮，缺槽安全拒绝并英文debug，不造交易输入。原Limbo消息不传文本、procedure直接读静态客户端EditBox；改传完整原上限32767字符与容器ID，由当前已打开菜单的拥有者在服务端校验后执行DumbBug精确匹配、给1头盔和原音效，满包复用原生辅助掉落。无新增正常入口、冷却或一次性奖励限制，客户端不执行奖励。静态验证通过不等于游戏已测。"
+    }
+  ],
+  "notes": [
+    "不修改旧DialoguePage，不把Civil8第一页替代第二页；五项真实MenuType均独立同原ID。",
+    "原四页无打开构造caller，Limbo打开procedure原仅自类/匿名类常量引用；不添加方块/NPC/配方来源。",
+    "十份既有GUI PNG逐字节相同，无新增或替换纹理，不依赖主线legacyfabricator包。",
+    "Civil8原WhisperSpriteIndex无本页绘图读取；保0..13页面时钟，不恢复跨玩家静态共享变量，也不添加肖像。",
+    "主线集成后统一编译；本线不独立构建或游戏。"
+  ]
+}
