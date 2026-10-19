@@ -31,6 +31,25 @@ public final class CombatConfig {
     public static final ModConfigSpec.DoubleValue SUNBEAM_MULTIPLIER;
     public static final ModConfigSpec.DoubleValue SUNBEAM_KNOCKBACK;
     public static final ModConfigSpec.IntValue SUNBEAM_COOLDOWN;
+    public static final ModConfigSpec.DoubleValue MAGNETITE_HEALTH;
+    public static final ModConfigSpec.DoubleValue MAGNETITE_ARMOR;
+    public static final ModConfigSpec.DoubleValue MAGNETITE_DAMAGE;
+    public static final ModConfigSpec.DoubleValue MAGNETITE_SPEED;
+    public static final ModConfigSpec.DoubleValue MAGNETITE_FOLLOW_RANGE;
+    public static final ModConfigSpec.DoubleValue MAGNETITE_RESISTANCE;
+    public static final ModConfigSpec.DoubleValue MAGNETITE_MELEE_KNOCKBACK;
+    public static final ModConfigSpec.DoubleValue MAGNETITE_BULLET_MULTIPLIER;
+    public static final ModConfigSpec.DoubleValue MAGNETITE_BULLET_KNOCKBACK;
+    public static final ModConfigSpec.IntValue MAGNETITE_INTERVAL;
+    public static final ModConfigSpec.DoubleValue SPECTRE_HEALTH;
+    public static final ModConfigSpec.DoubleValue SPECTRE_ARMOR;
+    public static final ModConfigSpec.DoubleValue SPECTRE_DAMAGE;
+    public static final ModConfigSpec.DoubleValue SPECTRE_SPEED;
+    public static final ModConfigSpec.DoubleValue SPECTRE_FOLLOW_RANGE;
+    public static final ModConfigSpec.DoubleValue SPECTRE_RESISTANCE;
+    public static final ModConfigSpec.DoubleValue SPECTRE_KNOCKBACK;
+    public static final ModConfigSpec.DoubleValue SPECTRE_NOTE_MULTIPLIER;
+    public static final ModConfigSpec.IntValue SPECTRE_COOLDOWN;
 
     static {
         ModConfigSpec.Builder builder = new ModConfigSpec.Builder();
@@ -68,6 +87,29 @@ public final class CombatConfig {
         SUNBEAM_MULTIPLIER = builder.defineInRange("beamMultiplier", 1.0, 0.0, 1000.0);
         SUNBEAM_KNOCKBACK = builder.defineInRange("beamKnockback", 1.0, 0.0, 2.0);
         SUNBEAM_COOLDOWN = builder.defineInRange("attackCooldown", 120, 29, 72000);
+        builder.pop();
+        builder.push("magnetite");
+        MAGNETITE_HEALTH = builder.defineInRange("maxHealth", 35.0, 1.0, 1000000.0);
+        MAGNETITE_ARMOR = builder.defineInRange("armor", 6.0, 0.0, 1000.0);
+        MAGNETITE_DAMAGE = builder.defineInRange("attackDamage", 3.0, 0.0, 1000000.0);
+        MAGNETITE_SPEED = builder.defineInRange("movementSpeed", .3, 0.0, 2.0);
+        MAGNETITE_FOLLOW_RANGE = builder.defineInRange("followRange", 16.0, 1.0, 256.0);
+        MAGNETITE_RESISTANCE = builder.defineInRange("knockbackResistance", .1, 0.0, 1.0);
+        MAGNETITE_MELEE_KNOCKBACK = builder.defineInRange("meleeKnockback", .1, 0.0, 2.0);
+        MAGNETITE_BULLET_MULTIPLIER = builder.defineInRange("bulletMultiplier", 2.0 / 3.0, 0.0, 1000.0);
+        MAGNETITE_BULLET_KNOCKBACK = builder.defineInRange("bulletKnockback", 1.0, 0.0, 2.0);
+        MAGNETITE_INTERVAL = builder.defineInRange("shotInterval", 80, 1, 72000);
+        builder.pop();
+        builder.push("spectre");
+        SPECTRE_HEALTH = builder.defineInRange("maxHealth", 25.0, 1.0, 1000000.0);
+        SPECTRE_ARMOR = builder.defineInRange("armor", 4.0, 0.0, 1000.0);
+        SPECTRE_DAMAGE = builder.defineInRange("attackDamage", 3.0, 0.0, 1000000.0);
+        SPECTRE_SPEED = builder.defineInRange("movementSpeed", .3, 0.0, 2.0);
+        SPECTRE_FOLLOW_RANGE = builder.defineInRange("followRange", 16.0, 1.0, 256.0);
+        SPECTRE_RESISTANCE = builder.defineInRange("knockbackResistance", .1, 0.0, 1.0);
+        SPECTRE_KNOCKBACK = builder.defineInRange("meleeKnockback", .1, 0.0, 2.0);
+        SPECTRE_NOTE_MULTIPLIER = builder.defineInRange("noteMultiplier", 5.0 / 3.0, 0.0, 1000.0);
+        SPECTRE_COOLDOWN = builder.defineInRange("attackCooldown", 50, 20, 72000);
         builder.pop();
         SPEC = builder.build();
     }

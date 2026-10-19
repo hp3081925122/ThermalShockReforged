@@ -227,7 +227,21 @@
       "status": "not_migrated"
     },
     "magnetite": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshockreforged.entity.magnetite.MagnetiteEntity",
+      "migration_document": "sola-magnetite-batch.md",
+      "prepared_tests": [
+        "closeMeleeAndFarRangedGoalsDoNotBlockEachOther",
+        "eightyTickFireRateAndOriginalProjectileTrajectory",
+        "configScaledDamageAndResistanceAwareKnockback",
+        "fiveBiomeSpawnsWithoutInventedOreGate",
+        "arrowsFallDrownImmuneButFireDamageAllowed",
+        "fullGlowHeadPoseAndShieldClip",
+        "foodDropAndDelayedSevenXpDeath"
+      ],
+      "pending": [
+        "整模组完整后的客户端、服务端及Render Preview验收；按用户最新要求由主对话执行"
+      ]
     },
     "magnetite_bullet": {
       "status": "implemented_pending_full_validation",
@@ -561,7 +575,20 @@
       "status": "not_migrated"
     },
     "sola": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshockreforged.entity.legacy.SolaEntity",
+      "migration_document": "sola-magnetite-batch.md",
+      "prepared_tests": [
+        "vanillaHostileSemanticsAndOriginalDamageImmunity",
+        "spawnHealthScaleAndDimensionsFollowHealth",
+        "attributedAttackIgnitesForFourSeconds",
+        "sixBiomeSpawnsAndMantlestoneAltarGate",
+        "scrapDropAndDelayedTenXpDeath",
+        "fullTranslucentGlowAndAnimations"
+      ],
+      "pending": [
+        "整模组完整后的客户端、服务端及Render Preview验收；按用户最新要求由主对话执行"
+      ]
     },
     "gardenling": {
       "status": "implemented_pending_full_validation",
@@ -607,7 +634,22 @@
       ]
     },
     "spectre": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshockreforged.entity.legacy.SpectreEntity",
+      "migration_document": "spectre-batch.md",
+      "prepared_tests": [
+        "fiftyTickCooldownAndTwentyTickNativeMovementLock",
+        "ownedNoteDoesNotHitCasterOrTriggerRecursiveSkill",
+        "correctSpeedBaseDamageZeroKnockbackAndWhiteTrail",
+        "onlyCasterTurnsAndAttackAnimationActuallyPlays",
+        "fullUndeadSemanticsAndDamageImmunities",
+        "fourBiomeSpawnAndOriginalCustomTags",
+        "foodDropAndTwentyTickCorpseFiveXp",
+        "translucentFullGlowAndOriginalAnimationParity"
+      ],
+      "pending": [
+        "整模组完整后的客户端、服务端及Render Preview验收；按用户最新要求由主对话执行"
+      ]
     },
     "whistler_note": {
       "status": "implemented_pending_full_validation",

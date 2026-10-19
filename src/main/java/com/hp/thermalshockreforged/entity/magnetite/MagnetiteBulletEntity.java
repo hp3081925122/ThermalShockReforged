@@ -30,10 +30,13 @@ public final class MagnetiteBulletEntity extends GreenOrbBulletBase {
         return bullet;
     }
     public static MagnetiteBulletEntity shoot(LivingEntity owner, LivingEntity target) {
+        return shoot(owner, target, 2, 1);
+    }
+    public static MagnetiteBulletEntity shoot(LivingEntity owner, LivingEntity target, double damage, double knockback) {
         var bullet = new MagnetiteBulletEntity(MagnetiteContent.BULLET.get(), owner, owner.level());
         double dx = target.getX() - owner.getX(), dy = target.getY() + target.getEyeHeight() - 1.1, dz = target.getZ() - owner.getZ();
         bullet.shoot(dx, dy - bullet.getY() + Math.hypot(dx, dz) * .2F, dz, 1.4F, 12);
-        bullet.setSilent(true); bullet.setBaseDamage(2); bullet.setImpactKnockback(1); bullet.setCritArrow(false);
+        bullet.setSilent(true); bullet.setBaseDamage(damage); bullet.setImpactKnockback(knockback); bullet.setCritArrow(false);
         owner.level().addFreshEntity(bullet);
         owner.level().playSound(null, owner.getX(), owner.getY(), owner.getZ(), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "ghostbullet")), SoundSource.PLAYERS, 1, 1 / (owner.getRandom().nextFloat() * .5F + 1));
         return bullet;

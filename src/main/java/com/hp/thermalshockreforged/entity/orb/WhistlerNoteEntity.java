@@ -1,6 +1,7 @@
 package com.hp.thermalshockreforged.entity.orb;
 
 import com.hp.thermalshockreforged.content.MaterialContent;
+import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.entity.fauna.FaunaEntities;
 import com.hp.thermalshockreforged.entity.projectile.LegacyArrowEntity;
 import net.minecraft.util.RandomSource;
@@ -45,6 +46,15 @@ public final class WhistlerNoteEntity extends LegacyArrowEntity {
         note.setImpactKnockback(5);
         note.setCritArrow(false);
         owner.level().addFreshEntity(note);
+        return note;
+    }
+    public static WhistlerNoteEntity shootSpectre(LivingEntity owner, double damage) {
+        var note = new WhistlerNoteEntity(owner, owner.level());
+        note.setPos(owner.getX(), owner.getEyeY(), owner.getZ());
+        Vec3 view = owner.getLookAngle();
+        note.shoot(view.x, view.y + .1, view.z, .3F, 0);
+        note.setBaseDamage(damage); note.setImpactKnockback(0); note.setSilent(true); note.setCritArrow(false);
+        if (!owner.level().addFreshEntity(note)) ThermalShockReforged.LOGGER.warn("Spectre note spawn failed: caster={}", owner.getUUID());
         return note;
     }
 }
