@@ -91,6 +91,7 @@ public final class ClientEvents {
         com.hp.thermalshockreforged.client.npc.concierge.ConciergeClient.renderers(event);
         com.hp.thermalshockreforged.client.kofoni.KofoniClient.renderers(event);
         com.hp.thermalshockreforged.client.qo.QoClient.renderers(event);
+        com.hp.thermalshockreforged.client.labmachinist.LabClient.renderers(event);
         CavebloomerClient.renderers(event);
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.atlas.AtlasContent.ACTIVATION.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.weapons.WeaponContent.MAGNETIC_CYCLE_SOUND.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
@@ -161,6 +162,7 @@ public final class ClientEvents {
         com.hp.thermalshockreforged.client.npc.concierge.ConciergeClient.screens(event);
         com.hp.thermalshockreforged.client.kofoni.KofoniClient.screens(event);
         com.hp.thermalshockreforged.client.qo.QoClient.screens(event);
+        com.hp.thermalshockreforged.client.labmachinist.LabClient.screens(event);
         com.hp.thermalshockreforged.client.dialogue.DialogueScreen.register(event);
         event.register(NativeDecorContent.DESK_PHOTO_SCREEN.get(), DeskPhotoScreen::new);
         event.register(com.hp.thermalshockreforged.content.atlas.AtlasContent.MENU.get(), com.hp.thermalshockreforged.client.atlas.AtlasScreen::new);
@@ -175,6 +177,7 @@ public final class ClientEvents {
         LightsRenderers.extensions(event);
         SporeRenderers.extensions(event);
         WeaponClient.extensions(event);
+        com.hp.thermalshockreforged.client.labmachinist.LabClient.extensions(event);
         AuraClient.extensions(event);
         FaunaRenderers.extensions(event);
         FarmingRenderers.extensions(event);
@@ -191,6 +194,9 @@ public final class ClientEvents {
 
     @SubscribeEvent
     public static void particles(RegisterParticleProvidersEvent event) {
+        event.registerSpriteSet(com.hp.thermalshockreforged.combat.ElementalCombat.HIT_CRYO.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "hitcryo", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true));
+        event.registerSpriteSet(com.hp.thermalshockreforged.combat.ElementalCombat.HIT_PYRO.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "hitpyro", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true));
+        event.registerSpriteSet(com.hp.thermalshockreforged.combat.ElementalCombat.HIT_RESIST.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "hitresist", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true));
         event.registerSpriteSet(com.hp.thermalshockreforged.content.weapons.WeaponContent.HIT_FERRO.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "hitferro", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true));
         event.registerSpriteSet(com.hp.thermalshockreforged.content.weapons.WeaponContent.HIT_CLORO.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "hitcloro", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true));
         event.registerSpriteSet(com.hp.thermalshockreforged.content.weapons.WeaponContent.BLUE_PLUS_BLAST.get(), com.hp.thermalshockreforged.client.particle.BluePlusBlastParticle.Provider::new);

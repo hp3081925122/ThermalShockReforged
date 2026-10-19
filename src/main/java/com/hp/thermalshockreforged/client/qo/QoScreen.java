@@ -12,13 +12,13 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Inventory;
 
-public final class QoScreen extends AbstractContainerScreen<QoMenu> {
-    private final Clock clock;
+public final class QoScreen extends AbstractContainerScreen<QoMenu> implements com.hp.thermalshockreforged.client.labmachinist.LabDialogueClock.Owner {
+    private final com.hp.thermalshockreforged.client.labmachinist.LabDialogueClock clock;
     private final String openingSound;
     private boolean soundPlayed;
     public QoScreen(QoMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title); imageWidth = menu.page.width; imageHeight = menu.page.height;
-        clock = Minecraft.getInstance().screen instanceof QoScreen previous && previous.menu.npcUuid.equals(menu.npcUuid) ? previous.clock : new Clock();
+        clock = Minecraft.getInstance().screen instanceof com.hp.thermalshockreforged.client.labmachinist.LabDialogueClock.Owner previous && previous.dialogueKey().equals(dialogueKey()) ? previous.dialogueClock() : new com.hp.thermalshockreforged.client.labmachinist.LabDialogueClock();
         openingSound = menu.openingSound;
     }
     private static ResourceLocation texture(String name) { return QoContent.id("textures/screens/" + name + ".png"); }
@@ -45,7 +45,8 @@ public final class QoScreen extends AbstractContainerScreen<QoMenu> {
     @Override protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) {
         for (var line : menu.page.lines) graphics.drawString(font, Component.translatable(line.key()), line.x(), line.y(), line.color(), false);
     }
-    private static final class Clock { int frame; }
+    @Override public com.hp.thermalshockreforged.client.labmachinist.LabDialogueClock dialogueClock() { return clock; }
+    @Override public String dialogueKey() { return menu.npcUuid.toString(); }
     private final class ImageButton extends AbstractButton {
         private final int action;
         private final ResourceLocation texture;

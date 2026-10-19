@@ -1,0 +1,149 @@
+{
+  "status": "STATIC_CHECKS_PASSED_PENDING_MAIN_INTEGRATION",
+  "pages": 22,
+  "original_lab_pages": 21,
+  "assembly_page": 1,
+  "labels": 103,
+  "images": 62,
+  "buttons": 34,
+  "resources": 84,
+  "owned_java_files": 17,
+  "owned_and_proposed_shared_java_syntax_valid": true,
+  "original_prices_red_blue_purple_levels": {
+    "KINETIC_HOOK": [
+      40,
+      1,
+      0,
+      12
+    ],
+    "SHOCK_STICK": [
+      12,
+      3,
+      0,
+      7
+    ],
+    "ZAP_GAUNTLET": [
+      28,
+      5,
+      0,
+      16
+    ],
+    "SYLVIA_RIFLE": [
+      48,
+      5,
+      1,
+      42
+    ],
+    "WALLBORE": [
+      10,
+      1,
+      0,
+      8
+    ],
+    "PYLON_CORE": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "ZENITH": [
+      5,
+      0,
+      0,
+      55
+    ]
+  },
+  "full_currency_and_level_payment_precedes_reward": true,
+  "all_portrait_dimensions_and_frame_limits_match": true,
+  "original_gui_open_sound_and_tick_hooks_match": true,
+  "native_loot_weights_and_rolls_preserved": true,
+  "native_recipe_shapes_and_counts_preserved": true,
+  "animation_clips": {
+    "labqo": [
+      "idle",
+      "notice"
+    ],
+    "fabricator": [
+      "0"
+    ],
+    "wallbore": [
+      "0"
+    ],
+    "railgun": [
+      "0",
+      "1",
+      "2"
+    ]
+  },
+  "target_source_constants_checked": {
+    "SoundEvents": [
+      "BEACON_AMBIENT",
+      "CALCITE_BREAK",
+      "CONDUIT_ACTIVATE",
+      "DEEPSLATE_BREAK",
+      "DRAGON_FIREBALL_EXPLODE",
+      "ENDERMAN_TELEPORT",
+      "EXPERIENCE_ORB_PICKUP",
+      "FIREWORK_ROCKET_LAUNCH",
+      "ITEM_BREAK",
+      "LAVA_EXTINGUISH",
+      "NETHER_BRICKS_BREAK",
+      "PISTON_CONTRACT",
+      "RABBIT_JUMP",
+      "WARDEN_SONIC_BOOM"
+    ],
+    "Attributes": [
+      "ARMOR",
+      "ATTACK_DAMAGE",
+      "ATTACK_SPEED",
+      "FOLLOW_RANGE",
+      "KNOCKBACK_RESISTANCE",
+      "MAX_HEALTH",
+      "MOVEMENT_SPEED",
+      "STEP_HEIGHT"
+    ],
+    "BlockStateProperties": [
+      "ATTACH_FACE",
+      "HORIZONTAL_FACING",
+      "WATERLOGGED"
+    ],
+    "ParticleTypes": [
+      "ELECTRIC_SPARK",
+      "PORTAL",
+      "SONIC_BOOM"
+    ],
+    "Items": [
+      "BUCKET",
+      "LAVA_BUCKET"
+    ]
+  },
+  "shared_replacements_ready_but_not_applied": 0,
+  "language_entries_per_locale": 131,
+  "java_sha256": {
+    "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/ClimbingPickItem.java": "11d33199c644b67b5e5c3df8213e0fcfe89201a35d1435a643b6fa1e4b4163be",
+    "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/EnderTentacleItem.java": "08400fd017ab0b5adb6533bb6f1469313146f6ab3cc7ccb806a4ec0a1c8cb1f9",
+    "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabContent.java": "40ee86d8134d47f806bd40f840a8f38a2b0ac70fa7bc5c1ece649e9050183b8d",
+    "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabItemAnimationCache.java": "23837c85505c5be4266c7c9531907e90ba56e113b27ca90a73d25321518667cd",
+    "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabMachineBlock.java": "8d05b74bb26db1ec88efd8a6aa1c1cebc2a3944f16f28f63074d76ed18eac133",
+    "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabMachineBlockEntity.java": "2b41e5eab12ac91484c0fb012cc6b60d2cfda0e97bc139456741128d0af90bc2",
+    "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabMachineItem.java": "4e0646aad16100d2d446b94ab6b3f77eff4a7d008203c3356205a37d171eebf0",
+    "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabMachinistEntity.java": "575645330794685c96bff4a6844717454d7c0d2a35304dba46f5e0d4686b219c",
+    "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabMenu.java": "f514e90bbdecf515712849f45f57553a9eb757cb2b2fa8a496e516c0ba0ff2bb",
+    "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabPage.java": "589d3459e327a47ca41b8edcbce5a3ec605b953b768e282cdf2c4c55bb59f097",
+    "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabPlayerState.java": "8ba1bf9b30d5a07d63674834e426c79be43f516c784631045a5f5eaaee39db6b",
+    "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabUtilityBlock.java": "00f6a0da1d357fdc532a10e03523d87f4c135a979e5ed69fb47a9c16ab6efbcc",
+    "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/SylviaRifleItem.java": "2a90999347e071df87d9512e398a621e3ab5971926007f494f02f0bab36e6acd",
+    "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/WallboreCycleEntity.java": "9eef97da3e0d0bbf418394316c94fb0c0f0837c72846bf40413ce88662c71951",
+    "src/main/java/com/hp/thermalshockreforged/client/labmachinist/LabClient.java": "b78e33d6b26f7a2f3f1018b8e0300f9ddba37b8e4c085fd065d5781daa2077cf",
+    "src/main/java/com/hp/thermalshockreforged/client/labmachinist/LabDialogueClock.java": "365c8ea2d860a2b342b2352973dfad23cc80b88712cc99d0d68c36e25289f5d6",
+    "src/main/java/com/hp/thermalshockreforged/client/labmachinist/LabScreen.java": "10100ab8af2ccdf3205595b5e0d253c21033378262aa20ce959fcaab0c310d26"
+  },
+  "pending_native_chain": [
+    "machinist_lab: dissolver_gemlock原入口机关未迁，processor还依赖integrated_api；NBT及worldgen不导入残缺版本，保原件及递归依赖清单。"
+  ],
+  "compile": "未执行，按本批指令由主聊天统一",
+  "server_client_render_preview": "未执行，整个模组迁移完整后统一测试",
+  "shared_replacements_applied_by_main": 13,
+  "sylvia_single_collision_clip_and_successful_fire_before_consumption": true,
+  "wallbore_first_placement_initialization_and_explicit_refuel_reset": true
+}

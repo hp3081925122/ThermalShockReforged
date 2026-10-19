@@ -62,7 +62,7 @@ public final class ElementalBladeItem extends SwordItem {
             server.playSound(null, victim.blockPosition(), shock ? SoundEvents.ANVIL_PLACE : SoundEvents.GRASS_BREAK, SoundSource.NEUTRAL, .4F, shock ? 3 : 1);
             server.playSound(null, victim.blockPosition(), SoundEvents.ZOMBIE_ATTACK_IRON_DOOR, SoundSource.NEUTRAL, .5F, 1);
             server.sendParticles(shock ? WeaponContent.HIT_FERRO.get() : WeaponContent.HIT_CLORO.get(), victim.getX(), victim.getY() + victim.getBbHeight() / 2, victim.getZ(), 1, 0, 0, 0, 0);
-            attacker.setDeltaMovement(attacker.getLookAngle().scale(-.05)); attacker.hasImpulse = true; attacker.hurtMarked = true;
+            com.hp.thermalshockreforged.combat.ElementalCombat.recoilDirectSource(attacker);
         }
         if (shock || attacker.hasEffect(StatusContent.KNIGHTS_EDGE_CHARGE)) BladeImpactEntity.submit(server, victim, attacker, shock);
         return result;

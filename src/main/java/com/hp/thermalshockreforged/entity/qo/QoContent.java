@@ -34,11 +34,11 @@ public final class QoContent {
     private QoContent() { }
     public static ResourceLocation id(String path) { return ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
     public static MenuType<QoMenu> menu(QoPage page) { return PAGES.get(page).get(); }
-    public static boolean open(ServerPlayer player, DefectorMachinistEntity npc, BlockPos anchor, QoPage page) {
-        if (npc == null || !npc.isAlive() || npc.level() != player.level() || player.distanceToSqr(npc) > 64) return false;
+    public static boolean open(ServerPlayer player, PathfinderMob npc, BlockPos anchor, QoPage page) {
+        if (npc == null || !(npc instanceof DefectorMachinistEntity || npc instanceof com.hp.thermalshockreforged.entity.labmachinist.LabMachinistEntity) || !npc.isAlive() || npc.level() != player.level() || player.distanceToSqr(npc) > 64) return false;
         var fixed = anchor.immutable();
-        boolean continuing = player.containerMenu instanceof QoMenu previous && previous.npcUuid.equals(npc.getUUID());
-        String openingSound = player.containerMenu instanceof QoMenu previous ? previous.page.sound : "qo_main_speak";
+        boolean continuing = player.containerMenu instanceof QoMenu previous && previous.npcUuid.equals(npc.getUUID()) || player.containerMenu instanceof com.hp.thermalshockreforged.entity.labmachinist.LabMenu previousLab && previousLab.npcUuid.equals(npc.getUUID());
+        String openingSound = player.containerMenu instanceof QoMenu previous ? previous.page.sound : player.containerMenu instanceof com.hp.thermalshockreforged.entity.labmachinist.LabMenu previousLab ? previousLab.page.sound : "qo_main_speak";
         var provider = new MenuProvider() {
             @Override public Component getDisplayName() { return Component.literal(page.title); }
             @Override public AbstractContainerMenu createMenu(int id, Inventory inventory, Player owner) { return new QoMenu(page, id, inventory, npc.getId(), npc.getUUID(), fixed, openingSound); }

@@ -31,6 +31,7 @@ public final class GeoDecorContent {
                 case SURGE_PYLON -> new SurgePylonBlock();
                 case THERMA_DEV_PLUSH -> new ThermaDevPlushBlock();
                 case FERRO_CAKE -> new FerroCakeBlock();
+                case BOTTLE_OF_STARLIGHT, BOTTLE_OF_LUNARLIGHT -> new StarlightBottleBlock(kind);
                 case RINTHIUM_BUTTON, RINTHIUM_LEVER -> new KeystonePuzzleBlock.Directional(kind);
                 case INACTIVE_KEYSTONE_PEDESTAL -> new KeystonePuzzleBlock(kind);
                 case KEYSTONE_PEDESTAL -> new KeystonePuzzleBlock.Pedestal();

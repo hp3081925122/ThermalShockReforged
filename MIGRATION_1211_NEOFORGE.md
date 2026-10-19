@@ -337,3 +337,14 @@ Shutterbug六页介绍/真实相机/摄影及图鉴任务、首次Shalespring完
 第91批两路完整集成：主对话迁入Carbor GL完整真实榴弹发射/连续使用/原两配方，以及Glastrekker两形态/真实装甲转化/完整原生骑乘/蛋孵化与Luminous Sea自然链；另一聊天迁入Qo完整16页/53文字/46图层/3按钮、世界共享剧情/一次合金委托、IceArtifact/Thermoid/六池奖励袋和Junkyard两模板/原自然池。保全原模型/动画/特效/声音；统一整组compileJava/processResources首轮1m8s通过，静态证据见main91-static-validation.json、qo-validation91.json和qo91-integration-validation.json。第90批进度icon格式/语言字节/巨人初始尺寸与挥击持久身份及动画桥误判已收尾修正，Kofoni自然入口现在真实接通。原character_mobs缺项已补已注册7成员，未注册四NPC留后续。行为差异集中REFORGED_CHANGES，外模组联动仍独立延期。下一批开工先分约半给既有独立聊天：LabMachinist及21页实验室业务是自然候选；主对话补剩余全局元素/生物与其他真实缺口。整模组仍未完整，最终客户端/服务端/Render Preview未开始。
 
 第91批最终资源复制43s成功，本轮全部修改/新增资源39份源码与build逐字节一致；详见集成报告。历史独立交付报告里的未接线/未编译由本条覆盖，不等于运行测试完成。
+
+
+## 第92批统一收尾
+
+主聊天补齐四系全局元素、十项真实酿造、完整星月瓶、冰刃／熔棒／层银镰刀和Thistle Bow；另一聊天补齐实验室21页加装配机制作页、七交易、希尔维娅／钩爪／凿壁机及攀岩道具。13处共享Java接线、131条每语言交付文本和9份采集／附魔／角色标签已合并。保原Geo／AAA／声音和实际玩法；有意缺陷修复集中在REFORGED_CHANGES.md。
+
+整组首次类型编译检出Sylvia跨包protected方法、Constructor旧Tooltip参数以及旧class缓存缺失，已按目标API修复并清理构建产物；随后 clean compileJava processResources --offline 成功（5分38秒，25任务，4执行／21最新，6项既有弃用警告）。静态核对通过8份原字节码、22主线原资产、15转换JSON、3配方、16元素标签、10酿造和84份实验室交付资产；语言全部旧值保留。最终构建资源按字节／两份Gradle展开模板分别核对，见batch92-integration-validation.json。发现中文简介因Gradle属性默认解码乱码，改UTF-8读取后追加processResources成功；Java无后续修改。
+
+独立聊天17文件原交付哈希保留，编译修复后的最终哈希另列集成报告，不把旧报告当最新源码验证。实验室自然入口仍缺真实溶解锁机关；已有原生WaterloggingFixProcessor将按行为复用，不误列必须第三方联动。其他实体／武器／世界链仍有缺口，整模组未完整，不启动游戏或最终验收。
+
+第93批继续约半分工：另一聊天负责Dissolver Gemlock／Phobotite多轮溶解及machinist_lab完整自然链；主聊天负责Liteprism Sword／Prismatic Supernova完整表现与真实获取入口。见parallel-batch93.md。全部代码完整后，最终服务端、客户端及Render Preview验收由子代理执行；外模组联动仍只记DEFERRED_MOD_INTEGRATIONS.md。

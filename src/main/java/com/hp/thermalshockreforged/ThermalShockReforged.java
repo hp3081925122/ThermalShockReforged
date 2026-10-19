@@ -115,6 +115,8 @@ public final class ThermalShockReforged {
         ToolsContent.register(bus);
         UtilityContent.register(bus);
         StatusContent.register(bus);
+        com.hp.thermalshockreforged.content.brewing.NativeBrewing.register();
+        com.hp.thermalshockreforged.combat.ElementalCombat.register(bus);
         FaunaEntities.register(bus);
         InfestationEntities.register(bus);
         SnobolContent.register(bus);
@@ -138,6 +140,9 @@ public final class ThermalShockReforged {
         com.hp.thermalshockreforged.entity.glastrekker.GlastrekkerContent.register(bus);
         com.hp.thermalshockreforged.entity.kofoni.KofoniContent.register(bus);
         com.hp.thermalshockreforged.entity.qo.QoContent.register(bus);
+        com.hp.thermalshockreforged.entity.labmachinist.LabContent.register(bus);
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(com.hp.thermalshockreforged.entity.labmachinist.LabPlayerState::clonePlayer);
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(com.hp.thermalshockreforged.entity.labmachinist.SylviaRifleItem::tickCharge);
         com.hp.thermalshockreforged.entity.jellercel.JellercelContent.register(bus);
         com.hp.thermalshockreforged.entity.orb.OrbContent.register(bus);
         com.hp.thermalshockreforged.entity.projectile.ProjectileContent.register(bus);
