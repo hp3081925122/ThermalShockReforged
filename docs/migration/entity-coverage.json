@@ -792,7 +792,19 @@
       "status": "not_migrated"
     },
     "protoi_gamma": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshockreforged.entity.protoi.ProtoiGammaEntity",
+      "migration_document": "protoi-delta-gamma-batch.md",
+      "prepared_tests": [
+        "retaliationWithoutProactivePlayerTarget",
+        "meleeAndStrollShareGoalFlags",
+        "dynamicReachWhenNavigationFails",
+        "oneCoagulateDropZeroExperience",
+        "fullScaleTextureAndAnimations"
+      ],
+      "pending": [
+        "整模组完整后的服务端、客户端及Render Preview验收"
+      ]
     },
     "kilolyte": {
       "status": "not_migrated"
@@ -861,7 +873,19 @@
       "status": "not_migrated"
     },
     "protoi_delta": {
-      "status": "not_migrated"
+      "status": "implemented_pending_full_validation",
+      "implementation": "com.hp.thermalshockreforged.entity.protoi.ProtoiDeltaEntity",
+      "migration_document": "protoi-delta-gamma-batch.md",
+      "prepared_tests": [
+        "eightShotsAt20To41End",
+        "directAttackCanceledButOwnedBulletDamagePreserved",
+        "cooldownAndVolleyPersist",
+        "deathDoesNotDropCommittedVolley",
+        "fullGoalsHeadPoseAndThreeClips"
+      ],
+      "pending": [
+        "整模组完整后的服务端、客户端及Render Preview验收"
+      ]
     },
     "sunbeam_bullet": {
       "status": "not_migrated"
@@ -924,6 +948,10 @@
     "epsilon_attack_task": {
       "status": "implemented_pending_full_validation",
       "purpose": "Epsilon20/40 END攻击，UUID和值快照保已提交死亡后反馈"
+    },
+    "delta_volley_task": {
+      "status": "implemented_pending_full_validation",
+      "purpose": "20 END起每3 END一次共8发有限连射，允许来源先移除"
     }
   }
 }

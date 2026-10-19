@@ -9,9 +9,6 @@ import net.minecraft.commands.arguments.EntityAnchorArgument;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.syncher.EntityDataAccessor;
-import net.minecraft.network.syncher.EntityDataSerializers;
-import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
@@ -35,7 +32,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import software.bernie.geckolib.animation.*;
 
 public final class ProtoiEpsilonEntity extends ProtoiEntityBase implements ServerEndTickTask {
-    private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(ProtoiEpsilonEntity.class, EntityDataSerializers.STRING);
     private static final ResourceLocation DRIFT_SPEED = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "epsilon_drift_speed");
     private int cooldown;
     private int driftRemaining;
@@ -92,6 +88,7 @@ public final class ProtoiEpsilonEntity extends ProtoiEntityBase implements Serve
     @Override protected PathNavigation createNavigation(Level level) { return new FlyingPathNavigation(this, level); }
     @Override protected boolean persistentByDefault() { return false; }
     @Override public boolean removeWhenFarAway(double distance) { return true; }
+    @Override public boolean isWithinMeleeAttackRange(LivingEntity target) { return distanceToSqr(target) <= 2304; }
     @Override protected boolean ignoresDamage(DamageSource source) { return source.is(DamageTypes.FALL); }
     @Override public void setNoGravity(boolean ignored) { super.setNoGravity(true); }
     @Override protected void playStepSound(BlockPos pos, BlockState state) {
@@ -152,9 +149,6 @@ public final class ProtoiEpsilonEntity extends ProtoiEntityBase implements Serve
             if (impulsePending || driftLockPending) ServerEndTickTasks.schedule(server, getUUID());
         }
     }
-    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, "protoi_epsilon"); }
-    @Override public String texture() { return entityData.get(TEXTURE); }
-    public void setTexture(String texture) { entityData.set(TEXTURE, texture); }
     @Override public void triggerProcedure(String animation) { if ("idle".equals(animation) || "ready".equals(animation)) triggerAnim("procedure", animation); }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         var procedure = new AnimationController<>(this, "procedure", 0, state -> PlayState.STOP).triggerableAnim("idle", RawAnimation.begin().thenPlay("idle")).triggerableAnim("ready", RawAnimation.begin().thenPlay("ready"));
@@ -173,7 +167,7 @@ public final class ProtoiEpsilonEntity extends ProtoiEntityBase implements Serve
     }
     @Override public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
-        tag.putString("Texture", texture()); tag.putInt("EpsilonCooldown", cooldown); tag.putInt("EpsilonDriftRemaining", driftRemaining);
+        tag.putInt("EpsilonCooldown", cooldown); tag.putInt("EpsilonDriftRemaining", driftRemaining);
         tag.putBoolean("EpsilonImpulsePending", impulsePending); tag.putBoolean("EpsilonLockPending", driftLockPending);
         if (attackTask != null) tag.putUUID("EpsilonAttackTask", attackTask);
         tag.putBoolean("EpsilonExperiencePending", experiencePending);
@@ -183,7 +177,6 @@ public final class ProtoiEpsilonEntity extends ProtoiEntityBase implements Serve
         loadedFromSave = true;
         super.readAdditionalSaveData(tag);
         attributesApplied = false; applyConfiguredAttributes();
-        if (tag.contains("Texture")) setTexture(tag.getString("Texture"));
         cooldown = Math.clamp(tag.getInt("EpsilonCooldown"), 0, 72000);
         driftRemaining = Math.clamp(tag.getInt("EpsilonDriftRemaining"), 0, 40);
         impulsePending = tag.getBoolean("EpsilonImpulsePending"); driftLockPending = tag.getBoolean("EpsilonLockPending");
