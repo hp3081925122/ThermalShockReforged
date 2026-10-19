@@ -336,7 +336,7 @@
     "Real main hand atomic one-item payment and server-only sound",
     "Persistent bounded activation task resumes after unload/restart",
     "Unloaded sphere chunks pause without forced generation",
-    "Original notice synchronization gap requires main-chat Gecko triggerable controller patch",
+    "Corrected in batch94: original EntityAnimationFactory provides the notice bridge; the main-chat Gecko triggerable controller replaces this bridge during migration",
     "Reuse existing original-equivalent 1.20.1 waterlogging processor, no external dependency"
   ]
 }

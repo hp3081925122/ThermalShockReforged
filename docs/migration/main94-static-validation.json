@@ -1,0 +1,48 @@
+{
+  "compile": [
+    "BUILD SUCCESSFUL in 2m 3s",
+    "24 actionable tasks: 2 executed, 22 up-to-date"
+  ],
+  "source_inputs_verified": 8176,
+  "build_resource_byte_matches": 7542,
+  "gaze_evidence": "gaze-source-validation94.json",
+  "beetles_evidence": "beetles-validation94.json",
+  "beetles_delivery_input_sha256": {
+    "src/main/java/com/hp/thermalshockreforged/entity/beetles/BeetleAttackEntity.java": "4d65b4e870d5a7f5ec04da609b99d214177d8d0706781b96f83f65fe50bb989f",
+    "src/main/java/com/hp/thermalshockreforged/entity/beetles/BeetleCombatEntity.java": "adc0009430a77351086997e9b9a1f0f14d9518f05549819393e7a003cceea8d4",
+    "src/main/java/com/hp/thermalshockreforged/entity/beetles/BeetleConfig.java": "8ae6f3855e71335c98de759f250a723c64cacaf389f50f6cf51b812472b1d236",
+    "src/main/java/com/hp/thermalshockreforged/entity/beetles/BeetleContent.java": "b788e73b4b16cc0f79f7b25b54d0f1b906c43756bf4ec8fcccb7a04a99fa7b62",
+    "src/main/java/com/hp/thermalshockreforged/entity/beetles/BeetleCrasherEntity.java": "e9910f0e78aa2e4588211a0258f34596c869208489eeab19385b7354fcd46124",
+    "src/main/java/com/hp/thermalshockreforged/entity/beetles/BeetleThrasherEntity.java": "9ff0ddca8d616fa8033b0bea8e59911e9d2a27fecc471f3d3004e0f97f64a4c9",
+    "src/main/java/com/hp/thermalshockreforged/entity/beetles/DormantBeetleCrasherEntity.java": "8885b1053ad08a7385586c0281990685b110271eb5d6f6687d50509ef27b2300",
+    "src/main/java/com/hp/thermalshockreforged/client/beetles/BeetleRenderers.java": "9969cdaa95a02d0af988e318cb6a006a5fa963429e4ff16a4f2cf515c296a0fe",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/beetle_crasher_loot.json": "d9d73e9841896993bf97c3c1454ab1342f30f9a508078cd10bce91a51c169140",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/entities/beetle_thrasher.json": "95f2e07b7e3fb9736c81a47f8f56db92f07c32559397e674c17df2301b37afdd"
+  },
+  "beetles_final_sha256": {
+    "src/main/java/com/hp/thermalshockreforged/entity/beetles/BeetleAttackEntity.java": "4d65b4e870d5a7f5ec04da609b99d214177d8d0706781b96f83f65fe50bb989f",
+    "src/main/java/com/hp/thermalshockreforged/entity/beetles/BeetleCombatEntity.java": "adc0009430a77351086997e9b9a1f0f14d9518f05549819393e7a003cceea8d4",
+    "src/main/java/com/hp/thermalshockreforged/entity/beetles/BeetleConfig.java": "8ae6f3855e71335c98de759f250a723c64cacaf389f50f6cf51b812472b1d236",
+    "src/main/java/com/hp/thermalshockreforged/entity/beetles/BeetleContent.java": "b788e73b4b16cc0f79f7b25b54d0f1b906c43756bf4ec8fcccb7a04a99fa7b62",
+    "src/main/java/com/hp/thermalshockreforged/entity/beetles/BeetleCrasherEntity.java": "e9910f0e78aa2e4588211a0258f34596c869208489eeab19385b7354fcd46124",
+    "src/main/java/com/hp/thermalshockreforged/entity/beetles/BeetleThrasherEntity.java": "9ff0ddca8d616fa8033b0bea8e59911e9d2a27fecc471f3d3004e0f97f64a4c9",
+    "src/main/java/com/hp/thermalshockreforged/entity/beetles/DormantBeetleCrasherEntity.java": "8885b1053ad08a7385586c0281990685b110271eb5d6f6687d50509ef27b2300",
+    "src/main/java/com/hp/thermalshockreforged/client/beetles/BeetleRenderers.java": "9969cdaa95a02d0af988e318cb6a006a5fa963429e4ff16a4f2cf515c296a0fe",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/beetle_crasher_loot.json": "d9d73e9841896993bf97c3c1454ab1342f30f9a508078cd10bce91a51c169140",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/entities/beetle_thrasher.json": "95f2e07b7e3fb9736c81a47f8f56db92f07c32559397e674c17df2301b37afdd"
+  },
+  "beetles_compile_repairs": [],
+  "shared_beetles_java_insertions": 4,
+  "startup_repairs_in_previous_commit": "5048aa3 补齐棱镜超新星、实验室自然链及进度事件启动修复",
+  "language": {
+    "zh_cn": {
+      "old_values_preserved": 532,
+      "added": 12
+    },
+    "en_us": {
+      "old_values_preserved": 3284,
+      "added": 1
+    }
+  },
+  "runtime": "未启动游戏；完整代码后由子代理做专服/客户端/Render Preview最终验收"
+}

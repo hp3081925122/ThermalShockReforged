@@ -194,10 +194,23 @@ Spectre 已接完整实体、原0.3速度/仰角0.1/5基础箭伤/零击退音�
 
 原完整制造页没有真实打开调用，原JAR类引用与网络／GUI源码均核对；按既有合理修复授权接到制造机武器页新按钮，页面六标签／原坐标／原按钮保留，费用为20铋＋10紫晶碎片＋5赫利昂残渣＋1铁剑和1低温能量，未改价格。原32项制造产物现有真实剑来源；不把原先只有31项可达页的计数当全部原件覆盖。
 
-另一聊天迁入Dissolver Gemlock与三轮20／25／30 END溶解、逐NPC notice及33／50 END语音、持久有界任务和machinist_lab完整自然生成。原26×16×26／10816方块／41palette／8BE／3幅画／库存和机械师保留，属性／生成类型字段按目标转换；现有原生waterlogging_fix真实复用，原两群系／间距37／分离29／salt／processor完整闭合。暂停缺邻区块的轮次而不强加载，重载不重扣宝石／不重放已完成轮，合法后续不因锁被拆而消失。补STONE地图色和原版镐标签，旧notice同步断链改Gecko触发控制器。
+另一聊天迁入Dissolver Gemlock与三轮20／25／30 END溶解、逐NPC notice及33／50 END语音、持久有界任务和machinist_lab完整自然生成。原26×16×26／10816方块／41palette／8BE／3幅画／库存和机械师保留，属性／生成类型字段按目标转换；现有原生waterlogging_fix真实复用，原两群系／间距37／分离29／salt／processor完整闭合。暂停缺邻区块的轮次而不强加载，重载不重扣宝石／不重放已完成轮，合法后续不因锁被拆而消失。补STONE地图色和原版镐标签，notice以Gecko触发控制器替代原全局动画同步桥（第94批更正原断链误判）。
 
 两路停笔后整组compileJava processResources --offline首轮成功（1分6秒，24任务／2执行22最新）。主线6原资产／4原字节码／3声音组、9独占实验室生产文件、两语言旧值、3共享Java以及7536构建资源字节核对通过，证据见main93-static-validation.json、lab-worldgen-final93.json及lab-worldgen-validation93.json。本聊天未启动游戏；最终专服／客户端／Render Preview仍待整模组代码完整后由子代理执行。
 
 用户要求另一个聊天两处进度事件监听修复下次一并推送，已纳入本阶段提交范围；对应修复依据和独立验证保留在advancement-listener-startup-fix.md。当前工程没有Git远程配置，不能凭空选择目标仓库；本阶段先保存本地，配置有效GitHub remote后使用系统现有代理推送。
 
 整个模组仍有其他未迁实体／武器／剧情／结构链，未标完整；下一批继续在开工时约一半分给另一聊天。外模组联动仍唯一记在DEFERRED_MOD_INTEGRATIONS.md。
+
+
+## 第94批统一收尾
+
+主聊天迁入Lanternbearer／Lens／Spirit完整三实体：提灯者25tick死亡经验与真实power3/MOB爆炸、同步首轮和4/8/12/16 END脉冲、24 END尾爆／火焰；透镜原球触发／AABB覆盖／非EASY恶心／每tick强制视角及两全亮精灵；幽魂7格攻击入口、40tick内部CD、4速冲刺、20tick amp3真伤害光环、原烟雾和药效混色。三套Geo／透明／幽魂头骨和所有原动画／声音保留，三自然表、透镜四候选权重loot及原额外粉笔糖、13份原生／关系标签闭合。StratusReactorCore召透镜原入口仍待其完整模块，不因实体注册就算该链已完成。
+
+另一个聊天迁入BeetleCrasher／DormantBeetleCrasher／BeetleThrasher完整战斗、休眠转换、有限攻击任务、配置、动画／声音／粒子和真实掉落。保7、16/23、7/9/11、6/12/26 SERVER END时序；伤害按基础攻击倍率与原减甲，原无归属GENERIC、真Aura／Parry、60tick破土和可见白色粒子保留。共享4处Java、两标签各两ID和5中文名已集成，Spirit光环分支保留。10独占生产文件按交付哈希原样接入，没有编译修复改写。
+
+静态核对通过主线19原资源／4数据／13标签／四声音组，另一聊天13原资产与16组行为／AST时序／NBT等证据。两路停笔后统一compileJava processResources --offline首轮成功，2分3秒、24任务／2执行22最新、5个既有弃用警告；8176固定源码／资源输入编译期间未变，7542份构建资源与源逐字节匹配，另两模板展开核对通过。总证据main94-static-validation.json、gaze-source-validation94.json和beetles-validation94.json；未运行客户端、专服或Render Preview，不把编译或静态数据当游戏测试。
+
+有意差异集中REFORGED_CHANGES.md：去除Lens同坐标tp副作用／重复视角；朝向修本维选择、Spirit只转施法者并选活着非旁观玩家；死亡／攻击任务幂等与保存、转换失败限频；Crasher接回原根路径loot表。更正第93批动画桥误判：EntityAnimationFactory真实存在，notice控制器是替代迁移，旧错误说明已同步改回。
+
+Vilebath两城堡还缺DormantMonolith／Monolith，Thrasher的Graver目标也尚缺真实实体；原生内容仍在待办，未作为跨模组联动延期。下批优先补这两家族及完整结构依赖，开工仍先把约半分给既有独立聊天。整模组未完整；外模组联动仅见DEFERRED_MOD_INTEGRATIONS.md，最终专服／客户端／Render Preview由子代理在全部代码完整后执行。Palace／Shalespring两处启动修复已在5048aa3本地提交，后续推送会一并包含；当前仍无remote，不虚报已推送。
