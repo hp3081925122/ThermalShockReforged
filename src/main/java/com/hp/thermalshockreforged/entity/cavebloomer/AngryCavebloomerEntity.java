@@ -3,6 +3,8 @@ package com.hp.thermalshockreforged.entity.cavebloomer;
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.status.aura.AuraContent;
 import com.hp.thermalshockreforged.entity.boss.BossDeathSequence;
+import com.hp.thermalshockreforged.world.timing.ServerEndTickTask;
+import com.hp.thermalshockreforged.world.timing.ServerEndTickTasks;
 import com.hp.thermalshockreforged.world.WorldProgressData;
 import java.util.*;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -29,7 +31,7 @@ import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animation.*;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
-public final class AngryCavebloomerEntity extends Monster implements GeoEntity {
+public final class AngryCavebloomerEntity extends Monster implements GeoEntity, ServerEndTickTask {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(AngryCavebloomerEntity.class, EntityDataSerializers.STRING);
     private final AnimatableInstanceCache animations = GeckoLibUtil.createInstanceCache(this);
     private final CavebloomerAttacks attacks = new CavebloomerAttacks(this);
@@ -85,10 +87,23 @@ public final class AngryCavebloomerEntity extends Monster implements GeoEntity {
     @Override public void tick() {
         super.tick();
         if (level() instanceof ServerLevel server) {
-            attacks.tick(server); deathSequence.tick(server);
-            if (isAlive() && getHealth() < getMaxHealth() * CavebloomerConfig.AURA_HEALTH_FRACTION.get()) addEffect(new MobEffectInstance(AuraContent.DAMAGING_AURA, 20, 2));
+            attacks.tick(server);
+            if (deathSequence.pending()) ServerEndTickTasks.schedule(server, getUUID());
             bossBar.setProgress(Math.clamp(getHealth() / getMaxHealth(), 0, 1));
         }
+    }
+    @Override public void baseTick() {
+        super.baseTick();
+        if (!level().isClientSide && isAlive() && getHealth() < getMaxHealth() * CavebloomerConfig.AURA_HEALTH_FRACTION.get()) addEffect(new MobEffectInstance(AuraContent.DAMAGING_AURA, 20, 2));
+    }
+    @Override public void onAddedToLevel() {
+        super.onAddedToLevel();
+        if (deathSequence.pending() && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
+    }
+    @Override public void endTick(ServerLevel server) {
+        if (isRemoved()) return;
+        deathSequence.endTick(server);
+        if (deathSequence.pending()) ServerEndTickTasks.schedule(server, getUUID());
     }
     @Override protected void dropCustomDeathLoot(ServerLevel server, DamageSource source, boolean recentlyHit) {
         super.dropCustomDeathLoot(server, source, recentlyHit); spawnAtLocation(new ItemStack(CavebloomerContent.BOSS_BOX.get()));
@@ -97,6 +112,7 @@ public final class AngryCavebloomerEntity extends Monster implements GeoEntity {
         super.die(source);
         if (!dead || deathCommitted || !(level() instanceof ServerLevel server)) return;
         deathCommitted = true; attacks.cancel(server); deathSequence.start(server, position(), getEyeHeight());
+        ServerEndTickTasks.schedule(server, getUUID());
         server.playSound(null, blockPosition(), soundEvent("cavebloomer_death"), SoundSource.NEUTRAL, 1, 1);
         var center = position(); var players = server.getEntitiesOfClass(ServerPlayer.class, new AABB(center, center).inflate(24), player -> true);
         players.sort(Comparator.comparingDouble(player -> player.distanceToSqr(center)));

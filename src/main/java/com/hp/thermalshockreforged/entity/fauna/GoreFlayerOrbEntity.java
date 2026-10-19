@@ -1,5 +1,10 @@
 package com.hp.thermalshockreforged.entity.fauna;
 
+import com.hp.thermalshockreforged.ThermalShockReforged;
+import com.hp.thermalshockreforged.world.timing.ServerEndTickTask;
+import com.hp.thermalshockreforged.world.timing.ServerEndTickTasks;
+import net.minecraft.server.level.ServerLevel;
+
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
@@ -8,8 +13,9 @@ import net.minecraft.world.entity.projectile.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
-public final class GoreFlayerOrbEntity extends AbstractArrow implements ItemSupplier {
-    private int remainingTicks = 41;
+public final class GoreFlayerOrbEntity extends AbstractArrow implements ItemSupplier, ServerEndTickTask {
+    private int remainingTicks = 40;
+    private boolean lifetimeStarted;
 
     public GoreFlayerOrbEntity(EntityType<? extends GoreFlayerOrbEntity> type, Level level) { super(type, level); }
 
@@ -40,19 +46,38 @@ public final class GoreFlayerOrbEntity extends AbstractArrow implements ItemSupp
         super.tick();
         setNoGravity(true);
         if (level().isClientSide) level().addParticle(FaunaEntities.WHITE_ORB.get(), getX(), getY(), getZ(), 0, 0, 0);
-        if (inGround || !level().isClientSide && --remainingTicks <= 0) discard();
+        if (inGround) discard();
+        if (!isRemoved() && level() instanceof ServerLevel server) {
+            if (!lifetimeStarted) {
+                lifetimeStarted = true;
+                ThermalShockReforged.LOGGER.debug("Gore Flayer orb lifetime armed: projectile={}, remainingEndTicks={}", getUUID(), remainingTicks);
+            }
+            ServerEndTickTasks.schedule(server, getUUID());
+        }
+    }
+
+    @Override
+    public void onAddedToLevel() { super.onAddedToLevel(); if (lifetimeStarted && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
+
+    @Override
+    public void endTick(ServerLevel server) {
+        if (isRemoved() || !lifetimeStarted) return;
+        if (--remainingTicks <= 0) discard();
+        else ServerEndTickTasks.schedule(server, getUUID());
     }
 
     @Override
     public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
         tag.putInt("RemainingTicks", remainingTicks);
+        tag.putBoolean("GoreOrbLifetimeStarted", lifetimeStarted);
     }
 
     @Override
     public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
-        remainingTicks = tag.contains("RemainingTicks") ? Math.max(1, Math.min(41, tag.getInt("RemainingTicks"))) : 41;
+        remainingTicks = tag.contains("RemainingTicks") ? Math.clamp(tag.getInt("RemainingTicks"), 1, 40) : 40;
+        lifetimeStarted = tag.contains("GoreOrbLifetimeStarted") ? tag.getBoolean("GoreOrbLifetimeStarted") : tag.contains("RemainingTicks");
     }
 
     public static GoreFlayerOrbEntity shoot(Level level, LivingEntity owner, float pullingPower) {

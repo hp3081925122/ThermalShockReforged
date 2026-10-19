@@ -17,16 +17,16 @@ public final class BossDeathSequence {
     private String dimension = "";
     private int emitted;
     private int remaining;
-    private long startedAt = Long.MIN_VALUE;
 
     public void start(ServerLevel level, Vec3 origin, double eyeHeight) {
         if (emitted != 0) return;
         this.origin = origin; this.eyeHeight = eyeHeight; dimension = level.dimension().location().toString();
-        startedAt = level.getGameTime(); remaining = 3;
+        remaining = 4;
         burst(level);
     }
-    public void tick(ServerLevel level) {
-        if (emitted == 0 || emitted >= 15 || level.getGameTime() == startedAt) return;
+    public boolean pending() { return emitted > 0 && emitted < 15; }
+    public void endTick(ServerLevel level) {
+        if (!pending()) return;
         if (!dimension.equals(level.dimension().location().toString())) { emitted = 15; return; }
         if (--remaining <= 0) { burst(level); remaining = 4; }
     }
@@ -38,14 +38,14 @@ public final class BossDeathSequence {
     public void save(CompoundTag root) {
         var tag = new CompoundTag();
         tag.putDouble("X", origin.x); tag.putDouble("Y", origin.y); tag.putDouble("Z", origin.z); tag.putDouble("EyeHeight", eyeHeight);
-        tag.putString("Dimension", dimension); tag.putInt("Emitted", emitted); tag.putInt("Remaining", remaining); tag.putLong("StartedAt", startedAt);
+        tag.putString("Dimension", dimension); tag.putInt("Emitted", emitted); tag.putInt("Remaining", remaining);
         root.put("BossDeathSequence", tag);
     }
     public void load(CompoundTag root) {
         var tag = root.getCompound("BossDeathSequence");
         emitted = Math.clamp(tag.getInt("Emitted"), 0, 15); remaining = Math.clamp(tag.getInt("Remaining"), 1, 4);
         origin = new Vec3(tag.getDouble("X"), tag.getDouble("Y"), tag.getDouble("Z")); eyeHeight = tag.getDouble("EyeHeight");
-        dimension = tag.getString("Dimension"); startedAt = tag.contains("StartedAt") ? tag.getLong("StartedAt") : Long.MIN_VALUE;
+        dimension = tag.getString("Dimension");
         if (!Double.isFinite(origin.x) || !Double.isFinite(origin.y) || !Double.isFinite(origin.z) || !Double.isFinite(eyeHeight)) emitted = 15;
     }
 }
