@@ -1,9 +1,13 @@
 package com.hp.thermalshockreforged.client.decor.geo;
 
 import com.hp.thermalshockreforged.content.decor.geo.*;
+import com.hp.thermalshockreforged.client.particle.AaaStationaryParticle;
+import net.minecraft.client.particle.ParticleRenderType;
+import net.minecraft.client.renderer.entity.NoopRenderer;
 import net.minecraft.client.renderer.*;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.neoforged.neoforge.client.extensions.common.*;
 import software.bernie.geckolib.animatable.GeoAnimatable;
 import software.bernie.geckolib.model.GeoModel;
@@ -12,6 +16,14 @@ import software.bernie.geckolib.renderer.*;
 public final class GeoDecorRenderers {
     public static void register(EntityRenderersEvent.RegisterRenderers event) {
         for (GeoDecorKind kind : GeoDecorKind.values()) event.registerBlockEntityRenderer(GeoDecorContent.entity(kind), context -> new BlockRenderer());
+        event.registerEntityRenderer(BrimstoneCakeConsumption.TYPE.get(), NoopRenderer::new);
+    }
+
+    public static void particles(RegisterParticleProvidersEvent event) {
+        for (int index = 0; index < GeoDecorContent.HOLOGRAM_PARTICLES.size(); index++) {
+            String effect = "holo" + (index + 1);
+            event.registerSpriteSet(GeoDecorContent.HOLOGRAM_PARTICLES.get(index).get(), sprites -> new AaaStationaryParticle.Provider(sprites, effect, 0, ParticleRenderType.PARTICLE_SHEET_LIT, true, false, 0));
+        }
     }
 
     public static void extensions(RegisterClientExtensionsEvent event) {

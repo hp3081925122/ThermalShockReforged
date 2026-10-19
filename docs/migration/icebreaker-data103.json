@@ -1,0 +1,17 @@
+{
+  "batch": 103,
+  "source": "data/thermal_shock/recipes/icebreaker_recipe.json",
+  "source_sha256": "dea6f3c86e0ec10e008f05e43c0b47ef20ee6fc6b04f4185fb303c0764642057",
+  "target": "src/main/resources/data/thermal_shock_reforged/recipe/icebreaker_recipe.json",
+  "target_sha256": "4e0009f434866dbae8f43a0b786b93d676e8e0d94241e6678b273ff50aee532b",
+  "conversion": "namespace; 1.21.1 result item -> id",
+  "preserved_pattern": [
+    "aaa",
+    "bcb",
+    "aaa"
+  ],
+  "preserved_count": 8,
+  "source_tags": "No Icebreaker tag found in original JAR, per independent inventory; no new tool restriction added",
+  "source_loot": "No original loot table; preserve full self fallback via GeoDecorKind",
+  "asset_inventory": "D:/AI临时文件/ThermalShockMigration/icebreaker-luna103.json"
+}

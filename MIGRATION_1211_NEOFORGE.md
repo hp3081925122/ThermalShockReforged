@@ -460,3 +460,15 @@ A保六Geo的9格库存/自动化、完整透明渲染、原动画与奖杯粒�
 合理差异已集中REFORGED_CHANGES；mcreator-rework新增属性/模型合法上界与交互实际循环上界不一致的已核案例，并通过skill校验。本批没有启动客户端、服务端或Render Preview，测试聊天由用户直接负责，本线不安排或等待。整模组仍未完整：四机器与其他原生获取/世界/物品/GUI调用链、原purebiomes未定义范围等需继续，注册数量不是全功能完成率。当前Git无remote，本地提交不是远程发布。
 
 第103批已先建parallel-batch103.md并冻结文件归属：A承接BrimstoneCake/LunarPanel/HologramMonitor三项，主线承接Icebreaker；Geo公共枚举/工厂由A唯一写，Icebreaker公开接口和精确增量在icebreaker-shared103.json。第102批阶段提交后解除生产冻结并继续，迁移B停用。
+
+## 第103批最终集成验证
+
+主线Icebreaker与迁移A的BrimstoneCake/LunarPanel/HologramMonitor完成，含原构造器、五种完整AAA全息、九段完整原录音及翻译、真实旧版唱片和两进度奖励链。按用户要求A承担更多生产，主线保其余和共享集成。Icebreaker保20/30 SERVER END、半径9整球仅ICE→WATER、每目标70%破冰事件和完整声音/烟雾/POOF，保方块及物品loop0、透明渲染、九格库存及自动化、原八产出配方；独立有限任务持久保存归属和剩余阶段，邻块未加载暂停，不强加载。
+
+A保蛋糕即时及5/10/15 SERVER END四次直接增加3食物/3饱和、真实抗火和日期奖励、全部声音/动画及九格自动化；月光板保逐tick向下UP面供能和原白天无向能力决定5/150 FE的实际分支；监视器保十状态、九软盘完整录音、不消耗及原五特效映射。已提交的合法尾阶段在源块拆除后保留，归属令牌避免旧任务误删新块，加入世界被取消或提前移除时回滚。原Icebreaker会吞九格库存，目标按正常容器返还，该差异及其余合理修复集中REFORGED_CHANGES。
+
+两路停笔后固定8426份src/main输入，Java21离线compileJava/processResources --max-workers=2统一通过，构建记录时长1m 27s。本批32份生产变更，A21份交付哈希全部保持，编译期间输入不变；7663构建资源逐字节相同、2展开模板核对通过。语言旧值和新键分别见main103-static-validation.json，不把新增翻译算原文等价；九录音英文由分工原文逐字符证据验证。独立Icebreaker机械证据为icebreaker-static-luna103.json，旧生产前快照的未找到字段不代表收尾状态。
+
+本批没有启动服务端、客户端或Render Preview，静态核对与编译不能代替游戏验收。测试聊天由用户直接负责，主线不安排、催促或等待。整模组尚未完整：原sunken_blizzard_lab模板与真实来源、portal/两outcrop及其他原生调用链仍待闭合；不能将只见资源或注册视作全部行为已迁。当前Git无remote，阶段本地提交不是远程发布。
+
+第104批已先建parallel-batch104.md，迁移A承接centrifuge完整三槽/GUI/过程和四种Gemlock，主线承接reinforced_window、trident_lamp及共享集成。下一批按实际复杂度分配更多给A；第103批提交前只读准备，提交后解除生产冻结，迁移B停用。

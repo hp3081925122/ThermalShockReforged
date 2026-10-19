@@ -1,0 +1,15 @@
+# 第104批预分工：离心机、宝石锁和交互显示方块
+
+第103批仍在收尾，当前生产基线为de91e13d13ff288fec1af26942665f899fb4bf63。本文件先固定下一批职责；第103批两路停笔、统一编译、资源核对和阶段提交前，第104批只读准备，不改src/main。实际开工时更新提交基线。
+
+按用户要求，迁移A承担更多生产：centrifuge完整三槽机器、GUI、全部处理过程，以及ruby_gemlock、malachite_gemlock、bismuth_gemlock、phobotite_gemlock四锁的完整交互/红石/声音/动画或状态和真实获取链。主线承担reinforced_window与trident_lamp两交互显示方块，其余共享集成、统一编译和总文档。按复杂度分配，不以方块数量充当工时。
+
+A独占新增content/centrifuge、client/centrifuge和content/gemlocks；若实际同类代码已经迁入，先复用已核机制。需要触及现有Geo、菜单或网络公共文件时，先交精确增量约定唯一写入者，不并发改同文件。主线独占新增content/displayutility。根入口、ClientEvents、语言、全部标签、总文档与REFORGED_CHANGES由主线唯一写。两路独有原配方、掉落、进度/世界数据各随功能迁移，原资产已有时先核等价再引用。
+
+原件固定07.9，SHA256 3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436。目标1.21.1 NeoForge21.1.233、Java21、Gecko4.9.2。原注册清单与真实动态helper按当前HEAD复核，不把资源或创意页引用当注册证据，也不把注册等同完整行为。已核第102批sparkler_bulb由VilebathBlocksContent真实注册，复用逐方法等价的Hanging实现；旧盘点的缺失判断须更正。
+
+迁移前追原调用者、菜单槽位、数值/时序及获取链；不能将离心机当静态方块，不能删尾阶段、真实药效、特效或自动化。宝石锁分别核原初始状态、交互返回、信号方向、边沿通知和邻居更新，不因名称相近直接套DissolverGemlock。原版工具标签，不绑定具体工具类；按真实纹理补合理地图色，保原透明/发光/遮光属性。
+
+合理修复集中写REFORGED_CHANGES，确认新坑更新mcreator-rework。Java不写注释，UTF-8，调试日志英文；临时文件和脚本仅D:/AI临时文件。每路完工交生产文件SHA256、原资产/行为静态证据、共享精确增量后停笔；由主线固定输入一次整批compileJava/processResources。A不单独Gradle、游戏、stage或commit。测试聊天由用户直接负责，本线不联系、催促或等待。
+
+loqendia_portal、malachite_outcrop、bismuth_outcrop及sunken_blizzard_lab等原生结构来源另列后续，不归外模组联动延期；需依据完整原消费者闭合，不能凭这批七项完成便宣称整模组完成。

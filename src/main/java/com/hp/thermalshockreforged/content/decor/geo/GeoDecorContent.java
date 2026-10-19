@@ -3,6 +3,10 @@ package com.hp.thermalshockreforged.content.decor.geo;
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import java.util.EnumMap;
 import java.util.Map;
+import java.util.List;
+import java.util.stream.IntStream;
+import net.minecraft.core.particles.ParticleType;
+import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -14,12 +18,16 @@ public final class GeoDecorContent {
     private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<BlockEntityType<?>> ENTITIES = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister<ParticleType<?>> PARTICLES = DeferredRegister.create(Registries.PARTICLE_TYPE, ThermalShockReforged.MOD_ID);
+    public static final List<DeferredHolder<ParticleType<?>, SimpleParticleType>> HOLOGRAM_PARTICLES = IntStream.rangeClosed(1, 5).mapToObj(index -> PARTICLES.register("holo_" + index, () -> new SimpleParticleType(false))).toList();
     private static final Map<GeoDecorKind, DeferredBlock<GeoDecorBlock>> BLOCK_VALUES = new EnumMap<>(GeoDecorKind.class);
     private static final Map<GeoDecorKind, DeferredItem<GeoDecorItem>> ITEM_VALUES = new EnumMap<>(GeoDecorKind.class);
     private static final Map<GeoDecorKind, DeferredHolder<BlockEntityType<?>, BlockEntityType<GeoDecorBlockEntity>>> ENTITY_VALUES = new EnumMap<>(GeoDecorKind.class);
     public static final DeferredBlock<JellercelCollisionBlock> JELLERCEL_COLLISION = BLOCKS.register("large_jellercell_collision", JellercelCollisionBlock::new);
+    public static final DeferredBlock<HologramConstructorBlock> HOLOGRAM_CONSTRUCTOR = BLOCKS.register("hologram_constructor", HologramConstructorBlock::new);
     static {
         ITEMS.registerSimpleBlockItem(JELLERCEL_COLLISION);
+        ITEMS.registerSimpleBlockItem(HOLOGRAM_CONSTRUCTOR);
         for (GeoDecorKind kind : GeoDecorKind.values()) {
             DeferredBlock<GeoDecorBlock> block = BLOCKS.register(kind.id, () -> switch (kind) {
                 case SHALE_PILLAR, SHALE_PILLAR_VAR_2, SHALE_PILLAR_VAR_3, SHALE_PILLAR_VAR_4, SHALE_PILLAR_VAR_5, SHALE_PILLAR_VAR_6, SHALE_PILLAR_VAR_7, SHALE_PILLAR_VAR_8 -> new ShalePillarBlock(kind);
@@ -34,6 +42,10 @@ public final class GeoDecorContent {
                 case SURGE_PYLON -> new SurgePylonBlock();
                 case THERMA_DEV_PLUSH -> new ThermaDevPlushBlock();
                 case FERRO_CAKE -> new FerroCakeBlock();
+                case BRIMSTONE_CAKE -> new BrimstoneCakeBlock();
+                case LUNAR_PANEL -> new LunarPanelBlock();
+                case HOLOGRAM_MONITOR -> new HologramMonitorBlock();
+                case ICEBREAKER -> new com.hp.thermalshockreforged.content.icebreaker.IcebreakerBlock();
                 case BOTTLE_OF_STARLIGHT, BOTTLE_OF_LUNARLIGHT -> new StarlightBottleBlock(kind);
                 case RINTHIUM_BUTTON, RINTHIUM_LEVER -> new KeystonePuzzleBlock.Directional(kind);
                 case INACTIVE_KEYSTONE_PEDESTAL -> new KeystonePuzzleBlock(kind);
@@ -57,7 +69,7 @@ public final class GeoDecorContent {
             });
             BLOCK_VALUES.put(kind, block);
             ITEM_VALUES.put(kind, ITEMS.register(kind.id, () -> new GeoDecorItem(block.get(), kind, new Item.Properties())));
-            ENTITY_VALUES.put(kind, ENTITIES.register(kind.id, () -> BlockEntityType.Builder.<GeoDecorBlockEntity>of((pos, state) -> switch (kind) { case GRAND_BLASPHEMER -> new GrandBlasphemerBlockEntity(pos, state); case SUSPICIOUS_CAVEBLOOMER -> new SuspiciousCavebloomerBlockEntity(pos, state); case ENCHANTED_CACHE, CRYONIC_CACHE, SUPER_CRYONIC_CACHE -> new CacheBlockEntity(kind, pos, state); default -> new GeoDecorBlockEntity(kind, pos, state); }, block.get()).build(null)));
+            ENTITY_VALUES.put(kind, ENTITIES.register(kind.id, () -> BlockEntityType.Builder.<GeoDecorBlockEntity>of((pos, state) -> switch (kind) { case GRAND_BLASPHEMER -> new GrandBlasphemerBlockEntity(pos, state); case SUSPICIOUS_CAVEBLOOMER -> new SuspiciousCavebloomerBlockEntity(pos, state); case ENCHANTED_CACHE, CRYONIC_CACHE, SUPER_CRYONIC_CACHE -> new CacheBlockEntity(kind, pos, state); case ICEBREAKER -> new com.hp.thermalshockreforged.content.icebreaker.IcebreakerBlockEntity(pos, state); default -> new GeoDecorBlockEntity(kind, pos, state); }, block.get()).build(null)));
         }
     }
     public static GeoDecorBlock block(GeoDecorKind kind) { return BLOCK_VALUES.get(kind).get(); }
@@ -67,6 +79,8 @@ public final class GeoDecorContent {
         BLOCKS.register(bus);
         ITEMS.register(bus);
         ENTITIES.register(bus);
+        PARTICLES.register(bus);
+        BrimstoneCakeConsumption.register(bus);
         bus.addListener(GeoDecorContent::capabilities);
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(WorldTourRedemption::commands);
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(WorldTourRedemption::clonePlayer);
