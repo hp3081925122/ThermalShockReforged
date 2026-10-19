@@ -1,0 +1,1072 @@
+{
+  "files": [
+    {
+      "source": "data/thermal_shock/forge/biome_modifier/bismuth_outcrop_generation_biome_modifier.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/bismuth_outcrop_generation_biome_modifier.json",
+      "sha256": "b7a4615e57ff491db0c0e82e6681e16403886a963d12a86506d000e75942cfd0",
+      "source_json": {
+        "type": "forge:add_features",
+        "biomes": "thermal_shock:stardust_garden",
+        "features": "thermal_shock:bismuth_outcrop_generation",
+        "step": "underground_decoration"
+      },
+      "target_json": {
+        "type": "neoforge:add_features",
+        "biomes": "thermal_shock_reforged:stardust_garden",
+        "features": "thermal_shock_reforged:bismuth_outcrop_generation",
+        "step": "underground_decoration"
+      }
+    },
+    {
+      "source": "data/thermal_shock/forge/biome_modifier/malachite_outcrop_generation_biome_modifier.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/malachite_outcrop_generation_biome_modifier.json",
+      "sha256": "c9990c2f2f000457e950a3a331d40698e07bbdae629e60495779c50ff74f1a2b",
+      "source_json": {
+        "type": "forge:add_features",
+        "biomes": "thermal_shock:stardust_garden",
+        "features": "thermal_shock:malachite_outcrop_generation",
+        "step": "underground_decoration"
+      },
+      "target_json": {
+        "type": "neoforge:add_features",
+        "biomes": "thermal_shock_reforged:stardust_garden",
+        "features": "thermal_shock_reforged:malachite_outcrop_generation",
+        "step": "underground_decoration"
+      }
+    },
+    {
+      "source": "data/thermal_shock/loot_tables/blocks/bismuth_outcrop.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/bismuth_outcrop.json",
+      "sha256": "53301024a4acd9b74999fc2f63fee94dc4e37866991f510df77234fc7d127e85",
+      "source_json": {
+        "type": "minecraft:block",
+        "pools": [
+          {
+            "rolls": 1,
+            "entries": [
+              {
+                "type": "minecraft:item",
+                "name": "thermal_shock:bismuth_outcrop",
+                "weight": 1,
+                "conditions": [
+                  {
+                    "condition": "minecraft:match_tool",
+                    "predicate": {
+                      "enchantments": [
+                        {
+                          "enchantment": "minecraft:silk_touch",
+                          "levels": {
+                            "min": 1
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "functions": [
+                  {
+                    "function": "set_count",
+                    "count": {
+                      "min": 1,
+                      "max": 1
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "minecraft:item",
+                "name": "thermal_shock:bismuth",
+                "weight": 1,
+                "conditions": [
+                  {
+                    "condition": "minecraft:inverted",
+                    "term": {
+                      "condition": "minecraft:match_tool",
+                      "predicate": {
+                        "enchantments": [
+                          {
+                            "enchantment": "minecraft:silk_touch",
+                            "levels": {
+                              "min": 1
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ],
+                "functions": [
+                  {
+                    "function": "set_count",
+                    "count": {
+                      "min": 2,
+                      "max": 2
+                    }
+                  },
+                  {
+                    "function": "minecraft:apply_bonus",
+                    "enchantment": "minecraft:fortune",
+                    "formula": "minecraft:ore_drops"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "random_sequence": "thermal_shock:blocks/bismuth_outcrop"
+      },
+      "target_json": {
+        "type": "minecraft:block",
+        "pools": [
+          {
+            "rolls": 1,
+            "entries": [
+              {
+                "type": "minecraft:item",
+                "name": "thermal_shock_reforged:bismuth_outcrop",
+                "weight": 1,
+                "conditions": [
+                  {
+                    "condition": "minecraft:match_tool",
+                    "predicate": {
+                      "predicates": {
+                        "minecraft:enchantments": [
+                          {
+                            "levels": {
+                              "min": 1
+                            },
+                            "enchantments": "minecraft:silk_touch"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ],
+                "functions": [
+                  {
+                    "function": "set_count",
+                    "count": {
+                      "min": 1,
+                      "max": 1
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "minecraft:item",
+                "name": "thermal_shock_reforged:bismuth",
+                "weight": 1,
+                "conditions": [
+                  {
+                    "condition": "minecraft:inverted",
+                    "term": {
+                      "condition": "minecraft:match_tool",
+                      "predicate": {
+                        "predicates": {
+                          "minecraft:enchantments": [
+                            {
+                              "levels": {
+                                "min": 1
+                              },
+                              "enchantments": "minecraft:silk_touch"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ],
+                "functions": [
+                  {
+                    "function": "set_count",
+                    "count": {
+                      "min": 2,
+                      "max": 2
+                    }
+                  },
+                  {
+                    "function": "minecraft:apply_bonus",
+                    "enchantment": "minecraft:fortune",
+                    "formula": "minecraft:ore_drops"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "random_sequence": "thermal_shock_reforged:blocks/bismuth_outcrop"
+      }
+    },
+    {
+      "source": "data/thermal_shock/loot_tables/blocks/malachite_outcrop.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/malachite_outcrop.json",
+      "sha256": "8051207f0ecf384bf4801857b48c6e40e748b4636404160d5faead4ec9282da6",
+      "source_json": {
+        "type": "minecraft:block",
+        "pools": [
+          {
+            "rolls": 1,
+            "entries": [
+              {
+                "type": "minecraft:item",
+                "name": "thermal_shock:malachite_outcrop",
+                "weight": 1,
+                "conditions": [
+                  {
+                    "condition": "minecraft:match_tool",
+                    "predicate": {
+                      "enchantments": [
+                        {
+                          "enchantment": "minecraft:silk_touch",
+                          "levels": {
+                            "min": 1
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "functions": [
+                  {
+                    "function": "set_count",
+                    "count": {
+                      "min": 1,
+                      "max": 1
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "minecraft:item",
+                "name": "thermal_shock:malachite",
+                "weight": 1,
+                "conditions": [
+                  {
+                    "condition": "minecraft:inverted",
+                    "term": {
+                      "condition": "minecraft:match_tool",
+                      "predicate": {
+                        "enchantments": [
+                          {
+                            "enchantment": "minecraft:silk_touch",
+                            "levels": {
+                              "min": 1
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ],
+                "functions": [
+                  {
+                    "function": "set_count",
+                    "count": {
+                      "min": 2,
+                      "max": 2
+                    }
+                  },
+                  {
+                    "function": "minecraft:apply_bonus",
+                    "enchantment": "minecraft:fortune",
+                    "formula": "minecraft:ore_drops"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "random_sequence": "thermal_shock:blocks/malachite_outcrop"
+      },
+      "target_json": {
+        "type": "minecraft:block",
+        "pools": [
+          {
+            "rolls": 1,
+            "entries": [
+              {
+                "type": "minecraft:item",
+                "name": "thermal_shock_reforged:malachite_outcrop",
+                "weight": 1,
+                "conditions": [
+                  {
+                    "condition": "minecraft:match_tool",
+                    "predicate": {
+                      "predicates": {
+                        "minecraft:enchantments": [
+                          {
+                            "levels": {
+                              "min": 1
+                            },
+                            "enchantments": "minecraft:silk_touch"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ],
+                "functions": [
+                  {
+                    "function": "set_count",
+                    "count": {
+                      "min": 1,
+                      "max": 1
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "minecraft:item",
+                "name": "thermal_shock_reforged:malachite",
+                "weight": 1,
+                "conditions": [
+                  {
+                    "condition": "minecraft:inverted",
+                    "term": {
+                      "condition": "minecraft:match_tool",
+                      "predicate": {
+                        "predicates": {
+                          "minecraft:enchantments": [
+                            {
+                              "levels": {
+                                "min": 1
+                              },
+                              "enchantments": "minecraft:silk_touch"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ],
+                "functions": [
+                  {
+                    "function": "set_count",
+                    "count": {
+                      "min": 2,
+                      "max": 2
+                    }
+                  },
+                  {
+                    "function": "minecraft:apply_bonus",
+                    "enchantment": "minecraft:fortune",
+                    "formula": "minecraft:ore_drops"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "random_sequence": "thermal_shock_reforged:blocks/malachite_outcrop"
+      }
+    },
+    {
+      "source": "data/thermal_shock/worldgen/configured_feature/bismuth_outcrop_generation.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/bismuth_outcrop_generation.json",
+      "sha256": "c602ad68d6ab9c774e0b9f11683a29b5e68c180d513d8dbbba8d446f5fe7a32f",
+      "source_json": {
+        "type": "thermal_shock:bismuth_outcrop_generation",
+        "config": {
+          "targets": [
+            {
+              "target": {
+                "predicate_type": "block_match",
+                "block": "thermal_shock:shale"
+              },
+              "state": {
+                "Name": "thermal_shock:bismuth_outcrop"
+              }
+            }
+          ]
+        }
+      },
+      "target_json": {
+        "type": "thermal_shock_reforged:bismuth_outcrop_generation",
+        "config": {
+          "targets": [
+            {
+              "target": {
+                "predicate_type": "block_match",
+                "block": "thermal_shock_reforged:shale"
+              },
+              "state": {
+                "Name": "thermal_shock_reforged:bismuth_outcrop"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source": "data/thermal_shock/worldgen/configured_feature/malachite_outcrop_generation.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/malachite_outcrop_generation.json",
+      "sha256": "66fd7acf8121f26322e0547901d3b63689192d30600fd892a2247d44dd93f45f",
+      "source_json": {
+        "type": "thermal_shock:malachite_outcrop_generation",
+        "config": {
+          "targets": [
+            {
+              "target": {
+                "predicate_type": "block_match",
+                "block": "thermal_shock:shale"
+              },
+              "state": {
+                "Name": "thermal_shock:malachite_outcrop"
+              }
+            }
+          ]
+        }
+      },
+      "target_json": {
+        "type": "thermal_shock_reforged:malachite_outcrop_generation",
+        "config": {
+          "targets": [
+            {
+              "target": {
+                "predicate_type": "block_match",
+                "block": "thermal_shock_reforged:shale"
+              },
+              "state": {
+                "Name": "thermal_shock_reforged:malachite_outcrop"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source": "data/thermal_shock/worldgen/placed_feature/bismuth_outcrop_generation.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/bismuth_outcrop_generation.json",
+      "sha256": "7ebd9cd84ac773e204966437ef57a31f1b609535856e3ba683602a2dacc5e19e",
+      "source_json": {
+        "feature": "thermal_shock:bismuth_outcrop_generation",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": 18
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:height_range",
+            "height": {
+              "type": "minecraft:trapezoid",
+              "min_inclusive": {
+                "absolute": 0
+              },
+              "max_inclusive": {
+                "absolute": 40
+              }
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:any_of",
+              "predicates": [
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air",
+                  "offset": [
+                    0,
+                    1,
+                    0
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air",
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air",
+                  "offset": [
+                    1,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air",
+                  "offset": [
+                    -1,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air",
+                  "offset": [
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air",
+                  "offset": [
+                    0,
+                    0,
+                    -1
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "target_json": {
+        "feature": "thermal_shock_reforged:bismuth_outcrop_generation",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": 18
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:height_range",
+            "height": {
+              "type": "minecraft:trapezoid",
+              "min_inclusive": {
+                "absolute": 0
+              },
+              "max_inclusive": {
+                "absolute": 40
+              }
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:any_of",
+              "predicates": [
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air",
+                  "offset": [
+                    0,
+                    1,
+                    0
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air",
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air",
+                  "offset": [
+                    1,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air",
+                  "offset": [
+                    -1,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air",
+                  "offset": [
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air",
+                  "offset": [
+                    0,
+                    0,
+                    -1
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "source": "data/thermal_shock/worldgen/placed_feature/malachite_outcrop_generation.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/malachite_outcrop_generation.json",
+      "sha256": "d1caae68d10eb3c18f8730c239833e35b1ac5819930cf6d1663d76503f1a08ff",
+      "source_json": {
+        "feature": "thermal_shock:malachite_outcrop_generation",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": 18
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:height_range",
+            "height": {
+              "type": "minecraft:trapezoid",
+              "min_inclusive": {
+                "absolute": 0
+              },
+              "max_inclusive": {
+                "absolute": 40
+              }
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:any_of",
+              "predicates": [
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air",
+                  "offset": [
+                    0,
+                    1,
+                    0
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air",
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air",
+                  "offset": [
+                    1,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air",
+                  "offset": [
+                    -1,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air",
+                  "offset": [
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air",
+                  "offset": [
+                    0,
+                    0,
+                    -1
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "target_json": {
+        "feature": "thermal_shock_reforged:malachite_outcrop_generation",
+        "placement": [
+          {
+            "type": "minecraft:count",
+            "count": 18
+          },
+          {
+            "type": "minecraft:in_square"
+          },
+          {
+            "type": "minecraft:height_range",
+            "height": {
+              "type": "minecraft:trapezoid",
+              "min_inclusive": {
+                "absolute": 0
+              },
+              "max_inclusive": {
+                "absolute": 40
+              }
+            }
+          },
+          {
+            "type": "minecraft:biome"
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:any_of",
+              "predicates": [
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air",
+                  "offset": [
+                    0,
+                    1,
+                    0
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air",
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air",
+                  "offset": [
+                    1,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air",
+                  "offset": [
+                    -1,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air",
+                  "offset": [
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air",
+                  "offset": [
+                    0,
+                    0,
+                    -1
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "source": "data/thermal_shock/worldgen/processor_list/blizzard_base_processor.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/processor_list/blizzard_base_processor.json",
+      "sha256": "cc7d8fa1077fcb188365e74fb1429e3e26a4a5154ecf529f4d429658bfbab130",
+      "source_json": {
+        "processors": [
+          {
+            "processor_type": "integrated_api:waterlogging_fix_processor"
+          }
+        ]
+      },
+      "target_json": {
+        "processors": [
+          {
+            "processor_type": "thermal_shock_reforged:waterlogging_fix"
+          }
+        ]
+      }
+    },
+    {
+      "source": "data/thermal_shock/worldgen/structure/blizzard_base.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/structure/blizzard_base.json",
+      "sha256": "265859ddb15c40ef6eaf00bc404fb16c5738a085189fcbd5ee96c62f3e08dbeb",
+      "source_json": {
+        "type": "minecraft:jigsaw",
+        "start_pool": "thermal_shock:blizzard_base",
+        "size": 1,
+        "max_distance_from_center": 64,
+        "spawn_overrides": {},
+        "step": "underground_structures",
+        "terrain_adaptation": "beard_box",
+        "start_height": {
+          "type": "minecraft:uniform",
+          "min_inclusive": {
+            "absolute": -60
+          },
+          "max_inclusive": {
+            "absolute": 24
+          }
+        },
+        "biomes": "thermal_shock:glaciation",
+        "use_expansion_hack": false
+      },
+      "target_json": {
+        "type": "minecraft:jigsaw",
+        "start_pool": "thermal_shock_reforged:blizzard_base",
+        "size": 1,
+        "max_distance_from_center": 64,
+        "spawn_overrides": {},
+        "step": "underground_structures",
+        "terrain_adaptation": "beard_box",
+        "start_height": {
+          "type": "minecraft:uniform",
+          "min_inclusive": {
+            "absolute": -60
+          },
+          "max_inclusive": {
+            "absolute": 24
+          }
+        },
+        "biomes": "thermal_shock_reforged:glaciation",
+        "use_expansion_hack": false
+      }
+    },
+    {
+      "source": "data/thermal_shock/worldgen/structure/sunken_blizzard_base.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/structure/sunken_blizzard_base.json",
+      "sha256": "43810eeb5bbe9e5e704d6b3504500436151315653694cec8950fafc05d0de62c",
+      "source_json": {
+        "type": "minecraft:jigsaw",
+        "start_pool": "thermal_shock:sunken_blizzard_base",
+        "size": 1,
+        "max_distance_from_center": 64,
+        "spawn_overrides": {},
+        "step": "underground_structures",
+        "terrain_adaptation": "none",
+        "start_height": {
+          "type": "minecraft:uniform",
+          "min_inclusive": {
+            "absolute": 0
+          },
+          "max_inclusive": {
+            "absolute": 40
+          }
+        },
+        "biomes": "thermal_shock:luminous_sea",
+        "use_expansion_hack": false
+      },
+      "target_json": {
+        "type": "minecraft:jigsaw",
+        "start_pool": "thermal_shock_reforged:sunken_blizzard_base",
+        "size": 1,
+        "max_distance_from_center": 64,
+        "spawn_overrides": {},
+        "step": "underground_structures",
+        "terrain_adaptation": "none",
+        "start_height": {
+          "type": "minecraft:uniform",
+          "min_inclusive": {
+            "absolute": 0
+          },
+          "max_inclusive": {
+            "absolute": 40
+          }
+        },
+        "biomes": "thermal_shock_reforged:luminous_sea",
+        "use_expansion_hack": false
+      }
+    },
+    {
+      "source": "data/thermal_shock/worldgen/structure_set/blizzard_base.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/blizzard_base.json",
+      "sha256": "76c4a0abe5a4654b9f4d75125fbe06a8767bc56290bec302c27afd7b89c8eeba",
+      "source_json": {
+        "structures": [
+          {
+            "structure": "thermal_shock:blizzard_base",
+            "weight": 1
+          }
+        ],
+        "placement": {
+          "type": "minecraft:random_spread",
+          "spacing": 32,
+          "separation": 27,
+          "salt": 1175909368
+        }
+      },
+      "target_json": {
+        "structures": [
+          {
+            "structure": "thermal_shock_reforged:blizzard_base",
+            "weight": 1
+          }
+        ],
+        "placement": {
+          "type": "minecraft:random_spread",
+          "spacing": 32,
+          "separation": 27,
+          "salt": 1175909368
+        }
+      }
+    },
+    {
+      "source": "data/thermal_shock/worldgen/structure_set/sunken_blizzard_base.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/sunken_blizzard_base.json",
+      "sha256": "a9c8be7504c46bd43cb0fcfe41a945a7568583d7527e1877279c64f2cfa388ef",
+      "source_json": {
+        "structures": [
+          {
+            "structure": "thermal_shock:sunken_blizzard_base",
+            "weight": 1
+          }
+        ],
+        "placement": {
+          "type": "minecraft:random_spread",
+          "spacing": 28,
+          "separation": 24,
+          "salt": 1407213395
+        }
+      },
+      "target_json": {
+        "structures": [
+          {
+            "structure": "thermal_shock_reforged:sunken_blizzard_base",
+            "weight": 1
+          }
+        ],
+        "placement": {
+          "type": "minecraft:random_spread",
+          "spacing": 28,
+          "separation": 24,
+          "salt": 1407213395
+        }
+      }
+    },
+    {
+      "source": "data/thermal_shock/worldgen/template_pool/blizzard_base.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/blizzard_base.json",
+      "sha256": "e869ee408401d5ee3397c60215dbc16f0c150a73c99731916aa63bee0ceb375e",
+      "source_json": {
+        "name": "thermal_shock:blizzard_base",
+        "fallback": "minecraft:empty",
+        "elements": [
+          {
+            "weight": 1,
+            "element": {
+              "element_type": "minecraft:single_pool_element",
+              "location": "thermal_shock:blizzard_base",
+              "projection": "rigid",
+              "processors": "thermal_shock:blizzard_base_processor"
+            }
+          }
+        ]
+      },
+      "target_json": {
+        "name": "thermal_shock_reforged:blizzard_base",
+        "fallback": "minecraft:empty",
+        "elements": [
+          {
+            "weight": 1,
+            "element": {
+              "element_type": "minecraft:single_pool_element",
+              "location": "thermal_shock_reforged:blizzard_base",
+              "projection": "rigid",
+              "processors": "thermal_shock_reforged:blizzard_base_processor"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "source": "data/thermal_shock/worldgen/template_pool/sunken_blizzard_base.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/sunken_blizzard_base.json",
+      "sha256": "6a8138f57a8d90a6b01d1899c976c4f47d6a5058cbf9e79e1baed625aeebbef5",
+      "source_json": {
+        "name": "thermal_shock:sunken_blizzard_base",
+        "fallback": "minecraft:empty",
+        "elements": [
+          {
+            "weight": 1,
+            "element": {
+              "element_type": "minecraft:single_pool_element",
+              "location": "thermal_shock:sunken_blizzard_lab",
+              "projection": "rigid",
+              "processors": {
+                "processors": [
+                  {
+                    "processor_type": "minecraft:block_ignore",
+                    "blocks": [
+                      {
+                        "Name": "minecraft:structure_block"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "target_json": {
+        "name": "thermal_shock_reforged:sunken_blizzard_base",
+        "fallback": "minecraft:empty",
+        "elements": [
+          {
+            "weight": 1,
+            "element": {
+              "element_type": "minecraft:single_pool_element",
+              "location": "thermal_shock_reforged:sunken_blizzard_lab",
+              "projection": "rigid",
+              "processors": {
+                "processors": [
+                  {
+                    "processor_type": "minecraft:block_ignore",
+                    "blocks": [
+                      {
+                        "Name": "minecraft:structure_block"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "count": 15
+}

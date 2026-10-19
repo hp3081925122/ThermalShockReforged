@@ -1,0 +1,44 @@
+{
+  "batch": 105,
+  "agent": "/root/coverage101_inventory",
+  "scope": "Deterministic read-only source comparison; not compilation, game, network or rendering tests",
+  "core_omissions_found": [],
+  "preserved": [
+    "Obsidian frame, width2..21/height3..21, air-or-own-portal empty cells, complete frame and portal count",
+    "Entrance relative position, exit collision adjustment, cross-axis velocity z/y/-x and yaw+90",
+    "128 radius POI load/search, distance then Y ordering, region ticket radius3/timeout300",
+    "Only player creates absent exit; non-player falls back to original coordinates and zero velocity parameters",
+    "Spiral radius16 ground candidates, preferred side clearance, fallback platform and complete frame/2x3 portal geometry",
+    "Four PORTAL particles and original random position/velocity formulas; 1/110 ambient volume0.5/pitch0.8..1.2",
+    "No passenger or vehicle transfer, refresh existing cooldown and immediate transfer when eligible"
+  ],
+  "explained_differences": [
+    "Block implements Portal avoids NetherPortalBlock duplicate vanilla-only frame check",
+    "Target canChangeDimensions(source,destination) additionally respects target API restrictions",
+    "DimensionTransition and native entity/player lifecycle replace hand-written old ITeleporter transfer",
+    "NeoForge matching-state registration and ServerLevel updates maintain POI without repeated manual add",
+    "Client playLocalSound repairs null-listener ambient call",
+    "Explicit purple map color"
+  ],
+  "original_sha256": {
+    "block/LoqendiaPortalBlock.java": "4eeab8c575f975031c0a0882e940bfed07c61e89c0642c2c6d758f75363b421f",
+    "world/teleporter/LoqendiaPortalShape.java": "e781309622f28ace1a8f3c82dc27589b15fe89cc551285895826dab6c8b52df1",
+    "world/teleporter/LoqendiaTeleporter.java": "e4f56c341ed433c8a7996fe9bb84323ce3554f1e4ec713eff045bae370ccd23e"
+  },
+  "target_sha256": {
+    "src/main/java/com/hp/thermalshockreforged/world/loqendiaportal/LoqendiaPortalBlock.java": "56e60fbc97e58f7d7771b9a4dfc0451b5d5016cc2df4005cbe93d3f457a578f0",
+    "src/main/java/com/hp/thermalshockreforged/world/loqendiaportal/LoqendiaPortalShape.java": "065f3d7f8d86056c497d2b748231e8362e308728488d148a3c01111fea66a836",
+    "src/main/java/com/hp/thermalshockreforged/world/loqendiaportal/LoqendiaPortalTravel.java": "ae986cecab7277ff0a4b58e85e9896f59ed4781308ecb7d3fc859c9f4eb89d15",
+    "src/main/java/com/hp/thermalshockreforged/world/LoqendiaContent.java": "93019ca7ad80349106c455d40e52d9bfc72d8d31bee220db749f0011fb566d11"
+  },
+  "evidence_lines": {
+    "target_block": "34,40,60,71,92",
+    "target_travel": "39,58,70",
+    "target_registry": "21",
+    "original_block": "36,52,60,83",
+    "original_shape": "158,172",
+    "original_travel": "145,215,218",
+    "old_native_canChangeDimensions": "Forge1.20.1 source Entity.java:2546"
+  },
+  "limitations": ["Absence of a source omission is not proof of runtime correctness.", "Player movement and packets, rendering and chunk/POI timing need user-controlled game tests."]
+}

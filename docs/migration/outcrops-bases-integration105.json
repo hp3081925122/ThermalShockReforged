@@ -1,0 +1,100 @@
+{
+  "batch": 105,
+  "owner": "主线唯一编辑以下共享文件",
+  "root": {
+    "path": "src/main/java/com/hp/thermalshockreforged/ThermalShockReforged.java",
+    "statement": "com.hp.thermalshockreforged.content.outcrops.OutcropContent.register(bus);"
+  },
+  "client": {
+    "path": "src/main/java/com/hp/thermalshockreforged/client/ClientEvents.java",
+    "statements": {
+      "registerRenderers": "com.hp.thermalshockreforged.client.outcrops.OutcropRenderers.register(event);",
+      "extensions": "com.hp.thermalshockreforged.client.outcrops.OutcropRenderers.extensions(event);"
+    }
+  },
+  "tags": [
+    {
+      "path": "src/main/resources/data/minecraft/tags/block/mineable/pickaxe.json",
+      "operation": "append_unique",
+      "values": [
+        "thermal_shock_reforged:malachite_outcrop",
+        "thermal_shock_reforged:bismuth_outcrop"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/minecraft/tags/block/needs_diamond_tool.json",
+      "operation": "append_unique",
+      "values": [
+        "thermal_shock_reforged:malachite_outcrop",
+        "thermal_shock_reforged:bismuth_outcrop"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/minecraft/tags/block/incorrect_for_wooden_tool.json",
+      "operation": "append_unique",
+      "values": [
+        "thermal_shock_reforged:malachite_outcrop",
+        "thermal_shock_reforged:bismuth_outcrop"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/minecraft/tags/block/incorrect_for_gold_tool.json",
+      "operation": "append_unique",
+      "values": [
+        "thermal_shock_reforged:malachite_outcrop",
+        "thermal_shock_reforged:bismuth_outcrop"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/minecraft/tags/block/incorrect_for_stone_tool.json",
+      "operation": "append_unique",
+      "values": [
+        "thermal_shock_reforged:malachite_outcrop",
+        "thermal_shock_reforged:bismuth_outcrop"
+      ]
+    },
+    {
+      "path": "src/main/resources/data/minecraft/tags/block/incorrect_for_iron_tool.json",
+      "operation": "append_unique",
+      "values": [
+        "thermal_shock_reforged:malachite_outcrop",
+        "thermal_shock_reforged:bismuth_outcrop"
+      ]
+    }
+  ],
+  "language": {
+    "en_us": {
+      "block.thermal_shock_reforged.malachite_outcrop": "Malachite Outcrop",
+      "block.thermal_shock_reforged.bismuth_outcrop": "Bismuth Outcrop"
+    },
+    "zh_cn": {
+      "block.thermal_shock_reforged.malachite_outcrop": "孔雀石矿簇",
+      "block.thermal_shock_reforged.bismuth_outcrop": "铋矿簇"
+    }
+  },
+  "new_exclusive_directories": [
+    "src/main/java/com/hp/thermalshockreforged/content/outcrops",
+    "src/main/java/com/hp/thermalshockreforged/client/outcrops"
+  ],
+  "data_extra_confirmed": [
+    "两矿簇各configured_feature、placed_feature、neoforge/biome_modifier",
+    "worldgen/processor_list/blizzard_base_processor.json"
+  ],
+  "reuse": {
+    "processor": "thermal_shock_reforged:waterlogging_fix",
+    "ore_choice": "WorldProgressData.forGeneration(level).oreTier2()，保原全局选择1/2"
+  },
+  "fixes": [
+    "两矿簇原9槽可被六面自动化存入，但原方块破坏直接丢失内容；目标拆块返还真实9槽，保持无手动打开入口、无比较器。",
+    "原createMenu生成未绑定27槽临时箱；目标使用真实9槽菜单，仍不新增右键打开业务。",
+    "1.21.1 Container默认99，显式保原9槽每格64。"
+  ],
+  "nbt_format": [
+    "Count byte→count int，Damage→minecraft:damage组件。",
+    "Attributes Name/Base/UUID/Operation→attributes id/base/资源ID/operation。",
+    "forge:step_height_addition按原实体setMaxUpStep加回0.6；重力改minecraft:generic.gravity。",
+    "forge:swim_speed→neoforge:swim_speed；forge:spawn_type→neoforge:spawn_type。",
+    "ForgeData→NeoForgeData，外部ForgeCaps/BalmData逐类型保留，不宣称已实现外模组功能。",
+    "DataVersion3955；几何、状态索引、实体包裹位置、UUID、材质和所有无须转换的字段不变。"
+  ]
+}

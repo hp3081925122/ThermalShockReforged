@@ -1,0 +1,16 @@
+{
+  "type": "thermal_shock_reforged:bismuth_outcrop_generation",
+  "config": {
+    "targets": [
+      {
+        "target": {
+          "predicate_type": "block_match",
+          "block": "thermal_shock_reforged:shale"
+        },
+        "state": {
+          "Name": "thermal_shock_reforged:bismuth_outcrop"
+        }
+      }
+    ]
+  }
+}

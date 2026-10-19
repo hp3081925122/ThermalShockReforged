@@ -1,0 +1,164 @@
+{
+  "batch": 105,
+  "scope": "Original JAR constant-pool method references, typed structure placements and assets; not runtime tests",
+  "classes_scanned": 4577,
+  "portal_spawn_method_references": [],
+  "portal_class_references": [
+    "net/mcreator/thermal_shock/block/LoqendiaPortalBlock.class",
+    "net/mcreator/thermal_shock/init/ThermalShockModBlocks.class"
+  ],
+  "portal_registry_field_references": [
+    "net/mcreator/thermal_shock/init/ThermalShockModBlocks.class",
+    "net/mcreator/thermal_shock/world/teleporter/LoqendiaPortalShape.class",
+    "net/mcreator/thermal_shock/world/teleporter/LoqendiaTeleporter.class"
+  ],
+  "template_count": 164,
+  "structure_consumers": [
+    {
+      "path": "data/thermal_shock/structures/loqportal.nbt",
+      "source_sha256": "b79a5601cf1aa71592c3c2d109c390cb80250c969a92f37d33b1df5d7f688052",
+      "actual_placements": 12,
+      "positions": [
+        {
+          "palette": 0,
+          "position": [
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "palette": 0,
+          "position": [
+            2,
+            1,
+            0
+          ]
+        },
+        {
+          "palette": 0,
+          "position": [
+            3,
+            1,
+            0
+          ]
+        },
+        {
+          "palette": 0,
+          "position": [
+            1,
+            2,
+            0
+          ]
+        },
+        {
+          "palette": 0,
+          "position": [
+            2,
+            2,
+            0
+          ]
+        },
+        {
+          "palette": 0,
+          "position": [
+            3,
+            2,
+            0
+          ]
+        },
+        {
+          "palette": 0,
+          "position": [
+            1,
+            3,
+            0
+          ]
+        },
+        {
+          "palette": 0,
+          "position": [
+            2,
+            3,
+            0
+          ]
+        },
+        {
+          "palette": 0,
+          "position": [
+            3,
+            3,
+            0
+          ]
+        },
+        {
+          "palette": 0,
+          "position": [
+            1,
+            4,
+            0
+          ]
+        },
+        {
+          "palette": 0,
+          "position": [
+            2,
+            4,
+            0
+          ]
+        },
+        {
+          "palette": 0,
+          "position": [
+            3,
+            4,
+            0
+          ]
+        }
+      ],
+      "all_string_occurrences": [
+        "/palette/1/Name"
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "path": "blockstates/loqendia_portal.json",
+      "source_sha256": "9efa433780fb48d821c8ed91e9b0ca49a90f4a061acf082f902912a56e4264bc",
+      "target_sha256": "402d91b8bcb8b06152ce482cf5e95223574c8cfdf425946a8610d907c1563e4d",
+      "namespace_normalized_semantic_equal": true
+    },
+    {
+      "path": "models/block/loqendia_portal_ns.json",
+      "source_sha256": "14479bed6392643523412521b9f29c07d43140355850d7e9b8eec53c334c7712",
+      "target_sha256": "ef2de7976cb929161f8b3df91c316747c11db585a7ba6c3536641eb19a34f5e6",
+      "target_render_type": "translucent",
+      "namespace_normalized_semantic_equal": true
+    },
+    {
+      "path": "models/block/loqendia_portal_ew.json",
+      "source_sha256": "92c71b0bfb35a613b9fb7e09d386d49941cbcda39ed8469936565908ef0ef538",
+      "target_sha256": "30982879d2b3899a42af3d72a76c9abe27a2e02859025afb838b7190e88b95ef",
+      "target_render_type": "translucent",
+      "namespace_normalized_semantic_equal": true
+    },
+    {
+      "path": "textures/block/portal.png",
+      "source_sha256": "4406d1a15401ea8e42d5ffa109eb3ef1a44e5c615c15c555a7502a6cd85383cb",
+      "target_sha256": "4406d1a15401ea8e42d5ffa109eb3ef1a44e5c615c15c555a7502a6cd85383cb",
+      "byte_equal": true
+    },
+    {
+      "path": "textures/block/portal.png.mcmeta",
+      "source_sha256": "9044675b496afcdecc445709e6921d9de681141205d6e9197909220875664942",
+      "target_sha256": "9044675b496afcdecc445709e6921d9de681141205d6e9197909220875664942",
+      "byte_equal": true
+    }
+  ],
+  "portal_spawn_entrypoint_status": "No Methodref/InterfaceMethodref to this method in any original JAR class",
+  "limits": [
+    "Constant-pool absence rules out normal bytecode callers, not external mods or reflective string-generated access.",
+    "Structure placement count uses actual blocks state indices, not palette occurrence count.",
+    "This report does not prove natural entry for a template; Java/JSON consumers must be traced separately."
+  ]
+}

@@ -1,0 +1,201 @@
+{
+  "batch": 105,
+  "owner": "迁移A",
+  "baseline": "ebec2f23e7a111ff7575b51dcfd7823d79d59b2a",
+  "source_jar_sha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436",
+  "production_count": 24,
+  "production_type_counts": {
+    "java": 7,
+    "json": 15,
+    "nbt": 2
+  },
+  "production": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/outcrops/OutcropRenderers.java",
+      "bytes": 2721,
+      "sha256": "f66e532727aa1f96a4cd234ac4574ed86c1f5ca7596624127656ca78c91c8d9c"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/outcrops/OutcropBlock.java",
+      "bytes": 2626,
+      "sha256": "f6ecdd2a84f7702578b771dbdde74071f8cab0864c1085feeda2e29679ea584f"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/outcrops/OutcropBlockEntity.java",
+      "bytes": 5202,
+      "sha256": "2ae8878fd460ea36e687b787f860ee11c71a293660de0c42050e2128c30304d3"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/outcrops/OutcropContent.java",
+      "bytes": 2850,
+      "sha256": "e1f80ea5f004f5ae5c2863222acb96bcaee0c385082e4165eebbf64da3790965"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/outcrops/OutcropFeature.java",
+      "bytes": 771,
+      "sha256": "ad7fc199c999c5f8c022c6a928ff590c10b22fcc0111059a69911b14466b72a1"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/outcrops/OutcropItem.java",
+      "bytes": 974,
+      "sha256": "db5ce0bc581e4001bd51896231e8addda3b02fafff37e1d2ee7459be60881f07"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/outcrops/OutcropKind.java",
+      "bytes": 477,
+      "sha256": "25a40cb7ec4814b181bb7ba899a569427cb11930c75ca7d7c2f31df99eb97001"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/bismuth_outcrop.json",
+      "bytes": 2165,
+      "sha256": "53301024a4acd9b74999fc2f63fee94dc4e37866991f510df77234fc7d127e85"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/malachite_outcrop.json",
+      "bytes": 2171,
+      "sha256": "8051207f0ecf384bf4801857b48c6e40e748b4636404160d5faead4ec9282da6"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/bismuth_outcrop_generation_biome_modifier.json",
+      "bytes": 201,
+      "sha256": "b7a4615e57ff491db0c0e82e6681e16403886a963d12a86506d000e75942cfd0"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/malachite_outcrop_generation_biome_modifier.json",
+      "bytes": 203,
+      "sha256": "c9990c2f2f000457e950a3a331d40698e07bbdae629e60495779c50ff74f1a2b"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/blizzard_base.nbt",
+      "bytes": 238512,
+      "sha256": "3014ae5d3bbd9a93e1d07d8159d30008bcb0ea2c4b62783f97549379c475a7aa"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/sunken_blizzard_lab.nbt",
+      "bytes": 95993,
+      "sha256": "57b90bf3b7c45e1afd99effb218098252c1b653877629d2cdccf6eff71d2fd84"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/bismuth_outcrop_generation.json",
+      "bytes": 352,
+      "sha256": "c602ad68d6ab9c774e0b9f11683a29b5e68c180d513d8dbbba8d446f5fe7a32f"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/malachite_outcrop_generation.json",
+      "bytes": 356,
+      "sha256": "66fd7acf8121f26322e0547901d3b63689192d30600fd892a2247d44dd93f45f"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/bismuth_outcrop_generation.json",
+      "bytes": 1949,
+      "sha256": "7ebd9cd84ac773e204966437ef57a31f1b609535856e3ba683602a2dacc5e19e"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/malachite_outcrop_generation.json",
+      "bytes": 1951,
+      "sha256": "d1caae68d10eb3c18f8730c239833e35b1ac5819930cf6d1663d76503f1a08ff"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/processor_list/blizzard_base_processor.json",
+      "bytes": 111,
+      "sha256": "cc7d8fa1077fcb188365e74fb1429e3e26a4a5154ecf529f4d429658bfbab130"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/structure/blizzard_base.json",
+      "bytes": 494,
+      "sha256": "265859ddb15c40ef6eaf00bc404fb16c5738a085189fcbd5ee96c62f3e08dbeb"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/structure/sunken_blizzard_base.json",
+      "bytes": 496,
+      "sha256": "43810eeb5bbe9e5e704d6b3504500436151315653694cec8950fafc05d0de62c"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/blizzard_base.json",
+      "bytes": 254,
+      "sha256": "76c4a0abe5a4654b9f4d75125fbe06a8767bc56290bec302c27afd7b89c8eeba"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/sunken_blizzard_base.json",
+      "bytes": 261,
+      "sha256": "a9c8be7504c46bd43cb0fcfe41a945a7568583d7527e1877279c64f2cfa388ef"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/blizzard_base.json",
+      "bytes": 399,
+      "sha256": "e869ee408401d5ee3397c60215dbc16f0c150a73c99731916aa63bee0ceb375e"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/sunken_blizzard_base.json",
+      "bytes": 642,
+      "sha256": "6a8138f57a8d90a6b01d1899c976c4f47d6a5058cbf9e79e1baed625aeebbef5"
+    }
+  ],
+  "aggregate_algorithm": "按相对路径排序，每行sha256 + 两空格 + path + LF，再对UTF-8字节做SHA256。",
+  "production_aggregate_sha256": "a09c1192d066728ae1ca4aff0bb710780fd3d0ae5bbbfd70e89512634deb1948",
+  "evidence": [
+    {
+      "path": "docs/migration/outcrops-bases-batch105.md",
+      "sha256": "6fed0ec42274d5d264f2adefe3ec615bcccd3241448ae2ff2a4de5606fca14c8"
+    },
+    {
+      "path": "docs/migration/outcrops-bases-data105.json",
+      "sha256": "159e69101084b38e5e68f51487586527a8801b5539b3887b1bd679b4c8248752"
+    },
+    {
+      "path": "docs/migration/outcrops-bases-integration105.json",
+      "sha256": "8704ea319eb880dc81fda3fe9a11d16d8f91930f9be07aa70861d52aa1f7cd6d"
+    },
+    {
+      "path": "docs/migration/outcrops-bases-resources105.json",
+      "sha256": "396f9d36296ccc23a744ec93726c3749db9a3dd8b66db400ecf76e2f4927e066"
+    },
+    {
+      "path": "docs/migration/outcrops-bases-shared-applied105.json",
+      "sha256": "d9b0b7195461bc5a5d80a94de1e298d4b88a171846d990b094eb3bd2152646a7"
+    },
+    {
+      "path": "docs/migration/outcrops-bases-sources105.json",
+      "sha256": "570ade88a3048927cd1cacb222d61e73a4b8c8c3bbbda07811ef9a0e82d79b43"
+    },
+    {
+      "path": "docs/migration/outcrops-bases-structures105.json",
+      "sha256": "ea05b640f85ccdabbd1f84a4c189565d09bdb54c2c049379a36236dd60182017"
+    },
+    {
+      "path": "docs/migration/outcrops-bases-typed-diff105.json",
+      "sha256": "06e60051494400a0d72aa23cf70580d0e3e5d19faac2f24b49f41eb108836c84"
+    },
+    {
+      "path": "docs/migration/outcrops-bases-validation105.json",
+      "sha256": "18a0759d0375403fd30aa5b97d33f4575ba3c44087978871037005d9035e9f5d"
+    }
+  ],
+  "static_check_count": 1296,
+  "static_schema_values_checked": 726,
+  "typed_diffs_allowlisted": 530,
+  "retained_counts": {
+    "opaque_caps": 66,
+    "item_stacks": 3,
+    "entity_attributes": 34,
+    "blocks": 118432,
+    "entities": 34,
+    "block_entities": 53,
+    "minecraft:painting": 0,
+    "minecraft:jigsaw": 0,
+    "minecraft:spawner": 0,
+    "passengers": 0
+  },
+  "unchanged_asset_count": 12,
+  "shared_integration_applied_and_rechecked": true,
+  "source_defects": [
+    "原模板18处darksteel_frame未注册无资源，全部NBT记录保留，不造新方块。",
+    "原wrought_bars模板有一项waterlogged=false，但原块和目标块均仅定义朝向，该遗留属性原本就被忽略。"
+  ],
+  "validation_status": {
+    "static": "passed",
+    "gradle": "本线未运行，主线统一固定输入编译。",
+    "minecraft_server_client_render_preview": "未运行，用户独立控制测试聊天。"
+  },
+  "handoff": "本线生产及证据清单冻结，交主线统一编译/资源核验/提交；不单独Gradle、游戏、stage或commit。第106批未开始生产。"
+}

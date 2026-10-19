@@ -310,3 +310,17 @@ A保蛋糕即时及5/10/15 SERVER END四次直接增加3食物/3饱和、真实�
 整个模组仍未完整。原164模板与目标59文件的差105只是目录口径；Luna精确调查确认36个缺模板有原worldgen直接消费者，另有blizzard_sanctum结构/池ID与实际orb_sanctum模板名称差异，不能按文件名凑加计数。所有13configured_feature和11pool消费者在目标同路径均未有数据，六套自然structure/set/pool链另记录structure-consumers104.json。无worldgen精确消费者不代表无Java或嵌套NBT消费者。portal/两Outcrop及其他原生链待继续，注册覆盖不是功能完成率。
 
 本批没有启动客户端、服务端或Render Preview，测试聊天完全由用户负责，本线不联系、不安排、不等待。当前Git没有remote，阶段本地提交不是远程发布。下一批文档parallel-batch105.md先冻结归属：A承担两Outcrop和blizzard_base/sunken_blizzard_lab两完整原生基地，主线完整LoqendiaPortal；按预计复杂度约六至七成给A，本批阶段提交后明确解除105生产冻结继续。
+
+## 第105批最终集成验证
+
+迁移A承担两矿簇与两座完整基地，主线负责Loqendia传送门和共享集成。两矿簇保原Geo模型/动画、透明渲染、九格64上限库存、六面自动化、世界进度oreTier2的真实矿种分支及原掉落/自然生成。保无手动打开入口、无比较器，修原拆块吞库存及createMenu临时27槽。基地两模板合计118432条方块记录、34个实体、53个方块实体、3栈库存逐类型保留，完成必要命名空间/物品组件/实体属性/NeoForge字段转换；三自然JSON各自保持原概率、群系、高度、地形和处理器。
+
+Loqendia门完整保黑曜石2..21×3..21框、X/Z轴薄碰撞形状、即时双向维度转换、冷却、坐标缩放/边界、128格出口搜索/票据、玩家16格螺旋建门和无门回退、原相对位置/朝向/非玩家速度以及完整四粒子/环境声/传送声。不擅加点火物或生存入口：原4577类的常量池方法引用和164模板调查均没有portalSpawn调用者；原12门loqportal模板完整保留。修父类只认原版门引起自毁、客户端null listener音效不播放，以及原模板未定义门框改为原Java要求的黑曜石，差异集中REFORGED_CHANGES。Luna逐方法核对未发现核心流程简化。
+
+首轮统一编译发现LoqendiaPortalBlock构造器引用与DeferredRegister两种工厂重载歧义，改为显式无参lambda后重新冻结；无玩法变更。两路停笔固定8481份src/main输入，Java21离线compileJava/processResources --max-workers=2统一通过，成功日志时长1m 11s。本批39份生产变更，A24份交付哈希全部相同；编译期间输入不变，7697份构建资源逐字节相同、2展开模板通过。两语言旧值均保留，新增真键详见main105-static-validation.json。A的1296项确定性检查、726个状态属性值和typed差异记录、主线原件/静态/模板证据分别保存；这些数量不是游戏测试次数。
+
+原blizzard_base的18处darksteel_frame在原注册/类/资源均不存在，保全部NBT记录并记录原生缺注册回退空气；不凭名称造块。原wrought_bars遗留waterlogged属性原本也无定义，保记录并注明被原生忽略。外部ForgeCaps/Balm载荷逐类型保留不代表外模组业务已实现，仍按唯一联动延期文档管理。
+
+当前世界生成同路径差集为worldgen132、biome_modifier103，已分106的分别36/11，未分配分别96/92；路径缺失不是功能缺失，后续先核已有Java/合并注入，避免重复生成。整模组尚未完整。测试聊天由用户独立负责，本线没有启动游戏、不联系或等待测试。当前无Git remote，阶段本地提交不是远程发布。
+
+第106批预先建立parallel-batch106.md，继续按复杂度把更多生产交给A：圣所完整大模板和7项自然feature；主线三个小型结构和6项模板feature，复用已存在的通用StructureFeature。105阶段提交后另行解除106生产冻结，迁移B停用。
