@@ -17,7 +17,8 @@ public final class ProtoiRenderers {
     public static void register(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(ProtoiContent.GAMMA.get(), context -> new Renderer(context, "protoi_gamma", .9F, .7F));
         event.registerEntityRenderer(ProtoiContent.DELTA.get(), context -> new Renderer(context, "protoi_delta", 1, 1));
-        event.registerEntityRenderer(ProtoiContent.EPSILON.get(), context -> new Renderer(context, "protoi_epsilon", 1, 1));
+        event.registerEntityRenderer(ProtoiContent.EPSILON.get(), ProtoiEpsilonRenderer::new);
+        event.registerEntityRenderer(ProtoiContent.EPSILON_ATTACK.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(ProtoiContent.SUNBEAM.get(), context -> new Renderer(context, "protoi_sunbeam", 1, 1));
         event.registerEntityRenderer(ProtoiContent.SUNBEAM_BULLET.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(MagnetiteContent.MAGNETITE.get(), context -> new Renderer(context, "magnetite", 1, .5F));

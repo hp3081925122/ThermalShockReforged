@@ -20,6 +20,7 @@ public final class WeaponClient {
     public static void extensions(RegisterClientExtensionsEvent event) {
         ZapGauntletClient.extensions(event);
         FirearmClient.extensions(event);
+        MagneticCrossbowClient.extensions(event);
         SpearClient.extensions(event);
         event.registerItem(new IClientItemExtensions() {
             private Renderer renderer;

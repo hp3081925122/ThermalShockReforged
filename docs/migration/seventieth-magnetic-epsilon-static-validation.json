@@ -1,0 +1,90 @@
+{
+  "asset_checks": [
+    {
+      "path": "geo/magnetic_crossbow.geo.json",
+      "normalized_original_matches": true,
+      "sha256": "3ce797c778abee43bcce35f7770c8bf4f526ebd93296c6455d1a7fb098d00e0e"
+    },
+    {
+      "path": "animations/magnetic_crossbow.animation.json",
+      "normalized_original_matches": true,
+      "sha256": "e3313d53407fb233657b0407fb7912b8b5a08f3e747a452ae3db671c3ecde625"
+    },
+    {
+      "path": "textures/item/magnetic_crossbow.png",
+      "normalized_original_matches": true,
+      "sha256": "8d02d87ae77e52a9e4ca7c35508cd2a527ece0fd19f547dcff5de11d7b220cc8"
+    },
+    {
+      "path": "models/item/magnetic_crossbow.json",
+      "normalized_original_matches": true,
+      "sha256": "59c5811180b72b1babcf916a5b009e96790151adf6d348017538731ecc2922ba"
+    },
+    {
+      "path": "models/displaysettings/anton_hammar.json",
+      "normalized_original_matches": true,
+      "sha256": "6121209c0749cc9dafdec95fd0df43d9b6d5ad263aade3bdf4fefce8dccc4d89"
+    },
+    {
+      "path": "geo/protoi_epsilon.geo.json",
+      "normalized_original_matches": true,
+      "sha256": "4a6a36db4e060d176af9a1276ec5b67368b631720cbb588200aecd8d0db3ae76"
+    },
+    {
+      "path": "animations/protoi_epsilon.animation.json",
+      "normalized_original_matches": true,
+      "sha256": "04a8cc7ea1d38c55db13d099fd0e6d11191f6ab61eded27924f24466168f8feb"
+    },
+    {
+      "path": "textures/entities/protoi_epsilon.png",
+      "normalized_original_matches": true,
+      "sha256": "703e174542ea2bd79f71bab8a883b9dd9d2064b78ef91e8309f11e05311b7c71"
+    },
+    {
+      "path": "textures/entities/epsilon_glow.png",
+      "normalized_original_matches": true,
+      "sha256": "3e08d61731ac5a4e7b672c4d6bac7801c028bd3f22e511bb0ab36f0202c3ee78"
+    }
+  ],
+  "sound_checks": [
+    {
+      "id": "magnet_bow_25",
+      "normalized_original_matches": true
+    },
+    {
+      "id": "delta_ambient",
+      "normalized_original_matches": true
+    },
+    {
+      "id": "gamma_hurt",
+      "normalized_original_matches": true
+    }
+  ],
+  "preceding_ghostglass_recipe_preserved": true,
+  "animation_clips": {
+    "magnetic_crossbow": [
+      "0",
+      "1"
+    ],
+    "protoi_epsilon": [
+      "idle",
+      "ready"
+    ]
+  },
+  "runtime_tests": "pending_full_mod_migration",
+  "build": {
+    "tasks": [
+      "compileJava",
+      "processResources"
+    ],
+    "result": "passed",
+    "duration_seconds": 204,
+    "executed_tasks": 2,
+    "up_to_date_tasks": 22,
+    "warning": "既有ClientEvents EventBusSubscriber弃用警告"
+  },
+  "limitations": [
+    "静态资源和源码核对不等于游戏行为与视觉验收",
+    "仍有其他Protoi和武器/GUI入口未完整迁移"
+  ]
+}
