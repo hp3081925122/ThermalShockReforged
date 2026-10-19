@@ -60,6 +60,13 @@ public final class ClientEvents {
         com.hp.thermalshockreforged.client.huntress.HuntressRenderers.register(event);
         com.hp.thermalshockreforged.client.benzor.BenzorRenderer.register(event);
         com.hp.thermalshockreforged.client.maiden.MaidenRenderer.register(event);
+        com.hp.thermalshockreforged.client.icidroviathan.IcidroviathanRenderer.register(event);
+        com.hp.thermalshockreforged.client.effigy.EffigyRenderer.register(event);
+        com.hp.thermalshockreforged.client.moonoid.LunarFaunaRenderers.register(event);
+        com.hp.thermalshockreforged.client.sopel.HighDirectorSopelRenderer.register(event);
+        com.hp.thermalshockreforged.client.sentrarius.SentrariusRenderer.register(event);
+        com.hp.thermalshockreforged.client.flashring.BlindingLanternFlashRingRenderer.register(event);
+        com.hp.thermalshockreforged.client.giantlaser.GiantLaserTestRenderer.register(event);
         com.hp.thermalshockreforged.client.whisper.PassiveTrioRenderers.register(event);
         com.hp.thermalshockreforged.client.titans.TitanRenderers.register(event);
         com.hp.thermalshockreforged.client.beetles.BeetleRenderers.register(event);

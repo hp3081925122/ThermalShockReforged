@@ -1,0 +1,166 @@
+{
+  "batch": 100,
+  "new_resources": [
+    {
+      "original": "data/thermal_shock/forge/biome_modifier/sentrarius_biome_modifier.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/sentrarius_biome_modifier.json",
+      "original_sha256": "e2e19fd089b5c1c3cb0202eb2481c0e37047e6749427b8a05840fb04b5ddf159",
+      "target_sha256": "7541e69fb02ab9365dd25b6db7c5f23bb3c65ad050fa62ecd9e1c640b5eaa0e2"
+    },
+    {
+      "original": "data/thermal_shock/loot_tables/entities/sentrarius.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/loot_table/entities/sentrarius.json",
+      "original_sha256": "b4b229a70fd544e7b63df4d9975d7d268f2e84f364c96d117932204b7cff0543",
+      "target_sha256": "cb4062f51fa29d111ac02e1e1ad45543b2ab82db4a6f1df01e15acbc013f90c1"
+    }
+  ],
+  "reused_assets": [
+    {
+      "original": "assets/thermal_shock/geo/sopel.geo.json",
+      "original_sha256": "2efa2c6c7f96ba492404fa69a29faf907e9c21146cff425faa6c534d27e0148d",
+      "target": "src/main/resources/assets/thermal_shock_reforged/geo/sopel.geo.json",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "2efa2c6c7f96ba492404fa69a29faf907e9c21146cff425faa6c534d27e0148d",
+      "target_sha256_head": "2efa2c6c7f96ba492404fa69a29faf907e9c21146cff425faa6c534d27e0148d",
+      "final_target_sha256": "2efa2c6c7f96ba492404fa69a29faf907e9c21146cff425faa6c534d27e0148d"
+    },
+    {
+      "original": "assets/thermal_shock/animations/sopel.animation.json",
+      "original_sha256": "598b191e350a9d0b179c36546171ef94b8cd770d781b4f15a903f6d11f4b00a5",
+      "target": "src/main/resources/assets/thermal_shock_reforged/animations/sopel.animation.json",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "598b191e350a9d0b179c36546171ef94b8cd770d781b4f15a903f6d11f4b00a5",
+      "target_sha256_head": "598b191e350a9d0b179c36546171ef94b8cd770d781b4f15a903f6d11f4b00a5",
+      "final_target_sha256": "598b191e350a9d0b179c36546171ef94b8cd770d781b4f15a903f6d11f4b00a5"
+    },
+    {
+      "original": "assets/thermal_shock/textures/entities/sopel.png",
+      "original_sha256": "cc72f884498f5b309d43979bd37fa09562767fe38d133b4b8cbace82e916e650",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/entities/sopel.png",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "cc72f884498f5b309d43979bd37fa09562767fe38d133b4b8cbace82e916e650",
+      "target_sha256_head": "cc72f884498f5b309d43979bd37fa09562767fe38d133b4b8cbace82e916e650",
+      "final_target_sha256": "cc72f884498f5b309d43979bd37fa09562767fe38d133b4b8cbace82e916e650"
+    },
+    {
+      "original": "assets/thermal_shock/textures/entities/sopelglow.png",
+      "original_sha256": "150cfd127c7603438cbe5cb2b5869e28027550ebc09bfaa8b71e8d29d1c94e69",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/entities/sopelglow.png",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "150cfd127c7603438cbe5cb2b5869e28027550ebc09bfaa8b71e8d29d1c94e69",
+      "target_sha256_head": "150cfd127c7603438cbe5cb2b5869e28027550ebc09bfaa8b71e8d29d1c94e69",
+      "final_target_sha256": "150cfd127c7603438cbe5cb2b5869e28027550ebc09bfaa8b71e8d29d1c94e69"
+    },
+    {
+      "original": "assets/thermal_shock/geo/sentarius.geo.json",
+      "original_sha256": "3246aa5786fbfdc3a91059655bac38c6d54204cccabdd42b360e20a63d76f166",
+      "target": "src/main/resources/assets/thermal_shock_reforged/geo/sentarius.geo.json",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "3246aa5786fbfdc3a91059655bac38c6d54204cccabdd42b360e20a63d76f166",
+      "target_sha256_head": "3246aa5786fbfdc3a91059655bac38c6d54204cccabdd42b360e20a63d76f166",
+      "final_target_sha256": "3246aa5786fbfdc3a91059655bac38c6d54204cccabdd42b360e20a63d76f166"
+    },
+    {
+      "original": "assets/thermal_shock/animations/sentarius.animation.json",
+      "original_sha256": "72b7638261534b2cf1a9c473916495ebf562caf6a65dd915117dccd938917169",
+      "target": "src/main/resources/assets/thermal_shock_reforged/animations/sentarius.animation.json",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "72b7638261534b2cf1a9c473916495ebf562caf6a65dd915117dccd938917169",
+      "target_sha256_head": "72b7638261534b2cf1a9c473916495ebf562caf6a65dd915117dccd938917169",
+      "final_target_sha256": "72b7638261534b2cf1a9c473916495ebf562caf6a65dd915117dccd938917169"
+    },
+    {
+      "original": "assets/thermal_shock/textures/entities/sentariusmouth.png",
+      "original_sha256": "aa1a66badd9334cddaaf585f54f4a3cd52c874470874074fe546f1b9338f2066",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/entities/sentariusmouth.png",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "aa1a66badd9334cddaaf585f54f4a3cd52c874470874074fe546f1b9338f2066",
+      "target_sha256_head": "aa1a66badd9334cddaaf585f54f4a3cd52c874470874074fe546f1b9338f2066",
+      "final_target_sha256": "aa1a66badd9334cddaaf585f54f4a3cd52c874470874074fe546f1b9338f2066"
+    },
+    {
+      "original": "assets/thermal_shock/geo/lantern_flash_ring.geo.json",
+      "original_sha256": "f4d93fa38fd60f33831ef303242903897a5cdcbd255fc77de06bffe966cc2965",
+      "target": "src/main/resources/assets/thermal_shock_reforged/geo/lantern_flash_ring.geo.json",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "f4d93fa38fd60f33831ef303242903897a5cdcbd255fc77de06bffe966cc2965",
+      "target_sha256_head": "f4d93fa38fd60f33831ef303242903897a5cdcbd255fc77de06bffe966cc2965",
+      "final_target_sha256": "f4d93fa38fd60f33831ef303242903897a5cdcbd255fc77de06bffe966cc2965"
+    },
+    {
+      "original": "assets/thermal_shock/animations/lantern_flash_ring.animation.json",
+      "original_sha256": "bea01a5fd1820c277d57cadeaff3767ce7eb81573d0927d704875a7dd825bd24",
+      "target": "src/main/resources/assets/thermal_shock_reforged/animations/lantern_flash_ring.animation.json",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "bea01a5fd1820c277d57cadeaff3767ce7eb81573d0927d704875a7dd825bd24",
+      "target_sha256_head": "bea01a5fd1820c277d57cadeaff3767ce7eb81573d0927d704875a7dd825bd24",
+      "final_target_sha256": "bea01a5fd1820c277d57cadeaff3767ce7eb81573d0927d704875a7dd825bd24"
+    },
+    {
+      "original": "assets/thermal_shock/textures/entities/yellow_light_flash.png",
+      "original_sha256": "ae3f987b4eee8e77c357e709e2be1ede35dcbd7541a4d21e0defd60bcac561a7",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/entities/yellow_light_flash.png",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "ae3f987b4eee8e77c357e709e2be1ede35dcbd7541a4d21e0defd60bcac561a7",
+      "target_sha256_head": "ae3f987b4eee8e77c357e709e2be1ede35dcbd7541a4d21e0defd60bcac561a7",
+      "final_target_sha256": "ae3f987b4eee8e77c357e709e2be1ede35dcbd7541a4d21e0defd60bcac561a7"
+    },
+    {
+      "original": "assets/thermal_shock/geo/giantbeacon.geo.json",
+      "original_sha256": "a0006120144a934a60ee51bb9bf75b9c97eff08a25453e5623301b921d82dde9",
+      "target": "src/main/resources/assets/thermal_shock_reforged/geo/giantbeacon.geo.json",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "a0006120144a934a60ee51bb9bf75b9c97eff08a25453e5623301b921d82dde9",
+      "target_sha256_head": "a0006120144a934a60ee51bb9bf75b9c97eff08a25453e5623301b921d82dde9",
+      "final_target_sha256": "a0006120144a934a60ee51bb9bf75b9c97eff08a25453e5623301b921d82dde9"
+    },
+    {
+      "original": "assets/thermal_shock/animations/giantbeacon.animation.json",
+      "original_sha256": "8cabd2a18f08f243b1f3e1c6ce0ebd29b1067545b4e105e0e5299059bfb83670",
+      "target": "src/main/resources/assets/thermal_shock_reforged/animations/giantbeacon.animation.json",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "8cabd2a18f08f243b1f3e1c6ce0ebd29b1067545b4e105e0e5299059bfb83670",
+      "target_sha256_head": "8cabd2a18f08f243b1f3e1c6ce0ebd29b1067545b4e105e0e5299059bfb83670",
+      "final_target_sha256": "8cabd2a18f08f243b1f3e1c6ce0ebd29b1067545b4e105e0e5299059bfb83670"
+    },
+    {
+      "original": "assets/thermal_shock/textures/entities/giantlaserblack.png",
+      "original_sha256": "f503ea41fccd0b4b831d8d83ae696334afa7dec47daaea4ab4a3d54c4186fb42",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/entities/giantlaserblack.png",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "f503ea41fccd0b4b831d8d83ae696334afa7dec47daaea4ab4a3d54c4186fb42",
+      "target_sha256_head": "f503ea41fccd0b4b831d8d83ae696334afa7dec47daaea4ab4a3d54c4186fb42",
+      "final_target_sha256": "f503ea41fccd0b4b831d8d83ae696334afa7dec47daaea4ab4a3d54c4186fb42"
+    },
+    {
+      "original": "assets/thermal_shock/textures/entities/giantbeacon.png",
+      "original_sha256": "92d6ac828207eb51bcacd480a8fa95ac3c0a1ba0f33d3c8126b723c67a3371dd",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/entities/giantbeacon.png",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "92d6ac828207eb51bcacd480a8fa95ac3c0a1ba0f33d3c8126b723c67a3371dd",
+      "target_sha256_head": "92d6ac828207eb51bcacd480a8fa95ac3c0a1ba0f33d3c8126b723c67a3371dd",
+      "final_target_sha256": "92d6ac828207eb51bcacd480a8fa95ac3c0a1ba0f33d3c8126b723c67a3371dd"
+    },
+    {
+      "original": "assets/thermal_shock/textures/item/sentrarius_egg.png",
+      "original_sha256": "75cddc63e8cb7d7f147ba4b218ddabfb5ff0318792c82a0fbb25a6d35eb3e6a9",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/sentrarius_egg.png",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "75cddc63e8cb7d7f147ba4b218ddabfb5ff0318792c82a0fbb25a6d35eb3e6a9",
+      "target_sha256_head": "75cddc63e8cb7d7f147ba4b218ddabfb5ff0318792c82a0fbb25a6d35eb3e6a9",
+      "final_target_sha256": "75cddc63e8cb7d7f147ba4b218ddabfb5ff0318792c82a0fbb25a6d35eb3e6a9"
+    },
+    {
+      "original": "assets/thermal_shock/models/item/sentrarius_spawn_egg.json",
+      "original_sha256": "da7db6005ff4dd28d7f95e37dc5d11f88d2b3cb6b18f37f4941b52eb643128ce",
+      "target": "src/main/resources/assets/thermal_shock_reforged/models/item/sentrarius_spawn_egg.json",
+      "target_exists_worktree": true,
+      "target_sha256_worktree": "423cc792e47c25872538d05a17358528447cf079e5f4590f20aa63f71dcc0cb9",
+      "target_sha256_head": "423cc792e47c25872538d05a17358528447cf079e5f4590f20aa63f71dcc0cb9",
+      "namespace_refs": [
+        "thermal_shock:item/sentrarius_egg"
+      ],
+      "final_target_sha256": "423cc792e47c25872538d05a17358528447cf079e5f4590f20aa63f71dcc0cb9"
+    }
+  ]
+}

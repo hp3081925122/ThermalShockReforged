@@ -1,0 +1,79 @@
+{
+  "data/thermal_shock_reforged/neoforge/biome_modifier/effigy_biome_modifier.json": {
+    "type": "neoforge:add_spawns",
+    "biomes": "thermal_shock_reforged:glaciation",
+    "spawners": {
+      "type": "thermal_shock_reforged:effigy",
+      "weight": 7,
+      "minCount": 1,
+      "maxCount": 1
+    }
+  },
+  "data/thermal_shock_reforged/loot_table/entities/effigy.json": {
+    "type": "minecraft:entity",
+    "pools": [
+      {
+        "rolls": 1,
+        "entries": [
+          {
+            "type": "minecraft:item",
+            "name": "thermal_shock_reforged:itty_bitty",
+            "weight": 1,
+            "functions": [
+              {
+                "function": "set_count",
+                "count": {
+                  "min": 1,
+                  "max": 1
+                }
+              }
+            ]
+          },
+          {
+            "type": "minecraft:item",
+            "name": "thermal_shock_reforged:slushball",
+            "weight": 9,
+            "functions": [
+              {
+                "function": "set_count",
+                "count": {
+                  "min": 3,
+                  "max": 6
+                }
+              }
+            ]
+          },
+          {
+            "type": "minecraft:item",
+            "name": "thermal_shock_reforged:marine_seaglass_pearl",
+            "weight": 1,
+            "functions": [
+              {
+                "function": "set_count",
+                "count": {
+                  "min": 1,
+                  "max": 2
+                }
+              }
+            ]
+          },
+          {
+            "type": "minecraft:item",
+            "name": "thermal_shock_reforged:violet_seaglass_pearl",
+            "weight": 1,
+            "functions": [
+              {
+                "function": "set_count",
+                "count": {
+                  "min": 1,
+                  "max": 2
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "random_sequence": "thermal_shock_reforged:entities/effigy"
+  }
+}

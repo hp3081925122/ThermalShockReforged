@@ -1,0 +1,130 @@
+{
+  "batch": 100,
+  "base_head": "00bbd5801c3d373d0d239637de9dd69f2f5974d5",
+  "owner": "Sopel / Sentrarius / FlashRing / GiantLaser",
+  "shared_files_modified_by_this_lane": false,
+  "java_patches": [
+    {
+      "file": "src/main/java/com/hp/thermalshockreforged/ThermalShockReforged.java",
+      "operation": "insert_after",
+      "anchor": "        com.hp.thermalshockreforged.entity.ribbonblade.RibbonbladeContent.register(bus);",
+      "insert": "        com.hp.thermalshockreforged.entity.sopel.SopelEntityContent.register(bus);\n        com.hp.thermalshockreforged.entity.sentrarius.SentrariusContent.register(bus);\n        com.hp.thermalshockreforged.entity.flashring.BlindingLanternFlashRingContent.register(bus);\n        com.hp.thermalshockreforged.entity.giantlaser.GiantLaserTestContent.register(bus);"
+    },
+    {
+      "file": "src/main/java/com/hp/thermalshockreforged/ThermalShockReforged.java",
+      "operation": "insert_after",
+      "anchor": "        container.registerConfig(ModConfig.Type.COMMON, com.hp.thermalshockreforged.entity.ribbonblade.RibbonbladeConfig.SPEC, \"thermal_shock_reforged-ribbonblade.toml\");",
+      "insert": "        container.registerConfig(ModConfig.Type.COMMON, com.hp.thermalshockreforged.entity.sopel.SopelConfig.SPEC, \"thermal_shock_reforged-sopel.toml\");"
+    },
+    {
+      "file": "src/main/java/com/hp/thermalshockreforged/client/ClientEvents.java",
+      "operation": "insert_after",
+      "anchor": "        com.hp.thermalshockreforged.client.maiden.MaidenRenderer.register(event);",
+      "insert": "        com.hp.thermalshockreforged.client.sopel.HighDirectorSopelRenderer.register(event);\n        com.hp.thermalshockreforged.client.sentrarius.SentrariusRenderer.register(event);\n        com.hp.thermalshockreforged.client.flashring.BlindingLanternFlashRingRenderer.register(event);\n        com.hp.thermalshockreforged.client.giantlaser.GiantLaserTestRenderer.register(event);"
+    },
+    {
+      "file": "src/main/java/com/hp/thermalshockreforged/mixin/LivingEntityStatusMixin.java",
+      "operation": "insert_after_in_method",
+      "method": "thermalShockReforged$clearArrival",
+      "anchor": "        LivingEntity entity = (LivingEntity)(Object)this;",
+      "insert": "        if (com.hp.thermalshockreforged.entity.sopel.SopelEntityContent.clearOwnerCooldown(entity)) callback.setReturnValue(true);",
+      "reason": "Sopel原冷却归damage owner。正常Sopel自行覆写removeAllEffects；罕见自定义damage owner为其他LivingEntity时，此单行保/effect clear全部可清除内部冷却。必须置于现有DAMAGE_RESISTANCE提前return前，保留其余逻辑。"
+    }
+  ],
+  "entity_tag_value_increments": {
+    "data/minecraft/tags/entity_type/arthropod.json": [
+      "thermal_shock_reforged:sentrarius"
+    ],
+    "data/minecraft/tags/entity_type/sensitive_to_bane_of_arthropods.json": [
+      "thermal_shock_reforged:sentrarius"
+    ],
+    "data/thermal_shock_reforged/tags/entity_type/infectionimmune.json": [
+      "thermal_shock_reforged:blinding_lantern_flash_ring"
+    ],
+    "data/thermal_shock_reforged/tags/entity_type/sprintweed_blacklist.json": [
+      "thermal_shock_reforged:blinding_lantern_flash_ring",
+      "thermal_shock_reforged:giant_laser_test"
+    ]
+  },
+  "entity_tag_note": "原Sentrarius getMobType=ARTHROPOD。目标原生Bane附魔两处读取sensitive_to_bane_of_arthropods；Vanilla provider也令其继承#arthropod。两项显式增量保持附魔和分类语义；不把旧数据标签当1.20.1原生消费者。其余两个原战斗关系标签只合并列出的新值。",
+  "language_increments": {
+    "en_us": {},
+    "zh_cn": {
+      "entity.thermal_shock_reforged.high_director_sopel": "高等主管索佩尔",
+      "entity.thermal_shock_reforged.sentrarius": "巡骨蜈蚣",
+      "entity.thermal_shock_reforged.blinding_lantern_flash_ring": "炫目灯笼闪光环",
+      "entity.thermal_shock_reforged.giant_laser_test": "巨型激光测试实体",
+      "item.thermal_shock_reforged.sentrarius_spawn_egg": "巡骨蜈蚣刷怪蛋"
+    }
+  },
+  "existing_language": {
+    "entity.thermal_shock_reforged.high_director_sopel": {
+      "en_us": "High Director Sopel",
+      "zh_cn": null
+    },
+    "entity.thermal_shock_reforged.sentrarius": {
+      "en_us": "Sentrapede",
+      "zh_cn": null
+    },
+    "entity.thermal_shock_reforged.blinding_lantern_flash_ring": {
+      "en_us": "Blinding Lantern Flash Ring",
+      "zh_cn": null
+    },
+    "entity.thermal_shock_reforged.giant_laser_test": {
+      "en_us": "Giant Laser Test",
+      "zh_cn": null
+    },
+    "item.thermal_shock_reforged.sentrarius_spawn_egg": {
+      "en_us": "Sentrapede Spawn Egg",
+      "zh_cn": null
+    }
+  },
+  "do_not_create_eggs": [
+    "high_director_sopel_spawn_egg",
+    "blinding_lantern_flash_ring_spawn_egg",
+    "giant_laser_test_spawn_egg"
+  ],
+  "creative_and_camera": "Sentrarius真蛋原creative manifest已有，CameraCatalog已有真ID说明，不共改；其余三无真蛋/正常来源，不造Boss召唤器或新技能。",
+  "already_present_sopel_gui": {
+    "registration": "content.npc.sopel.SopelContent.register(bus)",
+    "screens": "client.npc.sopel.SopelScreen.register(event)",
+    "entry": "DeskDirectorBlock → 七页Sopel对话 → WorldProgressData.betaComplete",
+    "entity_right_click": false,
+    "action": "既有链已接，不重复创建或覆盖GUI"
+  },
+  "new_resources": [
+    {
+      "original": "data/thermal_shock/forge/biome_modifier/sentrarius_biome_modifier.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/sentrarius_biome_modifier.json",
+      "original_sha256": "e2e19fd089b5c1c3cb0202eb2481c0e37047e6749427b8a05840fb04b5ddf159",
+      "target_sha256": "7541e69fb02ab9365dd25b6db7c5f23bb3c65ad050fa62ecd9e1c640b5eaa0e2"
+    },
+    {
+      "original": "data/thermal_shock/loot_tables/entities/sentrarius.json",
+      "target": "src/main/resources/data/thermal_shock_reforged/loot_table/entities/sentrarius.json",
+      "original_sha256": "b4b229a70fd544e7b63df4d9975d7d268f2e84f364c96d117932204b7cff0543",
+      "target_sha256": "cb4062f51fa29d111ac02e1e1ad45543b2ab82db4a6f1df01e15acbc013f90c1"
+    }
+  ],
+  "native_sources": {
+    "sentrarius": "stardust_garden/borean_tundra原自然权重80，每群1..2；NO_RESTRICTIONS且下方SNOWY_SHALE或GRASSY_SHALE；真蛋；无NBT。原物品/群系依赖已真实存在。",
+    "high_director_sopel": "原真实注册，仅命令/管理员入口；无真蛋/自然/模板/物品转换；DeskDirector GUI并不生成实体。",
+    "blinding_lantern_flash_ring": "原真实注册，仅命令/管理员finalize初始化；未发现原Java/JSON/NBT正常生成链。名字不证明致盲技能。",
+    "giant_laser_test": "原真实注册，仅命令/管理员入口，无真实激光技能、寿命或正常生成链。"
+  },
+  "external_mod_pending": [],
+  "native_pending": [],
+  "verification_limits": {
+    "compiled": false,
+    "server_tested": false,
+    "client_tested": false,
+    "render_preview_tested": false,
+    "staged": false,
+    "committed": false
+  },
+  "main_next": [
+    "固定双方输入后统一compileJava/processResources，按真实编译问题修API",
+    "合并四项Java补丁和四标签增量、缺失中文键",
+    "保留独立测试聊天所有状态；完整迁移后由测试代理做本批功能与Render Preview对照"
+  ]
+}

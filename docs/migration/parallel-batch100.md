@@ -1,11 +1,27 @@
 # 第100批：余下八个原注册实体
 
-先建文档再分工。第99批固定8310份输入正在统一编译和静态验证；其提交完成前本批只读准备，禁止改src/main。主聊天明确解除冻结后才开始生产。
+第99批已提交为 `00bbd5801c3d373d0d239637de9dd69f2f5974d5`。第100批正在生产，尚未统一编译。以下分工按用户最新要求取代此前主聊天承担半批代码的安排。
 
-约半工作沿用生产聊天01a152a6-160e-77d1-80e6-50fb91ad2f8b：HighDirectorSopel、Sentrarius、BlindingLanternFlashRing、GiantLaserTest完整实体及实际可达技能、初始化、渲染、来源和全部资源。独占entity/sopel、entity/sentrarius、entity/flashring、entity/giantlaser及相应client目录、独有新数据和本路交付文档。不能凭test或Boss名称删除原注册实体、减少特效或造不存在的技能。
+生产 B 聊天 `01a152a6-160e-77d1-80e6-50fb91ad2f8b` 仅负责本批最后一组：HighDirectorSopel、Sentrarius、BlindingLanternFlashRing、GiantLaserTest完整实体及实际可达技能、初始化、渲染、来源和全部资源。独占entity/sopel、entity/sentrarius、entity/flashring、entity/giantlaser及相应client目录、独有新数据和本路交付文档。不能凭test或Boss名称删除原注册实体、减少特效或造不存在的技能。
 
-主聊天负责Icidroviathan、Effigy、Moonoid、Starrite，独占entity/icidroviathan、entity/effigy、entity/moonoid、entity/starrite及相应client目录和独有数据。追踪真实骑乘、隐含行动锁、目标关系、完整原动画和自然来源。
+生产 A 聊天 `01a15413-5776-7693-bdaf-033f815ebcee` 接管原主聊天已写但未编译的 Icidroviathan、Effigy、Moonoid、Starrite，独占对应 entity/client 目录、独有数据、FoodDrops 修改及本路文档。追踪真实骑乘、19 SERVER END 延时攻击、隐含行动锁、目标关系、完整原动画和自然来源。三份引用相关实体的原结构 NBT 来源链尚需核查，不能以注册齐全代替功能完整。
 
-根注册、ClientEvents、配置入口、所有语言和标签及公共模块由主聊天合并；另一聊天只交精确增量，不共改。双方不是独自在仓库，不回退他人工作。Java无注释、UTF8；临时文件和脚本只在D:/AI临时文件。大批统一编译，停笔交哈希后再验证。合理差异写REFORGED_CHANGES，新确认可复用坑更新mcreator-rework。
+主聊天 `01a15171-dd2a-7270-9819-9ad9cbf70e5d` 从现在起不再编写迁移代码，只负责批次拆分、接口协调、交付核对、冻结和统一验证、主分支集成提交及总进度。生产缺陷交回生产聊天修复。
+
+根注册、ClientEvents、配置入口、Mixin、所有语言和标签及公共模块由生产 A 作为本批唯一共享生产编辑者集成。生产 B 只交精确增量。合理差异和新确认可复用坑由生产 A 更新 REFORGED_CHANGES 与 mcreator-rework；主聊天维护总控文档。
+
+生产 B 已正式停笔，交付15份生产文件（13 Java、2 JSON）和53项静态检查，未执行 Gradle、游戏、暂存或提交。共享增量见 sopel-four-integration100.json，交付清单见 sopel-four-final100.json。交付方报告清单 SHA256 为 `c3b62a870c0a414fd52ead2693606bb145d340367845d59a17dd564ac6457623`，生产聚合为 `0889618f0d03740d5df60357566f8f1b55e334d1a1a3b284d289d9d878d1124b`，接收时核验。
+
+主聊天已实际核对15份生产文件和6份报告逐文件 SHA256，全部与交付清单相符；清单自身 SHA256 同样相符。该检查证明交付未变，不代替代码、编译或运行测试。交付清单中旧的临时托管测试后续安排已由本总控最新分工取代，不据此启动生产聊天测试。
+
+双方不是独自在仓库，不回退他人工作。Java无注释、UTF8；临时文件和脚本只在D:/AI临时文件。大批统一编译，两路停笔交哈希后冻结验证。验证失败交回生产聊天，修复后重新冻结受影响输入。提交时不混入仍在变化的测试文档。从下一批起停用生产 B 聊天，由主聊天与生产 A 聊天共同负责一个批次；先明确范围、文件归属和共享编辑者，不再等待 B。
 
 指定测试聊天01a153f3-2ec1-7df1-965d-fa91691cfd24使用独立已提交快照进行两路Luna提前测试；本批生产不操作其目录或游戏进程。版本边界和未覆盖内容单列，不把实体注册数当完成百分比。跨模组联动仍只在DEFERRED_MOD_INTEGRATIONS.md记录延期，真实原生功能不能放入该延期清单。
+
+测试聊天独占 docs/testing。用户已接管测试聊天后续工作，主聊天不再安排或催促测试执行。既有测试证据继续保留；后续由用户在测试聊天直接安排累计全量测试。原计划为先以 `8397254821278a42c577addcb6f1f34e53c97ebc` 固定基线按依赖顺序覆盖第0至第99批已迁功能，再在第100批统一编译产物上覆盖第0至当前批的完整回归，不逐批退回旧提交；区分未测、静态核对、运行通过、失败和阻塞，保留快照、JAR SHA256、日志、断言和复现步骤。
+
+本次组织交接时固定基线 JAR 已构建，运行用例数仍为0。测试聊天报告 Luna 任务下发通道阻塞，替补 worker 尚无实际创建证据，不能记为测试已启动。生产聊天此前临时托管测试的待执行安排已撤回，并确认从未创建或派发测试 worker；详情见 docs/testing/early-tests/worker-channel.md。当前仓库无远程地址，尚未推送。
+
+指定测试聊天此前已实际执行固定快照专服基线，21/21 required GameTest 通过；后续测试由用户直接接管，Luna 不参与，也不登记为执行者。其余结果以真实日志、断言和渲染证据为准。主聊天和两个生产聊天不运行游戏。
+
+生产 B 在停用前只读准备了 FogMachine、purebiomes 灯泡范围和既有原生调用缺口，记录在 native-closure-next-batch100-preflight.md；该文档不代表第101批已开始。生产 A 继续本批集成和审计，准备完成后再申请统一验证。

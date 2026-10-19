@@ -427,3 +427,14 @@ Benzor九页/真实三槽2/4/8经验/返还/玩家信息与黑火药门槛齐；
 用户本批明确要求指定聊天01a153f3-2ec1-7df1-965d-fa91691cfd24提前用两至三个Luna测试，覆盖旧的完整迁移前不启动游戏限制。已实际创建early_server_a和early_client_b，两份第98批8397254提交快照隔离导出，文档见docs/testing/EARLY_TEST_PLAN.md和docs/testing/early-tests/。本项目客户端/Render Preview与现有其他项目客户端错峰，记录实际运行状态，不保证尚未测量的性能。该提前测试不包含本批新代码，不替代完整代码后的最终验收。
 
 整模组仍未完整：按原154实体注册ID基线，本批接五ID后尚有八个旧ID待接：blinding_lantern_flash_ring、effigy、giant_laser_test、high_director_sopel、icidroviathan、moonoid、sentrarius、starrite。FogMachine及其他原生世界/物品/GUI链仍需闭合，注册比例不是功能完成百分比。第100批已先建parallel-batch100.md并约半分给既有生产聊天，解除本批冻结前只读准备。Git无remote，本地提交不等于远程发布。
+
+
+## 第100批最终集成验证
+
+两路迁入 Icidroviathan、Effigy、Moonoid、Starrite、HighDirectorSopel、Sentrarius、BlindingLanternFlashRing、GiantLaserTest，共46份生产交付。保完整原动画、透明层、声音、移动/目标关系、Sopel无生命伤害的真实位移语义、Sentrarius喂食结算、Effigy19 SERVER END合法尾击和Icidroviathan骑乘。内部状态持久保存并保原清除语义；食品额外掉落接原生LivingDrops列表和一次锁，保doEntityDrops及各原概率，取消事件等合理差异见REFORGED_CHANGES。
+
+三份结构NBT与Blizzard Outpost三份世界生成JSON已迁入。两Blizzard模板各保110592方块记录、66实体，Slagway保12636记录、1实体；原DataVersion、几何和外部capability载荷保留，转换命名空间、属性ID与NeoForge生成字段。只有原有真实消费者的Blizzard Outpost接自然链，Rubicon/Slagway保可用模板，不造自然入口。详见main-four100-structure-audit.json。
+
+首次统一编译因目标LivingEntity.getDimensions(Pose)为final失败；改用已核目标getDefaultDimensions(Pose)，保注册3×10、实际9×30碰撞与renderer独立三倍。修复后冻结8344份src/main输入，Java21离线compileJava/processResources统一通过2分45秒，24任务/2执行/22最新，5项既有弃用警告。交付46文件哈希和编译期间输入不变，7605份构建资源逐字节相同、2展开模板核对通过；740项已有中文值保留，新增10真键。证据main100-static-validation.json及两路最终清单；清单停笔时未编译字段由该总体验证记录更新解释，不把静态交付当游戏通过。
+
+测试聊天已由用户直接负责，主聊天不安排、不催促测试，本批没有运行游戏。整个模组尚未完成：FogMachine、RainDrum/Purifier等已证实注册与功能缺口、其他真实来源链仍需继续；旧unassigned记录需按当前动态注册刷新，实体154ID覆盖不代表全功能完成。第101批先建parallel-batch101.md，由主聊天和迁移A继续生产，迁移B停用；Luna仅用于确定性只读核对。当前无Git remote，阶段提交不等于远程发布。

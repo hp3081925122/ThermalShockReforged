@@ -80,6 +80,7 @@ public final class ThermalShockReforged {
         container.registerConfig(ModConfig.Type.COMMON, com.hp.thermalshockreforged.entity.huntress.HuntressConfig.SPEC, "thermal_shock_reforged-huntress.toml");
         container.registerConfig(ModConfig.Type.COMMON, com.hp.thermalshockreforged.entity.maiden.MaidenConfig.SPEC, "thermal_shock_reforged-maiden.toml");
         container.registerConfig(ModConfig.Type.COMMON, com.hp.thermalshockreforged.entity.ribbonblade.RibbonbladeConfig.SPEC, "thermal_shock_reforged-ribbonblade.toml");
+        container.registerConfig(ModConfig.Type.COMMON, com.hp.thermalshockreforged.entity.sopel.SopelConfig.SPEC, "thermal_shock_reforged-sopel.toml");
         ModEntities.register(bus);
         com.hp.thermalshockreforged.entity.sanctum.SanctumContent.register(bus);
         CavebloomerContent.register(bus);
@@ -162,6 +163,13 @@ public final class ThermalShockReforged {
         com.hp.thermalshockreforged.entity.teslareed.TeslaReedContent.register(bus);
         com.hp.thermalshockreforged.entity.electricsphere.ElectricSphereContent.register(bus);
         com.hp.thermalshockreforged.entity.ribbonblade.RibbonbladeContent.register(bus);
+        com.hp.thermalshockreforged.entity.icidroviathan.IcidroviathanContent.register(bus);
+        com.hp.thermalshockreforged.entity.effigy.EffigyContent.register(bus);
+        com.hp.thermalshockreforged.entity.moonoid.LunarFaunaContent.register(bus);
+        com.hp.thermalshockreforged.entity.sopel.SopelEntityContent.register(bus);
+        com.hp.thermalshockreforged.entity.sentrarius.SentrariusContent.register(bus);
+        com.hp.thermalshockreforged.entity.flashring.BlindingLanternFlashRingContent.register(bus);
+        com.hp.thermalshockreforged.entity.giantlaser.GiantLaserTestContent.register(bus);
         com.hp.thermalshockreforged.entity.beetles.BeetleContent.register(bus);
         com.hp.thermalshockreforged.entity.monolith.MonolithContent.register(bus);
         com.hp.thermalshockreforged.entity.gravers.GraverContent.register(bus);

@@ -1,0 +1,574 @@
+{
+  "batch": 100,
+  "passed_checks": 53,
+  "checks": [
+    {
+      "check": "BlindingLanternFlashRingRenderer.java：UTF8/Java语法/无Java注释",
+      "passed": true,
+      "evidence": "src\\main\\java\\com\\hp\\thermalshockreforged\\client\\flashring\\BlindingLanternFlashRingRenderer.java"
+    },
+    {
+      "check": "GiantLaserTestRenderer.java：UTF8/Java语法/无Java注释",
+      "passed": true,
+      "evidence": "src\\main\\java\\com\\hp\\thermalshockreforged\\client\\giantlaser\\GiantLaserTestRenderer.java"
+    },
+    {
+      "check": "SentrariusRenderer.java：UTF8/Java语法/无Java注释",
+      "passed": true,
+      "evidence": "src\\main\\java\\com\\hp\\thermalshockreforged\\client\\sentrarius\\SentrariusRenderer.java"
+    },
+    {
+      "check": "HighDirectorSopelRenderer.java：UTF8/Java语法/无Java注释",
+      "passed": true,
+      "evidence": "src\\main\\java\\com\\hp\\thermalshockreforged\\client\\sopel\\HighDirectorSopelRenderer.java"
+    },
+    {
+      "check": "BlindingLanternFlashRingContent.java：UTF8/Java语法/无Java注释",
+      "passed": true,
+      "evidence": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\flashring\\BlindingLanternFlashRingContent.java"
+    },
+    {
+      "check": "BlindingLanternFlashRingEntity.java：UTF8/Java语法/无Java注释",
+      "passed": true,
+      "evidence": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\flashring\\BlindingLanternFlashRingEntity.java"
+    },
+    {
+      "check": "GiantLaserTestContent.java：UTF8/Java语法/无Java注释",
+      "passed": true,
+      "evidence": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\giantlaser\\GiantLaserTestContent.java"
+    },
+    {
+      "check": "GiantLaserTestEntity.java：UTF8/Java语法/无Java注释",
+      "passed": true,
+      "evidence": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\giantlaser\\GiantLaserTestEntity.java"
+    },
+    {
+      "check": "SentrariusContent.java：UTF8/Java语法/无Java注释",
+      "passed": true,
+      "evidence": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\sentrarius\\SentrariusContent.java"
+    },
+    {
+      "check": "SentrariusEntity.java：UTF8/Java语法/无Java注释",
+      "passed": true,
+      "evidence": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\sentrarius\\SentrariusEntity.java"
+    },
+    {
+      "check": "HighDirectorSopelEntity.java：UTF8/Java语法/无Java注释",
+      "passed": true,
+      "evidence": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\sopel\\HighDirectorSopelEntity.java"
+    },
+    {
+      "check": "SopelConfig.java：UTF8/Java语法/无Java注释",
+      "passed": true,
+      "evidence": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\sopel\\SopelConfig.java"
+    },
+    {
+      "check": "SopelEntityContent.java：UTF8/Java语法/无Java注释",
+      "passed": true,
+      "evidence": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\sopel\\SopelEntityContent.java"
+    },
+    {
+      "check": "独占文件数量",
+      "passed": true,
+      "evidence": [
+        "src\\main\\java\\com\\hp\\thermalshockreforged\\client\\flashring\\BlindingLanternFlashRingRenderer.java",
+        "src\\main\\java\\com\\hp\\thermalshockreforged\\client\\giantlaser\\GiantLaserTestRenderer.java",
+        "src\\main\\java\\com\\hp\\thermalshockreforged\\client\\sentrarius\\SentrariusRenderer.java",
+        "src\\main\\java\\com\\hp\\thermalshockreforged\\client\\sopel\\HighDirectorSopelRenderer.java",
+        "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\flashring\\BlindingLanternFlashRingContent.java",
+        "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\flashring\\BlindingLanternFlashRingEntity.java",
+        "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\giantlaser\\GiantLaserTestContent.java",
+        "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\giantlaser\\GiantLaserTestEntity.java",
+        "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\sentrarius\\SentrariusContent.java",
+        "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\sentrarius\\SentrariusEntity.java",
+        "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\sopel\\HighDirectorSopelEntity.java",
+        "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\sopel\\SopelConfig.java",
+        "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\sopel\\SopelEntityContent.java"
+      ]
+    },
+    {
+      "check": "Sopel实际AST四方向传送和推移",
+      "passed": true,
+      "evidence": {
+        "0": {
+          "teleport": [
+            10.0,
+            20.0,
+            29.0
+          ],
+          "push": [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        },
+        "1": {
+          "teleport": null,
+          "push": [
+            1.0,
+            0.0,
+            0.0
+          ]
+        },
+        "2": {
+          "teleport": [
+            9.0,
+            20.0,
+            30.0
+          ],
+          "push": [
+            -1.0,
+            0.0,
+            0.0
+          ]
+        },
+        "3": {
+          "teleport": [
+            10.0,
+            20.0,
+            31.0
+          ],
+          "push": [
+            0.0,
+            0.0,
+            1.0
+          ]
+        }
+      }
+    },
+    {
+      "check": "Sopel事件直接源/归属源/无原伤",
+      "passed": true,
+      "evidence": "取消原伤且无新增生命伤害；direct检查，owner承担冷却和传送，direction1无传送"
+    },
+    {
+      "check": "Sopel冷却原归属及提交锁",
+      "passed": true,
+      "evidence": "45tick默认；正常owner自身保存/tickEffects，异常自定义living owner仅其NBT计时，非living无冷却；先CD再传送避免事件重入"
+    },
+    {
+      "check": "Sopel适中推力折抗性/有限值/运动同步",
+      "passed": true,
+      "evidence": "默认.6，Y=0；抗性0/.5/1，零强度不冻结原运动"
+    },
+    {
+      "check": "Sopel数值边界",
+      "passed": true,
+      "evidence": [
+        {
+          "strength": 0,
+          "resistance": "0",
+          "result": 0,
+          "writes_motion": false
+        },
+        {
+          "strength": 0,
+          "resistance": "0.5",
+          "result": 0.0,
+          "writes_motion": false
+        },
+        {
+          "strength": 0,
+          "resistance": "1",
+          "result": 0,
+          "writes_motion": false
+        },
+        {
+          "strength": 0,
+          "resistance": "nan",
+          "result": 0,
+          "writes_motion": false
+        },
+        {
+          "strength": 0,
+          "resistance": "inf",
+          "result": 0,
+          "writes_motion": false
+        },
+        {
+          "strength": 0.6,
+          "resistance": "0",
+          "result": 0.6,
+          "writes_motion": true
+        },
+        {
+          "strength": 0.6,
+          "resistance": "0.5",
+          "result": 0.3,
+          "writes_motion": true
+        },
+        {
+          "strength": 0.6,
+          "resistance": "1",
+          "result": 0.0,
+          "writes_motion": false
+        },
+        {
+          "strength": 0.6,
+          "resistance": "nan",
+          "result": 0.0,
+          "writes_motion": false
+        },
+        {
+          "strength": 0.6,
+          "resistance": "inf",
+          "result": 0.0,
+          "writes_motion": false
+        },
+        {
+          "strength": 2,
+          "resistance": "0",
+          "result": 2,
+          "writes_motion": true
+        },
+        {
+          "strength": 2,
+          "resistance": "0.5",
+          "result": 1.0,
+          "writes_motion": true
+        },
+        {
+          "strength": 2,
+          "resistance": "1",
+          "result": 0,
+          "writes_motion": false
+        },
+        {
+          "strength": 2,
+          "resistance": "nan",
+          "result": 0,
+          "writes_motion": false
+        },
+        {
+          "strength": 2,
+          "resistance": "inf",
+          "result": 0,
+          "writes_motion": false
+        }
+      ]
+    },
+    {
+      "check": "Sopel完整Boss属性/AI/死亡",
+      "passed": true,
+      "evidence": "HP450/甲12/基础3/速0/step1/XP10000；只Player+16格近战，无增造AI/阶段/爆炸；60tick延迟XP继承既有基类"
+    },
+    {
+      "check": "Sopel配置/存档不回血",
+      "passed": true,
+      "evidence": "Boss属性与推力/CD可配；旧实体读档保血量；内部CD存档"
+    },
+    {
+      "check": "Sentrarius喂食实际主手/消费/副手交互/创造规则",
+      "passed": true,
+      "evidence": "从库存/制作格/光标搜索消费一骨；手判定始终主手、无创造豁免，副手交互不改条件；服务端权威"
+    },
+    {
+      "check": "Sentrarius固定一份后独立20%第二物品",
+      "passed": true,
+      "evidence": "两独立ItemEntity，不合并数量；STEM_PLACE 1/2；无掉落gamerule/回血或骨块喂食"
+    },
+    {
+      "check": "Sentrarius喂食与清除状态实际阶段",
+      "passed": true,
+      "evidence": "逐tickEffects递减，正常30刻，removeAllEffects先消费再产出；不添加死亡强制结算；原无cure"
+    },
+    {
+      "check": "死亡期间喂食时序边界",
+      "passed": true,
+      "evidence": "源码核LivingEntity baseTick先tickDeath再tickEffects；原1.20.1 remove不清效果，20末帧仍走更新。静态模型：[{'feeding_when_dying': 1, 'finish_tick': [1], 'expires_before_removed': True}, {'feeding_when_dying': 19, 'finish_tick': [19], 'expires_before_removed': True}, {'feeding_when_dying': 20, 'finish_tick': [20], 'expires_before_removed': True}, {'feeding_when_dying': 21, 'finish_tick': [], 'expires_before_removed': False}, {'feeding_when_dying': 30, 'finish_tick': [], 'expires_before_removed': False}]"
+    },
+    {
+      "check": "Sentrarius全部AI与属性",
+      "passed": true,
+      "evidence": "六goal原优先级1..6和参数，不加战斗AI，不永久；原虫类由共享标签保附魔"
+    },
+    {
+      "check": "Sentrarius底部原两方块placement",
+      "passed": true,
+      "evidence": "不额外添加光照/和平/天空/碰撞门槛"
+    },
+    {
+      "check": "HighDirectorSopelEntity.java局部NBT键对称",
+      "passed": true,
+      "evidence": [
+        "SopelCooldown"
+      ]
+    },
+    {
+      "check": "SentrariusEntity.java局部NBT键对称",
+      "passed": true,
+      "evidence": [
+        "SentrariusExperienceAttacker",
+        "SentrariusExperiencePending",
+        "SentrariusFeeding",
+        "Texture"
+      ]
+    },
+    {
+      "check": "BlindingLanternFlashRingEntity.java局部NBT键对称",
+      "passed": true,
+      "evidence": [
+        "FlashRingInitialized",
+        "FlashRingRemaining"
+      ]
+    },
+    {
+      "check": "原JAR空OnTick/未读取selector/FlashRing10END",
+      "passed": true,
+      "evidence": "字节码防反编译误判；selector死写不补四技能；环只有延迟discard"
+    },
+    {
+      "check": "Sentrarius自然/掉落JSON逐结构等价",
+      "passed": true,
+      "evidence": {
+        "spawns": {
+          "type": "neoforge:add_spawns",
+          "biomes": [
+            "thermal_shock_reforged:stardust_garden",
+            "thermal_shock_reforged:borean_tundra"
+          ],
+          "spawners": {
+            "type": "thermal_shock_reforged:sentrarius",
+            "weight": 80,
+            "minCount": 1,
+            "maxCount": 2
+          }
+        },
+        "loot": {
+          "type": "minecraft:entity",
+          "pools": [
+            {
+              "rolls": 1,
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "thermal_shock_reforged:raw_sentrapede",
+                  "weight": 1,
+                  "functions": [
+                    {
+                      "function": "set_count",
+                      "count": {
+                        "min": 2,
+                        "max": 4
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "rolls": 1,
+              "entries": [
+                {
+                  "type": "minecraft:item",
+                  "name": "thermal_shock_reforged:silver_sentrapede_hide",
+                  "weight": 1,
+                  "functions": [
+                    {
+                      "function": "set_count",
+                      "count": {
+                        "min": 0,
+                        "max": 2
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "random_sequence": "thermal_shock_reforged:entities/sentrarius"
+        }
+      }
+    },
+    {
+      "check": "FlashRing有限10END/finalize/加载状态",
+      "passed": true,
+      "evidence": "finalize才arm，加入成功后当前END处理，10次消耗；构造/add无finalize不凭空计寿命；save/load剩余，不重放初始化"
+    },
+    {
+      "check": "FlashRing真实END终止分支AST",
+      "passed": true,
+      "evidence": {
+        "original_queue_END": 10,
+        "target_END": 10,
+        "max_saved_remaining": 10
+      }
+    },
+    {
+      "check": "FlashRing原物理/导航/免疫/无新技能",
+      "passed": true,
+      "evidence": "真Monster及MONSTER分类，无重力/不推/无Fall；无盲目补致盲/伤害/光照/攻击"
+    },
+    {
+      "check": "BlindingLanternFlashRingEntity.java原免疫精确清单",
+      "passed": true,
+      "evidence": [
+        "IN_FIRE",
+        "FALL",
+        "CACTUS",
+        "DROWN",
+        "LIGHTNING_BOLT",
+        "EXPLOSION",
+        "TRIDENT",
+        "FALLING_ANVIL",
+        "DRAGON_BREATH",
+        "WITHER",
+        "WITHER_SKULL"
+      ]
+    },
+    {
+      "check": "GiantLaserTestEntity.java原免疫精确清单",
+      "passed": true,
+      "evidence": [
+        "IN_FIRE",
+        "FALL",
+        "CACTUS",
+        "DROWN",
+        "LIGHTNING_BOLT",
+        "EXPLOSION",
+        "TRIDENT",
+        "FALLING_ANVIL",
+        "DRAGON_BREATH",
+        "WITHER",
+        "WITHER_SKULL"
+      ]
+    },
+    {
+      "check": "GiantLaser分类/Java基类/碰撞/重力/跟踪",
+      "passed": true,
+      "evidence": "运行碰撞9×30、renderer另scale3；不换Monster父类，不增寿命/raycast/激光伤害，重力保原"
+    },
+    {
+      "check": "GiantLaser renderer独立scale3",
+      "passed": true,
+      "evidence": "原实体碰撞scale3和渲染scale3分开保留"
+    },
+    {
+      "check": "Luna注册/真蛋/递归NBT盘点",
+      "passed": true,
+      "evidence": "四真实实体、一真实蛋；无四ID嵌套NBT；不依据闲置语言键造蛋"
+    },
+    {
+      "check": "16份复用资产最终SHA与原盘点一致",
+      "passed": true,
+      "evidence": "14模型/动画/贴图/光层 + 蛋PNG字节同原；蛋模型只namespace转换"
+    },
+    {
+      "check": "HighDirectorSopelEntity.java实际动画clip",
+      "passed": true,
+      "evidence": {
+        "original_valid_clips": [
+          "idle",
+          "idle2",
+          "dash"
+        ],
+        "note": "Sopel idle/dash原未触发，保clip及可用trigger但不强加攻击动画"
+      }
+    },
+    {
+      "check": "SentrariusEntity.java实际动画clip",
+      "passed": true,
+      "evidence": {
+        "original_valid_clips": [
+          "idle",
+          "walk",
+          "bite"
+        ],
+        "note": "Sopel idle/dash原未触发，保clip及可用trigger但不强加攻击动画"
+      }
+    },
+    {
+      "check": "BlindingLanternFlashRingEntity.java实际动画clip",
+      "passed": true,
+      "evidence": {
+        "original_valid_clips": [
+          "spinburst"
+        ],
+        "note": "Sopel idle/dash原未触发，保clip及可用trigger但不强加攻击动画"
+      }
+    },
+    {
+      "check": "GiantLaserTestEntity.java实际动画clip",
+      "passed": true,
+      "evidence": {
+        "original_valid_clips": [
+          "idle"
+        ],
+        "note": "Sopel idle/dash原未触发，保clip及可用trigger但不强加攻击动画"
+      }
+    },
+    {
+      "check": "HighDirectorSopelRenderer.java透明/阴影/发光",
+      "passed": true,
+      "evidence": {
+        "shadow": ".5F",
+        "glow": "sopelglow"
+      }
+    },
+    {
+      "check": "SentrariusRenderer.java透明/阴影/发光",
+      "passed": true,
+      "evidence": {
+        "shadow": ".5F",
+        "glow": null
+      }
+    },
+    {
+      "check": "BlindingLanternFlashRingRenderer.java透明/阴影/发光",
+      "passed": true,
+      "evidence": {
+        "shadow": "0",
+        "glow": "yellow_light_flash"
+      }
+    },
+    {
+      "check": "GiantLaserTestRenderer.java透明/阴影/发光",
+      "passed": true,
+      "evidence": {
+        "shadow": "0",
+        "glow": "giantbeacon"
+      }
+    },
+    {
+      "check": "Sopel死亡旋转0",
+      "passed": true,
+      "evidence": "其余原默认旋转不覆盖"
+    },
+    {
+      "check": "共享增量与既有GUI闭合",
+      "passed": true,
+      "evidence": "4处Java、4标签、zh5真键；DeskDirector七页既有链，不重复创建或误连实体"
+    },
+    {
+      "check": "内部状态无假药水/命令/全局延迟",
+      "passed": true,
+      "evidence": "自身保存feeding/CD，FlashRing复用有限END调度；真实免疫/动画/产物保留"
+    },
+    {
+      "check": "15份生产文件diff whitespace验证",
+      "passed": true,
+      "evidence": [
+        "src/main/java/com/hp/thermalshockreforged/client/flashring/BlindingLanternFlashRingRenderer.java",
+        "src/main/java/com/hp/thermalshockreforged/client/giantlaser/GiantLaserTestRenderer.java",
+        "src/main/java/com/hp/thermalshockreforged/client/sentrarius/SentrariusRenderer.java",
+        "src/main/java/com/hp/thermalshockreforged/client/sopel/HighDirectorSopelRenderer.java",
+        "src/main/java/com/hp/thermalshockreforged/entity/flashring/BlindingLanternFlashRingContent.java",
+        "src/main/java/com/hp/thermalshockreforged/entity/flashring/BlindingLanternFlashRingEntity.java",
+        "src/main/java/com/hp/thermalshockreforged/entity/giantlaser/GiantLaserTestContent.java",
+        "src/main/java/com/hp/thermalshockreforged/entity/giantlaser/GiantLaserTestEntity.java",
+        "src/main/java/com/hp/thermalshockreforged/entity/sentrarius/SentrariusContent.java",
+        "src/main/java/com/hp/thermalshockreforged/entity/sentrarius/SentrariusEntity.java",
+        "src/main/java/com/hp/thermalshockreforged/entity/sopel/HighDirectorSopelEntity.java",
+        "src/main/java/com/hp/thermalshockreforged/entity/sopel/SopelConfig.java",
+        "src/main/java/com/hp/thermalshockreforged/entity/sopel/SopelEntityContent.java",
+        "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/sentrarius_biome_modifier.json",
+        "src/main/resources/data/thermal_shock_reforged/loot_table/entities/sentrarius.json"
+      ]
+    }
+  ],
+  "compiled": false,
+  "server_tested": false,
+  "client_tested": false,
+  "render_preview_tested": false,
+  "limitations": "静态AST/字节码/数值模型/资源等价核对，不冒充编译或游戏验证；按本路约定主线统一验证。"
+}

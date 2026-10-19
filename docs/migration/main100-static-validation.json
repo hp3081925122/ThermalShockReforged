@@ -1,0 +1,37 @@
+{
+  "batch": 100,
+  "validation_scope": "frozen production delivery hashes and built resource fidelity; not runtime tests",
+  "frozen_inputs": 8344,
+  "delivery_files": 46,
+  "byte_equal_resources": 7605,
+  "expanded_templates": 2,
+  "peer_production_changes": [],
+  "existing_zh_values_preserved": 740,
+  "new_zh_keys": [
+    "entity.thermal_shock_reforged.blinding_lantern_flash_ring",
+    "entity.thermal_shock_reforged.effigy",
+    "entity.thermal_shock_reforged.giant_laser_test",
+    "entity.thermal_shock_reforged.high_director_sopel",
+    "entity.thermal_shock_reforged.icidroviathan",
+    "entity.thermal_shock_reforged.moonoid",
+    "entity.thermal_shock_reforged.sentrarius",
+    "entity.thermal_shock_reforged.starrite",
+    "item.thermal_shock_reforged.effigy_spawn_egg",
+    "item.thermal_shock_reforged.sentrarius_spawn_egg"
+  ],
+  "errors": [],
+  "passed": true,
+  "build": {
+    "command": "gradlew.bat compileJava processResources --offline --max-workers=2 --console=plain",
+    "java": "21",
+    "exit_code": 0,
+    "duration_seconds": 165,
+    "tasks": 24,
+    "executed": 2,
+    "up_to_date": 22,
+    "warnings": 5,
+    "log": "D:\\AI临时文件\\ThermalShockMigration\\batch100-unified-build.log",
+    "log_sha256": "15ef80b52b1b461b0bd0de69686012673f9281964f2b9d996e9e5e9938aa582c",
+    "initial_attempt": "failed: getDimensions(Pose) final; corrected to getDefaultDimensions(Pose) preserving dimensions"
+  }
+}

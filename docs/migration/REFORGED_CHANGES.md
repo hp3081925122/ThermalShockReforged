@@ -190,3 +190,10 @@ Qo集成保全世界共享剧情、真实16页与奖励链，服务端验证同�
 - Maiden以原生dead确认死亡提交，死亡被取消时不误播完整爆炸；保留真实STUNNED护盾及全部死亡时序。
 - 施法者移除后的尾箭通过已核LegacyArrow完整附加数据往返保留原Owner UUID，再设置技能参数，不捕获已移除实体强引用。
 - BenzorHome完整原生世界生成和Maiden四群系自然来源闭合；Structure Gel能力数据保留为证据，联动单独延期。
+
+## 第100批主线四实体与结构
+
+- GiantLaser在1.21.1不能覆盖已为final的getDimensions(Pose)，改用原生getDefaultDimensions(Pose)扩展入口继续三倍缩放；保留EntityType注册尺寸3×10、默认实际碰撞尺寸9×30及renderer的withScale(3)，由原生最终入口继续处理实体缩放属性。
+- Effigy原LivingAttack过程会取消Effigy作为攻击源的攻击，再以19个服务端END延迟结算`8 - armor * 0.6`。目标改为注册的独立EffigyStrikeEntity，保存施法者/目标UUID、伤害快照、倒计时和声音位置；同一施法者的多个合法任务分别跟踪，施法者移除后保留已提交阶段。
+- Icidroviathan非Mantleslag地面减速保留原5tick等级3隐形缓慢的`.15F`倍率和尾时长，改为局部属性修正；骑乘控制使用实际第一乘客与原生tickRidden/travel入口。
+- Blizzard Outpost按原structure、structure_set、template_pool链接入；三份NBT只转换目标命名空间、`forge:spawn_type`到`neoforge:spawn_type`及旧重力/台阶属性ID，保DataVersion3465、几何、位置、库存和外部cap载荷。Rubicon与Slagway没有原结构入口或Java消费者，保留模板但不新增生成概率。
