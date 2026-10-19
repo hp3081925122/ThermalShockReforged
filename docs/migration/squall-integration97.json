@@ -1,0 +1,93 @@
+{
+  "batch": 97,
+  "apply_by_main_chat_only": true,
+  "java_insertions": [
+    {
+      "file": "src/main/java/com/hp/thermalshockreforged/ThermalShockReforged.java",
+      "operation": "insert_after",
+      "anchor": "        com.hp.thermalshockreforged.content.reactor.ReactorContent.register(bus);",
+      "insert": "\n        com.hp.thermalshockreforged.entity.squall.SquallContent.register(bus);"
+    },
+    {
+      "file": "src/main/java/com/hp/thermalshockreforged/ThermalShockReforged.java",
+      "operation": "insert_after",
+      "anchor": "        container.registerConfig(ModConfig.Type.COMMON, com.hp.thermalshockreforged.entity.gravers.GraverConfig.SPEC, \"thermal_shock_reforged-gravers.toml\");",
+      "insert": "\n        container.registerConfig(ModConfig.Type.COMMON, com.hp.thermalshockreforged.entity.squall.SquallConfig.SPEC, \"thermal_shock_reforged-squall.toml\");"
+    },
+    {
+      "file": "src/main/java/com/hp/thermalshockreforged/client/ClientEvents.java",
+      "operation": "insert_after",
+      "anchor": "        com.hp.thermalshockreforged.client.gaze.GazeRenderers.register(event);",
+      "insert": "\n        com.hp.thermalshockreforged.client.squall.SquallRenderers.register(event);"
+    },
+    {
+      "file": "src/main/java/com/hp/thermalshockreforged/client/ClientEvents.java",
+      "operation": "insert_after",
+      "anchor": "        com.hp.thermalshockreforged.client.gaze.GazeRenderers.particles(event);",
+      "insert": "\n        com.hp.thermalshockreforged.client.squall.SquallRenderers.particles(event);"
+    },
+    {
+      "file": "src/main/java/com/hp/thermalshockreforged/world/WorldProgressData.java",
+      "operation": "insert_after",
+      "anchor": "    private volatile boolean altarUnlocked;",
+      "insert": "\n    private volatile boolean squallSpawn = true;"
+    },
+    {
+      "file": "src/main/java/com/hp/thermalshockreforged/world/WorldProgressData.java",
+      "operation": "insert_after",
+      "anchor": "    public boolean altarUnlocked() { return altarUnlocked; }",
+      "insert": "\n    public boolean squallSpawn() { return squallSpawn; }"
+    },
+    {
+      "file": "src/main/java/com/hp/thermalshockreforged/world/WorldProgressData.java",
+      "operation": "insert_after",
+      "anchor": "        data.altarUnlocked = tag.getBoolean(\"AltarUnlocked\");",
+      "insert": "\n        data.squallSpawn = !tag.contains(\"SquallSpawn\") || tag.getBoolean(\"SquallSpawn\");"
+    },
+    {
+      "file": "src/main/java/com/hp/thermalshockreforged/world/WorldProgressData.java",
+      "operation": "insert_after",
+      "anchor": "        tag.putBoolean(\"AltarUnlocked\", altarUnlocked);",
+      "insert": "\n        tag.putBoolean(\"SquallSpawn\", squallSpawn);"
+    }
+  ],
+  "language_merge": {
+    "en_us": {
+      "message.thermal_shock_reforged.squall_seek_light": "SEEK THE LIGHT!"
+    },
+    "zh_cn": {
+      "entity.thermal_shock_reforged.squall": "飑",
+      "item.thermal_shock_reforged.squall_spawn_egg": "飑刷怪蛋",
+      "message.thermal_shock_reforged.squall_seek_light": "寻找光亮！",
+      "advancements.squall_get.title": "压——压——压力山大！",
+      "advancements.squall_get.descr": "遭遇飑，你没带火把吗？",
+      "advancements.squall_kill_get.title": "要有光！",
+      "advancements.squall_kill_get.descr": "不喝牛奶击败飑"
+    }
+  },
+  "tag_merge": [
+    {
+      "file": "src/main/resources/data/thermal_shock_reforged/tags/entity_type/infectionimmune.json",
+      "append_unique": [
+        "thermal_shock_reforged:squall"
+      ]
+    },
+    {
+      "file": "src/main/resources/data/thermal_shock_reforged/tags/entity_type/sprintweed_blacklist.json",
+      "append_unique": [
+        "thermal_shock_reforged:squall"
+      ]
+    },
+    {
+      "file": "src/main/resources/data/minecraft/tags/entity_type/can_breathe_under_water.json",
+      "append_unique": [
+        "thermal_shock_reforged:squall"
+      ]
+    }
+  ],
+  "public_reactor_contract": "com.hp.thermalshockreforged.entity.squall.SquallContent.SQUALL",
+  "creative_camera": "现有真实squall_spawn_egg清单和CameraCatalog squall条目自动闭合，无新增条目",
+  "world_progress_semantics": "主世界共享、默认true、显式false保留；原无游戏写入入口；目标已有存档缺SquallSpawn字段按新增默认true，不造反应堆或击杀解锁",
+  "dependencies": "反应堆最终阶段及模板只由主线拥有；原FogMachine消费者尚未迁，粒子本身已完整注册",
+  "followup_audit": "原getMyRidingOffset是乘客自身偏移，1.21.1应映射getVehicleAttachmentPoint的反号，不是载具getPassengerAttachmentPoint。Squall已按旧-0.35映射自身VEHICLE +0.35；其他批次同类迁移需主线另审，未修改他人文件。"
+}

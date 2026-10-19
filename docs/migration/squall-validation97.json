@@ -1,0 +1,83 @@
+{
+  "batch": 97,
+  "status": "静态核对通过；未编译、未启动游戏；共享补丁未应用",
+  "checks": {
+    "java_ast_utf8_no_comments": 6,
+    "bright_cancels_at_victim_block11_dark_keeps_vanilla_damage": true,
+    "actual_ast_vs_original_queue": {
+      "single_pulses": 60,
+      "last_end": 58,
+      "overlap_cases": [
+        [
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          20,
+          40
+        ],
+        [
+          0,
+          58,
+          59,
+          60
+        ]
+      ],
+      "overlap_semantics": "同一运动阶段只覆盖同一multiplier，合并重复脉冲并保最长窗口"
+    },
+    "save_key_symmetry_and_last_pulse_persistence": [
+      "SquallDeathAwarded",
+      "SquallRemainingPulses",
+      "SquallStuckX",
+      "SquallStuckY",
+      "SquallStuckZ"
+    ],
+    "caretaker_bbox_modes_death_particles_and_original_motion": true,
+    "exact_immunity_set_riding_offset_and_natural_despawn": [
+      "CACTUS",
+      "DRAGON_BREATH",
+      "DROWN",
+      "EXPLOSION",
+      "FALL",
+      "FALLING_ANVIL",
+      "IN_FIRE",
+      "LIGHTNING_BOLT",
+      "PLAYER_EXPLOSION",
+      "WITHER",
+      "WITHER_SKULL"
+    ],
+    "native_melee_knockback_examples": {
+      "0": 0.3,
+      "0.5": 0.15,
+      "1": 0.0
+    },
+    "renderer_layers_and_aaa_expiry_tick_emission": 2,
+    "resource_hashes_biomes_advancement_parents_aaa_dependencies": {
+      "assets": 13,
+      "data": 3,
+      "advancement_ids": [
+        "thermal_shock_reforged:borean_forest_advancement",
+        "thermal_shock_reforged:borean_tundra_advancement",
+        "thermal_shock_reforged:loqendia_get",
+        "thermal_shock_reforged:squall_get",
+        "thermal_shock_reforged:squall_kill_get"
+      ]
+    },
+    "shared_patch_anchors_and_individual_ast_validation": "8 Java insertions, 3 tag merges; not applied",
+    "diff_check_owned_production": 9
+  },
+  "not_run": [
+    "Gradle compilation",
+    "dedicated server",
+    "client",
+    "Render Preview"
+  ],
+  "remaining": [
+    "主线应用共享补丁并固定输入统一编译",
+    "整个模组迁移完整后，由子代理执行全部服务端/客户端验收及Render Preview原版对照"
+  ]
+}

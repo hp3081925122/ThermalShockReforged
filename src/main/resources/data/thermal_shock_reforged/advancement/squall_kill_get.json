@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "id": "thermal_shock_reforged:squall_spawn_egg"
+    },
+    "title": {
+      "translate": "advancements.squall_kill_get.title"
+    },
+    "description": {
+      "translate": "advancements.squall_kill_get.descr"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "squall_kill_get_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 10000
+  },
+  "parent": "thermal_shock_reforged:squall_get"
+}

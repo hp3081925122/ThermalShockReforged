@@ -1,0 +1,91 @@
+{
+  "base_head": "081fc33ddcda1e95844306792f328d7a4d6de1bc",
+  "source_inputs_verified": 8240,
+  "compile": [
+    "BUILD SUCCESSFUL in 1m 6s",
+    "24 actionable tasks: 2 executed, 22 up-to-date"
+  ],
+  "resource_refresh": {
+    "reason": "仅已触碰英文tooltip行的CRLF转LF；JSON值和全部Java编译输入保持不变",
+    "changed_after_first_compile": [
+      "src/main/resources/assets/thermal_shock_reforged/lang/en_us.json"
+    ],
+    "result": [
+      "BUILD SUCCESSFUL in 47s"
+    ]
+  },
+  "build_resource_byte_matches": 7574,
+  "expanded_templates": 2,
+  "reactor": {
+    "assets": 13,
+    "data": 3,
+    "template": {
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/stratusreactorspire.nbt",
+      "size": [
+        21,
+        49,
+        21
+      ],
+      "blocks": 21609,
+      "entities": 0,
+      "palette": 4,
+      "conversions": {},
+      "sha256": "9902e81e2cf274c23155e702fe4252df4dc0342452ba1182c217afe2ccdcb6b0",
+      "original_json_or_class_name_references": 0,
+      "natural_generation_added": false,
+      "block_positions_states_and_palette_preserved": true,
+      "block_ids": [
+        "minecraft:air",
+        "thermal_shock_reforged:dark_frostrock",
+        "thermal_shock_reforged:dark_frostrock_block",
+        "thermal_shock_reforged:dark_frostrock_bricks"
+      ]
+    },
+    "source_evidence": "reactor-resources97.json",
+    "manual_behavior_evidence": "reactor-batch97.md",
+    "production_sha256": {
+      "src/main/java/com/hp/thermalshockreforged/content/reactor/ReactorContent.java": "4e373ac7b6b2c4387148b62acaf1a76c5b9bf926b2bde03aa28beb20b7514932",
+      "src/main/java/com/hp/thermalshockreforged/content/reactor/ReactorCoreBlockEntity.java": "872d23c1d9a36152ba64ee66866b2efbb9f2611992b5918ddf449a41b96b00dd",
+      "src/main/java/com/hp/thermalshockreforged/content/reactor/ReactorSequenceEntity.java": "8648d928c95dafc9033bbb2c3f6e9a86d757c6e9974d44adc0b6ab1475f77dac",
+      "src/main/java/com/hp/thermalshockreforged/content/reactor/StratusReactorCoreBlock.java": "b89d70bd7e85dae7c0300dfe55a418d8069d74934f422dc0386520e730eac25a"
+    }
+  },
+  "squall_delivery_sha256": {
+    "src/main/java/com/hp/thermalshockreforged/client/squall/SquallRenderer.java": "7dbbb1c2827e5689a852626834d6e98f6a1eb1d5a944d67b421207b573a3943a",
+    "src/main/java/com/hp/thermalshockreforged/client/squall/SquallRenderers.java": "4f30c3a32fb09b86d23450b24a3b453172abc26fd71df67a1c141e7e58acb61e",
+    "src/main/java/com/hp/thermalshockreforged/client/squall/SquallVisageParticle.java": "18279060ea95c41ee5d64b820da4917b86b64e1a5be9c193a8369159b58698e8",
+    "src/main/java/com/hp/thermalshockreforged/entity/squall/SquallConfig.java": "a3921de8ac35581ede3367fe7c331816ffaec4b8a767dd0c8a9acdc1d394ebe0",
+    "src/main/java/com/hp/thermalshockreforged/entity/squall/SquallContent.java": "32d72ad50bddbe12e5e61fb18f76aa840e34d4ee46ec1c9a34a28ca5d42584d0",
+    "src/main/java/com/hp/thermalshockreforged/entity/squall/SquallEntity.java": "a5379c2cb67fc0e2ee5d1119daf662865210a743e205e82e1d8504caa1ebdaef",
+    "src/main/resources/data/thermal_shock_reforged/advancement/squall_get.json": "ab5d80282a6d02b4e3b563dfe17402d58ab63e42dd2da805b69517f38d31ca62",
+    "src/main/resources/data/thermal_shock_reforged/advancement/squall_kill_get.json": "284bfdd9babce889fa663a023ec6c2a067c4518a366790259ac63e56bd8166bd",
+    "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/squall_biome_modifier.json": "5cc2bc91e0a2308029d39d2aa691bcdbe07738b6a3784aa0cf85f8ad82f0c280"
+  },
+  "squall_final_sha256": {
+    "src/main/java/com/hp/thermalshockreforged/client/squall/SquallRenderer.java": "7dbbb1c2827e5689a852626834d6e98f6a1eb1d5a944d67b421207b573a3943a",
+    "src/main/java/com/hp/thermalshockreforged/client/squall/SquallRenderers.java": "4f30c3a32fb09b86d23450b24a3b453172abc26fd71df67a1c141e7e58acb61e",
+    "src/main/java/com/hp/thermalshockreforged/client/squall/SquallVisageParticle.java": "18279060ea95c41ee5d64b820da4917b86b64e1a5be9c193a8369159b58698e8",
+    "src/main/java/com/hp/thermalshockreforged/entity/squall/SquallConfig.java": "a3921de8ac35581ede3367fe7c331816ffaec4b8a767dd0c8a9acdc1d394ebe0",
+    "src/main/java/com/hp/thermalshockreforged/entity/squall/SquallContent.java": "32d72ad50bddbe12e5e61fb18f76aa840e34d4ee46ec1c9a34a28ca5d42584d0",
+    "src/main/java/com/hp/thermalshockreforged/entity/squall/SquallEntity.java": "a5379c2cb67fc0e2ee5d1119daf662865210a743e205e82e1d8504caa1ebdaef",
+    "src/main/resources/data/thermal_shock_reforged/advancement/squall_get.json": "ab5d80282a6d02b4e3b563dfe17402d58ab63e42dd2da805b69517f38d31ca62",
+    "src/main/resources/data/thermal_shock_reforged/advancement/squall_kill_get.json": "284bfdd9babce889fa663a023ec6c2a067c4518a366790259ac63e56bd8166bd",
+    "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/squall_biome_modifier.json": "5cc2bc91e0a2308029d39d2aa691bcdbe07738b6a3784aa0cf85f8ad82f0c280"
+  },
+  "squall_compile_repairs": [],
+  "language": {
+    "en_us": {
+      "old_values_preserved": 3285,
+      "intentional_changes": {
+        "block.thermal_shock_reforged.stratus_reactor_core.description_0": "§7Right click inside a properly built Reactor to summon a horde of enemies"
+      },
+      "added": 1
+    },
+    "zh_cn": {
+      "old_values_preserved": 564,
+      "intentional_changes": {},
+      "added": 14
+    }
+  },
+  "runtime": "全模组完整前未启动游戏；最终子代理专服/客户端/Render Preview待验"
+}

@@ -1,0 +1,38 @@
+{
+  "display": {
+    "icon": {
+      "id": "thermal_shock_reforged:squall_spawn_egg"
+    },
+    "title": {
+      "translate": "advancements.squall_get.title"
+    },
+    "description": {
+      "translate": "advancements.squall_get.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "squall_get_0": {
+      "trigger": "minecraft:entity_hurt_player",
+      "conditions": {
+        "damage": {
+          "taken": {
+            "min": 0,
+            "max": 90
+          },
+          "source_entity": {
+            "type": "thermal_shock_reforged:squall"
+          },
+          "blocked": false
+        }
+      }
+    }
+  },
+  "rewards": {
+    "experience": 10
+  },
+  "parent": "thermal_shock_reforged:borean_tundra_advancement"
+}

@@ -1,0 +1,230 @@
+{
+  "batch": 97,
+  "original_jar_sha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436",
+  "sources": [
+    {
+      "path": "readable/net/mcreator/thermal_shock/entity/SquallEntity.java",
+      "sha256": "7f848db857a74757e3b23b2aed1d4c39d1465d8e64e9dd8f7649116a5ed42021"
+    },
+    {
+      "path": "readable/net/mcreator/thermal_shock/procedures/CaretakerOnEntityTickUpdateProcedure.java",
+      "sha256": "563c8dcbc4c8fac6e1b7aa9cf515c038e790b12bd49136782fe3bd98aa5eb65a"
+    },
+    {
+      "path": "readable/net/mcreator/thermal_shock/procedures/SquallAttackProcedure.java",
+      "sha256": "597897e140f4e55fca4b89a19dff7816426f2d3919ed3bd5f49f8339e1f17e01"
+    },
+    {
+      "path": "readable/net/mcreator/thermal_shock/procedures/SquallEntityDiesProcedure.java",
+      "sha256": "1e78ca4edd9330176b70c737343168df2d95e38add027d4427e6bf3de1d5fc2e"
+    },
+    {
+      "path": "readable/net/mcreator/thermal_shock/procedures/SquallNaturalEntitySpawningConditionProcedure.java",
+      "sha256": "fa7dab7d08f863f1928b52458d67623802e845e80535dda08551e44d8b8eb40b"
+    },
+    {
+      "path": "readable/net/mcreator/thermal_shock/network/ThermalShockModVariables.java",
+      "sha256": "e9681e0177749c59ce51fe03a452e8b450db9d9dbb0b1bf31b20c8ed330f4289"
+    },
+    {
+      "path": "readable/net/mcreator/thermal_shock/client/renderer/SquallRenderer.java",
+      "sha256": "b33dce143bfc4472d6e796020354ee64f364939d9bbbe61738019725785e9b7b"
+    },
+    {
+      "path": "readable/net/mcreator/thermal_shock/client/particle/SquallSmokeParticle.java",
+      "sha256": "11a670bb8e3c22879cf94ec3df715911cf12d569650a6255787a1f52f6a78ca5"
+    },
+    {
+      "path": "readable/net/mcreator/thermal_shock/client/particle/SquallVisageParticle.java",
+      "sha256": "c1e0aa7ea3c6883ab4628e62c0ef2320e587c3d96f59e1b1926188b3cc8af69f"
+    }
+  ],
+  "new_data": [
+    {
+      "original": "data/thermal_shock/forge/biome_modifier/squall_biome_modifier.json",
+      "original_sha256": "4ed2e3cafd784641d18a3a23f346308c15ac5afce2b3703ce9bf2a26c67809bf",
+      "target": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/squall_biome_modifier.json",
+      "target_sha256": "5cc2bc91e0a2308029d39d2aa691bcdbe07738b6a3784aa0cf85f8ad82f0c280",
+      "equivalent_after_conversion": true
+    },
+    {
+      "original": "data/thermal_shock/advancements/squall_get.json",
+      "original_sha256": "38a33947a5e20f8de7d1f426c2bfbd18d2a8eb408e2703a95c55ec3c0f01824a",
+      "target": "src/main/resources/data/thermal_shock_reforged/advancement/squall_get.json",
+      "target_sha256": "ab5d80282a6d02b4e3b563dfe17402d58ab63e42dd2da805b69517f38d31ca62",
+      "equivalent_after_conversion": true
+    },
+    {
+      "original": "data/thermal_shock/advancements/squall_kill_get.json",
+      "original_sha256": "eb02d0cf0cb0ca26ec82351de41a4b1ebdeb2a228b983bd30c170e0ea133b3d9",
+      "target": "src/main/resources/data/thermal_shock_reforged/advancement/squall_kill_get.json",
+      "target_sha256": "284bfdd9babce889fa663a023ec6c2a067c4518a366790259ac63e56bd8166bd",
+      "equivalent_after_conversion": true
+    }
+  ],
+  "advancement_parent_closure": {
+    "thermal_shock_reforged:squall_get": {
+      "id": "thermal_shock_reforged:squall_get",
+      "path": "src/main/resources/data/thermal_shock_reforged/advancement/squall_get.json",
+      "sha256": "ab5d80282a6d02b4e3b563dfe17402d58ab63e42dd2da805b69517f38d31ca62",
+      "parent": "thermal_shock_reforged:borean_tundra_advancement",
+      "icon": {
+        "id": "thermal_shock_reforged:squall_spawn_egg"
+      }
+    },
+    "thermal_shock_reforged:borean_tundra_advancement": {
+      "id": "thermal_shock_reforged:borean_tundra_advancement",
+      "path": "src/main/resources/data/thermal_shock_reforged/advancement/borean_tundra_advancement.json",
+      "sha256": "346d8f380d50072895e1a56361de835a1dafc5450b47ff2293bfe9632fbf7846",
+      "parent": "thermal_shock_reforged:borean_forest_advancement",
+      "icon": {
+        "id": "thermal_shock_reforged:snowy_shale"
+      }
+    },
+    "thermal_shock_reforged:borean_forest_advancement": {
+      "id": "thermal_shock_reforged:borean_forest_advancement",
+      "path": "src/main/resources/data/thermal_shock_reforged/advancement/borean_forest_advancement.json",
+      "sha256": "078202705f0787c1f589d4d444a50d556102e8e91fcfe79480901240b90f59ad",
+      "parent": "thermal_shock_reforged:loqendia_get",
+      "icon": {
+        "id": "thermal_shock_reforged:ochre_log"
+      }
+    },
+    "thermal_shock_reforged:loqendia_get": {
+      "id": "thermal_shock_reforged:loqendia_get",
+      "path": "src/main/resources/data/thermal_shock_reforged/advancement/loqendia_get.json",
+      "sha256": "00db950c339409da712f5dd5473fd83118796357566beb4d4c17d107f8520f09",
+      "parent": null,
+      "icon": {
+        "id": "thermal_shock_reforged:keystone"
+      }
+    },
+    "thermal_shock_reforged:squall_kill_get": {
+      "id": "thermal_shock_reforged:squall_kill_get",
+      "path": "src/main/resources/data/thermal_shock_reforged/advancement/squall_kill_get.json",
+      "sha256": "284bfdd9babce889fa663a023ec6c2a067c4518a366790259ac63e56bd8166bd",
+      "parent": "thermal_shock_reforged:squall_get",
+      "icon": {
+        "id": "thermal_shock_reforged:squall_spawn_egg"
+      }
+    }
+  },
+  "reused_assets": [
+    {
+      "original": "assets/thermal_shock/textures/entities/zerkglow.png",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/entities/zerkglow.png",
+      "sha256": "0fe2976ac9b9bde9cc37cc09b79d1fb34a3a3394cf1b5c5ea986aef2f0fef58b",
+      "identical_bytes": true
+    },
+    {
+      "original": "assets/thermal_shock/particles/squall_smoke.json",
+      "target": "src/main/resources/assets/thermal_shock_reforged/particles/squall_smoke.json",
+      "sha256": "5c8164a7dc2e89cbf562cbf6fdd23c35b610b213afbe9a65a74112b6e50e8303",
+      "identical_bytes": false
+    },
+    {
+      "original": "assets/thermal_shock/particles/squall_visage.json",
+      "target": "src/main/resources/assets/thermal_shock_reforged/particles/squall_visage.json",
+      "sha256": "6a95e87fdb59a4ad5ed53870172c1acca2668c1688b69b430edbf71e66b974c0",
+      "identical_bytes": false
+    },
+    {
+      "original": "assets/thermal_shock/textures/particle/squall_smoke.png",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/particle/squall_smoke.png",
+      "sha256": "7074f74f39a8ad752db14a876089e9867d92b2425c37a6d44a74660f900a877d",
+      "identical_bytes": true
+    },
+    {
+      "original": "assets/thermal_shock/textures/particle/squall_visage.png",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/particle/squall_visage.png",
+      "sha256": "7ddc2dde475b305e58629dc1d9ad943e30ab997627f86412b67533ff502dced3",
+      "identical_bytes": true
+    },
+    {
+      "original": "assets/thermal_shock/effeks/squallsmoke.efkefc",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/squallsmoke.efkefc",
+      "sha256": "b56cbaed8ba2ca22cdc4d062fb3a7d519e6b56d753c4178b2252d5ba38a8c212",
+      "identical_bytes": true
+    },
+    {
+      "original": "assets/thermal_shock/models/item/squall_spawn_egg.json",
+      "target": "src/main/resources/assets/thermal_shock_reforged/models/item/squall_spawn_egg.json",
+      "sha256": "d99c834b924c45a596d1576a32ad4b1c691032cf1b6b5c9e4e05adbcdc4245af",
+      "identical_bytes": false
+    },
+    {
+      "original": "assets/thermal_shock/textures/item/squall_egg.png",
+      "target": "src/main/resources/assets/thermal_shock_reforged/textures/item/squall_egg.png",
+      "sha256": "33891c5a8f83e2279555057aaf28e32e327e856533463e6153767d5fa61cdff5",
+      "identical_bytes": true
+    },
+    {
+      "original": "assets/thermal_shock/sounds/stalkerhurt1.ogg",
+      "target": "src/main/resources/assets/thermal_shock_reforged/sounds/stalkerhurt1.ogg",
+      "sha256": "3145ce3450218de331b2545f3f51d6cbfb88d8361651d8a92d8db2f11f95b4f4",
+      "identical_bytes": true
+    },
+    {
+      "original": "assets/thermal_shock/sounds/stalkerhurt2.ogg",
+      "target": "src/main/resources/assets/thermal_shock_reforged/sounds/stalkerhurt2.ogg",
+      "sha256": "bc4e39d6ccebb10d677857cafa4b72a86a9a2816cf2a8fcbc1dd1988d25cc07d",
+      "identical_bytes": true
+    },
+    {
+      "original": "assets/thermal_shock/effeks/Texture/Fire_Single.png",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/Fire_Single.png",
+      "sha256": "18240f4ab6e124c7763a4b3fae59c010ad09c3c1964088a014b8cb9532db0fa7",
+      "identical_bytes": true,
+      "emitter_dependency": true
+    },
+    {
+      "original": "assets/thermal_shock/effeks/Texture/Fire_Blur.png",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/Fire_Blur.png",
+      "sha256": "157f6de7c6d6fa8f508b0f6ce442b078ab66ec05a70472d0cbd8b91494c04895",
+      "identical_bytes": true,
+      "emitter_dependency": true
+    },
+    {
+      "original": "assets/thermal_shock/effeks/Texture/Splash.png",
+      "target": "src/main/resources/assets/thermal_shock_reforged/effeks/Texture/Splash.png",
+      "sha256": "e51d5df1a6477b3e5213ffa889b1c72b48bc7311faeb5130d2c6a80ea350a554",
+      "identical_bytes": true,
+      "emitter_dependency": true
+    }
+  ],
+  "aaa_texture_dependencies": [
+    "Texture/Fire_Single.png",
+    "Texture/Fire_Blur.png",
+    "Texture/Splash.png"
+  ],
+  "production_java": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/squall/SquallRenderer.java",
+      "sha256": "7dbbb1c2827e5689a852626834d6e98f6a1eb1d5a944d67b421207b573a3943a"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/squall/SquallRenderers.java",
+      "sha256": "4f30c3a32fb09b86d23450b24a3b453172abc26fd71df67a1c141e7e58acb61e"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/squall/SquallVisageParticle.java",
+      "sha256": "18279060ea95c41ee5d64b820da4917b86b64e1a5be9c193a8369159b58698e8"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/squall/SquallConfig.java",
+      "sha256": "a3921de8ac35581ede3367fe7c331816ffaec4b8a767dd0c8a9acdc1d394ebe0"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/squall/SquallContent.java",
+      "sha256": "32d72ad50bddbe12e5e61fb18f76aa840e34d4ee46ec1c9a34a28ca5d42584d0"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/squall/SquallEntity.java",
+      "sha256": "a5379c2cb67fc0e2ee5d1119daf662865210a743e205e82e1d8504caa1ebdaef"
+    }
+  ],
+  "no_custom_loot": true,
+  "fog_machine_consumer": "原使用squall_smoke，目标FogMachine尚未迁；不以空方块补注册，本批粒子已真实可用",
+  "natural_source": "原六群系权重1、min/max1；雷暴、Y>=70、主世界共享SquallSpawn默认true；共享getter由主线集成",
+  "reactor_source": "主线ReactorSequenceEntity直接引用SquallContent.SQUALL，不属本路文件所有权"
+}

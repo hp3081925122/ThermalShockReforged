@@ -218,3 +218,12 @@ Vilebath两城堡还缺DormantMonolith／Monolith，Thrasher的Graver目标也�
 第95批：Graver／NeonLimeGraver／Assimilator／AssimilatedGraver／Razoraptor和两Monolith完整家族已迁，保全部原资产、招架／感染／转换／生成和实际死亡时序。17新Java、四Graver生成及Monolith5数据；统一8202固定输入、7551构建资源通过，Java21离线compileJava/processResources首次成功1m30s，未运行游戏。详见migration/main95-static-validation.json、gravers-batch95.md、monolith-batch95.md。Vilebath仍缺thermal_geyser、hanging_sparkler_bulb、bloodstone_halberd及原桥池名／旧属性修复，见monolith-dependencies95.json；先完整迁真实内部功能再启城堡，不能按外模组联动延期。后续每批继续约半派既有另一聊天，Luna已恢复仅负责只读盘点／核对。整模组和最终两端／Render Preview仍未完成。
 
 第96批完成两长戟、两Vilebath功能方块、五完整城堡/桥模板及四自然JSON，覆盖第95批城堡三项真实注册缺口。保828118块记录/90实体及原3:1桥池，修7处失效池引用。5新Java/主线4共享武器类/真实九格和全部爆炸粒子已编译；固定8223输入、7567资源通过，统一compileJava/processResources首次1m4s。证据migration/main96-static-validation.json；没有启动游戏。仍待原purebiomes独立灯泡注入范围，见vilebathblocks-investigation96.json，不能当外模组联动延期，也不能造空tag。下一批继续先约半给同一聊天，Luna已能做只读盘点；整模组和最终测试未完成。
+
+
+## 第97批最终集成验证
+
+主线反应堆4 Java与分工Squall6 Java/3数据完成，8处共享Java、两语言与三标签增量已接。固定8240份src/main输入，统一compileJava/processResources --offline首次通过1m6s，24任务/2执行/22缓存；7574构建资源逐字节相同、2模板展开通过。Squall交付9份生产文件哈希均保持，没有编译修复。原13反应堆资产、13 Squall资产、两进度完整父链、18格与25轮1900 END逻辑在持续加载条件下核对通过；邻块卸载暂停可延长实际结束时间，已明确记录。总证据docs/migration/main97-static-validation.json，Luna反应堆机械审计reactor-static97.json和分工11组squall-validation97.json，均非游戏实测。
+
+整个模组仍未完整，最终专服/客户端/Render Preview验收未开始。本地阶段提交不代表远程发布；当前无Git remote。后续待迁实体按基线原154注册ID及枚举helper复核，修正旧三巨人与三水母漏计；本批Squall接入后尚有18个旧ID注册缺口：aerocel、benzor、blinding_lantern_flash_ring、effigy、electric_sphere、giant_laser_test、high_director_sopel、huntress、huntress_boss、icidroviathan、liftbug、maiden、moonoid、ribbonblade_galvanite、sentrarius、starrite、tesla_reed、whisper。该清单只描述实体注册，不能代替全功能覆盖或完成百分比。
+
+其他原生待办含FogMachine完整粒子消费者、灯泡purebiomes未定义范围及其他世界/物品/GUI真实调用闭合；不能列入外模组联动延期。Squall确认旧自身骑乘偏移不能误映射载具挂点，其他实体只读对应审计已交另一聊天，Luna接口不可用时由该聊天直接只读盘点，后续按源码逐项处理，不机械全量反号。每新批次继续约半派既有聊天，主线负责余下生产。

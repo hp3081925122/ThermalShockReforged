@@ -1,0 +1,81 @@
+{
+  "batch": 97,
+  "status": "本路已停笔，待主线应用共享补丁及统一编译",
+  "baseline": "081fc33",
+  "production_files": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/squall/SquallRenderer.java",
+      "sha256": "7dbbb1c2827e5689a852626834d6e98f6a1eb1d5a944d67b421207b573a3943a"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/squall/SquallRenderers.java",
+      "sha256": "4f30c3a32fb09b86d23450b24a3b453172abc26fd71df67a1c141e7e58acb61e"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/squall/SquallVisageParticle.java",
+      "sha256": "18279060ea95c41ee5d64b820da4917b86b64e1a5be9c193a8369159b58698e8"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/squall/SquallConfig.java",
+      "sha256": "a3921de8ac35581ede3367fe7c331816ffaec4b8a767dd0c8a9acdc1d394ebe0"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/squall/SquallContent.java",
+      "sha256": "32d72ad50bddbe12e5e61fb18f76aa840e34d4ee46ec1c9a34a28ca5d42584d0"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/squall/SquallEntity.java",
+      "sha256": "a5379c2cb67fc0e2ee5d1119daf662865210a743e205e82e1d8504caa1ebdaef"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/advancement/squall_get.json",
+      "sha256": "ab5d80282a6d02b4e3b563dfe17402d58ab63e42dd2da805b69517f38d31ca62"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/advancement/squall_kill_get.json",
+      "sha256": "284bfdd9babce889fa663a023ec6c2a067c4518a366790259ac63e56bd8166bd"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/squall_biome_modifier.json",
+      "sha256": "5cc2bc91e0a2308029d39d2aa691bcdbe07738b6a3784aa0cf85f8ad82f0c280"
+    }
+  ],
+  "production_aggregate_sha256": "c1e12d8d8a63f74e949916734d51ba21f998c9f1b3e2c90f4240cd0402aa8ef6",
+  "aggregate_rule": "relative path sorted; UTF8(path + TAB + sha256 + LF)",
+  "documents": [
+    {
+      "path": "docs/migration/squall-batch97.md",
+      "sha256": "d508817e430cf7c9b1d8d819a50a422aa8240a113c907329098fe844ff790c2b"
+    },
+    {
+      "path": "docs/migration/squall-resources97.json",
+      "sha256": "3c907203ede605bd63e784befad88cac8c10bd638b30c72ca34b1c9ea783585e"
+    },
+    {
+      "path": "docs/migration/squall-validation97.json",
+      "sha256": "aa7f801b959d921608a00173e36e34428bd84a4bc9791c32aa8429755985ea23"
+    },
+    {
+      "path": "docs/migration/squall-integration97.json",
+      "sha256": "ed50743e957846fd8874a4457a32d96d0de14ff167eedfb1c48fc96444e42953"
+    }
+  ],
+  "reactor_readonly_audit": {
+    "path": "D:\\AI临时文件\\ThermalShockMigration\\reactor97-readonly-audit.json",
+    "sha256": "10eedcef0fab42f5bd24a6b0e87fea3dd593752a5e65b27748c6d1b92bff8ac6",
+    "findings": [
+      "正常加载下同步首轮、24×60 END、1900 END、63/27/10概率、18格、13资产及配方/父进度/两客户端接线静态通过",
+      "原重复角校验只要求17不同格，目标18格是已授权修复",
+      "区块未加载时目标暂停到期波次及计时，首轮可延后且结束可晚于1900 END；请主线确认并记差异"
+    ]
+  },
+  "shared_patch": "docs/migration/squall-integration97.json",
+  "public_holder": "com.hp.thermalshockreforged.entity.squall.SquallContent.SQUALL",
+  "checks": "11组静态检查通过，9生产文件与4文档UTF8/whitespace检查通过；未Gradle/游戏/stage/commit",
+  "outstanding": [
+    "主线接入8处Java插入、两语言合并、三个实体标签增量，再统一固定输入编译",
+    "原FogMachine粒子消费者仍属待迁原生模块；本批Squall自然来源与父进度已闭合",
+    "全模组完成后按用户规则交子代理服务端/客户端完整测试和Render Preview对照",
+    "其他批次getMyRidingOffset若误映射载具getPassengerAttachmentPoint，需主线另审；本路已正确映射自身VEHICLE attachment反号"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "id": "thermal_shock_reforged:stratus_reactor_core"
+    },
+    "title": {
+      "translate": "advancements.stratus_reactor_get.title"
+    },
+    "description": {
+      "translate": "advancements.stratus_reactor_get.descr"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "stratus_reactor_get_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 10
+  },
+  "parent": "thermal_shock_reforged:squall_get"
+}

@@ -1,0 +1,670 @@
+{
+  "title": "第97批 Stratus Reactor 只读机械审计",
+  "scope": "仅静态读取工程、原JAR和现有迁移报告；未编译、未启动游戏、未修改工程文件。未重复原JAR全量NBT搜索。",
+  "baseline": {
+    "original_jar_sha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436",
+    "resource_manifest": "docs/migration/reactor-resources97.json"
+  },
+  "reactor_sequence": {
+    "timing_model_assumption": "reactor已插入并持续处于服务端tick，激活周围所需区块保持加载",
+    "pulse_count": 25,
+    "pulses": [
+      {
+        "pulse": 1,
+        "elapsed_end_ticks": 0,
+        "timing": "synchronous during activation"
+      },
+      {
+        "pulse": 2,
+        "elapsed_end_ticks": 60,
+        "timing": "scheduled end tick"
+      },
+      {
+        "pulse": 3,
+        "elapsed_end_ticks": 120,
+        "timing": "scheduled end tick"
+      },
+      {
+        "pulse": 4,
+        "elapsed_end_ticks": 180,
+        "timing": "scheduled end tick"
+      },
+      {
+        "pulse": 5,
+        "elapsed_end_ticks": 240,
+        "timing": "scheduled end tick"
+      },
+      {
+        "pulse": 6,
+        "elapsed_end_ticks": 300,
+        "timing": "scheduled end tick"
+      },
+      {
+        "pulse": 7,
+        "elapsed_end_ticks": 360,
+        "timing": "scheduled end tick"
+      },
+      {
+        "pulse": 8,
+        "elapsed_end_ticks": 420,
+        "timing": "scheduled end tick"
+      },
+      {
+        "pulse": 9,
+        "elapsed_end_ticks": 480,
+        "timing": "scheduled end tick"
+      },
+      {
+        "pulse": 10,
+        "elapsed_end_ticks": 540,
+        "timing": "scheduled end tick"
+      },
+      {
+        "pulse": 11,
+        "elapsed_end_ticks": 600,
+        "timing": "scheduled end tick"
+      },
+      {
+        "pulse": 12,
+        "elapsed_end_ticks": 660,
+        "timing": "scheduled end tick"
+      },
+      {
+        "pulse": 13,
+        "elapsed_end_ticks": 720,
+        "timing": "scheduled end tick"
+      },
+      {
+        "pulse": 14,
+        "elapsed_end_ticks": 780,
+        "timing": "scheduled end tick"
+      },
+      {
+        "pulse": 15,
+        "elapsed_end_ticks": 840,
+        "timing": "scheduled end tick"
+      },
+      {
+        "pulse": 16,
+        "elapsed_end_ticks": 900,
+        "timing": "scheduled end tick"
+      },
+      {
+        "pulse": 17,
+        "elapsed_end_ticks": 960,
+        "timing": "scheduled end tick"
+      },
+      {
+        "pulse": 18,
+        "elapsed_end_ticks": 1020,
+        "timing": "scheduled end tick"
+      },
+      {
+        "pulse": 19,
+        "elapsed_end_ticks": 1080,
+        "timing": "scheduled end tick"
+      },
+      {
+        "pulse": 20,
+        "elapsed_end_ticks": 1140,
+        "timing": "scheduled end tick"
+      },
+      {
+        "pulse": 21,
+        "elapsed_end_ticks": 1200,
+        "timing": "scheduled end tick"
+      },
+      {
+        "pulse": 22,
+        "elapsed_end_ticks": 1260,
+        "timing": "scheduled end tick"
+      },
+      {
+        "pulse": 23,
+        "elapsed_end_ticks": 1320,
+        "timing": "scheduled end tick"
+      },
+      {
+        "pulse": 24,
+        "elapsed_end_ticks": 1380,
+        "timing": "scheduled end tick"
+      },
+      {
+        "pulse": 25,
+        "elapsed_end_ticks": 1440,
+        "timing": "scheduled end tick"
+      }
+    ],
+    "final_at_end_tick": 1900,
+    "probabilities": {
+      "galvanite": 0.63,
+      "frostilyte_cryomancer": 0.27,
+      "lens": 0.1
+    },
+    "probability_branch_code_matches_source": true,
+    "source_procedure_runs_first_loop_body_synchronously": true,
+    "target_synchronous_first_pulse_call_after_successful_entity_insertion": true,
+    "target_timing_exact_under_loaded_arena": true,
+    "unloaded_arena_edge": "firstPulse is guarded by arenaLoaded; if any sampled arena chunk is absent at activation, pulse 1 is deferred to an END tick. At a later due pulse, elapsed is not advanced while arenaLoaded is false; 1900 END timing can be extended by unloaded arena intervals."
+  },
+  "multiblock": {
+    "coordinate_count": 18,
+    "unique_coordinate_count": 18,
+    "coordinates_relative_to_core": [
+      {
+        "offset": [
+          -1,
+          -1,
+          -1
+        ],
+        "expected": "bordered_hazard_stripes"
+      },
+      {
+        "offset": [
+          -1,
+          -1,
+          0
+        ],
+        "expected": "steelstem_block"
+      },
+      {
+        "offset": [
+          -1,
+          -1,
+          1
+        ],
+        "expected": "bordered_hazard_stripes"
+      },
+      {
+        "offset": [
+          0,
+          -1,
+          -1
+        ],
+        "expected": "steelstem_block"
+      },
+      {
+        "offset": [
+          0,
+          -1,
+          0
+        ],
+        "expected": "steelstem_block"
+      },
+      {
+        "offset": [
+          0,
+          -1,
+          1
+        ],
+        "expected": "steelstem_block"
+      },
+      {
+        "offset": [
+          1,
+          -1,
+          -1
+        ],
+        "expected": "bordered_hazard_stripes"
+      },
+      {
+        "offset": [
+          1,
+          -1,
+          0
+        ],
+        "expected": "steelstem_block"
+      },
+      {
+        "offset": [
+          1,
+          -1,
+          1
+        ],
+        "expected": "bordered_hazard_stripes"
+      },
+      {
+        "offset": [
+          -1,
+          0,
+          -1
+        ],
+        "expected": "dark_frostrock_block"
+      },
+      {
+        "offset": [
+          -1,
+          0,
+          1
+        ],
+        "expected": "dark_frostrock_block"
+      },
+      {
+        "offset": [
+          1,
+          0,
+          -1
+        ],
+        "expected": "dark_frostrock_block"
+      },
+      {
+        "offset": [
+          1,
+          0,
+          1
+        ],
+        "expected": "dark_frostrock_block"
+      },
+      {
+        "offset": [
+          -1,
+          1,
+          0
+        ],
+        "expected": "dark_frostrock_block"
+      },
+      {
+        "offset": [
+          0,
+          1,
+          -1
+        ],
+        "expected": "dark_frostrock_block"
+      },
+      {
+        "offset": [
+          0,
+          1,
+          0
+        ],
+        "expected": "dark_frostrock_block"
+      },
+      {
+        "offset": [
+          0,
+          1,
+          1
+        ],
+        "expected": "dark_frostrock_block"
+      },
+      {
+        "offset": [
+          1,
+          1,
+          0
+        ],
+        "expected": "dark_frostrock_block"
+      }
+    ],
+    "comparison": "9 blocks at y-1, four dark_frostrock_block corners at core y, and five dark_frostrock_block center/cross blocks at y+1; matches Chinese tooltip and target loops. Original MCreator predicate contains a duplicated upper corner test (x=-1,z=+1 appears twice, omitting x=-1,z=-1), so original accepts a 17-block arrangement; target correctly requires all 18.",
+    "chunk_guard": "target checks each lower coordinate has chunk before reading states; its x/z coordinates match the upper layers.",
+    "material_and_mining_tags": {
+      "steelstem_block": "registered MaterialContent; minecraft:mineable/pickaxe; no needs tier tag",
+      "bordered_hazard_stripes": "registered MaterialContent; minecraft:mineable/hoe; no needs tier tag",
+      "dark_frostrock_block": "registered MaterialContent; minecraft:mineable/pickaxe and minecraft:needs_diamond_tool",
+      "ferrum_plating": "registered MaterialContent block; minecraft:mineable/pickaxe and minecraft:needs_stone_tool",
+      "cryonic_alloy": "registered MaterialContent item",
+      "stratus_alloy": "registered MaterialContent item",
+      "stratus_reactor_core": "registered block; minecraft:mineable/pickaxe; block properties requiresCorrectToolForDrops"
+    },
+    "coordinate_groups": {
+      "lower_layer_y_minus_1": 9,
+      "core_layer_corners_y_zero": 4,
+      "upper_layer_center_plus_cross_y_plus_1": 5,
+      "total_unique": 18
+    }
+  },
+  "registrations": {
+    "root_registration_line": 150,
+    "client_noop_renderer_line": 104,
+    "client_particle_provider_line": 234,
+    "sequence_entity_renderer": "NoopRenderer",
+    "shockwave_provider": "AaaStationaryParticle.Provider(sprite=shockwavereactor, frame=7, lit, flags from source call)"
+  },
+  "assets": {
+    "expected_count": 13,
+    "manifest_count": 13,
+    "manifest_rows_verified": 13,
+    "all_target_files_exist": true,
+    "all_source_files_exist": true,
+    "comparison_counts": {
+      "byte_identical": 7,
+      "namespace_only_json": 6
+    },
+    "files": [
+      {
+        "target_path": "assets/thermal_shock_reforged/blockstates/stratus_reactor_core.json",
+        "source_path": "assets/thermal_shock/blockstates/stratus_reactor_core.json",
+        "target_exists": true,
+        "manifest_source_sha_matches": true,
+        "manifest_target_sha_matches": true,
+        "source_sha256": "de5d39c09eef6cd5d25995b9933cceb289fae7a416d7ca2289e6f3a5ec807dc0",
+        "target_sha256": "ae4d9ec573330763931b8bec44ceb4135f1a116a7f3556b2e3fb24f3dd1b508c",
+        "comparison": "namespace_only_json",
+        "namespace_normalized_json_equal": true
+      },
+      {
+        "target_path": "assets/thermal_shock_reforged/models/block/stratus_reactor_core.json",
+        "source_path": "assets/thermal_shock/models/block/stratus_reactor_core.json",
+        "target_exists": true,
+        "manifest_source_sha_matches": true,
+        "manifest_target_sha_matches": true,
+        "source_sha256": "e4c33ec224d4bdc53ad90179f87a700920af9c6f676257a3dad3c7243417ac77",
+        "target_sha256": "35dadd9f66f22cc74d51ed06ff5dada3e59839625a5da35e2437f946b9a4829c",
+        "comparison": "namespace_only_json",
+        "namespace_normalized_json_equal": true
+      },
+      {
+        "target_path": "assets/thermal_shock_reforged/models/block/stratus_reactor_core_blockstates_blockstate_0.json",
+        "source_path": "assets/thermal_shock/models/block/stratus_reactor_core_blockstates_blockstate_0.json",
+        "target_exists": true,
+        "manifest_source_sha_matches": true,
+        "manifest_target_sha_matches": true,
+        "source_sha256": "08273914013b49d231563d1f6b10bfcc2d18d152c508218eff4600d7f8b66b15",
+        "target_sha256": "79b13c4a402f64410177e03f79c5183a744c5cfbaac83919d0520f4734c186a4",
+        "comparison": "namespace_only_json",
+        "namespace_normalized_json_equal": true
+      },
+      {
+        "target_path": "assets/thermal_shock_reforged/models/item/stratus_reactor_core.json",
+        "source_path": "assets/thermal_shock/models/item/stratus_reactor_core.json",
+        "target_exists": true,
+        "manifest_source_sha_matches": true,
+        "manifest_target_sha_matches": true,
+        "source_sha256": "f086dde43b67c995cfa2018f538aaba3eaa4df91cd102886f6b5388bc0d1c665",
+        "target_sha256": "3b05e9d6ade826610b923d1fa5ff3abc857a4b574a0f570adbe29d6bda297a7f",
+        "comparison": "namespace_only_json",
+        "namespace_normalized_json_equal": true
+      },
+      {
+        "target_path": "assets/thermal_shock_reforged/particles/reactor_shockwave.json",
+        "source_path": "assets/thermal_shock/particles/reactor_shockwave.json",
+        "target_exists": true,
+        "manifest_source_sha_matches": true,
+        "manifest_target_sha_matches": true,
+        "source_sha256": "f43202ce476156ce260b409d1d8b0ceae94a17eceb9cda25b20385f03cedf5eb",
+        "target_sha256": "dcbcbf40c7d1eee672876b53058e76f913cb7c8c02559eabd7e387230123ccfa",
+        "comparison": "namespace_only_json",
+        "namespace_normalized_json_equal": true
+      },
+      {
+        "target_path": "assets/thermal_shock_reforged/particles/fog_cloud.json",
+        "source_path": "assets/thermal_shock/particles/fog_cloud.json",
+        "target_exists": true,
+        "manifest_source_sha_matches": true,
+        "manifest_target_sha_matches": true,
+        "source_sha256": "dcd559eb79b01b7d29f0837eedee15559122608228ecd1f7f8418b326ebd4914",
+        "target_sha256": "1b88b192b30179eb58443328e66fdef102a7efbbc8d1b9dd3f06dd70fa17ef08",
+        "comparison": "namespace_only_json",
+        "namespace_normalized_json_equal": true
+      },
+      {
+        "target_path": "assets/thermal_shock_reforged/textures/block/depleted_stratus_reactor_core.png",
+        "source_path": "assets/thermal_shock/textures/block/depleted_stratus_reactor_core.png",
+        "target_exists": true,
+        "manifest_source_sha_matches": true,
+        "manifest_target_sha_matches": true,
+        "source_sha256": "3a17f67cbb67f946c62228f949c09d2006360209c251475222dfafb1636c49b7",
+        "target_sha256": "3a17f67cbb67f946c62228f949c09d2006360209c251475222dfafb1636c49b7",
+        "comparison": "byte_identical",
+        "namespace_normalized_json_equal": true
+      },
+      {
+        "target_path": "assets/thermal_shock_reforged/textures/block/stratusreactorcore.png",
+        "source_path": "assets/thermal_shock/textures/block/stratusreactorcore.png",
+        "target_exists": true,
+        "manifest_source_sha_matches": true,
+        "manifest_target_sha_matches": true,
+        "source_sha256": "0b6f47cd3e6fe772f385c20532b76e69c54a64152bf3ea04dd536673e19c3365",
+        "target_sha256": "0b6f47cd3e6fe772f385c20532b76e69c54a64152bf3ea04dd536673e19c3365",
+        "comparison": "byte_identical",
+        "namespace_normalized_json_equal": true
+      },
+      {
+        "target_path": "assets/thermal_shock_reforged/textures/block/stratusreactorcore.png.mcmeta",
+        "source_path": "assets/thermal_shock/textures/block/stratusreactorcore.png.mcmeta",
+        "target_exists": true,
+        "manifest_source_sha_matches": true,
+        "manifest_target_sha_matches": true,
+        "source_sha256": "d50f4ecba2e7d908c6710aa964fba958dcfc227c2f2276a1208899972179b972",
+        "target_sha256": "d50f4ecba2e7d908c6710aa964fba958dcfc227c2f2276a1208899972179b972",
+        "comparison": "byte_identical",
+        "namespace_normalized_json_equal": true
+      },
+      {
+        "target_path": "assets/thermal_shock_reforged/textures/particle/reactor_shockwave.png",
+        "source_path": "assets/thermal_shock/textures/particle/reactor_shockwave.png",
+        "target_exists": true,
+        "manifest_source_sha_matches": true,
+        "manifest_target_sha_matches": true,
+        "source_sha256": "7074f74f39a8ad752db14a876089e9867d92b2425c37a6d44a74660f900a877d",
+        "target_sha256": "7074f74f39a8ad752db14a876089e9867d92b2425c37a6d44a74660f900a877d",
+        "comparison": "byte_identical",
+        "namespace_normalized_json_equal": true
+      },
+      {
+        "target_path": "assets/thermal_shock_reforged/textures/particle/fog_cloud.png",
+        "source_path": "assets/thermal_shock/textures/particle/fog_cloud.png",
+        "target_exists": true,
+        "manifest_source_sha_matches": true,
+        "manifest_target_sha_matches": true,
+        "source_sha256": "7074f74f39a8ad752db14a876089e9867d92b2425c37a6d44a74660f900a877d",
+        "target_sha256": "7074f74f39a8ad752db14a876089e9867d92b2425c37a6d44a74660f900a877d",
+        "comparison": "byte_identical",
+        "namespace_normalized_json_equal": true
+      },
+      {
+        "target_path": "assets/thermal_shock_reforged/effeks/shockwavereactor.efkefc",
+        "source_path": "assets/thermal_shock/effeks/shockwavereactor.efkefc",
+        "target_exists": true,
+        "manifest_source_sha_matches": true,
+        "manifest_target_sha_matches": true,
+        "source_sha256": "62dc705e697dfa8482afa828369a993b3a7a7781d39a1cd54bde0411eb25aa19",
+        "target_sha256": "62dc705e697dfa8482afa828369a993b3a7a7781d39a1cd54bde0411eb25aa19",
+        "comparison": "byte_identical",
+        "namespace_normalized_json_equal": true
+      },
+      {
+        "target_path": "assets/thermal_shock_reforged/effeks/fogcloud.efkefc",
+        "source_path": "assets/thermal_shock/effeks/fogcloud.efkefc",
+        "target_exists": true,
+        "manifest_source_sha_matches": true,
+        "manifest_target_sha_matches": true,
+        "source_sha256": "41c9e76e93aa40486ba5124afc8d0c368dfe4450e6cf485e21994c4db5a1ba0a",
+        "target_sha256": "41c9e76e93aa40486ba5124afc8d0c368dfe4450e6cf485e21994c4db5a1ba0a",
+        "comparison": "byte_identical",
+        "namespace_normalized_json_equal": true
+      }
+    ]
+  },
+  "data": {
+    "manifest_data_count": 3,
+    "rows": [
+      {
+        "target_path": "data/thermal_shock_reforged/recipe/stratus_reactor_recipe.json",
+        "source_path": "data/thermal_shock/recipes/stratus_reactor_recipe.json",
+        "source_sha256": "20e39666c705e17ebf44e85c73c6db4ec834db28be3f30bb07a7dfa8ea31a317",
+        "target_sha256": "ad6159bb9bc28a4e3848bed1329abc89c6e74400aace22d0e28215f0304eb78f",
+        "manifest_source_sha_matches": true,
+        "manifest_target_sha_matches": true,
+        "json_namespace_normalized_equal": false
+      },
+      {
+        "target_path": "data/thermal_shock_reforged/loot_table/blocks/stratus_reactor_core.json",
+        "source_path": "data/thermal_shock/loot_tables/blocks/stratus_reactor_core.json",
+        "source_sha256": "358e58140a487d201fe2364f87e44e8370fae52e0073d1244286a4dd319e741e",
+        "target_sha256": "b977d653785b53e115fc111a9c827ba7d92486557170aa688aad9506a2c54f57",
+        "manifest_source_sha_matches": true,
+        "manifest_target_sha_matches": true,
+        "json_namespace_normalized_equal": null
+      },
+      {
+        "target_path": "data/thermal_shock_reforged/advancement/stratus_reactor_get.json",
+        "source_path": "data/thermal_shock/advancements/stratus_reactor_get.json",
+        "source_sha256": "d94281fa84091705aaa3939421c4baaa6c1b18bbfefc760fdb23f7260575c186",
+        "target_sha256": "c85207a395bb50647bdc55c8deecb276210b1db459f75c6d500d8a162dade04e",
+        "manifest_source_sha_matches": true,
+        "manifest_target_sha_matches": true,
+        "json_namespace_normalized_equal": false
+      }
+    ],
+    "recipe": {
+      "pattern": [
+        "aba",
+        "bcb",
+        "aba"
+      ],
+      "ingredients": {
+        "a": {
+          "item": "thermal_shock_reforged:ferrum_plating"
+        },
+        "b": {
+          "item": "thermal_shock_reforged:cryonic_alloy"
+        },
+        "c": {
+          "item": "thermal_shock_reforged:stratus_alloy"
+        }
+      },
+      "result": {
+        "count": 1,
+        "id": "thermal_shock_reforged:stratus_reactor_core"
+      },
+      "ingredients_registered": true,
+      "schema_note": "Source uses result.item; target uses 1.21 result.id. The 3x3 pattern, all four ferrum_plating corners, four cryonic_alloy edges, stratus_alloy center, and one-block output are preserved."
+    },
+    "loot": {
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "thermal_shock_reforged:stratus_reactor_core",
+          "properties": {
+            "blockstate": "0"
+          }
+        }
+      ],
+      "active_state_locked_from_drops": true,
+      "source_only_survives_explosion": true
+    },
+    "advancement": {
+      "parent": "thermal_shock_reforged:squall_get",
+      "parent_exists": true,
+      "squall_parent": "thermal_shock_reforged:borean_tundra_advancement",
+      "borean_tundra_parent_exists": true,
+      "schema_note": "Target migrates display.icon.item to display.icon.id; impossible criterion, title/description translations, frame and rewards remain present. Parent thermal_shock_reforged:squall_get exists; that parent points to existing borean_tundra_advancement."
+    }
+  },
+  "template": {
+    "source_path": "data/thermal_shock/structures/stratusreactorspire.nbt",
+    "target_path": "data/thermal_shock_reforged/structure/stratusreactorspire.nbt",
+    "source_size": [
+      21,
+      49,
+      21
+    ],
+    "target_size": [
+      21,
+      49,
+      21
+    ],
+    "block_count": 21609,
+    "palette_size": 4,
+    "entity_count": 0,
+    "source_data_version": 3465,
+    "target_data_version": 3955,
+    "source_sha256_compressed": "1c534f858b886765d35593869ae10d4e0a5f00ad716354f975ebf742cac61dc2",
+    "target_sha256_compressed": "9902e81e2cf274c23155e702fe4252df4dc0342452ba1182c217afe2ccdcb6b0",
+    "source_target_geometry_palette_and_nbt_equal_after_namespace_conversion": true,
+    "palette_histogram": {
+      "thermal_shock:dark_frostrock": 5173,
+      "thermal_shock:dark_frostrock_bricks": 3779,
+      "thermal_shock:dark_frostrock_block": 9,
+      "minecraft:air": 12648
+    },
+    "target_id_namespaced_block_ids": [
+      "thermal_shock_reforged:dark_frostrock",
+      "thermal_shock_reforged:dark_frostrock_bricks",
+      "thermal_shock_reforged:dark_frostrock_block",
+      "minecraft:air"
+    ],
+    "root_name_source_target_equal": true
+  },
+  "checks": {
+    "18_unique_pattern_positions": true,
+    "all_18_pattern_materials_registered": true,
+    "pattern_loop_has_chunk_guard": true,
+    "material_ids_exist": true,
+    "reactor_material_mining_tags": {
+      "pickaxe": true,
+      "hoe": [
+        true
+      ],
+      "needs_stone": true,
+      "needs_diamond": true
+    },
+    "recipe_refs_registered_materials": true,
+    "loot_protects_active_state": true,
+    "reactor_advancement_parent_closure": true,
+    "squall_parent_chain_parent_exists": true,
+    "sequence_registered": true,
+    "block_and_be_registered": true,
+    "root_registration": true,
+    "noop_renderer_hook": true,
+    "shockwave_particle_hook": true,
+    "initial_pulse_called_after_insert": true,
+    "pulse_delay_constants": true,
+    "final_timer_1900": true,
+    "three_branch_probability": true,
+    "recipe_semantics_preserved_after_1_21_schema_change": true,
+    "advancement_display_item_migrated_to_id": true
+  },
+  "findings": [
+    {
+      "severity": "behavioral-edge",
+      "finding": "The 1900 END schedule is exact while the activation arena remains loaded. The target deliberately pauses a due pulse when sampled arena chunks are not loaded; this can defer pulse 1 from the synchronous activation call and extend the final time beyond 1900 server END ticks.",
+      "evidence": "src/main/java/com/hp/thermalshockreforged/content/reactor/StratusReactorCoreBlock.java:46-52; ReactorSequenceEntity.java:32-46"
+    },
+    {
+      "severity": "verified-source-fix",
+      "finding": "Target checks the full 18-cell multiblock. Decompiled original duplicates one upper corner check and therefore accepts a missing corner (17 distinct cells). Target matches tooltip-described 9+4+5 geometry.",
+      "evidence": "original readable/net/mcreator/thermal_shock/procedures/StratusReactorCoreOnBlockRightClickedProcedure.java; target StratusReactorCoreBlock.java:39-53"
+    },
+    {
+      "severity": "verified-data-migration",
+      "finding": "Recipe ingredient layout and result are preserved with the 1.21 recipe result key migration; advancement icon uses the 1.21 id field. Resource manifest hashes match all source/target files.",
+      "evidence": "docs/migration/reactor-resources97.json; target recipe/stratus_reactor_recipe.json; target advancement/stratus_reactor_get.json"
+    }
+  ],
+  "limitations": "Static source and resource audit only; no runtime compatibility or gameplay conclusion.",
+  "line_evidence": {
+    "ThermalShockReforged.java": "150 (ReactorContent.register(bus))",
+    "ClientEvents.java": [
+      "104 (NoopRenderer for sequence entity)",
+      "234 (shockwave particle sprite provider)"
+    ],
+    "StratusReactorCoreBlock.java": [
+      "45-56 (18-cell pattern)",
+      "58-82 (activation, insertion, synchronous first pulse)"
+    ],
+    "ReactorSequenceEntity.java": [
+      "40-42 (arena-loaded check)",
+      "44-58 (END schedule and 1900 completion)",
+      "60-70 (probability tree, spawn position, sound)",
+      "72-76 (persisted sequence state)"
+    ],
+    "ReactorContent.java": [
+      "17-21 (block, block entity, sequence entity, particle registrations)"
+    ],
+    "MaterialContent.java": [
+      "82 (dark_frostrock_block)",
+      "99 (ferrum_plating)",
+      "144 (bordered_hazard_stripes)",
+      "374 (steelstem_block)",
+      "399 (cryonic_alloy)",
+      "449 (stratus_alloy)"
+    ],
+    "original_pattern": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/procedures/StratusReactorCoreOnBlockRightClickedProcedure.java (decompiled predicate duplicates one same-layer corner and omits another)"
+  }
+}
