@@ -77,6 +77,7 @@ public final class ThermalShockReforged {
         container.registerConfig(ModConfig.Type.COMMON, com.hp.thermalshockreforged.entity.monolith.MonolithConfig.SPEC, "thermal_shock_reforged-monolith.toml");
         container.registerConfig(ModConfig.Type.COMMON, com.hp.thermalshockreforged.entity.gravers.GraverConfig.SPEC, "thermal_shock_reforged-gravers.toml");
         container.registerConfig(ModConfig.Type.COMMON, com.hp.thermalshockreforged.entity.squall.SquallConfig.SPEC, "thermal_shock_reforged-squall.toml");
+        container.registerConfig(ModConfig.Type.COMMON, com.hp.thermalshockreforged.entity.huntress.HuntressConfig.SPEC, "thermal_shock_reforged-huntress.toml");
         ModEntities.register(bus);
         com.hp.thermalshockreforged.entity.sanctum.SanctumContent.register(bus);
         CavebloomerContent.register(bus);
@@ -150,6 +151,10 @@ public final class ThermalShockReforged {
         com.hp.thermalshockreforged.content.labworldgen.LabWorldgenContent.register(bus);
         com.hp.thermalshockreforged.content.reactor.ReactorContent.register(bus);
         com.hp.thermalshockreforged.entity.squall.SquallContent.register(bus);
+        com.hp.thermalshockreforged.entity.huntress.HuntressContent.register(bus);
+        com.hp.thermalshockreforged.entity.whisper.WhisperContent.register(bus);
+        com.hp.thermalshockreforged.entity.liftbug.LiftbugContent.register(bus);
+        com.hp.thermalshockreforged.entity.aerocel.AerocelContent.register(bus);
         com.hp.thermalshockreforged.entity.beetles.BeetleContent.register(bus);
         com.hp.thermalshockreforged.entity.monolith.MonolithContent.register(bus);
         com.hp.thermalshockreforged.entity.gravers.GraverContent.register(bus);

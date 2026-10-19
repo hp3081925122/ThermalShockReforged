@@ -27,7 +27,7 @@ public final class LabMachinistEntity extends PathfinderMob implements GeoEntity
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, "qo"); }
     public String texture() { return entityData.get(TEXTURE); }
     @Override public boolean removeWhenFarAway(double distance) { return false; }
-    @Override protected net.minecraft.world.phys.Vec3 getPassengerAttachmentPoint(Entity passenger, EntityDimensions dimensions, float scale) { return super.getPassengerAttachmentPoint(passenger, dimensions, scale).add(0, 2, 0); }
+    @Override protected net.minecraft.world.phys.Vec3 getPassengerAttachmentPoint(Entity passenger, EntityDimensions dimensions, float scale) { return new net.minecraft.world.phys.Vec3(0, dimensions.height() * .75 + 2, 0); }
     @Override public boolean hurt(DamageSource source, float amount) {
         return !(source.getDirectEntity() instanceof AbstractArrow || source.getDirectEntity() instanceof ThrownPotion || source.getDirectEntity() instanceof AreaEffectCloud || source.is(DamageTypes.IN_FIRE) || source.is(DamageTypes.FALL) || source.is(DamageTypes.CACTUS) || source.is(DamageTypes.DROWN) || source.is(DamageTypes.LIGHTNING_BOLT) || source.is(DamageTypes.EXPLOSION) || source.is(DamageTypes.TRIDENT) || source.is(DamageTypes.FALLING_ANVIL) || source.is(DamageTypes.DRAGON_BREATH) || source.is(DamageTypes.WITHER) || source.is(DamageTypes.WITHER_SKULL)) && super.hurt(source, amount);
     }

@@ -1,0 +1,533 @@
+{
+  "batch": 98,
+  "kind": "static_only",
+  "check_count": 36,
+  "checks": [
+    {
+      "check": "HuntressRenderers.java UTF8/Java语法/无Java注释",
+      "passed": true,
+      "evidence": "src\\main\\java\\com\\hp\\thermalshockreforged\\client\\huntress\\HuntressRenderers.java"
+    },
+    {
+      "check": "HuntressScreen.java UTF8/Java语法/无Java注释",
+      "passed": true,
+      "evidence": "src\\main\\java\\com\\hp\\thermalshockreforged\\client\\npc\\huntress\\HuntressScreen.java"
+    },
+    {
+      "check": "HuntressEntity.java UTF8/Java语法/无Java注释",
+      "passed": true,
+      "evidence": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\npc\\huntress\\HuntressEntity.java"
+    },
+    {
+      "check": "HuntressMenu.java UTF8/Java语法/无Java注释",
+      "passed": true,
+      "evidence": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\npc\\huntress\\HuntressMenu.java"
+    },
+    {
+      "check": "HuntressMenus.java UTF8/Java语法/无Java注释",
+      "passed": true,
+      "evidence": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\npc\\huntress\\HuntressMenus.java"
+    },
+    {
+      "check": "HuntressPage.java UTF8/Java语法/无Java注释",
+      "passed": true,
+      "evidence": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\npc\\huntress\\HuntressPage.java"
+    },
+    {
+      "check": "HuntressBossEntity.java UTF8/Java语法/无Java注释",
+      "passed": true,
+      "evidence": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\huntress\\HuntressBossEntity.java"
+    },
+    {
+      "check": "HuntressConfig.java UTF8/Java语法/无Java注释",
+      "passed": true,
+      "evidence": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\huntress\\HuntressConfig.java"
+    },
+    {
+      "check": "HuntressContent.java UTF8/Java语法/无Java注释",
+      "passed": true,
+      "evidence": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\huntress\\HuntressContent.java"
+    },
+    {
+      "check": "HuntressTaskEntity.java UTF8/Java语法/无Java注释",
+      "passed": true,
+      "evidence": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\huntress\\HuntressTaskEntity.java"
+    },
+    {
+      "check": "原嵌套队列实际AST时序",
+      "passed": true,
+      "evidence": [
+        {
+          "delay": 10,
+          "absolute_end": 10,
+          "line": 89
+        },
+        {
+          "delay": 2,
+          "absolute_end": 12,
+          "line": 100
+        },
+        {
+          "delay": 17,
+          "absolute_end": 17,
+          "line": 119
+        },
+        {
+          "delay": 2,
+          "absolute_end": 19,
+          "line": 130
+        },
+        {
+          "delay": 24,
+          "absolute_end": 24,
+          "line": 161
+        },
+        {
+          "delay": 34,
+          "absolute_end": 34,
+          "line": 189
+        },
+        {
+          "delay": 10,
+          "absolute_end": 44,
+          "line": 222
+        }
+      ]
+    },
+    {
+      "check": "原NPC初始化队列AST",
+      "passed": true,
+      "evidence": [
+        {
+          "delay": 2,
+          "absolute_end": 2,
+          "line": 27
+        },
+        {
+          "delay": 8,
+          "absolute_end": 8,
+          "line": 46
+        }
+      ]
+    },
+    {
+      "check": "原JAR延迟及伤害字节码",
+      "passed": true,
+      "evidence": "javap HuntressAttackProcedure，嵌套2/2/10与反编译AST一致"
+    },
+    {
+      "check": "原Main三空回调字节码",
+      "passed": true,
+      "evidence": "三个lambda唯一字节码均为0:return"
+    },
+    {
+      "check": "目标实际AST逐END动作/声源/重复声次数",
+      "passed": true,
+      "evidence": {
+        "0": {
+          "2": [
+            "sound:SoundEvents.BASALT_FALL:SoundSource.NEUTRAL:1",
+            "sound:SoundEvents.GENERIC_BIG_FALL:SoundSource.NEUTRAL:1"
+          ],
+          "8": [
+            "sound:SoundEvents.BEE_HURT:SoundSource.NEUTRAL:-1",
+            "sound:SoundEvents.BOOK_PAGE_TURN:SoundSource.NEUTRAL:1"
+          ]
+        },
+        "1": {
+          "10": [
+            "faceAndDash",
+            "sound:SoundEvents.PLAYER_ATTACK_SWEEP:SoundSource.HOSTILE:2"
+          ],
+          "12": [
+            "strike:(server, false)"
+          ],
+          "17": [
+            "faceAndDash",
+            "sound:SoundEvents.PLAYER_ATTACK_SWEEP:SoundSource.HOSTILE:2"
+          ],
+          "19": [
+            "strike:(server, true)"
+          ]
+        },
+        "2": {
+          "24": [
+            "sound:SoundEvents.BEE_HURT:SoundSource.HOSTILE:1",
+            "triggerProcedure:(\"reappear2\")",
+            "teleportOwner"
+          ],
+          "34": [
+            "releaseGravity",
+            "sound:SoundEvents.SHIELD_BREAK:SoundSource.HOSTILE:3",
+            "sound:SoundEvents.SHIELD_BREAK:SoundSource.HOSTILE:3",
+            "sound:SoundEvents.SHIELD_BREAK:SoundSource.HOSTILE:3",
+            "teleportOwner"
+          ],
+          "44": [
+            "sound:SoundEvents.GENERIC_EXPLODE.value():SoundSource.HOSTILE:1",
+            "sendParticles",
+            "strike:(server, false)"
+          ]
+        }
+      }
+    },
+    {
+      "check": "伤害默认正区间保8/10减甲0.6及可配置基数",
+      "passed": true,
+      "evidence": [
+        [
+          8,
+          1,
+          0,
+          8.0,
+          8.0
+        ],
+        [
+          8,
+          1,
+          1,
+          7.4,
+          7.4
+        ],
+        [
+          8,
+          1,
+          5,
+          5.0,
+          5.0
+        ],
+        [
+          8,
+          1,
+          8,
+          3.2,
+          3.2
+        ],
+        [
+          8,
+          1,
+          12,
+          0.8000000000000007,
+          0.8000000000000007
+        ],
+        [
+          8,
+          1,
+          13,
+          0.20000000000000018,
+          0.20000000000000018
+        ],
+        [
+          8,
+          1,
+          16,
+          -1.5999999999999996,
+          0
+        ],
+        [
+          8,
+          1,
+          20,
+          -4.0,
+          0
+        ],
+        [
+          8,
+          1,
+          100,
+          -52.0,
+          0
+        ],
+        [
+          8,
+          1.25,
+          0,
+          10.0,
+          10.0
+        ],
+        [
+          8,
+          1.25,
+          1,
+          9.4,
+          9.4
+        ],
+        [
+          8,
+          1.25,
+          5,
+          7.0,
+          7.0
+        ],
+        [
+          8,
+          1.25,
+          8,
+          5.2,
+          5.2
+        ],
+        [
+          8,
+          1.25,
+          12,
+          2.8000000000000007,
+          2.8000000000000007
+        ],
+        [
+          8,
+          1.25,
+          13,
+          2.2,
+          2.2
+        ],
+        [
+          8,
+          1.25,
+          16,
+          0.40000000000000036,
+          0.40000000000000036
+        ],
+        [
+          8,
+          1.25,
+          20,
+          -2.0,
+          0
+        ],
+        [
+          8,
+          1.25,
+          100,
+          -50.0,
+          0
+        ]
+      ]
+    },
+    {
+      "check": "击退折抗性及零强度不覆盖原运动",
+      "passed": true,
+      "evidence": "三类原vector，抗性0/0.5/1，强度0/0.6；满抗保prior(.1,-.3,.2)"
+    },
+    {
+      "check": "原AOE范围/格挡/归属/无敌帧",
+      "passed": true,
+      "evidence": "5×5×5盒，Entity包括非living，按距离排序，格挡全免，errant_damage无owner，不绕无敌帧"
+    },
+    {
+      "check": "原朝向锚点及瞬移分支",
+      "passed": true,
+      "evidence": "EYES→受害者当前FEET；50%精确XZ/50%整数[-4,4]；34END回当前FEET；声与粒子固定原点"
+    },
+    {
+      "check": "有限任务与保存字段对称",
+      "passed": true,
+      "evidence": "阶段先++并保存，8/19/44终止；卸载暂停；已消费阶段不重放"
+    },
+    {
+      "check": "任务标量NBT键对称",
+      "passed": true,
+      "evidence": [
+        "HuntressArmed",
+        "HuntressCaster",
+        "HuntressDamage",
+        "HuntressDimension",
+        "HuntressElapsed",
+        "HuntressEyeHeight",
+        "HuntressKnockback",
+        "HuntressPlayerTarget",
+        "HuntressSkill",
+        "HuntressTarget",
+        "HuntressTargetEntityId"
+      ]
+    },
+    {
+      "check": "四向量保存/读取对称",
+      "passed": true,
+      "evidence": [
+        "HuntressSound",
+        "HuntressCasterPos",
+        "HuntressTargetPos",
+        "HuntressLook"
+      ]
+    },
+    {
+      "check": "玩家实例与尾段边界",
+      "passed": true,
+      "evidence": "玩家重登录/复活或读档不接新实例；目标丢失采用最后坐标；owner移除快照；跨维owner取消，目标只同维查找"
+    },
+    {
+      "check": "提交失败、再入与重力兜底",
+      "passed": true,
+      "evidence": "提交锁finally解除；成功才CD/动画/无重力；34END恢复；载体丢失最迟35次自身tick恢复"
+    },
+    {
+      "check": "NPC初始化只在成功入世提交",
+      "passed": true,
+      "evidence": "finalize只记录，onAdded消费请求，失败20tick可重试；旧存档不重放；nogravity原生保存"
+    },
+    {
+      "check": "原再生命令无效证据",
+      "passed": true,
+      "evidence": "原字节码literal缺give；原版effect子命令为give/clear，没有直接targets分支，不补原未生效的再生"
+    },
+    {
+      "check": "Boss经验与动画复用完整基类",
+      "passed": true,
+      "evidence": "基类20tick死亡延迟XP、texture保存、4tick过渡；NPC 0过渡/idle3/npcspawn/XP0"
+    },
+    {
+      "check": "四页20行原布局/按钮/零槽",
+      "passed": true,
+      "evidence": "原MAIN三空动作，三子页各0→MAIN；不加从MAIN进入子页或Boss的链"
+    },
+    {
+      "check": "服务端菜单会话/权限与重复包",
+      "passed": true,
+      "evidence": "8种正常/伪造请求模型，仅当前会话、活NPC、同维8格内子页返回可过；changedPage提交前锁，失败可重试"
+    },
+    {
+      "check": "语言增量覆盖实际页面与动态问候",
+      "passed": true,
+      "evidence": {
+        "en_additions": 8,
+        "zh_additions": 30
+      }
+    },
+    {
+      "check": "各玩家portrait会话与原帧裁剪",
+      "passed": true,
+      "evidence": [
+        0,
+        128,
+        256,
+        384,
+        512,
+        640,
+        768,
+        896,
+        1024,
+        1152,
+        1280,
+        1408,
+        1408,
+        1408
+      ]
+    },
+    {
+      "check": "11份复用资源原SHA一致",
+      "passed": true,
+      "evidence": {
+        "assets/thermal_shock/animations/huntress.animation.json": {
+          "original_sha256": "889ed5dd061058f8a47d1e466a8bac3a0b05984e3bb6e18756ffc91d5527d5fc",
+          "target_exists": true,
+          "target_sha256": "889ed5dd061058f8a47d1e466a8bac3a0b05984e3bb6e18756ffc91d5527d5fc"
+        },
+        "assets/thermal_shock/geo/huntress.geo.json": {
+          "original_sha256": "bdbb4ff60274a92f56a432a7d0998b8b080c48ac8a7f10243a8da20f7d54a7f0",
+          "target_exists": true,
+          "target_sha256": "bdbb4ff60274a92f56a432a7d0998b8b080c48ac8a7f10243a8da20f7d54a7f0"
+        },
+        "assets/thermal_shock/textures/entities/huntress.png": {
+          "original_sha256": "8627d4ec80f0e58a7c5d4eaf421e7b9a7d880b86fcd4c530c7ac1ddc52dca93b",
+          "target_exists": true,
+          "target_sha256": "8627d4ec80f0e58a7c5d4eaf421e7b9a7d880b86fcd4c530c7ac1ddc52dca93b"
+        },
+        "assets/thermal_shock/textures/screens/atlas/imagebutton_mainerrandsbuttona.png": {
+          "original_sha256": "5d1debd3befb57e2e98c6817e7a0ca5b026aabf5f7038508b31283feb2c0f67e",
+          "target_exists": true,
+          "target_sha256": "5d1debd3befb57e2e98c6817e7a0ca5b026aabf5f7038508b31283feb2c0f67e"
+        },
+        "assets/thermal_shock/textures/screens/atlas/imagebutton_maininfobuttona.png": {
+          "original_sha256": "7c7afaddbb70b6b0f43ad046e87340dcd0100e712a5ef307ff2e46953fcc16fa",
+          "target_exists": true,
+          "target_sha256": "7c7afaddbb70b6b0f43ad046e87340dcd0100e712a5ef307ff2e46953fcc16fa"
+        },
+        "assets/thermal_shock/textures/screens/atlas/imagebutton_maintradebuttona.png": {
+          "original_sha256": "9a4da845718acc3294efd6e21e8e67064ff28b887b740f0128340c3ea830111c",
+          "target_exists": true,
+          "target_sha256": "9a4da845718acc3294efd6e21e8e67064ff28b887b740f0128340c3ea830111c"
+        },
+        "assets/thermal_shock/textures/screens/atlas/imagebutton_nextbuttona.png": {
+          "original_sha256": "0c3e332bdc97c682d9c96cca3217a534bbe8d26eba61471f6756e1063cf4c70f",
+          "target_exists": true,
+          "target_sha256": "0c3e332bdc97c682d9c96cca3217a534bbe8d26eba61471f6756e1063cf4c70f"
+        },
+        "assets/thermal_shock/textures/screens/huntressidleportrait.png": {
+          "original_sha256": "a2706f721d75eb2910bc6f4215ba653b7facf710288dd2783aa62e4a65855689",
+          "target_exists": true,
+          "target_sha256": "a2706f721d75eb2910bc6f4215ba653b7facf710288dd2783aa62e4a65855689"
+        },
+        "assets/thermal_shock/textures/screens/mainflavourboxes.png": {
+          "original_sha256": "80a2cf18e8d36b3a9b7bbe138d0fef25338fb9176daabead538c784abe941cf3",
+          "target_exists": true,
+          "target_sha256": "80a2cf18e8d36b3a9b7bbe138d0fef25338fb9176daabead538c784abe941cf3"
+        },
+        "assets/thermal_shock/textures/screens/mainlabelbox.png": {
+          "original_sha256": "633b9d4f6971f9e2e173893b11889a588813a132963edcbd3c85154bca6d9dd6",
+          "target_exists": true,
+          "target_sha256": "633b9d4f6971f9e2e173893b11889a588813a132963edcbd3c85154bca6d9dd6"
+        },
+        "assets/thermal_shock/textures/screens/mainspeechbox.png": {
+          "original_sha256": "12894af8cfa75443411767e123b9c3e66c72b81b21085b2e383e5f7040bb9ea5",
+          "target_exists": true,
+          "target_sha256": "12894af8cfa75443411767e123b9c3e66c72b81b21085b2e383e5f7040bb9ea5"
+        }
+      }
+    },
+    {
+      "check": "原有效clip覆盖及闲置clip保资源",
+      "passed": true,
+      "evidence": {
+        "required": [
+          "idle3",
+          "npcspawn",
+          "rollback",
+          "triplehit",
+          "dissa",
+          "reappear2",
+          "reappear",
+          "sprint",
+          "idle2"
+        ],
+        "unused_original_clips": [
+          "idle",
+          "rollconstant",
+          "sprint2"
+        ]
+      }
+    },
+    {
+      "check": "真实来源/掉落/闲置蛋逐层盘点",
+      "passed": true,
+      "evidence": "原全JAR类常量+源引用+JSON+递归NBT：无蛋/自然/模板/转换/独有loot；CameraCatalog已有两ID；三子页仅注册和screen/返回包引用，原正常不可进入"
+    },
+    {
+      "check": "实际SoundEvent类型核对",
+      "passed": true,
+      "evidence": [
+        "BASALT_FALL",
+        "BEE_HURT",
+        "BOOK_PAGE_TURN",
+        "GENERIC_BIG_FALL",
+        "GENERIC_DEATH",
+        "GENERIC_EXPLODE",
+        "GENERIC_HURT",
+        "PLAYER_ATTACK_SWEEP",
+        "SHIELD_BREAK"
+      ]
+    },
+    {
+      "check": "自有10Java diff--check",
+      "passed": true,
+      "evidence": "全部通过；不编译，不检查/更改主线输入"
+    }
+  ],
+  "compiled": false,
+  "server_tested": false,
+  "client_tested": false,
+  "render_preview_tested": false,
+  "unverified": [
+    "统一集成后编译",
+    "最终完整迁移后专服全功能与Render Preview对照"
+  ]
+}

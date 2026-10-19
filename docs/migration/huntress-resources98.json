@@ -1,0 +1,82 @@
+{
+  "batch": 98,
+  "production_file_count": 10,
+  "production_sha256": {
+    "src/main/java/com/hp/thermalshockreforged/client/huntress/HuntressRenderers.java": "cbf9107c513729a87d93b8d213644aa204d0a8c2e49331ae825bb49f0f5e3015",
+    "src/main/java/com/hp/thermalshockreforged/client/npc/huntress/HuntressScreen.java": "4ce39bc9d54db2fc200ca6df14a6cf5e23e1f80bd5220d1b643ae255708f3c1d",
+    "src/main/java/com/hp/thermalshockreforged/content/npc/huntress/HuntressEntity.java": "b03aed33c50dbd3dc9a8892ba06643cc95d30ee51d0f41b77871938feab1d86c",
+    "src/main/java/com/hp/thermalshockreforged/content/npc/huntress/HuntressMenu.java": "493aadd57fb6c160ebfee657596a50f797563428a92a03dc9c8e00d04f2cec4b",
+    "src/main/java/com/hp/thermalshockreforged/content/npc/huntress/HuntressMenus.java": "4ea412e498d1e4f69a43f873faed689aaee08f57ef94e5628016fe1b3c8a097b",
+    "src/main/java/com/hp/thermalshockreforged/content/npc/huntress/HuntressPage.java": "d3fe5afea4ce4464359dda0d6c33ede081d88cc0bce013469945355c47feac03",
+    "src/main/java/com/hp/thermalshockreforged/entity/huntress/HuntressBossEntity.java": "35b6fb90899079be8f53b49900956659698ebe63e07f6e5eadd73dee0e8418f1",
+    "src/main/java/com/hp/thermalshockreforged/entity/huntress/HuntressConfig.java": "f3fd70e7dcf2f90217a2ad87d37d02bfe185c6c1a9e4f2c8add1495de1e1525e",
+    "src/main/java/com/hp/thermalshockreforged/entity/huntress/HuntressContent.java": "46a9334a10f660081f449e9f3c79de2ed7b7023228f764e654b5b509134ab42a",
+    "src/main/java/com/hp/thermalshockreforged/entity/huntress/HuntressTaskEntity.java": "3a6cb39e44020b7cb521480d5abc1372b226fd7d560705d664c2cc55a60192df"
+  },
+  "reused_original_assets": {
+    "assets/thermal_shock/animations/huntress.animation.json": {
+      "original_sha256": "889ed5dd061058f8a47d1e466a8bac3a0b05984e3bb6e18756ffc91d5527d5fc",
+      "target_exists": true,
+      "target_sha256": "889ed5dd061058f8a47d1e466a8bac3a0b05984e3bb6e18756ffc91d5527d5fc"
+    },
+    "assets/thermal_shock/geo/huntress.geo.json": {
+      "original_sha256": "bdbb4ff60274a92f56a432a7d0998b8b080c48ac8a7f10243a8da20f7d54a7f0",
+      "target_exists": true,
+      "target_sha256": "bdbb4ff60274a92f56a432a7d0998b8b080c48ac8a7f10243a8da20f7d54a7f0"
+    },
+    "assets/thermal_shock/textures/entities/huntress.png": {
+      "original_sha256": "8627d4ec80f0e58a7c5d4eaf421e7b9a7d880b86fcd4c530c7ac1ddc52dca93b",
+      "target_exists": true,
+      "target_sha256": "8627d4ec80f0e58a7c5d4eaf421e7b9a7d880b86fcd4c530c7ac1ddc52dca93b"
+    },
+    "assets/thermal_shock/textures/screens/atlas/imagebutton_mainerrandsbuttona.png": {
+      "original_sha256": "5d1debd3befb57e2e98c6817e7a0ca5b026aabf5f7038508b31283feb2c0f67e",
+      "target_exists": true,
+      "target_sha256": "5d1debd3befb57e2e98c6817e7a0ca5b026aabf5f7038508b31283feb2c0f67e"
+    },
+    "assets/thermal_shock/textures/screens/atlas/imagebutton_maininfobuttona.png": {
+      "original_sha256": "7c7afaddbb70b6b0f43ad046e87340dcd0100e712a5ef307ff2e46953fcc16fa",
+      "target_exists": true,
+      "target_sha256": "7c7afaddbb70b6b0f43ad046e87340dcd0100e712a5ef307ff2e46953fcc16fa"
+    },
+    "assets/thermal_shock/textures/screens/atlas/imagebutton_maintradebuttona.png": {
+      "original_sha256": "9a4da845718acc3294efd6e21e8e67064ff28b887b740f0128340c3ea830111c",
+      "target_exists": true,
+      "target_sha256": "9a4da845718acc3294efd6e21e8e67064ff28b887b740f0128340c3ea830111c"
+    },
+    "assets/thermal_shock/textures/screens/atlas/imagebutton_nextbuttona.png": {
+      "original_sha256": "0c3e332bdc97c682d9c96cca3217a534bbe8d26eba61471f6756e1063cf4c70f",
+      "target_exists": true,
+      "target_sha256": "0c3e332bdc97c682d9c96cca3217a534bbe8d26eba61471f6756e1063cf4c70f"
+    },
+    "assets/thermal_shock/textures/screens/huntressidleportrait.png": {
+      "original_sha256": "a2706f721d75eb2910bc6f4215ba653b7facf710288dd2783aa62e4a65855689",
+      "target_exists": true,
+      "target_sha256": "a2706f721d75eb2910bc6f4215ba653b7facf710288dd2783aa62e4a65855689"
+    },
+    "assets/thermal_shock/textures/screens/mainflavourboxes.png": {
+      "original_sha256": "80a2cf18e8d36b3a9b7bbe138d0fef25338fb9176daabead538c784abe941cf3",
+      "target_exists": true,
+      "target_sha256": "80a2cf18e8d36b3a9b7bbe138d0fef25338fb9176daabead538c784abe941cf3"
+    },
+    "assets/thermal_shock/textures/screens/mainlabelbox.png": {
+      "original_sha256": "633b9d4f6971f9e2e173893b11889a588813a132963edcbd3c85154bca6d9dd6",
+      "target_exists": true,
+      "target_sha256": "633b9d4f6971f9e2e173893b11889a588813a132963edcbd3c85154bca6d9dd6"
+    },
+    "assets/thermal_shock/textures/screens/mainspeechbox.png": {
+      "original_sha256": "12894af8cfa75443411767e123b9c3e66c72b81b21085b2e383e5f7040bb9ea5",
+      "target_exists": true,
+      "target_sha256": "12894af8cfa75443411767e123b9c3e66c72b81b21085b2e383e5f7040bb9ea5"
+    }
+  },
+  "new_resources": [],
+  "existing_dependencies": [
+    "errant_damage damage_type",
+    "AttackAttemptEvent",
+    "ServerEndTickTasks",
+    "AnimatedMonsterEntity",
+    "CameraCatalog huntress/huntress_boss"
+  ],
+  "native_source_status": "原JAR无真实蛋/自然/结构/转换/专用loot来源，不虚构；三子页注册且有返回MAIN，原MAIN三按钮为空"
+}
