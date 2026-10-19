@@ -1,0 +1,236 @@
+{
+  "scope": "原JAR/实际源调用与原生API/注册工厂/资源及构建副本静态比对；未启动游戏",
+  "runtime_tests": "pending_full_mod_migration_primary_agent_only",
+  "summary": {
+    "blocks": 4,
+    "transmutations": 6,
+    "extractor_inputs": 10,
+    "grand_end_ticks": [
+      40,
+      104,
+      134,
+      180
+    ],
+    "original_random_bounds_redrawn_each_condition": [
+      [
+        "3",
+        "8"
+      ],
+      [
+        "1",
+        "3"
+      ],
+      [
+        "1",
+        "6"
+      ]
+    ],
+    "assets": 29,
+    "two_fabricator_outputs_closed": true,
+    "advancement_parent_chain": "blasphemy_1 -> blasphemy_2 -> blasphemy_3",
+    "two_native_pickaxe_memberships": true
+  },
+  "source_review": {
+    "extractor_xp": {
+      "key_orb_each": 5,
+      "key_direct_levels": 10,
+      "small": 2,
+      "medium": 8,
+      "pesticide": 3,
+      "chip": 20
+    },
+    "fixed_grand_animation_two_out_of_range": true,
+    "grand_used_flag_dirty_and_process_token": true,
+    "extractor_item_builtin_entity_idle_zero": true,
+    "grand_item_preserved_flat_icon": true,
+    "constructor_retains_facing_and_water": true,
+    "drop_positions_and_pickup_delays_preserved": true
+  },
+  "assets": [
+    {
+      "path": "animations/extractor.animation.json",
+      "sha256": "9cb6ab2a0006593a0335c889a451853d710e7ea52e1d0d2c19153f052951896f"
+    },
+    {
+      "path": "animations/grand_blasphemer.animation.json",
+      "sha256": "c39361dfa94eb9178d5b6fce3f7801213b83ad3399df0833f5637893b2464325"
+    },
+    {
+      "path": "blockstates/extractor.json",
+      "sha256": "931b81e206c25f424b976bcab05b99b69c7c127a0b738a2a7de51d4e881ada88"
+    },
+    {
+      "path": "blockstates/extractor_constructor.json",
+      "sha256": "ad87e8f754f411f76f42b2b9e663bbc457408996c58c38380a6a833eedeeb82a"
+    },
+    {
+      "path": "blockstates/grand_blasphemer.json",
+      "sha256": "bab3f3929f0362ab7ebdb8cc509343e60e4c58fd3d8750c112e56aab18c49309"
+    },
+    {
+      "path": "blockstates/transmutator.json",
+      "sha256": "ae4c11549bc3d39e93976c1b1b0f8d7b771618ca8634dd06a9d4ba6756631ff8"
+    },
+    {
+      "path": "geo/extractor.geo.json",
+      "sha256": "b960f56f8a920755e06eb100893c157d5a8080b12ce6eae1ae6beabc8e926320"
+    },
+    {
+      "path": "geo/grand_blasphemer.geo.json",
+      "sha256": "f3543714e8c8ef170ffd592962532638acd4e52f8a54e1a33b2e576be9decbda"
+    },
+    {
+      "path": "models/block/extractor_constructor.json",
+      "sha256": "670c5f4ff8fdf28188c2e734e5ef6a43dad873c745b156828e40be017f07da55"
+    },
+    {
+      "path": "models/block/transmutator.json",
+      "sha256": "32518d0f89c8ec53f7a94422325b47da97c8d69345685f70c1c0fd99fee3825a"
+    },
+    {
+      "path": "models/custom/extractor_particle.json",
+      "sha256": "0c263230e615683da7fc39722775ef84f73eae8e97e636de520b5087ee79cc14"
+    },
+    {
+      "path": "models/custom/grand_blasphemer_particle.json",
+      "sha256": "eddbd03c57c5b56a0627cf354d93f12a65e324d99937bc0aba651ea418c799ce"
+    },
+    {
+      "path": "models/displaysettings/voltflower_bulb.item.json",
+      "sha256": "4d8e015aa4421eb139d320f2016e27152fa09eb52442f256aff81f4b75fe9cc0"
+    },
+    {
+      "path": "models/item/extractor.json",
+      "sha256": "c230cf41ca5f253bc7301d59268b23b4059a541a7033b5002573a11d5cfec44f"
+    },
+    {
+      "path": "models/item/extractor_constructor.json",
+      "sha256": "9ece0ad1201943aeb28b1d04dcec0316874ada1e617785f7adecbfc1e9590f25"
+    },
+    {
+      "path": "models/item/grand_blasphemer.json",
+      "sha256": "0443e8d7cb094aee667471f9b28ae058d9ce3bd29ea06220f5144bfb77fc61ff"
+    },
+    {
+      "path": "models/item/transmutator.json",
+      "sha256": "a8482da46976019a1c738ed681436a408460670a6c3edbcbddc66c3e34d54798"
+    },
+    {
+      "path": "sounds/buzzsaw1.ogg",
+      "sha256": "5c0d4e50eec3cb711b222ba2ed13d995fdd98887abf776e65f9e3b57a828030f"
+    },
+    {
+      "path": "sounds/buzzsaw2.ogg",
+      "sha256": "6e5f613b97e73567a1b4016b609759f9ed4649a6214419a6128bd367f22abe13"
+    },
+    {
+      "path": "sounds/buzzsaw3.ogg",
+      "sha256": "44ba6d0c28de7d36384e991e2bec706279ded09f5883aaccd040bb5b9c2ce6c9"
+    },
+    {
+      "path": "textures/block/blasty.png",
+      "sha256": "46163b159eff997f48e656c8fc1dd76f7f1ad2c5522bbde609cfc74263fbe762"
+    },
+    {
+      "path": "textures/block/dark_frostrock_block.png",
+      "sha256": "2faeffc529a1469983cc40a623941fb718ae9fc5f9e9a0122d936ac22e086894"
+    },
+    {
+      "path": "textures/block/extractor.png",
+      "sha256": "b194676e8ca093638e39de18aac9c2ba50ca0cfa18902bf7557eee78c2235c1c"
+    },
+    {
+      "path": "textures/block/placeholder.png",
+      "sha256": "121439b2dfbfabfa172e7eebf81b51b7072cb94cc26578ca2a8e53f3b30353e9"
+    },
+    {
+      "path": "textures/block/spire_base_25.png",
+      "sha256": "1099c0e0f3d13a34fa139438b3d930d086a8ea26dc141776fd77ce341cbd5708"
+    },
+    {
+      "path": "textures/block/transmutator_side.png",
+      "sha256": "42392e5d024d0421322b83dc5b5cc65f53bde8beae1a785198ca6f381061ae80"
+    },
+    {
+      "path": "textures/block/transmutator_top.png",
+      "sha256": "7bba9bf8e291f46f0db135280473bff6d58cdfb3301b273b1df0400465654973"
+    },
+    {
+      "path": "textures/item/extractor_icon.png",
+      "sha256": "89588df9c7d368a2fafff5c4728b8f251dee711c20c64f801864c5fad7abd732"
+    },
+    {
+      "path": "textures/item/grand_blasphemer_item.png",
+      "sha256": "5d34d29dfea137fb20786b2de80e4266fe72c883025b60ac186dca7a19a1964f"
+    }
+  ],
+  "data_build_paths": [
+    "data/thermal_shock_reforged/loot_table/blocks/transmutator.json",
+    "data/thermal_shock_reforged/recipe/fabrication/transmutator.json",
+    "data/thermal_shock_reforged/loot_table/blocks/extractor_constructor.json",
+    "data/thermal_shock_reforged/recipe/fabrication/extractor_constructor.json",
+    "data/thermal_shock_reforged/advancement/blasphemy_2.json",
+    "data/thermal_shock_reforged/advancement/blasphemy_3.json",
+    "data/minecraft/tags/block/mineable/pickaxe.json"
+  ],
+  "natural_origins": [
+    {
+      "source": "data/thermal_shock/structures/vilebath_castle.nbt",
+      "instances": [
+        {
+          "nbt": {
+            "Items": [],
+            "id": "thermal_shock:grand_blasphemer"
+          },
+          "pos": [
+            45,
+            14,
+            60
+          ],
+          "state": {
+            "Properties": {
+              "facing": "north",
+              "animation": "0"
+            },
+            "Name": "thermal_shock:grand_blasphemer"
+          }
+        }
+      ],
+      "active_target": false
+    },
+    {
+      "source": "data/thermal_shock/structures/vilebathrubicon.nbt",
+      "instances": [
+        {
+          "state": {
+            "Name": "thermal_shock:grand_blasphemer",
+            "Properties": {
+              "facing": "south",
+              "animation": "0"
+            }
+          },
+          "pos": [
+            33,
+            14,
+            26
+          ],
+          "nbt": {
+            "ForgeCaps": {},
+            "id": "thermal_shock:grand_blasphemer",
+            "Items": []
+          }
+        }
+      ],
+      "active_target": false
+    }
+  ],
+  "pending": [
+    "两座Vilebath结构模板及真实生成链仍需完整迁入，Grand Blasphemer自然获取尚未闭合",
+    "blasphemy_1和blasphemy_4的Concierge真实任务授予/结算需迁入",
+    "全模组完整后主对话最终两端与Render Preview验收"
+  ],
+  "build": {
+    "compileJava_processResources": "passed",
+    "runtime_or_rendering_started": false
+  }
+}

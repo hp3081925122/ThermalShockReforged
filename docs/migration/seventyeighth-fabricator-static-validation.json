@@ -226,7 +226,7 @@
       "page": "TransmutatorPage",
       "output": "thermal_shock_reforged:transmutator",
       "materials_match_original_actual_removal": true,
-      "active": false,
+      "active": true,
       "original_threshold_mismatch_fixed": false
     },
     {
@@ -261,7 +261,7 @@
       "page": "ExtractorPage",
       "output": "thermal_shock_reforged:extractor_constructor",
       "materials_match_original_actual_removal": true,
-      "active": false,
+      "active": true,
       "original_threshold_mismatch_fixed": false
     },
     {
@@ -578,13 +578,12 @@
     "buttons": 68,
     "textures": 36,
     "defined_recipes": 31,
-    "active_closed_recipes": 17,
-    "pending_real_output_implementation": 14,
+    "active_closed_recipes": 19,
+    "pending_real_output_implementation": 12,
     "all_active_recipe_references_have_registration_evidence": true,
     "pending_recipe_outputs": [
       "thermal_shock_reforged:buzzsaw",
       "thermal_shock_reforged:cobalt_thermoblaster",
-      "thermal_shock_reforged:extractor_constructor",
       "thermal_shock_reforged:hi_volt_lance",
       "thermal_shock_reforged:knights_edge",
       "thermal_shock_reforged:liteprism_disk",
@@ -594,7 +593,6 @@
       "thermal_shock_reforged:silenced_armor_chestplate",
       "thermal_shock_reforged:silenced_armor_helmet",
       "thermal_shock_reforged:titanium_mace",
-      "thermal_shock_reforged:transmutator",
       "thermal_shock_reforged:volcano"
     ],
     "late_batch77_tags_build_copies": [

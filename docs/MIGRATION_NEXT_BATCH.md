@@ -142,3 +142,6 @@ Spectre 已接完整实体、原0.3速度/仰角0.1/5基础箭伤/零击退音�
 
 
 第78批：Fabricator公共制造链和全部34页已实现，186标签/68按钮/36原贴图/31材料定义静态比对通过，Java/资源统一编译通过。实际注册复查：17配方引用闭合并启用，14产物尚缺真实实现（Transmutator、Extractor Constructor、Volcano、Titanium Mace、Thermoblaster、Shock Stick、Knight's Edge、Hi-Volt Lance、Buzzsaw、Liteprism Disk、Liteprism Laser、Propulsion Boots、Silenced Helmet/Chestplate），其完整费用JSON已永久保存在docs/migration/pending-fabrication-recipes，待对应行为迁入后转为活动数据，不创建占位物品。Glastrekker Armor虽有原普通物品注册，仍须补骑乘装备实际消费链，不能因配方闭合就算功能完成。凝胶罐第77批制造来源和两个后补标签构建副本现已闭合。下一步继续上述设备/武器/装甲真实代码，再补其余未迁模块；用户禁止子代理，当前和最终测试均由主对话承担；全模组完整前不运行游戏。
+
+
+第79批由主对话迁入Transmutator六转换、Extractor十输入/原XP球与等级/反复随机上限/完整声音碎片、Constructor朝向和保水替换，以及Grand Blasphemer完整0/1/2动画、一次性保存与40/104/134/180 SERVER END。修Grand原动画2超范围、UsedHole不标脏、全局闭包改写替换装置、主手/全库存错误扣料；有限任务卸载暂停可保存，不强加载区块，保原移除装置后样本/音效阶段。29原资产和7份数据构建副本静态通过，Java/资源整批编译修复Holder取值后成功；两制造产物真实启用，Fabricator现在19活动、12待完整实现。详见transmutation-extraction-batch.md和seventyninth-machines-static-validation.json。原自然来源vilebath_castle/vilebathrubicon模板尚未迁入，Concierge进度1/4真实结算亦待，不能认为该主线已完整。继续其余12产物及剩余模块，整模组完整后由主对话做两端/Render Preview；用户禁止子代理，本批未启游戏。

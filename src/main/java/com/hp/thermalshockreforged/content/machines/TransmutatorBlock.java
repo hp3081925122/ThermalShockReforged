@@ -1,0 +1,69 @@
+package com.hp.thermalshockreforged.content.machines;
+
+import com.hp.thermalshockreforged.ThermalShockReforged;
+import java.util.List;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.phys.BlockHitResult;
+
+public final class TransmutatorBlock extends Block {
+    public TransmutatorBlock() { super(Properties.of().mapColor(MapColor.METAL).sound(SoundType.METAL).strength(2, 20).lightLevel(state -> 10)); }
+    private static String output(ItemStack stack) {
+        var id = BuiltInRegistries.ITEM.getKey(stack.getItem());
+        if (!id.getNamespace().equals(ThermalShockReforged.MOD_ID)) return null;
+        return switch (id.getPath()) {
+            case "rough_ruby" -> "rough_bloodstone";
+            case "rough_bloodstone" -> "rough_ruby";
+            case "ruby" -> "bloodstone";
+            case "bloodstone" -> "ruby";
+            case "malachite" -> "bismuth";
+            case "bismuth" -> "malachite";
+            default -> null;
+        };
+    }
+    private boolean process(ItemStack input, Level level, BlockPos pos, Player player) {
+        String output = output(input);
+        if (output == null || input.isEmpty()) return false;
+        if (!(level instanceof ServerLevel server)) return true;
+        input.shrink(1);
+        if (!MachineContent.drop(server, pos.getX() + .5, pos.getY() + 1, pos.getZ() + .5, output)) {
+            input.grow(1);
+            ThermalShockReforged.LOGGER.debug("Transmutation output rejected; input restored: player={}, position={}, output={}", player.getUUID(), pos, output);
+            return true;
+        }
+        server.playSound(null, pos, SoundEvents.COPPER_PLACE, SoundSource.BLOCKS, 1, 3);
+        ThermalShockReforged.LOGGER.debug("Transmutation completed: player={}, position={}, output={}", player.getUUID(), pos, output);
+        return true;
+    }
+    @Override protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+        return process(stack, level, pos, player) ? ItemInteractionResult.SUCCESS : ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+    }
+    @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) { return InteractionResult.PASS; }
+    @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 15; }
+    @Override public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
+        if (random.nextDouble() < .1) level.addParticle(ParticleTypes.END_ROD, pos.getX() + .5, pos.getY() + 1, pos.getZ() + .5, 0, .2, 0);
+    }
+    @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> lines, TooltipFlag flag) {
+        super.appendHoverText(stack, context, lines, flag);
+        lines.add(Component.translatable("block.thermal_shock_reforged.transmutator.description_0"));
+    }
+}

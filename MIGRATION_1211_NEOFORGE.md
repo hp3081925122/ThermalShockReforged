@@ -304,3 +304,6 @@ Shutterbug六页介绍/真实相机/摄影及图鉴任务、首次Shalespring完
 
 
 第78批由主对话完成 Fabricator 公共制造链，未调用子代理。3页引导＋31详情的34页、186标签、68按钮和36张原贴图完整迁入，一个原生菜单/屏幕配合 fabrication 配方类型，保实际9槽BE的0号输出与1号能量。修原Sentry Hood门槛/Hi-Volt电池数量不一致、直接覆盖输出、双端制造和客户端坐标越权；材料、能量和完整输出容量全部检查后才一次扣除。31费用定义完成，实际注册复查发现14产物尚未迁入，因此17闭合配方进入运行数据包，14定义保存在pending-fabrication-recipes并明确待补真实功能，未注册占位物品。凝胶罐正常制造链及第77批后补标签构建副本已闭合。Java/资源整批编译1分钟通过，再仅处理资源42秒；全部页面布局/资产/31费用静态比对通过。详见fabricator-batch.md、seventyeighth-fabricator-static-validation.json。整个模组仍未完整，后续先补这14项真实设备/武器/装甲，再继续其他未迁内容，全部代码完整后由主对话进行两端及Render Preview验收。
+
+
+第79批由主对话迁入Transmutator六转换、Extractor十输入/原XP球与等级/反复随机上限/完整声音碎片、Constructor朝向和保水替换，以及Grand Blasphemer完整0/1/2动画、一次性保存与40/104/134/180 SERVER END。修Grand原动画2超范围、UsedHole不标脏、全局闭包改写替换装置、主手/全库存错误扣料；有限任务卸载暂停可保存，不强加载区块，保原移除装置后样本/音效阶段。29原资产和7份数据构建副本静态通过，Java/资源整批编译修复Holder取值后成功；两制造产物真实启用，Fabricator现在19活动、12待完整实现。详见transmutation-extraction-batch.md和seventyninth-machines-static-validation.json。原自然来源vilebath_castle/vilebathrubicon模板尚未迁入，Concierge进度1/4真实结算亦待，不能认为该主线已完整。继续其余12产物及剩余模块，整模组完整后由主对话做两端/Render Preview；用户禁止子代理，本批未启游戏。

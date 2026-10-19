@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "id": "thermal_shock_reforged:extractor"
+    },
+    "title": {
+      "translate": "advancements.blasphemy_3.title"
+    },
+    "description": {
+      "translate": "advancements.blasphemy_3.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "blasphemy_3_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "thermal_shock_reforged:blasphemy_2"
+}
