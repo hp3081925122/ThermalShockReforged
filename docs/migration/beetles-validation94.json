@@ -1,0 +1,234 @@
+{
+  "java_syntax_utf8_no_comments": 8,
+  "actual_java_ast_phase_actions": {
+    "0": {
+      "7": [
+        "face",
+        "strike:(server, 4, false)",
+        "sound:minecraft:entity.player.attack.sweep"
+      ]
+    },
+    "1": {
+      "16": [
+        "sound::propulsionbootsactivate",
+        "aura",
+        "motion"
+      ],
+      "23": [
+        "sound:minecraft:intentionally_empty",
+        "fog"
+      ]
+    },
+    "2": {
+      "7": [
+        "motion",
+        "strike:(server, 2, true)",
+        "sound:minecraft:entity.player.attack.sweep"
+      ],
+      "9": [
+        "strike:(server, 2, true)",
+        "sound:minecraft:entity.player.attack.sweep"
+      ],
+      "11": [
+        "strike:(server, 2, true)",
+        "sound:minecraft:entity.player.attack.sweep"
+      ]
+    },
+    "3": {
+      "6": [
+        "motion",
+        "strike:(server, 2, true)",
+        "sound:minecraft:entity.player.attack.sweep"
+      ],
+      "12": [
+        "sound:minecraft:entity.iron_golem.hurt",
+        "motion",
+        "strike:(server, 2, true)",
+        "sound:minecraft:entity.player.attack.sweep"
+      ],
+      "26": [
+        "sound:minecraft:entity.player.attack.sweep",
+        "sound:minecraft:block.anvil.place",
+        "motion",
+        "parry"
+      ]
+    }
+  },
+  "original_queue_delays_and_nested_loop_times": {
+    "0": [
+      7
+    ],
+    "1": [
+      16,
+      23
+    ],
+    "2": [
+      7,
+      9,
+      11
+    ],
+    "3": [
+      6,
+      12,
+      26
+    ]
+  },
+  "submission_and_conversion_static_guards": true,
+  "nearest_player_mode_cases": 4,
+  "default_damage_numeric_samples": [
+    [
+      8,
+      1.125,
+      0,
+      9.0
+    ],
+    [
+      8,
+      1.125,
+      2,
+      8.2
+    ],
+    [
+      8,
+      1.125,
+      5,
+      7.0
+    ],
+    [
+      8,
+      1.125,
+      8,
+      5.8
+    ],
+    [
+      8,
+      1.125,
+      10,
+      5.0
+    ],
+    [
+      8,
+      1.125,
+      20,
+      1.0
+    ],
+    [
+      8,
+      1.125,
+      30,
+      0
+    ],
+    [
+      8,
+      1.125,
+      100,
+      0
+    ],
+    [
+      3,
+      1.3333333333333333,
+      0,
+      4.0
+    ],
+    [
+      3,
+      1.3333333333333333,
+      2,
+      3.2
+    ],
+    [
+      3,
+      1.3333333333333333,
+      5,
+      2.0
+    ],
+    [
+      3,
+      1.3333333333333333,
+      8,
+      0.7999999999999998
+    ],
+    [
+      3,
+      1.3333333333333333,
+      10,
+      0
+    ],
+    [
+      3,
+      1.3333333333333333,
+      20,
+      0
+    ],
+    [
+      3,
+      1.3333333333333333,
+      30,
+      0
+    ],
+    [
+      3,
+      1.3333333333333333,
+      100,
+      0
+    ],
+    [
+      8,
+      1.5,
+      0,
+      12.0
+    ],
+    [
+      8,
+      1.5,
+      2,
+      10.8
+    ],
+    [
+      8,
+      1.5,
+      5,
+      9.0
+    ],
+    [
+      8,
+      1.5,
+      8,
+      7.2
+    ],
+    [
+      8,
+      1.5,
+      10,
+      6.0
+    ],
+    [
+      8,
+      1.5,
+      20,
+      0
+    ],
+    [
+      8,
+      1.5,
+      30,
+      0
+    ],
+    [
+      8,
+      1.5,
+      100,
+      0
+    ]
+  ],
+  "knockback_resistance_preserves_existing_motion_at_zero": true,
+  "save_read_key_symmetry": true,
+  "task_bounded_phases_cross_dimension_and_player_identity_guards": true,
+  "exact_asset_hashes_and_required_animation_clips": 13,
+  "loot_ranges_and_existing_blood_pop_without_duplicate": true,
+  "two_templates_preserve_21_beetles_each_and_spawner_parameters": true,
+  "shared_integration_applied": false,
+  "gradle_run": false,
+  "game_run": false,
+  "natural_source_closed": false
+}

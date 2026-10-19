@@ -35,14 +35,16 @@ public abstract class AnimatedMonsterEntity extends Monster implements GeoEntity
     public void setTexture(String texture) { entityData.set(TEXTURE, texture); }
     protected List<String> procedureAnimations() { return List.of("idle", "walk"); }
     protected String movementAnimation(boolean moving) { return moving ? "walk" : "idle"; }
+    protected int animationTransitionTicks() { return 4; }
+    protected int deathDuration() { return 20; }
     public void triggerProcedure(String animation) { if (animation != null && procedureAnimations().contains(animation)) triggerAnim("procedure", animation); }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, ""); }
     @Override public void aiStep() { super.aiStep(); updateSwingTime(); }
 
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 4, state -> PlayState.STOP);
+        var procedure = new AnimationController<>(this, "procedure", animationTransitionTicks(), state -> PlayState.STOP);
         for (String clip : procedureAnimations()) procedure.triggerableAnim(clip, RawAnimation.begin().thenPlay(clip));
-        controllers.add(new AnimationController<>(this, "movement", 4, state -> {
+        controllers.add(new AnimationController<>(this, "movement", animationTransitionTicks(), state -> {
             if (procedure.isPlayingTriggeredAnimation()) return PlayState.STOP;
             boolean moving = state.isMoving() || state.getLimbSwingAmount() <= -.15F || state.getLimbSwingAmount() >= .15F;
             return state.setAndContinue(RawAnimation.begin().thenLoop(movementAnimation(moving)));
@@ -53,7 +55,7 @@ public abstract class AnimatedMonsterEntity extends Monster implements GeoEntity
     @Override public AnimatableInstanceCache getAnimatableInstanceCache() { return animations; }
     @Override protected void dropExperience(Entity attacker) { experiencePending = true; experienceAttacker = attacker == null ? null : attacker.getUUID(); }
     @Override protected void tickDeath() {
-        if (++deathTime >= 20 && !isRemoved()) {
+        if (++deathTime >= deathDuration() && !isRemoved()) {
             remove(RemovalReason.KILLED);
             if (experiencePending && level() instanceof ServerLevel server) {
                 experiencePending = false;

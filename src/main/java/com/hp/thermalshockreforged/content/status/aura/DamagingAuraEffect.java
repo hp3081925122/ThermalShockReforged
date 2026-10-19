@@ -41,6 +41,8 @@ final class DamagingAuraEffect extends MobEffect {
             int armor = target instanceof LivingEntity living ? living.getArmorValue() : 0;
             double raw = caster instanceof AngryCavebloomerEntity ? damageLevel * caster.getAttributeValue(Attributes.ATTACK_DAMAGE) * CavebloomerConfig.AURA_MULTIPLIER.get() / 2 : damageLevel;
             if (caster instanceof ProtoiEpsilonEntity) raw = damageLevel * caster.getAttributeValue(Attributes.ATTACK_DAMAGE) * CombatConfig.EPSILON_AURA_MULTIPLIER.get() / 6;
+            if (caster instanceof com.hp.thermalshockreforged.entity.gaze.SpiritEntity) raw = damageLevel * caster.getAttributeValue(Attributes.ATTACK_DAMAGE) / 2;
+            if (caster instanceof com.hp.thermalshockreforged.entity.beetles.BeetleCrasherEntity crasher) raw = crasher.auraDamage(damageLevel);
             target.hurt(source, Double.isFinite(raw) ? (float)Math.max(0, raw - armor * armorFactor) : 0);
         }
         return true;

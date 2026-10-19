@@ -1,0 +1,55 @@
+{
+  "batch": 94,
+  "handoff_status": "停笔，主聊天接管共享集成与统一编译",
+  "base_head": "5048aa3",
+  "production_file_count": 10,
+  "production_sha256": {
+    "src/main/java/com/hp/thermalshockreforged/entity/beetles/BeetleAttackEntity.java": "4d65b4e870d5a7f5ec04da609b99d214177d8d0706781b96f83f65fe50bb989f",
+    "src/main/java/com/hp/thermalshockreforged/entity/beetles/BeetleCombatEntity.java": "adc0009430a77351086997e9b9a1f0f14d9518f05549819393e7a003cceea8d4",
+    "src/main/java/com/hp/thermalshockreforged/entity/beetles/BeetleConfig.java": "8ae6f3855e71335c98de759f250a723c64cacaf389f50f6cf51b812472b1d236",
+    "src/main/java/com/hp/thermalshockreforged/entity/beetles/BeetleContent.java": "b788e73b4b16cc0f79f7b25b54d0f1b906c43756bf4ec8fcccb7a04a99fa7b62",
+    "src/main/java/com/hp/thermalshockreforged/entity/beetles/BeetleCrasherEntity.java": "e9910f0e78aa2e4588211a0258f34596c869208489eeab19385b7354fcd46124",
+    "src/main/java/com/hp/thermalshockreforged/entity/beetles/BeetleThrasherEntity.java": "9ff0ddca8d616fa8033b0bea8e59911e9d2a27fecc471f3d3004e0f97f64a4c9",
+    "src/main/java/com/hp/thermalshockreforged/entity/beetles/DormantBeetleCrasherEntity.java": "8885b1053ad08a7385586c0281990685b110271eb5d6f6687d50509ef27b2300",
+    "src/main/java/com/hp/thermalshockreforged/client/beetles/BeetleRenderers.java": "9969cdaa95a02d0af988e318cb6a006a5fa963429e4ff16a4f2cf515c296a0fe",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/beetle_crasher_loot.json": "d9d73e9841896993bf97c3c1454ab1342f30f9a508078cd10bce91a51c169140",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/entities/beetle_thrasher.json": "95f2e07b7e3fb9736c81a47f8f56db92f07c32559397e674c17df2301b37afdd"
+  },
+  "aggregate_algorithm": "按相对路径排序，每行path+TAB+sha256+LF，UTF-8后SHA256",
+  "production_aggregate_sha256": "7027c101e9668c724f0d2ebd4e3a2525a7db9db0bd30b3c8d587b095847dea03",
+  "report_sha256": {
+    "docs/migration/beetles-batch94.md": "bca3419d5b973f53c8ebeabcd0d405c9d9e8e293b6e3f701fa18d62b6f07dc6c",
+    "docs/migration/beetles-investigation94.json": "4aefec2ec59829476f56dfbadf9dd1d231fd59eb7544e2865ed98466de0f1034",
+    "docs/migration/beetles-resources94.json": "1fe01be608ca3f24e7775c024da1a0c94794e16d2ba66c399ee26ed82d35d0cf",
+    "docs/migration/beetles-integration94.json": "135d937bb2c114c8a596cea4996046a1b1a6908b02b0eb3c51f1fc33317934f4",
+    "docs/migration/beetles-validation94.json": "d5052517bd747da9f084fea024ed980f79476683553781c755ed539ca07b6355"
+  },
+  "static_validation": "16组通过；8Java语法、原queue与实际AST时序、伤害数值、转换与保存边界、资源及NBT机械核对；15份自有文件git diff --no-index --check通过",
+  "shared_increment": "docs/migration/beetles-integration94.json，4处Java插入+2标签各2值+zh5真键",
+  "aura_formula": "raw=基础攻击*可配倍率1.5*amp/12，默认8*1.5*12/12=12；共享末段仍max(0,raw-甲*0.6)，大Aura范围1.5、GENERIC无owner",
+  "behavior_changes": [
+    "仅施法者本维FEET朝最近玩家，保留旁观者资格",
+    "内部冷却与停步自身保存，真实可见初始化粒子/Aura/Parry保留",
+    "伤害随基础攻击，非有限及负伤害截零；适中击退折抗性且零强度不覆运动",
+    "有限持久任务替换全局队列，提交防再入",
+    "Dormant成功添加替身后才消费，失败20tick重试",
+    "Crasher明确接回原未被默认实体路径引用的原3池loot表"
+  ],
+  "native_pending": [
+    "DormantMonolith/Monolith与Vilebath共享结构全依赖审计及原自然池",
+    "Graver真实实体，现精确registry目标谓词尚无实体可匹配"
+  ],
+  "compiled": false,
+  "server_tested": false,
+  "client_tested": false,
+  "render_preview_tested": false,
+  "shared_files_modified": false,
+  "staged": false,
+  "committed": false,
+  "main_thread_next": [
+    "应用共享增量并保留Spirit等并行改动",
+    "统一编译，按实际编译结果修API",
+    "最终全迁移后安排子代理服务端测试与Render Preview，不把静态校验当运行通过"
+  ],
+  "fact_correction": "原EntityAnimationFactory含三甲虫和LabMachinist同步桥接，本次为等效替换；第93批旧断链结论由主聊天更正"
+}

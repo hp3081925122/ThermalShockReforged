@@ -73,6 +73,7 @@ public final class ThermalShockReforged {
         container.registerConfig(ModConfig.Type.COMMON, ManglerCombatConfig.SPEC, "thermal_shock_reforged-mangler.toml");
         container.registerConfig(ModConfig.Type.COMMON, com.hp.thermalshockreforged.entity.cavebloomer.CavebloomerConfig.SPEC, "thermal_shock_reforged-cavebloomer.toml");
         container.registerConfig(ModConfig.Type.COMMON, com.hp.thermalshockreforged.entity.sanctum.SanctumConfig.SPEC, "thermal_shock_reforged-sanctum.toml");
+        container.registerConfig(ModConfig.Type.COMMON, com.hp.thermalshockreforged.entity.beetles.BeetleConfig.SPEC, "thermal_shock_reforged-beetles.toml");
         ModEntities.register(bus);
         com.hp.thermalshockreforged.entity.sanctum.SanctumContent.register(bus);
         CavebloomerContent.register(bus);
@@ -136,12 +137,14 @@ public final class ThermalShockReforged {
         ProtoiContent.register(bus);
         MagnetiteContent.register(bus);
         LegacyContent.register(bus);
+        com.hp.thermalshockreforged.entity.gaze.GazeContent.register(bus);
         com.hp.thermalshockreforged.entity.titans.TitanContent.register(bus);
         com.hp.thermalshockreforged.entity.glastrekker.GlastrekkerContent.register(bus);
         com.hp.thermalshockreforged.entity.kofoni.KofoniContent.register(bus);
         com.hp.thermalshockreforged.entity.qo.QoContent.register(bus);
         com.hp.thermalshockreforged.entity.labmachinist.LabContent.register(bus);
         com.hp.thermalshockreforged.content.labworldgen.LabWorldgenContent.register(bus);
+        com.hp.thermalshockreforged.entity.beetles.BeetleContent.register(bus);
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(com.hp.thermalshockreforged.entity.labmachinist.LabPlayerState::clonePlayer);
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(com.hp.thermalshockreforged.entity.labmachinist.SylviaRifleItem::tickCharge);
         com.hp.thermalshockreforged.entity.jellercel.JellercelContent.register(bus);

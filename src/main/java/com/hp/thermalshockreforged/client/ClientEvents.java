@@ -55,7 +55,9 @@ import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 public final class ClientEvents {
     @SubscribeEvent
     public static void renderers(EntityRenderersEvent.RegisterRenderers event) {
+        com.hp.thermalshockreforged.client.gaze.GazeRenderers.register(event);
         com.hp.thermalshockreforged.client.titans.TitanRenderers.register(event);
+        com.hp.thermalshockreforged.client.beetles.BeetleRenderers.register(event);
         com.hp.thermalshockreforged.client.glastrekker.GlastrekkerRenderers.register(event);
         event.registerEntityRenderer(com.hp.thermalshockreforged.entity.titans.TitanContent.SWING.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.weapons.WeaponContent.BLADE_IMPACT.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
@@ -197,6 +199,7 @@ public final class ClientEvents {
 
     @SubscribeEvent
     public static void particles(RegisterParticleProvidersEvent event) {
+        com.hp.thermalshockreforged.client.gaze.GazeRenderers.particles(event);
         event.registerSpriteSet(com.hp.thermalshockreforged.combat.ElementalCombat.HIT_CRYO.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "hitcryo", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true));
         event.registerSpriteSet(com.hp.thermalshockreforged.combat.ElementalCombat.HIT_PYRO.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "hitpyro", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true));
         event.registerSpriteSet(com.hp.thermalshockreforged.combat.ElementalCombat.HIT_RESIST.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "hitresist", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true));

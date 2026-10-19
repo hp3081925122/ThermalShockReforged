@@ -1,0 +1,194 @@
+{
+  "assets": {
+    "animations/lanternbearer.animation.json": "c2b244dc14b00517d0207503e679973fc9ab7053c5a31bb931d0cc00ac38d9d2",
+    "geo/lanternbearer.geo.json": "d7475bef009405f9fffb906365d77eb53b123893d6e2ddf28629f3aca8d582e0",
+    "textures/entities/lanternbearer.png": "cf91e9ba228c3f5e8a9c059f339d2d09f992e1ca1113446fa02e6e98fc972f67",
+    "models/item/lanternbearer_spawn_egg.json": "cc88a82145a7d9c85eb7a43d52aa2868858c16a44a0e841dd3cd486525d88c77",
+    "textures/item/lanternbearer_egg.png": "1aa8d61cc882bcd7a9fded6a21e8f0b2198d365efaad60168bdd270e5c9664d9",
+    "animations/lens.animation.json": "a20e5dad95b5c57e3c2d6e0007cae4d22235c3f55497f187c125649a1909d570",
+    "geo/lens.geo.json": "542eb107a9f3802be5bc3966843077f6113dc5ffd8a5f1cf350df83a753905d2",
+    "textures/entities/lens.png": "98889b41c8911b3bd97faa6172014cd3cf5c84d77d52b78dad3956a87ab3816a",
+    "models/item/lens_spawn_egg.json": "992507642904aa1b2020ab8bbe9b2f9456542b491707178c72b00291a6397958",
+    "textures/item/lens_egg.png": "ac75630919db05265d5558f2941cd897c161c0110e6e37471148fbc3578bc353",
+    "animations/spirit.animation.json": "a79f9d1fd8ad938d589eef2bacfda9e8b920ec3a430180e51abd0e29a2f329b5",
+    "geo/spirit.geo.json": "7364cf93aa95e97978b7843a6aeeee307487b480fa093fabb961fdb4eed3f123",
+    "textures/entities/spirit.png": "eba7ca0592ca343230f27561e6d770c91cae857f05b4970cdb36739497a5c945",
+    "models/item/spirit_spawn_egg.json": "2662ae9e06977d4c0fd70c9ab206c570030f1831bf8e6379973eb0c9bf816978",
+    "textures/item/spirit_egg.png": "d17deaa055aa488b06405e04d47d8bfba3e981bd8112356c9440e38ad2134cc4",
+    "particles/lens_visage_1.json": "1da2d7a83bbe60a5413671c16c143fafc682a404b0802e32fa40565c9dee9e68",
+    "textures/particle/lens_visage_1.png": "02294074313b37dc7022afe4c35006f8611b289a643df55d6a331362948b0766",
+    "particles/lens_visage_2.json": "fc7eac27d6af79d4e7f2173c5226b018eec9d271bcfbc045be1a383e717c07cd",
+    "textures/particle/lens_visage_2.png": "19c8b528616621b5e7ee55026e5512b685a088e522a28dbad716c79973f33c37"
+  },
+  "data": {
+    "data\\thermal_shock_reforged\\neoforge\\biome_modifier\\lanternbearer_biome_modifier.json": {
+      "type": "neoforge:add_spawns",
+      "biomes": [
+        "thermal_shock_reforged:borean_forest",
+        "thermal_shock_reforged:borean_tundra",
+        "thermal_shock_reforged:graveyard",
+        "thermal_shock_reforged:luminous_sea",
+        "thermal_shock_reforged:stardust_garden",
+        "thermal_shock_reforged:vermillion_woods"
+      ],
+      "spawners": {
+        "type": "thermal_shock_reforged:lanternbearer",
+        "weight": 3,
+        "minCount": 1,
+        "maxCount": 1
+      }
+    },
+    "data\\thermal_shock_reforged\\neoforge\\biome_modifier\\lens_biome_modifier.json": {
+      "type": "neoforge:add_spawns",
+      "biomes": [
+        "thermal_shock_reforged:borean_forest",
+        "thermal_shock_reforged:borean_tundra",
+        "thermal_shock_reforged:graveyard",
+        "thermal_shock_reforged:luminous_sea",
+        "thermal_shock_reforged:stardust_garden",
+        "thermal_shock_reforged:vermillion_woods"
+      ],
+      "spawners": {
+        "type": "thermal_shock_reforged:lens",
+        "weight": 6,
+        "minCount": 1,
+        "maxCount": 1
+      }
+    },
+    "data\\thermal_shock_reforged\\neoforge\\biome_modifier\\spirit_biome_modifier.json": {
+      "type": "neoforge:add_spawns",
+      "biomes": [
+        "thermal_shock_reforged:borean_forest",
+        "thermal_shock_reforged:borean_tundra",
+        "thermal_shock_reforged:vermillion_woods",
+        "thermal_shock_reforged:glaciation"
+      ],
+      "spawners": {
+        "type": "thermal_shock_reforged:spirit",
+        "weight": 1,
+        "minCount": 2,
+        "maxCount": 3
+      }
+    },
+    "data\\thermal_shock_reforged\\loot_table\\entities\\lens.json": {
+      "type": "minecraft:entity",
+      "pools": [
+        {
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": "thermal_shock_reforged:stellar_scrap",
+              "weight": 5,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 2
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:ender_pearl",
+              "weight": 3,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 1
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:diamond",
+              "weight": 1,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 1
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "thermal_shock_reforged:helion_slag",
+              "weight": 2,
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 2,
+                    "max": 5
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "random_sequence": "thermal_shock_reforged:entities/lens"
+    }
+  },
+  "tags_added": {
+    "data\\thermal_shock_reforged\\tags\\entity_type\\cloro_resist.json": [
+      "thermal_shock_reforged:lens"
+    ],
+    "data\\thermal_shock_reforged\\tags\\entity_type\\cloro_weak.json": [
+      "thermal_shock_reforged:spirit"
+    ],
+    "data\\thermal_shock_reforged\\tags\\entity_type\\cryo_weak.json": [
+      "thermal_shock_reforged:spirit",
+      "thermal_shock_reforged:lens",
+      "thermal_shock_reforged:lanternbearer"
+    ],
+    "data\\thermal_shock_reforged\\tags\\entity_type\\ferro_resist.json": [
+      "thermal_shock_reforged:spirit"
+    ],
+    "data\\thermal_shock_reforged\\tags\\entity_type\\pyro_resist.json": [
+      "thermal_shock_reforged:lanternbearer"
+    ],
+    "data\\thermal_shock_reforged\\tags\\entity_type\\sprintweed_blacklist.json": [
+      "thermal_shock_reforged:lens"
+    ],
+    "data\\thermal_shock_reforged\\tags\\entity_type\\undead_mobs.json": [
+      "thermal_shock_reforged:lanternbearer"
+    ],
+    "data\\minecraft\\tags\\entity_type\\undead.json": [
+      "thermal_shock_reforged:lanternbearer",
+      "thermal_shock_reforged:spirit"
+    ],
+    "data\\minecraft\\tags\\entity_type\\sensitive_to_smite.json": [
+      "thermal_shock_reforged:lanternbearer",
+      "thermal_shock_reforged:spirit"
+    ],
+    "data\\minecraft\\tags\\entity_type\\inverted_healing_and_harm.json": [
+      "thermal_shock_reforged:lanternbearer",
+      "thermal_shock_reforged:spirit"
+    ],
+    "data\\minecraft\\tags\\entity_type\\wither_friends.json": [
+      "thermal_shock_reforged:lanternbearer",
+      "thermal_shock_reforged:spirit"
+    ],
+    "data\\minecraft\\tags\\entity_type\\ignores_poison_and_regen.json": [
+      "thermal_shock_reforged:lanternbearer",
+      "thermal_shock_reforged:spirit"
+    ],
+    "data\\minecraft\\tags\\entity_type\\can_breathe_under_water.json": [
+      "thermal_shock_reforged:lanternbearer",
+      "thermal_shock_reforged:spirit"
+    ]
+  }
+}

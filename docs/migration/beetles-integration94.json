@@ -1,0 +1,71 @@
+{
+  "batch": 94,
+  "apply_by_main_thread_only": true,
+  "shared_files_modified_by_beetles_worker": false,
+  "java_insertions": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/ThermalShockReforged.java",
+      "after": "        com.hp.thermalshockreforged.content.labworldgen.LabWorldgenContent.register(bus);",
+      "insert": "        com.hp.thermalshockreforged.entity.beetles.BeetleContent.register(bus);"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/ThermalShockReforged.java",
+      "after": "        container.registerConfig(ModConfig.Type.COMMON, com.hp.thermalshockreforged.entity.sanctum.SanctumConfig.SPEC, \"thermal_shock_reforged-sanctum.toml\");",
+      "insert": "        container.registerConfig(ModConfig.Type.COMMON, com.hp.thermalshockreforged.entity.beetles.BeetleConfig.SPEC, \"thermal_shock_reforged-beetles.toml\");"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/ClientEvents.java",
+      "after": "        com.hp.thermalshockreforged.client.titans.TitanRenderers.register(event);",
+      "insert": "        com.hp.thermalshockreforged.client.beetles.BeetleRenderers.register(event);"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/status/aura/DamagingAuraEffect.java",
+      "before": "            target.hurt(source, Double.isFinite(raw) ? (float)Math.max(0, raw - armor * armorFactor) : 0);",
+      "insert": "            if (caster instanceof com.hp.thermalshockreforged.entity.beetles.BeetleCrasherEntity crasher) raw = crasher.auraDamage(damageLevel);",
+      "preserve_existing_spirit_branch": true
+    }
+  ],
+  "aura_formula": {
+    "raw": "caster.ATTACK_DAMAGE * BeetleConfig.CRASHER_AURA * max(0, amplifier) / 12",
+    "defaults": "8 * 1.5 * 12 / 12 = 12",
+    "shared_final": "max(0, raw - armor * 0.6), finite only",
+    "unchanged_shared_semantics": "大Aura AABB膨胀1.5，GENERIC无owner，真实DAMAGING_AURA10tick/amp12/隐藏粒子"
+  },
+  "tag_value_additions": {
+    "src/main/resources/data/thermal_shock_reforged/tags/entity_type/ferro_resist.json": [
+      "thermal_shock_reforged:beetle_crasher",
+      "thermal_shock_reforged:beetle_thrasher"
+    ],
+    "src/main/resources/data/thermal_shock_reforged/tags/entity_type/pyro_resist.json": [
+      "thermal_shock_reforged:beetle_crasher",
+      "thermal_shock_reforged:beetle_thrasher"
+    ]
+  },
+  "language_value_additions": {
+    "src/main/resources/assets/thermal_shock_reforged/lang/zh_cn.json": {
+      "entity.thermal_shock_reforged.beetle_crasher": "破阵甲虫",
+      "entity.thermal_shock_reforged.beetle_thrasher": "狂战甲虫",
+      "entity.thermal_shock_reforged.dormant_beetle_crasher": "???",
+      "item.thermal_shock_reforged.beetle_crasher_spawn_egg": "破阵甲虫刷怪蛋",
+      "item.thermal_shock_reforged.beetle_thrasher_spawn_egg": "狂战甲虫刷怪蛋"
+    }
+  },
+  "no_changes_required": [
+    "en_us.json已含原实体及真刷怪蛋名字，保留Dormant的???；残留dormant蛋语言键不是实际注册证据",
+    "assets/thermal_shock_reforged/creative_tabs.json已经列出两个真刷怪蛋",
+    "CameraCatalog已经含三实体",
+    "BossDeathEffectEntity及ManglerContent.HERALD_DEATH_EFFECT已完成注册/renderer",
+    "ServerEndTickTasks已经全工程注册",
+    "FoodDrops已有Thrasher额外1%blood_pop，不重复实现"
+  ],
+  "native_source_pending": [
+    "Vilebath castle/rubicon每份16Thrasher+5Dormant+1Thrasher笼，原模板保持；自然worldgen暂不激活",
+    "每模板原生dormant_monolith尚缺，待DormantMonolith/Monolith及共享城堡全依赖审计完成后接原自然池",
+    "Graver尚未原生注册，Thrasher保留精确registry ID目标谓词，当前该目标无可用实体",
+    "不得以占位实体、删除模板实体或将原生依赖改为外部延期来宣称来源完整"
+  ],
+  "fact_correction_for_main_thread": "原EntityAnimationFactory LivingTickEvent对三甲虫及LabMachinist有全实体桥接，本批triggerable为等效替换；第93批旧断链结论由主聊天更正",
+  "gradle_run": false,
+  "game_run": false,
+  "stage_or_commit": false
+}

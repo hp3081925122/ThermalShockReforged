@@ -1,0 +1,34 @@
+{
+  "new_resource_files": {
+    "src/main/resources/data/thermal_shock_reforged/loot_table/beetle_crasher_loot.json": "d9d73e9841896993bf97c3c1454ab1342f30f9a508078cd10bce91a51c169140",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/entities/beetle_thrasher.json": "95f2e07b7e3fb9736c81a47f8f56db92f07c32559397e674c17df2301b37afdd"
+  },
+  "reused_assets": {
+    "src/main/resources/assets/thermal_shock_reforged/geo/beetle_bastion.geo.json": "0898906aec07e589bb80bd301cdd8d2b40d7b1d67cbe14585ee43c32b529d980",
+    "src/main/resources/assets/thermal_shock_reforged/animations/beetle_bastion.animation.json": "2155c46ca53bd2b87d58363aab708915b6fff4b1ba87866901f2a255f767c0d6",
+    "src/main/resources/assets/thermal_shock_reforged/geo/blood_beetle.geo.json": "9019ad175f4fe40f556a6d1c0effa25b99232243e659f2f2ee93cfe0f549d48f",
+    "src/main/resources/assets/thermal_shock_reforged/animations/blood_beetle.animation.json": "1fb9937028bf10b504de99cfa1ca5e978e4da05ae325e4980cfe3a075ea129fe",
+    "src/main/resources/assets/thermal_shock_reforged/geo/springy.geo.json": "46beb05fbf8730f52388a944b03bba4ead29acb67a5194eba0937d5485a43d3c",
+    "src/main/resources/assets/thermal_shock_reforged/animations/springy.animation.json": "a8b09cbec3c7f6348f31fd4d4fcacd0f74fdda2db0dbc914a028b60cdf0510c0",
+    "src/main/resources/assets/thermal_shock_reforged/textures/entities/beetle_bastion.png": "57d7dd430d2c7bd7b0c21809a3dfc4c392b86b8679648be547bd92bfe50e0f73",
+    "src/main/resources/assets/thermal_shock_reforged/textures/entities/blood_beetle.png": "c32144feced28db93ef549e8e75254300b40e07c4e05f19b910f50fb11f7cde4",
+    "src/main/resources/assets/thermal_shock_reforged/textures/entities/texturespringy.png": "9eed7134d451b1cc7cd5cd840172c7cf1a3e99306275a23da1b35507be85618c",
+    "src/main/resources/assets/thermal_shock_reforged/models/item/beetle_crasher_spawn_egg.json": "67c5ca2c5bb01e7984a1b818fdaafca9d82414c010d765c3010c505fc6d1b6a9",
+    "src/main/resources/assets/thermal_shock_reforged/models/item/beetle_thrasher_spawn_egg.json": "e37d25bec62885705e6c869548c1f1aa2039bc2ba09d8b49ce46ff13d50d9aa9",
+    "src/main/resources/assets/thermal_shock_reforged/textures/item/beetle_crasher_egg.png": "c849c56c323d9999ca2d8d9df29456fa60c258ead8a72c00c4c2f9806fc67135",
+    "src/main/resources/assets/thermal_shock_reforged/textures/item/beetle_thrasher_egg.png": "3de779f31a794f99636ddde3983b7d34a55b4d156aecb1433e492d2adc115f34"
+  },
+  "new_java_files": {
+    "src/main/java/com/hp/thermalshockreforged/entity/beetles/BeetleAttackEntity.java": "4d65b4e870d5a7f5ec04da609b99d214177d8d0706781b96f83f65fe50bb989f",
+    "src/main/java/com/hp/thermalshockreforged/entity/beetles/BeetleCombatEntity.java": "adc0009430a77351086997e9b9a1f0f14d9518f05549819393e7a003cceea8d4",
+    "src/main/java/com/hp/thermalshockreforged/entity/beetles/BeetleConfig.java": "8ae6f3855e71335c98de759f250a723c64cacaf389f50f6cf51b812472b1d236",
+    "src/main/java/com/hp/thermalshockreforged/entity/beetles/BeetleContent.java": "b788e73b4b16cc0f79f7b25b54d0f1b906c43756bf4ec8fcccb7a04a99fa7b62",
+    "src/main/java/com/hp/thermalshockreforged/entity/beetles/BeetleCrasherEntity.java": "e9910f0e78aa2e4588211a0258f34596c869208489eeab19385b7354fcd46124",
+    "src/main/java/com/hp/thermalshockreforged/entity/beetles/BeetleThrasherEntity.java": "9ff0ddca8d616fa8033b0bea8e59911e9d2a27fecc471f3d3004e0f97f64a4c9",
+    "src/main/java/com/hp/thermalshockreforged/entity/beetles/DormantBeetleCrasherEntity.java": "8885b1053ad08a7385586c0281990685b110271eb5d6f6687d50509ef27b2300",
+    "src/main/java/com/hp/thermalshockreforged/client/beetles/BeetleRenderers.java": "9969cdaa95a02d0af988e318cb6a006a5fa963429e4ff16a4f2cf515c296a0fe"
+  },
+  "not_activated_structure_dependency": "Vilebath castle/rubicon still need dormant_monolith and full shared closure audit; preserve existing templates",
+  "compiled": false,
+  "runtime_tested": false
+}
