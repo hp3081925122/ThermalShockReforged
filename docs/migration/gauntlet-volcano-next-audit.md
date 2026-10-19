@@ -1,6 +1,6 @@
 # Zerker Gauntlet 与 Volcano 实现前核查（第81批接续）
 
-当前只读审计完成，尚未编写本批两个物品的迁移代码。第80批已编译并本地提交，工作树无其他未完源码。禁止子代理；全模组代码完整前不启动游戏。D:\AI临时文件\ThermalShockMigration\gauntlet-volcano81-inventory.json及volcano81-firing-bytecode.txt保存原资产/进度/标签清单与发射入口字节码。
+本文在本批实现前建立；现两个实际物品及公共接线已实现并通过统一编译，详见末尾完成记录。第80批已编译并本地提交。禁止子代理；全模组代码完整前不启动游戏。D:\AI临时文件\ThermalShockMigration\gauntlet-volcano81-inventory.json及volcano81-firing-bytecode.txt保存原资产/进度/标签清单与发射入口字节码。
 
 ## Zerker Gauntlet（原ID titanium_mace）
 
@@ -26,3 +26,18 @@
 原ItemAnimationFactory确有主副手Volcano/Titanium消费geckoAnim，不能只查物品类便宣称动画未接。目标用既有GeoItem同步触发及BoundedItemAnimationCache按栈隔离，接原完整0/1，不复制全局单例animationprocedure跨玩家污染；服务端触发、客户端注册、缓存清理和两端手变换都需闭合。
 
 迁两实际物品后才启用pending-fabrication-recipes的titanium_mace/volcano；精确补原cryo_type/pyro_type/nomelee/weapon成员和上述挑战进度。普通材料来源、全局元素余项不能因本批制造启用而标完整。一次性较大实现组写完后统一compileJava/processResources，并静态核所有原模型/动画/贴图/mcmeta、弹数/时序/伤害/穿透/XP归属、进度父链和实际工厂。最终两端与Render Preview仍留到整个模组代码完整后主对话执行。
+
+
+## 第81批实现与核查结果
+
+两个实际Item工厂已迁入，启用原titanium_mace/volcano完整制造成本，Fabricator当前23活动/8项真实产物待迁。两件都用原完整Geo模型、纹理、0/1动画、builtin/entity显示变换和原entityTranslucent；Volcano手势经逐值核对与现有ZapGauntletArmPose完全一致后复用，枚举扩展已实际接线。原英文显示名Titanium Mace保留，Zerker Gauntlet为过程名称；未因命名改继承原版MaceItem。原十资产语义/二进制与构建副本核对通过，保已有相同文件格式。
+
+拳套保原155/12/1.4/攻击+8/攻速-2.4、挥手80tickCD与声效、无CD命中Slow35/amp4/SHIELD_BREAK，并把原覆盖(0,1,0)的变化量按1-抗性插值一次；满抗性不重置原水平速度。保真实命中与挥手入口顺序；伤害或死亡取消不误奖，命中后按精确ICIDROZERK类型及IceCreatureEntity原生dead确认授完整挑战，父fabricator_get与原impossible条件不删。未擅加原类没有的每击扣耐久。
+
+Volcano保31tickCD、生存1 Heavy Round/五发、创造免耗、缺弹声效与不加CD。初发同步，后4发在1/2/3/4 SERVER END，16/20 END两装填声；一个有限可保存20END任务持UUID/锚点/最近方向/使用者实体ID，无强玩家引用，无强加载。固定最初出生点、逐发取同一实际玩家当时方向并叠加-.3反冲；死亡仍延续，跨维度取仍是同一实体的当前look，离线/移除/重生替换用最近look且不推动新玩家。复用真实VolcanoBullet的3伤害/4速度/20散布/穿透2/KB1及已有3 END寿命、额外火球伤和完整Spark AAA，未误用参数不同的辅助shoot。
+
+已核目标Projectile.setOwner只接Entity，null不清缓存，不能整份load NBT改一个字段；仅对新建且缓存空的弹体通过实际配置的ProjectileOwnerAccess写归属UUID，在线用原生setOwner；穿透复用ArrowPiercingAccess。保UUID以待原生归属查询，无全服扫描/延时闭包。任务显式NoopRenderer；两物品按栈同步动画并接缓存定期回收/退出清空。
+
+另核原1.20.1 EnchantmentCategory.BREAKABLE.canEnchant为Item.canBeDepleted，1.21.1改用durability标签，故补两普通Item原耐久附魔资格；未加原类不支持的Sword/Mace附魔类别。原titanium_mace显示父particle为无命名空间item/novazerk，实际错指minecraft资源，定向修正到模组原PNG。其余普通Item武器附魔标签仍需逐项核查，不因本批两件完成而标全局闭合。
+
+整组compileJava/processResources首轮通过（56秒，24任务2执行22最新）；标签复核后仅再次processResources复制资源，未重复Java编译。静态核10原资产、四类型标签、两真实制造、原挑战、双语和Mixin共11路径构建副本通过。未启动客户端/服务端/Render Preview，无子代理；全局元素其余分支及最终完整运行测试仍待。

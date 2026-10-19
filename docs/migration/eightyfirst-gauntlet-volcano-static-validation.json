@@ -1,0 +1,124 @@
+{
+  "scope": "原JAR/源码/目标原生API/实际工厂和构建副本静态核对；不等于游戏运行测试",
+  "runtime_tests": "pending_full_mod_migration_primary_agent_only",
+  "summary": {
+    "real_weapons": 2,
+    "full_original_assets": 10,
+    "data_paths": 11,
+    "fabrication_outputs_closed": 2,
+    "finite_saved_task": true
+  },
+  "gauntlet": {
+    "durability": 155,
+    "enchantability": 12,
+    "attack_modifier": 8,
+    "attack_speed_modifier": -2.4,
+    "destroy_speed": 1.4,
+    "swing_cooldown": 80,
+    "slow_duration_amplifier": [
+      35,
+      4
+    ],
+    "launch": "(0,1,0)变化量单次折抗性；满抗性保当前运动",
+    "challenge": "精确类型+已确认死亡，保完整impossible条件及fabricator_get父链",
+    "native_item_class": "Item，无额外每击耐久损耗"
+  },
+  "volcano": {
+    "durability": 920,
+    "enchantability": 5,
+    "fire_resistant": true,
+    "ammo": "生存1 Heavy Round/五发，创造不耗",
+    "cooldown": 31,
+    "shot_end_stages": [
+      "immediate",
+      1,
+      2,
+      3,
+      4
+    ],
+    "sound_end_stages": [
+      16,
+      20
+    ],
+    "position": "固定初始x,y+1.5,z",
+    "aim": "逐发取同一实际玩家当前look，离线/移除/替换后保最后look",
+    "projectile_stats": {
+      "base_damage": 3,
+      "speed": 4,
+      "spread": 20,
+      "piercing": 2,
+      "knockback": 1
+    },
+    "recoil_per_shot": -0.3,
+    "existing_spark_and_lifetime_preserved": true,
+    "uuid_owner_without_strong_reference_or_full_nbt_reload": true
+  },
+  "native_enchantment_migration": "已核原1.20.1 BREAKABLE.canEnchant调用Item.canBeDepleted；目标1.21.1使用durability标签，补两普通Item以保原耐久附魔资格，未虚构Sword/Mace武器类别",
+  "source_defect_fixed": "displaysettings/titanium_mace粒子贴图item/novazerk缺命名空间，改指实际模组PNG；模型和变换保原",
+  "assets": [
+    {
+      "path": "geo/titaniummace.geo.json",
+      "sha256": "793ddc069071829cfad2cb58b0514f98ed1d2f627511a564e975ae49945c941a"
+    },
+    {
+      "path": "geo/volcano_rubicon.geo.json",
+      "sha256": "6cdc2a7bd87730f348d11370c78747224466cc786b68f3df80c8ae413ed9206c"
+    },
+    {
+      "path": "animations/titaniummace.animation.json",
+      "sha256": "89c9da8c2c49cdeef330ce297b662efc269415445db4a863107907fefa1d73f8"
+    },
+    {
+      "path": "animations/volcano_rubicon.animation.json",
+      "sha256": "9288d6c63e74c04a8bc72fbb11be48333b4be00ea2ab351789d0b9b01a93da18"
+    },
+    {
+      "path": "textures/item/novazerk.png",
+      "sha256": "00e83ba45069ebd40bc38b9d7a31cd3c81e97ed2323fc89c6b3e25beceffae01"
+    },
+    {
+      "path": "textures/item/volcano_rubicon.png",
+      "sha256": "0ec9b4f079d9d2515ad78a4954378bbe5ce512b78f94531b95d189d95e399c12"
+    },
+    {
+      "path": "models/item/titanium_mace.json",
+      "sha256": "221462be85424befe2f19cfaaa47b37808480d31c5816cc6bfe73ce8e5d74320"
+    },
+    {
+      "path": "models/item/volcano.json",
+      "sha256": "c2951b5f29611979df26919136c41b65e4b499491d9aad7684e2343bc4c1b78c"
+    },
+    {
+      "path": "models/displaysettings/titanium_mace.json",
+      "sha256": "b471a2911b562e4a747b5d121ec1597e0f75087af46b07f3f2ff57b2e7cda4ba"
+    },
+    {
+      "path": "models/displaysettings/volcano_rubicon.json",
+      "sha256": "1f22f0289edb25de10e5cecf80c4e50dc83f6de24cba541d11c70fac005e0a6c"
+    }
+  ],
+  "data_paths": [
+    "data/thermal_shock_reforged/tags/item/cryo_type.json",
+    "data/thermal_shock_reforged/tags/item/nomelee.json",
+    "data/thermal_shock_reforged/tags/item/pyro_type.json",
+    "data/thermal_shock_reforged/tags/item/weapon.json",
+    "data/thermal_shock_reforged/recipe/fabrication/titanium_mace.json",
+    "data/thermal_shock_reforged/recipe/fabrication/volcano.json",
+    "data/thermal_shock_reforged/advancement/icidrozerk_mace_kill_get.json",
+    "data/minecraft/tags/item/enchantable/durability.json",
+    "assets/thermal_shock_reforged/lang/en_us.json",
+    "assets/thermal_shock_reforged/lang/zh_cn.json",
+    "thermal_shock_reforged.mixins.json"
+  ],
+  "build": {
+    "compileJava_processResources": "passed",
+    "resource_followup_for_native_enchantment_tag": "passed",
+    "subagents": false,
+    "game_runtime_started": false
+  },
+  "pending": [
+    "全局Cryo/Pyro其余分支仍未完整",
+    "其余普通Item武器耐久附魔标签需逐项复核",
+    "全模组代码完成后主对话测试死亡取消/抗性/连射及最终两端与Render Preview"
+  ]
+}

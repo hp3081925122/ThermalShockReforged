@@ -1834,10 +1834,12 @@
         "thermal_shock:ruby_sword",
         "thermal_shock:muck",
         "thermal_shock:sparkly_muck",
+        "thermal_shock:volcano",
         "thermal_shock:flintsteel_rifle",
         "thermal_shock:bloodstone_axe",
         "thermal_shock:bloodstone_sword",
         "thermal_shock:ruby_spear",
+        "thermal_shock:titanium_mace",
         "thermal_shock:shock_stick",
         "thermal_shock:stratosilver_chainsaw",
         "thermal_shock:knights_edge",
@@ -1854,9 +1856,7 @@
         "thermal_shock:pure_muck",
         "thermal_shock:ghostglass_sword",
         "thermal_shock:magnetic_crossbow",
-        "thermal_shock:volcano",
         "thermal_shock:bloodstone_halberd",
-        "thermal_shock:titanium_mace",
         "thermal_shock:blinding_lantern",
         "thermal_shock:core_eject_flare_gun",
         "thermal_shock:cobalt_thermoblaster",
@@ -1879,6 +1879,46 @@
         "thermal_shock:zap_gauntlet",
         "thermal_shock:flower_bomb",
         "thermal_shock:thistle_bow"
+      ]
+    },
+    "data/thermal_shock/tags/items/cryo_type.json": {
+      "loaded": [
+        "thermal_shock:hailfall",
+        "thermal_shock:titanium_mace",
+        "thermal_shock:speleothem"
+      ],
+      "pending": [
+        "thermal_shock:stratosilver_drill",
+        "thermal_shock:stratosilver_chainsaw",
+        "thermal_shock:stratosilver_auger",
+        "thermal_shock:stratosilver_sickle",
+        "thermal_shock:frozen_blade"
+      ]
+    },
+    "data/thermal_shock/tags/items/nomelee.json": {
+      "loaded": [
+        "thermal_shock:volcano",
+        "thermal_shock:flintsteel_rifle",
+        "thermal_shock:hailfall"
+      ],
+      "pending": [
+        "thermal_shock:magnetic_crossbow",
+        "thermal_shock:blinding_lantern",
+        "thermal_shock:core_eject_flare_gun",
+        "thermal_shock:cobalt_thermoblaster",
+        "thermal_shock:zenith_thermoblaster",
+        "thermal_shock:buzzsaw",
+        "thermal_shock:zenith_crossbow"
+      ]
+    },
+    "data/thermal_shock/tags/items/pyro_type.json": {
+      "loaded": [
+        "thermal_shock:flintsteel_rifle",
+        "thermal_shock:volcano"
+      ],
+      "pending": [
+        "thermal_shock:core_eject_flare_gun",
+        "thermal_shock:molten_bat"
       ]
     }
   },
@@ -2911,7 +2951,10 @@
     "data/thermal_shock/tags/item/zenith.json",
     "data/minecraft/tags/item/swords.json",
     "data/thermal_shock/tags/item/cloro_type.json",
-    "data/thermal_shock/tags/item/ferro_type.json"
+    "data/thermal_shock/tags/item/ferro_type.json",
+    "data/thermal_shock/tags/item/cryo_type.json",
+    "data/thermal_shock/tags/item/nomelee.json",
+    "data/thermal_shock/tags/item/pyro_type.json"
   ],
   "structure_templates": [
     "data/thermal_shock/structure/vermillion_pine_1.nbt",

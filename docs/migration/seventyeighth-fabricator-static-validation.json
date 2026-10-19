@@ -275,7 +275,7 @@
       "page": "VolcanoPage",
       "output": "thermal_shock_reforged:volcano",
       "materials_match_original_actual_removal": true,
-      "active": false,
+      "active": true,
       "original_threshold_mismatch_fixed": false
     },
     {
@@ -296,7 +296,7 @@
       "page": "ZerkerGauntletPage",
       "output": "thermal_shock_reforged:titanium_mace",
       "materials_match_original_actual_removal": true,
-      "active": false,
+      "active": true,
       "original_threshold_mismatch_fixed": false
     },
     {
@@ -578,8 +578,8 @@
     "buttons": 68,
     "textures": 36,
     "defined_recipes": 31,
-    "active_closed_recipes": 21,
-    "pending_real_output_implementation": 10,
+    "active_closed_recipes": 23,
+    "pending_real_output_implementation": 8,
     "all_active_recipe_references_have_registration_evidence": true,
     "pending_recipe_outputs": [
       "thermal_shock_reforged:buzzsaw",
@@ -589,9 +589,7 @@
       "thermal_shock_reforged:liteprism_laser",
       "thermal_shock_reforged:propulsion_boots_boots",
       "thermal_shock_reforged:silenced_armor_chestplate",
-      "thermal_shock_reforged:silenced_armor_helmet",
-      "thermal_shock_reforged:titanium_mace",
-      "thermal_shock_reforged:volcano"
+      "thermal_shock_reforged:silenced_armor_helmet"
     ],
     "late_batch77_tags_build_copies": [
       "infectionimmune",

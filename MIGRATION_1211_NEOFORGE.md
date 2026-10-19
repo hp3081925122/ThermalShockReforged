@@ -310,3 +310,6 @@ Shutterbug六页介绍/真实相机/摄影及图鉴任务、首次Shalespring完
 
 
 第80批由主对话迁入Shock Stick与Knight's Edge真实近战/use、原7/9弱点伤害、5 SERVER END带电240/amp1或10伤害充能爆破、原范围和排除项、100tick右键CD及18/12/25难度窗口；复用既有Parrying/Charge40与防递归Electrified传导，不擅改原未取消主伤或充能期间可多次命中的规则。完整两Hit AAA与九帧BluePlus、原Shock两帧mcmeta和Knight定制几何、34原资产和六数据构建副本静态通过；两有限任务补NoopRenderer。较大代码组统一Java/资源编译通过；两制造产物启用后Fabricator现21活动、10待实际实现。详见shock-knights-blades-batch.md和eightieth-blades-static-validation.json。全局元素其余分支、Qo来源、Vilebath/Concierge及其余未迁模块仍待，整模组未完整，最终两端/Render Preview留到全代码完成后主对话执行；无子代理、未启游戏。
+
+
+第81批主对话迁入Zerker Gauntlet（titanium_mace）与Volcano真实Item、完整Geo/0-1动画/手势。拳套保原命中和挥手顺序、80tickCD/Slow35amp4/上抛并单次折抗性，按精确类型和确认死亡奖完整挑战；Volcano保31tickCD、一Heavy Round五连发、同步首发与1/2/3/4 END后续、固定锚点/动态方向/原3伤4速20散布穿透2/KB1、16/20 END装填声与完整已有Spark。有限持久任务只持UUID/实体ID及数据，原生Owner访问器仅用于新弹离线归属；未增加耐久消耗。核旧BREAKABLE与新durability标签保两件附魔资格，修父模型粒子贴图缺命名空间。整组Java/资源首轮56s通过，标签复核后只复制资源；10原资产和11数据/语言/Mixin构建路径静态通过。Fabricator当前23活动/8待实际产物实现。详gauntlet-volcano-next-audit.md与eightyfirst-gauntlet-volcano-static-validation.json。全局元素其余分支、其他普通Item耐久附魔、Vilebath/Concierge与其余未迁模块仍待；整模组未完整，最终两端/Render Preview留到全代码完成后主对话执行。未启动游戏，无子代理。

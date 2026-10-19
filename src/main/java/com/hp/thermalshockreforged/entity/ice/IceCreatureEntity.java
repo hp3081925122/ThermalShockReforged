@@ -217,6 +217,7 @@ public final class IceCreatureEntity extends Monster implements GeoEntity, Range
         if (movementLock > 0) { movementLock--; syncMovementLock(); }
         advanceAttack(server);
     }
+    public boolean hasCommittedDeath() { return dead; }
     @Override public void die(DamageSource source) {
         super.die(source);
         if (!dead) return;

@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "id": "thermal_shock_reforged:titanium_mace"
+    },
+    "title": {
+      "translate": "advancements.icidrozerk_mace_kill_get.title"
+    },
+    "description": {
+      "translate": "advancements.icidrozerk_mace_kill_get.descr"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "icidrozerk_mace_kill_get_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "thermal_shock_reforged:fabricator_get"
+}
