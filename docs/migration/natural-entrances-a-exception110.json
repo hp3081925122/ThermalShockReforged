@@ -1,0 +1,62 @@
+{
+  "id": "hanging_bulb_patch_biome_modifier",
+  "classification": "原生来源例外；不是外模组联动延期",
+  "sourceJarSha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436",
+  "sourcePath": "data/thermal_shock/forge/biome_modifier/hanging_bulb_patch_biome_modifier.json",
+  "sourceSha256": "c6c11aa6dcb2056446287173b953eb6e8250a866d9c8e54ca7755318fa8c9871",
+  "originalJsonUtf8FullText": "{\n  \"type\": \"forge:add_features\",\n  \"biomes\": \"#thermal_shock:purebiomes\",\n  \"features\": \"thermal_shock:hanging_bulb_patch\",\n  \"step\": \"underground_decoration\"\n}",
+  "sourceParsed": {
+    "type": "forge:add_features",
+    "biomes": "#thermal_shock:purebiomes",
+    "features": "thermal_shock:hanging_bulb_patch",
+    "step": "underground_decoration"
+  },
+  "reason": "原引用purebiomes但原JAR与Java没有定义，目标同样无定义；不能确定真实群系范围。",
+  "authority": "主线确认29modifier与3placed交付；本条留源全文和SHA供总审计，不作本线无限待写事项。",
+  "earlierEvidence": [
+    "native-closure-next-batch100-preflight.md",
+    "vilebathblocks-batch96.md"
+  ],
+  "targetModifierProduced": false,
+  "guessedOrEmptyTagProduced": false,
+  "normalEntranceCounted": false,
+  "preservedExistingSources": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/vilebathblocks/HangingSparklerBulbBlock.java",
+      "sha256": "f021d9462b7c5953d8590053c14903170f27f08c8317e97dc1dd9fb280730be1"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/configured_feature/hanging_bulb_patch.json",
+      "sha256": "128e2896690db97d404890cd207af19b4092033c9050d860645d1bb92d6cca11"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/placed_feature/hanging_bulb_patch.json",
+      "sha256": "f619ef34312850ae751c46c46aa90338e77ed2e5f55541c76ff60b0bb2254d67"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/structure/vilebath_castle.json",
+      "sha256": "e45a5d5839e120c0ab96c3c3f2ee3ba550f59bb329597b01438e5ad0a03a7fa1"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/vilebath_castle.json",
+      "sha256": "f7bd52231eefbebb37f66df8a9ec8cea56c04c30d3ae79d9d2b219150069c454"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/vilebath_castle.json",
+      "sha256": "e47001b05e16ecc47e23d3102394efcd8d9bdf04ccc7d08327c5196037686da1"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/vilebath_castle_vilebath_bridges.json",
+      "sha256": "4d1c1e93bed642a545a23422bc1cdae766b72ecf9b945406206977bb26f98dc6"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/vilebath_castle.nbt",
+      "sha256": "109e363899c576b757e2d489aab0169f8e1ad63fb30c385ca7f1df730d7e06fa"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/vilebathrubicon.nbt",
+      "sha256": "6b8eab852fc286069bbf2264da56567cec18150af4e10ad5c560ffbc490fdabe"
+    }
+  ],
+  "runtimeValidation": "本批不测试游戏，不接管用户独立服务端测试。"
+}

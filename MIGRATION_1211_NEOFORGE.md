@@ -550,3 +550,17 @@ A独立13027项核验覆盖707份载荷、32个真实缓慢和原生缓慢修饰
 剩余原物品注册盘点item-registration-followup109.json：17候选中Zenith对应改名后的Magnetic Crossbow，其他16个同ID注册未确认，只有创意页/模型/音效/字符串引用不算注册；后续继续迁入原生内容，不当外模组联动延期。自然入口差集原56项已先读依赖：30configured/27placed内容正确，三placed和30feature modifier待补；26spawn真实注册/群系及类别存在，六个原以为缺的placement已证在共享ModEntities完整接入。第110批按parallel-batch110.md给A较多特征入口工作，主线闭合26spawn，109提交后解除生产。
 
 整模组尚未完整。客户端及Render Preview待全部代码完整、无简化复审后由主线安排子代理；服务端由用户独立测试线进行，不联系、不干预，也不把正在测视为通过。本批未启动游戏；Git无remote，阶段提交仅本地。
+
+## 第110批最终集成验证
+
+迁移A完成29条完整自然特征modifier与三份缺失placed，主线完成26条生物群系刷怪注入，共58份新增JSON。保全部群系、阶段、候选/顺序、抽样、概率、次数、权重与群体数量；不整体重导覆盖已有57份正确configured/placed。三树placed完整保原高度/水深/原版树苗生存谓词及rarity与UniformInt抽样次序，仅做命名空间、NeoForge类型和必要Codec字段转换。A635项静态检查/2050有序JSON节点及20模板14850条块记录对照通过，原57资源保持；这些数量不是运行测试次数。
+
+原hanging_bulb_patch modifier引用purebiomes，但原JAR与Java没有该标签定义。原全文与SHA单独存natural-entrances-a-exception110.json，不用猜测群系或空标签伪造自然入口；灯泡全部原方块、特征及真实城堡来源保留。29条正常配置与一条原本悬空来源例外分开计，不以外模组联动延期掩盖原生内容。
+
+主线独立quick_explorer直接原JAR核26JSON及真实注册/placement/event-bus：26源与目标SHA匹配，八群系资源全在，全目标52项add_spawns无同实体重复。类别15AMBIENT/6WATER_AMBIENT/5MONSTER不变；六个共享placement原本就在ModEntities，未因单类搜索漏报而增加重复handler。具体spawns-main-independent110.json保代理结构化结论及主线机械哈希。
+
+两路停笔固定8767份src/main输入，Java21离线compileJava/processResources --max-workers=2统一通过，日志1m 32s；本批仅资源变更，compileJava为UP-TO-DATE、processResources执行。58份生产与全输入哈希在构建期间保持，7981份直接复制资源逐字节相同、两展开模板通过，847中文/3338英文旧值不变。总证据main110-static-validation.json，不把编译/静态配置检查当实际世界生成、客户端或服务端测试。
+
+只读原注册复查纠正此前Zenith别名判断：原magnetic_crossbow与zenith_crossbow是两独立物品，共用过程并不构成改名。目标缺Zenith注册及独立smithing升级链，已列zenith-crossbow-followup110.md，旧109候选快照不覆盖新结论。十六项已分111外，Zenith是真实第十七项后续缺口，不可遗漏。111按parallel-batch111.md给A九项较复杂武器/盔甲/炸弹/雨伞，主线七项工具/结构物品/饮料，阶段提交后明确解除生产冻结。
+
+整模组尚未完整。本批未启动游戏，服务端由用户独立线测试中，生产聊天不联系干预、不重复启动，也不将进行中视为通过。完整代码及无简化复核后主线安排子代理进行客户端与E:/模组/发cf的模组/Render Preview原件对照并记录结果。Git仍无remote，只做本地阶段提交。

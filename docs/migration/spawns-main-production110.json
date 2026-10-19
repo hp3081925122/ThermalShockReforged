@@ -1,0 +1,541 @@
+{
+  "batch": 110,
+  "baseline": "38ca837ea06d747373c84aec7a8cd3c3b8c834ff",
+  "production": [
+    {
+      "id": "blighted_spore_biome_modifier",
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/blighted_spore_biome_modifier.json",
+      "source_path": "data/thermal_shock/forge/biome_modifier/blighted_spore_biome_modifier.json",
+      "source_sha256": "a102386be6aac5e8b5bae35f86210068d5da582c053368ea0e3b421597b46237",
+      "sha256": "785d87679f4b44591bf33369b1bbb8a879681a279b7625eae0e44a4381b17b85",
+      "biomes": "thermal_shock_reforged:graveyard",
+      "spawners": {
+        "type": "thermal_shock_reforged:blighted_spore",
+        "weight": 28,
+        "minCount": 3,
+        "maxCount": 6
+      },
+      "changes": [
+        "mod namespace",
+        "forge:add_spawns -> neoforge:add_spawns"
+      ]
+    },
+    {
+      "id": "bonerahna_biome_modifier",
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/bonerahna_biome_modifier.json",
+      "source_path": "data/thermal_shock/forge/biome_modifier/bonerahna_biome_modifier.json",
+      "source_sha256": "07369703f4db79bf4904d40e3f5ab8fc6edf935dcde8bdf8fd242730d1e921c1",
+      "sha256": "fba517a13fcddb6e4d86d62df7264a86b8e5b59268db6c4f06c2c80a58469b8d",
+      "biomes": [
+        "thermal_shock_reforged:graveyard",
+        "thermal_shock_reforged:luminous_sea",
+        "thermal_shock_reforged:vermillion_woods",
+        "thermal_shock_reforged:borean_forest",
+        "thermal_shock_reforged:borean_tundra"
+      ],
+      "spawners": {
+        "type": "thermal_shock_reforged:bonerahna",
+        "weight": 40,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      "changes": [
+        "mod namespace",
+        "forge:add_spawns -> neoforge:add_spawns"
+      ]
+    },
+    {
+      "id": "chilloo_biome_modifier",
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/chilloo_biome_modifier.json",
+      "source_path": "data/thermal_shock/forge/biome_modifier/chilloo_biome_modifier.json",
+      "source_sha256": "1465574fd902a71a55dcc036a62fa00c6e6a14e132d8432b1630a118b5f86cfd",
+      "sha256": "324a5d60cbe5083f501a8c8649a31584627c2a86831a171e2fdd84282af5b01c",
+      "biomes": "thermal_shock_reforged:glaciation",
+      "spawners": {
+        "type": "thermal_shock_reforged:chilloo",
+        "weight": 20,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      "changes": [
+        "mod namespace",
+        "forge:add_spawns -> neoforge:add_spawns"
+      ]
+    },
+    {
+      "id": "chromefish_biome_modifier",
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/chromefish_biome_modifier.json",
+      "source_path": "data/thermal_shock/forge/biome_modifier/chromefish_biome_modifier.json",
+      "source_sha256": "2c153365021024bd91eb5d4cf13cd1592145b61c08a0a3d37b745d7b98941275",
+      "sha256": "42cae353a08ac4715191616aa0f16aeef446904cda5713fc0a464441f3ca1be4",
+      "biomes": [
+        "thermal_shock_reforged:stardust_garden",
+        "thermal_shock_reforged:luminous_sea",
+        "thermal_shock_reforged:glaciation"
+      ],
+      "spawners": {
+        "type": "thermal_shock_reforged:chromefish",
+        "weight": 50,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      "changes": [
+        "mod namespace",
+        "forge:add_spawns -> neoforge:add_spawns"
+      ]
+    },
+    {
+      "id": "crystal_koi_biome_modifier",
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/crystal_koi_biome_modifier.json",
+      "source_path": "data/thermal_shock/forge/biome_modifier/crystal_koi_biome_modifier.json",
+      "source_sha256": "79bfdc52627ba6c052bc6338157fdb95d956a6914305a0bf03423f25c369db2f",
+      "sha256": "e8b6a7174d2b4590849a60c86093b066acf532771ad247809af5932ed07434c3",
+      "biomes": [
+        "thermal_shock_reforged:borean_forest",
+        "thermal_shock_reforged:borean_tundra",
+        "thermal_shock_reforged:stardust_garden",
+        "thermal_shock_reforged:vermillion_woods",
+        "thermal_shock_reforged:luminous_sea"
+      ],
+      "spawners": {
+        "type": "thermal_shock_reforged:crystal_koi",
+        "weight": 70,
+        "minCount": 2,
+        "maxCount": 3
+      },
+      "changes": [
+        "mod namespace",
+        "forge:add_spawns -> neoforge:add_spawns"
+      ]
+    },
+    {
+      "id": "flare_biome_modifier",
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/flare_biome_modifier.json",
+      "source_path": "data/thermal_shock/forge/biome_modifier/flare_biome_modifier.json",
+      "source_sha256": "023b6c39daa8213f3e298b15af30a66e01c1fa659ae6a58f87c118e6b67306ca",
+      "sha256": "c4a264a05efd43cb0a777f66ee8264a9b22cac5cff042d0484b7f2bc95a43051",
+      "biomes": "thermal_shock_reforged:graveyard",
+      "spawners": {
+        "type": "thermal_shock_reforged:flare",
+        "weight": 50,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      "changes": [
+        "mod namespace",
+        "forge:add_spawns -> neoforge:add_spawns"
+      ]
+    },
+    {
+      "id": "forecast_biome_modifier",
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/forecast_biome_modifier.json",
+      "source_path": "data/thermal_shock/forge/biome_modifier/forecast_biome_modifier.json",
+      "source_sha256": "bb56742bef1652b40b3da0762339148a07565a19ba17ca371b20ba4a6e37c344",
+      "sha256": "1d280a85bbb5b6e3996224d1e687c8be31025c62b56cf7e6a4b201f7d7d68ca6",
+      "biomes": [
+        "thermal_shock_reforged:cobalt_heights",
+        "thermal_shock_reforged:borean_tundra"
+      ],
+      "spawners": {
+        "type": "thermal_shock_reforged:forecast",
+        "weight": 5,
+        "minCount": 2,
+        "maxCount": 3
+      },
+      "changes": [
+        "mod namespace",
+        "forge:add_spawns -> neoforge:add_spawns"
+      ]
+    },
+    {
+      "id": "galvanite_biome_modifier",
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/galvanite_biome_modifier.json",
+      "source_path": "data/thermal_shock/forge/biome_modifier/galvanite_biome_modifier.json",
+      "source_sha256": "cd8c3226e5da7a7a338d417172e95128a4408782e68a2dd719f429bc1c045c28",
+      "sha256": "6b5db29ab6d4ad3cac6df89227cdd194318528f227b0e3cbcc7ef8da822cd0ab",
+      "biomes": [
+        "thermal_shock_reforged:borean_forest",
+        "thermal_shock_reforged:borean_tundra",
+        "thermal_shock_reforged:graveyard",
+        "thermal_shock_reforged:luminous_sea",
+        "thermal_shock_reforged:stardust_garden",
+        "thermal_shock_reforged:vermillion_woods",
+        "thermal_shock_reforged:cobalt_heights"
+      ],
+      "spawners": {
+        "type": "thermal_shock_reforged:galvanite",
+        "weight": 20,
+        "minCount": 1,
+        "maxCount": 1
+      },
+      "changes": [
+        "mod namespace",
+        "forge:add_spawns -> neoforge:add_spawns"
+      ]
+    },
+    {
+      "id": "infestophage_seed_biome_modifier",
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/infestophage_seed_biome_modifier.json",
+      "source_path": "data/thermal_shock/forge/biome_modifier/infestophage_seed_biome_modifier.json",
+      "source_sha256": "2f847613879a818bb3fd5bf3f59c586358345dd591f49b93aa66679a5fd559e0",
+      "sha256": "d7690257dd571d372e82f2f0810115e8afbaf7ff33664e8e37d196843c62c5d7",
+      "biomes": [
+        "thermal_shock_reforged:borean_tundra",
+        "thermal_shock_reforged:graveyard",
+        "thermal_shock_reforged:vermillion_woods"
+      ],
+      "spawners": {
+        "type": "thermal_shock_reforged:infestophage_seed",
+        "weight": 3,
+        "minCount": 1,
+        "maxCount": 1
+      },
+      "changes": [
+        "mod namespace",
+        "forge:add_spawns -> neoforge:add_spawns"
+      ]
+    },
+    {
+      "id": "louse_biome_modifier",
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/louse_biome_modifier.json",
+      "source_path": "data/thermal_shock/forge/biome_modifier/louse_biome_modifier.json",
+      "source_sha256": "cefac5cfca018c84d078a86258ad4ac5b67f8ea56217d30807f954eb241c7218",
+      "sha256": "3ff14767506a940e4157b0b06d38e59eb1e92b4102887f74959fcdad724ffbbd",
+      "biomes": [
+        "thermal_shock_reforged:borean_forest",
+        "thermal_shock_reforged:borean_tundra",
+        "thermal_shock_reforged:vermillion_woods"
+      ],
+      "spawners": {
+        "type": "thermal_shock_reforged:louse",
+        "weight": 20,
+        "minCount": 2,
+        "maxCount": 4
+      },
+      "changes": [
+        "mod namespace",
+        "forge:add_spawns -> neoforge:add_spawns"
+      ]
+    },
+    {
+      "id": "mangler_biome_modifier",
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/mangler_biome_modifier.json",
+      "source_path": "data/thermal_shock/forge/biome_modifier/mangler_biome_modifier.json",
+      "source_sha256": "f7349c4de71fafe5fcb744992636095c68ef3c09ade03657dcd72e35feda04c1",
+      "sha256": "032a42fea541fe042923a2d2ea491a9baf7e2c41691a589c5d5b8885605358d4",
+      "biomes": "thermal_shock_reforged:graveyard",
+      "spawners": {
+        "type": "thermal_shock_reforged:mangler",
+        "weight": 15,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      "changes": [
+        "mod namespace",
+        "forge:add_spawns -> neoforge:add_spawns"
+      ]
+    },
+    {
+      "id": "pillbud_biome_modifier",
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/pillbud_biome_modifier.json",
+      "source_path": "data/thermal_shock/forge/biome_modifier/pillbud_biome_modifier.json",
+      "source_sha256": "e12771174f5edd5bb931b3a46ad0fcdd31de9b19c33055ea2ba241710244cbb4",
+      "sha256": "82c6208e19af03bb380678d38c0747ad1ac43690c99eda346eed60daa38cc4bb",
+      "biomes": "thermal_shock_reforged:vermillion_woods",
+      "spawners": {
+        "type": "thermal_shock_reforged:pillbud",
+        "weight": 5,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      "changes": [
+        "mod namespace",
+        "forge:add_spawns -> neoforge:add_spawns"
+      ]
+    },
+    {
+      "id": "pixie_biome_modifier",
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/pixie_biome_modifier.json",
+      "source_path": "data/thermal_shock/forge/biome_modifier/pixie_biome_modifier.json",
+      "source_sha256": "e59758315579972da2d2ab70ea55972f73a93ce13a5ffb5d4ad2550ab7e19831",
+      "sha256": "d9c99879b24668ab11894a897b48ceb7789bf5fbe43b765bf447e03043b42756",
+      "biomes": "thermal_shock_reforged:stardust_garden",
+      "spawners": {
+        "type": "thermal_shock_reforged:pixie",
+        "weight": 20,
+        "minCount": 3,
+        "maxCount": 5
+      },
+      "changes": [
+        "mod namespace",
+        "forge:add_spawns -> neoforge:add_spawns"
+      ]
+    },
+    {
+      "id": "pondler_biome_modifier",
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/pondler_biome_modifier.json",
+      "source_path": "data/thermal_shock/forge/biome_modifier/pondler_biome_modifier.json",
+      "source_sha256": "2b9367ca2f90e89f9abcff4605fdb42cb941d255d94b1a9e88354c205042383e",
+      "sha256": "5ca238a5e9f5b1961e32f825db46446a838132ff0ae71b5bd3e68196e0e48b5a",
+      "biomes": "thermal_shock_reforged:vermillion_woods",
+      "spawners": {
+        "type": "thermal_shock_reforged:pondler",
+        "weight": 70,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      "changes": [
+        "mod namespace",
+        "forge:add_spawns -> neoforge:add_spawns"
+      ]
+    },
+    {
+      "id": "probosker_biome_modifier",
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/probosker_biome_modifier.json",
+      "source_path": "data/thermal_shock/forge/biome_modifier/probosker_biome_modifier.json",
+      "source_sha256": "c06eb3867c42a7203a8debbd1468fb0564838f12ca609c95b93b3af90652f823",
+      "sha256": "6521fdc0e54c53fefeae00e37489ce4cb16982b689f120ac73e7be556482806a",
+      "biomes": [
+        "thermal_shock_reforged:borean_forest",
+        "thermal_shock_reforged:borean_tundra",
+        "thermal_shock_reforged:vermillion_woods"
+      ],
+      "spawners": {
+        "type": "thermal_shock_reforged:probosker",
+        "weight": 75,
+        "minCount": 1,
+        "maxCount": 1
+      },
+      "changes": [
+        "mod namespace",
+        "forge:add_spawns -> neoforge:add_spawns"
+      ]
+    },
+    {
+      "id": "protoi_delta_biome_modifier",
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/protoi_delta_biome_modifier.json",
+      "source_path": "data/thermal_shock/forge/biome_modifier/protoi_delta_biome_modifier.json",
+      "source_sha256": "dd3b66bb70a1ea62caa921f75790599c9954cf37ebe19d5afb98a73af2438c47",
+      "sha256": "b4f3619f5596b28398afc28700f323030d308458fcb6c217a815e51544769a97",
+      "biomes": [
+        "thermal_shock_reforged:borean_forest",
+        "thermal_shock_reforged:borean_tundra",
+        "thermal_shock_reforged:cobalt_heights",
+        "thermal_shock_reforged:vermillion_woods"
+      ],
+      "spawners": {
+        "type": "thermal_shock_reforged:protoi_delta",
+        "weight": 25,
+        "minCount": 1,
+        "maxCount": 1
+      },
+      "changes": [
+        "mod namespace",
+        "forge:add_spawns -> neoforge:add_spawns"
+      ]
+    },
+    {
+      "id": "protoi_epsilon_biome_modifier",
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/protoi_epsilon_biome_modifier.json",
+      "source_path": "data/thermal_shock/forge/biome_modifier/protoi_epsilon_biome_modifier.json",
+      "source_sha256": "d199f284b40a56a6630683003e6a67b630f438db7c0e74d83e8a065dc0d934dd",
+      "sha256": "011fbfb4236b3526030b3af8b3b967d469a46d21d7160e48099d8cef9561ddd2",
+      "biomes": "thermal_shock_reforged:cobalt_heights",
+      "spawners": {
+        "type": "thermal_shock_reforged:protoi_epsilon",
+        "weight": 4,
+        "minCount": 1,
+        "maxCount": 1
+      },
+      "changes": [
+        "mod namespace",
+        "forge:add_spawns -> neoforge:add_spawns"
+      ]
+    },
+    {
+      "id": "protoi_gamma_biome_modifier",
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/protoi_gamma_biome_modifier.json",
+      "source_path": "data/thermal_shock/forge/biome_modifier/protoi_gamma_biome_modifier.json",
+      "source_sha256": "828a91f6ef72d8855ef58378a6dcd3c714389e4c778e4ea30cbae3a845de011a",
+      "sha256": "4d77410ad594a1f5ce3f4bdf56e4928d68a68a1f4ab981730d960ecf6b8d2891",
+      "biomes": [
+        "thermal_shock_reforged:borean_forest",
+        "thermal_shock_reforged:borean_tundra",
+        "thermal_shock_reforged:vermillion_woods"
+      ],
+      "spawners": {
+        "type": "thermal_shock_reforged:protoi_gamma",
+        "weight": 45,
+        "minCount": 1,
+        "maxCount": 1
+      },
+      "changes": [
+        "mod namespace",
+        "forge:add_spawns -> neoforge:add_spawns"
+      ]
+    },
+    {
+      "id": "raincatcher_biome_modifier",
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/raincatcher_biome_modifier.json",
+      "source_path": "data/thermal_shock/forge/biome_modifier/raincatcher_biome_modifier.json",
+      "source_sha256": "704d5339565cc0777f3ca0069ad425abb415daad2d666c29a7491622026d17fa",
+      "sha256": "1a75a6622ba554b0ae09cb1b4b391282e7dee92940a7b3f0a2c4ac022693b52e",
+      "biomes": "thermal_shock_reforged:cobalt_heights",
+      "spawners": {
+        "type": "thermal_shock_reforged:raincatcher",
+        "weight": 9,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      "changes": [
+        "mod namespace",
+        "forge:add_spawns -> neoforge:add_spawns"
+      ]
+    },
+    {
+      "id": "razorwing_biome_modifier",
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/razorwing_biome_modifier.json",
+      "source_path": "data/thermal_shock/forge/biome_modifier/razorwing_biome_modifier.json",
+      "source_sha256": "41715d86bd277b28b2fe13532ef58fc6faaa6788f9f44199aac61d0e8c7544c3",
+      "sha256": "13e087b7f47d48c3edb3df515570382c56a1c51bdd382f19ede7580ecfdb55f8",
+      "biomes": [
+        "thermal_shock_reforged:stardust_garden",
+        "thermal_shock_reforged:vermillion_woods"
+      ],
+      "spawners": {
+        "type": "thermal_shock_reforged:razorwing",
+        "weight": 65,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      "changes": [
+        "mod namespace",
+        "forge:add_spawns -> neoforge:add_spawns"
+      ]
+    },
+    {
+      "id": "scarlet_ray_biome_modifier",
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/scarlet_ray_biome_modifier.json",
+      "source_path": "data/thermal_shock/forge/biome_modifier/scarlet_ray_biome_modifier.json",
+      "source_sha256": "8f2740053ee4bef667c6cf94a2c84a2fa527ecf2b1f88d7654364fabe9739bb9",
+      "sha256": "d50d2280f04bbd1ecd88b7eb532811356d6bcd48b6a01dacdf40fdc220a736c2",
+      "biomes": "thermal_shock_reforged:luminous_sea",
+      "spawners": {
+        "type": "thermal_shock_reforged:scarlet_ray",
+        "weight": 80,
+        "minCount": 2,
+        "maxCount": 2
+      },
+      "changes": [
+        "mod namespace",
+        "forge:add_spawns -> neoforge:add_spawns"
+      ]
+    },
+    {
+      "id": "siibol_biome_modifier",
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/siibol_biome_modifier.json",
+      "source_path": "data/thermal_shock/forge/biome_modifier/siibol_biome_modifier.json",
+      "source_sha256": "73dd285abe28e466b2521e6fde370456101f42ee288da0af94926d493365e45d",
+      "sha256": "cc6c5d441fc3a15b2c1299c9bdb4023345a5cf34d8f45453099b398049fe9266",
+      "biomes": [
+        "thermal_shock_reforged:luminous_sea",
+        "thermal_shock_reforged:stardust_garden",
+        "thermal_shock_reforged:borean_tundra"
+      ],
+      "spawners": {
+        "type": "thermal_shock_reforged:siibol",
+        "weight": 10,
+        "minCount": 1,
+        "maxCount": 1
+      },
+      "changes": [
+        "mod namespace",
+        "forge:add_spawns -> neoforge:add_spawns"
+      ]
+    },
+    {
+      "id": "snobol_biome_modifier",
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/snobol_biome_modifier.json",
+      "source_path": "data/thermal_shock/forge/biome_modifier/snobol_biome_modifier.json",
+      "source_sha256": "0981ba49ad83ec3d3682b751001e94405b83bba15919f351a19e6f5604de40d9",
+      "sha256": "9add9ff480bc67657c588fba52da3fc6fb13aff292abcaa2fbf22c587c0e9ea2",
+      "biomes": [
+        "thermal_shock_reforged:borean_forest",
+        "thermal_shock_reforged:borean_tundra",
+        "thermal_shock_reforged:stardust_garden",
+        "thermal_shock_reforged:cobalt_heights"
+      ],
+      "spawners": {
+        "type": "thermal_shock_reforged:snobol",
+        "weight": 100,
+        "minCount": 3,
+        "maxCount": 5
+      },
+      "changes": [
+        "mod namespace",
+        "forge:add_spawns -> neoforge:add_spawns"
+      ]
+    },
+    {
+      "id": "torpedo_biome_modifier",
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/torpedo_biome_modifier.json",
+      "source_path": "data/thermal_shock/forge/biome_modifier/torpedo_biome_modifier.json",
+      "source_sha256": "5ccd13ac0b114a526f6fff03c0ddbf670252806f779840d9c61bed47a88a56d7",
+      "sha256": "2766e5697ab3bc07393be4b063ef595145e6f3d9b53dddee0a490fc1592f04d1",
+      "biomes": "thermal_shock_reforged:luminous_sea",
+      "spawners": {
+        "type": "thermal_shock_reforged:torpedo",
+        "weight": 60,
+        "minCount": 1,
+        "maxCount": 1
+      },
+      "changes": [
+        "mod namespace",
+        "forge:add_spawns -> neoforge:add_spawns"
+      ]
+    },
+    {
+      "id": "trilobite_biome_modifier",
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/trilobite_biome_modifier.json",
+      "source_path": "data/thermal_shock/forge/biome_modifier/trilobite_biome_modifier.json",
+      "source_sha256": "fcdce119b58b853562108f00f30cddf9fca39aeb886731f8cd14392e25ba12c5",
+      "sha256": "bf4d3107314f7b736950b1fdd656e3daf54e88b83e42eab7f7d581ac31aa7e71",
+      "biomes": [
+        "thermal_shock_reforged:vermillion_woods",
+        "thermal_shock_reforged:borean_tundra"
+      ],
+      "spawners": {
+        "type": "thermal_shock_reforged:trilobite",
+        "weight": 12,
+        "minCount": 1,
+        "maxCount": 1
+      },
+      "changes": [
+        "mod namespace",
+        "forge:add_spawns -> neoforge:add_spawns"
+      ]
+    },
+    {
+      "id": "willograde_biome_modifier",
+      "path": "src/main/resources/data/thermal_shock_reforged/neoforge/biome_modifier/willograde_biome_modifier.json",
+      "source_path": "data/thermal_shock/forge/biome_modifier/willograde_biome_modifier.json",
+      "source_sha256": "670ac8d02dc7f346e86d54b55c6ea29ede4b7a8197e6ae184a21d6450d5f1594",
+      "sha256": "47560121a7dd1f8f38940e1daed076a09a2275fcc825626d3ab3227c79052f54",
+      "biomes": [
+        "thermal_shock_reforged:vermillion_woods",
+        "thermal_shock_reforged:borean_forest"
+      ],
+      "spawners": {
+        "type": "thermal_shock_reforged:willograde",
+        "weight": 45,
+        "minCount": 2,
+        "maxCount": 4
+      },
+      "changes": [
+        "mod namespace",
+        "forge:add_spawns -> neoforge:add_spawns"
+      ]
+    }
+  ],
+  "count": 26
+}
