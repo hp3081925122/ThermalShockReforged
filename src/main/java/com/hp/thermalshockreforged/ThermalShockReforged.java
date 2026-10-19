@@ -12,6 +12,7 @@ import com.hp.thermalshockreforged.entity.ice.IceContent;
 import com.hp.thermalshockreforged.entity.icesquad.IceSquadContent;
 import com.hp.thermalshockreforged.entity.protoi.ProtoiContent;
 import com.hp.thermalshockreforged.entity.magnetite.MagnetiteContent;
+import com.hp.thermalshockreforged.entity.legacy.LegacyContent;
 import com.hp.thermalshockreforged.entity.icesquad.BastionCombatConfig;
 import com.hp.thermalshockreforged.entity.ice.IceCombatConfig;
 import com.hp.thermalshockreforged.content.doors.SpecialDoorsContent;
@@ -128,6 +129,7 @@ public final class ThermalShockReforged {
         IceSquadContent.register(bus);
         ProtoiContent.register(bus);
         MagnetiteContent.register(bus);
+        LegacyContent.register(bus);
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(IceMobDrops::death);
         SporeContent.register(bus);
         SootleContent.register(bus);
