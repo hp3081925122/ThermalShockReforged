@@ -57,6 +57,7 @@ public final class ClientEvents {
     public static void renderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.weapons.WeaponContent.BLADE_IMPACT.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.weapons.WeaponContent.VOLCANO_BURST.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
+        event.registerEntityRenderer(com.hp.thermalshockreforged.content.weapons.WeaponContent.HI_VOLT_PULSE.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.content.machines.MachineContent.BLASPHEMER_PROCESS.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         com.hp.thermalshockreforged.client.weapons.FirearmBulletRenderer.register(event);
         event.registerEntityRenderer(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.CORE_ACTIVATION.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);

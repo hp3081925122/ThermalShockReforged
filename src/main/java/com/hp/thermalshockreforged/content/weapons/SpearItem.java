@@ -31,7 +31,8 @@ public final class SpearItem extends Item implements GeoItem {
     public enum Kind {
         SPELEOTHEM(1800, 9, 5, 35, 32, 35, "speleothem", "speleothem", true),
         RUBY(1200, 5.5, 3, 21, 20, 23, "rubyspearalt", "rubyspearalt", false),
-        CARBORUNDUM(900, 6.5, 3, 21, 20, 23, "rubyspearalt", "carborundum_spear", false);
+        CARBORUNDUM(900, 6.5, 3, 21, 20, 23, "rubyspearalt", "carborundum_spear", false),
+        HI_VOLT(1200, 6, 3, 16, 16, 16, "hi_volt_lance", "hi_volt_lance", false);
         final int durability, reach, cooldown, first, last;
         final double damage;
         public final String model, texture;
@@ -44,7 +45,7 @@ public final class SpearItem extends Item implements GeoItem {
     public Kind kind() { return kind; }
     private final BoundedItemAnimationCache animations = new BoundedItemAnimationCache(this);
     public SpearItem(Kind kind) {
-        super(new Properties().durability(kind.durability).rarity(kind.cryo ? net.minecraft.world.item.Rarity.UNCOMMON : net.minecraft.world.item.Rarity.COMMON).attributes(net.minecraft.world.item.component.ItemAttributeModifiers.builder()
+        super(new Properties().durability(kind.durability).rarity(kind.cryo || kind == Kind.HI_VOLT ? net.minecraft.world.item.Rarity.UNCOMMON : net.minecraft.world.item.Rarity.COMMON).attributes(net.minecraft.world.item.component.ItemAttributeModifiers.builder()
                 .add(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_ID, kind.damage, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
                 .add(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_ID, -2.4, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).build()));
         this.kind = kind;
@@ -53,6 +54,16 @@ public final class SpearItem extends Item implements GeoItem {
     @Override public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) { return false; }
     @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         var result = super.use(level, player, hand);
+        if (kind == Kind.HI_VOLT) {
+            if (level instanceof net.minecraft.server.level.ServerLevel server && !player.getCooldowns().isOnCooldown(this)) {
+                player.getCooldowns().addCooldown(this, 120);
+                triggerAnim(player, GeoItem.getOrAssignId(result.getObject(), server), "procedure", "2");
+                player.addEffect(new MobEffectInstance(net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 20, 1, false, true));
+                HiVoltPulseEntity.submit(server, player, true);
+                server.playSound(null, player.blockPosition(), net.minecraft.core.registries.BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "sparkhum")), SoundSource.NEUTRAL, 1, 1);
+            }
+            return result;
+        }
         if (!player.getCooldowns().isOnCooldown(this)) {
             player.getCooldowns().addCooldown(this, 26);
             var look = player.getLookAngle();
@@ -71,7 +82,10 @@ public final class SpearItem extends Item implements GeoItem {
             if (wielder instanceof Player player) player.getCooldowns().addCooldown(this, kind.cooldown);
             if (!wielder.level().isClientSide) {
                 wielder.level().playSound(null, wielder.blockPosition(), net.minecraft.sounds.SoundEvents.PLAYER_ATTACK_SWEEP, SoundSource.NEUTRAL, 1, 3);
-                SpeleothemSoundEntity.submit((net.minecraft.server.level.ServerLevel) wielder.level(), wielder.getX(), wielder.getY(), wielder.getZ(), kind.first, kind.last);
+                if (kind == Kind.HI_VOLT) {
+                    wielder.level().playSound(null, wielder.blockPosition(), net.minecraft.core.registries.BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "galvanitehurt")), SoundSource.NEUTRAL, .5F, 8);
+                    HiVoltPulseEntity.submit((net.minecraft.server.level.ServerLevel) wielder.level(), wielder, false);
+                } else SpeleothemSoundEntity.submit((net.minecraft.server.level.ServerLevel) wielder.level(), wielder.getX(), wielder.getY(), wielder.getZ(), kind.first, kind.last);
             }
             if (wielder.level() instanceof net.minecraft.server.level.ServerLevel server) triggerAnim(wielder, GeoItem.getOrAssignId(stack, server), "procedure", "1");
         }
@@ -79,8 +93,13 @@ public final class SpearItem extends Item implements GeoItem {
     }
     @Override public boolean hurtEnemy(ItemStack stack, LivingEntity victim, LivingEntity attacker) {
         boolean result = super.hurtEnemy(stack, victim, attacker);
+        if (victim == attacker) return result;
         if (!victim.level().isClientSide) stack.hurtAndBreak(1, attacker, net.minecraft.world.entity.EquipmentSlot.MAINHAND);
         if (!victim.isAlive() && attacker instanceof ServerPlayer player) {
+            if (!((com.hp.thermalshockreforged.mixin.LivingDeathStateAccess) (Object) victim).thermalShockReforged$isDeathCommitted()) {
+                ThermalShockReforged.LOGGER.debug("Spear kill challenge skipped before committed death: victim={}, attacker={}", victim.getUUID(), attacker.getUUID());
+                return result;
+            }
             AdvancementHolder advancement = player.server.getAdvancements().get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "spear_kill_get"));
             if (advancement != null) for (String criterion : player.getAdvancements().getOrStartProgress(advancement).getRemainingCriteria()) player.getAdvancements().award(advancement, criterion);
         }
@@ -96,6 +115,11 @@ public final class SpearItem extends Item implements GeoItem {
     }
     @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) {
         super.appendHoverText(stack, context, lines, flag);
+        if (kind == Kind.HI_VOLT) {
+            lines.add(Component.translatable("item.thermal_shock_reforged.hi_volt_lance.description_0"));
+            lines.add(Component.translatable("item.thermal_shock_reforged.hi_volt_lance.description_1"));
+            return;
+        }
         if (kind.cryo) lines.add(Component.literal("§9- Cryo"));
         lines.add(Component.literal("§7Right click to lunge."));
     }
@@ -103,6 +127,7 @@ public final class SpearItem extends Item implements GeoItem {
     public void clearAnimations() { animations.clear(); }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         var procedure = new AnimationController<>(this, "procedure", 0, state -> PlayState.STOP).triggerableAnim("1", RawAnimation.begin().thenPlay("1"));
+        if (kind == Kind.HI_VOLT) procedure.triggerableAnim("2", RawAnimation.begin().thenPlay("2"));
         controllers.add(procedure);
         controllers.add(new AnimationController<>(this, "idle", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop("0"))));
     }
