@@ -10,6 +10,7 @@ import software.bernie.geckolib.cache.object.BakedGeoModel;
 import software.bernie.geckolib.model.GeoModel;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 import com.hp.thermalshockreforged.entity.magnetite.MagnetiteContent;
+import com.hp.thermalshockreforged.entity.legacy.LegacyContent;
 
 public final class ProtoiRenderers {
     private ProtoiRenderers() { }
@@ -21,6 +22,7 @@ public final class ProtoiRenderers {
         event.registerEntityRenderer(ProtoiContent.SUNBEAM_BULLET.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(MagnetiteContent.MAGNETITE.get(), context -> new Renderer(context, "magnetite", 1, .5F));
         event.registerEntityRenderer(MagnetiteContent.BULLET.get(), ThrownItemRenderer::new);
+        event.registerEntityRenderer(LegacyContent.SOLA.get(), context -> new Renderer(context, "sola", 1, .5F));
     }
     private static final class Model extends GeoModel<ProtoiEntityBase> {
         private final String id;
