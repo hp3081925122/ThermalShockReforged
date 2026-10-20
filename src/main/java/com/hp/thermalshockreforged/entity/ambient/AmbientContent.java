@@ -22,7 +22,7 @@ public final class AmbientContent {
     public static final DeferredHolder<EntityType<?>, EntityType<SootlingEntity>> SOOTLING = TYPES.register("sootling", () -> EntityType.Builder.of(SootlingEntity::new, MobCategory.MONSTER).fireImmune().sized(0.6F, 1.8F).clientTrackingRange(64).updateInterval(3).build("thermal_shock_reforged:sootling"));
     public static final DeferredHolder<EntityType<?>, EntityType<PixieBottleEntity>> PIXIE_BOTTLE = TYPES.register("pixie_bottle", () -> EntityType.Builder.<PixieBottleEntity>of(PixieBottleEntity::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(64).updateInterval(1).build("thermal_shock_reforged:pixie_bottle"));
     public static final DeferredItem<BottledPixieItem> BOTTLED_PIXIE = ITEMS.register("bottled_pixie", BottledPixieItem::new);
-    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> PRISMATIC_BOOM = PARTICLES.register("prismatic_boom", () -> new SimpleParticleType(false));
+    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> PRISMATIC_BOOM = PARTICLES.register("prismatic_boom", () -> new SimpleParticleType(true));
     static {
         ITEMS.register("pillbud_spawn_egg", () -> new DeferredSpawnEggItem(PILLBUD, -1, -1, new Item.Properties()));
         ITEMS.register("pixie_spawn_egg", () -> new DeferredSpawnEggItem(PIXIE, -1, -1, new Item.Properties()));

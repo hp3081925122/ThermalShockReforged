@@ -248,6 +248,11 @@ public final class ClientEvents {
         event.registerSpriteSet(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.ERR_EFFECT.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "err", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true, false, 0));
         event.registerSpriteSet(ModEntities.ZAP_PARTICLE.get(), ZapAttackParticle.Provider::new);
         event.registerSpriteSet(ModEntities.TELEPORT_FLASH.get(), TeleportFlashParticle.Provider::new);
+        event.registerSpriteSet(ModEntities.ORB_RED_MED.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "redshortorb", 1, ParticleRenderType.PARTICLE_SHEET_OPAQUE, false, false, 0));
+        event.registerSpriteSet(ModEntities.ORB_RED_SMOL.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "smallredshortorb", 1, ParticleRenderType.PARTICLE_SHEET_OPAQUE, false, true, 0));
+        event.registerSpriteSet(ModEntities.PROJECTILE_IMPACT.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "crosshair", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true, true, 1));
+        event.registerSpriteSet(ModEntities.BLOOD_PETAL.get(), com.hp.thermalshockreforged.client.particle.BloodPetalParticle.Provider::new);
+        event.registerSpriteSet(ModEntities.KILO_ATTACK.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "kiloattack", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true, true, 0));
         event.registerSpriteSet(com.hp.thermalshockreforged.entity.electricsphere.ElectricSphereContent.ELECTRIC_GLOW.get(), com.hp.thermalshockreforged.client.electricsphere.ElectricGlowParticle.Provider::new);
         event.registerSpriteSet(com.hp.thermalshockreforged.entity.orb.OrbContent.BLUE_X_BLAST.get(), com.hp.thermalshockreforged.client.particle.BlueXBlastParticle.Provider::new);
         event.registerSpriteSet(com.hp.thermalshockreforged.entity.projectile.ProjectileContent.GREEN_PARTICLE.get(), com.hp.thermalshockreforged.client.particle.GreenParticle.Provider::new);

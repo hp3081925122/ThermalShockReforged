@@ -23,6 +23,11 @@ public final class ModEntities {
     private static final DeferredRegister<ParticleType<?>> PARTICLES = DeferredRegister.create(Registries.PARTICLE_TYPE, ThermalShockReforged.MOD_ID);
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> ZAP_PARTICLE = PARTICLES.register("zap_attack", () -> new SimpleParticleType(true));
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> TELEPORT_FLASH = PARTICLES.register("teleport_flash", () -> new SimpleParticleType(true));
+    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> ORB_RED_MED = PARTICLES.register("orb_red_med", () -> new SimpleParticleType(false));
+    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> ORB_RED_SMOL = PARTICLES.register("orb_red_smol", () -> new SimpleParticleType(false));
+    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> PROJECTILE_IMPACT = PARTICLES.register("projectile_impact", () -> new SimpleParticleType(false));
+    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> BLOOD_PETAL = PARTICLES.register("blood_petal", () -> new SimpleParticleType(false));
+    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> KILO_ATTACK = PARTICLES.register("kilo_attack", () -> new SimpleParticleType(true));
     public static final DeferredHolder<EntityType<?>, EntityType<GalvaniteEntity>> GALVANITE = TYPES.register("galvanite", () -> EntityType.Builder.of(GalvaniteEntity::new, MobCategory.MONSTER).sized(0.6F, 2).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":galvanite"));
     public static final DeferredHolder<EntityType<?>, EntityType<ForecastEntity>> FORECAST = TYPES.register("forecast", () -> EntityType.Builder.of(ForecastEntity::new, MobCategory.MONSTER).sized(0.8F, 1.2F).clientTrackingRange(64).updateInterval(3).build("thermal_shock_reforged:forecast"));
     public static final DeferredHolder<EntityType<?>, EntityType<ZapWarningEntity>> ZAP = TYPES.register("zap_attack_entity", () -> EntityType.Builder.of(ZapWarningEntity::new, MobCategory.MONSTER).sized(1.0F, 1.0F).fireImmune().setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build("thermal_shock_reforged:zap_attack_entity"));
