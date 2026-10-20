@@ -1,0 +1,28 @@
+{
+  "batch": 140,
+  "gate": "G03",
+  "status": "静态链路闭合，运行验收待执行",
+  "scope": "loot_table 自定义 item/block entry ID 到 NeoForge 注册或动态生成入口",
+  "lootEntryCustomIdCount": 627,
+  "directRegistrationHelperMatchCount": 589,
+  "dynamicOrDerivedCount": 38,
+  "sourceEvidence": [
+    "src/main/java/com/hp/thermalshockreforged/content/farming/CropKind.java",
+    "src/main/java/com/hp/thermalshockreforged/content/farming/FarmingContent.java",
+    "src/main/java/com/hp/thermalshockreforged/content/farming/SickleHarvesting.java",
+    "src/main/java/com/hp/thermalshockreforged/content/armor/ArmorContent.java",
+    "src/main/java/com/hp/thermalshockreforged/content/outcrops/OutcropKind.java",
+    "src/main/java/com/hp/thermalshockreforged/content/outcrops/OutcropContent.java",
+    "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorKind.java",
+    "src/main/java/com/hp/thermalshockreforged/content/decor/geo/GeoDecorContent.java",
+    "src/main/java/com/hp/thermalshockreforged/content/npc/florist/FloristPage.java",
+    "src/main/java/com/hp/thermalshockreforged/content/fabrication/FabricatorPage.java",
+    "src/main/java/com/hp/thermalshockreforged/content/music/MusicContent.java"
+  ],
+  "historicalLootEvidence": "docs/migration/loot-a120-validation.json",
+  "runtimeLimitations": [
+    "未执行目标世界重载与 LootTable Codec 解码",
+    "未执行真实掉落触发与动态方块状态条件",
+    "不替代最终服务端和客户端验收"
+  ]
+}
