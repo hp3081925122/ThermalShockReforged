@@ -1,0 +1,41 @@
+# 第123批：效果逐来源补证与冷却视觉修复
+
+基线33d3bc6。原23注册效果包含212个带效果字段的API调用、1条effect命令和1项药水定义。213个静态字段出现分布于198个唯一源码行、96个文件，同一行重复查询计数不同不是丢行；命令独立计入。COOLDOWN有110个调用，其余102个交独立只读代理核对目标。本批不将字段命中、注册或构建通过当成功能通过。
+
+## 冷却110行
+
+cooldown-main123-review.json保留全部原表达式、参数、文件和SHA。92行沿用第114批明确标为source_and_target_reviewed的过程级语义证据；本批没有将它们冒称为重新逐参数测试。其余18行来自15个过程，主线核当前实现、真实调用者和消费规则。
+
+出生/寿命类：Crasher60、Err180、双Orb100、SummonedMangler320。交互及外部类：Defector闲置120、Pondler随机round(80..300)、Willograde成功喂食90、冰弹外部120。受伤类：Mangler60、Ribbonblade格挡40。Mangler孤立追逐过程不启用；Summoned寿命与boost冷却拆分是此前明确授权的不可达攻击修复。冰弹只锁原cryo_weak中实际读取此冷却的Spirit与Icidroburner，不给其他标签成员新增原无攻击限制。
+
+Err到期discard后仍保留本次最后一次范围脉冲；Orb先处理玩家、设置原方向速度后再结束寿命。Orb碰撞范围与步高修复见orb-main123-review.md。字段持久化、死亡/跨维清理和既有合理差异沿相应专项文档，最终仍需运行检查。
+
+## Willograde白色反馈遗漏
+
+原WillogradeRightClickedOnEntityProcedure成功50%分支授予COOLDOWN90/1，三参数构造默认非ambient且可见；另两个80tick缓慢与抗性均隐藏。目标原有feedCooldown保留玩法计时，却没有同步及绘制其白色粒子。
+
+增加仅开始/结束变化的FEED_COOLDOWN_VISIBLE同步布尔值，读档按保存feedCooldown恢复，保留90tick、成功概率、80tick埋藏、22/62tick动作与全部掉落。客户端在此反馈期间手动推进真实药效一次并用既有LegacyEffectParticles混色：白色权重amplifier+1=2，正常每tick1/2、隐身1/15，真实可见效果按自身等级参与同一粒子，不另叠一套原生粒子。服务端和反馈外继续父类药效流程。新增一次英文debug，无每tick日志。
+
+## Mangler旧混色与频率
+
+此前COOLDOWN虽有可见标记，却采用1.21的粒子列表随机选择和1/4普通频率。原1.20.1是按等级混色、普通1/2、隐身1/15，全部可见药效ambient时再乘1/5。原Mangler与Summoned boost均40/1、非ambient可见，受伤60/1、ambient可见；因此白色权重均为2。
+
+客户端改用既有LegacyEffectParticles按权重混色，ambient由冷却和全部可见真药效共同判断。原AmbientMobProvider透明度0.15通过目标ColorParticleOption的8位alpha表达为38/255，存在该格式的量化差，不宣称浮点逐位相同。扩展helper的一个带ambient重载，旧调用默认参数保持不变；Mangler受伤、攻击、移动、计时和存档逻辑不变。原/目标LivingEntity及SpellParticle消费者均已核源码。
+
+## 非冷却候选的主线定性
+
+只读候选报告最初误将抗毒命令的6000解释为tick。原EffectCommands非即时效果将秒乘20，因此目标120000tick/1与原6000秒/1一致，不能为了字面数值相等改成6000tick。
+
+Icidrogunner的STUNNED60/1并未遗漏：当前entity/icesquad/BastionEntity.attackAttempt远程分支在非burner时以同三参数构造施加；旧Player目标、排AltCryonic、距离大于10的分支与IceSquadContent事件接线须一起核，不按原实体类名寻找同名目标文件。HiVolt独立hand-tick过程无原caller，原物品实际调用RubySpear过程，已有status-main120-reviewed.json，不补造额外reach。
+
+Aqeron/Pylon放置取消与原放置后掉资源毁块确有行为差异，但guardian-pylon-batch.md已明确批准取消错误收费链，不恢复该缺陷。
+
+收到的noncooldown-main123-map.json完整保留102个API、命令及药水定义；修正以上误报后为26行字面参数相等、17行表达式、45行查询/移除或内部状态、13行非同型替代以及1行无caller的HiVolt。noncooldown-main123-expressions.json逐17行给分支与目标SHA，主线另核HeartCrystal首次等级1/随后+1、KnightsEdge三难度18/12/25、Spear两类光环17/3或2、感染两段时长分布以及Maiden两个眩晕分支。Mangler/Summoned光环按基础攻击1乘3/2；Sickle阈值处目标省略临时加到2再立即移除的冗余操作，最终药效及追加伤害对应，但外部add/remove事件次序不同，此限制保留，不冒称逐事件等价。
+
+13项内部替代与第120批主线纠正结论及专门配置/持久化实现相交核对；例如远程-40与矛冷却-20独立计时，不能用第120批原候选段落覆盖其mainline_review已修正的结果。45行查询/移除的候选源码片段仍需结合各专项控制流判断，不以102行有候选就宣称全效果通过。
+
+## 本批验证与运行待验
+
+validate-main123-state.py核原参数、两版本原生抽样、Herald生成锚点的父方法顺序、同步边界/保存键和UTF-8无Java注释，产物为cooldown-main123-review.json。统一固定输入编译结果另记。本批未运行游戏。
+
+最终需验Willograde成功/失败喂食、早加入和迟加入客户端、冷却末帧/存档重载/隐身与叠真药效；Mangler普通/召唤版boost、受伤ambient混色、20tick光环结束后仍有冷却粒子、隐身和重载；Orb中心边界和末次扫描。客户端及Render Preview由最终子代理执行，服务端不重复安排用户独立测试线。

@@ -1,0 +1,43 @@
+{
+  "baseline": "33d3bc6",
+  "productionFile": "src/main/java/com/hp/thermalshockreforged/entity/orb/OrbEntityBase.java",
+  "sha256": "c55aa6b4b460a09452ac1f4689502ddaddd8c17c96fd8478df2e46ea051fc446",
+  "exactAllowedDiff": true,
+  "sourceFiles": [
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\StopperOrbOnEntityTickUpdateProcedure.java",
+      "sha256": "28b5dac301ff8b5d820f40ebe0e80c74f7f7feb84e0e51f1e611acd076924c14"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\MoverOrbTickProcedure.java",
+      "sha256": "da5123a9d3b687eb2f2b90b7d661260e8b030a625e1a4f102b8148e1f8ef492c"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\StopperOrbEntity.java",
+      "sha256": "bee0339bbe932dd77b8bfe52c065723c4df58bc7265ffb590c2f14f5108928b4"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\MoverOrbEntity.java",
+      "sha256": "b48c0aa313cac7986481dd36f428f6e08f6dec524934db9bb297efb2ef9da581"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\StopperOrbOnInitialEntitySpawnProcedure.java",
+      "sha256": "2e258aa948a3b34e99e0d7eba39bdf0ba426339170d309cf697417359288856b"
+    }
+  ],
+  "originalPointAabbHalfExtent": 0.5,
+  "targetPointAabbHalfExtent": 0.5,
+  "distanceOrderRestored": true,
+  "stepHeightRestored": 0,
+  "damageAndParticlesAndTimerCodeUnchanged": true,
+  "compile": {
+    "success": true,
+    "command": "compileJava --offline --max-workers=2",
+    "log": "D:\\AI临时文件\\ThermalShockMigration\\batch123-orb-compile.log",
+    "sha256": "e4f6e535553bda14697a0cff11ce89bdcf5dbf1c3c1bcc0078bc20b01c424f02"
+  },
+  "gameExecuted": false,
+  "limits": [
+    "源码限定差分与原件表达式核对，不代替真实玩家边界/声音粒子/寿命重载的游戏检查。"
+  ]
+}

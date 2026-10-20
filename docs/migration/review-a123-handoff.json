@@ -1,0 +1,61 @@
+{
+  "batch": "123A",
+  "baseline": "33d3bc65c081427be13fc546c066ea725a5d5248",
+  "src_main_frozen": true,
+  "files": [
+    {
+      "path": "docs/migration/menu-a123-language-increment.json",
+      "sha256": "03082d461ef7e2de20148cc77075f6ecf0cbb6dae063381ab05d6d53bc5e492b",
+      "role": "文档或证据"
+    },
+    {
+      "path": "docs/migration/menu-a123-matrix241.json",
+      "sha256": "434c7808f8830fc29285c049759c7fb1321b733eedb3bcd31ecd1566c26aab1c",
+      "role": "文档或证据"
+    },
+    {
+      "path": "docs/migration/menu-a123-repair-validation.json",
+      "sha256": "827a3db43e0373cecffd66d40d00c6385796b4ff782a4a502c8993cb532b4520",
+      "role": "文档或证据"
+    },
+    {
+      "path": "docs/migration/review-a123-detail-manifest.json",
+      "sha256": "3e73996ddc24bad9460958445a00e1f93c9940260a685635bbc32a2478ecc623",
+      "role": "文档或证据"
+    },
+    {
+      "path": "docs/migration/review-a123-input-validation.json",
+      "sha256": "bf47df20f4b1861c55491191962a721f6570f2ad54a439d57f8c0ae6f267b45b",
+      "role": "文档或证据"
+    },
+    {
+      "path": "docs/migration/review-a123-plan.md",
+      "sha256": "9d3deac98a57f54b9eea136e64d8ba51824638d31eec3ff53c77d368470853b0",
+      "role": "文档或证据"
+    },
+    {
+      "path": "docs/migration/review-a123-remaining.json",
+      "sha256": "503eb46fb36043d4a7e1f2f2facf9a873a42521d670a52d3d73de9a82a87554f",
+      "role": "文档或证据"
+    },
+    {
+      "path": "docs/migration/review-a123-review.md",
+      "sha256": "eac93e4fb6bd26f8d074bdb0e3d56814f77b5808bd5fc6d5952e0ba1aed196a0",
+      "role": "文档或证据"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabMenu.java",
+      "sha256": "289d1a0801d4b25b51139f29fc788f883d8f79a7f1e249020541187860fb556c",
+      "role": "生产"
+    }
+  ],
+  "input_set_sha256": "b6505e66be176fccf73e7e31ede65a8f8ab877c09e60c863b3de32a88033f768",
+  "manifest_excludes_itself": true,
+  "selected": 190,
+  "inherited": 51,
+  "new_static_closed": 66,
+  "remaining_static_identities": 124,
+  "production_summary": "唯一LabMenu主背包至热栏方向恢复，覆盖七交易页及装配页，新增成功移动英文debug。",
+  "remaining_matrix": "docs/migration/review-a123-remaining.json",
+  "no_stage_commit_build_game_by_a": true
+}

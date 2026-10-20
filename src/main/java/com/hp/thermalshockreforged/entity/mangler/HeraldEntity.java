@@ -23,6 +23,8 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.phys.Vec3;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
@@ -107,6 +109,13 @@ public final class HeraldEntity extends Monster implements GeoEntity, ServerEndT
         }
         if (active) setShiftKeyDown(true);
         if (position().distanceToSqr(anchor) > 1.0E-10) teleportTo(anchor.x, anchor.y, anchor.z);
+    }
+    @Override
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType reason, SpawnGroupData group) {
+        var result = super.finalizeSpawn(level, difficulty, reason, group);
+        anchor = position(); anchorDimension = level.getLevel().dimension().location().toString();
+        ThermalShockReforged.LOGGER.debug("Herald spawn anchor initialized: entity={}, position={}, dimension={}, reason={}", getUUID(), anchor, anchorDimension, reason);
+        return result;
     }
     @Override
     public void onAddedToLevel() {

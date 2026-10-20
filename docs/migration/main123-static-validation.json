@@ -1,0 +1,89 @@
+{
+  "baseline": "33d3bc65c081427be13fc546c066ea725a5d5248",
+  "build": {
+    "command": "compileJava processResources --offline --max-workers=2",
+    "success": true,
+    "log": "D:\\AI临时文件\\ThermalShockMigration\\batch123-unified-build.log",
+    "sha256": "72eb631af2f137511e29cd46c027192cfd5cc9fe53d2fab03e5499919e6bfb90"
+  },
+  "inputs": {
+    "count": 8879,
+    "snapshot": "D:\\AI临时文件\\ThermalShockMigration\\batch123-inputs-before.json",
+    "sha256": "611dea54faaae048867d9d6c73337f1eb5d9a498bc21956c4b2828aea61fddba",
+    "afterEqualsBefore": true
+  },
+  "directBuiltResourcesByteEqual": 8060,
+  "expandedTemplatesExcludedFromByteEquality": [
+    "META-INF/neoforge.mods.toml",
+    "pack.mcmeta"
+  ],
+  "localization": {
+    "englishKeys": 3486,
+    "chineseKeys": 3487,
+    "intentionalChangedValues": 206,
+    "allEnglishKeysCovered": true,
+    "placeholderAndNewlineChecks": true,
+    "newStyleMismatches": 0,
+    "historicalStyleMismatches": 8,
+    "cameraKeys": 86,
+    "zhSha256": "3895e211d2b9a4f500b0849937a0ef694381f6553958102a0a38a1cd9e669f5f",
+    "complete": false,
+    "formatParserEvidence": {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\network\\chat\\contents\\TranslatableContents.java",
+      "sha256": "747eea7b8a1f0c7ed9656cf8a0559b7a8a3f191491833259774fc7b89dd9b8cb",
+      "regex": "%(?:(\\d+)\\$)?([A-Za-z%]|$)",
+      "oldRegexFalsePositiveCount": 3,
+      "diagnostic": "D:\\AI临时文件\\ThermalShockMigration\\localization-zh-owner\\next-gui\\placeholder-failure-investigation.json"
+    }
+  },
+  "attributes": {
+    "identityGroups": 113,
+    "beforeFixMatrixSha256": "8340d0bf13c3c490c4830f4a4fe1345e626fc77ec783e1a2d67eceb149dd4514",
+    "heraldFinalizerRestored": true
+  },
+  "ownedProductionFiles": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/status/LegacyEffectParticles.java",
+      "sha256": "62c3296d5d2fd5667271661b103a90ada3c5c555c8b1e1fec36ed88b85577b4c"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/fauna/WillogradeEntity.java",
+      "sha256": "2a9ffa8d3f24146d2eaaec03828235e461066f35f5bf04c4c496a4cc5abe3a08"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabMenu.java",
+      "sha256": "289d1a0801d4b25b51139f29fc788f883d8f79a7f1e249020541187860fb556c"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/mangler/HeraldEntity.java",
+      "sha256": "f6f8cd68e6a609305cef463bd02722e1e93a80dae40286dc0be46930bed4f2e5"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/mangler/ManglerEntity.java",
+      "sha256": "d36542a0ad4eede99465a99b733cac7d2e9499ce20d30f4e5ee8bc12884b4150"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/orb/OrbEntityBase.java",
+      "sha256": "c55aa6b4b460a09452ac1f4689502ddaddd8c17c96fd8478df2e46ea051fc446"
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/lang/zh_cn.json",
+      "sha256": "3895e211d2b9a4f500b0849937a0ef694381f6553958102a0a38a1cd9e669f5f"
+    }
+  ],
+  "independentProductionChangeIncludedInBuildButExcludedFromBatchCommit": "src/main/java/com/hp/thermalshockreforged/entity/ribbonblade/RibbonbladeActionEntity.java",
+  "gameExecuted": false,
+  "remaining": [
+    "菜单静态具体剩余以本批A路交付矩阵为准，未以身份总数冒充闭合。",
+    "非冷却45行查询/移除与部分共享动画、透明模式仍需专项语义闭合。",
+    "语言尚未完成；客户端和Render Preview最终验收未进行；服务端由用户独立负责。"
+  ],
+  "menus": {
+    "identities": 241,
+    "staticClosed": 117,
+    "staticOpen": 124,
+    "handoffFilesHashMatched": 9,
+    "detailFilesHashMatched": 23,
+    "handoffSha256": "07e962883cb5f7f6a8c0ed3e82d9c8de05068fac6b5ccd025db367a8949eed68"
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "baseline": "33d3bc65c081427be13fc546c066ea725a5d5248",
+  "owner": "主线语言窗口",
+  "applied_by_a": false,
+  "candidates": [
+    {
+      "source_path": "procedures/UmabelSetIntroTextProcedure.java",
+      "source_lines": [
+        11,
+        14,
+        16
+      ],
+      "actual_render_target": "Florist MAIN greeting at (9,112), white; target FloristScreen.renderLabels line 65",
+      "source_values": [
+        "❄ Sorry, out of marigolds. Someone already asked.",
+        "❄ ... Hey.",
+        "❄ kutty"
+      ],
+      "source_language_keys": null,
+      "target_language_keys": null,
+      "classification": "hardcoded visible drawing; no corresponding target en_us key; main line page.lines is separate translated static label",
+      "existing_related_key": {
+        "key": "gui.thermal_shock_reforged.uma_main.label_concierge",
+        "value": "FLORIST UMABEL",
+        "classification": "static page.lines, not greeting"
+      }
+    },
+    {
+      "source_path": "procedures/UnetteSetIntroTextProcedure.java",
+      "source_lines": [
+        11,
+        14,
+        16
+      ],
+      "actual_render_target": "Shutterbug MAIN greeting at (9,112), white; target ShutterbugScreen.renderLabels line 61",
+      "source_values": [
+        "❄ Hello again, Stranger!",
+        "❄ Hey, bro... Bro? Sis?? hm.",
+        "❄ kutty"
+      ],
+      "source_language_keys": null,
+      "target_language_keys": null,
+      "classification": "hardcoded visible drawing; exact en_us key absent; target greeting is separate from the translated MAIN static label"
+    },
+    {
+      "target_path": "src/main/java/com/hp/thermalshockreforged/client/npc/florist/FloristScreen.java",
+      "lines": [
+        27,
+        28,
+        29,
+        31,
+        32,
+        34,
+        35,
+        36,
+        37,
+        38
+      ],
+      "source_texts": [
+        "Buy",
+        "Next",
+        "Previous",
+        "Info",
+        "Trade",
+        "Infection",
+        "Unette",
+        "Umabel",
+        "Gardening",
+        "Concierge"
+      ],
+      "source_language_keys": null,
+      "classification": "Component.literal passed to AbstractButton for default narration; visible button surface is atlas texture, these literals are not drawString/rendered labels"
+    }
+  ],
+  "note": "前两项为实际绘制问候语；第三项仅按钮朗读，非可见标签。其余组动态文本仍缺具体比对见剩余矩阵。"
+}

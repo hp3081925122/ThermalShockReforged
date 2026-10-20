@@ -79,10 +79,13 @@ public final class LabMenu extends AbstractContainerMenu {
         var slot = slots.get(index); if (!slot.hasItem()) return ItemStack.EMPTY;
         var stack = slot.getItem(); var original = stack.copy(); int offset = page == LabPage.ASSEMBLY ? 1 : 0;
         if (offset == 1 && index == 0) { if (!moveItemStackTo(stack, 1, 37, true)) return ItemStack.EMPTY; }
-        else if (index < offset + 27) { if (!moveItemStackTo(stack, offset + 27, offset + 36, false)) return ItemStack.EMPTY; }
+        else if (index < offset + 27) { if (!moveItemStackTo(stack, offset + 27, offset + 36, true)) return ItemStack.EMPTY; }
         else if (!moveItemStackTo(stack, offset, offset + 27, false)) return ItemStack.EMPTY;
         if (stack.isEmpty()) slot.setByPlayer(ItemStack.EMPTY); else slot.setChanged();
-        if (stack.getCount() == original.getCount()) return ItemStack.EMPTY; slot.onTake(player, stack); return original;
+        if (stack.getCount() == original.getCount()) return ItemStack.EMPTY;
+        slot.onTake(player, stack);
+        ThermalShockReforged.LOGGER.debug("Lab quick move committed: player={}, page={}, sourceSlot={}, playerSlotOffset={}", player.getUUID(), page.id, index, offset);
+        return original;
     }
     @Override public void removed(Player player) { super.removed(player); closed = true; }
 }
