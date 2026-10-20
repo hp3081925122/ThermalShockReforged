@@ -1,0 +1,1897 @@
+{
+  "batch": 135,
+  "validator": "D:\\AI临时文件\\ThermalShockMigration\\templates135\\validate135.py",
+  "validatorSha256": "b7037a4d1135ecfa0f4823699612d17c53d65cd4495937bd05ff6f6488041574",
+  "sourceEvidenceSha256": "37f0fa0eeed0f8dc74d7b479b10c58e32296e1772846359760b31d43464a6274",
+  "counts": {
+    "typedNodes": 52083
+  },
+  "templates": [
+    {
+      "name": "atlasbase",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/atlasbase.nbt",
+      "sha256": "0f23f6293344936908427dda49481ce7209361e9c5de9872fcecf5c75edbeaa5",
+      "blocks": 9,
+      "geometrySha256": "98e1956835efc404849942cc949bbe427ff05f1f9f2092c4a81d52e09d6f85a0",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3465,
+      "afterSha256": "0f23f6293344936908427dda49481ce7209361e9c5de9872fcecf5c75edbeaa5",
+      "afterRawSha256": "1eda91a24ea1fb4a21c717f69897d7685c16bae1d9016e282f0539d04030b9e2",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "benzor_home",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/benzor_home.nbt",
+      "sha256": "a21240a911e21eb70ba86533cb527d2a5f06a9f5e561312a9ac68082f3d3dfc4",
+      "blocks": 3825,
+      "geometrySha256": "88359442ac04010fba2ba366993e325d39f245d62e173c2ca83bcf2f00d358e6",
+      "blockPayloads": 20,
+      "entities": 1,
+      "dataVersion": 3955,
+      "afterSha256": "a21240a911e21eb70ba86533cb527d2a5f06a9f5e561312a9ac68082f3d3dfc4",
+      "afterRawSha256": "0741f3467ef0f794409f808af1f65b62a51d93c77615973c091df66013ae21af",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "blizzard_base",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/blizzard_base.nbt",
+      "sha256": "3775e7b8bd1dae2718de0e0d877b689b728a81ecbdc3d9be006399879b679a29",
+      "blocks": 86258,
+      "geometrySha256": "df7e9a81365320a49ad234d4f0e74adda13d52d0c23f1c6760a7102139ee50d2",
+      "blockPayloads": 21,
+      "entities": 21,
+      "dataVersion": 3955,
+      "afterSha256": "3775e7b8bd1dae2718de0e0d877b689b728a81ecbdc3d9be006399879b679a29",
+      "afterRawSha256": "e9f5739085c0d2a049ce5831e6a25b8ef2dda2cd7e967fecb8043bd7db9b2876",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "blizzard_outpost",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/blizzard_outpost.nbt",
+      "sha256": "2e72e1e36031fa4bb1e5a5f45f3775f32d9f61c682cdd6487f6acf2603612eb3",
+      "blocks": 110592,
+      "geometrySha256": "6a71c8f0e11cac809272d108cb7895a9c5385144c3f57c23e3a6ba5013df6a26",
+      "blockPayloads": 83,
+      "entities": 66,
+      "dataVersion": 3955,
+      "afterSha256": "2e72e1e36031fa4bb1e5a5f45f3775f32d9f61c682cdd6487f6acf2603612eb3",
+      "afterRawSha256": "9c0d88ee99b7d4c34c5f5bb7ce55ba712ba78d6c850f84e1bc0c79d3451438e5",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "blizzardoutpostrubicon",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/blizzardoutpostrubicon.nbt",
+      "sha256": "65a433ece01a4975a7bf4f6106dad39f34ee3541a12e9b6d28ec2150753a8db2",
+      "blocks": 110592,
+      "geometrySha256": "209868876694f9e490f181213aeada73f94bd2409df4b9c66c0bfa46ba2b6340",
+      "blockPayloads": 83,
+      "entities": 66,
+      "dataVersion": 3955,
+      "afterSha256": "65a433ece01a4975a7bf4f6106dad39f34ee3541a12e9b6d28ec2150753a8db2",
+      "afterRawSha256": "52974825f5b0897bc52b5ea60cf941a314cc18ee10cf42a174e2d6f19754a883",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "bulbfloor",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/bulbfloor.nbt",
+      "sha256": "75a6f19ee3118b6b68be187ab4359c3c97f2fc05b0e2cf8a000c08a8b5798b85",
+      "blocks": 1,
+      "geometrySha256": "6b1f6cfe2e8dcb1e0460f6b786dade87463f4ccfb8894aa0ee6e9969b1990743",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3465,
+      "afterSha256": "75a6f19ee3118b6b68be187ab4359c3c97f2fc05b0e2cf8a000c08a8b5798b85",
+      "afterRawSha256": "2873842793744325bed5c868fa21186e3390fa33feac1572d3c3bfcaab776939",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "campmed",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/campmed.nbt",
+      "sha256": "5a3bbe563282dfc17f4c028643de31a72cc5031a4a353cf9a60e19c9a7f19580",
+      "blocks": 810,
+      "geometrySha256": "003eb6681018946b8e143180d2ad6d9527007f2a76e0e04f4d1b145fa5bb5132",
+      "blockPayloads": 5,
+      "entities": 1,
+      "dataVersion": 3955,
+      "afterSha256": "5a3bbe563282dfc17f4c028643de31a72cc5031a4a353cf9a60e19c9a7f19580",
+      "afterRawSha256": "c09f37130e86eaf9cdadf40fe9c86a8e0189407fd731049278249e566caf4333",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "campsmall",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/campsmall.nbt",
+      "sha256": "db4c2a4ea14532e5fe51b21a314d46d68975a9d1030b7e2f9466b6778e04ab60",
+      "blocks": 125,
+      "geometrySha256": "7c49ae3082961ef2d5ccc7f60e9122e7409e14b56baf193c51261a45317f1bad",
+      "blockPayloads": 2,
+      "entities": 1,
+      "dataVersion": 3955,
+      "afterSha256": "db4c2a4ea14532e5fe51b21a314d46d68975a9d1030b7e2f9466b6778e04ab60",
+      "afterRawSha256": "26a38aab3f132aea4283d6764147ae97d262071b32469b5aecd9ec3fbb824e1f",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "cathedral",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/cathedral.nbt",
+      "sha256": "f6f45aa7feb2630ddaae1a530cad519c0de7db1d027922c1af186ced0c8b2e43",
+      "blocks": 165199,
+      "geometrySha256": "25ef786ad2dd5b7e8b4184936de35ec3eaf7d26ae3a5cd283ebcb850872dd7da",
+      "blockPayloads": 47,
+      "entities": 2,
+      "dataVersion": 3955,
+      "afterSha256": "f6f45aa7feb2630ddaae1a530cad519c0de7db1d027922c1af186ced0c8b2e43",
+      "afterRawSha256": "1a7e02e9fdd9848af0293d2b09fdfe60fff6663da55b0b0621604dbc5e7507c5",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "cathedral_base",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/cathedral_base.nbt",
+      "sha256": "7ba73d596e7fac4a43e1167718daabab3690e21f77a10a661682a5fa08129f55",
+      "blocks": 162936,
+      "geometrySha256": "8f36d1588bc3ed4c923f940eec82c5a3d03fda938483163d4618e7723a68cd01",
+      "blockPayloads": 50,
+      "entities": 2,
+      "dataVersion": 3955,
+      "afterSha256": "7ba73d596e7fac4a43e1167718daabab3690e21f77a10a661682a5fa08129f55",
+      "afterRawSha256": "79d7aba36001f6a1be28a4ada3d12092927745c1a884dbbd00f66394ab5172b0",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "cavebloomer_field",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/cavebloomer_field.nbt",
+      "sha256": "ad54fa92b31db134e05ef97b17a8daa02f5d4ba285ab2c48b20bb6c9826b35ea",
+      "blocks": 48020,
+      "geometrySha256": "2be70673ee85e40bbac387525768455360bbe158a2e90f265e43304dc4635725",
+      "blockPayloads": 17,
+      "entities": 0,
+      "dataVersion": 3465,
+      "afterSha256": "ad54fa92b31db134e05ef97b17a8daa02f5d4ba285ab2c48b20bb6c9826b35ea",
+      "afterRawSha256": "03f0bd8fdb500eb0080074ebff6393c87b2e7f948683a771bd82ed12799504de",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "ceruleum12",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/ceruleum12.nbt",
+      "sha256": "3bc2bd3dab0df59cb4cb29eba200102420a552bc77aa40bc1158a436b914d1a2",
+      "blocks": 12,
+      "geometrySha256": "74e2ea82e82876993b2b0d4c04246ccde3ac10365189e908c12f366b6fc062e9",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3465,
+      "afterSha256": "3bc2bd3dab0df59cb4cb29eba200102420a552bc77aa40bc1158a436b914d1a2",
+      "afterRawSha256": "baf692ebbbee0bd211ab698e2d3f9a75061a974928459b121916dca85f27b650",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "ceruleum3",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/ceruleum3.nbt",
+      "sha256": "ff6e114cac3589d2dd2b19120531a46d3c55b0413fa0e92b7a4861e9fd211e18",
+      "blocks": 3,
+      "geometrySha256": "8b013f2a75287480d5657b3df963c230886a568ee3cd0924b8d84168269e875a",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3465,
+      "afterSha256": "ff6e114cac3589d2dd2b19120531a46d3c55b0413fa0e92b7a4861e9fd211e18",
+      "afterRawSha256": "3394752114d12ad47993a0b920a7444bb3f4a1e39f16dba89b10ee8c5722e489",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "ceruleum6",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/ceruleum6.nbt",
+      "sha256": "1c41eed96356be25d4691ba6521d5610a7ba3ba03d5b853dca326d42af9101c9",
+      "blocks": 6,
+      "geometrySha256": "cb4a24efa7bb55bfa7bc81127dfe015c6090f4a51f7fbe5e4ca955d021639e76",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3465,
+      "afterSha256": "1c41eed96356be25d4691ba6521d5610a7ba3ba03d5b853dca326d42af9101c9",
+      "afterRawSha256": "44bfa62d227d2662aa4b72401ac3250a5248f62f80764dfa84abb9bf0440b1e9",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "ceruleum9",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/ceruleum9.nbt",
+      "sha256": "299f19bc385fdc3c5066c1bd996819f2d193dce313b1dc180eda42e81fd34351",
+      "blocks": 9,
+      "geometrySha256": "98df3b0aab7785ee43fc8bdea965f094d656904828bb635ef2b1220309983007",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3465,
+      "afterSha256": "299f19bc385fdc3c5066c1bd996819f2d193dce313b1dc180eda42e81fd34351",
+      "afterRawSha256": "e5b2e329925cc1bc372a1898466e03c6f87d7a968a5eb7c69273f7ed8a9a75dc",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "cobalt_15hex_1",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/cobalt_15hex_1.nbt",
+      "sha256": "be59adefdcefbcaeb39f6e8a1d19f394ca40fe9fca1d858c3c0b5dcf41b89ec8",
+      "blocks": 21600,
+      "geometrySha256": "043287074988ea48660321f27f6ca034aaa90b5dafe1d14dcae6114a9e4966ab",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3955,
+      "afterSha256": "be59adefdcefbcaeb39f6e8a1d19f394ca40fe9fca1d858c3c0b5dcf41b89ec8",
+      "afterRawSha256": "070e5c338b75cc67e7f7066572b2c8a036772020afbc4cd9ea5266b5d9faeefa",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "cobalt_15hex_surge",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/cobalt_15hex_surge.nbt",
+      "sha256": "d6904deedb81af19b4a52307681a094de9534f4c4e786da138b2350d56c9ea2f",
+      "blocks": 21600,
+      "geometrySha256": "ce78edd49d152a01aa2e90818f8317a3a4c8508b45129ebd8681f9d883a2ca43",
+      "blockPayloads": 1,
+      "entities": 0,
+      "dataVersion": 3955,
+      "afterSha256": "d6904deedb81af19b4a52307681a094de9534f4c4e786da138b2350d56c9ea2f",
+      "afterRawSha256": "ec728e0833d5f192796872531d51d9763129f9d75070af8d83565c91c74e0e43",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "cobalt_7hex_1",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/cobalt_7hex_1.nbt",
+      "sha256": "ca38e3e9f1c3ad64a4ec1f7260dabf7467d6bd1e38c97a0e3b66495bd3ad555a",
+      "blocks": 4704,
+      "geometrySha256": "7c397931ac88576fa7d0ffc27c93ab6f7f838d5860f5aa768f9a36f8d807dcb5",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3955,
+      "afterSha256": "ca38e3e9f1c3ad64a4ec1f7260dabf7467d6bd1e38c97a0e3b66495bd3ad555a",
+      "afterRawSha256": "abaaab60eff99ed8ea58f3de86d3f6922dba6d774bf560a94f26a95101c50590",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "cobalt_9hex_1",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/cobalt_9hex_1.nbt",
+      "sha256": "9f0578676e546b491b51ec34885f2d3fb24cccff6a534ca884e4b721b9039b21",
+      "blocks": 7776,
+      "geometrySha256": "782753145e2eac72a82da650207c04da2edb1c34f11a59cbb1de2976d8cffb44",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3955,
+      "afterSha256": "9f0578676e546b491b51ec34885f2d3fb24cccff6a534ca884e4b721b9039b21",
+      "afterRawSha256": "9e7ab3341d8eb60acf251d6fba193649b0f919bf6d5c72f01d4a0c003eb283b6",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "cobalt_9hex_surge",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/cobalt_9hex_surge.nbt",
+      "sha256": "f092d55b123c7c08349ab76e84d8c8a0d1763ab542e9e5a5ad5d0433a2a89336",
+      "blocks": 7776,
+      "geometrySha256": "fe7b78551ede1b0459a3a7d473aa091b2dede1ad842f20a92b2c1f55beff4f0b",
+      "blockPayloads": 1,
+      "entities": 0,
+      "dataVersion": 3955,
+      "afterSha256": "f092d55b123c7c08349ab76e84d8c8a0d1763ab542e9e5a5ad5d0433a2a89336",
+      "afterRawSha256": "1f0cdc91890f4cd76c5c147d2e72d3e32bb69145d9f1dcdd5a6b08ae4b749b75",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "fuscium12",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/fuscium12.nbt",
+      "sha256": "3ed60c956f25687fbd5b064cc8b78a793503ceb410ff4c7e2a723e97d30090bb",
+      "blocks": 12,
+      "geometrySha256": "3a433ddfd92c865db23f7a3459bfd558e01e98d69e3e437b3c36a7acf3a3c3b6",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3465,
+      "afterSha256": "3ed60c956f25687fbd5b064cc8b78a793503ceb410ff4c7e2a723e97d30090bb",
+      "afterRawSha256": "724c91ea9d05f0f500bf7ca71a26563513dd4aeeba9ec0c3e1c3ab5b2a31e92c",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "fuscium3",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/fuscium3.nbt",
+      "sha256": "1707434bc6482eba53520b2e5c1b94a7d366f20117c764ac929f64eb821f3797",
+      "blocks": 3,
+      "geometrySha256": "3ab9a8740a546f8444780243e043d12ceb98360ee91bf77cf675324f5d0fa0dd",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3465,
+      "afterSha256": "1707434bc6482eba53520b2e5c1b94a7d366f20117c764ac929f64eb821f3797",
+      "afterRawSha256": "60c1ac481ca7f33d5fe93a9e3607a672eff24e34343f9a527023a86bb2714172",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "fuscium6",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/fuscium6.nbt",
+      "sha256": "dacdf6a02b1390025d340c9702c9a1d4f2b83d0234c8ff72803c8347e316e6ae",
+      "blocks": 6,
+      "geometrySha256": "35a70c69d1b551d53a3d0733a4548c5ee7e134bb8d9a15864f1c8142220104d7",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3465,
+      "afterSha256": "dacdf6a02b1390025d340c9702c9a1d4f2b83d0234c8ff72803c8347e316e6ae",
+      "afterRawSha256": "5a5bc115359fdb07d84a66f3045f665ebb4262bd6d6cfba7b3f5520832261a2a",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "fuscium9",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/fuscium9.nbt",
+      "sha256": "f39ec0f64f7cc769483528a580df617528ff5cc6c84de145da2e399cc76cc1c5",
+      "blocks": 9,
+      "geometrySha256": "3aff12143c40fa40a4a4439dfbd2417f7fc496d0995c55d804bebd2130cafe22",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3465,
+      "afterSha256": "f39ec0f64f7cc769483528a580df617528ff5cc6c84de145da2e399cc76cc1c5",
+      "afterRawSha256": "215ab78f44dd54751f7adac0a5c26b411f76be17c15b1f566f494ae9d068ae7e",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "giant_glowcap_1",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/giant_glowcap_1.nbt",
+      "sha256": "2eb3e7878e9d9fce4125b3fa58944cb37e9da998863ff3a186c39b4e1779ce71",
+      "blocks": 27,
+      "geometrySha256": "8b7f204db80fe92f9ec85297800b8be4a91e039aa2a0c91ac140b75594e88c7d",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3955,
+      "afterSha256": "2eb3e7878e9d9fce4125b3fa58944cb37e9da998863ff3a186c39b4e1779ce71",
+      "afterRawSha256": "d6cdd0ff395aacb402a8ea2ccadbb5bcbc2a506436b4cec8453ca96ad2681857",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "giant_glowcap_2",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/giant_glowcap_2.nbt",
+      "sha256": "abf37c2603a09859002fbc491bdfd9f414b256d1f1dc4669109d608245d68494",
+      "blocks": 36,
+      "geometrySha256": "6f62e5500998ddf9784064174e0956525299084d7832b3e53c47f917a94244cf",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3955,
+      "afterSha256": "abf37c2603a09859002fbc491bdfd9f414b256d1f1dc4669109d608245d68494",
+      "afterRawSha256": "37f27bf464fc1242236f1090ae0290d7212638146c7f11452585e4946b34d05e",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "giant_glowcap_3",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/giant_glowcap_3.nbt",
+      "sha256": "605f39c628229137d474668e13e41fdb0dc49a3d6ec3a107d6209e49a6bf4ffd",
+      "blocks": 45,
+      "geometrySha256": "cb8188e593dbc1ecb2d245560b278e205519f8058d079a6adb9edf074b71dbf2",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3955,
+      "afterSha256": "605f39c628229137d474668e13e41fdb0dc49a3d6ec3a107d6209e49a6bf4ffd",
+      "afterRawSha256": "884ec189163327d97ecd28a18be3439bdbc3b32c4cacc8d3a6bde5deeef7df9a",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "gianturchin",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/gianturchin.nbt",
+      "sha256": "49c841af0830288310310abf2e79c45cf31076ea57b111e3ba170403206087ac",
+      "blocks": 4913,
+      "geometrySha256": "cc0197eca968062308edbb92d5b2d954f9aff75f9628afb5ef5b2f2a4f949450",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3955,
+      "afterSha256": "49c841af0830288310310abf2e79c45cf31076ea57b111e3ba170403206087ac",
+      "afterRawSha256": "9d1bb64f883c08c4933e33c0a5ff3a1017b0a0d32ebb4c7da4783303c7de7874",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "glace_rock_1",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/glace_rock_1.nbt",
+      "sha256": "447e1a93a34c252f6dd18f7e1bd3ca3ad3ed6bb52937de160b94f7d703a14661",
+      "blocks": 81,
+      "geometrySha256": "91f8888d330038b95abd254566696580432da00e737175d816109d5691331595",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3955,
+      "afterSha256": "447e1a93a34c252f6dd18f7e1bd3ca3ad3ed6bb52937de160b94f7d703a14661",
+      "afterRawSha256": "db8071e2aa03510223891e511c6b9c8537e5d45c22eb4d5930374e7997c3b1af",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "glace_rock_2",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/glace_rock_2.nbt",
+      "sha256": "0615388976d41b29d6f2d6162431337163b136f67d568db9994eca94cfd17809",
+      "blocks": 36,
+      "geometrySha256": "d660f31d420a6df1f1fa1032aa982da0cdb8186b2753574f84b4e0514970a4c5",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3955,
+      "afterSha256": "0615388976d41b29d6f2d6162431337163b136f67d568db9994eca94cfd17809",
+      "afterRawSha256": "de07fa412c590133cfd8aaa5d963c8bdd2371d3155f7db1d13eb60e28935eb37",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "glaukorubicon",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/glaukorubicon.nbt",
+      "sha256": "478e3d583231898eec8d4c79dda35c8c24313240edffb57ca5e26e706b1ad7c6",
+      "blocks": 325,
+      "geometrySha256": "4c79166d6d0e0392f3e483f1a40bf8fa552ebb168a31bdcdd6b5f9c7a69fcdaa",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3465,
+      "afterSha256": "478e3d583231898eec8d4c79dda35c8c24313240edffb57ca5e26e706b1ad7c6",
+      "afterRawSha256": "9758d76cc0260eddc725e1d16e4ea7992849f8529a2c12fe44e6066a901885c2",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "gravetree1",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/gravetree1.nbt",
+      "sha256": "dd1f6ef399fd54e4699ba43beea5a5aba48d4bb9dbc41738ce76947893fd16d7",
+      "blocks": 63,
+      "geometrySha256": "4d139873d2c06741879f3be1ebf877f5df44170fd778343e1389934bf5806b88",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3955,
+      "afterSha256": "dd1f6ef399fd54e4699ba43beea5a5aba48d4bb9dbc41738ce76947893fd16d7",
+      "afterRawSha256": "cce5ea2039170689089d4e916121af466da82e79fc6774d6de4b288a6d3ff67b",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "gravetree2",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/gravetree2.nbt",
+      "sha256": "24d31520e4a735b3dfbaeaca58adf45ae6219fd9883e31347b8dedf72c3144b4",
+      "blocks": 81,
+      "geometrySha256": "1f73eaf31a2ddb690d6fa3d3e63dc576a748276e920e391efd395b2f0d9bd22e",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3955,
+      "afterSha256": "24d31520e4a735b3dfbaeaca58adf45ae6219fd9883e31347b8dedf72c3144b4",
+      "afterRawSha256": "ad12e975401452954a87b534a8b205a36c2f88fc9439fb1a85ae1cce20cf20da",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "jellercellogged",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/jellercellogged.nbt",
+      "sha256": "b351edd96de85601fc3a7880086608cf7b4dd6d26751917ddda33fe926b2fe26",
+      "blocks": 1,
+      "geometrySha256": "6b1f6cfe2e8dcb1e0460f6b786dade87463f4ccfb8894aa0ee6e9969b1990743",
+      "blockPayloads": 1,
+      "entities": 0,
+      "dataVersion": 3955,
+      "afterSha256": "b351edd96de85601fc3a7880086608cf7b4dd6d26751917ddda33fe926b2fe26",
+      "afterRawSha256": "1e9259ee4f0de158c71c61ae3815d081048774edd251d75ff90c56b562bd65da",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "junkyard",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/junkyard.nbt",
+      "sha256": "c56fa1ac2398faad13b78d825b72c43dfc4990a15456152b9e7659732525213d",
+      "blocks": 19220,
+      "geometrySha256": "1e8a74921874b7e31277ab203aff8c40157aa3a2f8c66d107f47baf8000e6e37",
+      "blockPayloads": 13,
+      "entities": 2,
+      "dataVersion": 3955,
+      "afterSha256": "c56fa1ac2398faad13b78d825b72c43dfc4990a15456152b9e7659732525213d",
+      "afterRawSha256": "2e60e66cbef980e3b1b14b9a42bdc06675635220105adf30a7178a07dc342235",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "junkyard_rubicon",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/junkyard_rubicon.nbt",
+      "sha256": "c423b34561f4b028ebe3f2c12d983ad1fbae4198254e4e32e51a16a79b60c8fe",
+      "blocks": 29791,
+      "geometrySha256": "b5017c0e6062e70947c8444ab86122bea1054d9df20031336814cd0b0895e9ed",
+      "blockPayloads": 13,
+      "entities": 2,
+      "dataVersion": 3955,
+      "afterSha256": "c423b34561f4b028ebe3f2c12d983ad1fbae4198254e4e32e51a16a79b60c8fe",
+      "afterRawSha256": "fc22c4933c627124914886c4c41c4c1e88b4552899c6834d41f0c1bde8d272b3",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "keystonerubicon",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/keystonerubicon.nbt",
+      "sha256": "72b8d62d7d2f9a8a789c296094585d4a1fd838b0ebdc5e5b5a94a8537ba7d19c",
+      "blocks": 81000,
+      "geometrySha256": "7fe1c1f40e7f353abcd88af9d9564cb46f5f5e2c4b1fdcf5256711a9749d2987",
+      "blockPayloads": 14,
+      "entities": 0,
+      "dataVersion": 3955,
+      "afterSha256": "72b8d62d7d2f9a8a789c296094585d4a1fd838b0ebdc5e5b5a94a8537ba7d19c",
+      "afterRawSha256": "9bef2dd84eab6b155d865c66319ec3dabede54bf322c5784caaeccbf1c51dfd2",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "kiosk",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/kiosk.nbt",
+      "sha256": "2e54c19614d95e724081ab70c448bb0a82f36549c6315f0af5d1f8ee76d66431",
+      "blocks": 810,
+      "geometrySha256": "d3b1cc1b8df726f27d5afd3ea04b363d7e87ca06369ae862bf6b7ad4649bca94",
+      "blockPayloads": 6,
+      "entities": 2,
+      "dataVersion": 3955,
+      "afterSha256": "2e54c19614d95e724081ab70c448bb0a82f36549c6315f0af5d1f8ee76d66431",
+      "afterRawSha256": "b2211b98c86ed3432c284dace89f3d412b2705c0eb9061005c22bda1d007db0a",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "largejellercel",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/largejellercel.nbt",
+      "sha256": "aa0a4a33ad31915adfc23df4fb756ef604efb2c06ad6bf62f45a1acc0de6c258",
+      "blocks": 8,
+      "geometrySha256": "ba75c057ffe402dc767457400629f04aac1b5d558d3dc50559a4980b14c53db1",
+      "blockPayloads": 1,
+      "entities": 0,
+      "dataVersion": 3955,
+      "afterSha256": "aa0a4a33ad31915adfc23df4fb756ef604efb2c06ad6bf62f45a1acc0de6c258",
+      "afterRawSha256": "04cad741c1fda3cab7448c0b8088217622eab98eabef75cbff2898f7c72caac0",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "lavender_palace",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/lavender_palace.nbt",
+      "sha256": "d85fa1790e718f1cbc1ff2d9cdfc927ac6b2d9cca64c1adc07f6b58331d06146",
+      "blocks": 600608,
+      "geometrySha256": "71c239a2d46bffe7acf754b978c6dedfe3a7c822dcb2a762605d128d41759bd4",
+      "blockPayloads": 46,
+      "entities": 13,
+      "dataVersion": 3955,
+      "afterSha256": "d85fa1790e718f1cbc1ff2d9cdfc927ac6b2d9cca64c1adc07f6b58331d06146",
+      "afterRawSha256": "66d9d373301ff866683dcb23230e6fe8acb6a1d8ed79851baeee0fa2c7c052e2",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "loqportal",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/loqportal.nbt",
+      "sha256": "4609126a5509b112f237baedb6a5e3e098a6dfb81a24dc1ab3e84403623dee73",
+      "blocks": 30,
+      "geometrySha256": "961d8237c0bcd4eb28a129199002f86aba85c389e384c7770939e1623c322af2",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3465,
+      "afterSha256": "4609126a5509b112f237baedb6a5e3e098a6dfb81a24dc1ab3e84403623dee73",
+      "afterRawSha256": "0209b739bf142fdef6de887730c09a92dc30e479f0424835b232d946c5fc49ff",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "lostboat1",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/lostboat1.nbt",
+      "sha256": "4e44af90c8f70f1a893f8574df4b41d6e924f52dcdfe0f8d529e2ed671605836",
+      "blocks": 450,
+      "geometrySha256": "0eb9128c30e01bc0689e80f7b9bcb2df8849c19376fc85008451c7f827e955c9",
+      "blockPayloads": 2,
+      "entities": 0,
+      "dataVersion": 3955,
+      "afterSha256": "4e44af90c8f70f1a893f8574df4b41d6e924f52dcdfe0f8d529e2ed671605836",
+      "afterRawSha256": "673ddb656c6cae345bd79f61c856709be9e221b4f53a1fd567aa45cced9d69a5",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "lostboat2",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/lostboat2.nbt",
+      "sha256": "87bbfa5bc6823e0f03570bacdd2bc4554b8fc36ef5a9290638bb050f21beb605",
+      "blocks": 450,
+      "geometrySha256": "19cbe12f86de97438f2421d06cab7945a1b61a68f6e165334c098a6c60008a5e",
+      "blockPayloads": 2,
+      "entities": 0,
+      "dataVersion": 3955,
+      "afterSha256": "87bbfa5bc6823e0f03570bacdd2bc4554b8fc36ef5a9290638bb050f21beb605",
+      "afterRawSha256": "05f22b0bba6ef03de7abdd1aab6e2233fc145c9e1136b62046226758d1e393b6",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "lostboat3",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/lostboat3.nbt",
+      "sha256": "23fc95e2eddf18699cf454530eab79322cdf532e0b5b6b2647e57f51dc253ecb",
+      "blocks": 450,
+      "geometrySha256": "44c725c2b777201615fb60b26decccabae8b9df5ca7ba1de343e4701a7ee3b6a",
+      "blockPayloads": 2,
+      "entities": 0,
+      "dataVersion": 3955,
+      "afterSha256": "23fc95e2eddf18699cf454530eab79322cdf532e0b5b6b2647e57f51dc253ecb",
+      "afterRawSha256": "113844c77e53dd54bed1a6b78f821e2c800aa3220779438599205b4b9f84bdf7",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "louse_log_1",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/louse_log_1.nbt",
+      "sha256": "b1da1014c7e93dbcb5e45863ffa83e53f442d64cb4597c6e5d545e58e13d1096",
+      "blocks": 36,
+      "geometrySha256": "5581cd56ccd1e32cfd109add7972823cb3c587a91dbb957d38586a3b3360c44c",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3955,
+      "afterSha256": "b1da1014c7e93dbcb5e45863ffa83e53f442d64cb4597c6e5d545e58e13d1096",
+      "afterRawSha256": "23f1d1b53cd7da18c7eb69ee107b9581003a54d3b5f8a1dcbd6ad822f39331d7",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "louse_log_2",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/louse_log_2.nbt",
+      "sha256": "6624cc8b107e903a5f922272dfea6e380d82a69d822f9b4a89e8e2496d877654",
+      "blocks": 45,
+      "geometrySha256": "248549c7e15c8a47f25a691008d91ab8772e91edff466797b3987e91bd779b20",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3955,
+      "afterSha256": "6624cc8b107e903a5f922272dfea6e380d82a69d822f9b4a89e8e2496d877654",
+      "afterRawSha256": "dca9bcf87b00b3ba883190fa29db644fb1ec773eb67cab72f2c8104ff00564fa",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "louse_log_3",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/louse_log_3.nbt",
+      "sha256": "e8291eac5e5c32f68677caf19544d7068d5e4dc3ec4aa63a1c25d2471e6f26a8",
+      "blocks": 54,
+      "geometrySha256": "d0f579ff9e91c0186909642f990282037754bef4d237a03937de30bf1e491b63",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3955,
+      "afterSha256": "e8291eac5e5c32f68677caf19544d7068d5e4dc3ec4aa63a1c25d2471e6f26a8",
+      "afterRawSha256": "770bf0848c7452d8ab1bde2a41f78c0bff6ac14d49b81b75e2f0f331fffee4cb",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "machinist_lab",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/machinist_lab.nbt",
+      "sha256": "44c7962927057580f420d52add18278ab108ccad1ee891f5f616b6dce0bbfadc",
+      "blocks": 10816,
+      "geometrySha256": "79f44e7fd43131d0ea7eb6eefbccd61f4098f7f16317fd10c27d7554e777da71",
+      "blockPayloads": 8,
+      "entities": 4,
+      "dataVersion": 3955,
+      "afterSha256": "44c7962927057580f420d52add18278ab108ccad1ee891f5f616b6dce0bbfadc",
+      "afterRawSha256": "d26e75f23cd88a46983e74d05955828d3a6313b083a6f3c37de9b524a67808de",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "monolith",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/monolith.nbt",
+      "sha256": "18ad2ecce74bdfa7d1d66e6b6aa5806daa02df9c44aa3d2062ca32d42d92357d",
+      "blocks": 108,
+      "geometrySha256": "f5398f4fbf7b6318a4a00e9eb4ce27a548e8bc235153c865993581a4436da808",
+      "blockPayloads": 0,
+      "entities": 1,
+      "dataVersion": 3955,
+      "afterSha256": "18ad2ecce74bdfa7d1d66e6b6aa5806daa02df9c44aa3d2062ca32d42d92357d",
+      "afterRawSha256": "c3b6182ecce1aee83a78f8171c6d7d98b60c463f36bca1a0aa6eb6c6020762c4",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "nu_monoluth",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/nu_monoluth.nbt",
+      "sha256": "b68d2d769186ea3edd8ab5221cd79aaa71919d2a66544259fabb766e32489f1e",
+      "blocks": 135,
+      "geometrySha256": "baa80fa23f651a2e0f87e11a0e539f41eba665430d6126935e9585efad79c39b",
+      "blockPayloads": 0,
+      "entities": 1,
+      "dataVersion": 3955,
+      "afterSha256": "b68d2d769186ea3edd8ab5221cd79aaa71919d2a66544259fabb766e32489f1e",
+      "afterRawSha256": "178f4a6f797a07766827f95fc5bd462405fbe27ddedf3fde04120dc302f089e8",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "orb_sanctum",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/orb_sanctum.nbt",
+      "sha256": "60a90958d85ef55a2fac60acfb7f376329003b8d4b111292f1fa1a49c3572a5c",
+      "blocks": 1513694,
+      "geometrySha256": "6f79e8bf52449ae62dbeb231abc4419c517849a1e1e3e499843ba78535f266ea",
+      "blockPayloads": 335,
+      "entities": 29,
+      "dataVersion": 3955,
+      "afterSha256": "60a90958d85ef55a2fac60acfb7f376329003b8d4b111292f1fa1a49c3572a5c",
+      "afterRawSha256": "d9b274db0b0d2fc54be03ec730e0a0ab85da3b41fa41af257ad97dd24b5e621f",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "planted_barbubble",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/planted_barbubble.nbt",
+      "sha256": "691d98520aa684a3b3bd64cfa2e1420d7d03141a65aeaff5f88571a895acb766",
+      "blocks": 2,
+      "geometrySha256": "71b9a28a11ca2132eefa8fc66cbe8a3331f96056a1975a40d1d75222051c9256",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3465,
+      "afterSha256": "691d98520aa684a3b3bd64cfa2e1420d7d03141a65aeaff5f88571a895acb766",
+      "afterRawSha256": "6e47ccc58304a11b5721c82af4235430753a46ff94bc607b6a5ee25cb999fdb2",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "planted_sparkler_a",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/planted_sparkler_a.nbt",
+      "sha256": "a245d251e03c425490fceade3456822090b74845cfc38907fba867c5b85bf33d",
+      "blocks": 3,
+      "geometrySha256": "29b21b47f7192f404a45ea5307964c847bbc266f3e6c06e9f0d31026f2fe8ff0",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3465,
+      "afterSha256": "a245d251e03c425490fceade3456822090b74845cfc38907fba867c5b85bf33d",
+      "afterRawSha256": "9487719ba93c9af4a73c675deb2cfe368c67495bf584064901e3db05f264311b",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "pylon",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/pylon.nbt",
+      "sha256": "25a9b9a06a72f14f1909bf05cfcc904df35627acdd1bc9230f5c5f7020a49ecc",
+      "blocks": 275,
+      "geometrySha256": "82c2775563c235e05cee4524174cbd36b2d339e9089abf386c6b411d78198337",
+      "blockPayloads": 2,
+      "entities": 0,
+      "dataVersion": 3955,
+      "afterSha256": "25a9b9a06a72f14f1909bf05cfcc904df35627acdd1bc9230f5c5f7020a49ecc",
+      "afterRawSha256": "e73b036197ed6e37d0cc8bae5203d2126f88d6a3baeba88ab8e90835f10ea26b",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "pyrogenic_pylon",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/pyrogenic_pylon.nbt",
+      "sha256": "12688264a6cb5a5876317299b34686908d438e3c5df77c66398115b462a1173f",
+      "blocks": 325,
+      "geometrySha256": "9a50c8ce5fd2f68e06729fd0bd41c88c7579931af1e94be77677eea62caec90e",
+      "blockPayloads": 2,
+      "entities": 0,
+      "dataVersion": 3955,
+      "afterSha256": "12688264a6cb5a5876317299b34686908d438e3c5df77c66398115b462a1173f",
+      "afterRawSha256": "0c8fbe9abda5eb766cd4bdc20152131a80529569110d1f5ad3c82f0248f15a3c",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "shalespring_august",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/shalespring_august.nbt",
+      "sha256": "32723e3ca6eb52cab2dad3af84d66e497f932e38b5bed336e6f2f347ae788c04",
+      "blocks": 343000,
+      "geometrySha256": "2a1d14fea5de418224c7925f73d0fec9951243baf94010d429052d75b7bf5423",
+      "blockPayloads": 52,
+      "entities": 6,
+      "dataVersion": 3955,
+      "afterSha256": "32723e3ca6eb52cab2dad3af84d66e497f932e38b5bed336e6f2f347ae788c04",
+      "afterRawSha256": "c2c82c20b188b81baa54e10b13d1b6b159098013a5c143f1855f057545256426",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "shalespring_grove_derelict",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/shalespring_grove_derelict.nbt",
+      "sha256": "cefb3edc7357c702336ba77d3b45b1c412a49e530542e874276d99df787929fe",
+      "blocks": 29696,
+      "geometrySha256": "1c1a6cfc3a854320f7b4d04f32c3cc97b8b83ecaefcf712ebc024e6f3072ae3a",
+      "blockPayloads": 10,
+      "entities": 0,
+      "dataVersion": 3955,
+      "afterSha256": "cefb3edc7357c702336ba77d3b45b1c412a49e530542e874276d99df787929fe",
+      "afterRawSha256": "d0758997f954f770abb40f8e54e27a1a472a52dd251f437e013caac1deb2f9c2",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "shalespring_trainstation",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/shalespring_trainstation.nbt",
+      "sha256": "001093684a1010f7a99a9f3ae432979d923c59306f617ff19fe481c5287bc0f2",
+      "blocks": 50400,
+      "geometrySha256": "116862c1f70a4f110d8c5d5d456a626dbc02dd88460ac63d7e7d920d6b893475",
+      "blockPayloads": 3,
+      "entities": 0,
+      "dataVersion": 3955,
+      "afterSha256": "001093684a1010f7a99a9f3ae432979d923c59306f617ff19fe481c5287bc0f2",
+      "afterRawSha256": "44998cac49003702992c3feae78ceb95adb701f5032176d9e1092c6fbf7c7b1a",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "slagway1",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/slagway1.nbt",
+      "sha256": "21cfdbdfd88e69e97400a18de1cdd384a059f65a11463b2e2b0c3de0b972471b",
+      "blocks": 12636,
+      "geometrySha256": "6affecb97772a48ecb1d5e3ccc04208469ef956f7029bb8a50789267ffefd985",
+      "blockPayloads": 0,
+      "entities": 1,
+      "dataVersion": 3955,
+      "afterSha256": "21cfdbdfd88e69e97400a18de1cdd384a059f65a11463b2e2b0c3de0b972471b",
+      "afterRawSha256": "a68878491534a3fde48e1683714a1a72369ef220c7d5a4b3257fb782f8d97951",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "snowtower",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/snowtower.nbt",
+      "sha256": "ef41a595435a30fce6791339d4975f9302d35ef50733e0d08c41f78ae9f3c70a",
+      "blocks": 10773,
+      "geometrySha256": "217a221d3b90a5983e422fc3987138f2929f0728dd26784f2888d9e44a6c640f",
+      "blockPayloads": 8,
+      "entities": 0,
+      "dataVersion": 3955,
+      "afterSha256": "ef41a595435a30fce6791339d4975f9302d35ef50733e0d08c41f78ae9f3c70a",
+      "afterRawSha256": "6d4e5f5ab2eba8eeb4c3bf832313ad1b9091ad408301e9e182e410082eb73664",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "sparkler1",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/sparkler1.nbt",
+      "sha256": "54cb525ede7a980ddf85d2ab7338948ffb7a985afb83382ebb6815bed6460bfc",
+      "blocks": 3,
+      "geometrySha256": "29b21b47f7192f404a45ea5307964c847bbc266f3e6c06e9f0d31026f2fe8ff0",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3465,
+      "afterSha256": "54cb525ede7a980ddf85d2ab7338948ffb7a985afb83382ebb6815bed6460bfc",
+      "afterRawSha256": "b578aaa4a96ad94b03437646b3d1a1ed0961c5afce191ecc1908e38ef95fd876",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "sparkler2",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/sparkler2.nbt",
+      "sha256": "7a92b166f2889bdbd55c73b063962d71e73841e127c150f5000a3490d03fa29d",
+      "blocks": 4,
+      "geometrySha256": "4dbed10401378130a0f3bf114737e2c568a26198ed4d94602c1ad77ce8674bd5",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3465,
+      "afterSha256": "7a92b166f2889bdbd55c73b063962d71e73841e127c150f5000a3490d03fa29d",
+      "afterRawSha256": "27350c2259b2abae68b7ffdc5f47bba7985fb765a80315d20ee241597dced419",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "sparkler3",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/sparkler3.nbt",
+      "sha256": "24bd4c3a5efa5a20c9dd6ec296692c29eb7186a5438987f9abd0e1c6257ecd24",
+      "blocks": 5,
+      "geometrySha256": "d15ac41fc2817de648856522e8e5c256d7db06ef201fd10521e729a8a49bf8ab",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3465,
+      "afterSha256": "24bd4c3a5efa5a20c9dd6ec296692c29eb7186a5438987f9abd0e1c6257ecd24",
+      "afterRawSha256": "328c2c281477ed2a53e5e071307237a8ebaa2468b285d492381350bca7239ff2",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "sparkler4",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/sparkler4.nbt",
+      "sha256": "784d053a31d08315b9b7e95d45bc377ed6d118f9c81b400b90745d93161968f8",
+      "blocks": 6,
+      "geometrySha256": "4771b25595737b2ee2b43161d56a76f3628aef92b111b895b53a520e954252a4",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3465,
+      "afterSha256": "784d053a31d08315b9b7e95d45bc377ed6d118f9c81b400b90745d93161968f8",
+      "afterRawSha256": "ed1a31596ed2120a090dd567e5a0741ae54d00ce738bbfd6d4865ab96d056f25",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "spire1_25",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/spire1_25.nbt",
+      "sha256": "292480c3180de75147bf0dd973934dbbf2347230aafcd87267b7983467442338",
+      "blocks": 135,
+      "geometrySha256": "65154fb6de905e2ecec2c89ee5f1c3c8dcdff4f50aa1abf2e4050c338e6a8687",
+      "blockPayloads": 1,
+      "entities": 0,
+      "dataVersion": 3955,
+      "afterSha256": "292480c3180de75147bf0dd973934dbbf2347230aafcd87267b7983467442338",
+      "afterRawSha256": "ebeaa7769f3a3fac1975f6163dbc1acc4ff50ddac769bcbe7391a22b7056a07e",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "spire2_25",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/spire2_25.nbt",
+      "sha256": "43c0025411b4bfd3ff7458b288d49b86c4f4d4ac66263d7739a6be086af574f0",
+      "blocks": 135,
+      "geometrySha256": "b411a8b87491d9d956d8a517b5e1bd5256883e244e6cd0beccdb070acf8ae147",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3955,
+      "afterSha256": "43c0025411b4bfd3ff7458b288d49b86c4f4d4ac66263d7739a6be086af574f0",
+      "afterRawSha256": "ef806f5cd965716748daf7ac68266d3290f4ce7647f7ccc8573a6ff2a58d911b",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "spire3_25",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/spire3_25.nbt",
+      "sha256": "0ceef8e95e089ce10d11ec9dd0332efe24c21e2fb4d19280138d70104d0e318e",
+      "blocks": 207,
+      "geometrySha256": "9f38e6220ff0c0bcf3225c2b764bfe07edec851e43613897a0d7f78260354d5d",
+      "blockPayloads": 3,
+      "entities": 0,
+      "dataVersion": 3955,
+      "afterSha256": "0ceef8e95e089ce10d11ec9dd0332efe24c21e2fb4d19280138d70104d0e318e",
+      "afterRawSha256": "3465ed966d16c00da99611202d115ed9a10c00a90727f11044c5cdfa30e07539",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "stratusreactorspire",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/stratusreactorspire.nbt",
+      "sha256": "9902e81e2cf274c23155e702fe4252df4dc0342452ba1182c217afe2ccdcb6b0",
+      "blocks": 21609,
+      "geometrySha256": "ed8f185d1728f353f93042e3b5b221466191f8b5cf7a568a9d3a22506c6fd3aa",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3955,
+      "afterSha256": "9902e81e2cf274c23155e702fe4252df4dc0342452ba1182c217afe2ccdcb6b0",
+      "afterRawSha256": "7eea8b0f423819cb8aff4ee9c66b27411d7a6c2db033cb2ab757a57b717cf5b1",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "sunken_blizzard_lab",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/sunken_blizzard_lab.nbt",
+      "sha256": "5838c2dd0babfec42d0d7802fb8dc41c7aefe4ef12ba533a2579dfc0cd9a8a77",
+      "blocks": 32174,
+      "geometrySha256": "387117c1e8f267fea41f005d3f5babdacb33ec107c3e89c7d093a7aa6c1d7224",
+      "blockPayloads": 32,
+      "entities": 13,
+      "dataVersion": 3955,
+      "afterSha256": "5838c2dd0babfec42d0d7802fb8dc41c7aefe4ef12ba533a2579dfc0cd9a8a77",
+      "afterRawSha256": "fd55e84705f7ee04b63c772d216fd1d5387acfffae4a149b203246b5a71622bb",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "testjig",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/testjig.nbt",
+      "sha256": "727060f4848fe0eb6a8dcb22127cb14ff26324ff50538f42437bf69df661609d",
+      "blocks": 25,
+      "geometrySha256": "72504623a1f152493df44ba460365ed573361c6a5e7d1ac3aee8853e731bc7f0",
+      "blockPayloads": 1,
+      "entities": 0,
+      "dataVersion": 3955,
+      "afterSha256": "727060f4848fe0eb6a8dcb22127cb14ff26324ff50538f42437bf69df661609d",
+      "afterRawSha256": "b158aa63bad562df76e4df5453eead8a3c9a31bcdc07ff8836630dd3fd868f52",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "testsaw",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/testsaw.nbt",
+      "sha256": "390e15405b224b94481ff54c9d4dc6d57f7352a9811a91c2f0c34987a6601bf7",
+      "blocks": 25,
+      "geometrySha256": "408e0e5b01ae4adc87708475e10c5de541d5df999f0d0d43ebcb7d39a6d98f13",
+      "blockPayloads": 1,
+      "entities": 0,
+      "dataVersion": 3955,
+      "afterSha256": "390e15405b224b94481ff54c9d4dc6d57f7352a9811a91c2f0c34987a6601bf7",
+      "afterRawSha256": "3449e4df9e103524b88f298fb79e08ff3764ea46db01c41c033ec221cfcd49c4",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "thermalvent1",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/thermalvent1.nbt",
+      "sha256": "9286f472fae1e765f7cec69a9103683cf7227e758a1d1e09c6fcd3cb89f6f27e",
+      "blocks": 2,
+      "geometrySha256": "71b9a28a11ca2132eefa8fc66cbe8a3331f96056a1975a40d1d75222051c9256",
+      "blockPayloads": 1,
+      "entities": 0,
+      "dataVersion": 3955,
+      "afterSha256": "9286f472fae1e765f7cec69a9103683cf7227e758a1d1e09c6fcd3cb89f6f27e",
+      "afterRawSha256": "b67764b089b224381213e94fea933db2fa1879707c50ec5728b2919f2e016c43",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "thermalvent2",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/thermalvent2.nbt",
+      "sha256": "408ad16d4e6b61a1d27d23fbea73f731a6702a577e9cfe166b273bb97447b96d",
+      "blocks": 4,
+      "geometrySha256": "11324a2cf0dba1c30865c5b8a2babda698e893171d590fa287566771d83df8ed",
+      "blockPayloads": 1,
+      "entities": 0,
+      "dataVersion": 3955,
+      "afterSha256": "408ad16d4e6b61a1d27d23fbea73f731a6702a577e9cfe166b273bb97447b96d",
+      "afterRawSha256": "2bf18380609a225e5bb70ac0d51e32bd0c655203d05a28d634a4724675dcea06",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "thermalvent3",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/thermalvent3.nbt",
+      "sha256": "fdad89d9e64401ff68dee87f1714cbfcdf9e5f03407b1f6373ca2211516314b0",
+      "blocks": 6,
+      "geometrySha256": "ccdc215f10a096bfe49a3b264f4f11d60e64cd664a3e4a4af1d2746b228d4da9",
+      "blockPayloads": 1,
+      "entities": 0,
+      "dataVersion": 3955,
+      "afterSha256": "fdad89d9e64401ff68dee87f1714cbfcdf9e5f03407b1f6373ca2211516314b0",
+      "afterRawSha256": "5634365a9489354b187258c763523336191f14adf2f55113994e87e13db7a16f",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "twilitgrass",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/twilitgrass.nbt",
+      "sha256": "7dfde204645a78390e3143cb62ae9547ebc532de02f110ea1e58333750a5e712",
+      "blocks": 1,
+      "geometrySha256": "6b1f6cfe2e8dcb1e0460f6b786dade87463f4ccfb8894aa0ee6e9969b1990743",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3955,
+      "afterSha256": "7dfde204645a78390e3143cb62ae9547ebc532de02f110ea1e58333750a5e712",
+      "afterRawSha256": "f5a721a1afa063b389538873f7a7ba4d6c7e782973d2bb8d1229d4e9116488ce",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "underbase1",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/underbase1.nbt",
+      "sha256": "596351be4e1b1522f15599a25d3b8e9e70bea49c38d23809235dc28493e46077",
+      "blocks": 2240,
+      "geometrySha256": "10d2d9bf0bd831840603416fbb2f04e8ccb9927b6b851ccde082355802653ed6",
+      "blockPayloads": 7,
+      "entities": 0,
+      "dataVersion": 3465,
+      "afterSha256": "596351be4e1b1522f15599a25d3b8e9e70bea49c38d23809235dc28493e46077",
+      "afterRawSha256": "5cd488088475332bbccfba19d66f03a0314464deac65389861130cb1faf57290",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "underbase2",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/underbase2.nbt",
+      "sha256": "3710228353c23eb9e13e924a7d0227e44ecea83289594ee04eef5518998e2726",
+      "blocks": 2240,
+      "geometrySha256": "7c2a662252d0e002c5a6d731fa5ffedaf648a4e3c0a3f8790aa62228127e3257",
+      "blockPayloads": 6,
+      "entities": 0,
+      "dataVersion": 3465,
+      "afterSha256": "3710228353c23eb9e13e924a7d0227e44ecea83289594ee04eef5518998e2726",
+      "afterRawSha256": "9e3f75b790a4d48424af1417fbab3d173ec45544f571649db0df5627d870c18a",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "underbase3",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/underbase3.nbt",
+      "sha256": "45074bd9388e2ede2b54f459e75c2fa3d5ff8b2eb8dec8f3598dcb8ca5439cc7",
+      "blocks": 2240,
+      "geometrySha256": "a49246543f73b76c91d3f93f1bf4529e0c98c891f9c66de691813e196e2576c8",
+      "blockPayloads": 6,
+      "entities": 0,
+      "dataVersion": 3465,
+      "afterSha256": "45074bd9388e2ede2b54f459e75c2fa3d5ff8b2eb8dec8f3598dcb8ca5439cc7",
+      "afterRawSha256": "75972c723f6134600677ccd1596ad3924223d6e292637d8cfcb9695ba865fa61",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "undercabin2",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/undercabin2.nbt",
+      "sha256": "f411c304f387539a5d6429ab28a7370434634d9397fcc01b5d8ec261a6645e55",
+      "blocks": 385,
+      "geometrySha256": "27e556f83ca69bd158c909d646f0d8c46c5effb5843bb93bacd70e9338dc0fd9",
+      "blockPayloads": 3,
+      "entities": 0,
+      "dataVersion": 3465,
+      "afterSha256": "f411c304f387539a5d6429ab28a7370434634d9397fcc01b5d8ec261a6645e55",
+      "afterRawSha256": "1cc8a30e3f5ff3e5821f427a7f5849e74a998158ea83e65730f44c9535002d9e",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "undercabin3",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/undercabin3.nbt",
+      "sha256": "643b0257a4318d6c691620b0065c41888d851c44bff84bd2907c3019de881a23",
+      "blocks": 385,
+      "geometrySha256": "d7f570b9f0c85dabd657acf1611fa654952c257387300ca523618f345a7327f3",
+      "blockPayloads": 1,
+      "entities": 0,
+      "dataVersion": 3465,
+      "afterSha256": "643b0257a4318d6c691620b0065c41888d851c44bff84bd2907c3019de881a23",
+      "afterRawSha256": "ffd3153fac5bf13060d9e12b38ded1cc46fb531d8e03f5ceac4a64f7e230fb56",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "undercabin4",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/undercabin4.nbt",
+      "sha256": "216e57906d1616b0f61a573f9a7b36004f723f473d99989b5bc161f6e8666288",
+      "blocks": 385,
+      "geometrySha256": "defbb1b323212d031798c2a56161a87f6465014abfba49d367e1f136e0ea5dbd",
+      "blockPayloads": 4,
+      "entities": 0,
+      "dataVersion": 3465,
+      "afterSha256": "216e57906d1616b0f61a573f9a7b36004f723f473d99989b5bc161f6e8666288",
+      "afterRawSha256": "823601d5821ee703c9b5a48b82075140eaf6e6f677456ba42a185ba962d62782",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "verdium12",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/verdium12.nbt",
+      "sha256": "c239c78eb35d4a0ffe1b43b53815b899f3fb09f7f0c27e1652c2cfb5881d4178",
+      "blocks": 12,
+      "geometrySha256": "3a433ddfd92c865db23f7a3459bfd558e01e98d69e3e437b3c36a7acf3a3c3b6",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3465,
+      "afterSha256": "c239c78eb35d4a0ffe1b43b53815b899f3fb09f7f0c27e1652c2cfb5881d4178",
+      "afterRawSha256": "69c127d41f553a5c04157cf11880b4fc5b0090dd8de2c02e21a02cc432cfb6c6",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "verdium3",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/verdium3.nbt",
+      "sha256": "8cfecae88bc407d15a667c7cc537fcfb7551b54f289918f9b0b76505f4fad9b5",
+      "blocks": 3,
+      "geometrySha256": "3ab9a8740a546f8444780243e043d12ceb98360ee91bf77cf675324f5d0fa0dd",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3465,
+      "afterSha256": "8cfecae88bc407d15a667c7cc537fcfb7551b54f289918f9b0b76505f4fad9b5",
+      "afterRawSha256": "6e704ebd44a460e591cdd234a2721d1776a75986653fe923daa6422b73b1baea",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "verdium6",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/verdium6.nbt",
+      "sha256": "b7408760f54306ea9ab3f5d6aad95bb3a1b276568732ca7b35af19d82db30d44",
+      "blocks": 6,
+      "geometrySha256": "35a70c69d1b551d53a3d0733a4548c5ee7e134bb8d9a15864f1c8142220104d7",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3465,
+      "afterSha256": "b7408760f54306ea9ab3f5d6aad95bb3a1b276568732ca7b35af19d82db30d44",
+      "afterRawSha256": "d733db2324403fe5338716c6bcfb01e69c476bb5154b337165fb31d2679d2ad6",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "verdium9",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/verdium9.nbt",
+      "sha256": "d4063bd68406e95f4f4fcaeab004a3508e178ca62b110eac53c297116d5a0512",
+      "blocks": 9,
+      "geometrySha256": "3aff12143c40fa40a4a4439dfbd2417f7fc496d0995c55d804bebd2130cafe22",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3465,
+      "afterSha256": "d4063bd68406e95f4f4fcaeab004a3508e178ca62b110eac53c297116d5a0512",
+      "afterRawSha256": "5bfdd9511cea16b7881c71767b176cae0caaa16151c24d697104ea7be914b9ba",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "vermillion_pine_1",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/vermillion_pine_1.nbt",
+      "sha256": "d9249ba44a63c271a98a9f500b1b4bd83a55f895bf3e9ab0dfb62c8722310366",
+      "blocks": 3807,
+      "geometrySha256": "1f3981d52f5293c9a64d5596054a3ae5390b7436bbbbce2aac504f41e65bff38",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3465,
+      "afterSha256": "d9249ba44a63c271a98a9f500b1b4bd83a55f895bf3e9ab0dfb62c8722310366",
+      "afterRawSha256": "84255d259480790d9d7f899f4e7b6bf2fd53d19ed46df6482b4562560353288a",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "vermillion_pine_1b",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/vermillion_pine_1b.nbt",
+      "sha256": "ce1a9a97208ba56ef9eacbe88fd98c548f3fd834606ea38d53a20b0d607f0f17",
+      "blocks": 3483,
+      "geometrySha256": "5808dc15ac80a25a2706eb784aa3fbcc2e250f77ebad3fde5e3f57098860572b",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3465,
+      "afterSha256": "ce1a9a97208ba56ef9eacbe88fd98c548f3fd834606ea38d53a20b0d607f0f17",
+      "afterRawSha256": "a011bc7dada631a6e056be6d1e0ecbf68b7022f3038008876a02ac6d4a6617bf",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "vermillion_pine_2",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/vermillion_pine_2.nbt",
+      "sha256": "603be673b75bbaadef6b6ebdbee45d18b49d30a7535dec8f05452ffc48f0e4fa",
+      "blocks": 3807,
+      "geometrySha256": "ce6c787f615ddc3a1e9a8b3adef0561c3aa5b1bb69f54a9f9d0f548731db7de0",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3465,
+      "afterSha256": "603be673b75bbaadef6b6ebdbee45d18b49d30a7535dec8f05452ffc48f0e4fa",
+      "afterRawSha256": "c06cb560f70b12c5ce9a2b9c8a94a109fe9136e70c802181ba18beba5868582c",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "vermillion_pine_2b",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/vermillion_pine_2b.nbt",
+      "sha256": "8fc6636ab5b64d1baafa205d4afcc7fc89f75b215cee8adc07a1e466b27dc071",
+      "blocks": 3645,
+      "geometrySha256": "185620b3739cf845f51bd36d2bc6bc3845d1b9a7b9712711147f36f4afe4ebc2",
+      "blockPayloads": 0,
+      "entities": 0,
+      "dataVersion": 3465,
+      "afterSha256": "8fc6636ab5b64d1baafa205d4afcc7fc89f75b215cee8adc07a1e466b27dc071",
+      "afterRawSha256": "a6cc9fe2d9fbf9dd398a5e34515c15fcb38fcb6c9c69d5bc7618a0e84e76302d",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "vilebath_bridge",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/vilebath_bridge.nbt",
+      "sha256": "1ee15da44f78653cd67ed3501ea1cb6aaf4f91df41e9d25fe27b1028283c86f3",
+      "blocks": 24549,
+      "geometrySha256": "9dafed1f8e4f06c65a2d1da75de8255010f6a201e651c64daff48f85884f8e9a",
+      "blockPayloads": 2,
+      "entities": 0,
+      "dataVersion": 3955,
+      "afterSha256": "1ee15da44f78653cd67ed3501ea1cb6aaf4f91df41e9d25fe27b1028283c86f3",
+      "afterRawSha256": "fb08fdb7eb7194f13280d128890499574ad1a9fea52ab1d88bef8d561b04a0db",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "vilebath_bridge_center",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/vilebath_bridge_center.nbt",
+      "sha256": "a8ff8fe4f08044843a7b93b3e5379d53ccbe26627d558036ad8e269bf3d14621",
+      "blocks": 22833,
+      "geometrySha256": "d06c9baa973841d9954c9e977783a1c01219b58319d8acd5b2529bd23a2faf91",
+      "blockPayloads": 4,
+      "entities": 0,
+      "dataVersion": 3955,
+      "afterSha256": "a8ff8fe4f08044843a7b93b3e5379d53ccbe26627d558036ad8e269bf3d14621",
+      "afterRawSha256": "3644ede23b5b2f7db88dedefbebb031405c66f9fd5b1e5a3f35bd348043412d2",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "vilebath_bridge_split",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/vilebath_bridge_split.nbt",
+      "sha256": "4e3d09c6491e12026c24ccbed585e96cd122b750c9544518215b57926997d7a1",
+      "blocks": 45325,
+      "geometrySha256": "14f349282ed48146a5e860f139c904cb9c658e5167dbd0455487a09bcbb584e7",
+      "blockPayloads": 3,
+      "entities": 0,
+      "dataVersion": 3955,
+      "afterSha256": "4e3d09c6491e12026c24ccbed585e96cd122b750c9544518215b57926997d7a1",
+      "afterRawSha256": "169aefeee69a45203d3da435713ab11e9d45515915f7f3b52612b58da63a8f2d",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "vilebath_castle",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/vilebath_castle.nbt",
+      "sha256": "109e363899c576b757e2d489aab0169f8e1ad63fb30c385ca7f1df730d7e06fa",
+      "blocks": 295539,
+      "geometrySha256": "1f84c6d45b9896156f95191a1bacf50a1edac2b7be179b0a7f169f32813439c8",
+      "blockPayloads": 76,
+      "entities": 45,
+      "dataVersion": 3955,
+      "afterSha256": "19faf279cf3e63fcbc222d767fdb8be1728752ab755695a9a5759a182c8fc37d",
+      "afterRawSha256": "29b66da8d691f9cc7737c384d41d4e00b76b6ec36f8483a72eb39f882a8701bf",
+      "modified": true,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "vilebathrubicon",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/vilebathrubicon.nbt",
+      "sha256": "6b8eab852fc286069bbf2264da56567cec18150af4e10ad5c560ffbc490fdabe",
+      "blocks": 439872,
+      "geometrySha256": "1f273a0303cce54f3bd72bfc211251e604f1e6a9ec8a88ff5db7970cafaf9bf5",
+      "blockPayloads": 76,
+      "entities": 45,
+      "dataVersion": 3955,
+      "afterSha256": "af9130b4480adb8dbb21680350e583e3bfedb8027fc00a8ebbbc85e9a65e5358",
+      "afterRawSha256": "6c8e41dfa268cca05a3ccc35d0665b43e6920e44c1e8f3db1251a88bafe2af3f",
+      "modified": true,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "whisper_home",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/whisper_home.nbt",
+      "sha256": "ce1484f7ce14e99ee26f2101efc20f56cee2dbb92bbe06379a4f8d25f482e256",
+      "blocks": 7488,
+      "geometrySha256": "47c7580d6bef32d26d51305fa19fb4181ef8ae4bbb6cf2f3827ee7c3abaf9b97",
+      "blockPayloads": 11,
+      "entities": 1,
+      "dataVersion": 3955,
+      "afterSha256": "ce1484f7ce14e99ee26f2101efc20f56cee2dbb92bbe06379a4f8d25f482e256",
+      "afterRawSha256": "c2f1e5c95fa0ce15627993bcf804740908b2ed1c7ccc66bed6ce6b3350c0bb86",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "whisperden",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/whisperden.nbt",
+      "sha256": "9fea987f5ff51b24f8099218526de3f42e32e3ab2efac8b83fe696f1c998a3b6",
+      "blocks": 2565,
+      "geometrySha256": "dc55acb2c86ba315c39f60679bf68ed664c857a868aa95f4bd86d05d8a17e4bb",
+      "blockPayloads": 31,
+      "entities": 8,
+      "dataVersion": 3955,
+      "afterSha256": "9fea987f5ff51b24f8099218526de3f42e32e3ab2efac8b83fe696f1c998a3b6",
+      "afterRawSha256": "9c2655463b6c8195fa5b07b78ab1f8930ca51aae684758105e69ba1e117f2fa1",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    },
+    {
+      "name": "whisperdenalt",
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/whisperdenalt.nbt",
+      "sha256": "ec39eb929df7958119efb3f75a3f309b3d91c6dc6c23b2f53406bfed938d283c",
+      "blocks": 2850,
+      "geometrySha256": "4d1106ca8ca40fb2f2ffcd15b9664b88f05e5f7cb37f6970826725dfa309ed39",
+      "blockPayloads": 27,
+      "entities": 8,
+      "dataVersion": 3955,
+      "afterSha256": "ec39eb929df7958119efb3f75a3f309b3d91c6dc6c23b2f53406bfed938d283c",
+      "afterRawSha256": "078e1e458d9635593ad2188a0923212d9fb3dba2f0f6eb4096f81330b12624ed",
+      "modified": false,
+      "fullTypedAllowedDifference": true,
+      "byteRoundtripBoth": true
+    }
+  ],
+  "templates132Unchanged": [
+    {
+      "template": "archive_sanctum",
+      "sha256": "78745eee4eb90dd893210258c721628063a2c5a2f2f78c83a694cce53423b9bf"
+    },
+    {
+      "template": "bigdungeon",
+      "sha256": "98eae50871ec6734ddbe27e4365f02feb6b521d3bc0efe39b5806c461d3e413a"
+    },
+    {
+      "template": "blizzard_sanctum",
+      "sha256": "ef492b6441c75844579a8a5e7486f8f336438d02d4f4c0ad1268430581502b34"
+    },
+    {
+      "template": "blizzardtower",
+      "sha256": "15486f64d35ff64015205136d891830b0e370839010b4e7c22eb76942cba2097"
+    },
+    {
+      "template": "bonebridge1",
+      "sha256": "d34f9bc50a7fa8ee851ce77d7efc8ae6493f92d256937b142225b6247d45ecf2"
+    },
+    {
+      "template": "bonebridge2",
+      "sha256": "993ad87dea13b9c73cbc303c10bf039e9ea9abbeadd7afd0351f7c42e18bb325"
+    },
+    {
+      "template": "boxdungeon",
+      "sha256": "c7a342f956549de045f80c412efff3f46bbfa93f7aeff4af6c5ce3e4d9d39171"
+    },
+    {
+      "template": "bulbceiling",
+      "sha256": "4fa7c4c96460a387b4b9f8ad6d83c8fd9511f01ce362b58e866e309260aacf7a"
+    },
+    {
+      "template": "cachechamber1",
+      "sha256": "643f51fb54c45204d103125b7838cbecd86d3d325b51f47b17a0398878f10aed"
+    },
+    {
+      "template": "cachechamberalt",
+      "sha256": "38a316f711ddd01bb6ee65e86006f6998453a422735393b4c6001ecbcd0fbc0f"
+    },
+    {
+      "template": "campbig",
+      "sha256": "938d323560eeb788ecd3166a979fec423ae883c0b6144ce874964854c7c4388d"
+    },
+    {
+      "template": "displaced_chamber",
+      "sha256": "253f656d7a2df18b376d109d20d1cc2668fdf4a61533275fa353bcdb30820a7f"
+    },
+    {
+      "template": "ferrousaltar",
+      "sha256": "d7c7979183a20581d65ac57c28372e9c8afc09bbd9d5b894c02d19aad7996060"
+    },
+    {
+      "template": "frostboulderbig",
+      "sha256": "81f9c189cb98a1250c85a02f73eddfbada5ba0a4621c6ae0c0f6192ca36b7ceb"
+    },
+    {
+      "template": "frostbouldersmall",
+      "sha256": "cdc6930aa1bf2a8cb85621a15eb10983cba1da73bdb75de8c06279d2ccd1aeb9"
+    },
+    {
+      "template": "geysercluster",
+      "sha256": "489cf380a2544c6c343d09dc7d8d1121d22da4486d562cdd9c2d5f8971934ec7"
+    },
+    {
+      "template": "gianthand1",
+      "sha256": "094b134fa52a0688d7a40abf9e305fe9899a0e94561c00f8e8cff81c643d45ff"
+    },
+    {
+      "template": "gianthand2",
+      "sha256": "7733b8764ad1bab17954e34e39ab161a9cbecb90d1329b0c0e8dac3f377a8da2"
+    },
+    {
+      "template": "giantrib",
+      "sha256": "499ae8b2fa6b49069bb2213d5980bef9c3bb8d48c74991d1873207901e30c35a"
+    },
+    {
+      "template": "gianttooth",
+      "sha256": "7fb44f31c6869943741861935cf074cc9b8f2476958e7ced840e8664896f1c7f"
+    },
+    {
+      "template": "glaukobig1",
+      "sha256": "8b045df4ae9a4913aa1aae3e5b06bcb7d494a14026b3159b5364a4f0173371e5"
+    },
+    {
+      "template": "glaukobig2",
+      "sha256": "e549c66d5a47517fd0e9c48b8c4b59cefed4cc06b42ee737c6b3228a5298f922"
+    },
+    {
+      "template": "glaukotree1",
+      "sha256": "0bd23ac395adc93cdfc382d09fe8540cf3b121fb35cdfb37d797009ddeaed069"
+    },
+    {
+      "template": "glaukotree2",
+      "sha256": "1b056024be0b06dd0faa10bae5af420096058f5656f08982d60fe46f10737dbb"
+    },
+    {
+      "template": "glaukotree3",
+      "sha256": "e7aaf758157cf1d1828654e1d07827301c218e47f635fba30e62d470810f06b6"
+    },
+    {
+      "template": "glaukotree4",
+      "sha256": "82ebe8ebd309f27c94719b8f255f61586b43d3e3372e1bf09a5ffe2511f40541"
+    },
+    {
+      "template": "glaukotree5",
+      "sha256": "34434a3d35ed44e7a3fde86419c4bd1d16128833b4de53dfa678ce5652aabfb4"
+    },
+    {
+      "template": "hallowed_town",
+      "sha256": "6627d955185b49e4846ae86d7238316c43bc03dddd56ca61b89397afd6939343"
+    },
+    {
+      "template": "huntressnest",
+      "sha256": "c379e3dff535e364f6c3686916be8845c82b331e3e9f2bf42cfeea8e33737d9f"
+    },
+    {
+      "template": "keystonechamberalt",
+      "sha256": "99daa9fe130128d68996422db46abcfe5e8fd58d2fccc1ef6ed02c090b48a649"
+    },
+    {
+      "template": "loquebirchtree_a",
+      "sha256": "c3378db56621abc5d4246321c2442eec225526858d4f6ccea7fae0a402708a14"
+    },
+    {
+      "template": "loquebirchtree_b",
+      "sha256": "f284534371e0bde05e0a59c03c07af1a257a74a2671f3533df87e0eb29e6e317"
+    },
+    {
+      "template": "lotusfloor",
+      "sha256": "dca7e4749ec3d82ab34c6c777054acda70af6a2a4374c6ee0dd559298a6895f2"
+    },
+    {
+      "template": "lunalemontree",
+      "sha256": "82a84739e5c2fbd771844589350aeecfcf1deda37bfd9bbc5d655d4cb242cc58"
+    },
+    {
+      "template": "maiden_chamber",
+      "sha256": "424148baaada338e7e6330ef7413650de34ca111457ecd61a2a62b32fb0c9e7e"
+    },
+    {
+      "template": "mantledungeon",
+      "sha256": "9bd27f5820baf94f3e05ba66f6a1586217f2145dc9a23457ea57b2aaf303dd21"
+    },
+    {
+      "template": "nitelitecluster_a",
+      "sha256": "bfde95020045c04d7da7fd89686138108f7625033ef2c685eb51cf5f7327a554"
+    },
+    {
+      "template": "nitelitecluster_b",
+      "sha256": "1eee60b4ef25a1e464833eec2b9516c94761b86639e27743b611234d20e6594c"
+    },
+    {
+      "template": "pillarshroom1",
+      "sha256": "7a99e845a6cd521dd6611725950fdd7c20819cc95caf9f1ab5e013b5b57c95c2"
+    },
+    {
+      "template": "pillarshroom2",
+      "sha256": "ee4adba493e3ecb5ab1328bdd04910e94ef22039b565ccafa44a5e9dc0858bbc"
+    },
+    {
+      "template": "planted_sparkler_b",
+      "sha256": "42cb72d71db533028dcb19e0a33885b9b3c968cdec80457e369293a18525d3ec"
+    },
+    {
+      "template": "plateau",
+      "sha256": "82c188ef1da311b3e4cdb0b9e13aba163c9207723c83073e43f55a8d29a20a1b"
+    },
+    {
+      "template": "polyporeochre",
+      "sha256": "cb9c016d469a446a615a3f6bebb13f3ff90198f23b366862867fc115691f978a"
+    },
+    {
+      "template": "polyporeochrealt",
+      "sha256": "d51da059b405caa6b691ea4b6b77f2fce70a27898d8b0056ce4f0e44f40c087e"
+    },
+    {
+      "template": "risen_chunk_1",
+      "sha256": "37db33b5db86d34a59299acfafa8144f81e17a219790eae9a7e3d5a40c93e317"
+    },
+    {
+      "template": "risen_chunk_2",
+      "sha256": "302f2d8f0cb680e5a18338d89f0763c4b88b9939581789f478cd1502c1c61738"
+    },
+    {
+      "template": "risen_chunk_3",
+      "sha256": "aab1fcb7e0082faa253b7cd3cadfc3f4e3fdfec06872eda68918fe1b1ec37f8b"
+    },
+    {
+      "template": "shaledungeon",
+      "sha256": "70f5e5bd6e656887367342dacab524d10ade0143fb74b93fd2518e83a3fa3164"
+    },
+    {
+      "template": "shaledungeon2",
+      "sha256": "c18d2e4397332385f2103ed24a40559505654fff538a825f89dce899e61df637"
+    },
+    {
+      "template": "shalespring_rubicon",
+      "sha256": "1e397f65e61c97177404d13a015fd5f339b90e24e73e107789db874f6eeb8ca1"
+    },
+    {
+      "template": "snowruins1",
+      "sha256": "12db5caa8085f2dfdc84b4b9d967507c2318369512ebf5e88ac100b330b4fa42"
+    },
+    {
+      "template": "snowruins2",
+      "sha256": "3d7925ae63f0c8cf7e34d09b8f89764981b0540bfb90e9de4dd7375a5ee54bae"
+    },
+    {
+      "template": "snowruins3",
+      "sha256": "7004462f9cc852652b9c06b4a3f67501b59a6d0355aa505893424dfb21286585"
+    },
+    {
+      "template": "snowruins4",
+      "sha256": "4f23e6ce079d65726d0302f83c7ea954147197fed968f834df24ee8b01f4f48a"
+    },
+    {
+      "template": "spawnswordbottom",
+      "sha256": "1e7fd727e0575ec59c237100af07a174dc0cf695f694f36dc4bf751ea71936eb"
+    },
+    {
+      "template": "spawnswordtop",
+      "sha256": "ac99e2bf9a7b7372a74aa47c3541374d4e05b6f9df0d35dfd5792538b9970b59"
+    },
+    {
+      "template": "spire1",
+      "sha256": "35ca9918f1574c24f530d1524b3956127379bb7851e1a90423a98206e0c3db4e"
+    },
+    {
+      "template": "spire2",
+      "sha256": "da7564c6151bd13d286bcd9be0d672c1329d7c52318136d60d17d660c738c0a9"
+    },
+    {
+      "template": "spirecluster",
+      "sha256": "b1c6657cd8349064da5f79821093ad81964e36e60cbb0673d556dbf71d6a08f3"
+    },
+    {
+      "template": "spiremite1",
+      "sha256": "3f3dcde453ad7383132c194b702f4c4c07df26337dec43a4c0a13d9bfd78c948"
+    },
+    {
+      "template": "spiretite1",
+      "sha256": "639e6ccadf040be4a0e165236c111fdb201b698358e89229de24abffcd09ecfe"
+    },
+    {
+      "template": "starfruittree",
+      "sha256": "f16e55db41ee9c1a6e7918411e06167d0446db0277b498dc842d27687194af9d"
+    },
+    {
+      "template": "swordinstone",
+      "sha256": "1dedba943370a5afc5827183ab992f934310d2e20f55890a800de31e617993c9"
+    },
+    {
+      "template": "testcube64",
+      "sha256": "c38146a2cde78a846aabab427b08d47bca1b9dc4367e27e94d2c6956a112ff48"
+    },
+    {
+      "template": "tridentboulder",
+      "sha256": "867e82ec4d8e1f2223e70ef7e2ecb3bca39765ed684568cc341f1a51fef61be0"
+    },
+    {
+      "template": "voltflower1",
+      "sha256": "3b1983b64c2a8ba69a18b2b6551c40b56c871372e30211ae9be7cde22d4a9630"
+    },
+    {
+      "template": "voltflower2",
+      "sha256": "3dfc67ea7b7868e70011bf57fab6510cb552844530f504b970fea69d509f555d"
+    }
+  ],
+  "nativeSchemaInputs": [
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\item\\ItemStack.java",
+      "sha256": "b35770a757f0c62a88276a38c36763d26e204d1a6210ea3fcac71a53526bc389"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\item\\component\\WritableBookContent.java",
+      "sha256": "8344ad854863407ebae0af264de78e759f3d768a643ce292e5dde1b95546a400"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\item\\component\\WrittenBookContent.java",
+      "sha256": "b10fbdf152085de94902cc76f6b4682e87a16edbea81c78b04f769fa91adc05b"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\item\\enchantment\\ItemEnchantments.java",
+      "sha256": "3c67fef4ea0fbe2b28c0d00dff8cd5cea5a9f9bf9624fa51a0bedb4e6684acb9"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\server\\network\\Filterable.java",
+      "sha256": "23f9da22c725e5ed5405b33a03bb6cea3d2a060cb3f3658b212778269737b674"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\core\\component\\DataComponents.java",
+      "sha256": "933a4881379b8bf9a86e42bceda93d846a58d8ce9939e46dc95a70f91cab1998"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\block\\entity\\BannerPatterns.java",
+      "sha256": "57866849f6b80c903f12eddcd9e067ebff9c6715dd34b086e453098933223402"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\block\\entity\\BannerPatternLayers.java",
+      "sha256": "080ab726aa1961d1105a77e4ea60a5db73a970afff3874ca5b7f487b0e1ebf4d"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\block\\entity\\BannerBlockEntity.java",
+      "sha256": "567f9950a8fc7e5cf32442b951970f7eb02c31eccb183006a5e9cc8701037da7"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\entity\\ExperienceOrb.java",
+      "sha256": "3dd1b6cfc3a3846625d0644b5d437d388939b979d28f9a29f16c699082baac0e"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\levelgen\\structure\\templatesystem\\StructureTemplateManager.java",
+      "sha256": "a570023329493bd319d922041b64ea0dacbffebb5ffcbef9159b03ecb2009e06"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\block\\entity\\SignBlockEntity.java",
+      "sha256": "ca758cf19e44a2f4103f1bd3d13b33caf4d34df9a1ac23e59c93fab49e4a7c9d"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\block\\entity\\SignText.java",
+      "sha256": "1b1495b0d29e8e59b04795b8271576ccb710912465eebd25e65537ca32ec691b"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\block\\entity\\JukeboxBlockEntity.java",
+      "sha256": "81193bec8a028a796117ef9c2ef655234d7cd3ba6ca9626fe06f56e3213ccb76"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\block\\entity\\DecoratedPotBlockEntity.java",
+      "sha256": "b4ff07f46c5a3befe1d64e4c611378d58829419a852e6ad0424b5b99716f9711"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\block\\entity\\LecternBlockEntity.java",
+      "sha256": "0921574c4d7f362ffd4b52034aa2aeb3f44a6462d6a3e0b1059c51ccb5ec8440"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\ContainerHelper.java",
+      "sha256": "4eb9b58a96238f3e6a9b420de4e38ab9798d3bcb76928167ab34f459778fc65c"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\entity\\decoration\\Painting.java",
+      "sha256": "8777aec5a09128a1f51bfb808a6d22e6cde11b6fc2e7248359acd56043b06053"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\BaseSpawner.java",
+      "sha256": "7a4d1155db86a145d987a61c512e9be00e22582dcbef26587b5c27e89f5477ff"
+    }
+  ],
+  "reusedAttributeClosure": [
+    {
+      "path": "attributes-a122-summary.json",
+      "sha256": "ffc2860b4e8eab492a1ddd2e8a0021bd7b850198cb3a399cd76c1310a8877c58"
+    },
+    {
+      "path": "attributes-a122-matrix.json",
+      "sha256": "61bdcfd9120a1bb060a1b6eea94732ab077961e9aaa80b87759dbb9b45eb34c6"
+    },
+    {
+      "path": "attributes-a122-post-load.json",
+      "sha256": "ed63adf041fb042d0e55e9df022c15075984d2a685917d8f1863c82cc15e84d9"
+    },
+    {
+      "path": "attributes-main123-before-fix.json",
+      "sha256": "7d8cd80b83997344a2d6f07bd8cf225922bcb34643e768cc8e8a42b4dcaed614"
+    },
+    {
+      "path": "attributes-main123-review.md",
+      "sha256": "e65defbb12c34b25837a9081d4dd62c4d1e6f60642a5dc0b740d3687d84d8332"
+    }
+  ],
+  "allowedPatternChanges": [
+    "vilebath_castle/blocks/295488/nbt/patterns/1/pattern",
+    "vilebath_castle/blocks/295489/nbt/patterns/1/pattern",
+    "vilebath_castle/blocks/295494/nbt/patterns/1/pattern",
+    "vilebath_castle/blocks/295495/nbt/patterns/1/pattern",
+    "vilebath_castle/blocks/295499/nbt/patterns/1/pattern",
+    "vilebath_castle/blocks/295501/nbt/patterns/1/pattern",
+    "vilebath_castle/blocks/295503/nbt/patterns/1/pattern",
+    "vilebath_castle/blocks/295505/nbt/patterns/1/pattern",
+    "vilebath_castle/blocks/295509/nbt/patterns/1/pattern",
+    "vilebath_castle/blocks/295513/nbt/patterns/1/pattern",
+    "vilebath_castle/blocks/295514/nbt/patterns/1/pattern",
+    "vilebath_castle/blocks/295515/nbt/patterns/1/pattern",
+    "vilebath_castle/blocks/295516/nbt/patterns/1/pattern",
+    "vilebath_castle/blocks/295517/nbt/patterns/1/pattern",
+    "vilebath_castle/blocks/295518/nbt/patterns/1/pattern",
+    "vilebath_castle/blocks/295519/nbt/patterns/1/pattern",
+    "vilebath_castle/blocks/295520/nbt/patterns/1/pattern",
+    "vilebath_castle/blocks/295529/nbt/patterns/1/pattern",
+    "vilebath_castle/blocks/295530/nbt/patterns/1/pattern",
+    "vilebath_castle/blocks/295531/nbt/patterns/1/pattern",
+    "vilebath_castle/blocks/295532/nbt/patterns/1/pattern",
+    "vilebath_castle/blocks/295533/nbt/patterns/1/pattern",
+    "vilebath_castle/blocks/295534/nbt/patterns/1/pattern",
+    "vilebath_castle/blocks/295535/nbt/patterns/1/pattern",
+    "vilebath_castle/blocks/295536/nbt/patterns/1/pattern",
+    "vilebath_castle/blocks/295537/nbt/patterns/1/pattern",
+    "vilebath_castle/blocks/295538/nbt/patterns/1/pattern",
+    "vilebathrubicon/blocks/439825/nbt/patterns/1/pattern",
+    "vilebathrubicon/blocks/439826/nbt/patterns/1/pattern",
+    "vilebathrubicon/blocks/439827/nbt/patterns/1/pattern",
+    "vilebathrubicon/blocks/439829/nbt/patterns/1/pattern",
+    "vilebathrubicon/blocks/439833/nbt/patterns/1/pattern",
+    "vilebathrubicon/blocks/439834/nbt/patterns/1/pattern",
+    "vilebathrubicon/blocks/439835/nbt/patterns/1/pattern",
+    "vilebathrubicon/blocks/439839/nbt/patterns/1/pattern",
+    "vilebathrubicon/blocks/439841/nbt/patterns/1/pattern",
+    "vilebathrubicon/blocks/439846/nbt/patterns/1/pattern",
+    "vilebathrubicon/blocks/439847/nbt/patterns/1/pattern",
+    "vilebathrubicon/blocks/439848/nbt/patterns/1/pattern",
+    "vilebathrubicon/blocks/439849/nbt/patterns/1/pattern",
+    "vilebathrubicon/blocks/439850/nbt/patterns/1/pattern",
+    "vilebathrubicon/blocks/439852/nbt/patterns/1/pattern",
+    "vilebathrubicon/blocks/439853/nbt/patterns/1/pattern",
+    "vilebathrubicon/blocks/439854/nbt/patterns/1/pattern",
+    "vilebathrubicon/blocks/439862/nbt/patterns/1/pattern",
+    "vilebathrubicon/blocks/439863/nbt/patterns/1/pattern",
+    "vilebathrubicon/blocks/439864/nbt/patterns/1/pattern",
+    "vilebathrubicon/blocks/439865/nbt/patterns/1/pattern",
+    "vilebathrubicon/blocks/439866/nbt/patterns/1/pattern",
+    "vilebathrubicon/blocks/439867/nbt/patterns/1/pattern",
+    "vilebathrubicon/blocks/439868/nbt/patterns/1/pattern",
+    "vilebathrubicon/blocks/439869/nbt/patterns/1/pattern",
+    "vilebathrubicon/blocks/439870/nbt/patterns/1/pattern",
+    "vilebathrubicon/blocks/439871/nbt/patterns/1/pattern"
+  ],
+  "geometryBlocks": 4380315,
+  "blockPayloads": 1148,
+  "entities": 341,
+  "gameExecuted": false,
+  "codecExecuted": false
+}

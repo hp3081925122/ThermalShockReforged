@@ -1,0 +1,879 @@
+{
+  "batch": 135,
+  "originalJar": {
+    "path": "D:\\AI临时文件\\ThermalShockMigration\\thermal_shock-07.9-original.jar",
+    "sha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436"
+  },
+  "sourceTemplates": [
+    {
+      "name": "blizzard_base",
+      "entry": "data/thermal_shock/structures/blizzard_base.nbt",
+      "sha256": "5c5f6e5aa443b209e816e78f8bf64320d2393402886e12967ac885b15003115d",
+      "geometrySha256": "df7e9a81365320a49ad234d4f0e74adda13d52d0c23f1c6760a7102139ee50d2"
+    },
+    {
+      "name": "blizzard_outpost",
+      "entry": "data/thermal_shock/structures/blizzard_outpost.nbt",
+      "sha256": "9258e9228fbe1fc28e86482e3e1bcc8bcd1473b8c4609e12fba62872aa973726",
+      "geometrySha256": "6a71c8f0e11cac809272d108cb7895a9c5385144c3f57c23e3a6ba5013df6a26"
+    },
+    {
+      "name": "blizzardoutpostrubicon",
+      "entry": "data/thermal_shock/structures/blizzardoutpostrubicon.nbt",
+      "sha256": "477d990ae6f496edeb4fe3d3ef82a433d31488b4d9ca7100ee979e92a1c79aa2",
+      "geometrySha256": "209868876694f9e490f181213aeada73f94bd2409df4b9c66c0bfa46ba2b6340"
+    },
+    {
+      "name": "cathedral",
+      "entry": "data/thermal_shock/structures/cathedral.nbt",
+      "sha256": "d256934a32c5af5c95bcc13ea6656c9fe0de8e7688c8d9cc8f19ada510792abe",
+      "geometrySha256": "25ef786ad2dd5b7e8b4184936de35ec3eaf7d26ae3a5cd283ebcb850872dd7da"
+    },
+    {
+      "name": "junkyard_rubicon",
+      "entry": "data/thermal_shock/structures/junkyard_rubicon.nbt",
+      "sha256": "6dc4be21110caecd15f45e69269c63bcca1ec250930dc490faae1e40aeebccd7",
+      "geometrySha256": "b5017c0e6062e70947c8444ab86122bea1054d9df20031336814cd0b0895e9ed"
+    },
+    {
+      "name": "lavender_palace",
+      "entry": "data/thermal_shock/structures/lavender_palace.nbt",
+      "sha256": "2fe007073a4baa8c0cd37be6cabfe31377f4811ff998c7dd6409155894187bfe",
+      "geometrySha256": "71c239a2d46bffe7acf754b978c6dedfe3a7c822dcb2a762605d128d41759bd4"
+    },
+    {
+      "name": "lostboat2",
+      "entry": "data/thermal_shock/structures/lostboat2.nbt",
+      "sha256": "6b0ccc792851ac017e5fabd9b15124a46ff431f234703ed287d5b884ccaf2ab5",
+      "geometrySha256": "19cbe12f86de97438f2421d06cab7945a1b61a68f6e165334c098a6c60008a5e"
+    },
+    {
+      "name": "lostboat3",
+      "entry": "data/thermal_shock/structures/lostboat3.nbt",
+      "sha256": "46f7cc625f403bde2fc65d67525d5b6856f7d8be025a0f621c4af9f9537b4252",
+      "geometrySha256": "44c725c2b777201615fb60b26decccabae8b9df5ca7ba1de343e4701a7ee3b6a"
+    },
+    {
+      "name": "shalespring_august",
+      "entry": "data/thermal_shock/structures/shalespring_august.nbt",
+      "sha256": "11043ed9ecfe914199b9602cfb20a1f97bcdef1f5a35f2677114e1e21a7a0a9d",
+      "geometrySha256": "2a1d14fea5de418224c7925f73d0fec9951243baf94010d429052d75b7bf5423"
+    },
+    {
+      "name": "snowtower",
+      "entry": "data/thermal_shock/structures/snowtower.nbt",
+      "sha256": "26a8045e0c341a5bee380a35b696a8e8890aca1a7dd3417db3d07a43a1a0f838",
+      "geometrySha256": "217a221d3b90a5983e422fc3987138f2929f0728dd26784f2888d9e44a6c640f"
+    },
+    {
+      "name": "vilebath_castle",
+      "entry": "data/thermal_shock/structures/vilebath_castle.nbt",
+      "sha256": "49af1b26a8212141276173159d5cc615f722e41c99e69f871952987944f11f24",
+      "geometrySha256": "1f84c6d45b9896156f95191a1bacf50a1edac2b7be179b0a7f169f32813439c8"
+    },
+    {
+      "name": "vilebathrubicon",
+      "entry": "data/thermal_shock/structures/vilebathrubicon.nbt",
+      "sha256": "35442c63fa1d1aaf4e46542eb5d9bb0009cd9ca5bb677f79f28f7f5b6c69ee8e",
+      "geometrySha256": "1f273a0303cce54f3bd72bfc211251e604f1e6a9ec8a88ff5db7970cafaf9bf5"
+    }
+  ],
+  "nativeOldPatterns": {
+    "jar": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\minecraft_user_repo\\net\\minecraftforge\\forge\\1.20.1-47.4.23_mapped_official_1.20.1\\forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+    "entry": "net/minecraft/world/level/block/entity/BannerPattern.java",
+    "sha256": "0156ac27cbb1d0ba70c448b9e16605fc89d75884bb2b3f6d413a5ab9de5fac7c",
+    "lines": []
+  },
+  "nativeItemComparisons": [
+    {
+      "path": "blizzard_base/blocks/86257/nbt/Items/0",
+      "sourceTag": {},
+      "components": {},
+      "count": 16,
+      "nativeFieldsCorrect": true
+    },
+    {
+      "path": "blizzard_base/blocks/86257/nbt/Items/1",
+      "sourceTag": {
+        "Damage": 0
+      },
+      "components": {
+        "minecraft:damage": 0
+      },
+      "count": 1,
+      "nativeFieldsCorrect": true
+    },
+    {
+      "path": "blizzard_base/blocks/86257/nbt/Items/2",
+      "sourceTag": {},
+      "components": {},
+      "count": 16,
+      "nativeFieldsCorrect": true
+    },
+    {
+      "path": "blizzard_outpost/entities/22/nbt/Item",
+      "sourceTag": {},
+      "components": {},
+      "count": 1,
+      "nativeFieldsCorrect": true
+    },
+    {
+      "path": "blizzardoutpostrubicon/entities/17/nbt/Item",
+      "sourceTag": {},
+      "components": {},
+      "count": 1,
+      "nativeFieldsCorrect": true
+    },
+    {
+      "path": "cathedral/blocks/165194/nbt/Book",
+      "sourceTag": {
+        "pages": [
+          "Come together sons and daughters.\nLet the light seep into your heart, mind and soul.\nLet it remold you in it's image.\nWhat is a moment's agony in the face of eternal cold and emptiness?"
+        ]
+      },
+      "components": {
+        "minecraft:writable_book_content": {
+          "pages": [
+            "Come together sons and daughters.\nLet the light seep into your heart, mind and soul.\nLet it remold you in it's image.\nWhat is a moment's agony in the face of eternal cold and emptiness?"
+          ]
+        }
+      },
+      "count": 1,
+      "nativeFieldsCorrect": true
+    },
+    {
+      "path": "junkyard_rubicon/blocks/29784/nbt/Items/0",
+      "sourceTag": {},
+      "components": {},
+      "count": 1,
+      "nativeFieldsCorrect": true
+    },
+    {
+      "path": "junkyard_rubicon/blocks/29784/nbt/Items/1",
+      "sourceTag": {},
+      "components": {},
+      "count": 1,
+      "nativeFieldsCorrect": true
+    },
+    {
+      "path": "junkyard_rubicon/blocks/29784/nbt/Items/2",
+      "sourceTag": {},
+      "components": {},
+      "count": 1,
+      "nativeFieldsCorrect": true
+    },
+    {
+      "path": "junkyard_rubicon/blocks/29784/nbt/Items/3",
+      "sourceTag": {},
+      "components": {},
+      "count": 1,
+      "nativeFieldsCorrect": true
+    },
+    {
+      "path": "junkyard_rubicon/blocks/29784/nbt/Items/4",
+      "sourceTag": {},
+      "components": {},
+      "count": 1,
+      "nativeFieldsCorrect": true
+    },
+    {
+      "path": "lavender_palace/blocks/600562/nbt/Book",
+      "sourceTag": {
+        "pages": [
+          "Hi. I'm ThermaDev. \n3 odd years ago I had a craaaazy idea to make my own dimension mod, after being exposed to minecraft modding basically my whole life. 'Course I had nooo idea what I was doing then, so the mod's gone through some growing pains. But I think it's pretty good now.",
+          "Originally Thermal Shock was a lot more watery, mostly inspired by Subnautica, with the intent of having some crazy Terraria-style gameplay. I dropped the water aspect pretty quickly though, instead settling for the whole \"snow apocalypse\" thingy.",
+          "Well, not long after Thermal Shock hit the internet, I played Hollow Knight for the first time, and I'm sure you can see how that's changed things, bugs and all.",
+          "Not to say I don't enjoy making this mod, but nowadays I see it more as an outlet for the non-programmy things I like doing, art and music. I'm still going to see this thing to the end, of course. I'm not about to leave 3 years sit stuck in beta. Lol. "
+        ]
+      },
+      "components": {
+        "minecraft:writable_book_content": {
+          "pages": [
+            "Hi. I'm ThermaDev. \n3 odd years ago I had a craaaazy idea to make my own dimension mod, after being exposed to minecraft modding basically my whole life. 'Course I had nooo idea what I was doing then, so the mod's gone through some growing pains. But I think it's pretty good now.",
+            "Originally Thermal Shock was a lot more watery, mostly inspired by Subnautica, with the intent of having some crazy Terraria-style gameplay. I dropped the water aspect pretty quickly though, instead settling for the whole \"snow apocalypse\" thingy.",
+            "Well, not long after Thermal Shock hit the internet, I played Hollow Knight for the first time, and I'm sure you can see how that's changed things, bugs and all.",
+            "Not to say I don't enjoy making this mod, but nowadays I see it more as an outlet for the non-programmy things I like doing, art and music. I'm still going to see this thing to the end, of course. I'm not about to leave 3 years sit stuck in beta. Lol. "
+          ]
+        }
+      },
+      "count": 1,
+      "nativeFieldsCorrect": true
+    },
+    {
+      "path": "shalespring_august/entities/2/nbt/ArmorItems/2",
+      "sourceTag": {
+        "Damage": 0
+      },
+      "components": {
+        "minecraft:damage": 0
+      },
+      "count": 1,
+      "nativeFieldsCorrect": true
+    },
+    {
+      "path": "shalespring_august/entities/2/nbt/ArmorItems/3",
+      "sourceTag": {
+        "Damage": 0
+      },
+      "components": {
+        "minecraft:damage": 0
+      },
+      "count": 1,
+      "nativeFieldsCorrect": true
+    },
+    {
+      "path": "shalespring_august/blocks/342950/nbt/Items/0",
+      "sourceTag": {
+        "Damage": 0
+      },
+      "components": {
+        "minecraft:damage": 0
+      },
+      "count": 1,
+      "nativeFieldsCorrect": true
+    },
+    {
+      "path": "shalespring_august/blocks/342950/nbt/Items/1",
+      "sourceTag": {},
+      "components": {},
+      "count": 1,
+      "nativeFieldsCorrect": true
+    },
+    {
+      "path": "shalespring_august/blocks/342950/nbt/Items/2",
+      "sourceTag": {},
+      "components": {},
+      "count": 1,
+      "nativeFieldsCorrect": true
+    },
+    {
+      "path": "shalespring_august/blocks/342991/nbt/Items/0",
+      "sourceTag": {},
+      "components": {},
+      "count": 1,
+      "nativeFieldsCorrect": true
+    },
+    {
+      "path": "shalespring_august/blocks/342991/nbt/Items/1",
+      "sourceTag": {},
+      "components": {},
+      "count": 1,
+      "nativeFieldsCorrect": true
+    },
+    {
+      "path": "shalespring_august/blocks/342991/nbt/Items/2",
+      "sourceTag": {},
+      "components": {},
+      "count": 1,
+      "nativeFieldsCorrect": true
+    },
+    {
+      "path": "shalespring_august/blocks/342991/nbt/Items/3",
+      "sourceTag": {},
+      "components": {},
+      "count": 1,
+      "nativeFieldsCorrect": true
+    },
+    {
+      "path": "shalespring_august/blocks/342994/nbt/Items/0",
+      "sourceTag": {
+        "StoredEnchantments": [
+          {
+            "id": "minecraft:fortune",
+            "lvl": 1
+          }
+        ]
+      },
+      "components": {
+        "minecraft:stored_enchantments": {
+          "levels": {
+            "minecraft:fortune": 1
+          }
+        }
+      },
+      "count": 1,
+      "nativeFieldsCorrect": true
+    },
+    {
+      "path": "shalespring_august/blocks/342994/nbt/Items/1",
+      "sourceTag": {
+        "StoredEnchantments": [
+          {
+            "id": "minecraft:unbreaking",
+            "lvl": 1
+          }
+        ]
+      },
+      "components": {
+        "minecraft:stored_enchantments": {
+          "levels": {
+            "minecraft:unbreaking": 1
+          }
+        }
+      },
+      "count": 1,
+      "nativeFieldsCorrect": true
+    },
+    {
+      "path": "shalespring_august/blocks/342995/nbt/Items/0",
+      "sourceTag": {},
+      "components": {},
+      "count": 1,
+      "nativeFieldsCorrect": true
+    },
+    {
+      "path": "shalespring_august/blocks/342997/nbt/Items/0",
+      "sourceTag": {},
+      "components": {},
+      "count": 1,
+      "nativeFieldsCorrect": true
+    },
+    {
+      "path": "snowtower/blocks/10767/nbt/Items/0",
+      "sourceTag": {
+        "StoredEnchantments": [
+          {
+            "id": "minecraft:looting",
+            "lvl": 2
+          }
+        ]
+      },
+      "components": {
+        "minecraft:stored_enchantments": {
+          "levels": {
+            "minecraft:looting": 2
+          }
+        }
+      },
+      "count": 1,
+      "nativeFieldsCorrect": true
+    },
+    {
+      "path": "snowtower/blocks/10769/nbt/Items/0",
+      "sourceTag": {
+        "StoredEnchantments": [
+          {
+            "id": "minecraft:smite",
+            "lvl": 2
+          }
+        ]
+      },
+      "components": {
+        "minecraft:stored_enchantments": {
+          "levels": {
+            "minecraft:smite": 2
+          }
+        }
+      },
+      "count": 1,
+      "nativeFieldsCorrect": true
+    },
+    {
+      "path": "snowtower/blocks/10770/nbt/Items/0",
+      "sourceTag": {
+        "pages": [
+          "PyLON EXTRAKTING/recykling:\nI see them wanduring in the nite. Soldiurs marching thru mountains of twice-dead bugz, artificed metallik giants tearing down the pylons that once held our cities togethur. Then, as the old king's corpse rises, they take the   ",
+          "pylon harts into there dark blu towers, They break the corez apart like boiling snow.\nThat iz how they do it, that iz how they gro there mashines and build there grand towers. The secret is in the cores, great latent power from the Sun itself of which Phoenem dared to keep from us",
+          "under loq and key.\n\nYes. Thats it; I must findBUILD the keys, like the onez the bugz of the towers use to hide there secrets away. \nThere is work too be don."
+        ]
+      },
+      "components": {
+        "minecraft:writable_book_content": {
+          "pages": [
+            "PyLON EXTRAKTING/recykling:\nI see them wanduring in the nite. Soldiurs marching thru mountains of twice-dead bugz, artificed metallik giants tearing down the pylons that once held our cities togethur. Then, as the old king's corpse rises, they take the   ",
+            "pylon harts into there dark blu towers, They break the corez apart like boiling snow.\nThat iz how they do it, that iz how they gro there mashines and build there grand towers. The secret is in the cores, great latent power from the Sun itself of which Phoenem dared to keep from us",
+            "under loq and key.\n\nYes. Thats it; I must findBUILD the keys, like the onez the bugz of the towers use to hide there secrets away. \nThere is work too be don."
+          ]
+        }
+      },
+      "count": 1,
+      "nativeFieldsCorrect": true
+    },
+    {
+      "path": "vilebath_castle/entities/7/nbt/Item",
+      "sourceTag": {
+        "Damage": 0
+      },
+      "components": {
+        "minecraft:damage": 0
+      },
+      "count": 1,
+      "nativeFieldsCorrect": true
+    },
+    {
+      "path": "vilebath_castle/entities/8/nbt/Item",
+      "sourceTag": {
+        "Damage": 0
+      },
+      "components": {
+        "minecraft:damage": 0
+      },
+      "count": 1,
+      "nativeFieldsCorrect": true
+    },
+    {
+      "path": "vilebath_castle/entities/9/nbt/Item",
+      "sourceTag": {
+        "Damage": 0
+      },
+      "components": {
+        "minecraft:damage": 0
+      },
+      "count": 1,
+      "nativeFieldsCorrect": true
+    },
+    {
+      "path": "vilebath_castle/entities/41/nbt/Item",
+      "sourceTag": {
+        "geckoAnim": "",
+        "Damage": 0
+      },
+      "components": {
+        "minecraft:damage": 0,
+        "minecraft:custom_data": {
+          "geckoAnim": ""
+        }
+      },
+      "count": 1,
+      "nativeFieldsCorrect": true
+    },
+    {
+      "path": "vilebath_castle/entities/42/nbt/Item",
+      "sourceTag": {
+        "geckoAnim": "",
+        "Damage": 0
+      },
+      "components": {
+        "minecraft:damage": 0,
+        "minecraft:custom_data": {
+          "geckoAnim": ""
+        }
+      },
+      "count": 1,
+      "nativeFieldsCorrect": true
+    },
+    {
+      "path": "vilebath_castle/entities/43/nbt/Item",
+      "sourceTag": {
+        "Damage": 0
+      },
+      "components": {
+        "minecraft:damage": 0
+      },
+      "count": 1,
+      "nativeFieldsCorrect": true
+    },
+    {
+      "path": "vilebathrubicon/entities/3/nbt/Item",
+      "sourceTag": {
+        "Damage": 0,
+        "geckoAnim": ""
+      },
+      "components": {
+        "minecraft:damage": 0,
+        "minecraft:custom_data": {
+          "geckoAnim": ""
+        }
+      },
+      "count": 1,
+      "nativeFieldsCorrect": true
+    },
+    {
+      "path": "vilebathrubicon/entities/4/nbt/Item",
+      "sourceTag": {
+        "Damage": 0,
+        "geckoAnim": ""
+      },
+      "components": {
+        "minecraft:damage": 0,
+        "minecraft:custom_data": {
+          "geckoAnim": ""
+        }
+      },
+      "count": 1,
+      "nativeFieldsCorrect": true
+    },
+    {
+      "path": "vilebathrubicon/entities/5/nbt/Item",
+      "sourceTag": {
+        "Damage": 0
+      },
+      "components": {
+        "minecraft:damage": 0
+      },
+      "count": 1,
+      "nativeFieldsCorrect": true
+    },
+    {
+      "path": "vilebathrubicon/entities/38/nbt/Item",
+      "sourceTag": {
+        "Damage": 0
+      },
+      "components": {
+        "minecraft:damage": 0
+      },
+      "count": 1,
+      "nativeFieldsCorrect": true
+    },
+    {
+      "path": "vilebathrubicon/entities/39/nbt/Item",
+      "sourceTag": {
+        "Damage": 0
+      },
+      "components": {
+        "minecraft:damage": 0
+      },
+      "count": 1,
+      "nativeFieldsCorrect": true
+    },
+    {
+      "path": "vilebathrubicon/entities/40/nbt/Item",
+      "sourceTag": {
+        "Damage": 0
+      },
+      "components": {
+        "minecraft:damage": 0
+      },
+      "count": 1,
+      "nativeFieldsCorrect": true
+    }
+  ],
+  "bannerCorrections": [
+    {
+      "path": "vilebath_castle/blocks/295488/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebath_castle/blocks/295489/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebath_castle/blocks/295494/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebath_castle/blocks/295495/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebath_castle/blocks/295499/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebath_castle/blocks/295501/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebath_castle/blocks/295503/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebath_castle/blocks/295505/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebath_castle/blocks/295509/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebath_castle/blocks/295513/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebath_castle/blocks/295514/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebath_castle/blocks/295515/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebath_castle/blocks/295516/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebath_castle/blocks/295517/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebath_castle/blocks/295518/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebath_castle/blocks/295519/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebath_castle/blocks/295520/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebath_castle/blocks/295529/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebath_castle/blocks/295530/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebath_castle/blocks/295531/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebath_castle/blocks/295532/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebath_castle/blocks/295533/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebath_castle/blocks/295534/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebath_castle/blocks/295535/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebath_castle/blocks/295536/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebath_castle/blocks/295537/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebath_castle/blocks/295538/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebathrubicon/blocks/439825/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebathrubicon/blocks/439826/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebathrubicon/blocks/439827/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebathrubicon/blocks/439829/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebathrubicon/blocks/439833/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebathrubicon/blocks/439834/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebathrubicon/blocks/439835/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebathrubicon/blocks/439839/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebathrubicon/blocks/439841/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebathrubicon/blocks/439846/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebathrubicon/blocks/439847/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebathrubicon/blocks/439848/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebathrubicon/blocks/439849/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebathrubicon/blocks/439850/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebathrubicon/blocks/439852/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebathrubicon/blocks/439853/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebathrubicon/blocks/439854/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebathrubicon/blocks/439862/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebathrubicon/blocks/439863/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebathrubicon/blocks/439864/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebathrubicon/blocks/439865/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebathrubicon/blocks/439866/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebathrubicon/blocks/439867/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebathrubicon/blocks/439868/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebathrubicon/blocks/439869/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebathrubicon/blocks/439870/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    },
+    {
+      "path": "vilebathrubicon/blocks/439871/nbt/patterns/1/pattern",
+      "sourceCode": "rud",
+      "before": "minecraft:diagonal_up_right",
+      "after": "minecraft:diagonal_right"
+    }
+  ],
+  "counts": {
+    "actualItemStacks": 40,
+    "experienceOrbCountExcluded": 8,
+    "bannersWithPatternsField": 64,
+    "bannerLayers": 231,
+    "corrections": 54,
+    "writableBooks": 3,
+    "bookPages": 8,
+    "storedEnchantmentBooks": 4,
+    "customDataOnlyGeckoAnimation": 4,
+    "paperOrWrittenBookStacks": 0
+  }
+}
