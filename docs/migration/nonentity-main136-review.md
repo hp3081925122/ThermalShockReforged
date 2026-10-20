@@ -1,6 +1,6 @@
-# 第136批非实体动画：已验证生产修复与剩余范围
+# 第136批非实体动画：代码与限定静态复审完成
 
-主线完整负责本批，迁移前范围和每项新增修复依据见parallel-batch136.md。本记录为阶段交付，整个136批仍进行中；不能把以下集合计数当完整模组或实机验收。
+主线完整负责本批，迁移前范围和每项新增修复依据见parallel-batch136.md。第三阶段已补天线取消缺口并完成本批代码与限定静态核对；不能把以下集合计数当完整模组或实机验收。完整证据索引见nonentity-main136-closeout.json，第一二阶段记录保留当时的未完成范围。
 
 已恢复10项原展示物品loop0：Atlas、GrandBlasphemer、PylonCore；AncientSkorio、AncientBarbubble、Dewleaf、HearthflyBranch、Neoflorm、Volatine；GelBulb。原/目标89展示身份逐一对应，17项循环0、72项原静态；保原0tick、模型/纹理/动画路径及entityTranslucent。AncientBarbubble和Volatine的原0没有骨骼，恢复其控制器契约，不声称两项有可见动画。原FrostLotus虽有0资源但展示predicate不播放，保持原行为。实际物品JSON是否调用Geo仍按原资源，未擅改平面物品为3D。
 
@@ -8,7 +8,13 @@
 
 真实4.9.2 JAR的API和字节码确认manager额外数据、停止任意当前触发、Map.put替换别名、未分配ID哨兵、播放中判定；当前原生Player.tick确认Pre入口。离线Java harness直接调用生产observe和真实AnimatableManager/AnimationController，20,020个检查包含一万次不同名称请求，夹具原两键加一个外部键始终为3；同值重传、空值重新武装、同名在播、完成重播、异名、任意clip、empty、两manager隔离及内置trigger保留均通过。这里没有执行模型帧、资源clip解析、网络或游戏。
 
-89方块实体身份和注册、两controller原次序与0tick、原谓词与程序谓词归并、模型/纹理/动画逐字节核实已保存。原谓词仅两类，7项带blockstate变化reset，程序谓词89项同一语义。保此前已明示批准的三orb静态none适配、GrandBlasphemer合法末段2循环、Cauldron服务器40tick复位，不根据历史原错误撤销已批准修复。四种真正变换模型/纹理为Civilian、Capsule、ShalePot、Wallbore，逐状态对应和生产端写入仍待最终配对。
+89方块实体身份和注册、两controller原次序与0tick、原谓词与程序谓词归并、模型/纹理/动画逐字节核实已保存。原谓词仅两类，7项带blockstate变化reset，程序谓词89项同一语义。保此前已明示批准的三orb静态none适配、GrandBlasphemer合法末段2循环、Cauldron服务器40tick复位，不根据历史原错误撤销已批准修复。Civilian、Capsule、ShalePot、Wallbore的18个合法状态及全息监视器10个同资源状态已逐分支核对，84项资源字节相等；启动首帧缓存与切换逐帧表现留待实机。
+
+quick_explorer只读核89身份的实际Block构造类、动画属性域与BE注册继承链，主线接收纠正了其临时报表将ancient_skorio/ancient_barbubble误匹配普通作物的解析问题：实际两者均GeoCropBlock.Directional、0..1，不是生产缺陷。89项仅GrandBlasphemer保已批准0..2差异。矩阵另列CacheBlockEntity、SuspiciousCavebloomerBlockEntity、IcebreakerBlockEntity的真实构造类，保其继承的GeoDecor控制器，Grand有自身覆写。状态写入复用115的67个真实回调根并核当前源哈希；14个变化引用归于7文件，逐个确认仅33d3bc6的英语等值语言键提取，没有动画业务变化。另22原Block无Procedure调用或方法内animation写入，仍保其BE状态属性和外部合法状态驱动。
+
+27武器和13原盔甲wrapper（32注册ID）均按实际目标类型核模型/贴图/动画原始字节、默认0或idle、0/5tick双控制器及entityTranslucent。武器27个原手持偏移均保±0.56F/-0.52F/-0.72F和使用时额外0.05，16个自定义姿态保原非左手右臂xRot=80+head.xRot，不擅改角度单位。全部原有效clip仍在原字节资产中；姿态、骨骼和网络实际帧另验。精确Gecko4.9.2 GeoArmorRenderer字节码确认默认八armor骨骼名称及ENTITY/ITEMSTACK/EQUIPMENT_SLOT传入；GeoSet/Fabricated逐穿戴者、槽位与逻辑GeoID缓存和客户端观察/渲染/prune/logout实际接线已阅读。
+
+第三阶段确证Chorusian天线收到字面empty后错误继续播放。现立即返回STOP、清播放标记并恢复默认0，保空字符串继续当前动画与重新武装、双5tick控制器。英文debug仅在实际中断时记录。真实4.9.2 manager/controller/AnimationState执行抽取的生产谓词，14项检查通过；夹具只替代组件读取并移除debug，反射RUNNING模拟已有播放，不解析模型资源。恢复旧分支能在立即取消断言复现失败，随后恢复修复夹具。此证据区别于直接调用生产类的27武器harness。
 
 独立Luna完成8个语言值，EXpolar专名保留、Camera改相机及说明译文。3492英文键/3493中文键与键序不变，86相机图鉴不变，原生占位符/实际换行和改动颜色序列通过。中文SHA d6ab7f538969bb7ecaffc30508d9ff1cbcefc0e618d65d88c2e37358bbae65bb，英文未动。1320个与英文相同的非空值仍包含专名和占位内容，不等于待译数；具体依据和范围见localization-zh-review.md。
 
@@ -16,6 +22,6 @@
 
 第一阶段固定8948份src/main，compileJava/processResources实际执行，通过66秒；第二阶段加独立入口后固定8949份，通过23秒，Java实际执行、资源up-to-date，另只导出离线harness类路径。两次输入在构建期间均未变，8127份直接资源逐字节相等。详情见nonentity-main136-phase1-validation.json、nonentity-main136-phase2-validation.json；用户Ribbonblade只参与当前源码编译、不纳入提交，测试目录及.vscode未修改。
 
-接下来由主线继续本批：四动态模型逐状态及89方块合法动画/状态写入；27武器和13盔甲原wrapper的完整控制器、实际素材/渲染层/手持姿态；复用已批准逐栈/逐穿戴者生命周期证据并核真实接线。外部27入口已闭合，不重复把它算未完成。上述范围全部收口后才关闭136；完整代码和无简化门禁收口后，按既定分工交子代理客户端/Render Preview验收。服务端独立用户线不联系、不接管。
+第三阶段compileJava/processResources通过35秒，8949份输入前后哈希相同，8127直接资源字节相等，用户Ribbonblade只参与编译不提交。源输入清单扫描与构建有时间重叠，期间主线没有写生产文件，事后全量比对确认无漂移，不虚称清单在Gradle启动前已全部扫描完。136代码与限定静态核对至此完成，后续完整代码和无简化门禁收口后按既定分工交子代理客户端/Render Preview验收；主线继续其他独立剩余批次。A负责134/137，B完成138后续139发布元数据与离线打包。服务端独立用户线不联系、不接管。
 
 原始方法、源码快照、完整清单和离线harness均在D:/AI临时文件/ThermalShockMigration/nonentity136；仓库display/block清单保方法行与SHA，完整报告路径和SHA独立保留，不把临时脚本写进项目。

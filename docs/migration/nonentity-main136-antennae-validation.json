@@ -1,0 +1,20 @@
+{
+  "batch": 136,
+  "source": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\remainingcombat\\ChorusianAntennaeItem.java",
+  "sourceSha256": "c83c6dcb88fbaab14adf9df83fe78c449a35ba4bd3ad0a1c2a3d46154abc8120",
+  "methodSha256": "af24e141a4a6dddb3b7aa76bd35e8f532df3451ef0bcdb30dcd797527642b088",
+  "harnessSource": "D:\\AI临时文件\\ThermalShockMigration\\nonentity136\\antennae-harness\\Antennae136Harness.java",
+  "harnessSourceSha256": "1fc19702ff7f16b65bc57064368a767b8b99d8928ca702b75665c9fecf4c664f",
+  "harnessLogSha256": "b2465f7faf0ed596716e7000045d0248d1c1a16df8e168c479c6688bbaf33840",
+  "regressionBeforeLogSha256": "eac7a9f4146cf3fd1340385e5a6ae985c95baea2a42c3060bdc9d599306ce466",
+  "checks": 14,
+  "priorBehaviorFailsCancellation": true,
+  "exactGeckoVersion": "4.9.2",
+  "substitutions": [
+    "仅替换ItemStack组件取值为夹具DataTicket<String>",
+    "移除无业务副作用的debug调用"
+  ],
+  "fixture": "原生产registerControllers方法其余代码原样抽取；使用真实manager/controller/AnimationState，反射设置RUNNING模拟已有播放，不解析GeoModel/clip。",
+  "gameStarted": false,
+  "renderVerified": false
+}

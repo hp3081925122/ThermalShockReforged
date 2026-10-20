@@ -1,0 +1,690 @@
+{
+  "batch": 136,
+  "scope": "13原盔甲wrapper及其实际注册身份的资源、默认clip、双控制器次序/5tick与透明层；缓存和外部入口接线由主线阅读，实机另验。",
+  "generatorSha256": "bd5238e6bcc5b63173867b121b25e195bb453732e90566c51e119e5048401e02",
+  "rows": [
+    {
+      "originalClass": "BloodArmorItem",
+      "ids": [
+        "blood_armor_helmet",
+        "blood_armor_chestplate",
+        "blood_armor_leggings",
+        "blood_armor_boots"
+      ],
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\BloodArmorItem.java",
+      "sourceSha256": "8f30f52ea9ee427ee69cec40a3df132230c343689d65f0e34746104254a099c4",
+      "originalModel": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\model\\BloodArmorModel.java",
+      "originalRenderer": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\BloodArmorArmorRenderer.java",
+      "targetItem": "content/armor/GeoSetArmorItem.java",
+      "targetClient": "client/armor/ArmorClient.java",
+      "targetStyle": "BLOOD",
+      "paths": {
+        "model": "geo/bloodarmor.geo.json",
+        "texture": "textures/item/bloodarmor.png",
+        "animation": "animations/bloodarmor.animation.json"
+      },
+      "assetBytesEqual": true,
+      "defaultClip": "0",
+      "allOriginalClips": [
+        "0"
+      ],
+      "transitionTicks": 5,
+      "controllerOrder": [
+        "controller",
+        "procedureController"
+      ],
+      "renderLayer": "entityTranslucent",
+      "targetControllersSha256": "577b62ead52450a7977e291f811af8d1150b631ef41f6c0a0198e1dfb0f358ef",
+      "stateConsumer": "GeoSet/Fabricated使用穿戴者+槽位+logicalGeoID，客户端组件观察；Antennae使用装备栈DataTicket与实例闭包，empty取消由本136修复。",
+      "runtimePending": "实际穿戴渲染、骨骼对齐、多玩家/铠甲架/换装网络帧；不以此静态表宣称实机一致。"
+    },
+    {
+      "originalClass": "BloodZenithArmorItem",
+      "ids": [
+        "blood_zenith_armor_helmet",
+        "blood_zenith_armor_chestplate",
+        "blood_zenith_armor_leggings",
+        "blood_zenith_armor_boots"
+      ],
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\BloodZenithArmorItem.java",
+      "sourceSha256": "d711198c209c31e1b2d775412e16385f76b239f6a4ce0b1fbb9e70298a521026",
+      "originalModel": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\model\\BloodZenithArmorModel.java",
+      "originalRenderer": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\BloodZenithArmorArmorRenderer.java",
+      "targetItem": "content/armor/GeoSetArmorItem.java",
+      "targetClient": "client/armor/ArmorClient.java",
+      "targetStyle": "BLOOD_ZENITH",
+      "paths": {
+        "model": "geo/bloodarmor.geo.json",
+        "texture": "textures/item/bloodarmorzenith.png",
+        "animation": "animations/bloodarmor.animation.json"
+      },
+      "assetBytesEqual": true,
+      "defaultClip": "0",
+      "allOriginalClips": [
+        "0"
+      ],
+      "transitionTicks": 5,
+      "controllerOrder": [
+        "controller",
+        "procedureController"
+      ],
+      "renderLayer": "entityTranslucent",
+      "targetControllersSha256": "577b62ead52450a7977e291f811af8d1150b631ef41f6c0a0198e1dfb0f358ef",
+      "stateConsumer": "GeoSet/Fabricated使用穿戴者+槽位+logicalGeoID，客户端组件观察；Antennae使用装备栈DataTicket与实例闭包，empty取消由本136修复。",
+      "runtimePending": "实际穿戴渲染、骨骼对齐、多玩家/铠甲架/换装网络帧；不以此静态表宣称实机一致。"
+    },
+    {
+      "originalClass": "CarborundumArmorItem",
+      "ids": [
+        "carborundum_armor_helmet",
+        "carborundum_armor_chestplate",
+        "carborundum_armor_leggings",
+        "carborundum_armor_boots"
+      ],
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\CarborundumArmorItem.java",
+      "sourceSha256": "29d6214a5519c13c2a295437a6444fbe13324eec68ca4eda592f851049a15745",
+      "originalModel": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\model\\CarborundumArmorModel.java",
+      "originalRenderer": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\CarborundumArmorArmorRenderer.java",
+      "targetItem": "content/armor/GeoSetArmorItem.java",
+      "targetClient": "client/armor/ArmorClient.java",
+      "targetStyle": "CARBORUNDUM",
+      "paths": {
+        "model": "geo/carborundum_armor.geo.json",
+        "texture": "textures/item/carborundum_armor.png",
+        "animation": "animations/carborundum_armor.animation.json"
+      },
+      "assetBytesEqual": true,
+      "defaultClip": "0",
+      "allOriginalClips": [
+        "0"
+      ],
+      "transitionTicks": 5,
+      "controllerOrder": [
+        "controller",
+        "procedureController"
+      ],
+      "renderLayer": "entityTranslucent",
+      "targetControllersSha256": "577b62ead52450a7977e291f811af8d1150b631ef41f6c0a0198e1dfb0f358ef",
+      "stateConsumer": "GeoSet/Fabricated使用穿戴者+槽位+logicalGeoID，客户端组件观察；Antennae使用装备栈DataTicket与实例闭包，empty取消由本136修复。",
+      "runtimePending": "实际穿戴渲染、骨骼对齐、多玩家/铠甲架/换装网络帧；不以此静态表宣称实机一致。"
+    },
+    {
+      "originalClass": "CorrialDivingHelmetItem",
+      "ids": [
+        "corrial_diving_helmet_helmet"
+      ],
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\CorrialDivingHelmetItem.java",
+      "sourceSha256": "d391070bc6a3d24b0b24d4109da749d7c71d37873c35047c843be052d4916bd7",
+      "originalModel": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\model\\CorrialDivingHelmetModel.java",
+      "originalRenderer": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\CorrialDivingHelmetArmorRenderer.java",
+      "targetItem": "content/armor/GeoSetArmorItem.java",
+      "targetClient": "client/armor/ArmorClient.java",
+      "targetStyle": "CORRIAL_DIVING",
+      "paths": {
+        "model": "geo/corrial_diving_helmet.geo.json",
+        "texture": "textures/item/corrialdivinghelmet.png",
+        "animation": "animations/corrial_diving_helmet.animation.json"
+      },
+      "assetBytesEqual": true,
+      "defaultClip": "0",
+      "allOriginalClips": [
+        "0"
+      ],
+      "transitionTicks": 5,
+      "controllerOrder": [
+        "controller",
+        "procedureController"
+      ],
+      "renderLayer": "entityTranslucent",
+      "targetControllersSha256": "577b62ead52450a7977e291f811af8d1150b631ef41f6c0a0198e1dfb0f358ef",
+      "stateConsumer": "GeoSet/Fabricated使用穿戴者+槽位+logicalGeoID，客户端组件观察；Antennae使用装备栈DataTicket与实例闭包，empty取消由本136修复。",
+      "runtimePending": "实际穿戴渲染、骨骼对齐、多玩家/铠甲架/换装网络帧；不以此静态表宣称实机一致。"
+    },
+    {
+      "originalClass": "DevScarfItem",
+      "ids": [
+        "dev_scarf_chestplate"
+      ],
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\DevScarfItem.java",
+      "sourceSha256": "2ba84b3844f0fc25495d70d017bbdd6f8279b10bd9e326c7ae6de2a51d8437b7",
+      "originalModel": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\model\\DevScarfModel.java",
+      "originalRenderer": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\DevScarfArmorRenderer.java",
+      "targetItem": "content/armor/GeoSetArmorItem.java",
+      "targetClient": "client/armor/ArmorClient.java",
+      "targetStyle": "DEV_SCARF",
+      "paths": {
+        "model": "geo/voidflare_scarf.geo.json",
+        "texture": "textures/item/voidflarescarf.png",
+        "animation": "animations/voidflare_scarf.animation.json"
+      },
+      "assetBytesEqual": true,
+      "defaultClip": "idle",
+      "allOriginalClips": [
+        "idle"
+      ],
+      "transitionTicks": 5,
+      "controllerOrder": [
+        "controller",
+        "procedureController"
+      ],
+      "renderLayer": "entityTranslucent",
+      "targetControllersSha256": "577b62ead52450a7977e291f811af8d1150b631ef41f6c0a0198e1dfb0f358ef",
+      "stateConsumer": "GeoSet/Fabricated使用穿戴者+槽位+logicalGeoID，客户端组件观察；Antennae使用装备栈DataTicket与实例闭包，empty取消由本136修复。",
+      "runtimePending": "实际穿戴渲染、骨骼对齐、多玩家/铠甲架/换装网络帧；不以此静态表宣称实机一致。"
+    },
+    {
+      "originalClass": "RubyArmorItem",
+      "ids": [
+        "ruby_armor_helmet",
+        "ruby_armor_chestplate",
+        "ruby_armor_leggings",
+        "ruby_armor_boots"
+      ],
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\RubyArmorItem.java",
+      "sourceSha256": "ebcc14d49a788c30e9428ebde01d3cc269e4432ee24296569230f3c1a2beb4cd",
+      "originalModel": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\model\\RubyArmorModel.java",
+      "originalRenderer": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\RubyArmorArmorRenderer.java",
+      "targetItem": "content/armor/GeoSetArmorItem.java",
+      "targetClient": "client/armor/ArmorClient.java",
+      "targetStyle": "RUBY",
+      "paths": {
+        "model": "geo/rubyarmor.geo.json",
+        "texture": "textures/item/rubyarmor.png",
+        "animation": "animations/rubyarmor.animation.json"
+      },
+      "assetBytesEqual": true,
+      "defaultClip": "0",
+      "allOriginalClips": [
+        "0"
+      ],
+      "transitionTicks": 5,
+      "controllerOrder": [
+        "controller",
+        "procedureController"
+      ],
+      "renderLayer": "entityTranslucent",
+      "targetControllersSha256": "577b62ead52450a7977e291f811af8d1150b631ef41f6c0a0198e1dfb0f358ef",
+      "stateConsumer": "GeoSet/Fabricated使用穿戴者+槽位+logicalGeoID，客户端组件观察；Antennae使用装备栈DataTicket与实例闭包，empty取消由本136修复。",
+      "runtimePending": "实际穿戴渲染、骨骼对齐、多玩家/铠甲架/换装网络帧；不以此静态表宣称实机一致。"
+    },
+    {
+      "originalClass": "RubyZenithArmorItem",
+      "ids": [
+        "ruby_zenith_armor_helmet",
+        "ruby_zenith_armor_chestplate",
+        "ruby_zenith_armor_leggings",
+        "ruby_zenith_armor_boots"
+      ],
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\RubyZenithArmorItem.java",
+      "sourceSha256": "714d2c4ff7412e8630128a65ca4e33616bfca97ecf4ce3f46e7780d122c9fbc9",
+      "originalModel": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\model\\RubyZenithArmorModel.java",
+      "originalRenderer": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\RubyZenithArmorArmorRenderer.java",
+      "targetItem": "content/armor/GeoSetArmorItem.java",
+      "targetClient": "client/armor/ArmorClient.java",
+      "targetStyle": "RUBY_ZENITH",
+      "paths": {
+        "model": "geo/rubyarmor.geo.json",
+        "texture": "textures/item/rubyarmorzenith.png",
+        "animation": "animations/rubyarmor.animation.json"
+      },
+      "assetBytesEqual": true,
+      "defaultClip": "0",
+      "allOriginalClips": [
+        "0"
+      ],
+      "transitionTicks": 5,
+      "controllerOrder": [
+        "controller",
+        "procedureController"
+      ],
+      "renderLayer": "entityTranslucent",
+      "targetControllersSha256": "577b62ead52450a7977e291f811af8d1150b631ef41f6c0a0198e1dfb0f358ef",
+      "stateConsumer": "GeoSet/Fabricated使用穿戴者+槽位+logicalGeoID，客户端组件观察；Antennae使用装备栈DataTicket与实例闭包，empty取消由本136修复。",
+      "runtimePending": "实际穿戴渲染、骨骼对齐、多玩家/铠甲架/换装网络帧；不以此静态表宣称实机一致。"
+    },
+    {
+      "originalClass": "RustsilkArmourItem",
+      "ids": [
+        "rustsilk_armour_helmet",
+        "rustsilk_armour_chestplate"
+      ],
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\RustsilkArmourItem.java",
+      "sourceSha256": "13141fd1ef9fa52e82e3dea2922709431158c263937d23427d88e0a9253c5499",
+      "originalModel": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\model\\RustsilkArmourModel.java",
+      "originalRenderer": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\RustsilkArmourArmorRenderer.java",
+      "targetItem": "content/armor/GeoSetArmorItem.java",
+      "targetClient": "client/armor/ArmorClient.java",
+      "targetStyle": "RUSTSILK",
+      "paths": {
+        "model": "geo/stranger_armor.geo.json",
+        "texture": "textures/item/dweller_armor.png",
+        "animation": "animations/stranger_armor.animation.json"
+      },
+      "assetBytesEqual": true,
+      "defaultClip": "0",
+      "allOriginalClips": [
+        "0"
+      ],
+      "transitionTicks": 5,
+      "controllerOrder": [
+        "controller",
+        "procedureController"
+      ],
+      "renderLayer": "entityTranslucent",
+      "targetControllersSha256": "577b62ead52450a7977e291f811af8d1150b631ef41f6c0a0198e1dfb0f358ef",
+      "stateConsumer": "GeoSet/Fabricated使用穿戴者+槽位+logicalGeoID，客户端组件观察；Antennae使用装备栈DataTicket与实例闭包，empty取消由本136修复。",
+      "runtimePending": "实际穿戴渲染、骨骼对齐、多玩家/铠甲架/换装网络帧；不以此静态表宣称实机一致。"
+    },
+    {
+      "originalClass": "SentryItem",
+      "ids": [
+        "sentry_helmet",
+        "sentry_chestplate"
+      ],
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\SentryItem.java",
+      "sourceSha256": "80943a94e5bf424545ecf1586356ea564d9cc610001c91acb750a6689915d296",
+      "originalModel": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\model\\SentryModel.java",
+      "originalRenderer": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\SentryArmorRenderer.java",
+      "targetItem": "content/armor/GeoSetArmorItem.java",
+      "targetClient": "client/armor/ArmorClient.java",
+      "targetStyle": "SENTRY",
+      "paths": {
+        "model": "geo/sentry_armor.geo.json",
+        "texture": "textures/item/sentryarmor.png",
+        "animation": "animations/sentry_armor.animation.json"
+      },
+      "assetBytesEqual": true,
+      "defaultClip": "idle",
+      "allOriginalClips": [
+        "idle",
+        "run",
+        "fall"
+      ],
+      "transitionTicks": 5,
+      "controllerOrder": [
+        "controller",
+        "procedureController"
+      ],
+      "renderLayer": "entityTranslucent",
+      "targetControllersSha256": "577b62ead52450a7977e291f811af8d1150b631ef41f6c0a0198e1dfb0f358ef",
+      "stateConsumer": "GeoSet/Fabricated使用穿戴者+槽位+logicalGeoID，客户端组件观察；Antennae使用装备栈DataTicket与实例闭包，empty取消由本136修复。",
+      "runtimePending": "实际穿戴渲染、骨骼对齐、多玩家/铠甲架/换装网络帧；不以此静态表宣称实机一致。"
+    },
+    {
+      "originalClass": "StrangesilkArmourItem",
+      "ids": [
+        "strangesilk_armour_helmet",
+        "strangesilk_armour_chestplate"
+      ],
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\StrangesilkArmourItem.java",
+      "sourceSha256": "6cf665b00175bfc3808d53a81b1dce5276bacce44a6ba9365a4affe2213e833c",
+      "originalModel": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\model\\StrangesilkArmourModel.java",
+      "originalRenderer": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\StrangesilkArmourArmorRenderer.java",
+      "targetItem": "content/armor/GeoSetArmorItem.java",
+      "targetClient": "client/armor/ArmorClient.java",
+      "targetStyle": "STRANGESILK",
+      "paths": {
+        "model": "geo/stranger_armor.geo.json",
+        "texture": "textures/item/strangearmor.png",
+        "animation": "animations/stranger_armor.animation.json"
+      },
+      "assetBytesEqual": true,
+      "defaultClip": "0",
+      "allOriginalClips": [
+        "0"
+      ],
+      "transitionTicks": 5,
+      "controllerOrder": [
+        "controller",
+        "procedureController"
+      ],
+      "renderLayer": "entityTranslucent",
+      "targetControllersSha256": "577b62ead52450a7977e291f811af8d1150b631ef41f6c0a0198e1dfb0f358ef",
+      "stateConsumer": "GeoSet/Fabricated使用穿戴者+槽位+logicalGeoID，客户端组件观察；Antennae使用装备栈DataTicket与实例闭包，empty取消由本136修复。",
+      "runtimePending": "实际穿戴渲染、骨骼对齐、多玩家/铠甲架/换装网络帧；不以此静态表宣称实机一致。"
+    },
+    {
+      "originalClass": "PropulsionBootsItem",
+      "ids": [
+        "propulsion_boots_boots"
+      ],
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\PropulsionBootsItem.java",
+      "sourceSha256": "d21029db5e26426bf69d20d31789d2306465932d37e77fa9a45ae121c4e3240b",
+      "originalModel": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\model\\PropulsionBootsModel.java",
+      "originalRenderer": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\PropulsionBootsArmorRenderer.java",
+      "targetItem": "content/armor/fabricated/FabricatedArmorItem.java",
+      "targetClient": "client/armor/fabricated/FabricatedArmorClient.java",
+      "targetStyle": "PROPULSION",
+      "paths": {
+        "model": "geo/spark_striders.geo.json",
+        "texture": "textures/item/spark_striders.png",
+        "animation": "animations/spark_striders.animation.json"
+      },
+      "assetBytesEqual": true,
+      "defaultClip": "0",
+      "allOriginalClips": [
+        "0",
+        "1"
+      ],
+      "transitionTicks": 5,
+      "controllerOrder": [
+        "controller",
+        "procedureController"
+      ],
+      "renderLayer": "entityTranslucent",
+      "targetControllersSha256": "3354fcf4c73377c97ca9bf6dc1249a8163cb060657a70475fabd832d781ab649",
+      "stateConsumer": "GeoSet/Fabricated使用穿戴者+槽位+logicalGeoID，客户端组件观察；Antennae使用装备栈DataTicket与实例闭包，empty取消由本136修复。",
+      "runtimePending": "实际穿戴渲染、骨骼对齐、多玩家/铠甲架/换装网络帧；不以此静态表宣称实机一致。"
+    },
+    {
+      "originalClass": "SilencedArmorItem",
+      "ids": [
+        "silenced_armor_helmet",
+        "silenced_armor_chestplate"
+      ],
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\SilencedArmorItem.java",
+      "sourceSha256": "ec8808eaf7c52b03b2f32613eaa407afd7386c18f72b72f2dc00c6aaba17c4a2",
+      "originalModel": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\model\\SilencedArmorModel.java",
+      "originalRenderer": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\SilencedArmorArmorRenderer.java",
+      "targetItem": "content/armor/fabricated/FabricatedArmorItem.java",
+      "targetClient": "client/armor/fabricated/FabricatedArmorClient.java",
+      "targetStyle": "SILENCED",
+      "paths": {
+        "model": "geo/silenced_armor.geo.json",
+        "texture": "textures/item/silenced_armor.png",
+        "animation": "animations/silenced_armor.animation.json"
+      },
+      "assetBytesEqual": true,
+      "defaultClip": "0",
+      "allOriginalClips": [
+        "0"
+      ],
+      "transitionTicks": 5,
+      "controllerOrder": [
+        "controller",
+        "procedureController"
+      ],
+      "renderLayer": "entityTranslucent",
+      "targetControllersSha256": "3354fcf4c73377c97ca9bf6dc1249a8163cb060657a70475fabd832d781ab649",
+      "stateConsumer": "GeoSet/Fabricated使用穿戴者+槽位+logicalGeoID，客户端组件观察；Antennae使用装备栈DataTicket与实例闭包，empty取消由本136修复。",
+      "runtimePending": "实际穿戴渲染、骨骼对齐、多玩家/铠甲架/换装网络帧；不以此静态表宣称实机一致。"
+    },
+    {
+      "originalClass": "ChorusianAntennaeItem",
+      "ids": [
+        "chorusian_antennae_helmet"
+      ],
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\ChorusianAntennaeItem.java",
+      "sourceSha256": "a3ce7a56c3b10005dd6fd224920d1d357bab0faa4e718f367807f0d76326c2ee",
+      "originalModel": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\model\\ChorusianAntennaeModel.java",
+      "originalRenderer": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\ChorusianAntennaeArmorRenderer.java",
+      "targetItem": "content/remainingcombat/ChorusianAntennaeItem.java",
+      "targetClient": "client/remainingcombat/RemainingCombatClient.java",
+      "targetStyle": null,
+      "paths": {
+        "model": "geo/chorantenna.geo.json",
+        "texture": "textures/item/chorantennaealt.png",
+        "animation": "animations/chorantenna.animation.json"
+      },
+      "assetBytesEqual": true,
+      "defaultClip": "0",
+      "allOriginalClips": [
+        "0"
+      ],
+      "transitionTicks": 5,
+      "controllerOrder": [
+        "controller",
+        "procedureController"
+      ],
+      "renderLayer": "entityTranslucent",
+      "targetControllersSha256": "af24e141a4a6dddb3b7aa76bd35e8f532df3451ef0bcdb30dcd797527642b088",
+      "stateConsumer": "GeoSet/Fabricated使用穿戴者+槽位+logicalGeoID，客户端组件观察；Antennae使用装备栈DataTicket与实例闭包，empty取消由本136修复。",
+      "runtimePending": "实际穿戴渲染、骨骼对齐、多玩家/铠甲架/换装网络帧；不以此静态表宣称实机一致。"
+    }
+  ],
+  "sourceInputs": {
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\GeoDecorKind.java": "c749f29bef0998ecc7d5f4ebe5a538c1b840349a6e1d87b548f8d73f3d5c92dc",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\doors\\DoorKind.java": "9046c05b8c7c9091921e62d058b5ec6076f3efad3f8f053f169603a6d6acfeed",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\AmalgelTrophyDisplayModel.java": "979e1c83687c5b5682aed5ffd043d7ea7a9bf2cfe1b45fc9801cade3a6399913",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\AmalgelTrophyDisplayItemRenderer.java": "7f99341d28aae94c0618faa8e8338b2dc5ce63cf3294e61bb3c9ee58ed36dde6",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\GeoDecorItem.java": "594ecede67d2b3409773d20110726d795a02dc7e4ef219202879f2feda185032",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\decor\\geo\\GeoDecorRenderers.java": "4fb7e01184457d0e8f2c46b09bcc34b986e8774a6657e61004a603713f71cfe9",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\AncientBarbubbleDisplayModel.java": "fbda82199bedabf3bb48f0727ce4c9a37b047d2cdf0dd774329f328e7f84f920",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\AncientBarbubbleDisplayItemRenderer.java": "65f48de6b029176cd78db0d426de37b1ca2a5164878ebadd92d3871dcba6d47a",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\farming\\GeoCropItem.java": "31d882fbf3fb8b27fd83bd90114077d77c7bf292fff1f5911318c0d2750274e0",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\farming\\FarmingRenderers.java": "213e3624a87c488d5369787dbbd298d64698e1f1b462c4de9e272f57a1e4fc66",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\AncientSkorioDisplayModel.java": "d897d8d4f53f7342a2f671eb436efa3d2d91368c700bebf73a0500710486f93b",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\AncientSkorioDisplayItemRenderer.java": "7cb1bcb79aa1761c9e0be68277bc900bdfb58217ce6ae5cda5b5642974a5a003",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\AssemblerDisplayModel.java": "80ea825a8de05e1f994083d89fcb1a933b0cd90078d10c33d84cf57be043c984",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\AssemblerDisplayItemRenderer.java": "b124c7ef95291c27b4399f554f562be8154add858578a90fc63ab5e3693b47f7",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\labmachinist\\LabMachineItem.java": "4e0646aad16100d2d446b94ab6b3f77eff4a7d008203c3356205a37d171eebf0",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\labmachinist\\LabClient.java": "b78e33d6b26f7a2f3f1018b8e0300f9ddba37b8e4c085fd065d5781daa2077cf",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\AtlasDisplayModel.java": "bfd0f53a4dd1177bd1d99fc3c2018937dcd6573b1cb266027d44460d37c8148b",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\AtlasDisplayItemRenderer.java": "732379fc53346a11ef01e52de06b4a5cb5800ae4e80c0a622cba6bf05c35d86c",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\BigGlassBottleDisplayModel.java": "d6846d50e62f631a3308f4d235f1ba226bf86695e6076ad54ec24dc5acf9c7f1",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\BigGlassBottleDisplayItemRenderer.java": "338a18e980ec7587ed1b61f1c66660a484ff12ec7911a4e4f242c480643cc058",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\BismuthOutcropDisplayModel.java": "ebe69d90ef8603dff687561fb351d1eddfd746ba40b25c6f801de7891194b25b",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\BismuthOutcropDisplayItemRenderer.java": "c151bd711b78d4baff4509da45397a09f535095531cdaa54cce1915be9f25ed1",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\outcrops\\OutcropItem.java": "db5ce0bc581e4001bd51896231e8addda3b02fafff37e1d2ee7459be60881f07",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\outcrops\\OutcropRenderers.java": "f66e532727aa1f96a4cd234ac4574ed86c1f5ca7596624127656ca78c91c8d9c",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\BlueOrbDisplayModel.java": "ba69383a1dc2e880372ceab7dbeb44afac45ed224684d96b181834b3d45c2298",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\BlueOrbDisplayItemRenderer.java": "4f563ebb3749a46462cba9cdb9f65b52fe0ac6fa3ddfc4071166b5d80431d6f7",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\BottleOfLunarlightDisplayModel.java": "6878547be95c761e1ccc753deba26f87bef8e9c36e79ee5ca4575c8d3a952ae6",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\BottleOfLunarlightDisplayItemRenderer.java": "92861f6eff6d9cb4544f97e02bbeb651ae790f8533e22336fd63d63d908088c7",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\BottleOfStarlightDisplayModel.java": "cdab3ecfb061243fcdfbc28c43b435912e5478af486f650292b994cdd53bad44",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\BottleOfStarlightDisplayItemRenderer.java": "fc7632702cfd792003c46db3dc9118fecbfa83c4d700fecfa0f147db4356ddc4",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\BrimstoneCakeDisplayModel.java": "98e722018c278c2b9dee51f801b60c39eb2f60df8bd4cd2eae52e61497a47c51",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\BrimstoneCakeDisplayItemRenderer.java": "a7109d044f898accd81883459c9017abfce9dea27a7d2d2dbf1e2fa8a2fa5bda",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\BunkerDoorDisplayModel.java": "b1e69d5612c6d54634d8c75606d30cdb1970726bf87a88b6c388c7d6f125eb47",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\BunkerDoorDisplayItemRenderer.java": "d8d9aa5f16db9072ca8ed8305d239f955980889836ae78919b050bd0883b4741",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\doors\\SpecialDoorItem.java": "3659b1266b39292349827816346f342868d9f948d992c974505dcf280073358e",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\doors\\SpecialDoorRenderers.java": "15a3776266531fe2d6b83994e0b28531ce6cc85d3f4e24cb03994ff04e932c9b",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\CachePadDisplayModel.java": "213860e1c3e3f5f2d4296271372df7843d43958e6f47b6b41d5cb5936a241c02",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\CachePadDisplayItemRenderer.java": "94dc8d7ecd182159665b87110738472eefc709f45a0c35acab9f3ccb0c44e98e",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\CapsuleDisplayModel.java": "58799dbc6940943bf160606274165f2663314622ba5b5175eab35aeb4acbdd73",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\CapsuleDisplayItemRenderer.java": "d727b9765139402496790d1ba9273c0d9e470c30dd60ab9c14162f4f9e27fd00",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\CauldronOfTrilobiteDisplayModel.java": "934a6dd30719cdcb3490f257b6589694c3688310497550f8d8701f9cf52b52e1",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\CauldronOfTrilobiteDisplayItemRenderer.java": "17e2914f9c581c288c86eb72f7ba2bb6b034b2a78532f5d91198876427963a56",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\fauna\\block\\CauldronOfTrilobiteItem.java": "b86e6e3666793477f9e0b004d76fc7788025569f19383d59fa8b2343a2e7088b",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\fauna\\CauldronItemRenderer.java": "9f8368522dc528783ac7440af115ce9fce08ff286ba76171f4c1d6383b2568dd",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\CavebloomerTrophyDisplayModel.java": "cb4f001930faafef2473bbf9db093b7fbffc7998f706c6d05240898e0e026f2b",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\CavebloomerTrophyDisplayItemRenderer.java": "d54370f88562522f4e4c70ada66b4e1089e78509e0efc6c9c58dece81a8b90e3",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\CivilianDisplayModel.java": "7cb5fcc017b19f1ca456df775962388f8087af74fd59f7f0f353b06e987be88d",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\CivilianDisplayItemRenderer.java": "9be696e7681589e953eafb0921763021f867c8ba132cbdb17a45b6940376858b",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\CryonicCacheDisplayModel.java": "a7d5a6402660c523f09daa7544b8796ba006f9b7aaad6ae05b4152a02c5e141e",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\CryonicCacheDisplayItemRenderer.java": "550f3b705a12062f003a0c5ae692b4b3e542275a5798eb1a9066344da7e0c5b5",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\CryonicLampDisplayModel.java": "b3538f34a8e73a42b943c8b3a491eb5a2deeac1f79563ecc0c06e2f98d810e69",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\CryonicLampDisplayItemRenderer.java": "5081197bd0de134bdbe66e05762e6fbc62597ec8dc0ee99a5509aef889c3d71e",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\CrystalSopelTrophyDisplayModel.java": "4704e6313a9db954f3b21c9a0f0396985d36a9faa90d5c3fdb8344dab7bdbf69",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\CrystalSopelTrophyDisplayItemRenderer.java": "2220c25fd0d76afba8c8c5e682eea05e9df070a5daba547b63a0ae7183ef3e9f",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\DeskDirectorDisplayModel.java": "5e2dc16748dbf7b1343cbf19f6f58b55064d4b89a213008197310cecd3ac5ab5",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\DeskDirectorDisplayItemRenderer.java": "708f93c9e1f4387e08644b06c55a0d8cce121d87c9fcca9b68122ca62910c792",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\DewleafDisplayModel.java": "ac9f079513b02876c53cc776862da7319d58c3dd58a10565aebcdb2aedf09dd5",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\DewleafDisplayItemRenderer.java": "bfe9b74e49f0c4777b6ee300234b263cf54b401c34108c0781ab47b42394e775",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\EnchantedCacheDisplayModel.java": "d9d86c036df93363cc48928bb40668faf6c7e0b46cfa09bcc731e77108c42ff4",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\EnchantedCacheDisplayItemRenderer.java": "b9e76d4cb303f2960e063f2aa9c5963796578f0500c0fede0a7779cb78685b60",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\ExtractorDisplayModel.java": "fc0c3d5d4bb226cf530a8a27f65b7b8b1569f2914f507eb1c12428b92dcfa9ef",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\ExtractorDisplayItemRenderer.java": "a9c9a77649d80045afbbe282e70e10e4676e6b63f3c4d3fc72b15f4c7f3546f6",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\FabricatorDisplayModel.java": "38b74acae83bbd35d41d45968f4bd92acfd4655ba3379481ee69d5ccdad499bc",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\FabricatorDisplayItemRenderer.java": "155c0cef255475eb57d21851d97ccedf716c3c29daabcdebc3e65d4567b5445c",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\FerroCakeDisplayModel.java": "6e7a2cc5a0ca2775d40dfa62487679a030f9b43470156ce021068054c4498a42",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\FerroCakeDisplayItemRenderer.java": "cb89803df07372a174de3f9603eac70f6cb37e768550f60c1e11da0f00f3b4df",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\FerrousAltarDisplayModel.java": "7cb4f3e2b334cb6b2e61c364ecf71bc444d2552567e77c0cb59e3abba63ad9e9",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\FerrousAltarDisplayItemRenderer.java": "6673652010358f8356dd7eabecc329b1a6bb0141b47a02741441127c5ae3efd3",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\FerrousCachePadDisplayModel.java": "6e7bb608c73047faa9d95d19f584aadabe1ebe8e3ead58b0f85ebb85af4d20b2",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\FerrousCachePadDisplayItemRenderer.java": "6766d6323e59eb91bad9fd7603bf8db4a9f82547c2c0f873bc39850043a628b6",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\FrigidAltarDisplayModel.java": "3231a4f415b697f560c50ebd4b5def79b0ef8d287d9cd1ebb9ced4d810640c63",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\FrigidAltarDisplayItemRenderer.java": "813fd08bf1ae78544512fce00f64808466fddbc1a5f417af25c1855f887050da",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\FrostLotusDisplayModel.java": "3bc5ca256a96a617dbc2000b6f093b1bac56cba0859a84c79561e0bff8a0c624",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\FrostLotusDisplayItemRenderer.java": "cea6184601197f6a63649196f7c711aaea8ac10f7aded9b4d6db618fe65a321a",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\GelBulbDisplayModel.java": "1549c8097e8fc79f0c8cb7e2fde88bca45f9a771d0ada89ebe42c0af20c0f492",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\GelBulbDisplayItemRenderer.java": "710ca5d8181128904b27d84fb989e17f6155533f74cc494979a6477835f84893",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\growth\\GelBulbItem.java": "9e1d72f3a1ab702d3c84ce5f4ff9ff0c01df82a8375b9b631c9735e2e33a2687",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\growth\\GrowthRenderers.java": "5287ab8a24afae1f049b5de576c6d3b978ba7204599f6e43f36a1810990ee830",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\GiantGearDisplayModel.java": "7a80833910dcae0f953440cfabc6cb073036fde7d6c1c6038b1750cbe1c6fde5",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\GiantGearDisplayItemRenderer.java": "56bc0db0744d39dafebeec522a60a00672d229858c6176c4d4375526d5955ceb",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\GlaukoBloomDisplayModel.java": "b05226415c86b501ca750202b381fdbce70109d36ace8d6ffab447ff0d6d40f8",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\GlaukoBloomDisplayItemRenderer.java": "c8c31adc8914a90b96d5005b4ea33f1c6eda304ac79fee6f870daa34301c082a",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\GlowstickDisplayModel.java": "35f31f8f2521d6eb3a01e021dbfa2fa24dc0d677d166a8c02b6aa882dde86009",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\GlowstickDisplayItemRenderer.java": "5614de6cb398d58d11d6e0a9eac46595dd348cae644915bc93ebf4ce3e994954",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\lights\\GlowstickItem.java": "2d1c23eb3d8b29d7ff248ccaa2b13279029856fc110f72d28ec522b62479d22b",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\lights\\LightsRenderers.java": "41f8d80c429e174fe66c8da7ec6fd2a05dd4873a8a73dc29cd0ee9b2d588452a",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\GoldenPillarDisplayModel.java": "2ff10112ba203065e8ec856e924d82c697751c645177a23c9dfe1aed823448a0",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\GoldenPillarDisplayItemRenderer.java": "e8f47bec135281510194d73c9ed1806a2e272ac1de99929bde72ba517539c01e",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\GrandBlasphemerDisplayModel.java": "3950988edca35e53cbb2caa74cd115814e86ed278cdb8062e9210331b4b37b7c",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\GrandBlasphemerDisplayItemRenderer.java": "aacc01783dab5c80d55a5f1ea9bce3e27b32de05dfb8248bcd094998ecefc323",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\GreenOrbDisplayModel.java": "ce1ba0e50105c5e3c1c718d38ec4bcabb7e8df177d6c7d7b185a5fd22b1bd35b",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\GreenOrbDisplayItemRenderer.java": "dd3eb95830e039b2d5edbaf5f0bd771f0c45968fdcef24d4a40828db7379e836",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\HailDisplayModel.java": "d8e5dfb7fd27485dfe77cb74494292979de5fb32a5b39c5e55024bee39d5fb2c",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\HailDisplayItemRenderer.java": "2c1c5981c1a114e4548a952c0c76a709b0a577a2c180d7bfc62a712f3a536106",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\HearthflyBranchDisplayModel.java": "be891fd896cd165a2bb415416e05e8292770f87801b94e672770e5c255e7c4ec",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\HearthflyBranchDisplayItemRenderer.java": "164c2b3d3b9667cc4caed22f2d3294fda95631494eeb66b2259c05890ad1142f",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\HologramMonitorDisplayModel.java": "730d5996bbc9854c1c691c9f311ad95481398fa1c939dfa3419a4294da605ecc",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\HologramMonitorDisplayItemRenderer.java": "189b8b5ec76b03be8163d64f301b0dd41167ff3732d5a87aaa272bfb307a3cf7",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\IcebreakerDisplayModel.java": "beea695399a824ffeec4b5dbe52abd1ce86d88b230ac3c792e5381df133a26d3",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\IcebreakerDisplayItemRenderer.java": "9c9e170388b28bad5003fadfeacf3abfaee1d78b9e03c3adcff1d1682bfe90b1",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\IcidroburnerTrophyDisplayModel.java": "9de838781c45d961cf48d76872d764a9b71cfea0edd25153a48cc1e7403493d2",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\IcidroburnerTrophyDisplayItemRenderer.java": "d36527c71f09f8eb8edc98d8f31532234311a3df08da80079a97aa89adb2525c",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\IcidrogunnerTrophyDisplayModel.java": "65cd0544718b9c10eab54b8330eaf24fdade5a26d609b75b8a6d51992a3084f2",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\IcidrogunnerTrophyDisplayItemRenderer.java": "afcef33378e9ca812ecab350cb20b782ea1411ac93964c38c1f084527ef77cfd",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\ImperviumPylonRingDisplayModel.java": "b12aeb09224cecfc8ad580a577a8d7e372b8e538a1c4b7ced5514ad5fd4ccdbc",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\ImperviumPylonRingDisplayItemRenderer.java": "583226132b8dfd4fc8ec8ff47632bd7155b50baad9774684aac2acd809d03e69",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\InactiveKeystonePedestalDisplayModel.java": "3efdd7d6e12afe59e9c427df6f95fa5c733517f5a03c1f295dcc0e6cece773b8",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\InactiveKeystonePedestalDisplayItemRenderer.java": "3425108da349e28367486eae0084a7bfe1883d946fd2164e1058ef6439c167ad",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\IttyBittyDisplayModel.java": "50f355c6e531cae23a3a775cceeea7af18e99c70d499a10812d1682789737297",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\IttyBittyDisplayItemRenderer.java": "ab0c2a82da40e6b26b89f60b1b5c03ed4f37f961d19340110e89f19a491e1dbb",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\JellercelDisplayModel.java": "13dcdf7466bdf02cb914fbe75186e5dc1b478e0298862c5c9013670ba4d47109",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\JellercelDisplayItemRenderer.java": "006d5c80af45595aa0dc3cc83fb69cff078e7f33a4f9994050813002e06601b6",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\KeystonePedestalDisplayModel.java": "dfac478b27d9e1ffab033bdcb41fecfb5746b7c69bb0a968e0b4d1ee3dc950a2",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\KeystonePedestalDisplayItemRenderer.java": "0052b697fcb2a10b424cba74130c34d11bb47f0d1d7559599157158770cd9352",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\LargeJellercelDisplayModel.java": "48be2328f83a98bd652f539942117a144bb34231818b9d56a609a0e510602ab8",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\LargeJellercelDisplayItemRenderer.java": "de08b8840b3ebf9af81f9243ccd5ef8b1016f3228c5de3edf7ba95b636012d06",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\LargeSpiderLilyDisplayModel.java": "c154354c99704eee87ca3a414fae2c7fef36d529113de50462c27709eca91bcd",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\LargeSpiderLilyDisplayItemRenderer.java": "1a97a87e131dff3d80859bdda7a4853314dc3a0c159a05caa46c6138aa367bc7",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\LunarPanelDisplayModel.java": "990e04df9961d9a2a2e10ba81f8dca5394036a7862652e9459702bc9416ede1d",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\LunarPanelDisplayItemRenderer.java": "ab71a8fc6f2c5cc6791b7f66b1bf394ec522d47c19e095b5c4b0f914c59b48a4",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\MalachiteOutcropDisplayModel.java": "ab4ea9a633759206add6c70b0ae32642c191d8849e06d4b46b0089541e9dd5cc",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\MalachiteOutcropDisplayItemRenderer.java": "daa191689f48834f0ea7032573b0f6a86845748585b697cb1c6a1b24347cac6d",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\MawDoorDisplayModel.java": "1a623aaad20924c9860a71dd7c5c1886a2add685ef9848067a2b6d522dcd0c30",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\MawDoorDisplayItemRenderer.java": "c9ec26d847b49512bdf7dc3fe9e7d191abfc3ed9a5570b1c44d04be25979f07a",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\NeoflormDisplayModel.java": "2f83626118ee746a5a5c94c119a78aa09c369b85503db366bd1a8fef81b9f722",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\NeoflormDisplayItemRenderer.java": "daa3c751809edab7519c133e5d91395f40461d151c6d1ea393eeba9aac1f71a8",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\PathioliteOutcropDisplayModel.java": "264bcce6d0711f40dd6d89631349998e69c5f200903c118578f0b95dbc44329b",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\PathioliteOutcropDisplayItemRenderer.java": "f0cbdf80410341cde2a8cfd09421cf552c36b66d023c59c778c6872d14977379",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\PhobotiteMantleOutcropDisplayModel.java": "e20675f6a816128d82040b7af98b1305e648c79f7853d30e2ab46d1ba52d3202",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\PhobotiteMantleOutcropDisplayItemRenderer.java": "3046837c9203cc1b6e832f12859581fe96f5ad399ff442efbb81e422991fae81",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\PhobotiteOutcropDisplayModel.java": "0cbbd5bb2e9d6b40b7f41906864b66abe33b3a1b9e084ba9afeb5f1422ec4d60",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\PhobotiteOutcropDisplayItemRenderer.java": "193be0c3bb24fb49913ba47ca30b31384a03d880c02e27e117329984e37a7906",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\PlenkyDisplayModel.java": "cb256f4fd1e9256c969e99c18c3fcfc250117e3f5f934c7ae294576d6d49e910",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\PlenkyDisplayItemRenderer.java": "76184a166966003a46b83419edc2d21b7069768603fa3d03a3a56ceaf376e8a1",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\PylonCoreDisplayModel.java": "6e980f91137174d9ec08fa99619fa1bebe9007a5bcfdd10ddf5c09792853e3ef",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\PylonCoreDisplayItemRenderer.java": "262116cd5f70ec461a4b0520e008ceb908016421cad4e35cd33023bb173aaf69",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\PylonRingDisplayModel.java": "dc874558af7afc2af57c60023fbd363db4519d1a85d4dded0637d056ef2d17fd",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\PylonRingDisplayItemRenderer.java": "e5446b519c04cf0044e9c329ff50d60495b970e3d82e5de2629b893b206da6db",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\PyrogenicPylonCoreDisplayModel.java": "610eb43a012b4262fef09a9dce0a8a259c7baed5ea5eff9ee1dfbea32b0fa995",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\PyrogenicPylonCoreDisplayItemRenderer.java": "974c9748df5754be14637ed71b99e26ac20e553cb286745febc8c96094be978b",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\RinthiumButtonDisplayModel.java": "7e92908c6a1aeebb0dfec1a4e1afde961d0cb90e87e3cedc1d26297fa9025436",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\RinthiumButtonDisplayItemRenderer.java": "4e7a0e98c0b094bf2cadd1b1af22ddb6f43c7351c39dc5b090d0ae056762a0cf",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\RinthiumLeverDisplayModel.java": "65f0dfe6698de35d9d27461bb9c794aab2a2c556086c21d354e9dd9966dbc603",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\RinthiumLeverDisplayItemRenderer.java": "e2f6952ad5dfdc9c9cd2e7ccb3c76bc33d8c28f16f5c54dd2cbcf7e8b1ffa372",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\RustyRadioDisplayModel.java": "6a55b3b227f43ab39bc2f3ba126e42cf611f59cda0332aacf81b3e76c26d463e",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\RustyRadioDisplayItemRenderer.java": "d65faf436a67ea01b207d9d4a7e8ee7a26d52d87ab0d08bb35e62c8863453393",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\ShaleCachePadDisplayModel.java": "07b385721ec208d3e778b7c9060b325c60177aa9a93036dc7d6763e3ac9c31eb",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\ShaleCachePadDisplayItemRenderer.java": "63d01213ce2af733bd95f6fd48c1cf903d8ac7bb17ffb3a25beb341d9a9e0d95",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\ShalePillarDisplayModel.java": "e200d6e526fd462ea234b646fa3f1aae4b41b32a8656076eaff22dddcada5627",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\ShalePillarDisplayItemRenderer.java": "a46032984fdd16963e8a1e95bcf079a535ab00f686149702692682adf669cbd2",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\ShalePillarVar2DisplayModel.java": "c85b632fa765fd0a5f54e608fc463d539790531820b183009c6edd8a71cc7fb2",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\ShalePillarVar2DisplayItemRenderer.java": "dc78dd1d71137bcdd432b2e977583d6813b6b2f28aae16788cef991944ced998",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\ShalePillarVar3DisplayModel.java": "7cc335c5f17ffa0959b8b02ff6df8b67f34e3732169531c6ca466da237b8ae2f",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\ShalePillarVar3DisplayItemRenderer.java": "2ee63f37ebb2b77e63836744b899ce839ea798bb7c584cf3180c7f01ace37118",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\ShalePillarVar4DisplayModel.java": "ad7d8f02364e32cd7cf875f327683c1b3d406791c444d3f45768fdffdffec3d9",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\ShalePillarVar4DisplayItemRenderer.java": "1a9307e3f7078242711a8d54b94be8da0af6e027b897a7e2f0eeef7e287ec45e",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\ShalePillarVar5DisplayModel.java": "6cf0f9a4f001af106e1e3de5c096846db08dbad4d3db5c6e5e537d710481be50",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\ShalePillarVar5DisplayItemRenderer.java": "e5eecac8581582b07640c3a2761582f39b6a3e0e52f2bc6b19c84dfbaf34f24f",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\ShalePillarVar6DisplayModel.java": "d649aca7bf979d86f110990d8c49f2a1efff6ba66e369f67082f35dfc9330ab7",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\ShalePillarVar6DisplayItemRenderer.java": "bb702e247d287087a1e60a22ab37881db90d7b606c0bf00d2f67d8e898da3b06",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\ShalePillarVar7DisplayModel.java": "7c5492794f1aa218e9dbce4dd3d30893593634d3329e882eb4d0cd9dbc8f2a1f",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\ShalePillarVar7DisplayItemRenderer.java": "02706608ab60d7d99b32aaa0bdf4f2ac6dcbabb8a12963f41fb37fe36b5a2185",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\ShalePillarVar8DisplayModel.java": "35c9590eac316598cc6d489e76a3ebc077b913e9399dda8c7742d46520d14b1e",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\ShalePillarVar8DisplayItemRenderer.java": "85e2e4e46228ee6ec575eb7ebc74f046e94da93baa648ac7d2fed7b19ca55bad",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\ShalePotDisplayModel.java": "7e84dbe68b16baaafa0e2ecf1e81ab693e9758ec77cf7d5203b96ff745e133ea",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\ShalePotDisplayItemRenderer.java": "d4068a15e838b1abd7c0265660f7d81c6f2fcf06820829312302b91c8550dd3c",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\SpiderLiliesDisplayModel.java": "41b973fea70e3a52c2eb9f9635ca460c80a12b037c340c214df0f2dd10084351",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\SpiderLiliesDisplayItemRenderer.java": "be8c4bcb201d1efab4acb87e586808ecbcf5fde59eb5eff88a2fd9a6fd592c63",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\SpireBloomDisplayModel.java": "71ce4052fe2ecd1a200f4f545e38d2f79eaa44084c8658c5e0b0a589acb70d0c",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\SpireBloomDisplayItemRenderer.java": "ab9657f066f69e4b48e70848ad7f1ddb1044a00aa0217d8e2547eea413722428",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\SpireBlossomDisplayModel.java": "2505c812e3f9bb6fe1acfa7cbabca0778576ed6890ad81743fa64cc478b36a64",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\SpireBlossomDisplayItemRenderer.java": "10dfa55cf7d0fbe9583550ebe6325e23cb2206d5c3c9a30e083ceb8af7482e2e",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\SporePodDisplayModel.java": "243c36134aa563ba8f02b1607f0ee35c55fa0042191c077864f038cef75ad23e",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\SporePodDisplayItemRenderer.java": "5eaa03d467d4f5509c7e1cac1c469d38cc71bac3ac6d962b0f646c96908685c9",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\spore\\block\\SporePodItem.java": "57b171883266511ce0246e19b532df57dc9407625422ed4fe91518cf983c9fcd",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\spore\\SporePodItemRenderer.java": "27e8c4c0be644ed80ede2fbcef21ae3e4fb1550132bba5b0ab69c1a21f500300",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\StatueOfLitanyDisplayModel.java": "60938e739f11ac8e1c6cbcb10e2a27935cf733d6c330f18791b7bf30e4c4d05a",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\StatueOfLitanyDisplayItemRenderer.java": "5d8cf12e689c6e71af451f3526b0abccb579103946562abf10e3562dabe87567",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\SuperCryonicCacheDisplayModel.java": "295447bd1fe7e9b9a3c7630788416c05037edffce9d87344d44b1b16d453f637",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\SuperCryonicCacheDisplayItemRenderer.java": "42aed1afa83b545e904ba0772b290a48455de59082e4650aa836eb31a5a442d1",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\SurgePylonDisplayModel.java": "4bccd364da6f8f0a13cd0cde5051a4fbf68b50e34ef23de387138db8d33d3c23",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\SurgePylonDisplayItemRenderer.java": "365b0e25f2dc221059e75b7ee87d5630e2057301271887e3cfc91851ebe93981",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\SuspiciousCavebloomerDisplayModel.java": "0cd6ba45d0e96e30e598b7ef84bbd92f4dbd517f8aef7d82b40fd415fdf590c0",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\SuspiciousCavebloomerDisplayItemRenderer.java": "1fc91a0c0fc65f1a0b8d0c59cba37212eb891df1ead56089ba1da880c5138d57",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\ThermaDevPlushDisplayModel.java": "e048a240e805f0c942a20112d81233edd0835aa668a6987636470d60f8285c06",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\ThermaDevPlushDisplayItemRenderer.java": "4f8c8e0f6bb71fb8f0075cfde80e2ca4d01f6b905a4db8b3a7ecca7803158384",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\TrappedCachePadDisplayModel.java": "479fab400b49be80684a600f6a55b0ba60c1fe8e87034d4d69c11e4e94dc62d4",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\TrappedCachePadDisplayItemRenderer.java": "2ea9ace8394264691bdce0f8730c8e614c582316aa377ab2848fe7ea0d4afd6e",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\VolatineDisplayModel.java": "7dfacd4041f980d118234e232b5fec13a3f334bd908c431a980277ab94ba59ee",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\VolatineDisplayItemRenderer.java": "aa538dbdb4f64bc4d4b33b650cf50b1df4c34fdc913c43e7dccbf76a96f3f26a",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\VoltflowerBulbDisplayModel.java": "d7b4c79fced50c82a3aaba81df1f0aa2e3f5bfa29dc96cb802996ecd3bc73996",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\VoltflowerBulbDisplayItemRenderer.java": "c74df7a17b137160812968afc4e928ab2ff12cfdd5b58238398cacd6629a59d1",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\WallboreDisplayModel.java": "243242cbd0d8c4834bd22ceb6081454ae5b470fa77dd858a625128a32b9a9153",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\WallboreDisplayItemRenderer.java": "1a1d47e3ab5063e9f02aa9c7984cd21ace6e658d9897c1c653917fea37cf013f",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\WorldTourTrophyDisplayModel.java": "171d2d431c5746d5da6947870e2209bdd24312585c5cdb06a508ddf3b5bd36b6",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\WorldTourTrophyDisplayItemRenderer.java": "aa01a7c6ae7e79d7bbf650b448b5c37b3eb5950d9472582f4fed213e048c0497",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\YellowOrbDisplayModel.java": "3a9ce549a124dc202871d5160f231c8d70635a68eb589d0afd925ea016c71b90",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\YellowOrbDisplayItemRenderer.java": "08df8f143672e3e068822a9c8f5b2f4a77cb3d59eec55e40d3c48627ffc40b32",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ArmorAnimationFactory.java": "97eb974c79c42a28cb9844fd3ed94862f9e730d3479a0985436e3a8f4759d794",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\ClientEvents.java": "e8cdcd27d286b7ca20ae3f4eda3b73c24478b520c1768745529e52ce6f00c2a4",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\ClientGameEvents.java": "3a084f7b8872913a0cc69179faa967ae1d218f70a0e7af4593f6fcfa23e4071b",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\armor\\ArmorContent.java": "f26ac3085d2eadbd51cb8b6e83ae9b1860027756fc00efbaaaee2e24ed29721a",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\armor\\fabricated\\FabricatedArmorContent.java": "5ee186dbd52b6e5bb0a056293ee2ec13f42ba86be50ccca77edc70ca38b7f1c3",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\remainingcombat\\RemainingCombatContent.java": "b6d193642d00821c04764297356cc41f81496f3401963d78cd27a0f6101b38be",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\model\\BloodArmorModel.java": "264ac0a3377c9b6796d0fede5bef2f3708f88457811aa281df09a1daa90842e8",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\BloodArmorArmorRenderer.java": "96ef57f13816f58990b6f64aa538a344d2a87319f5f29d7d17c610d8247122eb",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\armor\\GeoSetArmorItem.java": "aec5453f5895c82b53e9124b81489915203d3f4399eb11db26026a27f3e5f6d6",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\armor\\ArmorClient.java": "34afbe39656c5f3495a23f86e4739a09ce0e24c72b0056fe8d1cd271cd7ee167",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\model\\BloodZenithArmorModel.java": "dd80177e1cd3cdad81f15166a59ff763f425da32e5d0780ec0fef111e01e8cc7",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\BloodZenithArmorArmorRenderer.java": "2a0bbe68e887e2fd311937566c5aed0abbad5ddc075c6f0c0f2b4fe79a152293",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\model\\CarborundumArmorModel.java": "2389c9f19e3697ac737c1514009158903365cfc976d21d83fc9a0c9e5b802dba",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\CarborundumArmorArmorRenderer.java": "0b7ad6e089b4c18263e62f541f31d6df428f94ac61b1ddd87d6ebfe5697e6275",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\model\\CorrialDivingHelmetModel.java": "0fe2c26cf5d8112ad4a5595e746e20bc89f16d38ec9e89a894ecf5bb39a9e134",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\CorrialDivingHelmetArmorRenderer.java": "0c6eec9d6f7a3e50c7518d907eb7cb8828a9deb63061ccecae6156e334ae0d64",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\model\\DevScarfModel.java": "ed8fd7ba24f777bc5c77394b4504f5d5acc58c0f0593c7b713024e76d50030e4",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\DevScarfArmorRenderer.java": "3c82ab29e6cb8d650c0e864552423d5393f905172e06d2a0e10467642ae8847a",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\model\\RubyArmorModel.java": "8923681fc4ce8ff82b15d78686c9b14db1c215f8b46ff35591e72177327a2091",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\RubyArmorArmorRenderer.java": "5e8cc15167e34f71827b48f3e1343fa7e267f6641ad0f339726488eaf862d83b",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\model\\RubyZenithArmorModel.java": "f369222681dd98718452405681790932ee9857d4eb3f08f38de815b0d22f45d6",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\RubyZenithArmorArmorRenderer.java": "220ae3afbb33a5eeb5807205cbe102be5fd0bddfad483dfa15ada409e3906180",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\model\\RustsilkArmourModel.java": "18db78b7804a2c1e621daf21d0f2923c847659e688debdd4463ad50bf2f41e4e",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\RustsilkArmourArmorRenderer.java": "0c03084989f96d4eb2699eee13f2813a2a3228143ba0df836707ea3fb266570b",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\model\\SentryModel.java": "48b380ff0cb01e2f27123a92e339ce2ccf59d76bd2b795460953ca6234ddc307",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\SentryArmorRenderer.java": "c08f6b3f3ab9f1b1a8230be88d7ed9c550e5291c476e0f5ca13692b6836250a0",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\model\\StrangesilkArmourModel.java": "64b53a5aa8aa3f8bb19de6c06de4abb953c14b73b0a88ba67ac4f250207e5e8a",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\StrangesilkArmourArmorRenderer.java": "78b1636cddccefa9d8b340fff087278373c5f032b4029abff84a55618068b2ca",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\model\\PropulsionBootsModel.java": "1da24bc6860b7710c15868be538cb0ec3365b2c63336a5fa588cbd9f5b088b74",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\PropulsionBootsArmorRenderer.java": "cdc403e9d22b419dd1a9f9f85892e47db265dfaaa2d0853d5df7dfc98f99605e",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\armor\\fabricated\\FabricatedArmorItem.java": "a192b968487ee6f955b2939ede84dfc7da5460d0b65a7c6779a82a30f217df90",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\armor\\fabricated\\FabricatedArmorClient.java": "34674a44b6bc9cf5faee18e0e5e2b54af8ae217153a5be32acd6279faf444a0f",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\model\\SilencedArmorModel.java": "cb7936ad6d4f0c7b206c52ba11a86898be964e30f97c9e6da4571fac6918fc48",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\SilencedArmorArmorRenderer.java": "d7770f17f11bbe2e719470279ad8127f1ea63dff6802ba59af6668154be50c59",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\model\\ChorusianAntennaeModel.java": "00d01d7b46d97cf76411bf300b21e8ef6c7fe1664aa51bc8b4d3da2860f75887",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\ChorusianAntennaeArmorRenderer.java": "da49ff052f39322b75c84c2c7066d8b7ecb74f20ea7cf43844fa3ebff5b17488",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\remainingcombat\\ChorusianAntennaeItem.java": "c83c6dcb88fbaab14adf9df83fe78c449a35ba4bd3ad0a1c2a3d46154abc8120",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\remainingcombat\\RemainingCombatClient.java": "d499be57f81ec5eed57684fcc289a8dc3b151e7c8c2a3e4fe9638103a0730c00"
+  },
+  "counts": {
+    "originalWrappers": 13,
+    "registeredIds": 32,
+    "resourceComparisons": 39
+  },
+  "problems": [],
+  "batch136Complete": false
+}

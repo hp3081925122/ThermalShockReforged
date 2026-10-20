@@ -1,6 +1,6 @@
 {
   "batch": 136,
-  "scope": "89方块实体原身份/注册/两控制器次序0过渡、谓词归并和全部原资源对目标字节核对；保留此前五项明确批准差异。不是整个136闭合。",
+  "scope": "89方块实体原身份/注册/两控制器次序0过渡、谓词归并和全部原资源对目标字节核对；保此前批准差异，配套domains/variants/callback-reuse完成本136限定静态复审，非游戏验收。",
   "generatorSha256": "3ad38387f6804ddb41146087365d58e9fe024626eb1ac2c149945a0541a6f197",
   "rows": [
     {
@@ -80,7 +80,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "ancient_barbubble",
@@ -159,7 +165,14 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoCropBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoCropBlockEntity",
+        "FarmInventoryBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "ancient_skorio",
@@ -238,7 +251,14 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoCropBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoCropBlockEntity",
+        "FarmInventoryBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "assembler",
@@ -317,7 +337,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "LabMachineBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "LabMachineBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "atlas",
@@ -396,7 +422,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "big_glass_bottle",
@@ -475,7 +507,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "bismuth_outcrop",
@@ -554,7 +592,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "OutcropBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "OutcropBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "blue_orb",
@@ -633,7 +677,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": "geo-decor-batch.md:91：原缺0，批准映射无骨骼none保持静止。",
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "bottle_of_lunarlight",
@@ -712,7 +762,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "bottle_of_starlight",
@@ -791,7 +847,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "brimstone_cake",
@@ -870,7 +932,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "bunker_door",
@@ -949,7 +1017,13 @@
       "resourcesByteEqual": true,
       "variantReset": true,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "SpecialDoorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "SpecialDoorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "cache_pad",
@@ -1028,7 +1102,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "capsule",
@@ -1111,7 +1191,13 @@
       "resourcesByteEqual": true,
       "variantReset": true,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "cauldron_of_trilobite",
@@ -1190,7 +1276,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": "fauna-batch.md:32：原2秒1批准服务器40tick复位，保原动画避免客户端写世界。",
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "CauldronOfTrilobiteBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "CauldronOfTrilobiteBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "cavebloomer_trophy",
@@ -1269,7 +1361,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "civilian",
@@ -1369,7 +1467,13 @@
       "resourcesByteEqual": true,
       "variantReset": true,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "cryonic_cache",
@@ -1448,7 +1552,14 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "CacheBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "CacheBlockEntity",
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "cryonic_lamp",
@@ -1527,7 +1638,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "crystal_sopel_trophy",
@@ -1606,7 +1723,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "desk_director",
@@ -1685,7 +1808,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "dewleaf",
@@ -1764,7 +1893,14 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoCropBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoCropBlockEntity",
+        "FarmInventoryBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "enchanted_cache",
@@ -1843,7 +1979,14 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "CacheBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "CacheBlockEntity",
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "extractor",
@@ -1922,7 +2065,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "fabricator",
@@ -2001,7 +2150,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "ferro_cake",
@@ -2080,7 +2235,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "ferrous_altar",
@@ -2159,7 +2320,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "ferrous_cache_pad",
@@ -2238,7 +2405,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "frigid_altar",
@@ -2317,7 +2490,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "frost_lotus",
@@ -2396,7 +2575,14 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoCropBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoCropBlockEntity",
+        "FarmInventoryBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "gel_bulb",
@@ -2475,7 +2661,14 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GelBulbBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GelBulbBlockEntity",
+        "FarmInventoryBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "giant_gear",
@@ -2554,7 +2747,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "glauko_bloom",
@@ -2633,7 +2832,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "glowstick",
@@ -2712,7 +2917,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GlowstickBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GlowstickBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "golden_pillar",
@@ -2791,7 +3002,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "grand_blasphemer",
@@ -2870,7 +3087,14 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": "transmutation-extraction-batch.md:20：原非法2批准补合法2及循环，保完整9秒1和末段2。",
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GrandBlasphemerBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GrandBlasphemerBlockEntity",
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "green_orb",
@@ -2949,7 +3173,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": "geo-decor-batch.md:91：原缺0，批准映射无骨骼none保持静止。",
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "hail",
@@ -3028,7 +3258,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "hearthfly_branch",
@@ -3107,7 +3343,14 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoCropBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoCropBlockEntity",
+        "FarmInventoryBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "hologram_monitor",
@@ -3186,7 +3429,13 @@
       "resourcesByteEqual": true,
       "variantReset": true,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "icebreaker",
@@ -3265,7 +3514,14 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "IcebreakerBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "IcebreakerBlockEntity",
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "icidroburner_trophy",
@@ -3344,7 +3600,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "icidrogunner_trophy",
@@ -3423,7 +3685,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "impervium_pylon_ring",
@@ -3502,7 +3770,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "inactive_keystone_pedestal",
@@ -3581,7 +3855,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "itty_bitty",
@@ -3660,7 +3940,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "jellercel",
@@ -3739,7 +4025,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "keystone_pedestal",
@@ -3818,7 +4110,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "large_jellercel",
@@ -3897,7 +4195,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "large_spider_lily",
@@ -3976,7 +4280,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "lunar_panel",
@@ -4055,7 +4365,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "malachite_outcrop",
@@ -4134,7 +4450,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "OutcropBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "OutcropBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "maw_door",
@@ -4213,7 +4535,13 @@
       "resourcesByteEqual": true,
       "variantReset": true,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "SpecialDoorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "SpecialDoorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "neoflorm",
@@ -4292,7 +4620,14 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoCropBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoCropBlockEntity",
+        "FarmInventoryBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "pathiolite_outcrop",
@@ -4371,7 +4706,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "phobotite_mantle_outcrop",
@@ -4450,7 +4791,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "phobotite_outcrop",
@@ -4529,7 +4876,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "plenky",
@@ -4608,7 +4961,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "pylon_core",
@@ -4687,7 +5046,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "pylon_ring",
@@ -4766,7 +5131,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "pyrogenic_pylon_core",
@@ -4845,7 +5216,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "rinthium_button",
@@ -4924,7 +5301,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "rinthium_lever",
@@ -5003,7 +5386,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "rusty_radio",
@@ -5082,7 +5471,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "shale_cache_pad",
@@ -5161,7 +5556,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "shale_pillar",
@@ -5240,7 +5641,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "shale_pillar_var_2",
@@ -5319,7 +5726,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "shale_pillar_var_3",
@@ -5398,7 +5811,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "shale_pillar_var_4",
@@ -5477,7 +5896,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "shale_pillar_var_5",
@@ -5556,7 +5981,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "shale_pillar_var_6",
@@ -5635,7 +6066,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "shale_pillar_var_7",
@@ -5714,7 +6151,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "shale_pillar_var_8",
@@ -5793,7 +6236,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "shale_pot",
@@ -5874,7 +6323,13 @@
       "resourcesByteEqual": true,
       "variantReset": true,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "spider_lilies",
@@ -5953,7 +6408,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "spire_bloom",
@@ -6032,7 +6493,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "spire_blossom",
@@ -6111,7 +6578,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "spore_pod",
@@ -6190,7 +6663,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "SporePodBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "SporePodBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "statue_of_litany",
@@ -6269,7 +6748,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "super_cryonic_cache",
@@ -6348,7 +6833,14 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "CacheBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "CacheBlockEntity",
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "surge_pylon",
@@ -6427,7 +6919,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "suspicious_cavebloomer",
@@ -6506,7 +7004,14 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "SuspiciousCavebloomerBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "SuspiciousCavebloomerBlockEntity",
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "therma_dev_plush",
@@ -6585,7 +7090,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "trapped_cache_pad",
@@ -6664,7 +7175,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "volatine",
@@ -6743,7 +7260,14 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoCropBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoCropBlockEntity",
+        "FarmInventoryBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "voltflower_bulb",
@@ -6822,7 +7346,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "wallbore",
@@ -6902,7 +7432,13 @@
       "resourcesByteEqual": true,
       "variantReset": true,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "LabMachineBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "LabMachineBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "world_tour_trophy",
@@ -6981,7 +7517,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": null,
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     },
     {
       "id": "yellow_orb",
@@ -7060,7 +7602,13 @@
       "resourcesByteEqual": true,
       "variantReset": false,
       "approvedPriorDifference": "geo-decor-batch.md:91：原缺0，批准映射无骨骼none保持静止。",
-      "semanticStatus": "四种动态模型逐variant及生产端状态写入尚待单独配对；常规controller分支已主线阅读，非游戏验证。"
+      "semanticStatus": "控制器/资源/合法状态域静态闭合；动态变体逐分支见variants，状态写入复用115冻结回调及本136变更补证，游戏帧另验。",
+      "actualRegisteredBlockEntity": "GeoDecorBlockEntity",
+      "actualBlockEntityHierarchy": [
+        "GeoDecorBlockEntity",
+        "RandomizableContainerBlockEntity"
+      ],
+      "targetBlockEntityNote": "targetBlockEntity为控制器实现来源；实际注册构造类见actualRegisteredBlockEntity，Cache/Suspicious/Icebreaker继承GeoDecorBlockEntity同一控制器，Grand有自身覆写。"
     }
   ],
   "sourceInputs": {
@@ -7657,9 +8205,7 @@
     "variantReset": 7
   },
   "remaining": [
-    "四动态模型逐variant真实映射",
-    "生产状态写入与合法动画域",
-    "武器盔甲实际控制器/姿态/逐栈缓存/外部geckoAnim"
+    "客户端与Render Preview逐帧对照（统一完整代码收口后执行）；声音/粒子独立134/137批，非本表实测。"
   ],
   "problems": [],
   "fullEvidence": {
