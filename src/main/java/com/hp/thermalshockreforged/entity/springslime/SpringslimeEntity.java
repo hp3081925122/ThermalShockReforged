@@ -40,7 +40,7 @@ public final class SpringslimeEntity extends PathfinderMob implements GeoEntity 
         triggerAnim("procedure", "2");
         ThermalShockReforged.LOGGER.debug("Springslime collision animation triggered: entity={}, player={}, popped={}", getUUID(), player.getUUID(), entityData.get(POPPED));
         player.setDeltaMovement(0, 1.4, 0); player.hurtMarked = true;
-        server.playSound(null, getX(), getY(), getZ(), SoundEvents.SLIME_SQUISH, SoundSource.NEUTRAL, 1, 1);
+        server.playSound(null, blockPosition(), SoundEvents.SLIME_SQUISH, SoundSource.NEUTRAL, 1, 1);
     }
     @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); tag.putBoolean("SpringPopped", entityData.get(POPPED)); }
     @Override public void readAdditionalSaveData(CompoundTag tag) { super.readAdditionalSaveData(tag); if (tag.contains("Texture")) entityData.set(TEXTURE, tag.getString("Texture")); entityData.set(POPPED, tag.getBoolean("SpringPopped")); }

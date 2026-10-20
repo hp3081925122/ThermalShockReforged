@@ -1,0 +1,217 @@
+{
+  "status": "134进行中，新增两份生产锚点修复已验证",
+  "scope": "源码绑定与1000个坐标组合的重载模型；未执行Minecraft客户端或专服",
+  "production": [
+    {
+      "path": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\springslime\\SpringslimeEntity.java",
+      "source_sha256": "e38883541af3ee620d355533fb0ec6ea3cd651cadb49fdfa466c4f00f86bf002",
+      "class_sha256": "3d7d59e9038b373eede6b5016874016a36a10a83a8145c5a32095c185d47a6e0",
+      "class_major": 65
+    },
+    {
+      "path": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\springslime\\SpringFadeEntity.java",
+      "source_sha256": "646f06944cacd77d66033edd39af346f32326607053555bd106056c04e9c3231",
+      "class_sha256": "a869b259b0954f8ee69664a4a25406eea69d8ffb088e59721ba0057e5b122f7b",
+      "class_major": 65
+    }
+  ],
+  "original_and_target_sound": [
+    "碰撞SLIME_SQUISH NEUTRAL 1/1，当前碰撞位置取整后居中",
+    "首次有效碰撞提交的20 END尾阶段SLIME_DEATH NEUTRAL 1/1，固定原点取整后居中"
+  ],
+  "preserved_boundary": "目标既有单个成功提交的消失任务，不恢复原重复碰撞排多个全局闭包的副作用；实体被移除后提交尾阶段仍完成。",
+  "cases": 1000,
+  "sample_traces": [
+    {
+      "position": [
+        -64.875,
+        -64.875,
+        -64.875
+      ],
+      "original_and_target_block_sound_anchor": [
+        -64.5,
+        -64.5,
+        -64.5
+      ],
+      "particle_anchor_unchanged": [
+        -64.875,
+        -64.875,
+        -64.875
+      ]
+    },
+    {
+      "position": [
+        -64.875,
+        -64.875,
+        -1.01
+      ],
+      "original_and_target_block_sound_anchor": [
+        -64.5,
+        -64.5,
+        -1.5
+      ],
+      "particle_anchor_unchanged": [
+        -64.875,
+        -64.875,
+        -1.01
+      ]
+    },
+    {
+      "position": [
+        -64.875,
+        -64.875,
+        -1
+      ],
+      "original_and_target_block_sound_anchor": [
+        -64.5,
+        -64.5,
+        -0.5
+      ],
+      "particle_anchor_unchanged": [
+        -64.875,
+        -64.875,
+        -1
+      ]
+    },
+    {
+      "position": [
+        -64.875,
+        -64.875,
+        -0.01
+      ],
+      "original_and_target_block_sound_anchor": [
+        -64.5,
+        -64.5,
+        -0.5
+      ],
+      "particle_anchor_unchanged": [
+        -64.875,
+        -64.875,
+        -0.01
+      ]
+    },
+    {
+      "position": [
+        -64.875,
+        -64.875,
+        0
+      ],
+      "original_and_target_block_sound_anchor": [
+        -64.5,
+        -64.5,
+        0.5
+      ],
+      "particle_anchor_unchanged": [
+        -64.875,
+        -64.875,
+        0
+      ]
+    },
+    {
+      "position": [
+        -64.875,
+        -64.875,
+        0.125
+      ],
+      "original_and_target_block_sound_anchor": [
+        -64.5,
+        -64.5,
+        0.5
+      ],
+      "particle_anchor_unchanged": [
+        -64.875,
+        -64.875,
+        0.125
+      ]
+    },
+    {
+      "position": [
+        -64.875,
+        -64.875,
+        0.5
+      ],
+      "original_and_target_block_sound_anchor": [
+        -64.5,
+        -64.5,
+        0.5
+      ],
+      "particle_anchor_unchanged": [
+        -64.875,
+        -64.875,
+        0.5
+      ]
+    },
+    {
+      "position": [
+        -64.875,
+        -64.875,
+        0.999
+      ],
+      "original_and_target_block_sound_anchor": [
+        -64.5,
+        -64.5,
+        0.5
+      ],
+      "particle_anchor_unchanged": [
+        -64.875,
+        -64.875,
+        0.999
+      ]
+    },
+    {
+      "position": [
+        -64.875,
+        -64.875,
+        1
+      ],
+      "original_and_target_block_sound_anchor": [
+        -64.5,
+        -64.5,
+        1.5
+      ],
+      "particle_anchor_unchanged": [
+        -64.875,
+        -64.875,
+        1
+      ]
+    },
+    {
+      "position": [
+        -64.875,
+        -64.875,
+        27.875
+      ],
+      "original_and_target_block_sound_anchor": [
+        -64.5,
+        -64.5,
+        27.5
+      ],
+      "particle_anchor_unchanged": [
+        -64.875,
+        -64.875,
+        27.875
+      ]
+    }
+  ],
+  "all_traces_path": "D:\\AI临时文件\\ThermalShockMigration\\batch134-evidence\\springslime-anchor-cases.json",
+  "all_traces_sha256": "221a61931cc8fc3ab83338b3d3179613096dd70ab011cc1ac912036bd5894934",
+  "evidence": [
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\SpringslimePlayerCollidesWithThisEntityProcedure.java",
+      "sha256": "31824af6ebba47a7b66058aef4f4e2228b34212aa5a2ec2acc2b8d0f5795d076"
+    },
+    {
+      "path": "E:\\模组\\mc源码\\1.21.1-neoforge-21.1.233-minecraft-sources\\src\\net\\minecraft\\world\\level\\Level.java",
+      "sha256": "47ff78754901fad8a193669d28b260e836b1ac32ff06c7614c9900f0a5f8da7c"
+    },
+    {
+      "path": "E:\\模组\\mc源码\\1.20.1-forge-47.4.20-official\\src\\net\\minecraft\\world\\level\\Level.java",
+      "sha256": "760656be42bd34bc2fb7661e43ed4cf30f19e12f3c9608a8e767a443f45e906f"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch134-build-nine-files.log",
+      "sha256": "53648125685dd978c0558cac6e9ae0783fadcc6cae53202ac1a24222eecbded4"
+    }
+  ],
+  "runtime_tests_run": false
+}

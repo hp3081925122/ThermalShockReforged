@@ -41,7 +41,8 @@ public final class SpringFadeEntity extends Entity implements ServerEndTickTask 
         if (--remaining > 0) { ServerEndTickTasks.schedule(level, getUUID()); return; }
         consumed = true; discard();
         if (spring != null && level.getEntity(spring) instanceof SpringslimeEntity source) source.discard();
-        level.playSound(null, anchor.x, anchor.y, anchor.z, SoundEvents.SLIME_DEATH, SoundSource.NEUTRAL, 1, 1);
+        level.playSound(null, net.minecraft.core.BlockPos.containing(anchor), SoundEvents.SLIME_DEATH, SoundSource.NEUTRAL, 1, 1);
+        com.hp.thermalshockreforged.ThermalShockReforged.LOGGER.debug("Springslime fade sound completed: task={}, source={}, anchor={}", getUUID(), spring, anchor);
         level.sendParticles(ParticleTypes.POOF, anchor.x, anchor.y, anchor.z, 15, 1, 1, 1, .3);
     }
     @Override protected void addAdditionalSaveData(CompoundTag tag) { if (spring != null) tag.putUUID("SpringSource", spring); tag.putDouble("SpringX", anchor.x); tag.putDouble("SpringY", anchor.y); tag.putDouble("SpringZ", anchor.z); tag.putString("SpringDimension", dimension); tag.putInt("SpringRemaining", remaining); tag.putBoolean("SpringArmed", armed); tag.putBoolean("SpringConsumed", consumed); }
