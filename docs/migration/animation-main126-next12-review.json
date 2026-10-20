@@ -1,0 +1,747 @@
+{
+  "scope": "group2第二组12种有界复核；连同125前12种已复核24/59，其余35种继续，A的59种不由本报告代做",
+  "baseline": "4cb7d4b",
+  "extractedEvidenceSha256": "2daae75392de6267858223c82ac377009497bf4dc8ca35f26c32d670935b44ba",
+  "rows": [
+    {
+      "id": "mangler",
+      "source": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\ManglerEntity.java",
+        "sha256": "650f390442607adc673e2cb2c7fb03adf57b853dede4f3263561aad50f286b31"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\mangler\\ManglerEntity.java",
+        "sha256": "d36542a0ad4eede99465a99b733cac7d2e9499ce20d30f4e5ee8bc12884b4150"
+      },
+      "validClips": [
+        "idle",
+        "stunned",
+        "chase",
+        "chaseloop",
+        "boost"
+      ],
+      "sourceMethods": {
+        "movementPredicate": {
+          "line": 208,
+          "text": "private PlayState movementPredicate(AnimationState event) {\n        if (this.animationprocedure.equals(\"empty\")) {\n            if (!(!event.isMoving() && event.getLimbSwingAmount() > -0.15f && event.getLimbSwingAmount() < 0.15f || this.isAggressive())) {\n                return event.setAndContinue(RawAnimation.begin().thenLoop(\"idle\"));\n            }\n            if (this.isAggressive() && event.isMoving()) {\n                return event.setAndContinue(RawAnimation.begin().thenLoop(\"idle2\"));\n            }\n            return event.setAndContinue(RawAnimation.begin().thenLoop(\"idle\"));\n        }\n        return PlayState.STOP;\n    }"
+        },
+        "attackPredicate": null,
+        "procedurePredicate": {
+          "line": 221,
+          "text": "private PlayState procedurePredicate(AnimationState event) {\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\n            if (!this.animationprocedure.equals(this.prevAnim)) {\n                event.getController().forceAnimationReset();\n            }\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\n                this.animationprocedure = \"empty\";\n                event.getController().forceAnimationReset();\n            }\n        } else if (this.animationprocedure.equals(\"empty\")) {\n            this.prevAnim = \"empty\";\n            return PlayState.STOP;\n        }\n        this.prevAnim = this.animationprocedure;\n        return PlayState.CONTINUE;\n    }"
+        },
+        "registerControllers": {
+          "line": 255,
+          "text": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\n        data.add(new AnimationController[]{new AnimationController((GeoAnimatable)this, \"movement\", 4, this::movementPredicate)});\n        data.add(new AnimationController[]{new AnimationController((GeoAnimatable)this, \"procedure\", 4, this::procedurePredicate)});\n    }"
+        }
+      },
+      "sourceCallers": [
+        {
+          "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\ManglerAttackProcedure.java",
+          "sha256": "ca46dd9f9c994e5a0aa1c61b9d462238bc437c1616253cbd3b87cd4005367785",
+          "line": 48,
+          "context": "            if (!(sourceentity instanceof LivingEntity) || !(_livEnt1 = (LivingEntity)sourceentity).hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())) {\n                LivingEntity _entity;\n                Entity _ent;\n                if (sourceentity instanceof ManglerEntity) {\n                    ((ManglerEntity)sourceentity).setAnimation(\"boost\");\n                }\n                if (!(_ent = entity).level().isClientSide() && _ent.getServer() != null) {\n                    _ent.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, _ent.position(), _ent.getRotationVector(), _ent.level() instanceof ServerLevel ? (ServerLevel)_ent.level() : null, 4, _ent.getName().getString(), _ent.getDisplayName(), _ent.level().getServer(), _ent), \"/execute as @e[type= thermal_shock:mangler] at @s run tp @s ~ ~ ~ facing entity @p\");\n                }"
+        },
+        {
+          "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\ManglerEntityIsHurtProcedure.java",
+          "sha256": "8fa9fb0f76caa73815b3d3bf491b543643a1ba56b0985b566b3872a733859b77",
+          "line": 25,
+          "context": "        if (entity == null) {\n            return;\n        }\n        if (entity instanceof ManglerEntity) {\n            ((ManglerEntity)entity).setAnimation(\"stunned\");\n        }\n        if (entity instanceof SummonedManglerEntity) {\n            ((SummonedManglerEntity)entity).setAnimation(\"stunned\");\n        }"
+        },
+        {
+          "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\ManglerEntityIsHurtProcedure.java",
+          "sha256": "8fa9fb0f76caa73815b3d3bf491b543643a1ba56b0985b566b3872a733859b77",
+          "line": 41,
+          "context": "            entity.setDeltaMovement(new Vec3(entity.getLookAngle().x - entity.getLookAngle().x * 3.0, 0.0, entity.getLookAngle().z - entity.getLookAngle().z * 3.0));\n        }\n        ThermalShockMod.queueServerWork(60, () -> {\n            if (entity instanceof ManglerEntity) {\n                ((ManglerEntity)entity).setAnimation(\"empty\");\n            }\n            if (entity instanceof SummonedManglerEntity) {\n                ((SummonedManglerEntity)entity).setAnimation(\"empty\");\n            }"
+        }
+      ],
+      "targetMethods": {
+        "movementAnimation": null,
+        "procedureAnimations": null,
+        "registerControllers": {
+          "line": 142,
+          "text": "public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n        var procedure = new AnimationController<>(this, \"procedure\", 4, state -> PlayState.STOP).triggerableAnim(\"boost\", RawAnimation.begin().thenPlay(\"boost\")).triggerableAnim(\"stunned\", RawAnimation.begin().thenPlay(\"stunned\")).triggerableAnim(\"chase\", RawAnimation.begin().thenPlay(\"chase\")).triggerableAnim(\"chaseloop\", RawAnimation.begin().thenPlay(\"chaseloop\"));\n        controllers.add(new AnimationController<>(this, \"movement\", 4, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(isAggressive() && state.isMoving() ? \"chaseloop\" : \"idle\")))); controllers.add(procedure);\n    }"
+        },
+        "triggerProcedure": null,
+        "setAnimation": {
+          "line": 45,
+          "text": "public void setAnimation(String value) { stunnedAnimation = value.equals(\"stunned\"); if (value.equals(\"empty\")) stopTriggeredAnim(\"procedure\", null); else triggerAnim(\"procedure\", value); }"
+        }
+      },
+      "assetPath": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\animations\\mangler25.animation.json",
+      "assetSha256": "5a87f7bb170d59d2003ac77a8b6a28745eec1f6ce50c2af2613324ceeac7e7f0",
+      "clipLoopModes": {
+        "idle": true,
+        "stunned": true,
+        "chase": false,
+        "chaseloop": true,
+        "boost": false
+      },
+      "reviewNote": "原movement在aggressive且isMoving时引用缺失idle2；目标chaseloop属于mangler-herald-next-audit.md既有批准修复。其余默认idle、4tick过渡保留；原boost请求对应目标begin攻击，原受伤前stunned及60tick后empty对应目标hurt、独立stunSchedule截止及stopTriggeredAnim。邻接SummonedMangler的候选不计入本体调用。",
+      "staticScope": "predicate/configured transition/named source and target consumers; not complete gameplay or runtime equivalence"
+    },
+    {
+      "id": "mantletitan",
+      "source": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\MantletitanEntity.java",
+        "sha256": "697f30b96ce8fd02d357d2faad8b4793e8fc52476de57787e0fff29bb226d001"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\titans\\SkeletalTitanEntity.java",
+        "sha256": "33491e77547b838791ab614d7cca122c5088625c0d493e043bcf5f687f2c21e3"
+      },
+      "validClips": [
+        "idle",
+        "bigswing1",
+        "bigswing2",
+        "hurt",
+        "walk",
+        "walk2"
+      ],
+      "sourceMethods": {
+        "movementPredicate": {
+          "line": 172,
+          "text": "private PlayState movementPredicate(AnimationState event) {\n        if (this.animationprocedure.equals(\"empty\")) {\n            if (!(!event.isMoving() && event.getLimbSwingAmount() > -0.15f && event.getLimbSwingAmount() < 0.15f || this.isAggressive())) {\n                return event.setAndContinue(RawAnimation.begin().thenLoop(\"walk\"));\n            }\n            if (this.isDeadOrDying()) {\n                return event.setAndContinue(RawAnimation.begin().thenPlay(\"death\"));\n            }\n            if (this.isAggressive() && event.isMoving()) {\n                return event.setAndContinue(RawAnimation.begin().thenLoop(\"walk2\"));\n            }\n            return event.setAndContinue(RawAnimation.begin().thenLoop(\"idle\"));\n        }\n        return PlayState.STOP;\n    }"
+        },
+        "attackPredicate": null,
+        "procedurePredicate": {
+          "line": 188,
+          "text": "private PlayState procedurePredicate(AnimationState event) {\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\n            if (!this.animationprocedure.equals(this.prevAnim)) {\n                event.getController().forceAnimationReset();\n            }\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\n                this.animationprocedure = \"empty\";\n                event.getController().forceAnimationReset();\n            }\n        } else if (this.animationprocedure.equals(\"empty\")) {\n            this.prevAnim = \"empty\";\n            return PlayState.STOP;\n        }\n        this.prevAnim = this.animationprocedure;\n        return PlayState.CONTINUE;\n    }"
+        },
+        "registerControllers": {
+          "line": 222,
+          "text": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\n        data.add(new AnimationController[]{new AnimationController((GeoAnimatable)this, \"movement\", 0, this::movementPredicate)});\n        data.add(new AnimationController[]{new AnimationController((GeoAnimatable)this, \"procedure\", 0, this::procedurePredicate)});\n    }"
+        }
+      },
+      "sourceCallers": [
+        {
+          "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\TestmobattackProcedure.java",
+          "sha256": "4b3b1ec59d0f2b6c712e64fdc7b4bb2a9c691b0eac0bd0bd6fa8f0f5e574b750",
+          "line": 74,
+          "context": "                if (sourceentity instanceof SkeletitanEntity) {\n                    ((SkeletitanEntity)sourceentity).setAnimation(\"bigswing1\");\n                }\n                if (sourceentity instanceof MantletitanEntity) {\n                    ((MantletitanEntity)sourceentity).setAnimation(\"bigswing1\");\n                }\n                if (sourceentity instanceof FrostTitanEntity) {\n                    ((FrostTitanEntity)sourceentity).setAnimation(\"bigswing1\");\n                }"
+        },
+        {
+          "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\TestmobattackProcedure.java",
+          "sha256": "4b3b1ec59d0f2b6c712e64fdc7b4bb2a9c691b0eac0bd0bd6fa8f0f5e574b750",
+          "line": 99,
+          "context": "                    if (sourceentity instanceof SkeletitanEntity) {\n                        ((SkeletitanEntity)sourceentity).setAnimation(\"empty\");\n                    }\n                    if (sourceentity instanceof MantletitanEntity) {\n                        ((MantletitanEntity)sourceentity).setAnimation(\"empty\");\n                    }\n                    if (sourceentity instanceof FrostTitanEntity) {\n                        ((FrostTitanEntity)sourceentity).setAnimation(\"empty\");\n                    }"
+        },
+        {
+          "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\TestmobattackProcedure.java",
+          "sha256": "4b3b1ec59d0f2b6c712e64fdc7b4bb2a9c691b0eac0bd0bd6fa8f0f5e574b750",
+          "line": 108,
+          "context": "                    if (sourceentity instanceof SkeletitanEntity) {\n                        ((SkeletitanEntity)sourceentity).setAnimation(\"bigswing2\");\n                    }\n                    if (sourceentity instanceof MantletitanEntity) {\n                        ((MantletitanEntity)sourceentity).setAnimation(\"bigswing2\");\n                    }\n                    if (sourceentity instanceof FrostTitanEntity) {\n                        ((FrostTitanEntity)sourceentity).setAnimation(\"bigswing2\");\n                    }"
+        }
+      ],
+      "targetMethods": {
+        "movementAnimation": null,
+        "procedureAnimations": {
+          "line": 119,
+          "text": "protected java.util.List<String> procedureAnimations() { return java.util.List.of(\"idle\", \"bigswing1\", \"bigswing2\", \"hurt\", \"walk\", \"walk2\"); }"
+        },
+        "registerControllers": {
+          "line": 106,
+          "text": "public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n        var procedure = new AnimationController<>(this, \"procedure\", 0, state -> PlayState.STOP);\n        for (String clip : new String[] {\"idle\", \"bigswing1\", \"bigswing2\", \"hurt\", \"walk\", \"walk2\"}) procedure.triggerableAnim(clip, RawAnimation.begin().thenPlay(clip));\n        controllers.add(new AnimationController<>(this, \"movement\", 0, state -> {\n            if (procedure.isPlayingTriggeredAnimation()) return PlayState.STOP;\n            boolean moving = state.isMoving() || state.getLimbSwingAmount() <= -.15F || state.getLimbSwingAmount() >= .15F;\n            if (moving && !isAggressive()) return state.setAndContinue(RawAnimation.begin().thenLoop(\"walk\"));\n            if (isDeadOrDying()) return state.setAndContinue(RawAnimation.begin().thenPlay(\"death\"));\n            if (isAggressive() && state.isMoving()) return state.setAndContinue(RawAnimation.begin().thenLoop(\"walk2\"));\n            return state.setAndContinue(RawAnimation.begin().thenLoop(\"idle\"));\n        }));\n        controllers.add(procedure);\n    }"
+        },
+        "triggerProcedure": null,
+        "setAnimation": null
+      },
+      "assetPath": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\animations\\skeletitan.animation.json",
+      "assetSha256": "8932e5ef8d04da05866328cf76e02d3576b8a3d8e4b4e6940f1494874d370d6e",
+      "clipLoopModes": {
+        "idle": true,
+        "bigswing1": false,
+        "bigswing2": false,
+        "hurt": false,
+        "walk": true,
+        "walk2": true
+      },
+      "reviewNote": "目标真实注册由TitanContent.titan(Kind.MANTLE)返回SkeletalTitanEntity，旧矩阵空路径不代表未实现。movement三分支、0tick过渡和procedure白名单保持；bigswing1由beginAttack触发，延迟载体TitanSwingEntity在20tick触发bigswing2。原资源没有death，目标同样仍引用缺失death，不补造资源。",
+      "staticScope": "predicate/configured transition/named source and target consumers; not complete gameplay or runtime equivalence"
+    },
+    {
+      "id": "monolith",
+      "source": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\MonolithEntity.java",
+        "sha256": "d5461e71ab204c5252f5ea514b185900a0cb812d9b722df884ccfec1351eb9b6"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\monolith\\MonolithEntity.java",
+        "sha256": "35abe71b203941ee3150daf4beac7763bfa0f33d1bfe45ffd2333ce181734af5"
+      },
+      "validClips": [
+        "idle",
+        "walk",
+        "attack",
+        "sleep",
+        "wake",
+        "death"
+      ],
+      "sourceMethods": {
+        "movementPredicate": {
+          "line": 207,
+          "text": "private PlayState movementPredicate(AnimationState event) {\n        if (this.animationprocedure.equals(\"empty\")) {\n            if (event.isMoving() || !(event.getLimbSwingAmount() > -0.15f) || !(event.getLimbSwingAmount() < 0.15f)) {\n                return event.setAndContinue(RawAnimation.begin().thenLoop(\"walk\"));\n            }\n            if (this.isDeadOrDying()) {\n                return event.setAndContinue(RawAnimation.begin().thenPlay(\"death\"));\n            }\n            return event.setAndContinue(RawAnimation.begin().thenLoop(\"idle\"));\n        }\n        return PlayState.STOP;\n    }"
+        },
+        "attackPredicate": null,
+        "procedurePredicate": {
+          "line": 220,
+          "text": "private PlayState procedurePredicate(AnimationState event) {\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\n            if (!this.animationprocedure.equals(this.prevAnim)) {\n                event.getController().forceAnimationReset();\n            }\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\n                this.animationprocedure = \"empty\";\n                event.getController().forceAnimationReset();\n            }\n        } else if (this.animationprocedure.equals(\"empty\")) {\n            this.prevAnim = \"empty\";\n            return PlayState.STOP;\n        }\n        this.prevAnim = this.animationprocedure;\n        return PlayState.CONTINUE;\n    }"
+        },
+        "registerControllers": {
+          "line": 254,
+          "text": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\n        data.add(new AnimationController[]{new AnimationController((GeoAnimatable)this, \"movement\", 1, this::movementPredicate)});\n        data.add(new AnimationController[]{new AnimationController((GeoAnimatable)this, \"procedure\", 1, this::procedurePredicate)});\n    }"
+        }
+      },
+      "sourceCallers": [
+        {
+          "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\MonolithAttackProcedure.java",
+          "sha256": "b95ec66705a4156398e150c577825a6dac8c6a25e32472427756312de4401191",
+          "line": 56,
+          "context": "            }\n            if (!(sourceentity instanceof LivingEntity) || !(_livEnt1 = (LivingEntity)sourceentity).hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())) {\n                LivingEntity _entity;\n                if (sourceentity instanceof MonolithEntity) {\n                    ((MonolithEntity)sourceentity).setAnimation(\"attack\");\n                }\n                if (sourceentity instanceof LivingEntity && !(_entity = (LivingEntity)sourceentity).level().isClientSide()) {\n                    _entity.addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 80, 1, true, false));\n                }"
+        }
+      ],
+      "targetMethods": {
+        "movementAnimation": null,
+        "procedureAnimations": {
+          "line": 120,
+          "text": "protected List<String> procedureAnimations() { return List.of(\"attack\"); }"
+        },
+        "registerControllers": {
+          "line": 121,
+          "text": "public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n        var procedure = new AnimationController<>(this, \"procedure\", 1, state -> PlayState.STOP).triggerableAnim(\"attack\", RawAnimation.begin().thenPlay(\"attack\"));\n        controllers.add(new AnimationController<>(this, \"movement\", 1, state -> {\n            if (procedure.isPlayingTriggeredAnimation()) return PlayState.STOP;\n            if (state.isMoving() || state.getLimbSwingAmount() <= -.15F || state.getLimbSwingAmount() >= .15F) return state.setAndContinue(RawAnimation.begin().thenLoop(\"walk\"));\n            if (isDeadOrDying()) return state.setAndContinue(RawAnimation.begin().thenPlay(\"death\"));\n            return state.setAndContinue(RawAnimation.begin().thenLoop(\"idle\"));\n        }));\n        controllers.add(procedure);\n    }"
+        },
+        "triggerProcedure": null,
+        "setAnimation": null
+      },
+      "assetPath": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\animations\\monolith.animation.json",
+      "assetSha256": "8f8f09875c685b71084ee1002cc18b321d24ee833804d1f3f3ed37002ef6c7f8",
+      "clipLoopModes": {
+        "idle": true,
+        "walk": true,
+        "attack": false,
+        "sleep": true,
+        "wake": "hold_on_last_frame",
+        "death": true
+      },
+      "reviewNote": "walk优先于death再idle，阈值在正常有限limb下相同，两个controller均1tick。原唯一attack写入对应目标成功提交MonolithTaskEntity后triggerProcedure(attack)。sleep/wake资源保留，原本体并无额外请求这两段的可达写入。",
+      "staticScope": "predicate/configured transition/named source and target consumers; not complete gameplay or runtime equivalence"
+    },
+    {
+      "id": "moonoid",
+      "source": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\MoonoidEntity.java",
+        "sha256": "3bc2070f7e05d3974dba3b3e4223c4c28beb57132f53dcc538f279f763fe26ff"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\moonoid\\MoonoidEntity.java",
+        "sha256": "62b4ad914db375599c2914f82d596069b9de9d5e503569af89aa61c80e741b42"
+      },
+      "validClips": [
+        "idle",
+        "walk"
+      ],
+      "sourceMethods": {
+        "movementPredicate": {
+          "line": 149,
+          "text": "private PlayState movementPredicate(AnimationState event) {\n        if (this.animationprocedure.equals(\"empty\")) {\n            if (event.isMoving() || !(event.getLimbSwingAmount() > -0.15f) || !(event.getLimbSwingAmount() < 0.15f)) {\n                return event.setAndContinue(RawAnimation.begin().thenLoop(\"walk\"));\n            }\n            return event.setAndContinue(RawAnimation.begin().thenLoop(\"idle\"));\n        }\n        return PlayState.STOP;\n    }"
+        },
+        "attackPredicate": null,
+        "procedurePredicate": {
+          "line": 159,
+          "text": "private PlayState procedurePredicate(AnimationState event) {\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\n            if (!this.animationprocedure.equals(this.prevAnim)) {\n                event.getController().forceAnimationReset();\n            }\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\n                this.animationprocedure = \"empty\";\n                event.getController().forceAnimationReset();\n            }\n        } else if (this.animationprocedure.equals(\"empty\")) {\n            this.prevAnim = \"empty\";\n            return PlayState.STOP;\n        }\n        this.prevAnim = this.animationprocedure;\n        return PlayState.CONTINUE;\n    }"
+        },
+        "registerControllers": {
+          "line": 193,
+          "text": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\n        data.add(new AnimationController[]{new AnimationController((GeoAnimatable)this, \"movement\", 0, this::movementPredicate)});\n        data.add(new AnimationController[]{new AnimationController((GeoAnimatable)this, \"procedure\", 0, this::procedurePredicate)});\n    }"
+        }
+      },
+      "sourceCallers": [],
+      "targetMethods": {
+        "movementAnimation": null,
+        "procedureAnimations": null,
+        "registerControllers": null,
+        "triggerProcedure": null,
+        "setAnimation": null
+      },
+      "assetPath": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\animations\\moonoid.animation.json",
+      "assetSha256": "b6f7389e296c83770ea784015ed197b25f9d09a50b04405ea18726c9cdeffb66",
+      "clipLoopModes": {
+        "idle": true,
+        "walk": true
+      },
+      "reviewNote": "原移动阈值选择walk/idle且无业务procedure写入；目标AnimatedMonsterEntity共享谓词，并明确override animationTransitionTicks为0。idle/walk白名单与原有效资源相交。",
+      "staticScope": "predicate/configured transition/named source and target consumers; not complete gameplay or runtime equivalence"
+    },
+    {
+      "id": "neon_lime_graver",
+      "source": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\NeonLimeGraverEntity.java",
+        "sha256": "6885abcf7bc994d33d31adb8ed7baffd53b592b4ac33224ea735638d7fed0dbe"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\gravers\\NeonLimeGraverEntity.java",
+        "sha256": "44c11691c3db42b9b41467428f38bb172e9c0e68f7493150252f9f30252122bb"
+      },
+      "validClips": [
+        "idle",
+        "walk"
+      ],
+      "sourceMethods": {
+        "movementPredicate": {
+          "line": 165,
+          "text": "private PlayState movementPredicate(AnimationState event) {\n        if (this.animationprocedure.equals(\"empty\")) {\n            if (event.isMoving() || !(event.getLimbSwingAmount() > -0.15f) || !(event.getLimbSwingAmount() < 0.15f)) {\n                return event.setAndContinue(RawAnimation.begin().thenLoop(\"walk\"));\n            }\n            return event.setAndContinue(RawAnimation.begin().thenLoop(\"idle\"));\n        }\n        return PlayState.STOP;\n    }"
+        },
+        "attackPredicate": null,
+        "procedurePredicate": {
+          "line": 175,
+          "text": "private PlayState procedurePredicate(AnimationState event) {\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\n            if (!this.animationprocedure.equals(this.prevAnim)) {\n                event.getController().forceAnimationReset();\n            }\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\n                this.animationprocedure = \"empty\";\n                event.getController().forceAnimationReset();\n            }\n        } else if (this.animationprocedure.equals(\"empty\")) {\n            this.prevAnim = \"empty\";\n            return PlayState.STOP;\n        }\n        this.prevAnim = this.animationprocedure;\n        return PlayState.CONTINUE;\n    }"
+        },
+        "registerControllers": {
+          "line": 209,
+          "text": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\n        data.add(new AnimationController[]{new AnimationController((GeoAnimatable)this, \"movement\", 4, this::movementPredicate)});\n        data.add(new AnimationController[]{new AnimationController((GeoAnimatable)this, \"procedure\", 4, this::procedurePredicate)});\n    }"
+        }
+      },
+      "sourceCallers": [],
+      "targetMethods": {
+        "movementAnimation": null,
+        "procedureAnimations": null,
+        "registerControllers": null,
+        "triggerProcedure": null,
+        "setAnimation": null
+      },
+      "assetPath": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\animations\\lime_graver.animation.json",
+      "assetSha256": "95d7a879f2c717d2e5698eb7648c62d1a808c716455f41172c92261a938bb21e",
+      "clipLoopModes": {
+        "idle": true,
+        "walk": true
+      },
+      "reviewNote": "目标真实GraverFamilyEntity.variant()==1分支使用moving?walk:idle，4tick过渡，procedure白名单idle/walk。原无业务动画写入，不把其他Graver变体条件误套到本体。",
+      "staticScope": "predicate/configured transition/named source and target consumers; not complete gameplay or runtime equivalence"
+    },
+    {
+      "id": "pillbud",
+      "source": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\PillbudEntity.java",
+        "sha256": "a0c995c42af2d2935b4ed0b9bd00293003426a85b5fbda889033dd84545a5a41"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\ambient\\PillbudEntity.java",
+        "sha256": "698798221403bf7b8d10f1fc80ab13350600f15daa9e5605f142f0c050c0b470"
+      },
+      "validClips": [
+        "idle",
+        "walk",
+        "attack"
+      ],
+      "sourceMethods": {
+        "movementPredicate": {
+          "line": 151,
+          "text": "private PlayState movementPredicate(AnimationState event) {\n        if (this.animationprocedure.equals(\"empty\")) {\n            if (event.isMoving() || !(event.getLimbSwingAmount() > -0.15f) || !(event.getLimbSwingAmount() < 0.15f)) {\n                return event.setAndContinue(RawAnimation.begin().thenLoop(\"walk\"));\n            }\n            return event.setAndContinue(RawAnimation.begin().thenLoop(\"idle\"));\n        }\n        return PlayState.STOP;\n    }"
+        },
+        "attackPredicate": null,
+        "procedurePredicate": {
+          "line": 161,
+          "text": "private PlayState procedurePredicate(AnimationState event) {\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\n            if (!this.animationprocedure.equals(this.prevAnim)) {\n                event.getController().forceAnimationReset();\n            }\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\n                this.animationprocedure = \"empty\";\n                event.getController().forceAnimationReset();\n            }\n        } else if (this.animationprocedure.equals(\"empty\")) {\n            this.prevAnim = \"empty\";\n            return PlayState.STOP;\n        }\n        this.prevAnim = this.animationprocedure;\n        return PlayState.CONTINUE;\n    }"
+        },
+        "registerControllers": {
+          "line": 195,
+          "text": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\n        data.add(new AnimationController[]{new AnimationController((GeoAnimatable)this, \"movement\", 4, this::movementPredicate)});\n        data.add(new AnimationController[]{new AnimationController((GeoAnimatable)this, \"procedure\", 4, this::procedurePredicate)});\n    }"
+        }
+      },
+      "sourceCallers": [
+        {
+          "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\PillbudAttackProcedure.java",
+          "sha256": "67cb4207f6c2ea4d84fcce47e30fa5f5de1a5fdce489d9401eeb3f0ff01a8df3",
+          "line": 77,
+          "context": "                if (!(_ent = entity).level().isClientSide() && _ent.getServer() != null) {\n                    _ent.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, _ent.position(), _ent.getRotationVector(), _ent.level() instanceof ServerLevel ? (ServerLevel)_ent.level() : null, 4, _ent.getName().getString(), _ent.getDisplayName(), _ent.level().getServer(), _ent), \"/execute as @e[type= thermal_shock:pillbud] at @s run tp @s ~ ~ ~ facing entity @p\");\n                }\n                if (sourceentity instanceof PillbudEntity) {\n                    ((PillbudEntity)sourceentity).setAnimation(\"attack\");\n                }\n                if (world instanceof Level) {\n                    Level _level = (Level)world;\n                    if (!_level.isClientSide()) {"
+        }
+      ],
+      "targetMethods": {
+        "movementAnimation": null,
+        "procedureAnimations": null,
+        "registerControllers": {
+          "line": 108,
+          "text": "public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n        var procedure = new AnimationController<>(this, \"procedure\", 4, state -> PlayState.STOP) .triggerableAnim(\"idle\", RawAnimation.begin().thenPlay(\"idle\")).triggerableAnim(\"walk\", RawAnimation.begin().thenPlay(\"walk\")).triggerableAnim(\"attack\", RawAnimation.begin().thenPlay(\"attack\"));\n        controllers.add(new AnimationController<>(this, \"movement\", 4, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(state.isMoving() || Math.abs(state.getLimbSwingAmount()) >= 0.15F ? \"walk\" : \"idle\"))));\n        controllers.add(procedure);\n    }"
+        },
+        "triggerProcedure": null,
+        "setAnimation": {
+          "line": 38,
+          "text": "public void setAnimation(String value) { triggerAnim(\"procedure\", value); }"
+        }
+      },
+      "assetPath": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\animations\\pillbud.animation.json",
+      "assetSha256": "8d7479fde6118ac73c3bf858e069f0b7066188048eb73470fff5aa63dd064041",
+      "clipLoopModes": {
+        "idle": true,
+        "walk": true,
+        "attack": false
+      },
+      "reviewNote": "原walk/idle、4tick过渡；原PillbudAttackProcedure在玩家受击且无cooldown时请求attack，目标beginAttack检查同类正常资格并于技能开始setAnimation(attack)。原有效attack由目标procedure播放期间暂停movement；存读恢复请求属于既有持久技能承接。",
+      "staticScope": "predicate/configured transition/named source and target consumers; not complete gameplay or runtime equivalence"
+    },
+    {
+      "id": "pixie",
+      "source": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\PixieEntity.java",
+        "sha256": "0a11ecc7526142b26b63fdd7e375061c6ca7230cb43f9e9d53d4ae98eab0cbef"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\ambient\\PixieEntity.java",
+        "sha256": "f6fe8e8939a06122405582d905a163221f1931ebbf6c234fa2169a76202b2e0d"
+      },
+      "validClips": [
+        "idle"
+      ],
+      "sourceMethods": {
+        "movementPredicate": {
+          "line": 248,
+          "text": "private PlayState movementPredicate(AnimationState event) {\n        if (this.animationprocedure.equals(\"empty\")) {\n            if (!this.onGround()) {\n                return event.setAndContinue(RawAnimation.begin().thenLoop(\"idle\"));\n            }\n            return event.setAndContinue(RawAnimation.begin().thenLoop(\"idle\"));\n        }\n        return PlayState.STOP;\n    }"
+        },
+        "attackPredicate": null,
+        "procedurePredicate": {
+          "line": 258,
+          "text": "private PlayState procedurePredicate(AnimationState event) {\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\n            if (!this.animationprocedure.equals(this.prevAnim)) {\n                event.getController().forceAnimationReset();\n            }\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\n                this.animationprocedure = \"empty\";\n                event.getController().forceAnimationReset();\n            }\n        } else if (this.animationprocedure.equals(\"empty\")) {\n            this.prevAnim = \"empty\";\n            return PlayState.STOP;\n        }\n        this.prevAnim = this.animationprocedure;\n        return PlayState.CONTINUE;\n    }"
+        },
+        "registerControllers": {
+          "line": 292,
+          "text": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\n        data.add(new AnimationController[]{new AnimationController((GeoAnimatable)this, \"movement\", 4, this::movementPredicate)});\n        data.add(new AnimationController[]{new AnimationController((GeoAnimatable)this, \"procedure\", 4, this::procedurePredicate)});\n    }"
+        }
+      },
+      "sourceCallers": [],
+      "targetMethods": {
+        "movementAnimation": null,
+        "procedureAnimations": null,
+        "registerControllers": {
+          "line": 78,
+          "text": "public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n        var procedure = new AnimationController<>(this, \"procedure\", 4, state -> PlayState.STOP) .triggerableAnim(\"idle\", RawAnimation.begin().thenPlay(\"idle\"));\n        controllers.add(new AnimationController<>(this, \"movement\", 4, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(\"idle\"))));\n        controllers.add(procedure);\n    }"
+        },
+        "triggerProcedure": null,
+        "setAnimation": {
+          "line": 32,
+          "text": "public void setAnimation(String value) { triggerAnim(\"procedure\", value); }"
+        }
+      },
+      "assetPath": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\animations\\pixie.animation.json",
+      "assetSha256": "e49ac8fc5716be0e7bfcb5388130a478889f7189cc5832c513d045dba37ed188",
+      "clipLoopModes": {
+        "idle": true
+      },
+      "reviewNote": "原在地面/空中均loop idle，4tick过渡，目标同样idle；没有本轮额外原业务动画写入，不凭两份相同分支捏造飞行动画。",
+      "staticScope": "predicate/configured transition/named source and target consumers; not complete gameplay or runtime equivalence"
+    },
+    {
+      "id": "pondler",
+      "source": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\PondlerEntity.java",
+        "sha256": "06c5e44273a642b68708367b8522ef1392c568ef836feb7dd0e45efcd13ae8d5"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\PondlerEntity.java",
+        "sha256": "642bd98601b2a9a80fe2d62d09552afcbff1cd107826d5ba80c078c61909ec5d"
+      },
+      "validClips": [
+        "idle",
+        "jump",
+        "landidle"
+      ],
+      "sourceMethods": {
+        "movementPredicate": {
+          "line": 241,
+          "text": "private PlayState movementPredicate(AnimationState event) {\n        if (this.animationprocedure.equals(\"empty\")) {\n            if (this.isInWaterOrBubble()) {\n                return event.setAndContinue(RawAnimation.begin().thenLoop(\"idle\"));\n            }\n            return event.setAndContinue(RawAnimation.begin().thenLoop(\"landidle\"));\n        }\n        return PlayState.STOP;\n    }"
+        },
+        "attackPredicate": null,
+        "procedurePredicate": {
+          "line": 251,
+          "text": "private PlayState procedurePredicate(AnimationState event) {\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\n            if (!this.animationprocedure.equals(this.prevAnim)) {\n                event.getController().forceAnimationReset();\n            }\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\n                this.animationprocedure = \"empty\";\n                event.getController().forceAnimationReset();\n            }\n        } else if (this.animationprocedure.equals(\"empty\")) {\n            this.prevAnim = \"empty\";\n            return PlayState.STOP;\n        }\n        this.prevAnim = this.animationprocedure;\n        return PlayState.CONTINUE;\n    }"
+        },
+        "registerControllers": {
+          "line": 285,
+          "text": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\n        data.add(new AnimationController[]{new AnimationController((GeoAnimatable)this, \"movement\", 4, this::movementPredicate)});\n        data.add(new AnimationController[]{new AnimationController((GeoAnimatable)this, \"procedure\", 4, this::procedurePredicate)});\n    }"
+        }
+      },
+      "sourceCallers": [
+        {
+          "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\PondlerOnEntityTickUpdateProcedure.java",
+          "sha256": "a94ea208ae7df3898c7bc772c418d94eadebb05b4fae8acc8da6d75cc27e46f0",
+          "line": 38,
+          "context": "                if (entity instanceof LivingEntity && !(_entity2 = (LivingEntity)entity).level().isClientSide()) {\n                    _entity2.addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), (int)Math.round(Mth.nextDouble((RandomSource)RandomSource.create(), (double)80.0, (double)300.0)), 0, true, false));\n                }\n                if (entity instanceof PondlerEntity) {\n                    ((PondlerEntity)entity).setAnimation(\"jump\");\n                }\n            } else {\n                entity.setDeltaMovement(new Vec3(0.0, 0.5, 0.0));\n            }"
+        }
+      ],
+      "targetMethods": {
+        "movementAnimation": null,
+        "procedureAnimations": null,
+        "registerControllers": {
+          "line": 179,
+          "text": "public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n        var procedure = new AnimationController<>(this, \"procedure\", 4, state -> PlayState.STOP)\n                .triggerableAnim(\"jump\", RawAnimation.begin().thenPlay(\"jump\"))\n                .triggerableAnim(\"landidle\", RawAnimation.begin().thenPlay(\"landidle\"))\n                .triggerableAnim(\"idle\", RawAnimation.begin().thenPlay(\"idle\"));\n        controllers.add(new AnimationController<>(this, \"movement\", 4, state -> procedure.isPlayingTriggeredAnimation()\n                ? PlayState.STOP : state.setAndContinue(isInWaterOrBubble() ? WATER_IDLE : LAND_IDLE)));\n        controllers.add(procedure);\n    }"
+        },
+        "triggerProcedure": null,
+        "setAnimation": {
+          "line": 73,
+          "text": "public void setAnimation(String animation) {\n        triggerAnim(\"procedure\", animation);\n    }"
+        }
+      },
+      "assetPath": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\animations\\pondler.animation.json",
+      "assetSha256": "c13520c5aa0541e25a7e262b2e6ddd5982dc55d7a5b8c29ebd28fbc85dc254b1",
+      "clipLoopModes": {
+        "idle": true,
+        "jump": false,
+        "landidle": true
+      },
+      "reviewNote": "原水/气泡idle，否则landidle，4tick过渡，目标同判定。原脚下不遮挡、无cooldown且当前格AIR时请求jump，目标tick以相同正常条件触发jump，冷却Math.round(80+random*220)；本条仅核请求条件和消费，不代替完整水中物理实测。",
+      "staticScope": "predicate/configured transition/named source and target consumers; not complete gameplay or runtime equivalence"
+    },
+    {
+      "id": "portrait_character",
+      "source": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\PortraitCharacterEntity.java",
+        "sha256": "6106d4807e2b59b6bd1ccac5fc7008a2841e9ee00a86068973f0b00228a2482e"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\npc\\portrait\\PortraitCharacterEntity.java",
+        "sha256": "019d6214bea24ed835587d33edcd29d1927432a9bebaaecf4517ed55c90e7cd6"
+      },
+      "validClips": [
+        "idle"
+      ],
+      "sourceMethods": {
+        "movementPredicate": {
+          "line": 210,
+          "text": "private PlayState movementPredicate(AnimationState event) {\n        if (this.animationprocedure.equals(\"empty\")) {\n            return event.setAndContinue(RawAnimation.begin().thenLoop(\"idle\"));\n        }\n        return PlayState.STOP;\n    }"
+        },
+        "attackPredicate": null,
+        "procedurePredicate": {
+          "line": 217,
+          "text": "private PlayState procedurePredicate(AnimationState event) {\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\n            if (!this.animationprocedure.equals(this.prevAnim)) {\n                event.getController().forceAnimationReset();\n            }\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\n                this.animationprocedure = \"empty\";\n                event.getController().forceAnimationReset();\n            }\n        } else if (this.animationprocedure.equals(\"empty\")) {\n            this.prevAnim = \"empty\";\n            return PlayState.STOP;\n        }\n        this.prevAnim = this.animationprocedure;\n        return PlayState.CONTINUE;\n    }"
+        },
+        "registerControllers": {
+          "line": 251,
+          "text": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\n        data.add(new AnimationController[]{new AnimationController((GeoAnimatable)this, \"movement\", 4, this::movementPredicate)});\n        data.add(new AnimationController[]{new AnimationController((GeoAnimatable)this, \"procedure\", 4, this::procedurePredicate)});\n    }"
+        }
+      },
+      "sourceCallers": [],
+      "targetMethods": {
+        "movementAnimation": null,
+        "procedureAnimations": null,
+        "registerControllers": {
+          "line": 61,
+          "text": "public void registerControllers(AnimatableManager.ControllerRegistrar controllers) { controllers.add(new AnimationController<>(this, \"movement\", 4, state -> state.setAndContinue(RawAnimation.begin().thenLoop(\"idle\")))); }"
+        },
+        "triggerProcedure": null,
+        "setAnimation": null
+      },
+      "assetPath": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\animations\\portrait_entity.animation.json",
+      "assetSha256": "88c4b74a94282679d7d627d90e8a21fa5d9c0f8142382a60a4958fe085768d6d",
+      "clipLoopModes": {
+        "idle": true
+      },
+      "reviewNote": "原movement固定idle、4tick；目标固定idle、4tick。未发现原业务procedure写入，目标不再保留空模板controller不构成丢失可达动作，唯一原clip保留。",
+      "staticScope": "predicate/configured transition/named source and target consumers; not complete gameplay or runtime equivalence"
+    },
+    {
+      "id": "prismatic_supernova",
+      "source": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\PrismaticSupernovaEntity.java",
+        "sha256": "20d12560e9d5a76ac38365dedbd4912a3e91afd3a469ffd52c700ea2611d8c66"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\weaponcore\\PrismaticSupernovaEntity.java",
+        "sha256": "e88cb9053519ba3f1f550a6344bb6332713ba8092db906c21d0370dde2b3ab42"
+      },
+      "validClips": [
+        "idle",
+        "move",
+        "idle3"
+      ],
+      "sourceMethods": {
+        "movementPredicate": {
+          "line": 202,
+          "text": "private PlayState movementPredicate(AnimationState event) {\n        if (this.animationprocedure.equals(\"empty\")) {\n            return event.setAndContinue(RawAnimation.begin().thenLoop(\"idle3\"));\n        }\n        return PlayState.STOP;\n    }"
+        },
+        "attackPredicate": null,
+        "procedurePredicate": {
+          "line": 209,
+          "text": "private PlayState procedurePredicate(AnimationState event) {\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\n            if (!this.animationprocedure.equals(this.prevAnim)) {\n                event.getController().forceAnimationReset();\n            }\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\n                this.animationprocedure = \"empty\";\n                event.getController().forceAnimationReset();\n            }\n        } else if (this.animationprocedure.equals(\"empty\")) {\n            this.prevAnim = \"empty\";\n            return PlayState.STOP;\n        }\n        this.prevAnim = this.animationprocedure;\n        return PlayState.CONTINUE;\n    }"
+        },
+        "registerControllers": {
+          "line": 243,
+          "text": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\n        data.add(new AnimationController[]{new AnimationController((GeoAnimatable)this, \"movement\", 0, this::movementPredicate)});\n        data.add(new AnimationController[]{new AnimationController((GeoAnimatable)this, \"procedure\", 0, this::procedurePredicate)});\n    }"
+        }
+      },
+      "sourceCallers": [],
+      "targetMethods": {
+        "movementAnimation": null,
+        "procedureAnimations": null,
+        "registerControllers": {
+          "line": 68,
+          "text": "public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n        var procedure = new AnimationController<>(this, \"procedure\", 0, state -> PlayState.STOP);\n        for (String animation : java.util.List.of(\"idle\", \"move\", \"idle3\")) procedure.triggerableAnim(animation, RawAnimation.begin().thenPlay(animation));\n        controllers.add(new AnimationController<>(this, \"movement\", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(\"idle3\"))));\n        controllers.add(procedure);\n    }"
+        },
+        "triggerProcedure": null,
+        "setAnimation": {
+          "line": 67,
+          "text": "public void setAnimation(String animation) { if (java.util.List.of(\"idle\", \"move\", \"idle3\").contains(animation)) triggerAnim(\"procedure\", animation); }"
+        }
+      },
+      "assetPath": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\animations\\prism_vortex.animation.json",
+      "assetSha256": "27e970a30ae8c9581f0f2d3db4a5058894c14dc247bcc4cb304bf9de5450d59d",
+      "clipLoopModes": {
+        "idle": true,
+        "move": true,
+        "idle3": "hold_on_last_frame"
+      },
+      "reviewNote": "目标真实注册为WeaponContent全限定实体类，旧矩阵空路径不是未迁。原固定idle3、0tick过渡，目标对应；没有原额外业务动画写入，idle/move/idle3资源保留并可由目标白名单消费。",
+      "staticScope": "predicate/configured transition/named source and target consumers; not complete gameplay or runtime equivalence"
+    },
+    {
+      "id": "probosker",
+      "source": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\ProboskerEntity.java",
+        "sha256": "23769649776da1ffb162bec6fd73dc3e7d537600b10df49e29f23e7d75217a45"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\ProboskerEntity.java",
+        "sha256": "108d4b183c31852bc493b28a84d8494ab4cf1cb02762490cad2caa110cfc0a4b"
+      },
+      "validClips": [
+        "sit",
+        "idle",
+        "walk",
+        "swim",
+        "swim2",
+        "swim3"
+      ],
+      "sourceMethods": {
+        "movementPredicate": {
+          "line": 283,
+          "text": "private PlayState movementPredicate(AnimationState event) {\n        if (this.animationprocedure.equals(\"empty\")) {\n            if (event.isMoving() || !(event.getLimbSwingAmount() > -0.15f) || !(event.getLimbSwingAmount() < 0.15f)) {\n                return event.setAndContinue(RawAnimation.begin().thenLoop(\"walk\"));\n            }\n            if (this.isShiftKeyDown()) {\n                return event.setAndContinue(RawAnimation.begin().thenLoop(\"sit\"));\n            }\n            return event.setAndContinue(RawAnimation.begin().thenLoop(\"idle\"));\n        }\n        return PlayState.STOP;\n    }"
+        },
+        "attackPredicate": null,
+        "procedurePredicate": {
+          "line": 296,
+          "text": "private PlayState procedurePredicate(AnimationState event) {\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\n            if (!this.animationprocedure.equals(this.prevAnim)) {\n                event.getController().forceAnimationReset();\n            }\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\n                this.animationprocedure = \"empty\";\n                event.getController().forceAnimationReset();\n            }\n        } else if (this.animationprocedure.equals(\"empty\")) {\n            this.prevAnim = \"empty\";\n            return PlayState.STOP;\n        }\n        this.prevAnim = this.animationprocedure;\n        return PlayState.CONTINUE;\n    }"
+        },
+        "registerControllers": {
+          "line": 330,
+          "text": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\n        data.add(new AnimationController[]{new AnimationController((GeoAnimatable)this, \"movement\", 4, this::movementPredicate)});\n        data.add(new AnimationController[]{new AnimationController((GeoAnimatable)this, \"procedure\", 4, this::procedurePredicate)});\n    }"
+        }
+      },
+      "sourceCallers": [],
+      "targetMethods": {
+        "movementAnimation": null,
+        "procedureAnimations": null,
+        "registerControllers": {
+          "line": 217,
+          "text": "public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n        var procedure = new AnimationController<>(this, \"procedure\", 4, state -> PlayState.STOP);\n        for (String animation : new String[]{\"sit\", \"idle\", \"walk\", \"swim\", \"swim2\", \"swim3\"}) {\n            procedure.triggerableAnim(animation, RawAnimation.begin().thenPlay(animation));\n        }\n        controllers.add(new AnimationController<>(this, \"movement\", 4, state -> procedure.isPlayingTriggeredAnimation()\n                ? PlayState.STOP : state.setAndContinue(state.isMoving() || Math.abs(state.getLimbSwingAmount()) >= 0.15F ? WALK : isInSittingPose() ? SIT : IDLE)));\n        controllers.add(procedure);\n    }"
+        },
+        "triggerProcedure": null,
+        "setAnimation": {
+          "line": 214,
+          "text": "public void setAnimation(String animation) { triggerAnim(\"procedure\", animation); }"
+        }
+      },
+      "assetPath": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\animations\\probosker.animation.json",
+      "assetSha256": "5b3c6ccd395434af8a5d0f7805bd1ee39d4a1a176945cfc91b29faa064448b93",
+      "clipLoopModes": {
+        "sit": true,
+        "idle": true,
+        "walk": true,
+        "swim": true,
+        "swim2": true,
+        "swim3": true
+      },
+      "reviewNote": "原移动优先walk，再shift标记sit，否则idle；目标移动优先walk，再同步坐姿sit，否则idle，4tick。原无swim业务写入，六clip保留。坐姿来源由原无条件右键shift改为主人非食物的Tamable坐姿，是probosker-implementation.md早期已明确记录的行为调整，不能声称右键资格完全相同或按本动画复核回退。",
+      "staticScope": "predicate/configured transition/named source and target consumers; not complete gameplay or runtime equivalence"
+    },
+    {
+      "id": "protoi_delta",
+      "source": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\ProtoiDeltaEntity.java",
+        "sha256": "729882ced94fd2a7cac9ec1cdd6a3457b1011d809e952277c5a3ff31bed7a35d"
+      },
+      "target": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\protoi\\ProtoiDeltaEntity.java",
+        "sha256": "3a611948d8baf28dbcc7f63646a78e2b6f3332ef54a28e7f3d30dd28e08f333c"
+      },
+      "validClips": [
+        "idle",
+        "walk",
+        "shoot"
+      ],
+      "sourceMethods": {
+        "movementPredicate": {
+          "line": 199,
+          "text": "private PlayState movementPredicate(AnimationState event) {\n        if (this.animationprocedure.equals(\"empty\")) {\n            if (event.isMoving() || !(event.getLimbSwingAmount() > -0.15f) || !(event.getLimbSwingAmount() < 0.15f)) {\n                return event.setAndContinue(RawAnimation.begin().thenLoop(\"walk\"));\n            }\n            return event.setAndContinue(RawAnimation.begin().thenLoop(\"idle\"));\n        }\n        return PlayState.STOP;\n    }"
+        },
+        "attackPredicate": null,
+        "procedurePredicate": {
+          "line": 209,
+          "text": "private PlayState procedurePredicate(AnimationState event) {\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\n            if (!this.animationprocedure.equals(this.prevAnim)) {\n                event.getController().forceAnimationReset();\n            }\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\n                this.animationprocedure = \"empty\";\n                event.getController().forceAnimationReset();\n            }\n        } else if (this.animationprocedure.equals(\"empty\")) {\n            this.prevAnim = \"empty\";\n            return PlayState.STOP;\n        }\n        this.prevAnim = this.animationprocedure;\n        return PlayState.CONTINUE;\n    }"
+        },
+        "registerControllers": {
+          "line": 243,
+          "text": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\n        data.add(new AnimationController[]{new AnimationController((GeoAnimatable)this, \"movement\", 4, this::movementPredicate)});\n        data.add(new AnimationController[]{new AnimationController((GeoAnimatable)this, \"procedure\", 4, this::procedurePredicate)});\n    }"
+        }
+      },
+      "sourceCallers": [],
+      "targetMethods": {
+        "movementAnimation": null,
+        "procedureAnimations": null,
+        "registerControllers": {
+          "line": 75,
+          "text": "public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n        var procedure = new AnimationController<>(this, \"procedure\", 4, state -> PlayState.STOP);\n        for (String clip : java.util.List.of(\"idle\", \"walk\", \"shoot\")) procedure.triggerableAnim(clip, RawAnimation.begin().thenPlay(clip));\n        controllers.add(new AnimationController<>(this, \"movement\", 4, state -> {\n            if (procedure.isPlayingTriggeredAnimation()) return PlayState.STOP;\n            boolean moving = state.isMoving() || state.getLimbSwingAmount() <= -.15F || state.getLimbSwingAmount() >= .15F;\n            return state.setAndContinue(RawAnimation.begin().thenLoop(moving ? \"walk\" : \"idle\"));\n        }));\n        controllers.add(procedure);\n    }"
+        },
+        "triggerProcedure": {
+          "line": 74,
+          "text": "public void triggerProcedure(String animation) { if (java.util.List.of(\"idle\", \"walk\", \"shoot\").contains(animation)) triggerAnim(\"procedure\", animation); }"
+        },
+        "setAnimation": null
+      },
+      "assetPath": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\animations\\protoi_delta.animation.json",
+      "assetSha256": "d53a582f7c28bc9f47abe86f31602f891f29b6c15f9a0a1ba529264d094229df",
+      "clipLoopModes": {
+        "idle": true,
+        "walk": true,
+        "shoot": false
+      },
+      "reviewNote": "原移动阈值walk/idle、4tick过渡，目标Delta覆写controller一致。原ProtoideltaattackProcedure未写shoot动画，故不能因shoot资源存在就称目标漏发射动画或新增每发触发。目标triggerProcedure白名单idle/walk/shoot，父类字段式procedure不会绕过Delta覆写。",
+      "staticScope": "predicate/configured transition/named source and target consumers; not complete gameplay or runtime equivalence"
+    }
+  ],
+  "additionalTargetConsumers": [
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\base\\AnimatedMonsterEntity.java",
+      "sha256": "0e8c3d8aca1b10ca3f890d625ba4f8b51e3c2cf574792bf78c35d9df555f6cd4"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\gravers\\GraverFamilyEntity.java",
+      "sha256": "5c23ea4ee50faa7c54e42e73247e3f214cad0d0439622391c666d095e4f5a55b"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\titans\\TitanContent.java",
+      "sha256": "f8a25ed7c6325efa3b296953a777f4c5357c4d4b00c0d73d971a707131bc06bc"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\titans\\TitanSwingEntity.java",
+      "sha256": "94c94e275552bb3fb40095c40ea699e04040f6c31e0590ac1b833f8d34345cbb"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\monolith\\MonolithTaskEntity.java",
+      "sha256": "49c2362f9dddf4132b997fd9ff20b24426dda79b9ac8cb7e4fefc361bb6dec18"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\protoi\\ProtoiEntityBase.java",
+      "sha256": "09dd4b480b03cacb0957f70572f808af73973ca8e19a9c2b03f18b70418c6492"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\WeaponContent.java",
+      "sha256": "28a2b47dcf439e77b86a4ba204d7b83fea7e3a161cfd834163d29668f434396f"
+    }
+  ],
+  "knownDifferenceDocs": [
+    "mangler-herald-next-audit.md",
+    "probosker-implementation.md",
+    "skeletal-titans-batch.md"
+  ],
+  "newAnimationProductionFixes": 0,
+  "runtimeExecuted": false,
+  "fullEntityAnimationReviewComplete": false
+}

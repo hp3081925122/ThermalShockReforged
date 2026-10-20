@@ -572,3 +572,8 @@ Concierge仅在buy恢复原41格Inventory资格，完整pay与Quest原样保留�
 生产停笔后固定8880份src/main，Java21离线compileJava/processResources --max-workers=2统一通过1m16s，两任务实际执行。构建期输入不变，8060直接资源字节一致；A10交接文件和全部详细证据文件哈希通过。校验器第一次把Git LF与工作区CRLF误判Quest修改，已按统一换行比较修正，生产未为此改变；最终main125-static-validation.json通过。独立Ribbonblade源码参与构建但不纳入迁移提交，用户测试目录独立保留。
 
 后续先核剩余Qo根声音消费者、动画group2余47种与A只读group1、其余正文及声画边界。完整代码与无简化复审后才子代理客户端/Render Preview验收；服务端继续用户独立线负责，不联系、不接管、不重复安排。当前goal active，未宣称完整迁移或最终运行验收完成。
+# 第126批后的有效待办
+
+基线4cb7d4b后，本阶段补齐Qo七持物根连续开页，菜单矩阵241/241静态闭合，实际客户端声音和画像仍待最终验收。不要重派旧234/241或A修前剩15项。主线动画group2累计36/59，余23；A交付40项消费已配对、19项待共享机制和时序整合，总余42项，精确身份见docs/migration/animation-main126-remaining.json。下一步先闭合共享controller参数与异名trigger切换，再核Icidrone/Icidrozerk过渡时长、Burner/Gunner第二段时序、出生首帧和Qo随机idle端侧门控。A未报告的结论不自行补为已完成。
+
+语言Luna本批140译文已停笔，英文相同1433值含专名；后续继续GUI500值的上下文审校，再物品/方块名称。构建输入8880份前后相同，8060直接资源一致，统一compileJava/processResources离线通过1m38s，见main126-static-validation.json。仅编译/静态证据，不代表服务端或Render Preview验收。用户测试/Ribbonblade/.vscode不纳迁移阶段提交，服务端独立线不联系或接管。

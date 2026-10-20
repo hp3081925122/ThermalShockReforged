@@ -1,0 +1,13 @@
+# 第126批：Qo连续开页与动画消费路径续审
+
+基线4cb7d4b。主线独占DefectorMachinistEntity.java，恢复原右键入口先开普通页、再按持物开专用页的顺序。修改前已核原NetworkHooks.openScreen、PlayMessages.OpenContainer.handle、ServerPlayer.doCloseContainer、原菜单构造声音消费者及目标ServerPlayer.openMenu。原服务端doCloseContainer不发送客户端关页包，客户端先构造菜单、再替换containerMenu，因此第二次构造读取前一页的声音分类，不能把两个开页合并为最终页。
+
+保留目标NPC距离、存活、维度、身份校验；基础页打开成功才推进进度，旧contacts==4仍只发一次遗物。专用页沿用QoContent.open和同NPC不发关页包的实现。无持物匹配或stratus任务完成时仍只开基础页。菜单自身资源、按钮和交易不由本批重写。
+
+持物资格按递增后的contacts>4判断，与原顺序一致；这也覆盖QoProgressData合法接收的非整数存档值，不能只按正常整数流程将它替换为旧值>=4。进度在发奖励前提交沿用目标已有防重复机制。
+
+A继续第125批group1的59种动画只读配对，主线继续group2尚余47种及公共语义；不重复已交付12种。语言Luna继续独占两份语言文件和审校文档，编译前要求停笔。所有临时提取和脚本只写D:/AI临时文件/ThermalShockMigration。
+
+本阶段主线完成group2第13～36项的24种有界消费复核，累计36/59，余23种；其中两处旧矩阵空类路径已追到实际共享实体与注册工厂，不能将定位表空值误判为未实现。已记录的Mangler缺失idle2映射、Probosker主人坐姿资格等差异保留原专项记录，不因本轮动画谓词核对静默回退；用户RibbonbladeActionEntity并行修改不在动画报告验收范围。
+
+用户测试、RibbonbladeActionEntity.java、.vscode和原总控保留；不接管独立服务端线。构建在全部src/main所有者冻结、记录完整输入快照后进行，静态闭合不代表实际客户端或Render Preview验收。完整代码迁移与无简化复审收口后才安排最终客户端子代理测试。

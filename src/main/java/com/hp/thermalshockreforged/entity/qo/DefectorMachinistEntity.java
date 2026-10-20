@@ -1,5 +1,6 @@
 package com.hp.thermalshockreforged.entity.qo;
 
+import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.MaterialContent;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -37,19 +38,24 @@ public final class DefectorMachinistEntity extends PathfinderMob implements GeoE
             var progress = QoProgressData.get(server.serverLevel());
             double contacts = progress.contacts();
             QoPage page = contacts == 0 ? QoPage.INTRO_1 : contacts == 1 ? QoPage.INTRO_2 : contacts == 2 ? QoPage.INTRO_3 : contacts == 3 ? QoPage.INTRO_4 : contacts == 4 ? QoPage.INTRO_5 : QoPage.EXHAUST;
-            if (contacts >= 4) {
-                ItemStack held = server.getMainHandItem();
-                if (held.is(MaterialContent.items().get("phobotite").get())) page = QoPage.PHOBOTITE;
-                else if (held.is(MaterialContent.items().get("cryonic_energy").get())) page = QoPage.CRYO_ENERGY;
-                else if (held.is(MaterialContent.items().get("neural_chip").get())) page = QoPage.NEURAL_CHIP;
-                else if (held.is(MaterialContent.items().get("cryonic_alloy").get())) page = QoPage.CRYO_ALLOY;
-                else if (held.is(MaterialContent.items().get("frigid_altar_key").get())) page = QoPage.ALTAR_KEY;
-                else if (held.is(MaterialContent.items().get("stellar_scrap").get())) page = QoPage.STELLAR_SCRAP;
-                else if (held.is(MaterialContent.items().get("stratus_alloy").get()) && !QoMenu.completed(server, "uneasy_alliance_1")) page = QoPage.STRATUS_1;
-            }
             if (QoContent.open(server, this, blockPosition(), page)) {
                 progress.advance();
                 if (contacts == 4) QoContent.give(server, new ItemStack(QoContent.ICE_ARTIFACT.get()));
+                if (progress.contacts() > 4) {
+                    ItemStack held = server.getMainHandItem();
+                    QoPage heldPage = null;
+                    if (held.is(MaterialContent.items().get("phobotite").get())) heldPage = QoPage.PHOBOTITE;
+                    else if (held.is(MaterialContent.items().get("cryonic_energy").get())) heldPage = QoPage.CRYO_ENERGY;
+                    else if (held.is(MaterialContent.items().get("neural_chip").get())) heldPage = QoPage.NEURAL_CHIP;
+                    else if (held.is(MaterialContent.items().get("cryonic_alloy").get())) heldPage = QoPage.CRYO_ALLOY;
+                    else if (held.is(MaterialContent.items().get("frigid_altar_key").get())) heldPage = QoPage.ALTAR_KEY;
+                    else if (held.is(MaterialContent.items().get("stellar_scrap").get())) heldPage = QoPage.STELLAR_SCRAP;
+                    else if (held.is(MaterialContent.items().get("stratus_alloy").get()) && !QoMenu.completed(server, "uneasy_alliance_1")) heldPage = QoPage.STRATUS_1;
+                    if (heldPage != null) {
+                        boolean opened = QoContent.open(server, this, blockPosition(), heldPage);
+                        ThermalShockReforged.LOGGER.debug("Qo held-item dialogue opened: player={}, npc={}, contacts={}, base={}, held={}, success={}", server.getUUID(), getUUID(), contacts, page, heldPage, opened);
+                    }
+                }
             }
         }
         return InteractionResult.sidedSuccess(level().isClientSide);

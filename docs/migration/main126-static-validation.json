@@ -1,0 +1,72 @@
+{
+  "baseline": "4cb7d4b",
+  "scope": "Qo连续开页修复、主线新增24种动画有界复核及独立Luna140值译文",
+  "build": {
+    "command": "compileJava processResources --offline --max-workers=2",
+    "success": true,
+    "log": "D:\\AI临时文件\\ThermalShockMigration\\batch126-unified-build.log",
+    "sha256": "a1de65ba4f9ad83b0169c40033b66cf2b492ee2fe6142d8b650ceb869b8eb585"
+  },
+  "fixedInputs": {
+    "count": 8880,
+    "snapshot": "D:\\AI临时文件\\ThermalShockMigration\\batch126-inputs-before.json",
+    "sha256": "6f0be754b4ea433d7e74211a0d1b82d7dfdaeaabe2cb24945a945e092074eece",
+    "unchanged": true
+  },
+  "directResourcesByteEqual": 8060,
+  "language": {
+    "changedExistingChinese": 140,
+    "newKeys": 0,
+    "englishAndKeyOrderUnchanged": true,
+    "formatsStylesNewlinesPassed": true,
+    "cameraPreserved": 86,
+    "englishExactRemainingIncludesNames": 1433,
+    "enSha256": "f34ec640698eb8f70a121b0a9ea91f5f81ea4e61b20b6bda53b714fe4e535cbb",
+    "zhSha256": "9c1a41017bcd7b10032346410b4bd1d2ce27a708a2d071f6cbb94c7a2dc0d45c",
+    "ownerReportSha256": "70b07b9510c7895d0202d4111af87e5e94354ec105e9d4412ae54626d3a46455"
+  },
+  "ownedProduction": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/qo/DefectorMachinistEntity.java",
+      "sha256": "bdf1e3c398a31479a51cdbe0db8bc28b80dde6f5a395363dd9b728518347d988"
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/lang/zh_cn.json",
+      "sha256": "9c1a41017bcd7b10032346410b4bd1d2ce27a708a2d071f6cbb94c7a2dc0d45c"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/migration/menu-main126-qo-validation.json",
+      "sha256": "bd1b49870d9a131b26398d7b641f87709e1c62a37acccd0a7c11d25d275ddf47"
+    },
+    {
+      "path": "docs/migration/animation-main126-next12-review.json",
+      "sha256": "02efa376a23004257c62725011f163daf1950b02a7c8e73952b1b1f3f1b34f0b"
+    },
+    {
+      "path": "docs/migration/animation-main126-third12-review.json",
+      "sha256": "8a986da5af34cf84c254b7ab44148fcdafca7d401d7cf4826fe4ae75f02d5193"
+    }
+  ],
+  "menuStaticClosed": 241,
+  "menuMatrixStaticRemaining": 0,
+  "menuStaticModelCases": 2880,
+  "group2AnimationBoundedReviewed": 36,
+  "group2Remaining": 23,
+  "group1AConsumerPaired": 40,
+  "group1AStaticRemaining": 19,
+  "aHandoffFilesVerified": 8,
+  "aDetailFilesVerified": 40,
+  "aInputsVerified": 578,
+  "aHandoffSha256": "4b507cfcb82cf51695477533d51fae9775560c352fdafa97de8e70573fe8a7a1",
+  "independentRibbonbladeIncludedButExcludedFromCommit": true,
+  "gameExecuted": false,
+  "fullMigrationComplete": false,
+  "animationRemainingIndex": {
+    "path": "docs/migration/animation-main126-remaining.json",
+    "sha256": "0baf6d92bfb802037c431443e57a4764ac54ead77867630092ba2661986e103b",
+    "boundedReviewedOrPaired": 76,
+    "remainingIdentities": 42
+  }
+}

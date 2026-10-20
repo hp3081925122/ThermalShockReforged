@@ -53,3 +53,10 @@
 动画分组契约见parallel-batch125.md：A完成菜单交付后使用原三只读Luna调查group1的59种，主线公共机制和group2；主线已完成前12种有界复核，尚余47种。未派发或未给最终报告不得记为完成。已核真实Gecko492的thenPlay DEFAULT和trigger消费，纠正Laut早期Factory误诊但保留已记录持久完成外观调整。语言最终停笔，zh SHA cbad3fa637527c47ee8bfca97179d0db70ae6b0d7b758b06848fddf265e8b3c6，英文不变。
 
 仍不接管服务端、不动用户测试/Ribbonblade，完整迁移和无简化复审收口后再实际客户端/Render Preview。原总控保留只读历史，goal继续active。
+# 第126批阶段集成后的有效状态
+
+第125阶段已提交4cb7d4b。本批恢复Qo根连续开页，菜单矩阵241/241静态闭合；声音/切页/画像实际表现仍待最终客户端验收。主线动画新增24种有界复核，group2累计36/59、余23；接收A125原报告，group1消费已配对40、剩19具体共享机制/时序疑点。当前动画共76项有界配对、余42，详见animation-main126-remaining.json，不将候选当已确认缺陷。
+
+语言独立Luna完成140既有值翻译并停笔，zh SHA 9c1a41017bcd7b10032346410b4bd1d2ce27a708a2d071f6cbb94c7a2dc0d45c。英文不变、86相机条目未动、全部键序/原生格式和改动样式/换行通过。英文相同1433值仍含专名。统一固定8880输入，Java21离线compileJava/processResources通过1m38s，两任务实际执行，8060直接资源相同；A8交接/40详细/578输入全核哈希，main126-static-validation.json为本阶段最终证据。验证脚本曾把utf-8-sig拼成utf8-sig，修正脚本后通过，生产无追加变化。
+
+下一阶段优先补共享controller参数/异名trigger切换、A列出过渡及延迟候选，再继续主线余23种与语言。粗略批次仍低置信，随真实缺项调整，不按每次提交机械扣一。原总控只读保留，用户服务端/测试目录/Ribbonblade/.vscode保持独立；完整代码与无简化复审收口后才子代理客户端/Render Preview。goal继续active。

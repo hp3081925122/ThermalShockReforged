@@ -1,0 +1,52 @@
+{
+  "batch": "125A",
+  "baseline": "f83be73",
+  "files": [
+    {
+      "path": "docs/migration/animation-a125-cross-entity-validation.json",
+      "sha256": "411c6374ed830fcf947fff5c98bade2ce2958b7021286d3eac434f07216bafd3"
+    },
+    {
+      "path": "docs/migration/animation-a125-group1-evidence.json",
+      "sha256": "7775717d29062232085c1750001786a8a3dde113dcd9d1cb00241f8b862db3fe"
+    },
+    {
+      "path": "docs/migration/animation-a125-history-resolution.json",
+      "sha256": "8c1086d8b802cbc4ca5d76b89f68fe50bd76eb1991811f9c3250385a8135373d"
+    },
+    {
+      "path": "docs/migration/review-a125-detail-manifest.json",
+      "sha256": "dbee2ec38623b279e2ad35d10c94fbf2ed25d7bb62a99047c9b3d2b9a6104bb3"
+    },
+    {
+      "path": "docs/migration/review-a125-plan.md",
+      "sha256": "0e1aec1034835f28badb9ad5a352c0369eb24f0e84f235b8cad441d1c36ccdf2"
+    },
+    {
+      "path": "docs/migration/review-a125-remaining.json",
+      "sha256": "22def221796b3192d9f6f56a5b604e9675b86fd2366cce924a3af8e6838f65e7"
+    },
+    {
+      "path": "docs/migration/review-a125-review.md",
+      "sha256": "98724995e6f8b70e48351953f7a49bd0820cfd60d1f6f9999edc85e11e4d1183"
+    },
+    {
+      "path": "docs/migration/review-a125-validation.json",
+      "sha256": "4d9d5cc139859d379417b93c5cf87a01da4254bc235060e00857da5055a9f9df"
+    }
+  ],
+  "input_set_sha256": "5351d01ede81a1ff73455d09a39743cc1e8f8b9626a235cf97673422efdb45ee",
+  "manifest_excludes_itself": true,
+  "selected": 59,
+  "local_counts": {
+    "部分": 19,
+    "本地消费已配对": 40
+  },
+  "production_files_changed_by_a": [],
+  "build_by_a": false,
+  "game_by_a": false,
+  "stage_commit_by_a": false,
+  "remaining_matrix": "docs/migration/review-a125-remaining.json",
+  "public_semantics_owner": "主线",
+  "runtime_acceptance": "未运行客户端、服务端或Render Preview"
+}

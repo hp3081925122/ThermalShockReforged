@@ -1,0 +1,31 @@
+{
+  "batch": "125A",
+  "baseline": "f83be73",
+  "resolutions": [
+    {
+      "id": "concierge",
+      "field": "notice_condition_historical_scope",
+      "status": "documented_authorized_difference",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\DEFERRED_MOD_INTEGRATIONS.md",
+      "sha256": "affc9e184cf17150396158521ad4b6df24c3efe5658b844336f7d5ea94a443da",
+      "result": "外部scrambler换皮入口已明确延期；按无该可选物品的本模组原生范围配对，不宣称恢复外部换皮分支。"
+    },
+    {
+      "id": "dandybloomer",
+      "field": "volley_receiver_history",
+      "status": "documented_authorized_difference",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\angry-cavebloomer-batch.md",
+      "sha256": "fbeac5fa19b6eedf52202feda3afa7b839684e942ee9ec965b29ceaf672a953c",
+      "result": "旧迁移记录明确修复volley接收者；本批JAR证实原接收者，目标施法者播放为已授权差异，不机械改回。"
+    },
+    {
+      "id": "explosive_snobol",
+      "field": "bounce_trigger_guard",
+      "status": "documented_authorized_difference",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\snobol-batch.md",
+      "sha256": "f76f645558289827c9f61c88e70d2da756fab9a5eecfff3e2e602526fe8fc2cf",
+      "result": "旧迁移记录明确唯一合法引信及立即bounce/TNT，后续不追加；FALL及重复点燃排除为记录过的行为修复，不声称调用条件等价。"
+    }
+  ],
+  "scope": "主代理仅补历史授权解释，三个Luna原始报告保持不改；不增加生产修改。"
+}

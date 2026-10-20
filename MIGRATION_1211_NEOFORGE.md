@@ -661,3 +661,10 @@ undead_mobs恢复原13成员并纠正第95/112批将两Monolith原生亡灵身�
 用户指定当前对话接续原总控；交接见docs/migration/PRIMARY_HANDOFF_2026-10-20.md。本批恢复cobalt铁级工具要求、Whisper快捷移动原方向，将121条玩家原文提取为语言键并补539条中文译文。20份Java反向还原、原英文/中文基线保留以及统一compileJava/processResources通过，固定输入与资源输出证据见main122-static-validation.json。
 
 结构属性最终加载值113组、菜单190身份、模板动态可达性和约1967条新增语言键仍待核或待译。未宣称完整迁移、完整汉化或运行验收通过；服务端继续由用户独立测试线负责，最终客户端/Render Preview待完整收口后由子代理进行。
+# 第126批阶段集成（2026-10-20）
+
+Qo根交互恢复先普通页、后七类持物页的两次实际开页；原Forge客户端构造顺序证实前页分类影响本地音效请求，不能合并成单页。保NPC身份、存活、距离、维度校验及一次遗物提交，持物按原递增后contacts>4判定，覆盖合法非整数存档。菜单241/241已有有界静态闭合证据，最终声音混音、切页和画像仍待实际客户端对照，见menu-main126-qo-validation.json。
+
+主线group2新增24种动画消费复核，累计36/59、余23；A125交付59种中40项本地消费已配对、19项具体疑点待主线整合。累计76项有界配对、余42项，并非76项完整玩法或画面验收。重点继续共享controller参数、异名trigger切换、出生首帧、Icidrone/Icidrozerk过渡0与4tick、Burner/Gunner第二段动作静态时序。原A报告及哈希完整保留，见animation-main126-remaining.json。
+
+语言独立Luna译140条既有正文/制作页内容，英文及键序未变；英文相同1433值含专名，不当作漏译数。固定8880份src/main统一Java21离线compileJava/processResources通过1m38s，两任务执行，8060直接资源字节一致；A8交接、40详细和578输入文件哈希通过，main126-static-validation.json记录。未启动游戏；用户服务端线、测试目录和Ribbonblade并行改动保持独立。goal仍active，完整代码与无简化复审后再子代理客户端/Render Preview。
