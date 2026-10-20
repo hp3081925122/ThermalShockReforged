@@ -29,6 +29,9 @@ public final class FabricatorBlock extends GeoDecorBlock {
         return InteractionResult.sidedSuccess(level.isClientSide);
     }
     @Override public void animateTick(BlockState state, Level level, BlockPos pos, net.minecraft.util.RandomSource random) {
-        if (random.nextFloat() < .05F) level.playLocalSound(pos, SoundEvents.BEACON_AMBIENT, SoundSource.BLOCKS, 1, 1, false);
+        if (random.nextFloat() < .05F) {
+            level.playLocalSound(pos.getX(), pos.getY(), pos.getZ(), SoundEvents.BEACON_AMBIENT, SoundSource.NEUTRAL, 1, 1, false);
+            com.hp.thermalshockreforged.ThermalShockReforged.LOGGER.debug("Fabricator ambient sound played locally: position={}", pos);
+        }
     }
 }
