@@ -1,0 +1,959 @@
+{
+  "batch": 132,
+  "sourceInventorySha256": "2f10d876b0df01647b0222f2e17443d478f41f4f21a6ad1013345eaaa16dff90",
+  "generatorSha256": "75fddb362aa75b4a26403df756c8abca4ddd37630351a3a7095a3c9b29088c9c",
+  "sourceSteps": [
+    {
+      "id": "magnetite",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\MagnetiteEntity.java",
+      "sha256": "51e8f26b0e8e69841eaab23e6d2716213a120ffe004d6d6cbc306eded4451744",
+      "line": 83,
+      "stepFloat": 1.0
+    },
+    {
+      "id": "frostilyte_cryomancer",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\FrostilyteCryomancerEntity.java",
+      "sha256": "1206cf55ae50683a57ced722b76fb7cb1b976d5b1b3f29a06571ea003249635b",
+      "line": 81,
+      "stepFloat": 0.6000000238418579
+    },
+    {
+      "id": "whisper",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\WhisperEntity.java",
+      "sha256": "2e24523f4558b06c241fa4a4fa570e7fa5662f3d1ca9498f8bd79f796bd477aa",
+      "line": 88,
+      "stepFloat": 0.6000000238418579
+    },
+    {
+      "id": "pixie",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\PixieEntity.java",
+      "sha256": "0a11ecc7526142b26b63fdd7e375061c6ca7230cb43f9e9d53d4ae98eab0cbef",
+      "line": 84,
+      "stepFloat": 0.6000000238418579
+    },
+    {
+      "id": "razorwing",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\RazorwingEntity.java",
+      "sha256": "d599403612a90e25557ccb8132156e6cb56d5af35edbd2f59b73a8e2e589fbbe",
+      "line": 94,
+      "stepFloat": 1.0
+    },
+    {
+      "id": "shutterbug",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\ShutterbugEntity.java",
+      "sha256": "42d026a6a928636e21e8a58c528ee7cb417331e663c04f1e49c0a80789103fbd",
+      "line": 75,
+      "stepFloat": 0.0
+    }
+  ],
+  "rows": [
+    {
+      "template": "archive_sanctum",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/archive_sanctum.nbt",
+      "sourceSha256": "d6b48bfa88bf4fdd1092a2c095a8230c065c1a41c62ed3ecee1238167e622922",
+      "rawSha256": "a7a437f1c4d945ac2a26adb1617aa6739a76cea66586159e47767a3d35cacb59",
+      "sha256": "78745eee4eb90dd893210258c721628063a2c5a2f2f78c83a694cce53423b9bf",
+      "geometrySha256": "09083de0922a6b2d48dbe22cbefed4f1d444e5bcdb4e17039e9ca9e21ad8df73",
+      "blocks": 1191016,
+      "counts": {
+        "namespace_strings": 522
+      },
+      "typedDifferences": 523
+    },
+    {
+      "template": "bigdungeon",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/bigdungeon.nbt",
+      "sourceSha256": "134d2e6c45e55b3471872bcb636686abda067fca9b21ee97facd98a4a727ccc3",
+      "rawSha256": "2c71fc0306a6d40549c8d5882947d512e972a400fd84899ffa69703d2ca75d3c",
+      "sha256": "98eae50871ec6734ddbe27e4365f02feb6b521d3bc0efe39b5806c461d3e413a",
+      "geometrySha256": "b0aa00c24c5196dd6776ad985a9f753d43169009abfdb5425cac7a7708a11ee2",
+      "blocks": 9477,
+      "counts": {
+        "namespace_strings": 26,
+        "original_unregistered_entity_opaque_attributes_preserved": 2,
+        "uuid_modifiers": 2,
+        "entities_with_attributes": 2,
+        "spawn_type": 2
+      },
+      "typedDifferences": 35
+    },
+    {
+      "template": "blizzard_sanctum",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/blizzard_sanctum.nbt",
+      "sourceSha256": "b4a9a5f0dfe4ddf659f0d6022d431e6dbc268296f686de04a302de91d67ebc5e",
+      "rawSha256": "fe4de7fccd516faa74577d08ef4e354eca833173bec76586fcc5fb918a370f24",
+      "sha256": "ef492b6441c75844579a8a5e7486f8f336438d02d4f4c0ad1268430581502b34",
+      "geometrySha256": "14fa4e49a47327fcfb7a6e12262f761e9714b36b7d75584fb50764aed853a88e",
+      "blocks": 1191016,
+      "counts": {
+        "namespace_strings": 406
+      },
+      "typedDifferences": 407
+    },
+    {
+      "template": "blizzardtower",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/blizzardtower.nbt",
+      "sourceSha256": "2171eecb5cbc32b30ed03544fc6d1d2f51e3803c1b298b1fe4d5e65675c14909",
+      "rawSha256": "303d62f66db0fd7130652e811a5cba88caced7414b2e074e12660b7a99aac250",
+      "sha256": "15486f64d35ff64015205136d891830b0e370839010b4e7c22eb76942cba2097",
+      "geometrySha256": "b4d52edb397ee0114b5e34e871583e43e205afcad0e1f92c2dbe2d0ab30c7062",
+      "blocks": 9386,
+      "counts": {
+        "namespace_strings": 72,
+        "uuid_modifiers": 1,
+        "entities_with_attributes": 1,
+        "spawn_type": 1
+      },
+      "typedDifferences": 77
+    },
+    {
+      "template": "bonebridge1",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/bonebridge1.nbt",
+      "sourceSha256": "d9f938cafcce8f10250b7a3c179099e936a13f5d762d271f73b8fdb2d9a79ac9",
+      "rawSha256": "aff0751fc5b0478817b54699fa2df8b950daa76eb364f241ae498fd34974b62a",
+      "sha256": "d34f9bc50a7fa8ee851ce77d7efc8ae6493f92d256937b142225b6247d45ecf2",
+      "geometrySha256": "be262baff096103c8778b234722ce452f4fdce67433b436bd6f457fae3509f9a",
+      "blocks": 420,
+      "counts": {
+        "namespace_strings": 8
+      },
+      "typedDifferences": 9
+    },
+    {
+      "template": "bonebridge2",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/bonebridge2.nbt",
+      "sourceSha256": "9e6f10c133fd65ffe1c90a67ed7d836521b10d0e8d22c675959a649d79e6152b",
+      "rawSha256": "ac0e5c910ef0f53906c18950a7a175acb0c9a0480168eedf5605daa153fd36a2",
+      "sha256": "993ad87dea13b9c73cbc303c10bf039e9ea9abbeadd7afd0351f7c42e18bb325",
+      "geometrySha256": "d18471390e1d1ae39820217765e06af4cc8e52cd17b997de7f668d35c4fd3076",
+      "blocks": 952,
+      "counts": {
+        "namespace_strings": 7
+      },
+      "typedDifferences": 8
+    },
+    {
+      "template": "boxdungeon",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/boxdungeon.nbt",
+      "sourceSha256": "c8a83ad228da17ab759dd159749384631c47b7ecd93d705e85ee15993dd7242c",
+      "rawSha256": "2362e4a8b1184b20a0934b336fd8a50db2031a8195accc0f039aa6603a313729",
+      "sha256": "c7a342f956549de045f80c412efff3f46bbfa93f7aeff4af6c5ce3e4d9d39171",
+      "geometrySha256": "4bb97cc30b4a40c87695d712046db8ad641f8a8419e30adcde502ba3ea3e66e5",
+      "blocks": 1014,
+      "counts": {
+        "namespace_strings": 19
+      },
+      "typedDifferences": 20
+    },
+    {
+      "template": "bulbceiling",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/bulbceiling.nbt",
+      "sourceSha256": "9dcb1f952a345b3039b0934dc1ce74ae4e9ac232edd974d5a65a22177e7288a9",
+      "rawSha256": "bcb3c5e398e835ffbafa2052e6b2734461d653a8406d3bdaf345eeb871efe84c",
+      "sha256": "4fa7c4c96460a387b4b9f8ad6d83c8fd9511f01ce362b58e866e309260aacf7a",
+      "geometrySha256": "6b1f6cfe2e8dcb1e0460f6b786dade87463f4ccfb8894aa0ee6e9969b1990743",
+      "blocks": 1,
+      "counts": {
+        "namespace_strings": 1
+      },
+      "typedDifferences": 2
+    },
+    {
+      "template": "cachechamber1",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/cachechamber1.nbt",
+      "sourceSha256": "6e1b4a094aa83a0465d71fb5007314d20bb71685c2befdec6bce40e3e19a18fe",
+      "rawSha256": "fc48fda02811c4636ce7dc5bf9675092bafe8ecf71056c827cfeea6974917e94",
+      "sha256": "643f51fb54c45204d103125b7838cbecd86d3d325b51f47b17a0398878f10aed",
+      "geometrySha256": "11fae81474cb67984d8035910aaa180b0af6452baf66490997c7544c25a1ef74",
+      "blocks": 250,
+      "counts": {
+        "namespace_strings": 18
+      },
+      "typedDifferences": 19
+    },
+    {
+      "template": "cachechamberalt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/cachechamberalt.nbt",
+      "sourceSha256": "3115c793ce874028861df6f5e269d2d1c626bc7e3e853beee92357036d15af93",
+      "rawSha256": "73539a7604d3529de59a9de40f2c7d0d1e74639a933bdd3d9c2143b7f6371e47",
+      "sha256": "38a316f711ddd01bb6ee65e86006f6998453a422735393b4c6001ecbcd0fbc0f",
+      "geometrySha256": "30cb0b46bb201f78f92cc5cad517e8bf33ff1a75503aa92a0c9f563fe00e0fa9",
+      "blocks": 250,
+      "counts": {
+        "namespace_strings": 18
+      },
+      "typedDifferences": 19
+    },
+    {
+      "template": "campbig",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/campbig.nbt",
+      "sourceSha256": "89f897b6a97ecb32a4d8602e9b03d67a762dfc0cd1828722d12fa5f94838afdf",
+      "rawSha256": "e3e9bcd48d9a2f3fcd6a017e493da7c8a2109c41354a40454e9862b51b0955a3",
+      "sha256": "938d323560eeb788ecd3166a979fec423ae883c0b6144ce874964854c7c4388d",
+      "geometrySha256": "70845998f7f57fa54fc689cd91e3a030592b0f1c4423f4f7ecf9a9f3f7d1551b",
+      "blocks": 2880,
+      "counts": {
+        "namespace_strings": 41,
+        "uuid_modifiers": 3,
+        "entities_with_attributes": 3,
+        "spawn_type": 3
+      },
+      "typedDifferences": 54
+    },
+    {
+      "template": "displaced_chamber",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/displaced_chamber.nbt",
+      "sourceSha256": "d0a43f06c45d922c51103ba7c2ea76a9ccddefe88211cb41974f94733fa3a135",
+      "rawSha256": "0bfe9ba36cf4f44209acff5eeca35dfca06c3b028ef067ba553d4fa92b4d6e0f",
+      "sha256": "253f656d7a2df18b376d109d20d1cc2668fdf4a61533275fa353bcdb30820a7f",
+      "geometrySha256": "b8967e6df8d75e2d0ba44739bd2f87a8f23644ad48c296a4d0c66a47640638a4",
+      "blocks": 81000,
+      "counts": {
+        "namespace_strings": 45,
+        "persistent_data": 1
+      },
+      "typedDifferences": 48
+    },
+    {
+      "template": "ferrousaltar",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/ferrousaltar.nbt",
+      "sourceSha256": "50f396d42f0a2227f395d0712c202ea8f1bd3397c3921b8d8ba32f69d1145783",
+      "rawSha256": "4f92159f1287a550b46e65cc9e8f311d6efa0893bfa0b39056ba6e911c87f8ff",
+      "sha256": "d7c7979183a20581d65ac57c28372e9c8afc09bbd9d5b894c02d19aad7996060",
+      "geometrySha256": "ec00eb9bbcca3806b450312e6c7552565921c9fe05db7a8ac1c55d9e5cdf4f33",
+      "blocks": 392,
+      "counts": {
+        "namespace_strings": 3
+      },
+      "typedDifferences": 4
+    },
+    {
+      "template": "frostboulderbig",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/frostboulderbig.nbt",
+      "sourceSha256": "919d341eb8a4a12f65bdc28cf2f3ca7e4dcb92baaab070c78c3b6e875b368bd8",
+      "rawSha256": "54f70b0db48ab940fa413cda3bd8e0adaceb44f8de6c816f998cfbb48b6a97a0",
+      "sha256": "81f9c189cb98a1250c85a02f73eddfbada5ba0a4621c6ae0c0f6192ca36b7ceb",
+      "geometrySha256": "34eee24a96decc7db2bebcca7cb7d6f4f70a3cb56974a81e20f9b7d724c7e61d",
+      "blocks": 125,
+      "counts": {
+        "namespace_strings": 2
+      },
+      "typedDifferences": 3
+    },
+    {
+      "template": "frostbouldersmall",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/frostbouldersmall.nbt",
+      "sourceSha256": "f43da3966c0dcef33fb68d723129b319888862e23f52be7a7a365748b1dba938",
+      "rawSha256": "4382532ba244ed141409e3ab2681c01afb8ddb7a44599000d91a1eeec213b495",
+      "sha256": "cdc6930aa1bf2a8cb85621a15eb10983cba1da73bdb75de8c06279d2ccd1aeb9",
+      "geometrySha256": "a158809be173a101617f88d94f3399b9b5bc78b059896d53d15ef2c2b7577164",
+      "blocks": 27,
+      "counts": {
+        "namespace_strings": 2
+      },
+      "typedDifferences": 3
+    },
+    {
+      "template": "geysercluster",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/geysercluster.nbt",
+      "sourceSha256": "dbe1784ba5e9c6e3318abf50e4c181c06b3dde4208e3dba6c3f5f0e2abbe4d35",
+      "rawSha256": "d82b4009749baf8fed8a21a75f8a2766f7368807ef97d44efc9dcd5d6ca2abfe",
+      "sha256": "489cf380a2544c6c343d09dc7d8d1121d22da4486d562cdd9c2d5f8971934ec7",
+      "geometrySha256": "084cd0c54d1ce7b12dc1ff8be7745a11f6004f943e059a5ac4e79a58bb8a786b",
+      "blocks": 637,
+      "counts": {
+        "namespace_strings": 3
+      },
+      "typedDifferences": 4
+    },
+    {
+      "template": "gianthand1",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/gianthand1.nbt",
+      "sourceSha256": "b604deb5972de983b281a2d48a8da6f57a19267acb9ae6078a71a25a5dec6aa9",
+      "rawSha256": "50014fc34d8ccdb48ee422ea6eafe076ce3bd06474af4f6bcde210ee423649fc",
+      "sha256": "094b134fa52a0688d7a40abf9e305fe9899a0e94561c00f8e8cff81c643d45ff",
+      "geometrySha256": "79ccb918d053d1eaeac7a84f4914d4c33f039c9b9a32804595e1bd80e90c694e",
+      "blocks": 119,
+      "counts": {
+        "namespace_strings": 12
+      },
+      "typedDifferences": 13
+    },
+    {
+      "template": "gianthand2",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/gianthand2.nbt",
+      "sourceSha256": "f6134038fbb0c40cbcd112869e2fe1317cedf19252c8d50186d02dd6c650c9d7",
+      "rawSha256": "998079265658d4d7c4c1484ea49ee57533da38dfd6b1dd09c21c7ebbcfd82fca",
+      "sha256": "7733b8764ad1bab17954e34e39ab161a9cbecb90d1329b0c0e8dac3f377a8da2",
+      "geometrySha256": "16497cffec48e3909ea8f7bfe521eb466e845ff92ee6c86790448663a9d627da",
+      "blocks": 384,
+      "counts": {
+        "namespace_strings": 14
+      },
+      "typedDifferences": 15
+    },
+    {
+      "template": "giantrib",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/giantrib.nbt",
+      "sourceSha256": "8cf3ea1d67593200bbf183275aed191b504bd0d030d9e1374196b5b02efdf459",
+      "rawSha256": "479283d6f0f87511664251b518b5b57d9454f6bb76ad61908d2fe82d7b2edcbe",
+      "sha256": "499ae8b2fa6b49069bb2213d5980bef9c3bb8d48c74991d1873207901e30c35a",
+      "geometrySha256": "32eae899bb6625f2363774fff616e0b084ccc591f7b07b85d5752447848ae2fc",
+      "blocks": 57,
+      "counts": {
+        "namespace_strings": 9
+      },
+      "typedDifferences": 10
+    },
+    {
+      "template": "gianttooth",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/gianttooth.nbt",
+      "sourceSha256": "f1413c276c7a47506f29e33373ed6b91b9a7ae5343186389a3e129f30ea751d9",
+      "rawSha256": "87aaf2f43cb75249b3dde4f5a5f420130488141331b4d1da7dc9b13e09b51d9f",
+      "sha256": "7fb44f31c6869943741861935cf074cc9b8f2476958e7ced840e8664896f1c7f",
+      "geometrySha256": "8a60ad630ed30b1680f28f4b161e361886c49916b535277a09653092f16d0202",
+      "blocks": 63,
+      "counts": {
+        "namespace_strings": 7
+      },
+      "typedDifferences": 8
+    },
+    {
+      "template": "glaukobig1",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/glaukobig1.nbt",
+      "sourceSha256": "ca9109522929e909a760a4823249cbbf8aa1e20c8aa9594da3d3d5d640cbb149",
+      "rawSha256": "14e2b44bce33194a28e1e9b2a0a91d75597abc47928061796192b9392d534ec4",
+      "sha256": "8b045df4ae9a4913aa1aae3e5b06bcb7d494a14026b3159b5364a4f0173371e5",
+      "geometrySha256": "4a03fe4aa3d99a1f6e4eebb7ca1efe03e7ade4f619241e1e70cfe8a82533805b",
+      "blocks": 325,
+      "counts": {
+        "namespace_strings": 14
+      },
+      "typedDifferences": 15
+    },
+    {
+      "template": "glaukobig2",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/glaukobig2.nbt",
+      "sourceSha256": "16b015301c538fc4778141dee71024866a45438c15782c9181f68d6041eb7d73",
+      "rawSha256": "7c8772c4bdce4fecb6b35b4e436840d46fa0147cbd84cac031ea97cf34a19c8a",
+      "sha256": "e549c66d5a47517fd0e9c48b8c4b59cefed4cc06b42ee737c6b3228a5298f922",
+      "geometrySha256": "abcda23bb5315033e5506dcabb8e53c86504aa4f8e83670db4780acfdb0437f7",
+      "blocks": 325,
+      "counts": {
+        "namespace_strings": 14
+      },
+      "typedDifferences": 15
+    },
+    {
+      "template": "glaukotree1",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/glaukotree1.nbt",
+      "sourceSha256": "021cebd514013ca12ed65746794edcf4d4ae0798a29091917f2a3f11d8a5254b",
+      "rawSha256": "7d7329e5f02f00320a36e52bfd2c0005583a7317646a1442f92d8dea8dc09974",
+      "sha256": "0bd23ac395adc93cdfc382d09fe8540cf3b121fb35cdfb37d797009ddeaed069",
+      "geometrySha256": "750fff2a2be3fe6269384282023b01969b9a2fb9ea353630de5312ee552593d8",
+      "blocks": 8,
+      "counts": {
+        "namespace_strings": 4
+      },
+      "typedDifferences": 5
+    },
+    {
+      "template": "glaukotree2",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/glaukotree2.nbt",
+      "sourceSha256": "1d1c0e1f73103f75ccb0b0a2c8d652542fd5c8ed87c0a863d77291f479f92333",
+      "rawSha256": "e926137c83cbe8d8ba8682314f4e1accc0d57bfdb9ac6dde593dfb11bd703157",
+      "sha256": "1b056024be0b06dd0faa10bae5af420096058f5656f08982d60fe46f10737dbb",
+      "geometrySha256": "169b128f7ed411ce78ed1cfb8cc6d6124047213eb31832f4689ad068277b81cd",
+      "blocks": 9,
+      "counts": {
+        "namespace_strings": 4
+      },
+      "typedDifferences": 5
+    },
+    {
+      "template": "glaukotree3",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/glaukotree3.nbt",
+      "sourceSha256": "693080fed0d65f8c7d2dba55f25644dd5d02828799898018970986950ab71f0a",
+      "rawSha256": "5acd2049f5252ae57da0aee10117ce405169e730ef79240d3e140f12c5226a15",
+      "sha256": "e7aaf758157cf1d1828654e1d07827301c218e47f635fba30e62d470810f06b6",
+      "geometrySha256": "36699a8fe52a627fae5b6db69b96b0c7c5134c4f1b0223da83aa590e7ee07964",
+      "blocks": 30,
+      "counts": {
+        "namespace_strings": 6
+      },
+      "typedDifferences": 7
+    },
+    {
+      "template": "glaukotree4",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/glaukotree4.nbt",
+      "sourceSha256": "b3fa027b57c5b6599c213db31e6a1e47f00cd2b77d614363c8b7af09c246ffa4",
+      "rawSha256": "5e4f6466224374d254658f0bf21d1c949e5e64e343d5900ea002c161eb908731",
+      "sha256": "82ebe8ebd309f27c94719b8f255f61586b43d3e3372e1bf09a5ffe2511f40541",
+      "geometrySha256": "5461bc7592a42790decb3bd34680211be17bc291af01883828ca6332a1101719",
+      "blocks": 27,
+      "counts": {
+        "namespace_strings": 5
+      },
+      "typedDifferences": 6
+    },
+    {
+      "template": "glaukotree5",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/glaukotree5.nbt",
+      "sourceSha256": "8e581d685233e5e7c00bb9891652bc8ed4be5c79188400c0af13ce1d531d185f",
+      "rawSha256": "8bccc6b81637d691c7f4373a4350f58c8caae9d3c7b6982f15d9c27dc925e63d",
+      "sha256": "34434a3d35ed44e7a3fde86419c4bd1d16128833b4de53dfa678ce5652aabfb4",
+      "geometrySha256": "d24b839c7c835fc26c0db94254e9e48525024afa769362b83b3b73f09ab920cc",
+      "blocks": 36,
+      "counts": {
+        "namespace_strings": 5
+      },
+      "typedDifferences": 6
+    },
+    {
+      "template": "hallowed_town",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/hallowed_town.nbt",
+      "sourceSha256": "eb29acce2e626894a7b602cae595958fb8c230407546f5ff6f59c4b4a745d162",
+      "rawSha256": "40736bb2ea6d52d09deb3e8aba6c2cfca34b114d8d8d084a37f0c993d48c80dc",
+      "sha256": "6627d955185b49e4846ae86d7238316c43bc03dddd56ca61b89397afd6939343",
+      "geometrySha256": "d00dba5947aedd52ae876403144e7f632bd46da559a159f64809b706fc7007e3",
+      "blocks": 65536,
+      "counts": {
+        "namespace_strings": 101,
+        "uuid_modifiers": 2,
+        "entities_with_attributes": 2,
+        "spawn_type": 2,
+        "persistent_data": 2
+      },
+      "typedDifferences": 114
+    },
+    {
+      "template": "huntressnest",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/huntressnest.nbt",
+      "sourceSha256": "c9789bd5ae8469ec025e3ea422e5ddf27936246f1ce651d660ab1de651aa51c0",
+      "rawSha256": "9e113de103de69e915eb839ba6028bc03d2df732649c41f40602d097e7655774",
+      "sha256": "c379e3dff535e364f6c3686916be8845c82b331e3e9f2bf42cfeea8e33737d9f",
+      "geometrySha256": "690d12dd8a4e696300bc4f49c553e43530f3a179f817f29e12fe5a542c3f6ccd",
+      "blocks": 11664,
+      "counts": {
+        "banner_layers": 36,
+        "banners": 9,
+        "namespace_strings": 37
+      },
+      "typedDifferences": 56
+    },
+    {
+      "template": "keystonechamberalt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/keystonechamberalt.nbt",
+      "sourceSha256": "21861b5c158395e51ef772979d963a20c9912c98bbafd3e5bca6865b301d5000",
+      "rawSha256": "fc47d0d59e831c9e46e5d8b54cd952cfbbc100d0e45298ddecc8a5dc29f82d09",
+      "sha256": "99daa9fe130128d68996422db46abcfe5e8fd58d2fccc1ef6ed02c090b48a649",
+      "geometrySha256": "21079619a68f64169374d09c33112f3049dfad8b5980a06eb0b4049f80cb788a",
+      "blocks": 13125,
+      "counts": {
+        "namespace_strings": 35
+      },
+      "typedDifferences": 36
+    },
+    {
+      "template": "loquebirchtree_a",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/loquebirchtree_a.nbt",
+      "sourceSha256": "f0d0b4f891febf8ba5a4e546867f268eb431d5faedcf5f348758877b1bd1d759",
+      "rawSha256": "36d16a484a8504ca1ee68e876a6910de67bc7f019b5ffc678852282a3acc9f6e",
+      "sha256": "c3378db56621abc5d4246321c2442eec225526858d4f6ccea7fae0a402708a14",
+      "geometrySha256": "8edc4a1ee7a9f16ff0f30c58a3811dc5eb154ed16969f9859c96fb34fc997638",
+      "blocks": 675,
+      "counts": {
+        "namespace_strings": 2
+      },
+      "typedDifferences": 3
+    },
+    {
+      "template": "loquebirchtree_b",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/loquebirchtree_b.nbt",
+      "sourceSha256": "3a49de75f74828455d1bfb230989dc93a0e9c69a751754f06ab00861bac56345",
+      "rawSha256": "9365e4b8ef674dc1232b28a2d9a2453d91d08570f58f81a9570408336d79a138",
+      "sha256": "f284534371e0bde05e0a59c03c07af1a257a74a2671f3533df87e0eb29e6e317",
+      "geometrySha256": "cd7b72bd1cbc4062b286b24f1150d43cbddd3e48f7c1c6efb8dda54d0b84ce79",
+      "blocks": 825,
+      "counts": {
+        "namespace_strings": 2
+      },
+      "typedDifferences": 3
+    },
+    {
+      "template": "lotusfloor",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/lotusfloor.nbt",
+      "sourceSha256": "66c1f57557388c136301106475b892510dd783944be8b3044d8f8d35be4e0ead",
+      "rawSha256": "1c4f984d94022f3fb5ddcb531bc7052be3d763e0daab306421ff4e862b2721bb",
+      "sha256": "dca7e4749ec3d82ab34c6c777054acda70af6a2a4374c6ee0dd559298a6895f2",
+      "geometrySha256": "6b1f6cfe2e8dcb1e0460f6b786dade87463f4ccfb8894aa0ee6e9969b1990743",
+      "blocks": 1,
+      "counts": {
+        "namespace_strings": 1
+      },
+      "typedDifferences": 2
+    },
+    {
+      "template": "lunalemontree",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/lunalemontree.nbt",
+      "sourceSha256": "044a4ec91b762984e016284887381e10b2e59f7067a55d1753da7d41e82f8434",
+      "rawSha256": "e1c416b69621d52a1c35178da0d8e35f62f63fd387fc661a96ac92fd644385b0",
+      "sha256": "82a84739e5c2fbd771844589350aeecfcf1deda37bfd9bbc5d655d4cb242cc58",
+      "geometrySha256": "6772d6ea72806f628482545bc10cf8bfacc11c816eefe193b29ea2dfc8352f1f",
+      "blocks": 200,
+      "counts": {
+        "namespace_strings": 2
+      },
+      "typedDifferences": 3
+    },
+    {
+      "template": "maiden_chamber",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/maiden_chamber.nbt",
+      "sourceSha256": "aecd7708935db3454842615d9ec48b350b37f82588894e03937aa6654588b95a",
+      "rawSha256": "e0b9fcdf6ac99220c628506e0cdb26e5e7a55cf4253828a229366ec92caf308b",
+      "sha256": "424148baaada338e7e6330ef7413650de34ca111457ecd61a2a62b32fb0c9e7e",
+      "geometrySha256": "21f0325b98b2d6007cf80fdf50507f3f87def76d8c8426b9e5b47483cfcd65ec",
+      "blocks": 5780,
+      "counts": {
+        "namespace_strings": 23,
+        "item_stacks": 3,
+        "original_unregistered_entity_opaque_attributes_preserved": 3
+      },
+      "typedDifferences": 30
+    },
+    {
+      "template": "mantledungeon",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/mantledungeon.nbt",
+      "sourceSha256": "e11d26801ed80c4a871c758a991b3dcf6be787474a15d2603ae0b7bc3a121653",
+      "rawSha256": "5722b0365dff64236ef4836fde794b28f3f7b054d60964d7afbec0886737e0dd",
+      "sha256": "9bd27f5820baf94f3e05ba66f6a1586217f2145dc9a23457ea57b2aaf303dd21",
+      "geometrySha256": "441b35da9a933082287e41244f4872211943d42e2539a28b516f812dfaf44972",
+      "blocks": 1014,
+      "counts": {
+        "namespace_strings": 14
+      },
+      "typedDifferences": 15
+    },
+    {
+      "template": "nitelitecluster_a",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/nitelitecluster_a.nbt",
+      "sourceSha256": "9d8c7c8db1ada3572c9ae6ae80aa9136460f1523ca82c98fd467d474c2d0cc5b",
+      "rawSha256": "2dc5ac02102e5d2896d56b94a40c69df763081d29c639f1c28b5ad1e7e2b7865",
+      "sha256": "bfde95020045c04d7da7fd89686138108f7625033ef2c685eb51cf5f7327a554",
+      "geometrySha256": "67d4ab06760625b4ca1900856774b0689cd8d6f629c4bffa6da2b369682c27b1",
+      "blocks": 175,
+      "counts": {
+        "namespace_strings": 2
+      },
+      "typedDifferences": 3
+    },
+    {
+      "template": "nitelitecluster_b",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/nitelitecluster_b.nbt",
+      "sourceSha256": "fa6d47862db3413f27f38541c2678cf95ba780dde3b46b7c3a83366d2e3435a8",
+      "rawSha256": "561c5df66884bfec7d0f5e7e68b56ffcdbb5467d5d9c9686e21615ed0730a84d",
+      "sha256": "1eee60b4ef25a1e464833eec2b9516c94761b86639e27743b611234d20e6594c",
+      "geometrySha256": "ba91106c0595358e0d67c6d77400f17514b1e968757709600800ec4cc9ce5c82",
+      "blocks": 810,
+      "counts": {
+        "namespace_strings": 2
+      },
+      "typedDifferences": 3
+    },
+    {
+      "template": "pillarshroom1",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/pillarshroom1.nbt",
+      "sourceSha256": "e53acc4b89efa749882e37407f61dfc22e028e7ffe25e613251c560bec9868ab",
+      "rawSha256": "6e049f5675012c87b628632fd7e2c7a5057d7c8ff7defd84b7707fc8a7f0d032",
+      "sha256": "7a99e845a6cd521dd6611725950fdd7c20819cc95caf9f1ab5e013b5b57c95c2",
+      "geometrySha256": "11324a2cf0dba1c30865c5b8a2babda698e893171d590fa287566771d83df8ed",
+      "blocks": 4,
+      "counts": {
+        "namespace_strings": 2
+      },
+      "typedDifferences": 3
+    },
+    {
+      "template": "pillarshroom2",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/pillarshroom2.nbt",
+      "sourceSha256": "2c96a76f0a37926dae6d4488b67a46445ff50926e70ea2e25ba991177a0c3925",
+      "rawSha256": "287356eb8085de46d3468723a2c2768fa7af3bef6f3e59c25af4d0774b94b958",
+      "sha256": "ee4adba493e3ecb5ab1328bdd04910e94ef22039b565ccafa44a5e9dc0858bbc",
+      "geometrySha256": "b796fb1f95f702ec4b48d7c9a534d07aea3b15a1d04422b9d4900709c7bf5e5e",
+      "blocks": 5,
+      "counts": {
+        "namespace_strings": 2
+      },
+      "typedDifferences": 3
+    },
+    {
+      "template": "planted_sparkler_b",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/planted_sparkler_b.nbt",
+      "sourceSha256": "cd98dc3137e6db685d4f212b6bf3cb421d756e524bf6b74c18c6d493c32f90bf",
+      "rawSha256": "d3dbd52fdf60812ba633feb3fd484efdd135fce6f3f9b5fb1de0d24ec334f8e0",
+      "sha256": "42cb72d71db533028dcb19e0a33885b9b3c968cdec80457e369293a18525d3ec",
+      "geometrySha256": "4dbed10401378130a0f3bf114737e2c568a26198ed4d94602c1ad77ce8674bd5",
+      "blocks": 4,
+      "counts": {
+        "namespace_strings": 4
+      },
+      "typedDifferences": 5
+    },
+    {
+      "template": "plateau",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/plateau.nbt",
+      "sourceSha256": "1c18baa8101c1a76197199361a54bc93b0deb2bfc073d9617907a2cc499af0b2",
+      "rawSha256": "aace0af10bcae5a61c542a0736f93791a819087150ed5c4824f729c4d42c4fed",
+      "sha256": "82c188ef1da311b3e4cdb0b9e13aba163c9207723c83073e43f55a8d29a20a1b",
+      "geometrySha256": "f1f81b8ad504573acd1ea333339436540848db894d7f3abffc376b15d4b02f42",
+      "blocks": 6500,
+      "counts": {
+        "namespace_strings": 2
+      },
+      "typedDifferences": 3
+    },
+    {
+      "template": "polyporeochre",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/polyporeochre.nbt",
+      "sourceSha256": "45d185743ba786b01ea8757c927203fcc71a43cc57a1e52f919ef82f435cfd63",
+      "rawSha256": "697da466b0f6e1a8a4a73beebe40bb879ef44d4562cd9e8466f5a193b9c4668a",
+      "sha256": "cb9c016d469a446a615a3f6bebb13f3ff90198f23b366862867fc115691f978a",
+      "geometrySha256": "6b1f6cfe2e8dcb1e0460f6b786dade87463f4ccfb8894aa0ee6e9969b1990743",
+      "blocks": 1,
+      "counts": {
+        "namespace_strings": 2
+      },
+      "typedDifferences": 3
+    },
+    {
+      "template": "polyporeochrealt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/polyporeochrealt.nbt",
+      "sourceSha256": "d90fb0ef257a58f514f74bba8e3d9116ae4141bddc2aeae567f576a9aca67c5b",
+      "rawSha256": "6663b7b8a66d36fa65b7761ae60aab47c47450389fc71623bae1f84b322fe2aa",
+      "sha256": "d51da059b405caa6b691ea4b6b77f2fce70a27898d8b0056ce4f0e44f40c087e",
+      "geometrySha256": "6b1f6cfe2e8dcb1e0460f6b786dade87463f4ccfb8894aa0ee6e9969b1990743",
+      "blocks": 1,
+      "counts": {
+        "namespace_strings": 2
+      },
+      "typedDifferences": 3
+    },
+    {
+      "template": "risen_chunk_1",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/risen_chunk_1.nbt",
+      "sourceSha256": "c7c1476c38a9013a55fc7e6bc87e10e54956841e5845557189748501f7d6a63b",
+      "rawSha256": "bb34b649c535c35089595db7a5bb9736d43a27beb6e9c6240743447ab812a682",
+      "sha256": "37db33b5db86d34a59299acfafa8144f81e17a219790eae9a7e3d5a40c93e317",
+      "geometrySha256": "187ddc56c1dd9a1f24973353bf80a2d1c838c8ce1eec2f19933c700f5ba8a963",
+      "blocks": 23040,
+      "counts": {
+        "namespace_strings": 4
+      },
+      "typedDifferences": 5
+    },
+    {
+      "template": "risen_chunk_2",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/risen_chunk_2.nbt",
+      "sourceSha256": "7e50125ea0d24a8fe5937a1a8743ba3ca80e1dcc42d183f1d3ab589a3f73e7e1",
+      "rawSha256": "67b454d7b8e75a6f94ff4961ae703851cfb126af644ff53a2cc0b9eaaad3025a",
+      "sha256": "302f2d8f0cb680e5a18338d89f0763c4b88b9939581789f478cd1502c1c61738",
+      "geometrySha256": "99529765663412c9e99c87a779a404dd4f4c564d2f4687400022df1350a319bb",
+      "blocks": 23040,
+      "counts": {
+        "namespace_strings": 4
+      },
+      "typedDifferences": 5
+    },
+    {
+      "template": "risen_chunk_3",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/risen_chunk_3.nbt",
+      "sourceSha256": "c5a8d6a38e43f3680f4b7dbd85057bd081577369be6b55124fe014611433e1b9",
+      "rawSha256": "d4ca6933fbfe546941148eb1bbb20477f4c69d39da4cae0db1eb9cce10320897",
+      "sha256": "aab1fcb7e0082faa253b7cd3cadfc3f4e3fdfec06872eda68918fe1b1ec37f8b",
+      "geometrySha256": "d733fbc1ccc7231ea7934bdd373924c7ae09a89d22c94e750ebb6e016bf6f808",
+      "blocks": 23040,
+      "counts": {
+        "namespace_strings": 4
+      },
+      "typedDifferences": 5
+    },
+    {
+      "template": "shaledungeon",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/shaledungeon.nbt",
+      "sourceSha256": "68552204f06e5ef3d12f101e756cc22f4d4a996784427b84f83dfc7d72e2e12a",
+      "rawSha256": "6db18797ef97acdfe3cd0af3228ed8e5d25eb0d9af2b7e103792e07ac8f84445",
+      "sha256": "70f5e5bd6e656887367342dacab524d10ade0143fb74b93fd2518e83a3fa3164",
+      "geometrySha256": "441b35da9a933082287e41244f4872211943d42e2539a28b516f812dfaf44972",
+      "blocks": 1014,
+      "counts": {
+        "namespace_strings": 14
+      },
+      "typedDifferences": 15
+    },
+    {
+      "template": "shaledungeon2",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/shaledungeon2.nbt",
+      "sourceSha256": "e3d2a5f6928893bd9d67f76d1c5681c2646a2d1a665557dffb7f50cb7c2c4b08",
+      "rawSha256": "e7cad5856a231991423d2bfed48756635f4f2d4c05b283947d70b8d288843f70",
+      "sha256": "c18d2e4397332385f2103ed24a40559505654fff538a825f89dce899e61df637",
+      "geometrySha256": "de2f26f815670ad42477940c95087746505b3d64c6ba9c9f89095b793b02a874",
+      "blocks": 1014,
+      "counts": {
+        "namespace_strings": 15
+      },
+      "typedDifferences": 16
+    },
+    {
+      "template": "shalespring_rubicon",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/shalespring_rubicon.nbt",
+      "sourceSha256": "13c6c8fce005d8c4b18139720296933c2781b8f49cc8040f6965788b04b5fcbe",
+      "rawSha256": "f6856bd79ab1000bc851c2ef6fea97a23e84cbe90c870d4826c64cba622f9849",
+      "sha256": "1e397f65e61c97177404d13a015fd5f339b90e24e73e107789db874f6eeb8ca1",
+      "geometrySha256": "ac9a76355a5c132ac9284d0fcc9c04a675094e79b45b21c06d40e8ba48dc57ed",
+      "blocks": 343000,
+      "counts": {
+        "namespace_strings": 236,
+        "uuid_modifiers": 1,
+        "entities_with_attributes": 1,
+        "spawn_type": 1,
+        "persistent_data": 1,
+        "item_stacks": 1
+      },
+      "typedDifferences": 247
+    },
+    {
+      "template": "snowruins1",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/snowruins1.nbt",
+      "sourceSha256": "a84478b573f1ac80e76675dbf8df674efd161c0fb7b5993781a0641dc3c3ac26",
+      "rawSha256": "90e84d734e31c3c210514027812d59ab92e62a5b103a044027789a67e753fbd5",
+      "sha256": "12db5caa8085f2dfdc84b4b9d967507c2318369512ebf5e88ac100b330b4fa42",
+      "geometrySha256": "b3ba0478c7c1a80f2a0e897f9998e6a5da6d9edacef62120b2dc4493d8026d51",
+      "blocks": 729,
+      "counts": {
+        "namespace_strings": 9
+      },
+      "typedDifferences": 10
+    },
+    {
+      "template": "snowruins2",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/snowruins2.nbt",
+      "sourceSha256": "27453f543c52429465746d8c1b0a4687a364e4900ad08cc1fe8c7b796fe10247",
+      "rawSha256": "afc4c2d94993cb08fb0645f86ca6ad6a61b1c854d4cb143af970033c663e3ce2",
+      "sha256": "3d7925ae63f0c8cf7e34d09b8f89764981b0540bfb90e9de4dd7375a5ee54bae",
+      "geometrySha256": "11243948fcef07707e582006b4f1042d390996ce4de850c1875f7d0145bdc2dc",
+      "blocks": 729,
+      "counts": {
+        "namespace_strings": 10
+      },
+      "typedDifferences": 11
+    },
+    {
+      "template": "snowruins3",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/snowruins3.nbt",
+      "sourceSha256": "87dd71cefed457255c25f718d5e1b7d23b3557a22e011d3805ce701c92352a62",
+      "rawSha256": "a17605a9f0b4b01ffb442929c4c7aa599f2fa54dabf21633e52638f59e36a833",
+      "sha256": "7004462f9cc852652b9c06b4a3f67501b59a6d0355aa505893424dfb21286585",
+      "geometrySha256": "4cf42e3152849ebd542531bf4f6db4017dd9acddc385926040323e59ccb0c424",
+      "blocks": 729,
+      "counts": {
+        "namespace_strings": 8
+      },
+      "typedDifferences": 9
+    },
+    {
+      "template": "snowruins4",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/snowruins4.nbt",
+      "sourceSha256": "1ca7aef6c08f3b3ad5f14d59717705851c5cac590c02ebb23424d79df6a8ed00",
+      "rawSha256": "1330ff9b18426ce181dfd0c412470abada4177b68d2fe80d3e1378db0da99340",
+      "sha256": "4f23e6ce079d65726d0302f83c7ea954147197fed968f834df24ee8b01f4f48a",
+      "geometrySha256": "36bf01ed97388a228eaa3045e3a7dfe4e12fe26905793b282d15c37704e95e62",
+      "blocks": 729,
+      "counts": {
+        "item_stacks": 1,
+        "namespace_strings": 19
+      },
+      "typedDifferences": 24
+    },
+    {
+      "template": "spawnswordbottom",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/spawnswordbottom.nbt",
+      "sourceSha256": "88dc9cf198c822ca77336c8df569d5acac8f43e58a84f608b6adfd69cf717900",
+      "rawSha256": "b8d617e6b060a00a9cf109b6ecd09d6e9bcef0708ae65cb50513944f756c6bca",
+      "sha256": "1e7fd727e0575ec59c237100af07a174dc0cf695f694f36dc4bf751ea71936eb",
+      "geometrySha256": "6849f6b9846bdd2f18468dcc1fbe0d38c46d4d498087f3699a320da3927c3b51",
+      "blocks": 16900,
+      "counts": {
+        "namespace_strings": 29
+      },
+      "typedDifferences": 30
+    },
+    {
+      "template": "spawnswordtop",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/spawnswordtop.nbt",
+      "sourceSha256": "716efe48a2b733e41ebe310a06acfff7410ac73977f3b342b9e59259fdf3d61b",
+      "rawSha256": "26a9b512b3e245368b6abaa137274c75cf51af69453162ad5be716844bc89e90",
+      "sha256": "ac99e2bf9a7b7372a74aa47c3541374d4e05b6f9df0d35dfd5792538b9970b59",
+      "geometrySha256": "0d36a636e4e2640b0397be701c6fde161c4b35b70c9e459b4589d48eb2db244a",
+      "blocks": 26325,
+      "counts": {
+        "namespace_strings": 81
+      },
+      "typedDifferences": 82
+    },
+    {
+      "template": "spire1",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/spire1.nbt",
+      "sourceSha256": "482be052cc5f81cc2c9c45634556eaa75f607783af6a646cad06e2113874c448",
+      "rawSha256": "1c44490c728542b1e6d0b80b0140876f67e23128800b9f0af740d97cb6ea3dc9",
+      "sha256": "35ca9918f1574c24f530d1524b3956127379bb7851e1a90423a98206e0c3db4e",
+      "geometrySha256": "b2ded39c6f98b341b46c206877bc9f4cb42368c794bcc8ddbb0ca2b36cf1bb38",
+      "blocks": 135,
+      "counts": {
+        "namespace_strings": 14
+      },
+      "typedDifferences": 15
+    },
+    {
+      "template": "spire2",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/spire2.nbt",
+      "sourceSha256": "6da0583906d9bd52ce0eda56d2688e366cc472350a61059bae6ed35c9e484a54",
+      "rawSha256": "7d04ae37c21e5e15ae9da4412d2dcd86e01ff40a78fd9a7acdcc408dae990378",
+      "sha256": "da7564c6151bd13d286bcd9be0d672c1329d7c52318136d60d17d660c738c0a9",
+      "geometrySha256": "d3c7c31e6d8f161b49fcd1d86383eb45cbce63125b50626cb6d05f0c8a54ef43",
+      "blocks": 135,
+      "counts": {
+        "namespace_strings": 19
+      },
+      "typedDifferences": 20
+    },
+    {
+      "template": "spirecluster",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/spirecluster.nbt",
+      "sourceSha256": "a08fc6b412870b575af993077d30824458b0c57a51930f6cbf4da82c693b26e1",
+      "rawSha256": "c619fb3209d8ba3a4bfff9957accbc2b8f381931979810395dc17b68926054ee",
+      "sha256": "b1c6657cd8349064da5f79821093ad81964e36e60cbb0673d556dbf71d6a08f3",
+      "geometrySha256": "fae79f8aa7a3e9d0d6d67f3ac6bbedcee6d0eb6efe34102a981b6d12fb177896",
+      "blocks": 14,
+      "counts": {
+        "namespace_strings": 4
+      },
+      "typedDifferences": 5
+    },
+    {
+      "template": "spiremite1",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/spiremite1.nbt",
+      "sourceSha256": "6a755149b2cea72acb11a223167420518b42703e7048a3eafed1a76a7e570fd4",
+      "rawSha256": "28c789e122f0e1e97e67490379f08fe99466ab2bdb0cde63a0a00c5b3f6a101b",
+      "sha256": "3f3dcde453ad7383132c194b702f4c4c07df26337dec43a4c0a13d9bfd78c948",
+      "geometrySha256": "e8ae2dc99913d6e287a36002609f3784111e369c2e39d2fdf4949ff15d24186c",
+      "blocks": 117,
+      "counts": {
+        "namespace_strings": 11
+      },
+      "typedDifferences": 12
+    },
+    {
+      "template": "spiretite1",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/spiretite1.nbt",
+      "sourceSha256": "b2672ed676bf236664e8e282025bb2cdfd317d656b779b2273ba1c5231d4436e",
+      "rawSha256": "3abc48a3233135f66f58ed31b76c9851766695c9b697e1b731d9c119595c7c9d",
+      "sha256": "639e6ccadf040be4a0e165236c111fdb201b698358e89229de24abffcd09ecfe",
+      "geometrySha256": "c201bac42d1cbf7ff196ac6a37ed9faedd4cd31f5fe9a64e56367189b2d1c6bf",
+      "blocks": 117,
+      "counts": {
+        "namespace_strings": 11
+      },
+      "typedDifferences": 12
+    },
+    {
+      "template": "starfruittree",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/starfruittree.nbt",
+      "sourceSha256": "fec79855a8ea7ee7771c4090161c10bdaf57c1bfceb0f4e7e699794738361ced",
+      "rawSha256": "f73412dbf38c3cf6e9bddc7cce04bc9164b25f1bdb97699e6128da9aa5c614ef",
+      "sha256": "f16e55db41ee9c1a6e7918411e06167d0446db0277b498dc842d27687194af9d",
+      "geometrySha256": "abf8563202db97a2fdd432b5c9d7c2f7087092e504cc700a187c61f749a1e8f8",
+      "blocks": 150,
+      "counts": {
+        "namespace_strings": 2
+      },
+      "typedDifferences": 3
+    },
+    {
+      "template": "swordinstone",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/swordinstone.nbt",
+      "sourceSha256": "8395d1194e068079d29f4661d9be7d5bd42bc0788e9287a220a2a7bfbf7d8f9c",
+      "rawSha256": "d50e401e1be13f85b27b2e3cc0ec2f9b781880a72c0793a34170a09b9e0a6391",
+      "sha256": "1dedba943370a5afc5827183ab992f934310d2e20f55890a800de31e617993c9",
+      "geometrySha256": "8aa373939df1efae5884be4d28434ae37c9aa4f9c04579c91f5b9d9d4aa3072c",
+      "blocks": 9801,
+      "counts": {
+        "namespace_strings": 3
+      },
+      "typedDifferences": 4
+    },
+    {
+      "template": "testcube64",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/testcube64.nbt",
+      "sourceSha256": "66d11837b81af478e71185203ec315c53d50e840492ecb77e96fbd666f6fd816",
+      "rawSha256": "439010cd77791b10965a416a72b78434339b918796e6baf30f89592f01cda3be",
+      "sha256": "c38146a2cde78a846aabab427b08d47bca1b9dc4367e27e94d2c6956a112ff48",
+      "geometrySha256": "87d937f9ed6d79c8556f639c92aadd5359479ceca4a34519e2bcba4de593ac3f",
+      "blocks": 262144,
+      "counts": {
+        "namespace_strings": 2
+      },
+      "typedDifferences": 3
+    },
+    {
+      "template": "tridentboulder",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/tridentboulder.nbt",
+      "sourceSha256": "08428d29e4395318bd66a1d5af4222f6236ddea4997505e8f826602d13d52148",
+      "rawSha256": "bfb5e7d515628fe2a2642ce2bdd9877c5de7c493fb57519bef54cd4ad9271feb",
+      "sha256": "867e82ec4d8e1f2223e70ef7e2ecb3bca39765ed684568cc341f1a51fef61be0",
+      "geometrySha256": "5faf3c4827b8ce8edef5a0d5db645c74361ab77011109d8939f0c96dbdb126b7",
+      "blocks": 81,
+      "counts": {
+        "namespace_strings": 4
+      },
+      "typedDifferences": 5
+    },
+    {
+      "template": "voltflower1",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/voltflower1.nbt",
+      "sourceSha256": "7375880f132075d195d54e2faf0902f50e48256f6355daa29f2324113751bf0e",
+      "rawSha256": "3d6d7cc21f47dd0bfb75cc4bb75be1d9bc027377a5fc7f3dd75cfe72cfca8056",
+      "sha256": "3b1983b64c2a8ba69a18b2b6551c40b56c871372e30211ae9be7cde22d4a9630",
+      "geometrySha256": "b796fb1f95f702ec4b48d7c9a534d07aea3b15a1d04422b9d4900709c7bf5e5e",
+      "blocks": 5,
+      "counts": {
+        "namespace_strings": 3
+      },
+      "typedDifferences": 4
+    },
+    {
+      "template": "voltflower2",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/voltflower2.nbt",
+      "sourceSha256": "e3e08c0e9a979439691fd66b35a96a726b7906a5fd50221048adad9d79829d9a",
+      "rawSha256": "ef27a182e9f0f5279b3a9c4a93fc8ba8a7a3d5be985bf7cd0b8cf6f8b6eb0c6c",
+      "sha256": "3dfc67ea7b7868e70011bf57fab6510cb552844530f504b970fea69d509f555d",
+      "geometrySha256": "196439fa94ee46610c11005e43e4281138079d2eac7bac094812f01755adb305",
+      "blocks": 7,
+      "counts": {
+        "namespace_strings": 3
+      },
+      "typedDifferences": 4
+    }
+  ],
+  "totals": {
+    "namespace_strings": 2031,
+    "original_unregistered_entity_opaque_attributes_preserved": 5,
+    "uuid_modifiers": 9,
+    "entities_with_attributes": 9,
+    "spawn_type": 9,
+    "persistent_data": 4,
+    "banner_layers": 36,
+    "banners": 9,
+    "item_stacks": 5
+  },
+  "gameExecuted": false
+}

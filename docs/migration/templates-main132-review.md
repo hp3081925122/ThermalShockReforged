@@ -1,0 +1,16 @@
+# 第132批：67份遗漏模板完整补回
+
+本主对话完整负责本批生产、验证与提交。依据131接收的原生指令与结构块入口，恢复全部67份原模板到1.21.1的data/thermal_shock_reforged/structure目录；97份既有模板逐字节保持9496401基线。本批不新增自然生成入口。全部164份原模板现在都有对应资源；这只表示资源覆盖，不表示全部在游戏成功放置。
+
+67份共3,329,541条方块记录。独立流式typed验证逐份检查原/目标NBT往返编码、原始方块顺序/位置/state字段哈希、palette顺序及属性、size、所有805份方块载荷与18个顶层实体。共核13,414个typed节点，只有命名空间与下列明确版本变换；所有未知或第三方字段均保留。原文件、生产与验证脚本、快照位于D:/AI临时文件/ThermalShockMigration/templates132；完整差异见templates-main132-typed-diff.json。
+
+- 5个非空栈将byte Count变为int count；可写书4页逐字保留并使用writable_book_content，纸张修理成本0和“Forgive us.”名称转为原生repair_cost/custom_name，3个出生蛋保留Slot及精确ID，不把有效字段藏进custom_data。
+- 9面旗帜共36层改为当前patterns格式，图案和颜色保序。特别核旧BannerPatterns把rud注册到DIAGONAL_RIGHT_MIRROR，当前对应diagonal_right；不能按缩写猜成diagonal_up_right。
+- 9个实际已注册实体的36属性、9个独立UUID随机modifier完成新版格式；每个UUID保留唯一身份和amount/operation。步高使用各原实体setMaxUpStep的真实float值，Shutterbug为0，Razorwing/Magnetite为1，其余为原0.6f。9出生类型键与4份持久数据迁移到NeoForge对应键，其他Health、位置、装备、掉落、出生标志等字段完整比较。
+- 另外5个原chorpse/boss_spawner实体未在原内置注册源及原JAR相应注册类常量池找到精确ID，不能虚构其步高、实体类或别名；原Attributes/forge:spawn_type保留为不透明原载荷。其相关库存同样完整保留，没有删除实体或刷怪笼以通过验证。
+
+21组原内置注册例外按类型核源代码与原始字节码：12方块、2物品、2实体、5方块实体。原注册类中确无这些精确ID；不推广为第三方永不可能动态补入。两外部对象untagged_mobs:forcefield及automobility:automobile和Structure Gel等第三方字段沿既定联动延期契约保留，不新增可选TOML。原本无注册的对象仍不能承诺可放置，这不是新增替代实现。精确逐模板例外继承A130，补证见templates-main132-registry-exceptions.json。
+
+Java21离线compileJava/processResources通过，55秒，Java up-to-date、资源实际执行。固定8947份src/main输入，构建前后完全相同，8127直接资源字节相同。语言沿独立Luna130字节，用户Ribbonblade参与编译但不纳入本批提交；用户测试及.vscode保持独立。完整证据见main132-static-validation.json与templates-main132-validation.json。
+
+尚未启动游戏、服务端、客户端或Render Preview。G01资源遗漏已修复并列明源例外；G02声画消费者仍进行中，不能以资源/编译通过宣称全模组完成。现有97模板早期转换器存在rud映射等需要按实际载荷排查的候选，另交完整135批，不把脚本候选当作已确认生产缺陷，也不重复已闭合303组属性生命周期复审。
