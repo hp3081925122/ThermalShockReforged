@@ -1,5 +1,9 @@
 package com.hp.thermalshockreforged.entity.snobol;
 
+import com.hp.thermalshockreforged.ThermalShockReforged;
+import com.hp.thermalshockreforged.world.timing.ServerEndTickTask;
+import com.hp.thermalshockreforged.world.timing.ServerEndTickTasks;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
@@ -18,7 +22,7 @@ import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animation.*;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
-public final class SiibolEntity extends PathfinderMob implements GeoEntity {
+public final class SiibolEntity extends PathfinderMob implements GeoEntity, ServerEndTickTask {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(SiibolEntity.class, EntityDataSerializers.STRING);
     private final AnimatableInstanceCache animations = GeckoLibUtil.createInstanceCache(this);
 
@@ -95,6 +99,7 @@ public final class SiibolEntity extends PathfinderMob implements GeoEntity {
         castDimension = level().dimension().location().toString();
         level().playSound(null, target.blockPosition(), SoundEvents.RABBIT_HURT, SoundSource.NEUTRAL, 1, -3);
         getNavigation().stop();
+        if (level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
     }
 
     @Override
@@ -107,6 +112,12 @@ public final class SiibolEntity extends PathfinderMob implements GeoEntity {
     }
 
     @Override
+    public void onAddedToLevel() {
+        super.onAddedToLevel();
+        if (remainingCast > 0 && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
+    }
+
+    @Override
     public void tick() {
         super.tick();
         if (!(level() instanceof net.minecraft.server.level.ServerLevel server)) return;
@@ -114,13 +125,20 @@ public final class SiibolEntity extends PathfinderMob implements GeoEntity {
             remainingCast = 0;
             return;
         }
-        if (startedCastAt == server.getGameTime()) return;
         if (remainingCast <= 0) return;
         if (!castDimension.equals(server.dimension().location().toString())) {
             remainingCast = 0;
             return;
         }
-        if (--remainingCast > 0) return;
+        ServerEndTickTasks.schedule(server, getUUID());
+    }
+
+    @Override
+    public void endTick(ServerLevel server) {
+        if (remainingCast <= 0 || isRemoved()) return;
+        if (!isAlive() || !castDimension.equals(server.dimension().location().toString())) { remainingCast = 0; return; }
+        if (--remainingCast > 0) { ServerEndTickTasks.schedule(server, getUUID()); return; }
+        ThermalShockReforged.LOGGER.debug("Siibol cast at server end tick: entity={}, origin={}", getUUID(), castPosition);
         server.playSound(null, BlockPos.containing(castPosition), SoundEvents.ZOMBIE_VILLAGER_CURE, SoundSource.NEUTRAL, 1, 3);
         server.sendParticles(SnobolContent.TOXIC_BUBBLE.get(), castPosition.x, castPosition.y, castPosition.z, 35, 2.5, 0, 2.5, 0);
         var box = new net.minecraft.world.phys.AABB(castPosition, castPosition).inflate(2.75);

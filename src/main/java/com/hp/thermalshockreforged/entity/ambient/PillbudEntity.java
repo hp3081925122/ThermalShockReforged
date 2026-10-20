@@ -1,5 +1,9 @@
 package com.hp.thermalshockreforged.entity.ambient;
 
+import com.hp.thermalshockreforged.ThermalShockReforged;
+import com.hp.thermalshockreforged.world.timing.ServerEndTickTask;
+import com.hp.thermalshockreforged.world.timing.ServerEndTickTasks;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
 import net.minecraft.world.damagesource.*;
@@ -15,7 +19,7 @@ import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animation.*;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
-public final class PillbudEntity extends net.minecraft.world.entity.monster.Monster implements GeoEntity {
+public final class PillbudEntity extends net.minecraft.world.entity.monster.Monster implements GeoEntity, ServerEndTickTask {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(PillbudEntity.class, EntityDataSerializers.STRING);
     private final AnimatableInstanceCache animations = GeckoLibUtil.createInstanceCache(this);
     private int cooldown;
@@ -53,6 +57,7 @@ public final class PillbudEntity extends net.minecraft.world.entity.monster.Mons
         face(target);
         setAnimation("attack");
         getNavigation().stop(); soundAtOrigin(net.minecraft.sounds.SoundEvents.CREEPER_PRIMED);
+        if (level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
     }
     private void face(LivingEntity target) { lookAt(net.minecraft.commands.arguments.EntityAnchorArgument.Anchor.EYES, target.getEyePosition()); yBodyRot = getYRot(); yHeadRot = getYRot(); }
     private LivingEntity skillTarget() {
@@ -61,19 +66,29 @@ public final class PillbudEntity extends net.minecraft.world.entity.monster.Mons
         return found instanceof LivingEntity living && living.isAlive() && living.level() == level() ? living : null;
     }
     @Override
+    public void onAddedToLevel() {
+        super.onAddedToLevel();
+        if (skillTick >= 0 && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
+    }
+    @Override
     public void tick() {
-        int previousSkillTick = skillTick;
         if (!level().isClientSide && cooldown > 0) cooldown--;
         super.tick();
         if (level().isClientSide) return;
         if (!isAlive()) { skillTick = -1; skillTarget = null; return; }
-        if (skillTick < 0 || previousSkillTick < 0) return;
+        if (skillTick >= 0 && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
+    }
+    @Override
+    public void endTick(ServerLevel server) {
+        if (skillTick < 0 || isRemoved()) return;
+        if (!isAlive() || !skillDimension.equals(server.dimension().location().toString())) { skillTick = -1; skillTarget = null; return; }
         var target = skillTarget();
         if (target == null) { skillTick = -1; skillTarget = null; return; }
         if (resumeAnimation) { setAnimation("attack"); resumeAnimation = false; }
         skillTick++;
         if (skillTick < 10) getNavigation().stop();
         if (skillTick == 10) {
+            ThermalShockReforged.LOGGER.debug("Pillbud launch at server end tick: entity={}, age={}, origin={}", getUUID(), skillTick, origin);
             face(target);
             var look = getLookAngle();
             setDeltaMovement(look.x * 2, 0.4, look.z * 2);
@@ -82,7 +97,7 @@ public final class PillbudEntity extends net.minecraft.world.entity.monster.Mons
             soundAtOrigin(net.minecraft.sounds.SoundEvents.FIREWORK_ROCKET_LAUNCH);
         }
         if (skillTick == 22) {
-            var server = (net.minecraft.server.level.ServerLevel) level();
+            ThermalShockReforged.LOGGER.debug("Pillbud detonation at server end tick: entity={}, age={}, origin={}", getUUID(), skillTick, origin);
             var position = position();
             var source = new DamageSource(server.registryAccess().registryOrThrow(net.minecraft.core.registries.Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.EXPLOSION));
             float damage = (float) (getAttributeValue(Attributes.ATTACK_DAMAGE) * 8);
@@ -92,6 +107,7 @@ public final class PillbudEntity extends net.minecraft.world.entity.monster.Mons
             soundAtOrigin(net.minecraft.sounds.SoundEvents.FIREWORK_ROCKET_TWINKLE);
             server.sendParticles(AmbientContent.PRISMATIC_BOOM.get(), position.x, position.y, position.z, 1, 0.001, 0.001, 0.001, 0);
         }
+        else ServerEndTickTasks.schedule(server, getUUID());
     }
 
     @Override
