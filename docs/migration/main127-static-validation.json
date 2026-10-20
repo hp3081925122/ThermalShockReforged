@@ -1,0 +1,80 @@
+{
+  "baseline": "f0320d5",
+  "build": {
+    "command": "compileJava processResources --offline --max-workers=2",
+    "success": true,
+    "log": "D:\\AI临时文件\\ThermalShockMigration\\batch127-unified-build.log",
+    "sha256": "2fec5e0b153bd6f83cd7c0b8d6b72bacb9590c9329ffd29c88b6348d16900a5a",
+    "duration": "1m08s",
+    "compileJava": "UP-TO-DATE，第一次实际编译通过后Java未再改",
+    "processResources": "实际执行，接入最终LF资源"
+  },
+  "fixedInputs": {
+    "count": 8880,
+    "snapshot": "D:\\AI临时文件\\ThermalShockMigration\\batch127-inputs-before.json",
+    "sha256": "f6a6cf0b8d894194d3c0c7cf0d08af95993e08b728064fe7d6f150b5ce115fe5",
+    "unchanged": true
+  },
+  "directResourcesByteEqual": 8060,
+  "ownedProduction": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/ice/IceCreatureEntity.java",
+      "sha256": "9d44f9927a7f296efc1b119ec2b668fad8d9ca2d7c10e88b51246e59063178b0"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/icesquad/BastionEntity.java",
+      "sha256": "1da0221a6c5b1b72ed5e1860fec8577e3ef2a888ce8d2588761d04b734103e9b"
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/lang/zh_cn.json",
+      "sha256": "4b902f47739b471c0a232d26ca9e09857dbeae0647a0ee340d7cafee651bca7d"
+    }
+  ],
+  "language": {
+    "changedExistingChinese": 73,
+    "newKeys": 0,
+    "englishAndKeyOrderUnchanged": true,
+    "formatsStylesNewlinesPassed": true,
+    "cameraPreserved": 86,
+    "englishExactRemainingIncludesNames": 1360,
+    "enSha256": "f34ec640698eb8f70a121b0a9ea91f5f81ea4e61b20b6bda53b714fe4e535cbb",
+    "zhSha256": "4b902f47739b471c0a232d26ca9e09857dbeae0647a0ee340d7cafee651bca7d",
+    "ownerReportSha256": "f6be5dc58490c7c7c2c2fae6f79e2200233f6dace48d2cf8341b7931222cee32"
+  },
+  "group1PreviouslyPaired": 40,
+  "group1NewlyPairedOrFixed": 15,
+  "group1Remaining": 4,
+  "group2PreviouslyReviewed": 36,
+  "group2A127IndependentReviewPending": 23,
+  "cumulativePairedBeforeA127": 91,
+  "remainingBeforeA127": 27,
+  "newEvidenceInputsVerified": 37,
+  "evidence": [
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\animation-main127-public-integration.json",
+      "sha256": "7a0ef659f42795f95dad7bae1848c4c3edcb14ba0e119165f8c7712f6864d48e"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\animation-main127-group1-review.json",
+      "sha256": "33d03e2942e6ca9291150b56871fd8324f28d6f560f25d8625872b474115a16f"
+    },
+    {
+      "path": "docs\\migration\\animation-main127-remaining.json",
+      "sha256": "7c9681944d1747caceaaf5eb86300051a2f952e5124e08fd26a1f2bb4551de3d"
+    },
+    {
+      "path": "docs\\migration\\localization-main127-line-endings.json",
+      "sha256": "fea93b68c171ed400739a561d4befc464c0932e39434356f7dc99d4397fb8501"
+    }
+  ],
+  "independentRibbonbladeIncludedButExcludedFromCommit": true,
+  "gameExecuted": false,
+  "fullMigrationComplete": false,
+  "preliminaryBuild": {
+    "success": true,
+    "duration": "1m23s",
+    "log": "D:\\AI临时文件\\ThermalShockMigration\\batch127-unified-build-preliminary.log",
+    "sha256": "0a7b16d20fe8c3a4ee30f80b1cbfd93f1f1274ada7e3e561d744df879a9a6f41",
+    "followingChange": "仅语言字节CRLF还原基线LF；语义无变更，固定新输入后重跑"
+  }
+}

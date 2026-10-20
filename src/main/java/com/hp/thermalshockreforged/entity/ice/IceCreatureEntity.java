@@ -312,8 +312,9 @@ public final class IceCreatureEntity extends Monster implements GeoEntity, Range
         entityData.set(COOLDOWN_VISIBLE, kind() == 3 && cooldown > 0); if (!level().isClientSide) syncMovementLock(); restoreAnimation = attackAge >= 0; startedAt = Long.MIN_VALUE;
     }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 4, state -> PlayState.STOP).triggerableAnim("attack", RawAnimation.begin().thenPlay("attack")).triggerableAnim("attack2", RawAnimation.begin().thenPlay("attack2")).triggerableAnim("ready", RawAnimation.begin().thenPlay("ready"));
-        controllers.add(new AnimationController<>(this, "movement", 4, state -> {
+        int transitionTicks = kind() >= 2 ? 0 : 4;
+        var procedure = new AnimationController<>(this, "procedure", transitionTicks, state -> PlayState.STOP).triggerableAnim("attack", RawAnimation.begin().thenPlay("attack")).triggerableAnim("attack2", RawAnimation.begin().thenPlay("attack2")).triggerableAnim("ready", RawAnimation.begin().thenPlay("ready"));
+        controllers.add(new AnimationController<>(this, "movement", transitionTicks, state -> {
             if (procedure.isPlayingTriggeredAnimation()) return PlayState.STOP;
             boolean moving = state.isMoving() || Math.abs(state.getLimbSwingAmount()) >= 0.15F;
             if (kind() == 2) return state.setAndContinue(RawAnimation.begin().thenLoop("0"));
@@ -321,6 +322,7 @@ public final class IceCreatureEntity extends Monster implements GeoEntity, Range
             String animation = kind() == 3 ? isSprinting() ? "walk2" : moving && !isAggressive() || isAggressive() && state.isMoving() ? "walk" : "idle" : moving ? "walk" : "idle";
             return state.setAndContinue(RawAnimation.begin().thenLoop(animation));
         })); controllers.add(procedure);
+        ThermalShockReforged.LOGGER.debug("Ice animation controllers registered: entity={}, kind={}, transitionTicks={}", getUUID(), kind(), transitionTicks);
     }
     @Override public AnimatableInstanceCache getAnimatableInstanceCache() { return animations; }
 }

@@ -1,0 +1,120 @@
+{
+  "baseline": "f0320d5",
+  "group1Paired": 55,
+  "group1Remaining": [
+    {
+      "id": "angry_cavebloomer",
+      "open": [
+        {
+          "field": "queue_to_age_phase",
+          "source": "CavebloomerAttackProcedure:158/477 queueServerWork(20)，:668 queueServerWork(47)",
+          "target": "CavebloomerAttacks:43跳过startedAt当tick；:54 age19；:62 age46",
+          "question": "需要主线已有原queueServerWork的END入队扣减phase证据，判定20→age19及47→age46的绝对发起tick。保留精确分支，不把字面-1直接认成缺陷。"
+        }
+      ],
+      "followup": "已核原queue20在T+19 END、queue47在T+46 END到期；目标跳过startedAt后age19/46在同T+19/T+46实体tick消费。整tick偏移没有缺失；实体tick与SERVER END的相位差仍需按完整技能链处理，不能只凭字面19/46判错或声称严格phase等价。源CavebloomerAttacks仍原路径未改。"
+    },
+    {
+      "id": "beetle_crasher",
+      "open": [
+        {
+          "field": "unbury_first_emission_phase",
+          "source": "源finalizeSpawn后Factory消费同步串",
+          "target": "首次finalizeSpawn置pending；目标tick.super之后发trigger，BeetleCombatEntity:92",
+          "question": "主线若要求出生首帧严格phase等价，请用既有全局Factory事件时序核定是否差一个消费阶段；本片不把它当有效clip缺失。"
+        }
+      ],
+      "followup": null
+    },
+    {
+      "id": "defector_machinist",
+      "open": [
+        {
+          "field": "idle_writer_side_and_cooldown",
+          "source": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/procedures/DefectorMachinistOnEntityTickUpdateProcedure.java:19-25",
+          "target": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\qo\\DefectorMachinistEntity.java:63-67",
+          "question": "请主线确认仅服务端随机/独立计数取代双侧Math.random与COOLDOWN效果门控是否有已授权语义；本片未据此断言客户端实际额外播放次数。"
+        }
+      ],
+      "followup": null
+    },
+    {
+      "id": "huntress",
+      "open": [
+        {
+          "actual": "出生首帧精确边界：原finalizeSpawn->同步字段->Factory LivingTick；目标HuntressEntity:45/52在首个服务端tick的super.tick之后发送trigger。永久公共证据未覆盖原LivingTick相对同步包/追踪建立顺序，不能断言同一渲染帧；保留这条具体边界供主线整合，不把未运行游戏写为静态缺项。",
+          "source": {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\HuntressEntity.java",
+            "line": 226,
+            "code": "private PlayState procedurePredicate(AnimationState event) {\r\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\r\n            if (!this.animationprocedure.equals(this.prevAnim)) {\r\n                event.getController().forceAnimationReset();\r\n            }\r\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\r\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\r\n                this.animationprocedure = \"empty\";\r\n                event.getController().forceAnimationReset();\r\n            }\r\n        } else if (this.animationprocedure.equals(\"empty\")) {\r\n            this.prevAnim = \"empty\";\r\n            return PlayState.STOP;\r\n        }\r\n        this.prevAnim = this.animationprocedure;\r\n        return PlayState.CONTINUE;\r\n    }"
+          },
+          "target": [
+            {
+              "method": "finalizeSpawn",
+              "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\npc\\huntress\\HuntressEntity.java",
+              "line": 45,
+              "end_line": 45,
+              "code": "public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, MobSpawnType reason, SpawnGroupData group) { var result = super.finalizeSpawn(world, difficulty, reason, group); if (!initialized) { initialized = true; setNoGravity(true); initializationOrigin = position(); initializationPending = true; animationPending = true; } return result; }"
+            },
+            {
+              "method": "tick",
+              "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\npc\\huntress\\HuntressEntity.java",
+              "line": 52,
+              "end_line": 52,
+              "code": "public void tick() { super.tick(); if (!level().isClientSide) { if (retry > 0) retry--; submitInitialization(); if (animationPending) { animationPending = false; triggerAnim(\"procedure\", \"npcspawn\"); } } }"
+            },
+            {
+              "method": "registerControllers",
+              "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\npc\\huntress\\HuntressEntity.java",
+              "line": 57,
+              "end_line": 57,
+              "code": "public void registerControllers(AnimatableManager.ControllerRegistrar controllers) { var procedure = new AnimationController<>(this, \"procedure\", 0, state -> PlayState.STOP).triggerableAnim(\"npcspawn\", RawAnimation.begin().thenPlay(\"npcspawn\")); controllers.add(new AnimationController<>(this, \"movement\", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(\"idle3\")))); controllers.add(procedure); }"
+            },
+            {
+              "actual": "该身份实际动画consumer资源路径/构造参数；不重做注册盘点。",
+              "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\huntress\\HuntressRenderers.java",
+              "line": 18,
+              "end_line": 22,
+              "code": "18:    public static void register(EntityRenderersEvent.RegisterRenderers event) { event.registerEntityRenderer(HuntressContent.NPC.get(), NpcRenderer::new); event.registerEntityRenderer(HuntressContent.BOSS.get(), BossRenderer::new); event.registerEntityRenderer(HuntressContent.TASK.get(), net.minecraft.client.renderer.entity.NoopRenderer::new); }\n19:    private static final class Model<T extends LivingEntity & GeoEntity> extends GeoModel<T> {\n20:        @Override public ResourceLocation getModelResource(T entity) { return HuntressContent.id(\"geo/huntress.geo.json\"); }\n21:        @Override public ResourceLocation getAnimationResource(T entity) { return HuntressContent.id(\"animations/huntress.animation.json\"); }\n22:        @Override public ResourceLocation getTextureResource(T entity) { return HuntressContent.id(\"textures/entities/\" + (entity instanceof HuntressBossEntity boss ? boss.texture() : ((HuntressEntity)entity).texture()) + \".png\"); }"
+            }
+          ],
+          "owner": "主线125公共证据/集成；本片不扩展公共库研究"
+        }
+      ],
+      "followup": null
+    }
+  ],
+  "group2PreviouslyReviewed": 36,
+  "group2A127Pending": [
+    "sentrarius",
+    "shutterbug",
+    "siibol",
+    "skeletitan",
+    "skullscor",
+    "snobol",
+    "sola",
+    "sootle",
+    "sootle_idle",
+    "sootling",
+    "spectre",
+    "spirit",
+    "springling",
+    "springslime",
+    "starrite",
+    "summoned_mangler",
+    "tesla_reed",
+    "thermoid",
+    "torpedo",
+    "trilobite",
+    "veridian_jellercel",
+    "whisper",
+    "willograde"
+  ],
+  "cumulativePairedBeforeA127": 91,
+  "remainingBeforeA127": 27,
+  "newMainEvidence": {
+    "path": "docs/migration/animation-main127-group1-review.json",
+    "sha256": "33d03e2942e6ca9291150b56871fd8324f28d6f560f25d8625872b474115a16f"
+  },
+  "scope": "118种动画实体实际消费者有界静态复审；不代表全模组完成或客户端/Render Preview验收。A127交付集成后另更新，进行中不计完成。"
+}

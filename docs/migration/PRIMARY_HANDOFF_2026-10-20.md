@@ -60,3 +60,10 @@
 语言独立Luna完成140既有值翻译并停笔，zh SHA 9c1a41017bcd7b10032346410b4bd1d2ce27a708a2d071f6cbb94c7a2dc0d45c。英文不变、86相机条目未动、全部键序/原生格式和改动样式/换行通过。英文相同1433值仍含专名。统一固定8880输入，Java21离线compileJava/processResources通过1m38s，两任务实际执行，8060直接资源相同；A8交接/40详细/578输入全核哈希，main126-static-validation.json为本阶段最终证据。验证脚本曾把utf-8-sig拼成utf8-sig，修正脚本后通过，生产无追加变化。
 
 下一阶段优先补共享controller参数/异名trigger切换、A列出过渡及延迟候选，再继续主线余23种与语言。粗略批次仍低置信，随真实缺项调整，不按每次提交机械扣一。原总控只读保留，用户服务端/测试目录/Ribbonblade/.vscode保持独立；完整代码与无简化复审收口后才子代理客户端/Render Preview。goal继续active。
+
+
+第127批：主线将A125 group1剩19项中的15项补齐或修复，现group1有界配对55/59、余Angry Cavebloomer完整技能相位、Beetle Crasher出生首发、Qo待机随机侧别、Huntress出生首发4项。10种实体已接实继承controller的原4tick/添加顺序/动态hook；真实Gecko4.9.2不同clip触发会重建队列并重置tick，Herald siphon→siphon2不需盲目追加forceReset。IceCreature按kind2/3恢复Icidrone/Icidrozerk原0tick，kind0/1原4保留；Bastion复用已有UUID末尾任务，恢复原T+9 SERVER END开火及17发间隔2tick、10次间隔5tick声音，保留持久化和生命周期防护。独立原队列与目标age静态模型4组、各29事件一致，未启动游戏。证据见animation-main127-public-integration.json和animation-main127-group1-review.json。
+
+A按现有分工独占group2最后23种只读复审，交付前继续计待核；主线此前group2已完成36项，因此本批主线计91/118有界配对、余27，不把A进行中算完成。语言Luna本批完成73条有源码上下文的Fabricator/Ly交易配方标签，键/英文/格式/86相机条目不变；同英文1360值仍含专名，不等同待翻译数。完整代码及无简化复审收口后才子代理客户端/Render Preview；服务端独立用户线保持不接管。粗估继续约10～15批，低置信、按真实缺项调整，不按每提交扣减。
+
+第127批构建收口：首次Java21离线compileJava/processResources实际执行通过1m23s；语言owner停笔后仅将CRLF还原基线LF，原始快照/owner哈希不改，集成zh SHA 4b902f47739b471c0a232d26ca9e09857dbeae0647a0ee340d7cafee651bca7d。固定8880输入后再次处理资源通过1m08s（Java up-to-date），8060直接资源逐字节一致；新增复审证据固定37个输入，最终报告main127-static-validation.json。服务端、客户端、Render Preview尚未由本主线执行，完整目标继续active。

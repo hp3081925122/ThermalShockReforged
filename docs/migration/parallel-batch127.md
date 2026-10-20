@@ -1,0 +1,15 @@
+# 第127批：动画剩项与控制器参数
+
+基线f0320d5。主线独占第125A剩19项的公共参数、Gecko异名trigger消费、计时与出生边界调查；A按现有用户分工继续只读group2最后23种，不重复已完成36种，报告路径使用a127。语言独立Luna独占两份语言及审校文档，生产主线不代翻。
+
+已核原Icidrone/Icidrozerk实体与字节码：movement、procedure两controller均0tick，当前IceCreatureEntity统一4tick。主线登记独占entity/ice/IceCreatureEntity.java修复，按kind2/3恢复0，kind0/1原4保留；原clip和业务时序不随本项变更。共享Animated父类十项实体仅补精确继承与注册参数证据，不因旧报告缺公共参数就改动匹配实现。
+
+其他真实差异修复前另登记路径与来源，不把异名trigger必然不重置当未经核实的前提。全部临时文件位于D:/AI临时文件/ThermalShockMigration，Java不写注释、调试日志英文。构建前全部src/main所有者停笔、固定输入，统一compileJava/processResources。
+
+追加主线独占entity/icesquad/BastionEntity.java：原两种AttackProcedure在攻击当tick的SERVER END先扣减queue10，T+9 END切fire并启动10次间隔5tick声音、17次间隔2tick弹体。现目标跳过startedAt且在实体tick推进，导致T+10开始。复用已注册ServerEndTickTasks/ServerEndTickTask，攻击立即登记、实体tick恢复登记、END消费并继续登记，保留attackAge初值0、阈值10/55及持久化字段。仅活跃实体UUID登记，不扫描世界或强制加载；保留死亡/卸载/切维防护和现有cooldown路径。
+
+用户测试、RibbonbladeActionEntity、.vscode保留独立，不接管服务端线。完整代码与无简化复审收口前不运行客户端或Render Preview。静态配对、构建均不代表最终声画或完整功能验收。
+
+语言Luna本批完成73值并停笔，原始输出CRLF的完整快照留在next-gui127/batch127-owner-crlf.json；主线集成只将CRLF机械还原基线LF，不改译文或键，记录于localization-main127-line-endings.json。owner原始哈希及审校文档原样保留，新集成哈希独立登记，不伪称owner原始SHA就是构建输入。
+
+第127批构建收口：首次Java21离线compileJava/processResources实际执行通过1m23s；语言owner停笔后仅将CRLF还原基线LF，原始快照/owner哈希不改，集成zh SHA 4b902f47739b471c0a232d26ca9e09857dbeae0647a0ee340d7cafee651bca7d。固定8880输入后再次处理资源通过1m08s（Java up-to-date），8060直接资源逐字节一致；新增复审证据固定37个输入，最终报告main127-static-validation.json。服务端、客户端、Render Preview尚未由本主线执行，完整目标继续active。
