@@ -1,0 +1,914 @@
+{
+  "baseline": "8777a2d",
+  "group1Paired": 57,
+  "group2Paired": 58,
+  "cumulativePaired": 115,
+  "total": 118,
+  "remaining": [
+    {
+      "id": "beetle_crasher",
+      "open": [
+        {
+          "field": "unbury_first_emission_phase",
+          "source": "源finalizeSpawn后Factory消费同步串",
+          "target": "首次finalizeSpawn置pending；目标tick.super之后发trigger，BeetleCombatEntity:92",
+          "question": "主线若要求出生首帧严格phase等价，请用既有全局Factory事件时序核定是否差一个消费阶段；本片不把它当有效clip缺失。"
+        }
+      ],
+      "followup": null,
+      "main128Status": "出生初始写入、有效clip及0/4tick参数已有静态对应；首帧网络/追踪顺序仍保留精确问题，不冒称已做客户端测试。"
+    },
+    {
+      "id": "huntress",
+      "open": [
+        {
+          "actual": "出生首帧精确边界：原finalizeSpawn->同步字段->Factory LivingTick；目标HuntressEntity:45/52在首个服务端tick的super.tick之后发送trigger。永久公共证据未覆盖原LivingTick相对同步包/追踪建立顺序，不能断言同一渲染帧；保留这条具体边界供主线整合，不把未运行游戏写为静态缺项。",
+          "source": {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\HuntressEntity.java",
+            "line": 226,
+            "code": "private PlayState procedurePredicate(AnimationState event) {\r\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\r\n            if (!this.animationprocedure.equals(this.prevAnim)) {\r\n                event.getController().forceAnimationReset();\r\n            }\r\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\r\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\r\n                this.animationprocedure = \"empty\";\r\n                event.getController().forceAnimationReset();\r\n            }\r\n        } else if (this.animationprocedure.equals(\"empty\")) {\r\n            this.prevAnim = \"empty\";\r\n            return PlayState.STOP;\r\n        }\r\n        this.prevAnim = this.animationprocedure;\r\n        return PlayState.CONTINUE;\r\n    }"
+          },
+          "target": [
+            {
+              "method": "finalizeSpawn",
+              "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\npc\\huntress\\HuntressEntity.java",
+              "line": 45,
+              "end_line": 45,
+              "code": "public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, MobSpawnType reason, SpawnGroupData group) { var result = super.finalizeSpawn(world, difficulty, reason, group); if (!initialized) { initialized = true; setNoGravity(true); initializationOrigin = position(); initializationPending = true; animationPending = true; } return result; }"
+            },
+            {
+              "method": "tick",
+              "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\npc\\huntress\\HuntressEntity.java",
+              "line": 52,
+              "end_line": 52,
+              "code": "public void tick() { super.tick(); if (!level().isClientSide) { if (retry > 0) retry--; submitInitialization(); if (animationPending) { animationPending = false; triggerAnim(\"procedure\", \"npcspawn\"); } } }"
+            },
+            {
+              "method": "registerControllers",
+              "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\npc\\huntress\\HuntressEntity.java",
+              "line": 57,
+              "end_line": 57,
+              "code": "public void registerControllers(AnimatableManager.ControllerRegistrar controllers) { var procedure = new AnimationController<>(this, \"procedure\", 0, state -> PlayState.STOP).triggerableAnim(\"npcspawn\", RawAnimation.begin().thenPlay(\"npcspawn\")); controllers.add(new AnimationController<>(this, \"movement\", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(\"idle3\")))); controllers.add(procedure); }"
+            },
+            {
+              "actual": "该身份实际动画consumer资源路径/构造参数；不重做注册盘点。",
+              "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\huntress\\HuntressRenderers.java",
+              "line": 18,
+              "end_line": 22,
+              "code": "18:    public static void register(EntityRenderersEvent.RegisterRenderers event) { event.registerEntityRenderer(HuntressContent.NPC.get(), NpcRenderer::new); event.registerEntityRenderer(HuntressContent.BOSS.get(), BossRenderer::new); event.registerEntityRenderer(HuntressContent.TASK.get(), net.minecraft.client.renderer.entity.NoopRenderer::new); }\n19:    private static final class Model<T extends LivingEntity & GeoEntity> extends GeoModel<T> {\n20:        @Override public ResourceLocation getModelResource(T entity) { return HuntressContent.id(\"geo/huntress.geo.json\"); }\n21:        @Override public ResourceLocation getAnimationResource(T entity) { return HuntressContent.id(\"animations/huntress.animation.json\"); }\n22:        @Override public ResourceLocation getTextureResource(T entity) { return HuntressContent.id(\"textures/entities/\" + (entity instanceof HuntressBossEntity boss ? boss.texture() : ((HuntressEntity)entity).texture()) + \".png\"); }"
+            }
+          ],
+          "owner": "主线125公共证据/集成；本片不扩展公共库研究"
+        }
+      ],
+      "followup": null,
+      "main128Status": "出生初始写入、有效clip及0/4tick参数已有静态对应；首帧网络/追踪顺序仍保留精确问题，不冒称已做客户端测试。"
+    },
+    {
+      "id": "willograde",
+      "source_predicates": [
+        {
+          "kind": "movement",
+          "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\WillogradeEntity.java",
+          "line": 176,
+          "end_line": 190,
+          "code": "private PlayState movementPredicate(AnimationState event) {\r\n        if (this.animationprocedure.equals(\"empty\")) {\r\n            if (!(!event.isMoving() && event.getLimbSwingAmount() > -0.15f && event.getLimbSwingAmount() < 0.15f || this.isVehicle() || this.isAggressive())) {\r\n                return event.setAndContinue(RawAnimation.begin().thenLoop(\"walk\"));\r\n            }\r\n            if (this.isVehicle() && event.isMoving()) {\r\n                return event.setAndContinue(RawAnimation.begin().thenLoop(\"rolling\"));\r\n            }\r\n            if (this.isAggressive() && event.isMoving() && !this.isVehicle()) {\r\n                return event.setAndContinue(RawAnimation.begin().thenLoop(\"rolling\"));\r\n            }\r\n            return event.setAndContinue(RawAnimation.begin().thenLoop(\"idle\"));\r\n        }\r\n        return PlayState.STOP;\r\n    }",
+          "actual": "按下列原始源码分支顺序、thenLoop/thenPlay与STOP/CONTINUE逐项比较。",
+          "fixed_clip_checks": [
+            {
+              "operation": "thenLoop",
+              "clip": "walk",
+              "valid": true,
+              "asset": {
+                "name": "walk",
+                "loop": true,
+                "animation_length": 0.3333
+              }
+            },
+            {
+              "operation": "thenLoop",
+              "clip": "rolling",
+              "valid": true,
+              "asset": {
+                "name": "rolling",
+                "loop": true,
+                "animation_length": 1.3333
+              }
+            },
+            {
+              "operation": "thenLoop",
+              "clip": "rolling",
+              "valid": true,
+              "asset": {
+                "name": "rolling",
+                "loop": true,
+                "animation_length": 1.3333
+              }
+            },
+            {
+              "operation": "thenLoop",
+              "clip": "idle",
+              "valid": true,
+              "asset": {
+                "name": "idle",
+                "loop": true,
+                "animation_length": 5.5
+              }
+            }
+          ]
+        },
+        {
+          "kind": "attack",
+          "present": false,
+          "actual": "原实体没有attackingPredicate或attacking controller；不从攻击技能/资源名补造。"
+        },
+        {
+          "kind": "procedure",
+          "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\WillogradeEntity.java",
+          "line": 192,
+          "end_line": 208,
+          "code": "private PlayState procedurePredicate(AnimationState event) {\r\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\r\n            if (!this.animationprocedure.equals(this.prevAnim)) {\r\n                event.getController().forceAnimationReset();\r\n            }\r\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\r\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\r\n                this.animationprocedure = \"empty\";\r\n                event.getController().forceAnimationReset();\r\n            }\r\n        } else if (this.animationprocedure.equals(\"empty\")) {\r\n            this.prevAnim = \"empty\";\r\n            return PlayState.STOP;\r\n        }\r\n        this.prevAnim = this.animationprocedure;\r\n        return PlayState.CONTINUE;\r\n    }",
+          "actual": "(!empty&&STOPPED)||(!empty&&prevAnim不同)才设置动画；不同prevAnim先forceReset；empty分支prevAnim=empty并STOP，其余更新prevAnim并CONTINUE；thenPlay(animationprocedure)为动态DEFAULT，结合具体写入clip.loop判。",
+          "fixed_clip_checks": []
+        },
+        {
+          "kind": "controllers",
+          "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\WillogradeEntity.java",
+          "line": 226,
+          "end_line": 229,
+          "code": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\r\n        data.add(new AnimationController[]{new AnimationController((GeoAnimatable)this, \"movement\", 4, this::movementPredicate)});\r\n        data.add(new AnimationController[]{new AnimationController((GeoAnimatable)this, \"procedure\", 4, this::procedurePredicate)});\r\n    }",
+          "actual": "原注册顺序movement在前、procedure在后，两者转换参数均4，无attack controller。"
+        },
+        {
+          "kind": "clip_fields",
+          "path": "jar:assets/thermal_shock/animations/roly_poly.animation.json",
+          "actual": "loop=null代表原JSON缺省，thenPlay DEFAULT沿资源loop，thenLoop显式强制循环。",
+          "clips": [
+            {
+              "name": "idle",
+              "loop": true,
+              "animation_length": 5.5
+            },
+            {
+              "name": "walk",
+              "loop": true,
+              "animation_length": 0.3333
+            },
+            {
+              "name": "rolling",
+              "loop": true,
+              "animation_length": 1.3333
+            },
+            {
+              "name": "bury",
+              "loop": null,
+              "animation_length": 4.0417
+            }
+          ]
+        }
+      ],
+      "source_dynamic_writers": [
+        {
+          "kind": "同步API",
+          "actual": "setAnimation写ANIMATION同步字段，不直接给controller；Factory的LivingTick桥只引用主线125公共取证。",
+          "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\WillogradeEntity.java",
+          "line": 222,
+          "end_line": 224,
+          "code": "public void setAnimation(String animation) {\r\n        this.entityData.set(ANIMATION, (Object)animation);\r\n    }"
+        },
+        {
+          "kind": "全目录机械搜索及接收者筛选",
+          "actual": "递归原readable根全部3578个Java文件，包含其他所有Entity目录；逐字匹配本身份类型并收集其文件内setAnimation/animationprocedure赋值。Factory属于已核公共桥而非新增业务writer；名称匹配本身不证明写入可达，下面按实际instanceof/调用者判。",
+          "scope": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock",
+          "all_entity_directories": true,
+          "scan_manifest": "D:/AI临时文件/ThermalShockMigration/animation127/a127-luna3-search-manifest.json",
+          "script": "D:/AI临时文件/ThermalShockMigration/animation127/a127-luna3-collect.cjs",
+          "class_references": [
+            {
+              "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\WillogradeRenderer.java",
+              "sha256": "3fa892789cadf39ea1752d5b07fe1680788633dddb59bb45cee66805560cab87",
+              "public_bridge": false
+            },
+            {
+              "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\model\\WillogradeModel.java",
+              "sha256": "a23e8f2fb4045a5153fd330aacd8fdd4701792c8020f64627b090abaa73ccd26",
+              "public_bridge": false
+            },
+            {
+              "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\WillogradeEntity.java",
+              "sha256": "400e9797fa90c97168e5c4c74e357097ce0878d2415d630a4af41a4a510fbadf",
+              "public_bridge": false
+            },
+            {
+              "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\EntityAnimationFactory.java",
+              "sha256": "0c4d6586d0cf6fdb806ba173d9f6b2840735352ef661d1bbc9d19bb099f70263",
+              "public_bridge": true
+            },
+            {
+              "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModEntities.java",
+              "sha256": "bf2aa419d0f81709c09013f15d368f0e9cedd21b9e47a6c4de10af8b00b12ffa",
+              "public_bridge": false
+            },
+            {
+              "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\WideAngleRightclickedProcedure.java",
+              "sha256": "8216d15bc0e34bd5a9c1ce8ffb7aa417b4aad15d73aea3f42367b652713fc6cd",
+              "public_bridge": false
+            },
+            {
+              "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\WillogradeRightClickedOnEntityProcedure.java",
+              "sha256": "0141490524141c93405471b38bd326c3bda7be9ac46929d72704e42f0faa9830",
+              "public_bridge": false
+            }
+          ],
+          "external_writer_files": [
+            {
+              "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\WillogradeRightClickedOnEntityProcedure.java",
+              "writes": [
+                {
+                  "line": 76,
+                  "code": "                    ((WillogradeEntity)entity).setAnimation(\"bury\");"
+                }
+              ]
+            }
+          ],
+          "negative_result": false
+        },
+        {
+          "kind": "实际可达writer",
+          "actual": "原Willograde.mobInteract不按hand过滤，始终调用过程；过程只读取sourceentity.getMainHandItem，必须主手spice且Willograde无COOLDOWN；Math.random()<.5后，receiver entity instanceof Willograde才setAnimation(bury)。客户端也立即运行这次随机/同步setter，服务端按自己的随机加CD90/锁80；没有其他Entity目录隐藏writer。",
+          "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\WillogradeRightClickedOnEntityProcedure.java",
+          "line": 37,
+          "end_line": 78,
+          "code": "37:    public static void execute(final LevelAccessor world, final double x, final double y, final double z, Entity entity, Entity sourceentity) {\n38:        LivingEntity _livEnt2;\n39:        ItemStack itemStack;\n40:        if (entity == null || sourceentity == null) {\n41:            return;\n42:        }\n43:        if (sourceentity instanceof LivingEntity) {\n44:            LivingEntity _livEnt = (LivingEntity)sourceentity;\n45:            itemStack = _livEnt.getMainHandItem();\n46:        } else {\n47:            itemStack = ItemStack.EMPTY;\n48:        }\n49:        if (!(itemStack.getItem() != ThermalShockModItems.ADAMANTINE_SPICE.get() || entity instanceof LivingEntity && (_livEnt2 = (LivingEntity)entity).hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get()))) {\n50:            if (sourceentity instanceof Player) {\n51:                Player _player = (Player)sourceentity;\n52:                ItemStack _stktoremove = new ItemStack((ItemLike)ThermalShockModItems.ADAMANTINE_SPICE.get());\n53:                _player.getInventory().clearOrCountMatchingItems(p -> _stktoremove.getItem() == p.getItem(), 1, (Container)_player.inventoryMenu.getCraftSlots());\n54:            }\n55:            if (world instanceof Level) {\n56:                Level _level = (Level)world;\n57:                if (!_level.isClientSide()) {\n58:                    _level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.generic.eat\")), SoundSource.NEUTRAL, 1.0f, 1.0f);\n59:                } else {\n60:                    _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.generic.eat\")), SoundSource.NEUTRAL, 1.0f, 1.0f, false);\n61:                }\n62:            }\n63:            world.levelEvent(2001, BlockPos.containing((double)x, (double)y, (double)z), Block.getId((BlockState)((Block)ThermalShockModBlocks.ADAMANTINE_SPICE_BLOCK.get()).defaultBlockState()));\n64:            if (Math.random() < 0.5) {\n65:                LivingEntity _entity;\n66:                if (entity instanceof LivingEntity && !(_entity = (LivingEntity)entity).level().isClientSide()) {\n67:                    _entity.addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 90, 1));\n68:                }\n69:                if (entity instanceof LivingEntity && !(_entity = (LivingEntity)entity).level().isClientSide()) {\n70:                    _entity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 80, 255, true, false));\n71:                }\n72:                if (entity instanceof LivingEntity && !(_entity = (LivingEntity)entity).level().isClientSide()) {\n73:                    _entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 80, 255, true, false));\n74:                }\n75:                if (entity instanceof WillogradeEntity) {\n76:                    ((WillogradeEntity)entity).setAnimation(\"bury\");\n77:                }\n78:                ThermalShockMod.queueServerWork(22, () -> {",
+          "caller": {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\WillogradeEntity.java",
+            "line": 129,
+            "end_line": 139,
+            "code": "129:    public InteractionResult mobInteract(Player sourceentity, InteractionHand hand) {\n130:        ItemStack itemstack = sourceentity.getItemInHand(hand);\n131:        InteractionResult retval = InteractionResult.sidedSuccess((boolean)this.level().isClientSide());\n132:        super.mobInteract(sourceentity, hand);\n133:        double x = this.getX();\n134:        double y = this.getY();\n135:        double z = this.getZ();\n136:        WillogradeEntity entity = this;\n137:        Level world = this.level();\n138:        WillogradeRightClickedOnEntityProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity, (Entity)sourceentity);\n139:        return retval;"
+          },
+          "clip": "bury",
+          "valid": true,
+          "asset": {
+            "name": "bury",
+            "loop": null,
+            "animation_length": 4.0417
+          },
+          "bytecode": {
+            "path": "D:/AI临时文件/ThermalShockMigration/animation127/a127-luna3-javap.txt",
+            "line": 473,
+            "end_line": 485,
+            "code": "473:     418: iconst_0\n474:     419: invokespecial #206                // Method net/minecraft/world/effect/MobEffectInstance.\"<init>\":(Lnet/minecraft/world/effect/MobEffect;IIZZ)V\n475:     422: invokevirtual #197                // Method net/minecraft/world/entity/LivingEntity.m_7292_:(Lnet/minecraft/world/effect/MobEffectInstance;)Z\n476:     425: pop\n477:     426: aload         7\n478:     428: instanceof    #211                // class net/mcreator/thermal_shock/entity/WillogradeEntity\n479:     431: ifeq          444\n480:     434: aload         7\n481:     436: checkcast     #211                // class net/mcreator/thermal_shock/entity/WillogradeEntity\n482:     439: ldc           #213                // String bury\n483:     441: invokevirtual #216                // Method net/mcreator/thermal_shock/entity/WillogradeEntity.setAnimation:(Ljava/lang/String;)V\n484:     444: bipush        22\n485:     446: aload_0"
+          }
+        }
+      ],
+      "target_consumers": [
+        {
+          "actual": "PathfinderMob+GeoEntity；mobInteract按本次hand物品与feedCooldown判，服务端一次random<.5设置CD90/age0并setAnimation(bury)；setAnimation发movement trigger，只有movement4，无独立procedure controller。",
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\fauna\\WillogradeEntity.java",
+          "line": 63,
+          "end_line": 94,
+          "code": "63:    public void setAnimation(String animation) { triggerAnim(\"movement\", animation); }\n64:\n65:    @Override\n66:    protected void registerGoals() {\n67:        goalSelector.addGoal(1, new FaunaMeleeGoal(this, -1));\n68:        goalSelector.addGoal(2, new RandomStrollGoal(this, 0.7));\n69:        targetSelector.addGoal(3, new HurtByTargetGoal(this));\n70:        goalSelector.addGoal(4, new RandomLookAroundGoal(this));\n71:        goalSelector.addGoal(5, new LeapAtTargetGoal(this, 0.5F));\n72:    }\n73:\n74:    @Override\n75:    public net.minecraft.world.InteractionResult mobInteract(Player player, net.minecraft.world.InteractionHand hand) {\n76:        var held = player.getItemInHand(hand);\n77:        if (!held.is(FaunaEntities.item(\"adamantine_spice\")) || feedCooldown > 0) return super.mobInteract(player, hand);\n78:        if (!level().isClientSide) {\n79:            held.shrink(1);\n80:            level().playSound(null, blockPosition(), SoundEvents.GENERIC_EAT, net.minecraft.sounds.SoundSource.NEUTRAL, 1, 1);\n81:            level().levelEvent(2001, blockPosition(), net.minecraft.world.level.block.Block.getId(FaunaEntities.block(\"adamantine_spice_block\").defaultBlockState()));\n82:            if (random.nextDouble() < 0.5) {\n83:                feedCooldown = 90;\n84:                entityData.set(FEED_COOLDOWN_VISIBLE, true);\n85:                ThermalShockReforged.LOGGER.debug(\"Willograde feeding cooldown started: entity={}, position={}, remaining={}\", getUUID(), position(), feedCooldown);\n86:                buryAge = 0;\n87:                buryOrigin = position();\n88:                buryDimension = level().dimension().location().toString();\n89:                getNavigation().stop();\n90:                setAnimation(\"bury\");\n91:            }\n92:        }\n93:        return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);\n94:    }"
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\fauna\\WillogradeEntity.java",
+          "line": 122,
+          "end_line": 164,
+          "code": "122:    public void tick() {\n123:        super.tick();\n124:        if (level().isClientSide || !isAlive()) return;\n125:        if (feedCooldown > 0 && --feedCooldown == 0) entityData.set(FEED_COOLDOWN_VISIBLE, false);\n126:        if (buryAge < 0) return;\n127:        if (!buryDimension.equals(level().dimension().location().toString())) {\n128:            buryAge = -1;\n129:            return;\n130:        }\n131:        if (resumeBuryAnimation) {\n132:            resumeBuryAnimation = false;\n133:            setAnimation(\"bury\");\n134:        }\n135:        buryAge++;\n136:        if (buried()) {\n137:            getNavigation().stop();\n138:            setXxa(0);\n139:            setZza(0);\n140:            setYya(0);\n141:            setDeltaMovement(0, getDeltaMovement().y, 0);\n142:        }\n143:        var pos = BlockPos.containing(buryOrigin);\n144:        if (buryAge >= 22 && buryAge <= 40 && (buryAge - 22) % 2 == 0) {\n145:            level().levelEvent(2001, pos, net.minecraft.world.level.block.Block.getId(level().getBlockState(pos.below())));\n146:            level().playSound(null, pos, SoundEvents.GRAVEL_BREAK, net.minecraft.sounds.SoundSource.NEUTRAL, 1, 1);\n147:        }\n148:        if (buryAge >= 22 && buryAge <= 41 && level() instanceof net.minecraft.server.level.ServerLevel server) {\n149:            var loot = server.getServer().reloadableRegistries().getLootTable(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.LOOT_TABLE, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(\"thermal_shock_reforged\", \"blocks/muck_loot\")));\n150:            var params = new net.minecraft.world.level.storage.loot.LootParams.Builder(server)\n151:                    .withParameter(net.minecraft.world.level.storage.loot.parameters.LootContextParams.ORIGIN, buryOrigin)\n152:                    .create(net.minecraft.world.level.storage.loot.parameters.LootContextParamSets.COMMAND);\n153:            for (var stack : loot.getRandomItems(params)) {\n154:                var drop = new net.minecraft.world.entity.item.ItemEntity(server, buryOrigin.x, buryOrigin.y, buryOrigin.z, stack);\n155:                drop.setDefaultPickUpDelay();\n156:                server.addFreshEntity(drop);\n157:            }\n158:        }\n159:        if (buryAge == 62) {\n160:            level().playSound(null, pos, SoundEvents.GRAVEL_PLACE, net.minecraft.sounds.SoundSource.NEUTRAL, 1, 1);\n161:            level().playSound(null, pos, SoundEvents.ITEM_PICKUP, net.minecraft.sounds.SoundSource.NEUTRAL, 1, 1);\n162:        }\n163:        if (buryAge >= 80) buryAge = -1;\n164:    }"
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\fauna\\WillogradeEntity.java",
+          "line": 189,
+          "end_line": 209,
+          "code": "189:    public void readAdditionalSaveData(CompoundTag tag) {\n190:        super.readAdditionalSaveData(tag);\n191:        if (tag.contains(\"Texture\")) setTexture(tag.getString(\"Texture\"));\n192:        buryAge = tag.contains(\"BuryAge\") ? tag.getInt(\"BuryAge\") : -1;\n193:        feedCooldown = Math.max(0, tag.getInt(\"FeedCooldown\"));\n194:        entityData.set(FEED_COOLDOWN_VISIBLE, feedCooldown > 0);\n195:        buryOrigin = new net.minecraft.world.phys.Vec3(tag.getDouble(\"BuryX\"), tag.getDouble(\"BuryY\"), tag.getDouble(\"BuryZ\"));\n196:        buryDimension = tag.getString(\"BuryDimension\");\n197:        resumeBuryAnimation = buryAge >= 0 && buryAge < 80;\n198:    }\n199:\n200:    @Override\n201:    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n202:        controllers.add(new AnimationController<>(this, \"movement\", 4, state -> {\n203:            return state.setAndContinue(RawAnimation.begin().thenLoop(state.isMoving() && (isVehicle() || isAggressive()) ? \"rolling\" : !isVehicle() && !isAggressive() && (state.isMoving() || Math.abs(state.getLimbSwingAmount()) >= 0.15F) ? \"walk\" : \"idle\"));\n204:        })\n205:                .triggerableAnim(\"walk\", RawAnimation.begin().thenPlay(\"walk\"))\n206:                .triggerableAnim(\"idle\", RawAnimation.begin().thenPlay(\"idle\"))\n207:                .triggerableAnim(\"rolling\", RawAnimation.begin().thenPlay(\"rolling\"))\n208:                .triggerableAnim(\"bury\", RawAnimation.begin().thenPlay(\"bury\")));\n209:    }"
+        },
+        {
+          "report_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\animation-main127-public-integration.json",
+          "section": "libraryEvidence/AnimationController.java:276-283",
+          "quoted_lines": [
+            {
+              "line": 276,
+              "code": "    protected PlayState handleAnimationState(AnimationState<T> state) {"
+            },
+            {
+              "line": 277,
+              "code": "        if (this.triggeredAnimation != null) {"
+            },
+            {
+              "line": 278,
+              "code": "            if (this.currentRawAnimation != this.triggeredAnimation) {"
+            },
+            {
+              "line": 279,
+              "code": "                this.currentAnimation = null;"
+            },
+            {
+              "line": 280,
+              "code": "            }"
+            },
+            {
+              "line": 281,
+              "code": "            this.setAnimation(this.triggeredAnimation);"
+            },
+            {
+              "line": 282,
+              "code": "            if (!(this.hasAnimationFinished() || this.handlingTriggeredAnimations && this.getStateHandler().handle(state) != PlayState.CONTINUE)) {"
+            },
+            {
+              "line": 283,
+              "code": "                return PlayState.CONTINUE;"
+            }
+          ],
+          "actual": "公共报告证明trigger存在时先setAnimation(triggeredAnimation)，未finished且不被handlingTriggeredAnimations分支中止则CONTINUE；未包含该flag默认值与完成后清理分支。"
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\fauna\\FaunaRenderers.java",
+          "line": 29,
+          "end_line": 29,
+          "code": "29:        event.registerEntityRenderer(FaunaEntities.WILLOGRADE.get(), factory(\"roly_poly\", WillogradeEntity::texture, false, 1, 1, false));"
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\fauna\\FaunaRenderers.java",
+          "line": 51,
+          "end_line": 55,
+          "code": "51:    private static <T extends Mob & GeoEntity> EntityRendererProvider<T> factory(String id, Function<T, String> texture, boolean head, float shadow, float scale, boolean glow) {\n52:        return context -> new Renderer<>(context, new Model<>(id, texture, head), shadow, scale, glow);\n53:    }\n54:\n55:    private static ResourceLocation resource(String path) { return ResourceLocation.fromNamespaceAndPath(\"thermal_shock_reforged\", path); }"
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\fauna\\FaunaRenderers.java",
+          "line": 57,
+          "end_line": 75,
+          "code": "57:    private static final class Model<T extends Mob & GeoEntity> extends GeoModel<T> {\n58:        private final String id;\n59:        private final Function<T, String> texture;\n60:        private final boolean head;\n61:\n62:        private Model(String id, Function<T, String> texture, boolean head) {\n63:            this.id = id;\n64:            this.texture = texture;\n65:            this.head = head;\n66:        }\n67:\n68:        @Override\n69:        public ResourceLocation getModelResource(T entity) { return resource(\"geo/\" + id + \".geo.json\"); }\n70:\n71:        @Override\n72:        public ResourceLocation getTextureResource(T entity) { return resource(\"textures/entities/\" + texture.apply(entity) + \".png\"); }\n73:\n74:        @Override\n75:        public ResourceLocation getAnimationResource(T entity) { return resource(\"animations/\" + id + \".animation.json\"); }"
+        },
+        {
+          "actual": "真实consumer动画JSON逐clip loop/length；所有thenPlay按DEFAULT结合本值，非注册盘点。",
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\animations\\roly_poly.animation.json",
+          "clips": [
+            {
+              "name": "idle",
+              "loop": true,
+              "animation_length": 5.5
+            },
+            {
+              "name": "walk",
+              "loop": true,
+              "animation_length": 0.3333
+            },
+            {
+              "name": "rolling",
+              "loop": true,
+              "animation_length": 1.3333
+            },
+            {
+              "name": "bury",
+              "loop": null,
+              "animation_length": 4.0417
+            }
+          ]
+        }
+      ],
+      "comparisons": [
+        {
+          "status": "matched",
+          "field": "vehicle/aggressive移动优先级",
+          "actual": "原首分支排vehicle/aggressive再walk；vehicle且isMoving或aggressive且isMoving且非vehicle选rolling；其余idle。目标三元条件在40组有限值含边界组合全部一致；不能把有vehicle或aggressive本身当rolling条件。",
+          "source_evidence": {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\WillogradeEntity.java",
+            "line": 176,
+            "end_line": 190,
+            "code": "private PlayState movementPredicate(AnimationState event) {\r\n        if (this.animationprocedure.equals(\"empty\")) {\r\n            if (!(!event.isMoving() && event.getLimbSwingAmount() > -0.15f && event.getLimbSwingAmount() < 0.15f || this.isVehicle() || this.isAggressive())) {\r\n                return event.setAndContinue(RawAnimation.begin().thenLoop(\"walk\"));\r\n            }\r\n            if (this.isVehicle() && event.isMoving()) {\r\n                return event.setAndContinue(RawAnimation.begin().thenLoop(\"rolling\"));\r\n            }\r\n            if (this.isAggressive() && event.isMoving() && !this.isVehicle()) {\r\n                return event.setAndContinue(RawAnimation.begin().thenLoop(\"rolling\"));\r\n            }\r\n            return event.setAndContinue(RawAnimation.begin().thenLoop(\"idle\"));\r\n        }\r\n        return PlayState.STOP;\r\n    }"
+          },
+          "target_evidence": {
+            "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\fauna\\WillogradeEntity.java",
+            "line": 201,
+            "end_line": 209,
+            "code": "201:    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n202:        controllers.add(new AnimationController<>(this, \"movement\", 4, state -> {\n203:            return state.setAndContinue(RawAnimation.begin().thenLoop(state.isMoving() && (isVehicle() || isAggressive()) ? \"rolling\" : !isVehicle() && !isAggressive() && (state.isMoving() || Math.abs(state.getLimbSwingAmount()) >= 0.15F) ? \"walk\" : \"idle\"));\n204:        })\n205:                .triggerableAnim(\"walk\", RawAnimation.begin().thenPlay(\"walk\"))\n206:                .triggerableAnim(\"idle\", RawAnimation.begin().thenPlay(\"idle\"))\n207:                .triggerableAnim(\"rolling\", RawAnimation.begin().thenPlay(\"rolling\"))\n208:                .triggerableAnim(\"bury\", RawAnimation.begin().thenPlay(\"bury\")));\n209:    }",
+            "truth_table": "D:/AI临时文件/ThermalShockMigration/animation127/a127-luna3-truth-table.json",
+            "cases": 40
+          }
+        },
+        {
+          "status": "matched",
+          "field": "正常主手喂食的可达bury",
+          "actual": "主手spice且无CD，在服务端50%分支立即发bury；原procedure4+movement4，目标movement4 trigger bury；bury.loop缺省/length4.0417秒，DEFAULT，不把时长直接等于游戏80tick锁；其他movement均显式loop。",
+          "source_evidence": {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\WillogradeRightClickedOnEntityProcedure.java",
+            "line": 37,
+            "end_line": 78,
+            "code": "37:    public static void execute(final LevelAccessor world, final double x, final double y, final double z, Entity entity, Entity sourceentity) {\n38:        LivingEntity _livEnt2;\n39:        ItemStack itemStack;\n40:        if (entity == null || sourceentity == null) {\n41:            return;\n42:        }\n43:        if (sourceentity instanceof LivingEntity) {\n44:            LivingEntity _livEnt = (LivingEntity)sourceentity;\n45:            itemStack = _livEnt.getMainHandItem();\n46:        } else {\n47:            itemStack = ItemStack.EMPTY;\n48:        }\n49:        if (!(itemStack.getItem() != ThermalShockModItems.ADAMANTINE_SPICE.get() || entity instanceof LivingEntity && (_livEnt2 = (LivingEntity)entity).hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get()))) {\n50:            if (sourceentity instanceof Player) {\n51:                Player _player = (Player)sourceentity;\n52:                ItemStack _stktoremove = new ItemStack((ItemLike)ThermalShockModItems.ADAMANTINE_SPICE.get());\n53:                _player.getInventory().clearOrCountMatchingItems(p -> _stktoremove.getItem() == p.getItem(), 1, (Container)_player.inventoryMenu.getCraftSlots());\n54:            }\n55:            if (world instanceof Level) {\n56:                Level _level = (Level)world;\n57:                if (!_level.isClientSide()) {\n58:                    _level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.generic.eat\")), SoundSource.NEUTRAL, 1.0f, 1.0f);\n59:                } else {\n60:                    _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.generic.eat\")), SoundSource.NEUTRAL, 1.0f, 1.0f, false);\n61:                }\n62:            }\n63:            world.levelEvent(2001, BlockPos.containing((double)x, (double)y, (double)z), Block.getId((BlockState)((Block)ThermalShockModBlocks.ADAMANTINE_SPICE_BLOCK.get()).defaultBlockState()));\n64:            if (Math.random() < 0.5) {\n65:                LivingEntity _entity;\n66:                if (entity instanceof LivingEntity && !(_entity = (LivingEntity)entity).level().isClientSide()) {\n67:                    _entity.addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 90, 1));\n68:                }\n69:                if (entity instanceof LivingEntity && !(_entity = (LivingEntity)entity).level().isClientSide()) {\n70:                    _entity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 80, 255, true, false));\n71:                }\n72:                if (entity instanceof LivingEntity && !(_entity = (LivingEntity)entity).level().isClientSide()) {\n73:                    _entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 80, 255, true, false));\n74:                }\n75:                if (entity instanceof WillogradeEntity) {\n76:                    ((WillogradeEntity)entity).setAnimation(\"bury\");\n77:                }\n78:                ThermalShockMod.queueServerWork(22, () -> {"
+          },
+          "target_evidence": [
+            {
+              "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\fauna\\WillogradeEntity.java",
+              "line": 63,
+              "end_line": 94,
+              "code": "63:    public void setAnimation(String animation) { triggerAnim(\"movement\", animation); }\n64:\n65:    @Override\n66:    protected void registerGoals() {\n67:        goalSelector.addGoal(1, new FaunaMeleeGoal(this, -1));\n68:        goalSelector.addGoal(2, new RandomStrollGoal(this, 0.7));\n69:        targetSelector.addGoal(3, new HurtByTargetGoal(this));\n70:        goalSelector.addGoal(4, new RandomLookAroundGoal(this));\n71:        goalSelector.addGoal(5, new LeapAtTargetGoal(this, 0.5F));\n72:    }\n73:\n74:    @Override\n75:    public net.minecraft.world.InteractionResult mobInteract(Player player, net.minecraft.world.InteractionHand hand) {\n76:        var held = player.getItemInHand(hand);\n77:        if (!held.is(FaunaEntities.item(\"adamantine_spice\")) || feedCooldown > 0) return super.mobInteract(player, hand);\n78:        if (!level().isClientSide) {\n79:            held.shrink(1);\n80:            level().playSound(null, blockPosition(), SoundEvents.GENERIC_EAT, net.minecraft.sounds.SoundSource.NEUTRAL, 1, 1);\n81:            level().levelEvent(2001, blockPosition(), net.minecraft.world.level.block.Block.getId(FaunaEntities.block(\"adamantine_spice_block\").defaultBlockState()));\n82:            if (random.nextDouble() < 0.5) {\n83:                feedCooldown = 90;\n84:                entityData.set(FEED_COOLDOWN_VISIBLE, true);\n85:                ThermalShockReforged.LOGGER.debug(\"Willograde feeding cooldown started: entity={}, position={}, remaining={}\", getUUID(), position(), feedCooldown);\n86:                buryAge = 0;\n87:                buryOrigin = position();\n88:                buryDimension = level().dimension().location().toString();\n89:                getNavigation().stop();\n90:                setAnimation(\"bury\");\n91:            }\n92:        }\n93:        return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);\n94:    }"
+            },
+            {
+              "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\fauna\\WillogradeEntity.java",
+              "line": 201,
+              "end_line": 209,
+              "code": "201:    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n202:        controllers.add(new AnimationController<>(this, \"movement\", 4, state -> {\n203:            return state.setAndContinue(RawAnimation.begin().thenLoop(state.isMoving() && (isVehicle() || isAggressive()) ? \"rolling\" : !isVehicle() && !isAggressive() && (state.isMoving() || Math.abs(state.getLimbSwingAmount()) >= 0.15F) ? \"walk\" : \"idle\"));\n204:        })\n205:                .triggerableAnim(\"walk\", RawAnimation.begin().thenPlay(\"walk\"))\n206:                .triggerableAnim(\"idle\", RawAnimation.begin().thenPlay(\"idle\"))\n207:                .triggerableAnim(\"rolling\", RawAnimation.begin().thenPlay(\"rolling\"))\n208:                .triggerableAnim(\"bury\", RawAnimation.begin().thenPlay(\"bury\")));\n209:    }"
+            }
+          ]
+        },
+        {
+          "status": "difference",
+          "field": "服务器单随机与内部持久状态",
+          "actual": "原client/server分别走Math.random与setter；目标仅服务端random并由GeoEntity网络trigger；目标CD90/锁80改本地状态，死亡/跨维取消、卸载继续获fauna-batch.md:24/30授权。明确实现差异，不冒称双端随机次数完全相同。",
+          "source_evidence": {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\WillogradeRightClickedOnEntityProcedure.java",
+            "line": 37,
+            "end_line": 78,
+            "code": "37:    public static void execute(final LevelAccessor world, final double x, final double y, final double z, Entity entity, Entity sourceentity) {\n38:        LivingEntity _livEnt2;\n39:        ItemStack itemStack;\n40:        if (entity == null || sourceentity == null) {\n41:            return;\n42:        }\n43:        if (sourceentity instanceof LivingEntity) {\n44:            LivingEntity _livEnt = (LivingEntity)sourceentity;\n45:            itemStack = _livEnt.getMainHandItem();\n46:        } else {\n47:            itemStack = ItemStack.EMPTY;\n48:        }\n49:        if (!(itemStack.getItem() != ThermalShockModItems.ADAMANTINE_SPICE.get() || entity instanceof LivingEntity && (_livEnt2 = (LivingEntity)entity).hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get()))) {\n50:            if (sourceentity instanceof Player) {\n51:                Player _player = (Player)sourceentity;\n52:                ItemStack _stktoremove = new ItemStack((ItemLike)ThermalShockModItems.ADAMANTINE_SPICE.get());\n53:                _player.getInventory().clearOrCountMatchingItems(p -> _stktoremove.getItem() == p.getItem(), 1, (Container)_player.inventoryMenu.getCraftSlots());\n54:            }\n55:            if (world instanceof Level) {\n56:                Level _level = (Level)world;\n57:                if (!_level.isClientSide()) {\n58:                    _level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.generic.eat\")), SoundSource.NEUTRAL, 1.0f, 1.0f);\n59:                } else {\n60:                    _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.generic.eat\")), SoundSource.NEUTRAL, 1.0f, 1.0f, false);\n61:                }\n62:            }\n63:            world.levelEvent(2001, BlockPos.containing((double)x, (double)y, (double)z), Block.getId((BlockState)((Block)ThermalShockModBlocks.ADAMANTINE_SPICE_BLOCK.get()).defaultBlockState()));\n64:            if (Math.random() < 0.5) {\n65:                LivingEntity _entity;\n66:                if (entity instanceof LivingEntity && !(_entity = (LivingEntity)entity).level().isClientSide()) {\n67:                    _entity.addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 90, 1));\n68:                }\n69:                if (entity instanceof LivingEntity && !(_entity = (LivingEntity)entity).level().isClientSide()) {\n70:                    _entity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 80, 255, true, false));\n71:                }\n72:                if (entity instanceof LivingEntity && !(_entity = (LivingEntity)entity).level().isClientSide()) {\n73:                    _entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 80, 255, true, false));\n74:                }\n75:                if (entity instanceof WillogradeEntity) {\n76:                    ((WillogradeEntity)entity).setAnimation(\"bury\");\n77:                }\n78:                ThermalShockMod.queueServerWork(22, () -> {"
+          },
+          "target_evidence": [
+            {
+              "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\fauna\\WillogradeEntity.java",
+              "line": 75,
+              "end_line": 94,
+              "code": "75:    public net.minecraft.world.InteractionResult mobInteract(Player player, net.minecraft.world.InteractionHand hand) {\n76:        var held = player.getItemInHand(hand);\n77:        if (!held.is(FaunaEntities.item(\"adamantine_spice\")) || feedCooldown > 0) return super.mobInteract(player, hand);\n78:        if (!level().isClientSide) {\n79:            held.shrink(1);\n80:            level().playSound(null, blockPosition(), SoundEvents.GENERIC_EAT, net.minecraft.sounds.SoundSource.NEUTRAL, 1, 1);\n81:            level().levelEvent(2001, blockPosition(), net.minecraft.world.level.block.Block.getId(FaunaEntities.block(\"adamantine_spice_block\").defaultBlockState()));\n82:            if (random.nextDouble() < 0.5) {\n83:                feedCooldown = 90;\n84:                entityData.set(FEED_COOLDOWN_VISIBLE, true);\n85:                ThermalShockReforged.LOGGER.debug(\"Willograde feeding cooldown started: entity={}, position={}, remaining={}\", getUUID(), position(), feedCooldown);\n86:                buryAge = 0;\n87:                buryOrigin = position();\n88:                buryDimension = level().dimension().location().toString();\n89:                getNavigation().stop();\n90:                setAnimation(\"bury\");\n91:            }\n92:        }\n93:        return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);\n94:    }"
+            },
+            {
+              "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\fauna\\WillogradeEntity.java",
+              "line": 122,
+              "end_line": 164,
+              "code": "122:    public void tick() {\n123:        super.tick();\n124:        if (level().isClientSide || !isAlive()) return;\n125:        if (feedCooldown > 0 && --feedCooldown == 0) entityData.set(FEED_COOLDOWN_VISIBLE, false);\n126:        if (buryAge < 0) return;\n127:        if (!buryDimension.equals(level().dimension().location().toString())) {\n128:            buryAge = -1;\n129:            return;\n130:        }\n131:        if (resumeBuryAnimation) {\n132:            resumeBuryAnimation = false;\n133:            setAnimation(\"bury\");\n134:        }\n135:        buryAge++;\n136:        if (buried()) {\n137:            getNavigation().stop();\n138:            setXxa(0);\n139:            setZza(0);\n140:            setYya(0);\n141:            setDeltaMovement(0, getDeltaMovement().y, 0);\n142:        }\n143:        var pos = BlockPos.containing(buryOrigin);\n144:        if (buryAge >= 22 && buryAge <= 40 && (buryAge - 22) % 2 == 0) {\n145:            level().levelEvent(2001, pos, net.minecraft.world.level.block.Block.getId(level().getBlockState(pos.below())));\n146:            level().playSound(null, pos, SoundEvents.GRAVEL_BREAK, net.minecraft.sounds.SoundSource.NEUTRAL, 1, 1);\n147:        }\n148:        if (buryAge >= 22 && buryAge <= 41 && level() instanceof net.minecraft.server.level.ServerLevel server) {\n149:            var loot = server.getServer().reloadableRegistries().getLootTable(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.LOOT_TABLE, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(\"thermal_shock_reforged\", \"blocks/muck_loot\")));\n150:            var params = new net.minecraft.world.level.storage.loot.LootParams.Builder(server)\n151:                    .withParameter(net.minecraft.world.level.storage.loot.parameters.LootContextParams.ORIGIN, buryOrigin)\n152:                    .create(net.minecraft.world.level.storage.loot.parameters.LootContextParamSets.COMMAND);\n153:            for (var stack : loot.getRandomItems(params)) {\n154:                var drop = new net.minecraft.world.entity.item.ItemEntity(server, buryOrigin.x, buryOrigin.y, buryOrigin.z, stack);\n155:                drop.setDefaultPickUpDelay();\n156:                server.addFreshEntity(drop);\n157:            }\n158:        }\n159:        if (buryAge == 62) {\n160:            level().playSound(null, pos, SoundEvents.GRAVEL_PLACE, net.minecraft.sounds.SoundSource.NEUTRAL, 1, 1);\n161:            level().playSound(null, pos, SoundEvents.ITEM_PICKUP, net.minecraft.sounds.SoundSource.NEUTRAL, 1, 1);\n162:        }\n163:        if (buryAge >= 80) buryAge = -1;\n164:    }"
+            },
+            {
+              "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\fauna-batch.md",
+              "line": 24,
+              "end_line": 30,
+              "code": "24:Willograde 原击退3过大；按用户规则迁为0.6，使用原生近战受击退抗性影响。埋藏伪抗性/缓慢改实体本地持久化计时、相同药水减免阶段的伤害归零与行动锁，不减少全部时序、粒子或掉落次数。实体死亡/跨维度后埋藏计时不再执行；卸载重载保存剩余进度。\n25:\n26:## 实现覆盖与冻结前核对\n27:\n28:本批源码已完成：六实体、原水下移动控制、原近战距离、独立属性/出生/刷怪蛋、动态贴图持久化、全部原动画名称、Bonerahna bite 7tick控制、Chromefish body朝向、Trilobite/Flare head朝向、六实体透明渲染、Torpedo1.4缩放及眼睛发光层。Chromefish死亡固定1 raw_chromefish；Torpedo被击杀固定1 raw_torpedo，自爆discard不走死亡掉落；Bonerahna 0.004 muck_pie与Flare 0.7一至五infected_seeds/0.3 infected_flesh由本模块死亡监听保留，未来迁移全局MiscFoodDrops/GraveMobDrops时必须排除已转移两类，避免重复。\n29:\n30:Trilobite交互已闭合到真实loque_milk与新Cauldron；Willograde保留全部90/80/22/62tick、10次碎屑与20次muck_loot。原药水COOLDOWN、255抗性与255缓慢不再用于内部状态；80tick埋藏期间在getDamageAfterMagicAbsorb阶段归零普通伤害，BYPASSES_EFFECTS与BYPASSES_RESISTANCE照原Resistance255语义交给父类，保留原伤害接收流程、抵抗统计与行动锁，不使用hurt入口全免。实体保存喂食冷却、埋藏年龄、原位置和维度。死亡停执行、跨维度取消、卸载存档继续剩余进度。22tick起掉落维持原喂食坐标，避免实体之后移位更改原掉落位置。"
+            }
+          ]
+        },
+        {
+          "status": "difference",
+          "field": "喂食实际hand条件（候选）",
+          "actual": "可达bury输入条件由原主手spice改为本次hand的spice，新增仅副手持香料的埋藏触发；本片历史授权未找到改手位门槛的明确依据。",
+          "source_evidence": [
+            {
+              "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\WillogradeEntity.java",
+              "line": 129,
+              "end_line": 139,
+              "code": "129:    public InteractionResult mobInteract(Player sourceentity, InteractionHand hand) {\n130:        ItemStack itemstack = sourceentity.getItemInHand(hand);\n131:        InteractionResult retval = InteractionResult.sidedSuccess((boolean)this.level().isClientSide());\n132:        super.mobInteract(sourceentity, hand);\n133:        double x = this.getX();\n134:        double y = this.getY();\n135:        double z = this.getZ();\n136:        WillogradeEntity entity = this;\n137:        Level world = this.level();\n138:        WillogradeRightClickedOnEntityProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity, (Entity)sourceentity);\n139:        return retval;"
+            },
+            {
+              "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\WillogradeRightClickedOnEntityProcedure.java",
+              "line": 40,
+              "end_line": 77,
+              "code": "40:        if (entity == null || sourceentity == null) {\n41:            return;\n42:        }\n43:        if (sourceentity instanceof LivingEntity) {\n44:            LivingEntity _livEnt = (LivingEntity)sourceentity;\n45:            itemStack = _livEnt.getMainHandItem();\n46:        } else {\n47:            itemStack = ItemStack.EMPTY;\n48:        }\n49:        if (!(itemStack.getItem() != ThermalShockModItems.ADAMANTINE_SPICE.get() || entity instanceof LivingEntity && (_livEnt2 = (LivingEntity)entity).hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get()))) {\n50:            if (sourceentity instanceof Player) {\n51:                Player _player = (Player)sourceentity;\n52:                ItemStack _stktoremove = new ItemStack((ItemLike)ThermalShockModItems.ADAMANTINE_SPICE.get());\n53:                _player.getInventory().clearOrCountMatchingItems(p -> _stktoremove.getItem() == p.getItem(), 1, (Container)_player.inventoryMenu.getCraftSlots());\n54:            }\n55:            if (world instanceof Level) {\n56:                Level _level = (Level)world;\n57:                if (!_level.isClientSide()) {\n58:                    _level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.generic.eat\")), SoundSource.NEUTRAL, 1.0f, 1.0f);\n59:                } else {\n60:                    _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.generic.eat\")), SoundSource.NEUTRAL, 1.0f, 1.0f, false);\n61:                }\n62:            }\n63:            world.levelEvent(2001, BlockPos.containing((double)x, (double)y, (double)z), Block.getId((BlockState)((Block)ThermalShockModBlocks.ADAMANTINE_SPICE_BLOCK.get()).defaultBlockState()));\n64:            if (Math.random() < 0.5) {\n65:                LivingEntity _entity;\n66:                if (entity instanceof LivingEntity && !(_entity = (LivingEntity)entity).level().isClientSide()) {\n67:                    _entity.addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 90, 1));\n68:                }\n69:                if (entity instanceof LivingEntity && !(_entity = (LivingEntity)entity).level().isClientSide()) {\n70:                    _entity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 80, 255, true, false));\n71:                }\n72:                if (entity instanceof LivingEntity && !(_entity = (LivingEntity)entity).level().isClientSide()) {\n73:                    _entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 80, 255, true, false));\n74:                }\n75:                if (entity instanceof WillogradeEntity) {\n76:                    ((WillogradeEntity)entity).setAnimation(\"bury\");\n77:                }"
+            }
+          ],
+          "target_evidence": {
+            "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\fauna\\WillogradeEntity.java",
+            "line": 75,
+            "end_line": 94,
+            "code": "75:    public net.minecraft.world.InteractionResult mobInteract(Player player, net.minecraft.world.InteractionHand hand) {\n76:        var held = player.getItemInHand(hand);\n77:        if (!held.is(FaunaEntities.item(\"adamantine_spice\")) || feedCooldown > 0) return super.mobInteract(player, hand);\n78:        if (!level().isClientSide) {\n79:            held.shrink(1);\n80:            level().playSound(null, blockPosition(), SoundEvents.GENERIC_EAT, net.minecraft.sounds.SoundSource.NEUTRAL, 1, 1);\n81:            level().levelEvent(2001, blockPosition(), net.minecraft.world.level.block.Block.getId(FaunaEntities.block(\"adamantine_spice_block\").defaultBlockState()));\n82:            if (random.nextDouble() < 0.5) {\n83:                feedCooldown = 90;\n84:                entityData.set(FEED_COOLDOWN_VISIBLE, true);\n85:                ThermalShockReforged.LOGGER.debug(\"Willograde feeding cooldown started: entity={}, position={}, remaining={}\", getUUID(), position(), feedCooldown);\n86:                buryAge = 0;\n87:                buryOrigin = position();\n88:                buryDimension = level().dimension().location().toString();\n89:                getNavigation().stop();\n90:                setAnimation(\"bury\");\n91:            }\n92:        }\n93:        return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);\n94:    }"
+          }
+        },
+        {
+          "status": "open",
+          "field": "精确未闭合",
+          "actual": "独立procedure4合并成movement4触发：原proc非empty时movement STOP，目标triggerAnim(movement,bury)。主线127所载handleAnimationState:277-283已证明trigger优先setAnimation并在未finished且不被handlingTriggeredAnimations分支中止时CONTINUE，故不再笼统缺trigger优先入口。精确仍缺：该flag在本controller未调用receiveTriggeredAnimations等配置时的默认值，以及finished后的trigger清理/恢复普通handler边界；本体handler有setAndContinue副作用，不能仅凭其返回CONTINUE宣称永远不覆盖bury。此问题只依赖主线补公共证据，不自行查库；specificDifferentNameProof未列本片clip，不将其hash结论外推。",
+          "source_evidence": [
+            {
+              "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\WillogradeEntity.java",
+              "line": 176,
+              "end_line": 190,
+              "code": "private PlayState movementPredicate(AnimationState event) {\r\n        if (this.animationprocedure.equals(\"empty\")) {\r\n            if (!(!event.isMoving() && event.getLimbSwingAmount() > -0.15f && event.getLimbSwingAmount() < 0.15f || this.isVehicle() || this.isAggressive())) {\r\n                return event.setAndContinue(RawAnimation.begin().thenLoop(\"walk\"));\r\n            }\r\n            if (this.isVehicle() && event.isMoving()) {\r\n                return event.setAndContinue(RawAnimation.begin().thenLoop(\"rolling\"));\r\n            }\r\n            if (this.isAggressive() && event.isMoving() && !this.isVehicle()) {\r\n                return event.setAndContinue(RawAnimation.begin().thenLoop(\"rolling\"));\r\n            }\r\n            return event.setAndContinue(RawAnimation.begin().thenLoop(\"idle\"));\r\n        }\r\n        return PlayState.STOP;\r\n    }"
+            },
+            {
+              "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\WillogradeEntity.java",
+              "line": 192,
+              "end_line": 208,
+              "code": "private PlayState procedurePredicate(AnimationState event) {\r\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\r\n            if (!this.animationprocedure.equals(this.prevAnim)) {\r\n                event.getController().forceAnimationReset();\r\n            }\r\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\r\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\r\n                this.animationprocedure = \"empty\";\r\n                event.getController().forceAnimationReset();\r\n            }\r\n        } else if (this.animationprocedure.equals(\"empty\")) {\r\n            this.prevAnim = \"empty\";\r\n            return PlayState.STOP;\r\n        }\r\n        this.prevAnim = this.animationprocedure;\r\n        return PlayState.CONTINUE;\r\n    }"
+            },
+            {
+              "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\WillogradeEntity.java",
+              "line": 226,
+              "end_line": 229,
+              "code": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\r\n        data.add(new AnimationController[]{new AnimationController((GeoAnimatable)this, \"movement\", 4, this::movementPredicate)});\r\n        data.add(new AnimationController[]{new AnimationController((GeoAnimatable)this, \"procedure\", 4, this::procedurePredicate)});\r\n    }"
+            }
+          ],
+          "target_evidence": [
+            {
+              "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\fauna\\WillogradeEntity.java",
+              "line": 63,
+              "end_line": 63,
+              "code": "63:    public void setAnimation(String animation) { triggerAnim(\"movement\", animation); }"
+            },
+            {
+              "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\fauna\\WillogradeEntity.java",
+              "line": 201,
+              "end_line": 209,
+              "code": "201:    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n202:        controllers.add(new AnimationController<>(this, \"movement\", 4, state -> {\n203:            return state.setAndContinue(RawAnimation.begin().thenLoop(state.isMoving() && (isVehicle() || isAggressive()) ? \"rolling\" : !isVehicle() && !isAggressive() && (state.isMoving() || Math.abs(state.getLimbSwingAmount()) >= 0.15F) ? \"walk\" : \"idle\"));\n204:        })\n205:                .triggerableAnim(\"walk\", RawAnimation.begin().thenPlay(\"walk\"))\n206:                .triggerableAnim(\"idle\", RawAnimation.begin().thenPlay(\"idle\"))\n207:                .triggerableAnim(\"rolling\", RawAnimation.begin().thenPlay(\"rolling\"))\n208:                .triggerableAnim(\"bury\", RawAnimation.begin().thenPlay(\"bury\")));\n209:    }"
+            },
+            {
+              "report_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\animation-main127-public-integration.json",
+              "section": "libraryEvidence/AnimationController.java:276-283",
+              "quoted_lines": [
+                {
+                  "line": 276,
+                  "code": "    protected PlayState handleAnimationState(AnimationState<T> state) {"
+                },
+                {
+                  "line": 277,
+                  "code": "        if (this.triggeredAnimation != null) {"
+                },
+                {
+                  "line": 278,
+                  "code": "            if (this.currentRawAnimation != this.triggeredAnimation) {"
+                },
+                {
+                  "line": 279,
+                  "code": "                this.currentAnimation = null;"
+                },
+                {
+                  "line": 280,
+                  "code": "            }"
+                },
+                {
+                  "line": 281,
+                  "code": "            this.setAnimation(this.triggeredAnimation);"
+                },
+                {
+                  "line": 282,
+                  "code": "            if (!(this.hasAnimationFinished() || this.handlingTriggeredAnimations && this.getStateHandler().handle(state) != PlayState.CONTINUE)) {"
+                },
+                {
+                  "line": 283,
+                  "code": "                return PlayState.CONTINUE;"
+                }
+              ],
+              "actual": "公共报告证明trigger存在时先setAnimation(triggeredAnimation)，未finished且不被handlingTriggeredAnimations分支中止则CONTINUE；未包含该flag默认值与完成后清理分支。"
+            }
+          ]
+        },
+        {
+          "status": "open",
+          "field": "精确未闭合",
+          "actual": "重载相位未配对：原只保存Texture，不保存animationprocedure/prevAnim；目标保存BuryAge，读取age在[0,80)就resumeBuryAnimation=true，首tick无偏移重新发完整bury DEFAULT（4.0417秒+转换4），不是按剩余age补相位。fauna-batch:24/30明确授权游戏状态续剩余进度，但未明确授权动画整段倒回；age70重载场景游戏锁约剩10tick而动画从头开始。保授权边界/声画相位问题，不把运行未测当此缺项。",
+          "source_evidence": [
+            {
+              "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\WillogradeEntity.java",
+              "line": 117,
+              "end_line": 127,
+              "code": "117:    public void addAdditionalSaveData(CompoundTag compound) {\n118:        super.addAdditionalSaveData(compound);\n119:        compound.putString(\"Texture\", this.getTexture());\n120:    }\n121:\n122:    public void readAdditionalSaveData(CompoundTag compound) {\n123:        super.readAdditionalSaveData(compound);\n124:        if (compound.contains(\"Texture\")) {\n125:            this.setTexture(compound.getString(\"Texture\"));\n126:        }\n127:    }"
+            },
+            {
+              "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\WillogradeEntity.java",
+              "line": 192,
+              "end_line": 208,
+              "code": "private PlayState procedurePredicate(AnimationState event) {\r\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\r\n            if (!this.animationprocedure.equals(this.prevAnim)) {\r\n                event.getController().forceAnimationReset();\r\n            }\r\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\r\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\r\n                this.animationprocedure = \"empty\";\r\n                event.getController().forceAnimationReset();\r\n            }\r\n        } else if (this.animationprocedure.equals(\"empty\")) {\r\n            this.prevAnim = \"empty\";\r\n            return PlayState.STOP;\r\n        }\r\n        this.prevAnim = this.animationprocedure;\r\n        return PlayState.CONTINUE;\r\n    }"
+            }
+          ],
+          "target_evidence": [
+            {
+              "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\fauna\\WillogradeEntity.java",
+              "line": 131,
+              "end_line": 138,
+              "code": "131:        if (resumeBuryAnimation) {\n132:            resumeBuryAnimation = false;\n133:            setAnimation(\"bury\");\n134:        }\n135:        buryAge++;\n136:        if (buried()) {\n137:            getNavigation().stop();\n138:            setXxa(0);"
+            },
+            {
+              "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\fauna\\WillogradeEntity.java",
+              "line": 189,
+              "end_line": 208,
+              "code": "189:    public void readAdditionalSaveData(CompoundTag tag) {\n190:        super.readAdditionalSaveData(tag);\n191:        if (tag.contains(\"Texture\")) setTexture(tag.getString(\"Texture\"));\n192:        buryAge = tag.contains(\"BuryAge\") ? tag.getInt(\"BuryAge\") : -1;\n193:        feedCooldown = Math.max(0, tag.getInt(\"FeedCooldown\"));\n194:        entityData.set(FEED_COOLDOWN_VISIBLE, feedCooldown > 0);\n195:        buryOrigin = new net.minecraft.world.phys.Vec3(tag.getDouble(\"BuryX\"), tag.getDouble(\"BuryY\"), tag.getDouble(\"BuryZ\"));\n196:        buryDimension = tag.getString(\"BuryDimension\");\n197:        resumeBuryAnimation = buryAge >= 0 && buryAge < 80;\n198:    }\n199:\n200:    @Override\n201:    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n202:        controllers.add(new AnimationController<>(this, \"movement\", 4, state -> {\n203:            return state.setAndContinue(RawAnimation.begin().thenLoop(state.isMoving() && (isVehicle() || isAggressive()) ? \"rolling\" : !isVehicle() && !isAggressive() && (state.isMoving() || Math.abs(state.getLimbSwingAmount()) >= 0.15F) ? \"walk\" : \"idle\"));\n204:        })\n205:                .triggerableAnim(\"walk\", RawAnimation.begin().thenPlay(\"walk\"))\n206:                .triggerableAnim(\"idle\", RawAnimation.begin().thenPlay(\"idle\"))\n207:                .triggerableAnim(\"rolling\", RawAnimation.begin().thenPlay(\"rolling\"))\n208:                .triggerableAnim(\"bury\", RawAnimation.begin().thenPlay(\"bury\")));"
+            },
+            {
+              "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\fauna-batch.md",
+              "line": 24,
+              "end_line": 30,
+              "code": "24:Willograde 原击退3过大；按用户规则迁为0.6，使用原生近战受击退抗性影响。埋藏伪抗性/缓慢改实体本地持久化计时、相同药水减免阶段的伤害归零与行动锁，不减少全部时序、粒子或掉落次数。实体死亡/跨维度后埋藏计时不再执行；卸载重载保存剩余进度。\n25:\n26:## 实现覆盖与冻结前核对\n27:\n28:本批源码已完成：六实体、原水下移动控制、原近战距离、独立属性/出生/刷怪蛋、动态贴图持久化、全部原动画名称、Bonerahna bite 7tick控制、Chromefish body朝向、Trilobite/Flare head朝向、六实体透明渲染、Torpedo1.4缩放及眼睛发光层。Chromefish死亡固定1 raw_chromefish；Torpedo被击杀固定1 raw_torpedo，自爆discard不走死亡掉落；Bonerahna 0.004 muck_pie与Flare 0.7一至五infected_seeds/0.3 infected_flesh由本模块死亡监听保留，未来迁移全局MiscFoodDrops/GraveMobDrops时必须排除已转移两类，避免重复。\n29:\n30:Trilobite交互已闭合到真实loque_milk与新Cauldron；Willograde保留全部90/80/22/62tick、10次碎屑与20次muck_loot。原药水COOLDOWN、255抗性与255缓慢不再用于内部状态；80tick埋藏期间在getDamageAfterMagicAbsorb阶段归零普通伤害，BYPASSES_EFFECTS与BYPASSES_RESISTANCE照原Resistance255语义交给父类，保留原伤害接收流程、抵抗统计与行动锁，不使用hurt入口全免。实体保存喂食冷却、埋藏年龄、原位置和维度。死亡停执行、跨维度取消、卸载存档继续剩余进度。22tick起掉落维持原喂食坐标，避免实体之后移位更改原掉落位置。"
+            }
+          ]
+        },
+        {
+          "status": "matched",
+          "field": "实际clip存在性/loop/长度",
+          "actual": {
+            "same": true,
+            "source": [
+              {
+                "name": "idle",
+                "loop": true,
+                "animation_length": 5.5
+              },
+              {
+                "name": "walk",
+                "loop": true,
+                "animation_length": 0.3333
+              },
+              {
+                "name": "rolling",
+                "loop": true,
+                "animation_length": 1.3333
+              },
+              {
+                "name": "bury",
+                "loop": null,
+                "animation_length": 4.0417
+              }
+            ],
+            "target": [
+              {
+                "name": "idle",
+                "loop": true,
+                "animation_length": 5.5
+              },
+              {
+                "name": "walk",
+                "loop": true,
+                "animation_length": 0.3333
+              },
+              {
+                "name": "rolling",
+                "loop": true,
+                "animation_length": 1.3333
+              },
+              {
+                "name": "bury",
+                "loop": null,
+                "animation_length": 4.0417
+              }
+            ]
+          },
+          "source_evidence": {
+            "path": "jar:assets/thermal_shock/animations/roly_poly.animation.json",
+            "clips": [
+              {
+                "name": "idle",
+                "loop": true,
+                "animation_length": 5.5
+              },
+              {
+                "name": "walk",
+                "loop": true,
+                "animation_length": 0.3333
+              },
+              {
+                "name": "rolling",
+                "loop": true,
+                "animation_length": 1.3333
+              },
+              {
+                "name": "bury",
+                "loop": null,
+                "animation_length": 4.0417
+              }
+            ]
+          },
+          "target_evidence": {
+            "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\animations\\roly_poly.animation.json",
+            "clips": [
+              {
+                "name": "idle",
+                "loop": true,
+                "animation_length": 5.5
+              },
+              {
+                "name": "walk",
+                "loop": true,
+                "animation_length": 0.3333
+              },
+              {
+                "name": "rolling",
+                "loop": true,
+                "animation_length": 1.3333
+              },
+              {
+                "name": "bury",
+                "loop": null,
+                "animation_length": 4.0417
+              }
+            ]
+          }
+        }
+      ],
+      "static_open": [
+        {
+          "actual": "独立procedure4合并成movement4触发：原proc非empty时movement STOP，目标triggerAnim(movement,bury)。主线127所载handleAnimationState:277-283已证明trigger优先setAnimation并在未finished且不被handlingTriggeredAnimations分支中止时CONTINUE，故不再笼统缺trigger优先入口。精确仍缺：该flag在本controller未调用receiveTriggeredAnimations等配置时的默认值，以及finished后的trigger清理/恢复普通handler边界；本体handler有setAndContinue副作用，不能仅凭其返回CONTINUE宣称永远不覆盖bury。此问题只依赖主线补公共证据，不自行查库；specificDifferentNameProof未列本片clip，不将其hash结论外推。",
+          "source_evidence": [
+            {
+              "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\WillogradeEntity.java",
+              "line": 176,
+              "end_line": 190,
+              "code": "private PlayState movementPredicate(AnimationState event) {\r\n        if (this.animationprocedure.equals(\"empty\")) {\r\n            if (!(!event.isMoving() && event.getLimbSwingAmount() > -0.15f && event.getLimbSwingAmount() < 0.15f || this.isVehicle() || this.isAggressive())) {\r\n                return event.setAndContinue(RawAnimation.begin().thenLoop(\"walk\"));\r\n            }\r\n            if (this.isVehicle() && event.isMoving()) {\r\n                return event.setAndContinue(RawAnimation.begin().thenLoop(\"rolling\"));\r\n            }\r\n            if (this.isAggressive() && event.isMoving() && !this.isVehicle()) {\r\n                return event.setAndContinue(RawAnimation.begin().thenLoop(\"rolling\"));\r\n            }\r\n            return event.setAndContinue(RawAnimation.begin().thenLoop(\"idle\"));\r\n        }\r\n        return PlayState.STOP;\r\n    }"
+            },
+            {
+              "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\WillogradeEntity.java",
+              "line": 192,
+              "end_line": 208,
+              "code": "private PlayState procedurePredicate(AnimationState event) {\r\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\r\n            if (!this.animationprocedure.equals(this.prevAnim)) {\r\n                event.getController().forceAnimationReset();\r\n            }\r\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\r\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\r\n                this.animationprocedure = \"empty\";\r\n                event.getController().forceAnimationReset();\r\n            }\r\n        } else if (this.animationprocedure.equals(\"empty\")) {\r\n            this.prevAnim = \"empty\";\r\n            return PlayState.STOP;\r\n        }\r\n        this.prevAnim = this.animationprocedure;\r\n        return PlayState.CONTINUE;\r\n    }"
+            },
+            {
+              "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\WillogradeEntity.java",
+              "line": 226,
+              "end_line": 229,
+              "code": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\r\n        data.add(new AnimationController[]{new AnimationController((GeoAnimatable)this, \"movement\", 4, this::movementPredicate)});\r\n        data.add(new AnimationController[]{new AnimationController((GeoAnimatable)this, \"procedure\", 4, this::procedurePredicate)});\r\n    }"
+            }
+          ],
+          "target_evidence": [
+            {
+              "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\fauna\\WillogradeEntity.java",
+              "line": 63,
+              "end_line": 63,
+              "code": "63:    public void setAnimation(String animation) { triggerAnim(\"movement\", animation); }"
+            },
+            {
+              "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\fauna\\WillogradeEntity.java",
+              "line": 201,
+              "end_line": 209,
+              "code": "201:    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n202:        controllers.add(new AnimationController<>(this, \"movement\", 4, state -> {\n203:            return state.setAndContinue(RawAnimation.begin().thenLoop(state.isMoving() && (isVehicle() || isAggressive()) ? \"rolling\" : !isVehicle() && !isAggressive() && (state.isMoving() || Math.abs(state.getLimbSwingAmount()) >= 0.15F) ? \"walk\" : \"idle\"));\n204:        })\n205:                .triggerableAnim(\"walk\", RawAnimation.begin().thenPlay(\"walk\"))\n206:                .triggerableAnim(\"idle\", RawAnimation.begin().thenPlay(\"idle\"))\n207:                .triggerableAnim(\"rolling\", RawAnimation.begin().thenPlay(\"rolling\"))\n208:                .triggerableAnim(\"bury\", RawAnimation.begin().thenPlay(\"bury\")));\n209:    }"
+            },
+            {
+              "report_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\animation-main127-public-integration.json",
+              "section": "libraryEvidence/AnimationController.java:276-283",
+              "quoted_lines": [
+                {
+                  "line": 276,
+                  "code": "    protected PlayState handleAnimationState(AnimationState<T> state) {"
+                },
+                {
+                  "line": 277,
+                  "code": "        if (this.triggeredAnimation != null) {"
+                },
+                {
+                  "line": 278,
+                  "code": "            if (this.currentRawAnimation != this.triggeredAnimation) {"
+                },
+                {
+                  "line": 279,
+                  "code": "                this.currentAnimation = null;"
+                },
+                {
+                  "line": 280,
+                  "code": "            }"
+                },
+                {
+                  "line": 281,
+                  "code": "            this.setAnimation(this.triggeredAnimation);"
+                },
+                {
+                  "line": 282,
+                  "code": "            if (!(this.hasAnimationFinished() || this.handlingTriggeredAnimations && this.getStateHandler().handle(state) != PlayState.CONTINUE)) {"
+                },
+                {
+                  "line": 283,
+                  "code": "                return PlayState.CONTINUE;"
+                }
+              ],
+              "actual": "公共报告证明trigger存在时先setAnimation(triggeredAnimation)，未finished且不被handlingTriggeredAnimations分支中止则CONTINUE；未包含该flag默认值与完成后清理分支。"
+            }
+          ],
+          "owner": "主线公共trigger优先级/完成清理分支集成"
+        },
+        {
+          "actual": "重载相位未配对：原只保存Texture，不保存animationprocedure/prevAnim；目标保存BuryAge，读取age在[0,80)就resumeBuryAnimation=true，首tick无偏移重新发完整bury DEFAULT（4.0417秒+转换4），不是按剩余age补相位。fauna-batch:24/30明确授权游戏状态续剩余进度，但未明确授权动画整段倒回；age70重载场景游戏锁约剩10tick而动画从头开始。保授权边界/声画相位问题，不把运行未测当此缺项。",
+          "source_evidence": [
+            {
+              "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\WillogradeEntity.java",
+              "line": 117,
+              "end_line": 127,
+              "code": "117:    public void addAdditionalSaveData(CompoundTag compound) {\n118:        super.addAdditionalSaveData(compound);\n119:        compound.putString(\"Texture\", this.getTexture());\n120:    }\n121:\n122:    public void readAdditionalSaveData(CompoundTag compound) {\n123:        super.readAdditionalSaveData(compound);\n124:        if (compound.contains(\"Texture\")) {\n125:            this.setTexture(compound.getString(\"Texture\"));\n126:        }\n127:    }"
+            },
+            {
+              "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\WillogradeEntity.java",
+              "line": 192,
+              "end_line": 208,
+              "code": "private PlayState procedurePredicate(AnimationState event) {\r\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\r\n            if (!this.animationprocedure.equals(this.prevAnim)) {\r\n                event.getController().forceAnimationReset();\r\n            }\r\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\r\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\r\n                this.animationprocedure = \"empty\";\r\n                event.getController().forceAnimationReset();\r\n            }\r\n        } else if (this.animationprocedure.equals(\"empty\")) {\r\n            this.prevAnim = \"empty\";\r\n            return PlayState.STOP;\r\n        }\r\n        this.prevAnim = this.animationprocedure;\r\n        return PlayState.CONTINUE;\r\n    }"
+            }
+          ],
+          "target_evidence": [
+            {
+              "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\fauna\\WillogradeEntity.java",
+              "line": 131,
+              "end_line": 138,
+              "code": "131:        if (resumeBuryAnimation) {\n132:            resumeBuryAnimation = false;\n133:            setAnimation(\"bury\");\n134:        }\n135:        buryAge++;\n136:        if (buried()) {\n137:            getNavigation().stop();\n138:            setXxa(0);"
+            },
+            {
+              "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\fauna\\WillogradeEntity.java",
+              "line": 189,
+              "end_line": 208,
+              "code": "189:    public void readAdditionalSaveData(CompoundTag tag) {\n190:        super.readAdditionalSaveData(tag);\n191:        if (tag.contains(\"Texture\")) setTexture(tag.getString(\"Texture\"));\n192:        buryAge = tag.contains(\"BuryAge\") ? tag.getInt(\"BuryAge\") : -1;\n193:        feedCooldown = Math.max(0, tag.getInt(\"FeedCooldown\"));\n194:        entityData.set(FEED_COOLDOWN_VISIBLE, feedCooldown > 0);\n195:        buryOrigin = new net.minecraft.world.phys.Vec3(tag.getDouble(\"BuryX\"), tag.getDouble(\"BuryY\"), tag.getDouble(\"BuryZ\"));\n196:        buryDimension = tag.getString(\"BuryDimension\");\n197:        resumeBuryAnimation = buryAge >= 0 && buryAge < 80;\n198:    }\n199:\n200:    @Override\n201:    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n202:        controllers.add(new AnimationController<>(this, \"movement\", 4, state -> {\n203:            return state.setAndContinue(RawAnimation.begin().thenLoop(state.isMoving() && (isVehicle() || isAggressive()) ? \"rolling\" : !isVehicle() && !isAggressive() && (state.isMoving() || Math.abs(state.getLimbSwingAmount()) >= 0.15F) ? \"walk\" : \"idle\"));\n204:        })\n205:                .triggerableAnim(\"walk\", RawAnimation.begin().thenPlay(\"walk\"))\n206:                .triggerableAnim(\"idle\", RawAnimation.begin().thenPlay(\"idle\"))\n207:                .triggerableAnim(\"rolling\", RawAnimation.begin().thenPlay(\"rolling\"))\n208:                .triggerableAnim(\"bury\", RawAnimation.begin().thenPlay(\"bury\")));"
+            },
+            {
+              "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\fauna-batch.md",
+              "line": 24,
+              "end_line": 30,
+              "code": "24:Willograde 原击退3过大；按用户规则迁为0.6，使用原生近战受击退抗性影响。埋藏伪抗性/缓慢改实体本地持久化计时、相同药水减免阶段的伤害归零与行动锁，不减少全部时序、粒子或掉落次数。实体死亡/跨维度后埋藏计时不再执行；卸载重载保存剩余进度。\n25:\n26:## 实现覆盖与冻结前核对\n27:\n28:本批源码已完成：六实体、原水下移动控制、原近战距离、独立属性/出生/刷怪蛋、动态贴图持久化、全部原动画名称、Bonerahna bite 7tick控制、Chromefish body朝向、Trilobite/Flare head朝向、六实体透明渲染、Torpedo1.4缩放及眼睛发光层。Chromefish死亡固定1 raw_chromefish；Torpedo被击杀固定1 raw_torpedo，自爆discard不走死亡掉落；Bonerahna 0.004 muck_pie与Flare 0.7一至五infected_seeds/0.3 infected_flesh由本模块死亡监听保留，未来迁移全局MiscFoodDrops/GraveMobDrops时必须排除已转移两类，避免重复。\n29:\n30:Trilobite交互已闭合到真实loque_milk与新Cauldron；Willograde保留全部90/80/22/62tick、10次碎屑与20次muck_loot。原药水COOLDOWN、255抗性与255缓慢不再用于内部状态；80tick埋藏期间在getDamageAfterMagicAbsorb阶段归零普通伤害，BYPASSES_EFFECTS与BYPASSES_RESISTANCE照原Resistance255语义交给父类，保留原伤害接收流程、抵抗统计与行动锁，不使用hurt入口全免。实体保存喂食冷却、埋藏年龄、原位置和维度。死亡停执行、跨维度取消、卸载存档继续剩余进度。22tick起掉落维持原喂食坐标，避免实体之后移位更改原掉落位置。"
+            }
+          ],
+          "owner": "主线决定历史授权是否覆盖完整重播，或核相位修复"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "127A-willograde-offhand-trigger",
+          "status": "confirmed_static_difference",
+          "actual": "可达bury输入条件由原主手spice改为本次hand的spice，新增仅副手持香料的埋藏触发；本片历史授权未找到改手位门槛的明确依据。",
+          "source": [
+            {
+              "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\WillogradeEntity.java",
+              "line": 129,
+              "end_line": 139,
+              "code": "129:    public InteractionResult mobInteract(Player sourceentity, InteractionHand hand) {\n130:        ItemStack itemstack = sourceentity.getItemInHand(hand);\n131:        InteractionResult retval = InteractionResult.sidedSuccess((boolean)this.level().isClientSide());\n132:        super.mobInteract(sourceentity, hand);\n133:        double x = this.getX();\n134:        double y = this.getY();\n135:        double z = this.getZ();\n136:        WillogradeEntity entity = this;\n137:        Level world = this.level();\n138:        WillogradeRightClickedOnEntityProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity, (Entity)sourceentity);\n139:        return retval;"
+            },
+            {
+              "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\WillogradeRightClickedOnEntityProcedure.java",
+              "line": 40,
+              "end_line": 77,
+              "code": "40:        if (entity == null || sourceentity == null) {\n41:            return;\n42:        }\n43:        if (sourceentity instanceof LivingEntity) {\n44:            LivingEntity _livEnt = (LivingEntity)sourceentity;\n45:            itemStack = _livEnt.getMainHandItem();\n46:        } else {\n47:            itemStack = ItemStack.EMPTY;\n48:        }\n49:        if (!(itemStack.getItem() != ThermalShockModItems.ADAMANTINE_SPICE.get() || entity instanceof LivingEntity && (_livEnt2 = (LivingEntity)entity).hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get()))) {\n50:            if (sourceentity instanceof Player) {\n51:                Player _player = (Player)sourceentity;\n52:                ItemStack _stktoremove = new ItemStack((ItemLike)ThermalShockModItems.ADAMANTINE_SPICE.get());\n53:                _player.getInventory().clearOrCountMatchingItems(p -> _stktoremove.getItem() == p.getItem(), 1, (Container)_player.inventoryMenu.getCraftSlots());\n54:            }\n55:            if (world instanceof Level) {\n56:                Level _level = (Level)world;\n57:                if (!_level.isClientSide()) {\n58:                    _level.playSound(null, BlockPos.containing((double)x, (double)y, (double)z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.generic.eat\")), SoundSource.NEUTRAL, 1.0f, 1.0f);\n59:                } else {\n60:                    _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(\"entity.generic.eat\")), SoundSource.NEUTRAL, 1.0f, 1.0f, false);\n61:                }\n62:            }\n63:            world.levelEvent(2001, BlockPos.containing((double)x, (double)y, (double)z), Block.getId((BlockState)((Block)ThermalShockModBlocks.ADAMANTINE_SPICE_BLOCK.get()).defaultBlockState()));\n64:            if (Math.random() < 0.5) {\n65:                LivingEntity _entity;\n66:                if (entity instanceof LivingEntity && !(_entity = (LivingEntity)entity).level().isClientSide()) {\n67:                    _entity.addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 90, 1));\n68:                }\n69:                if (entity instanceof LivingEntity && !(_entity = (LivingEntity)entity).level().isClientSide()) {\n70:                    _entity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 80, 255, true, false));\n71:                }\n72:                if (entity instanceof LivingEntity && !(_entity = (LivingEntity)entity).level().isClientSide()) {\n73:                    _entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 80, 255, true, false));\n74:                }\n75:                if (entity instanceof WillogradeEntity) {\n76:                    ((WillogradeEntity)entity).setAnimation(\"bury\");\n77:                }"
+            }
+          ],
+          "target": {
+            "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\fauna\\WillogradeEntity.java",
+            "line": 75,
+            "end_line": 94,
+            "code": "75:    public net.minecraft.world.InteractionResult mobInteract(Player player, net.minecraft.world.InteractionHand hand) {\n76:        var held = player.getItemInHand(hand);\n77:        if (!held.is(FaunaEntities.item(\"adamantine_spice\")) || feedCooldown > 0) return super.mobInteract(player, hand);\n78:        if (!level().isClientSide) {\n79:            held.shrink(1);\n80:            level().playSound(null, blockPosition(), SoundEvents.GENERIC_EAT, net.minecraft.sounds.SoundSource.NEUTRAL, 1, 1);\n81:            level().levelEvent(2001, blockPosition(), net.minecraft.world.level.block.Block.getId(FaunaEntities.block(\"adamantine_spice_block\").defaultBlockState()));\n82:            if (random.nextDouble() < 0.5) {\n83:                feedCooldown = 90;\n84:                entityData.set(FEED_COOLDOWN_VISIBLE, true);\n85:                ThermalShockReforged.LOGGER.debug(\"Willograde feeding cooldown started: entity={}, position={}, remaining={}\", getUUID(), position(), feedCooldown);\n86:                buryAge = 0;\n87:                buryOrigin = position();\n88:                buryDimension = level().dimension().location().toString();\n89:                getNavigation().stop();\n90:                setAnimation(\"bury\");\n91:            }\n92:        }\n93:        return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);\n94:    }"
+          },
+          "scenario": "玩家主手非adamantine_spice，副手持adamantine_spice；正常发送OFF_HAND实体交互，Willograde无CD。原过程getMainHandItem不匹配，永不发bury；目标getItemInHand(OFF_HAND)匹配，在random<.5时trigger movement/bury。反向主手香料但OFF_HAND非香料时，两侧也不同。",
+          "action": "主代理核边界/授权后修；本片不改生产。",
+          "bytecode": {
+            "path": "D:/AI临时文件/ThermalShockMigration/animation127/a127-luna3-javap.txt",
+            "actual": "WillogradeRightClickedOnEntityProcedure.execute中的LivingEntity.m_21205_():ItemStack为原主手读取；439 ldc bury/441 invokevirtual WillogradeEntity.setAnimation；详原始javap与CFR成对证据。"
+          }
+        }
+      ],
+      "shared_dependencies": [
+        {
+          "source": "主线125公共取证（只读引用）",
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\animation-main125-public-semantics.json",
+          "facts": [
+            "原Factory在LivingTick把非undefined同步字符串转给实体animationprocedure，并重置同步字段；没有同名Factory不等于目标漏动画。",
+            "目标GeoEntity.triggerAnim在客户端取实体instance manager，在服务端走Gecko网络同步。",
+            "thenPlay使用DEFAULT，沿clip自己的loop，不能统一称为播放一次；thenLoop明确强制循环。",
+            "tryTriggerAnimation给triggeredAnimation赋注册RawAnimation，同名正在播放时不自动forceAnimationReset；STOPPED时才置TRANSITIONING和reset tick。",
+            "目标共享movement在procedure.isPlayingTriggeredAnimation时STOP，移动条件为isMoving或limb<=-0.15或>=0.15；原生成器的否定比较在有限正常limb值下同样含边界。",
+            "共享procedure按实体procedureAnimations白名单注册，不代表原所有外部写入都已完整保留；每实体必须核实际写入和有效clip。"
+          ],
+          "actual": "不重复公共Animated父类/Factory/Gecko库调查；未由公共报告覆盖的具体参数/优先级保留本行static_open。"
+        },
+        {
+          "source": "主线127公共集成（只读引用）",
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\animation-main127-public-integration.json",
+          "sha256": "7a0ef659f42795f95dad7bae1848c4c3edcb14ba0e119165f8c7712f6864d48e",
+          "actual": "继承转换4/顺序/门控按本体super及覆写接入；thenPlay DEFAULT沿clip.loop；differentNameConclusion只覆盖specificDifferentNameProof四组，不证明本片异名Raw等价或重置。"
+        },
+        {
+          "path": "D:/AI临时文件/ThermalShockMigration/animation127/a127-luna3-controlled-drift.json",
+          "actual": "初始全目录负向搜索与最终输入的已记录变化，不静默覆盖原快照。",
+          "changes": [
+            {
+              "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\icesquad\\BastionEntity.java",
+              "initial_sha256": "fb0e5d07552d3dc2785aef9e96b51a38ae0577355a3f7ccbe6c0517a7acff135",
+              "current_sha256": "1da0221a6c5b1b72ed5e1860fec8577e3ef2a888ce8d2588761d04b734103e9b",
+              "initial_matched_classes": [],
+              "current_matched_classes": [],
+              "exact_word_patterns": [
+                "TeslaReedEntity",
+                "ThermoidEntity",
+                "TorpedoEntity",
+                "TrilobiteEntity",
+                "JellercelEntity",
+                "WhisperEntity",
+                "WillogradeEntity"
+              ],
+              "actual": "全目录负向扫描文件在取证后由外部变化；只重核本片类型名仍无命中，不调查该文件业务。初始raw/search-manifest保留旧字节哈希，final.inputs明确记当前字节哈希。"
+            }
+          ]
+        },
+        {
+          "actual": "取证快照血缘与漂移：旧assignment基线f83be73，当前按完整f0320d5e7d2acadef5593132d44bab5a347b3cc8；源码/资源差异见固定snapshot报告，不覆盖旧矩阵。",
+          "path": "D:/AI临时文件/ThermalShockMigration/animation127/a127-luna3-snapshot.json",
+          "assignment_source": {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\animation125\\group2-assignment.json",
+            "sha256": "f7e85362a8176264919b9c930ecfe745b3c75c5069848bb49f1e1446cbfc7525",
+            "baseline": "f83be73"
+          },
+          "current_entity": {
+            "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\fauna\\WillogradeEntity.java",
+            "current_normalized_sha256": "2a9ffa8d3f24146d2eaaec03828235e461066f35f5bf04c4c496a4cc5abe3a08",
+            "baseline_normalized_sha256": "2a9ffa8d3f24146d2eaaec03828235e461066f35f5bf04c4c496a4cc5abe3a08",
+            "baseline_match": true,
+            "old_assignment_normalized_sha256": "2a9ffa8d3f24146d2eaaec03828235e461066f35f5bf04c4c496a4cc5abe3a08",
+            "old_assignment_match": true,
+            "missing_at_old": false
+          }
+        }
+      ],
+      "evidence_file": "D:\\AI临时文件\\ThermalShockMigration\\animation127\\a127-luna3-final.json",
+      "evidence_sha256": "c413f8da34b423425f563a69994e03db4b15fd3515ba89b75df0fe98cd46f012",
+      "local_status": "部分",
+      "scope_note": "实体特定静态配对；公共语义只引用主线报告，非真实客户端/服务器/Render Preview验收。",
+      "main128Status": "主手资格已恢复；埋藏单controller的完成清理与存档重载动画相位尚需核。"
+    }
+  ],
+  "newEvidence": {
+    "path": "docs\\migration\\animation-main128-review.json",
+    "sha256": "1f28ca764ed758aa932117d001ba301782f78ea007171eb695b0a149c2d54eb6"
+  },
+  "scope": "动画消费者有界静态复审，非完整模组或声画验收；其他原迁移审计门禁不缩小。",
+  "gameExecuted": false,
+  "fullMigrationComplete": false
+}

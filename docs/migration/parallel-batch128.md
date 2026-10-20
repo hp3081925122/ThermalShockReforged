@@ -1,0 +1,17 @@
+# 第128批：动画剩项与精确触发条件
+
+基线8777a2d。A的末23项只读复审交付后由主线核对哈希、真实候选和历史依据，未交付先不算完成；不重做其实体调查。原125A剩四项由主线继续处理。语言继续保留独立Luna所有权，主线不代译。
+
+主线独占entity/qo/DefectorMachinistEntity.java：原baseTick两端执行DefectorMachinistOnEntityTickUpdateProcedure，Math.random<.005；服务端加120tick隐藏COOLDOWN，客户端不加。旧LivingEntity普通效果只同步给玩家乘客，不广播普通NPC完整效果表，ServerEntity配对也无效果列表；不能以“服务端权威”删掉原客户端本地随机动画。恢复客户端本地随机trigger，服务端局部idleCooldown及持久化保留。只改变视觉触发，不加假效果或客户端游戏权限。原完整Factory在LivingTick入口消费同步串，网络到渲染帧仍须最后客户端对照。
+
+其他候选在确认源码后登记生产所有权再修复。临时脚本/反编译/测试全部D:/AI临时文件/ThermalShockMigration；Java不加注释、诊断英文、UTF-8。构建前全部src/main生产所有者停笔、固定输入，再统一compileJava/processResources。
+
+追加主线独占entity/cavebloomer/CavebloomerAttacks.java和AngryCavebloomerEntity.java：原四分支的20/47/37/5及嵌套2/10tick队列全部在SERVER END消费。目标现elapsed age19/46等仅同tick、相位为entity tick。沿现有UUID末尾任务将攻击进度改为实际消费END次数，原阈值统一恢复20/30/37/47/5等，rapid首发仍立即，后续19发在第2/4/.../38次END；冷却/移动锁仍实体tick，不混动。旧存档活动技能age按旧elapsed+1转换，新标EndTickAge区分，原Age字段/其他全部状态保留。死亡与原死亡序列共用UUID任务，不重复消费，不扫描全世界。
+
+追加主线独占entity/fauna/WillogradeEntity.java中mobInteract资格读取：原procedure只读getMainHandItem；当前hand扩大副手输入。恢复主手资格与既有真实消费栈，其余埋藏动画/重载相位候选另核，不借此宣布整个实体全部验收。
+
+追加主线独占entity/mangler/ManglerEntity.java及entity/springslime/SpringslimeEntity.java：前者原hurt先写stunned再父类拒绝，即死亡期间仍可切视觉；恢复服务端仍未移除实体的视觉触发，60tick状态/定时仍限存活，不复活死亡任务。后者原collision触发procedure2，有限clip完后存活movement循环1；目标把POPPED游戏防重入状态误作永久movement2。恢复movement/procedure各4tick原顺序、procedure2 DEFAULT、活跃互斥及完成后movement1；POPPED仍只控制已批准的一次fade提交。重复碰撞可触发同名2，正在播时不额外reset，死时movement2保留。客户端本地碰撞视觉与已有弹跳预测一起触发。
+
+用户服务端独立线不联系、不接管；测试目录、RibbonbladeActionEntity及.vscode不修改或stage。完整代码及无简化复审收口后才子代理客户端/Render Preview。当前不启动游戏。
+
+第128批收口：固定8880份src/main输入后Java21离线compileJava/processResources成功21秒（Java实际编译，资源up-to-date），编译期间输入未变、8060直接资源字节一致。A127已停笔，主线只将其冻结报告纳入提交；原始字节快照与Git LF哈希另记，不改原A证据。main128-static-validation.json为最终阶段报告；用户测试/Ribbonblade/.vscode不纳入本次提交。

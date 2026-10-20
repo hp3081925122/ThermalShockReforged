@@ -1,0 +1,2354 @@
+{
+  "baseline": "8777a2d",
+  "scope": "复用A127十九实体配对；主线修复Qo本地待机、Angry Cavebloomer END阶段、Springslime有限片段退出、Mangler死亡受伤视觉及Willograde主手资格；补Skeletitan/Mangler异名hash",
+  "evidence": [
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\DefectorMachinistOnEntityTickUpdateProcedure.java",
+      "sha256": "a232d391710bf19d57b8ead95bf257f03007a0dc00569dfa68bab934787d8874",
+      "lines": [
+        {
+          "line": 18,
+          "code": "        }"
+        },
+        {
+          "line": 19,
+          "code": "        if (!(entity instanceof LivingEntity && (_livEnt0 = (LivingEntity)entity).hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get()) || !(Math.random() < 0.005))) {"
+        },
+        {
+          "line": 20,
+          "code": "            LivingEntity _entity;"
+        },
+        {
+          "line": 21,
+          "code": "            if (entity instanceof LivingEntity && !(_entity = (LivingEntity)entity).level().isClientSide()) {"
+        },
+        {
+          "line": 22,
+          "code": "                _entity.addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 120, 1, false, false));"
+        },
+        {
+          "line": 23,
+          "code": "            }"
+        },
+        {
+          "line": 24,
+          "code": "            if (entity instanceof DefectorMachinistEntity) {"
+        },
+        {
+          "line": 25,
+          "code": "                ((DefectorMachinistEntity)entity).setAnimation(\"idlejunkyard2\");"
+        },
+        {
+          "line": 26,
+          "code": "            }"
+        },
+        {
+          "line": 27,
+          "code": "        }"
+        }
+      ]
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\animation128\\native1201\\net\\minecraft\\world\\entity\\LivingEntity.java",
+      "sha256": "96358c942018379244e5ffd6c01513f38ff26f56b99ce4747fa891490332f6c8",
+      "lines": [
+        {
+          "line": 40,
+          "code": "import net.minecraft.network.protocol.game.ClientboundTakeItemEntityPacket;"
+        },
+        {
+          "line": 41,
+          "code": "import net.minecraft.network.protocol.game.ClientboundUpdateMobEffectPacket;"
+        },
+        {
+          "line": 42,
+          "code": "import net.minecraft.network.syncher.EntityDataAccessor;"
+        },
+        {
+          "line": 43,
+          "code": "import net.minecraft.network.syncher.EntityDataSerializers;"
+        },
+        {
+          "line": 988,
+          "code": ""
+        },
+        {
+          "line": 989,
+          "code": "   protected void onEffectAdded(MobEffectInstance p_147190_, @Nullable Entity p_147191_) {"
+        },
+        {
+          "line": 990,
+          "code": "      this.effectsDirty = true;"
+        },
+        {
+          "line": 991,
+          "code": "      if (!this.level().isClientSide) {"
+        },
+        {
+          "line": 992,
+          "code": "         p_147190_.getEffect().addAttributeModifiers(this, this.getAttributes(), p_147190_.getAmplifier());"
+        },
+        {
+          "line": 993,
+          "code": "         this.sendEffectToPassengers(p_147190_);"
+        },
+        {
+          "line": 994,
+          "code": "      }"
+        },
+        {
+          "line": 995,
+          "code": ""
+        },
+        {
+          "line": 997,
+          "code": ""
+        },
+        {
+          "line": 998,
+          "code": "   public void sendEffectToPassengers(MobEffectInstance p_289695_) {"
+        },
+        {
+          "line": 999,
+          "code": "      for(Entity entity : this.getPassengers()) {"
+        },
+        {
+          "line": 1000,
+          "code": "         if (entity instanceof ServerPlayer serverplayer) {"
+        },
+        {
+          "line": 1001,
+          "code": "            serverplayer.connection.send(new ClientboundUpdateMobEffectPacket(this.getId(), p_289695_));"
+        },
+        {
+          "line": 1002,
+          "code": "         }"
+        },
+        {
+          "line": 1003,
+          "code": "      }"
+        },
+        {
+          "line": 1015,
+          "code": "      if (!this.level().isClientSide) {"
+        },
+        {
+          "line": 1016,
+          "code": "         this.sendEffectToPassengers(p_147192_);"
+        },
+        {
+          "line": 1017,
+          "code": "      }"
+        },
+        {
+          "line": 1018,
+          "code": ""
+        },
+        {
+          "line": 2257,
+          "code": "   public void tick() {"
+        },
+        {
+          "line": 2258,
+          "code": "      if (net.minecraftforge.common.ForgeHooks.onLivingTick(this)) return;"
+        },
+        {
+          "line": 2259,
+          "code": "      super.tick();"
+        },
+        {
+          "line": 2260,
+          "code": "      this.updatingUsingItem();"
+        }
+      ]
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\animation128\\native1201\\net\\minecraft\\server\\level\\ServerEntity.java",
+      "sha256": "b9e0573e152442743d3fe7afc91a9aa7765139c47c7df28fb8f8069ec6d6b39c",
+      "lines": [
+        {
+          "line": 222,
+          "code": "      List<Packet<ClientGamePacketListener>> list = new ArrayList<>();"
+        },
+        {
+          "line": 223,
+          "code": "      this.sendPairingData(p_8542_, list::add);"
+        },
+        {
+          "line": 224,
+          "code": "      p_8542_.connection.send(new ClientboundBundlePacket(list));"
+        },
+        {
+          "line": 225,
+          "code": "      this.entity.startSeenByPlayer(p_8542_);"
+        },
+        {
+          "line": 228,
+          "code": ""
+        },
+        {
+          "line": 229,
+          "code": "   public void sendPairingData(ServerPlayer p_289562_, Consumer<Packet<ClientGamePacketListener>> p_289563_) {"
+        },
+        {
+          "line": 230,
+          "code": "      if (this.entity.isRemoved()) {"
+        },
+        {
+          "line": 231,
+          "code": "         LOGGER.warn(\"Fetching packet for removed entity {}\", (Object)this.entity);"
+        }
+      ]
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\CavebloomerAttackProcedure.java",
+      "sha256": "a4a5ea464bce25c263d4f4a949f8b54dc0ec7a93f983f6ec763d3c96360531b0",
+      "lines": [
+        {
+          "line": 133,
+          "code": "                        }"
+        },
+        {
+          "line": 134,
+          "code": "                    }.timedLoop(0, 20, 2);"
+        },
+        {
+          "line": 135,
+          "code": "                } else if (attackselector == 1.0) {"
+        },
+        {
+          "line": 136,
+          "code": "                    float f;"
+        },
+        {
+          "line": 157,
+          "code": "                    if (f2 < f / 2.0f) {"
+        },
+        {
+          "line": 158,
+          "code": "                        ThermalShockMod.queueServerWork(20, () -> {"
+        },
+        {
+          "line": 159,
+          "code": "                            Projectile _entityToSpawn;"
+        },
+        {
+          "line": 160,
+          "code": "                            ServerLevel projectileLevel;"
+        },
+        {
+          "line": 318,
+          "code": "                            }"
+        },
+        {
+          "line": 319,
+          "code": "                            ThermalShockMod.queueServerWork(10, () -> {"
+        },
+        {
+          "line": 320,
+          "code": "                                Projectile _entityToSpawn;"
+        },
+        {
+          "line": 321,
+          "code": "                                ServerLevel projectileLevel;"
+        },
+        {
+          "line": 476,
+          "code": "                    } else {"
+        },
+        {
+          "line": 477,
+          "code": "                        ThermalShockMod.queueServerWork(20, () -> {"
+        },
+        {
+          "line": 478,
+          "code": "                            Projectile _entityToSpawn;"
+        },
+        {
+          "line": 479,
+          "code": "                            ServerLevel projectileLevel;"
+        },
+        {
+          "line": 657,
+          "code": "                    }"
+        },
+        {
+          "line": 658,
+          "code": "                    ThermalShockMod.queueServerWork(37, () -> {"
+        },
+        {
+          "line": 659,
+          "code": "                        if (world instanceof Level) {"
+        },
+        {
+          "line": 660,
+          "code": "                            Level _level = (Level)world;"
+        },
+        {
+          "line": 667,
+          "code": "                    });"
+        },
+        {
+          "line": 668,
+          "code": "                    ThermalShockMod.queueServerWork(47, () -> {"
+        },
+        {
+          "line": 669,
+          "code": "                        Level _level;"
+        },
+        {
+          "line": 670,
+          "code": "                        if (sourceentity instanceof AngryCavebloomerEntity) {"
+        },
+        {
+          "line": 735,
+          "code": "                    }"
+        },
+        {
+          "line": 736,
+          "code": "                    ThermalShockMod.queueServerWork(5, () -> {"
+        },
+        {
+          "line": 737,
+          "code": "                        float f;"
+        },
+        {
+          "line": 738,
+          "code": "                        float f2;"
+        },
+        {
+          "line": 776,
+          "code": "                                }"
+        },
+        {
+          "line": 777,
+          "code": "                            }.timedLoop(0, 5, 2);"
+        },
+        {
+          "line": 778,
+          "code": "                        }"
+        },
+        {
+          "line": 779,
+          "code": "                    });"
+        }
+      ]
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\WillogradeRightClickedOnEntityProcedure.java",
+      "sha256": "0141490524141c93405471b38bd326c3bda7be9ac46929d72704e42f0faa9830",
+      "lines": [
+        {
+          "line": 44,
+          "code": "            LivingEntity _livEnt = (LivingEntity)sourceentity;"
+        },
+        {
+          "line": 45,
+          "code": "            itemStack = _livEnt.getMainHandItem();"
+        },
+        {
+          "line": 46,
+          "code": "        } else {"
+        },
+        {
+          "line": 47,
+          "code": "            itemStack = ItemStack.EMPTY;"
+        },
+        {
+          "line": 48,
+          "code": "        }"
+        },
+        {
+          "line": 49,
+          "code": "        if (!(itemStack.getItem() != ThermalShockModItems.ADAMANTINE_SPICE.get() || entity instanceof LivingEntity && (_livEnt2 = (LivingEntity)entity).hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get()))) {"
+        },
+        {
+          "line": 50,
+          "code": "            if (sourceentity instanceof Player) {"
+        },
+        {
+          "line": 51,
+          "code": "                Player _player = (Player)sourceentity;"
+        },
+        {
+          "line": 52,
+          "code": "                ItemStack _stktoremove = new ItemStack((ItemLike)ThermalShockModItems.ADAMANTINE_SPICE.get());"
+        },
+        {
+          "line": 53,
+          "code": "                _player.getInventory().clearOrCountMatchingItems(p -> _stktoremove.getItem() == p.getItem(), 1, (Container)_player.inventoryMenu.getCraftSlots());"
+        },
+        {
+          "line": 54,
+          "code": "            }"
+        },
+        {
+          "line": 62,
+          "code": "            }"
+        },
+        {
+          "line": 63,
+          "code": "            world.levelEvent(2001, BlockPos.containing((double)x, (double)y, (double)z), Block.getId((BlockState)((Block)ThermalShockModBlocks.ADAMANTINE_SPICE_BLOCK.get()).defaultBlockState()));"
+        },
+        {
+          "line": 64,
+          "code": "            if (Math.random() < 0.5) {"
+        },
+        {
+          "line": 65,
+          "code": "                LivingEntity _entity;"
+        },
+        {
+          "line": 66,
+          "code": "                if (entity instanceof LivingEntity && !(_entity = (LivingEntity)entity).level().isClientSide()) {"
+        }
+      ]
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\SpringslimeEntity.java",
+      "sha256": "0b1e60a6b646bef4684c88610a64799d31100d6ea4e46f5e5305bd76c7f07760",
+      "lines": [
+        {
+          "line": 154,
+          "code": ""
+        },
+        {
+          "line": 155,
+          "code": "    private PlayState movementPredicate(AnimationState event) {"
+        },
+        {
+          "line": 156,
+          "code": "        if (this.animationprocedure.equals(\"empty\")) {"
+        },
+        {
+          "line": 157,
+          "code": "            if (this.isDeadOrDying()) {"
+        },
+        {
+          "line": 158,
+          "code": "                return event.setAndContinue(RawAnimation.begin().thenPlay(\"2\"));"
+        },
+        {
+          "line": 159,
+          "code": "            }"
+        },
+        {
+          "line": 160,
+          "code": "            return event.setAndContinue(RawAnimation.begin().thenLoop(\"1\"));"
+        },
+        {
+          "line": 161,
+          "code": "        }"
+        },
+        {
+          "line": 162,
+          "code": "        return PlayState.STOP;"
+        },
+        {
+          "line": 164,
+          "code": ""
+        },
+        {
+          "line": 165,
+          "code": "    private PlayState procedurePredicate(AnimationState event) {"
+        },
+        {
+          "line": 166,
+          "code": "        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {"
+        },
+        {
+          "line": 167,
+          "code": "            if (!this.animationprocedure.equals(this.prevAnim)) {"
+        },
+        {
+          "line": 199,
+          "code": "    public void registerControllers(AnimatableManager.ControllerRegistrar data) {"
+        },
+        {
+          "line": 200,
+          "code": "        data.add(new AnimationController[]{new AnimationController((GeoAnimatable)this, \"movement\", 4, this::movementPredicate)});"
+        },
+        {
+          "line": 201,
+          "code": "        data.add(new AnimationController[]{new AnimationController((GeoAnimatable)this, \"procedure\", 4, this::procedurePredicate)});"
+        },
+        {
+          "line": 202,
+          "code": "    }"
+        },
+        {
+          "line": 203,
+          "code": ""
+        }
+      ]
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\ManglerEntityIsHurtProcedure.java",
+      "sha256": "8fa9fb0f76caa73815b3d3bf491b543643a1ba56b0985b566b3872a733859b77",
+      "lines": [
+        {
+          "line": 24,
+          "code": "        if (entity instanceof ManglerEntity) {"
+        },
+        {
+          "line": 25,
+          "code": "            ((ManglerEntity)entity).setAnimation(\"stunned\");"
+        },
+        {
+          "line": 26,
+          "code": "        }"
+        },
+        {
+          "line": 27,
+          "code": "        if (entity instanceof SummonedManglerEntity) {"
+        },
+        {
+          "line": 28,
+          "code": "            ((SummonedManglerEntity)entity).setAnimation(\"stunned\");"
+        },
+        {
+          "line": 29,
+          "code": "        }"
+        },
+        {
+          "line": 30,
+          "code": "        if (entity instanceof LivingEntity && !(_entity = (LivingEntity)entity).level().isClientSide()) {"
+        },
+        {
+          "line": 38,
+          "code": "        }"
+        },
+        {
+          "line": 39,
+          "code": "        ThermalShockMod.queueServerWork(60, () -> {"
+        },
+        {
+          "line": 40,
+          "code": "            if (entity instanceof ManglerEntity) {"
+        },
+        {
+          "line": 41,
+          "code": "                ((ManglerEntity)entity).setAnimation(\"empty\");"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\qo\\DefectorMachinistEntity.java",
+      "sha256": "262d2df81659b817022fd8b60b5646a2b49fb6b149140f4de0b6787707190e04",
+      "lines": [
+        {
+          "line": 33,
+          "code": "    }"
+        },
+        {
+          "line": 34,
+          "code": "    @Override public boolean hurt(DamageSource source, float amount) { return !ignores(source) && super.hurt(source, amount); }"
+        },
+        {
+          "line": 35,
+          "code": "    @Override protected InteractionResult mobInteract(Player player, InteractionHand hand) {"
+        },
+        {
+          "line": 36,
+          "code": "        super.mobInteract(player, hand);"
+        },
+        {
+          "line": 44,
+          "code": "                if (progress.contacts() > 4) {"
+        },
+        {
+          "line": 45,
+          "code": "                    ItemStack held = server.getMainHandItem();"
+        },
+        {
+          "line": 46,
+          "code": "                    QoPage heldPage = null;"
+        },
+        {
+          "line": 47,
+          "code": "                    if (held.is(MaterialContent.items().get(\"phobotite\").get())) heldPage = QoPage.PHOBOTITE;"
+        },
+        {
+          "line": 62,
+          "code": "    }"
+        },
+        {
+          "line": 63,
+          "code": "    @Override public void baseTick() {"
+        },
+        {
+          "line": 64,
+          "code": "        super.baseTick();"
+        },
+        {
+          "line": 65,
+          "code": "        if (level().isClientSide) {"
+        },
+        {
+          "line": 66,
+          "code": "            if (random.nextDouble() < .005) {"
+        },
+        {
+          "line": 67,
+          "code": "                triggerAnim(\"procedure\", \"idlejunkyard2\");"
+        },
+        {
+          "line": 68,
+          "code": "                ThermalShockReforged.LOGGER.debug(\"Qo local idle animation triggered: npc={}, clientTick={}\", getUUID(), tickCount);"
+        },
+        {
+          "line": 69,
+          "code": "            }"
+        },
+        {
+          "line": 72,
+          "code": "        if (!level().isClientSide && idleCooldown > 0) idleCooldown--;"
+        },
+        {
+          "line": 73,
+          "code": "        if (!level().isClientSide && idleCooldown == 0 && random.nextDouble() < .005) { idleCooldown = 120; triggerAnim(\"procedure\", \"idlejunkyard2\"); }"
+        },
+        {
+          "line": 74,
+          "code": "    }"
+        },
+        {
+          "line": 75,
+          "code": "    @Override protected void tickDeath() { if (++deathTime >= 20) remove(RemovalReason.KILLED); }"
+        },
+        {
+          "line": 82,
+          "code": "    }"
+        },
+        {
+          "line": 83,
+          "code": "    @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {"
+        },
+        {
+          "line": 84,
+          "code": "        var procedure = new AnimationController<>(this, \"procedure\", 4, state -> PlayState.STOP).triggerableAnim(\"idlejunkyard2\", RawAnimation.begin().thenPlay(\"idlejunkyard2\"));"
+        },
+        {
+          "line": 85,
+          "code": "        controllers.add(new AnimationController<>(this, \"movement\", 4, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(\"idlejunkyard\")))); controllers.add(procedure);"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\cavebloomer\\CavebloomerAttacks.java",
+      "sha256": "0da81ecb7c29d93790b117955902d3e741897c41cda0afb888ba84fcd22af088",
+      "lines": [
+        {
+          "line": 37,
+          "code": "            case 1 -> { cooldown = 55; movementLock = 30; poisonRing = boss.getHealth() < boss.getMaxHealth() * 0.5; boss.setDeltaMovement(0, 0.4, 0); boss.hasImpulse = true; }"
+        },
+        {
+          "line": 38,
+          "code": "            case 2 -> { cooldown = 90; movementLock = 75; boss.sound(\"cavebloomer_roar\", 1, 1); boss.setAnimation(\"prime4\"); }"
+        },
+        {
+          "line": 39,
+          "code": "            case 3 -> { cooldown = 40; var look = boss.getLookAngle(); boss.setDeltaMovement(look.x * 2.6, 1, look.z * 2.6); boss.hasImpulse = true; boss.sound(SoundEvents.FIREWORK_ROCKET_LAUNCH, 1, -3); }"
+        },
+        {
+          "line": 40,
+          "code": "        }"
+        },
+        {
+          "line": 41,
+          "code": "        updateMovementLock();"
+        },
+        {
+          "line": 42,
+          "code": "        ServerEndTickTasks.schedule(server, boss.getUUID());"
+        },
+        {
+          "line": 43,
+          "code": "        ThermalShockReforged.LOGGER.debug(\"Cavebloomer skill scheduled: caster={}, skill={}, gameTime={}, phase=server-end\", boss.getUUID(), skill, server.getGameTime());"
+        },
+        {
+          "line": 44,
+          "code": "    }"
+        },
+        {
+          "line": 45,
+          "code": "    void tick(ServerLevel server) {"
+        },
+        {
+          "line": 46,
+          "code": "        if (!boss.isAlive()) { cancel(server); return; }"
+        },
+        {
+          "line": 47,
+          "code": "        if (server.getGameTime() == startedAt) return;"
+        },
+        {
+          "line": 51,
+          "code": "    boolean pending() { return skill != -1; }"
+        },
+        {
+          "line": 52,
+          "code": "    void endTick(ServerLevel server) {"
+        },
+        {
+          "line": 53,
+          "code": "        if (!boss.isAlive()) { cancel(server); return; }"
+        },
+        {
+          "line": 54,
+          "code": "        if (skill == -1) return;"
+        },
+        {
+          "line": 62,
+          "code": "                if (age == 20) {"
+        },
+        {
+          "line": 63,
+          "code": "                    boss.setAnimation(\"prime\"); boss.sound(SoundEvents.SHULKER_SHOOT, 1, -2); ring(server, poisonRing, 1, 0.45F);"
+        },
+        {
+          "line": 64,
+          "code": "                    if (!poisonRing) skill = -1;"
+        },
+        {
+          "line": 65,
+          "code": "                }"
+        },
+        {
+          "line": 99,
+          "code": "    private void slam(ServerLevel server) {"
+        },
+        {
+          "line": 100,
+          "code": "        boss.setAnimation(\"prime\"); boss.sound(\"cavebloomer_detonates\", 1, -3);"
+        },
+        {
+          "line": 101,
+          "code": "        server.sendParticles(CavebloomerContent.NUKE_CLOUD.get(), boss.getX(), boss.getY(), boss.getZ(), 1, 0.0001, 0.0001, 0.0001, 0);"
+        },
+        {
+          "line": 102,
+          "code": "        var center = boss.position();"
+        },
+        {
+          "line": 142,
+          "code": "        tag.putLong(\"StartedAt\", startedAt); tag.putBoolean(\"PoisonRing\", poisonRing); tag.putDouble(\"TargetEyeHeight\", targetEyeHeight);"
+        },
+        {
+          "line": 143,
+          "code": "        tag.putBoolean(\"EndTickAge\", true);"
+        },
+        {
+          "line": 144,
+          "code": "        tag.putInt(\"ReservationCount\", reservations.size()); for (int i = 0; i < reservations.size(); i++) tag.putUUID(\"Reservation\" + i, reservations.get(i));"
+        },
+        {
+          "line": 145,
+          "code": "        root.put(\"CavebloomerAttacks\", tag);"
+        },
+        {
+          "line": 148,
+          "code": "        var tag = root.getCompound(\"CavebloomerAttacks\"); skill = tag.contains(\"Skill\") ? Math.clamp(tag.getInt(\"Skill\"), -1, 3) : -1;"
+        },
+        {
+          "line": 149,
+          "code": "        age = tag.getBoolean(\"EndTickAge\") ? Math.clamp(tag.getInt(\"Age\"), 0, 47) : Math.clamp(tag.getInt(\"Age\"), 0, 46) + (skill >= 0 ? 1 : 0);"
+        },
+        {
+          "line": 150,
+          "code": "        cooldown = Math.clamp(tag.getInt(\"Cooldown\"), 0, 90); movementLock = Math.clamp(tag.getInt(\"MovementLock\"), 0, 75);"
+        },
+        {
+          "line": 151,
+          "code": "        startedAt = tag.contains(\"StartedAt\") ? tag.getLong(\"StartedAt\") : Long.MIN_VALUE; poisonRing = tag.getBoolean(\"PoisonRing\");"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\cavebloomer\\AngryCavebloomerEntity.java",
+      "sha256": "630b16a840162016dbb6d833ca42bcf6f4b3b57541153f89b6b5eaee5cf242a2",
+      "lines": [
+        {
+          "line": 60,
+          "code": "    public void setTexture(String texture) { entityData.set(TEXTURE, texture); }"
+        },
+        {
+          "line": 61,
+          "code": "    public void setAnimation(String animation) {"
+        },
+        {
+          "line": 62,
+          "code": "        if (!\"empty\".equals(animation) && !\"undefined\".equals(animation)) triggerAnim(\"procedure\", animation);"
+        },
+        {
+          "line": 63,
+          "code": "    }"
+        },
+        {
+          "line": 64,
+          "code": "    @Override protected void registerGoals() {"
+        },
+        {
+          "line": 80,
+          "code": "    @Override protected SoundEvent getDeathSound() { return soundEvent(\"cavebloomer_death\"); }"
+        },
+        {
+          "line": 81,
+          "code": "    @Override public boolean hurt(DamageSource source, float amount) {"
+        },
+        {
+          "line": 82,
+          "code": "        if (source.getEntity() != null && source.getDirectEntity() instanceof CavebloomerBombEntity bomb) {"
+        },
+        {
+          "line": 83,
+          "code": "            if (!level().isClientSide) bomb.discard(); return false;"
+        },
+        {
+          "line": 86,
+          "code": "    }"
+        },
+        {
+          "line": 87,
+          "code": "    @Override public void tick() {"
+        },
+        {
+          "line": 88,
+          "code": "        super.tick();"
+        },
+        {
+          "line": 89,
+          "code": "        if (level() instanceof ServerLevel server) {"
+        },
+        {
+          "line": 90,
+          "code": "            attacks.tick(server);"
+        },
+        {
+          "line": 91,
+          "code": "            if (attacks.pending() || deathSequence.pending()) ServerEndTickTasks.schedule(server, getUUID());"
+        },
+        {
+          "line": 92,
+          "code": "            bossBar.setProgress(Math.clamp(getHealth() / getMaxHealth(), 0, 1));"
+        },
+        {
+          "line": 93,
+          "code": "        }"
+        },
+        {
+          "line": 94,
+          "code": "    }"
+        },
+        {
+          "line": 95,
+          "code": "    @Override public void baseTick() {"
+        },
+        {
+          "line": 96,
+          "code": "        super.baseTick();"
+        },
+        {
+          "line": 97,
+          "code": "        if (!level().isClientSide && isAlive() && getHealth() < getMaxHealth() * CavebloomerConfig.AURA_HEALTH_FRACTION.get()) addEffect(new MobEffectInstance(AuraContent.DAMAGING_AURA, 20, 2));"
+        },
+        {
+          "line": 98,
+          "code": "    }"
+        },
+        {
+          "line": 100,
+          "code": "        super.onAddedToLevel();"
+        },
+        {
+          "line": 101,
+          "code": "        if ((attacks.pending() || deathSequence.pending()) && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());"
+        },
+        {
+          "line": 102,
+          "code": "    }"
+        },
+        {
+          "line": 103,
+          "code": "    @Override public void endTick(ServerLevel server) {"
+        },
+        {
+          "line": 104,
+          "code": "        if (isRemoved()) return;"
+        },
+        {
+          "line": 105,
+          "code": "        attacks.endTick(server);"
+        },
+        {
+          "line": 106,
+          "code": "        deathSequence.endTick(server);"
+        },
+        {
+          "line": 107,
+          "code": "        if (attacks.pending() || deathSequence.pending()) ServerEndTickTasks.schedule(server, getUUID());"
+        },
+        {
+          "line": 108,
+          "code": "    }"
+        },
+        {
+          "line": 109,
+          "code": "    @Override protected void dropCustomDeathLoot(ServerLevel server, DamageSource source, boolean recentlyHit) {"
+        },
+        {
+          "line": 115,
+          "code": "        deathCommitted = true; attacks.cancel(server); deathSequence.start(server, position(), getEyeHeight());"
+        },
+        {
+          "line": 116,
+          "code": "        ServerEndTickTasks.schedule(server, getUUID());"
+        },
+        {
+          "line": 117,
+          "code": "        server.playSound(null, blockPosition(), soundEvent(\"cavebloomer_death\"), SoundSource.NEUTRAL, 1, 1);"
+        },
+        {
+          "line": 118,
+          "code": "        var center = position(); var players = server.getEntitiesOfClass(ServerPlayer.class, new AABB(center, center).inflate(24), player -> true);"
+        },
+        {
+          "line": 154,
+          "code": "    }"
+        },
+        {
+          "line": 155,
+          "code": "    @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {"
+        },
+        {
+          "line": 156,
+          "code": "        var procedure = new AnimationController<>(this, \"procedure\", 4, state -> PlayState.STOP);"
+        },
+        {
+          "line": 157,
+          "code": "        for (String clip : new String[]{\"0\", \"1\", \"2\", \"Idle\", \"walk\", \"prime\", \"prime2\", \"prime3\", \"prime4\"}) procedure.triggerableAnim(clip, RawAnimation.begin().thenPlay(clip));"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\fauna\\WillogradeEntity.java",
+      "sha256": "428cfa19b8a0974a1a6695e6962e3813e40dc9e01c7f006d68b4daf06cb31ee0",
+      "lines": [
+        {
+          "line": 62,
+          "code": ""
+        },
+        {
+          "line": 63,
+          "code": "    public void setAnimation(String animation) { triggerAnim(\"movement\", animation); }"
+        },
+        {
+          "line": 64,
+          "code": ""
+        },
+        {
+          "line": 65,
+          "code": "    @Override"
+        },
+        {
+          "line": 75,
+          "code": "    public net.minecraft.world.InteractionResult mobInteract(Player player, net.minecraft.world.InteractionHand hand) {"
+        },
+        {
+          "line": 76,
+          "code": "        var held = player.getMainHandItem();"
+        },
+        {
+          "line": 77,
+          "code": "        if (!held.is(FaunaEntities.item(\"adamantine_spice\")) || feedCooldown > 0) return super.mobInteract(player, hand);"
+        },
+        {
+          "line": 78,
+          "code": "        if (!level().isClientSide) {"
+        },
+        {
+          "line": 89,
+          "code": "                getNavigation().stop();"
+        },
+        {
+          "line": 90,
+          "code": "                setAnimation(\"bury\");"
+        },
+        {
+          "line": 91,
+          "code": "            }"
+        },
+        {
+          "line": 92,
+          "code": "        }"
+        },
+        {
+          "line": 121,
+          "code": "    @Override"
+        },
+        {
+          "line": 122,
+          "code": "    public void tick() {"
+        },
+        {
+          "line": 123,
+          "code": "        super.tick();"
+        },
+        {
+          "line": 124,
+          "code": "        if (level().isClientSide || !isAlive()) return;"
+        },
+        {
+          "line": 132,
+          "code": "            resumeBuryAnimation = false;"
+        },
+        {
+          "line": 133,
+          "code": "            setAnimation(\"bury\");"
+        },
+        {
+          "line": 134,
+          "code": "        }"
+        },
+        {
+          "line": 135,
+          "code": "        buryAge++;"
+        },
+        {
+          "line": 200,
+          "code": "    @Override"
+        },
+        {
+          "line": 201,
+          "code": "    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {"
+        },
+        {
+          "line": 202,
+          "code": "        controllers.add(new AnimationController<>(this, \"movement\", 4, state -> {"
+        },
+        {
+          "line": 203,
+          "code": "            return state.setAndContinue(RawAnimation.begin().thenLoop(state.isMoving() && (isVehicle() || isAggressive()) ? \"rolling\" : !isVehicle() && !isAggressive() && (state.isMoving() || Math.abs(state.getLimbSwingAmount()) >= 0.15F) ? \"walk\" : \"idle\"));"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\mangler\\ManglerEntity.java",
+      "sha256": "3be5c818f4605df2ef1245eb9bf9355f94a5b436f31b2aa58f7c3c0e576d4457",
+      "lines": [
+        {
+          "line": 44,
+          "code": "    public void setTexture(String value) { entityData.set(TEXTURE, value); }"
+        },
+        {
+          "line": 45,
+          "code": "    public void setAnimation(String value) { stunnedAnimation = value.equals(\"stunned\"); if (value.equals(\"empty\")) stopTriggeredAnim(\"procedure\", null); else triggerAnim(\"procedure\", value); }"
+        },
+        {
+          "line": 46,
+          "code": "    @Override"
+        },
+        {
+          "line": 47,
+          "code": "    protected PathNavigation createNavigation(Level level) { return new FlyingPathNavigation(this, level); }"
+        },
+        {
+          "line": 61,
+          "code": "        combatDimension = level().dimension().location().toString();"
+        },
+        {
+          "line": 62,
+          "code": "        attackCooldown = ManglerCombatConfig.BOOST_COOLDOWN.get(); entityData.set(COOLDOWN_VISIBLE, true); entityData.set(COOLDOWN_AMBIENT, false); setAnimation(\"boost\");"
+        },
+        {
+          "line": 63,
+          "code": "        Player nearest = null; double distance = Double.MAX_VALUE;"
+        },
+        {
+          "line": 64,
+          "code": "        if (getServer() != null) for (var player : getServer().getPlayerList().getPlayers()) { double candidate = player.distanceToSqr(position()); if (candidate < distance) { distance = candidate; nearest = player; } }"
+        },
+        {
+          "line": 70,
+          "code": "    @Override"
+        },
+        {
+          "line": 71,
+          "code": "    public boolean hurt(DamageSource source, float amount) {"
+        },
+        {
+          "line": 72,
+          "code": "        if (!level().isClientSide && !isRemoved()) {"
+        },
+        {
+          "line": 73,
+          "code": "            setAnimation(\"stunned\");"
+        },
+        {
+          "line": 74,
+          "code": "            ThermalShockReforged.LOGGER.debug(\"Mangler hurt animation triggered: entity={}, summoned={}, alive={}\", getUUID(), this instanceof SummonedManglerEntity, isAlive());"
+        },
+        {
+          "line": 75,
+          "code": "        }"
+        },
+        {
+          "line": 76,
+          "code": "        if (!level().isClientSide && isAlive()) {"
+        },
+        {
+          "line": 77,
+          "code": "            combatDimension = level().dimension().location().toString(); attackCooldown = 60; stunSchedule |= 1L << 59;"
+        },
+        {
+          "line": 78,
+          "code": "            entityData.set(COOLDOWN_VISIBLE, true); entityData.set(COOLDOWN_AMBIENT, true);"
+        },
+        {
+          "line": 79,
+          "code": "            addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 60, 1, true, true));"
+        },
+        {
+          "line": 80,
+          "code": "            if (level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());"
+        },
+        {
+          "line": 81,
+          "code": "            ThermalShockReforged.LOGGER.debug(\"Mangler stun armed: entity={}, summoned={}, pendingEndTickSlots={}\", getUUID(), this instanceof SummonedManglerEntity, Long.bitCount(stunSchedule));"
+        },
+        {
+          "line": 82,
+          "code": "            if (!(this instanceof SummonedManglerEntity)) { var look = getLookAngle(); double recoil = 0.6 * (1 - getAttributeValue(Attributes.KNOCKBACK_RESISTANCE)); setDeltaMovement(-look.x * recoil, 0, -look.z * recoil); hasImpulse = true; }"
+        },
+        {
+          "line": 86,
+          "code": "    @Override"
+        },
+        {
+          "line": 87,
+          "code": "    public void tick() {"
+        },
+        {
+          "line": 88,
+          "code": "        if (!level().isClientSide) {"
+        },
+        {
+          "line": 89,
+          "code": "            if (resumeStun) { if (stunnedAnimation) setAnimation(\"stunned\"); resumeStun = false; }"
+        },
+        {
+          "line": 90,
+          "code": "            if (!combatDimension.isEmpty() && !combatDimension.equals(level().dimension().location().toString())) { attackCooldown = 0; stunSchedule = 0; entityData.set(COOLDOWN_VISIBLE, false); setAnimation(\"empty\"); combatDimension = level().dimension().location().toString(); }"
+        },
+        {
+          "line": 91,
+          "code": "            if (attackCooldown > 0 && --attackCooldown == 0) entityData.set(COOLDOWN_VISIBLE, false);"
+        },
+        {
+          "line": 92,
+          "code": "            if (stunSchedule != 0 && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());"
+        },
+        {
+          "line": 93,
+          "code": "        }"
+        },
+        {
+          "line": 94,
+          "code": "        super.tick();"
+        },
+        {
+          "line": 97,
+          "code": "        super.onAddedToLevel();"
+        },
+        {
+          "line": 98,
+          "code": "        if (stunSchedule != 0 && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());"
+        },
+        {
+          "line": 99,
+          "code": "    }"
+        },
+        {
+          "line": 100,
+          "code": "    @Override public void endTick(ServerLevel server) {"
+        },
+        {
+          "line": 101,
+          "code": "        if (isRemoved() || stunSchedule == 0) return;"
+        },
+        {
+          "line": 102,
+          "code": "        if (!combatDimension.isEmpty() && !combatDimension.equals(server.dimension().location().toString())) { attackCooldown = 0; stunSchedule = 0; entityData.set(COOLDOWN_VISIBLE, false); setAnimation(\"empty\"); combatDimension = server.dimension().location().toString(); return; }"
+        },
+        {
+          "line": 103,
+          "code": "        boolean completed = (stunSchedule & 1L) != 0;"
+        },
+        {
+          "line": 104,
+          "code": "        stunSchedule >>>= 1;"
+        },
+        {
+          "line": 105,
+          "code": "        if (completed && stunSchedule == 0) setAnimation(\"empty\");"
+        },
+        {
+          "line": 106,
+          "code": "        if (stunSchedule != 0) ServerEndTickTasks.schedule(server, getUUID());"
+        },
+        {
+          "line": 107,
+          "code": "    }"
+        },
+        {
+          "line": 108,
+          "code": "    @Override"
+        },
+        {
+          "line": 145,
+          "code": "    @Override"
+        },
+        {
+          "line": 146,
+          "code": "    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {"
+        },
+        {
+          "line": 147,
+          "code": "        var procedure = new AnimationController<>(this, \"procedure\", 4, state -> PlayState.STOP).triggerableAnim(\"boost\", RawAnimation.begin().thenPlay(\"boost\")).triggerableAnim(\"stunned\", RawAnimation.begin().thenPlay(\"stunned\")).triggerableAnim(\"chase\", RawAnimation.begin().thenPlay(\"chase\")).triggerableAnim(\"chaseloop\", RawAnimation.begin().thenPlay(\"chaseloop\"));"
+        },
+        {
+          "line": 148,
+          "code": "        controllers.add(new AnimationController<>(this, \"movement\", 4, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(isAggressive() && state.isMoving() ? \"chaseloop\" : \"idle\")))); controllers.add(procedure);"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\springslime\\SpringslimeEntity.java",
+      "sha256": "530dda4246e5bd8f644958777c70a5273737de979849d74322c6aaacf830c80b",
+      "lines": [
+        {
+          "line": 26,
+          "code": "    public String texture() { return entityData.get(TEXTURE); }"
+        },
+        {
+          "line": 27,
+          "code": "    @Override public boolean hurt(DamageSource source, float amount) { return !source.is(DamageTypes.FALL) && super.hurt(source, amount); }"
+        },
+        {
+          "line": 28,
+          "code": "    @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.SLIME_HURT; }"
+        },
+        {
+          "line": 29,
+          "code": "    @Override protected SoundEvent getDeathSound() { return SoundEvents.SLIME_DEATH; }"
+        },
+        {
+          "line": 33,
+          "code": "        if (!isAlive()) return;"
+        },
+        {
+          "line": 34,
+          "code": "        if (level().isClientSide) { if (player.isLocalPlayer()) { player.setDeltaMovement(0, 1.4, 0); triggerAnim(\"procedure\", \"2\"); } return; }"
+        },
+        {
+          "line": 35,
+          "code": "        if (!(level() instanceof ServerLevel server)) return;"
+        },
+        {
+          "line": 36,
+          "code": "        if (!entityData.get(POPPED)) {"
+        },
+        {
+          "line": 39,
+          "code": "        }"
+        },
+        {
+          "line": 40,
+          "code": "        triggerAnim(\"procedure\", \"2\");"
+        },
+        {
+          "line": 41,
+          "code": "        ThermalShockReforged.LOGGER.debug(\"Springslime collision animation triggered: entity={}, player={}, popped={}\", getUUID(), player.getUUID(), entityData.get(POPPED));"
+        },
+        {
+          "line": 42,
+          "code": "        player.setDeltaMovement(0, 1.4, 0); player.hurtMarked = true;"
+        },
+        {
+          "line": 46,
+          "code": "    @Override public void readAdditionalSaveData(CompoundTag tag) { super.readAdditionalSaveData(tag); if (tag.contains(\"Texture\")) entityData.set(TEXTURE, tag.getString(\"Texture\")); entityData.set(POPPED, tag.getBoolean(\"SpringPopped\")); }"
+        },
+        {
+          "line": 47,
+          "code": "    @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {"
+        },
+        {
+          "line": 48,
+          "code": "        var procedure = new AnimationController<>(this, \"procedure\", 4, state -> PlayState.STOP).triggerableAnim(\"2\", RawAnimation.begin().thenPlay(\"2\"));"
+        },
+        {
+          "line": 49,
+          "code": "        controllers.add(new AnimationController<>(this, \"movement\", 4, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : isDeadOrDying() ? state.setAndContinue(RawAnimation.begin().thenPlay(\"2\")) : state.setAndContinue(RawAnimation.begin().thenLoop(\"1\"))));"
+        }
+      ]
+    }
+  ],
+  "priorPublicSemantics": {
+    "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\animation-main127-public-integration.json",
+    "sha256": "7a0ef659f42795f95dad7bae1848c4c3edcb14ba0e119165f8c7712f6864d48e"
+  },
+  "specificDifferentNameProof": [
+    {
+      "from": "bigswing1",
+      "to": "bigswing2",
+      "javaStringHashFrom": 1898667507,
+      "javaStringHashTo": 1898667508,
+      "stageAndRawHashDeltaModulo2pow32": 4294967265,
+      "equals": false
+    },
+    {
+      "from": "boost",
+      "to": "stunned",
+      "javaStringHashFrom": 93922211,
+      "javaStringHashTo": 2416127635,
+      "stageAndRawHashDeltaModulo2pow32": 1026075888,
+      "equals": false
+    }
+  ],
+  "differentNameResolution": "具体stage的hash差非零，DEFAULT loop相同；沿127已核Gecko setAnimation重建queue、adjustTick=0路径。补齐Skeletitan bigswing1→bigswing2及Summoned Mangler boost→stunned，不改原clip。",
+  "caveStaticModel": {
+    "cases": [
+      {
+        "skill": 0,
+        "firstConsumedEnd": 0,
+        "lowHealth": false,
+        "events": [
+          [
+            0,
+            "immediate",
+            "rapid"
+          ],
+          [
+            1,
+            "END",
+            "rapid"
+          ],
+          [
+            3,
+            "END",
+            "rapid"
+          ],
+          [
+            5,
+            "END",
+            "rapid"
+          ],
+          [
+            7,
+            "END",
+            "rapid"
+          ],
+          [
+            9,
+            "END",
+            "rapid"
+          ],
+          [
+            11,
+            "END",
+            "rapid"
+          ],
+          [
+            13,
+            "END",
+            "rapid"
+          ],
+          [
+            15,
+            "END",
+            "rapid"
+          ],
+          [
+            17,
+            "END",
+            "rapid"
+          ],
+          [
+            19,
+            "END",
+            "rapid"
+          ],
+          [
+            21,
+            "END",
+            "rapid"
+          ],
+          [
+            23,
+            "END",
+            "rapid"
+          ],
+          [
+            25,
+            "END",
+            "rapid"
+          ],
+          [
+            27,
+            "END",
+            "rapid"
+          ],
+          [
+            29,
+            "END",
+            "rapid"
+          ],
+          [
+            31,
+            "END",
+            "rapid"
+          ],
+          [
+            33,
+            "END",
+            "rapid"
+          ],
+          [
+            35,
+            "END",
+            "rapid"
+          ],
+          [
+            37,
+            "END",
+            "rapid"
+          ]
+        ],
+        "matched": true
+      },
+      {
+        "skill": 0,
+        "firstConsumedEnd": 0,
+        "lowHealth": true,
+        "events": [
+          [
+            0,
+            "immediate",
+            "rapid"
+          ],
+          [
+            1,
+            "END",
+            "rapid"
+          ],
+          [
+            3,
+            "END",
+            "rapid"
+          ],
+          [
+            5,
+            "END",
+            "rapid"
+          ],
+          [
+            7,
+            "END",
+            "rapid"
+          ],
+          [
+            9,
+            "END",
+            "rapid"
+          ],
+          [
+            11,
+            "END",
+            "rapid"
+          ],
+          [
+            13,
+            "END",
+            "rapid"
+          ],
+          [
+            15,
+            "END",
+            "rapid"
+          ],
+          [
+            17,
+            "END",
+            "rapid"
+          ],
+          [
+            19,
+            "END",
+            "rapid"
+          ],
+          [
+            21,
+            "END",
+            "rapid"
+          ],
+          [
+            23,
+            "END",
+            "rapid"
+          ],
+          [
+            25,
+            "END",
+            "rapid"
+          ],
+          [
+            27,
+            "END",
+            "rapid"
+          ],
+          [
+            29,
+            "END",
+            "rapid"
+          ],
+          [
+            31,
+            "END",
+            "rapid"
+          ],
+          [
+            33,
+            "END",
+            "rapid"
+          ],
+          [
+            35,
+            "END",
+            "rapid"
+          ],
+          [
+            37,
+            "END",
+            "rapid"
+          ]
+        ],
+        "matched": true
+      },
+      {
+        "skill": 0,
+        "firstConsumedEnd": 1,
+        "lowHealth": false,
+        "events": [
+          [
+            0,
+            "immediate",
+            "rapid"
+          ],
+          [
+            2,
+            "END",
+            "rapid"
+          ],
+          [
+            4,
+            "END",
+            "rapid"
+          ],
+          [
+            6,
+            "END",
+            "rapid"
+          ],
+          [
+            8,
+            "END",
+            "rapid"
+          ],
+          [
+            10,
+            "END",
+            "rapid"
+          ],
+          [
+            12,
+            "END",
+            "rapid"
+          ],
+          [
+            14,
+            "END",
+            "rapid"
+          ],
+          [
+            16,
+            "END",
+            "rapid"
+          ],
+          [
+            18,
+            "END",
+            "rapid"
+          ],
+          [
+            20,
+            "END",
+            "rapid"
+          ],
+          [
+            22,
+            "END",
+            "rapid"
+          ],
+          [
+            24,
+            "END",
+            "rapid"
+          ],
+          [
+            26,
+            "END",
+            "rapid"
+          ],
+          [
+            28,
+            "END",
+            "rapid"
+          ],
+          [
+            30,
+            "END",
+            "rapid"
+          ],
+          [
+            32,
+            "END",
+            "rapid"
+          ],
+          [
+            34,
+            "END",
+            "rapid"
+          ],
+          [
+            36,
+            "END",
+            "rapid"
+          ],
+          [
+            38,
+            "END",
+            "rapid"
+          ]
+        ],
+        "matched": true
+      },
+      {
+        "skill": 0,
+        "firstConsumedEnd": 1,
+        "lowHealth": true,
+        "events": [
+          [
+            0,
+            "immediate",
+            "rapid"
+          ],
+          [
+            2,
+            "END",
+            "rapid"
+          ],
+          [
+            4,
+            "END",
+            "rapid"
+          ],
+          [
+            6,
+            "END",
+            "rapid"
+          ],
+          [
+            8,
+            "END",
+            "rapid"
+          ],
+          [
+            10,
+            "END",
+            "rapid"
+          ],
+          [
+            12,
+            "END",
+            "rapid"
+          ],
+          [
+            14,
+            "END",
+            "rapid"
+          ],
+          [
+            16,
+            "END",
+            "rapid"
+          ],
+          [
+            18,
+            "END",
+            "rapid"
+          ],
+          [
+            20,
+            "END",
+            "rapid"
+          ],
+          [
+            22,
+            "END",
+            "rapid"
+          ],
+          [
+            24,
+            "END",
+            "rapid"
+          ],
+          [
+            26,
+            "END",
+            "rapid"
+          ],
+          [
+            28,
+            "END",
+            "rapid"
+          ],
+          [
+            30,
+            "END",
+            "rapid"
+          ],
+          [
+            32,
+            "END",
+            "rapid"
+          ],
+          [
+            34,
+            "END",
+            "rapid"
+          ],
+          [
+            36,
+            "END",
+            "rapid"
+          ],
+          [
+            38,
+            "END",
+            "rapid"
+          ]
+        ],
+        "matched": true
+      },
+      {
+        "skill": 0,
+        "firstConsumedEnd": 30000,
+        "lowHealth": false,
+        "events": [
+          [
+            0,
+            "immediate",
+            "rapid"
+          ],
+          [
+            30001,
+            "END",
+            "rapid"
+          ],
+          [
+            30003,
+            "END",
+            "rapid"
+          ],
+          [
+            30005,
+            "END",
+            "rapid"
+          ],
+          [
+            30007,
+            "END",
+            "rapid"
+          ],
+          [
+            30009,
+            "END",
+            "rapid"
+          ],
+          [
+            30011,
+            "END",
+            "rapid"
+          ],
+          [
+            30013,
+            "END",
+            "rapid"
+          ],
+          [
+            30015,
+            "END",
+            "rapid"
+          ],
+          [
+            30017,
+            "END",
+            "rapid"
+          ],
+          [
+            30019,
+            "END",
+            "rapid"
+          ],
+          [
+            30021,
+            "END",
+            "rapid"
+          ],
+          [
+            30023,
+            "END",
+            "rapid"
+          ],
+          [
+            30025,
+            "END",
+            "rapid"
+          ],
+          [
+            30027,
+            "END",
+            "rapid"
+          ],
+          [
+            30029,
+            "END",
+            "rapid"
+          ],
+          [
+            30031,
+            "END",
+            "rapid"
+          ],
+          [
+            30033,
+            "END",
+            "rapid"
+          ],
+          [
+            30035,
+            "END",
+            "rapid"
+          ],
+          [
+            30037,
+            "END",
+            "rapid"
+          ]
+        ],
+        "matched": true
+      },
+      {
+        "skill": 0,
+        "firstConsumedEnd": 30000,
+        "lowHealth": true,
+        "events": [
+          [
+            0,
+            "immediate",
+            "rapid"
+          ],
+          [
+            30001,
+            "END",
+            "rapid"
+          ],
+          [
+            30003,
+            "END",
+            "rapid"
+          ],
+          [
+            30005,
+            "END",
+            "rapid"
+          ],
+          [
+            30007,
+            "END",
+            "rapid"
+          ],
+          [
+            30009,
+            "END",
+            "rapid"
+          ],
+          [
+            30011,
+            "END",
+            "rapid"
+          ],
+          [
+            30013,
+            "END",
+            "rapid"
+          ],
+          [
+            30015,
+            "END",
+            "rapid"
+          ],
+          [
+            30017,
+            "END",
+            "rapid"
+          ],
+          [
+            30019,
+            "END",
+            "rapid"
+          ],
+          [
+            30021,
+            "END",
+            "rapid"
+          ],
+          [
+            30023,
+            "END",
+            "rapid"
+          ],
+          [
+            30025,
+            "END",
+            "rapid"
+          ],
+          [
+            30027,
+            "END",
+            "rapid"
+          ],
+          [
+            30029,
+            "END",
+            "rapid"
+          ],
+          [
+            30031,
+            "END",
+            "rapid"
+          ],
+          [
+            30033,
+            "END",
+            "rapid"
+          ],
+          [
+            30035,
+            "END",
+            "rapid"
+          ],
+          [
+            30037,
+            "END",
+            "rapid"
+          ]
+        ],
+        "matched": true
+      },
+      {
+        "skill": 1,
+        "firstConsumedEnd": 0,
+        "lowHealth": false,
+        "events": [
+          [
+            19,
+            "END",
+            "ring1"
+          ]
+        ],
+        "matched": true
+      },
+      {
+        "skill": 1,
+        "firstConsumedEnd": 0,
+        "lowHealth": true,
+        "events": [
+          [
+            19,
+            "END",
+            "ring1"
+          ],
+          [
+            29,
+            "END",
+            "ring2"
+          ]
+        ],
+        "matched": true
+      },
+      {
+        "skill": 1,
+        "firstConsumedEnd": 1,
+        "lowHealth": false,
+        "events": [
+          [
+            20,
+            "END",
+            "ring1"
+          ]
+        ],
+        "matched": true
+      },
+      {
+        "skill": 1,
+        "firstConsumedEnd": 1,
+        "lowHealth": true,
+        "events": [
+          [
+            20,
+            "END",
+            "ring1"
+          ],
+          [
+            30,
+            "END",
+            "ring2"
+          ]
+        ],
+        "matched": true
+      },
+      {
+        "skill": 1,
+        "firstConsumedEnd": 30000,
+        "lowHealth": false,
+        "events": [
+          [
+            30019,
+            "END",
+            "ring1"
+          ]
+        ],
+        "matched": true
+      },
+      {
+        "skill": 1,
+        "firstConsumedEnd": 30000,
+        "lowHealth": true,
+        "events": [
+          [
+            30019,
+            "END",
+            "ring1"
+          ],
+          [
+            30029,
+            "END",
+            "ring2"
+          ]
+        ],
+        "matched": true
+      },
+      {
+        "skill": 2,
+        "firstConsumedEnd": 0,
+        "lowHealth": false,
+        "events": [
+          [
+            36,
+            "END",
+            "squeak"
+          ],
+          [
+            46,
+            "END",
+            "slam"
+          ]
+        ],
+        "matched": true
+      },
+      {
+        "skill": 2,
+        "firstConsumedEnd": 0,
+        "lowHealth": true,
+        "events": [
+          [
+            36,
+            "END",
+            "squeak"
+          ],
+          [
+            46,
+            "END",
+            "slam"
+          ]
+        ],
+        "matched": true
+      },
+      {
+        "skill": 2,
+        "firstConsumedEnd": 1,
+        "lowHealth": false,
+        "events": [
+          [
+            37,
+            "END",
+            "squeak"
+          ],
+          [
+            47,
+            "END",
+            "slam"
+          ]
+        ],
+        "matched": true
+      },
+      {
+        "skill": 2,
+        "firstConsumedEnd": 1,
+        "lowHealth": true,
+        "events": [
+          [
+            37,
+            "END",
+            "squeak"
+          ],
+          [
+            47,
+            "END",
+            "slam"
+          ]
+        ],
+        "matched": true
+      },
+      {
+        "skill": 2,
+        "firstConsumedEnd": 30000,
+        "lowHealth": false,
+        "events": [
+          [
+            30036,
+            "END",
+            "squeak"
+          ],
+          [
+            30046,
+            "END",
+            "slam"
+          ]
+        ],
+        "matched": true
+      },
+      {
+        "skill": 2,
+        "firstConsumedEnd": 30000,
+        "lowHealth": true,
+        "events": [
+          [
+            30036,
+            "END",
+            "squeak"
+          ],
+          [
+            30046,
+            "END",
+            "slam"
+          ]
+        ],
+        "matched": true
+      },
+      {
+        "skill": 3,
+        "firstConsumedEnd": 0,
+        "lowHealth": false,
+        "events": [
+          [
+            4,
+            "END",
+            "squeak"
+          ]
+        ],
+        "matched": true
+      },
+      {
+        "skill": 3,
+        "firstConsumedEnd": 0,
+        "lowHealth": true,
+        "events": [
+          [
+            4,
+            "END",
+            "squeak"
+          ],
+          [
+            4,
+            "END",
+            "summon"
+          ],
+          [
+            6,
+            "END",
+            "summon"
+          ],
+          [
+            8,
+            "END",
+            "summon"
+          ],
+          [
+            10,
+            "END",
+            "summon"
+          ],
+          [
+            12,
+            "END",
+            "summon"
+          ]
+        ],
+        "matched": true
+      },
+      {
+        "skill": 3,
+        "firstConsumedEnd": 1,
+        "lowHealth": false,
+        "events": [
+          [
+            5,
+            "END",
+            "squeak"
+          ]
+        ],
+        "matched": true
+      },
+      {
+        "skill": 3,
+        "firstConsumedEnd": 1,
+        "lowHealth": true,
+        "events": [
+          [
+            5,
+            "END",
+            "squeak"
+          ],
+          [
+            5,
+            "END",
+            "summon"
+          ],
+          [
+            7,
+            "END",
+            "summon"
+          ],
+          [
+            9,
+            "END",
+            "summon"
+          ],
+          [
+            11,
+            "END",
+            "summon"
+          ],
+          [
+            13,
+            "END",
+            "summon"
+          ]
+        ],
+        "matched": true
+      },
+      {
+        "skill": 3,
+        "firstConsumedEnd": 30000,
+        "lowHealth": false,
+        "events": [
+          [
+            30004,
+            "END",
+            "squeak"
+          ]
+        ],
+        "matched": true
+      },
+      {
+        "skill": 3,
+        "firstConsumedEnd": 30000,
+        "lowHealth": true,
+        "events": [
+          [
+            30004,
+            "END",
+            "squeak"
+          ],
+          [
+            30004,
+            "END",
+            "summon"
+          ],
+          [
+            30006,
+            "END",
+            "summon"
+          ],
+          [
+            30008,
+            "END",
+            "summon"
+          ],
+          [
+            30010,
+            "END",
+            "summon"
+          ],
+          [
+            30012,
+            "END",
+            "summon"
+          ]
+        ],
+        "matched": true
+      }
+    ],
+    "count": 24,
+    "legacySavedAgeCases": 238,
+    "runtimeExecuted": false,
+    "scope": "完整四分支队列可重入调度节点、正常实体tick前END/在END后入队两类起点及低血量支路；不替代实际游戏伤害/召唤/声画测试"
+  },
+  "resolvedIdentities": [
+    "defector_machinist",
+    "angry_cavebloomer",
+    "skeletitan",
+    "springslime",
+    "summoned_mangler"
+  ],
+  "partiallyFixedIdentities": [
+    "willograde"
+  ],
+  "remainingIdentities": [
+    "beetle_crasher",
+    "huntress",
+    "willograde"
+  ],
+  "remainingDetail": [
+    "两种出生首发的原LivingTick与目标首tick后网络到帧边界",
+    "Willograde单controller完成清理及存档重载剩余时长与动画seek边界；本批只恢复主手门槛"
+  ],
+  "group1Paired": 57,
+  "group2Paired": 58,
+  "cumulativePaired": 115,
+  "total": 118,
+  "gameExecuted": false,
+  "fullMigrationComplete": false
+}

@@ -73,7 +73,7 @@ public final class WillogradeEntity extends PathfinderMob implements GeoEntity {
 
     @Override
     public net.minecraft.world.InteractionResult mobInteract(Player player, net.minecraft.world.InteractionHand hand) {
-        var held = player.getItemInHand(hand);
+        var held = player.getMainHandItem();
         if (!held.is(FaunaEntities.item("adamantine_spice")) || feedCooldown > 0) return super.mobInteract(player, hand);
         if (!level().isClientSide) {
             held.shrink(1);

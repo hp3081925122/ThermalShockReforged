@@ -88,7 +88,7 @@ public final class AngryCavebloomerEntity extends Monster implements GeoEntity, 
         super.tick();
         if (level() instanceof ServerLevel server) {
             attacks.tick(server);
-            if (deathSequence.pending()) ServerEndTickTasks.schedule(server, getUUID());
+            if (attacks.pending() || deathSequence.pending()) ServerEndTickTasks.schedule(server, getUUID());
             bossBar.setProgress(Math.clamp(getHealth() / getMaxHealth(), 0, 1));
         }
     }
@@ -98,12 +98,13 @@ public final class AngryCavebloomerEntity extends Monster implements GeoEntity, 
     }
     @Override public void onAddedToLevel() {
         super.onAddedToLevel();
-        if (deathSequence.pending() && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
+        if ((attacks.pending() || deathSequence.pending()) && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
     }
     @Override public void endTick(ServerLevel server) {
         if (isRemoved()) return;
+        attacks.endTick(server);
         deathSequence.endTick(server);
-        if (deathSequence.pending()) ServerEndTickTasks.schedule(server, getUUID());
+        if (attacks.pending() || deathSequence.pending()) ServerEndTickTasks.schedule(server, getUUID());
     }
     @Override protected void dropCustomDeathLoot(ServerLevel server, DamageSource source, boolean recentlyHit) {
         super.dropCustomDeathLoot(server, source, recentlyHit); spawnAtLocation(new ItemStack(CavebloomerContent.BOSS_BOX.get()));

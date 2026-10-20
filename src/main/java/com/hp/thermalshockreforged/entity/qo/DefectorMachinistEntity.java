@@ -62,6 +62,13 @@ public final class DefectorMachinistEntity extends PathfinderMob implements GeoE
     }
     @Override public void baseTick() {
         super.baseTick();
+        if (level().isClientSide) {
+            if (random.nextDouble() < .005) {
+                triggerAnim("procedure", "idlejunkyard2");
+                ThermalShockReforged.LOGGER.debug("Qo local idle animation triggered: npc={}, clientTick={}", getUUID(), tickCount);
+            }
+            return;
+        }
         if (!level().isClientSide && idleCooldown > 0) idleCooldown--;
         if (!level().isClientSide && idleCooldown == 0 && random.nextDouble() < .005) { idleCooldown = 120; triggerAnim("procedure", "idlejunkyard2"); }
     }
