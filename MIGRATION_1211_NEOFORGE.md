@@ -641,3 +641,7 @@ undead_mobs恢复原13成员并纠正第95/112批将两Monolith原生亡灵身�
 双方生产停笔固定8864份src/main，Java21离线compileJava/processResources --max-workers=2统一通过，31s，compileJava实际执行；构建前后全输入相同，8048直接资源逐字节一致、2展开模板通过，3365英文/981中文及所有资源字节未改。总证据main115-static-validation.json及batch115-verified-inputs.json；A早期共享源快照由最终生产SHA承接，Civilian剩余记录已纳入REFORGED_CHANGES。mcreator-rework补实际移除与有效入口核验，quick_validate通过。
 
 本批未启动游戏。整模组继续物品/实体及其它入口无简化复审，167直接方块根不覆盖所有继承覆写。完整迁移及复审结束后主线安排子代理客户端和E:/模组/发cf的模组/Render Preview原件对照；服务端用户独立测试，不联系、不接管、不重复、不把进行中视为通过。Git无remote，仅本地阶段提交。下一批116先复审原80个直接物品回调根及128实际调用，迁移A约三分之二、主线余下与共享集成，生产所有权按实际目标文件冻结。
+
+## 第120批收口索引
+
+第116至120批的物品/实体/资源复审、生产修复和构建证据以docs/MIGRATION_NEXT_BATCH.md及各批最终验证JSON为准。第120批两聊天采用Luna只读复审、生产聊天核实修复的分工，已修海玻璃精准采集谓词、暗钢块跨版本数量截断、长矛内部NO_MELEE参数及两戟耐久附魔标签。原资产和实体绑定已全量机械映射，但全部GUI语义、效果消费者、NBT归一和完整声画仍待后续复审，不能宣布整模组完工。统一compileJava/processResources通过；未运行游戏，服务端由用户独立测试，客户端及Render Preview完整收口后由子代理负责。

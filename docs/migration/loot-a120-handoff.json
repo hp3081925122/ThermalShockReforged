@@ -1,0 +1,101 @@
+{
+  "batch": "120A",
+  "productionFrozen": true,
+  "readyForMainUnifiedBuild": true,
+  "files": [
+    {
+      "path": "docs/migration/loot-a120-codec-evidence.json",
+      "sha256": "87a6345a4c450089b4e979b70af1150b3b91d69e6f2e557b5f665e4d74d2151a",
+      "role": "复审证据"
+    },
+    {
+      "path": "docs/migration/loot-a120-matrix.json",
+      "sha256": "f0d48a98fd0ada0dc7ed222b1d80cf5cb1c02bae86333348de6d557058775e6d",
+      "role": "复审证据"
+    },
+    {
+      "path": "docs/migration/loot-a120-menu-review.md",
+      "sha256": "3bcbd98279da7183b309275f857cb06d00f36fe94e8bdf05c467c8989a25d098",
+      "role": "复审证据"
+    },
+    {
+      "path": "docs/migration/loot-a120-plan.md",
+      "sha256": "ac47133f79d0b981d0f0248576cab9b482ec1e8ad343f9671132f28426badc93",
+      "role": "复审证据"
+    },
+    {
+      "path": "docs/migration/loot-a120-resources.sha256",
+      "sha256": "dbc9d449a2f630b076ed9d0b2e8142eb1ceb7822c0abd9476edad9460720e67f",
+      "role": "复审证据"
+    },
+    {
+      "path": "docs/migration/loot-a120-review.md",
+      "sha256": "af4ec9596e5ecb801965c12abc37a712c34a432f9811bb0eacb019eb0da23d3f",
+      "role": "复审证据"
+    },
+    {
+      "path": "docs/migration/loot-a120-validation.json",
+      "sha256": "723ece83667507fb93447f154be06e07ef2d5b313535da4c27e1f75314fc8586",
+      "role": "复审证据"
+    },
+    {
+      "path": "docs/migration/loot-a120-worldgen-review.md",
+      "sha256": "c1e5c790f1039d32ad7b7accd6bbb0e0e8758ba974d0f11a95e6233719acc4de",
+      "role": "复审证据"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/loot_table/angry_cavebloomer_loot.json",
+      "sha256": "c0c55eaa86f4cc9da0cd58caacd12196a1b50923bd7258afbbe236419e31f868",
+      "role": "生产"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/seaglass.json",
+      "sha256": "1354374ef002bab6a2bcdf5d177f560dbb73bad5ae4867bbffc823d4fc2959dd",
+      "role": "生产"
+    }
+  ],
+  "inputSetSha256": "7a05847064a95857334d291178904a28e6fa23efe90d222bf8a68fb3854688ef",
+  "resourceSetManifestSha256": "dbc9d449a2f630b076ed9d0b2e8142eb1ceb7822c0abd9476edad9460720e67f",
+  "validation": {
+    "jsonRecursiveCompare": true,
+    "seaglassStaticTruthTable": true,
+    "darksteel65SamplesStatic": true,
+    "restored119HashesUnchanged": true,
+    "minecraftCodecExecution": false,
+    "build": false,
+    "game": false
+  },
+  "reviewGroups": {
+    "loot": {
+      "reviewer": "01a156d0-f287-75c1-9fed-a441e013859f",
+      "currentBoundedReviewComplete": true,
+      "referenceClosureComplete": false,
+      "uncovered": [
+        "626个模组掉落物品逐注册调用证明未完成",
+        "目标数据包/原生附魔集合变化并非原1.20.1候选概率完全一致",
+        "真实Codec解码及实际掉落触发未运行"
+      ]
+    },
+    "menuNetwork": {
+      "reviewer": "01a156d0-f3e1-7472-bd7c-4329d79a1b75",
+      "currentBoundedReviewComplete": true,
+      "uncovered": [
+        "241个菜单/Screen未全量语义复核",
+        "35指南配方材料产物消耗未逐字段核",
+        "GUI资源文件存在性与运行视觉未全量核"
+      ]
+    },
+    "worldgen": {
+      "reviewer": "01a156d0-f531-77c3-b4fa-38b243bc4b0c",
+      "currentBoundedReviewComplete": true,
+      "uncovered": [
+        "97模板未完成本批全量NBT标签级归一",
+        "67未引用模板未证全部跨模块可达性",
+        "purebiomes原范围仍无依据",
+        "真实区块生成/流体更新/性能未测试"
+      ]
+    }
+  },
+  "ownership": "仅两份loot及loot-a120-*；未改菜单、worldgen、Java、总文档、skill和用户测试目录",
+  "nextBatch": "主线本批统一构建提交后，保持三名Luna只读分组，接有界未覆盖项；不在本批继续扩张"
+}

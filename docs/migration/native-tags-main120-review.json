@@ -1,0 +1,154 @@
+{
+  "audit": "audit120-native-tags",
+  "scope": "只读机械核对；原生工具/护甲分类标签、durability 标签继承、原禁附魔覆写及自定义武器原版附魔类别",
+  "baseline": "f1dffc6",
+  "project": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged",
+  "source_jar": "D:\\AI临时文件\\ThermalShockMigration\\thermal_shock-07.9-original.jar",
+  "source_tree": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock",
+  "native_source": "C:\\Users\\30819\\.gradle\\caches\\ng_execute\\e8875c373a4301e44ec50c8116fbc02e58f10e04d8e7081250c674b5ea5298a0\\transformed\\net\\minecraft\\data\\tags\\VanillaItemTagsProvider.java",
+  "counts": {
+    "native_tool_tag_entries_checked": 33,
+    "native_tool_tag_entries_covered": 33,
+    "armor_slot_tag_entries_checked": 32,
+    "armor_slot_tag_entries_covered": 32,
+    "explicit_custom_durability_tag_values": 35,
+    "confirmed_durable_custom_item_ids_missing_from_durability_closure": 2,
+    "confirmed_wrong_native_tool_or_armor_categories": 0,
+    "confirmed_original_enchant_rejection_overrides_found": 0
+  },
+  "confirmed_gaps": [
+    {
+      "item_id": "thermal_shock_reforged:bloodstone_halberd",
+      "missing_tag_path": "data/minecraft/tags/item/enchantable/durability.json",
+      "evidence": [
+        "当前注册：src/main/java/com/hp/thermalshockreforged/content/weapons/WeaponContent.java:56 注册 bloodstone_halberd，使用 SpearItem。",
+        "当前耐久：src/main/java/com/hp/thermalshockreforged/content/weapons/SpearItem.java:51 用 kind.durability 设置耐久；BLOODSTONE_HALBERD 枚举分支提供非零耐久。",
+        "原始实现：readable/net/mcreator/thermal_shock/item/BloodstoneHalberdItem.java:54 设置 durability(1200)。",
+        "当前 enchantable/durability.json 未列出该 ID，且 SpearItem extends Item，不继承 axes/pickaxes/shovels/hoes/swords/盔甲槽。原生 VanillaItemTagsProvider.java:382-402 的 durability_enchantable 闭包因此不覆盖它。"
+      ],
+      "classification": "确证漏项：缺失原版耐久类支持标签覆盖（如 Unbreaking/Mending/Vanishing 的 supported_items 类标签路径）；不据此断言其一定可在附魔台出现。"
+    },
+    {
+      "item_id": "thermal_shock_reforged:carborundum_halberd",
+      "missing_tag_path": "data/minecraft/tags/item/enchantable/durability.json",
+      "evidence": [
+        "当前注册：src/main/java/com/hp/thermalshockreforged/content/weapons/WeaponContent.java:57 注册 carborundum_halberd，使用 SpearItem。",
+        "当前耐久：src/main/java/com/hp/thermalshockreforged/content/weapons/SpearItem.java:51 用 kind.durability 设置耐久；CARBORUNDUM_HALBERD 枚举分支提供非零耐久。",
+        "原始实现：readable/net/mcreator/thermal_shock/item/CarborundumHalberdItem.java:54 设置 durability(900)。",
+        "当前 enchantable/durability.json 未列出该 ID，且 SpearItem extends Item，不继承 axes/pickaxes/shovels/hoes/swords/盔甲槽。原生 VanillaItemTagsProvider.java:382-402 的 durability_enchantable 闭包因此不覆盖它。"
+      ],
+      "classification": "确证漏项：缺失原版耐久类支持标签覆盖（如 Unbreaking/Mending/Vanishing 的 supported_items 类标签路径）；不据此断言其一定可在附魔台出现。"
+    }
+  ],
+  "confirmed_coverage": [
+    {
+      "categories": "axes=6, hoes=7, pickaxes=6, shovels=5, swords=9",
+      "conclusion": "33/33 原版工具子类/注册项被对应 minecraft 分类标签覆盖。hoe 派生的 sickle 及 sword 派生的近战武器均按真实父类覆盖。",
+      "paths": [
+        "src/main/resources/data/minecraft/tags/item/axes.json",
+        "src/main/resources/data/minecraft/tags/item/hoes.json",
+        "src/main/resources/data/minecraft/tags/item/pickaxes.json",
+        "src/main/resources/data/minecraft/tags/item/shovels.json",
+        "src/main/resources/data/minecraft/tags/item/swords.json",
+        "src/main/java/com/hp/thermalshockreforged/content/tools/ToolsContent.java"
+      ]
+    },
+    {
+      "categories": "head_armor=11, chest_armor=10, leg_armor=5, foot_armor=6",
+      "conclusion": "32/32 当前注册护甲按槽位标签覆盖。原生 head/chest/leg/foot_armor_enchantable 分别继承这些槽位标签；armor_enchantable 聚合四个 enchantable 槽位标签；durability_enchantable 直接继承四槽位标签。无需逐件重复写入 enchantable/armor 或 durability。",
+      "paths": [
+        "src/main/resources/data/minecraft/tags/item/head_armor.json",
+        "src/main/resources/data/minecraft/tags/item/chest_armor.json",
+        "src/main/resources/data/minecraft/tags/item/leg_armor.json",
+        "src/main/resources/data/minecraft/tags/item/foot_armor.json",
+        "src/main/resources/data/minecraft/tags/item/enchantable/armor.json",
+        "src/main/java/com/hp/thermalshockreforged/content/armor/ArmorContent.java",
+        "src/main/java/com/hp/thermalshockreforged/content/armor/fabricated/FabricatedArmorContent.java"
+      ]
+    },
+    {
+      "category": "durability_enchantable",
+      "conclusion": "35 个显式条目已在 enchantable/durability.json 中；SpearItem 其余四种变体、非原版类别的普通耐久武器需显式列入。Leafcutter 是 ShearsItem，显式进入 mining；原版 mining 不等于 mining_loot，目标对 Leafcutter 未错误加 mining_loot。",
+      "path": "src/main/resources/data/minecraft/tags/item/enchantable/durability.json"
+    },
+    {
+      "category": "原版采集/工具附魔继承",
+      "conclusion": "native VanillaItemTagsProvider.java:378-379 定义 mining=axes+pickaxes+shovels+hoes+shears，mining_loot=axes+pickaxes+shovels+hoes。目标四种工具分类均有对应注册实体；claw_sickle 作为 HoeItem 由类别继承且显式列入两种 mining 标签。工具 Tier 的错误挖掘方块标签由 ToolsContent.java 中 NativeTier 构造参数设置，工具分类附魔标签不能替代其采集规则。",
+      "paths": [
+        "src/main/java/com/hp/thermalshockreforged/content/tools/ToolsContent.java",
+        "src/main/java/com/hp/thermalshockreforged/content/remainingcombat/ClawSickleItem.java",
+        "src/main/java/com/hp/thermalshockreforged/content/npc/florist/LeafcutterItem.java"
+      ]
+    }
+  ],
+  "needs_main_review": [
+    {
+      "items": [
+        "magnetic_crossbow",
+        "zenith_crossbow"
+      ],
+      "issue": "当前为自定义 Item/GeoItem 实现且只有 durability_enchantable 覆盖；未进 crossbow_enchantable。1.21.1 原生定义只把原版 Items.CROSSBOW 放入该标签。若设计要承接原版弩附魔需明确增加类别标签；若自定义射击不应受原版弩附魔影响则现状可保留。",
+      "evidence": "WeaponContent.java:45-46；MagneticCrossbowItem.java:33；VanillaItemTagsProvider.java:412"
+    },
+    {
+      "items": [
+        "thistle_bow"
+      ],
+      "issue": "当前为自定义 Item/GeoItem 实现且只有 durability_enchantable 覆盖；未进 bow_enchantable。原生标签只列原版 Items.BOW。名字、弹射物实现和耐久本身不足以判定应赋予原版弓附魔。",
+      "evidence": "WeaponContent.java:63；ThistleBowItem.java:24；VanillaItemTagsProvider.java:403"
+    },
+    {
+      "items": [
+        "titanium_mace"
+      ],
+      "issue": "当前注册为 ZerkerGauntletItem extends Item，仅 durability_enchantable；没有 MACE_ENCHANTABLE/WEAPON_ENCHANTABLE/SWORD/AXE 标签。原生 mace_enchantable 只列 Items.MACE，weapon_enchantable 仅由 sword/axe/mace 链组成。是否让自定义拳套享受原版 mace 专属附魔需主线依据玩法判定。",
+      "evidence": "WeaponContent.java:35；ZerkerGauntletItem.java:26；VanillaItemTagsProvider.java:375-377"
+    },
+    {
+      "items": [
+        "speleothem",
+        "ruby_spear",
+        "carborundum_spear",
+        "hi_volt_lance",
+        "bloodstone_halberd",
+        "carborundum_halberd"
+      ],
+      "issue": "当前均为 SpearItem extends Item；不继承原版 trident_enchantable，也没有进入该标签。它们不是原版 TridentItem，是否兼容三叉戟专属附魔属于设计决策；两把 halberd 的 durability 漏项另列为确证。",
+      "evidence": "WeaponContent.java:53-58；SpearItem.java:30；VanillaItemTagsProvider.java:381"
+    }
+  ],
+  "category_exceptions": [
+    {
+      "item_ids": [
+        "climbing_pick",
+        "jelly_pick"
+      ],
+      "result": "非原生镐类别不作为漏项",
+      "evidence": "原类 readable/net/mcreator/thermal_shock/item/ClimbingPickItem.java:24-29、JellyPickItem.java:24-29 继承普通 Item 并实现攀爬逻辑；目标 entity/labmachinist/ClimbingPickItem.java 仍是普通 Item，没有 pickaxes 工具类别。两者已在 enchantable/durability.json；单凭“pick”名称或 destroySpeed 不能证明应作为原生镐，且标签本身不会赋予正确方块采集/drop 机制。"
+    },
+    {
+      "item_ids": [
+        "leafcutter"
+      ],
+      "result": "Shears 原生采矿类别已核；不归 mining_loot 缺项",
+      "evidence": "LeafcutterItem extends ShearsItem 并创建 Shears 工具组件；原生 mining 含 Shears，mining_loot 不含 Shears。目标显式列入 enchantable/mining，未列 mining_loot 与原生 1.21.1 关系一致。"
+    }
+  ],
+  "approved_differences": [],
+  "limitations": [
+    "只做源码、注册、JSON 标签和静态继承关系核对；未运行数据包加载、附魔台/铁砧或生存采集测试。",
+    "给定原生 transformed 源目录含 VanillaItemTagsProvider.java/ItemTags.java，但没有原版 data/minecraft/enchantment/*.json；因此无法逐个验证每种附魔 JSON 的 supported_items 与 primary_items 的具体值，只能核原生 ItemTags 目标标签及 provider 继承定义。",
+    "对自定义 bow/crossbow/mace/spear 的原生专属附魔兼容性缺乏明确设计授权，按主线复核而不判错。",
+    "只读搜索未在 readable 原物品源码中找到 isEnchantable/canApplyAtEnchantingTable/canEnchant/isBookEnchantable 覆写；搜索结果不排除 Java 继承行为、接口/事件注入或 JAR 中未被 readable 还原的差异。",
+    "不在此项检查匠魂/Tetra 联动、loot、renderer、实体属性、其他代理覆盖范围。"
+  ],
+  "evidence_lines": {
+    "vanilla_tool_and_enchant_hierarchy": "VanillaItemTagsProvider.java:216-250,286+,364-413",
+    "project_tag_files": "src/main/resources/data/minecraft/tags/item/*.json; src/main/resources/data/minecraft/tags/item/enchantable/*.json",
+    "native_tool_registrations": "src/main/java/com/hp/thermalshockreforged/content/tools/ToolsContent.java:33-56",
+    "armor_registrations": "src/main/java/com/hp/thermalshockreforged/content/armor/ArmorContent.java:46-82; src/main/java/com/hp/thermalshockreforged/content/armor/fabricated/FabricatedArmorContent.java:39-43",
+    "weapon_registrations": "src/main/java/com/hp/thermalshockreforged/content/weapons/WeaponContent.java:35,45-66",
+    "original_durable_halberds": "readable/net/mcreator/thermal_shock/item/BloodstoneHalberdItem.java:54; readable/net/mcreator/thermal_shock/item/CarborundumHalberdItem.java:54"
+  },
+  "mainlineResolution": "构建前补入两戟durability标签，保原附魔书耐久类资格；未更改附魔值或凭名称新增剑/弓/弩等专属类别。"
+}

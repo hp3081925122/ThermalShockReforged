@@ -1,0 +1,85 @@
+{
+  "scope": "只读复核旧四种属性效果的原始施加者、当前替代状态与参数；另查 Sylvia charge、no_break、nomnomnom。仅代码文本比对，未编译、未运行游戏；未覆盖其他效果的完整调用差集。",
+  "counts": {
+    "reviewed": 7,
+    "confirmed_equivalences": 4,
+    "open_parameter_or_condition_candidates": 3,
+    "confirmed_function_gaps": 0
+  },
+  "items": [
+    {
+      "old": "reach",
+      "old_writers": [
+        "BoneswordTickProcedure:19 amp=1,duration=3 => +2",
+        "HiVoltLanceHandTickProcedure:19 amp=2,duration=3 => +3 (unconditional)",
+        "RubySpearItemInHandTickProcedure:24 amp=2,duration=3 => +3",
+        "SpeleothemHandTickProcedure:24 amp=4,duration=3 => +5"
+      ],
+      "current": "ToolsContent.DescribedSword.inventoryTick / SpearItem.inventoryTick -> HeldWeaponState.refreshReach; amounts bonesword=2, hi_volt/ruby spear=3, speleothem=5; entity data timer refreshes 3 ticks and applies ENTITY_INTERACTION_RANGE ADD_VALUE",
+      "result": "Bonesword/Ruby/Speleothem 数值与时长对应。待核候选：旧 Hi Volt Lance 无条件每 tick 刷 +3；当前 SpearItem 在玩家物品冷却期间改走 refreshNoMelee，不刷新 reach。"
+    },
+    {
+      "old": "no_melee",
+      "old_writers": [
+        "CoreEjectFlareGunItemInHandTickProcedure:19 amp=1,duration=1 => -40",
+        "MagneticCrossbowItemInHandTickProcedure:23 amp=1,duration=1 => -40",
+        "RubySpearItemInHandTickProcedure:27 amp=0,duration=3 => -20 (玩家物品冷却分支)",
+        "SpeleothemHandTickProcedure:27 amp=0,duration=3 => -20 (玩家物品冷却分支)"
+      ],
+      "current": "相应远程武器 inventoryTick -> HeldWeaponState.refreshNoMelee，默认范围修改 -40；SpearItem 玩家 cooldown 分支 refreshNoMelee(duration=3)，EntityTickEvent.Post 计时清除",
+      "result": "触发条件对应；数值待核：Ruby/Speleothem 冷却分支旧范围为 -20，当前共用 refreshNoMelee 使用 -40。"
+    },
+    {
+      "old": "low_gravity",
+      "old_writers": [
+        "CarborundumArmorEffectProcedure:61 全套甲、玩家且非 Aqeron，每 10 tick amp=5 => gravity modifier -0.01*(5+1)=-0.06"
+      ],
+      "current": "ArmorSetEvents.tick: carbon=全套 carborundum 且不在 AQERON；REMAINING=10；Attributes.GRAVITY 添加 -0.06 ADD_VALUE，clear 时移除",
+      "result": "装备条件、维度排除、数值和 10 tick 刷新窗口对应。"
+    },
+    {
+      "old": "no_knockback",
+      "old_writers": [
+        "RubySickleToolInHandTickProcedure:19 每 tick amp=50,duration=1；旧 MobEffect 属性 -20 ADDITION，按 amplifier+1 放大"
+      ],
+      "current": "SickleItem 构造对主手添加 ATTACK_KNOCKBACK -1 ADD_MULTIPLIED_TOTAL",
+      "result": "持镰不造成攻击击退的目标语义有替代；公式不同（旧约 -1020 additive，新实现乘数归零），且当前覆盖所有 SickleItem，旧写入点是 Ruby Sickle。列为参数/范围差异，不能视作逐数值等价。"
+    },
+    {
+      "old": "sylvia_rifle_charge",
+      "old_writers": [
+        "SylviaRifleRightclickedProcedure:57 加 27 tick；首次 amp=1，此后旧 amp+1；冷却 10 tick",
+        "SylviaRifleFiringProcedure:61 amp>=4 才开火"
+      ],
+      "current": "SylviaRifleItem.use: charge+1, remaining=27, cooldown=10；onEntitySwing 检查 charge>=4 且 remaining>0；tickCharge 到期清状态",
+      "result": "计数、触发阈值、持续时间和冷却对应内部状态。旧 MobEffectInstance 五参 visible=false 转六参时 showIcon=false，原无 HUD 图标；撤回 HUD 缺失结论。"
+    },
+    {
+      "old": "no_break",
+      "old_writers": [
+        "GuardianPylonOnEntityTickUpdateProcedure:30 玩家、半径40、持续100、amp19",
+        "AqeronEntityEffectsProcedure:42 与 AqeronPlaceStopProcedure:46 在 Aqeron 或持有 no_break 时保护，creative 除外"
+      ],
+      "current": "GuardianPylonEntity.baseTick -> PylonBuildingLock.refresh(player)=100；AqeronEvents.protectedActor 检查 PALACE 或 PylonBuildingLock.active，并对 creative 放行；breakBlock/placeBlock 取消事件",
+      "result": "pylon 范围、100 tick 状态、Aqeron 保护与创造豁免有明确替代。旧 place 事件显式 dropResources/destroyBlock，当前取消放置事件；最终掉落副作用未作运行时验证。"
+    },
+    {
+      "old": "nomnomnom",
+      "old_writers": [
+        "TitanRightClickedOnEntityProcedure 唯一调用者为原 SentrariusEntity.java:151；骨头右键后消费1骨头、30 tick 防重复、声音和 bite 动画"
+      ],
+      "current": "当前 entity/sentrarius/SentrariusEntity.java:39 mobInteract 有骨头消费、feeding=30、声音、bite 动画，并保存 SentrariusFeeding",
+      "result": "功能已迁移，撤回缺口。"
+    }
+  ],
+  "mainline_review": {
+    "source_report_sha256": "f04326a23fffe6911d9992e3cd3a5a79e3b640654212cb03b3d6418155ea88bd",
+    "coverage": "本报告只复核7项，不能冒称23效果完整消费链已全核；旧effects-coverage.json保留历史快照，完整映射继续后续组。",
+    "hi_volt_correction": "原item/HiVoltLanceItem.java:160真实调用RubySpearItemInHandTickProcedure，与当前冷却分支一致；HiVoltLanceHandTickProcedure无调用，不恢复该孤立过程。",
+    "no_melee_fix": "当前SpearItem冷却分支改为3tick/-20，远程仍1tick/-40；HeldWeaponState双有界计时通道以单修饰符强优先，不相加，各自同时倒计时，到期恢复弱通道并分别保存/恢复/死亡清理。",
+    "sickle": "原假药水改主手攻击击退乘数归零已明确记录，见angry-cavebloomer-batch.md和elemental-combat-batch92.md，不作为新漏迁。",
+    "no_break": "取消放置而非旧先掉物再销毁已在第114批记录，保留真实范围/余时/创造豁免，游戏副作用待验。",
+    "sylvia": "原五参MobEffectInstance将visible同时传showIcon，false原本不显示HUD，撤回候选。",
+    "nomnomnom": "原过程只由Sentrarius调用，当前喂骨头30tick/消费/声/bite/保存已实现；不按Titan过程名称给SkeletalTitan新造交互。"
+  }
+}

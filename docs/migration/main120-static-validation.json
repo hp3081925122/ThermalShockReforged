@@ -1,0 +1,59 @@
+{
+  "baseline": "f1dffc6",
+  "build": {
+    "command": "compileJava processResources --offline --max-workers=2",
+    "java": "ms-21.0.11",
+    "success": true,
+    "log": "D:\\AI临时文件\\ThermalShockMigration\\batch120-unified-build.log",
+    "sha256": "52975ede841ff76a811f3a873a735ba45c2706cb426ad1895d3e9d0e816a9ce2"
+  },
+  "inputProof": {
+    "before": "D:\\AI临时文件\\ThermalShockMigration\\batch120-inputs-before.json",
+    "beforeSha256": "e81ba8a55f51502175fa489342ce36acb65b32e681e3a8d4b3012cd41698a63e",
+    "fileCount": 8879,
+    "afterEqualsBefore": true
+  },
+  "builtResourcesByteEqual": 8060,
+  "expandedTemplates": "META-INF/neoforge.mods.toml与pack.mcmeta由Gradle模板展开，不要求与输入字节相同。",
+  "lootResourceHashesChecked": 611,
+  "reviewCounts": {
+    "originalAssets": 6103,
+    "missingOriginalAssets": 0,
+    "originalEntityMappings": 154,
+    "originalRendererMappings": 154,
+    "originalAttributeMappings": 125,
+    "sourceLootTables": 610,
+    "targetLootTables": 611,
+    "pools": 642,
+    "entries": 953
+  },
+  "productionRepairs": [
+    "长矛NO_MELEE -20/3tick与远程-40/1tick的分开计时及强优先恢复",
+    "海玻璃精准采集原生组件子谓词",
+    "暗钢块保原抽样后恢复旧堆叠上限截断",
+    "血石戟与金刚砂戟原耐久类附魔标签"
+  ],
+  "reports": {
+    "assets-main120-review.json": "8e70f400a5a84b8aa848353d2a281ad416467e5f6a89b430aae6328708eb70ab",
+    "entities-main120-bindings.json": "8ddd39020c89ad6ce19e17fb4266d4d662c062251c61522a0ad067279ce3b359",
+    "loot-a120-codec-evidence.json": "87a6345a4c450089b4e979b70af1150b3b91d69e6f2e557b5f665e4d74d2151a",
+    "loot-a120-handoff.json": "a98d91a10f10732a89c6717a51ff35569c5fe1db42640e03f3d6c2505df03801",
+    "loot-a120-matrix.json": "f0d48a98fd0ada0dc7ed222b1d80cf5cb1c02bae86333348de6d557058775e6d",
+    "loot-a120-menu-review.md": "3bcbd98279da7183b309275f857cb06d00f36fe94e8bdf05c467c8989a25d098",
+    "loot-a120-plan.md": "ac47133f79d0b981d0f0248576cab9b482ec1e8ad343f9671132f28426badc93",
+    "loot-a120-resources.sha256": "dbc9d449a2f630b076ed9d0b2e8142eb1ceb7822c0abd9476edad9460720e67f",
+    "loot-a120-review.md": "af4ec9596e5ecb801965c12abc37a712c34a432f9811bb0eacb019eb0da23d3f",
+    "loot-a120-validation.json": "723ece83667507fb93447f154be06e07ef2d5b313535da4c27e1f75314fc8586",
+    "loot-a120-worldgen-review.md": "c1e5c790f1039d32ad7b7accd6bbb0e0e8758ba974d0f11a95e6233719acc4de",
+    "main120-review.md": "0c67b13c521d01539c6f52f126a893beed3f5ed15dcd21a9cd99a909145970b1",
+    "native-tags-main120-review.json": "a8a57322dc35b5c3053f1846f110d821b5c40a510eb14453c62b97ff4e90803f",
+    "parallel-batch120.md": "3288690ba5b71a7276e5a61bc52ebbf6011b2f111d2b56ca28a928e135cd7cfd",
+    "status-main120-reviewed.json": "82dc164f64b3b02fcfe6462e652998c2a49ab6d6be08676f20e3ed32159b1f9e"
+  },
+  "limits": [
+    "本批未启动客户端、服务端或Render Preview；编译/静态不代表运行测试。",
+    "23效果全消费者、所有菜单语义、所有NBT归一和全部渲染表现仍有后续审计范围。",
+    "服务端由用户独立测试；测试目录未stage。",
+    "Git当前未配置remote，本批仅本地提交。"
+  ]
+}

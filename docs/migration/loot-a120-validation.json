@@ -1,0 +1,164 @@
+{
+  "sourceCount": 610,
+  "targetCount": 611,
+  "missing": [],
+  "extra": [
+    "data/thermal_shock_reforged/loot_table/blocks/glowstick.json"
+  ],
+  "equivalentCount": 608,
+  "historicalDifferenceCount": 1,
+  "apiCompensationCount": 1,
+  "historicalDifferences": [
+    {
+      "table": "data/thermal_shock_reforged/loot_table/blocks/stratus_reactor_core.json",
+      "evidence": "第97批防激活核心回收重复召唤；docs/migration/reactor-batch97.md:25",
+      "differences": [
+        {
+          "path": "$.pools[0].conditions.length",
+          "source": 1,
+          "target": 2
+        }
+      ]
+    }
+  ],
+  "apiCompensations": [
+    {
+      "table": "data/thermal_shock_reforged/loot_table/angry_cavebloomer_loot.json",
+      "evidence": "第120批恢复1.20.1 set_count对暗钢块64上限截断，保64..128原抽样；docs/migration/loot-a120-plan.md",
+      "differences": [
+        {
+          "path": "$.pools[2].entries[0].functions.length",
+          "source": 1,
+          "target": 2
+        }
+      ]
+    }
+  ],
+  "remainingDifferences": [],
+  "sourcePools": 642,
+  "targetPools": 642,
+  "sourceEntries": 953,
+  "targetEntries": 953,
+  "sourceComponentPayloads": 0,
+  "targetComponentPayloads": 0,
+  "sourceJarSha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436",
+  "matrixSha256": "f0d48a98fd0ada0dc7ed222b1d80cf5cb1c02bae86333348de6d557058775e6d",
+  "resourceManifestSha256": "dbc9d449a2f630b076ed9d0b2e8142eb1ceb7822c0abd9476edad9460720e67f",
+  "validatorSha256": "be3847ea25093cef17f8191b15a86ab197cfa98d2a70bb2480f1a7b1ddde11af",
+  "codecEvidenceSha256": "87a6345a4c450089b4e979b70af1150b3b91d69e6f2e557b5f665e4d74d2151a",
+  "restored119Tables": [
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/fabricator_constructor.json",
+      "sha256": "d60adaf0d426299917b7ec137817de8dc2de9934681e309fb4577753d709a456",
+      "unchangedSince119": true,
+      "namespaceOnlyContent": true
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/spire_stem.json",
+      "sha256": "5bc4caf33eb21088afbfdf01422ccd88fe74adc1214867b4bb0ebe45417e5b09",
+      "unchangedSince119": true,
+      "namespaceOnlyContent": true
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/spire_tendrils.json",
+      "sha256": "232028013c68e620eef03a8c876053b4fa0088ce06be2b81b52d585c96812b25",
+      "unchangedSince119": true,
+      "namespaceOnlyContent": true
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/wallbore_constructor.json",
+      "sha256": "9ce53adf25cf468183dbecbd739fe4476bf8b930895d65225b123bd41c24d8d8",
+      "unchangedSince119": true,
+      "namespaceOnlyContent": true
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/geyser_loot.json",
+      "sha256": "d7a850c7dda0d53508588ca03b30f3e9d0abb02fd54913cebb7b649844f73176",
+      "unchangedSince119": true,
+      "namespaceOnlyContent": true
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/loot_table/entities/magnetite.json",
+      "sha256": "0e58aac19ce21a1bdbc54dc7980b7a23fdcfadc2179cb67015a1f55f082a9017",
+      "unchangedSince119": true,
+      "namespaceOnlyContent": true
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/loot_table/entities/protoi_epsilon.json",
+      "sha256": "e164458cd825d017f4e4a637d7172baa78ee9fd67e5de8d3a5cc83c189fcface",
+      "unchangedSince119": true,
+      "namespaceOnlyContent": true
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/loot_table/entities/protoi_sunbeam.json",
+      "sha256": "9568ae775fc90e49cf94417b4e2f89e21bff189a192637b0ea508b66e46618a3",
+      "unchangedSince119": true,
+      "namespaceOnlyContent": true
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/loot_table/entities/sootle.json",
+      "sha256": "3095bffaa9360ff2f5401abb5c1ae200eaae7f1edee526cd1d0828761e08366b",
+      "unchangedSince119": true,
+      "namespaceOnlyContent": true
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/loot_table/advancements/beta_complete.json",
+      "sha256": "5c4f597175e2b93e7a565210a8ef4762fcd850841a4bfe7ee5d190e9b94bf5ec",
+      "unchangedSince119": true,
+      "namespaceOnlyContent": true
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/loot_table/amalgel_first_kill.json",
+      "sha256": "cc301ba70cef7636879f9239f3d6d7a21ef54d066d9012097fd3ff30418c5a82",
+      "unchangedSince119": true,
+      "namespaceOnlyContent": true
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/loot_table/corrial_crate_loot.json",
+      "sha256": "2e4c74529a32baaea562560d86a8cb11ec9b03db5e0a560de3138f5ac41f138c",
+      "unchangedSince119": true,
+      "namespaceOnlyContent": true
+    }
+  ],
+  "seaglassRegression": {
+    "method": "独立静态分支真值表，不是游戏执行",
+    "cases": [
+      {
+        "silkTouchLevel": 0,
+        "eligibleEntries": [
+          true,
+          true,
+          false
+        ]
+      },
+      {
+        "silkTouchLevel": 1,
+        "eligibleEntries": [
+          false,
+          false,
+          true
+        ]
+      },
+      {
+        "silkTouchLevel": 2,
+        "eligibleEntries": [
+          false,
+          false,
+          true
+        ]
+      }
+    ],
+    "weightsCountsFortunePreserved": true
+  },
+  "staleToolPredicates": [],
+  "darksteelClampRegression": {
+    "method": "枚举64..128的65种原抽样输出，独立数学断言；目标LimitCount源码另核无额外随机调用",
+    "samplesChecked": 65,
+    "allOldAndTargetCounts64": true
+  },
+  "enchantmentUniverseLimit": "on_random_loot遵循1.21.1原生及数据包附魔集合，含新版density/breach；含book的两项不宣称与1.20.1候选附魔概率完全一致。未擅自锁死原版集合。",
+  "referenceClosureComplete": false,
+  "codecExecution": false,
+  "buildExecution": false,
+  "gameExecution": false
+}

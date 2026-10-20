@@ -510,3 +510,11 @@ undead_mobs恢复原13成员并纠正第95/112批将两Monolith原生亡灵身�
 统一compileJava/processResources离线构建成功1m3s，compileJava保持UP-TO-DATE、processResources实际执行。日志SHA256：30AE35FFD02BBD979A46A0967F0C91C6D0931193AAE6D06F9EF5C9B6B1ECBFAA。当前8879份src/main输入已保存构建后快照；构建前快照命令未生成，不声称具备前后全输入相同证明。总证据main119-static-validation.json。未启动游戏、不动用户测试目录；服务端用户负责，客户端与Render Preview完整迁移后安排子代理。Git无remote，仅本地提交。
 
 下一批120由迁移A负责较多的既有loot内容/版本Codec/引用审计，主线负责原资产差集、effect与客户端渲染入口总矩阵及共享收口，仍先核真实缺口再修。
+
+## 第120批最终集成验证
+
+按用户授权，两生产聊天分工，迁移A使用3个Luna只读复审loot、菜单网络与worldgen，本身只核实修复；主线接收原资产、实体绑定和状态效果报告并修确证缺口。已修海玻璃旧工具谓词、暗钢块旧set_count截断补偿、长矛与远程NO_MELEE数值及时长分离。原610表保642池/953entry，608份归一后相同、1份既有反应堆修复、1份本批版本补偿，未把差异假称全相同。
+
+原6103份资产全在，154实体与154renderer、125原属性目标已映射。菜单35页路由与Vault字段已核；worldgen298JSON与79个引用模板已核来源存在。但23效果全消费者、全部GUI材料/按钮/绘制、97模板全量NBT和其余模板可达性，以及每实体透明/发光层/控制器完整比较仍有后续审计范围，不能宣布全迁移完工。
+
+两路明确停笔后固定全部src/main输入；最后两戟durability标签修复在启动构建前更新快照，未在构建期间改输入。统一compileJava processResources --offline --max-workers=2通过，日志SHA256：52975ede841ff76a811f3a873a735ba45c2706cb426ad1895d3e9d0e816a9ce2。资源逐字节与611loot清单校验见main120-static-validation.json；本批不启动游戏、不stage用户测试目录，Git无remote仅本地提交。下一批继续有界Luna只读复审，生产聊天只处理确证修复；客户端/Render Preview在完整收口后由子代理验收，服务端继续用户独立负责。

@@ -1,0 +1,464 @@
+{
+  "method": "源目标实际源码字段锚点和SHA，未调用Codec解码",
+  "files": [
+    {
+      "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/storage/loot/LootTable.java",
+      "sha256": "2b48c4ababe8c8d1ab7d9364b8f29ea15af482144bd107d465f01b1b70b04c2d",
+      "anchors": [
+        {
+          "line": 40,
+          "text": "ResourceLocation.CODEC.optionalFieldOf(\"random_sequence\").forGetter(p_297998_ -> p_297998_.randomSequence),"
+        },
+        {
+          "line": 41,
+          "text": "net.neoforged.neoforge.common.CommonHooks.lootPoolsCodec(LootPool::setName).optionalFieldOf(\"pools\", List.of()).forGetter(p_298002_ -> p_298002_.pools),"
+        },
+        {
+          "line": 42,
+          "text": "net.neoforged.neoforge.common.conditions.ConditionalOps.decodeListWithElementConditions(LootItemFunctions.ROOT_CODEC).optionalFieldOf(\"functions\", List.of()).forGetter(p_298000_ -> p_298000_.functions)"
+        }
+      ]
+    },
+    {
+      "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/storage/loot/LootPool.java",
+      "sha256": "9def194cec7e98db73212e9435492893250edba5307f0a6fcdadcc2a00ebce19",
+      "anchors": [
+        {
+          "line": 32,
+          "text": "LootPoolEntries.CODEC.listOf().fieldOf(\"entries\").forGetter(p_297995_ -> p_297995_.entries),"
+        },
+        {
+          "line": 33,
+          "text": "LootItemCondition.DIRECT_CODEC.listOf().optionalFieldOf(\"conditions\", List.of()).forGetter(p_297992_ -> p_297992_.conditions),"
+        },
+        {
+          "line": 34,
+          "text": "LootItemFunctions.ROOT_CODEC.listOf().optionalFieldOf(\"functions\", List.of()).forGetter(p_297994_ -> p_297994_.functions),"
+        },
+        {
+          "line": 35,
+          "text": "NumberProviders.CODEC.fieldOf(\"rolls\").forGetter(p_297993_ -> p_297993_.rolls),"
+        },
+        {
+          "line": 36,
+          "text": "NumberProviders.CODEC.fieldOf(\"bonus_rolls\").orElse(ConstantValue.exactly(0.0F)).forGetter(p_297997_ -> p_297997_.bonusRolls),"
+        },
+        {
+          "line": 37,
+          "text": "Codec.STRING.optionalFieldOf(\"name\").forGetter(pool -> java.util.Optional.ofNullable(pool.name).filter(name -> !name.startsWith(\"custom#\")))"
+        }
+      ]
+    },
+    {
+      "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/storage/loot/entries/LootPoolEntries.java",
+      "sha256": "4642ecfb852a7f0c6d9a3da68626892d805a806fa598dc00a2cb00b5a3ac15d2",
+      "anchors": []
+    },
+    {
+      "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/storage/loot/entries/LootPoolEntryContainer.java",
+      "sha256": "bbeedbffb3dcc465a874fc7627e2152162430d89fb7eb5e90a07c376fdcaba65",
+      "anchors": [
+        {
+          "line": 25,
+          "text": "return p_299092_.group(LootItemCondition.DIRECT_CODEC.listOf().optionalFieldOf(\"conditions\", List.of()).forGetter(p_298548_ -> p_298548_.conditions));"
+        }
+      ]
+    },
+    {
+      "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/storage/loot/entries/LootPoolSingletonContainer.java",
+      "sha256": "dcec7f4dcdebae820edd761fd88a463bcad89f25c6e79709104db829098d1bd6",
+      "anchors": [
+        {
+          "line": 48,
+          "text": "Codec.INT.optionalFieldOf(\"weight\", Integer.valueOf(1)).forGetter(p_299262_ -> p_299262_.weight),"
+        },
+        {
+          "line": 49,
+          "text": "Codec.INT.optionalFieldOf(\"quality\", Integer.valueOf(0)).forGetter(p_299272_ -> p_299272_.quality)"
+        },
+        {
+          "line": 52,
+          "text": ".and(LootItemFunctions.ROOT_CODEC.listOf().optionalFieldOf(\"functions\", List.of()).forGetter(p_298225_ -> p_298225_.functions));"
+        }
+      ]
+    },
+    {
+      "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/storage/loot/entries/LootItem.java",
+      "sha256": "93147ccc0b5f3f37a04b32a8a1cc9f1d92058a51a578a92bf05ce5142c393396",
+      "anchors": [
+        {
+          "line": 19,
+          "text": "p_344670_ -> p_344670_.group(BuiltInRegistries.ITEM.holderByNameCodec().fieldOf(\"name\").forGetter(p_298016_ -> p_298016_.item))"
+        }
+      ]
+    },
+    {
+      "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/storage/loot/predicates/LootItemConditions.java",
+      "sha256": "6ad1a7009d7d4a14f3e16b7397efca6cdc8cd7bceb550214e97c5bbffbb4509a",
+      "anchors": []
+    },
+    {
+      "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/storage/loot/predicates/LootItemBlockStatePropertyCondition.java",
+      "sha256": "9fca34b9e23ad7f66fcfcd677492ce43382903a4545dc385a4da1118a1b46f98",
+      "anchors": [
+        {
+          "line": 21,
+          "text": "BuiltInRegistries.BLOCK.holderByNameCodec().fieldOf(\"block\").forGetter(LootItemBlockStatePropertyCondition::block),"
+        },
+        {
+          "line": 22,
+          "text": "StatePropertiesPredicate.CODEC.optionalFieldOf(\"properties\").forGetter(LootItemBlockStatePropertyCondition::properties)"
+        },
+        {
+          "line": 41,
+          "text": "public Set<LootContextParam<?>> getReferencedContextParams() {"
+        }
+      ]
+    },
+    {
+      "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/storage/loot/predicates/InvertedLootItemCondition.java",
+      "sha256": "f7fb20eb83cfbd2ce50caf6c17c4da3ca9f00282f9fbfed69d2343869721a7cf",
+      "anchors": [
+        {
+          "line": 13,
+          "text": "p_344715_ -> p_344715_.group(LootItemCondition.DIRECT_CODEC.fieldOf(\"term\").forGetter(InvertedLootItemCondition::term))"
+        },
+        {
+          "line": 27,
+          "text": "public Set<LootContextParam<?>> getReferencedContextParams() {"
+        },
+        {
+          "line": 28,
+          "text": "return this.term.getReferencedContextParams();"
+        }
+      ]
+    },
+    {
+      "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/storage/loot/predicates/MatchTool.java",
+      "sha256": "19408d51ab6ccea5055df31ec47c2b9567a4b36438997257c961e82bb1231950",
+      "anchors": [
+        {
+          "line": 17,
+          "text": "p_338172_ -> p_338172_.group(ItemPredicate.CODEC.optionalFieldOf(\"predicate\").forGetter(MatchTool::predicate)).apply(p_338172_, MatchTool::new)"
+        },
+        {
+          "line": 26,
+          "text": "public Set<LootContextParam<?>> getReferencedContextParams() {"
+        }
+      ]
+    },
+    {
+      "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/storage/loot/predicates/ExplosionCondition.java",
+      "sha256": "7e8ef7c86d3418cf623771c9a9f48908fb6e5ec8e882835836f2c427ce0f6e47",
+      "anchors": [
+        {
+          "line": 24,
+          "text": "public Set<LootContextParam<?>> getReferencedContextParams() {"
+        }
+      ]
+    },
+    {
+      "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/storage/loot/functions/LootItemFunctions.java",
+      "sha256": "bf6fcbed7d04d022ce085e99c18acf2d2744d268e8a3a1e92f8089f5b9884d91",
+      "anchors": [
+        {
+          "line": 21,
+          "text": "public static final Codec<LootItemFunction> ROOT_CODEC = Codec.lazyInitialized(() -> Codec.withAlternative(TYPED_CODEC, SequenceFunction.INLINE_CODEC));"
+        }
+      ]
+    },
+    {
+      "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/storage/loot/functions/LootItemConditionalFunction.java",
+      "sha256": "be4619a72cddf5bd31077f300770a54a3eeb253456cd2517d5404754207b93cb",
+      "anchors": [
+        {
+          "line": 30,
+          "text": "return p_298453_.group(LootItemCondition.DIRECT_CODEC.listOf().optionalFieldOf(\"conditions\", List.of()).forGetter(p_299114_ -> p_299114_.predicates));"
+        }
+      ]
+    },
+    {
+      "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/storage/loot/functions/SetItemCountFunction.java",
+      "sha256": "cac4966d325b5b9c828843aa003abb1a213b8803dd28383d25e4ecef31ea67b6",
+      "anchors": [
+        {
+          "line": 21,
+          "text": "NumberProviders.CODEC.fieldOf(\"count\").forGetter(p_298132_ -> p_298132_.value),"
+        },
+        {
+          "line": 22,
+          "text": "Codec.BOOL.fieldOf(\"add\").orElse(false).forGetter(p_298133_ -> p_298133_.add)"
+        },
+        {
+          "line": 42,
+          "text": "public Set<LootContextParam<?>> getReferencedContextParams() {"
+        },
+        {
+          "line": 43,
+          "text": "return this.value.getReferencedContextParams();"
+        }
+      ]
+    },
+    {
+      "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/storage/loot/functions/LimitCount.java",
+      "sha256": "a519caff3e0a23d08fa882d954735d3118c99b76597ae51e105ab96e27237cf2",
+      "anchors": [
+        {
+          "line": 16,
+          "text": "p_298095_ -> commonFields(p_298095_).and(IntRange.CODEC.fieldOf(\"limit\").forGetter(p_298094_ -> p_298094_.limiter)).apply(p_298095_, LimitCount::new)"
+        },
+        {
+          "line": 31,
+          "text": "public Set<LootContextParam<?>> getReferencedContextParams() {"
+        },
+        {
+          "line": 32,
+          "text": "return this.limiter.getReferencedContextParams();"
+        }
+      ]
+    },
+    {
+      "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/storage/loot/IntRange.java",
+      "sha256": "771ec5255b85e52aa6c17ae4901b7c57f51ae911ee8d2b0dc67e36caaecacd6b",
+      "anchors": [
+        {
+          "line": 24,
+          "text": "NumberProviders.CODEC.optionalFieldOf(\"min\").forGetter(p_297985_ -> Optional.ofNullable(p_297985_.min)),"
+        },
+        {
+          "line": 25,
+          "text": "NumberProviders.CODEC.optionalFieldOf(\"max\").forGetter(p_297984_ -> Optional.ofNullable(p_297984_.max))"
+        },
+        {
+          "line": 41,
+          "text": "public Set<LootContextParam<?>> getReferencedContextParams() {"
+        },
+        {
+          "line": 44,
+          "text": "builder.addAll(this.min.getReferencedContextParams());"
+        },
+        {
+          "line": 48,
+          "text": "builder.addAll(this.max.getReferencedContextParams());"
+        }
+      ]
+    },
+    {
+      "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/storage/loot/functions/ApplyBonusCount.java",
+      "sha256": "fde62435f41e6134cab021080519479f390fc5cdb6270e0b000a491f570de80a",
+      "anchors": [
+        {
+          "line": 49,
+          "text": "Enchantment.CODEC.fieldOf(\"enchantment\").forGetter(p_298051_ -> p_298051_.enchantment),"
+        },
+        {
+          "line": 70,
+          "text": "public Set<LootContextParam<?>> getReferencedContextParams() {"
+        },
+        {
+          "line": 105,
+          "text": "Codec.INT.fieldOf(\"extra\").forGetter(ApplyBonusCount.BinomialWithBonusCount::extraRounds),"
+        },
+        {
+          "line": 106,
+          "text": "Codec.FLOAT.fieldOf(\"probability\").forGetter(ApplyBonusCount.BinomialWithBonusCount::probability)"
+        },
+        {
+          "line": 166,
+          "text": "p_298501_ -> p_298501_.group(Codec.INT.fieldOf(\"bonusMultiplier\").forGetter(ApplyBonusCount.UniformBonusCount::bonusMultiplier))"
+        }
+      ]
+    },
+    {
+      "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/storage/loot/functions/ApplyExplosionDecay.java",
+      "sha256": "afa9b3befc06b491ba5457b1f7a874ae221663a42e2a9d3dc1d33223b5f27ae7",
+      "anchors": []
+    },
+    {
+      "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/storage/loot/functions/EnchantWithLevelsFunction.java",
+      "sha256": "c9f6081a04007d0784de475eb33a49559992f7ec2ea6f8c355b6aa47a0a8e5f4",
+      "anchors": [
+        {
+          "line": 30,
+          "text": "NumberProviders.CODEC.fieldOf(\"levels\").forGetter(p_298844_ -> p_298844_.levels),"
+        },
+        {
+          "line": 31,
+          "text": "RegistryCodecs.homogeneousList(Registries.ENCHANTMENT).optionalFieldOf(\"options\").forGetter(p_344691_ -> p_344691_.options)"
+        },
+        {
+          "line": 51,
+          "text": "public Set<LootContextParam<?>> getReferencedContextParams() {"
+        },
+        {
+          "line": 52,
+          "text": "return this.levels.getReferencedContextParams();"
+        },
+        {
+          "line": 64,
+          "text": ".fromOptions(p_346232_.lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(EnchantmentTags.ON_RANDOM_LOOT));"
+        }
+      ]
+    },
+    {
+      "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/storage/loot/providers/number/NumberProviders.java",
+      "sha256": "d1f7a048bb868b2110d1cd372f9aeb12b2220a621865832d5ef676a127d9b7f5",
+      "anchors": [
+        {
+          "line": 16,
+          "text": "Codec<NumberProvider> codec = Codec.withAlternative(TYPED_CODEC, UniformGenerator.CODEC.codec());"
+        }
+      ]
+    },
+    {
+      "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/storage/loot/providers/number/UniformGenerator.java",
+      "sha256": "f7b72ac569b602b8e3891bbc433c4da0e744d3de04a418fec1fbb45526e94507",
+      "anchors": [
+        {
+          "line": 15,
+          "text": "NumberProviders.CODEC.fieldOf(\"min\").forGetter(UniformGenerator::min),"
+        },
+        {
+          "line": 16,
+          "text": "NumberProviders.CODEC.fieldOf(\"max\").forGetter(UniformGenerator::max)"
+        },
+        {
+          "line": 41,
+          "text": "public Set<LootContextParam<?>> getReferencedContextParams() {"
+        },
+        {
+          "line": 42,
+          "text": "return Sets.union(this.min.getReferencedContextParams(), this.max.getReferencedContextParams());"
+        }
+      ]
+    },
+    {
+      "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/storage/loot/providers/number/ConstantValue.java",
+      "sha256": "646774917f982b4c9ea257c49d6ef6c013eae983bd733ebc4799716ee2ae5360",
+      "anchors": [
+        {
+          "line": 11,
+          "text": "p_299242_ -> p_299242_.group(Codec.FLOAT.fieldOf(\"value\").forGetter(ConstantValue::value)).apply(p_299242_, ConstantValue::new)"
+        }
+      ]
+    },
+    {
+      "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/level/storage/loot/parameters/LootContextParamSets.java",
+      "sha256": "ca274074933092822f5430060bb158f05f18441e45d19724414ea6751329207c",
+      "anchors": []
+    },
+    {
+      "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/advancements/critereon/ItemPredicate.java",
+      "sha256": "b71c082ff27aa68dd24d6147d5054298d89f9c2e32c447d3300d78de7fc62c68",
+      "anchors": [
+        {
+          "line": 26,
+          "text": "RegistryCodecs.homogeneousList(Registries.ITEM).optionalFieldOf(\"items\").forGetter(ItemPredicate::items),"
+        },
+        {
+          "line": 27,
+          "text": "MinMaxBounds.Ints.CODEC.optionalFieldOf(\"count\", MinMaxBounds.Ints.ANY).forGetter(ItemPredicate::count),"
+        },
+        {
+          "line": 28,
+          "text": "DataComponentPredicate.CODEC.optionalFieldOf(\"components\", DataComponentPredicate.EMPTY).forGetter(ItemPredicate::components),"
+        },
+        {
+          "line": 29,
+          "text": "ItemSubPredicate.CODEC.optionalFieldOf(\"predicates\", Map.of()).forGetter(ItemPredicate::subPredicates)"
+        }
+      ]
+    },
+    {
+      "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/advancements/critereon/ItemSubPredicates.java",
+      "sha256": "d6d3bd91d2ce71b917d18a9141e2551c00f6938126ad819cb3fd04ea587f4eaf",
+      "anchors": []
+    },
+    {
+      "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/advancements/critereon/ItemEnchantmentsPredicate.java",
+      "sha256": "e4ef3db465696667f3a630bb5c4b1e58a92b58ac353cbfe1ec6b04908f4d9544",
+      "anchors": []
+    },
+    {
+      "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/advancements/critereon/EnchantmentPredicate.java",
+      "sha256": "60eb773d7ab4d0f836c0fafb28fe1d9c186a672e426d592a497e2f7a32d03bc8",
+      "anchors": [
+        {
+          "line": 18,
+          "text": "RegistryCodecs.homogeneousList(Registries.ENCHANTMENT).optionalFieldOf(\"enchantments\").forGetter(EnchantmentPredicate::enchantments),"
+        },
+        {
+          "line": 19,
+          "text": "MinMaxBounds.Ints.CODEC.optionalFieldOf(\"levels\", MinMaxBounds.Ints.ANY).forGetter(EnchantmentPredicate::level)"
+        }
+      ]
+    },
+    {
+      "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/data/tags/VanillaEnchantmentTagsProvider.java",
+      "sha256": "312eea63720c5d6fb2da0dcb1e92a127db711dfc2ff7224d8d2cd80599f4bc67",
+      "anchors": [
+        {
+          "line": 125,
+          "text": "this.tag(EnchantmentTags.ON_RANDOM_LOOT)"
+        }
+      ]
+    },
+    {
+      "path": "build/neoForm/neoFormJoined1.21.1-20240808.144430/steps/transformSource/transformed/net/minecraft/world/item/enchantment/EnchantmentHelper.java",
+      "sha256": "92ceaeddf88d6d6e5f6ef16fdcb75a414e102eab37f351dddf37223df8124eb6",
+      "anchors": [
+        {
+          "line": 606,
+          "text": "// Neo: Rewrite filter logic to call isPrimaryItemFor instead of hardcoded vanilla logic."
+        },
+        {
+          "line": 607,
+          "text": "// The original logic is recorded in the default implementation of IItemExtension#isPrimaryItemFor."
+        },
+        {
+          "line": 608,
+          "text": "p_345348_.filter(p_44819_::isPrimaryItemFor).forEach(p_344478_ -> {"
+        }
+      ]
+    }
+  ],
+  "sourceVersionFiles": [
+    {
+      "archive": "C:\\Users\\30819\\.gradle\\caches\\fabric-loom\\minecraftMaven\\net\\minecraft\\minecraft-merged\\1.20.1-loom.mappings.1_20_1.layered+hash.2198-v2\\minecraft-merged-1.20.1-loom.mappings.1_20_1.layered+hash.2198-v2-sources.jar",
+      "entry": "net/minecraft/world/level/storage/loot/functions/SetItemCountFunction.java",
+      "sha256": "6836f433e37957f0b11ac97487a1c4d9e1eb99304b6531f581c241cf0037334d",
+      "anchors": [
+        {
+          "line": 38,
+          "text": "itemStack.setCount(Mth.clamp(i + this.value.getInt(lootContext), 0, itemStack.getMaxStackSize()));"
+        }
+      ]
+    },
+    {
+      "archive": "C:\\Users\\30819\\.gradle\\caches\\fabric-loom\\minecraftMaven\\net\\minecraft\\minecraft-merged\\1.20.1-loom.mappings.1_20_1.layered+hash.2198-v2\\minecraft-merged-1.20.1-loom.mappings.1_20_1.layered+hash.2198-v2-sources.jar",
+      "entry": "net/minecraft/world/item/Item.java",
+      "sha256": "ef81670d9fbc09b822583a6029d62eb4c379b2b8c706589e0bc456c9192090ce",
+      "anchors": [
+        {
+          "line": 369,
+          "text": "int maxStackSize = 64;"
+        }
+      ]
+    },
+    {
+      "archive": "C:\\Users\\30819\\.gradle\\caches\\fabric-loom\\minecraftMaven\\net\\minecraft\\minecraft-merged\\1.20.1-loom.mappings.1_20_1.layered+hash.2198-v2\\minecraft-merged-1.20.1-loom.mappings.1_20_1.layered+hash.2198-v2-sources.jar",
+      "entry": "net/minecraft/world/item/enchantment/EnchantmentHelper.java",
+      "sha256": "d9766cd76b065f0bb0db81e58c8b364a5c6d42d1f274b0619dce88ccd04749d9",
+      "anchors": [
+        {
+          "line": 386,
+          "text": "if ((!enchantment.isTreasureOnly() || bl) && enchantment.isDiscoverable() && (enchantment.category.canEnchant(item) || bl2)) {"
+        }
+      ]
+    }
+  ],
+  "sourceForgePatchCheck": {
+    "archive": "C:\\Users\\30819\\.gradle\\caches\\forge_gradle\\maven_downloader\\net\\minecraftforge\\forge\\1.20.1-47.3.22\\forge-1.20.1-47.3.22-sources.jar",
+    "setCountPatches": []
+  }
+}
