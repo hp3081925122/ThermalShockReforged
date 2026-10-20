@@ -389,3 +389,10 @@ Qo集成保全世界共享剧情、真实16页与奖励链，服务端验证同�
 - 第125批纠正Laut旧起因记录：原EntityAnimationFactory实际给animationprocedure赋值，原完成动画并非完全不播放；现有完成状态跨存读驱动loop1是已记录行为调整。Gecko492 thenPlay为DEFAULT，loop依资源，不能用方法名误判循环丢失。
 
 - 第126批恢复Qo根交互先打开普通对话页、再按持物打开专用页的实际连续开页，补齐原两次客户端声音请求。按原递增后contacts>4判断，涵盖合法非整数存档；旧contacts==4遗物仍一次发放，NPC距离/存活/维度校验与既有防重复提交保留。菜单矩阵241/241仅为静态闭合，声音混音、画像与网络切页仍待最终客户端对照。
+
+
+第127批：主线将A125 group1剩19项中的15项补齐或修复，现group1有界配对55/59、余Angry Cavebloomer完整技能相位、Beetle Crasher出生首发、Qo待机随机侧别、Huntress出生首发4项。10种实体已接实继承controller的原4tick/添加顺序/动态hook；真实Gecko4.9.2不同clip触发会重建队列并重置tick，Herald siphon→siphon2不需盲目追加forceReset。IceCreature按kind2/3恢复Icidrone/Icidrozerk原0tick，kind0/1原4保留；Bastion复用已有UUID末尾任务，恢复原T+9 SERVER END开火及17发间隔2tick、10次间隔5tick声音，保留持久化和生命周期防护。独立原队列与目标age静态模型4组、各29事件一致，未启动游戏。证据见animation-main127-public-integration.json和animation-main127-group1-review.json。
+
+A按现有分工独占group2最后23种只读复审，交付前继续计待核；主线此前group2已完成36项，因此本批主线计91/118有界配对、余27，不把A进行中算完成。语言Luna本批完成73条有源码上下文的Fabricator/Ly交易配方标签，键/英文/格式/86相机条目不变；同英文1360值仍含专名，不等同待翻译数。完整代码及无简化复审收口后才子代理客户端/Render Preview；服务端独立用户线保持不接管。粗估继续约10～15批，低置信、按真实缺项调整，不按每提交扣减。
+
+第127批构建收口：首次Java21离线compileJava/processResources实际执行通过1m23s；语言owner停笔后仅将CRLF还原基线LF，原始快照/owner哈希不改，集成zh SHA 4b902f47739b471c0a232d26ca9e09857dbeae0647a0ee340d7cafee651bca7d。固定8880输入后再次处理资源通过1m08s（Java up-to-date），8060直接资源逐字节一致；新增复审证据固定37个输入，最终报告main127-static-validation.json。服务端、客户端、Render Preview尚未由本主线执行，完整目标继续active。

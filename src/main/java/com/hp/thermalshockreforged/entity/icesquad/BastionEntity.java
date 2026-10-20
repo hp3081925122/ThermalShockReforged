@@ -4,6 +4,8 @@ import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.MaterialContent;
 import com.hp.thermalshockreforged.content.ModGameRules;
 import com.hp.thermalshockreforged.content.status.StatusContent;
+import com.hp.thermalshockreforged.world.timing.ServerEndTickTask;
+import com.hp.thermalshockreforged.world.timing.ServerEndTickTasks;
 import com.mojang.brigadier.StringReader;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import net.minecraft.commands.arguments.EntityAnchorArgument;
@@ -38,7 +40,7 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 import java.util.UUID;
 import java.util.Comparator;
 
-public final class BastionEntity extends Monster implements GeoEntity {
+public final class BastionEntity extends Monster implements GeoEntity, ServerEndTickTask {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(BastionEntity.class, EntityDataSerializers.STRING);
     private static final EntityDataAccessor<Boolean> COOLDOWN_VISIBLE = SynchedEntityData.defineId(BastionEntity.class, EntityDataSerializers.BOOLEAN);
     private static final EntitySelector NEAREST_PLAYER = nearestSelector();
@@ -112,6 +114,8 @@ public final class BastionEntity extends Monster implements GeoEntity {
             cooldown = BastionCombatConfig.SALVO_COOLDOWN[k].get(); attackAge = 0;
             if (!burner()) addEffect(new MobEffectInstance(StatusContent.STUNNED, 60, 1));
             setAnimation(burner() ? "aimflamethrower" : "aimchaingun");
+            ServerEndTickTasks.schedule((ServerLevel) level(), getUUID());
+            ThermalShockReforged.LOGGER.debug("Bastion salvo scheduled: uuid={}, burner={}, startedAt={}, phase=server-end", getUUID(), burner(), startedAt);
         }
         entityData.set(COOLDOWN_VISIBLE, true);
         return true;
@@ -121,7 +125,10 @@ public final class BastionEntity extends Monster implements GeoEntity {
     private void advanceAttack(ServerLevel server) {
         if (attackAge < 0) return;
         int age = ++attackAge;
-        if (age == 10) { setAnimation(burner() ? "fireflamethrower2" : "firechaingun2"); sound(SoundEvents.IRON_GOLEM_HURT, burner() ? 1 : 2, 5); }
+        if (age == 10) {
+            setAnimation(burner() ? "fireflamethrower2" : "firechaingun2"); sound(SoundEvents.IRON_GOLEM_HURT, burner() ? 1 : 2, 5);
+            ThermalShockReforged.LOGGER.debug("Bastion salvo firing: uuid={}, burner={}, gameTime={}, age={}, phase=server-end", getUUID(), burner(), server.getGameTime(), age);
+        }
         if (age >= 10 && age <= 55 && (age - 10) % 5 == 0) sound(SoundEvents.IRON_GOLEM_HURT, 0.5F, 2);
         if (age >= 10 && age <= 42 && (age - 10) % 2 == 0) {
             sound(burner() ? SoundEvents.FIRECHARGE_USE : customSound("hailfire"), 0.9F, burner() ? 2 : -1);
@@ -135,6 +142,11 @@ public final class BastionEntity extends Monster implements GeoEntity {
         if (age >= 55) attackAge = -1;
     }
     private void clearCombat() { attackAge = -1; cooldown = 0; entityData.set(COOLDOWN_VISIBLE, false); }
+    @Override public void endTick(ServerLevel server) {
+        if (isRemoved() || !isAlive() || level() != server || !combatDimension.equals(server.dimension().location().toString())) return;
+        advanceAttack(server);
+        if (attackAge >= 0) ServerEndTickTasks.schedule(server, getUUID());
+    }
     @Override public void tick() {
         if (!level().isClientSide) {
             applyConfiguredAttributes(); String dimension = level().dimension().location().toString();
@@ -144,9 +156,9 @@ public final class BastionEntity extends Monster implements GeoEntity {
         super.tick();
         if (!(level() instanceof ServerLevel server) || !isAlive()) return;
         if (restoreAnimation) { if (attackAge >= 0) setAnimation(attackAge < 10 ? burner() ? "aimflamethrower" : "aimchaingun" : burner() ? "fireflamethrower2" : "firechaingun2"); restoreAnimation = false; }
+        if (attackAge >= 0) ServerEndTickTasks.schedule(server, getUUID());
         if (server.getGameTime() == startedAt) return;
         if (cooldown > 0 && --cooldown == 0) entityData.set(COOLDOWN_VISIBLE, false);
-        advanceAttack(server);
     }
     @Override protected void tickEffects() {
         if (!com.hp.thermalshockreforged.content.remainingcombat.CryoCooldownVisual.tickClientEffects(

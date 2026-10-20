@@ -1,0 +1,797 @@
+{
+  "baseline": "f0320d5",
+  "priorReport": {
+    "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\animation-main125-public-semantics.json",
+    "sha256": "0c4c8604fe42fb67d874362eec0523f5dbf2b322f44925333899418a43e14bbb"
+  },
+  "inheritedControllers": [
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\base\\AnimatedMonsterEntity.java",
+      "sha256": "0e8c3d8aca1b10ca3f890d625ba4f8b51e3c2cf574792bf78c35d9df555f6cd4",
+      "lines": [
+        {
+          "line": 35,
+          "code": "    public void setTexture(String texture) { entityData.set(TEXTURE, texture); }"
+        },
+        {
+          "line": 36,
+          "code": "    protected List<String> procedureAnimations() { return List.of(\"idle\", \"walk\"); }"
+        },
+        {
+          "line": 37,
+          "code": "    protected String movementAnimation(boolean moving) { return moving ? \"walk\" : \"idle\"; }"
+        },
+        {
+          "line": 38,
+          "code": "    protected int animationTransitionTicks() { return 4; }"
+        },
+        {
+          "line": 39,
+          "code": "    protected int deathDuration() { return 20; }"
+        },
+        {
+          "line": 40,
+          "code": "    public void triggerProcedure(String animation) { if (animation != null && procedureAnimations().contains(animation)) triggerAnim(\"procedure\", animation); }"
+        },
+        {
+          "line": 41,
+          "code": "    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, \"\"); }"
+        },
+        {
+          "line": 42,
+          "code": "    @Override public void aiStep() { super.aiStep(); updateSwingTime(); }"
+        },
+        {
+          "line": 43,
+          "code": ""
+        },
+        {
+          "line": 44,
+          "code": "    @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {"
+        },
+        {
+          "line": 45,
+          "code": "        var procedure = new AnimationController<>(this, \"procedure\", animationTransitionTicks(), state -> PlayState.STOP);"
+        },
+        {
+          "line": 46,
+          "code": "        for (String clip : procedureAnimations()) procedure.triggerableAnim(clip, RawAnimation.begin().thenPlay(clip));"
+        },
+        {
+          "line": 47,
+          "code": "        controllers.add(new AnimationController<>(this, \"movement\", animationTransitionTicks(), state -> {"
+        },
+        {
+          "line": 48,
+          "code": "            if (procedure.isPlayingTriggeredAnimation()) return PlayState.STOP;"
+        },
+        {
+          "line": 49,
+          "code": "            boolean moving = state.isMoving() || state.getLimbSwingAmount() <= -.15F || state.getLimbSwingAmount() >= .15F;"
+        },
+        {
+          "line": 50,
+          "code": "            return state.setAndContinue(RawAnimation.begin().thenLoop(movementAnimation(moving)));"
+        },
+        {
+          "line": 51,
+          "code": "        }));"
+        },
+        {
+          "line": 52,
+          "code": "        controllers.add(procedure);"
+        },
+        {
+          "line": 53,
+          "code": "    }"
+        },
+        {
+          "line": 54,
+          "code": ""
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\base\\AnimatedPathfinderEntity.java",
+      "sha256": "a6def5d436e8eda05bd81a4ebe5fea0014d50fed3e9bfcfabc4fc1a032de98bc",
+      "lines": [
+        {
+          "line": 35,
+          "code": "    public void setTexture(String texture) { entityData.set(TEXTURE, texture); }"
+        },
+        {
+          "line": 36,
+          "code": "    protected List<String> procedureAnimations() { return List.of(\"idle\", \"walk\"); }"
+        },
+        {
+          "line": 37,
+          "code": "    protected String movementAnimation(boolean moving) { return moving ? \"walk\" : \"idle\"; }"
+        },
+        {
+          "line": 38,
+          "code": "    protected int animationTransitionTicks() { return 4; }"
+        },
+        {
+          "line": 39,
+          "code": "    protected int deathDuration() { return 20; }"
+        },
+        {
+          "line": 40,
+          "code": "    public void triggerProcedure(String animation) { if (animation != null && procedureAnimations().contains(animation)) triggerAnim(\"procedure\", animation); }"
+        },
+        {
+          "line": 41,
+          "code": "    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, \"\"); }"
+        },
+        {
+          "line": 42,
+          "code": "    @Override public void aiStep() { super.aiStep(); updateSwingTime(); }"
+        },
+        {
+          "line": 43,
+          "code": ""
+        },
+        {
+          "line": 44,
+          "code": "    @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {"
+        },
+        {
+          "line": 45,
+          "code": "        var procedure = new AnimationController<>(this, \"procedure\", animationTransitionTicks(), state -> PlayState.STOP);"
+        },
+        {
+          "line": 46,
+          "code": "        for (String clip : procedureAnimations()) procedure.triggerableAnim(clip, RawAnimation.begin().thenPlay(clip));"
+        },
+        {
+          "line": 47,
+          "code": "        controllers.add(new AnimationController<>(this, \"movement\", animationTransitionTicks(), state -> {"
+        },
+        {
+          "line": 48,
+          "code": "            if (procedure.isPlayingTriggeredAnimation()) return PlayState.STOP;"
+        },
+        {
+          "line": 49,
+          "code": "            boolean moving = state.isMoving() || state.getLimbSwingAmount() <= -.15F || state.getLimbSwingAmount() >= .15F;"
+        },
+        {
+          "line": 50,
+          "code": "            return state.setAndContinue(RawAnimation.begin().thenLoop(movementAnimation(moving)));"
+        },
+        {
+          "line": 51,
+          "code": "        }));"
+        },
+        {
+          "line": 52,
+          "code": "        controllers.add(procedure);"
+        },
+        {
+          "line": 53,
+          "code": "    }"
+        },
+        {
+          "line": 54,
+          "code": ""
+        }
+      ]
+    }
+  ],
+  "specificDifferentNameProof": [
+    {
+      "from": "siphon",
+      "to": "siphon2",
+      "nameJavaHashFrom": 3392762157,
+      "nameJavaHashTo": 2096411813,
+      "rawStageHashDeltaModulo2pow32": 1532155000,
+      "equals": false
+    },
+    {
+      "from": "siphon2",
+      "to": "siphon",
+      "nameJavaHashFrom": 2096411813,
+      "nameJavaHashTo": 3392762157,
+      "rawStageHashDeltaModulo2pow32": 2762812296,
+      "equals": false
+    },
+    {
+      "from": "aimflamethrower",
+      "to": "fireflamethrower2",
+      "nameJavaHashFrom": 2084269381,
+      "nameJavaHashTo": 1429737020,
+      "rawStageHashDeltaModulo2pow32": 3110634007,
+      "equals": false
+    },
+    {
+      "from": "aimchaingun",
+      "to": "firechaingun2",
+      "nameJavaHashFrom": 319298340,
+      "nameJavaHashTo": 763087805,
+      "rawStageHashDeltaModulo2pow32": 3422395769,
+      "equals": false
+    }
+  ],
+  "libraryEvidence": [
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\animation125\\gecko492-readable\\software\\bernie\\geckolib\\animation\\AnimationController.java",
+      "sha256": "57d3e736f44064ca3d3124201a0c6dfe9311231514b32c0be7d428cd1bf22219",
+      "lines": [
+        {
+          "line": 93,
+          "code": "    private boolean justStopped = true;"
+        },
+        {
+          "line": 94,
+          "code": "    protected boolean justStartedTransition = false;"
+        },
+        {
+          "line": 95,
+          "code": "    protected SoundKeyframeHandler<T> soundKeyframeHandler = null;"
+        },
+        {
+          "line": 96,
+          "code": "    protected ParticleKeyframeHandler<T> particleKeyframeHandler = null;"
+        },
+        {
+          "line": 217,
+          "code": "    public boolean hasAnimationFinished() {"
+        },
+        {
+          "line": 218,
+          "code": "        return this.currentRawAnimation != null && this.animationState == State.STOPPED;"
+        },
+        {
+          "line": 219,
+          "code": "    }"
+        },
+        {
+          "line": 220,
+          "code": ""
+        },
+        {
+          "line": 228,
+          "code": ""
+        },
+        {
+          "line": 229,
+          "code": "    public void setAnimation(RawAnimation rawAnimation) {"
+        },
+        {
+          "line": 230,
+          "code": "        if (rawAnimation == null || rawAnimation.getAnimationStages().isEmpty()) {"
+        },
+        {
+          "line": 231,
+          "code": "            this.stop();"
+        },
+        {
+          "line": 233,
+          "code": "        }"
+        },
+        {
+          "line": 234,
+          "code": "        if (this.needsAnimationReload || !rawAnimation.equals(this.currentRawAnimation)) {"
+        },
+        {
+          "line": 235,
+          "code": "            Queue animations;"
+        },
+        {
+          "line": 236,
+          "code": "            if (this.lastModel != null && (animations = this.lastModel.getAnimationProcessor().buildAnimationQueue(this.animatable, rawAnimation)) != null) {"
+        },
+        {
+          "line": 238,
+          "code": "                this.currentRawAnimation = rawAnimation;"
+        },
+        {
+          "line": 239,
+          "code": "                this.shouldResetTick = true;"
+        },
+        {
+          "line": 240,
+          "code": "                this.animationState = State.TRANSITIONING;"
+        },
+        {
+          "line": 241,
+          "code": "                this.justStartedTransition = true;"
+        },
+        {
+          "line": 242,
+          "code": "                this.needsAnimationReload = false;"
+        },
+        {
+          "line": 243,
+          "code": "                return;"
+        },
+        {
+          "line": 256,
+          "code": "            this.animationState = State.TRANSITIONING;"
+        },
+        {
+          "line": 257,
+          "code": "            this.shouldResetTick = true;"
+        },
+        {
+          "line": 258,
+          "code": "            this.justStartedTransition = true;"
+        },
+        {
+          "line": 259,
+          "code": "        }"
+        },
+        {
+          "line": 260,
+          "code": "        return true;"
+        },
+        {
+          "line": 275,
+          "code": ""
+        },
+        {
+          "line": 276,
+          "code": "    protected PlayState handleAnimationState(AnimationState<T> state) {"
+        },
+        {
+          "line": 277,
+          "code": "        if (this.triggeredAnimation != null) {"
+        },
+        {
+          "line": 278,
+          "code": "            if (this.currentRawAnimation != this.triggeredAnimation) {"
+        },
+        {
+          "line": 279,
+          "code": "                this.currentAnimation = null;"
+        },
+        {
+          "line": 280,
+          "code": "            }"
+        },
+        {
+          "line": 281,
+          "code": "            this.setAnimation(this.triggeredAnimation);"
+        },
+        {
+          "line": 282,
+          "code": "            if (!(this.hasAnimationFinished() || this.handlingTriggeredAnimations && this.getStateHandler().handle(state) != PlayState.CONTINUE)) {"
+        },
+        {
+          "line": 283,
+          "code": "                return PlayState.CONTINUE;"
+        },
+        {
+          "line": 292,
+          "code": "        PlayState playState;"
+        },
+        {
+          "line": 293,
+          "code": "        double adjustedTick = this.adjustTick(seekTime);"
+        },
+        {
+          "line": 294,
+          "code": "        this.lastModel = model;"
+        },
+        {
+          "line": 295,
+          "code": "        if (this.animationState == State.TRANSITIONING && adjustedTick >= this.transitionLength) {"
+        },
+        {
+          "line": 296,
+          "code": "            this.shouldResetTick = true;"
+        },
+        {
+          "line": 297,
+          "code": "            this.animationState = State.RUNNING;"
+        },
+        {
+          "line": 298,
+          "code": "            adjustedTick = this.adjustTick(seekTime);"
+        },
+        {
+          "line": 299,
+          "code": "        }"
+        },
+        {
+          "line": 300,
+          "code": "        if ((playState = this.handleAnimationState(state)) == PlayState.STOP || this.currentAnimation == null && this.animationQueue.isEmpty()) {"
+        },
+        {
+          "line": 301,
+          "code": "            this.animationState = State.STOPPED;"
+        },
+        {
+          "line": 302,
+          "code": "            this.justStopped = true;"
+        },
+        {
+          "line": 305,
+          "code": "        this.createInitialQueues(bones.values());"
+        },
+        {
+          "line": 306,
+          "code": "        if (this.justStartedTransition && (this.shouldResetTick || this.justStopped)) {"
+        },
+        {
+          "line": 307,
+          "code": "            this.justStopped = false;"
+        },
+        {
+          "line": 308,
+          "code": "            adjustedTick = this.adjustTick(seekTime);"
+        },
+        {
+          "line": 309,
+          "code": "            if (this.currentAnimation == null) {"
+        },
+        {
+          "line": 310,
+          "code": "                this.animationState = State.TRANSITIONING;"
+        },
+        {
+          "line": 312,
+          "code": "        } else if (this.currentAnimation == null) {"
+        },
+        {
+          "line": 313,
+          "code": "            this.shouldResetTick = true;"
+        },
+        {
+          "line": 314,
+          "code": "            this.animationState = State.TRANSITIONING;"
+        },
+        {
+          "line": 315,
+          "code": "            this.justStartedTransition = true;"
+        },
+        {
+          "line": 316,
+          "code": "            this.needsAnimationReload = false;"
+        },
+        {
+          "line": 317,
+          "code": "            adjustedTick = this.adjustTick(seekTime);"
+        },
+        {
+          "line": 318,
+          "code": "        } else if (this.animationState != State.TRANSITIONING) {"
+        },
+        {
+          "line": 319,
+          "code": "            this.animationState = State.RUNNING;"
+        },
+        {
+          "line": 324,
+          "code": "            if (this.lastPollTime != seekTime && (adjustedTick == 0.0 || this.isJustStarting)) {"
+        },
+        {
+          "line": 325,
+          "code": "                this.justStartedTransition = false;"
+        },
+        {
+          "line": 326,
+          "code": "                this.lastPollTime = seekTime;"
+        },
+        {
+          "line": 327,
+          "code": "                this.currentAnimation = this.animationQueue.poll();"
+        },
+        {
+          "line": 328,
+          "code": "                this.resetEventKeyFrames();"
+        },
+        {
+          "line": 329,
+          "code": "                if (this.currentAnimation == null) {"
+        },
+        {
+          "line": 364,
+          "code": "                if (this.animationState != State.PAUSED) {"
+        },
+        {
+          "line": 365,
+          "code": "                    this.shouldResetTick = true;"
+        },
+        {
+          "line": 366,
+          "code": "                    adjustedTick = this.adjustTick(seekTime);"
+        },
+        {
+          "line": 367,
+          "code": "                    this.resetEventKeyFrames();"
+        },
+        {
+          "line": 368,
+          "code": "                }"
+        },
+        {
+          "line": 376,
+          "code": "                this.animationState = State.TRANSITIONING;"
+        },
+        {
+          "line": 377,
+          "code": "                this.shouldResetTick = true;"
+        },
+        {
+          "line": 378,
+          "code": "                adjustedTick = this.adjustTick(seekTime);"
+        },
+        {
+          "line": 379,
+          "code": "                this.currentAnimation = this.animationQueue.poll();"
+        },
+        {
+          "line": 380,
+          "code": "            }"
+        },
+        {
+          "line": 381,
+          "code": "        }"
+        },
+        {
+          "line": 427,
+          "code": "        if (this.transitionLength == 0.0 && this.shouldResetTick && this.animationState == State.TRANSITIONING) {"
+        },
+        {
+          "line": 428,
+          "code": "            this.currentAnimation = this.animationQueue.poll();"
+        },
+        {
+          "line": 429,
+          "code": "        }"
+        },
+        {
+          "line": 430,
+          "code": "    }"
+        }
+      ]
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\animation125\\gecko492-readable\\software\\bernie\\geckolib\\animation\\RawAnimation.java",
+      "sha256": "052496450f4168c17c80ea204b58d283c199a95f87f0634c67dba4db3668e9e5",
+      "lines": [
+        {
+          "line": 38,
+          "code": ""
+        },
+        {
+          "line": 39,
+          "code": "    public RawAnimation thenPlay(String animationName) {"
+        },
+        {
+          "line": 40,
+          "code": "        return this.then(animationName, Animation.LoopType.DEFAULT);"
+        },
+        {
+          "line": 41,
+          "code": "    }"
+        },
+        {
+          "line": 42,
+          "code": ""
+        },
+        {
+          "line": 43,
+          "code": "    public RawAnimation thenLoop(String animationName) {"
+        },
+        {
+          "line": 44,
+          "code": "        return this.then(animationName, Animation.LoopType.LOOP);"
+        },
+        {
+          "line": 45,
+          "code": "    }"
+        },
+        {
+          "line": 51,
+          "code": ""
+        },
+        {
+          "line": 52,
+          "code": "    public RawAnimation thenPlayAndHold(String animation) {"
+        },
+        {
+          "line": 53,
+          "code": "        return this.then(animation, Animation.LoopType.HOLD_ON_LAST_FRAME);"
+        },
+        {
+          "line": 54,
+          "code": "    }"
+        },
+        {
+          "line": 55,
+          "code": ""
+        },
+        {
+          "line": 56,
+          "code": "    public RawAnimation thenPlayXTimes(String animationName, int playCount) {"
+        },
+        {
+          "line": 57,
+          "code": "        for (int i = 0; i < playCount; ++i) {"
+        },
+        {
+          "line": 58,
+          "code": "            this.then(animationName, i == playCount - 1 ? Animation.LoopType.DEFAULT : Animation.LoopType.PLAY_ONCE);"
+        },
+        {
+          "line": 81,
+          "code": ""
+        },
+        {
+          "line": 82,
+          "code": "    public boolean equals(Object obj) {"
+        },
+        {
+          "line": 83,
+          "code": "        if (this == obj) {"
+        },
+        {
+          "line": 84,
+          "code": "            return true;"
+        },
+        {
+          "line": 91,
+          "code": ""
+        },
+        {
+          "line": 92,
+          "code": "    public int hashCode() {"
+        },
+        {
+          "line": 93,
+          "code": "        return Objects.hash(this.animationList);"
+        },
+        {
+          "line": 94,
+          "code": "    }"
+        },
+        {
+          "line": 95,
+          "code": "}"
+        }
+      ]
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\animation127\\raw-stage-javap.txt",
+      "sha256": "6214cdfcef8f9008849f98e26d88c1788eb28fcbd3ef3cd6b8b9428f3cf366e8",
+      "lines": [
+        {
+          "line": 53,
+          "code": "      24: aload_0"
+        },
+        {
+          "line": 54,
+          "code": "      25: invokevirtual #30                 // Method hashCode:()I"
+        },
+        {
+          "line": 55,
+          "code": "      28: aload_1"
+        },
+        {
+          "line": 56,
+          "code": "      29: invokevirtual #34                 // Method java/lang/Object.hashCode:()I"
+        },
+        {
+          "line": 57,
+          "code": "      32: if_icmpne     39"
+        },
+        {
+          "line": 58,
+          "code": "      35: iconst_1"
+        },
+        {
+          "line": 62,
+          "code": ""
+        },
+        {
+          "line": 63,
+          "code": "  public int hashCode();"
+        },
+        {
+          "line": 64,
+          "code": "    Code:"
+        },
+        {
+          "line": 65,
+          "code": "       0: iconst_2"
+        },
+        {
+          "line": 69,
+          "code": "       6: aload_0"
+        },
+        {
+          "line": 70,
+          "code": "       7: getfield      #7                  // Field animationName:Ljava/lang/String;"
+        },
+        {
+          "line": 71,
+          "code": "      10: aastore"
+        },
+        {
+          "line": 72,
+          "code": "      11: dup"
+        },
+        {
+          "line": 74,
+          "code": "      13: aload_0"
+        },
+        {
+          "line": 75,
+          "code": "      14: getfield      #13                 // Field loopType:Lsoftware/bernie/geckolib/animation/Animation$LoopType;"
+        },
+        {
+          "line": 76,
+          "code": "      17: aastore"
+        },
+        {
+          "line": 77,
+          "code": "      18: invokestatic  #35                 // Method java/util/Objects.hash:([Ljava/lang/Object;)I"
+        },
+        {
+          "line": 78,
+          "code": "      21: ireturn"
+        },
+        {
+          "line": 79,
+          "code": ""
+        },
+        {
+          "line": 88,
+          "code": "       0: aload_0"
+        },
+        {
+          "line": 89,
+          "code": "       1: getfield      #7                  // Field animationName:Ljava/lang/String;"
+        },
+        {
+          "line": 90,
+          "code": "       4: areturn"
+        },
+        {
+          "line": 91,
+          "code": ""
+        },
+        {
+          "line": 94,
+          "code": "       0: aload_0"
+        },
+        {
+          "line": 95,
+          "code": "       1: getfield      #13                 // Field loopType:Lsoftware/bernie/geckolib/animation/Animation$LoopType;"
+        },
+        {
+          "line": 96,
+          "code": "       4: areturn"
+        },
+        {
+          "line": 97,
+          "code": ""
+        },
+        {
+          "line": 100,
+          "code": "       0: aload_0"
+        },
+        {
+          "line": 101,
+          "code": "       1: getfield      #17                 // Field additionalTicks:I"
+        },
+        {
+          "line": 102,
+          "code": "       4: ireturn"
+        },
+        {
+          "line": 103,
+          "code": ""
+        }
+      ]
+    }
+  ],
+  "libraryJar": {
+    "path": "C:/Users/30819/.gradle/caches/modules-2/files-2.1/curse.maven/geckolib-388172/8350073/14c64013cadee7d28f3685f94350f9a4d2ec6d86/geckolib-388172-8350073.jar",
+    "sha256": "5e548466af9ab6aca7a91a7c7d4dc0dc8bc385e22958aed5da0e7bebd0fa3fba"
+  },
+  "differentNameConclusion": "tryTriggerAnimation赋新stage；handleAnimationState在不同Raw对象时清currentAnimation，再setAnimation。上述具体异名的hash不同，setAnimation重建queue、shouldResetTick/justStartedTransition=true；process在同轮消费adjustTick=0并poll新clip。无须额外forceAnimationReset。thenPlay沿资源DEFAULT loop；这里只闭合重建/重置路径，网络到帧和画面仍待客户端对照。",
+  "runtimeExecuted": false
+}

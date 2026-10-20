@@ -577,3 +577,10 @@ Concierge仅在buy恢复原41格Inventory资格，完整pay与Quest原样保留�
 基线4cb7d4b后，本阶段补齐Qo七持物根连续开页，菜单矩阵241/241静态闭合，实际客户端声音和画像仍待最终验收。不要重派旧234/241或A修前剩15项。主线动画group2累计36/59，余23；A交付40项消费已配对、19项待共享机制和时序整合，总余42项，精确身份见docs/migration/animation-main126-remaining.json。下一步先闭合共享controller参数与异名trigger切换，再核Icidrone/Icidrozerk过渡时长、Burner/Gunner第二段时序、出生首帧和Qo随机idle端侧门控。A未报告的结论不自行补为已完成。
 
 语言Luna本批140译文已停笔，英文相同1433值含专名；后续继续GUI500值的上下文审校，再物品/方块名称。构建输入8880份前后相同，8060直接资源一致，统一compileJava/processResources离线通过1m38s，见main126-static-validation.json。仅编译/静态证据，不代表服务端或Render Preview验收。用户测试/Ribbonblade/.vscode不纳迁移阶段提交，服务端独立线不联系或接管。
+
+
+第127批：主线将A125 group1剩19项中的15项补齐或修复，现group1有界配对55/59、余Angry Cavebloomer完整技能相位、Beetle Crasher出生首发、Qo待机随机侧别、Huntress出生首发4项。10种实体已接实继承controller的原4tick/添加顺序/动态hook；真实Gecko4.9.2不同clip触发会重建队列并重置tick，Herald siphon→siphon2不需盲目追加forceReset。IceCreature按kind2/3恢复Icidrone/Icidrozerk原0tick，kind0/1原4保留；Bastion复用已有UUID末尾任务，恢复原T+9 SERVER END开火及17发间隔2tick、10次间隔5tick声音，保留持久化和生命周期防护。独立原队列与目标age静态模型4组、各29事件一致，未启动游戏。证据见animation-main127-public-integration.json和animation-main127-group1-review.json。
+
+A按现有分工独占group2最后23种只读复审，交付前继续计待核；主线此前group2已完成36项，因此本批主线计91/118有界配对、余27，不把A进行中算完成。语言Luna本批完成73条有源码上下文的Fabricator/Ly交易配方标签，键/英文/格式/86相机条目不变；同英文1360值仍含专名，不等同待翻译数。完整代码及无简化复审收口后才子代理客户端/Render Preview；服务端独立用户线保持不接管。粗估继续约10～15批，低置信、按真实缺项调整，不按每提交扣减。
+
+第127批构建收口：首次Java21离线compileJava/processResources实际执行通过1m23s；语言owner停笔后仅将CRLF还原基线LF，原始快照/owner哈希不改，集成zh SHA 4b902f47739b471c0a232d26ca9e09857dbeae0647a0ee340d7cafee651bca7d。固定8880输入后再次处理资源通过1m08s（Java up-to-date），8060直接资源逐字节一致；新增复审证据固定37个输入，最终报告main127-static-validation.json。服务端、客户端、Render Preview尚未由本主线执行，完整目标继续active。
