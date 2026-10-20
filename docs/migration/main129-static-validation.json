@@ -1,0 +1,35 @@
+{
+  "baseline": "c4ba1c6",
+  "build": {
+    "command": "compileJava processResources --offline --max-workers=2",
+    "success": true,
+    "log": "D:\\AI临时文件\\ThermalShockMigration\\batch129-unified-build.log",
+    "sha256": "d079142441b03dd0409863ae4e07f4bb47c839e6b92d13f9076992df115944b6"
+  },
+  "fixedInputs": {
+    "count": 8880,
+    "snapshot": "D:\\AI临时文件\\ThermalShockMigration\\animation129\\inputs-before.json",
+    "sha256": "3d8b0421fb1231776a4d17f9ca614b167893dd3965ced674cc9dd1be0085a214",
+    "unchanged": true
+  },
+  "directResourcesByteEqual": 8060,
+  "ownedProduction": [
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\fauna\\WillogradeEntity.java",
+      "sha256": "b1a59ecb15168dce81ec5d82127a3be82b46b5b1f3ef72a22dc74439e89467f9"
+    }
+  ],
+  "movementCases": 40,
+  "animationBoundedStaticPaired": 118,
+  "animationStaticRemaining": 0,
+  "runtimeCasesPending": 10,
+  "evidence": [
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\animation-main129-review.json",
+      "sha256": "90fdf2ebe7fac0704f48d19cf1c2131bbc4017f0e584476eee198962d70eb369"
+    }
+  ],
+  "independentRibbonbladeIncludedButExcludedFromCommit": true,
+  "gameExecuted": false,
+  "fullMigrationComplete": false
+}

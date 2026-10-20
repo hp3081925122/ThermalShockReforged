@@ -1,0 +1,919 @@
+{
+  "baseline": "c4ba1c6",
+  "identities": [
+    "beetle_crasher",
+    "huntress"
+  ],
+  "staticResolution": "原finalizeSpawn写同步动画，LivingTick入口Factory消费；目标finalizeSpawn置pending，首个server tick的super之后发送同clip trigger。实际原生manager先startTracking再startTicking，ChunkMap.addEntity立即updatePlayers，已满足追踪资格者先收到spawn bundle；Gecko492随后向当前tracking玩家发同entityId/controller/clip payload，客户端查实体后调用triggerAnim。正常已追踪出生的发送链完整，不存在已证实静态缺少trigger或必然发送早于spawn的缺口。",
+  "preconditions": "实体成功加入可访问/可tick区块，客户端已追踪其区块且在有效距离内；取消出生、不追踪、离开后重入等不冒称同首帧。",
+  "evidence": [
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\animation129\\native1211\\net\\minecraft\\world\\level\\entity\\PersistentEntitySectionManager.java",
+      "sha256": "ef2c12ba1f94bcf175282672fd514bcb626f7f74abbcb1fbc054ef636d135f43",
+      "lines": [
+        {
+          "line": 82,
+          "code": ""
+        },
+        {
+          "line": 83,
+          "code": "    private boolean addEntityWithoutEvent(T p_157539_, boolean p_157540_) {"
+        },
+        {
+          "line": 84,
+          "code": "        if (!this.addEntityUuid(p_157539_)) {"
+        },
+        {
+          "line": 85,
+          "code": "            return false;"
+        },
+        {
+          "line": 96,
+          "code": "            if (visibility.isAccessible()) {"
+        },
+        {
+          "line": 97,
+          "code": "                this.startTracking(p_157539_);"
+        },
+        {
+          "line": 98,
+          "code": "            }"
+        },
+        {
+          "line": 99,
+          "code": ""
+        },
+        {
+          "line": 100,
+          "code": "            if (visibility.isTicking()) {"
+        },
+        {
+          "line": 101,
+          "code": "                this.startTicking(p_157539_);"
+        },
+        {
+          "line": 102,
+          "code": "            }"
+        },
+        {
+          "line": 103,
+          "code": ""
+        },
+        {
+          "line": 135,
+          "code": "        this.visibleEntityStorage.add(p_157576_);"
+        },
+        {
+          "line": 136,
+          "code": "        this.callbacks.onTrackingStart(p_157576_);"
+        },
+        {
+          "line": 137,
+          "code": "    }"
+        },
+        {
+          "line": 138,
+          "code": ""
+        }
+      ]
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\animation129\\native1211\\net\\minecraft\\server\\level\\ServerLevel.java",
+      "sha256": "8d1086b8e63b11d340853e7595a63f2f27edc0d690311c9a0d46d5098eb21925",
+      "lines": [
+        {
+          "line": 1733,
+          "code": ""
+        },
+        {
+          "line": 1734,
+          "code": "        public void onTickingStart(Entity p_143363_) {"
+        },
+        {
+          "line": 1735,
+          "code": "            ServerLevel.this.entityTickList.add(p_143363_);"
+        },
+        {
+          "line": 1736,
+          "code": "        }"
+        },
+        {
+          "line": 1741,
+          "code": ""
+        },
+        {
+          "line": 1742,
+          "code": "        public void onTrackingStart(Entity p_143371_) {"
+        },
+        {
+          "line": 1743,
+          "code": "            ServerLevel.this.getChunkSource().addEntity(p_143371_);"
+        },
+        {
+          "line": 1744,
+          "code": "            if (p_143371_ instanceof ServerPlayer serverplayer) {"
+        },
+        {
+          "line": 1745,
+          "code": "                ServerLevel.this.players.add(serverplayer);"
+        },
+        {
+          "line": 1750,
+          "code": "                if (ServerLevel.this.isUpdatingNavigations) {"
+        },
+        {
+          "line": 1751,
+          "code": "                    String s = \"onTrackingStart called during navigation iteration\";"
+        },
+        {
+          "line": 1752,
+          "code": "                    Util.logAndPauseIfInIde("
+        },
+        {
+          "line": 1753,
+          "code": "                        \"onTrackingStart called during navigation iteration\", new IllegalStateException(\"onTrackingStart called during navigation iteration\")"
+        },
+        {
+          "line": 1754,
+          "code": "                    );"
+        },
+        {
+          "line": 1755,
+          "code": "                }"
+        },
+        {
+          "line": 1777,
+          "code": "                if (ServerLevel.this.isUpdatingNavigations) {"
+        },
+        {
+          "line": 1778,
+          "code": "                    String s = \"onTrackingStart called during navigation iteration\";"
+        },
+        {
+          "line": 1779,
+          "code": "                    Util.logAndPauseIfInIde("
+        },
+        {
+          "line": 1780,
+          "code": "                              \"onTrackingStart called during navigation iteration\", new IllegalStateException(\"onTrackingStart called during navigation iteration\")"
+        },
+        {
+          "line": 1781,
+          "code": "                    );"
+        },
+        {
+          "line": 1782,
+          "code": "                }"
+        }
+      ]
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\animation129\\native1211\\net\\minecraft\\server\\level\\ServerChunkCache.java",
+      "sha256": "02465fed32fb76cf2bc415c6ec58ba3d7cdf7b2580af2de6f9ba0c278c1bf306",
+      "lines": [
+        {
+          "line": 471,
+          "code": "    public void addEntity(Entity p_8464_) {"
+        },
+        {
+          "line": 472,
+          "code": "        this.chunkMap.addEntity(p_8464_);"
+        },
+        {
+          "line": 473,
+          "code": "    }"
+        },
+        {
+          "line": 474,
+          "code": ""
+        }
+      ]
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\animation129\\native1211\\net\\minecraft\\server\\level\\ChunkMap.java",
+      "sha256": "8051062b0f0b25b1f64704371b0d0fb0e9bfc06dd289eae297163bee5164d648",
+      "lines": [
+        {
+          "line": 999,
+          "code": "            if (chunkmap$trackedentity.entity == p_140185_) {"
+        },
+        {
+          "line": 1000,
+          "code": "                chunkmap$trackedentity.updatePlayers(this.level.players());"
+        },
+        {
+          "line": 1001,
+          "code": "            } else {"
+        },
+        {
+          "line": 1002,
+          "code": "                chunkmap$trackedentity.updatePlayer(p_140185_);"
+        },
+        {
+          "line": 1079,
+          "code": ""
+        },
+        {
+          "line": 1080,
+          "code": "    protected void addEntity(Entity p_140200_) {"
+        },
+        {
+          "line": 1081,
+          "code": "        if (!(p_140200_ instanceof net.neoforged.neoforge.entity.PartEntity)) {"
+        },
+        {
+          "line": 1082,
+          "code": "            EntityType<?> entitytype = p_140200_.getType();"
+        },
+        {
+          "line": 1090,
+          "code": "                    this.entityMap.put(p_140200_.getId(), chunkmap$trackedentity);"
+        },
+        {
+          "line": 1091,
+          "code": "                    chunkmap$trackedentity.updatePlayers(this.level.players());"
+        },
+        {
+          "line": 1092,
+          "code": "                    if (p_140200_ instanceof ServerPlayer serverplayer) {"
+        },
+        {
+          "line": 1093,
+          "code": "                        this.updatePlayerStatus(serverplayer, true);"
+        },
+        {
+          "line": 1307,
+          "code": "                if (flag) {"
+        },
+        {
+          "line": 1308,
+          "code": "                    if (this.seenBy.add(p_140498_.connection)) {"
+        },
+        {
+          "line": 1309,
+          "code": "                        this.serverEntity.addPairing(p_140498_);"
+        },
+        {
+          "line": 1310,
+          "code": "                    }"
+        },
+        {
+          "line": 1311,
+          "code": "                } else if (this.seenBy.remove(p_140498_.connection)) {"
+        }
+      ]
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\animation129\\native1211\\net\\minecraft\\server\\level\\ServerEntity.java",
+      "sha256": "298e80c5700b5a92df94fbaf2bca343231c6b54410e16c85347b04ab413efab9",
+      "lines": [
+        {
+          "line": 238,
+          "code": ""
+        },
+        {
+          "line": 239,
+          "code": "    public void addPairing(ServerPlayer p_8542_) {"
+        },
+        {
+          "line": 240,
+          "code": "        List<Packet<? super ClientGamePacketListener>> list = new ArrayList<>();"
+        },
+        {
+          "line": 241,
+          "code": "        this.sendPairingData(p_8542_, new net.neoforged.neoforge.network.bundle.PacketAndPayloadAcceptor<>(list::add));"
+        },
+        {
+          "line": 242,
+          "code": "        p_8542_.connection.send(new ClientboundBundlePacket(list));"
+        },
+        {
+          "line": 243,
+          "code": "        this.entity.startSeenByPlayer(p_8542_);"
+        },
+        {
+          "line": 244,
+          "code": "        net.neoforged.neoforge.event.EventHooks.onStartEntityTracking(this.entity, p_8542_);"
+        },
+        {
+          "line": 246,
+          "code": ""
+        },
+        {
+          "line": 247,
+          "code": "    public void sendPairingData(ServerPlayer p_289562_, net.neoforged.neoforge.network.bundle.PacketAndPayloadAcceptor<net.minecraft.network.protocol.game.ClientGamePacketListener> p_289563_) {"
+        },
+        {
+          "line": 248,
+          "code": "        if (this.entity.isRemoved()) {"
+        },
+        {
+          "line": 249,
+          "code": "            LOGGER.warn(\"Fetching packet for removed entity {}\", this.entity);"
+        },
+        {
+          "line": 251,
+          "code": ""
+        },
+        {
+          "line": 252,
+          "code": "        Packet<ClientGamePacketListener> packet = this.entity.getAddEntityPacket(this);"
+        },
+        {
+          "line": 253,
+          "code": "        p_289563_.accept(packet);"
+        },
+        {
+          "line": 254,
+          "code": "        this.entity.sendPairingData(p_289562_, p_289563_::accept);"
+        },
+        {
+          "line": 255,
+          "code": "        if (this.trackedDataValues != null) {"
+        },
+        {
+          "line": 256,
+          "code": "            p_289563_.accept(new ClientboundSetEntityDataPacket(this.entity.getId(), this.trackedDataValues));"
+        }
+      ]
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\animation129\\gecko492\\network-javap.txt",
+      "sha256": "71cab131e98c66a283865d0deb11adf2bf3586f2d096056c34f9b340fc39fb68",
+      "lines": [
+        {
+          "line": 77,
+          "code": ""
+        },
+        {
+          "line": 78,
+          "code": "  public abstract void sendToAllPlayersTrackingEntity(software.bernie.geckolib.network.packet.MultiloaderPacket, net.minecraft.world.entity.Entity);"
+        },
+        {
+          "line": 79,
+          "code": ""
+        },
+        {
+          "line": 80,
+          "code": "  public abstract void sendToAllPlayersTrackingBlock(software.bernie.geckolib.network.packet.MultiloaderPacket, net.minecraft.server.level.ServerLevel, net.minecraft.core.BlockPos);"
+        },
+        {
+          "line": 109,
+          "code": "      16: aload_1"
+        },
+        {
+          "line": 110,
+          "code": "      17: invokeinterface #99,  3           // InterfaceMethod sendToAllPlayersTrackingEntity:(Lsoftware/bernie/geckolib/network/packet/MultiloaderPacket;Lnet/minecraft/world/entity/Entity;)V"
+        },
+        {
+          "line": 111,
+          "code": "      22: return"
+        },
+        {
+          "line": 112,
+          "code": ""
+        },
+        {
+          "line": 132,
+          "code": "      17: aload         6"
+        },
+        {
+          "line": 133,
+          "code": "      19: invokeinterface #99,  3           // InterfaceMethod sendToAllPlayersTrackingEntity:(Lsoftware/bernie/geckolib/network/packet/MultiloaderPacket;Lnet/minecraft/world/entity/Entity;)V"
+        },
+        {
+          "line": 134,
+          "code": "      24: return"
+        },
+        {
+          "line": 135,
+          "code": ""
+        },
+        {
+          "line": 153,
+          "code": ""
+        },
+        {
+          "line": 154,
+          "code": "  public default void triggerEntityAnim(net.minecraft.world.entity.Entity, boolean, java.lang.String, java.lang.String);"
+        },
+        {
+          "line": 155,
+          "code": "    Code:"
+        },
+        {
+          "line": 156,
+          "code": "       0: aload_0"
+        },
+        {
+          "line": 169,
+          "code": "      25: aload_1"
+        },
+        {
+          "line": 170,
+          "code": "      26: invokeinterface #99,  3           // InterfaceMethod sendToAllPlayersTrackingEntity:(Lsoftware/bernie/geckolib/network/packet/MultiloaderPacket;Lnet/minecraft/world/entity/Entity;)V"
+        },
+        {
+          "line": 171,
+          "code": "      31: return"
+        },
+        {
+          "line": 172,
+          "code": ""
+        },
+        {
+          "line": 183,
+          "code": "      14: aload_2"
+        },
+        {
+          "line": 184,
+          "code": "      15: invokeinterface #99,  3           // InterfaceMethod sendToAllPlayersTrackingEntity:(Lsoftware/bernie/geckolib/network/packet/MultiloaderPacket;Lnet/minecraft/world/entity/Entity;)V"
+        },
+        {
+          "line": 185,
+          "code": "      20: return"
+        },
+        {
+          "line": 186,
+          "code": ""
+        },
+        {
+          "line": 248,
+          "code": "      35: aload_1"
+        },
+        {
+          "line": 249,
+          "code": "      36: invokeinterface #99,  3           // InterfaceMethod sendToAllPlayersTrackingEntity:(Lsoftware/bernie/geckolib/network/packet/MultiloaderPacket;Lnet/minecraft/world/entity/Entity;)V"
+        },
+        {
+          "line": 250,
+          "code": "      41: return"
+        },
+        {
+          "line": 251,
+          "code": ""
+        },
+        {
+          "line": 272,
+          "code": "      42: aload_2"
+        },
+        {
+          "line": 273,
+          "code": "      43: invokeinterface #99,  3           // InterfaceMethod sendToAllPlayersTrackingEntity:(Lsoftware/bernie/geckolib/network/packet/MultiloaderPacket;Lnet/minecraft/world/entity/Entity;)V"
+        },
+        {
+          "line": 274,
+          "code": "      48: return"
+        },
+        {
+          "line": 275,
+          "code": ""
+        },
+        {
+          "line": 295,
+          "code": "      37: aload_2"
+        },
+        {
+          "line": 296,
+          "code": "      38: invokeinterface #99,  3           // InterfaceMethod sendToAllPlayersTrackingEntity:(Lsoftware/bernie/geckolib/network/packet/MultiloaderPacket;Lnet/minecraft/world/entity/Entity;)V"
+        },
+        {
+          "line": 297,
+          "code": "      43: return"
+        },
+        {
+          "line": 298,
+          "code": "}"
+        },
+        {
+          "line": 334,
+          "code": ""
+        },
+        {
+          "line": 335,
+          "code": "  public void sendToAllPlayersTrackingEntity(software.bernie.geckolib.network.packet.MultiloaderPacket, net.minecraft.world.entity.Entity);"
+        },
+        {
+          "line": 336,
+          "code": "    Code:"
+        },
+        {
+          "line": 337,
+          "code": "       0: aload_2"
+        },
+        {
+          "line": 340,
+          "code": "       3: anewarray     #37                 // class net/minecraft/network/protocol/common/custom/CustomPacketPayload"
+        },
+        {
+          "line": 341,
+          "code": "       6: invokestatic  #39                 // Method net/neoforged/neoforge/network/PacketDistributor.sendToPlayersTrackingEntityAndSelf:(Lnet/minecraft/world/entity/Entity;Lnet/minecraft/network/protocol/common/custom/CustomPacketPayload;[Lnet/minecraft/network/protocol/common/custom/CustomPacketPayload;)V"
+        },
+        {
+          "line": 342,
+          "code": "       9: return"
+        },
+        {
+          "line": 343,
+          "code": ""
+        },
+        {
+          "line": 375,
+          "code": "      13: invokedynamic #70,  0             // InvokeDynamic #3:accept:(Lnet/neoforged/neoforge/network/handling/IPayloadContext;)Ljava/util/function/Consumer;"
+        },
+        {
+          "line": 376,
+          "code": "      18: invokeinterface #73,  3           // InterfaceMethod software/bernie/geckolib/network/packet/MultiloaderPacket.receiveMessage:(Lnet/minecraft/world/entity/player/Player;Ljava/util/function/Consumer;)V"
+        },
+        {
+          "line": 377,
+          "code": "      23: return"
+        },
+        {
+          "line": 378,
+          "code": ""
+        },
+        {
+          "line": 388,
+          "code": "      13: invokedynamic #70,  0             // InvokeDynamic #3:accept:(Lnet/neoforged/neoforge/network/handling/IPayloadContext;)Ljava/util/function/Consumer;"
+        },
+        {
+          "line": 389,
+          "code": "      18: invokeinterface #73,  3           // InterfaceMethod software/bernie/geckolib/network/packet/MultiloaderPacket.receiveMessage:(Lnet/minecraft/world/entity/player/Player;Ljava/util/function/Consumer;)V"
+        },
+        {
+          "line": 390,
+          "code": "      23: return"
+        },
+        {
+          "line": 391,
+          "code": ""
+        },
+        {
+          "line": 446,
+          "code": ""
+        },
+        {
+          "line": 447,
+          "code": "  public void receiveMessage(net.minecraft.world.entity.player.Player, java.util.function.Consumer<java.lang.Runnable>);"
+        },
+        {
+          "line": 448,
+          "code": "    Code:"
+        },
+        {
+          "line": 449,
+          "code": "       0: aload_2"
+        },
+        {
+          "line": 497,
+          "code": ""
+        },
+        {
+          "line": 498,
+          "code": "  private void lambda$receiveMessage$0();"
+        },
+        {
+          "line": 499,
+          "code": "    Code:"
+        },
+        {
+          "line": 500,
+          "code": "       0: invokestatic  #38                 // Method software/bernie/geckolib/util/ClientUtil.getLevel:()Lnet/minecraft/world/level/Level;"
+        },
+        {
+          "line": 502,
+          "code": "       4: getfield      #7                  // Field entityId:I"
+        },
+        {
+          "line": 503,
+          "code": "       7: invokevirtual #44                 // Method net/minecraft/world/level/Level.getEntity:(I)Lnet/minecraft/world/entity/Entity;"
+        },
+        {
+          "line": 504,
+          "code": "      10: astore_1"
+        },
+        {
+          "line": 505,
+          "code": "      11: aload_1"
+        },
+        {
+          "line": 527,
+          "code": "      55: getfield      #21                 // Field animName:Ljava/lang/String;"
+        },
+        {
+          "line": 528,
+          "code": "      58: invokeinterface #58,  3           // InterfaceMethod software/bernie/geckolib/animatable/GeoEntity.triggerAnim:(Ljava/lang/String;Ljava/lang/String;)V"
+        },
+        {
+          "line": 529,
+          "code": "      63: return"
+        },
+        {
+          "line": 530,
+          "code": "      64: aload_1"
+        }
+      ]
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\EntityAnimationFactory.java",
+      "sha256": "0c4d6586d0cf6fdb806ba173d9f6b2840735352ef661d1bbc9d19bb099f70263",
+      "lines": [
+        {
+          "line": 132,
+          "code": "    @SubscribeEvent"
+        },
+        {
+          "line": 133,
+          "code": "    public static void onEntityTick(LivingEvent.LivingTickEvent event) {"
+        },
+        {
+          "line": 134,
+          "code": "        if (event != null && event.getEntity() != null) {"
+        },
+        {
+          "line": 135,
+          "code": "            GeoEntity syncable;"
+        },
+        {
+          "line": 381,
+          "code": "            }"
+        },
+        {
+          "line": 382,
+          "code": "            if ((animation = event.getEntity()) instanceof BeetleCrasherEntity && !((String)(animation = (syncable = (BeetleCrasherEntity)((Object)animation)).getSyncedAnimation())).equals(\"undefined\")) {"
+        },
+        {
+          "line": 383,
+          "code": "                syncable.setAnimation(\"undefined\");"
+        },
+        {
+          "line": 384,
+          "code": "                syncable.animationprocedure = animation;"
+        },
+        {
+          "line": 505,
+          "code": "            }"
+        },
+        {
+          "line": 506,
+          "code": "            if ((animation = event.getEntity()) instanceof HuntressEntity && !((String)(animation = (syncable = (HuntressEntity)((Object)animation)).getSyncedAnimation())).equals(\"undefined\")) {"
+        },
+        {
+          "line": 507,
+          "code": "                syncable.setAnimation(\"undefined\");"
+        },
+        {
+          "line": 508,
+          "code": "                syncable.animationprocedure = animation;"
+        }
+      ]
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\animation128\\native1201\\net\\minecraft\\world\\entity\\LivingEntity.java",
+      "sha256": "96358c942018379244e5ffd6c01513f38ff26f56b99ce4747fa891490332f6c8",
+      "lines": [
+        {
+          "line": 2257,
+          "code": "   public void tick() {"
+        },
+        {
+          "line": 2258,
+          "code": "      if (net.minecraftforge.common.ForgeHooks.onLivingTick(this)) return;"
+        },
+        {
+          "line": 2259,
+          "code": "      super.tick();"
+        },
+        {
+          "line": 2260,
+          "code": "      this.updatingUsingItem();"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\beetles\\BeetleCombatEntity.java",
+      "sha256": "adc0009430a77351086997e9b9a1f0f14d9518f05549819393e7a003cceea8d4",
+      "lines": [
+        {
+          "line": 37,
+          "code": "    private UUID experienceAttacker;"
+        },
+        {
+          "line": 38,
+          "code": "    private String pendingAnimation = \"\";"
+        },
+        {
+          "line": 39,
+          "code": ""
+        },
+        {
+          "line": 40,
+          "code": "    protected BeetleCombatEntity(EntityType<? extends BeetleCombatEntity> type, Level level, String texture, int experience) { super(type, level); entityData.set(TEXTURE, texture); xpReward = experience; setPersistenceRequired(); }"
+        },
+        {
+          "line": 74,
+          "code": "    void faceNearestPlayer(ServerLevel server) { var player = server.players().stream().min(Comparator.comparingDouble(candidate -> candidate.distanceToSqr(this))).orElse(null); if (player != null) { lookAt(net.minecraft.commands.arguments.EntityAnchorArgument.Anchor.FEET, player.position()); yBodyRot = getYRot(); yHeadRot = getYRot(); } }"
+        },
+        {
+          "line": 75,
+          "code": "    protected void startEmergence() { cooldown = Math.max(cooldown, 60); entityData.set(EMERGING, true); pendingAnimation = \"unbury\"; }"
+        },
+        {
+          "line": 76,
+          "code": "    private void synchronizeMovementLock() {"
+        },
+        {
+          "line": 77,
+          "code": "        if (level().isClientSide) return;"
+        },
+        {
+          "line": 90,
+          "code": "        }"
+        },
+        {
+          "line": 91,
+          "code": "        super.tick();"
+        },
+        {
+          "line": 92,
+          "code": "        if (!level().isClientSide && !pendingAnimation.isEmpty()) { triggerAnim(\"procedure\", pendingAnimation); pendingAnimation = \"\"; }"
+        },
+        {
+          "line": 93,
+          "code": "    }"
+        },
+        {
+          "line": 94,
+          "code": "    @Override protected void tickEffects() {"
+        },
+        {
+          "line": 129,
+          "code": "    }"
+        },
+        {
+          "line": 130,
+          "code": "    @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {"
+        },
+        {
+          "line": 131,
+          "code": "        var procedure = new AnimationController<>(this, \"procedure\", 4, state -> PlayState.STOP).triggerableAnim(\"attack\", RawAnimation.begin().thenPlay(\"attack\")).triggerableAnim(\"attack2\", RawAnimation.begin().thenPlay(\"attack2\"));"
+        },
+        {
+          "line": 132,
+          "code": "        if (!thrasher()) procedure.triggerableAnim(\"unbury\", RawAnimation.begin().thenPlay(\"unbury\"));"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\npc\\huntress\\HuntressEntity.java",
+      "sha256": "b03aed33c50dbd3dc9a8892ba06643cc95d30ee51d0f41b77871938feab1d86c",
+      "lines": [
+        {
+          "line": 28,
+          "code": "    private boolean initialized;"
+        },
+        {
+          "line": 29,
+          "code": "    private boolean animationPending;"
+        },
+        {
+          "line": 30,
+          "code": "    private Vec3 initializationOrigin = Vec3.ZERO;"
+        },
+        {
+          "line": 31,
+          "code": "    private int retry;"
+        },
+        {
+          "line": 44,
+          "code": "    @Override protected InteractionResult mobInteract(Player player, InteractionHand hand) { super.mobInteract(player, hand); if (player instanceof ServerPlayer server) HuntressMenus.open(server, this, HuntressPage.MAIN); return InteractionResult.sidedSuccess(level().isClientSide); }"
+        },
+        {
+          "line": 45,
+          "code": "    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, MobSpawnType reason, SpawnGroupData group) { var result = super.finalizeSpawn(world, difficulty, reason, group); if (!initialized) { initialized = true; setNoGravity(true); initializationOrigin = position(); initializationPending = true; animationPending = true; } return result; }"
+        },
+        {
+          "line": 46,
+          "code": "    private void submitInitialization() {"
+        },
+        {
+          "line": 47,
+          "code": "        if (!initializationPending || retry > 0 || !(level() instanceof ServerLevel server)) return;"
+        },
+        {
+          "line": 51,
+          "code": "    @Override public void onAddedToLevel() { super.onAddedToLevel(); submitInitialization(); }"
+        },
+        {
+          "line": 52,
+          "code": "    @Override public void tick() { super.tick(); if (!level().isClientSide) { if (retry > 0) retry--; submitInitialization(); if (animationPending) { animationPending = false; triggerAnim(\"procedure\", \"npcspawn\"); } } }"
+        },
+        {
+          "line": 53,
+          "code": "    @Override public void aiStep() { super.aiStep(); updateSwingTime(); }"
+        },
+        {
+          "line": 54,
+          "code": "    @Override protected void tickDeath() { if (++deathTime >= 20 && !isRemoved()) remove(RemovalReason.KILLED); }"
+        },
+        {
+          "line": 55,
+          "code": "    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putString(\"Texture\", texture()); tag.putBoolean(\"HuntressInitialized\", initialized); tag.putBoolean(\"HuntressInitializationPending\", initializationPending); tag.putBoolean(\"HuntressAnimationPending\", animationPending); tag.putInt(\"HuntressInitializationRetry\", retry); tag.putDouble(\"HuntressInitialX\", initializationOrigin.x); tag.putDouble(\"HuntressInitialY\", initializationOrigin.y); tag.putDouble(\"HuntressInitialZ\", initializationOrigin.z); }"
+        },
+        {
+          "line": 56,
+          "code": "    @Override public void readAdditionalSaveData(CompoundTag tag) { super.readAdditionalSaveData(tag); if (tag.contains(\"Texture\")) setTexture(tag.getString(\"Texture\")); initialized = !tag.contains(\"HuntressInitialized\") || tag.getBoolean(\"HuntressInitialized\"); initializationPending = tag.getBoolean(\"HuntressInitializationPending\"); animationPending = tag.getBoolean(\"HuntressAnimationPending\"); retry = Math.clamp(tag.getInt(\"HuntressInitializationRetry\"), 0, 20); initializationOrigin = new Vec3(tag.getDouble(\"HuntressInitialX\"), tag.getDouble(\"HuntressInitialY\"), tag.getDouble(\"HuntressInitialZ\")); if (!Double.isFinite(initializationOrigin.lengthSqr())) { initializationPending = false; initializationOrigin = position(); } setPersistenceRequired(); }"
+        },
+        {
+          "line": 57,
+          "code": "    @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) { var procedure = new AnimationController<>(this, \"procedure\", 0, state -> PlayState.STOP).triggerableAnim(\"npcspawn\", RawAnimation.begin().thenPlay(\"npcspawn\")); controllers.add(new AnimationController<>(this, \"movement\", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(\"idle3\")))); controllers.add(procedure); }"
+        },
+        {
+          "line": 58,
+          "code": "    @Override public AnimatableInstanceCache getAnimatableInstanceCache() { return animations; }"
+        },
+        {
+          "line": 59,
+          "code": "}"
+        }
+      ]
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\beetles\\BeetleCrasherEntity.java",
+      "sha256": "e9910f0e78aa2e4588211a0258f34596c869208489eeab19385b7354fcd46124",
+      "lines": [
+        {
+          "line": 21,
+          "code": "    public double auraDamage(int amplifier) { double value = getAttributeValue(Attributes.ATTACK_DAMAGE) * BeetleConfig.CRASHER_AURA.get() * Math.max(0, amplifier) / 12; return Double.isFinite(value) ? Math.clamp(value, 0, Float.MAX_VALUE) : 0; }"
+        },
+        {
+          "line": 22,
+          "code": "    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, MobSpawnType reason, SpawnGroupData data) {"
+        },
+        {
+          "line": 23,
+          "code": "        var result = super.finalizeSpawn(world, difficulty, reason, data);"
+        },
+        {
+          "line": 24,
+          "code": "        if (!initialized && world instanceof ServerLevel server) { initialized = true; startEmergence(); server.playSound(null, blockPosition(), SoundEvents.WARDEN_EMERGE, SoundSource.NEUTRAL, 1, 2); }"
+        },
+        {
+          "line": 25,
+          "code": "        return result;"
+        },
+        {
+          "line": 26,
+          "code": "    }"
+        }
+      ]
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\BeetleCrasherOnInitialEntitySpawnProcedure.java",
+      "sha256": "90262b943fed78dc12a9a288f561873eeb3f13d3dacc7f46018a2693c946a350",
+      "lines": [
+        {
+          "line": 26,
+          "code": "        if (entity instanceof BeetleCrasherEntity) {"
+        },
+        {
+          "line": 27,
+          "code": "            ((BeetleCrasherEntity)entity).setAnimation(\"unbury\");"
+        },
+        {
+          "line": 28,
+          "code": "        }"
+        },
+        {
+          "line": 29,
+          "code": "        if (entity instanceof LivingEntity && !(_entity = (LivingEntity)entity).level().isClientSide()) {"
+        }
+      ]
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\HuntressOnInitialEntitySpawnProcedure.java",
+      "sha256": "97630f2714b31c6d492e5169a5b08ebf848590f4ee1787e996851fe8281f01cf",
+      "lines": [
+        {
+          "line": 24,
+          "code": "        if (entity instanceof HuntressEntity) {"
+        },
+        {
+          "line": 25,
+          "code": "            ((HuntressEntity)entity).setAnimation(\"npcspawn\");"
+        },
+        {
+          "line": 26,
+          "code": "        }"
+        },
+        {
+          "line": 27,
+          "code": "        ThermalShockMod.queueServerWork(2, () -> {"
+        }
+      ]
+    }
+  ],
+  "gateClassification": "两项静态发起/追踪/消费接线已配对；首个可见渲染帧、延迟网络/追踪边界留最终客户端测试，未宣称运行等价。",
+  "runtimeExecuted": false
+}

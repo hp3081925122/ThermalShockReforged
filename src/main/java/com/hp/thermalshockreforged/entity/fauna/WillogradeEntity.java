@@ -39,7 +39,6 @@ public final class WillogradeEntity extends PathfinderMob implements GeoEntity {
     private int feedCooldown;
     private net.minecraft.world.phys.Vec3 buryOrigin = net.minecraft.world.phys.Vec3.ZERO;
     private String buryDimension = "";
-    private boolean resumeBuryAnimation;
 
     public WillogradeEntity(EntityType<? extends WillogradeEntity> type, Level level) {
         super(type, level);
@@ -60,7 +59,7 @@ public final class WillogradeEntity extends PathfinderMob implements GeoEntity {
 
     public void setTexture(String texture) { entityData.set(TEXTURE, texture); }
 
-    public void setAnimation(String animation) { triggerAnim("movement", animation); }
+    public void setAnimation(String animation) { triggerAnim("procedure", animation); }
 
     @Override
     protected void registerGoals() {
@@ -128,10 +127,6 @@ public final class WillogradeEntity extends PathfinderMob implements GeoEntity {
             buryAge = -1;
             return;
         }
-        if (resumeBuryAnimation) {
-            resumeBuryAnimation = false;
-            setAnimation("bury");
-        }
         buryAge++;
         if (buried()) {
             getNavigation().stop();
@@ -194,18 +189,18 @@ public final class WillogradeEntity extends PathfinderMob implements GeoEntity {
         entityData.set(FEED_COOLDOWN_VISIBLE, feedCooldown > 0);
         buryOrigin = new net.minecraft.world.phys.Vec3(tag.getDouble("BuryX"), tag.getDouble("BuryY"), tag.getDouble("BuryZ"));
         buryDimension = tag.getString("BuryDimension");
-        resumeBuryAnimation = buryAge >= 0 && buryAge < 80;
+        ThermalShockReforged.LOGGER.debug("Willograde state loaded: entity={}, buryAge={}, feedCooldown={}, animation=default", getUUID(), buryAge, feedCooldown);
     }
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+        var procedure = new AnimationController<>(this, "procedure", 4, state -> PlayState.STOP);
+        for (String name : new String[]{"walk", "idle", "rolling", "bury"}) procedure.triggerableAnim(name, RawAnimation.begin().thenPlay(name));
         controllers.add(new AnimationController<>(this, "movement", 4, state -> {
+            if (procedure.isPlayingTriggeredAnimation()) return PlayState.STOP;
             return state.setAndContinue(RawAnimation.begin().thenLoop(state.isMoving() && (isVehicle() || isAggressive()) ? "rolling" : !isVehicle() && !isAggressive() && (state.isMoving() || Math.abs(state.getLimbSwingAmount()) >= 0.15F) ? "walk" : "idle"));
-        })
-                .triggerableAnim("walk", RawAnimation.begin().thenPlay("walk"))
-                .triggerableAnim("idle", RawAnimation.begin().thenPlay("idle"))
-                .triggerableAnim("rolling", RawAnimation.begin().thenPlay("rolling"))
-                .triggerableAnim("bury", RawAnimation.begin().thenPlay("bury")));
+        }));
+        controllers.add(procedure);
     }
 
     @Override
