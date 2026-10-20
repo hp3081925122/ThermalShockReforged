@@ -100,3 +100,9 @@ A已交付133独立提交7134013066670dbb1c56897906596b85491e6aee，修5 provide
 第132批已提交fa12248；133独立提交已cherry-pick为199479b。接收核295对源码/快照、原生源码、104注册/provider行锚及资源/脚本/日志哈希，保A原始报告，不重复其语义调查。统一Java21离线compileJava/processResources通过26秒（Java实际编译、资源up-to-date），8948固定输入不变、8127直接资源相同，见main133-integration-validation.json及review-main133-receipt.json。逐粒子源调用仍待137，不以52provider关闭整个G02。
 
 已在132完成后按用户要求创建「迁移 B」01a157d9-222d-7332-8c0e-3c49c17c7e4c，独立D:/AI临时文件/ThermalShockMigration/worktrees/batch135、分支codex/batch135-template-format、基线fa12248，已确认在跑135，随后138只读环境准备；A已确认134后继续137。主线136迁移前范围已写parallel-batch136.md，生产尚未修改。用户询问小时粗估：按当前三开发对话整批模式，剩余开发/汉化/静态3～5小时，客户端/Render Preview1～3小时，总4～8小时，低置信且不含独立服务端等待；该预测不作为降低覆盖或提前完成goal的依据。
+
+第135批B独立完成905f466cd4d1c513ea4ebbad4ae0585dc3d769d0，已集成为ab82dc1。原97模板复审只确证两座Vilebath共54个rud图案方向错误，修为diagonal_right；typed52,083节点/4,380,315方块/1,148载荷/341实体允许差异通过，原67份132不变。主线接收核97提交字节/67排除资源/19原生输入及原件、校验器、构建输入日志哈希，原报告不改，见review-main135-receipt.json。B已继续138，两套Preview工程依赖适配获主线按用户授权确认，可改build.gradle与docs/migration/*138*，不改主模组NeoForge、不启动游戏；原Preview21.1.251/Gecko4.8.4与目标21.1.233/Gecko4.9.2/AAA2.3.3的实际差别需由其完整处理。
+
+第136批主线已恢复10展示物品原loop0，逐89身份核17循环/72静态、0tick、资源和透明层；两项原clip无骨骼不冒称可见效果。新增独立ExternalWeaponAnimationClient补原Factory27武器主副手外部geckoAnim，复用当前逐栈manager/procedure，限原ID、客户端Pre及有效同步ID，固定一DataTicket/一别名不随任意名称增长。沿盔甲组件边沿语义，空字符串只重新武装、empty取消、同名在播不停/异名reset，未同步同值重复不可观测边界明示。真实Gecko4.9.2离线harness直接调生产代码20,020检查，含一万任意不同名称，夹具两内置键加一外部键始终3，无游戏/帧/网络执行。
+
+136方块实体89身份及原资源、controller参数/次序、两predicate及一procedure profile已清点，四真正动态模型和生产端状态写入、27武器/13盔甲完整动画与姿态仍由主线继续本批，不交其他开发对话拆做。独立Luna补8语言值后停笔，zh d6ab7f538969bb7ecaffc30508d9ff1cbcefc0e618d65d88c2e37358bbae65bb，英文/键序/86图鉴不变，同英文1320仍含专名。两阶段固定8948/8949输入Java21离线compileJava/processResources通过66/23秒，8127直接资源相同；第二阶段含真实外部入口类。详见nonentity-main136-review.md及两phase验证，整个136和完整无简化门禁仍未关闭，goal active。A134继续声音并将接137；服务端独立线不接管，用户测试/Ribbonblade/.vscode不纳入提交，原总控只读保留。最新小时粗估仍4～8小时、低置信，不用新缺项降低覆盖。

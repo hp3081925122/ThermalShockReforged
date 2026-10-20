@@ -67,7 +67,7 @@
 
 ## 尚未完成
 
-当前有 1326 个非空英文值与中文值完全相同，属于精确字符串计数，不等同于应直译的条目。按键族分布：GUI 413、方块 417、物品 279、实体 80、JEI 35、画作 34、效果 21、生物群系 13、进度 12、字幕 12、死亡消息 6、流体 3、物品组 1。另有 41 个英文值本身为空，不纳入残留计数。GUI 残留中仍有需保留或后续判定的专名，例如 `SHUTTERBUG UNETTE`、`Projekt Blizzard`、`Jellercel` 和 `kutty`；其他 GUI 仍需继续按源码与完整语句逐条审校，不能据字符串相同数直接判定完成。
+当前有 1320 个非空英文值与中文值完全相同，属于精确字符串计数，不等同于应直译的条目。按键族分布：GUI 409、方块 417、物品 277、实体 80、JEI 35、画作 34、效果 21、生物群系 13、进度 12、字幕 12、死亡消息 6、流体 3、物品组 1。另有 41 个英文值本身为空，不纳入残留计数。GUI 残留中仍有需保留或后续判定的专名，例如 `SHUTTERBUG UNETTE`、`Projekt Blizzard`、`Jellercel` 和 `kutty`；其他 GUI 仍需继续按源码与完整语句逐条审校，不能据字符串相同数直接判定完成。
 
 下一步继续按源码顺序翻译剩余 GUI 对话与提示，再处理物品和方块的通用名称/说明。图像内文字及中文布局尚未进行客户端验收，不能称为完整汉化。
 
@@ -81,3 +81,9 @@
 - 第127批后 en SHA-256：`f34ec640698eb8f70a121b0a9ea91f5f81ea4e61b20b6bda53b714fe4e535cbb`；zh SHA-256：`a28ea77bfd830ed4055c65385c7a9230578334086fd612b050308c640ea57956`。第127批逐键清单、候选和验证记录位于 `D:\AI临时文件\ThermalShockMigration\localization-zh-owner\next-gui127\`。
 - 第130批固定输入 zh SHA-256：`4b902f47739b471c0a232d26ca9e09857dbeae0647a0ee340d7cafee651bca7d`；完成后 zh SHA-256：`b073695f06897a458238601ce292550243728aa84e048f94e74ce444cee81690`。逐键清单、校验和源码证据位于 `D:\AI临时文件\ThermalShockMigration\localization-zh-owner\next130\`。
 - 本阶段只做 JSON/键/格式静态核验；未运行构建、`processResources` 或游戏测试，留给主线统一处理。
+## 第136批：EXpolar 相机名称与界面残留复核
+
+- 对 Java 中实际引用的 GUI 键做只读盘点：1,089 个 GUI 键被源码引用，其中仍与英文完全相同的 283 项主要是角色/专名、交易占位内容和数值标记。长句筛查未发现仍为英文的剧情正文；6 个含小写英文和空格的短候选中，5 个是植物或生物专名加数量，保留原文。余下 `EXpolar Camera` 是同一相机商品名，通用词 `Camera` 有明确物品注册与 Shutterbug 交易页面上下文，因此将其统一写作 `EXpolar 相机`，不翻译专名 `EXpolar`。
+- 改动 8 个值：6 个原本与英文相同的条目，含 4 个 GUI 短标签、相机物品名和相机提示；另将 2 个已译剧情句里的商品名统一为“EXpolar 相机”。相机提示译为“对生物使用，以分析其元素弱点与抗性。”并保留 `§7` 样式码。两句为“带上这台特别的 EXpolar 相机。”；其余相机标签/名称为“EXpolar 相机”。`ShutterbugPage.java` 的 `TRADE`、`INTRO_5`、`INTRO_6` 引用相应商品名；`CameraContent.java` 注册 `e_xpolar_camera`，`CameraItem.appendHoverText` 消费其说明键 `item.thermal_shock_reforged.e_xpolar_camera.description_0`。逐键前后值在 `D:\AI临时文件\ThermalShockMigration\localization-zh-owner\next136\batch136-changes.json`。
+- 本批后仍有 1,320 个非空值与英文逐字相同，其中 GUI 409、物品 277；此统计包含保留专名、数字和交易占位标签，不能视作待直译数。未改英文文件、键集、键序和 86 条相机图鉴。
+- 严格 JSON 重复键检查通过；英文键均有中文项；全局原生格式占位符一致；改动值的 `§` 序列及实际换行数与英文对应值一致。语言文件保持 UTF-8 无 BOM、LF。未构建或启动游戏，等待主线统一验证。

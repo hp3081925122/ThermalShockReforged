@@ -12,7 +12,10 @@ public final class GeoCropItem extends BlockItem implements GeoItem {
     public final CropKind kind;
     public GeoCropItem(Block block, CropKind kind) { super(block, new Properties()); this.kind = kind; }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar registrar) {
-        registrar.add(new AnimationController<>(this, "controller", 0, state -> PlayState.CONTINUE));
+        registrar.add(new AnimationController<>(this, "controller", 0, state -> switch (kind) {
+            case ANCIENT_SKORIO, ANCIENT_BARBUBBLE, DEWLEAF, HEARTHFLY_BRANCH, NEOFLORM, VOLATINE -> state.setAndContinue(RawAnimation.begin().thenLoop("0"));
+            default -> PlayState.CONTINUE;
+        }));
     }
     @Override public AnimatableInstanceCache getAnimatableInstanceCache() { return animations; }
 }

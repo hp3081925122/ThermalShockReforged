@@ -11,7 +11,7 @@ public final class GelBulbItem extends BlockItem implements GeoItem {
     private final AnimatableInstanceCache animations = GeckoLibUtil.createInstanceCache(this);
     public GelBulbItem(Block block) { super(block, new Properties()); }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar registrar) {
-        registrar.add(new AnimationController<>(this, "controller", 0, state -> PlayState.CONTINUE));
+        registrar.add(new AnimationController<>(this, "controller", 0, state -> state.setAndContinue(RawAnimation.begin().thenLoop("0"))));
     }
     @Override public AnimatableInstanceCache getAnimatableInstanceCache() { return animations; }
 }

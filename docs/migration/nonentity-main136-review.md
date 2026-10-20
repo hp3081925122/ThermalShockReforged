@@ -1,0 +1,21 @@
+# 第136批非实体动画：已验证生产修复与剩余范围
+
+主线完整负责本批，迁移前范围和每项新增修复依据见parallel-batch136.md。本记录为阶段交付，整个136批仍进行中；不能把以下集合计数当完整模组或实机验收。
+
+已恢复10项原展示物品loop0：Atlas、GrandBlasphemer、PylonCore；AncientSkorio、AncientBarbubble、Dewleaf、HearthflyBranch、Neoflorm、Volatine；GelBulb。原/目标89展示身份逐一对应，17项循环0、72项原静态；保原0tick、模型/纹理/动画路径及entityTranslucent。AncientBarbubble和Volatine的原0没有骨骼，恢复其控制器契约，不声称两项有可见动画。原FrostLotus虽有0资源但展示predicate不播放，保持原行为。实际物品JSON是否调用Geo仍按原资源，未擅改平面物品为3D。
+
+已补原ItemAnimationFactory的27种武器主副手外部geckoAnim消费。新增ExternalWeaponAnimationClient只在客户端PlayerTick.Pre读取原27ID的CUSTOM_DATA，以已同步GeoID取得现有manager/procedure。没有新增控制器，保原0tick和内部技能trigger。未分配ID的Long.MAX_VALUE不进入共享实例；manager固定一个DataTicket、controller固定一个可替换外部别名，不按任意字符串扩充键集合。旧组件同值重传不重播；空字符串重新武装，empty取消；异名重置，同名在播不截断；完成后先观察空值可再次播放同名。沿既有盔甲方案不在客户端清服务器拥有组件。没有序号的同值写入无法区别重传，不能声称能识别未被客户端观察的重复请求。复制相同GeoID的栈不由本桥额外拆分，不扩大既有实例隔离结论。
+
+真实4.9.2 JAR的API和字节码确认manager额外数据、停止任意当前触发、Map.put替换别名、未分配ID哨兵、播放中判定；当前原生Player.tick确认Pre入口。离线Java harness直接调用生产observe和真实AnimatableManager/AnimationController，20,020个检查包含一万次不同名称请求，夹具原两键加一个外部键始终为3；同值重传、空值重新武装、同名在播、完成重播、异名、任意clip、empty、两manager隔离及内置trigger保留均通过。这里没有执行模型帧、资源clip解析、网络或游戏。
+
+89方块实体身份和注册、两controller原次序与0tick、原谓词与程序谓词归并、模型/纹理/动画逐字节核实已保存。原谓词仅两类，7项带blockstate变化reset，程序谓词89项同一语义。保此前已明示批准的三orb静态none适配、GrandBlasphemer合法末段2循环、Cauldron服务器40tick复位，不根据历史原错误撤销已批准修复。四种真正变换模型/纹理为Civilian、Capsule、ShalePot、Wallbore，逐状态对应和生产端写入仍待最终配对。
+
+独立Luna完成8个语言值，EXpolar专名保留、Camera改相机及说明译文。3492英文键/3493中文键与键序不变，86相机图鉴不变，原生占位符/实际换行和改动颜色序列通过。中文SHA d6ab7f538969bb7ecaffc30508d9ff1cbcefc0e618d65d88c2e37358bbae65bb，英文未动。1320个与英文相同的非空值仍包含专名和占位内容，不等于待译数；具体依据和范围见localization-zh-review.md。
+
+接收迁移B完整135批905f466并集成为ab82dc1，只修既有两模板的54个旗帜图案字符串。接收验证97模板提交字节、67份132资源不变、19原生输入、原件及构建证据；不重复其typed语义调查。源报告保原样，接收证据见review-main135-receipt.json。B已继续138并负责两套Preview依赖/验收环境准备，仍不启动游戏。A继续134声音，随后137逐粒子源调用；声音/粒子门禁不在本阶段冒充完成。
+
+第一阶段固定8948份src/main，compileJava/processResources实际执行，通过66秒；第二阶段加独立入口后固定8949份，通过23秒，Java实际执行、资源up-to-date，另只导出离线harness类路径。两次输入在构建期间均未变，8127份直接资源逐字节相等。详情见nonentity-main136-phase1-validation.json、nonentity-main136-phase2-validation.json；用户Ribbonblade只参与当前源码编译、不纳入提交，测试目录及.vscode未修改。
+
+接下来由主线继续本批：四动态模型逐状态及89方块合法动画/状态写入；27武器和13盔甲原wrapper的完整控制器、实际素材/渲染层/手持姿态；复用已批准逐栈/逐穿戴者生命周期证据并核真实接线。外部27入口已闭合，不重复把它算未完成。上述范围全部收口后才关闭136；完整代码和无简化门禁收口后，按既定分工交子代理客户端/Render Preview验收。服务端独立用户线不联系、不接管。
+
+原始方法、源码快照、完整清单和离线harness均在D:/AI临时文件/ThermalShockMigration/nonentity136；仓库display/block清单保方法行与SHA，完整报告路径和SHA独立保留，不把临时脚本写进项目。
