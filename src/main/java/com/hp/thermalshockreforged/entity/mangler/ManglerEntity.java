@@ -2,9 +2,9 @@ package com.hp.thermalshockreforged.entity.mangler;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.status.aura.AuraContent;
+import com.hp.thermalshockreforged.content.status.LegacyEffectParticles;
 import com.hp.thermalshockreforged.world.timing.ServerEndTickTask;
 import com.hp.thermalshockreforged.world.timing.ServerEndTickTasks;
-import net.minecraft.core.particles.*;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.network.syncher.*;
@@ -104,15 +104,15 @@ public class ManglerEntity extends Monster implements GeoEntity, ServerEndTickTa
     @Override
     protected void tickEffects() {
         if (!level().isClientSide || !entityData.get(COOLDOWN_VISIBLE)) { super.tickEffects(); return; }
-        var particles = new java.util.ArrayList<ParticleOptions>(); boolean ambient = true;
+        boolean ambient = entityData.get(COOLDOWN_AMBIENT);
         for (var effect : new java.util.ArrayList<>(getActiveEffects())) {
-            effect.tick(this, () -> onEffectUpdated(effect, true, null));
-            if (effect.getDuration() % 600 == 0) onEffectUpdated(effect, false, null);
-            if (effect.isVisible()) { particles.add(effect.getParticleOptions()); if (!effect.isAmbient()) ambient = false; }
+            boolean active = effect.tick(this, () -> onEffectUpdated(effect, true, null));
+            if (active && effect.getDuration() % 600 == 0) onEffectUpdated(effect, false, null);
+            if (effect.isVisible() && !effect.isAmbient()) ambient = false;
         }
-        if (entityData.get(COOLDOWN_VISIBLE)) { particles.add(ColorParticleOption.create(ParticleTypes.ENTITY_EFFECT, -1)); if (!entityData.get(COOLDOWN_AMBIENT)) ambient = false; }
-        int frequency = (isInvisible() ? 15 : 4) * (ambient ? 5 : 1);
-        if (!particles.isEmpty() && random.nextInt(frequency) == 0) level().addParticle(particles.get(random.nextInt(particles.size())), getRandomX(0.5), getRandomY(), getRandomZ(0.5), 1, 1, 1);
+        boolean emit = isInvisible() ? random.nextInt(15) == 0 : random.nextBoolean();
+        if (ambient) emit &= random.nextInt(5) == 0;
+        if (emit) LegacyEffectParticles.emit(this, -1, 2, null, ambient);
     }
     @Override
     public SoundEvent getAmbientSound() { return SoundEvents.VEX_AMBIENT; }

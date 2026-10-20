@@ -1,0 +1,3355 @@
+{
+  "baseline": "33d3bc6",
+  "scope": "110 COOLDOWN API calls: 92 inherited114 reviewed procedure rows +18 current source/target rows; no game run",
+  "counts": {
+    "calls": 110,
+    "inherited114": 92,
+    "current123": 18
+  },
+  "calls": [
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/BeetleCrasherAttackProcedure.java",
+      "line": 62,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "BeetleCrasherAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/beetles/BeetleContent.java#attack",
+          "meaning": "归属者按Crasher/Thrasher共用类型的注册ID区分，先取消再检查实体CD。Crasher10%重击7END、距离<4、原9减甲.4；90%冲刺16END光环10/12、23END雾2。Thrasher70%三连7/9/11END、30%双连6/12与26END侧跳招架。保起手双声、每段扫击和全部动画，伤害配置按ATK倍率，击退折抗性。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "b067317c018ead680f91d5d6ee87e73bd02866caf90e849d6220d28c677314ca"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/BeetleCrasherAttackProcedure.java",
+      "line": 86,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 35, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 35, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "35",
+        "1",
+        "false",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "BeetleCrasherAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/beetles/BeetleContent.java#attack",
+          "meaning": "归属者按Crasher/Thrasher共用类型的注册ID区分，先取消再检查实体CD。Crasher10%重击7END、距离<4、原9减甲.4；90%冲刺16END光环10/12、23END雾2。Thrasher70%三连7/9/11END、30%双连6/12与26END侧跳招架。保起手双声、每段扫击和全部动画，伤害配置按ATK倍率，击退折抗性。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "b067317c018ead680f91d5d6ee87e73bd02866caf90e849d6220d28c677314ca"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/BeetleCrasherAttackProcedure.java",
+      "line": 122,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "BeetleCrasherAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/beetles/BeetleContent.java#attack",
+          "meaning": "归属者按Crasher/Thrasher共用类型的注册ID区分，先取消再检查实体CD。Crasher10%重击7END、距离<4、原9减甲.4；90%冲刺16END光环10/12、23END雾2。Thrasher70%三连7/9/11END、30%双连6/12与26END侧跳招架。保起手双声、每段扫击和全部动画，伤害配置按ATK倍率，击退折抗性。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "b067317c018ead680f91d5d6ee87e73bd02866caf90e849d6220d28c677314ca"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/BeetleCrasherAttackProcedure.java",
+      "line": 146,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 50, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 50, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "50",
+        "1",
+        "false",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "BeetleCrasherAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/beetles/BeetleContent.java#attack",
+          "meaning": "归属者按Crasher/Thrasher共用类型的注册ID区分，先取消再检查实体CD。Crasher10%重击7END、距离<4、原9减甲.4；90%冲刺16END光环10/12、23END雾2。Thrasher70%三连7/9/11END、30%双连6/12与26END侧跳招架。保起手双声、每段扫击和全部动画，伤害配置按ATK倍率，击退折抗性。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "b067317c018ead680f91d5d6ee87e73bd02866caf90e849d6220d28c677314ca"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/BeetleCrasherOnInitialEntitySpawnProcedure.java",
+      "line": 30,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 60, 1)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 60, 1))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "60",
+        "1"
+      ],
+      "prior_matrix_evidence": [],
+      "historical_effect_specific_review": "122_overview_or_registry_reference_only",
+      "main123Disposition": "source_and_current_target_reviewed",
+      "main123Target": "entity/beetles/BeetleCombatEntity.java",
+      "main123TargetSha256": "adc0009430a77351086997e9b9a1f0f14d9518f05549819393e7a003cceea8d4",
+      "main123Meaning": "startEmergence: cooldown>=60, EMERGING, pending unbury; client legacy white weight2; save/restore fields",
+      "sourceSha256": "90262b943fed78dc12a9a288f561873eeb3f13d3dacc7f46018a2693c946a350"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/BeetleThrasherAttackProcedure.java",
+      "line": 56,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "BeetleThrasherAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/beetles/BeetleContent.java#attack",
+          "meaning": "归属者按Crasher/Thrasher共用类型的注册ID区分，先取消再检查实体CD。Crasher10%重击7END、距离<4、原9减甲.4；90%冲刺16END光环10/12、23END雾2。Thrasher70%三连7/9/11END、30%双连6/12与26END侧跳招架。保起手双声、每段扫击和全部动画，伤害配置按ATK倍率，击退折抗性。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "1dad81f69c84e792b5f9a688540a9837708924dc3b09e35d0a14909916cda31b"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/BeetleThrasherAttackProcedure.java",
+      "line": 79,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 30, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 30, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "30",
+        "1",
+        "false",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "BeetleThrasherAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/beetles/BeetleContent.java#attack",
+          "meaning": "归属者按Crasher/Thrasher共用类型的注册ID区分，先取消再检查实体CD。Crasher10%重击7END、距离<4、原9减甲.4；90%冲刺16END光环10/12、23END雾2。Thrasher70%三连7/9/11END、30%双连6/12与26END侧跳招架。保起手双声、每段扫击和全部动画，伤害配置按ATK倍率，击退折抗性。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "1dad81f69c84e792b5f9a688540a9837708924dc3b09e35d0a14909916cda31b"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/BeetleThrasherAttackProcedure.java",
+      "line": 119,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "BeetleThrasherAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/beetles/BeetleContent.java#attack",
+          "meaning": "归属者按Crasher/Thrasher共用类型的注册ID区分，先取消再检查实体CD。Crasher10%重击7END、距离<4、原9减甲.4；90%冲刺16END光环10/12、23END雾2。Thrasher70%三连7/9/11END、30%双连6/12与26END侧跳招架。保起手双声、每段扫击和全部动画，伤害配置按ATK倍率，击退折抗性。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "1dad81f69c84e792b5f9a688540a9837708924dc3b09e35d0a14909916cda31b"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/BeetleThrasherAttackProcedure.java",
+      "line": 142,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 45, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 45, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "45",
+        "1",
+        "false",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "BeetleThrasherAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/beetles/BeetleContent.java#attack",
+          "meaning": "归属者按Crasher/Thrasher共用类型的注册ID区分，先取消再检查实体CD。Crasher10%重击7END、距离<4、原9减甲.4；90%冲刺16END光环10/12、23END雾2。Thrasher70%三连7/9/11END、30%双连6/12与26END侧跳招架。保起手双声、每段扫击和全部动画，伤害配置按ATK倍率，击退折抗性。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "1dad81f69c84e792b5f9a688540a9837708924dc3b09e35d0a14909916cda31b"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/CavebloomerAttackProcedure.java",
+      "line": 81,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "CavebloomerAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/cavebloomer/CavebloomerContent.java#attack",
+          "meaning": "直接来源Angry且owner非空取消转四等概率技能；20发速射/八向弹环/半血双毒环/核爆/半血5只Dandy链均保。半血取health/maxHealth，55/55/90/40CD；原Mortar/Poison命中Boss的取消消弹在hurt覆写。动作、声音、核爆AAA、Tremors、格挡82耐久和10格AABB保留；召唤账本归属/CD/数量界限沿既有授权修正。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "a4a5ea464bce25c263d4f4a949f8b54dc0ec7a93f983f6ec763d3c96360531b0"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/CavebloomerAttackProcedure.java",
+      "line": 93,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 55, 0, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 55, 0, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "55",
+        "0",
+        "false",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "CavebloomerAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/cavebloomer/CavebloomerContent.java#attack",
+          "meaning": "直接来源Angry且owner非空取消转四等概率技能；20发速射/八向弹环/半血双毒环/核爆/半血5只Dandy链均保。半血取health/maxHealth，55/55/90/40CD；原Mortar/Poison命中Boss的取消消弹在hurt覆写。动作、声音、核爆AAA、Tremors、格挡82耐久和10格AABB保留；召唤账本归属/CD/数量界限沿既有授权修正。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "a4a5ea464bce25c263d4f4a949f8b54dc0ec7a93f983f6ec763d3c96360531b0"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/CavebloomerAttackProcedure.java",
+      "line": 139,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 55, 0, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 55, 0, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "55",
+        "0",
+        "false",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "CavebloomerAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/cavebloomer/CavebloomerContent.java#attack",
+          "meaning": "直接来源Angry且owner非空取消转四等概率技能；20发速射/八向弹环/半血双毒环/核爆/半血5只Dandy链均保。半血取health/maxHealth，55/55/90/40CD；原Mortar/Poison命中Boss的取消消弹在hurt覆写。动作、声音、核爆AAA、Tremors、格挡82耐久和10格AABB保留；召唤账本归属/CD/数量界限沿既有授权修正。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "a4a5ea464bce25c263d4f4a949f8b54dc0ec7a93f983f6ec763d3c96360531b0"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/CavebloomerAttackProcedure.java",
+      "line": 642,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 90, 0, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 90, 0, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "90",
+        "0",
+        "false",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "CavebloomerAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/cavebloomer/CavebloomerContent.java#attack",
+          "meaning": "直接来源Angry且owner非空取消转四等概率技能；20发速射/八向弹环/半血双毒环/核爆/半血5只Dandy链均保。半血取health/maxHealth，55/55/90/40CD；原Mortar/Poison命中Boss的取消消弹在hurt覆写。动作、声音、核爆AAA、Tremors、格挡82耐久和10格AABB保留；召唤账本归属/CD/数量界限沿既有授权修正。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "a4a5ea464bce25c263d4f4a949f8b54dc0ec7a93f983f6ec763d3c96360531b0"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/CavebloomerAttackProcedure.java",
+      "line": 725,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 40, 0, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 40, 0, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "40",
+        "0",
+        "false",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "CavebloomerAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/cavebloomer/CavebloomerContent.java#attack",
+          "meaning": "直接来源Angry且owner非空取消转四等概率技能；20发速射/八向弹环/半血双毒环/核爆/半血5只Dandy链均保。半血取health/maxHealth，55/55/90/40CD；原Mortar/Poison命中Boss的取消消弹在hurt覆写。动作、声音、核爆AAA、Tremors、格挡82耐久和10格AABB保留；召唤账本归属/CD/数量界限沿既有授权修正。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "a4a5ea464bce25c263d4f4a949f8b54dc0ec7a93f983f6ec763d3c96360531b0"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/DandyBloomerAttackProcedure.java",
+      "line": 65,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "DandyBloomerAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/cavebloomer/CavebloomerContent.java#attack",
+          "meaning": "直接来源Dandy且owner非空先取消，120CD与75移动锁，原受害者锚点primed1/3，20tick爆声和4EXPLOSION，施法者周围3AABB排Dandy/Boss/Item，盾扣1，否则原6爆伤+Slow220/1，最后移除。target错误动画改施法者并保真实volley，归属召唤账本独立寿命。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "e34396f293695075656da74d031bb7734b1acb990d96774a0ef9b24e0767330d"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/DandyBloomerAttackProcedure.java",
+      "line": 79,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 120, 0, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 120, 0, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "120",
+        "0",
+        "false",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "DandyBloomerAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/cavebloomer/CavebloomerContent.java#attack",
+          "meaning": "直接来源Dandy且owner非空先取消，120CD与75移动锁，原受害者锚点primed1/3，20tick爆声和4EXPLOSION，施法者周围3AABB排Dandy/Boss/Item，盾扣1，否则原6爆伤+Slow220/1，最后移除。target错误动画改施法者并保真实volley，归属召唤账本独立寿命。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "e34396f293695075656da74d031bb7734b1acb990d96774a0ef9b24e0767330d"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/DefectorMachinistOnEntityTickUpdateProcedure.java",
+      "line": 19,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [],
+      "historical_effect_specific_review": "122_overview_or_registry_reference_only",
+      "main123Disposition": "source_and_current_target_reviewed",
+      "main123Target": "entity/qo/DefectorMachinistEntity.java",
+      "main123TargetSha256": "a3b3172de88cbd0c5e0ab8f3abe0836d6cdfc33f8123dbedc4fdc69f9d6bf412",
+      "main123Meaning": "idleCooldown: server decrements, random<.005 then idlejunkyard2 and 120 hidden ticks; QoIdleCooldown persisted",
+      "sourceSha256": "a232d391710bf19d57b8ead95bf257f03007a0dc00569dfa68bab934787d8874"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/DefectorMachinistOnEntityTickUpdateProcedure.java",
+      "line": 22,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 120, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 120, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "120",
+        "1",
+        "false",
+        "false"
+      ],
+      "prior_matrix_evidence": [],
+      "historical_effect_specific_review": "122_overview_or_registry_reference_only",
+      "main123Disposition": "source_and_current_target_reviewed",
+      "main123Target": "entity/qo/DefectorMachinistEntity.java",
+      "main123TargetSha256": "a3b3172de88cbd0c5e0ab8f3abe0836d6cdfc33f8123dbedc4fdc69f9d6bf412",
+      "main123Meaning": "idleCooldown: server decrements, random<.005 then idlejunkyard2 and 120 hidden ticks; QoIdleCooldown persisted",
+      "sourceSha256": "a232d391710bf19d57b8ead95bf257f03007a0dc00569dfa68bab934787d8874"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/EffigyAttackProcedure.java",
+      "line": 53,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "EffigyAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/effigy/EffigyContent.java#attack",
+          "meaning": "归属Effigy先取消，40CD/25锁，attack1与受害者锚点grindstone1/1；19END扫击1/2，距离<=3，原8减甲.6无归属errant，目标按ATK倍率和有限非负值，任务保存坐标/归属，合法已提交尾段不被简删。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "351ae62f42071292ce962f6fdafadcfd5d5096b28eb477274e3aac3dff2b7fae"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/EffigyAttackProcedure.java",
+      "line": 67,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 40, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 40, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "40",
+        "1",
+        "false",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "EffigyAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/effigy/EffigyContent.java#attack",
+          "meaning": "归属Effigy先取消，40CD/25锁，attack1与受害者锚点grindstone1/1；19END扫击1/2，距离<=3，原8减甲.6无归属errant，目标按ATK倍率和有限非负值，任务保存坐标/归属，合法已提交尾段不被简删。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "351ae62f42071292ce962f6fdafadcfd5d5096b28eb477274e3aac3dff2b7fae"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ErrantAttackProcedure.java",
+      "line": 55,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "ErrantAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/sanctum/SanctumContent.java#attack",
+          "meaning": "两Errant真实类型共类按ID，先取消再CD；42%hold45CD/30锁/PARRYING20/1，28%dodge10CD/look*-2，30%attack50CD/30锁/12END距离<=3原10减甲.4与扫声。无owner伤源保不递归，值保存/卸载恢复/跨维防错目标。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "cc1298f67f5b8c11b2d46db3a5d3f8dc8f9c55d7428e190b1699bf1b3011bef4"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ErrantAttackProcedure.java",
+      "line": 74,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 45, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 45, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "45",
+        "1",
+        "false",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "ErrantAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/sanctum/SanctumContent.java#attack",
+          "meaning": "两Errant真实类型共类按ID，先取消再CD；42%hold45CD/30锁/PARRYING20/1，28%dodge10CD/look*-2，30%attack50CD/30锁/12END距离<=3原10减甲.4与扫声。无owner伤源保不递归，值保存/卸载恢复/跨维防错目标。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "cc1298f67f5b8c11b2d46db3a5d3f8dc8f9c55d7428e190b1699bf1b3011bef4"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ErrantAttackProcedure.java",
+      "line": 99,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 10, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 10, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "10",
+        "1",
+        "false",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "ErrantAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/sanctum/SanctumContent.java#attack",
+          "meaning": "两Errant真实类型共类按ID，先取消再CD；42%hold45CD/30锁/PARRYING20/1，28%dodge10CD/look*-2，30%attack50CD/30锁/12END距离<=3原10减甲.4与扫声。无owner伤源保不递归，值保存/卸载恢复/跨维防错目标。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "cc1298f67f5b8c11b2d46db3a5d3f8dc8f9c55d7428e190b1699bf1b3011bef4"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ErrantAttackProcedure.java",
+      "line": 120,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 50, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 50, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "50",
+        "1",
+        "false",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "ErrantAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/sanctum/SanctumContent.java#attack",
+          "meaning": "两Errant真实类型共类按ID，先取消再CD；42%hold45CD/30锁/PARRYING20/1，28%dodge10CD/look*-2，30%attack50CD/30锁/12END距离<=3原10减甲.4与扫声。无owner伤源保不递归，值保存/卸载恢复/跨维防错目标。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "cc1298f67f5b8c11b2d46db3a5d3f8dc8f9c55d7428e190b1699bf1b3011bef4"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ErrOnEntityTickUpdateProcedure.java",
+      "line": 24,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [],
+      "historical_effect_specific_review": "122_overview_or_registry_reference_only",
+      "main123Disposition": "source_and_current_target_reviewed",
+      "main123Target": "entity/sanctum/ErrFieldEntity.java",
+      "main123TargetSha256": "4709cc9a8c1e7e072124c3d095b8bdb8fa0fa3e2e57737ea43a769f89a7a3890",
+      "main123Meaning": "remainingTicks180; decrement and discard without returning before last point-AABB2 wither120/4 pulse",
+      "sourceSha256": "32ca278db9c577ed9f14ad4abbc2a1d4790dd285acae3cd96c5d05c9a3ad848d"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ErrOnInitialEntitySpawnProcedure.java",
+      "line": 24,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 180, 0, true, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 180, 0, true, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "180",
+        "0",
+        "true",
+        "false"
+      ],
+      "prior_matrix_evidence": [],
+      "historical_effect_specific_review": "122_overview_or_registry_reference_only",
+      "main123Disposition": "source_and_current_target_reviewed",
+      "main123Target": "entity/sanctum/ErrFieldEntity.java",
+      "main123TargetSha256": "4709cc9a8c1e7e072124c3d095b8bdb8fa0fa3e2e57737ea43a769f89a7a3890",
+      "main123Meaning": "finalize remaining180 and initialization ERR_EFFECT at eye offset; no visible cooldown particles",
+      "sourceSha256": "668d9513fcc2ca4c07e025445d42b066440e70a5ed306cd48a9757dc892fdc1a"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ForecastAttackProcedure.java",
+      "line": 51,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "ForecastAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/ForecastEntity.java#attack",
+          "meaning": "归属Forecast先取消，不以amount>0或免疫过滤技能；90CD先消费，attack2/受害者beacon1/3，原BlockPos生成Zap并随机yaw；真实doHurtTarget与事件进入同一技能，雷击仍无归属，警告载体承接完整伤害声画。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "71748b95e3a4f0cf55e0386c26c7d8714160aeed67e9bd1d91a5bebe89ff11cf"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ForecastAttackProcedure.java",
+      "line": 58,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 90, 0, true, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 90, 0, true, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "90",
+        "0",
+        "true",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "ForecastAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/ForecastEntity.java#attack",
+          "meaning": "归属Forecast先取消，不以amount>0或免疫过滤技能；90CD先消费，attack2/受害者beacon1/3，原BlockPos生成Zap并随机yaw；真实doHurtTarget与事件进入同一技能，雷击仍无归属，警告载体承接完整伤害声画。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "71748b95e3a4f0cf55e0386c26c7d8714160aeed67e9bd1d91a5bebe89ff11cf"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/FrostilyteAttackProcedure.java",
+      "line": 53,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "FrostilyteAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/hunters/HuntersContent.java#attack",
+          "meaning": "归属Frostilyte先取消再12CD，stray1/3+attack，20锁、11tick扫击1/2，距离<=1.5原6减甲.6的无owner errant；保存UUID/初始声音锚/维度。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "baab85dd799277bb95a5491ed88c79dbe8142e5f48d7244f20a3ce658ff80c38"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/FrostilyteAttackProcedure.java",
+      "line": 67,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 12, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 12, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "12",
+        "1",
+        "false",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "FrostilyteAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/hunters/HuntersContent.java#attack",
+          "meaning": "归属Frostilyte先取消再12CD，stray1/3+attack，20锁、11tick扫击1/2，距离<=1.5原6减甲.6的无owner errant；保存UUID/初始声音锚/维度。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "baab85dd799277bb95a5491ed88c79dbe8142e5f48d7244f20a3ce658ff80c38"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/FrostilyteGunnerAttackProcedure.java",
+      "line": 56,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "FrostilyteGunnerAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/sanctum/SanctumContent.java#attack",
+          "meaning": "原source为Gunner且source不是IceBullet（原冗余），目标归属Gunner；先取消60CD/29锁/attack/stray1/3。11END起每5tick三发无owner IceBullet，伤5/速1.25/散0/无KB/非暴击，逐发转头与hailfire1/1。独立任务保死亡后已提交有限尾段。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "984ba1838c1521178eeacc0201c0ec9f25c60c0879bc262b7a3dc5709a8ea727"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/FrostilyteGunnerAttackProcedure.java",
+      "line": 70,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 60, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 60, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "60",
+        "1",
+        "false",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "FrostilyteGunnerAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/sanctum/SanctumContent.java#attack",
+          "meaning": "原source为Gunner且source不是IceBullet（原冗余），目标归属Gunner；先取消60CD/29锁/attack/stray1/3。11END起每5tick三发无owner IceBullet，伤5/速1.25/散0/无KB/非暴击，逐发转头与hailfire1/1。独立任务保死亡后已提交有限尾段。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "984ba1838c1521178eeacc0201c0ec9f25c60c0879bc262b7a3dc5709a8ea727"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/FrostilyteSoldierAttackProcedure.java",
+      "line": 54,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "FrostilyteSoldierAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/ice/IceContent.java#attack",
+          "meaning": "kind0来源先取消44CD/29锁/stray与attack，11/16/22END三阶段：两次9减甲.6/.3 errant、<=2.5，夹PARRYING6/0及盾声，末磁弓/推进声和水平冲刺。独立有限载体保合法尾段，不把原同层22tick当嵌套延迟。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "a1755f45b171470a0eae7592f70fa56c65125facece51d5378071be2c224d1d1"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/FrostilyteSoldierAttackProcedure.java",
+      "line": 68,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 44, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 44, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "44",
+        "1",
+        "false",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "FrostilyteSoldierAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/ice/IceContent.java#attack",
+          "meaning": "kind0来源先取消44CD/29锁/stray与attack，11/16/22END三阶段：两次9减甲.6/.3 errant、<=2.5，夹PARRYING6/0及盾声，末磁弓/推进声和水平冲刺。独立有限载体保合法尾段，不把原同层22tick当嵌套延迟。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "a1755f45b171470a0eae7592f70fa56c65125facece51d5378071be2c224d1d1"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/HuntressAttackProcedure.java",
+      "line": 67,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "HuntressAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/huntress/HuntressContent.java#attack",
+          "meaning": "Boss归属先取消；<=3 rollback40CD倒退跳；远处50%triplehit40CD，10+2/17+2范围扫击；另分支dissa70CD/40锁、24重现传送/34冲击，完整动画/声/爆炸发射器。排自己与格挡者，ATK倍率减甲.6及KB抗性。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "93c74e26dfaab648eaf1602d0ddfe5d293523c2af67373b4f2f483a475d555b2"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/HuntressAttackProcedure.java",
+      "line": 75,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 40, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 40, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "40",
+        "1",
+        "false",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "HuntressAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/huntress/HuntressContent.java#attack",
+          "meaning": "Boss归属先取消；<=3 rollback40CD倒退跳；远处50%triplehit40CD，10+2/17+2范围扫击；另分支dissa70CD/40锁、24重现传送/34冲击，完整动画/声/爆炸发射器。排自己与格挡者，ATK倍率减甲.6及KB抗性。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "93c74e26dfaab648eaf1602d0ddfe5d293523c2af67373b4f2f483a475d555b2"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/HuntressAttackProcedure.java",
+      "line": 84,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 40, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 40, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "40",
+        "1",
+        "false",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "HuntressAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/huntress/HuntressContent.java#attack",
+          "meaning": "Boss归属先取消；<=3 rollback40CD倒退跳；远处50%triplehit40CD，10+2/17+2范围扫击；另分支dissa70CD/40锁、24重现传送/34冲击，完整动画/声/爆炸发射器。排自己与格挡者，ATK倍率减甲.6及KB抗性。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "93c74e26dfaab648eaf1602d0ddfe5d293523c2af67373b4f2f483a475d555b2"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/HuntressAttackProcedure.java",
+      "line": 156,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 70, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 70, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "70",
+        "1",
+        "false",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "HuntressAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/huntress/HuntressContent.java#attack",
+          "meaning": "Boss归属先取消；<=3 rollback40CD倒退跳；远处50%triplehit40CD，10+2/17+2范围扫击；另分支dissa70CD/40锁、24重现传送/34冲击，完整动画/声/爆炸发射器。排自己与格挡者，ATK倍率减甲.6及KB抗性。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "93c74e26dfaab648eaf1602d0ddfe5d293523c2af67373b4f2f483a475d555b2"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/IceBombPlayerFinishesUsingItemProcedure.java",
+      "line": 93,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 120, 0)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 120, 0))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "120",
+        "0"
+      ],
+      "prior_matrix_evidence": [],
+      "historical_effect_specific_review": "122_overview_or_registry_reference_only",
+      "main123Disposition": "source_and_current_target_reviewed",
+      "main123Target": "content/remainingcombat/CombatItemTaskEntity.java",
+      "main123TargetSha256": "52311ced41d24cfba3d709d7fb8aef2808fff37ed3c69b01bd99197ace8a87ac",
+      "main123Meaning": "20 SERVER END; point-AABB3 sorted cryo_weak; freeze600 + slow120/9 + cooldown120/0 visible; Spirit/Icidroburner consume RemainingCombatState",
+      "sourceSha256": "6bfade3b0209f48267cde177ff8bc19b386a07d3862fb4c6b82e2d59f6d7074a"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/IcidroburnerAttackProcedure.java",
+      "line": 57,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "IcidroburnerAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/icesquad/IceSquadContent.java#attack",
+          "meaning": "受害Player、来源对应堡垒，直接源排自身Flame/AltCryonic；先取消再CD。Burner>=7前冲4/CD20，Gunner<=10后冲4/CD45；否则140CD，Gunner真STUNNED60/1，10tick起瞄准转开火、10次机械声/17发两tick间隔弹，原参数与100秒燃烧保留。Burner受冰弹外部120CD，由RemainingCombatState判定，不能仅看本体CD。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "4c893108a1aefd10834acf3daa792aa5c568c58e504cbcfbea534bd24265e8c3"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/IcidroburnerAttackProcedure.java",
+      "line": 75,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 20, 1)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 20, 1))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "20",
+        "1"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "IcidroburnerAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/icesquad/IceSquadContent.java#attack",
+          "meaning": "受害Player、来源对应堡垒，直接源排自身Flame/AltCryonic；先取消再CD。Burner>=7前冲4/CD20，Gunner<=10后冲4/CD45；否则140CD，Gunner真STUNNED60/1，10tick起瞄准转开火、10次机械声/17发两tick间隔弹，原参数与100秒燃烧保留。Burner受冰弹外部120CD，由RemainingCombatState判定，不能仅看本体CD。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "4c893108a1aefd10834acf3daa792aa5c568c58e504cbcfbea534bd24265e8c3"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/IcidroburnerAttackProcedure.java",
+      "line": 80,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 140, 1)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 140, 1))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "140",
+        "1"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "IcidroburnerAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/icesquad/IceSquadContent.java#attack",
+          "meaning": "受害Player、来源对应堡垒，直接源排自身Flame/AltCryonic；先取消再CD。Burner>=7前冲4/CD20，Gunner<=10后冲4/CD45；否则140CD，Gunner真STUNNED60/1，10tick起瞄准转开火、10次机械声/17发两tick间隔弹，原参数与100秒燃烧保留。Burner受冰弹外部120CD，由RemainingCombatState判定，不能仅看本体CD。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "4c893108a1aefd10834acf3daa792aa5c568c58e504cbcfbea534bd24265e8c3"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/IcidrogunnerAttackProcedure.java",
+      "line": 58,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "IcidrogunnerAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/icesquad/IceSquadContent.java#attack",
+          "meaning": "受害Player、来源对应堡垒，直接源排自身Flame/AltCryonic；先取消再CD。Burner>=7前冲4/CD20，Gunner<=10后冲4/CD45；否则140CD，Gunner真STUNNED60/1，10tick起瞄准转开火、10次机械声/17发两tick间隔弹，原参数与100秒燃烧保留。Burner受冰弹外部120CD，由RemainingCombatState判定，不能仅看本体CD。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "05e195f97a3afedda50d7b5ffd05311e7cb49e09e47a5c95d6b6d4bc975370cd"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/IcidrogunnerAttackProcedure.java",
+      "line": 76,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 45, 1)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 45, 1))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "45",
+        "1"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "IcidrogunnerAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/icesquad/IceSquadContent.java#attack",
+          "meaning": "受害Player、来源对应堡垒，直接源排自身Flame/AltCryonic；先取消再CD。Burner>=7前冲4/CD20，Gunner<=10后冲4/CD45；否则140CD，Gunner真STUNNED60/1，10tick起瞄准转开火、10次机械声/17发两tick间隔弹，原参数与100秒燃烧保留。Burner受冰弹外部120CD，由RemainingCombatState判定，不能仅看本体CD。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "05e195f97a3afedda50d7b5ffd05311e7cb49e09e47a5c95d6b6d4bc975370cd"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/IcidrogunnerAttackProcedure.java",
+      "line": 84,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 140, 1)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 140, 1))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "140",
+        "1"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "IcidrogunnerAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/icesquad/IceSquadContent.java#attack",
+          "meaning": "受害Player、来源对应堡垒，直接源排自身Flame/AltCryonic；先取消再CD。Burner>=7前冲4/CD20，Gunner<=10后冲4/CD45；否则140CD，Gunner真STUNNED60/1，10tick起瞄准转开火、10次机械声/17发两tick间隔弹，原参数与100秒燃烧保留。Burner受冰弹外部120CD，由RemainingCombatState判定，不能仅看本体CD。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "05e195f97a3afedda50d7b5ffd05311e7cb49e09e47a5c95d6b6d4bc975370cd"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/IcidroneAttackProcedure.java",
+      "line": 55,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "IcidroneAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/ice/IceContent.java#attack",
+          "meaning": "kind2来源先取消再100CD/ready充能贴图/galvanitehurt .8/3，20tick恢复贴图转attack，hailfire并三发无owner弹伤5/速1.1/散2；不是三连延时发射。自漂移Slow与攻击CD分离，声画和持久化未简化。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "6a8a3e1735362a6ad14bbb965f56368cf22a5c406a29a6e2ffd386658ba666b6"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/IcidroneAttackProcedure.java",
+      "line": 73,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 100, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 100, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "100",
+        "1",
+        "false",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "IcidroneAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/ice/IceContent.java#attack",
+          "meaning": "kind2来源先取消再100CD/ready充能贴图/galvanitehurt .8/3，20tick恢复贴图转attack，hailfire并三发无owner弹伤5/速1.1/散2；不是三连延时发射。自漂移Slow与攻击CD分离，声画和持久化未简化。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "6a8a3e1735362a6ad14bbb965f56368cf22a5c406a29a6e2ffd386658ba666b6"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/KilolyteAttackProcedure.java",
+      "line": 60,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "KilolyteAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/sanctum/SanctumContent.java#attack",
+          "meaning": "两原订阅除类名外完全相同，SkeletitanAttack真实条件是Kilolyte。先取消且共享CD使原两订阅也只起手一次；30%ring35CD/45锁/22END两X、24两Z、26两对角、28另一对角共8Zap，70%27CD/30锁/17END<=3原13减甲.6。保两动画、双段声和TURQ_EXPLODE，不另造泰坦重复技能。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "e775919b0a8a51cdc426a9c0d89165ea18b7bafde47e47d70f63d60b8334aac2"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/KilolyteAttackProcedure.java",
+      "line": 70,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 35, 0, true, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 35, 0, true, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "35",
+        "0",
+        "true",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "KilolyteAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/sanctum/SanctumContent.java#attack",
+          "meaning": "两原订阅除类名外完全相同，SkeletitanAttack真实条件是Kilolyte。先取消且共享CD使原两订阅也只起手一次；30%ring35CD/45锁/22END两X、24两Z、26两对角、28另一对角共8Zap，70%27CD/30锁/17END<=3原13减甲.6。保两动画、双段声和TURQ_EXPLODE，不另造泰坦重复技能。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "e775919b0a8a51cdc426a9c0d89165ea18b7bafde47e47d70f63d60b8334aac2"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/KilolyteAttackProcedure.java",
+      "line": 173,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 27, 0, true, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 27, 0, true, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "27",
+        "0",
+        "true",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "KilolyteAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/sanctum/SanctumContent.java#attack",
+          "meaning": "两原订阅除类名外完全相同，SkeletitanAttack真实条件是Kilolyte。先取消且共享CD使原两订阅也只起手一次；30%ring35CD/45锁/22END两X、24两Z、26两对角、28另一对角共8Zap，70%27CD/30锁/17END<=3原13减甲.6。保两动画、双段声和TURQ_EXPLODE，不另造泰坦重复技能。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "e775919b0a8a51cdc426a9c0d89165ea18b7bafde47e47d70f63d60b8334aac2"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/MaidenAttackProcedure.java",
+      "line": 50,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "MaidenAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/maiden/MaidenContent.java#attack",
+          "meaning": "原仅无CD时取消；保canBeginAttack检查，50%attack1/attack2，90CD，44/56移动锁，9END真STUNNED28/45，29END八向单环或29/34/39三环；保八方向、每环shulker1/2、原尾弹差异与初始目标眼高。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "75c89dad95ce6a93a0fc817db134b9bf700974dcdeb64780a1b2b21d9fa73ee0"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/MaidenAttackProcedure.java",
+      "line": 60,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 90, 0, true, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 90, 0, true, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "90",
+        "0",
+        "true",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "MaidenAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/maiden/MaidenContent.java#attack",
+          "meaning": "原仅无CD时取消；保canBeginAttack检查，50%attack1/attack2，90CD，44/56移动锁，9END真STUNNED28/45，29END八向单环或29/34/39三环；保八方向、每环shulker1/2、原尾弹差异与初始目标眼高。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "75c89dad95ce6a93a0fc817db134b9bf700974dcdeb64780a1b2b21d9fa73ee0"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/MaidenAttackProcedure.java",
+      "line": 225,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 90, 0, true, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 90, 0, true, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "90",
+        "0",
+        "true",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "MaidenAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/maiden/MaidenContent.java#attack",
+          "meaning": "原仅无CD时取消；保canBeginAttack检查，50%attack1/attack2，90CD，44/56移动锁，9END真STUNNED28/45，29END八向单环或29/34/39三环；保八方向、每环shulker1/2、原尾弹差异与初始目标眼高。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "75c89dad95ce6a93a0fc817db134b9bf700974dcdeb64780a1b2b21d9fa73ee0"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ManglerAttackProcedure.java",
+      "line": 44,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "ManglerAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/mangler/ManglerContent.java#attack",
+          "meaning": "两来源共用实现按Summoned子类区分，先取消40CD/boost/lookXZ2,Y-.5，真Aura20等级3/2按ATK换算；自伤源仍无owner避免重入。召唤版生存截止独立于受伤硬直/技能CD，Herald成功受伤后CD/账本上限沿既有修正。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "ca46dd9f9c994e5a0aa1c61b9d462238bc437c1616253cbd3b87cd4005367785"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ManglerAttackProcedure.java",
+      "line": 55,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 40, 1, false, true)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 40, 1, false, true))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "40",
+        "1",
+        "false",
+        "true"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "ManglerAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/mangler/ManglerContent.java#attack",
+          "meaning": "两来源共用实现按Summoned子类区分，先取消40CD/boost/lookXZ2,Y-.5，真Aura20等级3/2按ATK换算；自伤源仍无owner避免重入。召唤版生存截止独立于受伤硬直/技能CD，Herald成功受伤后CD/账本上限沿既有修正。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "ca46dd9f9c994e5a0aa1c61b9d462238bc437c1616253cbd3b87cd4005367785"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ManglerEntityIsHurtProcedure.java",
+      "line": 34,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 60, 1, true, true)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 60, 1, true, true))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "60",
+        "1",
+        "true",
+        "true"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "117",
+          "source_class": "ManglerEntityIsHurtProcedure",
+          "status": "procedure_in_main_entity_assignment",
+          "file": "entity-callbacks-main-assignments117.json",
+          "qualification": "实体真实回调分配；仅分配记录不证明该效果调用参数已逐项复审"
+        }
+      ],
+      "historical_effect_specific_review": "116_117_callback_or_procedure_provenance_only",
+      "main123Disposition": "source_and_current_target_reviewed",
+      "main123Target": "entity/mangler/ManglerEntity.java",
+      "main123TargetSha256": "d36542a0ad4eede99465a99b733cac7d2e9499ce20d30f4e5ee8bc12884b4150",
+      "main123Meaning": "attackCooldown60, ambient visible white weight2; real slowness60/1; 60 END stun schedule and recoil per prior authorization; mixed color/frequency restored123",
+      "sourceSha256": "8fa9fb0f76caa73815b3d3bf491b543643a1ba56b0985b566b3872a733859b77"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ManglerTickChaseProcedure.java",
+      "line": 25,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [],
+      "historical_effect_specific_review": "122_overview_or_registry_reference_only",
+      "main123Disposition": "source_and_current_target_reviewed",
+      "main123Target": "entity/mangler/ManglerEntity.java",
+      "main123TargetSha256": "d36542a0ad4eede99465a99b733cac7d2e9499ce20d30f4e5ee8bc12884b4150",
+      "main123Meaning": "source has no callers/event bridge per mangler-herald-next-audit; not enabled, not a target omission",
+      "sourceSha256": "02bf69e6e078d0464e9e5ed34f7d61c889aae1978ed047215de648b1a9de4621"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/MonolithAttackProcedure.java",
+      "line": 53,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "MonolithAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/monolith/MonolithContent.java#attack",
+          "meaning": "归属Monolith先取消80CD/attack/原Slowness40等级1替为等效局部速度合成，受害者锚monolithambient1/5；12END命中<=6原6减甲.2并保后10tick阶段；任务有限持久化，非简单延迟闭包。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "b95ec66705a4156398e150c577825a6dac8c6a25e32472427756312de4401191"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/MonolithAttackProcedure.java",
+      "line": 59,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 80, 1, true, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 80, 1, true, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "80",
+        "1",
+        "true",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "MonolithAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/monolith/MonolithContent.java#attack",
+          "meaning": "归属Monolith先取消80CD/attack/原Slowness40等级1替为等效局部速度合成，受害者锚monolithambient1/5；12END命中<=6原6减甲.2并保后10tick阶段；任务有限持久化，非简单延迟闭包。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "b95ec66705a4156398e150c577825a6dac8c6a25e32472427756312de4401191"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/MoverOrbTickProcedure.java",
+      "line": 39,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [],
+      "historical_effect_specific_review": "122_overview_or_registry_reference_only",
+      "main123Disposition": "source_and_current_target_reviewed",
+      "main123Target": "entity/orb/OrbEntityBase.java",
+      "main123TargetSha256": "c55aa6b4b460a09452ac1f4689502ddaddd8c17c96fd8478df2e46ea051fc446",
+      "main123Meaning": "100 tick local grace, applies player test before final discard; center-AABB .5 + sorted distance restored123",
+      "sourceSha256": "da5123a9d3b687eb2f2b90b7d661260e8b030a625e1a4f102b8148e1f8ef492c"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/PillbudAttackProcedure.java",
+      "line": 64,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "PillbudAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/ambient/AmbientContent.java#incomingDamage",
+          "meaning": "仅受害Player且归属Pillbud先取消60CD，attack/10锁/primed，10冲刺XZ2/Y.4加双声，再12自删并终点2AABB爆伤8+完整PRISMATIC_BOOM；合法非Player普通攻击未额外吞掉；不换地形爆炸。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "67cb4207f6c2ea4d84fcce47e30fa5f5de1a5fdce489d9401eeb3f0ff01a8df3"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/PillbudAttackProcedure.java",
+      "line": 71,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 60, 1)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 60, 1))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "60",
+        "1"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "PillbudAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/ambient/AmbientContent.java#incomingDamage",
+          "meaning": "仅受害Player且归属Pillbud先取消60CD，attack/10锁/primed，10冲刺XZ2/Y.4加双声，再12自删并终点2AABB爆伤8+完整PRISMATIC_BOOM；合法非Player普通攻击未额外吞掉；不换地形爆炸。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "67cb4207f6c2ea4d84fcce47e30fa5f5de1a5fdce489d9401eeb3f0ff01a8df3"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/PondlerOnEntityTickUpdateProcedure.java",
+      "line": 30,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [],
+      "historical_effect_specific_review": "122_overview_or_registry_reference_only",
+      "main123Disposition": "source_and_current_target_reviewed",
+      "main123Target": "entity/PondlerEntity.java",
+      "main123TargetSha256": "642bd98601b2a9a80fe2d62d09552afcbff1cd107826d5ba80c078c61909ec5d",
+      "main123Meaning": "local jumpCooldown, AIR branch and round(80+random*220), hidden; persist clamp300",
+      "sourceSha256": "a94ea208ae7df3898c7bc772c418d94eadebb05b4fae8acc8da6d75cc27e46f0"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/PondlerOnEntityTickUpdateProcedure.java",
+      "line": 35,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), (int)Math.round(Mth.nextDouble((RandomSource)RandomSource.create(), (double)80.0, (double)300.0)), 0, true, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), (int)Math.round(Mth.nextDouble((RandomSource)RandomSource.create(), (double)80.0, (double)300.0)), 0, true, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "(int)Math.round(Mth.nextDouble((RandomSource)RandomSource.create(), (double)80.0, (double)300.0))",
+        "0",
+        "true",
+        "false"
+      ],
+      "prior_matrix_evidence": [],
+      "historical_effect_specific_review": "122_overview_or_registry_reference_only",
+      "main123Disposition": "source_and_current_target_reviewed",
+      "main123Target": "entity/PondlerEntity.java",
+      "main123TargetSha256": "642bd98601b2a9a80fe2d62d09552afcbff1cd107826d5ba80c078c61909ec5d",
+      "main123Meaning": "local jumpCooldown, AIR branch and round(80+random*220), hidden; persist clamp300",
+      "sourceSha256": "a94ea208ae7df3898c7bc772c418d94eadebb05b4fae8acc8da6d75cc27e46f0"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ProtoiDeltaAttackProcedure.java",
+      "line": 55,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "ProtoiDeltaAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/protoi/ProtoiContent.java#attack",
+          "meaning": "直接Delta且原owner非空取消100CD，原数学旋转和protoi_cry锚点保留；20END起8发每3tick、laser_fires与原弹参数，task值保存/有限完成，资源shoot实际clip映射按既有复核。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "5abcf09d47229e9f7f1b0257691d638f37325a333b3c3e59149e2437f229142e"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ProtoiDeltaAttackProcedure.java",
+      "line": 70,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 100, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 100, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "100",
+        "1",
+        "false",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "ProtoiDeltaAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/protoi/ProtoiContent.java#attack",
+          "meaning": "直接Delta且原owner非空取消100CD，原数学旋转和protoi_cry锚点保留；20END起8发每3tick、laser_fires与原弹参数，task值保存/有限完成，资源shoot实际clip映射按既有复核。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "5abcf09d47229e9f7f1b0257691d638f37325a333b3c3e59149e2437f229142e"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ProtoiEpsilonAttackProcedure.java",
+      "line": 55,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "ProtoiEpsilonAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/protoi/ProtoiContent.java#attack",
+          "meaning": "归属Epsilon取消100CD，20END真EpsilonBomb出生与blaze声，firework远声与Aura20/6，距14分界冲刺2.2/1.2或1/.7；原错误Icidrone ready分支不可达，不伪称是有效缺动作。独立有限task，全部原有效声画。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "67feb685c5ffc91b3ab7050986c82e1c438fdfaee6fe3169e728765f15935665"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ProtoiEpsilonAttackProcedure.java",
+      "line": 61,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 100, 0, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 100, 0, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "100",
+        "0",
+        "false",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "ProtoiEpsilonAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/protoi/ProtoiContent.java#attack",
+          "meaning": "归属Epsilon取消100CD，20END真EpsilonBomb出生与blaze声，firework远声与Aura20/6，距14分界冲刺2.2/1.2或1/.7；原错误Icidrone ready分支不可达，不伪称是有效缺动作。独立有限task，全部原有效声画。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "67feb685c5ffc91b3ab7050986c82e1c438fdfaee6fe3169e728765f15935665"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ProtoiSunbeamAttackProcedure.java",
+      "line": 55,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "ProtoiSunbeamAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/protoi/ProtoiContent.java#attack",
+          "meaning": "直接Sunbeam且原owner非空取消120CD，原数学旋转、attack、受害锚protoi_cry1/-1；28END朝目标眼睛发速度5/散0真实束弹伤20，cavebloomer_detonates .7/3。保伤害归属防递归与task到期幂等。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "e47e00ccb10321d8878eec6e1226dbbe24a85c217d2c16797a49526509ee7461"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ProtoiSunbeamAttackProcedure.java",
+      "line": 58,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 120, 0, true, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 120, 0, true, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "120",
+        "0",
+        "true",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "ProtoiSunbeamAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/protoi/ProtoiContent.java#attack",
+          "meaning": "直接Sunbeam且原owner非空取消120CD，原数学旋转、attack、受害锚protoi_cry1/-1；28END朝目标眼睛发速度5/散0真实束弹伤20，cavebloomer_detonates .7/3。保伤害归属防递归与task到期幂等。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "e47e00ccb10321d8878eec6e1226dbbe24a85c217d2c16797a49526509ee7461"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/RazoraptorAttackProcedure.java",
+      "line": 54,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "RazoraptorAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/gravers/GraverContent.java#attack",
+          "meaning": "归属Razoraptor先取消；30%hold30CD/30锁/招架15/1与盾声，70%attack30CD/20锁/10END<=3原5减甲.4和扫声；KB保方向并按既有配置折抗性。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "36201da998680487460e0795ce9a4623350c1e72f1eefa4565208c560fde272d"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/RazoraptorAttackProcedure.java",
+      "line": 69,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 30, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 30, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "30",
+        "1",
+        "false",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "RazoraptorAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/gravers/GraverContent.java#attack",
+          "meaning": "归属Razoraptor先取消；30%hold30CD/30锁/招架15/1与盾声，70%attack30CD/20锁/10END<=3原5减甲.4和扫声；KB保方向并按既有配置折抗性。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "36201da998680487460e0795ce9a4623350c1e72f1eefa4565208c560fde272d"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/RazoraptorAttackProcedure.java",
+      "line": 91,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 30, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 30, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "30",
+        "1",
+        "false",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "RazoraptorAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/gravers/GraverContent.java#attack",
+          "meaning": "归属Razoraptor先取消；30%hold30CD/30锁/招架15/1与盾声，70%attack30CD/20锁/10END<=3原5减甲.4和扫声；KB保方向并按既有配置折抗性。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "36201da998680487460e0795ce9a4623350c1e72f1eefa4565208c560fde272d"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/RibbonbladeAttackProcedure.java",
+      "line": 63,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "RibbonbladeAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/ribbonblade/RibbonbladeContent.java#attack",
+          "meaning": "归属先取消、20CD突进或Slowness窗口60CD嘲讽，保原teleportflash/portal声/attack，17END区域原8减甲.4且排自己/格挡，真受击充电与block分支另在Post。沿现有安全落点及内部状态修正，不新增每tick范围扫。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "bc811be7cd1157460e9dff78e1b605df3d5baedbbcb992f8f98cc16db12055a1"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/RibbonbladeAttackProcedure.java",
+      "line": 69,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 20, 0, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 20, 0, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "20",
+        "0",
+        "false",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "RibbonbladeAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/ribbonblade/RibbonbladeContent.java#attack",
+          "meaning": "归属先取消、20CD突进或Slowness窗口60CD嘲讽，保原teleportflash/portal声/attack，17END区域原8减甲.4且排自己/格挡，真受击充电与block分支另在Post。沿现有安全落点及内部状态修正，不新增每tick范围扫。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "bc811be7cd1157460e9dff78e1b605df3d5baedbbcb992f8f98cc16db12055a1"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/RibbonbladeAttackProcedure.java",
+      "line": 129,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 60, 0, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 60, 0, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "60",
+        "0",
+        "false",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "RibbonbladeAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/ribbonblade/RibbonbladeContent.java#attack",
+          "meaning": "归属先取消、20CD突进或Slowness窗口60CD嘲讽，保原teleportflash/portal声/attack，17END区域原8减甲.4且排自己/格挡，真受击充电与block分支另在Post。沿现有安全落点及内部状态修正，不新增每tick范围扫。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "bc811be7cd1157460e9dff78e1b605df3d5baedbbcb992f8f98cc16db12055a1"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/RibbonbladeGalvaniteEntityIsHurtProcedure.java",
+      "line": 50,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 40, 0, false, true)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 40, 0, false, true))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "40",
+        "0",
+        "false",
+        "true"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "117",
+          "source_class": "RibbonbladeGalvaniteEntityIsHurtProcedure",
+          "status": "procedure_in_main_entity_assignment",
+          "file": "entity-callbacks-main-assignments117.json",
+          "qualification": "实体真实回调分配；仅分配记录不证明该效果调用参数已逐项复审"
+        }
+      ],
+      "historical_effect_specific_review": "116_117_callback_or_procedure_provenance_only",
+      "main123Disposition": "source_and_current_target_reviewed",
+      "main123Target": "entity/ribbonblade/RibbonbladeGalvaniteEntity.java",
+      "main123TargetSha256": "d522949ec2aaceb4a64c78b8bc6e696103816cf3aba292c4aa32a0f1f2382832",
+      "main123Meaning": "reactToHit electrified: regen40/5, configurable block cooldown default40, visible white, block and original sounds; own cooldown saved",
+      "sourceSha256": "11f7826ec7c013f5dbb9cdbcae70ab228e8c94a6752347c38062d2104735479c"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/RippleAttackProcedure.java",
+      "line": 63,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "RippleAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/sanctum/SanctumContent.java#attack",
+          "meaning": "两Ripple先取消180CD/40锁/attack/galvanitehurt，29END磁弓声后存活且无Electrified/Weakness/Infected时，portal声、4格射线x/z与Y+4真ERR，初始目标位置3.5AABB抬玩家.5折抗性；失败死亡声和5POOF。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "5e57018480f577a25583bd64f6ef9b4c902f1258936a5fa74ce162bdee254016"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/RippleAttackProcedure.java",
+      "line": 83,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 180, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 180, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "180",
+        "1",
+        "false",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "RippleAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/sanctum/SanctumContent.java#attack",
+          "meaning": "两Ripple先取消180CD/40锁/attack/galvanitehurt，29END磁弓声后存活且无Electrified/Weakness/Infected时，portal声、4格射线x/z与Y+4真ERR，初始目标位置3.5AABB抬玩家.5折抗性；失败死亡声和5POOF。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "5e57018480f577a25583bd64f6ef9b4c902f1258936a5fa74ce162bdee254016"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SiibolAttackProcedure.java",
+      "line": 64,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "SiibolAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/snobol/SnobolContent.java#incomingDamage",
+          "meaning": "非Siibol受害者Living且归属Siibol先取消50CD/20锁/rabbit声；20后固定原锚cure1/3、35TOXIC_BUBBLE，2.75AABB先核Living存在，再排Item/Siibol/Antitoxin/character目标，毒60/3与无ownerDROWN1。character检查由原误读初始目标修为当前遍历对象沿既有修正。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "454f8e7d33a0e0a0e81421bd21b72f590a1ded8a91a2ad9a94d961a9c543031f"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SiibolAttackProcedure.java",
+      "line": 75,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 50, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 50, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "50",
+        "1",
+        "false",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "SiibolAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/snobol/SnobolContent.java#incomingDamage",
+          "meaning": "非Siibol受害者Living且归属Siibol先取消50CD/20锁/rabbit声；20后固定原锚cure1/3、35TOXIC_BUBBLE，2.75AABB先核Living存在，再排Item/Siibol/Antitoxin/character目标，毒60/3与无ownerDROWN1。character检查由原误读初始目标修为当前遍历对象沿既有修正。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "454f8e7d33a0e0a0e81421bd21b72f590a1ded8a91a2ad9a94d961a9c543031f"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SkeletitanAttackProcedure.java",
+      "line": 60,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "SkeletitanAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/sanctum/SanctumContent.java#attack",
+          "meaning": "两原订阅除类名外完全相同，SkeletitanAttack真实条件是Kilolyte。先取消且共享CD使原两订阅也只起手一次；30%ring35CD/45锁/22END两X、24两Z、26两对角、28另一对角共8Zap，70%27CD/30锁/17END<=3原13减甲.6。保两动画、双段声和TURQ_EXPLODE，不另造泰坦重复技能。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "8eaf3a53012230e72714d7b207d180e43a671e9e256d23095b98747e62a5db45"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SkeletitanAttackProcedure.java",
+      "line": 70,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 35, 0, true, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 35, 0, true, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "35",
+        "0",
+        "true",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "SkeletitanAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/sanctum/SanctumContent.java#attack",
+          "meaning": "两原订阅除类名外完全相同，SkeletitanAttack真实条件是Kilolyte。先取消且共享CD使原两订阅也只起手一次；30%ring35CD/45锁/22END两X、24两Z、26两对角、28另一对角共8Zap，70%27CD/30锁/17END<=3原13减甲.6。保两动画、双段声和TURQ_EXPLODE，不另造泰坦重复技能。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "8eaf3a53012230e72714d7b207d180e43a671e9e256d23095b98747e62a5db45"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SkeletitanAttackProcedure.java",
+      "line": 173,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 27, 0, true, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 27, 0, true, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "27",
+        "0",
+        "true",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "SkeletitanAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/sanctum/SanctumContent.java#attack",
+          "meaning": "两原订阅除类名外完全相同，SkeletitanAttack真实条件是Kilolyte。先取消且共享CD使原两订阅也只起手一次；30%ring35CD/45锁/22END两X、24两Z、26两对角、28另一对角共8Zap，70%27CD/30锁/17END<=3原13减甲.6。保两动画、双段声和TURQ_EXPLODE，不另造泰坦重复技能。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "8eaf3a53012230e72714d7b207d180e43a671e9e256d23095b98747e62a5db45"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SootleAttackProcedure.java",
+      "line": 54,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "SootleAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/sootle/SootleContent.java#attackAttempt",
+          "meaning": "归属Sootle先取消；30%attack30CD/18锁/7tick<=2原4减甲.4普通GENERIC，70%attack2 40CD/18锁/8tick<=3原3减甲.4 bypass，再2tick尾扫声；完整源声音/动作及内部CD，不吞合法二段。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "e09baf71970c908c3ad3a142c16cfc83f7941e108169c63370d0cc8f537e5f28"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SootleAttackProcedure.java",
+      "line": 69,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 30, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 30, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "30",
+        "1",
+        "false",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "SootleAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/sootle/SootleContent.java#attackAttempt",
+          "meaning": "归属Sootle先取消；30%attack30CD/18锁/7tick<=2原4减甲.4普通GENERIC，70%attack2 40CD/18锁/8tick<=3原3减甲.4 bypass，再2tick尾扫声；完整源声音/动作及内部CD，不吞合法二段。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "e09baf71970c908c3ad3a142c16cfc83f7941e108169c63370d0cc8f537e5f28"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SootleAttackProcedure.java",
+      "line": 110,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 40, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 40, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "40",
+        "1",
+        "false",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "SootleAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/sootle/SootleContent.java#attackAttempt",
+          "meaning": "归属Sootle先取消；30%attack30CD/18锁/7tick<=2原4减甲.4普通GENERIC，70%attack2 40CD/18锁/8tick<=3原3减甲.4 bypass，再2tick尾扫声；完整源声音/动作及内部CD，不吞合法二段。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "e09baf71970c908c3ad3a142c16cfc83f7941e108169c63370d0cc8f537e5f28"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SootlingAttackProcedure.java",
+      "line": 51,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "SootlingAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/ambient/AmbientContent.java#incomingDamage",
+          "meaning": "归属Sootling先取消80CD/attack；20ticklookXZ2/Y-.5，范围<=2时20..38每2tick共10次无owner bypass伤1，真实ATK/3；UUID/维度/动画恢复及死亡清理。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "1c3f7f0f0d986f98ac24a58691708731c96f075298d0a02aca2f8699dd00bfaa"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SootlingAttackProcedure.java",
+      "line": 55,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 80, 1, false, true)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 80, 1, false, true))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "80",
+        "1",
+        "false",
+        "true"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "SootlingAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/ambient/AmbientContent.java#incomingDamage",
+          "meaning": "归属Sootling先取消80CD/attack；20ticklookXZ2/Y-.5，范围<=2时20..38每2tick共10次无owner bypass伤1，真实ATK/3；UUID/维度/动画恢复及死亡清理。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "1c3f7f0f0d986f98ac24a58691708731c96f075298d0a02aca2f8699dd00bfaa"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SopelAttackProcedure.java",
+      "line": 53,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "SopelAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/sopel/SopelEntityContent.java#attack",
+          "meaning": "直接Sopel且owner非空取消；CD属于owner，未读selector不造新技能，dir0..3均匀，magnetcrossbowfire1/3、四向推移/三向owner传送、45CD；原无有效攻击动画与生命伤害。推移默认.6并折击退抗性，非Sopel owner也由真实EntityTick入口递减并支持clear。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "55f002356dbcaa2eec6a1255abc8efde6c3573fa10b67be96b58bf6f9964e382"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SopelAttackProcedure.java",
+      "line": 93,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 45, 0, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 45, 0, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "45",
+        "0",
+        "false",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "SopelAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/sopel/SopelEntityContent.java#attack",
+          "meaning": "直接Sopel且owner非空取消；CD属于owner，未读selector不造新技能，dir0..3均匀，magnetcrossbowfire1/3、四向推移/三向owner传送、45CD；原无有效攻击动画与生命伤害。推移默认.6并折击退抗性，非Sopel owner也由真实EntityTick入口递减并支持clear。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "55f002356dbcaa2eec6a1255abc8efde6c3573fa10b67be96b58bf6f9964e382"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SpectreAttackProcedure.java",
+      "line": 55,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "SpectreAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/legacy/LegacyContent.java#attack",
+          "meaning": "归属Spectre先取消50CD/20锁、受害者shulker1/2、无ownerWhistlerNote伤5/速.3/仰角+.1/散0/无KB；原对受害者误播attack已按既有修复给施法者，实际idle/attack完整。直接Whistler排除只保护异常有owner来源，正常原无owner链不变。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "58940b4e00237fc32d7c02421934ab97931f0fd13bc7002bc1bc10c70e04aaf3"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SpectreAttackProcedure.java",
+      "line": 67,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 50, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 50, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "50",
+        "1",
+        "false",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "SpectreAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/legacy/LegacyContent.java#attack",
+          "meaning": "归属Spectre先取消50CD/20锁、受害者shulker1/2、无ownerWhistlerNote伤5/速.3/仰角+.1/散0/无KB；原对受害者误播attack已按既有修复给施法者，实际idle/attack完整。直接Whistler排除只保护异常有owner来源，正常原无owner链不变。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "58940b4e00237fc32d7c02421934ab97931f0fd13bc7002bc1bc10c70e04aaf3"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SpiritAttackProcedure.java",
+      "line": 52,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "SpiritAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/gaze/GazeContent.java#attack",
+          "meaning": "仅受害Player且归属Spirit取消40CD/look速度4/propulsion声/真Aura20等级3；原无ownerAura避免回入，真实ATK倍率；外部冰弹120CD在beginAttack接RemainingCombatState，保可见原冷却粒子。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "7bb82e545d7733d3e01e9f73f2a205cd2abff169408efa35e00c727207db7e1d"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SpiritAttackProcedure.java",
+      "line": 68,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 40, 1)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 40, 1))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "40",
+        "1"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "SpiritAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/gaze/GazeContent.java#attack",
+          "meaning": "仅受害Player且归属Spirit取消40CD/look速度4/propulsion声/真Aura20等级3；原无ownerAura避免回入，真实ATK倍率；外部冰弹120CD在beginAttack接RemainingCombatState，保可见原冷却粒子。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "7bb82e545d7733d3e01e9f73f2a205cd2abff169408efa35e00c727207db7e1d"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/StopperOrbOnEntityTickUpdateProcedure.java",
+      "line": 40,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "117",
+          "source_class": "StopperOrbOnEntityTickUpdateProcedure",
+          "status": "procedure_in_main_entity_assignment",
+          "file": "entity-callbacks-main-assignments117.json",
+          "qualification": "实体真实回调分配；仅分配记录不证明该效果调用参数已逐项复审"
+        }
+      ],
+      "historical_effect_specific_review": "116_117_callback_or_procedure_provenance_only",
+      "main123Disposition": "source_and_current_target_reviewed",
+      "main123Target": "entity/orb/OrbEntityBase.java",
+      "main123TargetSha256": "c55aa6b4b460a09452ac1f4689502ddaddd8c17c96fd8478df2e46ea051fc446",
+      "main123Meaning": "same 100-tick grace; player shift condition retained by subclass, center-AABB .5 sorted restored123",
+      "sourceSha256": "28b5dac301ff8b5d820f40ebe0e80c74f7f7feb84e0e51f1e611acd076924c14"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/StopperOrbOnInitialEntitySpawnProcedure.java",
+      "line": 19,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 100, 0, true, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 100, 0, true, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "100",
+        "0",
+        "true",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "117",
+          "source_class": "StopperOrbOnInitialEntitySpawnProcedure",
+          "status": "procedure_in_main_entity_assignment",
+          "file": "entity-callbacks-main-assignments117.json",
+          "qualification": "实体真实回调分配；仅分配记录不证明该效果调用参数已逐项复审"
+        }
+      ],
+      "historical_effect_specific_review": "116_117_callback_or_procedure_provenance_only",
+      "main123Disposition": "source_and_current_target_reviewed",
+      "main123Target": "entity/orb/OrbEntityBase.java",
+      "main123TargetSha256": "c55aa6b4b460a09452ac1f4689502ddaddd8c17c96fd8478df2e46ea051fc446",
+      "main123Meaning": "finalize resets grace100; original hidden ambient cooldown; local save OrbGraceTicks",
+      "sourceSha256": "2e258aa948a3b34e99e0d7eba39bdf0ba426339170d309cf697417359288856b"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SummonedManglerAttackProcedure.java",
+      "line": 44,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "SummonedManglerAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/mangler/ManglerContent.java#attack",
+          "meaning": "两来源共用实现按Summoned子类区分，先取消40CD/boost/lookXZ2,Y-.5，真Aura20等级3/2按ATK换算；自伤源仍无owner避免重入。召唤版生存截止独立于受伤硬直/技能CD，Herald成功受伤后CD/账本上限沿既有修正。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "ea5f32f9ef1ac054c522e60d088ed2dbd15430f6f55606e45aaf3eb3a8cc0069"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SummonedManglerAttackProcedure.java",
+      "line": 55,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 40, 1, false, true)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 40, 1, false, true))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "40",
+        "1",
+        "false",
+        "true"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "SummonedManglerAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/mangler/ManglerContent.java#attack",
+          "meaning": "两来源共用实现按Summoned子类区分，先取消40CD/boost/lookXZ2,Y-.5，真Aura20等级3/2按ATK换算；自伤源仍无owner避免重入。召唤版生存截止独立于受伤硬直/技能CD，Herald成功受伤后CD/账本上限沿既有修正。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "ea5f32f9ef1ac054c522e60d088ed2dbd15430f6f55606e45aaf3eb3a8cc0069"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SummonedManglerOnEntityTickUpdateProcedure.java",
+      "line": 21,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "117",
+          "source_class": "SummonedManglerOnEntityTickUpdateProcedure",
+          "status": "procedure_in_main_entity_assignment",
+          "file": "entity-callbacks-main-assignments117.json",
+          "qualification": "实体真实回调分配；仅分配记录不证明该效果调用参数已逐项复审"
+        }
+      ],
+      "historical_effect_specific_review": "116_117_callback_or_procedure_provenance_only",
+      "main123Disposition": "source_and_current_target_reviewed",
+      "main123Target": "entity/mangler/SummonedManglerEntity.java",
+      "main123TargetSha256": "1b22171569589baa227904b8a6ee6ca1ed8b0aba7e468ed3d9f7a07156d03486",
+      "main123Meaning": "expiresAt independent320 lifetime; expires with5 POOF then discard; saved; splitting attack cooldown is prior authorized reachable-boost repair",
+      "sourceSha256": "5ad180f01741069e7f350a2acd696859ce1fdbf5c9fe6d1356176e4c24c74785"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SummonedManglerOnInitialEntitySpawnProcedure.java",
+      "line": 19,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 320, 0, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 320, 0, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "320",
+        "0",
+        "false",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "117",
+          "source_class": "SummonedManglerOnInitialEntitySpawnProcedure",
+          "status": "procedure_in_main_entity_assignment",
+          "file": "entity-callbacks-main-assignments117.json",
+          "qualification": "实体真实回调分配；仅分配记录不证明该效果调用参数已逐项复审"
+        }
+      ],
+      "historical_effect_specific_review": "116_117_callback_or_procedure_provenance_only",
+      "main123Disposition": "source_and_current_target_reviewed",
+      "main123Target": "entity/mangler/SummonedManglerEntity.java",
+      "main123TargetSha256": "1b22171569589baa227904b8a6ee6ca1ed8b0aba7e468ed3d9f7a07156d03486",
+      "main123Meaning": "default lifetime320 from config; separate boost40; prior authorized fix does not preserve original uncastable-boost bug",
+      "sourceSha256": "0496ecac239210fc2555a3fc8a692cd9acb6beca5049bd0eae4007e61dcddd20"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/TeslaReedAttackProcedure.java",
+      "line": 54,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "TeslaReedAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/teslareed/TeslaReedContent.java#attack",
+          "meaning": "归属Tesla先取消80CD/CONDUIT1/3，13END原目标位置4AABB逐Monster状态120电/90缓4/90弱1，每目标保4次隔2tick蜡声；原误给初始受害者改正确迭代者沿既有修复，原不存在attack资源改真实shoot，非删有效动画。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "ab2de720e894287ba1a905418448f840200c112e997f7570ad81652b525e2707"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/TeslaReedAttackProcedure.java",
+      "line": 68,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 80, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 80, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "80",
+        "1",
+        "false",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "TeslaReedAttackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/teslareed/TeslaReedContent.java#attack",
+          "meaning": "归属Tesla先取消80CD/CONDUIT1/3，13END原目标位置4AABB逐Monster状态120电/90缓4/90弱1，每目标保4次隔2tick蜡声；原误给初始受害者改正确迭代者沿既有修复，原不存在attack资源改真实shoot，非删有效动画。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "ab2de720e894287ba1a905418448f840200c112e997f7570ad81652b525e2707"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/TestmobattackProcedure.java",
+      "line": 60,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "TestmobattackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/titans/TitanContent.java#attack",
+          "meaning": "真实业务不是测试占位：归属类型skeletitan标签，50CD/20锁/bigswing1，20ENDbigswing2、30CAMPFIRE_COSY_SMOKE、目标距起手锚<=1.7原7errant；Mantle点燃5秒+18火粒，三原泰坦按kind配置倍率保全。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "4b3b1ec59d0f2b6c712e64fdc7b4bb2a9c691b0eac0bd0bd6fa8f0f5e574b750"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/TestmobattackProcedure.java",
+      "line": 80,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 50, 0, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 50, 0, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "50",
+        "0",
+        "false",
+        "false"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "TestmobattackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/titans/TitanContent.java#attack",
+          "meaning": "真实业务不是测试占位：归属类型skeletitan标签，50CD/20锁/bigswing1，20ENDbigswing2、30CAMPFIRE_COSY_SMOKE、目标距起手锚<=1.7原7errant；Mantle点燃5秒+18火粒，三原泰坦按kind配置倍率保全。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "4b3b1ec59d0f2b6c712e64fdc7b4bb2a9c691b0eac0bd0bd6fa8f0f5e574b750"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/WillogradeRightClickedOnEntityProcedure.java",
+      "line": 49,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "117",
+          "source_class": "WillogradeRightClickedOnEntityProcedure",
+          "status": "procedure_in_main_entity_assignment",
+          "file": "entity-callbacks-main-assignments117.json",
+          "qualification": "实体真实回调分配；仅分配记录不证明该效果调用参数已逐项复审"
+        }
+      ],
+      "historical_effect_specific_review": "116_117_callback_or_procedure_provenance_only",
+      "main123Disposition": "source_and_current_target_reviewed",
+      "main123Target": "entity/fauna/WillogradeEntity.java",
+      "main123TargetSha256": "2a9ffa8d3f24146d2eaaec03828235e461066f35f5bf04c4c496a4cc5abe3a08",
+      "main123Meaning": "spice + cooldown==0 + success50% sets feedCooldown90; saved, decremented, visible white legacy amp1 weight2 restored123",
+      "sourceSha256": "0141490524141c93405471b38bd326c3bda7be9ac46929d72704e42f0faa9830"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/WillogradeRightClickedOnEntityProcedure.java",
+      "line": 67,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 90, 1)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 90, 1))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "90",
+        "1"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "117",
+          "source_class": "WillogradeRightClickedOnEntityProcedure",
+          "status": "procedure_in_main_entity_assignment",
+          "file": "entity-callbacks-main-assignments117.json",
+          "qualification": "实体真实回调分配；仅分配记录不证明该效果调用参数已逐项复审"
+        }
+      ],
+      "historical_effect_specific_review": "116_117_callback_or_procedure_provenance_only",
+      "main123Disposition": "source_and_current_target_reviewed",
+      "main123Target": "entity/fauna/WillogradeEntity.java",
+      "main123TargetSha256": "2a9ffa8d3f24146d2eaaec03828235e461066f35f5bf04c4c496a4cc5abe3a08",
+      "main123Meaning": "spice + cooldown==0 + success50% sets feedCooldown90; saved, decremented, visible white legacy amp1 weight2 restored123",
+      "sourceSha256": "0141490524141c93405471b38bd326c3bda7be9ac46929d72704e42f0faa9830"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ZerkaltattackProcedure.java",
+      "line": 51,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "ZerkaltattackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/ice/IceContent.java#attack",
+          "meaning": "kind3无CD时不取消基础伤，32CD；20%4tick本体锁/目标Slow25等级5，10tick竖直击飞折抗性+原4GENERIC_KILL/双声/attack2；80%attack+盾破声。已有CD则取消：attackAttempt返回k!=3保首次基础伤，冷却提前return true。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "d650b3d5af14c13c569fa9122b4b60e3c734ba82c31dbed02c345d3c55722a8f"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ZerkaltattackProcedure.java",
+      "line": 100,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 32, 0, true, true)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 32, 0, true, true))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "32",
+        "0",
+        "true",
+        "true"
+      ],
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "ZerkaltattackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/ice/IceContent.java#attack",
+          "meaning": "kind3无CD时不取消基础伤，32CD；20%4tick本体锁/目标Slow25等级5，10tick竖直击飞折抗性+原4GENERIC_KILL/双声/attack2；80%attack+盾破声。已有CD则取消：attackAttempt返回k!=3保首次基础伤，冷却提前return true。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "d650b3d5af14c13c569fa9122b4b60e3c734ba82c31dbed02c345d3c55722a8f"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ZerkaltattackProcedure.java",
+      "line": 102,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())",
+      "prior_matrix_evidence": [
+        {
+          "matrix": "114",
+          "source_class": "ZerkaltattackProcedure",
+          "lane": "A",
+          "status": "source_and_target_reviewed",
+          "entry": "entity/ice/IceContent.java#attack",
+          "meaning": "kind3无CD时不取消基础伤，32CD；20%4tick本体锁/目标Slow25等级5，10tick竖直击飞折抗性+原4GENERIC_KILL/双声/attack2；80%attack+盾破声。已有CD则取消：attackAttempt返回k!=3保首次基础伤，冷却提前return true。",
+          "file": "attack-events-a-mapping114.json"
+        }
+      ],
+      "historical_effect_specific_review": "114_source_and_target_reviewed",
+      "main123Disposition": "inherited_114_procedure_semantic_review",
+      "qualification": "Historical procedure-level semantic review and current target hash; this row does not invent a new runtime/parameter test.",
+      "sourceSha256": "d650b3d5af14c13c569fa9122b4b60e3c734ba82c31dbed02c345d3c55722a8f"
+    }
+  ],
+  "productionFiles": [
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\fauna\\WillogradeEntity.java",
+      "sha256": "2a9ffa8d3f24146d2eaaec03828235e461066f35f5bf04c4c496a4cc5abe3a08"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\mangler\\ManglerEntity.java",
+      "sha256": "d36542a0ad4eede99465a99b733cac7d2e9499ce20d30f4e5ee8bc12884b4150"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\mangler\\HeraldEntity.java",
+      "sha256": "f6f8cd68e6a609305cef463bd02722e1e93a80dae40286dc0be46930bed4f2e5"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\orb\\OrbEntityBase.java",
+      "sha256": "c55aa6b4b460a09452ac1f4689502ddaddd8c17c96fd8478df2e46ea051fc446"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\status\\LegacyEffectParticles.java",
+      "sha256": "62c3296d5d2fd5667271661b103a90ada3c5c555c8b1e1fec36ed88b85577b4c"
+    }
+  ],
+  "staticChecks": {
+    "heraldFinalizer": true,
+    "willogradeLegacyParticles": true,
+    "manglerLegacyParticles": true,
+    "originalSourceAnchors": true,
+    "utf8NoJavaComments": true
+  },
+  "runtimeTested": false,
+  "buildValidated": false
+}

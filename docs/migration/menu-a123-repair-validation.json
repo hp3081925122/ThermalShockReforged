@@ -1,0 +1,81 @@
+{
+  "baseline": "33d3bc65c081427be13fc546c066ea725a5d5248",
+  "exact_allowed_diff": {
+    "baseline": "33d3bc65c081427be13fc546c066ea725a5d5248",
+    "target_file": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\labmachinist\\LabMenu.java",
+    "diff_sha256": "6960493aeafa1ae0e0cb583e4d5a38de5d88c4399141ea81b081f7db9b688d2d",
+    "exact_expected_changed_lines": [
+      "-        else if (index < offset + 27) { if (!moveItemStackTo(stack, offset + 27, offset + 36, false)) return ItemStack.EMPTY; }",
+      "+        else if (index < offset + 27) { if (!moveItemStackTo(stack, offset + 27, offset + 36, true)) return ItemStack.EMPTY; }",
+      "-        if (stack.getCount() == original.getCount()) return ItemStack.EMPTY; slot.onTake(player, stack); return original;",
+      "+        if (stack.getCount() == original.getCount()) return ItemStack.EMPTY;",
+      "+        slot.onTake(player, stack);",
+      "+        ThermalShockReforged.LOGGER.debug(\"Lab quick move committed: player={}, page={}, sourceSlot={}, playerSlotOffset={}\", player.getUUID(), page.id, index, offset);",
+      "+        return original;"
+    ],
+    "actual_changed_lines": [
+      "-        else if (index < offset + 27) { if (!moveItemStackTo(stack, offset + 27, offset + 36, false)) return ItemStack.EMPTY; }",
+      "+        else if (index < offset + 27) { if (!moveItemStackTo(stack, offset + 27, offset + 36, true)) return ItemStack.EMPTY; }",
+      "-        if (stack.getCount() == original.getCount()) return ItemStack.EMPTY; slot.onTake(player, stack); return original;",
+      "+        if (stack.getCount() == original.getCount()) return ItemStack.EMPTY;",
+      "+        slot.onTake(player, stack);",
+      "+        ThermalShockReforged.LOGGER.debug(\"Lab quick move committed: player={}, page={}, sourceSlot={}, playerSlotOffset={}\", player.getUUID(), page.id, index, offset);",
+      "+        return original;"
+    ],
+    "exact_allowlist_match": true,
+    "diff": "diff --git a/src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabMenu.java b/src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabMenu.java\nindex 25ba807..2d7009c 100644\n--- a/src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabMenu.java\n+++ b/src/main/java/com/hp/thermalshockreforged/entity/labmachinist/LabMenu.java\n@@ -82 +82 @@ public final class LabMenu extends AbstractContainerMenu {\n-        else if (index < offset + 27) { if (!moveItemStackTo(stack, offset + 27, offset + 36, false)) return ItemStack.EMPTY; }\n+        else if (index < offset + 27) { if (!moveItemStackTo(stack, offset + 27, offset + 36, true)) return ItemStack.EMPTY; }\n@@ -85 +85,4 @@ public final class LabMenu extends AbstractContainerMenu {\n-        if (stack.getCount() == original.getCount()) return ItemStack.EMPTY; slot.onTake(player, stack); return original;\n+        if (stack.getCount() == original.getCount()) return ItemStack.EMPTY;\n+        slot.onTake(player, stack);\n+        ThermalShockReforged.LOGGER.debug(\"Lab quick move committed: player={}, page={}, sourceSlot={}, playerSlotOffset={}\", player.getUUID(), page.id, index, offset);\n+        return original;\n"
+  },
+  "eight_original_menu_classes": [
+    {
+      "class": "net/mcreator/thermal_shock/world/inventory/QoTradeShockStickMenu.class",
+      "class_sha256": "a33ce37119b035f6add93b6eeba84f75a84ce91d69e626472a600a40fe83ad9a",
+      "source_main_to_hotbar_reverse": true,
+      "source_hotbar_to_main_reverse": false
+    },
+    {
+      "class": "net/mcreator/thermal_shock/world/inventory/QoTradeZapGauntletMenu.class",
+      "class_sha256": "769067041cf5aa134eb5383012b918081a510fd064aeda5f69647e1e4b565d27",
+      "source_main_to_hotbar_reverse": true,
+      "source_hotbar_to_main_reverse": false
+    },
+    {
+      "class": "net/mcreator/thermal_shock/world/inventory/QoTradeSylviaRifleMenu.class",
+      "class_sha256": "e39d3d0e11859498ffd86501edafe63b8d1569e93d7385f51a7dab6e76557098",
+      "source_main_to_hotbar_reverse": true,
+      "source_hotbar_to_main_reverse": false
+    },
+    {
+      "class": "net/mcreator/thermal_shock/world/inventory/QoTradeWallboreMenu.class",
+      "class_sha256": "5253edc821f1619d559299ab1502ddaf4a0a2ace2afac42241a5ade873e9b1c5",
+      "source_main_to_hotbar_reverse": true,
+      "source_hotbar_to_main_reverse": false
+    },
+    {
+      "class": "net/mcreator/thermal_shock/world/inventory/QoTradePylonCoreMenu.class",
+      "class_sha256": "cb9aba2c3ec5ecb4d03a1939a207133229371214d50d64caca45e89050a9cedf",
+      "source_main_to_hotbar_reverse": true,
+      "source_hotbar_to_main_reverse": false
+    },
+    {
+      "class": "net/mcreator/thermal_shock/world/inventory/QoTradeZenithMenu.class",
+      "class_sha256": "a197ebe048f67a701a4ed9f6b19529d70689ad00577c9e503ec6ff0e42488f5b",
+      "source_main_to_hotbar_reverse": true,
+      "source_hotbar_to_main_reverse": false
+    },
+    {
+      "class": "net/mcreator/thermal_shock/world/inventory/QoTradeKineticLaserhookMenu.class",
+      "class_sha256": "4b719f506c6ffccf222a6db40b72d66588359cc0a40328403e24a9e04a91fd1d",
+      "source_main_to_hotbar_reverse": true,
+      "source_hotbar_to_main_reverse": false
+    },
+    {
+      "class": "net/mcreator/thermal_shock/world/inventory/BackdoorScarabAssemblyPageMenu.class",
+      "class_sha256": "fcbb8bbb1164730aa69010414aa8835858a770987c688268336b7f7aac639ec2",
+      "source_main_to_hotbar_reverse": true,
+      "source_hotbar_to_main_reverse": false
+    }
+  ],
+  "full_bytecode_evidence": "D:\\AI临时文件\\ThermalShockMigration\\a123-group2-data\\lab-quickmove.json",
+  "full_bytecode_sha256": "681c6f33249f98650ecb4b96d828f0571a3aa4ed8c84053dcaf8dae86ff9e003",
+  "production_sha256": "289d1a0801d4b25b51139f29fc788f883d8f79a7f1e249020541187860fb556c"
+}

@@ -1,5 +1,7 @@
 package com.hp.thermalshockreforged.entity.orb;
 
+import com.hp.thermalshockreforged.ThermalShockReforged;
+import java.util.Comparator;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
@@ -24,6 +26,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.Explosion;
+import net.minecraft.world.phys.AABB;
 
 public abstract class OrbEntityBase extends Monster {
     private int graceTicks = 100;
@@ -74,7 +77,10 @@ public abstract class OrbEntityBase extends Monster {
     }
 
     private void applyPlayerEffect() {
-        for (Entity entity : level().getEntities(this, getBoundingBox().inflate(.5), entity -> entity instanceof Player player && canAffect(player))) {
+        var targets = level().getEntities(this, new AABB(position(), position()).inflate(.5), entity -> entity instanceof Player player && canAffect(player));
+        targets.sort(Comparator.comparingDouble(entity -> entity.distanceToSqr(position())));
+        if (!targets.isEmpty() && !level().isClientSide) ThermalShockReforged.LOGGER.debug("Orb collision resolved: orb={}, type={}, position={}, targets={}, graceTicks={}", getUUID(), getType(), position(), targets.size(), graceTicks);
+        for (Entity entity : targets) {
             if (entity instanceof Player player) {
                 player.hurt(new DamageSource(level().registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.INDIRECT_MAGIC)), 5.0F);
                 if (level() instanceof net.minecraft.server.level.ServerLevel server) spawnImpactParticles(server);
@@ -98,6 +104,6 @@ public abstract class OrbEntityBase extends Monster {
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes().add(Attributes.MOVEMENT_SPEED, .3).add(Attributes.MAX_HEALTH, 1)
                 .add(Attributes.ARMOR, 0).add(Attributes.ATTACK_DAMAGE, 0).add(Attributes.FOLLOW_RANGE, 16)
-                .add(Attributes.FLYING_SPEED, .3);
+                .add(Attributes.FLYING_SPEED, .3).add(Attributes.STEP_HEIGHT, 0);
     }
 }

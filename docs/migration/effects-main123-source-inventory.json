@@ -1,0 +1,4972 @@
+{
+  "basis": {
+    "registry_file": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModMobEffects.java",
+    "registered_effect_count": 23,
+    "source_root": "D:\\AI临时文件\\ThermalShockMigration\\readable"
+  },
+  "effects": [
+    {
+      "field": "COCOA_EFFECT",
+      "id": "cocoa_effect",
+      "registry_file": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModMobEffects.java",
+      "line": 37
+    },
+    {
+      "field": "COOLDOWN",
+      "id": "cooldown",
+      "registry_file": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModMobEffects.java",
+      "line": 38
+    },
+    {
+      "field": "STUNNED",
+      "id": "stunned",
+      "registry_file": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModMobEffects.java",
+      "line": 39
+    },
+    {
+      "field": "ANTITOXIN_EFFECT",
+      "id": "antitoxin_effect",
+      "registry_file": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModMobEffects.java",
+      "line": 40
+    },
+    {
+      "field": "PROPULSION_BOOTS_COOLDOWN",
+      "id": "propulsion_boots_cooldown",
+      "registry_file": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModMobEffects.java",
+      "line": 41
+    },
+    {
+      "field": "ELECTRIFIED",
+      "id": "electrified",
+      "registry_file": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModMobEffects.java",
+      "line": 42
+    },
+    {
+      "field": "REACH",
+      "id": "reach",
+      "registry_file": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModMobEffects.java",
+      "line": 43
+    },
+    {
+      "field": "NO_MELEE",
+      "id": "no_melee",
+      "registry_file": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModMobEffects.java",
+      "line": 44
+    },
+    {
+      "field": "PARRYING",
+      "id": "parrying",
+      "registry_file": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModMobEffects.java",
+      "line": 45
+    },
+    {
+      "field": "HEART_BOOST",
+      "id": "heart_boost",
+      "registry_file": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModMobEffects.java",
+      "line": 46
+    },
+    {
+      "field": "DAMAGING_AURA",
+      "id": "damaging_aura",
+      "registry_file": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModMobEffects.java",
+      "line": 47
+    },
+    {
+      "field": "INFECTED",
+      "id": "infected",
+      "registry_file": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModMobEffects.java",
+      "line": 48
+    },
+    {
+      "field": "PURIFIED",
+      "id": "purified",
+      "registry_file": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModMobEffects.java",
+      "line": 49
+    },
+    {
+      "field": "LITEPRISM_BUILDUP",
+      "id": "liteprism_buildup",
+      "registry_file": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModMobEffects.java",
+      "line": 50
+    },
+    {
+      "field": "LOW_GRAVITY",
+      "id": "low_gravity",
+      "registry_file": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModMobEffects.java",
+      "line": 51
+    },
+    {
+      "field": "NO_KNOCKBACK",
+      "id": "no_knockback",
+      "registry_file": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModMobEffects.java",
+      "line": 52
+    },
+    {
+      "field": "SICKLE_WOUND_BUILDUP",
+      "id": "sickle_wound_buildup",
+      "registry_file": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModMobEffects.java",
+      "line": 53
+    },
+    {
+      "field": "FROSTBITE",
+      "id": "frostbite",
+      "registry_file": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModMobEffects.java",
+      "line": 54
+    },
+    {
+      "field": "KNIGHTS_EDGE_CHARGE",
+      "id": "knights_edge_charge",
+      "registry_file": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModMobEffects.java",
+      "line": 55
+    },
+    {
+      "field": "SYLVIA_RIFLE_CHARGE",
+      "id": "sylvia_rifle_charge",
+      "registry_file": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModMobEffects.java",
+      "line": 56
+    },
+    {
+      "field": "TREMORS",
+      "id": "tremors",
+      "registry_file": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModMobEffects.java",
+      "line": 57
+    },
+    {
+      "field": "NOMNOMNOM",
+      "id": "nomnomnom",
+      "registry_file": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModMobEffects.java",
+      "line": 58
+    },
+    {
+      "field": "NO_BREAK",
+      "id": "no_break",
+      "registry_file": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModMobEffects.java",
+      "line": 59
+    }
+  ],
+  "static_field_reference_count": 213,
+  "static_field_references": [
+    {
+      "effect": "electrified",
+      "field": "ELECTRIFIED",
+      "source": "net/mcreator/thermal_shock/init/ThermalShockModPotions.java",
+      "line": 17,
+      "method": null
+    },
+    {
+      "effect": "damaging_aura",
+      "field": "DAMAGING_AURA",
+      "source": "net/mcreator/thermal_shock/procedures/AngryCavebloomerOnEntityTickUpdateProcedure.java",
+      "line": 33,
+      "method": "execute"
+    },
+    {
+      "effect": "no_break",
+      "field": "NO_BREAK",
+      "source": "net/mcreator/thermal_shock/procedures/AqeronEntityEffectsProcedure.java",
+      "line": 42,
+      "method": "execute"
+    },
+    {
+      "effect": "no_break",
+      "field": "NO_BREAK",
+      "source": "net/mcreator/thermal_shock/procedures/AqeronPlaceStopProcedure.java",
+      "line": 46,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/BeetleCrasherAttackProcedure.java",
+      "line": 62,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/BeetleCrasherAttackProcedure.java",
+      "line": 86,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/BeetleCrasherAttackProcedure.java",
+      "line": 122,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/BeetleCrasherAttackProcedure.java",
+      "line": 146,
+      "method": "execute"
+    },
+    {
+      "effect": "damaging_aura",
+      "field": "DAMAGING_AURA",
+      "source": "net/mcreator/thermal_shock/procedures/BeetleCrasherAttackProcedure.java",
+      "line": 165,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/BeetleCrasherOnInitialEntitySpawnProcedure.java",
+      "line": 30,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/BeetleThrasherAttackProcedure.java",
+      "line": 56,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/BeetleThrasherAttackProcedure.java",
+      "line": 79,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/BeetleThrasherAttackProcedure.java",
+      "line": 119,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/BeetleThrasherAttackProcedure.java",
+      "line": 142,
+      "method": "execute"
+    },
+    {
+      "effect": "parrying",
+      "field": "PARRYING",
+      "source": "net/mcreator/thermal_shock/procedures/BeetleThrasherAttackProcedure.java",
+      "line": 211,
+      "method": "execute"
+    },
+    {
+      "effect": "infected",
+      "field": "INFECTED",
+      "source": "net/mcreator/thermal_shock/procedures/BlightedSporePlayerCollidesWithThisEntityProcedure.java",
+      "line": 26,
+      "method": "execute"
+    },
+    {
+      "effect": "stunned",
+      "field": "STUNNED",
+      "source": "net/mcreator/thermal_shock/procedures/BlindingLanternRightclickedProcedure.java",
+      "line": 69,
+      "method": "execute"
+    },
+    {
+      "effect": "infected",
+      "field": "INFECTED",
+      "source": "net/mcreator/thermal_shock/procedures/BloodMobplayerCollidesBlockProcedure.java",
+      "line": 19,
+      "method": "execute"
+    },
+    {
+      "effect": "damaging_aura",
+      "field": "DAMAGING_AURA",
+      "source": "net/mcreator/thermal_shock/procedures/BloodstoneHalberdRightClickedProcedure.java",
+      "line": 52,
+      "method": "execute"
+    },
+    {
+      "effect": "reach",
+      "field": "REACH",
+      "source": "net/mcreator/thermal_shock/procedures/BoneswordTickProcedure.java",
+      "line": 19,
+      "method": "execute"
+    },
+    {
+      "effect": "low_gravity",
+      "field": "LOW_GRAVITY",
+      "source": "net/mcreator/thermal_shock/procedures/CarborundumArmorEffectProcedure.java",
+      "line": 61,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/CavebloomerAttackProcedure.java",
+      "line": 81,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/CavebloomerAttackProcedure.java",
+      "line": 93,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/CavebloomerAttackProcedure.java",
+      "line": 139,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/CavebloomerAttackProcedure.java",
+      "line": 642,
+      "method": "execute"
+    },
+    {
+      "effect": "tremors",
+      "field": "TREMORS",
+      "source": "net/mcreator/thermal_shock/procedures/CavebloomerAttackProcedure.java",
+      "line": 693,
+      "method": "execute"
+    },
+    {
+      "effect": "parrying",
+      "field": "PARRYING",
+      "source": "net/mcreator/thermal_shock/procedures/CavebloomerAttackProcedure.java",
+      "line": 695,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/CavebloomerAttackProcedure.java",
+      "line": 725,
+      "method": "execute"
+    },
+    {
+      "effect": "frostbite",
+      "field": "FROSTBITE",
+      "source": "net/mcreator/thermal_shock/procedures/CocoaEffectOnEffectActiveTickProcedure.java",
+      "line": 18,
+      "method": "execute"
+    },
+    {
+      "effect": "cocoa_effect",
+      "field": "COCOA_EFFECT",
+      "source": "net/mcreator/thermal_shock/procedures/CocoaPlayerFinishesUsingItemProcedure.java",
+      "line": 23,
+      "method": "execute"
+    },
+    {
+      "effect": "frostbite",
+      "field": "FROSTBITE",
+      "source": "net/mcreator/thermal_shock/procedures/CocoaPlayerFinishesUsingItemProcedure.java",
+      "line": 27,
+      "method": "execute"
+    },
+    {
+      "effect": "no_melee",
+      "field": "NO_MELEE",
+      "source": "net/mcreator/thermal_shock/procedures/CoreEjectFlareGunItemInHandTickProcedure.java",
+      "line": 19,
+      "method": "execute"
+    },
+    {
+      "effect": "damaging_aura",
+      "field": "DAMAGING_AURA",
+      "source": "net/mcreator/thermal_shock/procedures/DamagingAuraOnEffectActiveTickProcedure.java",
+      "line": 45,
+      "method": "execute"
+    },
+    {
+      "effect": "damaging_aura",
+      "field": "DAMAGING_AURA",
+      "source": "net/mcreator/thermal_shock/procedures/DamagingAuraOnEffectActiveTickProcedure.java",
+      "line": 45,
+      "method": "execute"
+    },
+    {
+      "effect": "damaging_aura",
+      "field": "DAMAGING_AURA",
+      "source": "net/mcreator/thermal_shock/procedures/DamagingAuraOnEffectActiveTickProcedure.java",
+      "line": 62,
+      "method": "execute"
+    },
+    {
+      "effect": "damaging_aura",
+      "field": "DAMAGING_AURA",
+      "source": "net/mcreator/thermal_shock/procedures/DamagingAuraOnEffectActiveTickProcedure.java",
+      "line": 62,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/DandyBloomerAttackProcedure.java",
+      "line": 65,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/DandyBloomerAttackProcedure.java",
+      "line": 79,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/DefectorMachinistOnEntityTickUpdateProcedure.java",
+      "line": 19,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/DefectorMachinistOnEntityTickUpdateProcedure.java",
+      "line": 22,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/EffigyAttackProcedure.java",
+      "line": 53,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/EffigyAttackProcedure.java",
+      "line": 67,
+      "method": "execute"
+    },
+    {
+      "effect": "electrified",
+      "field": "ELECTRIFIED",
+      "source": "net/mcreator/thermal_shock/procedures/ElectrifiedHitProcedure.java",
+      "line": 40,
+      "method": "execute"
+    },
+    {
+      "effect": "electrified",
+      "field": "ELECTRIFIED",
+      "source": "net/mcreator/thermal_shock/procedures/ElectrifiedHitProcedure.java",
+      "line": 45,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/ErrantAttackProcedure.java",
+      "line": 55,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/ErrantAttackProcedure.java",
+      "line": 74,
+      "method": "execute"
+    },
+    {
+      "effect": "parrying",
+      "field": "PARRYING",
+      "source": "net/mcreator/thermal_shock/procedures/ErrantAttackProcedure.java",
+      "line": 80,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/ErrantAttackProcedure.java",
+      "line": 99,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/ErrantAttackProcedure.java",
+      "line": 120,
+      "method": "execute"
+    },
+    {
+      "effect": "parrying",
+      "field": "PARRYING",
+      "source": "net/mcreator/thermal_shock/procedures/ErrantEntityIsHurtProcedure.java",
+      "line": 26,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/ErrOnEntityTickUpdateProcedure.java",
+      "line": 24,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/ErrOnInitialEntitySpawnProcedure.java",
+      "line": 24,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/ForecastAttackProcedure.java",
+      "line": 51,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/ForecastAttackProcedure.java",
+      "line": 58,
+      "method": "execute"
+    },
+    {
+      "effect": "frostbite",
+      "field": "FROSTBITE",
+      "source": "net/mcreator/thermal_shock/procedures/FrostbiteHealstopProcedure.java",
+      "line": 39,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/FrostilyteAttackProcedure.java",
+      "line": 53,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/FrostilyteAttackProcedure.java",
+      "line": 67,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/FrostilyteGunnerAttackProcedure.java",
+      "line": 56,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/FrostilyteGunnerAttackProcedure.java",
+      "line": 70,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/FrostilyteSoldierAttackProcedure.java",
+      "line": 54,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/FrostilyteSoldierAttackProcedure.java",
+      "line": 68,
+      "method": "execute"
+    },
+    {
+      "effect": "parrying",
+      "field": "PARRYING",
+      "source": "net/mcreator/thermal_shock/procedures/FrostilyteSoldierAttackProcedure.java",
+      "line": 106,
+      "method": "execute"
+    },
+    {
+      "effect": "no_break",
+      "field": "NO_BREAK",
+      "source": "net/mcreator/thermal_shock/procedures/GuardianPylonOnEntityTickUpdateProcedure.java",
+      "line": 30,
+      "method": "execute"
+    },
+    {
+      "effect": "heart_boost",
+      "field": "HEART_BOOST",
+      "source": "net/mcreator/thermal_shock/procedures/HeartCrystalRightclickedProcedure.java",
+      "line": 38,
+      "method": "execute"
+    },
+    {
+      "effect": "heart_boost",
+      "field": "HEART_BOOST",
+      "source": "net/mcreator/thermal_shock/procedures/HeartCrystalRightclickedProcedure.java",
+      "line": 38,
+      "method": "execute"
+    },
+    {
+      "effect": "heart_boost",
+      "field": "HEART_BOOST",
+      "source": "net/mcreator/thermal_shock/procedures/HeartCrystalRightclickedProcedure.java",
+      "line": 38,
+      "method": "execute"
+    },
+    {
+      "effect": "reach",
+      "field": "REACH",
+      "source": "net/mcreator/thermal_shock/procedures/HiVoltLanceHandTickProcedure.java",
+      "line": 19,
+      "method": "execute"
+    },
+    {
+      "effect": "electrified",
+      "field": "ELECTRIFIED",
+      "source": "net/mcreator/thermal_shock/procedures/HiVoltLanceRightclickedProcedure.java",
+      "line": 90,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/HuntressAttackProcedure.java",
+      "line": 67,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/HuntressAttackProcedure.java",
+      "line": 75,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/HuntressAttackProcedure.java",
+      "line": 84,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/HuntressAttackProcedure.java",
+      "line": 156,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/IceBombPlayerFinishesUsingItemProcedure.java",
+      "line": 93,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/IcidroburnerAttackProcedure.java",
+      "line": 57,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/IcidroburnerAttackProcedure.java",
+      "line": 75,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/IcidroburnerAttackProcedure.java",
+      "line": 80,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/IcidrogunnerAttackProcedure.java",
+      "line": 58,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/IcidrogunnerAttackProcedure.java",
+      "line": 76,
+      "method": "execute"
+    },
+    {
+      "effect": "stunned",
+      "field": "STUNNED",
+      "source": "net/mcreator/thermal_shock/procedures/IcidrogunnerAttackProcedure.java",
+      "line": 81,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/IcidrogunnerAttackProcedure.java",
+      "line": 84,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/IcidroneAttackProcedure.java",
+      "line": 55,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/IcidroneAttackProcedure.java",
+      "line": 73,
+      "method": "execute"
+    },
+    {
+      "effect": "frostbite",
+      "field": "FROSTBITE",
+      "source": "net/mcreator/thermal_shock/procedures/IgnitionNegBonusProcedure.java",
+      "line": 42,
+      "method": "execute"
+    },
+    {
+      "effect": "purified",
+      "field": "PURIFIED",
+      "source": "net/mcreator/thermal_shock/procedures/InfectedEffectExpiresProcedure.java",
+      "line": 37,
+      "method": "execute"
+    },
+    {
+      "effect": "infected",
+      "field": "INFECTED",
+      "source": "net/mcreator/thermal_shock/procedures/InfectedEffectExpiresProcedure.java",
+      "line": 47,
+      "method": "execute"
+    },
+    {
+      "effect": "infected",
+      "field": "INFECTED",
+      "source": "net/mcreator/thermal_shock/procedures/InfectedEffectExpiresProcedure.java",
+      "line": 50,
+      "method": "execute"
+    },
+    {
+      "effect": "infected",
+      "field": "INFECTED",
+      "source": "net/mcreator/thermal_shock/procedures/InfectedEffectExpiresProcedure.java",
+      "line": 70,
+      "method": "execute"
+    },
+    {
+      "effect": "infected",
+      "field": "INFECTED",
+      "source": "net/mcreator/thermal_shock/procedures/InfectingMobAttackProcedure.java",
+      "line": 41,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/KilolyteAttackProcedure.java",
+      "line": 60,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/KilolyteAttackProcedure.java",
+      "line": 70,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/KilolyteAttackProcedure.java",
+      "line": 173,
+      "method": "execute"
+    },
+    {
+      "effect": "knights_edge_charge",
+      "field": "KNIGHTS_EDGE_CHARGE",
+      "source": "net/mcreator/thermal_shock/procedures/KnightsEdgeLivingEntityIsHitWithToolProcedure.java",
+      "line": 65,
+      "method": "execute"
+    },
+    {
+      "effect": "parrying",
+      "field": "PARRYING",
+      "source": "net/mcreator/thermal_shock/procedures/KnightsEdgeRightclickedProcedure.java",
+      "line": 48,
+      "method": "execute"
+    },
+    {
+      "effect": "parrying",
+      "field": "PARRYING",
+      "source": "net/mcreator/thermal_shock/procedures/KnightsEdgeRightclickedProcedure.java",
+      "line": 52,
+      "method": "execute"
+    },
+    {
+      "effect": "parrying",
+      "field": "PARRYING",
+      "source": "net/mcreator/thermal_shock/procedures/KnightsEdgeRightclickedProcedure.java",
+      "line": 55,
+      "method": "execute"
+    },
+    {
+      "effect": "liteprism_buildup",
+      "field": "LITEPRISM_BUILDUP",
+      "source": "net/mcreator/thermal_shock/procedures/LiteprismDiskProjectileProjectileHitsLivingEntityProcedure.java",
+      "line": 42,
+      "method": "execute"
+    },
+    {
+      "effect": "liteprism_buildup",
+      "field": "LITEPRISM_BUILDUP",
+      "source": "net/mcreator/thermal_shock/procedures/LiteprismDiskProjectileProjectileHitsLivingEntityProcedure.java",
+      "line": 45,
+      "method": "execute"
+    },
+    {
+      "effect": "liteprism_buildup",
+      "field": "LITEPRISM_BUILDUP",
+      "source": "net/mcreator/thermal_shock/procedures/LiteprismDiskProjectileProjectileHitsLivingEntityProcedure.java",
+      "line": 45,
+      "method": "execute"
+    },
+    {
+      "effect": "liteprism_buildup",
+      "field": "LITEPRISM_BUILDUP",
+      "source": "net/mcreator/thermal_shock/procedures/LiteprismDiskProjectileProjectileHitsLivingEntityProcedure.java",
+      "line": 45,
+      "method": "execute"
+    },
+    {
+      "effect": "liteprism_buildup",
+      "field": "LITEPRISM_BUILDUP",
+      "source": "net/mcreator/thermal_shock/procedures/LiteprismDiskProjectileProjectileHitsLivingEntityProcedure.java",
+      "line": 48,
+      "method": "execute"
+    },
+    {
+      "effect": "liteprism_buildup",
+      "field": "LITEPRISM_BUILDUP",
+      "source": "net/mcreator/thermal_shock/procedures/LiteprismDiskProjectileProjectileHitsLivingEntityProcedure.java",
+      "line": 50,
+      "method": "execute"
+    },
+    {
+      "effect": "liteprism_buildup",
+      "field": "LITEPRISM_BUILDUP",
+      "source": "net/mcreator/thermal_shock/procedures/LiteprismDiskProjectileProjectileHitsLivingEntityProcedure.java",
+      "line": 50,
+      "method": "execute"
+    },
+    {
+      "effect": "liteprism_buildup",
+      "field": "LITEPRISM_BUILDUP",
+      "source": "net/mcreator/thermal_shock/procedures/LiteprismDiskProjectileProjectileHitsLivingEntityProcedure.java",
+      "line": 54,
+      "method": "execute"
+    },
+    {
+      "effect": "no_melee",
+      "field": "NO_MELEE",
+      "source": "net/mcreator/thermal_shock/procedures/MagneticCrossbowItemInHandTickProcedure.java",
+      "line": 23,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/MaidenAttackProcedure.java",
+      "line": 50,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/MaidenAttackProcedure.java",
+      "line": 60,
+      "method": "execute"
+    },
+    {
+      "effect": "stunned",
+      "field": "STUNNED",
+      "source": "net/mcreator/thermal_shock/procedures/MaidenAttackProcedure.java",
+      "line": 68,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/MaidenAttackProcedure.java",
+      "line": 225,
+      "method": "execute"
+    },
+    {
+      "effect": "stunned",
+      "field": "STUNNED",
+      "source": "net/mcreator/thermal_shock/procedures/MaidenAttackProcedure.java",
+      "line": 233,
+      "method": "execute"
+    },
+    {
+      "effect": "stunned",
+      "field": "STUNNED",
+      "source": "net/mcreator/thermal_shock/procedures/MaidenOnEntityTickUpdateProcedure.java",
+      "line": 27,
+      "method": "execute"
+    },
+    {
+      "effect": "stunned",
+      "field": "STUNNED",
+      "source": "net/mcreator/thermal_shock/procedures/MaidenShieldingProcedure.java",
+      "line": 42,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/ManglerAttackProcedure.java",
+      "line": 44,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/ManglerAttackProcedure.java",
+      "line": 55,
+      "method": "execute"
+    },
+    {
+      "effect": "damaging_aura",
+      "field": "DAMAGING_AURA",
+      "source": "net/mcreator/thermal_shock/procedures/ManglerAttackProcedure.java",
+      "line": 58,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/ManglerEntityIsHurtProcedure.java",
+      "line": 34,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/ManglerTickChaseProcedure.java",
+      "line": 25,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/MonolithAttackProcedure.java",
+      "line": 53,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/MonolithAttackProcedure.java",
+      "line": 59,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/MoverOrbTickProcedure.java",
+      "line": 39,
+      "method": "execute"
+    },
+    {
+      "effect": "purified",
+      "field": "PURIFIED",
+      "source": "net/mcreator/thermal_shock/procedures/PanaceaPlayerFinishesUsingItemProcedure.java",
+      "line": 50,
+      "method": "execute"
+    },
+    {
+      "effect": "parrying",
+      "field": "PARRYING",
+      "source": "net/mcreator/thermal_shock/procedures/ParryingHitCancelProcedure.java",
+      "line": 52,
+      "method": "execute"
+    },
+    {
+      "effect": "parrying",
+      "field": "PARRYING",
+      "source": "net/mcreator/thermal_shock/procedures/ParryingHitCancelProcedure.java",
+      "line": 59,
+      "method": "execute"
+    },
+    {
+      "effect": "stunned",
+      "field": "STUNNED",
+      "source": "net/mcreator/thermal_shock/procedures/ParryingHitCancelProcedure.java",
+      "line": 78,
+      "method": "execute"
+    },
+    {
+      "effect": "knights_edge_charge",
+      "field": "KNIGHTS_EDGE_CHARGE",
+      "source": "net/mcreator/thermal_shock/procedures/ParryingHitCancelProcedure.java",
+      "line": 94,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/PillbudAttackProcedure.java",
+      "line": 64,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/PillbudAttackProcedure.java",
+      "line": 71,
+      "method": "execute"
+    },
+    {
+      "effect": "parrying",
+      "field": "PARRYING",
+      "source": "net/mcreator/thermal_shock/procedures/PistonGauntletRightclickedProcedure.java",
+      "line": 59,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/PondlerOnEntityTickUpdateProcedure.java",
+      "line": 30,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/PondlerOnEntityTickUpdateProcedure.java",
+      "line": 35,
+      "method": "execute"
+    },
+    {
+      "effect": "propulsion_boots_cooldown",
+      "field": "PROPULSION_BOOTS_COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/PropulsionBootsAbilityOnKeyPressedProcedure.java",
+      "line": 31,
+      "method": "execute"
+    },
+    {
+      "effect": "propulsion_boots_cooldown",
+      "field": "PROPULSION_BOOTS_COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/PropulsionBootsAbilityOnKeyPressedProcedure.java",
+      "line": 50,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/ProtoiDeltaAttackProcedure.java",
+      "line": 55,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/ProtoiDeltaAttackProcedure.java",
+      "line": 70,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/ProtoiEpsilonAttackProcedure.java",
+      "line": 55,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/ProtoiEpsilonAttackProcedure.java",
+      "line": 61,
+      "method": "execute"
+    },
+    {
+      "effect": "damaging_aura",
+      "field": "DAMAGING_AURA",
+      "source": "net/mcreator/thermal_shock/procedures/ProtoiEpsilonAttackProcedure.java",
+      "line": 98,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/ProtoiSunbeamAttackProcedure.java",
+      "line": 55,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/ProtoiSunbeamAttackProcedure.java",
+      "line": 58,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/RazoraptorAttackProcedure.java",
+      "line": 54,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/RazoraptorAttackProcedure.java",
+      "line": 69,
+      "method": "execute"
+    },
+    {
+      "effect": "parrying",
+      "field": "PARRYING",
+      "source": "net/mcreator/thermal_shock/procedures/RazoraptorAttackProcedure.java",
+      "line": 75,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/RazoraptorAttackProcedure.java",
+      "line": 91,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/RibbonbladeAttackProcedure.java",
+      "line": 63,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/RibbonbladeAttackProcedure.java",
+      "line": 69,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/RibbonbladeAttackProcedure.java",
+      "line": 129,
+      "method": "execute"
+    },
+    {
+      "effect": "electrified",
+      "field": "ELECTRIFIED",
+      "source": "net/mcreator/thermal_shock/procedures/RibbonbladeGalvaniteEntityIsHurtProcedure.java",
+      "line": 28,
+      "method": "execute"
+    },
+    {
+      "effect": "electrified",
+      "field": "ELECTRIFIED",
+      "source": "net/mcreator/thermal_shock/procedures/RibbonbladeGalvaniteEntityIsHurtProcedure.java",
+      "line": 40,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/RibbonbladeGalvaniteEntityIsHurtProcedure.java",
+      "line": 50,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/RippleAttackProcedure.java",
+      "line": 63,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/RippleAttackProcedure.java",
+      "line": 83,
+      "method": "execute"
+    },
+    {
+      "effect": "electrified",
+      "field": "ELECTRIFIED",
+      "source": "net/mcreator/thermal_shock/procedures/RippleAttackProcedure.java",
+      "line": 98,
+      "method": "execute"
+    },
+    {
+      "effect": "infected",
+      "field": "INFECTED",
+      "source": "net/mcreator/thermal_shock/procedures/RippleAttackProcedure.java",
+      "line": 98,
+      "method": "execute"
+    },
+    {
+      "effect": "no_knockback",
+      "field": "NO_KNOCKBACK",
+      "source": "net/mcreator/thermal_shock/procedures/RubySickleToolInHandTickProcedure.java",
+      "line": 19,
+      "method": "execute"
+    },
+    {
+      "effect": "reach",
+      "field": "REACH",
+      "source": "net/mcreator/thermal_shock/procedures/RubySpearItemInHandTickProcedure.java",
+      "line": 24,
+      "method": "execute"
+    },
+    {
+      "effect": "no_melee",
+      "field": "NO_MELEE",
+      "source": "net/mcreator/thermal_shock/procedures/RubySpearItemInHandTickProcedure.java",
+      "line": 27,
+      "method": "execute"
+    },
+    {
+      "effect": "damaging_aura",
+      "field": "DAMAGING_AURA",
+      "source": "net/mcreator/thermal_shock/procedures/RubySpearRightclickedProcedure.java",
+      "line": 64,
+      "method": "execute"
+    },
+    {
+      "effect": "parrying",
+      "field": "PARRYING",
+      "source": "net/mcreator/thermal_shock/procedures/RustyEdgeRightclickedProcedure.java",
+      "line": 35,
+      "method": "execute"
+    },
+    {
+      "effect": "electrified",
+      "field": "ELECTRIFIED",
+      "source": "net/mcreator/thermal_shock/procedures/ShockStickLivingEntityIsHitWithToolProcedure.java",
+      "line": 64,
+      "method": "execute"
+    },
+    {
+      "effect": "sickle_wound_buildup",
+      "field": "SICKLE_WOUND_BUILDUP",
+      "source": "net/mcreator/thermal_shock/procedures/SickleHitsEntityProcedure.java",
+      "line": 34,
+      "method": "execute"
+    },
+    {
+      "effect": "sickle_wound_buildup",
+      "field": "SICKLE_WOUND_BUILDUP",
+      "source": "net/mcreator/thermal_shock/procedures/SickleHitsEntityProcedure.java",
+      "line": 36,
+      "method": "execute"
+    },
+    {
+      "effect": "sickle_wound_buildup",
+      "field": "SICKLE_WOUND_BUILDUP",
+      "source": "net/mcreator/thermal_shock/procedures/SickleHitsEntityProcedure.java",
+      "line": 36,
+      "method": "execute"
+    },
+    {
+      "effect": "sickle_wound_buildup",
+      "field": "SICKLE_WOUND_BUILDUP",
+      "source": "net/mcreator/thermal_shock/procedures/SickleHitsEntityProcedure.java",
+      "line": 36,
+      "method": "execute"
+    },
+    {
+      "effect": "sickle_wound_buildup",
+      "field": "SICKLE_WOUND_BUILDUP",
+      "source": "net/mcreator/thermal_shock/procedures/SickleHitsEntityProcedure.java",
+      "line": 39,
+      "method": "execute"
+    },
+    {
+      "effect": "sickle_wound_buildup",
+      "field": "SICKLE_WOUND_BUILDUP",
+      "source": "net/mcreator/thermal_shock/procedures/SickleHitsEntityProcedure.java",
+      "line": 41,
+      "method": "execute"
+    },
+    {
+      "effect": "sickle_wound_buildup",
+      "field": "SICKLE_WOUND_BUILDUP",
+      "source": "net/mcreator/thermal_shock/procedures/SickleHitsEntityProcedure.java",
+      "line": 41,
+      "method": "execute"
+    },
+    {
+      "effect": "sickle_wound_buildup",
+      "field": "SICKLE_WOUND_BUILDUP",
+      "source": "net/mcreator/thermal_shock/procedures/SickleHitsEntityProcedure.java",
+      "line": 45,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/SiibolAttackProcedure.java",
+      "line": 64,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/SiibolAttackProcedure.java",
+      "line": 75,
+      "method": "execute"
+    },
+    {
+      "effect": "antitoxin_effect",
+      "field": "ANTITOXIN_EFFECT",
+      "source": "net/mcreator/thermal_shock/procedures/SiibolAttackProcedure.java",
+      "line": 100,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/SkeletitanAttackProcedure.java",
+      "line": 60,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/SkeletitanAttackProcedure.java",
+      "line": 70,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/SkeletitanAttackProcedure.java",
+      "line": 173,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/SootleAttackProcedure.java",
+      "line": 54,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/SootleAttackProcedure.java",
+      "line": 69,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/SootleAttackProcedure.java",
+      "line": 110,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/SootlingAttackProcedure.java",
+      "line": 51,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/SootlingAttackProcedure.java",
+      "line": 55,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/SopelAttackProcedure.java",
+      "line": 53,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/SopelAttackProcedure.java",
+      "line": 93,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/SpectreAttackProcedure.java",
+      "line": 55,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/SpectreAttackProcedure.java",
+      "line": 67,
+      "method": "execute"
+    },
+    {
+      "effect": "reach",
+      "field": "REACH",
+      "source": "net/mcreator/thermal_shock/procedures/SpeleothemHandTickProcedure.java",
+      "line": 24,
+      "method": "execute"
+    },
+    {
+      "effect": "no_melee",
+      "field": "NO_MELEE",
+      "source": "net/mcreator/thermal_shock/procedures/SpeleothemHandTickProcedure.java",
+      "line": 27,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/SpiritAttackProcedure.java",
+      "line": 52,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/SpiritAttackProcedure.java",
+      "line": 68,
+      "method": "execute"
+    },
+    {
+      "effect": "damaging_aura",
+      "field": "DAMAGING_AURA",
+      "source": "net/mcreator/thermal_shock/procedures/SpiritAttackProcedure.java",
+      "line": 71,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/StopperOrbOnEntityTickUpdateProcedure.java",
+      "line": 40,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/StopperOrbOnInitialEntitySpawnProcedure.java",
+      "line": 19,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/SummonedManglerAttackProcedure.java",
+      "line": 44,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/SummonedManglerAttackProcedure.java",
+      "line": 55,
+      "method": "execute"
+    },
+    {
+      "effect": "damaging_aura",
+      "field": "DAMAGING_AURA",
+      "source": "net/mcreator/thermal_shock/procedures/SummonedManglerAttackProcedure.java",
+      "line": 58,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/SummonedManglerOnEntityTickUpdateProcedure.java",
+      "line": 21,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/SummonedManglerOnInitialEntitySpawnProcedure.java",
+      "line": 19,
+      "method": "execute"
+    },
+    {
+      "effect": "frostbite",
+      "field": "FROSTBITE",
+      "source": "net/mcreator/thermal_shock/procedures/SurgePylonOnRandomClientDisplayTickProcedure.java",
+      "line": 64,
+      "method": "execute"
+    },
+    {
+      "effect": "sylvia_rifle_charge",
+      "field": "SYLVIA_RIFLE_CHARGE",
+      "source": "net/mcreator/thermal_shock/procedures/SylviaRifleFiringProcedure.java",
+      "line": 61,
+      "method": "execute"
+    },
+    {
+      "effect": "sylvia_rifle_charge",
+      "field": "SYLVIA_RIFLE_CHARGE",
+      "source": "net/mcreator/thermal_shock/procedures/SylviaRifleFiringProcedure.java",
+      "line": 61,
+      "method": "execute"
+    },
+    {
+      "effect": "sylvia_rifle_charge",
+      "field": "SYLVIA_RIFLE_CHARGE",
+      "source": "net/mcreator/thermal_shock/procedures/SylviaRifleRightclickedProcedure.java",
+      "line": 57,
+      "method": "execute"
+    },
+    {
+      "effect": "sylvia_rifle_charge",
+      "field": "SYLVIA_RIFLE_CHARGE",
+      "source": "net/mcreator/thermal_shock/procedures/SylviaRifleRightclickedProcedure.java",
+      "line": 57,
+      "method": "execute"
+    },
+    {
+      "effect": "sylvia_rifle_charge",
+      "field": "SYLVIA_RIFLE_CHARGE",
+      "source": "net/mcreator/thermal_shock/procedures/SylviaRifleRightclickedProcedure.java",
+      "line": 57,
+      "method": "execute"
+    },
+    {
+      "effect": "sylvia_rifle_charge",
+      "field": "SYLVIA_RIFLE_CHARGE",
+      "source": "net/mcreator/thermal_shock/procedures/SylviaRifleRightclickedProcedure.java",
+      "line": 59,
+      "method": "execute"
+    },
+    {
+      "effect": "sylvia_rifle_charge",
+      "field": "SYLVIA_RIFLE_CHARGE",
+      "source": "net/mcreator/thermal_shock/procedures/SylviaRifleRightclickedProcedure.java",
+      "line": 59,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/TeslaReedAttackProcedure.java",
+      "line": 54,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/TeslaReedAttackProcedure.java",
+      "line": 68,
+      "method": "execute"
+    },
+    {
+      "effect": "electrified",
+      "field": "ELECTRIFIED",
+      "source": "net/mcreator/thermal_shock/procedures/TeslaReedAttackProcedure.java",
+      "line": 77,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/TestmobattackProcedure.java",
+      "line": 60,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/TestmobattackProcedure.java",
+      "line": 80,
+      "method": "execute"
+    },
+    {
+      "effect": "nomnomnom",
+      "field": "NOMNOMNOM",
+      "source": "net/mcreator/thermal_shock/procedures/TitanRightClickedOnEntityProcedure.java",
+      "line": 31,
+      "method": "execute"
+    },
+    {
+      "effect": "nomnomnom",
+      "field": "NOMNOMNOM",
+      "source": "net/mcreator/thermal_shock/procedures/TitanRightClickedOnEntityProcedure.java",
+      "line": 42,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/WillogradeRightClickedOnEntityProcedure.java",
+      "line": 49,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/WillogradeRightClickedOnEntityProcedure.java",
+      "line": 67,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/ZerkaltattackProcedure.java",
+      "line": 51,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/ZerkaltattackProcedure.java",
+      "line": 100,
+      "method": "execute"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "source": "net/mcreator/thermal_shock/procedures/ZerkaltattackProcedure.java",
+      "line": 102,
+      "method": "execute"
+    }
+  ],
+  "api_call_count": 212,
+  "api_calls": [
+    {
+      "effect": "damaging_aura",
+      "field": "DAMAGING_AURA",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/AngryCavebloomerOnEntityTickUpdateProcedure.java",
+      "line": 33,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.DAMAGING_AURA.get(), 20, 2)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.DAMAGING_AURA.get(), 20, 2))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.DAMAGING_AURA.get()",
+        "20",
+        "2"
+      ]
+    },
+    {
+      "effect": "no_break",
+      "field": "NO_BREAK",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/AqeronEntityEffectsProcedure.java",
+      "line": 42,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.NO_BREAK.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.NO_BREAK.get())"
+    },
+    {
+      "effect": "no_break",
+      "field": "NO_BREAK",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/AqeronPlaceStopProcedure.java",
+      "line": 46,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.NO_BREAK.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.NO_BREAK.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/BeetleCrasherAttackProcedure.java",
+      "line": 62,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/BeetleCrasherAttackProcedure.java",
+      "line": 86,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 35, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 35, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "35",
+        "1",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/BeetleCrasherAttackProcedure.java",
+      "line": 122,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/BeetleCrasherAttackProcedure.java",
+      "line": 146,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 50, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 50, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "50",
+        "1",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "damaging_aura",
+      "field": "DAMAGING_AURA",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/BeetleCrasherAttackProcedure.java",
+      "line": 165,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.DAMAGING_AURA.get(), 10, 12, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.DAMAGING_AURA.get(), 10, 12, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.DAMAGING_AURA.get()",
+        "10",
+        "12",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/BeetleCrasherOnInitialEntitySpawnProcedure.java",
+      "line": 30,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 60, 1)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 60, 1))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "60",
+        "1"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/BeetleThrasherAttackProcedure.java",
+      "line": 56,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/BeetleThrasherAttackProcedure.java",
+      "line": 79,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 30, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 30, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "30",
+        "1",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/BeetleThrasherAttackProcedure.java",
+      "line": 119,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/BeetleThrasherAttackProcedure.java",
+      "line": 142,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 45, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 45, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "45",
+        "1",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "parrying",
+      "field": "PARRYING",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/BeetleThrasherAttackProcedure.java",
+      "line": 211,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.PARRYING.get(), 5, 1, true, true)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.PARRYING.get(), 5, 1, true, true))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.PARRYING.get()",
+        "5",
+        "1",
+        "true",
+        "true"
+      ]
+    },
+    {
+      "effect": "infected",
+      "field": "INFECTED",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/BlightedSporePlayerCollidesWithThisEntityProcedure.java",
+      "line": 26,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.INFECTED.get(), 360, 0)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.INFECTED.get(), 360, 0))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.INFECTED.get()",
+        "360",
+        "0"
+      ]
+    },
+    {
+      "effect": "stunned",
+      "field": "STUNNED",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/BlindingLanternRightclickedProcedure.java",
+      "line": 69,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.STUNNED.get(), 60, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.STUNNED.get(), 60, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.STUNNED.get()",
+        "60",
+        "1",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "infected",
+      "field": "INFECTED",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/BloodMobplayerCollidesBlockProcedure.java",
+      "line": 19,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.INFECTED.get(), 100, 1)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.INFECTED.get(), 100, 1))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.INFECTED.get()",
+        "100",
+        "1"
+      ]
+    },
+    {
+      "effect": "damaging_aura",
+      "field": "DAMAGING_AURA",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/BloodstoneHalberdRightClickedProcedure.java",
+      "line": 52,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.DAMAGING_AURA.get(), 17, 3, true, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.DAMAGING_AURA.get(), 17, 3, true, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.DAMAGING_AURA.get()",
+        "17",
+        "3",
+        "true",
+        "false"
+      ]
+    },
+    {
+      "effect": "reach",
+      "field": "REACH",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/BoneswordTickProcedure.java",
+      "line": 19,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.REACH.get(), 3, 1, true, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.REACH.get(), 3, 1, true, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.REACH.get()",
+        "3",
+        "1",
+        "true",
+        "false"
+      ]
+    },
+    {
+      "effect": "low_gravity",
+      "field": "LOW_GRAVITY",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/CarborundumArmorEffectProcedure.java",
+      "line": 61,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.LOW_GRAVITY.get(), 10, 5)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.LOW_GRAVITY.get(), 10, 5))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.LOW_GRAVITY.get()",
+        "10",
+        "5"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/CavebloomerAttackProcedure.java",
+      "line": 81,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/CavebloomerAttackProcedure.java",
+      "line": 93,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 55, 0, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 55, 0, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "55",
+        "0",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/CavebloomerAttackProcedure.java",
+      "line": 139,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 55, 0, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 55, 0, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "55",
+        "0",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/CavebloomerAttackProcedure.java",
+      "line": 642,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 90, 0, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 90, 0, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "90",
+        "0",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "tremors",
+      "field": "TREMORS",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/CavebloomerAttackProcedure.java",
+      "line": 693,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.TREMORS.get(), 5, 0, true, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.TREMORS.get(), 5, 0, true, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.TREMORS.get()",
+        "5",
+        "0",
+        "true",
+        "false"
+      ]
+    },
+    {
+      "effect": "parrying",
+      "field": "PARRYING",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/CavebloomerAttackProcedure.java",
+      "line": 695,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.PARRYING.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.PARRYING.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/CavebloomerAttackProcedure.java",
+      "line": 725,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 40, 0, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 40, 0, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "40",
+        "0",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "frostbite",
+      "field": "FROSTBITE",
+      "operation": "removeEffect",
+      "source": "net/mcreator/thermal_shock/procedures/CocoaEffectOnEffectActiveTickProcedure.java",
+      "line": 18,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.FROSTBITE.get()"
+      ],
+      "call_expression": ".removeEffect((MobEffect)ThermalShockModMobEffects.FROSTBITE.get())"
+    },
+    {
+      "effect": "cocoa_effect",
+      "field": "COCOA_EFFECT",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/CocoaPlayerFinishesUsingItemProcedure.java",
+      "line": 23,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COCOA_EFFECT.get(), 1000, 1, true, true)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COCOA_EFFECT.get(), 1000, 1, true, true))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COCOA_EFFECT.get()",
+        "1000",
+        "1",
+        "true",
+        "true"
+      ]
+    },
+    {
+      "effect": "frostbite",
+      "field": "FROSTBITE",
+      "operation": "removeEffect",
+      "source": "net/mcreator/thermal_shock/procedures/CocoaPlayerFinishesUsingItemProcedure.java",
+      "line": 27,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.FROSTBITE.get()"
+      ],
+      "call_expression": ".removeEffect((MobEffect)ThermalShockModMobEffects.FROSTBITE.get())"
+    },
+    {
+      "effect": "no_melee",
+      "field": "NO_MELEE",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/CoreEjectFlareGunItemInHandTickProcedure.java",
+      "line": 19,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.NO_MELEE.get(), 1, 1, true, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.NO_MELEE.get(), 1, 1, true, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.NO_MELEE.get()",
+        "1",
+        "1",
+        "true",
+        "false"
+      ]
+    },
+    {
+      "effect": "damaging_aura",
+      "field": "DAMAGING_AURA",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/DamagingAuraOnEffectActiveTickProcedure.java",
+      "line": 45,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.DAMAGING_AURA.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.DAMAGING_AURA.get())"
+    },
+    {
+      "effect": "damaging_aura",
+      "field": "DAMAGING_AURA",
+      "operation": "getEffect",
+      "source": "net/mcreator/thermal_shock/procedures/DamagingAuraOnEffectActiveTickProcedure.java",
+      "line": 45,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.DAMAGING_AURA.get()"
+      ],
+      "call_expression": ".getEffect((MobEffect)ThermalShockModMobEffects.DAMAGING_AURA.get())"
+    },
+    {
+      "effect": "damaging_aura",
+      "field": "DAMAGING_AURA",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/DamagingAuraOnEffectActiveTickProcedure.java",
+      "line": 62,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.DAMAGING_AURA.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.DAMAGING_AURA.get())"
+    },
+    {
+      "effect": "damaging_aura",
+      "field": "DAMAGING_AURA",
+      "operation": "getEffect",
+      "source": "net/mcreator/thermal_shock/procedures/DamagingAuraOnEffectActiveTickProcedure.java",
+      "line": 62,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.DAMAGING_AURA.get()"
+      ],
+      "call_expression": ".getEffect((MobEffect)ThermalShockModMobEffects.DAMAGING_AURA.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/DandyBloomerAttackProcedure.java",
+      "line": 65,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/DandyBloomerAttackProcedure.java",
+      "line": 79,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 120, 0, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 120, 0, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "120",
+        "0",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/DefectorMachinistOnEntityTickUpdateProcedure.java",
+      "line": 19,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/DefectorMachinistOnEntityTickUpdateProcedure.java",
+      "line": 22,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 120, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 120, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "120",
+        "1",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/EffigyAttackProcedure.java",
+      "line": 53,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/EffigyAttackProcedure.java",
+      "line": 67,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 40, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 40, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "40",
+        "1",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "electrified",
+      "field": "ELECTRIFIED",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ElectrifiedHitProcedure.java",
+      "line": 40,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.ELECTRIFIED.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.ELECTRIFIED.get())"
+    },
+    {
+      "effect": "electrified",
+      "field": "ELECTRIFIED",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ElectrifiedHitProcedure.java",
+      "line": 45,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.ELECTRIFIED.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.ELECTRIFIED.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ErrantAttackProcedure.java",
+      "line": 55,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ErrantAttackProcedure.java",
+      "line": 74,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 45, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 45, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "45",
+        "1",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "parrying",
+      "field": "PARRYING",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ErrantAttackProcedure.java",
+      "line": 80,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.PARRYING.get(), 20, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.PARRYING.get(), 20, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.PARRYING.get()",
+        "20",
+        "1",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ErrantAttackProcedure.java",
+      "line": 99,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 10, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 10, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "10",
+        "1",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ErrantAttackProcedure.java",
+      "line": 120,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 50, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 50, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "50",
+        "1",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "parrying",
+      "field": "PARRYING",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ErrantEntityIsHurtProcedure.java",
+      "line": 26,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.PARRYING.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.PARRYING.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ErrOnEntityTickUpdateProcedure.java",
+      "line": 24,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ErrOnInitialEntitySpawnProcedure.java",
+      "line": 24,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 180, 0, true, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 180, 0, true, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "180",
+        "0",
+        "true",
+        "false"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ForecastAttackProcedure.java",
+      "line": 51,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ForecastAttackProcedure.java",
+      "line": 58,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 90, 0, true, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 90, 0, true, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "90",
+        "0",
+        "true",
+        "false"
+      ]
+    },
+    {
+      "effect": "frostbite",
+      "field": "FROSTBITE",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/FrostbiteHealstopProcedure.java",
+      "line": 39,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.FROSTBITE.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.FROSTBITE.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/FrostilyteAttackProcedure.java",
+      "line": 53,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/FrostilyteAttackProcedure.java",
+      "line": 67,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 12, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 12, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "12",
+        "1",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/FrostilyteGunnerAttackProcedure.java",
+      "line": 56,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/FrostilyteGunnerAttackProcedure.java",
+      "line": 70,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 60, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 60, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "60",
+        "1",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/FrostilyteSoldierAttackProcedure.java",
+      "line": 54,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/FrostilyteSoldierAttackProcedure.java",
+      "line": 68,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 44, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 44, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "44",
+        "1",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "parrying",
+      "field": "PARRYING",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/FrostilyteSoldierAttackProcedure.java",
+      "line": 106,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.PARRYING.get(), 6, 0)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.PARRYING.get(), 6, 0))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.PARRYING.get()",
+        "6",
+        "0"
+      ]
+    },
+    {
+      "effect": "no_break",
+      "field": "NO_BREAK",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/GuardianPylonOnEntityTickUpdateProcedure.java",
+      "line": 30,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.NO_BREAK.get(), 100, 19, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.NO_BREAK.get(), 100, 19, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.NO_BREAK.get()",
+        "100",
+        "19",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "heart_boost",
+      "field": "HEART_BOOST",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/HeartCrystalRightclickedProcedure.java",
+      "line": 38,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.HEART_BOOST.get(), 5000, 1 + (entity instanceof LivingEntity && (_livEnt = (LivingEntity)entity).hasEffect((MobEffect)ThermalShockModMobEffects.HEART_BOOST.get()) ? _livEnt.getEffect((MobEffect)ThermalShockModMobEffects.HEART_BOOST.get()).getAmplifier() : 0))"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.HEART_BOOST.get(), 5000, 1 + (entity instanceof LivingEntity && (_livEnt = (LivingEntity)entity).hasEffect((MobEffect)ThermalShockModMobEffects.HEART_BOOST.get()) ? _livEnt.getEffect((MobEffect)ThermalShockModMobEffects.HEART_BOOST.get()).getAmplifier() : 0)))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.HEART_BOOST.get()",
+        "5000",
+        "1 + (entity instanceof LivingEntity && (_livEnt = (LivingEntity)entity).hasEffect((MobEffect)ThermalShockModMobEffects.HEART_BOOST.get()) ? _livEnt.getEffect((MobEffect)ThermalShockModMobEffects.HEART_BOOST.get()).getAmplifier() : 0)"
+      ]
+    },
+    {
+      "effect": "heart_boost",
+      "field": "HEART_BOOST",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/HeartCrystalRightclickedProcedure.java",
+      "line": 38,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.HEART_BOOST.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.HEART_BOOST.get())"
+    },
+    {
+      "effect": "heart_boost",
+      "field": "HEART_BOOST",
+      "operation": "getEffect",
+      "source": "net/mcreator/thermal_shock/procedures/HeartCrystalRightclickedProcedure.java",
+      "line": 38,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.HEART_BOOST.get()"
+      ],
+      "call_expression": ".getEffect((MobEffect)ThermalShockModMobEffects.HEART_BOOST.get())"
+    },
+    {
+      "effect": "reach",
+      "field": "REACH",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/HiVoltLanceHandTickProcedure.java",
+      "line": 19,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.REACH.get(), 3, 2, true, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.REACH.get(), 3, 2, true, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.REACH.get()",
+        "3",
+        "2",
+        "true",
+        "false"
+      ]
+    },
+    {
+      "effect": "electrified",
+      "field": "ELECTRIFIED",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/HiVoltLanceRightclickedProcedure.java",
+      "line": 90,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.ELECTRIFIED.get(), 360, 0)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.ELECTRIFIED.get(), 360, 0))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.ELECTRIFIED.get()",
+        "360",
+        "0"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/HuntressAttackProcedure.java",
+      "line": 67,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/HuntressAttackProcedure.java",
+      "line": 75,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 40, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 40, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "40",
+        "1",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/HuntressAttackProcedure.java",
+      "line": 84,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 40, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 40, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "40",
+        "1",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/HuntressAttackProcedure.java",
+      "line": 156,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 70, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 70, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "70",
+        "1",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/IceBombPlayerFinishesUsingItemProcedure.java",
+      "line": 93,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 120, 0)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 120, 0))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "120",
+        "0"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/IcidroburnerAttackProcedure.java",
+      "line": 57,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/IcidroburnerAttackProcedure.java",
+      "line": 75,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 20, 1)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 20, 1))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "20",
+        "1"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/IcidroburnerAttackProcedure.java",
+      "line": 80,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 140, 1)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 140, 1))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "140",
+        "1"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/IcidrogunnerAttackProcedure.java",
+      "line": 58,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/IcidrogunnerAttackProcedure.java",
+      "line": 76,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 45, 1)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 45, 1))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "45",
+        "1"
+      ]
+    },
+    {
+      "effect": "stunned",
+      "field": "STUNNED",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/IcidrogunnerAttackProcedure.java",
+      "line": 81,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.STUNNED.get(), 60, 1)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.STUNNED.get(), 60, 1))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.STUNNED.get()",
+        "60",
+        "1"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/IcidrogunnerAttackProcedure.java",
+      "line": 84,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 140, 1)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 140, 1))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "140",
+        "1"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/IcidroneAttackProcedure.java",
+      "line": 55,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/IcidroneAttackProcedure.java",
+      "line": 73,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 100, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 100, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "100",
+        "1",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "frostbite",
+      "field": "FROSTBITE",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/IgnitionNegBonusProcedure.java",
+      "line": 42,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.FROSTBITE.get(), 120, 0)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.FROSTBITE.get(), 120, 0))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.FROSTBITE.get()",
+        "120",
+        "0"
+      ]
+    },
+    {
+      "effect": "purified",
+      "field": "PURIFIED",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/InfectedEffectExpiresProcedure.java",
+      "line": 37,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.PURIFIED.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.PURIFIED.get())"
+    },
+    {
+      "effect": "infected",
+      "field": "INFECTED",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/InfectedEffectExpiresProcedure.java",
+      "line": 47,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.INFECTED.get(), (int)Math.round(Mth.nextDouble((RandomSource)RandomSource.create(), (double)120.0, (double)200.0)), 1, false, true)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.INFECTED.get(), (int)Math.round(Mth.nextDouble((RandomSource)RandomSource.create(), (double)120.0, (double)200.0)), 1, false, true))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.INFECTED.get()",
+        "(int)Math.round(Mth.nextDouble((RandomSource)RandomSource.create(), (double)120.0, (double)200.0))",
+        "1",
+        "false",
+        "true"
+      ]
+    },
+    {
+      "effect": "infected",
+      "field": "INFECTED",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/InfectedEffectExpiresProcedure.java",
+      "line": 50,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.INFECTED.get(), (int)Math.round(Mth.nextDouble((RandomSource)RandomSource.create(), (double)120.0, (double)200.0)), 1, false, true)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.INFECTED.get(), (int)Math.round(Mth.nextDouble((RandomSource)RandomSource.create(), (double)120.0, (double)200.0)), 1, false, true))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.INFECTED.get()",
+        "(int)Math.round(Mth.nextDouble((RandomSource)RandomSource.create(), (double)120.0, (double)200.0))",
+        "1",
+        "false",
+        "true"
+      ]
+    },
+    {
+      "effect": "infected",
+      "field": "INFECTED",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/InfectedEffectExpiresProcedure.java",
+      "line": 70,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.INFECTED.get(), (int)Math.round(Mth.nextDouble((RandomSource)RandomSource.create(), (double)220.0, (double)300.0)), 1, false, true)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.INFECTED.get(), (int)Math.round(Mth.nextDouble((RandomSource)RandomSource.create(), (double)220.0, (double)300.0)), 1, false, true))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.INFECTED.get()",
+        "(int)Math.round(Mth.nextDouble((RandomSource)RandomSource.create(), (double)220.0, (double)300.0))",
+        "1",
+        "false",
+        "true"
+      ]
+    },
+    {
+      "effect": "infected",
+      "field": "INFECTED",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/InfectingMobAttackProcedure.java",
+      "line": 41,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.INFECTED.get(), 200, 1)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.INFECTED.get(), 200, 1))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.INFECTED.get()",
+        "200",
+        "1"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/KilolyteAttackProcedure.java",
+      "line": 60,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/KilolyteAttackProcedure.java",
+      "line": 70,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 35, 0, true, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 35, 0, true, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "35",
+        "0",
+        "true",
+        "false"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/KilolyteAttackProcedure.java",
+      "line": 173,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 27, 0, true, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 27, 0, true, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "27",
+        "0",
+        "true",
+        "false"
+      ]
+    },
+    {
+      "effect": "knights_edge_charge",
+      "field": "KNIGHTS_EDGE_CHARGE",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/KnightsEdgeLivingEntityIsHitWithToolProcedure.java",
+      "line": 65,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.KNIGHTS_EDGE_CHARGE.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.KNIGHTS_EDGE_CHARGE.get())"
+    },
+    {
+      "effect": "parrying",
+      "field": "PARRYING",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/KnightsEdgeRightclickedProcedure.java",
+      "line": 48,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.PARRYING.get(), 18, 0)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.PARRYING.get(), 18, 0))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.PARRYING.get()",
+        "18",
+        "0"
+      ]
+    },
+    {
+      "effect": "parrying",
+      "field": "PARRYING",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/KnightsEdgeRightclickedProcedure.java",
+      "line": 52,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.PARRYING.get(), 12, 0)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.PARRYING.get(), 12, 0))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.PARRYING.get()",
+        "12",
+        "0"
+      ]
+    },
+    {
+      "effect": "parrying",
+      "field": "PARRYING",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/KnightsEdgeRightclickedProcedure.java",
+      "line": 55,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.PARRYING.get(), 25, 0)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.PARRYING.get(), 25, 0))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.PARRYING.get()",
+        "25",
+        "0"
+      ]
+    },
+    {
+      "effect": "liteprism_buildup",
+      "field": "LITEPRISM_BUILDUP",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/LiteprismDiskProjectileProjectileHitsLivingEntityProcedure.java",
+      "line": 42,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.LITEPRISM_BUILDUP.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.LITEPRISM_BUILDUP.get())"
+    },
+    {
+      "effect": "liteprism_buildup",
+      "field": "LITEPRISM_BUILDUP",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/LiteprismDiskProjectileProjectileHitsLivingEntityProcedure.java",
+      "line": 45,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.LITEPRISM_BUILDUP.get(), 20, 1 + (entity instanceof LivingEntity && (_livEnt2 = (LivingEntity)entity).hasEffect((MobEffect)ThermalShockModMobEffects.LITEPRISM_BUILDUP.get()) ? _livEnt2.getEffect((MobEffect)ThermalShockModMobEffects.LITEPRISM_BUILDUP.get()).getAmplifier() : 0))"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.LITEPRISM_BUILDUP.get(), 20, 1 + (entity instanceof LivingEntity && (_livEnt2 = (LivingEntity)entity).hasEffect((MobEffect)ThermalShockModMobEffects.LITEPRISM_BUILDUP.get()) ? _livEnt2.getEffect((MobEffect)ThermalShockModMobEffects.LITEPRISM_BUILDUP.get()).getAmplifier() : 0)))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.LITEPRISM_BUILDUP.get()",
+        "20",
+        "1 + (entity instanceof LivingEntity && (_livEnt2 = (LivingEntity)entity).hasEffect((MobEffect)ThermalShockModMobEffects.LITEPRISM_BUILDUP.get()) ? _livEnt2.getEffect((MobEffect)ThermalShockModMobEffects.LITEPRISM_BUILDUP.get()).getAmplifier() : 0)"
+      ]
+    },
+    {
+      "effect": "liteprism_buildup",
+      "field": "LITEPRISM_BUILDUP",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/LiteprismDiskProjectileProjectileHitsLivingEntityProcedure.java",
+      "line": 45,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.LITEPRISM_BUILDUP.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.LITEPRISM_BUILDUP.get())"
+    },
+    {
+      "effect": "liteprism_buildup",
+      "field": "LITEPRISM_BUILDUP",
+      "operation": "getEffect",
+      "source": "net/mcreator/thermal_shock/procedures/LiteprismDiskProjectileProjectileHitsLivingEntityProcedure.java",
+      "line": 45,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.LITEPRISM_BUILDUP.get()"
+      ],
+      "call_expression": ".getEffect((MobEffect)ThermalShockModMobEffects.LITEPRISM_BUILDUP.get())"
+    },
+    {
+      "effect": "liteprism_buildup",
+      "field": "LITEPRISM_BUILDUP",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/LiteprismDiskProjectileProjectileHitsLivingEntityProcedure.java",
+      "line": 48,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.LITEPRISM_BUILDUP.get(), 20, 0)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.LITEPRISM_BUILDUP.get(), 20, 0))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.LITEPRISM_BUILDUP.get()",
+        "20",
+        "0"
+      ]
+    },
+    {
+      "effect": "liteprism_buildup",
+      "field": "LITEPRISM_BUILDUP",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/LiteprismDiskProjectileProjectileHitsLivingEntityProcedure.java",
+      "line": 50,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.LITEPRISM_BUILDUP.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.LITEPRISM_BUILDUP.get())"
+    },
+    {
+      "effect": "liteprism_buildup",
+      "field": "LITEPRISM_BUILDUP",
+      "operation": "getEffect",
+      "source": "net/mcreator/thermal_shock/procedures/LiteprismDiskProjectileProjectileHitsLivingEntityProcedure.java",
+      "line": 50,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.LITEPRISM_BUILDUP.get()"
+      ],
+      "call_expression": ".getEffect((MobEffect)ThermalShockModMobEffects.LITEPRISM_BUILDUP.get())"
+    },
+    {
+      "effect": "liteprism_buildup",
+      "field": "LITEPRISM_BUILDUP",
+      "operation": "removeEffect",
+      "source": "net/mcreator/thermal_shock/procedures/LiteprismDiskProjectileProjectileHitsLivingEntityProcedure.java",
+      "line": 54,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.LITEPRISM_BUILDUP.get()"
+      ],
+      "call_expression": ".removeEffect((MobEffect)ThermalShockModMobEffects.LITEPRISM_BUILDUP.get())"
+    },
+    {
+      "effect": "no_melee",
+      "field": "NO_MELEE",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/MagneticCrossbowItemInHandTickProcedure.java",
+      "line": 23,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.NO_MELEE.get(), 1, 1, true, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.NO_MELEE.get(), 1, 1, true, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.NO_MELEE.get()",
+        "1",
+        "1",
+        "true",
+        "false"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/MaidenAttackProcedure.java",
+      "line": 50,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/MaidenAttackProcedure.java",
+      "line": 60,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 90, 0, true, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 90, 0, true, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "90",
+        "0",
+        "true",
+        "false"
+      ]
+    },
+    {
+      "effect": "stunned",
+      "field": "STUNNED",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/MaidenAttackProcedure.java",
+      "line": 68,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.STUNNED.get(), 28, 0, true, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.STUNNED.get(), 28, 0, true, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.STUNNED.get()",
+        "28",
+        "0",
+        "true",
+        "false"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/MaidenAttackProcedure.java",
+      "line": 225,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 90, 0, true, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 90, 0, true, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "90",
+        "0",
+        "true",
+        "false"
+      ]
+    },
+    {
+      "effect": "stunned",
+      "field": "STUNNED",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/MaidenAttackProcedure.java",
+      "line": 233,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.STUNNED.get(), 45, 0, true, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.STUNNED.get(), 45, 0, true, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.STUNNED.get()",
+        "45",
+        "0",
+        "true",
+        "false"
+      ]
+    },
+    {
+      "effect": "stunned",
+      "field": "STUNNED",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/MaidenOnEntityTickUpdateProcedure.java",
+      "line": 27,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.STUNNED.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.STUNNED.get())"
+    },
+    {
+      "effect": "stunned",
+      "field": "STUNNED",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/MaidenShieldingProcedure.java",
+      "line": 42,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.STUNNED.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.STUNNED.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ManglerAttackProcedure.java",
+      "line": 44,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ManglerAttackProcedure.java",
+      "line": 55,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 40, 1, false, true)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 40, 1, false, true))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "40",
+        "1",
+        "false",
+        "true"
+      ]
+    },
+    {
+      "effect": "damaging_aura",
+      "field": "DAMAGING_AURA",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ManglerAttackProcedure.java",
+      "line": 58,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.DAMAGING_AURA.get(), 20, 3, false, true)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.DAMAGING_AURA.get(), 20, 3, false, true))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.DAMAGING_AURA.get()",
+        "20",
+        "3",
+        "false",
+        "true"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ManglerEntityIsHurtProcedure.java",
+      "line": 34,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 60, 1, true, true)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 60, 1, true, true))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "60",
+        "1",
+        "true",
+        "true"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ManglerTickChaseProcedure.java",
+      "line": 25,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/MonolithAttackProcedure.java",
+      "line": 53,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/MonolithAttackProcedure.java",
+      "line": 59,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 80, 1, true, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 80, 1, true, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "80",
+        "1",
+        "true",
+        "false"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/MoverOrbTickProcedure.java",
+      "line": 39,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "purified",
+      "field": "PURIFIED",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/PanaceaPlayerFinishesUsingItemProcedure.java",
+      "line": 50,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.PURIFIED.get(), 200, 0)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.PURIFIED.get(), 200, 0))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.PURIFIED.get()",
+        "200",
+        "0"
+      ]
+    },
+    {
+      "effect": "parrying",
+      "field": "PARRYING",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ParryingHitCancelProcedure.java",
+      "line": 52,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.PARRYING.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.PARRYING.get())"
+    },
+    {
+      "effect": "parrying",
+      "field": "PARRYING",
+      "operation": "removeEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ParryingHitCancelProcedure.java",
+      "line": 59,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.PARRYING.get()"
+      ],
+      "call_expression": ".removeEffect((MobEffect)ThermalShockModMobEffects.PARRYING.get())"
+    },
+    {
+      "effect": "stunned",
+      "field": "STUNNED",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ParryingHitCancelProcedure.java",
+      "line": 78,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.STUNNED.get(), 20, 9)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.STUNNED.get(), 20, 9))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.STUNNED.get()",
+        "20",
+        "9"
+      ]
+    },
+    {
+      "effect": "knights_edge_charge",
+      "field": "KNIGHTS_EDGE_CHARGE",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ParryingHitCancelProcedure.java",
+      "line": 94,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.KNIGHTS_EDGE_CHARGE.get(), 40, 0)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.KNIGHTS_EDGE_CHARGE.get(), 40, 0))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.KNIGHTS_EDGE_CHARGE.get()",
+        "40",
+        "0"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/PillbudAttackProcedure.java",
+      "line": 64,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/PillbudAttackProcedure.java",
+      "line": 71,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 60, 1)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 60, 1))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "60",
+        "1"
+      ]
+    },
+    {
+      "effect": "parrying",
+      "field": "PARRYING",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/PistonGauntletRightclickedProcedure.java",
+      "line": 59,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.PARRYING.get(), 15, 1)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.PARRYING.get(), 15, 1))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.PARRYING.get()",
+        "15",
+        "1"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/PondlerOnEntityTickUpdateProcedure.java",
+      "line": 30,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/PondlerOnEntityTickUpdateProcedure.java",
+      "line": 35,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), (int)Math.round(Mth.nextDouble((RandomSource)RandomSource.create(), (double)80.0, (double)300.0)), 0, true, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), (int)Math.round(Mth.nextDouble((RandomSource)RandomSource.create(), (double)80.0, (double)300.0)), 0, true, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "(int)Math.round(Mth.nextDouble((RandomSource)RandomSource.create(), (double)80.0, (double)300.0))",
+        "0",
+        "true",
+        "false"
+      ]
+    },
+    {
+      "effect": "propulsion_boots_cooldown",
+      "field": "PROPULSION_BOOTS_COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/PropulsionBootsAbilityOnKeyPressedProcedure.java",
+      "line": 31,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.PROPULSION_BOOTS_COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.PROPULSION_BOOTS_COOLDOWN.get())"
+    },
+    {
+      "effect": "propulsion_boots_cooldown",
+      "field": "PROPULSION_BOOTS_COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/PropulsionBootsAbilityOnKeyPressedProcedure.java",
+      "line": 50,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.PROPULSION_BOOTS_COOLDOWN.get(), 135, 1)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.PROPULSION_BOOTS_COOLDOWN.get(), 135, 1))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.PROPULSION_BOOTS_COOLDOWN.get()",
+        "135",
+        "1"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ProtoiDeltaAttackProcedure.java",
+      "line": 55,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ProtoiDeltaAttackProcedure.java",
+      "line": 70,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 100, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 100, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "100",
+        "1",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ProtoiEpsilonAttackProcedure.java",
+      "line": 55,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ProtoiEpsilonAttackProcedure.java",
+      "line": 61,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 100, 0, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 100, 0, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "100",
+        "0",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "damaging_aura",
+      "field": "DAMAGING_AURA",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ProtoiEpsilonAttackProcedure.java",
+      "line": 98,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.DAMAGING_AURA.get(), 20, 6, false, true)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.DAMAGING_AURA.get(), 20, 6, false, true))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.DAMAGING_AURA.get()",
+        "20",
+        "6",
+        "false",
+        "true"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ProtoiSunbeamAttackProcedure.java",
+      "line": 55,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ProtoiSunbeamAttackProcedure.java",
+      "line": 58,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 120, 0, true, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 120, 0, true, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "120",
+        "0",
+        "true",
+        "false"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/RazoraptorAttackProcedure.java",
+      "line": 54,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/RazoraptorAttackProcedure.java",
+      "line": 69,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 30, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 30, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "30",
+        "1",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "parrying",
+      "field": "PARRYING",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/RazoraptorAttackProcedure.java",
+      "line": 75,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.PARRYING.get(), 15, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.PARRYING.get(), 15, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.PARRYING.get()",
+        "15",
+        "1",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/RazoraptorAttackProcedure.java",
+      "line": 91,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 30, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 30, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "30",
+        "1",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/RibbonbladeAttackProcedure.java",
+      "line": 63,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/RibbonbladeAttackProcedure.java",
+      "line": 69,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 20, 0, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 20, 0, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "20",
+        "0",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/RibbonbladeAttackProcedure.java",
+      "line": 129,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 60, 0, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 60, 0, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "60",
+        "0",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "electrified",
+      "field": "ELECTRIFIED",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/RibbonbladeGalvaniteEntityIsHurtProcedure.java",
+      "line": 28,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.ELECTRIFIED.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.ELECTRIFIED.get())"
+    },
+    {
+      "effect": "electrified",
+      "field": "ELECTRIFIED",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/RibbonbladeGalvaniteEntityIsHurtProcedure.java",
+      "line": 40,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.ELECTRIFIED.get(), 30, 0, false, true)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.ELECTRIFIED.get(), 30, 0, false, true))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.ELECTRIFIED.get()",
+        "30",
+        "0",
+        "false",
+        "true"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/RibbonbladeGalvaniteEntityIsHurtProcedure.java",
+      "line": 50,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 40, 0, false, true)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 40, 0, false, true))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "40",
+        "0",
+        "false",
+        "true"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/RippleAttackProcedure.java",
+      "line": 63,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/RippleAttackProcedure.java",
+      "line": 83,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 180, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 180, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "180",
+        "1",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "electrified",
+      "field": "ELECTRIFIED",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/RippleAttackProcedure.java",
+      "line": 98,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.ELECTRIFIED.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.ELECTRIFIED.get())"
+    },
+    {
+      "effect": "infected",
+      "field": "INFECTED",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/RippleAttackProcedure.java",
+      "line": 98,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.INFECTED.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.INFECTED.get())"
+    },
+    {
+      "effect": "no_knockback",
+      "field": "NO_KNOCKBACK",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/RubySickleToolInHandTickProcedure.java",
+      "line": 19,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.NO_KNOCKBACK.get(), 1, 50, true, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.NO_KNOCKBACK.get(), 1, 50, true, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.NO_KNOCKBACK.get()",
+        "1",
+        "50",
+        "true",
+        "false"
+      ]
+    },
+    {
+      "effect": "reach",
+      "field": "REACH",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/RubySpearItemInHandTickProcedure.java",
+      "line": 24,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.REACH.get(), 3, 2, true, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.REACH.get(), 3, 2, true, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.REACH.get()",
+        "3",
+        "2",
+        "true",
+        "false"
+      ]
+    },
+    {
+      "effect": "no_melee",
+      "field": "NO_MELEE",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/RubySpearItemInHandTickProcedure.java",
+      "line": 27,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.NO_MELEE.get(), 3, 0, true, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.NO_MELEE.get(), 3, 0, true, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.NO_MELEE.get()",
+        "3",
+        "0",
+        "true",
+        "false"
+      ]
+    },
+    {
+      "effect": "damaging_aura",
+      "field": "DAMAGING_AURA",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/RubySpearRightclickedProcedure.java",
+      "line": 64,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.DAMAGING_AURA.get(), 17, 2, true, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.DAMAGING_AURA.get(), 17, 2, true, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.DAMAGING_AURA.get()",
+        "17",
+        "2",
+        "true",
+        "false"
+      ]
+    },
+    {
+      "effect": "parrying",
+      "field": "PARRYING",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/RustyEdgeRightclickedProcedure.java",
+      "line": 35,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.PARRYING.get(), 10, 1)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.PARRYING.get(), 10, 1))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.PARRYING.get()",
+        "10",
+        "1"
+      ]
+    },
+    {
+      "effect": "electrified",
+      "field": "ELECTRIFIED",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ShockStickLivingEntityIsHitWithToolProcedure.java",
+      "line": 64,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.ELECTRIFIED.get(), 240, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.ELECTRIFIED.get(), 240, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.ELECTRIFIED.get()",
+        "240",
+        "1",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "sickle_wound_buildup",
+      "field": "SICKLE_WOUND_BUILDUP",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SickleHitsEntityProcedure.java",
+      "line": 34,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.SICKLE_WOUND_BUILDUP.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.SICKLE_WOUND_BUILDUP.get())"
+    },
+    {
+      "effect": "sickle_wound_buildup",
+      "field": "SICKLE_WOUND_BUILDUP",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SickleHitsEntityProcedure.java",
+      "line": 36,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.SICKLE_WOUND_BUILDUP.get(), 20, 1 + (entity instanceof LivingEntity && (_livEnt2 = (LivingEntity)entity).hasEffect((MobEffect)ThermalShockModMobEffects.SICKLE_WOUND_BUILDUP.get()) ? _livEnt2.getEffect((MobEffect)ThermalShockModMobEffects.SICKLE_WOUND_BUILDUP.get()).getAmplifier() : 0))"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.SICKLE_WOUND_BUILDUP.get(), 20, 1 + (entity instanceof LivingEntity && (_livEnt2 = (LivingEntity)entity).hasEffect((MobEffect)ThermalShockModMobEffects.SICKLE_WOUND_BUILDUP.get()) ? _livEnt2.getEffect((MobEffect)ThermalShockModMobEffects.SICKLE_WOUND_BUILDUP.get()).getAmplifier() : 0)))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.SICKLE_WOUND_BUILDUP.get()",
+        "20",
+        "1 + (entity instanceof LivingEntity && (_livEnt2 = (LivingEntity)entity).hasEffect((MobEffect)ThermalShockModMobEffects.SICKLE_WOUND_BUILDUP.get()) ? _livEnt2.getEffect((MobEffect)ThermalShockModMobEffects.SICKLE_WOUND_BUILDUP.get()).getAmplifier() : 0)"
+      ]
+    },
+    {
+      "effect": "sickle_wound_buildup",
+      "field": "SICKLE_WOUND_BUILDUP",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SickleHitsEntityProcedure.java",
+      "line": 36,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.SICKLE_WOUND_BUILDUP.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.SICKLE_WOUND_BUILDUP.get())"
+    },
+    {
+      "effect": "sickle_wound_buildup",
+      "field": "SICKLE_WOUND_BUILDUP",
+      "operation": "getEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SickleHitsEntityProcedure.java",
+      "line": 36,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.SICKLE_WOUND_BUILDUP.get()"
+      ],
+      "call_expression": ".getEffect((MobEffect)ThermalShockModMobEffects.SICKLE_WOUND_BUILDUP.get())"
+    },
+    {
+      "effect": "sickle_wound_buildup",
+      "field": "SICKLE_WOUND_BUILDUP",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SickleHitsEntityProcedure.java",
+      "line": 39,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.SICKLE_WOUND_BUILDUP.get(), 20, 0)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.SICKLE_WOUND_BUILDUP.get(), 20, 0))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.SICKLE_WOUND_BUILDUP.get()",
+        "20",
+        "0"
+      ]
+    },
+    {
+      "effect": "sickle_wound_buildup",
+      "field": "SICKLE_WOUND_BUILDUP",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SickleHitsEntityProcedure.java",
+      "line": 41,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.SICKLE_WOUND_BUILDUP.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.SICKLE_WOUND_BUILDUP.get())"
+    },
+    {
+      "effect": "sickle_wound_buildup",
+      "field": "SICKLE_WOUND_BUILDUP",
+      "operation": "getEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SickleHitsEntityProcedure.java",
+      "line": 41,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.SICKLE_WOUND_BUILDUP.get()"
+      ],
+      "call_expression": ".getEffect((MobEffect)ThermalShockModMobEffects.SICKLE_WOUND_BUILDUP.get())"
+    },
+    {
+      "effect": "sickle_wound_buildup",
+      "field": "SICKLE_WOUND_BUILDUP",
+      "operation": "removeEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SickleHitsEntityProcedure.java",
+      "line": 45,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.SICKLE_WOUND_BUILDUP.get()"
+      ],
+      "call_expression": ".removeEffect((MobEffect)ThermalShockModMobEffects.SICKLE_WOUND_BUILDUP.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SiibolAttackProcedure.java",
+      "line": 64,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SiibolAttackProcedure.java",
+      "line": 75,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 50, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 50, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "50",
+        "1",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "antitoxin_effect",
+      "field": "ANTITOXIN_EFFECT",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SiibolAttackProcedure.java",
+      "line": 100,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.ANTITOXIN_EFFECT.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.ANTITOXIN_EFFECT.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SkeletitanAttackProcedure.java",
+      "line": 60,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SkeletitanAttackProcedure.java",
+      "line": 70,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 35, 0, true, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 35, 0, true, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "35",
+        "0",
+        "true",
+        "false"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SkeletitanAttackProcedure.java",
+      "line": 173,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 27, 0, true, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 27, 0, true, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "27",
+        "0",
+        "true",
+        "false"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SootleAttackProcedure.java",
+      "line": 54,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SootleAttackProcedure.java",
+      "line": 69,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 30, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 30, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "30",
+        "1",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SootleAttackProcedure.java",
+      "line": 110,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 40, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 40, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "40",
+        "1",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SootlingAttackProcedure.java",
+      "line": 51,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SootlingAttackProcedure.java",
+      "line": 55,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 80, 1, false, true)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 80, 1, false, true))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "80",
+        "1",
+        "false",
+        "true"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SopelAttackProcedure.java",
+      "line": 53,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SopelAttackProcedure.java",
+      "line": 93,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 45, 0, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 45, 0, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "45",
+        "0",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SpectreAttackProcedure.java",
+      "line": 55,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SpectreAttackProcedure.java",
+      "line": 67,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 50, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 50, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "50",
+        "1",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "reach",
+      "field": "REACH",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SpeleothemHandTickProcedure.java",
+      "line": 24,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.REACH.get(), 3, 4, true, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.REACH.get(), 3, 4, true, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.REACH.get()",
+        "3",
+        "4",
+        "true",
+        "false"
+      ]
+    },
+    {
+      "effect": "no_melee",
+      "field": "NO_MELEE",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SpeleothemHandTickProcedure.java",
+      "line": 27,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.NO_MELEE.get(), 3, 0, true, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.NO_MELEE.get(), 3, 0, true, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.NO_MELEE.get()",
+        "3",
+        "0",
+        "true",
+        "false"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SpiritAttackProcedure.java",
+      "line": 52,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SpiritAttackProcedure.java",
+      "line": 68,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 40, 1)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 40, 1))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "40",
+        "1"
+      ]
+    },
+    {
+      "effect": "damaging_aura",
+      "field": "DAMAGING_AURA",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SpiritAttackProcedure.java",
+      "line": 71,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.DAMAGING_AURA.get(), 20, 3)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.DAMAGING_AURA.get(), 20, 3))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.DAMAGING_AURA.get()",
+        "20",
+        "3"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/StopperOrbOnEntityTickUpdateProcedure.java",
+      "line": 40,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/StopperOrbOnInitialEntitySpawnProcedure.java",
+      "line": 19,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 100, 0, true, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 100, 0, true, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "100",
+        "0",
+        "true",
+        "false"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SummonedManglerAttackProcedure.java",
+      "line": 44,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SummonedManglerAttackProcedure.java",
+      "line": 55,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 40, 1, false, true)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 40, 1, false, true))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "40",
+        "1",
+        "false",
+        "true"
+      ]
+    },
+    {
+      "effect": "damaging_aura",
+      "field": "DAMAGING_AURA",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SummonedManglerAttackProcedure.java",
+      "line": 58,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.DAMAGING_AURA.get(), 20, 2, false, true)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.DAMAGING_AURA.get(), 20, 2, false, true))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.DAMAGING_AURA.get()",
+        "20",
+        "2",
+        "false",
+        "true"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SummonedManglerOnEntityTickUpdateProcedure.java",
+      "line": 21,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SummonedManglerOnInitialEntitySpawnProcedure.java",
+      "line": 19,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 320, 0, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 320, 0, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "320",
+        "0",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "frostbite",
+      "field": "FROSTBITE",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SurgePylonOnRandomClientDisplayTickProcedure.java",
+      "line": 64,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.FROSTBITE.get(), 1200, 0, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.FROSTBITE.get(), 1200, 0, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.FROSTBITE.get()",
+        "1200",
+        "0",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "sylvia_rifle_charge",
+      "field": "SYLVIA_RIFLE_CHARGE",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SylviaRifleFiringProcedure.java",
+      "line": 61,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.SYLVIA_RIFLE_CHARGE.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.SYLVIA_RIFLE_CHARGE.get())"
+    },
+    {
+      "effect": "sylvia_rifle_charge",
+      "field": "SYLVIA_RIFLE_CHARGE",
+      "operation": "getEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SylviaRifleFiringProcedure.java",
+      "line": 61,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.SYLVIA_RIFLE_CHARGE.get()"
+      ],
+      "call_expression": ".getEffect((MobEffect)ThermalShockModMobEffects.SYLVIA_RIFLE_CHARGE.get())"
+    },
+    {
+      "effect": "sylvia_rifle_charge",
+      "field": "SYLVIA_RIFLE_CHARGE",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SylviaRifleRightclickedProcedure.java",
+      "line": 57,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.SYLVIA_RIFLE_CHARGE.get(), 27, 1 + (entity instanceof LivingEntity && (_livEnt2 = (LivingEntity)entity).hasEffect((MobEffect)ThermalShockModMobEffects.SYLVIA_RIFLE_CHARGE.get()) ? _livEnt2.getEffect((MobEffect)ThermalShockModMobEffects.SYLVIA_RIFLE_CHARGE.get()).getAmplifier() : 0), false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.SYLVIA_RIFLE_CHARGE.get(), 27, 1 + (entity instanceof LivingEntity && (_livEnt2 = (LivingEntity)entity).hasEffect((MobEffect)ThermalShockModMobEffects.SYLVIA_RIFLE_CHARGE.get()) ? _livEnt2.getEffect((MobEffect)ThermalShockModMobEffects.SYLVIA_RIFLE_CHARGE.get()).getAmplifier() : 0), false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.SYLVIA_RIFLE_CHARGE.get()",
+        "27",
+        "1 + (entity instanceof LivingEntity && (_livEnt2 = (LivingEntity)entity).hasEffect((MobEffect)ThermalShockModMobEffects.SYLVIA_RIFLE_CHARGE.get()) ? _livEnt2.getEffect((MobEffect)ThermalShockModMobEffects.SYLVIA_RIFLE_CHARGE.get()).getAmplifier() : 0)",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "sylvia_rifle_charge",
+      "field": "SYLVIA_RIFLE_CHARGE",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SylviaRifleRightclickedProcedure.java",
+      "line": 57,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.SYLVIA_RIFLE_CHARGE.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.SYLVIA_RIFLE_CHARGE.get())"
+    },
+    {
+      "effect": "sylvia_rifle_charge",
+      "field": "SYLVIA_RIFLE_CHARGE",
+      "operation": "getEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SylviaRifleRightclickedProcedure.java",
+      "line": 57,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.SYLVIA_RIFLE_CHARGE.get()"
+      ],
+      "call_expression": ".getEffect((MobEffect)ThermalShockModMobEffects.SYLVIA_RIFLE_CHARGE.get())"
+    },
+    {
+      "effect": "sylvia_rifle_charge",
+      "field": "SYLVIA_RIFLE_CHARGE",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SylviaRifleRightclickedProcedure.java",
+      "line": 59,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.SYLVIA_RIFLE_CHARGE.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.SYLVIA_RIFLE_CHARGE.get())"
+    },
+    {
+      "effect": "sylvia_rifle_charge",
+      "field": "SYLVIA_RIFLE_CHARGE",
+      "operation": "getEffect",
+      "source": "net/mcreator/thermal_shock/procedures/SylviaRifleRightclickedProcedure.java",
+      "line": 59,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.SYLVIA_RIFLE_CHARGE.get()"
+      ],
+      "call_expression": ".getEffect((MobEffect)ThermalShockModMobEffects.SYLVIA_RIFLE_CHARGE.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/TeslaReedAttackProcedure.java",
+      "line": 54,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/TeslaReedAttackProcedure.java",
+      "line": 68,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 80, 1, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 80, 1, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "80",
+        "1",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "electrified",
+      "field": "ELECTRIFIED",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/TeslaReedAttackProcedure.java",
+      "line": 77,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.ELECTRIFIED.get(), 120, 0)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.ELECTRIFIED.get(), 120, 0))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.ELECTRIFIED.get()",
+        "120",
+        "0"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/TestmobattackProcedure.java",
+      "line": 60,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/TestmobattackProcedure.java",
+      "line": 80,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 50, 0, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 50, 0, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "50",
+        "0",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "nomnomnom",
+      "field": "NOMNOMNOM",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/TitanRightClickedOnEntityProcedure.java",
+      "line": 31,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.NOMNOMNOM.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.NOMNOMNOM.get())"
+    },
+    {
+      "effect": "nomnomnom",
+      "field": "NOMNOMNOM",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/TitanRightClickedOnEntityProcedure.java",
+      "line": 42,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.NOMNOMNOM.get(), 30, 0, false, false)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.NOMNOMNOM.get(), 30, 0, false, false))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.NOMNOMNOM.get()",
+        "30",
+        "0",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/WillogradeRightClickedOnEntityProcedure.java",
+      "line": 49,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/WillogradeRightClickedOnEntityProcedure.java",
+      "line": 67,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 90, 1)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 90, 1))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "90",
+        "1"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ZerkaltattackProcedure.java",
+      "line": 51,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "addEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ZerkaltattackProcedure.java",
+      "line": 100,
+      "method": "execute",
+      "original_arguments": [
+        "new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 32, 0, true, true)"
+      ],
+      "call_expression": ".addEffect(new MobEffectInstance((MobEffect)ThermalShockModMobEffects.COOLDOWN.get(), 32, 0, true, true))",
+      "mob_effect_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()",
+        "32",
+        "0",
+        "true",
+        "true"
+      ]
+    },
+    {
+      "effect": "cooldown",
+      "field": "COOLDOWN",
+      "operation": "hasEffect",
+      "source": "net/mcreator/thermal_shock/procedures/ZerkaltattackProcedure.java",
+      "line": 102,
+      "method": "execute",
+      "original_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.COOLDOWN.get()"
+      ],
+      "call_expression": ".hasEffect((MobEffect)ThermalShockModMobEffects.COOLDOWN.get())"
+    }
+  ],
+  "effect_give_command_count": 1,
+  "effect_give_commands": [
+    {
+      "effect": "antitoxin_effect",
+      "field": "ANTITOXIN_EFFECT",
+      "source": "net/mcreator/thermal_shock/procedures/AntitoxinPlayerFinishesUsingItemProcedure.java",
+      "line": 18,
+      "method": "execute",
+      "command_literal": "/effect give @s thermal_shock:antitoxin_effect 6000 1"
+    }
+  ],
+  "unique_source_line_sites_with_static_refs": 198
+}

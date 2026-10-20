@@ -536,3 +536,13 @@ A路唯一生产修复恢复Whisper八交易页Shift移动至热栏的逆向遍�
 统一固定8879份src/main输入，Java21首次执行compileJava processResources --offline --max-workers=2通过1m13s，两任务实际执行。随后修复20条相机中文的双重转义换行并重新固定输入，最终构建通过1m11s，compileJava保持UP-TO-DATE，processResources实际执行。构建前后全部输入一致，8060份直接资源字节一致，14份A交付文件哈希通过；证据见main122-static-validation.json。Ribbonblade既有独立变更参与当前源码构建，保留但不纳入本批迁移提交。用户测试目录也不纳入提交。
 
 后续继续逐项闭合上述真实剩余矩阵与汉化，不重复以注册或文件数量代替语义复审。服务端由用户独立测试线负责；完整迁移及无简化复审后，由子代理进行客户端及Render Preview原件对照。当前未运行游戏，仅本地阶段提交。
+
+## 第123批最终集成验证
+
+主线完成113组结构属性/后加载静态复核，恢复Herald的生成初始化锚点；Orb恢复原中心点范围与零步高；Willograde成功喂食补回90tick白色反馈，Mangler冷却恢复旧版等级混色、频率及ambient透明度。A恢复实验室八菜单主背包至热栏的逆向遍历。独立Luna更新206条中文值，保留86条图鉴全文实际换行；后续仍有正文翻译与硬编码入口工作。
+
+统一Java21离线compileJava processResources --max-workers=2成功1m52s，两任务均实际执行。构建前后8879份输入一致，8060份直接资源与输出字节一致。校验器最初把字面“50% chance”误判为printf参数；已对照当前TranslatableContents的真实格式解析规则修正，三处旧概率文案不改生产。证据main123-static-validation.json；A交付9项与D盘23项文件另核哈希。
+
+菜单新增66项静态闭合，累计117/241；剩124项具体缺项见review-a123-remaining.json，不是124个未实现页面。下一阶段A只补57通用/65实验室已有缺项，主线补2页硬编码动态问候、45条非冷却查询/移除控制流、共享动画及透明路径，语言继续独立Luna。Sickle阈值流程的临时add/remove差异须核合并及事件取消，不能仅记录最终默认状态相同。所有真实有效原行为保留，旧死过程不补造入口。
+
+本批不启动游戏，不stage用户测试目录或Ribbonblade独立修改。服务端继续用户独立负责；完整代码及无简化复审闭合后，再安排子代理客户端与Render Preview验收。Git无remote，仅本地阶段提交。

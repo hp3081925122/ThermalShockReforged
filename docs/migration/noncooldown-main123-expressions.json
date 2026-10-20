@@ -1,0 +1,530 @@
+{
+  "summary": {
+    "count": 17,
+    "target_base": "33d3bc65c081427be13fc546c066ea725a5d5248",
+    "sha256_file_count": 23,
+    "note": "17个addEffect表达式差异逐行语义复审；SHA-256 inventory包含来源Java、目标Java及对照审计文件的扫描时文件内容哈希。本审计未修改仓库。"
+  },
+  "entries": [
+    {
+      "effect": "damaging_aura",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\BloodstoneHalberdRightClickedProcedure.java",
+      "line": 52,
+      "method": "execute",
+      "original_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.DAMAGING_AURA.get()",
+        "17",
+        "3",
+        "true",
+        "false"
+      ],
+      "target_refs": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\SpearItem.java",
+          "lines": [
+            75
+          ],
+          "sha256": "289bfe5fc7480ae33c45660410c46effbabcba55b5f223cb8175748947e6b110"
+        }
+      ],
+      "semantic_conclusion": "BloodstoneHalberd 的 kind.halberd()==true，目标 amp=3；duration17 与 true/false flags一致。",
+      "source_sha256": "c09464e9377ddfd722d9b68419c6ec947eef87d3736aa18ffe2a8e17d91b1cd1"
+    },
+    {
+      "effect": "heart_boost",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\HeartCrystalRightclickedProcedure.java",
+      "line": 38,
+      "method": "execute",
+      "original_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.HEART_BOOST.get()",
+        "5000",
+        "1 + (entity instanceof LivingEntity && (_livEnt = (LivingEntity)entity).hasEffect((MobEffect)ThermalShockModMobEffects.HEART_BOOST.get()) ? _livEnt.getEffect((MobEffect)ThermalShockModMobEffects.HEART_BOOST.get()).getAmplifier() : 0)"
+      ],
+      "target_refs": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\HeartCrystalItem.java",
+          "lines": [
+            30,
+            32,
+            33
+          ],
+          "sha256": "fe0f9ba4eb8eb12ddaf6db6a28d6869467efaea318ee0b80cf42fc977a1ffd67"
+        }
+      ],
+      "semantic_conclusion": "旧表达式首次给1，已存在时 old amp+1；目标 previous==null?1:previous.amp+1，duration5000一致。has/get查询由getEffect返回null合并。",
+      "source_sha256": "47ffebce382a73855be1d14a072ef66bcb03872563ada0701c199ba38f5792df"
+    },
+    {
+      "effect": "infected",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\InfectedEffectExpiresProcedure.java",
+      "line": 47,
+      "method": "execute",
+      "original_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.INFECTED.get()",
+        "(int)Math.round(Mth.nextDouble((RandomSource)RandomSource.create(), (double)120.0, (double)200.0))",
+        "1",
+        "false",
+        "true"
+      ],
+      "target_refs": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\status\\InfectionStatus.java",
+          "lines": [
+            128
+          ],
+          "sha256": "47e1515c2eedd565e5e697179fad8457b3e5c75e4b2f5c173b284743ce88dfd4"
+        }
+      ],
+      "semantic_conclusion": "玩家分支0.5概率后使用 round(U[120,200))、amp1、false/true；目标保留0.5门槛和同分布时长、amp、flags。随机源从新建RandomSource变为patient.getRandom，随机流序列不同。",
+      "source_sha256": "a8f53f4118110737b824c047886cbf05dcca2a127608581d11e1affdca656633"
+    },
+    {
+      "effect": "infected",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\InfectedEffectExpiresProcedure.java",
+      "line": 50,
+      "method": "execute",
+      "original_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.INFECTED.get()",
+        "(int)Math.round(Mth.nextDouble((RandomSource)RandomSource.create(), (double)120.0, (double)200.0))",
+        "1",
+        "false",
+        "true"
+      ],
+      "target_refs": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\status\\InfectionStatus.java",
+          "lines": [
+            127,
+            128
+          ],
+          "sha256": "47e1515c2eedd565e5e697179fad8457b3e5c75e4b2f5c173b284743ce88dfd4"
+        }
+      ],
+      "semantic_conclusion": "非玩家分支必定使用 round(U[120,200))、amp1、false/true；目标相同范围和其余参数，随机源序列不同。",
+      "source_sha256": "a8f53f4118110737b824c047886cbf05dcca2a127608581d11e1affdca656633"
+    },
+    {
+      "effect": "infected",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\InfectedEffectExpiresProcedure.java",
+      "line": 70,
+      "method": "execute",
+      "original_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.INFECTED.get()",
+        "(int)Math.round(Mth.nextDouble((RandomSource)RandomSource.create(), (double)220.0, (double)300.0))",
+        "1",
+        "false",
+        "true"
+      ],
+      "target_refs": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\status\\InfectionStatus.java",
+          "lines": [
+            140
+          ],
+          "sha256": "47e1515c2eedd565e5e697179fad8457b3e5c75e4b2f5c173b284743ce88dfd4"
+        }
+      ],
+      "semantic_conclusion": "周围目标使用 round(U[220,300))、amp1、false/true；目标同范围和其余参数，随机源序列不同。",
+      "source_sha256": "a8f53f4118110737b824c047886cbf05dcca2a127608581d11e1affdca656633"
+    },
+    {
+      "effect": "parrying",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\KnightsEdgeRightclickedProcedure.java",
+      "line": 48,
+      "method": "execute",
+      "original_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.PARRYING.get()",
+        "18",
+        "0"
+      ],
+      "target_refs": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\ElementalBladeItem.java",
+          "lines": [
+            77,
+            78,
+            80
+          ],
+          "sha256": "cb7bbf2f7e17f8a2d3c2d4cae00675053eace0490300c208400ad4a79a699de4"
+        }
+      ],
+      "semantic_conclusion": "难度分支精确对应：NORMAL=18、HARD=12、其他=25；amp0，双方三参构造使用默认flags。",
+      "source_sha256": "413b2239741fd33af1de5f7706e7a856402102a18943639a99004d91a5be0014"
+    },
+    {
+      "effect": "parrying",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\KnightsEdgeRightclickedProcedure.java",
+      "line": 52,
+      "method": "execute",
+      "original_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.PARRYING.get()",
+        "12",
+        "0"
+      ],
+      "target_refs": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\ElementalBladeItem.java",
+          "lines": [
+            77,
+            78,
+            80
+          ],
+          "sha256": "cb7bbf2f7e17f8a2d3c2d4cae00675053eace0490300c208400ad4a79a699de4"
+        }
+      ],
+      "semantic_conclusion": "难度分支精确对应：HARD=12；amp0、默认flags。",
+      "source_sha256": "413b2239741fd33af1de5f7706e7a856402102a18943639a99004d91a5be0014"
+    },
+    {
+      "effect": "parrying",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\KnightsEdgeRightclickedProcedure.java",
+      "line": 55,
+      "method": "execute",
+      "original_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.PARRYING.get()",
+        "25",
+        "0"
+      ],
+      "target_refs": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\ElementalBladeItem.java",
+          "lines": [
+            77,
+            78,
+            80
+          ],
+          "sha256": "cb7bbf2f7e17f8a2d3c2d4cae00675053eace0490300c208400ad4a79a699de4"
+        }
+      ],
+      "semantic_conclusion": "难度default分支精确对应duration25；amp0、默认flags。",
+      "source_sha256": "413b2239741fd33af1de5f7706e7a856402102a18943639a99004d91a5be0014"
+    },
+    {
+      "effect": "liteprism_buildup",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\LiteprismDiskProjectileProjectileHitsLivingEntityProcedure.java",
+      "line": 45,
+      "method": "execute",
+      "original_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.LITEPRISM_BUILDUP.get()",
+        "20",
+        "1 + (entity instanceof LivingEntity && (_livEnt2 = (LivingEntity)entity).hasEffect((MobEffect)ThermalShockModMobEffects.LITEPRISM_BUILDUP.get()) ? _livEnt2.getEffect((MobEffect)ThermalShockModMobEffects.LITEPRISM_BUILDUP.get()).getAmplifier() : 0)"
+      ],
+      "target_refs": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\projectile\\LiteprismDiskProjectileEntity.java",
+          "lines": [
+            40,
+            41
+          ],
+          "sha256": "642ff2cc9db662a55aa8ef401ea7f36898fcbba5b516afd07161dd6f473a6c5e"
+        }
+      ],
+      "semantic_conclusion": "旧hasEffect分支才调用，amp=old amp+1、duration20；目标previous!=null时+1、duration20，分支值一致。",
+      "source_sha256": "ddb1d81c5f2497cda8456a48355dc147e5fb2c47433cf514397b096181061bb5"
+    },
+    {
+      "effect": "liteprism_buildup",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\LiteprismDiskProjectileProjectileHitsLivingEntityProcedure.java",
+      "line": 48,
+      "method": "execute",
+      "original_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.LITEPRISM_BUILDUP.get()",
+        "20",
+        "0"
+      ],
+      "target_refs": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\projectile\\LiteprismDiskProjectileEntity.java",
+          "lines": [
+            40,
+            41
+          ],
+          "sha256": "642ff2cc9db662a55aa8ef401ea7f36898fcbba5b516afd07161dd6f473a6c5e"
+        }
+      ],
+      "semantic_conclusion": "旧无状态else分支20tick/amp0；目标previous==null时20tick/amp0，等价。",
+      "source_sha256": "ddb1d81c5f2497cda8456a48355dc147e5fb2c47433cf514397b096181061bb5"
+    },
+    {
+      "effect": "stunned",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\MaidenAttackProcedure.java",
+      "line": 68,
+      "method": "execute",
+      "original_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.STUNNED.get()",
+        "28",
+        "0",
+        "true",
+        "false"
+      ],
+      "target_refs": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\maiden\\MaidenVolleyEntity.java",
+          "lines": [
+            56
+          ],
+          "sha256": "d412dedc0a0028cbd0f2de1bed0bd876e813bd63bcf91ea8303ee2d5221ad49a"
+        }
+      ],
+      "semantic_conclusion": "旧single volley stunned28/0/true/false；目标single=true取28并保留amp/flags。",
+      "source_sha256": "75c89dad95ce6a93a0fc817db134b9bf700974dcdeb64780a1b2b21d9fa73ee0"
+    },
+    {
+      "effect": "stunned",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\MaidenAttackProcedure.java",
+      "line": 233,
+      "method": "execute",
+      "original_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.STUNNED.get()",
+        "45",
+        "0",
+        "true",
+        "false"
+      ],
+      "target_refs": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\maiden\\MaidenVolleyEntity.java",
+          "lines": [
+            56
+          ],
+          "sha256": "d412dedc0a0028cbd0f2de1bed0bd876e813bd63bcf91ea8303ee2d5221ad49a"
+        }
+      ],
+      "semantic_conclusion": "旧triple volley stunned45/0/true/false；目标single=false取45并保留amp/flags。",
+      "source_sha256": "75c89dad95ce6a93a0fc817db134b9bf700974dcdeb64780a1b2b21d9fa73ee0"
+    },
+    {
+      "effect": "damaging_aura",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\ManglerAttackProcedure.java",
+      "line": 58,
+      "method": "execute",
+      "original_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.DAMAGING_AURA.get()",
+        "20",
+        "3",
+        "false",
+        "true"
+      ],
+      "target_refs": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\mangler\\ManglerEntity.java",
+          "lines": [
+            68
+          ],
+          "sha256": "d36542a0ad4eede99465a99b733cac7d2e9499ce20d30f4e5ee8bc12884b4150"
+        }
+      ],
+      "semantic_conclusion": "旧20tick/amp3/false/true；目标amp=round(base ATTACK_DAMAGE×3)，默认基础伤害1时为3。属性变化会改变amp，这是攻击力倍率联动，非固定amp字面等价。",
+      "source_sha256": "ca46dd9f9c994e5a0aa1c61b9d462238bc437c1616253cbd3b87cd4005367785"
+    },
+    {
+      "effect": "damaging_aura",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\RubySpearRightclickedProcedure.java",
+      "line": 64,
+      "method": "execute",
+      "original_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.DAMAGING_AURA.get()",
+        "17",
+        "2",
+        "true",
+        "false"
+      ],
+      "target_refs": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\SpearItem.java",
+          "lines": [
+            75
+          ],
+          "sha256": "289bfe5fc7480ae33c45660410c46effbabcba55b5f223cb8175748947e6b110"
+        }
+      ],
+      "semantic_conclusion": "RubySpear kind.halberd()==false，目标amp=2；duration17、true/false flags一致。",
+      "source_sha256": "47e267073b5379891770e65f923dc239a48738bfde5784980216be229407021e"
+    },
+    {
+      "effect": "sickle_wound_buildup",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\SickleHitsEntityProcedure.java",
+      "line": 36,
+      "method": "execute",
+      "original_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.SICKLE_WOUND_BUILDUP.get()",
+        "20",
+        "1 + (entity instanceof LivingEntity && (_livEnt2 = (LivingEntity)entity).hasEffect((MobEffect)ThermalShockModMobEffects.SICKLE_WOUND_BUILDUP.get()) ? _livEnt2.getEffect((MobEffect)ThermalShockModMobEffects.SICKLE_WOUND_BUILDUP.get()).getAmplifier() : 0)"
+      ],
+      "target_refs": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\SickleItem.java",
+          "lines": [
+            35,
+            36,
+            38,
+            42
+          ],
+          "sha256": "58d4f6becd40063b9b529eba036df0d2f06e8d50d49ff958fa47000bcf0e3974"
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\remainingcombat\\ClawSickleItem.java",
+          "lines": [
+            37,
+            38,
+            39,
+            41
+          ],
+          "sha256": "49bf93b2e3a24546dfc14dc120a856219f28773aa2533f9fc80346a3764abf0a"
+        }
+      ],
+      "semantic_conclusion": "已有状态支路20tick/old amp+1；目标level=old amp+1。达到阈值2时旧先add amp2再同过程remove，目标直接remove并伤害；终态一致，但add/remove事件顺序可观察地不同。Sickle与Claw均有调用点。",
+      "source_sha256": "757de8a7d10daa3555ea49bbfeb49b88109035aa4e849a2c3fc46d2328d98986"
+    },
+    {
+      "effect": "sickle_wound_buildup",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\SickleHitsEntityProcedure.java",
+      "line": 39,
+      "method": "execute",
+      "original_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.SICKLE_WOUND_BUILDUP.get()",
+        "20",
+        "0"
+      ],
+      "target_refs": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\SickleItem.java",
+          "lines": [
+            36,
+            42
+          ],
+          "sha256": "58d4f6becd40063b9b529eba036df0d2f06e8d50d49ff958fa47000bcf0e3974"
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\remainingcombat\\ClawSickleItem.java",
+          "lines": [
+            37,
+            38,
+            39
+          ],
+          "sha256": "49bf93b2e3a24546dfc14dc120a856219f28773aa2533f9fc80346a3764abf0a"
+        }
+      ],
+      "semantic_conclusion": "无状态支路20tick/amp0；目标wound==null时level0并添加20tick/amp0。Sickle与Claw均有对应分支。",
+      "source_sha256": "757de8a7d10daa3555ea49bbfeb49b88109035aa4e849a2c3fc46d2328d98986"
+    },
+    {
+      "effect": "damaging_aura",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\SummonedManglerAttackProcedure.java",
+      "line": 58,
+      "method": "execute",
+      "original_instance_arguments": [
+        "(MobEffect)ThermalShockModMobEffects.DAMAGING_AURA.get()",
+        "20",
+        "2",
+        "false",
+        "true"
+      ],
+      "target_refs": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\mangler\\ManglerEntity.java",
+          "lines": [
+            68
+          ],
+          "sha256": "d36542a0ad4eede99465a99b733cac7d2e9499ce20d30f4e5ee8bc12884b4150"
+        }
+      ],
+      "semantic_conclusion": "旧20tick/amp2/false/true；目标amp=round(base ATTACK_DAMAGE×2)，默认基础伤害1时为2。攻击力变化时amp变化，属于倍率联动。",
+      "source_sha256": "ea5f32f9ef1ac054c522e60d088ed2dbd15430f6f55606e45aaf3eb3a8cc0069"
+    }
+  ],
+  "sha256_inventory": [
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\SpearItem.java",
+      "sha256": "289bfe5fc7480ae33c45660410c46effbabcba55b5f223cb8175748947e6b110"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\BloodstoneHalberdRightClickedProcedure.java",
+      "sha256": "c09464e9377ddfd722d9b68419c6ec947eef87d3736aa18ffe2a8e17d91b1cd1"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\HeartCrystalItem.java",
+      "sha256": "fe0f9ba4eb8eb12ddaf6db6a28d6869467efaea318ee0b80cf42fc977a1ffd67"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\HeartCrystalRightclickedProcedure.java",
+      "sha256": "47ffebce382a73855be1d14a072ef66bcb03872563ada0701c199ba38f5792df"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\status\\InfectionStatus.java",
+      "sha256": "47e1515c2eedd565e5e697179fad8457b3e5c75e4b2f5c173b284743ce88dfd4"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\InfectedEffectExpiresProcedure.java",
+      "sha256": "a8f53f4118110737b824c047886cbf05dcca2a127608581d11e1affdca656633"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\ElementalBladeItem.java",
+      "sha256": "cb7bbf2f7e17f8a2d3c2d4cae00675053eace0490300c208400ad4a79a699de4"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\KnightsEdgeRightclickedProcedure.java",
+      "sha256": "413b2239741fd33af1de5f7706e7a856402102a18943639a99004d91a5be0014"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\projectile\\LiteprismDiskProjectileEntity.java",
+      "sha256": "642ff2cc9db662a55aa8ef401ea7f36898fcbba5b516afd07161dd6f473a6c5e"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\LiteprismDiskProjectileProjectileHitsLivingEntityProcedure.java",
+      "sha256": "ddb1d81c5f2497cda8456a48355dc147e5fb2c47433cf514397b096181061bb5"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\maiden\\MaidenVolleyEntity.java",
+      "sha256": "d412dedc0a0028cbd0f2de1bed0bd876e813bd63bcf91ea8303ee2d5221ad49a"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\MaidenAttackProcedure.java",
+      "sha256": "75c89dad95ce6a93a0fc817db134b9bf700974dcdeb64780a1b2b21d9fa73ee0"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\mangler\\ManglerEntity.java",
+      "sha256": "d36542a0ad4eede99465a99b733cac7d2e9499ce20d30f4e5ee8bc12884b4150"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\ManglerAttackProcedure.java",
+      "sha256": "ca46dd9f9c994e5a0aa1c61b9d462238bc437c1616253cbd3b87cd4005367785"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\RubySpearRightclickedProcedure.java",
+      "sha256": "47e267073b5379891770e65f923dc239a48738bfde5784980216be229407021e"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\SickleItem.java",
+      "sha256": "58d4f6becd40063b9b529eba036df0d2f06e8d50d49ff958fa47000bcf0e3974"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\remainingcombat\\ClawSickleItem.java",
+      "sha256": "49bf93b2e3a24546dfc14dc120a856219f28773aa2533f9fc80346a3764abf0a"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\SickleHitsEntityProcedure.java",
+      "sha256": "757de8a7d10daa3555ea49bbfeb49b88109035aa4e849a2c3fc46d2328d98986"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\SummonedManglerAttackProcedure.java",
+      "sha256": "ea5f32f9ef1ac054c522e60d088ed2dbd15430f6f55606e45aaf3eb3a8cc0069"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\icesquad\\BastionEntity.java",
+      "sha256": "fb0e5d07552d3dc2785aef9e96b51a38ae0577355a3f7ccbe6c0517a7acff135"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\guardian-pylon-batch.md",
+      "sha256": "6b9599ad446d61f71f43e7b4495f0038b8f935bcc0894055a0e7c61a76b15f53"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\status-main120-reviewed.json",
+      "sha256": "82dc164f64b3b02fcfe6462e652998c2a49ab6d6be08676f20e3ed32159b1f9e"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\attack-events-a-mapping114.json",
+      "sha256": "2977f23f4e77a6114ab3f137a47255d237658889b02a7c0db181643f8ec22ff1"
+    }
+  ]
+}

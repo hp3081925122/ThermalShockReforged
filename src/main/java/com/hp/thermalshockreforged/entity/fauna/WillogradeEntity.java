@@ -1,5 +1,8 @@
 package com.hp.thermalshockreforged.entity.fauna;
 
+import com.hp.thermalshockreforged.ThermalShockReforged;
+import com.hp.thermalshockreforged.content.status.LegacyEffectParticles;
+import java.util.ArrayList;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -29,6 +32,7 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 
 public final class WillogradeEntity extends PathfinderMob implements GeoEntity {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(WillogradeEntity.class, EntityDataSerializers.STRING);
+    private static final EntityDataAccessor<Boolean> FEED_COOLDOWN_VISIBLE = SynchedEntityData.defineId(WillogradeEntity.class, EntityDataSerializers.BOOLEAN);
     private final AnimatableInstanceCache animations = GeckoLibUtil.createInstanceCache(this);
 
     private int buryAge = -1;
@@ -49,6 +53,7 @@ public final class WillogradeEntity extends PathfinderMob implements GeoEntity {
     protected void defineSynchedData(SynchedEntityData.Builder builder) {
         super.defineSynchedData(builder);
         builder.define(TEXTURE, "rolypoly");
+        builder.define(FEED_COOLDOWN_VISIBLE, false);
     }
 
     public String texture() { return entityData.get(TEXTURE); }
@@ -76,6 +81,8 @@ public final class WillogradeEntity extends PathfinderMob implements GeoEntity {
             level().levelEvent(2001, blockPosition(), net.minecraft.world.level.block.Block.getId(FaunaEntities.block("adamantine_spice_block").defaultBlockState()));
             if (random.nextDouble() < 0.5) {
                 feedCooldown = 90;
+                entityData.set(FEED_COOLDOWN_VISIBLE, true);
+                ThermalShockReforged.LOGGER.debug("Willograde feeding cooldown started: entity={}, position={}, remaining={}", getUUID(), position(), feedCooldown);
                 buryAge = 0;
                 buryOrigin = position();
                 buryDimension = level().dimension().location().toString();
@@ -115,7 +122,7 @@ public final class WillogradeEntity extends PathfinderMob implements GeoEntity {
     public void tick() {
         super.tick();
         if (level().isClientSide || !isAlive()) return;
-        if (feedCooldown > 0) feedCooldown--;
+        if (feedCooldown > 0 && --feedCooldown == 0) entityData.set(FEED_COOLDOWN_VISIBLE, false);
         if (buryAge < 0) return;
         if (!buryDimension.equals(level().dimension().location().toString())) {
             buryAge = -1;
@@ -157,6 +164,16 @@ public final class WillogradeEntity extends PathfinderMob implements GeoEntity {
     }
 
     @Override
+    protected void tickEffects() {
+        if (!level().isClientSide || !entityData.get(FEED_COOLDOWN_VISIBLE)) { super.tickEffects(); return; }
+        for (var effect : new ArrayList<>(getActiveEffects())) {
+            boolean active = effect.tick(this, () -> onEffectUpdated(effect, true, null));
+            if (active && effect.getDuration() % 600 == 0) onEffectUpdated(effect, false, null);
+        }
+        if (isInvisible() ? random.nextInt(15) == 0 : random.nextBoolean()) LegacyEffectParticles.emit(this, -1, 2);
+    }
+
+    @Override
     public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
         tag.putString("Texture", texture());
@@ -174,6 +191,7 @@ public final class WillogradeEntity extends PathfinderMob implements GeoEntity {
         if (tag.contains("Texture")) setTexture(tag.getString("Texture"));
         buryAge = tag.contains("BuryAge") ? tag.getInt("BuryAge") : -1;
         feedCooldown = Math.max(0, tag.getInt("FeedCooldown"));
+        entityData.set(FEED_COOLDOWN_VISIBLE, feedCooldown > 0);
         buryOrigin = new net.minecraft.world.phys.Vec3(tag.getDouble("BuryX"), tag.getDouble("BuryY"), tag.getDouble("BuryZ"));
         buryDimension = tag.getString("BuryDimension");
         resumeBuryAnimation = buryAge >= 0 && buryAge < 80;

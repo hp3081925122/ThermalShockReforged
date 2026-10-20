@@ -1,0 +1,25 @@
+{
+  "baseline": "33d3bc65c081427be13fc546c066ea725a5d5248",
+  "checked_unique_files": 854,
+  "drift": [
+    {
+      "path": "E:/模组/发cf的模组/AAA生物/Thermal Shock 重做/1211-neoforge-ThermalShockReforged/docs/migration/review-a123-plan.md",
+      "expected": "01e6c1fc93643842d9ed27b5889af8b159bd64259387f29a6da14b0c39da7a39",
+      "actual": "9d3deac98a57f54b9eea136e64d8ba51824638d31eec3ff53c77d368470853b0",
+      "group": "a123-group1-evidence.json",
+      "allowed": true
+    },
+    {
+      "path": "E:/模组/发cf的模组/AAA生物/Thermal Shock 重做/1211-neoforge-ThermalShockReforged/docs/migration/review-a123-plan.md",
+      "expected": "a71f0593b5106e23f96e7721e3f06162832a0e33bbdb21eaf31adc8c392e7d69",
+      "actual": "9d3deac98a57f54b9eea136e64d8ba51824638d31eec3ff53c77d368470853b0",
+      "group": "group3",
+      "allowed": true
+    }
+  ],
+  "allowed_drift_reason": "本批计划更新及已核LabMenu修复；语言由主线独占并行修改，逐值比较保留原快照。",
+  "exact_allowed_lab_diff": true,
+  "production_sha256": "289d1a0801d4b25b51139f29fc788f883d8f79a7f1e249020541187860fb556c",
+  "build_by_a": false,
+  "game_by_a": false
+}
