@@ -1,0 +1,62 @@
+{
+  "batch": 133,
+  "definitions": 52,
+  "unique_registration_and_provider": true,
+  "registration_bus_owners": 23,
+  "indirect_client_provider_entries": 12,
+  "parameter_checks_all_true": true,
+  "animated_frame_formulas": 5,
+  "native_parent_checks": {
+    "base_tick_equivalent_after_typed_assignment_normalization": true,
+    "base_friction_0_98_equal": true,
+    "public void pickSprite": true,
+    "public void setSpriteFromAge": true,
+    "random_quad_size_equal": true
+  },
+  "frozen_main_input_files": 8881,
+  "all_frozen_inputs_unchanged_after_build": true,
+  "processed_resource_matches": 303,
+  "java21_offline_compileJava_processResources": true,
+  "no_game_server_preview_run": true,
+  "full_source_caller_pairing_complete": false,
+  "G02_complete": false,
+  "deliverables": {
+    "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch133\\docs\\migration\\review-a133-particles.json": "6f07747f8b2f4833760c96ada2c361ea3d6837ee7dc2d13617cb5234291cb1b1",
+    "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch133\\docs\\migration\\review-a133-particles.md": "8075d8af3f6608dfb2a6aceb73f4c8768c93dda65ce025f8c108ac99d4a9cca8",
+    "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch133\\docs\\migration\\review-a133-particles.plan.md": "91ec0944fd935e1aafe66adfc8984b4ac989964e9743c5f92c44d8927b4dfd1c"
+  },
+  "generators": [
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch133-audit.py",
+      "sha256": "51bf5647a192e9cba1924685a821eca8bdfeb53930278504effe7785b74cedd4"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch133-extra-evidence.py",
+      "sha256": "6f8b74b10a7ef3dce0411ac127d83500f150fde8ec36ea3236962fe7e6511f7a"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch133-finalize.py",
+      "sha256": "6cfbc7791876120f0936d208ee70c75d701e8b0a245278c0f2d4433dda97474c"
+    }
+  ],
+  "build_logs": [
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch133-compile-resources.log",
+      "sha256": "0b732eac18b64ddee1bb420e82a7c19c37bf92c03021853c7134c8a6ed9e11ea",
+      "success": false,
+      "failure": "新worktree缺离线Minecraft版本元数据，第二次缓存复制层级修正后重试；未进入Java错误阶段。"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch133-compile-resources-retry.log",
+      "sha256": "70cce96af31dadfa0f993e1e00a96014043fc372980cd263edc4bdef4ab6b393",
+      "success": false,
+      "failure": "新worktree缺离线Minecraft版本元数据，第二次缓存复制层级修正后重试；未进入Java错误阶段。"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch133-compile-resources-final.log",
+      "sha256": "cb9ea154365def7b77f5350445174fabf27854488cdacba9c5f2be9dc711137a",
+      "success": true,
+      "failure": null
+    }
+  ]
+}
