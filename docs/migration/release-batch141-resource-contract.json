@@ -1,0 +1,192 @@
+{
+  "batch": 141,
+  "sourceCommit": "6a146c6be7e94969c5cee491f8ad4d31f02f4f2b",
+  "productionFilesChanged": false,
+  "resourceInputCounts": {
+    "src/main/resources/": 8129,
+    "src/generated/resources/": 0
+  },
+  "sourceRootMissingButOptional": [
+    "src/generated/resources/"
+  ],
+  "resourceCount": 8129,
+  "untrackedInputsInJar": 0,
+  "missingTrackedInputs": 0,
+  "duplicateRelativeInputPaths": 0,
+  "unexpectedTransforms": 0,
+  "metadataExpansionExceptions": [
+    "META-INF/neoforge.mods.toml",
+    "pack.mcmeta"
+  ],
+  "perGroupCounts": {
+    "META-INF": 2,
+    "assets/foggypalegarden/preset.json": 1,
+    "assets/minecraft/texts": 1,
+    "assets/thermal_shock_reforged/animations": 276,
+    "assets/thermal_shock_reforged/blockstates": 649,
+    "assets/thermal_shock_reforged/creative_tabs.json": 1,
+    "assets/thermal_shock_reforged/effeks": 130,
+    "assets/thermal_shock_reforged/geo": 275,
+    "assets/thermal_shock_reforged/lang": 2,
+    "assets/thermal_shock_reforged/models": 2315,
+    "assets/thermal_shock_reforged/particles": 52,
+    "assets/thermal_shock_reforged/sounds": 272,
+    "assets/thermal_shock_reforged/sounds.json": 1,
+    "assets/thermal_shock_reforged/textures": 2132,
+    "data/minecraft/tags": 63,
+    "data/thermal_shock_reforged/advancement": 69,
+    "data/thermal_shock_reforged/damage_type": 2,
+    "data/thermal_shock_reforged/dimension": 2,
+    "data/thermal_shock_reforged/dimension_type": 2,
+    "data/thermal_shock_reforged/jukebox_song": 15,
+    "data/thermal_shock_reforged/loot_table": 611,
+    "data/thermal_shock_reforged/neoforge": 161,
+    "data/thermal_shock_reforged/painting_variant": 17,
+    "data/thermal_shock_reforged/recipe": 569,
+    "data/thermal_shock_reforged/structure": 164,
+    "data/thermal_shock_reforged/tags": 44,
+    "data/thermal_shock_reforged/worldgen": 298,
+    "logo.png": 1,
+    "pack.mcmeta": 1,
+    "thermal_shock_reforged.mixins.json": 1
+  },
+  "namespaces": {
+    "assets/foggypalegarden": 1,
+    "assets/minecraft": 1,
+    "assets/thermal_shock_reforged": 6105,
+    "data/minecraft": 63,
+    "data/thermal_shock_reforged": 1954
+  },
+  "dataDirectories": {
+    "data/minecraft/tags": 63,
+    "data/thermal_shock_reforged/advancement": 69,
+    "data/thermal_shock_reforged/damage_type": 2,
+    "data/thermal_shock_reforged/dimension": 2,
+    "data/thermal_shock_reforged/dimension_type": 2,
+    "data/thermal_shock_reforged/jukebox_song": 15,
+    "data/thermal_shock_reforged/loot_table": 611,
+    "data/thermal_shock_reforged/neoforge": 161,
+    "data/thermal_shock_reforged/painting_variant": 17,
+    "data/thermal_shock_reforged/recipe": 569,
+    "data/thermal_shock_reforged/structure": 164,
+    "data/thermal_shock_reforged/tags": 44,
+    "data/thermal_shock_reforged/worldgen": 298
+  },
+  "extensions": {
+    ".efkefc": 52,
+    ".efkmat": 2,
+    ".efkproj": 1,
+    ".json": 5427,
+    ".mcmeta": 82,
+    ".nbt": 164,
+    ".ogg": 272,
+    ".png": 2127,
+    ".toml": 1,
+    ".txt": 1
+  },
+  "resourceManifest": {
+    "path": "D:\\AI临时文件\\ThermalShockMigration\\batch141-evidence\\tracked-resource-manifest141.json",
+    "sha256": "6c4b75c3858f9dc680c8aad94c3aaf17f8266e06a8da942e92745c9e3d2ff4b2"
+  },
+  "reusedProofs": [
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch135\\docs\\migration\\release-batch139-validation.json",
+      "sha256": "5cda4ae124d7b572e4f491cb3fceb036d2405aca19ca4922d7c18e57d1eec45b"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch135\\docs\\migration\\templates-batch135-audit-summary.json",
+      "sha256": "d681bb79af770eaba4ddca6c0f677c23e393fe4511f52dc474f3e0b4b1f3aad8"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch135\\docs\\migration\\client-preview-batch138-validation.json",
+      "sha256": "8273e858cb56c689cfa9f11b34a2d9ec187d6695498de77d279b30dce68b6168"
+    }
+  ],
+  "delivery": {
+    "status": "离线核对快照；未开放游戏或通过运行验收",
+    "sourceCommit": "6a146c6be7e94969c5cee491f8ad4d31f02f4f2b",
+    "minecraft": "1.21.1",
+    "neoForge": "21.1.233",
+    "java": 21,
+    "gradle": "8.14",
+    "modId": "thermal_shock_reforged",
+    "modVersion": "0.0.1",
+    "jar": {
+      "name": "thermal_shock_reforged-1.21.1-neoforge-0.0.1.jar",
+      "sha256": "e62204fb73e6984d9ad6b75a03d169e96545d2ff4341574ddb45b3a6d8de2706",
+      "bytes": 98966760
+    },
+    "requiredExternalLibraries": [
+      {
+        "coordinate": "curse.maven:aaa-particles-979809:9101011",
+        "file": "C:\\Users\\30819\\.m2\\repository\\curse\\maven\\aaa-particles-979809\\9101011\\aaa-particles-979809-9101011.jar",
+        "sha256": "948b3fc4d38d33a817596ad0b2d14c28976f8cfde801041b1c58cf1fef505f98"
+      },
+      {
+        "coordinate": "curse.maven:geckolib-388172:8350073",
+        "file": "C:\\Users\\30819\\.gradle\\caches\\modules-2\\files-2.1\\curse.maven\\geckolib-388172\\8350073\\14c64013cadee7d28f3685f94350f9a4d2ec6d86\\geckolib-388172-8350073.jar",
+        "sha256": "5e548466af9ab6aca7a91a7c7d4dc0dc8bc385e22958aed5da0e7bebd0fa3fba"
+      }
+    ],
+    "developmentOnlyLibrariesExcluded": [
+      "curse.maven:jade-324717:8591319",
+      "curse.maven:just-enough-characters-250702:8117474",
+      "mezz.jei:jei-1.21.1-neoforge:19.27.0.346"
+    ],
+    "resourceCount": 8129,
+    "trackedManifestSha256": "6c4b75c3858f9dc680c8aad94c3aaf17f8266e06a8da942e92745c9e3d2ff4b2",
+    "reusedProof": "docs/migration/release-batch139-validation.json",
+    "runtimeVerified": false,
+    "finalIntegratedArtifact": false
+  },
+  "stagedFiles": [
+    {
+      "file": "INSTALL.zh_cn.md",
+      "sha256": "a760be811d3512857f8b5419638b6dc5c76a94b3104737f54a85776c7f67ca59",
+      "bytes": 1450
+    },
+    {
+      "file": "release-manifest.json",
+      "sha256": "995d57df25207c034af32766e718602698a52c9e5f9cec6d2ae4054e1b96a013",
+      "bytes": 1611
+    },
+    {
+      "file": "thermal_shock_reforged-1.21.1-neoforge-0.0.1.jar",
+      "sha256": "e62204fb73e6984d9ad6b75a03d169e96545d2ff4341574ddb45b3a6d8de2706",
+      "bytes": 98966760
+    },
+    {
+      "file": "thermal_shock_reforged-1.21.1-neoforge-0.0.1.jar.sha256",
+      "sha256": "73899ee36483ce9fac7e42d59381e144523d88fc89e6f4477eedefc39a866f39",
+      "bytes": 116
+    }
+  ],
+  "gameStarted": false,
+  "tagDirectories": [
+    "data/minecraft/tags/block",
+    "data/minecraft/tags/damage_type",
+    "data/minecraft/tags/entity_type",
+    "data/minecraft/tags/item",
+    "data/minecraft/tags/painting_variant",
+    "data/thermal_shock_reforged/tags/block",
+    "data/thermal_shock_reforged/tags/entity_type",
+    "data/thermal_shock_reforged/tags/item",
+    "data/thermal_shock_reforged/tags/worldgen"
+  ],
+  "validation": {
+    "javaHome": "C:/Users/30819/.jdks/ms-21.0.11",
+    "args": [
+      "--offline",
+      "--console=plain",
+      "verifyReleaseJar"
+    ],
+    "result": "BUILD SUCCESSFUL in 14s; prior valid gate reused UP-TO-DATE",
+    "log": "D:\\AI临时文件\\ThermalShockMigration\\batch141-evidence\\validation141.log",
+    "sha256": "494b3ad0e8e20b47b971c2df46152e8b29e56afbc15c685434b84ecc389afa28"
+  },
+  "changedFiles": [
+    "docs/migration/release-batch141-plan.md",
+    "docs/migration/release-batch141-review.md",
+    "docs/migration/release-batch141-resource-contract.json"
+  ]
+}
