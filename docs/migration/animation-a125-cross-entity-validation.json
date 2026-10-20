@@ -1,0 +1,238 @@
+{
+  "batch": "125A",
+  "baseline": "f83be73",
+  "source": "D:\\AI临时文件\\ThermalShockMigration\\animation125\\a125-g1-luna2-cross-entity-validation.json",
+  "source_sha256": "9e474b7810b5fdf14783dcb44ac260e602d0df381a97f122cfa68812a3eb24dd",
+  "counts": {
+    "enumerated_java_files": 313,
+    "scanned_java_files": 313,
+    "excluded_files": 0,
+    "own_source_duplicates": 20,
+    "foreign_reference_files": 29,
+    "foreign_reference_files_with_animation_operations": 1,
+    "animation_operation_lines": 472,
+    "unresolved_receiver_operations": 0,
+    "changed_own_source_snapshots": 0,
+    "new_owned_cross_entity_writers": 0
+  },
+  "result": "negative_no_new_cross_entity_writers",
+  "rows": [
+    {
+      "id": "defector_machinist",
+      "source_entity_class": "DefectorMachinistEntity",
+      "foreign_referencing_files": [
+        "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\model\\DefectorMachinistModel.java"
+      ],
+      "new_cross_entity_writers": [],
+      "static_open": [],
+      "note": "313文件全集写入扫描未发现外部Entity向该类型setAnimation/animationprocedure写入；本结论仅补漏扫，不修改原final其他判断。"
+    },
+    {
+      "id": "dormant_beetle_crasher",
+      "source_entity_class": "DormantBeetleCrasherEntity",
+      "foreign_referencing_files": [
+        "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\model\\DormantBeetleCrasherModel.java"
+      ],
+      "new_cross_entity_writers": [],
+      "static_open": [],
+      "note": "313文件全集写入扫描未发现外部Entity向该类型setAnimation/animationprocedure写入；本结论仅补漏扫，不修改原final其他判断。"
+    },
+    {
+      "id": "dormant_monolith",
+      "source_entity_class": "DormantMonolithEntity",
+      "foreign_referencing_files": [
+        "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\model\\DormantMonolithModel.java"
+      ],
+      "new_cross_entity_writers": [],
+      "static_open": [],
+      "note": "313文件全集写入扫描未发现外部Entity向该类型setAnimation/animationprocedure写入；本结论仅补漏扫，不修改原final其他判断。"
+    },
+    {
+      "id": "effigy",
+      "source_entity_class": "EffigyEntity",
+      "foreign_referencing_files": [
+        "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\model\\EffigyModel.java"
+      ],
+      "new_cross_entity_writers": [],
+      "static_open": [],
+      "note": "313文件全集写入扫描未发现外部Entity向该类型setAnimation/animationprocedure写入；本结论仅补漏扫，不修改原final其他判断。"
+    },
+    {
+      "id": "electric_sphere",
+      "source_entity_class": "ElectricSphereEntity",
+      "foreign_referencing_files": [
+        "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\layer\\ElectricSphereLayer.java",
+        "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\model\\ElectricSphereModel.java"
+      ],
+      "new_cross_entity_writers": [],
+      "static_open": [],
+      "note": "313文件全集写入扫描未发现外部Entity向该类型setAnimation/animationprocedure写入；本结论仅补漏扫，不修改原final其他判断。"
+    },
+    {
+      "id": "epsilon_bomb",
+      "source_entity_class": "EpsilonBombEntity",
+      "foreign_referencing_files": [
+        "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\layer\\EpsilonBombLayer.java",
+        "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\model\\EpsilonBombModel.java"
+      ],
+      "new_cross_entity_writers": [],
+      "static_open": [],
+      "note": "313文件全集写入扫描未发现外部Entity向该类型setAnimation/animationprocedure写入；本结论仅补漏扫，不修改原final其他判断。"
+    },
+    {
+      "id": "errant",
+      "source_entity_class": "ErrantEntity",
+      "foreign_referencing_files": [
+        "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\model\\ErrantModel.java"
+      ],
+      "new_cross_entity_writers": [],
+      "static_open": [],
+      "note": "313文件全集写入扫描未发现外部Entity向该类型setAnimation/animationprocedure写入；本结论仅补漏扫，不修改原final其他判断。"
+    },
+    {
+      "id": "explosive_snobol",
+      "source_entity_class": "ExplosiveSnobolEntity",
+      "foreign_referencing_files": [
+        "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\model\\ExplosiveSnobolModel.java"
+      ],
+      "new_cross_entity_writers": [],
+      "static_open": [],
+      "note": "313文件全集写入扫描未发现外部Entity向该类型setAnimation/animationprocedure写入；本结论仅补漏扫，不修改原final其他判断。"
+    },
+    {
+      "id": "flare",
+      "source_entity_class": "FlareEntity",
+      "foreign_referencing_files": [
+        "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\model\\FlareModel.java"
+      ],
+      "new_cross_entity_writers": [],
+      "static_open": [],
+      "note": "313文件全集写入扫描未发现外部Entity向该类型setAnimation/animationprocedure写入；本结论仅补漏扫，不修改原final其他判断。"
+    },
+    {
+      "id": "flare_gun_core",
+      "source_entity_class": "FlareGunCoreEntity",
+      "foreign_referencing_files": [
+        "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\model\\FlareGunCoreModel.java"
+      ],
+      "new_cross_entity_writers": [],
+      "static_open": [],
+      "note": "313文件全集写入扫描未发现外部Entity向该类型setAnimation/animationprocedure写入；本结论仅补漏扫，不修改原final其他判断。"
+    },
+    {
+      "id": "florist",
+      "source_entity_class": "FloristEntity",
+      "foreign_referencing_files": [
+        "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\layer\\FloristLayer.java",
+        "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\model\\FloristModel.java"
+      ],
+      "new_cross_entity_writers": [],
+      "static_open": [],
+      "note": "313文件全集写入扫描未发现外部Entity向该类型setAnimation/animationprocedure写入；本结论仅补漏扫，不修改原final其他判断。"
+    },
+    {
+      "id": "forecast",
+      "source_entity_class": "ForecastEntity",
+      "foreign_referencing_files": [
+        "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\layer\\ForecastLayer.java",
+        "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\model\\ForecastModel.java"
+      ],
+      "new_cross_entity_writers": [],
+      "static_open": [],
+      "note": "313文件全集写入扫描未发现外部Entity向该类型setAnimation/animationprocedure写入；本结论仅补漏扫，不修改原final其他判断。"
+    },
+    {
+      "id": "frost_titan",
+      "source_entity_class": "FrostTitanEntity",
+      "foreign_referencing_files": [
+        "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\model\\FrostTitanModel.java"
+      ],
+      "new_cross_entity_writers": [],
+      "static_open": [],
+      "note": "313文件全集写入扫描未发现外部Entity向该类型setAnimation/animationprocedure写入；本结论仅补漏扫，不修改原final其他判断。"
+    },
+    {
+      "id": "frostilyte",
+      "source_entity_class": "FrostilyteEntity",
+      "foreign_referencing_files": [
+        "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\model\\FrostilyteModel.java"
+      ],
+      "new_cross_entity_writers": [],
+      "static_open": [],
+      "note": "313文件全集写入扫描未发现外部Entity向该类型setAnimation/animationprocedure写入；本结论仅补漏扫，不修改原final其他判断。"
+    },
+    {
+      "id": "frostilyte_cryomancer",
+      "source_entity_class": "FrostilyteCryomancerEntity",
+      "foreign_referencing_files": [
+        "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\layer\\FrostilyteCryomancerLayer.java",
+        "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\model\\FrostilyteCryomancerModel.java"
+      ],
+      "new_cross_entity_writers": [],
+      "static_open": [],
+      "note": "313文件全集写入扫描未发现外部Entity向该类型setAnimation/animationprocedure写入；本结论仅补漏扫，不修改原final其他判断。"
+    },
+    {
+      "id": "frostilyte_gunner",
+      "source_entity_class": "FrostilyteGunnerEntity",
+      "foreign_referencing_files": [
+        "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\model\\FrostilyteGunnerModel.java"
+      ],
+      "new_cross_entity_writers": [],
+      "static_open": [],
+      "note": "313文件全集写入扫描未发现外部Entity向该类型setAnimation/animationprocedure写入；本结论仅补漏扫，不修改原final其他判断。"
+    },
+    {
+      "id": "frostilyte_soldier",
+      "source_entity_class": "FrostilyteSoldierEntity",
+      "foreign_referencing_files": [
+        "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\model\\FrostilyteSoldierModel.java"
+      ],
+      "new_cross_entity_writers": [],
+      "static_open": [],
+      "note": "313文件全集写入扫描未发现外部Entity向该类型setAnimation/animationprocedure写入；本结论仅补漏扫，不修改原final其他判断。"
+    },
+    {
+      "id": "fuschia_jellercel",
+      "source_entity_class": "FuschiaJellercelEntity",
+      "foreign_referencing_files": [
+        "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\layer\\FuschiaJellercelLayer.java",
+        "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\model\\FuschiaJellercelModel.java"
+      ],
+      "new_cross_entity_writers": [],
+      "static_open": [],
+      "note": "313文件全集写入扫描未发现外部Entity向该类型setAnimation/animationprocedure写入；本结论仅补漏扫，不修改原final其他判断。"
+    },
+    {
+      "id": "galvanite",
+      "source_entity_class": "GalvaniteEntity",
+      "foreign_referencing_files": [
+        "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\layer\\GalvaniteLayer.java",
+        "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\model\\GalvaniteModel.java"
+      ],
+      "new_cross_entity_writers": [],
+      "static_open": [],
+      "note": "313文件全集写入扫描未发现外部Entity向该类型setAnimation/animationprocedure写入；本结论仅补漏扫，不修改原final其他判断。"
+    },
+    {
+      "id": "gardenling",
+      "source_entity_class": "GardenlingEntity",
+      "foreign_referencing_files": [
+        "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\layer\\GardenlingLayer.java",
+        "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\model\\GardenlingModel.java",
+        "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\SkullscorEntity.java"
+      ],
+      "new_cross_entity_writers": [],
+      "static_open": [],
+      "note": "313文件全集写入扫描未发现外部Entity向该类型setAnimation/animationprocedure写入；本结论仅补漏扫，不修改原final其他判断。"
+    }
+  ],
+  "frozen_final": {
+    "path": "D:/AI临时文件/ThermalShockMigration/animation125/a125-g1-luna2-final.json",
+    "sha256_before": "31db36836e709b728bec5d3fa0b4d6cd8f600aa82c958eaa8295a6edd94368ff",
+    "sha256_after": "31db36836e709b728bec5d3fa0b4d6cd8f600aa82c958eaa8295a6edd94368ff",
+    "unchanged": true
+  },
+  "verified_inputs": 315,
+  "scope": "补第二片取证器原entity目录排除，未增加其他片业务调查；完整行证据和脚本保留在D盘。"
+}
