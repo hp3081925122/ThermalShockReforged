@@ -1,0 +1,54 @@
+{
+  "batch": 142,
+  "status": "static_ready_runtime_acceptance_pending",
+  "validatedTreeCommit": "105ea553",
+  "scope": "138/139/140/141 合入后的最终主线产物再冻结",
+  "environment": {
+    "minecraft": "1.21.1",
+    "loader": "NeoForge 21.1.233",
+    "java": "21",
+    "geckolib": "4.9.2",
+    "aaaParticles": "2.3.3"
+  },
+  "build": {
+    "command": ".\\gradlew.bat compileJava processResources verifyReleaseJar --offline --max-workers=2",
+    "result": "BUILD SUCCESSFUL",
+    "duration": "1m 8s",
+    "compileJava": "UP-TO-DATE",
+    "processResources": "UP-TO-DATE",
+    "verifyReleaseJar": "PASSED",
+    "gameStarted": false
+  },
+  "releaseJar": {
+    "path": "build/libs/thermal_shock_reforged-1.21.1-neoforge-0.0.1.jar",
+    "sha256": "0b97c63000b1a88b16b19a96fe5b1f9461fe293538a4ac1756c585f45faaa717",
+    "entries": 9476,
+    "classes": 1346,
+    "json": 5428,
+    "matchedMainOutputs": 9475,
+    "validationReport": "build/validation/release-jar.json"
+  },
+  "checks": {
+    "neoforgeOnlyMetadata": true,
+    "developmentFilesLeaked": false,
+    "jsonAndUtf8Valid": true,
+    "java21Bytecode": true,
+    "forgeClassReferences": false,
+    "mixinClassesPresent": true,
+    "mainOutputsByteEqual": true,
+    "sourceGameplayChangedInThisBatch": false
+  },
+  "runtimePending": [
+    "服务端完整功能、存档/卸载/换维度和多人边界",
+    "客户端真实资源解码、菜单、声音、粒子、动画首帧和网络同步",
+    "Forge原件与NeoForge目标的Render Preview逐项画面对照",
+    "世界生成、结构自然入口和原孤立过程的运行可达性"
+  ],
+  "excludedUserChanges": [
+    "docs/testing/EARLY_TEST_PLAN.md",
+    "src/main/java/com/hp/thermalshockreforged/entity/ribbonblade/RibbonbladeActionEntity.java",
+    ".vscode/",
+    "docs/testing/early-tests/"
+  ],
+  "fullMigrationComplete": false
+}
