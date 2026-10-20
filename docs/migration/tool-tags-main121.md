@@ -1,0 +1,20 @@
+# 第121批：采集标签确证缺项恢复
+
+基线53d8193，原JAR SHA256为3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436。修改前依据原标签、原块类、当前真实注册及属性确认。只读初审见D:/AI临时文件/ThermalShockMigration/audit120-native-tags-blocks.json；该初审仅比较旧plural目录，不作为完整single/plural合并审计。
+
+## 本批真实修复
+
+- mineable/hoe补jellercel、large_jellercel、large_jellercell_collision；mineable/pickaxe补capsule、enchanted_cache、fabricator。
+- needs_stone_tool补capsule、infested_log及八种shale_pillar；needs_iron_tool补stratus_reactor_core；needs_diamond_tool补atlas。
+
+共5份JSON、18个条目。所有新增成员均从原JAR single/plural实际标签确认，原required/replace:false语义保留，不覆盖已有成员。GeoDecorKind/Content的枚举及注册循环、TerrainContent.INFESTED_LOG、ReactorContent.CORE证明这些不是未注册残留。无硬绑定PickaxeItem/AxeItem，不新增外模组兼容模块。
+
+目标Tier.createToolProperties先用incorrect_for拒绝掉落，再按mineable赋予速度及正确掉落。已核VanillaBlockTagsProvider:1587..1590将needs_diamond继承到铁/石/金/木，needs_iron继承到石/金/木，needs_stone继承到金/木。因而补回needs成员即可恢复原生门槛，不再把同一成员硬写到所有incorrect_for目录。
+
+不可破坏的Capsule和EnchantedCache保原strength(-1)；补类别不使其可被普通采集。Reactor保blockstate激活态额外收获拒绝，原强度、库存及掉落均不改。Atlas/柱/感染木保requiresCorrectToolForDrops与原native等级语义，不把requiresCorrect本身误判为绑定工具类。
+
+rough_sapphire_block、sapphire_block既无当前注册，也未在原注册表找到，旧Netherite标签孤立条目不借此新造方块。源两目录合并后还可能存在其它真实缺口，完整机械差集交后续只读复核，不用这18条宣称全采集逻辑验收。恢复清单及每文件前后SHA见tool-tags-main121-repairs.json。实际游戏采集、Xaero显示及全量工具/掉落仍待最终验收；本批统一构建由主线固定两边输入后执行。
+
+## 双目录最终只读复审
+
+构建固定输入后收到最终报告，保全原single/plural并集后的mineable差集29项未确认当前注册；不能据未命中直接判孤儿。等级差集里新增确认cobalt的needs_iron_tool缺项，已记录第122批修复，不在第121批构建后悄然改输入。报告已转存tool-tags-main121-union-review.json，完整集合与证据保留。蓝宝石两项原JAR无注册/模型/掉落证据，仍按原孤立ID处理。

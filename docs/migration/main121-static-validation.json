@@ -1,0 +1,50 @@
+{
+  "baseline": "53d8193",
+  "build": {
+    "command": "compileJava processResources --offline --max-workers=2",
+    "success": true,
+    "java": "ms-21.0.11",
+    "log": "D:\\AI临时文件\\ThermalShockMigration\\batch121-unified-build.log",
+    "sha256": "6c59922b33f1d30103ec603ffbd59a66173a3d94ba815e93287b3b4033b5c0c7"
+  },
+  "sourceSnapshot": {
+    "path": "D:\\AI临时文件\\ThermalShockMigration\\batch121-inputs-before.json",
+    "sha256": "275352b3d17828e4b37f998311b03d9d2f3b54f48ca94971ca06f85a6ecb4773",
+    "count": 8879,
+    "afterEqualsBefore": true
+  },
+  "directBuiltResourcesByteEqual": 8060,
+  "expandedTemplatesExcludedFromByteEquality": [
+    "META-INF/neoforge.mods.toml",
+    "pack.mcmeta"
+  ],
+  "tagRepairFiles": 5,
+  "tagEntriesRestored": 18,
+  "aHandoffSha256": "1c42c569429a362d88cbe690be61a0cf5ded74f79a601e266c46857a981eb4fa",
+  "aHandoffFilesHashChecked": 12,
+  "reports": {
+    "fabrication-a121-evidence.json": "ae6cee10e498398d5d903e0375af6d6e7ac3b2cb1a95cbdc0bc1968eac7350a4",
+    "fabrication-a121-review.md": "5701befb141dd9136f9ec32e07a2f03790cebb92092dafe23805e7d224f23a51",
+    "menu-a121-evidence.json": "b8dd1659036d2edca4624ed2800816f9df96040f6c21d9cf46598253f25418c8",
+    "menu-a121-review.md": "1849ae05d68e999f6a0c835aacc7f28722bd53e99ea76dff82ccb2fb78e5209a",
+    "parallel-batch121.md": "14deac2ce324cd02e33d2055046ca7c8a145ba9a96cfb4d75ffa1597a2575c56",
+    "review-a121-handoff.json": "1c42c569429a362d88cbe690be61a0cf5ded74f79a601e266c46857a981eb4fa",
+    "review-a121-layout-validation.json": "ec504c010ef4b4be9c98eee710018658b9ce42231723467210d4c87c6fbeee4e",
+    "review-a121-plan.md": "6e386ffa94054c91834b1a6a34e0cbefc11ec6585993fe953bc8cb0154971d1e",
+    "review-a121-validation.json": "58ae08a9b5c6dd0e44c13703a892ec5f59462ba62ae66749c90d6ac3161dbdf3",
+    "structure-a121-detail-manifest.json": "921b56715b82a79fc48b13abe80a936f4906b453832540bb7c969613b60f6d34",
+    "structure-a121-matrix.json": "de5df274b77c150579c47ed943a5dae436c709b00c79fe88589b076aff6de4a8",
+    "structure-a121-review.md": "eb1a84e73ed264241b4343b6e1bcc2e849e7b7510a1498f3ee32e4ac77392330",
+    "structure-a121-sources.json": "08869f6a674c7c77df74c2a0c00bcb63bd9a66a09d12ab978b37e1b72449b2c3",
+    "tool-tags-main121-repairs.json": "833cec425b94f8082bd2f719b2438d566b2655e74b188f61d8b732b4715c1e24",
+    "tool-tags-main121-union-review.json": "ec252bd2e4b310d9cc75e24b485be5f65c943a2ebb9b6c19eb6c66e7c49d02d7",
+    "tool-tags-main121-validation.json": "6efa7589c4aa71b91312afc868590fef779f1bfc920a31ae16ecbe49e3827f6d",
+    "tool-tags-main121.md": "2f7151c9021761fefcf861de4e9994d3f3b5354032cae7d46a05163ba9928cfe"
+  },
+  "limits": [
+    "本批只包含静态与构建证据，未运行游戏。",
+    "剩余effect消费者/完整GUI/结构及实体表现复审见本批交接，不能据此宣布全模组完成。",
+    "服务端用户独立负责，完整迁移和复审收口后安排子代理客户端及Render Preview。",
+    "测试目录未纳入本批提交，当前Git无remote。"
+  ]
+}

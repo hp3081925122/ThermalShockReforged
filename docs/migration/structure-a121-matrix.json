@@ -1,0 +1,3911 @@
+{
+  "baseline": "53d8193b657032be3153352fe3c023ef26d04ada",
+  "totals": {
+    "templates": 97,
+    "source_blocks": 4380315,
+    "target_blocks": 4380315,
+    "source_be": 1148,
+    "target_be": 1148,
+    "source_entities": 341,
+    "target_entities": 341,
+    "raw_namespace_diffs": 1950,
+    "source_item_stacks": 87,
+    "target_item_stacks": 48
+  },
+  "templates": [
+    {
+      "template": "atlasbase",
+      "source": "data/thermal_shock/structures/atlasbase.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/atlasbase.nbt",
+      "source_sha256": "57507fee550758f794c731eb3e3545449fee3ed256a0afb8a6b1b90a6e227e9f",
+      "target_sha256": "0f23f6293344936908427dda49481ce7209361e9c5de9872fcecf5c75edbeaa5",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "source_blocks": 9,
+      "target_blocks": 9,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        3,
+        1,
+        3
+      ],
+      "target_size": [
+        3,
+        1,
+        3
+      ],
+      "source_geometry_sha256": "98e1956835efc404849942cc949bbe427ff05f1f9f2092c4a81d52e09d6f85a0",
+      "target_geometry_sha256": "98e1956835efc404849942cc949bbe427ff05f1f9f2092c4a81d52e09d6f85a0",
+      "namespace_normalized_diff_count": 0,
+      "target_count_out_of_range": [],
+      "detail": "atlasbase.json"
+    },
+    {
+      "template": "benzor_home",
+      "source": "data/thermal_shock/structures/benzor_home.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/benzor_home.nbt",
+      "source_sha256": "982d7aec65b3282e20a6069e80aa8744d3ee5f62e208eeb244717519abcc6ed7",
+      "target_sha256": "a21240a911e21eb70ba86533cb527d2a5f06a9f5e561312a9ac68082f3d3dfc4",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 3825,
+      "target_blocks": 3825,
+      "source_entities": 1,
+      "target_entities": 1,
+      "source_block_entities": 20,
+      "target_block_entities": 20,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        17,
+        15,
+        15
+      ],
+      "target_size": [
+        17,
+        15,
+        15
+      ],
+      "source_geometry_sha256": "88359442ac04010fba2ba366993e325d39f245d62e173c2ca83bcf2f00d358e6",
+      "target_geometry_sha256": "88359442ac04010fba2ba366993e325d39f245d62e173c2ca83bcf2f00d358e6",
+      "namespace_normalized_diff_count": 7,
+      "target_count_out_of_range": [],
+      "detail": "benzor_home.json"
+    },
+    {
+      "template": "blizzard_base",
+      "source": "data/thermal_shock/structures/blizzard_base.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/blizzard_base.nbt",
+      "source_sha256": "5c5f6e5aa443b209e816e78f8bf64320d2393402886e12967ac885b15003115d",
+      "target_sha256": "3775e7b8bd1dae2718de0e0d877b689b728a81ecbdc3d9be006399879b679a29",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 86258,
+      "target_blocks": 86258,
+      "source_entities": 21,
+      "target_entities": 21,
+      "source_block_entities": 21,
+      "target_block_entities": 21,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        59,
+        34,
+        43
+      ],
+      "target_size": [
+        59,
+        34,
+        43
+      ],
+      "source_geometry_sha256": "df7e9a81365320a49ad234d4f0e74adda13d52d0c23f1c6760a7102139ee50d2",
+      "target_geometry_sha256": "df7e9a81365320a49ad234d4f0e74adda13d52d0c23f1c6760a7102139ee50d2",
+      "namespace_normalized_diff_count": 135,
+      "target_count_out_of_range": [],
+      "detail": "blizzard_base.json"
+    },
+    {
+      "template": "blizzard_outpost",
+      "source": "data/thermal_shock/structures/blizzard_outpost.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/blizzard_outpost.nbt",
+      "source_sha256": "9258e9228fbe1fc28e86482e3e1bcc8bcd1473b8c4609e12fba62872aa973726",
+      "target_sha256": "2e72e1e36031fa4bb1e5a5f45f3775f32d9f61c682cdd6487f6acf2603612eb3",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 110592,
+      "target_blocks": 110592,
+      "source_entities": 66,
+      "target_entities": 66,
+      "source_block_entities": 83,
+      "target_block_entities": 83,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        48,
+        48,
+        48
+      ],
+      "target_size": [
+        48,
+        48,
+        48
+      ],
+      "source_geometry_sha256": "6a71c8f0e11cac809272d108cb7895a9c5385144c3f57c23e3a6ba5013df6a26",
+      "target_geometry_sha256": "6a71c8f0e11cac809272d108cb7895a9c5385144c3f57c23e3a6ba5013df6a26",
+      "namespace_normalized_diff_count": 255,
+      "target_count_out_of_range": [],
+      "detail": "blizzard_outpost.json"
+    },
+    {
+      "template": "blizzardoutpostrubicon",
+      "source": "data/thermal_shock/structures/blizzardoutpostrubicon.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/blizzardoutpostrubicon.nbt",
+      "source_sha256": "477d990ae6f496edeb4fe3d3ef82a433d31488b4d9ca7100ee979e92a1c79aa2",
+      "target_sha256": "65a433ece01a4975a7bf4f6106dad39f34ee3541a12e9b6d28ec2150753a8db2",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 110592,
+      "target_blocks": 110592,
+      "source_entities": 66,
+      "target_entities": 66,
+      "source_block_entities": 83,
+      "target_block_entities": 83,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        48,
+        48,
+        48
+      ],
+      "target_size": [
+        48,
+        48,
+        48
+      ],
+      "source_geometry_sha256": "209868876694f9e490f181213aeada73f94bd2409df4b9c66c0bfa46ba2b6340",
+      "target_geometry_sha256": "209868876694f9e490f181213aeada73f94bd2409df4b9c66c0bfa46ba2b6340",
+      "namespace_normalized_diff_count": 253,
+      "target_count_out_of_range": [],
+      "detail": "blizzardoutpostrubicon.json"
+    },
+    {
+      "template": "bulbfloor",
+      "source": "data/thermal_shock/structures/bulbfloor.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/bulbfloor.nbt",
+      "source_sha256": "007e31a242734043c661b3908b98a2333c1d0d2e51fcab0e885a7305e76c6a1c",
+      "target_sha256": "75a6f19ee3118b6b68be187ab4359c3c97f2fc05b0e2cf8a000c08a8b5798b85",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "source_blocks": 1,
+      "target_blocks": 1,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        1,
+        1,
+        1
+      ],
+      "target_size": [
+        1,
+        1,
+        1
+      ],
+      "source_geometry_sha256": "6b1f6cfe2e8dcb1e0460f6b786dade87463f4ccfb8894aa0ee6e9969b1990743",
+      "target_geometry_sha256": "6b1f6cfe2e8dcb1e0460f6b786dade87463f4ccfb8894aa0ee6e9969b1990743",
+      "namespace_normalized_diff_count": 0,
+      "target_count_out_of_range": [],
+      "detail": "bulbfloor.json"
+    },
+    {
+      "template": "campmed",
+      "source": "data/thermal_shock/structures/campmed.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/campmed.nbt",
+      "source_sha256": "32622016baba8d3ce6ef15eaa679ce1c441472e17338f5505b51f8b71f45729f",
+      "target_sha256": "5a3bbe563282dfc17f4c028643de31a72cc5031a4a353cf9a60e19c9a7f19580",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 810,
+      "target_blocks": 810,
+      "source_entities": 1,
+      "target_entities": 1,
+      "source_block_entities": 5,
+      "target_block_entities": 5,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        10,
+        9,
+        9
+      ],
+      "target_size": [
+        10,
+        9,
+        9
+      ],
+      "source_geometry_sha256": "003eb6681018946b8e143180d2ad6d9527007f2a76e0e04f4d1b145fa5bb5132",
+      "target_geometry_sha256": "003eb6681018946b8e143180d2ad6d9527007f2a76e0e04f4d1b145fa5bb5132",
+      "namespace_normalized_diff_count": 5,
+      "target_count_out_of_range": [],
+      "detail": "campmed.json"
+    },
+    {
+      "template": "campsmall",
+      "source": "data/thermal_shock/structures/campsmall.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/campsmall.nbt",
+      "source_sha256": "98a19082eaf7d44ec4f1d7d7bb815d38375cb6ced2d46aee4e47078182dba0a3",
+      "target_sha256": "db4c2a4ea14532e5fe51b21a314d46d68975a9d1030b7e2f9466b6778e04ab60",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 125,
+      "target_blocks": 125,
+      "source_entities": 1,
+      "target_entities": 1,
+      "source_block_entities": 2,
+      "target_block_entities": 2,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        5,
+        5,
+        5
+      ],
+      "target_size": [
+        5,
+        5,
+        5
+      ],
+      "source_geometry_sha256": "7c49ae3082961ef2d5ccc7f60e9122e7409e14b56baf193c51261a45317f1bad",
+      "target_geometry_sha256": "7c49ae3082961ef2d5ccc7f60e9122e7409e14b56baf193c51261a45317f1bad",
+      "namespace_normalized_diff_count": 5,
+      "target_count_out_of_range": [],
+      "detail": "campsmall.json"
+    },
+    {
+      "template": "cathedral",
+      "source": "data/thermal_shock/structures/cathedral.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/cathedral.nbt",
+      "source_sha256": "d256934a32c5af5c95bcc13ea6656c9fe0de8e7688c8d9cc8f19ada510792abe",
+      "target_sha256": "f6f45aa7feb2630ddaae1a530cad519c0de7db1d027922c1af186ced0c8b2e43",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 165199,
+      "target_blocks": 165199,
+      "source_entities": 2,
+      "target_entities": 2,
+      "source_block_entities": 47,
+      "target_block_entities": 47,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        73,
+        73,
+        31
+      ],
+      "target_size": [
+        73,
+        73,
+        31
+      ],
+      "source_geometry_sha256": "25ef786ad2dd5b7e8b4184936de35ec3eaf7d26ae3a5cd283ebcb850872dd7da",
+      "target_geometry_sha256": "25ef786ad2dd5b7e8b4184936de35ec3eaf7d26ae3a5cd283ebcb850872dd7da",
+      "namespace_normalized_diff_count": 55,
+      "target_count_out_of_range": [],
+      "detail": "cathedral.json"
+    },
+    {
+      "template": "cathedral_base",
+      "source": "data/thermal_shock/structures/cathedral_base.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/cathedral_base.nbt",
+      "source_sha256": "502633395b22152ee9fb7f950bab681b8e0c204c9c2003d5355c6e6922e5ffb1",
+      "target_sha256": "7ba73d596e7fac4a43e1167718daabab3690e21f77a10a661682a5fa08129f55",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 162936,
+      "target_blocks": 162936,
+      "source_entities": 2,
+      "target_entities": 2,
+      "source_block_entities": 50,
+      "target_block_entities": 50,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        73,
+        72,
+        31
+      ],
+      "target_size": [
+        73,
+        72,
+        31
+      ],
+      "source_geometry_sha256": "8f36d1588bc3ed4c923f940eec82c5a3d03fda938483163d4618e7723a68cd01",
+      "target_geometry_sha256": "8f36d1588bc3ed4c923f940eec82c5a3d03fda938483163d4618e7723a68cd01",
+      "namespace_normalized_diff_count": 51,
+      "target_count_out_of_range": [],
+      "detail": "cathedral_base.json"
+    },
+    {
+      "template": "cavebloomer_field",
+      "source": "data/thermal_shock/structures/cavebloomer_field.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/cavebloomer_field.nbt",
+      "source_sha256": "ef72769f685f6859ec1fcb8cda77ed5ff6881116f0c082df27d3c5dc84774790",
+      "target_sha256": "ad54fa92b31db134e05ef97b17a8daa02f5d4ba285ab2c48b20bb6c9826b35ea",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "source_blocks": 48020,
+      "target_blocks": 48020,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 17,
+      "target_block_entities": 17,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        49,
+        20,
+        49
+      ],
+      "target_size": [
+        49,
+        20,
+        49
+      ],
+      "source_geometry_sha256": "2be70673ee85e40bbac387525768455360bbe158a2e90f265e43304dc4635725",
+      "target_geometry_sha256": "2be70673ee85e40bbac387525768455360bbe158a2e90f265e43304dc4635725",
+      "namespace_normalized_diff_count": 0,
+      "target_count_out_of_range": [],
+      "detail": "cavebloomer_field.json"
+    },
+    {
+      "template": "ceruleum12",
+      "source": "data/thermal_shock/structures/ceruleum12.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/ceruleum12.nbt",
+      "source_sha256": "b9f35a44128273699ce5d8bc218caee080f538d4256c917ee40ab8868286a127",
+      "target_sha256": "3bc2bd3dab0df59cb4cb29eba200102420a552bc77aa40bc1158a436b914d1a2",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "source_blocks": 12,
+      "target_blocks": 12,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        1,
+        12,
+        1
+      ],
+      "target_size": [
+        1,
+        12,
+        1
+      ],
+      "source_geometry_sha256": "74e2ea82e82876993b2b0d4c04246ccde3ac10365189e908c12f366b6fc062e9",
+      "target_geometry_sha256": "74e2ea82e82876993b2b0d4c04246ccde3ac10365189e908c12f366b6fc062e9",
+      "namespace_normalized_diff_count": 0,
+      "target_count_out_of_range": [],
+      "detail": "ceruleum12.json"
+    },
+    {
+      "template": "ceruleum3",
+      "source": "data/thermal_shock/structures/ceruleum3.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/ceruleum3.nbt",
+      "source_sha256": "0aea0dacbc934ca5551e38513c92f58da7239b531996e1682e741835e3e71b26",
+      "target_sha256": "ff6e114cac3589d2dd2b19120531a46d3c55b0413fa0e92b7a4861e9fd211e18",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "source_blocks": 3,
+      "target_blocks": 3,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        1,
+        3,
+        1
+      ],
+      "target_size": [
+        1,
+        3,
+        1
+      ],
+      "source_geometry_sha256": "8b013f2a75287480d5657b3df963c230886a568ee3cd0924b8d84168269e875a",
+      "target_geometry_sha256": "8b013f2a75287480d5657b3df963c230886a568ee3cd0924b8d84168269e875a",
+      "namespace_normalized_diff_count": 0,
+      "target_count_out_of_range": [],
+      "detail": "ceruleum3.json"
+    },
+    {
+      "template": "ceruleum6",
+      "source": "data/thermal_shock/structures/ceruleum6.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/ceruleum6.nbt",
+      "source_sha256": "8d863b335139b57fd5d6ce44347802598e72b76720d4ca2cc6ca9f6d82936cf5",
+      "target_sha256": "1c41eed96356be25d4691ba6521d5610a7ba3ba03d5b853dca326d42af9101c9",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "source_blocks": 6,
+      "target_blocks": 6,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        1,
+        6,
+        1
+      ],
+      "target_size": [
+        1,
+        6,
+        1
+      ],
+      "source_geometry_sha256": "cb4a24efa7bb55bfa7bc81127dfe015c6090f4a51f7fbe5e4ca955d021639e76",
+      "target_geometry_sha256": "cb4a24efa7bb55bfa7bc81127dfe015c6090f4a51f7fbe5e4ca955d021639e76",
+      "namespace_normalized_diff_count": 0,
+      "target_count_out_of_range": [],
+      "detail": "ceruleum6.json"
+    },
+    {
+      "template": "ceruleum9",
+      "source": "data/thermal_shock/structures/ceruleum9.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/ceruleum9.nbt",
+      "source_sha256": "9b30aa24a66931778a027c66530fd8bb85615064d5477c71cdf7fcd309414ff5",
+      "target_sha256": "299f19bc385fdc3c5066c1bd996819f2d193dce313b1dc180eda42e81fd34351",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "source_blocks": 9,
+      "target_blocks": 9,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        1,
+        9,
+        1
+      ],
+      "target_size": [
+        1,
+        9,
+        1
+      ],
+      "source_geometry_sha256": "98df3b0aab7785ee43fc8bdea965f094d656904828bb635ef2b1220309983007",
+      "target_geometry_sha256": "98df3b0aab7785ee43fc8bdea965f094d656904828bb635ef2b1220309983007",
+      "namespace_normalized_diff_count": 0,
+      "target_count_out_of_range": [],
+      "detail": "ceruleum9.json"
+    },
+    {
+      "template": "cobalt_15hex_1",
+      "source": "data/thermal_shock/structures/cobalt_15hex_1.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/cobalt_15hex_1.nbt",
+      "source_sha256": "64076a7fff2dc6077ccf6be1c415de04a020ed28683076a133ce300d3d6e4873",
+      "target_sha256": "be59adefdcefbcaeb39f6e8a1d19f394ca40fe9fca1d858c3c0b5dcf41b89ec8",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 21600,
+      "target_blocks": 21600,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        15,
+        96,
+        15
+      ],
+      "target_size": [
+        15,
+        96,
+        15
+      ],
+      "source_geometry_sha256": "043287074988ea48660321f27f6ca034aaa90b5dafe1d14dcae6114a9e4966ab",
+      "target_geometry_sha256": "043287074988ea48660321f27f6ca034aaa90b5dafe1d14dcae6114a9e4966ab",
+      "namespace_normalized_diff_count": 1,
+      "target_count_out_of_range": [],
+      "detail": "cobalt_15hex_1.json"
+    },
+    {
+      "template": "cobalt_15hex_surge",
+      "source": "data/thermal_shock/structures/cobalt_15hex_surge.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/cobalt_15hex_surge.nbt",
+      "source_sha256": "5be0557b28f9d9b865428494da4b4236bd00a73e38270166f4d3f4d2c2705994",
+      "target_sha256": "d6904deedb81af19b4a52307681a094de9534f4c4e786da138b2350d56c9ea2f",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 21600,
+      "target_blocks": 21600,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 1,
+      "target_block_entities": 1,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        15,
+        96,
+        15
+      ],
+      "target_size": [
+        15,
+        96,
+        15
+      ],
+      "source_geometry_sha256": "ce78edd49d152a01aa2e90818f8317a3a4c8508b45129ebd8681f9d883a2ca43",
+      "target_geometry_sha256": "ce78edd49d152a01aa2e90818f8317a3a4c8508b45129ebd8681f9d883a2ca43",
+      "namespace_normalized_diff_count": 1,
+      "target_count_out_of_range": [],
+      "detail": "cobalt_15hex_surge.json"
+    },
+    {
+      "template": "cobalt_7hex_1",
+      "source": "data/thermal_shock/structures/cobalt_7hex_1.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/cobalt_7hex_1.nbt",
+      "source_sha256": "78f4c3ba99bd557d31c7daf71dd2e0feb2a791f9efb2b612814d9aaa29ea24c4",
+      "target_sha256": "ca38e3e9f1c3ad64a4ec1f7260dabf7467d6bd1e38c97a0e3b66495bd3ad555a",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 4704,
+      "target_blocks": 4704,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        7,
+        96,
+        7
+      ],
+      "target_size": [
+        7,
+        96,
+        7
+      ],
+      "source_geometry_sha256": "7c397931ac88576fa7d0ffc27c93ab6f7f838d5860f5aa768f9a36f8d807dcb5",
+      "target_geometry_sha256": "7c397931ac88576fa7d0ffc27c93ab6f7f838d5860f5aa768f9a36f8d807dcb5",
+      "namespace_normalized_diff_count": 1,
+      "target_count_out_of_range": [],
+      "detail": "cobalt_7hex_1.json"
+    },
+    {
+      "template": "cobalt_9hex_1",
+      "source": "data/thermal_shock/structures/cobalt_9hex_1.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/cobalt_9hex_1.nbt",
+      "source_sha256": "f5a9b5a9e981da9b219e25f0dc14e4bc7cff81d6b5bce2cfc21cf91d5db29a63",
+      "target_sha256": "9f0578676e546b491b51ec34885f2d3fb24cccff6a534ca884e4b721b9039b21",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 7776,
+      "target_blocks": 7776,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        9,
+        96,
+        9
+      ],
+      "target_size": [
+        9,
+        96,
+        9
+      ],
+      "source_geometry_sha256": "782753145e2eac72a82da650207c04da2edb1c34f11a59cbb1de2976d8cffb44",
+      "target_geometry_sha256": "782753145e2eac72a82da650207c04da2edb1c34f11a59cbb1de2976d8cffb44",
+      "namespace_normalized_diff_count": 1,
+      "target_count_out_of_range": [],
+      "detail": "cobalt_9hex_1.json"
+    },
+    {
+      "template": "cobalt_9hex_surge",
+      "source": "data/thermal_shock/structures/cobalt_9hex_surge.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/cobalt_9hex_surge.nbt",
+      "source_sha256": "ea0a548c1514f7dc552a650ab03790f74ff244bd87a78b8e8b92ce0f3f5ae2e4",
+      "target_sha256": "f092d55b123c7c08349ab76e84d8c8a0d1763ab542e9e5a5ad5d0433a2a89336",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 7776,
+      "target_blocks": 7776,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 1,
+      "target_block_entities": 1,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        9,
+        96,
+        9
+      ],
+      "target_size": [
+        9,
+        96,
+        9
+      ],
+      "source_geometry_sha256": "fe7b78551ede1b0459a3a7d473aa091b2dede1ad842f20a92b2c1f55beff4f0b",
+      "target_geometry_sha256": "fe7b78551ede1b0459a3a7d473aa091b2dede1ad842f20a92b2c1f55beff4f0b",
+      "namespace_normalized_diff_count": 1,
+      "target_count_out_of_range": [],
+      "detail": "cobalt_9hex_surge.json"
+    },
+    {
+      "template": "fuscium12",
+      "source": "data/thermal_shock/structures/fuscium12.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/fuscium12.nbt",
+      "source_sha256": "14776faa7c54d00421e345b4bfbd86e0e9773d3fde2d12b2fe1607abddd310b2",
+      "target_sha256": "3ed60c956f25687fbd5b064cc8b78a793503ceb410ff4c7e2a723e97d30090bb",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "source_blocks": 12,
+      "target_blocks": 12,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        1,
+        12,
+        1
+      ],
+      "target_size": [
+        1,
+        12,
+        1
+      ],
+      "source_geometry_sha256": "3a433ddfd92c865db23f7a3459bfd558e01e98d69e3e437b3c36a7acf3a3c3b6",
+      "target_geometry_sha256": "3a433ddfd92c865db23f7a3459bfd558e01e98d69e3e437b3c36a7acf3a3c3b6",
+      "namespace_normalized_diff_count": 0,
+      "target_count_out_of_range": [],
+      "detail": "fuscium12.json"
+    },
+    {
+      "template": "fuscium3",
+      "source": "data/thermal_shock/structures/fuscium3.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/fuscium3.nbt",
+      "source_sha256": "fe823a54ad24debd4a718ead0e807007d19ef4d1291b84d14e97c5c0f0f89db8",
+      "target_sha256": "1707434bc6482eba53520b2e5c1b94a7d366f20117c764ac929f64eb821f3797",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "source_blocks": 3,
+      "target_blocks": 3,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        1,
+        3,
+        1
+      ],
+      "target_size": [
+        1,
+        3,
+        1
+      ],
+      "source_geometry_sha256": "3ab9a8740a546f8444780243e043d12ceb98360ee91bf77cf675324f5d0fa0dd",
+      "target_geometry_sha256": "3ab9a8740a546f8444780243e043d12ceb98360ee91bf77cf675324f5d0fa0dd",
+      "namespace_normalized_diff_count": 0,
+      "target_count_out_of_range": [],
+      "detail": "fuscium3.json"
+    },
+    {
+      "template": "fuscium6",
+      "source": "data/thermal_shock/structures/fuscium6.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/fuscium6.nbt",
+      "source_sha256": "a9cb2346bb5d77ee9efbc63cedc012f6df607ef1057e6aa04283cb19fdb0e904",
+      "target_sha256": "dacdf6a02b1390025d340c9702c9a1d4f2b83d0234c8ff72803c8347e316e6ae",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "source_blocks": 6,
+      "target_blocks": 6,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        1,
+        6,
+        1
+      ],
+      "target_size": [
+        1,
+        6,
+        1
+      ],
+      "source_geometry_sha256": "35a70c69d1b551d53a3d0733a4548c5ee7e134bb8d9a15864f1c8142220104d7",
+      "target_geometry_sha256": "35a70c69d1b551d53a3d0733a4548c5ee7e134bb8d9a15864f1c8142220104d7",
+      "namespace_normalized_diff_count": 0,
+      "target_count_out_of_range": [],
+      "detail": "fuscium6.json"
+    },
+    {
+      "template": "fuscium9",
+      "source": "data/thermal_shock/structures/fuscium9.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/fuscium9.nbt",
+      "source_sha256": "3f54f028ed87471c2718c94f4663e8c25bfafe43efc45241cb9883075cc3df0d",
+      "target_sha256": "f39ec0f64f7cc769483528a580df617528ff5cc6c84de145da2e399cc76cc1c5",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "source_blocks": 9,
+      "target_blocks": 9,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        1,
+        9,
+        1
+      ],
+      "target_size": [
+        1,
+        9,
+        1
+      ],
+      "source_geometry_sha256": "3aff12143c40fa40a4a4439dfbd2417f7fc496d0995c55d804bebd2130cafe22",
+      "target_geometry_sha256": "3aff12143c40fa40a4a4439dfbd2417f7fc496d0995c55d804bebd2130cafe22",
+      "namespace_normalized_diff_count": 0,
+      "target_count_out_of_range": [],
+      "detail": "fuscium9.json"
+    },
+    {
+      "template": "giant_glowcap_1",
+      "source": "data/thermal_shock/structures/giant_glowcap_1.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/giant_glowcap_1.nbt",
+      "source_sha256": "b91e2a62163aa095a79c93ee5ea409ffb8496f9baec715afd36eae2c6e8bc2af",
+      "target_sha256": "2eb3e7878e9d9fce4125b3fa58944cb37e9da998863ff3a186c39b4e1779ce71",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 27,
+      "target_blocks": 27,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        3,
+        3,
+        3
+      ],
+      "target_size": [
+        3,
+        3,
+        3
+      ],
+      "source_geometry_sha256": "8b7f204db80fe92f9ec85297800b8be4a91e039aa2a0c91ac140b75594e88c7d",
+      "target_geometry_sha256": "8b7f204db80fe92f9ec85297800b8be4a91e039aa2a0c91ac140b75594e88c7d",
+      "namespace_normalized_diff_count": 1,
+      "target_count_out_of_range": [],
+      "detail": "giant_glowcap_1.json"
+    },
+    {
+      "template": "giant_glowcap_2",
+      "source": "data/thermal_shock/structures/giant_glowcap_2.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/giant_glowcap_2.nbt",
+      "source_sha256": "500c6d18ecbbef59effde86de1a3cad83c4bfe18bc69a77851cb36a27f0c5174",
+      "target_sha256": "abf37c2603a09859002fbc491bdfd9f414b256d1f1dc4669109d608245d68494",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 36,
+      "target_blocks": 36,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        3,
+        4,
+        3
+      ],
+      "target_size": [
+        3,
+        4,
+        3
+      ],
+      "source_geometry_sha256": "6f62e5500998ddf9784064174e0956525299084d7832b3e53c47f917a94244cf",
+      "target_geometry_sha256": "6f62e5500998ddf9784064174e0956525299084d7832b3e53c47f917a94244cf",
+      "namespace_normalized_diff_count": 1,
+      "target_count_out_of_range": [],
+      "detail": "giant_glowcap_2.json"
+    },
+    {
+      "template": "giant_glowcap_3",
+      "source": "data/thermal_shock/structures/giant_glowcap_3.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/giant_glowcap_3.nbt",
+      "source_sha256": "f6aed00cfae200074048c6670d2d8611808e913ac44dc3c8a1060463fe8e05cb",
+      "target_sha256": "605f39c628229137d474668e13e41fdb0dc49a3d6ec3a107d6209e49a6bf4ffd",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 45,
+      "target_blocks": 45,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        3,
+        5,
+        3
+      ],
+      "target_size": [
+        3,
+        5,
+        3
+      ],
+      "source_geometry_sha256": "cb8188e593dbc1ecb2d245560b278e205519f8058d079a6adb9edf074b71dbf2",
+      "target_geometry_sha256": "cb8188e593dbc1ecb2d245560b278e205519f8058d079a6adb9edf074b71dbf2",
+      "namespace_normalized_diff_count": 1,
+      "target_count_out_of_range": [],
+      "detail": "giant_glowcap_3.json"
+    },
+    {
+      "template": "gianturchin",
+      "source": "data/thermal_shock/structures/gianturchin.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/gianturchin.nbt",
+      "source_sha256": "dce73c18ec2f1fff82eb7e4bdeb7b635775b95e1d60d3d2c5ca25ffb07fc6ce6",
+      "target_sha256": "49c841af0830288310310abf2e79c45cf31076ea57b111e3ba170403206087ac",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 4913,
+      "target_blocks": 4913,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        17,
+        17,
+        17
+      ],
+      "target_size": [
+        17,
+        17,
+        17
+      ],
+      "source_geometry_sha256": "cc0197eca968062308edbb92d5b2d954f9aff75f9628afb5ef5b2f2a4f949450",
+      "target_geometry_sha256": "cc0197eca968062308edbb92d5b2d954f9aff75f9628afb5ef5b2f2a4f949450",
+      "namespace_normalized_diff_count": 1,
+      "target_count_out_of_range": [],
+      "detail": "gianturchin.json"
+    },
+    {
+      "template": "glace_rock_1",
+      "source": "data/thermal_shock/structures/glace_rock_1.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/glace_rock_1.nbt",
+      "source_sha256": "ecec082c31d24bac962456790b8b0e20b7724c0b1b75b370768ff984b12a6861",
+      "target_sha256": "447e1a93a34c252f6dd18f7e1bd3ca3ad3ed6bb52937de160b94f7d703a14661",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 81,
+      "target_blocks": 81,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        3,
+        9,
+        3
+      ],
+      "target_size": [
+        3,
+        9,
+        3
+      ],
+      "source_geometry_sha256": "91f8888d330038b95abd254566696580432da00e737175d816109d5691331595",
+      "target_geometry_sha256": "91f8888d330038b95abd254566696580432da00e737175d816109d5691331595",
+      "namespace_normalized_diff_count": 1,
+      "target_count_out_of_range": [],
+      "detail": "glace_rock_1.json"
+    },
+    {
+      "template": "glace_rock_2",
+      "source": "data/thermal_shock/structures/glace_rock_2.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/glace_rock_2.nbt",
+      "source_sha256": "9d9476dda9bb65a1c2ad2e91f79ac2713385025d2793a13d10dfab2ad006af3e",
+      "target_sha256": "0615388976d41b29d6f2d6162431337163b136f67d568db9994eca94cfd17809",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 36,
+      "target_blocks": 36,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        2,
+        9,
+        2
+      ],
+      "target_size": [
+        2,
+        9,
+        2
+      ],
+      "source_geometry_sha256": "d660f31d420a6df1f1fa1032aa982da0cdb8186b2753574f84b4e0514970a4c5",
+      "target_geometry_sha256": "d660f31d420a6df1f1fa1032aa982da0cdb8186b2753574f84b4e0514970a4c5",
+      "namespace_normalized_diff_count": 1,
+      "target_count_out_of_range": [],
+      "detail": "glace_rock_2.json"
+    },
+    {
+      "template": "glaukorubicon",
+      "source": "data/thermal_shock/structures/glaukorubicon.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/glaukorubicon.nbt",
+      "source_sha256": "923142f1b43e19d33ac66be812eddf973fc2b44681f8fe903148eb8742536724",
+      "target_sha256": "478e3d583231898eec8d4c79dda35c8c24313240edffb57ca5e26e706b1ad7c6",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "source_blocks": 325,
+      "target_blocks": 325,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        5,
+        13,
+        5
+      ],
+      "target_size": [
+        5,
+        13,
+        5
+      ],
+      "source_geometry_sha256": "4c79166d6d0e0392f3e483f1a40bf8fa552ebb168a31bdcdd6b5f9c7a69fcdaa",
+      "target_geometry_sha256": "4c79166d6d0e0392f3e483f1a40bf8fa552ebb168a31bdcdd6b5f9c7a69fcdaa",
+      "namespace_normalized_diff_count": 0,
+      "target_count_out_of_range": [],
+      "detail": "glaukorubicon.json"
+    },
+    {
+      "template": "gravetree1",
+      "source": "data/thermal_shock/structures/gravetree1.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/gravetree1.nbt",
+      "source_sha256": "66849895273eec34cce257715b4f0c7a9a1f8edebd5a7d270911236daa32026c",
+      "target_sha256": "dd1f6ef399fd54e4699ba43beea5a5aba48d4bb9dbc41738ce76947893fd16d7",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 63,
+      "target_blocks": 63,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        3,
+        7,
+        3
+      ],
+      "target_size": [
+        3,
+        7,
+        3
+      ],
+      "source_geometry_sha256": "4d139873d2c06741879f3be1ebf877f5df44170fd778343e1389934bf5806b88",
+      "target_geometry_sha256": "4d139873d2c06741879f3be1ebf877f5df44170fd778343e1389934bf5806b88",
+      "namespace_normalized_diff_count": 1,
+      "target_count_out_of_range": [],
+      "detail": "gravetree1.json"
+    },
+    {
+      "template": "gravetree2",
+      "source": "data/thermal_shock/structures/gravetree2.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/gravetree2.nbt",
+      "source_sha256": "da9304a6079754548aeafc05b934b6201421a41cd027c3bee017118f59a157c4",
+      "target_sha256": "24d31520e4a735b3dfbaeaca58adf45ae6219fd9883e31347b8dedf72c3144b4",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 81,
+      "target_blocks": 81,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        3,
+        9,
+        3
+      ],
+      "target_size": [
+        3,
+        9,
+        3
+      ],
+      "source_geometry_sha256": "1f73eaf31a2ddb690d6fa3d3e63dc576a748276e920e391efd395b2f0d9bd22e",
+      "target_geometry_sha256": "1f73eaf31a2ddb690d6fa3d3e63dc576a748276e920e391efd395b2f0d9bd22e",
+      "namespace_normalized_diff_count": 1,
+      "target_count_out_of_range": [],
+      "detail": "gravetree2.json"
+    },
+    {
+      "template": "jellercellogged",
+      "source": "data/thermal_shock/structures/jellercellogged.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/jellercellogged.nbt",
+      "source_sha256": "2ef3a01d888da49ac20ae5acdfaa02bfba00016e03ff12cdc6de17babe6c77f0",
+      "target_sha256": "b351edd96de85601fc3a7880086608cf7b4dd6d26751917ddda33fe926b2fe26",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 1,
+      "target_blocks": 1,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 1,
+      "target_block_entities": 1,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        1,
+        1,
+        1
+      ],
+      "target_size": [
+        1,
+        1,
+        1
+      ],
+      "source_geometry_sha256": "6b1f6cfe2e8dcb1e0460f6b786dade87463f4ccfb8894aa0ee6e9969b1990743",
+      "target_geometry_sha256": "6b1f6cfe2e8dcb1e0460f6b786dade87463f4ccfb8894aa0ee6e9969b1990743",
+      "namespace_normalized_diff_count": 1,
+      "target_count_out_of_range": [],
+      "detail": "jellercellogged.json"
+    },
+    {
+      "template": "junkyard",
+      "source": "data/thermal_shock/structures/junkyard.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/junkyard.nbt",
+      "source_sha256": "6cd27458a430e612ac70be41895ac724b4fe8cef9c065998979a2f49b0fb9c06",
+      "target_sha256": "c56fa1ac2398faad13b78d825b72c43dfc4990a15456152b9e7659732525213d",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 19220,
+      "target_blocks": 19220,
+      "source_entities": 2,
+      "target_entities": 2,
+      "source_block_entities": 13,
+      "target_block_entities": 13,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        31,
+        20,
+        31
+      ],
+      "target_size": [
+        31,
+        20,
+        31
+      ],
+      "source_geometry_sha256": "1e8a74921874b7e31277ab203aff8c40157aa3a2f8c66d107f47baf8000e6e37",
+      "target_geometry_sha256": "1e8a74921874b7e31277ab203aff8c40157aa3a2f8c66d107f47baf8000e6e37",
+      "namespace_normalized_diff_count": 13,
+      "target_count_out_of_range": [],
+      "detail": "junkyard.json"
+    },
+    {
+      "template": "junkyard_rubicon",
+      "source": "data/thermal_shock/structures/junkyard_rubicon.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/junkyard_rubicon.nbt",
+      "source_sha256": "6dc4be21110caecd15f45e69269c63bcca1ec250930dc490faae1e40aeebccd7",
+      "target_sha256": "c423b34561f4b028ebe3f2c12d983ad1fbae4198254e4e32e51a16a79b60c8fe",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 29791,
+      "target_blocks": 29791,
+      "source_entities": 2,
+      "target_entities": 2,
+      "source_block_entities": 13,
+      "target_block_entities": 13,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        31,
+        31,
+        31
+      ],
+      "target_size": [
+        31,
+        31,
+        31
+      ],
+      "source_geometry_sha256": "b5017c0e6062e70947c8444ab86122bea1054d9df20031336814cd0b0895e9ed",
+      "target_geometry_sha256": "b5017c0e6062e70947c8444ab86122bea1054d9df20031336814cd0b0895e9ed",
+      "namespace_normalized_diff_count": 25,
+      "target_count_out_of_range": [],
+      "detail": "junkyard_rubicon.json"
+    },
+    {
+      "template": "keystonerubicon",
+      "source": "data/thermal_shock/structures/keystonerubicon.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/keystonerubicon.nbt",
+      "source_sha256": "0118ab8826792a74af1a223a60b5f465b1b4a32fca5b45429bc80622cef750e1",
+      "target_sha256": "72b8d62d7d2f9a8a789c296094585d4a1fd838b0ebdc5e5b5a94a8537ba7d19c",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 81000,
+      "target_blocks": 81000,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 14,
+      "target_block_entities": 14,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        45,
+        40,
+        45
+      ],
+      "target_size": [
+        45,
+        40,
+        45
+      ],
+      "source_geometry_sha256": "7fe1c1f40e7f353abcd88af9d9564cb46f5f5e2c4b1fdcf5256711a9749d2987",
+      "target_geometry_sha256": "7fe1c1f40e7f353abcd88af9d9564cb46f5f5e2c4b1fdcf5256711a9749d2987",
+      "namespace_normalized_diff_count": 3,
+      "target_count_out_of_range": [],
+      "detail": "keystonerubicon.json"
+    },
+    {
+      "template": "kiosk",
+      "source": "data/thermal_shock/structures/kiosk.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/kiosk.nbt",
+      "source_sha256": "ed53ddfb307ed208d4b0db64e919c846cb7755dddd6472defa0d2def46da852e",
+      "target_sha256": "2e54c19614d95e724081ab70c448bb0a82f36549c6315f0af5d1f8ee76d66431",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 810,
+      "target_blocks": 810,
+      "source_entities": 2,
+      "target_entities": 2,
+      "source_block_entities": 6,
+      "target_block_entities": 6,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        10,
+        9,
+        9
+      ],
+      "target_size": [
+        10,
+        9,
+        9
+      ],
+      "source_geometry_sha256": "d3b1cc1b8df726f27d5afd3ea04b363d7e87ca06369ae862bf6b7ad4649bca94",
+      "target_geometry_sha256": "d3b1cc1b8df726f27d5afd3ea04b363d7e87ca06369ae862bf6b7ad4649bca94",
+      "namespace_normalized_diff_count": 5,
+      "target_count_out_of_range": [],
+      "detail": "kiosk.json"
+    },
+    {
+      "template": "largejellercel",
+      "source": "data/thermal_shock/structures/largejellercel.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/largejellercel.nbt",
+      "source_sha256": "73b38ec496a080d0f00fc28243845ee2fc6b210acca61d00530d9df2d7cb4861",
+      "target_sha256": "aa0a4a33ad31915adfc23df4fb756ef604efb2c06ad6bf62f45a1acc0de6c258",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 8,
+      "target_blocks": 8,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 1,
+      "target_block_entities": 1,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        2,
+        2,
+        2
+      ],
+      "target_size": [
+        2,
+        2,
+        2
+      ],
+      "source_geometry_sha256": "ba75c057ffe402dc767457400629f04aac1b5d558d3dc50559a4980b14c53db1",
+      "target_geometry_sha256": "ba75c057ffe402dc767457400629f04aac1b5d558d3dc50559a4980b14c53db1",
+      "namespace_normalized_diff_count": 1,
+      "target_count_out_of_range": [],
+      "detail": "largejellercel.json"
+    },
+    {
+      "template": "lavender_palace",
+      "source": "data/thermal_shock/structures/lavender_palace.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/lavender_palace.nbt",
+      "source_sha256": "2fe007073a4baa8c0cd37be6cabfe31377f4811ff998c7dd6409155894187bfe",
+      "target_sha256": "d85fa1790e718f1cbc1ff2d9cdfc927ac6b2d9cca64c1adc07f6b58331d06146",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 600608,
+      "target_blocks": 600608,
+      "source_entities": 13,
+      "target_entities": 13,
+      "source_block_entities": 46,
+      "target_block_entities": 46,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        137,
+        32,
+        137
+      ],
+      "target_size": [
+        137,
+        32,
+        137
+      ],
+      "source_geometry_sha256": "71c239a2d46bffe7acf754b978c6dedfe3a7c822dcb2a762605d128d41759bd4",
+      "target_geometry_sha256": "71c239a2d46bffe7acf754b978c6dedfe3a7c822dcb2a762605d128d41759bd4",
+      "namespace_normalized_diff_count": 25,
+      "target_count_out_of_range": [],
+      "detail": "lavender_palace.json"
+    },
+    {
+      "template": "loqportal",
+      "source": "data/thermal_shock/structures/loqportal.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/loqportal.nbt",
+      "source_sha256": "b79a5601cf1aa71592c3c2d109c390cb80250c969a92f37d33b1df5d7f688052",
+      "target_sha256": "4609126a5509b112f237baedb6a5e3e098a6dfb81a24dc1ab3e84403623dee73",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "source_blocks": 30,
+      "target_blocks": 30,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": false,
+      "source_size": [
+        5,
+        6,
+        1
+      ],
+      "target_size": [
+        5,
+        6,
+        1
+      ],
+      "source_geometry_sha256": "961d8237c0bcd4eb28a129199002f86aba85c389e384c7770939e1623c322af2",
+      "target_geometry_sha256": "961d8237c0bcd4eb28a129199002f86aba85c389e384c7770939e1623c322af2",
+      "namespace_normalized_diff_count": 1,
+      "target_count_out_of_range": [],
+      "detail": "loqportal.json"
+    },
+    {
+      "template": "lostboat1",
+      "source": "data/thermal_shock/structures/lostboat1.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/lostboat1.nbt",
+      "source_sha256": "f5f5b1cea32d9cfe6b67422a667f380625a1098794d3fa89b5b4a1841a4453a7",
+      "target_sha256": "4e44af90c8f70f1a893f8574df4b41d6e924f52dcdfe0f8d529e2ed671605836",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 450,
+      "target_blocks": 450,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 2,
+      "target_block_entities": 2,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        5,
+        9,
+        10
+      ],
+      "target_size": [
+        5,
+        9,
+        10
+      ],
+      "source_geometry_sha256": "0eb9128c30e01bc0689e80f7b9bcb2df8849c19376fc85008451c7f827e955c9",
+      "target_geometry_sha256": "0eb9128c30e01bc0689e80f7b9bcb2df8849c19376fc85008451c7f827e955c9",
+      "namespace_normalized_diff_count": 1,
+      "target_count_out_of_range": [],
+      "detail": "lostboat1.json"
+    },
+    {
+      "template": "lostboat2",
+      "source": "data/thermal_shock/structures/lostboat2.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/lostboat2.nbt",
+      "source_sha256": "6b0ccc792851ac017e5fabd9b15124a46ff431f234703ed287d5b884ccaf2ab5",
+      "target_sha256": "87bbfa5bc6823e0f03570bacdd2bc4554b8fc36ef5a9290638bb050f21beb605",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 450,
+      "target_blocks": 450,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 2,
+      "target_block_entities": 2,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        5,
+        9,
+        10
+      ],
+      "target_size": [
+        5,
+        9,
+        10
+      ],
+      "source_geometry_sha256": "19cbe12f86de97438f2421d06cab7945a1b61a68f6e165334c098a6c60008a5e",
+      "target_geometry_sha256": "19cbe12f86de97438f2421d06cab7945a1b61a68f6e165334c098a6c60008a5e",
+      "namespace_normalized_diff_count": 5,
+      "target_count_out_of_range": [],
+      "detail": "lostboat2.json"
+    },
+    {
+      "template": "lostboat3",
+      "source": "data/thermal_shock/structures/lostboat3.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/lostboat3.nbt",
+      "source_sha256": "46f7cc625f403bde2fc65d67525d5b6856f7d8be025a0f621c4af9f9537b4252",
+      "target_sha256": "23fc95e2eddf18699cf454530eab79322cdf532e0b5b6b2647e57f51dc253ecb",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 450,
+      "target_blocks": 450,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 2,
+      "target_block_entities": 2,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        5,
+        9,
+        10
+      ],
+      "target_size": [
+        5,
+        9,
+        10
+      ],
+      "source_geometry_sha256": "44c725c2b777201615fb60b26decccabae8b9df5ca7ba1de343e4701a7ee3b6a",
+      "target_geometry_sha256": "44c725c2b777201615fb60b26decccabae8b9df5ca7ba1de343e4701a7ee3b6a",
+      "namespace_normalized_diff_count": 5,
+      "target_count_out_of_range": [],
+      "detail": "lostboat3.json"
+    },
+    {
+      "template": "louse_log_1",
+      "source": "data/thermal_shock/structures/louse_log_1.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/louse_log_1.nbt",
+      "source_sha256": "601f937c2e828ffd19442ecec97da74807838d9794aadf52e2f638a871726d9b",
+      "target_sha256": "b1da1014c7e93dbcb5e45863ffa83e53f442d64cb4597c6e5d545e58e13d1096",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 36,
+      "target_blocks": 36,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        3,
+        4,
+        3
+      ],
+      "target_size": [
+        3,
+        4,
+        3
+      ],
+      "source_geometry_sha256": "5581cd56ccd1e32cfd109add7972823cb3c587a91dbb957d38586a3b3360c44c",
+      "target_geometry_sha256": "5581cd56ccd1e32cfd109add7972823cb3c587a91dbb957d38586a3b3360c44c",
+      "namespace_normalized_diff_count": 1,
+      "target_count_out_of_range": [],
+      "detail": "louse_log_1.json"
+    },
+    {
+      "template": "louse_log_2",
+      "source": "data/thermal_shock/structures/louse_log_2.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/louse_log_2.nbt",
+      "source_sha256": "0068435b3186c6cd38ca8a9d05ca90086d8c36c58a1f1020f8e8fcc363f34fdb",
+      "target_sha256": "6624cc8b107e903a5f922272dfea6e380d82a69d822f9b4a89e8e2496d877654",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 45,
+      "target_blocks": 45,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        3,
+        5,
+        3
+      ],
+      "target_size": [
+        3,
+        5,
+        3
+      ],
+      "source_geometry_sha256": "248549c7e15c8a47f25a691008d91ab8772e91edff466797b3987e91bd779b20",
+      "target_geometry_sha256": "248549c7e15c8a47f25a691008d91ab8772e91edff466797b3987e91bd779b20",
+      "namespace_normalized_diff_count": 1,
+      "target_count_out_of_range": [],
+      "detail": "louse_log_2.json"
+    },
+    {
+      "template": "louse_log_3",
+      "source": "data/thermal_shock/structures/louse_log_3.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/louse_log_3.nbt",
+      "source_sha256": "704a0d5e310d14fc197abd859636fe8bca831f49cba7960bc1ac2368ce424eee",
+      "target_sha256": "e8291eac5e5c32f68677caf19544d7068d5e4dc3ec4aa63a1c25d2471e6f26a8",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 54,
+      "target_blocks": 54,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        3,
+        6,
+        3
+      ],
+      "target_size": [
+        3,
+        6,
+        3
+      ],
+      "source_geometry_sha256": "d0f579ff9e91c0186909642f990282037754bef4d237a03937de30bf1e491b63",
+      "target_geometry_sha256": "d0f579ff9e91c0186909642f990282037754bef4d237a03937de30bf1e491b63",
+      "namespace_normalized_diff_count": 1,
+      "target_count_out_of_range": [],
+      "detail": "louse_log_3.json"
+    },
+    {
+      "template": "machinist_lab",
+      "source": "data/thermal_shock/structures/machinist_lab.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/machinist_lab.nbt",
+      "source_sha256": "685e7cb21738e9371b07e97457c5003eb0e065643a0030c5850710cc1677f4b9",
+      "target_sha256": "44c7962927057580f420d52add18278ab108ccad1ee891f5f616b6dce0bbfadc",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 10816,
+      "target_blocks": 10816,
+      "source_entities": 4,
+      "target_entities": 4,
+      "source_block_entities": 8,
+      "target_block_entities": 8,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        26,
+        16,
+        26
+      ],
+      "target_size": [
+        26,
+        16,
+        26
+      ],
+      "source_geometry_sha256": "79f44e7fd43131d0ea7eb6eefbccd61f4098f7f16317fd10c27d7554e777da71",
+      "target_geometry_sha256": "79f44e7fd43131d0ea7eb6eefbccd61f4098f7f16317fd10c27d7554e777da71",
+      "namespace_normalized_diff_count": 5,
+      "target_count_out_of_range": [],
+      "detail": "machinist_lab.json"
+    },
+    {
+      "template": "monolith",
+      "source": "data/thermal_shock/structures/monolith.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/monolith.nbt",
+      "source_sha256": "a15b97bfea36db73638b7dda2e161209bedc963f2f294f314c8efcfe517b737b",
+      "target_sha256": "18ad2ecce74bdfa7d1d66e6b6aa5806daa02df9c44aa3d2062ca32d42d92357d",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 108,
+      "target_blocks": 108,
+      "source_entities": 1,
+      "target_entities": 1,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        3,
+        12,
+        3
+      ],
+      "target_size": [
+        3,
+        12,
+        3
+      ],
+      "source_geometry_sha256": "f5398f4fbf7b6318a4a00e9eb4ce27a548e8bc235153c865993581a4436da808",
+      "target_geometry_sha256": "f5398f4fbf7b6318a4a00e9eb4ce27a548e8bc235153c865993581a4436da808",
+      "namespace_normalized_diff_count": 5,
+      "target_count_out_of_range": [],
+      "detail": "monolith.json"
+    },
+    {
+      "template": "nu_monoluth",
+      "source": "data/thermal_shock/structures/nu_monoluth.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/nu_monoluth.nbt",
+      "source_sha256": "97d601c1958188ca7fadfbca68048fe44fd3cd9173980cfb45dd69520d4a89d6",
+      "target_sha256": "b68d2d769186ea3edd8ab5221cd79aaa71919d2a66544259fabb766e32489f1e",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 135,
+      "target_blocks": 135,
+      "source_entities": 1,
+      "target_entities": 1,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        3,
+        15,
+        3
+      ],
+      "target_size": [
+        3,
+        15,
+        3
+      ],
+      "source_geometry_sha256": "baa80fa23f651a2e0f87e11a0e539f41eba665430d6126935e9585efad79c39b",
+      "target_geometry_sha256": "baa80fa23f651a2e0f87e11a0e539f41eba665430d6126935e9585efad79c39b",
+      "namespace_normalized_diff_count": 5,
+      "target_count_out_of_range": [],
+      "detail": "nu_monoluth.json"
+    },
+    {
+      "template": "orb_sanctum",
+      "source": "data/thermal_shock/structures/orb_sanctum.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/orb_sanctum.nbt",
+      "source_sha256": "9722583736cc9e64e598806a8c2a8f2dbd43326aea7de62a8a802f04ce882514",
+      "target_sha256": "60a90958d85ef55a2fac60acfb7f376329003b8d4b111292f1fa1a49c3572a5c",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 1513694,
+      "target_blocks": 1513694,
+      "source_entities": 29,
+      "target_entities": 29,
+      "source_block_entities": 335,
+      "target_block_entities": 335,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        106,
+        159,
+        106
+      ],
+      "target_size": [
+        106,
+        159,
+        106
+      ],
+      "source_geometry_sha256": "6f79e8bf52449ae62dbeb231abc4419c517849a1e1e3e499843ba78535f266ea",
+      "target_geometry_sha256": "6f79e8bf52449ae62dbeb231abc4419c517849a1e1e3e499843ba78535f266ea",
+      "namespace_normalized_diff_count": 117,
+      "target_count_out_of_range": [],
+      "detail": "orb_sanctum.json"
+    },
+    {
+      "template": "planted_barbubble",
+      "source": "data/thermal_shock/structures/planted_barbubble.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/planted_barbubble.nbt",
+      "source_sha256": "e14cf636ee4eede8665141f19a66321b8809017ae4ed5fcc51c5c817c22fa966",
+      "target_sha256": "691d98520aa684a3b3bd64cfa2e1420d7d03141a65aeaff5f88571a895acb766",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "source_blocks": 2,
+      "target_blocks": 2,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        1,
+        2,
+        1
+      ],
+      "target_size": [
+        1,
+        2,
+        1
+      ],
+      "source_geometry_sha256": "71b9a28a11ca2132eefa8fc66cbe8a3331f96056a1975a40d1d75222051c9256",
+      "target_geometry_sha256": "71b9a28a11ca2132eefa8fc66cbe8a3331f96056a1975a40d1d75222051c9256",
+      "namespace_normalized_diff_count": 0,
+      "target_count_out_of_range": [],
+      "detail": "planted_barbubble.json"
+    },
+    {
+      "template": "planted_sparkler_a",
+      "source": "data/thermal_shock/structures/planted_sparkler_a.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/planted_sparkler_a.nbt",
+      "source_sha256": "fa1126ebf757e6cf850bffad7f11941a7d32fe6e5d0d8170f7a16724f95e288e",
+      "target_sha256": "a245d251e03c425490fceade3456822090b74845cfc38907fba867c5b85bf33d",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "source_blocks": 3,
+      "target_blocks": 3,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        1,
+        3,
+        1
+      ],
+      "target_size": [
+        1,
+        3,
+        1
+      ],
+      "source_geometry_sha256": "29b21b47f7192f404a45ea5307964c847bbc266f3e6c06e9f0d31026f2fe8ff0",
+      "target_geometry_sha256": "29b21b47f7192f404a45ea5307964c847bbc266f3e6c06e9f0d31026f2fe8ff0",
+      "namespace_normalized_diff_count": 0,
+      "target_count_out_of_range": [],
+      "detail": "planted_sparkler_a.json"
+    },
+    {
+      "template": "pylon",
+      "source": "data/thermal_shock/structures/pylon.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/pylon.nbt",
+      "source_sha256": "74485ddf306d9fcb62ee43d6e5de9fc4cea2205863de1439486bce26d7b333eb",
+      "target_sha256": "25a9b9a06a72f14f1909bf05cfcc904df35627acdd1bc9230f5c5f7020a49ecc",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 275,
+      "target_blocks": 275,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 2,
+      "target_block_entities": 2,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        5,
+        11,
+        5
+      ],
+      "target_size": [
+        5,
+        11,
+        5
+      ],
+      "source_geometry_sha256": "82c2775563c235e05cee4524174cbd36b2d339e9089abf386c6b411d78198337",
+      "target_geometry_sha256": "82c2775563c235e05cee4524174cbd36b2d339e9089abf386c6b411d78198337",
+      "namespace_normalized_diff_count": 1,
+      "target_count_out_of_range": [],
+      "detail": "pylon.json"
+    },
+    {
+      "template": "pyrogenic_pylon",
+      "source": "data/thermal_shock/structures/pyrogenic_pylon.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/pyrogenic_pylon.nbt",
+      "source_sha256": "be7646708ebee629fd412deffd6164d161916eeb94cf30f42853d96241c71a1b",
+      "target_sha256": "12688264a6cb5a5876317299b34686908d438e3c5df77c66398115b462a1173f",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 325,
+      "target_blocks": 325,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 2,
+      "target_block_entities": 2,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        5,
+        13,
+        5
+      ],
+      "target_size": [
+        5,
+        13,
+        5
+      ],
+      "source_geometry_sha256": "9a50c8ce5fd2f68e06729fd0bd41c88c7579931af1e94be77677eea62caec90e",
+      "target_geometry_sha256": "9a50c8ce5fd2f68e06729fd0bd41c88c7579931af1e94be77677eea62caec90e",
+      "namespace_normalized_diff_count": 1,
+      "target_count_out_of_range": [],
+      "detail": "pyrogenic_pylon.json"
+    },
+    {
+      "template": "shalespring_august",
+      "source": "data/thermal_shock/structures/shalespring_august.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/shalespring_august.nbt",
+      "source_sha256": "11043ed9ecfe914199b9602cfb20a1f97bcdef1f5a35f2677114e1e21a7a0a9d",
+      "target_sha256": "32723e3ca6eb52cab2dad3af84d66e497f932e38b5bed336e6f2f347ae788c04",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 343000,
+      "target_blocks": 343000,
+      "source_entities": 6,
+      "target_entities": 6,
+      "source_block_entities": 52,
+      "target_block_entities": 52,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        70,
+        70,
+        70
+      ],
+      "target_size": [
+        70,
+        70,
+        70
+      ],
+      "source_geometry_sha256": "2a1d14fea5de418224c7925f73d0fec9951243baf94010d429052d75b7bf5423",
+      "target_geometry_sha256": "2a1d14fea5de418224c7925f73d0fec9951243baf94010d429052d75b7bf5423",
+      "namespace_normalized_diff_count": 67,
+      "target_count_out_of_range": [],
+      "detail": "shalespring_august.json"
+    },
+    {
+      "template": "shalespring_grove_derelict",
+      "source": "data/thermal_shock/structures/shalespring_grove_derelict.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/shalespring_grove_derelict.nbt",
+      "source_sha256": "fc4849075d5d126d26c8fe6fa5d42425d20e59560d084e319c762a84af2672ca",
+      "target_sha256": "cefb3edc7357c702336ba77d3b45b1c412a49e530542e874276d99df787929fe",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 29696,
+      "target_blocks": 29696,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 10,
+      "target_block_entities": 10,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        32,
+        29,
+        32
+      ],
+      "target_size": [
+        32,
+        29,
+        32
+      ],
+      "source_geometry_sha256": "1c1a6cfc3a854320f7b4d04f32c3cc97b8b83ecaefcf712ebc024e6f3072ae3a",
+      "target_geometry_sha256": "1c1a6cfc3a854320f7b4d04f32c3cc97b8b83ecaefcf712ebc024e6f3072ae3a",
+      "namespace_normalized_diff_count": 1,
+      "target_count_out_of_range": [],
+      "detail": "shalespring_grove_derelict.json"
+    },
+    {
+      "template": "shalespring_trainstation",
+      "source": "data/thermal_shock/structures/shalespring_trainstation.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/shalespring_trainstation.nbt",
+      "source_sha256": "7fedab18bc0d2332201c1913d3c45997c4f933760c7dfdf23ce15f60e24f797c",
+      "target_sha256": "001093684a1010f7a99a9f3ae432979d923c59306f617ff19fe481c5287bc0f2",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 50400,
+      "target_blocks": 50400,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 3,
+      "target_block_entities": 3,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        30,
+        24,
+        70
+      ],
+      "target_size": [
+        30,
+        24,
+        70
+      ],
+      "source_geometry_sha256": "116862c1f70a4f110d8c5d5d456a626dbc02dd88460ac63d7e7d920d6b893475",
+      "target_geometry_sha256": "116862c1f70a4f110d8c5d5d456a626dbc02dd88460ac63d7e7d920d6b893475",
+      "namespace_normalized_diff_count": 1,
+      "target_count_out_of_range": [],
+      "detail": "shalespring_trainstation.json"
+    },
+    {
+      "template": "slagway1",
+      "source": "data/thermal_shock/structures/slagway1.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/slagway1.nbt",
+      "source_sha256": "0be6fa9cef209b6f9b7b0b8766edb76ea3437e6ea4e59e79246e06e9b95a8f14",
+      "target_sha256": "21cfdbdfd88e69e97400a18de1cdd384a059f65a11463b2e2b0c3de0b972471b",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 12636,
+      "target_blocks": 12636,
+      "source_entities": 1,
+      "target_entities": 1,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        9,
+        13,
+        108
+      ],
+      "target_size": [
+        9,
+        13,
+        108
+      ],
+      "source_geometry_sha256": "6affecb97772a48ecb1d5e3ccc04208469ef956f7029bb8a50789267ffefd985",
+      "target_geometry_sha256": "6affecb97772a48ecb1d5e3ccc04208469ef956f7029bb8a50789267ffefd985",
+      "namespace_normalized_diff_count": 7,
+      "target_count_out_of_range": [],
+      "detail": "slagway1.json"
+    },
+    {
+      "template": "snowtower",
+      "source": "data/thermal_shock/structures/snowtower.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/snowtower.nbt",
+      "source_sha256": "26a8045e0c341a5bee380a35b696a8e8890aca1a7dd3417db3d07a43a1a0f838",
+      "target_sha256": "ef41a595435a30fce6791339d4975f9302d35ef50733e0d08c41f78ae9f3c70a",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 10773,
+      "target_blocks": 10773,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 8,
+      "target_block_entities": 8,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        21,
+        19,
+        27
+      ],
+      "target_size": [
+        21,
+        19,
+        27
+      ],
+      "source_geometry_sha256": "217a221d3b90a5983e422fc3987138f2929f0728dd26784f2888d9e44a6c640f",
+      "target_geometry_sha256": "217a221d3b90a5983e422fc3987138f2929f0728dd26784f2888d9e44a6c640f",
+      "namespace_normalized_diff_count": 13,
+      "target_count_out_of_range": [],
+      "detail": "snowtower.json"
+    },
+    {
+      "template": "sparkler1",
+      "source": "data/thermal_shock/structures/sparkler1.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/sparkler1.nbt",
+      "source_sha256": "47da44d80c93ac7412aca2a636b862734b9e4c81916ba9d18e70a6f5f2b8715c",
+      "target_sha256": "54cb525ede7a980ddf85d2ab7338948ffb7a985afb83382ebb6815bed6460bfc",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "source_blocks": 3,
+      "target_blocks": 3,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        1,
+        3,
+        1
+      ],
+      "target_size": [
+        1,
+        3,
+        1
+      ],
+      "source_geometry_sha256": "29b21b47f7192f404a45ea5307964c847bbc266f3e6c06e9f0d31026f2fe8ff0",
+      "target_geometry_sha256": "29b21b47f7192f404a45ea5307964c847bbc266f3e6c06e9f0d31026f2fe8ff0",
+      "namespace_normalized_diff_count": 0,
+      "target_count_out_of_range": [],
+      "detail": "sparkler1.json"
+    },
+    {
+      "template": "sparkler2",
+      "source": "data/thermal_shock/structures/sparkler2.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/sparkler2.nbt",
+      "source_sha256": "e0820558740a42254eab378b5edbf0b9658384e6fc45c2368aa23ad258259b46",
+      "target_sha256": "7a92b166f2889bdbd55c73b063962d71e73841e127c150f5000a3490d03fa29d",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "source_blocks": 4,
+      "target_blocks": 4,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        1,
+        4,
+        1
+      ],
+      "target_size": [
+        1,
+        4,
+        1
+      ],
+      "source_geometry_sha256": "4dbed10401378130a0f3bf114737e2c568a26198ed4d94602c1ad77ce8674bd5",
+      "target_geometry_sha256": "4dbed10401378130a0f3bf114737e2c568a26198ed4d94602c1ad77ce8674bd5",
+      "namespace_normalized_diff_count": 0,
+      "target_count_out_of_range": [],
+      "detail": "sparkler2.json"
+    },
+    {
+      "template": "sparkler3",
+      "source": "data/thermal_shock/structures/sparkler3.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/sparkler3.nbt",
+      "source_sha256": "b99e5ba3cf8a9e0b8c1df32cbdc610ed41c63eea587694df411c826741bb3efd",
+      "target_sha256": "24bd4c3a5efa5a20c9dd6ec296692c29eb7186a5438987f9abd0e1c6257ecd24",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "source_blocks": 5,
+      "target_blocks": 5,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        1,
+        5,
+        1
+      ],
+      "target_size": [
+        1,
+        5,
+        1
+      ],
+      "source_geometry_sha256": "d15ac41fc2817de648856522e8e5c256d7db06ef201fd10521e729a8a49bf8ab",
+      "target_geometry_sha256": "d15ac41fc2817de648856522e8e5c256d7db06ef201fd10521e729a8a49bf8ab",
+      "namespace_normalized_diff_count": 0,
+      "target_count_out_of_range": [],
+      "detail": "sparkler3.json"
+    },
+    {
+      "template": "sparkler4",
+      "source": "data/thermal_shock/structures/sparkler4.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/sparkler4.nbt",
+      "source_sha256": "1048e1a2a77abbbbee30e1b838123c84b4d797ac8d706d3ea3a646ecb8967025",
+      "target_sha256": "784d053a31d08315b9b7e95d45bc377ed6d118f9c81b400b90745d93161968f8",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "source_blocks": 6,
+      "target_blocks": 6,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        1,
+        6,
+        1
+      ],
+      "target_size": [
+        1,
+        6,
+        1
+      ],
+      "source_geometry_sha256": "4771b25595737b2ee2b43161d56a76f3628aef92b111b895b53a520e954252a4",
+      "target_geometry_sha256": "4771b25595737b2ee2b43161d56a76f3628aef92b111b895b53a520e954252a4",
+      "namespace_normalized_diff_count": 0,
+      "target_count_out_of_range": [],
+      "detail": "sparkler4.json"
+    },
+    {
+      "template": "spire1_25",
+      "source": "data/thermal_shock/structures/spire1_25.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/spire1_25.nbt",
+      "source_sha256": "55d7d8f7772b0f1c0d2e96d06c9651d31db68e48b95900141c03dc7de3d362ac",
+      "target_sha256": "292480c3180de75147bf0dd973934dbbf2347230aafcd87267b7983467442338",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 135,
+      "target_blocks": 135,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 1,
+      "target_block_entities": 1,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        3,
+        15,
+        3
+      ],
+      "target_size": [
+        3,
+        15,
+        3
+      ],
+      "source_geometry_sha256": "65154fb6de905e2ecec2c89ee5f1c3c8dcdff4f50aa1abf2e4050c338e6a8687",
+      "target_geometry_sha256": "65154fb6de905e2ecec2c89ee5f1c3c8dcdff4f50aa1abf2e4050c338e6a8687",
+      "namespace_normalized_diff_count": 1,
+      "target_count_out_of_range": [],
+      "detail": "spire1_25.json"
+    },
+    {
+      "template": "spire2_25",
+      "source": "data/thermal_shock/structures/spire2_25.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/spire2_25.nbt",
+      "source_sha256": "e90aea2e5409245cb7f71d14ac800782ff7c5a4aa174cccbba6c928c3e22dd83",
+      "target_sha256": "43c0025411b4bfd3ff7458b288d49b86c4f4d4ac66263d7739a6be086af574f0",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 135,
+      "target_blocks": 135,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        3,
+        15,
+        3
+      ],
+      "target_size": [
+        3,
+        15,
+        3
+      ],
+      "source_geometry_sha256": "b411a8b87491d9d956d8a517b5e1bd5256883e244e6cd0beccdb070acf8ae147",
+      "target_geometry_sha256": "b411a8b87491d9d956d8a517b5e1bd5256883e244e6cd0beccdb070acf8ae147",
+      "namespace_normalized_diff_count": 1,
+      "target_count_out_of_range": [],
+      "detail": "spire2_25.json"
+    },
+    {
+      "template": "spire3_25",
+      "source": "data/thermal_shock/structures/spire3_25.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/spire3_25.nbt",
+      "source_sha256": "11a365c898d886f40fff214340c10d9cf884699539c5de3eec644f0da1a3d4d1",
+      "target_sha256": "0ceef8e95e089ce10d11ec9dd0332efe24c21e2fb4d19280138d70104d0e318e",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 207,
+      "target_blocks": 207,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 3,
+      "target_block_entities": 3,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        3,
+        23,
+        3
+      ],
+      "target_size": [
+        3,
+        23,
+        3
+      ],
+      "source_geometry_sha256": "9f38e6220ff0c0bcf3225c2b764bfe07edec851e43613897a0d7f78260354d5d",
+      "target_geometry_sha256": "9f38e6220ff0c0bcf3225c2b764bfe07edec851e43613897a0d7f78260354d5d",
+      "namespace_normalized_diff_count": 1,
+      "target_count_out_of_range": [],
+      "detail": "spire3_25.json"
+    },
+    {
+      "template": "stratusreactorspire",
+      "source": "data/thermal_shock/structures/stratusreactorspire.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/stratusreactorspire.nbt",
+      "source_sha256": "1c534f858b886765d35593869ae10d4e0a5f00ad716354f975ebf742cac61dc2",
+      "target_sha256": "9902e81e2cf274c23155e702fe4252df4dc0342452ba1182c217afe2ccdcb6b0",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 21609,
+      "target_blocks": 21609,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        21,
+        49,
+        21
+      ],
+      "target_size": [
+        21,
+        49,
+        21
+      ],
+      "source_geometry_sha256": "ed8f185d1728f353f93042e3b5b221466191f8b5cf7a568a9d3a22506c6fd3aa",
+      "target_geometry_sha256": "ed8f185d1728f353f93042e3b5b221466191f8b5cf7a568a9d3a22506c6fd3aa",
+      "namespace_normalized_diff_count": 1,
+      "target_count_out_of_range": [],
+      "detail": "stratusreactorspire.json"
+    },
+    {
+      "template": "sunken_blizzard_lab",
+      "source": "data/thermal_shock/structures/sunken_blizzard_lab.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/sunken_blizzard_lab.nbt",
+      "source_sha256": "c8f9f1029c04d88ace94580e65b4d3f6af0de5672cf7d13dba9e64caec3a75b5",
+      "target_sha256": "5838c2dd0babfec42d0d7802fb8dc41c7aefe4ef12ba533a2579dfc0cd9a8a77",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 32174,
+      "target_blocks": 32174,
+      "source_entities": 13,
+      "target_entities": 13,
+      "source_block_entities": 32,
+      "target_block_entities": 32,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        81,
+        28,
+        68
+      ],
+      "target_size": [
+        81,
+        28,
+        68
+      ],
+      "source_geometry_sha256": "387117c1e8f267fea41f005d3f5babdacb33ec107c3e89c7d093a7aa6c1d7224",
+      "target_geometry_sha256": "387117c1e8f267fea41f005d3f5babdacb33ec107c3e89c7d093a7aa6c1d7224",
+      "namespace_normalized_diff_count": 53,
+      "target_count_out_of_range": [],
+      "detail": "sunken_blizzard_lab.json"
+    },
+    {
+      "template": "testjig",
+      "source": "data/thermal_shock/structures/testjig.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/testjig.nbt",
+      "source_sha256": "113646aaf96b4ef9903fabceca12fe438223107627bd3d148176b54928067a46",
+      "target_sha256": "727060f4848fe0eb6a8dcb22127cb14ff26324ff50538f42437bf69df661609d",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 25,
+      "target_blocks": 25,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 1,
+      "target_block_entities": 1,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        5,
+        5,
+        1
+      ],
+      "target_size": [
+        5,
+        5,
+        1
+      ],
+      "source_geometry_sha256": "72504623a1f152493df44ba460365ed573361c6a5e7d1ac3aee8853e731bc7f0",
+      "target_geometry_sha256": "72504623a1f152493df44ba460365ed573361c6a5e7d1ac3aee8853e731bc7f0",
+      "namespace_normalized_diff_count": 1,
+      "target_count_out_of_range": [],
+      "detail": "testjig.json"
+    },
+    {
+      "template": "testsaw",
+      "source": "data/thermal_shock/structures/testsaw.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/testsaw.nbt",
+      "source_sha256": "09f3713b9bd5edfe7c98ddc8d0f0cb4fffc52501aba1f614f38b728c331688fe",
+      "target_sha256": "390e15405b224b94481ff54c9d4dc6d57f7352a9811a91c2f0c34987a6601bf7",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 25,
+      "target_blocks": 25,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 1,
+      "target_block_entities": 1,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        5,
+        5,
+        1
+      ],
+      "target_size": [
+        5,
+        5,
+        1
+      ],
+      "source_geometry_sha256": "408e0e5b01ae4adc87708475e10c5de541d5df999f0d0d43ebcb7d39a6d98f13",
+      "target_geometry_sha256": "408e0e5b01ae4adc87708475e10c5de541d5df999f0d0d43ebcb7d39a6d98f13",
+      "namespace_normalized_diff_count": 1,
+      "target_count_out_of_range": [],
+      "detail": "testsaw.json"
+    },
+    {
+      "template": "thermalvent1",
+      "source": "data/thermal_shock/structures/thermalvent1.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/thermalvent1.nbt",
+      "source_sha256": "9edfb571105d0e482271a9aeadf7824734f2673a7d7960b0d0f612c32c64f496",
+      "target_sha256": "9286f472fae1e765f7cec69a9103683cf7227e758a1d1e09c6fcd3cb89f6f27e",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 2,
+      "target_blocks": 2,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 1,
+      "target_block_entities": 1,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        1,
+        2,
+        1
+      ],
+      "target_size": [
+        1,
+        2,
+        1
+      ],
+      "source_geometry_sha256": "71b9a28a11ca2132eefa8fc66cbe8a3331f96056a1975a40d1d75222051c9256",
+      "target_geometry_sha256": "71b9a28a11ca2132eefa8fc66cbe8a3331f96056a1975a40d1d75222051c9256",
+      "namespace_normalized_diff_count": 1,
+      "target_count_out_of_range": [],
+      "detail": "thermalvent1.json"
+    },
+    {
+      "template": "thermalvent2",
+      "source": "data/thermal_shock/structures/thermalvent2.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/thermalvent2.nbt",
+      "source_sha256": "631f458b62eff4d28ced36433ab84bafd1c288a046aaf88666ca2d0ab93860cf",
+      "target_sha256": "408ad16d4e6b61a1d27d23fbea73f731a6702a577e9cfe166b273bb97447b96d",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 4,
+      "target_blocks": 4,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 1,
+      "target_block_entities": 1,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        1,
+        4,
+        1
+      ],
+      "target_size": [
+        1,
+        4,
+        1
+      ],
+      "source_geometry_sha256": "11324a2cf0dba1c30865c5b8a2babda698e893171d590fa287566771d83df8ed",
+      "target_geometry_sha256": "11324a2cf0dba1c30865c5b8a2babda698e893171d590fa287566771d83df8ed",
+      "namespace_normalized_diff_count": 1,
+      "target_count_out_of_range": [],
+      "detail": "thermalvent2.json"
+    },
+    {
+      "template": "thermalvent3",
+      "source": "data/thermal_shock/structures/thermalvent3.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/thermalvent3.nbt",
+      "source_sha256": "2e4e96af85a8f804b4345e452c2265486c11a0e215dc87ba68673664ef159c8b",
+      "target_sha256": "fdad89d9e64401ff68dee87f1714cbfcdf9e5f03407b1f6373ca2211516314b0",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 6,
+      "target_blocks": 6,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 1,
+      "target_block_entities": 1,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        1,
+        6,
+        1
+      ],
+      "target_size": [
+        1,
+        6,
+        1
+      ],
+      "source_geometry_sha256": "ccdc215f10a096bfe49a3b264f4f11d60e64cd664a3e4a4af1d2746b228d4da9",
+      "target_geometry_sha256": "ccdc215f10a096bfe49a3b264f4f11d60e64cd664a3e4a4af1d2746b228d4da9",
+      "namespace_normalized_diff_count": 1,
+      "target_count_out_of_range": [],
+      "detail": "thermalvent3.json"
+    },
+    {
+      "template": "twilitgrass",
+      "source": "data/thermal_shock/structures/twilitgrass.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/twilitgrass.nbt",
+      "source_sha256": "c76308ce2710145b0db161efaf0df3961f5875c7009f7be7db53df76b8be2c63",
+      "target_sha256": "7dfde204645a78390e3143cb62ae9547ebc532de02f110ea1e58333750a5e712",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 1,
+      "target_blocks": 1,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        1,
+        1,
+        1
+      ],
+      "target_size": [
+        1,
+        1,
+        1
+      ],
+      "source_geometry_sha256": "6b1f6cfe2e8dcb1e0460f6b786dade87463f4ccfb8894aa0ee6e9969b1990743",
+      "target_geometry_sha256": "6b1f6cfe2e8dcb1e0460f6b786dade87463f4ccfb8894aa0ee6e9969b1990743",
+      "namespace_normalized_diff_count": 1,
+      "target_count_out_of_range": [],
+      "detail": "twilitgrass.json"
+    },
+    {
+      "template": "underbase1",
+      "source": "data/thermal_shock/structures/underbase1.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/underbase1.nbt",
+      "source_sha256": "f7679bb316037e1ae7ff0b448f140d848a75133206af296f1486011fd8942f26",
+      "target_sha256": "596351be4e1b1522f15599a25d3b8e9e70bea49c38d23809235dc28493e46077",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "source_blocks": 2240,
+      "target_blocks": 2240,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 7,
+      "target_block_entities": 7,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        14,
+        10,
+        16
+      ],
+      "target_size": [
+        14,
+        10,
+        16
+      ],
+      "source_geometry_sha256": "10d2d9bf0bd831840603416fbb2f04e8ccb9927b6b851ccde082355802653ed6",
+      "target_geometry_sha256": "10d2d9bf0bd831840603416fbb2f04e8ccb9927b6b851ccde082355802653ed6",
+      "namespace_normalized_diff_count": 0,
+      "target_count_out_of_range": [],
+      "detail": "underbase1.json"
+    },
+    {
+      "template": "underbase2",
+      "source": "data/thermal_shock/structures/underbase2.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/underbase2.nbt",
+      "source_sha256": "75ce22fe1fddd51ca8035071dae066ef3fabf20719f8217d831adf065b6460ff",
+      "target_sha256": "3710228353c23eb9e13e924a7d0227e44ecea83289594ee04eef5518998e2726",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "source_blocks": 2240,
+      "target_blocks": 2240,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 6,
+      "target_block_entities": 6,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        14,
+        10,
+        16
+      ],
+      "target_size": [
+        14,
+        10,
+        16
+      ],
+      "source_geometry_sha256": "7c2a662252d0e002c5a6d731fa5ffedaf648a4e3c0a3f8790aa62228127e3257",
+      "target_geometry_sha256": "7c2a662252d0e002c5a6d731fa5ffedaf648a4e3c0a3f8790aa62228127e3257",
+      "namespace_normalized_diff_count": 0,
+      "target_count_out_of_range": [],
+      "detail": "underbase2.json"
+    },
+    {
+      "template": "underbase3",
+      "source": "data/thermal_shock/structures/underbase3.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/underbase3.nbt",
+      "source_sha256": "7bf0719ef51fc4cf5137ed22c42abdec923c1d4bceb35823aa3503005987ce26",
+      "target_sha256": "45074bd9388e2ede2b54f459e75c2fa3d5ff8b2eb8dec8f3598dcb8ca5439cc7",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "source_blocks": 2240,
+      "target_blocks": 2240,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 6,
+      "target_block_entities": 6,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        14,
+        10,
+        16
+      ],
+      "target_size": [
+        14,
+        10,
+        16
+      ],
+      "source_geometry_sha256": "a49246543f73b76c91d3f93f1bf4529e0c98c891f9c66de691813e196e2576c8",
+      "target_geometry_sha256": "a49246543f73b76c91d3f93f1bf4529e0c98c891f9c66de691813e196e2576c8",
+      "namespace_normalized_diff_count": 0,
+      "target_count_out_of_range": [],
+      "detail": "underbase3.json"
+    },
+    {
+      "template": "undercabin2",
+      "source": "data/thermal_shock/structures/undercabin2.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/undercabin2.nbt",
+      "source_sha256": "70f05d8b21968bf6fe5b3ef25fa3ea1e81be4044f379e387398b117155d15671",
+      "target_sha256": "f411c304f387539a5d6429ab28a7370434634d9397fcc01b5d8ec261a6645e55",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "source_blocks": 385,
+      "target_blocks": 385,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 3,
+      "target_block_entities": 3,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        11,
+        5,
+        7
+      ],
+      "target_size": [
+        11,
+        5,
+        7
+      ],
+      "source_geometry_sha256": "27e556f83ca69bd158c909d646f0d8c46c5effb5843bb93bacd70e9338dc0fd9",
+      "target_geometry_sha256": "27e556f83ca69bd158c909d646f0d8c46c5effb5843bb93bacd70e9338dc0fd9",
+      "namespace_normalized_diff_count": 0,
+      "target_count_out_of_range": [],
+      "detail": "undercabin2.json"
+    },
+    {
+      "template": "undercabin3",
+      "source": "data/thermal_shock/structures/undercabin3.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/undercabin3.nbt",
+      "source_sha256": "bb961afc1077da7f73030f26e9ab74373acaac37e18edbcf0a9ee4d4e6768289",
+      "target_sha256": "643b0257a4318d6c691620b0065c41888d851c44bff84bd2907c3019de881a23",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "source_blocks": 385,
+      "target_blocks": 385,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 1,
+      "target_block_entities": 1,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        11,
+        5,
+        7
+      ],
+      "target_size": [
+        11,
+        5,
+        7
+      ],
+      "source_geometry_sha256": "d7f570b9f0c85dabd657acf1611fa654952c257387300ca523618f345a7327f3",
+      "target_geometry_sha256": "d7f570b9f0c85dabd657acf1611fa654952c257387300ca523618f345a7327f3",
+      "namespace_normalized_diff_count": 0,
+      "target_count_out_of_range": [],
+      "detail": "undercabin3.json"
+    },
+    {
+      "template": "undercabin4",
+      "source": "data/thermal_shock/structures/undercabin4.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/undercabin4.nbt",
+      "source_sha256": "330de867f93d4b1691499aed94a7c37fa6fa718cd2ed99f626adf40e230a6cb9",
+      "target_sha256": "216e57906d1616b0f61a573f9a7b36004f723f473d99989b5bc161f6e8666288",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "source_blocks": 385,
+      "target_blocks": 385,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 4,
+      "target_block_entities": 4,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        11,
+        5,
+        7
+      ],
+      "target_size": [
+        11,
+        5,
+        7
+      ],
+      "source_geometry_sha256": "defbb1b323212d031798c2a56161a87f6465014abfba49d367e1f136e0ea5dbd",
+      "target_geometry_sha256": "defbb1b323212d031798c2a56161a87f6465014abfba49d367e1f136e0ea5dbd",
+      "namespace_normalized_diff_count": 0,
+      "target_count_out_of_range": [],
+      "detail": "undercabin4.json"
+    },
+    {
+      "template": "verdium12",
+      "source": "data/thermal_shock/structures/verdium12.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/verdium12.nbt",
+      "source_sha256": "b7d7df0dbb5939eff3fd391d0a83e07360a8f4445eef6cb25b36d0aa4dcd2dcd",
+      "target_sha256": "c239c78eb35d4a0ffe1b43b53815b899f3fb09f7f0c27e1652c2cfb5881d4178",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "source_blocks": 12,
+      "target_blocks": 12,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        1,
+        12,
+        1
+      ],
+      "target_size": [
+        1,
+        12,
+        1
+      ],
+      "source_geometry_sha256": "3a433ddfd92c865db23f7a3459bfd558e01e98d69e3e437b3c36a7acf3a3c3b6",
+      "target_geometry_sha256": "3a433ddfd92c865db23f7a3459bfd558e01e98d69e3e437b3c36a7acf3a3c3b6",
+      "namespace_normalized_diff_count": 0,
+      "target_count_out_of_range": [],
+      "detail": "verdium12.json"
+    },
+    {
+      "template": "verdium3",
+      "source": "data/thermal_shock/structures/verdium3.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/verdium3.nbt",
+      "source_sha256": "eaa7b68b1d11ed15354477f43c25e59ebc9a5e0e86f19ec3367394df3d92ec54",
+      "target_sha256": "8cfecae88bc407d15a667c7cc537fcfb7551b54f289918f9b0b76505f4fad9b5",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "source_blocks": 3,
+      "target_blocks": 3,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        1,
+        3,
+        1
+      ],
+      "target_size": [
+        1,
+        3,
+        1
+      ],
+      "source_geometry_sha256": "3ab9a8740a546f8444780243e043d12ceb98360ee91bf77cf675324f5d0fa0dd",
+      "target_geometry_sha256": "3ab9a8740a546f8444780243e043d12ceb98360ee91bf77cf675324f5d0fa0dd",
+      "namespace_normalized_diff_count": 0,
+      "target_count_out_of_range": [],
+      "detail": "verdium3.json"
+    },
+    {
+      "template": "verdium6",
+      "source": "data/thermal_shock/structures/verdium6.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/verdium6.nbt",
+      "source_sha256": "1a164f603c2a2dabcb38e8fba020d3c468c7e09fa37e6eb882f799da3a166411",
+      "target_sha256": "b7408760f54306ea9ab3f5d6aad95bb3a1b276568732ca7b35af19d82db30d44",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "source_blocks": 6,
+      "target_blocks": 6,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        1,
+        6,
+        1
+      ],
+      "target_size": [
+        1,
+        6,
+        1
+      ],
+      "source_geometry_sha256": "35a70c69d1b551d53a3d0733a4548c5ee7e134bb8d9a15864f1c8142220104d7",
+      "target_geometry_sha256": "35a70c69d1b551d53a3d0733a4548c5ee7e134bb8d9a15864f1c8142220104d7",
+      "namespace_normalized_diff_count": 0,
+      "target_count_out_of_range": [],
+      "detail": "verdium6.json"
+    },
+    {
+      "template": "verdium9",
+      "source": "data/thermal_shock/structures/verdium9.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/verdium9.nbt",
+      "source_sha256": "95af7ab283c01898ce764bcb868a16f0245cc393869f5cf27be1f0f7bc06e067",
+      "target_sha256": "d4063bd68406e95f4f4fcaeab004a3508e178ca62b110eac53c297116d5a0512",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "source_blocks": 9,
+      "target_blocks": 9,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        1,
+        9,
+        1
+      ],
+      "target_size": [
+        1,
+        9,
+        1
+      ],
+      "source_geometry_sha256": "3aff12143c40fa40a4a4439dfbd2417f7fc496d0995c55d804bebd2130cafe22",
+      "target_geometry_sha256": "3aff12143c40fa40a4a4439dfbd2417f7fc496d0995c55d804bebd2130cafe22",
+      "namespace_normalized_diff_count": 0,
+      "target_count_out_of_range": [],
+      "detail": "verdium9.json"
+    },
+    {
+      "template": "vermillion_pine_1",
+      "source": "data/thermal_shock/structures/vermillion_pine_1.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/vermillion_pine_1.nbt",
+      "source_sha256": "efe365a55bb17646908e4d77e42f5603b0b46d1d1a8887fdea3dea28543457be",
+      "target_sha256": "d9249ba44a63c271a98a9f500b1b4bd83a55f895bf3e9ab0dfb62c8722310366",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "source_blocks": 3807,
+      "target_blocks": 3807,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        9,
+        47,
+        9
+      ],
+      "target_size": [
+        9,
+        47,
+        9
+      ],
+      "source_geometry_sha256": "1f3981d52f5293c9a64d5596054a3ae5390b7436bbbbce2aac504f41e65bff38",
+      "target_geometry_sha256": "1f3981d52f5293c9a64d5596054a3ae5390b7436bbbbce2aac504f41e65bff38",
+      "namespace_normalized_diff_count": 0,
+      "target_count_out_of_range": [],
+      "detail": "vermillion_pine_1.json"
+    },
+    {
+      "template": "vermillion_pine_1b",
+      "source": "data/thermal_shock/structures/vermillion_pine_1b.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/vermillion_pine_1b.nbt",
+      "source_sha256": "b53de9705a05d404a82dc6f6ad286097c645b86b527786b741e13a2cd12b6337",
+      "target_sha256": "ce1a9a97208ba56ef9eacbe88fd98c548f3fd834606ea38d53a20b0d607f0f17",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "source_blocks": 3483,
+      "target_blocks": 3483,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        9,
+        43,
+        9
+      ],
+      "target_size": [
+        9,
+        43,
+        9
+      ],
+      "source_geometry_sha256": "5808dc15ac80a25a2706eb784aa3fbcc2e250f77ebad3fde5e3f57098860572b",
+      "target_geometry_sha256": "5808dc15ac80a25a2706eb784aa3fbcc2e250f77ebad3fde5e3f57098860572b",
+      "namespace_normalized_diff_count": 0,
+      "target_count_out_of_range": [],
+      "detail": "vermillion_pine_1b.json"
+    },
+    {
+      "template": "vermillion_pine_2",
+      "source": "data/thermal_shock/structures/vermillion_pine_2.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/vermillion_pine_2.nbt",
+      "source_sha256": "2ab479ca53e765de572a38681f17d09be4b024a4c46e187b24d89887bee8e4ec",
+      "target_sha256": "603be673b75bbaadef6b6ebdbee45d18b49d30a7535dec8f05452ffc48f0e4fa",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "source_blocks": 3807,
+      "target_blocks": 3807,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        9,
+        47,
+        9
+      ],
+      "target_size": [
+        9,
+        47,
+        9
+      ],
+      "source_geometry_sha256": "ce6c787f615ddc3a1e9a8b3adef0561c3aa5b1bb69f54a9f9d0f548731db7de0",
+      "target_geometry_sha256": "ce6c787f615ddc3a1e9a8b3adef0561c3aa5b1bb69f54a9f9d0f548731db7de0",
+      "namespace_normalized_diff_count": 0,
+      "target_count_out_of_range": [],
+      "detail": "vermillion_pine_2.json"
+    },
+    {
+      "template": "vermillion_pine_2b",
+      "source": "data/thermal_shock/structures/vermillion_pine_2b.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/vermillion_pine_2b.nbt",
+      "source_sha256": "d45eebe9bc0f67259de14b9fdfa486d6c96452e81a2580a7d94e09929602db36",
+      "target_sha256": "8fc6636ab5b64d1baafa205d4afcc7fc89f75b215cee8adc07a1e466b27dc071",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "source_blocks": 3645,
+      "target_blocks": 3645,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 0,
+      "target_block_entities": 0,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        9,
+        45,
+        9
+      ],
+      "target_size": [
+        9,
+        45,
+        9
+      ],
+      "source_geometry_sha256": "185620b3739cf845f51bd36d2bc6bc3845d1b9a7b9712711147f36f4afe4ebc2",
+      "target_geometry_sha256": "185620b3739cf845f51bd36d2bc6bc3845d1b9a7b9712711147f36f4afe4ebc2",
+      "namespace_normalized_diff_count": 0,
+      "target_count_out_of_range": [],
+      "detail": "vermillion_pine_2b.json"
+    },
+    {
+      "template": "vilebath_bridge",
+      "source": "data/thermal_shock/structures/vilebath_bridge.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/vilebath_bridge.nbt",
+      "source_sha256": "b9e7d813308b65fc3f4186769ac59b4b5afd37730a134c26bbdc0a005921b02c",
+      "target_sha256": "1ee15da44f78653cd67ed3501ea1cb6aaf4f91df41e9d25fe27b1028283c86f3",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 24549,
+      "target_blocks": 24549,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 2,
+      "target_block_entities": 2,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        21,
+        25,
+        49
+      ],
+      "target_size": [
+        21,
+        25,
+        49
+      ],
+      "source_geometry_sha256": "9dafed1f8e4f06c65a2d1da75de8255010f6a201e651c64daff48f85884f8e9a",
+      "target_geometry_sha256": "9dafed1f8e4f06c65a2d1da75de8255010f6a201e651c64daff48f85884f8e9a",
+      "namespace_normalized_diff_count": 2,
+      "target_count_out_of_range": [],
+      "detail": "vilebath_bridge.json"
+    },
+    {
+      "template": "vilebath_bridge_center",
+      "source": "data/thermal_shock/structures/vilebath_bridge_center.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/vilebath_bridge_center.nbt",
+      "source_sha256": "7fdf24acfcd7293e3293341315790e56e77255f232cdce6e297b70e32e42b9da",
+      "target_sha256": "a8ff8fe4f08044843a7b93b3e5379d53ccbe26627d558036ad8e269bf3d14621",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 22833,
+      "target_blocks": 22833,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 4,
+      "target_block_entities": 4,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        31,
+        25,
+        31
+      ],
+      "target_size": [
+        31,
+        25,
+        31
+      ],
+      "source_geometry_sha256": "d06c9baa973841d9954c9e977783a1c01219b58319d8acd5b2529bd23a2faf91",
+      "target_geometry_sha256": "d06c9baa973841d9954c9e977783a1c01219b58319d8acd5b2529bd23a2faf91",
+      "namespace_normalized_diff_count": 5,
+      "target_count_out_of_range": [],
+      "detail": "vilebath_bridge_center.json"
+    },
+    {
+      "template": "vilebath_bridge_split",
+      "source": "data/thermal_shock/structures/vilebath_bridge_split.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/vilebath_bridge_split.nbt",
+      "source_sha256": "c08124362b38d717244d22cada1ae02edd110fed80d3d1b1f72d086342fe9cc7",
+      "target_sha256": "4e3d09c6491e12026c24ccbed585e96cd122b750c9544518215b57926997d7a1",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 45325,
+      "target_blocks": 45325,
+      "source_entities": 0,
+      "target_entities": 0,
+      "source_block_entities": 3,
+      "target_block_entities": 3,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        37,
+        25,
+        49
+      ],
+      "target_size": [
+        37,
+        25,
+        49
+      ],
+      "source_geometry_sha256": "14f349282ed48146a5e860f139c904cb9c658e5167dbd0455487a09bcbb584e7",
+      "target_geometry_sha256": "14f349282ed48146a5e860f139c904cb9c658e5167dbd0455487a09bcbb584e7",
+      "namespace_normalized_diff_count": 3,
+      "target_count_out_of_range": [],
+      "detail": "vilebath_bridge_split.json"
+    },
+    {
+      "template": "vilebath_castle",
+      "source": "data/thermal_shock/structures/vilebath_castle.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/vilebath_castle.nbt",
+      "source_sha256": "49af1b26a8212141276173159d5cc615f722e41c99e69f871952987944f11f24",
+      "target_sha256": "109e363899c576b757e2d489aab0169f8e1ad63fb30c385ca7f1df730d7e06fa",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 295539,
+      "target_blocks": 295539,
+      "source_entities": 45,
+      "target_entities": 45,
+      "source_block_entities": 76,
+      "target_block_entities": 76,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        79,
+        43,
+        87
+      ],
+      "target_size": [
+        79,
+        43,
+        87
+      ],
+      "source_geometry_sha256": "1f84c6d45b9896156f95191a1bacf50a1edac2b7be179b0a7f169f32813439c8",
+      "target_geometry_sha256": "1f84c6d45b9896156f95191a1bacf50a1edac2b7be179b0a7f169f32813439c8",
+      "namespace_normalized_diff_count": 357,
+      "target_count_out_of_range": [],
+      "detail": "vilebath_castle.json"
+    },
+    {
+      "template": "vilebathrubicon",
+      "source": "data/thermal_shock/structures/vilebathrubicon.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/vilebathrubicon.nbt",
+      "source_sha256": "35442c63fa1d1aaf4e46542eb5d9bb0009cd9ca5bb677f79f28f7f5b6c69ee8e",
+      "target_sha256": "6b8eab852fc286069bbf2264da56567cec18150af4e10ad5c560ffbc490fdabe",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 439872,
+      "target_blocks": 439872,
+      "source_entities": 45,
+      "target_entities": 45,
+      "source_block_entities": 76,
+      "target_block_entities": 76,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        79,
+        64,
+        87
+      ],
+      "target_size": [
+        79,
+        64,
+        87
+      ],
+      "source_geometry_sha256": "1f273a0303cce54f3bd72bfc211251e604f1e6a9ec8a88ff5db7970cafaf9bf5",
+      "target_geometry_sha256": "1f273a0303cce54f3bd72bfc211251e604f1e6a9ec8a88ff5db7970cafaf9bf5",
+      "namespace_normalized_diff_count": 357,
+      "target_count_out_of_range": [],
+      "detail": "vilebathrubicon.json"
+    },
+    {
+      "template": "whisper_home",
+      "source": "data/thermal_shock/structures/whisper_home.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/whisper_home.nbt",
+      "source_sha256": "7cf4494e6f1eaa5a7f0c42c6f8d04777bb5dc186fcc6b9cfa9acb7027a0fec80",
+      "target_sha256": "ce1484f7ce14e99ee26f2101efc20f56cee2dbb92bbe06379a4f8d25f482e256",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 7488,
+      "target_blocks": 7488,
+      "source_entities": 1,
+      "target_entities": 1,
+      "source_block_entities": 11,
+      "target_block_entities": 11,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        24,
+        13,
+        24
+      ],
+      "target_size": [
+        24,
+        13,
+        24
+      ],
+      "source_geometry_sha256": "47c7580d6bef32d26d51305fa19fb4181ef8ae4bbb6cf2f3827ee7c3abaf9b97",
+      "target_geometry_sha256": "47c7580d6bef32d26d51305fa19fb4181ef8ae4bbb6cf2f3827ee7c3abaf9b97",
+      "namespace_normalized_diff_count": 7,
+      "target_count_out_of_range": [],
+      "detail": "whisper_home.json"
+    },
+    {
+      "template": "whisperden",
+      "source": "data/thermal_shock/structures/whisperden.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/whisperden.nbt",
+      "source_sha256": "987fc69b7c746da4146b301d69d3e67fdc05ab7cd8073ec20cb90d50e5ba83d7",
+      "target_sha256": "9fea987f5ff51b24f8099218526de3f42e32e3ab2efac8b83fe696f1c998a3b6",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 2565,
+      "target_blocks": 2565,
+      "source_entities": 8,
+      "target_entities": 8,
+      "source_block_entities": 31,
+      "target_block_entities": 31,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        19,
+        9,
+        15
+      ],
+      "target_size": [
+        19,
+        9,
+        15
+      ],
+      "source_geometry_sha256": "dc55acb2c86ba315c39f60679bf68ed664c857a868aa95f4bd86d05d8a17e4bb",
+      "target_geometry_sha256": "dc55acb2c86ba315c39f60679bf68ed664c857a868aa95f4bd86d05d8a17e4bb",
+      "namespace_normalized_diff_count": 33,
+      "target_count_out_of_range": [],
+      "detail": "whisperden.json"
+    },
+    {
+      "template": "whisperdenalt",
+      "source": "data/thermal_shock/structures/whisperdenalt.nbt",
+      "target": "src/main/resources/data/thermal_shock_reforged/structure/whisperdenalt.nbt",
+      "source_sha256": "370a6e5ebfe69ee48c48e7e5a75d5d32407f2e0a2537449625320230e69533f6",
+      "target_sha256": "ec39eb929df7958119efb3f75a3f309b3d91c6dc6c23b2f53406bfed938d283c",
+      "input_stable": true,
+      "source_data_version": {
+        "type": 3,
+        "value": 3465
+      },
+      "target_data_version": {
+        "type": 3,
+        "value": 3955
+      },
+      "source_blocks": 2850,
+      "target_blocks": 2850,
+      "source_entities": 8,
+      "target_entities": 8,
+      "source_block_entities": 27,
+      "target_block_entities": 27,
+      "all_block_coordinates_states_and_other_geometry_bytes_equal": true,
+      "be_index_coordinates_states_equal": true,
+      "namespace_normalized_palette_equal": true,
+      "source_size": [
+        19,
+        10,
+        15
+      ],
+      "target_size": [
+        19,
+        10,
+        15
+      ],
+      "source_geometry_sha256": "4d1106ca8ca40fb2f2ffcd15b9664b88f05e5f7cb37f6970826725dfa309ed39",
+      "target_geometry_sha256": "4d1106ca8ca40fb2f2ffcd15b9664b88f05e5f7cb37f6970826725dfa309ed39",
+      "namespace_normalized_diff_count": 33,
+      "target_count_out_of_range": [],
+      "detail": "whisperdenalt.json"
+    }
+  ],
+  "detail_evidence_root": "D:\\AI临时文件\\ThermalShockMigration\\a121-luna3-data",
+  "interpretation": {
+    "rawDifferencesAreNotDefects": true,
+    "actualInventoryItemStacks": {
+      "source": 40,
+      "target": 40,
+      "sourceCurativeStacksExcluded": 39,
+      "experienceOrbsExcludedEachSide": 8
+    },
+    "notFullyReviewed": [
+      "303组属性转换的完整消费者语义",
+      "实际DFU/组件Codec解码"
+    ]
+  }
+}
