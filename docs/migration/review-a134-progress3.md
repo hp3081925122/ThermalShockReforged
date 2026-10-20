@@ -1,0 +1,20 @@
+# 第134批第三阶段记录
+
+状态仍为进行中。接续7f71ca9481361aa2ae06b0019a6cd6dc838d4e0d，不改前两份冻结记录。
+
+## 声源锚点修复
+
+原SpringslimePlayerCollidesWithThisEntityProcedure由实体playerTouch传入当前实体精确坐标，服务器碰撞声与20 END后的消失声都通过BlockPos.containing广播。两代原生Level的BlockPos重载都会把三轴变为floor坐标再加0.5。
+
+迁移目标两声却使用double坐标重载，改变了实际声源。SpringslimeEntity碰撞声恢复blockPosition，SpringFadeEntity延迟声恢复BlockPos.containing(anchor)。保NEUTRAL 1/1、固定初次原点、20 END、目标既有单次提交边界与15个POOF的精确坐标；没有把粒子一并改到方块中心。消失阶段增加英文debug诊断，没有新增Java注释。
+
+九份累计修改生产文件下的Java21离线compileJava/processResources成功，25秒，24任务中1执行、23最新。新增1000个坐标组合验证负坐标和小数锚点；两份编译class为major65。该模型不实例化实体，也不是Minecraft听感测试，详情见validation-a134-progress3.json。
+
+## 撤回审查误判
+
+- Glastrekker防护声实际在GlastrekkerContent.attack监听，真实注册在Content.register；不能只看Entity.hurt判定缺漏。
+- Springslime消失声本就由SpringFadeEntity.endTick执行，不是声音遗漏；本次修的是广播重载造成的位置差异。
+- Infestophage原过程也是先按距离选最近玩家，再检查其生存模式；不是先筛生存玩家，不改当前顺序。
+- 原ZapGauntletRightClickedProcedure实际由物品onEntitySwing调用，不能因过程名包含RightClicked就判定输入被改成挥击。
+
+其他Luna只读分组和主线程逐源核对仍在继续。134整批尚未验收，不提前标记137或游戏功能测试完成。
