@@ -13,7 +13,7 @@ public final class GeoDecorItem extends BlockItem implements GeoItem {
     public GeoDecorItem(Block block, GeoDecorKind kind, Properties properties) { super(block, properties); this.kind = kind; }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar registrar) {
         registrar.add(new AnimationController<>(this, "controller", 0, state -> switch (kind) {
-            case EXTRACTOR, WORLD_TOUR_TROPHY, PYROGENIC_PYLON_CORE, SPIDER_LILIES, ICEBREAKER -> state.setAndContinue(RawAnimation.begin().thenLoop("0"));
+            case ATLAS, GRAND_BLASPHEMER, PYLON_CORE, EXTRACTOR, WORLD_TOUR_TROPHY, PYROGENIC_PYLON_CORE, SPIDER_LILIES, ICEBREAKER -> state.setAndContinue(RawAnimation.begin().thenLoop("0"));
             default -> PlayState.CONTINUE;
         }));
     }

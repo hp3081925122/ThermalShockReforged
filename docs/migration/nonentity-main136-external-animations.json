@@ -1,0 +1,1669 @@
+{
+  "batch": 136,
+  "generatorSha256": "fa14cc8e4fc40d9791a78dd78ad936a8760d1c5bb371af113ef1e95dd5f6de27",
+  "factory": {
+    "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ItemAnimationFactory.java",
+    "sha256": "498a11096969012029d469d0360b61c774fafd3b94aa6edfb5fcba0dfa182884"
+  },
+  "bridge": {
+    "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\weapons\\ExternalWeaponAnimationClient.java",
+    "sha256": "434a144bda116aa768f9054c4570e4a27d8d094de3c5b6aa0fdae9d506bb2520"
+  },
+  "rows": [
+    {
+      "id": "blinding_lantern",
+      "originalClass": "BlindingLanternItem",
+      "originalPath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\BlindingLanternItem.java",
+      "originalSha256": "e284890b4baad50483deddeee27351502f46f5cf7394d71feda655287771023c",
+      "originalRegisterControllers": {
+        "name": "registerControllers",
+        "line": 96,
+        "sha256": "90744a728cefa76b2765c6d57f39b3fcce0a7e6101db9a084bc8ce0c4edb98f4",
+        "source": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\r\n        AnimationController procedureController = new AnimationController((GeoAnimatable)this, \"procedureController\", 0, this::procedurePredicate);\r\n        data.add(new AnimationController[]{procedureController});\r\n        AnimationController idleController = new AnimationController((GeoAnimatable)this, \"idleController\", 0, this::idlePredicate);\r\n        data.add(new AnimationController[]{idleController});\r\n    }"
+      },
+      "originalProcedurePredicate": {
+        "name": "procedurePredicate",
+        "line": 78,
+        "sha256": "d1dc4c52d7716287b079327c24ddb93b06685310ee89775e34331cffdfbc92b8",
+        "source": "private PlayState procedurePredicate(AnimationState event) {\r\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\r\n            if (!this.animationprocedure.equals(this.prevAnim)) {\r\n                event.getController().forceAnimationReset();\r\n            }\r\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\r\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\r\n                this.animationprocedure = \"empty\";\r\n                event.getController().forceAnimationReset();\r\n            }\r\n        } else if (this.animationprocedure.equals(\"empty\")) {\r\n            this.prevAnim = \"empty\";\r\n            return PlayState.STOP;\r\n        }\r\n        this.prevAnim = this.animationprocedure;\r\n        return PlayState.CONTINUE;\r\n    }"
+      },
+      "originalRegistrations": [
+        {
+          "owner": "ThermalShockModItems",
+          "field": "BLINDING_LANTERN",
+          "id": "blinding_lantern",
+          "line": 768,
+          "source": "public static final RegistryObject<Item> BLINDING_LANTERN = REGISTRY.register(\"blinding_lantern\", () -> new BlindingLanternItem());",
+          "constructors": [
+            "BlindingLanternItem"
+          ]
+        }
+      ],
+      "targetRegistration": {
+        "path": "content/weapons/WeaponContent.java",
+        "line": 62,
+        "declaration": "DeferredItem<BlindingLanternItem> BLINDING_LANTERN = ITEMS.register(\"blinding_lantern\", BlindingLanternItem::new);",
+        "class": "BlindingLanternItem"
+      },
+      "targetInheritance": [
+        {
+          "class": "BlindingLanternItem",
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\BlindingLanternItem.java",
+          "sha256": "195c23a7324e5e8f057c4436d8e0182fdfe055b00fc038c6500010bf827f3e82"
+        }
+      ],
+      "targetController": {
+        "source": "@Override\n    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n        var procedure = new AnimationController<>(this, \"procedure\", 0, state -> PlayState.STOP)\n                .triggerableAnim(\"1\", RawAnimation.begin().thenPlay(\"1\"));\n        controllers.add(procedure);\n        controllers.add(new AnimationController<>(this, \"idle\", 0, state -> procedure.isPlayingTriggeredAnimation()\n                ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(\"0\"))));\n    }",
+        "line": 72
+      },
+      "externalEntry": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\weapons\\ExternalWeaponAnimationClient.java",
+      "transitionTicks": 0,
+      "externalArbitraryClipPreserved": true,
+      "remaining": "本记录仅闭合外部字段到原procedure角色；整体武器控制器/姿态/素材和技能时序另审。"
+    },
+    {
+      "id": "bloodstone_halberd",
+      "originalClass": "BloodstoneHalberdItem",
+      "originalPath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\BloodstoneHalberdItem.java",
+      "originalSha256": "f9d03ec72f719094cdcb5378c01897d0df3d3ed15886f11850e1da94cbd9ccf1",
+      "originalRegisterControllers": {
+        "name": "registerControllers",
+        "line": 107,
+        "sha256": "90744a728cefa76b2765c6d57f39b3fcce0a7e6101db9a084bc8ce0c4edb98f4",
+        "source": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\r\n        AnimationController procedureController = new AnimationController((GeoAnimatable)this, \"procedureController\", 0, this::procedurePredicate);\r\n        data.add(new AnimationController[]{procedureController});\r\n        AnimationController idleController = new AnimationController((GeoAnimatable)this, \"idleController\", 0, this::idlePredicate);\r\n        data.add(new AnimationController[]{idleController});\r\n    }"
+      },
+      "originalProcedurePredicate": {
+        "name": "procedurePredicate",
+        "line": 89,
+        "sha256": "d1dc4c52d7716287b079327c24ddb93b06685310ee89775e34331cffdfbc92b8",
+        "source": "private PlayState procedurePredicate(AnimationState event) {\r\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\r\n            if (!this.animationprocedure.equals(this.prevAnim)) {\r\n                event.getController().forceAnimationReset();\r\n            }\r\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\r\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\r\n                this.animationprocedure = \"empty\";\r\n                event.getController().forceAnimationReset();\r\n            }\r\n        } else if (this.animationprocedure.equals(\"empty\")) {\r\n            this.prevAnim = \"empty\";\r\n            return PlayState.STOP;\r\n        }\r\n        this.prevAnim = this.animationprocedure;\r\n        return PlayState.CONTINUE;\r\n    }"
+      },
+      "originalRegistrations": [
+        {
+          "owner": "ThermalShockModItems",
+          "field": "BLOODSTONE_HALBERD",
+          "id": "bloodstone_halberd",
+          "line": 648,
+          "source": "public static final RegistryObject<Item> BLOODSTONE_HALBERD = REGISTRY.register(\"bloodstone_halberd\", () -> new BloodstoneHalberdItem());",
+          "constructors": [
+            "BloodstoneHalberdItem"
+          ]
+        }
+      ],
+      "targetRegistration": {
+        "path": "content/weapons/WeaponContent.java",
+        "line": 56,
+        "declaration": "DeferredItem<SpearItem> BLOODSTONE_HALBERD = ITEMS.register(\"bloodstone_halberd\", () -> new SpearItem(SpearItem.Kind.BLOODSTONE_HALBERD));",
+        "class": "SpearItem"
+      },
+      "targetInheritance": [
+        {
+          "class": "SpearItem",
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\SpearItem.java",
+          "sha256": "289bfe5fc7480ae33c45660410c46effbabcba55b5f223cb8175748947e6b110"
+        }
+      ],
+      "targetController": {
+        "source": "@Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n        var procedure = new AnimationController<>(this, \"procedure\", 0, state -> PlayState.STOP).triggerableAnim(\"1\", RawAnimation.begin().thenPlay(\"1\"));\n        if (kind == Kind.HI_VOLT || kind.halberd()) procedure.triggerableAnim(\"2\", RawAnimation.begin().thenPlay(\"2\"));\n        controllers.add(procedure);\n        controllers.add(new AnimationController<>(this, \"idle\", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(\"0\"))));\n    }",
+        "line": 132
+      },
+      "externalEntry": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\weapons\\ExternalWeaponAnimationClient.java",
+      "transitionTicks": 0,
+      "externalArbitraryClipPreserved": true,
+      "remaining": "本记录仅闭合外部字段到原procedure角色；整体武器控制器/姿态/素材和技能时序另审。"
+    },
+    {
+      "id": "buzzsaw",
+      "originalClass": "BuzzsawItem",
+      "originalPath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\BuzzsawItem.java",
+      "originalSha256": "ea47c75e763350bd8710b0a0d271148aaafbfabdaf8e3410623f9acc8d8dd3d3",
+      "originalRegisterControllers": {
+        "name": "registerControllers",
+        "line": 110,
+        "sha256": "90744a728cefa76b2765c6d57f39b3fcce0a7e6101db9a084bc8ce0c4edb98f4",
+        "source": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\r\n        AnimationController procedureController = new AnimationController((GeoAnimatable)this, \"procedureController\", 0, this::procedurePredicate);\r\n        data.add(new AnimationController[]{procedureController});\r\n        AnimationController idleController = new AnimationController((GeoAnimatable)this, \"idleController\", 0, this::idlePredicate);\r\n        data.add(new AnimationController[]{idleController});\r\n    }"
+      },
+      "originalProcedurePredicate": {
+        "name": "procedurePredicate",
+        "line": 92,
+        "sha256": "d1dc4c52d7716287b079327c24ddb93b06685310ee89775e34331cffdfbc92b8",
+        "source": "private PlayState procedurePredicate(AnimationState event) {\r\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\r\n            if (!this.animationprocedure.equals(this.prevAnim)) {\r\n                event.getController().forceAnimationReset();\r\n            }\r\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\r\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\r\n                this.animationprocedure = \"empty\";\r\n                event.getController().forceAnimationReset();\r\n            }\r\n        } else if (this.animationprocedure.equals(\"empty\")) {\r\n            this.prevAnim = \"empty\";\r\n            return PlayState.STOP;\r\n        }\r\n        this.prevAnim = this.animationprocedure;\r\n        return PlayState.CONTINUE;\r\n    }"
+      },
+      "originalRegistrations": [
+        {
+          "owner": "ThermalShockModItems",
+          "field": "BUZZSAW",
+          "id": "buzzsaw",
+          "line": 924,
+          "source": "public static final RegistryObject<Item> BUZZSAW = REGISTRY.register(\"buzzsaw\", () -> new BuzzsawItem());",
+          "constructors": [
+            "BuzzsawItem"
+          ]
+        }
+      ],
+      "targetRegistration": {
+        "path": "content/weapons/WeaponContent.java",
+        "line": 28,
+        "declaration": "DeferredItem<BuzzsawItem> BUZZSAW = ITEMS.register(\"buzzsaw\", BuzzsawItem::new);",
+        "class": "BuzzsawItem"
+      },
+      "targetInheritance": [
+        {
+          "class": "BuzzsawItem",
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\BuzzsawItem.java",
+          "sha256": "f4d6865531e97e65e7c1ff1235fd2730020a2355face0fd715692d93740f9b07"
+        }
+      ],
+      "targetController": {
+        "source": "@Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n        var procedure = new AnimationController<>(this, \"procedure\", 0, state -> PlayState.STOP).triggerableAnim(\"1\", RawAnimation.begin().thenPlay(\"1\"));\n        controllers.add(procedure);\n        controllers.add(new AnimationController<>(this, \"idle\", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(\"0\"))));\n    }",
+        "line": 61
+      },
+      "externalEntry": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\weapons\\ExternalWeaponAnimationClient.java",
+      "transitionTicks": 0,
+      "externalArbitraryClipPreserved": true,
+      "remaining": "本记录仅闭合外部字段到原procedure角色；整体武器控制器/姿态/素材和技能时序另审。"
+    },
+    {
+      "id": "carbor_gl",
+      "originalClass": "CarborGLItem",
+      "originalPath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\CarborGLItem.java",
+      "originalSha256": "18d5a112f00502007e3b77f095832f9cbf1238306ee99f3e2438b9810e5011c5",
+      "originalRegisterControllers": {
+        "name": "registerControllers",
+        "line": 113,
+        "sha256": "90744a728cefa76b2765c6d57f39b3fcce0a7e6101db9a084bc8ce0c4edb98f4",
+        "source": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\r\n        AnimationController procedureController = new AnimationController((GeoAnimatable)this, \"procedureController\", 0, this::procedurePredicate);\r\n        data.add(new AnimationController[]{procedureController});\r\n        AnimationController idleController = new AnimationController((GeoAnimatable)this, \"idleController\", 0, this::idlePredicate);\r\n        data.add(new AnimationController[]{idleController});\r\n    }"
+      },
+      "originalProcedurePredicate": {
+        "name": "procedurePredicate",
+        "line": 95,
+        "sha256": "d1dc4c52d7716287b079327c24ddb93b06685310ee89775e34331cffdfbc92b8",
+        "source": "private PlayState procedurePredicate(AnimationState event) {\r\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\r\n            if (!this.animationprocedure.equals(this.prevAnim)) {\r\n                event.getController().forceAnimationReset();\r\n            }\r\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\r\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\r\n                this.animationprocedure = \"empty\";\r\n                event.getController().forceAnimationReset();\r\n            }\r\n        } else if (this.animationprocedure.equals(\"empty\")) {\r\n            this.prevAnim = \"empty\";\r\n            return PlayState.STOP;\r\n        }\r\n        this.prevAnim = this.animationprocedure;\r\n        return PlayState.CONTINUE;\r\n    }"
+      },
+      "originalRegistrations": [
+        {
+          "owner": "ThermalShockModItems",
+          "field": "CARBOR_GL",
+          "id": "carbor_gl",
+          "line": 1033,
+          "source": "public static final RegistryObject<Item> CARBOR_GL = REGISTRY.register(\"carbor_gl\", () -> new CarborGLItem());",
+          "constructors": [
+            "CarborGLItem"
+          ]
+        }
+      ],
+      "targetRegistration": {
+        "path": "content/weapons/WeaponContent.java",
+        "line": 36,
+        "declaration": "DeferredItem<CarborGlItem> CARBOR_GL = ITEMS.register(\"carbor_gl\", CarborGlItem::new);",
+        "class": "CarborGlItem"
+      },
+      "targetInheritance": [
+        {
+          "class": "CarborGlItem",
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\CarborGlItem.java",
+          "sha256": "6227d2f9529c1591a96e84936fa38863bdfba5144d018dbfcd7eebe91adad519"
+        }
+      ],
+      "targetController": {
+        "source": "@Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n        var procedure = new AnimationController<>(this, \"procedure\", 0, state -> PlayState.STOP).triggerableAnim(\"1\", RawAnimation.begin().thenPlay(\"1\"));\n        controllers.add(procedure);\n        controllers.add(new AnimationController<>(this, \"idle\", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(\"0\"))));\n    }",
+        "line": 74
+      },
+      "externalEntry": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\weapons\\ExternalWeaponAnimationClient.java",
+      "transitionTicks": 0,
+      "externalArbitraryClipPreserved": true,
+      "remaining": "本记录仅闭合外部字段到原procedure角色；整体武器控制器/姿态/素材和技能时序另审。"
+    },
+    {
+      "id": "carborundum_halberd",
+      "originalClass": "CarborundumHalberdItem",
+      "originalPath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\CarborundumHalberdItem.java",
+      "originalSha256": "9730966f32d30b6e167d09a5188d64bad1688223f90d34f5ebe716cefc019563",
+      "originalRegisterControllers": {
+        "name": "registerControllers",
+        "line": 107,
+        "sha256": "90744a728cefa76b2765c6d57f39b3fcce0a7e6101db9a084bc8ce0c4edb98f4",
+        "source": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\r\n        AnimationController procedureController = new AnimationController((GeoAnimatable)this, \"procedureController\", 0, this::procedurePredicate);\r\n        data.add(new AnimationController[]{procedureController});\r\n        AnimationController idleController = new AnimationController((GeoAnimatable)this, \"idleController\", 0, this::idlePredicate);\r\n        data.add(new AnimationController[]{idleController});\r\n    }"
+      },
+      "originalProcedurePredicate": {
+        "name": "procedurePredicate",
+        "line": 89,
+        "sha256": "d1dc4c52d7716287b079327c24ddb93b06685310ee89775e34331cffdfbc92b8",
+        "source": "private PlayState procedurePredicate(AnimationState event) {\r\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\r\n            if (!this.animationprocedure.equals(this.prevAnim)) {\r\n                event.getController().forceAnimationReset();\r\n            }\r\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\r\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\r\n                this.animationprocedure = \"empty\";\r\n                event.getController().forceAnimationReset();\r\n            }\r\n        } else if (this.animationprocedure.equals(\"empty\")) {\r\n            this.prevAnim = \"empty\";\r\n            return PlayState.STOP;\r\n        }\r\n        this.prevAnim = this.animationprocedure;\r\n        return PlayState.CONTINUE;\r\n    }"
+      },
+      "originalRegistrations": [
+        {
+          "owner": "ThermalShockModItems",
+          "field": "CARBORUNDUM_HALBERD",
+          "id": "carborundum_halberd",
+          "line": 1165,
+          "source": "public static final RegistryObject<Item> CARBORUNDUM_HALBERD = REGISTRY.register(\"carborundum_halberd\", () -> new CarborundumHalberdItem());",
+          "constructors": [
+            "CarborundumHalberdItem"
+          ]
+        }
+      ],
+      "targetRegistration": {
+        "path": "content/weapons/WeaponContent.java",
+        "line": 57,
+        "declaration": "DeferredItem<SpearItem> CARBORUNDUM_HALBERD = ITEMS.register(\"carborundum_halberd\", () -> new SpearItem(SpearItem.Kind.CARBORUNDUM_HALBERD));",
+        "class": "SpearItem"
+      },
+      "targetInheritance": [
+        {
+          "class": "SpearItem",
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\SpearItem.java",
+          "sha256": "289bfe5fc7480ae33c45660410c46effbabcba55b5f223cb8175748947e6b110"
+        }
+      ],
+      "targetController": {
+        "source": "@Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n        var procedure = new AnimationController<>(this, \"procedure\", 0, state -> PlayState.STOP).triggerableAnim(\"1\", RawAnimation.begin().thenPlay(\"1\"));\n        if (kind == Kind.HI_VOLT || kind.halberd()) procedure.triggerableAnim(\"2\", RawAnimation.begin().thenPlay(\"2\"));\n        controllers.add(procedure);\n        controllers.add(new AnimationController<>(this, \"idle\", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(\"0\"))));\n    }",
+        "line": 132
+      },
+      "externalEntry": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\weapons\\ExternalWeaponAnimationClient.java",
+      "transitionTicks": 0,
+      "externalArbitraryClipPreserved": true,
+      "remaining": "本记录仅闭合外部字段到原procedure角色；整体武器控制器/姿态/素材和技能时序另审。"
+    },
+    {
+      "id": "carborundum_spear",
+      "originalClass": "CarborundumSpearItem",
+      "originalPath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\CarborundumSpearItem.java",
+      "originalSha256": "7333b097f00e6bacf720d5c532a10847b0fa54ad67e41371cf2816c07b62ae63",
+      "originalRegisterControllers": {
+        "name": "registerControllers",
+        "line": 107,
+        "sha256": "90744a728cefa76b2765c6d57f39b3fcce0a7e6101db9a084bc8ce0c4edb98f4",
+        "source": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\r\n        AnimationController procedureController = new AnimationController((GeoAnimatable)this, \"procedureController\", 0, this::procedurePredicate);\r\n        data.add(new AnimationController[]{procedureController});\r\n        AnimationController idleController = new AnimationController((GeoAnimatable)this, \"idleController\", 0, this::idlePredicate);\r\n        data.add(new AnimationController[]{idleController});\r\n    }"
+      },
+      "originalProcedurePredicate": {
+        "name": "procedurePredicate",
+        "line": 89,
+        "sha256": "d1dc4c52d7716287b079327c24ddb93b06685310ee89775e34331cffdfbc92b8",
+        "source": "private PlayState procedurePredicate(AnimationState event) {\r\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\r\n            if (!this.animationprocedure.equals(this.prevAnim)) {\r\n                event.getController().forceAnimationReset();\r\n            }\r\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\r\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\r\n                this.animationprocedure = \"empty\";\r\n                event.getController().forceAnimationReset();\r\n            }\r\n        } else if (this.animationprocedure.equals(\"empty\")) {\r\n            this.prevAnim = \"empty\";\r\n            return PlayState.STOP;\r\n        }\r\n        this.prevAnim = this.animationprocedure;\r\n        return PlayState.CONTINUE;\r\n    }"
+      },
+      "originalRegistrations": [
+        {
+          "owner": "ThermalShockModItems",
+          "field": "CARBORUNDUM_SPEAR",
+          "id": "carborundum_spear",
+          "line": 1164,
+          "source": "public static final RegistryObject<Item> CARBORUNDUM_SPEAR = REGISTRY.register(\"carborundum_spear\", () -> new CarborundumSpearItem());",
+          "constructors": [
+            "CarborundumSpearItem"
+          ]
+        }
+      ],
+      "targetRegistration": {
+        "path": "content/weapons/WeaponContent.java",
+        "line": 55,
+        "declaration": "DeferredItem<SpearItem> CARBORUNDUM_SPEAR = ITEMS.register(\"carborundum_spear\", () -> new SpearItem(SpearItem.Kind.CARBORUNDUM));",
+        "class": "SpearItem"
+      },
+      "targetInheritance": [
+        {
+          "class": "SpearItem",
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\SpearItem.java",
+          "sha256": "289bfe5fc7480ae33c45660410c46effbabcba55b5f223cb8175748947e6b110"
+        }
+      ],
+      "targetController": {
+        "source": "@Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n        var procedure = new AnimationController<>(this, \"procedure\", 0, state -> PlayState.STOP).triggerableAnim(\"1\", RawAnimation.begin().thenPlay(\"1\"));\n        if (kind == Kind.HI_VOLT || kind.halberd()) procedure.triggerableAnim(\"2\", RawAnimation.begin().thenPlay(\"2\"));\n        controllers.add(procedure);\n        controllers.add(new AnimationController<>(this, \"idle\", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(\"0\"))));\n    }",
+        "line": 132
+      },
+      "externalEntry": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\weapons\\ExternalWeaponAnimationClient.java",
+      "transitionTicks": 0,
+      "externalArbitraryClipPreserved": true,
+      "remaining": "本记录仅闭合外部字段到原procedure角色；整体武器控制器/姿态/素材和技能时序另审。"
+    },
+    {
+      "id": "cobalt_thermoblaster",
+      "originalClass": "CobaltThermoblasterItem",
+      "originalPath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\CobaltThermoblasterItem.java",
+      "originalSha256": "a21d2b66f726dca0f1037258d38b5d7843df1732e1a003c43d04dcd8bc49db5e",
+      "originalRegisterControllers": {
+        "name": "registerControllers",
+        "line": 110,
+        "sha256": "90744a728cefa76b2765c6d57f39b3fcce0a7e6101db9a084bc8ce0c4edb98f4",
+        "source": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\r\n        AnimationController procedureController = new AnimationController((GeoAnimatable)this, \"procedureController\", 0, this::procedurePredicate);\r\n        data.add(new AnimationController[]{procedureController});\r\n        AnimationController idleController = new AnimationController((GeoAnimatable)this, \"idleController\", 0, this::idlePredicate);\r\n        data.add(new AnimationController[]{idleController});\r\n    }"
+      },
+      "originalProcedurePredicate": {
+        "name": "procedurePredicate",
+        "line": 92,
+        "sha256": "d1dc4c52d7716287b079327c24ddb93b06685310ee89775e34331cffdfbc92b8",
+        "source": "private PlayState procedurePredicate(AnimationState event) {\r\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\r\n            if (!this.animationprocedure.equals(this.prevAnim)) {\r\n                event.getController().forceAnimationReset();\r\n            }\r\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\r\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\r\n                this.animationprocedure = \"empty\";\r\n                event.getController().forceAnimationReset();\r\n            }\r\n        } else if (this.animationprocedure.equals(\"empty\")) {\r\n            this.prevAnim = \"empty\";\r\n            return PlayState.STOP;\r\n        }\r\n        this.prevAnim = this.animationprocedure;\r\n        return PlayState.CONTINUE;\r\n    }"
+      },
+      "originalRegistrations": [
+        {
+          "owner": "ThermalShockModItems",
+          "field": "COBALT_THERMOBLASTER",
+          "id": "cobalt_thermoblaster",
+          "line": 770,
+          "source": "public static final RegistryObject<Item> COBALT_THERMOBLASTER = REGISTRY.register(\"cobalt_thermoblaster\", () -> new CobaltThermoblasterItem());",
+          "constructors": [
+            "CobaltThermoblasterItem"
+          ]
+        }
+      ],
+      "targetRegistration": {
+        "path": "content/weapons/WeaponContent.java",
+        "line": 38,
+        "declaration": "DeferredItem<ThermoblasterItem> COBALT_THERMOBLASTER = ITEMS.register(\"cobalt_thermoblaster\", () -> new ThermoblasterItem(false));",
+        "class": "ThermoblasterItem"
+      },
+      "targetInheritance": [
+        {
+          "class": "ThermoblasterItem",
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\ThermoblasterItem.java",
+          "sha256": "ad99f905e9a4d0516e070a844c8142f42f4eb68a336a79b12648d3b0a88e00bd"
+        }
+      ],
+      "targetController": {
+        "source": "@Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n        var procedure = new AnimationController<>(this, \"procedure\", 0, state -> PlayState.STOP);\n        for (String clip : List.of(\"1\", \"2\", \"3\")) procedure.triggerableAnim(clip, RawAnimation.begin().thenPlay(clip));\n        controllers.add(procedure);\n        controllers.add(new AnimationController<>(this, \"idle\", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(\"0\"))));\n    }",
+        "line": 68
+      },
+      "externalEntry": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\weapons\\ExternalWeaponAnimationClient.java",
+      "transitionTicks": 0,
+      "externalArbitraryClipPreserved": true,
+      "remaining": "本记录仅闭合外部字段到原procedure角色；整体武器控制器/姿态/素材和技能时序另审。"
+    },
+    {
+      "id": "core_eject_flare_gun",
+      "originalClass": "CoreEjectFlareGunItem",
+      "originalPath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\CoreEjectFlareGunItem.java",
+      "originalSha256": "581373fd6d67c3ce7de9673a6fc7c4c5a3adbde20c58604d41a948f166e97077",
+      "originalRegisterControllers": {
+        "name": "registerControllers",
+        "line": 113,
+        "sha256": "90744a728cefa76b2765c6d57f39b3fcce0a7e6101db9a084bc8ce0c4edb98f4",
+        "source": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\r\n        AnimationController procedureController = new AnimationController((GeoAnimatable)this, \"procedureController\", 0, this::procedurePredicate);\r\n        data.add(new AnimationController[]{procedureController});\r\n        AnimationController idleController = new AnimationController((GeoAnimatable)this, \"idleController\", 0, this::idlePredicate);\r\n        data.add(new AnimationController[]{idleController});\r\n    }"
+      },
+      "originalProcedurePredicate": {
+        "name": "procedurePredicate",
+        "line": 95,
+        "sha256": "d1dc4c52d7716287b079327c24ddb93b06685310ee89775e34331cffdfbc92b8",
+        "source": "private PlayState procedurePredicate(AnimationState event) {\r\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\r\n            if (!this.animationprocedure.equals(this.prevAnim)) {\r\n                event.getController().forceAnimationReset();\r\n            }\r\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\r\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\r\n                this.animationprocedure = \"empty\";\r\n                event.getController().forceAnimationReset();\r\n            }\r\n        } else if (this.animationprocedure.equals(\"empty\")) {\r\n            this.prevAnim = \"empty\";\r\n            return PlayState.STOP;\r\n        }\r\n        this.prevAnim = this.animationprocedure;\r\n        return PlayState.CONTINUE;\r\n    }"
+      },
+      "originalRegistrations": [
+        {
+          "owner": "ThermalShockModItems",
+          "field": "CORE_EJECT_FLARE_GUN",
+          "id": "core_eject_flare_gun",
+          "line": 769,
+          "source": "public static final RegistryObject<Item> CORE_EJECT_FLARE_GUN = REGISTRY.register(\"core_eject_flare_gun\", () -> new CoreEjectFlareGunItem());",
+          "constructors": [
+            "CoreEjectFlareGunItem"
+          ]
+        }
+      ],
+      "targetRegistration": {
+        "path": "content/weapons/WeaponContent.java",
+        "line": 30,
+        "declaration": "DeferredItem<CoreEjectFlareGunItem> CORE_EJECT_FLARE_GUN = ITEMS.register(\"core_eject_flare_gun\", CoreEjectFlareGunItem::new);",
+        "class": "CoreEjectFlareGunItem"
+      },
+      "targetInheritance": [
+        {
+          "class": "CoreEjectFlareGunItem",
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\CoreEjectFlareGunItem.java",
+          "sha256": "74007adaf4e88de0d2a2dc66722a4f289f9855068f022b49b2f61637069de530"
+        }
+      ],
+      "targetController": {
+        "source": "@Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n        var procedure = new AnimationController<>(this, \"procedure\", 0, state -> PlayState.STOP);\n        procedure.triggerableAnim(\"1\", RawAnimation.begin().thenPlay(\"1\")).triggerableAnim(\"2\", RawAnimation.begin().thenPlay(\"2\"));\n        controllers.add(procedure);\n        controllers.add(new AnimationController<>(this, \"idle\", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(\"0\"))));\n    }",
+        "line": 77
+      },
+      "externalEntry": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\weapons\\ExternalWeaponAnimationClient.java",
+      "transitionTicks": 0,
+      "externalArbitraryClipPreserved": true,
+      "remaining": "本记录仅闭合外部字段到原procedure角色；整体武器控制器/姿态/素材和技能时序另审。"
+    },
+    {
+      "id": "flintsteel_rifle",
+      "originalClass": "FlintsteelRifleItem",
+      "originalPath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\FlintsteelRifleItem.java",
+      "originalSha256": "fbd249cde4c6cf4a7bf7128d22cf9f070990ad9d0bc896e19bfd100dd2ff007e",
+      "originalRegisterControllers": {
+        "name": "registerControllers",
+        "line": 110,
+        "sha256": "90744a728cefa76b2765c6d57f39b3fcce0a7e6101db9a084bc8ce0c4edb98f4",
+        "source": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\r\n        AnimationController procedureController = new AnimationController((GeoAnimatable)this, \"procedureController\", 0, this::procedurePredicate);\r\n        data.add(new AnimationController[]{procedureController});\r\n        AnimationController idleController = new AnimationController((GeoAnimatable)this, \"idleController\", 0, this::idlePredicate);\r\n        data.add(new AnimationController[]{idleController});\r\n    }"
+      },
+      "originalProcedurePredicate": {
+        "name": "procedurePredicate",
+        "line": 92,
+        "sha256": "d1dc4c52d7716287b079327c24ddb93b06685310ee89775e34331cffdfbc92b8",
+        "source": "private PlayState procedurePredicate(AnimationState event) {\r\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\r\n            if (!this.animationprocedure.equals(this.prevAnim)) {\r\n                event.getController().forceAnimationReset();\r\n            }\r\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\r\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\r\n                this.animationprocedure = \"empty\";\r\n                event.getController().forceAnimationReset();\r\n            }\r\n        } else if (this.animationprocedure.equals(\"empty\")) {\r\n            this.prevAnim = \"empty\";\r\n            return PlayState.STOP;\r\n        }\r\n        this.prevAnim = this.animationprocedure;\r\n        return PlayState.CONTINUE;\r\n    }"
+      },
+      "originalRegistrations": [
+        {
+          "owner": "ThermalShockModItems",
+          "field": "FLINTSTEEL_RIFLE",
+          "id": "flintsteel_rifle",
+          "line": 616,
+          "source": "public static final RegistryObject<Item> FLINTSTEEL_RIFLE = REGISTRY.register(\"flintsteel_rifle\", () -> new FlintsteelRifleItem());",
+          "constructors": [
+            "FlintsteelRifleItem"
+          ]
+        }
+      ],
+      "targetRegistration": {
+        "path": "content/weapons/WeaponContent.java",
+        "line": 51,
+        "declaration": "DeferredItem<FirearmItem> FLINTSTEEL_RIFLE = ITEMS.register(\"flintsteel_rifle\", () -> new FirearmItem(false));",
+        "class": "FirearmItem"
+      },
+      "targetInheritance": [
+        {
+          "class": "FirearmItem",
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\FirearmItem.java",
+          "sha256": "69973fb8d1bf51e9ce3a432de65a0ab193e4a3ce88310e67aa233e8e4e21574b"
+        }
+      ],
+      "targetController": {
+        "source": "@Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n        var procedure = new AnimationController<>(this, \"procedure\", 0, state -> PlayState.STOP).triggerableAnim(\"1\", RawAnimation.begin().thenPlay(\"1\"));\n        controllers.add(procedure);\n        controllers.add(new AnimationController<>(this, \"idle\", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(\"0\"))));\n    }",
+        "line": 73
+      },
+      "externalEntry": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\weapons\\ExternalWeaponAnimationClient.java",
+      "transitionTicks": 0,
+      "externalArbitraryClipPreserved": true,
+      "remaining": "本记录仅闭合外部字段到原procedure角色；整体武器控制器/姿态/素材和技能时序另审。"
+    },
+    {
+      "id": "hailfall",
+      "originalClass": "HailfallItem",
+      "originalPath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\HailfallItem.java",
+      "originalSha256": "dda2943f34c34418582bcfbfb9b6a0f90d21c56fa0c6547a8abcd1d0456232bc",
+      "originalRegisterControllers": {
+        "name": "registerControllers",
+        "line": 113,
+        "sha256": "90744a728cefa76b2765c6d57f39b3fcce0a7e6101db9a084bc8ce0c4edb98f4",
+        "source": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\r\n        AnimationController procedureController = new AnimationController((GeoAnimatable)this, \"procedureController\", 0, this::procedurePredicate);\r\n        data.add(new AnimationController[]{procedureController});\r\n        AnimationController idleController = new AnimationController((GeoAnimatable)this, \"idleController\", 0, this::idlePredicate);\r\n        data.add(new AnimationController[]{idleController});\r\n    }"
+      },
+      "originalProcedurePredicate": {
+        "name": "procedurePredicate",
+        "line": 95,
+        "sha256": "d1dc4c52d7716287b079327c24ddb93b06685310ee89775e34331cffdfbc92b8",
+        "source": "private PlayState procedurePredicate(AnimationState event) {\r\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\r\n            if (!this.animationprocedure.equals(this.prevAnim)) {\r\n                event.getController().forceAnimationReset();\r\n            }\r\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\r\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\r\n                this.animationprocedure = \"empty\";\r\n                event.getController().forceAnimationReset();\r\n            }\r\n        } else if (this.animationprocedure.equals(\"empty\")) {\r\n            this.prevAnim = \"empty\";\r\n            return PlayState.STOP;\r\n        }\r\n        this.prevAnim = this.animationprocedure;\r\n        return PlayState.CONTINUE;\r\n    }"
+      },
+      "originalRegistrations": [
+        {
+          "owner": "ThermalShockModItems",
+          "field": "HAILFALL",
+          "id": "hailfall",
+          "line": 627,
+          "source": "public static final RegistryObject<Item> HAILFALL = REGISTRY.register(\"hailfall\", () -> new HailfallItem());",
+          "constructors": [
+            "HailfallItem"
+          ]
+        }
+      ],
+      "targetRegistration": {
+        "path": "content/weapons/WeaponContent.java",
+        "line": 52,
+        "declaration": "DeferredItem<FirearmItem> HAILFALL = ITEMS.register(\"hailfall\", () -> new FirearmItem(true));",
+        "class": "FirearmItem"
+      },
+      "targetInheritance": [
+        {
+          "class": "FirearmItem",
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\FirearmItem.java",
+          "sha256": "69973fb8d1bf51e9ce3a432de65a0ab193e4a3ce88310e67aa233e8e4e21574b"
+        }
+      ],
+      "targetController": {
+        "source": "@Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n        var procedure = new AnimationController<>(this, \"procedure\", 0, state -> PlayState.STOP).triggerableAnim(\"1\", RawAnimation.begin().thenPlay(\"1\"));\n        controllers.add(procedure);\n        controllers.add(new AnimationController<>(this, \"idle\", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(\"0\"))));\n    }",
+        "line": 73
+      },
+      "externalEntry": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\weapons\\ExternalWeaponAnimationClient.java",
+      "transitionTicks": 0,
+      "externalArbitraryClipPreserved": true,
+      "remaining": "本记录仅闭合外部字段到原procedure角色；整体武器控制器/姿态/素材和技能时序另审。"
+    },
+    {
+      "id": "hi_volt_lance",
+      "originalClass": "HiVoltLanceItem",
+      "originalPath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\HiVoltLanceItem.java",
+      "originalSha256": "0ecad06b04f5afc857771ead11e73d86e050729df8b101da80ac7dd9b9fc4f47",
+      "originalRegisterControllers": {
+        "name": "registerControllers",
+        "line": 107,
+        "sha256": "90744a728cefa76b2765c6d57f39b3fcce0a7e6101db9a084bc8ce0c4edb98f4",
+        "source": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\r\n        AnimationController procedureController = new AnimationController((GeoAnimatable)this, \"procedureController\", 0, this::procedurePredicate);\r\n        data.add(new AnimationController[]{procedureController});\r\n        AnimationController idleController = new AnimationController((GeoAnimatable)this, \"idleController\", 0, this::idlePredicate);\r\n        data.add(new AnimationController[]{idleController});\r\n    }"
+      },
+      "originalProcedurePredicate": {
+        "name": "procedurePredicate",
+        "line": 89,
+        "sha256": "d1dc4c52d7716287b079327c24ddb93b06685310ee89775e34331cffdfbc92b8",
+        "source": "private PlayState procedurePredicate(AnimationState event) {\r\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\r\n            if (!this.animationprocedure.equals(this.prevAnim)) {\r\n                event.getController().forceAnimationReset();\r\n            }\r\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\r\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\r\n                this.animationprocedure = \"empty\";\r\n                event.getController().forceAnimationReset();\r\n            }\r\n        } else if (this.animationprocedure.equals(\"empty\")) {\r\n            this.prevAnim = \"empty\";\r\n            return PlayState.STOP;\r\n        }\r\n        this.prevAnim = this.animationprocedure;\r\n        return PlayState.CONTINUE;\r\n    }"
+      },
+      "originalRegistrations": [
+        {
+          "owner": "ThermalShockModItems",
+          "field": "HI_VOLT_LANCE",
+          "id": "hi_volt_lance",
+          "line": 820,
+          "source": "public static final RegistryObject<Item> HI_VOLT_LANCE = REGISTRY.register(\"hi_volt_lance\", () -> new HiVoltLanceItem());",
+          "constructors": [
+            "HiVoltLanceItem"
+          ]
+        }
+      ],
+      "targetRegistration": {
+        "path": "content/weapons/WeaponContent.java",
+        "line": 58,
+        "declaration": "DeferredItem<SpearItem> HI_VOLT_LANCE = ITEMS.register(\"hi_volt_lance\", () -> new SpearItem(SpearItem.Kind.HI_VOLT));",
+        "class": "SpearItem"
+      },
+      "targetInheritance": [
+        {
+          "class": "SpearItem",
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\SpearItem.java",
+          "sha256": "289bfe5fc7480ae33c45660410c46effbabcba55b5f223cb8175748947e6b110"
+        }
+      ],
+      "targetController": {
+        "source": "@Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n        var procedure = new AnimationController<>(this, \"procedure\", 0, state -> PlayState.STOP).triggerableAnim(\"1\", RawAnimation.begin().thenPlay(\"1\"));\n        if (kind == Kind.HI_VOLT || kind.halberd()) procedure.triggerableAnim(\"2\", RawAnimation.begin().thenPlay(\"2\"));\n        controllers.add(procedure);\n        controllers.add(new AnimationController<>(this, \"idle\", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(\"0\"))));\n    }",
+        "line": 132
+      },
+      "externalEntry": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\weapons\\ExternalWeaponAnimationClient.java",
+      "transitionTicks": 0,
+      "externalArbitraryClipPreserved": true,
+      "remaining": "本记录仅闭合外部字段到原procedure角色；整体武器控制器/姿态/素材和技能时序另审。"
+    },
+    {
+      "id": "jelly_umbrella",
+      "originalClass": "JellyUmbrellaItem",
+      "originalPath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\JellyUmbrellaItem.java",
+      "originalSha256": "fceff9dc0cd97afefb40c93950e7be6e8324a937cd807836dd14bacc86c0bfa4",
+      "originalRegisterControllers": {
+        "name": "registerControllers",
+        "line": 97,
+        "sha256": "90744a728cefa76b2765c6d57f39b3fcce0a7e6101db9a084bc8ce0c4edb98f4",
+        "source": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\r\n        AnimationController procedureController = new AnimationController((GeoAnimatable)this, \"procedureController\", 0, this::procedurePredicate);\r\n        data.add(new AnimationController[]{procedureController});\r\n        AnimationController idleController = new AnimationController((GeoAnimatable)this, \"idleController\", 0, this::idlePredicate);\r\n        data.add(new AnimationController[]{idleController});\r\n    }"
+      },
+      "originalProcedurePredicate": {
+        "name": "procedurePredicate",
+        "line": 79,
+        "sha256": "d1dc4c52d7716287b079327c24ddb93b06685310ee89775e34331cffdfbc92b8",
+        "source": "private PlayState procedurePredicate(AnimationState event) {\r\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\r\n            if (!this.animationprocedure.equals(this.prevAnim)) {\r\n                event.getController().forceAnimationReset();\r\n            }\r\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\r\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\r\n                this.animationprocedure = \"empty\";\r\n                event.getController().forceAnimationReset();\r\n            }\r\n        } else if (this.animationprocedure.equals(\"empty\")) {\r\n            this.prevAnim = \"empty\";\r\n            return PlayState.STOP;\r\n        }\r\n        this.prevAnim = this.animationprocedure;\r\n        return PlayState.CONTINUE;\r\n    }"
+      },
+      "originalRegistrations": [
+        {
+          "owner": "ThermalShockModItems",
+          "field": "JELLY_UMBRELLA",
+          "id": "jelly_umbrella",
+          "line": 482,
+          "source": "public static final RegistryObject<Item> JELLY_UMBRELLA = REGISTRY.register(\"jelly_umbrella\", () -> new JellyUmbrellaItem());",
+          "constructors": [
+            "JellyUmbrellaItem"
+          ]
+        }
+      ],
+      "targetRegistration": {
+        "path": "content/remainingcombat/RemainingCombatContent.java",
+        "line": 34,
+        "declaration": "DeferredItem<UmbrellaItem> JELLY_UMBRELLA = ITEMS.register(\"jelly_umbrella\", () -> new UmbrellaItem(false));",
+        "class": "UmbrellaItem"
+      },
+      "targetInheritance": [
+        {
+          "class": "UmbrellaItem",
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\remainingcombat\\UmbrellaItem.java",
+          "sha256": "7dee73b27f2e15f2093e56bd08a57f4090250cfb899044dcd5ce18662ac34e0e"
+        },
+        {
+          "class": "AnimatedCombatItem",
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\remainingcombat\\AnimatedCombatItem.java",
+          "sha256": "3d3749a3ec652c9c59c613e5fb3ed3031d4064cd3b8f2cf7a505dbb0adca206f"
+        }
+      ],
+      "targetController": {
+        "source": "@Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n        var procedure = new AnimationController<>(this, \"procedure\", 0, state -> PlayState.STOP).triggerableAnim(\"1\", RawAnimation.begin().thenPlay(\"1\"));\n        controllers.add(procedure);\n        controllers.add(new AnimationController<>(this, \"idle\", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(\"0\"))));\n    }",
+        "line": 28
+      },
+      "externalEntry": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\weapons\\ExternalWeaponAnimationClient.java",
+      "transitionTicks": 0,
+      "externalArbitraryClipPreserved": true,
+      "remaining": "本记录仅闭合外部字段到原procedure角色；整体武器控制器/姿态/素材和技能时序另审。"
+    },
+    {
+      "id": "legendary_jelly_umbrella",
+      "originalClass": "LegendaryJellyUmbrellaItem",
+      "originalPath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\LegendaryJellyUmbrellaItem.java",
+      "originalSha256": "2e5b8862e6c69c304906eff062e547e380c0646737e8ccba04795ab17ce2782a",
+      "originalRegisterControllers": {
+        "name": "registerControllers",
+        "line": 97,
+        "sha256": "90744a728cefa76b2765c6d57f39b3fcce0a7e6101db9a084bc8ce0c4edb98f4",
+        "source": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\r\n        AnimationController procedureController = new AnimationController((GeoAnimatable)this, \"procedureController\", 0, this::procedurePredicate);\r\n        data.add(new AnimationController[]{procedureController});\r\n        AnimationController idleController = new AnimationController((GeoAnimatable)this, \"idleController\", 0, this::idlePredicate);\r\n        data.add(new AnimationController[]{idleController});\r\n    }"
+      },
+      "originalProcedurePredicate": {
+        "name": "procedurePredicate",
+        "line": 79,
+        "sha256": "d1dc4c52d7716287b079327c24ddb93b06685310ee89775e34331cffdfbc92b8",
+        "source": "private PlayState procedurePredicate(AnimationState event) {\r\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\r\n            if (!this.animationprocedure.equals(this.prevAnim)) {\r\n                event.getController().forceAnimationReset();\r\n            }\r\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\r\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\r\n                this.animationprocedure = \"empty\";\r\n                event.getController().forceAnimationReset();\r\n            }\r\n        } else if (this.animationprocedure.equals(\"empty\")) {\r\n            this.prevAnim = \"empty\";\r\n            return PlayState.STOP;\r\n        }\r\n        this.prevAnim = this.animationprocedure;\r\n        return PlayState.CONTINUE;\r\n    }"
+      },
+      "originalRegistrations": [
+        {
+          "owner": "ThermalShockModItems",
+          "field": "LEGENDARY_JELLY_UMBRELLA",
+          "id": "legendary_jelly_umbrella",
+          "line": 787,
+          "source": "public static final RegistryObject<Item> LEGENDARY_JELLY_UMBRELLA = REGISTRY.register(\"legendary_jelly_umbrella\", () -> new LegendaryJellyUmbrellaItem());",
+          "constructors": [
+            "LegendaryJellyUmbrellaItem"
+          ]
+        }
+      ],
+      "targetRegistration": {
+        "path": "content/remainingcombat/RemainingCombatContent.java",
+        "line": 35,
+        "declaration": "DeferredItem<UmbrellaItem> LEGENDARY_JELLY_UMBRELLA = ITEMS.register(\"legendary_jelly_umbrella\", () -> new UmbrellaItem(true));",
+        "class": "UmbrellaItem"
+      },
+      "targetInheritance": [
+        {
+          "class": "UmbrellaItem",
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\remainingcombat\\UmbrellaItem.java",
+          "sha256": "7dee73b27f2e15f2093e56bd08a57f4090250cfb899044dcd5ce18662ac34e0e"
+        },
+        {
+          "class": "AnimatedCombatItem",
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\remainingcombat\\AnimatedCombatItem.java",
+          "sha256": "3d3749a3ec652c9c59c613e5fb3ed3031d4064cd3b8f2cf7a505dbb0adca206f"
+        }
+      ],
+      "targetController": {
+        "source": "@Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n        var procedure = new AnimationController<>(this, \"procedure\", 0, state -> PlayState.STOP).triggerableAnim(\"1\", RawAnimation.begin().thenPlay(\"1\"));\n        controllers.add(procedure);\n        controllers.add(new AnimationController<>(this, \"idle\", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(\"0\"))));\n    }",
+        "line": 28
+      },
+      "externalEntry": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\weapons\\ExternalWeaponAnimationClient.java",
+      "transitionTicks": 0,
+      "externalArbitraryClipPreserved": true,
+      "remaining": "本记录仅闭合外部字段到原procedure角色；整体武器控制器/姿态/素材和技能时序另审。"
+    },
+    {
+      "id": "liteprism_laser",
+      "originalClass": "LiteprismLaserItem",
+      "originalPath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\LiteprismLaserItem.java",
+      "originalSha256": "52d1e848ef862b80ee94b038117fda33a8dbfeec1e1953d78ed584f97f247687",
+      "originalRegisterControllers": {
+        "name": "registerControllers",
+        "line": 110,
+        "sha256": "90744a728cefa76b2765c6d57f39b3fcce0a7e6101db9a084bc8ce0c4edb98f4",
+        "source": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\r\n        AnimationController procedureController = new AnimationController((GeoAnimatable)this, \"procedureController\", 0, this::procedurePredicate);\r\n        data.add(new AnimationController[]{procedureController});\r\n        AnimationController idleController = new AnimationController((GeoAnimatable)this, \"idleController\", 0, this::idlePredicate);\r\n        data.add(new AnimationController[]{idleController});\r\n    }"
+      },
+      "originalProcedurePredicate": {
+        "name": "procedurePredicate",
+        "line": 92,
+        "sha256": "d1dc4c52d7716287b079327c24ddb93b06685310ee89775e34331cffdfbc92b8",
+        "source": "private PlayState procedurePredicate(AnimationState event) {\r\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\r\n            if (!this.animationprocedure.equals(this.prevAnim)) {\r\n                event.getController().forceAnimationReset();\r\n            }\r\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\r\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\r\n                this.animationprocedure = \"empty\";\r\n                event.getController().forceAnimationReset();\r\n            }\r\n        } else if (this.animationprocedure.equals(\"empty\")) {\r\n            this.prevAnim = \"empty\";\r\n            return PlayState.STOP;\r\n        }\r\n        this.prevAnim = this.animationprocedure;\r\n        return PlayState.CONTINUE;\r\n    }"
+      },
+      "originalRegistrations": [
+        {
+          "owner": "ThermalShockModItems",
+          "field": "LITEPRISM_LASER",
+          "id": "liteprism_laser",
+          "line": 1247,
+          "source": "public static final RegistryObject<Item> LITEPRISM_LASER = REGISTRY.register(\"liteprism_laser\", () -> new LiteprismLaserItem());",
+          "constructors": [
+            "LiteprismLaserItem"
+          ]
+        }
+      ],
+      "targetRegistration": {
+        "path": "content/weapons/WeaponContent.java",
+        "line": 29,
+        "declaration": "DeferredItem<LiteprismLaserItem> LITEPRISM_LASER = ITEMS.register(\"liteprism_laser\", LiteprismLaserItem::new);",
+        "class": "LiteprismLaserItem"
+      },
+      "targetInheritance": [
+        {
+          "class": "LiteprismLaserItem",
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\LiteprismLaserItem.java",
+          "sha256": "840f10ad002182b2ef8ec7208120bf1b661ba2d62a2105361057d3437353057a"
+        }
+      ],
+      "targetController": {
+        "source": "@Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n        var procedure = new AnimationController<>(this, \"procedure\", 0, state -> PlayState.STOP);\n        for (String clip : List.of(\"1\", \"2\")) procedure.triggerableAnim(clip, RawAnimation.begin().thenPlay(clip));\n        controllers.add(procedure);\n        controllers.add(new AnimationController<>(this, \"idle\", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(\"0\"))));\n    }",
+        "line": 53
+      },
+      "externalEntry": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\weapons\\ExternalWeaponAnimationClient.java",
+      "transitionTicks": 0,
+      "externalArbitraryClipPreserved": true,
+      "remaining": "本记录仅闭合外部字段到原procedure角色；整体武器控制器/姿态/素材和技能时序另审。"
+    },
+    {
+      "id": "magnetic_crossbow",
+      "originalClass": "MagneticCrossbowItem",
+      "originalPath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\MagneticCrossbowItem.java",
+      "originalSha256": "a8d8ce8e9a413893803852e7a0b1c1622098579df09697f7396c50e70bdc68eb",
+      "originalRegisterControllers": {
+        "name": "registerControllers",
+        "line": 110,
+        "sha256": "90744a728cefa76b2765c6d57f39b3fcce0a7e6101db9a084bc8ce0c4edb98f4",
+        "source": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\r\n        AnimationController procedureController = new AnimationController((GeoAnimatable)this, \"procedureController\", 0, this::procedurePredicate);\r\n        data.add(new AnimationController[]{procedureController});\r\n        AnimationController idleController = new AnimationController((GeoAnimatable)this, \"idleController\", 0, this::idlePredicate);\r\n        data.add(new AnimationController[]{idleController});\r\n    }"
+      },
+      "originalProcedurePredicate": {
+        "name": "procedurePredicate",
+        "line": 92,
+        "sha256": "d1dc4c52d7716287b079327c24ddb93b06685310ee89775e34331cffdfbc92b8",
+        "source": "private PlayState procedurePredicate(AnimationState event) {\r\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\r\n            if (!this.animationprocedure.equals(this.prevAnim)) {\r\n                event.getController().forceAnimationReset();\r\n            }\r\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\r\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\r\n                this.animationprocedure = \"empty\";\r\n                event.getController().forceAnimationReset();\r\n            }\r\n        } else if (this.animationprocedure.equals(\"empty\")) {\r\n            this.prevAnim = \"empty\";\r\n            return PlayState.STOP;\r\n        }\r\n        this.prevAnim = this.animationprocedure;\r\n        return PlayState.CONTINUE;\r\n    }"
+      },
+      "originalRegistrations": [
+        {
+          "owner": "ThermalShockModItems",
+          "field": "MAGNETIC_CROSSBOW",
+          "id": "magnetic_crossbow",
+          "line": 614,
+          "source": "public static final RegistryObject<Item> MAGNETIC_CROSSBOW = REGISTRY.register(\"magnetic_crossbow\", () -> new MagneticCrossbowItem());",
+          "constructors": [
+            "MagneticCrossbowItem"
+          ]
+        }
+      ],
+      "targetRegistration": {
+        "path": "content/weapons/WeaponContent.java",
+        "line": 45,
+        "declaration": "DeferredItem<MagneticCrossbowItem> MAGNETIC_CROSSBOW = ITEMS.register(\"magnetic_crossbow\", () -> new MagneticCrossbowItem());",
+        "class": "MagneticCrossbowItem"
+      },
+      "targetInheritance": [
+        {
+          "class": "MagneticCrossbowItem",
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\MagneticCrossbowItem.java",
+          "sha256": "6933f6a057c5b31403dbd570c87faf2d9920edf534a3f05b0af5d32341b50633"
+        }
+      ],
+      "targetController": {
+        "source": "@Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n        var procedure = new AnimationController<>(this, \"procedure\", 0, state -> PlayState.STOP).triggerableAnim(\"1\", RawAnimation.begin().thenPlay(\"1\"));\n        controllers.add(procedure);\n        controllers.add(new AnimationController<>(this, \"idle\", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(\"0\"))));\n    }",
+        "line": 82
+      },
+      "externalEntry": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\weapons\\ExternalWeaponAnimationClient.java",
+      "transitionTicks": 0,
+      "externalArbitraryClipPreserved": true,
+      "remaining": "本记录仅闭合外部字段到原procedure角色；整体武器控制器/姿态/素材和技能时序另审。"
+    },
+    {
+      "id": "net_launcher",
+      "originalClass": "NetLauncherItem",
+      "originalPath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\NetLauncherItem.java",
+      "originalSha256": "057b8434430c10a895dea689b538973de9efc474927654bdd6f7c5f513e3a5a3",
+      "originalRegisterControllers": {
+        "name": "registerControllers",
+        "line": 110,
+        "sha256": "90744a728cefa76b2765c6d57f39b3fcce0a7e6101db9a084bc8ce0c4edb98f4",
+        "source": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\r\n        AnimationController procedureController = new AnimationController((GeoAnimatable)this, \"procedureController\", 0, this::procedurePredicate);\r\n        data.add(new AnimationController[]{procedureController});\r\n        AnimationController idleController = new AnimationController((GeoAnimatable)this, \"idleController\", 0, this::idlePredicate);\r\n        data.add(new AnimationController[]{idleController});\r\n    }"
+      },
+      "originalProcedurePredicate": {
+        "name": "procedurePredicate",
+        "line": 92,
+        "sha256": "d1dc4c52d7716287b079327c24ddb93b06685310ee89775e34331cffdfbc92b8",
+        "source": "private PlayState procedurePredicate(AnimationState event) {\r\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\r\n            if (!this.animationprocedure.equals(this.prevAnim)) {\r\n                event.getController().forceAnimationReset();\r\n            }\r\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\r\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\r\n                this.animationprocedure = \"empty\";\r\n                event.getController().forceAnimationReset();\r\n            }\r\n        } else if (this.animationprocedure.equals(\"empty\")) {\r\n            this.prevAnim = \"empty\";\r\n            return PlayState.STOP;\r\n        }\r\n        this.prevAnim = this.animationprocedure;\r\n        return PlayState.CONTINUE;\r\n    }"
+      },
+      "originalRegistrations": [
+        {
+          "owner": "ThermalShockModItems",
+          "field": "NET_LAUNCHER",
+          "id": "net_launcher",
+          "line": 1064,
+          "source": "public static final RegistryObject<Item> NET_LAUNCHER = REGISTRY.register(\"net_launcher\", () -> new NetLauncherItem());",
+          "constructors": [
+            "NetLauncherItem"
+          ]
+        }
+      ],
+      "targetRegistration": {
+        "path": "content/remainingcombat/RemainingCombatContent.java",
+        "line": 36,
+        "declaration": "DeferredItem<RemainingGunItem> NET_LAUNCHER = ITEMS.register(\"net_launcher\", () -> new RemainingGunItem(false));",
+        "class": "RemainingGunItem"
+      },
+      "targetInheritance": [
+        {
+          "class": "RemainingGunItem",
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\remainingcombat\\RemainingGunItem.java",
+          "sha256": "f74465fa21963342dae5d151b89bafaca7715da4e389842e0398fea45db63b67"
+        },
+        {
+          "class": "AnimatedCombatItem",
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\remainingcombat\\AnimatedCombatItem.java",
+          "sha256": "3d3749a3ec652c9c59c613e5fb3ed3031d4064cd3b8f2cf7a505dbb0adca206f"
+        }
+      ],
+      "targetController": {
+        "source": "@Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n        var procedure = new AnimationController<>(this, \"procedure\", 0, state -> PlayState.STOP).triggerableAnim(\"1\", RawAnimation.begin().thenPlay(\"1\"));\n        controllers.add(procedure);\n        controllers.add(new AnimationController<>(this, \"idle\", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(\"0\"))));\n    }",
+        "line": 28
+      },
+      "externalEntry": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\weapons\\ExternalWeaponAnimationClient.java",
+      "transitionTicks": 0,
+      "externalArbitraryClipPreserved": true,
+      "remaining": "本记录仅闭合外部字段到原procedure角色；整体武器控制器/姿态/素材和技能时序另审。"
+    },
+    {
+      "id": "piston_gauntlet",
+      "originalClass": "PistonGauntletItem",
+      "originalPath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\PistonGauntletItem.java",
+      "originalSha256": "400bfc1aa487287bd4d8aa761070d645ba8e61656d4910cca60532ed17cae6d8",
+      "originalRegisterControllers": {
+        "name": "registerControllers",
+        "line": 97,
+        "sha256": "90744a728cefa76b2765c6d57f39b3fcce0a7e6101db9a084bc8ce0c4edb98f4",
+        "source": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\r\n        AnimationController procedureController = new AnimationController((GeoAnimatable)this, \"procedureController\", 0, this::procedurePredicate);\r\n        data.add(new AnimationController[]{procedureController});\r\n        AnimationController idleController = new AnimationController((GeoAnimatable)this, \"idleController\", 0, this::idlePredicate);\r\n        data.add(new AnimationController[]{idleController});\r\n    }"
+      },
+      "originalProcedurePredicate": {
+        "name": "procedurePredicate",
+        "line": 79,
+        "sha256": "d1dc4c52d7716287b079327c24ddb93b06685310ee89775e34331cffdfbc92b8",
+        "source": "private PlayState procedurePredicate(AnimationState event) {\r\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\r\n            if (!this.animationprocedure.equals(this.prevAnim)) {\r\n                event.getController().forceAnimationReset();\r\n            }\r\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\r\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\r\n                this.animationprocedure = \"empty\";\r\n                event.getController().forceAnimationReset();\r\n            }\r\n        } else if (this.animationprocedure.equals(\"empty\")) {\r\n            this.prevAnim = \"empty\";\r\n            return PlayState.STOP;\r\n        }\r\n        this.prevAnim = this.animationprocedure;\r\n        return PlayState.CONTINUE;\r\n    }"
+      },
+      "originalRegistrations": [
+        {
+          "owner": "ThermalShockModItems",
+          "field": "PISTON_GAUNTLET",
+          "id": "piston_gauntlet",
+          "line": 798,
+          "source": "public static final RegistryObject<Item> PISTON_GAUNTLET = REGISTRY.register(\"piston_gauntlet\", () -> new PistonGauntletItem());",
+          "constructors": [
+            "PistonGauntletItem"
+          ]
+        }
+      ],
+      "targetRegistration": {
+        "path": "content/remainingcombat/RemainingCombatContent.java",
+        "line": 38,
+        "declaration": "DeferredItem<PistonGauntletItem> PISTON_GAUNTLET = ITEMS.register(\"piston_gauntlet\", PistonGauntletItem::new);",
+        "class": "PistonGauntletItem"
+      },
+      "targetInheritance": [
+        {
+          "class": "PistonGauntletItem",
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\remainingcombat\\PistonGauntletItem.java",
+          "sha256": "f42ee1c4599f2f9b052a1893d7d4c9b250ed0062fce23aec2a254a0f4ed8b51b"
+        },
+        {
+          "class": "AnimatedCombatItem",
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\remainingcombat\\AnimatedCombatItem.java",
+          "sha256": "3d3749a3ec652c9c59c613e5fb3ed3031d4064cd3b8f2cf7a505dbb0adca206f"
+        }
+      ],
+      "targetController": {
+        "source": "@Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n        var procedure = new AnimationController<>(this, \"procedure\", 0, state -> PlayState.STOP).triggerableAnim(\"1\", RawAnimation.begin().thenPlay(\"1\"));\n        controllers.add(procedure);\n        controllers.add(new AnimationController<>(this, \"idle\", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(\"0\"))));\n    }",
+        "line": 28
+      },
+      "externalEntry": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\weapons\\ExternalWeaponAnimationClient.java",
+      "transitionTicks": 0,
+      "externalArbitraryClipPreserved": true,
+      "remaining": "本记录仅闭合外部字段到原procedure角色；整体武器控制器/姿态/素材和技能时序另审。"
+    },
+    {
+      "id": "ruby_spear",
+      "originalClass": "RubySpearItem",
+      "originalPath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\RubySpearItem.java",
+      "originalSha256": "2371c8c0fde9c8739c22c025e2622434cebc09490cd2f89d1bd37ce0ec484311",
+      "originalRegisterControllers": {
+        "name": "registerControllers",
+        "line": 107,
+        "sha256": "90744a728cefa76b2765c6d57f39b3fcce0a7e6101db9a084bc8ce0c4edb98f4",
+        "source": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\r\n        AnimationController procedureController = new AnimationController((GeoAnimatable)this, \"procedureController\", 0, this::procedurePredicate);\r\n        data.add(new AnimationController[]{procedureController});\r\n        AnimationController idleController = new AnimationController((GeoAnimatable)this, \"idleController\", 0, this::idlePredicate);\r\n        data.add(new AnimationController[]{idleController});\r\n    }"
+      },
+      "originalProcedurePredicate": {
+        "name": "procedurePredicate",
+        "line": 89,
+        "sha256": "d1dc4c52d7716287b079327c24ddb93b06685310ee89775e34331cffdfbc92b8",
+        "source": "private PlayState procedurePredicate(AnimationState event) {\r\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\r\n            if (!this.animationprocedure.equals(this.prevAnim)) {\r\n                event.getController().forceAnimationReset();\r\n            }\r\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\r\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\r\n                this.animationprocedure = \"empty\";\r\n                event.getController().forceAnimationReset();\r\n            }\r\n        } else if (this.animationprocedure.equals(\"empty\")) {\r\n            this.prevAnim = \"empty\";\r\n            return PlayState.STOP;\r\n        }\r\n        this.prevAnim = this.animationprocedure;\r\n        return PlayState.CONTINUE;\r\n    }"
+      },
+      "originalRegistrations": [
+        {
+          "owner": "ThermalShockModItems",
+          "field": "RUBY_SPEAR",
+          "id": "ruby_spear",
+          "line": 647,
+          "source": "public static final RegistryObject<Item> RUBY_SPEAR = REGISTRY.register(\"ruby_spear\", () -> new RubySpearItem());",
+          "constructors": [
+            "RubySpearItem"
+          ]
+        }
+      ],
+      "targetRegistration": {
+        "path": "content/weapons/WeaponContent.java",
+        "line": 54,
+        "declaration": "DeferredItem<SpearItem> RUBY_SPEAR = ITEMS.register(\"ruby_spear\", () -> new SpearItem(SpearItem.Kind.RUBY));",
+        "class": "SpearItem"
+      },
+      "targetInheritance": [
+        {
+          "class": "SpearItem",
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\SpearItem.java",
+          "sha256": "289bfe5fc7480ae33c45660410c46effbabcba55b5f223cb8175748947e6b110"
+        }
+      ],
+      "targetController": {
+        "source": "@Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n        var procedure = new AnimationController<>(this, \"procedure\", 0, state -> PlayState.STOP).triggerableAnim(\"1\", RawAnimation.begin().thenPlay(\"1\"));\n        if (kind == Kind.HI_VOLT || kind.halberd()) procedure.triggerableAnim(\"2\", RawAnimation.begin().thenPlay(\"2\"));\n        controllers.add(procedure);\n        controllers.add(new AnimationController<>(this, \"idle\", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(\"0\"))));\n    }",
+        "line": 132
+      },
+      "externalEntry": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\weapons\\ExternalWeaponAnimationClient.java",
+      "transitionTicks": 0,
+      "externalArbitraryClipPreserved": true,
+      "remaining": "本记录仅闭合外部字段到原procedure角色；整体武器控制器/姿态/素材和技能时序另审。"
+    },
+    {
+      "id": "speleothem",
+      "originalClass": "SpeleothemItem",
+      "originalPath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\SpeleothemItem.java",
+      "originalSha256": "9ca566e6f04e53fae24a7b114f12b5defcb103786aa6fd33afb2245aed002e83",
+      "originalRegisterControllers": {
+        "name": "registerControllers",
+        "line": 107,
+        "sha256": "90744a728cefa76b2765c6d57f39b3fcce0a7e6101db9a084bc8ce0c4edb98f4",
+        "source": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\r\n        AnimationController procedureController = new AnimationController((GeoAnimatable)this, \"procedureController\", 0, this::procedurePredicate);\r\n        data.add(new AnimationController[]{procedureController});\r\n        AnimationController idleController = new AnimationController((GeoAnimatable)this, \"idleController\", 0, this::idlePredicate);\r\n        data.add(new AnimationController[]{idleController});\r\n    }"
+      },
+      "originalProcedurePredicate": {
+        "name": "procedurePredicate",
+        "line": 89,
+        "sha256": "d1dc4c52d7716287b079327c24ddb93b06685310ee89775e34331cffdfbc92b8",
+        "source": "private PlayState procedurePredicate(AnimationState event) {\r\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\r\n            if (!this.animationprocedure.equals(this.prevAnim)) {\r\n                event.getController().forceAnimationReset();\r\n            }\r\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\r\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\r\n                this.animationprocedure = \"empty\";\r\n                event.getController().forceAnimationReset();\r\n            }\r\n        } else if (this.animationprocedure.equals(\"empty\")) {\r\n            this.prevAnim = \"empty\";\r\n            return PlayState.STOP;\r\n        }\r\n        this.prevAnim = this.animationprocedure;\r\n        return PlayState.CONTINUE;\r\n    }"
+      },
+      "originalRegistrations": [
+        {
+          "owner": "ThermalShockModItems",
+          "field": "SPELEOTHEM",
+          "id": "speleothem",
+          "line": 1319,
+          "source": "public static final RegistryObject<Item> SPELEOTHEM = REGISTRY.register(\"speleothem\", () -> new SpeleothemItem());",
+          "constructors": [
+            "SpeleothemItem"
+          ]
+        }
+      ],
+      "targetRegistration": {
+        "path": "content/weapons/WeaponContent.java",
+        "line": 53,
+        "declaration": "DeferredItem<SpearItem> SPELEOTHEM = ITEMS.register(\"speleothem\", () -> new SpearItem(SpearItem.Kind.SPELEOTHEM));",
+        "class": "SpearItem"
+      },
+      "targetInheritance": [
+        {
+          "class": "SpearItem",
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\SpearItem.java",
+          "sha256": "289bfe5fc7480ae33c45660410c46effbabcba55b5f223cb8175748947e6b110"
+        }
+      ],
+      "targetController": {
+        "source": "@Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n        var procedure = new AnimationController<>(this, \"procedure\", 0, state -> PlayState.STOP).triggerableAnim(\"1\", RawAnimation.begin().thenPlay(\"1\"));\n        if (kind == Kind.HI_VOLT || kind.halberd()) procedure.triggerableAnim(\"2\", RawAnimation.begin().thenPlay(\"2\"));\n        controllers.add(procedure);\n        controllers.add(new AnimationController<>(this, \"idle\", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(\"0\"))));\n    }",
+        "line": 132
+      },
+      "externalEntry": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\weapons\\ExternalWeaponAnimationClient.java",
+      "transitionTicks": 0,
+      "externalArbitraryClipPreserved": true,
+      "remaining": "本记录仅闭合外部字段到原procedure角色；整体武器控制器/姿态/素材和技能时序另审。"
+    },
+    {
+      "id": "sylvia_rifle",
+      "originalClass": "SylviaRifleItem",
+      "originalPath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\SylviaRifleItem.java",
+      "originalSha256": "3bda92733a5123c5ca383b2ed96b77d2889b634e8caf67b5950f7c3441f97009",
+      "originalRegisterControllers": {
+        "name": "registerControllers",
+        "line": 113,
+        "sha256": "90744a728cefa76b2765c6d57f39b3fcce0a7e6101db9a084bc8ce0c4edb98f4",
+        "source": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\r\n        AnimationController procedureController = new AnimationController((GeoAnimatable)this, \"procedureController\", 0, this::procedurePredicate);\r\n        data.add(new AnimationController[]{procedureController});\r\n        AnimationController idleController = new AnimationController((GeoAnimatable)this, \"idleController\", 0, this::idlePredicate);\r\n        data.add(new AnimationController[]{idleController});\r\n    }"
+      },
+      "originalProcedurePredicate": {
+        "name": "procedurePredicate",
+        "line": 95,
+        "sha256": "d1dc4c52d7716287b079327c24ddb93b06685310ee89775e34331cffdfbc92b8",
+        "source": "private PlayState procedurePredicate(AnimationState event) {\r\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\r\n            if (!this.animationprocedure.equals(this.prevAnim)) {\r\n                event.getController().forceAnimationReset();\r\n            }\r\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\r\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\r\n                this.animationprocedure = \"empty\";\r\n                event.getController().forceAnimationReset();\r\n            }\r\n        } else if (this.animationprocedure.equals(\"empty\")) {\r\n            this.prevAnim = \"empty\";\r\n            return PlayState.STOP;\r\n        }\r\n        this.prevAnim = this.animationprocedure;\r\n        return PlayState.CONTINUE;\r\n    }"
+      },
+      "originalRegistrations": [
+        {
+          "owner": "ThermalShockModItems",
+          "field": "SYLVIA_RIFLE",
+          "id": "sylvia_rifle",
+          "line": 1156,
+          "source": "public static final RegistryObject<Item> SYLVIA_RIFLE = REGISTRY.register(\"sylvia_rifle\", () -> new SylviaRifleItem());",
+          "constructors": [
+            "SylviaRifleItem"
+          ]
+        }
+      ],
+      "targetRegistration": {
+        "path": "entity/labmachinist/LabContent.java",
+        "line": 43,
+        "declaration": "DeferredItem<SylviaRifleItem> SYLVIA_RIFLE = ITEMS.register(\"sylvia_rifle\", SylviaRifleItem::new);",
+        "class": "SylviaRifleItem"
+      },
+      "targetInheritance": [
+        {
+          "class": "SylviaRifleItem",
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\labmachinist\\SylviaRifleItem.java",
+          "sha256": "ce259f97f991b38d1d8f15f2fbfff5137d4198a7ceeac4e1a07b1efb039b4f50"
+        }
+      ],
+      "targetController": {
+        "source": "@Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n        var procedure = new AnimationController<>(this, \"procedure\", 0, state -> PlayState.STOP); for (String clip : List.of(\"1\", \"2\")) procedure.triggerableAnim(clip, RawAnimation.begin().thenPlay(clip)); controllers.add(procedure);\n        controllers.add(new AnimationController<>(this, \"idle\", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(\"0\"))));\n    }",
+        "line": 63
+      },
+      "externalEntry": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\weapons\\ExternalWeaponAnimationClient.java",
+      "transitionTicks": 0,
+      "externalArbitraryClipPreserved": true,
+      "remaining": "本记录仅闭合外部字段到原procedure角色；整体武器控制器/姿态/素材和技能时序另审。"
+    },
+    {
+      "id": "the_judge",
+      "originalClass": "TheJudgeItem",
+      "originalPath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\TheJudgeItem.java",
+      "originalSha256": "56cae6a81dee55e0fe8a777c3b609cbfa5816a53ef0c9ab8f43f7bfef22e0e4e",
+      "originalRegisterControllers": {
+        "name": "registerControllers",
+        "line": 110,
+        "sha256": "90744a728cefa76b2765c6d57f39b3fcce0a7e6101db9a084bc8ce0c4edb98f4",
+        "source": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\r\n        AnimationController procedureController = new AnimationController((GeoAnimatable)this, \"procedureController\", 0, this::procedurePredicate);\r\n        data.add(new AnimationController[]{procedureController});\r\n        AnimationController idleController = new AnimationController((GeoAnimatable)this, \"idleController\", 0, this::idlePredicate);\r\n        data.add(new AnimationController[]{idleController});\r\n    }"
+      },
+      "originalProcedurePredicate": {
+        "name": "procedurePredicate",
+        "line": 92,
+        "sha256": "d1dc4c52d7716287b079327c24ddb93b06685310ee89775e34331cffdfbc92b8",
+        "source": "private PlayState procedurePredicate(AnimationState event) {\r\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\r\n            if (!this.animationprocedure.equals(this.prevAnim)) {\r\n                event.getController().forceAnimationReset();\r\n            }\r\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\r\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\r\n                this.animationprocedure = \"empty\";\r\n                event.getController().forceAnimationReset();\r\n            }\r\n        } else if (this.animationprocedure.equals(\"empty\")) {\r\n            this.prevAnim = \"empty\";\r\n            return PlayState.STOP;\r\n        }\r\n        this.prevAnim = this.animationprocedure;\r\n        return PlayState.CONTINUE;\r\n    }"
+      },
+      "originalRegistrations": [
+        {
+          "owner": "ThermalShockModItems",
+          "field": "THE_JUDGE",
+          "id": "the_judge",
+          "line": 819,
+          "source": "public static final RegistryObject<Item> THE_JUDGE = REGISTRY.register(\"the_judge\", () -> new TheJudgeItem());",
+          "constructors": [
+            "TheJudgeItem"
+          ]
+        }
+      ],
+      "targetRegistration": {
+        "path": "content/remainingcombat/RemainingCombatContent.java",
+        "line": 37,
+        "declaration": "DeferredItem<RemainingGunItem> THE_JUDGE = ITEMS.register(\"the_judge\", () -> new RemainingGunItem(true));",
+        "class": "RemainingGunItem"
+      },
+      "targetInheritance": [
+        {
+          "class": "RemainingGunItem",
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\remainingcombat\\RemainingGunItem.java",
+          "sha256": "f74465fa21963342dae5d151b89bafaca7715da4e389842e0398fea45db63b67"
+        },
+        {
+          "class": "AnimatedCombatItem",
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\remainingcombat\\AnimatedCombatItem.java",
+          "sha256": "3d3749a3ec652c9c59c613e5fb3ed3031d4064cd3b8f2cf7a505dbb0adca206f"
+        }
+      ],
+      "targetController": {
+        "source": "@Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n        var procedure = new AnimationController<>(this, \"procedure\", 0, state -> PlayState.STOP).triggerableAnim(\"1\", RawAnimation.begin().thenPlay(\"1\"));\n        controllers.add(procedure);\n        controllers.add(new AnimationController<>(this, \"idle\", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(\"0\"))));\n    }",
+        "line": 28
+      },
+      "externalEntry": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\weapons\\ExternalWeaponAnimationClient.java",
+      "transitionTicks": 0,
+      "externalArbitraryClipPreserved": true,
+      "remaining": "本记录仅闭合外部字段到原procedure角色；整体武器控制器/姿态/素材和技能时序另审。"
+    },
+    {
+      "id": "thistle_bow",
+      "originalClass": "ThistleBowItem",
+      "originalPath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\ThistleBowItem.java",
+      "originalSha256": "30ad5b72b065a2dd458b69cbb9daae68534d9517fa2b2857188ee89192dad1ba",
+      "originalRegisterControllers": {
+        "name": "registerControllers",
+        "line": 112,
+        "sha256": "90744a728cefa76b2765c6d57f39b3fcce0a7e6101db9a084bc8ce0c4edb98f4",
+        "source": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\r\n        AnimationController procedureController = new AnimationController((GeoAnimatable)this, \"procedureController\", 0, this::procedurePredicate);\r\n        data.add(new AnimationController[]{procedureController});\r\n        AnimationController idleController = new AnimationController((GeoAnimatable)this, \"idleController\", 0, this::idlePredicate);\r\n        data.add(new AnimationController[]{idleController});\r\n    }"
+      },
+      "originalProcedurePredicate": {
+        "name": "procedurePredicate",
+        "line": 94,
+        "sha256": "d1dc4c52d7716287b079327c24ddb93b06685310ee89775e34331cffdfbc92b8",
+        "source": "private PlayState procedurePredicate(AnimationState event) {\r\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\r\n            if (!this.animationprocedure.equals(this.prevAnim)) {\r\n                event.getController().forceAnimationReset();\r\n            }\r\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\r\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\r\n                this.animationprocedure = \"empty\";\r\n                event.getController().forceAnimationReset();\r\n            }\r\n        } else if (this.animationprocedure.equals(\"empty\")) {\r\n            this.prevAnim = \"empty\";\r\n            return PlayState.STOP;\r\n        }\r\n        this.prevAnim = this.animationprocedure;\r\n        return PlayState.CONTINUE;\r\n    }"
+      },
+      "originalRegistrations": [
+        {
+          "owner": "ThermalShockModItems",
+          "field": "THISTLE_BOW",
+          "id": "thistle_bow",
+          "line": 1320,
+          "source": "public static final RegistryObject<Item> THISTLE_BOW = REGISTRY.register(\"thistle_bow\", () -> new ThistleBowItem());",
+          "constructors": [
+            "ThistleBowItem"
+          ]
+        }
+      ],
+      "targetRegistration": {
+        "path": "content/weapons/WeaponContent.java",
+        "line": 63,
+        "declaration": "DeferredItem<ThistleBowItem> THISTLE_BOW = ITEMS.register(\"thistle_bow\", ThistleBowItem::new);",
+        "class": "ThistleBowItem"
+      },
+      "targetInheritance": [
+        {
+          "class": "ThistleBowItem",
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\ThistleBowItem.java",
+          "sha256": "ee7056d7ea1533fa7cc345cd16780b804920b32f5136d2887646170223b247a5"
+        }
+      ],
+      "targetController": {
+        "source": "@Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n        var procedure = new AnimationController<>(this, \"procedure\", 0, state -> PlayState.STOP).triggerableAnim(\"1\", RawAnimation.begin().thenPlay(\"1\"));\n        controllers.add(procedure);\n        controllers.add(new AnimationController<>(this, \"idle\", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(\"0\"))));\n    }",
+        "line": 82
+      },
+      "externalEntry": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\weapons\\ExternalWeaponAnimationClient.java",
+      "transitionTicks": 0,
+      "externalArbitraryClipPreserved": true,
+      "remaining": "本记录仅闭合外部字段到原procedure角色；整体武器控制器/姿态/素材和技能时序另审。"
+    },
+    {
+      "id": "titanium_mace",
+      "originalClass": "TitaniumMaceItem",
+      "originalPath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\TitaniumMaceItem.java",
+      "originalSha256": "e71261c5fd7343c6eb55bf256d6473e49c86b467f03b71b618b758ea7d8d2328",
+      "originalRegisterControllers": {
+        "name": "registerControllers",
+        "line": 103,
+        "sha256": "90744a728cefa76b2765c6d57f39b3fcce0a7e6101db9a084bc8ce0c4edb98f4",
+        "source": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\r\n        AnimationController procedureController = new AnimationController((GeoAnimatable)this, \"procedureController\", 0, this::procedurePredicate);\r\n        data.add(new AnimationController[]{procedureController});\r\n        AnimationController idleController = new AnimationController((GeoAnimatable)this, \"idleController\", 0, this::idlePredicate);\r\n        data.add(new AnimationController[]{idleController});\r\n    }"
+      },
+      "originalProcedurePredicate": {
+        "name": "procedurePredicate",
+        "line": 85,
+        "sha256": "d1dc4c52d7716287b079327c24ddb93b06685310ee89775e34331cffdfbc92b8",
+        "source": "private PlayState procedurePredicate(AnimationState event) {\r\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\r\n            if (!this.animationprocedure.equals(this.prevAnim)) {\r\n                event.getController().forceAnimationReset();\r\n            }\r\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\r\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\r\n                this.animationprocedure = \"empty\";\r\n                event.getController().forceAnimationReset();\r\n            }\r\n        } else if (this.animationprocedure.equals(\"empty\")) {\r\n            this.prevAnim = \"empty\";\r\n            return PlayState.STOP;\r\n        }\r\n        this.prevAnim = this.animationprocedure;\r\n        return PlayState.CONTINUE;\r\n    }"
+      },
+      "originalRegistrations": [
+        {
+          "owner": "ThermalShockModItems",
+          "field": "TITANIUM_MACE",
+          "id": "titanium_mace",
+          "line": 704,
+          "source": "public static final RegistryObject<Item> TITANIUM_MACE = REGISTRY.register(\"titanium_mace\", () -> new TitaniumMaceItem());",
+          "constructors": [
+            "TitaniumMaceItem"
+          ]
+        }
+      ],
+      "targetRegistration": {
+        "path": "content/weapons/WeaponContent.java",
+        "line": 35,
+        "declaration": "DeferredItem<ZerkerGauntletItem> TITANIUM_MACE = ITEMS.register(\"titanium_mace\", ZerkerGauntletItem::new);",
+        "class": "ZerkerGauntletItem"
+      },
+      "targetInheritance": [
+        {
+          "class": "ZerkerGauntletItem",
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\ZerkerGauntletItem.java",
+          "sha256": "3bbd727dc8a135ae5e5ec916b5ebe77baeb83177a6cc4076452020470ec32e24"
+        }
+      ],
+      "targetController": {
+        "source": "@Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n        var procedure = new AnimationController<>(this, \"procedure\", 0, state -> PlayState.STOP).triggerableAnim(\"1\", RawAnimation.begin().thenPlay(\"1\"));\n        controllers.add(procedure);\n        controllers.add(new AnimationController<>(this, \"idle\", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(\"0\"))));\n    }",
+        "line": 80
+      },
+      "externalEntry": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\weapons\\ExternalWeaponAnimationClient.java",
+      "transitionTicks": 0,
+      "externalArbitraryClipPreserved": true,
+      "remaining": "本记录仅闭合外部字段到原procedure角色；整体武器控制器/姿态/素材和技能时序另审。"
+    },
+    {
+      "id": "volcano",
+      "originalClass": "VolcanoItem",
+      "originalPath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\VolcanoItem.java",
+      "originalSha256": "96fd414dd7c621cd44592fc02178b90420a903716d96afbc28670ad9dee98a7c",
+      "originalRegisterControllers": {
+        "name": "registerControllers",
+        "line": 110,
+        "sha256": "90744a728cefa76b2765c6d57f39b3fcce0a7e6101db9a084bc8ce0c4edb98f4",
+        "source": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\r\n        AnimationController procedureController = new AnimationController((GeoAnimatable)this, \"procedureController\", 0, this::procedurePredicate);\r\n        data.add(new AnimationController[]{procedureController});\r\n        AnimationController idleController = new AnimationController((GeoAnimatable)this, \"idleController\", 0, this::idlePredicate);\r\n        data.add(new AnimationController[]{idleController});\r\n    }"
+      },
+      "originalProcedurePredicate": {
+        "name": "procedurePredicate",
+        "line": 92,
+        "sha256": "d1dc4c52d7716287b079327c24ddb93b06685310ee89775e34331cffdfbc92b8",
+        "source": "private PlayState procedurePredicate(AnimationState event) {\r\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\r\n            if (!this.animationprocedure.equals(this.prevAnim)) {\r\n                event.getController().forceAnimationReset();\r\n            }\r\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\r\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\r\n                this.animationprocedure = \"empty\";\r\n                event.getController().forceAnimationReset();\r\n            }\r\n        } else if (this.animationprocedure.equals(\"empty\")) {\r\n            this.prevAnim = \"empty\";\r\n            return PlayState.STOP;\r\n        }\r\n        this.prevAnim = this.animationprocedure;\r\n        return PlayState.CONTINUE;\r\n    }"
+      },
+      "originalRegistrations": [
+        {
+          "owner": "ThermalShockModItems",
+          "field": "VOLCANO",
+          "id": "volcano",
+          "line": 615,
+          "source": "public static final RegistryObject<Item> VOLCANO = REGISTRY.register(\"volcano\", () -> new VolcanoItem());",
+          "constructors": [
+            "VolcanoItem"
+          ]
+        }
+      ],
+      "targetRegistration": {
+        "path": "content/weapons/WeaponContent.java",
+        "line": 37,
+        "declaration": "DeferredItem<VolcanoItem> VOLCANO = ITEMS.register(\"volcano\", VolcanoItem::new);",
+        "class": "VolcanoItem"
+      },
+      "targetInheritance": [
+        {
+          "class": "VolcanoItem",
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\VolcanoItem.java",
+          "sha256": "1e3f7c0e7753e64e75c1e8a12ff0bfd82615b7dd88c417d54216fd3f272bcc25"
+        }
+      ],
+      "targetController": {
+        "source": "@Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n        var procedure = new AnimationController<>(this, \"procedure\", 0, state -> PlayState.STOP).triggerableAnim(\"1\", RawAnimation.begin().thenPlay(\"1\"));\n        controllers.add(procedure);\n        controllers.add(new AnimationController<>(this, \"idle\", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(\"0\"))));\n    }",
+        "line": 49
+      },
+      "externalEntry": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\weapons\\ExternalWeaponAnimationClient.java",
+      "transitionTicks": 0,
+      "externalArbitraryClipPreserved": true,
+      "remaining": "本记录仅闭合外部字段到原procedure角色；整体武器控制器/姿态/素材和技能时序另审。"
+    },
+    {
+      "id": "zap_gauntlet",
+      "originalClass": "ZapGauntletItem",
+      "originalPath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\ZapGauntletItem.java",
+      "originalSha256": "8c2bf584aaff73b470a19dd289fb77762bb267e07e1a1fa112e37df54624d588",
+      "originalRegisterControllers": {
+        "name": "registerControllers",
+        "line": 110,
+        "sha256": "90744a728cefa76b2765c6d57f39b3fcce0a7e6101db9a084bc8ce0c4edb98f4",
+        "source": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\r\n        AnimationController procedureController = new AnimationController((GeoAnimatable)this, \"procedureController\", 0, this::procedurePredicate);\r\n        data.add(new AnimationController[]{procedureController});\r\n        AnimationController idleController = new AnimationController((GeoAnimatable)this, \"idleController\", 0, this::idlePredicate);\r\n        data.add(new AnimationController[]{idleController});\r\n    }"
+      },
+      "originalProcedurePredicate": {
+        "name": "procedurePredicate",
+        "line": 92,
+        "sha256": "d1dc4c52d7716287b079327c24ddb93b06685310ee89775e34331cffdfbc92b8",
+        "source": "private PlayState procedurePredicate(AnimationState event) {\r\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\r\n            if (!this.animationprocedure.equals(this.prevAnim)) {\r\n                event.getController().forceAnimationReset();\r\n            }\r\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\r\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\r\n                this.animationprocedure = \"empty\";\r\n                event.getController().forceAnimationReset();\r\n            }\r\n        } else if (this.animationprocedure.equals(\"empty\")) {\r\n            this.prevAnim = \"empty\";\r\n            return PlayState.STOP;\r\n        }\r\n        this.prevAnim = this.animationprocedure;\r\n        return PlayState.CONTINUE;\r\n    }"
+      },
+      "originalRegistrations": [
+        {
+          "owner": "ThermalShockModItems",
+          "field": "ZAP_GAUNTLET",
+          "id": "zap_gauntlet",
+          "line": 1299,
+          "source": "public static final RegistryObject<Item> ZAP_GAUNTLET = REGISTRY.register(\"zap_gauntlet\", () -> new ZapGauntletItem());",
+          "constructors": [
+            "ZapGauntletItem"
+          ]
+        }
+      ],
+      "targetRegistration": {
+        "path": "content/weapons/WeaponContent.java",
+        "line": 60,
+        "declaration": "DeferredItem<ZapGauntletItem> ZAP_GAUNTLET = ITEMS.register(\"zap_gauntlet\", ZapGauntletItem::new);",
+        "class": "ZapGauntletItem"
+      },
+      "targetInheritance": [
+        {
+          "class": "ZapGauntletItem",
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\ZapGauntletItem.java",
+          "sha256": "3ab95fce3dee9564b5522b66140281613c41ff9315da7a3f3fe4d5cc6995576c"
+        }
+      ],
+      "targetController": {
+        "source": "@Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n        var procedure = new AnimationController<>(this, \"procedure\", 0, state -> PlayState.STOP);\n        for (String clip : List.of(\"1\", \"2\")) procedure.triggerableAnim(clip, RawAnimation.begin().thenPlay(clip));\n        controllers.add(procedure);\n        controllers.add(new AnimationController<>(this, \"idle\", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(\"0\"))));\n    }",
+        "line": 59
+      },
+      "externalEntry": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\weapons\\ExternalWeaponAnimationClient.java",
+      "transitionTicks": 0,
+      "externalArbitraryClipPreserved": true,
+      "remaining": "本记录仅闭合外部字段到原procedure角色；整体武器控制器/姿态/素材和技能时序另审。"
+    },
+    {
+      "id": "zenith_crossbow",
+      "originalClass": "ZenithCrossbowItem",
+      "originalPath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\ZenithCrossbowItem.java",
+      "originalSha256": "2db500f4dae59b2a41d6bfbc6ac5da2695ef75f1623289ff2e7a6558fd47985f",
+      "originalRegisterControllers": {
+        "name": "registerControllers",
+        "line": 110,
+        "sha256": "90744a728cefa76b2765c6d57f39b3fcce0a7e6101db9a084bc8ce0c4edb98f4",
+        "source": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\r\n        AnimationController procedureController = new AnimationController((GeoAnimatable)this, \"procedureController\", 0, this::procedurePredicate);\r\n        data.add(new AnimationController[]{procedureController});\r\n        AnimationController idleController = new AnimationController((GeoAnimatable)this, \"idleController\", 0, this::idlePredicate);\r\n        data.add(new AnimationController[]{idleController});\r\n    }"
+      },
+      "originalProcedurePredicate": {
+        "name": "procedurePredicate",
+        "line": 92,
+        "sha256": "d1dc4c52d7716287b079327c24ddb93b06685310ee89775e34331cffdfbc92b8",
+        "source": "private PlayState procedurePredicate(AnimationState event) {\r\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\r\n            if (!this.animationprocedure.equals(this.prevAnim)) {\r\n                event.getController().forceAnimationReset();\r\n            }\r\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\r\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\r\n                this.animationprocedure = \"empty\";\r\n                event.getController().forceAnimationReset();\r\n            }\r\n        } else if (this.animationprocedure.equals(\"empty\")) {\r\n            this.prevAnim = \"empty\";\r\n            return PlayState.STOP;\r\n        }\r\n        this.prevAnim = this.animationprocedure;\r\n        return PlayState.CONTINUE;\r\n    }"
+      },
+      "originalRegistrations": [
+        {
+          "owner": "ThermalShockModItems",
+          "field": "ZENITH_CROSSBOW",
+          "id": "zenith_crossbow",
+          "line": 939,
+          "source": "public static final RegistryObject<Item> ZENITH_CROSSBOW = REGISTRY.register(\"zenith_crossbow\", () -> new ZenithCrossbowItem());",
+          "constructors": [
+            "ZenithCrossbowItem"
+          ]
+        }
+      ],
+      "targetRegistration": {
+        "path": "content/weapons/WeaponContent.java",
+        "line": 46,
+        "declaration": "DeferredItem<MagneticCrossbowItem> ZENITH_CROSSBOW = ITEMS.register(\"zenith_crossbow\", () -> new MagneticCrossbowItem(true));",
+        "class": "MagneticCrossbowItem"
+      },
+      "targetInheritance": [
+        {
+          "class": "MagneticCrossbowItem",
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\MagneticCrossbowItem.java",
+          "sha256": "6933f6a057c5b31403dbd570c87faf2d9920edf534a3f05b0af5d32341b50633"
+        }
+      ],
+      "targetController": {
+        "source": "@Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n        var procedure = new AnimationController<>(this, \"procedure\", 0, state -> PlayState.STOP).triggerableAnim(\"1\", RawAnimation.begin().thenPlay(\"1\"));\n        controllers.add(procedure);\n        controllers.add(new AnimationController<>(this, \"idle\", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(\"0\"))));\n    }",
+        "line": 82
+      },
+      "externalEntry": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\weapons\\ExternalWeaponAnimationClient.java",
+      "transitionTicks": 0,
+      "externalArbitraryClipPreserved": true,
+      "remaining": "本记录仅闭合外部字段到原procedure角色；整体武器控制器/姿态/素材和技能时序另审。"
+    },
+    {
+      "id": "zenith_thermoblaster",
+      "originalClass": "ZenithThermoblasterItem",
+      "originalPath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\item\\ZenithThermoblasterItem.java",
+      "originalSha256": "ed3b4b949a1036c9512a65b3673546d6778a00f731f2770d4feb2c9252d312fb",
+      "originalRegisterControllers": {
+        "name": "registerControllers",
+        "line": 113,
+        "sha256": "90744a728cefa76b2765c6d57f39b3fcce0a7e6101db9a084bc8ce0c4edb98f4",
+        "source": "public void registerControllers(AnimatableManager.ControllerRegistrar data) {\r\n        AnimationController procedureController = new AnimationController((GeoAnimatable)this, \"procedureController\", 0, this::procedurePredicate);\r\n        data.add(new AnimationController[]{procedureController});\r\n        AnimationController idleController = new AnimationController((GeoAnimatable)this, \"idleController\", 0, this::idlePredicate);\r\n        data.add(new AnimationController[]{idleController});\r\n    }"
+      },
+      "originalProcedurePredicate": {
+        "name": "procedurePredicate",
+        "line": 95,
+        "sha256": "d1dc4c52d7716287b079327c24ddb93b06685310ee89775e34331cffdfbc92b8",
+        "source": "private PlayState procedurePredicate(AnimationState event) {\r\n        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {\r\n            if (!this.animationprocedure.equals(this.prevAnim)) {\r\n                event.getController().forceAnimationReset();\r\n            }\r\n            event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));\r\n            if (event.getController().getAnimationState() == AnimationController.State.STOPPED) {\r\n                this.animationprocedure = \"empty\";\r\n                event.getController().forceAnimationReset();\r\n            }\r\n        } else if (this.animationprocedure.equals(\"empty\")) {\r\n            this.prevAnim = \"empty\";\r\n            return PlayState.STOP;\r\n        }\r\n        this.prevAnim = this.animationprocedure;\r\n        return PlayState.CONTINUE;\r\n    }"
+      },
+      "originalRegistrations": [
+        {
+          "owner": "ThermalShockModItems",
+          "field": "ZENITH_THERMOBLASTER",
+          "id": "zenith_thermoblaster",
+          "line": 773,
+          "source": "public static final RegistryObject<Item> ZENITH_THERMOBLASTER = REGISTRY.register(\"zenith_thermoblaster\", () -> new ZenithThermoblasterItem());",
+          "constructors": [
+            "ZenithThermoblasterItem"
+          ]
+        }
+      ],
+      "targetRegistration": {
+        "path": "content/weapons/WeaponContent.java",
+        "line": 39,
+        "declaration": "DeferredItem<ThermoblasterItem> ZENITH_THERMOBLASTER = ITEMS.register(\"zenith_thermoblaster\", () -> new ThermoblasterItem(true));",
+        "class": "ThermoblasterItem"
+      },
+      "targetInheritance": [
+        {
+          "class": "ThermoblasterItem",
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\ThermoblasterItem.java",
+          "sha256": "ad99f905e9a4d0516e070a844c8142f42f4eb68a336a79b12648d3b0a88e00bd"
+        }
+      ],
+      "targetController": {
+        "source": "@Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {\n        var procedure = new AnimationController<>(this, \"procedure\", 0, state -> PlayState.STOP);\n        for (String clip : List.of(\"1\", \"2\", \"3\")) procedure.triggerableAnim(clip, RawAnimation.begin().thenPlay(clip));\n        controllers.add(procedure);\n        controllers.add(new AnimationController<>(this, \"idle\", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(\"0\"))));\n    }",
+        "line": 68
+      },
+      "externalEntry": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\weapons\\ExternalWeaponAnimationClient.java",
+      "transitionTicks": 0,
+      "externalArbitraryClipPreserved": true,
+      "remaining": "本记录仅闭合外部字段到原procedure角色；整体武器控制器/姿态/素材和技能时序另审。"
+    }
+  ],
+  "sourceInputs": {
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\GeoDecorKind.java": "c749f29bef0998ecc7d5f4ebe5a538c1b840349a6e1d87b548f8d73f3d5c92dc",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\doors\\DoorKind.java": "9046c05b8c7c9091921e62d058b5ec6076f3efad3f8f053f169603a6d6acfeed",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\AmalgelTrophyDisplayModel.java": "979e1c83687c5b5682aed5ffd043d7ea7a9bf2cfe1b45fc9801cade3a6399913",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\AmalgelTrophyDisplayItemRenderer.java": "7f99341d28aae94c0618faa8e8338b2dc5ce63cf3294e61bb3c9ee58ed36dde6",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\GeoDecorItem.java": "594ecede67d2b3409773d20110726d795a02dc7e4ef219202879f2feda185032",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\decor\\geo\\GeoDecorRenderers.java": "4fb7e01184457d0e8f2c46b09bcc34b986e8774a6657e61004a603713f71cfe9",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\AncientBarbubbleDisplayModel.java": "fbda82199bedabf3bb48f0727ce4c9a37b047d2cdf0dd774329f328e7f84f920",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\AncientBarbubbleDisplayItemRenderer.java": "65f48de6b029176cd78db0d426de37b1ca2a5164878ebadd92d3871dcba6d47a",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\farming\\GeoCropItem.java": "31d882fbf3fb8b27fd83bd90114077d77c7bf292fff1f5911318c0d2750274e0",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\farming\\FarmingRenderers.java": "213e3624a87c488d5369787dbbd298d64698e1f1b462c4de9e272f57a1e4fc66",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\AncientSkorioDisplayModel.java": "d897d8d4f53f7342a2f671eb436efa3d2d91368c700bebf73a0500710486f93b",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\AncientSkorioDisplayItemRenderer.java": "7cb1bcb79aa1761c9e0be68277bc900bdfb58217ce6ae5cda5b5642974a5a003",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\AssemblerDisplayModel.java": "80ea825a8de05e1f994083d89fcb1a933b0cd90078d10c33d84cf57be043c984",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\AssemblerDisplayItemRenderer.java": "b124c7ef95291c27b4399f554f562be8154add858578a90fc63ab5e3693b47f7",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\labmachinist\\LabMachineItem.java": "4e0646aad16100d2d446b94ab6b3f77eff4a7d008203c3356205a37d171eebf0",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\labmachinist\\LabClient.java": "b78e33d6b26f7a2f3f1018b8e0300f9ddba37b8e4c085fd065d5781daa2077cf",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\AtlasDisplayModel.java": "bfd0f53a4dd1177bd1d99fc3c2018937dcd6573b1cb266027d44460d37c8148b",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\AtlasDisplayItemRenderer.java": "732379fc53346a11ef01e52de06b4a5cb5800ae4e80c0a622cba6bf05c35d86c",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\BigGlassBottleDisplayModel.java": "d6846d50e62f631a3308f4d235f1ba226bf86695e6076ad54ec24dc5acf9c7f1",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\BigGlassBottleDisplayItemRenderer.java": "338a18e980ec7587ed1b61f1c66660a484ff12ec7911a4e4f242c480643cc058",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\BismuthOutcropDisplayModel.java": "ebe69d90ef8603dff687561fb351d1eddfd746ba40b25c6f801de7891194b25b",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\BismuthOutcropDisplayItemRenderer.java": "c151bd711b78d4baff4509da45397a09f535095531cdaa54cce1915be9f25ed1",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\outcrops\\OutcropItem.java": "db5ce0bc581e4001bd51896231e8addda3b02fafff37e1d2ee7459be60881f07",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\outcrops\\OutcropRenderers.java": "f66e532727aa1f96a4cd234ac4574ed86c1f5ca7596624127656ca78c91c8d9c",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\BlueOrbDisplayModel.java": "ba69383a1dc2e880372ceab7dbeb44afac45ed224684d96b181834b3d45c2298",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\BlueOrbDisplayItemRenderer.java": "4f563ebb3749a46462cba9cdb9f65b52fe0ac6fa3ddfc4071166b5d80431d6f7",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\BottleOfLunarlightDisplayModel.java": "6878547be95c761e1ccc753deba26f87bef8e9c36e79ee5ca4575c8d3a952ae6",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\BottleOfLunarlightDisplayItemRenderer.java": "92861f6eff6d9cb4544f97e02bbeb651ae790f8533e22336fd63d63d908088c7",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\BottleOfStarlightDisplayModel.java": "cdab3ecfb061243fcdfbc28c43b435912e5478af486f650292b994cdd53bad44",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\BottleOfStarlightDisplayItemRenderer.java": "fc7632702cfd792003c46db3dc9118fecbfa83c4d700fecfa0f147db4356ddc4",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\BrimstoneCakeDisplayModel.java": "98e722018c278c2b9dee51f801b60c39eb2f60df8bd4cd2eae52e61497a47c51",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\BrimstoneCakeDisplayItemRenderer.java": "a7109d044f898accd81883459c9017abfce9dea27a7d2d2dbf1e2fa8a2fa5bda",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\BunkerDoorDisplayModel.java": "b1e69d5612c6d54634d8c75606d30cdb1970726bf87a88b6c388c7d6f125eb47",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\BunkerDoorDisplayItemRenderer.java": "d8d9aa5f16db9072ca8ed8305d239f955980889836ae78919b050bd0883b4741",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\doors\\SpecialDoorItem.java": "3659b1266b39292349827816346f342868d9f948d992c974505dcf280073358e",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\doors\\SpecialDoorRenderers.java": "15a3776266531fe2d6b83994e0b28531ce6cc85d3f4e24cb03994ff04e932c9b",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\CachePadDisplayModel.java": "213860e1c3e3f5f2d4296271372df7843d43958e6f47b6b41d5cb5936a241c02",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\CachePadDisplayItemRenderer.java": "94dc8d7ecd182159665b87110738472eefc709f45a0c35acab9f3ccb0c44e98e",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\CapsuleDisplayModel.java": "58799dbc6940943bf160606274165f2663314622ba5b5175eab35aeb4acbdd73",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\CapsuleDisplayItemRenderer.java": "d727b9765139402496790d1ba9273c0d9e470c30dd60ab9c14162f4f9e27fd00",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\CauldronOfTrilobiteDisplayModel.java": "934a6dd30719cdcb3490f257b6589694c3688310497550f8d8701f9cf52b52e1",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\CauldronOfTrilobiteDisplayItemRenderer.java": "17e2914f9c581c288c86eb72f7ba2bb6b034b2a78532f5d91198876427963a56",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\fauna\\block\\CauldronOfTrilobiteItem.java": "b86e6e3666793477f9e0b004d76fc7788025569f19383d59fa8b2343a2e7088b",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\fauna\\CauldronItemRenderer.java": "9f8368522dc528783ac7440af115ce9fce08ff286ba76171f4c1d6383b2568dd",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\CavebloomerTrophyDisplayModel.java": "cb4f001930faafef2473bbf9db093b7fbffc7998f706c6d05240898e0e026f2b",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\CavebloomerTrophyDisplayItemRenderer.java": "d54370f88562522f4e4c70ada66b4e1089e78509e0efc6c9c58dece81a8b90e3",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\CivilianDisplayModel.java": "7cb5fcc017b19f1ca456df775962388f8087af74fd59f7f0f353b06e987be88d",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\CivilianDisplayItemRenderer.java": "9be696e7681589e953eafb0921763021f867c8ba132cbdb17a45b6940376858b",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\CryonicCacheDisplayModel.java": "a7d5a6402660c523f09daa7544b8796ba006f9b7aaad6ae05b4152a02c5e141e",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\CryonicCacheDisplayItemRenderer.java": "550f3b705a12062f003a0c5ae692b4b3e542275a5798eb1a9066344da7e0c5b5",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\CryonicLampDisplayModel.java": "b3538f34a8e73a42b943c8b3a491eb5a2deeac1f79563ecc0c06e2f98d810e69",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\CryonicLampDisplayItemRenderer.java": "5081197bd0de134bdbe66e05762e6fbc62597ec8dc0ee99a5509aef889c3d71e",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\CrystalSopelTrophyDisplayModel.java": "4704e6313a9db954f3b21c9a0f0396985d36a9faa90d5c3fdb8344dab7bdbf69",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\CrystalSopelTrophyDisplayItemRenderer.java": "2220c25fd0d76afba8c8c5e682eea05e9df070a5daba547b63a0ae7183ef3e9f",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\DeskDirectorDisplayModel.java": "5e2dc16748dbf7b1343cbf19f6f58b55064d4b89a213008197310cecd3ac5ab5",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\DeskDirectorDisplayItemRenderer.java": "708f93c9e1f4387e08644b06c55a0d8cce121d87c9fcca9b68122ca62910c792",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\DewleafDisplayModel.java": "ac9f079513b02876c53cc776862da7319d58c3dd58a10565aebcdb2aedf09dd5",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\DewleafDisplayItemRenderer.java": "bfe9b74e49f0c4777b6ee300234b263cf54b401c34108c0781ab47b42394e775",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\EnchantedCacheDisplayModel.java": "d9d86c036df93363cc48928bb40668faf6c7e0b46cfa09bcc731e77108c42ff4",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\EnchantedCacheDisplayItemRenderer.java": "b9e76d4cb303f2960e063f2aa9c5963796578f0500c0fede0a7779cb78685b60",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\ExtractorDisplayModel.java": "fc0c3d5d4bb226cf530a8a27f65b7b8b1569f2914f507eb1c12428b92dcfa9ef",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\ExtractorDisplayItemRenderer.java": "a9c9a77649d80045afbbe282e70e10e4676e6b63f3c4d3fc72b15f4c7f3546f6",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\FabricatorDisplayModel.java": "38b74acae83bbd35d41d45968f4bd92acfd4655ba3379481ee69d5ccdad499bc",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\FabricatorDisplayItemRenderer.java": "155c0cef255475eb57d21851d97ccedf716c3c29daabcdebc3e65d4567b5445c",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\FerroCakeDisplayModel.java": "6e7a2cc5a0ca2775d40dfa62487679a030f9b43470156ce021068054c4498a42",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\FerroCakeDisplayItemRenderer.java": "cb89803df07372a174de3f9603eac70f6cb37e768550f60c1e11da0f00f3b4df",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\FerrousAltarDisplayModel.java": "7cb4f3e2b334cb6b2e61c364ecf71bc444d2552567e77c0cb59e3abba63ad9e9",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\FerrousAltarDisplayItemRenderer.java": "6673652010358f8356dd7eabecc329b1a6bb0141b47a02741441127c5ae3efd3",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\FerrousCachePadDisplayModel.java": "6e7bb608c73047faa9d95d19f584aadabe1ebe8e3ead58b0f85ebb85af4d20b2",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\FerrousCachePadDisplayItemRenderer.java": "6766d6323e59eb91bad9fd7603bf8db4a9f82547c2c0f873bc39850043a628b6",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\FrigidAltarDisplayModel.java": "3231a4f415b697f560c50ebd4b5def79b0ef8d287d9cd1ebb9ced4d810640c63",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\FrigidAltarDisplayItemRenderer.java": "813fd08bf1ae78544512fce00f64808466fddbc1a5f417af25c1855f887050da",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\FrostLotusDisplayModel.java": "3bc5ca256a96a617dbc2000b6f093b1bac56cba0859a84c79561e0bff8a0c624",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\FrostLotusDisplayItemRenderer.java": "cea6184601197f6a63649196f7c711aaea8ac10f7aded9b4d6db618fe65a321a",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\GelBulbDisplayModel.java": "1549c8097e8fc79f0c8cb7e2fde88bca45f9a771d0ada89ebe42c0af20c0f492",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\GelBulbDisplayItemRenderer.java": "710ca5d8181128904b27d84fb989e17f6155533f74cc494979a6477835f84893",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\growth\\GelBulbItem.java": "9e1d72f3a1ab702d3c84ce5f4ff9ff0c01df82a8375b9b631c9735e2e33a2687",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\growth\\GrowthRenderers.java": "5287ab8a24afae1f049b5de576c6d3b978ba7204599f6e43f36a1810990ee830",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\GiantGearDisplayModel.java": "7a80833910dcae0f953440cfabc6cb073036fde7d6c1c6038b1750cbe1c6fde5",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\GiantGearDisplayItemRenderer.java": "56bc0db0744d39dafebeec522a60a00672d229858c6176c4d4375526d5955ceb",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\GlaukoBloomDisplayModel.java": "b05226415c86b501ca750202b381fdbce70109d36ace8d6ffab447ff0d6d40f8",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\GlaukoBloomDisplayItemRenderer.java": "c8c31adc8914a90b96d5005b4ea33f1c6eda304ac79fee6f870daa34301c082a",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\GlowstickDisplayModel.java": "35f31f8f2521d6eb3a01e021dbfa2fa24dc0d677d166a8c02b6aa882dde86009",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\GlowstickDisplayItemRenderer.java": "5614de6cb398d58d11d6e0a9eac46595dd348cae644915bc93ebf4ce3e994954",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\lights\\GlowstickItem.java": "2d1c23eb3d8b29d7ff248ccaa2b13279029856fc110f72d28ec522b62479d22b",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\lights\\LightsRenderers.java": "41f8d80c429e174fe66c8da7ec6fd2a05dd4873a8a73dc29cd0ee9b2d588452a",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\GoldenPillarDisplayModel.java": "2ff10112ba203065e8ec856e924d82c697751c645177a23c9dfe1aed823448a0",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\GoldenPillarDisplayItemRenderer.java": "e8f47bec135281510194d73c9ed1806a2e272ac1de99929bde72ba517539c01e",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\GrandBlasphemerDisplayModel.java": "3950988edca35e53cbb2caa74cd115814e86ed278cdb8062e9210331b4b37b7c",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\GrandBlasphemerDisplayItemRenderer.java": "aacc01783dab5c80d55a5f1ea9bce3e27b32de05dfb8248bcd094998ecefc323",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\GreenOrbDisplayModel.java": "ce1ba0e50105c5e3c1c718d38ec4bcabb7e8df177d6c7d7b185a5fd22b1bd35b",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\GreenOrbDisplayItemRenderer.java": "dd3eb95830e039b2d5edbaf5f0bd771f0c45968fdcef24d4a40828db7379e836",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\HailDisplayModel.java": "d8e5dfb7fd27485dfe77cb74494292979de5fb32a5b39c5e55024bee39d5fb2c",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\HailDisplayItemRenderer.java": "2c1c5981c1a114e4548a952c0c76a709b0a577a2c180d7bfc62a712f3a536106",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\HearthflyBranchDisplayModel.java": "be891fd896cd165a2bb415416e05e8292770f87801b94e672770e5c255e7c4ec",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\HearthflyBranchDisplayItemRenderer.java": "164c2b3d3b9667cc4caed22f2d3294fda95631494eeb66b2259c05890ad1142f",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\HologramMonitorDisplayModel.java": "730d5996bbc9854c1c691c9f311ad95481398fa1c939dfa3419a4294da605ecc",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\HologramMonitorDisplayItemRenderer.java": "189b8b5ec76b03be8163d64f301b0dd41167ff3732d5a87aaa272bfb307a3cf7",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\IcebreakerDisplayModel.java": "beea695399a824ffeec4b5dbe52abd1ce86d88b230ac3c792e5381df133a26d3",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\IcebreakerDisplayItemRenderer.java": "9c9e170388b28bad5003fadfeacf3abfaee1d78b9e03c3adcff1d1682bfe90b1",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\IcidroburnerTrophyDisplayModel.java": "9de838781c45d961cf48d76872d764a9b71cfea0edd25153a48cc1e7403493d2",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\IcidroburnerTrophyDisplayItemRenderer.java": "d36527c71f09f8eb8edc98d8f31532234311a3df08da80079a97aa89adb2525c",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\IcidrogunnerTrophyDisplayModel.java": "65cd0544718b9c10eab54b8330eaf24fdade5a26d609b75b8a6d51992a3084f2",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\IcidrogunnerTrophyDisplayItemRenderer.java": "afcef33378e9ca812ecab350cb20b782ea1411ac93964c38c1f084527ef77cfd",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\ImperviumPylonRingDisplayModel.java": "b12aeb09224cecfc8ad580a577a8d7e372b8e538a1c4b7ced5514ad5fd4ccdbc",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\ImperviumPylonRingDisplayItemRenderer.java": "583226132b8dfd4fc8ec8ff47632bd7155b50baad9774684aac2acd809d03e69",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\InactiveKeystonePedestalDisplayModel.java": "3efdd7d6e12afe59e9c427df6f95fa5c733517f5a03c1f295dcc0e6cece773b8",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\InactiveKeystonePedestalDisplayItemRenderer.java": "3425108da349e28367486eae0084a7bfe1883d946fd2164e1058ef6439c167ad",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\IttyBittyDisplayModel.java": "50f355c6e531cae23a3a775cceeea7af18e99c70d499a10812d1682789737297",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\IttyBittyDisplayItemRenderer.java": "ab0c2a82da40e6b26b89f60b1b5c03ed4f37f961d19340110e89f19a491e1dbb",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\JellercelDisplayModel.java": "13dcdf7466bdf02cb914fbe75186e5dc1b478e0298862c5c9013670ba4d47109",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\JellercelDisplayItemRenderer.java": "006d5c80af45595aa0dc3cc83fb69cff078e7f33a4f9994050813002e06601b6",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\KeystonePedestalDisplayModel.java": "dfac478b27d9e1ffab033bdcb41fecfb5746b7c69bb0a968e0b4d1ee3dc950a2",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\KeystonePedestalDisplayItemRenderer.java": "0052b697fcb2a10b424cba74130c34d11bb47f0d1d7559599157158770cd9352",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\LargeJellercelDisplayModel.java": "48be2328f83a98bd652f539942117a144bb34231818b9d56a609a0e510602ab8",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\LargeJellercelDisplayItemRenderer.java": "de08b8840b3ebf9af81f9243ccd5ef8b1016f3228c5de3edf7ba95b636012d06",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\LargeSpiderLilyDisplayModel.java": "c154354c99704eee87ca3a414fae2c7fef36d529113de50462c27709eca91bcd",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\LargeSpiderLilyDisplayItemRenderer.java": "1a97a87e131dff3d80859bdda7a4853314dc3a0c159a05caa46c6138aa367bc7",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\LunarPanelDisplayModel.java": "990e04df9961d9a2a2e10ba81f8dca5394036a7862652e9459702bc9416ede1d",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\LunarPanelDisplayItemRenderer.java": "ab71a8fc6f2c5cc6791b7f66b1bf394ec522d47c19e095b5c4b0f914c59b48a4",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\MalachiteOutcropDisplayModel.java": "ab4ea9a633759206add6c70b0ae32642c191d8849e06d4b46b0089541e9dd5cc",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\MalachiteOutcropDisplayItemRenderer.java": "daa191689f48834f0ea7032573b0f6a86845748585b697cb1c6a1b24347cac6d",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\MawDoorDisplayModel.java": "1a623aaad20924c9860a71dd7c5c1886a2add685ef9848067a2b6d522dcd0c30",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\MawDoorDisplayItemRenderer.java": "c9ec26d847b49512bdf7dc3fe9e7d191abfc3ed9a5570b1c44d04be25979f07a",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\NeoflormDisplayModel.java": "2f83626118ee746a5a5c94c119a78aa09c369b85503db366bd1a8fef81b9f722",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\NeoflormDisplayItemRenderer.java": "daa3c751809edab7519c133e5d91395f40461d151c6d1ea393eeba9aac1f71a8",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\PathioliteOutcropDisplayModel.java": "264bcce6d0711f40dd6d89631349998e69c5f200903c118578f0b95dbc44329b",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\PathioliteOutcropDisplayItemRenderer.java": "f0cbdf80410341cde2a8cfd09421cf552c36b66d023c59c778c6872d14977379",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\PhobotiteMantleOutcropDisplayModel.java": "e20675f6a816128d82040b7af98b1305e648c79f7853d30e2ab46d1ba52d3202",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\PhobotiteMantleOutcropDisplayItemRenderer.java": "3046837c9203cc1b6e832f12859581fe96f5ad399ff442efbb81e422991fae81",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\PhobotiteOutcropDisplayModel.java": "0cbbd5bb2e9d6b40b7f41906864b66abe33b3a1b9e084ba9afeb5f1422ec4d60",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\PhobotiteOutcropDisplayItemRenderer.java": "193be0c3bb24fb49913ba47ca30b31384a03d880c02e27e117329984e37a7906",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\PlenkyDisplayModel.java": "cb256f4fd1e9256c969e99c18c3fcfc250117e3f5f934c7ae294576d6d49e910",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\PlenkyDisplayItemRenderer.java": "76184a166966003a46b83419edc2d21b7069768603fa3d03a3a56ceaf376e8a1",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\PylonCoreDisplayModel.java": "6e980f91137174d9ec08fa99619fa1bebe9007a5bcfdd10ddf5c09792853e3ef",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\PylonCoreDisplayItemRenderer.java": "262116cd5f70ec461a4b0520e008ceb908016421cad4e35cd33023bb173aaf69",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\PylonRingDisplayModel.java": "dc874558af7afc2af57c60023fbd363db4519d1a85d4dded0637d056ef2d17fd",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\PylonRingDisplayItemRenderer.java": "e5446b519c04cf0044e9c329ff50d60495b970e3d82e5de2629b893b206da6db",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\PyrogenicPylonCoreDisplayModel.java": "610eb43a012b4262fef09a9dce0a8a259c7baed5ea5eff9ee1dfbea32b0fa995",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\PyrogenicPylonCoreDisplayItemRenderer.java": "974c9748df5754be14637ed71b99e26ac20e553cb286745febc8c96094be978b",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\RinthiumButtonDisplayModel.java": "7e92908c6a1aeebb0dfec1a4e1afde961d0cb90e87e3cedc1d26297fa9025436",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\RinthiumButtonDisplayItemRenderer.java": "4e7a0e98c0b094bf2cadd1b1af22ddb6f43c7351c39dc5b090d0ae056762a0cf",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\RinthiumLeverDisplayModel.java": "65f0dfe6698de35d9d27461bb9c794aab2a2c556086c21d354e9dd9966dbc603",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\RinthiumLeverDisplayItemRenderer.java": "e2f6952ad5dfdc9c9cd2e7ccb3c76bc33d8c28f16f5c54dd2cbcf7e8b1ffa372",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\RustyRadioDisplayModel.java": "6a55b3b227f43ab39bc2f3ba126e42cf611f59cda0332aacf81b3e76c26d463e",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\RustyRadioDisplayItemRenderer.java": "d65faf436a67ea01b207d9d4a7e8ee7a26d52d87ab0d08bb35e62c8863453393",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\ShaleCachePadDisplayModel.java": "07b385721ec208d3e778b7c9060b325c60177aa9a93036dc7d6763e3ac9c31eb",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\ShaleCachePadDisplayItemRenderer.java": "63d01213ce2af733bd95f6fd48c1cf903d8ac7bb17ffb3a25beb341d9a9e0d95",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\ShalePillarDisplayModel.java": "e200d6e526fd462ea234b646fa3f1aae4b41b32a8656076eaff22dddcada5627",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\ShalePillarDisplayItemRenderer.java": "a46032984fdd16963e8a1e95bcf079a535ab00f686149702692682adf669cbd2",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\ShalePillarVar2DisplayModel.java": "c85b632fa765fd0a5f54e608fc463d539790531820b183009c6edd8a71cc7fb2",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\ShalePillarVar2DisplayItemRenderer.java": "dc78dd1d71137bcdd432b2e977583d6813b6b2f28aae16788cef991944ced998",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\ShalePillarVar3DisplayModel.java": "7cc335c5f17ffa0959b8b02ff6df8b67f34e3732169531c6ca466da237b8ae2f",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\ShalePillarVar3DisplayItemRenderer.java": "2ee63f37ebb2b77e63836744b899ce839ea798bb7c584cf3180c7f01ace37118",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\ShalePillarVar4DisplayModel.java": "ad7d8f02364e32cd7cf875f327683c1b3d406791c444d3f45768fdffdffec3d9",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\ShalePillarVar4DisplayItemRenderer.java": "1a9307e3f7078242711a8d54b94be8da0af6e027b897a7e2f0eeef7e287ec45e",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\ShalePillarVar5DisplayModel.java": "6cf0f9a4f001af106e1e3de5c096846db08dbad4d3db5c6e5e537d710481be50",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\ShalePillarVar5DisplayItemRenderer.java": "e5eecac8581582b07640c3a2761582f39b6a3e0e52f2bc6b19c84dfbaf34f24f",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\ShalePillarVar6DisplayModel.java": "d649aca7bf979d86f110990d8c49f2a1efff6ba66e369f67082f35dfc9330ab7",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\ShalePillarVar6DisplayItemRenderer.java": "bb702e247d287087a1e60a22ab37881db90d7b606c0bf00d2f67d8e898da3b06",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\ShalePillarVar7DisplayModel.java": "7c5492794f1aa218e9dbce4dd3d30893593634d3329e882eb4d0cd9dbc8f2a1f",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\ShalePillarVar7DisplayItemRenderer.java": "02706608ab60d7d99b32aaa0bdf4f2ac6dcbabb8a12963f41fb37fe36b5a2185",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\ShalePillarVar8DisplayModel.java": "35c9590eac316598cc6d489e76a3ebc077b913e9399dda8c7742d46520d14b1e",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\ShalePillarVar8DisplayItemRenderer.java": "85e2e4e46228ee6ec575eb7ebc74f046e94da93baa648ac7d2fed7b19ca55bad",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\ShalePotDisplayModel.java": "7e84dbe68b16baaafa0e2ecf1e81ab693e9758ec77cf7d5203b96ff745e133ea",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\ShalePotDisplayItemRenderer.java": "d4068a15e838b1abd7c0265660f7d81c6f2fcf06820829312302b91c8550dd3c",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\SpiderLiliesDisplayModel.java": "41b973fea70e3a52c2eb9f9635ca460c80a12b037c340c214df0f2dd10084351",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\SpiderLiliesDisplayItemRenderer.java": "be8c4bcb201d1efab4acb87e586808ecbcf5fde59eb5eff88a2fd9a6fd592c63",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\SpireBloomDisplayModel.java": "71ce4052fe2ecd1a200f4f545e38d2f79eaa44084c8658c5e0b0a589acb70d0c",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\SpireBloomDisplayItemRenderer.java": "ab9657f066f69e4b48e70848ad7f1ddb1044a00aa0217d8e2547eea413722428",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\SpireBlossomDisplayModel.java": "2505c812e3f9bb6fe1acfa7cbabca0778576ed6890ad81743fa64cc478b36a64",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\SpireBlossomDisplayItemRenderer.java": "10dfa55cf7d0fbe9583550ebe6325e23cb2206d5c3c9a30e083ceb8af7482e2e",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\SporePodDisplayModel.java": "243c36134aa563ba8f02b1607f0ee35c55fa0042191c077864f038cef75ad23e",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\SporePodDisplayItemRenderer.java": "5eaa03d467d4f5509c7e1cac1c469d38cc71bac3ac6d962b0f646c96908685c9",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\spore\\block\\SporePodItem.java": "57b171883266511ce0246e19b532df57dc9407625422ed4fe91518cf983c9fcd",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\spore\\SporePodItemRenderer.java": "27e8c4c0be644ed80ede2fbcef21ae3e4fb1550132bba5b0ab69c1a21f500300",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\StatueOfLitanyDisplayModel.java": "60938e739f11ac8e1c6cbcb10e2a27935cf733d6c330f18791b7bf30e4c4d05a",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\StatueOfLitanyDisplayItemRenderer.java": "5d8cf12e689c6e71af451f3526b0abccb579103946562abf10e3562dabe87567",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\SuperCryonicCacheDisplayModel.java": "295447bd1fe7e9b9a3c7630788416c05037edffce9d87344d44b1b16d453f637",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\SuperCryonicCacheDisplayItemRenderer.java": "42aed1afa83b545e904ba0772b290a48455de59082e4650aa836eb31a5a442d1",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\SurgePylonDisplayModel.java": "4bccd364da6f8f0a13cd0cde5051a4fbf68b50e34ef23de387138db8d33d3c23",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\SurgePylonDisplayItemRenderer.java": "365b0e25f2dc221059e75b7ee87d5630e2057301271887e3cfc91851ebe93981",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\SuspiciousCavebloomerDisplayModel.java": "0cd6ba45d0e96e30e598b7ef84bbd92f4dbd517f8aef7d82b40fd415fdf590c0",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\SuspiciousCavebloomerDisplayItemRenderer.java": "1fc91a0c0fc65f1a0b8d0c59cba37212eb891df1ead56089ba1da880c5138d57",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\ThermaDevPlushDisplayModel.java": "e048a240e805f0c942a20112d81233edd0835aa668a6987636470d60f8285c06",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\ThermaDevPlushDisplayItemRenderer.java": "4f8c8e0f6bb71fb8f0075cfde80e2ca4d01f6b905a4db8b3a7ecca7803158384",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\TrappedCachePadDisplayModel.java": "479fab400b49be80684a600f6a55b0ba60c1fe8e87034d4d69c11e4e94dc62d4",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\TrappedCachePadDisplayItemRenderer.java": "2ea9ace8394264691bdce0f8730c8e614c582316aa377ab2848fe7ea0d4afd6e",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\VolatineDisplayModel.java": "7dfacd4041f980d118234e232b5fec13a3f334bd908c431a980277ab94ba59ee",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\VolatineDisplayItemRenderer.java": "aa538dbdb4f64bc4d4b33b650cf50b1df4c34fdc913c43e7dccbf76a96f3f26a",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\VoltflowerBulbDisplayModel.java": "d7b4c79fced50c82a3aaba81df1f0aa2e3f5bfa29dc96cb802996ecd3bc73996",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\VoltflowerBulbDisplayItemRenderer.java": "c74df7a17b137160812968afc4e928ab2ff12cfdd5b58238398cacd6629a59d1",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\WallboreDisplayModel.java": "243242cbd0d8c4834bd22ceb6081454ae5b470fa77dd858a625128a32b9a9153",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\WallboreDisplayItemRenderer.java": "1a1d47e3ab5063e9f02aa9c7984cd21ace6e658d9897c1c653917fea37cf013f",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\WorldTourTrophyDisplayModel.java": "171d2d431c5746d5da6947870e2209bdd24312585c5cdb06a508ddf3b5bd36b6",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\WorldTourTrophyDisplayItemRenderer.java": "aa01a7c6ae7e79d7bbf650b448b5c37b3eb5950d9472582f4fed213e048c0497",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\model\\YellowOrbDisplayModel.java": "3a9ce549a124dc202871d5160f231c8d70635a68eb589d0afd925ea016c71b90",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\YellowOrbDisplayItemRenderer.java": "08df8f143672e3e068822a9c8f5b2f4a77cb3d59eec55e40d3c48627ffc40b32",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ItemAnimationFactory.java": "498a11096969012029d469d0360b61c774fafd3b94aa6edfb5fcba0dfa182884",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\weapons\\ExternalWeaponAnimationClient.java": "434a144bda116aa768f9054c4570e4a27d8d094de3c5b6aa0fdae9d506bb2520",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\WeaponContent.java": "28a2b47dcf439e77b86a4ba204d7b83fea7e3a161cfd834163d29668f434396f",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\remainingcombat\\RemainingCombatContent.java": "b6d193642d00821c04764297356cc41f81496f3401963d78cd27a0f6101b38be",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\labmachinist\\LabContent.java": "40ee86d8134d47f806bd40f840a8f38a2b0ac70fa7bc5c1ece649e9050183b8d",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\BlindingLanternItem.java": "195c23a7324e5e8f057c4436d8e0182fdfe055b00fc038c6500010bf827f3e82",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\SpearItem.java": "289bfe5fc7480ae33c45660410c46effbabcba55b5f223cb8175748947e6b110",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\BuzzsawItem.java": "f4d6865531e97e65e7c1ff1235fd2730020a2355face0fd715692d93740f9b07",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\CarborGlItem.java": "6227d2f9529c1591a96e84936fa38863bdfba5144d018dbfcd7eebe91adad519",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\ThermoblasterItem.java": "ad99f905e9a4d0516e070a844c8142f42f4eb68a336a79b12648d3b0a88e00bd",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\CoreEjectFlareGunItem.java": "74007adaf4e88de0d2a2dc66722a4f289f9855068f022b49b2f61637069de530",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\FirearmItem.java": "69973fb8d1bf51e9ce3a432de65a0ab193e4a3ce88310e67aa233e8e4e21574b",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\remainingcombat\\UmbrellaItem.java": "7dee73b27f2e15f2093e56bd08a57f4090250cfb899044dcd5ce18662ac34e0e",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\remainingcombat\\AnimatedCombatItem.java": "3d3749a3ec652c9c59c613e5fb3ed3031d4064cd3b8f2cf7a505dbb0adca206f",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\LiteprismLaserItem.java": "840f10ad002182b2ef8ec7208120bf1b661ba2d62a2105361057d3437353057a",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\MagneticCrossbowItem.java": "6933f6a057c5b31403dbd570c87faf2d9920edf534a3f05b0af5d32341b50633",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\remainingcombat\\RemainingGunItem.java": "f74465fa21963342dae5d151b89bafaca7715da4e389842e0398fea45db63b67",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\remainingcombat\\PistonGauntletItem.java": "f42ee1c4599f2f9b052a1893d7d4c9b250ed0062fce23aec2a254a0f4ed8b51b",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\labmachinist\\SylviaRifleItem.java": "ce259f97f991b38d1d8f15f2fbfff5137d4198a7ceeac4e1a07b1efb039b4f50",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\ThistleBowItem.java": "ee7056d7ea1533fa7cc345cd16780b804920b32f5136d2887646170223b247a5",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\ZerkerGauntletItem.java": "3bbd727dc8a135ae5e5ec916b5ebe77baeb83177a6cc4076452020470ec32e24",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\VolcanoItem.java": "1e3f7c0e7753e64e75c1e8a12ff0bfd82615b7dd88c417d54216fd3f272bcc25",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\ZapGauntletItem.java": "3ab95fce3dee9564b5522b66140281613c41ff9315da7a3f3fe4d5cc6995576c"
+  },
+  "supportedIdsExact": true,
+  "supportedWeaponClasses": 27,
+  "dataTicketsPerManager": 1,
+  "extraTriggerKeysPerController": 1,
+  "harness": {
+    "source": "D:\\AI临时文件\\ThermalShockMigration\\nonentity136\\ExternalWeaponAnimationHarness.java",
+    "sourceSha256": "f577c19398d6aae6cbd88a140f0feff3d1ff025a4d50a40e99521075235855ff",
+    "log": "D:\\AI临时文件\\ThermalShockMigration\\nonentity136\\external-harness.log",
+    "logSha256": "fb7bdd800360f1ab72c26902320477cec0701d35b2bc406a038d933bba50c1e1",
+    "productionClassCalled": "ExternalWeaponAnimationClient.observe",
+    "realDependency": "GeckoLib4.9.2",
+    "checks": 20020,
+    "stressRequests": 10000,
+    "maximumFixtureTriggerEntries": 3,
+    "fixtureDefaultKeys": 2,
+    "renderFramesExecuted": false,
+    "gameStarted": false
+  },
+  "bytecodeEvidence": {
+    "gecko492-api.txt": "708c86ac07e7a1ca010f4fec20e99a4eb28687b7da4ef1adcc37faed558396bf",
+    "gecko492-controller-bytecode.txt": "b0f73d0c1086fd81b75e0b498cb7a2a5421c645f921cf8fffcb0c9264b88b39f",
+    "gecko492-external-api.txt": "c4f7dae6333046d93c7c5c73c732fcdfdf4e3089f7b79896f7f5171fe0f24399",
+    "gecko492-external-bytecode.txt": "e668366121ea8b6ca86abbe8be859e6206e21f1c60abaee402bdcf14cb67080a"
+  },
+  "semanticLimits": [
+    "按已同步GeoID隔离，不宣称复制相同GeoID的栈已被本桥额外拆分。",
+    "同值请求须先观察空值重新武装，不能识别未同步给客户端的同值重复。",
+    "离线实测真实manager/controller调用与内存键数，没有游戏帧/资源解析/网络同步验收。"
+  ],
+  "batch136Complete": false
+}
