@@ -1,0 +1,33 @@
+{
+  "ownerCommit": "7134013066670dbb1c56897906596b85491e6aee",
+  "integratedCommit": "199479b",
+  "deliverables": [
+    {
+      "path": "docs\\migration\\review-a133-particles.json",
+      "rawSha256": "6f07747f8b2f4833760c96ada2c361ea3d6837ee7dc2d13617cb5234291cb1b1",
+      "gitLfSha256": "6f07747f8b2f4833760c96ada2c361ea3d6837ee7dc2d13617cb5234291cb1b1"
+    },
+    {
+      "path": "docs\\migration\\review-a133-particles.md",
+      "rawSha256": "8075d8af3f6608dfb2a6aceb73f4c8768c93dda65ce025f8c108ac99d4a9cca8",
+      "gitLfSha256": "8075d8af3f6608dfb2a6aceb73f4c8768c93dda65ce025f8c108ac99d4a9cca8"
+    },
+    {
+      "path": "docs\\migration\\review-a133-particles.plan.md",
+      "rawSha256": "91ec0944fd935e1aafe66adfc8984b4ac989964e9743c5f92c44d8927b4dfd1c",
+      "gitLfSha256": "91ec0944fd935e1aafe66adfc8984b4ac989964e9743c5f92c44d8927b4dfd1c"
+    }
+  ],
+  "sourceAndSnapshotPairsVerified": 295,
+  "nativeFilesVerified": 8,
+  "providerRegistrationAndWiringAnchors": 104,
+  "providerScopeClosed": 52,
+  "allParticleCallersClosed": false,
+  "G02Complete": false,
+  "repairs": [
+    "补orb_red_med/orb_red_smol/projectile_impact/blood_petal/kilo_attack真实类型和provider，原资源全保留；原生/管理员粒子入口不要求有自然技能调用。",
+    "prismatic_boom的SimpleParticleType由false恢复原true；不改粒子数量、AAA emitter、实体攻击及全局性能上限。"
+  ],
+  "nextA": "134声音整批，随后137粒子逐调用行为；不重复52provider本批复审。",
+  "gameExecuted": false
+}
