@@ -351,3 +351,10 @@ Qo集成保全世界共享剧情、真实16页与奖励链，服务端验证同�
 - IceSquad的AltCryonic、Cryonic、GunnerBullet、BurnerFlame和StriderAttack分别保80/80/80/20/5次SERVER END寿命、粒子、无重力、燃烧、命中和基础攻击倍率；保存旧Age字段并在首次实际tick启动寿命，避免把构造时刻误当发射时刻。Mangler重复受击用有界60位待办保留每次独立截止点，只有最后一个截止点完成才清眩晕动画，避免较早命中清掉较晚命中的状态。
 - ZapWarning的20 tick爆发改为独立可保存载体，保固定锚、伤害快照、忽略施法者筛选、范围伤害、声音和Noop客户端绑定；重载发现旧载体UUID不存在时幂等收口，避免跨区块载体完成后留下永久警告。VolcanoBullet恢复原小激光方柱模型、旋转和`zerkglow`纹理，复用SmallBeamRenderer，不再使用ThrownItemRenderer。
 - 第118批统一Java21离线编译成功，日志SHA256为`E017161D9C3BC2C103035CF5D5647862E402CB69FF483F1FF11822DCD80E1F7F`；这些仍是静态与构建证据，客户端、Render Preview和服务端行为待最终验收。
+
+
+### 第119批：缺失掉落资源恢复与孤立调用边界
+
+- 恢复原12份漏迁loot，四实体默认掉落、四方块掉落与beta_complete真实奖励恢复可用数据来源；完整池/权重/数量/随机序列均保留，仅迁移命名空间与目录。三份原独立表也保留，不把路径名相近当同一表。
+- SpiceGeyserOnBlockRightClickedProcedure虽含loot命令，原方块没有调用它，原源码全搜索也没有其它调用；本批保原表但不捏造右键获取入口。Corrial独立表的香料5..10与正常方块表1..8并不相等，不能以找到blocks表就判独立表已迁。
+- 本批为资源遗漏修复，非削弱/重平衡；运行时数据解码、实际掉落和客户端表现仍待验收。静态原610路径齐全仅是路径覆盖证据。
