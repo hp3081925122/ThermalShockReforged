@@ -62,7 +62,7 @@ public final class FloristScreen extends AbstractContainerScreen<FloristMenu> {
     }
     @Override protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) {
         for (var line : menu.page.lines) graphics.drawString(font, Component.translatable(line.key()), line.x(), line.y(), line.color(), false);
-        if (menu.page == FloristPage.MAIN) graphics.drawString(font, menu.intro == 1 ? "❄ Sorry, out of marigolds. Someone already asked." : menu.intro == 2 ? "❄ ... Hey." : "❄ kutty", 9, 112, -1, false);
+        if (menu.page == FloristPage.MAIN) graphics.drawString(font, Component.translatable("gui.thermal_shock_reforged.uma_main.greeting_" + (menu.intro == 1 || menu.intro == 2 ? menu.intro : 0)), 9, 112, -1, false);
     }
     private static final class Clock { int frame; }
     private final class ImageButton extends AbstractButton {

@@ -16,7 +16,7 @@ import com.hp.thermalshockreforged.client.decor.nativeblocks.DeskPhotoScreen;
 import com.hp.thermalshockreforged.content.decor.nativeblocks.NativeDecorContent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import com.hp.thermalshockreforged.entity.ModEntities;
-import com.hp.thermalshockreforged.entity.ZapWarningEntity;
+import com.hp.thermalshockreforged.client.attack.AttackCarrierRenderer;
 import com.hp.thermalshockreforged.client.particle.ZapAttackParticle;
 import com.hp.thermalshockreforged.client.particle.TeleportFlashParticle;
 import com.hp.thermalshockreforged.client.particle.AaaStationaryParticle;
@@ -38,11 +38,6 @@ import com.hp.thermalshockreforged.client.farming.FarmingRenderers;
 import com.hp.thermalshockreforged.client.mangler.ManglerRenderers;
 import com.hp.thermalshockreforged.client.weapons.WeaponClient;
 import com.hp.thermalshockreforged.client.status.aura.AuraClient;
-import com.mojang.blaze3d.vertex.PoseStack;
-import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.entity.EntityRenderer;
-import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.resources.ResourceLocation;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -159,7 +154,7 @@ public final class ClientEvents {
         event.registerEntityRenderer(com.hp.thermalshockreforged.entity.electricsphere.ElectricSphereContent.ELECTRIC_SPHERE.get(), com.hp.thermalshockreforged.client.electricsphere.ElectricSphereRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.entity.ribbonblade.RibbonbladeContent.RIBBONBLADE.get(), com.hp.thermalshockreforged.client.ribbonblade.RibbonbladeRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.entity.ribbonblade.RibbonbladeContent.ACTION.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
-        event.registerEntityRenderer(ModEntities.ZAP.get(), InvisibleWarningRenderer::new);
+        event.registerEntityRenderer(ModEntities.ZAP.get(), AttackCarrierRenderer::new);
         event.registerEntityRenderer(com.hp.thermalshockreforged.entity.ZapDetonationEntity.TYPE.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
     }
     @SubscribeEvent
@@ -279,18 +274,4 @@ public final class ClientEvents {
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener((net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent.LoggingOut logout) -> com.hp.thermalshockreforged.world.AltarProgressPayload.resetClient());
     }); }
 
-    private static final class InvisibleWarningRenderer extends EntityRenderer<ZapWarningEntity> {
-        private InvisibleWarningRenderer(EntityRendererProvider.Context context) {
-            super(context);
-        }
-
-        @Override
-        public void render(ZapWarningEntity entity, float yaw, float partialTick, PoseStack pose, MultiBufferSource buffers, int light) {
-        }
-
-        @Override
-        public ResourceLocation getTextureLocation(ZapWarningEntity entity) {
-            return ResourceLocation.withDefaultNamespace("textures/misc/white.png");
-        }
-    }
 }

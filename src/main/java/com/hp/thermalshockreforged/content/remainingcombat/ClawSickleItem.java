@@ -36,9 +36,11 @@ public final class ClawSickleItem extends HoeItem {
         if (!victim.level().isClientSide) {
             var existing = victim.getEffect(WeaponContent.SICKLE_WOUND);
             int amplifier = existing == null ? 0 : existing.getAmplifier() + 1;
-            if (amplifier < 2) victim.addEffect(new MobEffectInstance(WeaponContent.SICKLE_WOUND, 20, amplifier));
-            else {
+            victim.addEffect(new MobEffectInstance(WeaponContent.SICKLE_WOUND, 20, amplifier));
+            var applied = victim.getEffect(WeaponContent.SICKLE_WOUND);
+            if (applied != null && applied.getAmplifier() >= 2) {
                 victim.removeEffect(WeaponContent.SICKLE_WOUND);
+                ThermalShockReforged.LOGGER.debug("Claw sickle wound burst committed: attacker={}, victim={}, appliedAmplifier={}", attacker.getUUID(), victim.getUUID(), applied.getAmplifier());
                 victim.level().playSound(null, victim.blockPosition(), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "sickle_slash")), SoundSource.NEUTRAL, 1, 1);
                 float bonus = attacker.getMainHandItem().is(RemainingCombatContent.CLAW_SICKLE.get()) ? 12 : attacker.getMainHandItem().is(WeaponContent.STRATOSILVER_SICKLE.get()) ? 14 : 10;
                 victim.hurt(victim.damageSources().source(DamageTypes.GENERIC), bonus);

@@ -1,0 +1,1078 @@
+{
+  "scope": "原非COOLDOWN候选102 API中45条查询/移除控制流；不是所有效果所有运行边界",
+  "baseline": "d2608f4",
+  "snapshotSha256": "4c020b9311fcc65c99576b1de156dc763955acc41a7eaf555fb6daac93f60f55",
+  "snapshotCopiedTo": "effects-main124-before-fix.json",
+  "rows": [
+    {
+      "rowId": "Q01",
+      "effect": "no_break",
+      "operation": "hasEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\AqeronEntityEffectsProcedure.java",
+      "sourceLine": 42,
+      "sourceSha256": "5bc069efad31b755fe60b0a35cdda63373b34ee8fea1242ee82a05e8dd13bb0a",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\atlas\\AqeronEvents.java",
+          "currentSha256": "b867c5b13b4ee41342e5f817530751fa516fa2537c705d405d131c85b991b090",
+          "snapshotSha256": "b867c5b13b4ee41342e5f817530751fa516fa2537c705d405d131c85b991b090",
+          "intentional124Drift": false
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\world\\sanctum\\PylonBuildingLock.java",
+          "currentSha256": "1c900c4d676ce6befce35dbe021cce67be5c85907544ad6977db0d3a822a9020",
+          "snapshotSha256": "1c900c4d676ce6befce35dbe021cce67be5c85907544ad6977db0d3a822a9020",
+          "intentional124Drift": false
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "Aqeron保护使用原维度或Pylon锁，保创造豁免；place取消为历史明确错误收费修复。",
+      "evidenceDocs": [
+        "status-main120-reviewed.json",
+        "guardian-pylon-batch.md"
+      ]
+    },
+    {
+      "rowId": "Q02",
+      "effect": "no_break",
+      "operation": "hasEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\AqeronPlaceStopProcedure.java",
+      "sourceLine": 46,
+      "sourceSha256": "dc6b19b9c534510d3edeeecf89c92a921e6a0ba05ba8d46fc0139be1bbc3a8ee",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\atlas\\AqeronEvents.java",
+          "currentSha256": "b867c5b13b4ee41342e5f817530751fa516fa2537c705d405d131c85b991b090",
+          "snapshotSha256": "b867c5b13b4ee41342e5f817530751fa516fa2537c705d405d131c85b991b090",
+          "intentional124Drift": false
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\world\\sanctum\\PylonBuildingLock.java",
+          "currentSha256": "1c900c4d676ce6befce35dbe021cce67be5c85907544ad6977db0d3a822a9020",
+          "snapshotSha256": "1c900c4d676ce6befce35dbe021cce67be5c85907544ad6977db0d3a822a9020",
+          "intentional124Drift": false
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "Aqeron保护使用原维度或Pylon锁，保创造豁免；place取消为历史明确错误收费修复。",
+      "evidenceDocs": [
+        "status-main120-reviewed.json",
+        "guardian-pylon-batch.md"
+      ]
+    },
+    {
+      "rowId": "Q03",
+      "effect": "parrying",
+      "operation": "hasEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\CavebloomerAttackProcedure.java",
+      "sourceLine": 695,
+      "sourceSha256": "a4a5ea464bce25c263d4f4a949f8b54dc0ec7a93f983f6ec763d3c96360531b0",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\cavebloomer\\CavebloomerAttacks.java",
+          "currentSha256": "5a13fada8555a2057b78b6783a3167112d5fba70b1ee8e8a2b453610b05e99ff",
+          "snapshotSha256": "5a13fada8555a2057b78b6783a3167112d5fba70b1ee8e8a2b453610b05e99ff",
+          "intentional124Drift": false
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "原外层受击者Parry影响全范围；第18批已批准改逐目标格挡/Parry，不回退错误变量。",
+      "evidenceDocs": [
+        "angry-cavebloomer-batch.md"
+      ]
+    },
+    {
+      "rowId": "Q04",
+      "effect": "frostbite",
+      "operation": "removeEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\CocoaEffectOnEffectActiveTickProcedure.java",
+      "sourceLine": 18,
+      "sourceSha256": "8740dc93d80dd31d2d300d8831fbc94492e95facf256886ddabb722c1235bca1",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\status\\PlayerStatusEffect.java",
+          "currentSha256": "babdcf2e334de6a497d7e4aa43cc0f045616b964a59816b4cfad924ed3d8f235",
+          "snapshotSha256": "babdcf2e334de6a497d7e4aa43cc0f045616b964a59816b4cfad924ed3d8f235",
+          "intentional124Drift": false
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "Cocoa即时移除Frostbite及持续Warm每tick移除消费者均接真实效果；不删除面向玩家的Frostbite。",
+      "evidenceDocs": [
+        "status-batch.md"
+      ]
+    },
+    {
+      "rowId": "Q05",
+      "effect": "frostbite",
+      "operation": "removeEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\CocoaPlayerFinishesUsingItemProcedure.java",
+      "sourceLine": 27,
+      "sourceSha256": "36ae66874e1cade8b57fca398efca57a55155a1ae3e1c9a98df8c5ce70638b69",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\status\\CocoaItem.java",
+          "currentSha256": "f86428db5eb4d296f65f09a0d1a6eb1aee4659bf8f5cca7f8521e93a40a783f5",
+          "snapshotSha256": "f86428db5eb4d296f65f09a0d1a6eb1aee4659bf8f5cca7f8521e93a40a783f5",
+          "intentional124Drift": false
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\status\\PlayerStatusEffect.java",
+          "currentSha256": "babdcf2e334de6a497d7e4aa43cc0f045616b964a59816b4cfad924ed3d8f235",
+          "snapshotSha256": "babdcf2e334de6a497d7e4aa43cc0f045616b964a59816b4cfad924ed3d8f235",
+          "intentional124Drift": false
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "Cocoa即时移除Frostbite及持续Warm每tick移除消费者均接真实效果；不删除面向玩家的Frostbite。",
+      "evidenceDocs": [
+        "status-batch.md"
+      ]
+    },
+    {
+      "rowId": "Q06",
+      "effect": "damaging_aura",
+      "operation": "hasEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\DamagingAuraOnEffectActiveTickProcedure.java",
+      "sourceLine": 45,
+      "sourceSha256": "1a9fec4e4cfcc4dfece5b9b082f1f42bc549ace4bf54b24daa9df87b075cd337",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\status\\aura\\DamagingAuraEffect.java",
+          "currentSha256": "dfb28befab46190f73b23276e7748e2b1342b97e09a561775ffdc9897d89a87d",
+          "snapshotSha256": "dfb28befab46190f73b23276e7748e2b1342b97e09a561775ffdc9897d89a87d",
+          "intentional124Drift": false
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "Aura读取施法者当前实例及等级，大小范围/减甲分支保持；Boss技能伤害关联基础攻击按用户要求，负值保护已有记录。",
+      "evidenceDocs": [
+        "damaging-aura-batch.md",
+        "angry-cavebloomer-batch.md"
+      ]
+    },
+    {
+      "rowId": "Q07",
+      "effect": "damaging_aura",
+      "operation": "getEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\DamagingAuraOnEffectActiveTickProcedure.java",
+      "sourceLine": 45,
+      "sourceSha256": "1a9fec4e4cfcc4dfece5b9b082f1f42bc549ace4bf54b24daa9df87b075cd337",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\status\\aura\\DamagingAuraEffect.java",
+          "currentSha256": "dfb28befab46190f73b23276e7748e2b1342b97e09a561775ffdc9897d89a87d",
+          "snapshotSha256": "dfb28befab46190f73b23276e7748e2b1342b97e09a561775ffdc9897d89a87d",
+          "intentional124Drift": false
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "Aura读取施法者当前实例及等级，大小范围/减甲分支保持；Boss技能伤害关联基础攻击按用户要求，负值保护已有记录。",
+      "evidenceDocs": [
+        "damaging-aura-batch.md",
+        "angry-cavebloomer-batch.md"
+      ]
+    },
+    {
+      "rowId": "Q08",
+      "effect": "damaging_aura",
+      "operation": "hasEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\DamagingAuraOnEffectActiveTickProcedure.java",
+      "sourceLine": 62,
+      "sourceSha256": "1a9fec4e4cfcc4dfece5b9b082f1f42bc549ace4bf54b24daa9df87b075cd337",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\status\\aura\\DamagingAuraEffect.java",
+          "currentSha256": "dfb28befab46190f73b23276e7748e2b1342b97e09a561775ffdc9897d89a87d",
+          "snapshotSha256": "dfb28befab46190f73b23276e7748e2b1342b97e09a561775ffdc9897d89a87d",
+          "intentional124Drift": false
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "Aura读取施法者当前实例及等级，大小范围/减甲分支保持；Boss技能伤害关联基础攻击按用户要求，负值保护已有记录。",
+      "evidenceDocs": [
+        "damaging-aura-batch.md",
+        "angry-cavebloomer-batch.md"
+      ]
+    },
+    {
+      "rowId": "Q09",
+      "effect": "damaging_aura",
+      "operation": "getEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\DamagingAuraOnEffectActiveTickProcedure.java",
+      "sourceLine": 62,
+      "sourceSha256": "1a9fec4e4cfcc4dfece5b9b082f1f42bc549ace4bf54b24daa9df87b075cd337",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\status\\aura\\DamagingAuraEffect.java",
+          "currentSha256": "dfb28befab46190f73b23276e7748e2b1342b97e09a561775ffdc9897d89a87d",
+          "snapshotSha256": "dfb28befab46190f73b23276e7748e2b1342b97e09a561775ffdc9897d89a87d",
+          "intentional124Drift": false
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "Aura读取施法者当前实例及等级，大小范围/减甲分支保持；Boss技能伤害关联基础攻击按用户要求，负值保护已有记录。",
+      "evidenceDocs": [
+        "damaging-aura-batch.md",
+        "angry-cavebloomer-batch.md"
+      ]
+    },
+    {
+      "rowId": "Q10",
+      "effect": "electrified",
+      "operation": "hasEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\ElectrifiedHitProcedure.java",
+      "sourceLine": 40,
+      "sourceSha256": "5e9c01a1cc28cdbb2e244a36a65e238c5d8cf4cfa86628337b11d65656493b36",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\status\\StatusEvents.java",
+          "currentSha256": "1e6dcc4fc0eab7a9efda38705c2e7e222f1d4392360b06241d47cd8139a0ca25",
+          "snapshotSha256": "1e6dcc4fc0eab7a9efda38705c2e7e222f1d4392360b06241d47cd8139a0ca25",
+          "intentional124Drift": false
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\mixin\\LivingEntityStatusMixin.java",
+          "currentSha256": "8839dccfc6fd7512e2dcb81fe215ede8ad0fd95cd74e29f8c8b488b60628d2e9",
+          "snapshotSha256": "8839dccfc6fd7512e2dcb81fe215ede8ad0fd95cd74e29f8c8b488b60628d2e9",
+          "intentional124Drift": false
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "Electrified筛选当前/附近真实带电实体，护甲前输入由PreArmorDamageEvent及Mixin承接；整链去重防递归是既有修复。",
+      "evidenceDocs": [
+        "status-batch.md",
+        "REFORGED_CHANGES.md"
+      ]
+    },
+    {
+      "rowId": "Q11",
+      "effect": "electrified",
+      "operation": "hasEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\ElectrifiedHitProcedure.java",
+      "sourceLine": 45,
+      "sourceSha256": "5e9c01a1cc28cdbb2e244a36a65e238c5d8cf4cfa86628337b11d65656493b36",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\status\\StatusEvents.java",
+          "currentSha256": "1e6dcc4fc0eab7a9efda38705c2e7e222f1d4392360b06241d47cd8139a0ca25",
+          "snapshotSha256": "1e6dcc4fc0eab7a9efda38705c2e7e222f1d4392360b06241d47cd8139a0ca25",
+          "intentional124Drift": false
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\mixin\\LivingEntityStatusMixin.java",
+          "currentSha256": "8839dccfc6fd7512e2dcb81fe215ede8ad0fd95cd74e29f8c8b488b60628d2e9",
+          "snapshotSha256": "8839dccfc6fd7512e2dcb81fe215ede8ad0fd95cd74e29f8c8b488b60628d2e9",
+          "intentional124Drift": false
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "Electrified筛选当前/附近真实带电实体，护甲前输入由PreArmorDamageEvent及Mixin承接；整链去重防递归是既有修复。",
+      "evidenceDocs": [
+        "status-batch.md",
+        "REFORGED_CHANGES.md"
+      ]
+    },
+    {
+      "rowId": "Q12",
+      "effect": "parrying",
+      "operation": "hasEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\ErrantEntityIsHurtProcedure.java",
+      "sourceLine": 26,
+      "sourceSha256": "e2454aa173a110a3293b1a31ea1d7c4073dd3e1b256b23ada080cb54e67cb6dd",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\sanctum\\ErrantEntity.java",
+          "currentSha256": "f4f8ee64359cdd612298da2047cffb2615525d7db607b182978b5289477ca3f1",
+          "snapshotSha256": "f4f8ee64359cdd612298da2047cffb2615525d7db607b182978b5289477ca3f1",
+          "intentional124Drift": false
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "Errant自身hurt早于父方法检查招架，先原瞬间治疗和声音，再继续父hurt；不能合并为所有实体治疗。",
+      "evidenceDocs": [
+        "parrying-next-audit.md"
+      ]
+    },
+    {
+      "rowId": "Q13",
+      "effect": "frostbite",
+      "operation": "hasEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\FrostbiteHealstopProcedure.java",
+      "sourceLine": 39,
+      "sourceSha256": "3855ebe3766f2a189197b53d7d6cbf667e7b8dc586d0405768ad3324709e56cc",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\status\\StatusEvents.java",
+          "currentSha256": "1e6dcc4fc0eab7a9efda38705c2e7e222f1d4392360b06241d47cd8139a0ca25",
+          "snapshotSha256": "1e6dcc4fc0eab7a9efda38705c2e7e222f1d4392360b06241d47cd8139a0ca25",
+          "intentional124Drift": false
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "Frostbite查询由StatusEvents.onHeal消费，发原音并取消治疗；效果不伪装内部冷却。",
+      "evidenceDocs": [
+        "status-batch.md"
+      ]
+    },
+    {
+      "rowId": "Q14",
+      "effect": "heart_boost",
+      "operation": "hasEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\HeartCrystalRightclickedProcedure.java",
+      "sourceLine": 38,
+      "sourceSha256": "47ffebce382a73855be1d14a072ef66bcb03872563ada0701c199ba38f5792df",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\HeartCrystalItem.java",
+          "currentSha256": "fe0f9ba4eb8eb12ddaf6db6a28d6869467efaea318ee0b80cf42fc977a1ffd67",
+          "snapshotSha256": "fe0f9ba4eb8eb12ddaf6db6a28d6869467efaea318ee0b80cf42fc977a1ffd67",
+          "intentional124Drift": false
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "HeartCrystal读取实际HEART_BOOST，原首次amp1、后续当前+1、5000tick保持。",
+      "evidenceDocs": [
+        "noncooldown-main123-expressions.json"
+      ]
+    },
+    {
+      "rowId": "Q15",
+      "effect": "heart_boost",
+      "operation": "getEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\HeartCrystalRightclickedProcedure.java",
+      "sourceLine": 38,
+      "sourceSha256": "47ffebce382a73855be1d14a072ef66bcb03872563ada0701c199ba38f5792df",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\HeartCrystalItem.java",
+          "currentSha256": "fe0f9ba4eb8eb12ddaf6db6a28d6869467efaea318ee0b80cf42fc977a1ffd67",
+          "snapshotSha256": "fe0f9ba4eb8eb12ddaf6db6a28d6869467efaea318ee0b80cf42fc977a1ffd67",
+          "intentional124Drift": false
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "HeartCrystal读取实际HEART_BOOST，原首次amp1、后续当前+1、5000tick保持。",
+      "evidenceDocs": [
+        "noncooldown-main123-expressions.json"
+      ]
+    },
+    {
+      "rowId": "Q16",
+      "effect": "purified",
+      "operation": "hasEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\InfectedEffectExpiresProcedure.java",
+      "sourceLine": 37,
+      "sourceSha256": "a8f53f4118110737b824c047886cbf05dcca2a127608581d11e1affdca656633",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\status\\InfectionStatus.java",
+          "currentSha256": "47e1515c2eedd565e5e697179fad8457b3e5c75e4b2f5c173b284743ce88dfd4",
+          "snapshotSha256": "47e1515c2eedd565e5e697179fad8457b3e5c75e4b2f5c173b284743ce88dfd4",
+          "intentional124Drift": false
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "感染到期查询受体PURIFIED后进入原分支，任务存值/阶段去重等安全差异已有专项记录。",
+      "evidenceDocs": [
+        "infection-effect-batch.md"
+      ]
+    },
+    {
+      "rowId": "Q17",
+      "effect": "knights_edge_charge",
+      "operation": "hasEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\KnightsEdgeLivingEntityIsHitWithToolProcedure.java",
+      "sourceLine": 65,
+      "sourceSha256": "756c25c67833f086bafdc471acddcaaeee07d4b9389036aefa3b2a6da08854ac",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\ElementalBladeItem.java",
+          "currentSha256": "cb7bbf2f7e17f8a2d3c2d4cae00675053eace0490300c208400ad4a79a699de4",
+          "snapshotSha256": "cb7bbf2f7e17f8a2d3c2d4cae00675053eace0490300c208400ad4a79a699de4",
+          "intentional124Drift": false
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "KnightsEdge只在实际攻击者带CHARGE时提交对应impact，不按受害者或武器自身持久布尔判断。",
+      "evidenceDocs": [
+        "parrying-batch.md"
+      ]
+    },
+    {
+      "rowId": "Q18",
+      "effect": "liteprism_buildup",
+      "operation": "hasEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\LiteprismDiskProjectileProjectileHitsLivingEntityProcedure.java",
+      "sourceLine": 42,
+      "sourceSha256": "ddb1d81c5f2497cda8456a48355dc147e5fb2c47433cf514397b096181061bb5",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\projectile\\LiteprismDiskProjectileEntity.java",
+          "currentSha256": "69c41045baaa2afc3ad50d60df006316a341f62ad199b070742f80149450d0f6",
+          "snapshotSha256": "642ff2cc9db662a55aa8ef401ea7f36898fcbba5b516afd07161dd6f473a6c5e",
+          "intentional124Drift": true
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "Liteprism先add原20tick叠层，再读实际等级>=6；本批恢复hurt/粒子/remove/声音顺序，短期按实体锁保既有防递归要求。",
+      "evidenceDocs": [
+        "sickle-main124-review.md",
+        "core-eject-disk-chain-batch.md"
+      ]
+    },
+    {
+      "rowId": "Q19",
+      "effect": "liteprism_buildup",
+      "operation": "hasEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\LiteprismDiskProjectileProjectileHitsLivingEntityProcedure.java",
+      "sourceLine": 45,
+      "sourceSha256": "ddb1d81c5f2497cda8456a48355dc147e5fb2c47433cf514397b096181061bb5",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\projectile\\LiteprismDiskProjectileEntity.java",
+          "currentSha256": "69c41045baaa2afc3ad50d60df006316a341f62ad199b070742f80149450d0f6",
+          "snapshotSha256": "642ff2cc9db662a55aa8ef401ea7f36898fcbba5b516afd07161dd6f473a6c5e",
+          "intentional124Drift": true
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "Liteprism先add原20tick叠层，再读实际等级>=6；本批恢复hurt/粒子/remove/声音顺序，短期按实体锁保既有防递归要求。",
+      "evidenceDocs": [
+        "sickle-main124-review.md",
+        "core-eject-disk-chain-batch.md"
+      ]
+    },
+    {
+      "rowId": "Q20",
+      "effect": "liteprism_buildup",
+      "operation": "getEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\LiteprismDiskProjectileProjectileHitsLivingEntityProcedure.java",
+      "sourceLine": 45,
+      "sourceSha256": "ddb1d81c5f2497cda8456a48355dc147e5fb2c47433cf514397b096181061bb5",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\projectile\\LiteprismDiskProjectileEntity.java",
+          "currentSha256": "69c41045baaa2afc3ad50d60df006316a341f62ad199b070742f80149450d0f6",
+          "snapshotSha256": "642ff2cc9db662a55aa8ef401ea7f36898fcbba5b516afd07161dd6f473a6c5e",
+          "intentional124Drift": true
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "Liteprism先add原20tick叠层，再读实际等级>=6；本批恢复hurt/粒子/remove/声音顺序，短期按实体锁保既有防递归要求。",
+      "evidenceDocs": [
+        "sickle-main124-review.md",
+        "core-eject-disk-chain-batch.md"
+      ]
+    },
+    {
+      "rowId": "Q21",
+      "effect": "liteprism_buildup",
+      "operation": "hasEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\LiteprismDiskProjectileProjectileHitsLivingEntityProcedure.java",
+      "sourceLine": 50,
+      "sourceSha256": "ddb1d81c5f2497cda8456a48355dc147e5fb2c47433cf514397b096181061bb5",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\projectile\\LiteprismDiskProjectileEntity.java",
+          "currentSha256": "69c41045baaa2afc3ad50d60df006316a341f62ad199b070742f80149450d0f6",
+          "snapshotSha256": "642ff2cc9db662a55aa8ef401ea7f36898fcbba5b516afd07161dd6f473a6c5e",
+          "intentional124Drift": true
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "Liteprism先add原20tick叠层，再读实际等级>=6；本批恢复hurt/粒子/remove/声音顺序，短期按实体锁保既有防递归要求。",
+      "evidenceDocs": [
+        "sickle-main124-review.md",
+        "core-eject-disk-chain-batch.md"
+      ]
+    },
+    {
+      "rowId": "Q22",
+      "effect": "liteprism_buildup",
+      "operation": "getEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\LiteprismDiskProjectileProjectileHitsLivingEntityProcedure.java",
+      "sourceLine": 50,
+      "sourceSha256": "ddb1d81c5f2497cda8456a48355dc147e5fb2c47433cf514397b096181061bb5",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\projectile\\LiteprismDiskProjectileEntity.java",
+          "currentSha256": "69c41045baaa2afc3ad50d60df006316a341f62ad199b070742f80149450d0f6",
+          "snapshotSha256": "642ff2cc9db662a55aa8ef401ea7f36898fcbba5b516afd07161dd6f473a6c5e",
+          "intentional124Drift": true
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "Liteprism先add原20tick叠层，再读实际等级>=6；本批恢复hurt/粒子/remove/声音顺序，短期按实体锁保既有防递归要求。",
+      "evidenceDocs": [
+        "sickle-main124-review.md",
+        "core-eject-disk-chain-batch.md"
+      ]
+    },
+    {
+      "rowId": "Q23",
+      "effect": "liteprism_buildup",
+      "operation": "removeEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\LiteprismDiskProjectileProjectileHitsLivingEntityProcedure.java",
+      "sourceLine": 54,
+      "sourceSha256": "ddb1d81c5f2497cda8456a48355dc147e5fb2c47433cf514397b096181061bb5",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\projectile\\LiteprismDiskProjectileEntity.java",
+          "currentSha256": "69c41045baaa2afc3ad50d60df006316a341f62ad199b070742f80149450d0f6",
+          "snapshotSha256": "642ff2cc9db662a55aa8ef401ea7f36898fcbba5b516afd07161dd6f473a6c5e",
+          "intentional124Drift": true
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "Liteprism先add原20tick叠层，再读实际等级>=6；本批恢复hurt/粒子/remove/声音顺序，短期按实体锁保既有防递归要求。",
+      "evidenceDocs": [
+        "sickle-main124-review.md",
+        "core-eject-disk-chain-batch.md"
+      ]
+    },
+    {
+      "rowId": "Q24",
+      "effect": "stunned",
+      "operation": "hasEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\MaidenOnEntityTickUpdateProcedure.java",
+      "sourceLine": 27,
+      "sourceSha256": "fe005bcc56c9b07c48814e188901181727e4de9a011638a3d11dcb58ac17c9f6",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\maiden\\MaidenEntity.java",
+          "currentSha256": "876224a317d7bb77194f4c073b573da79cb39533362572079d98f2d3b43a0dc1",
+          "snapshotSha256": "876224a317d7bb77194f4c073b573da79cb39533362572079d98f2d3b43a0dc1",
+          "intentional124Drift": false
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "Maiden真实STUNNED控制自身反馈与护盾伤害分支，内部技能锁另存不替代真实眩晕。",
+      "evidenceDocs": [
+        "lantern-control-effects-batch.md"
+      ]
+    },
+    {
+      "rowId": "Q25",
+      "effect": "stunned",
+      "operation": "hasEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\MaidenShieldingProcedure.java",
+      "sourceLine": 42,
+      "sourceSha256": "cf28f49705d43d33c78d5682a7832e9167874ea8e4739846cf4573f0297bde47",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\maiden\\MaidenContent.java",
+          "currentSha256": "cf3417fbcbda632a77e1fd3d1c39133d7eb2b8846e8faf533376f0845823139b",
+          "snapshotSha256": "cf3417fbcbda632a77e1fd3d1c39133d7eb2b8846e8faf533376f0845823139b",
+          "intentional124Drift": false
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "Maiden真实STUNNED控制自身反馈与护盾伤害分支，内部技能锁另存不替代真实眩晕。",
+      "evidenceDocs": [
+        "lantern-control-effects-batch.md"
+      ]
+    },
+    {
+      "rowId": "Q26",
+      "effect": "parrying",
+      "operation": "hasEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\ParryingHitCancelProcedure.java",
+      "sourceLine": 52,
+      "sourceSha256": "0788df91a2749188d3a97e4aae66e63aec5a0e0fa52f4b043d1e00c82bfceee5",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\status\\ParryingStatus.java",
+          "currentSha256": "943609d5c5090ce82e5950a1d131a03c0bf2d35dfe272fec140544848d00f184",
+          "snapshotSha256": "943609d5c5090ce82e5950a1d131a03c0bf2d35dfe272fec140544848d00f184",
+          "intentional124Drift": false
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\mixin\\LivingEntityStatusMixin.java",
+          "currentSha256": "8839dccfc6fd7512e2dcb81fe215ede8ad0fd95cd74e29f8c8b488b60628d2e9",
+          "snapshotSha256": "8839dccfc6fd7512e2dcb81fe215ede8ad0fd95cd74e29f8c8b488b60628d2e9",
+          "intentional124Drift": false
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\mixin\\PlayerInfectionStatusMixin.java",
+          "currentSha256": "dad25d14dbe57dc4bc157105ce76a521d455d8b32929a04fcb835dde09fddf23",
+          "snapshotSha256": "dad25d14dbe57dc4bc157105ce76a521d455d8b32929a04fcb835dde09fddf23",
+          "intentional124Drift": false
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "Parry在两类actuallyHurt护甲前消费窗口，移除后保原声画/范围眩晕/自体状态且不取消伤害；Player覆写与普通Living单点承接。",
+      "evidenceDocs": [
+        "parrying-batch.md",
+        "parrying-next-audit.md",
+        "REFORGED_CHANGES.md"
+      ]
+    },
+    {
+      "rowId": "Q27",
+      "effect": "parrying",
+      "operation": "removeEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\ParryingHitCancelProcedure.java",
+      "sourceLine": 59,
+      "sourceSha256": "0788df91a2749188d3a97e4aae66e63aec5a0e0fa52f4b043d1e00c82bfceee5",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\status\\ParryingStatus.java",
+          "currentSha256": "943609d5c5090ce82e5950a1d131a03c0bf2d35dfe272fec140544848d00f184",
+          "snapshotSha256": "943609d5c5090ce82e5950a1d131a03c0bf2d35dfe272fec140544848d00f184",
+          "intentional124Drift": false
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\mixin\\LivingEntityStatusMixin.java",
+          "currentSha256": "8839dccfc6fd7512e2dcb81fe215ede8ad0fd95cd74e29f8c8b488b60628d2e9",
+          "snapshotSha256": "8839dccfc6fd7512e2dcb81fe215ede8ad0fd95cd74e29f8c8b488b60628d2e9",
+          "intentional124Drift": false
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\mixin\\PlayerInfectionStatusMixin.java",
+          "currentSha256": "dad25d14dbe57dc4bc157105ce76a521d455d8b32929a04fcb835dde09fddf23",
+          "snapshotSha256": "dad25d14dbe57dc4bc157105ce76a521d455d8b32929a04fcb835dde09fddf23",
+          "intentional124Drift": false
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "Parry在两类actuallyHurt护甲前消费窗口，移除后保原声画/范围眩晕/自体状态且不取消伤害；Player覆写与普通Living单点承接。",
+      "evidenceDocs": [
+        "parrying-batch.md",
+        "parrying-next-audit.md",
+        "REFORGED_CHANGES.md"
+      ]
+    },
+    {
+      "rowId": "Q28",
+      "effect": "propulsion_boots_cooldown",
+      "operation": "hasEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\PropulsionBootsAbilityOnKeyPressedProcedure.java",
+      "sourceLine": 31,
+      "sourceSha256": "dd6e906b10c23d807fa833671d39c684f7e268018939abd0bad36dda530348b8",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\armor\\fabricated\\FabricatedArmorEvents.java",
+          "currentSha256": "7526de051fafffba988f4a3834c911d14ddbe70f221356c65e479619b9b964c9",
+          "snapshotSha256": "7526de051fafffba988f4a3834c911d14ddbe70f221356c65e479619b9b964c9",
+          "intentional124Drift": false
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\armor\\fabricated\\FabricatedArmorContent.java",
+          "currentSha256": "5ee186dbd52b6e5bb0a056293ee2ec13f42ba86be50ccca77edc70ca38b7f1c3",
+          "snapshotSha256": "5ee186dbd52b6e5bb0a056293ee2ec13f42ba86be50ccca77edc70ca38b7f1c3",
+          "intentional124Drift": false
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\armor\\fabricated\\FabricatedArmorClient.java",
+          "currentSha256": "34674a44b6bc9cf5faee18e0e5e2b54af8ae217153a5be32acd6279faf444a0f",
+          "snapshotSha256": "34674a44b6bc9cf5faee18e0e5e2b54af8ae217153a5be32acd6279faf444a0f",
+          "intentional124Drift": false
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "推进靴冷却用实际装备和合法玩家状态检查，客户端请求/服务端权威消费者沿120批完整复核。",
+      "evidenceDocs": [
+        "status-main120-reviewed.json"
+      ]
+    },
+    {
+      "rowId": "Q29",
+      "effect": "electrified",
+      "operation": "hasEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\RibbonbladeGalvaniteEntityIsHurtProcedure.java",
+      "sourceLine": 28,
+      "sourceSha256": "11f7826ec7c013f5dbb9cdbcae70ab228e8c94a6752347c38062d2104735479c",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\ribbonblade\\RibbonbladeGalvaniteEntity.java",
+          "currentSha256": "d522949ec2aaceb4a64c78b8bc6e696103816cf3aba292c4aa32a0f1f2382832",
+          "snapshotSha256": "d522949ec2aaceb4a64c78b8bc6e696103816cf3aba292c4aa32a0f1f2382832",
+          "intentional124Drift": false
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "Galvanite受伤时查询自身Electrified，保原分支及伤害时机，不把药效读取换成全局bool。",
+      "evidenceDocs": [
+        "status-batch.md"
+      ]
+    },
+    {
+      "rowId": "Q30",
+      "effect": "electrified",
+      "operation": "hasEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\RippleAttackProcedure.java",
+      "sourceLine": 98,
+      "sourceSha256": "5e57018480f577a25583bd64f6ef9b4c902f1258936a5fa74ce162bdee254016",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\sanctum\\RippleCastEntity.java",
+          "currentSha256": "6e9c4deca25723c24f792ea2d8736188fdbae5eb8307d707e46ce8ad0f2a4832",
+          "snapshotSha256": "6e9c4deca25723c24f792ea2d8736188fdbae5eb8307d707e46ce8ad0f2a4832",
+          "intentional124Drift": false
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "Ripple延迟攻击读取当前受体Electrified/Infected并执行原分支；任务原状态/持久化契约沿专项保留。",
+      "evidenceDocs": [
+        "status-batch.md",
+        "infection-effect-batch.md"
+      ]
+    },
+    {
+      "rowId": "Q31",
+      "effect": "infected",
+      "operation": "hasEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\RippleAttackProcedure.java",
+      "sourceLine": 98,
+      "sourceSha256": "5e57018480f577a25583bd64f6ef9b4c902f1258936a5fa74ce162bdee254016",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\sanctum\\RippleCastEntity.java",
+          "currentSha256": "6e9c4deca25723c24f792ea2d8736188fdbae5eb8307d707e46ce8ad0f2a4832",
+          "snapshotSha256": "6e9c4deca25723c24f792ea2d8736188fdbae5eb8307d707e46ce8ad0f2a4832",
+          "intentional124Drift": false
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "Ripple延迟攻击读取当前受体Electrified/Infected并执行原分支；任务原状态/持久化契约沿专项保留。",
+      "evidenceDocs": [
+        "status-batch.md",
+        "infection-effect-batch.md"
+      ]
+    },
+    {
+      "rowId": "Q32",
+      "effect": "sickle_wound_buildup",
+      "operation": "hasEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\SickleHitsEntityProcedure.java",
+      "sourceLine": 34,
+      "sourceSha256": "757de8a7d10daa3555ea49bbfeb49b88109035aa4e849a2c3fc46d2328d98986",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\SickleItem.java",
+          "currentSha256": "0723858af843150933989d8520a91c653d3728f750005c42d459cea425d7645c",
+          "snapshotSha256": "58d4f6becd40063b9b529eba036df0d2f06e8d50d49ff958fa47000bcf0e3974",
+          "intentional124Drift": true
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\remainingcombat\\ClawSickleItem.java",
+          "currentSha256": "70e2e3ae812a69da2c93844e8d17eabbcb625d9d0859fe2994559605eb7a7590",
+          "snapshotSha256": "49bf93b2e3a24546dfc14dc120a856219f28773aa2533f9fc80346a3764abf0a",
+          "intentional124Drift": true
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "五类镰刀原先add20tick新等级再读实际状态；本批修两消费者，拒绝添加不会按预计算等级爆发，已有高等级仍按实际>=2消费。",
+      "evidenceDocs": [
+        "sickle-main124-review.md"
+      ]
+    },
+    {
+      "rowId": "Q33",
+      "effect": "sickle_wound_buildup",
+      "operation": "hasEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\SickleHitsEntityProcedure.java",
+      "sourceLine": 36,
+      "sourceSha256": "757de8a7d10daa3555ea49bbfeb49b88109035aa4e849a2c3fc46d2328d98986",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\SickleItem.java",
+          "currentSha256": "0723858af843150933989d8520a91c653d3728f750005c42d459cea425d7645c",
+          "snapshotSha256": "58d4f6becd40063b9b529eba036df0d2f06e8d50d49ff958fa47000bcf0e3974",
+          "intentional124Drift": true
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\remainingcombat\\ClawSickleItem.java",
+          "currentSha256": "70e2e3ae812a69da2c93844e8d17eabbcb625d9d0859fe2994559605eb7a7590",
+          "snapshotSha256": "49bf93b2e3a24546dfc14dc120a856219f28773aa2533f9fc80346a3764abf0a",
+          "intentional124Drift": true
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "五类镰刀原先add20tick新等级再读实际状态；本批修两消费者，拒绝添加不会按预计算等级爆发，已有高等级仍按实际>=2消费。",
+      "evidenceDocs": [
+        "sickle-main124-review.md"
+      ]
+    },
+    {
+      "rowId": "Q34",
+      "effect": "sickle_wound_buildup",
+      "operation": "getEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\SickleHitsEntityProcedure.java",
+      "sourceLine": 36,
+      "sourceSha256": "757de8a7d10daa3555ea49bbfeb49b88109035aa4e849a2c3fc46d2328d98986",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\SickleItem.java",
+          "currentSha256": "0723858af843150933989d8520a91c653d3728f750005c42d459cea425d7645c",
+          "snapshotSha256": "58d4f6becd40063b9b529eba036df0d2f06e8d50d49ff958fa47000bcf0e3974",
+          "intentional124Drift": true
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\remainingcombat\\ClawSickleItem.java",
+          "currentSha256": "70e2e3ae812a69da2c93844e8d17eabbcb625d9d0859fe2994559605eb7a7590",
+          "snapshotSha256": "49bf93b2e3a24546dfc14dc120a856219f28773aa2533f9fc80346a3764abf0a",
+          "intentional124Drift": true
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "五类镰刀原先add20tick新等级再读实际状态；本批修两消费者，拒绝添加不会按预计算等级爆发，已有高等级仍按实际>=2消费。",
+      "evidenceDocs": [
+        "sickle-main124-review.md"
+      ]
+    },
+    {
+      "rowId": "Q35",
+      "effect": "sickle_wound_buildup",
+      "operation": "hasEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\SickleHitsEntityProcedure.java",
+      "sourceLine": 41,
+      "sourceSha256": "757de8a7d10daa3555ea49bbfeb49b88109035aa4e849a2c3fc46d2328d98986",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\SickleItem.java",
+          "currentSha256": "0723858af843150933989d8520a91c653d3728f750005c42d459cea425d7645c",
+          "snapshotSha256": "58d4f6becd40063b9b529eba036df0d2f06e8d50d49ff958fa47000bcf0e3974",
+          "intentional124Drift": true
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\remainingcombat\\ClawSickleItem.java",
+          "currentSha256": "70e2e3ae812a69da2c93844e8d17eabbcb625d9d0859fe2994559605eb7a7590",
+          "snapshotSha256": "49bf93b2e3a24546dfc14dc120a856219f28773aa2533f9fc80346a3764abf0a",
+          "intentional124Drift": true
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "五类镰刀原先add20tick新等级再读实际状态；本批修两消费者，拒绝添加不会按预计算等级爆发，已有高等级仍按实际>=2消费。",
+      "evidenceDocs": [
+        "sickle-main124-review.md"
+      ]
+    },
+    {
+      "rowId": "Q36",
+      "effect": "sickle_wound_buildup",
+      "operation": "getEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\SickleHitsEntityProcedure.java",
+      "sourceLine": 41,
+      "sourceSha256": "757de8a7d10daa3555ea49bbfeb49b88109035aa4e849a2c3fc46d2328d98986",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\SickleItem.java",
+          "currentSha256": "0723858af843150933989d8520a91c653d3728f750005c42d459cea425d7645c",
+          "snapshotSha256": "58d4f6becd40063b9b529eba036df0d2f06e8d50d49ff958fa47000bcf0e3974",
+          "intentional124Drift": true
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\remainingcombat\\ClawSickleItem.java",
+          "currentSha256": "70e2e3ae812a69da2c93844e8d17eabbcb625d9d0859fe2994559605eb7a7590",
+          "snapshotSha256": "49bf93b2e3a24546dfc14dc120a856219f28773aa2533f9fc80346a3764abf0a",
+          "intentional124Drift": true
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "五类镰刀原先add20tick新等级再读实际状态；本批修两消费者，拒绝添加不会按预计算等级爆发，已有高等级仍按实际>=2消费。",
+      "evidenceDocs": [
+        "sickle-main124-review.md"
+      ]
+    },
+    {
+      "rowId": "Q37",
+      "effect": "sickle_wound_buildup",
+      "operation": "removeEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\SickleHitsEntityProcedure.java",
+      "sourceLine": 45,
+      "sourceSha256": "757de8a7d10daa3555ea49bbfeb49b88109035aa4e849a2c3fc46d2328d98986",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\SickleItem.java",
+          "currentSha256": "0723858af843150933989d8520a91c653d3728f750005c42d459cea425d7645c",
+          "snapshotSha256": "58d4f6becd40063b9b529eba036df0d2f06e8d50d49ff958fa47000bcf0e3974",
+          "intentional124Drift": true
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\remainingcombat\\ClawSickleItem.java",
+          "currentSha256": "70e2e3ae812a69da2c93844e8d17eabbcb625d9d0859fe2994559605eb7a7590",
+          "snapshotSha256": "49bf93b2e3a24546dfc14dc120a856219f28773aa2533f9fc80346a3764abf0a",
+          "intentional124Drift": true
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "五类镰刀原先add20tick新等级再读实际状态；本批修两消费者，拒绝添加不会按预计算等级爆发，已有高等级仍按实际>=2消费。",
+      "evidenceDocs": [
+        "sickle-main124-review.md"
+      ]
+    },
+    {
+      "rowId": "Q38",
+      "effect": "antitoxin_effect",
+      "operation": "hasEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\SiibolAttackProcedure.java",
+      "sourceLine": 100,
+      "sourceSha256": "454f8e7d33a0e0a0e81421bd21b72f590a1ded8a91a2ad9a94d961a9c543031f",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\snobol\\SiibolEntity.java",
+          "currentSha256": "e51ba8d2db9843e43db8c855be40298a258de8c1c18925c41adcda85da2e148d",
+          "snapshotSha256": "e51ba8d2db9843e43db8c855be40298a258de8c1c18925c41adcda85da2e148d",
+          "intentional124Drift": false
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "Siibol对当前目标读取ANTITOXIN；character_mobs错误外层变量已在snobol-batch明确批准逐目标修复。",
+      "evidenceDocs": [
+        "snobol-batch.md"
+      ]
+    },
+    {
+      "rowId": "Q39",
+      "effect": "sylvia_rifle_charge",
+      "operation": "hasEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\SylviaRifleFiringProcedure.java",
+      "sourceLine": 61,
+      "sourceSha256": "f2bcde25cd28017b31557cb050fc6de15f3d0ebab04049e4e048048ac83e0fb2",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\labmachinist\\SylviaRifleItem.java",
+          "currentSha256": "ce259f97f991b38d1d8f15f2fbfff5137d4198a7ceeac4e1a07b1efb039b4f50",
+          "snapshotSha256": "ce259f97f991b38d1d8f15f2fbfff5137d4198a7ceeac4e1a07b1efb039b4f50",
+          "intentional124Drift": false
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "Sylvia枪支charge读取/移除由自身实际使用时序承接，沿120批独立计时/持久化结论。",
+      "evidenceDocs": [
+        "status-main120-reviewed.json"
+      ]
+    },
+    {
+      "rowId": "Q40",
+      "effect": "sylvia_rifle_charge",
+      "operation": "getEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\SylviaRifleFiringProcedure.java",
+      "sourceLine": 61,
+      "sourceSha256": "f2bcde25cd28017b31557cb050fc6de15f3d0ebab04049e4e048048ac83e0fb2",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\labmachinist\\SylviaRifleItem.java",
+          "currentSha256": "ce259f97f991b38d1d8f15f2fbfff5137d4198a7ceeac4e1a07b1efb039b4f50",
+          "snapshotSha256": "ce259f97f991b38d1d8f15f2fbfff5137d4198a7ceeac4e1a07b1efb039b4f50",
+          "intentional124Drift": false
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "Sylvia枪支charge读取/移除由自身实际使用时序承接，沿120批独立计时/持久化结论。",
+      "evidenceDocs": [
+        "status-main120-reviewed.json"
+      ]
+    },
+    {
+      "rowId": "Q41",
+      "effect": "sylvia_rifle_charge",
+      "operation": "hasEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\SylviaRifleRightclickedProcedure.java",
+      "sourceLine": 57,
+      "sourceSha256": "d152bf5d9de7f924e5812814f63d084fc6f3c20d54b1f2da09eb1f51394dcb74",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\labmachinist\\SylviaRifleItem.java",
+          "currentSha256": "ce259f97f991b38d1d8f15f2fbfff5137d4198a7ceeac4e1a07b1efb039b4f50",
+          "snapshotSha256": "ce259f97f991b38d1d8f15f2fbfff5137d4198a7ceeac4e1a07b1efb039b4f50",
+          "intentional124Drift": false
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "Sylvia枪支charge读取/移除由自身实际使用时序承接，沿120批独立计时/持久化结论。",
+      "evidenceDocs": [
+        "status-main120-reviewed.json"
+      ]
+    },
+    {
+      "rowId": "Q42",
+      "effect": "sylvia_rifle_charge",
+      "operation": "getEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\SylviaRifleRightclickedProcedure.java",
+      "sourceLine": 57,
+      "sourceSha256": "d152bf5d9de7f924e5812814f63d084fc6f3c20d54b1f2da09eb1f51394dcb74",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\labmachinist\\SylviaRifleItem.java",
+          "currentSha256": "ce259f97f991b38d1d8f15f2fbfff5137d4198a7ceeac4e1a07b1efb039b4f50",
+          "snapshotSha256": "ce259f97f991b38d1d8f15f2fbfff5137d4198a7ceeac4e1a07b1efb039b4f50",
+          "intentional124Drift": false
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "Sylvia枪支charge读取/移除由自身实际使用时序承接，沿120批独立计时/持久化结论。",
+      "evidenceDocs": [
+        "status-main120-reviewed.json"
+      ]
+    },
+    {
+      "rowId": "Q43",
+      "effect": "sylvia_rifle_charge",
+      "operation": "hasEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\SylviaRifleRightclickedProcedure.java",
+      "sourceLine": 59,
+      "sourceSha256": "d152bf5d9de7f924e5812814f63d084fc6f3c20d54b1f2da09eb1f51394dcb74",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\labmachinist\\SylviaRifleItem.java",
+          "currentSha256": "ce259f97f991b38d1d8f15f2fbfff5137d4198a7ceeac4e1a07b1efb039b4f50",
+          "snapshotSha256": "ce259f97f991b38d1d8f15f2fbfff5137d4198a7ceeac4e1a07b1efb039b4f50",
+          "intentional124Drift": false
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "Sylvia枪支charge读取/移除由自身实际使用时序承接，沿120批独立计时/持久化结论。",
+      "evidenceDocs": [
+        "status-main120-reviewed.json"
+      ]
+    },
+    {
+      "rowId": "Q44",
+      "effect": "sylvia_rifle_charge",
+      "operation": "getEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\SylviaRifleRightclickedProcedure.java",
+      "sourceLine": 59,
+      "sourceSha256": "d152bf5d9de7f924e5812814f63d084fc6f3c20d54b1f2da09eb1f51394dcb74",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\labmachinist\\SylviaRifleItem.java",
+          "currentSha256": "ce259f97f991b38d1d8f15f2fbfff5137d4198a7ceeac4e1a07b1efb039b4f50",
+          "snapshotSha256": "ce259f97f991b38d1d8f15f2fbfff5137d4198a7ceeac4e1a07b1efb039b4f50",
+          "intentional124Drift": false
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "Sylvia枪支charge读取/移除由自身实际使用时序承接，沿120批独立计时/持久化结论。",
+      "evidenceDocs": [
+        "status-main120-reviewed.json"
+      ]
+    },
+    {
+      "rowId": "Q45",
+      "effect": "nomnomnom",
+      "operation": "hasEffect",
+      "sourcePath": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\TitanRightClickedOnEntityProcedure.java",
+      "sourceLine": 31,
+      "sourceSha256": "e620aa68ecf55a07c450761d7d028c6773bedf087a140a87c5cbc9c0f492c012",
+      "targets": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\sentrarius\\SentrariusEntity.java",
+          "currentSha256": "f883519371831ada3f11b42e424ce71c69d566470e1ee7cd7b9c28d5efd24d69",
+          "snapshotSha256": "f883519371831ada3f11b42e424ce71c69d566470e1ee7cd7b9c28d5efd24d69",
+          "intentional124Drift": false
+        }
+      ],
+      "staticConsumerReview": "reviewed_with_explicit_repairs_or_existing_differences",
+      "reason": "原Titan喂食nomnomnom窗口由真实Sentrarius局部喂食计时及消费者承接，沿120批复核，不给不存在的其他Titan补入口。",
+      "evidenceDocs": [
+        "status-main120-reviewed.json"
+      ]
+    }
+  ],
+  "count": 45,
+  "runtimeExecuted": false,
+  "staticReviewDoesNotMeanFullMigrationComplete": true
+}

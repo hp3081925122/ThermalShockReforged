@@ -34,12 +34,15 @@ public final class SickleItem extends HoeItem {
         if (!victim.level().isClientSide && victim != attacker) {
             var wound = victim.getEffect(WeaponContent.SICKLE_WOUND);
             int level = wound == null ? 0 : wound.getAmplifier() + 1;
-            if (level >= 2) {
+            victim.addEffect(new MobEffectInstance(WeaponContent.SICKLE_WOUND, 20, level));
+            var applied = victim.getEffect(WeaponContent.SICKLE_WOUND);
+            if (applied != null && applied.getAmplifier() >= 2) {
                 victim.removeEffect(WeaponContent.SICKLE_WOUND);
+                ThermalShockReforged.LOGGER.debug("Sickle wound burst committed: attacker={}, victim={}, appliedAmplifier={}", attacker.getUUID(), victim.getUUID(), applied.getAmplifier());
                 var sound = BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "sickle_slash"));
                 victim.level().playSound(null, victim.blockPosition(), sound, SoundSource.NEUTRAL, 1, 1);
                 victim.hurt(victim.damageSources().source(DamageTypes.GENERIC), attacker.getMainHandItem().is(WeaponContent.STRATOSILVER_SICKLE.get()) ? 14 : 10);
-            } else victim.addEffect(new MobEffectInstance(WeaponContent.SICKLE_WOUND, 20, level));
+            }
         }
         return result;
     }
