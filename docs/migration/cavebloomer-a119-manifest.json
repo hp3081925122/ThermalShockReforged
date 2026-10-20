@@ -1,0 +1,79 @@
+{
+  "batch": "119A",
+  "baseline": "cf9fa76ddbdc75201bd04171bc36a8c612d52d58",
+  "productionResourceChanges": 0,
+  "checks": 13,
+  "passed": 12,
+  "failed": 0,
+  "notRun": 1,
+  "compiled": false,
+  "runtimeTested": false,
+  "aggregateConvention": "SHA256 of UTF-8 lines sha256 + two spaces + relative path, LF separators, no final LF; manifest excluded",
+  "aggregateSha256": "a22a0fa8336fa61baa42b5a0eb2ee8d62b3bcbccc2b2ad0080896b6667c91c8b",
+  "files": [
+    {
+      "path": "docs/migration/cavebloomer-a119-plan.md",
+      "sha256": "bd7159855c9ac3ee354f67b8be27f5549f91e2a5a2b6f7a87a041022ecde28bc"
+    },
+    {
+      "path": "docs/migration/cavebloomer-a119-matrix.json",
+      "sha256": "6382addf23f40c00a4c6e3f5a76905d8b612df037ddecb3c9eeedfec34d6afbf"
+    },
+    {
+      "path": "docs/migration/cavebloomer-a119-validation.json",
+      "sha256": "776c7507fcce4937be3f52546d8921dbbfd20fd7d4da7362faa3740ce5e5efcf"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/advancement/cavebloomer_kill.json",
+      "sha256": "54ee4c525e5d86ecdb06715a3c8686fabb14b2d45373cfbe5a40b49e08200996"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/advancement/glaciation_get.json",
+      "sha256": "85a03eec261318ac88f0df7534c12ee4cdd524cab9c5ba65508649de61c8ac4b"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/advancement/loqendia_get.json",
+      "sha256": "00db950c339409da712f5dd5473fd83118796357566beb4d4c17d107f8520f09"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/advancement/keystone_get.json",
+      "sha256": "094ffd42364fdfb02656e27413cef28a4910d8044f022b0d2693d0834d50fcac"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/structure/cavebloomer_field.json",
+      "sha256": "9109e4f891a3fd274e8a47a0188f6332d5ca80264f399e5afea8b1bd32c7caac"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/structure_set/cavebloomer_field.json",
+      "sha256": "5ea0da427037078cced6603d99ff7923e0f3dee2596a72da98502fd3750d23ab"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/template_pool/cavebloomer_field.json",
+      "sha256": "f247bc9857405fc2dc56a762088f7679a1c67f172a35a45843dd443f82347b70"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/worldgen/processor_list/cavebloomer_field_processor.json",
+      "sha256": "82d18ef795dc82083faa5e29a1f19299abc174c2e637dfcd16e814a811c98fa7"
+    },
+    {
+      "path": "src/main/resources/data/thermal_shock_reforged/structure/cavebloomer_field.nbt",
+      "sha256": "ad54fa92b31db134e05ef97b17a8daa02f5d4ba285ab2c48b20bb6c9826b35ea"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/decor/geo/SuspiciousCavebloomerBlockEntity.java",
+      "sha256": "135c7adad95bc840228393dbe533ffb5d06bac4174c16ec1f4a60d7d45550eea"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/cavebloomer/AngryCavebloomerEntity.java",
+      "sha256": "6a1cd8a9fac09b3ee48012386edc3dca2e924d7b0e73c5b84513773b3ee5f7ba"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/world/WorldProgressData.java",
+      "sha256": "77e393024ace0055e90dfab2d3cc1a65ee11c12aee93d1d62a915dd23df3679a"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/world/KeystoneChamberGeneration.java",
+      "sha256": "1ad4f28f71e32e08f798dd84dac524a1c1024e078580a64e280b43d7cbaa0d3d"
+    }
+  ]
+}

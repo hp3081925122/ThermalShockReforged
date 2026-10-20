@@ -1,0 +1,41 @@
+{
+  "batch": 119,
+  "baseCommit": "cf9fa76",
+  "originalJarSha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436",
+  "productionChanges": 12,
+  "originalLootPathCoverage": {
+    "sourceCount": 610,
+    "targetPresent": 610,
+    "missing": []
+  },
+  "restoredJsonNamespaceOnlyEquivalence": 12,
+  "restoredBuildByteEquality": 12,
+  "aManifestFilesVerified": 16,
+  "aAudit": {
+    "pass": 12,
+    "fail": 0,
+    "notRun": 1
+  },
+  "buildCommand": ".\\gradlew.bat compileJava processResources --offline --max-workers=2",
+  "buildResult": "BUILD SUCCESSFUL in 1m 3s; compileJava UP-TO-DATE; processResources executed",
+  "buildLog": "D:\\AI临时文件\\ThermalShockMigration\\batch119-unified-build.log",
+  "buildLogSha256": "30ae35ffd02bbd979a46a0967f0c91c6d0931193aae6d06f9ef5c9b6b1ecbfaa",
+  "currentInputCount": 8879,
+  "inputSnapshotLimitation": "构建前全输入快照命令未成功生成；构建期两路生产停笔，构建后快照已保存并复核。未声称有构建前后全输入逐字节证明。",
+  "productionFileSha256": {
+    "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/fabricator_constructor.json": "d60adaf0d426299917b7ec137817de8dc2de9934681e309fb4577753d709a456",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/spire_stem.json": "5bc4caf33eb21088afbfdf01422ccd88fe74adc1214867b4bb0ebe45417e5b09",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/spire_tendrils.json": "232028013c68e620eef03a8c876053b4fa0088ce06be2b81b52d585c96812b25",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/wallbore_constructor.json": "9ce53adf25cf468183dbecbd739fe4476bf8b930895d65225b123bd41c24d8d8",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/blocks/geyser_loot.json": "d7a850c7dda0d53508588ca03b30f3e9d0abb02fd54913cebb7b649844f73176",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/entities/magnetite.json": "0e58aac19ce21a1bdbc54dc7980b7a23fdcfadc2179cb67015a1f55f082a9017",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/entities/protoi_epsilon.json": "e164458cd825d017f4e4a637d7172baa78ee9fd67e5de8d3a5cc83c189fcface",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/entities/protoi_sunbeam.json": "9568ae775fc90e49cf94417b4e2f89e21bff189a192637b0ea508b66e46618a3",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/entities/sootle.json": "3095bffaa9360ff2f5401abb5c1ae200eaae7f1edee526cd1d0828761e08366b",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/advancements/beta_complete.json": "5c4f597175e2b93e7a565210a8ef4762fcd850841a4bfe7ee5d190e9b94bf5ec",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/amalgel_first_kill.json": "cc301ba70cef7636879f9239f3d6d7a21ef54d066d9012097fd3ff30418c5a82",
+    "src/main/resources/data/thermal_shock_reforged/loot_table/corrial_crate_loot.json": "2e4c74529a32baaea562560d86a8cb11ec9b03db5e0a560de3138f5ac41f138c"
+  },
+  "runtimeTesting": "本批未启动游戏；服务端由用户测试线负责；客户端及Render Preview待完整迁移与复审后。",
+  "boundary": "610路径齐全只证明文件存在；12新增内容与原JSON相等只改命名空间。其余598表内容与运行时codec仍须下一批审计。"
+}

@@ -1,0 +1,28 @@
+{
+  "batch": "119A",
+  "baseline": "cf9fa76ddbdc75201bd04171bc36a8c612d52d58",
+  "mode": "静态只读验证；未编译、未启动游戏",
+  "originalJarSha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436",
+  "checks": [
+    {"name": "原JAR SHA256与既有来源证据一致", "status": "PASS", "evidence": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436"},
+    {"name": "源/目标所有相关advancement JSON解析且ID、criterion与进度链闭合", "status": "PASS", "evidence": "8项链路：loqendia_get、glaciation_get、cavebloomer_kill、keystone_get、errands_get、leaf_it_to_me_1/2/3；目标JSON逐字段对比仅包含命名空间/1.21.1 codec格式差异与icon字段转换。"},
+    {"name": "1.21.1 LocationPredicate.biomes字段由目标源码Codec确认", "status": "PASS", "evidence": "build/neoForm/.../net/minecraft/advancements/critereon/LocationPredicate.java的Codec含biomes optional HolderSet<Biome>。"},
+    {"name": "Cavebloomer kill进度的死亡授予与全部调用者盘点", "status": "PASS", "evidence": "AngryCavebloomerEntity.die、ShutterbugQuest.openErrand；直接子进度集合为空，不等于无调用者。"},
+    {"name": "cavebloomer_field四项世界生成JSON对原件字段比较", "status": "PASS", "evidence": "structure、structure_set、template_pool逐字段相等；processor_list只将外部provider ID映射到本地已注册等效processor。"},
+    {"name": "cavebloomer_field NBT结构化反向namespace比较", "status": "PASS", "evidence": "48020方块记录、49x20x49、23 palette、17 BE records、0实体，反向namespace后payload相等，DataVersion3465不变。"},
+    {"name": "结构palette/blockentity涉及的mod ID注册及内容来源", "status": "PASS", "evidence": "15个模板方块ID与结构化计数中每个mod ID均在当前目标注册表；1 suspicious block entity +16 shale pillar block entities对应已注册BE。"},
+    {"name": "suspicious召唤方块资源、Geo注册/渲染、两阶段与持久字段静态核对", "status": "PASS", "evidence": "当前HEAD的GeoDecorKind/Content/Renderers/BE与实体注册，当前结构NBT中真实模板实例；详细时间线及缺陷修正见第19批文档。"},
+    {"name": "WorldCrux共享SavedData与实际调用读写闭合", "status": "PASS", "evidence": "原MapVariables.get与目标WorldProgressData.get均取overworld SavedData；Boss死亡推进1，三类Galvanite死亡消费者保规则、两次独立20%抽样。"},
+    {"name": "Keystone/Loqendia真实调用者与原Force分支证据", "status": "PASS", "evidence": "普通Keystone wakeup、Shalespring/Palace advancement及Keystone item frame调用已追踪；javap确认Force WakeUp订阅与独立副作用，第39批已明记旁路修复决定。"},
+    {"name": "直接资源缺口审计", "status": "PASS", "evidence": "未发现可由原JAR调用/引用证明的Cavebloomer世界或进度资源缺项，生产资源改动为0；旧第19批前置状态文本已被同文件后续/第28批记录取代。"},
+    {"name": "UTF-8编码与目标JSON解析", "status": "PASS", "evidence": "当前批新增JSON为UTF-8；被核目标数据JSON均成功由Python标准json解析。"},
+    {"name": "Gradle compile/processResources、专用服务端、客户端与Render Preview", "status": "NOT_RUN", "reason": "主线明确要求本路不编译、不启动；按全量迁移收口后流程执行。"}
+  ],
+  "summary": {"pass": 12, "fail": 0, "notRun": 1},
+  "limitations": [
+    "结构等价和模板依赖闭合不证明目标世界已触发自然生成；需新世界专用服务器验收。",
+    "跨版本进度资源已依据目标Codec源码静态核字段，尚未由运行时AdvancementManager解码。",
+    "Boss击杀发放24格内所有玩家、召唤成功/取消/重载时序、区块卸载及剧情任务均未做服务端功能测试。",
+    "所有Geo动画/贴图/粒子/声音均未做本批客户端和Render Preview对照。"
+  ]
+}

@@ -499,3 +499,14 @@ undead_mobs恢复原13成员并纠正第95/112批将两Monolith原生亡灵身�
 本批统一执行`compileJava processResources --offline --max-workers=2`成功，最终日志SHA256为`E017161D9C3BC2C103035CF5D5647862E402CB69FF483F1FF11822DCD80E1F7F`。A静态审计511项中502项通过、9项为IceSquad未改方法的文本一致性检查失败，未将其冒充全部通过；目标编译实际成功。未启动游戏，服务端继续由用户测试线负责；完整迁移与无简化复审完成后再安排客户端和Render Preview验收。
 
 第119批开工前仍需先处理Cavebloomer四技能真实来源链、Shock/Poison调用闭合和其余实体/资源清单，继续由迁移A承担较多生产量，主线负责共享收口。
+
+
+## 第119批最终集成验证
+
+迁移A依据原JAR、当前Java与结构NBT确认Cavebloomer父进度、四次召唤、cavebloomer_field及WorldCrux/Keystone/Loqendia真实链已闭合，12项静态通过、16文件哈希复核通过，本批不重复改写已有功能。原第19批前置待办已由后续实现完成，不能继续当缺口。
+
+主线恢复12份漏迁loot资源：四实体默认掉落、四方块表、beta_complete通关奖及三份原独立表，保全部池、权重、次数、数量与随机序列，仅改命名空间和目标目录。原SpiceGeyser右键过程没有真实调用，Corrial独立表与正常方块表不同，未新造入口。通关奖励引用的Phobos唱片与Crystal Sopel奖杯均已有注册。原610份loot路径全部存在，本批12份JSON语义和构建复制字节通过；这不证明其余表内容或全模组行为完整。
+
+统一compileJava/processResources离线构建成功1m3s，compileJava保持UP-TO-DATE、processResources实际执行。日志SHA256：30AE35FFD02BBD979A46A0967F0C91C6D0931193AAE6D06F9EF5C9B6B1ECBFAA。当前8879份src/main输入已保存构建后快照；构建前快照命令未生成，不声称具备前后全输入相同证明。总证据main119-static-validation.json。未启动游戏、不动用户测试目录；服务端用户负责，客户端与Render Preview完整迁移后安排子代理。Git无remote，仅本地提交。
+
+下一批120由迁移A负责较多的既有loot内容/版本Codec/引用审计，主线负责原资产差集、effect与客户端渲染入口总矩阵及共享收口，仍先核真实缺口再修。

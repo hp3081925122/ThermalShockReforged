@@ -1,0 +1,74 @@
+{
+  "batch": "119A",
+  "baseline": "cf9fa76ddbdc75201bd04171bc36a8c612d52d58",
+  "scope": "仅A独占Cavebloomer进度/方块/世界生成/世界进度与其直接数据资源；只读验证目标Java调用关系",
+  "originalJar": {
+    "path": "D:/AI临时文件/ThermalShockMigration/thermal_shock-07.9-original.jar",
+    "sha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436"
+  },
+  "cases": [
+    {
+      "id": "advancement-cavebloomer",
+      "status": "已迁入，父链闭合；无需生产修改",
+      "original": "data/thermal_shock/advancements/cavebloomer_kill.json；源parent glaciation_get，goal，icon cavebloomer_core，impossible criterion，奖励1000 XP。AngryCavebloomerEntityDiesProcedure 对死亡点24格内ServerPlayer逐个授予所有remaining criteria。",
+      "target": "data/thermal_shock_reforged/advancement/cavebloomer_kill.json；父为thermal_shock_reforged:glaciation_get；原ID、criterion类型和奖励保留，icon采用1.21.1的icon.id格式。",
+      "chain": ["loqendia_get", "glaciation_get", "cavebloomer_kill"],
+      "targetChain": ["loqendia_get", "glaciation_get", "cavebloomer_kill"],
+      "callers": [
+        "entity/cavebloomer/AngryCavebloomerEntity.java::die：24格玩家，逐个补齐kill進度；",
+        "content/npc/shutterbug/ShutterbugQuest.java::openErrand：读取cavebloomer_kill作为NPC后续分支。"
+      ],
+      "review": "cavebloomer_kill无直接子进度，但有Shutterbug Java读取者；不能凭父树叶节点推断孤立。1.21.1 LocationPredicate CODEC支持biomes复数HolderSet字段，目标格式有效。"
+    },
+    {
+      "id": "advancement-keystone-loqendia",
+      "status": "已迁入，父链和真实消费者对应；无需生产修改",
+      "original": "keystone_get parent minecraft:story/form_obsidian；loqendia_get为root，changed_dimension目标thermal_shock:loqendia。",
+      "target": "keystone_get仍为form_obsidian子进度且inventory_changed查Keystone；loqendia_get保changed_dimension到thermal_shock_reforged:loqendia。",
+      "callers": [
+        "world/KeystoneChamberGeneration.java::wakeUp：普通自然生成门槛读取loqendia_get；",
+        "world/ShalespringGeneration.java::advancement：loqendia_get完成后生成Shalespring；",
+        "world/PalaceGeneration.java：loqendia_get完成后生成Palace；",
+        "content/atlas/KeystoneItem.java::useOn：真实Keystone右键八邻位黑曜石框架后生成Atlas。"
+      ],
+      "review": "Keystone chamber不是cavebloomer_kill父/子调用，不应添加假交叉父链。原Forced Keystone WakeUp监听只查KeystoneExists并绕过游戏规则/进度；目标第39批明确移除此冲突旁路并保普通分支完整剧情。"
+    },
+    {
+      "id": "suspicious-cavebloomer-summoner",
+      "status": "资源/注册/正常交互链已迁入；运行待验",
+      "original": "thermal_shock:suspicious_cavebloomer为无硬度/高爆抗BaseEntityBlock，use调用procedure；phase首次交互设1，原队列尝试Budding四次(0/6/13/20 tick，随机XZ[-6,6]、Y+3、MOB_SUMMONED)，再次交互在32立方体内不存在任意Budding时spawn Angry并毁块、全服消息、cavebloomer_detonates HOSTILE .6/3和NukeCloud。",
+      "target": "GeoDecorKind.SUSPICIOUS_CAVEBLOOMER驱动实际DeferredBlock/GeoItem/BlockEntity注册；专用SuspiciousCavebloomerBlock ticker仅服务端spawning时运行；双交互入口均调用BE；cavebloomer_field模板含该block与BE NBT。复用angry_cavebloomer模型、textures/block/angry_cavebloomer.png及动画资源。",
+      "behaviorRecord": "docs/migration/angry-cavebloomer-batch.md 第19批记录：本地持久4次尝试、防重、失败保留入口、卸载暂停，以及库存回收。须与原4尝试时间线区分：首次直接spawn加6/13/20 tick三次，不能把代码timedLoop初始值4误写成5次。",
+      "review": "第19批文件旧段声称方块来源链待迁；后文与第28批已明确完成并静态验收。该早期待办已陈旧，A不覆盖旧历史，只以当前源码/资源与后续完成记录定状态。"
+    },
+    {
+      "id": "cavebloomer-field-worldgen",
+      "status": "目标世界生成JSON与原件静态等价；完整NBT/依赖存在",
+      "original": "jigsaw size1/max distance64/underground_structures/beard_box/absolute Y32..40/glaciation；random_spread spacing20,separation7,salt1828568365；单rigid pool weight1和waterlogging fix processor。",
+      "targetFiles": [
+        "data/thermal_shock_reforged/worldgen/structure/cavebloomer_field.json",
+        "data/thermal_shock_reforged/worldgen/structure_set/cavebloomer_field.json",
+        "data/thermal_shock_reforged/worldgen/template_pool/cavebloomer_field.json",
+        "data/thermal_shock_reforged/worldgen/processor_list/cavebloomer_field_processor.json",
+        "data/thermal_shock_reforged/structure/cavebloomer_field.nbt"
+      ],
+      "template": "49x20x49，48020个记录方块，23个palette状态，0实体；1 suspicious_cavebloomer + 16 shale_pillar BE，资源/注册依赖在目标内容注册表存在。反向改namespace后NBT业务payload精确一致；DataVersion3465保留给原生DFU。",
+      "review": "processor type改名为本模组注册的thermal_shock_reforged:waterlogging_fix，对应已迁入StructureProcessor，处理fluid block、WorldGenRegion中心chunk约束、build高度及scheduleTick；不是缺项。glaciation biome和target worldgen biome modifier资源存在。"
+    },
+    {
+      "id": "world-progress-crux-keystone-loqendia",
+      "status": "真实读取/写入关系已闭合；不补重复或伪造关系",
+      "original": "ThermalShockModVariables.MapVariables.get从overworld SavedData读全世界共享MapVariables；Angry死亡单独将WorldCrux从小于1推进到1并syncData；Galvanite死亡查gamerule doEntityDrops和Crux>=1，再两次独立20% bioelectric_cell。KeystoneExists独立记录密室是否创建。",
+      "target": "WorldProgressData.get(ServerLevel)从server.overworld().getDataStorage读取每服务器共享SavedData；AngryCavebloomerEntity.die调用advanceCrux(1)，有限且单调、setDirty；GalvaniteEntity、RippleEntity、RibbonbladeGalvaniteEntity的真实死亡入口调用GalvaniteDrops，沿用RULE_DOENTITYDROPS、两次独立20%采样和10tick拾取延迟。KeystonePlacement状态同属该SavedData但逻辑独立。",
+      "review": "cavebloomer_kill是玩家展示进度门槛；WorldCrux才是世界级额外掉落开关。原资料没有Keystone/Loqendia对Crux直接依赖，也没有kill advancement自动驱动Keystone结构的Java调用，不新增这样的资源链接。"
+    }
+  ],
+  "staleAudit": {
+    "file": "docs/migration/angry-cavebloomer-batch.md",
+    "finding": "第19批资源盘点段将世界生成和进度父链写为待处理；同文件后续已有静态完成记录，且第28批完整结构迁移与最终静态结果明确完成。当前数据应以当前HEAD实际资源/源码及后续完成证据为准。",
+    "action": "不改非本批文档；把闭合结果、证据和待运行测试交主线总审计更新。"
+  },
+  "productionResourceChanges": [],
+  "sharedJavaChanges": [],
+  "runtimeAcceptance": "未执行；等待主线全量迁移收口后的专用服务端、多人/新世界生成与客户端/Render Preview验证。"
+}
