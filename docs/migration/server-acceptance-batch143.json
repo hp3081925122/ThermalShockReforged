@@ -1,0 +1,69 @@
+{
+  "batch": 143,
+  "title": "当前主线服务端完整功能验收",
+  "status": "通过",
+  "baseCommit": "64dba68b",
+  "minecraft": "1.21.1",
+  "loader": "NeoForge 21.1.233",
+  "java": "C:\\Users\\30819\\.jdks\\ms-21.0.11",
+  "sourceSnapshot": {
+    "productionJavaFiles": 820,
+    "productionResourceFiles": 8129,
+    "note": "隔离项目从当前主线工作树复制；用户独立测试目录未进入生产提交。"
+  },
+  "routes": [
+    {
+      "name": "bastion",
+      "scope": "战斗、死亡、维度",
+      "gameTests": 60,
+      "passed": 60,
+      "failed": 0,
+      "compile": "通过",
+      "run": "通过",
+      "log": "D:\\AI临时文件\\ThermalShockMigration\\server143\\bastion-rerun.log",
+      "logSha256": "BB269A3A72B529E600E8DFFCACABBC8B40B1F130E57A50C7B78DDA54A2FF0DC0"
+    },
+    {
+      "name": "forecast",
+      "scope": "武器、投射物、机器",
+      "gameTests": 60,
+      "passed": 60,
+      "failed": 0,
+      "compile": "通过",
+      "run": "通过",
+      "log": "D:\\AI临时文件\\ThermalShockMigration\\server143\\forecast-run-rerun.log",
+      "logSha256": "0DBEA6EEF065E81E2DE39E9F82E38100458A34D25BF755CA361285A5E03262AA"
+    },
+    {
+      "name": "early_content",
+      "scope": "早期内容、世界与NPC、Atlas、结构",
+      "gameTests": 60,
+      "passed": 60,
+      "failed": 0,
+      "compile": "通过",
+      "run": "通过",
+      "log": "D:\\AI临时文件\\ThermalShockMigration\\server143\\early-content-run.log",
+      "logSha256": "7D4C4F77EAA12CECADAE9E76D68C90AAB51550584F2A2357F71257E6E2F1FD2D"
+    }
+  ],
+  "total": {
+    "gameTests": 180,
+    "passed": 180,
+    "failed": 0,
+    "gradleRuns": 3
+  },
+  "testFixtureCorrection": {
+    "scope": "仅 D:\\AI临时文件 隔离测试副本",
+    "reason": "原始 CharacterMobDeathstopProcedure 对 character_mobs 的所有攻击尝试取消；旧 Benzor 测试夹具仍断言普通攻击和 genericKill 应成功，和批次114已接入的原始契约冲突。",
+    "productionChanged": false,
+    "correctedAssertions": [
+      "普通攻击尝试被 character_mobs 保护取消且生命值不变",
+      "通过显式 die 入口验证 Benzor 20 tick 死亡移除与无经验球"
+    ]
+  },
+  "notCovered": [
+    "客户端游戏内验收",
+    "Render Preview 渲染对照",
+    "真实多人联机与长时间性能基线"
+  ]
+}
