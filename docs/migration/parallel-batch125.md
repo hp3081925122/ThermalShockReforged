@@ -1,0 +1,11 @@
+# 第125批：实体动画实际消费路径
+
+基线f83be73。第124批主线中期已提交，A继续122项菜单具体复审和独占菜单Java；本批动画调查与之并行，不重做154实体注册、43发光层和已补26透明路径盘点。Java无注释、调试英文，临时文件UTF-8并全部位于D:/AI临时文件/ThermalShockMigration。
+
+原EntityAnimationFactory覆盖118种Geo实体，按注册ID排序分为各59项，完整原记录保存在animation125/group1-assignment.json和group2-assignment.json。A优先完成124菜单后，再由其原三个只读Luna分20/20/19项调查group1；主线负责group2及公共语义。尚未实际派发的范围不得声称已有代理进行中。逐实体核原movement/attack/procedure谓词、有效clip、实际动态写入和目标controller/trigger消费；共享父类可引用主线公共语义证据，每实体仍须核真实配置和调用。原无有效clip的生成器残留不补造动画。路径或注册存在不等于条件、优先级和循环语义一致。
+
+主线独占共享Animated实体父类、全局同步桥及当前GeckoLib实际API语义的调查；只读代理不重复公共库源码研究，疑点交主线。生产修复前登记精确路径，A菜单专属、语言及用户测试/Ribbonblade均不碰。原有效分支不以目标allowlist无对应视为自动合理删除。
+
+语言Luna独占en_us.json、zh_cn.json及localization-zh-review.md，继续有上下文的GUI全文翻译；本轮收到明确冻结前可写自己的文件。最终构建前所有生产所有者停笔并保存完整src/main快照；本轮只读报告不得将未配对的静态项转成运行待验以宣称全部闭合。
+
+完整迁移与无简化复审收口后，再由子代理进行客户端及Render Preview实际对照。服务端由用户独立线负责，不联系、不重复安排。编译与静态调查均不替代运行验收。

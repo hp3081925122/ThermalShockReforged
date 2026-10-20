@@ -1,0 +1,52 @@
+{
+  "scope": "原Factory与目标共享父类/真实Gecko492公共语义，不是118实体全量等价证明",
+  "actualDependencyJarSha256": "5e548466af9ab6aca7a91a7c7d4dc0dc8bc385e22958aed5da0e7bebd0fa3fba",
+  "evidence": [
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\EntityAnimationFactory.java",
+      "sha256": "0c4d6586d0cf6fdb806ba173d9f6b2840735352ef661d1bbc9d19bb099f70263"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\animation125\\gecko492-readable\\software\\bernie\\geckolib\\animation\\AnimationController.java",
+      "sha256": "57d3e736f44064ca3d3124201a0c6dfe9311231514b32c0be7d428cd1bf22219"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\animation125\\gecko492-readable\\software\\bernie\\geckolib\\animation\\RawAnimation.java",
+      "sha256": "052496450f4168c17c80ea204b58d283c199a95f87f0634c67dba4db3668e9e5"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\animation125\\gecko492-readable\\software\\bernie\\geckolib\\animatable\\GeoEntity.java",
+      "sha256": "384220d0ddc843aa97ff8bf7017815b1d33d0039266a4f22da8032e3e63945e8"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\base\\AnimatedMonsterEntity.java",
+      "sha256": "0e8c3d8aca1b10ca3f890d625ba4f8b51e3c2cf574792bf78c35d9df555f6cd4"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\base\\AnimatedPathfinderEntity.java",
+      "sha256": "a6def5d436e8eda05bd81a4ebe5fea0014d50fed3e9bfcfabc4fc1a032de98bc"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\animation125\\gecko492-readable\\software\\bernie\\geckolib\\animation\\AnimationProcessor.java",
+      "sha256": "38d6574954b5d2fa9490e25bfc6aa1ea438ad2be8d4dfd79bf9811a850453057"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\animation125\\gecko492-readable\\software\\bernie\\geckolib\\animation\\Animation$LoopType.java",
+      "sha256": "2b49d8a5cad4efdd74d63294af422cb657921a0794429075c6c8c08b145c66a4"
+    }
+  ],
+  "facts": [
+    "原Factory在LivingTick把非undefined同步字符串转给实体animationprocedure，并重置同步字段；没有同名Factory不等于目标漏动画。",
+    "目标GeoEntity.triggerAnim在客户端取实体instance manager，在服务端走Gecko网络同步。",
+    "thenPlay使用DEFAULT，沿clip自己的loop，不能统一称为播放一次；thenLoop明确强制循环。",
+    "tryTriggerAnimation给triggeredAnimation赋注册RawAnimation，同名正在播放时不自动forceAnimationReset；STOPPED时才置TRANSITIONING和reset tick。",
+    "目标共享movement在procedure.isPlayingTriggeredAnimation时STOP，移动条件为isMoving或limb<=-0.15或>=0.15；原生成器的否定比较在有限正常limb值下同样含边界。",
+    "共享procedure按实体procedureAnimations白名单注册，不代表原所有外部写入都已完整保留；每实体必须核实际写入和有效clip。"
+  ],
+  "remaining": [
+    "逐实体条件、controller转换tick、attack优先级及动态调用仍按两组118项继续。",
+    "NaN limb等非正常输入不由有限值真值表证明；真实客户端过渡和GPU显示未测。"
+  ],
+  "productionChanged": false,
+  "gameExecuted": false
+}

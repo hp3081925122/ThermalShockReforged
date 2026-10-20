@@ -1,0 +1,55 @@
+{
+  "baseline": "f83be73",
+  "scope": "A124 menu delivery plus two mainline consumer repairs and 125 language; full animation review pending",
+  "build": {
+    "command": "compileJava processResources --offline --max-workers=2",
+    "success": true,
+    "log": "D:\\AI临时文件\\ThermalShockMigration\\batch125-unified-build.log",
+    "sha256": "3935662899cfe026dd7c127dd4c2212d026a7c0009d8e45264c2a7a80f132c91"
+  },
+  "fixedInputs": {
+    "count": 8880,
+    "snapshot": "D:\\AI临时文件\\ThermalShockMigration\\batch125-inputs-before.json",
+    "sha256": "1b70ac9fd766b5e07911a7a292d6afba05fd2f93b438cc257b7a8f675479e990",
+    "unchanged": true
+  },
+  "directResourcesByteEqual": 8060,
+  "aHandoffFilesVerified": 10,
+  "aDetailFilesVerified": 12,
+  "language": {
+    "changedExistingChinese": 159,
+    "newKeys": 0,
+    "oldEnglishUnchanged": true,
+    "nativeFormatsStylesNewlinesPassed": true,
+    "cameraPreserved": 86,
+    "enSha256": "f34ec640698eb8f70a121b0a9ea91f5f81ea4e61b20b6bda53b714fe4e535cbb",
+    "zhSha256": "cbad3fa637527c47ee8bfca97179d0db70ae6b0d7b758b06848fddf265e8b3c6"
+  },
+  "ownedProduction": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/npc/concierge/ConciergeTrade.java",
+      "sha256": "1668fbc3794217aa688fb1d4feabc6777f30d4c76120aa21a4dfc59c55f2e158"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/npc/laut/LautPage.java",
+      "sha256": "53c8e9ec1336cbdc616ff5e70026c4908cd83a57bfd1b091396378df7b68e697"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/npc/laut/LautMenu.java",
+      "sha256": "d7e3d0ce096806e89b8fd6fe60dafa4c1eae22db505e70c0da4ab18edf85a536"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/qo/QoPage.java",
+      "sha256": "3f83c93bb1b9b971a6f52807f14e243d402298602f2a80be58044a966fe8acff"
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/lang/zh_cn.json",
+      "sha256": "cbad3fa637527c47ee8bfca97179d0db70ae6b0d7b758b06848fddf265e8b3c6"
+    }
+  ],
+  "menuStaticClosed": 234,
+  "menuStaticRemaining": 7,
+  "independentRibbonbladeIncludedButExcludedFromCommit": true,
+  "gameExecuted": false,
+  "fullMigrationComplete": false
+}

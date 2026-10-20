@@ -1,0 +1,140 @@
+{
+  "baseline": "d2608f4c7fb55a5eec3ea4973a91ceba24db21bb",
+  "passed": true,
+  "exact_allowed_changes": true,
+  "production": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/npc/laut/LautPage.java",
+      "sha256": "53c8e9ec1336cbdc616ff5e70026c4908cd83a57bfd1b091396378df7b68e697"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/npc/laut/LautMenu.java",
+      "sha256": "d7e3d0ce096806e89b8fd6fe60dafa4c1eae22db505e70c0da4ab18edf85a536"
+    }
+  ],
+  "checks": {
+    "five_page_portrait_truth_table_matches_original": true,
+    "five_page_frame_tick_matches_original": true,
+    "have_next_always_opens_confirm": true,
+    "confirm_yes_still_uses_atomic_quest_accept": true,
+    "quest_unchanged": true,
+    "screen_unchanged": true,
+    "english_debug_after_request": true
+  },
+  "source_pages": [
+    {
+      "source_screen": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\gui\\LautErrand1Epl1Screen.java",
+      "source_screen_sha256": "aeb7b9446c388d3db5aece8dc82e73bdec65dfcae3719490bcb1ce389b2c40cb",
+      "source_menu": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\world\\inventory\\LautErrand1Epl1Menu.java",
+      "source_menu_sha256": "0b78d507133cf45d5dc814d63cd28b0e54db441a74ed9981509efc9c9f903301",
+      "source_portrait": true,
+      "target_portrait_after_repair": true,
+      "source_frame_tick": true,
+      "target_frame_tick_retained": true
+    },
+    {
+      "source_screen": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\gui\\LautErrand1Epl2Screen.java",
+      "source_screen_sha256": "568acc8c9eeb454045650e7f208702fbeccf85e78df50a321ecdda03ab872902",
+      "source_menu": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\world\\inventory\\LautErrand1Epl2Menu.java",
+      "source_menu_sha256": "5566aa39f76b596cc0403f2f1fd348c168f222597a76de2a541ce7c7a5311e54",
+      "source_portrait": true,
+      "target_portrait_after_repair": true,
+      "source_frame_tick": true,
+      "target_frame_tick_retained": true
+    },
+    {
+      "source_screen": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\gui\\LautErrand1Epl3Screen.java",
+      "source_screen_sha256": "2b9a0a3547585ec84bd72df20931dc19b327f09e3c2639c6cefc583a3cfe589d",
+      "source_menu": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\world\\inventory\\LautErrand1Epl3Menu.java",
+      "source_menu_sha256": "4d862f7ebded13b029d08f7e98e80647eb9c511416c92ebf47b020a66256c142",
+      "source_portrait": false,
+      "target_portrait_after_repair": false,
+      "source_frame_tick": false,
+      "target_frame_tick_retained": false
+    },
+    {
+      "source_screen": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\gui\\LautErrand1AcceptScreen.java",
+      "source_screen_sha256": "f757af0519b5f04a63993a043e1cb78da3d5b5ed24dc0bc51a4017c480c5471d",
+      "source_menu": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\world\\inventory\\LautErrand1AcceptMenu.java",
+      "source_menu_sha256": "eb06fa0105c195c8cad881ae4b3517b928060f38fd2a8cbaf98398403bcddba5",
+      "source_portrait": true,
+      "target_portrait_after_repair": true,
+      "source_frame_tick": true,
+      "target_frame_tick_retained": true
+    },
+    {
+      "source_screen": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\gui\\LautErrand1RejectScreen.java",
+      "source_screen_sha256": "398f2cb283320a1abcb0302a008ef757f9dad2e964665f3d6625117355eb86a3",
+      "source_menu": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\world\\inventory\\LautErrand1RejectMenu.java",
+      "source_menu_sha256": "1f9d2d9116e0a6f1d0d101f02587d44495cd5ccab6860287da3eaf3a8df8182a",
+      "source_portrait": true,
+      "target_portrait_after_repair": true,
+      "source_frame_tick": true,
+      "target_frame_tick_retained": true
+    }
+  ],
+  "resolved_identities": [
+    "laut_errand_1_epl_2",
+    "laut_errand_1_accept",
+    "laut_errand_1_reject"
+  ],
+  "inputs": [
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\gui\\LautErrand1Epl1Screen.java",
+      "sha256": "aeb7b9446c388d3db5aece8dc82e73bdec65dfcae3719490bcb1ce389b2c40cb"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\world\\inventory\\LautErrand1Epl1Menu.java",
+      "sha256": "0b78d507133cf45d5dc814d63cd28b0e54db441a74ed9981509efc9c9f903301"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\gui\\LautErrand1Epl2Screen.java",
+      "sha256": "568acc8c9eeb454045650e7f208702fbeccf85e78df50a321ecdda03ab872902"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\world\\inventory\\LautErrand1Epl2Menu.java",
+      "sha256": "5566aa39f76b596cc0403f2f1fd348c168f222597a76de2a541ce7c7a5311e54"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\gui\\LautErrand1Epl3Screen.java",
+      "sha256": "2b9a0a3547585ec84bd72df20931dc19b327f09e3c2639c6cefc583a3cfe589d"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\world\\inventory\\LautErrand1Epl3Menu.java",
+      "sha256": "4d862f7ebded13b029d08f7e98e80647eb9c511416c92ebf47b020a66256c142"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\gui\\LautErrand1AcceptScreen.java",
+      "sha256": "f757af0519b5f04a63993a043e1cb78da3d5b5ed24dc0bc51a4017c480c5471d"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\world\\inventory\\LautErrand1AcceptMenu.java",
+      "sha256": "eb06fa0105c195c8cad881ae4b3517b928060f38fd2a8cbaf98398403bcddba5"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\gui\\LautErrand1RejectScreen.java",
+      "sha256": "398f2cb283320a1abcb0302a008ef757f9dad2e964665f3d6625117355eb86a3"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\world\\inventory\\LautErrand1RejectMenu.java",
+      "sha256": "1f9d2d9116e0a6f1d0d101f02587d44495cd5ccab6860287da3eaf3a8df8182a"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\npc\\laut\\LautScreen.java",
+      "sha256": "eca7c610036c9cae93f0c07a5cc4d003b89a89d9ef224750e18e368852332f42"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\npc\\laut\\LautQuest.java",
+      "sha256": "bacb48a142468422d9630e326435f275bfe4de6078e7f27c01f4b6a9946b63c1"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\LautErrandPageOpenProcedure.java",
+      "sha256": "2c6ab7bd605c4fa7610ae19019d5457aaf2a498b770cbd39a98391178932a4c7"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\a124-laut-validate.py",
+      "sha256": "b6d11255d4aed85f00639516e23874145fd25eff25852402d1fc1f03426051a6"
+    }
+  ],
+  "limits": "静态真实源/目标消费者和限定差异；不代表客户端实际图像或服务器任务测试。"
+}

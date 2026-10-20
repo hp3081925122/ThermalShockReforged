@@ -384,3 +384,6 @@ Qo集成保全世界共享剧情、真实16页与奖励链，服务端验证同�
 - 汉化交付新增539条人工或术语译文，3486英文键均有中文文件条目，原981条中文值保留；约1967条新增键仍缺可靠译文，英文回退和仅译通用类别不算完整汉化。19条原有格式差异是颜色/样式差异，未发现这些旧条目的占位符遗漏；部分旧中文说明另有省略语义，列后续审校。
 - A路恢复Whisper八交易页Shift到热栏时从末格向前遍历，并增加成功移动英文debug；费用、产物和布局不变。303组属性、67模板及241菜单的复审仍有明确待核边界，见review-a122-remaining.json。
 - 接续主对话固定8879份src/main输入，首次统一Java21离线compileJava/processResources通过1m13s，两任务实际执行；再修20条相机译文换行后重新固定输入，最终构建通过1m11s，compileJava为UP-TO-DATE、processResources实际执行。前后输入一致、8060直接资源字节一致，14份A交付哈希一致；详见main122-static-validation.json。未启动游戏；独立Ribbonblade修改参与当前构建但不归本批提交。整模组迁移与无简化复审未完成。
+
+- 第124/125批菜单复审补回Laut接受与拒绝页的原动态立绘，HAVE按原直接进确认页，确认YES仍严格复核及原子支付。Concierge七购买恢复原Inventory41格足额资格，再执行既有完整pay；Quest及pay共用范围不动。Qo拒绝页128高画像恢复V=0静态采样，保其余动态画像。
+- 第125批纠正Laut旧起因记录：原EntityAnimationFactory实际给animationprocedure赋值，原完成动画并非完全不播放；现有完成状态跨存读驱动loop1是已记录行为调整。Gecko492 thenPlay为DEFAULT，loop依资源，不能用方法名误判循环丢失。

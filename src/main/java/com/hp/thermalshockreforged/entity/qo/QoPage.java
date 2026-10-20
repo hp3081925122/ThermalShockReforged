@@ -61,7 +61,7 @@ public enum QoPage {
             List.of(new Button(0, 107, 87, 20, 20, "yesbuttonb"), new Button(1, 147, 87, 20, 20, "nobuttonb"))),
     STRATUS_REJECT("qo_stratus_alloy_3a", "QoStratusAlloy3a", "qo_em2_speak", 276, 182,
             List.of(new Line("gui.thermal_shock_reforged.qo_stratus_alloy_3a.label_kutty", 9, 112, -1), new Line("gui.thermal_shock_reforged.qo_stratus_alloy_3a.label_concierge", 67, 93, -1)),
-            List.of(new Image("mainspeechbox", 0, 103, 276, 276, 276, 276, false), new Image("mainlabelbox", 62, -30, 134, 134, 134, 134, false), new Image("qoem4portrait", -5, -24, 128, 128, 128, 128, true)),
+            List.of(new Image("mainspeechbox", 0, 103, 276, 276, 276, 276, false), new Image("mainlabelbox", 62, -30, 134, 134, 134, 134, false), new Image("qoem4portrait", -5, -24, 128, 128, 128, 128, false)),
             List.of()),
     STRATUS_ACCEPT("qo_stratus_alloy_3b", "QoStratusAlloy3b", "qo_main_speak", 276, 182,
             List.of(new Line("gui.thermal_shock_reforged.qo_stratus_alloy_3b.label_kutty", 9, 112, -1), new Line("gui.thermal_shock_reforged.qo_stratus_alloy_3b.label_concierge", 67, 93, -1), new Line("gui.thermal_shock_reforged.qo_stratus_alloy_3b.label_oh_and_you_can_have_this_ehh", 9, 123, -1), new Line("gui.thermal_shock_reforged.qo_stratus_alloy_3b.label_why_are_you_looking_at_me", 9, 134, -1)),

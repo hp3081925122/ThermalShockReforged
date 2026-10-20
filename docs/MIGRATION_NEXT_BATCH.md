@@ -558,3 +558,17 @@ Umabel/Unette六个主页面问候已接语言键，原分支/坐标/颜色和�
 各生产所有者停笔后固定8880份src/main，Java21离线compileJava/processResources --max-workers=2成功1m26s，两任务实际执行。输入前后不变，8060直接资源逐字节相同，见main124-static-validation.json。Ribbonblade并行源码参与构建但不纳入迁移阶段提交；用户测试目录保持独立。
 
 A的122项具体菜单缺项仍在复审，不能将这次主线中期构建说成整个124批或整模组完成。验证通过后已解除A菜单专属Java冻结；后续A改动须另固定输入构建。原goal仍active，服务端由用户独立线负责，完整代码及无简化复审后再安排子代理客户端及Render Preview。
+
+## 第125批阶段集成验证
+
+接收A124的122项菜单具体复审：107项新增静态闭合，Laut恢复接受/拒绝页立绘及HAVE直接进入确认页。原剩15项中主线修七项Concierge交易的Inventory足额资格和Qo拒绝页单帧UV，加上第124批两问候接线，累计234/241菜单身份具备当前静态闭合证据。剩余7项集中在Defector根交互先开INTRO5/EXHAUST、再覆盖持物页时的实际开页声及前页状态消费者，不用最终页相同消除这些待办。
+
+Concierge仅在buy恢复原41格Inventory资格，完整pay与Quest原样保留，避免连带改任务扣款。Qo仅将128高qoem4portrait的animated改false，保原V=0，不改变其余动态画像。原费用/奖励/资格来源及修后结论见menu-main124-followup-validation.json；A修前完整报告保留，不能把它的15剩项读作修后状态。
+
+语言独立Luna再译159条GUI正文，原英文3492键和所有键顺序未变；86条相机图鉴值、原生格式、样式及LF校验通过。英文相同1573项包含专名，GUI640项仍须按上下文判断。最终owner证据已转存localization-main125-owner-validation.json。
+
+动画公共机制以真实Gecko4.9.2 JAR核实：thenPlay使用DEFAULT并继承clip自身loop，不能统一当单次；同名trigger也不必然强制重置。原Factory确实给Laut的animationprocedure赋值，第33批“未赋值”的起因误判已纠正；现有完成状态跨重载驱动loop1属于既有行为调整，未擅自回退。group2前12种有界条件/转换/调用及资源逐字节核对见animation-main125-first12-review.json；余47种及A的group1共59种继续，不声明118全部完成。
+
+生产停笔后固定8880份src/main，Java21离线compileJava/processResources --max-workers=2统一通过1m16s，两任务实际执行。构建期输入不变，8060直接资源字节一致；A10交接文件和全部详细证据文件哈希通过。校验器第一次把Git LF与工作区CRLF误判Quest修改，已按统一换行比较修正，生产未为此改变；最终main125-static-validation.json通过。独立Ribbonblade源码参与构建但不纳入迁移提交，用户测试目录独立保留。
+
+后续先核剩余Qo根声音消费者、动画group2余47种与A只读group1、其余正文及声画边界。完整代码与无简化复审后才子代理客户端/Render Preview验收；服务端继续用户独立线负责，不联系、不接管、不重复安排。当前goal active，未宣称完整迁移或最终运行验收完成。

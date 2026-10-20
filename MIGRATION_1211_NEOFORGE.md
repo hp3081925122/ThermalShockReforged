@@ -28,7 +28,7 @@
 
 ## 当前状态索引（2026-10-20）
 
-第123批已提交d2608f4；第124批主线中期固定8880份输入统一编译及资源处理通过，8060直接资源字节一致。113组结构属性已复核；本批45条状态查询/移除消费者已具体核实，修复镰刀临时添加顺序及Liteprism正常回调顺序并保防重入。26项透明路径中修复三种技能载体，撤回isBodyVisible=false等于完全不画的误判。两主页面问候已接语言键，中文118既有GUI值及6新增双语键已合并。菜单A路122项具体缺项仍在复审，完整控制器、全文汉化和最终运行验收仍未完成。最新逐项结论见docs/MIGRATION_NEXT_BATCH.md及docs/migration/main124-static-validation.json，主对话接续见docs/migration/PRIMARY_HANDOFF_2026-10-20.md。
+第124批主线中期已提交f83be73；第125批阶段集成固定8880份输入统一编译及资源处理通过，8060直接资源字节一致。接收A124菜单复审及Laut修复，补Concierge七交易Inventory资格与Qo单帧画像，累计234/241菜单静态闭合，余7项Defector连续开页声音/前页消费者。语言再译159条GUI正文，尚有全文审校。动画公共机制和group2前12种已做有界复核，余47种及A组59种继续；未宣称完整控制器或实际声画验收。最新结论见docs/MIGRATION_NEXT_BATCH.md及docs/migration/main125-static-validation.json，主对话接续见docs/migration/PRIMARY_HANDOFF_2026-10-20.md。
 
 原总控goal已按用户要求在当前主对话续接，仍为active。服务端由用户独立测试线负责；完整迁移及复审收口后，由子代理完成客户端与Render Preview原件对照。语言文件由专属Luna负责。
 

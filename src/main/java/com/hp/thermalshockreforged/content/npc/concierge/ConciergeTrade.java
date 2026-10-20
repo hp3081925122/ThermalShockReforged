@@ -20,6 +20,15 @@ public record ConciergeTrade(String item, int count, int levels, int spiceCount)
         Item reward = BuiltInRegistries.ITEM.get(ConciergeContent.id(item));
         Item currency = BuiltInRegistries.ITEM.get(ConciergeContent.id("adamantine_spice"));
         if (reward == Items.AIR || currency == Items.AIR || player.experienceLevel < levels) return false;
+        int inventoryNeeded = spiceCount;
+        for (int slot = 0; slot < player.getInventory().getContainerSize() && inventoryNeeded > 0; slot++) {
+            ItemStack stack = player.getInventory().getItem(slot);
+            if (stack.is(currency)) inventoryNeeded -= Math.min(inventoryNeeded, stack.getCount());
+        }
+        if (inventoryNeeded != 0) {
+            ThermalShockReforged.LOGGER.debug("Concierge trade inventory qualification rejected: player={}, item={}, requiredSpice={}, missingSpice={}", player.getUUID(), item, spiceCount, inventoryNeeded);
+            return false;
+        }
         if (!pay(player, currency, spiceCount)) return false;
         player.giveExperienceLevels(-levels);
         ItemHandlerHelper.giveItemToPlayer(player, new ItemStack(reward, count));

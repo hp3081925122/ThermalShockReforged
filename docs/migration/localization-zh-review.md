@@ -36,9 +36,16 @@
 - 本批更改 118 个既有中文 GUI 值，新增 6 个英文键及对应中文值。改动值的占位符、`§` 样式序列和换行数均与英文原文一致；没有修改 Java。
 - 静态检查确认 JSON 无重复键、英文与中文键兼容、原英文值未变；全文件未发现原生格式占位符不一致。第124批仅改 GUI，原有 86 个含实际 LF 的相机图鉴值逐项保持不变。
 
+## 第125批：NPC 图鉴、居民对话与剧情
+
+- 按 `ShutterbugPage.java`、`DialoguePage.java`、`SopelPage.java` 和 `FloristPage.java` 的实际 `Line` 消费顺序，翻译 159 条此前仍与英文相同的正文。包括 Unette 图鉴与 Cavebloomer 委托、8 段居民对话和锈蚀收音机播报、Sopel 剧情及 Umabel 信息页；角色标题和未被这些页面消费的键不纳入。
+- 译文例子：穹顶城镇与 Blizzard 的说明保留 `Projekt Blizzard` 专名；20 个周期和 5 趟火车的数量原样保留；Sopel 的 `x1` 选择提示与 beta/version 1 文本保留数量、版本和表情；Umabel 的“埋葬宫殿”、感染者及花园对话按语境翻译，遮蔽词 `####` 原样保留。
+- 没有新增键，也未更改 en_us。键顺序保持不变；严格 JSON 重复键检查通过；占位符、`§` 样式序列及实际 LF 数与对应英文一致。86 条相机图鉴值逐项未变。
+- 本批新增中文值均为原本与英文逐字相同的内容，改后仍有 1573 个非空英文值与中文值相同，其中 GUI 640。该精确计数包含专名及其他需按上下文判定的内容，不代表剩余条目都应翻译。
+
 ## 尚未完成
 
-当前有 1732 个非空英文值与中文值完全相同，属于精确字符串计数，不等同于应直译的条目。按键族分布：GUI 799、方块 429、物品 287、实体 80、JEI 35、画作 34、效果 21、生物群系 13、进度 12、字幕 12、死亡消息 6、流体 3、物品组 1。另有 41 个英文值本身为空，不纳入残留计数。GUI 残留中可见需要保留或后续判定的专名，例如 `SHUTTERBUG UNETTE`、`Projekt Blizzard`、`Jellercel` 和 `kutty`；其余 GUI 仍需继续按源码和完整语句逐条审校，不能据字符串相同数直接判定完成。
+当前有 1573 个非空英文值与中文值完全相同，属于精确字符串计数，不等同于应直译的条目。按键族分布：GUI 640、方块 429、物品 287、实体 80、JEI 35、画作 34、效果 21、生物群系 13、进度 12、字幕 12、死亡消息 6、流体 3、物品组 1。另有 41 个英文值本身为空，不纳入残留计数。GUI 残留中仍有需保留或后续判定的专名，例如 `SHUTTERBUG UNETTE`、`Projekt Blizzard`、`Jellercel` 和 `kutty`；其他 GUI 仍需继续按源码与完整语句逐条审校，不能据字符串相同数直接判定完成。
 
 下一步继续按源码顺序翻译剩余 GUI 对话与提示，再处理物品和方块的通用名称/说明。图像内文字及中文布局尚未进行客户端验收，不能称为完整汉化。
 
@@ -47,4 +54,5 @@
 - 第123批候选、脚本及证明文件位于 `D:\AI临时文件\ThermalShockMigration\localization-zh-owner\`；第124批候选、备份和校验结果位于 `D:\AI临时文件\ThermalShockMigration\localization-zh-owner\next-gui\`。
 - 第123批开始前 zh SHA-256：`24ca0d5e17b696e1b6dc764db4e80fb355ecf9b92f516affdb52edbe17070cea`。
 - 第124批固定输入 en SHA-256：`f34ec640698eb8f70a121b0a9ea91f5f81ea4e61b20b6bda53b714fe4e535cbb`；zh SHA-256：`88ed95061038df314a5ad897ac0efca65e03b459d4cd2b081dc50125a1739be2`。
+- 第125批后 en SHA-256：`f34ec640698eb8f70a121b0a9ea91f5f81ea4e61b20b6bda53b714fe4e535cbb`；zh SHA-256：`cbad3fa637527c47ee8bfca97179d0db70ae6b0d7b758b06848fddf265e8b3c6`。第125批逐键清单及严格格式验证记录位于 `D:\AI临时文件\ThermalShockMigration\localization-zh-owner\next-gui125\`。
 - 本阶段只做 JSON/键/格式静态核验；未运行构建、`processResources` 或游戏测试，留给主线统一处理。

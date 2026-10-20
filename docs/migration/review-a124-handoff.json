@@ -1,0 +1,74 @@
+{
+  "batch": "124A",
+  "baseline": "d2608f4c7fb55a5eec3ea4973a91ceba24db21bb",
+  "src_main_frozen": true,
+  "files": [
+    {
+      "path": "docs/migration/menu-a124-consumer-evidence.json",
+      "sha256": "e671fe8e36ede6b78154c9764a356db78a80db76d1e9d6cbae979ac078248834",
+      "role": "文档或证据"
+    },
+    {
+      "path": "docs/migration/menu-a124-matrix241.json",
+      "sha256": "60f07875580900c1f8694f52f4b73e70d27f6bac6d9e928171dd3672e4bc3587",
+      "role": "文档或证据"
+    },
+    {
+      "path": "docs/migration/menu-a124-repair-validation.json",
+      "sha256": "538aeb5c6c4dad14709d4f5e1d5baa3c7147581e5f279dfe85d224c79d2266bd",
+      "role": "文档或证据"
+    },
+    {
+      "path": "docs/migration/review-a124-detail-manifest.json",
+      "sha256": "061b7361b03037e53e4e323dae1fc120bf247addcf9b9f06af11442ca2405abe",
+      "role": "文档或证据"
+    },
+    {
+      "path": "docs/migration/review-a124-plan.md",
+      "sha256": "d15a105eea16a9c07528c820831c38791deef0d25b89dd943b7fb1676d8c5b03",
+      "role": "文档或证据"
+    },
+    {
+      "path": "docs/migration/review-a124-remaining.json",
+      "sha256": "ef95bc31385ceaeaeeb68bc89c7e7982a4f24d1d79b613568f8b68f9193502ee",
+      "role": "文档或证据"
+    },
+    {
+      "path": "docs/migration/review-a124-review.md",
+      "sha256": "86c7b485ba759f844d0fbe4c1805c1038dc2b022b8b21a6ca9118be7c68f5d7e",
+      "role": "文档或证据"
+    },
+    {
+      "path": "docs/migration/review-a124-validation.json",
+      "sha256": "7d931d3ad0d36d73fbc53114c0d78cad6639207aa6163be977512649b1352af0",
+      "role": "文档或证据"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/npc/laut/LautMenu.java",
+      "sha256": "d7e3d0ce096806e89b8fd6fe60dafa4c1eae22db505e70c0da4ab18edf85a536",
+      "role": "生产"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/npc/laut/LautPage.java",
+      "sha256": "53c8e9ec1336cbdc616ff5e70026c4908cd83a57bfd1b091396378df7b68e697",
+      "role": "生产"
+    }
+  ],
+  "input_set_sha256": "1f4b56ceef5810f180535c80303517b2cce58e118aca181460635fbf2ab93fc2",
+  "manifest_excludes_itself": true,
+  "selected": 122,
+  "new_static_closed": 107,
+  "remaining_static_identities": 15,
+  "matrix_counts_including_inherited_language_state": {
+    "已核": 224,
+    "部分": 17
+  },
+  "production_files": [
+    "src/main/java/com/hp/thermalshockreforged/content/npc/laut/LautPage.java",
+    "src/main/java/com/hp/thermalshockreforged/content/npc/laut/LautMenu.java"
+  ],
+  "remaining_matrix": "docs/migration/review-a124-remaining.json",
+  "build_by_a": false,
+  "game_by_a": false,
+  "no_stage_commit": true
+}

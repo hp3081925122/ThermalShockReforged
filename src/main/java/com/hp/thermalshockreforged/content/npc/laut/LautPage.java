@@ -13,5 +13,5 @@ public enum LautPage {
     public final List<Line> lines;
     LautPage(String id, List<Line> lines) { this.id = id; this.lines = lines; }
     public boolean terminal() { return this == ACCEPT || this == REJECT; }
-    public boolean portrait() { return this == NEED || this == HAVE; }
+    public boolean portrait() { return this != CONFIRM; }
 }
