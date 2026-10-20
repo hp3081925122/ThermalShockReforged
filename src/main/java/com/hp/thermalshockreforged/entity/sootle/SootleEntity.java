@@ -1,6 +1,8 @@
 package com.hp.thermalshockreforged.entity.sootle;
 
 import com.hp.thermalshockreforged.content.ModDamageTypes;
+import com.hp.thermalshockreforged.world.timing.ServerEndTickTask;
+import com.hp.thermalshockreforged.world.timing.ServerEndTickTasks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
@@ -16,7 +18,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import software.bernie.geckolib.animation.AnimationState;
 
-public final class SootleEntity extends AbstractSootleEntity {
+public final class SootleEntity extends AbstractSootleEntity implements ServerEndTickTask {
     private int cooldown;
     private int actionLock;
     private int skillAge = -1;
@@ -51,6 +53,7 @@ public final class SootleEntity extends AbstractSootleEntity {
         getNavigation().stop();
         setAnimation(singleAttack ? "attack" : "attack2");
         soundAtOrigin(SoundEvents.WOODEN_BUTTON_CLICK_ON, 1);
+        if (level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
     }
     private LivingEntity skillTarget() {
         if (!(level() instanceof ServerLevel server) || skillTarget == null || !skillDimension.equals(level().dimension().location().toString())) return null;
@@ -59,15 +62,24 @@ public final class SootleEntity extends AbstractSootleEntity {
     }
     private void cancelAttack() { skillAge = -1; skillTarget = null; actionLock = 0; resumeAnimation = false; }
     @Override
+    public void onAddedToLevel() {
+        super.onAddedToLevel();
+        if (skillAge >= 0 && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
+    }
+    @Override
     public void tick() {
         if (!level().isClientSide && (skillAge >= 0 || actionLock > 0) && !skillDimension.equals(level().dimension().location().toString())) cancelAttack();
-        int previousSkillAge = skillAge;
         if (!level().isClientSide) { if (cooldown > 0) cooldown--; if (actionLock > 0) actionLock--; }
         super.tick();
         if (level().isClientSide) return;
         if (!isAlive()) { cancelAttack(); return; }
         if (actionLock > 0) getNavigation().stop();
-        if (skillAge < 0 || previousSkillAge < 0) return;
+        if (skillAge >= 0 && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
+    }
+    @Override
+    public void endTick(ServerLevel level) {
+        if (skillAge < 0 || isRemoved()) return;
+        if (!isAlive() || !skillDimension.equals(level.dimension().location().toString())) { cancelAttack(); return; }
         var target = skillTarget();
         if (target == null) { cancelAttack(); return; }
         if (resumeAnimation) { setAnimation(singleAttack ? "attack" : "attack2"); resumeAnimation = false; }
@@ -75,8 +87,10 @@ public final class SootleEntity extends AbstractSootleEntity {
         if (singleAttack && skillAge == 7) strike(target, true, 4);
         if (!singleAttack && (skillAge == 8 || skillAge == 10)) strike(target, false, skillAge == 8 ? 4 : 5);
         if (skillAge >= (singleAttack ? 7 : 10)) { skillAge = -1; skillTarget = null; }
+        else ServerEndTickTasks.schedule(level, getUUID());
     }
     private void strike(LivingEntity target, boolean single, float pitch) {
+        com.hp.thermalshockreforged.ThermalShockReforged.LOGGER.debug("Sootle strike at server end tick: entity={}, age={}, single={}, pitch={}, origin={}", getUUID(), skillAge, single, pitch, origin);
         soundAtOrigin(SoundEvents.PLAYER_ATTACK_SWEEP, pitch);
         if (distanceTo(target) > (single ? 2 : 3)) return;
         var type = single ? DamageTypes.GENERIC : ModDamageTypes.THERM_IFRAME_BYPASS;
