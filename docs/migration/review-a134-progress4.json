@@ -1,0 +1,1003 @@
+{
+  "batch": 134,
+  "stage": 4,
+  "status": "in_progress",
+  "all_consumers_closed": false,
+  "137_started": false,
+  "new_java_edits_in_this_stage": false,
+  "baseline_commit": "4d8a277b182511f08f7290f2ee2d302b1b676d3b",
+  "projectile_review": {
+    "scope": "本线程7个弹体消费者与2个原孤立过程；非134全批完成证明",
+    "source_count": 9,
+    "paired_sources": 7,
+    "orphan_sources": 2,
+    "rows": [
+      {
+        "source_name": "ThermoblasterBulletHitProcedure",
+        "actual_callers": [
+          "ThermoblasterBulletEntity",
+          "ThermoblasterShotgunBulletEntity"
+        ],
+        "target_chain": [
+          "entity/projectile/ThermoblasterBulletBase"
+        ],
+        "source_to_target_facts": "原主弹实体命中传受击者和弹体当前坐标；主弹及散弹方块命中均传owner和命中方块整数坐标。非空且非Player才有GENERIC_HURT与FIREWORK_ROCKET_BLAST，均NEUTRAL 1/1，同步各一次。目标impact同门槛与BlockPos锚点；散弹撞块确实走主弹程序，不误改scatter=true。",
+        "explicit_boundary": "目标仅服务器广播，客户端命中预测的本地重复音不保留。方块命中不再对owner追加弱点伤害是已有投射物安全边界，不是本批删声音。",
+        "status": "逐源静态核对，不代替游戏或渲染测试",
+        "inputs": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\ThermoblasterBulletHitProcedure.java",
+            "sha256": "dae3f8ddfc2bcbaf8ec53b97ac7a907e81c68bb8d628d618fc6fe880cbdf3a41"
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\ThermoblasterBulletEntity.java",
+            "sha256": "7e4af15da0bf076268846cc7675a81f95c05060916822bbdc0a46c4a7868e864"
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\ThermoblasterShotgunBulletEntity.java",
+            "sha256": "1f86f7dbca23bb8e920dbc23ae7d69b3cfde725ce8047b2fd2c93a5f8eff29ad"
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch133\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\projectile\\ThermoblasterBulletBase.java",
+            "sha256": "d4ae891a06333ed78c00ef29416a5e686a73e8895ee5848caa7cb867566eff62"
+          }
+        ]
+      },
+      {
+        "source_name": "ThermoblasterShotgunHitProcedure",
+        "actual_callers": [
+          "ThermoblasterShotgunBulletEntity"
+        ],
+        "target_chain": [
+          "entity/projectile/ThermoblasterBulletBase",
+          "entity/projectile/ThermoblasterShotgunBulletEntity"
+        ],
+        "source_to_target_facts": "仅散弹实体命中使用本程序，非Player受击者，弹体当前BlockPos锚点；GENERIC_HURT与FIREWORK_ROCKET_BLAST各NEUTRAL 1/1一次，同步。目标shotgun()=true进入同impact；60tick等级3缓慢仍存在，不将额外减益是否成功作为音效门槛。",
+        "explicit_boundary": "与主弹同服务器权威去叠声；并未将原两种不同声音合并成一种。",
+        "status": "逐源静态核对，不代替游戏或渲染测试",
+        "inputs": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\ThermoblasterShotgunHitProcedure.java",
+            "sha256": "50c430fec723c8ae8c35e91adc08634c3d8995fb18ab4cbc1de552d1950b4a15"
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\ThermoblasterShotgunBulletEntity.java",
+            "sha256": "1f86f7dbca23bb8e920dbc23ae7d69b3cfde725ce8047b2fd2c93a5f8eff29ad"
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch133\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\projectile\\ThermoblasterBulletBase.java",
+            "sha256": "d4ae891a06333ed78c00ef29416a5e686a73e8895ee5848caa7cb867566eff62"
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch133\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\projectile\\ThermoblasterShotgunBulletEntity.java",
+            "sha256": "03010a5566aad660dcb61529aff3d81eb631b007a93d60424f045c4d45662541"
+          }
+        ]
+      },
+      {
+        "source_name": "VolcanoHitProcedure",
+        "actual_callers": [
+          "VolcanoBulletEntity"
+        ],
+        "target_chain": [
+          "entity/projectile/VolcanoBulletEntity"
+        ],
+        "source_to_target_facts": "实体命中传受击者/弹体当前坐标，方块命中传owner/方块整数坐标；非空且非Player才flareshoot NEUTRAL 1/1一次，无延迟。目标两个覆写在super后分别保blockPosition与hit.getBlockPos，保owner过滤；非Player实体命中仍有火球3伤和discard。",
+        "explicit_boundary": "目标服务端单次广播；方块命中不再伤害owner属于已有安全边界，声音并未因此删除。",
+        "status": "逐源静态核对，不代替游戏或渲染测试",
+        "inputs": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\VolcanoHitProcedure.java",
+            "sha256": "489757b7ada108d858d0967ec37b8a5a7c50ae4570a80a9a643338b899fd0cc1"
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\VolcanoBulletEntity.java",
+            "sha256": "5eb6f904e498af02eefe9f06b57da03e406768d313d70daa259a4aee9bb3b681"
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch133\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\projectile\\VolcanoBulletEntity.java",
+            "sha256": "3a1f78c0d2501987ea10af6015bf4cc477f52021ecad1565b872cb146a80c20c"
+          }
+        ]
+      },
+      {
+        "source_name": "VolcanoBulletTickProcedure",
+        "actual_callers": [
+          "VolcanoBulletEntity"
+        ],
+        "target_chain": [
+          "entity/projectile/VolcanoBulletEntity",
+          "entity/projectile/VolcanoSparkEntity",
+          "entity/projectile/LegacyArrowEntity",
+          "world/timing/ServerEndTickTasks"
+        ],
+        "source_to_target_facts": "原每次super.tick后提交queueServerWork(3)，当tick END首次扣减；三次正常飞行提交的twinkle分别在相对END 2/3/4，碰撞提前终止则保已提交1或2次尾阶段。FIREWORK_ROCKET_TWINKLE NEUTRAL .5/1，声音各取提交时BlockPos；VOLCANO_SPARK粒子取回调时弹体最新/最终位置。目标submit在super后执行，即使super刚discard也保最后一次提交；pending逐项3 END并保各自soundAnchor，最多3符合原首次尾阶段移除前3 tick；尾任务不随弹体删除而丢失。",
+        "explicit_boundary": "目标新增持久化/有界载体；卸载暂停和重启恢复不等同原全局闭包。原队列仅接SERVER线程，所以本程序clientlocal分支实际不可达，不存在应补客户端叠声。",
+        "status": "逐源静态核对，不代替游戏或渲染测试",
+        "inputs": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\VolcanoBulletTickProcedure.java",
+            "sha256": "d1619bea6310d376466395edd1c5e4a67a0364ff74ca90fcabd023ca689d4722"
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\VolcanoBulletEntity.java",
+            "sha256": "5eb6f904e498af02eefe9f06b57da03e406768d313d70daa259a4aee9bb3b681"
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch133\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\projectile\\VolcanoBulletEntity.java",
+            "sha256": "3a1f78c0d2501987ea10af6015bf4cc477f52021ecad1565b872cb146a80c20c"
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch133\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\projectile\\VolcanoSparkEntity.java",
+            "sha256": "c61bebfa6335cae3fae85d4a050f3be493791b1b9a1da7befc3e94e12142dafd"
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch133\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\projectile\\LegacyArrowEntity.java",
+            "sha256": "d808640c6270e0bc8ca5d06d3845bb0cf18de56272515645a340284053efe1c6"
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch133\\src\\main\\java\\com\\hp\\thermalshockreforged\\world\\timing\\ServerEndTickTasks.java",
+            "sha256": "dba6d1c195d3ece00aa5409b6cf48c9033099d9c611d1e73f1d88e18da361b5b"
+          }
+        ]
+      },
+      {
+        "source_name": "MagnetiteHitProcedure",
+        "actual_callers": [
+          "MagnetiteBulletEntity"
+        ],
+        "target_chain": [
+          "entity/magnetite/MagnetiteBulletEntity",
+          "entity/projectile/GreenOrbBulletBase"
+        ],
+        "source_to_target_facts": "真实入口仅onHitBlock，传owner且非空/非Magnetite才处理；固定命中方块BlockPos。GENERIC_EXTINGUISH_FIRE NEUTRAL 1/1与GLASS_BREAK NEUTRAL .5/-3各一次，无延迟。目标Magnetite覆写affects排自身种而不排Player，父onHitBlock用owner和命中整数坐标，applyGreenEffects两声一致。",
+        "explicit_boundary": "目标服务端广播去客户端预测叠声；负音高参数原样保留，由原生声音系统处理，不擅改为正数。",
+        "status": "逐源静态核对，不代替游戏或渲染测试",
+        "inputs": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\MagnetiteHitProcedure.java",
+            "sha256": "1b3ad999e66ce4cde61b1f60c1aa2887554670cd7960506b17b35d0c4fdc44e7"
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\MagnetiteBulletEntity.java",
+            "sha256": "0c2c288d43069a54aa73fcb6dcd20c4be6b6ac8c547898cd5e86a8c4760df7ab"
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch133\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\magnetite\\MagnetiteBulletEntity.java",
+            "sha256": "e2a3068df6903fad2596c8346a8c1d25a558a8cbe784ec9027bf9951d51890ba"
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch133\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\projectile\\GreenOrbBulletBase.java",
+            "sha256": "f1613ff143184f8e0eb2c8a7de39d65f8c6dfa9e00f4896d385a46040a7a29e3"
+          }
+        ]
+      },
+      {
+        "source_name": "MagnetiteBulletProjectileHitsPlayerProcedure",
+        "actual_callers": [
+          "MagnetiteBulletEntity"
+        ],
+        "target_chain": [
+          "entity/magnetite/MagnetiteBulletEntity",
+          "entity/projectile/GreenOrbBulletBase"
+        ],
+        "source_to_target_facts": "真实入口同时包含playerTouch和onHitEntity，不是只命中玩家。非空且非Magnetite，取弹体当前坐标的BlockPos，GENERIC_EXTINGUISH_FIRE NEUTRAL 1/1与GLASS_BREAK NEUTRAL .5/-3各一次；20%毒在声音后，不是声音概率门槛。目标两个入口保留，discardAfterEntityEffects=false不擅删原穿透阶段。",
+        "explicit_boundary": "服务端广播去预测叠声；目标随机源不同但毒概率仍20%，不宣称随机序列相同。本审查不合并playerTouch和实体命中这两个合法回调。",
+        "status": "逐源静态核对，不代替游戏或渲染测试",
+        "inputs": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\MagnetiteBulletProjectileHitsPlayerProcedure.java",
+            "sha256": "f91cda8e9f8b124d280d4ae2d278755c20284dc61b2e1dc5e60447d771dd4896"
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\MagnetiteBulletEntity.java",
+            "sha256": "0c2c288d43069a54aa73fcb6dcd20c4be6b6ac8c547898cd5e86a8c4760df7ab"
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch133\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\magnetite\\MagnetiteBulletEntity.java",
+            "sha256": "e2a3068df6903fad2596c8346a8c1d25a558a8cbe784ec9027bf9951d51890ba"
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch133\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\projectile\\GreenOrbBulletBase.java",
+            "sha256": "f1613ff143184f8e0eb2c8a7de39d65f8c6dfa9e00f4896d385a46040a7a29e3"
+          }
+        ]
+      },
+      {
+        "source_name": "PixieBottleProjectileHitsBlockProcedure",
+        "actual_callers": [
+          "PixieBottleEntity"
+        ],
+        "target_chain": [
+          "entity/ambient/PixieBottleEntity"
+        ],
+        "source_to_target_facts": "真实入口onHitEntity和onHitBlock均先super；实体用弹体当前坐标，方块用命中整数坐标；SPLASH_POTION_BREAK NEUTRAL 1/1同步一次，独立于Pixie spawn返回值。目标releasePixie生成后仍无论spawn结果发该声，BlockPos.containing(x,y,z)同锚。",
+        "explicit_boundary": "已有safety-performance-audit.md明确released持久锁、父类前禁pickup及释放后discard，防拒伤反弹/Enderman重复产物；因此仅首个合法碰撞有释放声。目标服务端广播，旧客户端预测local不再叠加。不把这项已授权防复制修复称为严格所有分支等价。",
+        "status": "逐源静态核对，不代替游戏或渲染测试",
+        "inputs": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\PixieBottleProjectileHitsBlockProcedure.java",
+            "sha256": "d553942165176f31f8087df287db7afc88f762e65731a6788bb81baa11ca0488"
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\PixieBottleEntity.java",
+            "sha256": "2f59a12cabddc54e11d25bf0ae32e49cf42c140e5460989dc87bbc256af8602a"
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch133\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\ambient\\PixieBottleEntity.java",
+            "sha256": "a3ceff7809e84aca0b08c3a4e07d7dcc250c52cab187e71f385bed1bee6eebc1"
+          }
+        ]
+      },
+      {
+        "source_name": "AerocelBulletHitProcedure",
+        "status": "原孤立过程，不凭名称增加声音入口",
+        "facts": "原JAR全部class常量池无此类外部引用，可读源码无caller且本过程无订阅注解。此结论针对原JAR实际可达性，不针对开发中可能的意图。",
+        "jar_classes_checked": 4577,
+        "external_class_references": [],
+        "source_references": [],
+        "inputs": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\AerocelBulletHitProcedure.java",
+            "sha256": "a0aae91b9d4378a098e7187eea80ae13583441d590f469cb551bd50e6f87db98"
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\thermal_shock-07.9-original.jar",
+            "sha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436"
+          }
+        ]
+      },
+      {
+        "source_name": "GoreFlayerHurtProcedure",
+        "status": "原孤立过程，不凭名称增加声音入口",
+        "facts": "原JAR全部class常量池无此类外部引用，可读源码无caller且本过程无订阅注解。此结论针对原JAR实际可达性，不针对开发中可能的意图。",
+        "jar_classes_checked": 4577,
+        "external_class_references": [],
+        "source_references": [],
+        "inputs": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\GoreFlayerHurtProcedure.java",
+            "sha256": "9f9c97607d37e651a508d0da5c0bcb1a25b49a4ed8e98a7c4e4e54ee3d08c6db"
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\thermal_shock-07.9-original.jar",
+            "sha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436"
+          }
+        ]
+      }
+    ],
+    "volcano_phase_model": {
+      "cases": 24,
+      "traces": [
+        {
+          "submissions": 1,
+          "offset": 0,
+          "events": [
+            {
+              "end": 2,
+              "sound_anchor": [
+                0,
+                -1,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "submissions": 1,
+          "offset": 1,
+          "events": [
+            {
+              "end": 3,
+              "sound_anchor": [
+                1,
+                -2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "submissions": 1,
+          "offset": 2,
+          "events": [
+            {
+              "end": 4,
+              "sound_anchor": [
+                2,
+                -3,
+                4
+              ]
+            }
+          ]
+        },
+        {
+          "submissions": 1,
+          "offset": 3,
+          "events": [
+            {
+              "end": 5,
+              "sound_anchor": [
+                3,
+                -4,
+                5
+              ]
+            }
+          ]
+        },
+        {
+          "submissions": 1,
+          "offset": 4,
+          "events": [
+            {
+              "end": 6,
+              "sound_anchor": [
+                4,
+                -5,
+                6
+              ]
+            }
+          ]
+        },
+        {
+          "submissions": 1,
+          "offset": 5,
+          "events": [
+            {
+              "end": 7,
+              "sound_anchor": [
+                5,
+                -6,
+                7
+              ]
+            }
+          ]
+        },
+        {
+          "submissions": 1,
+          "offset": 6,
+          "events": [
+            {
+              "end": 8,
+              "sound_anchor": [
+                6,
+                -7,
+                8
+              ]
+            }
+          ]
+        },
+        {
+          "submissions": 1,
+          "offset": 7,
+          "events": [
+            {
+              "end": 9,
+              "sound_anchor": [
+                7,
+                -8,
+                9
+              ]
+            }
+          ]
+        },
+        {
+          "submissions": 2,
+          "offset": 0,
+          "events": [
+            {
+              "end": 2,
+              "sound_anchor": [
+                0,
+                -1,
+                2
+              ]
+            },
+            {
+              "end": 3,
+              "sound_anchor": [
+                1,
+                -2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "submissions": 2,
+          "offset": 1,
+          "events": [
+            {
+              "end": 3,
+              "sound_anchor": [
+                1,
+                -2,
+                3
+              ]
+            },
+            {
+              "end": 4,
+              "sound_anchor": [
+                2,
+                -3,
+                4
+              ]
+            }
+          ]
+        },
+        {
+          "submissions": 2,
+          "offset": 2,
+          "events": [
+            {
+              "end": 4,
+              "sound_anchor": [
+                2,
+                -3,
+                4
+              ]
+            },
+            {
+              "end": 5,
+              "sound_anchor": [
+                3,
+                -4,
+                5
+              ]
+            }
+          ]
+        },
+        {
+          "submissions": 2,
+          "offset": 3,
+          "events": [
+            {
+              "end": 5,
+              "sound_anchor": [
+                3,
+                -4,
+                5
+              ]
+            },
+            {
+              "end": 6,
+              "sound_anchor": [
+                4,
+                -5,
+                6
+              ]
+            }
+          ]
+        },
+        {
+          "submissions": 2,
+          "offset": 4,
+          "events": [
+            {
+              "end": 6,
+              "sound_anchor": [
+                4,
+                -5,
+                6
+              ]
+            },
+            {
+              "end": 7,
+              "sound_anchor": [
+                5,
+                -6,
+                7
+              ]
+            }
+          ]
+        },
+        {
+          "submissions": 2,
+          "offset": 5,
+          "events": [
+            {
+              "end": 7,
+              "sound_anchor": [
+                5,
+                -6,
+                7
+              ]
+            },
+            {
+              "end": 8,
+              "sound_anchor": [
+                6,
+                -7,
+                8
+              ]
+            }
+          ]
+        },
+        {
+          "submissions": 2,
+          "offset": 6,
+          "events": [
+            {
+              "end": 8,
+              "sound_anchor": [
+                6,
+                -7,
+                8
+              ]
+            },
+            {
+              "end": 9,
+              "sound_anchor": [
+                7,
+                -8,
+                9
+              ]
+            }
+          ]
+        },
+        {
+          "submissions": 2,
+          "offset": 7,
+          "events": [
+            {
+              "end": 9,
+              "sound_anchor": [
+                7,
+                -8,
+                9
+              ]
+            },
+            {
+              "end": 10,
+              "sound_anchor": [
+                8,
+                -9,
+                10
+              ]
+            }
+          ]
+        },
+        {
+          "submissions": 3,
+          "offset": 0,
+          "events": [
+            {
+              "end": 2,
+              "sound_anchor": [
+                0,
+                -1,
+                2
+              ]
+            },
+            {
+              "end": 3,
+              "sound_anchor": [
+                1,
+                -2,
+                3
+              ]
+            },
+            {
+              "end": 4,
+              "sound_anchor": [
+                2,
+                -3,
+                4
+              ]
+            }
+          ]
+        },
+        {
+          "submissions": 3,
+          "offset": 1,
+          "events": [
+            {
+              "end": 3,
+              "sound_anchor": [
+                1,
+                -2,
+                3
+              ]
+            },
+            {
+              "end": 4,
+              "sound_anchor": [
+                2,
+                -3,
+                4
+              ]
+            },
+            {
+              "end": 5,
+              "sound_anchor": [
+                3,
+                -4,
+                5
+              ]
+            }
+          ]
+        },
+        {
+          "submissions": 3,
+          "offset": 2,
+          "events": [
+            {
+              "end": 4,
+              "sound_anchor": [
+                2,
+                -3,
+                4
+              ]
+            },
+            {
+              "end": 5,
+              "sound_anchor": [
+                3,
+                -4,
+                5
+              ]
+            },
+            {
+              "end": 6,
+              "sound_anchor": [
+                4,
+                -5,
+                6
+              ]
+            }
+          ]
+        },
+        {
+          "submissions": 3,
+          "offset": 3,
+          "events": [
+            {
+              "end": 5,
+              "sound_anchor": [
+                3,
+                -4,
+                5
+              ]
+            },
+            {
+              "end": 6,
+              "sound_anchor": [
+                4,
+                -5,
+                6
+              ]
+            },
+            {
+              "end": 7,
+              "sound_anchor": [
+                5,
+                -6,
+                7
+              ]
+            }
+          ]
+        },
+        {
+          "submissions": 3,
+          "offset": 4,
+          "events": [
+            {
+              "end": 6,
+              "sound_anchor": [
+                4,
+                -5,
+                6
+              ]
+            },
+            {
+              "end": 7,
+              "sound_anchor": [
+                5,
+                -6,
+                7
+              ]
+            },
+            {
+              "end": 8,
+              "sound_anchor": [
+                6,
+                -7,
+                8
+              ]
+            }
+          ]
+        },
+        {
+          "submissions": 3,
+          "offset": 5,
+          "events": [
+            {
+              "end": 7,
+              "sound_anchor": [
+                5,
+                -6,
+                7
+              ]
+            },
+            {
+              "end": 8,
+              "sound_anchor": [
+                6,
+                -7,
+                8
+              ]
+            },
+            {
+              "end": 9,
+              "sound_anchor": [
+                7,
+                -8,
+                9
+              ]
+            }
+          ]
+        },
+        {
+          "submissions": 3,
+          "offset": 6,
+          "events": [
+            {
+              "end": 8,
+              "sound_anchor": [
+                6,
+                -7,
+                8
+              ]
+            },
+            {
+              "end": 9,
+              "sound_anchor": [
+                7,
+                -8,
+                9
+              ]
+            },
+            {
+              "end": 10,
+              "sound_anchor": [
+                8,
+                -9,
+                10
+              ]
+            }
+          ]
+        },
+        {
+          "submissions": 3,
+          "offset": 7,
+          "events": [
+            {
+              "end": 9,
+              "sound_anchor": [
+                7,
+                -8,
+                9
+              ]
+            },
+            {
+              "end": 10,
+              "sound_anchor": [
+                8,
+                -9,
+                10
+              ]
+            },
+            {
+              "end": 11,
+              "sound_anchor": [
+                9,
+                -10,
+                11
+              ]
+            }
+          ]
+        }
+      ],
+      "limitation": "源码对应的离散END计时模型；不模拟Minecraft碰撞、网络或卸载，不是游戏实测。"
+    },
+    "native_inputs": [
+      {
+        "path": "E:\\模组\\mc源码\\1.20.1-forge-47.4.20-official\\src\\net\\minecraft\\world\\entity\\projectile\\AbstractArrow.java",
+        "sha256": "6ba7013043b752d82b0c7ce7669c332ecac3326938c73db06dbd97cb233261c7"
+      },
+      {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\ThermalShockMod.java",
+        "sha256": "171e15daecaa9383f2d126d108460ab6d2b4b6e915bc24cc2f3c08c15493e7d0"
+      },
+      {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch133\\src\\main\\java\\com\\hp\\thermalshockreforged\\world\\timing\\ServerEndTickTasks.java",
+        "sha256": "dba6d1c195d3ece00aa5409b6cf48c9033099d9c611d1e73f1d88e18da361b5b"
+      }
+    ],
+    "orphan_parser": {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch134-world-luna\\class_refs.py",
+      "sha256": "58d3610b84aeaf3c333dc3cf04ae4c556a80ac25c5eb018e0b1f0e9ada8ee8aa"
+    }
+  },
+  "private_delivery_repair_source_bindings": [
+    {
+      "source_name": "PropulsionBootsAbilityOnKeyPressedProcedure",
+      "evidence": "原启动声只在使用者clientlocal，服务器不广播；56eb360修成ServerPlayer.playNotifySound定向该连接，保持NEUTRAL 1/1。服务器确认延迟边界见原进度报告，不扩展旁观听众。",
+      "already_repaired_commit": "56eb36051db09fdaf99d5ad388d82b3f1b7b82f9",
+      "inputs": [
+        {
+          "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\PropulsionBootsAbilityOnKeyPressedProcedure.java",
+          "sha256": "dd6e906b10c23d807fa833671d39c684f7e268018939abd0bad36dda530348b8"
+        },
+        {
+          "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\network\\PropulsionBootsAbilityMessage.java",
+          "sha256": "0144f5fd3133b0a7f60e0bef2d505f85cf56604fb113e6db1543167e6e41d1ca"
+        },
+        {
+          "path": "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch133\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\armor\\fabricated\\FabricatedArmorEvents.java",
+          "sha256": "fb3a5372a7f97ec553df610f5ace5b3962678decfafe4e35d736ea399d3746eb"
+        }
+      ]
+    },
+    {
+      "source_name": "PropulsionBootsCooldownEffectExpiresProcedure",
+      "evidence": "冷却到期声原PLAYERS .45/1服务器广播，保留；不因启动仅自己听而将到期提示也改成私有。",
+      "already_repaired_commit": "56eb36051db09fdaf99d5ad388d82b3f1b7b82f9",
+      "inputs": [
+        {
+          "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\PropulsionBootsCooldownEffectExpiresProcedure.java",
+          "sha256": "138975e8bfb7a42ea97df9b1e7ca058f90ab0c319d633a0132771ad0777b73c9"
+        },
+        {
+          "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\potion\\PropulsionBootsCooldownMobEffect.java",
+          "sha256": "405770c9aa31761cfd08064ff5be95a4c37b2f28ea28645b1a73fa9a399ae244"
+        },
+        {
+          "path": "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch133\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\armor\\fabricated\\FabricatedArmorEvents.java",
+          "sha256": "fb3a5372a7f97ec553df610f5ace5b3962678decfafe4e35d736ea399d3746eb"
+        }
+      ]
+    },
+    {
+      "source_name": "BottleOfStarlightOnBlockRightClickedProcedure",
+      "evidence": "原吸管交互声只有客户端GENERIC_DRINK NEUTRAL 1/1整数点击坐标；56eb360恢复playLocalSound，保换块、5食物/.6饱和；不向旁观者新增广播。",
+      "already_repaired_commit": "56eb36051db09fdaf99d5ad388d82b3f1b7b82f9",
+      "inputs": [
+        {
+          "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\BottleOfStarlightOnBlockRightClickedProcedure.java",
+          "sha256": "4ddd3afb950cbbf89d0497e037083dbfaef45adfc82d828ab7803cbd8f278f5e"
+        },
+        {
+          "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\BottleOfStarlightBlock.java",
+          "sha256": "820d4c08ef51693359e857ee693a5331bccbf7d1485259f21735e38ccd4f1d88"
+        },
+        {
+          "path": "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch133\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\StarlightBottleBlock.java",
+          "sha256": "02d3ba2df4d434a00d5c98642cfca95535b3eda0e392c7d0c515f974ccd1eef4"
+        }
+      ]
+    }
+  ],
+  "delivery_boundary_document": {
+    "path": "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch133\\docs\\migration\\sound-delivery-boundaries134.md",
+    "sha256": "d878a1b47074f22d1df3dd94cf6514a39a5b8c4baf95fc9b76d911e633384eaf"
+  },
+  "production_unchanged_since_last_successful_build": [
+    {
+      "source": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch133\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\armor\\fabricated\\FabricatedArmorEvents.java",
+        "sha256": "fb3a5372a7f97ec553df610f5ace5b3962678decfafe4e35d736ea399d3746eb"
+      },
+      "compiled": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch133\\build\\classes\\java\\main\\com\\hp\\thermalshockreforged\\content\\armor\\fabricated\\FabricatedArmorEvents.class",
+        "sha256": "dcf13455d8b51eb81dba41ec1e1d455f4f643417b9417606fa2233ee0bbdf367"
+      },
+      "major": 65
+    },
+    {
+      "source": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch133\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\StarlightBottleBlock.java",
+        "sha256": "02d3ba2df4d434a00d5c98642cfca95535b3eda0e392c7d0c515f974ccd1eef4"
+      },
+      "compiled": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch133\\build\\classes\\java\\main\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\StarlightBottleBlock.class",
+        "sha256": "0fb0603296b20c2beba5ff5b1bc8ae9c8575faa60cf78bf8f32cf601b793afa2"
+      },
+      "major": 65
+    },
+    {
+      "source": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch133\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\sootle\\SootleEntity.java",
+        "sha256": "d435e81e5265df618f9bd2a1e207dd0add543ab00a663defbaa418b7e96d39a9"
+      },
+      "compiled": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch133\\build\\classes\\java\\main\\com\\hp\\thermalshockreforged\\entity\\sootle\\SootleEntity.class",
+        "sha256": "e88edee52b17997b502b40e1f6eb8256fc6f1cc877bdf7991b677abddc8e2942"
+      },
+      "major": 65
+    },
+    {
+      "source": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch133\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\hunters\\FrostilyteEntity.java",
+        "sha256": "cd6414620c600d62d28f0bdd16356c912bc5c74ddfa3d1ecd8f3c2dec5e07263"
+      },
+      "compiled": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch133\\build\\classes\\java\\main\\com\\hp\\thermalshockreforged\\entity\\hunters\\FrostilyteEntity.class",
+        "sha256": "c94e1e933352f681d7aa7dea4f7b63b198c364b764a1c2671e04cd7f2673e301"
+      },
+      "major": 65
+    },
+    {
+      "source": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch133\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\ambient\\PillbudEntity.java",
+        "sha256": "72a9b4128a7a5685242cbd051d54db65bc49a469614089c499959b406d9623ef"
+      },
+      "compiled": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch133\\build\\classes\\java\\main\\com\\hp\\thermalshockreforged\\entity\\ambient\\PillbudEntity.class",
+        "sha256": "5159d0244c26de077daf1f73084d0dff987760d9815678fc46551d26a7ef58c9"
+      },
+      "major": 65
+    },
+    {
+      "source": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch133\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\snobol\\SiibolEntity.java",
+        "sha256": "de3fee8e9cd339710a42468a2650baa44b62125417b2131d80cb13d501bfc3af"
+      },
+      "compiled": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch133\\build\\classes\\java\\main\\com\\hp\\thermalshockreforged\\entity\\snobol\\SiibolEntity.class",
+        "sha256": "48f2d6f74ceddd0564c859c76752571504ca3833eb66428af21730756558fcb1"
+      },
+      "major": 65
+    },
+    {
+      "source": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch133\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\FabricatorBlock.java",
+        "sha256": "a11b722efea3912fe97ca304dac63a9d33c69f5d4854269389957563db08353e"
+      },
+      "compiled": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch133\\build\\classes\\java\\main\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\FabricatorBlock.class",
+        "sha256": "de7cf92ed497c9452ff4664dbe6d7316df4aa0ac3702e6049b1a4c405263f6e5"
+      },
+      "major": 65
+    },
+    {
+      "source": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch133\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\springslime\\SpringslimeEntity.java",
+        "sha256": "e38883541af3ee620d355533fb0ec6ea3cd651cadb49fdfa466c4f00f86bf002"
+      },
+      "compiled": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch133\\build\\classes\\java\\main\\com\\hp\\thermalshockreforged\\entity\\springslime\\SpringslimeEntity.class",
+        "sha256": "3d7d59e9038b373eede6b5016874016a36a10a83a8145c5a32095c185d47a6e0"
+      },
+      "major": 65
+    },
+    {
+      "source": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch133\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\springslime\\SpringFadeEntity.java",
+        "sha256": "646f06944cacd77d66033edd39af346f32326607053555bd106056c04e9c3231"
+      },
+      "compiled": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch133\\build\\classes\\java\\main\\com\\hp\\thermalshockreforged\\entity\\springslime\\SpringFadeEntity.class",
+        "sha256": "a869b259b0954f8ee69664a4a25406eea69d8ffb088e59721ba0057e5b122f7b"
+      },
+      "major": 65
+    }
+  ],
+  "last_build_log": {
+    "path": "D:\\AI临时文件\\ThermalShockMigration\\batch134-build-nine-files.log",
+    "sha256": "53648125685dd978c0558cac6e9ae0783fadcc6cae53202ac1a24222eecbded4"
+  },
+  "validation": {
+    "new_projectile_source_inputs_hash_verified": true,
+    "volcano_independent_queue_models": 24,
+    "original_orphan_javaclass_scan": 4577,
+    "game_server_client_render_preview_started": false
+  },
+  "pending_gates": [
+    "枪械21来源需补精确参数、条件、次数、声源及真实END拓扑，现有event presence报告不算验收通过。",
+    "工具/菜单11来源审查与环境事件端/成功提交边界须收口。",
+    "各Luna报告撤回误报并同步内部矛盾后才能冻结，不能以摘要里的unresolved=0代替证据。",
+    "374原来源中的5个Ribbonblade来源排除本路；索引的文本引用命中不是369项语义闭合。",
+    "134完整结束后再开始137粒子消费者，完整迁移后另由Luna做两端与Render Preview测试。"
+  ]
+}
