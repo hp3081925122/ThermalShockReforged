@@ -76,3 +76,7 @@ A按现有分工独占group2最后23种只读复审，交付前继续计待核�
 动画累计115/118有界配对，余Beetle Crasher/Huntress出生首帧网络到帧边界和Willograde单controller完成/重载动画相位，见animation-main128-remaining.json。所有声画、技能实机测试与完整无简化最终门禁继续保留；本批语言文件未改、仍由独立Luna负责。服务端独立用户线不接管，完整代码与无简化复审收口后才子代理客户端/Render Preview。原总控只读保留，goal active，粗估仍低置信10～15批，不按提交机械扣减。
 
 第128批收口：固定8880份src/main输入后Java21离线compileJava/processResources成功21秒（Java实际编译，资源up-to-date），编译期间输入未变、8060直接资源字节一致。A127已停笔，主线只将其冻结报告纳入提交；原始字节快照与Git LF哈希另记，不改原A证据。main128-static-validation.json为最终阶段报告；用户测试/Ribbonblade/.vscode不纳入本次提交。
+
+第129批：Willograde恢复原movement/procedure各4tick、原注册次序及互斥关系；正常喂食仍完整触发原bury。原实体重载只恢复Texture、不保存过程动画，故取消目标额外整段重播，保留已授权的BuryAge/冷却/剩余业务持久化。40组运动分支静态比较通过，原bury资源字节不变。Beetle Crasher/Huntress已沿原出生入口、目标首次tick、原生实体追踪先于tick及Gecko492实际数据包消费者配对；有界前提为实体正常加入可tick区块且观察者已成功追踪，不能据此证明网络条件下首个渲染帧相同。
+
+本批118项动画有界静态集合已全部配对；另列10项未执行的具体运行检查，包括两出生动画和Willograde正常喂食/不同BuryAge重载。此计数只覆盖该动画集合，完整模组无简化复审仍未完成。A129正在核对67模板外部动态入口、掉落注册链及历史证据缺口，其进行中结论不计完成。固定8880份src/main，Java21离线compileJava/processResources通过28秒（两任务up-to-date），8060直接资源逐字节一致；证据main129-static-validation.json。语言本批未改，独立Luna已转第130批。服务端保持用户独立线，最终客户端/Render Preview仍待完整门禁；goal active，粗估继续10～15批、低置信。

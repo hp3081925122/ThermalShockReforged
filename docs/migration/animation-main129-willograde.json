@@ -1,0 +1,641 @@
+{
+  "baseline": "c4ba1c6",
+  "sourceEvidence": [
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\WillogradeEntity.java",
+      "sha256": "400e9797fa90c97168e5c4c74e357097ce0878d2415d630a4af41a4a510fbadf",
+      "lines": [
+        {
+          "line": 118,
+          "code": "        super.addAdditionalSaveData(compound);"
+        },
+        {
+          "line": 119,
+          "code": "        compound.putString(\"Texture\", this.getTexture());"
+        },
+        {
+          "line": 120,
+          "code": "    }"
+        },
+        {
+          "line": 121,
+          "code": ""
+        },
+        {
+          "line": 122,
+          "code": "    public void readAdditionalSaveData(CompoundTag compound) {"
+        },
+        {
+          "line": 123,
+          "code": "        super.readAdditionalSaveData(compound);"
+        },
+        {
+          "line": 124,
+          "code": "        if (compound.contains(\"Texture\")) {"
+        },
+        {
+          "line": 125,
+          "code": "            this.setTexture(compound.getString(\"Texture\"));"
+        },
+        {
+          "line": 175,
+          "code": ""
+        },
+        {
+          "line": 176,
+          "code": "    private PlayState movementPredicate(AnimationState event) {"
+        },
+        {
+          "line": 177,
+          "code": "        if (this.animationprocedure.equals(\"empty\")) {"
+        },
+        {
+          "line": 178,
+          "code": "            if (!(!event.isMoving() && event.getLimbSwingAmount() > -0.15f && event.getLimbSwingAmount() < 0.15f || this.isVehicle() || this.isAggressive())) {"
+        },
+        {
+          "line": 191,
+          "code": ""
+        },
+        {
+          "line": 192,
+          "code": "    private PlayState procedurePredicate(AnimationState event) {"
+        },
+        {
+          "line": 193,
+          "code": "        if (!this.animationprocedure.equals(\"empty\") && event.getController().getAnimationState() == AnimationController.State.STOPPED || !this.animationprocedure.equals(this.prevAnim) && !this.animationprocedure.equals(\"empty\")) {"
+        },
+        {
+          "line": 194,
+          "code": "            if (!this.animationprocedure.equals(this.prevAnim)) {"
+        },
+        {
+          "line": 225,
+          "code": ""
+        },
+        {
+          "line": 226,
+          "code": "    public void registerControllers(AnimatableManager.ControllerRegistrar data) {"
+        },
+        {
+          "line": 227,
+          "code": "        data.add(new AnimationController[]{new AnimationController((GeoAnimatable)this, \"movement\", 4, this::movementPredicate)});"
+        },
+        {
+          "line": 228,
+          "code": "        data.add(new AnimationController[]{new AnimationController((GeoAnimatable)this, \"procedure\", 4, this::procedurePredicate)});"
+        },
+        {
+          "line": 229,
+          "code": "    }"
+        },
+        {
+          "line": 230,
+          "code": ""
+        }
+      ]
+    }
+  ],
+  "targetEvidence": [
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\fauna\\WillogradeEntity.java",
+      "sha256": "b1a59ecb15168dce81ec5d82127a3be82b46b5b1f3ef72a22dc74439e89467f9",
+      "lines": [
+        {
+          "line": 61,
+          "code": ""
+        },
+        {
+          "line": 62,
+          "code": "    public void setAnimation(String animation) { triggerAnim(\"procedure\", animation); }"
+        },
+        {
+          "line": 63,
+          "code": ""
+        },
+        {
+          "line": 64,
+          "code": "    @Override"
+        },
+        {
+          "line": 88,
+          "code": "                getNavigation().stop();"
+        },
+        {
+          "line": 89,
+          "code": "                setAnimation(\"bury\");"
+        },
+        {
+          "line": 90,
+          "code": "            }"
+        },
+        {
+          "line": 91,
+          "code": "        }"
+        },
+        {
+          "line": 174,
+          "code": "        tag.putString(\"Texture\", texture());"
+        },
+        {
+          "line": 175,
+          "code": "        tag.putInt(\"BuryAge\", buryAge);"
+        },
+        {
+          "line": 176,
+          "code": "        tag.putInt(\"FeedCooldown\", feedCooldown);"
+        },
+        {
+          "line": 177,
+          "code": "        tag.putDouble(\"BuryX\", buryOrigin.x);"
+        },
+        {
+          "line": 178,
+          "code": "        tag.putDouble(\"BuryY\", buryOrigin.y);"
+        },
+        {
+          "line": 186,
+          "code": "        if (tag.contains(\"Texture\")) setTexture(tag.getString(\"Texture\"));"
+        },
+        {
+          "line": 187,
+          "code": "        buryAge = tag.contains(\"BuryAge\") ? tag.getInt(\"BuryAge\") : -1;"
+        },
+        {
+          "line": 188,
+          "code": "        feedCooldown = Math.max(0, tag.getInt(\"FeedCooldown\"));"
+        },
+        {
+          "line": 189,
+          "code": "        entityData.set(FEED_COOLDOWN_VISIBLE, feedCooldown > 0);"
+        },
+        {
+          "line": 190,
+          "code": "        buryOrigin = new net.minecraft.world.phys.Vec3(tag.getDouble(\"BuryX\"), tag.getDouble(\"BuryY\"), tag.getDouble(\"BuryZ\"));"
+        },
+        {
+          "line": 191,
+          "code": "        buryDimension = tag.getString(\"BuryDimension\");"
+        },
+        {
+          "line": 192,
+          "code": "        ThermalShockReforged.LOGGER.debug(\"Willograde state loaded: entity={}, buryAge={}, feedCooldown={}, animation=default\", getUUID(), buryAge, feedCooldown);"
+        },
+        {
+          "line": 193,
+          "code": "    }"
+        },
+        {
+          "line": 194,
+          "code": ""
+        },
+        {
+          "line": 195,
+          "code": "    @Override"
+        },
+        {
+          "line": 196,
+          "code": "    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {"
+        },
+        {
+          "line": 197,
+          "code": "        var procedure = new AnimationController<>(this, \"procedure\", 4, state -> PlayState.STOP);"
+        },
+        {
+          "line": 198,
+          "code": "        for (String name : new String[]{\"walk\", \"idle\", \"rolling\", \"bury\"}) procedure.triggerableAnim(name, RawAnimation.begin().thenPlay(name));"
+        },
+        {
+          "line": 199,
+          "code": "        controllers.add(new AnimationController<>(this, \"movement\", 4, state -> {"
+        },
+        {
+          "line": 200,
+          "code": "            if (procedure.isPlayingTriggeredAnimation()) return PlayState.STOP;"
+        },
+        {
+          "line": 201,
+          "code": "            return state.setAndContinue(RawAnimation.begin().thenLoop(state.isMoving() && (isVehicle() || isAggressive()) ? \"rolling\" : !isVehicle() && !isAggressive() && (state.isMoving() || Math.abs(state.getLimbSwingAmount()) >= 0.15F) ? \"walk\" : \"idle\"));"
+        },
+        {
+          "line": 202,
+          "code": "        }));"
+        }
+      ]
+    }
+  ],
+  "resource": {
+    "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\animations\\roly_poly.animation.json",
+    "sha256": "cfadf6956c276d530f92f3fe53322d1ca8c4b9e607f87df86dd1ffffa91c7368",
+    "originalJar": "D:\\AI临时文件\\ThermalShockMigration\\thermal_shock-07.9-original.jar",
+    "byteEqual": true,
+    "buryLengthSeconds": 4.0417,
+    "buryLoop": "DEFAULT，资源loop缺省"
+  },
+  "publicControllerEvidence": {
+    "path": "D:\\AI临时文件\\ThermalShockMigration\\animation125\\gecko492-readable\\software\\bernie\\geckolib\\animation\\AnimationController.java",
+    "sha256": "57d3e736f44064ca3d3124201a0c6dfe9311231514b32c0be7d428cd1bf22219",
+    "lines": [
+      {
+        "line": 98,
+        "code": "    protected final Map<String, RawAnimation> triggerableAnimations = new Object2ObjectOpenHashMap(0);"
+      },
+      {
+        "line": 99,
+        "code": "    protected RawAnimation triggeredAnimation = null;"
+      },
+      {
+        "line": 100,
+        "code": "    protected boolean handlingTriggeredAnimations = false;"
+      },
+      {
+        "line": 101,
+        "code": "    protected double transitionLength;"
+      },
+      {
+        "line": 102,
+        "code": "    protected RawAnimation currentRawAnimation;"
+      },
+      {
+        "line": 225,
+        "code": "    public boolean isPlayingTriggeredAnimation() {"
+      },
+      {
+        "line": 226,
+        "code": "        return this.triggeredAnimation != null && !this.hasAnimationFinished();"
+      },
+      {
+        "line": 227,
+        "code": "    }"
+      },
+      {
+        "line": 228,
+        "code": ""
+      },
+      {
+        "line": 270,
+        "code": "        }"
+      },
+      {
+        "line": 271,
+        "code": "        this.triggeredAnimation = null;"
+      },
+      {
+        "line": 272,
+        "code": "        this.needsAnimationReload = true;"
+      },
+      {
+        "line": 273,
+        "code": "        return true;"
+      },
+      {
+        "line": 275,
+        "code": ""
+      },
+      {
+        "line": 276,
+        "code": "    protected PlayState handleAnimationState(AnimationState<T> state) {"
+      },
+      {
+        "line": 277,
+        "code": "        if (this.triggeredAnimation != null) {"
+      },
+      {
+        "line": 278,
+        "code": "            if (this.currentRawAnimation != this.triggeredAnimation) {"
+      },
+      {
+        "line": 281,
+        "code": "            this.setAnimation(this.triggeredAnimation);"
+      },
+      {
+        "line": 282,
+        "code": "            if (!(this.hasAnimationFinished() || this.handlingTriggeredAnimations && this.getStateHandler().handle(state) != PlayState.CONTINUE)) {"
+      },
+      {
+        "line": 283,
+        "code": "                return PlayState.CONTINUE;"
+      },
+      {
+        "line": 284,
+        "code": "            }"
+      },
+      {
+        "line": 285,
+        "code": "            this.triggeredAnimation = null;"
+      },
+      {
+        "line": 286,
+        "code": "            this.needsAnimationReload = true;"
+      },
+      {
+        "line": 287,
+        "code": "        }"
+      },
+      {
+        "line": 288,
+        "code": "        return this.getStateHandler().handle(state);"
+      },
+      {
+        "line": 289,
+        "code": "    }"
+      },
+      {
+        "line": 290,
+        "code": ""
+      }
+    ]
+  },
+  "movementCases": 40,
+  "movementTruthTable": [
+    {
+      "moving": false,
+      "vehicle": false,
+      "aggressive": false,
+      "limb": -0.151,
+      "clip": "walk"
+    },
+    {
+      "moving": false,
+      "vehicle": false,
+      "aggressive": false,
+      "limb": -0.15,
+      "clip": "walk"
+    },
+    {
+      "moving": false,
+      "vehicle": false,
+      "aggressive": false,
+      "limb": 0,
+      "clip": "idle"
+    },
+    {
+      "moving": false,
+      "vehicle": false,
+      "aggressive": false,
+      "limb": 0.15,
+      "clip": "walk"
+    },
+    {
+      "moving": false,
+      "vehicle": false,
+      "aggressive": false,
+      "limb": 0.151,
+      "clip": "walk"
+    },
+    {
+      "moving": false,
+      "vehicle": false,
+      "aggressive": true,
+      "limb": -0.151,
+      "clip": "idle"
+    },
+    {
+      "moving": false,
+      "vehicle": false,
+      "aggressive": true,
+      "limb": -0.15,
+      "clip": "idle"
+    },
+    {
+      "moving": false,
+      "vehicle": false,
+      "aggressive": true,
+      "limb": 0,
+      "clip": "idle"
+    },
+    {
+      "moving": false,
+      "vehicle": false,
+      "aggressive": true,
+      "limb": 0.15,
+      "clip": "idle"
+    },
+    {
+      "moving": false,
+      "vehicle": false,
+      "aggressive": true,
+      "limb": 0.151,
+      "clip": "idle"
+    },
+    {
+      "moving": false,
+      "vehicle": true,
+      "aggressive": false,
+      "limb": -0.151,
+      "clip": "idle"
+    },
+    {
+      "moving": false,
+      "vehicle": true,
+      "aggressive": false,
+      "limb": -0.15,
+      "clip": "idle"
+    },
+    {
+      "moving": false,
+      "vehicle": true,
+      "aggressive": false,
+      "limb": 0,
+      "clip": "idle"
+    },
+    {
+      "moving": false,
+      "vehicle": true,
+      "aggressive": false,
+      "limb": 0.15,
+      "clip": "idle"
+    },
+    {
+      "moving": false,
+      "vehicle": true,
+      "aggressive": false,
+      "limb": 0.151,
+      "clip": "idle"
+    },
+    {
+      "moving": false,
+      "vehicle": true,
+      "aggressive": true,
+      "limb": -0.151,
+      "clip": "idle"
+    },
+    {
+      "moving": false,
+      "vehicle": true,
+      "aggressive": true,
+      "limb": -0.15,
+      "clip": "idle"
+    },
+    {
+      "moving": false,
+      "vehicle": true,
+      "aggressive": true,
+      "limb": 0,
+      "clip": "idle"
+    },
+    {
+      "moving": false,
+      "vehicle": true,
+      "aggressive": true,
+      "limb": 0.15,
+      "clip": "idle"
+    },
+    {
+      "moving": false,
+      "vehicle": true,
+      "aggressive": true,
+      "limb": 0.151,
+      "clip": "idle"
+    },
+    {
+      "moving": true,
+      "vehicle": false,
+      "aggressive": false,
+      "limb": -0.151,
+      "clip": "walk"
+    },
+    {
+      "moving": true,
+      "vehicle": false,
+      "aggressive": false,
+      "limb": -0.15,
+      "clip": "walk"
+    },
+    {
+      "moving": true,
+      "vehicle": false,
+      "aggressive": false,
+      "limb": 0,
+      "clip": "walk"
+    },
+    {
+      "moving": true,
+      "vehicle": false,
+      "aggressive": false,
+      "limb": 0.15,
+      "clip": "walk"
+    },
+    {
+      "moving": true,
+      "vehicle": false,
+      "aggressive": false,
+      "limb": 0.151,
+      "clip": "walk"
+    },
+    {
+      "moving": true,
+      "vehicle": false,
+      "aggressive": true,
+      "limb": -0.151,
+      "clip": "rolling"
+    },
+    {
+      "moving": true,
+      "vehicle": false,
+      "aggressive": true,
+      "limb": -0.15,
+      "clip": "rolling"
+    },
+    {
+      "moving": true,
+      "vehicle": false,
+      "aggressive": true,
+      "limb": 0,
+      "clip": "rolling"
+    },
+    {
+      "moving": true,
+      "vehicle": false,
+      "aggressive": true,
+      "limb": 0.15,
+      "clip": "rolling"
+    },
+    {
+      "moving": true,
+      "vehicle": false,
+      "aggressive": true,
+      "limb": 0.151,
+      "clip": "rolling"
+    },
+    {
+      "moving": true,
+      "vehicle": true,
+      "aggressive": false,
+      "limb": -0.151,
+      "clip": "rolling"
+    },
+    {
+      "moving": true,
+      "vehicle": true,
+      "aggressive": false,
+      "limb": -0.15,
+      "clip": "rolling"
+    },
+    {
+      "moving": true,
+      "vehicle": true,
+      "aggressive": false,
+      "limb": 0,
+      "clip": "rolling"
+    },
+    {
+      "moving": true,
+      "vehicle": true,
+      "aggressive": false,
+      "limb": 0.15,
+      "clip": "rolling"
+    },
+    {
+      "moving": true,
+      "vehicle": true,
+      "aggressive": false,
+      "limb": 0.151,
+      "clip": "rolling"
+    },
+    {
+      "moving": true,
+      "vehicle": true,
+      "aggressive": true,
+      "limb": -0.151,
+      "clip": "rolling"
+    },
+    {
+      "moving": true,
+      "vehicle": true,
+      "aggressive": true,
+      "limb": -0.15,
+      "clip": "rolling"
+    },
+    {
+      "moving": true,
+      "vehicle": true,
+      "aggressive": true,
+      "limb": 0,
+      "clip": "rolling"
+    },
+    {
+      "moving": true,
+      "vehicle": true,
+      "aggressive": true,
+      "limb": 0.15,
+      "clip": "rolling"
+    },
+    {
+      "moving": true,
+      "vehicle": true,
+      "aggressive": true,
+      "limb": 0.151,
+      "clip": "rolling"
+    }
+  ],
+  "businessMethodsAndTickUnchangedExceptReplay": true,
+  "normalFeedStillTriggersBury": true,
+  "controllerOrder": [
+    "movement",
+    "procedure"
+  ],
+  "transitionTicks": 4,
+  "reloadResolution": "原只持久Texture、无动画进度，重载恢复正常movement。目标保已授权剩余BuryAge业务和冷却，不再首tick重放完整bury；不新造seek或缩短clip。",
+  "runtimeExecuted": false
+}

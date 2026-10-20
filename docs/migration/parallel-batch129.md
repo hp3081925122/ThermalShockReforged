@@ -1,0 +1,13 @@
+# 第129批：动画边界收口与完整复审门禁
+
+基线c4ba1c6。主线独占entity/fauna/WillogradeEntity.java及本批main129报告。语言仍独立Luna负责，主线不代译。用户测试目录、RibbonbladeActionEntity及.vscode不修改、不stage；不接管独立服务端线。
+
+已核原WillogradeEntity:175–235：movement/procedure分别4tick，movement先注册，procedure活跃时movement STOP。目标合入单movement trigger虽可优先播放，但没有保原独立控制器拓扑。恢复两controller，setAnimation派发procedure，原walk/rolling/idle条件和bury DEFAULT资源不动。
+
+原实体仅持久Texture，不保存animationprocedure/prevAnim；重载新实体正常待机。目标额外保存BuryAge续业务是fauna-batch.md明确的持久化修复，但resumeBuryAnimation把整段4.0417秒bury再播放，与剩余游戏阶段不符且非原重载行为。保BuryAge/FeedCooldown/原点/维度和剩余业务，取消这条额外重播路径，重载恢复原待机；不删正常喂食触发或任何业务节点，不新造seek/缩短clip。
+
+Beetle Crasher/Huntress出生写入、有效clip、控制器及目标实际trigger已配对；LivingTick/首tick后触发的网络到渲染帧差异必须列最终客户端具体检查，不能凭静态源码伪称首帧相同，也不能把尚未运行游戏包装成新确定代码缺陷。是否将它们移入运行验收列，需按实际原/目标出生与追踪时序证据作说明。
+
+修改后停笔固定src/main，Java21最相关compileJava/processResources；全部脚本/提取/日志D:/AI临时文件/ThermalShockMigration，UTF-8，Java无注释、诊断英文。完整代码及无简化复审门禁收口后，才按用户分工启动子代理客户端及Render Preview。
+
+收口：40组运动分支通过；118项有界动画静态集合配对完毕，另列10项尚未执行的运行检查，不代表全模组复审完成。固定8880输入，Java21离线compileJava/processResources成功28秒（两任务up-to-date），8060直接资源字节一致，见main129-static-validation.json。A129仅独占review-a129-gates.*进行更广门禁清查，尚未交付部分不纳入本批提交；语言Luna转第130批，语言生产不纳入129。
