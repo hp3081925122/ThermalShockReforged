@@ -1,5 +1,6 @@
 package com.hp.thermalshockreforged.content.npc.laut;
 
+import com.hp.thermalshockreforged.ThermalShockReforged;
 import java.util.UUID;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
@@ -29,7 +30,8 @@ public final class LautMenu extends AbstractContainerMenu {
         var npc = npc();
         if (page == LautPage.HAVE && button == 0) {
             committed = true;
-            LautContent.open(server, npc, anchor, LautQuest.available(server) >= 3 ? LautPage.CONFIRM : LautPage.NEED);
+            LautContent.open(server, npc, anchor, LautPage.CONFIRM);
+            ThermalShockReforged.LOGGER.debug("Laut confirmation requested: player={}, npc={}", server.getUUID(), npcUuid);
             return true;
         }
         if (page != LautPage.CONFIRM || button < 0 || button > 1) return false;

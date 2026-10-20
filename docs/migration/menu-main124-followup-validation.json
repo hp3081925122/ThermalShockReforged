@@ -1,0 +1,128 @@
+{
+  "baseline": "f83be73",
+  "aHandoffSha256": "aff6eaabe6126628932aaaf208e3ea1a33691a016b6a8a706dc789ff66135947",
+  "sourceTradeQualifications": [
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\ConcHeavyRoundBuyProcedure.java",
+      "sha256": "09e00654c60e6191343b1093165747893186e416ea6eb8dde2f4d1874e15e780",
+      "spice": 4,
+      "levels": 1
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\ConcLightRoundBuyProcedure.java",
+      "sha256": "5bd77865614bfe467b388cb54f103dd8ccd7c7767157f0a98b3516dfda78bc64",
+      "spice": 3,
+      "levels": 1
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\ConcSpiderLiliesBuyProcedure.java",
+      "sha256": "5bf273d9272f9f74410429fd990790be0603e706baa9333299b4ff95c92201b7",
+      "spice": 2,
+      "levels": 0
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\ConcPanaceaBuyProcedure.java",
+      "sha256": "5f78f4c1f75a0db8d99d78d2957d4764dd1b41e3730e9e7fa4776cc06ded5102",
+      "spice": 12,
+      "levels": 8
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\ConcLargeLilyBuyProcedure.java",
+      "sha256": "967e5e5e2a9df37817f5b295e91f716edc08d88ed9d9eb83b358f7ab61041fcc",
+      "spice": 4,
+      "levels": 0
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\ConcWideAngleBuyProcedure.java",
+      "sha256": "57ae7497bc0a446e4ba428fa7d7fba0d65fae206617ff5e62a387a0b3aba64f8",
+      "spice": 5,
+      "levels": 5
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\ConcSpecRoundBuyProcedure.java",
+      "sha256": "b7e92d22175702ce498156ddf269829e467862f751d79ee72b035cf3ae8d7f67",
+      "spice": 3,
+      "levels": 3
+    }
+  ],
+  "inventoryQualificationBeforePay": true,
+  "sharedPayAndQuestUnchanged": true,
+  "staticPortraitSource": {
+    "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\gui\\QoStratusAlloy3aScreen.java",
+    "sha256": "f0f80ff695709e3fc6442593834cebbb6829776efa5ff5a6cbe82e4c6980d14b"
+  },
+  "portraitVForFrames0Through13": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "closedAfterRepairs": [
+    "conc_trade_spider_lilies",
+    "conc_trade_large_spider_lily",
+    "conc_trade_light_round",
+    "conc_trade_heavy_round",
+    "conc_trade_spec_round",
+    "conc_trade_panacea",
+    "conc_trade_wide_angle",
+    "qo_stratus_alloy_3a"
+  ],
+  "remainingStatic": [
+    {
+      "identity": "q_phobotite_1",
+      "staticOpen": [
+        "root双开/前页声链未闭合：源 DefectorMachinistRightClickedOnEntityProcedure.java:105-125（旧计数==4开INTRO5并发遗物）或:126-138（旧计数>4开EXHAUST），随后:140-142递增并在>4进入持物覆盖；主手phobotite分支于:161构造QPhobotite1Menu。目标 DefectorMachinistEntity.java:42选择PHOBOTITE，:50只调用一次QoContent.open，成功后:51-52推进/旧contacts==4发遗物。故源中间Menu构造/开页与目标单次最终页不等价；前页sound取值/双开声音消费者是否产生可观察差异仍未闭合，保留静态项，不声称实测声音效果或额外计数差异。"
+      ]
+    },
+    {
+      "identity": "qo_cryo_energy_1",
+      "staticOpen": [
+        "root双开/前页声链未闭合：源 DefectorMachinistRightClickedOnEntityProcedure.java:105-125（旧计数==4开INTRO5并发遗物）或:126-138（旧计数>4开EXHAUST），随后:140-142递增并在>4进入持物覆盖；主手cryonic_energy分支于:184构造QoCryoEnergy1Menu。目标 DefectorMachinistEntity.java:43选择CRYO_ENERGY，:50只调用一次QoContent.open，成功后:51-52推进/旧contacts==4发遗物。故源中间Menu构造/开页与目标单次最终页不等价；前页sound取值/双开声音消费者是否产生可观察差异仍未闭合，保留静态项，不声称实测声音效果或额外计数差异。"
+      ]
+    },
+    {
+      "identity": "qo_cryo_alloy_1",
+      "staticOpen": [
+        "root双开/前页声链未闭合：源 DefectorMachinistRightClickedOnEntityProcedure.java:105-125（旧计数==4开INTRO5并发遗物）或:126-138（旧计数>4开EXHAUST），随后:140-142递增并在>4进入持物覆盖；主手cryonic_alloy分支于:230构造QoCryoAlloy1Menu。目标 DefectorMachinistEntity.java:45选择CRYO_ALLOY，:50只调用一次QoContent.open，成功后:51-52推进/旧contacts==4发遗物。故源中间Menu构造/开页与目标单次最终页不等价；前页sound取值/双开声音消费者是否产生可观察差异仍未闭合，保留静态项，不声称实测声音效果或额外计数差异。"
+      ]
+    },
+    {
+      "identity": "qo_altar_key_1",
+      "staticOpen": [
+        "root双开/前页声链未闭合：源 DefectorMachinistRightClickedOnEntityProcedure.java:105-125（旧计数==4开INTRO5并发遗物）或:126-138（旧计数>4开EXHAUST），随后:140-142递增并在>4进入持物覆盖；主手frigid_altar_key分支于:253构造QoAltarKey1Menu。目标 DefectorMachinistEntity.java:46选择ALTAR_KEY，:50只调用一次QoContent.open，成功后:51-52推进/旧contacts==4发遗物。故源中间Menu构造/开页与目标单次最终页不等价；前页sound取值/双开声音消费者是否产生可观察差异仍未闭合，保留静态项，不声称实测声音效果或额外计数差异。"
+      ]
+    },
+    {
+      "identity": "qo_stellar_scrap_1",
+      "staticOpen": [
+        "root双开/前页声链未闭合：源 DefectorMachinistRightClickedOnEntityProcedure.java:105-125（旧计数==4开INTRO5并发遗物）或:126-138（旧计数>4开EXHAUST），随后:140-142递增并在>4进入持物覆盖；主手stellar_scrap分支于:276构造QoStellarScrap1Menu。目标 DefectorMachinistEntity.java:47选择STELLAR_SCRAP，:50只调用一次QoContent.open，成功后:51-52推进/旧contacts==4发遗物。故源中间Menu构造/开页与目标单次最终页不等价；前页sound取值/双开声音消费者是否产生可观察差异仍未闭合，保留静态项，不声称实测声音效果或额外计数差异。"
+      ]
+    },
+    {
+      "identity": "qo_stratus_alloy_1",
+      "staticOpen": [
+        "root双开/前页声链未闭合：源 DefectorMachinistRightClickedOnEntityProcedure.java:105-125（旧计数==4开INTRO5并发遗物）或:126-138（旧计数>4开EXHAUST），随后:140-142递增并在>4进入持物覆盖；主手stratus_alloy分支于:299构造QoStratusAlloy1Menu。目标 DefectorMachinistEntity.java:48选择STRATUS_1，:50只调用一次QoContent.open，成功后:51-52推进/旧contacts==4发遗物。故源中间Menu构造/开页与目标单次最终页不等价；前页sound取值/双开声音消费者是否产生可观察差异仍未闭合，保留静态项，不声称实测声音效果或额外计数差异。"
+      ]
+    },
+    {
+      "identity": "qo_neural_chip_1",
+      "staticOpen": [
+        "root双开/前页声链未闭合：源 DefectorMachinistRightClickedOnEntityProcedure.java:105-125（旧计数==4开INTRO5并发遗物）或:126-138（旧计数>4开EXHAUST），随后:140-142递增并在>4进入持物覆盖；主手neural_chip分支于:207构造QoNeuralChip1Menu。目标 DefectorMachinistEntity.java:44选择NEURAL_CHIP，:50只调用一次QoContent.open，成功后:51-52推进/旧contacts==4发遗物。故源中间Menu构造/开页与目标单次最终页不等价；前页sound取值/双开声音消费者是否产生可观察差异仍未闭合，保留静态项，不声称实测声音效果或额外计数差异。"
+      ]
+    }
+  ],
+  "cumulativeStaticClosed": 234,
+  "registeredIdentities": 241,
+  "twoGreetingsFromMain124": true,
+  "runtimeExecuted": false
+}
