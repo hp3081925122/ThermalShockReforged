@@ -1,0 +1,108 @@
+{
+  "batch": 131,
+  "productionChanged": false,
+  "templatesReceipt": "review-main131-template-receipt.json",
+  "deliverables": [
+    {
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\loot131\\registration-closure.json",
+      "repository": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\loot-main131-registration.json",
+      "rawSha256": "72742f793eb812bf08c6e6ffb74274e731facfcb8648e1fd3290e6433721150c",
+      "gitLfSha256": "9686f5d2461c6488478dcde92069775db0b12d7d7d3bea1b05d738359093fc60"
+    },
+    {
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\loot131\\registration-g03-v2.json",
+      "repository": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\loot-main131-registration-g03.json",
+      "rawSha256": "17b34a005cc50059317ead982b4f03e2bae16774e9597872a054602934fb1a1b",
+      "gitLfSha256": "d2dc65fbe183f2bd196a02f609d172a29b1af7615a93294e8dc86ca44fe68ab3"
+    },
+    {
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\loot131\\g03-closeout-v2.md",
+      "repository": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\loot-main131-registration-g03.md",
+      "rawSha256": "efabb455b3796904ead9ae175ce471cb37e5600b16c35045fed520b175f79386",
+      "gitLfSha256": "eb035784227433db25b1b5c3a0bdc715e62de869cd69514f22aee446972169eb"
+    }
+  ],
+  "sourceInputs": {
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\utility\\UtilityContent.java": "7f2a7b66e1187aba2013bcc80063ce75ab9e9a4bca2219cbfd9aba9d6968d2b3",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\ThermalShockReforged.java": "8cfac1301b2b6638874e322e1ed6190f8a168126ccc4aff9e0494848adf45f88",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\terrain\\TerrainContent.java": "cd1805d6fdefa9f53b232f92b36ce7b04efbf3523ae6e80579155a6279e894df",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\farming\\CropKind.java": "de622ac78a57d6250918c96c11624378691753229a0a66fccde8847ebc06403e",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\farming\\FarmingContent.java": "64022c1d59b9684b97d85ae8ebd6b545d4e45529d95b6c66d26ee542daf0a0b7",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\plants\\PlantContent.java": "ef7d368b24da7678dc4737d310ccd16f9e4fea84f9ca4455b7f46172fc1fe262",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\MaterialContent.java": "1d6518d8cc39102c5850164eaf5cc09f6e9d2f7f78efbd10aca00f2494c8ed52",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\music\\MusicContent.java": "dd14b0a7af1a5270f3a532b31297b799a6fc4bb1a93179bc0fc7e003ef5589fb",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\gemlocks\\GemlocksContent.java": "159d6a194f93270ef01ff96331236ef3d5b02f736c0378fd2079b24f7db21d8c",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\gemlocks\\GemlockKind.java": "35be0c9be8ab33d2f78575fa5db31f613350669cbdb9f2f2fd8a912160642ae0",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\outcrops\\OutcropContent.java": "e1f80ea5f004f5ae5c2863222acb96bcaee0c385082e4165eebbf64da3790965",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\nativeblocks\\NativeDecorContent.java": "95f62f003c698a9e48f0205740b598fb24f79c419d25cba85ce0d5b779d8e852",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\armor\\ArmorContent.java": "f26ac3085d2eadbd51cb8b6e83ae9b1860027756fc00efbaaaee2e24ed29721a",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\tools\\ToolsContent.java": "57c47a7f8c7e8dbfc62dafd11d275c44b0146ce715573b7f881cce85e35157ad",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\WeaponContent.java": "28a2b47dcf439e77b86a4ba204d7b83fea7e3a161cfd834163d29668f434396f",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\ambient\\AmbientContent.java": "29a082fd68dc8b40dd3e32a1a7f2daa6a7eb9eb7a97fdb91bc151dd473332f25",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\plants\\SpecialPlantContent.java": "faf447d55e21d906c0d882c2ce3eb00f407b976f7f5a72d747931a8ea7a2f780",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\GeoDecorContent.java": "84147bbf1ce0131a1d5240bfe33746fe48e064e02fc57e034abf48c8c44ddfb4",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\centrifuge\\CentrifugeContent.java": "bc6806d884f56659003b3afacb9734ac2ff2075beb1d4199af6bd47ab0aaffa5",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\growth\\GrowthContent.java": "5b0d2eb62e57c4e625a248bd83a0169412c8410f0f8793894a2f1cf2ed46eddc",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\ecosystem\\EcosystemContent.java": "1c3363ea7512e634d53f4358855221a97ae1d17018d53d706dbe2e757b5d96cf",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\dependencies\\DependencyBlocks.java": "29ce472f3fb9d5c557aee3cff492641fe5c82fb04dc50a0791c14e48ffec03ea",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\glass\\variants\\GlassVariantsContent.java": "a420cb6ba8d32d8078e019fcdd8dd26d8bdb133b0ccdee9d52c6f692b9f43a57",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\status\\StatusContent.java": "940aaea4cc50d31ec2178c3b0c88e9dd07143bc49fc988414a98f0708e490c1b",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\springslime\\SpringslimeContent.java": "be8cc75966d998c56a0d25375e8bce8ac1a364297aad39c89bfb3cbdfd4ee39f",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\labworldgen\\LabWorldgenContent.java": "b7039d6a6183d21f035726ee17423bc66b1fdb25851c8a7646f9af815042c6e2",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\electricsphere\\ElectricSphereContent.java": "7719b25461e6f9a8614417786d2ba5d6346ef638a6f5ccb74534dfda743365af",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\machines\\MachineContent.java": "f221cc425a7eccfa0e9f42940369a10b9eaffe9952bb9b762ff1483c62433798",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\vilebathblocks\\VilebathBlocksContent.java": "66565a2d13e1637e85fba17285352d3184968b8de822da49ccd75afa0bb3e95e",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\gardenling\\GardenlingContent.java": "3c12956aa945e9df824f0ada5bff0998645daf0d95540f26f9c1aa86b7d21682",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\glass\\GlassContent.java": "5cfaac2f68b6d98918f254591631909d3d28a6a88c5ead1a01695b74f98dd4dc",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\glastrekker\\GlastrekkerContent.java": "058cc87a4ceb587f4aa4bd514408d6a41c1e267c5bd22ef50c7d0f81e3317365",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\remainingcombat\\RemainingCombatContent.java": "b6d193642d00821c04764297356cc41f81496f3401963d78cd27a0f6101b38be",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\icesquad\\IceSquadContent.java": "99d3ce5054903d57801265a5ace34cc3d00a4abcfe6ae72e3c0f1ff227eb51a8",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\liftbug\\LiftbugContent.java": "d0e1c68994e78f6deb356a28300d231f071f3a91383c47aa2de9ea22aeb9abb2",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weatherutility\\WeatherUtilityContent.java": "8dbc7c6c72cc15daaa6edf692a621a9c659fd8c944c359ed73cb9b9a44ad84ec",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\displayutility\\DisplayUtilityContent.java": "d10d7243a3db2fa63cd2da54d4d307f76347d2816714b7cb33d4a55283728f02",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\growth\\GrowthKind.java": "844b18aee6b59e5da51786ca5cdf0fbacdac14614a9c07be5a5363dc4cb277fa",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\plants\\tall\\TallPlantContent.java": "c7d57ae2bb917f13d87117ccbf8fbe1d7fb1bf731d4dbbc5a0691fa62db6cf74",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\labmachinist\\LabContent.java": "40ee86d8134d47f806bd40f840a8f38a2b0ac70fa7bc5c1ece649e9050183b8d",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\metalblocks\\MetalBlocksContent.java": "e563241fc22249a32d95af583c8221c96cfbcfb40fb37964a19b8004cd048015",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\reactor\\ReactorContent.java": "4e373ac7b6b2c4387148b62acaf1a76c5b9bf926b2bde03aa28beb20b7514932",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\teslareed\\TeslaReedContent.java": "05fa0a0f6ad044467158e91f165cb9143753be282a91c54f9a917f0f227ac13f",
+    "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\terrain\\vermilli\\VermilliContent.java": "62133e03584b2d5701072400a06f24718033c2b6d7a17c12c9b8741284da8927"
+  },
+  "anchorsVerified": 2088,
+  "nativeSourceComparison": [
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\item\\Items.java",
+      "rawSha256": "06842ee1e1ac94d3698d174020a98f592a926ed645397d6bfd38cb4b5f652ef2",
+      "gitLfSha256": "1c0dd4593b6b60f6b20a6389fd0c364aab0c0c2dc1260765d9c898f4ffa19353"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\block\\SlabBlock.java",
+      "rawSha256": "970e9a090d0e7a2f0b578d3c31d5b68eaa6a629eac4c2a4092720c207c91c432",
+      "gitLfSha256": "970e9a090d0e7a2f0b578d3c31d5b68eaa6a629eac4c2a4092720c207c91c432"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\block\\DoorBlock.java",
+      "rawSha256": "89415e7a6dfbfbaf297d6d34b82085fb81ca255d3bd2bbbd465a926ac0a98491",
+      "gitLfSha256": "89415e7a6dfbfbaf297d6d34b82085fb81ca255d3bd2bbbd465a926ac0a98491"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\world\\level\\block\\DoublePlantBlock.java",
+      "rawSha256": "a247f466560d1bdba052f0a6258c5c6e8384f57e1ad6cbf016855f48dc11c9c3",
+      "gitLfSha256": "d9b645c7896e208e18fbc544a8ad69e27f8b01fec52e211cfbbbaceb2ee15cca"
+    }
+  ],
+  "nativeGitLfMetadataCorrection": "owner v2生成器的Git LF字段将反斜杠转义文本作替换，原始SHA及逐字节相等有效；接收器另按真实CRLF计算，不改冻结报告。",
+  "itemIdsClosed": 626,
+  "proofRowsClosed": 634,
+  "vanillaIdsVerified": 33,
+  "originalStateConditions": 61,
+  "targetStateConditions": 62,
+  "g03StaticReferenceClosure": true,
+  "nativeCodecExecuted": false,
+  "build": "本批仅新增接收证据，生产未改，沿130固定输入构建；132资源迁移独立验证。",
+  "generator": "D:\\AI临时文件\\ThermalShockMigration\\loot131\\supplement131_v2.py",
+  "generatorRawSha256": "dde0c046070ec7423547d03d1a56757f10806bf6c742127b2c0af0054588d699",
+  "generatorGitLfSha256": "2091265b9cd518f4f8762eb7457aaca9a7d0e13b2a274a32a500d0d755e498ab",
+  "gameExecuted": false,
+  "fullMigrationComplete": false
+}

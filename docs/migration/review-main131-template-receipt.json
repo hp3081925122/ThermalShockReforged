@@ -1,0 +1,34 @@
+{
+  "baseline": "9496401",
+  "reportEvidence": [
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\review-a130-templates.json",
+      "rawSha256": "00e7ac432e3c1afa47c36dfad6fb8a378b4d3dc01d3762048cd144a20a8a9388",
+      "gitLfSha256": "00e7ac432e3c1afa47c36dfad6fb8a378b4d3dc01d3762048cd144a20a8a9388"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\review-a130-templates.md",
+      "rawSha256": "c6efa2dc9246853d77dba1318a45ecada4b35e7c0dc9c5652ce31b0a27809aa2",
+      "gitLfSha256": "c6efa2dc9246853d77dba1318a45ecada4b35e7c0dc9c5652ce31b0a27809aa2"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\review-a130-templates.plan.md",
+      "rawSha256": "98552bbb44cdaa602e1ab9439f40bf283b2aefc5120b04674845672711b2152b",
+      "gitLfSha256": "98552bbb44cdaa602e1ab9439f40bf283b2aefc5120b04674845672711b2152b"
+    }
+  ],
+  "inputsSourceAndSnapshotVerified": 16,
+  "nativeFilesVerified": 14,
+  "lineReferencesVerified": 46,
+  "originalTemplatesVerified": 67,
+  "targetMissingConfirmed": 67,
+  "finding": "原生/place template和结构块加载证明通用可达，67份目标资源遗漏需完整迁移，不新增自然生成入口。",
+  "exceptionPolicy": "22份有已登记注册/第三方字段例外，原几何实体库存完整保留；源未注册ID先证实，不猜别名、不补占位。",
+  "nextOwners": {
+    "batch132": "主对话完整负责模板迁移、验证、报告、提交",
+    "batch133": "迁移A在隔离worktree完整负责粒子provider/AAA消费复审、修复、验证、报告、提交"
+  },
+  "productionChanged": false,
+  "gameExecuted": false,
+  "fullMigrationComplete": false
+}
