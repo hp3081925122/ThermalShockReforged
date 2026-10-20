@@ -1,0 +1,211 @@
+{
+  "scope": "26 previously unresolved entity render-mode rows; not all controllers or full renderer behavior",
+  "rawSnapshotSha256": "85c9a02c07df9679f1aede839b1d3e2d6be0e54bab7fe47eca094315b9970990",
+  "rawConclusionSuperseded": true,
+  "originallyEquivalentRows": 23,
+  "restoredRows": 3,
+  "currentStaticPipelineRows": 26,
+  "nativeEvidence": [
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\render124\\native1201\\LivingEntityRenderer.java",
+      "sha256": "c34c16ec5361db304970b5b4524cdf1db52b19e992bb6d8376c2cec326e4d059"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\build\\neoForm\\neoFormJoined1.21.1-20240808.144430\\steps\\transformSource\\transformed\\net\\minecraft\\client\\renderer\\entity\\LivingEntityRenderer.java",
+      "sha256": "ca04e31d5eb9a43ede5a845382b5406d574dfb6730de6a9555ba77d4e889125c"
+    }
+  ],
+  "nativeAlpha": {
+    "old": 0.15,
+    "targetARGB": 654311423,
+    "targetAlphaByte": 38,
+    "quantization": "38/255; standard target renderer encoding"
+  },
+  "rows": [
+    {
+      "id": "budding_bloomer",
+      "priorConclusion": "一致：主RT与原override相同",
+      "currentStaticConclusion": "inherited verified pipeline; actual runtime pending",
+      "repaired124": false
+    },
+    {
+      "id": "dandybloomer",
+      "priorConclusion": "一致：主RT与原override相同",
+      "currentStaticConclusion": "inherited verified pipeline; actual runtime pending",
+      "repaired124": false
+    },
+    {
+      "id": "cerulean_jellercel",
+      "priorConclusion": "一致：主RT与原override相同",
+      "currentStaticConclusion": "inherited verified pipeline; actual runtime pending",
+      "repaired124": false
+    },
+    {
+      "id": "fuschia_jellercel",
+      "priorConclusion": "一致：主RT与原override相同",
+      "currentStaticConclusion": "inherited verified pipeline; actual runtime pending",
+      "repaired124": false
+    },
+    {
+      "id": "veridian_jellercel",
+      "priorConclusion": "一致：主RT与原override相同",
+      "currentStaticConclusion": "inherited verified pipeline; actual runtime pending",
+      "repaired124": false
+    },
+    {
+      "id": "dormant_beetle_crasher",
+      "priorConclusion": "一致：主RT与原override相同",
+      "currentStaticConclusion": "inherited verified pipeline; actual runtime pending",
+      "repaired124": false
+    },
+    {
+      "id": "flintsteel_rifle_bullet",
+      "priorConclusion": "一致：主RT与原override相同",
+      "currentStaticConclusion": "inherited verified pipeline; actual runtime pending",
+      "repaired124": false
+    },
+    {
+      "id": "hailfall_bullet",
+      "priorConclusion": "一致：主RT与原override相同",
+      "currentStaticConclusion": "inherited verified pipeline; actual runtime pending",
+      "repaired124": false
+    },
+    {
+      "id": "frost_titan",
+      "priorConclusion": "一致：主RT与原override相同",
+      "currentStaticConclusion": "inherited verified pipeline; actual runtime pending",
+      "repaired124": false
+    },
+    {
+      "id": "mantletitan",
+      "priorConclusion": "一致：主RT与原override相同",
+      "currentStaticConclusion": "inherited verified pipeline; actual runtime pending",
+      "repaired124": false
+    },
+    {
+      "id": "skeletitan",
+      "priorConclusion": "一致：主RT与原override相同",
+      "currentStaticConclusion": "inherited verified pipeline; actual runtime pending",
+      "repaired124": false
+    },
+    {
+      "id": "gardenling",
+      "priorConclusion": "一致：主RT与原override相同",
+      "currentStaticConclusion": "inherited verified pipeline; actual runtime pending",
+      "repaired124": false
+    },
+    {
+      "id": "blood_bullet",
+      "priorConclusion": "一致：ThrownItemRenderer 的普通生成物品模型路径；模型和贴图命名空间规范化一致",
+      "currentStaticConclusion": "inherited verified pipeline; actual runtime pending",
+      "repaired124": false
+    },
+    {
+      "id": "err",
+      "priorConclusion": "一致：主模型本来就隐藏/目标不绘制",
+      "currentStaticConclusion": "Source and target both retain living renderer with isBodyVisible=false. Native translucent/outline branches remain; prior wording not drawn is withdrawn.",
+      "repaired124": false
+    },
+    {
+      "id": "flare_bullet",
+      "priorConclusion": "一致：ThrownItemRenderer 委托物品自定义 GeoItem renderer；源与目标均 entityTranslucent",
+      "currentStaticConclusion": "inherited verified pipeline; actual runtime pending",
+      "repaired124": false
+    },
+    {
+      "id": "ghostglass_sword_bullet",
+      "priorConclusion": "一致：ThrownItemRenderer 委托物品自定义 GeoItem renderer；源与目标均 entityTranslucent",
+      "currentStaticConclusion": "inherited verified pipeline; actual runtime pending",
+      "repaired124": false
+    },
+    {
+      "id": "grenade_bullet",
+      "priorConclusion": "一致：ThrownItemRenderer 委托物品自定义 GeoItem renderer；源与目标均 entityTranslucent",
+      "currentStaticConclusion": "inherited verified pipeline; actual runtime pending",
+      "repaired124": false
+    },
+    {
+      "id": "magnet_crossbow_bullet",
+      "priorConclusion": "一致：ThrownItemRenderer 委托物品自定义 GeoItem renderer；源与目标均 entityTranslucent",
+      "currentStaticConclusion": "inherited verified pipeline; actual runtime pending",
+      "repaired124": false
+    },
+    {
+      "id": "mortar_bomb",
+      "priorConclusion": "一致：ThrownItemRenderer 的普通生成物品模型路径；模型和贴图命名空间规范化一致",
+      "currentStaticConclusion": "inherited verified pipeline; actual runtime pending",
+      "repaired124": false
+    },
+    {
+      "id": "poison_attack_entity",
+      "priorConclusion": "一致：主模型本来就隐藏/目标不绘制",
+      "currentStaticConclusion": "Restored original MobRenderer Cod model, zerkglow, zero shadow, isBodyVisible=false and native translucent/outline branches. Previous Noop/empty render and prior all-hidden conclusion were incorrect.",
+      "repaired124": true,
+      "sourceRenderer": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\PoisonAttackEntityRenderer.java",
+      "sourceSha256": "bbc939b749a9863073bfbce0009aae2ed84195d8364d926f6654ce779685f053",
+      "currentRenderer": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\attack\\AttackCarrierRenderer.java",
+      "currentRendererSha256": "69346b4b5868e9090fca236edb77451bf99a673299046c3864d88d35f0fee3a4"
+    },
+    {
+      "id": "poison_bomb",
+      "priorConclusion": "一致：ThrownItemRenderer 的普通生成物品模型路径；模型和贴图命名空间规范化一致",
+      "currentStaticConclusion": "inherited verified pipeline; actual runtime pending",
+      "repaired124": false
+    },
+    {
+      "id": "shock_attack_entity",
+      "priorConclusion": "一致：主模型本来就隐藏/目标不绘制",
+      "currentStaticConclusion": "Restored original MobRenderer Cod model, zerkglow, zero shadow, isBodyVisible=false and native translucent/outline branches. Previous Noop/empty render and prior all-hidden conclusion were incorrect.",
+      "repaired124": true,
+      "sourceRenderer": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\ShockAttackEntityRenderer.java",
+      "sourceSha256": "b8cd2e4374b2f7db1de75252074cb46c1e5d7f1580a28189b0ed11dd0d11444d",
+      "currentRenderer": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\attack\\AttackCarrierRenderer.java",
+      "currentRendererSha256": "69346b4b5868e9090fca236edb77451bf99a673299046c3864d88d35f0fee3a4"
+    },
+    {
+      "id": "squall",
+      "priorConclusion": "一致：主模型本来就隐藏/目标不绘制",
+      "currentStaticConclusion": "Source and target both retain living renderer with isBodyVisible=false. Native translucent/outline branches remain; prior wording not drawn is withdrawn.",
+      "repaired124": false
+    },
+    {
+      "id": "zap_attack_entity",
+      "priorConclusion": "一致：主模型本来就隐藏/目标不绘制",
+      "currentStaticConclusion": "Restored original MobRenderer Cod model, zerkglow, zero shadow, isBodyVisible=false and native translucent/outline branches. Previous Noop/empty render and prior all-hidden conclusion were incorrect.",
+      "repaired124": true,
+      "sourceRenderer": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\ZapAttackEntityRenderer.java",
+      "sourceSha256": "bfc7c241c9c98530b0d9f7ac36e35f1332e5b95a07f17385b0e1a2d3387e053a",
+      "currentRenderer": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\attack\\AttackCarrierRenderer.java",
+      "currentRendererSha256": "69346b4b5868e9090fca236edb77451bf99a673299046c3864d88d35f0fee3a4"
+    },
+    {
+      "id": "thermoblaster_bullet",
+      "priorConclusion": "一致：ThrownItemRenderer 委托物品自定义 GeoItem renderer；源与目标均 entityTranslucent",
+      "currentStaticConclusion": "inherited verified pipeline; actual runtime pending",
+      "repaired124": false
+    },
+    {
+      "id": "thermoblaster_shotgun_bullet",
+      "priorConclusion": "一致：ThrownItemRenderer 的普通生成物品模型路径；模型和贴图命名空间规范化一致",
+      "currentStaticConclusion": "inherited verified pipeline; actual runtime pending",
+      "repaired124": false
+    }
+  ],
+  "productionEvidence": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/attack/AttackCarrierRenderer.java",
+      "sha256": "69346b4b5868e9090fca236edb77451bf99a673299046c3864d88d35f0fee3a4"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/ClientEvents.java",
+      "sha256": "467ed127fd833424e4d7900225049525bc208baf6ce8a7d010ca1b8142ffad41"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/cavebloomer/CavebloomerClient.java",
+      "sha256": "c51cc4623c8344b33e7d28a5a9d72d079aa973082de90684b2d5d05df8101ea5"
+    }
+  ],
+  "clientExecuted": false,
+  "renderPreviewExecuted": false,
+  "fullControllerReviewComplete": false
+}

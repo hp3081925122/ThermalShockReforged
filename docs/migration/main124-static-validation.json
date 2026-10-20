@@ -1,0 +1,73 @@
+{
+  "baseline": "d2608f4c7fb55a5eec3ea4973a91ceba24db21bb",
+  "phase": "main124 interim fixed-input integration; A124 review remains active",
+  "build": {
+    "command": "compileJava processResources --offline --max-workers=2",
+    "success": true,
+    "log": "D:\\AI临时文件\\ThermalShockMigration\\batch124-unified-build.log",
+    "sha256": "3cd05dad198dcd2ebecf082737897234b5e4b7cff28279f1f6e7bb127fa1879f"
+  },
+  "inputs": {
+    "count": 8880,
+    "snapshot": "D:\\AI临时文件\\ThermalShockMigration\\batch124-inputs-before.json",
+    "sha256": "fae4af7da6c82cf43dcd58e2e9692fd23c76ddf88e4cf0a93845252b08cb8de5",
+    "afterEqualsBefore": true
+  },
+  "directResourcesByteEqual": 8060,
+  "localization": {
+    "enKeys": 3492,
+    "zhKeys": 3493,
+    "newKeys": 6,
+    "changedExistingChinese": 118,
+    "oldEnglishUnchanged": true,
+    "formatsNewlinesAndCameraPassed": true,
+    "remainingNonemptyEnglishEqual": 1732,
+    "enSha256": "f34ec640698eb8f70a121b0a9ea91f5f81ea4e61b20b6bda53b714fe4e535cbb",
+    "zhSha256": "88ed95061038df314a5ad897ac0efca65e03b459d4cd2b081dc50125a1739be2"
+  },
+  "ownedProduction": [
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/attack/AttackCarrierRenderer.java",
+      "sha256": "69346b4b5868e9090fca236edb77451bf99a673299046c3864d88d35f0fee3a4"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/cavebloomer/CavebloomerClient.java",
+      "sha256": "c51cc4623c8344b33e7d28a5a9d72d079aa973082de90684b2d5d05df8101ea5"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/ClientEvents.java",
+      "sha256": "467ed127fd833424e4d7900225049525bc208baf6ce8a7d010ca1b8142ffad41"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/npc/florist/FloristScreen.java",
+      "sha256": "12949232c2f1898a4a8c9f14060c18cdae0f5ad04663926da112806a67334769"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/npc/shutterbug/ShutterbugScreen.java",
+      "sha256": "7262f0d76dddabc2aeec245d84fd2c0961c3a09a1478776b1908957a724ca392"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/remainingcombat/ClawSickleItem.java",
+      "sha256": "70e2e3ae812a69da2c93844e8d17eabbcb625d9d0859fe2994559605eb7a7590"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/content/weapons/SickleItem.java",
+      "sha256": "0723858af843150933989d8520a91c653d3728f750005c42d459cea425d7645c"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/projectile/LiteprismDiskProjectileEntity.java",
+      "sha256": "69c41045baaa2afc3ad50d60df006316a341f62ad199b070742f80149450d0f6"
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/lang/en_us.json",
+      "sha256": "f34ec640698eb8f70a121b0a9ea91f5f81ea4e61b20b6bda53b714fe4e535cbb"
+    },
+    {
+      "path": "src/main/resources/assets/thermal_shock_reforged/lang/zh_cn.json",
+      "sha256": "88ed95061038df314a5ad897ac0efca65e03b459d4cd2b081dc50125a1739be2"
+    }
+  ],
+  "independentRibbonbladeIncludedButExcludedFromCommit": true,
+  "gameExecuted": false,
+  "completeMigration": false
+}

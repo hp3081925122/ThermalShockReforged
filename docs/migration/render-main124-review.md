@@ -1,0 +1,11 @@
+# 第124批：原生透明分支与三种技能载体
+
+26项原空RenderType记录已追到真实渲染通路。12项显式模式（10透明、2裁切）和9项ThrownItemRenderer物品模型通路沿只读证据继承；Err及Squall原与目标均保留Living/Mob渲染父类及isBodyVisible=false。后两项“完全不绘制”的初稿描述撤回，只能确认原生条件分支均保留。
+
+初稿把isBodyVisible=false等同完全不画，导致误判Poison、Shock和Zap三种技能载体。主线核1.20.1与1.21.1 LivingEntityRenderer：flag1=!isBodyVisible&&!isInvisibleTo(player)可选择itemEntityTranslucentCull；不满足可见分支时仍有glowing对应outline。旧透明度0.15由目标原生ARGB654311423表达，alpha为38/255。不能用NoopRenderer或空render删掉这些分支。
+
+三载体现已共用AttackCarrierRenderer，保原MobRenderer、Cod模型及原生动画、zerkglow纹理、零阴影和isBodyVisible=false，不新增人为可见性条件。Err原有Cod和Squall原有Humanoid路径本来一致，不重复改写。共享注册仅修改三处绑定；原资源字节保持。
+
+初稿原文保存在render-main124-before-fix.json；其“26项全一致”和五项“not drawn”措辞不作为最终结论。最终render-main124-reviewed.json记录23项原路径一致、3项本批恢复、原/目标原生源码及生产哈希。
+
+固定8880份输入的统一compileJava/processResources已通过；8060份直接资源字节一致。静态路径恢复不能证明实际像素相同，最终仍需子代理客户端和Render Preview核半透明、发光轮廓、技能声画及完整控制器。服务端由用户独立测试线负责。

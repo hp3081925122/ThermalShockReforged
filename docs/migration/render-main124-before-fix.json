@@ -1,0 +1,1592 @@
+{
+  "schema": "render-types26-review-v1",
+  "scope": "The 26 rows whose previous matrix had empty target_render_types; direct target helper/enum registrations and render modes resolved from source",
+  "counts": {
+    "rows": 26,
+    "explicit_source_overrides": 12,
+    "main_mode_matches": 26,
+    "texture_evidence_rows": 17,
+    "item_stack_pipeline_rows": 9,
+    "item_stack_model_namespace_equivalent": 9,
+    "item_textures_byte_identical": 9
+  },
+  "rows": [
+    {
+      "id": "budding_bloomer",
+      "source_renderer": "BuddingBloomerRenderer",
+      "source_registered_renderer_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModEntityRenderers.java",
+        "line": 288,
+        "sha256": "a107a8b6462c86564fb5d2839f2de0924ab6b41ce2b1d0406d71d99813990647"
+      },
+      "source_mode": "entityTranslucent",
+      "source_mode_evidence_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\BuddingBloomerRenderer.java",
+        "line": 29,
+        "sha256": "ac39d48032d89be5c0a72ae45d49cd033c553f005c8ed888baa1748f1a1e333c"
+      },
+      "source_getRenderType_override": true,
+      "target_renderer_registration_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\cavebloomer\\CavebloomerClient.java",
+        "line": 15,
+        "sha256": "83b2f13c0eb80dc45e414985e8ac5096e6550f4c07af046de9207f5c29be01a1"
+      },
+      "target_actual_mode": "entityTranslucent",
+      "target_mode_evidence_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\cavebloomer\\BloomlingRenderer.java",
+        "line": 24,
+        "sha256": "a07f626805f941d9d8bbaf4846249c41188af0cd16a84d2953f676326cf1dc9a"
+      },
+      "target_mode_expression": "entityTranslucent(texture)",
+      "comparison": "一致：主RT与原override相同",
+      "texture_alpha_evidence": {
+        "texture": "textures/entities/budding_bloomer.png",
+        "original_jar_entry": "assets/thermal_shock/textures/entities/budding_bloomer.png",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\textures\\entities\\budding_bloomer.png",
+        "original_sha256": "4e5b380f242220ef739f7f43f9e1c6395ba4d9262d3c2d7c4303e0679272efb3",
+        "target_sha256": "4e5b380f242220ef739f7f43f9e1c6395ba4d9262d3c2d7c4303e0679272efb3",
+        "byte_identical": true,
+        "dimensions": [
+          128,
+          128
+        ],
+        "alpha_minmax": [
+          0,
+          255
+        ],
+        "transparent_pixels": 10627,
+        "partial_alpha_pixels": 0,
+        "opaque_pixels": 5757
+      }
+    },
+    {
+      "id": "dandybloomer",
+      "source_renderer": "DandybloomerRenderer",
+      "source_registered_renderer_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModEntityRenderers.java",
+        "line": 289,
+        "sha256": "a107a8b6462c86564fb5d2839f2de0924ab6b41ce2b1d0406d71d99813990647"
+      },
+      "source_mode": "entityTranslucent",
+      "source_mode_evidence_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\DandybloomerRenderer.java",
+        "line": 26,
+        "sha256": "2a99cf937cd17b4f49c5142b6c56ef5d1a3b3c7cd9f1b9c461158b33a9f1b539"
+      },
+      "source_getRenderType_override": true,
+      "target_renderer_registration_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\cavebloomer\\CavebloomerClient.java",
+        "line": 16,
+        "sha256": "83b2f13c0eb80dc45e414985e8ac5096e6550f4c07af046de9207f5c29be01a1"
+      },
+      "target_actual_mode": "entityTranslucent",
+      "target_mode_evidence_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\cavebloomer\\BloomlingRenderer.java",
+        "line": 24,
+        "sha256": "a07f626805f941d9d8bbaf4846249c41188af0cd16a84d2953f676326cf1dc9a"
+      },
+      "target_mode_expression": "entityTranslucent(texture)",
+      "comparison": "一致：主RT与原override相同",
+      "texture_alpha_evidence": {
+        "texture": "textures/entities/dandybloomer.png",
+        "original_jar_entry": "assets/thermal_shock/textures/entities/dandybloomer.png",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\textures\\entities\\dandybloomer.png",
+        "original_sha256": "479f9a65c790fbe26001378f4db33ec1c09ec42220f0ff2b1056933d3454711d",
+        "target_sha256": "479f9a65c790fbe26001378f4db33ec1c09ec42220f0ff2b1056933d3454711d",
+        "byte_identical": true,
+        "dimensions": [
+          128,
+          128
+        ],
+        "alpha_minmax": [
+          0,
+          255
+        ],
+        "transparent_pixels": 8401,
+        "partial_alpha_pixels": 3119,
+        "opaque_pixels": 4864
+      }
+    },
+    {
+      "id": "cerulean_jellercel",
+      "source_renderer": "CeruleanJellercelRenderer",
+      "source_registered_renderer_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModEntityRenderers.java",
+        "line": 271,
+        "sha256": "a107a8b6462c86564fb5d2839f2de0924ab6b41ce2b1d0406d71d99813990647"
+      },
+      "source_mode": "entityTranslucent",
+      "source_mode_evidence_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\CeruleanJellercelRenderer.java",
+        "line": 29,
+        "sha256": "935618e5c12d8d63bcbe0aa1f7184c02bdb751b79030b4eac44da3b6d539599d"
+      },
+      "source_getRenderType_override": true,
+      "target_renderer_registration_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\jellercel\\JellercelRenderers.java",
+        "line": 24,
+        "sha256": "43230293ea0f08042f15087be2faf077658e4f6c72852cbdc559c0e7230fa920"
+      },
+      "target_actual_mode": "entityTranslucent",
+      "target_mode_evidence_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\jellercel\\JellercelRenderers.java",
+        "line": 40,
+        "sha256": "43230293ea0f08042f15087be2faf077658e4f6c72852cbdc559c0e7230fa920"
+      },
+      "target_mode_expression": "entityTranslucent(texture)",
+      "comparison": "一致：主RT与原override相同",
+      "texture_alpha_evidence": {
+        "texture": "textures/entities/cerulean_jellercel_black.png",
+        "original_jar_entry": "assets/thermal_shock/textures/entities/cerulean_jellercel_black.png",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\textures\\entities\\cerulean_jellercel_black.png",
+        "original_sha256": "5e64aeef0130ab337115d456fcb9d3bf5809efa594ea0a80dd202d325067ecbf",
+        "target_sha256": "5e64aeef0130ab337115d456fcb9d3bf5809efa594ea0a80dd202d325067ecbf",
+        "byte_identical": true,
+        "dimensions": [
+          32,
+          32
+        ],
+        "alpha_minmax": [
+          0,
+          255
+        ],
+        "transparent_pixels": 624,
+        "partial_alpha_pixels": 0,
+        "opaque_pixels": 400
+      }
+    },
+    {
+      "id": "fuschia_jellercel",
+      "source_renderer": "FuschiaJellercelRenderer",
+      "source_registered_renderer_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModEntityRenderers.java",
+        "line": 272,
+        "sha256": "a107a8b6462c86564fb5d2839f2de0924ab6b41ce2b1d0406d71d99813990647"
+      },
+      "source_mode": "entityTranslucent",
+      "source_mode_evidence_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\FuschiaJellercelRenderer.java",
+        "line": 29,
+        "sha256": "3a19120cb2e6226a3278d87f83dacfe7a8e5af7db2f2991738bdd67b3d920e9d"
+      },
+      "source_getRenderType_override": true,
+      "target_renderer_registration_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\jellercel\\JellercelRenderers.java",
+        "line": 24,
+        "sha256": "43230293ea0f08042f15087be2faf077658e4f6c72852cbdc559c0e7230fa920"
+      },
+      "target_actual_mode": "entityTranslucent",
+      "target_mode_evidence_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\jellercel\\JellercelRenderers.java",
+        "line": 40,
+        "sha256": "43230293ea0f08042f15087be2faf077658e4f6c72852cbdc559c0e7230fa920"
+      },
+      "target_mode_expression": "entityTranslucent(texture)",
+      "comparison": "一致：主RT与原override相同",
+      "texture_alpha_evidence": {
+        "texture": "textures/entities/fuschia_jellercel_black.png",
+        "original_jar_entry": "assets/thermal_shock/textures/entities/fuschia_jellercel_black.png",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\textures\\entities\\fuschia_jellercel_black.png",
+        "original_sha256": "e7d4ba23fec08176c2c75c6df6dd7c538fbe7cdd96d996d8751eb228ae9cf119",
+        "target_sha256": "e7d4ba23fec08176c2c75c6df6dd7c538fbe7cdd96d996d8751eb228ae9cf119",
+        "byte_identical": true,
+        "dimensions": [
+          128,
+          128
+        ],
+        "alpha_minmax": [
+          0,
+          255
+        ],
+        "transparent_pixels": 13980,
+        "partial_alpha_pixels": 0,
+        "opaque_pixels": 2404
+      }
+    },
+    {
+      "id": "veridian_jellercel",
+      "source_renderer": "VeridianJellercelRenderer",
+      "source_registered_renderer_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModEntityRenderers.java",
+        "line": 273,
+        "sha256": "a107a8b6462c86564fb5d2839f2de0924ab6b41ce2b1d0406d71d99813990647"
+      },
+      "source_mode": "entityTranslucent",
+      "source_mode_evidence_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\VeridianJellercelRenderer.java",
+        "line": 29,
+        "sha256": "302543f6d765e3c25159ae99ea2a7b69283aa1b69ed4abce46d4a3b8a4a13656"
+      },
+      "source_getRenderType_override": true,
+      "target_renderer_registration_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\jellercel\\JellercelRenderers.java",
+        "line": 24,
+        "sha256": "43230293ea0f08042f15087be2faf077658e4f6c72852cbdc559c0e7230fa920"
+      },
+      "target_actual_mode": "entityTranslucent",
+      "target_mode_evidence_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\jellercel\\JellercelRenderers.java",
+        "line": 40,
+        "sha256": "43230293ea0f08042f15087be2faf077658e4f6c72852cbdc559c0e7230fa920"
+      },
+      "target_mode_expression": "entityTranslucent(texture)",
+      "comparison": "一致：主RT与原override相同",
+      "texture_alpha_evidence": {
+        "texture": "textures/entities/veridian_jellercel_black.png",
+        "original_jar_entry": "assets/thermal_shock/textures/entities/veridian_jellercel_black.png",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\textures\\entities\\veridian_jellercel_black.png",
+        "original_sha256": "92cf008b2466ec1137f845f8caf3c6da5d42ae06453c84c8009954d3b9870fc2",
+        "target_sha256": "92cf008b2466ec1137f845f8caf3c6da5d42ae06453c84c8009954d3b9870fc2",
+        "byte_identical": true,
+        "dimensions": [
+          180,
+          180
+        ],
+        "alpha_minmax": [
+          0,
+          255
+        ],
+        "transparent_pixels": 22717,
+        "partial_alpha_pixels": 0,
+        "opaque_pixels": 9683
+      }
+    },
+    {
+      "id": "dormant_beetle_crasher",
+      "source_renderer": "DormantBeetleCrasherRenderer",
+      "source_registered_renderer_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModEntityRenderers.java",
+        "line": 230,
+        "sha256": "a107a8b6462c86564fb5d2839f2de0924ab6b41ce2b1d0406d71d99813990647"
+      },
+      "source_mode": "entityTranslucent",
+      "source_mode_evidence_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\DormantBeetleCrasherRenderer.java",
+        "line": 26,
+        "sha256": "7ade042c763709d776b9c434391478b1522c05bf7653513e16d43c9e19e2372c"
+      },
+      "source_getRenderType_override": true,
+      "target_renderer_registration_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\beetles\\BeetleRenderers.java",
+        "line": 15,
+        "sha256": "9969cdaa95a02d0af988e318cb6a006a5fa963429e4ff16a4f2cf515c296a0fe"
+      },
+      "target_actual_mode": "entityTranslucent",
+      "target_mode_evidence_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\beetles\\BeetleRenderers.java",
+        "line": 42,
+        "sha256": "9969cdaa95a02d0af988e318cb6a006a5fa963429e4ff16a4f2cf515c296a0fe"
+      },
+      "target_mode_expression": "entityTranslucent(texture)",
+      "comparison": "一致：主RT与原override相同",
+      "texture_alpha_evidence": {
+        "texture": "textures/entities/texturespringy.png",
+        "original_jar_entry": "assets/thermal_shock/textures/entities/texturespringy.png",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\textures\\entities\\texturespringy.png",
+        "original_sha256": "9eed7134d451b1cc7cd5cd840172c7cf1a3e99306275a23da1b35507be85618c",
+        "target_sha256": "9eed7134d451b1cc7cd5cd840172c7cf1a3e99306275a23da1b35507be85618c",
+        "byte_identical": true,
+        "dimensions": [
+          48,
+          48
+        ],
+        "alpha_minmax": [
+          0,
+          255
+        ],
+        "transparent_pixels": 1392,
+        "partial_alpha_pixels": 0,
+        "opaque_pixels": 912
+      }
+    },
+    {
+      "id": "flintsteel_rifle_bullet",
+      "source_renderer": "FlintsteelRifleBulletRenderer",
+      "source_registered_renderer_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModEntityRenderers.java",
+        "line": 185,
+        "sha256": "a107a8b6462c86564fb5d2839f2de0924ab6b41ce2b1d0406d71d99813990647"
+      },
+      "source_mode": "entityCutout",
+      "source_mode_evidence_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\FlintsteelRifleBulletRenderer.java",
+        "line": 31,
+        "sha256": "42ef81473982f3c3e698399834d15216df1630294e35be6f4c5a3f846ee5849c"
+      },
+      "source_getRenderType_override": false,
+      "target_renderer_registration_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\weapons\\FirearmBulletRenderer.java",
+        "line": 29,
+        "sha256": "fe3d2b39d059a6b88d637d296ad9a5388827c9217cf6ddc366fac6da4a4ea740"
+      },
+      "target_actual_mode": "entityCutout",
+      "target_mode_evidence_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\weapons\\FirearmBulletRenderer.java",
+        "line": 38,
+        "sha256": "fe3d2b39d059a6b88d637d296ad9a5388827c9217cf6ddc366fac6da4a4ea740"
+      },
+      "target_mode_expression": "entityCutout(TEXTURE)",
+      "comparison": "一致：主RT与原override相同",
+      "texture_alpha_evidence": {
+        "texture": "textures/entities/gruntglow.png",
+        "original_jar_entry": "assets/thermal_shock/textures/entities/gruntglow.png",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\textures\\entities\\gruntglow.png",
+        "original_sha256": "5fb24d0c2985401ac501625aa3bcdd1e13271673f7901ffbf9e12dc6453071b0",
+        "target_sha256": "5fb24d0c2985401ac501625aa3bcdd1e13271673f7901ffbf9e12dc6453071b0",
+        "byte_identical": true,
+        "dimensions": [
+          64,
+          64
+        ],
+        "alpha_minmax": [
+          0,
+          255
+        ],
+        "transparent_pixels": 4094,
+        "partial_alpha_pixels": 0,
+        "opaque_pixels": 2
+      }
+    },
+    {
+      "id": "hailfall_bullet",
+      "source_renderer": "HailfallBulletRenderer",
+      "source_registered_renderer_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModEntityRenderers.java",
+        "line": 186,
+        "sha256": "a107a8b6462c86564fb5d2839f2de0924ab6b41ce2b1d0406d71d99813990647"
+      },
+      "source_mode": "entityCutout",
+      "source_mode_evidence_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\HailfallBulletRenderer.java",
+        "line": 31,
+        "sha256": "b21882b6a738901068f968d2baf355c356c29c4428af57994d6c11562e08e6a3"
+      },
+      "source_getRenderType_override": false,
+      "target_renderer_registration_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\weapons\\FirearmBulletRenderer.java",
+        "line": 30,
+        "sha256": "fe3d2b39d059a6b88d637d296ad9a5388827c9217cf6ddc366fac6da4a4ea740"
+      },
+      "target_actual_mode": "entityCutout",
+      "target_mode_evidence_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\weapons\\FirearmBulletRenderer.java",
+        "line": 38,
+        "sha256": "fe3d2b39d059a6b88d637d296ad9a5388827c9217cf6ddc366fac6da4a4ea740"
+      },
+      "target_mode_expression": "entityCutout(TEXTURE)",
+      "comparison": "一致：主RT与原override相同",
+      "texture_alpha_evidence": {
+        "texture": "textures/entities/gruntglow.png",
+        "original_jar_entry": "assets/thermal_shock/textures/entities/gruntglow.png",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\textures\\entities\\gruntglow.png",
+        "original_sha256": "5fb24d0c2985401ac501625aa3bcdd1e13271673f7901ffbf9e12dc6453071b0",
+        "target_sha256": "5fb24d0c2985401ac501625aa3bcdd1e13271673f7901ffbf9e12dc6453071b0",
+        "byte_identical": true,
+        "dimensions": [
+          64,
+          64
+        ],
+        "alpha_minmax": [
+          0,
+          255
+        ],
+        "transparent_pixels": 4094,
+        "partial_alpha_pixels": 0,
+        "opaque_pixels": 2
+      }
+    },
+    {
+      "id": "frost_titan",
+      "source_renderer": "FrostTitanRenderer",
+      "source_registered_renderer_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModEntityRenderers.java",
+        "line": 198,
+        "sha256": "a107a8b6462c86564fb5d2839f2de0924ab6b41ce2b1d0406d71d99813990647"
+      },
+      "source_mode": "entityTranslucent",
+      "source_mode_evidence_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\FrostTitanRenderer.java",
+        "line": 26,
+        "sha256": "a2dff5ea69ef6946d7e000ce480b55dbb80bdfd90a154956ce8596053d0ae2de"
+      },
+      "source_getRenderType_override": true,
+      "target_renderer_registration_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\titans\\TitanRenderers.java",
+        "line": 25,
+        "sha256": "d8435ad911d399548383250fc6b8e63ba5065badd3dde97acb7c24452fccd81c"
+      },
+      "target_actual_mode": "entityTranslucent",
+      "target_mode_evidence_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\titans\\TitanRenderers.java",
+        "line": 52,
+        "sha256": "d8435ad911d399548383250fc6b8e63ba5065badd3dde97acb7c24452fccd81c"
+      },
+      "target_mode_expression": "entityTranslucent(texture)",
+      "comparison": "一致：主RT与原override相同",
+      "texture_alpha_evidence": {
+        "texture": "textures/entities/frost_titan.png",
+        "original_jar_entry": "assets/thermal_shock/textures/entities/frost_titan.png",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\textures\\entities\\frost_titan.png",
+        "original_sha256": "3ca7fcb74801236e0c90cb4f6d01a0850276df69ba514bd6dc494bd17f3b1d04",
+        "target_sha256": "3ca7fcb74801236e0c90cb4f6d01a0850276df69ba514bd6dc494bd17f3b1d04",
+        "byte_identical": true,
+        "dimensions": [
+          80,
+          80
+        ],
+        "alpha_minmax": [
+          0,
+          255
+        ],
+        "transparent_pixels": 4086,
+        "partial_alpha_pixels": 0,
+        "opaque_pixels": 2314
+      }
+    },
+    {
+      "id": "mantletitan",
+      "source_renderer": "MantletitanRenderer",
+      "source_registered_renderer_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModEntityRenderers.java",
+        "line": 197,
+        "sha256": "a107a8b6462c86564fb5d2839f2de0924ab6b41ce2b1d0406d71d99813990647"
+      },
+      "source_mode": "entityTranslucent",
+      "source_mode_evidence_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\MantletitanRenderer.java",
+        "line": 29,
+        "sha256": "28e0dc11bd55125540b6d9b682f499bffbb2044c1c8a16b647563a1e2b3f6684"
+      },
+      "source_getRenderType_override": true,
+      "target_renderer_registration_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\titans\\TitanRenderers.java",
+        "line": 26,
+        "sha256": "d8435ad911d399548383250fc6b8e63ba5065badd3dde97acb7c24452fccd81c"
+      },
+      "target_actual_mode": "entityTranslucent",
+      "target_mode_evidence_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\titans\\TitanRenderers.java",
+        "line": 52,
+        "sha256": "d8435ad911d399548383250fc6b8e63ba5065badd3dde97acb7c24452fccd81c"
+      },
+      "target_mode_expression": "entityTranslucent(texture)",
+      "comparison": "一致：主RT与原override相同",
+      "texture_alpha_evidence": {
+        "texture": "textures/entities/mantletitannoglow.png",
+        "original_jar_entry": "assets/thermal_shock/textures/entities/mantletitannoglow.png",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\textures\\entities\\mantletitannoglow.png",
+        "original_sha256": "c46755a3698dc8123b3c215650ea6e8386365cb35edd40f7b2bbc28fc485dff2",
+        "target_sha256": "c46755a3698dc8123b3c215650ea6e8386365cb35edd40f7b2bbc28fc485dff2",
+        "byte_identical": true,
+        "dimensions": [
+          80,
+          80
+        ],
+        "alpha_minmax": [
+          0,
+          255
+        ],
+        "transparent_pixels": 4158,
+        "partial_alpha_pixels": 0,
+        "opaque_pixels": 2242
+      }
+    },
+    {
+      "id": "skeletitan",
+      "source_renderer": "SkeletitanRenderer",
+      "source_registered_renderer_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModEntityRenderers.java",
+        "line": 187,
+        "sha256": "a107a8b6462c86564fb5d2839f2de0924ab6b41ce2b1d0406d71d99813990647"
+      },
+      "source_mode": "entityTranslucent",
+      "source_mode_evidence_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\SkeletitanRenderer.java",
+        "line": 26,
+        "sha256": "d4d9ce0fc2a9c0bdec5aa61bcc32facd922bc88cb330d71c7a39fcc783b1fe23"
+      },
+      "source_getRenderType_override": true,
+      "target_renderer_registration_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\titans\\TitanRenderers.java",
+        "line": 24,
+        "sha256": "d8435ad911d399548383250fc6b8e63ba5065badd3dde97acb7c24452fccd81c"
+      },
+      "target_actual_mode": "entityTranslucent",
+      "target_mode_evidence_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\titans\\TitanRenderers.java",
+        "line": 52,
+        "sha256": "d8435ad911d399548383250fc6b8e63ba5065badd3dde97acb7c24452fccd81c"
+      },
+      "target_mode_expression": "entityTranslucent(texture)",
+      "comparison": "一致：主RT与原override相同",
+      "texture_alpha_evidence": {
+        "texture": "textures/entities/skeletitan.png",
+        "original_jar_entry": "assets/thermal_shock/textures/entities/skeletitan.png",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\textures\\entities\\skeletitan.png",
+        "original_sha256": "e46bd65020266aeae2ae8a4f8dcb4e85aa2ae73a2b7cc3496daf423bdc27ea1b",
+        "target_sha256": "e46bd65020266aeae2ae8a4f8dcb4e85aa2ae73a2b7cc3496daf423bdc27ea1b",
+        "byte_identical": true,
+        "dimensions": [
+          80,
+          80
+        ],
+        "alpha_minmax": [
+          0,
+          255
+        ],
+        "transparent_pixels": 4166,
+        "partial_alpha_pixels": 0,
+        "opaque_pixels": 2234
+      }
+    },
+    {
+      "id": "gardenling",
+      "source_renderer": "GardenlingRenderer",
+      "source_registered_renderer_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModEntityRenderers.java",
+        "line": 242,
+        "sha256": "a107a8b6462c86564fb5d2839f2de0924ab6b41ce2b1d0406d71d99813990647"
+      },
+      "source_mode": "entityTranslucent",
+      "source_mode_evidence_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\GardenlingRenderer.java",
+        "line": 29,
+        "sha256": "86c4055a21712dc43eadad2c5b7fe25701b4f0c491de45eaf50b515948ef10f5"
+      },
+      "source_getRenderType_override": true,
+      "target_renderer_registration_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\gardenling\\GardenlingRenderers.java",
+        "line": 17,
+        "sha256": "5136d624989ec8098f6fa293178049e4a3b9dc45af54aa681450517c26e8b687"
+      },
+      "target_actual_mode": "entityTranslucent",
+      "target_mode_evidence_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\gardenling\\GardenlingRenderers.java",
+        "line": 29,
+        "sha256": "5136d624989ec8098f6fa293178049e4a3b9dc45af54aa681450517c26e8b687"
+      },
+      "target_mode_expression": "entityTranslucent(texture)",
+      "comparison": "一致：主RT与原override相同",
+      "texture_alpha_evidence": {
+        "texture": "textures/entities/gardenling.png",
+        "original_jar_entry": "assets/thermal_shock/textures/entities/gardenling.png",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\textures\\entities\\gardenling.png",
+        "original_sha256": "60adf35a46438d66aaa27c6f5989a36002c6c6bcd9f0a99768f1ccf930fc300e",
+        "target_sha256": "60adf35a46438d66aaa27c6f5989a36002c6c6bcd9f0a99768f1ccf930fc300e",
+        "byte_identical": true,
+        "dimensions": [
+          128,
+          128
+        ],
+        "alpha_minmax": [
+          0,
+          255
+        ],
+        "transparent_pixels": 13524,
+        "partial_alpha_pixels": 0,
+        "opaque_pixels": 2860
+      }
+    },
+    {
+      "id": "blood_bullet",
+      "source_renderer": "ThrownItemRenderer",
+      "source_registered_renderer_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModEntityRenderers.java",
+        "line": 263,
+        "sha256": "a107a8b6462c86564fb5d2839f2de0924ab6b41ce2b1d0406d71d99813990647"
+      },
+      "source_mode": "Minecraft ThrownItemRenderer -> ItemRenderer item-model render pipeline; no entity RenderType selection",
+      "source_mode_evidence_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModEntityRenderers.java",
+        "line": 263,
+        "sha256": "a107a8b6462c86564fb5d2839f2de0924ab6b41ce2b1d0406d71d99813990647"
+      },
+      "source_getRenderType_override": false,
+      "target_renderer_registration_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\projectile\\ProjectileRenderers.java",
+        "line": 16,
+        "sha256": "55ccff3b12ba79da4848c6b0b791ca96d4af48d973004a0bb6e7edc09155e6af"
+      },
+      "target_actual_mode": "Minecraft ThrownItemRenderer; item-model renderer selects pass (no entity RenderType override)",
+      "target_mode_evidence_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\projectile\\ProjectileRenderers.java",
+        "line": 16,
+        "sha256": "55ccff3b12ba79da4848c6b0b791ca96d4af48d973004a0bb6e7edc09155e6af"
+      },
+      "target_mode_expression": "ThrownItemRenderer::new",
+      "comparison": "一致：ThrownItemRenderer 的普通生成物品模型路径；模型和贴图命名空间规范化一致",
+      "texture_alpha_evidence": null,
+      "target_item_render_mode": {
+        "renderer": "vanilla item-model pipeline",
+        "mode": "item/generated model; item layer selected by ItemRenderer",
+        "evidence": null
+      },
+      "source_item_render_mode": {
+        "renderer": "vanilla item-model pipeline",
+        "mode": "item/generated model; item layer selected by ItemRenderer",
+        "evidence": null
+      },
+      "item_pipeline": {
+        "item_id": "gore_projectile",
+        "source_entity_item_ref": {
+          "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\BloodBulletEntity.java",
+          "line": 53,
+          "sha256": "d6486b22b758dbad33706b00c6d52bd4adbdb05ae0dfe684d788893b08547b4b"
+        },
+        "target_entity_item_ref": {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\projectile\\BloodBulletEntity.java",
+          "line": 17,
+          "sha256": "d71114529eacf7e29f1a412243504694edf5e672c4d45be9772babf6cb082282"
+        },
+        "source_item_model": {
+          "jar_entry": "assets/thermal_shock/models/item/gore_projectile.json",
+          "sha256": "d3ef253a384c3c3aa032d765415e1ab5832365e94b55fd75f7d299918b64fc08"
+        },
+        "target_item_model": {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\models\\item\\gore_projectile.json",
+          "sha256": "0615206a07adc3453455b0d10bf9ca207462382cac7d3adb6efbf471a35dc64f"
+        },
+        "namespace_normalized_item_model_equal": true,
+        "texture_alpha": {
+          "source_entry": "assets/thermal_shock/textures/item/gore_flayer_projectile.png",
+          "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\textures\\item\\gore_flayer_projectile.png",
+          "source_sha256": "4787a07b303add2c3b311ad62c8611dc783a1665a820fcd8ae800259eac57de6",
+          "target_sha256": "4787a07b303add2c3b311ad62c8611dc783a1665a820fcd8ae800259eac57de6",
+          "byte_identical": true,
+          "dimensions": [
+            16,
+            16
+          ],
+          "alpha_minmax": [
+            0,
+            255
+          ],
+          "transparent_pixels": 48,
+          "partial_alpha_pixels": 0,
+          "opaque_pixels": 208
+        }
+      }
+    },
+    {
+      "id": "err",
+      "source_renderer": "ErrRenderer",
+      "source_registered_renderer_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModEntityRenderers.java",
+        "line": 274,
+        "sha256": "a107a8b6462c86564fb5d2839f2de0924ab6b41ce2b1d0406d71d99813990647"
+      },
+      "source_mode": "Minecraft Mob/Humanoid renderer default, but custom isBodyVisible=false (not drawn)",
+      "source_mode_evidence_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\ErrRenderer.java",
+        "line": 24,
+        "sha256": "e34388bea01585b5737b73aa5ebfb949163f9cc96191cb8be226e6635663a518"
+      },
+      "source_getRenderType_override": false,
+      "target_renderer_registration_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\ClientEvents.java",
+        "line": 102,
+        "sha256": "f430c2014f17b523e9f5c0461e07b90eab55ee489c71eb1ceae81481fba535f5"
+      },
+      "target_actual_mode": "MobRenderer inherited default, custom isBodyVisible=false (not drawn)",
+      "target_mode_evidence_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\sanctum\\ErrFieldRenderer.java",
+        "line": 12,
+        "sha256": "36b76cbe2865d256dc13a5ad4378d4dbab34ce56f4741778f282d9f8f53933e9"
+      },
+      "target_mode_expression": "MobRenderer inherited; isBodyVisible=false",
+      "comparison": "一致：主模型本来就隐藏/目标不绘制",
+      "texture_alpha_evidence": {
+        "texture": "textures/entities/zerkglow.png",
+        "original_jar_entry": "assets/thermal_shock/textures/entities/zerkglow.png",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\textures\\entities\\zerkglow.png",
+        "original_sha256": "0fe2976ac9b9bde9cc37cc09b79d1fb34a3a3394cf1b5c5ea986aef2f0fef58b",
+        "target_sha256": "0fe2976ac9b9bde9cc37cc09b79d1fb34a3a3394cf1b5c5ea986aef2f0fef58b",
+        "byte_identical": true,
+        "dimensions": [
+          144,
+          144
+        ],
+        "alpha_minmax": [
+          0,
+          255
+        ],
+        "transparent_pixels": 20722,
+        "partial_alpha_pixels": 0,
+        "opaque_pixels": 14
+      }
+    },
+    {
+      "id": "flare_bullet",
+      "source_renderer": "ThrownItemRenderer",
+      "source_registered_renderer_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModEntityRenderers.java",
+        "line": 202,
+        "sha256": "a107a8b6462c86564fb5d2839f2de0924ab6b41ce2b1d0406d71d99813990647"
+      },
+      "source_mode": "Minecraft ThrownItemRenderer -> ItemRenderer item-model render pipeline; no entity RenderType selection",
+      "source_mode_evidence_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModEntityRenderers.java",
+        "line": 202,
+        "sha256": "a107a8b6462c86564fb5d2839f2de0924ab6b41ce2b1d0406d71d99813990647"
+      },
+      "source_getRenderType_override": false,
+      "target_renderer_registration_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\projectile\\ProjectileRenderers.java",
+        "line": 15,
+        "sha256": "55ccff3b12ba79da4848c6b0b791ca96d4af48d973004a0bb6e7edc09155e6af"
+      },
+      "target_actual_mode": "Minecraft ThrownItemRenderer; item-model renderer selects pass (no entity RenderType override)",
+      "target_mode_evidence_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\projectile\\ProjectileRenderers.java",
+        "line": 15,
+        "sha256": "55ccff3b12ba79da4848c6b0b791ca96d4af48d973004a0bb6e7edc09155e6af"
+      },
+      "target_mode_expression": "ThrownItemRenderer::new",
+      "comparison": "一致：ThrownItemRenderer 委托物品自定义 GeoItem renderer；源与目标均 entityTranslucent",
+      "texture_alpha_evidence": null,
+      "target_item_render_mode": {
+        "renderer": "GeoItemRenderer<GeoDecorItem>",
+        "mode": "RenderType.entityTranslucent(texture)",
+        "evidence": {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\decor\\geo\\GeoDecorRenderers.java",
+          "line": 49,
+          "sha256": "4fb7e01184457d0e8f2c46b09bcc34b986e8774a6657e61004a603713f71cfe9"
+        }
+      },
+      "source_item_render_mode": {
+        "renderer": "YellowOrbDisplayItemRenderer extends GeoItemRenderer",
+        "mode": "RenderType.entityTranslucent(texture)",
+        "evidence": {
+          "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\YellowOrbDisplayItemRenderer.java",
+          "line": 22,
+          "sha256": "08df8f143672e3e068822a9c8f5b2f4a77cb3d59eec55e40d3c48627ffc40b32"
+        }
+      },
+      "item_pipeline": {
+        "item_id": "yellow_orb",
+        "source_entity_item_ref": {
+          "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\FlareBulletEntity.java",
+          "line": 56,
+          "sha256": "d31ee526aaab7096843951306c318567fac660d5016a8e44da675137f537dab3"
+        },
+        "target_entity_item_ref": {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\projectile\\FlareBulletEntity.java",
+          "line": 16,
+          "sha256": "f24f1cd856ee9eda1927fe6a4fc79ed9e83142eea402e5d5b440860a2d558d6d"
+        },
+        "source_item_model": {
+          "jar_entry": "assets/thermal_shock/models/item/yellow_orb.json",
+          "sha256": "53a14d712cd6b37194e6d3de38a1a7aa0a2e6874eb607f386ea2538e208172e5"
+        },
+        "target_item_model": {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\models\\item\\yellow_orb.json",
+          "sha256": "c230cf41ca5f253bc7301d59268b23b4059a541a7033b5002573a11d5cfec44f"
+        },
+        "namespace_normalized_item_model_equal": true,
+        "texture_alpha": {
+          "source_entry": "assets/thermal_shock/textures/block/helionprojectile.png",
+          "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\textures\\block\\helionprojectile.png",
+          "source_sha256": "f819a639e323382741a1c93c2447e68280a612f5b8ab2672b826699b4b13682f",
+          "target_sha256": "f819a639e323382741a1c93c2447e68280a612f5b8ab2672b826699b4b13682f",
+          "byte_identical": true,
+          "dimensions": [
+            48,
+            48
+          ],
+          "alpha_minmax": [
+            0,
+            255
+          ],
+          "transparent_pixels": 1704,
+          "partial_alpha_pixels": 0,
+          "opaque_pixels": 600
+        }
+      }
+    },
+    {
+      "id": "ghostglass_sword_bullet",
+      "source_renderer": "ThrownItemRenderer",
+      "source_registered_renderer_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModEntityRenderers.java",
+        "line": 182,
+        "sha256": "a107a8b6462c86564fb5d2839f2de0924ab6b41ce2b1d0406d71d99813990647"
+      },
+      "source_mode": "Minecraft ThrownItemRenderer -> ItemRenderer item-model render pipeline; no entity RenderType selection",
+      "source_mode_evidence_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModEntityRenderers.java",
+        "line": 182,
+        "sha256": "a107a8b6462c86564fb5d2839f2de0924ab6b41ce2b1d0406d71d99813990647"
+      },
+      "source_getRenderType_override": false,
+      "target_renderer_registration_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\projectile\\ProjectileRenderers.java",
+        "line": 18,
+        "sha256": "55ccff3b12ba79da4848c6b0b791ca96d4af48d973004a0bb6e7edc09155e6af"
+      },
+      "target_actual_mode": "Minecraft ThrownItemRenderer; item-model renderer selects pass (no entity RenderType override)",
+      "target_mode_evidence_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\projectile\\ProjectileRenderers.java",
+        "line": 18,
+        "sha256": "55ccff3b12ba79da4848c6b0b791ca96d4af48d973004a0bb6e7edc09155e6af"
+      },
+      "target_mode_expression": "ThrownItemRenderer::new",
+      "comparison": "一致：ThrownItemRenderer 委托物品自定义 GeoItem renderer；源与目标均 entityTranslucent",
+      "texture_alpha_evidence": null,
+      "target_item_render_mode": {
+        "renderer": "GeoItemRenderer<GeoDecorItem>",
+        "mode": "RenderType.entityTranslucent(texture)",
+        "evidence": {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\decor\\geo\\GeoDecorRenderers.java",
+          "line": 49,
+          "sha256": "4fb7e01184457d0e8f2c46b09bcc34b986e8774a6657e61004a603713f71cfe9"
+        }
+      },
+      "source_item_render_mode": {
+        "renderer": "GreenOrbDisplayItemRenderer extends GeoItemRenderer",
+        "mode": "RenderType.entityTranslucent(texture)",
+        "evidence": {
+          "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\GreenOrbDisplayItemRenderer.java",
+          "line": 22,
+          "sha256": "dd3eb95830e039b2d5edbaf5f0bd771f0c45968fdcef24d4a40828db7379e836"
+        }
+      },
+      "item_pipeline": {
+        "item_id": "green_orb",
+        "source_entity_item_ref": {
+          "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\GhostglassSwordBulletEntity.java",
+          "line": 61,
+          "sha256": "13d5a335e7a71fe9f852c127ec0430e3d4c2952775651ad60732e983f6c4c1a5"
+        },
+        "target_entity_item_ref": {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\projectile\\GhostglassSwordBulletEntity.java",
+          "line": 16,
+          "sha256": "4954b8cbeae58219f06c33e5bf90edb033504875a9ef3b85727890be175e430c"
+        },
+        "source_item_model": {
+          "jar_entry": "assets/thermal_shock/models/item/green_orb.json",
+          "sha256": "53a14d712cd6b37194e6d3de38a1a7aa0a2e6874eb607f386ea2538e208172e5"
+        },
+        "target_item_model": {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\models\\item\\green_orb.json",
+          "sha256": "c230cf41ca5f253bc7301d59268b23b4059a541a7033b5002573a11d5cfec44f"
+        },
+        "namespace_normalized_item_model_equal": true,
+        "texture_alpha": {
+          "source_entry": "assets/thermal_shock/textures/block/greengeneric.png",
+          "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\textures\\block\\greengeneric.png",
+          "source_sha256": "0a671fa91e3a1d09015758fd8f23a9359288cf7684030a1d5cb3e60dc147be6d",
+          "target_sha256": "0a671fa91e3a1d09015758fd8f23a9359288cf7684030a1d5cb3e60dc147be6d",
+          "byte_identical": true,
+          "dimensions": [
+            48,
+            48
+          ],
+          "alpha_minmax": [
+            0,
+            255
+          ],
+          "transparent_pixels": 1704,
+          "partial_alpha_pixels": 0,
+          "opaque_pixels": 600
+        }
+      }
+    },
+    {
+      "id": "grenade_bullet",
+      "source_renderer": "ThrownItemRenderer",
+      "source_registered_renderer_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModEntityRenderers.java",
+        "line": 246,
+        "sha256": "a107a8b6462c86564fb5d2839f2de0924ab6b41ce2b1d0406d71d99813990647"
+      },
+      "source_mode": "Minecraft ThrownItemRenderer -> ItemRenderer item-model render pipeline; no entity RenderType selection",
+      "source_mode_evidence_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModEntityRenderers.java",
+        "line": 246,
+        "sha256": "a107a8b6462c86564fb5d2839f2de0924ab6b41ce2b1d0406d71d99813990647"
+      },
+      "source_getRenderType_override": false,
+      "target_renderer_registration_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\projectile\\ProjectileRenderers.java",
+        "line": 16,
+        "sha256": "55ccff3b12ba79da4848c6b0b791ca96d4af48d973004a0bb6e7edc09155e6af"
+      },
+      "target_actual_mode": "Minecraft ThrownItemRenderer; item-model renderer selects pass (no entity RenderType override)",
+      "target_mode_evidence_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\projectile\\ProjectileRenderers.java",
+        "line": 16,
+        "sha256": "55ccff3b12ba79da4848c6b0b791ca96d4af48d973004a0bb6e7edc09155e6af"
+      },
+      "target_mode_expression": "ThrownItemRenderer::new",
+      "comparison": "一致：ThrownItemRenderer 委托物品自定义 GeoItem renderer；源与目标均 entityTranslucent",
+      "texture_alpha_evidence": null,
+      "target_item_render_mode": {
+        "renderer": "GeoItemRenderer<GeoDecorItem>",
+        "mode": "RenderType.entityTranslucent(texture)",
+        "evidence": {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\decor\\geo\\GeoDecorRenderers.java",
+          "line": 49,
+          "sha256": "4fb7e01184457d0e8f2c46b09bcc34b986e8774a6657e61004a603713f71cfe9"
+        }
+      },
+      "source_item_render_mode": {
+        "renderer": "YellowOrbDisplayItemRenderer extends GeoItemRenderer",
+        "mode": "RenderType.entityTranslucent(texture)",
+        "evidence": {
+          "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\YellowOrbDisplayItemRenderer.java",
+          "line": 22,
+          "sha256": "08df8f143672e3e068822a9c8f5b2f4a77cb3d59eec55e40d3c48627ffc40b32"
+        }
+      },
+      "item_pipeline": {
+        "item_id": "yellow_orb",
+        "source_entity_item_ref": {
+          "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\GrenadeBulletEntity.java",
+          "line": 56,
+          "sha256": "a51647f1fdc63196da56b65de126b9865b30e14a664007439edd8a02d4e6ddf8"
+        },
+        "target_entity_item_ref": {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\projectile\\GrenadeBulletEntity.java",
+          "line": 16,
+          "sha256": "0ca7ebe4477cd27c65079fe889cd7eab4e371ea95e9e9655895c1ce621b2c9b0"
+        },
+        "source_item_model": {
+          "jar_entry": "assets/thermal_shock/models/item/yellow_orb.json",
+          "sha256": "53a14d712cd6b37194e6d3de38a1a7aa0a2e6874eb607f386ea2538e208172e5"
+        },
+        "target_item_model": {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\models\\item\\yellow_orb.json",
+          "sha256": "c230cf41ca5f253bc7301d59268b23b4059a541a7033b5002573a11d5cfec44f"
+        },
+        "namespace_normalized_item_model_equal": true,
+        "texture_alpha": {
+          "source_entry": "assets/thermal_shock/textures/block/helionprojectile.png",
+          "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\textures\\block\\helionprojectile.png",
+          "source_sha256": "f819a639e323382741a1c93c2447e68280a612f5b8ab2672b826699b4b13682f",
+          "target_sha256": "f819a639e323382741a1c93c2447e68280a612f5b8ab2672b826699b4b13682f",
+          "byte_identical": true,
+          "dimensions": [
+            48,
+            48
+          ],
+          "alpha_minmax": [
+            0,
+            255
+          ],
+          "transparent_pixels": 1704,
+          "partial_alpha_pixels": 0,
+          "opaque_pixels": 600
+        }
+      }
+    },
+    {
+      "id": "magnet_crossbow_bullet",
+      "source_renderer": "ThrownItemRenderer",
+      "source_registered_renderer_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModEntityRenderers.java",
+        "line": 183,
+        "sha256": "a107a8b6462c86564fb5d2839f2de0924ab6b41ce2b1d0406d71d99813990647"
+      },
+      "source_mode": "Minecraft ThrownItemRenderer -> ItemRenderer item-model render pipeline; no entity RenderType selection",
+      "source_mode_evidence_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModEntityRenderers.java",
+        "line": 183,
+        "sha256": "a107a8b6462c86564fb5d2839f2de0924ab6b41ce2b1d0406d71d99813990647"
+      },
+      "source_getRenderType_override": false,
+      "target_renderer_registration_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\projectile\\ProjectileRenderers.java",
+        "line": 19,
+        "sha256": "55ccff3b12ba79da4848c6b0b791ca96d4af48d973004a0bb6e7edc09155e6af"
+      },
+      "target_actual_mode": "Minecraft ThrownItemRenderer; item-model renderer selects pass (no entity RenderType override)",
+      "target_mode_evidence_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\projectile\\ProjectileRenderers.java",
+        "line": 19,
+        "sha256": "55ccff3b12ba79da4848c6b0b791ca96d4af48d973004a0bb6e7edc09155e6af"
+      },
+      "target_mode_expression": "ThrownItemRenderer::new",
+      "comparison": "一致：ThrownItemRenderer 委托物品自定义 GeoItem renderer；源与目标均 entityTranslucent",
+      "texture_alpha_evidence": null,
+      "target_item_render_mode": {
+        "renderer": "GeoItemRenderer<GeoDecorItem>",
+        "mode": "RenderType.entityTranslucent(texture)",
+        "evidence": {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\decor\\geo\\GeoDecorRenderers.java",
+          "line": 49,
+          "sha256": "4fb7e01184457d0e8f2c46b09bcc34b986e8774a6657e61004a603713f71cfe9"
+        }
+      },
+      "source_item_render_mode": {
+        "renderer": "GreenOrbDisplayItemRenderer extends GeoItemRenderer",
+        "mode": "RenderType.entityTranslucent(texture)",
+        "evidence": {
+          "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\GreenOrbDisplayItemRenderer.java",
+          "line": 22,
+          "sha256": "dd3eb95830e039b2d5edbaf5f0bd771f0c45968fdcef24d4a40828db7379e836"
+        }
+      },
+      "item_pipeline": {
+        "item_id": "green_orb",
+        "source_entity_item_ref": {
+          "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\MagnetCrossbowBulletEntity.java",
+          "line": 56,
+          "sha256": "1ac7893143a07b0f2f7333ca1ed4bd11325980d10d71c1e155bee041ff6e5480"
+        },
+        "target_entity_item_ref": {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\projectile\\MagnetCrossbowBulletEntity.java",
+          "line": 16,
+          "sha256": "dc214dc63ddc3357f3ee5c6f4f3f3d565d5c6b8855bffaeca8a3ca2fc073e76f"
+        },
+        "source_item_model": {
+          "jar_entry": "assets/thermal_shock/models/item/green_orb.json",
+          "sha256": "53a14d712cd6b37194e6d3de38a1a7aa0a2e6874eb607f386ea2538e208172e5"
+        },
+        "target_item_model": {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\models\\item\\green_orb.json",
+          "sha256": "c230cf41ca5f253bc7301d59268b23b4059a541a7033b5002573a11d5cfec44f"
+        },
+        "namespace_normalized_item_model_equal": true,
+        "texture_alpha": {
+          "source_entry": "assets/thermal_shock/textures/block/greengeneric.png",
+          "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\textures\\block\\greengeneric.png",
+          "source_sha256": "0a671fa91e3a1d09015758fd8f23a9359288cf7684030a1d5cb3e60dc147be6d",
+          "target_sha256": "0a671fa91e3a1d09015758fd8f23a9359288cf7684030a1d5cb3e60dc147be6d",
+          "byte_identical": true,
+          "dimensions": [
+            48,
+            48
+          ],
+          "alpha_minmax": [
+            0,
+            255
+          ],
+          "transparent_pixels": 1704,
+          "partial_alpha_pixels": 0,
+          "opaque_pixels": 600
+        }
+      }
+    },
+    {
+      "id": "mortar_bomb",
+      "source_renderer": "ThrownItemRenderer",
+      "source_registered_renderer_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModEntityRenderers.java",
+        "line": 251,
+        "sha256": "a107a8b6462c86564fb5d2839f2de0924ab6b41ce2b1d0406d71d99813990647"
+      },
+      "source_mode": "Minecraft ThrownItemRenderer -> ItemRenderer item-model render pipeline; no entity RenderType selection",
+      "source_mode_evidence_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModEntityRenderers.java",
+        "line": 251,
+        "sha256": "a107a8b6462c86564fb5d2839f2de0924ab6b41ce2b1d0406d71d99813990647"
+      },
+      "source_getRenderType_override": false,
+      "target_renderer_registration_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\cavebloomer\\CavebloomerClient.java",
+        "line": 17,
+        "sha256": "83b2f13c0eb80dc45e414985e8ac5096e6550f4c07af046de9207f5c29be01a1"
+      },
+      "target_actual_mode": "Minecraft ThrownItemRenderer; item-model renderer selects pass (no entity RenderType override)",
+      "target_mode_evidence_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\cavebloomer\\CavebloomerClient.java",
+        "line": 17,
+        "sha256": "83b2f13c0eb80dc45e414985e8ac5096e6550f4c07af046de9207f5c29be01a1"
+      },
+      "target_mode_expression": "ThrownItemRenderer::new",
+      "comparison": "一致：ThrownItemRenderer 的普通生成物品模型路径；模型和贴图命名空间规范化一致",
+      "texture_alpha_evidence": null,
+      "target_item_render_mode": {
+        "renderer": "vanilla item-model pipeline",
+        "mode": "item/generated model; item layer selected by ItemRenderer",
+        "evidence": null
+      },
+      "source_item_render_mode": {
+        "renderer": "vanilla item-model pipeline",
+        "mode": "item/generated model; item layer selected by ItemRenderer",
+        "evidence": null
+      },
+      "item_pipeline": {
+        "item_id": "gore_projectile",
+        "source_entity_item_ref": {
+          "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\MortarBombEntity.java",
+          "line": 55,
+          "sha256": "c2c6b4ed1697a2f41f3e5da68df6cd83ce07afe6e3242204ffaeab7dea59bc67"
+        },
+        "target_entity_item_ref": {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\cavebloomer\\CavebloomerBombEntity.java",
+          "line": 27,
+          "sha256": "8aad8374a45464fe6f79bfa2b08a93888aec248365148a62f7103dbd56431352"
+        },
+        "source_item_model": {
+          "jar_entry": "assets/thermal_shock/models/item/gore_projectile.json",
+          "sha256": "d3ef253a384c3c3aa032d765415e1ab5832365e94b55fd75f7d299918b64fc08"
+        },
+        "target_item_model": {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\models\\item\\gore_projectile.json",
+          "sha256": "0615206a07adc3453455b0d10bf9ca207462382cac7d3adb6efbf471a35dc64f"
+        },
+        "namespace_normalized_item_model_equal": true,
+        "texture_alpha": {
+          "source_entry": "assets/thermal_shock/textures/item/gore_flayer_projectile.png",
+          "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\textures\\item\\gore_flayer_projectile.png",
+          "source_sha256": "4787a07b303add2c3b311ad62c8611dc783a1665a820fcd8ae800259eac57de6",
+          "target_sha256": "4787a07b303add2c3b311ad62c8611dc783a1665a820fcd8ae800259eac57de6",
+          "byte_identical": true,
+          "dimensions": [
+            16,
+            16
+          ],
+          "alpha_minmax": [
+            0,
+            255
+          ],
+          "transparent_pixels": 48,
+          "partial_alpha_pixels": 0,
+          "opaque_pixels": 208
+        }
+      }
+    },
+    {
+      "id": "poison_attack_entity",
+      "source_renderer": "PoisonAttackEntityRenderer",
+      "source_registered_renderer_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModEntityRenderers.java",
+        "line": 287,
+        "sha256": "a107a8b6462c86564fb5d2839f2de0924ab6b41ce2b1d0406d71d99813990647"
+      },
+      "source_mode": "Minecraft Mob/Humanoid renderer default, but custom isBodyVisible=false (not drawn)",
+      "source_mode_evidence_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\PoisonAttackEntityRenderer.java",
+        "line": 24,
+        "sha256": "bbc939b749a9863073bfbce0009aae2ed84195d8364d926f6654ce779685f053"
+      },
+      "source_getRenderType_override": false,
+      "target_renderer_registration_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\cavebloomer\\CavebloomerClient.java",
+        "line": 20,
+        "sha256": "83b2f13c0eb80dc45e414985e8ac5096e6550f4c07af046de9207f5c29be01a1"
+      },
+      "target_actual_mode": "NoopRenderer; no entity draw/texture",
+      "target_mode_evidence_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\cavebloomer\\CavebloomerClient.java",
+        "line": 20,
+        "sha256": "83b2f13c0eb80dc45e414985e8ac5096e6550f4c07af046de9207f5c29be01a1"
+      },
+      "target_mode_expression": "MobRenderer inherited; isBodyVisible=false",
+      "comparison": "一致：主模型本来就隐藏/目标不绘制",
+      "texture_alpha_evidence": {
+        "texture": "textures/entities/zerkglow.png",
+        "original_jar_entry": "assets/thermal_shock/textures/entities/zerkglow.png",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\textures\\entities\\zerkglow.png",
+        "original_sha256": "0fe2976ac9b9bde9cc37cc09b79d1fb34a3a3394cf1b5c5ea986aef2f0fef58b",
+        "target_sha256": "0fe2976ac9b9bde9cc37cc09b79d1fb34a3a3394cf1b5c5ea986aef2f0fef58b",
+        "byte_identical": true,
+        "dimensions": [
+          144,
+          144
+        ],
+        "alpha_minmax": [
+          0,
+          255
+        ],
+        "transparent_pixels": 20722,
+        "partial_alpha_pixels": 0,
+        "opaque_pixels": 14
+      }
+    },
+    {
+      "id": "poison_bomb",
+      "source_renderer": "ThrownItemRenderer",
+      "source_registered_renderer_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModEntityRenderers.java",
+        "line": 286,
+        "sha256": "a107a8b6462c86564fb5d2839f2de0924ab6b41ce2b1d0406d71d99813990647"
+      },
+      "source_mode": "Minecraft ThrownItemRenderer -> ItemRenderer item-model render pipeline; no entity RenderType selection",
+      "source_mode_evidence_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModEntityRenderers.java",
+        "line": 286,
+        "sha256": "a107a8b6462c86564fb5d2839f2de0924ab6b41ce2b1d0406d71d99813990647"
+      },
+      "source_getRenderType_override": false,
+      "target_renderer_registration_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\cavebloomer\\CavebloomerClient.java",
+        "line": 18,
+        "sha256": "83b2f13c0eb80dc45e414985e8ac5096e6550f4c07af046de9207f5c29be01a1"
+      },
+      "target_actual_mode": "Minecraft ThrownItemRenderer; item-model renderer selects pass (no entity RenderType override)",
+      "target_mode_evidence_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\cavebloomer\\CavebloomerClient.java",
+        "line": 18,
+        "sha256": "83b2f13c0eb80dc45e414985e8ac5096e6550f4c07af046de9207f5c29be01a1"
+      },
+      "target_mode_expression": "ThrownItemRenderer::new",
+      "comparison": "一致：ThrownItemRenderer 的普通生成物品模型路径；模型和贴图命名空间规范化一致",
+      "texture_alpha_evidence": null,
+      "target_item_render_mode": {
+        "renderer": "vanilla item-model pipeline",
+        "mode": "item/generated model; item layer selected by ItemRenderer",
+        "evidence": null
+      },
+      "source_item_render_mode": {
+        "renderer": "vanilla item-model pipeline",
+        "mode": "item/generated model; item layer selected by ItemRenderer",
+        "evidence": null
+      },
+      "item_pipeline": {
+        "item_id": "poison_projectile",
+        "source_entity_item_ref": {
+          "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\PoisonBombEntity.java",
+          "line": 55,
+          "sha256": "6db824be446fca277a539612d079f7049cbfbe74c17ef375e05fe437e5cfbccb"
+        },
+        "target_entity_item_ref": {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\cavebloomer\\CavebloomerBombEntity.java",
+          "line": 27,
+          "sha256": "8aad8374a45464fe6f79bfa2b08a93888aec248365148a62f7103dbd56431352"
+        },
+        "source_item_model": {
+          "jar_entry": "assets/thermal_shock/models/item/poison_projectile.json",
+          "sha256": "6c1ea597d30465e4b109e3513faa5f5de2d0c0ee09786938d0e30a2ab74c1dc4"
+        },
+        "target_item_model": {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\models\\item\\poison_projectile.json",
+          "sha256": "47cc2b8bddd1beec0d786ca818f9cee262b57a2b63140226805f2be90612e102"
+        },
+        "namespace_normalized_item_model_equal": true,
+        "texture_alpha": {
+          "source_entry": "assets/thermal_shock/textures/item/poison_bomb.png",
+          "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\textures\\item\\poison_bomb.png",
+          "source_sha256": "ae7d94e9eee852eee6da1c01ac02fd08dc48bfd022595c1f8ffb5062b0f543aa",
+          "target_sha256": "ae7d94e9eee852eee6da1c01ac02fd08dc48bfd022595c1f8ffb5062b0f543aa",
+          "byte_identical": true,
+          "dimensions": [
+            16,
+            16
+          ],
+          "alpha_minmax": [
+            0,
+            255
+          ],
+          "transparent_pixels": 48,
+          "partial_alpha_pixels": 0,
+          "opaque_pixels": 208
+        }
+      }
+    },
+    {
+      "id": "shock_attack_entity",
+      "source_renderer": "ShockAttackEntityRenderer",
+      "source_registered_renderer_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModEntityRenderers.java",
+        "line": 285,
+        "sha256": "a107a8b6462c86564fb5d2839f2de0924ab6b41ce2b1d0406d71d99813990647"
+      },
+      "source_mode": "Minecraft Mob/Humanoid renderer default, but custom isBodyVisible=false (not drawn)",
+      "source_mode_evidence_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\ShockAttackEntityRenderer.java",
+        "line": 24,
+        "sha256": "b8cd2e4374b2f7db1de75252074cb46c1e5d7f1580a28189b0ed11dd0d11444d"
+      },
+      "source_getRenderType_override": false,
+      "target_renderer_registration_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\cavebloomer\\CavebloomerClient.java",
+        "line": 19,
+        "sha256": "83b2f13c0eb80dc45e414985e8ac5096e6550f4c07af046de9207f5c29be01a1"
+      },
+      "target_actual_mode": "NoopRenderer; no entity draw/texture",
+      "target_mode_evidence_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\cavebloomer\\CavebloomerClient.java",
+        "line": 19,
+        "sha256": "83b2f13c0eb80dc45e414985e8ac5096e6550f4c07af046de9207f5c29be01a1"
+      },
+      "target_mode_expression": "MobRenderer inherited; isBodyVisible=false",
+      "comparison": "一致：主模型本来就隐藏/目标不绘制",
+      "texture_alpha_evidence": {
+        "texture": "textures/entities/zerkglow.png",
+        "original_jar_entry": "assets/thermal_shock/textures/entities/zerkglow.png",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\textures\\entities\\zerkglow.png",
+        "original_sha256": "0fe2976ac9b9bde9cc37cc09b79d1fb34a3a3394cf1b5c5ea986aef2f0fef58b",
+        "target_sha256": "0fe2976ac9b9bde9cc37cc09b79d1fb34a3a3394cf1b5c5ea986aef2f0fef58b",
+        "byte_identical": true,
+        "dimensions": [
+          144,
+          144
+        ],
+        "alpha_minmax": [
+          0,
+          255
+        ],
+        "transparent_pixels": 20722,
+        "partial_alpha_pixels": 0,
+        "opaque_pixels": 14
+      }
+    },
+    {
+      "id": "squall",
+      "source_renderer": "SquallRenderer",
+      "source_registered_renderer_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModEntityRenderers.java",
+        "line": 212,
+        "sha256": "a107a8b6462c86564fb5d2839f2de0924ab6b41ce2b1d0406d71d99813990647"
+      },
+      "source_mode": "Minecraft Mob/Humanoid renderer default, but custom isBodyVisible=false (not drawn)",
+      "source_mode_evidence_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\SquallRenderer.java",
+        "line": 32,
+        "sha256": "b33dce143bfc4472d6e796020354ee64f364939d9bbbe61738019725785e9b7b"
+      },
+      "source_getRenderType_override": false,
+      "target_renderer_registration_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\squall\\SquallRenderers.java",
+        "line": 10,
+        "sha256": "4f30c3a32fb09b86d23450b24a3b453172abc26fd71df67a1c141e7e58acb61e"
+      },
+      "target_actual_mode": "HumanoidMobRenderer inherited default, custom isBodyVisible=false (not drawn)",
+      "target_mode_evidence_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\squall\\SquallRenderer.java",
+        "line": 20,
+        "sha256": "7dbbb1c2827e5689a852626834d6e98f6a1eb1d5a944d67b421207b573a3943a"
+      },
+      "target_mode_expression": "HumanoidMobRenderer inherited; isBodyVisible=false",
+      "comparison": "一致：主模型本来就隐藏/目标不绘制",
+      "texture_alpha_evidence": {
+        "texture": "textures/entities/zerkglow.png",
+        "original_jar_entry": "assets/thermal_shock/textures/entities/zerkglow.png",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\textures\\entities\\zerkglow.png",
+        "original_sha256": "0fe2976ac9b9bde9cc37cc09b79d1fb34a3a3394cf1b5c5ea986aef2f0fef58b",
+        "target_sha256": "0fe2976ac9b9bde9cc37cc09b79d1fb34a3a3394cf1b5c5ea986aef2f0fef58b",
+        "byte_identical": true,
+        "dimensions": [
+          144,
+          144
+        ],
+        "alpha_minmax": [
+          0,
+          255
+        ],
+        "transparent_pixels": 20722,
+        "partial_alpha_pixels": 0,
+        "opaque_pixels": 14
+      }
+    },
+    {
+      "id": "zap_attack_entity",
+      "source_renderer": "ZapAttackEntityRenderer",
+      "source_registered_renderer_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModEntityRenderers.java",
+        "line": 261,
+        "sha256": "a107a8b6462c86564fb5d2839f2de0924ab6b41ce2b1d0406d71d99813990647"
+      },
+      "source_mode": "Minecraft Mob/Humanoid renderer default, but custom isBodyVisible=false (not drawn)",
+      "source_mode_evidence_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\renderer\\ZapAttackEntityRenderer.java",
+        "line": 24,
+        "sha256": "bfc7c241c9c98530b0d9f7ac36e35f1332e5b95a07f17385b0e1a2d3387e053a"
+      },
+      "source_getRenderType_override": false,
+      "target_renderer_registration_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\ClientEvents.java",
+        "line": 162,
+        "sha256": "f430c2014f17b523e9f5c0461e07b90eab55ee489c71eb1ceae81481fba535f5"
+      },
+      "target_actual_mode": "EntityRenderer override render() empty; no draw/texture",
+      "target_mode_evidence_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\ClientEvents.java",
+        "line": 288,
+        "sha256": "f430c2014f17b523e9f5c0461e07b90eab55ee489c71eb1ceae81481fba535f5"
+      },
+      "target_mode_expression": "MobRenderer inherited; isBodyVisible=false",
+      "comparison": "一致：主模型本来就隐藏/目标不绘制",
+      "texture_alpha_evidence": {
+        "texture": "textures/entities/zerkglow.png",
+        "original_jar_entry": "assets/thermal_shock/textures/entities/zerkglow.png",
+        "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\textures\\entities\\zerkglow.png",
+        "original_sha256": "0fe2976ac9b9bde9cc37cc09b79d1fb34a3a3394cf1b5c5ea986aef2f0fef58b",
+        "target_sha256": "0fe2976ac9b9bde9cc37cc09b79d1fb34a3a3394cf1b5c5ea986aef2f0fef58b",
+        "byte_identical": true,
+        "dimensions": [
+          144,
+          144
+        ],
+        "alpha_minmax": [
+          0,
+          255
+        ],
+        "transparent_pixels": 20722,
+        "partial_alpha_pixels": 0,
+        "opaque_pixels": 14
+      }
+    },
+    {
+      "id": "thermoblaster_bullet",
+      "source_renderer": "ThrownItemRenderer",
+      "source_registered_renderer_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModEntityRenderers.java",
+        "line": 203,
+        "sha256": "a107a8b6462c86564fb5d2839f2de0924ab6b41ce2b1d0406d71d99813990647"
+      },
+      "source_mode": "Minecraft ThrownItemRenderer -> ItemRenderer item-model render pipeline; no entity RenderType selection",
+      "source_mode_evidence_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModEntityRenderers.java",
+        "line": 203,
+        "sha256": "a107a8b6462c86564fb5d2839f2de0924ab6b41ce2b1d0406d71d99813990647"
+      },
+      "source_getRenderType_override": false,
+      "target_renderer_registration_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\projectile\\ProjectileRenderers.java",
+        "line": 19,
+        "sha256": "55ccff3b12ba79da4848c6b0b791ca96d4af48d973004a0bb6e7edc09155e6af"
+      },
+      "target_actual_mode": "Minecraft ThrownItemRenderer; item-model renderer selects pass (no entity RenderType override)",
+      "target_mode_evidence_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\projectile\\ProjectileRenderers.java",
+        "line": 19,
+        "sha256": "55ccff3b12ba79da4848c6b0b791ca96d4af48d973004a0bb6e7edc09155e6af"
+      },
+      "target_mode_expression": "ThrownItemRenderer::new",
+      "comparison": "一致：ThrownItemRenderer 委托物品自定义 GeoItem renderer；源与目标均 entityTranslucent",
+      "texture_alpha_evidence": null,
+      "target_item_render_mode": {
+        "renderer": "GeoItemRenderer<GeoDecorItem>",
+        "mode": "RenderType.entityTranslucent(texture)",
+        "evidence": {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\decor\\geo\\GeoDecorRenderers.java",
+          "line": 49,
+          "sha256": "4fb7e01184457d0e8f2c46b09bcc34b986e8774a6657e61004a603713f71cfe9"
+        }
+      },
+      "source_item_render_mode": {
+        "renderer": "BlueOrbDisplayItemRenderer extends GeoItemRenderer",
+        "mode": "RenderType.entityTranslucent(texture)",
+        "evidence": {
+          "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\renderer\\BlueOrbDisplayItemRenderer.java",
+          "line": 22,
+          "sha256": "4f563ebb3749a46462cba9cdb9f65b52fe0ac6fa3ddfc4071166b5d80431d6f7"
+        }
+      },
+      "item_pipeline": {
+        "item_id": "blue_orb",
+        "source_entity_item_ref": {
+          "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\ThermoblasterBulletEntity.java",
+          "line": 57,
+          "sha256": "7e4af15da0bf076268846cc7675a81f95c05060916822bbdc0a46c4a7868e864"
+        },
+        "target_entity_item_ref": {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\projectile\\ThermoblasterBulletBase.java",
+          "line": 43,
+          "sha256": "d4ae891a06333ed78c00ef29416a5e686a73e8895ee5848caa7cb867566eff62"
+        },
+        "source_item_model": {
+          "jar_entry": "assets/thermal_shock/models/item/blue_orb.json",
+          "sha256": "53a14d712cd6b37194e6d3de38a1a7aa0a2e6874eb607f386ea2538e208172e5"
+        },
+        "target_item_model": {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\models\\item\\blue_orb.json",
+          "sha256": "c230cf41ca5f253bc7301d59268b23b4059a541a7033b5002573a11d5cfec44f"
+        },
+        "namespace_normalized_item_model_equal": true,
+        "texture_alpha": {
+          "source_entry": "assets/thermal_shock/textures/block/bluegeneric.png",
+          "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\textures\\block\\bluegeneric.png",
+          "source_sha256": "d6ecae73f696fff6ef706e4c4e5c821034264dc4e15c672d823702ba292ccbac",
+          "target_sha256": "d6ecae73f696fff6ef706e4c4e5c821034264dc4e15c672d823702ba292ccbac",
+          "byte_identical": true,
+          "dimensions": [
+            48,
+            48
+          ],
+          "alpha_minmax": [
+            0,
+            255
+          ],
+          "transparent_pixels": 1704,
+          "partial_alpha_pixels": 0,
+          "opaque_pixels": 600
+        }
+      }
+    },
+    {
+      "id": "thermoblaster_shotgun_bullet",
+      "source_renderer": "ThrownItemRenderer",
+      "source_registered_renderer_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModEntityRenderers.java",
+        "line": 204,
+        "sha256": "a107a8b6462c86564fb5d2839f2de0924ab6b41ce2b1d0406d71d99813990647"
+      },
+      "source_mode": "Minecraft ThrownItemRenderer -> ItemRenderer item-model render pipeline; no entity RenderType selection",
+      "source_mode_evidence_ref": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModEntityRenderers.java",
+        "line": 204,
+        "sha256": "a107a8b6462c86564fb5d2839f2de0924ab6b41ce2b1d0406d71d99813990647"
+      },
+      "source_getRenderType_override": false,
+      "target_renderer_registration_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\projectile\\ProjectileRenderers.java",
+        "line": 20,
+        "sha256": "55ccff3b12ba79da4848c6b0b791ca96d4af48d973004a0bb6e7edc09155e6af"
+      },
+      "target_actual_mode": "Minecraft ThrownItemRenderer; item-model renderer selects pass (no entity RenderType override)",
+      "target_mode_evidence_ref": {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\client\\projectile\\ProjectileRenderers.java",
+        "line": 20,
+        "sha256": "55ccff3b12ba79da4848c6b0b791ca96d4af48d973004a0bb6e7edc09155e6af"
+      },
+      "target_mode_expression": "ThrownItemRenderer::new",
+      "comparison": "一致：ThrownItemRenderer 的普通生成物品模型路径；模型和贴图命名空间规范化一致",
+      "texture_alpha_evidence": null,
+      "target_item_render_mode": {
+        "renderer": "vanilla item-model pipeline",
+        "mode": "item/generated model; item layer selected by ItemRenderer",
+        "evidence": null
+      },
+      "source_item_render_mode": {
+        "renderer": "vanilla item-model pipeline",
+        "mode": "item/generated model; item layer selected by ItemRenderer",
+        "evidence": null
+      },
+      "item_pipeline": {
+        "item_id": "cobalt_splatter",
+        "source_entity_item_ref": {
+          "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\ThermoblasterShotgunBulletEntity.java",
+          "line": 58,
+          "sha256": "1f86f7dbca23bb8e920dbc23ae7d69b3cfde725ce8047b2fd2c93a5f8eff29ad"
+        },
+        "target_entity_item_ref": {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\projectile\\ThermoblasterBulletBase.java",
+          "line": 43,
+          "sha256": "d4ae891a06333ed78c00ef29416a5e686a73e8895ee5848caa7cb867566eff62"
+        },
+        "source_item_model": {
+          "jar_entry": "assets/thermal_shock/models/item/cobalt_splatter.json",
+          "sha256": "602946ba05bb5760255bd284c483cb12cef14ed47bd9ec14eacd588be1e893a7"
+        },
+        "target_item_model": {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\models\\item\\cobalt_splatter.json",
+          "sha256": "7e88a3aab26376afdff62ffde293d6bea8d1b9727b8cf698e115a4e983928d58"
+        },
+        "namespace_normalized_item_model_equal": true,
+        "texture_alpha": {
+          "source_entry": "assets/thermal_shock/textures/item/cobaltsplatternu.png",
+          "target_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\resources\\assets\\thermal_shock_reforged\\textures\\item\\cobaltsplatternu.png",
+          "source_sha256": "9891c7ed848f40989c6381f0b807beb658102a16acf3a7c65988783675f81b31",
+          "target_sha256": "9891c7ed848f40989c6381f0b807beb658102a16acf3a7c65988783675f81b31",
+          "byte_identical": true,
+          "dimensions": [
+            16,
+            16
+          ],
+          "alpha_minmax": [
+            0,
+            255
+          ],
+          "transparent_pixels": 89,
+          "partial_alpha_pixels": 0,
+          "opaque_pixels": 167
+        }
+      }
+    }
+  ],
+  "conclusion": "12 原显式 entity RenderType 均与目标相同；另外 14 个原来未直接解析到 RenderType 的实体逐条沿原 renderer/目标 helper 核对。9 个 ThrownItemRenderer 实际 ItemStack 已追到具体 item 模型：4 个普通生成模型命名空间归一化后相同，5 个 GeoDecorItem 由源/目标自定义 GeoItemRenderer 的 entityTranslucent 渲染。17 个实体贴图及 9 个投射物物品贴图逐项 alpha/sha 检查均 byte-identical；其余隐藏/原版模型同父类/Noop 路径不依赖实体贴图。未发现实际模式差异。"
+}

@@ -1,0 +1,27 @@
+{
+  "staticOnly": true,
+  "sickleEffectCommitThenActualReadPassed": 2,
+  "liteprismOriginalOrderAndSynchronousGuardPassed": true,
+  "englishGreetingsExactOriginals": 6,
+  "changedFiles": [
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\SickleItem.java",
+      "sha256": "0723858af843150933989d8520a91c653d3728f750005c42d459cea425d7645c"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\remainingcombat\\ClawSickleItem.java",
+      "sha256": "70e2e3ae812a69da2c93844e8d17eabbcb625d9d0859fe2994559605eb7a7590"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\projectile\\LiteprismDiskProjectileEntity.java",
+      "sha256": "69c41045baaa2afc3ad50d60df006316a341f62ad199b070742f80149450d0f6"
+    }
+  ],
+  "runtimeRequired": [
+    "拒绝效果添加/移除",
+    "同受体伤害回调嵌套飞盘命中",
+    "不同受体合法链式爆发",
+    "五类镰刀连续命中",
+    "三种技能载体半透明/outline和完整声画"
+  ]
+}

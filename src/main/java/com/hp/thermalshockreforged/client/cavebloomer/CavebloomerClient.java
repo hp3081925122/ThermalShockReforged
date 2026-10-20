@@ -1,9 +1,9 @@
 package com.hp.thermalshockreforged.client.cavebloomer;
 
 import com.hp.thermalshockreforged.client.particle.AaaStationaryParticle;
+import com.hp.thermalshockreforged.client.attack.AttackCarrierRenderer;
 import com.hp.thermalshockreforged.entity.cavebloomer.CavebloomerContent;
 import net.minecraft.client.particle.ParticleRenderType;
-import net.minecraft.client.renderer.entity.NoopRenderer;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
@@ -16,8 +16,8 @@ public final class CavebloomerClient {
         event.registerEntityRenderer(CavebloomerContent.DANDY.get(), context -> new BloomlingRenderer(context, true));
         event.registerEntityRenderer(CavebloomerContent.MORTAR_BOMB.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(CavebloomerContent.POISON_BOMB.get(), ThrownItemRenderer::new);
-        event.registerEntityRenderer(CavebloomerContent.SHOCK_IMPACT.get(), NoopRenderer::new);
-        event.registerEntityRenderer(CavebloomerContent.POISON_IMPACT.get(), NoopRenderer::new);
+        event.registerEntityRenderer(CavebloomerContent.SHOCK_IMPACT.get(), AttackCarrierRenderer::new);
+        event.registerEntityRenderer(CavebloomerContent.POISON_IMPACT.get(), AttackCarrierRenderer::new);
     }
     public static void particles(RegisterParticleProvidersEvent event) {
         event.registerSpriteSet(CavebloomerContent.NUKE_CLOUD.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "boomshroom", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true));
