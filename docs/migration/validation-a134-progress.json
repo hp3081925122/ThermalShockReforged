@@ -1,0 +1,75 @@
+{
+  "batch": 134,
+  "stage_only": true,
+  "production": [
+    {
+      "source": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\armor\\fabricated\\FabricatedArmorEvents.java",
+      "source_sha256": "fb3a5372a7f97ec553df610f5ace5b3962678decfafe4e35d736ea399d3746eb",
+      "compiled_class": "build\\classes\\java\\main\\com\\hp\\thermalshockreforged\\content\\armor\\fabricated\\FabricatedArmorEvents.class",
+      "class_sha256": "dcf13455d8b51eb81dba41ec1e1d455f4f643417b9417606fa2233ee0bbdf367",
+      "class_major": 65,
+      "utf8_no_bom": true,
+      "java_ast_error": false
+    },
+    {
+      "source": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\StarlightBottleBlock.java",
+      "source_sha256": "02d3ba2df4d434a00d5c98642cfca95535b3eda0e392c7d0c515f974ccd1eef4",
+      "compiled_class": "build\\classes\\java\\main\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\StarlightBottleBlock.class",
+      "class_sha256": "0fb0603296b20c2beba5ff5b1bc8ae9c8575faa60cf78bf8f32cf601b793afa2",
+      "class_major": 65,
+      "utf8_no_bom": true,
+      "java_ast_error": false
+    },
+    {
+      "source": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\sootle\\SootleEntity.java",
+      "source_sha256": "d435e81e5265df618f9bd2a1e207dd0add543ab00a663defbaa418b7e96d39a9",
+      "compiled_class": "build\\classes\\java\\main\\com\\hp\\thermalshockreforged\\entity\\sootle\\SootleEntity.class",
+      "class_sha256": "e88edee52b17997b502b40e1f6eb8256fc6f1cc877bdf7991b677abddc8e2942",
+      "class_major": 65,
+      "utf8_no_bom": true,
+      "java_ast_error": false
+    },
+    {
+      "source": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\hunters\\FrostilyteEntity.java",
+      "source_sha256": "cd6414620c600d62d28f0bdd16356c912bc5c74ddfa3d1ecd8f3c2dec5e07263",
+      "compiled_class": "build\\classes\\java\\main\\com\\hp\\thermalshockreforged\\entity\\hunters\\FrostilyteEntity.class",
+      "class_sha256": "c94e1e933352f681d7aa7dea4f7b63b198c364b764a1c2671e04cd7f2673e301",
+      "class_major": 65,
+      "utf8_no_bom": true,
+      "java_ast_error": false
+    }
+  ],
+  "command": "./gradlew.bat --offline --console=plain --no-daemon --max-workers=2 compileJava processResources",
+  "java_home": "C:/Users/30819/.jdks/ms-21.0.11",
+  "gradle_user_home": "C:/Users/30819/.gradle",
+  "build": {
+    "success": true,
+    "elapsed_seconds": 20,
+    "tasks": 24,
+    "executed": 1,
+    "up_to_date": 23,
+    "log": "D:\\AI临时文件\\ThermalShockMigration\\batch134-build-four-fixes.log",
+    "log_sha256": "fd85bdba4997e9d9fc23881c093110358b781e8b9d286e8c4930abe301138137",
+    "warnings": [
+      "既有弃用API",
+      "RazorwingEntity未经检查操作",
+      "Gradle9弃用提示"
+    ]
+  },
+  "static_model": {
+    "total_cases": 159,
+    "evidence": "D:\\AI临时文件\\ThermalShockMigration\\batch134-evidence\\sootle-timing.json",
+    "sha256": "bc98937806062016e4d114a84a86b7e935ecb99a48ff2d0c616eee439409e9d0",
+    "runtime_test": false
+  },
+  "resource_output_checked": {
+    "ogg": 272,
+    "sounds_json": true,
+    "jukebox_song_json": 15
+  },
+  "server_tested": false,
+  "client_tested": false,
+  "render_preview_tested": false,
+  "all_134_consumers_closed": false,
+  "g02_complete": false
+}

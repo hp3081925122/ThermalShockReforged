@@ -22,11 +22,14 @@ public final class StarlightBottleBlock extends GeoDecorBlock {
     @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         if (!stack.is(MaterialContent.items().get("drinking_straw").get()) && !stack.is(MaterialContent.items().get("silly_straw").get())) return ItemInteractionResult.SUCCESS;
+        if (level.isClientSide) {
+            level.playLocalSound(pos.getX(), pos.getY(), pos.getZ(), SoundEvents.GENERIC_DRINK, SoundSource.NEUTRAL, 1, 1, false);
+            com.hp.thermalshockreforged.ThermalShockReforged.LOGGER.debug("Starlight bottle drink sound played locally: player={}, position={}", player.getUUID(), pos);
+        }
         if (!level.isClientSide && level.getBlockState(pos).is(this)) {
             BlockState empty = GeoDecorContent.block(GeoDecorKind.BIG_GLASS_BOTTLE).defaultBlockState().setValue(ANIMATION, state.getValue(ANIMATION));
             if (level.setBlock(pos, empty, 3)) {
                 player.getFoodData().eat(5, .6F);
-                level.playSound(null, pos, SoundEvents.GENERIC_DRINK, SoundSource.NEUTRAL, 1, 1);
             }
         }
         return ItemInteractionResult.SUCCESS;

@@ -1,6 +1,8 @@
 package com.hp.thermalshockreforged.entity.hunters;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
+import com.hp.thermalshockreforged.world.timing.ServerEndTickTask;
+import com.hp.thermalshockreforged.world.timing.ServerEndTickTasks;
 import java.util.UUID;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
@@ -25,7 +27,7 @@ import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animation.*;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
-public final class FrostilyteEntity extends Monster implements GeoEntity {
+public final class FrostilyteEntity extends Monster implements GeoEntity, ServerEndTickTask {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(FrostilyteEntity.class, EntityDataSerializers.STRING);
     private static final ResourceLocation MOVEMENT_LOCK = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "frostilyte_movement_lock");
     private static final ResourceKey<DamageType> DAMAGE = ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "errant_damage"));
@@ -67,7 +69,7 @@ public final class FrostilyteEntity extends Monster implements GeoEntity {
     }
 
     void startAttack(LivingEntity target) {
-        if (!(level() instanceof ServerLevel) || !isAlive() || target == this || cooldown > 0) return;
+        if (!(level() instanceof ServerLevel server) || !isAlive() || target == this || cooldown > 0) return;
         combatDimension = level().dimension().location().toString();
         pendingTarget = target.getUUID();
         attackOrigin = target.position();
@@ -78,6 +80,7 @@ public final class FrostilyteEntity extends Monster implements GeoEntity {
         syncMovementLock();
         triggerAnim("procedure", "attack");
         level().playSound(null, BlockPos.containing(attackOrigin), SoundEvents.STRAY_AMBIENT, SoundSource.HOSTILE, 1, 3);
+        ServerEndTickTasks.schedule(server, getUUID());
     }
 
     private void syncMovementLock() {
@@ -87,6 +90,12 @@ public final class FrostilyteEntity extends Monster implements GeoEntity {
     }
 
     private void clearCombat() { cooldown = 0; movementLock = 0; attackRemaining = -1; pendingTarget = null; syncMovementLock(); }
+
+    @Override
+    public void onAddedToLevel() {
+        super.onAddedToLevel();
+        if (attackRemaining >= 0 && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
+    }
 
     @Override
     public void tick() {
@@ -99,13 +108,21 @@ public final class FrostilyteEntity extends Monster implements GeoEntity {
         super.tick();
         if (!(level() instanceof ServerLevel server)) return;
         if (!isAlive()) { clearCombat(); return; }
+        if (attackRemaining >= 0) ServerEndTickTasks.schedule(server, getUUID());
         if (level().getGameTime() == startedAt) return;
         if (cooldown > 0) cooldown--;
         if (movementLock > 0) { movementLock--; syncMovementLock(); }
-        if (attackRemaining < 0 || --attackRemaining > 0) return;
+    }
+
+    @Override
+    public void endTick(ServerLevel server) {
+        if (attackRemaining < 0 || isRemoved()) return;
+        if (!isAlive() || !combatDimension.equals(server.dimension().location().toString())) { clearCombat(); return; }
+        if (--attackRemaining > 0) { ServerEndTickTasks.schedule(server, getUUID()); return; }
         UUID targetId = pendingTarget;
         attackRemaining = -1;
         pendingTarget = null;
+        ThermalShockReforged.LOGGER.debug("Frostilyte strike at server end tick: entity={}, target={}, origin={}", getUUID(), targetId, attackOrigin);
         server.playSound(null, BlockPos.containing(attackOrigin), SoundEvents.PLAYER_ATTACK_SWEEP, SoundSource.HOSTILE, 1, 2);
         if (targetId == null || !(server.getEntity(targetId) instanceof LivingEntity target) || !target.isAlive() || target == this || distanceTo(target) > 1.5F) return;
         double damage = getAttributeValue(Attributes.ATTACK_DAMAGE) * 1.5 - target.getArmorValue() * 0.6;

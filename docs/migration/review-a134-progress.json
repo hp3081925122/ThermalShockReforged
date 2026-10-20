@@ -1,0 +1,2831 @@
+{
+  "batch": 134,
+  "status": "in_progress",
+  "all_consumers_closed": false,
+  "g02_complete": false,
+  "baseline": "7134013066670dbb1c56897906596b85491e6aee",
+  "source_jar": {
+    "path": "D:\\AI临时文件\\ThermalShockMigration\\thermal_shock-07.9-original.jar",
+    "sha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436"
+  },
+  "production": [
+    {
+      "source": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\armor\\fabricated\\FabricatedArmorEvents.java",
+      "source_sha256": "fb3a5372a7f97ec553df610f5ace5b3962678decfafe4e35d736ea399d3746eb",
+      "compiled_class": "build\\classes\\java\\main\\com\\hp\\thermalshockreforged\\content\\armor\\fabricated\\FabricatedArmorEvents.class",
+      "class_sha256": "dcf13455d8b51eb81dba41ec1e1d455f4f643417b9417606fa2233ee0bbdf367",
+      "class_major": 65,
+      "utf8_no_bom": true,
+      "java_ast_error": false
+    },
+    {
+      "source": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\StarlightBottleBlock.java",
+      "source_sha256": "02d3ba2df4d434a00d5c98642cfca95535b3eda0e392c7d0c515f974ccd1eef4",
+      "compiled_class": "build\\classes\\java\\main\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\StarlightBottleBlock.class",
+      "class_sha256": "0fb0603296b20c2beba5ff5b1bc8ae9c8575faa60cf78bf8f32cf601b793afa2",
+      "class_major": 65,
+      "utf8_no_bom": true,
+      "java_ast_error": false
+    },
+    {
+      "source": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\sootle\\SootleEntity.java",
+      "source_sha256": "d435e81e5265df618f9bd2a1e207dd0add543ab00a663defbaa418b7e96d39a9",
+      "compiled_class": "build\\classes\\java\\main\\com\\hp\\thermalshockreforged\\entity\\sootle\\SootleEntity.class",
+      "class_sha256": "e88edee52b17997b502b40e1f6eb8256fc6f1cc877bdf7991b677abddc8e2942",
+      "class_major": 65,
+      "utf8_no_bom": true,
+      "java_ast_error": false
+    },
+    {
+      "source": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\hunters\\FrostilyteEntity.java",
+      "source_sha256": "cd6414620c600d62d28f0bdd16356c912bc5c74ddfa3d1ecd8f3c2dec5e07263",
+      "compiled_class": "build\\classes\\java\\main\\com\\hp\\thermalshockreforged\\entity\\hunters\\FrostilyteEntity.class",
+      "class_sha256": "c94e1e933352f681d7aa7dea4f7b63b198c364b764a1c2671e04cd7f2673e301",
+      "class_major": 65,
+      "utf8_no_bom": true,
+      "java_ast_error": false
+    }
+  ],
+  "coverage": {
+    "sound_groups_namespace_equal": 118,
+    "ogg_byte_equal": 272,
+    "block_soundtypes_paired_equal": 649,
+    "used_vanilla_soundtype_constructors_equal": 38,
+    "discs_paired": 15,
+    "biome_audio_json_paired": 8,
+    "animation_json_paired": 276,
+    "animation_sound_timeline_fields_both": 0,
+    "entity_sound_callbacks_paired": 285,
+    "step_callbacks_parameters_paired": 52,
+    "local_only_sound_procedure_sources_reviewed": 15,
+    "skill_family_procedure_sources": 36,
+    "skill_family_logical_sites": 39,
+    "raw_original_api_source_files": 374,
+    "raw_original_api_calls": 1448,
+    "raw_target_api_calls": 405,
+    "target_sound_packet_constructor_sites": 7,
+    "raw_counts_are_not_effect_counts": true,
+    "cfr_source_parse_error_files": 45,
+    "literal_signature_candidates_explained": 59,
+    "literal_signature_candidates_are_not_all_consumers": true
+  },
+  "fixes": [
+    {
+      "id": "propulsion_launch_recipient",
+      "original": "使用者客户端本地启动声",
+      "baseline_issue": "服务端错误广播附近玩家",
+      "current": "合法启动后仅向ServerPlayer.connection发声，NEUTRAL1/1",
+      "boundary": "服务器确认后发送，网络延迟不等于原客户端即时预测；冷却到期原广播未改"
+    },
+    {
+      "id": "starlight_drink_side",
+      "original": "合法吸管客户端本地整数块坐标饮用声，在换块前",
+      "baseline_issue": "仅服务端换块成功后广播",
+      "current": "恢复客户端本地GENERIC_DRINK NEUTRAL1/1，服务端业务保持"
+    },
+    {
+      "id": "sootle_end_timing",
+      "original": "当次END先扣减，单击7，双击8后嵌套2",
+      "baseline_issue": "普通未来实体tick计时晚一拍",
+      "current": "既有END任务按7/8/10消费，起手END索引0时实际声在6或7/9",
+      "boundary": "既有冷却、行动锁、伤害公式和固定受击者坐标不变"
+    },
+    {
+      "id": "frostilyte_end_timing",
+      "original": "当次END先扣减11",
+      "baseline_issue": "跳过startedAt的普通tick倒计时晚一拍",
+      "current": "只抽attackRemaining到END任务，起手END索引0时在10消费",
+      "boundary": "cooldown和movementLock保留原tick，参数/距离/公式不变"
+    }
+  ],
+  "review_corrections": [
+    "WorldTour命令先补FakePlayer，控制台原失败声可达；未修改生产。",
+    "购买GUI有客户端直接handler，timedLoop仅首轮可听；未按服务器循环数叠加声音。",
+    "Une差事ServerPlayer分支确有原不可听jingle，目标单播为已有文档明确修复；合法NULL页不补重复jingle。",
+    "Monolith初始化失败/重试延后声音是monolith-batch95.md:57已记录的有意差异，不改回。",
+    "技能phase3撤回phase2 Frostilyte仅凭整数11误判END等价的matched；当前修复由本批模型与build单独验证。"
+  ],
+  "evidence": [
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch134-luna\\batch134-soundtype-ids.json",
+      "sha256": "881055cfa8ee04686573520737ee28f42926b88960c25275a87a505264c87293"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch134-luna\\batch134-disc-pairs.json",
+      "sha256": "e6d9278f88f0eddc3db065b71f5057c52abe88db4b07f18fe56484ff8bf176be"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch134-luna\\batch134-data-sound-sources.json",
+      "sha256": "758b5ef992547b630f13cd0489b935e06241084849026e7e2e7d7b97c82e15ae"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch134-luna\\batch134-animation-sounds.json",
+      "sha256": "ef9f36c12e307c670350f94d3c6217a583b5e552799ad7086c16524d5035c0bb"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch134-callbacks-luna\\callback-pairing-v2.json",
+      "sha256": "1be2bdfa42af9161dc4e495f2350f87572327b21b47c9a15019a4e5cce349db8"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch134-callbacks-luna\\merged-kind-evidence.json",
+      "sha256": "b422b5044d56375fe303343575aa76fbf71d6d97b42bb080311ee010de8c0211"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch134-callbacks-luna\\sound-property-overrides.json",
+      "sha256": "18896a08d14cc0e90e9985b1d7f05037068a9ba7840c95b9b9ec8bc2cc0227b2"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch134-callbacks-luna\\local-consumers.json",
+      "sha256": "dd99647a250ad01c897b09e8872ebfde66355c9601af9cc811ee2a44ff07f4b5"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch134-callbacks-luna\\local-consumers-reachability.json",
+      "sha256": "0d761ac6bd4c8ab77f099b8b919c7e9c824d9228e660d36b0a855daf4d9b3973"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch134-skills-luna\\phase2-sound-audit.json",
+      "sha256": "5e0d3f6c20f111fd55b0c4e52fd7b837ec4ba13e323500c4a6ecc48a74df5a31"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch134-skills-luna\\phase3-topology-correction.json",
+      "sha256": "9447d1ad15f2f6480c6acefbe9ccc18e2f8bae5081210687fe2e7d916d283d56"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch134-evidence\\native-soundtypes.json",
+      "sha256": "ef569c8eb108484a7616eb20ae63e240128ed0b5dd496e283b41febeb970b9fe"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch134-evidence\\signature-review.json",
+      "sha256": "f77d5a0d09e9c3f61d83b4197d920ad1c5017c92bed79797a77abbd4a4c98bb3"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch134-evidence\\sootle-timing.json",
+      "sha256": "bc98937806062016e4d114a84a86b7e935ecb99a48ff2d0c616eee439409e9d0"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch134-evidence\\four-fixes-original-javap.txt",
+      "sha256": "d0bd133609256579c4651d1d35fd644d36228c6149a49aeeeea8d9e9e914bb75"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch134-evidence\\four-fixes-verified\\inventory-v2.json",
+      "sha256": "b4cd524bbb61b971c9c6fa0a6e5bf8cbee6a59d1827c18010de784506c558153"
+    }
+  ],
+  "audio_resources": [
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\33.ogg",
+      "sha256": "2c24d092c4c26339723d989fbac036688acc0211a63bc373f44b742c6afd7d37"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\angrydrum01.ogg",
+      "sha256": "ebfa3fe49cbd0184810a1038c56deb3a3471e48dee21ce2aa3af89eb143ff01b"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\angrydrum02.ogg",
+      "sha256": "0f48017dd8ea1c2a5d58f794db786549cdebf3488fd84d7c0a1d23f0a154b646"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\angrydrum03.ogg",
+      "sha256": "55b4564c5f343bd4da1cc3cac88894e83ad8a9ad2157cf3327374eee4b433d9c"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\angrydrum04.ogg",
+      "sha256": "d7acabdb32a0f8624d2ed7106973346b80c1b7dd3e71078d43507d63650ed9be"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\arctic_warmth_24.ogg",
+      "sha256": "58ffbb5c7f09552488b98dbc753446a2a792fd59f556c05e2f34b97ebd103653"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\arcticwarmthambientmix.ogg",
+      "sha256": "bf0ff92d232faf34670d2faa374445cb4796554ddb142c76f59b81b4a13dc9b4"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\arcticwarmthlegacy.ogg",
+      "sha256": "07c904799092a3455fb972134f70a862b5905c6a1f824812a8fb59ebcf46b88b"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\azure_grey.ogg",
+      "sha256": "f6f46016f3bbfef52219e4a6520d76069b880a866b7ceea23726879eba9d1614"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\boundless24.ogg",
+      "sha256": "56498a7093af9a485ba237e353f99f27ec45a82041f9874498e14e89025a224a"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\budamb1.ogg",
+      "sha256": "7e44d709fd8db4af21b3eac6da0b177eee181e5ef7767222b9047b90495bfee3"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\budamb2.ogg",
+      "sha256": "73ffc7358f10dfc56ea264f5bdbd4c388d1f318948d8a59103df3dc15effeca6"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\budamb3.ogg",
+      "sha256": "b509a3f09a3ac03973776c9d6434aea8132f543ac1e582f9266af7e8d2670ba0"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\budamb4.ogg",
+      "sha256": "7b9f462aad921aea08ba00c089575cd456fb826e2edabb4aaef537b25ad95e94"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\buddie.ogg",
+      "sha256": "0bbec56939de05c6f2f66039b51234ade405cebe83ffa7996b260bb2fe750e87"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\budhurt1.ogg",
+      "sha256": "90877f152e03156a538aacd240f56ffa27bd00df3f683914557b18a486fdf066"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\budhurt2.ogg",
+      "sha256": "3c1d05ad128ce92c206cca63ac1c8f7954043656aaf29a789b2a78d1bf108eaf"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\budhurt3.ogg",
+      "sha256": "ce9e151d50ee37c46124b143b4377b8462cd378b61e311e7cfcc90d0808e4662"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\bunkerdoor.ogg",
+      "sha256": "570d7eff639d18080a573d7df84ca5e029000106bd8b23a5c700aa87d337729a"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\buzzsaw1.ogg",
+      "sha256": "5c0d4e50eec3cb711b222ba2ed13d995fdd98887abf776e65f9e3b57a828030f"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\buzzsaw2.ogg",
+      "sha256": "6e5f613b97e73567a1b4016b609759f9ed4649a6214419a6128bd367f22abe13"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\buzzsaw3.ogg",
+      "sha256": "44ba6d0c28de7d36384e991e2bec706279ded09f5883aaccd040bb5b9c2ce6c9"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\camclick.ogg",
+      "sha256": "6644a5d0518eedaad22afaf08dafc8277e27c55068eda45fe620c8e5e0ce76e8"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\camsuccess.ogg",
+      "sha256": "4335086b4b1a1a4c17015efbc5dacdf696442f9d5e220abc3b8dd848b916a69c"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\cavebloomerdie.ogg",
+      "sha256": "c5479e849d10e044dbdfeb81c8a79a7a72a03a9faa4a2df6fc9beda239868942"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\cavebloomerexplodefl.ogg",
+      "sha256": "92c690bfba3ca6f3595f9d84b64aeff49f182a0018966a5d9447d4a3d3c551cb"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\cavebloomerhurt1.ogg",
+      "sha256": "550e2a6ad36017bd3691640771d83f0877a8adf1629fa4ae76ea9d7473229d90"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\cavebloomerhurt2.ogg",
+      "sha256": "f46a2ca6592b77bfb878187a69ce010061e3cd11c5f41cc948c45c7e3a4deadb"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\cavebloomerhurt3.ogg",
+      "sha256": "5cc11d090f610e832e2100ef86a9e330d0df233f2492a50e37a851ba143324c8"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\cavebloomerroar.ogg",
+      "sha256": "e79d16fd472fdd9c1ad80abdd51f2ab938d9db4356aea7b615772edc007f1b1e"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\cavebloomersqueak.ogg",
+      "sha256": "2b13f800daf201c9075ec26e0f9585bfeb3858217cbdf27cdae88001fe18a399"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ceramicishmine1.ogg",
+      "sha256": "7738d7fd74bc539dd2767cf9c8a29d9984a338972445f734987377b6afc1fd67"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ceramicishmine2.ogg",
+      "sha256": "c5d6379e2a2ecc0f34da936beabc6868b3d1fee47bb5637ac58e9878b7671462"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ceramicishmine3.ogg",
+      "sha256": "3e6ffabf390ab08bf237852ea9c38fdca3fb05b59150640da212a14fea6bce1f"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ceramicishmine4.ogg",
+      "sha256": "e61f7e0c1f49473bd2190dc47fcbd75619621446859f34cc6e76cedf9be4453e"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ceramicishplace1.ogg",
+      "sha256": "1cc685a3bb4e1bd42577b4fbf10ff9e34498d13043bd1fb3d2a60d8a296960ab"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ceramicishplace2.ogg",
+      "sha256": "02209ee5c763094944dbb5b1f798461d9e768570b888b99b9b5a78738029c4e6"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ceramicishplace3.ogg",
+      "sha256": "7cb0d0ecf67fbf684a1a15fd5137f881cf0012fe075f88f9e8f33e582121cc4b"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ceramicishplace4.ogg",
+      "sha256": "32861e37eaca137afdb119e347c7b83b8d0b94d17297a0cfe151426b5a680647"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ceramicishplace5.ogg",
+      "sha256": "9e952186cf8d2b9f484bf1b52385b201f72c5c7e19d05c1aa9c4b4221af92d11"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ceramicishstep1.ogg",
+      "sha256": "9261922ab93b85f65c229eacbc13318634e2a32f4b546c646202f183e139fe22"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ceramicishstep2.ogg",
+      "sha256": "240d3c62008c2f890d2fca3f5970f2d6eb010e3146ef6129af53a09c3343a2c3"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ceramicishstep3.ogg",
+      "sha256": "031533127108b9a6217b4a06e19863b6e32800d5bcf3535dc62cd5e884de7cfb"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ceramicishstep4.ogg",
+      "sha256": "739e2482abe73a475a46ab4e62f41e03fe4b489c831958a428e8f391f6edab4c"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ceramicishstep5.ogg",
+      "sha256": "9b3ceac8e7183abf7f3801644a769a61f4405ee6221bf159388719b133369124"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ceramicishstep6.ogg",
+      "sha256": "52df6cdf721807401d92787956354e0b9a64b475bee753b2576548add2cbf1a8"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ceramicishstep7.ogg",
+      "sha256": "4a72df866525db0986914a5698de158bfe9461b9f5befb319e4dc218415f07f3"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\cold_sun.ogg",
+      "sha256": "003b4de0ee4c3a4907b592334abc5a55ae4f848efa37b0b0023f37130453044e"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\cooldownend.ogg",
+      "sha256": "204e147320bfdc780db22087c7e59bb830219c7a41ba17b42d1adc82153b4455"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\crossbow.ogg",
+      "sha256": "f58e0527806bb7ee9804e6ad3ef0b300fbceb2cc7cf86c824cd502d5f25fd231"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\deltaambient1.ogg",
+      "sha256": "ad395dc4839bebb0eb65ac1c2cc296006423f3c40c6f4dd764bd32d4db72b01e"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\deltaambient2.ogg",
+      "sha256": "4fb873ca11e02047f607633e8483885343f791422ea2a4da9e3d5ac587ea48ae"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\deltaambient3.ogg",
+      "sha256": "52d66d2c10fa5924de4da2422d4d4e295e24c7153bb47aaa2a74dce2527a89cc"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\deltadie.ogg",
+      "sha256": "c302d0ecb2cfdc94d7d98a71f0dd6f8c1ccee89d09fa4226f79bb6ce8fb30e32"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\deltahurt1.ogg",
+      "sha256": "6767ef4194a67182ae109253b0963973e43517a688397de2a3749d32a73424cb"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\deltahurt2.ogg",
+      "sha256": "e18ae5cbf4e6a66e2e05d61513b30c1c6daf87e0627f35c1f1b562b335b0e52a"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\deltahurt3.ogg",
+      "sha256": "2b149a635f185c846754035a36b983017f1bedf926a6a7cf667dd7fb6d456747"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\deltastep1.ogg",
+      "sha256": "8390dc3b5c25487fee13707b65edf4d82463715d02e7d3bb59c5b9df82ec2741"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\deltastep2.ogg",
+      "sha256": "8434d2c67fcb92b0258550826cce84e6d46fe74eda1c8b42ddf7fc83fae4938a"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\electric-impact-37128_1.ogg",
+      "sha256": "87f2631a3f7a6d4913abf81c206b2905c454e4870c3e1906eb33dca41f1afa6f"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\eocbossscream.ogg",
+      "sha256": "66722e03d517630b67a8e0f84ba56b17d1ed6d534d433037e927f421608e2a92"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\flarealtshot.ogg",
+      "sha256": "8904a8fab555832246fd4ee5e482d383d5373de43e6d0be6d463258f52d82132"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\flarecoreexplode.ogg",
+      "sha256": "193c813286f5ccf5ca452fe3cc712181706a22d6f4d7214d358af45f36c90e6f"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\flareshoot.ogg",
+      "sha256": "a652c76c950da0f9a72f415fcd9974c2de8974db90bf4ec3f3719a08d7e60505"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\flintgun01.ogg",
+      "sha256": "3c0834cfe27001d2ba016b8fa07f7f23f5c06ee4c584822789f724db620baf26"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\flintgun02.ogg",
+      "sha256": "e7085d2b83eb595be5754961bdfef9db002b2edf7e145a3c1445782289f72e00"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\flintsteel1.ogg",
+      "sha256": "4ebadbe413963c83383d2422817d180233c6806980073f4dd8730209c3654c09"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\flintsteel2.ogg",
+      "sha256": "cb4df999c0c620950c92b45e17addfbceeee211a031ca5ae8bbdbb6b164e0079"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\floor33.ogg",
+      "sha256": "2af39eb5c692cfad99dd443e36a4e29ab079db9e61b223fd9fb3c13385148f07"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\force-field-335797.ogg",
+      "sha256": "ec8adb8a9bc6a12c5f5fa75a8f20feb45474521a296bccde2079ac06c903cd42"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\frostbitten1.ogg",
+      "sha256": "9b188a71d9519d58307d9d0fd965e0ac271bc981893d4106470521132945a017"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\frostbitten2.ogg",
+      "sha256": "c7f36e01877611e11ef9d8b9de3d8c2a4628345a811a0399ccdd1a41d8407054"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\frostbitten3.ogg",
+      "sha256": "c81218e07b27dc8aee4b094bc52378804aeac16e594c56f4e34fce6b042616f4"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\frostbitten4.ogg",
+      "sha256": "3c99f7970b85bb5022ce22baddb63bcbb3bd2a8949eacfb4ca7f9f312c699158"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\frostbitten5.ogg",
+      "sha256": "12786245fa6037b0e5c5956eeaaa6bab24e7a4c1a7305a942cdeb6f382e45d87"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\frostbitten6.ogg",
+      "sha256": "e2860e96bbb5bb2a0848ca5aa001cfb9d31e3c23a7da083021d166527ed62e4d"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\frostbitten7.ogg",
+      "sha256": "77674669c532d328f51c3ccede74f10cb84bab162778f4c5c218722c78559350"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\frostbitten8.ogg",
+      "sha256": "a9045fc0f2cf80d21dd500a0ace7a529087b98b3efcfd0df1da92645fe88ae26"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\galvaniteambient1.ogg",
+      "sha256": "0b8a43b57b968133d1fe960aa8de72d1b6a45eab341611bf13fa86d66adabcb6"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\galvaniteambient2.ogg",
+      "sha256": "9b334a148b449714d39be77b10064633d717378a032217a5c9a78dc97e008c16"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\galvaniteambient3.ogg",
+      "sha256": "e95387a981e920653ddea7d6cf762b84e56b452e450129deb9ceda6e6b73cffb"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\galvaniteambient4.ogg",
+      "sha256": "32d39f92509277b3ec9919fc9f824c3a330bf0bd85145412561820f63b2bee6a"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\galvanitedeath1.ogg",
+      "sha256": "15adc0b636826bc3fe988129e6a918b91bb705ca4e4a5dec3058c1c1c338d2e5"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\galvanitedeath2.ogg",
+      "sha256": "889e6fd7b55be028ae62469056627d54afe24539e682cd492d03d4d15cf785d6"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\galvanitedeath3.ogg",
+      "sha256": "9bd747d8967e14a1600122d95cb6c80c2cacd5c8a7a77d8acd2db760303ec198"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\galvanitehurt1.ogg",
+      "sha256": "473e55e0cac7a02d1b8de4726e21e54d3e93e6af8b444bcf77908feb1aadbc44"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\galvanitehurt2.ogg",
+      "sha256": "caa01dc565bc3e2ba6c1aab17c5256fee8d203e73b95b8f85089408f7981ab55"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\galvanitehurt3.ogg",
+      "sha256": "444d13fa5f73971884b069434b1cdd22aad7870ea2f5d3b50d628e9be729a8e3"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\galvanitehurt4.ogg",
+      "sha256": "b45e0b7effd362901e6b9cb6e9213e64a6ad70e71066a3d9103622bfcd03128a"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\gammahurt1.ogg",
+      "sha256": "6062b6fb94f3f4437b050e98f0542e26aab9d5fcd7f8ce6642a100aec9ad51f3"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\gammahurt2.ogg",
+      "sha256": "6f2868b76b431897d0318a7703c4738a3a6977802b771f0bd72adf953f12a97e"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\gammahurt3.ogg",
+      "sha256": "ca5259b01e7c1edd1e037731126c809059c01300e73b389dab80323bd80de9c4"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ghostbullet.ogg",
+      "sha256": "737c4b7281b4c6a5d8cf3aa8dcfd4bc272bab15fa49e0274dd5afab01fb573c4"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\glacier_lullaby_24.ogg",
+      "sha256": "ca9ae084463a72dfe6afa5c43bef3e6bd5965c7c6c512a3117fe6d5dbadbd336"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\glass-bottle-breaking-351297.ogg",
+      "sha256": "b746e6fa01257a185fabbefa288115c3f2362562e2f9a0cc596892b378dca838"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\hail1.ogg",
+      "sha256": "695072f06bdf59c0ab4264ac93ba98709088fe255c44e375980813f29e5bb139"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\hail2.ogg",
+      "sha256": "82cef04e2f91a3b90a92ec60c179731cc24bddaf48551be9ff434b92ba651a1a"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\hanahaki.ogg",
+      "sha256": "77cc8ae60f9f687699c6a48aa716fca6bb4ff564e4e4e6fc44a749df27528f62"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\hard_technology_rock_v2.ogg",
+      "sha256": "7163f35921fca1c1704ceb1ea338a2a7e01cf50a38d1f4d0cce145cab1e8acdc"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\igniton_detector.ogg",
+      "sha256": "098c8a9135ecae32a1c174eb450ad341c0feb133fd086d0c763a76e97710244e"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\infestorkill1.ogg",
+      "sha256": "88b44971d105655171fcc6f2f289739ccba1639b552f197e019badce8fa59b98"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\infestorkill2.ogg",
+      "sha256": "cc8ffe025633ab1fa44be53de34dc2abbf0924fe9b309e4d5194b586af018b86"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\item_71.ogg",
+      "sha256": "e75a98d9322d61679ebe8c66943f82e1474f7cd2baa0d51200e5603ce4b7f6d0"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\jellyumbrellaambient.ogg",
+      "sha256": "816c6fab14ac3fdb25f7f0493df883a0c71b3daa18410a53386dcf459aee8dc5"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\jellyumbrelladeploy.ogg",
+      "sha256": "d649d1f3cec82e5d53096bdab5fdc25294b890c8ea7afe80a69babfcd1f08382"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\jingle.ogg",
+      "sha256": "1621a62dfa378aa5916b7938d99fa4e2054a3efb922c63240d07a4aacd983ae0"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\lanternflash.ogg",
+      "sha256": "ed97069ac002378c813a1b50f880819fffa6599b4246b319d83db6342c761e79"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\laser1.ogg",
+      "sha256": "720ff4e982a6ef49273085a8b585ddd5408bc23ddffa97a70fa93070f12ddd6c"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\leafcutter1.ogg",
+      "sha256": "4731476bb67436a9ca167cfbb060826172021d8c534e453061751edf5e845b64"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\leafcutter2.ogg",
+      "sha256": "f361b228da83b0e43bbb64b8a72fe84eba5b483a9077eeff0f722060361b8d8f"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\leafcutter3.ogg",
+      "sha256": "514ac5abf77bd56e2749597ecdd60a60aa7851fff4e0074b2e8322462ef8c3ca"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\leafcutter4.ogg",
+      "sha256": "3bbd76ace16b8ddb2276b7cbc9de2ad73bacbe099e78f9f336d13f52a746b58f"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\leafcutter5.ogg",
+      "sha256": "334d3cbcd80e8e38aae62009d3f957c99ccd8a600ca3a0ca4e184edf13a9efa0"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\lensambient1.ogg",
+      "sha256": "df4d15969cea797d65e668bbf4ad9a4ce6f7b70917f187d99c5704f17038be98"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\lensambient2.ogg",
+      "sha256": "df5cbc0e22928fca4ab460e86ddc7d15ed9ed58936078b5a025dcc42b69fbc3d"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\lensambient3.ogg",
+      "sha256": "3dd1466a54942e9e43ed23032416a07dfdb709c8475bdc67bb050b45de63afc8"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\magbowexplode.ogg",
+      "sha256": "1fa990f02fd3fb6f0ba9c95228587c96e5d57912115bae871ba814449f8181d1"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\magbowfire1.ogg",
+      "sha256": "1d729b86ee3dea1d5385071fd3a814962662f3feb6995715848ee754ee333b2c"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\mantlelever.ogg",
+      "sha256": "b8309b6780cc11430a1db0fb73b373cca8fc42ef2076cc8753315d6b70696d64"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\metroid_explosion.ogg",
+      "sha256": "d6b361e665b34e7b4423dc9845a21b2bb7c157197ca74adcd052143a093e0841"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\miscgunfire.ogg",
+      "sha256": "df3f8c661506c55fe53c559dc4fa5dd8ea86be6d559e66e4a2eaf911540c81a6"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\miscgunfire2.ogg",
+      "sha256": "3b5fdd055a6853a03ec10c2655ef704af135de1e9d88151fd49a313b7d328199"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\npc_hit_2.ogg",
+      "sha256": "360307433f57b582792607c0b7cc1de355de5be9a08767ab754eec75bed576b1"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\npcbuy.ogg",
+      "sha256": "aa84937ff2dc36b5155a256008b0f8989cc566a7ff0fd0aa4d9c3fb114f28003"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\pathos.ogg",
+      "sha256": "c2c15778ed0cb6a38a05a94a4ce05f6a28450f56d4b3228382b0d67feb7402c2"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\penny.ogg",
+      "sha256": "b7136f0efb06ece96d1a2252cbb346741d60e6876799eab317febd56fc9728d5"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\petrichorfull.ogg",
+      "sha256": "4450b40d42fcdd5eed4bc491d493e41c063be6886e4bfd660d6f6dc018aa0a22"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\phobos_lament_v2.ogg",
+      "sha256": "725ec7ef2fab66394017912ffcea07d4cc6666c5bb99d5b0115d7227f5e02bd1"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\prey.ogg",
+      "sha256": "2b6cbadbff954d334a9e9f43a07be288c45b857c022deb493bcbc3ce1da97f16"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\preyend.ogg",
+      "sha256": "4868c4c281dcdbac5a1234d0d59fa581b100f67507ea06ac34afa106e7cb0305"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\preyintro.ogg",
+      "sha256": "2a9cfdf146696586e3b64f2f9595317b07bf7e2344a3d1f5dad89f32c8363b85"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\preyloop.ogg",
+      "sha256": "7cb382ae9cc14400e83c1ba714cffcb65e0f91db999a1d13350644b3537f85ca"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\propulsionbootslaunch.ogg",
+      "sha256": "a2d32c0821504f67140caf5ce06760285bbd500a9f03f0ce12604cfee200c423"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\protoicry.ogg",
+      "sha256": "5ff73d82525d9c8c5db4afc5175c582b818b57b997ad8cad177042fc17fdf5a4"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\qoem1talk1.ogg",
+      "sha256": "7c3e331b5d9b3c29adb8319e8f24d8bc838530db1cfb147f7685889221fd628d"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\qoem1talk2.ogg",
+      "sha256": "92a3dd1db89e5cc6a5a85fcda4501ab8c74c66b482448fe45d0f04f2a32191dd"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\qoem2talk1.ogg",
+      "sha256": "978b2db4b1612c16aa195b0dc6b38bc40d2ec9a4071d0a0709c744668a2fab8d"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\qoem2talk2.ogg",
+      "sha256": "25f19871e4413944dc648841833020cf88e3ca5c0bf5ef4676fdb72541cefc35"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\qotalk1.ogg",
+      "sha256": "1a844c73ca797e8ea93ee992be6f65f0c523a8b5ff306f698a47969f034e3e6e"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\qotalk2.ogg",
+      "sha256": "f52e296bf6015f9b0c7685617f3d7dc2f17371a3cfa36e6860668be91eec47ab"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\qotalk3.ogg",
+      "sha256": "7dca33c6aae9b99f00a144c372767b392c2fe7cf945a670c9cb57af21583d0ea"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\qotalk4.ogg",
+      "sha256": "8849a5720356ed59a0d9c295416a336c18c4005153e6ca8d287879ac8806d889"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\rainbow_coast.ogg",
+      "sha256": "60aec7de1e73264dc9e5ae70a119bf9f4b680366909d5d9b131624de1b9fb1c1"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\raindrum01.ogg",
+      "sha256": "b36dc21df58f536aec7ea75a8d66b1a3ce66badeec3ca4b7de451a187637b810"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\raindrum02.ogg",
+      "sha256": "3f212b84002b66fbebcb8604afdc2d0966c04f9529568d583865c9dfcfbdd5f8"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\raindrum03.ogg",
+      "sha256": "2c200e44633a9b36ea954dd4df4eea771852b0af53839835826c472e7ed9b215"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\raindrum04.ogg",
+      "sha256": "0354ae9fa51bc2b0f001c1ca33197a9ca54346de733657f2efc3517006f5e43a"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\raindrum05.ogg",
+      "sha256": "ec0e50d45e145ae4bd859bd79f905cbd378ee005a336c38c9f29f84972b9e0fa"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\raindrum06.ogg",
+      "sha256": "3468d4e816eca52f61d688ec54835a94549a6210c2d5c84f2d4ded57d2d150af"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\raindrum07.ogg",
+      "sha256": "e9928e5edb455c7f4b3bb4f507d2a988aa3b48b3c5a96ba6831938cec5cbbb8a"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\raindrum08.ogg",
+      "sha256": "29adbb83263770ffe1bf977975db0434aa64c42fe4f9df6d312921602e4ab58f"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\raindrum09.ogg",
+      "sha256": "454d8ebbeb09b90ed953191458df43f1a7f92d0d2c7ad5e9dbda8ded0a5500ff"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\raindrum10.ogg",
+      "sha256": "b7cce1ac85c4865ded2bcce9c03a8f79aa41b0041f37ddfdac383d197a9873fa"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\raindrum11.ogg",
+      "sha256": "cda1a496da61fc6a0794cb9703c21f9a18ee95c4a9360f5aa07621af90812626"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\raindrum12.ogg",
+      "sha256": "0ec26d4f0c36607918f668a0f8b1226680b6ef6d73537b99e3fab434d157cbd8"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\raindrum13.ogg",
+      "sha256": "6464eddab827a45323a820cb77f4be860996d95eb60868a7d578f1de0880237f"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\raindrum14.ogg",
+      "sha256": "3a997a02d0c237390ed83a15af5f0880ed859a81bbd9513aa690881c3f34410e"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\raindrum15.ogg",
+      "sha256": "c46a7b84e8e0dad9509fdb6c156e486b0e5478215d8d4e7fc305fb4ff3fdc5ff"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonblock1.ogg",
+      "sha256": "899414a09739848ae5d391a8f52e0ae2d0a9fef6102d8ade76fb460f1ffc8e40"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonblock10.ogg",
+      "sha256": "df4fa8aed99c73efccd1066c06ce6308275c3e0a8a29d7e6aea35fd09e4e3734"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonblock11.ogg",
+      "sha256": "f340c18f24c63e337ce5b52b51534dc5bca2e06b91d277058934671ca0d84b6e"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonblock2.ogg",
+      "sha256": "b3d39aef914d46263f2059fac7eda0291e171f0962b486ae7ee0bda98bdbb5f6"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonblock3.ogg",
+      "sha256": "2beb759ceec85d4cbc04ff6796a88f023fdcb43ccd5f466273bb4948cbd7b5a0"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonblock4.ogg",
+      "sha256": "bfdaa0ce6d8817c4479c89edb561f0324ca058d338671f6c29b5017cff55fe36"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonblock5.ogg",
+      "sha256": "63fc7a87601c92adf2fcf6713fbbfaaf70b2440d7012db2860646c588348d2b7"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonblock6.ogg",
+      "sha256": "375a665a522529b75643611bf3a7a6350d420c23442faced33844bfff97329cc"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonblock7.ogg",
+      "sha256": "f4a7a2e0af239dc348ef2a521425e7fa6c622f02e73a28bfee826789715176fb"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonblock8.ogg",
+      "sha256": "54a79c0984ad10eafc8dcefbd466376ad1b1deca36d749d10a7341e25cb89134"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonblock9.ogg",
+      "sha256": "05f1bbe8f2760f299986781a689074e25d81cfea27b377924c2443ec933a5c3a"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonhurt1.ogg",
+      "sha256": "535820429b4c4f1084d5a1a3b9399bbdbeda0370ea1f0ed2f84c2e2cb06dfbf1"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonhurt2.ogg",
+      "sha256": "52b91af6f5df955e384b3da1f32e660c0b297459602b01f10d6de0dbd1589a4b"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonhurt3.ogg",
+      "sha256": "9cefe90ed8da1593140dfce4f3ff4daa70f25156585071425639efcc21e479a4"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonhurt4.ogg",
+      "sha256": "159e5192344e1de846f07361afec1489d0580e5f0dd557175783d5e7159d1564"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonhurt5.ogg",
+      "sha256": "a7ad2222903347b059eb3f79ad88d0798b6ddfdbddd8fa3a97a59de99d2e7c60"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonhurt6.ogg",
+      "sha256": "7155d539f3d5ae90be9a7abd3990c7a80891e5fbdab12cc9b5de30abba525653"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonhurt7.ogg",
+      "sha256": "8a338cb2277acd7723968f1c6dfedb71244c5d6a062d8ea0543f679f5e636e2e"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonspawn1.ogg",
+      "sha256": "066634492a10678cf9fb04ab91cd8bb8b73d04d13dd23f80238aff684b96cc61"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonspawn10.ogg",
+      "sha256": "f24146c74bdb99b6cd17cf5b70993cc3bee3f90e4b22cd597fa21d1fcfb14e8c"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonspawn11.ogg",
+      "sha256": "a0104237a4219f6b04ce8321da085b294e6f580948be90f4892f7d0c9f244b59"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonspawn12.ogg",
+      "sha256": "e90c5488000a355580042847aa7abd10ea604931fb1afddb0550c668394ebe84"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonspawn13.ogg",
+      "sha256": "ef0978f3d49ddcf9b9f31b58d8b91eae8982c7f84f89a67a3700de5e079731e9"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonspawn14.ogg",
+      "sha256": "a2be973daa149acbda5f52c96a9c48944d20b649466919de123a81dbeea656ed"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonspawn15.ogg",
+      "sha256": "70c64dd5ab29885af9087b0c0a63442749e441252cb540b69ebabbeb024e42bf"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonspawn16.ogg",
+      "sha256": "00a9d6f8ee93bb36e0ecfb4b5e30a0dcb8379a016a7b85eb0f93f46396ffb3c0"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonspawn2.ogg",
+      "sha256": "8979fad586a5d226df85e65cd7cce92f7c4e36c6c2590e24786455c8859fa257"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonspawn3.ogg",
+      "sha256": "07e39fd345856d01cdda25512d638f7d4cc530e309e8f4b6733f089750a02585"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonspawn4.ogg",
+      "sha256": "c7e11ec3c01b6451d02b6d353a61af023f37005296e09d51af8166b8d3633d95"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonspawn5.ogg",
+      "sha256": "7cd247b532bd84174d866697aee1abea0073c67c7b0686aa736a250ea7a48847"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonspawn6.ogg",
+      "sha256": "196c51066ffade449c51fed6d91504d4767488a515fa9de3e4942f826d97d4cf"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonspawn7.ogg",
+      "sha256": "637e3ee8805593956fb93e0e8a46706476a77cc8db38a060ccb01534b815614d"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonspawn8.ogg",
+      "sha256": "a2dc35d1e6d19bf69288f5f986fd03e1388bb71783166b6273f273862a0fdb05"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonspawn9.ogg",
+      "sha256": "0f27a7ce87cf95860636864eb0fdd195ede2a24b1d1eb7292311f4ae7ff5181a"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbontaunt1.ogg",
+      "sha256": "30d384afc314d3149d16db12d6c1b36142352d9d38d6bf0515220df4268837a0"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbontaunt10.ogg",
+      "sha256": "931dab60c85c485d770c6d41e624e589ae8715103c23db603bf8874a0f23de11"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbontaunt11.ogg",
+      "sha256": "e977b9e68f4b96a61395c9b44533882c42b86f2bcdf59525afdb4b13e0a6826b"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbontaunt12.ogg",
+      "sha256": "71bcfa934a8758afaa56a12f19d3f9689185c1c2fdfcb0fdd1438e64daa01951"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbontaunt13.ogg",
+      "sha256": "80abd3b80cd7e9894c09a45ffca80c86ad611ba1c5e73afb0ba5ceb486b6bf9a"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbontaunt14.ogg",
+      "sha256": "bb572476f1913bf58b2df0baa90e6608262e934e725580989bb49b6e745d0af9"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbontaunt15.ogg",
+      "sha256": "23b04c9ed9daa2a2552bd806e6d82b8fed84dbfb81ed6a8225116d81b235397e"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbontaunt16.ogg",
+      "sha256": "ca5162862fd8d1368c9150bfd6c0c89a273a9c7d10f5e6f445e3053e9369a0bd"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbontaunt17.ogg",
+      "sha256": "335d7535ff95a938783682395e7aae137eba7f6c7b48a07143c2ef4ea6ec4ffa"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbontaunt18.ogg",
+      "sha256": "03ee7d3435f5631125e91131e0756df18b8e68b358155ac3ff073131df998859"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbontaunt2.ogg",
+      "sha256": "34c15263622c17873eb877f24845c2165c6068dd57960cc5172777fda911e80c"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbontaunt3.ogg",
+      "sha256": "67846a76c3f090cb443546d9832e1ba56da1ef974de468395dd40f356b99fd43"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbontaunt4.ogg",
+      "sha256": "09d2bfec7cc8d26e590e0497fd82ccb39cde8ac23c437c24158db0877a25d541"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbontaunt5.ogg",
+      "sha256": "f4f3ab9fe2bbdf1e7b0f13c6fb9f5ceda1f19b7896560edc019a2d739f900551"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbontaunt6.ogg",
+      "sha256": "6bad3457cb1c5dcd5feca09a58cd1567bc93b649a51f55d03d0c4b8fb2dc1242"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbontaunt7.ogg",
+      "sha256": "6166576852ccd519493df8e2038340d55690557c37c49be9feae1ff47d1fb706"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbontaunt8.ogg",
+      "sha256": "75dd4fd44b4ec9a51b4f9f7c0f705903a805e1a59ce9dfc4d7a9e18715696259"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbontaunt9.ogg",
+      "sha256": "1cfdb5698f767a36a8aaf4772818e0a207df4843de5fc351a2dd194fb0f010f5"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonwin1.ogg",
+      "sha256": "c3d05ff665c11c1bd25e98db466741297ea776986318ef389969b62e8e2acd6f"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonwin10.ogg",
+      "sha256": "295dcabd2b5859ddd97586976c779965a87d3a81de5b43200fea6f7574c8d4d7"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonwin2.ogg",
+      "sha256": "a2d84331ca07e51d9d256bd9644f37060c8f4c77941b53c8c5917ddb6a365fef"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonwin3.ogg",
+      "sha256": "c6c5925666348e99ba019d7bb8c6e90833d54481cc12ba5173174c2829795b8a"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonwin4.ogg",
+      "sha256": "1579d1153c8d7bc6798f62f69810bce0e0449bcb4a744cd5068c4ea34cac8fd4"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonwin5.ogg",
+      "sha256": "25de6e720c6072f22550a33a69508a2478c85fa306c92b69dd4584a36b2233a0"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonwin6.ogg",
+      "sha256": "7b15f0f2893c447dd21a8deab5b0c9cc75dc385fcc6ec7a00b28ef672e557c60"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonwin7.ogg",
+      "sha256": "eb58d39d36544d6c65e95ab76a16257a09f28c9d2c5846a5a22ca88540ef0eb5"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonwin8.ogg",
+      "sha256": "5e6a3466e9cfff642ffc0112adc9522a706083c02aa8716b057ae8b80285b3aa"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\ribbonwin9.ogg",
+      "sha256": "11dafd52ebfd9edfe2d5d990dfaff52e3640311cf96519e5cb89104edfea718b"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\roblox-eating-sound-effect-nom-nom-nom.ogg",
+      "sha256": "b245b6df2b518f5f4a09821d50b14f4e5b2a6e315a2bfbdf73798f5b677cdc29"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\sickleslash.ogg",
+      "sha256": "369114a6cd2ec07f86868ee2d522ad8d5188a4f571e2ad68f3d57f82f431b1a9"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\someplace.ogg",
+      "sha256": "4667423916e8230f08dc24307f60cfba16d20ee333cd74482bc7c075e7d644d0"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\sopeltlk1.ogg",
+      "sha256": "70347839bc74101201aa2b9c7f751e516b4aa1e567a84c64291f0b57759455be"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\sopeltlk2.ogg",
+      "sha256": "27e51ec37a201fef35c14637bb3e92b54c4d063f57af3888b55be6d911530f22"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\sopeltlk3.ogg",
+      "sha256": "fc9c4620ca764e323782aa7f25f24b2e2a4287a37474bcb94e7f6954706548a7"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\sopeltlk4.ogg",
+      "sha256": "084e5aebd9d86ebda138c3c8cc34412b041e5e15940842d68d7fb00781f2adc9"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\sopeltlk5.ogg",
+      "sha256": "66f1ed7bb76c09de6a9040f3869be42374ed8031bc7ebe63de19870698bdd23d"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\spinebreaking.ogg",
+      "sha256": "1e20f6c7807240450634d722de70080cc60baa71d9f57f3085525b865f86ce5b"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\stalkerambient1.ogg",
+      "sha256": "514d13f8cf4fd6f1d7b051969144f2871e77a54e2779c31b4baee32d5e1b8f26"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\stalkerambient3.ogg",
+      "sha256": "ef76df379c2dd25c972131804935efc4cffaf6a0717d6c39de61411f78052fb8"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\stalkerdeath.ogg",
+      "sha256": "5b00311cf0d22ea13d220e5904d2227ad20e7db95e65ab345f9e81e0d4903af6"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\stalkerhurt1.ogg",
+      "sha256": "3145ce3450218de331b2545f3f51d6cbfb88d8361651d8a92d8db2f11f95b4f4"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\stalkerhurt2.ogg",
+      "sha256": "bc4e39d6ccebb10d677857cafa4b72a86a9a2816cf2a8fcbc1dd1988d25cc07d"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\stalkerstep1.ogg",
+      "sha256": "dfca7a4903bdb8b7f919fceba73a570a7c22fe20fdcd4419de27812e799f589f"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\stalkerstep2.ogg",
+      "sha256": "915b4e11e6c62734fd872907f850bd57126f0c768106ce1d35750e104d5f6bf9"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\stalkerstep3.ogg",
+      "sha256": "5207563aa3aa51c71eea28df04b69a777a25dabcf15945f31ed45d251994de83"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\stranger.ogg",
+      "sha256": "3fa02635ab6bdac0d3243856ba3a9a09785f4a2f655d3d4791773c097ecd6434"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\supernovablast.ogg",
+      "sha256": "4eca18ff2b4333d326dac1cef05feec707f6ba52461254ccaa394757c2272d2a"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\supernovablast2.ogg",
+      "sha256": "8e434e574d553b743f7e62f8888ae9c7bcdff7a1291c473dec8a122de531709d"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\supernovacharge.ogg",
+      "sha256": "ed60bb0e3df6aa18ac10d0771b35c79c22698796b8caffddd03972dabfcf3746"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\surgebreak.ogg",
+      "sha256": "557f1971f91973509ff2eef9fe3ac9e4ebc84e64444676313f02511492266bf1"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\surgebreak2.ogg",
+      "sha256": "bea3acce1e4c9ce0c898224c8ac01e367cf64b4166f9f86ff1960da2568f9173"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\surgebreak3.ogg",
+      "sha256": "163685c68cefe6915a66db234ec44989869d0b851dee46ea3c4195d4334edcb8"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\surgebreak4.ogg",
+      "sha256": "c0f9a4e0e26191d8301ab7dd9f2f81a97f85ebf05a8238d958433351756bccc0"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\surgepulse1.ogg",
+      "sha256": "d269f4437b6395b4b09e674cfd13236a0d191b4a1a9dbd73f26b60d825c9c49d"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\surgepulse2.ogg",
+      "sha256": "455f896ba03e17852207cbc33f1cb5fb2efc539fe8ed203f95483d27d30d0f9a"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\the_organ_organ.ogg",
+      "sha256": "78ec60dd4603dafdb143919004a27c79729f134059f8faad63af1128568a432d"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\thermoblasterburstfire.ogg",
+      "sha256": "f7a8a7a23e8117c3f1041e23117177678a0f7694edfc6f5802a8016cefff734d"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\thermoblasterspreadfire.ogg",
+      "sha256": "93e219cd8280fc7281dc8674e79db244811e4f129e4d221f73e35dc70e2ca535"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\thermoid1.ogg",
+      "sha256": "c49f649245e01c16df9eff85f5c69ad9263a972d10d553d630bd047001304af4"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\thermoid2.ogg",
+      "sha256": "341cc1f6ec7a6c06e09ab9b2f77dfb3d77f272f150b297b343350c363e56bfb1"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\thermology12minloop.ogg",
+      "sha256": "5b6c06359c8d52c558ed3a01a929b4b3eadf69997fd438181b0c7f61f2851f18"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\tsshostphobos.ogg",
+      "sha256": "edc3f01988708734a82dd7ff87dd8af8d6add66d4043954bbcc8c5997f8c6c25"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\uncert.ogg",
+      "sha256": "ab0a1e0746978494f46637dba0a99925e7c789a35741e412ea451e25beed6eee"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\under_pillars.ogg",
+      "sha256": "2850c9f6eb45d34291514c855825f8a3ffa6e649506d839455077096123c9b46"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\uneem1talk2.ogg",
+      "sha256": "ddaca444e99e5a4250659760e2bbee6df343829eb947030dd1c502616684cd56"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\unetalk1.ogg",
+      "sha256": "9c52c25f491bea388e73cd6c40edb1f5cd57db146b797278f6a539ef21e914b7"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\unetalk2.ogg",
+      "sha256": "b8146f95d8d45cb51bd969d50286bd633d19f1a0b5d2e6dd268760e8fd15e0b3"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\unetalk3.ogg",
+      "sha256": "0deb41f447e4468820e1699399616a8f44393143af64f997c587873a5fd7a0bb"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\unetalk4.ogg",
+      "sha256": "02d7ac4111362719f585e484c3b32be96a003dad26c874df8739e57e22447a19"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\volcano1.ogg",
+      "sha256": "5c6c6007f09c4769877f2cc72af7140a6622356e1d2439869c24378ba0302ce2"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\volcano2.ogg",
+      "sha256": "131280892a5681bfbbaac007c2ac3c3ade00304d6746e7af63afaa2706673276"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\whale_song.ogg",
+      "sha256": "741f27c8ca664fc0aec611703200d8b1c8eef54f1287c9e77eb7925dea43e35d"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\whislterambient1.ogg",
+      "sha256": "41062143e581997090fe4a670195c04f716f898b1e767868905917231cddc85e"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\whislterambient2.ogg",
+      "sha256": "47dfdb484b793bff1a1ef2d6e185134b67319af1105532aa506e510aa9a225bd"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\whislterambient3.ogg",
+      "sha256": "425c68236ab152c7bf3125f02b6b38aa7cedc1075d4951f4329cdcd652ce1bca"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\whislterdeath1.ogg",
+      "sha256": "0cdc350d61942628f41183bcb4f8315afde6d891015ea325781bdd9d33787448"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\whislterdeath2.ogg",
+      "sha256": "4fc577b96de4f1d9e5f375886a793169a370bb5d89bf0373adbb2789ea86eb9b"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\whislterhurt1.ogg",
+      "sha256": "b0e08c0bc5a4262420bc11319ce37f681feef9f522e24e747d8dd8552b39e417"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\whislterhurt2.ogg",
+      "sha256": "c1f2c6c3e62a55891fec41ce573d291f47f2cf415487bc4cb2ee07ff91ce978e"
+    },
+    {
+      "resource": "assets\\thermal_shock_reforged\\sounds\\whislterhurt3.ogg",
+      "sha256": "cdf81215a3dd3a7b55d2bafa2e48e0243fc4fcef17c8f5a88a0c35e8f7a0157c"
+    }
+  ],
+  "signature_review": {
+    "scope": "59项自动字面量签名差集的源码解释；不是全部374声音来源行为闭合证明。",
+    "input_path": "D:\\AI临时文件\\ThermalShockMigration\\batch134-evidence\\signatures-v2.json",
+    "input_sha256": "8d01fee92b3adc2b418ae8143f5923bbd8c6f55eda557b491cbfd3d733ec5e70",
+    "count": 59,
+    "unclassified": 0,
+    "groups": [
+      {
+        "sources": [
+          "LoqendiaPortalBlock"
+        ],
+        "target_sources": [
+          {
+            "path": "src\\main\\java\\com\\hp\\thermalshockreforged\\world\\loqendiaportal\\LoqendiaPortalBlock.java",
+            "sha256": "56e60fbc97e58f7d7771b9a4dfc0451b5d5016cc2df4005cbe93d3f457a578f0"
+          }
+        ],
+        "status": "dynamic_parameters_resolved",
+        "evidence": "animateTick的1/110、中心+.5、BLOCKS .5与random*.4+.8公式不变；浮点字面量F/f不是差异。"
+      },
+      {
+        "sources": [
+          "AltCryonicProjectileEntity",
+          "CryonicProjectileEntity",
+          "IcidrogunnerBulletEntity"
+        ],
+        "target_sources": [
+          {
+            "path": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\icesquad\\IceSquadProjectileEntity.java",
+            "sha256": "81b68cf1a2146ef3605aef17a353fa75ad63643df77f905f2411f599a3858fb4"
+          }
+        ],
+        "status": "unreferenced_original_convenience_methods",
+        "evidence": "这些旧静态shoot便利方法没有原外部调用；原技能通过create/getArrow发射，不能给目标添原不可达的射击声。"
+      },
+      {
+        "sources": [
+          "GelshooterBulletEntity"
+        ],
+        "target_sources": [
+          {
+            "path": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\growth\\GelshooterBulletEntity.java",
+            "sha256": "13163ce2e9bcccdf7ba5dce2b0f2c2c75cfad7ce243a3e7d1cce5ff06352e7a5"
+          }
+        ],
+        "status": "dynamic_parameters_resolved",
+        "evidence": "旧target重载的发射声由Gelshooter调用；事件、PLAYERS1、1/(r*.5+1)公式一致。参数power的便利重载须与实际caller区分。"
+      },
+      {
+        "sources": [
+          "GhostglassSwordBulletEntity",
+          "MagnetiteBulletEntity"
+        ],
+        "target_sources": [
+          {
+            "path": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\projectile\\GhostglassSwordBulletEntity.java",
+            "sha256": "4954b8cbeae58219f06c33e5bf90edb033504875a9ef3b85727890be175e430c"
+          },
+          {
+            "path": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\magnetite\\MagnetiteBulletEntity.java",
+            "sha256": "e2a3068df6903fad2596c8346a8c1d25a558a8cbe784ec9027bf9951d51890ba"
+          }
+        ],
+        "status": "dynamic_parameters_resolved",
+        "evidence": "Magnetite真实射击保ghostbullet PLAYERS1及随机倒数音高；Ghostglass旧便利shoot无外部调用，剑挥击另有独立NEUTRAL.5/1原入口。"
+      },
+      {
+        "sources": [
+          "LiteprismDiskProjectileEntity"
+        ],
+        "target_sources": [
+          {
+            "path": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\projectile\\LiteprismDiskProjectileEntity.java",
+            "sha256": "69c41045baaa2afc3ad50d60df006316a341f62ad199b070742f80149450d0f6"
+          }
+        ],
+        "status": "dynamic_parameters_resolved",
+        "evidence": "物品真实caller默认power=1，TRIDENT_THROW PLAYERS1，旧倒数随机式加power/2由目标分支保存；不能用类内不同重载当重复发声。"
+      },
+      {
+        "sources": [
+          "PixieBottleEntity"
+        ],
+        "target_sources": [
+          {
+            "path": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\ambient\\PixieBottleEntity.java",
+            "sha256": "a3ceff7809e84aca0b08c3a4e07d7dcc250c52cab187e71f385bed1bee6eebc1"
+          }
+        ],
+        "status": "dynamic_parameters_resolved",
+        "evidence": "BottledPixie实际caller默认power=.7；SPLASH_POTION_THROW PLAYERS1，倒数随机式+power/2分支保持。"
+      },
+      {
+        "sources": [
+          "SpringslimeProjectileEntity"
+        ],
+        "target_sources": [
+          {
+            "path": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\springslime\\SpringslimeProjectile.java",
+            "sha256": "1d6691876f1a9b9fd0045225380f379c0e4890c1c6ca2b5aba5eeec791757a25"
+          },
+          {
+            "path": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\springslime\\CompressedSpringslimeItem.java",
+            "sha256": "183130ac0a4132eb6befcb62624cba2961102bf34e979a1fd2ade68eec3a3d15"
+          }
+        ],
+        "status": "dynamic_parameters_resolved",
+        "evidence": "压缩弹簧史莱姆真实caller默认power=.7；SLIME_JUMP_SMALL PLAYERS1，原随机公式在物品入口消费。"
+      },
+      {
+        "sources": [
+          "BeetleCrasherAttackProcedure",
+          "BeetleThrasherAttackProcedure"
+        ],
+        "target_sources": [
+          {
+            "path": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\beetles\\BeetleCombatEntity.java",
+            "sha256": "adc0009430a77351086997e9b9a1f0f14d9518f05549819393e7a003cceea8d4"
+          },
+          {
+            "path": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\beetles\\BeetleAttackEntity.java",
+            "sha256": "4d65b4e870d5a7f5ec04da609b99d214177d8d0706781b96f83f65fe50bb989f"
+          }
+        ],
+        "status": "dynamic_parameters_resolved",
+        "evidence": "起手音高由怪种选择-2/5；固定受击者原点。Crasher推进声在16阶段NEUTRAL1/-3；原23阶段无效资源ID保持无声，见beetles-validation94的真实分支动作证据。"
+      },
+      {
+        "sources": [
+          "BloodHalberdSwingProcedure",
+          "HiVoltLanceSwingProcedure",
+          "RubySpearEntitySwingsItemProcedure",
+          "SpeleothemSwingProcedure"
+        ],
+        "target_sources": [
+          {
+            "path": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\SpearItem.java",
+            "sha256": "289bfe5fc7480ae33c45660410c46effbabcba55b5f223cb8175748947e6b110"
+          }
+        ],
+        "status": "dynamic_parameters_resolved",
+        "evidence": "同一swing入口PLAYER_ATTACK_SWEEP NEUTRAL1，halberd音高1，其余3；枚举条件代替多份过程不等于少声。"
+      },
+      {
+        "sources": [
+          "BrimCakeRightClickProcedure",
+          "FerroCakeOnBlockRightClickedProcedure"
+        ],
+        "target_sources": [
+          {
+            "path": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\BrimstoneCakeConsumption.java",
+            "sha256": "9adbc1ebbe83ecbb4fa6f5e94022d3ccc612d78367d5c0c0daf16f29949b7897"
+          },
+          {
+            "path": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\food\\FerroCakeConsumption.java",
+            "sha256": "9cfc3d9dd1883682d75251e8c1241e45787c6bd195e52526a9f8bbdf7782a854"
+          }
+        ],
+        "status": "dynamic_parameters_resolved",
+        "evidence": "合法原四食用阶段，HONEY_BLOCK_BREAK NEUTRAL1、音高current+1对应1/2/3/4；本次签名差是动态表达式。"
+      },
+      {
+        "sources": [
+          "BurnerFlameHitProcedure",
+          "GunnerBulletHitProcedure"
+        ],
+        "target_sources": [
+          {
+            "path": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\icesquad\\IceSquadProjectileEntity.java",
+            "sha256": "81b68cf1a2146ef3605aef17a353fa75ad63643df77f905f2411f599a3858fb4"
+          }
+        ],
+        "status": "dynamic_parameters_resolved",
+        "evidence": "命中额外效果按flame选择FIRE_AMBIENT音高3，否则GLASS_BREAK音高6；NEUTRAL1；entity/owner/nearest-player原目标语义沿用既有迁移。"
+      },
+      {
+        "sources": [
+          "CEFGAltFiringProcedure",
+          "CEFGFiringProcedure"
+        ],
+        "target_sources": [
+          {
+            "path": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\FlareGunCycleEntity.java",
+            "sha256": "ad89e352820cea6e2e998885e5b0115a6edbc5578ddf1ebbf9af0af8a77b6936"
+          }
+        ],
+        "status": "dynamic_parameters_resolved",
+        "evidence": "普通两次clickoff对应8/18 END的1.5音量、0/-2音高；备用3 END stemstep1/0、20 END clickoff1.5/0。"
+      },
+      {
+        "sources": [
+          "CloroHurtBonusProcedure",
+          "CryoHurtBonusProcedure",
+          "FerroHurtBonusProcedure",
+          "PyroHurtBonusProcedure",
+          "KnightsEdgeLivingEntityIsHitWithToolProcedure",
+          "ShockStickLivingEntityIsHitWithToolProcedure"
+        ],
+        "target_sources": [
+          {
+            "path": "src\\main\\java\\com\\hp\\thermalshockreforged\\combat\\ElementalCombat.java",
+            "sha256": "7ae40cae1332873cf9d064e8e049a2c31f688a6e464b88350211fdc98cb6a93e"
+          },
+          {
+            "path": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\ElementalBladeItem.java",
+            "sha256": "cb7bbf2f7e17f8a2d3c2d4cae00675053eace0490300c208400ad4a79a699de4"
+          }
+        ],
+        "status": "dynamic_parameters_resolved",
+        "evidence": "元素分支枚举选择GRASS_BREAK/.4/1、PLAYER_HURT_FREEZE/.4/1、ANVIL_PLACE/.4/3；NEUTRAL；骑士刃和电棒另有工具命中入口，不能只比较全局事件。"
+      },
+      {
+        "sources": [
+          "DevScarfEffectProcedure"
+        ],
+        "target_sources": [
+          {
+            "path": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\armor\\SpecialArmorEvents.java",
+            "sha256": "f94b064705a7ce7e91d11e7f8149b69dbfa2a160cb221469a8b91c307c36b31b"
+          }
+        ],
+        "status": "dynamic_parameters_resolved",
+        "evidence": "FIREWORK_ROCKET_BLAST NEUTRAL1；Mth.nextInt(1,2)包含两端，目标nextInt(1,3)上界排除，均抽1或2；不是音高减少。"
+      },
+      {
+        "sources": [
+          "ExtractorOnBlockRightClickedProcedure"
+        ],
+        "target_sources": [
+          {
+            "path": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\machines\\ExtractorBlock.java",
+            "sha256": "4622e5aeccb97ac5c486e42788be99aeca891c7cd5236a89160623beaeb001ac"
+          }
+        ],
+        "status": "dynamic_parameters_resolved",
+        "evidence": "六配方条件由原料分支保持；metallic选择BASALT_BREAK1/3，其余SCULK_CATALYST_BREAK1/1；NEUTRAL、原点击坐标。"
+      },
+      {
+        "sources": [
+          "FlintsteelFiringProcedure",
+          "HailfallFiringProcedure"
+        ],
+        "target_sources": [
+          {
+            "path": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\FirearmItem.java",
+            "sha256": "69973fb8d1bf51e9ce3a432de65a0ab193e4a3ce88310e67aa233e8e4e21574b"
+          }
+        ],
+        "status": "dynamic_parameters_resolved",
+        "evidence": "hailfall选择misc_gun_2音高.75；flintsteel选择flint_gun_25音高1或2；NEUTRAL1、发射起手一次，延迟click另在既有循环体。"
+      },
+      {
+        "sources": [
+          "IcidroburnerAttackProcedure",
+          "IcidrogunnerAttackProcedure"
+        ],
+        "target_sources": [
+          {
+            "path": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\icesquad\\BastionEntity.java",
+            "sha256": "1da0221a6c5b1b72ed5e1860fec8577e3ef2a888ce8d2588761d04b734103e9b"
+          }
+        ],
+        "status": "dynamic_parameters_resolved",
+        "evidence": "HOSTILE起手分支1/2音量golem hurt音高5；17次射击firecharge.9/2或hailfire.9/-1；原固定受击原点及END调度见thirteenth-bastions-static-validation。"
+      },
+      {
+        "sources": [
+          "KilolyteAttackProcedure",
+          "SkeletitanAttackProcedure"
+        ],
+        "target_sources": [
+          {
+            "path": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\sanctum\\KilolyteEntity.java",
+            "sha256": "747443836374c60d93644a7c3a942d9268d161e64e38db31cce2d5f5e86a8b2c"
+          },
+          {
+            "path": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\titans\\SkeletalTitanEntity.java",
+            "sha256": "33491e77547b838791ab614d7cca122c5088625c0d493e043bcf5f687f2c21e3"
+          }
+        ],
+        "status": "dynamic_parameters_resolved",
+        "evidence": "起手WITHER_HURT HOSTILE1，ring条件选择-3否则3，固定受击者原点；静态签名未展开条件表达式。"
+      },
+      {
+        "sources": [
+          "LapidarianWorkbenchNeighbourBlockChangesProcedure"
+        ],
+        "target_sources": [
+          {
+            "path": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\nativeblocks\\LapidarianWorkbenchBlock.java",
+            "sha256": "fb20f75f18369c8a3ef12aabcab6f387c52b16953e3882c49dcdace94eab040e"
+          }
+        ],
+        "status": "dynamic_parameters_resolved",
+        "evidence": "11原料配方各自消耗原方块，配方记录保存材质声/音量；BLOCKS音高1；rough ruby/blood=.35、muck/slime=1、其余所列=.6，另有stonecutter1/2。springling仅把材质声保在原产物之后。"
+      },
+      {
+        "sources": [
+          "LiftbugRightClickedOnEntityProcedure"
+        ],
+        "target_sources": [
+          {
+            "path": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\liftbug\\LiftbugEntity.java",
+            "sha256": "dd0b69831f325c2574cb609d64672d64e9acfe7241025dc3ebf0e2dec856e4aa"
+          }
+        ],
+        "status": "dynamic_parameters_resolved",
+        "evidence": "切换升降状态的互斥条件决定bell音高1或5；NEUTRAL1；不是同一次交互应播两声。"
+      },
+      {
+        "sources": [
+          "MagneticCrossbowRightclickedProcedure"
+        ],
+        "target_sources": [
+          {
+            "path": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\MagneticCycleSoundEntity.java",
+            "sha256": "18834d94a4f04382d20b448a431916ad517ac2f387b073f92bcf5bc266735dac"
+          }
+        ],
+        "status": "dynamic_parameters_resolved",
+        "evidence": "固定起手原点，5 END间隔的3段CROSSBOW_SHOOT参数为.3/-1、.2/1、.1/2，原嵌套延迟保留。"
+      },
+      {
+        "sources": [
+          "PoisonAttackEntitySpawnProcedure",
+          "ShockAttackEntitySpawnProcedure"
+        ],
+        "target_sources": [
+          {
+            "path": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\cavebloomer\\CavebloomerImpactEntity.java",
+            "sha256": "dea7ff784af614a9539133cccea4a904fcea3cf22cd2142c1409ede7d16ef667"
+          }
+        ],
+        "status": "dynamic_parameters_resolved",
+        "evidence": "生成时poison选择ZOMBIE_VILLAGER_CURE1/1，否则CREEPER_PRIMED1/3，NEUTRAL；震击后续20 END效果另存，不把两种模式叠播。"
+      },
+      {
+        "sources": [
+          "PylonCoreBlockAddedProcedure"
+        ],
+        "target_sources": [
+          {
+            "path": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\PylonCoreBlock.java",
+            "sha256": "2294a2d7fd51132c5cc430aa1a1c49a64fe4d65b51659dc55cc1d888fb87eabf"
+          }
+        ],
+        "status": "dynamic_parameters_resolved",
+        "evidence": "CONDUIT_ACTIVATE NEUTRAL1，explosive条件音高-1否则1；BlockPos原点与后续deactivate/extinguish独立阶段保持。"
+      },
+      {
+        "sources": [
+          "SootleAttackProcedure"
+        ],
+        "target_sources": [
+          {
+            "path": "src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\sootle\\SootleEntity.java",
+            "sha256": "d435e81e5265df618f9bd2a1e207dd0add543ab00a663defbaa418b7e96d39a9"
+          }
+        ],
+        "status": "timing_gap_fixed",
+        "evidence": "源码确认真正缺口是计时拓扑而非音高5缺失；本批抽到END，单击7与双击8/10对应起手当次END索引6和7/9，固定受击者原点NEUTRAL1、4/5音高保持。"
+      },
+      {
+        "sources": [
+          "ThermofebRedeemProcedure"
+        ],
+        "target_sources": [
+          {
+            "path": "src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\WorldTourRedemption.java",
+            "sha256": "8ed5cd7273b216171c2244516fbad683f9f6b65ac4a3c4a383f9a500b1703236"
+          }
+        ],
+        "status": "dynamic_parameters_resolved",
+        "evidence": "成功/失败动态变量为thermalshockjingle NEUTRAL1/2和thermoid_cries NEUTRAL1/-1。原命令入口补FakePlayerFactory，故控制台失败声真实可达；已撤回仅看procedure null判断的误报，生产未改。"
+      }
+    ],
+    "rows": [
+      {
+        "signature": "minecraft:ambient.warped_forest.additions|SoundSource.BLOCKS|0.5|random.nextFloat()*0.4f+0.8f",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\LoqendiaPortalBlock.java",
+            "line": 79
+          }
+        ],
+        "resolution_group_indices": [
+          0
+        ]
+      },
+      {
+        "signature": "minecraft:entity.arrow.shoot|SoundSource.PLAYERS|1.0|1.0f/(random.nextFloat()*0.5f+1.0f)+power/2.0f",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\AltCryonicProjectileEntity.java",
+            "line": 94
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\IcidrogunnerBulletEntity.java",
+            "line": 113
+          }
+        ],
+        "resolution_group_indices": [
+          1
+        ]
+      },
+      {
+        "signature": "minecraft:entity.arrow.shoot|SoundSource.PLAYERS|1.0|1.0f/(RandomSource.create().nextFloat()*0.5f+1.0f)",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\AltCryonicProjectileEntity.java",
+            "line": 109
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\IcidrogunnerBulletEntity.java",
+            "line": 128
+          }
+        ],
+        "resolution_group_indices": [
+          1
+        ]
+      },
+      {
+        "signature": "minecraft:block.glass.break|SoundSource.PLAYERS|1.0|1.0f/(random.nextFloat()*0.5f+1.0f)+power/2.0f",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\CryonicProjectileEntity.java",
+            "line": 94
+          }
+        ],
+        "resolution_group_indices": [
+          1
+        ]
+      },
+      {
+        "signature": "minecraft:block.glass.break|SoundSource.PLAYERS|1.0|1.0f/(RandomSource.create().nextFloat()*0.5f+1.0f)",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\CryonicProjectileEntity.java",
+            "line": 109
+          }
+        ],
+        "resolution_group_indices": [
+          1
+        ]
+      },
+      {
+        "signature": "minecraft:block.dispenser.launch|SoundSource.PLAYERS|1.0|1.0f/(random.nextFloat()*0.5f+1.0f)+power/2.0f",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\GelshooterBulletEntity.java",
+            "line": 98
+          }
+        ],
+        "resolution_group_indices": [
+          2
+        ]
+      },
+      {
+        "signature": "minecraft:block.dispenser.launch|SoundSource.PLAYERS|1.0|1.0f/(RandomSource.create().nextFloat()*0.5f+1.0f)",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\GelshooterBulletEntity.java",
+            "line": 113
+          }
+        ],
+        "resolution_group_indices": [
+          2
+        ]
+      },
+      {
+        "signature": "thermal_shock_reforged:ghostbullet|SoundSource.PLAYERS|1.0|1.0f/(random.nextFloat()*0.5f+1.0f)+power/2.0f",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\GhostglassSwordBulletEntity.java",
+            "line": 113
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\MagnetiteBulletEntity.java",
+            "line": 114
+          }
+        ],
+        "resolution_group_indices": [
+          3
+        ]
+      },
+      {
+        "signature": "thermal_shock_reforged:ghostbullet|SoundSource.PLAYERS|1.0|1.0f/(RandomSource.create().nextFloat()*0.5f+1.0f)",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\GhostglassSwordBulletEntity.java",
+            "line": 128
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\MagnetiteBulletEntity.java",
+            "line": 129
+          }
+        ],
+        "resolution_group_indices": [
+          3
+        ]
+      },
+      {
+        "signature": "minecraft:item.trident.throw|SoundSource.PLAYERS|1.0|1.0f/(random.nextFloat()*0.5f+1.0f)+power/2.0f",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\LiteprismDiskProjectileEntity.java",
+            "line": 99
+          }
+        ],
+        "resolution_group_indices": [
+          4
+        ]
+      },
+      {
+        "signature": "minecraft:item.trident.throw|SoundSource.PLAYERS|1.0|1.0f/(RandomSource.create().nextFloat()*0.5f+1.0f)",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\LiteprismDiskProjectileEntity.java",
+            "line": 114
+          }
+        ],
+        "resolution_group_indices": [
+          4
+        ]
+      },
+      {
+        "signature": "minecraft:entity.splash_potion.throw|SoundSource.PLAYERS|1.0|1.0f/(random.nextFloat()*0.5f+1.0f)+power/2.0f",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\PixieBottleEntity.java",
+            "line": 105
+          }
+        ],
+        "resolution_group_indices": [
+          5
+        ]
+      },
+      {
+        "signature": "minecraft:entity.splash_potion.throw|SoundSource.PLAYERS|1.0|1.0f/(RandomSource.create().nextFloat()*0.5f+1.0f)",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\PixieBottleEntity.java",
+            "line": 120
+          }
+        ],
+        "resolution_group_indices": [
+          5
+        ]
+      },
+      {
+        "signature": "minecraft:entity.slime.jump_small|SoundSource.PLAYERS|1.0|1.0f/(random.nextFloat()*0.5f+1.0f)+power/2.0f",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\SpringslimeProjectileEntity.java",
+            "line": 99
+          }
+        ],
+        "resolution_group_indices": [
+          6
+        ]
+      },
+      {
+        "signature": "minecraft:entity.slime.jump_small|SoundSource.PLAYERS|1.0|1.0f/(RandomSource.create().nextFloat()*0.5f+1.0f)",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\entity\\SpringslimeProjectileEntity.java",
+            "line": 114
+          }
+        ],
+        "resolution_group_indices": [
+          6
+        ]
+      },
+      {
+        "signature": "minecraft:entity.iron_golem.hurt|SoundSource.NEUTRAL|1.0|-2.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\BeetleCrasherAttackProcedure.java",
+            "line": 77
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\BeetleCrasherAttackProcedure.java",
+            "line": 137
+          }
+        ],
+        "resolution_group_indices": [
+          7
+        ]
+      },
+      {
+        "signature": "thermal_shock_reforged:propulsionbootsactivate|SoundSource.NEUTRAL|1.0|-3.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\BeetleCrasherAttackProcedure.java",
+            "line": 159
+          }
+        ],
+        "resolution_group_indices": [
+          7
+        ]
+      },
+      {
+        "signature": "minecraft:entity.iron_golem.hurt|SoundSource.NEUTRAL|1.0|5.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\BeetleThrasherAttackProcedure.java",
+            "line": 70
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\BeetleThrasherAttackProcedure.java",
+            "line": 133
+          }
+        ],
+        "resolution_group_indices": [
+          7
+        ]
+      },
+      {
+        "signature": "minecraft:entity.player.attack.sweep|SoundSource.NEUTRAL|1.0|1.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\BloodHalberdSwingProcedure.java",
+            "line": 49
+          }
+        ],
+        "resolution_group_indices": [
+          8
+        ]
+      },
+      {
+        "signature": "minecraft:block.honey_block.break|SoundSource.NEUTRAL|1.0|2.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\BrimCakeRightClickProcedure.java",
+            "line": 118
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\FerroCakeOnBlockRightClickedProcedure.java",
+            "line": 114
+          }
+        ],
+        "resolution_group_indices": [
+          9
+        ]
+      },
+      {
+        "signature": "minecraft:block.honey_block.break|SoundSource.NEUTRAL|1.0|3.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\BrimCakeRightClickProcedure.java",
+            "line": 153
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\FerroCakeOnBlockRightClickedProcedure.java",
+            "line": 149
+          }
+        ],
+        "resolution_group_indices": [
+          9
+        ]
+      },
+      {
+        "signature": "minecraft:block.honey_block.break|SoundSource.NEUTRAL|1.0|4.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\BrimCakeRightClickProcedure.java",
+            "line": 190
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\FerroCakeOnBlockRightClickedProcedure.java",
+            "line": 186
+          }
+        ],
+        "resolution_group_indices": [
+          9
+        ]
+      },
+      {
+        "signature": "minecraft:block.fire.ambient|SoundSource.NEUTRAL|1.0|3.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\BurnerFlameHitProcedure.java",
+            "line": 39
+          }
+        ],
+        "resolution_group_indices": [
+          10
+        ]
+      },
+      {
+        "signature": "minecraft:block.stone_button.click_off|SoundSource.NEUTRAL|1.5|0.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\CEFGAltFiringProcedure.java",
+            "line": 89
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\CEFGFiringProcedure.java",
+            "line": 71
+          }
+        ],
+        "resolution_group_indices": [
+          11
+        ]
+      },
+      {
+        "signature": "minecraft:block.grass.break|SoundSource.NEUTRAL|0.4|1.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\CloroHurtBonusProcedure.java",
+            "line": 86
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\KnightsEdgeLivingEntityIsHitWithToolProcedure.java",
+            "line": 46
+          }
+        ],
+        "resolution_group_indices": [
+          12
+        ]
+      },
+      {
+        "signature": "minecraft:entity.player.hurt_freeze|SoundSource.NEUTRAL|0.4|1.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\CryoHurtBonusProcedure.java",
+            "line": 78
+          }
+        ],
+        "resolution_group_indices": [
+          12
+        ]
+      },
+      {
+        "signature": "minecraft:entity.firework_rocket.blast|SoundSource.NEUTRAL|1.0|Mth.nextInt((RandomSource)RandomSource.create(),1,2)",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\DevScarfEffectProcedure.java",
+            "line": 78
+          }
+        ],
+        "resolution_group_indices": [
+          13
+        ]
+      },
+      {
+        "signature": "minecraft:block.sculk_catalyst.break|SoundSource.NEUTRAL|1.0|1.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\ExtractorOnBlockRightClickedProcedure.java",
+            "line": 82
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\ExtractorOnBlockRightClickedProcedure.java",
+            "line": 140
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\ExtractorOnBlockRightClickedProcedure.java",
+            "line": 189
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\ExtractorOnBlockRightClickedProcedure.java",
+            "line": 238
+          }
+        ],
+        "resolution_group_indices": [
+          14
+        ]
+      },
+      {
+        "signature": "minecraft:block.basalt.break|SoundSource.NEUTRAL|1.0|3.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\ExtractorOnBlockRightClickedProcedure.java",
+            "line": 272
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\ExtractorOnBlockRightClickedProcedure.java",
+            "line": 312
+          }
+        ],
+        "resolution_group_indices": [
+          14
+        ]
+      },
+      {
+        "signature": "minecraft:block.anvil.place|SoundSource.NEUTRAL|0.4|3.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\FerroHurtBonusProcedure.java",
+            "line": 86
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\PyroHurtBonusProcedure.java",
+            "line": 78
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\ShockStickLivingEntityIsHitWithToolProcedure.java",
+            "line": 41
+          }
+        ],
+        "resolution_group_indices": [
+          12
+        ]
+      },
+      {
+        "signature": "thermal_shock_reforged:flint_gun_25|SoundSource.NEUTRAL|1.0|Mth.nextInt((RandomSource)RandomSource.create(),1,2)",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\FlintsteelFiringProcedure.java",
+            "line": 64
+          }
+        ],
+        "resolution_group_indices": [
+          15
+        ]
+      },
+      {
+        "signature": "minecraft:block.glass.break|SoundSource.NEUTRAL|1.0|6.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\GunnerBulletHitProcedure.java",
+            "line": 38
+          }
+        ],
+        "resolution_group_indices": [
+          10
+        ]
+      },
+      {
+        "signature": "thermal_shock_reforged:misc_gun_2|SoundSource.NEUTRAL|1.0|0.75",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\HailfallFiringProcedure.java",
+            "line": 61
+          }
+        ],
+        "resolution_group_indices": [
+          15
+        ]
+      },
+      {
+        "signature": "minecraft:entity.player.attack.sweep|SoundSource.NEUTRAL|1.0|3.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\HiVoltLanceSwingProcedure.java",
+            "line": 37
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\RubySpearEntitySwingsItemProcedure.java",
+            "line": 40
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\SpeleothemSwingProcedure.java",
+            "line": 36
+          }
+        ],
+        "resolution_group_indices": [
+          8
+        ]
+      },
+      {
+        "signature": "minecraft:entity.iron_golem.hurt|SoundSource.HOSTILE|1.0|5.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\IcidroburnerAttackProcedure.java",
+            "line": 92
+          }
+        ],
+        "resolution_group_indices": [
+          16
+        ]
+      },
+      {
+        "signature": "minecraft:item.firecharge.use|SoundSource.HOSTILE|0.9|2.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\IcidroburnerAttackProcedure.java",
+            "line": 123
+          }
+        ],
+        "resolution_group_indices": [
+          16
+        ]
+      },
+      {
+        "signature": "minecraft:entity.iron_golem.hurt|SoundSource.HOSTILE|2.0|5.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\IcidrogunnerAttackProcedure.java",
+            "line": 96
+          }
+        ],
+        "resolution_group_indices": [
+          16
+        ]
+      },
+      {
+        "signature": "thermal_shock_reforged:hailfire|SoundSource.HOSTILE|0.9|-1.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\IcidrogunnerAttackProcedure.java",
+            "line": 127
+          }
+        ],
+        "resolution_group_indices": [
+          16
+        ]
+      },
+      {
+        "signature": "minecraft:entity.wither.hurt|SoundSource.HOSTILE|1.0|-3.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\KilolyteAttackProcedure.java",
+            "line": 75
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\SkeletitanAttackProcedure.java",
+            "line": 75
+          }
+        ],
+        "resolution_group_indices": [
+          17
+        ]
+      },
+      {
+        "signature": "minecraft:entity.wither.hurt|SoundSource.HOSTILE|1.0|3.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\KilolyteAttackProcedure.java",
+            "line": 178
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\SkeletitanAttackProcedure.java",
+            "line": 178
+          }
+        ],
+        "resolution_group_indices": [
+          17
+        ]
+      },
+      {
+        "signature": "minecraft:block.mud.break|SoundSource.BLOCKS|1.0|1.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\LapidarianWorkbenchNeighbourBlockChangesProcedure.java",
+            "line": 78
+          }
+        ],
+        "resolution_group_indices": [
+          18
+        ]
+      },
+      {
+        "signature": "minecraft:block.slime_block.break|SoundSource.BLOCKS|1.0|1.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\LapidarianWorkbenchNeighbourBlockChangesProcedure.java",
+            "line": 117
+          }
+        ],
+        "resolution_group_indices": [
+          18
+        ]
+      },
+      {
+        "signature": "minecraft:block.glass.break|SoundSource.BLOCKS|0.35|1.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\LapidarianWorkbenchNeighbourBlockChangesProcedure.java",
+            "line": 156
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\LapidarianWorkbenchNeighbourBlockChangesProcedure.java",
+            "line": 204
+          }
+        ],
+        "resolution_group_indices": [
+          18
+        ]
+      },
+      {
+        "signature": "minecraft:block.gilded_blackstone.break|SoundSource.BLOCKS|0.6|1.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\LapidarianWorkbenchNeighbourBlockChangesProcedure.java",
+            "line": 251
+          }
+        ],
+        "resolution_group_indices": [
+          18
+        ]
+      },
+      {
+        "signature": "minecraft:block.netherrack.break|SoundSource.BLOCKS|0.6|1.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\LapidarianWorkbenchNeighbourBlockChangesProcedure.java",
+            "line": 286
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\LapidarianWorkbenchNeighbourBlockChangesProcedure.java",
+            "line": 356
+          }
+        ],
+        "resolution_group_indices": [
+          18
+        ]
+      },
+      {
+        "signature": "minecraft:block.gravel.break|SoundSource.BLOCKS|0.6|1.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\LapidarianWorkbenchNeighbourBlockChangesProcedure.java",
+            "line": 321
+          }
+        ],
+        "resolution_group_indices": [
+          18
+        ]
+      },
+      {
+        "signature": "minecraft:block.ancient_debris.break|SoundSource.BLOCKS|0.6|1.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\LapidarianWorkbenchNeighbourBlockChangesProcedure.java",
+            "line": 391
+          }
+        ],
+        "resolution_group_indices": [
+          18
+        ]
+      },
+      {
+        "signature": "minecraft:block.glass.break|SoundSource.BLOCKS|0.6|1.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\LapidarianWorkbenchNeighbourBlockChangesProcedure.java",
+            "line": 426
+          },
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\LapidarianWorkbenchNeighbourBlockChangesProcedure.java",
+            "line": 461
+          }
+        ],
+        "resolution_group_indices": [
+          18
+        ]
+      },
+      {
+        "signature": "minecraft:block.note_block.bell|SoundSource.NEUTRAL|1.0|1.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\LiftbugRightClickedOnEntityProcedure.java",
+            "line": 26
+          }
+        ],
+        "resolution_group_indices": [
+          19
+        ]
+      },
+      {
+        "signature": "minecraft:block.note_block.bell|SoundSource.NEUTRAL|1.0|5.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\LiftbugRightClickedOnEntityProcedure.java",
+            "line": 36
+          }
+        ],
+        "resolution_group_indices": [
+          19
+        ]
+      },
+      {
+        "signature": "minecraft:item.crossbow.shoot|SoundSource.NEUTRAL|0.3|-1.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\MagneticCrossbowRightclickedProcedure.java",
+            "line": 76
+          }
+        ],
+        "resolution_group_indices": [
+          20
+        ]
+      },
+      {
+        "signature": "minecraft:item.crossbow.shoot|SoundSource.NEUTRAL|0.2|1.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\MagneticCrossbowRightclickedProcedure.java",
+            "line": 85
+          }
+        ],
+        "resolution_group_indices": [
+          20
+        ]
+      },
+      {
+        "signature": "minecraft:item.crossbow.shoot|SoundSource.NEUTRAL|0.1|2.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\MagneticCrossbowRightclickedProcedure.java",
+            "line": 94
+          }
+        ],
+        "resolution_group_indices": [
+          20
+        ]
+      },
+      {
+        "signature": "minecraft:entity.zombie_villager.cure|SoundSource.NEUTRAL|1.0|1.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\PoisonAttackEntitySpawnProcedure.java",
+            "line": 45
+          }
+        ],
+        "resolution_group_indices": [
+          21
+        ]
+      },
+      {
+        "signature": "minecraft:block.conduit.activate|SoundSource.NEUTRAL|1.0|1.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\PylonCoreBlockAddedProcedure.java",
+            "line": 37
+          }
+        ],
+        "resolution_group_indices": [
+          22
+        ]
+      },
+      {
+        "signature": "minecraft:entity.creeper.primed|SoundSource.NEUTRAL|1.0|3.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\ShockAttackEntitySpawnProcedure.java",
+            "line": 43
+          }
+        ],
+        "resolution_group_indices": [
+          21
+        ]
+      },
+      {
+        "signature": "minecraft:entity.player.attack.sweep|SoundSource.NEUTRAL|1.0|5.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\SootleAttackProcedure.java",
+            "line": 140
+          }
+        ],
+        "resolution_group_indices": [
+          23
+        ]
+      },
+      {
+        "signature": "thermal_shock_reforged:thermalshockjingle|SoundSource.NEUTRAL|1.0|2.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\ThermofebRedeemProcedure.java",
+            "line": 46
+          }
+        ],
+        "resolution_group_indices": [
+          24
+        ]
+      },
+      {
+        "signature": "thermal_shock_reforged:thermoid_cries|SoundSource.NEUTRAL|1.0|-1.0",
+        "references": [
+          {
+            "path": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\procedures\\ThermofebRedeemProcedure.java",
+            "line": 54
+          }
+        ],
+        "resolution_group_indices": [
+          24
+        ]
+      }
+    ],
+    "limits": [
+      "只说明这些自动签名差项，不以参数相同推定其他调用条件和时序相同。",
+      "随机数来源已局部化，分布相同不等于PRNG种子流位级一致。",
+      "旧CFR关键分支无法恢复时仍需字节码。",
+      "Ribbonblade由既有分工单独维护，本批不改。"
+    ]
+  },
+  "skill_method_topology_review": {
+    "report": "batch134声音消费调度拓扑修正",
+    "status": "final-static-correction-awaiting-mainline-build",
+    "supersedes": "phase2-sound-audit.json中FrostilyteAttackProcedure.java oldLine=76 status=matched的判断不成立；本文件撤回该matched。",
+    "scope": {
+      "root": "D:/AI临时文件/ThermalShockMigration/worktrees/batch133",
+      "old": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock",
+      "excluded": [
+        "Ribbonblade*",
+        "Sootle*"
+      ],
+      "productionChangesByThisAudit": false,
+      "buildOrGameRun": false,
+      "MonolithReinvestigated": false
+    },
+    "coverage": {
+      "originalProcedureFiles": 36,
+      "soundBearingProcedures": 15,
+      "noAudioProcedures": 21,
+      "logicalPlaybackSites": 39,
+      "synchronousAttackOrSpawnConsumers": 13,
+      "oldTargetEndTickTaskConsumers": 25,
+      "oldTargetOrdinaryEntityTickConsumers": 1,
+      "verifiedEquivalentSitesAfterCorrection": 37,
+      "documentedIntentionalDifferences": 1,
+      "baselineTimingDifferencesRepairedPerUserButAwaitingBuild": 1,
+      "unclassifiedSites": 0,
+      "actualPlaybackMultiplicity": "48 consumer invocations when counting listed loop/repeat calls (Delta laser_fires 8, Gunner hailfire 3, Huntress shield.break 3); mutually exclusive attack branches mean 48 is the sum of listed branch executions, not a promise that one attack emits all 48."
+    },
+    "timingRuleEvidence": {
+      "oldQueue": "ThermalShockMod.queueServerWork is decremented on the current ServerTickEvent END before zero callbacks run; queue items created inside those callbacks are absent from the current traversal and start decrementing at the next END.",
+      "targetEndTask": "ServerEndTickTasks.schedule inserts into PENDING; the ServerTickEvent.Post listener removes a snapshot before invoking tasks. Reschedules during endTick are processed at the next Post, not recursively in the current one.",
+      "warning": "Only sources implementing/using ServerEndTickTasks or synchronous call sites are classified as END/synchronous. A counter name or matching integer alone is not evidence of END timing."
+    },
+    "correction": {
+      "procedure": "FrostilyteAttackProcedure.java",
+      "oldConsumer": "old source line 72 schedules queueServerWork(11); playback at lines 76-78; captured victim x/y/z.",
+      "phase2IncorrectTargetClaim": "entity/hunters/FrostilyteEntity.java:92-109 was treated as END-equivalent because attackRemaining was 11.",
+      "baselineActualTopology": "ordinary FrostilyteEntity.tick(): startAttack stores startedAt and attackRemaining=11; tick returns when gameTime==startedAt at line 102, then decrements on subsequent entity ticks and plays at line 109. This is not ServerEndTickTasks.endTick. Old queue consumes the current END immediately, while the ordinary entity-tick countdown starts on future entity ticks; the sound is one tick later than the old queue baseline.",
+      "baselineSourceEvidenceAsPreviouslyRead": [
+        "FrostilyteEntity.java:69-80",
+        "FrostilyteEntity.java:91-109"
+      ],
+      "classification": "baseline_timing_difference_repaired_per_user_but_awaiting_build",
+      "mainlineUpdateFromUser": "用户已将attackRemaining抽至END任务，cooldown/movementLock保留原tick；onAdded/startAttack/tick/endTick重排，11改为当次END扣减，fixed origin/声音/公式不变。",
+      "verificationBoundary": "按用户要求不再读取、改动或复核FrostilyteEntity.java；该修复尚待build，本报告不宣称当前源码已独立验证或编译通过。",
+      "phase2HashCaveat": "phase2-sound-audit.json中的FrostilyteEntity.java SHA256是改为END任务之前的基线hash，不能用于声称当前源文件hash。"
+    },
+    "topologyByProcedure": [
+      {
+        "procedure": "EffigyAttackProcedure.java",
+        "sites": [
+          {
+            "oldLine": 58,
+            "target": "entity/effigy/EffigyEntity.java:43-50",
+            "actualMethod": "beginAttack(LivingEntity)",
+            "topology": "同步服务器攻击入口直接playSound；非END计时。",
+            "logicalSites": 1,
+            "status": "matched"
+          },
+          {
+            "oldLine": 76,
+            "target": "entity/effigy/EffigyStrikeEntity.java:19,46-50,55",
+            "actualMethod": "onAddedToLevel -> ServerEndTickTasks Post snapshot -> endTick",
+            "topology": "implements ServerEndTickTask；remaining在endTick扣减；声音在endTick。",
+            "logicalSites": 1,
+            "status": "matched"
+          }
+        ]
+      },
+      {
+        "procedure": "ForecastAttackProcedure.java",
+        "sites": [
+          {
+            "oldLine": 63,
+            "target": "entity/ForecastEntity.java:87,125",
+            "actualMethod": "attack(AttackAttemptEvent)",
+            "topology": "同步攻击事件入口直接消费声音；非END计时。",
+            "logicalSites": 1,
+            "status": "matched"
+          }
+        ]
+      },
+      {
+        "procedure": "FrostilyteAttackProcedure.java",
+        "sites": [
+          {
+            "oldLine": 58,
+            "target": "entity/hunters/FrostilyteEntity.java:80 baseline",
+            "actualMethod": "startAttack(LivingEntity)",
+            "topology": "旧基线是同步攻击开始声，不涉及延迟队列。该文件依用户要求不再复核。",
+            "logicalSites": 1,
+            "status": "matched"
+          },
+          {
+            "oldLine": 76,
+            "target": "entity/hunters/FrostilyteEntity.java:92-109 baseline; current END-task source not re-read",
+            "actualMethod": "baseline ordinary Entity.tick; user reports current implementation moved to END task",
+            "topology": "撤回phase2 matched：旧基线future entity tick计数与旧queue当前END扣减不等价。用户已报告重排为END任务，待build；本审计不独立验证新源码。",
+            "logicalSites": 1,
+            "status": "baseline_timing_difference_repaired_per_user_but_awaiting_build"
+          }
+        ]
+      },
+      {
+        "procedure": "FrostilyteGunnerAttackProcedure.java",
+        "sites": [
+          {
+            "oldLine": 61,
+            "target": "entity/sanctum/FrostilyteGunnerEntity.java:45-55",
+            "actualMethod": "beginAttack(LivingEntity)",
+            "topology": "同步攻击入口直接播放 stray ambient。",
+            "logicalSites": 1,
+            "status": "matched"
+          },
+          {
+            "oldLine": 85,
+            "target": "entity/sanctum/GunnerVolleyEntity.java:21,48-61,68,77,85",
+            "actualMethod": "onAddedToLevel -> ServerEndTickTasks Post snapshot -> endTick",
+            "topology": "implements ServerEndTickTask；首次remaining=11，后续remaining=5；逻辑播放点每次endTick发射，3次。",
+            "logicalSites": 1,
+            "emissions": 3,
+            "status": "matched"
+          }
+        ]
+      },
+      {
+        "procedure": "FrostilyteSoldierAttackProcedure.java",
+        "sites": [
+          {
+            "oldLine": 59,
+            "target": "entity/ice/IceCreatureEntity.java:125-133",
+            "actualMethod": "attack entry / SoldierComboEntity.submit success path",
+            "topology": "攻击提交成功后同步直接播放 stray ambient。",
+            "logicalSites": 1,
+            "status": "matched"
+          },
+          {
+            "oldLines": [
+              77,
+              100,
+              114,
+              122
+            ],
+            "target": "entity/ice/SoldierComboEntity.java:22,34-42,51-62,68-80",
+            "actualMethod": "onAddedToLevel -> ServerEndTickTasks Post snapshot -> endTick",
+            "topology": "implements ServerEndTickTask；submit用elapsed计算remaining；remaining在endTick扣减；各阶段播放在endTick。目标不是IceCreatureEntity普通tick倒计时。",
+            "logicalSites": 4,
+            "emissions": 4,
+            "status": "matched"
+          }
+        ]
+      },
+      {
+        "procedure": "GalvaniteOnInitialEntitySpawnProcedure.java",
+        "sites": [
+          {
+            "oldLine": 32,
+            "target": "entity/GalvaniteEntity.java:75-82",
+            "actualMethod": "finalizeSpawn(ServerLevelAccessor,...)",
+            "topology": "生成回调同步执行initialized guard、粒子与playSound；没有tick计数或END任务。原entity调用procedure也位于finalizeSpawn旧行155-158。",
+            "logicalSites": 1,
+            "status": "matched"
+          }
+        ]
+      },
+      {
+        "procedure": "HeraldSiphonBloodProcedure.java",
+        "sites": [
+          {
+            "oldLines": [
+              75,
+              83
+            ],
+            "target": "entity/mangler/HeraldEntity.java:34,89-99",
+            "actualMethod": "siphon(LivingEntity)",
+            "topology": "两声同步消费；第十次后activationRemaining=20并schedule，但这不改变这两声。",
+            "logicalSites": 2,
+            "status": "matched"
+          },
+          {
+            "oldLines": [
+              97,
+              105
+            ],
+            "target": "entity/mangler/HeraldEntity.java:34,97,121-141",
+            "actualMethod": "onAddedToLevel/tick schedule -> implements ServerEndTickTask.endTick",
+            "topology": "activationRemaining虽在Herald实体上，但实际--在endTick:139；Post快照任务消费声音于141。不是普通tick倒计时。",
+            "logicalSites": 2,
+            "status": "matched"
+          }
+        ]
+      },
+      {
+        "procedure": "HuntressAttackProcedure.java",
+        "sites": [
+          {
+            "oldLines": [
+              95,
+              125,
+              165,
+              195,
+              203,
+              211,
+              227
+            ],
+            "target": "entity/huntress/HuntressTaskEntity.java:24,49-56,64-80,82-108",
+            "actualMethod": "onAddedToLevel/tick schedule -> implements ServerEndTickTask.endTick",
+            "topology": "攻击任务提交后由Post快照调用；elapsed在endTick递增，声音marker=10/17/24/34/44。三个shield.break显式调用同一marker，所以target在34阶段循环3次。",
+            "logicalSites": 7,
+            "emissions": 7,
+            "status": "matched"
+          }
+        ]
+      },
+      {
+        "procedure": "HuntressOnInitialEntitySpawnProcedure.java",
+        "sites": [
+          {
+            "oldLines": [
+              32,
+              40,
+              51,
+              59
+            ],
+            "target": "entity/huntress/HuntressTaskEntity.java:24,43-47,64,73,80-83",
+            "actualMethod": "submitInitialization -> onAddedToLevel -> ServerEndTickTasks Post snapshot -> endTick",
+            "topology": "初始化声音由task elapsed=2/8的endTick触发；不是普通entity tick。",
+            "logicalSites": 4,
+            "emissions": 4,
+            "status": "matched"
+          }
+        ]
+      },
+      {
+        "procedure": "MonolithAttackProcedure.java",
+        "sites": [
+          {
+            "oldLines": [
+              67,
+              76,
+              97
+            ],
+            "target": "phase2-sound-audit.json target locations",
+            "actualMethod": "immediate attack consumer plus MonolithTaskEntity.endTick delayed consumers",
+            "topology": "沿用phase2已记录的源码/文档核验和+12/+22 task消费结论；本phase未重新检查Monolith源码。",
+            "logicalSites": 3,
+            "status": "matched_per_phase2"
+          }
+        ]
+      },
+      {
+        "procedure": "MonolithOnInitialEntitySpawnProcedure.java",
+        "sites": [
+          {
+            "oldLine": 39,
+            "target": "phase2-sound-audit.json; docs/migration/monolith-batch95.md:57",
+            "actualMethod": "成功任务加入后的初始化回调",
+            "topology": "保留已文档化分类：成功加入路径对应；失败/重试边界不同，避免取消生成副作用。未重查源码。",
+            "logicalSites": 1,
+            "status": "documented_intentional_difference"
+          }
+        ]
+      },
+      {
+        "procedure": "ProtoiDeltaAttackProcedure.java",
+        "sites": [
+          {
+            "oldLine": 75,
+            "target": "entity/protoi/ProtoiDeltaEntity.java:40-52",
+            "actualMethod": "beginAttack(LivingEntity)",
+            "topology": "任务成功提交后同步播放施法声；非END倒计时。",
+            "logicalSites": 1,
+            "status": "matched"
+          },
+          {
+            "oldLine": 87,
+            "target": "entity/protoi/DeltaVolleyEntity.java:22,62-79,91",
+            "actualMethod": "onAddedToLevel/tick schedule -> ServerEndTickTasks Post snapshot -> endTick",
+            "topology": "implements ServerEndTickTask；remaining在endTick扣减；首发20，回调内remaining=3后在后续Post继续，声音每次endTick；8发。",
+            "logicalSites": 1,
+            "emissions": 8,
+            "status": "matched"
+          }
+        ]
+      },
+      {
+        "procedure": "ProtoiEpsilonAttackProcedure.java",
+        "sites": [
+          {
+            "oldLines": [
+              70,
+              91
+            ],
+            "target": "entity/protoi/EpsilonAttackEntity.java:22,64-76,80-91",
+            "actualMethod": "onAddedToLevel/tick schedule -> ServerEndTickTasks Post snapshot -> endTick",
+            "topology": "两阶段均在endTick扣remaining=20并播放；第一阶段内重新schedule，下一阶段从后续Post起算。",
+            "logicalSites": 2,
+            "emissions": 2,
+            "status": "matched"
+          }
+        ]
+      },
+      {
+        "procedure": "ProtoiSunbeamAttackProcedure.java",
+        "sites": [
+          {
+            "oldLine": 75,
+            "target": "entity/protoi/ProtoiSunbeamEntity.java:49-59",
+            "actualMethod": "beginAttack(LivingEntity)",
+            "topology": "提交攻击任务成功后同步播放受击位置声音；非END倒计时。",
+            "logicalSites": 1,
+            "status": "matched"
+          },
+          {
+            "oldLine": 106,
+            "target": "entity/protoi/SunbeamAttackEntity.java:22,34-39,51-63,83-85",
+            "actualMethod": "onAddedToLevel/tick schedule -> ServerEndTickTasks Post snapshot -> endTick",
+            "topology": "implements ServerEndTickTask；remaining在endTick扣减至28后播放。",
+            "logicalSites": 1,
+            "status": "matched"
+          }
+        ]
+      },
+      {
+        "procedure": "SpiritAttackProcedure.java",
+        "sites": [
+          {
+            "oldLine": 62,
+            "target": "entity/gaze/SpiritEntity.java:52-70",
+            "actualMethod": "beginAttack(Player)",
+            "topology": "同步攻击入口直接播放目标位置声音；非END计时。",
+            "logicalSites": 1,
+            "status": "matched"
+          }
+        ]
+      }
+    ],
+    "noAudioProcedureBridgeAudit": {
+      "count": 21,
+      "bridgeOrRegistrationChecked": 21,
+      "isolatedNotPromoted": [
+        "FrostilytePatrolSpawnerOnInitialEntitySpawnProcedure.java",
+        "ManglerTickChaseProcedure.java",
+        "ProtoiSunbeamOnEntityTickUpdateProcedure.java"
+      ],
+      "note": "延续phase2 caller/event桥接核验结果；孤立过程不按名称补玩法。"
+    },
+    "hashes": {
+      "baselineReport": "phase2-sound-audit.json保存了36个旧procedure SHA256及19个目标Java源SHA256。旧procedure快照hash仍指向原始OLD字节；FrostilyteEntity目标hash只代表用户重排前基线，不能视为当前目标文件hash。",
+      "phase3DoesNotClaimCurrentFrostilyteHash": true
+    },
+    "evidenceDocs": [
+      "docs/migration/parallel-batch134.md",
+      "docs/migration/huntress-batch98.md",
+      "docs/migration/protoi-delta-gamma-batch.md",
+      "docs/migration/protoi-epsilon-batch.md",
+      "docs/migration/protoi-sunbeam-batch.md",
+      "docs/migration/frostilyte-razorwing-batch.md",
+      "docs/migration/frostilyte-gunner-next-audit.md",
+      "docs/migration/gaze-undead-batch94.md",
+      "docs/migration/monolith-batch95.md:57"
+    ],
+    "method": "静态方法拓扑/source line audit。Frostilyte当前源文件按用户要求不复读、不重算hash、不修改；主线修复等待build。Monolith不重新调查。未改生产文件、未构建、未运行游戏。"
+  },
+  "open": [
+    "剩余攻击声音逐源核对正在继续",
+    "制造机/配方声音逐源核对正在继续",
+    "世界交互声音逐源核对正在继续",
+    "其他剩余来源按固定原374源继续覆盖",
+    "137粒子消费者复审尚未开始",
+    "完整迁移后由Luna执行最终专服/客户端/Render Preview验收"
+  ],
+  "runtime": {
+    "server": false,
+    "client": false,
+    "render_preview": false
+  }
+}
