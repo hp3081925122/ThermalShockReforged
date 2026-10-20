@@ -1,0 +1,81 @@
+{
+  "batch": 120,
+  "baseline": "f1dffc60ee865304068ea7c6e43a4d6aea768880",
+  "scope": "只读实体类型、属性、客户端renderer/layer、渲染资源路径对应性机械核对",
+  "counts": {
+    "originalEntitySourceFiles": 154,
+    "originalEntityTypeRegistrations": 154,
+    "currentOriginalEntityTypeMappingsConfirmed": 154,
+    "mappingsUsingHelperOrEnumOrOtherContentPackage": 24,
+    "originalRendererRegistrations": 154,
+    "currentOriginalRendererMappingsConfirmed": 154,
+    "currentRendererRegistrationCalls": 202,
+    "originalAttributeEventPutCalls": 125,
+    "currentOriginalAttributeMappingsConfirmed": 125,
+    "currentAttributeEventPutCalls": 123,
+    "currentLayerDefinitionRegistrations": 4,
+    "currentGeoRenderLayerAttachments": 32,
+    "currentVanillaRenderLayerAttachments": 2,
+    "previousManifestRendererBindings": 86,
+    "previousManifestGeometryComparisons": 3
+  },
+  "findings": [
+    {
+      "status": "已确认",
+      "summary": "154/154 原实体注册键映射到当前实体类型声明，包含helper复用、enum派生以及实体位于content包的注册；Jellercel与Titan的派生键逐项核对。",
+      "evidence": [
+        "原 ThermalShockModEntities.java：154条实体类型注册",
+        "当前 entity/hunters/HuntersContent.java 的 razorwing helper，entity/glastrekker/GlastrekkerContent.java 的 entity(id, armored)，entity/ice/IceContent.java 的 creature helper，entity/sanctum/SanctumContent.java 的 errant/ripple helper",
+        "当前 entity/jellercel/JellercelKind.java 与 JellercelContent.java；entity/titans/SkeletalTitanEntity.java 与 TitanContent.java",
+        "content/weapons/WeaponContent.java、content/npc/*Content.java 中的当前实体注册"
+      ]
+    },
+    {
+      "status": "已确认",
+      "summary": "154/154 原renderer映射在当前客户端存在实际registerEntityRenderer调用；当前全项目202个renderer调用还包含内部任务实体。",
+      "evidence": [
+        "原 ThermalShockModEntityRenderers.java：154个注册调用",
+        "当前 client/ClientEvents.java 的 renderers 事件分发与直接注册；各分组renderer类的 registerEntityRenderer 调用",
+        "当前 client/jellercel/JellercelRenderers.java 按Kind注册，client/titans/TitanRenderers.java 显式注册三个Titan类型"
+      ]
+    },
+    {
+      "status": "已确认",
+      "summary": "125/125 原属性注册目标均能映射到当前event.put属性绑定；当前有123处语法event.put调用，少于原始调用数是共享属性helper/派生类型折叠后的静态写法差异，逐项按目标类型核对无缺项。",
+      "evidence": [
+        "原 ThermalShockModEntities.java：125个event.put目标",
+        "当前entity与content属性事件回调；JellercelContent按Kind派生属性，TitanContent对三种Titan分别绑定属性"
+      ]
+    },
+    {
+      "status": "已确认",
+      "summary": "客户端事件入口中可见自定义模型层注册和renderer分组调用：4个显式模型layer definition、32个GeoRenderLayer挂接、2个原版RenderLayer挂接；NetBulletRenderer的layer hook、Projectiles绑定及BloomlingBurst的NoopRenderer均已接入ClientEvents。",
+      "evidence": [
+        "当前 client/ClientEvents.java：renderers、firearmLayers与orbLayers事件入口",
+        "当前 client/projectile/ProjectileRenderers.java 注册NET_BULLET",
+        "当前 client/cavebloomer/CavebloomerClient.java及ClientEvents.java注册BloomlingBurst"
+      ]
+    },
+    {
+      "status": "有限确认",
+      "summary": "既有清单中的3组原版几何/UV操作比较为完全一致。眼睛层、透明渲染模式、动画控制器及全部资源路径未进行逐实体完整语义/视觉验收，因此本轮没有对这些项目判缺或判全。",
+      "evidence": [
+        "docs/migration/entity-callbacks-a-batch117-render.json geometryComparisons：3项 exactGeometryAndUVOperations=true",
+        "既有清单limitations注明未完成完整视觉验收"
+      ]
+    }
+  ],
+  "limitations": [
+    "全程只读；未编译或启动游戏。",
+    "renderer与属性结论是当前源码中的静态映射，不代表NeoForge事件在运行时已经触发。",
+    "完整眼睛层/透明模式/动画/资源路径差集由其他任务覆盖；本报告只采用既有3组几何对照，不重复全资产差集。"
+  ],
+  "evidenceFiles": [
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModEntities.java",
+    "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\init\\ThermalShockModEntityRenderers.java",
+    "src/main/java/com/hp/thermalshockreforged/client/ClientEvents.java",
+    "src/main/java/com/hp/thermalshockreforged/entity/jellercel/JellercelContent.java",
+    "src/main/java/com/hp/thermalshockreforged/entity/titans/TitanContent.java",
+    "docs/migration/entity-callbacks-a-batch117-render.json"
+  ]
+}

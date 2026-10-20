@@ -1,0 +1,177 @@
+{
+  "baseline": "f1dffc6",
+  "reviewer": "Luna quick_explorer，主线仅复核真实差异及既有修复依据",
+  "source": "D:\\AI临时文件\\ThermalShockMigration\\thermal_shock-07.9-original.jar",
+  "normalization": "JSON 键和值中的 thermal_shock:、thermal_shock.、thermal_shock_v:、thermal_shock_v. 命名空间归一到 thermal_shock_reforged 对应形式；JSON 键排序后比较。",
+  "counts": {
+    "original_files": 6103,
+    "target_files": 6105,
+    "target_only_files": 2,
+    "missing": 0,
+    "byte_identical": 3152,
+    "namespace_only_semantic": 2946,
+    "format_or_encoding_only": 0,
+    "real_json_difference": 5,
+    "real_nonjson_binary_difference": 0,
+    "json_parse_errors": 0
+  },
+  "by_top_directory": {
+    "(root)": {
+      "namespace_only_semantic": 1
+    },
+    "animations": {
+      "identical": 276
+    },
+    "blockstates": {
+      "namespace_only_semantic": 649
+    },
+    "effeks": {
+      "identical": 130
+    },
+    "geo": {
+      "identical": 275
+    },
+    "lang": {
+      "real_json_difference": 1
+    },
+    "models": {
+      "namespace_only_semantic": 2244,
+      "identical": 67,
+      "real_json_difference": 4
+    },
+    "particles": {
+      "namespace_only_semantic": 52
+    },
+    "sounds": {
+      "identical": 272
+    },
+    "textures": {
+      "identical": 2132
+    }
+  },
+  "target_only_files": [
+    "creative_tabs.json",
+    "lang/zh_cn.json"
+  ],
+  "real_json_differences": [
+    {
+      "path": "lang/en_us.json",
+      "original_sha256": "fdf8b2f085d5d20bff80d25c856df05a05da97ab27c3936f3a231afbbb5217e6",
+      "target_sha256": "f8ed378f9a4aa2c0dda3499098e69b5ec5e741265504280df4a5ac693cae3742",
+      "leaf_diff_count": 183,
+      "diffs": [
+        {
+          "path": "$.advancements.loqendia_get.title",
+          "original": "Thermal Shock",
+          "target": "Thermal Shock Reforged",
+          "kind": "changed"
+        },
+        {
+          "path": "$.block.thermal_shock_reforged.purifier.description_0",
+          "original": "§7On right click, purifies nearby frozen flora, and kills infected blocks.",
+          "target": "§7On placement, purifies nearby frozen flora, and kills infected blocks.",
+          "kind": "changed"
+        },
+        {
+          "path": "$.block.thermal_shock_reforged.stratus_reactor_core.description_0",
+          "original": "§7Summons a horde of enemies when placed inside a properly built Reactor",
+          "target": "§7Right click inside a properly built Reactor to summon a horde of enemies",
+          "kind": "changed"
+        },
+        {
+          "path": "$.item_group.thermal_shock_reforged.thermal_shock",
+          "original": "Thermal Shock",
+          "target": null,
+          "kind": "removed"
+        },
+        {
+          "path": "$.item_group.thermal_shock_reforged_v.thermal_shock",
+          "original": "Thermal Shock",
+          "target": null,
+          "kind": "removed"
+        }
+      ],
+      "addition_count": 178,
+      "review": "模组重做命名、真实入口说明纠正及创意页新键，原文案并未因迁移丢失；其余178键为新增本地化。"
+    },
+    {
+      "path": "models/custom/plenky_particle.json",
+      "original_sha256": "d0ec68bccd5a1833a271e897765ad8cbd6beaf8d94a6be9bad9da5d57eeee6b1",
+      "target_sha256": "2754694debf8913038195bce3c56c174b652258d1f3989e3cc7bf8b2c2223f44",
+      "leaf_diff_count": 1,
+      "diffs": [
+        {
+          "path": "$.textures.particle",
+          "original": "thermal_shock_reforged:block/minecraft:debug",
+          "target": "thermal_shock_reforged:block/plenky",
+          "kind": "changed"
+        }
+      ],
+      "review": "已记录的非法第二冒号纹理修复，见geo-decor-batch.md。"
+    },
+    {
+      "path": "models/displaysettings/titanium_mace.json",
+      "original_sha256": "592f32ba619536ca8b66e0a4b393d18992095d207593ea01b325f78b89cf5168",
+      "target_sha256": "b471a2911b562e4a747b5d121ec1597e0f75087af46b07f3f2ff57b2e7cda4ba",
+      "leaf_diff_count": 1,
+      "diffs": [
+        {
+          "path": "$.textures.particle",
+          "original": "item/novazerk",
+          "target": "thermal_shock_reforged:item/novazerk",
+          "kind": "changed"
+        }
+      ],
+      "review": "已记录的缺省minecraft命名空间纹理修复，见gauntlet-volcano-next-audit.md。"
+    },
+    {
+      "path": "models/item/blood_bucket.json",
+      "original_sha256": "32ba63e261aa1ae84eaa24bdbf3cb723b3ca06234939cdf860c9763d89cc3b1e",
+      "target_sha256": "49ee721ebf5fde3eceb3424ee59318e36627dff48f321c49ed6e677f0f4c55c6",
+      "leaf_diff_count": 2,
+      "diffs": [
+        {
+          "path": "$.loader",
+          "original": "forge:fluid_container",
+          "target": "neoforge:fluid_container",
+          "kind": "changed"
+        },
+        {
+          "path": "$.parent",
+          "original": "forge:item/bucket_drip",
+          "target": "neoforge:item/bucket_drip",
+          "kind": "changed"
+        }
+      ],
+      "review": "两动态桶迁到已核NeoForge loader/parent，见fluids-batch.md。"
+    },
+    {
+      "path": "models/item/springelatin_bucket.json",
+      "original_sha256": "6fe4b7aa7c35abc9b69efcfed592b4d8a6b03b2559817420c20c4c7f72afdb88",
+      "target_sha256": "6ff82ae3c5a622f5b37829c6d5b7f556afe03ad662b457dd2aa1f1380c5fc2f3",
+      "leaf_diff_count": 2,
+      "diffs": [
+        {
+          "path": "$.loader",
+          "original": "forge:fluid_container",
+          "target": "neoforge:fluid_container",
+          "kind": "changed"
+        },
+        {
+          "path": "$.parent",
+          "original": "forge:item/bucket_drip",
+          "target": "neoforge:item/bucket_drip",
+          "kind": "changed"
+        }
+      ],
+      "review": "两动态桶迁到已核NeoForge loader/parent，见fluids-batch.md。"
+    }
+  ],
+  "full_readonly_report": "D:\\AI临时文件\\ThermalShockMigration\\audit120-assets-final.json",
+  "full_report_sha256": "909151d6e492e4c56b9cd34ada895feb6587806c7d31ccc143cd9738c3f67240",
+  "limits": [
+    "资产逐字节或归一化相等不证明全部运行时消费与渲染一致。",
+    "眼睛层、透明、控制器与技能声画逐项客户端/Render Preview最终验收仍待完成。",
+    "52份粒子JSON仅改命名空间，早先原始SHA差异缺陷候选已撤回。"
+  ]
+}

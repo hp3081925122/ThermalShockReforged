@@ -112,7 +112,7 @@ public final class SpearItem extends Item implements GeoItem {
     @Override public void inventoryTick(ItemStack stack, Level level, net.minecraft.world.entity.Entity entity, int slot, boolean selected) {
         super.inventoryTick(stack, level, entity, slot, selected);
         if (selected && entity instanceof LivingEntity living && !level.isClientSide) {
-            if (living instanceof Player player && player.getCooldowns().isOnCooldown(this)) HeldWeaponState.refreshNoMelee(living, 3);
+            if (living instanceof Player player && player.getCooldowns().isOnCooldown(this)) HeldWeaponState.refreshNoMelee(living, 3, 20);
             else HeldWeaponState.refreshReach(living, kind.reach);
         }
         if (level instanceof net.minecraft.server.level.ServerLevel server) GeoItem.getOrAssignId(stack, server);

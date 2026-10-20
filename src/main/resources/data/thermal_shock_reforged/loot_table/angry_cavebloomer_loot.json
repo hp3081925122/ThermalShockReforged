@@ -86,6 +86,13 @@
                 "min": 64,
                 "max": 128
               }
+            },
+            {
+              "function": "minecraft:limit_count",
+              "limit": {
+                "min": 0,
+                "max": 64
+              }
             }
           ]
         }
