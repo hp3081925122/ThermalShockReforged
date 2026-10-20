@@ -1,0 +1,49 @@
+{
+  "batch": 136,
+  "status": "代码修复与本批限定静态复审完成，最终游戏/Preview仍待统一验收",
+  "generator": "D:\\AI临时文件\\ThermalShockMigration\\nonentity136\\close136.py",
+  "generatorSha256": "d9d322e3634dc276b980e2c21fbfeea696e429b2bc3af7fcbdc530329f8abdbf",
+  "evidence": {
+    "nonentity-main136-display-matrix.json": "4bdd23a51790b64c6466c5394690783c7651da9d165f54d08ecd000eca12c707",
+    "nonentity-main136-block-matrix.json": "b90d1ffd312a67eb8b05fc0bce4dccc66740ecf48dad13394809dde732266d26",
+    "nonentity-main136-block-domains.json": "66c24e5ef3955b2147e3c3b2ea681d040c49da3a910ebbf6d6c18c24b2aee5df",
+    "nonentity-main136-variants.json": "a22014d6709ed70e801f3952d29f5e114767a995673533a867a8bac524532cb9",
+    "nonentity-main136-callback-reuse.json": "02ceec40d5d9adfa6aa280ba404bf4f21cfff9e5c13aee88a39c510629abbf62",
+    "nonentity-main136-weapons.json": "50e40ec5f541f88469ef744a4d8e7f7b03266809afb963cb83862fb6767989e0",
+    "nonentity-main136-armor.json": "6efbde8c60820a83109ecfdba5c142285950e25e1743f1b84fcb059472dc8379",
+    "nonentity-main136-external-animations.json": "b6dcd73bd30daae97558ba89cd6a5f298bd3b5101aef8b913652cffd725d25f2",
+    "nonentity-main136-antennae-validation.json": "74c566f0879b7fad5090a0f59df2a9e6a75562edcd44bb4f636b1805ac41f930",
+    "nonentity-main136-phase3-validation.json": "17ced1051a109bffc4698ac24a0745778688fcb88c61c7cb88a5b2ca1cf82bc2"
+  },
+  "productionFixes": [
+    "10项展示loop0恢复",
+    "27原武器外部geckoAnim入口恢复",
+    "天线盔甲字面empty取消恢复"
+  ],
+  "counts": {
+    "displayItems": 89,
+    "blockEntityIdentities": 89,
+    "weaponIdentities": 27,
+    "armorWrappers": 13,
+    "armorIds": 32,
+    "dynamicResourceStates": 18,
+    "constantHologramStates": 10,
+    "weaponCustomPoses": 16,
+    "callbackRootsReused": 67,
+    "noProcedureRoots": 22
+  },
+  "limitations": [
+    "离线真实Gecko方法与抽取谓词验证未执行模型资源帧/网络/世界。",
+    "武器相同GeoID复制栈未由外部桥额外拆分；同值事件必须先观察到空值重装。",
+    "天线实例ID保原已迁的28bit GeoID拼接，未以本批声称任意大GeoID无碰撞；正常穿戴/切换与多人状态需实机验收。",
+    "GeoSet/Fabricated缓存与renderer实际接线已阅读，资源和Gecko默认8骨骼名称及DataTicket写入核精确4.9.2字节码，未冒充实际骨骼对齐。",
+    "声音/粒子消费者由134/137负责，Preview准备138与发布139由迁移B负责。",
+    "服务端测试为用户独立线，不联系/重复安排。"
+  ],
+  "armorApiEvidence": {
+    "path": "D:\\AI临时文件\\ThermalShockMigration\\nonentity136\\gecko492-armor-bytecode.txt",
+    "sha256": "3c271fd5d77514d8e20342be1239f65c859e8d13dc3d830cad32ed5bd2140819"
+  },
+  "batch136CodeStaticComplete": true,
+  "fullMigrationComplete": false
+}

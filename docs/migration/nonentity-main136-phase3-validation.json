@@ -1,0 +1,130 @@
+{
+  "batch": 136,
+  "phase": 3,
+  "scope": "第三阶段修复天线盔甲empty取消；89展示、89BE静态资源/域、27武器与13盔甲资源/控制器/手持姿态证据随本阶段收口，非游戏验收。",
+  "buildSuccess": true,
+  "command": "Java21 gradlew.bat compileJava processResources --offline --no-daemon --max-workers=2 --console=plain",
+  "fixedInputs": 8949,
+  "snapshotPath": "D:\\AI临时文件\\ThermalShockMigration\\nonentity136\\phase3-inputs.json",
+  "snapshotSha256": "a579368ac271c422b6fa6cfdbac677d24bedce6cfb47a11a78a56fa95a0e9c06",
+  "inputsUnchangedDuringBuild": true,
+  "buildLog": "D:\\AI临时文件\\ThermalShockMigration\\nonentity136\\phase3-build.log",
+  "buildLogSha256": "ff6e861bd5cd7733b887091acdeb4cddc2ab2dc6cf2a9eb33053260572039e5c",
+  "directResourcesByteEqual": 8127,
+  "displayMatrixSha256": "3290f25386f6affc677c0d4f9fab42189ebee211b380db6e04b62a45dcb6e29b",
+  "languageOwnerValidation": {
+    "zh_before_sha256": "b073695f06897a458238601ce292550243728aa84e048f94e74ce444cee81690",
+    "zh_after_sha256": "d6ab7f538969bb7ecaffc30508d9ff1cbcefc0e618d65d88c2e37358bbae65bb",
+    "en_sha256": "f34ec640698eb8f70a121b0a9ea91f5f81ea4e61b20b6bda53b714fe4e535cbb",
+    "review_sha256": "9eae176bb4fb5943091cfaf51e075ec7236b575ee2d5af4fc72cb04e79f7cff4",
+    "json_duplicate_check": "passed",
+    "english_keys": 3492,
+    "chinese_keys": 3493,
+    "extra_zh_keys": 1,
+    "key_order_unchanged": true,
+    "changed_values": 8,
+    "formerly_exact_english": 6,
+    "global_native_placeholder_mismatches": 0,
+    "global_actual_LF_count_mismatches": 0,
+    "changed_value_style_mismatches": 0,
+    "camera_catalog_count": 86,
+    "camera_catalog_values_unchanged": true,
+    "zh_bom": false,
+    "zh_line_endings": "LF",
+    "remaining_exact_nonempty": 1320,
+    "remaining_category_counts": {
+      "block": 417,
+      "gui": 409,
+      "entity": 80,
+      "jei": 35,
+      "item": 277,
+      "painting": 34,
+      "biome": 13,
+      "advancements": 12,
+      "item_group": 1,
+      "effect": 21,
+      "death": 6,
+      "subtitles": 12,
+      "fluid": 3
+    },
+    "changed_keys": [
+      "gui.thermal_shock_reforged.une_intro_epl_5.label_its_a_real_pretty_place_you",
+      "gui.thermal_shock_reforged.civil_1_tlk.tooltip_expolar_camera",
+      "item.thermal_shock_reforged.e_xpolar_camera",
+      "gui.thermal_shock_reforged.une_trade_camera.label_lorem_ipsum",
+      "gui.thermal_shock_reforged.une_intro_epl_5.tooltip_expolar_camera",
+      "item.thermal_shock_reforged.e_xpolar_camera.description_0",
+      "gui.thermal_shock_reforged.une_intro_epl_6.tooltip_expolar_camera",
+      "gui.thermal_shock_reforged.une_intro_epl_6.label_its_a_real_pretty_place_you"
+    ]
+  },
+  "languageOwnerValidationSha256": "1e893b9f539ff693f7bf5eda91d4a2c657c2bbb5c7c42482b1927b4c98ea80c2",
+  "languageChanges": [
+    {
+      "key": "gui.thermal_shock_reforged.civil_1_tlk.tooltip_expolar_camera",
+      "en": "EXpolar Camera",
+      "before": "EXpolar Camera",
+      "after": "EXpolar 相机",
+      "was_exact_english": true
+    },
+    {
+      "key": "item.thermal_shock_reforged.e_xpolar_camera",
+      "en": "EXpolar Camera",
+      "before": "EXpolar Camera",
+      "after": "EXpolar 相机",
+      "was_exact_english": true
+    },
+    {
+      "key": "item.thermal_shock_reforged.e_xpolar_camera.description_0",
+      "en": "§7Use on a mob to analyze it's Elemental Weaknesses and Resistances.",
+      "before": "§7Use on a mob to analyze it's Elemental Weaknesses and Resistances.",
+      "after": "§7对生物使用，以分析其元素弱点与抗性。",
+      "was_exact_english": true
+    },
+    {
+      "key": "gui.thermal_shock_reforged.une_trade_camera.label_lorem_ipsum",
+      "en": "EXpolar Camera",
+      "before": "EXpolar Camera",
+      "after": "EXpolar 相机",
+      "was_exact_english": true
+    },
+    {
+      "key": "gui.thermal_shock_reforged.une_intro_epl_5.tooltip_expolar_camera",
+      "en": "EXpolar Camera",
+      "before": "EXpolar Camera",
+      "after": "EXpolar 相机",
+      "was_exact_english": true
+    },
+    {
+      "key": "gui.thermal_shock_reforged.une_intro_epl_6.tooltip_expolar_camera",
+      "en": "EXpolar Camera",
+      "before": "EXpolar Camera",
+      "after": "EXpolar 相机",
+      "was_exact_english": true
+    },
+    {
+      "key": "gui.thermal_shock_reforged.une_intro_epl_5.label_its_a_real_pretty_place_you",
+      "en": "have this fancy \"EXpolar Camera.\"",
+      "before": "带上这台特别的 EXpolar Camera。",
+      "after": "带上这台特别的 EXpolar 相机。",
+      "was_exact_english": false
+    },
+    {
+      "key": "gui.thermal_shock_reforged.une_intro_epl_6.label_its_a_real_pretty_place_you",
+      "en": "have this fancy \"EXpolar Camera.\"",
+      "before": "带上这台特别的 EXpolar Camera。",
+      "after": "带上这台特别的 EXpolar 相机。",
+      "was_exact_english": false
+    }
+  ],
+  "integrated135Commit": "ab82dc1",
+  "receipt135Sha256": "5c4f8dd6523faf89efb27236df866df8d2760079de1ff1756b54135ff21fe52d",
+  "userRibbonbladeIncludedButExcludedFromCommit": true,
+  "gameExecuted": false,
+  "batch136Complete": true,
+  "fullMigrationComplete": false,
+  "elapsedSeconds": 35,
+  "antennaePredicateEvidence": "nonentity-main136-antennae-validation.json",
+  "antennaePredicateEvidenceSha256": "74c566f0879b7fad5090a0f59df2a9e6a75562edcd44bb4f636b1805ac41f930",
+  "completionScope": "本批代码及限定静态复审完成；全模组仍待134/137/138/139及最终客户端Render Preview，不宣称完整迁移结束。"
+}

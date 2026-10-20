@@ -1,0 +1,3173 @@
+{
+  "batch": 136,
+  "scope": "67实际Procedure回调根复用115语义并核现源，14个变化引用落在7文件，仅122英语等值语言键提取；另外22原Block无Procedure调用/方法内animation写入。此复用限136状态动画，不重开声音粒子或世界交互完整业务验收。",
+  "generatorSha256": "3282a6d22e1c261419410cda4db3346bb9799b052acf1f121994de586a61ff61",
+  "rows": [
+    {
+      "ids": [
+        "amalgel_trophy"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/AmalgelTrophyBlock.java",
+      "originalSha256": "faea382062143ff1a8bd1b015d0b3b5cc6a90a6c93d3e39e54ed04b351b644ff",
+      "actualCallbacks": [
+        {
+          "procedure": "AmalgelTrophyOnRandomClientDisplayTickProcedure",
+          "method": "animateTick",
+          "line": 101,
+          "call": "AmalgelTrophyOnRandomClientDisplayTickProcedure.execute((LevelAccessor)world, x, y, z)",
+          "enclosingMethodSha256": "ec8e68e2be2645d9ec8a1cc66f196e9e493af245ee52fec9c01011abcb0cab82"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\GeoDecorBlock.java",
+          "recordedSha256": "c5d196fcf05e8ce2530e235ce8f10d68c062460c1266ae4bc8c529db0cbe3e31",
+          "currentSha256": "c5d196fcf05e8ce2530e235ce8f10d68c062460c1266ae4bc8c529db0cbe3e31",
+          "currentGitLfSha256": "03e80e27849d7283e6363dbba3b6f8bb260c77e3488e431dcfabb239bf888789",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "c49da3ad20ab93331765706deb495cc28048b44a135fdc071d216ff6a357c106",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "ancient_barbubble"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/AncientBarbubbleBlock.java",
+      "originalSha256": "de5010b08ec64a457e4caf1186eac52913e04ce3fc7f9f937317ae947a5c6ab3",
+      "actualCallbacks": [
+        {
+          "procedure": "DewleafBlockAddedProcedure",
+          "method": "onPlace",
+          "line": 83,
+          "call": "DewleafBlockAddedProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "29736423153d8c75c41492774946e55b5400b4aedacae96fea15fdc6d1084582"
+        },
+        {
+          "procedure": "SickleHarvestingProcedure",
+          "method": "onDestroyedByPlayer",
+          "line": 88,
+          "call": "SickleHarvestingProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ(), blockstate, (Entity)entity)",
+          "enclosingMethodSha256": "26923828c89f3f869dbb334a6cd6465515be2dba3572767c901bcac7cb35ca9f"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\farming\\GeoCropBlock.java",
+          "recordedSha256": "d21be61d7a29cd262569738d8cee77cd7e379d2fcd44a8aeaaef3dc19fbfd49b",
+          "currentSha256": "d21be61d7a29cd262569738d8cee77cd7e379d2fcd44a8aeaaef3dc19fbfd49b",
+          "currentGitLfSha256": "d21be61d7a29cd262569738d8cee77cd7e379d2fcd44a8aeaaef3dc19fbfd49b",
+          "same": true,
+          "laterChangeProof": null
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\farming\\SickleHarvesting.java",
+          "recordedSha256": "57c219447c614b7ae7d1a6ca667d0b00c26c7feeffe1ca96fc964396b8b6c6ec",
+          "currentSha256": "57c219447c614b7ae7d1a6ca667d0b00c26c7feeffe1ca96fc964396b8b6c6ec",
+          "currentGitLfSha256": "57c219447c614b7ae7d1a6ca667d0b00c26c7feeffe1ca96fc964396b8b6c6ec",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "c42d501ea092efdfb17149e3998c99ce3c0a77a45576d9746f4d011965478878",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "ancient_skorio"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/AncientSkorioBlock.java",
+      "originalSha256": "27ccc535ebe5814cee4af9752135c3fb009b4c83fc009a62fddacef768871746",
+      "actualCallbacks": [
+        {
+          "procedure": "DewleafBlockAddedProcedure",
+          "method": "onPlace",
+          "line": 83,
+          "call": "DewleafBlockAddedProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "29736423153d8c75c41492774946e55b5400b4aedacae96fea15fdc6d1084582"
+        },
+        {
+          "procedure": "SickleHarvestingProcedure",
+          "method": "onDestroyedByPlayer",
+          "line": 88,
+          "call": "SickleHarvestingProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ(), blockstate, (Entity)entity)",
+          "enclosingMethodSha256": "26923828c89f3f869dbb334a6cd6465515be2dba3572767c901bcac7cb35ca9f"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\farming\\GeoCropBlock.java",
+          "recordedSha256": "d21be61d7a29cd262569738d8cee77cd7e379d2fcd44a8aeaaef3dc19fbfd49b",
+          "currentSha256": "d21be61d7a29cd262569738d8cee77cd7e379d2fcd44a8aeaaef3dc19fbfd49b",
+          "currentGitLfSha256": "d21be61d7a29cd262569738d8cee77cd7e379d2fcd44a8aeaaef3dc19fbfd49b",
+          "same": true,
+          "laterChangeProof": null
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\farming\\SickleHarvesting.java",
+          "recordedSha256": "57c219447c614b7ae7d1a6ca667d0b00c26c7feeffe1ca96fc964396b8b6c6ec",
+          "currentSha256": "57c219447c614b7ae7d1a6ca667d0b00c26c7feeffe1ca96fc964396b8b6c6ec",
+          "currentGitLfSha256": "57c219447c614b7ae7d1a6ca667d0b00c26c7feeffe1ca96fc964396b8b6c6ec",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "c42d501ea092efdfb17149e3998c99ce3c0a77a45576d9746f4d011965478878",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "assembler"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/AssemblerBlock.java",
+      "originalSha256": "1bca92807609e649591567e1526cb6c1ec8e4eb2a26b649695b38d3b89a2f78f",
+      "actualCallbacks": [
+        {
+          "procedure": "FabricatorOnTickUpdateProcedure",
+          "method": "animateTick",
+          "line": 145,
+          "call": "FabricatorOnTickUpdateProcedure.execute((LevelAccessor)world, x, y, z)",
+          "enclosingMethodSha256": "a43fd70fec77859242191df8cf249f91a80b3e65153e8bc0d52d90dee050fc85"
+        },
+        {
+          "procedure": "AssemblerOnBlockRightClickedProcedure",
+          "method": "use",
+          "line": 157,
+          "call": "AssemblerOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "b8da102bc149c2ff8830c01a1892882613ecac36925e89caffec65e9504b01b8"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\labmachinist\\LabMachineBlock.java",
+          "recordedSha256": "3c2aa424e3a3caff3cc430c431820102104c735b5bc26062b2c5ef28d7a94203",
+          "currentSha256": "3c2aa424e3a3caff3cc430c431820102104c735b5bc26062b2c5ef28d7a94203",
+          "currentGitLfSha256": "3c2aa424e3a3caff3cc430c431820102104c735b5bc26062b2c5ef28d7a94203",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "07a2450f0ff1df74381fd692eb0b9d0b45402be2928031bfe73452a17432cc49",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "atlas"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/AtlasBlock.java",
+      "originalSha256": "c1f2a8f262ea0a57c0860cda48ca63a69e7be898b5cfffe21fab7742ce5caa67",
+      "actualCallbacks": [
+        {
+          "procedure": "AtlasBlockAddedProcedure",
+          "method": "onPlace",
+          "line": 107,
+          "call": "AtlasBlockAddedProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "7979bcd9d3aec058397a7fa4a309586ccdcdf102573e56f57921edd7f5a3ce45"
+        },
+        {
+          "procedure": "AtlasOnBlockRightClickedProcedure",
+          "method": "use",
+          "line": 119,
+          "call": "AtlasOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "d4d8278aa9b43c45f7c84641b415c942a6091f8192350ada294032b4d90d5de4"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\atlas\\AtlasBlock.java",
+          "recordedSha256": "6a69c1b120413631a6824dd407e456110dd83f71ad94e4f63a6cbc6446c7d123",
+          "currentSha256": "6a69c1b120413631a6824dd407e456110dd83f71ad94e4f63a6cbc6446c7d123",
+          "currentGitLfSha256": "6a69c1b120413631a6824dd407e456110dd83f71ad94e4f63a6cbc6446c7d123",
+          "same": true,
+          "laterChangeProof": null
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\world\\WorldProgressData.java",
+          "recordedSha256": "77e393024ace0055e90dfab2d3cc1a65ee11c12aee93d1d62a915dd23df3679a",
+          "currentSha256": "77e393024ace0055e90dfab2d3cc1a65ee11c12aee93d1d62a915dd23df3679a",
+          "currentGitLfSha256": "00807b4f775a96b636f9665e30dbbd8207b849c5ad915bd943bbb043b06e1ced",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "851e5a2ead6a4462bcee8705fa22f822fb068d3ecfc81aa5346c8bec32a173f7",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "bottle_of_lunarlight"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/BottleOfLunarlightBlock.java",
+      "originalSha256": "64d90b8608e08ede0a8c05b00b1e1dbd7afe81915d487da225a777d95d2e32d0",
+      "actualCallbacks": [
+        {
+          "procedure": "BottleOfStarlightOnBlockRightClickedProcedure",
+          "method": "use",
+          "line": 101,
+          "call": "BottleOfStarlightOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "e76796fc36233a47988b28cccbb9e729db2ac4fd9edde20571edec1ea8fec6ac"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\StarlightBottleBlock.java",
+          "recordedSha256": "b0851ca586ee779b7789da526e450bc97c683b2597f978fcd00b5247b3f931c7",
+          "currentSha256": "b0851ca586ee779b7789da526e450bc97c683b2597f978fcd00b5247b3f931c7",
+          "currentGitLfSha256": "b0851ca586ee779b7789da526e450bc97c683b2597f978fcd00b5247b3f931c7",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "d828a6b60856a23d953feea99aa00e7f58b4932096b058efc8d2b942db401d46",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "bottle_of_starlight"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/BottleOfStarlightBlock.java",
+      "originalSha256": "820d4c08ef51693359e857ee693a5331bccbf7d1485259f21735e38ccd4f1d88",
+      "actualCallbacks": [
+        {
+          "procedure": "BottleOfStarlightOnBlockRightClickedProcedure",
+          "method": "use",
+          "line": 101,
+          "call": "BottleOfStarlightOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "e76796fc36233a47988b28cccbb9e729db2ac4fd9edde20571edec1ea8fec6ac"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\StarlightBottleBlock.java",
+          "recordedSha256": "b0851ca586ee779b7789da526e450bc97c683b2597f978fcd00b5247b3f931c7",
+          "currentSha256": "b0851ca586ee779b7789da526e450bc97c683b2597f978fcd00b5247b3f931c7",
+          "currentGitLfSha256": "b0851ca586ee779b7789da526e450bc97c683b2597f978fcd00b5247b3f931c7",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "d828a6b60856a23d953feea99aa00e7f58b4932096b058efc8d2b942db401d46",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "brimstone_cake"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/BrimstoneCakeBlock.java",
+      "originalSha256": "1a289660bbd44d1de4cc468b244755f213d92585da9671ae6e093858fddfa046",
+      "actualCallbacks": [
+        {
+          "procedure": "BrimCakeRightClickProcedure",
+          "method": "use",
+          "line": 107,
+          "call": "BrimCakeRightClickProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "d7af90e1a0ee9ae090606d5e4b41ace5e286abeb298e77f9f77a7c22caf25336"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\BrimstoneCakeBlock.java",
+          "recordedSha256": "4c6184e00af2182803b7e04c01176cba43d95fd067a93707750cb1e3f2851dc1",
+          "currentSha256": "4c6184e00af2182803b7e04c01176cba43d95fd067a93707750cb1e3f2851dc1",
+          "currentGitLfSha256": "4c6184e00af2182803b7e04c01176cba43d95fd067a93707750cb1e3f2851dc1",
+          "same": true,
+          "laterChangeProof": null
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\BrimstoneCakeConsumption.java",
+          "recordedSha256": "9adbc1ebbe83ecbb4fa6f5e94022d3ccc612d78367d5c0c0daf16f29949b7897",
+          "currentSha256": "9adbc1ebbe83ecbb4fa6f5e94022d3ccc612d78367d5c0c0daf16f29949b7897",
+          "currentGitLfSha256": "9adbc1ebbe83ecbb4fa6f5e94022d3ccc612d78367d5c0c0daf16f29949b7897",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "5c27733dcfe7ab99d816a6716653e0aa8d16464b74c1f0ff490ab80f993128f3",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "bunker_door"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/BunkerDoorBlock.java",
+      "originalSha256": "621c2563eb5bf01900c58ecc27338cb915a412b76c0e58b61ec18b070f9efd98",
+      "actualCallbacks": [
+        {
+          "procedure": "BunkerDoorRedstoneOnProcedure",
+          "method": "neighborChanged",
+          "line": 151,
+          "call": "BunkerDoorRedstoneOnProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ(), blockstate)",
+          "enclosingMethodSha256": "ed43c5050d933e1f8fa76c8cb996b60adeebe7306ce2ba635f3641aec64f0625"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\doors\\SpecialDoorBlock.java",
+          "recordedSha256": "ce1191f52441d0a597757ef8e7c8f367b0c15e7cdc4eead4d9b954d9e75dd44a",
+          "currentSha256": "97f86c303890beba1b422e2c2bac5b43bbcdcbe1ee98e9de52afce4ba2a2439e",
+          "currentGitLfSha256": "97f86c303890beba1b422e2c2bac5b43bbcdcbe1ee98e9de52afce4ba2a2439e",
+          "same": false,
+          "laterChangeProof": {
+            "changeCommit": "33d3bc65c081427be13fc546c066ea725a5d5248",
+            "priorFileBytesMatch": true,
+            "currentEqualsCommitBytesAfterLfNormalization": true,
+            "onlyEnglishEquivalentPlayerTextExtraction": true,
+            "translationKeys": [
+              "message.thermal_shock_reforged.door.herald_keys"
+            ]
+          }
+        }
+      ],
+      "priorMeaningSha256": "f52f808897fff7fcbadb594fb5c908ed15ea4e24f97920bfe74901dff39e06d6",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "capsule"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/CapsuleBlock.java",
+      "originalSha256": "4710995bb8ffe18debca6dad1547a56238df01b9feac018dc27190fd76710331",
+      "actualCallbacks": [
+        {
+          "procedure": "CapsuleOnBlockRightClickedProcedure",
+          "method": "use",
+          "line": 190,
+          "call": "CapsuleOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, blockstate, (Entity)entity)",
+          "enclosingMethodSha256": "7b951c0a89615c64a1276be2514c293bc4533035e99717c4e73e7381e9891a97"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\CapsuleBlock.java",
+          "recordedSha256": "8d5dc3d2a8858ae21a14ed7a0cddd5751dfe1af5fffeeff53a0431ac8480ddf0",
+          "currentSha256": "8d5dc3d2a8858ae21a14ed7a0cddd5751dfe1af5fffeeff53a0431ac8480ddf0",
+          "currentGitLfSha256": "865ef11d3cd3849030da91c2571dc33ee7a2784de429facdbe641a34325b3186",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "c41601b72d02ca33c7ace2aaa3ae0cff1791446ab17751f356ef25f8090097d4",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "cauldron_of_trilobite"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/CauldronOfTrilobiteBlock.java",
+      "originalSha256": "c87f14b0407371dfa6a1f8e2c72428ecb4ddd666aaea55aee94a65879c86533b",
+      "actualCallbacks": [
+        {
+          "procedure": "TriloCauldronClickProcedure",
+          "method": "use",
+          "line": 114,
+          "call": "TriloCauldronClickProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "2c82451e5658db6acdbcb8c01e3896273a736c06f08667ca7be4df185654c6e5"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\fauna\\block\\CauldronOfTrilobiteBlock.java",
+          "recordedSha256": "fc5077489a798513783dcec534798e3bb6cde95399f8a92876207a12058f15d7",
+          "currentSha256": "fc5077489a798513783dcec534798e3bb6cde95399f8a92876207a12058f15d7",
+          "currentGitLfSha256": "fc5077489a798513783dcec534798e3bb6cde95399f8a92876207a12058f15d7",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "91409f952bf37e90130afca13107afbd2b5b766c3c7ca7236dc32e1acc57563b",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "cavebloomer_trophy"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/CavebloomerTrophyBlock.java",
+      "originalSha256": "cd191ee6e64b6d33ae6022c6682511bb4b4c017a551918b02da6010eb0398c45",
+      "actualCallbacks": [
+        {
+          "procedure": "AmalgelTrophyOnRandomClientDisplayTickProcedure",
+          "method": "animateTick",
+          "line": 101,
+          "call": "AmalgelTrophyOnRandomClientDisplayTickProcedure.execute((LevelAccessor)world, x, y, z)",
+          "enclosingMethodSha256": "ec8e68e2be2645d9ec8a1cc66f196e9e493af245ee52fec9c01011abcb0cab82"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\GeoDecorBlock.java",
+          "recordedSha256": "c5d196fcf05e8ce2530e235ce8f10d68c062460c1266ae4bc8c529db0cbe3e31",
+          "currentSha256": "c5d196fcf05e8ce2530e235ce8f10d68c062460c1266ae4bc8c529db0cbe3e31",
+          "currentGitLfSha256": "03e80e27849d7283e6363dbba3b6f8bb260c77e3488e431dcfabb239bf888789",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "c49da3ad20ab93331765706deb495cc28048b44a135fdc071d216ff6a357c106",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "civilian"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/CivilianBlock.java",
+      "originalSha256": "80318bb56ef7912f409809ccedb031021112a3aa3ffb969be5011cd04abbdf2c",
+      "actualCallbacks": [
+        {
+          "procedure": "CivilianOnBlockRightClickedProcedure",
+          "method": "use",
+          "line": 167,
+          "call": "CivilianOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, blockstate, (Entity)entity)",
+          "enclosingMethodSha256": "c5a7d17e9afeb91b7f6d0d8da32e8e6997b016bb7118ff6843e9d7184890460f"
+        }
+      ],
+      "priorReviewStatus": "源码已核，既存创造循环差异待主线记录",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\DialogueBlock.java",
+          "recordedSha256": "1467b51ff32215e2e479d742bc93934797f95b91c232398a2a8399c620752806",
+          "currentSha256": "1467b51ff32215e2e479d742bc93934797f95b91c232398a2a8399c620752806",
+          "currentGitLfSha256": "1467b51ff32215e2e479d742bc93934797f95b91c232398a2a8399c620752806",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "312f61ef33824aeee89fbef324115be225f774d395159fcbd4fbcf3f4fa0f7c8",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "cryonic_cache"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/CryonicCacheBlock.java",
+      "originalSha256": "de1933671eab7615e82a183ac2d33daee0adf5eaef78d1b73cb1ff17df99d200",
+      "actualCallbacks": [
+        {
+          "procedure": "CryonicCacheStartDestroyProcedure",
+          "method": "attack",
+          "line": 78,
+          "call": "CryonicCacheStartDestroyProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ(), (Entity)entity)",
+          "enclosingMethodSha256": "58741e26b2af25bcb224cfd12e218a475ba4650a546949f7a3c13a308d0af9d9"
+        },
+        {
+          "procedure": "CryonicCacheBlockDestroyedByPlayerProcedure",
+          "method": "use",
+          "line": 90,
+          "call": "CryonicCacheBlockDestroyedByPlayerProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "1efd96ad5d38f8bfa63b872fb213e642921d811318258eb3974809b29ac00a94"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\CryonicCacheBlock.java",
+          "recordedSha256": "da25999b50e8c9692e94ba41a8878d1ded07c85f90f57a23fb498d6b7cc32106",
+          "currentSha256": "643eb21b48d0cb30f3706086dcf018d6807ff3c7f9f009666d08ef258e95df80",
+          "currentGitLfSha256": "643eb21b48d0cb30f3706086dcf018d6807ff3c7f9f009666d08ef258e95df80",
+          "same": false,
+          "laterChangeProof": {
+            "changeCommit": "33d3bc65c081427be13fc546c066ea725a5d5248",
+            "priorFileBytesMatch": true,
+            "currentEqualsCommitBytesAfterLfNormalization": true,
+            "onlyEnglishEquivalentPlayerTextExtraction": true,
+            "translationKeys": [
+              "message.thermal_shock_reforged.cache.locked"
+            ]
+          }
+        }
+      ],
+      "priorMeaningSha256": "dc80379601747b5f60d060233b9bb399922b5fd56ee21397ffcd35e4c541cbce",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "crystal_sopel_trophy"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/CrystalSopelTrophyBlock.java",
+      "originalSha256": "b27885a57b885405cb17779f347630b5e66e208d796dae3dc3fb5002b4415e68",
+      "actualCallbacks": [
+        {
+          "procedure": "AmalgelTrophyOnRandomClientDisplayTickProcedure",
+          "method": "animateTick",
+          "line": 101,
+          "call": "AmalgelTrophyOnRandomClientDisplayTickProcedure.execute((LevelAccessor)world, x, y, z)",
+          "enclosingMethodSha256": "ec8e68e2be2645d9ec8a1cc66f196e9e493af245ee52fec9c01011abcb0cab82"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\GeoDecorBlock.java",
+          "recordedSha256": "c5d196fcf05e8ce2530e235ce8f10d68c062460c1266ae4bc8c529db0cbe3e31",
+          "currentSha256": "c5d196fcf05e8ce2530e235ce8f10d68c062460c1266ae4bc8c529db0cbe3e31",
+          "currentGitLfSha256": "03e80e27849d7283e6363dbba3b6f8bb260c77e3488e431dcfabb239bf888789",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "c49da3ad20ab93331765706deb495cc28048b44a135fdc071d216ff6a357c106",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "desk_director"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/DeskDirectorBlock.java",
+      "originalSha256": "0559c57398b4c267893c3cea47280caf7854da7207fe5aa64c3cf0ca61bbe2a1",
+      "actualCallbacks": [
+        {
+          "procedure": "DeskDirectorOnBlockRightClickedProcedure",
+          "method": "use",
+          "line": 118,
+          "call": "DeskDirectorOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "bbe7f2c106d25ddd4be8e7033a7826cb8e88f77ff20836fe0cd779537747172c"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\DeskDirectorBlock.java",
+          "recordedSha256": "ac633fb379074c52bf984fdfbe3c95351fada4d6b9f67f9a285dc695539ddd79",
+          "currentSha256": "ac633fb379074c52bf984fdfbe3c95351fada4d6b9f67f9a285dc695539ddd79",
+          "currentGitLfSha256": "ac633fb379074c52bf984fdfbe3c95351fada4d6b9f67f9a285dc695539ddd79",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "3f8bcbe2e1ecdf671fb82be447425d3d68bcb1c1db78022d5f48515d6bc150c7",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "dewleaf"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/DewleafBlock.java",
+      "originalSha256": "54333add9d3d4305acd20ab109bad1d840805b37a88415b09c92fe9963a7844a",
+      "actualCallbacks": [
+        {
+          "procedure": "DewleafBlockAddedProcedure",
+          "method": "onPlace",
+          "line": 83,
+          "call": "DewleafBlockAddedProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "29736423153d8c75c41492774946e55b5400b4aedacae96fea15fdc6d1084582"
+        },
+        {
+          "procedure": "SickleHarvestingProcedure",
+          "method": "onDestroyedByPlayer",
+          "line": 88,
+          "call": "SickleHarvestingProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ(), blockstate, (Entity)entity)",
+          "enclosingMethodSha256": "26923828c89f3f869dbb334a6cd6465515be2dba3572767c901bcac7cb35ca9f"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\farming\\GeoCropBlock.java",
+          "recordedSha256": "d21be61d7a29cd262569738d8cee77cd7e379d2fcd44a8aeaaef3dc19fbfd49b",
+          "currentSha256": "d21be61d7a29cd262569738d8cee77cd7e379d2fcd44a8aeaaef3dc19fbfd49b",
+          "currentGitLfSha256": "d21be61d7a29cd262569738d8cee77cd7e379d2fcd44a8aeaaef3dc19fbfd49b",
+          "same": true,
+          "laterChangeProof": null
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\farming\\SickleHarvesting.java",
+          "recordedSha256": "57c219447c614b7ae7d1a6ca667d0b00c26c7feeffe1ca96fc964396b8b6c6ec",
+          "currentSha256": "57c219447c614b7ae7d1a6ca667d0b00c26c7feeffe1ca96fc964396b8b6c6ec",
+          "currentGitLfSha256": "57c219447c614b7ae7d1a6ca667d0b00c26c7feeffe1ca96fc964396b8b6c6ec",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "c42d501ea092efdfb17149e3998c99ce3c0a77a45576d9746f4d011965478878",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "enchanted_cache"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/EnchantedCacheBlock.java",
+      "originalSha256": "f1bff8ad5a0fc9b3ce7c8bc3cb128848b594177dbc08d46e849cf188113f2eed",
+      "actualCallbacks": [
+        {
+          "procedure": "EnchantedCachePlayerStartsToDestroyProcedure",
+          "method": "attack",
+          "line": 78,
+          "call": "EnchantedCachePlayerStartsToDestroyProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ(), (Entity)entity)",
+          "enclosingMethodSha256": "06472288f83016ee3b8c71920c90da20811cdf9807741c9af0d1d6edc180bd14"
+        },
+        {
+          "procedure": "EnchantedCacheDestroyedProcedure",
+          "method": "use",
+          "line": 90,
+          "call": "EnchantedCacheDestroyedProcedure.execute((LevelAccessor)world, x, y, z)",
+          "enclosingMethodSha256": "06b43f0f04e4b1d608c9f3ed0e15d129722e879938d196703672f8587c357622"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\EnchantedCacheBlock.java",
+          "recordedSha256": "d1064c7db5914f637963c0d243f7fd26b8d23b03b9f5ddf04a57b9eddd8fabb2",
+          "currentSha256": "7c6a1f5d5236de6f2470b6d76c98946472c6a4a57efc70f3369d5024666c613e",
+          "currentGitLfSha256": "7c6a1f5d5236de6f2470b6d76c98946472c6a4a57efc70f3369d5024666c613e",
+          "same": false,
+          "laterChangeProof": {
+            "changeCommit": "33d3bc65c081427be13fc546c066ea725a5d5248",
+            "priorFileBytesMatch": true,
+            "currentEqualsCommitBytesAfterLfNormalization": true,
+            "onlyEnglishEquivalentPlayerTextExtraction": true,
+            "translationKeys": [
+              "message.thermal_shock_reforged.cache.open"
+            ]
+          }
+        }
+      ],
+      "priorMeaningSha256": "5695e89c99d906ba92db095771c6880fa4e232247ebd9db84752c06931bef1fb",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "extractor"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/ExtractorBlock.java",
+      "originalSha256": "69527cd45f58d4498241b5b0bb8801735fc0174221f822cb47f37ab271afc250",
+      "actualCallbacks": [
+        {
+          "procedure": "ExtractorOnBlockRightClickedProcedure",
+          "method": "use",
+          "line": 141,
+          "call": "ExtractorOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "8c14edaab2c89f0470e28c45c5b943d63a1bb57d0b7f67faa5d2bcb6ceb87df4"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\machines\\ExtractorBlock.java",
+          "recordedSha256": "4622e5aeccb97ac5c486e42788be99aeca891c7cd5236a89160623beaeb001ac",
+          "currentSha256": "4622e5aeccb97ac5c486e42788be99aeca891c7cd5236a89160623beaeb001ac",
+          "currentGitLfSha256": "4622e5aeccb97ac5c486e42788be99aeca891c7cd5236a89160623beaeb001ac",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "40a4cd092daf9b0605fd72b2db851216c82c298098eafcf599e50f68a276b163",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "fabricator"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/FabricatorBlock.java",
+      "originalSha256": "5601956ab8492d63e727c838e9b554c801c2cd489a604b565fed26a2aaba00fa",
+      "actualCallbacks": [
+        {
+          "procedure": "FabricatorOnTickUpdateProcedure",
+          "method": "animateTick",
+          "line": 145,
+          "call": "FabricatorOnTickUpdateProcedure.execute((LevelAccessor)world, x, y, z)",
+          "enclosingMethodSha256": "a43fd70fec77859242191df8cf249f91a80b3e65153e8bc0d52d90dee050fc85"
+        },
+        {
+          "procedure": "FabricatorOnBlockRightClickedProcedure",
+          "method": "use",
+          "line": 157,
+          "call": "FabricatorOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "5c06737653d8e9f6ab1d0e40d338da084881ca3220bfdce5da936f5a83c43e44"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\FabricatorBlock.java",
+          "recordedSha256": "315eeb229c7fe26176dccf5b9db2adfcb52d99dd4343fb5b66f08ffea6b49626",
+          "currentSha256": "315eeb229c7fe26176dccf5b9db2adfcb52d99dd4343fb5b66f08ffea6b49626",
+          "currentGitLfSha256": "315eeb229c7fe26176dccf5b9db2adfcb52d99dd4343fb5b66f08ffea6b49626",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "ff457d8e2964aa07743317930325adcc91d5285cf688809e952ade4089c74a73",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "ferro_cake"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/FerroCakeBlock.java",
+      "originalSha256": "315ca6b783b0e0c9aaff5731f4d7e9bf1fad1f5b98913b6aaa0a5e02614cd6d7",
+      "actualCallbacks": [
+        {
+          "procedure": "FerroCakeOnBlockRightClickedProcedure",
+          "method": "use",
+          "line": 107,
+          "call": "FerroCakeOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "24c045afbb3644c9ffce92b6ff9989e2c31e62741a73eaf485f14a8415c7e06e"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\FerroCakeBlock.java",
+          "recordedSha256": "81cb9d6746e6146a7534af3ebe7578afa9a38d321dbb43df63cee0cd03579c4c",
+          "currentSha256": "81cb9d6746e6146a7534af3ebe7578afa9a38d321dbb43df63cee0cd03579c4c",
+          "currentGitLfSha256": "81cb9d6746e6146a7534af3ebe7578afa9a38d321dbb43df63cee0cd03579c4c",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "605b1b0ef98c76f0259c13d80017eab2ee70574c9572f185c98120297e24b6dd",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "ferrous_altar"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/FerrousAltarBlock.java",
+      "originalSha256": "7d2e69d453e4d6585aa2be0b5d401483ae6460055062434af5937e99545a90cf",
+      "actualCallbacks": [
+        {
+          "procedure": "FrigidAltarOnBlockRightClickedProcedure",
+          "method": "use",
+          "line": 96,
+          "call": "FrigidAltarOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "54839e31857e794ee374a3d5b74b9967783f5528882dd36f86cbc64c3f79804c"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\AltarBlock.java",
+          "recordedSha256": "d0f1fd999c1c0efdf61e743f6907acc9d86004cda0cf4712e674d99e99d55adf",
+          "currentSha256": "2ec65810032c9d20c9a0429824d925922e0af9e85bcd325a359068bd164d7335",
+          "currentGitLfSha256": "2ec65810032c9d20c9a0429824d925922e0af9e85bcd325a359068bd164d7335",
+          "same": false,
+          "laterChangeProof": {
+            "changeCommit": "33d3bc65c081427be13fc546c066ea725a5d5248",
+            "priorFileBytesMatch": true,
+            "currentEqualsCommitBytesAfterLfNormalization": true,
+            "onlyEnglishEquivalentPlayerTextExtraction": true,
+            "translationKeys": [
+              "message.thermal_shock_reforged.altar.unlocked",
+              "message.thermal_shock_reforged.altar.phobotite_unsealed"
+            ]
+          }
+        }
+      ],
+      "priorMeaningSha256": "3f85b75d97e4518a362d69fdf58adeadc916dfa10f670738af97495879b53b70",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "frigid_altar"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/FrigidAltarBlock.java",
+      "originalSha256": "f711cacbfb7b6600620136dec3c41c2689706f3a387763102a1c7d684dbd773c",
+      "actualCallbacks": [
+        {
+          "procedure": "FrigidAltarOnBlockRightClickedProcedure",
+          "method": "use",
+          "line": 83,
+          "call": "FrigidAltarOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "54839e31857e794ee374a3d5b74b9967783f5528882dd36f86cbc64c3f79804c"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\AltarBlock.java",
+          "recordedSha256": "d0f1fd999c1c0efdf61e743f6907acc9d86004cda0cf4712e674d99e99d55adf",
+          "currentSha256": "2ec65810032c9d20c9a0429824d925922e0af9e85bcd325a359068bd164d7335",
+          "currentGitLfSha256": "2ec65810032c9d20c9a0429824d925922e0af9e85bcd325a359068bd164d7335",
+          "same": false,
+          "laterChangeProof": {
+            "changeCommit": "33d3bc65c081427be13fc546c066ea725a5d5248",
+            "priorFileBytesMatch": true,
+            "currentEqualsCommitBytesAfterLfNormalization": true,
+            "onlyEnglishEquivalentPlayerTextExtraction": true,
+            "translationKeys": [
+              "message.thermal_shock_reforged.altar.unlocked",
+              "message.thermal_shock_reforged.altar.phobotite_unsealed"
+            ]
+          }
+        }
+      ],
+      "priorMeaningSha256": "19975dc990854db1157dbc0ee9754e0692eef45de570796f7db4fbf2e3d52676",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "frost_lotus"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/FrostLotusBlock.java",
+      "originalSha256": "4a4b190efcb1f3633652e62262b5b2dbcc8d51fa56dee68d328d25a9023a6977",
+      "actualCallbacks": [
+        {
+          "procedure": "DewleafBlockAddedProcedure",
+          "method": "onPlace",
+          "line": 74,
+          "call": "DewleafBlockAddedProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "29736423153d8c75c41492774946e55b5400b4aedacae96fea15fdc6d1084582"
+        },
+        {
+          "procedure": "SickleHarvestingProcedure",
+          "method": "onDestroyedByPlayer",
+          "line": 79,
+          "call": "SickleHarvestingProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ(), blockstate, (Entity)entity)",
+          "enclosingMethodSha256": "26923828c89f3f869dbb334a6cd6465515be2dba3572767c901bcac7cb35ca9f"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\farming\\GeoCropBlock.java",
+          "recordedSha256": "d21be61d7a29cd262569738d8cee77cd7e379d2fcd44a8aeaaef3dc19fbfd49b",
+          "currentSha256": "d21be61d7a29cd262569738d8cee77cd7e379d2fcd44a8aeaaef3dc19fbfd49b",
+          "currentGitLfSha256": "d21be61d7a29cd262569738d8cee77cd7e379d2fcd44a8aeaaef3dc19fbfd49b",
+          "same": true,
+          "laterChangeProof": null
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\farming\\SickleHarvesting.java",
+          "recordedSha256": "57c219447c614b7ae7d1a6ca667d0b00c26c7feeffe1ca96fc964396b8b6c6ec",
+          "currentSha256": "57c219447c614b7ae7d1a6ca667d0b00c26c7feeffe1ca96fc964396b8b6c6ec",
+          "currentGitLfSha256": "57c219447c614b7ae7d1a6ca667d0b00c26c7feeffe1ca96fc964396b8b6c6ec",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "2390f944f3adbdfde30b43cccf1626a8ea44c398aa78e4b4f37bb96ff43226bf",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "gel_bulb"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/GelBulbBlock.java",
+      "originalSha256": "edcb6fd3108392e4e2ee61bd210bc282f7708a194584e2f92335f10daaf369db",
+      "actualCallbacks": [
+        {
+          "procedure": "DewleafBlockAddedProcedure",
+          "method": "onPlace",
+          "line": 96,
+          "call": "DewleafBlockAddedProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "29736423153d8c75c41492774946e55b5400b4aedacae96fea15fdc6d1084582"
+        },
+        {
+          "procedure": "SickleHarvestingProcedure",
+          "method": "onDestroyedByPlayer",
+          "line": 101,
+          "call": "SickleHarvestingProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ(), blockstate, (Entity)entity)",
+          "enclosingMethodSha256": "26923828c89f3f869dbb334a6cd6465515be2dba3572767c901bcac7cb35ca9f"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\growth\\GelBulbBlock.java",
+          "recordedSha256": "1d13c72440b8dcda8234be8c516b6ec620309b9550474fa7d2797b164107d7b7",
+          "currentSha256": "1d13c72440b8dcda8234be8c516b6ec620309b9550474fa7d2797b164107d7b7",
+          "currentGitLfSha256": "1d13c72440b8dcda8234be8c516b6ec620309b9550474fa7d2797b164107d7b7",
+          "same": true,
+          "laterChangeProof": null
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\growth\\GrowthHarvest.java",
+          "recordedSha256": "a52aafd855ad7258fb91d1a6a1ef428c398ac461f64dd86aa2522b9689c3e11b",
+          "currentSha256": "a52aafd855ad7258fb91d1a6a1ef428c398ac461f64dd86aa2522b9689c3e11b",
+          "currentGitLfSha256": "a52aafd855ad7258fb91d1a6a1ef428c398ac461f64dd86aa2522b9689c3e11b",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "1222ccae42ea8f32f46df64fbadcd048c5933f7f32964f2e0c77e794be209cf3",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "glowstick"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/GlowstickBlock.java",
+      "originalSha256": "c84cfa710e025c4a196e632711b6caa7e5b1b63ee2487f8bca204179fc26d701",
+      "actualCallbacks": [
+        {
+          "procedure": "StarfruitNeighbourBlockChangesProcedure",
+          "method": "onPlace",
+          "line": 106,
+          "call": "StarfruitNeighbourBlockChangesProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "08a7de9c97c2d4680e6895c5561570a75dc945bc1e18eb4790f4358fca99d7fa"
+        },
+        {
+          "procedure": "StarfruitNeighbourBlockChangesProcedure",
+          "method": "neighborChanged",
+          "line": 111,
+          "call": "StarfruitNeighbourBlockChangesProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "8a40a13ee823eb3c5a67a4464ed12b34277c1848285dfb399bb74869ab64d017"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\lights\\GlowstickBlock.java",
+          "recordedSha256": "3ebefd62763f560b9c8f2c8f228829e90b015a9640e5af20859bcbdd968540ca",
+          "currentSha256": "3ebefd62763f560b9c8f2c8f228829e90b015a9640e5af20859bcbdd968540ca",
+          "currentGitLfSha256": "3ebefd62763f560b9c8f2c8f228829e90b015a9640e5af20859bcbdd968540ca",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "d7457c02f9e72c2c5601f9d3dc0d4e7b7f3df8f3bcd1f640463a87be3db44b16",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "grand_blasphemer"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/GrandBlasphemerBlock.java",
+      "originalSha256": "f44af722b0d929267e5742f7b96510aafaa92a8870d64a5d6b3ad32bd1481aec",
+      "actualCallbacks": [
+        {
+          "procedure": "GrandBlasphemerOnBlockRightClickedProcedure",
+          "method": "use",
+          "line": 109,
+          "call": "GrandBlasphemerOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "33e7773aa3a6d64615eddc0721759063a96e33b026fa0de67ca07af03856d38b"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\GrandBlasphemerBlock.java",
+          "recordedSha256": "7682052957070c4120e9b9119041eaf00e5a0e1f978b30445bb64d23c871bae3",
+          "currentSha256": "7682052957070c4120e9b9119041eaf00e5a0e1f978b30445bb64d23c871bae3",
+          "currentGitLfSha256": "7682052957070c4120e9b9119041eaf00e5a0e1f978b30445bb64d23c871bae3",
+          "same": true,
+          "laterChangeProof": null
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\GrandBlasphemerBlockEntity.java",
+          "recordedSha256": "99aa87c91adccfe743fcd6054eb30772e7e3441ff93248ff3c018b4f37a7cdf0",
+          "currentSha256": "99aa87c91adccfe743fcd6054eb30772e7e3441ff93248ff3c018b4f37a7cdf0",
+          "currentGitLfSha256": "99aa87c91adccfe743fcd6054eb30772e7e3441ff93248ff3c018b4f37a7cdf0",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "f119bd95f9136ff1baa45d4a6d7300396e4193d081bb6a5ad29747771e5f07b8",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "hearthfly_branch"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/HearthflyBranchBlock.java",
+      "originalSha256": "dbf94814e42ed8f63a3f771dacbf45fe018b3f176619b5c8fb5b8d48fe06bcc8",
+      "actualCallbacks": [
+        {
+          "procedure": "DewleafBlockAddedProcedure",
+          "method": "onPlace",
+          "line": 89,
+          "call": "DewleafBlockAddedProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "29736423153d8c75c41492774946e55b5400b4aedacae96fea15fdc6d1084582"
+        },
+        {
+          "procedure": "HearthflyBranchOnRandomClientDisplayTickProcedure",
+          "method": "animateTick",
+          "line": 99,
+          "call": "HearthflyBranchOnRandomClientDisplayTickProcedure.execute((LevelAccessor)world, x, y, z)",
+          "enclosingMethodSha256": "5ce0c782c7c0e0e4a5463325ba8b0952572b1de4f220ff0c05b195d033c5c023"
+        },
+        {
+          "procedure": "SickleHarvestingProcedure",
+          "method": "onDestroyedByPlayer",
+          "line": 104,
+          "call": "SickleHarvestingProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ(), blockstate, (Entity)entity)",
+          "enclosingMethodSha256": "26923828c89f3f869dbb334a6cd6465515be2dba3572767c901bcac7cb35ca9f"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\farming\\GeoCropBlock.java",
+          "recordedSha256": "d21be61d7a29cd262569738d8cee77cd7e379d2fcd44a8aeaaef3dc19fbfd49b",
+          "currentSha256": "d21be61d7a29cd262569738d8cee77cd7e379d2fcd44a8aeaaef3dc19fbfd49b",
+          "currentGitLfSha256": "d21be61d7a29cd262569738d8cee77cd7e379d2fcd44a8aeaaef3dc19fbfd49b",
+          "same": true,
+          "laterChangeProof": null
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\farming\\SickleHarvesting.java",
+          "recordedSha256": "57c219447c614b7ae7d1a6ca667d0b00c26c7feeffe1ca96fc964396b8b6c6ec",
+          "currentSha256": "57c219447c614b7ae7d1a6ca667d0b00c26c7feeffe1ca96fc964396b8b6c6ec",
+          "currentGitLfSha256": "57c219447c614b7ae7d1a6ca667d0b00c26c7feeffe1ca96fc964396b8b6c6ec",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "33e7387208719e13eb46911002e6636e78422532a3bf799219c20a44a297d9f3",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "hologram_monitor"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/HologramMonitorBlock.java",
+      "originalSha256": "8c43365ee3b2373b495b06e70eda43617b5e8fca6baf1c8aaa6c73ed5f424c53",
+      "actualCallbacks": [
+        {
+          "procedure": "HologramMonitorOnTickUpdateProcedure",
+          "method": "animateTick",
+          "line": 138,
+          "call": "HologramMonitorOnTickUpdateProcedure.execute((LevelAccessor)world, x, y, z, blockstate)",
+          "enclosingMethodSha256": "6715655fc892af33b532217459c099b449c057d8941e350c7d489848cd8e2bf6"
+        },
+        {
+          "procedure": "HologramMonitorOnBlockRightClickedProcedure",
+          "method": "use",
+          "line": 150,
+          "call": "HologramMonitorOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "3bcaacf8ce48e2510fd261b3433344d14f7cc2e13724f662cdf60f14f1552533"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\HologramMonitorBlock.java",
+          "recordedSha256": "50647a053e132ce13335be716cba4f340ca18cce8cf1b5963a51e62b6cd8c5c3",
+          "currentSha256": "50647a053e132ce13335be716cba4f340ca18cce8cf1b5963a51e62b6cd8c5c3",
+          "currentGitLfSha256": "50647a053e132ce13335be716cba4f340ca18cce8cf1b5963a51e62b6cd8c5c3",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "00d60c8418b5204c9861133ae5bb45e816fb018b3405ce10b0510c4ce3e8451d",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "icebreaker"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/IcebreakerBlock.java",
+      "originalSha256": "7d6e32b7c0bafb5779357cd1b71b57fa3806ab50225f5cc9b3a887ffd4d4d4d4",
+      "actualCallbacks": [
+        {
+          "procedure": "IcebreakerBlockAddedProcedure",
+          "method": "onPlace",
+          "line": 91,
+          "call": "IcebreakerBlockAddedProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "4b28544fdec2f55a1a06f070329e3b6220c41f76be3c36540bd599d0220f0efc"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\icebreaker\\IcebreakerBlock.java",
+          "recordedSha256": "1282169680f09b702defeaeeaea3f895e8c7a356ce1926f7974085591b0eea02",
+          "currentSha256": "1282169680f09b702defeaeeaea3f895e8c7a356ce1926f7974085591b0eea02",
+          "currentGitLfSha256": "1282169680f09b702defeaeeaea3f895e8c7a356ce1926f7974085591b0eea02",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "aae9f930c3fe0c73f08ad5836c2993b50908088508f924f80f6681cd66001701",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "icidroburner_trophy"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/IcidroburnerTrophyBlock.java",
+      "originalSha256": "ddb9202e91afcb3e92020d82d195c32912208496ee7e10bc22ccf7482b1686c1",
+      "actualCallbacks": [
+        {
+          "procedure": "AmalgelTrophyOnRandomClientDisplayTickProcedure",
+          "method": "animateTick",
+          "line": 101,
+          "call": "AmalgelTrophyOnRandomClientDisplayTickProcedure.execute((LevelAccessor)world, x, y, z)",
+          "enclosingMethodSha256": "ec8e68e2be2645d9ec8a1cc66f196e9e493af245ee52fec9c01011abcb0cab82"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\GeoDecorBlock.java",
+          "recordedSha256": "c5d196fcf05e8ce2530e235ce8f10d68c062460c1266ae4bc8c529db0cbe3e31",
+          "currentSha256": "c5d196fcf05e8ce2530e235ce8f10d68c062460c1266ae4bc8c529db0cbe3e31",
+          "currentGitLfSha256": "03e80e27849d7283e6363dbba3b6f8bb260c77e3488e431dcfabb239bf888789",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "c49da3ad20ab93331765706deb495cc28048b44a135fdc071d216ff6a357c106",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "icidrogunner_trophy"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/IcidrogunnerTrophyBlock.java",
+      "originalSha256": "d04277bf81c7727995f18ce03bf266d26b6036f6676669c0606b574325f56341",
+      "actualCallbacks": [
+        {
+          "procedure": "AmalgelTrophyOnRandomClientDisplayTickProcedure",
+          "method": "animateTick",
+          "line": 101,
+          "call": "AmalgelTrophyOnRandomClientDisplayTickProcedure.execute((LevelAccessor)world, x, y, z)",
+          "enclosingMethodSha256": "ec8e68e2be2645d9ec8a1cc66f196e9e493af245ee52fec9c01011abcb0cab82"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\GeoDecorBlock.java",
+          "recordedSha256": "c5d196fcf05e8ce2530e235ce8f10d68c062460c1266ae4bc8c529db0cbe3e31",
+          "currentSha256": "c5d196fcf05e8ce2530e235ce8f10d68c062460c1266ae4bc8c529db0cbe3e31",
+          "currentGitLfSha256": "03e80e27849d7283e6363dbba3b6f8bb260c77e3488e431dcfabb239bf888789",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "c49da3ad20ab93331765706deb495cc28048b44a135fdc071d216ff6a357c106",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "inactive_keystone_pedestal"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/InactiveKeystonePedestalBlock.java",
+      "originalSha256": "dbd5020350d516977ffc2f5f2c66c0ccbd15949fc19a0e0061175bbe56e93223",
+      "actualCallbacks": [
+        {
+          "procedure": "InactiveKeystonePedestalOnBlockRightClickedProcedure",
+          "method": "use",
+          "line": 88,
+          "call": "InactiveKeystonePedestalOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z)",
+          "enclosingMethodSha256": "54a7966b06653cb9e388a1bd4456d6840efeb413f7d196d4e750487e60ace975"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\KeystonePuzzleBlock.java",
+          "recordedSha256": "c34f593b194c67217dd60331c68434c9fa86f789f106713c7c4fd166b13c6603",
+          "currentSha256": "6bbdb5b8dc7316e7253f6ec24186438313985a06ce19ba40ff8eb99bf9a6d436",
+          "currentGitLfSha256": "6bbdb5b8dc7316e7253f6ec24186438313985a06ce19ba40ff8eb99bf9a6d436",
+          "same": false,
+          "laterChangeProof": {
+            "changeCommit": "33d3bc65c081427be13fc546c066ea725a5d5248",
+            "priorFileBytesMatch": true,
+            "currentEqualsCommitBytesAfterLfNormalization": true,
+            "onlyEnglishEquivalentPlayerTextExtraction": true,
+            "translationKeys": [
+              "message.thermal_shock_reforged.keystone.you_know"
+            ]
+          }
+        }
+      ],
+      "priorMeaningSha256": "92dd141666c7f36ca6cc92919656c841a41838209e731725f9d9887d04063846",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "jellercel"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/JellercelBlock.java",
+      "originalSha256": "c67dc8200aa3d35ef238b62cdbf6f06f241352d28ab82bbaf21fc2ab6f3ea3e8",
+      "actualCallbacks": [
+        {
+          "procedure": "JellercelEntityCollidesInTheBlockProcedure",
+          "method": "entityInside",
+          "line": 107,
+          "call": "JellercelEntityCollidesInTheBlockProcedure.execute((LevelAccessor)world, entity)",
+          "enclosingMethodSha256": "366f5b0b71e463bd0e95209754d4b87722a05b51987502d706926a9da040ae0a"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\JellercelBlock.java",
+          "recordedSha256": "6ec2c54a5924f17c4e3ee8024cea38ec71f851b0886c919d071051065a9211ad",
+          "currentSha256": "6ec2c54a5924f17c4e3ee8024cea38ec71f851b0886c919d071051065a9211ad",
+          "currentGitLfSha256": "6ec2c54a5924f17c4e3ee8024cea38ec71f851b0886c919d071051065a9211ad",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "3bb5a960be3a227da3ed2a8c3c457221a325aa99a82c040edc749afd87ebaf36",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "keystone_pedestal"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/KeystonePedestalBlock.java",
+      "originalSha256": "a56daa02c11ad723115d30891d15a0c04d527b7276ae57b80a431ceb2e748991",
+      "actualCallbacks": [
+        {
+          "procedure": "KeystonePedestalOnBlockRightClickedProcedure",
+          "method": "use",
+          "line": 89,
+          "call": "KeystonePedestalOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "437ab97b3f13a447ff2a556a2e9f85b9ac1b2d8f65f9b844e238069097e8a59d"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\KeystonePuzzleBlock.java",
+          "recordedSha256": "c34f593b194c67217dd60331c68434c9fa86f789f106713c7c4fd166b13c6603",
+          "currentSha256": "6bbdb5b8dc7316e7253f6ec24186438313985a06ce19ba40ff8eb99bf9a6d436",
+          "currentGitLfSha256": "6bbdb5b8dc7316e7253f6ec24186438313985a06ce19ba40ff8eb99bf9a6d436",
+          "same": false,
+          "laterChangeProof": {
+            "changeCommit": "33d3bc65c081427be13fc546c066ea725a5d5248",
+            "priorFileBytesMatch": true,
+            "currentEqualsCommitBytesAfterLfNormalization": true,
+            "onlyEnglishEquivalentPlayerTextExtraction": true,
+            "translationKeys": [
+              "message.thermal_shock_reforged.keystone.you_know"
+            ]
+          }
+        }
+      ],
+      "priorMeaningSha256": "96be1ea558dbf2b770cc395f88075979186e36c4ca6bf6d83d57dfec03238437",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "large_jellercel"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/LargeJellercelBlock.java",
+      "originalSha256": "e4915b9af923443eda63365b0bc09674fe04c6a309992034d18e3c2bf625808a",
+      "actualCallbacks": [
+        {
+          "procedure": "LargeJellercelBlockAddedProcedure",
+          "method": "onPlace",
+          "line": 111,
+          "call": "LargeJellercelBlockAddedProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "ca7949ec5744568611f575574aade1d864acc69a79adb981f622f972ed8dfba8"
+        },
+        {
+          "procedure": "LargeJellercelBlockDestroyedByPlayerProcedure",
+          "method": "onDestroyedByPlayer",
+          "line": 116,
+          "call": "LargeJellercelBlockDestroyedByPlayerProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "b5d07fd36bd0413d38ae09bb5ee770a4571b85160e6190a1926e5d401cfe21d4"
+        },
+        {
+          "procedure": "LargeJellercelBlockDestroyedByPlayerProcedure",
+          "method": "wasExploded",
+          "line": 122,
+          "call": "LargeJellercelBlockDestroyedByPlayerProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "3b027e381078da3fa7a626fd64f2faf800e74fbf08c259bdb08b2bed276089a8"
+        },
+        {
+          "procedure": "JellercelEntityCollidesInTheBlockProcedure",
+          "method": "entityInside",
+          "line": 127,
+          "call": "JellercelEntityCollidesInTheBlockProcedure.execute((LevelAccessor)world, entity)",
+          "enclosingMethodSha256": "366f5b0b71e463bd0e95209754d4b87722a05b51987502d706926a9da040ae0a"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\LargeJellercelBlock.java",
+          "recordedSha256": "e41abf772e6e26b32f0410645d824e83f95f1834bd55d3482c7c28b280b9cff9",
+          "currentSha256": "e41abf772e6e26b32f0410645d824e83f95f1834bd55d3482c7c28b280b9cff9",
+          "currentGitLfSha256": "e41abf772e6e26b32f0410645d824e83f95f1834bd55d3482c7c28b280b9cff9",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "b56450ad5ba062a4172072d1696f789b9a6687bbd4fb0b3462cd17df0274eaa3",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "large_spider_lily"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/LargeSpiderLilyBlock.java",
+      "originalSha256": "1d399b98435d277dfc62fee67c09dac70b78a29cb3530af7825fac03017d813c",
+      "actualCallbacks": [
+        {
+          "procedure": "SpireBloomNeighbourBlockChangesProcedure",
+          "method": "neighborChanged",
+          "line": 88,
+          "call": "SpireBloomNeighbourBlockChangesProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "f29dd49e505dcebd36a09ed8ea936f12a0e4b7089a4ba4a4e460c9336e4c7ced"
+        },
+        {
+          "procedure": "LargeSpiderLilyOnRandomClientDisplayTickProcedure",
+          "method": "animateTick",
+          "line": 98,
+          "call": "LargeSpiderLilyOnRandomClientDisplayTickProcedure.execute((LevelAccessor)world, x, y, z)",
+          "enclosingMethodSha256": "df9d272523a7b8e20b974586fa6a7789a7e3509e3055cc74cae6c37b4e170807"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\GeoFlowerBlock.java",
+          "recordedSha256": "a9f29617534dd5cb522ecc33cc0100d091499a6e15b39d2ad3a439986ee287c3",
+          "currentSha256": "a9f29617534dd5cb522ecc33cc0100d091499a6e15b39d2ad3a439986ee287c3",
+          "currentGitLfSha256": "a9f29617534dd5cb522ecc33cc0100d091499a6e15b39d2ad3a439986ee287c3",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "8f7af3c6efa7586fda3b5f90e8fb79eaf617f0fdf2bb6a385232035b2184d265",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "lunar_panel"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/LunarPanelBlock.java",
+      "originalSha256": "8b853fcf27981f1c38901b051a716092a6cb568883716b6f34a01496267854f8",
+      "actualCallbacks": [
+        {
+          "procedure": "LunarPanelOnTickUpdateProcedure",
+          "method": "tick",
+          "line": 86,
+          "call": "LunarPanelOnTickUpdateProcedure.execute((LevelAccessor)world, x, y, z)",
+          "enclosingMethodSha256": "2ff685a34237137555894d7ac92f68787a1dc4012ac9a472711fe2fb1f27e879"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\LunarPanelBlock.java",
+          "recordedSha256": "b58a965c4ac0526c83a6ed0a3d9537c5dcc3e765029d743432cfeb3726e077ca",
+          "currentSha256": "b58a965c4ac0526c83a6ed0a3d9537c5dcc3e765029d743432cfeb3726e077ca",
+          "currentGitLfSha256": "b58a965c4ac0526c83a6ed0a3d9537c5dcc3e765029d743432cfeb3726e077ca",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "f0893530085eb882d29ec86347fc9a3962b79528097d58d3e39dbda85864c885",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "maw_door"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/MawDoorBlock.java",
+      "originalSha256": "5cabcb772f0456e953f8eb50ceb9cc78b06089441a36018f9256411f6e4888f1",
+      "actualCallbacks": [
+        {
+          "procedure": "MawDoorOnBlockRightClickedProcedure",
+          "method": "use",
+          "line": 137,
+          "call": "MawDoorOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, blockstate, (Entity)entity)",
+          "enclosingMethodSha256": "d3582524d882f0dbaab10100777c9f349eadad5ce6756467b820acf99e75c090"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\doors\\SpecialDoorBlock.java",
+          "recordedSha256": "ce1191f52441d0a597757ef8e7c8f367b0c15e7cdc4eead4d9b954d9e75dd44a",
+          "currentSha256": "97f86c303890beba1b422e2c2bac5b43bbcdcbe1ee98e9de52afce4ba2a2439e",
+          "currentGitLfSha256": "97f86c303890beba1b422e2c2bac5b43bbcdcbe1ee98e9de52afce4ba2a2439e",
+          "same": false,
+          "laterChangeProof": {
+            "changeCommit": "33d3bc65c081427be13fc546c066ea725a5d5248",
+            "priorFileBytesMatch": true,
+            "currentEqualsCommitBytesAfterLfNormalization": true,
+            "onlyEnglishEquivalentPlayerTextExtraction": true,
+            "translationKeys": [
+              "message.thermal_shock_reforged.door.herald_keys"
+            ]
+          }
+        }
+      ],
+      "priorMeaningSha256": "a79ef7c75ba47e2d6eff9b3a64a4119bdfe96ace211ef2819c885f35c55b996f",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "neoflorm"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/NeoflormBlock.java",
+      "originalSha256": "290002b9435977d4bde885b863f346a4f895118d170905507f511f94ecab2ef6",
+      "actualCallbacks": [
+        {
+          "procedure": "DewleafBlockAddedProcedure",
+          "method": "onPlace",
+          "line": 83,
+          "call": "DewleafBlockAddedProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "29736423153d8c75c41492774946e55b5400b4aedacae96fea15fdc6d1084582"
+        },
+        {
+          "procedure": "SickleHarvestingProcedure",
+          "method": "onDestroyedByPlayer",
+          "line": 88,
+          "call": "SickleHarvestingProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ(), blockstate, (Entity)entity)",
+          "enclosingMethodSha256": "26923828c89f3f869dbb334a6cd6465515be2dba3572767c901bcac7cb35ca9f"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\farming\\GeoCropBlock.java",
+          "recordedSha256": "d21be61d7a29cd262569738d8cee77cd7e379d2fcd44a8aeaaef3dc19fbfd49b",
+          "currentSha256": "d21be61d7a29cd262569738d8cee77cd7e379d2fcd44a8aeaaef3dc19fbfd49b",
+          "currentGitLfSha256": "d21be61d7a29cd262569738d8cee77cd7e379d2fcd44a8aeaaef3dc19fbfd49b",
+          "same": true,
+          "laterChangeProof": null
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\farming\\SickleHarvesting.java",
+          "recordedSha256": "57c219447c614b7ae7d1a6ca667d0b00c26c7feeffe1ca96fc964396b8b6c6ec",
+          "currentSha256": "57c219447c614b7ae7d1a6ca667d0b00c26c7feeffe1ca96fc964396b8b6c6ec",
+          "currentGitLfSha256": "57c219447c614b7ae7d1a6ca667d0b00c26c7feeffe1ca96fc964396b8b6c6ec",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "c42d501ea092efdfb17149e3998c99ce3c0a77a45576d9746f4d011965478878",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "pathiolite_outcrop"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/PathioliteOutcropBlock.java",
+      "originalSha256": "6cfb6e6f36d3e6c5430bbbf94ee3d31d471daaf30613e9704a6bc3eb2b497595",
+      "actualCallbacks": [
+        {
+          "procedure": "MagmaticMantlestoneBlockDestroyedByPlayerProcedure",
+          "method": "onDestroyedByPlayer",
+          "line": 81,
+          "call": "MagmaticMantlestoneBlockDestroyedByPlayerProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "35ff74f26760ae3710d4fc493586afe072ff7f0d10cb34fae3468a38bf076f07"
+        },
+        {
+          "procedure": "MagmaticMantlestoneBlockDestroyedByPlayerProcedure",
+          "method": "wasExploded",
+          "line": 87,
+          "call": "MagmaticMantlestoneBlockDestroyedByPlayerProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "826ef707e118269c0fa5a76ad10cc3972afca0eec49524adfc62e7d9892a8615"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\PathioliteOutcropBlock.java",
+          "recordedSha256": "133a6a7ef56198de1ecffdda15a94f80cd30cb3c4a536e3e41f6844045cfe06a",
+          "currentSha256": "133a6a7ef56198de1ecffdda15a94f80cd30cb3c4a536e3e41f6844045cfe06a",
+          "currentGitLfSha256": "133a6a7ef56198de1ecffdda15a94f80cd30cb3c4a536e3e41f6844045cfe06a",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "472813b3fcc2a29bd1b4afe323bad243a11939fa83b075ca32fe04a35c091d8d",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "phobotite_mantle_outcrop"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/PhobotiteMantleOutcropBlock.java",
+      "originalSha256": "c2efa14af107c5ae052821d03ddbbbabd872a982bac7a138a6b3b60bdc20fef9",
+      "actualCallbacks": [
+        {
+          "procedure": "AltarCheckConditionProcedure",
+          "method": "canHarvestBlock",
+          "line": 66,
+          "call": "AltarCheckConditionProcedure.execute((LevelAccessor)player.level())",
+          "enclosingMethodSha256": "c6a00096470a8bda73ffd3572618bf897fc8683eb6ccb1ed71e4f15082a7fc52"
+        },
+        {
+          "procedure": "PhobotiteOutcropPlayerStartsToDestroyProcedure",
+          "method": "attack",
+          "line": 71,
+          "call": "PhobotiteOutcropPlayerStartsToDestroyProcedure.execute((LevelAccessor)world, (Entity)entity)",
+          "enclosingMethodSha256": "66c4c0f1f552f06933a74d0ce48400cd46cbcac130647122e0c6bc42b8c0ad2a"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\PhobotiteOutcropBlock.java",
+          "recordedSha256": "cc60562519c8ad43326f53fae1802753620da8d48f47a0788467b23ed95f3162",
+          "currentSha256": "f6726309c14e703085d66b73b941bead6033b5679edb04cd913a0d40cf98fcab",
+          "currentGitLfSha256": "f6726309c14e703085d66b73b941bead6033b5679edb04cd913a0d40cf98fcab",
+          "same": false,
+          "laterChangeProof": {
+            "changeCommit": "33d3bc65c081427be13fc546c066ea725a5d5248",
+            "priorFileBytesMatch": true,
+            "currentEqualsCommitBytesAfterLfNormalization": true,
+            "onlyEnglishEquivalentPlayerTextExtraction": true,
+            "translationKeys": [
+              "message.thermal_shock_reforged.phobotite.too_cold"
+            ]
+          }
+        }
+      ],
+      "priorMeaningSha256": "868196f201a47ab74744269a0084c816705070181df181f052d9a9e8373340a0",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "phobotite_outcrop"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/PhobotiteOutcropBlock.java",
+      "originalSha256": "ba133359c635601455343fe6edd642d27a08a78b2bc1f954174a0307114eff7f",
+      "actualCallbacks": [
+        {
+          "procedure": "AltarCheckConditionProcedure",
+          "method": "canHarvestBlock",
+          "line": 66,
+          "call": "AltarCheckConditionProcedure.execute((LevelAccessor)player.level())",
+          "enclosingMethodSha256": "c6a00096470a8bda73ffd3572618bf897fc8683eb6ccb1ed71e4f15082a7fc52"
+        },
+        {
+          "procedure": "PhobotiteOutcropPlayerStartsToDestroyProcedure",
+          "method": "attack",
+          "line": 71,
+          "call": "PhobotiteOutcropPlayerStartsToDestroyProcedure.execute((LevelAccessor)world, (Entity)entity)",
+          "enclosingMethodSha256": "66c4c0f1f552f06933a74d0ce48400cd46cbcac130647122e0c6bc42b8c0ad2a"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\PhobotiteOutcropBlock.java",
+          "recordedSha256": "cc60562519c8ad43326f53fae1802753620da8d48f47a0788467b23ed95f3162",
+          "currentSha256": "f6726309c14e703085d66b73b941bead6033b5679edb04cd913a0d40cf98fcab",
+          "currentGitLfSha256": "f6726309c14e703085d66b73b941bead6033b5679edb04cd913a0d40cf98fcab",
+          "same": false,
+          "laterChangeProof": {
+            "changeCommit": "33d3bc65c081427be13fc546c066ea725a5d5248",
+            "priorFileBytesMatch": true,
+            "currentEqualsCommitBytesAfterLfNormalization": true,
+            "onlyEnglishEquivalentPlayerTextExtraction": true,
+            "translationKeys": [
+              "message.thermal_shock_reforged.phobotite.too_cold"
+            ]
+          }
+        }
+      ],
+      "priorMeaningSha256": "868196f201a47ab74744269a0084c816705070181df181f052d9a9e8373340a0",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "pylon_core"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/PylonCoreBlock.java",
+      "originalSha256": "0efecf1dead40921aa36cf41c1202735e2db476eae1a4ec4b487b41684d09b24",
+      "actualCallbacks": [
+        {
+          "procedure": "PylonCoreBlockAddedProcedure",
+          "method": "onPlace",
+          "line": 90,
+          "call": "PylonCoreBlockAddedProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "cacf8142f0184db49bbcfb3df038db0f973e8d218825b47d74b3ef30b5f35f0b"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\PylonCoreBlock.java",
+          "recordedSha256": "3716401535a4deb767ea9b6fe9853af9d6e0f07e758cf23527a060e63a97381e",
+          "currentSha256": "3716401535a4deb767ea9b6fe9853af9d6e0f07e758cf23527a060e63a97381e",
+          "currentGitLfSha256": "2294a2d7fd51132c5cc430aa1a1c49a64fe4d65b51659dc55cc1d888fb87eabf",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "2334e6ec2d63a75e41f19a784e83d9e602a1332caa206bc94396dc61fb33ea96",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "pyrogenic_pylon_core"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/PyrogenicPylonCoreBlock.java",
+      "originalSha256": "8a576dea59e9b2bb281db23f89c8035181f4a22c0e2422990d0341e1d8560b53",
+      "actualCallbacks": [
+        {
+          "procedure": "PyrogenicPylonCoreBlockDestroyedByPlayerProcedure",
+          "method": "onDestroyedByPlayer",
+          "line": 93,
+          "call": "PyrogenicPylonCoreBlockDestroyedByPlayerProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "19d2049cc38aae90e6a15cc90c3a81410a8c9b7aa3402c5729f7a97f01b089b7"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\PyrogenicPylonCoreBlock.java",
+          "recordedSha256": "5730025cf0852655f425a12ba16f5bf03f3d843567ad8a533099f632fab007f4",
+          "currentSha256": "5730025cf0852655f425a12ba16f5bf03f3d843567ad8a533099f632fab007f4",
+          "currentGitLfSha256": "5730025cf0852655f425a12ba16f5bf03f3d843567ad8a533099f632fab007f4",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "a0b7be489237b3143999af2b508233dff2b90c4ce76b33aa20f7537089f1a355",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "rinthium_button"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/RinthiumButtonBlock.java",
+      "originalSha256": "61e291126e8555d3e8f42da12ff16200b241b7df5580e3d0cbd92c21a55ab25c",
+      "actualCallbacks": [
+        {
+          "procedure": "RedMantlestoneLeverOnBlockRightClickedProcedure",
+          "method": "use",
+          "line": 115,
+          "call": "RedMantlestoneLeverOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z)",
+          "enclosingMethodSha256": "dbb9b66175d8073bccaaa1c55330f69d1354dc78de730d819579b57586882d28"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\KeystonePuzzleBlock.java",
+          "recordedSha256": "c34f593b194c67217dd60331c68434c9fa86f789f106713c7c4fd166b13c6603",
+          "currentSha256": "6bbdb5b8dc7316e7253f6ec24186438313985a06ce19ba40ff8eb99bf9a6d436",
+          "currentGitLfSha256": "6bbdb5b8dc7316e7253f6ec24186438313985a06ce19ba40ff8eb99bf9a6d436",
+          "same": false,
+          "laterChangeProof": {
+            "changeCommit": "33d3bc65c081427be13fc546c066ea725a5d5248",
+            "priorFileBytesMatch": true,
+            "currentEqualsCommitBytesAfterLfNormalization": true,
+            "onlyEnglishEquivalentPlayerTextExtraction": true,
+            "translationKeys": [
+              "message.thermal_shock_reforged.keystone.you_know"
+            ]
+          }
+        }
+      ],
+      "priorMeaningSha256": "a0fd926814e9929c117a40166a508d5550426b6e6864b8d1a4d03d6a76a7edc2",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "rinthium_lever"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/RinthiumLeverBlock.java",
+      "originalSha256": "db9e359a4e22a40d1443aff7c8dde328ca2a035a54e599d00182996d101d2b5b",
+      "actualCallbacks": [
+        {
+          "procedure": "InactiveKeystonePedestalOnBlockRightClickedProcedure",
+          "method": "use",
+          "line": 109,
+          "call": "InactiveKeystonePedestalOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z)",
+          "enclosingMethodSha256": "54a7966b06653cb9e388a1bd4456d6840efeb413f7d196d4e750487e60ace975"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\KeystonePuzzleBlock.java",
+          "recordedSha256": "c34f593b194c67217dd60331c68434c9fa86f789f106713c7c4fd166b13c6603",
+          "currentSha256": "6bbdb5b8dc7316e7253f6ec24186438313985a06ce19ba40ff8eb99bf9a6d436",
+          "currentGitLfSha256": "6bbdb5b8dc7316e7253f6ec24186438313985a06ce19ba40ff8eb99bf9a6d436",
+          "same": false,
+          "laterChangeProof": {
+            "changeCommit": "33d3bc65c081427be13fc546c066ea725a5d5248",
+            "priorFileBytesMatch": true,
+            "currentEqualsCommitBytesAfterLfNormalization": true,
+            "onlyEnglishEquivalentPlayerTextExtraction": true,
+            "translationKeys": [
+              "message.thermal_shock_reforged.keystone.you_know"
+            ]
+          }
+        }
+      ],
+      "priorMeaningSha256": "f690aea3e55cbe2f885fcf6d3296f71f8a907c69f24fc7d12100b4519a88e716",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "rusty_radio"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/RustyRadioBlock.java",
+      "originalSha256": "f2df9dcc1de653ab886402712d3096576e765199f300fe535be1970c655d9ee7",
+      "actualCallbacks": [
+        {
+          "procedure": "RustyRadioOnBlockRightClickedProcedure",
+          "method": "use",
+          "line": 136,
+          "call": "RustyRadioOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "afd16ddbb26c6633ad0da029ef9b0438263d7d697136c57deb2e30adecfb60f7"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\DialogueBlock.java",
+          "recordedSha256": "1467b51ff32215e2e479d742bc93934797f95b91c232398a2a8399c620752806",
+          "currentSha256": "1467b51ff32215e2e479d742bc93934797f95b91c232398a2a8399c620752806",
+          "currentGitLfSha256": "1467b51ff32215e2e479d742bc93934797f95b91c232398a2a8399c620752806",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "d47babd0988311310868e13bc0c45f8758951e5c2050a73f2dffd489922127c5",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "shale_pillar"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/ShalePillarBlock.java",
+      "originalSha256": "e37d0440c2cc4954d665383268ea5ca124e058f57c5acb96c3fa4e1bfe95ba42",
+      "actualCallbacks": [
+        {
+          "procedure": "ShalePillarRightClickProcedure",
+          "method": "use",
+          "line": 135,
+          "call": "ShalePillarRightClickProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "51896de82793315cb7f83f33c4babe2c1daff4ed1757842f6a502d57857b6976"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\ShalePillarBlock.java",
+          "recordedSha256": "e77713f412eb6f69a39aaa26f85101d85de4b4eca5a76fee882d2497cdf9227f",
+          "currentSha256": "e77713f412eb6f69a39aaa26f85101d85de4b4eca5a76fee882d2497cdf9227f",
+          "currentGitLfSha256": "e77713f412eb6f69a39aaa26f85101d85de4b4eca5a76fee882d2497cdf9227f",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "85a85985302440b3c225cf430d71d72a4efb8c2fd4be89b3d7ce91eb23124cc0",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "shale_pillar_var_2"
+      ],
+      "priorReport": "block-callbacks-a-matrix115.json",
+      "priorReportSha256": "febcf0159298d72cb4cc893243a69eb119ca55c946abec43e6b8bf99e328a3cb",
+      "originalRoot": "block/ShalePillarVar2Block.java",
+      "originalSha256": "207253c8e3769efae9d69cfa45c05af608dd979205825ff205588661a0d271b5",
+      "actualCallbacks": [
+        {
+          "procedure": "SpawnPillarRightClickProcedure",
+          "method": "use",
+          "line": 135,
+          "call": "SpawnPillarRightClickProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "f1bd534327fe68062d1183483b10da0fa73a5f05947af8b008d56cac7a62cddc"
+        }
+      ],
+      "priorReviewStatus": "源码语义已核，运行待验",
+      "priorApprovedDifferences": null,
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\ShalePillarBlock.java",
+          "recordedSha256": "e77713f412eb6f69a39aaa26f85101d85de4b4eca5a76fee882d2497cdf9227f",
+          "currentSha256": "e77713f412eb6f69a39aaa26f85101d85de4b4eca5a76fee882d2497cdf9227f",
+          "currentGitLfSha256": "e77713f412eb6f69a39aaa26f85101d85de4b4eca5a76fee882d2497cdf9227f",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "1641f0e70c6748f1892374557e0e4c1d0a083553af179541090d8900e9c4777b",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "shale_pillar_var_3"
+      ],
+      "priorReport": "block-callbacks-main-review115.json",
+      "priorReportSha256": "65ca83716509d9c3bfa3d7dbac42f57bd0c544b610f63c9b87a83373a57cbc3a",
+      "originalRoot": "block/ShalePillarVar3Block.java",
+      "originalSha256": "3f002a404ac0f598f0d5ab984b173462881cf45b11271c293a28cd21efb4e92a",
+      "actualCallbacks": [
+        {
+          "procedure": "FuzzPillarRightClickProcedure",
+          "method": "use",
+          "line": 135,
+          "call": "FuzzPillarRightClickProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "8e96a800f28539982d8bb5fbffe71637fd3c607d9a6898a3e9f945227e3379c1"
+        }
+      ],
+      "priorReviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "priorApprovedDifferences": "第28批完整八样式循环：原7回基础且8只到2，现7到8且8回基础；保全部八个独立ID与原资产。",
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\ShalePillarBlock.java",
+          "recordedSha256": "e77713f412eb6f69a39aaa26f85101d85de4b4eca5a76fee882d2497cdf9227f",
+          "currentSha256": "e77713f412eb6f69a39aaa26f85101d85de4b4eca5a76fee882d2497cdf9227f",
+          "currentGitLfSha256": "e77713f412eb6f69a39aaa26f85101d85de4b4eca5a76fee882d2497cdf9227f",
+          "same": true,
+          "laterChangeProof": null
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\GeoDecorContent.java",
+          "recordedSha256": "84147bbf1ce0131a1d5240bfe33746fe48e064e02fc57e034abf48c8c44ddfb4",
+          "currentSha256": "84147bbf1ce0131a1d5240bfe33746fe48e064e02fc57e034abf48c8c44ddfb4",
+          "currentGitLfSha256": "449ae15bc077f81ca0037d02430263da070fbeabdac0e0182b3ceba75c9422ad",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "c721f2debfdb9dda7b39e446db0cb0b4b52c344f648e77f995d5ecb26bbab1b2",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "shale_pillar_var_4"
+      ],
+      "priorReport": "block-callbacks-main-review115.json",
+      "priorReportSha256": "65ca83716509d9c3bfa3d7dbac42f57bd0c544b610f63c9b87a83373a57cbc3a",
+      "originalRoot": "block/ShalePillarVar4Block.java",
+      "originalSha256": "9cd8e2f918f51fb12dc0ccf2a932fe8b05fdabfc06ccf245427b7449ef3c5650",
+      "actualCallbacks": [
+        {
+          "procedure": "DepthPillarRightClickProcedure",
+          "method": "use",
+          "line": 135,
+          "call": "DepthPillarRightClickProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "c8df3697c17ae4b36fb74309bea602bb26c2b77a5c8ccee8154e85eb8d2fe739"
+        }
+      ],
+      "priorReviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "priorApprovedDifferences": "第28批完整八样式循环：原7回基础且8只到2，现7到8且8回基础；保全部八个独立ID与原资产。",
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\ShalePillarBlock.java",
+          "recordedSha256": "e77713f412eb6f69a39aaa26f85101d85de4b4eca5a76fee882d2497cdf9227f",
+          "currentSha256": "e77713f412eb6f69a39aaa26f85101d85de4b4eca5a76fee882d2497cdf9227f",
+          "currentGitLfSha256": "e77713f412eb6f69a39aaa26f85101d85de4b4eca5a76fee882d2497cdf9227f",
+          "same": true,
+          "laterChangeProof": null
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\GeoDecorContent.java",
+          "recordedSha256": "84147bbf1ce0131a1d5240bfe33746fe48e064e02fc57e034abf48c8c44ddfb4",
+          "currentSha256": "84147bbf1ce0131a1d5240bfe33746fe48e064e02fc57e034abf48c8c44ddfb4",
+          "currentGitLfSha256": "449ae15bc077f81ca0037d02430263da070fbeabdac0e0182b3ceba75c9422ad",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "c721f2debfdb9dda7b39e446db0cb0b4b52c344f648e77f995d5ecb26bbab1b2",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "shale_pillar_var_5"
+      ],
+      "priorReport": "block-callbacks-main-review115.json",
+      "priorReportSha256": "65ca83716509d9c3bfa3d7dbac42f57bd0c544b610f63c9b87a83373a57cbc3a",
+      "originalRoot": "block/ShalePillarVar5Block.java",
+      "originalSha256": "80670a46d6e48916e24a21c029a072ac29b3f73777746e94d237e091925ebc18",
+      "actualCallbacks": [
+        {
+          "procedure": "GardenPillarRightClickProcedure",
+          "method": "use",
+          "line": 135,
+          "call": "GardenPillarRightClickProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "848e6b1c6c5891b36644b4be95111bd54f570e9b97a378fc545e57edfb400e48"
+        }
+      ],
+      "priorReviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "priorApprovedDifferences": "第28批完整八样式循环：原7回基础且8只到2，现7到8且8回基础；保全部八个独立ID与原资产。",
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\ShalePillarBlock.java",
+          "recordedSha256": "e77713f412eb6f69a39aaa26f85101d85de4b4eca5a76fee882d2497cdf9227f",
+          "currentSha256": "e77713f412eb6f69a39aaa26f85101d85de4b4eca5a76fee882d2497cdf9227f",
+          "currentGitLfSha256": "e77713f412eb6f69a39aaa26f85101d85de4b4eca5a76fee882d2497cdf9227f",
+          "same": true,
+          "laterChangeProof": null
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\GeoDecorContent.java",
+          "recordedSha256": "84147bbf1ce0131a1d5240bfe33746fe48e064e02fc57e034abf48c8c44ddfb4",
+          "currentSha256": "84147bbf1ce0131a1d5240bfe33746fe48e064e02fc57e034abf48c8c44ddfb4",
+          "currentGitLfSha256": "449ae15bc077f81ca0037d02430263da070fbeabdac0e0182b3ceba75c9422ad",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "c721f2debfdb9dda7b39e446db0cb0b4b52c344f648e77f995d5ecb26bbab1b2",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "shale_pillar_var_6"
+      ],
+      "priorReport": "block-callbacks-main-review115.json",
+      "priorReportSha256": "65ca83716509d9c3bfa3d7dbac42f57bd0c544b610f63c9b87a83373a57cbc3a",
+      "originalRoot": "block/ShalePillarVar6Block.java",
+      "originalSha256": "9d353e189f76ca275354e57b4982384f5303c1beec7dd27fe822d1eef0f38bd7",
+      "actualCallbacks": [
+        {
+          "procedure": "PathosPillarRightClickProcedure",
+          "method": "use",
+          "line": 135,
+          "call": "PathosPillarRightClickProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "cbd4812677abab9a2b3b9e802482ebd46bcb24d4e3d2fb4367dfa442ff1ac07c"
+        }
+      ],
+      "priorReviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "priorApprovedDifferences": "第28批完整八样式循环：原7回基础且8只到2，现7到8且8回基础；保全部八个独立ID与原资产。",
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\ShalePillarBlock.java",
+          "recordedSha256": "e77713f412eb6f69a39aaa26f85101d85de4b4eca5a76fee882d2497cdf9227f",
+          "currentSha256": "e77713f412eb6f69a39aaa26f85101d85de4b4eca5a76fee882d2497cdf9227f",
+          "currentGitLfSha256": "e77713f412eb6f69a39aaa26f85101d85de4b4eca5a76fee882d2497cdf9227f",
+          "same": true,
+          "laterChangeProof": null
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\GeoDecorContent.java",
+          "recordedSha256": "84147bbf1ce0131a1d5240bfe33746fe48e064e02fc57e034abf48c8c44ddfb4",
+          "currentSha256": "84147bbf1ce0131a1d5240bfe33746fe48e064e02fc57e034abf48c8c44ddfb4",
+          "currentGitLfSha256": "449ae15bc077f81ca0037d02430263da070fbeabdac0e0182b3ceba75c9422ad",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "c721f2debfdb9dda7b39e446db0cb0b4b52c344f648e77f995d5ecb26bbab1b2",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "shale_pillar_var_7"
+      ],
+      "priorReport": "block-callbacks-main-review115.json",
+      "priorReportSha256": "65ca83716509d9c3bfa3d7dbac42f57bd0c544b610f63c9b87a83373a57cbc3a",
+      "originalRoot": "block/ShalePillarVar7Block.java",
+      "originalSha256": "28a3c084c8d8b2b950585f4c400d086004a98daf043e3a4f3d4bb24c932e4825",
+      "actualCallbacks": [
+        {
+          "procedure": "AzazelPillarRightClickProcedure",
+          "method": "use",
+          "line": 135,
+          "call": "AzazelPillarRightClickProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "20a94632ae4fdf54696d42e5be5ef44ce3f5bb37e896f9c8fb0530bd3eb9c068"
+        }
+      ],
+      "priorReviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "priorApprovedDifferences": "第28批完整八样式循环：原7回基础且8只到2，现7到8且8回基础；保全部八个独立ID与原资产。",
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\ShalePillarBlock.java",
+          "recordedSha256": "e77713f412eb6f69a39aaa26f85101d85de4b4eca5a76fee882d2497cdf9227f",
+          "currentSha256": "e77713f412eb6f69a39aaa26f85101d85de4b4eca5a76fee882d2497cdf9227f",
+          "currentGitLfSha256": "e77713f412eb6f69a39aaa26f85101d85de4b4eca5a76fee882d2497cdf9227f",
+          "same": true,
+          "laterChangeProof": null
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\GeoDecorContent.java",
+          "recordedSha256": "84147bbf1ce0131a1d5240bfe33746fe48e064e02fc57e034abf48c8c44ddfb4",
+          "currentSha256": "84147bbf1ce0131a1d5240bfe33746fe48e064e02fc57e034abf48c8c44ddfb4",
+          "currentGitLfSha256": "449ae15bc077f81ca0037d02430263da070fbeabdac0e0182b3ceba75c9422ad",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "c721f2debfdb9dda7b39e446db0cb0b4b52c344f648e77f995d5ecb26bbab1b2",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "shale_pillar_var_8"
+      ],
+      "priorReport": "block-callbacks-main-review115.json",
+      "priorReportSha256": "65ca83716509d9c3bfa3d7dbac42f57bd0c544b610f63c9b87a83373a57cbc3a",
+      "originalRoot": "block/ShalePillarVar8Block.java",
+      "originalSha256": "58cd8090c96cc8ebe4b5084a0a9d52e6ea56bb017f8cdc3c310a5b5e56757a34",
+      "actualCallbacks": [
+        {
+          "procedure": "ShalePillarRightClickProcedure",
+          "method": "use",
+          "line": 135,
+          "call": "ShalePillarRightClickProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "51896de82793315cb7f83f33c4babe2c1daff4ed1757842f6a502d57857b6976"
+        }
+      ],
+      "priorReviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "priorApprovedDifferences": "第28批完整八样式循环：原7回基础且8只到2，现7到8且8回基础；保全部八个独立ID与原资产。",
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\ShalePillarBlock.java",
+          "recordedSha256": "e77713f412eb6f69a39aaa26f85101d85de4b4eca5a76fee882d2497cdf9227f",
+          "currentSha256": "e77713f412eb6f69a39aaa26f85101d85de4b4eca5a76fee882d2497cdf9227f",
+          "currentGitLfSha256": "e77713f412eb6f69a39aaa26f85101d85de4b4eca5a76fee882d2497cdf9227f",
+          "same": true,
+          "laterChangeProof": null
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\GeoDecorContent.java",
+          "recordedSha256": "84147bbf1ce0131a1d5240bfe33746fe48e064e02fc57e034abf48c8c44ddfb4",
+          "currentSha256": "84147bbf1ce0131a1d5240bfe33746fe48e064e02fc57e034abf48c8c44ddfb4",
+          "currentGitLfSha256": "449ae15bc077f81ca0037d02430263da070fbeabdac0e0182b3ceba75c9422ad",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "c721f2debfdb9dda7b39e446db0cb0b4b52c344f648e77f995d5ecb26bbab1b2",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "shale_pot"
+      ],
+      "priorReport": "block-callbacks-main-review115.json",
+      "priorReportSha256": "65ca83716509d9c3bfa3d7dbac42f57bd0c544b610f63c9b87a83373a57cbc3a",
+      "originalRoot": "block/ShalePotBlock.java",
+      "originalSha256": "83f89f1a066c6982b3f76689c454c423c195d76b60985000dad0c397eab5fbf3",
+      "actualCallbacks": [
+        {
+          "procedure": "ShalePotBlockDestroyedByPlayerProcedure",
+          "method": "onDestroyedByPlayer",
+          "line": 94,
+          "call": "ShalePotBlockDestroyedByPlayerProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "0b4082ca6a1f7863d5150041fbd8aa44733bd9b715ff13db9358337f2e6aeea6"
+        }
+      ],
+      "priorReviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "priorApprovedDifferences": "既有失败不生成保护；正常概率保留。",
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\ShalePotBlock.java",
+          "recordedSha256": "8638e85c704e861807a9fea05db0cde6f73cb1087796df3aa2911198ce805ff5",
+          "currentSha256": "8638e85c704e861807a9fea05db0cde6f73cb1087796df3aa2911198ce805ff5",
+          "currentGitLfSha256": "8638e85c704e861807a9fea05db0cde6f73cb1087796df3aa2911198ce805ff5",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "942fbb8bd7207c66c21e0b63e9e71e92a5d0c5f5cc377a4e1ec5821c8c868156",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "spider_lilies"
+      ],
+      "priorReport": "block-callbacks-main-review115.json",
+      "priorReportSha256": "65ca83716509d9c3bfa3d7dbac42f57bd0c544b610f63c9b87a83373a57cbc3a",
+      "originalRoot": "block/SpiderLiliesBlock.java",
+      "originalSha256": "07a9876aca70ea09cb82385cad02ab4b71632e8037e6c47ac692043f12c2d7d1",
+      "actualCallbacks": [
+        {
+          "procedure": "SpireBloomNeighbourBlockChangesProcedure",
+          "method": "neighborChanged",
+          "line": 115,
+          "call": "SpireBloomNeighbourBlockChangesProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "f29dd49e505dcebd36a09ed8ea936f12a0e4b7089a4ba4a4e460c9336e4c7ced"
+        },
+        {
+          "procedure": "LargeSpiderLilyOnRandomClientDisplayTickProcedure",
+          "method": "animateTick",
+          "line": 125,
+          "call": "LargeSpiderLilyOnRandomClientDisplayTickProcedure.execute((LevelAccessor)world, x, y, z)",
+          "enclosingMethodSha256": "df9d272523a7b8e20b974586fa6a7789a7e3509e3055cc74cae6c37b4e170807"
+        },
+        {
+          "procedure": "SpiderLiliesOnBlockRightClickedProcedure",
+          "method": "use",
+          "line": 137,
+          "call": "SpiderLiliesOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "c9937153ab8d45771cb130446faedd562354e3ed4703d047c19ab482ac2814c3"
+        }
+      ],
+      "priorReviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "priorApprovedDifferences": "既有setChanged防丢进度；本批确认移除成功才掉Rubicon，不减少实际有效原表现。",
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\SpiderLiliesBlock.java",
+          "recordedSha256": "d976fac0f010483bab4bdc2a09dc4e090773acc2ffaa918a5ced8f622f41f78c",
+          "currentSha256": "d976fac0f010483bab4bdc2a09dc4e090773acc2ffaa918a5ced8f622f41f78c",
+          "currentGitLfSha256": "d976fac0f010483bab4bdc2a09dc4e090773acc2ffaa918a5ced8f622f41f78c",
+          "same": true,
+          "laterChangeProof": null
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\GeoFlowerBlock.java",
+          "recordedSha256": "a9f29617534dd5cb522ecc33cc0100d091499a6e15b39d2ad3a439986ee287c3",
+          "currentSha256": "a9f29617534dd5cb522ecc33cc0100d091499a6e15b39d2ad3a439986ee287c3",
+          "currentGitLfSha256": "a9f29617534dd5cb522ecc33cc0100d091499a6e15b39d2ad3a439986ee287c3",
+          "same": true,
+          "laterChangeProof": null
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\GeoDecorBlockEntity.java",
+          "recordedSha256": "763bd63a15dfe647a1981d0f388857b4d8f43a575ac1c6c872c311f913ce37c7",
+          "currentSha256": "763bd63a15dfe647a1981d0f388857b4d8f43a575ac1c6c872c311f913ce37c7",
+          "currentGitLfSha256": "3ce3692d2880c266c835e12d6aac627cf07f64e5f739e24e30e35d30c3d97271",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "ef0545de637fa9a5973a3824ea08f3b9acdf5ede47fdc487f73c08d3b46610df",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "spire_bloom"
+      ],
+      "priorReport": "block-callbacks-main-review115.json",
+      "priorReportSha256": "65ca83716509d9c3bfa3d7dbac42f57bd0c544b610f63c9b87a83373a57cbc3a",
+      "originalRoot": "block/SpireBloomBlock.java",
+      "originalSha256": "6bb559b4bbe8fe1f3c765d269382f97cbe0645a57647525f3f953ee4e7394777",
+      "actualCallbacks": [
+        {
+          "procedure": "SpireBloomNeighbourBlockChangesProcedure",
+          "method": "neighborChanged",
+          "line": 82,
+          "call": "SpireBloomNeighbourBlockChangesProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "f29dd49e505dcebd36a09ed8ea936f12a0e4b7089a4ba4a4e460c9336e4c7ced"
+        }
+      ],
+      "priorReviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "priorApprovedDifferences": "本批当前块且移除成功才掉物，防失败复制。",
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\GeoFlowerBlock.java",
+          "recordedSha256": "a9f29617534dd5cb522ecc33cc0100d091499a6e15b39d2ad3a439986ee287c3",
+          "currentSha256": "a9f29617534dd5cb522ecc33cc0100d091499a6e15b39d2ad3a439986ee287c3",
+          "currentGitLfSha256": "a9f29617534dd5cb522ecc33cc0100d091499a6e15b39d2ad3a439986ee287c3",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "c77c2e8945e1a01be6afe5fb21ff695039170dd6d2f08de07b49c7eb729f6f75",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "spore_pod"
+      ],
+      "priorReport": "block-callbacks-main-review115.json",
+      "priorReportSha256": "65ca83716509d9c3bfa3d7dbac42f57bd0c544b610f63c9b87a83373a57cbc3a",
+      "originalRoot": "block/SporePodBlock.java",
+      "originalSha256": "d9912f39c4d40c268e00300788cec3b28d44b9f98dc90a120ff13e196301b5f0",
+      "actualCallbacks": [
+        {
+          "procedure": "SporePodBlockDestroyedByPlayerProcedure",
+          "method": "onDestroyedByPlayer",
+          "line": 99,
+          "call": "SporePodBlockDestroyedByPlayerProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "ea5fa0c22dd18a7171f575e8278d6152c2dc696a541262bfe58fc273c32b5ed4"
+        },
+        {
+          "procedure": "SporePodBlockDestroyedByPlayerProcedure",
+          "method": "wasExploded",
+          "line": 105,
+          "call": "SporePodBlockDestroyedByPlayerProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "968f670a725437f5b7ff79f861ac22e61a0cdbe9a662a99e62e54b7b8fc98ce3"
+        },
+        {
+          "procedure": "SporePodBlockDestroyedByPlayerProcedure",
+          "method": "entityInside",
+          "line": 110,
+          "call": "SporePodBlockDestroyedByPlayerProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "4d90a66f6ec36c68a193381444233d8c9b18ba42ad337a1a8b1280967fd5f157"
+        },
+        {
+          "procedure": "SporePodBlockDestroyedByPlayerProcedure",
+          "method": "stepOn",
+          "line": 115,
+          "call": "SporePodBlockDestroyedByPlayerProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "7dab53cea73fbd7b55d24d6f84061375c98ce5f7df58e4dde71794dab0383382"
+        },
+        {
+          "procedure": "SporePodBlockDestroyedByPlayerProcedure",
+          "method": "onProjectileHit",
+          "line": 119,
+          "call": "SporePodBlockDestroyedByPlayerProcedure.execute((LevelAccessor)world, hit.getBlockPos().getX(), hit.getBlockPos().getY(), hit.getBlockPos().getZ())",
+          "enclosingMethodSha256": "af50407401d5f4cccc16a6fc39bbc7e02cfb36b123d0c60f2d9e92e52ad87f88"
+        }
+      ],
+      "priorReviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "priorApprovedDifferences": "既有持久消费锁防多入口重复、失败移除不生成；不把触碰/step入口简化成只破坏触发。",
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\spore\\block\\SporePodBlock.java",
+          "recordedSha256": "6f313fee54d64129c7c974a042632267d56f071664ce04013b9d2f94f404ddcf",
+          "currentSha256": "6f313fee54d64129c7c974a042632267d56f071664ce04013b9d2f94f404ddcf",
+          "currentGitLfSha256": "6f313fee54d64129c7c974a042632267d56f071664ce04013b9d2f94f404ddcf",
+          "same": true,
+          "laterChangeProof": null
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\spore\\block\\SporePodBlockEntity.java",
+          "recordedSha256": "858d1e5685414fd134d13c61b307bb2b890182cd2a62d208bd02ac80033dc062",
+          "currentSha256": "858d1e5685414fd134d13c61b307bb2b890182cd2a62d208bd02ac80033dc062",
+          "currentGitLfSha256": "858d1e5685414fd134d13c61b307bb2b890182cd2a62d208bd02ac80033dc062",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "be0ea55202b88e69ed2a5ce68940a699a72e0757b0b12890c306c7bfeae670b7",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "super_cryonic_cache"
+      ],
+      "priorReport": "block-callbacks-main-review115.json",
+      "priorReportSha256": "65ca83716509d9c3bfa3d7dbac42f57bd0c544b610f63c9b87a83373a57cbc3a",
+      "originalRoot": "block/SuperCryonicCacheBlock.java",
+      "originalSha256": "7dd16e9484ed3653711c94755bad7566e666838704da48acc404dc337de4459a",
+      "actualCallbacks": [
+        {
+          "procedure": "CryonicCacheStartDestroyProcedure",
+          "method": "attack",
+          "line": 78,
+          "call": "CryonicCacheStartDestroyProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ(), (Entity)entity)",
+          "enclosingMethodSha256": "58741e26b2af25bcb224cfd12e218a475ba4650a546949f7a3c13a308d0af9d9"
+        },
+        {
+          "procedure": "SuperCryonicCacheOpenProcedure",
+          "method": "use",
+          "line": 90,
+          "call": "SuperCryonicCacheOpenProcedure.execute((LevelAccessor)world, x, y, z, (Entity)entity)",
+          "enclosingMethodSha256": "cec79c28f3b0daed9228e31b9ab1be859cc78b30e8b5f9fbd77b970fd9d11c6c"
+        }
+      ],
+      "priorReviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "priorApprovedDifferences": "既有服务端事务、缺loot保入口、消费锁/失败移除不扣key、不发奖。",
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\CryonicCacheBlock.java",
+          "recordedSha256": "da25999b50e8c9692e94ba41a8878d1ded07c85f90f57a23fb498d6b7cc32106",
+          "currentSha256": "643eb21b48d0cb30f3706086dcf018d6807ff3c7f9f009666d08ef258e95df80",
+          "currentGitLfSha256": "643eb21b48d0cb30f3706086dcf018d6807ff3c7f9f009666d08ef258e95df80",
+          "same": false,
+          "laterChangeProof": {
+            "changeCommit": "33d3bc65c081427be13fc546c066ea725a5d5248",
+            "priorFileBytesMatch": true,
+            "currentEqualsCommitBytesAfterLfNormalization": true,
+            "onlyEnglishEquivalentPlayerTextExtraction": true,
+            "translationKeys": [
+              "message.thermal_shock_reforged.cache.locked"
+            ]
+          }
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\CacheBlockEntity.java",
+          "recordedSha256": "18923f5b0394722692635ef389588699c849f9534a7eb31b1283bf2dfecf9113",
+          "currentSha256": "18923f5b0394722692635ef389588699c849f9534a7eb31b1283bf2dfecf9113",
+          "currentGitLfSha256": "18923f5b0394722692635ef389588699c849f9534a7eb31b1283bf2dfecf9113",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "543abe99ffd571481e529de95195d04a4dbc94a9d96b94184a61346504bbf002",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "surge_pylon"
+      ],
+      "priorReport": "block-callbacks-main-review115.json",
+      "priorReportSha256": "65ca83716509d9c3bfa3d7dbac42f57bd0c544b610f63c9b87a83373a57cbc3a",
+      "originalRoot": "block/SurgePylonBlock.java",
+      "originalSha256": "e20839a9cf9b6f330840af591d7aab13e90ad605eb4a08488ad1ed778a84dc5d",
+      "actualCallbacks": [
+        {
+          "procedure": "SurgePylonOnRandomClientDisplayTickProcedure",
+          "method": "tick",
+          "line": 92,
+          "call": "SurgePylonOnRandomClientDisplayTickProcedure.execute((LevelAccessor)world, x, y, z)",
+          "enclosingMethodSha256": "d72379b75f0941f84e27a0c405aa0832fc7fe49fcaca3029063902a36c94f0d9"
+        }
+      ],
+      "priorReviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "priorApprovedDifferences": "既有仅查真实ServerPlayer不全Entity排序，范围与生存资格不变；不改固定周期。",
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\SurgePylonBlock.java",
+          "recordedSha256": "01c1207c8e9f7a5329724b8354e13b45116f59aa0540c6c9b4a44cdc38733a3a",
+          "currentSha256": "01c1207c8e9f7a5329724b8354e13b45116f59aa0540c6c9b4a44cdc38733a3a",
+          "currentGitLfSha256": "02507835b374fca41bead76d3c04866aabaa2a4eb69870d0853571a3a3483bd7",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "e264f5342cd2d78dec27fb5e2b822a962560eb00e5bb558b4a2a25bdc494e10e",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "suspicious_cavebloomer"
+      ],
+      "priorReport": "block-callbacks-main-review115.json",
+      "priorReportSha256": "65ca83716509d9c3bfa3d7dbac42f57bd0c544b610f63c9b87a83373a57cbc3a",
+      "originalRoot": "block/SuspiciousCavebloomerBlock.java",
+      "originalSha256": "ec3729e442266f550c0cd982cc339a2a1aa5871277bb2bd4531d9e955f61844a",
+      "actualCallbacks": [
+        {
+          "procedure": "SuspiciousCavebloomerOnBlockRightClickedProcedure",
+          "method": "use",
+          "line": 113,
+          "call": "SuspiciousCavebloomerOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z)",
+          "enclosingMethodSha256": "9428bbb55c33e716340c99bdafb797c2cb28225e9976a9a891179bdec9d600c7"
+        }
+      ],
+      "priorReviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "priorApprovedDifferences": "沿第19批明确批准pending结束前禁二阶段、删除块取消未生成阶段；finite BE/暂停重载，成功接纳Boss才消费和成功声画。",
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\SuspiciousCavebloomerBlock.java",
+          "recordedSha256": "e73e64a89db2514e7a2174da7c6965ff07ecfb4d2943c302cec5062aa05bc513",
+          "currentSha256": "e73e64a89db2514e7a2174da7c6965ff07ecfb4d2943c302cec5062aa05bc513",
+          "currentGitLfSha256": "e73e64a89db2514e7a2174da7c6965ff07ecfb4d2943c302cec5062aa05bc513",
+          "same": true,
+          "laterChangeProof": null
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\SuspiciousCavebloomerBlockEntity.java",
+          "recordedSha256": "135c7adad95bc840228393dbe533ffb5d06bac4174c16ec1f4a60d7d45550eea",
+          "currentSha256": "b051406377b58903db66cd316361e3a7bcba755db3112779f82cd0270a243dbb",
+          "currentGitLfSha256": "b051406377b58903db66cd316361e3a7bcba755db3112779f82cd0270a243dbb",
+          "same": false,
+          "laterChangeProof": {
+            "changeCommit": "33d3bc65c081427be13fc546c066ea725a5d5248",
+            "priorFileBytesMatch": true,
+            "currentEqualsCommitBytesAfterLfNormalization": true,
+            "onlyEnglishEquivalentPlayerTextExtraction": true,
+            "translationKeys": [
+              "message.thermal_shock_reforged.cavebloomer.awoken"
+            ]
+          }
+        }
+      ],
+      "priorMeaningSha256": "37f7f742923806505830fee7c9bf034ff329c654a2d79593dc96ce6164e14c5c",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "therma_dev_plush"
+      ],
+      "priorReport": "block-callbacks-main-review115.json",
+      "priorReportSha256": "65ca83716509d9c3bfa3d7dbac42f57bd0c544b610f63c9b87a83373a57cbc3a",
+      "originalRoot": "block/ThermaDevPlushBlock.java",
+      "originalSha256": "96ed5500545e3ce51a23e884aa46364d799d9c3e6e96ee97a2ec98895ebc2296",
+      "actualCallbacks": [
+        {
+          "procedure": "ThermaDevPlushOnBlockRightClickedProcedure",
+          "method": "use",
+          "line": 113,
+          "call": "ThermaDevPlushOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z)",
+          "enclosingMethodSha256": "96e87ed8d447129ec9771f1689479846592328faabff235b96aa7e51ebd822da"
+        }
+      ],
+      "priorReviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "priorApprovedDifferences": "沿43批先真移除后drop修复，不恢复失败复制。",
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\ThermaDevPlushBlock.java",
+          "recordedSha256": "c207caeb5ca2b6dae05c11246c0bf75af7a5d0f17d35c02448350e9497c98b31",
+          "currentSha256": "c207caeb5ca2b6dae05c11246c0bf75af7a5d0f17d35c02448350e9497c98b31",
+          "currentGitLfSha256": "96a029836198dded3e1b25eb4b475d5763a7d1c245ae0fd6fd1dc3e2507328a0",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "576eb629794ec8179566afbefcc10481b9119dc37d2afdbf3895c4a74293db0a",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "volatine"
+      ],
+      "priorReport": "block-callbacks-main-review115.json",
+      "priorReportSha256": "65ca83716509d9c3bfa3d7dbac42f57bd0c544b610f63c9b87a83373a57cbc3a",
+      "originalRoot": "block/VolatineBlock.java",
+      "originalSha256": "5724fc0f5319ccd103302428cc85fba29b804c0d4e40559035d6295dfbdeb8d6",
+      "actualCallbacks": [
+        {
+          "procedure": "DewleafBlockAddedProcedure",
+          "method": "onPlace",
+          "line": 83,
+          "call": "DewleafBlockAddedProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "29736423153d8c75c41492774946e55b5400b4aedacae96fea15fdc6d1084582"
+        },
+        {
+          "procedure": "SickleHarvestingProcedure",
+          "method": "onDestroyedByPlayer",
+          "line": 88,
+          "call": "SickleHarvestingProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ(), blockstate, (Entity)entity)",
+          "enclosingMethodSha256": "26923828c89f3f869dbb334a6cd6465515be2dba3572767c901bcac7cb35ca9f"
+        }
+      ],
+      "priorReviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "priorApprovedDifferences": "本批移除失败不自掉/收割，正常声画/原Geo不变。",
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\farming\\GeoCropBlock.java",
+          "recordedSha256": "d21be61d7a29cd262569738d8cee77cd7e379d2fcd44a8aeaaef3dc19fbfd49b",
+          "currentSha256": "d21be61d7a29cd262569738d8cee77cd7e379d2fcd44a8aeaaef3dc19fbfd49b",
+          "currentGitLfSha256": "d21be61d7a29cd262569738d8cee77cd7e379d2fcd44a8aeaaef3dc19fbfd49b",
+          "same": true,
+          "laterChangeProof": null
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\farming\\SickleHarvesting.java",
+          "recordedSha256": "57c219447c614b7ae7d1a6ca667d0b00c26c7feeffe1ca96fc964396b8b6c6ec",
+          "currentSha256": "57c219447c614b7ae7d1a6ca667d0b00c26c7feeffe1ca96fc964396b8b6c6ec",
+          "currentGitLfSha256": "57c219447c614b7ae7d1a6ca667d0b00c26c7feeffe1ca96fc964396b8b6c6ec",
+          "same": true,
+          "laterChangeProof": null
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\farming\\FarmingContent.java",
+          "recordedSha256": "64022c1d59b9684b97d85ae8ebd6b545d4e45529d95b6c66d26ee542daf0a0b7",
+          "currentSha256": "64022c1d59b9684b97d85ae8ebd6b545d4e45529d95b6c66d26ee542daf0a0b7",
+          "currentGitLfSha256": "64022c1d59b9684b97d85ae8ebd6b545d4e45529d95b6c66d26ee542daf0a0b7",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "77698261f4828b3532e20364860f21a28350a9883b208483ba44788590be2906",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "wallbore"
+      ],
+      "priorReport": "block-callbacks-main-review115.json",
+      "priorReportSha256": "65ca83716509d9c3bfa3d7dbac42f57bd0c544b610f63c9b87a83373a57cbc3a",
+      "originalRoot": "block/WallboreBlock.java",
+      "originalSha256": "504a0f311cb7989c4bb792e07710adbde45fa66bca1a41591a6ed5b0e878476c",
+      "actualCallbacks": [
+        {
+          "procedure": "WallboreAdditionalHarvestConditionProcedure",
+          "method": "canHarvestBlock",
+          "line": 121,
+          "call": "WallboreAdditionalHarvestConditionProcedure.execute(state)",
+          "enclosingMethodSha256": "6cbd4689438526741a3ae442c405952d594128dbffe64c2a191d59f119e15156"
+        },
+        {
+          "procedure": "WallboreBlockAddedProcedure",
+          "method": "onPlace",
+          "line": 135,
+          "call": "WallboreBlockAddedProcedure.execute((LevelAccessor)world, pos.getX(), pos.getY(), pos.getZ())",
+          "enclosingMethodSha256": "d6dea27c64aae83996cebc67dad46711d1eff22859d1242d11c856750a65d74d"
+        },
+        {
+          "procedure": "WallboreOnTickUpdateProcedure",
+          "method": "tick",
+          "line": 143,
+          "call": "WallboreOnTickUpdateProcedure.execute((LevelAccessor)world, x, y, z, blockstate)",
+          "enclosingMethodSha256": "1e5a92f567730462516d46dda4723dce0ad38943507c32f7a7c9eede536e8abc"
+        },
+        {
+          "procedure": "WallboreOnBlockRightClickedProcedure",
+          "method": "use",
+          "line": 156,
+          "call": "WallboreOnBlockRightClickedProcedure.execute((LevelAccessor)world, x, y, z, blockstate, (Entity)entity)",
+          "enclosingMethodSha256": "cdcb061ae5c71f1172ae83e25f3f2abe5c534fcb14deae1697faa25c3926979c"
+        }
+      ],
+      "priorReviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "priorApprovedDifferences": "沿92批仅异块放置初始化、拆机取消旧token/不循环重置effic；本批补料保实际主手组件、原子提交/失败退款/不返假空桶，不重排周期。",
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\labmachinist\\LabMachineBlock.java",
+          "recordedSha256": "3c2aa424e3a3caff3cc430c431820102104c735b5bc26062b2c5ef28d7a94203",
+          "currentSha256": "3c2aa424e3a3caff3cc430c431820102104c735b5bc26062b2c5ef28d7a94203",
+          "currentGitLfSha256": "3c2aa424e3a3caff3cc430c431820102104c735b5bc26062b2c5ef28d7a94203",
+          "same": true,
+          "laterChangeProof": null
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\labmachinist\\LabMachineBlockEntity.java",
+          "recordedSha256": "2b41e5eab12ac91484c0fb012cc6b60d2cfda0e97bc139456741128d0af90bc2",
+          "currentSha256": "2b41e5eab12ac91484c0fb012cc6b60d2cfda0e97bc139456741128d0af90bc2",
+          "currentGitLfSha256": "2b41e5eab12ac91484c0fb012cc6b60d2cfda0e97bc139456741128d0af90bc2",
+          "same": true,
+          "laterChangeProof": null
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\labmachinist\\WallboreCycleEntity.java",
+          "recordedSha256": "9eef97da3e0d0bbf418394316c94fb0c0f0837c72846bf40413ce88662c71951",
+          "currentSha256": "9eef97da3e0d0bbf418394316c94fb0c0f0837c72846bf40413ce88662c71951",
+          "currentGitLfSha256": "9eef97da3e0d0bbf418394316c94fb0c0f0837c72846bf40413ce88662c71951",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "eb67297ac41de1322fe8ec0231d3a36b62596537763696d5713ada9a7169df8f",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    },
+    {
+      "ids": [
+        "world_tour_trophy"
+      ],
+      "priorReport": "block-callbacks-main-review115.json",
+      "priorReportSha256": "65ca83716509d9c3bfa3d7dbac42f57bd0c544b610f63c9b87a83373a57cbc3a",
+      "originalRoot": "block/WorldTourTrophyBlock.java",
+      "originalSha256": "de11a4f97938c4904a187ba62b28bd266f3964093edb05b0db3cbec39f585cb3",
+      "actualCallbacks": [
+        {
+          "procedure": "AmalgelTrophyOnRandomClientDisplayTickProcedure",
+          "method": "animateTick",
+          "line": 101,
+          "call": "AmalgelTrophyOnRandomClientDisplayTickProcedure.execute((LevelAccessor)world, x, y, z)",
+          "enclosingMethodSha256": "ec8e68e2be2645d9ec8a1cc66f196e9e493af245ee52fec9c01011abcb0cab82"
+        }
+      ],
+      "priorReviewStatus": "原真实调用与目标行为已静态对照；本批修复待统一构建，游戏待验",
+      "priorApprovedDifferences": "无本批正常行为变化；运行待验",
+      "targetEvidence": [
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\GeoDecorBlock.java",
+          "recordedSha256": "c5d196fcf05e8ce2530e235ce8f10d68c062460c1266ae4bc8c529db0cbe3e31",
+          "currentSha256": "c5d196fcf05e8ce2530e235ce8f10d68c062460c1266ae4bc8c529db0cbe3e31",
+          "currentGitLfSha256": "03e80e27849d7283e6363dbba3b6f8bb260c77e3488e431dcfabb239bf888789",
+          "same": true,
+          "laterChangeProof": null
+        },
+        {
+          "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\decor\\geo\\GeoDecorKind.java",
+          "recordedSha256": "c749f29bef0998ecc7d5f4ebe5a538c1b840349a6e1d87b548f8d73f3d5c92dc",
+          "currentSha256": "c749f29bef0998ecc7d5f4ebe5a538c1b840349a6e1d87b548f8d73f3d5c92dc",
+          "currentGitLfSha256": "1cd6d10c4df02a580660ba1ceb20d3ba5eaebf51e29ccd8f661dfe9a9c87f9bd",
+          "same": true,
+          "laterChangeProof": null
+        }
+      ],
+      "priorMeaningSha256": "c747dfb0a1d4781441699bb129cc54e1f0ddffac5e7765ca0cf61b6beb349260",
+      "priorStatusNote": "115报告为历史语义依据，不以其历史pending措辞代表当前状态；Civilian非法8纠正按REFORGED_CHANGES批准记录继续有效。"
+    }
+  ],
+  "counts": {
+    "roots": 67,
+    "ids": 67,
+    "changedEvidence": 14,
+    "distinctLaterChangedFiles": 7,
+    "noProcedureRoots": 22
+  },
+  "laterChangesValidated": {
+    "src/main/java/com/hp/thermalshockreforged/content/doors/SpecialDoorBlock.java": {
+      "changeCommit": "33d3bc65c081427be13fc546c066ea725a5d5248",
+      "priorFileBytesMatch": true,
+      "currentEqualsCommitBytesAfterLfNormalization": true,
+      "onlyEnglishEquivalentPlayerTextExtraction": true,
+      "translationKeys": [
+        "message.thermal_shock_reforged.door.herald_keys"
+      ]
+    },
+    "src/main/java/com/hp/thermalshockreforged/content/decor/geo/CryonicCacheBlock.java": {
+      "changeCommit": "33d3bc65c081427be13fc546c066ea725a5d5248",
+      "priorFileBytesMatch": true,
+      "currentEqualsCommitBytesAfterLfNormalization": true,
+      "onlyEnglishEquivalentPlayerTextExtraction": true,
+      "translationKeys": [
+        "message.thermal_shock_reforged.cache.locked"
+      ]
+    },
+    "src/main/java/com/hp/thermalshockreforged/content/decor/geo/EnchantedCacheBlock.java": {
+      "changeCommit": "33d3bc65c081427be13fc546c066ea725a5d5248",
+      "priorFileBytesMatch": true,
+      "currentEqualsCommitBytesAfterLfNormalization": true,
+      "onlyEnglishEquivalentPlayerTextExtraction": true,
+      "translationKeys": [
+        "message.thermal_shock_reforged.cache.open"
+      ]
+    },
+    "src/main/java/com/hp/thermalshockreforged/content/decor/geo/AltarBlock.java": {
+      "changeCommit": "33d3bc65c081427be13fc546c066ea725a5d5248",
+      "priorFileBytesMatch": true,
+      "currentEqualsCommitBytesAfterLfNormalization": true,
+      "onlyEnglishEquivalentPlayerTextExtraction": true,
+      "translationKeys": [
+        "message.thermal_shock_reforged.altar.unlocked",
+        "message.thermal_shock_reforged.altar.phobotite_unsealed"
+      ]
+    },
+    "src/main/java/com/hp/thermalshockreforged/content/decor/geo/KeystonePuzzleBlock.java": {
+      "changeCommit": "33d3bc65c081427be13fc546c066ea725a5d5248",
+      "priorFileBytesMatch": true,
+      "currentEqualsCommitBytesAfterLfNormalization": true,
+      "onlyEnglishEquivalentPlayerTextExtraction": true,
+      "translationKeys": [
+        "message.thermal_shock_reforged.keystone.you_know"
+      ]
+    },
+    "src/main/java/com/hp/thermalshockreforged/content/decor/geo/PhobotiteOutcropBlock.java": {
+      "changeCommit": "33d3bc65c081427be13fc546c066ea725a5d5248",
+      "priorFileBytesMatch": true,
+      "currentEqualsCommitBytesAfterLfNormalization": true,
+      "onlyEnglishEquivalentPlayerTextExtraction": true,
+      "translationKeys": [
+        "message.thermal_shock_reforged.phobotite.too_cold"
+      ]
+    },
+    "src/main/java/com/hp/thermalshockreforged/content/decor/geo/SuspiciousCavebloomerBlockEntity.java": {
+      "changeCommit": "33d3bc65c081427be13fc546c066ea725a5d5248",
+      "priorFileBytesMatch": true,
+      "currentEqualsCommitBytesAfterLfNormalization": true,
+      "onlyEnglishEquivalentPlayerTextExtraction": true,
+      "translationKeys": [
+        "message.thermal_shock_reforged.cavebloomer.awoken"
+      ]
+    }
+  },
+  "noProcedureRoots": [
+    {
+      "id": "big_glass_bottle",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\BigGlassBottleBlock.java",
+      "sourceSha256": "2d47d70bf87f2bcaed833f8aa8fc2c627acb09c9ddc79f154239394596e3599a",
+      "methodNames": [
+        "getRenderShape",
+        "newBlockEntity",
+        "propagatesSkylightDown",
+        "getLightBlock",
+        "getShape",
+        "createBlockStateDefinition",
+        "getStateForPlacement",
+        "getDrops",
+        "getMenuProvider",
+        "triggerEvent",
+        "onRemove",
+        "hasAnalogOutputSignal",
+        "getAnalogOutputSignal"
+      ],
+      "noProcedureCall": true,
+      "noMethodWritesAnimation": true,
+      "meaning": "原Block无自定义Procedure回调或方法内animation写入；仍保留原BE属性域及控制器，外部原生状态设置可继续驱动。"
+    },
+    {
+      "id": "bismuth_outcrop",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\BismuthOutcropBlock.java",
+      "sourceSha256": "f5e0b7d04eef9213251f228a46ebd009337d604a86267cb463c15ce981eca186",
+      "methodNames": [
+        "getRenderShape",
+        "newBlockEntity",
+        "propagatesSkylightDown",
+        "getLightBlock",
+        "createBlockStateDefinition",
+        "getStateForPlacement"
+      ],
+      "noProcedureCall": true,
+      "noMethodWritesAnimation": true,
+      "meaning": "原Block无自定义Procedure回调或方法内animation写入；仍保留原BE属性域及控制器，外部原生状态设置可继续驱动。"
+    },
+    {
+      "id": "blue_orb",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\BlueOrbBlock.java",
+      "sourceSha256": "885eed5b014976547f3346e045c5a2659f07a85978b63e186b4b38bb4e59b879",
+      "methodNames": [
+        "getRenderShape",
+        "newBlockEntity",
+        "propagatesSkylightDown",
+        "getLightBlock",
+        "createBlockStateDefinition",
+        "getStateForPlacement",
+        "getDrops"
+      ],
+      "noProcedureCall": true,
+      "noMethodWritesAnimation": true,
+      "meaning": "原Block无自定义Procedure回调或方法内animation写入；仍保留原BE属性域及控制器，外部原生状态设置可继续驱动。"
+    },
+    {
+      "id": "cache_pad",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\CachePadBlock.java",
+      "sourceSha256": "33de81e0fadc596edc3060e7fe5b4142526824fc84084201667f1b805123fb25",
+      "methodNames": [
+        "getRenderShape",
+        "newBlockEntity",
+        "propagatesSkylightDown",
+        "getLightBlock",
+        "createBlockStateDefinition",
+        "getStateForPlacement"
+      ],
+      "noProcedureCall": true,
+      "noMethodWritesAnimation": true,
+      "meaning": "原Block无自定义Procedure回调或方法内animation写入；仍保留原BE属性域及控制器，外部原生状态设置可继续驱动。"
+    },
+    {
+      "id": "cryonic_lamp",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\CryonicLampBlock.java",
+      "sourceSha256": "cacff52bd196d1dcfb1a6efdaf2ff14c9ee11814a064243ba4f8e6af8713797a",
+      "methodNames": [
+        "getRenderShape",
+        "newBlockEntity",
+        "propagatesSkylightDown",
+        "getLightBlock",
+        "getShape",
+        "createBlockStateDefinition",
+        "getStateForPlacement",
+        "getFluidState",
+        "updateShape",
+        "getDrops"
+      ],
+      "noProcedureCall": true,
+      "noMethodWritesAnimation": true,
+      "meaning": "原Block无自定义Procedure回调或方法内animation写入；仍保留原BE属性域及控制器，外部原生状态设置可继续驱动。"
+    },
+    {
+      "id": "ferrous_cache_pad",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\FerrousCachePadBlock.java",
+      "sourceSha256": "53c3fdb3c42fdcf603616a013294f7ef2c78cbf5c583f04ff70db57e0c2deac0",
+      "methodNames": [
+        "getRenderShape",
+        "newBlockEntity",
+        "propagatesSkylightDown",
+        "getLightBlock",
+        "createBlockStateDefinition",
+        "getStateForPlacement"
+      ],
+      "noProcedureCall": true,
+      "noMethodWritesAnimation": true,
+      "meaning": "原Block无自定义Procedure回调或方法内animation写入；仍保留原BE属性域及控制器，外部原生状态设置可继续驱动。"
+    },
+    {
+      "id": "giant_gear",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\GiantGearBlock.java",
+      "sourceSha256": "739c04d7d0bf625b60423e1411f4410d2a5c24a6a3a004a3a2cb796262cff103",
+      "methodNames": [
+        "getRenderShape",
+        "newBlockEntity",
+        "propagatesSkylightDown",
+        "getLightBlock",
+        "createBlockStateDefinition",
+        "getStateForPlacement",
+        "getDrops"
+      ],
+      "noProcedureCall": true,
+      "noMethodWritesAnimation": true,
+      "meaning": "原Block无自定义Procedure回调或方法内animation写入；仍保留原BE属性域及控制器，外部原生状态设置可继续驱动。"
+    },
+    {
+      "id": "glauko_bloom",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\GlaukoBloomBlock.java",
+      "sourceSha256": "c7ae56b605ef257cd17c4718efd59bba51ea860103acfa066e168ff5884973ac",
+      "methodNames": [
+        "getRenderShape",
+        "newBlockEntity",
+        "propagatesSkylightDown",
+        "getLightBlock",
+        "getShape",
+        "createBlockStateDefinition",
+        "getStateForPlacement",
+        "getFluidState",
+        "updateShape",
+        "getDrops"
+      ],
+      "noProcedureCall": true,
+      "noMethodWritesAnimation": true,
+      "meaning": "原Block无自定义Procedure回调或方法内animation写入；仍保留原BE属性域及控制器，外部原生状态设置可继续驱动。"
+    },
+    {
+      "id": "golden_pillar",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\GoldenPillarBlock.java",
+      "sourceSha256": "ae34833b443667fa0411f97e3ceab221017f26edbcdc150242e8f55c1fa529fd",
+      "methodNames": [
+        "getRenderShape",
+        "newBlockEntity",
+        "propagatesSkylightDown",
+        "getLightBlock",
+        "getShape",
+        "createBlockStateDefinition",
+        "getStateForPlacement",
+        "getFluidState",
+        "updateShape",
+        "getDrops"
+      ],
+      "noProcedureCall": true,
+      "noMethodWritesAnimation": true,
+      "meaning": "原Block无自定义Procedure回调或方法内animation写入；仍保留原BE属性域及控制器，外部原生状态设置可继续驱动。"
+    },
+    {
+      "id": "green_orb",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\GreenOrbBlock.java",
+      "sourceSha256": "7d7e0b1f7d4ff3dde6910cfb059e3edaac1bc67ae09c8a93fa60a2d7039305a1",
+      "methodNames": [
+        "getRenderShape",
+        "newBlockEntity",
+        "propagatesSkylightDown",
+        "getLightBlock",
+        "createBlockStateDefinition",
+        "getStateForPlacement",
+        "getDrops"
+      ],
+      "noProcedureCall": true,
+      "noMethodWritesAnimation": true,
+      "meaning": "原Block无自定义Procedure回调或方法内animation写入；仍保留原BE属性域及控制器，外部原生状态设置可继续驱动。"
+    },
+    {
+      "id": "hail",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\HailBlock.java",
+      "sourceSha256": "e33911ae0abf5cd0264b6619bc576f027d2dfd39bbfa571cb4efb0c69eca0de2",
+      "methodNames": [
+        "getRenderShape",
+        "newBlockEntity",
+        "propagatesSkylightDown",
+        "getLightBlock",
+        "createBlockStateDefinition",
+        "getStateForPlacement",
+        "getDrops"
+      ],
+      "noProcedureCall": true,
+      "noMethodWritesAnimation": true,
+      "meaning": "原Block无自定义Procedure回调或方法内animation写入；仍保留原BE属性域及控制器，外部原生状态设置可继续驱动。"
+    },
+    {
+      "id": "impervium_pylon_ring",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\ImperviumPylonRingBlock.java",
+      "sourceSha256": "d4601b5b08d4d6c6ebc88ae513bfe489f2790cd4aa34ccd2bf401a410a7184b1",
+      "methodNames": [
+        "getRenderShape",
+        "newBlockEntity",
+        "propagatesSkylightDown",
+        "getLightBlock",
+        "getShape",
+        "createBlockStateDefinition",
+        "getStateForPlacement",
+        "getDrops"
+      ],
+      "noProcedureCall": true,
+      "noMethodWritesAnimation": true,
+      "meaning": "原Block无自定义Procedure回调或方法内animation写入；仍保留原BE属性域及控制器，外部原生状态设置可继续驱动。"
+    },
+    {
+      "id": "itty_bitty",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\IttyBittyBlock.java",
+      "sourceSha256": "2cdec0714ab0557c6e8e3982f9c37882c376951268da3e3930823c2166830b7c",
+      "methodNames": [
+        "getRenderShape",
+        "newBlockEntity",
+        "propagatesSkylightDown",
+        "getLightBlock",
+        "getShape",
+        "createBlockStateDefinition",
+        "getStateForPlacement",
+        "rotate",
+        "mirror",
+        "getDrops"
+      ],
+      "noProcedureCall": true,
+      "noMethodWritesAnimation": true,
+      "meaning": "原Block无自定义Procedure回调或方法内animation写入；仍保留原BE属性域及控制器，外部原生状态设置可继续驱动。"
+    },
+    {
+      "id": "malachite_outcrop",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\MalachiteOutcropBlock.java",
+      "sourceSha256": "c9cd7c6dd064d247bc249714848881b8358621c65c654409c778de8cbc358431",
+      "methodNames": [
+        "getRenderShape",
+        "newBlockEntity",
+        "propagatesSkylightDown",
+        "getLightBlock",
+        "createBlockStateDefinition",
+        "getStateForPlacement"
+      ],
+      "noProcedureCall": true,
+      "noMethodWritesAnimation": true,
+      "meaning": "原Block无自定义Procedure回调或方法内animation写入；仍保留原BE属性域及控制器，外部原生状态设置可继续驱动。"
+    },
+    {
+      "id": "plenky",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\PlenkyBlock.java",
+      "sourceSha256": "680de9a771a3e73f1243ce729e17f6f6fa232e52df97959430a1f222b76b11d2",
+      "methodNames": [
+        "getRenderShape",
+        "newBlockEntity",
+        "propagatesSkylightDown",
+        "getLightBlock",
+        "getShape",
+        "createBlockStateDefinition",
+        "getStateForPlacement",
+        "getDrops"
+      ],
+      "noProcedureCall": true,
+      "noMethodWritesAnimation": true,
+      "meaning": "原Block无自定义Procedure回调或方法内animation写入；仍保留原BE属性域及控制器，外部原生状态设置可继续驱动。"
+    },
+    {
+      "id": "pylon_ring",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\PylonRingBlock.java",
+      "sourceSha256": "3abfd2551fdf9337840b3acb959190069ce0ee6d7bd2429d91014b72f0c04494",
+      "methodNames": [
+        "getRenderShape",
+        "newBlockEntity",
+        "propagatesSkylightDown",
+        "getLightBlock",
+        "getShape",
+        "createBlockStateDefinition",
+        "getStateForPlacement",
+        "getDrops"
+      ],
+      "noProcedureCall": true,
+      "noMethodWritesAnimation": true,
+      "meaning": "原Block无自定义Procedure回调或方法内animation写入；仍保留原BE属性域及控制器，外部原生状态设置可继续驱动。"
+    },
+    {
+      "id": "shale_cache_pad",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\ShaleCachePadBlock.java",
+      "sourceSha256": "171c54ee610ffb70bb3e41314b47c5d3e075b167d9924ef589fe9ba582953fa4",
+      "methodNames": [
+        "getRenderShape",
+        "newBlockEntity",
+        "propagatesSkylightDown",
+        "getLightBlock",
+        "createBlockStateDefinition",
+        "getStateForPlacement"
+      ],
+      "noProcedureCall": true,
+      "noMethodWritesAnimation": true,
+      "meaning": "原Block无自定义Procedure回调或方法内animation写入；仍保留原BE属性域及控制器，外部原生状态设置可继续驱动。"
+    },
+    {
+      "id": "spire_blossom",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\SpireBlossomBlock.java",
+      "sourceSha256": "43601f0951dcfd9609acbff62de6a06609874825e2801469f2f5e5c1072c54a0",
+      "methodNames": [
+        "getRenderShape",
+        "newBlockEntity",
+        "propagatesSkylightDown",
+        "getLightBlock",
+        "getShape",
+        "createBlockStateDefinition",
+        "getStateForPlacement",
+        "getDrops"
+      ],
+      "noProcedureCall": true,
+      "noMethodWritesAnimation": true,
+      "meaning": "原Block无自定义Procedure回调或方法内animation写入；仍保留原BE属性域及控制器，外部原生状态设置可继续驱动。"
+    },
+    {
+      "id": "statue_of_litany",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\StatueOfLitanyBlock.java",
+      "sourceSha256": "3f90969a9db776cde92a814b962cbddab1ac3ec089e588a83aa8050edfba0034",
+      "methodNames": [
+        "getRenderShape",
+        "newBlockEntity",
+        "propagatesSkylightDown",
+        "getLightBlock",
+        "getShape",
+        "createBlockStateDefinition",
+        "getStateForPlacement",
+        "rotate",
+        "mirror",
+        "getDrops"
+      ],
+      "noProcedureCall": true,
+      "noMethodWritesAnimation": true,
+      "meaning": "原Block无自定义Procedure回调或方法内animation写入；仍保留原BE属性域及控制器，外部原生状态设置可继续驱动。"
+    },
+    {
+      "id": "trapped_cache_pad",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\TrappedCachePadBlock.java",
+      "sourceSha256": "49f4510d0acc9475812c61ab0102d51fb2b65d66e4fc0d18ea493d81fe94e280",
+      "methodNames": [
+        "getRenderShape",
+        "newBlockEntity",
+        "propagatesSkylightDown",
+        "getLightBlock",
+        "createBlockStateDefinition",
+        "getStateForPlacement"
+      ],
+      "noProcedureCall": true,
+      "noMethodWritesAnimation": true,
+      "meaning": "原Block无自定义Procedure回调或方法内animation写入；仍保留原BE属性域及控制器，外部原生状态设置可继续驱动。"
+    },
+    {
+      "id": "voltflower_bulb",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\VoltflowerBulbBlock.java",
+      "sourceSha256": "744e0d2e8469ec4bda94886bb6b7dc0bd4a60812448ddd29b397ba6475c7af1e",
+      "methodNames": [
+        "getRenderShape",
+        "newBlockEntity",
+        "shouldDisplayFluidOverlay",
+        "propagatesSkylightDown",
+        "getLightBlock",
+        "createBlockStateDefinition",
+        "getStateForPlacement",
+        "getDrops"
+      ],
+      "noProcedureCall": true,
+      "noMethodWritesAnimation": true,
+      "meaning": "原Block无自定义Procedure回调或方法内animation写入；仍保留原BE属性域及控制器，外部原生状态设置可继续驱动。"
+    },
+    {
+      "id": "yellow_orb",
+      "source": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\block\\YellowOrbBlock.java",
+      "sourceSha256": "7d6645c5e1bf8518748fc60dfbd31984abd297eb991e92fe4e67b13235d78b5c",
+      "methodNames": [
+        "getRenderShape",
+        "newBlockEntity",
+        "propagatesSkylightDown",
+        "getLightBlock",
+        "createBlockStateDefinition",
+        "getStateForPlacement",
+        "getDrops"
+      ],
+      "noProcedureCall": true,
+      "noMethodWritesAnimation": true,
+      "meaning": "原Block无自定义Procedure回调或方法内animation写入；仍保留原BE属性域及控制器，外部原生状态设置可继续驱动。"
+    }
+  ]
+}

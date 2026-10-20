@@ -33,7 +33,15 @@ public final class ChorusianAntennaeItem extends ArmorItem implements GeoItem {
         controllers.add(new AnimationController<>(this, "procedureController", 5, state -> {
             ItemStack stack = state.getData(DataTickets.ITEMSTACK);
             String request = stack == null ? "" : stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getString("geckoAnim");
-            if (request.equals("empty")) request = "";
+            if (request.equals("empty")) {
+                if (!previous[1].isEmpty()) {
+                    state.getController().forceAnimationReset();
+                    com.hp.thermalshockreforged.ThermalShockReforged.LOGGER.debug("External antennae armor animation cancelled: animation={}", previous[1]);
+                }
+                previous[0] = "";
+                previous[1] = "";
+                return PlayState.STOP;
+            }
             if (!request.isEmpty() && !request.equals(previous[0])) {
                 state.getController().forceAnimationReset();
                 state.getController().setAnimation(RawAnimation.begin().thenPlay(request));
