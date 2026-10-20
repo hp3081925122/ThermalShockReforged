@@ -1,0 +1,999 @@
+{
+  "schema": "review-a129-gates-v1",
+  "language": "zh-CN",
+  "baseline_head": "da865812c8df21f2e054e67ef4f1a9367b3c43a2",
+  "scope": "现有迁移文档/静态报告/交接的确定性只读门禁盘点，不复审生产源码",
+  "exclusions": [
+    "语言独立线",
+    "主线已完成118动画有界集合及出生追踪/packet调查",
+    "主线130已解释18方法与独立loot注册盘点",
+    "独立服务端线及用户测试",
+    "Ribbonblade",
+    ".vscode",
+    "已冻结127A原始快照"
+  ],
+  "operations": {
+    "production_read": false,
+    "production_write": false,
+    "build": false,
+    "game": false,
+    "new_agents": false,
+    "server_contact": false,
+    "stage": false,
+    "commit": false
+  },
+  "conclusion": "本批未确认新的生产缺陷，但现有证据不足以宣称完整代码迁移/无简化复审已全部收口。三类静态证据门禁与两项来源条件分别列出，不等于三个缺失功能；运行未测不计源码缺失。已纳入主线129动画收口及130九项失败的行尾原因解释，旧原始报告不改。",
+  "open_static_evidence_gates": [
+    {
+      "id": "G01",
+      "title": "67模板外部动态可达性及纳入范围",
+      "status": "静态证据待查，未确认生产缺漏",
+      "blocks_unqualified_full_review_claim": true,
+      "known": "67份原模板未纳入目标97份。122A已核8个procedure加载点、共享feature、池/结构JSON及164份NBT引用：64份未确认默认加载链，另3份有明确排除解释；内部递归依赖已盘点，不再写成未解析。",
+      "missing": [
+        "外部指令、附加数据包、用户结构工具、运行时动态模板路径尚无穷尽或范围裁定。默认自然入口无命中不能推出资源对外不可加载。",
+        "尚无逐模板纳入/保留来源证据/明确延期的最终处置，不能把67份全部当孤儿删除，也不能直接认定67项玩法缺失。",
+        "若确认入口，须按已有递归父字段继续核该模板实际依赖及目标加载语义；现有未闭合原注册ID不准按近似名替换。"
+      ],
+      "specific_cases": {
+        "archive_sanctum": [
+          "untagged_mobs:forcefield",
+          "automobility:automobile"
+        ],
+        "maiden_chamber": [
+          "thermal_shock:boss_spawner",
+          "thermal_shock:maiden_micah_spawn_egg",
+          "thermal_shock:maiden_umabel_spawn_egg"
+        ],
+        "dungeon_chorpse": [
+          "bigdungeon",
+          "boxdungeon",
+          "mantledungeon",
+          "shaledungeon",
+          "shaledungeon2"
+        ],
+        "non_loader_matches": {
+          "blizzard_sanctum": "同名池加载orb_sanctum",
+          "ferrousaltar": "模型/贴图命中",
+          "spawnswordbottom": "两结构块为SAVE且minecraft命名空间"
+        }
+      },
+      "next_action": "先固定允许纳入的外部入口范围，再复用67矩阵逐行挂入口与处置依据；不重复NBT全集盘点，不造自然入口。第三方依赖按独立延期契约处理，不能借延期删本模组可达资源。",
+      "evidence": [
+        {
+          "file": "templates-a122-evidence.json",
+          "sha256": "f1ad7a7a96ad637e477c0a5e7818c98e614e8674657b89695975e88224407914",
+          "json_pointer": "/counts/reachability_classification"
+        },
+        {
+          "file": "templates-a122-evidence.json",
+          "sha256": "f1ad7a7a96ad637e477c0a5e7818c98e614e8674657b89695975e88224407914",
+          "json_pointer": "/limits"
+        },
+        {
+          "file": "templates-a122-matrix.md",
+          "sha256": "be5d796c0f215215e900d2a6656257bd7e5949172a1dcbbe902c1f13ba99b799"
+        },
+        {
+          "file": "review-a122-review.md",
+          "sha256": "440dd5ebcdd5a5583d2a3b4fe88dfc554e23128a9715617ecca23af8e3a816b4",
+          "lines": [
+            23
+          ],
+          "anchor": "已核8个原procedure加载点"
+        },
+        {
+          "file": "DEFERRED_MOD_INTEGRATIONS.md",
+          "sha256": "affc9e184cf17150396158521ad4b6df24c3efe5658b844336f7d5ea94a443da",
+          "lines": [
+            21
+          ],
+          "anchor": "仍属于本轮迁移的内容"
+        }
+      ]
+    },
+    {
+      "id": "G02",
+      "title": "完整声画消费者的逐行为对账",
+      "status": "覆盖证明待查，未确认新的特效简化",
+      "blocks_unqualified_full_review_claim": true,
+      "known": "资产120报告覆盖原6103资源：没有资产缺失，52粒子JSON仅命名空间变化。43显式实体eyes/glow绑定已核；26原未决实体透明路径中23一致、3已恢复。以上均不是所有声画执行消费者的证明。",
+      "missing": [
+        "粒子：未在本次所读交接中取得52粒子定义对应全部实际provider及调用源的完备差集；需复用各批已有实现证据，核注册/客户端提供器、触发端与次数、位置速度、寿命/帧、透明/亮度/物理及AAA effect所引用纹理。不能把52 JSON误作52个已确认缺陷或独立技能。",
+        "声音：尚缺覆盖全部真实调用源的参数与作用端对账，特别是client本地与server广播、listener、坐标/声道、次数、音量/音高及延迟阶段。utility-main-sounds111只核自己的两个声组，资产sounds.json/OGG相等不能替代调用消费者。已核菜单双开和Bastion/Cavebloomer时序不重复调查。",
+        "非实体声画：118种实体动画有界结论不能替代物品/盔甲/Geo方块/BE控制器、手持姿态及其发光/透明消费的全范围核销。当前43项是显式实体层范围，不能据此重开已闭合43项，也不能推广为所有非实体层全部已审。",
+        "117矩阵保留的“全技能/父链/资源”等旧pending需按实际行为对账到后续专题证据，不能用注册/资产/118实体数量整体清零；本批没有新的源码调查，未得证据的覆盖仍明确待查。"
+      ],
+      "specific_consumer_dimensions": [
+        "真实触发条件",
+        "逻辑端与网络入口",
+        "完整事件节点与频率",
+        "数量和空间参数",
+        "provider或renderer/layer实际绑定",
+        "资源及AAA二进制依赖",
+        "既有批准差异",
+        "后续生产漂移"
+      ],
+      "next_action": "先用既有115/116/117与各模块报告建立源调用到目标消费者的差集，仅调查没有可继承证据的行为；优先粒子provider/AAA及非实体层，不重做23动画实体。",
+      "evidence": [
+        {
+          "file": "assets-main120-review.json",
+          "sha256": "8e70f400a5a84b8aa848353d2a281ad416467e5f6a89b430aae6328708eb70ab",
+          "json_pointer": "/limits"
+        },
+        {
+          "file": "original-inventory.json",
+          "sha256": "581a4d6e8269e29dfc6bd89a5fe52501516a528419943a9eee2e7c2629f45f1c",
+          "json_pointer": "/resource_categories"
+        },
+        {
+          "file": "render-layers-main122-review.json",
+          "sha256": "318b4db87e89a35efecc9783e560873aa649526935db8118086220f1cc40a8b2",
+          "json_pointer": "/scope"
+        },
+        {
+          "file": "render-layers-main122-review.json",
+          "sha256": "318b4db87e89a35efecc9783e560873aa649526935db8118086220f1cc40a8b2",
+          "json_pointer": "/counts"
+        },
+        {
+          "file": "render-main124-reviewed.json",
+          "sha256": "cb154d84f13db4ba8bd27a7b806f0987d9d640ad8fd404708c8915ce4d8911e9",
+          "json_pointer": "/scope"
+        },
+        {
+          "file": "entity-callbacks-a-batch117-matrix.json",
+          "sha256": "15ec54a662926c512a71ff8ede20eaf5291f2267ff4c4f72dab21fa99d01886b",
+          "json_pointer": "/limitations"
+        },
+        {
+          "file": "entity-callbacks-a-batch117-render.json",
+          "sha256": "1a219eb0817d73e467d07ed4ad24cfba97becc3a33d5a7485a73bc6576f4b60e",
+          "json_pointer": "/limitations"
+        },
+        {
+          "file": "utility-main-sounds111.json",
+          "sha256": "adc63ab000eb34892ed0f6e279b86ad972710122151aadcc3af22b4cf5905b1c",
+          "json_pointer": "/scope"
+        },
+        {
+          "file": "client-final-acceptance-plan.md",
+          "sha256": "f5d5ccf4a7a7915c32a6c6963aa43a7e1b074b3f14e05714a3a7f6db39a51bdd",
+          "lines": [
+            9
+          ],
+          "anchor": "客户端覆盖真实注册与资源解码"
+        }
+      ]
+    },
+    {
+      "id": "G03",
+      "title": "掉落引用完整注册链的静态补证",
+      "status": "引用覆盖待查，不是已确认掉落表缺失",
+      "blocks_unqualified_full_review_claim": true,
+      "known": "610原表均有目标、池/entry与次数/权重已审，Seaglass谓词及darksteel set_count补偿已有具体修复；最终内容remainingDifferences为空。",
+      "missing": [
+        "loot-a120-validation明确referenceClosureComplete=false：659唯一掉落ID中626模组ID，614仅有Java字面量命中，另12已追到GemlockKind/ArmorContent枚举循环；614的命中不能当完整注册/helper/总线消费者证明。",
+        "还需把实际item entry、方块状态条件与已核真实注册关联成静态消费链。原生Codec实际解码属于后续运行验收，不能因尚未执行而另判资源漏迁。"
+      ],
+      "next_action": "复用loot-a120-matrix与现有注册报告，对未具完整链的ID按真实字段/helper/枚举和总线登记去重补证，列真缺项或排除项；不重比610表内容，不用字面量数代替行为。 主线已安排130独立注册盘点，本路不重复；新报告交付前仍保留当前false快照。",
+      "evidence": [
+        {
+          "file": "loot-a120-validation.json",
+          "sha256": "723ece83667507fb93447f154be06e07ef2d5b313535da4c27e1f75314fc8586",
+          "json_pointer": "/referenceClosureComplete"
+        },
+        {
+          "file": "loot-a120-validation.json",
+          "sha256": "723ece83667507fb93447f154be06e07ef2d5b313535da4c27e1f75314fc8586",
+          "json_pointer": "/remainingDifferences"
+        },
+        {
+          "file": "loot-a120-review.md",
+          "sha256": "af4ec9596e5ecb801965c12abc37a712c34a432f9811bb0eacb019eb0da23d3f",
+          "lines": [
+            43
+          ],
+          "anchor": "Luna引用盘点"
+        }
+      ]
+    }
+  ],
+  "superseded_todos": [
+    {
+      "id": "C01",
+      "old": "241菜单仍余190/124/122/15/7身份未闭合",
+      "current": "该串历史待办已被124修复和126双开链覆盖：Concierge七交易资格恢复41格Inventory、Stratus单帧画像恢复；Qo先开基础页再开覆盖页，保前页声音类别、递增和一次性奖励。241/241静态闭合。此为页面行为证据，不是只凭计数；实际网络/画像/声音留运行验收。",
+      "evidence": [
+        {
+          "file": "menu-main124-followup-validation.json",
+          "sha256": "d31920b7bd9fa9db9ed9396d3e24493c8b54df9db8712032b758830f07b2cdb3",
+          "json_pointer": "/closedAfterRepairs"
+        },
+        {
+          "file": "menu-main126-qo-validation.json",
+          "sha256": "bd1b49870d9a131b26398d7b641f87709e1c62a37acccd0a7c11d25d275ddf47",
+          "json_pointer": "/sourceFacts"
+        },
+        {
+          "file": "menu-main126-qo-validation.json",
+          "sha256": "bd1b49870d9a131b26398d7b641f87709e1c62a37acccd0a7c11d25d275ddf47",
+          "json_pointer": "/targetChanges"
+        },
+        {
+          "file": "menu-main126-qo-validation.json",
+          "sha256": "bd1b49870d9a131b26398d7b641f87709e1c62a37acccd0a7c11d25d275ddf47",
+          "json_pointer": "/remainingInMenuMatrix"
+        }
+      ]
+    },
+    {
+      "id": "C02",
+      "old": "303结构属性全部未审、113组配置后有效值未闭合",
+      "current": "122A已核303组typed映射、supplier/加载/finalize父链；190组没有识别到配置后写边界，113组由123补齐107个同默认movement_speed及Health/sleepLock/随机bonus生命周期。Herald恢复finalize定位；Sunbeam攻击关联与两项适中击退有明确要求/差异依据。不再保留113项静态缺口，也不把未跑DFU/非默认配置实测改写成源码缺失。",
+      "evidence": [
+        {
+          "file": "attributes-a122-matrix.json",
+          "sha256": "c4917dc429f86be11017a1102b3468e63a47c41ee8263b19ecdf7d7704362ae1",
+          "json_pointer": "/limits"
+        },
+        {
+          "file": "attributes-a122-summary.json",
+          "sha256": "657cddbd356dcb3c1dd9616ea03c681c457e9d863d3a4af08c13bddbc17ef708",
+          "json_pointer": "/confirmed_payload_defects"
+        },
+        {
+          "file": "attributes-main123-review.md",
+          "sha256": "e65defbb12c34b25837a9081d4dd62c4d1e6f60642a5dc0b740d3687d84d8332",
+          "lines": [
+            7
+          ],
+          "anchor": "113组均保留Health"
+        },
+        {
+          "file": "attributes-main123-review.md",
+          "sha256": "e65defbb12c34b25837a9081d4dd62c4d1e6f60642a5dc0b740d3687d84d8332",
+          "lines": [
+            19
+          ],
+          "anchor": "这三项不是未获授权的迁移简化"
+        },
+        {
+          "file": "main123-static-validation.json",
+          "sha256": "39fdd950cba7fa8169763b0746ca53e80cce45a68a3a83612967dc76f1cf9122",
+          "json_pointer": "/attributes"
+        }
+      ]
+    },
+    {
+      "id": "C03",
+      "old": "67模板内部递归实体/库存依赖尚未盘点",
+      "current": "122A已递归805载荷、18顶层实体、5非空栈和6刷怪笼，并按真实注册helper/枚举分类；不再重复盘内部清单。仍未闭合的是G01外部可达与处置，不是同一项。",
+      "evidence": [
+        {
+          "file": "templates-a122-evidence.json",
+          "sha256": "f1ad7a7a96ad637e477c0a5e7818c98e614e8674657b89695975e88224407914",
+          "json_pointer": "/counts"
+        },
+        {
+          "file": "templates-a122-evidence.json",
+          "sha256": "f1ad7a7a96ad637e477c0a5e7818c98e614e8674657b89695975e88224407914",
+          "json_pointer": "/limits"
+        }
+      ]
+    },
+    {
+      "id": "C04",
+      "old": "45非冷却查询/移除消费者、Sickle/Liteprism次序未闭合",
+      "current": "124逐45行给控制流和历史差异依据。Sickle五种先add再读实际等级、移除被拒仍保原声伤；Liteprism恢复伤害/粒子→remove→声音并保同步防重入。不再引用123中间候选作为当前缺漏。",
+      "evidence": [
+        {
+          "file": "effects-main124-reviewed.json",
+          "sha256": "bdb77207ade300d2346648bb5b6a83d02c1124b1a3cb8ec214d602572bbe2a79",
+          "json_pointer": "/rows"
+        },
+        {
+          "file": "sickle-main124-review.md",
+          "sha256": "746203dd6d73f69eeb674b539f7194788c6ffd5b7451abfa161eef4e3506e510",
+          "lines": [
+            5
+          ],
+          "anchor": "恢复先add"
+        },
+        {
+          "file": "sickle-main124-review.md",
+          "sha256": "746203dd6d73f69eeb674b539f7194788c6ffd5b7451abfa161eef4e3506e510",
+          "lines": [
+            11
+          ],
+          "anchor": "现恢复原伤害"
+        },
+        {
+          "file": "combat-main124-static-validation.json",
+          "sha256": "50b40cf390dc5a21444d7c538203d925960ef8dedd4cc2f9c0d1b73be7898fb5"
+        }
+      ]
+    },
+    {
+      "id": "C05",
+      "old": "23效果字段差集、HiVolt无条件reach、原6000抗毒时长等候选",
+      "current": "内部状态替代不能按未注册补假效果；抗毒6000为秒、目标120000tick正确；HiVolt实际调用Ruby过程；-20/-40已分通道；Willograde/Mangler可见药效抽样、权重与ambient已有123证据。只清这些明确候选，不外推所有声画已审。",
+      "evidence": [
+        {
+          "file": "effects-main122-review.md",
+          "sha256": "d446be9ed5f2813f80ca1c15385aaa6862b54bcd8c1ef4010f8fa5ff052160bb"
+        },
+        {
+          "file": "effects-main123-review.md",
+          "sha256": "9800611a0c7d048e7f74e27b458f40cfbe53c3b456aa82b7e68084efffd08cf1"
+        },
+        {
+          "file": "status-main120-reviewed.json",
+          "sha256": "82dc164f64b3b02fcfe6462e652998c2a49ab6d6be08676f20e3ed32159b1f9e",
+          "json_pointer": "/mainline_review"
+        }
+      ]
+    },
+    {
+      "id": "C06",
+      "old": "43发光层与26透明路径仍全部缺证/三载体完全不画",
+      "current": "43显式实体eyes/glow逐项绑定已核；26项23路径一致，Poison/Shock/Zap恢复原生translucent/outline三分支。isBodyVisible=false不等于完全不画；该旧误诊撤回。实际UV/混合/轮廓列运行验收，完整消费者范围另见G02。",
+      "evidence": [
+        {
+          "file": "render-layers-main122-review.json",
+          "sha256": "318b4db87e89a35efecc9783e560873aa649526935db8118086220f1cc40a8b2",
+          "json_pointer": "/counts"
+        },
+        {
+          "file": "render-main124-reviewed.json",
+          "sha256": "cb154d84f13db4ba8bd27a7b806f0987d9d640ad8fd404708c8915ce4d8911e9",
+          "json_pointer": "/rawConclusionSuperseded"
+        },
+        {
+          "file": "render-main124-review.md",
+          "sha256": "9bb355a44a8dcf6723507914bab33e685ecdc2966067e2e32042970791c1f3c3"
+        }
+      ]
+    },
+    {
+      "id": "C07",
+      "old": "Civilian创造循环差异未批准/Net与Bloom载体未接线/Guardian粒子坐标未解释",
+      "current": "Civilian7→0已正式作为合理差异登记，生存八页不变；Net模型层、弹体绑定及Bloom Noop已接；Guardian位置是51批记录的修复。旧115/117未接线和待登记不再作为当前缺口。",
+      "evidence": [
+        {
+          "file": "main115-static-validation.json",
+          "sha256": "624d977761a4809b5e226360f2785f962fa024d1bd214701e33f0f65a665a774",
+          "json_pointer": "/aPendingRecordsResolvedByMain"
+        },
+        {
+          "file": "REFORGED_CHANGES.md",
+          "sha256": "1bdda03edb0a189d8c50f208c59d51743758ebb8507331bdb0a7341d863d310d",
+          "lines": [
+            330
+          ],
+          "anchor": "补记Civilian创造模式八外观选择"
+        },
+        {
+          "file": "entities-main120-bindings.json",
+          "sha256": "8ddd39020c89ad6ce19e17fb4266d4d662c062251c61522a0ad067279ce3b359",
+          "json_pointer": "/findings"
+        },
+        {
+          "file": "remaining-entity-dependencies-a118.md",
+          "sha256": "6b9d4f5c7de9a93773a37c7016eadf745a62212751abc8e188e997e7f8a96298",
+          "lines": [
+            25
+          ],
+          "anchor": "GuardianPylon保留第51批"
+        }
+      ]
+    },
+    {
+      "id": "C08",
+      "old": "117粗粒度pending均按当前代码缺漏保留",
+      "current": "孢子跨实体朝向副作用、裸@p选择资格/FEET与完整速度已有明确来源；磁力炸弹提交幂等与尾阶段、Core连锁及Disk同步/3/6END已有专项实现证据；Liteprism次序以后续124为准。资源/注册已由120覆盖的字段不重开，未得具体继承证据的消费者留G02，不把86行pending直接算86个缺陷。",
+      "evidence": [
+        {
+          "file": "spore-next-audit.md",
+          "sha256": "fb6e67ba8c0a028c601817634fcf6729241e7e3344dcec773ff603d1e2b1b521",
+          "lines": [
+            65
+          ],
+          "anchor": "直接朝向进一步按目标源码核实"
+        },
+        {
+          "file": "magnetic-bombs-ghostglass-batch.md",
+          "sha256": "c19312b45d58ccb36b6bbfbbcc4af9a4744202151854a43aaf2c5c94826fef4f",
+          "lines": [
+            7
+          ],
+          "anchor": "生命周期改为持久化有限状态"
+        },
+        {
+          "file": "core-eject-disk-chain-batch.md",
+          "sha256": "9059111a0323362151cdcd93582400081a70a673bd12f2fa99cfe05faba0b910",
+          "lines": [
+            28
+          ],
+          "anchor": "三个核心共鸣为同步"
+        },
+        {
+          "file": "sickle-main124-review.md",
+          "sha256": "746203dd6d73f69eeb674b539f7194788c6ffd5b7451abfa161eef4e3506e510"
+        }
+      ]
+    },
+    {
+      "id": "C09",
+      "old": "127A的Skeletitan/Mangler/Springslime/Qo/Cavebloomer及主手资格旧候选仍全未决",
+      "current": "仅承接主线128修复和receipt结论，不重读23实体、不改原冻结报告。Specific Raw差值、Mangler死亡hurt视觉、Springslime有限procedure退出、Qo客户端随机、Cave SERVER END及Willograde主手已另留修后证据；不借此宣布主线剩3动画完成。 此后129的剩3收口以C12为当前结论。",
+      "evidence": [
+        {
+          "file": "main128-static-validation.json",
+          "sha256": "2fe7ac674d974198a7991228dae3cbcef14ebe061de30f7cd3cbfe950198e3ea"
+        },
+        {
+          "file": "review-main128-a127-receipt.json",
+          "sha256": "ed254bfabd318ee2b8859e6ad12f0dc3083919b8735eeb3a073a9dec3cefb229"
+        },
+        {
+          "file": "parallel-batch128.md",
+          "sha256": "dfca45cbff1f89a7c95c19b7c3d30ddc008d44de4b9b981be0e4026f77370874"
+        },
+        {
+          "file": "animation-main128-remaining.json",
+          "sha256": "689ba4bf981b35b7b8aa8acf821f26eb8b439bac1b49881cadef8f0400853d45"
+        }
+      ]
+    },
+    {
+      "id": "C10",
+      "old": "早期工具标签29项及muck_slab名称差集即为漏迁",
+      "current": "原未注册陈旧ID不造占位，实际pure_muck_slab及cobalt铁级已有闭合记录；实际挖掘与地图结果留运行验收。",
+      "evidence": [
+        {
+          "file": "tool-tags-main122-closure.json",
+          "sha256": "4da6927dce7cc01d9a99e08bde25471c58c079149186522df3fe9a73a8f5e9a1",
+          "json_pointer": "/disposition"
+        }
+      ]
+    },
+    {
+      "id": "C11",
+      "old": "118A九项失败原因未解释",
+      "current": "已由主线130新证据解释：原tree-sitter直接字节抽取以90665ea Git LF对118冻结CRLF，九个多行方法原比较失败；仅CRLF转LF后18完整方法字节一致，未忽略语句/标识符/数值/顺序。旧511/502/9报告保留，原因在新报告消项；本批仅承接，不重复18方法调查，也不把这项等同游戏通过。",
+      "evidence": [
+        {
+          "file": "remaining-entity-dependencies-a118-validation.json",
+          "sha256": "710d4a6674796340c551dc66c9069a3752ab5b46b8ba936c7e0f75e2c6c650c8",
+          "json_pointer": "/checks"
+        },
+        {
+          "file": "main118-static-validation.json",
+          "sha256": "f77879ad7225b2ffbf6728b19d1df3839613e90806567a3aae50b5768dc2fd7a",
+          "json_pointer": "/aStaticAudit"
+        },
+        {
+          "file": "audit-main130-ice-methods.json",
+          "sha256": "85a5b0ad96bedb154eeead0bbc2f971a8bc7e3d6dc0b5064f4a45a67430e454d",
+          "json_pointer": "/cause"
+        },
+        {
+          "file": "audit-main130-ice-methods.json",
+          "sha256": "85a5b0ad96bedb154eeead0bbc2f971a8bc7e3d6dc0b5064f4a45a67430e454d",
+          "json_pointer": "/methods"
+        }
+      ]
+    },
+    {
+      "id": "C12",
+      "old": "主线129前剩3动画仍作静态待办",
+      "current": "承接129：Willograde恢复原双4tick控制器并取消整段重载重播，业务持久化仍保留；两出生链的有限静态条件/追踪路由配对，网络到可见首帧另列运行检查。118有界集合静态剩0，10项运行未执行；不等于全模组无简化复审完结。",
+      "evidence": [
+        {
+          "file": "main129-static-validation.json",
+          "sha256": "25d4ceadcaa94ae950f00d4147be8d9ceffb56aafcb011ef1fbed8183122cc68"
+        },
+        {
+          "file": "animation-main129-review.json",
+          "sha256": "90fdf2ebe7fac0704f48d19cf1c2131bbc4017f0e584476eee198962d70eb369"
+        },
+        {
+          "file": "animation-main129-runtime-cases.json",
+          "sha256": "21401a4b790565412ee4f97335e116543184056e927c9be525fce2f528d6ec7a"
+        }
+      ]
+    }
+  ],
+  "conditional_source_questions": [
+    {
+      "id": "P01",
+      "title": "hanging_bulb的purebiomes源悬空范围",
+      "status": "源缺陷/范围待依据，不是新增迁移缺失",
+      "detail": "原modifier指向未定义的thermal_shock:purebiomes；真实feature与城堡灯泡来源保留。没有范围依据前不造空tag、不猜群系、不恢复悬空注入。是否要修复此原缺陷需另获真实依据或明确裁定，不把它算成当前已确认漏迁。",
+      "evidence": [
+        {
+          "file": "loot-a120-worldgen-review.md",
+          "sha256": "c1e5c790f1039d32ad7b7accd6bbb0e0e8758ba974d0f11a95e6233719acc4de",
+          "lines": [
+            29
+          ],
+          "anchor": "原purebiomes范围仍无真实依据"
+        }
+      ]
+    },
+    {
+      "id": "P02",
+      "title": "已迁模板中7份属性审查未建立入口",
+      "templates": [
+        "blizzardoutpostrubicon",
+        "cathedral_base",
+        "junkyard",
+        "monolith",
+        "vilebath_castle",
+        "whisperden",
+        "whisperdenalt"
+      ],
+      "status": "有界入口分类，不是7份载荷丢失",
+      "detail": "这些模板已在目标97份，122属性矩阵对应entrypoint_modes为空，不能据此断言从未有外部加载；也不应补造自然生成。与G01做同一入口范围决策，但不混入67未迁模板计数，不重开303属性转换。",
+      "evidence": [
+        {
+          "file": "attributes-a122-matrix.json",
+          "sha256": "c4917dc429f86be11017a1102b3468e63a47c41ee8263b19ecdf7d7704362ae1",
+          "json_pointer": "/groups"
+        },
+        {
+          "file": "review-a122-review.md",
+          "sha256": "440dd5ebcdd5a5583d2a3b4fe88dfc554e23128a9715617ecca23af8e3a816b4",
+          "lines": [
+            15
+          ],
+          "anchor": "7份在本批输入中未建立入口"
+        }
+      ]
+    }
+  ],
+  "runtime_acceptance_only": [
+    {
+      "id": "R01",
+      "scope": "结构/数据真实运行",
+      "detail": "实际DFU及ItemStack组件Codec、结构放置/出生finalize、非默认配置、随机bonus/受伤重载不回血、流体邻居与群系叠加。静态源码已有的转换/生命周期不因未运行退回未迁。",
+      "evidence": [
+        {
+          "file": "structure-a121-review.md",
+          "sha256": "eb1a84e73ed264241b4343b6e1bcc2e849e7b7510a1498f3ee32e4ac77392330"
+        },
+        {
+          "file": "attributes-main123-review.md",
+          "sha256": "e65defbb12c34b25837a9081d4dd62c4d1e6f60642a5dc0b740d3687d84d8332"
+        }
+      ]
+    },
+    {
+      "id": "R02",
+      "scope": "菜单真实客户端往返",
+      "detail": "241身份对应已审行为的真实按钮/槽位/多人事务、双开前页声、画像帧与支付回退；不再以旧7项静态缺口派工。",
+      "evidence": [
+        {
+          "file": "menu-main126-qo-validation.json",
+          "sha256": "bd1b49870d9a131b26398d7b641f87709e1c62a37acccd0a7c11d25d275ddf47",
+          "json_pointer": "/limits"
+        }
+      ]
+    },
+    {
+      "id": "R03",
+      "scope": "声画及战斗表现",
+      "detail": "半透明/outline、43显式层UV混合、粒子数量/范围/运动/时序和音效实际监听；保与技能节点相同的镜头/tick对照，不能只开Preview或比资产。",
+      "evidence": [
+        {
+          "file": "client-final-acceptance-plan.md",
+          "sha256": "f5d5ccf4a7a7915c32a6c6963aa43a7e1b074b3f14e05714a3a7f6db39a51bdd"
+        },
+        {
+          "file": "render-main124-review.md",
+          "sha256": "9bb355a44a8dcf6723507914bab33e685ecdc2966067e2e32042970791c1f3c3"
+        }
+      ]
+    },
+    {
+      "id": "R04",
+      "scope": "测试环境准备",
+      "detail": "Preview仍固定Gecko4.8.4而目标要求4.9.2，需正确覆盖并提供AAA2.3.3；目标兼容JAR已定位。原Forge1.20.1 AAA在限定缓存未找到，不声称整机缺库。此为最终验收环境门禁，不是本模组源码简化。",
+      "evidence": [
+        {
+          "file": "client-dependency-preparation112.json",
+          "sha256": "06ec7ab683e21ab74b55dbd3d62897889969926f193ad69cd96ff0067c5951c3",
+          "json_pointer": "/findings"
+        },
+        {
+          "file": "client-final-acceptance-plan.md",
+          "sha256": "f5d5ccf4a7a7915c32a6c6963aa43a7e1b074b3f14e05714a3a7f6db39a51bdd",
+          "lines": [
+            24
+          ],
+          "anchor": "最终启动前需解决的依赖事实"
+        }
+      ]
+    },
+    {
+      "id": "R05",
+      "scope": "loot真实解码及抽样",
+      "detail": "实际Codec/数据重载、条件与精准采集、随机附魔。on_random_loot遵循新版及数据包集合的限制已公开，不无据锁死旧集合。",
+      "evidence": [
+        {
+          "file": "loot-a120-validation.json",
+          "sha256": "723ece83667507fb93447f154be06e07ef2d5b313535da4c27e1f75314fc8586",
+          "json_pointer": "/codecExecution"
+        },
+        {
+          "file": "loot-a120-validation.json",
+          "sha256": "723ece83667507fb93447f154be06e07ef2d5b313535da4c27e1f75314fc8586",
+          "json_pointer": "/enchantmentUniverseLimit"
+        }
+      ]
+    }
+  ],
+  "suggested_next": [
+    "A后续独占review-a130-templates.*，对G01做确定性原模板外部加载入口调查，超过机械可达链范围先报告，不造新入口。",
+    "G02复用现有矩阵做消费者差集，未覆盖行为才新查。",
+    "G03由主线130独立盘点承接，新证据交付前不代算闭合；不重复18方法、loot注册或语言工作。"
+  ],
+  "evidence_policy": "依据为本次读取的文档实际字节SHA，不重新核其历史生产SHA，不把后续有意修复或Git行尾归一当取证失败。下列报告闭合结论为承接已有证据，而非本批重新执行源码或游戏。",
+  "evidence_files": [
+    {
+      "id": "parallel-batch129.md",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\parallel-batch129.md",
+      "sha256": "9e6090189e5fdabbf76fd33f0ad18560acc84d6a53055cf52a281b00e8bf8a1a",
+      "bytes": 2257
+    },
+    {
+      "id": "main129-static-validation.json",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\main129-static-validation.json",
+      "sha256": "25d4ceadcaa94ae950f00d4147be8d9ceffb56aafcb011ef1fbed8183122cc68",
+      "bytes": 1428
+    },
+    {
+      "id": "animation-main129-review.json",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\animation-main129-review.json",
+      "sha256": "90fdf2ebe7fac0704f48d19cf1c2131bbc4017f0e584476eee198962d70eb369",
+      "bytes": 1319
+    },
+    {
+      "id": "animation-main129-runtime-cases.json",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\animation-main129-runtime-cases.json",
+      "sha256": "21401a4b790565412ee4f97335e116543184056e927c9be525fce2f528d6ec7a",
+      "bytes": 4214
+    },
+    {
+      "id": "audit-main130-ice-methods.json",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\audit-main130-ice-methods.json",
+      "sha256": "85a5b0ad96bedb154eeead0bbc2f971a8bc7e3d6dc0b5064f4a45a67430e454d",
+      "bytes": 11418
+    },
+    {
+      "id": "parallel-batch128.md",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\parallel-batch128.md",
+      "sha256": "dfca45cbff1f89a7c95c19b7c3d30ddc008d44de4b9b981be0e4026f77370874",
+      "bytes": 3537
+    },
+    {
+      "id": "PRIMARY_HANDOFF_2026-10-20.md",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\PRIMARY_HANDOFF_2026-10-20.md",
+      "sha256": "975942d5bea549095a1b502239fd923f8d38269b1f9677d4c0461257811d5915",
+      "bytes": 13174
+    },
+    {
+      "id": "main128-static-validation.json",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\main128-static-validation.json",
+      "sha256": "2fe7ac674d974198a7991228dae3cbcef14ebe061de30f7cd3cbfe950198e3ea",
+      "bytes": 7148
+    },
+    {
+      "id": "animation-main128-remaining.json",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\animation-main128-remaining.json",
+      "sha256": "689ba4bf981b35b7b8aa8acf821f26eb8b439bac1b49881cadef8f0400853d45",
+      "bytes": 105468
+    },
+    {
+      "id": "review-main128-a127-receipt.json",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\review-main128-a127-receipt.json",
+      "sha256": "ed254bfabd318ee2b8859e6ad12f0dc3083919b8735eeb3a073a9dec3cefb229",
+      "bytes": 4794
+    },
+    {
+      "id": "main126-static-validation.json",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\main126-static-validation.json",
+      "sha256": "dd3a0d5f056cbb5bd39f99221a59bfe803ed53109dbf6d55613f777b7cf6ead4",
+      "bytes": 2912
+    },
+    {
+      "id": "menu-main126-qo-validation.json",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\menu-main126-qo-validation.json",
+      "sha256": "bd1b49870d9a131b26398d7b641f87709e1c62a37acccd0a7c11d25d275ddf47",
+      "bytes": 7764
+    },
+    {
+      "id": "menu-main124-followup-validation.json",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\menu-main124-followup-validation.json",
+      "sha256": "d31920b7bd9fa9db9ed9396d3e24493c8b54df9db8712032b758830f07b2cdb3",
+      "bytes": 8233
+    },
+    {
+      "id": "review-a124-review.md",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\review-a124-review.md",
+      "sha256": "86c7b485ba759f844d0fbe4c1805c1038dc2b022b8b21a6ca9118be7c68f5d7e",
+      "bytes": 4202
+    },
+    {
+      "id": "review-a122-review.md",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\review-a122-review.md",
+      "sha256": "440dd5ebcdd5a5583d2a3b4fe88dfc554e23128a9715617ecca23af8e3a816b4",
+      "bytes": 4320
+    },
+    {
+      "id": "review-a122-remaining.json",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\review-a122-remaining.json",
+      "sha256": "03829ec99384c6b999fd2d6b93b55177bd13d45d199b611fe28a43635df56178",
+      "bytes": 128981
+    },
+    {
+      "id": "structure-a121-review.md",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\structure-a121-review.md",
+      "sha256": "eb1a84e73ed264241b4343b6e1bcc2e849e7b7510a1498f3ee32e4ac77392330",
+      "bytes": 4353
+    },
+    {
+      "id": "structure-a121-matrix.json",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\structure-a121-matrix.json",
+      "sha256": "de5df274b77c150579c47ed943a5dae436c709b00c79fe88589b076aff6de4a8",
+      "bytes": 138951
+    },
+    {
+      "id": "attributes-a122-matrix.json",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\attributes-a122-matrix.json",
+      "sha256": "c4917dc429f86be11017a1102b3468e63a47c41ee8263b19ecdf7d7704362ae1",
+      "bytes": 2050139
+    },
+    {
+      "id": "attributes-a122-summary.json",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\attributes-a122-summary.json",
+      "sha256": "657cddbd356dcb3c1dd9616ea03c681c457e9d863d3a4af08c13bddbc17ef708",
+      "bytes": 3331
+    },
+    {
+      "id": "attributes-main123-review.md",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\attributes-main123-review.md",
+      "sha256": "e65defbb12c34b25837a9081d4dd62c4d1e6f60642a5dc0b740d3687d84d8332",
+      "bytes": 3573
+    },
+    {
+      "id": "attributes-main123-before-fix.json",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\attributes-main123-before-fix.json",
+      "sha256": "8340d0bf13c3c490c4830f4a4fe1345e626fc77ec783e1a2d67eceb149dd4514",
+      "bytes": 593560
+    },
+    {
+      "id": "main123-static-validation.json",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\main123-static-validation.json",
+      "sha256": "39fdd950cba7fa8169763b0746ca53e80cce45a68a3a83612967dc76f1cf9122",
+      "bytes": 4108
+    },
+    {
+      "id": "templates-a122-matrix.md",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\templates-a122-matrix.md",
+      "sha256": "be5d796c0f215215e900d2a6656257bd7e5949172a1dcbbe902c1f13ba99b799",
+      "bytes": 5730
+    },
+    {
+      "id": "templates-a122-evidence.json",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\templates-a122-evidence.json",
+      "sha256": "f1ad7a7a96ad637e477c0a5e7818c98e614e8674657b89695975e88224407914",
+      "bytes": 2954254
+    },
+    {
+      "id": "loot-a120-worldgen-review.md",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\loot-a120-worldgen-review.md",
+      "sha256": "c1e5c790f1039d32ad7b7accd6bbb0e0e8758ba974d0f11a95e6233719acc4de",
+      "bytes": 4223
+    },
+    {
+      "id": "loot-a120-review.md",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\loot-a120-review.md",
+      "sha256": "af4ec9596e5ecb801965c12abc37a712c34a432f9811bb0eacb019eb0da23d3f",
+      "bytes": 6290
+    },
+    {
+      "id": "loot-a120-validation.json",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\loot-a120-validation.json",
+      "sha256": "723ece83667507fb93447f154be06e07ef2d5b313535da4c27e1f75314fc8586",
+      "bytes": 6226
+    },
+    {
+      "id": "assets-main120-review.json",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\assets-main120-review.json",
+      "sha256": "8e70f400a5a84b8aa848353d2a281ad416467e5f6a89b430aae6328708eb70ab",
+      "bytes": 6502
+    },
+    {
+      "id": "original-inventory.json",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\original-inventory.json",
+      "sha256": "581a4d6e8269e29dfc6bd89a5fe52501516a528419943a9eee2e7c2629f45f1c",
+      "bytes": 876324
+    },
+    {
+      "id": "entities-main120-bindings.json",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\entities-main120-bindings.json",
+      "sha256": "8ddd39020c89ad6ce19e17fb4266d4d662c062251c61522a0ad067279ce3b359",
+      "bytes": 5068
+    },
+    {
+      "id": "render-layers-main122-review.json",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\render-layers-main122-review.json",
+      "sha256": "318b4db87e89a35efecc9783e560873aa649526935db8118086220f1cc40a8b2",
+      "bytes": 47942
+    },
+    {
+      "id": "render-main124-review.md",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\render-main124-review.md",
+      "sha256": "9bb355a44a8dcf6723507914bab33e685ecdc2966067e2e32042970791c1f3c3",
+      "bytes": 1692
+    },
+    {
+      "id": "render-main124-reviewed.json",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\render-main124-reviewed.json",
+      "sha256": "cb154d84f13db4ba8bd27a7b806f0987d9d640ad8fd404708c8915ce4d8911e9",
+      "bytes": 10842
+    },
+    {
+      "id": "effects-main122-review.md",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\effects-main122-review.md",
+      "sha256": "d446be9ed5f2813f80ca1c15385aaa6862b54bcd8c1ef4010f8fa5ff052160bb",
+      "bytes": 4465
+    },
+    {
+      "id": "effects-main123-review.md",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\effects-main123-review.md",
+      "sha256": "9800611a0c7d048e7f74e27b458f40cfbe53c3b456aa82b7e68084efffd08cf1",
+      "bytes": 5741
+    },
+    {
+      "id": "effects-main124-reviewed.json",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\effects-main124-reviewed.json",
+      "sha256": "bdb77207ade300d2346648bb5b6a83d02c1124b1a3cb8ec214d602572bbe2a79",
+      "bytes": 62394
+    },
+    {
+      "id": "sickle-main124-review.md",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\sickle-main124-review.md",
+      "sha256": "746203dd6d73f69eeb674b539f7194788c6ffd5b7451abfa161eef4e3506e510",
+      "bytes": 3357
+    },
+    {
+      "id": "combat-main124-static-validation.json",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\combat-main124-static-validation.json",
+      "sha256": "50b40cf390dc5a21444d7c538203d925960ef8dedd4cc2f9c0d1b73be7898fb5",
+      "bytes": 1365
+    },
+    {
+      "id": "status-main120-reviewed.json",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\status-main120-reviewed.json",
+      "sha256": "82dc164f64b3b02fcfe6462e652998c2a49ab6d6be08676f20e3ed32159b1f9e",
+      "bytes": 6252
+    },
+    {
+      "id": "entity-callbacks-a-batch117.md",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\entity-callbacks-a-batch117.md",
+      "sha256": "ed55b1282fb7e1453d0b0012d859a87d546fe6d1fc1d511c049d9fc8f5927228",
+      "bytes": 7651
+    },
+    {
+      "id": "entity-callbacks-a-batch117-matrix.json",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\entity-callbacks-a-batch117-matrix.json",
+      "sha256": "15ec54a662926c512a71ff8ede20eaf5291f2267ff4c4f72dab21fa99d01886b",
+      "bytes": 1585226
+    },
+    {
+      "id": "entity-callbacks-a-batch117-render.json",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\entity-callbacks-a-batch117-render.json",
+      "sha256": "1a219eb0817d73e467d07ed4ad24cfba97becc3a33d5a7485a73bc6576f4b60e",
+      "bytes": 408943
+    },
+    {
+      "id": "remaining-entity-dependencies-a118.md",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\remaining-entity-dependencies-a118.md",
+      "sha256": "6b9d4f5c7de9a93773a37c7016eadf745a62212751abc8e188e997e7f8a96298",
+      "bytes": 5119
+    },
+    {
+      "id": "remaining-entity-dependencies-a118-validation.json",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\remaining-entity-dependencies-a118-validation.json",
+      "sha256": "710d4a6674796340c551dc66c9069a3752ab5b46b8ba936c7e0f75e2c6c650c8",
+      "bytes": 96919
+    },
+    {
+      "id": "remaining-entity-dependencies-main118.md",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\remaining-entity-dependencies-main118.md",
+      "sha256": "bdd8d1f64ad2cf28feb7772f340c6edb7a08756ba16a77412274ba4ceab2da59",
+      "bytes": 1963
+    },
+    {
+      "id": "main118-static-validation.json",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\main118-static-validation.json",
+      "sha256": "f77879ad7225b2ffbf6728b19d1df3839613e90806567a3aae50b5768dc2fd7a",
+      "bytes": 2026
+    },
+    {
+      "id": "block-callbacks-a-batch115.md",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\block-callbacks-a-batch115.md",
+      "sha256": "cdd226acd93675a4c02d795c6c742fd883828629a51981997d61085d76be2739",
+      "bytes": 7983
+    },
+    {
+      "id": "main115-static-validation.json",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\main115-static-validation.json",
+      "sha256": "624d977761a4809b5e226360f2785f962fa024d1bd214701e33f0f65a665a774",
+      "bytes": 4978
+    },
+    {
+      "id": "item-callbacks-main-batch116.md",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\item-callbacks-main-batch116.md",
+      "sha256": "34b84614e252539d668047216564f56e409767847d34cd8e42639c646cf2caaa",
+      "bytes": 2649
+    },
+    {
+      "id": "REFORGED_CHANGES.md",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\REFORGED_CHANGES.md",
+      "sha256": "1bdda03edb0a189d8c50f208c59d51743758ebb8507331bdb0a7341d863d310d",
+      "bytes": 72391
+    },
+    {
+      "id": "spore-next-audit.md",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\spore-next-audit.md",
+      "sha256": "fb6e67ba8c0a028c601817634fcf6729241e7e3344dcec773ff603d1e2b1b521",
+      "bytes": 13617
+    },
+    {
+      "id": "core-eject-disk-chain-batch.md",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\core-eject-disk-chain-batch.md",
+      "sha256": "9059111a0323362151cdcd93582400081a70a673bd12f2fa99cfe05faba0b910",
+      "bytes": 6907
+    },
+    {
+      "id": "magnetic-bombs-ghostglass-batch.md",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\magnetic-bombs-ghostglass-batch.md",
+      "sha256": "c19312b45d58ccb36b6bbfbbcc4af9a4744202151854a43aaf2c5c94826fef4f",
+      "bytes": 1949
+    },
+    {
+      "id": "utility-main-sounds111.json",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\utility-main-sounds111.json",
+      "sha256": "adc63ab000eb34892ed0f6e279b86ad972710122151aadcc3af22b4cf5905b1c",
+      "bytes": 2470
+    },
+    {
+      "id": "client-final-acceptance-plan.md",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\client-final-acceptance-plan.md",
+      "sha256": "f5d5ccf4a7a7915c32a6c6963aa43a7e1b074b3f14e05714a3a7f6db39a51bdd",
+      "bytes": 4960
+    },
+    {
+      "id": "client-dependency-preparation112.json",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\client-dependency-preparation112.json",
+      "sha256": "06ec7ab683e21ab74b55dbd3d62897889969926f193ad69cd96ff0067c5951c3",
+      "bytes": 5097
+    },
+    {
+      "id": "DEFERRED_MOD_INTEGRATIONS.md",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\DEFERRED_MOD_INTEGRATIONS.md",
+      "sha256": "affc9e184cf17150396158521ad4b6df24c3efe5658b844336f7d5ea94a443da",
+      "bytes": 5955
+    },
+    {
+      "id": "tool-tags-main122-closure.json",
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\tool-tags-main122-closure.json",
+      "sha256": "4da6927dce7cc01d9a99e08bde25471c58c079149186522df3fe9a73a8f5e9a1",
+      "bytes": 1919
+    }
+  ]
+}

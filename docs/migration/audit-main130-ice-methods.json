@@ -1,0 +1,262 @@
+{
+  "baseline": "da86581",
+  "scope": "仅解释第118批18项非计时方法比较中的9项失败；不重写原511项结果，不代替玩法、类型检查或实机测试",
+  "cause": "旧脚本methods以tree-sitter原字节提取方法；git show基线LF与冻结工作区CRLF直接比较，多行方法全部因此失败。仅替换CRLF为LF后18项方法完整字节一致，没有忽略空格、标识符、语句、数值或顺序。",
+  "originalFailedCount": 9,
+  "reproducedFailedCount": 9,
+  "normalizedMethodCount": 18,
+  "currentFullSourceEqualToA118AfterLineEndingNormalization": true,
+  "methods": [
+    {
+      "method": "configure",
+      "oldComparisonPassed": false,
+      "lineEndingsOnly": true,
+      "currentNormalizedEqualToPre118": true,
+      "baseMethodSha256": "70885d4ff810c24da1c0ae93e7634eea82f79cd58f1f919ff7613baf7f03785f",
+      "a118RawMethodSha256": "b4e5a8ffae0b6fe8e531de8ded170e93a505fbfa578ed8864e47c92aeb95b327",
+      "normalizedMethodSha256": "70885d4ff810c24da1c0ae93e7634eea82f79cd58f1f919ff7613baf7f03785f",
+      "baseCRLF": 0,
+      "a118CRLF": 8,
+      "a118LF": 8
+    },
+    {
+      "method": "getItem",
+      "oldComparisonPassed": true,
+      "lineEndingsOnly": true,
+      "currentNormalizedEqualToPre118": true,
+      "baseMethodSha256": "9a945e8818176143736789b31f363adcd8d847f9e21ce1e31bd7f85c238e9817",
+      "a118RawMethodSha256": "9a945e8818176143736789b31f363adcd8d847f9e21ce1e31bd7f85c238e9817",
+      "normalizedMethodSha256": "9a945e8818176143736789b31f363adcd8d847f9e21ce1e31bd7f85c238e9817",
+      "baseCRLF": 0,
+      "a118CRLF": 0,
+      "a118LF": 0
+    },
+    {
+      "method": "getDefaultPickupItem",
+      "oldComparisonPassed": false,
+      "lineEndingsOnly": true,
+      "currentNormalizedEqualToPre118": true,
+      "baseMethodSha256": "02261225fd2901d459dbd53c1c8e95dfdd354cb6d438327acd3ef57328175495",
+      "a118RawMethodSha256": "6ea450f5155d5af8a5f320ab6ac809fee8768ff6c3b6c581dc2dbb1949429342",
+      "normalizedMethodSha256": "02261225fd2901d459dbd53c1c8e95dfdd354cb6d438327acd3ef57328175495",
+      "baseCRLF": 0,
+      "a118CRLF": 2,
+      "a118LF": 2
+    },
+    {
+      "method": "setOwner",
+      "oldComparisonPassed": true,
+      "lineEndingsOnly": true,
+      "currentNormalizedEqualToPre118": true,
+      "baseMethodSha256": "13e53751360c206b42cd60e8ca4957287a0a62c9ac98fcc655327b656e3ddf63",
+      "a118RawMethodSha256": "13e53751360c206b42cd60e8ca4957287a0a62c9ac98fcc655327b656e3ddf63",
+      "normalizedMethodSha256": "13e53751360c206b42cd60e8ca4957287a0a62c9ac98fcc655327b656e3ddf63",
+      "baseCRLF": 0,
+      "a118CRLF": 0,
+      "a118LF": 0
+    },
+    {
+      "method": "canHitEntity",
+      "oldComparisonPassed": true,
+      "lineEndingsOnly": true,
+      "currentNormalizedEqualToPre118": true,
+      "baseMethodSha256": "10d3454354466a3b5829660384e97828751fb749a03ad1fe20297d3210e11056",
+      "a118RawMethodSha256": "10d3454354466a3b5829660384e97828751fb749a03ad1fe20297d3210e11056",
+      "normalizedMethodSha256": "10d3454354466a3b5829660384e97828751fb749a03ad1fe20297d3210e11056",
+      "baseCRLF": 0,
+      "a118CRLF": 0,
+      "a118LF": 0
+    },
+    {
+      "method": "doPostHurtEffects",
+      "oldComparisonPassed": true,
+      "lineEndingsOnly": true,
+      "currentNormalizedEqualToPre118": true,
+      "baseMethodSha256": "f91318dd039ad877beca1ab94b95298db4efac21335d70ffd5b4273524dd7d6f",
+      "a118RawMethodSha256": "f91318dd039ad877beca1ab94b95298db4efac21335d70ffd5b4273524dd7d6f",
+      "normalizedMethodSha256": "f91318dd039ad877beca1ab94b95298db4efac21335d70ffd5b4273524dd7d6f",
+      "baseCRLF": 0,
+      "a118CRLF": 0,
+      "a118LF": 0
+    },
+    {
+      "method": "doKnockback",
+      "oldComparisonPassed": false,
+      "lineEndingsOnly": true,
+      "currentNormalizedEqualToPre118": true,
+      "baseMethodSha256": "969ad4891cbf0d1a522daea50b93f8a7871a9553554ac93835c134e6aef5e279",
+      "a118RawMethodSha256": "494a8799cf2f31198d4f7a02cd2edac93b9de3a2ad6f316b8ab463680fe1d962",
+      "normalizedMethodSha256": "969ad4891cbf0d1a522daea50b93f8a7871a9553554ac93835c134e6aef5e279",
+      "baseCRLF": 0,
+      "a118CRLF": 4,
+      "a118LF": 4
+    },
+    {
+      "method": "claim",
+      "oldComparisonPassed": false,
+      "lineEndingsOnly": true,
+      "currentNormalizedEqualToPre118": true,
+      "baseMethodSha256": "4f1066baab30cbb5f432398ff06d6407840c2b1d32376bfbd483df43840690da",
+      "a118RawMethodSha256": "ee28afaf81032ee340fad4db5fff7f7b02200ee6b2aaa7c23054f84adefa5c95",
+      "normalizedMethodSha256": "4f1066baab30cbb5f432398ff06d6407840c2b1d32376bfbd483df43840690da",
+      "baseCRLF": 0,
+      "a118CRLF": 5,
+      "a118LF": 5
+    },
+    {
+      "method": "onHitEntity",
+      "oldComparisonPassed": false,
+      "lineEndingsOnly": true,
+      "currentNormalizedEqualToPre118": true,
+      "baseMethodSha256": "8dd6f492da5e494a5a95bcfb444ace5b1193cd24b958ba5f393e132a60b18745",
+      "a118RawMethodSha256": "0408546faf4398d0ac689b374e7a4af8e721a47738d9dba44e4808bd82ce5e81",
+      "normalizedMethodSha256": "8dd6f492da5e494a5a95bcfb444ace5b1193cd24b958ba5f393e132a60b18745",
+      "baseCRLF": 0,
+      "a118CRLF": 4,
+      "a118LF": 4
+    },
+    {
+      "method": "onHitBlock",
+      "oldComparisonPassed": false,
+      "lineEndingsOnly": true,
+      "currentNormalizedEqualToPre118": true,
+      "baseMethodSha256": "1cad7dc1ea3520886e6dd0c074960a68e2c3312fadac3fcc7c8b4ab879394b57",
+      "a118RawMethodSha256": "2cdef96f0020e620cbc9dc05a3e075c0f96f1e3243881ad59c0a33b0c70a6100",
+      "normalizedMethodSha256": "1cad7dc1ea3520886e6dd0c074960a68e2c3312fadac3fcc7c8b4ab879394b57",
+      "baseCRLF": 0,
+      "a118CRLF": 5,
+      "a118LF": 5
+    },
+    {
+      "method": "playerTouch",
+      "oldComparisonPassed": false,
+      "lineEndingsOnly": true,
+      "currentNormalizedEqualToPre118": true,
+      "baseMethodSha256": "83d9460ba3804e7264e8a90b8a830c1de9b2ce2f085d3ac01a91afd43fbfce81",
+      "a118RawMethodSha256": "6fd3405568a16675421504db29bbf5947a4f98d9264087d3470de3761b4d7ff5",
+      "normalizedMethodSha256": "83d9460ba3804e7264e8a90b8a830c1de9b2ce2f085d3ac01a91afd43fbfce81",
+      "baseCRLF": 0,
+      "a118CRLF": 4,
+      "a118LF": 4
+    },
+    {
+      "method": "extraHit",
+      "oldComparisonPassed": false,
+      "lineEndingsOnly": true,
+      "currentNormalizedEqualToPre118": true,
+      "baseMethodSha256": "a01f73eb43c12453a5a2be3f7a8ccfde354382c3f0e1e14f2f7dd2dd47991820",
+      "a118RawMethodSha256": "e0585188760f998e5be4121c65e4048e2c1cef89ea21193e5e2bdea7982bea9f",
+      "normalizedMethodSha256": "a01f73eb43c12453a5a2be3f7a8ccfde354382c3f0e1e14f2f7dd2dd47991820",
+      "baseCRLF": 0,
+      "a118CRLF": 8,
+      "a118LF": 8
+    },
+    {
+      "method": "sound",
+      "oldComparisonPassed": false,
+      "lineEndingsOnly": true,
+      "currentNormalizedEqualToPre118": true,
+      "baseMethodSha256": "afac1ead1b01d20692ea0adf9b082c9b185c1a6510295a78d57f98fd5409360a",
+      "a118RawMethodSha256": "201393ab9940af089aa078d7bc5f800cd347f1570adad46aacb31ba8a3ca8b66",
+      "normalizedMethodSha256": "afac1ead1b01d20692ea0adf9b082c9b185c1a6510295a78d57f98fd5409360a",
+      "baseCRLF": 0,
+      "a118CRLF": 3,
+      "a118LF": 3
+    },
+    {
+      "method": "kind",
+      "oldComparisonPassed": true,
+      "lineEndingsOnly": true,
+      "currentNormalizedEqualToPre118": true,
+      "baseMethodSha256": "98d81032b66bc771335edb580843884806fa9ac2d5c3b6602dc95a5b044bd0e3",
+      "a118RawMethodSha256": "98d81032b66bc771335edb580843884806fa9ac2d5c3b6602dc95a5b044bd0e3",
+      "normalizedMethodSha256": "98d81032b66bc771335edb580843884806fa9ac2d5c3b6602dc95a5b044bd0e3",
+      "baseCRLF": 0,
+      "a118CRLF": 0,
+      "a118LF": 0
+    },
+    {
+      "method": "flame",
+      "oldComparisonPassed": true,
+      "lineEndingsOnly": true,
+      "currentNormalizedEqualToPre118": true,
+      "baseMethodSha256": "446396f026e17fc2d1cc089bb81b9be1a73fedb95d295e0a81b4b74384975eab",
+      "a118RawMethodSha256": "446396f026e17fc2d1cc089bb81b9be1a73fedb95d295e0a81b4b74384975eab",
+      "normalizedMethodSha256": "446396f026e17fc2d1cc089bb81b9be1a73fedb95d295e0a81b4b74384975eab",
+      "baseCRLF": 0,
+      "a118CRLF": 0,
+      "a118LF": 0
+    },
+    {
+      "method": "strider",
+      "oldComparisonPassed": true,
+      "lineEndingsOnly": true,
+      "currentNormalizedEqualToPre118": true,
+      "baseMethodSha256": "0dc7d982eb3c6177b3bebb6857cddee1c0a934e1bbbd90d5d3310bc7b339bfa0",
+      "a118RawMethodSha256": "0dc7d982eb3c6177b3bebb6857cddee1c0a934e1bbbd90d5d3310bc7b339bfa0",
+      "normalizedMethodSha256": "0dc7d982eb3c6177b3bebb6857cddee1c0a934e1bbbd90d5d3310bc7b339bfa0",
+      "baseCRLF": 0,
+      "a118CRLF": 0,
+      "a118LF": 0
+    },
+    {
+      "method": "reactive",
+      "oldComparisonPassed": true,
+      "lineEndingsOnly": true,
+      "currentNormalizedEqualToPre118": true,
+      "baseMethodSha256": "ea942c716c6c98fa3227f5358482e8f35f74109c6851a049af6e11f55edbe6f8",
+      "a118RawMethodSha256": "ea942c716c6c98fa3227f5358482e8f35f74109c6851a049af6e11f55edbe6f8",
+      "normalizedMethodSha256": "ea942c716c6c98fa3227f5358482e8f35f74109c6851a049af6e11f55edbe6f8",
+      "baseCRLF": 0,
+      "a118CRLF": 0,
+      "a118LF": 0
+    },
+    {
+      "method": "lifetime",
+      "oldComparisonPassed": true,
+      "lineEndingsOnly": true,
+      "currentNormalizedEqualToPre118": true,
+      "baseMethodSha256": "3b266a1f24c3a2e87839c8eca5ba3555c72951bdd811c53761a827e20b6270d2",
+      "a118RawMethodSha256": "3b266a1f24c3a2e87839c8eca5ba3555c72951bdd811c53761a827e20b6270d2",
+      "normalizedMethodSha256": "3b266a1f24c3a2e87839c8eca5ba3555c72951bdd811c53761a827e20b6270d2",
+      "baseCRLF": 0,
+      "a118CRLF": 0,
+      "a118LF": 0
+    }
+  ],
+  "inputs": [
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\remaining-entity-dependencies-a118-source.json",
+      "sha256": "b7e0e83bb2f1f7b8388a213b15d872ff73ec4f3722e3db936e34914136d6e515"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\remaining-entity-dependencies-a118-validation.json",
+      "sha256": "710d4a6674796340c551dc66c9069a3752ab5b46b8ba936c7e0f75e2c6c650c8"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\audit-entity-dependencies118a.py",
+      "sha256": "a92c28a5aa0852b2a5489c0ba5b2ea1df52d6b6a873d3a4861fe2bc5681e88bf"
+    }
+  ],
+  "snapshots": [
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\review130\\90665ea-IceSquadProjectileEntity.java",
+      "sha256": "a6b070d05cadb939dce3516f9f638c45c27a578318f6b4b616ffb4b6403eb2b6"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\review130\\a118-frozen-IceSquadProjectileEntity.java",
+      "sha256": "a0fd30573b2e01ca8acd3d5781ab514d80e05186824ac67a99e9ba47a199be96"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\review130\\cf9fa76-IceSquadProjectileEntity.java",
+      "sha256": "81b68cf1a2146ef3605aef17a353fa75ad63643df77f905f2411f599a3858fb4"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\review130\\current-IceSquadProjectileEntity.java",
+      "sha256": "a0fd30573b2e01ca8acd3d5781ab514d80e05186824ac67a99e9ba47a199be96"
+    }
+  ],
+  "productionChanged": false,
+  "gameExecuted": false,
+  "fullMigrationComplete": false
+}
