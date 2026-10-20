@@ -1,0 +1,53 @@
+{
+  "batch": 144,
+  "date": "2026-10-20",
+  "jar": {
+    "path": "build/libs/thermal_shock_reforged-1.21.1-neoforge-0.0.1.jar",
+    "sha256": "00C2119903CE6DCFC4D02CB6705E3F2F20B923BDC9633FF0C174184AA57A7334"
+  },
+  "ordinaryClient": {
+    "minecraft": "1.21.1",
+    "neoforge": "21.1.248",
+    "java": "21.0.11",
+    "startup": "passed",
+    "mainMenu": "passed",
+    "offlineWorld": "passed",
+    "mcpHttpPort": 9876,
+    "missingTextureWarningsAfterFix": 0
+  },
+  "renderPreview": {
+    "minecraft": "1.21.1",
+    "neoforge": "21.1.251",
+    "java": "21",
+    "geckolib": "4.9.2",
+    "aaaParticles": "2.3.3",
+    "httpPort": 18761,
+    "minecraftServer": false,
+    "worldAttached": false,
+    "catalogueEntries": 3344,
+    "thermalShockEntries": 1728,
+    "captures": [
+      "thermal-default",
+      "thermal-benzor",
+      "thermal-forecast",
+      "thermal-frost-titan",
+      "thermal-icidroviathan",
+      "thermal-sopel",
+      "thermal-core-flare",
+      "thermal-magnetic-crossbow",
+      "thermal-ruby-spear",
+      "thermal-bloodstone-halberd",
+      "thermal-the-judge"
+    ],
+    "captureSize": "1280x720",
+    "captureErrors": 0,
+    "magentaRatio": 0,
+    "nonEmptyForeground": 11
+  },
+  "remainingWarnings": [
+    "models/custom/glauko_bloon.json: invalid multi-axis rotation object",
+    "models/custom/glaukobloom.json: invalid multi-axis rotation object",
+    "models/custom/voltflower_rubicon.json: invalid multi-axis rotation object"
+  ],
+  "status": "passed_with_unreferenced_legacy_model_warnings"
+}
