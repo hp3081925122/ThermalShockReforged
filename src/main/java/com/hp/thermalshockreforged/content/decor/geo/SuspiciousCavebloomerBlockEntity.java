@@ -61,7 +61,7 @@ public final class SuspiciousCavebloomerBlockEntity extends GeoDecorBlockEntity 
             boss.playAmbientSound(); boss.setYRot(server.random.nextFloat() * 360);
             if (!server.addFreshEntity(boss)) { boss.discard(); return; }
             if (server.getBlockEntity(worldPosition) == this) server.destroyBlock(worldPosition, false);
-            server.getServer().getPlayerList().broadcastSystemMessage(Component.literal("§dAngry Cavebloomer has awoken!"), false);
+            server.getServer().getPlayerList().broadcastSystemMessage(Component.translatable("message.thermal_shock_reforged.cavebloomer.awoken"), false);
             var sound = BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "cavebloomer_detonates"));
             server.playSound(null, worldPosition, sound, SoundSource.HOSTILE, 0.6F, 3);
             server.sendParticles(CavebloomerContent.NUKE_CLOUD.get(), worldPosition.getX(), worldPosition.getY(), worldPosition.getZ(), 1, 0, 0, 0, 1);

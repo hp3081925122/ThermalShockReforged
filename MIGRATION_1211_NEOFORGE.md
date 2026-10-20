@@ -649,3 +649,9 @@ undead_mobs恢复原13成员并纠正第95/112批将两Monolith原生亡灵身�
 ## 第121批收口索引
 
 18个采集标签条目和两制作页背景偏移已恢复，统一构建及源/资源证据见main121-static-validation.json与docs/MIGRATION_NEXT_BATCH.md。整模组尚未宣告完成：结构NBT、剩余GUI、效果消费者及完整声画复审继续，最终客户端/Render Preview待收口后安排；服务端用户独立负责。
+
+## 第122批收口与新主对话
+
+用户指定当前对话接续原总控；交接见docs/migration/PRIMARY_HANDOFF_2026-10-20.md。本批恢复cobalt铁级工具要求、Whisper快捷移动原方向，将121条玩家原文提取为语言键并补539条中文译文。20份Java反向还原、原英文/中文基线保留以及统一compileJava/processResources通过，固定输入与资源输出证据见main122-static-validation.json。
+
+结构属性最终加载值113组、菜单190身份、模板动态可达性和约1967条新增语言键仍待核或待译。未宣称完整迁移、完整汉化或运行验收通过；服务端继续由用户独立测试线负责，最终客户端/Render Preview待完整收口后由子代理进行。

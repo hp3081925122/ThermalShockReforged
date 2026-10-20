@@ -1,0 +1,139 @@
+{
+  "batch": "122A",
+  "baseline": "126114f9a99aaa14c8f001a39415835c703689a0",
+  "srcMainFrozen": true,
+  "documentsCompleteForBoundedBatch": true,
+  "files": [
+    {
+      "path": "docs/migration/attributes-a122-matrix.json",
+      "sha256": "c4917dc429f86be11017a1102b3468e63a47c41ee8263b19ecdf7d7704362ae1",
+      "role": "文档或证据"
+    },
+    {
+      "path": "docs/migration/attributes-a122-post-load.json",
+      "sha256": "d670636fab76569cf8d68b37548f48c6bb816a549b5f040d806809243ea6fa3e",
+      "role": "文档或证据"
+    },
+    {
+      "path": "docs/migration/attributes-a122-summary.json",
+      "sha256": "657cddbd356dcb3c1dd9616ea03c681c457e9d863d3a4af08c13bddbc17ef708",
+      "role": "文档或证据"
+    },
+    {
+      "path": "docs/migration/menu-a122-evidence.json",
+      "sha256": "02fae5b408874b2a097cd74e89dea9bda5664a30beb039671479d65ba2be1a73",
+      "role": "文档或证据"
+    },
+    {
+      "path": "docs/migration/menu-a122-matrix241.json",
+      "sha256": "ce01c74a83b3fd104dec7cf7be37338982af51f2c68d6f099d9f5805470a92c0",
+      "role": "文档或证据"
+    },
+    {
+      "path": "docs/migration/menu-a122-repair-validation.json",
+      "sha256": "bdc734c4a06af18c09ebf3adacbf8d28b284475f14d7abdd34d5013107e70d5b",
+      "role": "文档或证据"
+    },
+    {
+      "path": "docs/migration/review-a122-detail-manifest.json",
+      "sha256": "417139fc9154688abb0051c991707047919fe4a5db6d946fe4c00b4590c76158",
+      "role": "文档或证据"
+    },
+    {
+      "path": "docs/migration/review-a122-plan.md",
+      "sha256": "98f5cf3be0688bfb6f3bafbce5c9fa212dc3d6d70b26bae4680a1b6be173f45b",
+      "role": "文档或证据"
+    },
+    {
+      "path": "docs/migration/review-a122-remaining.json",
+      "sha256": "03829ec99384c6b999fd2d6b93b55177bd13d45d199b611fe28a43635df56178",
+      "role": "文档或证据"
+    },
+    {
+      "path": "docs/migration/review-a122-review.md",
+      "sha256": "440dd5ebcdd5a5583d2a3b4fe88dfc554e23128a9715617ecca23af8e3a816b4",
+      "role": "文档或证据"
+    },
+    {
+      "path": "docs/migration/review-a122-validation.json",
+      "sha256": "26bc9d7125a08e52348f7d792a727c9e58997d56edfebfba49959f74291eddd3",
+      "role": "文档或证据"
+    },
+    {
+      "path": "docs/migration/templates-a122-evidence.json",
+      "sha256": "f1ad7a7a96ad637e477c0a5e7818c98e614e8674657b89695975e88224407914",
+      "role": "文档或证据"
+    },
+    {
+      "path": "docs/migration/templates-a122-matrix.md",
+      "sha256": "be5d796c0f215215e900d2a6656257bd7e5949172a1dcbbe902c1f13ba99b799",
+      "role": "文档或证据"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperMenu.java",
+      "sha256": "175aa478d8f03eb709bd51780a49e6ff90b29da4ac22459773fd24d364bc082a",
+      "role": "生产"
+    }
+  ],
+  "inputSetSha256": "6dfcd3f0911e492194c855ac01164f81e7030a7911dbafbeb70f17cfc199774c",
+  "manifestExcludesItself": true,
+  "productionSummary": "唯一WhisperMenu快捷移动方向恢复与成功英文debug；没有结构/实体层/语言/标签/共享注册修改",
+  "remainingMatrix": "docs/migration/review-a122-remaining.json",
+  "groups": {
+    "attributes": {
+      "groups": 303,
+      "attributes": 1218,
+      "modifiers": 476,
+      "confirmedPayloadDefects": 0,
+      "postLoadFinalValueOpenGroups": 113
+    },
+    "templates": {
+      "count": 67,
+      "confirmedNewLoadEntry": 0,
+      "externalDynamicReachabilityOpen": true
+    },
+    "menus": {
+      "identities": 241,
+      "staticSubsetEvidence": 51,
+      "pending": 190,
+      "deepPages": 9,
+      "repair": "SHIFT_ORDER_8已修复"
+    }
+  },
+  "validation": {
+    "baseline": "126114f9a99aaa14c8f001a39415835c703689a0",
+    "srcMainFrozen": true,
+    "productionFiles": [
+      "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperMenu.java"
+    ],
+    "exactAllowedMenuDiff": true,
+    "menuRepairChecks": {
+      "baseline_menu_sha_matches_pre_repair_snapshot": true,
+      "current_menu_equals_baseline_with_only_parameter_debug_and_return_split": true,
+      "main_to_hotbar_reverse_true": true,
+      "hotbar_to_main_reverse_false_retained": true,
+      "debug_after_successful_count_change_guard": true,
+      "nine_page_other_scoped_inputs_unchanged": true,
+      "eight_original_menu_classes_and_retained_bytecode_unchanged": true
+    },
+    "inputFilesHashChecked": 558,
+    "inputDrift": [
+      {
+        "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\review-a122-plan.md",
+        "expected": "6b1c7ded50b6f29f6dba14532d3a9169be56efe0ef09ffac95908370e7ac0592",
+        "actual": "98f5cf3be0688bfb6f3bafbce5c9fa212dc3d6d70b26bae4680a1b6be173f45b",
+        "group": "attributes"
+      }
+    ],
+    "allowedDriftReason": "计划按分工更新；WhisperMenu为本批已验证修复；语言为主线并行所有，原词条快照由菜单证据保留",
+    "attributeGroups": 303,
+    "templates": 67,
+    "menuIdentities": 241,
+    "menuDeepPages": 9,
+    "buildByA": false,
+    "gameByA": false,
+    "dfuByA": false,
+    "renderByA": false
+  },
+  "noStageCommitOrUserTesting": true
+}

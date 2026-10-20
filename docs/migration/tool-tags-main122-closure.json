@@ -1,0 +1,33 @@
+{
+  "baseline": "126114f",
+  "reviewer": "audit120_entity_bindings",
+  "sourceJarSha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436",
+  "sourceBlockRegistryClassSha256": "397b66f5976f8ff35583d5ccb4c4ff7b1afa6fca248cef67609ff0a506e4d945",
+  "sourceReadableRegistrySha256": "6e2903d75acfaed7948dca38194456dec4c1ebd34292a1942605817806155c1c",
+  "sourceRegistry": "net/mcreator/thermal_shock/init/ThermalShockModBlocks.class",
+  "sourceRegistryEntries": 649,
+  "sourceDeferredBlockRegistries": 1,
+  "missingOriginalRegistration": [
+    "amber_spice_block", "ashen_thermite", "cracked_pillarrakc",
+    "cracked_sanctum_brick_wall", "cracked_sanctum_bricks", "fluorite_outcrop",
+    "ghostglass_bulb", "ghostglass_chandelier", "hanging_ghostglass_bulb",
+    "helion_ore", "loque_bush", "magmatic_mantlestone", "mantle_sapphire_ore",
+    "mineswarmer_spawner", "needleroot", "pillarrack", "pillarrack_brick",
+    "pillarrack_slab", "pillarshroom_cap", "pillarshroom_stem", "riverbloom",
+    "rockspines", "rough_malachite_block", "rough_sapphire_block", "sapphire_block",
+    "sapphire_ore", "six_sided_pillarrack", "sword_in_stone"
+  ],
+  "muckSlab": {
+    "oldInvalidTagId": "muck_slab",
+    "originalActualId": "pure_muck_slab",
+    "originalRegistrationLine": 1195,
+    "targetActualId": "pure_muck_slab",
+    "targetRegistration": "content/MaterialContent.java:304",
+    "targetShovelTagContainsActualId": true,
+    "renamedByMigration": false
+  },
+  "cobalt": "真实注册与原铁级要求已由本批恢复，单列cobalt-main122-validation.json。",
+  "disposition": "29项原标签陈旧ID不是29个目标漏迁方块；不补造原件未注册内容。纹理、碰撞过程和worldgen特征同名不代表方块注册。",
+  "gameExecuted": false,
+  "limits": "原件注册全集与资源/目标映射的静态证据；不代表实际工具、游戏标签重载或世界生成测试。"
+}

@@ -39,7 +39,7 @@ final class WorldTourRedemption {
                 String name = player.getDisplayName().getString();
                 if ((name.equals("Dev") || name.equals("fshct")) && !claimed(player)) {
                     ItemHandlerHelper.giveItemToPlayer(player, new ItemStack(GeoDecorContent.item(GeoDecorKind.WORLD_TOUR_TROPHY)));
-                    player.displayClientMessage(Component.literal("\u00a7aCongrats on winning the World Tour Contest, Fscht! Enjoy your special trophy! :D"), false);
+                    player.displayClientMessage(Component.translatable("message.thermal_shock_reforged.world_tour.congratulations"), false);
                     claim(player);
                     sound = "thermalshockjingle";
                     pitch = 2;

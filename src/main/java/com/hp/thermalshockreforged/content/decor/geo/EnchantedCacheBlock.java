@@ -25,7 +25,7 @@ public final class EnchantedCacheBlock extends GeoDecorBlock {
     @Override protected void attack(BlockState state, Level level, BlockPos pos, Player player) {
         super.attack(state, level, pos, player);
         if (!level.isClientSide) {
-            player.displayClientMessage(Component.literal("§aThis is a Cache; right click to open."), true);
+            player.displayClientMessage(Component.translatable("message.thermal_shock_reforged.cache.open"), true);
             level.playSound(null, pos, SoundEvents.NOTE_BLOCK_BASS.value(), SoundSource.NEUTRAL, 1, 1);
         }
     }

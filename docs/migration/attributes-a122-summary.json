@@ -1,0 +1,95 @@
+{
+  "entities": [
+    {
+      "id": "thermal_shock:beetle_thrasher",
+      "groups": 32,
+      "direct_rows": 32,
+      "default_values": [
+        0.2
+      ],
+      "consumer_paths": [
+        "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\beetles\\BeetleCombatEntity.java:107"
+      ]
+    },
+    {
+      "id": "thermal_shock:dormant_monolith",
+      "groups": 4,
+      "direct_rows": 4,
+      "default_values": [
+        0.0
+      ],
+      "consumer_paths": [
+        "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\monolith\\MonolithBaseEntity.java:22"
+      ]
+    },
+    {
+      "id": "thermal_shock:frostilyte_cryomancer",
+      "groups": 16,
+      "direct_rows": 16,
+      "default_values": [
+        0.2
+      ],
+      "consumer_paths": [
+        "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\ice\\IceCreatureEntity.java:75"
+      ]
+    },
+    {
+      "id": "thermal_shock:frostilyte_soldier",
+      "groups": 33,
+      "direct_rows": 33,
+      "default_values": [
+        0.25
+      ],
+      "consumer_paths": [
+        "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\ice\\IceCreatureEntity.java:75"
+      ]
+    },
+    {
+      "id": "thermal_shock:herald",
+      "groups": 6,
+      "direct_rows": 0,
+      "default_values": [],
+      "consumer_paths": [
+        "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\mangler\\HeraldEntity.java:47"
+      ]
+    },
+    {
+      "id": "thermal_shock:icidrozerk",
+      "groups": 20,
+      "direct_rows": 20,
+      "default_values": [
+        0.3
+      ],
+      "consumer_paths": [
+        "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\ice\\IceCreatureEntity.java:75"
+      ]
+    },
+    {
+      "id": "thermal_shock:protoi_sunbeam",
+      "groups": 2,
+      "direct_rows": 2,
+      "default_values": [
+        16.0
+      ],
+      "consumer_paths": [
+        "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\protoi\\ProtoiSunbeamEntity.java:40"
+      ]
+    }
+  ],
+  "confirmed_payload_defects": [],
+  "default_configuration_difference_candidates": [],
+  "post_load_boundary_groups": 113,
+  "consumer_input_drift": [],
+  "step95_classes": {
+    "thermal_shock:frostilyte_cryomancer": 4,
+    "thermal_shock:icidrozerk": 10,
+    "thermal_shock:frostilyte_gunner": 13,
+    "thermal_shock:frostilyte": 19,
+    "thermal_shock:frostilyte_soldier": 15,
+    "thermal_shock:infestophage_seed": 5,
+    "thermal_shock:beetle_thrasher": 16,
+    "thermal_shock:dormant_beetle_crasher": 5,
+    "thermal_shock:sootle": 7,
+    "thermal_shock:sootling": 1
+  }
+}

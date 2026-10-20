@@ -19,7 +19,7 @@ final class AtlasTravel {
         if ((!source.equals(Level.OVERWORLD) && !source.equals(LoqendiaContent.DIMENSION) && !source.equals(AtlasContent.PALACE)) || source.equals(destination)) {
             player.closeContainer();
             player.level().playSound(null, origin, SoundEvents.NOTE_BLOCK_BASS.value(), SoundSource.NEUTRAL, 1, 1);
-            player.displayClientMessage(Component.literal("§cYou're already here, dude..."), true);
+            player.displayClientMessage(Component.translatable("message.thermal_shock_reforged.atlas.already_here"), true);
             return true;
         }
         var target = player.server.getLevel(destination);

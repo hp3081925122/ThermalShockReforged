@@ -57,7 +57,7 @@ public final class KeystoneChamberGeneration {
         WorldProgressData progress = WorldProgressData.forGeneration(server.overworld());
         int elapsed = progress.advanceKeystoneNotice();
         if (elapsed == 100) {
-            server.getPlayerList().broadcastSystemMessage(Component.literal("§c<§kSopel§r§c> I have a gift for you :^)"), false);
+            server.getPlayerList().broadcastSystemMessage(Component.translatable("message.thermal_shock_reforged.keystone.gift"), false);
             var dimension = progress.keystoneNoticeDimension();
             ServerLevel level = dimension == null ? null : server.getLevel(ResourceKey.create(Registries.DIMENSION, dimension));
             if (level != null) {
@@ -66,9 +66,9 @@ public final class KeystoneChamberGeneration {
                 for (int i = 0; i < repetitions; i++) level.playSound(null, progress.keystoneNoticeAnchor(), sound, SoundSource.NEUTRAL, 1, 1);
             }
         } else if (elapsed == 145) {
-            server.getPlayerList().broadcastSystemMessage(Component.literal("§c<§kSomeplace§r§c> Come to X1333 Z1333. See you soon..."), false);
+            server.getPlayerList().broadcastSystemMessage(Component.translatable("message.thermal_shock_reforged.keystone.invitation"), false);
         } else if (elapsed == 200) {
-            server.getPlayerList().broadcastSystemMessage(Component.literal("§aNOTE: Thermal Shock depends on Music Triggers to play it's OST in-game. The MT config file for Thermal Shock can be downloaded FOR FREE at https://www.patreon.com/cw/ThermaDev. Thanks, and enjoy the mod!"), false);
+            server.getPlayerList().broadcastSystemMessage(Component.translatable("message.thermal_shock_reforged.keystone.music_notice"), false);
         }
     }
 }

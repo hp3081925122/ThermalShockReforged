@@ -1,0 +1,3772 @@
+{
+  "batch": "a122-menu",
+  "baseline": "126114f9a99aaa14c8f001a39415835c703689a0",
+  "original_jar_sha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436",
+  "selected_identities": [
+    "whisper_main",
+    "whisper_trade_malachite",
+    "whisper_trade_bismuth",
+    "whisper_trade_starfruit_seed",
+    "whisper_trade_lunalemon_seed",
+    "whisper_trade_cocoa",
+    "whisper_trade_pixie_bottle",
+    "whisper_trade_zenith_template",
+    "whisper_trade_disc_floor_33"
+  ],
+  "selection_reason": "原真实右键打开Whisper主页面并由按钮到八个交易；历史只有家族级说明，缺当前逐页定值证据。",
+  "entry_chain": {
+    "source_entity": {
+      "path": "entity/WhisperEntity.java",
+      "callback_line": 176,
+      "procedure_call_line": 185
+    },
+    "source_open": {
+      "path": "procedures/WhisperRightClickedOnEntityProcedure.java",
+      "open_line": 28,
+      "constructor_line": 35
+    },
+    "target_entity": {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperEntity.java",
+      "callback_line": 65,
+      "open_line": 68
+    },
+    "target_open": {
+      "path": "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperContent.java",
+      "line": 35,
+      "factory_and_fields_lines": [
+        31,
+        42,
+        45
+      ]
+    },
+    "reachability": "MAIN按钮1到MALACHITE；交易按钮1依次到BISMUTH/STARFRUIT/LUNALEMON/COCOA/PIXIE/ZENITH/DISC/MALACHITE。真实调用链，不以MenuProvider单独证明入口。"
+  },
+  "pages": [
+    {
+      "identity": "whisper_main",
+      "enum": "MAIN",
+      "source_screen": "client/gui/WhisperMainScreen.java",
+      "source_menu": "world/inventory/WhisperMainMenu.java",
+      "source_message": "network/WhisperMainButtonMessage.java",
+      "source_classes": [
+        {
+          "jar_entry": "net/mcreator/thermal_shock/client/gui/WhisperMainScreen.class",
+          "sha256": "b70e6378374aaf802fc6ae8641783a1cb81ed89e9c5d87d5fae84f86b8ebb3cd"
+        },
+        {
+          "jar_entry": "net/mcreator/thermal_shock/world/inventory/WhisperMainMenu.class",
+          "sha256": "7e303e429d8e1d2daa48c8b8a5fa4619baa544a7c1b7bc90d83adb0c5c2443dd"
+        },
+        {
+          "jar_entry": "net/mcreator/thermal_shock/network/WhisperMainButtonMessage.class",
+          "sha256": "009b57b374fdba454b21e2d21d596f9b5cc5d532df17bf5c9a1a61b6aca65a75"
+        }
+      ],
+      "target_page": "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperPage.java",
+      "target_page_line": 6,
+      "dimensions": {
+        "source": [
+          276,
+          182
+        ],
+        "target": [
+          276,
+          182
+        ],
+        "equal": true
+      },
+      "labels": [
+        {
+          "source_key": "gui.thermal_shock.whisper_main.label_concierge",
+          "source_value": "WHISPER",
+          "target_key": "gui.thermal_shock_reforged.whisper_main.label_concierge",
+          "target_value": "WHISPER",
+          "source_line": 73,
+          "target_page_line": 7,
+          "source_geometry": [
+            67,
+            93,
+            -1
+          ],
+          "target_geometry": [
+            67,
+            93,
+            -1
+          ],
+          "equal": true
+        }
+      ],
+      "images": [
+        {
+          "texture": "mainspeechbox",
+          "source_line": 57,
+          "target_line": 8,
+          "source_geometry": [
+            0,
+            103,
+            276,
+            276,
+            276,
+            276
+          ],
+          "target_geometry": [
+            0,
+            103,
+            276,
+            276,
+            276,
+            276
+          ],
+          "source_dynamic_v": false,
+          "target_frame_max": -1,
+          "equal": true
+        },
+        {
+          "texture": "mainflavourboxes",
+          "source_line": 58,
+          "target_line": 8,
+          "source_geometry": [
+            62,
+            -110,
+            214,
+            214,
+            214,
+            214
+          ],
+          "target_geometry": [
+            62,
+            -110,
+            214,
+            214,
+            214,
+            214
+          ],
+          "source_dynamic_v": false,
+          "target_frame_max": -1,
+          "equal": true
+        },
+        {
+          "texture": "whisperidleportrait",
+          "source_line": 59,
+          "target_line": 8,
+          "source_geometry": [
+            0,
+            -14,
+            128,
+            128,
+            128,
+            1536
+          ],
+          "target_geometry": [
+            0,
+            -14,
+            128,
+            128,
+            128,
+            1536
+          ],
+          "source_dynamic_v": true,
+          "target_frame_max": 1408,
+          "equal": true
+        }
+      ],
+      "buttons": [
+        {
+          "action": 0,
+          "source_screen_line": 78,
+          "source_message_line": 71,
+          "source_callback": "WhisperInfoPageOpenProcedure",
+          "source_callback_path": "procedures/WhisperInfoPageOpenProcedure.java",
+          "source_open_constructor_line": 35,
+          "original_route": "whisper_info",
+          "target_route": "whisper_info",
+          "source_geometry": [
+            203,
+            -6,
+            65,
+            22,
+            0,
+            0,
+            22,
+            65,
+            44
+          ],
+          "target_geometry": [
+            203,
+            -6,
+            65,
+            22,
+            0,
+            0,
+            22,
+            65,
+            44
+          ],
+          "texture": "maininfobuttona",
+          "target_texture": "maininfobuttona",
+          "equal": true
+        },
+        {
+          "action": 1,
+          "source_screen_line": 84,
+          "source_message_line": 74,
+          "source_callback": "WhisTradeMalachitePageOpenProcedure",
+          "source_callback_path": "procedures/WhisTradeMalachitePageOpenProcedure.java",
+          "source_open_constructor_line": 35,
+          "original_route": "whisper_trade_malachite",
+          "target_route": "whisper_trade_malachite",
+          "source_geometry": [
+            203,
+            18,
+            65,
+            22,
+            0,
+            0,
+            22,
+            65,
+            44
+          ],
+          "target_geometry": [
+            203,
+            18,
+            65,
+            22,
+            0,
+            0,
+            22,
+            65,
+            44
+          ],
+          "texture": "tradebuttona1",
+          "target_texture": "tradebuttona1",
+          "equal": true
+        }
+      ],
+      "network": {
+        "original_fields": [
+          "buttonID:int",
+          "x:int",
+          "y:int",
+          "z:int"
+        ],
+        "target_button_fields": [
+          "current containerId",
+          "action"
+        ],
+        "target_open_fields": [
+          "npcId:VarInt",
+          "npcUuid:UUID",
+          "anchor:BlockPos",
+          "intro:VarInt"
+        ],
+        "target_container_check_line": 40,
+        "scope": "源消息只核加载区块；目标由当前菜单会话绑定NPC/拥有者/世界/存活/距离，沿98批安全决策保留。"
+      },
+      "transaction": null,
+      "slots": {
+        "source_custom_slots": 0,
+        "target_custom_slots": 0,
+        "player_inventory_shown": false
+      },
+      "candidate_ids": [],
+      "greetings": [
+        {
+          "source_procedure": "procedures/WhisperSetIntroTextProcedure.java",
+          "source_value": "❄ Are you food??",
+          "target_key": "gui.thermal_shock_reforged.whisper_main.greeting_1",
+          "target_value": "❄ Are you food??",
+          "equal": true
+        },
+        {
+          "source_procedure": "procedures/WhisperSetIntroTextProcedure.java",
+          "source_value": "❄ ... Do you have cake??",
+          "target_key": "gui.thermal_shock_reforged.whisper_main.greeting_2",
+          "target_value": "❄ ... Do you have cake??",
+          "equal": true
+        },
+        {
+          "source_procedure": "procedures/WhisperSetIntroTextProcedure.java",
+          "source_value": "❄ kutty",
+          "target_key": "gui.thermal_shock_reforged.whisper_main.greeting_0",
+          "target_value": "❄ kutty",
+          "equal": true
+        }
+      ],
+      "portrait": {
+        "original": "WhisperSpriteIndex，全局菜单END推进>12则0，否则+1；V=clamp(frame*128,0,1408)",
+        "target": "WhisperScreen Clock归本会话，同NPC换页继承；containerTick相同循环和裁剪",
+        "target_lines": [
+          17,
+          21,
+          26,
+          30
+        ],
+        "known_decision": "第98批已记录全服static改会话状态，不回退；实际帧时序和多人隔离未运行。"
+      }
+    },
+    {
+      "identity": "whisper_trade_malachite",
+      "enum": "MALACHITE",
+      "source_screen": "client/gui/WhisperTradeMalachiteScreen.java",
+      "source_menu": "world/inventory/WhisperTradeMalachiteMenu.java",
+      "source_message": "network/WhisperTradeMalachiteButtonMessage.java",
+      "source_classes": [
+        {
+          "jar_entry": "net/mcreator/thermal_shock/client/gui/WhisperTradeMalachiteScreen.class",
+          "sha256": "81844a0fc20830f5299a13d51050b57c345fed2464624de4cafd4a3704db4162"
+        },
+        {
+          "jar_entry": "net/mcreator/thermal_shock/world/inventory/WhisperTradeMalachiteMenu.class",
+          "sha256": "24a19c9f70e812cc26829c9f9f894e005df0fd207f149d2c6f352cf3e42a5a79"
+        },
+        {
+          "jar_entry": "net/mcreator/thermal_shock/network/WhisperTradeMalachiteButtonMessage.class",
+          "sha256": "ed429c66b7dbff6fe9512330354c4aef48b373402d7c1d365d3ce7935fc32359"
+        }
+      ],
+      "target_page": "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperPage.java",
+      "target_page_line": 22,
+      "dimensions": {
+        "source": [
+          206,
+          196
+        ],
+        "target": [
+          206,
+          196
+        ],
+        "equal": true
+      },
+      "labels": [
+        {
+          "source_key": "gui.thermal_shock.whisper_trade_malachite.label_xx",
+          "source_value": "10",
+          "target_key": "gui.thermal_shock_reforged.whisper_trade_malachite.label_xx",
+          "target_value": "10",
+          "source_line": 69,
+          "target_page_line": 23,
+          "source_geometry": [
+            49,
+            51,
+            -4124383
+          ],
+          "target_geometry": [
+            49,
+            51,
+            -4124383
+          ],
+          "equal": true
+        },
+        {
+          "source_key": "gui.thermal_shock.whisper_trade_malachite.label_xx1",
+          "source_value": "XX",
+          "target_key": "gui.thermal_shock_reforged.whisper_trade_malachite.label_xx1",
+          "target_value": "XX",
+          "source_line": 70,
+          "target_page_line": 23,
+          "source_geometry": [
+            69,
+            51,
+            -15427946
+          ],
+          "target_geometry": [
+            69,
+            51,
+            -15427946
+          ],
+          "equal": true
+        },
+        {
+          "source_key": "gui.thermal_shock.whisper_trade_malachite.label_xx2",
+          "source_value": "XX",
+          "target_key": "gui.thermal_shock_reforged.whisper_trade_malachite.label_xx2",
+          "target_value": "XX",
+          "source_line": 71,
+          "target_page_line": 23,
+          "source_geometry": [
+            89,
+            51,
+            -6218527
+          ],
+          "target_geometry": [
+            89,
+            51,
+            -6218527
+          ],
+          "equal": true
+        },
+        {
+          "source_key": "gui.thermal_shock.whisper_trade_malachite.label_xxx",
+          "source_value": "020",
+          "target_key": "gui.thermal_shock_reforged.whisper_trade_malachite.label_xxx",
+          "target_value": "020",
+          "source_line": 72,
+          "target_page_line": 23,
+          "source_geometry": [
+            49,
+            71,
+            -5577638
+          ],
+          "target_geometry": [
+            49,
+            71,
+            -5577638
+          ],
+          "equal": true
+        },
+        {
+          "source_key": "gui.thermal_shock.whisper_trade_malachite.label_lorem_ipsum",
+          "source_value": "Malachite x10",
+          "target_key": "gui.thermal_shock_reforged.whisper_trade_malachite.label_lorem_ipsum",
+          "target_value": "Malachite x10",
+          "source_line": 73,
+          "target_page_line": 23,
+          "source_geometry": [
+            68,
+            29,
+            -1
+          ],
+          "target_geometry": [
+            68,
+            29,
+            -1
+          ],
+          "equal": true
+        }
+      ],
+      "images": [
+        {
+          "texture": "whispertrademenu",
+          "source_line": 55,
+          "target_line": 24,
+          "source_geometry": [
+            -20,
+            0,
+            246,
+            180,
+            246,
+            180
+          ],
+          "target_geometry": [
+            -20,
+            0,
+            246,
+            180,
+            246,
+            180
+          ],
+          "source_dynamic_v": false,
+          "target_frame_max": -1,
+          "equal": true
+        },
+        {
+          "texture": "malachite",
+          "source_line": 56,
+          "target_line": 24,
+          "source_geometry": [
+            47,
+            26,
+            16,
+            16,
+            16,
+            16
+          ],
+          "target_geometry": [
+            47,
+            26,
+            16,
+            16,
+            16,
+            16
+          ],
+          "source_dynamic_v": false,
+          "target_frame_max": -1,
+          "equal": true
+        }
+      ],
+      "buttons": [
+        {
+          "action": 0,
+          "source_screen_line": 78,
+          "source_message_line": 72,
+          "source_callback": "WhisMalachiteBuyProcedure",
+          "source_callback_path": "procedures/WhisMalachiteBuyProcedure.java",
+          "source_open_constructor_line": null,
+          "original_route": "BUY",
+          "target_route": "BUY",
+          "source_geometry": [
+            84,
+            73,
+            38,
+            20,
+            0,
+            0,
+            20,
+            38,
+            40
+          ],
+          "target_geometry": [
+            84,
+            73,
+            38,
+            20,
+            0,
+            0,
+            20,
+            38,
+            40
+          ],
+          "texture": "tradebuttona",
+          "target_texture": "tradebuttona",
+          "equal": true
+        },
+        {
+          "action": 1,
+          "source_screen_line": 84,
+          "source_message_line": 75,
+          "source_callback": "WhisTradeBismuthPageOpenProcedure",
+          "source_callback_path": "procedures/WhisTradeBismuthPageOpenProcedure.java",
+          "source_open_constructor_line": 35,
+          "original_route": "whisper_trade_bismuth",
+          "target_route": "whisper_trade_bismuth",
+          "source_geometry": [
+            167,
+            50,
+            14,
+            21,
+            0,
+            0,
+            21,
+            14,
+            42
+          ],
+          "target_geometry": [
+            167,
+            50,
+            14,
+            21,
+            0,
+            0,
+            21,
+            14,
+            42
+          ],
+          "texture": "adamantine_spice",
+          "target_texture": "adamantine_spice",
+          "equal": true
+        },
+        {
+          "action": 2,
+          "source_screen_line": 90,
+          "source_message_line": 78,
+          "source_callback": "WhisTradeZenithPageOpenProcedure",
+          "source_callback_path": "procedures/WhisTradeZenithPageOpenProcedure.java",
+          "source_open_constructor_line": 35,
+          "original_route": "whisper_trade_zenith_template",
+          "target_route": "whisper_trade_zenith_template",
+          "source_geometry": [
+            25,
+            50,
+            14,
+            21,
+            0,
+            0,
+            21,
+            14,
+            42
+          ],
+          "target_geometry": [
+            25,
+            50,
+            14,
+            21,
+            0,
+            0,
+            21,
+            14,
+            42
+          ],
+          "texture": "tabcycleleft",
+          "target_texture": "tabcycleleft",
+          "equal": true
+        }
+      ],
+      "network": {
+        "original_fields": [
+          "buttonID:int",
+          "x:int",
+          "y:int",
+          "z:int"
+        ],
+        "target_button_fields": [
+          "current containerId",
+          "action"
+        ],
+        "target_open_fields": [
+          "npcId:VarInt",
+          "npcUuid:UUID",
+          "anchor:BlockPos",
+          "intro:VarInt"
+        ],
+        "target_container_check_line": 40,
+        "scope": "源消息只核加载区块；目标由当前菜单会话绑定NPC/拥有者/世界/存活/距离，沿98批安全决策保留。"
+      },
+      "transaction": {
+        "source_procedure": "procedures/WhisMalachiteBuyProcedure.java",
+        "source_procedure_class_sha256": "789c12c6933d20471910b568272315400af5deb439d59991263d5749cc9a91a7",
+        "source_material_consumption": [
+          {
+            "field": "ADAMANTINE_SPICE",
+            "count": 10,
+            "line": 45
+          }
+        ],
+        "source_level_guard": {
+          "path": "procedures/WhisMalachiteBuyProcedure.java",
+          "line": 42,
+          "text": "if (n >= 20)"
+        },
+        "source_level_payment_line": 50,
+        "source_reward_field": "MALACHITE",
+        "source_reward_id": "thermal_shock:malachite",
+        "source_reward_count": 10,
+        "source_reward_line": 54,
+        "source_cost_tuple_red_purple_levels_output": [
+          10,
+          0,
+          20,
+          10
+        ],
+        "target_cost_tuple_red_purple_levels_output": [
+          10,
+          0,
+          20,
+          10
+        ],
+        "target_reward_id": "thermal_shock_reforged:malachite",
+        "cost_and_reward_equal": true,
+        "target_cost_evidence": {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperMenu.java",
+          "line": 52,
+          "text": "case MALACHITE, BISMUTH -> new int[]{10, 0, 20, 10}"
+        },
+        "target_guard_line": 61,
+        "target_payment_lines": [
+          73,
+          74,
+          75
+        ],
+        "target_give_line": 76,
+        "sound": "无显式购买声/粒子；沿原ItemHandlerHelper给予商品的辅助入包/溢出路径，运行时未验。",
+        "known_repair": null
+      },
+      "slots": {
+        "source_custom_slots": 0,
+        "target_custom_slots": 0,
+        "source_player_slot_evidence": {
+          "path": "world/inventory/WhisperTradeMalachiteMenu.java",
+          "line": 88,
+          "text": "for (si = 0; si < 3; ++si) {\n            for (int sj = 0; sj < 9; ++sj) {\n                this.addSlot(new Slot((Container)inv, sj + (si + 1) * 9, 23 + sj * 18, 99 + si * 18));\n            }\n        }\n        for (si = 0; si < 9; ++si) {\n            this.addSlot(new Slot((Container)inv, si, 23 + si * 18, 157));\n        }"
+        },
+        "target_player_slot_evidence": {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperMenu.java",
+          "line": 30,
+          "text": "if (page.inventory) {\n            for (int row = 0; row < 3; row++) for (int col = 0; col < 9; col++) addSlot(new Slot(inventory, col + (row + 1) * 9, 23 + col * 18, 99 + row * 18));\n            for (int col = 0; col < 9; col++) addSlot(new Slot(inventory, col, 23 + col * 18, 157));\n        }"
+        },
+        "player_slots_equal": true,
+        "source_shift": {
+          "path": "world/inventory/WhisperTradeMalachiteMenu.java",
+          "line": 125,
+          "text": "if (index < 27 ? !this.moveItemStackTo(itemstack1, 27, this.slots.size(), true) : !this.moveItemStackTo(itemstack1, 0, 27, false)) {"
+        },
+        "target_shift": {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperMenu.java",
+          "line": 91,
+          "text": "if (index < 27 ? !moveItemStackTo(stack, 27, 36, false) : !moveItemStackTo(stack, 0, 27, false)) return ItemStack.EMPTY;"
+        },
+        "source_shift_original_jar_method": "m_7648_(Player,int)",
+        "source_shift_original_jar_bytecode": "      92: iload_2\n      93: bipush        27\n      95: if_icmpge     121\n      98: aload_0\n      99: aload         5\n     101: bipush        27\n     103: aload_0\n     104: getfield      #282                // Field f_38839_:Lnet/minecraft/core/NonNullList;\n     107: invokevirtual #299                // Method net/minecraft/core/NonNullList.size:()I\n     110: iconst_1\n     111: invokevirtual #303                // Method m_38903_:(Lnet/minecraft/world/item/ItemStack;IIZ)Z\n     114: ifne          138\n     121: aload_0\n     122: aload         5\n     124: iconst_0\n     125: bipush        27\n     127: iconst_0\n     128: invokevirtual #303                // Method m_38903_:(Lnet/minecraft/world/item/ItemStack;IIZ)Z",
+        "source_javap_output_sha256": "7a0f2d0e420745cef35d1306578bdfe4c86a9dc0eeb73b43195f9c7160b9cf72",
+        "source_main_to_hotbar_reverse": true,
+        "target_main_to_hotbar_reverse": false,
+        "hotbar_to_main_reverse_equal": true,
+        "unbound_close": "原internal为0槽，关闭无物品需返还；目标也无临时自定义库存。",
+        "normal_entry_binding": "真实源打开过程只写BlockPos；目标绑定当前NPC会话。原其它手/实体能力构造扩展不作为正常交互来源。"
+      },
+      "candidate_ids": [
+        "SHIFT_ORDER_8"
+      ]
+    },
+    {
+      "identity": "whisper_trade_bismuth",
+      "enum": "BISMUTH",
+      "source_screen": "client/gui/WhisperTradeBismuthScreen.java",
+      "source_menu": "world/inventory/WhisperTradeBismuthMenu.java",
+      "source_message": "network/WhisperTradeBismuthButtonMessage.java",
+      "source_classes": [
+        {
+          "jar_entry": "net/mcreator/thermal_shock/client/gui/WhisperTradeBismuthScreen.class",
+          "sha256": "87193d7ffe25ff5b13f87fe3cd0202a23fdbb56813141bd612dd12e0ecd7744d"
+        },
+        {
+          "jar_entry": "net/mcreator/thermal_shock/world/inventory/WhisperTradeBismuthMenu.class",
+          "sha256": "1586578d75a74cc51273af224aed1084476aa74912d5efdca45b8aee5f70ffda"
+        },
+        {
+          "jar_entry": "net/mcreator/thermal_shock/network/WhisperTradeBismuthButtonMessage.class",
+          "sha256": "473a4d1f2aa0099f1e77944ee9c4d6162004e42cd52c48c1efdb3092f39103c2"
+        }
+      ],
+      "target_page": "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperPage.java",
+      "target_page_line": 26,
+      "dimensions": {
+        "source": [
+          206,
+          196
+        ],
+        "target": [
+          206,
+          196
+        ],
+        "equal": true
+      },
+      "labels": [
+        {
+          "source_key": "gui.thermal_shock.whisper_trade_bismuth.label_xx",
+          "source_value": "10",
+          "target_key": "gui.thermal_shock_reforged.whisper_trade_bismuth.label_xx",
+          "target_value": "10",
+          "source_line": 69,
+          "target_page_line": 27,
+          "source_geometry": [
+            49,
+            51,
+            -4124383
+          ],
+          "target_geometry": [
+            49,
+            51,
+            -4124383
+          ],
+          "equal": true
+        },
+        {
+          "source_key": "gui.thermal_shock.whisper_trade_bismuth.label_xx1",
+          "source_value": "XX",
+          "target_key": "gui.thermal_shock_reforged.whisper_trade_bismuth.label_xx1",
+          "target_value": "XX",
+          "source_line": 70,
+          "target_page_line": 27,
+          "source_geometry": [
+            69,
+            51,
+            -15427946
+          ],
+          "target_geometry": [
+            69,
+            51,
+            -15427946
+          ],
+          "equal": true
+        },
+        {
+          "source_key": "gui.thermal_shock.whisper_trade_bismuth.label_xx2",
+          "source_value": "XX",
+          "target_key": "gui.thermal_shock_reforged.whisper_trade_bismuth.label_xx2",
+          "target_value": "XX",
+          "source_line": 71,
+          "target_page_line": 27,
+          "source_geometry": [
+            89,
+            51,
+            -6218527
+          ],
+          "target_geometry": [
+            89,
+            51,
+            -6218527
+          ],
+          "equal": true
+        },
+        {
+          "source_key": "gui.thermal_shock.whisper_trade_bismuth.label_xxx",
+          "source_value": "020",
+          "target_key": "gui.thermal_shock_reforged.whisper_trade_bismuth.label_xxx",
+          "target_value": "020",
+          "source_line": 72,
+          "target_page_line": 27,
+          "source_geometry": [
+            49,
+            71,
+            -5577638
+          ],
+          "target_geometry": [
+            49,
+            71,
+            -5577638
+          ],
+          "equal": true
+        },
+        {
+          "source_key": "gui.thermal_shock.whisper_trade_bismuth.label_lorem_ipsum",
+          "source_value": "Bismuth x10",
+          "target_key": "gui.thermal_shock_reforged.whisper_trade_bismuth.label_lorem_ipsum",
+          "target_value": "Bismuth x10",
+          "source_line": 73,
+          "target_page_line": 27,
+          "source_geometry": [
+            68,
+            29,
+            -1
+          ],
+          "target_geometry": [
+            68,
+            29,
+            -1
+          ],
+          "equal": true
+        }
+      ],
+      "images": [
+        {
+          "texture": "whispertrademenu",
+          "source_line": 55,
+          "target_line": 28,
+          "source_geometry": [
+            -20,
+            0,
+            246,
+            180,
+            246,
+            180
+          ],
+          "target_geometry": [
+            -20,
+            0,
+            246,
+            180,
+            246,
+            180
+          ],
+          "source_dynamic_v": false,
+          "target_frame_max": -1,
+          "equal": true
+        },
+        {
+          "texture": "bismuth_25",
+          "source_line": 56,
+          "target_line": 28,
+          "source_geometry": [
+            47,
+            26,
+            16,
+            16,
+            16,
+            16
+          ],
+          "target_geometry": [
+            47,
+            26,
+            16,
+            16,
+            16,
+            16
+          ],
+          "source_dynamic_v": false,
+          "target_frame_max": -1,
+          "equal": true
+        }
+      ],
+      "buttons": [
+        {
+          "action": 0,
+          "source_screen_line": 78,
+          "source_message_line": 72,
+          "source_callback": "WhisBismuthBuyProcedure",
+          "source_callback_path": "procedures/WhisBismuthBuyProcedure.java",
+          "source_open_constructor_line": null,
+          "original_route": "BUY",
+          "target_route": "BUY",
+          "source_geometry": [
+            84,
+            73,
+            38,
+            20,
+            0,
+            0,
+            20,
+            38,
+            40
+          ],
+          "target_geometry": [
+            84,
+            73,
+            38,
+            20,
+            0,
+            0,
+            20,
+            38,
+            40
+          ],
+          "texture": "tradebuttona",
+          "target_texture": "tradebuttona",
+          "equal": true
+        },
+        {
+          "action": 1,
+          "source_screen_line": 84,
+          "source_message_line": 75,
+          "source_callback": "WhisTradeStarSeedPageOpenProcedure",
+          "source_callback_path": "procedures/WhisTradeStarSeedPageOpenProcedure.java",
+          "source_open_constructor_line": 35,
+          "original_route": "whisper_trade_starfruit_seed",
+          "target_route": "whisper_trade_starfruit_seed",
+          "source_geometry": [
+            167,
+            50,
+            14,
+            21,
+            0,
+            0,
+            21,
+            14,
+            42
+          ],
+          "target_geometry": [
+            167,
+            50,
+            14,
+            21,
+            0,
+            0,
+            21,
+            14,
+            42
+          ],
+          "texture": "adamantine_spice",
+          "target_texture": "adamantine_spice",
+          "equal": true
+        },
+        {
+          "action": 2,
+          "source_screen_line": 90,
+          "source_message_line": 78,
+          "source_callback": "WhisTradeMalachitePageOpenProcedure",
+          "source_callback_path": "procedures/WhisTradeMalachitePageOpenProcedure.java",
+          "source_open_constructor_line": 35,
+          "original_route": "whisper_trade_malachite",
+          "target_route": "whisper_trade_malachite",
+          "source_geometry": [
+            25,
+            50,
+            14,
+            21,
+            0,
+            0,
+            21,
+            14,
+            42
+          ],
+          "target_geometry": [
+            25,
+            50,
+            14,
+            21,
+            0,
+            0,
+            21,
+            14,
+            42
+          ],
+          "texture": "tabcycleleft",
+          "target_texture": "tabcycleleft",
+          "equal": true
+        }
+      ],
+      "network": {
+        "original_fields": [
+          "buttonID:int",
+          "x:int",
+          "y:int",
+          "z:int"
+        ],
+        "target_button_fields": [
+          "current containerId",
+          "action"
+        ],
+        "target_open_fields": [
+          "npcId:VarInt",
+          "npcUuid:UUID",
+          "anchor:BlockPos",
+          "intro:VarInt"
+        ],
+        "target_container_check_line": 40,
+        "scope": "源消息只核加载区块；目标由当前菜单会话绑定NPC/拥有者/世界/存活/距离，沿98批安全决策保留。"
+      },
+      "transaction": {
+        "source_procedure": "procedures/WhisBismuthBuyProcedure.java",
+        "source_procedure_class_sha256": "8e21c69f0448d592d117a3ba5a3a500138c4994aae564efa429560959a3b952b",
+        "source_material_consumption": [
+          {
+            "field": "ADAMANTINE_SPICE",
+            "count": 10,
+            "line": 45
+          }
+        ],
+        "source_level_guard": {
+          "path": "procedures/WhisBismuthBuyProcedure.java",
+          "line": 42,
+          "text": "if (n >= 20)"
+        },
+        "source_level_payment_line": 50,
+        "source_reward_field": "BISMUTH",
+        "source_reward_id": "thermal_shock:bismuth",
+        "source_reward_count": 10,
+        "source_reward_line": 54,
+        "source_cost_tuple_red_purple_levels_output": [
+          10,
+          0,
+          20,
+          10
+        ],
+        "target_cost_tuple_red_purple_levels_output": [
+          10,
+          0,
+          20,
+          10
+        ],
+        "target_reward_id": "thermal_shock_reforged:bismuth",
+        "cost_and_reward_equal": true,
+        "target_cost_evidence": {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperMenu.java",
+          "line": 52,
+          "text": "case MALACHITE, BISMUTH -> new int[]{10, 0, 20, 10}"
+        },
+        "target_guard_line": 61,
+        "target_payment_lines": [
+          73,
+          74,
+          75
+        ],
+        "target_give_line": 76,
+        "sound": "无显式购买声/粒子；沿原ItemHandlerHelper给予商品的辅助入包/溢出路径，运行时未验。",
+        "known_repair": null
+      },
+      "slots": {
+        "source_custom_slots": 0,
+        "target_custom_slots": 0,
+        "source_player_slot_evidence": {
+          "path": "world/inventory/WhisperTradeBismuthMenu.java",
+          "line": 88,
+          "text": "for (si = 0; si < 3; ++si) {\n            for (int sj = 0; sj < 9; ++sj) {\n                this.addSlot(new Slot((Container)inv, sj + (si + 1) * 9, 23 + sj * 18, 99 + si * 18));\n            }\n        }\n        for (si = 0; si < 9; ++si) {\n            this.addSlot(new Slot((Container)inv, si, 23 + si * 18, 157));\n        }"
+        },
+        "target_player_slot_evidence": {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperMenu.java",
+          "line": 30,
+          "text": "if (page.inventory) {\n            for (int row = 0; row < 3; row++) for (int col = 0; col < 9; col++) addSlot(new Slot(inventory, col + (row + 1) * 9, 23 + col * 18, 99 + row * 18));\n            for (int col = 0; col < 9; col++) addSlot(new Slot(inventory, col, 23 + col * 18, 157));\n        }"
+        },
+        "player_slots_equal": true,
+        "source_shift": {
+          "path": "world/inventory/WhisperTradeBismuthMenu.java",
+          "line": 125,
+          "text": "if (index < 27 ? !this.moveItemStackTo(itemstack1, 27, this.slots.size(), true) : !this.moveItemStackTo(itemstack1, 0, 27, false)) {"
+        },
+        "target_shift": {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperMenu.java",
+          "line": 91,
+          "text": "if (index < 27 ? !moveItemStackTo(stack, 27, 36, false) : !moveItemStackTo(stack, 0, 27, false)) return ItemStack.EMPTY;"
+        },
+        "source_shift_original_jar_method": "m_7648_(Player,int)",
+        "source_shift_original_jar_bytecode": "      92: iload_2\n      93: bipush        27\n      95: if_icmpge     121\n      98: aload_0\n      99: aload         5\n     101: bipush        27\n     103: aload_0\n     104: getfield      #282                // Field f_38839_:Lnet/minecraft/core/NonNullList;\n     107: invokevirtual #299                // Method net/minecraft/core/NonNullList.size:()I\n     110: iconst_1\n     111: invokevirtual #303                // Method m_38903_:(Lnet/minecraft/world/item/ItemStack;IIZ)Z\n     114: ifne          138\n     121: aload_0\n     122: aload         5\n     124: iconst_0\n     125: bipush        27\n     127: iconst_0\n     128: invokevirtual #303                // Method m_38903_:(Lnet/minecraft/world/item/ItemStack;IIZ)Z",
+        "source_javap_output_sha256": "2633b1ffecaade826e3d41445e9bce30614726b089c2b0beb870ee13a4d6c54d",
+        "source_main_to_hotbar_reverse": true,
+        "target_main_to_hotbar_reverse": false,
+        "hotbar_to_main_reverse_equal": true,
+        "unbound_close": "原internal为0槽，关闭无物品需返还；目标也无临时自定义库存。",
+        "normal_entry_binding": "真实源打开过程只写BlockPos；目标绑定当前NPC会话。原其它手/实体能力构造扩展不作为正常交互来源。"
+      },
+      "candidate_ids": [
+        "SHIFT_ORDER_8"
+      ]
+    },
+    {
+      "identity": "whisper_trade_starfruit_seed",
+      "enum": "STARFRUIT",
+      "source_screen": "client/gui/WhisperTradeStarfruitSeedScreen.java",
+      "source_menu": "world/inventory/WhisperTradeStarfruitSeedMenu.java",
+      "source_message": "network/WhisperTradeStarfruitSeedButtonMessage.java",
+      "source_classes": [
+        {
+          "jar_entry": "net/mcreator/thermal_shock/client/gui/WhisperTradeStarfruitSeedScreen.class",
+          "sha256": "8d486e5d8c18e3d858123343f9abcb6c77026bd0a5b9559662d49995c3b6885f"
+        },
+        {
+          "jar_entry": "net/mcreator/thermal_shock/world/inventory/WhisperTradeStarfruitSeedMenu.class",
+          "sha256": "2cc823099a4c64f8150ecd200ab826959376348f1efcbfc2a848ab03e0038b96"
+        },
+        {
+          "jar_entry": "net/mcreator/thermal_shock/network/WhisperTradeStarfruitSeedButtonMessage.class",
+          "sha256": "9a8d640a01b944fe3f190105bd66c6513a10b5d4284eed8c70db1c1253f9d189"
+        }
+      ],
+      "target_page": "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperPage.java",
+      "target_page_line": 30,
+      "dimensions": {
+        "source": [
+          206,
+          196
+        ],
+        "target": [
+          206,
+          196
+        ],
+        "equal": true
+      },
+      "labels": [
+        {
+          "source_key": "gui.thermal_shock.whisper_trade_starfruit_seed.label_xx",
+          "source_value": "03",
+          "target_key": "gui.thermal_shock_reforged.whisper_trade_starfruit_seed.label_xx",
+          "target_value": "03",
+          "source_line": 69,
+          "target_page_line": 31,
+          "source_geometry": [
+            49,
+            51,
+            -4124383
+          ],
+          "target_geometry": [
+            49,
+            51,
+            -4124383
+          ],
+          "equal": true
+        },
+        {
+          "source_key": "gui.thermal_shock.whisper_trade_starfruit_seed.label_xx1",
+          "source_value": "XX",
+          "target_key": "gui.thermal_shock_reforged.whisper_trade_starfruit_seed.label_xx1",
+          "target_value": "XX",
+          "source_line": 70,
+          "target_page_line": 31,
+          "source_geometry": [
+            69,
+            51,
+            -15427946
+          ],
+          "target_geometry": [
+            69,
+            51,
+            -15427946
+          ],
+          "equal": true
+        },
+        {
+          "source_key": "gui.thermal_shock.whisper_trade_starfruit_seed.label_xx2",
+          "source_value": "XX",
+          "target_key": "gui.thermal_shock_reforged.whisper_trade_starfruit_seed.label_xx2",
+          "target_value": "XX",
+          "source_line": 71,
+          "target_page_line": 31,
+          "source_geometry": [
+            89,
+            51,
+            -6218527
+          ],
+          "target_geometry": [
+            89,
+            51,
+            -6218527
+          ],
+          "equal": true
+        },
+        {
+          "source_key": "gui.thermal_shock.whisper_trade_starfruit_seed.label_xxx",
+          "source_value": "006",
+          "target_key": "gui.thermal_shock_reforged.whisper_trade_starfruit_seed.label_xxx",
+          "target_value": "006",
+          "source_line": 72,
+          "target_page_line": 31,
+          "source_geometry": [
+            49,
+            71,
+            -5577638
+          ],
+          "target_geometry": [
+            49,
+            71,
+            -5577638
+          ],
+          "equal": true
+        },
+        {
+          "source_key": "gui.thermal_shock.whisper_trade_starfruit_seed.label_lorem_ipsum",
+          "source_value": "Starfruit Seed",
+          "target_key": "gui.thermal_shock_reforged.whisper_trade_starfruit_seed.label_lorem_ipsum",
+          "target_value": "Starfruit Seed",
+          "source_line": 73,
+          "target_page_line": 31,
+          "source_geometry": [
+            68,
+            29,
+            -1
+          ],
+          "target_geometry": [
+            68,
+            29,
+            -1
+          ],
+          "equal": true
+        }
+      ],
+      "images": [
+        {
+          "texture": "whispertrademenu",
+          "source_line": 55,
+          "target_line": 32,
+          "source_geometry": [
+            -20,
+            0,
+            246,
+            180,
+            246,
+            180
+          ],
+          "target_geometry": [
+            -20,
+            0,
+            246,
+            180,
+            246,
+            180
+          ],
+          "source_dynamic_v": false,
+          "target_frame_max": -1,
+          "equal": true
+        },
+        {
+          "texture": "starfruit_seed",
+          "source_line": 56,
+          "target_line": 32,
+          "source_geometry": [
+            47,
+            26,
+            16,
+            16,
+            16,
+            16
+          ],
+          "target_geometry": [
+            47,
+            26,
+            16,
+            16,
+            16,
+            16
+          ],
+          "source_dynamic_v": false,
+          "target_frame_max": -1,
+          "equal": true
+        }
+      ],
+      "buttons": [
+        {
+          "action": 0,
+          "source_screen_line": 78,
+          "source_message_line": 72,
+          "source_callback": "WhisStarfruitSeedBuyProcedure",
+          "source_callback_path": "procedures/WhisStarfruitSeedBuyProcedure.java",
+          "source_open_constructor_line": null,
+          "original_route": "BUY",
+          "target_route": "BUY",
+          "source_geometry": [
+            84,
+            73,
+            38,
+            20,
+            0,
+            0,
+            20,
+            38,
+            40
+          ],
+          "target_geometry": [
+            84,
+            73,
+            38,
+            20,
+            0,
+            0,
+            20,
+            38,
+            40
+          ],
+          "texture": "tradebuttona",
+          "target_texture": "tradebuttona",
+          "equal": true
+        },
+        {
+          "action": 1,
+          "source_screen_line": 84,
+          "source_message_line": 75,
+          "source_callback": "WhisTradeLunaSeedPageOpenProcedure",
+          "source_callback_path": "procedures/WhisTradeLunaSeedPageOpenProcedure.java",
+          "source_open_constructor_line": 35,
+          "original_route": "whisper_trade_lunalemon_seed",
+          "target_route": "whisper_trade_lunalemon_seed",
+          "source_geometry": [
+            167,
+            50,
+            14,
+            21,
+            0,
+            0,
+            21,
+            14,
+            42
+          ],
+          "target_geometry": [
+            167,
+            50,
+            14,
+            21,
+            0,
+            0,
+            21,
+            14,
+            42
+          ],
+          "texture": "adamantine_spice",
+          "target_texture": "adamantine_spice",
+          "equal": true
+        },
+        {
+          "action": 2,
+          "source_screen_line": 90,
+          "source_message_line": 78,
+          "source_callback": "WhisTradeBismuthPageOpenProcedure",
+          "source_callback_path": "procedures/WhisTradeBismuthPageOpenProcedure.java",
+          "source_open_constructor_line": 35,
+          "original_route": "whisper_trade_bismuth",
+          "target_route": "whisper_trade_bismuth",
+          "source_geometry": [
+            25,
+            50,
+            14,
+            21,
+            0,
+            0,
+            21,
+            14,
+            42
+          ],
+          "target_geometry": [
+            25,
+            50,
+            14,
+            21,
+            0,
+            0,
+            21,
+            14,
+            42
+          ],
+          "texture": "tabcycleleft",
+          "target_texture": "tabcycleleft",
+          "equal": true
+        }
+      ],
+      "network": {
+        "original_fields": [
+          "buttonID:int",
+          "x:int",
+          "y:int",
+          "z:int"
+        ],
+        "target_button_fields": [
+          "current containerId",
+          "action"
+        ],
+        "target_open_fields": [
+          "npcId:VarInt",
+          "npcUuid:UUID",
+          "anchor:BlockPos",
+          "intro:VarInt"
+        ],
+        "target_container_check_line": 40,
+        "scope": "源消息只核加载区块；目标由当前菜单会话绑定NPC/拥有者/世界/存活/距离，沿98批安全决策保留。"
+      },
+      "transaction": {
+        "source_procedure": "procedures/WhisStarfruitSeedBuyProcedure.java",
+        "source_procedure_class_sha256": "bed332182c7e1d476f75c1261651392b4452c73e725a15cf545a3d12bb596982",
+        "source_material_consumption": [
+          {
+            "field": "ADAMANTINE_SPICE",
+            "count": 3,
+            "line": 46
+          }
+        ],
+        "source_level_guard": {
+          "path": "procedures/WhisStarfruitSeedBuyProcedure.java",
+          "line": 43,
+          "text": "if (n >= 6)"
+        },
+        "source_level_payment_line": 51,
+        "source_reward_field": "STARFRUIT_SEED",
+        "source_reward_id": "thermal_shock:starfruit_seed",
+        "source_reward_count": 1,
+        "source_reward_line": 55,
+        "source_cost_tuple_red_purple_levels_output": [
+          3,
+          0,
+          6,
+          1
+        ],
+        "target_cost_tuple_red_purple_levels_output": [
+          3,
+          0,
+          6,
+          1
+        ],
+        "target_reward_id": "thermal_shock_reforged:starfruit_seed",
+        "cost_and_reward_equal": true,
+        "target_cost_evidence": {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperMenu.java",
+          "line": 53,
+          "text": "case STARFRUIT, LUNALEMON -> new int[]{3, 0, 6, 1}"
+        },
+        "target_guard_line": 61,
+        "target_payment_lines": [
+          73,
+          74,
+          75
+        ],
+        "target_give_line": 76,
+        "sound": "无显式购买声/粒子；沿原ItemHandlerHelper给予商品的辅助入包/溢出路径，运行时未验。",
+        "known_repair": null
+      },
+      "slots": {
+        "source_custom_slots": 0,
+        "target_custom_slots": 0,
+        "source_player_slot_evidence": {
+          "path": "world/inventory/WhisperTradeStarfruitSeedMenu.java",
+          "line": 88,
+          "text": "for (si = 0; si < 3; ++si) {\n            for (int sj = 0; sj < 9; ++sj) {\n                this.addSlot(new Slot((Container)inv, sj + (si + 1) * 9, 23 + sj * 18, 99 + si * 18));\n            }\n        }\n        for (si = 0; si < 9; ++si) {\n            this.addSlot(new Slot((Container)inv, si, 23 + si * 18, 157));\n        }"
+        },
+        "target_player_slot_evidence": {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperMenu.java",
+          "line": 30,
+          "text": "if (page.inventory) {\n            for (int row = 0; row < 3; row++) for (int col = 0; col < 9; col++) addSlot(new Slot(inventory, col + (row + 1) * 9, 23 + col * 18, 99 + row * 18));\n            for (int col = 0; col < 9; col++) addSlot(new Slot(inventory, col, 23 + col * 18, 157));\n        }"
+        },
+        "player_slots_equal": true,
+        "source_shift": {
+          "path": "world/inventory/WhisperTradeStarfruitSeedMenu.java",
+          "line": 125,
+          "text": "if (index < 27 ? !this.moveItemStackTo(itemstack1, 27, this.slots.size(), true) : !this.moveItemStackTo(itemstack1, 0, 27, false)) {"
+        },
+        "target_shift": {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperMenu.java",
+          "line": 91,
+          "text": "if (index < 27 ? !moveItemStackTo(stack, 27, 36, false) : !moveItemStackTo(stack, 0, 27, false)) return ItemStack.EMPTY;"
+        },
+        "source_shift_original_jar_method": "m_7648_(Player,int)",
+        "source_shift_original_jar_bytecode": "      92: iload_2\n      93: bipush        27\n      95: if_icmpge     121\n      98: aload_0\n      99: aload         5\n     101: bipush        27\n     103: aload_0\n     104: getfield      #282                // Field f_38839_:Lnet/minecraft/core/NonNullList;\n     107: invokevirtual #299                // Method net/minecraft/core/NonNullList.size:()I\n     110: iconst_1\n     111: invokevirtual #303                // Method m_38903_:(Lnet/minecraft/world/item/ItemStack;IIZ)Z\n     114: ifne          138\n     121: aload_0\n     122: aload         5\n     124: iconst_0\n     125: bipush        27\n     127: iconst_0\n     128: invokevirtual #303                // Method m_38903_:(Lnet/minecraft/world/item/ItemStack;IIZ)Z",
+        "source_javap_output_sha256": "e6fd06ac304f66692aa7fb643468fd38b57cb2b9c9cdb8da8ab97c6065e5d244",
+        "source_main_to_hotbar_reverse": true,
+        "target_main_to_hotbar_reverse": false,
+        "hotbar_to_main_reverse_equal": true,
+        "unbound_close": "原internal为0槽，关闭无物品需返还；目标也无临时自定义库存。",
+        "normal_entry_binding": "真实源打开过程只写BlockPos；目标绑定当前NPC会话。原其它手/实体能力构造扩展不作为正常交互来源。"
+      },
+      "candidate_ids": [
+        "SHIFT_ORDER_8"
+      ]
+    },
+    {
+      "identity": "whisper_trade_lunalemon_seed",
+      "enum": "LUNALEMON",
+      "source_screen": "client/gui/WhisperTradeLunalemonSeedScreen.java",
+      "source_menu": "world/inventory/WhisperTradeLunalemonSeedMenu.java",
+      "source_message": "network/WhisperTradeLunalemonSeedButtonMessage.java",
+      "source_classes": [
+        {
+          "jar_entry": "net/mcreator/thermal_shock/client/gui/WhisperTradeLunalemonSeedScreen.class",
+          "sha256": "200906e547b956d89aee1322049284cf51ea8c701501dfd6a339ddd4b0bde882"
+        },
+        {
+          "jar_entry": "net/mcreator/thermal_shock/world/inventory/WhisperTradeLunalemonSeedMenu.class",
+          "sha256": "0426b21b6235002fb595e09c4bd18163ee728e487ce65c73b80d3488c4d0b135"
+        },
+        {
+          "jar_entry": "net/mcreator/thermal_shock/network/WhisperTradeLunalemonSeedButtonMessage.class",
+          "sha256": "69dee4d83655dc0fec9c88e169e1e1d9b7f66f33b4d0942df89a62eb40e604d5"
+        }
+      ],
+      "target_page": "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperPage.java",
+      "target_page_line": 34,
+      "dimensions": {
+        "source": [
+          206,
+          196
+        ],
+        "target": [
+          206,
+          196
+        ],
+        "equal": true
+      },
+      "labels": [
+        {
+          "source_key": "gui.thermal_shock.whisper_trade_lunalemon_seed.label_xx",
+          "source_value": "03",
+          "target_key": "gui.thermal_shock_reforged.whisper_trade_lunalemon_seed.label_xx",
+          "target_value": "03",
+          "source_line": 69,
+          "target_page_line": 35,
+          "source_geometry": [
+            49,
+            51,
+            -4124383
+          ],
+          "target_geometry": [
+            49,
+            51,
+            -4124383
+          ],
+          "equal": true
+        },
+        {
+          "source_key": "gui.thermal_shock.whisper_trade_lunalemon_seed.label_xx1",
+          "source_value": "XX",
+          "target_key": "gui.thermal_shock_reforged.whisper_trade_lunalemon_seed.label_xx1",
+          "target_value": "XX",
+          "source_line": 70,
+          "target_page_line": 35,
+          "source_geometry": [
+            69,
+            51,
+            -15427946
+          ],
+          "target_geometry": [
+            69,
+            51,
+            -15427946
+          ],
+          "equal": true
+        },
+        {
+          "source_key": "gui.thermal_shock.whisper_trade_lunalemon_seed.label_xx2",
+          "source_value": "XX",
+          "target_key": "gui.thermal_shock_reforged.whisper_trade_lunalemon_seed.label_xx2",
+          "target_value": "XX",
+          "source_line": 71,
+          "target_page_line": 35,
+          "source_geometry": [
+            89,
+            51,
+            -6218527
+          ],
+          "target_geometry": [
+            89,
+            51,
+            -6218527
+          ],
+          "equal": true
+        },
+        {
+          "source_key": "gui.thermal_shock.whisper_trade_lunalemon_seed.label_xxx",
+          "source_value": "006",
+          "target_key": "gui.thermal_shock_reforged.whisper_trade_lunalemon_seed.label_xxx",
+          "target_value": "006",
+          "source_line": 72,
+          "target_page_line": 35,
+          "source_geometry": [
+            49,
+            71,
+            -5577638
+          ],
+          "target_geometry": [
+            49,
+            71,
+            -5577638
+          ],
+          "equal": true
+        },
+        {
+          "source_key": "gui.thermal_shock.whisper_trade_lunalemon_seed.label_lorem_ipsum",
+          "source_value": "Lunalemon Seed",
+          "target_key": "gui.thermal_shock_reforged.whisper_trade_lunalemon_seed.label_lorem_ipsum",
+          "target_value": "Lunalemon Seed",
+          "source_line": 73,
+          "target_page_line": 35,
+          "source_geometry": [
+            68,
+            29,
+            -1
+          ],
+          "target_geometry": [
+            68,
+            29,
+            -1
+          ],
+          "equal": true
+        }
+      ],
+      "images": [
+        {
+          "texture": "whispertrademenu",
+          "source_line": 55,
+          "target_line": 36,
+          "source_geometry": [
+            -20,
+            0,
+            246,
+            180,
+            246,
+            180
+          ],
+          "target_geometry": [
+            -20,
+            0,
+            246,
+            180,
+            246,
+            180
+          ],
+          "source_dynamic_v": false,
+          "target_frame_max": -1,
+          "equal": true
+        },
+        {
+          "texture": "lunalemon_seed",
+          "source_line": 56,
+          "target_line": 36,
+          "source_geometry": [
+            47,
+            26,
+            16,
+            16,
+            16,
+            16
+          ],
+          "target_geometry": [
+            47,
+            26,
+            16,
+            16,
+            16,
+            16
+          ],
+          "source_dynamic_v": false,
+          "target_frame_max": -1,
+          "equal": true
+        }
+      ],
+      "buttons": [
+        {
+          "action": 0,
+          "source_screen_line": 78,
+          "source_message_line": 72,
+          "source_callback": "WhisLunalemonBuyProcedure",
+          "source_callback_path": "procedures/WhisLunalemonBuyProcedure.java",
+          "source_open_constructor_line": null,
+          "original_route": "BUY",
+          "target_route": "BUY",
+          "source_geometry": [
+            84,
+            73,
+            38,
+            20,
+            0,
+            0,
+            20,
+            38,
+            40
+          ],
+          "target_geometry": [
+            84,
+            73,
+            38,
+            20,
+            0,
+            0,
+            20,
+            38,
+            40
+          ],
+          "texture": "tradebuttona",
+          "target_texture": "tradebuttona",
+          "equal": true
+        },
+        {
+          "action": 1,
+          "source_screen_line": 84,
+          "source_message_line": 75,
+          "source_callback": "WhisTradeCocoaPageOpenProcedure",
+          "source_callback_path": "procedures/WhisTradeCocoaPageOpenProcedure.java",
+          "source_open_constructor_line": 35,
+          "original_route": "whisper_trade_cocoa",
+          "target_route": "whisper_trade_cocoa",
+          "source_geometry": [
+            167,
+            50,
+            14,
+            21,
+            0,
+            0,
+            21,
+            14,
+            42
+          ],
+          "target_geometry": [
+            167,
+            50,
+            14,
+            21,
+            0,
+            0,
+            21,
+            14,
+            42
+          ],
+          "texture": "adamantine_spice",
+          "target_texture": "adamantine_spice",
+          "equal": true
+        },
+        {
+          "action": 2,
+          "source_screen_line": 90,
+          "source_message_line": 78,
+          "source_callback": "WhisTradeStarSeedPageOpenProcedure",
+          "source_callback_path": "procedures/WhisTradeStarSeedPageOpenProcedure.java",
+          "source_open_constructor_line": 35,
+          "original_route": "whisper_trade_starfruit_seed",
+          "target_route": "whisper_trade_starfruit_seed",
+          "source_geometry": [
+            25,
+            50,
+            14,
+            21,
+            0,
+            0,
+            21,
+            14,
+            42
+          ],
+          "target_geometry": [
+            25,
+            50,
+            14,
+            21,
+            0,
+            0,
+            21,
+            14,
+            42
+          ],
+          "texture": "tabcycleleft",
+          "target_texture": "tabcycleleft",
+          "equal": true
+        }
+      ],
+      "network": {
+        "original_fields": [
+          "buttonID:int",
+          "x:int",
+          "y:int",
+          "z:int"
+        ],
+        "target_button_fields": [
+          "current containerId",
+          "action"
+        ],
+        "target_open_fields": [
+          "npcId:VarInt",
+          "npcUuid:UUID",
+          "anchor:BlockPos",
+          "intro:VarInt"
+        ],
+        "target_container_check_line": 40,
+        "scope": "源消息只核加载区块；目标由当前菜单会话绑定NPC/拥有者/世界/存活/距离，沿98批安全决策保留。"
+      },
+      "transaction": {
+        "source_procedure": "procedures/WhisLunalemonBuyProcedure.java",
+        "source_procedure_class_sha256": "5173aaeb6b2acba385245463ebd554112f001cba8ddadfd840ec5497a37fa703",
+        "source_material_consumption": [
+          {
+            "field": "ADAMANTINE_SPICE",
+            "count": 3,
+            "line": 46
+          }
+        ],
+        "source_level_guard": {
+          "path": "procedures/WhisLunalemonBuyProcedure.java",
+          "line": 43,
+          "text": "if (n >= 6)"
+        },
+        "source_level_payment_line": 51,
+        "source_reward_field": "LUNALEMON_SEED",
+        "source_reward_id": "thermal_shock:lunalemon_seed",
+        "source_reward_count": 1,
+        "source_reward_line": 55,
+        "source_cost_tuple_red_purple_levels_output": [
+          3,
+          0,
+          6,
+          1
+        ],
+        "target_cost_tuple_red_purple_levels_output": [
+          3,
+          0,
+          6,
+          1
+        ],
+        "target_reward_id": "thermal_shock_reforged:lunalemon_seed",
+        "cost_and_reward_equal": true,
+        "target_cost_evidence": {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperMenu.java",
+          "line": 53,
+          "text": "case STARFRUIT, LUNALEMON -> new int[]{3, 0, 6, 1}"
+        },
+        "target_guard_line": 61,
+        "target_payment_lines": [
+          73,
+          74,
+          75
+        ],
+        "target_give_line": 76,
+        "sound": "无显式购买声/粒子；沿原ItemHandlerHelper给予商品的辅助入包/溢出路径，运行时未验。",
+        "known_repair": null
+      },
+      "slots": {
+        "source_custom_slots": 0,
+        "target_custom_slots": 0,
+        "source_player_slot_evidence": {
+          "path": "world/inventory/WhisperTradeLunalemonSeedMenu.java",
+          "line": 88,
+          "text": "for (si = 0; si < 3; ++si) {\n            for (int sj = 0; sj < 9; ++sj) {\n                this.addSlot(new Slot((Container)inv, sj + (si + 1) * 9, 23 + sj * 18, 99 + si * 18));\n            }\n        }\n        for (si = 0; si < 9; ++si) {\n            this.addSlot(new Slot((Container)inv, si, 23 + si * 18, 157));\n        }"
+        },
+        "target_player_slot_evidence": {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperMenu.java",
+          "line": 30,
+          "text": "if (page.inventory) {\n            for (int row = 0; row < 3; row++) for (int col = 0; col < 9; col++) addSlot(new Slot(inventory, col + (row + 1) * 9, 23 + col * 18, 99 + row * 18));\n            for (int col = 0; col < 9; col++) addSlot(new Slot(inventory, col, 23 + col * 18, 157));\n        }"
+        },
+        "player_slots_equal": true,
+        "source_shift": {
+          "path": "world/inventory/WhisperTradeLunalemonSeedMenu.java",
+          "line": 125,
+          "text": "if (index < 27 ? !this.moveItemStackTo(itemstack1, 27, this.slots.size(), true) : !this.moveItemStackTo(itemstack1, 0, 27, false)) {"
+        },
+        "target_shift": {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperMenu.java",
+          "line": 91,
+          "text": "if (index < 27 ? !moveItemStackTo(stack, 27, 36, false) : !moveItemStackTo(stack, 0, 27, false)) return ItemStack.EMPTY;"
+        },
+        "source_shift_original_jar_method": "m_7648_(Player,int)",
+        "source_shift_original_jar_bytecode": "      92: iload_2\n      93: bipush        27\n      95: if_icmpge     121\n      98: aload_0\n      99: aload         5\n     101: bipush        27\n     103: aload_0\n     104: getfield      #282                // Field f_38839_:Lnet/minecraft/core/NonNullList;\n     107: invokevirtual #299                // Method net/minecraft/core/NonNullList.size:()I\n     110: iconst_1\n     111: invokevirtual #303                // Method m_38903_:(Lnet/minecraft/world/item/ItemStack;IIZ)Z\n     114: ifne          138\n     121: aload_0\n     122: aload         5\n     124: iconst_0\n     125: bipush        27\n     127: iconst_0\n     128: invokevirtual #303                // Method m_38903_:(Lnet/minecraft/world/item/ItemStack;IIZ)Z",
+        "source_javap_output_sha256": "abe20bd7609dce4f13c982f20ece08da3d98c89f9faf765c2fba2569e439cc3b",
+        "source_main_to_hotbar_reverse": true,
+        "target_main_to_hotbar_reverse": false,
+        "hotbar_to_main_reverse_equal": true,
+        "unbound_close": "原internal为0槽，关闭无物品需返还；目标也无临时自定义库存。",
+        "normal_entry_binding": "真实源打开过程只写BlockPos；目标绑定当前NPC会话。原其它手/实体能力构造扩展不作为正常交互来源。"
+      },
+      "candidate_ids": [
+        "SHIFT_ORDER_8"
+      ]
+    },
+    {
+      "identity": "whisper_trade_cocoa",
+      "enum": "COCOA",
+      "source_screen": "client/gui/WhisperTradeCocoaScreen.java",
+      "source_menu": "world/inventory/WhisperTradeCocoaMenu.java",
+      "source_message": "network/WhisperTradeCocoaButtonMessage.java",
+      "source_classes": [
+        {
+          "jar_entry": "net/mcreator/thermal_shock/client/gui/WhisperTradeCocoaScreen.class",
+          "sha256": "3fe165784968f4ca85f653ec55f2497db47455bcc8a525cfa775078e9bc7a53e"
+        },
+        {
+          "jar_entry": "net/mcreator/thermal_shock/world/inventory/WhisperTradeCocoaMenu.class",
+          "sha256": "f4f4501002c605d568f3bb3d86e065ff52aedce175f20bb0758dc75302ef0384"
+        },
+        {
+          "jar_entry": "net/mcreator/thermal_shock/network/WhisperTradeCocoaButtonMessage.class",
+          "sha256": "5206bfee879f6a3caa788014cae1dd4cf5373984dc17e1a59e186aa02eb4a237"
+        }
+      ],
+      "target_page": "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperPage.java",
+      "target_page_line": 38,
+      "dimensions": {
+        "source": [
+          206,
+          196
+        ],
+        "target": [
+          206,
+          196
+        ],
+        "equal": true
+      },
+      "labels": [
+        {
+          "source_key": "gui.thermal_shock.whisper_trade_cocoa.label_xx",
+          "source_value": "XX",
+          "target_key": "gui.thermal_shock_reforged.whisper_trade_cocoa.label_xx",
+          "target_value": "XX",
+          "source_line": 69,
+          "target_page_line": 39,
+          "source_geometry": [
+            49,
+            51,
+            -4124383
+          ],
+          "target_geometry": [
+            49,
+            51,
+            -4124383
+          ],
+          "equal": true
+        },
+        {
+          "source_key": "gui.thermal_shock.whisper_trade_cocoa.label_xx1",
+          "source_value": "XX",
+          "target_key": "gui.thermal_shock_reforged.whisper_trade_cocoa.label_xx1",
+          "target_value": "XX",
+          "source_line": 70,
+          "target_page_line": 39,
+          "source_geometry": [
+            69,
+            51,
+            -15427946
+          ],
+          "target_geometry": [
+            69,
+            51,
+            -15427946
+          ],
+          "equal": true
+        },
+        {
+          "source_key": "gui.thermal_shock.whisper_trade_cocoa.label_xx2",
+          "source_value": "XX",
+          "target_key": "gui.thermal_shock_reforged.whisper_trade_cocoa.label_xx2",
+          "target_value": "XX",
+          "source_line": 71,
+          "target_page_line": 39,
+          "source_geometry": [
+            89,
+            51,
+            -6218527
+          ],
+          "target_geometry": [
+            89,
+            51,
+            -6218527
+          ],
+          "equal": true
+        },
+        {
+          "source_key": "gui.thermal_shock.whisper_trade_cocoa.label_xxx",
+          "source_value": "005",
+          "target_key": "gui.thermal_shock_reforged.whisper_trade_cocoa.label_xxx",
+          "target_value": "005",
+          "source_line": 72,
+          "target_page_line": 39,
+          "source_geometry": [
+            49,
+            71,
+            -5577638
+          ],
+          "target_geometry": [
+            49,
+            71,
+            -5577638
+          ],
+          "equal": true
+        },
+        {
+          "source_key": "gui.thermal_shock.whisper_trade_cocoa.label_lorem_ipsum",
+          "source_value": "Cocoa",
+          "target_key": "gui.thermal_shock_reforged.whisper_trade_cocoa.label_lorem_ipsum",
+          "target_value": "Cocoa",
+          "source_line": 73,
+          "target_page_line": 39,
+          "source_geometry": [
+            68,
+            29,
+            -1
+          ],
+          "target_geometry": [
+            68,
+            29,
+            -1
+          ],
+          "equal": true
+        }
+      ],
+      "images": [
+        {
+          "texture": "whispertrademenu",
+          "source_line": 55,
+          "target_line": 40,
+          "source_geometry": [
+            -20,
+            0,
+            246,
+            180,
+            246,
+            180
+          ],
+          "target_geometry": [
+            -20,
+            0,
+            246,
+            180,
+            246,
+            180
+          ],
+          "source_dynamic_v": false,
+          "target_frame_max": -1,
+          "equal": true
+        },
+        {
+          "texture": "cocoa",
+          "source_line": 56,
+          "target_line": 40,
+          "source_geometry": [
+            47,
+            26,
+            16,
+            16,
+            16,
+            16
+          ],
+          "target_geometry": [
+            47,
+            26,
+            16,
+            16,
+            16,
+            16
+          ],
+          "source_dynamic_v": false,
+          "target_frame_max": -1,
+          "equal": true
+        }
+      ],
+      "buttons": [
+        {
+          "action": 0,
+          "source_screen_line": 78,
+          "source_message_line": 72,
+          "source_callback": "WhisCocoaBuyProcedure",
+          "source_callback_path": "procedures/WhisCocoaBuyProcedure.java",
+          "source_open_constructor_line": null,
+          "original_route": "BUY",
+          "target_route": "BUY",
+          "source_geometry": [
+            84,
+            73,
+            38,
+            20,
+            0,
+            0,
+            20,
+            38,
+            40
+          ],
+          "target_geometry": [
+            84,
+            73,
+            38,
+            20,
+            0,
+            0,
+            20,
+            38,
+            40
+          ],
+          "texture": "tradebuttona",
+          "target_texture": "tradebuttona",
+          "equal": true
+        },
+        {
+          "action": 1,
+          "source_screen_line": 84,
+          "source_message_line": 75,
+          "source_callback": "WhisTradePixiePageOpenProcedure",
+          "source_callback_path": "procedures/WhisTradePixiePageOpenProcedure.java",
+          "source_open_constructor_line": 35,
+          "original_route": "whisper_trade_pixie_bottle",
+          "target_route": "whisper_trade_pixie_bottle",
+          "source_geometry": [
+            167,
+            50,
+            14,
+            21,
+            0,
+            0,
+            21,
+            14,
+            42
+          ],
+          "target_geometry": [
+            167,
+            50,
+            14,
+            21,
+            0,
+            0,
+            21,
+            14,
+            42
+          ],
+          "texture": "adamantine_spice",
+          "target_texture": "adamantine_spice",
+          "equal": true
+        },
+        {
+          "action": 2,
+          "source_screen_line": 90,
+          "source_message_line": 78,
+          "source_callback": "WhisTradeLunaSeedPageOpenProcedure",
+          "source_callback_path": "procedures/WhisTradeLunaSeedPageOpenProcedure.java",
+          "source_open_constructor_line": 35,
+          "original_route": "whisper_trade_lunalemon_seed",
+          "target_route": "whisper_trade_lunalemon_seed",
+          "source_geometry": [
+            25,
+            50,
+            14,
+            21,
+            0,
+            0,
+            21,
+            14,
+            42
+          ],
+          "target_geometry": [
+            25,
+            50,
+            14,
+            21,
+            0,
+            0,
+            21,
+            14,
+            42
+          ],
+          "texture": "tabcycleleft",
+          "target_texture": "tabcycleleft",
+          "equal": true
+        }
+      ],
+      "network": {
+        "original_fields": [
+          "buttonID:int",
+          "x:int",
+          "y:int",
+          "z:int"
+        ],
+        "target_button_fields": [
+          "current containerId",
+          "action"
+        ],
+        "target_open_fields": [
+          "npcId:VarInt",
+          "npcUuid:UUID",
+          "anchor:BlockPos",
+          "intro:VarInt"
+        ],
+        "target_container_check_line": 40,
+        "scope": "源消息只核加载区块；目标由当前菜单会话绑定NPC/拥有者/世界/存活/距离，沿98批安全决策保留。"
+      },
+      "transaction": {
+        "source_procedure": "procedures/WhisCocoaBuyProcedure.java",
+        "source_procedure_class_sha256": "a1fb5173cede7a0f40fd194d84b5a2f87a37ff6bfc277e36855de39d2881730f",
+        "source_material_consumption": [],
+        "source_level_guard": {
+          "path": "procedures/WhisCocoaBuyProcedure.java",
+          "line": 26,
+          "text": "if (n >= 5)"
+        },
+        "source_level_payment_line": 30,
+        "source_reward_field": "COCOA",
+        "source_reward_id": "thermal_shock:cocoa",
+        "source_reward_count": 1,
+        "source_reward_line": 34,
+        "source_cost_tuple_red_purple_levels_output": [
+          0,
+          0,
+          5,
+          1
+        ],
+        "target_cost_tuple_red_purple_levels_output": [
+          0,
+          0,
+          5,
+          1
+        ],
+        "target_reward_id": "thermal_shock_reforged:cocoa",
+        "cost_and_reward_equal": true,
+        "target_cost_evidence": {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperMenu.java",
+          "line": 54,
+          "text": "case COCOA -> new int[]{0, 0, 5, 1}"
+        },
+        "target_guard_line": 61,
+        "target_payment_lines": [
+          73,
+          74,
+          75
+        ],
+        "target_give_line": 76,
+        "sound": "无显式购买声/粒子；沿原ItemHandlerHelper给予商品的辅助入包/溢出路径，运行时未验。",
+        "known_repair": null
+      },
+      "slots": {
+        "source_custom_slots": 0,
+        "target_custom_slots": 0,
+        "source_player_slot_evidence": {
+          "path": "world/inventory/WhisperTradeCocoaMenu.java",
+          "line": 88,
+          "text": "for (si = 0; si < 3; ++si) {\n            for (int sj = 0; sj < 9; ++sj) {\n                this.addSlot(new Slot((Container)inv, sj + (si + 1) * 9, 23 + sj * 18, 99 + si * 18));\n            }\n        }\n        for (si = 0; si < 9; ++si) {\n            this.addSlot(new Slot((Container)inv, si, 23 + si * 18, 157));\n        }"
+        },
+        "target_player_slot_evidence": {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperMenu.java",
+          "line": 30,
+          "text": "if (page.inventory) {\n            for (int row = 0; row < 3; row++) for (int col = 0; col < 9; col++) addSlot(new Slot(inventory, col + (row + 1) * 9, 23 + col * 18, 99 + row * 18));\n            for (int col = 0; col < 9; col++) addSlot(new Slot(inventory, col, 23 + col * 18, 157));\n        }"
+        },
+        "player_slots_equal": true,
+        "source_shift": {
+          "path": "world/inventory/WhisperTradeCocoaMenu.java",
+          "line": 125,
+          "text": "if (index < 27 ? !this.moveItemStackTo(itemstack1, 27, this.slots.size(), true) : !this.moveItemStackTo(itemstack1, 0, 27, false)) {"
+        },
+        "target_shift": {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperMenu.java",
+          "line": 91,
+          "text": "if (index < 27 ? !moveItemStackTo(stack, 27, 36, false) : !moveItemStackTo(stack, 0, 27, false)) return ItemStack.EMPTY;"
+        },
+        "source_shift_original_jar_method": "m_7648_(Player,int)",
+        "source_shift_original_jar_bytecode": "      92: iload_2\n      93: bipush        27\n      95: if_icmpge     121\n      98: aload_0\n      99: aload         5\n     101: bipush        27\n     103: aload_0\n     104: getfield      #282                // Field f_38839_:Lnet/minecraft/core/NonNullList;\n     107: invokevirtual #299                // Method net/minecraft/core/NonNullList.size:()I\n     110: iconst_1\n     111: invokevirtual #303                // Method m_38903_:(Lnet/minecraft/world/item/ItemStack;IIZ)Z\n     114: ifne          138\n     121: aload_0\n     122: aload         5\n     124: iconst_0\n     125: bipush        27\n     127: iconst_0\n     128: invokevirtual #303                // Method m_38903_:(Lnet/minecraft/world/item/ItemStack;IIZ)Z",
+        "source_javap_output_sha256": "02d26f1d40a04a280331f1dbda8b40e77514331d7f195d7f358ef8ae7a8cb67b",
+        "source_main_to_hotbar_reverse": true,
+        "target_main_to_hotbar_reverse": false,
+        "hotbar_to_main_reverse_equal": true,
+        "unbound_close": "原internal为0槽，关闭无物品需返还；目标也无临时自定义库存。",
+        "normal_entry_binding": "真实源打开过程只写BlockPos；目标绑定当前NPC会话。原其它手/实体能力构造扩展不作为正常交互来源。"
+      },
+      "candidate_ids": [
+        "SHIFT_ORDER_8"
+      ]
+    },
+    {
+      "identity": "whisper_trade_pixie_bottle",
+      "enum": "PIXIE",
+      "source_screen": "client/gui/WhisperTradePixieBottleScreen.java",
+      "source_menu": "world/inventory/WhisperTradePixieBottleMenu.java",
+      "source_message": "network/WhisperTradePixieBottleButtonMessage.java",
+      "source_classes": [
+        {
+          "jar_entry": "net/mcreator/thermal_shock/client/gui/WhisperTradePixieBottleScreen.class",
+          "sha256": "fdc62be401cd3365f09085c76c85f8c254f84e8b04c1124d4037c48e5787194c"
+        },
+        {
+          "jar_entry": "net/mcreator/thermal_shock/world/inventory/WhisperTradePixieBottleMenu.class",
+          "sha256": "a6e1bad97371dcb9c09e028ee3b7705ed50d62c12975b1afac065bd021ce3e2d"
+        },
+        {
+          "jar_entry": "net/mcreator/thermal_shock/network/WhisperTradePixieBottleButtonMessage.class",
+          "sha256": "905969a1d2fc32d0c2e99710ff905f2809da854fc8d7ef891df4f427469abd8e"
+        }
+      ],
+      "target_page": "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperPage.java",
+      "target_page_line": 42,
+      "dimensions": {
+        "source": [
+          206,
+          196
+        ],
+        "target": [
+          206,
+          196
+        ],
+        "equal": true
+      },
+      "labels": [
+        {
+          "source_key": "gui.thermal_shock.whisper_trade_pixie_bottle.label_xx",
+          "source_value": "07",
+          "target_key": "gui.thermal_shock_reforged.whisper_trade_pixie_bottle.label_xx",
+          "target_value": "07",
+          "source_line": 69,
+          "target_page_line": 43,
+          "source_geometry": [
+            49,
+            51,
+            -4124383
+          ],
+          "target_geometry": [
+            49,
+            51,
+            -4124383
+          ],
+          "equal": true
+        },
+        {
+          "source_key": "gui.thermal_shock.whisper_trade_pixie_bottle.label_xx1",
+          "source_value": "XX",
+          "target_key": "gui.thermal_shock_reforged.whisper_trade_pixie_bottle.label_xx1",
+          "target_value": "XX",
+          "source_line": 70,
+          "target_page_line": 43,
+          "source_geometry": [
+            69,
+            51,
+            -15427946
+          ],
+          "target_geometry": [
+            69,
+            51,
+            -15427946
+          ],
+          "equal": true
+        },
+        {
+          "source_key": "gui.thermal_shock.whisper_trade_pixie_bottle.label_xx2",
+          "source_value": "XX",
+          "target_key": "gui.thermal_shock_reforged.whisper_trade_pixie_bottle.label_xx2",
+          "target_value": "XX",
+          "source_line": 71,
+          "target_page_line": 43,
+          "source_geometry": [
+            89,
+            51,
+            -6218527
+          ],
+          "target_geometry": [
+            89,
+            51,
+            -6218527
+          ],
+          "equal": true
+        },
+        {
+          "source_key": "gui.thermal_shock.whisper_trade_pixie_bottle.label_xxx",
+          "source_value": "010",
+          "target_key": "gui.thermal_shock_reforged.whisper_trade_pixie_bottle.label_xxx",
+          "target_value": "010",
+          "source_line": 72,
+          "target_page_line": 43,
+          "source_geometry": [
+            49,
+            71,
+            -5577638
+          ],
+          "target_geometry": [
+            49,
+            71,
+            -5577638
+          ],
+          "equal": true
+        },
+        {
+          "source_key": "gui.thermal_shock.whisper_trade_pixie_bottle.label_lorem_ipsum",
+          "source_value": "Pixie Bottle",
+          "target_key": "gui.thermal_shock_reforged.whisper_trade_pixie_bottle.label_lorem_ipsum",
+          "target_value": "Pixie Bottle",
+          "source_line": 73,
+          "target_page_line": 43,
+          "source_geometry": [
+            68,
+            29,
+            -1
+          ],
+          "target_geometry": [
+            68,
+            29,
+            -1
+          ],
+          "equal": true
+        }
+      ],
+      "images": [
+        {
+          "texture": "whispertrademenu",
+          "source_line": 55,
+          "target_line": 44,
+          "source_geometry": [
+            -20,
+            0,
+            246,
+            180,
+            246,
+            180
+          ],
+          "target_geometry": [
+            -20,
+            0,
+            246,
+            180,
+            246,
+            180
+          ],
+          "source_dynamic_v": false,
+          "target_frame_max": -1,
+          "equal": true
+        },
+        {
+          "texture": "bottled_pixie",
+          "source_line": 56,
+          "target_line": 44,
+          "source_geometry": [
+            47,
+            26,
+            16,
+            16,
+            16,
+            16
+          ],
+          "target_geometry": [
+            47,
+            26,
+            16,
+            16,
+            16,
+            16
+          ],
+          "source_dynamic_v": false,
+          "target_frame_max": -1,
+          "equal": true
+        }
+      ],
+      "buttons": [
+        {
+          "action": 0,
+          "source_screen_line": 78,
+          "source_message_line": 72,
+          "source_callback": "WhisPixieBuyProcedure",
+          "source_callback_path": "procedures/WhisPixieBuyProcedure.java",
+          "source_open_constructor_line": null,
+          "original_route": "BUY",
+          "target_route": "BUY",
+          "source_geometry": [
+            84,
+            73,
+            38,
+            20,
+            0,
+            0,
+            20,
+            38,
+            40
+          ],
+          "target_geometry": [
+            84,
+            73,
+            38,
+            20,
+            0,
+            0,
+            20,
+            38,
+            40
+          ],
+          "texture": "tradebuttona",
+          "target_texture": "tradebuttona",
+          "equal": true
+        },
+        {
+          "action": 1,
+          "source_screen_line": 84,
+          "source_message_line": 75,
+          "source_callback": "WhisTradeZenithPageOpenProcedure",
+          "source_callback_path": "procedures/WhisTradeZenithPageOpenProcedure.java",
+          "source_open_constructor_line": 35,
+          "original_route": "whisper_trade_zenith_template",
+          "target_route": "whisper_trade_zenith_template",
+          "source_geometry": [
+            167,
+            50,
+            14,
+            21,
+            0,
+            0,
+            21,
+            14,
+            42
+          ],
+          "target_geometry": [
+            167,
+            50,
+            14,
+            21,
+            0,
+            0,
+            21,
+            14,
+            42
+          ],
+          "texture": "adamantine_spice",
+          "target_texture": "adamantine_spice",
+          "equal": true
+        },
+        {
+          "action": 2,
+          "source_screen_line": 90,
+          "source_message_line": 78,
+          "source_callback": "WhisTradeCocoaPageOpenProcedure",
+          "source_callback_path": "procedures/WhisTradeCocoaPageOpenProcedure.java",
+          "source_open_constructor_line": 35,
+          "original_route": "whisper_trade_cocoa",
+          "target_route": "whisper_trade_cocoa",
+          "source_geometry": [
+            25,
+            50,
+            14,
+            21,
+            0,
+            0,
+            21,
+            14,
+            42
+          ],
+          "target_geometry": [
+            25,
+            50,
+            14,
+            21,
+            0,
+            0,
+            21,
+            14,
+            42
+          ],
+          "texture": "tabcycleleft",
+          "target_texture": "tabcycleleft",
+          "equal": true
+        }
+      ],
+      "network": {
+        "original_fields": [
+          "buttonID:int",
+          "x:int",
+          "y:int",
+          "z:int"
+        ],
+        "target_button_fields": [
+          "current containerId",
+          "action"
+        ],
+        "target_open_fields": [
+          "npcId:VarInt",
+          "npcUuid:UUID",
+          "anchor:BlockPos",
+          "intro:VarInt"
+        ],
+        "target_container_check_line": 40,
+        "scope": "源消息只核加载区块；目标由当前菜单会话绑定NPC/拥有者/世界/存活/距离，沿98批安全决策保留。"
+      },
+      "transaction": {
+        "source_procedure": "procedures/WhisPixieBuyProcedure.java",
+        "source_procedure_class_sha256": "7b6329135ddc7fb912e020364045c8b796c4717473f36aa1a4ca3c941581b314",
+        "source_material_consumption": [
+          {
+            "field": "ADAMANTINE_SPICE",
+            "count": 7,
+            "line": 45
+          }
+        ],
+        "source_level_guard": {
+          "path": "procedures/WhisPixieBuyProcedure.java",
+          "line": 42,
+          "text": "if (n >= 10)"
+        },
+        "source_level_payment_line": 50,
+        "source_reward_field": "BOTTLED_PIXIE",
+        "source_reward_id": "thermal_shock:bottled_pixie",
+        "source_reward_count": 1,
+        "source_reward_line": 54,
+        "source_cost_tuple_red_purple_levels_output": [
+          7,
+          0,
+          10,
+          1
+        ],
+        "target_cost_tuple_red_purple_levels_output": [
+          7,
+          0,
+          10,
+          1
+        ],
+        "target_reward_id": "thermal_shock_reforged:bottled_pixie",
+        "cost_and_reward_equal": true,
+        "target_cost_evidence": {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperMenu.java",
+          "line": 55,
+          "text": "case PIXIE -> new int[]{7, 0, 10, 1}"
+        },
+        "target_guard_line": 61,
+        "target_payment_lines": [
+          73,
+          74,
+          75
+        ],
+        "target_give_line": 76,
+        "sound": "无显式购买声/粒子；沿原ItemHandlerHelper给予商品的辅助入包/溢出路径，运行时未验。",
+        "known_repair": null
+      },
+      "slots": {
+        "source_custom_slots": 0,
+        "target_custom_slots": 0,
+        "source_player_slot_evidence": {
+          "path": "world/inventory/WhisperTradePixieBottleMenu.java",
+          "line": 88,
+          "text": "for (si = 0; si < 3; ++si) {\n            for (int sj = 0; sj < 9; ++sj) {\n                this.addSlot(new Slot((Container)inv, sj + (si + 1) * 9, 23 + sj * 18, 99 + si * 18));\n            }\n        }\n        for (si = 0; si < 9; ++si) {\n            this.addSlot(new Slot((Container)inv, si, 23 + si * 18, 157));\n        }"
+        },
+        "target_player_slot_evidence": {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperMenu.java",
+          "line": 30,
+          "text": "if (page.inventory) {\n            for (int row = 0; row < 3; row++) for (int col = 0; col < 9; col++) addSlot(new Slot(inventory, col + (row + 1) * 9, 23 + col * 18, 99 + row * 18));\n            for (int col = 0; col < 9; col++) addSlot(new Slot(inventory, col, 23 + col * 18, 157));\n        }"
+        },
+        "player_slots_equal": true,
+        "source_shift": {
+          "path": "world/inventory/WhisperTradePixieBottleMenu.java",
+          "line": 125,
+          "text": "if (index < 27 ? !this.moveItemStackTo(itemstack1, 27, this.slots.size(), true) : !this.moveItemStackTo(itemstack1, 0, 27, false)) {"
+        },
+        "target_shift": {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperMenu.java",
+          "line": 91,
+          "text": "if (index < 27 ? !moveItemStackTo(stack, 27, 36, false) : !moveItemStackTo(stack, 0, 27, false)) return ItemStack.EMPTY;"
+        },
+        "source_shift_original_jar_method": "m_7648_(Player,int)",
+        "source_shift_original_jar_bytecode": "      92: iload_2\n      93: bipush        27\n      95: if_icmpge     121\n      98: aload_0\n      99: aload         5\n     101: bipush        27\n     103: aload_0\n     104: getfield      #282                // Field f_38839_:Lnet/minecraft/core/NonNullList;\n     107: invokevirtual #299                // Method net/minecraft/core/NonNullList.size:()I\n     110: iconst_1\n     111: invokevirtual #303                // Method m_38903_:(Lnet/minecraft/world/item/ItemStack;IIZ)Z\n     114: ifne          138\n     121: aload_0\n     122: aload         5\n     124: iconst_0\n     125: bipush        27\n     127: iconst_0\n     128: invokevirtual #303                // Method m_38903_:(Lnet/minecraft/world/item/ItemStack;IIZ)Z",
+        "source_javap_output_sha256": "d35e0cbb6ef9d8545aad941d05b2a4b7d0a7c0b51e64ed5d2b34455a0262e44e",
+        "source_main_to_hotbar_reverse": true,
+        "target_main_to_hotbar_reverse": false,
+        "hotbar_to_main_reverse_equal": true,
+        "unbound_close": "原internal为0槽，关闭无物品需返还；目标也无临时自定义库存。",
+        "normal_entry_binding": "真实源打开过程只写BlockPos；目标绑定当前NPC会话。原其它手/实体能力构造扩展不作为正常交互来源。"
+      },
+      "candidate_ids": [
+        "SHIFT_ORDER_8"
+      ]
+    },
+    {
+      "identity": "whisper_trade_zenith_template",
+      "enum": "ZENITH",
+      "source_screen": "client/gui/WhisperTradeZenithTemplateScreen.java",
+      "source_menu": "world/inventory/WhisperTradeZenithTemplateMenu.java",
+      "source_message": "network/WhisperTradeZenithTemplateButtonMessage.java",
+      "source_classes": [
+        {
+          "jar_entry": "net/mcreator/thermal_shock/client/gui/WhisperTradeZenithTemplateScreen.class",
+          "sha256": "bf04a29448892585b8147d44cf7a44e9524137475ae2bae903aa9320343c856b"
+        },
+        {
+          "jar_entry": "net/mcreator/thermal_shock/world/inventory/WhisperTradeZenithTemplateMenu.class",
+          "sha256": "d2d5af7d894e12da5845e40cf9e1eb7853a68f670adba095aef3bcdbf5c4e1fd"
+        },
+        {
+          "jar_entry": "net/mcreator/thermal_shock/network/WhisperTradeZenithTemplateButtonMessage.class",
+          "sha256": "5153f45c676cc913c948efac2f28c1cc3867fc41b9d4a398ba67547040c290ce"
+        }
+      ],
+      "target_page": "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperPage.java",
+      "target_page_line": 46,
+      "dimensions": {
+        "source": [
+          206,
+          196
+        ],
+        "target": [
+          206,
+          196
+        ],
+        "equal": true
+      },
+      "labels": [
+        {
+          "source_key": "gui.thermal_shock.whisper_trade_zenith_template.label_xx",
+          "source_value": "10",
+          "target_key": "gui.thermal_shock_reforged.whisper_trade_zenith_template.label_xx",
+          "target_value": "10",
+          "source_line": 69,
+          "target_page_line": 47,
+          "source_geometry": [
+            49,
+            51,
+            -4124383
+          ],
+          "target_geometry": [
+            49,
+            51,
+            -4124383
+          ],
+          "equal": true
+        },
+        {
+          "source_key": "gui.thermal_shock.whisper_trade_zenith_template.label_xx1",
+          "source_value": "XX",
+          "target_key": "gui.thermal_shock_reforged.whisper_trade_zenith_template.label_xx1",
+          "target_value": "XX",
+          "source_line": 70,
+          "target_page_line": 47,
+          "source_geometry": [
+            69,
+            51,
+            -15427946
+          ],
+          "target_geometry": [
+            69,
+            51,
+            -15427946
+          ],
+          "equal": true
+        },
+        {
+          "source_key": "gui.thermal_shock.whisper_trade_zenith_template.label_xx2",
+          "source_value": "01",
+          "target_key": "gui.thermal_shock_reforged.whisper_trade_zenith_template.label_xx2",
+          "target_value": "01",
+          "source_line": 71,
+          "target_page_line": 47,
+          "source_geometry": [
+            89,
+            51,
+            -6218527
+          ],
+          "target_geometry": [
+            89,
+            51,
+            -6218527
+          ],
+          "equal": true
+        },
+        {
+          "source_key": "gui.thermal_shock.whisper_trade_zenith_template.label_xxx",
+          "source_value": "030",
+          "target_key": "gui.thermal_shock_reforged.whisper_trade_zenith_template.label_xxx",
+          "target_value": "030",
+          "source_line": 72,
+          "target_page_line": 47,
+          "source_geometry": [
+            49,
+            71,
+            -5577638
+          ],
+          "target_geometry": [
+            49,
+            71,
+            -5577638
+          ],
+          "equal": true
+        },
+        {
+          "source_key": "gui.thermal_shock.whisper_trade_zenith_template.label_lorem_ipsum",
+          "source_value": "Zenith Template",
+          "target_key": "gui.thermal_shock_reforged.whisper_trade_zenith_template.label_lorem_ipsum",
+          "target_value": "Zenith Template",
+          "source_line": 73,
+          "target_page_line": 47,
+          "source_geometry": [
+            68,
+            29,
+            -1
+          ],
+          "target_geometry": [
+            68,
+            29,
+            -1
+          ],
+          "equal": true
+        }
+      ],
+      "images": [
+        {
+          "texture": "whispertrademenu",
+          "source_line": 55,
+          "target_line": 48,
+          "source_geometry": [
+            -20,
+            0,
+            246,
+            180,
+            246,
+            180
+          ],
+          "target_geometry": [
+            -20,
+            0,
+            246,
+            180,
+            246,
+            180
+          ],
+          "source_dynamic_v": false,
+          "target_frame_max": -1,
+          "equal": true
+        },
+        {
+          "texture": "zenith_smithing_template",
+          "source_line": 56,
+          "target_line": 48,
+          "source_geometry": [
+            47,
+            26,
+            16,
+            16,
+            16,
+            16
+          ],
+          "target_geometry": [
+            47,
+            26,
+            16,
+            16,
+            16,
+            16
+          ],
+          "source_dynamic_v": false,
+          "target_frame_max": -1,
+          "equal": true
+        }
+      ],
+      "buttons": [
+        {
+          "action": 0,
+          "source_screen_line": 78,
+          "source_message_line": 72,
+          "source_callback": "WhisZenithBuyProcedure",
+          "source_callback_path": "procedures/WhisZenithBuyProcedure.java",
+          "source_open_constructor_line": null,
+          "original_route": "BUY",
+          "target_route": "BUY",
+          "source_geometry": [
+            84,
+            73,
+            38,
+            20,
+            0,
+            0,
+            20,
+            38,
+            40
+          ],
+          "target_geometry": [
+            84,
+            73,
+            38,
+            20,
+            0,
+            0,
+            20,
+            38,
+            40
+          ],
+          "texture": "tradebuttona",
+          "target_texture": "tradebuttona",
+          "equal": true
+        },
+        {
+          "action": 1,
+          "source_screen_line": 84,
+          "source_message_line": 75,
+          "source_callback": "WhisTradeDiscPageOpenProcedure",
+          "source_callback_path": "procedures/WhisTradeDiscPageOpenProcedure.java",
+          "source_open_constructor_line": 35,
+          "original_route": "whisper_trade_disc_floor_33",
+          "target_route": "whisper_trade_disc_floor_33",
+          "source_geometry": [
+            167,
+            50,
+            14,
+            21,
+            0,
+            0,
+            21,
+            14,
+            42
+          ],
+          "target_geometry": [
+            167,
+            50,
+            14,
+            21,
+            0,
+            0,
+            21,
+            14,
+            42
+          ],
+          "texture": "adamantine_spice",
+          "target_texture": "adamantine_spice",
+          "equal": true
+        },
+        {
+          "action": 2,
+          "source_screen_line": 90,
+          "source_message_line": 78,
+          "source_callback": "WhisTradePixiePageOpenProcedure",
+          "source_callback_path": "procedures/WhisTradePixiePageOpenProcedure.java",
+          "source_open_constructor_line": 35,
+          "original_route": "whisper_trade_pixie_bottle",
+          "target_route": "whisper_trade_pixie_bottle",
+          "source_geometry": [
+            25,
+            50,
+            14,
+            21,
+            0,
+            0,
+            21,
+            14,
+            42
+          ],
+          "target_geometry": [
+            25,
+            50,
+            14,
+            21,
+            0,
+            0,
+            21,
+            14,
+            42
+          ],
+          "texture": "tabcycleleft",
+          "target_texture": "tabcycleleft",
+          "equal": true
+        }
+      ],
+      "network": {
+        "original_fields": [
+          "buttonID:int",
+          "x:int",
+          "y:int",
+          "z:int"
+        ],
+        "target_button_fields": [
+          "current containerId",
+          "action"
+        ],
+        "target_open_fields": [
+          "npcId:VarInt",
+          "npcUuid:UUID",
+          "anchor:BlockPos",
+          "intro:VarInt"
+        ],
+        "target_container_check_line": 40,
+        "scope": "源消息只核加载区块；目标由当前菜单会话绑定NPC/拥有者/世界/存活/距离，沿98批安全决策保留。"
+      },
+      "transaction": {
+        "source_procedure": "procedures/WhisZenithBuyProcedure.java",
+        "source_procedure_class_sha256": "5e97f3ca3a39782e0257df2cfcc39e4c9724ce55e7995eb4829eb5b76c1fc6b7",
+        "source_material_consumption": [
+          {
+            "field": "ADAMANTINE_SPICE",
+            "count": 10,
+            "line": 49
+          },
+          {
+            "field": "TOURMALINE_SPICE",
+            "count": 1,
+            "line": 54
+          }
+        ],
+        "source_level_guard": {
+          "path": "procedures/WhisZenithBuyProcedure.java",
+          "line": 45,
+          "text": "if (n >= 30)"
+        },
+        "source_level_payment_line": 59,
+        "source_reward_field": "ZENITH_SMITHING_TEMPLATE",
+        "source_reward_id": "thermal_shock:zenith_smithing_template",
+        "source_reward_count": 1,
+        "source_reward_line": 63,
+        "source_cost_tuple_red_purple_levels_output": [
+          10,
+          1,
+          30,
+          1
+        ],
+        "target_cost_tuple_red_purple_levels_output": [
+          10,
+          1,
+          30,
+          1
+        ],
+        "target_reward_id": "thermal_shock_reforged:zenith_smithing_template",
+        "cost_and_reward_equal": true,
+        "target_cost_evidence": {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperMenu.java",
+          "line": 56,
+          "text": "case ZENITH -> new int[]{10, 1, 30, 1}"
+        },
+        "target_guard_line": 61,
+        "target_payment_lines": [
+          73,
+          74,
+          75
+        ],
+        "target_give_line": 76,
+        "sound": "无显式购买声/粒子；沿原ItemHandlerHelper给予商品的辅助入包/溢出路径，运行时未验。",
+        "known_repair": "Zenith原37行误写RedSpice>=10 && RedSpice>=1；目标要求10红+1紫，按第98批已有修复保留。"
+      },
+      "slots": {
+        "source_custom_slots": 0,
+        "target_custom_slots": 0,
+        "source_player_slot_evidence": {
+          "path": "world/inventory/WhisperTradeZenithTemplateMenu.java",
+          "line": 88,
+          "text": "for (si = 0; si < 3; ++si) {\n            for (int sj = 0; sj < 9; ++sj) {\n                this.addSlot(new Slot((Container)inv, sj + (si + 1) * 9, 23 + sj * 18, 99 + si * 18));\n            }\n        }\n        for (si = 0; si < 9; ++si) {\n            this.addSlot(new Slot((Container)inv, si, 23 + si * 18, 157));\n        }"
+        },
+        "target_player_slot_evidence": {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperMenu.java",
+          "line": 30,
+          "text": "if (page.inventory) {\n            for (int row = 0; row < 3; row++) for (int col = 0; col < 9; col++) addSlot(new Slot(inventory, col + (row + 1) * 9, 23 + col * 18, 99 + row * 18));\n            for (int col = 0; col < 9; col++) addSlot(new Slot(inventory, col, 23 + col * 18, 157));\n        }"
+        },
+        "player_slots_equal": true,
+        "source_shift": {
+          "path": "world/inventory/WhisperTradeZenithTemplateMenu.java",
+          "line": 125,
+          "text": "if (index < 27 ? !this.moveItemStackTo(itemstack1, 27, this.slots.size(), true) : !this.moveItemStackTo(itemstack1, 0, 27, false)) {"
+        },
+        "target_shift": {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperMenu.java",
+          "line": 91,
+          "text": "if (index < 27 ? !moveItemStackTo(stack, 27, 36, false) : !moveItemStackTo(stack, 0, 27, false)) return ItemStack.EMPTY;"
+        },
+        "source_shift_original_jar_method": "m_7648_(Player,int)",
+        "source_shift_original_jar_bytecode": "      92: iload_2\n      93: bipush        27\n      95: if_icmpge     121\n      98: aload_0\n      99: aload         5\n     101: bipush        27\n     103: aload_0\n     104: getfield      #282                // Field f_38839_:Lnet/minecraft/core/NonNullList;\n     107: invokevirtual #299                // Method net/minecraft/core/NonNullList.size:()I\n     110: iconst_1\n     111: invokevirtual #303                // Method m_38903_:(Lnet/minecraft/world/item/ItemStack;IIZ)Z\n     114: ifne          138\n     121: aload_0\n     122: aload         5\n     124: iconst_0\n     125: bipush        27\n     127: iconst_0\n     128: invokevirtual #303                // Method m_38903_:(Lnet/minecraft/world/item/ItemStack;IIZ)Z",
+        "source_javap_output_sha256": "f4e1f81d01ce546622a9a5ac93451a265930ddb62eba2ae644d210b4544f32c0",
+        "source_main_to_hotbar_reverse": true,
+        "target_main_to_hotbar_reverse": false,
+        "hotbar_to_main_reverse_equal": true,
+        "unbound_close": "原internal为0槽，关闭无物品需返还；目标也无临时自定义库存。",
+        "normal_entry_binding": "真实源打开过程只写BlockPos；目标绑定当前NPC会话。原其它手/实体能力构造扩展不作为正常交互来源。"
+      },
+      "candidate_ids": [
+        "SHIFT_ORDER_8"
+      ]
+    },
+    {
+      "identity": "whisper_trade_disc_floor_33",
+      "enum": "DISC",
+      "source_screen": "client/gui/WhisperTradeDiscFloor33Screen.java",
+      "source_menu": "world/inventory/WhisperTradeDiscFloor33Menu.java",
+      "source_message": "network/WhisperTradeDiscFloor33ButtonMessage.java",
+      "source_classes": [
+        {
+          "jar_entry": "net/mcreator/thermal_shock/client/gui/WhisperTradeDiscFloor33Screen.class",
+          "sha256": "6aae5a98254ddbb6bc7d8c64b1a48414007a56291a2780ac668edebd81840cf0"
+        },
+        {
+          "jar_entry": "net/mcreator/thermal_shock/world/inventory/WhisperTradeDiscFloor33Menu.class",
+          "sha256": "a89a60d144facc343aa2f3942681c2fd51f37153e0fe5a800e56d1559eb3348a"
+        },
+        {
+          "jar_entry": "net/mcreator/thermal_shock/network/WhisperTradeDiscFloor33ButtonMessage.class",
+          "sha256": "2365d7a8ad4db8ae4767ba1c6437d2ede5d2ba47f7aefe33171a3b8690f9fe94"
+        }
+      ],
+      "target_page": "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperPage.java",
+      "target_page_line": 50,
+      "dimensions": {
+        "source": [
+          206,
+          196
+        ],
+        "target": [
+          206,
+          196
+        ],
+        "equal": true
+      },
+      "labels": [
+        {
+          "source_key": "gui.thermal_shock.whisper_trade_disc_floor_33.label_xx",
+          "source_value": "XX",
+          "target_key": "gui.thermal_shock_reforged.whisper_trade_disc_floor_33.label_xx",
+          "target_value": "XX",
+          "source_line": 69,
+          "target_page_line": 51,
+          "source_geometry": [
+            49,
+            51,
+            -4124383
+          ],
+          "target_geometry": [
+            49,
+            51,
+            -4124383
+          ],
+          "equal": true
+        },
+        {
+          "source_key": "gui.thermal_shock.whisper_trade_disc_floor_33.label_xx1",
+          "source_value": "XX",
+          "target_key": "gui.thermal_shock_reforged.whisper_trade_disc_floor_33.label_xx1",
+          "target_value": "XX",
+          "source_line": 70,
+          "target_page_line": 51,
+          "source_geometry": [
+            69,
+            51,
+            -15427946
+          ],
+          "target_geometry": [
+            69,
+            51,
+            -15427946
+          ],
+          "equal": true
+        },
+        {
+          "source_key": "gui.thermal_shock.whisper_trade_disc_floor_33.label_xx2",
+          "source_value": "XX",
+          "target_key": "gui.thermal_shock_reforged.whisper_trade_disc_floor_33.label_xx2",
+          "target_value": "XX",
+          "source_line": 71,
+          "target_page_line": 51,
+          "source_geometry": [
+            89,
+            51,
+            -6218527
+          ],
+          "target_geometry": [
+            89,
+            51,
+            -6218527
+          ],
+          "equal": true
+        },
+        {
+          "source_key": "gui.thermal_shock.whisper_trade_disc_floor_33.label_xxx",
+          "source_value": "033",
+          "target_key": "gui.thermal_shock_reforged.whisper_trade_disc_floor_33.label_xxx",
+          "target_value": "033",
+          "source_line": 72,
+          "target_page_line": 51,
+          "source_geometry": [
+            49,
+            71,
+            -5577638
+          ],
+          "target_geometry": [
+            49,
+            71,
+            -5577638
+          ],
+          "equal": true
+        },
+        {
+          "source_key": "gui.thermal_shock.whisper_trade_disc_floor_33.label_lorem_ipsum",
+          "source_value": "Music Disc [Floor 33]",
+          "target_key": "gui.thermal_shock_reforged.whisper_trade_disc_floor_33.label_lorem_ipsum",
+          "target_value": "Music Disc [Floor 33]",
+          "source_line": 73,
+          "target_page_line": 51,
+          "source_geometry": [
+            68,
+            29,
+            -1
+          ],
+          "target_geometry": [
+            68,
+            29,
+            -1
+          ],
+          "equal": true
+        }
+      ],
+      "images": [
+        {
+          "texture": "whispertrademenuextended",
+          "source_line": 55,
+          "target_line": 52,
+          "source_geometry": [
+            -20,
+            0,
+            246,
+            180,
+            246,
+            180
+          ],
+          "target_geometry": [
+            -20,
+            0,
+            246,
+            180,
+            246,
+            180
+          ],
+          "source_dynamic_v": false,
+          "target_frame_max": -1,
+          "equal": true
+        },
+        {
+          "texture": "floor_33",
+          "source_line": 56,
+          "target_line": 52,
+          "source_geometry": [
+            47,
+            26,
+            16,
+            16,
+            16,
+            16
+          ],
+          "target_geometry": [
+            47,
+            26,
+            16,
+            16,
+            16,
+            16
+          ],
+          "source_dynamic_v": false,
+          "target_frame_max": -1,
+          "equal": true
+        }
+      ],
+      "buttons": [
+        {
+          "action": 0,
+          "source_screen_line": 78,
+          "source_message_line": 72,
+          "source_callback": "WhisDiscBuyProcedure",
+          "source_callback_path": "procedures/WhisDiscBuyProcedure.java",
+          "source_open_constructor_line": null,
+          "original_route": "BUY",
+          "target_route": "BUY",
+          "source_geometry": [
+            84,
+            73,
+            38,
+            20,
+            0,
+            0,
+            20,
+            38,
+            40
+          ],
+          "target_geometry": [
+            84,
+            73,
+            38,
+            20,
+            0,
+            0,
+            20,
+            38,
+            40
+          ],
+          "texture": "tradebuttona",
+          "target_texture": "tradebuttona",
+          "equal": true
+        },
+        {
+          "action": 1,
+          "source_screen_line": 84,
+          "source_message_line": 75,
+          "source_callback": "WhisTradeMalachitePageOpenProcedure",
+          "source_callback_path": "procedures/WhisTradeMalachitePageOpenProcedure.java",
+          "source_open_constructor_line": 35,
+          "original_route": "whisper_trade_malachite",
+          "target_route": "whisper_trade_malachite",
+          "source_geometry": [
+            167,
+            50,
+            14,
+            21,
+            0,
+            0,
+            21,
+            14,
+            42
+          ],
+          "target_geometry": [
+            167,
+            50,
+            14,
+            21,
+            0,
+            0,
+            21,
+            14,
+            42
+          ],
+          "texture": "adamantine_spice",
+          "target_texture": "adamantine_spice",
+          "equal": true
+        },
+        {
+          "action": 2,
+          "source_screen_line": 90,
+          "source_message_line": 78,
+          "source_callback": "WhisTradeZenithPageOpenProcedure",
+          "source_callback_path": "procedures/WhisTradeZenithPageOpenProcedure.java",
+          "source_open_constructor_line": 35,
+          "original_route": "whisper_trade_zenith_template",
+          "target_route": "whisper_trade_zenith_template",
+          "source_geometry": [
+            25,
+            50,
+            14,
+            21,
+            0,
+            0,
+            21,
+            14,
+            42
+          ],
+          "target_geometry": [
+            25,
+            50,
+            14,
+            21,
+            0,
+            0,
+            21,
+            14,
+            42
+          ],
+          "texture": "tabcycleleft",
+          "target_texture": "tabcycleleft",
+          "equal": true
+        }
+      ],
+      "network": {
+        "original_fields": [
+          "buttonID:int",
+          "x:int",
+          "y:int",
+          "z:int"
+        ],
+        "target_button_fields": [
+          "current containerId",
+          "action"
+        ],
+        "target_open_fields": [
+          "npcId:VarInt",
+          "npcUuid:UUID",
+          "anchor:BlockPos",
+          "intro:VarInt"
+        ],
+        "target_container_check_line": 40,
+        "scope": "源消息只核加载区块；目标由当前菜单会话绑定NPC/拥有者/世界/存活/距离，沿98批安全决策保留。"
+      },
+      "transaction": {
+        "source_procedure": "procedures/WhisDiscBuyProcedure.java",
+        "source_procedure_class_sha256": "423a8b57b5a5af3bbe681875d775fcff87107512a41a81ded042fe4bbd25a922",
+        "source_material_consumption": [],
+        "source_level_guard": {
+          "path": "procedures/WhisDiscBuyProcedure.java",
+          "line": 26,
+          "text": "if (n >= 33)"
+        },
+        "source_level_payment_line": 30,
+        "source_reward_field": "FLOOR_33",
+        "source_reward_id": "thermal_shock:floor_33",
+        "source_reward_count": 1,
+        "source_reward_line": 34,
+        "source_cost_tuple_red_purple_levels_output": [
+          0,
+          0,
+          33,
+          1
+        ],
+        "target_cost_tuple_red_purple_levels_output": [
+          0,
+          0,
+          33,
+          1
+        ],
+        "target_reward_id": "thermal_shock_reforged:floor_33",
+        "cost_and_reward_equal": true,
+        "target_cost_evidence": {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperMenu.java",
+          "line": 57,
+          "text": "case DISC -> new int[]{0, 0, 33, 1}"
+        },
+        "target_guard_line": 61,
+        "target_payment_lines": [
+          73,
+          74,
+          75
+        ],
+        "target_give_line": 76,
+        "sound": "无显式购买声/粒子；沿原ItemHandlerHelper给予商品的辅助入包/溢出路径，运行时未验。",
+        "known_repair": null
+      },
+      "slots": {
+        "source_custom_slots": 0,
+        "target_custom_slots": 0,
+        "source_player_slot_evidence": {
+          "path": "world/inventory/WhisperTradeDiscFloor33Menu.java",
+          "line": 88,
+          "text": "for (si = 0; si < 3; ++si) {\n            for (int sj = 0; sj < 9; ++sj) {\n                this.addSlot(new Slot((Container)inv, sj + (si + 1) * 9, 23 + sj * 18, 99 + si * 18));\n            }\n        }\n        for (si = 0; si < 9; ++si) {\n            this.addSlot(new Slot((Container)inv, si, 23 + si * 18, 157));\n        }"
+        },
+        "target_player_slot_evidence": {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperMenu.java",
+          "line": 30,
+          "text": "if (page.inventory) {\n            for (int row = 0; row < 3; row++) for (int col = 0; col < 9; col++) addSlot(new Slot(inventory, col + (row + 1) * 9, 23 + col * 18, 99 + row * 18));\n            for (int col = 0; col < 9; col++) addSlot(new Slot(inventory, col, 23 + col * 18, 157));\n        }"
+        },
+        "player_slots_equal": true,
+        "source_shift": {
+          "path": "world/inventory/WhisperTradeDiscFloor33Menu.java",
+          "line": 125,
+          "text": "if (index < 27 ? !this.moveItemStackTo(itemstack1, 27, this.slots.size(), true) : !this.moveItemStackTo(itemstack1, 0, 27, false)) {"
+        },
+        "target_shift": {
+          "path": "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperMenu.java",
+          "line": 91,
+          "text": "if (index < 27 ? !moveItemStackTo(stack, 27, 36, false) : !moveItemStackTo(stack, 0, 27, false)) return ItemStack.EMPTY;"
+        },
+        "source_shift_original_jar_method": "m_7648_(Player,int)",
+        "source_shift_original_jar_bytecode": "      92: iload_2\n      93: bipush        27\n      95: if_icmpge     121\n      98: aload_0\n      99: aload         5\n     101: bipush        27\n     103: aload_0\n     104: getfield      #282                // Field f_38839_:Lnet/minecraft/core/NonNullList;\n     107: invokevirtual #299                // Method net/minecraft/core/NonNullList.size:()I\n     110: iconst_1\n     111: invokevirtual #303                // Method m_38903_:(Lnet/minecraft/world/item/ItemStack;IIZ)Z\n     114: ifne          138\n     121: aload_0\n     122: aload         5\n     124: iconst_0\n     125: bipush        27\n     127: iconst_0\n     128: invokevirtual #303                // Method m_38903_:(Lnet/minecraft/world/item/ItemStack;IIZ)Z",
+        "source_javap_output_sha256": "11b8a2adaee7c6ffa08945d21192a248072f6e43259710a357a0f9059e9837c6",
+        "source_main_to_hotbar_reverse": true,
+        "target_main_to_hotbar_reverse": false,
+        "hotbar_to_main_reverse_equal": true,
+        "unbound_close": "原internal为0槽，关闭无物品需返还；目标也无临时自定义库存。",
+        "normal_entry_binding": "真实源打开过程只写BlockPos；目标绑定当前NPC会话。原其它手/实体能力构造扩展不作为正常交互来源。"
+      },
+      "candidate_ids": [
+        "SHIFT_ORDER_8"
+      ]
+    }
+  ],
+  "png_assets": [
+    {
+      "source_jar_entry": "assets/thermal_shock/textures/screens/mainspeechbox.png",
+      "source_sha256": "12894af8cfa75443411767e123b9c3e66c72b81b21085b2e383e5f7040bb9ea5",
+      "target_relative_path": "src/main/resources/assets/thermal_shock_reforged/textures/screens/mainspeechbox.png",
+      "target_sha256": "12894af8cfa75443411767e123b9c3e66c72b81b21085b2e383e5f7040bb9ea5",
+      "equal": true,
+      "pages": [
+        "whisper_main"
+      ]
+    },
+    {
+      "source_jar_entry": "assets/thermal_shock/textures/screens/mainflavourboxes.png",
+      "source_sha256": "80a2cf18e8d36b3a9b7bbe138d0fef25338fb9176daabead538c784abe941cf3",
+      "target_relative_path": "src/main/resources/assets/thermal_shock_reforged/textures/screens/mainflavourboxes.png",
+      "target_sha256": "80a2cf18e8d36b3a9b7bbe138d0fef25338fb9176daabead538c784abe941cf3",
+      "equal": true,
+      "pages": [
+        "whisper_main"
+      ]
+    },
+    {
+      "source_jar_entry": "assets/thermal_shock/textures/screens/whisperidleportrait.png",
+      "source_sha256": "81cc87d72f84beb36acb1afd96195604a78f00f0a21efda439f6871aa640592f",
+      "target_relative_path": "src/main/resources/assets/thermal_shock_reforged/textures/screens/whisperidleportrait.png",
+      "target_sha256": "81cc87d72f84beb36acb1afd96195604a78f00f0a21efda439f6871aa640592f",
+      "equal": true,
+      "pages": [
+        "whisper_main"
+      ]
+    },
+    {
+      "source_jar_entry": "assets/thermal_shock/textures/screens/atlas/imagebutton_maininfobuttona.png",
+      "source_sha256": "7c7afaddbb70b6b0f43ad046e87340dcd0100e712a5ef307ff2e46953fcc16fa",
+      "target_relative_path": "src/main/resources/assets/thermal_shock_reforged/textures/screens/atlas/imagebutton_maininfobuttona.png",
+      "target_sha256": "7c7afaddbb70b6b0f43ad046e87340dcd0100e712a5ef307ff2e46953fcc16fa",
+      "equal": true,
+      "pages": [
+        "whisper_main"
+      ]
+    },
+    {
+      "source_jar_entry": "assets/thermal_shock/textures/screens/atlas/imagebutton_tradebuttona1.png",
+      "source_sha256": "9a4da845718acc3294efd6e21e8e67064ff28b887b740f0128340c3ea830111c",
+      "target_relative_path": "src/main/resources/assets/thermal_shock_reforged/textures/screens/atlas/imagebutton_tradebuttona1.png",
+      "target_sha256": "9a4da845718acc3294efd6e21e8e67064ff28b887b740f0128340c3ea830111c",
+      "equal": true,
+      "pages": [
+        "whisper_main"
+      ]
+    },
+    {
+      "source_jar_entry": "assets/thermal_shock/textures/screens/whispertrademenu.png",
+      "source_sha256": "889ea03472ac7c14241934c997699ae4eb90251498095c5e2e3ce1f06ffe76ea",
+      "target_relative_path": "src/main/resources/assets/thermal_shock_reforged/textures/screens/whispertrademenu.png",
+      "target_sha256": "889ea03472ac7c14241934c997699ae4eb90251498095c5e2e3ce1f06ffe76ea",
+      "equal": true,
+      "pages": [
+        "whisper_trade_malachite",
+        "whisper_trade_bismuth",
+        "whisper_trade_starfruit_seed",
+        "whisper_trade_lunalemon_seed",
+        "whisper_trade_cocoa",
+        "whisper_trade_pixie_bottle",
+        "whisper_trade_zenith_template"
+      ]
+    },
+    {
+      "source_jar_entry": "assets/thermal_shock/textures/screens/malachite.png",
+      "source_sha256": "2e6a3445eb36adee041a0261093163ae9998e565331bd75ed523b00d14e4d89e",
+      "target_relative_path": "src/main/resources/assets/thermal_shock_reforged/textures/screens/malachite.png",
+      "target_sha256": "2e6a3445eb36adee041a0261093163ae9998e565331bd75ed523b00d14e4d89e",
+      "equal": true,
+      "pages": [
+        "whisper_trade_malachite"
+      ]
+    },
+    {
+      "source_jar_entry": "assets/thermal_shock/textures/screens/atlas/imagebutton_tradebuttona.png",
+      "source_sha256": "6d8c2897450b0f5414ba325ddba06ca4de09deb9689b3000506c24edcd64019a",
+      "target_relative_path": "src/main/resources/assets/thermal_shock_reforged/textures/screens/atlas/imagebutton_tradebuttona.png",
+      "target_sha256": "6d8c2897450b0f5414ba325ddba06ca4de09deb9689b3000506c24edcd64019a",
+      "equal": true,
+      "pages": [
+        "whisper_trade_malachite",
+        "whisper_trade_bismuth",
+        "whisper_trade_starfruit_seed",
+        "whisper_trade_lunalemon_seed",
+        "whisper_trade_cocoa",
+        "whisper_trade_pixie_bottle",
+        "whisper_trade_zenith_template",
+        "whisper_trade_disc_floor_33"
+      ]
+    },
+    {
+      "source_jar_entry": "assets/thermal_shock/textures/screens/atlas/imagebutton_adamantine_spice.png",
+      "source_sha256": "24088cc9b089321dcb2669d16638bd3ce484927e1056ca4c84a7703ca787d391",
+      "target_relative_path": "src/main/resources/assets/thermal_shock_reforged/textures/screens/atlas/imagebutton_adamantine_spice.png",
+      "target_sha256": "24088cc9b089321dcb2669d16638bd3ce484927e1056ca4c84a7703ca787d391",
+      "equal": true,
+      "pages": [
+        "whisper_trade_malachite",
+        "whisper_trade_bismuth",
+        "whisper_trade_starfruit_seed",
+        "whisper_trade_lunalemon_seed",
+        "whisper_trade_cocoa",
+        "whisper_trade_pixie_bottle",
+        "whisper_trade_zenith_template",
+        "whisper_trade_disc_floor_33"
+      ]
+    },
+    {
+      "source_jar_entry": "assets/thermal_shock/textures/screens/atlas/imagebutton_tabcycleleft.png",
+      "source_sha256": "8831c02b0fce235a48e1f600f600c73652c2aeb6c43d221264d00e5c14108761",
+      "target_relative_path": "src/main/resources/assets/thermal_shock_reforged/textures/screens/atlas/imagebutton_tabcycleleft.png",
+      "target_sha256": "8831c02b0fce235a48e1f600f600c73652c2aeb6c43d221264d00e5c14108761",
+      "equal": true,
+      "pages": [
+        "whisper_trade_malachite",
+        "whisper_trade_bismuth",
+        "whisper_trade_starfruit_seed",
+        "whisper_trade_lunalemon_seed",
+        "whisper_trade_cocoa",
+        "whisper_trade_pixie_bottle",
+        "whisper_trade_zenith_template",
+        "whisper_trade_disc_floor_33"
+      ]
+    },
+    {
+      "source_jar_entry": "assets/thermal_shock/textures/screens/bismuth_25.png",
+      "source_sha256": "ed2c9ae9121278ec6ab7709fe51bcf6d972bde20a8612d7c3e472b01e57e2d4e",
+      "target_relative_path": "src/main/resources/assets/thermal_shock_reforged/textures/screens/bismuth_25.png",
+      "target_sha256": "ed2c9ae9121278ec6ab7709fe51bcf6d972bde20a8612d7c3e472b01e57e2d4e",
+      "equal": true,
+      "pages": [
+        "whisper_trade_bismuth"
+      ]
+    },
+    {
+      "source_jar_entry": "assets/thermal_shock/textures/screens/starfruit_seed.png",
+      "source_sha256": "af8844d246d743bad3cb686b361ca0cfd267ea338c2b1dd7e2166a50a0eb0d67",
+      "target_relative_path": "src/main/resources/assets/thermal_shock_reforged/textures/screens/starfruit_seed.png",
+      "target_sha256": "af8844d246d743bad3cb686b361ca0cfd267ea338c2b1dd7e2166a50a0eb0d67",
+      "equal": true,
+      "pages": [
+        "whisper_trade_starfruit_seed"
+      ]
+    },
+    {
+      "source_jar_entry": "assets/thermal_shock/textures/screens/lunalemon_seed.png",
+      "source_sha256": "a06e733971a56f5b82012f2e37fe17dac686ee9ca1f83d4651e3c6175013b1fc",
+      "target_relative_path": "src/main/resources/assets/thermal_shock_reforged/textures/screens/lunalemon_seed.png",
+      "target_sha256": "a06e733971a56f5b82012f2e37fe17dac686ee9ca1f83d4651e3c6175013b1fc",
+      "equal": true,
+      "pages": [
+        "whisper_trade_lunalemon_seed"
+      ]
+    },
+    {
+      "source_jar_entry": "assets/thermal_shock/textures/screens/cocoa.png",
+      "source_sha256": "9bdb4a18c368eb01a187ac1e7f79fd23d55407ee3d0a8d2496d193cc33af4269",
+      "target_relative_path": "src/main/resources/assets/thermal_shock_reforged/textures/screens/cocoa.png",
+      "target_sha256": "9bdb4a18c368eb01a187ac1e7f79fd23d55407ee3d0a8d2496d193cc33af4269",
+      "equal": true,
+      "pages": [
+        "whisper_trade_cocoa"
+      ]
+    },
+    {
+      "source_jar_entry": "assets/thermal_shock/textures/screens/bottled_pixie.png",
+      "source_sha256": "d9e1a286e53d5db7a44e922834b1de6e8c28704030d0480bbe9126b2284171a1",
+      "target_relative_path": "src/main/resources/assets/thermal_shock_reforged/textures/screens/bottled_pixie.png",
+      "target_sha256": "d9e1a286e53d5db7a44e922834b1de6e8c28704030d0480bbe9126b2284171a1",
+      "equal": true,
+      "pages": [
+        "whisper_trade_pixie_bottle"
+      ]
+    },
+    {
+      "source_jar_entry": "assets/thermal_shock/textures/screens/zenith_smithing_template.png",
+      "source_sha256": "2c860692c4b60b6d638dced266b8a33f0380282d5a84769316e8e6f8ad1e42b1",
+      "target_relative_path": "src/main/resources/assets/thermal_shock_reforged/textures/screens/zenith_smithing_template.png",
+      "target_sha256": "2c860692c4b60b6d638dced266b8a33f0380282d5a84769316e8e6f8ad1e42b1",
+      "equal": true,
+      "pages": [
+        "whisper_trade_zenith_template"
+      ]
+    },
+    {
+      "source_jar_entry": "assets/thermal_shock/textures/screens/whispertrademenuextended.png",
+      "source_sha256": "34bb6f3a998154ae1d096097e1aeb16e47c5e8d3d8503cd84d8f7f25c54d4333",
+      "target_relative_path": "src/main/resources/assets/thermal_shock_reforged/textures/screens/whispertrademenuextended.png",
+      "target_sha256": "34bb6f3a998154ae1d096097e1aeb16e47c5e8d3d8503cd84d8f7f25c54d4333",
+      "equal": true,
+      "pages": [
+        "whisper_trade_disc_floor_33"
+      ]
+    },
+    {
+      "source_jar_entry": "assets/thermal_shock/textures/screens/floor_33.png",
+      "source_sha256": "276e1622fb0cd5cfa5c21929526784e774ea8bb3f51747fc3cfe8dc4332c6919",
+      "target_relative_path": "src/main/resources/assets/thermal_shock_reforged/textures/screens/floor_33.png",
+      "target_sha256": "276e1622fb0cd5cfa5c21929526784e774ea8bb3f51747fc3cfe8dc4332c6919",
+      "equal": true,
+      "pages": [
+        "whisper_trade_disc_floor_33"
+      ]
+    }
+  ],
+  "language_input": {
+    "original_jar_entry": "assets/thermal_shock/lang/en_us.json",
+    "original_sha256": "fdf8b2f085d5d20bff80d25c856df05a05da97ab27c3936f3a231afbbb5217e6",
+    "target_relative_path": "src/main/resources/assets/thermal_shock_reforged/lang/en_us.json",
+    "target_sha256": "929fdf4edcb5499d7f76fa5b15a0fe22c2262b97a872ce47f6f131cf90aaca55",
+    "target_key_count": 3486,
+    "normalization": "仅命名空间/JSON转义解码；保空格/大小写/标点；原硬编码问候与目标语言值比较。"
+  },
+  "language_roles": {
+    "visible_text": {
+      "static_key_count": 41,
+      "greeting_key_count": 3,
+      "consumer": "src/main/java/com/hp/thermalshockreforged/client/whisper/WhisperScreen.java",
+      "consumer_lines": [
+        34,
+        35
+      ],
+      "english_values_equal": true
+    },
+    "image_button_labels": {
+      "role": "仅朗读，不是图片按钮上绘制的文字",
+      "keys": [
+        {
+          "key": "gui.thermal_shock_reforged.whisper.button_adamantine_spice",
+          "en_us_value": "Next trade"
+        },
+        {
+          "key": "gui.thermal_shock_reforged.whisper.button_maininfobuttona",
+          "en_us_value": "Information"
+        },
+        {
+          "key": "gui.thermal_shock_reforged.whisper.button_tabcycleleft",
+          "en_us_value": "Previous trade"
+        },
+        {
+          "key": "gui.thermal_shock_reforged.whisper.button_tradebuttona",
+          "en_us_value": "Buy"
+        },
+        {
+          "key": "gui.thermal_shock_reforged.whisper.button_tradebuttona1",
+          "en_us_value": "Trade"
+        }
+      ],
+      "consumer_lines": [
+        41,
+        46,
+        48
+      ]
+    },
+    "literal_page_title": {
+      "role": "MenuProvider内部标题；本Screen覆写renderLabels只画page.lines/问候，不绘制title",
+      "producer": "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperContent.java",
+      "producer_line": 41,
+      "consumer": "src/main/java/com/hp/thermalshockreforged/client/whisper/WhisperScreen.java",
+      "consumer_lines": [
+        33,
+        34,
+        35
+      ],
+      "required_new_key": false
+    },
+    "zh_cn": "本批未作汉化完整性审查，语言键存在和英文相等不证明界面全汉化。"
+  },
+  "language_increment": [],
+  "candidates": [
+    {
+      "id": "SHIFT_ORDER_8",
+      "status": "待主代理确认的具体字段差异；未修改",
+      "identities": [
+        "whisper_trade_malachite",
+        "whisper_trade_bismuth",
+        "whisper_trade_starfruit_seed",
+        "whisper_trade_lunalemon_seed",
+        "whisper_trade_cocoa",
+        "whisper_trade_pixie_bottle",
+        "whisper_trade_zenith_template",
+        "whisper_trade_disc_floor_33"
+      ],
+      "source": {
+        "paths": [
+          "world/inventory/WhisperTradeMalachiteMenu.java",
+          "world/inventory/WhisperTradeBismuthMenu.java",
+          "world/inventory/WhisperTradeStarfruitSeedMenu.java",
+          "world/inventory/WhisperTradeLunalemonSeedMenu.java",
+          "world/inventory/WhisperTradeCocoaMenu.java",
+          "world/inventory/WhisperTradePixieBottleMenu.java",
+          "world/inventory/WhisperTradeZenithTemplateMenu.java",
+          "world/inventory/WhisperTradeDiscFloor33Menu.java"
+        ],
+        "line": 125,
+        "main_to_hotbar_range": [
+          27,
+          36
+        ],
+        "reverse": true,
+        "first_empty_destination_hotbar_index": 8
+      },
+      "target": {
+        "path": "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperMenu.java",
+        "line": 91,
+        "main_to_hotbar_range": [
+          27,
+          36
+        ],
+        "reverse": false,
+        "first_empty_destination_hotbar_index": 0
+      },
+      "impact": "背包Shift进热栏时，原优先热栏最右可用格，目标优先最左；热栏回背包方向仍相同。不改变价格或产物，但不是布局/路由等价。",
+      "historical_decision_search": "第98批说明保原非对称左右路由，但未找到明确授权改变Shift落槽顺序的决定；交主代理核实。",
+      "recommendation": "只提交字段及证据，不自行修复或扩查其它NPC。"
+    }
+  ],
+  "limitations": [
+    "仅静态源码/字节码/资源机械对照，不构建、不运行游戏。",
+    "241菜单只盘点证据覆盖；子集外不因为枚举/共享helper存在而判语义通过。",
+    "既有113/98安全修复保留；语言等值literal到translatable替换不当作行为差异。",
+    "未审实体层/effect/工具/汉化；未读取用户测试目录。"
+  ]
+}

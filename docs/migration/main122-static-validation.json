@@ -1,0 +1,44 @@
+{
+  "baseline": "126114f9a99aaa14c8f001a39415835c703689a0",
+  "build": {
+    "command": "compileJava processResources --offline --max-workers=2",
+    "success": true,
+    "log": "D:\\AI临时文件\\ThermalShockMigration\\batch122-unified-build.log",
+    "sha256": "b9e656eeb2bd8e30cedffd02311331dc9791ffcb506679fb1f972b6dcc389f6e"
+  },
+  "inputs": {
+    "count": 8879,
+    "snapshot": "D:\\AI临时文件\\ThermalShockMigration\\batch122-inputs-before.json",
+    "sha256": "454a2a5790e3d6b1de893a27d7dd136c39d22e50567fa7aa447071dbd4027bb8",
+    "afterEqualsBefore": true
+  },
+  "directBuiltResourcesByteEqual": 8060,
+  "expandedTemplatesExcludedFromByteEquality": [
+    "META-INF/neoforge.mods.toml",
+    "pack.mcmeta"
+  ],
+  "aHandoffFilesHashChecked": 14,
+  "aHandoffSha256": "2bbd54e6aa8887a43dbad8fd9e8df90e2fc56b130c4d0d40d91e10d69363a5c4",
+  "localization": {
+    "englishKeys": 3486,
+    "chineseKeys": 3487,
+    "originalChineseValuesPreserved": 981,
+    "newKeyFormatMismatches": [],
+    "cameraKeysLineBreaksChecked": 86,
+    "cameraNewlineRepairs": 20,
+    "complete": false
+  },
+  "independentProductionChangeIncludedInBuildButExcludedFromBatchCommit": "src/main/java/com/hp/thermalshockreforged/entity/ribbonblade/RibbonbladeActionEntity.java",
+  "remaining": {
+    "postLoadAttributeGroups": 113,
+    "menuIdentities": 190,
+    "newKeysWithoutReliableTranslationApprox": 1967,
+    "templateExternalDynamicReachabilityOpen": true
+  },
+  "gameExecuted": false,
+  "limits": [
+    "仅证明当前固定输入构建及静态核验，整模组迁移与无简化复审仍未完成。",
+    "Ribbonblade既有并行改动保留且参与构建，不将其归入本批迁移提交。",
+    "服务端由用户独立测试线负责；完整迁移后由子代理进行客户端及Render Preview验收。"
+  ]
+}

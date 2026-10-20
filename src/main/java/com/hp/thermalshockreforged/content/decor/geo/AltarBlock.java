@@ -40,8 +40,8 @@ final class AltarBlock extends GeoDecorBlock {
         var state = owner.getAdvancements().getOrStartProgress(advancement);
         if (!state.isDone()) for (String criterion : state.getRemainingCriteria()) owner.getAdvancements().award(advancement, criterion);
         for (ServerPlayer recipient : server.players()) {
-            recipient.displayClientMessage(Component.literal("§aAll Loqendian Altars have been unlocked!"), false);
-            recipient.displayClientMessage(Component.literal("§bThe energies guarding the world's Phobotite have been diffused!"), false);
+            recipient.displayClientMessage(Component.translatable("message.thermal_shock_reforged.altar.unlocked"), false);
+            recipient.displayClientMessage(Component.translatable("message.thermal_shock_reforged.altar.phobotite_unsealed"), false);
         }
         ThermalShockReforged.LOGGER.debug("Loqendian altars unlocked: player={}, position={}, dimension={}", owner.getUUID(), pos, server.dimension().location());
         return true;

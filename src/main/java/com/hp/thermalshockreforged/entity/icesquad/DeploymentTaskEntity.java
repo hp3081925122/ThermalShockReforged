@@ -48,7 +48,7 @@ public final class DeploymentTaskEntity extends Entity implements ServerEndTickT
         if (mode == 0) {
             var pod = IceSquadContent.DROP_POD.get().spawn(server, spawn, MobSpawnType.MOB_SUMMONED);
             if (pod != null) pod.setDeltaMovement(Vec3.ZERO);
-            server.getServer().getPlayerList().broadcastSystemMessage(Component.literal("§dMessage recieved!"), false);
+            server.getServer().getPlayerList().broadcastSystemMessage(Component.translatable("message.thermal_shock_reforged.deployment.received"), false);
             ThermalShockReforged.LOGGER.debug("Blizzard pod request consumed: task={}, source={}, pod={}", getUUID(), source, pod == null ? null : pod.getUUID());
         } else {
             var gunner = IceSquadContent.GUNNER.get().spawn(server, spawn, MobSpawnType.MOB_SUMMONED);

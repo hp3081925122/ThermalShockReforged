@@ -32,7 +32,7 @@ public final class CryonicCacheBlock extends GeoDecorBlock {
     @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return new CacheBlockEntity(kind, pos, state); }
     private static void hint(Level level, BlockPos pos, Player player) {
         if (level.isClientSide) return;
-        player.displayClientMessage(Component.literal("§aThis is a Locked Cache; right click with a Key to open."), true);
+        player.displayClientMessage(Component.translatable("message.thermal_shock_reforged.cache.locked"), true);
         level.playSound(null, pos, SoundEvents.NOTE_BLOCK_BASS.value(), SoundSource.NEUTRAL, 1, 1);
     }
     @Override protected void attack(BlockState state, Level level, BlockPos pos, Player player) { super.attack(state, level, pos, player); hint(level, pos, player); }

@@ -45,7 +45,7 @@ public final class PylonActivationEntity extends Entity implements ServerEndTick
             phase = 1; remaining = 40;
             for (UUID id : recipients) {
                 var player = level.getServer().getPlayerList().getPlayer(id);
-                if (player != null) player.displayClientMessage(Component.literal("§c<§kSopel§r§c> About time you arrived. :^)"), false);
+                if (player != null) player.displayClientMessage(Component.translatable("message.thermal_shock_reforged.sopel.arrival"), false);
             }
             recipients = List.of(); ServerEndTickTasks.schedule(level, getUUID());
         } else {

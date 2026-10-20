@@ -1,0 +1,647 @@
+{
+  "batch": "a122-menu-repair",
+  "generated_utc": "2026-10-20T02:08:38.358683+00:00",
+  "baseline": "126114f9a99aaa14c8f001a39415835c703689a0",
+  "observed_head": "126114f9a99aaa14c8f001a39415835c703689a0",
+  "scope": "仅WhisperMenu修复差分、既有九页限定输入及八个原Menu class哈希轻量核对；不重跑241盘点或九页语义提取。",
+  "passed": true,
+  "checks": {
+    "baseline_menu_sha_matches_pre_repair_snapshot": true,
+    "current_menu_equals_baseline_with_only_parameter_debug_and_return_split": true,
+    "main_to_hotbar_reverse_true": true,
+    "hotbar_to_main_reverse_false_retained": true,
+    "debug_after_successful_count_change_guard": true,
+    "nine_page_other_scoped_inputs_unchanged": true,
+    "eight_original_menu_classes_and_retained_bytecode_unchanged": true
+  },
+  "repair": {
+    "path": "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperMenu.java",
+    "baseline_raw_sha256": "d0a9c13bf3f708cfa5be7df2c606ec3cff975908d008e3fd2973a8b8c06fc539",
+    "current_raw_sha256": "175aa478d8f03eb709bd51780a49e6ff90b29da4ac22459773fd24d364bc082a",
+    "exact_diff": "diff --git a/src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperMenu.java b/src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperMenu.java\nindex c304ec6..1dc012b 100644\n--- a/src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperMenu.java\n+++ b/src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperMenu.java\n@@ -88,10 +88,12 @@ public final class WhisperMenu extends AbstractContainerMenu {\n         var slot = slots.get(index);\n         if (!slot.hasItem()) return ItemStack.EMPTY;\n         var stack = slot.getItem(); var original = stack.copy();\n-        if (index < 27 ? !moveItemStackTo(stack, 27, 36, false) : !moveItemStackTo(stack, 0, 27, false)) return ItemStack.EMPTY;\n+        if (index < 27 ? !moveItemStackTo(stack, 27, 36, true) : !moveItemStackTo(stack, 0, 27, false)) return ItemStack.EMPTY;\n         if (stack.isEmpty()) slot.setByPlayer(ItemStack.EMPTY); else slot.setChanged();\n         if (stack.getCount() == original.getCount()) return ItemStack.EMPTY;\n-        slot.onTake(player, stack); return original;\n+        slot.onTake(player, stack);\n+        ThermalShockReforged.LOGGER.debug(\"Whisper quick move committed: player={}, page={}, sourceSlot={}, reverseDestination={}\", player.getUUID(), page.id, index, index < 27);\n+        return original;\n     }\n     @Override public void removed(Player player) { super.removed(player); closed = true; }\n }\n",
+    "allowed_changes": [
+      "背包到热栏reverse false改true",
+      "成功移动后英文LOGGER.debug",
+      "原onTake/return同一行拆分"
+    ],
+    "parameter_line": 91,
+    "debug_line": 95
+  },
+  "original_jar": {
+    "path": "D:\\AI临时文件\\ThermalShockMigration\\thermal_shock-07.9-original.jar",
+    "sha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436"
+  },
+  "eight_original_menu_class_checks": [
+    {
+      "identity": "whisper_trade_malachite",
+      "jar_entry": "net/mcreator/thermal_shock/world/inventory/WhisperTradeMalachiteMenu.class",
+      "previous_sha256": "24a19c9f70e812cc26829c9f9f894e005df0fd207f149d2c6f352cf3e42a5a79",
+      "current_sha256": "24a19c9f70e812cc26829c9f9f894e005df0fd207f149d2c6f352cf3e42a5a79",
+      "unchanged": true,
+      "retained_pre_repair_bytecode": "      92: iload_2\n      93: bipush        27\n      95: if_icmpge     121\n      98: aload_0\n      99: aload         5\n     101: bipush        27\n     103: aload_0\n     104: getfield      #282                // Field f_38839_:Lnet/minecraft/core/NonNullList;\n     107: invokevirtual #299                // Method net/minecraft/core/NonNullList.size:()I\n     110: iconst_1\n     111: invokevirtual #303                // Method m_38903_:(Lnet/minecraft/world/item/ItemStack;IIZ)Z\n     114: ifne          138\n     121: aload_0\n     122: aload         5\n     124: iconst_0\n     125: bipush        27\n     127: iconst_0\n     128: invokevirtual #303                // Method m_38903_:(Lnet/minecraft/world/item/ItemStack;IIZ)Z",
+      "original_main_to_hotbar_iconst_1_at_110": true,
+      "original_hotbar_to_main_iconst_0_at_127": true
+    },
+    {
+      "identity": "whisper_trade_bismuth",
+      "jar_entry": "net/mcreator/thermal_shock/world/inventory/WhisperTradeBismuthMenu.class",
+      "previous_sha256": "1586578d75a74cc51273af224aed1084476aa74912d5efdca45b8aee5f70ffda",
+      "current_sha256": "1586578d75a74cc51273af224aed1084476aa74912d5efdca45b8aee5f70ffda",
+      "unchanged": true,
+      "retained_pre_repair_bytecode": "      92: iload_2\n      93: bipush        27\n      95: if_icmpge     121\n      98: aload_0\n      99: aload         5\n     101: bipush        27\n     103: aload_0\n     104: getfield      #282                // Field f_38839_:Lnet/minecraft/core/NonNullList;\n     107: invokevirtual #299                // Method net/minecraft/core/NonNullList.size:()I\n     110: iconst_1\n     111: invokevirtual #303                // Method m_38903_:(Lnet/minecraft/world/item/ItemStack;IIZ)Z\n     114: ifne          138\n     121: aload_0\n     122: aload         5\n     124: iconst_0\n     125: bipush        27\n     127: iconst_0\n     128: invokevirtual #303                // Method m_38903_:(Lnet/minecraft/world/item/ItemStack;IIZ)Z",
+      "original_main_to_hotbar_iconst_1_at_110": true,
+      "original_hotbar_to_main_iconst_0_at_127": true
+    },
+    {
+      "identity": "whisper_trade_starfruit_seed",
+      "jar_entry": "net/mcreator/thermal_shock/world/inventory/WhisperTradeStarfruitSeedMenu.class",
+      "previous_sha256": "2cc823099a4c64f8150ecd200ab826959376348f1efcbfc2a848ab03e0038b96",
+      "current_sha256": "2cc823099a4c64f8150ecd200ab826959376348f1efcbfc2a848ab03e0038b96",
+      "unchanged": true,
+      "retained_pre_repair_bytecode": "      92: iload_2\n      93: bipush        27\n      95: if_icmpge     121\n      98: aload_0\n      99: aload         5\n     101: bipush        27\n     103: aload_0\n     104: getfield      #282                // Field f_38839_:Lnet/minecraft/core/NonNullList;\n     107: invokevirtual #299                // Method net/minecraft/core/NonNullList.size:()I\n     110: iconst_1\n     111: invokevirtual #303                // Method m_38903_:(Lnet/minecraft/world/item/ItemStack;IIZ)Z\n     114: ifne          138\n     121: aload_0\n     122: aload         5\n     124: iconst_0\n     125: bipush        27\n     127: iconst_0\n     128: invokevirtual #303                // Method m_38903_:(Lnet/minecraft/world/item/ItemStack;IIZ)Z",
+      "original_main_to_hotbar_iconst_1_at_110": true,
+      "original_hotbar_to_main_iconst_0_at_127": true
+    },
+    {
+      "identity": "whisper_trade_lunalemon_seed",
+      "jar_entry": "net/mcreator/thermal_shock/world/inventory/WhisperTradeLunalemonSeedMenu.class",
+      "previous_sha256": "0426b21b6235002fb595e09c4bd18163ee728e487ce65c73b80d3488c4d0b135",
+      "current_sha256": "0426b21b6235002fb595e09c4bd18163ee728e487ce65c73b80d3488c4d0b135",
+      "unchanged": true,
+      "retained_pre_repair_bytecode": "      92: iload_2\n      93: bipush        27\n      95: if_icmpge     121\n      98: aload_0\n      99: aload         5\n     101: bipush        27\n     103: aload_0\n     104: getfield      #282                // Field f_38839_:Lnet/minecraft/core/NonNullList;\n     107: invokevirtual #299                // Method net/minecraft/core/NonNullList.size:()I\n     110: iconst_1\n     111: invokevirtual #303                // Method m_38903_:(Lnet/minecraft/world/item/ItemStack;IIZ)Z\n     114: ifne          138\n     121: aload_0\n     122: aload         5\n     124: iconst_0\n     125: bipush        27\n     127: iconst_0\n     128: invokevirtual #303                // Method m_38903_:(Lnet/minecraft/world/item/ItemStack;IIZ)Z",
+      "original_main_to_hotbar_iconst_1_at_110": true,
+      "original_hotbar_to_main_iconst_0_at_127": true
+    },
+    {
+      "identity": "whisper_trade_cocoa",
+      "jar_entry": "net/mcreator/thermal_shock/world/inventory/WhisperTradeCocoaMenu.class",
+      "previous_sha256": "f4f4501002c605d568f3bb3d86e065ff52aedce175f20bb0758dc75302ef0384",
+      "current_sha256": "f4f4501002c605d568f3bb3d86e065ff52aedce175f20bb0758dc75302ef0384",
+      "unchanged": true,
+      "retained_pre_repair_bytecode": "      92: iload_2\n      93: bipush        27\n      95: if_icmpge     121\n      98: aload_0\n      99: aload         5\n     101: bipush        27\n     103: aload_0\n     104: getfield      #282                // Field f_38839_:Lnet/minecraft/core/NonNullList;\n     107: invokevirtual #299                // Method net/minecraft/core/NonNullList.size:()I\n     110: iconst_1\n     111: invokevirtual #303                // Method m_38903_:(Lnet/minecraft/world/item/ItemStack;IIZ)Z\n     114: ifne          138\n     121: aload_0\n     122: aload         5\n     124: iconst_0\n     125: bipush        27\n     127: iconst_0\n     128: invokevirtual #303                // Method m_38903_:(Lnet/minecraft/world/item/ItemStack;IIZ)Z",
+      "original_main_to_hotbar_iconst_1_at_110": true,
+      "original_hotbar_to_main_iconst_0_at_127": true
+    },
+    {
+      "identity": "whisper_trade_pixie_bottle",
+      "jar_entry": "net/mcreator/thermal_shock/world/inventory/WhisperTradePixieBottleMenu.class",
+      "previous_sha256": "a6e1bad97371dcb9c09e028ee3b7705ed50d62c12975b1afac065bd021ce3e2d",
+      "current_sha256": "a6e1bad97371dcb9c09e028ee3b7705ed50d62c12975b1afac065bd021ce3e2d",
+      "unchanged": true,
+      "retained_pre_repair_bytecode": "      92: iload_2\n      93: bipush        27\n      95: if_icmpge     121\n      98: aload_0\n      99: aload         5\n     101: bipush        27\n     103: aload_0\n     104: getfield      #282                // Field f_38839_:Lnet/minecraft/core/NonNullList;\n     107: invokevirtual #299                // Method net/minecraft/core/NonNullList.size:()I\n     110: iconst_1\n     111: invokevirtual #303                // Method m_38903_:(Lnet/minecraft/world/item/ItemStack;IIZ)Z\n     114: ifne          138\n     121: aload_0\n     122: aload         5\n     124: iconst_0\n     125: bipush        27\n     127: iconst_0\n     128: invokevirtual #303                // Method m_38903_:(Lnet/minecraft/world/item/ItemStack;IIZ)Z",
+      "original_main_to_hotbar_iconst_1_at_110": true,
+      "original_hotbar_to_main_iconst_0_at_127": true
+    },
+    {
+      "identity": "whisper_trade_zenith_template",
+      "jar_entry": "net/mcreator/thermal_shock/world/inventory/WhisperTradeZenithTemplateMenu.class",
+      "previous_sha256": "d2d5af7d894e12da5845e40cf9e1eb7853a68f670adba095aef3bcdbf5c4e1fd",
+      "current_sha256": "d2d5af7d894e12da5845e40cf9e1eb7853a68f670adba095aef3bcdbf5c4e1fd",
+      "unchanged": true,
+      "retained_pre_repair_bytecode": "      92: iload_2\n      93: bipush        27\n      95: if_icmpge     121\n      98: aload_0\n      99: aload         5\n     101: bipush        27\n     103: aload_0\n     104: getfield      #282                // Field f_38839_:Lnet/minecraft/core/NonNullList;\n     107: invokevirtual #299                // Method net/minecraft/core/NonNullList.size:()I\n     110: iconst_1\n     111: invokevirtual #303                // Method m_38903_:(Lnet/minecraft/world/item/ItemStack;IIZ)Z\n     114: ifne          138\n     121: aload_0\n     122: aload         5\n     124: iconst_0\n     125: bipush        27\n     127: iconst_0\n     128: invokevirtual #303                // Method m_38903_:(Lnet/minecraft/world/item/ItemStack;IIZ)Z",
+      "original_main_to_hotbar_iconst_1_at_110": true,
+      "original_hotbar_to_main_iconst_0_at_127": true
+    },
+    {
+      "identity": "whisper_trade_disc_floor_33",
+      "jar_entry": "net/mcreator/thermal_shock/world/inventory/WhisperTradeDiscFloor33Menu.class",
+      "previous_sha256": "a89a60d144facc343aa2f3942681c2fd51f37153e0fe5a800e56d1559eb3348a",
+      "current_sha256": "a89a60d144facc343aa2f3942681c2fd51f37153e0fe5a800e56d1559eb3348a",
+      "unchanged": true,
+      "retained_pre_repair_bytecode": "      92: iload_2\n      93: bipush        27\n      95: if_icmpge     121\n      98: aload_0\n      99: aload         5\n     101: bipush        27\n     103: aload_0\n     104: getfield      #282                // Field f_38839_:Lnet/minecraft/core/NonNullList;\n     107: invokevirtual #299                // Method net/minecraft/core/NonNullList.size:()I\n     110: iconst_1\n     111: invokevirtual #303                // Method m_38903_:(Lnet/minecraft/world/item/ItemStack;IIZ)Z\n     114: ifne          138\n     121: aload_0\n     122: aload         5\n     124: iconst_0\n     125: bipush        27\n     127: iconst_0\n     128: invokevirtual #303                // Method m_38903_:(Lnet/minecraft/world/item/ItemStack;IIZ)Z",
+      "original_main_to_hotbar_iconst_1_at_110": true,
+      "original_hotbar_to_main_iconst_0_at_127": true
+    }
+  ],
+  "other_scoped_input_checks": [
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/client/gui/WhisperMainScreen.java",
+      "previous_sha256": "d3145bb9cd17bfe3f18d4873af6ecb59a8c3f30d97e9de90961a504535070648",
+      "current_sha256": "d3145bb9cd17bfe3f18d4873af6ecb59a8c3f30d97e9de90961a504535070648",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/client/gui/WhisperTradeBismuthScreen.java",
+      "previous_sha256": "39da062827e7bad8f4c92b4cc7f6f1ab6d306de92622635486cf39c050bc6ac6",
+      "current_sha256": "39da062827e7bad8f4c92b4cc7f6f1ab6d306de92622635486cf39c050bc6ac6",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/client/gui/WhisperTradeCocoaScreen.java",
+      "previous_sha256": "fbb2f298d67c6f86adae7bfbd28f137fb820431ddb8d38ae9cdee65ca3366ba4",
+      "current_sha256": "fbb2f298d67c6f86adae7bfbd28f137fb820431ddb8d38ae9cdee65ca3366ba4",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/client/gui/WhisperTradeDiscFloor33Screen.java",
+      "previous_sha256": "016cd3caf96d222831dad7eea324c07e1558d92be0768baee999be415e2b45ac",
+      "current_sha256": "016cd3caf96d222831dad7eea324c07e1558d92be0768baee999be415e2b45ac",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/client/gui/WhisperTradeLunalemonSeedScreen.java",
+      "previous_sha256": "83e2eeeb2ae86dd87cb932fa462bf93d51b31bc920973eb373db780cdd14ca8d",
+      "current_sha256": "83e2eeeb2ae86dd87cb932fa462bf93d51b31bc920973eb373db780cdd14ca8d",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/client/gui/WhisperTradeMalachiteScreen.java",
+      "previous_sha256": "34d8b00cc86dd6ab1c5b8cf45a5f195a060f305e1540b9a4772eef38a0cedd0f",
+      "current_sha256": "34d8b00cc86dd6ab1c5b8cf45a5f195a060f305e1540b9a4772eef38a0cedd0f",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/client/gui/WhisperTradePixieBottleScreen.java",
+      "previous_sha256": "c8e035900f65151ada8b8f03110a0ee4b300623ae7e23828dd106b69a27f927f",
+      "current_sha256": "c8e035900f65151ada8b8f03110a0ee4b300623ae7e23828dd106b69a27f927f",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/client/gui/WhisperTradeStarfruitSeedScreen.java",
+      "previous_sha256": "95dedbcbac132db4970b7eb4ff3ce1e587ebf0689faff3696b3591129adfd1c0",
+      "current_sha256": "95dedbcbac132db4970b7eb4ff3ce1e587ebf0689faff3696b3591129adfd1c0",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/client/gui/WhisperTradeZenithTemplateScreen.java",
+      "previous_sha256": "e87d31d8fea9135a0698ea87e4b813cfe745a227d273555aebcc95395a4d9d27",
+      "current_sha256": "e87d31d8fea9135a0698ea87e4b813cfe745a227d273555aebcc95395a4d9d27",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/entity/WhisperEntity.java",
+      "previous_sha256": "2e24523f4558b06c241fa4a4fa570e7fa5662f3d1ca9498f8bd79f796bd477aa",
+      "current_sha256": "2e24523f4558b06c241fa4a4fa570e7fa5662f3d1ca9498f8bd79f796bd477aa",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/init/ThermalShockModBlocks.java",
+      "previous_sha256": "6e2903d75acfaed7948dca38194456dec4c1ebd34292a1942605817806155c1c",
+      "current_sha256": "6e2903d75acfaed7948dca38194456dec4c1ebd34292a1942605817806155c1c",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/init/ThermalShockModItems.java",
+      "previous_sha256": "f3f473d4f3002b5de54f4fad2b2b09df076686ba3c0f1772c19452bd7dd861df",
+      "current_sha256": "f3f473d4f3002b5de54f4fad2b2b09df076686ba3c0f1772c19452bd7dd861df",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/init/ThermalShockModMenus.java",
+      "previous_sha256": "b29f03319ca76d7360358b0fb103922cfb7ca92268f16fdbc4a11b0f34f52c05",
+      "current_sha256": "b29f03319ca76d7360358b0fb103922cfb7ca92268f16fdbc4a11b0f34f52c05",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/init/ThermalShockModScreens.java",
+      "previous_sha256": "a86cb1dec42842f2b405904aca45189bc4b2d6f571e7f48480de32989fd1d668",
+      "current_sha256": "a86cb1dec42842f2b405904aca45189bc4b2d6f571e7f48480de32989fd1d668",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/network/WhisperMainButtonMessage.java",
+      "previous_sha256": "49e2dfb7f358d04f0bc66a6b78b4c05b6ce24cb0edde99c64a82a2935f5af0c0",
+      "current_sha256": "49e2dfb7f358d04f0bc66a6b78b4c05b6ce24cb0edde99c64a82a2935f5af0c0",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/network/WhisperTradeBismuthButtonMessage.java",
+      "previous_sha256": "55d9be3a696d8ac62312ca0fd2433c3c427450d996a8f328ab7bbec45be71846",
+      "current_sha256": "55d9be3a696d8ac62312ca0fd2433c3c427450d996a8f328ab7bbec45be71846",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/network/WhisperTradeCocoaButtonMessage.java",
+      "previous_sha256": "3c230c518792ac9ef092bc0d5e6b9500ff667f1f117f67fb62573b6e363ad89e",
+      "current_sha256": "3c230c518792ac9ef092bc0d5e6b9500ff667f1f117f67fb62573b6e363ad89e",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/network/WhisperTradeDiscFloor33ButtonMessage.java",
+      "previous_sha256": "9474e616641f19d7f1e0b3243dcfe4a74c8b678aac02a719cb9f14943f7b932c",
+      "current_sha256": "9474e616641f19d7f1e0b3243dcfe4a74c8b678aac02a719cb9f14943f7b932c",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/network/WhisperTradeLunalemonSeedButtonMessage.java",
+      "previous_sha256": "b56e191239be948f47d8046d034b45f3ba4faab12697401baaceb939f320c83d",
+      "current_sha256": "b56e191239be948f47d8046d034b45f3ba4faab12697401baaceb939f320c83d",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/network/WhisperTradeMalachiteButtonMessage.java",
+      "previous_sha256": "d676c2460cc826ef12855fe546799339ba61b19c32cb4d2fecc4f4a8397d763c",
+      "current_sha256": "d676c2460cc826ef12855fe546799339ba61b19c32cb4d2fecc4f4a8397d763c",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/network/WhisperTradePixieBottleButtonMessage.java",
+      "previous_sha256": "281e0e3ecc37e9ade071e64810f6995ad985d29fc465dc5806b5dc42e232dcc3",
+      "current_sha256": "281e0e3ecc37e9ade071e64810f6995ad985d29fc465dc5806b5dc42e232dcc3",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/network/WhisperTradeStarfruitSeedButtonMessage.java",
+      "previous_sha256": "1f229485684582a8898804da050d9abfbd12082bcde986a71004cf05813546a2",
+      "current_sha256": "1f229485684582a8898804da050d9abfbd12082bcde986a71004cf05813546a2",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/network/WhisperTradeZenithTemplateButtonMessage.java",
+      "previous_sha256": "d053879aaa042f9dc8c7252e4040699ce728c4a618f8d63a03d1792e09fc17e9",
+      "current_sha256": "d053879aaa042f9dc8c7252e4040699ce728c4a618f8d63a03d1792e09fc17e9",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/procedures/ConciergeGUIOpenTickProcedure.java",
+      "previous_sha256": "b9524f1b663248dcc26af5fbcd513a148045abb77698287bdb6e63d1dc628de7",
+      "current_sha256": "b9524f1b663248dcc26af5fbcd513a148045abb77698287bdb6e63d1dc628de7",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/procedures/ConciergeMainThisGUIIsOpenedProcedure.java",
+      "previous_sha256": "7b50d4b77a38f77146e4cab536c088d15a790dbcf233516e047e396a81af430e",
+      "current_sha256": "7b50d4b77a38f77146e4cab536c088d15a790dbcf233516e047e396a81af430e",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/procedures/WhisBismuthBuyProcedure.java",
+      "previous_sha256": "7bc30b606322dfba297b91b2554e903a5f7a1b4c25aa124fdb7d9216dcdcd7d8",
+      "current_sha256": "7bc30b606322dfba297b91b2554e903a5f7a1b4c25aa124fdb7d9216dcdcd7d8",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/procedures/WhisCocoaBuyProcedure.java",
+      "previous_sha256": "39e477c0bdb29573d470ca7a6ddd332064b41e81a69557c725d693fc06e2a30c",
+      "current_sha256": "39e477c0bdb29573d470ca7a6ddd332064b41e81a69557c725d693fc06e2a30c",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/procedures/WhisDiscBuyProcedure.java",
+      "previous_sha256": "756ac155df5951de99f49025bc990d8bbdb49161d91d9540c55e1ab0bfff9f98",
+      "current_sha256": "756ac155df5951de99f49025bc990d8bbdb49161d91d9540c55e1ab0bfff9f98",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/procedures/WhisLunalemonBuyProcedure.java",
+      "previous_sha256": "451e8eab05e91c38178715fb5b4571276c197c7848d61954bca2b2caae198187",
+      "current_sha256": "451e8eab05e91c38178715fb5b4571276c197c7848d61954bca2b2caae198187",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/procedures/WhisMalachiteBuyProcedure.java",
+      "previous_sha256": "9cd7bb03f0c087eb90eded6dfbd09785e39e55068fdc92814e00a938e4a97712",
+      "current_sha256": "9cd7bb03f0c087eb90eded6dfbd09785e39e55068fdc92814e00a938e4a97712",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/procedures/WhisperInfoPageOpenProcedure.java",
+      "previous_sha256": "6ceebcdb37aa81f9909896888dce9a1579e8b0b58f0fe24119b65961ccc49f81",
+      "current_sha256": "6ceebcdb37aa81f9909896888dce9a1579e8b0b58f0fe24119b65961ccc49f81",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/procedures/WhisperMainOpenTickProcedure.java",
+      "previous_sha256": "86bd692618c5078a5bbbc8dc2ce7dc0992e7c5900d57bbc623c6f096209624ed",
+      "current_sha256": "86bd692618c5078a5bbbc8dc2ce7dc0992e7c5900d57bbc623c6f096209624ed",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/procedures/WhisperRightClickedOnEntityProcedure.java",
+      "previous_sha256": "603bc2dfbe9d09e0c1b5dab4f46ac56a7985c594772b7c5baf0b93bc14cfc874",
+      "current_sha256": "603bc2dfbe9d09e0c1b5dab4f46ac56a7985c594772b7c5baf0b93bc14cfc874",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/procedures/WhisperSetIntroTextProcedure.java",
+      "previous_sha256": "344f80990ea41ab143eb2613c985e32469ed7260eacff48a983ad84f8f33b789",
+      "current_sha256": "344f80990ea41ab143eb2613c985e32469ed7260eacff48a983ad84f8f33b789",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/procedures/WhisPixieBuyProcedure.java",
+      "previous_sha256": "ed9b4945c8528ca169903cd576f8b49a1832551eff99b12712c9fb6cfd81c42d",
+      "current_sha256": "ed9b4945c8528ca169903cd576f8b49a1832551eff99b12712c9fb6cfd81c42d",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/procedures/WhisStarfruitSeedBuyProcedure.java",
+      "previous_sha256": "2fb50c20b6db9873966a1f8ddb283d3c710897496e4466ae3f73216b38af9334",
+      "current_sha256": "2fb50c20b6db9873966a1f8ddb283d3c710897496e4466ae3f73216b38af9334",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/procedures/WhisTradeBismuthPageOpenProcedure.java",
+      "previous_sha256": "13afc4fea892561a575cfe2fef08092a2156c6b9c7d5383202989c7e24edbca3",
+      "current_sha256": "13afc4fea892561a575cfe2fef08092a2156c6b9c7d5383202989c7e24edbca3",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/procedures/WhisTradeCocoaPageOpenProcedure.java",
+      "previous_sha256": "c3765c3bc7d40ed85bb81fba3359efe379402f100854d0480f88736bb4b6cfee",
+      "current_sha256": "c3765c3bc7d40ed85bb81fba3359efe379402f100854d0480f88736bb4b6cfee",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/procedures/WhisTradeDiscPageOpenProcedure.java",
+      "previous_sha256": "8dabcfa61ea39557b8f7aa7f34c54c30b7c1da3ef0c2f48429621e7de13ae744",
+      "current_sha256": "8dabcfa61ea39557b8f7aa7f34c54c30b7c1da3ef0c2f48429621e7de13ae744",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/procedures/WhisTradeLunaSeedPageOpenProcedure.java",
+      "previous_sha256": "d4959412869f91432d77f1452e1a01c11c43903c40349a27ad060534cc213a0a",
+      "current_sha256": "d4959412869f91432d77f1452e1a01c11c43903c40349a27ad060534cc213a0a",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/procedures/WhisTradeMalachitePageOpenProcedure.java",
+      "previous_sha256": "d6fe97dd967ad00674d3ea303c7e546e00c9a2771f4b8569d69aa19d720a9e24",
+      "current_sha256": "d6fe97dd967ad00674d3ea303c7e546e00c9a2771f4b8569d69aa19d720a9e24",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/procedures/WhisTradePixiePageOpenProcedure.java",
+      "previous_sha256": "98058cdc372859b2e761dbf35b36237f6e00ae866affebb7203a97e41c702945",
+      "current_sha256": "98058cdc372859b2e761dbf35b36237f6e00ae866affebb7203a97e41c702945",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/procedures/WhisTradeStarSeedPageOpenProcedure.java",
+      "previous_sha256": "146aed43037d854c2a75a72b08c434fda48aae5a77aa6cc81e083613fd0a40e2",
+      "current_sha256": "146aed43037d854c2a75a72b08c434fda48aae5a77aa6cc81e083613fd0a40e2",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/procedures/WhisTradeZenithPageOpenProcedure.java",
+      "previous_sha256": "b2840c04d6885c41f2b17b6f3bed99a020e351c89603d975b4d4bb798ca62b4d",
+      "current_sha256": "b2840c04d6885c41f2b17b6f3bed99a020e351c89603d975b4d4bb798ca62b4d",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/procedures/WhisZenithBuyProcedure.java",
+      "previous_sha256": "5689aa3cfdade25b332f94fc10e4363e582b7c252187eeba5b4eb7680d048462",
+      "current_sha256": "5689aa3cfdade25b332f94fc10e4363e582b7c252187eeba5b4eb7680d048462",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/world/inventory/WhisperMainMenu.java",
+      "previous_sha256": "361f6c1a692bb3f0a65c5dd1b559e81d4eb9cd6cc770b7274da1045a4366e49f",
+      "current_sha256": "361f6c1a692bb3f0a65c5dd1b559e81d4eb9cd6cc770b7274da1045a4366e49f",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/world/inventory/WhisperTradeBismuthMenu.java",
+      "previous_sha256": "06629b9360632686237ab68d20c14c44a3cf1c3f2e4eca4f8f8d1464a77eb2bd",
+      "current_sha256": "06629b9360632686237ab68d20c14c44a3cf1c3f2e4eca4f8f8d1464a77eb2bd",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/world/inventory/WhisperTradeCocoaMenu.java",
+      "previous_sha256": "ce502bdd899ab2307b30ea5481009fb09f1b341bd5482968a9cb36607d04f226",
+      "current_sha256": "ce502bdd899ab2307b30ea5481009fb09f1b341bd5482968a9cb36607d04f226",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/world/inventory/WhisperTradeDiscFloor33Menu.java",
+      "previous_sha256": "749366c6a4c1397829cdcfb6dd43cf884d3c937f46cdfb1343bf8660713d5089",
+      "current_sha256": "749366c6a4c1397829cdcfb6dd43cf884d3c937f46cdfb1343bf8660713d5089",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/world/inventory/WhisperTradeLunalemonSeedMenu.java",
+      "previous_sha256": "7bf95829672b2701fbfd2eb1aff3ba2ad1cdc5b0370f964c77f00743e3994c05",
+      "current_sha256": "7bf95829672b2701fbfd2eb1aff3ba2ad1cdc5b0370f964c77f00743e3994c05",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/world/inventory/WhisperTradeMalachiteMenu.java",
+      "previous_sha256": "3b2eb2c0313b5fe665410102b183acbb4d3625b1523176056a3a17f44f4904dc",
+      "current_sha256": "3b2eb2c0313b5fe665410102b183acbb4d3625b1523176056a3a17f44f4904dc",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/world/inventory/WhisperTradePixieBottleMenu.java",
+      "previous_sha256": "11d4dffed31cb2fd924c6b21743933595d7ac8b1225b48d21b0a0ef5c83ecec8",
+      "current_sha256": "11d4dffed31cb2fd924c6b21743933595d7ac8b1225b48d21b0a0ef5c83ecec8",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/world/inventory/WhisperTradeStarfruitSeedMenu.java",
+      "previous_sha256": "7053663c369496fea8b3b1b4e2b0ab01c574b4467f56c4d076b1f5eba34c599c",
+      "current_sha256": "7053663c369496fea8b3b1b4e2b0ab01c574b4467f56c4d076b1f5eba34c599c",
+      "unchanged": true
+    },
+    {
+      "path": "D:/AI临时文件/ThermalShockMigration/readable/net/mcreator/thermal_shock/world/inventory/WhisperTradeZenithTemplateMenu.java",
+      "previous_sha256": "d24025e07520866407b4bf02c9a11ddd1e066529a582b985943c60a5e06de058",
+      "current_sha256": "d24025e07520866407b4bf02c9a11ddd1e066529a582b985943c60a5e06de058",
+      "unchanged": true
+    },
+    {
+      "path": "E:/模组/发cf的模组/AAA生物/Thermal Shock 重做/1211-neoforge-ThermalShockReforged/src/main/java/com/hp/thermalshockreforged/client/ClientEvents.java",
+      "previous_sha256": "f430c2014f17b523e9f5c0461e07b90eab55ee489c71eb1ceae81481fba535f5",
+      "current_sha256": "f430c2014f17b523e9f5c0461e07b90eab55ee489c71eb1ceae81481fba535f5",
+      "unchanged": true
+    },
+    {
+      "path": "E:/模组/发cf的模组/AAA生物/Thermal Shock 重做/1211-neoforge-ThermalShockReforged/src/main/java/com/hp/thermalshockreforged/client/whisper/WhisperScreen.java",
+      "previous_sha256": "fe1a32dee140891c16dd0b79ffdb9a0f9bd85636c1bc7428c072cbc46e29e252",
+      "current_sha256": "fe1a32dee140891c16dd0b79ffdb9a0f9bd85636c1bc7428c072cbc46e29e252",
+      "unchanged": true
+    },
+    {
+      "path": "E:/模组/发cf的模组/AAA生物/Thermal Shock 重做/1211-neoforge-ThermalShockReforged/src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperContent.java",
+      "previous_sha256": "db35ae201fdf75a15dec8831544c1ea6c5c281bd39892a6ebd408b09b18e70ca",
+      "current_sha256": "db35ae201fdf75a15dec8831544c1ea6c5c281bd39892a6ebd408b09b18e70ca",
+      "unchanged": true
+    },
+    {
+      "path": "E:/模组/发cf的模组/AAA生物/Thermal Shock 重做/1211-neoforge-ThermalShockReforged/src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperEntity.java",
+      "previous_sha256": "4c089310097a7916cbb5660b9d4d9865a012410687ae244009bcdaeab5779b90",
+      "current_sha256": "4c089310097a7916cbb5660b9d4d9865a012410687ae244009bcdaeab5779b90",
+      "unchanged": true
+    },
+    {
+      "path": "E:/模组/发cf的模组/AAA生物/Thermal Shock 重做/1211-neoforge-ThermalShockReforged/src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperPage.java",
+      "previous_sha256": "0e84a8150ed2f1e7cc184c34a04f67891ddf21295798af9467d915664c5acc62",
+      "current_sha256": "0e84a8150ed2f1e7cc184c34a04f67891ddf21295798af9467d915664c5acc62",
+      "unchanged": true
+    },
+    {
+      "path": "E:/模组/发cf的模组/AAA生物/Thermal Shock 重做/1211-neoforge-ThermalShockReforged/src/main/java/com/hp/thermalshockreforged/ThermalShockReforged.java",
+      "previous_sha256": "8cfac1301b2b6638874e322e1ed6190f8a168126ccc4aff9e0494848adf45f88",
+      "current_sha256": "8cfac1301b2b6638874e322e1ed6190f8a168126ccc4aff9e0494848adf45f88",
+      "unchanged": true
+    },
+    {
+      "path": "E:/模组/发cf的模组/AAA生物/Thermal Shock 重做/1211-neoforge-ThermalShockReforged/src/main/resources/assets/thermal_shock_reforged/textures/screens/atlas/imagebutton_adamantine_spice.png",
+      "previous_sha256": "24088cc9b089321dcb2669d16638bd3ce484927e1056ca4c84a7703ca787d391",
+      "current_sha256": "24088cc9b089321dcb2669d16638bd3ce484927e1056ca4c84a7703ca787d391",
+      "unchanged": true
+    },
+    {
+      "path": "E:/模组/发cf的模组/AAA生物/Thermal Shock 重做/1211-neoforge-ThermalShockReforged/src/main/resources/assets/thermal_shock_reforged/textures/screens/atlas/imagebutton_maininfobuttona.png",
+      "previous_sha256": "7c7afaddbb70b6b0f43ad046e87340dcd0100e712a5ef307ff2e46953fcc16fa",
+      "current_sha256": "7c7afaddbb70b6b0f43ad046e87340dcd0100e712a5ef307ff2e46953fcc16fa",
+      "unchanged": true
+    },
+    {
+      "path": "E:/模组/发cf的模组/AAA生物/Thermal Shock 重做/1211-neoforge-ThermalShockReforged/src/main/resources/assets/thermal_shock_reforged/textures/screens/atlas/imagebutton_tabcycleleft.png",
+      "previous_sha256": "8831c02b0fce235a48e1f600f600c73652c2aeb6c43d221264d00e5c14108761",
+      "current_sha256": "8831c02b0fce235a48e1f600f600c73652c2aeb6c43d221264d00e5c14108761",
+      "unchanged": true
+    },
+    {
+      "path": "E:/模组/发cf的模组/AAA生物/Thermal Shock 重做/1211-neoforge-ThermalShockReforged/src/main/resources/assets/thermal_shock_reforged/textures/screens/atlas/imagebutton_tradebuttona.png",
+      "previous_sha256": "6d8c2897450b0f5414ba325ddba06ca4de09deb9689b3000506c24edcd64019a",
+      "current_sha256": "6d8c2897450b0f5414ba325ddba06ca4de09deb9689b3000506c24edcd64019a",
+      "unchanged": true
+    },
+    {
+      "path": "E:/模组/发cf的模组/AAA生物/Thermal Shock 重做/1211-neoforge-ThermalShockReforged/src/main/resources/assets/thermal_shock_reforged/textures/screens/atlas/imagebutton_tradebuttona1.png",
+      "previous_sha256": "9a4da845718acc3294efd6e21e8e67064ff28b887b740f0128340c3ea830111c",
+      "current_sha256": "9a4da845718acc3294efd6e21e8e67064ff28b887b740f0128340c3ea830111c",
+      "unchanged": true
+    },
+    {
+      "path": "E:/模组/发cf的模组/AAA生物/Thermal Shock 重做/1211-neoforge-ThermalShockReforged/src/main/resources/assets/thermal_shock_reforged/textures/screens/bismuth_25.png",
+      "previous_sha256": "ed2c9ae9121278ec6ab7709fe51bcf6d972bde20a8612d7c3e472b01e57e2d4e",
+      "current_sha256": "ed2c9ae9121278ec6ab7709fe51bcf6d972bde20a8612d7c3e472b01e57e2d4e",
+      "unchanged": true
+    },
+    {
+      "path": "E:/模组/发cf的模组/AAA生物/Thermal Shock 重做/1211-neoforge-ThermalShockReforged/src/main/resources/assets/thermal_shock_reforged/textures/screens/bottled_pixie.png",
+      "previous_sha256": "d9e1a286e53d5db7a44e922834b1de6e8c28704030d0480bbe9126b2284171a1",
+      "current_sha256": "d9e1a286e53d5db7a44e922834b1de6e8c28704030d0480bbe9126b2284171a1",
+      "unchanged": true
+    },
+    {
+      "path": "E:/模组/发cf的模组/AAA生物/Thermal Shock 重做/1211-neoforge-ThermalShockReforged/src/main/resources/assets/thermal_shock_reforged/textures/screens/cocoa.png",
+      "previous_sha256": "9bdb4a18c368eb01a187ac1e7f79fd23d55407ee3d0a8d2496d193cc33af4269",
+      "current_sha256": "9bdb4a18c368eb01a187ac1e7f79fd23d55407ee3d0a8d2496d193cc33af4269",
+      "unchanged": true
+    },
+    {
+      "path": "E:/模组/发cf的模组/AAA生物/Thermal Shock 重做/1211-neoforge-ThermalShockReforged/src/main/resources/assets/thermal_shock_reforged/textures/screens/floor_33.png",
+      "previous_sha256": "276e1622fb0cd5cfa5c21929526784e774ea8bb3f51747fc3cfe8dc4332c6919",
+      "current_sha256": "276e1622fb0cd5cfa5c21929526784e774ea8bb3f51747fc3cfe8dc4332c6919",
+      "unchanged": true
+    },
+    {
+      "path": "E:/模组/发cf的模组/AAA生物/Thermal Shock 重做/1211-neoforge-ThermalShockReforged/src/main/resources/assets/thermal_shock_reforged/textures/screens/lunalemon_seed.png",
+      "previous_sha256": "a06e733971a56f5b82012f2e37fe17dac686ee9ca1f83d4651e3c6175013b1fc",
+      "current_sha256": "a06e733971a56f5b82012f2e37fe17dac686ee9ca1f83d4651e3c6175013b1fc",
+      "unchanged": true
+    },
+    {
+      "path": "E:/模组/发cf的模组/AAA生物/Thermal Shock 重做/1211-neoforge-ThermalShockReforged/src/main/resources/assets/thermal_shock_reforged/textures/screens/mainflavourboxes.png",
+      "previous_sha256": "80a2cf18e8d36b3a9b7bbe138d0fef25338fb9176daabead538c784abe941cf3",
+      "current_sha256": "80a2cf18e8d36b3a9b7bbe138d0fef25338fb9176daabead538c784abe941cf3",
+      "unchanged": true
+    },
+    {
+      "path": "E:/模组/发cf的模组/AAA生物/Thermal Shock 重做/1211-neoforge-ThermalShockReforged/src/main/resources/assets/thermal_shock_reforged/textures/screens/mainspeechbox.png",
+      "previous_sha256": "12894af8cfa75443411767e123b9c3e66c72b81b21085b2e383e5f7040bb9ea5",
+      "current_sha256": "12894af8cfa75443411767e123b9c3e66c72b81b21085b2e383e5f7040bb9ea5",
+      "unchanged": true
+    },
+    {
+      "path": "E:/模组/发cf的模组/AAA生物/Thermal Shock 重做/1211-neoforge-ThermalShockReforged/src/main/resources/assets/thermal_shock_reforged/textures/screens/malachite.png",
+      "previous_sha256": "2e6a3445eb36adee041a0261093163ae9998e565331bd75ed523b00d14e4d89e",
+      "current_sha256": "2e6a3445eb36adee041a0261093163ae9998e565331bd75ed523b00d14e4d89e",
+      "unchanged": true
+    },
+    {
+      "path": "E:/模组/发cf的模组/AAA生物/Thermal Shock 重做/1211-neoforge-ThermalShockReforged/src/main/resources/assets/thermal_shock_reforged/textures/screens/starfruit_seed.png",
+      "previous_sha256": "af8844d246d743bad3cb686b361ca0cfd267ea338c2b1dd7e2166a50a0eb0d67",
+      "current_sha256": "af8844d246d743bad3cb686b361ca0cfd267ea338c2b1dd7e2166a50a0eb0d67",
+      "unchanged": true
+    },
+    {
+      "path": "E:/模组/发cf的模组/AAA生物/Thermal Shock 重做/1211-neoforge-ThermalShockReforged/src/main/resources/assets/thermal_shock_reforged/textures/screens/whisperidleportrait.png",
+      "previous_sha256": "81cc87d72f84beb36acb1afd96195604a78f00f0a21efda439f6871aa640592f",
+      "current_sha256": "81cc87d72f84beb36acb1afd96195604a78f00f0a21efda439f6871aa640592f",
+      "unchanged": true
+    },
+    {
+      "path": "E:/模组/发cf的模组/AAA生物/Thermal Shock 重做/1211-neoforge-ThermalShockReforged/src/main/resources/assets/thermal_shock_reforged/textures/screens/whispertrademenu.png",
+      "previous_sha256": "889ea03472ac7c14241934c997699ae4eb90251498095c5e2e3ce1f06ffe76ea",
+      "current_sha256": "889ea03472ac7c14241934c997699ae4eb90251498095c5e2e3ce1f06ffe76ea",
+      "unchanged": true
+    },
+    {
+      "path": "E:/模组/发cf的模组/AAA生物/Thermal Shock 重做/1211-neoforge-ThermalShockReforged/src/main/resources/assets/thermal_shock_reforged/textures/screens/whispertrademenuextended.png",
+      "previous_sha256": "34bb6f3a998154ae1d096097e1aeb16e47c5e8d3d8503cd84d8f7f25c54d4333",
+      "current_sha256": "34bb6f3a998154ae1d096097e1aeb16e47c5e8d3d8503cd84d8f7f25c54d4333",
+      "unchanged": true
+    },
+    {
+      "path": "E:/模组/发cf的模组/AAA生物/Thermal Shock 重做/1211-neoforge-ThermalShockReforged/src/main/resources/assets/thermal_shock_reforged/textures/screens/zenith_smithing_template.png",
+      "previous_sha256": "2c860692c4b60b6d638dced266b8a33f0380282d5a84769316e8e6f8ad1e42b1",
+      "current_sha256": "2c860692c4b60b6d638dced266b8a33f0380282d5a84769316e8e6f8ad1e42b1",
+      "unchanged": true
+    }
+  ],
+  "main_owned_language_inputs": [
+    {
+      "path": "E:/模组/发cf的模组/AAA生物/Thermal Shock 重做/1211-neoforge-ThermalShockReforged/src/main/resources/assets/thermal_shock_reforged/lang/en_us.json",
+      "previous_sha256": "929fdf4edcb5499d7f76fa5b15a0fe22c2262b97a872ce47f6f131cf90aaca55",
+      "current_sha256": "929fdf4edcb5499d7f76fa5b15a0fe22c2262b97a872ce47f6f131cf90aaca55",
+      "key_count": 3486,
+      "excluded_from_unchanged_assertion": true,
+      "reason": "主线并行所有权；本次不重核语言语义或汉化完整性。"
+    },
+    {
+      "path": "E:/模组/发cf的模组/AAA生物/Thermal Shock 重做/1211-neoforge-ThermalShockReforged/src/main/resources/assets/thermal_shock_reforged/lang/zh_cn.json",
+      "previous_sha256": null,
+      "current_sha256": "4f999358b934543b8e3200aafa3cbf44e68a31c50cb446ecc6b4aa892605df71",
+      "key_count": 3487,
+      "excluded_from_unchanged_assertion": true,
+      "reason": "主线并行所有权；本次不重核语言语义或汉化完整性。"
+    }
+  ],
+  "preserved_evidence": {
+    "subset_path": "D:/AI临时文件/ThermalShockMigration/a122-menu-subset-evidence.json",
+    "subset_sha256_before": "02fae5b408874b2a097cd74e89dea9bda5664a30beb039671479d65ba2be1a73",
+    "snapshot_path": "D:/AI临时文件/ThermalShockMigration/a122-menu-input-sha.json",
+    "snapshot_sha256_before": "77a97e0861699e2959285b6d5f312c436bfaecd9baf43d16a280ac3acbfdcf33",
+    "candidate_id": "SHIFT_ORDER_8",
+    "note": "修前候选证据原样保留；本验证作为后续闭合记录，不覆盖修前参数值。",
+    "subset_sha256_after": "02fae5b408874b2a097cd74e89dea9bda5664a30beb039671479d65ba2be1a73",
+    "snapshot_sha256_after": "77a97e0861699e2959285b6d5f312c436bfaecd9baf43d16a280ac3acbfdcf33"
+  },
+  "matrix_update": {
+    "performed": true,
+    "path": "D:/AI临时文件/ThermalShockMigration/a122-menu-matrix241.json",
+    "sha256_before": "45b473b8796bb887232d2c4e42f1b5e7eae55498c30516709281a8b45dd6040f",
+    "counts_before": {
+      "已核": 43,
+      "部分": 8,
+      "待核": 190
+    },
+    "changed_identities": [
+      "whisper_trade_malachite",
+      "whisper_trade_bismuth",
+      "whisper_trade_starfruit_seed",
+      "whisper_trade_lunalemon_seed",
+      "whisper_trade_cocoa",
+      "whisper_trade_pixie_bottle",
+      "whisper_trade_zenith_template",
+      "whisper_trade_disc_floor_33"
+    ],
+    "counts_after": {
+      "已核": 51,
+      "部分": 0,
+      "待核": 190
+    },
+    "sha256_after": "ce01c74a83b3fd104dec7cf7be37338982af51f2c68d6f099d9f5805470a92c0",
+    "pre_repair_backup": "D:/AI临时文件/ThermalShockMigration/a122-menu-matrix241-before-repair.json",
+    "all_other_233_rows_unchanged": true
+  },
+  "limits": [
+    "静态修复验证，不代表游戏、网络、多玩家或实际渲染验收。",
+    "只允许临时输出；未修改生产、docs、en_us或zh_cn。",
+    "子集外190身份仍待核；不得由共享helper推定语义通过。"
+  ]
+}

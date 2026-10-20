@@ -88,10 +88,12 @@ public final class WhisperMenu extends AbstractContainerMenu {
         var slot = slots.get(index);
         if (!slot.hasItem()) return ItemStack.EMPTY;
         var stack = slot.getItem(); var original = stack.copy();
-        if (index < 27 ? !moveItemStackTo(stack, 27, 36, false) : !moveItemStackTo(stack, 0, 27, false)) return ItemStack.EMPTY;
+        if (index < 27 ? !moveItemStackTo(stack, 27, 36, true) : !moveItemStackTo(stack, 0, 27, false)) return ItemStack.EMPTY;
         if (stack.isEmpty()) slot.setByPlayer(ItemStack.EMPTY); else slot.setChanged();
         if (stack.getCount() == original.getCount()) return ItemStack.EMPTY;
-        slot.onTake(player, stack); return original;
+        slot.onTake(player, stack);
+        ThermalShockReforged.LOGGER.debug("Whisper quick move committed: player={}, page={}, sourceSlot={}, reverseDestination={}", player.getUUID(), page.id, index, index < 27);
+        return original;
     }
     @Override public void removed(Player player) { super.removed(player); closed = true; }
 }

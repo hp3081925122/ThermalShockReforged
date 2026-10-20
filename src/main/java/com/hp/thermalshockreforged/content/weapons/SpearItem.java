@@ -124,7 +124,7 @@ public final class SpearItem extends Item implements GeoItem {
             lines.add(Component.translatable("item.thermal_shock_reforged.hi_volt_lance.description_1"));
             return;
         }
-        if (kind.cryo) lines.add(Component.literal("§9- Cryo"));
+        if (kind.cryo) lines.add(Component.translatable("tooltip.thermal_shock_reforged.weapon.cryo"));
         lines.add(Component.translatable("item.thermal_shock_reforged.spear.lunge"));
     }
     public void pruneAnimations() { animations.prune(); }
