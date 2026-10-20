@@ -67,3 +67,12 @@
 A按现有分工独占group2最后23种只读复审，交付前继续计待核；主线此前group2已完成36项，因此本批主线计91/118有界配对、余27，不把A进行中算完成。语言Luna本批完成73条有源码上下文的Fabricator/Ly交易配方标签，键/英文/格式/86相机条目不变；同英文1360值仍含专名，不等同待翻译数。完整代码及无简化复审收口后才子代理客户端/Render Preview；服务端独立用户线保持不接管。粗估继续约10～15批，低置信、按真实缺项调整，不按每提交扣减。
 
 第127批构建收口：首次Java21离线compileJava/processResources实际执行通过1m23s；语言owner停笔后仅将CRLF还原基线LF，原始快照/owner哈希不改，集成zh SHA 4b902f47739b471c0a232d26ca9e09857dbeae0647a0ee340d7cafee651bca7d。固定8880输入后再次处理资源通过1m08s（Java up-to-date），8060直接资源逐字节一致；新增复审证据固定37个输入，最终报告main127-static-validation.json。服务端、客户端、Render Preview尚未由本主线执行，完整目标继续active。
+
+
+第128批：接收A127冻结23项报告，19本地配对、4精确剩余。6交接文件/44详细文件通过；4475原输入中主线本批修6份Java后，4469原样、6份从8777a2d及原行尾还原逐字节验证旧SHA，原报告不重写，修后另留新证据。主线补Skeletitan bigswing1→bigswing2和Mangler boost→stunned的具体Raw/Stage hash差，沿真实Gecko492重建与reset路径闭合，不盲加reset。
+
+生产修复：Qo恢复原客户端0.005本地随机待机，服务端120tick局部持久冷却保留；Cavebloomer四技能恢复实际SERVER END消费，保全部20发/两环/37与47节点/5次召唤时序，冷却/移动锁仍实体tick，旧elapsed存档转EndTickAge保剩余节点；24组独立队列静态轨迹及238组旧存档进度模型通过。Springslime恢复procedure2有限动画、结束后存活movement1，两controller原4tick和互斥保留，POPPED仅作一次fade防重入；Mangler死亡期间受伤保stunned视觉，游戏状态/定时仍只对存活者；Willograde恢复原主手香料资格，保实际消费栈，不扩大副手入口。
+
+动画累计115/118有界配对，余Beetle Crasher/Huntress出生首帧网络到帧边界和Willograde单controller完成/重载动画相位，见animation-main128-remaining.json。所有声画、技能实机测试与完整无简化最终门禁继续保留；本批语言文件未改、仍由独立Luna负责。服务端独立用户线不接管，完整代码与无简化复审收口后才子代理客户端/Render Preview。原总控只读保留，goal active，粗估仍低置信10～15批，不按提交机械扣减。
+
+第128批收口：固定8880份src/main输入后Java21离线compileJava/processResources成功21秒（Java实际编译，资源up-to-date），编译期间输入未变、8060直接资源字节一致。A127已停笔，主线只将其冻结报告纳入提交；原始字节快照与Git LF哈希另记，不改原A证据。main128-static-validation.json为最终阶段报告；用户测试/Ribbonblade/.vscode不纳入本次提交。

@@ -1,5 +1,6 @@
 package com.hp.thermalshockreforged.entity.springslime;
 
+import com.hp.thermalshockreforged.ThermalShockReforged;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
 import net.minecraft.server.level.ServerLevel;
@@ -30,17 +31,23 @@ public final class SpringslimeEntity extends PathfinderMob implements GeoEntity 
     @Override public void playerTouch(Player player) {
         super.playerTouch(player);
         if (!isAlive()) return;
-        if (level().isClientSide) { if (player.isLocalPlayer()) player.setDeltaMovement(0, 1.4, 0); return; }
+        if (level().isClientSide) { if (player.isLocalPlayer()) { player.setDeltaMovement(0, 1.4, 0); triggerAnim("procedure", "2"); } return; }
         if (!(level() instanceof ServerLevel server)) return;
         if (!entityData.get(POPPED)) {
             if (!SpringFadeEntity.submit(server, this)) return;
             entityData.set(POPPED, true);
         }
+        triggerAnim("procedure", "2");
+        ThermalShockReforged.LOGGER.debug("Springslime collision animation triggered: entity={}, player={}, popped={}", getUUID(), player.getUUID(), entityData.get(POPPED));
         player.setDeltaMovement(0, 1.4, 0); player.hurtMarked = true;
         server.playSound(null, getX(), getY(), getZ(), SoundEvents.SLIME_SQUISH, SoundSource.NEUTRAL, 1, 1);
     }
     @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); tag.putBoolean("SpringPopped", entityData.get(POPPED)); }
     @Override public void readAdditionalSaveData(CompoundTag tag) { super.readAdditionalSaveData(tag); if (tag.contains("Texture")) entityData.set(TEXTURE, tag.getString("Texture")); entityData.set(POPPED, tag.getBoolean("SpringPopped")); }
-    @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) { controllers.add(new AnimationController<>(this, "movement", 4, state -> entityData.get(POPPED) || isDeadOrDying() ? state.setAndContinue(RawAnimation.begin().thenPlay("2")) : state.setAndContinue(RawAnimation.begin().thenLoop("1")))); }
+    @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+        var procedure = new AnimationController<>(this, "procedure", 4, state -> PlayState.STOP).triggerableAnim("2", RawAnimation.begin().thenPlay("2"));
+        controllers.add(new AnimationController<>(this, "movement", 4, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : isDeadOrDying() ? state.setAndContinue(RawAnimation.begin().thenPlay("2")) : state.setAndContinue(RawAnimation.begin().thenLoop("1"))));
+        controllers.add(procedure);
+    }
     @Override public AnimatableInstanceCache getAnimatableInstanceCache() { return animations; }
 }

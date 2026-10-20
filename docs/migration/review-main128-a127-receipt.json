@@ -1,0 +1,64 @@
+{
+  "baseline": "8777a2d",
+  "handoff": {
+    "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\review-a127-handoff.json",
+    "sha256": "c0df91ef0c774e33277934f4efa521204862a01f8320ccb20780746d42178086"
+  },
+  "handoffFilesVerified": 6,
+  "detailFilesVerified": 44,
+  "inputFilesUnchanged": 4469,
+  "intentionalInputChanges": [
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\cavebloomer\\AngryCavebloomerEntity.java",
+      "sourceSnapshotSha256": "323beb545f5df7cee7c8cd38b4640f6b42c6fe162f0b44c538594dac3f2073b1",
+      "verifiedAgainstCommit": "8777a2d",
+      "preservedSnapshot": "D:\\AI临时文件\\ThermalShockMigration\\animation128\\a127-input-baseline\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\cavebloomer\\AngryCavebloomerEntity.java",
+      "currentSha256": "630b16a840162016dbb6d833ca42bcf6f4b3b57541153f89b6b5eaee5cf242a2",
+      "reason": "第128批主线有意修复，原A报告不重写"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\cavebloomer\\CavebloomerAttacks.java",
+      "sourceSnapshotSha256": "5a13fada8555a2057b78b6783a3167112d5fba70b1ee8e8a2b453610b05e99ff",
+      "verifiedAgainstCommit": "8777a2d",
+      "preservedSnapshot": "D:\\AI临时文件\\ThermalShockMigration\\animation128\\a127-input-baseline\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\cavebloomer\\CavebloomerAttacks.java",
+      "currentSha256": "0da81ecb7c29d93790b117955902d3e741897c41cda0afb888ba84fcd22af088",
+      "reason": "第128批主线有意修复，原A报告不重写"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\fauna\\WillogradeEntity.java",
+      "sourceSnapshotSha256": "2a9ffa8d3f24146d2eaaec03828235e461066f35f5bf04c4c496a4cc5abe3a08",
+      "verifiedAgainstCommit": "8777a2d",
+      "preservedSnapshot": "D:\\AI临时文件\\ThermalShockMigration\\animation128\\a127-input-baseline\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\fauna\\WillogradeEntity.java",
+      "currentSha256": "428cfa19b8a0974a1a6695e6962e3813e40dc9e01c7f006d68b4daf06cb31ee0",
+      "reason": "第128批主线有意修复，原A报告不重写"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\mangler\\ManglerEntity.java",
+      "sourceSnapshotSha256": "d36542a0ad4eede99465a99b733cac7d2e9499ce20d30f4e5ee8bc12884b4150",
+      "verifiedAgainstCommit": "8777a2d",
+      "preservedSnapshot": "D:\\AI临时文件\\ThermalShockMigration\\animation128\\a127-input-baseline\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\mangler\\ManglerEntity.java",
+      "currentSha256": "3be5c818f4605df2ef1245eb9bf9355f94a5b436f31b2aa58f7c3c0e576d4457",
+      "reason": "第128批主线有意修复，原A报告不重写"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\qo\\DefectorMachinistEntity.java",
+      "sourceSnapshotSha256": "bdf1e3c398a31479a51cdbe0db8bc28b80dde6f5a395363dd9b728518347d988",
+      "verifiedAgainstCommit": "8777a2d",
+      "preservedSnapshot": "D:\\AI临时文件\\ThermalShockMigration\\animation128\\a127-input-baseline\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\qo\\DefectorMachinistEntity.java",
+      "currentSha256": "262d2df81659b817022fd8b60b5646a2b49fb6b149140f4de0b6787707190e04",
+      "reason": "第128批主线有意修复，原A报告不重写"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\springslime\\SpringslimeEntity.java",
+      "sourceSnapshotSha256": "a2c425fb366e3c5ccb3cd47d3964e93c9b9dfd3712fef27d82939f48c01dba94",
+      "verifiedAgainstCommit": "8777a2d",
+      "preservedSnapshot": "D:\\AI临时文件\\ThermalShockMigration\\animation128\\a127-input-baseline\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\springslime\\SpringslimeEntity.java",
+      "currentSha256": "530dda4246e5bd8f644958777c70a5273737de979849d74322c6aaacf830c80b",
+      "reason": "第128批主线有意修复，原A报告不重写"
+    }
+  ],
+  "all4475OriginalInputsVerified": true,
+  "paired": 19,
+  "remaining": 4,
+  "runtimeExecuted": false
+}

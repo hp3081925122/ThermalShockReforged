@@ -1,0 +1,122 @@
+{
+  "baseline": "8777a2d",
+  "build": {
+    "command": "compileJava processResources --offline --max-workers=2",
+    "success": true,
+    "log": "D:\\AI临时文件\\ThermalShockMigration\\batch128-unified-build.log",
+    "sha256": "d43249aa5977f3043be65a4117d0ce2512844c617d7344d838a85c3d3a1cabb6",
+    "duration": "21s",
+    "compileJava": "实际执行",
+    "processResources": "UP-TO-DATE，资源未修改"
+  },
+  "fixedInputs": {
+    "count": 8880,
+    "snapshot": "D:\\AI临时文件\\ThermalShockMigration\\animation128\\inputs-before.json",
+    "sha256": "10018449581f4f50f3070490626c75240f7d88270af50c0eec76e4f984066101",
+    "unchanged": true
+  },
+  "directResourcesByteEqual": 8060,
+  "ownedProduction": [
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\qo\\DefectorMachinistEntity.java",
+      "sha256": "262d2df81659b817022fd8b60b5646a2b49fb6b149140f4de0b6787707190e04"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\cavebloomer\\CavebloomerAttacks.java",
+      "sha256": "0da81ecb7c29d93790b117955902d3e741897c41cda0afb888ba84fcd22af088"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\cavebloomer\\AngryCavebloomerEntity.java",
+      "sha256": "630b16a840162016dbb6d833ca42bcf6f4b3b57541153f89b6b5eaee5cf242a2"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\fauna\\WillogradeEntity.java",
+      "sha256": "428cfa19b8a0974a1a6695e6962e3813e40dc9e01c7f006d68b4daf06cb31ee0"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\mangler\\ManglerEntity.java",
+      "sha256": "3be5c818f4605df2ef1245eb9bf9355f94a5b436f31b2aa58f7c3c0e576d4457"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\springslime\\SpringslimeEntity.java",
+      "sha256": "530dda4246e5bd8f644958777c70a5273737de979849d74322c6aaacf830c80b"
+    }
+  ],
+  "languageUnchanged": true,
+  "aHandoffFilesVerified": 6,
+  "aDetailedFilesVerified": 44,
+  "aOriginalInputsVerified": 4475,
+  "intentionalMainChanges": 6,
+  "caveStaticModelCases": 24,
+  "legacySavedAgeCases": 238,
+  "cumulativeBoundedAnimationPaired": 115,
+  "animationRemaining": 3,
+  "evidence": [
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\review-main128-a127-receipt.json",
+      "sha256": "ed254bfabd318ee2b8859e6ad12f0dc3083919b8735eeb3a073a9dec3cefb229"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\animation-main128-review.json",
+      "sha256": "1f28ca764ed758aa932117d001ba301782f78ea007171eb695b0a149c2d54eb6"
+    },
+    {
+      "path": "docs\\migration\\animation-main128-remaining.json",
+      "sha256": "689ba4bf981b35b7b8aa8acf821f26eb8b439bac1b49881cadef8f0400853d45"
+    }
+  ],
+  "independentRibbonbladeIncludedButExcludedFromCommit": true,
+  "gameExecuted": false,
+  "fullMigrationComplete": false,
+  "frozenReportByteEvidence": [
+    {
+      "repositoryPath": "docs/migration/animation-a127-evidence.json",
+      "frozenRawSha256": "af4e867d146fd70fbf952a4d29a4d9a19da7ecbd17238d27f2e4fef6bc9c2313",
+      "gitLfNormalizedSha256": "ca858fa3a3471d66ed942ddab042bae072d2b1c424ad2c4ab3b22321021fb9a6",
+      "frozenRawSnapshot": "D:\\AI临时文件\\ThermalShockMigration\\animation128\\frozen-audit-reports\\animation-a127-evidence.json"
+    },
+    {
+      "repositoryPath": "docs/migration/review-a127-detail-manifest.json",
+      "frozenRawSha256": "f4f75da2dcfa4b15244787fa02d34701f84697c6e7887c9586e7a91e52c47f5c",
+      "gitLfNormalizedSha256": "4c74b9faa03e319c97000c8538125b2116e69578f23c8be32014e5bc3e02c370",
+      "frozenRawSnapshot": "D:\\AI临时文件\\ThermalShockMigration\\animation128\\frozen-audit-reports\\review-a127-detail-manifest.json"
+    },
+    {
+      "repositoryPath": "docs/migration/review-a127-plan.md",
+      "frozenRawSha256": "1234c8e79c58ff2bd48e1eb3832ac3989bc2ebd911f8167d3283d255972e1f5a",
+      "gitLfNormalizedSha256": "1234c8e79c58ff2bd48e1eb3832ac3989bc2ebd911f8167d3283d255972e1f5a",
+      "frozenRawSnapshot": "D:\\AI临时文件\\ThermalShockMigration\\animation128\\frozen-audit-reports\\review-a127-plan.md"
+    },
+    {
+      "repositoryPath": "docs/migration/review-a127-remaining.json",
+      "frozenRawSha256": "46e55c5f75f41df8fc7933cc328a71b0fb877e11872b735e1a3260f7306c54d5",
+      "gitLfNormalizedSha256": "01b2b994c7421fbcd8f5a5de5d62089bd06f900f599414388a9e09b6a46a3883",
+      "frozenRawSnapshot": "D:\\AI临时文件\\ThermalShockMigration\\animation128\\frozen-audit-reports\\review-a127-remaining.json"
+    },
+    {
+      "repositoryPath": "docs/migration/review-a127-review.md",
+      "frozenRawSha256": "6271d292faf8534b6b13f1bb2e8cbb4b2446947123a45e025fd5f350d662677d",
+      "gitLfNormalizedSha256": "6271d292faf8534b6b13f1bb2e8cbb4b2446947123a45e025fd5f350d662677d",
+      "frozenRawSnapshot": "D:\\AI临时文件\\ThermalShockMigration\\animation128\\frozen-audit-reports\\review-a127-review.md"
+    },
+    {
+      "repositoryPath": "docs/migration/review-a127-validation.json",
+      "frozenRawSha256": "832461a8615b0ee3eac87334917dd3c759313fcb1ba9866d749d09945e2e19bd",
+      "gitLfNormalizedSha256": "33f42afa4079965d60bc6cb3100cc3bd44bf0052d262473bb9d24263e7b68afe",
+      "frozenRawSnapshot": "D:\\AI临时文件\\ThermalShockMigration\\animation128\\frozen-audit-reports\\review-a127-validation.json"
+    },
+    {
+      "repositoryPath": "docs/migration/review-a127-handoff.json",
+      "frozenRawSha256": "c0df91ef0c774e33277934f4efa521204862a01f8320ccb20780746d42178086",
+      "gitLfNormalizedSha256": "49074facac79a676c9206158d15df793de54165e89da92efb0265bbddcfc1c51",
+      "frozenRawSnapshot": "D:\\AI临时文件\\ThermalShockMigration\\animation128\\frozen-audit-reports\\review-a127-handoff.json"
+    },
+    {
+      "repositoryPath": "docs/migration/animation-main127-public-integration.json",
+      "frozenRawSha256": "7a0ef659f42795f95dad7bae1848c4c3edcb14ba0e119165f8c7712f6864d48e",
+      "gitLfNormalizedSha256": "23b2b3852830241bbfde7353a2f3765aeeb9543c1029c9e716af48198349466f",
+      "frozenRawSnapshot": "D:\\AI临时文件\\ThermalShockMigration\\animation128\\frozen-audit-reports\\animation-main127-public-integration.json"
+    }
+  ],
+  "frozenReportByteNote": "原始报告保持冻结；Git按已有text属性归一LF，另保存原始快照及LF哈希，避免后续checkout将行尾变化误当报告内容漂移。"
+}

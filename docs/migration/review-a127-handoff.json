@@ -1,0 +1,44 @@
+{
+  "batch": "127A",
+  "baseline": "f0320d5e7d2acadef5593132d44bab5a347b3cc8",
+  "selected": 23,
+  "local_counts": {
+    "本地消费已配对": 19,
+    "部分": 4
+  },
+  "remaining_count": 4,
+  "files": [
+    {
+      "path": "docs/migration/animation-a127-evidence.json",
+      "sha256": "af4e867d146fd70fbf952a4d29a4d9a19da7ecbd17238d27f2e4fef6bc9c2313"
+    },
+    {
+      "path": "docs/migration/review-a127-detail-manifest.json",
+      "sha256": "f4f75da2dcfa4b15244787fa02d34701f84697c6e7887c9586e7a91e52c47f5c"
+    },
+    {
+      "path": "docs/migration/review-a127-plan.md",
+      "sha256": "1234c8e79c58ff2bd48e1eb3832ac3989bc2ebd911f8167d3283d255972e1f5a"
+    },
+    {
+      "path": "docs/migration/review-a127-remaining.json",
+      "sha256": "46e55c5f75f41df8fc7933cc328a71b0fb877e11872b735e1a3260f7306c54d5"
+    },
+    {
+      "path": "docs/migration/review-a127-review.md",
+      "sha256": "6271d292faf8534b6b13f1bb2e8cbb4b2446947123a45e025fd5f350d662677d"
+    },
+    {
+      "path": "docs/migration/review-a127-validation.json",
+      "sha256": "832461a8615b0ee3eac87334917dd3c759313fcb1ba9866d749d09945e2e19bd"
+    }
+  ],
+  "input_set_sha256": "626f184fcd5299cd043d10923726f9c0b35ff82e50f5558774521ed0f8b54ea6",
+  "manifest_excludes_itself": true,
+  "production_files_changed_by_a": [],
+  "build_by_a": false,
+  "game_by_a": false,
+  "stage_commit_by_a": false,
+  "frozen": true,
+  "remaining_matrix": "docs/migration/review-a127-remaining.json"
+}

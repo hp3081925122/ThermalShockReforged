@@ -69,9 +69,13 @@ public class ManglerEntity extends Monster implements GeoEntity, ServerEndTickTa
     }
     @Override
     public boolean hurt(DamageSource source, float amount) {
+        if (!level().isClientSide && !isRemoved()) {
+            setAnimation("stunned");
+            ThermalShockReforged.LOGGER.debug("Mangler hurt animation triggered: entity={}, summoned={}, alive={}", getUUID(), this instanceof SummonedManglerEntity, isAlive());
+        }
         if (!level().isClientSide && isAlive()) {
             combatDimension = level().dimension().location().toString(); attackCooldown = 60; stunSchedule |= 1L << 59;
-            entityData.set(COOLDOWN_VISIBLE, true); entityData.set(COOLDOWN_AMBIENT, true); setAnimation("stunned");
+            entityData.set(COOLDOWN_VISIBLE, true); entityData.set(COOLDOWN_AMBIENT, true);
             addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 60, 1, true, true));
             if (level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
             ThermalShockReforged.LOGGER.debug("Mangler stun armed: entity={}, summoned={}, pendingEndTickSlots={}", getUUID(), this instanceof SummonedManglerEntity, Long.bitCount(stunSchedule));

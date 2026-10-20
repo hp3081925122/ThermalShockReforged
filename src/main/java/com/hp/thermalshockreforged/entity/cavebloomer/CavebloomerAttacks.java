@@ -2,6 +2,8 @@ package com.hp.thermalshockreforged.entity.cavebloomer;
 
 import com.hp.thermalshockreforged.content.status.StatusContent;
 import com.hp.thermalshockreforged.entity.summon.SummonLedger;
+import com.hp.thermalshockreforged.ThermalShockReforged;
+import com.hp.thermalshockreforged.world.timing.ServerEndTickTasks;
 import java.util.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -37,40 +39,46 @@ final class CavebloomerAttacks {
             case 3 -> { cooldown = 40; var look = boss.getLookAngle(); boss.setDeltaMovement(look.x * 2.6, 1, look.z * 2.6); boss.hasImpulse = true; boss.sound(SoundEvents.FIREWORK_ROCKET_LAUNCH, 1, -3); }
         }
         updateMovementLock();
+        ServerEndTickTasks.schedule(server, boss.getUUID());
+        ThermalShockReforged.LOGGER.debug("Cavebloomer skill scheduled: caster={}, skill={}, gameTime={}, phase=server-end", boss.getUUID(), skill, server.getGameTime());
     }
     void tick(ServerLevel server) {
         if (!boss.isAlive()) { cancel(server); return; }
         if (server.getGameTime() == startedAt) return;
         if (cooldown > 0) cooldown--;
         if (movementLock > 0 && --movementLock == 0) updateMovementLock();
+    }
+    boolean pending() { return skill != -1; }
+    void endTick(ServerLevel server) {
+        if (!boss.isAlive()) { cancel(server); return; }
         if (skill == -1) return;
         age++;
         switch (skill) {
             case 0 -> {
-                if (age <= 37 && (age & 1) == 1) rapidShot(server);
-                if (age >= 37) skill = -1;
+                if (age <= 38 && (age & 1) == 0) rapidShot(server);
+                if (age >= 38) skill = -1;
             }
             case 1 -> {
-                if (age == 19) {
+                if (age == 20) {
                     boss.setAnimation("prime"); boss.sound(SoundEvents.SHULKER_SHOOT, 1, -2); ring(server, poisonRing, 1, 0.45F);
                     if (!poisonRing) skill = -1;
                 }
-                if (age == 29) { boss.sound(SoundEvents.SHULKER_SHOOT, 1, 1); ring(server, true, 1.2, 0.7F); skill = -1; }
+                if (age == 30) { boss.sound(SoundEvents.SHULKER_SHOOT, 1, 1); ring(server, true, 1.2, 0.7F); skill = -1; }
             }
             case 2 -> {
-                if (age == 36) boss.sound("cavebloomer_squeak", 0.8F, 3);
-                if (age == 46) { slam(server); skill = -1; }
+                if (age == 37) boss.sound("cavebloomer_squeak", 0.8F, 3);
+                if (age == 47) { slam(server); skill = -1; }
             }
             case 3 -> {
-                if (age == 4) {
+                if (age == 5) {
                     boss.sound("cavebloomer_squeak", 1, 1);
                     if (boss.getHealth() < boss.getMaxHealth() * 0.5) {
                         long until = SummonLedger.clock(server) + CavebloomerConfig.SUMMON_LIFETIME.get() + 8;
                         reservations.addAll(SummonLedger.get(server).reserveGroup(boss.getUUID(), 5, until, CavebloomerConfig.SUMMON_CAP.get()));
                     }
                 }
-                if (age >= 4 && age <= 12 && age % 2 == 0 && !reservations.isEmpty()) spawnDandy(server);
-                if (age >= 12) { releaseReservations(server); skill = -1; }
+                if (age >= 5 && age <= 13 && age % 2 == 1 && !reservations.isEmpty()) spawnDandy(server);
+                if (age >= 13) { releaseReservations(server); skill = -1; }
             }
         }
     }
@@ -132,12 +140,14 @@ final class CavebloomerAttacks {
     void save(CompoundTag root) {
         var tag = new CompoundTag(); tag.putInt("Skill", skill); tag.putInt("Age", age); tag.putInt("Cooldown", cooldown); tag.putInt("MovementLock", movementLock);
         tag.putLong("StartedAt", startedAt); tag.putBoolean("PoisonRing", poisonRing); tag.putDouble("TargetEyeHeight", targetEyeHeight);
+        tag.putBoolean("EndTickAge", true);
         tag.putInt("ReservationCount", reservations.size()); for (int i = 0; i < reservations.size(); i++) tag.putUUID("Reservation" + i, reservations.get(i));
         root.put("CavebloomerAttacks", tag);
     }
     void load(CompoundTag root) {
         var tag = root.getCompound("CavebloomerAttacks"); skill = tag.contains("Skill") ? Math.clamp(tag.getInt("Skill"), -1, 3) : -1;
-        age = Math.clamp(tag.getInt("Age"), 0, 46); cooldown = Math.clamp(tag.getInt("Cooldown"), 0, 90); movementLock = Math.clamp(tag.getInt("MovementLock"), 0, 75);
+        age = tag.getBoolean("EndTickAge") ? Math.clamp(tag.getInt("Age"), 0, 47) : Math.clamp(tag.getInt("Age"), 0, 46) + (skill >= 0 ? 1 : 0);
+        cooldown = Math.clamp(tag.getInt("Cooldown"), 0, 90); movementLock = Math.clamp(tag.getInt("MovementLock"), 0, 75);
         startedAt = tag.contains("StartedAt") ? tag.getLong("StartedAt") : Long.MIN_VALUE; poisonRing = tag.getBoolean("PoisonRing");
         double value = tag.getDouble("TargetEyeHeight"); targetEyeHeight = Double.isFinite(value) ? Math.clamp(value, 0, 100) : 0;
         reservations.clear(); for (int i = 0, count = Math.clamp(tag.getInt("ReservationCount"), 0, 5); i < count; i++) if (tag.hasUUID("Reservation" + i)) reservations.add(tag.getUUID("Reservation" + i));
