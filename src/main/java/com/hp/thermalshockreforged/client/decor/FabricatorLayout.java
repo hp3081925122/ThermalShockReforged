@@ -290,7 +290,7 @@ final class FabricatorLayout {
                     new Label("gui.thermal_shock_reforged.strange_cloack_page.label_slot_2_cobalt_block_x2", 14, 23, -1),
                     new Label("gui.thermal_shock_reforged.strange_cloack_page.label_slot_3_polished_permafrost_x4", 14, 32, -1)), List.of(
                     new SpriteButton(0, 174, 38, 40, 18, 0, 0, 18, "textures/screens/atlas/imagebutton_fabricator_craft_button.png", 40, 36, "gui.thermal_shock_reforged.fabricator.craft")));
-            case SILENCED_ARMOR_HELMET -> new Layout(246, 163, 0, "textures/screens/fabricator_panel.png", List.of(
+            case SILENCED_ARMOR_HELMET -> new Layout(246, 163, 1, "textures/screens/fabricator_panel.png", List.of(
                     new Label("gui.thermal_shock_reforged.silenced_helmet_page.label_fabricator_guide", 5, -13, -1),
                     new Label("gui.thermal_shock_reforged.silenced_helmet_page.label_tools", 170, -13, -1),
                     new Label("gui.thermal_shock_reforged.silenced_helmet_page.label_slot_1_cryonic_alloy_x5", 14, 14, -1),
@@ -298,7 +298,7 @@ final class FabricatorLayout {
                     new Label("gui.thermal_shock_reforged.silenced_helmet_page.label_slot_3_polished_permafrost_x4", 14, 32, -1),
                     new Label("gui.thermal_shock_reforged.silenced_helmet_page.label_corrial_diving_helmet", 14, 41, -1)), List.of(
                     new SpriteButton(0, 174, 38, 40, 18, 0, 0, 18, "textures/screens/atlas/imagebutton_fabricator_craft_button.png", 40, 36, "gui.thermal_shock_reforged.fabricator.craft")));
-            case SILENCED_ARMOR_CHESTPLATE -> new Layout(246, 163, 0, "textures/screens/fabricator_panel.png", List.of(
+            case SILENCED_ARMOR_CHESTPLATE -> new Layout(246, 163, 1, "textures/screens/fabricator_panel.png", List.of(
                     new Label("gui.thermal_shock_reforged.silenced_chestplate_page.label_fabricator_guide", 5, -13, -1),
                     new Label("gui.thermal_shock_reforged.silenced_chestplate_page.label_tools", 174, -13, -1),
                     new Label("gui.thermal_shock_reforged.silenced_chestplate_page.label_slot_1_cryonic_alloy_x5", 14, 14, -1),

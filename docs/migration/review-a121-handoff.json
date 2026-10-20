@@ -1,0 +1,112 @@
+{
+  "batch": "121A",
+  "baseline": "53d8193b657032be3153352fe3c023ef26d04ada",
+  "srcMainFrozen": true,
+  "documentsCompleteForBoundedBatch": true,
+  "files": [
+    {
+      "path": "docs/migration/fabrication-a121-evidence.json",
+      "sha256": "ae6cee10e498398d5d903e0375af6d6e7ac3b2cb1a95cbdc0bc1968eac7350a4",
+      "role": "复审文档或证据"
+    },
+    {
+      "path": "docs/migration/fabrication-a121-review.md",
+      "sha256": "5701befb141dd9136f9ec32e07a2f03790cebb92092dafe23805e7d224f23a51",
+      "role": "复审文档或证据"
+    },
+    {
+      "path": "docs/migration/menu-a121-evidence.json",
+      "sha256": "b8dd1659036d2edca4624ed2800816f9df96040f6c21d9cf46598253f25418c8",
+      "role": "复审文档或证据"
+    },
+    {
+      "path": "docs/migration/menu-a121-review.md",
+      "sha256": "1849ae05d68e999f6a0c835aacc7f28722bd53e99ea76dff82ccb2fb78e5209a",
+      "role": "复审文档或证据"
+    },
+    {
+      "path": "docs/migration/review-a121-layout-validation.json",
+      "sha256": "ec504c010ef4b4be9c98eee710018658b9ce42231723467210d4c87c6fbeee4e",
+      "role": "复审文档或证据"
+    },
+    {
+      "path": "docs/migration/review-a121-plan.md",
+      "sha256": "6e386ffa94054c91834b1a6a34e0cbefc11ec6585993fe953bc8cb0154971d1e",
+      "role": "复审文档或证据"
+    },
+    {
+      "path": "docs/migration/review-a121-validation.json",
+      "sha256": "58ae08a9b5c6dd0e44c13703a892ec5f59462ba62ae66749c90d6ac3161dbdf3",
+      "role": "复审文档或证据"
+    },
+    {
+      "path": "docs/migration/structure-a121-detail-manifest.json",
+      "sha256": "921b56715b82a79fc48b13abe80a936f4906b453832540bb7c969613b60f6d34",
+      "role": "复审文档或证据"
+    },
+    {
+      "path": "docs/migration/structure-a121-matrix.json",
+      "sha256": "de5df274b77c150579c47ed943a5dae436c709b00c79fe88589b076aff6de4a8",
+      "role": "复审文档或证据"
+    },
+    {
+      "path": "docs/migration/structure-a121-review.md",
+      "sha256": "eb1a84e73ed264241b4343b6e1bcc2e849e7b7510a1498f3ee32e4ac77392330",
+      "role": "复审文档或证据"
+    },
+    {
+      "path": "docs/migration/structure-a121-sources.json",
+      "sha256": "08869f6a674c7c77df74c2a0c00bcb63bd9a66a09d12ab978b37e1b72449b2c3",
+      "role": "复审文档或证据"
+    },
+    {
+      "path": "src/main/java/com/hp/thermalshockreforged/client/decor/FabricatorLayout.java",
+      "sha256": "7b0933aa29cc31372cc7aaa64671c3bcbfac21ac886ccd864dd678ae7be9bc1a",
+      "role": "生产"
+    }
+  ],
+  "inputSetSha256": "7d716b0dbc287193bf82fb7cd17349628b5f2c389f256f2ae9783ab744c7a0d7",
+  "manifestExcludesItself": true,
+  "productionSummary": "仅FabricatorLayout两页backgroundX从0恢复1；未改任何配方、结构、共享注册/语言/标签/根入口或用户测试目录",
+  "groups": {
+    "fabrication": {
+      "reviewer": "01a156d0-f287-75c1-9fed-a441e013859f",
+      "pages": 35,
+      "recipes": 32,
+      "materialRemovalCalls": 122,
+      "repair": "两页背景偏移已修",
+      "uncovered": [
+        "动态配方重载/多人并发/客户端预测/真实渲染及产物完整玩法仍未运行验收"
+      ]
+    },
+    "menus": {
+      "reviewer": "01a156d0-f3e1-7472-bd7c-4329d79a1b75",
+      "pages": 6,
+      "confirmedNewDefects": 0,
+      "uncovered": [
+        "其余241清单范围未全量语义复核",
+        "所有NPC及跨页完整来源图未展开",
+        "真实网络/音效/渲染未测"
+      ]
+    },
+    "structures": {
+      "reviewer": "01a156d0-f531-77c3-b4fa-38b243bc4b0c",
+      "templates": 97,
+      "sourceOnlyTemplates": 67,
+      "confirmedNewDefects": 0,
+      "uncovered": [
+        "303组属性转换未全量独立重放消费者",
+        "未执行DFU及组件Codec",
+        "67模板内部引用及外部反射/指令入口未覆盖"
+      ]
+    }
+  },
+  "validation": {
+    "staticLayout": true,
+    "evidenceHashRecheck": true,
+    "buildByA": false,
+    "game": false,
+    "render": false
+  },
+  "nextBatch": "按主线新分工空出一名Luna续状态消费者D:/AI临时文件/ThermalShockMigration/audit121-effects-hits.json，或接两目录工具总差集；另两组只接明确有界剩余。cobalt needs_iron_tool及主线29 mineable/21等级未确认差集由122继续，A本批不改共享标签。"
+}

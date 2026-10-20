@@ -645,3 +645,7 @@ undead_mobs恢复原13成员并纠正第95/112批将两Monolith原生亡灵身�
 ## 第120批收口索引
 
 第116至120批的物品/实体/资源复审、生产修复和构建证据以docs/MIGRATION_NEXT_BATCH.md及各批最终验证JSON为准。第120批两聊天采用Luna只读复审、生产聊天核实修复的分工，已修海玻璃精准采集谓词、暗钢块跨版本数量截断、长矛内部NO_MELEE参数及两戟耐久附魔标签。原资产和实体绑定已全量机械映射，但全部GUI语义、效果消费者、NBT归一和完整声画仍待后续复审，不能宣布整模组完工。统一compileJava/processResources通过；未运行游戏，服务端由用户独立测试，客户端及Render Preview完整收口后由子代理负责。
+
+## 第121批收口索引
+
+18个采集标签条目和两制作页背景偏移已恢复，统一构建及源/资源证据见main121-static-validation.json与docs/MIGRATION_NEXT_BATCH.md。整模组尚未宣告完成：结构NBT、剩余GUI、效果消费者及完整声画复审继续，最终客户端/Render Preview待收口后安排；服务端用户独立负责。

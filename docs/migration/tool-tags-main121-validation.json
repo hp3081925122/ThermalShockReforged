@@ -1,0 +1,141 @@
+{
+  "baseline": "53d8193",
+  "checks": [
+    {
+      "tag": "mineable/hoe",
+      "member": "thermal_shock_reforged:jellercel",
+      "lowerTiersDenied": []
+    },
+    {
+      "tag": "mineable/hoe",
+      "member": "thermal_shock_reforged:large_jellercel",
+      "lowerTiersDenied": []
+    },
+    {
+      "tag": "mineable/hoe",
+      "member": "thermal_shock_reforged:large_jellercell_collision",
+      "lowerTiersDenied": []
+    },
+    {
+      "tag": "mineable/pickaxe",
+      "member": "thermal_shock_reforged:capsule",
+      "lowerTiersDenied": []
+    },
+    {
+      "tag": "mineable/pickaxe",
+      "member": "thermal_shock_reforged:enchanted_cache",
+      "lowerTiersDenied": []
+    },
+    {
+      "tag": "mineable/pickaxe",
+      "member": "thermal_shock_reforged:fabricator",
+      "lowerTiersDenied": []
+    },
+    {
+      "tag": "needs_stone_tool",
+      "member": "thermal_shock_reforged:capsule",
+      "lowerTiersDenied": [
+        "wooden",
+        "gold"
+      ]
+    },
+    {
+      "tag": "needs_stone_tool",
+      "member": "thermal_shock_reforged:infested_log",
+      "lowerTiersDenied": [
+        "wooden",
+        "gold"
+      ]
+    },
+    {
+      "tag": "needs_stone_tool",
+      "member": "thermal_shock_reforged:shale_pillar",
+      "lowerTiersDenied": [
+        "wooden",
+        "gold"
+      ]
+    },
+    {
+      "tag": "needs_stone_tool",
+      "member": "thermal_shock_reforged:shale_pillar_var_2",
+      "lowerTiersDenied": [
+        "wooden",
+        "gold"
+      ]
+    },
+    {
+      "tag": "needs_stone_tool",
+      "member": "thermal_shock_reforged:shale_pillar_var_3",
+      "lowerTiersDenied": [
+        "wooden",
+        "gold"
+      ]
+    },
+    {
+      "tag": "needs_stone_tool",
+      "member": "thermal_shock_reforged:shale_pillar_var_4",
+      "lowerTiersDenied": [
+        "wooden",
+        "gold"
+      ]
+    },
+    {
+      "tag": "needs_stone_tool",
+      "member": "thermal_shock_reforged:shale_pillar_var_5",
+      "lowerTiersDenied": [
+        "wooden",
+        "gold"
+      ]
+    },
+    {
+      "tag": "needs_stone_tool",
+      "member": "thermal_shock_reforged:shale_pillar_var_6",
+      "lowerTiersDenied": [
+        "wooden",
+        "gold"
+      ]
+    },
+    {
+      "tag": "needs_stone_tool",
+      "member": "thermal_shock_reforged:shale_pillar_var_7",
+      "lowerTiersDenied": [
+        "wooden",
+        "gold"
+      ]
+    },
+    {
+      "tag": "needs_stone_tool",
+      "member": "thermal_shock_reforged:shale_pillar_var_8",
+      "lowerTiersDenied": [
+        "wooden",
+        "gold"
+      ]
+    },
+    {
+      "tag": "needs_iron_tool",
+      "member": "thermal_shock_reforged:stratus_reactor_core",
+      "lowerTiersDenied": [
+        "wooden",
+        "gold",
+        "stone"
+      ]
+    },
+    {
+      "tag": "needs_diamond_tool",
+      "member": "thermal_shock_reforged:atlas",
+      "lowerTiersDenied": [
+        "wooden",
+        "gold",
+        "stone",
+        "iron"
+      ]
+    }
+  ],
+  "count": 18,
+  "allPassed": true,
+  "minecraftClientJar": "C:\\Users\\30819\\.gradle\\caches\\neoformruntime\\artifacts\\minecraft_1.21.1_client.jar",
+  "sourceEvidence": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\tool-tags-main121-repairs.json",
+  "minecraftTagDecodeExecution": false,
+  "gameExecution": false,
+  "limits": "原生标签JSON的递归集合静态校验，不等于实际资源重载或挖掘测试；全量single/plural差集另待审计。"
+}

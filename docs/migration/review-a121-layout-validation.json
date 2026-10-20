@@ -1,0 +1,58 @@
+{
+  "baseline": "53d8193b657032be3153352fe3c023ef26d04ada",
+  "production": "src/main/java/com/hp/thermalshockreforged/client/decor/FabricatorLayout.java",
+  "beforeSha256": "40b52629cf849f6d17903e26979c4747869398c7cd723555efa02d72606254f6",
+  "afterSha256": "7b0933aa29cc31372cc7aaa64671c3bcbfac21ac886ccd864dd678ae7be9bc1a",
+  "onlyExpectedTwoConstantsChanged": true,
+  "layoutCaseCount": 35,
+  "unaffectedPageCount": 33,
+  "pages": [
+    {
+      "page": "SILENCED_ARMOR_HELMET",
+      "sourceFile": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\gui\\SilencedHelmetPageScreen.java",
+      "sourceSha256": "5d23c506e62d36596612305d5048ec77149c10c0748cf2d70cc67afeb688b832",
+      "sourceClassEntry": "net/mcreator/thermal_shock/client/gui/SilencedHelmetPageScreen.class",
+      "sourceClassSha256": "568b43c5b71c4a4cac556e896862d1ef536048942221b2ed6f6fadbc396f5ffe",
+      "sourceBackground": [
+        1,
+        0,
+        246,
+        163,
+        246,
+        163
+      ],
+      "targetBackgroundX": 1,
+      "previousBackgroundX": 0
+    },
+    {
+      "page": "SILENCED_ARMOR_CHESTPLATE",
+      "sourceFile": "D:\\AI临时文件\\ThermalShockMigration\\readable\\net\\mcreator\\thermal_shock\\client\\gui\\SilencedChestplatePageScreen.java",
+      "sourceSha256": "ded6f6b5f2d763619483a9bbe4cebd00cf112273f6058cba98a14cb0a86f4da9",
+      "sourceClassEntry": "net/mcreator/thermal_shock/client/gui/SilencedChestplatePageScreen.class",
+      "sourceClassSha256": "d1e1e3106b8e4a424ae48169ef6bfbe86b48dc273c5f18d89d7b51ef2aca0ccd",
+      "sourceBackground": [
+        1,
+        0,
+        246,
+        163,
+        246,
+        163
+      ],
+      "targetBackgroundX": 1,
+      "previousBackgroundX": 0
+    }
+  ],
+  "consumer": {
+    "path": "src/main/java/com/hp/thermalshockreforged/client/decor/FabricatorScreen.java",
+    "sha256": "dff00aeafa0eb395cce6d8d32b68a91e11b5e3eb658e785ab45e203e8d23a73d",
+    "usesPerPageBackgroundX": true
+  },
+  "validator": {
+    "path": "D:\\AI临时文件\\ThermalShockMigration\\validate-a121-layout.py",
+    "sha256": "bf69e4c7d774481bafdf3927857332156b87ffc11dd243a47cc397b7f40270b2"
+  },
+  "buildExecuted": false,
+  "gameExecuted": false,
+  "renderExecuted": false,
+  "limit": "静态精确源码差异与原坐标对照；不是Java执行、真实GUI或Render Preview截图验收"
+}

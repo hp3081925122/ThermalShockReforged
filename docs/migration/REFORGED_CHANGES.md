@@ -368,3 +368,11 @@ Qo集成保全世界共享剧情、真实16页与奖励链，服务端验证同�
 - 资产、实体绑定及状态复审纠正粒子命名空间、Sentrarius喂骨头与Sylvia隐藏HUD误报，未按过程名新造玩法。原6103资产全在、154实体/renderer及125属性目标映射均有静态证据；不等于声画已实测一致。
 
 固定输入统一Java21离线compileJava/processResources构建通过。详见main120-static-validation.json；完整客户端/Render Preview待最终迁移和复审收口，服务端由用户独立测试。
+
+### 第121批：采集标签与制作页原坐标
+
+- 恢复5份标签里18个原有效条目：三Jellercel锄类别，Capsule/EnchantedCache/Fabricator镐类别，Capsule/InfestedLog/八页岩柱石等级，Reactor核心铁等级及Atlas钻石等级。用目标原版needs→incorrect_for继承验证，原强度、附加收获条件、库存和掉落保留；不为旧未注册蓝宝石条目造方块。
+- 静默头盔和胸甲制作页恢复原leftPos+1背景绘制偏移，其余33页、全部标签/按钮/配方保持。原class字节码和实际绘制消费者已核，真实GUI截图留最终客户端验收。
+- 本批完整35页/32配方与六页Remaining/Legacy GUI有界复核有证据，未将其推广为全部241菜单或所有游戏功能通过。结构NBT候选和剩余状态/表现复审继续，不用编译成功宣称完整迁移。
+
+详见tool-tags-main121-validation.json、review-a121-layout-validation.json和main121-static-validation.json。

@@ -1,0 +1,89 @@
+{
+  "baseline": "53d8193",
+  "scope": "已证实的六个工具类型与十二个等级标签缺项，非全量注册/行为验收",
+  "files": [
+    {
+      "path": "src/main/resources/data/minecraft/tags/block/mineable/hoe.json",
+      "sourcePaths": [
+        "data/minecraft/tags/blocks/mineable/hoe.json",
+        "data/minecraft/tags/block/mineable/hoe.json"
+      ],
+      "added": [
+        "thermal_shock_reforged:jellercel",
+        "thermal_shock_reforged:large_jellercel",
+        "thermal_shock_reforged:large_jellercell_collision"
+      ],
+      "beforeSha256": "7ec0897ea83693f78f7f54f36ee72b08c92b4c2c99cffe8c10b838253a551376",
+      "sha256": "f9098d89874e9d37940fa34617a260f5e6a207181fa765c8de77bf0f920d86c3"
+    },
+    {
+      "path": "src/main/resources/data/minecraft/tags/block/mineable/pickaxe.json",
+      "sourcePaths": [
+        "data/minecraft/tags/blocks/mineable/pickaxe.json",
+        "data/minecraft/tags/block/mineable/pickaxe.json"
+      ],
+      "added": [
+        "thermal_shock_reforged:capsule",
+        "thermal_shock_reforged:enchanted_cache",
+        "thermal_shock_reforged:fabricator"
+      ],
+      "beforeSha256": "c61e9520ac5e40ae6b12b4a587152e50046a7906403ed42edd2217b5b5a93308",
+      "sha256": "6eabad772ff4570ea7dd7be1b2b5f15f4ec5f1a5f17ce916503ff47554d8a035"
+    },
+    {
+      "path": "src/main/resources/data/minecraft/tags/block/needs_stone_tool.json",
+      "sourcePaths": [
+        "data/minecraft/tags/blocks/needs_stone_tool.json",
+        "data/minecraft/tags/block/needs_stone_tool.json"
+      ],
+      "added": [
+        "thermal_shock_reforged:capsule",
+        "thermal_shock_reforged:infested_log",
+        "thermal_shock_reforged:shale_pillar",
+        "thermal_shock_reforged:shale_pillar_var_2",
+        "thermal_shock_reforged:shale_pillar_var_3",
+        "thermal_shock_reforged:shale_pillar_var_4",
+        "thermal_shock_reforged:shale_pillar_var_5",
+        "thermal_shock_reforged:shale_pillar_var_6",
+        "thermal_shock_reforged:shale_pillar_var_7",
+        "thermal_shock_reforged:shale_pillar_var_8"
+      ],
+      "beforeSha256": "a13a1e61947d9ecd5b009bfe19d50a9fb8da2d2725423a24f3b6c80ab45ef22d",
+      "sha256": "6e4488026f6e1c6c9eb53585b80dad13280abf8be191ec39bc3fe51b7eb7e395"
+    },
+    {
+      "path": "src/main/resources/data/minecraft/tags/block/needs_iron_tool.json",
+      "sourcePaths": [
+        "data/minecraft/tags/blocks/needs_iron_tool.json",
+        "data/minecraft/tags/block/needs_iron_tool.json"
+      ],
+      "added": [
+        "thermal_shock_reforged:stratus_reactor_core"
+      ],
+      "beforeSha256": "b151c937f87d9bb40a4fbb3334dd2c2ec350b94071c91823dc523f4daf6d546f",
+      "sha256": "a9756a61760c466d09eb6ebd2bb5fb871b9ff6c5e0c82ec0a6a006f898b69f63"
+    },
+    {
+      "path": "src/main/resources/data/minecraft/tags/block/needs_diamond_tool.json",
+      "sourcePaths": [
+        "data/minecraft/tags/blocks/needs_diamond_tool.json",
+        "data/minecraft/tags/block/needs_diamond_tool.json"
+      ],
+      "added": [
+        "thermal_shock_reforged:atlas"
+      ],
+      "beforeSha256": "4f8307b6c49e6623660892b52340e41f3fc7ad98af3ce414692a11184dd79051",
+      "sha256": "0b6ae43ebc20ae91655a9fef1e92d78b858dd31dcef7a8cd396ee0a34b8a7ba8"
+    }
+  ],
+  "registeredEvidence": [
+    "GeoDecorKind及GeoDecorContent保Atlas/Capsule/Fabricator/EnchantedCache/八ShalePillar/两Jellercel及Collision真实注册",
+    "TerrainContent.INFESTED_LOG与ReactorContent.CORE真实注册"
+  ],
+  "preserved": [
+    "replace:false及全部旧成员，未覆盖原生工具标签",
+    "原强度、不可破坏及掉落表/附加收获条件不变",
+    "只使用原生mineable与needs继承，不绑定Java镐/斧类型，不加专门模组兼容",
+    "needs通过1.21.1 VanillaBlockTagsProvider继承进对应incorrect_for标签，未新增不必要的重复限制"
+  ]
+}

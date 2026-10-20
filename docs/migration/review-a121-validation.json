@@ -1,0 +1,84 @@
+{
+  "baseline": "53d8193b657032be3153352fe3c023ef26d04ada",
+  "productionFrozen": true,
+  "productionFilesChangedByA": [
+    "src/main/java/com/hp/thermalshockreforged/client/decor/FabricatorLayout.java"
+  ],
+  "onlyExpectedTwoLayoutConstants": true,
+  "reviewEvidenceInputHashChecks": 284,
+  "structureTemplatesHashChecked": 97,
+  "fabrication": {
+    "pages": 35,
+    "categories": 3,
+    "recipes": 32,
+    "original_material_removal_calls": 122,
+    "original_item_identity_predicates": 122,
+    "energy_consumptions": 32,
+    "outputs": 32,
+    "png_assets": 37,
+    "all_png_byte_identical": true,
+    "unique_label_language_keys": 192,
+    "all_english_label_values_equal_original_jar": true,
+    "original_corresponding_screen_buttons": 69,
+    "target_buttons": 70,
+    "original_reachable_34_page_buttons": 68,
+    "original_jar_locale_files": [
+      "en_us.json"
+    ],
+    "target_label_keys_with_own_zh_cn": 6,
+    "target_label_keys_using_english_fallback": 186,
+    "remaining_candidates_in_this_review": []
+  },
+  "sixMenuPages": {
+    "page_count": 6,
+    "displayed_language_key_count": 33,
+    "unique_png_count": 11,
+    "locale": "en_us",
+    "excluded": [
+      "limbo_vault_gui",
+      "35 Fabricator guide pages",
+      "all other menus in the earlier 241-menu inventory",
+      "NPC-wide behavior",
+      "runtime/build/render tests",
+      "full asset audit"
+    ],
+    "limitations": [
+      "Earlier 241-menu inventory is not semantic verification.",
+      "Only the six reviewed page mappings and their displayed en_us values/direct PNGs are exported.",
+      "Current working-tree inputs are identified by hashes; HEAD alone does not identify working-tree content.",
+      "Existing batch113 output protection and network safety fixes are retained; no rollback or behavior investigation is performed by this export."
+    ]
+  },
+  "structureMechanicalCounts": {
+    "templates": 97,
+    "source_blocks": 4380315,
+    "target_blocks": 4380315,
+    "source_be": 1148,
+    "target_be": 1148,
+    "source_entities": 341,
+    "target_entities": 341,
+    "raw_namespace_diffs": 1950,
+    "source_item_stacks": 87,
+    "target_item_stacks": 48
+  },
+  "allReviewCandidateSemanticsConfirmed": false,
+  "unresolvedStructureItems": [
+    "303组属性转换未全量独立重放消费者",
+    "未执行DFU及组件Codec",
+    "67模板内部引用及外部反射/指令入口未覆盖"
+  ],
+  "buildExecutedByA": false,
+  "gameExecutedByA": false,
+  "renderExecutedByA": false,
+  "mainReportedBuild": {
+    "success": true,
+    "elapsed": "1m17s",
+    "compileJavaExecuted": true,
+    "processResourcesExecuted": true,
+    "authority": "主线回报；不冒充A独立构建或整模组运行验证"
+  },
+  "finalizer": {
+    "path": "D:\\AI临时文件\\ThermalShockMigration\\finalize-a121-review.py",
+    "sha256": "c5705cec5bbbea312d15f31b0f97a68e8a696075353a1102c7d30c9d36e3a2f8"
+  }
+}
