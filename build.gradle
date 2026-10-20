@@ -55,13 +55,22 @@ runs {
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
+// 开发辅助模组只进入本地运行类路径，不作为成品的传递依赖发布。
+configurations {
+    developmentRuntime {
+        canBeConsumed = false
+        canBeResolved = false
+    }
+    runtimeClasspath.extendsFrom developmentRuntime
+}
+
 dependencies {
     implementation "net.neoforged:neoforge:${project.neo_version}"
     implementation 'curse.maven:geckolib-388172:8350073'
     implementation 'curse.maven:aaa-particles-979809:9101011'
-    implementation "mezz.jei:jei-1.21.1-neoforge:19.27.0.346"
-    implementation "curse.maven:just-enough-characters-250702:8117474"
-    implementation "curse.maven:jade-324717:8591319"
+    developmentRuntime "mezz.jei:jei-1.21.1-neoforge:19.27.0.346"
+    developmentRuntime "curse.maven:just-enough-characters-250702:8117474"
+    developmentRuntime "curse.maven:jade-324717:8591319"
 }
 
 tasks.withType(ProcessResources).configureEach {
@@ -115,12 +124,85 @@ sourceSets {
 
 configurations {
     gametestImplementation.extendsFrom implementation
-    gametestRuntimeOnly.extendsFrom runtimeOnly
+    gametestRuntimeOnly.extendsFrom runtimeOnly, developmentRuntime
 }
 
 runs {
     gameTestServer {
         modSource sourceSets.gametest
-        systemProperty 'neoneoforge.enabledGameTestNamespaces', project.mod_id
     }
 }
+
+// 离线产物门禁检查真实成品，避免混入旧加载器、测试代码或丢失主输出。
+def verifyReleaseJar = tasks.register('verifyReleaseJar') {
+    group = 'verification'
+    description = 'Verifies the NeoForge release archive without starting Minecraft.'
+    dependsOn tasks.named('jar')
+    inputs.file(tasks.named('jar').flatMap { it.archiveFile })
+    inputs.files(sourceSets.main.output)
+    def reportFile = layout.buildDirectory.file('validation/release-jar.json')
+    outputs.file(reportFile)
+    doLast {
+        def archive = tasks.named('jar').get().archiveFile.get().asFile
+        def counts = [entries: 0, classes: 0, json: 0, matchedMainOutputs: 0]
+        new java.util.jar.JarFile(archive).withCloseable { jar ->
+            def entries = jar.entries().toList().findAll { !it.directory }
+            def names = entries.collect { it.name }
+            if (names.size() != names.toSet().size()) throw new GradleException('Duplicate release JAR entries')
+            counts.entries = names.size()
+            if (!names.contains('META-INF/neoforge.mods.toml') || names.any { it in ['META-INF/mods.toml', 'fabric.mod.json', 'quilt.mod.json'] }) {
+                throw new GradleException('Release must contain only NeoForge loader metadata')
+            }
+            if (names.any { it.endsWith('.jar') || it.endsWith('.java') || it.endsWith('.log') || it.startsWith('docs/') || it.startsWith('src/') || it.contains('/gametest/') || it.endsWith('/migration_empty.nbt') }) {
+                throw new GradleException('Development files or embedded dependencies leaked into release JAR')
+            }
+            // 检查UTF-8元数据和引用入口，不改动或省略任何原资源。
+            ['META-INF/neoforge.mods.toml', 'pack.mcmeta'].each { path ->
+                def entry = jar.getJarEntry(path)
+                if (entry == null) throw new GradleException("Missing release metadata: ${path}")
+                def value = jar.getInputStream(entry).getText('UTF-8')
+                if (value.contains('$' + '{') || value.contains('\uFFFD')) throw new GradleException("Invalid expanded metadata: ${path}")
+            }
+            def parser = new groovy.json.JsonSlurper()
+            entries.each { entry ->
+                byte[] value = jar.getInputStream(entry).bytes
+                if (entry.name.endsWith('.json') || entry.name == 'pack.mcmeta') {
+                    parser.parseText(new String(value, java.nio.charset.StandardCharsets.UTF_8))
+                    counts.json++
+                }
+                if (entry.name.endsWith('.class')) {
+                    if (!entry.name.startsWith('com/hp/thermalshockreforged/')) throw new GradleException("Unexpected bundled class: ${entry.name}")
+                    int major = ((value[6] & 255) << 8) | (value[7] & 255)
+                    if (major != 65) throw new GradleException("Release class is not Java 21: ${entry.name}")
+                    if (new String(value, java.nio.charset.StandardCharsets.ISO_8859_1).contains('net/minecraftforge/')) throw new GradleException("Forge class reference in release: ${entry.name}")
+                    counts.classes++
+                }
+            }
+            // 比较完整主输出，确保未来构建也不会静默漏打资源或类。
+            sourceSets.main.output.asFileTree.visit { detail ->
+                if (!detail.directory) {
+                    def entry = jar.getJarEntry(detail.relativePath.pathString)
+                    if (entry == null || !java.util.Arrays.equals(detail.file.bytes, jar.getInputStream(entry).bytes)) {
+                        throw new GradleException("Release differs from main output: ${detail.relativePath}")
+                    }
+                    counts.matchedMainOutputs++
+                }
+            }
+            def mixins = parser.parseText(jar.getInputStream(jar.getJarEntry(project.mod_id + '.mixins.json')).getText('UTF-8'))
+            (mixins.mixins + mixins.client).each { name ->
+                def path = mixins.package.replace('.', '/') + '/' + name + '.class'
+                if (!names.contains(path)) throw new GradleException("Missing release mixin: ${path}")
+            }
+        }
+        def output = reportFile.get().asFile
+        output.parentFile.mkdirs()
+        def result = [archive: archive.absolutePath, sha256: java.security.MessageDigest.getInstance('SHA-256').digest(archive.bytes).encodeHex().toString(), counts: counts, neoVersion: project.neo_version, gameStarted: false]
+        output.setText(groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(result)), 'UTF-8')
+        logger.lifecycle("NeoForge release archive verified: ${archive.name}")
+    }
+}
+tasks.named('check') { dependsOn verifyReleaseJar }
+
+// 本地与仓库发布共用产物门禁，避免绕过构建检查。
+tasks.withType(org.gradle.api.publish.maven.tasks.PublishToMavenRepository).configureEach { dependsOn verifyReleaseJar }
+tasks.withType(org.gradle.api.publish.maven.tasks.PublishToMavenLocal).configureEach { dependsOn verifyReleaseJar }
