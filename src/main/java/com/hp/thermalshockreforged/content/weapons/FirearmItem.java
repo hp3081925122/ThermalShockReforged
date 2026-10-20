@@ -63,10 +63,10 @@ public final class FirearmItem extends Item implements GeoItem {
     }
     @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) {
         super.appendHoverText(stack, context, lines, flag);
-        lines.add(Component.literal(hailfall ? "§9- Cryo" : "§9- Pyro"));
-        if (hailfall) lines.add(Component.literal("§c- Select Fire"));
-        lines.add(Component.literal("§9- Moderate Speed")); lines.add(Component.literal("§9- Fires §eLight Rounds"));
-        if (hailfall) lines.add(Component.literal("§9- 30% Chance not to use Ammo"));
+        lines.add(Component.translatable(hailfall ? "tooltip.thermal_shock_reforged.weapon.cryo" : "tooltip.thermal_shock_reforged.weapon.pyro"));
+        if (hailfall) lines.add(Component.translatable("tooltip.thermal_shock_reforged.weapon.select_fire"));
+        lines.add(Component.translatable("tooltip.thermal_shock_reforged.weapon.moderate_speed")); lines.add(Component.translatable("tooltip.thermal_shock_reforged.weapon.light_rounds"));
+        if (hailfall) lines.add(Component.translatable("tooltip.thermal_shock_reforged.weapon.ammo_saving"));
     }
     public void pruneAnimations() { animations.prune(); }
     public void clearAnimations() { animations.clear(); }

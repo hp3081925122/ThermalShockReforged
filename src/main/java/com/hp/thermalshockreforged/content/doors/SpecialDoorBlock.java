@@ -75,7 +75,7 @@ public class SpecialDoorBlock extends Block implements EntityBlock {
             level.playSound(null, pos, SoundEvents.MINECART_RIDING, SoundSource.NEUTRAL, 1, 1);
         } else {
             level.playSound(null, pos, SoundEvents.NOTE_BLOCK_BASS.value(), SoundSource.NEUTRAL, 1, 1);
-            player.displayClientMessage(Component.literal("\u00a7aThis door requires three Herald Keys..."), true);
+            player.displayClientMessage(Component.translatable("message.thermal_shock_reforged.door.herald_keys"), true);
         }
     }
     @Override protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {

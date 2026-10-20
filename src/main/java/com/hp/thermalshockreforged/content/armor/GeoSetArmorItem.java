@@ -42,27 +42,27 @@ public final class GeoSetArmorItem extends ArmorItem implements GeoItem {
 
     public enum Style {
         STRANGESILK("stranger_armor", "strangearmor", ""),
-        CORRIAL_DIVING("corrial_diving_helmet", "corrialdivinghelmet", "§7Grants passive Water Breathing when worn."),
-        DEV_SCARF("voidflare_scarf", "voidflarescarf", "§7Attackers have a 50% chance of getting set on fire.", "idle"),
+        CORRIAL_DIVING("corrial_diving_helmet", "corrialdivinghelmet", "tooltip.thermal_shock_reforged.armor.corrial_diving"),
+        DEV_SCARF("voidflare_scarf", "voidflarescarf", "tooltip.thermal_shock_reforged.armor.dev_scarf", "idle"),
         RUSTSILK("stranger_armor", "dweller_armor", ""),
-        RUBY("rubyarmor", "rubyarmor", "§6Set Bonus: Passive Haste I"),
-        CARBORUNDUM("carborundum_armor", "carborundum_armor", "§6Set Bonus: Low gravity!"),
-        RUBY_ZENITH("rubyarmor", "rubyarmorzenith", "§6Set Bonus: Passive Haste. Killing enemies with Ruby weapons grants a burst of Regen."),
-        BLOOD_ZENITH("bloodarmor", "bloodarmorzenith", "§6Set Bonus: Passive Resistance."),
-        BLOOD("bloodarmor", "bloodarmor", "§6Set Bonus: Passive Resistance. Carrying weapons slows the wearer down."),
-        SENTRY("sentry_armor", "sentryarmor", "§6Set Bonus: Afflicts all nearby mobs with Glowing while sneaking.", "idle");
+        RUBY("rubyarmor", "rubyarmor", "tooltip.thermal_shock_reforged.armor.ruby"),
+        CARBORUNDUM("carborundum_armor", "carborundum_armor", "tooltip.thermal_shock_reforged.armor.carborundum"),
+        RUBY_ZENITH("rubyarmor", "rubyarmorzenith", "tooltip.thermal_shock_reforged.armor.ruby_zenith"),
+        BLOOD_ZENITH("bloodarmor", "bloodarmorzenith", "tooltip.thermal_shock_reforged.armor.blood_zenith"),
+        BLOOD("bloodarmor", "bloodarmor", "tooltip.thermal_shock_reforged.armor.blood"),
+        SENTRY("sentry_armor", "sentryarmor", "tooltip.thermal_shock_reforged.armor.sentry", "idle");
 
         private final String model;
         private final String texture;
-        private final String tooltip;
+        private final String tooltipKey;
         private final String defaultAnimation;
-        Style(String model, String texture, String tooltip) {
-            this(model, texture, tooltip, "0");
+        Style(String model, String texture, String tooltipKey) {
+            this(model, texture, tooltipKey, "0");
         }
-        Style(String model, String texture, String tooltip, String defaultAnimation) {
+        Style(String model, String texture, String tooltipKey, String defaultAnimation) {
             this.model = model;
             this.texture = texture;
-            this.tooltip = tooltip;
+            this.tooltipKey = tooltipKey;
             this.defaultAnimation = defaultAnimation;
         }
     }
@@ -113,7 +113,7 @@ public final class GeoSetArmorItem extends ArmorItem implements GeoItem {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) {
         super.appendHoverText(stack, context, lines, flag);
-        if (!style.tooltip.isEmpty()) lines.add(Component.literal(style.tooltip));
+        if (!style.tooltipKey.isEmpty()) lines.add(Component.translatable(style.tooltipKey));
     }
 
     private Playback playback(software.bernie.geckolib.animation.AnimationState<GeoSetArmorItem> state) {

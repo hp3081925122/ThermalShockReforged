@@ -46,7 +46,7 @@ public class KeystonePuzzleBlock extends GeoDecorBlock {
             level.sendBlockUpdated(pos, level.getBlockState(pos), level.getBlockState(pos), 3);
             ItemHandlerHelper.giveItemToPlayer(player, new ItemStack(AtlasContent.KEYSTONE.get()));
             level.playSound(null, pos, SoundEvents.AMBIENT_CAVE.value(), SoundSource.NEUTRAL, 1, 1);
-            server.getServer().getPlayerList().broadcastSystemMessage(Component.literal("§c<§kSomeplace§r§c> You know what to do..."), false);
+            server.getServer().getPlayerList().broadcastSystemMessage(Component.translatable("message.thermal_shock_reforged.keystone.you_know"), false);
             return true;
         }
         BlockPos center = pos.offset(7, 2, 0);

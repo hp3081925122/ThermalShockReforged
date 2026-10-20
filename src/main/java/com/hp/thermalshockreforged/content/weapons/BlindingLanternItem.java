@@ -38,7 +38,7 @@ public final class BlindingLanternItem extends Item implements GeoItem {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) {
         super.appendHoverText(stack, context, lines, flag);
-        lines.add(Component.literal("§7Stuns and damages nearby mobs."));
+        lines.add(Component.translatable("tooltip.thermal_shock_reforged.blinding_lantern.effect"));
     }
 
     @Override

@@ -1,0 +1,131 @@
+{
+  "cause": "中文值含双重转义换行；CameraCatalog将其直接交给Component.translatable显示，没有转义解码步骤。",
+  "consumer": "src/main/java/com/hp/thermalshockreforged/content/camera/CameraCatalog.java:101",
+  "beforeSha256": "4f999358b934543b8e3200aafa3cbf44e68a31c50cb446ecc6b4aa892605df71",
+  "afterSha256": "24ca0d5e17b696e1b6dc764db4e80fb355ecf9b92f516affdb52edbe17070cea",
+  "repairs": [
+    {
+      "key": "camera.thermal_shock_reforged.catalog.maiden",
+      "before": "§a\"Maiden.\" §r受诅咒的刑具\\n类型：小型机械造物\\n§a弱点：氯属性",
+      "after": "§a\"Maiden.\" §r受诅咒的刑具\n类型：小型机械造物\n§a弱点：氯属性",
+      "lineBreaks": 2
+    },
+    {
+      "key": "camera.thermal_shock_reforged.catalog.probosker",
+      "before": "§a\"Probosker.\" §r爱吃鱼的可爱森林小动物\\n类型：小型昆虫",
+      "after": "§a\"Probosker.\" §r爱吃鱼的可爱森林小动物\n类型：小型昆虫",
+      "lineBreaks": 1
+    },
+    {
+      "key": "camera.thermal_shock_reforged.catalog.snobol",
+      "before": "§a\"Snobol.\" §r适应能力极强的双足昆虫\\n类型：小型昆虫",
+      "after": "§a\"Snobol.\" §r适应能力极强的双足昆虫\n类型：小型昆虫",
+      "lineBreaks": 1
+    },
+    {
+      "key": "camera.thermal_shock_reforged.catalog.explosive_snobol",
+      "before": "§a\"Explosive Snobol.\" §r你怎么能这样！！！！！！！！！\\n类型：小型昆虫",
+      "after": "§a\"Explosive Snobol.\" §r你怎么能这样！！！！！！！！！\n类型：小型昆虫",
+      "lineBreaks": 1
+    },
+    {
+      "key": "camera.thermal_shock_reforged.catalog.razorwing",
+      "before": "§a\"Razorwing,\" §r高大的不会飞的虫子，是迷途旅人的理想坐骑\\n类型：小型昆虫",
+      "after": "§a\"Razorwing,\" §r高大的不会飞的虫子，是迷途旅人的理想坐骑\n类型：小型昆虫",
+      "lineBreaks": 1
+    },
+    {
+      "key": "camera.thermal_shock_reforged.catalog.trilobite",
+      "before": "§a\"Trilobite.\" §r无翅滑翔虫，常睡在花盆和炼药锅里\\n类型：小型昆虫",
+      "after": "§a\"Trilobite.\" §r无翅滑翔虫，常睡在花盆和炼药锅里\n类型：小型昆虫",
+      "lineBreaks": 1
+    },
+    {
+      "key": "camera.thermal_shock_reforged.catalog.sentrarius",
+      "before": "§a\"Sentrapede.\" §r温顺的长角昆虫，以骨头为食\\n类型：小型昆虫",
+      "after": "§a\"Sentrapede.\" §r温顺的长角昆虫，以骨头为食\n类型：小型昆虫",
+      "lineBreaks": 1
+    },
+    {
+      "key": "camera.thermal_shock_reforged.catalog.willograde",
+      "before": "§a\"Roly Poly.\" §r擅长防御的重型虫子，喜欢香料和挖掘\\n类型：小型昆虫",
+      "after": "§a\"Roly Poly.\" §r擅长防御的重型虫子，喜欢香料和挖掘\n类型：小型昆虫",
+      "lineBreaks": 1
+    },
+    {
+      "key": "camera.thermal_shock_reforged.catalog.cerulean_jellercel",
+      "before": "§a\"Jellercel.\" §r腿太多了\\n类型：小型昆虫",
+      "after": "§a\"Jellercel.\" §r腿太多了\n类型：小型昆虫",
+      "lineBreaks": 1
+    },
+    {
+      "key": "camera.thermal_shock_reforged.catalog.aerocel",
+      "before": "§a\"Aerocel.\" §r总是面带微笑\\n类型：中型昆虫",
+      "after": "§a\"Aerocel.\" §r总是面带微笑\n类型：中型昆虫",
+      "lineBreaks": 1
+    },
+    {
+      "key": "camera.thermal_shock_reforged.catalog.chilloo",
+      "before": "§a\"Chilloo.\" §r冷得刺骨，却很讨人喜欢\\n类型：小型昆虫",
+      "after": "§a\"Chilloo.\" §r冷得刺骨，却很讨人喜欢\n类型：小型昆虫",
+      "lineBreaks": 1
+    },
+    {
+      "key": "camera.thermal_shock_reforged.catalog.louse",
+      "before": "§a\"Louse.\" §r嗯，昆虫……哈啊啊啊啊啊\\n类型：小型昆虫",
+      "after": "§a\"Louse.\" §r嗯，昆虫……哈啊啊啊啊啊\n类型：小型昆虫",
+      "lineBreaks": 1
+    },
+    {
+      "key": "camera.thermal_shock_reforged.catalog.glastrekker",
+      "before": "§a\"Glastrekker.\" §r大步向前\\n类型：中型鱼类",
+      "after": "§a\"Glastrekker.\" §r大步向前\n类型：中型鱼类",
+      "lineBreaks": 1
+    },
+    {
+      "key": "camera.thermal_shock_reforged.catalog.pixie",
+      "before": "§a\"Pixie.\" §r来自洛肯迪亚失落小行星带的发光昆虫\\n类型：小型昆虫",
+      "after": "§a\"Pixie.\" §r来自洛肯迪亚失落小行星带的发光昆虫\n类型：小型昆虫",
+      "lineBreaks": 1
+    },
+    {
+      "key": "camera.thermal_shock_reforged.catalog.pillbud",
+      "before": "§a\"Pillbud.\" §r流行歌剧——啊——啊！\\n类型：小型植物\\n§c抗性：氯属性",
+      "after": "§a\"Pillbud.\" §r流行歌剧——啊——啊！\n类型：小型植物\n§c抗性：氯属性",
+      "lineBreaks": 2
+    },
+    {
+      "key": "camera.thermal_shock_reforged.catalog.gelshooter",
+      "before": "§a\"Gelshooter.\" §r掘墓者……要来了啊啊啊啊啊\\n类型：小型植物\\n§c抗性：氯属性",
+      "after": "§a\"Gelshooter.\" §r掘墓者……要来了啊啊啊啊啊\n类型：小型植物\n§c抗性：氯属性",
+      "lineBreaks": 2
+    },
+    {
+      "key": "camera.thermal_shock_reforged.catalog.tesla_reed",
+      "before": "§a\"Tesla Reed.\" §r喜欢钢琴声\\n类型：小型植物\\n§c抗性：氯属性",
+      "after": "§a\"Tesla Reed.\" §r喜欢钢琴声\n类型：小型植物\n§c抗性：氯属性",
+      "lineBreaks": 2
+    },
+    {
+      "key": "camera.thermal_shock_reforged.catalog.gardenling",
+      "before": "§a\"Gardenling.\" §r帮助古老植物在寒冷中生长\\n类型：小型植物\\n§c抗性：氯属性",
+      "after": "§a\"Gardenling.\" §r帮助古老植物在寒冷中生长\n类型：小型植物\n§c抗性：氯属性",
+      "lineBreaks": 2
+    },
+    {
+      "key": "camera.thermal_shock_reforged.catalog.crystal_koi",
+      "before": "§a\"Crystal Koi.\" §r花园各处都能找到的闪亮鱼类\\n类型：小型鱼类",
+      "after": "§a\"Crystal Koi.\" §r花园各处都能找到的闪亮鱼类\n类型：小型鱼类",
+      "lineBreaks": 1
+    },
+    {
+      "key": "camera.thermal_shock_reforged.catalog.chromefish",
+      "before": "§a\"Chromefish.\" §r别拿你那只大眼睛盯着我！\\n类型：小型鱼类",
+      "after": "§a\"Chromefish.\" §r别拿你那只大眼睛盯着我！\n类型：小型鱼类",
+      "lineBreaks": 1
+    }
+  ],
+  "count": 20,
+  "gameExecuted": false,
+  "limits": "只核资源解析后的实际换行与原英文相同，真实多行显示和中文布局仍待客户端验收。"
+}

@@ -1,0 +1,23 @@
+{
+  "baseline": "126114f",
+  "member": "thermal_shock_reforged:cobalt",
+  "originalSources": [
+    "data/minecraft/tags/block/needs_iron_tool.json"
+  ],
+  "targetFile": "src/main/resources/data/minecraft/tags/block/needs_iron_tool.json",
+  "targetSha256": "1f15861134c5e3389d8cadd2f23c5417da2b6e4a3b86e6d7f740a8dd6f776dba",
+  "registeredBy": "content/terrain/TerrainContent.java:44",
+  "requiresCorrectToolForDrops": "content/terrain/TerrainContent.java:106",
+  "nativeMineablePickaxe": true,
+  "lowerTiersDenied": [
+    "wooden",
+    "gold",
+    "stone"
+  ],
+  "ironAndHigherNotDeniedByNativeTagClosure": true,
+  "gameExecuted": false,
+  "limitations": [
+    "静态原生JSON标签递归闭包，未执行游戏资源Codec或实际挖掘。",
+    "仅恢复原铁级要求，不改硬度、掉落和第三方工具适配。"
+  ]
+}

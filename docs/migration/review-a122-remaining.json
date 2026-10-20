@@ -1,0 +1,2493 @@
+{
+  "baseline": "126114f9a99aaa14c8f001a39415835c703689a0",
+  "attributes": {
+    "formatReadPathGroups": 303,
+    "notRuntimeVerified": 303,
+    "postLoadFinalValueOpenGroups": 113,
+    "defaultDifferentSavedRows": 0,
+    "handoffOwner": "mainline_entity_layer",
+    "matrix": "attributes-a122-post-load.json"
+  },
+  "templates": {
+    "count": 67,
+    "allExternalDynamicReachabilityOpen": true,
+    "classificationCounts": {
+      "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded": 64,
+      "same_named_pool_routes_to_orb_sanctum_not_this_nbt": 1,
+      "model_or_renderer_resource_name_not_template_load": 1,
+      "structure_block_SAVE_names_minecraft_namespace_not_load_entry": 1
+    },
+    "rows": [
+      {
+        "template": "archive_sanctum",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": [
+          {
+            "path": "/palette/40/Name",
+            "id": "untagged_mobs:forcefield",
+            "status": "external_namespace_dependency_not_a_target_mod_missing_id_claim",
+            "kind": "Blocks"
+          },
+          {
+            "path": "/entities/0/nbt/id",
+            "id": "automobility:automobile",
+            "kind": "Entities",
+            "status": "external_namespace_dependency_not_a_target_mod_missing_id_claim"
+          }
+        ]
+      },
+      {
+        "template": "bigdungeon",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": [
+          {
+            "path": "/blocks/9470/nbt/SpawnData/entity/id",
+            "id": "thermal_shock:chorpse",
+            "kind": "Entities",
+            "block_index": 9470,
+            "pos": [
+              13,
+              1,
+              13
+            ],
+            "palette_state": 13,
+            "status": "source_id_registration_unconfirmed_no_alias_inferred"
+          },
+          {
+            "path": "/entities/0/nbt/id",
+            "id": "thermal_shock:chorpse",
+            "kind": "Entities",
+            "status": "source_id_registration_unconfirmed_no_alias_inferred"
+          },
+          {
+            "path": "/entities/2/nbt/id",
+            "id": "thermal_shock:chorpse",
+            "kind": "Entities",
+            "status": "source_id_registration_unconfirmed_no_alias_inferred"
+          }
+        ]
+      },
+      {
+        "template": "blizzard_sanctum",
+        "classification": "same_named_pool_routes_to_orb_sanctum_not_this_nbt",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "blizzardtower",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "bonebridge1",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "bonebridge2",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "boxdungeon",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": [
+          {
+            "path": "/blocks/1010/nbt/SpawnData/entity/id",
+            "id": "thermal_shock:chorpse",
+            "kind": "Entities",
+            "block_index": 1010,
+            "pos": [
+              4,
+              1,
+              8
+            ],
+            "palette_state": 14,
+            "status": "source_id_registration_unconfirmed_no_alias_inferred"
+          }
+        ]
+      },
+      {
+        "template": "bulbceiling",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "cachechamber1",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "cachechamberalt",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "campbig",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": [
+          {
+            "path": "/palette/21/Name",
+            "id": "thermal_shock:loque_bush",
+            "status": "source_id_registration_unconfirmed_no_alias_inferred",
+            "kind": "Blocks"
+          }
+        ]
+      },
+      {
+        "template": "displaced_chamber",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "ferrousaltar",
+        "classification": "model_or_renderer_resource_name_not_template_load",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "frostboulderbig",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "frostbouldersmall",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "geysercluster",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "gianthand1",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "gianthand2",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "giantrib",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "gianttooth",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "glaukobig1",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "glaukobig2",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "glaukotree1",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "glaukotree2",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "glaukotree3",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "glaukotree4",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "glaukotree5",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "hallowed_town",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "huntressnest",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "keystonechamberalt",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": [
+          {
+            "path": "/palette/29/Name",
+            "id": "thermal_shock:blue_mantlestone_lever",
+            "status": "source_id_registration_unconfirmed_no_alias_inferred",
+            "kind": "Blocks"
+          },
+          {
+            "path": "/palette/30/Name",
+            "id": "thermal_shock:blue_mantlestone_lever",
+            "status": "source_id_registration_unconfirmed_no_alias_inferred",
+            "kind": "Blocks"
+          },
+          {
+            "path": "/palette/32/Name",
+            "id": "thermal_shock:red_mantlestone_lever",
+            "status": "source_id_registration_unconfirmed_no_alias_inferred",
+            "kind": "Blocks"
+          },
+          {
+            "path": "/palette/33/Name",
+            "id": "thermal_shock:red_mantlestone_lever",
+            "status": "source_id_registration_unconfirmed_no_alias_inferred",
+            "kind": "Blocks"
+          },
+          {
+            "path": "/blocks/13119/nbt/id",
+            "id": "thermal_shock:blue_mantlestone_lever",
+            "kind": "BlockEntities",
+            "block_index": 13119,
+            "pos": [
+              5,
+              9,
+              5
+            ],
+            "palette_state": 29,
+            "status": "source_id_registration_unconfirmed_no_alias_inferred"
+          },
+          {
+            "path": "/blocks/13120/nbt/id",
+            "id": "thermal_shock:blue_mantlestone_lever",
+            "kind": "BlockEntities",
+            "block_index": 13120,
+            "pos": [
+              5,
+              9,
+              19
+            ],
+            "palette_state": 30,
+            "status": "source_id_registration_unconfirmed_no_alias_inferred"
+          },
+          {
+            "path": "/blocks/13122/nbt/id",
+            "id": "thermal_shock:red_mantlestone_lever",
+            "kind": "BlockEntities",
+            "block_index": 13122,
+            "pos": [
+              19,
+              9,
+              5
+            ],
+            "palette_state": 32,
+            "status": "source_id_registration_unconfirmed_no_alias_inferred"
+          },
+          {
+            "path": "/blocks/13123/nbt/id",
+            "id": "thermal_shock:red_mantlestone_lever",
+            "kind": "BlockEntities",
+            "block_index": 13123,
+            "pos": [
+              19,
+              9,
+              19
+            ],
+            "palette_state": 33,
+            "status": "source_id_registration_unconfirmed_no_alias_inferred"
+          }
+        ]
+      },
+      {
+        "template": "loquebirchtree_a",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": [
+          {
+            "path": "/palette/2/Name",
+            "id": "thermal_shock:autumn_leaves",
+            "status": "source_id_registration_unconfirmed_no_alias_inferred",
+            "kind": "Blocks"
+          }
+        ]
+      },
+      {
+        "template": "loquebirchtree_b",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": [
+          {
+            "path": "/palette/2/Name",
+            "id": "thermal_shock:autumn_leaves",
+            "status": "source_id_registration_unconfirmed_no_alias_inferred",
+            "kind": "Blocks"
+          }
+        ]
+      },
+      {
+        "template": "lotusfloor",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "lunalemontree",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "maiden_chamber",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": [
+          {
+            "path": "/entities/1/nbt/InventoryCustom/Items/0/id",
+            "id": "thermal_shock:maiden_micah_spawn_egg",
+            "kind": "Items",
+            "status": "source_id_registration_unconfirmed_no_alias_inferred"
+          },
+          {
+            "path": "/entities/2/nbt/InventoryCustom/Items/0/id",
+            "id": "thermal_shock:maiden_umabel_spawn_egg",
+            "kind": "Items",
+            "status": "source_id_registration_unconfirmed_no_alias_inferred"
+          },
+          {
+            "path": "/entities/0/nbt/id",
+            "id": "thermal_shock:boss_spawner",
+            "kind": "Entities",
+            "status": "source_id_registration_unconfirmed_no_alias_inferred"
+          },
+          {
+            "path": "/entities/1/nbt/id",
+            "id": "thermal_shock:boss_spawner",
+            "kind": "Entities",
+            "status": "source_id_registration_unconfirmed_no_alias_inferred"
+          },
+          {
+            "path": "/entities/2/nbt/id",
+            "id": "thermal_shock:boss_spawner",
+            "kind": "Entities",
+            "status": "source_id_registration_unconfirmed_no_alias_inferred"
+          }
+        ]
+      },
+      {
+        "template": "mantledungeon",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": [
+          {
+            "path": "/blocks/1010/nbt/SpawnData/entity/id",
+            "id": "thermal_shock:chorpse",
+            "kind": "Entities",
+            "block_index": 1010,
+            "pos": [
+              4,
+              1,
+              8
+            ],
+            "palette_state": 9,
+            "status": "source_id_registration_unconfirmed_no_alias_inferred"
+          }
+        ]
+      },
+      {
+        "template": "nitelitecluster_a",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": [
+          {
+            "path": "/palette/0/Name",
+            "id": "thermal_shock:frozen_slush",
+            "status": "source_id_registration_unconfirmed_no_alias_inferred",
+            "kind": "Blocks"
+          },
+          {
+            "path": "/palette/1/Name",
+            "id": "thermal_shock:blue_nitelite",
+            "status": "source_id_registration_unconfirmed_no_alias_inferred",
+            "kind": "Blocks"
+          }
+        ]
+      },
+      {
+        "template": "nitelitecluster_b",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": [
+          {
+            "path": "/palette/0/Name",
+            "id": "thermal_shock:frozen_slush",
+            "status": "source_id_registration_unconfirmed_no_alias_inferred",
+            "kind": "Blocks"
+          },
+          {
+            "path": "/palette/1/Name",
+            "id": "thermal_shock:blue_nitelite",
+            "status": "source_id_registration_unconfirmed_no_alias_inferred",
+            "kind": "Blocks"
+          }
+        ]
+      },
+      {
+        "template": "pillarshroom1",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": [
+          {
+            "path": "/palette/0/Name",
+            "id": "thermal_shock:pillarshroom_stem",
+            "status": "source_id_registration_unconfirmed_no_alias_inferred",
+            "kind": "Blocks"
+          },
+          {
+            "path": "/palette/1/Name",
+            "id": "thermal_shock:pillarshroom_cap",
+            "status": "source_id_registration_unconfirmed_no_alias_inferred",
+            "kind": "Blocks"
+          }
+        ]
+      },
+      {
+        "template": "pillarshroom2",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": [
+          {
+            "path": "/palette/0/Name",
+            "id": "thermal_shock:pillarshroom_stem",
+            "status": "source_id_registration_unconfirmed_no_alias_inferred",
+            "kind": "Blocks"
+          },
+          {
+            "path": "/palette/1/Name",
+            "id": "thermal_shock:pillarshroom_cap",
+            "status": "source_id_registration_unconfirmed_no_alias_inferred",
+            "kind": "Blocks"
+          }
+        ]
+      },
+      {
+        "template": "planted_sparkler_b",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "plateau",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "polyporeochre",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": [
+          {
+            "path": "/palette/0/Name",
+            "id": "thermal_shock:fungal_ochre_log",
+            "status": "source_id_registration_unconfirmed_no_alias_inferred",
+            "kind": "Blocks"
+          },
+          {
+            "path": "/blocks/0/nbt/id",
+            "id": "thermal_shock:fungal_ochre_log",
+            "kind": "BlockEntities",
+            "block_index": 0,
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "palette_state": 0,
+            "status": "source_id_registration_unconfirmed_no_alias_inferred"
+          }
+        ]
+      },
+      {
+        "template": "polyporeochrealt",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": [
+          {
+            "path": "/palette/0/Name",
+            "id": "thermal_shock:fungal_ochre_log_alt",
+            "status": "source_id_registration_unconfirmed_no_alias_inferred",
+            "kind": "Blocks"
+          },
+          {
+            "path": "/blocks/0/nbt/id",
+            "id": "thermal_shock:fungal_ochre_log_alt",
+            "kind": "BlockEntities",
+            "block_index": 0,
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "palette_state": 0,
+            "status": "source_id_registration_unconfirmed_no_alias_inferred"
+          }
+        ]
+      },
+      {
+        "template": "risen_chunk_1",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "risen_chunk_2",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "risen_chunk_3",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "shaledungeon",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": [
+          {
+            "path": "/blocks/1010/nbt/SpawnData/entity/id",
+            "id": "thermal_shock:chorpse",
+            "kind": "Entities",
+            "block_index": 1010,
+            "pos": [
+              4,
+              1,
+              8
+            ],
+            "palette_state": 9,
+            "status": "source_id_registration_unconfirmed_no_alias_inferred"
+          }
+        ]
+      },
+      {
+        "template": "shaledungeon2",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": [
+          {
+            "path": "/blocks/1010/nbt/SpawnData/entity/id",
+            "id": "thermal_shock:chorpse",
+            "kind": "Entities",
+            "block_index": 1010,
+            "pos": [
+              4,
+              1,
+              8
+            ],
+            "palette_state": 10,
+            "status": "source_id_registration_unconfirmed_no_alias_inferred"
+          }
+        ]
+      },
+      {
+        "template": "shalespring_rubicon",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "snowruins1",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "snowruins2",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "snowruins3",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "snowruins4",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "spawnswordbottom",
+        "classification": "structure_block_SAVE_names_minecraft_namespace_not_load_entry",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "spawnswordtop",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "spire1",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "spire2",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "spirecluster",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "spiremite1",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "spiretite1",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "starfruittree",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "swordinstone",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": [
+          {
+            "path": "/palette/2/Name",
+            "id": "thermal_shock:sword_in_stone",
+            "status": "source_id_registration_unconfirmed_no_alias_inferred",
+            "kind": "Blocks"
+          },
+          {
+            "path": "/blocks/9800/nbt/id",
+            "id": "thermal_shock:sword_in_stone",
+            "kind": "BlockEntities",
+            "block_index": 9800,
+            "pos": [
+              16,
+              1,
+              16
+            ],
+            "palette_state": 2,
+            "status": "source_id_registration_unconfirmed_no_alias_inferred"
+          }
+        ]
+      },
+      {
+        "template": "testcube64",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": [
+          {
+            "path": "/palette/1/Name",
+            "id": "thermal_shock:ashen_thermite",
+            "status": "source_id_registration_unconfirmed_no_alias_inferred",
+            "kind": "Blocks"
+          }
+        ]
+      },
+      {
+        "template": "tridentboulder",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "voltflower1",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      },
+      {
+        "template": "voltflower2",
+        "classification": "no_entry_closed_in_checked_default_loader_graph_external_dynamic_not_excluded",
+        "external": "not_exhaustively_checked_not_proven_unreachable",
+        "unclosedDependencies": []
+      }
+    ]
+  },
+  "menus": {
+    "identities": 241,
+    "staticSubsetEvidence": 51,
+    "semanticRemaining": 190,
+    "allRuntimeUnverified": true,
+    "matrix": "menu-a122-matrix241.json",
+    "remaining": [
+      {
+        "identity": "atlas_menu",
+        "reason": "atlas_menu：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "concierge_main",
+        "reason": "concierge_main：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "benzor_main",
+        "reason": "benzor_main：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "benzor_spice",
+        "reason": "benzor_spice：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "benzor_spice_epl",
+        "reason": "benzor_spice_epl：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "benzor_info",
+        "reason": "benzor_info：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "benzor_self_info",
+        "reason": "benzor_self_info：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "benzor_spice_info",
+        "reason": "benzor_spice_info：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "benzor_infection_info",
+        "reason": "benzor_infection_info：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "benzor_blizzard_info",
+        "reason": "benzor_blizzard_info：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "benzor_blackpowder_info",
+        "reason": "benzor_blackpowder_info：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "concierge_info",
+        "reason": "concierge_info：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "conc_trade_spider_lilies",
+        "reason": "conc_trade_spider_lilies：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "conc_trade_large_spider_lily",
+        "reason": "conc_trade_large_spider_lily：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "conc_trade_light_round",
+        "reason": "conc_trade_light_round：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "conc_trade_heavy_round",
+        "reason": "conc_trade_heavy_round：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "conc_trade_spec_round",
+        "reason": "conc_trade_spec_round：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "concierge_trade_epl",
+        "reason": "concierge_trade_epl：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "concierge_errand_none",
+        "reason": "concierge_errand_none：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "conc_errand_1_epl_1",
+        "reason": "conc_errand_1_epl_1：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "conc_errand_1_epl_2",
+        "reason": "conc_errand_1_epl_2：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "conc_errand_1_epl_3",
+        "reason": "conc_errand_1_epl_3：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "conc_trade_panacea",
+        "reason": "conc_trade_panacea：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "conc_errand_1_epl_f",
+        "reason": "conc_errand_1_epl_f：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "conc_info_self",
+        "reason": "conc_info_self：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "conc_info_infection",
+        "reason": "conc_info_infection：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "conc_info_blizzard",
+        "reason": "conc_info_blizzard：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "conc_info_vilebath",
+        "reason": "conc_info_vilebath：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "kofoni_main",
+        "reason": "kofoni_main：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "kofoni_info",
+        "reason": "kofoni_info：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "kofoni_self_info",
+        "reason": "kofoni_self_info：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "kofoni_qo_info",
+        "reason": "kofoni_qo_info：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "kofoni_shalespring_info",
+        "reason": "kofoni_shalespring_info：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "kofoni_blizzard_info",
+        "reason": "kofoni_blizzard_info：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "kofoni_tablets",
+        "reason": "kofoni_tablets：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "kofoni_benzor_info",
+        "reason": "kofoni_benzor_info：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "kofoni_ruby_info",
+        "reason": "kofoni_ruby_info：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "kofoni_malachite_info",
+        "reason": "kofoni_malachite_info：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "kofoni_pylons_info",
+        "reason": "kofoni_pylons_info：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "whisper_info",
+        "reason": "whisper_info：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "whisper_self_info",
+        "reason": "whisper_self_info：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "whisper_malachite_info",
+        "reason": "whisper_malachite_info：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "qo_thermoid_epl_1",
+        "reason": "qo_thermoid_epl_1：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "qo_thermoid_epl_2",
+        "reason": "qo_thermoid_epl_2：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "qo_thermoid_epl_3",
+        "reason": "qo_thermoid_epl_3：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "qo_thermoid_epl_4",
+        "reason": "qo_thermoid_epl_4：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "qo_thermoid_epl_5",
+        "reason": "qo_thermoid_epl_5：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "qo_exhaust",
+        "reason": "qo_exhaust：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "centrifuge_page",
+        "reason": "centrifuge_page：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "q_phobotite_1",
+        "reason": "q_phobotite_1：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "qo_cryo_energy_1",
+        "reason": "qo_cryo_energy_1：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "qo_cryo_alloy_1",
+        "reason": "qo_cryo_alloy_1：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "qo_altar_key_1",
+        "reason": "qo_altar_key_1：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "qo_stellar_scrap_1",
+        "reason": "qo_stellar_scrap_1：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "qo_stratus_alloy_1",
+        "reason": "qo_stratus_alloy_1：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "qo_stratus_alloy_3a",
+        "reason": "qo_stratus_alloy_3a：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "qo_stratus_alloy_3b",
+        "reason": "qo_stratus_alloy_3b：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "qo_stratus_alloy_2",
+        "reason": "qo_stratus_alloy_2：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "qo_neural_chip_1",
+        "reason": "qo_neural_chip_1：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "qo_feddy_fivebears",
+        "reason": "qo_feddy_fivebears：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "conc_trade_wide_angle",
+        "reason": "conc_trade_wide_angle：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_trade_camera",
+        "reason": "une_trade_camera：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_main",
+        "reason": "une_main：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_intro_epl_1",
+        "reason": "une_intro_epl_1：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_intro_epl_2",
+        "reason": "une_intro_epl_2：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_intro_epl_3",
+        "reason": "une_intro_epl_3：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_intro_epl_4",
+        "reason": "une_intro_epl_4：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_intro_epl_5",
+        "reason": "une_intro_epl_5：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_intro_epl_6",
+        "reason": "une_intro_epl_6：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "uma_main",
+        "reason": "uma_main：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "uma_info_unette",
+        "reason": "uma_info_unette：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "civil_1_tlk",
+        "reason": "civil_1_tlk：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "civil_2_tlk",
+        "reason": "civil_2_tlk：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "rusty_radio_tlk",
+        "reason": "rusty_radio_tlk：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "civil_3_tlk",
+        "reason": "civil_3_tlk：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "civil_4_tlk",
+        "reason": "civil_4_tlk：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "civil_5_tlk",
+        "reason": "civil_5_tlk：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "huntress_main",
+        "reason": "huntress_main：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "huntress_self_info",
+        "reason": "huntress_self_info：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "huntress_vilebath_info",
+        "reason": "huntress_vilebath_info：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "huntress_intro",
+        "reason": "huntress_intro：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "laut_errand_1_epl_1",
+        "reason": "laut_errand_1_epl_1：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "laut_errand_1_epl_2",
+        "reason": "laut_errand_1_epl_2：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "laut_errand_1_epl_3",
+        "reason": "laut_errand_1_epl_3：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "laut_errand_1_reject",
+        "reason": "laut_errand_1_reject：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "laut_errand_1_accept",
+        "reason": "laut_errand_1_accept：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "ly_main",
+        "reason": "ly_main：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "ly_trade_snowdae",
+        "reason": "ly_trade_snowdae：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "ly_trade_loquesicle",
+        "reason": "ly_trade_loquesicle：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "ly_trade_muck_pie",
+        "reason": "ly_trade_muck_pie：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "ly_trade_cooked_koi",
+        "reason": "ly_trade_cooked_koi：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "ly_trade_cooked_sentrapede",
+        "reason": "ly_trade_cooked_sentrapede：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "ly_trade_skorio_wafer",
+        "reason": "ly_trade_skorio_wafer：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "ly_trade_loque_milk_bottle",
+        "reason": "ly_trade_loque_milk_bottle：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "ly_trade_cake",
+        "reason": "ly_trade_cake：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "ly_trade_ferro_cake",
+        "reason": "ly_trade_ferro_cake：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "ly_trade_springelatin",
+        "reason": "ly_trade_springelatin：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "uma_trade_watering_can",
+        "reason": "uma_trade_watering_can：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "uma_trade_planter_pot",
+        "reason": "uma_trade_planter_pot：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "uma_trade_ruby_sickle",
+        "reason": "uma_trade_ruby_sickle：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "uma_trade_skorio",
+        "reason": "uma_trade_skorio：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "uma_trade_barbubble",
+        "reason": "uma_trade_barbubble：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "uma_trade_sparkler",
+        "reason": "uma_trade_sparkler：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "uma_trade_borean",
+        "reason": "uma_trade_borean：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "uma_trade_vermillion",
+        "reason": "uma_trade_vermillion：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "uma_trade_stardust",
+        "reason": "uma_trade_stardust：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "uma_trade_tophaz",
+        "reason": "uma_trade_tophaz：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "uma_trade_bellflower",
+        "reason": "uma_trade_bellflower：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "uma_trade_pixipetill",
+        "reason": "uma_trade_pixipetill：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "uma_trade_polemonium",
+        "reason": "uma_trade_polemonium：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "uma_trade_lunei",
+        "reason": "uma_trade_lunei：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "uma_trade_dandelion",
+        "reason": "uma_trade_dandelion：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "uma_trade_wildgrass",
+        "reason": "uma_trade_wildgrass：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "unette_info",
+        "reason": "unette_info：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_info_self",
+        "reason": "une_info_self：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_info_self_2",
+        "reason": "une_info_self_2：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_info_self_3",
+        "reason": "une_info_self_3：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_info_shalespring",
+        "reason": "une_info_shalespring：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_info_infection",
+        "reason": "une_info_infection：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_info_blizzard",
+        "reason": "une_info_blizzard：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_info_blizzard_2",
+        "reason": "une_info_blizzard_2：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_info_ruby",
+        "reason": "une_info_ruby：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "uma_info_self",
+        "reason": "uma_info_self：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "uma_info_gardening",
+        "reason": "uma_info_gardening：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "uma_info_gardening_2",
+        "reason": "uma_info_gardening_2：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "uma_info_infection",
+        "reason": "uma_info_infection：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "uma_info_concierge",
+        "reason": "uma_info_concierge：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "umabel_info",
+        "reason": "umabel_info：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_tip_1",
+        "reason": "une_tip_1：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_tip_2",
+        "reason": "une_tip_2：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_tip_3",
+        "reason": "une_tip_3：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_tip_4",
+        "reason": "une_tip_4：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_tip_5",
+        "reason": "une_tip_5：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_tip_6",
+        "reason": "une_tip_6：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_tip_7",
+        "reason": "une_tip_7：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_tip_8",
+        "reason": "une_tip_8：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_tip_9",
+        "reason": "une_tip_9：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_tip_10",
+        "reason": "une_tip_10：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "civil_6_tlk",
+        "reason": "civil_6_tlk：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "civil_7_tlk",
+        "reason": "civil_7_tlk：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "backdoor_scarab_assembly_page",
+        "reason": "backdoor_scarab_assembly_page：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "qo_lab_intro_1",
+        "reason": "qo_lab_intro_1：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "qo_lab_assembler_touch",
+        "reason": "qo_lab_assembler_touch：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "qo_lab_assembler_touch_alt",
+        "reason": "qo_lab_assembler_touch_alt：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "qo_main",
+        "reason": "qo_main：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "qo_lab_errand_1",
+        "reason": "qo_lab_errand_1：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "qo_lab_errand_1_b",
+        "reason": "qo_lab_errand_1_b：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "qo_lab_errand_1_c",
+        "reason": "qo_lab_errand_1_c：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "qo_lab_errand_1_d",
+        "reason": "qo_lab_errand_1_d：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "qo_lab_errand_1_e",
+        "reason": "qo_lab_errand_1_e：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "qo_lab_safe_1",
+        "reason": "qo_lab_safe_1：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "qo_lab_safe_2",
+        "reason": "qo_lab_safe_2：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "qo_lab_errand_null",
+        "reason": "qo_lab_errand_null：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "qo_trade_sylvia_rifle",
+        "reason": "qo_trade_sylvia_rifle：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "qo_trade_zap_gauntlet",
+        "reason": "qo_trade_zap_gauntlet：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "qo_trade_wallbore",
+        "reason": "qo_trade_wallbore：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "qo_trade_pylon_core",
+        "reason": "qo_trade_pylon_core：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "qo_trade_shock_stick",
+        "reason": "qo_trade_shock_stick：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "qo_trade_zenith",
+        "reason": "qo_trade_zenith：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "qo_trade_epl",
+        "reason": "qo_trade_epl：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "civil_8_tlk",
+        "reason": "civil_8_tlk：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_errand_1_a",
+        "reason": "une_errand_1_a：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_errand_1_b",
+        "reason": "une_errand_1_b：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_errand_1_c",
+        "reason": "une_errand_1_c：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_errand_null",
+        "reason": "une_errand_null：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_tip_11",
+        "reason": "une_tip_11：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_tip_12",
+        "reason": "une_tip_12：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_tip_13",
+        "reason": "une_tip_13：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_tip_14",
+        "reason": "une_tip_14：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_tip_15",
+        "reason": "une_tip_15：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_errand_1_end_a",
+        "reason": "une_errand_1_end_a：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_errand_1_end_b",
+        "reason": "une_errand_1_end_b：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "desk_photo_screen",
+        "reason": "desk_photo_screen：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "sopel_intro_epl_1",
+        "reason": "sopel_intro_epl_1：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "sopel_intro_epl_2",
+        "reason": "sopel_intro_epl_2：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "sopel_intro_epl_3",
+        "reason": "sopel_intro_epl_3：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "sopel_intro_epl_4",
+        "reason": "sopel_intro_epl_4：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "sopel_intro_epl_choice_1",
+        "reason": "sopel_intro_epl_choice_1：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "sopel_intro_epl_5",
+        "reason": "sopel_intro_epl_5：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "sopel_intro_epl_5b",
+        "reason": "sopel_intro_epl_5b：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "qo_trade_kinetic_laserhook",
+        "reason": "qo_trade_kinetic_laserhook：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_tip_16",
+        "reason": "une_tip_16：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_tip_17",
+        "reason": "une_tip_17：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_tip_18",
+        "reason": "une_tip_18：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "conc_info_florist",
+        "reason": "conc_info_florist：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "laven_civil_1_tlk",
+        "reason": "laven_civil_1_tlk：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "laven_civil_2_tlk",
+        "reason": "laven_civil_2_tlk：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "uma_trade_leafcutter",
+        "reason": "uma_trade_leafcutter：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_info_train",
+        "reason": "une_info_train：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      },
+      {
+        "identity": "une_tip_19",
+        "reason": "une_tip_19：保留家族历史说明和身份映射，但本轮未建立可继承的逐身份语义证据；入口至事务、全部按钮/槽位/实际文案/声画待核，不表示历史未实现。",
+        "uncovered": [
+          "本批子集外不展开逐按钮语义",
+          "共享helper或枚举命中不能替代每个身份语义",
+          "运行时网络/多人事务/实际声画未验证"
+        ]
+      }
+    ]
+  },
+  "runtime": [
+    "DFU/Codec未执行",
+    "结构实际生成及外部动态入口未执行",
+    "非默认配置与最终有效属性未验证",
+    "多人事务/网络/真实音效和渲染未验证"
+  ]
+}

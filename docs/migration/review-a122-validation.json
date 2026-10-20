@@ -1,0 +1,35 @@
+{
+  "baseline": "126114f9a99aaa14c8f001a39415835c703689a0",
+  "srcMainFrozen": true,
+  "productionFiles": [
+    "src/main/java/com/hp/thermalshockreforged/entity/whisper/WhisperMenu.java"
+  ],
+  "exactAllowedMenuDiff": true,
+  "menuRepairChecks": {
+    "baseline_menu_sha_matches_pre_repair_snapshot": true,
+    "current_menu_equals_baseline_with_only_parameter_debug_and_return_split": true,
+    "main_to_hotbar_reverse_true": true,
+    "hotbar_to_main_reverse_false_retained": true,
+    "debug_after_successful_count_change_guard": true,
+    "nine_page_other_scoped_inputs_unchanged": true,
+    "eight_original_menu_classes_and_retained_bytecode_unchanged": true
+  },
+  "inputFilesHashChecked": 558,
+  "inputDrift": [
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\review-a122-plan.md",
+      "expected": "6b1c7ded50b6f29f6dba14532d3a9169be56efe0ef09ffac95908370e7ac0592",
+      "actual": "98f5cf3be0688bfb6f3bafbce5c9fa212dc3d6d70b26bae4680a1b6be173f45b",
+      "group": "attributes"
+    }
+  ],
+  "allowedDriftReason": "计划按分工更新；WhisperMenu为本批已验证修复；语言为主线并行所有，原词条快照由菜单证据保留",
+  "attributeGroups": 303,
+  "templates": 67,
+  "menuIdentities": 241,
+  "menuDeepPages": 9,
+  "buildByA": false,
+  "gameByA": false,
+  "dfuByA": false,
+  "renderByA": false
+}

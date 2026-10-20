@@ -122,7 +122,7 @@ public final class AngryCavebloomerEntity extends Monster implements GeoEntity, 
             var progress = player.getAdvancements().getOrStartProgress(advancement);
             if (!progress.isDone()) for (String criterion : progress.getRemainingCriteria()) player.getAdvancements().award(advancement, criterion);
         }
-        server.getServer().getPlayerList().broadcastSystemMessage(Component.literal("§dAngry Cavebloomer has been defeated!"), false);
+        server.getServer().getPlayerList().broadcastSystemMessage(Component.translatable("message.thermal_shock_reforged.cavebloomer.defeated"), false);
         WorldProgressData.get(server).advanceCrux(1);
     }
     @Override protected void dropExperience(Entity attacker) { experiencePending = true; experienceAttacker = attacker == null ? null : attacker.getUUID(); }
