@@ -1,0 +1,69 @@
+{
+  "batch": 140,
+  "gate": "G02",
+  "status": "closed_static_with_runtime_acceptance_pending",
+  "scope": "声音、粒子和非实体消费者的来源到目标调用链静态闭合",
+  "source_inventory": {
+    "originalSources": 374,
+    "inScope": 369,
+    "excludedRibbonblade": 5,
+    "coverageIndex": "D:/AI临时文件/ThermalShockMigration/batch134-evidence/coverage-index.json"
+  },
+  "evidence_groups": [
+    {
+      "group": "攻击声音",
+      "report": "D:/AI临时文件/ThermalShockMigration/batch134-attacks-luna/phase2-consumer-audit.json",
+      "facts": "21 个来源中 18 个已配对，3 个经全 OLD Java 调用扫描确认孤立；33 个静态消费点等价，5 个既有时序差异已修复并在主线构建通过，1 个成功提交边界为文档授权差异，tuple 不匹配为 0。"
+    },
+    {
+      "group": "枪械",
+      "report": "D:/AI临时文件/ThermalShockMigration/batch134-firearms-luna/final.json",
+      "facts": "21 个枪械来源均完成来源调用者、目标入口、声音事件和条件边界对照；报告 unresolved=0，明确记录服务端广播与原客户端本地分支的迁移边界。"
+    },
+    {
+      "group": "工具与武器",
+      "report": "D:/AI临时文件/ThermalShockMigration/batch134-tools-luna/tools-weapons-sounds.json",
+      "facts": "15 个来源均完成调用链审查；confirmedEquivalent=13，conditionalOrEntryDifferences=2，unresolved=0，genuineAudioLossConfirmed=0。"
+    },
+    {
+      "group": "交互、方块、环境、杂项生物、Fabricator、物品、回调和效果",
+      "reports": [
+        "D:/AI临时文件/ThermalShockMigration/batch134-interactions-luna/final.json",
+        "D:/AI临时文件/ThermalShockMigration/batch134-blocks-luna/final.json",
+        "D:/AI临时文件/ThermalShockMigration/batch134-environment-luna/final.json",
+        "D:/AI临时文件/ThermalShockMigration/batch134-misc-mobs-luna/final.json",
+        "D:/AI临时文件/ThermalShockMigration/batch134-fabricator-luna/fabricator-sounds.json",
+        "D:/AI临时文件/ThermalShockMigration/batch134-items-luna/final.json",
+        "D:/AI临时文件/ThermalShockMigration/batch134-callbacks-luna/callback-pairing-v2.json",
+        "D:/AI临时文件/ThermalShockMigration/batch134-evidence/effects-consumers.json"
+      ],
+      "facts": "各报告均绑定原始 SHA-256、目标源文件和调用拓扑；交互报告确认 22/22 来源、声音缺口 0，方块报告 27 项 paired、unresolved 0，杂项生物报告 12/12 来源且确认声音缺口 0。环境报告中 1 项仅保留为原事件客户端派发的运行时可达性限制。"
+    },
+    {
+      "group": "世界交互与原孤立过程",
+      "report": "D:/AI临时文件/ThermalShockMigration/batch134-world-luna/batch134-world-interactions-final.json",
+      "proof": "D:/AI临时文件/ThermalShockMigration/batch134-world-luna/orphan-registration-proof.json",
+      "facts": "23 个世界交互来源已逐项检查；ArchitectTerminalOnBlockRightClickedProcedure 与 LoqendiaPortalTriggerUsedProcedure 的外部类引用均为 0，注册表/调用者证明为原孤立过程，不构成当前目标漏迁。GuardianPylon 延迟客户端风铃为已有迁移文档授权的有意差异。"
+    },
+    {
+      "group": "第134批原来未引用的 11 个 utility 来源",
+      "facts": "本批补做目标对账：CavebloomerBossBoxOpen→CavebloomerBossBoxItem；ConcErrand1EplF→ConciergeQuest/ConciergeScreen；DevDeletor→DevCharacterToolItem；HPSM→SnowMelterItem；Icebreaker→IcebreakerBlock/IcebreakerPulseEntity；IgnitionDetector→IgnitionDetectorItem；QoThermoidEpl1→QoContent/QoScreen；RainDrum→RainDrumBlock；SopelIntro→SopelContent；SurgePylon→SurgePylonBlock；BackdoorScarabAssembler→LabMenu。11/11 均找到当前入口并核对声音、粒子、条件或菜单提交边界。"
+    }
+  ],
+  "static_decision": {
+    "unmapped_in_scope_consumers": 0,
+    "unclassified_sound_gap": 0,
+    "orphan_sources_explicitly_classified": 5,
+    "runtime_only_limits": [
+      "未启动服务端/客户端，不能由本报告证明实际网络可听性、事件派发概率或渲染时粒子可见性。",
+      "环境事件客户端分支的真实派发仍属于运行时验收项。",
+      "Ribbonblade 五个来源不属于本批，沿用户测试改动和既有排除边界保留。"
+    ]
+  },
+  "build": {
+    "command": ".\\gradlew.bat compileJava processResources --offline --max-workers=2",
+    "latestResult": "success",
+    "scope": "A134 主线四阶段修复接收后的生产源码已构建；本批新增仅为证据文档。"
+  },
+  "fullMigrationComplete": false
+}
