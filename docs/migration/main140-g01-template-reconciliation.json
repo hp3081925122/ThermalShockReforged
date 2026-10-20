@@ -1,0 +1,36 @@
+{
+  "batch": 140,
+  "gate": "G01",
+  "status": "closed_static",
+  "scope": "67 个模板外部动态入口与 97 个既有模板的主线证据对账",
+  "evidence": [
+    {
+      "path": "docs/migration/main132-static-validation.json",
+      "facts": {
+        "newTemplates": 67,
+        "originalTemplatesUnchanged": 97,
+        "directResourcesByteEqual": 8127,
+        "fullTypedValidation": true,
+        "buildSuccess": true,
+        "gameExecuted": false
+      }
+    },
+    {
+      "path": "docs/migration/review-main135-receipt.json",
+      "facts": {
+        "sourceTemplatesVerified": 12,
+        "templatesVerified": 97,
+        "excluded132ByteEqual": 67,
+        "ownerBuildEvidenceVerified": true,
+        "gameExecuted": false
+      }
+    }
+  ],
+  "reconciliation": {
+    "externalDynamicTemplates": "67 个新模板已由 132 的资源/类型校验与构建证据接收；135 将其作为排除集复核，未发现未接收项。",
+    "existingTemplates": "97 个原有模板在 132 中保持不变并通过 135 的接收核对；12 个来源模板另有独立来源确认。",
+    "unresolved_static_template_entry": 0,
+    "runtime_limit": "未启动游戏，因此不把 G01 静态闭合解释为客户端渲染或游戏内动态加载实测。"
+  },
+  "fullMigrationComplete": false
+}
