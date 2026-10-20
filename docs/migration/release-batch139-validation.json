@@ -1,0 +1,354 @@
+{
+  "batch": 139,
+  "gate": {
+    "archive": "D:\\AI临时文件\\ThermalShockMigration\\worktrees\\batch135\\build\\libs\\thermal_shock_reforged-1.21.1-neoforge-0.0.1.jar",
+    "sha256": "e62204fb73e6984d9ad6b75a03d169e96545d2ff4341574ddb45b3a6d8de2706",
+    "counts": {
+      "entries": 9472,
+      "classes": 1342,
+      "json": 5428,
+      "matchedMainOutputs": 9471
+    },
+    "neoVersion": "21.1.233",
+    "gameStarted": false
+  },
+  "publishedDependencies": [
+    "curse.maven:aaa-particles-979809:9101011",
+    "curse.maven:geckolib-388172:8350073"
+  ],
+  "developmentOnlyDependencies": [
+    "curse.maven:jade-324717:8591319",
+    "curse.maven:just-enough-characters-250702:8117474",
+    "mezz.jei:jei-1.21.1-neoforge:19.27.0.346"
+  ],
+  "productionSourceChanged": false,
+  "gradlePropertiesChanged": false,
+  "loaderMetadata": {
+    "modLoader": "javafml",
+    "loaderVersion": "[4,)",
+    "license": "All Rights Reserved",
+    "mixins": [
+      {
+        "config": "thermal_shock_reforged.mixins.json"
+      }
+    ],
+    "mods": [
+      {
+        "modId": "thermal_shock_reforged",
+        "enumExtensions": "META-INF/thermal_shock_reforged.enumextensions.json",
+        "version": "0.0.1",
+        "displayName": "Thermal Shock Reforged",
+        "authors": "ThermaDev; NeoForge reimplementation by hp12138",
+        "description": "Thermal Shock Reforged：基于 Thermal Shock 的非官方 1.21.1 NeoForge 重实现，正在迁移中，尚非完整可玩版本。"
+      }
+    ],
+    "dependencies": {
+      "thermal_shock_reforged": [
+        {
+          "modId": "neoforge",
+          "type": "required",
+          "versionRange": "[21,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "modId": "minecraft",
+          "type": "required",
+          "versionRange": "[1.21.1,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "modId": "geckolib",
+          "type": "required",
+          "versionRange": "[4.9.2,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "modId": "aaa_particles",
+          "type": "required",
+          "versionRange": "[2.3.3,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        }
+      ]
+    }
+  },
+  "nativeEffects": 52,
+  "artifactUnchangedFrom135": true,
+  "publicationFiles": [
+    {
+      "file": "D:\\AI临时文件\\ThermalShockMigration\\batch139-evidence\\maven\\com\\hp\\thermalshockreforged\\thermal_shock_reforged\\0.0.1\\thermal_shock_reforged-0.0.1.jar",
+      "sha256": "e62204fb73e6984d9ad6b75a03d169e96545d2ff4341574ddb45b3a6d8de2706",
+      "bytes": 98966760
+    },
+    {
+      "file": "D:\\AI临时文件\\ThermalShockMigration\\batch139-evidence\\maven\\com\\hp\\thermalshockreforged\\thermal_shock_reforged\\0.0.1\\thermal_shock_reforged-0.0.1.jar.md5",
+      "sha256": "575553baa9524d3d6210a880872540a305be138d73ae0fd4f3ac5eea6a71af91",
+      "bytes": 32
+    },
+    {
+      "file": "D:\\AI临时文件\\ThermalShockMigration\\batch139-evidence\\maven\\com\\hp\\thermalshockreforged\\thermal_shock_reforged\\0.0.1\\thermal_shock_reforged-0.0.1.jar.sha1",
+      "sha256": "03aa52eab88f1475e441c38da335b087f0282c9c2ec908301581047a60371ab1",
+      "bytes": 40
+    },
+    {
+      "file": "D:\\AI临时文件\\ThermalShockMigration\\batch139-evidence\\maven\\com\\hp\\thermalshockreforged\\thermal_shock_reforged\\0.0.1\\thermal_shock_reforged-0.0.1.jar.sha256",
+      "sha256": "27a2b4863381a1ab2345490bccc449479e40666f4c34f0d78991f16d8fbe9140",
+      "bytes": 64
+    },
+    {
+      "file": "D:\\AI临时文件\\ThermalShockMigration\\batch139-evidence\\maven\\com\\hp\\thermalshockreforged\\thermal_shock_reforged\\0.0.1\\thermal_shock_reforged-0.0.1.jar.sha512",
+      "sha256": "037ffb9e7b1eb9bc36b0a909e7845740afb565f05c59c0dbf446b60c8f35010d",
+      "bytes": 128
+    },
+    {
+      "file": "D:\\AI临时文件\\ThermalShockMigration\\batch139-evidence\\maven\\com\\hp\\thermalshockreforged\\thermal_shock_reforged\\0.0.1\\thermal_shock_reforged-0.0.1.module",
+      "sha256": "bbdb5db47e3943bebe330073f9801a89aeb4df5190b8b73255d44035289a1ca2",
+      "bytes": 2331
+    },
+    {
+      "file": "D:\\AI临时文件\\ThermalShockMigration\\batch139-evidence\\maven\\com\\hp\\thermalshockreforged\\thermal_shock_reforged\\0.0.1\\thermal_shock_reforged-0.0.1.module.md5",
+      "sha256": "bd77b4cf50a61a992baa39efca61d67534f86812af10f480d930d86cda980c6f",
+      "bytes": 32
+    },
+    {
+      "file": "D:\\AI临时文件\\ThermalShockMigration\\batch139-evidence\\maven\\com\\hp\\thermalshockreforged\\thermal_shock_reforged\\0.0.1\\thermal_shock_reforged-0.0.1.module.sha1",
+      "sha256": "1f4c61966336618c9ddc16bd55b4391d6e686f111f81b3fb007ea8ad5e46de69",
+      "bytes": 40
+    },
+    {
+      "file": "D:\\AI临时文件\\ThermalShockMigration\\batch139-evidence\\maven\\com\\hp\\thermalshockreforged\\thermal_shock_reforged\\0.0.1\\thermal_shock_reforged-0.0.1.module.sha256",
+      "sha256": "51afd39f30136022c6aa07b96bf3dde11c56b8cf57bd1e6a54ed227ed277a0e8",
+      "bytes": 64
+    },
+    {
+      "file": "D:\\AI临时文件\\ThermalShockMigration\\batch139-evidence\\maven\\com\\hp\\thermalshockreforged\\thermal_shock_reforged\\0.0.1\\thermal_shock_reforged-0.0.1.module.sha512",
+      "sha256": "eca0459c48e0f8ebd22674c2da367734931c349eb952d0e9b6ef67327c563f21",
+      "bytes": 128
+    },
+    {
+      "file": "D:\\AI临时文件\\ThermalShockMigration\\batch139-evidence\\maven\\com\\hp\\thermalshockreforged\\thermal_shock_reforged\\0.0.1\\thermal_shock_reforged-0.0.1.pom",
+      "sha256": "1cc0cbb9e312377ccf43d5f19302b83a484b424086d505e0059497d9aea5ed42",
+      "bytes": 1209
+    },
+    {
+      "file": "D:\\AI临时文件\\ThermalShockMigration\\batch139-evidence\\maven\\com\\hp\\thermalshockreforged\\thermal_shock_reforged\\0.0.1\\thermal_shock_reforged-0.0.1.pom.md5",
+      "sha256": "c606530fe3808f5b896f1fe95886f7d990d87301e412cff1dbcf0e49aa0cb7af",
+      "bytes": 32
+    },
+    {
+      "file": "D:\\AI临时文件\\ThermalShockMigration\\batch139-evidence\\maven\\com\\hp\\thermalshockreforged\\thermal_shock_reforged\\0.0.1\\thermal_shock_reforged-0.0.1.pom.sha1",
+      "sha256": "56a5812cf2404ab297d673f88a75241086e488ecb3ad7a321901bf17bed53444",
+      "bytes": 40
+    },
+    {
+      "file": "D:\\AI临时文件\\ThermalShockMigration\\batch139-evidence\\maven\\com\\hp\\thermalshockreforged\\thermal_shock_reforged\\0.0.1\\thermal_shock_reforged-0.0.1.pom.sha256",
+      "sha256": "d72906d232b55538890b8ae7e87e471b0b14c81943106b117f09f8f1d3f1e07a",
+      "bytes": 64
+    },
+    {
+      "file": "D:\\AI临时文件\\ThermalShockMigration\\batch139-evidence\\maven\\com\\hp\\thermalshockreforged\\thermal_shock_reforged\\0.0.1\\thermal_shock_reforged-0.0.1.pom.sha512",
+      "sha256": "34af6622255f669ffd01590bfb5bb640daaa8ce0b503cc569687580777b9eb71",
+      "bytes": 128
+    }
+  ],
+  "resolved": {
+    "compileClasspath": [
+      {
+        "coordinate": "curse.maven:aaa-particles-979809:9101011",
+        "file": "C:\\Users\\30819\\.m2\\repository\\curse\\maven\\aaa-particles-979809\\9101011\\aaa-particles-979809-9101011.jar",
+        "sha256": "948b3fc4d38d33a817596ad0b2d14c28976f8cfde801041b1c58cf1fef505f98"
+      },
+      {
+        "coordinate": "curse.maven:geckolib-388172:8350073",
+        "file": "C:\\Users\\30819\\.gradle\\caches\\modules-2\\files-2.1\\curse.maven\\geckolib-388172\\8350073\\14c64013cadee7d28f3685f94350f9a4d2ec6d86\\geckolib-388172-8350073.jar",
+        "sha256": "5e548466af9ab6aca7a91a7c7d4dc0dc8bc385e22958aed5da0e7bebd0fa3fba"
+      }
+    ],
+    "runtimeClasspath": [
+      {
+        "coordinate": "curse.maven:aaa-particles-979809:9101011",
+        "file": "C:\\Users\\30819\\.m2\\repository\\curse\\maven\\aaa-particles-979809\\9101011\\aaa-particles-979809-9101011.jar",
+        "sha256": "948b3fc4d38d33a817596ad0b2d14c28976f8cfde801041b1c58cf1fef505f98"
+      },
+      {
+        "coordinate": "curse.maven:geckolib-388172:8350073",
+        "file": "C:\\Users\\30819\\.gradle\\caches\\modules-2\\files-2.1\\curse.maven\\geckolib-388172\\8350073\\14c64013cadee7d28f3685f94350f9a4d2ec6d86\\geckolib-388172-8350073.jar",
+        "sha256": "5e548466af9ab6aca7a91a7c7d4dc0dc8bc385e22958aed5da0e7bebd0fa3fba"
+      },
+      {
+        "coordinate": "curse.maven:jade-324717:8591319",
+        "file": "C:\\Users\\30819\\.gradle\\caches\\modules-2\\files-2.1\\curse.maven\\jade-324717\\8591319\\88ee316e68900080b017f60c12162e2731924cf8\\jade-324717-8591319.jar",
+        "sha256": "276f1f65a20d04f536989c4f311949d770b52c440c23c2b904a08860f3c93810"
+      },
+      {
+        "coordinate": "curse.maven:just-enough-characters-250702:8117474",
+        "file": "C:\\Users\\30819\\.m2\\repository\\curse\\maven\\just-enough-characters-250702\\8117474\\just-enough-characters-250702-8117474.jar",
+        "sha256": "f7f2b4d9ec81bad95beca92c56444f87aa4a993da80ab8da184670ba7f879e83"
+      },
+      {
+        "coordinate": "mezz.jei:jei-1.21.1-neoforge:19.27.0.346",
+        "file": "C:\\Users\\30819\\.m2\\repository\\mezz\\jei\\jei-1.21.1-neoforge\\19.27.0.346\\jei-1.21.1-neoforge-19.27.0.346.jar",
+        "sha256": "57c233fc6af9d1b0a50144943c73ad827b53097dacdc9ac6d8700ad77676fc68"
+      }
+    ],
+    "gametestRuntimeClasspath": [
+      {
+        "coordinate": "curse.maven:aaa-particles-979809:9101011",
+        "file": "C:\\Users\\30819\\.m2\\repository\\curse\\maven\\aaa-particles-979809\\9101011\\aaa-particles-979809-9101011.jar",
+        "sha256": "948b3fc4d38d33a817596ad0b2d14c28976f8cfde801041b1c58cf1fef505f98"
+      },
+      {
+        "coordinate": "curse.maven:geckolib-388172:8350073",
+        "file": "C:\\Users\\30819\\.gradle\\caches\\modules-2\\files-2.1\\curse.maven\\geckolib-388172\\8350073\\14c64013cadee7d28f3685f94350f9a4d2ec6d86\\geckolib-388172-8350073.jar",
+        "sha256": "5e548466af9ab6aca7a91a7c7d4dc0dc8bc385e22958aed5da0e7bebd0fa3fba"
+      },
+      {
+        "coordinate": "curse.maven:jade-324717:8591319",
+        "file": "C:\\Users\\30819\\.gradle\\caches\\modules-2\\files-2.1\\curse.maven\\jade-324717\\8591319\\88ee316e68900080b017f60c12162e2731924cf8\\jade-324717-8591319.jar",
+        "sha256": "276f1f65a20d04f536989c4f311949d770b52c440c23c2b904a08860f3c93810"
+      },
+      {
+        "coordinate": "curse.maven:just-enough-characters-250702:8117474",
+        "file": "C:\\Users\\30819\\.m2\\repository\\curse\\maven\\just-enough-characters-250702\\8117474\\just-enough-characters-250702-8117474.jar",
+        "sha256": "f7f2b4d9ec81bad95beca92c56444f87aa4a993da80ab8da184670ba7f879e83"
+      },
+      {
+        "coordinate": "mezz.jei:jei-1.21.1-neoforge:19.27.0.346",
+        "file": "C:\\Users\\30819\\.m2\\repository\\mezz\\jei\\jei-1.21.1-neoforge\\19.27.0.346\\jei-1.21.1-neoforge-19.27.0.346.jar",
+        "sha256": "57c233fc6af9d1b0a50144943c73ad827b53097dacdc9ac6d8700ad77676fc68"
+      }
+    ],
+    "developmentRuntime": [
+      "curse.maven:jade-324717:8591319",
+      "curse.maven:just-enough-characters-250702:8117474",
+      "mezz.jei:jei-1.21.1-neoforge:19.27.0.346"
+    ],
+    "neoVersion": "21.1.233",
+    "gameStarted": false
+  },
+  "gameStarted": false,
+  "scopeLimit": "135/138 worktree snapshot; final integrated mainline requires rebuilding",
+  "evidence": {
+    "baseline-build.gradle": {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch139-evidence\\baseline-build.gradle",
+      "sha256": "a2e328a9f9dfb664056d5353efe8ae7fc5a20f599beb90b0e69202e1b2de26ff"
+    },
+    "baseline-module.json": {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch139-evidence\\baseline-module.json",
+      "sha256": "497d99933e125c4b32690dc2f288e88f2cdc923c0e704da45bcd21cdd589e464"
+    },
+    "baseline-pom-default.xml": {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch139-evidence\\baseline-pom-default.xml",
+      "sha256": "2b3e220db05cc935dd07324b251d444f9708364b9e3970182f83418f9a4f0005"
+    },
+    "baseline-publication139.log": {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch139-evidence\\baseline-publication139.log",
+      "sha256": "3f3053654b96f72eaaff0d93461c8d62072bab941c788a3893968d757468dc39"
+    },
+    "configure139.py": {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch139-evidence\\configure139.py",
+      "sha256": "524a124154494dfd2a8153a74bbf9f2f898693092dded58aeb37359d0d6f0b0e"
+    },
+    "document139.py": {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch139-evidence\\document139.py",
+      "sha256": "fc3269b3d91b9896ae04ef8d67c364e1218e6f0ac45c423a8b759bdc9c5fe8af"
+    },
+    "final-build139.log": {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch139-evidence\\final-build139.log",
+      "sha256": "fddfd2a563eac4109528ae6cccb50d905f0893fa44427e8412703e7d7d653641"
+    },
+    "jei-jec-jade-static-inventory139.json": {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch139-evidence\\jei-jec-jade-static-inventory139.json",
+      "sha256": "c98c121a88fbb22c449831be0552ff72d7265668d8b94d817f1ca8b0855d0ac1"
+    },
+    "negative-build139.log": {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch139-evidence\\negative-build139.log",
+      "sha256": "b031621f77c4d60fc6eecc1419afe9a31c7cc3031f45bca2f03bd4d1daca3311"
+    },
+    "negative139.init.gradle": {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch139-evidence\\negative139.init.gradle",
+      "sha256": "e418b13a4cf632d10e1d7d0d1fccf59670b74fd684201bae3acc1479822dd7c8"
+    },
+    "negative139.py": {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch139-evidence\\negative139.py",
+      "sha256": "0926aa14d291402657ac94b52183a12aa39e06b53428e6d26cc5ef80208af7b9"
+    },
+    "publication-build139-attempt1.log": {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch139-evidence\\publication-build139-attempt1.log",
+      "sha256": "cb76eb44b041cecf6570b9cf3abba550c4184b53e97181d9b117a50a40608e5e"
+    },
+    "publication-build139.log": {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch139-evidence\\publication-build139.log",
+      "sha256": "24d9a2883f99e9a1c9152d165bf09864d44d987787ea76bcddc515dddfbd215e"
+    },
+    "publication139.init.gradle": {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch139-evidence\\publication139.init.gradle",
+      "sha256": "764e20fe572db56cfebd68eedafee6d7b3df3c46bf26af5ba47d90aea5ac0d22"
+    },
+    "release-build139.log": {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch139-evidence\\release-build139.log",
+      "sha256": "89662a1c95d697bd8ff23ba438327d78023b13100e84254c19b83a3307953f0c"
+    },
+    "release-review139.json": {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch139-evidence\\release-review139.json",
+      "sha256": "76ec753d413b8917176ed249ba196e2d4f7d4f00c35f7dfbbdfdf281194a8fb3"
+    },
+    "resolved-inputs139.json": {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\batch139-evidence\\resolved-inputs139.json",
+      "sha256": "4274a9d18a735ab7d02de3eecc0ddd78f5f4e87ae7b73c3df046f39682fe9483"
+    }
+  },
+  "negativeFixture": {
+    "result": "Expected failure: injected META-INF/mods.toml rejected",
+    "productionArchiveModified": false
+  },
+  "commands": [
+    {
+      "javaHome": "C:/Users/30819/.jdks/ms-21.0.11",
+      "args": [
+        "--offline",
+        "--console=plain",
+        "build",
+        "generatePomFileForMavenJavaPublication",
+        "generateMetadataFileForMavenJavaPublication"
+      ],
+      "log": "D:\\AI临时文件\\ThermalShockMigration\\batch139-evidence\\final-build139.log"
+    },
+    {
+      "javaHome": "C:/Users/30819/.jdks/ms-21.0.11",
+      "args": [
+        "--offline",
+        "--console=plain",
+        "--init-script",
+        "D:\\AI临时文件\\ThermalShockMigration\\batch139-evidence\\publication139.init.gradle",
+        "compileGametestJava",
+        "publishMavenJavaPublicationToMavenRepository",
+        "writeReleaseInputs139"
+      ],
+      "log": "D:\\AI临时文件\\ThermalShockMigration\\batch139-evidence\\publication-build139.log"
+    },
+    {
+      "javaHome": "C:/Users/30819/.jdks/ms-21.0.11",
+      "args": [
+        "--offline",
+        "--console=plain",
+        "--init-script",
+        "D:\\AI临时文件\\ThermalShockMigration\\batch139-evidence\\negative139.init.gradle",
+        "verifyReleaseJar"
+      ],
+      "expectedExit": 1,
+      "log": "D:\\AI临时文件\\ThermalShockMigration\\batch139-evidence\\negative-build139.log"
+    }
+  ],
+  "changedFiles": [
+    "build.gradle",
+    "docs/migration/release-batch139-plan.md",
+    "docs/migration/release-batch139-review.md",
+    "docs/migration/release-batch139-validation.json"
+  ],
+  "buildGradleSha256": "fea45507aebd178d2bdcea0b76a5f16c2549265634c3de7fc6aeb28b0f7b7b9b",
+  "finalBuildLogSha256": "fddfd2a563eac4109528ae6cccb50d905f0893fa44427e8412703e7d7d653641"
+}
