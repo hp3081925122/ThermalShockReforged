@@ -57,9 +57,17 @@
 - 未增删键、未改 en_us，键顺序未变。重复键检测、全局原生格式占位符检查通过；改动值无颜色码或实际换行差异，86 条相机图鉴逐项未变。
 - 本批后仍有 1360 个非空英文值与中文值完全相同，其中 GUI 427；精确计数含专名、占位标签及待按上下文判定的内容。
 
+## 第130批：园艺交易商品与常用名称
+
+- 对照 `FloristPage.java` 与 `LyPage.java` 实际交易页中的商品 `Line` 和 `NpcTrade` ID，翻译 14 个此前仍显示英文的通用商品标签；按物品/方块注册和用途同步翻译 20 个商品名称及说明。角色名、材料/植物专名和交易数字占位均保留。
+- 例子：浇水壶、种植盆、剪叶器、Ruby 镰刀、风铃草、泥巴派、Loque 蒲公英及 Loque 牛奶；商品交易页的 `x8` 数量不变。`LeafcutterItem` 确认剪叶器为剪刀类物品且用于收获指定树叶；浇水壶注册项使用同名说明键；红宝石镰刀的两条说明在 `SickleItem.appendHoverText` 中作为物品提示显示。
+- 按 `PlantContent`、`SpecialPlantContent`、`FarmingContent`、`UtilityContent`、`MaterialContent` 和 `WeaponContent` 注册证据，对应翻译风铃草、Loque 蒲公英、种植盆、Loque 牛奶、泥巴派、浇水壶及赭色木系方块名称。另修正两条制造器标签：红宝石 x20、鞍 x1。
+- 本批更改 34 个既有中文值，不新增键、不改英文；键序保持。严格重复键检查、全局原生格式占位符检查通过；相机图鉴 86 项逐项未变。最终文件为 UTF-8 无 BOM、LF 行尾。
+- 本批后仍有 1326 个非空英文值与中文值完全相同，其中 GUI 413、物品279、方块417；此为精确字符串统计，包含专名与占位符。
+
 ## 尚未完成
 
-当前有 1360 个非空英文值与中文值完全相同，属于精确字符串计数，不等同于应直译的条目。按键族分布：GUI 427、方块 429、物品 287、实体 80、JEI 35、画作 34、效果 21、生物群系 13、进度 12、字幕 12、死亡消息 6、流体 3、物品组 1。另有 41 个英文值本身为空，不纳入残留计数。GUI 残留中仍有需保留或后续判定的专名，例如 `SHUTTERBUG UNETTE`、`Projekt Blizzard`、`Jellercel` 和 `kutty`；其他 GUI 仍需继续按源码与完整语句逐条审校，不能据字符串相同数直接判定完成。
+当前有 1326 个非空英文值与中文值完全相同，属于精确字符串计数，不等同于应直译的条目。按键族分布：GUI 413、方块 417、物品 279、实体 80、JEI 35、画作 34、效果 21、生物群系 13、进度 12、字幕 12、死亡消息 6、流体 3、物品组 1。另有 41 个英文值本身为空，不纳入残留计数。GUI 残留中仍有需保留或后续判定的专名，例如 `SHUTTERBUG UNETTE`、`Projekt Blizzard`、`Jellercel` 和 `kutty`；其他 GUI 仍需继续按源码与完整语句逐条审校，不能据字符串相同数直接判定完成。
 
 下一步继续按源码顺序翻译剩余 GUI 对话与提示，再处理物品和方块的通用名称/说明。图像内文字及中文布局尚未进行客户端验收，不能称为完整汉化。
 
@@ -71,4 +79,5 @@
 - 第125批后 en SHA-256：`f34ec640698eb8f70a121b0a9ea91f5f81ea4e61b20b6bda53b714fe4e535cbb`；zh SHA-256：`cbad3fa637527c47ee8bfca97179d0db70ae6b0d7b758b06848fddf265e8b3c6`。第125批逐键清单及严格格式验证记录位于 `D:\AI临时文件\ThermalShockMigration\localization-zh-owner\next-gui125\`。
 - 第126批后 en SHA-256：`f34ec640698eb8f70a121b0a9ea91f5f81ea4e61b20b6bda53b714fe4e535cbb`；zh SHA-256：`9c1a41017bcd7b10032346410b4bd1d2ce27a708a2d071f6cbb94c7a2dc0d45c`。第126批逐键清单与静态校验记录位于 `D:\AI临时文件\ThermalShockMigration\localization-zh-owner\next-gui126\`。
 - 第127批后 en SHA-256：`f34ec640698eb8f70a121b0a9ea91f5f81ea4e61b20b6bda53b714fe4e535cbb`；zh SHA-256：`a28ea77bfd830ed4055c65385c7a9230578334086fd612b050308c640ea57956`。第127批逐键清单、候选和验证记录位于 `D:\AI临时文件\ThermalShockMigration\localization-zh-owner\next-gui127\`。
+- 第130批固定输入 zh SHA-256：`4b902f47739b471c0a232d26ca9e09857dbeae0647a0ee340d7cafee651bca7d`；完成后 zh SHA-256：`b073695f06897a458238601ce292550243728aa84e048f94e74ce444cee81690`。逐键清单、校验和源码证据位于 `D:\AI临时文件\ThermalShockMigration\localization-zh-owner\next130\`。
 - 本阶段只做 JSON/键/格式静态核验；未运行构建、`processResources` 或游戏测试，留给主线统一处理。

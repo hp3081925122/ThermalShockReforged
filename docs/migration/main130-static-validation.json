@@ -1,0 +1,55 @@
+{
+  "baseline": "da86581",
+  "build": {
+    "command": "compileJava processResources --offline --max-workers=2",
+    "success": true,
+    "log": "D:\\AI临时文件\\ThermalShockMigration\\review130\\batch130-unified-build.log",
+    "sha256": "d2e3851b7bde23ba78f9fb0c8466406f76553b42cf9295f24651105a360894a4"
+  },
+  "fixedInputs": {
+    "count": 8880,
+    "snapshot": "D:\\AI临时文件\\ThermalShockMigration\\review130\\inputs-before.json",
+    "sha256": "496e0c7f40d111a3ab335734fae596a9718e930e1a065f3451834808e35be4e5",
+    "unchanged": true
+  },
+  "directResourcesByteEqual": 8060,
+  "iceHistoricalFailedReproduced": 9,
+  "iceMethodsEqualAfterOnlyCRLFNormalization": 18,
+  "localization": {
+    "ownerReport": "D:\\AI临时文件\\ThermalShockMigration\\localization-zh-owner\\next130\\batch130-validation.json",
+    "ownerReportSha256": "c379a1f22501455da7c86a8989a41a5afd49f314e6baf848301e2b8fca19c255",
+    "changedExistingValues": 34,
+    "englishUnchanged": true,
+    "keysAndOrderUnchanged": true,
+    "zhSha256": "b073695f06897a458238601ce292550243728aa84e048f94e74ce444cee81690",
+    "lfWithoutBom": true
+  },
+  "evidence": [
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\audit-main130-ice-methods.json",
+      "sha256": "85a5b0ad96bedb154eeead0bbc2f971a8bc7e3d6dc0b5064f4a45a67430e454d"
+    }
+  ],
+  "independentRibbonbladeIncludedButExcludedFromCommit": true,
+  "gameExecuted": false,
+  "fullMigrationComplete": false,
+  "a129Receipt": {
+    "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\review-main130-a129-receipt.json",
+    "sha256": "119c3e665aabf4243d6b606900dad556eb41566230a87781595d84cddfb1bba3",
+    "documentInputsVerified": 59,
+    "scope": "文档门禁盘点，不是生产源码全部重新复核"
+  },
+  "lootReadOnlyInventory": {
+    "path": "D:\\AI临时文件\\ThermalShockMigration\\loot130\\inventory.json",
+    "sha256": "3e529e5ca3aef5b9fd8f6e9a37fa89882619586dd4d44288f2f6ce6350364bad",
+    "original610TablesPresent": true,
+    "registrationClosureComplete": false,
+    "limits": "字面量实体/方块注册清点不是626个掉落物品的完整注册链证明；G03继续保留，后续需真实helper/枚举/注册总线证据。"
+  },
+  "remainingEvidenceGateClasses": [
+    "67模板外部可达性与完整纳入处置",
+    "完整声画/粒子provider/非实体控制器消费者覆盖",
+    "掉落物品引用到真实注册/helper/总线的闭合"
+  ],
+  "validatorCorrection": "初次验证误要求owner改动清单顺序等于语言文件键序；现将改动键按集合精确核对，整份语言文件键序仍单独严格比较，生产字节未因此变化。"
+}

@@ -1,0 +1,42 @@
+{
+  "schema": "review-a129-gates-validation-v1",
+  "baseline_head": "da865812c8df21f2e054e67ef4f1a9367b3c43a2",
+  "document_inputs_verified_unchanged": 59,
+  "source_or_resource_inputs_read": 0,
+  "json_parse_and_strict_utf8": true,
+  "new_confirmed_production_defects": 0,
+  "evidence_gate_classes_not_missing_function_count": 3,
+  "scope_questions_not_confirmed_defects": 2,
+  "superseded_todo_groups": 12,
+  "runtime_groups_not_code_gaps": 5,
+  "assertions": [
+    "241菜单remaining为空",
+    "303属性矩阵与113后加载主线证据区分",
+    "45消费者后续复核存在",
+    "26透明路径修复范围不外推",
+    "67模板分类/内部依赖与外部可达性分开",
+    "loot引用未全闭合且主线130独占",
+    "118九项失败保原记录并承接130真实行尾证据",
+    "主线129有限动画静态118/118与10运行未执行区分",
+    "未改127A/生产/独立测试"
+  ],
+  "deliverables": [
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\review-a129-gates.json",
+      "sha256": "09d39457b8e3e8c34d58747aca6da20a17a3a5c8f09130702e2762e60343e707"
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\migration\\review-a129-gates.md",
+      "sha256": "e11094475d2db6d4ab26c167158308f5f69201b73f3acd238d6124a94601a7d5"
+    }
+  ],
+  "generator": {
+    "path": "D:\\AI临时文件\\ThermalShockMigration\\review-a129-gates.py",
+    "sha256": "9f3d495430492dc6c786970ce7d7616971eddea309d25cd865f57f0d7ab5e245"
+  },
+  "limits": [
+    "没有重新验证历史报告所引用生产字节",
+    "没有源码复审、构建或游戏执行",
+    "当前报告快照固定；主线后续新结论另留证据，不刷新旧快照"
+  ]
+}
