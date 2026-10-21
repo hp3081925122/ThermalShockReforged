@@ -1,0 +1,25 @@
+{
+  "type": "thermal_shock_reforged:extraction",
+  "ingredient": {
+    "item": "thermal_shock_reforged:pesticide"
+  },
+  "experience": {
+    "value": 3
+  },
+  "outputs": [
+    {
+      "item": {
+        "id": "thermal_shock_reforged:ferrous_nugget",
+        "count": 1
+      },
+      "chance": 0.1
+    }
+  ],
+  "sounds": [
+    {
+      "sound": "minecraft:block.basalt.break",
+      "pitch": 3
+    }
+  ],
+  "particle_block": "thermal_shock_reforged:ferrum_plating"
+}

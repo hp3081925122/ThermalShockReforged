@@ -80,7 +80,7 @@ public final class ElementalBladeItem extends SwordItem {
             player.addEffect(new MobEffectInstance(StatusContent.PARRYING, duration, 0));
             ThermalShockReforged.LOGGER.debug("Knight's Edge parry window opened: player={}, hand={}, duration={}", player.getUUID(), hand, duration);
         }
-        return result;
+        return InteractionResultHolder.sidedSuccess(player.getItemInHand(hand), level.isClientSide);
     }
     @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) {
         super.appendHoverText(stack, context, lines, flag);

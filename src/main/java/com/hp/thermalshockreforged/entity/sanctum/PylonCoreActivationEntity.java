@@ -20,22 +20,23 @@ import net.minecraft.world.level.storage.loot.parameters.*;
 import net.minecraft.world.phys.Vec3;
 
 public final class PylonCoreActivationEntity extends Entity implements ServerEndTickTask {
-    private static final ResourceKey<LootTable> DUST = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "gameplay/pylon_core_dust"));
     private BlockPos anchor = BlockPos.ZERO;
     private String dimension = "";
     private boolean explosive;
+    private ResourceKey<LootTable> loot;
     private boolean armed;
     private boolean consumed;
     private int remaining = 40;
     public PylonCoreActivationEntity(EntityType<? extends PylonCoreActivationEntity> type, Level level) { super(type, level); noPhysics = true; setNoGravity(true); }
-    public static boolean begin(ServerLevel level, BlockPos pos, boolean explosive) {
+    public static boolean begin(ServerLevel level, BlockPos pos, ResourceKey<LootTable> loot) {
+        boolean explosive = loot == null;
         if (!(level.getBlockEntity(pos) instanceof GeoDecorBlockEntity core) || core.kind != GeoDecorKind.PYLON_CORE || core.getPersistentData().hasUUID(PylonCoreBlock.ACTIVATION_TOKEN)) return false;
-        if (!explosive && level.getServer().reloadableRegistries().getLootTable(DUST) == LootTable.EMPTY) {
+        if (!explosive && level.getServer().reloadableRegistries().getLootTable(loot) == LootTable.EMPTY) {
             ThermalShockReforged.LOGGER.warn("Pylon core dust table is unavailable; keeping inactive core: position={}", pos); return false;
         }
         var task = SanctumContent.CORE_ACTIVATION.get().create(level);
         if (task == null) return false;
-        task.anchor = pos.immutable(); task.setPos(Vec3.atLowerCornerOf(pos)); task.dimension = level.dimension().location().toString(); task.explosive = explosive; task.armed = true;
+        task.anchor = pos.immutable(); task.setPos(Vec3.atLowerCornerOf(pos)); task.dimension = level.dimension().location().toString(); task.explosive = explosive; task.loot = loot; task.armed = true;
         var data = core.getPersistentData(); data.putUUID(PylonCoreBlock.ACTIVATION_TOKEN, task.getUUID()); core.setChanged();
         if (!level.addFreshEntity(task)) {
             task.discard();
@@ -72,7 +73,8 @@ public final class PylonCoreActivationEntity extends Entity implements ServerEnd
         if (--remaining > 0) { ServerEndTickTasks.schedule(level, getUUID()); return; }
         consumed = true; discard();
         var core = ownCore(level);
-        LootTable table = explosive ? null : level.getServer().reloadableRegistries().getLootTable(DUST);
+        LootTable table = null;
+        if (!explosive) table = level.getServer().reloadableRegistries().getLootTable(loot);
         if (!explosive && table == LootTable.EMPTY) {
             release(level, core); ThermalShockReforged.LOGGER.warn("Pylon core conversion cancelled because dust table disappeared: position={}, originalCorePresent={}", anchor, core != null); return;
         }
@@ -89,10 +91,13 @@ public final class PylonCoreActivationEntity extends Entity implements ServerEnd
         level.sendParticles(ParticleTypes.END_ROD, anchor.getX(), anchor.getY() + 1.5, anchor.getZ(), 30, .2, .2, .2, .2);
     }
     @Override protected void addAdditionalSaveData(CompoundTag tag) {
-        tag.putLong("CoreAnchor", anchor.asLong()); tag.putString("CoreDimension", dimension); tag.putBoolean("CoreExplosive", explosive); tag.putBoolean("CoreArmed", armed); tag.putBoolean("CoreConsumed", consumed); tag.putInt("CoreRemaining", remaining);
+        tag.putLong("CoreAnchor", anchor.asLong()); tag.putString("CoreDimension", dimension); tag.putBoolean("CoreExplosive", explosive); if (loot != null) tag.putString("CoreLoot", loot.location().toString()); tag.putBoolean("CoreArmed", armed); tag.putBoolean("CoreConsumed", consumed); tag.putInt("CoreRemaining", remaining);
     }
     @Override protected void readAdditionalSaveData(CompoundTag tag) {
         anchor = BlockPos.of(tag.getLong("CoreAnchor")); dimension = tag.getString("CoreDimension"); explosive = tag.getBoolean("CoreExplosive"); consumed = tag.getBoolean("CoreConsumed"); remaining = Math.clamp(tag.getInt("CoreRemaining"), 1, 40);
-        armed = tag.getBoolean("CoreArmed") && tag.contains("CoreAnchor", 99) && ResourceLocation.tryParse(dimension) != null;
+        var lootId = ResourceLocation.tryParse(tag.getString("CoreLoot"));
+        loot = null;
+        if (tag.contains("CoreLoot", 8) && lootId != null) loot = ResourceKey.create(Registries.LOOT_TABLE, lootId);
+        armed = tag.getBoolean("CoreArmed") && tag.contains("CoreAnchor", 99) && ResourceLocation.tryParse(dimension) != null && (explosive || loot != null);
     }
 }

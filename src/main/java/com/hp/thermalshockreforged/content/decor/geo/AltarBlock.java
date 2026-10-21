@@ -55,6 +55,16 @@ public final class AltarBlock extends GeoDecorBlock {
         ThermalShockReforged.LOGGER.debug("Altar unlocked for player: player={}, position={}, dimension={}, worldFirst={}", owner.getUUID(), pos, server.dimension().location(), progress.altarUnlocked());
         return true;
     }
+    @Override public void animateTick(BlockState state, Level level, BlockPos pos, net.minecraft.util.RandomSource random) {
+        super.animateTick(state, level, pos, random);
+        if (kind != GeoDecorKind.FRIGID_ALTAR) return;
+        for (int index = 0; index < 3; index++) {
+            double x = pos.getX() + .5 + (random.nextDouble() - .5) * .5;
+            double z = pos.getZ() + .5 + (random.nextDouble() - .5) * .5;
+            level.addAlwaysVisibleParticle(ParticleTypes.SNOWFLAKE, x, pos.getY() + 1 + random.nextDouble() * 6, z, (random.nextDouble() - .5) * .02, .25 + random.nextDouble() * .15, (random.nextDouble() - .5) * .02);
+        }
+        if (random.nextInt(3) == 0) level.addAlwaysVisibleParticle(ParticleTypes.END_ROD, pos.getX() + .5, pos.getY() + 1, pos.getZ() + .5, 0, .35, 0);
+    }
     @Override protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) { return unlock(level, pos, player) ? ItemInteractionResult.SUCCESS : ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION; }
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) { return unlock(level, pos, player) ? InteractionResult.SUCCESS : InteractionResult.PASS; }
 }

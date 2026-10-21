@@ -17,19 +17,21 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ClickType;
+import net.minecraft.world.inventory.DataSlot;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 public final class FabricatorMenu extends AbstractContainerMenu {
-    public final FabricatorPage page;
+    public static final int SELECT_BUTTON = 100;
+    public static final int OUTPUT_X = 220, OUTPUT_Y = 44, ENERGY_X = 131, ENERGY_Y = 84, INVENTORY_X = 48, INVENTORY_Y = 108;
+    private final DataSlot selected = DataSlot.standalone();
     private final Level level;
     private final BlockPos pos;
     private final Player owner;
     private final Inventory inventory;
     private final GeoDecorBlockEntity attached;
     private final Container storage;
-    private boolean changedPage;
 
     public FabricatorMenu(int id, Inventory inventory, RegistryFriendlyByteBuf data) {
         this(id, inventory, data.readBlockPos(), FabricatorPage.byIndex(data.readVarInt()));
@@ -41,20 +43,29 @@ public final class FabricatorMenu extends AbstractContainerMenu {
         this.level = inventory.player.level();
         this.pos = pos.immutable();
         this.owner = inventory.player;
-        this.page = page;
+        selected.set(page.ordinal());
+        addDataSlot(selected);
         attached = level.hasChunkAt(pos) && level.getBlockEntity(pos) instanceof GeoDecorBlockEntity entity && entity.kind == GeoDecorKind.FABRICATOR ? entity : null;
         storage = !level.isClientSide && attached != null ? attached : new SimpleContainer(9);
-        if (!page.isGuide()) {
-            addSlot(new Slot(storage, 0, 186, 15) {
-                @Override public boolean mayPlace(ItemStack stack) { return false; }
-            });
-            addSlot(new Slot(storage, 1, 15, 123));
-            for (int row = 0; row < 3; row++) for (int column = 0; column < 9; column++) {
-                addSlot(new Slot(inventory, column + (row + 1) * 9, 43 + column * 18, 82 + row * 18));
-            }
-            for (int column = 0; column < 9; column++) addSlot(new Slot(inventory, column, 43 + column * 18, 140));
+        addSlot(new Slot(storage, 0, OUTPUT_X, OUTPUT_Y) {
+            @Override public boolean mayPlace(ItemStack stack) { return false; }
+        });
+        addSlot(new Slot(storage, 1, ENERGY_X, ENERGY_Y));
+        for (int row = 0; row < 3; row++) for (int column = 0; column < 9; column++) {
+            addSlot(new Slot(inventory, column + (row + 1) * 9, INVENTORY_X + column * 18, INVENTORY_Y + row * 18));
         }
+        for (int column = 0; column < 9; column++) addSlot(new Slot(inventory, column, INVENTORY_X + column * 18, INVENTORY_Y + 58));
     }
+
+    public FabricatorPage page() {
+        int index = selected.get();
+        if (index < 0 || index >= FabricatorPage.values().length) return FabricatorPage.TOOLS;
+        return FabricatorPage.values()[index];
+    }
+
+    public void select(FabricatorPage page) { selected.set(page.ordinal()); }
+
+    public Inventory inventory() { return inventory; }
 
     public static boolean open(ServerPlayer player, BlockPos pos, FabricatorPage page) {
         var level = player.serverLevel();
@@ -76,19 +87,16 @@ public final class FabricatorMenu extends AbstractContainerMenu {
     }
 
     @Override public boolean clickMenuButton(Player player, int button) {
-        if (changedPage || !(player instanceof ServerPlayer server) || player.containerMenu != this || !stillValid(player)) return false;
-        if (page.isGuide()) {
-            var next = page.next(button);
-            if (next == null) return false;
-            changedPage = true;
-            if (open(server, pos, next)) return true;
-            changedPage = false;
-            return false;
+        if (!(player instanceof ServerPlayer server) || player.containerMenu != this || !stillValid(player)) return false;
+        if (button >= SELECT_BUTTON && button - SELECT_BUTTON < FabricatorPage.values().length) {
+            selected.set(button - SELECT_BUTTON);
+            return true;
         }
-        return button == 0 && fabricate(server);
+        return button == 0 && !page().isGuide() && fabricate(server);
     }
 
     private boolean fabricate(ServerPlayer player) {
+        var page = page();
         var holder = level.getRecipeManager().byKey(page.recipe).orElse(null);
         if (holder == null || !(holder.value() instanceof FabricationRecipe recipe)) {
             ThermalShockReforged.LOGGER.debug("Fabrication recipe unavailable: recipe={}, player={}, position={}", page.recipe, player.getUUID(), pos);
@@ -116,11 +124,11 @@ public final class FabricatorMenu extends AbstractContainerMenu {
     }
 
     @Override public void clicked(int slot, int button, ClickType type, Player player) {
-        if (!changedPage && stillValid(player)) super.clicked(slot, button, type, player);
+        if (stillValid(player)) super.clicked(slot, button, type, player);
     }
 
     @Override public ItemStack quickMoveStack(Player player, int index) {
-        if (changedPage || page.isGuide() || !stillValid(player) || index < 0 || index >= slots.size()) return ItemStack.EMPTY;
+        if (!stillValid(player) || index < 0 || index >= slots.size()) return ItemStack.EMPTY;
         var slot = slots.get(index);
         if (!slot.hasItem() || !slot.mayPickup(player)) return ItemStack.EMPTY;
         var stack = slot.getItem();

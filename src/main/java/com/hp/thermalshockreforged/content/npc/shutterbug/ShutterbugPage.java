@@ -1,7 +1,6 @@
 package com.hp.thermalshockreforged.content.npc.shutterbug;
 
 import java.util.List;
-import com.hp.thermalshockreforged.content.npc.NpcTrade;
 
 public enum ShutterbugPage {
     INTRO_1("une_intro_epl_1", "idle", List.of(new Line("gui.thermal_shock_reforged.une_intro_epl_1.label_kutty", 9, 112, -1, 11), new Line("gui.thermal_shock_reforged.une_intro_epl_1.label_concierge", 67, 94, -1), new Line("gui.thermal_shock_reforged.une_intro_epl_1.label_were_you_down_there_for_a_while", 9, 133, -6710887))),
@@ -52,10 +51,10 @@ public enum ShutterbugPage {
     public final String portrait;
     public final String title;
     public final List<Line> lines;
-    public final NpcTrade trade;
+    public final String trade;
     ShutterbugPage(String id, String portrait, List<Line> lines) {
         this.id = id; this.portrait = portrait; this.lines = lines;
-        trade = id.equals("une_trade_camera") ? new NpcTrade("e_xpolar_camera", 1, 5, "adamantine_spice", 3) : null;
+        if (id.equals("une_trade_camera")) trade = id; else trade = null;
         var name = new StringBuilder(); for (String part : id.split("_")) name.append(Character.toUpperCase(part.charAt(0))).append(part.substring(1)); title = name.toString();
     }
     public int width() { return this == TRADE ? 206 : this == INFO ? 212 : 276; }

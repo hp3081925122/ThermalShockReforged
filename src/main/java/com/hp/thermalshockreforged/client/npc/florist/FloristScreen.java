@@ -62,7 +62,7 @@ public final class FloristScreen extends AbstractContainerScreen<FloristMenu> {
         RenderSystem.disableBlend();
     }
     @Override protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) {
-        for (var line : menu.page.lines) DialogueText.draw(graphics, font, Component.translatable(line.key()), line.x(), line.y(), line.color(), imageWidth, line.spacing());
+        for (var line : menu.page.lines) DialogueText.draw(graphics, font, com.hp.thermalshockreforged.client.npc.NpcTradeLabels.text(line.key()), line.x(), line.y(), line.color(), imageWidth, line.spacing());
         if (menu.page == FloristPage.MAIN) DialogueText.draw(graphics, font, Component.translatable("gui.thermal_shock_reforged.uma_main.greeting_" + (menu.intro == 1 || menu.intro == 2 ? menu.intro : 0)), 9, 112, -1, imageWidth, 0);
     }
     private static final class Clock { int frame; }

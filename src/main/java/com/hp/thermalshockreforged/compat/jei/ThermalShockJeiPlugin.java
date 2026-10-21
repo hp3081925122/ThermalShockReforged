@@ -3,7 +3,11 @@ package com.hp.thermalshockreforged.compat.jei;
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.fabrication.FabricationRecipe;
 import com.hp.thermalshockreforged.content.fabrication.FabricatorPage;
-import com.hp.thermalshockreforged.content.npc.NpcTrade;
+import com.hp.thermalshockreforged.content.recipe.NpcTradeRecipe;
+import com.hp.thermalshockreforged.content.recipe.RecipeContent;
+import com.hp.thermalshockreforged.entity.labmachinist.LabPage;
+import com.hp.thermalshockreforged.entity.whisper.WhisperPage;
+import com.mojang.serialization.JsonOps;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -18,6 +22,12 @@ import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.util.valueproviders.IntProvider;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -41,20 +51,6 @@ public final class ThermalShockJeiPlugin implements IModPlugin {
             new Machine(MachineCategory.EXTRACTOR, List.of("extractor"), new MachineCategory.Layout(new int[][]{{0, 20}}, 24, 20, 54, 20, 1, 72, 52)),
             new Machine(MachineCategory.CENTRIFUGE, List.of("centrifuge"), new MachineCategory.Layout(new int[][]{{0, 20}, {18, 2}, {36, 20}}, 60, 20, 90, 20, 1, 108, 40)),
             new Machine(MachineCategory.LAPIDARY, List.of("lapidarian_workbench"), new MachineCategory.Layout(new int[][]{{0, 20}}, 24, 20, 54, 2, 6, 162, 56)));
-    private static final List<String[]> TRANSMUTATIONS = List.of(
-            new String[]{"rough_ruby", "rough_bloodstone"}, new String[]{"rough_bloodstone", "rough_ruby"},
-            new String[]{"ruby", "bloodstone"}, new String[]{"bloodstone", "ruby"},
-            new String[]{"malachite", "bismuth"}, new String[]{"bismuth", "malachite"});
-    private static final List<String[]> LAPIDARY_TABLES = List.of(
-            new String[]{"muck", "blocks/muck_loot"},
-            new String[]{"sparkly_muck", "sparkly_muck_loot", "springling"},
-            new String[]{"minecraft:gravel", "gravel_lapidary"},
-            new String[]{"pathiolite_scrap", "gameplay/pathiolite_lapidary"},
-            new String[]{"thermal_geyser", "thermal_vent_lapidary"},
-            new String[]{"glittery_shale", "gameplay/glittery_shale_lapidary"},
-            new String[]{"metallic_debris", "gameplay/metallic_debris_lapidary"},
-            new String[]{"modest_archive_cabinet", "gameplay/modest_archive_lapidary"},
-            new String[]{"crammed_archive_cabinet", "gameplay/modest_archive_lapidary", "extra"});
     private static final Map<String, List<String>> TRADE_LOCATIONS = Map.of(
             "florist", List.of("shalespring@fixed_loqendia"),
             "shutterbug", List.of("shalespring@fixed_loqendia"),
@@ -62,22 +58,6 @@ public final class ThermalShockJeiPlugin implements IModPlugin {
             "concierge", List.of("cathedral"),
             "whisper", List.of("large_campsite", "stardust_garden@natural"),
             "lab_machinist", List.of("machinist_lab"));
-    private static final List<FixedTrade> FIXED_TRADES = List.of(
-            new FixedTrade("whisper", "malachite", 10, 20, List.<String[]>of(d("adamantine_spice", "10"))),
-            new FixedTrade("whisper", "bismuth", 10, 20, List.<String[]>of(d("adamantine_spice", "10"))),
-            new FixedTrade("whisper", "starfruit_seed", 1, 6, List.<String[]>of(d("adamantine_spice", "3"))),
-            new FixedTrade("whisper", "lunalemon_seed", 1, 6, List.<String[]>of(d("adamantine_spice", "3"))),
-            new FixedTrade("whisper", "cocoa", 1, 5, List.of()),
-            new FixedTrade("whisper", "bottled_pixie", 1, 10, List.<String[]>of(d("adamantine_spice", "7"))),
-            new FixedTrade("whisper", "zenith_smithing_template", 1, 30, List.of(d("adamantine_spice", "10"), d("tourmaline_spice", "1"))),
-            new FixedTrade("whisper", "floor_33", 1, 33, List.of()),
-            new FixedTrade("lab_machinist", "ender_tentacle", 1, 12, List.of(d("adamantine_spice", "40"), d("mithral_spice", "1"))),
-            new FixedTrade("lab_machinist", "pylon_core", 1, 0, List.<String[]>of(d("mithral_spice", "1"))),
-            new FixedTrade("lab_machinist", "shock_stick", 1, 7, List.of(d("adamantine_spice", "12"), d("mithral_spice", "3"))),
-            new FixedTrade("lab_machinist", "sylvia_rifle", 1, 42, List.of(d("adamantine_spice", "48"), d("mithral_spice", "5"), d("tourmaline_spice", "1"))),
-            new FixedTrade("lab_machinist", "wallbore", 1, 8, List.of(d("adamantine_spice", "10"), d("mithral_spice", "1"))),
-            new FixedTrade("lab_machinist", "zap_gauntlet", 1, 16, List.of(d("adamantine_spice", "28"), d("mithral_spice", "5"))),
-            new FixedTrade("lab_machinist", "zenith_smithing_template", 1, 55, List.<String[]>of(d("adamantine_spice", "5"))));
     private static final List<List<String>> SICKLE_TIERS = List.of(
             List.of("ruby_sickle", "bloodstone_sickle", "carborundum_sickle"),
             List.of("claw_sickle"),
@@ -191,140 +171,211 @@ public final class ThermalShockJeiPlugin implements IModPlugin {
         registration.addRecipes(SickleHarvestCategory.WILD, wild);
         registration.addRecipes(SickleHarvestCategory.POT, pot);
         ThermalShockReforged.LOGGER.debug("JEI sickle harvest registered: wild={}, pot={}", wild.size(), pot.size());
-        var rows = new LinkedHashMap<String, List<NpcTradeEntry.Row>>();
-        for (FloristPage page : FloristPage.values()) if (page.trade != null) trade(rows, "florist", page.trade);
-        for (LyPage page : LyPage.values()) if (page.trade != null) trade(rows, "ly", page.trade);
-        for (ShutterbugPage page : ShutterbugPage.values()) if (page.trade != null) trade(rows, "shutterbug", page.trade);
-        for (ConciergePage page : ConciergePage.values()) {
-            if (page.trade == null) continue;
-            Component condition = null;
-            if (page.trade.item().equals("panacea")) condition = requires("blasphemy_4");
-            trade(rows, "concierge", page.trade.item(), page.trade.count(), page.trade.levels(), List.<String[]>of(d("adamantine_spice", String.valueOf(page.trade.spiceCount()))), condition);
+        var level = Minecraft.getInstance().level;
+        if (level == null) {
+            ThermalShockReforged.LOGGER.warn("JEI data recipes skipped: client level unavailable");
+            return;
         }
-        for (FixedTrade row : FIXED_TRADES) trade(rows, row.npc(), row.item(), row.count(), row.levels(), row.costs(), null);
+        var rows = new LinkedHashMap<String, List<NpcTradeEntry.Row>>();
+        for (FloristPage page : FloristPage.values()) if (page.trade != null) trade(rows, level, "florist", page.trade);
+        for (LyPage page : LyPage.values()) if (page.trade != null) trade(rows, level, "ly", page.trade);
+        for (ShutterbugPage page : ShutterbugPage.values()) if (page.trade != null) trade(rows, level, "shutterbug", page.trade);
+        for (ConciergePage page : ConciergePage.values()) if (page.trade != null) trade(rows, level, "concierge", page.trade);
+        for (WhisperPage page : WhisperPage.values()) if (page.inventory) trade(rows, level, "whisper", page.id);
+        for (LabPage page : LabPage.values()) if (page.trade()) trade(rows, level, "lab_machinist", page.id);
         var pages = new ArrayList<NpcTradeEntry>();
         for (var npc : rows.entrySet()) {
             var info = new ArrayList<Component>();
             for (String location : TRADE_LOCATIONS.getOrDefault(npc.getKey(), List.of())) info.add(location(location));
-            if (npc.getKey().equals("lab_machinist")) info.add(requires("uneasy_alliance_1"));
+            if (npc.getKey().equals("lab_machinist")) info.add(requires(RecipeContent.id("uneasy_alliance_1")));
             pages.add(new NpcTradeEntry(npc.getKey(), npc.getValue(), info));
         }
         registration.addRecipes(NpcTradeCategory.TYPE, pages);
         ThermalShockReforged.LOGGER.debug("JEI npc trades registered: pages={}, rows={}", pages.size(), rows.values().stream().mapToInt(List::size).sum());
         var fabrication = new ArrayList<MachineEntry>();
-        var level = Minecraft.getInstance().level;
-        if (level == null) ThermalShockReforged.LOGGER.warn("JEI fabrication skipped: client level unavailable");
-        else {
-            for (FabricatorPage page : FabricatorPage.values()) {
-                if (page.isGuide()) continue;
-                var holder = level.getRecipeManager().byKey(page.recipe).orElse(null);
-                if (holder == null || !(holder.value() instanceof FabricationRecipe recipe)) {
-                    ThermalShockReforged.LOGGER.warn("JEI fabrication recipe missing: {}", page.recipe);
-                    continue;
-                }
-                var inputs = new ArrayList<MachineEntry.Slot>();
-                for (int index = 0; index < 6; index++) {
-                    if (index < recipe.materials().size()) inputs.add(slot(new ItemStack(recipe.materials().get(index).item(), recipe.materials().get(index).count())));
-                    else inputs.add(new MachineEntry.Slot(List.of(), List.of()));
-                }
-                inputs.add(new MachineEntry.Slot(List.of(new ItemStack(recipe.energy().item(), recipe.energy().count())), List.of(Component.translatable(KEY + "machine.energy"))));
-                fabrication.add(new MachineEntry(inputs, List.of(slot(recipe.getResultItem(level.registryAccess()))), null, List.of()));
+        for (FabricatorPage page : FabricatorPage.values()) {
+            if (page.isGuide()) continue;
+            var holder = level.getRecipeManager().byKey(page.recipe).orElse(null);
+            if (holder == null || !(holder.value() instanceof FabricationRecipe recipe)) {
+                ThermalShockReforged.LOGGER.warn("JEI fabrication recipe missing: {}", page.recipe);
+                continue;
             }
+            var inputs = new ArrayList<MachineEntry.Slot>();
+            for (int index = 0; index < 6; index++) {
+                if (index < recipe.materials().size()) inputs.add(slot(new ItemStack(recipe.materials().get(index).item(), recipe.materials().get(index).count())));
+                else inputs.add(new MachineEntry.Slot(List.of(), List.of()));
+            }
+            inputs.add(new MachineEntry.Slot(List.of(new ItemStack(recipe.energy().item(), recipe.energy().count())), List.of(Component.translatable(KEY + "machine.energy"))));
+            fabrication.add(new MachineEntry(inputs, List.of(slot(recipe.getResultItem(level.registryAccess()))), null, List.of()));
         }
         registration.addRecipes(MachineCategory.FABRICATOR, fabrication);
         var transmutation = new ArrayList<MachineEntry>();
-        for (String[] pair : TRANSMUTATIONS) {
-            var input = stack(pair[0], "1");
-            var output = stack(pair[1], "1");
-            if (!input.isEmpty() && !output.isEmpty()) transmutation.add(new MachineEntry(List.of(slot(input)), List.of(slot(output)), null, List.of()));
-        }
+        for (var holder : RecipeContent.TRANSMUTATION.all(level)) transmutation.add(new MachineEntry(List.of(slot(holder.value().ingredient())), List.of(slot(holder.value().result().copy())), null, List.of()));
         registration.addRecipes(MachineCategory.TRANSMUTATOR, transmutation);
         var extraction = new ArrayList<MachineEntry>();
-        var core = List.<Component>of(Component.translatable(KEY + "machine.advancement", Component.translatable("advancements.blasphemy_3.title")));
-        extraction.add(new MachineEntry(List.of(slot("infected_core_sample")), List.of(new MachineEntry.Slot(stacks(List.of("primordial_blood")), core)), null, List.of()));
-        var heraldXp = List.<Component>of(Component.translatable(KEY + "machine.herald_xp", 10, "3~8", 5));
-        extraction.add(new MachineEntry(List.of(slot("herald_key")), List.of(drop("helion_slag", "1-3", "30%")), Component.translatable(KEY + "machine.xp_levels", 10), heraldXp));
-        extraction.add(xpEntry(List.of("infected_seeds", "blood_vessel", "ashen_bone"), 2, List.of()));
-        extraction.add(xpEntry(List.of("beetle_claw", "infected_flesh", "tainted_energy"), 8, List.of()));
-        extraction.add(xpEntry(List.of("pesticide"), 3, List.of(drop("ferrous_nugget", "1", "10%"))));
-        extraction.add(xpEntry(List.of("neural_chip"), 20, List.of(drop("phobotite", "1-6", "30%"))));
+        for (var holder : RecipeContent.EXTRACTION.all(level)) {
+            var recipe = holder.value();
+            var inputNotes = new ArrayList<Component>();
+            if (recipe.advancement().isPresent()) inputNotes.add(Component.translatable(KEY + "machine.advancement", advancementTitle(recipe.advancement().get())));
+            var outputs = new ArrayList<MachineEntry.Slot>();
+            for (var output : recipe.outputs()) {
+                var notes = new ArrayList<Component>();
+                if (!output.guaranteed()) notes.add(Component.translatable(KEY + "sickle_harvest.chance", percent(output.chance())));
+                if (output.repeat().getMinValue() != output.repeat().getMaxValue()) notes.add(Component.translatable(KEY + "sickle_harvest.count", range(output.repeat())));
+                outputs.add(new MachineEntry.Slot(List.of(output.item().copyWithCount(output.item().getCount() * Math.max(1, output.repeat().getMaxValue()))), notes));
+            }
+            Component xp = null;
+            var xpTooltip = new ArrayList<Component>();
+            if (recipe.levels() > 0) {
+                xp = Component.translatable(KEY + "machine.xp_levels", recipe.levels());
+                xpTooltip.add(Component.translatable(KEY + "machine.levels_gain", recipe.levels()));
+            }
+            if (recipe.experience().isPresent()) {
+                var experience = recipe.experience().get();
+                var orbs = experience.orbs();
+                if (orbs.getMinValue() == 1 && orbs.getMaxValue() == 1) xpTooltip.add(Component.translatable(KEY + "machine.xp_points", experience.value()));
+                else xpTooltip.add(Component.translatable(KEY + "machine.xp_orbs", range(orbs), experience.value()));
+                if (xp == null && orbs.getMinValue() == orbs.getMaxValue()) xp = Component.literal(String.valueOf(experience.value() * orbs.getMinValue()));
+                if (xp == null) xp = Component.literal(experience.value() + "×" + range(orbs));
+            }
+            extraction.add(new MachineEntry(List.of(new MachineEntry.Slot(List.of(recipe.ingredient().getItems()), inputNotes)), outputs, xp, xpTooltip));
+        }
         registration.addRecipes(MachineCategory.EXTRACTOR, extraction);
         var centrifuge = new ArrayList<MachineEntry>();
-        centrifuge.add(new MachineEntry(List.of(slot("cryonic_energy"), slot("cryonic_energy"), slot("hearth_honey")), List.of(slot("pyrogenic_energy")), null, List.of()));
-        centrifuge.add(new MachineEntry(List.of(slot("pyrogenic_energy"), slot("pyrogenic_energy"), slot("frost_pearl")), List.of(slot("cryonic_energy")), null, List.of()));
+        for (var holder : RecipeContent.CENTRIFUGE.all(level)) {
+            var recipe = holder.value();
+            centrifuge.add(new MachineEntry(List.of(slot(recipe.energy().get(0)), slot(recipe.energy().get(1)), slot(recipe.ingredient())), List.of(slot(recipe.result().copy())), null, List.of()));
+        }
         registration.addRecipes(MachineCategory.CENTRIFUGE, centrifuge);
         var lapidary = new ArrayList<MachineEntry>();
-        var gemNote = List.<Component>of(Component.translatable(KEY + "machine.advancement", Component.translatable("advancements.lapidary_get.title")));
-        lapidary.add(new MachineEntry(List.of(slot("rough_ruby")), List.of(new MachineEntry.Slot(stacks(List.of("ruby")), gemNote)), null, List.of()));
-        lapidary.add(new MachineEntry(List.of(slot("rough_bloodstone")), List.of(new MachineEntry.Slot(stacks(List.of("bloodstone")), gemNote)), null, List.of()));
-        for (String[] row : LAPIDARY_TABLES) {
-            var input = stack(row[0], "1");
-            if (input.isEmpty()) continue;
+        for (var holder : RecipeContent.LAPIDARY.all(level)) {
+            var recipe = holder.value();
             var notes = new ArrayList<Component>();
-            if (row.length > 2 && row[2].equals("extra")) notes.add(Component.translatable(KEY + "machine.extra_roll"));
-            if (row.length > 2 && row[2].equals("springling")) notes.add(Component.translatable(KEY + "machine.springling"));
-            var outputs = loot(row[1]);
-            if (!outputs.isEmpty()) lapidary.add(new MachineEntry(List.of(new MachineEntry.Slot(List.of(input), notes)), outputs, null, List.of()));
+            if (recipe.extraRollChance() > 0) notes.add(Component.translatable(KEY + "machine.extra_roll", percent(recipe.extraRollChance())));
+            if (recipe.springlingChance() > 0) notes.add(Component.translatable(KEY + "machine.springling", percent(recipe.springlingChance())));
+            var outputs = new ArrayList<MachineEntry.Slot>();
+            if (recipe.lootTable().isPresent()) outputs.addAll(loot(recipe.lootTable().get().location()));
+            if (recipe.result().isPresent()) {
+                var resultNotes = new ArrayList<Component>();
+                if (recipe.advancement().isPresent()) resultNotes.add(Component.translatable(KEY + "machine.advancement", advancementTitle(recipe.advancement().get())));
+                outputs.add(new MachineEntry.Slot(List.of(recipe.result().get().copy()), resultNotes));
+            }
+            if (!outputs.isEmpty()) lapidary.add(new MachineEntry(List.of(new MachineEntry.Slot(List.of(recipe.ingredient().getItems()), notes)), outputs, null, List.of()));
         }
         registration.addRecipes(MachineCategory.LAPIDARY, lapidary);
+        var altars = new ArrayList<MachineEntry>();
         var unlock = Component.translatable(KEY + "altar.unlock");
-        var frigid = new MachineEntry.Slot(stacks(List.of("frigid_altar")), List.of(location("blizzard_outpost"), Component.translatable(KEY + "altar.frigid_unbreakable"), unlock));
-        var ferrous = new MachineEntry.Slot(stacks(List.of("ferrous_altar")), List.of(Component.translatable(KEY + "altar.ferrous_craft"), unlock));
-        var pylonCore = new MachineEntry.Slot(stacks(List.of("pylon_core")), List.of(Component.translatable(KEY + "altar.core_source"), Component.translatable(KEY + "altar.place")));
-        var energy = new MachineEntry.Slot(List.of(stack("cryonic_energy", "3")), List.of(Component.translatable(KEY + "sickle_harvest.count", "1~3")));
-        registration.addRecipes(AltarCategory.TYPE, List.of(new MachineEntry(List.of(pylonCore, frigid, ferrous), List.of(energy), null, List.of())));
-        var cacheLines = new ArrayList<CacheLootEntry.Line>();
+        for (var holder : RecipeContent.ALTAR_CONVERSION.all(level)) {
+            var recipe = holder.value();
+            var inputs = new ArrayList<MachineEntry.Slot>();
+            var coreNotes = new ArrayList<Component>();
+            if (recipe.core().is(RecipeContent.id("pylon_core"))) {
+                coreNotes.add(Component.translatable(KEY + "altar.core_source"));
+                coreNotes.add(Component.translatable(KEY + "altar.place"));
+            }
+            inputs.add(new MachineEntry.Slot(List.of(new ItemStack(recipe.core().value())), coreNotes));
+            for (var altar : recipe.altars()) {
+                var altarNotes = new ArrayList<Component>();
+                if (altar.is(RecipeContent.id("frigid_altar"))) {
+                    altarNotes.add(location("blizzard_outpost"));
+                    altarNotes.add(Component.translatable(KEY + "altar.frigid_unbreakable"));
+                }
+                if (altar.is(RecipeContent.id("ferrous_altar"))) altarNotes.add(Component.translatable(KEY + "altar.ferrous_craft"));
+                altarNotes.add(unlock);
+                inputs.add(new MachineEntry.Slot(List.of(new ItemStack(altar.value())), altarNotes));
+            }
+            var outputs = loot(recipe.lootTable().location());
+            if (!outputs.isEmpty()) altars.add(new MachineEntry(inputs, outputs, null, List.of()));
+        }
+        registration.addRecipes(AltarCategory.TYPE, altars);
+        var caches = new ArrayList<CacheLootEntry>();
         var consumed = Component.translatable(KEY + "cache.consumed");
         var key = new MachineEntry.Slot(stacks(List.of("cryonic_key")), List.of(Component.translatable(KEY + "cache.key")));
         var trapped = new MachineEntry.Slot(stacks(List.of("trapped_cache_pad")), List.of(Component.translatable(KEY + "cache.trapped", Component.translatable("entity." + ThermalShockReforged.MOD_ID + ".bonerahna"))));
         var pads = new MachineEntry.Slot(stacks(List.of("ferrous_cache_pad", "shale_cache_pad")), List.of(Component.translatable(KEY + "cache.pad")));
-        cache(cacheLines, "cryonic_cache", "blocks/cryonic_cache", List.of(key, trapped), consumed);
-        cache(cacheLines, "super_cryonic_cache", "blocks/super_cryonic_cache", List.of(key), consumed);
-        cache(cacheLines, "enchanted_cache", "enchanted_cache_loot", List.of(pads), consumed);
-        registration.addRecipes(CacheLootCategory.TYPE, List.of(new CacheLootEntry(cacheLines)));
-        ThermalShockReforged.LOGGER.debug("JEI cache loot registered: lines={}", cacheLines.size());
-        ThermalShockReforged.LOGGER.debug("JEI machines registered: fabrication={}, transmutation={}, extraction={}, centrifuge={}, lapidary={}", fabrication.size(), transmutation.size(), extraction.size(), centrifuge.size(), lapidary.size());
+        caches.add(cache("cryonic_cache", "blocks/cryonic_cache", List.of(key, trapped), consumed));
+        caches.add(cache("super_cryonic_cache", "blocks/super_cryonic_cache", List.of(key), consumed));
+        caches.add(cache("enchanted_cache", "enchanted_cache_loot", List.of(pads), consumed));
+        registration.addRecipes(CacheLootCategory.TYPE, caches);
+        ThermalShockReforged.LOGGER.debug("JEI data recipes registered: fabrication={}, transmutation={}, extraction={}, centrifuge={}, lapidary={}, altar={}, caches={}", fabrication.size(), transmutation.size(), extraction.size(), centrifuge.size(), lapidary.size(), altars.size(), caches.size());
     }
 
-    private static void cache(List<CacheLootEntry.Line> lines, String cache, String table, List<MachineEntry.Slot> requirements, Component consumed) {
+    private static CacheLootEntry cache(String cache, String table, List<MachineEntry.Slot> requirements, Component consumed) {
+        var lines = new ArrayList<CacheLootEntry.Line>();
         var header = new ArrayList<MachineEntry.Slot>();
         header.add(new MachineEntry.Slot(stacks(List.of(cache)), List.of(consumed)));
         header.addAll(requirements);
         lines.add(new CacheLootEntry.Line(header, Component.translatable("block." + ThermalShockReforged.MOD_ID + "." + cache)));
-        for (var pool : lootPools(table)) {
+        for (var pool : lootPools(RecipeContent.id(table))) {
             for (int start = 0; start < pool.size(); start += CacheLootWidget.COLUMNS) lines.add(new CacheLootEntry.Line(pool.subList(start, Math.min(pool.size(), start + CacheLootWidget.COLUMNS)), null));
         }
+        return new CacheLootEntry(lines);
+    }
+
+    private static MachineEntry.Slot slot(Ingredient ingredient) { return new MachineEntry.Slot(List.of(ingredient.getItems()), List.of()); }
+
+    private static Component advancementTitle(ResourceLocation id) { return Component.translatable("advancements." + id.getPath() + ".title"); }
+
+    private static String percent(float chance) {
+        String text = String.format(Locale.ROOT, "%.1f", chance * 100);
+        if (text.endsWith(".0")) text = text.substring(0, text.length() - 2);
+        return text + "%";
+    }
+
+    private static String range(IntProvider provider) {
+        if (provider.getMinValue() == provider.getMaxValue()) return String.valueOf(provider.getMinValue());
+        return provider.getMinValue() + "~" + provider.getMaxValue();
+    }
+
+    private static void trade(Map<String, List<NpcTradeEntry.Row>> rows, Level level, String npc, String page) {
+        var recipe = RecipeContent.NPC_TRADE.get(level, NpcTradeRecipe.id(page));
+        if (recipe == null) {
+            ThermalShockReforged.LOGGER.warn("JEI npc trade recipe missing: {}", NpcTradeRecipe.id(page));
+            return;
+        }
+        var costs = new ArrayList<ItemStack>();
+        for (var cost : recipe.costs()) costs.add(new ItemStack(cost.item(), cost.count()));
+        Component condition = null;
+        if (recipe.requires().isPresent()) condition = requires(recipe.requires().get());
+        rows.computeIfAbsent(npc, ignored -> new ArrayList<>()).add(new NpcTradeEntry.Row(costs, recipe.levels(), recipe.result().copy(), condition));
     }
 
     private static MachineEntry.Slot slot(ItemStack stack) { return new MachineEntry.Slot(List.of(stack), List.of()); }
-    private static MachineEntry.Slot slot(String id) { return new MachineEntry.Slot(stacks(List.of(id)), List.of()); }
 
-    private static MachineEntry.Slot drop(String id, String count, String chance) {
-        var notes = new ArrayList<Component>();
-        notes.add(Component.translatable(KEY + "sickle_harvest.chance", chance));
-        if (count.contains("-")) notes.add(Component.translatable(KEY + "sickle_harvest.count", count.replace("-", "~")));
-        return new MachineEntry.Slot(List.of(stack(id, count)), notes);
-    }
-
-    private static MachineEntry xpEntry(List<String> inputs, int xp, List<MachineEntry.Slot> outputs) {
-        return new MachineEntry(List.of(new MachineEntry.Slot(stacks(inputs), List.of())), outputs, Component.literal(String.valueOf(xp)), List.of(Component.translatable(KEY + "machine.xp_points", xp)));
-    }
-
-    private static List<MachineEntry.Slot> loot(String table) {
+    private static List<MachineEntry.Slot> loot(ResourceLocation table) {
         var outputs = new ArrayList<MachineEntry.Slot>();
         for (var pool : lootPools(table)) outputs.addAll(pool);
         return outputs;
     }
 
-    private static List<List<MachineEntry.Slot>> lootPools(String table) {
-        var pools = new ArrayList<List<MachineEntry.Slot>>();
-        String path = "/data/" + ThermalShockReforged.MOD_ID + "/loot_table/" + table + ".json";
+    private static JsonObject lootJson(ResourceLocation table) {
+        var server = Minecraft.getInstance().getSingleplayerServer();
+        if (server != null) {
+            var loaded = server.reloadableRegistries().getLootTable(ResourceKey.create(Registries.LOOT_TABLE, table));
+            if (loaded != LootTable.EMPTY) {
+                var encoded = LootTable.DIRECT_CODEC.encodeStart(server.registryAccess().createSerializationContext(JsonOps.INSTANCE), loaded).result();
+                if (encoded.isPresent() && encoded.get().isJsonObject()) return encoded.get().getAsJsonObject();
+                ThermalShockReforged.LOGGER.warn("JEI loot table encode failed, falling back to bundled file: {}", table);
+            }
+        }
+        String path = "/data/" + table.getNamespace() + "/loot_table/" + table.getPath() + ".json";
         try (var stream = ThermalShockJeiPlugin.class.getResourceAsStream(path)) {
             if (stream == null) {
                 ThermalShockReforged.LOGGER.warn("JEI loot table missing: {}", path);
-                return pools;
+                return null;
             }
-            var root = JsonParser.parseReader(new InputStreamReader(stream, StandardCharsets.UTF_8)).getAsJsonObject();
+            return JsonParser.parseReader(new InputStreamReader(stream, StandardCharsets.UTF_8)).getAsJsonObject();
+        } catch (Exception exception) {
+            ThermalShockReforged.LOGGER.warn("JEI loot table read failed: {}", path, exception);
+            return null;
+        }
+    }
+
+    private static List<List<MachineEntry.Slot>> lootPools(ResourceLocation table) {
+        var pools = new ArrayList<List<MachineEntry.Slot>>();
+        var root = lootJson(table);
+        if (root == null || !root.has("pools")) return pools;
+        try {
             for (JsonElement poolElement : root.getAsJsonArray("pools")) {
                 var pool = poolElement.getAsJsonObject();
                 String rolls = range(pool.get("rolls"));
@@ -357,7 +408,7 @@ public final class ThermalShockJeiPlugin implements IModPlugin {
                 }
             }
         } catch (Exception exception) {
-            ThermalShockReforged.LOGGER.warn("JEI loot table parse failed: {}", path, exception);
+            ThermalShockReforged.LOGGER.warn("JEI loot table parse failed: {}", table, exception);
         }
         return pools;
     }
@@ -368,35 +419,21 @@ public final class ThermalShockJeiPlugin implements IModPlugin {
     }
 
     private static String range(JsonElement element) {
-        if (element.isJsonPrimitive()) return String.valueOf((int) element.getAsFloat());
+        if (element.isJsonPrimitive() || element.getAsJsonObject().has("value")) return String.valueOf(number(element));
         var object = element.getAsJsonObject();
-        if (object.has("value")) return String.valueOf((int) object.get("value").getAsFloat());
-        int min = (int) object.get("min").getAsFloat();
-        int max = (int) object.get("max").getAsFloat();
+        int min = number(object.get("min"));
+        int max = number(object.get("max"));
         if (min == max) return String.valueOf(min);
         return min + "~" + max;
     }
 
-    private static Component requires(String advancement) {
-        return Component.translatable(KEY + "npc_trade.requires", Component.translatable("advancements." + advancement + ".title"));
+    private static int number(JsonElement element) {
+        if (element.isJsonPrimitive()) return (int) element.getAsFloat();
+        return (int) element.getAsJsonObject().get("value").getAsFloat();
     }
 
-    private static void trade(Map<String, List<NpcTradeEntry.Row>> rows, String npc, NpcTrade trade) {
-        var costs = new ArrayList<String[]>();
-        if (trade.spiceCount() > 0) costs.add(new String[]{trade.spice(), String.valueOf(trade.spiceCount())});
-        trade(rows, npc, trade.item(), trade.count(), trade.levels(), costs, null);
-    }
-
-    private static void trade(Map<String, List<NpcTradeEntry.Row>> rows, String npc, String item, int count, int levels, List<String[]> costs, Component condition) {
-        var result = stack(item, String.valueOf(count));
-        if (result.isEmpty()) return;
-        var costStacks = new ArrayList<ItemStack>();
-        for (String[] cost : costs) {
-            if (Integer.parseInt(cost[1]) <= 0) continue;
-            var stack = stack(cost[0], cost[1]);
-            if (!stack.isEmpty()) costStacks.add(stack);
-        }
-        rows.computeIfAbsent(npc, key -> new ArrayList<>()).add(new NpcTradeEntry.Row(costStacks, levels, result, condition));
+    private static Component requires(ResourceLocation advancement) {
+        return Component.translatable(KEY + "npc_trade.requires", advancementTitle(advancement));
     }
 
     private static Component location(String location) {
@@ -442,8 +479,6 @@ public final class ThermalShockJeiPlugin implements IModPlugin {
     }
 
     private record Machine(mezz.jei.api.recipe.RecipeType<MachineEntry> type, List<String> blocks, MachineCategory.Layout layout) { }
-
-    private record FixedTrade(String npc, String item, int count, int levels, List<String[]> costs) { }
 
     private record Crop(List<String> plant, List<String> biomes, List<String[]> base, List<String[]> claw, List<String[]> stratosilver) {
         List<List<String[]>> tiers() { return List.of(base, claw, stratosilver); }

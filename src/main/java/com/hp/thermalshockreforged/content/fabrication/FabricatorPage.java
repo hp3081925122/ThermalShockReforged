@@ -1,6 +1,7 @@
 package com.hp.thermalshockreforged.content.fabrication;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
+import java.util.List;
 import net.minecraft.resources.ResourceLocation;
 
 public enum FabricatorPage {
@@ -42,18 +43,23 @@ public enum FabricatorPage {
 
     public final ResourceLocation recipe;
     FabricatorPage(String output) {
-        recipe = output == null ? null : ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "fabrication/" + output);
+        if (output == null) recipe = null;
+        else recipe = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "fabrication/" + output);
     }
     public boolean isGuide() { return recipe == null; }
-    public FabricatorPage next(int button) {
-        if (button < 0) return null;
-        var destinations = switch (this) {
-            case TOOLS -> new FabricatorPage[] {GHOSTGLASS_PICK, ARMOR, WEAPONS, FERROUS_ALTAR, TRANSMUTATOR, THINGAMABOB, STRATOSILVER_DRILL, STRATOSILVER_CHAINSAW, STRATOSILVER_AUGER, EXTRACTOR};
-            case WEAPONS -> new FabricatorPage[] {TOOLS, ARMOR, FLINTSTEEL_RIFLE, VOLCANO, HAILFALL, MAGNETIC_CROSSBOW, TITANIUM_MACE, COBALT_THERMOBLASTER, AMALJELLY_CANISTER, SHOCK_STICK, KNIGHTS_EDGE, HI_VOLT_LANCE, BUZZSAW, LITEPRISM_DISK, LITEPRISM_LASER, LITEPRISM_SWORD};
-            case ARMOR -> new FabricatorPage[] {WEAPONS, TOOLS, SENTRY_HELMET, SENTRY_CHESTPLATE, DEV_SCARF_CHESTPLATE, CORRIAL_DIVING_HELMET_HELMET, PROPULSION_BOOTS_BOOTS, GLASTREKKER_ARMOR, STRANGESILK_ARMOUR_HELMET, STRANGESILK_ARMOUR_CHESTPLATE, SILENCED_ARMOR_HELMET, SILENCED_ARMOR_CHESTPLATE};
-            default -> new FabricatorPage[0];
+    public static final List<FabricatorPage> CATEGORIES = List.of(TOOLS, WEAPONS, ARMOR);
+    public List<FabricatorPage> recipes() {
+        return switch (this) {
+            case TOOLS -> List.of(GHOSTGLASS_PICK, FERROUS_ALTAR, TRANSMUTATOR, THINGAMABOB, STRATOSILVER_DRILL, STRATOSILVER_CHAINSAW, STRATOSILVER_AUGER, EXTRACTOR);
+            case WEAPONS -> List.of(FLINTSTEEL_RIFLE, VOLCANO, HAILFALL, MAGNETIC_CROSSBOW, TITANIUM_MACE, COBALT_THERMOBLASTER, AMALJELLY_CANISTER, SHOCK_STICK, KNIGHTS_EDGE, HI_VOLT_LANCE, BUZZSAW, LITEPRISM_DISK, LITEPRISM_LASER, LITEPRISM_SWORD);
+            case ARMOR -> List.of(SENTRY_HELMET, SENTRY_CHESTPLATE, DEV_SCARF_CHESTPLATE, CORRIAL_DIVING_HELMET_HELMET, PROPULSION_BOOTS_BOOTS, GLASTREKKER_ARMOR, STRANGESILK_ARMOUR_HELMET, STRANGESILK_ARMOUR_CHESTPLATE, SILENCED_ARMOR_HELMET, SILENCED_ARMOR_CHESTPLATE);
+            default -> List.of();
         };
-        return button < destinations.length ? destinations[button] : null;
+    }
+    public FabricatorPage category() {
+        if (isGuide()) return this;
+        for (var category : CATEGORIES) if (category.recipes().contains(this)) return category;
+        return TOOLS;
     }
     public static FabricatorPage byIndex(int index) {
         if (index < 0 || index >= values().length) throw new IllegalArgumentException("Invalid Fabricator page: " + index);

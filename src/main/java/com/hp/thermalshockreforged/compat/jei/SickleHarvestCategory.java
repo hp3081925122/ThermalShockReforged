@@ -52,7 +52,12 @@ public final class SickleHarvestCategory implements IRecipeCategory<SickleHarves
         if (!planters.isEmpty()) builder.addSlot(RecipeIngredientRole.CATALYST, ARROW_X + 4, 3).setStandardSlotBackground().addItemStacks(planters);
         for (int index = 0; index < entry.drops().size(); index++) {
             var drop = entry.drops().get(index);
-            var slot = builder.addSlot(RecipeIngredientRole.OUTPUT, OUTPUT_X + 1 + index * 18, PLANT_Y + 1).setStandardSlotBackground().addItemStacks(drop.stacks());
+            var role = RecipeIngredientRole.OUTPUT;
+            if (drop.stacks().size() > 1) {
+                role = RecipeIngredientRole.RENDER_ONLY;
+                builder.addSlot(RecipeIngredientRole.OUTPUT, -10000, -10000).addItemStacks(drop.stacks());
+            }
+            var slot = builder.addSlot(role, OUTPUT_X + 1 + index * 18, PLANT_Y + 1).setStandardSlotBackground().addItemStacks(drop.stacks());
             if (drop.note() != null) slot.addRichTooltipCallback((view, tooltip) -> tooltip.add(drop.note()));
         }
     }
