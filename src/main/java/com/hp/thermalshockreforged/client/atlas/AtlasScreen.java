@@ -17,9 +17,9 @@ public final class AtlasScreen extends AbstractContainerScreen<AtlasMenu> {
     private static ResourceLocation id(String path) { return ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
     @Override protected void init() {
         super.init();
-        addRenderableWidget(new AtlasButton(0, 43, 83, "atlas_button_inac", Component.literal("Loqendia")));
+        addRenderableWidget(new AtlasButton(0, 43, 83, "atlas_button_inac", Component.translatable("gui.thermal_shock_reforged.atlas_menu.button_loqendia")));
         addRenderableWidget(new AtlasButton(1, 114, 130, "atlas_button_inac1", Component.translatable("generator.minecraft.normal")));
-        addRenderableWidget(new AtlasButton(2, 124, 53, "atlas_button_inac2", Component.literal("Palace")));
+        addRenderableWidget(new AtlasButton(2, 124, 53, "atlas_button_inac2", Component.translatable("gui.thermal_shock_reforged.atlas_menu.button_palace")));
     }
     @Override public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) { super.render(graphics, mouseX, mouseY, partialTick); renderTooltip(graphics, mouseX, mouseY); }
     @Override protected void renderBg(GuiGraphics graphics, float partialTick, int mouseX, int mouseY) {

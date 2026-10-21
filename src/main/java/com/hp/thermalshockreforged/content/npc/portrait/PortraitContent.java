@@ -32,7 +32,7 @@ public final class PortraitContent {
     private static void attributes(EntityAttributeCreationEvent event) { event.put(PORTRAIT.get(), PortraitCharacterEntity.createAttributes().build()); }
     static void open(ServerPlayer player, PortraitCharacterEntity npc, boolean ibex) {
         var provider = new MenuProvider() {
-            @Override public Component getDisplayName() { return Component.literal(ibex ? "LavenCivil2Tlk" : "LavenCivil1Tlk"); }
+            @Override public Component getDisplayName() { return Component.translatable(ibex ? "gui.thermal_shock_reforged.laven_civil_2_tlk.label_concierge" : "gui.thermal_shock_reforged.laven_civil_1_tlk.label_concierge"); }
             @Override public AbstractContainerMenu createMenu(int id, Inventory inventory, Player owner) { return new PortraitMenu(ibex, id, inventory, npc.getId(), npc.getUUID()); }
         };
         player.openMenu(provider, data -> { data.writeVarInt(npc.getId()); data.writeUUID(npc.getUUID()); });

@@ -29,9 +29,9 @@ public final class SopelScreen extends AbstractContainerScreen<SopelMenu> {
     @Override protected void init() {
         super.init();
         if (menu.page == SopelPage.CHOICE) {
-            addRenderableWidget(new ImageButton(0, 107, 87, 20, 20, "yesbuttonb", "Yes"));
-            addRenderableWidget(new ImageButton(1, 147, 87, 20, 20, "nobuttonb", "No"));
-        } else addRenderableWidget(new ImageButton(0, 237, 162, 38, 20, "nextbuttona", "Next"));
+            addRenderableWidget(new ImageButton(0, 107, 87, 20, 20, "yesbuttonb", "gui.thermal_shock_reforged.sopel.button_yes"));
+            addRenderableWidget(new ImageButton(1, 147, 87, 20, 20, "nobuttonb", "gui.thermal_shock_reforged.sopel.button_no"));
+        } else addRenderableWidget(new ImageButton(0, 237, 162, 38, 20, "nextbuttona", "gui.thermal_shock_reforged.sopel.button_next"));
     }
     @Override protected void containerTick() { if (menu.page != SopelPage.CHOICE) clock.frame = clock.frame > 12 ? 0 : clock.frame + .125; }
     @Override public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) { super.render(graphics, mouseX, mouseY, partialTick); renderTooltip(graphics, mouseX, mouseY); }
@@ -49,8 +49,8 @@ public final class SopelScreen extends AbstractContainerScreen<SopelMenu> {
     private final class ImageButton extends AbstractButton {
         private final int action;
         private final ResourceLocation texture;
-        ImageButton(int action, int x, int y, int width, int height, String texture, String label) {
-            super(leftPos + x, topPos + y, width, height, Component.literal(label)); this.action = action; this.texture = id("atlas/imagebutton_" + texture);
+        ImageButton(int action, int x, int y, int width, int height, String texture, String labelKey) {
+            super(leftPos + x, topPos + y, width, height, Component.translatable(labelKey)); this.action = action; this.texture = id("atlas/imagebutton_" + texture);
         }
         @Override public void onPress() { if (minecraft != null && minecraft.gameMode != null) minecraft.gameMode.handleInventoryButtonClick(menu.containerId, action); }
         @Override protected void renderWidget(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) { RenderSystem.enableBlend(); RenderSystem.defaultBlendFunc(); graphics.blit(texture, getX(), getY(), 0, isHoveredOrFocused() ? height : 0, width, height, width, height * 2); com.hp.thermalshockreforged.client.ButtonLabels.draw(graphics, texture, getX(), getY(), width, height, isHoveredOrFocused()); RenderSystem.disableBlend(); }

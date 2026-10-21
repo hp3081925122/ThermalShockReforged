@@ -2,6 +2,7 @@ package com.hp.thermalshockreforged.entity.labmachinist;
 
 import com.hp.thermalshockreforged.content.MaterialContent;
 import com.hp.thermalshockreforged.entity.qo.*;
+import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.syncher.*;
@@ -22,7 +23,7 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 public final class LabMachinistEntity extends PathfinderMob implements GeoEntity {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(LabMachinistEntity.class, EntityDataSerializers.STRING);
     private final AnimatableInstanceCache animations = GeckoLibUtil.createInstanceCache(this);
-    public LabMachinistEntity(EntityType<? extends LabMachinistEntity> type, Level level) { super(type, level); xpReward = 0; setCustomName(Component.literal("§aDefector Machinist")); setCustomNameVisible(true); setPersistenceRequired(); }
+    public LabMachinistEntity(EntityType<? extends LabMachinistEntity> type, Level level) { super(type, level); xpReward = 0; setCustomName(Component.translatable("entity.thermal_shock_reforged.lab_machinist").withStyle(ChatFormatting.GREEN)); setCustomNameVisible(true); setPersistenceRequired(); }
     public static AttributeSupplier.Builder createAttributes() { return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 75).add(Attributes.ARMOR, 64).add(Attributes.MOVEMENT_SPEED, 0).add(Attributes.ATTACK_DAMAGE, 0).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.KNOCKBACK_RESISTANCE, 1).add(Attributes.STEP_HEIGHT, 0); }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, "qo"); }
     public String texture() { return entityData.get(TEXTURE); }

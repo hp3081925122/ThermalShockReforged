@@ -23,14 +23,14 @@ public final class LyScreen extends AbstractContainerScreen<LyMenu> {
     private static ResourceLocation id(String path) { return ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/screens/" + path + ".png"); }
     @Override protected void init() {
         super.init();
-        if (menu.page == LyPage.MAIN) button(0, 203, -6, 65, 22, "maintradebuttona", "Trade");
+        if (menu.page == LyPage.MAIN) button(0, 203, -6, 65, 22, "maintradebuttona", "gui.thermal_shock_reforged.button_label.maintradebuttona");
         else {
-            button(0, 84, 73, 38, 20, "tradebuttona", "Buy");
-            button(1, 167, 50, 14, 21, "adamantine_spice", "Next");
-            button(2, 25, 50, 14, 21, "tabcycleleft", "Previous");
+            button(0, 84, 73, 38, 20, "tradebuttona", "gui.thermal_shock_reforged.button_label.buy");
+            button(1, 167, 50, 14, 21, "adamantine_spice", "gui.thermal_shock_reforged.button_label.nextbuttona");
+            button(2, 25, 50, 14, 21, "tabcycleleft", "gui.thermal_shock_reforged.button_label.previous");
         }
     }
-    private void button(int action, int x, int y, int width, int height, String texture, String label) { addRenderableWidget(new ImageButton(action, x, y, width, height, texture, Component.literal(label))); }
+    private void button(int action, int x, int y, int width, int height, String texture, String labelKey) { addRenderableWidget(new ImageButton(action, x, y, width, height, texture, Component.translatable(labelKey))); }
     @Override protected void containerTick() { if (menu.page == LyPage.MAIN) clock.frame = clock.frame > 12 ? 0 : clock.frame + 1; }
     @Override public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) { super.render(graphics, mouseX, mouseY, partialTick); renderTooltip(graphics, mouseX, mouseY); if (menu.getCarried().isEmpty()) for (var line : menu.page.lines) if (com.hp.thermalshockreforged.client.npc.NpcTradeLabels.tooltip(graphics, font, line.key(), leftPos + line.x(), topPos + line.y(), mouseX, mouseY)) break; }
     private void blit(GuiGraphics graphics, String texture, int x, int y, int width, int height) { graphics.blit(id(texture), leftPos + x, topPos + y, 0, 0, width, height, width, height); }
@@ -47,7 +47,7 @@ public final class LyScreen extends AbstractContainerScreen<LyMenu> {
         RenderSystem.disableBlend();
     }
     @Override protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) {
-        if (menu.page == LyPage.MAIN) graphics.drawString(font, menu.intro == 1 ? "❄ Nice weather we're having, eh? Ehhh?" : menu.intro == 2 ? "❄ We got snow in bowls, snow in bottles. Buy it." : "❄ kutty", 9, 112, -1, false);
+        if (menu.page == LyPage.MAIN) graphics.drawString(font, Component.translatable(menu.intro == 1 ? "gui.thermal_shock_reforged.ly_main.intro_1" : menu.intro == 2 ? "gui.thermal_shock_reforged.ly_main.intro_2" : "gui.thermal_shock_reforged.ly_main.intro_fallback"), 9, 112, -1, false);
         for (var line : menu.page.lines) DialogueText.draw(graphics, font, com.hp.thermalshockreforged.client.npc.NpcTradeLabels.text(line.key()), line.x(), line.y(), line.color(), imageWidth, line.spacing());
     }
     private static final class Clock { int frame; }

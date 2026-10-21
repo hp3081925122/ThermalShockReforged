@@ -34,7 +34,7 @@ final class DeskPhotoBlock extends FacingDecorBlock {
     }
 
     private void openPhoto(Level level, Player player) {
-        if (!level.isClientSide) player.openMenu(new SimpleMenuProvider((id, inventory, owner) -> new DeskPhotoMenu(id, inventory), Component.literal("Desk Photo")));
+        if (!level.isClientSide) player.openMenu(new SimpleMenuProvider((id, inventory, owner) -> new DeskPhotoMenu(id, inventory), Component.translatable("block.thermal_shock_reforged.desk_photo")));
     }
 
     @Override

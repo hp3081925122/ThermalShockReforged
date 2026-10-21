@@ -74,6 +74,9 @@ dependencies {
     developmentRuntime "curse.maven:just-enough-characters-250702:8117474"
     compileOnly "curse.maven:jade-324717:8591319"
     developmentRuntime "curse.maven:jade-324717:8591319"
+    // 仅用于开发运行环境，查看战利品表和村民交易信息。
+    developmentRuntime "curse.maven:advanced-core-info-1661923:9002615"
+    developmentRuntime "curse.maven:advanced-loot-info-1205426:9002619"
 }
 
 tasks.withType(ProcessResources).configureEach {

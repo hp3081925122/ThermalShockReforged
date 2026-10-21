@@ -23,22 +23,22 @@ public final class ShutterbugScreen extends AbstractContainerScreen<ShutterbugMe
     private static ResourceLocation id(String path) { return ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/screens/" + path + ".png"); }
     @Override protected void init() {
         super.init();
-        if (menu.page == ShutterbugPage.TRADE) button(0, 84, 73, 38, 20, "tradebuttona", "Buy");
+        if (menu.page == ShutterbugPage.TRADE) button(0, 84, 73, 38, 20, "tradebuttona", "gui.thermal_shock_reforged.button_label.buy");
         else if (menu.page == ShutterbugPage.MAIN) {
-            button(0, 203, -6, 65, 22, "maininfobuttona", "Info");
-            button(1, 203, 18, 65, 22, "maintradebuttona", "Trade");
-            button(2, 203, 42, 65, 22, "mainerrandsbuttona", "Errands");
-            button(3, 203, 65, 65, 22, "maintipbuttona", "Tips");
+            button(0, 203, -6, 65, 22, "maininfobuttona", "gui.thermal_shock_reforged.button_label.maininfobuttona");
+            button(1, 203, 18, 65, 22, "maintradebuttona", "gui.thermal_shock_reforged.button_label.maintradebuttona");
+            button(2, 203, 42, 65, 22, "mainerrandsbuttona", "gui.thermal_shock_reforged.button_label.mainerrandsbuttona");
+            button(3, 203, 65, 65, 22, "maintipbuttona", "gui.thermal_shock_reforged.button_label.maintipbuttona");
         } else if (menu.page == ShutterbugPage.INFO) {
-            button(0, 76, 32, 59, 20, "infoshalespring", "Shalespring");
-            button(1, 14, 55, 59, 20, "infoblizzard", "Blizzard");
-            button(2, 14, 32, 59, 20, "infounette", "Unette");
-            button(3, 138, 32, 59, 20, "infoinfection", "Infection");
-            button(4, 76, 55, 59, 20, "inforuby", "Ruby");
-            button(5, 138, 55, 59, 20, "infotrain", "Train");
-        } else button(0, 237, menu.page == ShutterbugPage.INFO_TRAIN ? 162 : 161, 38, 20, "nextbuttona", "Next");
+            button(0, 76, 32, 59, 20, "infoshalespring", "gui.thermal_shock_reforged.button_label.infoshalespring");
+            button(1, 14, 55, 59, 20, "infoblizzard", "gui.thermal_shock_reforged.button_label.infoblizzard");
+            button(2, 14, 32, 59, 20, "infounette", "gui.thermal_shock_reforged.button_label.infounette");
+            button(3, 138, 32, 59, 20, "infoinfection", "gui.thermal_shock_reforged.button_label.infoinfection");
+            button(4, 76, 55, 59, 20, "inforuby", "gui.thermal_shock_reforged.button_label.inforuby");
+            button(5, 138, 55, 59, 20, "infotrain", "gui.thermal_shock_reforged.button_label.infotrain");
+        } else button(0, 237, menu.page == ShutterbugPage.INFO_TRAIN ? 162 : 161, 38, 20, "nextbuttona", "gui.thermal_shock_reforged.button_label.nextbuttona");
     }
-    private void button(int action, int x, int y, int width, int height, String texture, String label) { addRenderableWidget(new ImageButton(action, x, y, width, height, texture, Component.literal(label))); }
+    private void button(int action, int x, int y, int width, int height, String texture, String labelKey) { addRenderableWidget(new ImageButton(action, x, y, width, height, texture, Component.translatable(labelKey))); }
     @Override protected void containerTick() { if (menu.page != ShutterbugPage.TRADE) clock.frame = clock.frame > 12 ? 0 : clock.frame + 1; }
     @Override public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) { super.render(graphics, mouseX, mouseY, partialTick); renderTooltip(graphics, mouseX, mouseY); if (menu.getCarried().isEmpty()) for (var line : menu.page.lines) if (com.hp.thermalshockreforged.client.npc.NpcTradeLabels.tooltip(graphics, font, line.key(), leftPos + line.x(), topPos + line.y(), mouseX, mouseY)) break; }
     private void blit(GuiGraphics graphics, String texture, int x, int y, int width, int height) { graphics.blit(id(texture), leftPos + x, topPos + y, 0, 0, width, height, width, height); }

@@ -9,18 +9,16 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public enum DoorKind {
-    MAW("maw_door", "Maw Door", "mawdoor"),
-    BUNKER("bunker_door", "Bunker Door", "bunker_door");
+    MAW("maw_door", "mawdoor"),
+    BUNKER("bunker_door", "bunker_door");
 
     public final String id;
-    public final String caption;
     public final String asset;
     private final VoxelShape[] closed = new VoxelShape[4];
     private final VoxelShape[] open = new VoxelShape[4];
 
-    DoorKind(String id, String caption, String asset) {
+    DoorKind(String id, String asset) {
         this.id = id;
-        this.caption = caption;
         this.asset = asset;
         if (id.equals("maw_door")) {
             VoxelShape northSouth = Block.box(-16, 0, 0, 32, 64, 16);
