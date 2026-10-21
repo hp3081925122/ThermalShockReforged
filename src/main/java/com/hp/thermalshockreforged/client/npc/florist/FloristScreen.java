@@ -25,22 +25,22 @@ public final class FloristScreen extends AbstractContainerScreen<FloristMenu> {
     @Override protected void init() {
         super.init();
         if (menu.page.trade != null) {
-            button(0, 84, 73, 38, 20, "tradebuttona", "Buy");
-            button(1, 167, 50, 14, 21, "adamantine_spice", "Next");
-            button(2, 25, 50, 14, 21, "tabcycleleft", "Previous");
+            button(0, 84, 73, 38, 20, "tradebuttona", "gui.thermal_shock_reforged.button_label.buy");
+            button(1, 167, 50, 14, 21, "adamantine_spice", "gui.thermal_shock_reforged.button_label.nextbuttona");
+            button(2, 25, 50, 14, 21, "tabcycleleft", "gui.thermal_shock_reforged.button_label.previous");
         } else if (menu.page == FloristPage.MAIN) {
-            button(0, 203, -6, 65, 22, "maininfobuttona", "Info");
-            button(1, 203, 18, 65, 22, "maintradebuttona", "Trade");
+            button(0, 203, -6, 65, 22, "maininfobuttona", "gui.thermal_shock_reforged.button_label.maininfobuttona");
+            button(1, 203, 18, 65, 22, "maintradebuttona", "gui.thermal_shock_reforged.button_label.maintradebuttona");
         } else if (menu.page == FloristPage.INFO) {
-            button(0, 138, 32, 59, 20, "infoinfection", "Infection");
-            button(1, 77, 32, 59, 20, "infounette1", "Unette");
-            button(2, 15, 32, 59, 20, "infoumabel", "Umabel");
-            button(3, 15, 55, 59, 20, "infogardening", "Gardening");
-            concierge = button(4, 77, 55, 59, 20, "infoconcierge", "Concierge");
+            button(0, 138, 32, 59, 20, "infoinfection", "gui.thermal_shock_reforged.button_label.infoinfection");
+            button(1, 77, 32, 59, 20, "infounette1", "gui.thermal_shock_reforged.button_label.infounette1");
+            button(2, 15, 32, 59, 20, "infoumabel", "gui.thermal_shock_reforged.button_label.infoumabel");
+            button(3, 15, 55, 59, 20, "infogardening", "gui.thermal_shock_reforged.button_label.infogardening");
+            concierge = button(4, 77, 55, 59, 20, "infoconcierge", "gui.thermal_shock_reforged.button_label.infoconcierge");
             concierge.visible = menu.conciergeAllowed();
-        } else button(0, 237, 161, 38, 20, "nextbuttona", "Next");
+        } else button(0, 237, 161, 38, 20, "nextbuttona", "gui.thermal_shock_reforged.button_label.nextbuttona");
     }
-    private ImageButton button(int action, int x, int y, int width, int height, String texture, String label) { return addRenderableWidget(new ImageButton(action, x, y, width, height, texture, Component.literal(label))); }
+    private ImageButton button(int action, int x, int y, int width, int height, String texture, String labelKey) { return addRenderableWidget(new ImageButton(action, x, y, width, height, texture, Component.translatable(labelKey))); }
     @Override protected void containerTick() { if (menu.page.trade == null) clock.frame = clock.frame > 12 ? 0 : clock.frame + 1; }
     @Override public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
         if (concierge != null) concierge.visible = menu.conciergeAllowed();

@@ -1,6 +1,7 @@
 package com.hp.thermalshockreforged.content.npc.portrait;
 
 import com.hp.thermalshockreforged.content.atlas.AtlasContent;
+import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.syncher.*;
@@ -22,9 +23,16 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 public final class PortraitCharacterEntity extends Monster implements GeoEntity {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(PortraitCharacterEntity.class, EntityDataSerializers.STRING);
     private static final String[] TEXTURES = {"portrait_default", "portrait_pente", "portrait_mc", "portrait_ibex", "portrait_gradient"};
-    private static final String[] NAMES = {"§aNyx (ThermaDev)", "§aPente (Hexacant)", "§aMC (MintFox007)", "§eIbexEndeavors", "§aUnpleasant Gradient (ThermaDev)"};
+    private static final String[] NAME_KEYS = {
+            "entity.thermal_shock_reforged.portrait_nyx",
+            "entity.thermal_shock_reforged.portrait_pente",
+            "entity.thermal_shock_reforged.portrait_mc",
+            "entity.thermal_shock_reforged.portrait_ibex",
+            "entity.thermal_shock_reforged.portrait_gradient"
+    };
     private final AnimatableInstanceCache animations = GeckoLibUtil.createInstanceCache(this);
-    public PortraitCharacterEntity(EntityType<? extends PortraitCharacterEntity> type, Level level) { super(type, level); xpReward = 0; setCustomName(Component.literal(NAMES[0])); setCustomNameVisible(true); setPersistenceRequired(); }
+    public PortraitCharacterEntity(EntityType<? extends PortraitCharacterEntity> type, Level level) { super(type, level); xpReward = 0; setCustomName(name(0)); setCustomNameVisible(true); setPersistenceRequired(); }
+    private static Component name(int index) { return Component.translatable(NAME_KEYS[index]).withStyle(index == 3 ? ChatFormatting.YELLOW : ChatFormatting.GREEN); }
     public static AttributeSupplier.Builder createAttributes() { return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 75).add(Attributes.ARMOR, 30).add(Attributes.KNOCKBACK_RESISTANCE, 1).add(Attributes.MOVEMENT_SPEED, 0).add(Attributes.ATTACK_DAMAGE, 0).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.STEP_HEIGHT, 0); }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, TEXTURES[0]); }
     public String texture() { return entityData.get(TEXTURE); }
@@ -43,7 +51,7 @@ public final class PortraitCharacterEntity extends Monster implements GeoEntity 
             if (player.getAbilities().instabuild && player.getMainHandItem().is(AtlasContent.KEYSTONE.get())) {
                 int next = TEXTURES.length - 1;
                 for (int i = 0; i < TEXTURES.length; i++) if (texture().equals(TEXTURES[i])) { next = (i + 1) % TEXTURES.length; break; }
-                texture(TEXTURES[next]); setCustomName(Component.literal(NAMES[next]));
+                texture(TEXTURES[next]); setCustomName(name(next));
             } else if (texture().equals("portrait_default")) PortraitContent.open(server, this, false);
             else if (texture().equals("portrait_ibex")) PortraitContent.open(server, this, true);
         }

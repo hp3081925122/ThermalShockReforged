@@ -31,11 +31,11 @@ import net.minecraft.world.phys.AABB;
 public abstract class OrbEntityBase extends Monster {
     private int graceTicks = 100;
 
-    protected OrbEntityBase(EntityType<? extends OrbEntityBase> type, Level level, String name) {
+    protected OrbEntityBase(EntityType<? extends OrbEntityBase> type, Level level, String nameKey) {
         super(type, level);
         xpReward = 0;
         setNoAi(false);
-        setCustomName(Component.literal(name));
+        setCustomName(Component.translatable(nameKey));
         setCustomNameVisible(true);
         moveControl = new FlyingMoveControl(this, 10, true);
         setNoGravity(true);

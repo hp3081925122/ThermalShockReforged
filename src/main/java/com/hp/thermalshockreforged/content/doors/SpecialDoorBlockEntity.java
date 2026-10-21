@@ -63,7 +63,7 @@ public final class SpecialDoorBlockEntity extends RandomizableContainerBlockEnti
     public int getContainerSize() { return 9; }
 
     @Override
-    protected Component getDefaultName() { return Component.literal(kind.caption); }
+    protected Component getDefaultName() { return Component.translatable("block.thermal_shock_reforged." + kind.id); }
 
     @Override
     protected AbstractContainerMenu createMenu(int id, Inventory inventory) { return new ChestMenu(MenuType.GENERIC_9x1, id, inventory, this, 1); }
