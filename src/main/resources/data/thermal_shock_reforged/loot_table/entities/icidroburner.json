@@ -145,6 +145,21 @@
           ]
         }
       ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "thermal_shock_reforged:heart_crystal"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "thermal_shock_reforged:game_rule",
+          "rule": "loqendiaDropHeartCrystals"
+        }
+      ]
     }
   ],
   "random_sequence": "thermal_shock_reforged:entities/icidroburner"

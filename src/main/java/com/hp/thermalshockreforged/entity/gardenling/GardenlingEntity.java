@@ -48,12 +48,6 @@ public final class GardenlingEntity extends PathfinderMob implements GeoEntity {
     }
 
     @Override
-    protected void dropCustomDeathLoot(ServerLevel level, DamageSource source, boolean recentlyHit) {
-        super.dropCustomDeathLoot(level, source, recentlyHit);
-        spawnAtLocation(new ItemStack(GardenlingContent.CONSTRUCTOR.get()));
-    }
-
-    @Override
     public void aiStep() { super.aiStep(); updateSwingTime(); }
     @Override
     public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); }

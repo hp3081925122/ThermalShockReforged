@@ -25,7 +25,7 @@ public class GeoCropBlock extends Block implements EntityBlock {
     private static Properties properties(CropKind kind) {
         var props = Properties.of().mapColor(MapColor.PLANT).sound(kind == CropKind.ANCIENT_BARBUBBLE ? SoundType.WOOD : SoundType.GRASS)
                 .strength(kind == CropKind.ANCIENT_BARBUBBLE ? .7f : .5f, 0).noCollission().noOcclusion().pushReaction(PushReaction.DESTROY)
-                .isRedstoneConductor((s, l, p) -> false).noLootTable();
+                .isRedstoneConductor((s, l, p) -> false);
         if (kind.luminous) props.lightLevel(s -> 5).hasPostProcess((s, l, p) -> true).emissiveRendering((s, l, p) -> true);
         return props;
     }
@@ -57,11 +57,6 @@ public class GeoCropBlock extends Block implements EntityBlock {
         if (kind == CropKind.HEARTHFLY_BRANCH) level.addParticle(FarmingContent.HEARTHFLY.get(),
                 pos.getX() + random.nextDouble(), pos.getY() + 1.9, pos.getZ() + random.nextDouble(),
                 random.nextDouble() * .2 - .1, random.nextDouble() * .2 - .1, random.nextDouble() * .2 - .1);
-    }
-    @Override public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean harvest, FluidState fluid) {
-        boolean result = super.onDestroyedByPlayer(state, level, pos, player, harvest, fluid);
-        if (result && !level.getBlockState(pos).is(this)) SickleHarvesting.harvest(level, pos, kind, player);
-        return result;
     }
     @Override protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState replacement, boolean moving) {
         if (!state.is(replacement.getBlock())) {

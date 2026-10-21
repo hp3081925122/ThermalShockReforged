@@ -17,9 +17,4 @@ public final class SkorioBlock extends FlowerBlock {
     }
     @Override public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction face) { return 100; }
     @Override public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction face) { return 60; }
-    @Override public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean harvest, FluidState fluid) {
-        boolean result = super.onDestroyedByPlayer(state, level, pos, player, harvest, fluid);
-        if (result && !level.getBlockState(pos).is(this)) SickleHarvesting.harvest(level, pos, CropKind.SKORIO, player);
-        return result;
-    }
 }

@@ -20,10 +20,6 @@ import net.minecraft.world.level.storage.loot.LootParams;
 public final class PyrogenicPylonCoreBlock extends GeoDecorBlock {
     public PyrogenicPylonCoreBlock() { super(GeoDecorKind.PYROGENIC_PYLON_CORE); }
     @Override public PathType getBlockPathType(BlockState state, BlockGetter level, BlockPos pos, Mob mob) { return PathType.DANGER_OTHER; }
-    @Override protected List<ItemStack> getDrops(BlockState state, LootParams.Builder builder) {
-        List<ItemStack> drops = super.getDrops(state, builder);
-        return drops.isEmpty() ? List.of(new ItemStack(MaterialContent.items().get("pyrogenic_energy").get())) : drops;
-    }
     @Override public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean harvest, FluidState fluid) {
         boolean result = super.onDestroyedByPlayer(state, level, pos, player, harvest, fluid);
         if (level.isClientSide) level.playLocalSound(pos.getX(), pos.getY(), pos.getZ(), SoundEvents.DRAGON_FIREBALL_EXPLODE, SoundSource.NEUTRAL, 1, 1, false);

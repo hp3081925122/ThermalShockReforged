@@ -19,9 +19,7 @@ public final class SpireTipBlock extends Block {
         super.neighborChanged(state, level, pos, block, from, moving);
         if (level instanceof ServerLevel server && level.isEmptyBlock(pos.below()) && level.getBlockState(pos).is(this)
                 && level.destroyBlock(pos, false) && !level.getBlockState(pos).is(this)) {
-            var drop = new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(this));
-            drop.setPickUpDelay(10);
-            server.addFreshEntity(drop);
+            com.hp.thermalshockreforged.content.loot.LootContent.dropBlockTable(server, "gameplay/spire_bloom_collapse", state, pos, net.minecraft.world.phys.Vec3.atLowerCornerOf(pos));
         }
     }
 }

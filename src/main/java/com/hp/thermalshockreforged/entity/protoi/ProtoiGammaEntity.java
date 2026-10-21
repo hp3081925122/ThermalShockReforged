@@ -43,7 +43,6 @@ public final class ProtoiGammaEntity extends ProtoiEntityBase {
         }));
         controllers.add(procedure);
     }
-    @Override protected void dropCustomDeathLoot(ServerLevel level, DamageSource source, boolean recentlyHit) { super.dropCustomDeathLoot(level, source, recentlyHit); spawnAtLocation(new ItemStack(MaterialContent.items().get("helion_coagulate").get())); }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", "gamma_hurt")); }
     @Override protected SoundEvent getDeathSound() { return BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", "gamma_hurt")); }
 }

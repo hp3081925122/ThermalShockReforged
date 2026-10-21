@@ -1,8 +1,6 @@
 package com.hp.thermalshockreforged.entity.cavebloomer;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
-import com.hp.thermalshockreforged.content.MaterialContent;
-import com.hp.thermalshockreforged.content.ModGameRules;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.*;
@@ -33,10 +31,6 @@ public final class CavebloomerBossBoxItem extends Item {
                 var item = new ItemEntity(server, player.getX(), player.getY(), player.getZ(), drop); item.setDefaultPickUpDelay(); server.addFreshEntity(item);
             }
             server.sendParticles(ParticleTypes.END_ROD, player.getX(), player.getY(), player.getZ(), 20, 0.5, 1, 0.5, 0);
-            if (server.getGameRules().getBoolean(ModGameRules.LOQENDIA_DROP_HEART_CRYSTALS)) {
-                var crystal = new ItemEntity(server, player.getX(), player.getY(), player.getZ(), new ItemStack(MaterialContent.items().get("heart_crystal").get()));
-                crystal.setPickUpDelay(10); server.addFreshEntity(crystal);
-            }
         } else {
             level.playLocalSound(player.getX(), player.getY(), player.getZ(), SoundEvents.BUNDLE_DROP_CONTENTS, SoundSource.NEUTRAL, 1, 1, false);
             level.playLocalSound(player.getX(), player.getY(), player.getZ(), SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.NEUTRAL, 1, 1, false);

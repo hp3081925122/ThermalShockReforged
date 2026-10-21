@@ -31,7 +31,6 @@ public final class GraverEntity extends GraverFamilyEntity {
             else ThermalShockReforged.LOGGER.debug("Rare graver transformation rejected: source={}, position={}", getUUID(), blockPosition());
         }
     }
-    @Override protected void dropCustomDeathLoot(ServerLevel level, DamageSource source, boolean player) { super.dropCustomDeathLoot(level, source, player); spawnAtLocation(Items.BONE); }
     @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putBoolean("GraverInitialized", initialized); tag.putBoolean("GraverRarePending", rarePending); }
     @Override public void readAdditionalSaveData(CompoundTag tag) { super.readAdditionalSaveData(tag); initialized = tag.getBoolean("GraverInitialized"); rarePending = tag.getBoolean("GraverRarePending"); }
 }

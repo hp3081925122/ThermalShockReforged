@@ -1,6 +1,5 @@
 package com.hp.thermalshockreforged.entity.sanctum;
 
-import com.hp.thermalshockreforged.entity.GalvaniteDrops;
 import net.minecraft.commands.arguments.EntityAnchorArgument;
 import net.minecraft.resources.ResourceLocation;
 
@@ -103,7 +102,6 @@ public final class RippleEntity extends Monster implements GeoEntity {
         super.die(source);
         if (!dead || deathCommitted || !(level() instanceof ServerLevel server)) return;
         deathCommitted = true;
-        GalvaniteDrops.drop(this, server);
     }
     @Override protected void dropExperience(Entity attacker) { experiencePending = true; experienceAttacker = attacker == null ? null : attacker.getUUID(); }
     @Override protected void tickDeath() {

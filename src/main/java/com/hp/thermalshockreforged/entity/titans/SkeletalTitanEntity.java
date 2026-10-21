@@ -169,10 +169,6 @@ public final class SkeletalTitanEntity extends AnimatedMonsterEntity {
     @Override protected SoundEvent getHurtSound(DamageSource source) { return BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "bone_hit")); }
     @Override protected SoundEvent getDeathSound() { return SoundEvents.SKELETON_DEATH; }
     @Override protected void playStepSound(BlockPos pos, BlockState state) { playSound(SoundEvents.SKELETON_STEP, .15F, 1); }
-    @Override protected void dropCustomDeathLoot(ServerLevel server, DamageSource source, boolean recentlyHit) {
-        super.dropCustomDeathLoot(server, source, recentlyHit);
-        spawnAtLocation(Items.BONE);
-    }
 
     private void applyConfiguredAttributes() {
         if (level().isClientSide || attributesApplied || !TitanCombatConfig.SPEC.isLoaded()) return;

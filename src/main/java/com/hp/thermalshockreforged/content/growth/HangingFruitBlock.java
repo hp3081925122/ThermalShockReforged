@@ -30,13 +30,4 @@ public final class HangingFruitBlock extends Block {
     }
     @Override protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState previous, boolean moving) { super.onPlace(state, level, pos, previous, moving); checkAbove(level, pos); }
     @Override protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block block, BlockPos from, boolean moving) { super.neighborChanged(state, level, pos, block, from, moving); checkAbove(level, pos); }
-    @Override public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean harvest, FluidState fluid) {
-        boolean result = super.onDestroyedByPlayer(state, level, pos, player, harvest, fluid);
-        if (result && !level.getBlockState(pos).is(this) && level instanceof ServerLevel server && server.random.nextDouble() < .2) {
-            var drop = new ItemEntity(level, pos.getX() - .5, pos.getY() - .5, pos.getZ() - .5, new ItemStack(lunar ? GrowthContent.LUNALEMON_SEED.get() : GrowthContent.STARFRUIT_SEED.get()));
-            drop.setPickUpDelay(10);
-            server.addFreshEntity(drop);
-        }
-        return result;
-    }
 }

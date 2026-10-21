@@ -1,7 +1,6 @@
 package com.hp.thermalshockreforged.content.decor.geo;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
-import java.util.List;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.RandomSource;
@@ -16,7 +15,6 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.level.material.*;
-import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.phys.shapes.*;
 
 public class GeoDecorBlock extends Block implements EntityBlock {
@@ -40,11 +38,6 @@ public class GeoDecorBlock extends Block implements EntityBlock {
     @Override public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
         super.animateTick(state, level, pos, random);
         if (kind == GeoDecorKind.CRYSTAL_SOPEL_TROPHY || kind == GeoDecorKind.GUNNER_TROPHY || kind == GeoDecorKind.BURNER_TROPHY || kind == GeoDecorKind.CAVEBLOOMER_TROPHY || kind == GeoDecorKind.AMALGEL_TROPHY || kind == GeoDecorKind.WORLD_TOUR_TROPHY) level.addParticle(ParticleTypes.END_ROD, pos.getX() + random.nextDouble(), pos.getY() + random.nextDouble() * 2, pos.getZ() + random.nextDouble(), 0, 0.1, 0);
-    }
-    @Override protected List<ItemStack> getDrops(BlockState state, LootParams.Builder builder) {
-        var drops = super.getDrops(state, builder);
-        if (!drops.isEmpty() || !kind.fallbackDrop) return drops;
-        return List.of(kind == GeoDecorKind.BIG_GLASS_BOTTLE ? new ItemStack(Items.GLASS_BOTTLE) : new ItemStack(this));
     }
     @Override protected MenuProvider getMenuProvider(BlockState state, Level level, BlockPos pos) {
         return level.getBlockEntity(pos) instanceof GeoDecorBlockEntity entity ? entity : null;

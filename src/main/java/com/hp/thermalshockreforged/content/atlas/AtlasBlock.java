@@ -45,10 +45,6 @@ public final class AtlasBlock extends GeoDecorBlock implements SimpleWaterlogged
         level.scheduleTick(pos, this, 120);
     }
     @Override protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) { if (state.getValue(ANIMATION) == 1) level.setBlock(pos, state.setValue(ANIMATION, 0), 3); }
-    @Override protected List<ItemStack> getDrops(BlockState state, LootParams.Builder builder) {
-        var drops = super.getDrops(state, builder);
-        return drops.isEmpty() ? List.of(new ItemStack(AtlasContent.KEYSTONE.get())) : drops;
-    }
     @Override protected MenuProvider getMenuProvider(BlockState state, Level level, BlockPos pos) { return new SimpleMenuProvider((id, inventory, player) -> new AtlasMenu(id, inventory, pos), Component.translatable("block.thermal_shock_reforged.atlas")); }
     private void open(Level level, BlockPos pos, Player player) { if (player instanceof ServerPlayer server && level.getBlockEntity(pos) instanceof GeoDecorBlockEntity) server.openMenu(getMenuProvider(level.getBlockState(pos), level, pos), pos); }
     @Override protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) { open(level, pos, player); return ItemInteractionResult.SUCCESS; }

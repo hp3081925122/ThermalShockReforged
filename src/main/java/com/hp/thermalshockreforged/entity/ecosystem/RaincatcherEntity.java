@@ -58,12 +58,6 @@ public final class RaincatcherEntity extends Monster implements GeoEntity {
     public boolean isWithinMeleeAttackRange(LivingEntity target) { return distanceToSqr(target) <= getBbWidth() * getBbWidth() + target.getBbWidth(); }
 
     @Override
-    protected void dropCustomDeathLoot(net.minecraft.server.level.ServerLevel level, DamageSource source, boolean recentlyHit) {
-        super.dropCustomDeathLoot(level, source, recentlyHit);
-        spawnAtLocation(net.minecraft.world.item.Items.GOLD_NUGGET);
-    }
-
-    @Override
     public SoundEvent getAmbientSound() { return SoundEvents.SKELETON_AMBIENT; }
 
     @Override

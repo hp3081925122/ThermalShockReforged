@@ -51,10 +51,8 @@ public final class SentrariusEntity extends PathfinderMob implements GeoEntity {
     private void finishFeeding() {
         if (!(level() instanceof ServerLevel server)) return;
         server.playSound(null, blockPosition(), SoundEvents.STEM_PLACE, SoundSource.NEUTRAL, 1, 2);
-        spawnMarrow(server);
-        if (random.nextDouble() < .2) spawnMarrow(server);
+        for (var drop : com.hp.thermalshockreforged.content.loot.LootContent.roll(server, "gameplay/sentrarius_feeding", this)) com.hp.thermalshockreforged.content.loot.LootContent.spawn(server, position().add(0, 1, 0), drop, 10);
     }
-    private void spawnMarrow(ServerLevel server) { var marrow = new ItemEntity(server, getX(), getY() + 1, getZ(), new ItemStack(UtilityContent.MARROW_MELD.get())); marrow.setPickUpDelay(10); server.addFreshEntity(marrow); }
     @Override public void aiStep() { super.aiStep(); updateSwingTime(); }
     @Override protected void playStepSound(BlockPos pos, BlockState state) { playSound(SoundEvents.RAVAGER_STEP, .15F, 1); }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.GENERIC_HURT; }

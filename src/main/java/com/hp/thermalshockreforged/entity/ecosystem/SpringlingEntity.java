@@ -52,12 +52,6 @@ public final class SpringlingEntity extends PathfinderMob implements GeoEntity {
     public boolean hurt(DamageSource source, float amount) { return !source.is(DamageTypes.FALL) && super.hurt(source, amount); }
 
     @Override
-    protected void dropCustomDeathLoot(net.minecraft.server.level.ServerLevel level, DamageSource source, boolean recentlyHit) {
-        super.dropCustomDeathLoot(level, source, recentlyHit);
-        spawnAtLocation(com.hp.thermalshockreforged.content.MaterialContent.items().get("springelatin_ball").get());
-    }
-
-    @Override
     protected void playStepSound(BlockPos pos, BlockState state) { playSound(SoundEvents.SLIME_JUMP, 0.15F, 1); }
 
     @Override

@@ -139,7 +139,7 @@ public final class HeraldEntity extends Monster implements GeoEntity, ServerEndT
         if (--activationRemaining > 0) { ServerEndTickTasks.schedule(server, getUUID()); return; }
         activationRemaining = -1; active = true; keyDropped = true; setShiftKeyDown(true);
         soundAt(activationOrigin, SoundEvents.BELL_RESONATE, 1); soundAt(activationOrigin, SoundEvents.BEACON_ACTIVATE, -2);
-        var key = new ItemEntity(level(), activationOrigin.x, activationOrigin.y, activationOrigin.z, new ItemStack(MaterialContent.items().get("herald_key").get())); key.setPickUpDelay(10); level().addFreshEntity(key);
+        for (var drop : com.hp.thermalshockreforged.content.loot.LootContent.roll(server, "gameplay/herald_key", this)) com.hp.thermalshockreforged.content.loot.LootContent.spawn(server, activationOrigin, drop, 10);
     }
     @Override
     public void die(DamageSource source) {

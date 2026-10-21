@@ -38,7 +38,6 @@ public final class UtilityContent {
 
     public static void register(IEventBus bus) {
         ITEMS.register(bus);
-        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(FoodDrops::death);
     }
 
     private static final class NourishingFoodItem extends Item {

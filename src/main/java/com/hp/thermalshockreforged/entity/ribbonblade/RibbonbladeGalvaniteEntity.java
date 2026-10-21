@@ -1,7 +1,6 @@
 package com.hp.thermalshockreforged.entity.ribbonblade;
 
 import com.hp.thermalshockreforged.content.status.*;
-import com.hp.thermalshockreforged.entity.GalvaniteDrops;
 import com.hp.thermalshockreforged.entity.ModEntities;
 import com.hp.thermalshockreforged.entity.base.AnimatedMonsterEntity;
 import com.hp.thermalshockreforged.entity.squall.SquallEntity;
@@ -111,7 +110,7 @@ public final class RibbonbladeGalvaniteEntity extends AnimatedMonsterEntity impl
         if (isInvisible() ? random.nextInt(15) == 0 : random.nextBoolean()) LegacyEffectParticles.emit(this, -1, 1);
     }
     @Override public boolean hurt(DamageSource source, float amount) { return Float.isFinite(amount) && amount > 0 && !source.is(DamageTypes.LIGHTNING_BOLT) && super.hurt(source, amount); }
-    @Override public void die(DamageSource source) { super.die(source); if (dead && !deathDropsDone && level() instanceof ServerLevel server) { deathDropsDone = true; GalvaniteDrops.drop(this, server); } }
+    @Override public void die(DamageSource source) { super.die(source); if (dead && !deathDropsDone && level() instanceof ServerLevel server) { deathDropsDone = true; } }
     @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType reason, SpawnGroupData data) {
         var result = super.finalizeSpawn(level, difficulty, reason, data);
         applyConfiguredAttributes();

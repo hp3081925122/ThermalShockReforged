@@ -80,12 +80,6 @@ public final class CrystalKoiEntity extends PathfinderMob implements GeoEntity {
     }
 
     @Override
-    protected void dropCustomDeathLoot(ServerLevel level, DamageSource source, boolean recentlyHit) {
-        super.dropCustomDeathLoot(level, source, recentlyHit);
-        spawnAtLocation(MaterialContent.items().get("raw_crystal_koi").get());
-    }
-
-    @Override
     public SoundEvent getAmbientSound() {
         return SoundEvents.COD_AMBIENT;
     }

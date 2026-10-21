@@ -83,12 +83,6 @@ public final class ChromefishEntity extends PathfinderMob implements GeoEntity {
     protected SoundEvent getDeathSound() { return SoundEvents.COD_DEATH; }
 
     @Override
-    protected void dropCustomDeathLoot(net.minecraft.server.level.ServerLevel level, DamageSource source, boolean recentlyHit) {
-        super.dropCustomDeathLoot(level, source, recentlyHit);
-        spawnAtLocation(FaunaEntities.item("raw_chromefish"));
-    }
-
-    @Override
     public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
         tag.putString("Texture", texture());
