@@ -13,6 +13,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlac
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.entity.player.PlayerWakeUpEvent;
 import net.neoforged.neoforge.event.tick.ServerTickEvent;
+import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
 public final class KeystoneChamberGeneration {
     private static final ResourceLocation ARRIVAL = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "loqendia_get");
@@ -23,6 +24,7 @@ public final class KeystoneChamberGeneration {
     public static void register() {
         NeoForge.EVENT_BUS.addListener(KeystoneChamberGeneration::wakeUp);
         NeoForge.EVENT_BUS.addListener(KeystoneChamberGeneration::endTick);
+        NeoForge.EVENT_BUS.addListener(KeystoneChamberGeneration::playerTick);
     }
     private static void wakeUp(PlayerWakeUpEvent event) {
         if (!(event.getEntity() instanceof ServerPlayer player) || !(player.level() instanceof ServerLevel level)
@@ -67,8 +69,14 @@ public final class KeystoneChamberGeneration {
             }
         } else if (elapsed == 145) {
             server.getPlayerList().broadcastSystemMessage(Component.translatable("message.thermal_shock_reforged.keystone.invitation"), false);
-        } else if (elapsed == 200) {
-            server.getPlayerList().broadcastSystemMessage(Component.translatable("message.thermal_shock_reforged.keystone.music_notice"), false);
         }
+    }
+    private static void playerTick(PlayerTickEvent.Post event) {
+        if (!(event.getEntity() instanceof ServerPlayer player) || player.tickCount % 20 != 0) return;
+        ServerLevel level = player.serverLevel();
+        WorldProgressData progress = WorldProgressData.get(level);
+        var dimension = progress.keystoneNoticeDimension();
+        if (dimension == null || !dimension.equals(level.dimension().location()) || !progress.keystoneNoticeComplete() || player.blockPosition().distSqr(ORIGIN) > 48 * 48) return;
+        if (progress.markKeystonePuzzleHintShown()) player.displayClientMessage(Component.translatable("message.thermal_shock_reforged.keystone.puzzle_buttons"), false);
     }
 }

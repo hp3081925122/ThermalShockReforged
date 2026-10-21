@@ -1,7 +1,6 @@
 package com.hp.thermalshockreforged.client.fauna;
 
-import mod.chloeprime.aaaparticles.api.common.AAALevel;
-import mod.chloeprime.aaaparticles.api.common.ParticleEmitterInfo;
+import com.hp.thermalshockreforged.client.vfx.VfxManager;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
 import net.minecraft.core.particles.SimpleParticleType;
@@ -28,7 +27,7 @@ final class WhiteOrbParticle extends TextureSheetParticle {
     @Override
     public void tick() {
         super.tick();
-        AAALevel.addParticle(level, new ParticleEmitterInfo(EFFECT).position(new net.minecraft.world.phys.Vec3(x, y, z)));
+        VfxManager.play(level, EFFECT, x, y, z);
     }
 
     static final class Provider implements ParticleProvider<SimpleParticleType> {

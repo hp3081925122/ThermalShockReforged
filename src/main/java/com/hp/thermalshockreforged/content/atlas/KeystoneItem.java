@@ -3,6 +3,8 @@ package com.hp.thermalshockreforged.content.atlas;
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.decor.geo.*;
 import com.hp.thermalshockreforged.world.LoqendiaContent;
+import java.util.List;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.*;
 import net.minecraft.world.InteractionResult;
@@ -13,6 +15,11 @@ import net.minecraft.world.level.block.Blocks;
 
 class KeystoneItem extends Item {
     KeystoneItem() { super(new Properties().stacksTo(1).rarity(Rarity.EPIC)); }
+    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
+        super.appendHoverText(stack, context, tooltip, flag);
+        tooltip.add(Component.translatable("item.thermal_shock_reforged.keystone.description_0"));
+        tooltip.add(Component.translatable("item.thermal_shock_reforged.keystone.description_1"));
+    }
     @Override public InteractionResult useOn(UseOnContext context) {
         var player = context.getPlayer(); var level = context.getLevel(); var pos = context.getClickedPos();
         if (player == null || !(level instanceof ServerLevel server) || player.getCooldowns().isOnCooldown(this) || (!level.dimension().equals(Level.OVERWORLD) && !level.dimension().equals(LoqendiaContent.DIMENSION))) return InteractionResult.SUCCESS;

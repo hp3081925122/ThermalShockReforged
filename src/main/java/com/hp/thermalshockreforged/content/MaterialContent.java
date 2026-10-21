@@ -484,7 +484,7 @@ public final class MaterialContent {
         item("rotten_cells", () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON)));
         item("poison_projectile", () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON)));
         item("cavebloomer_core", () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
-        item("train_pass", () -> new DescribedItem(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC), "item.thermal_shock_reforged.train_pass.description_0"));
+        item("train_pass", () -> new DescribedItem(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC), "item.thermal_shock_reforged.train_pass.description_0", "item.thermal_shock_reforged.train_pass.description_1"));
         item("diskette_3", () -> new DescribedItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON), "item.thermal_shock_reforged.diskette_3.description_0", "item.thermal_shock_reforged.diskette_3.description_1"));
         item("diskette_4", () -> new DescribedItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON), "item.thermal_shock_reforged.diskette_4.description_0", "item.thermal_shock_reforged.diskette_4.description_1"));
         item("diskette_5", () -> new DescribedItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON), "item.thermal_shock_reforged.diskette_5.description_0", "item.thermal_shock_reforged.diskette_5.description_1"));

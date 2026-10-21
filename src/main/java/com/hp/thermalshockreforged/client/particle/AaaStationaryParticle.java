@@ -1,8 +1,7 @@
 package com.hp.thermalshockreforged.client.particle;
 
+import com.hp.thermalshockreforged.client.vfx.VfxManager;
 import com.hp.thermalshockreforged.ThermalShockReforged;
-import mod.chloeprime.aaaparticles.api.common.AAALevel;
-import mod.chloeprime.aaaparticles.api.common.ParticleEmitterInfo;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
 import net.minecraft.core.particles.SimpleParticleType;
@@ -22,7 +21,7 @@ public final class AaaStationaryParticle extends TextureSheetParticle {
     @Override public ParticleRenderType getRenderType() { return renderType; }
     @Override public void tick() {
         super.tick();
-        AAALevel.addParticle(level, new ParticleEmitterInfo(effect).position(new Vec3(x, y, z)));
+        VfxManager.play(level, effect, x, y, z);
     }
     public static final class Provider implements ParticleProvider<SimpleParticleType> {
         private final SpriteSet sprites;

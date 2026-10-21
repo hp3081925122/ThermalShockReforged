@@ -9,7 +9,7 @@
 | JEI 信息页面 | 原 `init/ThermalShockModJeiInformation.java` 为独立 JEI 插件；当前生产 Java 未注册 JEI 插件。已有原信息语言条目继续保留 | 对照真实已迁物品和配方迁全信息页，确认 1.21.1 JEI API、正确 ID 与语言；不凭物品名称猜原文 |
 | JEI 酿造展示 | 原 `init/ThermalShockModBrewingRecipes.java` 调用 JEI 的 `IVanillaRecipeFactory` 注册十项显示配方；这只是显示入口 | 原生酿造配方仍须完整迁移；以后仅补 JEI 展示桥，核输入、药水组件、数量和结果，避免展示与实际配方不符 |
 | 自定义机器配方查看/转移 | 当前 Fabricator、Extractor、Transmutator 为本模组真实功能；当前没有专用 JEI/EMI 分类及转移桥 | 用户选择需要后再做外部 API 分类、催化剂、查询和转移校验；当前机器内的配方、耗料、产出和引导不能因此删减 |
-| Jade 专用信息提供器 | `build.gradle` 保留用户要求的 Jade 示例依赖；当前未发现本模组自定义 Jade Java 入口 | 若用户需要，再设计机器进度/库存/能量和实体状态信息及服务端同步，只展示玩家可知的数据 |
+| Jade 专用信息提供器 | 已加入先驱实体提供器，服务端同步周围击杀进度并在 Jade 中显示；现有祭坛、种子提供器继续保留 | 后续若需要，再扩展机器进度/库存/能量等信息，只展示玩家可知的数据 |
 | Foggy Pale Garden 雾预设 | 原件包含 `assets/foggypalegarden/preset.json`；目标已保留该资源并换为新群系命名空间。仅有资源不能证明第三方当前版本成功消费 | 保留现有文件，本轮不验证或修第三方预设格式；以后核目标模组版本、条件匹配、深度/天光/雾距及与本模组原生天空雾的关系 |
 | Untagged Mobs 换皮彩蛋 | 原 `procedures/ConciergeRightClickProcedure.java` 按手持物品 ID `untagged_mobs:scrambler` 切换 Concierge 纹理 | 原皮肤资源保留，外部物品交互入口延期；以后核对对方实际物品与触发条件，原生 Concierge 任务、头像和交易继续迁移 |
 | Structure Gel 传送能力字段 | Vilebath 与三份 Whisper 原结构实体 NBT 留有 `ForgeCaps.structure_gel:gel_entity.portal=structure_gel:empty`；独立对话集成清单已列来源 | 保留原字段证据，本轮不激活或重写第三方 portal 能力，不增加强依赖；内部结构与实体功能继续迁移 |

@@ -2,6 +2,7 @@ package com.hp.thermalshockreforged.content.loot;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.world.WorldProgressData;
+import com.hp.thermalshockreforged.config.WorldRulesConfig;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -91,6 +92,7 @@ public final class LootContent {
         static final MapCodec<GameRule> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(Codec.STRING.fieldOf("rule").forGetter(GameRule::rule)).apply(instance, GameRule::new));
         @Override public LootItemConditionType getType() { return GAME_RULE.get(); }
         @Override public boolean test(LootContext context) {
+            if (rule.equals("loqendiaDropHeartCrystals")) return WorldRulesConfig.DROP_HEART_CRYSTALS.get();
             var result = new boolean[] { false };
             var found = new boolean[] { false };
             GameRules.visitGameRuleTypes(new GameRules.GameRuleTypeVisitor() {

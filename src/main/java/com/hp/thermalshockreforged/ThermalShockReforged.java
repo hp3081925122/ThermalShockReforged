@@ -51,6 +51,7 @@ import com.hp.thermalshockreforged.content.status.aura.AuraContent;
 import com.hp.thermalshockreforged.content.armor.ArmorContent;
 import com.hp.thermalshockreforged.entity.ModEntities;
 import com.hp.thermalshockreforged.config.CombatConfig;
+import com.hp.thermalshockreforged.config.WorldRulesConfig;
 import net.neoforged.fml.config.ModConfig;
 import com.mojang.logging.LogUtils;
 import net.neoforged.bus.api.IEventBus;
@@ -67,6 +68,7 @@ public final class ThermalShockReforged {
         LOGGER.debug("Thermal Shock Reforged startup reached mod initialization with an isolated mixin namespace");
         ModGameRules.initialize();
         container.registerConfig(ModConfig.Type.COMMON, CombatConfig.SPEC);
+        container.registerConfig(ModConfig.Type.SERVER, WorldRulesConfig.SPEC, "thermal_shock_reforged-world.toml");
         container.registerConfig(ModConfig.Type.COMMON, com.hp.thermalshockreforged.entity.titans.TitanCombatConfig.SPEC, "thermal_shock_reforged-titans.toml");
         container.registerConfig(ModConfig.Type.COMMON, BastionCombatConfig.SPEC, "thermal_shock_reforged-bastions.toml");
         container.registerConfig(ModConfig.Type.COMMON, IceCombatConfig.SPEC, "thermal_shock_reforged-ice.toml");

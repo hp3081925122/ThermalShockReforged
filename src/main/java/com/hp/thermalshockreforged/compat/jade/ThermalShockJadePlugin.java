@@ -6,13 +6,16 @@ import com.hp.thermalshockreforged.content.decor.geo.AltarBlock;
 import com.hp.thermalshockreforged.content.decor.geo.DecorPartBlock;
 import com.hp.thermalshockreforged.content.farming.FarmSeedBlock;
 import com.hp.thermalshockreforged.content.growth.GrowthSeedBlock;
+import com.hp.thermalshockreforged.entity.mangler.HeraldEntity;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.phys.BlockHitResult;
 import snownee.jade.api.BlockAccessor;
+import snownee.jade.api.EntityAccessor;
 import snownee.jade.api.IBlockComponentProvider;
+import snownee.jade.api.IEntityComponentProvider;
 import snownee.jade.api.IServerDataProvider;
 import snownee.jade.api.ITooltip;
 import snownee.jade.api.IWailaClientRegistration;
@@ -31,12 +34,16 @@ public final class ThermalShockJadePlugin implements IWailaPlugin {
     private static final String THIRSTY = "SeedThirsty";
     private static final String WATERINGS = "SeedWaterings";
     private static final int MAX_WATERINGS = 3;
+    private static final ResourceLocation HERALD = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "herald");
+    private static final String HERALD_KEY = "jade." + ThermalShockReforged.MOD_ID + ".herald.";
+    private static final String HERALD_KILLS = "HeraldKills";
 
     @Override
     public void register(IWailaCommonRegistration registration) {
         registration.registerBlockDataProvider(AltarProvider.INSTANCE, AltarBlock.class);
         registration.registerBlockDataProvider(SeedProvider.INSTANCE, FarmSeedBlock.class);
         registration.registerBlockDataProvider(SeedProvider.INSTANCE, GrowthSeedBlock.class);
+        registration.registerEntityDataProvider(HeraldProvider.INSTANCE, HeraldEntity.class);
     }
 
     @Override
@@ -51,6 +58,25 @@ public final class ThermalShockJadePlugin implements IWailaPlugin {
         registration.registerBlockComponent(AltarProvider.INSTANCE, AltarBlock.class);
         registration.registerBlockComponent(SeedProvider.INSTANCE, FarmSeedBlock.class);
         registration.registerBlockComponent(SeedProvider.INSTANCE, GrowthSeedBlock.class);
+        registration.registerEntityComponent(HeraldProvider.INSTANCE, HeraldEntity.class);
+    }
+
+    private enum HeraldProvider implements IEntityComponentProvider, IServerDataProvider<EntityAccessor> {
+        INSTANCE;
+
+        @Override
+        public void appendServerData(CompoundTag data, EntityAccessor accessor) {
+            if (accessor.getEntity() instanceof HeraldEntity herald) data.putInt(HERALD_KILLS, herald.killCount());
+        }
+
+        @Override
+        public void appendTooltip(ITooltip tooltip, EntityAccessor accessor, IPluginConfig config) {
+            var data = accessor.getServerData();
+            if (data.contains(HERALD_KILLS)) tooltip.add(Component.translatable(HERALD_KEY + "kills", Math.min(data.getInt(HERALD_KILLS), 10)));
+        }
+
+        @Override
+        public ResourceLocation getUid() { return HERALD; }
     }
 
     private enum AltarProvider implements IBlockComponentProvider, IServerDataProvider<BlockAccessor> {

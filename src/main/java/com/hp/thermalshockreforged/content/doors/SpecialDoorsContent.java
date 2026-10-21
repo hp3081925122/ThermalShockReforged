@@ -17,6 +17,7 @@ public final class SpecialDoorsContent {
     private static final Map<DoorKind, DeferredBlock<SpecialDoorBlock>> DOORS = new EnumMap<>(DoorKind.class);
     private static final Map<DoorKind, DeferredItem<SpecialDoorItem>> DISPLAY_ITEMS = new EnumMap<>(DoorKind.class);
     private static final Map<DoorKind, DeferredHolder<BlockEntityType<?>, BlockEntityType<SpecialDoorBlockEntity>>> TYPES = new EnumMap<>(DoorKind.class);
+    private static final DeferredBlock<MawDoorPartBlock> MAW_PART = BLOCKS.register("maw_door_part", MawDoorPartBlock::new);
 
     static {
         for (DoorKind kind : DoorKind.values()) {
@@ -29,6 +30,7 @@ public final class SpecialDoorsContent {
 
     private SpecialDoorsContent() { }
     public static SpecialDoorBlock block(DoorKind kind) { return DOORS.get(kind).get(); }
+    public static MawDoorPartBlock mawPart() { return MAW_PART.get(); }
     public static SpecialDoorItem item(DoorKind kind) { return DISPLAY_ITEMS.get(kind).get(); }
     public static BlockEntityType<SpecialDoorBlockEntity> entity(DoorKind kind) { return TYPES.get(kind).get(); }
     public static void register(IEventBus bus) {
