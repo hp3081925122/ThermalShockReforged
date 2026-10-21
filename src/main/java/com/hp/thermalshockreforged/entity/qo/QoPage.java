@@ -16,11 +16,11 @@ public enum QoPage {
             List.of(new Image("mainspeechbox", 0, 103, 276, 276, 276, 276, false), new Image("mainlabelbox", 62, -30, 134, 134, 134, 134, false), new Image("qoem1portrait", -15, -24, 128, 128, 128, 1536, true)),
             List.of()),
     INTRO_4("qo_thermoid_epl_4", "QoThermoidEpl4", "qo_em1_speak", 276, 182,
-            List.of(new Line("gui.thermal_shock_reforged.qo_thermoid_epl_4.label_kutty", 9, 112, -1), new Line("gui.thermal_shock_reforged.qo_thermoid_epl_4.label_concierge", 67, 93, -1), new Line("gui.thermal_shock_reforged.qo_thermoid_epl_4.label_that_badly", 9, 123, -1)),
+            List.of(new Line("gui.thermal_shock_reforged.qo_thermoid_epl_4.label_kutty", 9, 112, -1, 11), new Line("gui.thermal_shock_reforged.qo_thermoid_epl_4.label_concierge", 67, 93, -1)),
             List.of(new Image("mainspeechbox", 0, 103, 276, 276, 276, 276, false), new Image("mainlabelbox", 62, -30, 134, 134, 134, 134, false), new Image("qoem3portrait", -15, -24, 128, 128, 128, 1536, true)),
             List.of()),
     INTRO_5("qo_thermoid_epl_5", "QoThermoidEpl5", "qo_main_speak", 276, 182,
-            List.of(new Line("gui.thermal_shock_reforged.qo_thermoid_epl_5.label_kutty", 9, 112, -1), new Line("gui.thermal_shock_reforged.qo_thermoid_epl_5.label_concierge", 67, 93, -1), new Line("gui.thermal_shock_reforged.qo_thermoid_epl_5.label_that_badly", 9, 123, -1)),
+            List.of(new Line("gui.thermal_shock_reforged.qo_thermoid_epl_5.label_kutty", 9, 112, -1, 11), new Line("gui.thermal_shock_reforged.qo_thermoid_epl_5.label_concierge", 67, 93, -1)),
             List.of(new Image("mainspeechbox", 0, 103, 276, 276, 276, 276, false), new Image("mainlabelbox", 62, -30, 134, 134, 134, 134, false), new Image("qoidleportrait", -15, -24, 128, 128, 128, 1536, true)),
             List.of()),
     EXHAUST("qo_exhaust", "QoExhaust", "qo_em2_speak", 276, 182,
@@ -28,31 +28,31 @@ public enum QoPage {
             List.of(new Image("mainspeechbox", 0, 103, 276, 276, 276, 276, false), new Image("mainlabelbox", 62, -30, 134, 134, 134, 134, false), new Image("qoem1portrait", -15, -24, 128, 128, 128, 1536, true)),
             List.of()),
     PHOBOTITE("q_phobotite_1", "QPhobotite1", "qo_main_speak", 276, 182,
-            List.of(new Line("gui.thermal_shock_reforged.q_phobotite_1.label_kutty", 9, 112, -1), new Line("gui.thermal_shock_reforged.q_phobotite_1.label_concierge", 67, 93, -1), new Line("gui.thermal_shock_reforged.q_phobotite_1.label_are_you_trying_to_blow_us_up", 9, 122, -1)),
+            List.of(new Line("gui.thermal_shock_reforged.q_phobotite_1.label_kutty", 9, 112, -1, 10), new Line("gui.thermal_shock_reforged.q_phobotite_1.label_concierge", 67, 93, -1)),
             List.of(new Image("mainspeechbox", 0, 103, 276, 276, 276, 276, false), new Image("mainlabelbox", 62, -30, 134, 134, 134, 134, false), new Image("qoidleportrait", -15, -24, 128, 128, 128, 1536, true)),
             List.of()),
     CRYO_ALLOY("qo_cryo_alloy_1", "QoCryoAlloy1", "qo_main_speak", 276, 182,
-            List.of(new Line("gui.thermal_shock_reforged.qo_cryo_alloy_1.label_kutty", 9, 112, -1), new Line("gui.thermal_shock_reforged.qo_cryo_alloy_1.label_concierge", 67, 93, -1), new Line("gui.thermal_shock_reforged.qo_cryo_alloy_1.label_are_you_trying_to_blow_us_up", 9, 122, -1), new Line("gui.thermal_shock_reforged.qo_cryo_alloy_1.label_i_could_actually_do_with_s", 9, 132, -1)),
+            List.of(new Line("gui.thermal_shock_reforged.qo_cryo_alloy_1.label_kutty", 9, 112, -1, 10), new Line("gui.thermal_shock_reforged.qo_cryo_alloy_1.label_concierge", 67, 93, -1)),
             List.of(new Image("mainspeechbox", 0, 103, 276, 276, 276, 276, false), new Image("mainlabelbox", 62, -30, 134, 134, 134, 134, false), new Image("qoem2portrait", -15, -24, 128, 128, 128, 1536, true)),
             List.of()),
     CRYO_ENERGY("qo_cryo_energy_1", "QoCryoEnergy1", "qo_em2_speak", 276, 182,
-            List.of(new Line("gui.thermal_shock_reforged.qo_cryo_energy_1.label_kutty", 9, 112, -1), new Line("gui.thermal_shock_reforged.qo_cryo_energy_1.label_concierge", 67, 93, -1), new Line("gui.thermal_shock_reforged.qo_cryo_energy_1.label_are_you_trying_to_blow_us_up", 9, 122, -1), new Line("gui.thermal_shock_reforged.qo_cryo_energy_1.label_i_could_actually_do_with_s", 9, 132, -1), new Line("gui.thermal_shock_reforged.qo_cryo_energy_1.label_my_stockpiles_been_running_low", 9, 142, -1)),
+            List.of(new Line("gui.thermal_shock_reforged.qo_cryo_energy_1.label_kutty", 9, 112, -1, 10), new Line("gui.thermal_shock_reforged.qo_cryo_energy_1.label_concierge", 67, 93, -1)),
             List.of(new Image("mainspeechbox", 0, 103, 276, 276, 276, 276, false), new Image("mainlabelbox", 62, -30, 134, 134, 134, 134, false), new Image("qoidleportrait", -15, -24, 128, 128, 128, 1536, true)),
             List.of()),
     NEURAL_CHIP("qo_neural_chip_1", "QoNeuralChip1", "qo_em1_speak", 276, 182,
-            List.of(new Line("gui.thermal_shock_reforged.qo_neural_chip_1.label_kutty", 9, 112, -1), new Line("gui.thermal_shock_reforged.qo_neural_chip_1.label_concierge", 67, 93, -1), new Line("gui.thermal_shock_reforged.qo_neural_chip_1.label_are_you_trying_to_blow_us_up", 9, 122, -1)),
+            List.of(new Line("gui.thermal_shock_reforged.qo_neural_chip_1.label_kutty", 9, 112, -1, 10), new Line("gui.thermal_shock_reforged.qo_neural_chip_1.label_concierge", 67, 93, -1)),
             List.of(new Image("mainspeechbox", 0, 103, 276, 276, 276, 276, false), new Image("mainlabelbox", 62, -30, 134, 134, 134, 134, false), new Image("qoem3portrait", -15, -24, 128, 128, 128, 1536, true)),
             List.of()),
     STELLAR_SCRAP("qo_stellar_scrap_1", "QoStellarScrap1", "qo_em2_speak", 276, 182,
-            List.of(new Line("gui.thermal_shock_reforged.qo_stellar_scrap_1.label_kutty", 9, 112, -1), new Line("gui.thermal_shock_reforged.qo_stellar_scrap_1.label_concierge", 67, 93, -1), new Line("gui.thermal_shock_reforged.qo_stellar_scrap_1.label_are_you_trying_to_blow_us_up", 9, 122, -1), new Line("gui.thermal_shock_reforged.qo_stellar_scrap_1.label_i_could_actually_do_with_s", 9, 132, -1), new Line("gui.thermal_shock_reforged.qo_stellar_scrap_1.label_if_youre_into_that_stuff", 9, 142, -1)),
+            List.of(new Line("gui.thermal_shock_reforged.qo_stellar_scrap_1.label_kutty", 9, 112, -1, 10), new Line("gui.thermal_shock_reforged.qo_stellar_scrap_1.label_concierge", 67, 93, -1)),
             List.of(new Image("mainspeechbox", 0, 103, 276, 276, 276, 276, false), new Image("mainlabelbox", 62, -30, 134, 134, 134, 134, false), new Image("qoidleportrait", -15, -24, 128, 128, 128, 1536, true)),
             List.of()),
     ALTAR_KEY("qo_altar_key_1", "QoAltarKey1", "qo_main_speak", 276, 182,
-            List.of(new Line("gui.thermal_shock_reforged.qo_altar_key_1.label_kutty", 9, 112, -1), new Line("gui.thermal_shock_reforged.qo_altar_key_1.label_concierge", 67, 93, -1), new Line("gui.thermal_shock_reforged.qo_altar_key_1.label_are_you_trying_to_blow_us_up", 9, 122, -1), new Line("gui.thermal_shock_reforged.qo_altar_key_1.label_i_could_actually_do_with_s", 9, 132, -1), new Line("gui.thermal_shock_reforged.qo_altar_key_1.label_go_dissolve_some_pylon_cores_i", 9, 142, -1), new Line("gui.thermal_shock_reforged.qo_altar_key_1.label_proud_of_yourself", 9, 152, -1)),
+            List.of(new Line("gui.thermal_shock_reforged.qo_altar_key_1.label_kutty", 9, 112, -1, 10), new Line("gui.thermal_shock_reforged.qo_altar_key_1.label_concierge", 67, 93, -1)),
             List.of(new Image("mainspeechbox", 0, 103, 276, 276, 276, 276, false), new Image("mainlabelbox", 62, -30, 134, 134, 134, 134, false), new Image("qoidleportrait", -15, -24, 128, 128, 128, 1536, true)),
             List.of()),
     STRATUS_1("qo_stratus_alloy_1", "QoStratusAlloy1", "qo_em1_speak", 276, 182,
-            List.of(new Line("gui.thermal_shock_reforged.qo_stratus_alloy_1.label_kutty", 9, 112, -1), new Line("gui.thermal_shock_reforged.qo_stratus_alloy_1.label_concierge", 67, 93, -1), new Line("gui.thermal_shock_reforged.qo_stratus_alloy_1.label_are_you_trying_to_blow_us_up", 9, 122, -1), new Line("gui.thermal_shock_reforged.qo_stratus_alloy_1.label_i_could_actually_do_with_s", 9, 132, -1), new Line("gui.thermal_shock_reforged.qo_stratus_alloy_1.label_if_youre_into_that_stuff", 9, 142, -1), new Line("gui.thermal_shock_reforged.qo_stratus_alloy_1.label_please_give_it_to_me_ill_mak", 9, 152, -1)),
+            List.of(new Line("gui.thermal_shock_reforged.qo_stratus_alloy_1.label_kutty", 9, 112, -1, 10), new Line("gui.thermal_shock_reforged.qo_stratus_alloy_1.label_concierge", 67, 93, -1)),
             List.of(new Image("mainspeechbox", 0, 103, 276, 276, 276, 276, false), new Image("mainlabelbox", 62, -30, 134, 134, 134, 134, false), new Image("qoem2portrait", -15, -24, 128, 128, 128, 1536, true)),
             List.of(new Button(0, 237, 161, 38, 20, "nextbuttona"))),
     STRATUS_2("qo_stratus_alloy_2", "QoStratusAlloy2", "qo_main_speak", 276, 182,
@@ -64,7 +64,7 @@ public enum QoPage {
             List.of(new Image("mainspeechbox", 0, 103, 276, 276, 276, 276, false), new Image("mainlabelbox", 62, -30, 134, 134, 134, 134, false), new Image("qoem4portrait", -5, -24, 128, 128, 128, 128, false)),
             List.of()),
     STRATUS_ACCEPT("qo_stratus_alloy_3b", "QoStratusAlloy3b", "qo_main_speak", 276, 182,
-            List.of(new Line("gui.thermal_shock_reforged.qo_stratus_alloy_3b.label_kutty", 9, 112, -1), new Line("gui.thermal_shock_reforged.qo_stratus_alloy_3b.label_concierge", 67, 93, -1), new Line("gui.thermal_shock_reforged.qo_stratus_alloy_3b.label_oh_and_you_can_have_this_ehh", 9, 123, -1), new Line("gui.thermal_shock_reforged.qo_stratus_alloy_3b.label_why_are_you_looking_at_me", 9, 134, -1)),
+            List.of(new Line("gui.thermal_shock_reforged.qo_stratus_alloy_3b.label_kutty", 9, 112, -1, 11), new Line("gui.thermal_shock_reforged.qo_stratus_alloy_3b.label_concierge", 67, 93, -1)),
             List.of(new Image("mainspeechbox", 0, 103, 276, 276, 276, 276, false), new Image("mainlabelbox", 62, -30, 134, 134, 134, 134, false), new Image("qoem2portrait", -15, -24, 128, 128, 128, 1536, true)),
             List.of());
 
@@ -79,7 +79,7 @@ public enum QoPage {
     QoPage(String id, String title, String sound, int width, int height, List<Line> lines, List<Image> images, List<Button> buttons) {
         this.id = id; this.title = title; this.sound = sound; this.width = width; this.height = height; this.lines = lines; this.images = images; this.buttons = buttons;
     }
-    public record Line(String key, int x, int y, int color) { }
+    public record Line(String key, int x, int y, int color, int spacing) { public Line(String key, int x, int y, int color) { this(key, x, y, color, 0); } }
     public record Image(String texture, int x, int y, int width, int height, int textureWidth, int textureHeight, boolean animated) { }
     public record Button(int action, int x, int y, int width, int height, String texture) { }
 }

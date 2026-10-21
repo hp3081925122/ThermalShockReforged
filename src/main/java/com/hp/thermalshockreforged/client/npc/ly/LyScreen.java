@@ -1,5 +1,6 @@
 package com.hp.thermalshockreforged.client.npc.ly;
 
+import com.hp.thermalshockreforged.client.dialogue.DialogueText;
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.npc.ly.*;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -47,7 +48,7 @@ public final class LyScreen extends AbstractContainerScreen<LyMenu> {
     }
     @Override protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) {
         if (menu.page == LyPage.MAIN) graphics.drawString(font, menu.intro == 1 ? "❄ Nice weather we're having, eh? Ehhh?" : menu.intro == 2 ? "❄ We got snow in bowls, snow in bottles. Buy it." : "❄ kutty", 9, 112, -1, false);
-        for (var line : menu.page.lines) graphics.drawString(font, Component.translatable(line.key()), line.x(), line.y(), line.color(), false);
+        for (var line : menu.page.lines) DialogueText.draw(graphics, font, Component.translatable(line.key()), line.x(), line.y(), line.color(), imageWidth, line.spacing());
     }
     private static final class Clock { int frame; }
     private final class ImageButton extends AbstractButton {

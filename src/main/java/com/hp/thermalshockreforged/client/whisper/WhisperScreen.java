@@ -1,5 +1,6 @@
 package com.hp.thermalshockreforged.client.whisper;
 
+import com.hp.thermalshockreforged.client.dialogue.DialogueText;
 import com.hp.thermalshockreforged.entity.whisper.*;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.Minecraft;
@@ -31,8 +32,8 @@ public final class WhisperScreen extends AbstractContainerScreen<WhisperMenu> {
         RenderSystem.disableBlend();
     }
     @Override protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) {
-        for (var line : menu.page.lines) graphics.drawString(font, Component.translatable(line.key()), line.x(), line.y(), line.color(), false);
-        if (menu.page == WhisperPage.MAIN) graphics.drawString(font, Component.translatable("gui.thermal_shock_reforged.whisper_main.greeting_" + (menu.intro == 1 || menu.intro == 2 ? menu.intro : 0)), 9, 112, -1, false);
+        for (var line : menu.page.lines) DialogueText.draw(graphics, font, Component.translatable(line.key()), line.x(), line.y(), line.color(), imageWidth, line.spacing());
+        if (menu.page == WhisperPage.MAIN) DialogueText.draw(graphics, font, Component.translatable("gui.thermal_shock_reforged.whisper_main.greeting_" + (menu.intro == 1 || menu.intro == 2 ? menu.intro : 0)), 9, 112, -1, imageWidth, 0);
     }
     private final class ImageButton extends AbstractButton {
         private final int action;

@@ -1,5 +1,6 @@
 package com.hp.thermalshockreforged.client.npc.benzor;
 
+import com.hp.thermalshockreforged.client.dialogue.DialogueText;
 import com.hp.thermalshockreforged.content.npc.benzor.*;
 import com.hp.thermalshockreforged.entity.benzor.BenzorContent;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -19,7 +20,7 @@ public final class BenzorScreen extends AbstractContainerScreen<BenzorMenu> {
     @Override protected void init() { super.init(); for (var button : menu.page.buttons) addRenderableWidget(new ImageButton(button)); }
     @Override public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) { for (var child : children()) if (child instanceof ImageButton button) button.visible = menu.page != BenzorPage.INFO || button.action != 4 || menu.blackpowderAllowed(); super.render(graphics, mouseX, mouseY, partialTick); renderTooltip(graphics, mouseX, mouseY); }
     @Override protected void renderBg(GuiGraphics graphics, float partialTick, int mouseX, int mouseY) { RenderSystem.setShaderColor(1, 1, 1, 1); RenderSystem.enableBlend(); RenderSystem.defaultBlendFunc(); for (var image : menu.page.images) graphics.blit(texture(image.texture()), leftPos + image.x(), topPos + image.y(), 0, 0, image.width(), image.height(), image.textureWidth(), image.textureHeight()); RenderSystem.disableBlend(); }
-    @Override protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) { if (menu.page == BenzorPage.MAIN) graphics.drawString(font, Component.translatable("gui.thermal_shock_reforged.benzor.intro_" + (menu.intro == 1 ? "1" : menu.intro == 2 ? "2" : "fallback")), 9, 112, -1, false); for (var line : menu.page.lines) graphics.drawString(font, Component.translatable(line.key()), line.x(), line.y(), line.color(), false); }
+    @Override protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) { if (menu.page == BenzorPage.MAIN) DialogueText.draw(graphics, font, Component.translatable("gui.thermal_shock_reforged.benzor.intro_" + (menu.intro == 1 ? "1" : menu.intro == 2 ? "2" : "fallback")), 9, 112, -1, imageWidth, 0); for (var line : menu.page.lines) DialogueText.draw(graphics, font, Component.translatable(line.key()), line.x(), line.y(), line.color(), imageWidth, line.spacing()); }
     private final class ImageButton extends AbstractButton {
         private final int action;
         private final ResourceLocation texture;

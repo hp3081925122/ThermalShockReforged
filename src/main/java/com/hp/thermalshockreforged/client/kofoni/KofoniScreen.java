@@ -1,5 +1,6 @@
 package com.hp.thermalshockreforged.client.kofoni;
 
+import com.hp.thermalshockreforged.client.dialogue.DialogueText;
 import com.hp.thermalshockreforged.entity.kofoni.*;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.Minecraft;
@@ -37,8 +38,8 @@ public final class KofoniScreen extends AbstractContainerScreen<KofoniMenu> {
         RenderSystem.disableBlend();
     }
     @Override protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) {
-        if (menu.page == KofoniPage.MAIN) graphics.drawString(font, Component.translatable("gui.thermal_shock_reforged.kofoni.intro_" + (menu.intro == 1 ? "1" : menu.intro == 2 ? "2" : "fallback")), 9, 112, -1, false);
-        for (var line : menu.page.lines) graphics.drawString(font, Component.translatable(line.key()), line.x(), line.y(), line.color(), false);
+        if (menu.page == KofoniPage.MAIN) DialogueText.draw(graphics, font, Component.translatable("gui.thermal_shock_reforged.kofoni.intro_" + (menu.intro == 1 ? "1" : menu.intro == 2 ? "2" : "fallback")), 9, 112, -1, imageWidth, 0);
+        for (var line : menu.page.lines) DialogueText.draw(graphics, font, Component.translatable(line.key()), line.x(), line.y(), line.color(), imageWidth, line.spacing());
     }
     private static final class Clock { int frame; }
     private final class ImageButton extends AbstractButton {

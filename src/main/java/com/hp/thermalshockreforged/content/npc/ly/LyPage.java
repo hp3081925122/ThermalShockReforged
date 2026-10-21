@@ -27,5 +27,5 @@ public enum LyPage {
         if (button != 1 && button != 2) return null;
         return TRADES.get(Math.floorMod(TRADES.indexOf(this) + (button == 1 ? 1 : -1), TRADES.size()));
     }
-    public record Line(String key, int x, int y, int color) { }
+    public record Line(String key, int x, int y, int color, int spacing) { public Line(String key, int x, int y, int color) { this(key, x, y, color, 0); } }
 }

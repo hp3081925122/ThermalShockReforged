@@ -1,5 +1,6 @@
 package com.hp.thermalshockreforged.client.npc.laut;
 
+import com.hp.thermalshockreforged.client.dialogue.DialogueText;
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.npc.laut.*;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -40,7 +41,7 @@ public final class LautScreen extends AbstractContainerScreen<LautMenu> {
         if (menu.page.portrait()) graphics.blit(PORTRAIT, leftPos - 32, topPos - 23, 0, Mth.clamp(clock.frame * 128, 0, 1408), 128, 128, 128, 1536);
         RenderSystem.disableBlend();
     }
-    @Override protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) { for (var line : menu.page.lines) graphics.drawString(font, Component.translatable(line.key()), line.x(), line.y(), line.color(), false); }
+    @Override protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) { for (var line : menu.page.lines) DialogueText.draw(graphics, font, Component.translatable(line.key()), line.x(), line.y(), line.color(), imageWidth, line.spacing()); }
     private static final class Clock { int frame; }
     private final class Button extends AbstractButton {
         private final int action;

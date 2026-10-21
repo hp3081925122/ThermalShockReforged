@@ -22,5 +22,5 @@ public final class DialogueScreen extends AbstractContainerScreen<DialogueMenu> 
         graphics.blit(LABEL, leftPos, topPos - 30, 0, 0, 134, 134, 134, 134);
         RenderSystem.disableBlend();
     }
-    @Override protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) { for (var line : menu.page.lines) graphics.drawString(font, Component.translatable(line.key()), line.x(), line.y(), -1, false); }
+    @Override protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) { for (var line : menu.page.lines) DialogueText.draw(graphics, font, Component.translatable(line.key()), line.x(), line.y(), -1, imageWidth, line.spacing()); }
 }
