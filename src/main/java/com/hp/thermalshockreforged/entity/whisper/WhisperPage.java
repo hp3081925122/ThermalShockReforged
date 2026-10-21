@@ -12,11 +12,11 @@ public enum WhisperPage {
             List.of(new Image("whisperinfobox", -1, 0, 212, 116, 212, 116, -1)),
             List.of(new Button(0, 14, 32, 59, 20, "infowhisper", "SELF"), new Button(1, 76, 32, 59, 20, "infomalachite", "MALACHITE_INFO"))),
     SELF("whisper_self_info", "WhisperSelfInfo", 276, 182, false,
-            List.of(new Line("gui.thermal_shock_reforged.whisper_self_info.label_kutty", 9, 112, -1), new Line("gui.thermal_shock_reforged.whisper_self_info.label_concierge", 67, 93, -1), new Line("gui.thermal_shock_reforged.whisper_self_info.label_could_say_im_an_alien_or_somet", 9, 122, -1), new Line("gui.thermal_shock_reforged.whisper_self_info.label_i_kinda_miss_the_asteroid_belt", 9, 132, -1), new Line("gui.thermal_shock_reforged.whisper_self_info.label_is_alright_i_guess", 9, 142, -1)),
+            List.of(new Line("gui.thermal_shock_reforged.whisper_self_info.label_kutty", 9, 112, -1, 10), new Line("gui.thermal_shock_reforged.whisper_self_info.label_concierge", 67, 93, -1)),
             List.of(new Image("mainspeechbox", 0, 103, 276, 276, 276, 276, -1), new Image("mainlabelbox", 62, -30, 134, 134, 134, 134, -1), new Image("whisperidleportrait", 0, -14, 128, 128, 128, 1536, 1408)),
             List.of(new Button(0, 237, 161, 38, 20, "nextbuttona", "INFO"))),
     MALACHITE_INFO("whisper_malachite_info", "WhisperMalachiteInfo", 276, 182, false,
-            List.of(new Line("gui.thermal_shock_reforged.whisper_malachite_info.label_kutty", 9, 112, -1), new Line("gui.thermal_shock_reforged.whisper_malachite_info.label_concierge", 67, 93, -1), new Line("gui.thermal_shock_reforged.whisper_malachite_info.label_could_say_im_an_alien_or_somet", 9, 122, -1), new Line("gui.thermal_shock_reforged.whisper_malachite_info.label_i_kinda_miss_the_asteroid_belt", 9, 132, -1), new Line("gui.thermal_shock_reforged.whisper_malachite_info.label_is_alright_i_guess", 9, 142, -1)),
+            List.of(new Line("gui.thermal_shock_reforged.whisper_malachite_info.label_kutty", 9, 112, -1, 10), new Line("gui.thermal_shock_reforged.whisper_malachite_info.label_concierge", 67, 93, -1)),
             List.of(new Image("mainspeechbox", 0, 103, 276, 276, 276, 276, -1), new Image("mainlabelbox", 62, -30, 134, 134, 134, 134, -1), new Image("whisperidleportrait", 0, -14, 128, 128, 128, 1536, 1408)),
             List.of(new Button(0, 237, 161, 38, 20, "nextbuttona", "INFO"))),
     MALACHITE("whisper_trade_malachite", "WhisperTradeMalachite", 206, 196, true,
@@ -60,7 +60,7 @@ public enum WhisperPage {
     WhisperPage(String id, String title, int width, int height, boolean inventory, List<Line> lines, List<Image> images, List<Button> buttons) {
         this.id = id; this.title = title; this.width = width; this.height = height; this.inventory = inventory; this.lines = lines; this.images = images; this.buttons = buttons;
     }
-    public record Line(String key, int x, int y, int color) { }
+    public record Line(String key, int x, int y, int color, int spacing) { public Line(String key, int x, int y, int color) { this(key, x, y, color, 0); } }
     public record Image(String texture, int x, int y, int width, int height, int textureWidth, int textureHeight, int frameMax) { }
     public record Button(int action, int x, int y, int width, int height, String texture, String route) { }
 }

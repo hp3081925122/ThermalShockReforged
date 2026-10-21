@@ -1,5 +1,6 @@
 package com.hp.thermalshockreforged.client.npc.florist;
 
+import com.hp.thermalshockreforged.client.dialogue.DialogueText;
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.npc.florist.*;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -61,8 +62,8 @@ public final class FloristScreen extends AbstractContainerScreen<FloristMenu> {
         RenderSystem.disableBlend();
     }
     @Override protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) {
-        for (var line : menu.page.lines) graphics.drawString(font, Component.translatable(line.key()), line.x(), line.y(), line.color(), false);
-        if (menu.page == FloristPage.MAIN) graphics.drawString(font, Component.translatable("gui.thermal_shock_reforged.uma_main.greeting_" + (menu.intro == 1 || menu.intro == 2 ? menu.intro : 0)), 9, 112, -1, false);
+        for (var line : menu.page.lines) DialogueText.draw(graphics, font, Component.translatable(line.key()), line.x(), line.y(), line.color(), imageWidth, line.spacing());
+        if (menu.page == FloristPage.MAIN) DialogueText.draw(graphics, font, Component.translatable("gui.thermal_shock_reforged.uma_main.greeting_" + (menu.intro == 1 || menu.intro == 2 ? menu.intro : 0)), 9, 112, -1, imageWidth, 0);
     }
     private static final class Clock { int frame; }
     private final class ImageButton extends AbstractButton {

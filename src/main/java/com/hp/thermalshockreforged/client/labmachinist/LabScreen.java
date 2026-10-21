@@ -1,5 +1,6 @@
 package com.hp.thermalshockreforged.client.labmachinist;
 
+import com.hp.thermalshockreforged.client.dialogue.DialogueText;
 import com.hp.thermalshockreforged.entity.labmachinist.*;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.Minecraft;
@@ -35,8 +36,8 @@ public final class LabScreen extends AbstractContainerScreen<LabMenu> implements
         RenderSystem.disableBlend();
     }
     @Override protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) {
-        for (var line : menu.page.lines) graphics.drawString(font, Component.translatable(line.key()), line.x(), line.y(), line.color(), false);
-        if (menu.page == LabPage.MAIN) graphics.drawString(font, Component.translatable("gui.thermal_shock_reforged.qo_main.greeting_" + (menu.intro == 1 || menu.intro == 2 ? menu.intro : 0)), 9, 112, -1, false);
+        for (var line : menu.page.lines) DialogueText.draw(graphics, font, Component.translatable(line.key()), line.x(), line.y(), line.color(), imageWidth, line.spacing());
+        if (menu.page == LabPage.MAIN) DialogueText.draw(graphics, font, Component.translatable("gui.thermal_shock_reforged.qo_main.greeting_" + (menu.intro == 1 || menu.intro == 2 ? menu.intro : 0)), 9, 112, -1, imageWidth, 0);
     }
     private final class ImageButton extends AbstractButton {
         private final int action;

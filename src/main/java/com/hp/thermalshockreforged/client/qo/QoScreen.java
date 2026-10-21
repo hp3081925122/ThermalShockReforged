@@ -1,5 +1,6 @@
 package com.hp.thermalshockreforged.client.qo;
 
+import com.hp.thermalshockreforged.client.dialogue.DialogueText;
 import com.hp.thermalshockreforged.entity.qo.*;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.Minecraft;
@@ -43,7 +44,7 @@ public final class QoScreen extends AbstractContainerScreen<QoMenu> implements c
         RenderSystem.disableBlend();
     }
     @Override protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) {
-        for (var line : menu.page.lines) graphics.drawString(font, Component.translatable(line.key()), line.x(), line.y(), line.color(), false);
+        for (var line : menu.page.lines) DialogueText.draw(graphics, font, Component.translatable(line.key()), line.x(), line.y(), line.color(), imageWidth, line.spacing());
     }
     @Override public com.hp.thermalshockreforged.client.labmachinist.LabDialogueClock dialogueClock() { return clock; }
     @Override public String dialogueKey() { return menu.npcUuid.toString(); }
