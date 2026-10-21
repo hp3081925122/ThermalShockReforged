@@ -52,7 +52,7 @@ public final class BlasphemerProcessEntity extends Entity implements ServerEndTi
             case 104 -> level.playSound(null, anchor, SoundEvents.ITEM_PICKUP, SoundSource.NEUTRAL, 1, 1);
             case 134 -> {
                 level.playSound(null, anchor, SoundEvents.ITEM_PICKUP, SoundSource.NEUTRAL, 1, 1);
-                if (!MachineContent.drop(level, anchor.getX() + .5, anchor.getY() + 1, anchor.getZ() + .5, "infected_core_sample"))
+                if (!MachineContent.drop(level, anchor.getX() + .5, anchor.getY() + 1, anchor.getZ() + .5, new net.minecraft.world.item.ItemStack(com.hp.thermalshockreforged.content.MaterialContent.items().get("infected_core_sample").get())))
                     ThermalShockReforged.LOGGER.warn("Blasphemer core sample output rejected at {}", anchor);
             }
             case 180 -> {

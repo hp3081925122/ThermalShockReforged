@@ -48,7 +48,7 @@ public final class ConciergeScreen extends AbstractContainerScreen<ConciergeMenu
     }
     @Override protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) {
         if (menu.page == ConciergePage.MAIN) DialogueText.draw(graphics, font, Component.translatable("gui.thermal_shock_reforged.concierge.intro_" + (menu.intro == 1 ? "1" : menu.intro == 2 ? "2" : "fallback")), 9, 112, -1, imageWidth, 0);
-        for (var line : menu.page.lines) DialogueText.draw(graphics, font, Component.translatable(line.key()), line.x(), line.y(), line.color(), imageWidth, line.spacing());
+        for (var line : menu.page.lines) DialogueText.draw(graphics, font, com.hp.thermalshockreforged.client.npc.NpcTradeLabels.text(line.key()), line.x(), line.y(), line.color(), imageWidth, line.spacing());
     }
     private static final class Clock { int frame; }
     private final class ImageButton extends AbstractButton {

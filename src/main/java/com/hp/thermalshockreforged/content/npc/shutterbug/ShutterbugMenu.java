@@ -32,7 +32,7 @@ public final class ShutterbugMenu extends AbstractContainerMenu {
     }
     @Override public boolean clickMenuButton(Player player, int button) {
         if (changedPage || !(player instanceof ServerPlayer server) || player.containerMenu != this || !stillValid(player)) return false;
-        if (page == ShutterbugPage.TRADE) { if (button != 0) return false; page.trade.buy(server, anchor); return true; }
+        if (page == ShutterbugPage.TRADE) { if (button != 0) return false; com.hp.thermalshockreforged.content.npc.NpcTrade.buy(server, anchor, page.trade); return true; }
         if (page == ShutterbugPage.MAIN) {
             if (button < 0 || button > 3) return false;
             changedPage = true;

@@ -1,7 +1,6 @@
 package com.hp.thermalshockreforged.content.machines;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
-import com.hp.thermalshockreforged.content.MaterialContent;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
@@ -26,8 +25,8 @@ public final class MachineContent {
     }
     private MachineContent() { }
     public static ResourceLocation id(String path) { return ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
-    public static boolean drop(ServerLevel level, double x, double y, double z, String item) {
-        var drop = new ItemEntity(level, x, y, z, new ItemStack(MaterialContent.items().get(item).get()));
+    public static boolean drop(ServerLevel level, double x, double y, double z, ItemStack stack) {
+        var drop = new ItemEntity(level, x, y, z, stack);
         drop.setPickUpDelay(10);
         return level.addFreshEntity(drop);
     }

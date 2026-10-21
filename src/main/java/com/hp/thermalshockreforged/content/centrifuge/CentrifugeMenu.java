@@ -1,26 +1,20 @@
 package com.hp.thermalshockreforged.content.centrifuge;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
-import com.hp.thermalshockreforged.content.MaterialContent;
+import com.hp.thermalshockreforged.content.recipe.CentrifugeRecipe;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.items.ItemHandlerHelper;
 
 public final class CentrifugeMenu extends AbstractContainerMenu {
-    private static final TagKey<Item> ENERGY = ItemTags.create(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "energy"));
-    private static final TagKey<Item> INGREDIENTS = ItemTags.create(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "centrifuge_ingredients"));
     private final Level level;
     private final BlockPos pos;
     private final Player owner;
@@ -34,9 +28,9 @@ public final class CentrifugeMenu extends AbstractContainerMenu {
         this.pos = pos.immutable();
         attached = level.hasChunkAt(pos) && level.getBlockEntity(pos) instanceof CentrifugeBlockEntity entity ? entity : null;
         storage = !level.isClientSide && attached != null ? attached : new SimpleContainer(3) { @Override public int getMaxStackSize() { return 64; } };
-        addSlot(new Slot(storage, 0, 59, 35) { @Override public boolean mayPlace(ItemStack stack) { return stack.is(ENERGY); } });
-        addSlot(new Slot(storage, 1, 80, 10) { @Override public boolean mayPlace(ItemStack stack) { return stack.is(ENERGY); } });
-        addSlot(new Slot(storage, 2, 101, 35) { @Override public boolean mayPlace(ItemStack stack) { return stack.is(INGREDIENTS); } });
+        addSlot(new Slot(storage, 0, 59, 35) { @Override public boolean mayPlace(ItemStack stack) { return CentrifugeRecipe.accepts(level, 0, stack); } });
+        addSlot(new Slot(storage, 1, 80, 10) { @Override public boolean mayPlace(ItemStack stack) { return CentrifugeRecipe.accepts(level, 1, stack); } });
+        addSlot(new Slot(storage, 2, 101, 35) { @Override public boolean mayPlace(ItemStack stack) { return CentrifugeRecipe.accepts(level, 2, stack); } });
         for (int row = 0; row < 3; row++) for (int column = 0; column < 9; column++) addSlot(new Slot(inventory, column + (row + 1) * 9, 8 + column * 18, 84 + row * 18));
         for (int column = 0; column < 9; column++) addSlot(new Slot(inventory, column, 8 + column * 18, 142));
     }
@@ -58,17 +52,14 @@ public final class CentrifugeMenu extends AbstractContainerMenu {
         var first = storage.getItem(0);
         var second = storage.getItem(1);
         var ingredient = storage.getItem(2);
-        Item result;
-        if (first.is(MaterialContent.items().get("cryonic_energy").get()) && second.is(MaterialContent.items().get("cryonic_energy").get())
-                && ingredient.is(MaterialContent.items().get("hearth_honey").get())) result = MaterialContent.items().get("pyrogenic_energy").get();
-        else if (first.is(MaterialContent.items().get("pyrogenic_energy").get()) && second.is(MaterialContent.items().get("pyrogenic_energy").get())
-                && ingredient.is(MaterialContent.items().get("frost_pearl").get())) result = MaterialContent.items().get("cryonic_energy").get();
-        else return false;
+        var recipe = CentrifugeRecipe.find(level, first, second, ingredient);
+        if (recipe == null) return false;
+        var result = recipe.result().copy();
         first.shrink(1);
         second.shrink(1);
         ingredient.shrink(1);
         storage.setChanged();
-        ItemHandlerHelper.giveItemToPlayer(player, new ItemStack(result));
+        ItemHandlerHelper.giveItemToPlayer(player, result.copy());
         broadcastChanges();
         ThermalShockReforged.LOGGER.debug("Centrifuge conversion completed: output={}, player={}, position={}", result, player.getUUID(), pos);
         return true;

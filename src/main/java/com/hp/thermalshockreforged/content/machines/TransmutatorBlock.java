@@ -4,7 +4,7 @@ import com.hp.thermalshockreforged.ThermalShockReforged;
 import java.util.List;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.core.registries.BuiltInRegistries;
+import com.hp.thermalshockreforged.content.recipe.TransmutationRecipe;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -27,22 +27,10 @@ import net.minecraft.world.phys.BlockHitResult;
 
 public final class TransmutatorBlock extends Block {
     public TransmutatorBlock() { super(Properties.of().mapColor(MapColor.METAL).sound(SoundType.METAL).strength(2, 20).lightLevel(state -> 10)); }
-    private static String output(ItemStack stack) {
-        var id = BuiltInRegistries.ITEM.getKey(stack.getItem());
-        if (!id.getNamespace().equals(ThermalShockReforged.MOD_ID)) return null;
-        return switch (id.getPath()) {
-            case "rough_ruby" -> "rough_bloodstone";
-            case "rough_bloodstone" -> "rough_ruby";
-            case "ruby" -> "bloodstone";
-            case "bloodstone" -> "ruby";
-            case "malachite" -> "bismuth";
-            case "bismuth" -> "malachite";
-            default -> null;
-        };
-    }
     private boolean process(ItemStack input, Level level, BlockPos pos, Player player) {
-        String output = output(input);
-        if (output == null || input.isEmpty()) return false;
+        var recipe = TransmutationRecipe.find(level, input);
+        if (recipe == null) return false;
+        var output = recipe.result().copy();
         if (!(level instanceof ServerLevel server)) return true;
         input.shrink(1);
         if (!MachineContent.drop(server, pos.getX() + .5, pos.getY() + 1, pos.getZ() + .5, output)) {

@@ -1,0 +1,35 @@
+{
+  "type": "thermal_shock_reforged:extraction",
+  "ingredient": {
+    "item": "thermal_shock_reforged:herald_key"
+  },
+  "levels": 10,
+  "experience": {
+    "value": 5,
+    "orbs": {
+      "type": "minecraft:uniform",
+      "min_inclusive": 3,
+      "max_inclusive": 8
+    }
+  },
+  "outputs": [
+    {
+      "item": {
+        "id": "thermal_shock_reforged:helion_slag",
+        "count": 1
+      },
+      "chance": 0.3,
+      "repeat": {
+        "type": "minecraft:uniform",
+        "min_inclusive": 1,
+        "max_inclusive": 3
+      }
+    }
+  ],
+  "sounds": [
+    {
+      "sound": "minecraft:block.sculk_catalyst.break"
+    }
+  ],
+  "particle_block": "thermal_shock_reforged:vermilli_leaves"
+}

@@ -32,7 +32,7 @@ public final class LyMenu extends AbstractContainerMenu {
     }
     @Override public boolean clickMenuButton(Player player, int button) {
         if (changedPage || !(player instanceof ServerPlayer server) || player.containerMenu != this || !stillValid(player)) return false;
-        if (page.trade != null && button == 0) { page.trade.buy(server, anchor); return true; }
+        if (page.trade != null && button == 0) { com.hp.thermalshockreforged.content.npc.NpcTrade.buy(server, anchor, page.trade); return true; }
         LyPage next = page.target(button);
         if (next == null) return false;
         changedPage = true;

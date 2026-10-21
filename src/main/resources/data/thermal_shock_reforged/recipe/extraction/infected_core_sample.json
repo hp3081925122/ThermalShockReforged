@@ -1,0 +1,24 @@
+{
+  "type": "thermal_shock_reforged:extraction",
+  "ingredient": {
+    "item": "thermal_shock_reforged:infected_core_sample"
+  },
+  "outputs": [
+    {
+      "item": {
+        "id": "thermal_shock_reforged:primordial_blood",
+        "count": 1
+      }
+    }
+  ],
+  "advancement": "thermal_shock_reforged:blasphemy_3",
+  "sounds": [
+    {
+      "sound": "minecraft:block.sculk_catalyst.break"
+    },
+    {
+      "sound": "minecraft:entity.experience_orb.pickup"
+    }
+  ],
+  "particle_block": "thermal_shock_reforged:vermilli_leaves"
+}

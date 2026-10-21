@@ -41,7 +41,7 @@ public final class ConciergeMenu extends AbstractContainerMenu {
         if (changedPage || transaction || !(player instanceof ServerPlayer server) || player.containerMenu != this || !stillValid(player)) return false;
         if (page.trade != null && button == 0) {
             transaction = true;
-            try { return page.trade.buy(server); } finally { transaction = false; }
+            try { return ConciergeTrade.buy(server, page.trade); } finally { transaction = false; }
         }
         ConciergePage next = null;
         switch (page) {

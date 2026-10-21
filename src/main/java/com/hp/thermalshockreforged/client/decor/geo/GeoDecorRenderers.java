@@ -47,7 +47,27 @@ public final class GeoDecorRenderers {
     }
 
     private static final class BlockRenderer extends GeoBlockRenderer<GeoDecorBlockEntity> {
+        private static final int BEAM_COLOR = 0xFF5FD4FF;
+        private static final int BEAM_RANGE = 256;
         private BlockRenderer() { super(new Model<>()); }
+        private static boolean beacon(GeoDecorBlockEntity entity) { return entity.kind == GeoDecorKind.FRIGID_ALTAR; }
+        @Override public void render(GeoDecorBlockEntity entity, float partialTick, com.mojang.blaze3d.vertex.PoseStack poseStack, MultiBufferSource buffers, int packedLight, int packedOverlay) {
+            super.render(entity, partialTick, poseStack, buffers, packedLight, packedOverlay);
+            if (!beacon(entity) || entity.getLevel() == null) return;
+            int height = net.minecraft.client.renderer.blockentity.BeaconRenderer.MAX_RENDER_Y - entity.getBlockPos().getY();
+            if (height <= 1) return;
+            net.minecraft.client.renderer.blockentity.BeaconRenderer.renderBeaconBeam(poseStack, buffers, net.minecraft.client.renderer.blockentity.BeaconRenderer.BEAM_LOCATION, partialTick, 1, entity.getLevel().getGameTime(), 1, height, BEAM_COLOR, .2F, .25F);
+        }
+        @Override public boolean shouldRenderOffScreen(GeoDecorBlockEntity entity) { return beacon(entity) || super.shouldRenderOffScreen(entity); }
+        @Override public boolean shouldRender(GeoDecorBlockEntity entity, net.minecraft.world.phys.Vec3 camera) {
+            if (!beacon(entity)) return super.shouldRender(entity, camera);
+            return net.minecraft.world.phys.Vec3.atCenterOf(entity.getBlockPos()).multiply(1, 0, 1).closerThan(camera.multiply(1, 0, 1), BEAM_RANGE);
+        }
+        @Override public net.minecraft.world.phys.AABB getRenderBoundingBox(GeoDecorBlockEntity entity) {
+            if (!beacon(entity)) return super.getRenderBoundingBox(entity);
+            var pos = entity.getBlockPos();
+            return new net.minecraft.world.phys.AABB(pos.getX(), pos.getY(), pos.getZ(), pos.getX() + 1, net.minecraft.client.renderer.blockentity.BeaconRenderer.MAX_RENDER_Y, pos.getZ() + 1);
+        }
         @Override public RenderType getRenderType(GeoDecorBlockEntity entity, ResourceLocation texture, MultiBufferSource buffers, float partialTick) {
             return RenderType.entityTranslucent(texture);
         }

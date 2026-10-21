@@ -1157,6 +1157,25 @@
                 ]
               }
             }
+          },
+          {
+            "type": "minecraft:condition",
+            "if_true": {
+              "type": "minecraft:vertical_gradient",
+              "random_name": "thermal_shock_reforged:mantlestone",
+              "true_at_and_below": {
+                "absolute": -18
+              },
+              "false_at_and_above": {
+                "absolute": -6
+              }
+            },
+            "then_run": {
+              "type": "minecraft:block",
+              "result_state": {
+                "Name": "thermal_shock_reforged:mantlestone"
+              }
+            }
           }
         ]
       }

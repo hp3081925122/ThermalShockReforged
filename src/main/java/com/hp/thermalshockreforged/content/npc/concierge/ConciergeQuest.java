@@ -37,7 +37,7 @@ public final class ConciergeQuest {
             ThermalShockReforged.LOGGER.warn("Concierge quest settlement unavailable; keeping payment: player={}", player.getUUID());
             return false;
         }
-        if (!ConciergeTrade.pay(player, payment, 1)) return false;
+        if (!com.hp.thermalshockreforged.content.recipe.NpcTradeRecipe.pay(player, payment, 1)) return false;
         player.getPersistentData().putBoolean(COMPLETE, true);
         player.getPersistentData().putBoolean(INFO, true);
         award(player, "blasphemy_4");

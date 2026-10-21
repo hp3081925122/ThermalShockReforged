@@ -1,0 +1,30 @@
+{
+  "type": "thermal_shock_reforged:extraction",
+  "ingredient": {
+    "item": "thermal_shock_reforged:neural_chip"
+  },
+  "experience": {
+    "value": 20
+  },
+  "outputs": [
+    {
+      "item": {
+        "id": "thermal_shock_reforged:phobotite",
+        "count": 1
+      },
+      "chance": 0.3,
+      "repeat": {
+        "type": "minecraft:uniform",
+        "min_inclusive": 1,
+        "max_inclusive": 6
+      }
+    }
+  ],
+  "sounds": [
+    {
+      "sound": "minecraft:block.basalt.break",
+      "pitch": 3
+    }
+  ],
+  "particle_block": "thermal_shock_reforged:phobotite_block"
+}
