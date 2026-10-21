@@ -77,7 +77,7 @@ public final class LegacyFabricatorScreen extends AbstractContainerScreen<Legacy
         @Override protected void renderWidget(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
             RenderSystem.enableBlend();
             RenderSystem.defaultBlendFunc();
-            graphics.blit(CRAFT, getX(), getY(), 0, isHoveredOrFocused() ? 18 : 0, 40, 18, 40, 36);
+            graphics.blit(CRAFT, getX(), getY(), 0, isHoveredOrFocused() ? 18 : 0, 40, 18, 40, 36); com.hp.thermalshockreforged.client.ButtonLabels.draw(graphics, CRAFT, getX(), getY(), 40, 18, isHoveredOrFocused());
             RenderSystem.disableBlend();
         }
         @Override protected void updateWidgetNarration(NarrationElementOutput output) { defaultButtonNarrationText(output); }

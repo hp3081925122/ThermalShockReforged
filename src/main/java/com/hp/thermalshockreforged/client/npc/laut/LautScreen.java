@@ -48,7 +48,7 @@ public final class LautScreen extends AbstractContainerScreen<LautMenu> {
         private final ResourceLocation texture;
         Button(int action, int x, int y, int width, String name, Component label) { super(leftPos + x, topPos + y, width, 20, label); this.action = action; texture = id("textures/screens/atlas/imagebutton_" + name + ".png"); }
         @Override public void onPress() { if (minecraft != null && minecraft.gameMode != null) minecraft.gameMode.handleInventoryButtonClick(menu.containerId, action); }
-        @Override protected void renderWidget(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) { RenderSystem.enableBlend(); RenderSystem.defaultBlendFunc(); graphics.blit(texture, getX(), getY(), 0, isHoveredOrFocused() ? 20 : 0, width, 20, width, 40); RenderSystem.disableBlend(); }
+        @Override protected void renderWidget(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) { RenderSystem.enableBlend(); RenderSystem.defaultBlendFunc(); graphics.blit(texture, getX(), getY(), 0, isHoveredOrFocused() ? 20 : 0, width, 20, width, 40); com.hp.thermalshockreforged.client.ButtonLabels.draw(graphics, texture, getX(), getY(), width, 20, isHoveredOrFocused()); RenderSystem.disableBlend(); }
         @Override protected void updateWidgetNarration(NarrationElementOutput output) { defaultButtonNarrationText(output); }
     }
 }

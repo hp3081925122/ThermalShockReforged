@@ -36,10 +36,9 @@ public final class HuntressEntity extends PathfinderMob implements GeoEntity {
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, "huntress"); }
     @Override protected void registerGoals() { goalSelector.addGoal(1, new LookAtPlayerGoal(this, Player.class, 6)); goalSelector.addGoal(2, new RandomLookAroundGoal(this)); }
     @Override public boolean removeWhenFarAway(double distance) { return false; }
-    @Override public boolean hurt(DamageSource source, float amount) {
-        if (source.getDirectEntity() instanceof AbstractArrow || source.getDirectEntity() instanceof ThrownPotion || source.getDirectEntity() instanceof AreaEffectCloud) return false;
-        if (source.is(DamageTypes.IN_FIRE) || source.is(DamageTypes.FALL) || source.is(DamageTypes.CACTUS) || source.is(DamageTypes.DROWN) || source.is(DamageTypes.LIGHTNING_BOLT) || source.is(DamageTypes.EXPLOSION) || source.is(DamageTypes.TRIDENT) || source.is(DamageTypes.FALLING_ANVIL) || source.is(DamageTypes.DRAGON_BREATH) || source.is(DamageTypes.WITHER) || source.is(DamageTypes.WITHER_SKULL)) return false;
-        return super.hurt(source, amount);
+    @Override public boolean isInvulnerableTo(DamageSource source) {
+        if (source.is(net.minecraft.tags.DamageTypeTags.BYPASSES_INVULNERABILITY)) return false;
+        return !(source.getEntity() instanceof net.minecraft.world.entity.player.Player player && player.isCreative());
     }
     @Override protected InteractionResult mobInteract(Player player, InteractionHand hand) { super.mobInteract(player, hand); if (player instanceof ServerPlayer server) HuntressMenus.open(server, this, HuntressPage.MAIN); return InteractionResult.sidedSuccess(level().isClientSide); }
     @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, MobSpawnType reason, SpawnGroupData group) { var result = super.finalizeSpawn(world, difficulty, reason, group); if (!initialized) { initialized = true; setNoGravity(true); initializationOrigin = position(); initializationPending = true; animationPending = true; } return result; }

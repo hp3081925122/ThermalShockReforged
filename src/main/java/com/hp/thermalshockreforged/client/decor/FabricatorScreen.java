@@ -268,7 +268,7 @@ public final class FabricatorScreen extends AbstractContainerScreen<FabricatorMe
             }
             int v = 0;
             if (inside(mouseX, mouseY, x + CRAFT_X, y + CRAFT_Y, CRAFT_WIDTH, CRAFT_HEIGHT)) v = CRAFT_HEIGHT;
-            graphics.blit(CRAFT, x + CRAFT_X, y + CRAFT_Y, 0, v, CRAFT_WIDTH, CRAFT_HEIGHT, CRAFT_WIDTH, CRAFT_HEIGHT * 2);
+            graphics.blit(CRAFT, x + CRAFT_X, y + CRAFT_Y, 0, v, CRAFT_WIDTH, CRAFT_HEIGHT, CRAFT_WIDTH, CRAFT_HEIGHT * 2); com.hp.thermalshockreforged.client.ButtonLabels.draw(graphics, CRAFT, x + CRAFT_X, y + CRAFT_Y, CRAFT_WIDTH, CRAFT_HEIGHT, v > 0);
         }
         RenderSystem.disableBlend();
     }

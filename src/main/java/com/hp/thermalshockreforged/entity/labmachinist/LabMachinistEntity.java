@@ -28,8 +28,9 @@ public final class LabMachinistEntity extends PathfinderMob implements GeoEntity
     public String texture() { return entityData.get(TEXTURE); }
     @Override public boolean removeWhenFarAway(double distance) { return false; }
     @Override protected net.minecraft.world.phys.Vec3 getPassengerAttachmentPoint(Entity passenger, EntityDimensions dimensions, float scale) { return new net.minecraft.world.phys.Vec3(0, dimensions.height() * .75 + 2, 0); }
-    @Override public boolean hurt(DamageSource source, float amount) {
-        return !(source.getDirectEntity() instanceof AbstractArrow || source.getDirectEntity() instanceof ThrownPotion || source.getDirectEntity() instanceof AreaEffectCloud || source.is(DamageTypes.IN_FIRE) || source.is(DamageTypes.FALL) || source.is(DamageTypes.CACTUS) || source.is(DamageTypes.DROWN) || source.is(DamageTypes.LIGHTNING_BOLT) || source.is(DamageTypes.EXPLOSION) || source.is(DamageTypes.TRIDENT) || source.is(DamageTypes.FALLING_ANVIL) || source.is(DamageTypes.DRAGON_BREATH) || source.is(DamageTypes.WITHER) || source.is(DamageTypes.WITHER_SKULL)) && super.hurt(source, amount);
+    @Override public boolean isInvulnerableTo(DamageSource source) {
+        if (source.is(net.minecraft.tags.DamageTypeTags.BYPASSES_INVULNERABILITY)) return false;
+        return !(source.getEntity() instanceof net.minecraft.world.entity.player.Player player && player.isCreative());
     }
     @Override protected InteractionResult mobInteract(Player player, InteractionHand hand) {
         super.mobInteract(player, hand);
