@@ -1,12 +1,10 @@
 package com.hp.thermalshockreforged.client.status;
 
-import mod.chloeprime.aaaparticles.api.common.AAALevel;
-import mod.chloeprime.aaaparticles.api.common.ParticleEmitterInfo;
+import com.hp.thermalshockreforged.client.vfx.VfxManager;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.phys.Vec3;
 
 final class InfectionParticle extends TextureSheetParticle {
     private final ResourceLocation effect;
@@ -30,7 +28,7 @@ final class InfectionParticle extends TextureSheetParticle {
     @Override
     public void tick() {
         super.tick();
-        AAALevel.addParticle(level, new ParticleEmitterInfo(effect).position(new Vec3(x, y, z)));
+        VfxManager.play(level, effect, x, y, z);
     }
 
     static final class Provider implements ParticleProvider<SimpleParticleType> {

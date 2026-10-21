@@ -2,6 +2,7 @@ package com.hp.thermalshockreforged.content.decor.geo;
 
 import com.hp.thermalshockreforged.content.atlas.AtlasContent;
 import com.hp.thermalshockreforged.ThermalShockReforged;
+import com.hp.thermalshockreforged.world.WorldProgressData;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.core.*;
@@ -33,6 +34,7 @@ public class KeystonePuzzleBlock extends GeoDecorBlock {
                 level.setBlock(pos, level.getBlockState(pos).setValue(animationProperty(), 1), 3);
                 level.sendBlockUpdated(pos, level.getBlockState(pos), level.getBlockState(pos), 3);
                 level.playSound(null, pos, BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "mantle_lever")), SoundSource.NEUTRAL, 1, 1);
+                maybePromptLever(server, pos, player);
             }
             return true;
         }
@@ -52,10 +54,7 @@ public class KeystonePuzzleBlock extends GeoDecorBlock {
         BlockPos center = pos.offset(7, 2, 0);
         var oldCenter = level.getBlockEntity(center);
         boolean ready = oldCenter == null || !oldCenter.getPersistentData().getBoolean("caninteract") && !oldCenter.getPersistentData().getBoolean(CLAIMED);
-        for (BlockPos offset : SWITCHES) {
-            var button = level.getBlockEntity(pos.offset(offset));
-            if (button == null || !button.getPersistentData().getBoolean("active")) ready = false;
-        }
+        if (!allSwitchesActive(level, pos)) ready = false;
         if (!ready) {
             level.playSound(null, pos, SoundEvents.NOTE_BLOCK_BASS.value(), SoundSource.NEUTRAL, 1, 1);
             return true;
@@ -71,6 +70,26 @@ public class KeystonePuzzleBlock extends GeoDecorBlock {
         level.sendBlockUpdated(center, level.getBlockState(center), level.getBlockState(center), 3);
         level.playSound(null, pos, SoundEvents.MINECART_RIDING, SoundSource.NEUTRAL, 1, -3);
         level.playSound(null, pos, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.NEUTRAL, .5F, 1);
+        return true;
+    }
+    private static void maybePromptLever(ServerLevel server, BlockPos buttonPos, Player player) {
+        BlockPos lever = null;
+        for (BlockPos offset : SWITCHES) {
+            BlockPos candidate = buttonPos.subtract(offset);
+            if (server.getBlockEntity(candidate) instanceof GeoDecorBlockEntity entity && entity.kind == GeoDecorKind.RINTHIUM_LEVER) {
+                lever = candidate;
+                break;
+            }
+        }
+        if (lever == null || !allSwitchesActive(server, lever)) return;
+        var progress = WorldProgressData.get(server);
+        if (progress.keystoneNoticeComplete() && progress.markKeystoneLeverHintShown()) player.displayClientMessage(Component.translatable("message.thermal_shock_reforged.keystone.puzzle_lever"), false);
+    }
+    private static boolean allSwitchesActive(Level level, BlockPos leverPos) {
+        for (BlockPos offset : SWITCHES) {
+            var button = level.getBlockEntity(leverPos.offset(offset));
+            if (button == null || !button.getPersistentData().getBoolean("active")) return false;
+        }
         return true;
     }
     private static void animate(Level level, BlockPos pos) {

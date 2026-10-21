@@ -1,8 +1,7 @@
 package com.hp.thermalshockreforged.client.particle;
 
+import com.hp.thermalshockreforged.client.vfx.VfxManager;
 import com.hp.thermalshockreforged.ThermalShockReforged;
-import mod.chloeprime.aaaparticles.api.common.AAALevel;
-import mod.chloeprime.aaaparticles.api.common.ParticleEmitterInfo;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.particle.ParticleProvider;
@@ -11,7 +10,6 @@ import net.minecraft.client.particle.SpriteSet;
 import net.minecraft.client.particle.TextureSheetParticle;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.phys.Vec3;
 
 public final class ZapAttackParticle extends TextureSheetParticle {
     private static final ResourceLocation EFFECT = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "zapattack");
@@ -24,7 +22,7 @@ public final class ZapAttackParticle extends TextureSheetParticle {
     @Override public ParticleRenderType getRenderType() { return ParticleRenderType.PARTICLE_SHEET_LIT; }
     @Override public void tick() {
         super.tick();
-        AAALevel.addParticle(level, new ParticleEmitterInfo(EFFECT).position(new Vec3(x, y, z)));
+        VfxManager.play(level, EFFECT, x, y, z);
     }
     public static final class Provider implements ParticleProvider<SimpleParticleType> {
         private final SpriteSet sprites;

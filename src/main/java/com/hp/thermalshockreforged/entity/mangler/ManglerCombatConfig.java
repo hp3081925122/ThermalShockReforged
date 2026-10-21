@@ -5,7 +5,7 @@ import net.neoforged.neoforge.common.ModConfigSpec;
 public final class ManglerCombatConfig {
     public static final ModConfigSpec SPEC;
     public static final ModConfigSpec.DoubleValue HERALD_HEALTH, HERALD_ARMOR, HERALD_KNOCKBACK, HERALD_RESISTANCE, SUMMON_CHANCE;
-    public static final ModConfigSpec.IntValue SUMMON_COOLDOWN, SUMMON_CAP, SUMMON_LIFETIME, BOOST_COOLDOWN, REGEN_DURATION, REGEN_AMPLIFIER;
+    public static final ModConfigSpec.IntValue SUMMON_COOLDOWN, SUMMON_CAP, SUMMON_LIFETIME, BOOST_COOLDOWN;
     static {
         var builder = new ModConfigSpec.Builder();
         builder.push("herald");
@@ -15,10 +15,8 @@ public final class ManglerCombatConfig {
         HERALD_RESISTANCE = builder.defineInRange("knockbackResistance", 1.0, 0.0, 1.0);
         SUMMON_CHANCE = builder.defineInRange("summonChance", 0.3, 0.0, 1.0);
         SUMMON_COOLDOWN = builder.defineInRange("summonAttemptCooldown", 40, 1, 72000);
-        SUMMON_CAP = builder.defineInRange("maxLivingSummons", 8, 1, 64);
+        SUMMON_CAP = builder.defineInRange("maxLivingSummons", 3, 1, 3);
         SUMMON_LIFETIME = builder.defineInRange("summonLifetime", 320, 1, 72000);
-        REGEN_DURATION = builder.defineInRange("regenerationDuration", 60, 1, 72000);
-        REGEN_AMPLIFIER = builder.defineInRange("regenerationAmplifier", 8, 0, 255);
         builder.pop();
         BOOST_COOLDOWN = builder.defineInRange("manglerBoostCooldown", 40, 1, 72000);
         SPEC = builder.build();

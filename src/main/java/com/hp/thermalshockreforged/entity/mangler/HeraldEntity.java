@@ -62,6 +62,7 @@ public final class HeraldEntity extends Monster implements GeoEntity, ServerEndT
     protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, "herald"); }
     public String texture() { return entityData.get(TEXTURE); }
     public void setTexture(String value) { entityData.set(TEXTURE, value); }
+    public int killCount() { return killCount; }
     public void setAnimation(String value) { triggerAnim("procedure", value); }
     @Override
     protected void registerGoals() { goalSelector.addGoal(1, new RandomLookAroundGoal(this)); }
@@ -69,22 +70,32 @@ public final class HeraldEntity extends Monster implements GeoEntity, ServerEndT
     public boolean removeWhenFarAway(double distance) { return false; }
     @Override
     public boolean hurt(DamageSource source, float amount) {
+        if (!keyDropped) {
+            ThermalShockReforged.LOGGER.debug("Herald damage blocked before key generation: entity={}, amount={}, source={}", getUUID(), amount, source.typeHolder().unwrapKey().map(key -> key.location()).orElse(null));
+            return false;
+        }
         if (source.is(DamageTypes.IN_FIRE) || source.is(DamageTypes.FALL) || source.is(DamageTypes.CACTUS) || source.is(DamageTypes.DROWN) || source.is(DamageTypes.FALLING_ANVIL) || source.is(DamageTypes.WITHER) || source.is(DamageTypes.WITHER_SKULL)) return false;
         return super.hurt(source, amount);
     }
     void acceptedDamage() {
         if (!(level() instanceof ServerLevel server) || !isAlive()) return;
-        addEffect(new MobEffectInstance(MobEffects.REGENERATION, ManglerCombatConfig.REGEN_DURATION.get(), ManglerCombatConfig.REGEN_AMPLIFIER.get(), false, true));
         if (SummonLedger.clock(server) < summonReadyAt) return;
         summonReadyAt = SummonLedger.clock(server) + ManglerCombatConfig.SUMMON_COOLDOWN.get();
         long until = SummonLedger.clock(server) + ManglerCombatConfig.SUMMON_LIFETIME.get();
         var ledger = SummonLedger.get(server); var reservation = UUID.randomUUID();
         if (!ledger.reserve(getUUID(), reservation, until, ManglerCombatConfig.SUMMON_CAP.get())) return;
         if (random.nextDouble() >= ManglerCombatConfig.SUMMON_CHANCE.get()) { ledger.release(getUUID(), reservation); return; }
-        var child = ManglerContent.SUMMONED_MANGLER.get().spawn(server, blockPosition(), MobSpawnType.MOB_SUMMONED);
+        var spawnPos = summonPosition();
+        var child = ManglerContent.SUMMONED_MANGLER.get().spawn(server, spawnPos, MobSpawnType.MOB_SUMMONED);
         if (child == null || server.getEntity(child.getUUID()) != child) { ledger.release(getUUID(), reservation); return; }
         child.bind(getUUID(), until); child.setDeltaMovement(Vec3.ZERO);
         ledger.replace(getUUID(), reservation, child.getUUID(), until);
+        ThermalShockReforged.LOGGER.debug("Herald summoned nearby creature: herald={}, child={}, position={}", getUUID(), child.getUUID(), spawnPos);
+    }
+    private BlockPos summonPosition() {
+        double angle = random.nextDouble() * Math.PI * 2;
+        double radius = 2.0 + random.nextDouble() * 2.0;
+        return BlockPos.containing(position().add(Math.cos(angle) * radius, random.nextDouble() * 1.5 - 0.5, Math.sin(angle) * radius));
     }
     void siphon(LivingEntity victim) {
         if (!(level() instanceof ServerLevel server) || !isAlive() || killCount >= 10 || isShiftKeyDown() || active || keyDropped) return;

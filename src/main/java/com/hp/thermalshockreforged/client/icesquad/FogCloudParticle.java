@@ -1,12 +1,10 @@
 package com.hp.thermalshockreforged.client.icesquad;
 
-import mod.chloeprime.aaaparticles.api.common.AAALevel;
-import mod.chloeprime.aaaparticles.api.common.ParticleEmitterInfo;
+import com.hp.thermalshockreforged.client.vfx.VfxManager;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.phys.Vec3;
 
 final class FogCloudParticle extends TextureSheetParticle {
     private static final ResourceLocation EFFECT = ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", "fogcloud");
@@ -17,7 +15,7 @@ final class FogCloudParticle extends TextureSheetParticle {
     @Override public ParticleRenderType getRenderType() { return ParticleRenderType.PARTICLE_SHEET_OPAQUE; }
     @Override public void tick() {
         super.tick();
-        AAALevel.addParticle(level, new ParticleEmitterInfo(EFFECT).position(new Vec3(x, y, z)));
+        VfxManager.play(level, EFFECT, x, y, z);
     }
     static final class Provider implements ParticleProvider<SimpleParticleType> {
         private final SpriteSet sprites;

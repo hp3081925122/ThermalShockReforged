@@ -1,7 +1,7 @@
 package com.hp.thermalshockreforged.world;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
-import com.hp.thermalshockreforged.content.ModGameRules;
+import com.hp.thermalshockreforged.config.WorldRulesConfig;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
@@ -38,13 +38,13 @@ final class LoqendiaRules {
                 || !(event.getLevel() instanceof Level level) || level.isClientSide) return;
         var pos = event.getPos();
         var state = level.getBlockState(pos);
-        if (state.is(Blocks.FIRE) && level.getGameRules().getBoolean(ModGameRules.LOQENDIA_FIRE_EXTINGUISHES)
+        if (state.is(Blocks.FIRE) && WorldRulesConfig.FIRE_EXTINGUISHES.get()
                 && !level.getBlockState(pos.below()).is(SUSTAIN_FIRE)) {
             if (level.setBlock(pos, Blocks.AIR.defaultBlockState(), 3)) {
                 level.playSound(null, pos, SoundEvents.FIRE_EXTINGUISH, SoundSource.NEUTRAL, 1, 1);
                 ThermalShockReforged.LOGGER.debug("Loqendia placed fire extinguished: position={}, actor={}", pos, actor.getUUID());
             }
-        } else if (state.is(Blocks.MAGMA_BLOCK) && level.getGameRules().getBoolean(ModGameRules.LOQENDIA_MAGMA_FREEZES_UNDERWATER)
+        } else if (state.is(Blocks.MAGMA_BLOCK) && WorldRulesConfig.MAGMA_FREEZES_UNDERWATER.get()
                 && level.getBlockState(pos.above()).is(Blocks.WATER)) {
             if (level.setBlock(pos, Blocks.NETHERRACK.defaultBlockState(), 3)) {
                 level.playSound(null, pos, SoundEvents.LAVA_EXTINGUISH, SoundSource.NEUTRAL, 1, 1);

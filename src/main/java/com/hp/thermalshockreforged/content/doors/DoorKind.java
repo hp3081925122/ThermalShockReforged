@@ -46,6 +46,20 @@ public enum DoorKind {
         return opened ? open[index] : closed[index];
     }
 
+    VoxelShape cellShape(net.minecraft.core.Direction direction, boolean opened, net.minecraft.core.BlockPos offset) {
+        if (this != MAW) return shape(direction, opened);
+        if (!opened) return Shapes.block();
+        if (offset.getY() == 0) return Shapes.block();
+        if (direction == net.minecraft.core.Direction.NORTH || direction == net.minecraft.core.Direction.SOUTH) {
+            if (offset.getX() == -1) return Block.box(14, 0, 0, 16, 16, 16);
+            if (offset.getX() == 1) return Block.box(0, 0, 0, 2, 16, 16);
+        } else {
+            if (offset.getZ() == -1) return Block.box(0, 0, 14, 16, 16, 16);
+            if (offset.getZ() == 1) return Block.box(0, 0, 0, 16, 16, 2);
+        }
+        return Shapes.empty();
+    }
+
     BlockBehaviour.Properties properties() {
         return BlockBehaviour.Properties.of().mapColor(this == MAW ? MapColor.TERRACOTTA_PINK : MapColor.DEEPSLATE)
                 .sound(this == MAW ? SoundType.WOOD : SoundType.METAL).strength(-1, 3600000)

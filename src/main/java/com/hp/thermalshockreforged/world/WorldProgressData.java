@@ -19,6 +19,8 @@ public final class WorldProgressData extends SavedData {
     private boolean shalespringPlacing;
     private boolean keystoneExists;
     private boolean keystonePlacing;
+    private boolean keystonePuzzleHintShown;
+    private boolean keystoneLeverHintShown;
     private int keystoneNoticeTicks = -1;
     private net.minecraft.resources.ResourceLocation keystoneNoticeDimension;
     private net.minecraft.core.BlockPos keystoneNoticeAnchor = net.minecraft.core.BlockPos.ZERO;
@@ -112,6 +114,20 @@ public final class WorldProgressData extends SavedData {
     }
     public net.minecraft.resources.ResourceLocation keystoneNoticeDimension() { return keystoneNoticeDimension; }
     public net.minecraft.core.BlockPos keystoneNoticeAnchor() { return keystoneNoticeAnchor; }
+    public boolean keystoneExists() { return keystoneExists; }
+    public boolean keystoneNoticeComplete() { return keystoneExists && keystoneNoticeTicks < 0; }
+    public boolean markKeystonePuzzleHintShown() {
+        if (keystonePuzzleHintShown) return false;
+        keystonePuzzleHintShown = true;
+        setDirty();
+        return true;
+    }
+    public boolean markKeystoneLeverHintShown() {
+        if (keystoneLeverHintShown) return false;
+        keystoneLeverHintShown = true;
+        setDirty();
+        return true;
+    }
     public double worldCrux() { return worldCrux; }
     public void advanceCrux(double stage) {
         if (Double.isFinite(stage) && stage > worldCrux) {
@@ -128,6 +144,8 @@ public final class WorldProgressData extends SavedData {
         data.palaceExists = tag.getBoolean("PalaceExists");
         data.shalespringExists = tag.getBoolean("ShalespringExists");
         data.keystoneExists = tag.getBoolean("KeystoneExists");
+        data.keystonePuzzleHintShown = tag.getBoolean("KeystonePuzzleHintShown");
+        data.keystoneLeverHintShown = tag.getBoolean("KeystoneLeverHintShown");
         data.keystoneNoticeDimension = net.minecraft.resources.ResourceLocation.tryParse(tag.getString("KeystoneNoticeDimension"));
         data.keystoneNoticeAnchor = net.minecraft.core.BlockPos.of(tag.getLong("KeystoneNoticeAnchor"));
         int noticeTicks = tag.getInt("KeystoneNoticeTicks");
@@ -144,6 +162,8 @@ public final class WorldProgressData extends SavedData {
         tag.putBoolean("PalaceExists", palaceExists);
         tag.putBoolean("ShalespringExists", shalespringExists);
         tag.putBoolean("KeystoneExists", keystoneExists);
+        tag.putBoolean("KeystonePuzzleHintShown", keystonePuzzleHintShown);
+        tag.putBoolean("KeystoneLeverHintShown", keystoneLeverHintShown);
         tag.putInt("KeystoneNoticeTicks", keystoneNoticeTicks);
         if (keystoneNoticeDimension != null) tag.putString("KeystoneNoticeDimension", keystoneNoticeDimension.toString());
         tag.putLong("KeystoneNoticeAnchor", keystoneNoticeAnchor.asLong());

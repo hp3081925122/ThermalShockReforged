@@ -42,8 +42,26 @@ public class SpecialDoorBlock extends Block implements EntityBlock {
     @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return new SpecialDoorBlockEntity(kind, pos, state); }
     @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 0; }
     @Override protected boolean propagatesSkylightDown(BlockState state, BlockGetter level, BlockPos pos) { return true; }
-    @Override protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) { return kind.shape(state.getValue(FACING), state.getValue(BLOCKSTATE) == 1); }
+    @Override protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        return kind == DoorKind.MAW ? kind.cellShape(state.getValue(FACING), state.getValue(BLOCKSTATE) == 1, BlockPos.ZERO) : kind.shape(state.getValue(FACING), state.getValue(BLOCKSTATE) == 1);
+    }
     @Override public BlockState getStateForPlacement(BlockPlaceContext context) { return defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite()); }
+    @Override public void onPlace(BlockState state, Level level, BlockPos pos, BlockState previous, boolean moving) {
+        super.onPlace(state, level, pos, previous, moving);
+        if (kind == DoorKind.MAW && !level.isClientSide && !previous.is(this)) {
+            for (BlockPos offset : MawDoorPartBlock.offsets(state.getValue(FACING))) {
+                if (offset.equals(BlockPos.ZERO)) continue;
+                BlockPos part = pos.offset(offset);
+                if (!level.getBlockState(part).canBeReplaced()) {
+                    level.destroyBlock(pos, true);
+                    return;
+                }
+            }
+            for (BlockPos offset : MawDoorPartBlock.offsets(state.getValue(FACING))) {
+                if (!offset.equals(BlockPos.ZERO)) level.setBlock(pos.offset(offset), SpecialDoorsContent.mawPart().state(offset), 3);
+            }
+        }
+    }
     @Override protected BlockState rotate(BlockState state, Rotation rotation) { return state.setValue(FACING, rotation.rotate(state.getValue(FACING))); }
     @Override protected BlockState mirror(BlockState state, Mirror mirror) { return state.rotate(mirror.getRotation(state.getValue(FACING))); }
     @Override protected MenuProvider getMenuProvider(BlockState state, Level level, BlockPos pos) { return level.getBlockEntity(pos) instanceof SpecialDoorBlockEntity entity ? entity : null; }
@@ -53,6 +71,15 @@ public class SpecialDoorBlock extends Block implements EntityBlock {
     }
     @Override protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState replacement, boolean moving) {
         if (!state.is(replacement.getBlock())) {
+            if (kind == DoorKind.MAW && !level.isClientSide) {
+                MawDoorPartBlock.clean(() -> {
+                    for (BlockPos offset : MawDoorPartBlock.offsets(state.getValue(FACING))) {
+                        if (offset.equals(BlockPos.ZERO)) continue;
+                        BlockPos part = pos.offset(offset);
+                        if (level.getBlockState(part).is(SpecialDoorsContent.mawPart())) level.setBlock(part, Blocks.AIR.defaultBlockState(), 3);
+                    }
+                });
+            }
             if (!level.isClientSide && level.getBlockEntity(pos) instanceof SpecialDoorBlockEntity entity) {
                 Containers.dropContents(level, pos, entity);
                 level.updateNeighbourForOutputSignal(pos, this);
