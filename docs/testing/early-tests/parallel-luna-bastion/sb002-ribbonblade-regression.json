@@ -1,0 +1,27 @@
+{
+  "issue": "SB-002",
+  "scope": "修复后Ribbonblade定向扫击回归",
+  "snapshot": "00bbd5801c3d373d0d239637de9dd69f2f5974d5",
+  "namespace": "ts_server258",
+  "patch_sha256": "1E164A714D401561628BDC845EFCDB59A239BBBE2C458641F1854F36D978FD8B",
+  "test_source_sha256": "517461DAAB2D8082860276E14CF6E428BB77445825669A4B60D847481E25DD06",
+  "template_sha256": "265FE53432E4694D4A94CEC3A59DEAC1B880CDD869970FACF1EB0E1FB3A16832",
+  "log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\bastion\\sb002-ribbonblade-regression-attempt-2.log",
+  "log_sha256": "D58E814C851767804DAAA17CF49424524CD4F209F10D7E5D0A8A39E49345C9AD",
+  "exit_code": 0,
+  "executed": 8,
+  "passed": 8,
+  "failed": 0,
+  "cases": [
+    {"case_id":"SB-002-R01","trigger_and_boundaries":"静止目标在施法者前方两格，真实延迟17-END命中","passed":true,"issue":null},
+    {"case_id":"SB-002-R02","trigger_and_boundaries":"四向与斜向目标均通过同一定向扫击盒","passed":true,"issue":null},
+    {"case_id":"SB-002-R03","trigger_and_boundaries":"原1.5格侧向范围继续命中","passed":true,"issue":null},
+    {"case_id":"SB-002-R04","trigger_and_boundaries":"同时超出侧向范围和定向延伸范围的目标不命中","passed":true,"issue":null},
+    {"case_id":"SB-002-R05","trigger_and_boundaries":"施法者UUID排除，不被自身扫击伤害","passed":true,"issue":null},
+    {"case_id":"SB-002-R06","trigger_and_boundaries":"护甲减伤与击退抗性经过原生伤害/位移路径","passed":true,"issue":null},
+    {"case_id":"SB-002-R07","trigger_and_boundaries":"单次结算后任务移除且不二次结算","passed":true,"issue":null},
+    {"case_id":"SB-002-R08","trigger_and_boundaries":"保存/复载动作任务保留目标并完成定向命中","passed":true,"issue":null}
+  ],
+  "not_tested": ["客户端渲染与Render Preview", "真实玩家登录网络", "生产树合并与发布"],
+  "fixture_note": "首次尝试日志 sb002-ribbonblade-regression.log 仅因 ts_server258:migration_empty 缺失退出码1、0用例执行；其SHA256为 F3C17FE99A3D3438FD6BDA05A90FEEBE7EF9C3625FB91DAD122CA880BA489FBA。随后复制原 migration_empty 模板到唯一namespace，复跑结果独立记录于本文件。"
+}

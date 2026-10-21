@@ -1,0 +1,35 @@
+# 骑乘与NPC历史实际源码恢复核验 run01
+
+累计518项独立GameTest：511通过、7项历史或本轮失败；最新运行9项选定场景，9通过、0失败。重复回归单列不增加累计，第0至99批全部服务端功能仍未测完。
+
+固定输入：`00bbd5801c3d373d0d239637de9dd69f2f5974d5`。历史实际测试源码由原始写入命令与未截断补丁机械恢复，完整文件SHA精确匹配当轮运行前清单；恢复过程未执行原命令，也未改隔离工程。11产品输入逐轮与固定只读快照核证一致。
+
+命令：`.\gradlew.bat --offline --no-daemon --max-workers=1 '-Dorg.gradle.jvmargs=-Xmx1G' '-PserverTestNamespace=ts_ec_worldnpc_20261020' runGameTestServer`。执行者：Luna `/root/early_content_server_tests`。Gradle退出1；保存与关闭证据见本轮日志。namespace筛选排除了此前用例，历史失败不因其它用例通过自动关闭。
+
+日志：`D:\AI临时文件\ThermalShockMigration\early-tests\parallel-20261020\early-content\worldnpc-server-run01.log`，SHA256 `71A21C846267F42945F5575403AAD61F5133B1D63CB5923F69B4C7EE87052DD8`。
+
+测试源码：`D:\AI临时文件\ThermalShockMigration\early-tests\resume-20261020\worldnpc-historical-recovered\run01-GlastrekkerDissolverWorldNpcServerTests.java`，SHA256 `DEFBFBEFA095D4135E84F10EF7C2CDC81A9344E411BEF783285B93A8E74613C3`。
+
+筛选只修改D盘build.gradle，以 `serverTestNamespace` 覆盖 `neoforge.enabledGameTestNamespaces`；已核目标GameTestRegistry按模板命名空间筛选。本组实际冻结模板为8×5×8（64个方块、0个模板实体）；场景锚点absolutePos(10,5,10)位于模板边界外，框架模板清理不能当作锚点自动清理或隔离证明。运行时使用各场景锚点过滤查询/声音；这不证明任意测试密度下都不会串场。
+
+附加测试源码（原始命令及补丁恢复审计）：`D:\AI临时文件\ThermalShockMigration\early-tests\resume-20261020\worldnpc-historical-recovered\recovery-audit.json`，SHA256 `9D3E8417066799A000E78A71BDD48A03C48B53722B4348C8290B0AE5F695AA55`。
+
+附加测试源码（当轮运行前哈希清单）：`D:\AI临时文件\ThermalShockMigration\early-tests\parallel-20261020\early-content\worldnpc-input-freeze-run01.json`，SHA256 `D9EAF58FA84974F3F114832BAEB73476E19568C1AED09FCC564671A45C48C10A`。
+
+附加测试源码（实际模板）：`D:\AI临时文件\ThermalShockMigration\early-tests\resume-20261020\worldnpc-run06-frozen\migration_empty.nbt`，SHA256 `265FE53432E4694D4A94CEC3A59DEAC1B880CDD869970FACF1EB0E1FB3A16832`。
+
+| 用例ID | 批次 | 结果 | 断言 | 未测边界 |
+|---|---|---|---|---|
+| GT-ECWN-001 | 91 | 通过 | 装甲形态真实交互后，player.getVehicle、isPassenger、getControllingPassenger一致；下马后控制实体归空。 | 真实客户端骑乘移动输入包与客户端控制同步；骑乘测试只建立实际服务端乘客/控制者状态并直接回调原生乘骑映射。；客户端是否实际听到/播放音效；测试只观察NeoForge PlayLevelSoundEvent真实服务端位置音效入口，不能代替客户端音频。；NPC GeckoLib notice动画在网络客户端的可见播放；服务端只证实实际NPC参与notice触发及NPC语音事件提交。；存读包测试为实体CompoundTag序列化/反序列化及重新入Level，不是跨进程关闭重启后的世界落盘恢复。；强制区块卸载与缺块恢复；GameTest中无可靠卸载前置，本轮未声称覆盖。；蛋10%分布的统计性质；只用确定随机种子分别证明成功/失败支路，不做概率统计。；播放事件发生后客户端实际接收范围/播音成功；PlayLevelSoundEvent说明调用进入实际ServerLevel播放入口，不证明客户端听感。；其他NPC数目、恰在几何包围盒临界面的每种体型/朝向以及多维度周期运行。；测试方法名称不扩大实际断言范围；非玩家travel、baby年龄、掉落实体、首阶段重放探针未覆盖 |
+| GT-ECWN-002 | 91 | 通过 | 未装甲形态空手交互不骑乘附近玩家，既非乘客也非控制者。 | 真实客户端骑乘移动输入包与客户端控制同步；骑乘测试只建立实际服务端乘客/控制者状态并直接回调原生乘骑映射。；客户端是否实际听到/播放音效；测试只观察NeoForge PlayLevelSoundEvent真实服务端位置音效入口，不能代替客户端音频。；NPC GeckoLib notice动画在网络客户端的可见播放；服务端只证实实际NPC参与notice触发及NPC语音事件提交。；存读包测试为实体CompoundTag序列化/反序列化及重新入Level，不是跨进程关闭重启后的世界落盘恢复。；强制区块卸载与缺块恢复；GameTest中无可靠卸载前置，本轮未声称覆盖。；蛋10%分布的统计性质；只用确定随机种子分别证明成功/失败支路，不做概率统计。；播放事件发生后客户端实际接收范围/播音成功；PlayLevelSoundEvent说明调用进入实际ServerLevel播放入口，不证明客户端听感。；其他NPC数目、恰在几何包围盒临界面的每种体型/朝向以及多维度周期运行。；测试方法名称不扩大实际断言范围；非玩家travel、baby年龄、掉落实体、首阶段重放探针未覆盖 |
+| GT-ECWN-003 | 91 | 通过 | 两名玩家均真实startRiding；首乘客控制；首位下马后剩余乘客成为控制者。 | 真实客户端骑乘移动输入包与客户端控制同步；骑乘测试只建立实际服务端乘客/控制者状态并直接回调原生乘骑映射。；客户端是否实际听到/播放音效；测试只观察NeoForge PlayLevelSoundEvent真实服务端位置音效入口，不能代替客户端音频。；NPC GeckoLib notice动画在网络客户端的可见播放；服务端只证实实际NPC参与notice触发及NPC语音事件提交。；存读包测试为实体CompoundTag序列化/反序列化及重新入Level，不是跨进程关闭重启后的世界落盘恢复。；强制区块卸载与缺块恢复；GameTest中无可靠卸载前置，本轮未声称覆盖。；蛋10%分布的统计性质；只用确定随机种子分别证明成功/失败支路，不做概率统计。；播放事件发生后客户端实际接收范围/播音成功；PlayLevelSoundEvent说明调用进入实际ServerLevel播放入口，不证明客户端听感。；其他NPC数目、恰在几何包围盒临界面的每种体型/朝向以及多维度周期运行。；测试方法名称不扩大实际断言范围；非玩家travel、baby年龄、掉落实体、首阶段重放探针未覆盖 |
+| GT-ECWN-004 | 91 | 通过 | 实际骑手轴输入映射无垂直分量；实体朝向/半俯仰和attribute乘骑速度吻合。 | 真实客户端骑乘移动输入包与客户端控制同步；骑乘测试只建立实际服务端乘客/控制者状态并直接回调原生乘骑映射。；客户端是否实际听到/播放音效；测试只观察NeoForge PlayLevelSoundEvent真实服务端位置音效入口，不能代替客户端音频。；NPC GeckoLib notice动画在网络客户端的可见播放；服务端只证实实际NPC参与notice触发及NPC语音事件提交。；存读包测试为实体CompoundTag序列化/反序列化及重新入Level，不是跨进程关闭重启后的世界落盘恢复。；强制区块卸载与缺块恢复；GameTest中无可靠卸载前置，本轮未声称覆盖。；蛋10%分布的统计性质；只用确定随机种子分别证明成功/失败支路，不做概率统计。；播放事件发生后客户端实际接收范围/播音成功；PlayLevelSoundEvent说明调用进入实际ServerLevel播放入口，不证明客户端听感。；其他NPC数目、恰在几何包围盒临界面的每种体型/朝向以及多维度周期运行。；测试方法名称不扩大实际断言范围；非玩家travel、baby年龄、掉落实体、首阶段重放探针未覆盖 |
+| GT-ECWN-005 | 91 | 通过 | 实际Cow加入世界并startRiding，控制者返回Cow，上下马后归空；未调用非玩家travel输入入口 | 真实客户端骑乘移动输入包与客户端控制同步；骑乘测试只建立实际服务端乘客/控制者状态并直接回调原生乘骑映射。；客户端是否实际听到/播放音效；测试只观察NeoForge PlayLevelSoundEvent真实服务端位置音效入口，不能代替客户端音频。；NPC GeckoLib notice动画在网络客户端的可见播放；服务端只证实实际NPC参与notice触发及NPC语音事件提交。；存读包测试为实体CompoundTag序列化/反序列化及重新入Level，不是跨进程关闭重启后的世界落盘恢复。；强制区块卸载与缺块恢复；GameTest中无可靠卸载前置，本轮未声称覆盖。；蛋10%分布的统计性质；只用确定随机种子分别证明成功/失败支路，不做概率统计。；播放事件发生后客户端实际接收范围/播音成功；PlayLevelSoundEvent说明调用进入实际ServerLevel播放入口，不证明客户端听感。；其他NPC数目、恰在几何包围盒临界面的每种体型/朝向以及多维度周期运行。；测试方法名称不扩大实际断言范围；非玩家travel、baby年龄、掉落实体、首阶段重放探针未覆盖 |
+| GT-ECWN-006 | 91 | 通过 | 普通石头交互返回默认交互路径，蛋和3个石头保持。 | 真实客户端骑乘移动输入包与客户端控制同步；骑乘测试只建立实际服务端乘客/控制者状态并直接回调原生乘骑映射。；客户端是否实际听到/播放音效；测试只观察NeoForge PlayLevelSoundEvent真实服务端位置音效入口，不能代替客户端音频。；NPC GeckoLib notice动画在网络客户端的可见播放；服务端只证实实际NPC参与notice触发及NPC语音事件提交。；存读包测试为实体CompoundTag序列化/反序列化及重新入Level，不是跨进程关闭重启后的世界落盘恢复。；强制区块卸载与缺块恢复；GameTest中无可靠卸载前置，本轮未声称覆盖。；蛋10%分布的统计性质；只用确定随机种子分别证明成功/失败支路，不做概率统计。；播放事件发生后客户端实际接收范围/播音成功；PlayLevelSoundEvent说明调用进入实际ServerLevel播放入口，不证明客户端听感。；其他NPC数目、恰在几何包围盒临界面的每种体型/朝向以及多维度周期运行。；测试方法名称不扩大实际断言范围；非玩家travel、baby年龄、掉落实体、首阶段重放探针未覆盖 |
+| GT-ECWN-015 | 94 | 通过 | 真实Gemlock激活后拆除，delay34第一和第三阶段目标方块均为空、原触发块仍空、任务不在检索范围 | 真实客户端骑乘移动输入包与客户端控制同步；骑乘测试只建立实际服务端乘客/控制者状态并直接回调原生乘骑映射。；客户端是否实际听到/播放音效；测试只观察NeoForge PlayLevelSoundEvent真实服务端位置音效入口，不能代替客户端音频。；NPC GeckoLib notice动画在网络客户端的可见播放；服务端只证实实际NPC参与notice触发及NPC语音事件提交。；存读包测试为实体CompoundTag序列化/反序列化及重新入Level，不是跨进程关闭重启后的世界落盘恢复。；强制区块卸载与缺块恢复；GameTest中无可靠卸载前置，本轮未声称覆盖。；蛋10%分布的统计性质；只用确定随机种子分别证明成功/失败支路，不做概率统计。；播放事件发生后客户端实际接收范围/播音成功；PlayLevelSoundEvent说明调用进入实际ServerLevel播放入口，不证明客户端听感。；其他NPC数目、恰在几何包围盒临界面的每种体型/朝向以及多维度周期运行。；测试方法名称不扩大实际断言范围；非玩家travel、baby年龄、掉落实体、首阶段重放探针未覆盖 |
+| GT-ECWN-018 | 94 | 通过 | 恶意elapsed/phase/voices载入后分别钳制50/5/0；终态与无armed任务服务端tick移除。 | 真实客户端骑乘移动输入包与客户端控制同步；骑乘测试只建立实际服务端乘客/控制者状态并直接回调原生乘骑映射。；客户端是否实际听到/播放音效；测试只观察NeoForge PlayLevelSoundEvent真实服务端位置音效入口，不能代替客户端音频。；NPC GeckoLib notice动画在网络客户端的可见播放；服务端只证实实际NPC参与notice触发及NPC语音事件提交。；存读包测试为实体CompoundTag序列化/反序列化及重新入Level，不是跨进程关闭重启后的世界落盘恢复。；强制区块卸载与缺块恢复；GameTest中无可靠卸载前置，本轮未声称覆盖。；蛋10%分布的统计性质；只用确定随机种子分别证明成功/失败支路，不做概率统计。；播放事件发生后客户端实际接收范围/播音成功；PlayLevelSoundEvent说明调用进入实际ServerLevel播放入口，不证明客户端听感。；其他NPC数目、恰在几何包围盒临界面的每种体型/朝向以及多维度周期运行。；测试方法名称不扩大实际断言范围；非玩家travel、baby年龄、掉落实体、首阶段重放探针未覆盖 |
+| GT-ECWN-019 | 94 | 通过 | 带Nether维度标记的任务在Overworld实际tick被清除，不溶解方块。 | 真实客户端骑乘移动输入包与客户端控制同步；骑乘测试只建立实际服务端乘客/控制者状态并直接回调原生乘骑映射。；客户端是否实际听到/播放音效；测试只观察NeoForge PlayLevelSoundEvent真实服务端位置音效入口，不能代替客户端音频。；NPC GeckoLib notice动画在网络客户端的可见播放；服务端只证实实际NPC参与notice触发及NPC语音事件提交。；存读包测试为实体CompoundTag序列化/反序列化及重新入Level，不是跨进程关闭重启后的世界落盘恢复。；强制区块卸载与缺块恢复；GameTest中无可靠卸载前置，本轮未声称覆盖。；蛋10%分布的统计性质；只用确定随机种子分别证明成功/失败支路，不做概率统计。；播放事件发生后客户端实际接收范围/播音成功；PlayLevelSoundEvent说明调用进入实际ServerLevel播放入口，不证明客户端听感。；其他NPC数目、恰在几何包围盒临界面的每种体型/朝向以及多维度周期运行。；测试方法名称不扩大实际断言范围；非玩家travel、baby年龄、掉落实体、首阶段重放探针未覆盖 |
+
+首轮真实19项执行12过7失败，其中3项受随机夹具修正影响已转run03核验，本次仅选其余9绿。历史失败日志和夹具关闭记录保留；源码恢复不属于新增运行。整组非零退出不能推断选定的绿项失败，也不把未选失败翻绿。完整本组19项实际证据跨run01/run03/run06，未重跑已绿用例。
+
+确认或疑似Bug一项一文档，并进入suspected-bugs.md汇总。客户端、Render Preview和Xaero本轮均未测。

@@ -1,0 +1,15 @@
+{
+  "observed_at": "2026-10-20T11:23:52.635075+08:00",
+  "production_head": "33d3bc65c081427be13fc546c066ea725a5d5248",
+  "kind": "static_only_current_worktree",
+  "fixed_test_baseline": "00bbd5801c3d373d0d239637de9dd69f2f5974d5",
+  "files": {
+    "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/ConstellationBlock.java": "FDC40B9430C7FA2700C7B327FA85C23094F902B7C940261AB1E08CCA0678F573",
+    "src/main/java/com/hp/thermalshockreforged/content/decor/nativeblocks/NativeDecorContent.java": "95F62F003C698A9E48F0205740B598FB24F79C419D25CBA85CE0D5B779D8E852",
+    "src/main/java/com/hp/thermalshockreforged/content/displayutility/DisplayUtilityContent.java": "D10D7243A3DB2FA63CD2DA54D4D307F76347D2816714B7CB33D4A55283728F02",
+    "src/main/java/com/hp/thermalshockreforged/content/remainingcombat/RemainingCombatContent.java": "B6D193642D00821C04764297356CC41F81496F3401963D78CD27A0F6101B38BE",
+    "src/main/java/com/hp/thermalshockreforged/ThermalShockReforged.java": "8CFAC1301B2B6638874E322E1ED6190F8A168126CCC4AFF9E0494848ADF45F88"
+  },
+  "runtime_claim": false,
+  "note": "当前源码注册入口存在，不改变旧快照失败。星座块循环静态疑点见SB038。第100批以后生产内容不纳入本轮运行覆盖。"
+}

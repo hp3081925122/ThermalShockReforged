@@ -1,0 +1,1901 @@
+{
+  "schema": "thermal-shock-luna-early-content-v2",
+  "snapshot_commit": "00bbd5801c3d373d0d239637de9dd69f2f5974d5",
+  "production_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged",
+  "project_path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content",
+  "production_src_read_only": true,
+  "namespace_runs": [
+    {
+      "namespace": "ts_earlycontent_next",
+      "started": true,
+      "command": ".\\gradlew.bat --offline --no-daemon --max-workers=1 '-Dorg.gradle.jvmargs=-Xmx1G' -PserverTestNamespace=ts_earlycontent_next runGameTestServer --console=plain",
+      "gradle_heap": "1G",
+      "game_heap": "2G",
+      "max_workers": 1,
+      "started_tests": 20,
+      "passed": 20,
+      "failed": 0,
+      "exit_code": 0,
+      "clean_shutdown": true,
+      "all_dimensions_saved": true,
+      "log": "server-gametest-new20-attempt5.log",
+      "log_sha256": "2D5D6FB91914DCBB1D572C4C02A2100C2E258FBBE1D723D7A6C2CE57F00D3825",
+      "result": "BUILD SUCCESSFUL",
+      "template": "migration_empty.nbt and supernova_server.nbt",
+      "template_hashes": {
+        "supernova_server": "3612C3943632F43E60F13EAD841225322BD57EB62CBC68A122E7D928E8934A61",
+        "migration_empty": "265FE53432E4694D4A94CEC3A59DEAC1B880CDD869970FACF1EB0E1FB3A16832"
+      }
+    },
+    {
+      "namespace": "ts_earlycontent_placements",
+      "started": true,
+      "command": ".\\gradlew.bat --offline --no-daemon --max-workers=1 '-Dorg.gradle.jvmargs=-Xmx1G' -PserverTestNamespace=ts_earlycontent_placements runGameTestServer --console=plain",
+      "gradle_heap": "1G",
+      "game_heap": "2G",
+      "max_workers": 1,
+      "started_tests": 23,
+      "passed": 23,
+      "failed": 0,
+      "exit_code": 0,
+      "clean_shutdown": true,
+      "all_dimensions_saved": true,
+      "log": "server-gametest-placement23-attempt2.log",
+      "log_sha256": "6E7CCF9AC764B50CC1DB77E6FEA190F54F712CAA6D90E7A8797E7FFC638CBA12",
+      "result": "BUILD SUCCESSFUL",
+      "template": "migration_empty.nbt",
+      "template_hash": "265FE53432E4694D4A94CEC3A59DEAC1B880CDD869970FACF1EB0E1FB3A16832"
+    }
+  ],
+  "actual_case_count": 65,
+  "runtime_pass": 65,
+  "runtime_fail": 0,
+  "blocked": 0,
+  "cases": [
+    {
+      "case_id": "GT-LUNA-earlycontent-unsupportedGlitterdropIcicleRemovesItselfOnPlacement",
+      "batch": "early-content-20",
+      "module_or_registry": "EarlyContentRegressionServerTests",
+      "trigger_and_boundaries": "无支撑放置Glitterdrop冰锥，断言放置回调立即移除。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentRegressionServerTests.java"
+      ],
+      "not_tested": [
+        "真实客户端输入与渲染不由本轮GameTest覆盖",
+        "生产src未改动，本轮服务端只验证已迁移实现"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-glitterdropIcicleAcceptsWaterAsNonAirSupport",
+      "batch": "early-content-20",
+      "module_or_registry": "EarlyContentRegressionServerTests",
+      "trigger_and_boundaries": "冰锥上方放水后放置Glitterdrop冰锥，断言非空气水方块满足支撑条件。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentRegressionServerTests.java"
+      ],
+      "not_tested": [
+        "真实客户端输入与渲染不由本轮GameTest覆盖",
+        "生产src未改动，本轮服务端只验证已迁移实现"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-removingGlitterdropSupportRemovesTheBlock",
+      "batch": "early-content-20",
+      "module_or_registry": "EarlyContentRegressionServerTests",
+      "trigger_and_boundaries": "设置实体支撑后放置冰锥，再移除支撑，断言邻居更新移除冰锥。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentRegressionServerTests.java"
+      ],
+      "not_tested": [
+        "真实客户端输入与渲染不由本轮GameTest覆盖",
+        "生产src未改动，本轮服务端只验证已迁移实现"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-plainIcicleContactUsesStalagmiteDamageSource",
+      "batch": "early-content-20",
+      "module_or_registry": "EarlyContentRegressionServerTests",
+      "trigger_and_boundaries": "空结构内部设置普通冰锥与站立空间，令牛头进入冰锥方块，断言仅扣1点且伤害类型为STALAGMITE。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentRegressionServerTests.java"
+      ],
+      "not_tested": [
+        "真实客户端输入与渲染不由本轮GameTest覆盖",
+        "生产src未改动，本轮服务端只验证已迁移实现"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-oneIcicleCannotDamageTwoEntitiesAfterItsFirstContact",
+      "batch": "early-content-20",
+      "module_or_registry": "EarlyContentRegressionServerTests",
+      "trigger_and_boundaries": "两头牛重叠于同一个普通冰锥触发区域，延迟两tick断言冰锥消耗且两者合计只受1点伤害。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentRegressionServerTests.java"
+      ],
+      "not_tested": [
+        "真实客户端输入与渲染不由本轮GameTest覆盖",
+        "生产src未改动，本轮服务端只验证已迁移实现"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-shalePotInventorySurvivesBlockEntitySaveLoad",
+      "batch": "early-content-20",
+      "module_or_registry": "EarlyContentRegressionServerTests",
+      "trigger_and_boundaries": "罐子第0/8槽分别存入钻石、绿宝石，经区块实体保存与载入后断言种类和数量不变。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentRegressionServerTests.java"
+      ],
+      "not_tested": [
+        "真实客户端输入与渲染不由本轮GameTest覆盖",
+        "生产src未改动，本轮服务端只验证已迁移实现"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-shalePotItemHandlerExposesAllNineSlotsOnEachFace",
+      "batch": "early-content-20",
+      "module_or_registry": "EarlyContentRegressionServerTests",
+      "trigger_and_boundaries": "读取六向ItemHandler，断言每面暴露9槽。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentRegressionServerTests.java"
+      ],
+      "not_tested": [
+        "真实客户端输入与渲染不由本轮GameTest覆盖",
+        "生产src未改动，本轮服务端只验证已迁移实现"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-shalePotRejectsNullSidedItemHandler",
+      "batch": "early-content-20",
+      "module_or_registry": "EarlyContentRegressionServerTests",
+      "trigger_and_boundaries": "请求无方向ItemHandler，断言返回null。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentRegressionServerTests.java"
+      ],
+      "not_tested": [
+        "真实客户端输入与渲染不由本轮GameTest覆盖",
+        "生产src未改动，本轮服务端只验证已迁移实现"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-shalePotSidedHandlersShareTheSameInventory",
+      "batch": "early-content-20",
+      "module_or_registry": "EarlyContentRegressionServerTests",
+      "trigger_and_boundaries": "通过不同方向包装器在槽位读写同一罐子库存，断言数据共享。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentRegressionServerTests.java"
+      ],
+      "not_tested": [
+        "真实客户端输入与渲染不由本轮GameTest覆盖",
+        "生产src未改动，本轮服务端只验证已迁移实现"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-shalePotSidedHandlerRejectsOutOfRangeSlots",
+      "batch": "early-content-20",
+      "module_or_registry": "EarlyContentRegressionServerTests",
+      "trigger_and_boundaries": "请求侧面越界槽位，断言拒绝插入且不改库存。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentRegressionServerTests.java"
+      ],
+      "not_tested": [
+        "真实客户端输入与渲染不由本轮GameTest覆盖",
+        "生产src未改动，本轮服务端只验证已迁移实现"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-shalePotSidedHandlerSplitsInputAtTheVanillaStackLimit",
+      "batch": "early-content-20",
+      "module_or_registry": "EarlyContentRegressionServerTests",
+      "trigger_and_boundaries": "对空槽输入超过原版64上限物品栈，断言剩余量与实际入槽数准确。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentRegressionServerTests.java"
+      ],
+      "not_tested": [
+        "真实客户端输入与渲染不由本轮GameTest覆盖",
+        "生产src未改动，本轮服务端只验证已迁移实现"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-shalePotVariantChangeRetainsItsBlockEntityInventory",
+      "batch": "early-content-20",
+      "module_or_registry": "EarlyContentRegressionServerTests",
+      "trigger_and_boundaries": "循环罐子blockstate变体，断言区块实体身份与库存保留。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentRegressionServerTests.java"
+      ],
+      "not_tested": [
+        "真实客户端输入与渲染不由本轮GameTest覆盖",
+        "生产src未改动，本轮服务端只验证已迁移实现"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-shalePotAllVariantStatesPreserveIndependentInventory",
+      "batch": "early-content-20",
+      "module_or_registry": "EarlyContentRegressionServerTests",
+      "trigger_and_boundaries": "逐个设置三种变体并各存入独立物品，断言状态之间没有串槽。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentRegressionServerTests.java"
+      ],
+      "not_tested": [
+        "真实客户端输入与渲染不由本轮GameTest覆盖",
+        "生产src未改动，本轮服务端只验证已迁移实现"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-shalePotExplosionReleasesInventoryWithoutPlayerSpawnRoll",
+      "batch": "early-content-20",
+      "module_or_registry": "EarlyContentRegressionServerTests",
+      "trigger_and_boundaries": "对含物品罐子执行原版方块爆炸，断言库存掉落且不触发玩家专属产怪路径。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentRegressionServerTests.java"
+      ],
+      "not_tested": [
+        "真实客户端输入与渲染不由本轮GameTest覆盖",
+        "生产src未改动，本轮服务端只验证已迁移实现"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-creativeShalePotBreakReleasesStoredInventory",
+      "batch": "early-content-20",
+      "module_or_registry": "EarlyContentRegressionServerTests",
+      "trigger_and_boundaries": "模拟创造玩家真实破坏回调，断言已存物品仍只掉落规定数量。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentRegressionServerTests.java"
+      ],
+      "not_tested": [
+        "真实客户端输入与渲染不由本轮GameTest覆盖",
+        "生产src未改动，本轮服务端只验证已迁移实现"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-staleShalePotBreakDoesNotDuplicateStoredInventory",
+      "batch": "early-content-20",
+      "module_or_registry": "EarlyContentRegressionServerTests",
+      "trigger_and_boundaries": "先破坏罐子，再重复调用旧状态破坏回调，断言失败且不重复释放库存。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentRegressionServerTests.java"
+      ],
+      "not_tested": [
+        "真实客户端输入与渲染不由本轮GameTest覆盖",
+        "生产src未改动，本轮服务端只验证已迁移实现"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-shalePotSpawnRollStillRunsForVariantTwo",
+      "batch": "early-content-20",
+      "module_or_registry": "EarlyContentRegressionServerTests",
+      "trigger_and_boundaries": "固定种子对变体2重复玩家破坏512次，断言产怪数量仍落在原2.5%概率区间。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentRegressionServerTests.java"
+      ],
+      "not_tested": [
+        "真实客户端输入与渲染不由本轮GameTest覆盖",
+        "生产src未改动，本轮服务端只验证已迁移实现"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-staleSickleCallbacksDoNotHarvestAnySingleBlockCropAgain",
+      "batch": "early-content-20",
+      "module_or_registry": "EarlyContentRegressionServerTests",
+      "trigger_and_boundaries": "逐种放置单格作物，先真实移除再重放旧状态破坏回调，断言旧回调不重复收获。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentRegressionServerTests.java"
+      ],
+      "not_tested": [
+        "真实客户端输入与渲染不由本轮GameTest覆盖",
+        "生产src未改动，本轮服务端只验证已迁移实现"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-everyGeoCropRemainsOnItsAllowedPlanterSoil",
+      "batch": "early-content-20",
+      "module_or_registry": "EarlyContentRegressionServerTests",
+      "trigger_and_boundaries": "对全部七种GeoCrop逐一放置于两种合法种植器土壤，断言作物和区块实体保持。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentRegressionServerTests.java"
+      ],
+      "not_tested": [
+        "真实客户端输入与渲染不由本轮GameTest覆盖",
+        "生产src未改动，本轮服务端只验证已迁移实现"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-staleUpperDoublePlantCallbackDoesNotAddASecondHarvest",
+      "batch": "early-content-20",
+      "module_or_registry": "EarlyContentRegressionServerTests",
+      "trigger_and_boundaries": "通过原版双植物放置方法创建Barbubble上下半，破坏两半后重放旧上半回调，断言不追加奖励。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentRegressionServerTests.java"
+      ],
+      "not_tested": [
+        "真实客户端输入与渲染不由本轮GameTest覆盖",
+        "生产src未改动，本轮服务端只验证已迁移实现"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-geoCropItemPlacesAncient_skorioOnPlanterPot",
+      "batch": "crop-item-placement-23",
+      "module_or_registry": "EarlyContentPlacementServerTests",
+      "trigger_and_boundaries": "以生存玩家对ancient skorio GeoCrop物品使用真实useOn入口并放置于盆土，断言交互成功、物品恰消耗1个、匹配成熟方块及区块实体生成。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentPlacementServerTests.java"
+      ],
+      "not_tested": [
+        "仅覆盖该case所列的盆土或种植箱土壤组合",
+        "真实玩家网络交互、渲染及客户端动画不由本轮GameTest覆盖"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-geoCropItemPlacesAncient_barbubbleOnPlanterBox",
+      "batch": "crop-item-placement-23",
+      "module_or_registry": "EarlyContentPlacementServerTests",
+      "trigger_and_boundaries": "以生存玩家对ancient barbubble GeoCrop物品使用真实useOn入口并放置于种植箱，断言交互成功、物品恰消耗1个、匹配成熟方块及区块实体生成。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentPlacementServerTests.java"
+      ],
+      "not_tested": [
+        "仅覆盖该case所列的盆土或种植箱土壤组合",
+        "真实玩家网络交互、渲染及客户端动画不由本轮GameTest覆盖"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-geoCropItemPlacesDewleafOnPlanterPot",
+      "batch": "crop-item-placement-23",
+      "module_or_registry": "EarlyContentPlacementServerTests",
+      "trigger_and_boundaries": "以生存玩家对dewleaf GeoCrop物品使用真实useOn入口并放置于盆土，断言交互成功、物品恰消耗1个、匹配成熟方块及区块实体生成。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentPlacementServerTests.java"
+      ],
+      "not_tested": [
+        "仅覆盖该case所列的盆土或种植箱土壤组合",
+        "真实玩家网络交互、渲染及客户端动画不由本轮GameTest覆盖"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-geoCropItemPlacesHearthfly_branchOnPlanterBox",
+      "batch": "crop-item-placement-23",
+      "module_or_registry": "EarlyContentPlacementServerTests",
+      "trigger_and_boundaries": "以生存玩家对hearthfly branch GeoCrop物品使用真实useOn入口并放置于种植箱，断言交互成功、物品恰消耗1个、匹配成熟方块及区块实体生成。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentPlacementServerTests.java"
+      ],
+      "not_tested": [
+        "仅覆盖该case所列的盆土或种植箱土壤组合",
+        "真实玩家网络交互、渲染及客户端动画不由本轮GameTest覆盖"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-geoCropItemPlacesFrost_lotusOnPlanterPot",
+      "batch": "crop-item-placement-23",
+      "module_or_registry": "EarlyContentPlacementServerTests",
+      "trigger_and_boundaries": "以生存玩家对frost lotus GeoCrop物品使用真实useOn入口并放置于盆土，断言交互成功、物品恰消耗1个、匹配成熟方块及区块实体生成。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentPlacementServerTests.java"
+      ],
+      "not_tested": [
+        "仅覆盖该case所列的盆土或种植箱土壤组合",
+        "真实玩家网络交互、渲染及客户端动画不由本轮GameTest覆盖"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-geoCropItemPlacesNeoflormOnPlanterBox",
+      "batch": "crop-item-placement-23",
+      "module_or_registry": "EarlyContentPlacementServerTests",
+      "trigger_and_boundaries": "以生存玩家对neoflorm GeoCrop物品使用真实useOn入口并放置于种植箱，断言交互成功、物品恰消耗1个、匹配成熟方块及区块实体生成。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentPlacementServerTests.java"
+      ],
+      "not_tested": [
+        "仅覆盖该case所列的盆土或种植箱土壤组合",
+        "真实玩家网络交互、渲染及客户端动画不由本轮GameTest覆盖"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-geoCropItemPlacesVolatineOnPlanterPot",
+      "batch": "crop-item-placement-23",
+      "module_or_registry": "EarlyContentPlacementServerTests",
+      "trigger_and_boundaries": "以生存玩家对volatine GeoCrop物品使用真实useOn入口并放置于盆土，断言交互成功、物品恰消耗1个、匹配成熟方块及区块实体生成。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentPlacementServerTests.java"
+      ],
+      "not_tested": [
+        "仅覆盖该case所列的盆土或种植箱土壤组合",
+        "真实玩家网络交互、渲染及客户端动画不由本轮GameTest覆盖"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-geoCropItemPlacesAncient_skorioOnPlanterBox",
+      "batch": "crop-item-placement-23",
+      "module_or_registry": "EarlyContentPlacementServerTests",
+      "trigger_and_boundaries": "以生存玩家对ancient skorio GeoCrop物品使用真实useOn入口并放置于种植箱，断言交互成功、物品恰消耗1个、匹配成熟方块及区块实体生成。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentPlacementServerTests.java"
+      ],
+      "not_tested": [
+        "仅覆盖该case所列的盆土或种植箱土壤组合",
+        "真实玩家网络交互、渲染及客户端动画不由本轮GameTest覆盖"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-geoCropItemPlacesAncient_barbubbleOnPlanterPot",
+      "batch": "crop-item-placement-23",
+      "module_or_registry": "EarlyContentPlacementServerTests",
+      "trigger_and_boundaries": "以生存玩家对ancient barbubble GeoCrop物品使用真实useOn入口并放置于盆土，断言交互成功、物品恰消耗1个、匹配成熟方块及区块实体生成。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentPlacementServerTests.java"
+      ],
+      "not_tested": [
+        "仅覆盖该case所列的盆土或种植箱土壤组合",
+        "真实玩家网络交互、渲染及客户端动画不由本轮GameTest覆盖"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-geoCropItemPlacesDewleafOnPlanterBox",
+      "batch": "crop-item-placement-23",
+      "module_or_registry": "EarlyContentPlacementServerTests",
+      "trigger_and_boundaries": "以生存玩家对dewleaf GeoCrop物品使用真实useOn入口并放置于种植箱，断言交互成功、物品恰消耗1个、匹配成熟方块及区块实体生成。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentPlacementServerTests.java"
+      ],
+      "not_tested": [
+        "仅覆盖该case所列的盆土或种植箱土壤组合",
+        "真实玩家网络交互、渲染及客户端动画不由本轮GameTest覆盖"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-geoCropItemPlacesHearthfly_branchOnPlanterPot",
+      "batch": "crop-item-placement-23",
+      "module_or_registry": "EarlyContentPlacementServerTests",
+      "trigger_and_boundaries": "以生存玩家对hearthfly branch GeoCrop物品使用真实useOn入口并放置于盆土，断言交互成功、物品恰消耗1个、匹配成熟方块及区块实体生成。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentPlacementServerTests.java"
+      ],
+      "not_tested": [
+        "仅覆盖该case所列的盆土或种植箱土壤组合",
+        "真实玩家网络交互、渲染及客户端动画不由本轮GameTest覆盖"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-geoCropItemPlacesFrost_lotusOnPlanterBox",
+      "batch": "crop-item-placement-23",
+      "module_or_registry": "EarlyContentPlacementServerTests",
+      "trigger_and_boundaries": "以生存玩家对frost lotus GeoCrop物品使用真实useOn入口并放置于种植箱，断言交互成功、物品恰消耗1个、匹配成熟方块及区块实体生成。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentPlacementServerTests.java"
+      ],
+      "not_tested": [
+        "仅覆盖该case所列的盆土或种植箱土壤组合",
+        "真实玩家网络交互、渲染及客户端动画不由本轮GameTest覆盖"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-geoCropItemPlacesNeoflormOnPlanterPot",
+      "batch": "crop-item-placement-23",
+      "module_or_registry": "EarlyContentPlacementServerTests",
+      "trigger_and_boundaries": "以生存玩家对neoflorm GeoCrop物品使用真实useOn入口并放置于盆土，断言交互成功、物品恰消耗1个、匹配成熟方块及区块实体生成。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentPlacementServerTests.java"
+      ],
+      "not_tested": [
+        "仅覆盖该case所列的盆土或种植箱土壤组合",
+        "真实玩家网络交互、渲染及客户端动画不由本轮GameTest覆盖"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-geoCropItemPlacesVolatineOnPlanterBox",
+      "batch": "crop-item-placement-23",
+      "module_or_registry": "EarlyContentPlacementServerTests",
+      "trigger_and_boundaries": "以生存玩家对volatine GeoCrop物品使用真实useOn入口并放置于种植箱，断言交互成功、物品恰消耗1个、匹配成熟方块及区块实体生成。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentPlacementServerTests.java"
+      ],
+      "not_tested": [
+        "仅覆盖该case所列的盆土或种植箱土壤组合",
+        "真实玩家网络交互、渲染及客户端动画不由本轮GameTest覆盖"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-seedItemPlantsSkorioOnPlanter",
+      "batch": "crop-item-placement-23",
+      "module_or_registry": "EarlyContentPlacementServerTests",
+      "trigger_and_boundaries": "以生存玩家对种植箱，断言交互成功、物品恰消耗1个、匹配种子方块及SeedBlockEntity生成。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentPlacementServerTests.java"
+      ],
+      "not_tested": [
+        "仅覆盖该case所列的盆土或种植箱土壤组合",
+        "真实玩家网络交互、渲染及客户端动画不由本轮GameTest覆盖"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-seedItemPlantsBarbubbleOnPlanter",
+      "batch": "crop-item-placement-23",
+      "module_or_registry": "EarlyContentPlacementServerTests",
+      "trigger_and_boundaries": "以生存玩家对盆土，断言交互成功、物品恰消耗1个、匹配种子方块及SeedBlockEntity生成。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentPlacementServerTests.java"
+      ],
+      "not_tested": [
+        "仅覆盖该case所列的盆土或种植箱土壤组合",
+        "真实玩家网络交互、渲染及客户端动画不由本轮GameTest覆盖"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-seedItemPlantsAncient_skorioOnPlanter",
+      "batch": "crop-item-placement-23",
+      "module_or_registry": "EarlyContentPlacementServerTests",
+      "trigger_and_boundaries": "以生存玩家对盆土，断言交互成功、物品恰消耗1个、匹配种子方块及SeedBlockEntity生成。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentPlacementServerTests.java"
+      ],
+      "not_tested": [
+        "仅覆盖该case所列的盆土或种植箱土壤组合",
+        "真实玩家网络交互、渲染及客户端动画不由本轮GameTest覆盖"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-seedItemPlantsAncient_barbubbleOnPlanter",
+      "batch": "crop-item-placement-23",
+      "module_or_registry": "EarlyContentPlacementServerTests",
+      "trigger_and_boundaries": "以生存玩家对种植箱，断言交互成功、物品恰消耗1个、匹配种子方块及SeedBlockEntity生成。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentPlacementServerTests.java"
+      ],
+      "not_tested": [
+        "仅覆盖该case所列的盆土或种植箱土壤组合",
+        "真实玩家网络交互、渲染及客户端动画不由本轮GameTest覆盖"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-seedItemPlantsDewleafOnPlanter",
+      "batch": "crop-item-placement-23",
+      "module_or_registry": "EarlyContentPlacementServerTests",
+      "trigger_and_boundaries": "以生存玩家对盆土，断言交互成功、物品恰消耗1个、匹配种子方块及SeedBlockEntity生成。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentPlacementServerTests.java"
+      ],
+      "not_tested": [
+        "仅覆盖该case所列的盆土或种植箱土壤组合",
+        "真实玩家网络交互、渲染及客户端动画不由本轮GameTest覆盖"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-seedItemPlantsHearthfly_branchOnPlanter",
+      "batch": "crop-item-placement-23",
+      "module_or_registry": "EarlyContentPlacementServerTests",
+      "trigger_and_boundaries": "以生存玩家对种植箱，断言交互成功、物品恰消耗1个、匹配种子方块及SeedBlockEntity生成。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentPlacementServerTests.java"
+      ],
+      "not_tested": [
+        "仅覆盖该case所列的盆土或种植箱土壤组合",
+        "真实玩家网络交互、渲染及客户端动画不由本轮GameTest覆盖"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-seedItemPlantsFrost_lotusOnPlanter",
+      "batch": "crop-item-placement-23",
+      "module_or_registry": "EarlyContentPlacementServerTests",
+      "trigger_and_boundaries": "以生存玩家对盆土，断言交互成功、物品恰消耗1个、匹配种子方块及SeedBlockEntity生成。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentPlacementServerTests.java"
+      ],
+      "not_tested": [
+        "仅覆盖该case所列的盆土或种植箱土壤组合",
+        "真实玩家网络交互、渲染及客户端动画不由本轮GameTest覆盖"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-seedItemPlantsNeoflormOnPlanter",
+      "batch": "crop-item-placement-23",
+      "module_or_registry": "EarlyContentPlacementServerTests",
+      "trigger_and_boundaries": "以生存玩家对种植箱，断言交互成功、物品恰消耗1个、匹配种子方块及SeedBlockEntity生成。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentPlacementServerTests.java"
+      ],
+      "not_tested": [
+        "仅覆盖该case所列的盆土或种植箱土壤组合",
+        "真实玩家网络交互、渲染及客户端动画不由本轮GameTest覆盖"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-seedItemPlantsVolatineOnPlanter",
+      "batch": "crop-item-placement-23",
+      "module_or_registry": "EarlyContentPlacementServerTests",
+      "trigger_and_boundaries": "以生存玩家对盆土，断言交互成功、物品恰消耗1个、匹配种子方块及SeedBlockEntity生成。",
+      "evidence": [
+        "src/gametest/java/com/hp/thermalshockreforged/gametest/EarlyContentPlacementServerTests.java"
+      ],
+      "not_tested": [
+        "仅覆盖该case所列的盆土或种植箱土壤组合",
+        "真实玩家网络交互、渲染及客户端动画不由本轮GameTest覆盖"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "隔离GameTest通过"
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-hunters-idleMeleeEntryStartsTenTickConversionWithoutDamage",
+      "batch": "sootle-sootling-hunters-22",
+      "module_or_registry": "SootleIdle",
+      "trigger_and_boundaries": "真实近战入口不即时伤害，转换计时10；到期移除旧体且恰生成1只活动体",
+      "actual_entrypoint": "SootleHuntersServerTests.idleMeleeEntryStartsTenTickConversionWithoutDamage",
+      "assertions": [
+        "真实近战入口不即时伤害，转换计时10；到期移除旧体且恰生成1只活动体"
+      ],
+      "evidence": [
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\java\\com\\hp\\thermalshockreforged\\gametest\\SootleHuntersServerTests.java",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\resources\\data\\ts_earlycontent_hunters\\structure\\migration_empty.nbt",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\server-gametest-hunters-attempt7.log"
+      ],
+      "evidence_sha256": {
+        "test_source": "B4AB0D1E3DBB8B667871C997C5354FB1BAE2BCD7EAB711C85EE4196E6EC32EA7",
+        "template": "265FE53432E4694D4A94CEC3A59DEAC1B880CDD869970FACF1EB0E1FB3A16832",
+        "run_log": "1FF9EB9B3598F3FDC7569DE6FE5EE45DF29533E45D4FFD0FB6F2218C73D64295",
+        "compiled_class": "A2A5E403916D81E2A950ABBA65A34DCD051EDEA1DCD953E80B99894686731ADA"
+      },
+      "not_tested": [
+        "客户端输入、网络同步、渲染和动画",
+        "磁盘重启（NBT用例只做实体序列化回载）",
+        "第三方模组兼容"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "真实NeoForge GameTest服务器通过",
+      "issue_ids": []
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-hunters-pendingIdleConversionResumesAfterEntityNbtReload",
+      "batch": "sootle-sootling-hunters-22",
+      "module_or_registry": "SootleIdle",
+      "trigger_and_boundaries": "实体NBT回载保留剩余5 tick；按剩余tick到期且只生成1只活动体",
+      "actual_entrypoint": "SootleHuntersServerTests.pendingIdleConversionResumesAfterEntityNbtReload",
+      "assertions": [
+        "实体NBT回载保留剩余5 tick；按剩余tick到期且只生成1只活动体"
+      ],
+      "evidence": [
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\java\\com\\hp\\thermalshockreforged\\gametest\\SootleHuntersServerTests.java",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\resources\\data\\ts_earlycontent_hunters\\structure\\migration_empty.nbt",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\server-gametest-hunters-attempt7.log"
+      ],
+      "evidence_sha256": {
+        "test_source": "B4AB0D1E3DBB8B667871C997C5354FB1BAE2BCD7EAB711C85EE4196E6EC32EA7",
+        "template": "265FE53432E4694D4A94CEC3A59DEAC1B880CDD869970FACF1EB0E1FB3A16832",
+        "run_log": "1FF9EB9B3598F3FDC7569DE6FE5EE45DF29533E45D4FFD0FB6F2218C73D64295",
+        "compiled_class": "A2A5E403916D81E2A950ABBA65A34DCD051EDEA1DCD953E80B99894686731ADA"
+      },
+      "not_tested": [
+        "客户端输入、网络同步、渲染和动画",
+        "磁盘重启（NBT用例只做实体序列化回载）",
+        "第三方模组兼容"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "真实NeoForge GameTest服务器通过",
+      "issue_ids": []
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-hunters-lethalIdleDamageDoesNotLeaveAConversionSpawn",
+      "batch": "sootle-sootling-hunters-22",
+      "module_or_registry": "SootleIdle",
+      "trigger_and_boundaries": "致死伤害后9 tick确认死亡且邻域无活动体",
+      "actual_entrypoint": "SootleHuntersServerTests.lethalIdleDamageDoesNotLeaveAConversionSpawn",
+      "assertions": [
+        "致死伤害后9 tick确认死亡且邻域无活动体"
+      ],
+      "evidence": [
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\java\\com\\hp\\thermalshockreforged\\gametest\\SootleHuntersServerTests.java",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\resources\\data\\ts_earlycontent_hunters\\structure\\migration_empty.nbt",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\server-gametest-hunters-attempt7.log"
+      ],
+      "evidence_sha256": {
+        "test_source": "B4AB0D1E3DBB8B667871C997C5354FB1BAE2BCD7EAB711C85EE4196E6EC32EA7",
+        "template": "265FE53432E4694D4A94CEC3A59DEAC1B880CDD869970FACF1EB0E1FB3A16832",
+        "run_log": "1FF9EB9B3598F3FDC7569DE6FE5EE45DF29533E45D4FFD0FB6F2218C73D64295",
+        "compiled_class": "A2A5E403916D81E2A950ABBA65A34DCD051EDEA1DCD953E80B99894686731ADA"
+      },
+      "not_tested": [
+        "客户端输入、网络同步、渲染和动画",
+        "磁盘重启（NBT用例只做实体序列化回载）",
+        "第三方模组兼容"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "真实NeoForge GameTest服务器通过",
+      "issue_ids": []
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-hunters-activeSootleAttackAppliesTheSelectedDelayedDamage",
+      "batch": "sootle-sootling-hunters-22",
+      "module_or_registry": "Sootle",
+      "trigger_and_boundaries": "近战入口不即时伤害，动作锁18；12 tick后按保存分支校验总伤害4或6及冷却",
+      "actual_entrypoint": "SootleHuntersServerTests.activeSootleAttackAppliesTheSelectedDelayedDamage",
+      "assertions": [
+        "近战入口不即时伤害，动作锁18；12 tick后按保存分支校验总伤害4或6及冷却"
+      ],
+      "evidence": [
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\java\\com\\hp\\thermalshockreforged\\gametest\\SootleHuntersServerTests.java",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\resources\\data\\ts_earlycontent_hunters\\structure\\migration_empty.nbt",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\server-gametest-hunters-attempt7.log"
+      ],
+      "evidence_sha256": {
+        "test_source": "B4AB0D1E3DBB8B667871C997C5354FB1BAE2BCD7EAB711C85EE4196E6EC32EA7",
+        "template": "265FE53432E4694D4A94CEC3A59DEAC1B880CDD869970FACF1EB0E1FB3A16832",
+        "run_log": "1FF9EB9B3598F3FDC7569DE6FE5EE45DF29533E45D4FFD0FB6F2218C73D64295",
+        "compiled_class": "A2A5E403916D81E2A950ABBA65A34DCD051EDEA1DCD953E80B99894686731ADA"
+      },
+      "not_tested": [
+        "客户端输入、网络同步、渲染和动画",
+        "磁盘重启（NBT用例只做实体序列化回载）",
+        "第三方模组兼容"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "真实NeoForge GameTest服务器通过",
+      "issue_ids": []
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-hunters-activeSootleCancelsWhenItsCommittedTargetDisappears",
+      "batch": "sootle-sootling-hunters-22",
+      "module_or_registry": "Sootle",
+      "trigger_and_boundaries": "移除已锁定目标后2 tick技能/动作锁清除，冷却保留",
+      "actual_entrypoint": "SootleHuntersServerTests.activeSootleCancelsWhenItsCommittedTargetDisappears",
+      "assertions": [
+        "移除已锁定目标后2 tick技能/动作锁清除，冷却保留"
+      ],
+      "evidence": [
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\java\\com\\hp\\thermalshockreforged\\gametest\\SootleHuntersServerTests.java",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\resources\\data\\ts_earlycontent_hunters\\structure\\migration_empty.nbt",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\server-gametest-hunters-attempt7.log"
+      ],
+      "evidence_sha256": {
+        "test_source": "B4AB0D1E3DBB8B667871C997C5354FB1BAE2BCD7EAB711C85EE4196E6EC32EA7",
+        "template": "265FE53432E4694D4A94CEC3A59DEAC1B880CDD869970FACF1EB0E1FB3A16832",
+        "run_log": "1FF9EB9B3598F3FDC7569DE6FE5EE45DF29533E45D4FFD0FB6F2218C73D64295",
+        "compiled_class": "A2A5E403916D81E2A950ABBA65A34DCD051EDEA1DCD953E80B99894686731ADA"
+      },
+      "not_tested": [
+        "客户端输入、网络同步、渲染和动画",
+        "磁盘重启（NBT用例只做实体序列化回载）",
+        "第三方模组兼容"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "真实NeoForge GameTest服务器通过",
+      "issue_ids": []
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-hunters-activeSootleStrikeRejectsTargetBeyondThreeBlockReach",
+      "batch": "sootle-sootling-hunters-22",
+      "module_or_registry": "Sootle",
+      "trigger_and_boundaries": "技能提交后目标移至7格；12 tick目标无伤且技能结束",
+      "actual_entrypoint": "SootleHuntersServerTests.activeSootleStrikeRejectsTargetBeyondThreeBlockReach",
+      "assertions": [
+        "技能提交后目标移至7格；12 tick目标无伤且技能结束"
+      ],
+      "evidence": [
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\java\\com\\hp\\thermalshockreforged\\gametest\\SootleHuntersServerTests.java",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\resources\\data\\ts_earlycontent_hunters\\structure\\migration_empty.nbt",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\server-gametest-hunters-attempt7.log"
+      ],
+      "evidence_sha256": {
+        "test_source": "B4AB0D1E3DBB8B667871C997C5354FB1BAE2BCD7EAB711C85EE4196E6EC32EA7",
+        "template": "265FE53432E4694D4A94CEC3A59DEAC1B880CDD869970FACF1EB0E1FB3A16832",
+        "run_log": "1FF9EB9B3598F3FDC7569DE6FE5EE45DF29533E45D4FFD0FB6F2218C73D64295",
+        "compiled_class": "A2A5E403916D81E2A950ABBA65A34DCD051EDEA1DCD953E80B99894686731ADA"
+      },
+      "not_tested": [
+        "客户端输入、网络同步、渲染和动画",
+        "磁盘重启（NBT用例只做实体序列化回载）",
+        "第三方模组兼容"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "真实NeoForge GameTest服务器通过",
+      "issue_ids": []
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-hunters-sootlingSkillHitsAtItsFirstServerStrikePhase",
+      "batch": "sootle-sootling-hunters-22",
+      "module_or_registry": "Sootling",
+      "trigger_and_boundaries": "真实近战入口启动技能，19 tick无伤、tick20造成1伤害并记录阶段20",
+      "actual_entrypoint": "SootleHuntersServerTests.sootlingSkillHitsAtItsFirstServerStrikePhase",
+      "assertions": [
+        "真实近战入口启动技能，19 tick无伤、tick20造成1伤害并记录阶段20"
+      ],
+      "evidence": [
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\java\\com\\hp\\thermalshockreforged\\gametest\\SootleHuntersServerTests.java",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\resources\\data\\ts_earlycontent_hunters\\structure\\migration_empty.nbt",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\server-gametest-hunters-attempt7.log"
+      ],
+      "evidence_sha256": {
+        "test_source": "B4AB0D1E3DBB8B667871C997C5354FB1BAE2BCD7EAB711C85EE4196E6EC32EA7",
+        "template": "265FE53432E4694D4A94CEC3A59DEAC1B880CDD869970FACF1EB0E1FB3A16832",
+        "run_log": "1FF9EB9B3598F3FDC7569DE6FE5EE45DF29533E45D4FFD0FB6F2218C73D64295",
+        "compiled_class": "A2A5E403916D81E2A950ABBA65A34DCD051EDEA1DCD953E80B99894686731ADA"
+      },
+      "not_tested": [
+        "客户端输入、网络同步、渲染和动画",
+        "磁盘重启（NBT用例只做实体序列化回载）",
+        "第三方模组兼容"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "真实NeoForge GameTest服务器通过",
+      "issue_ids": []
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-hunters-sootlingDoesNotHitTargetOutsideItsTwoBlockStrikeRange",
+      "batch": "sootle-sootling-hunters-22",
+      "module_or_registry": "Sootling",
+      "trigger_and_boundaries": "目标移到7格，tick22无伤且技能仍活动",
+      "actual_entrypoint": "SootleHuntersServerTests.sootlingDoesNotHitTargetOutsideItsTwoBlockStrikeRange",
+      "assertions": [
+        "目标移到7格，tick22无伤且技能仍活动"
+      ],
+      "evidence": [
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\java\\com\\hp\\thermalshockreforged\\gametest\\SootleHuntersServerTests.java",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\resources\\data\\ts_earlycontent_hunters\\structure\\migration_empty.nbt",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\server-gametest-hunters-attempt7.log"
+      ],
+      "evidence_sha256": {
+        "test_source": "B4AB0D1E3DBB8B667871C997C5354FB1BAE2BCD7EAB711C85EE4196E6EC32EA7",
+        "template": "265FE53432E4694D4A94CEC3A59DEAC1B880CDD869970FACF1EB0E1FB3A16832",
+        "run_log": "1FF9EB9B3598F3FDC7569DE6FE5EE45DF29533E45D4FFD0FB6F2218C73D64295",
+        "compiled_class": "A2A5E403916D81E2A950ABBA65A34DCD051EDEA1DCD953E80B99894686731ADA"
+      },
+      "not_tested": [
+        "客户端输入、网络同步、渲染和动画",
+        "磁盘重启（NBT用例只做实体序列化回载）",
+        "第三方模组兼容"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "真实NeoForge GameTest服务器通过",
+      "issue_ids": []
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-hunters-sootlingActiveSkillAndCooldownSurviveEntityNbtReload",
+      "batch": "sootle-sootling-hunters-22",
+      "module_or_registry": "Sootling",
+      "trigger_and_boundaries": "NBT回载保留技能阶段/冷却，再推进1 tick阶段+1且冷却-1",
+      "actual_entrypoint": "SootleHuntersServerTests.sootlingActiveSkillAndCooldownSurviveEntityNbtReload",
+      "assertions": [
+        "NBT回载保留技能阶段/冷却，再推进1 tick阶段+1且冷却-1"
+      ],
+      "evidence": [
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\java\\com\\hp\\thermalshockreforged\\gametest\\SootleHuntersServerTests.java",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\resources\\data\\ts_earlycontent_hunters\\structure\\migration_empty.nbt",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\server-gametest-hunters-attempt7.log"
+      ],
+      "evidence_sha256": {
+        "test_source": "B4AB0D1E3DBB8B667871C997C5354FB1BAE2BCD7EAB711C85EE4196E6EC32EA7",
+        "template": "265FE53432E4694D4A94CEC3A59DEAC1B880CDD869970FACF1EB0E1FB3A16832",
+        "run_log": "1FF9EB9B3598F3FDC7569DE6FE5EE45DF29533E45D4FFD0FB6F2218C73D64295",
+        "compiled_class": "A2A5E403916D81E2A950ABBA65A34DCD051EDEA1DCD953E80B99894686731ADA"
+      },
+      "not_tested": [
+        "客户端输入、网络同步、渲染和动画",
+        "磁盘重启（NBT用例只做实体序列化回载）",
+        "第三方模组兼容"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "真实NeoForge GameTest服务器通过",
+      "issue_ids": []
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-hunters-sootlingRejectsDeadTargetWithoutStartingCooldown",
+      "batch": "sootle-sootling-hunters-22",
+      "module_or_registry": "Sootling",
+      "trigger_and_boundaries": "已死亡目标不得启动技能或80 tick冷却",
+      "actual_entrypoint": "SootleHuntersServerTests.sootlingRejectsDeadTargetWithoutStartingCooldown",
+      "assertions": [
+        "已死亡目标不得启动技能或80 tick冷却"
+      ],
+      "evidence": [
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\java\\com\\hp\\thermalshockreforged\\gametest\\SootleHuntersServerTests.java",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\resources\\data\\ts_earlycontent_hunters\\structure\\migration_empty.nbt",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\server-gametest-hunters-attempt7.log"
+      ],
+      "evidence_sha256": {
+        "test_source": "B4AB0D1E3DBB8B667871C997C5354FB1BAE2BCD7EAB711C85EE4196E6EC32EA7",
+        "template": "265FE53432E4694D4A94CEC3A59DEAC1B880CDD869970FACF1EB0E1FB3A16832",
+        "run_log": "1FF9EB9B3598F3FDC7569DE6FE5EE45DF29533E45D4FFD0FB6F2218C73D64295",
+        "compiled_class": "A2A5E403916D81E2A950ABBA65A34DCD051EDEA1DCD953E80B99894686731ADA"
+      },
+      "not_tested": [
+        "客户端输入、网络同步、渲染和动画",
+        "磁盘重启（NBT用例只做实体序列化回载）",
+        "第三方模组兼容"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "真实NeoForge GameTest服务器通过",
+      "issue_ids": []
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-hunters-frostilyteRealIncomingAttackDefersDamageToItsEleventhTick",
+      "batch": "sootle-sootling-hunters-22",
+      "module_or_registry": "Frostilyte",
+      "trigger_and_boundaries": "真实受伤事件取消原始命中，启动11 tick任务；10 tick无伤，命中造成6伤并清任务",
+      "actual_entrypoint": "SootleHuntersServerTests.frostilyteRealIncomingAttackDefersDamageToItsEleventhTick",
+      "assertions": [
+        "真实受伤事件取消原始命中，启动11 tick任务；10 tick无伤，命中造成6伤并清任务"
+      ],
+      "evidence": [
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\java\\com\\hp\\thermalshockreforged\\gametest\\SootleHuntersServerTests.java",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\resources\\data\\ts_earlycontent_hunters\\structure\\migration_empty.nbt",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\server-gametest-hunters-attempt7.log"
+      ],
+      "evidence_sha256": {
+        "test_source": "B4AB0D1E3DBB8B667871C997C5354FB1BAE2BCD7EAB711C85EE4196E6EC32EA7",
+        "template": "265FE53432E4694D4A94CEC3A59DEAC1B880CDD869970FACF1EB0E1FB3A16832",
+        "run_log": "1FF9EB9B3598F3FDC7569DE6FE5EE45DF29533E45D4FFD0FB6F2218C73D64295",
+        "compiled_class": "A2A5E403916D81E2A950ABBA65A34DCD051EDEA1DCD953E80B99894686731ADA"
+      },
+      "not_tested": [
+        "客户端输入、网络同步、渲染和动画",
+        "磁盘重启（NBT用例只做实体序列化回载）",
+        "第三方模组兼容"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "真实NeoForge GameTest服务器通过",
+      "issue_ids": []
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-hunters-frostilyteDelayedAttackMissesTargetOutsideOneAndHalfBlocks",
+      "batch": "sootle-sootling-hunters-22",
+      "module_or_registry": "Frostilyte",
+      "trigger_and_boundaries": "提交后目标移到6格；13 tick后无追加伤害且任务清除",
+      "actual_entrypoint": "SootleHuntersServerTests.frostilyteDelayedAttackMissesTargetOutsideOneAndHalfBlocks",
+      "assertions": [
+        "提交后目标移到6格；13 tick后无追加伤害且任务清除"
+      ],
+      "evidence": [
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\java\\com\\hp\\thermalshockreforged\\gametest\\SootleHuntersServerTests.java",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\resources\\data\\ts_earlycontent_hunters\\structure\\migration_empty.nbt",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\server-gametest-hunters-attempt7.log"
+      ],
+      "evidence_sha256": {
+        "test_source": "B4AB0D1E3DBB8B667871C997C5354FB1BAE2BCD7EAB711C85EE4196E6EC32EA7",
+        "template": "265FE53432E4694D4A94CEC3A59DEAC1B880CDD869970FACF1EB0E1FB3A16832",
+        "run_log": "1FF9EB9B3598F3FDC7569DE6FE5EE45DF29533E45D4FFD0FB6F2218C73D64295",
+        "compiled_class": "A2A5E403916D81E2A950ABBA65A34DCD051EDEA1DCD953E80B99894686731ADA"
+      },
+      "not_tested": [
+        "客户端输入、网络同步、渲染和动画",
+        "磁盘重启（NBT用例只做实体序列化回载）",
+        "第三方模组兼容"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "真实NeoForge GameTest服务器通过",
+      "issue_ids": []
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-hunters-frostilyteRejectsDrowningDamage",
+      "batch": "sootle-sootling-hunters-22",
+      "module_or_registry": "Frostilyte",
+      "trigger_and_boundaries": "真实DROWN来源被拒绝且生命不变",
+      "actual_entrypoint": "SootleHuntersServerTests.frostilyteRejectsDrowningDamage",
+      "assertions": [
+        "真实DROWN来源被拒绝且生命不变"
+      ],
+      "evidence": [
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\java\\com\\hp\\thermalshockreforged\\gametest\\SootleHuntersServerTests.java",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\resources\\data\\ts_earlycontent_hunters\\structure\\migration_empty.nbt",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\server-gametest-hunters-attempt7.log"
+      ],
+      "evidence_sha256": {
+        "test_source": "B4AB0D1E3DBB8B667871C997C5354FB1BAE2BCD7EAB711C85EE4196E6EC32EA7",
+        "template": "265FE53432E4694D4A94CEC3A59DEAC1B880CDD869970FACF1EB0E1FB3A16832",
+        "run_log": "1FF9EB9B3598F3FDC7569DE6FE5EE45DF29533E45D4FFD0FB6F2218C73D64295",
+        "compiled_class": "A2A5E403916D81E2A950ABBA65A34DCD051EDEA1DCD953E80B99894686731ADA"
+      },
+      "not_tested": [
+        "客户端输入、网络同步、渲染和动画",
+        "磁盘重启（NBT用例只做实体序列化回载）",
+        "第三方模组兼容"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "真实NeoForge GameTest服务器通过",
+      "issue_ids": []
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-hunters-frostilyteCustomDropHookHonorsEntityDropsGameRule",
+      "batch": "sootle-sootling-hunters-22",
+      "module_or_registry": "Frostilyte",
+      "trigger_and_boundaries": "关闭doEntityDrops后真实击杀，邻域无ItemEntity",
+      "actual_entrypoint": "SootleHuntersServerTests.frostilyteCustomDropHookHonorsEntityDropsGameRule",
+      "assertions": [
+        "关闭doEntityDrops后真实击杀，邻域无ItemEntity"
+      ],
+      "evidence": [
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\java\\com\\hp\\thermalshockreforged\\gametest\\SootleHuntersServerTests.java",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\resources\\data\\ts_earlycontent_hunters\\structure\\migration_empty.nbt",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\server-gametest-hunters-attempt7.log"
+      ],
+      "evidence_sha256": {
+        "test_source": "B4AB0D1E3DBB8B667871C997C5354FB1BAE2BCD7EAB711C85EE4196E6EC32EA7",
+        "template": "265FE53432E4694D4A94CEC3A59DEAC1B880CDD869970FACF1EB0E1FB3A16832",
+        "run_log": "1FF9EB9B3598F3FDC7569DE6FE5EE45DF29533E45D4FFD0FB6F2218C73D64295",
+        "compiled_class": "A2A5E403916D81E2A950ABBA65A34DCD051EDEA1DCD953E80B99894686731ADA"
+      },
+      "not_tested": [
+        "客户端输入、网络同步、渲染和动画",
+        "磁盘重启（NBT用例只做实体序列化回载）",
+        "第三方模组兼容"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "真实NeoForge GameTest服务器通过",
+      "issue_ids": []
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-hunters-frostilyteIceDropRollUsesTheRegisteredIceTagAndDeterministicSeed",
+      "batch": "sootle-sootling-hunters-22",
+      "module_or_registry": "Frostilyte",
+      "trigger_and_boundaries": "固定seed落入70%冰掉落、避开10%芯片；实际死亡掉1 Phobotite且无芯片",
+      "actual_entrypoint": "SootleHuntersServerTests.frostilyteIceDropRollUsesTheRegisteredIceTagAndDeterministicSeed",
+      "assertions": [
+        "固定seed落入70%冰掉落、避开10%芯片；实际死亡掉1 Phobotite且无芯片"
+      ],
+      "evidence": [
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\java\\com\\hp\\thermalshockreforged\\gametest\\SootleHuntersServerTests.java",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\resources\\data\\ts_earlycontent_hunters\\structure\\migration_empty.nbt",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\server-gametest-hunters-attempt7.log"
+      ],
+      "evidence_sha256": {
+        "test_source": "B4AB0D1E3DBB8B667871C997C5354FB1BAE2BCD7EAB711C85EE4196E6EC32EA7",
+        "template": "265FE53432E4694D4A94CEC3A59DEAC1B880CDD869970FACF1EB0E1FB3A16832",
+        "run_log": "1FF9EB9B3598F3FDC7569DE6FE5EE45DF29533E45D4FFD0FB6F2218C73D64295",
+        "compiled_class": "A2A5E403916D81E2A950ABBA65A34DCD051EDEA1DCD953E80B99894686731ADA"
+      },
+      "not_tested": [
+        "客户端输入、网络同步、渲染和动画",
+        "磁盘重启（NBT用例只做实体序列化回载）",
+        "第三方模组兼容"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "真实NeoForge GameTest服务器通过",
+      "issue_ids": []
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-hunters-razorwingFoodRulesSeparateNormalAndArmouredVariants",
+      "batch": "sootle-sootling-hunters-22",
+      "module_or_registry": "Razorwing",
+      "trigger_and_boundaries": "普通体接受鳕鱼/鲑鱼/mod鱼食；装甲体仅接受鳕鱼",
+      "actual_entrypoint": "SootleHuntersServerTests.razorwingFoodRulesSeparateNormalAndArmouredVariants",
+      "assertions": [
+        "普通体接受鳕鱼/鲑鱼/mod鱼食；装甲体仅接受鳕鱼"
+      ],
+      "evidence": [
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\java\\com\\hp\\thermalshockreforged\\gametest\\SootleHuntersServerTests.java",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\resources\\data\\ts_earlycontent_hunters\\structure\\migration_empty.nbt",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\server-gametest-hunters-attempt7.log"
+      ],
+      "evidence_sha256": {
+        "test_source": "B4AB0D1E3DBB8B667871C997C5354FB1BAE2BCD7EAB711C85EE4196E6EC32EA7",
+        "template": "265FE53432E4694D4A94CEC3A59DEAC1B880CDD869970FACF1EB0E1FB3A16832",
+        "run_log": "1FF9EB9B3598F3FDC7569DE6FE5EE45DF29533E45D4FFD0FB6F2218C73D64295",
+        "compiled_class": "A2A5E403916D81E2A950ABBA65A34DCD051EDEA1DCD953E80B99894686731ADA"
+      },
+      "not_tested": [
+        "客户端输入、网络同步、渲染和动画",
+        "磁盘重启（NBT用例只做实体序列化回载）",
+        "第三方模组兼容"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "真实NeoForge GameTest服务器通过",
+      "issue_ids": []
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-hunters-ownerArmorInteractionConvertsRazorwingAndConsumesOneArmor",
+      "batch": "sootle-sootling-hunters-22",
+      "module_or_registry": "Razorwing",
+      "trigger_and_boundaries": "生存主人真实交互转ruby装甲，保主人/7血，恰1新体，消耗1件装甲并设10护甲",
+      "actual_entrypoint": "SootleHuntersServerTests.ownerArmorInteractionConvertsRazorwingAndConsumesOneArmor",
+      "assertions": [
+        "生存主人真实交互转ruby装甲，保主人/7血，恰1新体，消耗1件装甲并设10护甲"
+      ],
+      "evidence": [
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\java\\com\\hp\\thermalshockreforged\\gametest\\SootleHuntersServerTests.java",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\resources\\data\\ts_earlycontent_hunters\\structure\\migration_empty.nbt",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\server-gametest-hunters-attempt7.log"
+      ],
+      "evidence_sha256": {
+        "test_source": "B4AB0D1E3DBB8B667871C997C5354FB1BAE2BCD7EAB711C85EE4196E6EC32EA7",
+        "template": "265FE53432E4694D4A94CEC3A59DEAC1B880CDD869970FACF1EB0E1FB3A16832",
+        "run_log": "1FF9EB9B3598F3FDC7569DE6FE5EE45DF29533E45D4FFD0FB6F2218C73D64295",
+        "compiled_class": "A2A5E403916D81E2A950ABBA65A34DCD051EDEA1DCD953E80B99894686731ADA"
+      },
+      "not_tested": [
+        "客户端输入、网络同步、渲染和动画",
+        "磁盘重启（NBT用例只做实体序列化回载）",
+        "第三方模组兼容"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "真实NeoForge GameTest服务器通过",
+      "issue_ids": []
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-hunters-armouredRazorwingInteractionMakesPlayerItsControllingPassenger",
+      "batch": "sootle-sootling-hunters-22",
+      "module_or_registry": "Razorwing",
+      "trigger_and_boundaries": "玩家真实交互后骑乘blood装甲体并成为控制乘客",
+      "actual_entrypoint": "SootleHuntersServerTests.armouredRazorwingInteractionMakesPlayerItsControllingPassenger",
+      "assertions": [
+        "玩家真实交互后骑乘blood装甲体并成为控制乘客"
+      ],
+      "evidence": [
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\java\\com\\hp\\thermalshockreforged\\gametest\\SootleHuntersServerTests.java",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\resources\\data\\ts_earlycontent_hunters\\structure\\migration_empty.nbt",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\server-gametest-hunters-attempt7.log"
+      ],
+      "evidence_sha256": {
+        "test_source": "B4AB0D1E3DBB8B667871C997C5354FB1BAE2BCD7EAB711C85EE4196E6EC32EA7",
+        "template": "265FE53432E4694D4A94CEC3A59DEAC1B880CDD869970FACF1EB0E1FB3A16832",
+        "run_log": "1FF9EB9B3598F3FDC7569DE6FE5EE45DF29533E45D4FFD0FB6F2218C73D64295",
+        "compiled_class": "A2A5E403916D81E2A950ABBA65A34DCD051EDEA1DCD953E80B99894686731ADA"
+      },
+      "not_tested": [
+        "客户端输入、网络同步、渲染和动画",
+        "磁盘重启（NBT用例只做实体序列化回载）",
+        "第三方模组兼容"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "真实NeoForge GameTest服务器通过",
+      "issue_ids": []
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-hunters-razorwingDaySpawnAcceptsBothShalesAndRejectsStone",
+      "batch": "sootle-sootling-hunters-22",
+      "module_or_registry": "Razorwing spawn",
+      "trigger_and_boundaries": "白天露天草质/雪质页岩可生成、石头拒绝",
+      "actual_entrypoint": "SootleHuntersServerTests.razorwingDaySpawnAcceptsBothShalesAndRejectsStone",
+      "assertions": [
+        "白天露天草质/雪质页岩可生成、石头拒绝"
+      ],
+      "evidence": [
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\java\\com\\hp\\thermalshockreforged\\gametest\\SootleHuntersServerTests.java",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\resources\\data\\ts_earlycontent_hunters\\structure\\migration_empty.nbt",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\server-gametest-hunters-attempt7.log"
+      ],
+      "evidence_sha256": {
+        "test_source": "B4AB0D1E3DBB8B667871C997C5354FB1BAE2BCD7EAB711C85EE4196E6EC32EA7",
+        "template": "265FE53432E4694D4A94CEC3A59DEAC1B880CDD869970FACF1EB0E1FB3A16832",
+        "run_log": "1FF9EB9B3598F3FDC7569DE6FE5EE45DF29533E45D4FFD0FB6F2218C73D64295",
+        "compiled_class": "A2A5E403916D81E2A950ABBA65A34DCD051EDEA1DCD953E80B99894686731ADA"
+      },
+      "not_tested": [
+        "客户端输入、网络同步、渲染和动画",
+        "磁盘重启（NBT用例只做实体序列化回载）",
+        "第三方模组兼容"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "真实NeoForge GameTest服务器通过",
+      "issue_ids": []
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-hunters-razorwingNaturalSpawnRejectsNightAfterWorldTimeAdvances",
+      "batch": "sootle-sootling-hunters-22",
+      "module_or_registry": "Razorwing spawn",
+      "trigger_and_boundaries": "设夜间并推进2 tick刷新日光后自然生成被拒绝",
+      "actual_entrypoint": "SootleHuntersServerTests.razorwingNaturalSpawnRejectsNightAfterWorldTimeAdvances",
+      "assertions": [
+        "设夜间并推进2 tick刷新日光后自然生成被拒绝"
+      ],
+      "evidence": [
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\java\\com\\hp\\thermalshockreforged\\gametest\\SootleHuntersServerTests.java",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\resources\\data\\ts_earlycontent_hunters\\structure\\migration_empty.nbt",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\server-gametest-hunters-attempt7.log"
+      ],
+      "evidence_sha256": {
+        "test_source": "B4AB0D1E3DBB8B667871C997C5354FB1BAE2BCD7EAB711C85EE4196E6EC32EA7",
+        "template": "265FE53432E4694D4A94CEC3A59DEAC1B880CDD869970FACF1EB0E1FB3A16832",
+        "run_log": "1FF9EB9B3598F3FDC7569DE6FE5EE45DF29533E45D4FFD0FB6F2218C73D64295",
+        "compiled_class": "A2A5E403916D81E2A950ABBA65A34DCD051EDEA1DCD953E80B99894686731ADA"
+      },
+      "not_tested": [
+        "客户端输入、网络同步、渲染和动画",
+        "磁盘重启（NBT用例只做实体序列化回载）",
+        "第三方模组兼容"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "真实NeoForge GameTest服务器通过",
+      "issue_ids": []
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-hunters-normalRazorwingDeathDropsConfiguredChickenAndFeatherRanges",
+      "batch": "sootle-sootling-hunters-22",
+      "module_or_registry": "Razorwing",
+      "trigger_and_boundaries": "真实死亡掉2-4鸡肉与3-5羽毛",
+      "actual_entrypoint": "SootleHuntersServerTests.normalRazorwingDeathDropsConfiguredChickenAndFeatherRanges",
+      "assertions": [
+        "真实死亡掉2-4鸡肉与3-5羽毛"
+      ],
+      "evidence": [
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\java\\com\\hp\\thermalshockreforged\\gametest\\SootleHuntersServerTests.java",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\resources\\data\\ts_earlycontent_hunters\\structure\\migration_empty.nbt",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\server-gametest-hunters-attempt7.log"
+      ],
+      "evidence_sha256": {
+        "test_source": "B4AB0D1E3DBB8B667871C997C5354FB1BAE2BCD7EAB711C85EE4196E6EC32EA7",
+        "template": "265FE53432E4694D4A94CEC3A59DEAC1B880CDD869970FACF1EB0E1FB3A16832",
+        "run_log": "1FF9EB9B3598F3FDC7569DE6FE5EE45DF29533E45D4FFD0FB6F2218C73D64295",
+        "compiled_class": "A2A5E403916D81E2A950ABBA65A34DCD051EDEA1DCD953E80B99894686731ADA"
+      },
+      "not_tested": [
+        "客户端输入、网络同步、渲染和动画",
+        "磁盘重启（NBT用例只做实体序列化回载）",
+        "第三方模组兼容"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "真实NeoForge GameTest服务器通过",
+      "issue_ids": []
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-hunters-rubyAndBloodArmouredRazorwingDeathsProduceNoUnconfiguredDrops",
+      "batch": "sootle-sootling-hunters-22",
+      "module_or_registry": "Razorwing armored variants",
+      "trigger_and_boundaries": "真实击杀两种装甲体，记录当前无实体战利品表/无掉落；不推断设计意图",
+      "actual_entrypoint": "SootleHuntersServerTests.rubyAndBloodArmouredRazorwingDeathsProduceNoUnconfiguredDrops",
+      "assertions": [
+        "真实击杀两种装甲体，记录当前无实体战利品表/无掉落；不推断设计意图"
+      ],
+      "evidence": [
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\java\\com\\hp\\thermalshockreforged\\gametest\\SootleHuntersServerTests.java",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\resources\\data\\ts_earlycontent_hunters\\structure\\migration_empty.nbt",
+        "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\server-gametest-hunters-attempt7.log"
+      ],
+      "evidence_sha256": {
+        "test_source": "B4AB0D1E3DBB8B667871C997C5354FB1BAE2BCD7EAB711C85EE4196E6EC32EA7",
+        "template": "265FE53432E4694D4A94CEC3A59DEAC1B880CDD869970FACF1EB0E1FB3A16832",
+        "run_log": "1FF9EB9B3598F3FDC7569DE6FE5EE45DF29533E45D4FFD0FB6F2218C73D64295",
+        "compiled_class": "A2A5E403916D81E2A950ABBA65A34DCD051EDEA1DCD953E80B99894686731ADA"
+      },
+      "not_tested": [
+        "客户端输入、网络同步、渲染和动画",
+        "磁盘重启（NBT用例只做实体序列化回载）",
+        "第三方模组兼容"
+      ],
+      "runtime_pass": true,
+      "runtime_fail": false,
+      "blocked": false,
+      "runtime_status": "真实NeoForge GameTest服务器通过",
+      "issue_ids": []
+    }
+  ],
+  "issues": [
+    {
+      "id": "SB-080",
+      "status": "已关闭：测试夹具编译错误，不是产品缺陷",
+      "document": "SB-080-test-fixture-coordinate-overload.md",
+      "evidence_log": "server-gametest.log",
+      "evidence_sha256": "0B019FF5AA953609069EDC61BD6A25826E73A212BA11CE700F487B785B2F3765",
+      "closure": "坐标实参改为当前GameTestHelper源码签名要求的float；修正后命名空间ts_earlycontent原20项服务端运行20/20通过。"
+    },
+    {
+      "id": "SB-081",
+      "status": "已关闭：模板外实体位置导致inWall假阳性",
+      "document": "SB-081-icicle-damage-fixture-false-positive.md",
+      "evidence_logs": [
+        "server-gametest-new20-attempt2.log",
+        "server-gametest-new20-attempt3.log",
+        "server-gametest-new20-attempt5.log"
+      ],
+      "closure": "旧夹具将牛置于migration_empty尺寸(3,8,5)范围之外，lastDamageSource显示inWall；修正到模板内的地面上方后，普通冰锥来源和单次总伤害断言均通过。"
+    },
+    {
+      "id": "SB-082",
+      "status": "已关闭：测试夹具或预期错误，未证实产品缺陷",
+      "document": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\testing\\early-tests\\parallel-luna-early-content\\SB-082-Sootling自目标拒绝预期属未证实夹具假设.md",
+      "evidence": [
+        "server-gametest-hunters-attempt1.log",
+        "failed-attempts/SootleHuntersServerTests-attempt1.java"
+      ],
+      "closure": "attempt1初版测试调用SootlingEntity.beginSkill(sootling自身)并断言请求被拒绝。当前源码的beginSkill仅校验服务端、施法者存活、冷却、已有技能、目标存活及同Level，不含target != this，因此初版断言失败。此方法的实际AI入口是doHurtTarget的近战目标，当前AI目标选择器与近战回调不会把自己作为目标；本轮没有证据证明实际可达玩法路径会触发自伤。该失败按测试预期缺少源码依据关闭，不登记为产品缺陷。最终用例改为真实死亡目标拒绝并在attempt7通过。"
+    },
+    {
+      "id": "SB-083",
+      "status": "已关闭：测试夹具或预期错误，未证实产品缺陷",
+      "document": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\testing\\early-tests\\parallel-luna-early-content\\SB-083-Razorwing夜间生成测试读取了尚未刷新的日光状态.md",
+      "evidence": [
+        "server-gametest-hunters-attempt2.log",
+        "server-gametest-hunters-attempt4.log",
+        "server-gametest-hunters-attempt7.log"
+      ],
+      "closure": "初版在同一GameTest同步调用setDayTime(18000)后立即执行SpawnPlacements.checkSpawnRules；Level的日光缓存尚未经历服务器tick，测试读到的仍是旧日状态。此处属于夹具时序错误，不能据此认定夜间门槛失效。改为推进2 tick后再次检查，attempt7通过。"
+    },
+    {
+      "id": "SB-084",
+      "status": "已关闭：测试夹具或预期错误，未证实产品缺陷",
+      "document": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\testing\\early-tests\\parallel-luna-early-content\\SB-084-实体局部坐标误用于绝对世界AABB查询.md",
+      "evidence": [
+        "server-gametest-hunters-attempt1.log",
+        "server-gametest-hunters-attempt2.log",
+        "server-gametest-hunters-attempt4.log",
+        "server-gametest-hunters-attempt6.log",
+        "server-gametest-hunters-attempt7.log"
+      ],
+      "closure": "GameTest结构实体绝对坐标远离原点，初版死亡/转换断言用固定局部AABB，造成查询漏掉真实邻近实体。改用被测实体blockPosition构造AABB后转换和死亡清理断言通过；该失败是测试夹具范围错误，不是生成重复或漏生成证据。"
+    },
+    {
+      "id": "SB-085",
+      "status": "已关闭：测试夹具或预期错误，未证实产品缺陷",
+      "document": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\testing\\early-tests\\parallel-luna-early-content\\SB-085-armored-Razorwing乘骑场景使用了不适配的FakePlayer夹具.md",
+      "evidence": [
+        "server-gametest-hunters-attempt1.log",
+        "server-gametest-hunters-attempt4.log",
+        "server-gametest-hunters-attempt6.log",
+        "server-gametest-hunters-attempt7.log"
+      ],
+      "closure": "FakePlayer已在另一个测试中用于真正加入Level，但在本乘骑场景的直接mobInteract中未能建立预期vehicle关系。改回GameTestHelper.makeMockPlayer；同一乘骑断言在attempt7通过。该差异只说明当前夹具不适配，不证明生产mobInteract路径错误。"
+    },
+    {
+      "id": "SB-086",
+      "status": "已关闭：测试夹具或预期错误，未证实产品缺陷",
+      "document": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\testing\\early-tests\\parallel-luna-early-content\\SB-086-测试源码存在FakePlayer包名和玩家清理参数类型编译错误.md",
+      "evidence": [
+        "server-gametest-hunters-attempt3.log",
+        "server-gametest-hunters-attempt5.log",
+        "server-gametest-hunters-attempt7.log"
+      ],
+      "closure": "尝试3将FakePlayer导入到错误包，尝试5将Player静态类型传给要求ServerPlayer的removePlayerImmediately；均发生于编译阶段，未启动服务器、未计入产品测试失败。使用已核对的NeoForge FakePlayer包并仅对ServerPlayer执行清理，最终服务端运行通过。"
+    }
+  ],
+  "fixture_attempts": [
+    {
+      "log": "server-gametest-new20-attempt1.log",
+      "sha256": "80A62951FAFEEFD5310AC88C0D91E2D92E0DCD77550E08434B1268161905482E",
+      "exit_code": 1,
+      "started_server": false,
+      "classification": "PowerShell/Gradle参数拆分错误，Gradle误认任务名；后续采用带引号系统属性参数。"
+    },
+    {
+      "log": "server-gametest-new20-attempt2.log",
+      "sha256": "7B1F0DCB957356DFA2FC8E9C3822062747AE0DA5DB1893C90B49DB5422D4EAE8",
+      "exit_code": 2,
+      "started_server": true,
+      "tests": 20,
+      "passed": 17,
+      "failed": 3,
+      "classification": "双植物直接下半回调及两项冰锥实体坐标夹具不正确；保留原失败日志。"
+    },
+    {
+      "log": "server-gametest-new20-attempt3.log",
+      "sha256": "E03116E8DD5D807311B6471F02CF862E3F79B49CC865904C2D7AD41696E357D6",
+      "exit_code": 2,
+      "started_server": true,
+      "tests": 20,
+      "passed": 18,
+      "failed": 2,
+      "classification": "冰锥用例仍在模板外的测试区域触发inWall，属夹具假阳性；保留原失败日志。"
+    },
+    {
+      "log": "server-gametest-new20-attempt4.log",
+      "sha256": "8FC529655BA4FEA91527598DF8D766D113FE5D3B66F7466EF8B019B16E434E53",
+      "exit_code": 1,
+      "started_server": true,
+      "tests_started": 20,
+      "classification": "ts_earlycontent_next漏复制migration_empty模板，服务端启动后资源缺失崩溃，未计入测试失败。"
+    },
+    {
+      "log": "server-gametest-placement23-attempt1.log",
+      "sha256": "1C10BCF97EF83578CE343D0622481F12A50DE374ADED234492DA95027DE2B4EA",
+      "exit_code": 1,
+      "started_server": true,
+      "tests_started": 23,
+      "classification": "先启动Gradle后创建新命名空间资源目录，构建资源阶段未收录模板，服务端缺结构崩溃，未计入测试失败。"
+    }
+  ],
+  "prior_run": {
+    "cases_started": 20,
+    "passed": 20,
+    "failed": 0,
+    "rerun_skipped": true,
+    "log": "server-gametest-rerun.log",
+    "log_sha256": "3A97A652027A6D48D8C30F98598930BB8B2889E85AEE7A0AA699BE137BF8C431",
+    "exit_code": 0,
+    "dimensions_saved": true,
+    "clean_shutdown": true
+  },
+  "sb036_patch_sources": {
+    "current_production_head": "126114f9a99aaa14c8f001a39415835c703689a0",
+    "production_src_edited": false,
+    "files": [
+      {
+        "name": "SkorioBlock.java",
+        "sha256": "0D6106F9BF9326CB4756B50F0D818C46ED1FA3A638614C44289EAE6C50D054B7"
+      },
+      {
+        "name": "BarbubbleBlock.java",
+        "sha256": "732FE2CA7AA9EE11EBB4FD0D51AAF55097DC60C3FFDAA5790C0B83D7F2892F48"
+      },
+      {
+        "name": "GeoCropBlock.java",
+        "sha256": "D21BE61D7A29CD262569738D8CEE77CD7E379D2FCD44A8AEAAEF3DC19FBFD49B"
+      }
+    ],
+    "purpose": "仅将生产现有SB-036成功破坏后才追加镰刀收获的守卫复制进D盘孤立工程并随服务器测试；生产源码只读。"
+  },
+  "source_hashes": {
+    "GeoCropBlock.java": "D21BE61D7A29CD262569738D8CEE77CD7E379D2FCD44A8AEAAEF3DC19FBFD49B",
+    "SkorioBlock.java": "0D6106F9BF9326CB4756B50F0D818C46ED1FA3A638614C44289EAE6C50D054B7",
+    "server-gametest-new20-attempt1.log": "80A62951FAFEEFD5310AC88C0D91E2D92E0DCD77550E08434B1268161905482E",
+    "EarlyContentPlacementServerTests.java": "C4B0EFA845081D4298AC81F184314B6037BCAA693F2D6466D1628517A50E61A4",
+    "server-gametest-rerun.log": "3A97A652027A6D48D8C30F98598930BB8B2889E85AEE7A0AA699BE137BF8C431",
+    "migration_empty-ts_earlycontent_placements.nbt": "265FE53432E4694D4A94CEC3A59DEAC1B880CDD869970FACF1EB0E1FB3A16832",
+    "BarbubbleBlock.java": "732FE2CA7AA9EE11EBB4FD0D51AAF55097DC60C3FFDAA5790C0B83D7F2892F48",
+    "server-gametest-placement23-attempt2.log": "6E7CCF9AC764B50CC1DB77E6FEA190F54F712CAA6D90E7A8797E7FFC638CBA12",
+    "server-gametest-new20-attempt5.log": "2D5D6FB91914DCBB1D572C4C02A2100C2E258FBBE1D723D7A6C2CE57F00D3825",
+    "migration_empty-ts_earlycontent_next.nbt": "265FE53432E4694D4A94CEC3A59DEAC1B880CDD869970FACF1EB0E1FB3A16832",
+    "supernova_server-ts_earlycontent_next.nbt": "3612C3943632F43E60F13EAD841225322BD57EB62CBC68A122E7D928E8934A61",
+    "server-gametest-new20-attempt4.log": "8FC529655BA4FEA91527598DF8D766D113FE5D3B66F7466EF8B019B16E434E53",
+    "server-gametest-compile-failure.log": "0B019FF5AA953609069EDC61BD6A25826E73A212BA11CE700F487B785B2F3765",
+    "server-gametest-new20-attempt3.log": "E03116E8DD5D807311B6471F02CF862E3F79B49CC865904C2D7AD41696E357D6",
+    "EarlyContentRegressionServerTests.java": "98325C336E856A3BBF902D18E1B836D4A2EA2694C6FF835B071C804A417E62B6",
+    "server-gametest-new20-attempt2.log": "7B1F0DCB957356DFA2FC8E9C3822062747AE0DA5DB1893C90B49DB5422D4EAE8",
+    "build.gradle": "552B6F4531F2E158822FD5EC6B40A96379A0CDF596ABC5EBE204BC7EED448961",
+    "server-gametest-placement23-attempt1.log": "1C10BCF97EF83578CE343D0622481F12A50DE374ADED234492DA95027DE2B4EA",
+    "SootleHuntersServerTests.java": "B4AB0D1E3DBB8B667871C997C5354FB1BAE2BCD7EAB711C85EE4196E6EC32EA7",
+    "migration_empty-ts_earlycontent_hunters.nbt": "265FE53432E4694D4A94CEC3A59DEAC1B880CDD869970FACF1EB0E1FB3A16832",
+    "server-gametest-hunters-attempt7.log": "1FF9EB9B3598F3FDC7569DE6FE5EE45DF29533E45D4FFD0FB6F2218C73D64295",
+    "SootleHuntersServerTests.class": "A2A5E403916D81E2A950ABBA65A34DCD051EDEA1DCD953E80B99894686731ADA"
+  },
+  "uncovered": [
+    "未测自然生长概率全分布与真实长时存档重启",
+    "未测客户端鼠标交互、网络同步及GeoCrop/装饰渲染",
+    "未测真实世界生成频率及第三方模组兼容"
+  ],
+  "production_head": "33d3bc65c081427be13fc546c066ea725a5d5248",
+  "sb036_snapshot_vs_tested_source": {
+    "SkorioBlock.java": {
+      "fixed_snapshot_sha256": "0D42FC1FA7DCE4912CC8F30A4854BDC7503E37CFABFC11F5708A4F8E65199BE2",
+      "tested_production_copy_sha256": "0D6106F9BF9326CB4756B50F0D818C46ED1FA3A638614C44289EAE6C50D054B7"
+    },
+    "BarbubbleBlock.java": {
+      "fixed_snapshot_sha256": "C59D8D5F0F7878112AB352B932E2585E185C78CAB7BD22A86E87A6E269FF6070",
+      "tested_production_copy_sha256": "732FE2CA7AA9EE11EBB4FD0D51AAF55097DC60C3FFDAA5790C0B83D7F2892F48"
+    },
+    "GeoCropBlock.java": {
+      "fixed_snapshot_sha256": "5AF6DADF042A355869275F25EA08868CF27C2014AF864EC5C8898F383F817C82",
+      "tested_production_copy_sha256": "D21BE61D7A29CD262569738D8CEE77CD7E379D2FCD44A8AEAAEF3DC19FBFD49B"
+    }
+  },
+  "sb036_diff_summary": "与固定基线比较：SkorioBlock与BarbubbleBlock仅在原版破坏成功且目标已移除后执行镰刀收获；GeoCropBlock含相同双守卫，并将无效土壤时掉落资源改为仅在成功移除后掉落。Git diff为3文件4 insertions/5 deletions；生产工作树只读。",
+  "compiled_artifact_sha256": {
+    "build\\classes\\java\\gametest\\com\\hp\\thermalshockreforged\\gametest\\EarlyContentRegressionServerTests.class": "6D5D4788057BA7271775B037DA8B4FC52E84D0E819A3697FBE2EAEECAE1AA805",
+    "build\\classes\\java\\gametest\\com\\hp\\thermalshockreforged\\gametest\\EarlyContentPlacementServerTests.class": "E24221CC819D6843DD58171708AF485B23A049DA5B33A1FDEBD0D18C828FF977",
+    "build\\classes\\java\\main\\com\\hp\\thermalshockreforged\\content\\farming\\SkorioBlock.class": "78AE7884C0BED3B11B9951EA8BA6C41750BF3BA5FB690D8B550E2397CBB6A4B5",
+    "build\\classes\\java\\main\\com\\hp\\thermalshockreforged\\content\\farming\\BarbubbleBlock.class": "F01B09F9F4710DC1DD5EBEDCE13A07662EF366794770DB4FA7BEABA0C0E55EDE",
+    "build\\classes\\java\\main\\com\\hp\\thermalshockreforged\\content\\farming\\GeoCropBlock.class": "B4294A92D5F6F70D892498E08C66435198061006E8C2CBF1380B11FF3E872901"
+  },
+  "distributable_jar": {
+    "produced": false,
+    "reason": "runGameTestServer使用Gradle开发运行类路径，未执行jar打包任务；专服启动与GameTest运行日志为实际运行证据。"
+  },
+  "deduplication": {
+    "matrix_case_count_when_tests_were_selected": 332,
+    "duplicates_at_selection": 0,
+    "own_manifest_case_ids_unique": true,
+    "shared_matrix_edited_by_this_agent": false,
+    "current_matrix_case_count_observed": 373,
+    "note": "总矩阵由协调主代理维护；当前读回的41条重合是汇总后对应同一case_id的镜像记录，不是本组内部重复。剩余2条以本组manifest留档，交协调者核对汇总时是否纳入。"
+  },
+  "batches": [
+    {
+      "batch": "sootle-sootling-hunters-22",
+      "namespace": "ts_earlycontent_hunters",
+      "baseline_commit": "00bbd5801c3d373d0d239637de9dd69f2f5974d5",
+      "matrix_cases_before": 373,
+      "new_unique_cases": 22,
+      "started_tests": 22,
+      "passed": 22,
+      "failed": 0,
+      "blocked": 0,
+      "exit_code": 0,
+      "server_started": true,
+      "all_dimensions_saved": true,
+      "clean_shutdown": true,
+      "gradle_heap": "1G",
+      "game_heap": "2G",
+      "max_workers": 1,
+      "java_home": "C:\\Users\\30819\\.jdks\\ms-21.0.11",
+      "command": ".\\gradlew.bat --offline --no-daemon --max-workers=1 '-Dorg.gradle.jvmargs=-Xmx1G' -PserverTestNamespace=ts_earlycontent_hunters runGameTestServer --console=plain",
+      "test_source": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\java\\com\\hp\\thermalshockreforged\\gametest\\SootleHuntersServerTests.java",
+      "test_source_sha256": "B4AB0D1E3DBB8B667871C997C5354FB1BAE2BCD7EAB711C85EE4196E6EC32EA7",
+      "template": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\resources\\data\\ts_earlycontent_hunters\\structure\\migration_empty.nbt",
+      "template_sha256": "265FE53432E4694D4A94CEC3A59DEAC1B880CDD869970FACF1EB0E1FB3A16832",
+      "compiled_test_class": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\build\\classes\\java\\gametest\\com\\hp\\thermalshockreforged\\gametest\\SootleHuntersServerTests.class",
+      "compiled_class_sha256": "A2A5E403916D81E2A950ABBA65A34DCD051EDEA1DCD953E80B99894686731ADA",
+      "log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\server-gametest-hunters-attempt7.log",
+      "log_sha256": "1FF9EB9B3598F3FDC7569DE6FE5EE45DF29533E45D4FFD0FB6F2218C73D64295",
+      "tested_sources_match_fixed_snapshot": true,
+      "existing_sb036_patch_in_project_but_outside_test_inputs": true,
+      "tested_source_sha256": {
+        "SootleIdleEntity": "BD81B912B801C7235B4AC8D2430335A1B08552AB76E2DBE407D631EB9D9BA173",
+        "SootleEntity": "675011DBB1704103F008D058B98577B8D0D347C39E01E9266C6143A079CEE85A",
+        "SootlingEntity": "7DE05B4C542F8804A71107DFBE166927CF80270F1833A8463C204EA71FB55DD3",
+        "HuntersContent": "43BF6C262E4B4AA53C5AFBE3EDC4A46103EE43AA9FD3A91A45D78E2F1E97C40D",
+        "RazorwingEntity": "B6A6B2A135F39855A7C3E408E9EC931628F6239B86696CD92092A9D8F404F449",
+        "FrostilyteEntity": "A133517D3AA503645E8C78EE5493112F021A731E566458BBDB69FB10F3E44C22",
+        "IceMobDrops": "1E00C6510A2148D8E0AADF63B1AD1766CB4F092E2BBE6DF57033E2898AB47F4F",
+        "RazorwingLoot": "966F31CB0CE9F08E0F155CFB5B700C06E823EB2F2B8A8182461B387EF93D0B1D",
+        "IceEntityTag": "ACC6B552BFC762A98C0B329789974D3A288C089EF6F3686DB36BD573D6D4CC53"
+      },
+      "scope": "仅隔离D盘工程与本路独占文档；未修改生产src或共享矩阵",
+      "dedupe": "矩阵当前373项；既有Sootle和Sootling两个case已跳过，新增ID独立，不计patch_regressions",
+      "existing_patches_not_under_test": {
+        "change": "SB-036镰刀破坏成功守卫；本批功能源未包含该改动。隔离工程整体仍保留该补丁源码，Gradle全量编译会编译这些类，但本namespace 22项未调用对应机制。",
+        "files": [
+          {
+            "name": "SkorioBlock.java",
+            "sha256": "0D6106F9BF9326CB4756B50F0D818C46ED1FA3A638614C44289EAE6C50D054B7"
+          },
+          {
+            "name": "BarbubbleBlock.java",
+            "sha256": "732FE2CA7AA9EE11EBB4FD0D51AAF55097DC60C3FFDAA5790C0B83D7F2892F48"
+          },
+          {
+            "name": "GeoCropBlock.java",
+            "sha256": "D21BE61D7A29CD262569738D8CEE77CD7E379D2FCD44A8AEAAEF3DC19FBFD49B"
+          }
+        ],
+        "production_src_modified_by_this_batch": false
+      },
+      "failed_attempts": [
+        {
+          "log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\server-gametest-hunters-attempt1.log",
+          "started_server": true,
+          "failures": 4,
+          "sha256": "FE03FC4003B8FC983653A4845440F3AD44A0AE750E6AD3835D7D170819F55AFB",
+          "passed": 14,
+          "classification": "仅为测试期望/测试夹具或编译问题，关闭依据见SB-082至SB-086",
+          "source_snapshot_preserved": true,
+          "tests_started": 18
+        },
+        {
+          "log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\server-gametest-hunters-attempt2.log",
+          "started_server": true,
+          "failures": 2,
+          "sha256": "BF97F10D4E39AD5A5D88FD12E09CD6637814C7D21A9D954E3F04924B0DEFAD7B",
+          "passed": 16,
+          "classification": "仅为测试期望/测试夹具或编译问题，关闭依据见SB-082至SB-086",
+          "source_snapshot_preserved": false,
+          "tests_started": 18
+        },
+        {
+          "log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\server-gametest-hunters-attempt3.log",
+          "started_server": false,
+          "failures": 0,
+          "sha256": "DA368980928EB1E4FD67655D6506F904B302C0C720C3FD577EF67C741B71C9EF",
+          "passed": 0,
+          "classification": "仅为测试期望/测试夹具或编译问题，关闭依据见SB-082至SB-086",
+          "source_snapshot_preserved": false,
+          "tests_started": 0
+        },
+        {
+          "log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\server-gametest-hunters-attempt4.log",
+          "started_server": true,
+          "failures": 2,
+          "sha256": "106F546C1A150DA527E7262D489F0FA92B0877BCA8A5FAE4F4E8FFAB0C8A765F",
+          "passed": 17,
+          "classification": "仅为测试期望/测试夹具或编译问题，关闭依据见SB-082至SB-086",
+          "source_snapshot_preserved": false,
+          "tests_started": 19
+        },
+        {
+          "log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\server-gametest-hunters-attempt5.log",
+          "started_server": false,
+          "failures": 0,
+          "sha256": "48F8104DB284AAFD1A3436F4D26BA0826020C83B1D633011CE73945A63E687CD",
+          "passed": 0,
+          "classification": "仅为测试期望/测试夹具或编译问题，关闭依据见SB-082至SB-086",
+          "source_snapshot_preserved": false,
+          "tests_started": 0
+        },
+        {
+          "log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\server-gametest-hunters-attempt6.log",
+          "started_server": true,
+          "failures": 0,
+          "sha256": "16439F28AF6AD7E334E3C4E35757D6FE70263ECE4C3ACB2443D29144262F9A27",
+          "passed": 20,
+          "classification": "20/20通过的中间运行；最终加入2项后另执行22/22，重复运行不增加计数",
+          "source_snapshot_preserved": false,
+          "tests_started": 20
+        }
+      ],
+      "assertion_count": 22,
+      "assertions_passed": 22,
+      "assertions_failed": 0,
+      "regression_patch_cases_counted_as_unique": 0
+    }
+  ],
+  "attempts": [
+    {
+      "log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\server-gametest-hunters-attempt1.log",
+      "sha256": "FE03FC4003B8FC983653A4845440F3AD44A0AE750E6AD3835D7D170819F55AFB",
+      "exit_code": 2,
+      "server_started": true,
+      "tests_started": 18,
+      "passed": 14,
+      "failed": 4,
+      "classification": "自目标约束假设、自然生成日夜即时读值、两个本地坐标AABB夹具以及tick延迟断言；失败源已保存。"
+    },
+    {
+      "log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\server-gametest-hunters-attempt2.log",
+      "sha256": "BF97F10D4E39AD5A5D88FD12E09CD6637814C7D21A9D954E3F04924B0DEFAD7B",
+      "exit_code": 2,
+      "server_started": true,
+      "tests_started": 18,
+      "passed": 16,
+      "failed": 2,
+      "classification": "自然生成日夜状态更新延迟及转换查询坐标范围错误。"
+    },
+    {
+      "log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\server-gametest-hunters-attempt3.log",
+      "sha256": "DA368980928EB1E4FD67655D6506F904B302C0C720C3FD577EF67C741B71C9EF",
+      "exit_code": 1,
+      "server_started": false,
+      "tests_started": 0,
+      "failed": 0,
+      "classification": "GameTest fixture引用了错误的NeoForge FakePlayer包，编译阶段失败。"
+    },
+    {
+      "log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\server-gametest-hunters-attempt4.log",
+      "sha256": "106F546C1A150DA527E7262D489F0FA92B0877BCA8A5FAE4F4E8FFAB0C8A765F",
+      "exit_code": 2,
+      "server_started": true,
+      "tests_started": 19,
+      "passed": 17,
+      "failed": 2,
+      "classification": "FakePlayer乘骑测试夹具及死亡实体局部AABB定位错误。"
+    },
+    {
+      "log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\server-gametest-hunters-attempt5.log",
+      "sha256": "48F8104DB284AAFD1A3436F4D26BA0826020C83B1D633011CE73945A63E687CD",
+      "exit_code": 1,
+      "server_started": false,
+      "tests_started": 0,
+      "failed": 0,
+      "classification": "测试夹具以Player静态类型调用要求ServerPlayer的清理API，编译阶段失败。"
+    },
+    {
+      "log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\server-gametest-hunters-attempt6.log",
+      "sha256": "16439F28AF6AD7E334E3C4E35757D6FE70263ECE4C3ACB2443D29144262F9A27",
+      "exit_code": 2,
+      "server_started": true,
+      "tests_started": 20,
+      "passed": 18,
+      "failed": 2,
+      "classification": "FakePlayer在armored mount scenario不适用且死亡清理用例AABB错误。"
+    },
+    {
+      "log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\server-gametest-hunters-attempt7.log",
+      "sha256": "1FF9EB9B3598F3FDC7569DE6FE5EE45DF29533E45D4FFD0FB6F2218C73D64295",
+      "exit_code": 0,
+      "server_started": true,
+      "tests_started": 22,
+      "passed": 22,
+      "failed": 0,
+      "clean_shutdown": true,
+      "all_dimensions_saved": true,
+      "classification": "唯一最终验收运行；所有22项通过。"
+    }
+  ],
+  "source_snapshot_preservation": {
+    "attempt1": {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\failed-attempts\\SootleHuntersServerTests-attempt1.java",
+      "sha256": "88002B35EDAB142982483C9028A7DC249C4E280D5A25B724EBAB3AF02E18DD9B"
+    },
+    "attempt2_to_6": "这些尝试的源码没有在各自启动前独立快照；后续编辑已覆盖中间版本，未以当前版本冒充其源码。失败日志全部保留，属于证据保全缺口。",
+    "final": {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\java\\com\\hp\\thermalshockreforged\\gametest\\SootleHuntersServerTests.java",
+      "sha256": "B4AB0D1E3DBB8B667871C997C5354FB1BAE2BCD7EAB711C85EE4196E6EC32EA7"
+    }
+  },
+  "coordinator_corrections": [
+    "attempt6实际20/20通过，原解析误记20失败0通过，已按原日志纠正；最终22/22不变。assertion_count字段实际为case数量，不是逐条assert调用数。"
+  ]
+}

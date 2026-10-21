@@ -79,6 +79,8 @@ public final class FabricationRecipe implements Recipe<FabricationRecipe.Input> 
     }
 
     public int energyCount() { return energy.count(); }
+    public List<Cost> materials() { return materials; }
+    public Cost energy() { return energy; }
     @Override public boolean matches(Input input, Level level) { return removalPlan(input) != null; }
     @Override public ItemStack assemble(Input input, HolderLookup.Provider registries) { return result.copy(); }
     @Override public ItemStack getResultItem(HolderLookup.Provider registries) { return result.copy(); }

@@ -1,0 +1,11 @@
+# SB-063：Forecast回归断言覆盖缺口
+
+状态：已确认测试辅助证明不足，非已确认产品缺陷。
+
+固定底本：00bbd5801c3d373d0d239637de9dd69f2f5974d5。原测试源码SHA256：0999DDA805C956B5F171D1C649A4B179AC20E26E72E7B9F3A94CA4A5EC3381EB；日志forecast-run-08.log SHA256：1B101AF133FB52CBBC5E44F4BB94CB108BF22D099E5318DDD3F9C73238F24480。
+
+ItemEntity以世界绝对(5,2,5)生成，而警告与Cow以GameTest绝对坐标生成。物品远离攻击现场，未受伤无法证明类型过滤。实际17/17日志仍保留，普通Cow命中断言有效；物品过滤单独待修夹具验证。
+
+不可变原源码和逐项审查留在D盘forecast/resume-audit；修正只限隔离测试源码，保留旧日志，完成后追加关闭证据。
+
+关闭证据：修正夹具后独立两项实际2/2通过，全部维度保存关闭；源码SHA256 C0DF654AE19C55ECC9FA47FF76EF3261A14A58D56BE22AB7702D6F74845A384D，日志SHA256 844A030D24D8AAC39DEEE63CD42375589B82E67417E09998E0B7EB4A333973E5，具体输入与局部tick限制见fixture-audit-regression.json。保留原17/17日志和证明不足发现，不把修正回归计新覆盖。

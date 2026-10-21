@@ -1,0 +1,11 @@
+# SB-031：Kofoni测试把Block传给ItemStack.is
+
+状态：已关闭，测试辅助类型错误，14项回归通过，非生产缺陷。
+
+固定99快照00bbd5801c3d373d0d239637de9dd69f2f5974d5，namespace ts_server182。首轮compileGametestJava失败，实际执行0/14，没有启动专服；不计14项功能失败，不写正常保存关闭。
+
+目标NativeDecorContent.java61明确SPARKLY_MUCK为DeferredBlock<Block>，原菜单new ItemStack(Block)支持方块构造但ItemStack.is没有Block重载。测试muck筛选误直接传Block，需显式.asItem()；仅修D盘测试辅助，不动生产源码。
+
+首轮kofoni-server-gametest.log SHA256 4DE2346E81E22CE2DD44B6D01470802594B4EFEA750791B5AACB6F4AFFA55C9D，源码SHA256 FAC59A8D7F2506F697F4089595847EEB6660DFBF811F3CBD626CBA42A88C69F9，保留KofoniServerBehaviorTests-initial-compile.java。退出1、尚无服务端功能结论。后续同14项整组编译/运行另补。
+
+关闭证据：ts_server182最终14/14通过、退出0、全部维度正常保存关闭。日志kofoni-server-gametest-rerun2.log SHA256 7005CA9D240BF8D625D160CE6451EB595477B7C9E3FF7EE19A3309B582D5F82B，源码SHA256 2F0ABEEA72A9B96226897EF98E9AB89695E837B9583B0A9E5EFC24D0D5F306C6。原生组件合法多叠分别实际保64/13/11，日志consumed=64；普通石板默认最大1未改。详server195-kofoni-final.md。

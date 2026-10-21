@@ -1,0 +1,88 @@
+{
+  "snapshotFileCounts": {
+    "snapshot": 8656,
+    "extra": 0,
+    "missing": 0,
+    "commit": 8656,
+    "gitEolNormalizedMatches": 8656,
+    "rawBlobMatches": 8655
+  },
+  "coverageGroups": [
+    {
+      "count": 3,
+      "area": "工具、材料、资源数据"
+    },
+    {
+      "count": 3,
+      "area": "Forecast/Zap"
+    },
+    {
+      "count": 2,
+      "area": "Crystal Koi"
+    },
+    {
+      "count": 6,
+      "area": "交互方块与 Scarlet Ray"
+    },
+    {
+      "count": 1,
+      "area": "装饰方块"
+    },
+    {
+      "count": 1,
+      "area": "轴向方块"
+    },
+    {
+      "count": 2,
+      "area": "画作"
+    },
+    {
+      "count": 3,
+      "area": "Probosker"
+    }
+  ],
+  "originalJarSha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436",
+  "entryPoints": {
+    "server": "runs.server configured with --nogui",
+    "gameTestServer": "gradlew.bat runGameTestServer"
+  },
+  "blockers": [
+    "第99批统一编译中，等待负责人明确释放",
+    "不得操作其他项目 PID 50044"
+  ],
+  "snapshotCommit": "8397254821278a42c577addcb6f1f34e53c97ebc",
+  "protectedPid": 50044,
+  "status": "prepared_waiting_for_release",
+  "environment": {
+    "javaHome": "C:\\Users\\30819\\.jdks\\ms-21.0.11",
+    "neoForge": "21.1.233",
+    "maxWorkers": 2,
+    "minecraft": "1.21.1",
+    "gameXmx": "3G",
+    "gradleWrapper": "8.14",
+    "java": "21"
+  },
+  "gametest": {
+    "thisTurnRun": false,
+    "thisTurnPass": 0,
+    "thisTurnUncovered": 21,
+    "historicalDocumentedPass": 18,
+    "annotationCount": 21,
+    "thisTurnFail": 0,
+    "sourceSet": "src/gametest/java",
+    "currentlyDocumentedUnverified": 3,
+    "classCount": 5,
+    "fixtureCount": 1,
+    "historicalLog": "gametest-axis.log"
+  },
+  "preparedCommand": "$env:JAVA_HOME = 'C:\\Users\\30819\\.jdks\\ms-21.0.11'; $env:Path = \"$env:JAVA_HOME\\bin;$env:Path\"; Set-Location 'D:\\AI临时文件\\ThermalShockMigration\\early-tests\\8397254\\server-a'; .\\gradlew.bat --no-daemon --max-workers=2 runGameTestServer *> 'D:\\AI临时文件\\ThermalShockMigration\\early-tests\\8397254\\server-a\\gametest-server-a.log'",
+  "gradlewBatExpectedBlob": "2934877ed52772a09090973eb14e4c60a3b20e47",
+  "buildOrGameRunThisTurn": false,
+  "snapshotTree": "aa6cc3d6c0b9ee04fd040492d5397b8256a57834",
+  "snapshotPath": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\8397254\\server-a",
+  "originalJar": "D:\\AI临时文件\\ThermalShockMigration\\thermal_shock-07.9-original.jar",
+  "skillsRead": [
+    "mcreator-rework",
+    "minecraft-mod-dev-helper"
+  ]
+}

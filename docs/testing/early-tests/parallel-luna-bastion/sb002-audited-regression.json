@@ -1,0 +1,26 @@
+{
+  "issue": "SB-002",
+  "baseline": "00bbd5801c3d373d0d239637de9dd69f2f5974d5",
+  "namespace": "ts_server258_audit",
+  "patch": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\bastion\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\ribbonblade\\RibbonbladeActionEntity.java",
+  "patchSha256": "1E164A714D401561628BDC845EFCDB59A239BBBE2C458641F1854F36D978FD8B",
+  "source": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\bastion\\src\\gametest\\java\\com\\hp\\thermalshockreforged\\gametest\\RibbonbladeSb002RegressionTests.java",
+  "sourceSha256": "053230D3E5365469511BE65183A77D529494CC1E4C26891F0802EA97B3E7A855",
+  "log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\bastion\\resume-audit\\ts_server258_audit-rerun-20261020-110941.log",
+  "logSha256": "FEF74F994BCDAA858CA638D22FE1FFEE877194DD6AE180E56305D1DD738F4048",
+  "executed": 13,
+  "passed": 13,
+  "failed": 0,
+  "exitCode": 0,
+  "allDimensionsSaved": true,
+  "command": ".\\gradlew.bat --offline --no-daemon --max-workers=1 -Dorg.gradle.jvmargs=-Xmx1G -PserverTestNamespace=ts_server258_audit runGameTestServer --console=plain",
+  "scope": "真实beginAttack入口，两格瞬移，冷却20，精确8点伤害；独立五方向；局部CasterUUID任务清理，基础几何负例、护甲及实体NBT往返",
+  "notTested": [
+    "真实玩家网络攻击",
+    "完整移动目标/墙体边界",
+    "跨进程重启",
+    "击退抗性精确比例比较"
+  ],
+  "uniqueCoverageCountIncrement": 0,
+  "note": "补丁回归，不替换旧快照失败，不把重跑次数计为新功能。"
+}

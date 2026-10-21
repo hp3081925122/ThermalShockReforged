@@ -1,0 +1,49 @@
+{
+  "schema":"thermal-shock-server-test-run-v1",
+  "run_id":"ts_server260-grunt-icesquad",
+  "batch":11,
+  "baseline_commit":"00bbd5801c3d373d0d239637de9dd69f2f5974d5",
+  "input_patch":{"path":"src/main/java/com/hp/thermalshockreforged/entity/ribbonblade/RibbonbladeActionEntity.java","sha256":"1E164A714D401561628BDC845EFCDB59A239BBBE2C458641F1854F36D978FD8B","scope":"existing SB-002 direction/attack-entry patch; excluded from this run"},
+  "namespace":"ts_server260",
+  "command":"$env:JAVA_HOME='C:\\Users\\30819\\.jdks\\ms-21.0.11'; .\\gradlew.bat --offline --no-daemon --max-workers=1 '-Dorg.gradle.jvmargs=-Xmx1G' runGameTestServer -PserverTestNamespace=ts_server260",
+  "execution":{"attempts":6,"executed":18,"passed":14,"failed":4,"gradle_exit_code":4,"shutdown":true,"saved_dimensions":["overworld","nether","end"],"cross_process_restart":false},
+  "artifacts":{
+    "source":{"path":"D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\bastion\\src\\gametest\\java\\com\\hp\\thermalshockreforged\\entity\\icesquad\\GruntProjectileServerBehaviorTests.java","sha256":"CA45044EC10F2BBE5891E784F7C68E534CF946316CBB7367FE944F31A6D262DD"},
+    "template":{"path":"D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\bastion\\src\\gametest\\resources\\data\\ts_server260\\structure\\supernova_server.nbt","sha256":"3612C3943632F43E60F13EAD841225322BD57EB62CBC68A122E7D928E8934A61"},
+    "logs":[
+      {"path":"D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\bastion\\grunt-icesquad-server-260-attempt-1.log","sha256":"FECB5E947247FE56E40259AB0EAA8311EA77436FA9A7DA44B4F66E5591D7CB99"},
+      {"path":"D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\bastion\\grunt-icesquad-server-260-attempt-2.log","sha256":"686FF2191E501E08F724548D730601F3D3F0025A29E60774E23A2D8D217D0F52"},
+      {"path":"D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\bastion\\grunt-icesquad-server-260-attempt-3.log","sha256":"199D8E256F048956B506E0C7C27B964D5A80161858D796797F964B6E882B26B4"},
+      {"path":"D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\bastion\\grunt-icesquad-server-260-attempt-4.log","sha256":"2FAC82E21C8DB947A0F1FDB1F85A1797CCF8CD57397ABC6749D28AB36203171F"},
+      {"path":"D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\bastion\\grunt-icesquad-server-260-attempt-5.log","sha256":"9B34D5954FA04159AD261FFFE21D2B871EBCBBAB235649CEB7156E3C7774DD49"},
+      {"path":"D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\bastion\\grunt-icesquad-server-260-attempt-6.log","sha256":"531BE1AB25A4354D258CF2EF4696DC2B284844EAEBFF5216810406C5E98AFC5F","exit_code":4}
+    ]
+  },
+  "cases":[
+    {"case_id":"GT-LUNA-260-01","method":"gruntRegistersExactVanillaCombatAttributesAndScaledDimensions","entry":"registered Grunt attributes and scaled dimensions","assertions":"HP/current 8; armor 1; attack 2; speed .2; follow range 8; width .54 and height 1.44","result":"passed","not_covered":"natural spawn and disk restart"},
+    {"case_id":"GT-LUNA-260-02","method":"gruntRejectsOnlyDrowningAndAcceptsGenericDamage","entry":"hurt with drowning and generic damage sources","assertions":"drowning blocks 3 damage; generic source applies exactly 3","result":"passed","not_covered":"other damage types"},
+    {"case_id":"GT-LUNA-260-03","method":"gruntTextureAndInjuredHealthSurviveEntityNbtReload","entry":"saveWithoutId then Entity.load","assertions":"texture and health 3 restored","result":"passed","not_covered":"disk restart"},
+    {"case_id":"GT-LUNA-260-04","method":"gruntNativeMeleeAppliesConfiguredDamageAndAttackKnockback","entry":"doHurtTarget against Cow","assertions":"accepted; exactly 2 damage; horizontal knockback","result":"passed","not_covered":"AI pathing attack timing"},
+    {"case_id":"GT-LUNA-260-05","method":"gruntDeathDefersFiveExperienceUntilTickTwenty","entry":"lethal playerAttack then tickDeath 19+1","assertions":"pending after death; no XP before tick 20; removal and exactly 5 XP at tick 20; no duplicate","result":"passed","not_covered":"networked player kill"},
+    {"case_id":"GT-LUNA-260-06","method":"gruntEnvironmentalDeathDefersExperienceWithoutInventedAttacker","entry":"lethal generic hurt then deferred death","assertions":"pending flag; removal at tick 20; no player-attributed vanilla XP event","result":"passed","not_covered":"doMobLoot combinations"},
+    {"case_id":"GT-LUNA-260-07","method":"gruntNeverSelectsPassiveCowAsTarget","entry":"registered Grunt target selector near passive Cow","assertions":"Cow is not selected after 8 mob ticks","result":"passed","not_covered":"ServerPlayer targeting; mock player is not ServerPlayer"},
+    {"case_id":"GT-LUNA-260-08","method":"cryonicProjectilesCaptureOwnerDamageAndPickupPolicy","entry":"configure normal and alternate Cryonic","assertions":"owner, exact 1.5x/2x attack damage, DISALLOWED pickup, silent, noncritical","result":"passed","not_covered":"actual firing AI/network trajectory"},
+    {"case_id":"GT-LUNA-260-09","method":"cryonicProjectilesCanBeUnownedWhileRetainingCasterUuid","entry":"configure(source,false) and entity NBT","assertions":"owner absent; caster UUID; damage 6; knockback .5; pickup disabled","result":"passed","not_covered":"live caster-collision filtering"},
+    {"case_id":"GT-LUNA-260-10","method":"cryonicConfigurationClampsNonfiniteDamageAndKnockback","entry":"configure using zero attack times infinite multiplier and NaN knockback","assertions":"damage and knockback finite zero","result":"passed","not_covered":"attribute infinity, clipped to attribute bounds"},
+    {"case_id":"GT-LUNA-260-11","method":"burnerFlameSetsIgnitionAndUsesFlamePickupItem","entry":"configure Burner Flame","assertions":"100 fire ticks and Blaze Powder display item","result":"passed","not_covered":"network sound and hit ignition"},
+    {"case_id":"GT-LUNA-260-12","method":"cryonicProjectileLifetimeStartsOnWorldTickAndExpiresAtEightyEndTicks","entry":"live Cryonic addition, scheduled tick, END tick expiry","assertions":"start at 80; survive until final boundary; removed at tick 80","result":"failed","issue_id":"SB-046","not_covered":"valid lifetime start not established"},
+    {"case_id":"GT-LUNA-260-13","method":"cryonicReloadRetainsRemainingLifetimeAndCasterIdentity","entry":"tick, saveWithoutId, then Entity.load","assertions":"80 ticks and caster UUID preserved","result":"failed","issue_id":"SB-047","not_covered":"no nonzero source lifetime state"},
+    {"case_id":"GT-LUNA-260-14","method":"cryonicEntityHitUsesNativeArrowDamageAndConsumesProjectile","entry":"onHitEntity through AbstractArrow hit path","assertions":"damage 4 x1.5; projectile removed; existing arrow count preserved","result":"passed","not_covered":"ray collision and multi-target flight"},
+    {"case_id":"GT-LUNA-260-15","method":"striderAndReactiveVariantsRetainTheirDistinctLifetimeAndDisplayItem","entry":"Strider/Gunner/Burner item lookup and tick initialization","assertions":"display items match; expected lifetime 5/80/20","result":"failed","issue_id":"SB-048","not_covered":"lifetime counter did not initialize"},
+    {"case_id":"GT-LUNA-260-16","method":"projectileOwnerReassignmentNeverEnablesPickup","entry":"setOwner after configure","assertions":"new owner; pickup remains DISALLOWED; original caster UUID unchanged","result":"passed","not_covered":"owner removal in flight"},
+    {"case_id":"GT-LUNA-260-17","method":"projectileReloadClampsNegativeAndExcessLifetimeToTypeBounds","entry":"Entity.load with 99 and -3 lifetime inputs","assertions":"99 clamps to 5; -3 to 0 and next tick removes","result":"failed","issue_id":"SB-049","not_covered":"load input not reflected in saved counter"},
+    {"case_id":"GT-LUNA-260-18","method":"cryonicNativeDamageStillPassesThroughTargetArmor","entry":"AbstractArrow native hit with velocity 1","assertions":"10 armor reduces base damage 2 to approximately 1.28","result":"passed","not_covered":"toughness/resistance variants"}
+  ],
+  "issues":[
+    {"issue_id":"SB-046","status":"unresolved_test_result","file":"docs/testing/early-tests/parallel-luna-bastion/SB-046-projectile-end-tick-lifetime-unverified.md"},
+    {"issue_id":"SB-047","status":"unresolved_test_result","file":"docs/testing/early-tests/parallel-luna-bastion/SB-047-projectile-lifetime-nbt-roundtrip-unverified.md"},
+    {"issue_id":"SB-048","status":"unresolved_test_result","file":"docs/testing/early-tests/parallel-luna-bastion/SB-048-variant-lifetime-initialization-unverified.md"},
+    {"issue_id":"SB-049","status":"unresolved_test_result","file":"docs/testing/early-tests/parallel-luna-bastion/SB-049-projectile-lifetime-clamp-unverified.md"}
+  ],
+  "restrictions":{"production_sources_modified":false,"shared_matrix_modified":false,"sb002_repeated":false,"forecast_zap_tested":false}
+}

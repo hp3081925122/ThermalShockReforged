@@ -1,0 +1,14 @@
+{
+  "namespace": "ts_forecast_20261020_audit",
+  "baseline": "00bbd5801c3d373d0d239637de9dd69f2f5974d5",
+  "source": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\forecast\\src\\gametest\\java\\com\\hp\\thermalshockreforged\\entity\\ForecastFixtureAuditServerTests.java",
+  "sourceSha256": "C0DF654AE19C55ECC9FA47FF76EF3261A14A58D56BE22AB7702D6F74845A384D",
+  "log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\forecast\\resume-audit\\ts_forecast_20261020_audit-20261020-111119.log",
+  "logSha256": "844A030D24D8AAC39DEEE63CD42375589B82E67417E09998E0B7EB4A333973E5",
+  "executed": 2,
+  "passed": 2,
+  "allDimensionsSaved": true,
+  "scope": "ItemEntity出生真实Zap原点并验证过滤；双脉冲用实际速度和保存状态逐tick检查，40tick精确边界",
+  "method_limit": "双脉冲部分在服务端GameTest直接调用未加入世界实体tick以隔离物理运动；不声称真实区块或进程重载",
+  "uniqueCoverageCountIncrement": 0
+}

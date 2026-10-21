@@ -1,0 +1,11 @@
+# SB-030：Spirit冲刺测试误把原生方向向量当严格单位向量
+
+状态：已关闭，原生三角查表精度的测试预期错误，非生产缺陷。
+
+固定99快照00bbd5801c3d373d0d239637de9dd69f2f5974d5，ts_server165_diag。SB-028修正后真实玩家攻击事件、冷却40和Aura20 amp3均已通过，但新到达的冲刺断言要求速度模长与4误差小于1e-6，失败。
+
+目标SpiritEntity.beginAttack直接setDeltaMovement(getLookAngle().scale(4))并hurtMarked。已核目标Entity.getLookAngle/calculateViewVector调用Mth.sin/cos；Mth.java48–54使用65536项三角查表，得到的向量模长不是精确1。因此把4倍原生方向与严格单位长度4等同不成立。修正夹具同时断言与原生方向×4向量误差<1e-8、模长4误差<0.001、hurtMarked为真，不修改生产实现。
+
+初次出现日志gaze-server-diagnostic.log SHA256 74136AE7ED7D40D95BD3BFCD150103E72D99E72F56A764481857881C99799A2A，源SHA256 96F0A400087E66C28076678628C6D0C78C788B8FDBB59D8122B1C9C072CFC9BE。副本GazeServerBehaviorTests-diagnostic-run.java保留。Lens同类非单位向量点积问题见独立SB-029；功能与失败断言不同，分别记录。
+
+关闭证据：ts_server165_diag最终两项2/2通过、退出0、三维度保存关闭。日志gaze-server-diagnostic-rerun.log SHA256 C61021E244F011F7E1CC64075F9F11319E51C6A976ADAB79B9C019996403B910；Gaze最终源码SHA256 B2E995E0755F395B2CA69448A3E1F2EBD5B01B68323E640B83AC463BBAE4FBCD。只修测试夹具，生产实现未改。详见server181-gaze-final.md。

@@ -1,0 +1,11 @@
+# SB-039：冰队投射物测试使用固定底本不存在的寿命字段
+
+状态：已关闭测试误报。更正为固定底本SquadProjectileAge语义后4项定向回归全部通过；不认定产品寿命缺陷。
+
+固定基线00bbd5801c3d373d0d239637de9dd69f2f5974d5的D盘IceSquadProjectileEntity使用age字段和SquadProjectileAge存档键，tick中执行寿命递增与移除。ts_server260测试却断言SquadProjectileLifetimeStarted和SquadProjectileRemainingEndTicks；NBT读取不存在键返回false/0，无法证明任何END寿命行为。第4次运行18项中6失败，至少寿命开始、恢复余量、钳制、各类型寿命四条失败属于此版本输入不匹配。护甲伤害和目标选择失败另待代理独立核查，不能一并归因。
+
+不可变证据副本、产品/测试/日志SHA见 D:\AI临时文件\ThermalShockMigration\early-tests\resume-20261020\SB039\evidence.json。快照副本保留本次实际字节，后续夹具修改不覆盖该证据。
+
+修正要求：按独占D盘固定底本核对真实tick入口、Age存档键和各类型80/20/5寿命，再测实际有界存活/移除与NBT余量；不要复制新生产实现入旧底本迎合断言。若要验证原件保真差异，应另外列原件来源与语义，不能把另一目标版本设计当作该底本既有字段。已经提醒执行者重新读取next-assignment，待其交付真实回归日志后追加关闭依据。
+
+关闭依据：ts_server260_lifetime独立4/4通过、exit 0，日志SHA256 937D9F6C83DB49889C491D811F31531E63DA594FE75A8F55CB4C92684974AFC5。覆盖实际年龄边界及内存NBT恢复；未验证磁盘重启或NBT恢复后整个剩余寿命。详见[定向回归报告](server413-grunt-lifetime-corrected.md)。原失败证据保留，累计413唯一项不增加。

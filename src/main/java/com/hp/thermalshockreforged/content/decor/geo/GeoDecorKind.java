@@ -1,11 +1,15 @@
 package com.hp.thermalshockreforged.content.decor.geo;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.shapes.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public enum GeoDecorKind {
     BRIMSTONE_CAKE("brimstone_cake", "Brimstone Cake", "geo/yoylecake.geo.json", "textures/block/brimstonecake4.png", "animations/yoylecake.animation.json", Block.box(1, .1, 1, 15, 7, 15), false, true),
@@ -20,7 +24,7 @@ public enum GeoDecorKind {
     SPIDER_LILIES("spider_lilies", "Spider Lily", "geo/spider_lilies.geo.json", "textures/block/spider_lilies_4.png", "animations/spider_lilies.animation.json", Block.box(.1, .1, .1, 15.9, 4, 15.9), true, false),
     EXTRACTOR("extractor", "Extractor", "geo/extractor.geo.json", "textures/block/extractor.png", "animations/extractor.animation.json", Block.box(.1, .1, .1, 15.9, 14, 15.9), true, true),
     GRAND_BLASPHEMER("grand_blasphemer", "Grand Blasphemer", "geo/grand_blasphemer.geo.json", "textures/block/blasty.png", "animations/grand_blasphemer.animation.json", Shapes.block(), true, true),
-    FABRICATOR("fabricator", "Fabricator", "geo/fabricator.geo.json", "textures/block/texturefabricator.png", "animations/fabricator.animation.json", Block.box(.1, .1, .1, 15.9, 14, 15.9), false, true),
+    FABRICATOR("fabricator", "Fabricator", "geo/fabricator.geo.json", "textures/block/texturefabricator.png", "animations/fabricator.animation.json", Block.box(.1, .1, .1, 15.9, 14, 15.9), true, true),
     CRYSTAL_SOPEL_TROPHY("crystal_sopel_trophy", "Crystal Sopel Trophy", "geo/sopel_relic.geo.json", "textures/block/rubicon_trophy.png", "animations/sopel_relic.animation.json", Shapes.block(), true, false),
     DESK_DIRECTOR("desk_director", "Desk Director", "geo/sopel_desk.geo.json", "textures/block/sopel_desk.png", "animations/sopel_desk.animation.json", Block.box(-16, .1, -16, 32, 15.9, 32), true, false),
     SUPER_CRYONIC_CACHE("super_cryonic_cache", "Super Cryonic Cache", "geo/enchanted_cache.geo.json", "textures/block/supercache.png", "animations/enchanted_cache.animation.json", Block.box(0, 0, 0, 16, 28, 16), false, false),
@@ -89,6 +93,7 @@ public enum GeoDecorKind {
     public final VoxelShape shape;
     public final boolean fallbackDrop;
     public final boolean comparator;
+    public final List<BlockPos> parts;
     GeoDecorKind(String id, String caption, String model, String texture, String animation, VoxelShape shape, boolean fallbackDrop, boolean comparator) {
         this.id = id;
         this.caption = caption;
@@ -98,6 +103,21 @@ public enum GeoDecorKind {
         this.shape = shape;
         this.fallbackDrop = fallbackDrop;
         this.comparator = comparator;
+        this.parts = partsOf(id, shape);
+    }
+    private static List<BlockPos> partsOf(String id, VoxelShape shape) {
+        if (id.equals("large_jellercel") || shape.isEmpty()) return List.of();
+        var bounds = shape.bounds();
+        var parts = new ArrayList<BlockPos>();
+        for (int x = (int) Math.floor(bounds.minX); x < (int) Math.ceil(bounds.maxX); x++) {
+            for (int y = (int) Math.floor(bounds.minY); y < (int) Math.ceil(bounds.maxY); y++) {
+                for (int z = (int) Math.floor(bounds.minZ); z < (int) Math.ceil(bounds.maxZ); z++) {
+                    var offset = new BlockPos(x, y, z);
+                    if (!offset.equals(BlockPos.ZERO) && DecorPartBlock.fits(offset)) parts.add(offset);
+                }
+            }
+        }
+        return List.copyOf(parts);
     }
     public String idleAnimation() {
         return switch (this) {

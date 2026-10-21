@@ -1,5 +1,6 @@
 package com.hp.thermalshockreforged.entity.ribbonblade;
 
+import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.world.timing.*;
 import java.util.Comparator;
 import java.util.UUID;
@@ -74,7 +75,10 @@ public final class RibbonbladeActionEntity extends Entity implements ServerEndTi
             if (direction.lengthSqr() > 1.0E-8) look = direction.normalize();
         }
         level.playSound(null, soundOrigin, SoundEvents.PLAYER_ATTACK_SWEEP, SoundSource.HOSTILE, 1, 2);
-        var targets = level.getEntities(this, new AABB(position(), position()).inflate(1.5), entity -> !entity.getUUID().equals(caster) && !(entity instanceof LivingEntity living && living.isBlocking()));
+        Vec3 sweep = look.lengthSqr() > 1.0E-8 ? look.normalize() : Vec3.ZERO;
+        var strikeBounds = new AABB(position(), position()).inflate(1.5).expandTowards(sweep);
+        var targets = level.getEntities(this, strikeBounds, entity -> !entity.getUUID().equals(caster) && !(entity instanceof LivingEntity living && living.isBlocking()));
+        ThermalShockReforged.LOGGER.debug("Ribbonblade strike resolved: task={}, caster={}, targets={}, position={}, sweep={}", getUUID(), caster, targets.size(), position(), sweep);
         targets.sort(Comparator.comparingDouble(entity -> entity.distanceToSqr(position())));
         var damageSource = new DamageSource(level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DAMAGE));
         for (var victim : targets) {

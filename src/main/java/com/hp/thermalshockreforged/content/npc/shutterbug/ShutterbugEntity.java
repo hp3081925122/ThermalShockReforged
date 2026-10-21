@@ -46,4 +46,5 @@ public final class ShutterbugEntity extends PathfinderMob implements GeoEntity {
     }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) { controllers.add(new AnimationController<>(this, "movement", 4, state -> state.setAndContinue(RawAnimation.begin().thenLoop("idle2")))); }
     @Override public AnimatableInstanceCache getAnimatableInstanceCache() { return animations; }
+    @Override public boolean shouldPlayAnimsWhileGamePaused() { return true; }
 }

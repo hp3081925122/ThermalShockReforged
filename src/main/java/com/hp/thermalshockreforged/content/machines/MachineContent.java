@@ -19,12 +19,10 @@ public final class MachineContent {
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<EntityType<?>> TASKS = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
     public static final DeferredBlock<TransmutatorBlock> TRANSMUTATOR = BLOCKS.register("transmutator", TransmutatorBlock::new);
-    public static final DeferredBlock<ExtractorConstructorBlock> EXTRACTOR_CONSTRUCTOR = BLOCKS.register("extractor_constructor", ExtractorConstructorBlock::new);
     public static final DeferredHolder<EntityType<?>, EntityType<BlasphemerProcessEntity>> BLASPHEMER_PROCESS = TASKS.register("blasphemer_process_task", () -> EntityType.Builder.<BlasphemerProcessEntity>of(BlasphemerProcessEntity::new, MobCategory.MISC)
             .noSummon().sized(.01F, .01F).clientTrackingRange(0).updateInterval(20).build(ThermalShockReforged.MOD_ID + ":blasphemer_process_task"));
     static {
         ITEMS.registerSimpleBlockItem(TRANSMUTATOR);
-        ITEMS.registerSimpleBlockItem(EXTRACTOR_CONSTRUCTOR);
     }
     private MachineContent() { }
     public static ResourceLocation id(String path) { return ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }

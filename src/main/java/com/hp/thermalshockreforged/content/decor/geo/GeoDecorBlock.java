@@ -1,6 +1,8 @@
 package com.hp.thermalshockreforged.content.decor.geo;
 
+import com.hp.thermalshockreforged.ThermalShockReforged;
 import java.util.List;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.RandomSource;
 import net.minecraft.core.*;
@@ -51,8 +53,51 @@ public class GeoDecorBlock extends Block implements EntityBlock {
         super.triggerEvent(state, level, pos, id, param);
         return level.getBlockEntity(pos) instanceof GeoDecorBlockEntity entity && entity.triggerEvent(id, param);
     }
+    public boolean hasRoom(Level level, BlockPos pos) {
+        for (BlockPos offset : kind.parts) {
+            var at = pos.offset(offset);
+            if (level.isOutsideBuildHeight(at) || !level.getWorldBorder().isWithinBounds(at)) return false;
+            var current = level.getBlockState(at);
+            if (!current.canBeReplaced() && !pos.equals(DecorPartBlock.main(level, at, current))) return false;
+        }
+        return true;
+    }
+    private void placeParts(Level level, BlockPos pos) {
+        var part = GeoDecorContent.DECOR_PART.get();
+        for (BlockPos offset : kind.parts) {
+            var at = pos.offset(offset);
+            if (level.isOutsideBuildHeight(at) || !level.hasChunkAt(at)) continue;
+            var current = level.getBlockState(at);
+            if (current.is(part) && DecorPartBlock.offset(current).equals(offset)) continue;
+            if (!current.canBeReplaced()) {
+                ThermalShockReforged.LOGGER.debug("Decor part skipped because space is occupied: main={}, part={}, block={}", pos, at, current.getBlock());
+                continue;
+            }
+            level.setBlock(at, part.state(offset, current.getFluidState().getType() == Fluids.WATER), 3);
+        }
+    }
+    private void removeParts(Level level, BlockPos pos) {
+        var part = GeoDecorContent.DECOR_PART.get();
+        DecorPartBlock.clean(() -> {
+            for (BlockPos offset : kind.parts) {
+                var at = pos.offset(offset);
+                if (!level.hasChunkAt(at)) continue;
+                var current = level.getBlockState(at);
+                if (current.is(part) && DecorPartBlock.offset(current).equals(offset)) level.setBlock(at, current.getFluidState().createLegacyBlock(), 3);
+            }
+        });
+    }
+    @Override protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState previous, boolean moving) {
+        super.onPlace(state, level, pos, previous, moving);
+        if (!level.isClientSide && !kind.parts.isEmpty()) placeParts(level, pos);
+    }
+    @Override protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+        super.tick(state, level, pos, random);
+        if (!kind.parts.isEmpty()) placeParts(level, pos);
+    }
     @Override protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState replacement, boolean moving) {
         if (!state.is(replacement.getBlock())) {
+            if (!level.isClientSide && !kind.parts.isEmpty()) removeParts(level, pos);
             if (!level.isClientSide && level.getBlockEntity(pos) instanceof GeoDecorBlockEntity entity) {
                 Containers.dropContents(level, pos, entity);
                 level.updateNeighbourForOutputSignal(pos, this);

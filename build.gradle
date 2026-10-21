@@ -68,8 +68,11 @@ dependencies {
     implementation "net.neoforged:neoforge:${project.neo_version}"
     implementation 'curse.maven:geckolib-388172:8350073'
     implementation 'curse.maven:aaa-particles-979809:9101011'
+    compileOnly "mezz.jei:jei-1.21.1-common-api:19.21.0.247"
+    compileOnly "mezz.jei:jei-1.21.1-neoforge-api:19.21.0.247"
     developmentRuntime "mezz.jei:jei-1.21.1-neoforge:19.27.0.346"
     developmentRuntime "curse.maven:just-enough-characters-250702:8117474"
+    compileOnly "curse.maven:jade-324717:8591319"
     developmentRuntime "curse.maven:jade-324717:8591319"
 }
 

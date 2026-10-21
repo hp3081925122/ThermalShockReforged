@@ -1,0 +1,21 @@
+# SB-036：成熟作物移除失败后仍调用收获
+
+状态：真实专服已复现回调防御缺口；正常玩家可达性仍未证明，不能定性为普通采集可无限复制。下文“计划”保留为运行前调查历史，最终结论见运行结果。
+
+固定99快照00bbd5801c3d373d0d239637de9dd69f2f5974d5。
+
+SkorioBlock、BarbubbleBlock、GeoCropBlock的onDestroyedByPlayer均保存super返回值，却无条件调用SickleHarvesting.harvest。当前NeoForge的IBlockExtension默认实现调用level.removeBlock，返回值代表实际移除是否成功。因此陈旧状态回调或移除被其他逻辑抢先消费时，可能在返回false的同时仍发产物。
+
+须区分三种情况：正常服务端挖掘、BreakEvent取消、直接以陈旧BlockState重复调用回调。ServerPlayerGameMode正常先发BreakEvent，取消后根本不会进入回调，所以不能把疑点描述成绕过所有领地保护。正常原版路径在没有重入或其他拦截时是否可触发，尚未证明。
+
+计划在ts_server212分别运行九作物正常native destroyBlock、九作物取消事件，以及陈旧状态第二次onDestroyedByPlayer。后者若失败只证明回调缺少防御，不自动证明正常玩家可重复收割。生产源码不改；实际日志、哈希和结论运行后追加。
+
+运行结果：ts_server212真实服务端复现九种作物在第二次陈旧回调中均removed=false仍发3至7个掉落，完整逐项列表见sickle-server-gametest.log。确认的是回调缺少实际移除成功门槛；未证明普通玩家在没有重入/其他拦截时可连续复制。同组正常native九作物、Barbubble上下半和九作物BreakEvent取消全部通过。
+
+证据：日志SHA256 91C2849F129AB82C00F9497FCE4D289F49BE773EB55746B92A6DF3069CF33CBB，测试源码SHA256 D164A139180C673049ABA19639C80BDFF16F6BADEA694438AC354DC043C17732。生产源码未改，待主控评估是否增加result门槛并回归库存释放与双层植物。
+
+2026-10-20当前生产核查：提交1cabc41已为SkorioBlock、BarbubbleBlock、GeoCropBlock添加 `result && !level.getBlockState(pos).is(this)` 门槛，当前HEAD126114f仍保留该防护。本聊天没有重复改写这三文件。此为当前生产源码已修的静态证据，尚不替代修复后真实采集、陈旧回调、隐藏库存及双层植物的专服回归；旧99快照失败保留。
+
+## 2026-10-20 补丁回归
+
+Luna在00bbd580独立工程叠加Skorio、Barbubble、GeoCrop三份生产已有守卫，ts_earlycontent_next实际20/20通过并保存关闭。其中单块八作物陈旧回调、双层Barbubble上半陈旧回调均不新增产物；只追加两条补丁回归，不增加独立用例计数，不改旧99快照失败。精确源码与补丁SHA、日志server-gametest-new20-attempt5.log SHA256 2D5D6FB91914DCBB1D572C4C02A2100C2E258FBBE1D723D7A6C2CE57F00D3825见parallel-luna-early-content/manifest.json。完整真实玩家挖掘、并发模组拦截与磁盘重启仍未证明。

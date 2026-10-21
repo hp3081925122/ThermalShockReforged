@@ -1,0 +1,414 @@
+{
+  "execution": {
+    "gameServerHeap": "2G (forecast build.gradle)",
+    "targetedRunsUseTemporarilyFilteredGametestAnnotations": true,
+    "serverSavesAllDimensionsAndShutsDownNormally": true,
+    "gradleHeap": "1G",
+    "offline": true,
+    "gradleCommand": ".\\gradlew.bat --offline --no-daemon --max-workers=1 -Dorg.gradle.jvmargs=-Xmx1G runGameTestServer -PserverTestNamespace=ts_weapon_core_disk_20261020",
+    "maxWorkers": 1
+  },
+  "cases": [
+    {
+      "firstEffectiveRun": "run-02 passed",
+      "method": "coreEjectPrimaryConsumesOneRoundWithoutWeaponWear",
+      "case": "CORE-01",
+      "status": "passed",
+      "assertions": "成功主键消耗1发 light_round，发射弹体归属玩家，枪耐久不变，创建1个循环实体。",
+      "entry": "CoreEjectFlareGunItem.onEntitySwing",
+      "matrixBatch": 87,
+      "limitations": "直接调用挥动入口，不模拟客户端网络输入。"
+    },
+    {
+      "firstEffectiveRun": "run-02 passed",
+      "method": "coreEjectPrimaryRejectsMissingLightRound",
+      "case": "CORE-02",
+      "status": "passed",
+      "assertions": "无 light_round 时不发射、不建循环、不扣枪耐久。",
+      "entry": "CoreEjectFlareGunItem.onEntitySwing",
+      "matrixBatch": 87,
+      "limitations": "只验证服务端库存与实体状态。"
+    },
+    {
+      "firstEffectiveRun": "run-02 passed",
+      "method": "coreEjectAlternateUseSpawnsCoreAndConsumesOneHeavyRound",
+      "case": "CORE-03",
+      "status": "passed",
+      "assertions": "成功副键生成 FlareGunCoreEntity 并保留原 owner，消耗1发 heavy_round，枪耐久不变。",
+      "entry": "CoreEjectFlareGunItem.use",
+      "matrixBatch": 87,
+      "limitations": "直接调用use服务端入口。"
+    },
+    {
+      "firstEffectiveRun": "run-02 passed",
+      "method": "coreEjectAlternateUseRejectsMissingHeavyRound",
+      "case": "CORE-04",
+      "status": "passed",
+      "assertions": "无 heavy_round 时不生成核心、不扣耐久。",
+      "entry": "CoreEjectFlareGunItem.use",
+      "matrixBatch": 87,
+      "limitations": "只测服务端物品入口。"
+    },
+    {
+      "firstEffectiveRun": "run-02 passed",
+      "method": "coreEjectInputsShareCooldownAndPreserveRejectedModeAmmo",
+      "case": "CORE-05",
+      "status": "passed",
+      "assertions": "共享冷却使另一模式被拒绝，弹药与实体数保持。",
+      "entry": "onEntitySwing后调用use",
+      "matrixBatch": 87,
+      "limitations": "覆盖同一冷却窗拒绝，不覆盖边界前后每一tick。"
+    },
+    {
+      "firstEffectiveRun": "run-02 failed; targeted run-03 passed",
+      "method": "coreEjectCycleRunsExactlyEighteenAndTwentyEndStages",
+      "case": "CORE-06",
+      "status": "passed",
+      "assertions": "主键1..18、副键1..20每个END阶段恰执行一次，逐tick偏移连续且分别于18/20移除。",
+      "entry": "两个模式真实物品入口；监听实体加入和ServerTickEvent.Post",
+      "matrixBatch": 87,
+      "limitations": "直接调用服务端入口；监听按发射位置过滤同世界其他测试实体。"
+    },
+    {
+      "firstEffectiveRun": "run-02 passed",
+      "method": "flareGunCoreIgnoresFallAndCanceledDeathDoesNotDetonate",
+      "case": "CORE-07",
+      "status": "passed",
+      "assertions": "摔落伤害被忽略，取消死亡保持存活，邻近目标不受爆炸伤害。",
+      "entry": "FlareGunCoreEntity.hurt/causeFallDamage/die与LivingDeathEvent取消",
+      "matrixBatch": 87,
+      "limitations": "直接触发生命周期入口。"
+    },
+    {
+      "firstEffectiveRun": "run-02 passed",
+      "method": "flareGunCoreDeathWithoutEntityAttackerDoesNotDetonate",
+      "case": "CORE-08",
+      "status": "passed",
+      "assertions": "核心死亡但邻近目标不受伤害。",
+      "entry": "带无实体攻击者的DamageSource使核心死亡",
+      "matrixBatch": 87,
+      "limitations": "直接调用hurt。"
+    },
+    {
+      "firstEffectiveRun": "run-02 passed",
+      "method": "flareGunCorePlayerKillDetonatesSevenWithOriginalAttacker",
+      "case": "CORE-09",
+      "status": "passed",
+      "assertions": "邻近目标受到7伤害且伤害记录攻击者UUID为原玩家。",
+      "entry": "玩家归属DamageSource击杀核心",
+      "matrixBatch": 87,
+      "limitations": "使用测试伤害记录目标验证归属。"
+    },
+    {
+      "firstEffectiveRun": "run-02 passed",
+      "method": "flareGunCoreChainProcessesEachNearbyCoreOnce",
+      "case": "CORE-10",
+      "status": "passed",
+      "assertions": "相邻核心各移除且目标只接收恰好两次、每次7点并归属原攻击者的伤害。",
+      "entry": "提交核心死亡并通过ServerEndTickTasks排队相邻核心",
+      "matrixBatch": 87,
+      "limitations": "直接构造相邻核心与伤害入口。"
+    },
+    {
+      "firstEffectiveRun": "run-02 failed; targeted run-03 passed",
+      "method": "flareGunCoreExpiresOnItsOneHundredTwentiethEndTick",
+      "case": "CORE-11",
+      "status": "passed",
+      "assertions": "remaining从119逐tick到0，生成后第120个tick移除。",
+      "entry": "spawn核心并监听HIGHEST/LOWEST ServerTickEvent.Post",
+      "matrixBatch": 87,
+      "limitations": "定向复测超时上调至140；不测试离线/区块卸载。"
+    },
+    {
+      "firstEffectiveRun": "run-02 passed",
+      "method": "liteprismDiskUseStartsWithoutFiringOrWearingTheItem",
+      "case": "DISK-01",
+      "status": "passed",
+      "assertions": "use进入持续使用，不即时发射、不扣耐久。",
+      "entry": "LiteprismDiskItem.use",
+      "matrixBatch": 88,
+      "limitations": "直接服务端use入口。"
+    },
+    {
+      "firstEffectiveRun": "run-02 passed",
+      "method": "liteprismDiskOnUseTickFiresOnceWearsOneAndStopsUse",
+      "case": "DISK-02",
+      "status": "passed",
+      "assertions": "用时tick仅发射一次，消耗1耐久并结束使用。",
+      "entry": "LiteprismDiskItem.onUseTick与releaseUsing",
+      "matrixBatch": 88,
+      "limitations": "直接调用服务端用时tick，不验证客户端动画。"
+    },
+    {
+      "firstEffectiveRun": "run-02 passed",
+      "method": "liteprismFirstHitCreatesBuildUpLayerZero",
+      "case": "DISK-03",
+      "status": "passed",
+      "assertions": "首击产生amplifier 0的build-up，目标受对应基础伤害。",
+      "entry": "LiteprismDiskProjectileEntity.onHitEntity",
+      "matrixBatch": 88,
+      "limitations": "合成直接命中入口，不是飞行碰撞。"
+    },
+    {
+      "firstEffectiveRun": "run-02 passed",
+      "method": "liteprismSixthHitStopsAtLayerFiveWithoutDischarging",
+      "case": "DISK-04",
+      "status": "passed",
+      "assertions": "层数停在amplifier 5且第6击没有触发10点释放伤害。",
+      "entry": "对同一目标直接调用6次onHitEntity",
+      "matrixBatch": 88,
+      "limitations": "合成连续命中，不验证弹体飞行/网络同步。"
+    },
+    {
+      "firstEffectiveRun": "run-02 passed",
+      "method": "liteprismSeventhHitDischargesTenAndClearsBuildUp",
+      "case": "DISK-05",
+      "status": "passed",
+      "assertions": "达到阈值后build-up清除并产生10点释放伤害。",
+      "entry": "对同一目标直接调用7次onHitEntity",
+      "matrixBatch": 88,
+      "limitations": "合成直接命中入口。"
+    },
+    {
+      "firstEffectiveRun": "run-02 passed",
+      "method": "liteprismBuildUpExpiresAfterTwentyTicksWithoutDischarge",
+      "case": "DISK-06",
+      "status": "passed",
+      "assertions": "效果自然过期且未提交释放伤害。",
+      "entry": "施加build-up后自然推进20 tick",
+      "matrixBatch": 88,
+      "limitations": "测试真实状态效果时钟，不覆盖区块卸载。"
+    },
+    {
+      "firstEffectiveRun": "run-02 passed",
+      "method": "liteprismHitOnFlareCoreSubmitsResonanceWithOriginalOwner",
+      "case": "DISK-07",
+      "status": "passed",
+      "assertions": "核心同步提交共振，保留投射物的原owner并观察初始burst。",
+      "entry": "disk projectile对FlareGunCore调用onHitEntity",
+      "matrixBatch": 88,
+      "limitations": "直接调用命中方法，不模拟真实碰撞。"
+    },
+    {
+      "firstEffectiveRun": "run-02 passed",
+      "method": "diskResonanceBurstsAtSubmitThreeAndSixWithOwnerAndRadius",
+      "case": "DISK-08",
+      "status": "passed",
+      "assertions": "立即及第3、第6阶段共3次burst，每次伤害4、半径3边界生效并归属原owner。",
+      "entry": "DiskResonanceEntity静态submit并监听END调度",
+      "matrixBatch": 89,
+      "limitations": "直接提交共振并逐tick观察，不走disk projectile。"
+    },
+    {
+      "firstEffectiveRun": "run-02 passed",
+      "method": "carborGlUseWithoutHeavyRoundFailsWithoutStartingOrFiring",
+      "case": "GL-01",
+      "status": "passed",
+      "assertions": "无heavy_round时失败、不开始使用、不生成弹体、不扣弹药。",
+      "entry": "CarborGlItem.use",
+      "matrixBatch": 91,
+      "limitations": "直接服务端use入口。"
+    },
+    {
+      "firstEffectiveRun": "run-02 passed",
+      "method": "carborGlUseFiresOwnerBoundThreeDamageGrenadeAndConsumesOneRound",
+      "case": "GL-02",
+      "status": "passed",
+      "assertions": "发射owner绑定的GrenadeBulletEntity，基础伤害3并消耗1发heavy_round；枪不磨损。",
+      "entry": "CarborGlItem.use",
+      "matrixBatch": 91,
+      "limitations": "直接服务端use入口。"
+    },
+    {
+      "firstEffectiveRun": "run-02 passed",
+      "method": "carborGlUseTickHonorsCooldownAndReleaseStopsFurtherShots",
+      "case": "GL-03",
+      "status": "passed",
+      "assertions": "冷却期间不重复发射，冷却后发射耗弹，release后停止额外射击。",
+      "entry": "use后推进原生cooldown并直接调用onUseTick，再releaseUsing",
+      "matrixBatch": 91,
+      "limitations": "用时tick由测试直接调用，不代表客户端按键/网络释放。"
+    },
+    {
+      "firstEffectiveRun": "run-02 passed",
+      "method": "carborEntityHitAttributesDirectAndBlastDamageSeparately",
+      "case": "GL-04",
+      "status": "passed",
+      "assertions": "直击伤害归属原owner；非玩家命中另产生半径3 TNT爆炸，cloro_weak路径增加6伤害。",
+      "entry": "GrenadeBulletEntity.onHitEntity直达实体",
+      "matrixBatch": 91,
+      "limitations": "合成onHitEntity，不是弹道碰撞。"
+    },
+    {
+      "firstEffectiveRun": "run-02 passed",
+      "method": "carborEntityHitOnPlayerDoesNotCreateTheTntBlast",
+      "case": "GL-05",
+      "status": "passed",
+      "assertions": "玩家实体命中不创建TNT爆炸。",
+      "entry": "GrenadeBulletEntity.onHitEntity直达玩家",
+      "matrixBatch": 91,
+      "limitations": "合成onHitEntity，不模拟玩家受击网络过程。"
+    },
+    {
+      "firstEffectiveRun": "run-02 passed",
+      "method": "carborBlockHitCreatesItsTwoPowerTntBlast",
+      "case": "GL-06",
+      "status": "passed",
+      "assertions": "方块命中生成power 2爆炸。",
+      "entry": "GrenadeBulletEntity.onHitBlock",
+      "matrixBatch": 91,
+      "limitations": "直接调用方块命中入口，不模拟弹道飞行。"
+    }
+  ],
+  "sourceBaseline": {
+    "files": [
+      {
+        "path": "content/MaterialContent.java",
+        "sha256": "1D6518D8CC39102C5850164EAF5CC09F6E9D2F7F78EFBD10ACA00F2494C8ED52"
+      },
+      {
+        "path": "content/ModDamageTypes.java",
+        "sha256": "59C939963B305E10923F54CE1E82746980A90C368F07E0824C395F5835B6F218"
+      },
+      {
+        "path": "content/weapons/CarborGlItem.java",
+        "sha256": "6227D2F9529C1591A96E84936FA38863BDFBA5144D018DBFCD7EEBE91ADAD519"
+      },
+      {
+        "path": "content/weapons/CoreEjectFlareGunItem.java",
+        "sha256": "74007ADAF4E88DE0D2A2DC66722A4F289F9855068F022B49B2F61637069DE530"
+      },
+      {
+        "path": "content/weapons/DiskResonanceEntity.java",
+        "sha256": "283C389E3125609421AAB5D6AADBF70E8E86CDB2DC82B02944E58850BCD46C1E"
+      },
+      {
+        "path": "content/weapons/FlareGunCycleEntity.java",
+        "sha256": "AD89E352820CEA6E2E998885E5B0115A6EDBC5578DDF1EBBF9AF0AF8A77B6936"
+      },
+      {
+        "path": "content/weapons/HeldWeaponState.java",
+        "sha256": "FB1BF923B9F6B974AC567F459FFBEAEEC14FC5B58B4A98C6C1820E3858807746"
+      },
+      {
+        "path": "content/weapons/LiteprismDiskItem.java",
+        "sha256": "4A686943818712F9F854BA5415E5F9F7054EC4B4FC9660C1E48F219C9D8254EA"
+      },
+      {
+        "path": "content/weapons/WeaponContent.java",
+        "sha256": "A4FB72453E064AE9D5A9E522FF2C17C2998C9E92D9E6FECB32EF1F1115989514"
+      },
+      {
+        "path": "entity/projectile/FlareBulletEntity.java",
+        "sha256": "F24F1CD856EE9EDA1927FE6A4FC79ED9E83142EEA402E5D5B440860A2D558D6D"
+      },
+      {
+        "path": "entity/projectile/GrenadeBulletEntity.java",
+        "sha256": "0CA7EBE4477CD27C65079FE889CD7EAB4E371EA95E9E9655895C1CE621B2C9B0"
+      },
+      {
+        "path": "entity/projectile/LegacyArrowEntity.java",
+        "sha256": "58F614EC825B7F6BE3D9691E78DB0737AD6BA3D86E77CAC22B795282BEFC4C11"
+      },
+      {
+        "path": "entity/projectile/LiteprismDiskProjectileEntity.java",
+        "sha256": "642FF2CC9DB662A55AA8EF401EA7F36898FCBBA5B516AFD07161DD6F473A6C5E"
+      },
+      {
+        "path": "entity/projectile/ProjectileContent.java",
+        "sha256": "AA26CE38272280F3353F35F020C4A00AAAC92015A786C1D18DA6FDC07C4B9A8E"
+      },
+      {
+        "path": "entity/weaponcore/CoreDetonation.java",
+        "sha256": "7A9812791CF5CE3C227D40C70048A68C93A2F1BD18E7C58CF135C6E3511D2B37"
+      },
+      {
+        "path": "entity/weaponcore/FlareGunCoreEntity.java",
+        "sha256": "3967C9DE4CDC79614C75BD3232370A9D933B59874D9B85A4EB75B5B139D28342"
+      },
+      {
+        "path": "template/supernova_server.nbt",
+        "sha256": "3612C3943632F43E60F13EAD841225322BD57EB62CBC68A122E7D928E8934A61"
+      },
+      {
+        "path": "world/timing/ServerEndTickTasks.java",
+        "sha256": "DBA6D1C195D3ECE00AA5409B6CF48C9033099D9C611D1E73F1D88E18DA361B5B"
+      }
+    ],
+    "commit": "00bbd5801c3d373d0d239637de9dd69f2f5974d"
+  },
+  "manifestVersion": 1,
+  "baselineCommit": "00bbd5801c3d373d0d239637de9dd69f2f5974d",
+  "thisBatch": {
+    "sourceSha256": "0AACA8AC32E5830D74B72A37DC5829666B8DA43418C2EDF3654E30CBDB716B93",
+    "sourceFrozenPath": "runs/weapon-core-disk-20261020-run-03/WeaponCoreDiskServerTests.java.full-input",
+    "scopeLimit": "仅覆盖本组25项服务端用例，不代表全部武器或全部模组服务端功能已测",
+    "failed": 0,
+    "passed": 25,
+    "namespace": "ts_weapon_core_disk_20261020",
+    "templateSha256": "3612C3943632F43E60F13EAD841225322BD57EB62CBC68A122E7D928E8934A61",
+    "class": "com.hp.thermalshockreforged.entity.projectile.WeaponCoreDiskServerTests",
+    "templateFrozenPath": "runs/weapon-core-disk-20261020-run-03/supernova_server.nbt",
+    "template": "data/ts_weapon_core_disk_20261020/structure/supernova_server.nbt",
+    "serverOnly": true,
+    "cumulativeArithmetic": {
+      "note": "算术汇总；未写入共享矩阵",
+      "failed": 8,
+      "cases": 471,
+      "passed": 463
+    },
+    "uniqueCases": 25
+  },
+  "previousCumulative": {
+    "failed": 8,
+    "cases": 446,
+    "passed": 438
+  },
+  "attempts": [
+    {
+      "inputSourceSha256": "146B1E11125DAA5BB7F205A688681022232E1141565E253579ED44DBA7627AFD",
+      "log": "runs/weapon-core-disk-20261020-run-01.log",
+      "gradleExitCode": 1,
+      "id": "compile-attempt-01",
+      "kind": "compile-failure-before-server-start",
+      "logSha256": "669E742FFA2BD9C4D958D24906031A601884FEC1ACD0A7DDA22B8D46963027D6",
+      "exitFile": "runs/weapon-core-disk-20261020-run-01.exit.txt",
+      "note": "缺少LivingEntity导入，未启动GameTest；失败原始输入与日志保留",
+      "gameTestCount": 0,
+      "gameTestServerExitCode": null
+    },
+    {
+      "exitFile": "runs/weapon-core-disk-20261020-run-02.exit.txt",
+      "normalShutdownAndAllDimensionsSaved": true,
+      "kind": "full-game-test-run",
+      "gameTestServerExitCode": 2,
+      "inputSourceSha256": "7860E0ADE87FE3450FA2700797C6DC8A905A7E542104D250091B5257B408E874",
+      "id": "full-run-01",
+      "passed": 23,
+      "log": "runs/weapon-core-disk-20261020-run-02.log",
+      "note": "25项真实启动；23项通过，2项夹具失败。失败日志显示阶段序列本身正确，复合断言失败；生命周期用例被默认100 tick超时截断。",
+      "gameTestCount": 25,
+      "gradleExitCode": 1,
+      "failed": 2,
+      "logSha256": "C93FB66B81D2C047B7A513835FBEEA8BA5E32FCBB530BEABD6170A80FEB8E1D6"
+    },
+    {
+      "exitFile": "runs/weapon-core-disk-20261020-run-03/targeted.exit.txt",
+      "finalUnfilteredSourceSha256": "0AACA8AC32E5830D74B72A37DC5829666B8DA43418C2EDF3654E30CBDB716B93",
+      "kind": "targeted-regression-two-previously-failing-cases",
+      "templateSha256": "3612C3943632F43E60F13EAD841225322BD57EB62CBC68A122E7D928E8934A61",
+      "gameTestServerExitCode": 0,
+      "inputSourceSha256": "0434ED3BBC9F36FF3121861A6C899F01BDB2BEED7A3A7FE3146EF791C1BE008D",
+      "id": "targeted-run-02",
+      "passed": 2,
+      "log": "runs/weapon-core-disk-20261020-run-03/targeted.log",
+      "note": "只启用两项失败用例；listener按两位发射者位置筛选，寿命用例timeoutTicks=140；两项均通过",
+      "gameTestCount": 2,
+      "normalShutdownAndAllDimensionsSaved": true,
+      "gradleExitCode": 0,
+      "failed": 0,
+      "logSha256": "769E9388791AF7911C2CB39E1EAEAE89F66A3997A3AA60FEF284DEEE3D33F279"
+    }
+  ],
+  "batch": "server-weapon-core-disk-20261020"
+}

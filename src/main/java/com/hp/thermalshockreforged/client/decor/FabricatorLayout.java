@@ -110,7 +110,7 @@ final class FabricatorLayout {
                     new Label("gui.thermal_shock_reforged.stratus_auger_page.label_bloodstone_sword", 14, 32, -1),
                     new Label("gui.thermal_shock_reforged.stratus_auger_page.label_ghostglass_sword", 14, 41, -1)), List.of(
                     new SpriteButton(0, 174, 38, 40, 18, 0, 0, 18, "textures/screens/atlas/imagebutton_fabricator_craft_button.png", 40, 36, "gui.thermal_shock_reforged.fabricator.craft")));
-            case EXTRACTOR_CONSTRUCTOR -> new Layout(246, 163, 0, "textures/screens/fabricator_panel.png", List.of(
+            case EXTRACTOR -> new Layout(246, 163, 0, "textures/screens/fabricator_panel.png", List.of(
                     new Label("gui.thermal_shock_reforged.extractor_page.label_fabricator_guide", 5, -13, -1),
                     new Label("gui.thermal_shock_reforged.extractor_page.label_tools", 199, -13, -1),
                     new Label("gui.thermal_shock_reforged.extractor_page.label_slot_1_cryonic_alloy_x5", 14, 14, -1),

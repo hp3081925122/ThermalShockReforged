@@ -2,8 +2,11 @@ package com.hp.thermalshockreforged.entity.magnetite;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.item.Item;
@@ -23,7 +26,7 @@ public final class MagnetiteContent {
     private MagnetiteContent() { }
     public static void register(IEventBus bus) { TYPES.register(bus); ITEMS.register(bus); bus.addListener(MagnetiteContent::attributes); bus.addListener(MagnetiteContent::placements); }
     private static void placements(RegisterSpawnPlacementsEvent event) {
-        event.register(MAGNETITE.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (type, level, reason, pos, random) -> true, RegisterSpawnPlacementsEvent.Operation.REPLACE);
+        event.register(MAGNETITE.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (type, level, reason, pos, random) -> level.getDifficulty() != Difficulty.PEACEFUL && Monster.isDarkEnoughToSpawn(level, pos, random) && Mob.checkMobSpawnRules(type, level, reason, pos, random), RegisterSpawnPlacementsEvent.Operation.REPLACE);
     }
     private static void attributes(EntityAttributeCreationEvent event) { event.put(MAGNETITE.get(), MagnetiteEntity.createAttributes().build()); }
 }
