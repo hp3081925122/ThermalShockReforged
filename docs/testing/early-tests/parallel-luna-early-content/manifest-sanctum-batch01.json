@@ -1,0 +1,642 @@
+{
+  "schema": "thermal-shock-server-test-batch-v1",
+  "batch_id": "parallel-luna-early-content-sanctum-01",
+  "feature_batches": [
+    47,
+    48,
+    49
+  ],
+  "baseline_commit": "00bbd5801c3d373d0d239637de9dd69f2f5974d5",
+  "scope": "Errant deterministic parry/dodge/strike/death XP/NBT; Ripple cast/cancel; FrostilyteGunner committed volley timing, death continuation, target removal.",
+  "duplicate_check": {
+    "matrix_path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\testing\\early-tests\\server-coverage-matrix.json",
+    "matrix_snapshot_runtime_counts": {
+      "executed": 437,
+      "passed": 429,
+      "failed": 8
+    },
+    "proposed_case_ids_checked": 20,
+    "duplicate_case_ids": [],
+    "matrix_modified": false,
+    "excluded_prior_frostilyte_hunters_cases": 5
+  },
+  "execution": {
+    "executor": "Luna /root/early_content_server_tests",
+    "machine_time_recorded": "2026-10-20 11:55-12:03 local log clock",
+    "working_project": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content",
+    "java_home": "C:\\Users\\30819\\.jdks\\ms-21.0.11",
+    "java_version": "Microsoft OpenJDK 21.0.11+10-LTS",
+    "gradle_heap": "1G",
+    "game_server_heap": "2G (runGameTestServer jvmArguments in isolated build.gradle)",
+    "gradle_max_workers": 1,
+    "offline": true,
+    "no_daemon": true,
+    "client_started": false,
+    "server_command_template": ".\\gradlew.bat --offline --no-daemon --max-workers=1 '-Dorg.gradle.jvmargs=-Xmx1G' '-PserverTestNamespace=<namespace>' runGameTestServer",
+    "server_namespaces": [
+      "ts_earlycontent_sanctum",
+      "ts_earlycontent_sanctum_retry",
+      "ts_earlycontent_ripple_timing"
+    ],
+    "compilation_command": ".\\gradlew.bat --offline --no-daemon --max-workers=1 '-Dorg.gradle.jvmargs=-Xmx1G' compileGametestJava"
+  },
+  "test_counts": {
+    "unique_independent_cases": 20,
+    "first_full_namespace_executed": 20,
+    "first_full_namespace_passed": 19,
+    "first_full_namespace_test_harness_assertion_failures": 1,
+    "focused_parry_executed": 1,
+    "focused_parry_passed": 1,
+    "focused_ripple_exact_timing_executed": 1,
+    "focused_ripple_exact_timing_passed": 1,
+    "total_server_case_executions_including_focused": 22,
+    "final_unique_cases_passed": 20,
+    "final_product_failures": 0
+  },
+  "attempts": [
+    {
+      "id": "attempt1",
+      "kind": "compile-and-server-command",
+      "namespace": "ts_earlycontent_sanctum",
+      "exit_code": 1,
+      "server_started": false,
+      "source_sha256": "2FC7749910E919B64B9FEF37F320F5D12F9F9FC2DED346834407D9D821D42AE9",
+      "template_sha256": "265FE53432E4694D4A94CEC3A59DEAC1B880CDD869970FACF1EB0E1FB3A16832",
+      "log": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\runs\\sanctum-batch-01\\server-gametest-attempt1.log",
+        "sha256": "3EFF7235E89CDDCA2DF3C2011AA37340FCE9766390BCF7D7BD0CEA8A83A2DA3F",
+        "exit_code": 1,
+        "note": "Gradle首轮编译失败：旧测试辅助的效果参数类型不匹配；专服未启动。"
+      }
+    },
+    {
+      "id": "attempt3",
+      "kind": "full-server-batch",
+      "namespace": "ts_earlycontent_sanctum",
+      "exit_code": 1,
+      "server_started": true,
+      "executed": 20,
+      "passed": 19,
+      "failed_test": "GT-LUNA-earlycontent-sanctum-47-02",
+      "failure_classification": "test-harness assertion expected the instant heal to be applied synchronously; target version applies it as a one-tick effect, so test was corrected. No production defect recorded.",
+      "source_sha256": "11EAE71BA72F747CD97C13E4DB87A6FE4DBFC5031DDD8885CB4287C3A09E5FE1",
+      "template_sha256": "265FE53432E4694D4A94CEC3A59DEAC1B880CDD869970FACF1EB0E1FB3A16832",
+      "primary_compiled_class_sha256": "4D7F6D167F5789EFBB941564FE1F9DE600EA39553315A38B3A674B58502B30C7",
+      "log": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\runs\\sanctum-batch-01\\server-gametest-attempt3.log",
+        "sha256": "9EEA3126FEC5D2F4AC1F23BE2955026D03887BE68E74D46F1DD7C0B35DDBB7A3",
+        "exit_code": 1,
+        "note": "隔离主namespace首组20项；专服启动与保存关闭；19通过，1项招架治疗时点测试断言不符。"
+      }
+    },
+    {
+      "id": "focused-parry",
+      "kind": "targeted-server-rerun",
+      "namespace": "ts_earlycontent_sanctum_retry",
+      "exit_code": 0,
+      "executed": 1,
+      "passed": 1,
+      "source_sha256": "2BABA6E8A1D948AA4DD3BC33B3B381BEC9D26BD1F08AA3D918B93306C83D368B",
+      "primary_source_sha256": "11EAE71BA72F747CD97C13E4DB87A6FE4DBFC5031DDD8885CB4287C3A09E5FE1",
+      "template_sha256": "265FE53432E4694D4A94CEC3A59DEAC1B880CDD869970FACF1EB0E1FB3A16832",
+      "log": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\runs\\sanctum-batch-01\\server-gametest-focused-rerun.log",
+        "sha256": "018F5CC9E58A1F5B961CF125E2E9CC7FB9B3AFA4EFF45C8DBEC9062493E05D30",
+        "exit_code": 0,
+        "note": "只运行招架定向复核1项；1通过。"
+      }
+    },
+    {
+      "id": "focused-ripple-timing",
+      "kind": "targeted-server-boundary-test",
+      "namespace": "ts_earlycontent_ripple_timing",
+      "exit_code": 0,
+      "executed": 1,
+      "passed": 1,
+      "source_sha256": "698E62BA9264F03AC81BC24DD8BA200FE4E890CF75C6979A5492749F0A1AE14E",
+      "primary_source_sha256": "213516B4DEC50E2BFB794B80F1CC1898897F02D2B86A708417F0C431E60BF96C",
+      "template_sha256": "265FE53432E4694D4A94CEC3A59DEAC1B880CDD869970FACF1EB0E1FB3A16832",
+      "log": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\runs\\sanctum-batch-01\\server-gametest-ripple-exact-focused.log",
+        "sha256": "6323ECEAEB76183A1C1A2359392BDE5E404D50AA86248EBEC77D43FBE839CF93",
+        "exit_code": 0,
+        "note": "只运行Ripple精确28/29 END边界复核1项；1通过。"
+      },
+      "compiled_primary_class_sha256": "110B7C3CE3BB3BB00C760F36B7061C2FBBCD5178980FC75EEEA53AB8E52A0726",
+      "compiled_focused_class_sha256": "686685A92BA7A6E5636128CCC95835D3FDEC81D4FA716E3CCAD631D5E57C1842",
+      "compile_task_executed": true,
+      "compiled_primary_source_sha256": "213516B4DEC50E2BFB794B80F1CC1898897F02D2B86A708417F0C431E60BF96C"
+    },
+    {
+      "id": "compile-final-tests",
+      "kind": "compile-only",
+      "command": ".\\gradlew.bat --offline --no-daemon --max-workers=1 '-Dorg.gradle.jvmargs=-Xmx1G' compileGametestJava",
+      "exit_code": 0,
+      "server_started": false,
+      "source_sha256": "79875B92E073D5AFA7531A20A57041701CA3A9444018564C2BEA716EBDFE1B3C",
+      "log": {
+        "path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\runs\\sanctum-batch-01\\compile-final-tests.log",
+        "sha256": "DD95C6CF63374C89934C2EDF893993E7C4FB9DDB67B2B10E32266DB1E168893E",
+        "exit_code": 0,
+        "note": "最终测试源码compileGametestJava成功；未启动游戏。"
+      },
+      "compiled_class_sha256": "A7372B6DB1FF6BC8203E34E4BFF9142BFFCCEEBC08AB239EF35A7C3285E47E74",
+      "note": "成功编译修正后的招架断言；此输入在Ripple 28/29边界增强前。"
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "GT-LUNA-earlycontent-sanctum-47-01",
+      "batch": 47,
+      "module": "Errant",
+      "entrypoint": "errantDeterministicParrySetsItsTwentyTickStatusAndFortyFiveTickCooldown",
+      "assertions": "确定性格挡seed：PARRYING持续20 tick、amplifier 1；冷却45、行动锁30、无待斩阶段。",
+      "actual_entrypoint_note": "直接调用 ErrantEntity.beginAttack；检查状态/NBT冷却、锁和待斩计数。",
+      "result": "passed",
+      "issue_ids": [],
+      "not_tested": [
+        "真实玩家网络/多人同步；跨进程专服重启；自然生成与全进度链",
+        "客户端动画、音效、粒子与Render Preview视觉对照",
+        "第三方模组兼容；Xaero地图"
+      ]
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-sanctum-47-02",
+      "batch": 47,
+      "module": "Errant",
+      "entrypoint": "errantParryHealsFourBeforeResolvingIncomingDamage",
+      "assertions": "确定性格挡后直接受击；检查一 tick HEAL效果已排入、普通伤害得到处理，真实before-armor入口消费PARRYING。",
+      "actual_entrypoint_note": "直接调用 beginAttack 和 hurt；定向测试最终验证健康40、HEAL存在、PARRYING已移除。",
+      "result": "passed",
+      "issue_ids": [],
+      "not_tested": [
+        "真实玩家网络/多人同步；跨进程专服重启；自然生成与全进度链",
+        "客户端动画、音效、粒子与Render Preview视觉对照",
+        "第三方模组兼容；Xaero地图"
+      ],
+      "first_full_batch_result": "test-harness assertion failed; no product bug",
+      "focused_rerun": {
+        "namespace": "ts_earlycontent_sanctum_retry",
+        "executed": 1,
+        "passed": 1,
+        "log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\runs\\sanctum-batch-01\\server-gametest-focused-rerun.log",
+        "log_sha256": "018F5CC9E58A1F5B961CF125E2E9CC7FB9B3AFA4EFF45C8DBEC9062493E05D30"
+      }
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-sanctum-47-03",
+      "batch": 47,
+      "module": "Errant",
+      "entrypoint": "errantDeterministicDodgeUsesReverseLookVectorAndTenTickCooldown",
+      "assertions": "确定性闪避seed：向后look向量×2、hasImpulse、冷却10、无行动锁及PARRYING。",
+      "actual_entrypoint_note": "直接调用 ErrantEntity.beginAttack；比较运动向量和NBT。",
+      "result": "passed",
+      "issue_ids": [],
+      "not_tested": [
+        "真实玩家网络/多人同步；跨进程专服重启；自然生成与全进度链",
+        "客户端动画、音效、粒子与Render Preview视觉对照",
+        "第三方模组兼容；Xaero地图"
+      ]
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-sanctum-47-04",
+      "batch": 47,
+      "module": "Errant",
+      "entrypoint": "errantStrikeHitsOnlyOnItsTwelfthEndTick",
+      "assertions": "确定性反击分支提交12 END tick；前11 tick目标无伤，第12 tick按攻击力×配置倍数伤害且任务清零。",
+      "actual_entrypoint_note": "直接调用 beginAttack；真实服务端END-tick调度和目标生命值断言。",
+      "result": "passed",
+      "issue_ids": [],
+      "not_tested": [
+        "真实玩家网络/多人同步；跨进程专服重启；自然生成与全进度链",
+        "客户端动画、音效、粒子与Render Preview视觉对照",
+        "第三方模组兼容；Xaero地图"
+      ]
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-sanctum-47-05",
+      "batch": 47,
+      "module": "Errant",
+      "entrypoint": "errantStrikeDoesNotFollowATargetPastThreeBlocks",
+      "assertions": "斩击已提交后目标移至攻击距离外；到任务结束无追加伤害，待斩计数清除。",
+      "actual_entrypoint_note": "直接调用 beginAttack；移动后观察真实延迟斩击。",
+      "result": "passed",
+      "issue_ids": [],
+      "not_tested": [
+        "真实玩家网络/多人同步；跨进程专服重启；自然生成与全进度链",
+        "客户端动画、音效、粒子与Render Preview视觉对照",
+        "第三方模组兼容；Xaero地图"
+      ]
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-sanctum-47-06",
+      "batch": 47,
+      "module": "Errant",
+      "entrypoint": "errantStrikeKeepsItsOriginalTargetUuidAfterThatTargetIsRemoved",
+      "assertions": "斩击选定目标被移除，附近另一目标保持原血量；无UUID重定向。",
+      "actual_entrypoint_note": "直接调用 beginAttack；移除目标后等待阶段结束。",
+      "result": "passed",
+      "issue_ids": [],
+      "not_tested": [
+        "真实玩家网络/多人同步；跨进程专服重启；自然生成与全进度链",
+        "客户端动画、音效、粒子与Render Preview视觉对照",
+        "第三方模组兼容；Xaero地图"
+      ]
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-sanctum-47-07",
+      "batch": 47,
+      "module": "Errant",
+      "entrypoint": "removedErrantCannotResolveItsPendingStrikeAgainstTheTarget",
+      "assertions": "攻击者在待斩阶段移除；目标保持原血量。",
+      "actual_entrypoint_note": "直接调用 beginAttack 后discard施法者；观察真实END-tick任务。",
+      "result": "passed",
+      "issue_ids": [],
+      "not_tested": [
+        "真实玩家网络/多人同步；跨进程专服重启；自然生成与全进度链",
+        "客户端动画、音效、粒子与Render Preview视觉对照",
+        "第三方模组兼容；Xaero地图"
+      ]
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-sanctum-47-08",
+      "batch": 47,
+      "module": "Errant",
+      "entrypoint": "errantDefersThirtyExperienceUntilItsTwentiethDeathTick",
+      "assertions": "玩家伤害进入真实死亡流程；19th death tick前无经验，20th death tick移除且生成合计30经验。",
+      "actual_entrypoint_note": "GameTest mock player的playerAttack伤害；读取死亡tick与ExperienceOrb总值。",
+      "result": "passed",
+      "issue_ids": [],
+      "not_tested": [
+        "真实玩家网络/多人同步；跨进程专服重启；自然生成与全进度链",
+        "客户端动画、音效、粒子与Render Preview视觉对照",
+        "第三方模组兼容；Xaero地图"
+      ]
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-sanctum-47-09",
+      "batch": 47,
+      "module": "Errant",
+      "entrypoint": "errantSavedStrikeReanchorsAndResolvesExactlyOnce",
+      "assertions": "strike阶段执行4次END并进行实体NBT往返；剩余8 tick复载，提前不命中，之后只命中一次。",
+      "actual_entrypoint_note": "saveWithoutId/load新UUID并addFreshEntity；检查延迟伤害。",
+      "result": "passed",
+      "issue_ids": [],
+      "not_tested": [
+        "真实玩家网络/多人同步；跨进程专服重启；自然生成与全进度链",
+        "客户端动画、音效、粒子与Render Preview视觉对照",
+        "第三方模组兼容；Xaero地图"
+      ]
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-sanctum-48-01",
+      "batch": 48,
+      "module": "Ripple",
+      "entrypoint": "rippleAttackCreatesOneCastAndStartsItsCooldownAndMovementLock",
+      "assertions": "Ripple开始施法建立一个归属cast；冷却180、锁40；冷却中重复调用不复制或重置cast。",
+      "actual_entrypoint_note": "直接调用 RippleEntity.beginAttack；按caster UUID筛选任务并读取NBT。",
+      "result": "passed",
+      "issue_ids": [],
+      "not_tested": [
+        "真实玩家网络/多人同步；跨进程专服重启；自然生成与全进度链",
+        "客户端动画、音效、粒子与Render Preview视觉对照",
+        "第三方模组兼容；Xaero地图"
+      ]
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-sanctum-48-02",
+      "batch": 48,
+      "module": "Ripple",
+      "entrypoint": "rippleCastWaitsTwentyNineEndTicksThenCreatesOneErrField",
+      "assertions": "第28个END阶段前任务remaining=1且无ERR；第29个END阶段消费任务并创建一个ERR场。",
+      "actual_entrypoint_note": "完整组首轮仅作较宽的27/31 tick检查；定向namespace通过严格28/29 tick检查。",
+      "result": "passed",
+      "issue_ids": [],
+      "not_tested": [
+        "真实玩家网络/多人同步；跨进程专服重启；自然生成与全进度链",
+        "客户端动画、音效、粒子与Render Preview视觉对照",
+        "第三方模组兼容；Xaero地图"
+      ],
+      "initial_full_batch_coverage": "delay27 no field; delay31 one field",
+      "focused_rerun": {
+        "namespace": "ts_earlycontent_ripple_timing",
+        "executed": 1,
+        "passed": 1,
+        "assertions": "delay28 RippleRemaining=1/no field; delay29 task consumed/one ERR field",
+        "log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\runs\\sanctum-batch-01\\server-gametest-ripple-exact-focused.log",
+        "log_sha256": "6323ECEAEB76183A1C1A2359392BDE5E404D50AA86248EBEC77D43FBE839CF93"
+      }
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-sanctum-48-03",
+      "batch": 48,
+      "module": "Ripple",
+      "entrypoint": "rippleElectrifiedStatusCancelsTheCommittedCast",
+      "assertions": "施法后给Ripple ELECTRIFIED；任务到期时不生成ERR，任务清除。",
+      "actual_entrypoint_note": "直接调用 beginAttack 后添加正式注册状态并观察31 tick。",
+      "result": "passed",
+      "issue_ids": [],
+      "not_tested": [
+        "真实玩家网络/多人同步；跨进程专服重启；自然生成与全进度链",
+        "客户端动画、音效、粒子与Render Preview视觉对照",
+        "第三方模组兼容；Xaero地图"
+      ]
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-sanctum-48-04",
+      "batch": 48,
+      "module": "Ripple",
+      "entrypoint": "rippleWeaknessStatusCancelsTheCommittedCast",
+      "assertions": "施法后添加WEAKNESS；到期不生成ERR，任务清除。",
+      "actual_entrypoint_note": "直接调用 beginAttack 后添加原版状态并观察31 tick。",
+      "result": "passed",
+      "issue_ids": [],
+      "not_tested": [
+        "真实玩家网络/多人同步；跨进程专服重启；自然生成与全进度链",
+        "客户端动画、音效、粒子与Render Preview视觉对照",
+        "第三方模组兼容；Xaero地图"
+      ]
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-sanctum-48-05",
+      "batch": 48,
+      "module": "Ripple",
+      "entrypoint": "rippleInfectedStatusCancelsTheCommittedCast",
+      "assertions": "施法后添加INFECTED；到期不生成ERR，任务清除。",
+      "actual_entrypoint_note": "直接调用 beginAttack 后添加正式注册状态并观察31 tick。",
+      "result": "passed",
+      "issue_ids": [],
+      "not_tested": [
+        "真实玩家网络/多人同步；跨进程专服重启；自然生成与全进度链",
+        "客户端动画、音效、粒子与Render Preview视觉对照",
+        "第三方模组兼容；Xaero地图"
+      ]
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-sanctum-48-06",
+      "batch": 48,
+      "module": "Ripple",
+      "entrypoint": "rippleCasterRemovalCancelsTheCommittedCast",
+      "assertions": "施法者移除后，已提交cast结束且不生成ERR场。",
+      "actual_entrypoint_note": "直接调用 beginAttack，移除caster，再等待31 tick。",
+      "result": "passed",
+      "issue_ids": [],
+      "not_tested": [
+        "真实玩家网络/多人同步；跨进程专服重启；自然生成与全进度链",
+        "客户端动画、音效、粒子与Render Preview视觉对照",
+        "第三方模组兼容；Xaero地图"
+      ]
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-sanctum-48-07",
+      "batch": 48,
+      "module": "Ripple",
+      "entrypoint": "rippleRetainsTheLastAimAfterItsTargetIsRemoved",
+      "assertions": "目标移除后cast仍使用已保存瞄准坐标完成并生成一个ERR场。",
+      "actual_entrypoint_note": "直接调用 beginAttack，移除目标，再等待31 tick。",
+      "result": "passed",
+      "issue_ids": [],
+      "not_tested": [
+        "真实玩家网络/多人同步；跨进程专服重启；自然生成与全进度链",
+        "客户端动画、音效、粒子与Render Preview视觉对照",
+        "第三方模组兼容；Xaero地图"
+      ]
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-sanctum-49-01",
+      "batch": 49,
+      "module": "FrostilyteGunner",
+      "entrypoint": "gunnerVolleyFiresItsThreeBulletsAtEndTicksElevenSixteenAndTwentyOne",
+      "assertions": "事件钩子捕获真实IceBullet：第10 tick为0、第11 tick为1、第16 tick为2、第21 tick为3；射弹含caster UUID及5点快照伤害，任务结束。",
+      "actual_entrypoint_note": "直接调用 FrostilyteGunnerEntity.beginAttack；服务端EntityJoinLevelEvent记录已加入世界的投射物。",
+      "result": "passed",
+      "issue_ids": [],
+      "not_tested": [
+        "真实玩家网络/多人同步；跨进程专服重启；自然生成与全进度链",
+        "客户端动画、音效、粒子与Render Preview视觉对照",
+        "第三方模组兼容；Xaero地图"
+      ]
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-sanctum-49-02",
+      "batch": 49,
+      "module": "FrostilyteGunner",
+      "entrypoint": "gunnerVolleyFinishesItsCommittedThirdShotAfterCasterDeath",
+      "assertions": "第二发后施法者受致死伤害进入死亡状态；已提交任务仍在第21 tick发出第三发。",
+      "actual_entrypoint_note": "真实Gunner死亡状态，不discard；按投射物NBT中的施法者UUID统计。",
+      "result": "passed",
+      "issue_ids": [],
+      "not_tested": [
+        "真实玩家网络/多人同步；跨进程专服重启；自然生成与全进度链",
+        "客户端动画、音效、粒子与Render Preview视觉对照",
+        "第三方模组兼容；Xaero地图"
+      ]
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-sanctum-49-03",
+      "batch": 49,
+      "module": "FrostilyteGunner",
+      "entrypoint": "gunnerVolleyKeepsFiringAtItsSnapshottedAimAfterTargetRemoval",
+      "assertions": "第一发后移除目标，任务继续按最后快照方向发出第2/3发。",
+      "actual_entrypoint_note": "直接调用 beginAttack，观察投射物加入事件。",
+      "result": "passed",
+      "issue_ids": [],
+      "not_tested": [
+        "真实玩家网络/多人同步；跨进程专服重启；自然生成与全进度链",
+        "客户端动画、音效、粒子与Render Preview视觉对照",
+        "第三方模组兼容；Xaero地图"
+      ]
+    },
+    {
+      "case_id": "GT-LUNA-earlycontent-sanctum-49-04",
+      "batch": 49,
+      "module": "FrostilyteGunner",
+      "entrypoint": "gunnerCooldownRejectsRepeatedAttackWithoutDuplicatingVolley",
+      "assertions": "同一冷却中再次攻击不重置60冷却/29行动锁、不重复创建volley。",
+      "actual_entrypoint_note": "直接调用 beginAttack两次并检查归属任务数与NBT。",
+      "result": "passed",
+      "issue_ids": [],
+      "not_tested": [
+        "真实玩家网络/多人同步；跨进程专服重启；自然生成与全进度链",
+        "客户端动画、音效、粒子与Render Preview视觉对照",
+        "第三方模组兼容；Xaero地图"
+      ]
+    }
+  ],
+  "test_sources": [
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\java\\com\\hp\\thermalshockreforged\\entity\\sanctum\\SanctumCombatServerTests.java",
+      "sha256": "213516B4DEC50E2BFB794B80F1CC1898897F02D2B86A708417F0C431E60BF96C",
+      "frozen_attempt3_sha256": "11EAE71BA72F747CD97C13E4DB87A6FE4DBFC5031DDD8885CB4287C3A09E5FE1",
+      "note": "最终源码包含正确的招架效果检查和精确Ripple时序断言；最终编译，整组原运行对应的未更正源码保存在input-attempt3。"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\java\\com\\hp\\thermalshockreforged\\entity\\sanctum\\SanctumCombatParryFocusedTests.java",
+      "sha256": "2BABA6E8A1D948AA4DD3BC33B3B381BEC9D26BD1F08AA3D918B93306C83D368B",
+      "note": "仅目标namespace定向招架复核源码。"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\java\\com\\hp\\thermalshockreforged\\entity\\sanctum\\SanctumRippleTimingFocusedTests.java",
+      "sha256": "698E62BA9264F03AC81BC24DD8BA200FE4E890CF75C6979A5492749F0A1AE14E",
+      "note": "仅目标namespace精确Ripple 28/29 END边界复核源码。"
+    }
+  ],
+  "templates": [
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\resources\\data\\ts_earlycontent_sanctum\\structure\\migration_empty.nbt",
+      "sha256": "265FE53432E4694D4A94CEC3A59DEAC1B880CDD869970FACF1EB0E1FB3A16832",
+      "relative": "ts_earlycontent_sanctum/structure/migration_empty.nbt"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\resources\\data\\ts_earlycontent_sanctum_retry\\structure\\migration_empty.nbt",
+      "sha256": "265FE53432E4694D4A94CEC3A59DEAC1B880CDD869970FACF1EB0E1FB3A16832",
+      "relative": "ts_earlycontent_sanctum_retry/structure/migration_empty.nbt"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\resources\\data\\ts_earlycontent_ripple_timing\\structure\\migration_empty.nbt",
+      "sha256": "265FE53432E4694D4A94CEC3A59DEAC1B880CDD869970FACF1EB0E1FB3A16832",
+      "relative": "ts_earlycontent_ripple_timing/structure/migration_empty.nbt"
+    }
+  ],
+  "compiled_classes": [
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\build\\classes\\java\\gametest\\com\\hp\\thermalshockreforged\\entity\\sanctum\\SanctumCombatServerTests.class",
+      "sha256": "110B7C3CE3BB3BB00C760F36B7061C2FBBCD5178980FC75EEEA53AB8E52A0726",
+      "source_path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\java\\com\\hp\\thermalshockreforged\\entity\\sanctum\\SanctumCombatServerTests.java",
+      "source_sha256": "213516B4DEC50E2BFB794B80F1CC1898897F02D2B86A708417F0C431E60BF96C",
+      "status": "已编译；使用定向Ripple构建后的当前最终类。首轮整组运行的原类文件另存为compiled-attempt3-primary.class。"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\runs\\sanctum-batch-01\\compiled-attempt3-primary.class",
+      "sha256": "4D7F6D167F5789EFBB941564FE1F9DE600EA39553315A38B3A674B58502B30C7",
+      "source_sha256": "11EAE71BA72F747CD97C13E4DB87A6FE4DBFC5031DDD8885CB4287C3A09E5FE1",
+      "status": "首轮整组输入对应类；首轮后通过同一冻结源码重新编译并保存，字节码SHA可复核。"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\build\\classes\\java\\gametest\\com\\hp\\thermalshockreforged\\entity\\sanctum\\SanctumCombatParryFocusedTests.class",
+      "sha256": "32AB17570705E51462344F0D5B69272506040851779256F698CBF8F75B1E9ED9",
+      "source_path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\java\\com\\hp\\thermalshockreforged\\entity\\sanctum\\SanctumCombatParryFocusedTests.java",
+      "source_sha256": "2BABA6E8A1D948AA4DD3BC33B3B381BEC9D26BD1F08AA3D918B93306C83D368B"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\build\\classes\\java\\gametest\\com\\hp\\thermalshockreforged\\entity\\sanctum\\SanctumRippleTimingFocusedTests.class",
+      "sha256": "686685A92BA7A6E5636128CCC95835D3FDEC81D4FA716E3CCAD631D5E57C1842",
+      "source_path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\java\\com\\hp\\thermalshockreforged\\entity\\sanctum\\SanctumRippleTimingFocusedTests.java",
+      "source_sha256": "698E62BA9264F03AC81BC24DD8BA200FE4E890CF75C6979A5492749F0A1AE14E"
+    }
+  ],
+  "tested_product_sources": [
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\sanctum\\ErrantEntity.java",
+      "sha256": "0FE152C3F8D00F79F50FAB0DC643A78D6ED349F099E067DFE967E876260CE25E",
+      "baseline_commit": "00bbd5801c3d373d0d239637de9dd69f2f5974d5",
+      "matches_fixed_baseline": true
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\sanctum\\ErrantCombat.java",
+      "sha256": "9EE3E7EBB54C7594670A92A14ED55423BB67C8225AADE83B49C536B5E4AA5BC8",
+      "baseline_commit": "00bbd5801c3d373d0d239637de9dd69f2f5974d5",
+      "matches_fixed_baseline": true
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\sanctum\\RippleEntity.java",
+      "sha256": "E795427AA915C14A8472ADA36E8CB0855F885AE84CC2BC1326D64DF9BB8AC13C",
+      "baseline_commit": "00bbd5801c3d373d0d239637de9dd69f2f5974d5",
+      "matches_fixed_baseline": true
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\sanctum\\RippleCastEntity.java",
+      "sha256": "221B77B52D447A88C37C8B64599852C146F635785E9DA75F241A4EEB076C9225",
+      "baseline_commit": "00bbd5801c3d373d0d239637de9dd69f2f5974d5",
+      "matches_fixed_baseline": true
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\sanctum\\FrostilyteGunnerEntity.java",
+      "sha256": "D308A54AFC41A7755CFD6F902F69B522AFC6A17F7FA7FB382C97FBA8153D42BD",
+      "baseline_commit": "00bbd5801c3d373d0d239637de9dd69f2f5974d5",
+      "matches_fixed_baseline": true
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\sanctum\\GunnerVolleyEntity.java",
+      "sha256": "B51ECB359F489EA69F5EEF07DF95DBD8680D32B080B4EB6214E9E3AA0D551772",
+      "baseline_commit": "00bbd5801c3d373d0d239637de9dd69f2f5974d5",
+      "matches_fixed_baseline": true
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\sanctum\\SanctumContent.java",
+      "sha256": "85EFE90D2EC517F249A7E1A381B61815C9FF4B0694CB95EA8F6102C4F4B68196",
+      "baseline_commit": "00bbd5801c3d373d0d239637de9dd69f2f5974d5",
+      "matches_fixed_baseline": true
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\sanctum\\SanctumConfig.java",
+      "sha256": "4D282ADDB02A88005B7422FFF23C3D0E11951AC5A69B4C263A494755DD14B338",
+      "baseline_commit": "00bbd5801c3d373d0d239637de9dd69f2f5974d5",
+      "matches_fixed_baseline": true
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\world\\timing\\ServerEndTickTasks.java",
+      "sha256": "DBA6D1C195D3ECE00AA5409B6CF48C9033099D9C611D1E73F1D88E18DA361B5B",
+      "baseline_commit": "00bbd5801c3d373d0d239637de9dd69f2f5974d5",
+      "matches_fixed_baseline": true
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\ice\\IceBulletEntity.java",
+      "sha256": "CC2360F1454FCDE689A78F4AB16632AF2276FC9F6E1FA4D09C9FDB7D6B53E692",
+      "baseline_commit": "00bbd5801c3d373d0d239637de9dd69f2f5974d5",
+      "matches_fixed_baseline": true
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\status\\StatusContent.java",
+      "sha256": "940AAEA4CC50D31EC2178C3B0C88E9DD07143BC49FC988414A98F0708E490C1B",
+      "baseline_commit": "00bbd5801c3d373d0d239637de9dd69f2f5974d5",
+      "matches_fixed_baseline": true
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\status\\ParryingStatus.java",
+      "sha256": "943609D5C5090CE82E5950A1D131A03C0BF2D35DFE272FEC140544848D00F184",
+      "baseline_commit": "00bbd5801c3d373d0d239637de9dd69f2f5974d5",
+      "matches_fixed_baseline": true
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\mixin\\LivingEntityStatusMixin.java",
+      "sha256": "D096F5CD1B24049D6833A60BAEC1710F0CDCB4DCE3E8613A719BFA9639C42642",
+      "baseline_commit": "00bbd5801c3d373d0d239637de9dd69f2f5974d5",
+      "matches_fixed_baseline": true
+    },
+    {
+      "path": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\src\\main\\java\\com\\hp\\thermalshockreforged\\mixin\\PlayerInfectionStatusMixin.java",
+      "sha256": "4867D7870986AE01BC249CBC82F7BFF0358A33CC4CC166B023AF292BBB5C0F74",
+      "baseline_commit": "00bbd5801c3d373d0d239637de9dd69f2f5974d5",
+      "matches_fixed_baseline": true
+    }
+  ],
+  "unrelated_isolated_project_changes": [
+    {
+      "file": "src/main/java/com/hp/thermalshockreforged/content/farming/BarbubbleBlock.java",
+      "baseline_sha256": "C59D8D5F0F7878112AB352B932E2585E185C78CAB7BD22A86E87A6E269FF6070",
+      "isolated_project_sha256": "732FE2CA7AA9EE11EBB4FD0D51AAF55097DC60C3FFDAA5790C0B83D7F2892F48",
+      "classification": "已知SB036守卫补丁；本组未触及作物路径"
+    },
+    {
+      "file": "src/main/java/com/hp/thermalshockreforged/content/farming/GeoCropBlock.java",
+      "baseline_sha256": "5AF6DADF042A355869275F25EA08868CF27C2014AF864EC5C8898F383F817C82",
+      "isolated_project_sha256": "D21BE61D7A29CD262569738D8CEE77CD7E379D2FCD44A8AEAAEF3DC19FBFD49B",
+      "classification": "已知SB036守卫补丁；本组未触及作物路径"
+    },
+    {
+      "file": "src/main/java/com/hp/thermalshockreforged/content/farming/SkorioBlock.java",
+      "baseline_sha256": "0D42FC1FA7DCE4912CC8F30A4854BDC7503E37CFABFC11F5708A4F8E65199BE2",
+      "isolated_project_sha256": "0D6106F9BF9326CB4756B50F0D818C46ED1FA3A638614C44289EAE6C50D054B7",
+      "classification": "已知SB036守卫补丁；本组未触及作物路径"
+    }
+  ],
+  "suspected_product_bugs": [],
+  "not_tested_overall": [
+    "Errant/Sanctum Errant真实AI近战触发差异；本轮通过public beginAttack触发并断言技能状态",
+    "Sanctum Errant变体、自然生成、完整进度授予与配置边界",
+    "Ripple真实GalvaniteDrops调用者、ERR范围玩家击飞/Wither持续时间及跨维度/磁盘重启",
+    "Gunner自然AI目标选择、弹体命中碰撞与箭伤结算；死亡测试保留真实死亡实体，不覆盖跨维移除",
+    "客户端动画/音效/粒子、Render Preview、Xaero、真实玩家网络、多玩家与第三方兼容"
+  ]
+}

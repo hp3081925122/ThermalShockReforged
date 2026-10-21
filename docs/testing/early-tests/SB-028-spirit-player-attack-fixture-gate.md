@@ -1,0 +1,13 @@
+# SB-028：Spirit真实玩家受击未触发预期冷却与Aura
+
+状态：已关闭：原生初生保护造成测试夹具误报，非生产缺陷。
+
+固定快照00bbd5801c3d373d0d239637de9dd69f2f5974d5，MC1.21.1 / NeoForge21.1.233，namespace ts_server165首轮17项15通过2失败、退出2，服务端正常保存关闭。
+
+首个伤害返回false且血量保持，但下一条冷却40/Aura20/3断言失败。原生ServerPlayer新实例有spawnInvulnerableTime=60，在ServerPlayer.hurt先于Player层Mixin返回；FakePlayer.tick又为空，故该夹具初生保护不会自然消退。已核原生源码768–785与FakePlayer.tick。拟只清理夹具初生保护，再走同一真实hurt调用，不直接post事件。待回归确认。
+
+原玩法依据：docs/migration/gaze-undead-batch94.md中Spirit玩家伤害取消/40tickCD/真Aura20 amp3，以及Lens朝最近透镜FEET至FEET的服务端逻辑。目标源为entity/gaze/SpiritEntity.java、LensEntity.java、GazeContent.java。当前不修改生产源码。
+
+日志：D盘00bbd58/gaze-server-gametest.log，SHA256 E4014889C1FF8DAA15DAF521A5F63C3559B67B8EE4C9721AF21736FEB9F45C06。测试源初轮SHA256 02D35F51F691F2528265AB20C27212F4E7478F48296D5CFE242556FD1AF21C89，初轮不可变副本GazeServerBehaviorTests-first-run.java保留。后续诊断与回归另补，不删除初轮日志。
+
+关闭证据：清理夹具spawnInvulnerableTime后，真实ServerPlayer.hurt路径已经触发模组攻击钩子，冷却40与Aura20/3断言通过。gaze-server-diagnostic.log SHA256 74136AE7ED7D40D95BD3BFCD150103E72D99E72F56A764481857881C99799A2A。之后另一条速度长度断言失败独立记SB-030，不混为本根因。

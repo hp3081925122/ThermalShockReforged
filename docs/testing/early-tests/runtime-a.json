@@ -1,0 +1,49 @@
+{
+  "executor": "指定测试聊天协调者",
+  "worker": null,
+  "snapshotCommit": "8397254821278a42c577addcb6f1f34e53c97ebc",
+  "jarSha256": "6A4A70E9EE2FC01E83D6C4C8627EADCA2D83F0D33E09DBB51F72298E38B18B96",
+  "command": "JAVA_HOME=C:\\Users\\30819\\.jdks\\ms-21.0.11; gradlew.bat --no-daemon --max-workers=2 runGameTestServer",
+  "workingDirectory": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\8397254\\server-a",
+  "log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\8397254\\server-a\\gametest-baseline.log",
+  "exitCode": 0,
+  "gradleResult": "BUILD SUCCESSFUL in 1m; 30 actionable tasks: 4 executed, 26 up-to-date",
+  "serverStarted": true,
+  "serverStoppedNormally": true,
+  "tests": {
+    "discovered": 21,
+    "executed": 21,
+    "passed": 21,
+    "failed": 0,
+    "names": [
+      "allPillarsRetainPlacementRotationLightAndFire",
+      "buttonsRetainDistinctPressDurations",
+      "onlyOriginalWoodButtonsRespondToArrows",
+      "ironSoundPressurePlateStillIgnoresItems",
+      "doorsRetainHandOperationAndPairedRedstoneState",
+      "trapdoorsRetainWaterAndInteractionCategories",
+      "scarletRayKeepsDistinctAttributesSizeAndLoot",
+      "modularToolDoesNotRequireVanillaClass",
+      "migratedRecipeAndWolfFoodLoad",
+      "zapUsesOwnerDamageAndMultiplier",
+      "removedOwnerDoesNotCancelCommittedZap",
+      "forecastCooldownDoesNotUsePotionEffects",
+      "mapColorsAndMiningTiersRemainDefined",
+      "koiRetainsAquaticSemanticsAndSpawnRule",
+      "koiDropsOneFishAndPreservesSavedTexture",
+      "decorativeBlocksKeepShapeFireAndTooltipBehavior",
+      "paintingDimensionsAndPlaceableTagsLoad",
+      "largePaintingKeepsVariantAndPhysicalSizeOnSave",
+      "ownerCommandsAndFeedingDoNotInterfere",
+      "sittingRetainsDamageAndPersistsColorOwnerAndPose",
+      "tamingKeepsBothRandomOutcomesAndFoodSet"
+    ]
+  },
+  "warnings": [
+    "First run logged missing server.properties; server still started and all tests passed.",
+    "A minimal server.properties was added only to the isolated snapshot after the run for reproducibility."
+  ],
+  "productionSourceChanged": false,
+  "baselineJarOverwritten": false,
+  "next": "Run client and Render Preview baseline sequentially; current batch 100 regression waits for unified current-version artifact."
+}

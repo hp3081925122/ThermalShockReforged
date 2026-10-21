@@ -1,0 +1,235 @@
+{
+  "batch": "30",
+  "title": "Atlas / Keystone server obligations",
+  "fixedCommit": "00bbd5801c3d373d0d239637de9dd69f2f5974d5",
+  "namespace": "ts_ec_atlas_20261020",
+  "testSource": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\java\\com\\hp\\thermalshockreforged\\content\\atlas\\AtlasBatch30ServerTests.java",
+  "testSourceSha256": "51578396A494032075573E900048CF439236927C1E3D39B89F699432F40E8204",
+  "targetedSources": [
+    "AtlasBatch30TargetedTests.java",
+    "AtlasWaterPlacementFinalTest.java"
+  ],
+  "targetedSourceHashes": [
+    "4B4A07D4DF84CEB305457DCAA468998C616BA48181A3F03DB3359DACA53C67EE",
+    "46D1DEF1442ABBA8AB4EE3263E80F2F495189A746DBC1ABF573F5E7025ECD6EF"
+  ],
+  "testTemplateSha256": "265FE53432E4694D4A94CEC3A59DEAC1B880CDD869970FACF1EB0E1FB3A16832",
+  "atlasBaseTemplateSha256": "0F23F6293344936908427DDA49481CE7209361E9C5DE9872FCECF5C75EDBEAA5",
+  "runs": [
+    {
+      "worldsSaved": true,
+      "serverClosed": true,
+      "sha256": "350C03D1DD4F14777386A7394228CDF0999F67179C841C924F3A1138F43AC768",
+      "fixtureFailed": 6,
+      "freeze": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\runs\\atlas-batch30-freeze02\\input-freeze.json",
+      "exitCode": 1,
+      "name": "run01",
+      "log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\server-atlas-batch30-run01.log",
+      "namespace": "ts_ec_atlas_20261020",
+      "passed": 11,
+      "freezeSha256": "12951760713891C42DB4C0932FD8BFA4650596C898010CBB12B852FA2F819378"
+    },
+    {
+      "worldsSaved": true,
+      "serverClosed": true,
+      "sha256": "E165BA040EB3E364C7FD9206E1AF854801F1070CE3F9634A559C6A560670B51D",
+      "fixtureFailed": 1,
+      "freeze": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\runs\\atlas-batch30-freeze03\\input-freeze.json",
+      "exitCode": 1,
+      "name": "targeted-run01",
+      "log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\server-atlas-batch30-targeted-run01.log",
+      "namespace": "ts_ec_atlas_retry_20261020",
+      "passed": 5,
+      "freezeSha256": "02CFCE337DDEE75A1671BB963BB2FA1540E36937F4635316DAD7AE53FFAC8306"
+    },
+    {
+      "worldsSaved": true,
+      "serverClosed": true,
+      "sha256": "47086A30D6E51EC918F543EF142E6FA88C4DBEF29B9F31E59487EE9EDEEE72B3",
+      "fixtureFailed": 0,
+      "freeze": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\runs\\atlas-batch30-freeze04\\input-freeze.json",
+      "exitCode": 0,
+      "name": "water-final-run01",
+      "log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\server-atlas-batch30-water-final-run01.log",
+      "namespace": "ts_ec_atlas_waterfinal_20261020",
+      "passed": 1,
+      "freezeSha256": "D2BC26334292EDB1A63E497E5D1F589AFA93B12E92FCA9A10A9E69798A88D8F5"
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "GT-ECAT-001",
+      "method": "coordinateDefaultsAndFinitePersistedValues",
+      "status": "passed",
+      "passEvidence": "run01 passed",
+      "entry": "GameTest actual server fixture; details in report",
+      "assertion": "See method assertion text in frozen source",
+      "coverageLimit": "See report obligation coverage limits"
+    },
+    {
+      "case_id": "GT-ECAT-002",
+      "method": "coordinateMalformedAndNonFiniteValuesFallBack",
+      "status": "passed",
+      "passEvidence": "run01 passed",
+      "entry": "GameTest actual server fixture; details in report",
+      "assertion": "See method assertion text in frozen source",
+      "coverageLimit": "See report obligation coverage limits"
+    },
+    {
+      "case_id": "GT-ECAT-003",
+      "method": "arrivalProtectionClampsAndSynchronizesServerState",
+      "status": "passed",
+      "passEvidence": "run01 passed",
+      "entry": "GameTest actual server fixture; details in report",
+      "assertion": "See method assertion text in frozen source",
+      "coverageLimit": "See report obligation coverage limits"
+    },
+    {
+      "case_id": "GT-ECAT-004",
+      "method": "playerNbtRestoresRemainingArrivalProtection",
+      "status": "passed",
+      "passEvidence": "targeted-run01 or water-final-run01 after first-run fixture failure",
+      "entry": "GameTest actual server fixture; details in report",
+      "assertion": "See method assertion text in frozen source",
+      "coverageLimit": "See report obligation coverage limits"
+    },
+    {
+      "case_id": "GT-ECAT-005",
+      "method": "arrivalProtectionTicksDownAndEndsAtZero",
+      "status": "passed",
+      "passEvidence": "run01 passed",
+      "entry": "GameTest actual server fixture; details in report",
+      "assertion": "See method assertion text in frozen source",
+      "coverageLimit": "See report obligation coverage limits"
+    },
+    {
+      "case_id": "GT-ECAT-006",
+      "method": "waterloggedAtlasUsesPlacementContextAndCreatesBe",
+      "status": "passed",
+      "passEvidence": "targeted-run01 or water-final-run01 after first-run fixture failure",
+      "entry": "GameTest actual server fixture; details in report",
+      "assertion": "See method assertion text in frozen source",
+      "coverageLimit": "See report obligation coverage limits"
+    },
+    {
+      "case_id": "GT-ECAT-007",
+      "method": "atlasNineSlotHandlersPreserveItemsAcrossFaces",
+      "status": "passed",
+      "passEvidence": "run01 passed",
+      "entry": "GameTest actual server fixture; details in report",
+      "assertion": "See method assertion text in frozen source",
+      "coverageLimit": "See report obligation coverage limits"
+    },
+    {
+      "case_id": "GT-ECAT-008",
+      "method": "atlasNullSideHandlerIsRejected",
+      "status": "passed",
+      "passEvidence": "run01 passed",
+      "entry": "GameTest actual server fixture; details in report",
+      "assertion": "See method assertion text in frozen source",
+      "coverageLimit": "See report obligation coverage limits"
+    },
+    {
+      "case_id": "GT-ECAT-009",
+      "method": "atlasPlacementAnimationEndsOnScheduledTick",
+      "status": "passed",
+      "passEvidence": "run01 passed",
+      "entry": "GameTest actual server fixture; details in report",
+      "assertion": "See method assertion text in frozen source",
+      "coverageLimit": "See report obligation coverage limits"
+    },
+    {
+      "case_id": "GT-ECAT-010",
+      "method": "atlasPlacementInitializesOreChoicesOnce",
+      "status": "passed",
+      "passEvidence": "run01 passed",
+      "entry": "GameTest actual server fixture; details in report",
+      "assertion": "See method assertion text in frozen source",
+      "coverageLimit": "See report obligation coverage limits"
+    },
+    {
+      "case_id": "GT-ECAT-011",
+      "method": "atlasMenuValidityUsesRealBlockAndRange",
+      "status": "passed",
+      "passEvidence": "targeted-run01 or water-final-run01 after first-run fixture failure",
+      "entry": "GameTest actual server fixture; details in report",
+      "assertion": "See method assertion text in frozen source",
+      "coverageLimit": "See report obligation coverage limits"
+    },
+    {
+      "case_id": "GT-ECAT-012",
+      "method": "atlasMenuRejectsDifferentOwnerAndMissingBlock",
+      "status": "passed",
+      "passEvidence": "targeted-run01 or water-final-run01 after first-run fixture failure",
+      "entry": "GameTest actual server fixture; details in report",
+      "assertion": "See method assertion text in frozen source",
+      "coverageLimit": "See report obligation coverage limits"
+    },
+    {
+      "case_id": "GT-ECAT-013",
+      "method": "atlasMenuRejectsInvalidButtonsAndWrongActiveMenu",
+      "status": "passed",
+      "passEvidence": "run01 passed",
+      "entry": "GameTest actual server fixture; details in report",
+      "assertion": "See method assertion text in frozen source",
+      "coverageLimit": "See report obligation coverage limits"
+    },
+    {
+      "case_id": "GT-ECAT-014",
+      "method": "atlasMenuHasZeroSlotsAndKeepsPosition",
+      "status": "passed",
+      "passEvidence": "run01 passed",
+      "entry": "GameTest actual server fixture; details in report",
+      "assertion": "See method assertion text in frozen source",
+      "coverageLimit": "See report obligation coverage limits"
+    },
+    {
+      "case_id": "GT-ECAT-015",
+      "method": "activationEntityReadClampsPhaseFaceAndRemaining",
+      "status": "passed",
+      "passEvidence": "targeted-run01 or water-final-run01 after first-run fixture failure",
+      "entry": "GameTest actual server fixture; details in report",
+      "assertion": "See method assertion text in frozen source",
+      "coverageLimit": "See report obligation coverage limits"
+    },
+    {
+      "case_id": "GT-ECAT-016",
+      "method": "atlasMenuButtonBoundsAreRejectedBeforeTravelDispatch",
+      "status": "passed",
+      "passEvidence": "targeted-run01 or water-final-run01 after first-run fixture failure",
+      "entry": "GameTest actual server fixture; details in report",
+      "assertion": "See method assertion text in frozen source",
+      "coverageLimit": "See report obligation coverage limits"
+    },
+    {
+      "case_id": "GT-ECAT-017",
+      "method": "nonAtlasAndEmptyMenuSlotInteractionsStayBounded",
+      "status": "passed",
+      "passEvidence": "run01 passed",
+      "entry": "GameTest actual server fixture; details in report",
+      "assertion": "See method assertion text in frozen source",
+      "coverageLimit": "See report obligation coverage limits"
+    }
+  ],
+  "untestedObligationRefs": [
+    "1-8 Keystone real item/platform/permissions/entity join/template failure cases",
+    "9-13 actual END scheduling, 20/60 timing, rotation template placement and removed-block continuation; limited NBT malformed clamp only",
+    "14 Atlas scheduled water tick not asserted separately",
+    "17 real persistence reload and ForgeData compatibility",
+    "18 real player break/drop/inventory-return side effects",
+    "19 actual useItemOn/useWithoutItem server openMenu packet integration",
+    "20 valid owner/dimension/alive/chunk/range boundary matrix; limited range/owner/block tested",
+    "21 alternate player/range/wrong active packet menu branch only invalid local buttons tested",
+    "22-25 actual multi-dimension travel and event cancellation/retry/commit protocol",
+    "26 Clone/login/invalid missing fields and infinities matrix; only defaults and one NaN fallback tested",
+    "27 full 179/180 network boundary and return to Overworld; tick decrement only",
+    "28 real hurt DamageContainer ordering and bypass tags",
+    "29 real resistance coexistence and cancellation event",
+    "30 milk/default cure versus non-default cure paths",
+    "31 real player save/load yes; network sync frequency and process restart no",
+    "32 accepted extreme finite/nonfinite native damage/statistics inputs"
+  ],
+  "batchTestResult": "17 unique cases final pass, but partial obligation coverage only",
+  "issues": [],
+  "report": "E:\\模组\\发cf的模组\\AAA生物\\Thermal Shock 重做\\1211-neoforge-ThermalShockReforged\\docs\\testing\\early-tests\\parallel-luna-early-content\\server-atlas-keystone-batch30.md"
+}

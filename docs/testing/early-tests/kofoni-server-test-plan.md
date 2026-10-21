@@ -1,0 +1,11 @@
+# 第90批 Kofoni 服务端测试计划
+
+固定99快照00bbd5801c3d373d0d239637de9dd69f2f5974d5。最终14/14已实际专服回归通过，详server195-kofoni-final.md；初轮3项非法超叠夹具问题及1个编译类型问题均独立保留。
+
+测试项：九种石板槽位筛选；空/伪造非tag输入拒绝；九种石板逐个真实交易20XP/真进度/Muck范围；合法原生MAX_STACK_SIZE组件64的整叠成本及固定seed逐轮重新采样的确切结果/逐实体拾取延迟10；重复交易与关闭不双结算；owner/当前容器/非法按钮；8格边界/UUID/死及移除NPC；shift输入输出及非石板只在背包转移；未提交关闭返还一次；满包关闭掉落原款不吞不复制；8情报分支/主菜单石板分支/intro延续/旧页拒绝/真实provider额外字段编码；open失败后可重试及门控；wake持久化/旧ForgeData/20tick边界/重复交互不续期；完整14免疫来源与普通伤害。
+
+依据docs/migration/kofoni-batch.md及固定源码entity/kofoni四文件、当前原生ServerPlayer/AbstractContainerMenu/Inventory/ExperienceOrb。随机奖励不是一次均匀抽样，必须按原条件每轮重新抽样比较。原quickMoveStack允许无关物品在主背包和快捷栏间移动，不能误断言非石板必须返回空；只断言不进输入且不丢物。
+
+测试使用独立ServerPlayer保真实进度奖励，发送连接借NeoForge FakePlayer的只发空操作连接，不走登录回调；只有页面路由用TestPlayer.openMenu记录provider并建真实菜单/调用原writer，未执行真实网络菜单打开。关闭返还仍调用原生clearContainer/placeItemBackInInventory/drop，未用假业务替代。
+
+未测：真实登录/菜单包收发/GUI动画与声音、联网双玩家并发、自然Junkyard结构实际生成及进入、真实服务器重启、玩家跨维度中途关闭、NBT全部未知键兼容。本组通过也只可标Kofoni选定服务端功能部分通过。

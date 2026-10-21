@@ -23,6 +23,7 @@ public final class GeoDecorContent {
     private static final Map<GeoDecorKind, DeferredBlock<GeoDecorBlock>> BLOCK_VALUES = new EnumMap<>(GeoDecorKind.class);
     private static final Map<GeoDecorKind, DeferredItem<GeoDecorItem>> ITEM_VALUES = new EnumMap<>(GeoDecorKind.class);
     private static final Map<GeoDecorKind, DeferredHolder<BlockEntityType<?>, BlockEntityType<GeoDecorBlockEntity>>> ENTITY_VALUES = new EnumMap<>(GeoDecorKind.class);
+    public static final DeferredBlock<DecorPartBlock> DECOR_PART = BLOCKS.register("decor_part", DecorPartBlock::new);
     public static final DeferredBlock<JellercelCollisionBlock> JELLERCEL_COLLISION = BLOCKS.register("large_jellercell_collision", JellercelCollisionBlock::new);
     public static final DeferredBlock<HologramConstructorBlock> HOLOGRAM_CONSTRUCTOR = BLOCKS.register("hologram_constructor", HologramConstructorBlock::new);
     static {

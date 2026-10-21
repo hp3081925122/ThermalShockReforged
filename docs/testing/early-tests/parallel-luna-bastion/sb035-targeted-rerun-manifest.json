@@ -1,0 +1,40 @@
+{
+  "snapshot_commit": "00bbd5801c3d373d0d239637de9dd69f2f5974d5",
+  "suite": "SB-035 targeted rerun",
+  "namespace": "ts_server261",
+  "executed": 1,
+  "passed": 1,
+  "failed": 0,
+  "exit_code": 0,
+  "case_id": "GT-196-titan-dimension-change",
+  "rerun": true,
+  "test_source": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\bastion\\src\\gametest\\java\\com\\hp\\thermalshockreforged\\entity\\titans\\TitanDimensionNextTests.java",
+  "test_source_sha256": "C09DEFE75D3A65958AA823807762C4E9F7024697AC549EA76A76A1E7EE1E4ABC",
+  "template": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\bastion\\src\\gametest\\resources\\data\\ts_server261\\structure\\supernova_server.nbt",
+  "template_sha256": "3612C3943632F43E60F13EAD841225322BD57EB62CBC68A122E7D928E8934A61",
+  "log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\bastion\\runs\\sb035-next-attempt-3.log",
+  "log_sha256": "1401E812BE03261A254E08F8CC5C7B8C117A8CA3B9E2D46D21FC8619C3F04025",
+  "assertions": [
+    "Nether native level exists.",
+    "Before the case starts, synchronously load the target-centered 5x5 chunks to FULL with ServerChunkCache.getChunk(..., FULL, true); log center FULL status and native chunk debug data.",
+    "After the original case adds its native force and region ticket and awaits entity ticking, use Entity.changeDimension; assert same UUID is visible in destination level, source is removed, and moved entity remains alive.",
+    "Drive the original ServerEndTickTask callback through the existing test helper for 20 END stages; assert the stale source-world hit is cancelled, victim receives zero hits, and task is removed."
+  ],
+  "direct_callbacks": [
+    "Original TitanServerBehaviorTests method directly invokes the task endTick callback 20 times; it does not claim natural AI or passive world ticking."
+  ],
+  "untested": [
+    "Huntress package A cases 1-4",
+    "Maiden package A cases 5-7",
+    "Gravers package A cases 10-11",
+    "SB-035 future handles' individual completion states were not separately printed; center fullstatus, chunk debug, and entity-ticking readiness were printed."
+  ],
+  "server_shutdown": "Normal shutdown confirmed; overworld, Nether, and End each reported all chunks saved, followed by all dimensions saved and GameTestServer shutting down.",
+  "product_sources": {
+    "TitanSwingEntity.java": "94C94E275552BB3FB40095C40EA699E04040F6C31E0590AC1B833F8D34345CBB",
+    "SkeletalTitanEntity.java": "33491E77547B838791AB614D7CCA122C5088625C0D493E043BCF5F687F2C21E3"
+  },
+  "frozen_test_template_sha256": "3612C3943632F43E60F13EAD841225322BD57EB62CBC68A122E7D928E8934A61",
+  "historical_test_source_sha256": "12D6C74EC5664830496548C66AA9A53D35E59ED569B46A17290B80E6B55D3ABB",
+  "frozen_previous_final_log_sha256": "2C522E9ACAE6E98191BF496BBB61C6C565E4FFA200ABCF432801346F6CB7268C"
+}

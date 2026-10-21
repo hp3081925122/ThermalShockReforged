@@ -79,4 +79,5 @@ public final class ConciergeEntity extends PathfinderMob implements GeoEntity, S
         controllers.add(procedure);
     }
     @Override public AnimatableInstanceCache getAnimatableInstanceCache() { return animations; }
+    @Override public boolean shouldPlayAnimsWhileGamePaused() { return true; }
 }

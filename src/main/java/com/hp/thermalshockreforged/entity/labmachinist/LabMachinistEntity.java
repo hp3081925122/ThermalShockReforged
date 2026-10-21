@@ -60,4 +60,5 @@ public final class LabMachinistEntity extends PathfinderMob implements GeoEntity
         controllers.add(procedure);
     }
     @Override public AnimatableInstanceCache getAnimatableInstanceCache() { return animations; }
+    @Override public boolean shouldPlayAnimsWhileGamePaused() { return true; }
 }

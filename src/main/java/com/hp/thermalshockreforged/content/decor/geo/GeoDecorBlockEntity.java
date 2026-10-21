@@ -114,4 +114,10 @@ public class GeoDecorBlockEntity extends RandomizableContainerBlockEntity implem
 
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() { return animations; }
+
+    @Override
+    public void onLoad() {
+        super.onLoad();
+        if (level instanceof net.minecraft.server.level.ServerLevel server && !kind.parts.isEmpty()) server.scheduleTick(worldPosition, getBlockState().getBlock(), 1);
+    }
 }

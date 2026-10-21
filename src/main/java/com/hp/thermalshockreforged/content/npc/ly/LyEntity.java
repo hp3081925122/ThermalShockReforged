@@ -45,4 +45,5 @@ public final class LyEntity extends PathfinderMob implements GeoEntity {
     }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) { controllers.add(new AnimationController<>(this, "movement", 4, state -> state.setAndContinue(RawAnimation.begin().thenLoop("0")))); }
     @Override public AnimatableInstanceCache getAnimatableInstanceCache() { return animations; }
+    @Override public boolean shouldPlayAnimsWhileGamePaused() { return true; }
 }

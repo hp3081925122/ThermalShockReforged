@@ -1,0 +1,13 @@
+# SB-034：Kofoni满包关闭掉落数量断言失败
+
+状态：已关闭，测试堆叠上限预期错误，合法组件栈回归通过，非生产缺陷。
+
+固定99快照00bbd5801c3d373d0d239637de9dd69f2f5974d5，ts_server182首个实际运行14项11通过3失败，退出3，服务端正常保存关闭。本项独立记录，共用根因证据不合并问题文档。
+
+目标MaterialContent.java481–494定义diskette_1..9均stacksTo(1)。测试直接new ItemStack(item,5/13/11)并交原生SimpleContainer/Slot，原生setItem按该栈最大堆叠钳到1；shift最多转1。测试却假定原非法超叠数量不被钳制，因此预期不合法。原菜单并没有丢弃一份合法多叠输入。诊断前首先核源码，未改生产实现。
+
+处理：默认石板仍保持max1；需要多叠边界时仅测试辅助显式设置原生MAX_STACK_SIZE组件为64，让多叠成为合法组件栈，并在交易前断言真实槽中数量。原本64整叠用例首轮虽然通过，但运行日志consumed=1，不能声称64已测，将补真实64前置断言并整组回归。重复交易与返还用例同样增加合法前置条件。
+
+日志kofoni-server-gametest-rerun.log SHA256 B52007297771FFC1A3A03E553A3EB493C228149F75062E93CDFCD9977D5491C8。初次实际运行源码SHA256 3F1DDD076441755FAD691BA65B640D66E5585385628A99BC7D3E7B26CA963623，副本KofoniServerBehaviorTests-first-runtime.java保留。修正后再记录实际库存/槽位/掉落实数与关闭依据。
+
+关闭证据：ts_server182最终14/14通过、退出0、全部维度正常保存关闭。日志kofoni-server-gametest-rerun2.log SHA256 7005CA9D240BF8D625D160CE6451EB595477B7C9E3FF7EE19A3309B582D5F82B，源码SHA256 2F0ABEEA72A9B96226897EF98E9AB89695E837B9583B0A9E5EFC24D0D5F306C6。原生组件合法多叠分别实际保64/13/11，日志consumed=64；普通石板默认最大1未改。详server195-kofoni-final.md。

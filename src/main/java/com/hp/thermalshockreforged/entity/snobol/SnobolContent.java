@@ -69,7 +69,8 @@ public final class SnobolContent {
         }, RegisterSpawnPlacementsEvent.Operation.REPLACE);
         event.register(SIIBOL.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (type, level, reason, pos, random) -> {
             var id = BuiltInRegistries.BLOCK.getKey(level.getBlockState(pos.below()).getBlock());
-            return id.getNamespace().equals(ThermalShockReforged.MOD_ID) && id.getPath().equals("shale");
+            return id.getNamespace().equals(ThermalShockReforged.MOD_ID) && id.getPath().equals("shale")
+                    && level.getDifficulty() != net.minecraft.world.Difficulty.PEACEFUL && net.minecraft.world.entity.monster.Monster.isDarkEnoughToSpawn(level, pos, random);
         }, RegisterSpawnPlacementsEvent.Operation.REPLACE);
     }
 }

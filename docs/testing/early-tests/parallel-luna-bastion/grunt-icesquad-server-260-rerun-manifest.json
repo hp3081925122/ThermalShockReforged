@@ -1,0 +1,26 @@
+{
+  "schema":"thermal-shock-server-rerun-v1",
+  "run_id":"ts_server260-lifetime-focused-rerun-1",
+  "baseline_commit":"00bbd5801c3d373d0d239637de9dd69f2f5974d5",
+  "namespace":"ts_server260_lifetime",
+  "rerun":true,
+  "cumulative_unique_case_count":413,
+  "new_unique_cases_added":0,
+  "command":"$env:JAVA_HOME='C:\\Users\\30819\\.jdks\\ms-21.0.11'; .\\gradlew.bat --offline --no-daemon --max-workers=1 '-Dorg.gradle.jvmargs=-Xmx1G' runGameTestServer -PserverTestNamespace=ts_server260_lifetime",
+  "execution":{"executed":4,"passed":4,"failed":0,"exit_code":0,"server_shutdown":true,"saved_dimensions":["minecraft:overworld","minecraft:the_nether","minecraft:the_end"],"disk_world_restart_tested":false},
+  "previous_failure_reason":{"source":"docs/testing/early-tests/SB-039-projectile-test-baseline-mismatch.md","summary":"Fixed input implements age and SquadProjectileAge. Prior tests read SquadProjectileLifetimeStarted and SquadProjectileRemainingEndTicks, which do not exist in this frozen source."},
+  "artifacts":{
+    "test_source":{"path":"D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\bastion\\src\\gametest\\java\\com\\hp\\thermalshockreforged\\entity\\icesquad\\GruntProjectileServerBehaviorTests.java","sha256":"74C56B1A2A29B8E51E8F78838EC1522E52F79F94534ECE78D3D877913CE9B327"},
+    "focused_wrapper":{"path":"D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\bastion\\src\\gametest\\java\\com\\hp\\thermalshockreforged\\entity\\icesquad\\IceSquadLifetimeFocusedTests.java","sha256":"3D0177754CDDB013EC25374D112E359FEF051F97A6471BCA40202FB2A37F3BBF"},
+    "template":{"path":"D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\bastion\\src\\gametest\\resources\\data\\ts_server260_lifetime\\structure\\supernova_server.nbt","sha256":"3612C3943632F43E60F13EAD841225322BD57EB62CBC68A122E7D928E8934A61"},
+    "log":{"path":"D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\bastion\\grunt-icesquad-lifetime-focused-attempt-1.log","sha256":"937D9F6C83DB49889C491D811F31531E63DA594FE75A8F55CB4C92684974AFC5"},
+    "frozen_pre_run_inputs":"D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\bastion\\resume-audit\\ts_server260-lifetime-attempt-1-input"
+  },
+  "cases":[
+    {"case_id":"GT-LUNA-260-12","rerun":true,"wrapper":"cryonicProjectileLifetimeAgeAndWorldExpiry","original_method":"cryonicProjectileLifetimeStartsOnWorldTickAndExpiresAtEightyEndTicks","result":"passed","actual_semantics":"SquadProjectileAge begins at zero; isolated entity ticks prove alive at 79 and removed at 80; real server-world ticking observes the age 79/80 boundary and confirms age 80 removal."},
+    {"case_id":"GT-LUNA-260-13","rerun":true,"wrapper":"cryonicLifetimeAgeNbtReload","original_method":"cryonicReloadRetainsRemainingLifetimeAndCasterIdentity","result":"passed","actual_semantics":"Save Cryonic at SquadProjectileAge 17; Entity.load restores age 17 and caster UUID; next entity tick advances it to 18 (62 entity ticks remain). This is in-memory entity NBT, not disk restart."},
+    {"case_id":"GT-LUNA-260-15","rerun":true,"wrapper":"squadProjectileVariantAgeLifetimes","original_method":"striderAndReactiveVariantsRetainTheirDistinctLifetimeAndDisplayItem","result":"passed","actual_semantics":"Strider, Gunner and Burner Flame are each alive at ages 4/79/19 and removed on entity ticks 5/80/20 respectively; expected display items retained."},
+    {"case_id":"GT-LUNA-260-17","rerun":true,"wrapper":"striderAgeNbtClampBoundaries","original_method":"projectileReloadClampsNegativeAndExcessLifetimeToTypeBounds","result":"passed","actual_semantics":"NBT age 99 clamps to 5 and removes on next tick; age -3 clamps to 0, survives through age 4 and removes at age 5."}
+  ],
+  "restrictions":{"production_sources_modified":false,"shared_matrix_modified":false,"older_14_passing_cases_rerun":false,"new_cases_added":0}
+}

@@ -27,6 +27,16 @@ public final class GeoDecorRenderers {
     }
 
     public static void extensions(RegisterClientExtensionsEvent event) {
+        event.registerBlock(new IClientBlockExtensions() {
+            @Override public boolean addHitEffects(net.minecraft.world.level.block.state.BlockState state, net.minecraft.world.level.Level level, net.minecraft.world.phys.HitResult target, net.minecraft.client.particle.ParticleEngine manager) {
+                if (target instanceof net.minecraft.world.phys.BlockHitResult hit) {
+                    var main = DecorPartBlock.main(level, hit.getBlockPos(), state);
+                    if (main != null) manager.crack(main, hit.getDirection());
+                }
+                return true;
+            }
+            @Override public boolean addDestroyEffects(net.minecraft.world.level.block.state.BlockState state, net.minecraft.world.level.Level level, net.minecraft.core.BlockPos pos, net.minecraft.client.particle.ParticleEngine manager) { return true; }
+        }, GeoDecorContent.DECOR_PART.get());
         for (GeoDecorKind kind : GeoDecorKind.values()) event.registerItem(new IClientItemExtensions() {
             private ItemRenderer renderer;
             @Override public BlockEntityWithoutLevelRenderer getCustomRenderer() {

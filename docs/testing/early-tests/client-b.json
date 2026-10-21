@@ -1,0 +1,23 @@
+{
+  "task": "/root/early_client_b",
+  "baseline": "8397254821278a42c577addcb6f1f34e53c97ebc",
+  "originalJarSha256": "3e7065fa74d4e7a62849521e25e0e68fb81c6c68eadff58dd53844f6770ca436",
+  "snapshot": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\8397254\\client-b",
+  "status": "waiting_for_parent_snapshot_ready_notice",
+  "snapshotRead": false,
+  "buildOrGameRun": false,
+  "renderPreviewRun": false,
+  "evidence": [
+    "已读取 mcreator-rework 与 minecraft-mod-dev-helper 技能。",
+    "已只读检查 Render Preview README、VALIDATION 和 build.gradle；能力及覆盖边界记录在 client-b.md。"
+  ],
+  "pending": [
+    "等待父代理明确通知独立快照解压完成。",
+    "快照完成后执行固定基线只读资源/渲染链路盘点。",
+    "客户端与 Render Preview 测试需等待父代理放行及重型客户端空闲。"
+  ],
+  "uncovered": [
+    "尚无目标构建/运行证据。",
+    "Render Preview 不覆盖服务端 AI、伤害和完整技能生成链路；复杂粒子、自定义天空、多实体服务端技能需适配器。"
+  ]
+}

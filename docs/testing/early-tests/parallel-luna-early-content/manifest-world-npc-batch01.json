@@ -1,0 +1,541 @@
+{
+  "title": "early-content Glastrekker / Dissolver NPC server GameTests",
+  "fixed_commit": "00bbd5801c3d373d0d239637de9dd69f2f5974d5",
+  "production_tree_snapshot_claim": "Each named product class/resource in this manifest is copied under the isolated D: src/main tree and was byte-for-byte verified against git show <fixed_commit>:<path>; production src on E: was not modified.",
+  "actual_product_input_root": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\main",
+  "namespace": "ts_ec_worldnpc_20261020",
+  "gradle_options": {
+    "offline": true,
+    "no_daemon": true,
+    "max_workers": 1,
+    "gradle_heap": "1G",
+    "game_heap": "2G",
+    "java_home": "C:\\Users\\30819\\.jdks\\ms-21.0.11"
+  },
+  "command": ".\\gradlew.bat --offline --no-daemon --max-workers=1 '-Dorg.gradle.jvmargs=-Xmx1G' '-PserverTestNamespace=ts_ec_worldnpc_20261020' runGameTestServer",
+  "product_input_sha256": {
+    "GlastrekkerEntity": {
+      "actual_input_path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\glastrekker\\GlastrekkerEntity.java",
+      "sha256": "fca678b73e76d125b0a3b004deaba194426ed2609787806fc4a79a46c09b043d"
+    },
+    "GlastrekkerEggBlock": {
+      "actual_input_path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\glastrekker\\GlastrekkerEggBlock.java",
+      "sha256": "6b2ef4306b0ee641e172a6b7f83de1baf8d016a8e7f20cf9a8688f9b7fa6fb4d"
+    },
+    "GlastrekkerContent": {
+      "actual_input_path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\glastrekker\\GlastrekkerContent.java",
+      "sha256": "058cc87a4ceb587f4aa4bd514408d6a41c1e267c5bd22ef50c7d0f81e3317365"
+    },
+    "DissolverCycleEntity": {
+      "actual_input_path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\labworldgen\\DissolverCycleEntity.java",
+      "sha256": "7b49570aadafb4d89e0b2afbe9e9cb774912afbf04f4708a8be5f41fa52f23a6"
+    },
+    "DissolverGemlockBlock": {
+      "actual_input_path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\labworldgen\\DissolverGemlockBlock.java",
+      "sha256": "f0b859da01b9bfb43b9d9d3316edff37f9a38db2711e308617d62789a636ba22"
+    },
+    "LabWorldgenContent": {
+      "actual_input_path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\labworldgen\\LabWorldgenContent.java",
+      "sha256": "b7039d6a6183d21f035726ee17423bc66b1fdb25851c8a7646f9af815042c6e2"
+    },
+    "MaterialContent": {
+      "actual_input_path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\MaterialContent.java",
+      "sha256": "1d6518d8cc39102c5850164eaf5cc09f6e9d2f7f78efbd10aca00f2494c8ed52"
+    },
+    "LabContent": {
+      "actual_input_path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\labmachinist\\LabContent.java",
+      "sha256": "40ee86d8134d47f806bd40f840a8f38a2b0ac70fa7bc5c1ece649e9050183b8d"
+    },
+    "LabMachinistEntity": {
+      "actual_input_path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\labmachinist\\LabMachinistEntity.java",
+      "sha256": "b49722b5577241fe7463d6b21b187850b61228163e07ce83bea2044558192719"
+    },
+    "ServerEndTickTasks": {
+      "actual_input_path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\main\\java\\com\\hp\\thermalshockreforged\\world\\timing\\ServerEndTickTasks.java",
+      "sha256": "dba6d1c195d3ece00aa5409b6cf48c9033099d9c611d1e73f1d88e18da361b5b"
+    },
+    "sound_registry": {
+      "actual_input_path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\main\\resources\\assets\\thermal_shock_reforged\\sounds.json",
+      "sha256": "602af97956d0f615f45201fa498565eb974aab609f019227960595301d40541d"
+    }
+  },
+  "test_source_final_path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\java\\com\\hp\\thermalshockreforged\\entity\\glastrekker\\GlastrekkerDissolverWorldNpcServerTests.java",
+  "test_source_final_sha256": "87446b9b02d901c3193fd0fa082a67990101f681566c0b34bd5be89492ace451",
+  "template": {
+    "path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\resources\\data\\ts_ec_worldnpc_20261020\\structure\\migration_empty.nbt",
+    "sha256": "265fe53432e4694d4a94cec3a59deac1b880cdd869970facf1eb0e1fb3a16832"
+  },
+  "unique_case_count": 19,
+  "final_status_counts": {
+    "passed": 19,
+    "failed": 0,
+    "suspected_product_bugs": 0,
+    "fixture_false_positives_closed": 3
+  },
+  "runs": [
+    {
+      "run_id": "run01",
+      "namespace": "ts_ec_worldnpc_20261020",
+      "target_count": 19,
+      "command": ".\\gradlew.bat --offline --no-daemon --max-workers=1 '-Dorg.gradle.jvmargs=-Xmx1G' '-PserverTestNamespace=ts_ec_worldnpc_20261020' runGameTestServer",
+      "freeze_manifest_path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\worldnpc-input-freeze-run01.json",
+      "freeze_manifest_sha256": "d9eaf58fa84974f3f114832baeb73476e19568c1aed09fcc564671a45c48c10a",
+      "freeze_input_count": 8383,
+      "source_sha256": "defbfbefa095d4135e84f10ef7c2cdc81a9344e411bef783285b93a8e74613c3",
+      "template_path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\resources\\data\\ts_ec_worldnpc_20261020\\structure\\migration_empty.nbt",
+      "template_sha256": "265fe53432e4694d4a94cec3a59deac1b880cdd869970facf1eb0e1fb3a16832",
+      "log_path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\worldnpc-server-run01.log",
+      "log_sha256": "71a21c846267f42945f5575403aad61f5133b1d63cb5923f69b4c7ee87052dd8",
+      "exit_code": 1,
+      "normal_world_save_and_shutdown": true,
+      "raw_test_count": "[12:28:16] [Server thread/INFO] [minecraft/GameTestServer]: ========= 19 GAME TESTS COMPLETE IN 1.524 s ======================",
+      "result_lines": [
+        "[12:28:16] [Server thread/ERROR] [minecraft/LogTestReporter]: creativebonemealfailuredoesnotconsumethestack failed at -2125359, -60, -4535940! Creative interaction must retain the stack and the egg when the hatch roll fails",
+        "[12:28:16] [Server thread/ERROR] [minecraft/LogTestReporter]: survivalbonemealfailureconsumesoneandpreservestheegg failed at -2125333, -60, -4535940! The real server sound-play entry must observe one egg interaction sound",
+        "[12:28:16] [Server thread/ERROR] [minecraft/LogTestReporter]: savedfirstphaseresumesremainingdeadlinewithoutrepeatingdissolve failed at -2125333, -60, -4535912! The first completed phase must be saved with elapsed twenty",
+        "[12:28:16] [Server thread/ERROR] [minecraft/LogTestReporter]: noticesearchincludesintersectingmachinistandexcludesbeyondexpandedaabb failed at -2125359, -60, -4535926! Exactly one real DissolverCycleEntity must remain at the anchor",
+        "[12:28:16] [Server thread/ERROR] [minecraft/LogTestReporter]: onenearbymachinistschedulestwoobservedvoicesoundcallsatelapsed33and50 failed at -2125320, -60, -4535926! Exactly one real DissolverCycleEntity must remain at the anchor",
+        "[12:28:16] [Server thread/ERROR] [minecraft/LogTestReporter]: voiceschedulesurvivessaveloadbetweenbothactualsoundstages failed at -2125294, -60, -4535926! Exactly one real DissolverCycleEntity must remain at the anchor",
+        "[12:28:16] [Server thread/ERROR] [minecraft/LogTestReporter]: twonearbymachinistsproducetwoactualsoundcallsateachvoicestage failed at -2125281, -60, -4535926! Exactly one real DissolverCycleEntity must remain at the anchor",
+        "[12:28:16] [Server thread/INFO] [minecraft/GameTestServer]: ========= 19 GAME TESTS COMPLETE IN 1.524 s ======================",
+        "[12:28:16] [Server thread/INFO] [minecraft/GameTestServer]: 7 required tests failed :("
+      ]
+    },
+    {
+      "run_id": "run02",
+      "namespace": "ts_ec_worldnpc_20261020",
+      "target_count": 10,
+      "command": ".\\gradlew.bat --offline --no-daemon --max-workers=1 '-Dorg.gradle.jvmargs=-Xmx1G' '-PserverTestNamespace=ts_ec_worldnpc_20261020' runGameTestServer",
+      "freeze_manifest_path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\worldnpc-input-freeze-run02.json",
+      "freeze_manifest_sha256": "967be80d84a51091fa478d28533a72f2174a9e32e7dbe49cba8746410f9d1de3",
+      "freeze_input_count": 86,
+      "source_sha256": "e4a217505d8cda6f39bb1d3f4f073685100d046488d1b030e57934115a87f4b5",
+      "template_path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\resources\\data\\ts_ec_worldnpc_20261020\\structure\\migration_empty.nbt",
+      "template_sha256": "265fe53432e4694d4a94cec3a59deac1b880cdd869970facf1eb0e1fb3a16832",
+      "log_path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\worldnpc-server-run02.log",
+      "log_sha256": "2d11be45d64cc69f549dfb54fcf4adb3e6e683e2846ec069502e670d549bb997",
+      "exit_code": 1,
+      "normal_world_save_and_shutdown": true,
+      "raw_test_count": "[12:34:24] [Server thread/INFO] [minecraft/GameTestServer]: ========= 10 GAME TESTS COMPLETE IN 1.531 s ======================",
+      "result_lines": [
+        "[12:34:24] [Server thread/ERROR] [minecraft/LogTestReporter]: creativebonemealfailuredoesnotconsumethestack failed at 8502946, -60, -1870992! Creative interaction must retain the stack and the egg when the hatch roll fails",
+        "[12:34:24] [Server thread/ERROR] [minecraft/LogTestReporter]: survivalbonemealfailureconsumesoneandpreservestheegg failed at 8502972, -60, -1870992! The real server sound-play entry must observe one egg interaction sound",
+        "[12:34:24] [Server thread/ERROR] [minecraft/LogTestReporter]: noticesearchincludesintersectingmachinistandexcludesbeyondexpandedaabb failed at 8502985, -60, -1870992! Exactly one real DissolverCycleEntity must remain at the anchor",
+        "[12:34:24] [Server thread/ERROR] [minecraft/LogTestReporter]: onenearbymachinistschedulestwoobservedvoicesoundcallsatelapsed33and50 failed at 8503011, -60, -1870992! Exactly one real DissolverCycleEntity must remain at the anchor",
+        "[12:34:24] [Server thread/ERROR] [minecraft/LogTestReporter]: voiceschedulesurvivessaveloadbetweenbothactualsoundstages failed at 8503024, -60, -1870992! Exactly one real DissolverCycleEntity must remain at the anchor",
+        "[12:34:24] [Server thread/ERROR] [minecraft/LogTestReporter]: twonearbymachinistsproducetwoactualsoundcallsateachvoicestage failed at 8503037, -60, -1870992! Exactly one real DissolverCycleEntity must remain at the anchor",
+        "[12:34:24] [Server thread/INFO] [minecraft/GameTestServer]: ========= 10 GAME TESTS COMPLETE IN 1.531 s ======================",
+        "[12:34:24] [Server thread/INFO] [minecraft/GameTestServer]: 6 required tests failed :("
+      ]
+    },
+    {
+      "run_id": "run03",
+      "namespace": "ts_ec_worldnpc_20261020",
+      "target_count": 10,
+      "command": ".\\gradlew.bat --offline --no-daemon --max-workers=1 '-Dorg.gradle.jvmargs=-Xmx1G' '-PserverTestNamespace=ts_ec_worldnpc_20261020' runGameTestServer",
+      "freeze_manifest_path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\worldnpc-input-freeze-run03.json",
+      "freeze_manifest_sha256": "fa7e327d62fc4acd143d6c8f804b95c7b1c0abd8bcb0381ba95babdaaafc0754",
+      "freeze_input_count": 86,
+      "source_sha256": "e348423fbb79b5723915811661b03db88b53a1d72e9c81681a084a4696d0dc5d",
+      "template_path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\resources\\data\\ts_ec_worldnpc_20261020\\structure\\migration_empty.nbt",
+      "template_sha256": "265fe53432e4694d4a94cec3a59deac1b880cdd869970facf1eb0e1fb3a16832",
+      "log_path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\worldnpc-server-run03.log",
+      "log_sha256": "daebd4cbb38fa6083517d0728a351786866f7f5bdf102792abed7a48afce6cad",
+      "exit_code": 1,
+      "normal_world_save_and_shutdown": true,
+      "raw_test_count": "[12:37:05] [Server thread/INFO] [minecraft/GameTestServer]: ========= 10 GAME TESTS COMPLETE IN 1.494 s ======================",
+      "result_lines": [
+        "[12:37:05] [Server thread/ERROR] [minecraft/LogTestReporter]: survivalbonemealfailureconsumesoneandpreservestheegg failed at 30063, -60, 2747396! The real server sound-play entry must observe one egg interaction sound",
+        "[12:37:05] [Server thread/ERROR] [minecraft/LogTestReporter]: noticesearchincludesintersectingmachinistandexcludesbeyondexpandedaabb failed at 30076, -60, 2747396! Exactly one real DissolverCycleEntity must remain at the anchor",
+        "[12:37:05] [Server thread/ERROR] [minecraft/LogTestReporter]: onenearbymachinistschedulestwoobservedvoicesoundcallsatelapsed33and50 failed at 30102, -60, 2747396! Exactly one real DissolverCycleEntity must remain at the anchor",
+        "[12:37:05] [Server thread/ERROR] [minecraft/LogTestReporter]: voiceschedulesurvivessaveloadbetweenbothactualsoundstages failed at 30115, -60, 2747396! Exactly one real DissolverCycleEntity must remain at the anchor",
+        "[12:37:05] [Server thread/ERROR] [minecraft/LogTestReporter]: twonearbymachinistsproducetwoactualsoundcallsateachvoicestage failed at 30128, -60, 2747396! Exactly one real DissolverCycleEntity must remain at the anchor",
+        "[12:37:05] [Server thread/INFO] [minecraft/GameTestServer]: ========= 10 GAME TESTS COMPLETE IN 1.494 s ======================",
+        "[12:37:05] [Server thread/INFO] [minecraft/GameTestServer]: 5 required tests failed :("
+      ]
+    },
+    {
+      "run_id": "run04",
+      "namespace": "ts_ec_worldnpc_20261020",
+      "target_count": 5,
+      "command": ".\\gradlew.bat --offline --no-daemon --max-workers=1 '-Dorg.gradle.jvmargs=-Xmx1G' '-PserverTestNamespace=ts_ec_worldnpc_20261020' runGameTestServer",
+      "freeze_manifest_path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\worldnpc-input-freeze-run04.json",
+      "freeze_manifest_sha256": "9fd97f8c749955a5bbcfba54fe59d3e5e7dcfbcbc590166c2e1381ec41043b9b",
+      "freeze_input_count": 86,
+      "source_sha256": "78f882fef24c2a40117b8c2c4e987c271b0f0a6893a19dd18a42a20fef3cb770",
+      "template_path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\resources\\data\\ts_ec_worldnpc_20261020\\structure\\migration_empty.nbt",
+      "template_sha256": "265fe53432e4694d4a94cec3a59deac1b880cdd869970facf1eb0e1fb3a16832",
+      "log_path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\worldnpc-server-run04.log",
+      "log_sha256": "e277da680ebff77bc954d212fba0d17e0db07a6950b78d958d9de8a0cd4500d1",
+      "exit_code": 1,
+      "normal_world_save_and_shutdown": true,
+      "raw_test_count": "[12:38:39] [Server thread/INFO] [minecraft/GameTestServer]: ========= 5 GAME TESTS COMPLETE IN 1.133 s ======================",
+      "result_lines": [
+        "[12:38:38] [Server thread/ERROR] [minecraft/LogTestReporter]: survivalbonemealfailureconsumesoneandpreservestheegg failed at -13439490, -60, -1695074! The real server sound-play entry must observe one egg interaction sound; observed=[block.sniffer_egg.crack]",
+        "[12:38:39] [Server thread/ERROR] [minecraft/LogTestReporter]: onenearbymachinistschedulestwoobservedvoicesoundcallsatelapsed33and50 failed at -13439464, -60, -1695074! Third dissolve must discover one actual nearby NPC before either voice deadline",
+        "[12:38:39] [Server thread/ERROR] [minecraft/LogTestReporter]: voiceschedulesurvivessaveloadbetweenbothactualsoundstages failed at -13439451, -60, -1695074! The saved task must retain the committed notice count and first voice deadline",
+        "[12:38:39] [Server thread/INFO] [minecraft/GameTestServer]: ========= 5 GAME TESTS COMPLETE IN 1.133 s ======================",
+        "[12:38:39] [Server thread/INFO] [minecraft/GameTestServer]: 3 required tests failed :("
+      ]
+    },
+    {
+      "run_id": "run05",
+      "namespace": "ts_ec_worldnpc_20261020",
+      "target_count": 3,
+      "command": ".\\gradlew.bat --offline --no-daemon --max-workers=1 '-Dorg.gradle.jvmargs=-Xmx1G' '-PserverTestNamespace=ts_ec_worldnpc_20261020' runGameTestServer",
+      "freeze_manifest_path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\worldnpc-input-freeze-run05.json",
+      "freeze_manifest_sha256": "792e567d6d1774f350317dbaa9d15a10603c5141aebdd282fed6f9da11a5d481",
+      "freeze_input_count": 86,
+      "source_sha256": "f02b8acdfeeb91abb8bc6eac90df10a288056f9715ad175f3d0ca897ebc40a8d",
+      "template_path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\resources\\data\\ts_ec_worldnpc_20261020\\structure\\migration_empty.nbt",
+      "template_sha256": "265fe53432e4694d4a94cec3a59deac1b880cdd869970facf1eb0e1fb3a16832",
+      "log_path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\worldnpc-server-run05.log",
+      "log_sha256": "e913fe3e59c84a90229112d885ab29db09979bdf554980755753b92b18896590",
+      "exit_code": 1,
+      "normal_world_save_and_shutdown": true,
+      "raw_test_count": "[12:41:23] [Server thread/INFO] [minecraft/GameTestServer]: ========= 3 GAME TESTS COMPLETE IN 1.096 s ======================",
+      "result_lines": [
+        "[12:41:22] [Server thread/ERROR] [minecraft/LogTestReporter]: onenearbymachinistschedulestwoobservedvoicesoundcallsatelapsed33and50 failed at 3819270, -60, 13301407! Third dissolve must discover one actual nearby NPC before either voice deadline; phase=5, voices=1, elapsed=50, liveCandidates=1, npcPos=(3819282.5, -54.5, 1.33014175E7), npcAlive=true",
+        "[12:41:22] [Server thread/ERROR] [minecraft/LogTestReporter]: voiceschedulesurvivessaveloadbetweenbothactualsoundstages failed at 3819283, -60, 13301407! The saved task must retain the committed notice count and first voice deadline; phase=5, voices=1, elapsed=50, liveCandidates=1, npcPos=(3819295.5, -54.5, 1.33014175E7), npcAlive=true",
+        "[12:41:23] [Server thread/INFO] [minecraft/GameTestServer]: ========= 3 GAME TESTS COMPLETE IN 1.096 s ======================",
+        "[12:41:23] [Server thread/INFO] [minecraft/GameTestServer]: 2 required tests failed :("
+      ]
+    },
+    {
+      "run_id": "run06",
+      "namespace": "ts_ec_worldnpc_20261020",
+      "target_count": 5,
+      "command": ".\\gradlew.bat --offline --no-daemon --max-workers=1 '-Dorg.gradle.jvmargs=-Xmx1G' '-PserverTestNamespace=ts_ec_worldnpc_20261020' runGameTestServer",
+      "freeze_manifest_path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\worldnpc-input-freeze-run06.json",
+      "freeze_manifest_sha256": "415ebe4474fbfa517499ad238d953043605346ee68a4b2d1d5b2f5fcddf70920",
+      "freeze_input_count": 86,
+      "source_sha256": "87446b9b02d901c3193fd0fa082a67990101f681566c0b34bd5be89492ace451",
+      "template_path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\src\\gametest\\resources\\data\\ts_ec_worldnpc_20261020\\structure\\migration_empty.nbt",
+      "template_sha256": "265fe53432e4694d4a94cec3a59deac1b880cdd869970facf1eb0e1fb3a16832",
+      "log_path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\worldnpc-server-run06.log",
+      "log_sha256": "407e4d27a6327d4951d08e6f35b202d7cb2f731ac30b4670396a27ecd2243397",
+      "exit_code": 0,
+      "normal_world_save_and_shutdown": true,
+      "raw_test_count": "[12:45:51] [Server thread/INFO] [minecraft/GameTestServer]: ========= 5 GAME TESTS COMPLETE IN 1.081 s ======================",
+      "result_lines": [
+        "[12:45:51] [Server thread/INFO] [minecraft/GameTestServer]: ========= 5 GAME TESTS COMPLETE IN 1.081 s ======================"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "GT-ECWN-001",
+      "method": "armoredInteractionMountsARealControllingPlayerAndDismountClearsControl",
+      "status": "通过",
+      "entry": "GameTest direct service-side invocation; Glastrekker ride cases use actual native passenger/vehicle state, egg via Block.useItemOn; Dissolver via real Gemlock interaction and real ServerLevel entity end-tick task",
+      "assertion_and_boundary": "装甲形态真实交互后，player.getVehicle、isPassenger、getControllingPassenger一致；下马后控制实体归空。",
+      "initial_run01": "通过",
+      "first_final_green_run": "run01",
+      "final_run_source_sha256": "defbfbefa095d4135e84f10ef7c2cdc81a9344e411bef783285b93a8e74613c3",
+      "final_run_log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\worldnpc-server-run01.log",
+      "final_run_log_sha256": "71a21c846267f42945f5575403aad61f5133b1d63cb5923f69b4c7ee87052dd8",
+      "notes": "No network packet was synthesized; mounted-player API/state was inspected directly."
+    },
+    {
+      "case_id": "GT-ECWN-002",
+      "method": "unarmouredInteractionNeverMountsAnUnrelatedPlayer",
+      "status": "通过",
+      "entry": "GameTest direct service-side invocation; Glastrekker ride cases use actual native passenger/vehicle state, egg via Block.useItemOn; Dissolver via real Gemlock interaction and real ServerLevel entity end-tick task",
+      "assertion_and_boundary": "未装甲形态空手交互不骑乘附近玩家，既非乘客也非控制者。",
+      "initial_run01": "通过",
+      "first_final_green_run": "run01",
+      "final_run_source_sha256": "defbfbefa095d4135e84f10ef7c2cdc81a9344e411bef783285b93a8e74613c3",
+      "final_run_log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\worldnpc-server-run01.log",
+      "final_run_log_sha256": "71a21c846267f42945f5575403aad61f5133b1d63cb5923f69b4c7ee87052dd8",
+      "notes": "No network packet was synthesized; mounted-player API/state was inspected directly."
+    },
+    {
+      "case_id": "GT-ECWN-003",
+      "method": "firstActualPassengerControlsAndSecondTakesOverAfterDismount",
+      "status": "通过",
+      "entry": "GameTest direct service-side invocation; Glastrekker ride cases use actual native passenger/vehicle state, egg via Block.useItemOn; Dissolver via real Gemlock interaction and real ServerLevel entity end-tick task",
+      "assertion_and_boundary": "两名玩家均真实startRiding；首乘客控制；首位下马后剩余乘客成为控制者。",
+      "initial_run01": "通过",
+      "first_final_green_run": "run01",
+      "final_run_source_sha256": "defbfbefa095d4135e84f10ef7c2cdc81a9344e411bef783285b93a8e74613c3",
+      "final_run_log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\worldnpc-server-run01.log",
+      "final_run_log_sha256": "71a21c846267f42945f5575403aad61f5133b1d63cb5923f69b4c7ee87052dd8",
+      "notes": "No network packet was synthesized; mounted-player API/state was inspected directly."
+    },
+    {
+      "case_id": "GT-ECWN-004",
+      "method": "mountedPlayerInputAndRotationMapToTheRiddenGlastrekker",
+      "status": "通过",
+      "entry": "GameTest direct service-side invocation; Glastrekker ride cases use actual native passenger/vehicle state, egg via Block.useItemOn; Dissolver via real Gemlock interaction and real ServerLevel entity end-tick task",
+      "assertion_and_boundary": "实际骑手轴输入映射无垂直分量；实体朝向/半俯仰和attribute乘骑速度吻合。",
+      "initial_run01": "通过",
+      "first_final_green_run": "run01",
+      "final_run_source_sha256": "defbfbefa095d4135e84f10ef7c2cdc81a9344e411bef783285b93a8e74613c3",
+      "final_run_log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\worldnpc-server-run01.log",
+      "final_run_log_sha256": "71a21c846267f42945f5575403aad61f5133b1d63cb5923f69b4c7ee87052dd8",
+      "notes": "No network packet was synthesized; mounted-player API/state was inspected directly."
+    },
+    {
+      "case_id": "GT-ECWN-005",
+      "method": "animalPassengerIsTheEntityControllerAndReceivesNonPlayerTravelInput",
+      "status": "通过",
+      "entry": "GameTest direct service-side invocation; Glastrekker ride cases use actual native passenger/vehicle state, egg via Block.useItemOn; Dissolver via real Gemlock interaction and real ServerLevel entity end-tick task",
+      "assertion_and_boundary": "真实Cow乘骑后作为LivingEntity控制者，下马清除控制；未伪称玩家网络操控。",
+      "initial_run01": "通过",
+      "first_final_green_run": "run01",
+      "final_run_source_sha256": "defbfbefa095d4135e84f10ef7c2cdc81a9344e411bef783285b93a8e74613c3",
+      "final_run_log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\worldnpc-server-run01.log",
+      "final_run_log_sha256": "71a21c846267f42945f5575403aad61f5133b1d63cb5923f69b4c7ee87052dd8",
+      "notes": "No network packet was synthesized; mounted-player API/state was inspected directly."
+    },
+    {
+      "case_id": "GT-ECWN-006",
+      "method": "ordinaryItemPassesEggInteractionWithoutChangingEggOrInventory",
+      "status": "通过",
+      "entry": "GameTest direct service-side invocation; Glastrekker ride cases use actual native passenger/vehicle state, egg via Block.useItemOn; Dissolver via real Gemlock interaction and real ServerLevel entity end-tick task",
+      "assertion_and_boundary": "普通石头交互返回默认交互路径，蛋和3个石头保持。",
+      "initial_run01": "通过",
+      "first_final_green_run": "run01",
+      "final_run_source_sha256": "defbfbefa095d4135e84f10ef7c2cdc81a9344e411bef783285b93a8e74613c3",
+      "final_run_log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\worldnpc-server-run01.log",
+      "final_run_log_sha256": "71a21c846267f42945f5575403aad61f5133b1d63cb5923f69b4c7ee87052dd8",
+      "notes": null
+    },
+    {
+      "case_id": "GT-ECWN-007",
+      "method": "survivalBoneMealFailureConsumesOneAndPreservesTheEgg",
+      "status": "通过",
+      "entry": "GameTest direct service-side invocation; Glastrekker ride cases use actual native passenger/vehicle state, egg via Block.useItemOn; Dissolver via real Gemlock interaction and real ServerLevel entity end-tick task",
+      "assertion_and_boundary": "固定服务器随机种子落在10%失败侧；生存骨粉3减为2、蛋保留且实调声音入口记录蛋声。",
+      "initial_run01": "失败（夹具/边界误设，非产品缺陷）",
+      "first_final_green_run": "run06",
+      "final_run_source_sha256": "87446b9b02d901c3193fd0fa082a67990101f681566c0b34bd5be89492ace451",
+      "final_run_log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\worldnpc-server-run06.log",
+      "final_run_log_sha256": "407e4d27a6327d4951d08e6f35b202d7cb2f731ac30b4670396a27ecd2243397",
+      "notes": null
+    },
+    {
+      "case_id": "GT-ECWN-008",
+      "method": "creativeBoneMealFailureDoesNotConsumeTheStack",
+      "status": "通过",
+      "entry": "GameTest direct service-side invocation; Glastrekker ride cases use actual native passenger/vehicle state, egg via Block.useItemOn; Dissolver via real Gemlock interaction and real ServerLevel entity end-tick task",
+      "assertion_and_boundary": "creative instabuild显式夹具；固定失败侧后4个骨粉保持、蛋保留。",
+      "initial_run01": "失败（夹具/边界误设，非产品缺陷）",
+      "first_final_green_run": "run03",
+      "final_run_source_sha256": "e348423fbb79b5723915811661b03db88b53a1d72e9c81681a084a4696d0dc5d",
+      "final_run_log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\worldnpc-server-run03.log",
+      "final_run_log_sha256": "daebd4cbb38fa6083517d0728a351786866f7f5bdf102792abed7a48afce6cad",
+      "notes": null
+    },
+    {
+      "case_id": "GT-ECWN-009",
+      "method": "deterministicHatchCreatesOneNewbornAndConsumesTheEgg",
+      "status": "通过",
+      "entry": "GameTest direct service-side invocation; Glastrekker ride cases use actual native passenger/vehicle state, egg via Block.useItemOn; Dissolver via real Gemlock interaction and real ServerLevel entity end-tick task",
+      "assertion_and_boundary": "固定服务器随机种子落在成功侧；只加入一只非装甲幼体、无掉落移除蛋、生存骨粉2减为1。",
+      "initial_run01": "通过",
+      "first_final_green_run": "run03",
+      "final_run_source_sha256": "e348423fbb79b5723915811661b03db88b53a1d72e9c81681a084a4696d0dc5d",
+      "final_run_log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\worldnpc-server-run03.log",
+      "final_run_log_sha256": "daebd4cbb38fa6083517d0728a351786866f7f5bdf102792abed7a48afce6cad",
+      "notes": null
+    },
+    {
+      "case_id": "GT-ECWN-010",
+      "method": "cancelledHatchSpawnConsumesMealButKeepsEggAndCreatesNoEntity",
+      "status": "通过",
+      "entry": "GameTest direct service-side invocation; Glastrekker ride cases use actual native passenger/vehicle state, egg via Block.useItemOn; Dissolver via real Gemlock interaction and real ServerLevel entity end-tick task",
+      "assertion_and_boundary": "EntityJoinLevelEvent拒绝出生；已消费一骨粉不退款、蛋保留、世界无新生实体。",
+      "initial_run01": "通过",
+      "first_final_green_run": "run03",
+      "final_run_source_sha256": "e348423fbb79b5723915811661b03db88b53a1d72e9c81681a084a4696d0dc5d",
+      "final_run_log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\worldnpc-server-run03.log",
+      "final_run_log_sha256": "daebd4cbb38fa6083517d0728a351786866f7f5bdf102792abed7a48afce6cad",
+      "notes": null
+    },
+    {
+      "case_id": "GT-ECWN-011",
+      "method": "offhandBoneMealUsesThePassedStackAndConsumesOneInSurvival",
+      "status": "通过",
+      "entry": "GameTest direct service-side invocation; Glastrekker ride cases use actual native passenger/vehicle state, egg via Block.useItemOn; Dissolver via real Gemlock interaction and real ServerLevel entity end-tick task",
+      "assertion_and_boundary": "显式OFF_HAND传入骨粉堆叠扣1；失败侧蛋保留。",
+      "initial_run01": "通过",
+      "first_final_green_run": "run03",
+      "final_run_source_sha256": "e348423fbb79b5723915811661b03db88b53a1d72e9c81681a084a4696d0dc5d",
+      "final_run_log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\worldnpc-server-run03.log",
+      "final_run_log_sha256": "daebd4cbb38fa6083517d0728a351786866f7f5bdf102792abed7a48afce6cad",
+      "notes": null
+    },
+    {
+      "case_id": "GT-ECWN-012",
+      "method": "oneNearbyMachinistSchedulesTwoObservedVoiceSoundCallsAtElapsed33And50",
+      "status": "通过",
+      "entry": "GameTest direct service-side invocation; Glastrekker ride cases use actual native passenger/vehicle state, egg via Block.useItemOn; Dissolver via real Gemlock interaction and real ServerLevel entity end-tick task",
+      "assertion_and_boundary": "单NPC在AABB内；elapsed30 notice计数1；PlayLevelSoundEvent入口在33/50观察到各一次NPC声音，hailfire三次。",
+      "initial_run01": "失败（夹具/边界误设，非产品缺陷）",
+      "first_final_green_run": "run06",
+      "final_run_source_sha256": "87446b9b02d901c3193fd0fa082a67990101f681566c0b34bd5be89492ace451",
+      "final_run_log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\worldnpc-server-run06.log",
+      "final_run_log_sha256": "407e4d27a6327d4951d08e6f35b202d7cb2f731ac30b4670396a27ecd2243397",
+      "notes": null
+    },
+    {
+      "case_id": "GT-ECWN-013",
+      "method": "twoNearbyMachinistsProduceTwoActualSoundCallsAtEachVoiceStage",
+      "status": "通过",
+      "entry": "GameTest direct service-side invocation; Glastrekker ride cases use actual native passenger/vehicle state, egg via Block.useItemOn; Dissolver via real Gemlock interaction and real ServerLevel entity end-tick task",
+      "assertion_and_boundary": "两个实际LabMachinist在检索AABB内，两个NPC声音阶段各在ServerLevel播放事件入口记录2次。",
+      "initial_run01": "失败（夹具/边界误设，非产品缺陷）",
+      "first_final_green_run": "run06",
+      "final_run_source_sha256": "87446b9b02d901c3193fd0fa082a67990101f681566c0b34bd5be89492ace451",
+      "final_run_log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\worldnpc-server-run06.log",
+      "final_run_log_sha256": "407e4d27a6327d4951d08e6f35b202d7cb2f731ac30b4670396a27ecd2243397",
+      "notes": null
+    },
+    {
+      "case_id": "GT-ECWN-014",
+      "method": "noticeSearchIncludesIntersectingMachinistAndExcludesBeyondExpandedAabb",
+      "status": "通过",
+      "entry": "GameTest direct service-side invocation; Glastrekker ride cases use actual native passenger/vehicle state, egg via Block.useItemOn; Dissolver via real Gemlock interaction and real ServerLevel entity end-tick task",
+      "assertion_and_boundary": "位置在4.5扩展AABB边界内与明确外侧的两个NPC分别计入/排除，检索结果1。",
+      "initial_run01": "失败（夹具/边界误设，非产品缺陷）",
+      "first_final_green_run": "run06",
+      "final_run_source_sha256": "87446b9b02d901c3193fd0fa082a67990101f681566c0b34bd5be89492ace451",
+      "final_run_log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\worldnpc-server-run06.log",
+      "final_run_log_sha256": "407e4d27a6327d4951d08e6f35b202d7cb2f731ac30b4670396a27ecd2243397",
+      "notes": null
+    },
+    {
+      "case_id": "GT-ECWN-015",
+      "method": "activeCycleContinuesItsCommittedPhasesAfterGemlockRemoval",
+      "status": "通过",
+      "entry": "GameTest direct service-side invocation; Glastrekker ride cases use actual native passenger/vehicle state, egg via Block.useItemOn; Dissolver via real Gemlock interaction and real ServerLevel entity end-tick task",
+      "assertion_and_boundary": "激活后移除Gemlock，任务仍完成首/末清理阶段并移除自身，不重建触发块。",
+      "initial_run01": "通过",
+      "first_final_green_run": "run01",
+      "final_run_source_sha256": "defbfbefa095d4135e84f10ef7c2cdc81a9344e411bef783285b93a8e74613c3",
+      "final_run_log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\worldnpc-server-run01.log",
+      "final_run_log_sha256": "71a21c846267f42945f5575403aad61f5133b1d63cb5923f69b4c7ee87052dd8",
+      "notes": null
+    },
+    {
+      "case_id": "GT-ECWN-016",
+      "method": "savedFirstPhaseResumesRemainingDeadlineWithoutRepeatingDissolve",
+      "status": "通过",
+      "entry": "GameTest direct service-side invocation; Glastrekker ride cases use actual native passenger/vehicle state, egg via Block.useItemOn; Dissolver via real Gemlock interaction and real ServerLevel entity end-tick task",
+      "assertion_and_boundary": "保存已完成第一阶段实体NBT，重建并加入服务端；不重复已清空方块，按剩余elapsed推进第二阶段。",
+      "initial_run01": "失败（夹具/边界误设，非产品缺陷）",
+      "first_final_green_run": "run03",
+      "final_run_source_sha256": "e348423fbb79b5723915811661b03db88b53a1d72e9c81681a084a4696d0dc5d",
+      "final_run_log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\worldnpc-server-run03.log",
+      "final_run_log_sha256": "daebd4cbb38fa6083517d0728a351786866f7f5bdf102792abed7a48afce6cad",
+      "notes": null
+    },
+    {
+      "case_id": "GT-ECWN-017",
+      "method": "voiceScheduleSurvivesSaveLoadBetweenBothActualSoundStages",
+      "status": "通过",
+      "entry": "GameTest direct service-side invocation; Glastrekker ride cases use actual native passenger/vehicle state, egg via Block.useItemOn; Dissolver via real Gemlock interaction and real ServerLevel entity end-tick task",
+      "assertion_and_boundary": "notice后实体NBT保存/重建；首声音仅调用一次，再存读不重放首声，第二声音仍调用一次。",
+      "initial_run01": "失败（夹具/边界误设，非产品缺陷）",
+      "first_final_green_run": "run06",
+      "final_run_source_sha256": "87446b9b02d901c3193fd0fa082a67990101f681566c0b34bd5be89492ace451",
+      "final_run_log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\worldnpc-server-run06.log",
+      "final_run_log_sha256": "407e4d27a6327d4951d08e6f35b202d7cb2f731ac30b4670396a27ecd2243397",
+      "notes": null
+    },
+    {
+      "case_id": "GT-ECWN-018",
+      "method": "malformedSavedTimingFieldsClampAndUnarmedOrWrongDimensionTasksExpire",
+      "status": "通过",
+      "entry": "GameTest direct service-side invocation; Glastrekker ride cases use actual native passenger/vehicle state, egg via Block.useItemOn; Dissolver via real Gemlock interaction and real ServerLevel entity end-tick task",
+      "assertion_and_boundary": "恶意elapsed/phase/voices载入后分别钳制50/5/0；终态与无armed任务服务端tick移除。",
+      "initial_run01": "通过",
+      "first_final_green_run": "run01",
+      "final_run_source_sha256": "defbfbefa095d4135e84f10ef7c2cdc81a9344e411bef783285b93a8e74613c3",
+      "final_run_log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\worldnpc-server-run01.log",
+      "final_run_log_sha256": "71a21c846267f42945f5575403aad61f5133b1d63cb5923f69b4c7ee87052dd8",
+      "notes": null
+    },
+    {
+      "case_id": "GT-ECWN-019",
+      "method": "loadedTaskWithWrongDimensionIsDiscardedOnItsActualServerTick",
+      "status": "通过",
+      "entry": "GameTest direct service-side invocation; Glastrekker ride cases use actual native passenger/vehicle state, egg via Block.useItemOn; Dissolver via real Gemlock interaction and real ServerLevel entity end-tick task",
+      "assertion_and_boundary": "带Nether维度标记的任务在Overworld实际tick被清除，不溶解方块。",
+      "initial_run01": "通过",
+      "first_final_green_run": "run01",
+      "final_run_source_sha256": "defbfbefa095d4135e84f10ef7c2cdc81a9344e411bef783285b93a8e74613c3",
+      "final_run_log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\worldnpc-server-run01.log",
+      "final_run_log_sha256": "71a21c846267f42945f5575403aad61f5133b1d63cb5923f69b4c7ee87052dd8",
+      "notes": null
+    }
+  ],
+  "verified_server_evidence": {
+    "final_run": "run06",
+    "final_game_tests": "5 GAME TESTS COMPLETE",
+    "gradle_exit_code": 0,
+    "all_dimensions_saved": true,
+    "server_shutdown": "Game test server shutting down",
+    "final_log_sha256": "407e4d27a6327d4951d08e6f35b202d7cb2f731ac30b4670396a27ecd2243397"
+  },
+  "not_covered": [
+    "真实客户端骑乘移动输入包与客户端控制同步；骑乘测试只建立实际服务端乘客/控制者状态并直接回调原生乘骑映射。",
+    "客户端是否实际听到/播放音效；测试只观察NeoForge PlayLevelSoundEvent真实服务端位置音效入口，不能代替客户端音频。",
+    "NPC GeckoLib notice动画在网络客户端的可见播放；服务端只证实实际NPC参与notice触发及NPC语音事件提交。",
+    "存读包测试为实体CompoundTag序列化/反序列化及重新入Level，不是跨进程关闭重启后的世界落盘恢复。",
+    "强制区块卸载与缺块恢复；GameTest中无可靠卸载前置，本轮未声称覆盖。",
+    "蛋10%分布的统计性质；只用确定随机种子分别证明成功/失败支路，不做概率统计。",
+    "播放事件发生后客户端实际接收范围/播音成功；PlayLevelSoundEvent说明调用进入实际ServerLevel播放入口，不证明客户端听感。",
+    "其他NPC数目、恰在几何包围盒临界面的每种体型/朝向以及多维度周期运行。"
+  ],
+  "bug_records": [
+    "SB-087：骨粉失败侧随机种子夹具关闭（非产品Bug）",
+    "SB-088：声音事件监听标识及并行坐标过滤夹具关闭（非产品Bug）",
+    "SB-089：Dissolver累计elapsed/阶段时序采样及终态实体引用夹具关闭（非产品Bug）"
+  ],
+  "scope_and_integrity": "D盘只读产品代码固定快照，Java辅助文件UTF-8无注释；本次未改生产src、共享总矩阵或提交。测试脚本、冻结清单、原始日志/exit code均放D盘；生产树仅新建本报告目录内文档。",
+  "runtime_api_evidence": {
+    "neoforge_jar": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\.gradle\\repositories\\ng_dummy_ng\\net\\neoforged\\neoforge\\21.1.233\\neoforge-21.1.233.jar",
+    "javap_output": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\ServerLevel-playSound-bytecode.txt",
+    "javap_output_sha256": "45E9587EB3199AF364BED0B871D35570B12C6CB8F358F92C9ED7FA7BD96ABAAE",
+    "evidence": "PlayLevelSoundEvent.AtPosition API was inspected and ServerLevel.playSeededSound bytecode confirms EventHooks.onPlaySoundAtPosition is invoked before player broadcast."
+  },
+  "compile_validation": {
+    "command": ".\\gradlew.bat --offline --no-daemon --max-workers=1 '-Dorg.gradle.jvmargs=-Xmx1G' compileGametestJava",
+    "exit_code": 0,
+    "log_path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\worldnpc-compile02.log",
+    "log_sha256": "4ffcdd51cb522138470afe511c184481038a68c141261653432ffba8d6150a80",
+    "fixture_import_correction_attempt": {
+      "command": "same compile task",
+      "exit_code": 1,
+      "log_path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\early-content\\worldnpc-compile01.log",
+      "log_sha256": "061cc02c458bbb4c001d882203c1c62aea435fddaf281659b0b5fa233e03a095",
+      "reason": "GameType import package was corrected in the auxiliary GameTest source before test execution."
+    }
+  },
+  "baseline_source_checks": {
+    "baseline_git_object": "00bbd5801c3d373d0d239637de9dd69f2f5974d5",
+    "all_tested_production_inputs_match_fixed_git_objects": true,
+    "checked_paths": [
+      "GlastrekkerEntity",
+      "GlastrekkerEggBlock",
+      "GlastrekkerContent",
+      "DissolverCycleEntity",
+      "DissolverGemlockBlock",
+      "LabWorldgenContent",
+      "MaterialContent",
+      "LabContent",
+      "LabMachinistEntity",
+      "ServerEndTickTasks",
+      "sound_registry"
+    ]
+  },
+  "case_id_dedup_audit": {
+    "case_id_prefix": "GT-ECWN-",
+    "unique_ids": 19,
+    "searched_existing_scope": "docs/testing/early-tests/**/*.json as present before this report, excluding this report directory",
+    "external_collisions": [],
+    "shared_matrix_modified": false
+  }
+}

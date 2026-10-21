@@ -1,0 +1,333 @@
+{
+  "manifestVersion": 1,
+  "batch": "server-weapon-boundaries-20261020",
+  "baselineCommit": "00bbd5801c3d373d0d239637de9dd69f2f5974d5",
+  "previousCumulative": {
+    "cases": 437,
+    "passed": 429,
+    "failed": 8
+  },
+  "thisBatch": {
+    "uniqueCases": 9,
+    "passed": 9,
+    "failed": 0,
+    "namespace": "ts_weapon_boundaries_20261020",
+    "class": "com.hp.thermalshockreforged.content.weapons.WeaponBoundaryServerTests",
+    "serverOnly": true,
+    "sourceSha256": "640FD018B749F1DEE8E1A9E3109D6162EE7A6CB7AE4084D8C9CE82EB9CB9D2E1",
+    "template": "data/ts_weapon_boundaries_20261020/structure/supernova_server.nbt",
+    "templateSha256": "3612C3943632F43E60F13EAD841225322BD57EB62CBC68A122E7D928E8934A61",
+    "sourceFrozenPath": "frozen-weapon-boundaries-input/next-group/source/WeaponBoundaryServerTests.java",
+    "templateFrozenPath": "frozen-weapon-boundaries-input/next-group/structure/supernova_server.nbt",
+    "cumulativeArithmetic": {
+      "cases": 446,
+      "passed": 438,
+      "failed": 8,
+      "note": "算术汇总；未写入共享矩阵"
+    },
+    "scopeLimit": "本组9项定向服务端验证，不代表全部服务端功能测试完成"
+  },
+  "execution": {
+    "gradleCommand": ".\\gradlew.bat --offline --no-daemon --max-workers=1 -Dorg.gradle.jvmargs=-Xmx1G -PserverTestNamespace=ts_weapon_boundaries_20261020 runGameTestServer --console=plain",
+    "gradleHeap": "1G",
+    "gameServerHeap": "2G (forecast build.gradle)",
+    "maxWorkers": 1,
+    "offline": true,
+    "targetedRunsUseTemporarilyFilteredGametestAnnotations": true,
+    "normalShutdownAndAllDimensionsSaved": true
+  },
+  "attempts": [
+    {
+      "note": "测试夹具辅助类型返回为 Cow，无法访问自定义 hitTicks；未启动 GameTest",
+      "exitFile": "weapon-boundaries-20261020-run-01.exit.txt",
+      "id": "compile-attempt-01",
+      "gradleExitCode": 1,
+      "logSha256": "2FFE7AF0DD97BEA5C3524E9C8E6812E57D846BE578D9EDB1FB8C29C91C7146C0",
+      "gameTestServerExitCode": null,
+      "log": "weapon-boundaries-20261020-run-01.log",
+      "gameTestCount": 0,
+      "kind": "compile-failure-before-server-start"
+    },
+    {
+      "note": "冷却成功后仍激活、Post优先级计时、owner筛选和弹药夹具当时存在错误；后续校准，不作为产品缺陷证据",
+      "passed": 1,
+      "logSha256": "D7FCB409CB1DF0261DB1B88139DE3FD45DF9F5804216DC6A2B270485D1DBAA99",
+      "id": "full-run-01",
+      "gradleExitCode": 1,
+      "failed": 8,
+      "gameTestServerExitCode": 8,
+      "exitFile": "runs/weapon-boundaries-20261020-run-01.exit.txt",
+      "log": "runs/weapon-boundaries-20261020-run-01.log",
+      "gameTestCount": 9,
+      "kind": "first-full-game-test-run"
+    },
+    {
+      "note": "余下失败确认来自tick clock默认优先级晚于调度器，及 Volcano 离场用例未装填弹药；后续定向回归",
+      "passed": 4,
+      "logSha256": "75174CD99312FF9C6EDEB7503839195BF08970E334A5E4D37A19C3D776F4D54F",
+      "id": "full-run-02",
+      "gradleExitCode": 1,
+      "failed": 5,
+      "gameTestServerExitCode": 5,
+      "exitFile": "runs/weapon-boundaries-20261020-run-02.exit.txt",
+      "log": "runs/weapon-boundaries-20261020-run-02.log",
+      "gameTestCount": 9,
+      "kind": "full-game-test-run-after-first-fixture-correction"
+    },
+    {
+      "note": "事件优先级导入行误写了字面\\\\n，未启动 GameTest；修正后继续",
+      "exitFile": "runs/weapon-boundaries-20261020-targeted-run-01.exit.txt",
+      "id": "targeted-run-01",
+      "gradleExitCode": 1,
+      "logSha256": "16D05050E57449FF95953D4F6407BF8D3FB67F45EBBEAA21F0DC40A68BBAEB62",
+      "gameTestServerExitCode": null,
+      "log": "runs/weapon-boundaries-20261020-targeted-run-01.log",
+      "gameTestCount": 0,
+      "kind": "compile-failure-before-server-start"
+    },
+    {
+      "logSha256": "707CFE7CC50EAAF1534DE68E7D2A76B215491398EEF1FFEC450ACADA6BB53451",
+      "templateSha256": "3612C3943632F43E60F13EAD841225322BD57EB62CBC68A122E7D928E8934A61",
+      "id": "targeted-run-02",
+      "exitFile": "runs/weapon-boundaries-20261020-targeted-run-02.exit.txt",
+      "kind": "targeted-regression-five-previously-failing-cases",
+      "gameTestCount": 5,
+      "gradleExitCode": 0,
+      "passed": 5,
+      "log": "runs/weapon-boundaries-20261020-targeted-run-02.log",
+      "gameTestServerExitCode": 0,
+      "inputSourceSha256": "340AC594463B5934294C3C20FB7282E232C2DB11B4DC512C49AA2FE5D189F820",
+      "normalShutdownAndAllDimensionsSaved": true,
+      "failed": 0
+    },
+    {
+      "logSha256": "2B4088442E060C4EF7BDB34F667867FF99651FC8DA06C29AA75000D7D05813C1",
+      "templateSha256": "3612C3943632F43E60F13EAD841225322BD57EB62CBC68A122E7D928E8934A61",
+      "id": "targeted-run-03",
+      "exitFile": "runs/weapon-boundaries-20261020-targeted-run-03.exit.txt",
+      "kind": "targeted-regression-four-cases-on-final-source",
+      "gameTestCount": 4,
+      "gradleExitCode": 0,
+      "passed": 4,
+      "log": "runs/weapon-boundaries-20261020-targeted-run-03.log",
+      "gameTestServerExitCode": 0,
+      "inputSourceSha256": "36482C507941117608F89165EE2687977C3A87937811B734E5DC403079B52B4C",
+      "normalShutdownAndAllDimensionsSaved": true,
+      "failed": 0
+    }
+  ],
+  "cases": [
+    {
+      "entrypoint": "WeaponContent.VOLCANO.onEntitySwing -> VolcanoBurstEntity.submit",
+      "assertions": [
+        "30 tick 时 burst 数量仍为 1",
+        "30 tick 时弹药数量仍为 1",
+        "31 tick 时 burst 数量为 2",
+        "31 tick 后弹药数量为 0",
+        "再次成功使用后 cooldown 重新激活"
+      ],
+      "id": "GT-LUNA-WB-001",
+      "testMethod": "volcanoCanFireAgainOnlyAfterItsThirtyOneCooldownTicks",
+      "group": "81",
+      "boundary": "native ItemCooldowns 30 ticks: repeated swing blocked, one remaining heavy_round preserved; after tick 31: a second burst is submitted, final heavy_round consumed and successful use starts its next cooldown",
+      "logSha": "2B4088442E060C4EF7BDB34F667867FF99651FC8DA06C29AA75000D7D05813C1",
+      "evidence": "weapon-boundaries-20261020-targeted-run-03.log",
+      "testInputSha": "36482C507941117608F89165EE2687977C3A87937811B734E5DC403079B52B4C",
+      "uncovered": [
+        "通过原生 ItemCooldowns.tick() 精确推进冷却计数，未验证真实玩家输入和网络延迟"
+      ],
+      "status": "passed",
+      "suiteSourceSha256": "640FD018B749F1DEE8E1A9E3109D6162EE7A6CB7AE4084D8C9CE82EB9CB9D2E1",
+      "templateSha256": "3612C3943632F43E60F13EAD841225322BD57EB62CBC68A122E7D928E8934A61",
+      "evidenceRunId": "targeted-run-03"
+    },
+    {
+      "entrypoint": "SpearItem.use (HI_VOLT kind, registered as HI_VOLT_LANCE)",
+      "assertions": [
+        "119 tick 时第二次右键调用被冷却拒绝",
+        "119 tick 时 pulse entity 数量为 1",
+        "120 tick 时第二次使用被接受",
+        "120 tick 时 pulse entity 数量为 2",
+        "成功重用后 cooldown 重新激活"
+      ],
+      "id": "GT-LUNA-WB-002",
+      "testMethod": "hiVoltCanBeUsedAgainOnlyAfterItsOneHundredTwentyCooldownTicks",
+      "group": "81",
+      "boundary": "native ItemCooldowns 119 ticks: second use blocked and pulse count remains 1; after tick 120: pulse count becomes 2 and new cooldown activates",
+      "logSha": "2B4088442E060C4EF7BDB34F667867FF99651FC8DA06C29AA75000D7D05813C1",
+      "evidence": "weapon-boundaries-20261020-targeted-run-03.log",
+      "testInputSha": "36482C507941117608F89165EE2687977C3A87937811B734E5DC403079B52B4C",
+      "uncovered": [
+        "通过原生冷却管理器推进，不覆盖客户端按键与多人交互"
+      ],
+      "status": "passed",
+      "suiteSourceSha256": "640FD018B749F1DEE8E1A9E3109D6162EE7A6CB7AE4084D8C9CE82EB9CB9D2E1",
+      "templateSha256": "3612C3943632F43E60F13EAD841225322BD57EB62CBC68A122E7D928E8934A61",
+      "evidenceRunId": "targeted-run-03"
+    },
+    {
+      "entrypoint": "WeaponContent.BUZZSAW.onEntitySwing",
+      "assertions": [
+        "10 tick 时 sweep 数量为 1 且目标未再次受伤",
+        "11 tick 时 sweep 数量为 2",
+        "两次成功切割后目标各受 2 点伤害",
+        "成功重用后 cooldown 重新激活"
+      ],
+      "id": "GT-LUNA-WB-003",
+      "testMethod": "buzzsawCanStartAnotherSweepOnlyAfterItsElevenCooldownTicks",
+      "group": "81",
+      "boundary": "native ItemCooldowns 10 ticks: retry blocked, one sweep, target health 998; after tick 11: second sweep accepted, health 996",
+      "logSha": "2B4088442E060C4EF7BDB34F667867FF99651FC8DA06C29AA75000D7D05813C1",
+      "evidence": "weapon-boundaries-20261020-targeted-run-03.log",
+      "testInputSha": "36482C507941117608F89165EE2687977C3A87937811B734E5DC403079B52B4C",
+      "uncovered": [
+        "手动推进原生冷却计数，不覆盖客户端挥舞动画同步"
+      ],
+      "status": "passed",
+      "suiteSourceSha256": "640FD018B749F1DEE8E1A9E3109D6162EE7A6CB7AE4084D8C9CE82EB9CB9D2E1",
+      "templateSha256": "3612C3943632F43E60F13EAD841225322BD57EB62CBC68A122E7D928E8934A61",
+      "evidenceRunId": "targeted-run-03"
+    },
+    {
+      "entrypoint": "VolcanoItem.onEntitySwing -> VolcanoBurstEntity.endTick -> VolcanoBulletEntity.fireBurstShot; EntityJoinLevelEvent",
+      "assertions": [
+        "限定 VolcanoBulletEntity",
+        "反射读取 Projectile.ownerUUID 并按两个玩家 UUID 分别过滤",
+        "分别记录两位 owner 提交后的逐 tick 投射物加入时刻",
+        "每位 owner 都是同步首发加后续 4 个 END tick"
+      ],
+      "id": "GT-LUNA-WB-004",
+      "testMethod": "volcanoShotsKeepOwnerUuidAndAppearAtEachExpectedEndTick",
+      "group": "82",
+      "boundary": "two owners launch overlapping bursts; each UUID-filtered projectile join offsets from that owner submission are exactly [0,1,2,3,4]",
+      "logSha": "707CFE7CC50EAAF1534DE68E7D2A76B215491398EEF1FFEC450ACADA6BB53451",
+      "evidence": "weapon-boundaries-20261020-targeted-run-02.log",
+      "testInputSha": "340AC594463B5934294C3C20FB7282E232C2DB11B4DC512C49AA2FE5D189F820",
+      "uncovered": [
+        "观测 EntityJoinLevelEvent 的加入时刻，不验证弹丸命中/轨迹",
+        "tick 计数监听以 EventPriority.HIGHEST 运行于服务端 Post，确保先于默认优先级 END 调度器"
+      ],
+      "status": "passed",
+      "suiteSourceSha256": "640FD018B749F1DEE8E1A9E3109D6162EE7A6CB7AE4084D8C9CE82EB9CB9D2E1",
+      "templateSha256": "3612C3943632F43E60F13EAD841225322BD57EB62CBC68A122E7D928E8934A61",
+      "evidenceRunId": "targeted-run-02"
+    },
+    {
+      "entrypoint": "ThermoblasterItem.onEntitySwing (COBALT_THERMOBLASTER, zenith=false) -> ThermoblasterBurstEntity",
+      "assertions": [
+        "服务端玩家实际 isUnderWater 为 true",
+        "只收集 ThermoblasterBulletEntity",
+        "按保存的 owner UUID 过滤加入事件",
+        "记录 submit 与每个服务端 Post tick 的相对时刻并严格比较 [0,2,4]"
+      ],
+      "id": "GT-LUNA-WB-005",
+      "testMethod": "cobaltWaterModeUsesRealPlayerEyesAndFiresAtTicksZeroTwoAndFour",
+      "group": "82",
+      "boundary": "real water blocks around player, three baseTick calls establish ServerPlayer.isUnderWater; owner-filtered shots occur at offsets [0,2,4]",
+      "logSha": "707CFE7CC50EAAF1534DE68E7D2A76B215491398EEF1FFEC450ACADA6BB53451",
+      "evidence": "weapon-boundaries-20261020-targeted-run-02.log",
+      "testInputSha": "340AC594463B5934294C3C20FB7282E232C2DB11B4DC512C49AA2FE5D189F820",
+      "uncovered": [
+        "单一玩家与静态水体；不覆盖流动水、浸水状态转换边缘或客户端水下视觉"
+      ],
+      "status": "passed",
+      "suiteSourceSha256": "640FD018B749F1DEE8E1A9E3109D6162EE7A6CB7AE4084D8C9CE82EB9CB9D2E1",
+      "templateSha256": "3612C3943632F43E60F13EAD841225322BD57EB62CBC68A122E7D928E8934A61",
+      "evidenceRunId": "targeted-run-02"
+    },
+    {
+      "entrypoint": "HiVoltPulseEntity.submit -> ServerEndTickTask.endTick/pulse -> target.hurt",
+      "assertions": [
+        "自定义服务端 Cow 对每次 hurt 记录 Post tick 计数",
+        "完整断言即时首击与 2 到 18 的每个偶数 tick",
+        "严格断言 10 个事件",
+        "严格断言 1000 初始生命降至 985"
+      ],
+      "id": "GT-LUNA-WB-006",
+      "testMethod": "hiVoltDamageEventsLandImmediatelyAndAtEveryEvenEndTickThroughEighteen",
+      "group": "82",
+      "boundary": "cow hurt events exactly [0,2,4,6,8,10,12,14,16,18], ten 1.5 damage hits, final health 985",
+      "logSha": "707CFE7CC50EAAF1534DE68E7D2A76B215491398EEF1FFEC450ACADA6BB53451",
+      "evidence": "weapon-boundaries-20261020-targeted-run-02.log",
+      "testInputSha": "340AC594463B5934294C3C20FB7282E232C2DB11B4DC512C49AA2FE5D189F820",
+      "uncovered": [
+        "验证一次电击序列，不覆盖 electrified 效果持续时间或同刻多个目标"
+      ],
+      "status": "passed",
+      "suiteSourceSha256": "640FD018B749F1DEE8E1A9E3109D6162EE7A6CB7AE4084D8C9CE82EB9CB9D2E1",
+      "templateSha256": "3612C3943632F43E60F13EAD841225322BD57EB62CBC68A122E7D928E8934A61",
+      "evidenceRunId": "targeted-run-02"
+    },
+    {
+      "entrypoint": "BuzzsawItem.onEntitySwing -> BuzzsawSweepEntity.cut",
+      "assertions": [
+        "owner 生命不变",
+        "第二名 ServerPlayer 生命不变",
+        "第二名 ServerPlayer hurt 调用次数为 0",
+        "附近非玩家 Cow 仍受 2 点伤害"
+      ],
+      "id": "GT-LUNA-WB-007",
+      "testMethod": "buzzsawSweepNeverDamagesASecondServerPlayerInsideItsArea",
+      "group": "83",
+      "boundary": "owner and a second ServerPlayer are within the sweep region; both health totals stay unchanged and second player hurt counter remains 0, while nearby Cow receives 2 damage",
+      "logSha": "2B4088442E060C4EF7BDB34F667867FF99651FC8DA06C29AA75000D7D05813C1",
+      "evidence": "weapon-boundaries-20261020-targeted-run-03.log",
+      "testInputSha": "36482C507941117608F89165EE2687977C3A87937811B734E5DC403079B52B4C",
+      "uncovered": [
+        "第二名玩家为 GameTest ServerPlayer 子类，不覆盖真实客户端连接"
+      ],
+      "status": "passed",
+      "suiteSourceSha256": "640FD018B749F1DEE8E1A9E3109D6162EE7A6CB7AE4084D8C9CE82EB9CB9D2E1",
+      "templateSha256": "3612C3943632F43E60F13EAD841225322BD57EB62CBC68A122E7D928E8934A61",
+      "evidenceRunId": "targeted-run-03"
+    },
+    {
+      "entrypoint": "VolcanoItem.onEntitySwing -> VolcanoBurstEntity.endTick; ServerLevel.removePlayerImmediately",
+      "assertions": [
+        "设置合法 heavy_round 后启动完整 burst",
+        "启动后由 ServerLevel.removePlayerImmediately 移除玩家实体",
+        "只按原 owner UUID 与 VolcanoBulletEntity 统计",
+        "确认 5 个 shot event 且每个 Projectile.ownerUUID 等于原 UUID"
+      ],
+      "id": "GT-LUNA-WB-008",
+      "testMethod": "volcanoBurstContinuesAfterOwnerLeavesAndPersistsTheOriginalUuid",
+      "group": "84",
+      "boundary": "after launch, remove owner entity from level; exactly five VolcanoBulletEntity joins retain original ownerUUID",
+      "logSha": "707CFE7CC50EAAF1534DE68E7D2A76B215491398EEF1FFEC450ACADA6BB53451",
+      "evidence": "weapon-boundaries-20261020-targeted-run-02.log",
+      "testInputSha": "340AC594463B5934294C3C20FB7282E232C2DB11B4DC512C49AA2FE5D189F820",
+      "uncovered": [
+        "验证 GameTest 内玩家实体离场，不等同于真实网络断开/PlayerList 登录态全流程",
+        "只验证投射物数量与 owner UUID，不断言离场后的朝向或击中伤害"
+      ],
+      "status": "passed",
+      "suiteSourceSha256": "640FD018B749F1DEE8E1A9E3109D6162EE7A6CB7AE4084D8C9CE82EB9CB9D2E1",
+      "templateSha256": "3612C3943632F43E60F13EAD841225322BD57EB62CBC68A122E7D928E8934A61",
+      "evidenceRunId": "targeted-run-02"
+    },
+    {
+      "entrypoint": "ThermoblasterItem.onEntitySwing (COBALT_THERMOBLASTER, zenith=false) -> ThermoblasterBurstEntity",
+      "assertions": [
+        "确认实际 ServerPlayer.isUnderWater",
+        "发射后移除玩家实体",
+        "按 ThermoblasterBulletEntity 与原 owner UUID 过滤",
+        "确认相对时刻 [0,2,4]"
+      ],
+      "id": "GT-LUNA-WB-009",
+      "testMethod": "cobaltBurstContinuesAfterOwnerLeavesWithOriginalUuidAndTickSchedule",
+      "group": "84",
+      "boundary": "with actual underwater player state and valid specialized_round, remove player entity after launch; owner-filtered shot event offsets remain [0,2,4] and UUID stays unchanged",
+      "logSha": "707CFE7CC50EAAF1534DE68E7D2A76B215491398EEF1FFEC450ACADA6BB53451",
+      "evidence": "weapon-boundaries-20261020-targeted-run-02.log",
+      "testInputSha": "340AC594463B5934294C3C20FB7282E232C2DB11B4DC512C49AA2FE5D189F820",
+      "uncovered": [
+        "验证 GameTest 内玩家实体离场，不等同于真实网络断开",
+        "未验证实际弹丸命中结果"
+      ],
+      "status": "passed",
+      "suiteSourceSha256": "640FD018B749F1DEE8E1A9E3109D6162EE7A6CB7AE4084D8C9CE82EB9CB9D2E1",
+      "templateSha256": "3612C3943632F43E60F13EAD841225322BD57EB62CBC68A122E7D928E8934A61",
+      "evidenceRunId": "targeted-run-02"
+    }
+  ]
+}

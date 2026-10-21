@@ -1,0 +1,13 @@
+# SB-037：Claw镰刀服务端测试查找失败
+
+状态：待调查注册与夹具ID，尚未定性。
+
+固定99快照00bbd5801c3d373d0d239637de9dd69f2f5974d5，ts_server212共13项11通过2失败。Claw九分支用例异常No value present，测试未进入正常收获断言，不能说已测过九种Claw产量。
+
+测试工具通过BuiltInRegistries.ITEM.getOptional(ResourceLocation.parse("thermal_shock_reforged:claw_sickle")).orElseThrow取得；SickleHarvesting同名分支不证明真实物品已注册。先核完整Java静态字段、辅助注册、原JAR与迁移文档，再区分快照覆盖缺口与测试ID错误。
+
+日志sickle-server-gametest.log SHA256 91C2849F129AB82C00F9497FCE4D289F49BE773EB55746B92A6DF3069CF33CBB，测试源码SHA256 D164A139180C673049ABA19639C80BDFF16F6BADEA694438AC354DC043C17732。首轮源码不可变副本SickleServerBehaviorTests-first-runtime.java已存D盘日志同目录。Gradle退出1，服务端全部维度正常保存关闭。没有改生产源码，也不会用假普通物品注册制造“已通过”。
+
+核实结论：固定快照缺真实Claw Sickle注册，夹具ID正确。全量Java注册检索及WeaponContent.java65至72仅找到其余四把；SickleHarvesting.java19至23保留claw_sickle分支，但没有物品不构成正常入口。原ThermalShockModItems.java1006确有CLAW_SICKLE注册，原过程272也引用它。因此将本项定性为旧99快照迁移覆盖缺口，不定性Claw收获公式错误，也不补假工具使测试通过。原第7批文档所记当时五把待迁是历史状态，不能由该段推断第99批其余四把仍缺失。
+
+当前源码静态跟踪（2026-10-20）：HEAD 33d3bc65c081427be13fc546c066ea725a5d5248，未提交工作区中已存在对应注册及主入口register调用，四项源码哈希见current-source-registration-followup.json。此为当前源码线索，未在本轮固定00bbd58底本运行，旧失败保持；不能据静态存在关闭功能链验证。SB015对应星座块循环另发现当前源码疑点，单列SB038。

@@ -1,0 +1,459 @@
+{
+  "schema": "thermal-shock-weapon-server-tests-v1",
+  "baseline": "00bbd5801c3d373d0d239637de9dd69f2f5974d5",
+  "input_profile": "固定00bbd580源码与依赖；未应用本轮生产src补丁；D盘独立forecast测试工程",
+  "namespace": "ts_weapons_20261020",
+  "command": ".\\gradlew.bat --offline --no-daemon --max-workers=1 -Dorg.gradle.jvmargs=-Xmx1G -PserverTestNamespace=ts_weapons_20261020 runGameTestServer --console=plain",
+  "runtime": {
+    "started": 24,
+    "completed": 24,
+    "passed": 24,
+    "failed": 0,
+    "assertions_passed": 24,
+    "assertions_failed": 0,
+    "exit_code": 0,
+    "finished_log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\forecast\\weapons-server-gametest-run-12.log",
+    "finished_log_sha256": "FCDB477F16315E80993C4985A7A735909B9C32E023C3BDE418D17D723E1B96F7",
+    "all_dimensions_saved": true,
+    "shutdown": "保存 overworld/the_end/the_nether 后GameTestServer shutting down"
+  },
+  "test_source": {
+    "path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\forecast\\src\\gametest\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\WeaponServerBehaviorTests.java",
+    "sha256": "F3C4215BCEEE4464FE5E5B5F74D309440F77FDE8B7FD84EAD3E1EE5BDC287B53"
+  },
+  "templates": [
+    {
+      "sha256": "3612C3943632F43E60F13EAD841225322BD57EB62CBC68A122E7D928E8934A61",
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\forecast\\src\\gametest\\resources\\data\\ts_weapons_20261020\\structure\\supernova_server.nbt"
+    }
+  ],
+  "source_inputs": [
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\forecast\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\VolcanoItem.java",
+      "sha256": "1E3F7C0E7753E64E75C1E8A12FF0BFD82615B7DD88C417D54216FD3F272BCC25"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\forecast\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\VolcanoBurstEntity.java",
+      "sha256": "AE8DEF705EDFB9CDD56EF6196FC1A3CA2A11BE6776CA27ECDF66754D0A91037A"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\forecast\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\SpearItem.java",
+      "sha256": "6672C3B7F50127F15F0091F969846371DF7C32D32457714C200A4184CE6A5496"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\forecast\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\HiVoltPulseEntity.java",
+      "sha256": "D9B52DDB1D49340483E18D38DD4E104D4B6F69DEE9B7D147DA8A8498EF32A5E8"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\forecast\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\ThermoblasterItem.java",
+      "sha256": "AD99F905E9A4D0516E070A844C8142F42F4EB68A336A79B12648D3B0A88E00BD"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\forecast\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\ThermoblasterBurstEntity.java",
+      "sha256": "45F0F7B32D4904F78F2EAE5B0DAB089BFC2B6439080B58C2EAA7D949FA21E894"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\forecast\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\BuzzsawItem.java",
+      "sha256": "F4D6865531E97E65E7C1FF1235FD2730020A2355FACE0FD715692D93740F9B07"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\forecast\\src\\main\\java\\com\\hp\\thermalshockreforged\\content\\weapons\\BuzzsawSweepEntity.java",
+      "sha256": "662C62454EB4C2B4C7CEB3554D5ABE6588C6C666D5F1E16EF67C7E021E8A34B7"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\forecast\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\projectile\\ThermoblasterBulletBase.java",
+      "sha256": "D4AE891A06333ED78C00EF29416A5E686A73E8895EE5848CAA7CB867566EFF62"
+    },
+    {
+      "path": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\forecast\\src\\main\\java\\com\\hp\\thermalshockreforged\\entity\\projectile\\VolcanoBulletEntity.java",
+      "sha256": "3A1F78C0D2501987EA10AF6015BF4CC477F52021ECAD1565B872CB146A80C20C"
+    }
+  ],
+  "attempt_logs": [
+    {
+      "log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\forecast\\weapons-server-gametest-run-01.log",
+      "sha256": "CAF2055335B0856BE46E714C91F6D5CBE9A23B5FFED25BEB2E8668FCDCA2317B",
+      "exit_code": "1"
+    },
+    {
+      "log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\forecast\\weapons-server-gametest-run-02.log",
+      "sha256": "16441EDCB4FFFB354471091A92476A7AAADF51B2591E3AD5D1184B635214BC9B",
+      "exit_code": "1"
+    },
+    {
+      "log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\forecast\\weapons-server-gametest-run-03.log",
+      "sha256": "DA6EEE47FC6E8357FCF4C509E0C813E0DC215C84FD4B1C0A749CF9EA6B8B6AAD",
+      "exit_code": "1"
+    },
+    {
+      "log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\forecast\\weapons-server-gametest-run-04.log",
+      "sha256": "89B1F4223D29382D26D0BE3B3B0256784043B9FA049DF6F1580210FFCF555EBD",
+      "exit_code": "1"
+    },
+    {
+      "log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\forecast\\weapons-server-gametest-run-05.log",
+      "sha256": "C9086338CC9963F3DA6EC93649A136704787F4A3791378BACD2EF98B3B352EC5",
+      "exit_code": "1"
+    },
+    {
+      "log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\forecast\\weapons-server-gametest-run-06.log",
+      "sha256": "46C39897A0FA33AC290D2A32212F5ABB8C2B5F75E4C9C07DD8B0C8DA22C57F10",
+      "exit_code": "1"
+    },
+    {
+      "log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\forecast\\weapons-server-gametest-run-07.log",
+      "sha256": "29DC6464503B41B743D4E1091D8EA23FEE0EC19CFB4491ADED979AFDB3C6EAA5",
+      "exit_code": "1"
+    },
+    {
+      "log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\forecast\\weapons-server-gametest-run-08.log",
+      "sha256": "C686A03DD79A8DBEFC1C133FAEAED189A1B3A15EF5367346D2051211F2B84F62",
+      "exit_code": "1"
+    },
+    {
+      "log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\forecast\\weapons-server-gametest-run-09.log",
+      "sha256": "F4C75E874F88E094F936DD5325A5DAC789433075791559F4CCC85A31B21E4E82",
+      "exit_code": "1"
+    },
+    {
+      "log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\forecast\\weapons-server-gametest-run-10.log",
+      "sha256": "660A4B93478468113F9D1DA14BBC5B1A68D6CA299ADD07E4C8CBF1F554B7FD8F",
+      "exit_code": "0"
+    },
+    {
+      "log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\forecast\\weapons-server-gametest-run-11.log",
+      "sha256": "FC94A1413DC7A1E0327FC854DDA11CBFBF5073C152AAA720C07CAF3F02820BA2",
+      "exit_code": "1"
+    },
+    {
+      "log": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\forecast\\weapons-server-gametest-run-12.log",
+      "sha256": "FCDB477F16315E80993C4985A7A735909B9C32E023C3BDE418D17D723E1B96F7",
+      "exit_code": "0"
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "GT-LUNA-WEAPON-081-01",
+      "batch": 81,
+      "real_entry": "VolcanoItem.onEntitySwing",
+      "assertion": "真实ServerPlayer携3枚heavy_round挥动后，主人UUID过滤的VolcanoBulletEntity恰1枚、余弹2枚且31 tick冷却生效。",
+      "not_covered": [
+        "客户端网络输入与渲染",
+        "正常玩家游泳/流体检测；环境分支通过ServerPlayer夹具的isUnderWater状态控制",
+        "玩家之间多人联机同步与跨进程重启"
+      ],
+      "result": "通过",
+      "issue_id": null
+    },
+    {
+      "case_id": "GT-LUNA-WEAPON-081-02",
+      "batch": 81,
+      "real_entry": "VolcanoItem.onEntitySwing + VolcanoBurstEntity.endTick",
+      "assertion": "监听真实实体加入，断言首发及后续1/2/3/4 END共5枚弹。",
+      "not_covered": [
+        "客户端网络输入与渲染",
+        "正常玩家游泳/流体检测；环境分支通过ServerPlayer夹具的isUnderWater状态控制",
+        "玩家之间多人联机同步与跨进程重启"
+      ],
+      "result": "通过",
+      "issue_id": null
+    },
+    {
+      "case_id": "GT-LUNA-WEAPON-081-03",
+      "batch": 81,
+      "real_entry": "VolcanoItem.onEntitySwing",
+      "assertion": "无heavy_round时无弹、无burst任务、无冷却。",
+      "not_covered": [
+        "客户端网络输入与渲染",
+        "正常玩家游泳/流体检测；环境分支通过ServerPlayer夹具的isUnderWater状态控制",
+        "玩家之间多人联机同步与跨进程重启"
+      ],
+      "result": "通过",
+      "issue_id": null
+    },
+    {
+      "case_id": "GT-LUNA-WEAPON-081-04",
+      "batch": 81,
+      "real_entry": "VolcanoItem.onEntitySwing",
+      "assertion": "同次使用后立即重挥仅消耗1枚弹并仅保留1个burst任务。",
+      "not_covered": [
+        "客户端网络输入与渲染",
+        "正常玩家游泳/流体检测；环境分支通过ServerPlayer夹具的isUnderWater状态控制",
+        "玩家之间多人联机同步与跨进程重启"
+      ],
+      "result": "通过",
+      "issue_id": null
+    },
+    {
+      "case_id": "GT-LUNA-WEAPON-081-05",
+      "batch": 81,
+      "real_entry": "VolcanoBurstEntity.endTick",
+      "assertion": "真实任务推进至20阶段后自身移除。",
+      "not_covered": [
+        "客户端网络输入与渲染",
+        "正常玩家游泳/流体检测；环境分支通过ServerPlayer夹具的isUnderWater状态控制",
+        "玩家之间多人联机同步与跨进程重启"
+      ],
+      "result": "通过",
+      "issue_id": null
+    },
+    {
+      "case_id": "GT-LUNA-WEAPON-082-01",
+      "batch": 82,
+      "real_entry": "SpearItem.use (HI_VOLT)",
+      "assertion": "右键首个电脉冲对近距目标造成1.5伤害并开始120 tick冷却。",
+      "not_covered": [
+        "客户端网络输入与渲染",
+        "正常玩家游泳/流体检测；环境分支通过ServerPlayer夹具的isUnderWater状态控制",
+        "玩家之间多人联机同步与跨进程重启"
+      ],
+      "result": "通过",
+      "issue_id": null
+    },
+    {
+      "case_id": "GT-LUNA-WEAPON-082-02",
+      "batch": 82,
+      "real_entry": "SpearItem.use (HI_VOLT)",
+      "assertion": "右键施加时长20、等级II缓慢效果，并只建1个脉冲任务。",
+      "not_covered": [
+        "客户端网络输入与渲染",
+        "正常玩家游泳/流体检测；环境分支通过ServerPlayer夹具的isUnderWater状态控制",
+        "玩家之间多人联机同步与跨进程重启"
+      ],
+      "result": "通过",
+      "issue_id": null
+    },
+    {
+      "case_id": "GT-LUNA-WEAPON-082-03",
+      "batch": 82,
+      "real_entry": "HiVoltPulseEntity.submit/electric endTick",
+      "assertion": "初始脉冲与2/4/…/18阶段脉冲总计十次，固定目标累计恰15伤害。",
+      "not_covered": [
+        "客户端网络输入与渲染",
+        "正常玩家游泳/流体检测；环境分支通过ServerPlayer夹具的isUnderWater状态控制",
+        "玩家之间多人联机同步与跨进程重启"
+      ],
+      "result": "通过",
+      "issue_id": null
+    },
+    {
+      "case_id": "GT-LUNA-WEAPON-082-04",
+      "batch": 82,
+      "real_entry": "SpearItem.use (HI_VOLT)",
+      "assertion": "120 tick冷却期间再次右键不生成第二脉冲任务。",
+      "not_covered": [
+        "客户端网络输入与渲染",
+        "正常玩家游泳/流体检测；环境分支通过ServerPlayer夹具的isUnderWater状态控制",
+        "玩家之间多人联机同步与跨进程重启"
+      ],
+      "result": "通过",
+      "issue_id": null
+    },
+    {
+      "case_id": "GT-LUNA-WEAPON-082-05",
+      "batch": 82,
+      "real_entry": "SpearItem.onEntitySwing (HI_VOLT)",
+      "assertion": "左键只创建非电任务，不产生即时伤害。",
+      "not_covered": [
+        "客户端网络输入与渲染",
+        "正常玩家游泳/流体检测；环境分支通过ServerPlayer夹具的isUnderWater状态控制",
+        "玩家之间多人联机同步与跨进程重启"
+      ],
+      "result": "通过",
+      "issue_id": null
+    },
+    {
+      "case_id": "GT-LUNA-WEAPON-082-06",
+      "batch": 82,
+      "real_entry": "HiVoltPulseEntity.submit/non-electric endTick",
+      "assertion": "非电路径16阶段内不伤害，任务按时移除。",
+      "not_covered": [
+        "客户端网络输入与渲染",
+        "正常玩家游泳/流体检测；环境分支通过ServerPlayer夹具的isUnderWater状态控制",
+        "玩家之间多人联机同步与跨进程重启"
+      ],
+      "result": "通过",
+      "issue_id": null
+    },
+    {
+      "case_id": "GT-LUNA-WEAPON-083-01",
+      "batch": 83,
+      "real_entry": "ThermoblasterItem.onEntitySwing (Cobalt dry)",
+      "assertion": "陆地左键创建恰6枚散射弹并消耗1枚specialized_round。",
+      "not_covered": [
+        "客户端网络输入与渲染",
+        "正常玩家游泳/流体检测；环境分支通过ServerPlayer夹具的isUnderWater状态控制",
+        "玩家之间多人联机同步与跨进程重启"
+      ],
+      "result": "通过",
+      "issue_id": null
+    },
+    {
+      "case_id": "GT-LUNA-WEAPON-083-02",
+      "batch": 83,
+      "real_entry": "ThermoblasterItem.onEntitySwing (Cobalt underwater) + ThermoblasterBurstEntity.endTick",
+      "assertion": "水下左键首发及2/4 END共3枚单发弹；按主人与起点过滤计数。",
+      "not_covered": [
+        "客户端网络输入与渲染",
+        "正常玩家游泳/流体检测；环境分支通过ServerPlayer夹具的isUnderWater状态控制",
+        "玩家之间多人联机同步与跨进程重启"
+      ],
+      "result": "通过",
+      "issue_id": null
+    },
+    {
+      "case_id": "GT-LUNA-WEAPON-083-03",
+      "batch": 83,
+      "real_entry": "ThermoblasterItem.onEntitySwing (Cobalt)",
+      "assertion": "无专用弹时不产生投射物/ burst任务且不启动冷却。",
+      "not_covered": [
+        "客户端网络输入与渲染",
+        "正常玩家游泳/流体检测；环境分支通过ServerPlayer夹具的isUnderWater状态控制",
+        "玩家之间多人联机同步与跨进程重启"
+      ],
+      "result": "通过",
+      "issue_id": null
+    },
+    {
+      "case_id": "GT-LUNA-WEAPON-083-04",
+      "batch": 83,
+      "real_entry": "ThermoblasterItem.onEntitySwing (Cobalt underwater)",
+      "assertion": "水下左键选单发burst模式，首弹1枚、任务1个且冷却生效。",
+      "not_covered": [
+        "客户端网络输入与渲染",
+        "正常玩家游泳/流体检测；环境分支通过ServerPlayer夹具的isUnderWater状态控制",
+        "玩家之间多人联机同步与跨进程重启"
+      ],
+      "result": "通过",
+      "issue_id": null
+    },
+    {
+      "case_id": "GT-LUNA-WEAPON-083-05",
+      "batch": 83,
+      "real_entry": "ThermoblasterItem.use (Cobalt dry)",
+      "assertion": "陆地右键不触发任一射击模式且不消耗弹药。",
+      "not_covered": [
+        "客户端网络输入与渲染",
+        "正常玩家游泳/流体检测；环境分支通过ServerPlayer夹具的isUnderWater状态控制",
+        "玩家之间多人联机同步与跨进程重启"
+      ],
+      "result": "通过",
+      "issue_id": null
+    },
+    {
+      "case_id": "GT-LUNA-WEAPON-083-06",
+      "batch": 83,
+      "real_entry": "ThermoblasterItem.use (Zenith)",
+      "assertion": "Zenith右键创建6枚散射弹并消耗1枚专用弹。",
+      "not_covered": [
+        "客户端网络输入与渲染",
+        "正常玩家游泳/流体检测；环境分支通过ServerPlayer夹具的isUnderWater状态控制",
+        "玩家之间多人联机同步与跨进程重启"
+      ],
+      "result": "通过",
+      "issue_id": null
+    },
+    {
+      "case_id": "GT-LUNA-WEAPON-083-07",
+      "batch": 83,
+      "real_entry": "ThermoblasterItem.onEntitySwing (Cobalt dry)",
+      "assertion": "6枚散射弹逐枚保留baseDamage=8、pierceLevel=2。",
+      "not_covered": [
+        "客户端网络输入与渲染",
+        "正常玩家游泳/流体检测；环境分支通过ServerPlayer夹具的isUnderWater状态控制",
+        "玩家之间多人联机同步与跨进程重启"
+      ],
+      "result": "通过",
+      "issue_id": null
+    },
+    {
+      "case_id": "GT-LUNA-WEAPON-084-01",
+      "batch": 84,
+      "real_entry": "BuzzsawItem.onEntitySwing + BuzzsawSweepEntity.cut",
+      "assertion": "真实挥动立即对半径1内非玩家目标造成恰2伤害。",
+      "not_covered": [
+        "客户端网络输入与渲染",
+        "正常玩家游泳/流体检测；环境分支通过ServerPlayer夹具的isUnderWater状态控制",
+        "玩家之间多人联机同步与跨进程重启"
+      ],
+      "result": "通过",
+      "issue_id": null
+    },
+    {
+      "case_id": "GT-LUNA-WEAPON-084-02",
+      "batch": 84,
+      "real_entry": "BuzzsawSweepEntity.endTick/cut",
+      "assertion": "首刀使用旧位置，之后追踪主人移动到新坐标；验证两目标累计各自精确伤害2和8。",
+      "not_covered": [
+        "客户端网络输入与渲染",
+        "正常玩家游泳/流体检测；环境分支通过ServerPlayer夹具的isUnderWater状态控制",
+        "玩家之间多人联机同步与跨进程重启"
+      ],
+      "result": "通过",
+      "issue_id": null
+    },
+    {
+      "case_id": "GT-LUNA-WEAPON-084-03",
+      "batch": 84,
+      "real_entry": "BuzzsawSweepEntity.cut",
+      "assertion": "不伤害持有者，挥动后仅存在1个扫描任务。",
+      "not_covered": [
+        "客户端网络输入与渲染",
+        "正常玩家游泳/流体检测；环境分支通过ServerPlayer夹具的isUnderWater状态控制",
+        "玩家之间多人联机同步与跨进程重启"
+      ],
+      "result": "通过",
+      "issue_id": null
+    },
+    {
+      "case_id": "GT-LUNA-WEAPON-084-04",
+      "batch": 84,
+      "real_entry": "BuzzsawSweepEntity.endTick",
+      "assertion": "任务在四轮后移除且不留存。",
+      "not_covered": [
+        "客户端网络输入与渲染",
+        "正常玩家游泳/流体检测；环境分支通过ServerPlayer夹具的isUnderWater状态控制",
+        "玩家之间多人联机同步与跨进程重启"
+      ],
+      "result": "通过",
+      "issue_id": null
+    },
+    {
+      "case_id": "GT-LUNA-WEAPON-084-05",
+      "batch": 84,
+      "real_entry": "BuzzsawSweepEntity.endTick owner validation",
+      "assertion": "移除原主人后，下一轮判定丢弃任务。",
+      "not_covered": [
+        "客户端网络输入与渲染",
+        "正常玩家游泳/流体检测；环境分支通过ServerPlayer夹具的isUnderWater状态控制",
+        "玩家之间多人联机同步与跨进程重启"
+      ],
+      "result": "通过",
+      "issue_id": null
+    },
+    {
+      "case_id": "GT-LUNA-WEAPON-084-06",
+      "batch": 84,
+      "real_entry": "BuzzsawItem.onEntitySwing",
+      "assertion": "11 tick玩家冷却期间重复挥动不创建第二任务。",
+      "not_covered": [
+        "客户端网络输入与渲染",
+        "正常玩家游泳/流体检测；环境分支通过ServerPlayer夹具的isUnderWater状态控制",
+        "玩家之间多人联机同步与跨进程重启"
+      ],
+      "result": "通过",
+      "issue_id": null
+    }
+  ],
+  "deduplication": {
+    "checked_matrix": "production docs/testing/early-tests/server-coverage-matrix.json",
+    "existing_scenario_tests": "Forecast旧34项/373累计用例无Volcano、Hi-Volt、Thermoblaster、Buzzsaw真实武器入口用例；新增项目分属批次81/82/83/84",
+    "excluded": "Fabricator事务、Grunt冰队及Forecast既有实体测试"
+  },
+  "issues": [],
+  "limitations": [
+    "固定的isUnderWater输入分支来自ServerPlayer测试子类覆盖；未验证原版水面/眼部流体判定",
+    "实际磁盘重启/真实客户端按键/渲染未覆盖",
+    "Buzzsaw多轮目标固定且服务端单线程，不覆盖多人压力"
+  ]
+}

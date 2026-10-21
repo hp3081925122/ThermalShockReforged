@@ -1,6 +1,6 @@
 {
   "display": {
-    "icon": { "id": "thermal_shock_reforged:fabricator_constructor" },
+    "icon": { "id": "thermal_shock_reforged:fabricator" },
     "title": { "translate": "advancements.fabricator_get.title" },
     "description": { "translate": "advancements.fabricator_get.descr" },
     "frame": "goal",
@@ -11,7 +11,7 @@
   "criteria": {
     "fabricator_get_0": {
       "trigger": "minecraft:inventory_changed",
-      "conditions": { "items": [{ "items": ["thermal_shock_reforged:fabricator_constructor"], "count": { "min": 1, "max": 64 } }] }
+      "conditions": { "items": [{ "items": ["thermal_shock_reforged:fabricator"], "count": { "min": 1, "max": 64 } }] }
     }
   },
   "parent": "thermal_shock_reforged:frigid_altar_get"

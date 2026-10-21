@@ -1,0 +1,163 @@
+{
+  "sharedMatrixChanged": false,
+  "suiteRun": {
+    "sha256": "5EDB6077FAE5F5F626E98D52BC8377FE9690ED306824DF309A94C8C781AB7B45",
+    "log": "runs/combat-next-attempt-2.log",
+    "firstPass": 12,
+    "normalShutdown": true,
+    "tests": 15,
+    "failed": 3,
+    "gradleExitCode": 3
+  },
+  "correctedDoubleStrike": {
+    "case": "HuntressCombatNextTests.doubleStrikeAppliesSecondDelayedHitToTheSameLivingTarget",
+    "evidence": "seed=4096 elapsed=19 hits=2 health=84.0 removed=true",
+    "result": "通过",
+    "equivalentTargetedCase": "CombatFailureReruns.rerunDoubleStrikeSeedAndSecondHit"
+  },
+  "isolation": "D:\\AI临时文件\\ThermalShockMigration\\early-tests\\parallel-20261020\\bastion",
+  "task": "Huntress/Maiden/Gravers 第0至99批剩余战斗测试",
+  "namespace": [
+    "ts_server262",
+    "ts_server263"
+  ],
+  "sources": {
+    "MaidenRemovalRerun.java": "61E4B8BEE903C90F21C75B88C28C8777C2AD841F9B78BBD0BEC64B5B7B7100D5",
+    "CombatFailureReruns.java": "7804BC635E2E2EA6ED0DBE903B926DB11F8E521882A0EE12D6A56BB325B53C5F",
+    "MaidenCombatNextTests.java": "6D2A5431305F31867FDEB9C472639C51CA0E1EFAF162C4A53C6D83413DA12D88",
+    "GraverCombatNextTests.java": "C4134D0715950BFDEABC02C6D573143AC016BD00DB97672532F7179F8A2B1408",
+    "HuntressCombatNextTests.java": "5DE1FEB8195FF172405E2BC8F7212456D3942B5A9B803ABC65D731F37CE73ED9"
+  },
+  "templateSha256": "3612C3943632F43E60F13EAD841225322BD57EB62CBC68A122E7D928E8934A61",
+  "bugDocs": [
+    "SB-120-huntress-slam-after-caster-removal.md",
+    "SB-121-maiden-volley-after-caster-removal.md"
+  ],
+  "baseline": "00bbd5801c3d373d0d239637de9dd69f2f5974d5",
+  "untested": [
+    "Huntress自然AI选招、奖励经验与boss bar",
+    "施法者死亡以外的跨维度/存档重载时任务生命周期",
+    "Maiden施法者自然死亡事件与卸载区块恢复",
+    "Maiden目标切换到另一生物的自然AI意图；现测覆盖已提交目标移动",
+    "Graver InfectionStatus感染触发和感染转换全链路",
+    "Graver自然战斗击杀链路与生成规则"
+  ],
+  "sb035Rerun": false,
+  "targetedRun": {
+    "sha256": "220DB09622039F1E0317E41A0FCE27430F18FF956A573DC9BBF179530B8D6543",
+    "passed": 1,
+    "log": "runs/combat-next-targeted-rerun-2.log",
+    "normalShutdown": true,
+    "tests": 3,
+    "failed": 2,
+    "gradleExitCode": 2
+  },
+  "cases": [
+    {
+      "assertion": "技能2/冷却/重力锁提交；到期前未命中，到期命中且任务结束并释放重力",
+      "id": "H1",
+      "entry": "beginAttack直接回调，随后自然任务tick",
+      "result": "通过",
+      "name": "slamWaitsForFinalStageThenHitsAndReleasesGravity"
+    },
+    {
+      "assertion": "3格边界选回撤，3.001格进入Slam",
+      "id": "H2",
+      "entry": "beginAttack直接回调，固定随机种子",
+      "result": "通过",
+      "name": "threeBlockBoundarySelectsRollbackAndOutsideStartsDelayedSkill"
+    },
+    {
+      "assertion": "冷却中重复入口不增加任务且不改冷却",
+      "id": "H3",
+      "entry": "beginAttack直接回调两次",
+      "result": "通过",
+      "name": "slamCooldownRejectsDuplicateSubmissionAndReset"
+    },
+    {
+      "assertion": "8护甲目标受到减伤后伤害且击退抗性1使击退为0",
+      "id": "H4",
+      "entry": "beginAttack直接回调，后续自然任务tick",
+      "result": "通过",
+      "name": "slamUsesArmorAndTargetKnockbackResistance"
+    },
+    {
+      "assertion": "施法者discard后目标应保持100生命，实测90",
+      "id": "H5",
+      "entry": "beginAttack直接回调后discard施法者",
+      "result": "失败，SB-120",
+      "name": "removedCasterCancelsUnresolvedSlam"
+    },
+    {
+      "assertion": "seed4096两段对同一目标各命中一次，生命84，任务结束",
+      "id": "H6",
+      "entry": "beginAttack直接回调；手动调用任务endTick 19次",
+      "result": "定向复跑通过；首轮为夹具误报",
+      "name": "doubleStrikeAppliesSecondDelayedHitToTheSameLivingTarget"
+    },
+    {
+      "assertion": "目标移动后仍保留初始UUID并发射8箭",
+      "id": "M1",
+      "entry": "beginAttack直接回调，任务自然tick",
+      "result": "通过",
+      "name": "waveKeepsCommittedTargetIdentityAfterTargetMoves"
+    },
+    {
+      "assertion": "施法者discard后应无未来箭，首组失败",
+      "id": "M2",
+      "entry": "beginAttack直接回调后discard施法者",
+      "result": "失败，SB-121",
+      "name": "deadCasterCancelsUncommittedArrowWaves"
+    },
+    {
+      "assertion": "8箭实体生成，真实tick碰撞使目标生命下降，所有记录箭有owner与正伤害",
+      "id": "M3",
+      "entry": "beginAttack直接回调；实际服务端弹体tick/碰撞",
+      "result": "通过",
+      "name": "emittedBloodArrowUsesRealCollisionAndDamageSource"
+    },
+    {
+      "assertion": "施法者移动后发射的8箭围绕当前坐标",
+      "id": "M4",
+      "entry": "beginAttack直接回调，移动实体后任务tick",
+      "result": "通过",
+      "name": "movingCasterChangesRealVolleyLaunchOrigin"
+    },
+    {
+      "assertion": "生成一个变体3的AssimilatedGraver并移除Assimilator",
+      "id": "G1",
+      "entry": "直接回调awardKillScore，不是自然击杀",
+      "result": "通过",
+      "name": "assimilatorConvertsKilledGraverIntoOneAssimilatedForm"
+    },
+    {
+      "assertion": "重复awardKillScore只保留一个替代实体",
+      "id": "G2",
+      "entry": "直接回调awardKillScore两次",
+      "result": "通过",
+      "name": "repeatedGraverKillCallbackCannotDuplicateConversion"
+    },
+    {
+      "assertion": "取消替代实体入场后原Assimilator保留且无孤儿替代体",
+      "id": "G3",
+      "entry": "事件监听器取消入场；直接回调awardKillScore",
+      "result": "通过",
+      "name": "cancelledReplacementJoinKeepsAssimilatorAvailable"
+    },
+    {
+      "assertion": "Cow目标不触发转换",
+      "id": "G4",
+      "entry": "直接回调awardKillScore",
+      "result": "通过",
+      "name": "nonGraverKillDoesNotTriggerAssimilatorConversion"
+    },
+    {
+      "assertion": "5种Graver家族实体的生命/护甲/攻击/移速匹配配置",
+      "id": "G5",
+      "entry": "直接创建实体并入场，核对属性",
+      "result": "通过",
+      "name": "allGraverFamilyAttributesUseTheirConfiguredVariantValues"
+    }
+  ],
+  "productionSourceChanged": false
+}
