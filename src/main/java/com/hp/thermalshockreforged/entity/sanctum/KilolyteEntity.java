@@ -152,10 +152,6 @@ public final class KilolyteEntity extends Monster implements GeoEntity {
         }
         return super.getDamageAfterMagicAbsorb(source, amount);
     }
-    @Override protected void dropCustomDeathLoot(ServerLevel level, DamageSource source, boolean recentlyHit) {
-        super.dropCustomDeathLoot(level, source, recentlyHit);
-        spawnAtLocation(new net.minecraft.world.item.ItemStack(com.hp.thermalshockreforged.content.weapons.WeaponContent.ZAP_GAUNTLET.get()));
-    }
     @Override protected void dropExperience(Entity attacker) { experiencePending = true; experienceAttacker = attacker == null ? null : attacker.getUUID(); }
     @Override protected void tickDeath() {
         if (++deathTime >= 20 && !isRemoved()) {

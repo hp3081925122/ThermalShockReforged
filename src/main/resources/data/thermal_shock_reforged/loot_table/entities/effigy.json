@@ -61,6 +61,21 @@
           ]
         }
       ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "thermal_shock_reforged:snowdae"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:random_chance",
+          "chance": 0.007
+        }
+      ]
     }
   ],
   "random_sequence": "thermal_shock_reforged:entities/effigy"

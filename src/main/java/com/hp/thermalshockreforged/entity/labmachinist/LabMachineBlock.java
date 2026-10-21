@@ -37,7 +37,6 @@ public abstract class LabMachineBlock extends Block implements EntityBlock {
     @Override public BlockState getStateForPlacement(BlockPlaceContext context) { return defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite()); }
     @Override protected BlockState rotate(BlockState state, Rotation rotation) { return state.setValue(FACING, rotation.rotate(state.getValue(FACING))); }
     @Override protected BlockState mirror(BlockState state, Mirror mirror) { return state.rotate(mirror.getRotation(state.getValue(FACING))); }
-    @Override protected List<ItemStack> getDrops(BlockState state, LootParams.Builder builder) { var drops = super.getDrops(state, builder); return drops.isEmpty() ? List.of(new ItemStack(this)) : drops; }
     @Override public boolean canHarvestBlock(BlockState state, BlockGetter level, BlockPos pos, Player player) { return super.canHarvestBlock(state, level, pos, player) && (!wallbore() || state.getValue(MODE) == 0); }
     @Override protected MenuProvider getMenuProvider(BlockState state, Level level, BlockPos pos) { return !wallbore() && level.getBlockEntity(pos) instanceof LabMachineBlockEntity machine ? machine : null; }
     @Override protected boolean triggerEvent(BlockState state, Level level, BlockPos pos, int id, int parameter) { super.triggerEvent(state, level, pos, id, parameter); return level.getBlockEntity(pos) instanceof LabMachineBlockEntity machine && machine.triggerEvent(id, parameter); }

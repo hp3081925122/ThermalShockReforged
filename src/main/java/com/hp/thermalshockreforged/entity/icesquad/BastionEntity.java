@@ -1,8 +1,6 @@
 package com.hp.thermalshockreforged.entity.icesquad;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
-import com.hp.thermalshockreforged.content.MaterialContent;
-import com.hp.thermalshockreforged.content.ModGameRules;
 import com.hp.thermalshockreforged.content.status.StatusContent;
 import com.hp.thermalshockreforged.world.timing.ServerEndTickTask;
 import com.hp.thermalshockreforged.world.timing.ServerEndTickTasks;
@@ -26,10 +24,8 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.*;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.*;
@@ -177,7 +173,6 @@ public final class BastionEntity extends Monster implements GeoEntity, ServerEnd
         super.die(source);
         if (!dead || deathCommitted || !(level() instanceof ServerLevel server)) return;
         deathCommitted = true; clearCombat();
-        if (server.getGameRules().getBoolean(ModGameRules.LOQENDIA_DROP_HEART_CRYSTALS)) { var crystal = new ItemEntity(server, getX(), getY(), getZ(), new ItemStack(MaterialContent.items().get("heart_crystal").get())); crystal.setPickUpDelay(10); server.addFreshEntity(crystal); }
         Vec3 center = position();
         for (var other : server.getEntitiesOfClass(BastionEntity.class, new AABB(center, center).inflate(21), entity -> entity.burner() != burner()).stream().sorted(Comparator.comparingDouble(entity -> entity.distanceToSqr(center))).toList()) other.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 9999, 1, true, false));
     }

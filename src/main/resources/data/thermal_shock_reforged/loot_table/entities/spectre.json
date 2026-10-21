@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:entity",
+  "random_sequence": "thermal_shock_reforged:entities/spectre",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "thermal_shock_reforged:luck_ticket"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:random_chance",
+          "chance": 0.004
+        }
+      ]
+    }
+  ]
+}

@@ -97,12 +97,6 @@ public final class TorpedoEntity extends Monster implements GeoEntity {
     }
 
     @Override
-    protected void dropCustomDeathLoot(net.minecraft.server.level.ServerLevel level, DamageSource source, boolean recentlyHit) {
-        super.dropCustomDeathLoot(level, source, recentlyHit);
-        spawnAtLocation(FaunaEntities.item("raw_torpedo"));
-    }
-
-    @Override
     public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
         tag.putString("Texture", texture());

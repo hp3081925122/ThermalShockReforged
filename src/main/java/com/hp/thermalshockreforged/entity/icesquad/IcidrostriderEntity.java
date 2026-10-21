@@ -50,7 +50,6 @@ public final class IcidrostriderEntity extends Monster implements GeoEntity {
         return !(source.getDirectEntity() instanceof AbstractArrow) && !(source.getDirectEntity() instanceof ThrownPotion) && !(source.getDirectEntity() instanceof AreaEffectCloud)
                 && !source.is(DamageTypes.FALL) && !source.is(DamageTypes.CACTUS) && !source.is(DamageTypes.DROWN) && !source.is(DamageTypes.DRAGON_BREATH) && super.hurt(source, amount);
     }
-    @Override protected void dropCustomDeathLoot(ServerLevel server, DamageSource source, boolean recentlyHit) { super.dropCustomDeathLoot(server, source, recentlyHit); spawnAtLocation(new ItemStack(IceSquadContent.STRIDER_CONSTRUCTOR.get())); }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.IRON_GOLEM_DAMAGE; }
     @Override protected SoundEvent getDeathSound() { return SoundEvents.IRON_GOLEM_DAMAGE; }
     @Override protected void playStepSound(BlockPos pos, BlockState state) { playSound(SoundEvents.IRON_GOLEM_STEP, 0.15F, 1); }

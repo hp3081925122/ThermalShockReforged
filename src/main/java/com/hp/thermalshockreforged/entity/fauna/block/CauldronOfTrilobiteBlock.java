@@ -69,12 +69,6 @@ public final class CauldronOfTrilobiteBlock extends Block implements EntityBlock
     protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) { return SHAPE; }
 
     @Override
-    protected java.util.List<ItemStack> getDrops(BlockState state, LootParams.Builder builder) {
-        var drops = super.getDrops(state, builder);
-        return drops.isEmpty() ? java.util.List.of(new ItemStack(this)) : drops;
-    }
-
-    @Override
     protected ItemInteractionResult useItemOn(ItemStack held, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         if (!held.is(Items.BUCKET)) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
         if (!level.isClientSide) {

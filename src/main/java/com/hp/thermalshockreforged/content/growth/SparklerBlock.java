@@ -33,16 +33,10 @@ public final class SparklerBlock extends Block implements SimpleWaterloggedBlock
     @Override protected VoxelShape getVisualShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) { return Shapes.empty(); }
     private void checkSoil(Level level, BlockPos pos) {
         if (!(level instanceof ServerLevel server) || GrowthSoil.accepts(level, pos, true)) return;
-        if (!level.getBlockState(pos).is(this) || !level.destroyBlock(pos, false) || level.getBlockState(pos).is(this)) return;
-        var drop = new ItemEntity(level, pos.getX()+.5, pos.getY()+.5, pos.getZ()+.5, new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", "steelstem"))));
-        drop.setPickUpDelay(10);
-        server.addFreshEntity(drop);
+        var state = level.getBlockState(pos);
+        if (!state.is(this) || !level.destroyBlock(pos, false) || level.getBlockState(pos).is(this)) return;
+        com.hp.thermalshockreforged.content.loot.LootContent.dropBlockTable(server, "gameplay/sparkler_withering", state, pos, net.minecraft.world.phys.Vec3.atCenterOf(pos));
     }
     @Override protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState previous, boolean moving) { super.onPlace(state, level, pos, previous, moving); checkSoil(level, pos); }
     @Override protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block block, BlockPos from, boolean moving) { super.neighborChanged(state, level, pos, block, from, moving); checkSoil(level, pos); }
-    @Override public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean harvest, FluidState fluid) {
-        boolean result = super.onDestroyedByPlayer(state, level, pos, player, harvest, fluid);
-        if (result && !level.getBlockState(pos).is(this)) GrowthHarvest.harvest(level, pos, GrowthKind.SPARKLER, player);
-        return result;
-    }
 }

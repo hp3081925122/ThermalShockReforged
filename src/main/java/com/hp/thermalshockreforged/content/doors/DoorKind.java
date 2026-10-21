@@ -21,12 +21,12 @@ public enum DoorKind {
         this.id = id;
         this.asset = asset;
         if (id.equals("maw_door")) {
-            VoxelShape northSouth = Block.box(-16, 0, 0, 32, 64, 16);
-            VoxelShape eastWest = Block.box(0, 0, -16, 16, 64, 32);
+            VoxelShape northSouth = Block.box(-16, 0, 0, 32, 80, 16);
+            VoxelShape eastWest = Block.box(0, 0, -16, 16, 80, 32);
             VoxelShape openNorthSouth = Shapes.or(Block.box(-16, 0, 0, 32, 1, 16),
-                    Block.box(-16, 0, 0, -14, 64, 16), Block.box(30, 0, 0, 32, 64, 16));
+                    Block.box(-16, 0, 0, -14, 80, 16), Block.box(30, 0, 0, 32, 80, 16));
             VoxelShape openEastWest = Shapes.or(Block.box(0, 0, -16, 16, 1, 32),
-                    Block.box(0, 0, -16, 16, 64, -14), Block.box(0, 0, 30, 16, 64, 32));
+                    Block.box(0, 0, -16, 16, 80, -14), Block.box(0, 0, 30, 16, 80, 32));
             closed[0] = northSouth; closed[1] = eastWest; closed[2] = northSouth; closed[3] = eastWest;
             open[0] = openNorthSouth; open[1] = openEastWest; open[2] = openNorthSouth; open[3] = openEastWest;
         } else {

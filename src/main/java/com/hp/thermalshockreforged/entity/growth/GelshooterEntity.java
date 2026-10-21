@@ -65,7 +65,6 @@ public final class GelshooterEntity extends PathfinderMob implements RangedAttac
     @Override public boolean hurt(DamageSource source,float amount) { return !source.is(DamageTypes.FALL)&&super.hurt(source,amount); }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.GENERIC_HURT; }
     @Override protected SoundEvent getDeathSound() { return SoundEvents.GENERIC_DEATH; }
-    @Override protected void dropCustomDeathLoot(ServerLevel level,DamageSource source,boolean recentlyHit) { super.dropCustomDeathLoot(level,source,recentlyHit); spawnAtLocation(new ItemStack(GrowthContent.GEL_BULB.get())); }
     @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level,DifficultyInstance difficulty,MobSpawnType reason,SpawnGroupData group) {
         var result=super.finalizeSpawn(level,difficulty,reason,group);
         if (level instanceof ServerLevel server) server.sendParticles(ParticleTypes.POOF,getX(),getY(),getZ(),5,.1,.1,.1,.1);

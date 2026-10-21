@@ -1,4 +1,35 @@
 {
   "type": "minecraft:block",
-  "random_sequence": "thermal_shock_reforged:blocks/loque_leaves"
+  "random_sequence": "thermal_shock_reforged:blocks/loque_leaves",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "thermal_shock_reforged:loque_leaves",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 2
+              }
+            }
+          ]
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:match_tool",
+          "predicate": {
+            "items": [
+              "thermal_shock_reforged:leafcutter"
+            ]
+          }
+        }
+      ]
+    }
+  ]
 }

@@ -50,14 +50,12 @@ public final class WorldProgressData extends SavedData {
     public int oreTier2() { return oreTier2; }
     public void initializeOreChoices(ServerLevel level) {
         if (!level.getServer().isSameThread()) throw new IllegalStateException("Ore selection must run on the server thread");
-        if (oreTier1 == 0) {
-            if (Math.random() < 0.5) { oreTier1 = 1; setDirty(); }
-            else if (Math.random() >= 0.5) { oreTier1 = 2; setDirty(); }
-        }
-        if (oreTier2 == 0) {
-            if (Math.random() < 0.5) { oreTier2 = 1; setDirty(); }
-            else if (Math.random() >= 0.5) { oreTier2 = 2; setDirty(); }
-        }
+        if (oreTier1 != 0 && oreTier2 != 0) return;
+        if (oreTier1 == 0) oreTier1 = level.random.nextInt(2) + 1;
+        if (oreTier2 == 0) oreTier2 = level.random.nextInt(2) + 1;
+        setDirty();
+        ThermalShockReforged.LOGGER.debug("Ore choices initialized: tier1={}, tier2={}", oreTier1, oreTier2);
+        OreChoicePayload.broadcast(level);
     }
 
     public static WorldProgressData get(ServerLevel level) {

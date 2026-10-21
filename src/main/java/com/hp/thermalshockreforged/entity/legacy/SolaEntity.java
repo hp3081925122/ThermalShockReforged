@@ -1,9 +1,7 @@
 package com.hp.thermalshockreforged.entity.legacy;
 
-import com.hp.thermalshockreforged.content.MaterialContent;
 import com.hp.thermalshockreforged.entity.base.AnimatedMonsterEntity;
 import net.minecraft.core.BlockPos;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.DifficultyInstance;
@@ -23,7 +21,6 @@ import net.minecraft.world.entity.ai.goal.RandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
@@ -66,10 +63,6 @@ public final class SolaEntity extends AnimatedMonsterEntity {
     @Override protected void playStepSound(BlockPos pos, BlockState state) { playSound(SoundEvents.SLIME_JUMP, .15F, 1); }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.SLIME_HURT; }
     @Override protected SoundEvent getDeathSound() { return SoundEvents.SLIME_DEATH; }
-    @Override protected void dropCustomDeathLoot(ServerLevel level, DamageSource source, boolean recentlyHit) {
-        super.dropCustomDeathLoot(level, source, recentlyHit);
-        spawnAtLocation(new ItemStack(MaterialContent.items().get("pathiolite_scrap").get()));
-    }
 
     public static AttributeSupplier.Builder createAttributes() {
         return createMobAttributes().add(Attributes.MOVEMENT_SPEED, .2).add(Attributes.MAX_HEALTH, 9).add(Attributes.ARMOR, 10).add(Attributes.ATTACK_DAMAGE, 4).add(Attributes.FOLLOW_RANGE, 16);

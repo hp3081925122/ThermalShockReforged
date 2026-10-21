@@ -16,9 +16,7 @@ public class GeoFlowerBlock extends GeoDecorBlock {
         super.neighborChanged(state, level, pos, neighbor, from, moving);
         if (level instanceof ServerLevel server && level.isEmptyBlock(pos.below()) && level.getBlockState(pos).is(this)
                 && level.destroyBlock(pos, false) && !level.getBlockState(pos).is(this)) {
-            ItemEntity drop = new ItemEntity(server, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(GrowthContent.SPIRE_BLOOM_RUBICON.get()));
-            drop.setPickUpDelay(10);
-            server.addFreshEntity(drop);
+            com.hp.thermalshockreforged.content.loot.LootContent.dropBlockTable(server, "gameplay/spire_bloom_collapse", state, pos, net.minecraft.world.phys.Vec3.atLowerCornerOf(pos));
         }
     }
 }

@@ -34,7 +34,6 @@ public final class InfestationEntities {
         ITEMS.register(bus);
         bus.addListener(InfestationEntities::attributes);
         bus.addListener(InfestationEntities::placements);
-        NeoForge.EVENT_BUS.addListener(GraveyardDrops::death);
     }
 
     private static void attributes(EntityAttributeCreationEvent event) {

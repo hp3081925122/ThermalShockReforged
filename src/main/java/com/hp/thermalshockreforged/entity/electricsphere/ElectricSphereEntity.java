@@ -66,8 +66,9 @@ public final class ElectricSphereEntity extends AnimatedPathfinderEntity {
         var stack = player.getMainHandItem();
         if (!stack.is(Items.SHEARS) && !(stack.getItem() instanceof LeafcutterItem)) return parent;
         if (level() instanceof ServerLevel server) {
-            var item = new ItemEntity(server, getX(), getY(), getZ(), new ItemStack(ElectricSphereContent.CONSTRUCTOR.get())); item.setPickUpDelay(0);
-            if (server.addFreshEntity(item) && server.getEntity(item.getUUID()) == item) { discard(); server.playSound(null, blockPosition(), SoundEvents.SNOW_GOLEM_SHEAR, SoundSource.BLOCKS, 1, 1); }
+            boolean spawned = false;
+            for (var drop : com.hp.thermalshockreforged.content.loot.LootContent.roll(server, "gameplay/electric_sphere_shearing", this)) if (com.hp.thermalshockreforged.content.loot.LootContent.spawn(server, position(), drop, 0)) spawned = true;
+            if (spawned) { discard(); server.playSound(null, blockPosition(), SoundEvents.SNOW_GOLEM_SHEAR, SoundSource.BLOCKS, 1, 1); }
         }
         return InteractionResult.sidedSuccess(level().isClientSide);
     }

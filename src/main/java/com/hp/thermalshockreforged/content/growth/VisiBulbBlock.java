@@ -30,7 +30,6 @@ public final class VisiBulbBlock extends Block implements EntityBlock {
     @Override protected VoxelShape getVisualShape(BlockState state,BlockGetter level,BlockPos pos,CollisionContext context) { return Shapes.empty(); }
     @Override public BlockEntity newBlockEntity(BlockPos pos,BlockState state) { return new GrowthInventoryBlockEntity(pos,state); }
     @Override protected void onPlace(BlockState state,Level level,BlockPos pos,BlockState previous,boolean moving) { super.onPlace(state,level,pos,previous,moving); GrowthSoil.checkMature(level,pos); }
-    @Override public boolean onDestroyedByPlayer(BlockState state,Level level,BlockPos pos,Player player,boolean harvest,FluidState fluid) { boolean result=super.onDestroyedByPlayer(state,level,pos,player,harvest,fluid); if (result && !level.getBlockState(pos).is(this)) GrowthHarvest.harvest(level,pos,GrowthKind.VISI_BULB,player); return result; }
     private void use(Level level,BlockPos pos,Player player) {
         if (!(level instanceof ServerLevel server)) return;
         BlockState current = level.getBlockState(pos);

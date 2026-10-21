@@ -48,7 +48,6 @@ public final class TeslaReedEntity extends AnimatedPathfinderEntity {
         if (level instanceof ServerLevel server) server.sendParticles(ParticleTypes.POOF, getX(), getY(), getZ(), 5, .1, .1, .1, .1);
         return result;
     }
-    @Override protected void dropCustomDeathLoot(ServerLevel level, DamageSource source, boolean recentlyHit) { super.dropCustomDeathLoot(level, source, recentlyHit); spawnAtLocation(new ItemStack(TallPlantContent.VOLT_FLOWER.get())); }
     @Override public boolean hurt(DamageSource source, float amount) { return !source.is(DamageTypes.FALL) && super.hurt(source, amount); }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.GENERIC_HURT; }
     @Override protected SoundEvent getDeathSound() { return SoundEvents.GENERIC_DEATH; }

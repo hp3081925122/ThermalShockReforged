@@ -40,10 +40,6 @@ public final class GlowstickBlock extends Block implements EntityBlock, SimpleWa
         if (state.getValue(WATERLOGGED)) level.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
         return super.updateShape(state, facing, neighbor, level, pos, neighborPos);
     }
-    @Override protected List<ItemStack> getDrops(BlockState state, LootParams.Builder builder) {
-        var drops = super.getDrops(state, builder);
-        return drops.isEmpty() ? List.of(new ItemStack(this)) : drops;
-    }
     private void checkHanging(Level level, BlockPos pos) {
         if (!level.isClientSide && level.getBlockState(pos.above()).is(Blocks.AIR)) level.destroyBlock(pos, true);
     }

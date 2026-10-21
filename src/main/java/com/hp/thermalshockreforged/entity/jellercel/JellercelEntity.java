@@ -70,11 +70,6 @@ public final class JellercelEntity extends PathfinderMob implements GeoEntity {
         if (!level().isClientSide) player.hurt(damageSources().cactus(), 1.0F);
     }
 
-    @Override protected void dropCustomDeathLoot(ServerLevel level, DamageSource source, boolean recentlyHit) {
-        super.dropCustomDeathLoot(level, source, recentlyHit);
-        spawnAtLocation(MaterialContent.items().get("jellercel_cell").get());
-    }
-
     @Override protected void dropExperience(Entity attacker) { experiencePending = true; experienceAttacker = attacker == null ? null : attacker.getUUID(); }
     @Override protected void tickDeath() {
         if (++deathTime >= 20 && !isRemoved()) {

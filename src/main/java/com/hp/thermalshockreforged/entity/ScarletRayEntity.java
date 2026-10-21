@@ -79,12 +79,6 @@ public final class ScarletRayEntity extends PathfinderMob implements GeoEntity {
     }
 
     @Override
-    protected void dropCustomDeathLoot(ServerLevel level, DamageSource source, boolean recentlyHit) {
-        super.dropCustomDeathLoot(level, source, recentlyHit);
-        spawnAtLocation(MaterialContent.items().get("scarlet_marrow").get());
-    }
-
-    @Override
     public SoundEvent getAmbientSound() {
         return SoundEvents.COD_AMBIENT;
     }

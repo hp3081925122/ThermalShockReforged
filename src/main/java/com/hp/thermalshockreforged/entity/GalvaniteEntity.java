@@ -85,7 +85,6 @@ public final class GalvaniteEntity extends Monster implements GeoEntity {
         super.die(source);
         if (!dead || deathCommitted || !(level() instanceof ServerLevel server)) return;
         deathCommitted = true;
-        GalvaniteDrops.drop(this, server);
     }
     @Override protected void dropExperience(Entity attacker) { experiencePending = true; experienceAttacker = attacker == null ? null : attacker.getUUID(); }
     @Override protected void tickDeath() {

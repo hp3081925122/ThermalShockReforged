@@ -106,9 +106,6 @@ public final class AngryCavebloomerEntity extends Monster implements GeoEntity, 
         deathSequence.endTick(server);
         if (attacks.pending() || deathSequence.pending()) ServerEndTickTasks.schedule(server, getUUID());
     }
-    @Override protected void dropCustomDeathLoot(ServerLevel server, DamageSource source, boolean recentlyHit) {
-        super.dropCustomDeathLoot(server, source, recentlyHit); spawnAtLocation(new ItemStack(CavebloomerContent.BOSS_BOX.get()));
-    }
     @Override public void die(DamageSource source) {
         super.die(source);
         if (!dead || deathCommitted || !(level() instanceof ServerLevel server)) return;

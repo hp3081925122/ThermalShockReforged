@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:entity",
+  "random_sequence": "thermal_shock_reforged:entities/ribbonblade_galvanite",
+  "pools": [
+    {
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "thermal_shock_reforged:bioelectric_cell",
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.2
+            }
+          ]
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "thermal_shock_reforged:world_crux",
+          "min": 1
+        }
+      ]
+    }
+  ]
+}
