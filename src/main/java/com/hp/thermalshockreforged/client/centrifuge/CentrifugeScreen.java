@@ -50,7 +50,7 @@ public final class CentrifugeScreen extends AbstractContainerScreen<CentrifugeMe
         @Override protected void renderWidget(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
             RenderSystem.enableBlend();
             RenderSystem.defaultBlendFunc();
-            graphics.blit(BUTTON, getX(), getY(), 0, isHoveredOrFocused() ? 18 : 0, width, height, 40, 36);
+            graphics.blit(BUTTON, getX(), getY(), 0, isHoveredOrFocused() ? 18 : 0, width, height, 40, 36); com.hp.thermalshockreforged.client.ButtonLabels.draw(graphics, BUTTON, getX(), getY(), 40, 18, isHoveredOrFocused());
             RenderSystem.disableBlend();
         }
         @Override protected void updateWidgetNarration(NarrationElementOutput output) { defaultButtonNarrationText(output); }

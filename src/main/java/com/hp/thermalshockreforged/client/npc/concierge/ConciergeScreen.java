@@ -38,7 +38,7 @@ public final class ConciergeScreen extends AbstractContainerScreen<ConciergeMenu
         if (vilebath != null) vilebath.visible = menu.vilebathAllowed();
     }
     @Override public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
-        super.render(graphics, mouseX, mouseY, partialTick); renderTooltip(graphics, mouseX, mouseY);
+        super.render(graphics, mouseX, mouseY, partialTick); renderTooltip(graphics, mouseX, mouseY); if (menu.getCarried().isEmpty()) for (var line : menu.page.lines) if (com.hp.thermalshockreforged.client.npc.NpcTradeLabels.tooltip(graphics, font, line.key(), leftPos + line.x(), topPos + line.y(), mouseX, mouseY)) break;
         if (menu.page == ConciergePage.ERRAND_3 && mouseX >= leftPos + 229 && mouseX <= leftPos + 253 && mouseY >= topPos + 25 && mouseY <= topPos + 49) graphics.renderTooltip(font, Component.translatable("gui.thermal_shock_reforged.conc_errand_1_epl_3.tooltip_primordial_blood"), mouseX, mouseY);
     }
     @Override protected void renderBg(GuiGraphics graphics, float partialTick, int mouseX, int mouseY) {
@@ -60,7 +60,7 @@ public final class ConciergeScreen extends AbstractContainerScreen<ConciergeMenu
         }
         @Override public void onPress() { if (action >= 0 && minecraft != null && minecraft.gameMode != null) minecraft.gameMode.handleInventoryButtonClick(menu.containerId, action); }
         @Override protected void renderWidget(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
-            RenderSystem.enableBlend(); RenderSystem.defaultBlendFunc(); graphics.blit(texture, getX(), getY(), 0, isHoveredOrFocused() ? height : 0, width, height, width, height * 2); RenderSystem.disableBlend();
+            RenderSystem.enableBlend(); RenderSystem.defaultBlendFunc(); graphics.blit(texture, getX(), getY(), 0, isHoveredOrFocused() ? height : 0, width, height, width, height * 2); com.hp.thermalshockreforged.client.ButtonLabels.draw(graphics, texture, getX(), getY(), width, height, isHoveredOrFocused()); RenderSystem.disableBlend();
         }
         @Override protected void updateWidgetNarration(NarrationElementOutput output) { defaultButtonNarrationText(output); }
     }

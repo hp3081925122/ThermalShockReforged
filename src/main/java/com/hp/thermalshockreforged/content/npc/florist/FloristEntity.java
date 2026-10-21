@@ -25,10 +25,9 @@ public final class FloristEntity extends PathfinderMob implements GeoEntity {
     @Override protected void registerGoals() { }
     public String texture() { return entityData.get(TEXTURE); }
     @Override public boolean removeWhenFarAway(double distance) { return false; }
-    @Override public boolean hurt(DamageSource source, float amount) {
-        if (source.getDirectEntity() instanceof AbstractArrow || source.getDirectEntity() instanceof ThrownPotion || source.getDirectEntity() instanceof AreaEffectCloud) return false;
-        if (source.is(DamageTypes.IN_FIRE) || source.is(DamageTypes.FALL) || source.is(DamageTypes.CACTUS) || source.is(DamageTypes.DROWN) || source.is(DamageTypes.LIGHTNING_BOLT) || source.is(DamageTypes.EXPLOSION) || source.is(DamageTypes.TRIDENT) || source.is(DamageTypes.FALLING_ANVIL) || source.is(DamageTypes.DRAGON_BREATH) || source.is(DamageTypes.WITHER) || source.is(DamageTypes.WITHER_SKULL)) return false;
-        return super.hurt(source, amount);
+    @Override public boolean isInvulnerableTo(DamageSource source) {
+        if (source.is(net.minecraft.tags.DamageTypeTags.BYPASSES_INVULNERABILITY)) return false;
+        return !(source.getEntity() instanceof net.minecraft.world.entity.player.Player player && player.isCreative());
     }
     @Override protected InteractionResult mobInteract(Player player, InteractionHand hand) {
         super.mobInteract(player, hand);
