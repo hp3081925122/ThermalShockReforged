@@ -14,8 +14,11 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemDisplayContext;
 import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
+import software.bernie.geckolib.animation.AnimationState;
+import software.bernie.geckolib.constant.DataTickets;
 import software.bernie.geckolib.model.GeoModel;
 import software.bernie.geckolib.renderer.GeoItemRenderer;
 
@@ -41,6 +44,16 @@ final class MagneticCrossbowClient {
         @Override public RenderType getRenderType(MagneticCrossbowItem item, ResourceLocation texture, MultiBufferSource buffers, float partialTick) { return RenderType.entityTranslucent(texture); }
     }
     private static final class Model extends GeoModel<MagneticCrossbowItem> {
+        @Override public void setCustomAnimations(MagneticCrossbowItem item, long instanceId, AnimationState<MagneticCrossbowItem> state) {
+            super.setCustomAnimations(item, instanceId, state);
+            if (!item.isZenith()) return;
+            var perspective = state.getData(DataTickets.ITEM_RENDER_PERSPECTIVE);
+            if (perspective != ItemDisplayContext.FIRST_PERSON_RIGHT_HAND && perspective != ItemDisplayContext.FIRST_PERSON_LEFT_HAND) return;
+            var left = getAnimationProcessor().getBone("leftbowarm");
+            var right = getAnimationProcessor().getBone("rightbowarm");
+            if (left != null) { left.setScaleX(.75F); left.setScaleY(.75F); left.setScaleZ(.75F); }
+            if (right != null) { right.setScaleX(.75F); right.setScaleY(.75F); right.setScaleZ(.75F); }
+        }
         @Override public ResourceLocation getModelResource(MagneticCrossbowItem item) { return resource("geo/magnetic_crossbow.geo.json"); }
         @Override public ResourceLocation getTextureResource(MagneticCrossbowItem item) { return resource("textures/item/" + item.textureName() + ".png"); }
         @Override public ResourceLocation getAnimationResource(MagneticCrossbowItem item) { return resource("animations/magnetic_crossbow.animation.json"); }

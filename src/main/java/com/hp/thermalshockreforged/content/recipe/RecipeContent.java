@@ -27,6 +27,7 @@ public final class RecipeContent {
     public static final Kind<CentrifugeRecipe> CENTRIFUGE = kind("centrifuge", CentrifugeRecipe.CODEC);
     public static final Kind<LapidaryRecipe> LAPIDARY = kind("lapidary", LapidaryRecipe.CODEC);
     public static final Kind<AltarConversionRecipe> ALTAR_CONVERSION = kind("altar_conversion", AltarConversionRecipe.CODEC);
+    public static final Kind<AssemblerRecipe> ASSEMBLER = kind("assembler", AssemblerRecipe.CODEC);
     public static final Kind<NpcTradeRecipe> NPC_TRADE = kind("npc_trade", NpcTradeRecipe.CODEC);
 
     private RecipeContent() { }

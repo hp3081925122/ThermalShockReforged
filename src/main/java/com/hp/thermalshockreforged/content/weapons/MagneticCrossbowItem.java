@@ -40,6 +40,7 @@ public final class MagneticCrossbowItem extends Item implements GeoItem {
         GeoItem.registerSyncedAnimatable(this);
     }
     public String textureName() { return zenith ? "zenith_crossbow" : "magnetic_crossbow"; }
+    public boolean isZenith() { return zenith; }
     @Override public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) { return false; }
     @Override public int getEnchantmentValue() { return 5; }
     @Override public boolean onEntitySwing(ItemStack stack, LivingEntity wielder, InteractionHand hand) {

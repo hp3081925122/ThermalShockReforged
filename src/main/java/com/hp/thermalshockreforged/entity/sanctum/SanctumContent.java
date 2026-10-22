@@ -71,7 +71,7 @@ public final class SanctumContent {
                 (type, level, reason, pos, random) -> level.getDifficulty() != Difficulty.PEACEFUL && Monster.isDarkEnoughToSpawn(level, pos, random) && Mob.checkMobSpawnRules(type, level, reason, pos, random), RegisterSpawnPlacementsEvent.Operation.REPLACE);
         for (var type : java.util.List.of(RIPPLE, SANCTUM_RIPPLE)) event.register(type.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 (entityType, level, reason, pos, random) -> {
-                    if (!level.getLevelData().isThundering()) return false;
+                    if (!level.getLevelData().isThundering() && !level.getLevelData().isRaining()) return false;
                     var ground = net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(level.getBlockState(pos.below()).getBlock());
                     return ground.getNamespace().equals(ThermalShockReforged.MOD_ID) && (ground.getPath().equals("snowy_shale") || ground.getPath().equals("snowy_cobalt"));
                 }, RegisterSpawnPlacementsEvent.Operation.REPLACE);
