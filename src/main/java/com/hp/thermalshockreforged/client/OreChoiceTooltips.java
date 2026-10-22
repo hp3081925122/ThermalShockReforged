@@ -58,26 +58,30 @@ public final class OreChoiceTooltips {
         }
         var info = GENERATION.get(id.getPath());
         if (info != null) {
-            Component biomes;
-            if (info.biomes().length == 0) biomes = Component.translatable(INFO_KEY + "all_biomes");
-            else {
-                var list = Component.empty();
-                for (int index = 0; index < info.biomes().length; index++) {
-                    if (index > 0) list.append(Component.translatable(INFO_KEY + "separator"));
-                    list.append(Component.translatable("biome." + ThermalShockReforged.MOD_ID + "." + info.biomes()[index]));
-                }
-                biomes = list;
-            }
-            added.add(Component.translatable(INFO_KEY + "biomes", biomes).withStyle(ChatFormatting.GRAY));
+            added.add(Component.translatable(INFO_KEY + "biomes", biomes(info.biomes())).withStyle(ChatFormatting.GRAY));
             if (info.peak()) added.add(Component.translatable(INFO_KEY + "peak", Math.floorDiv(info.min() + info.max(), 2), info.min(), info.max()).withStyle(ChatFormatting.GRAY));
             else added.add(Component.translatable(INFO_KEY + "uniform", info.min(), info.max()).withStyle(ChatFormatting.GRAY));
         }
+        var sources = SOURCES.get(id.getPath());
+        if (sources != null) for (var source : sources) added.add(Component.translatable(INFO_KEY + source.key(), biomes(source.biomes())).withStyle(ChatFormatting.GRAY));
         if (added.isEmpty()) return;
         var lines = event.getToolTip();
         lines.addAll(Math.min(1, lines.size()), added);
     }
 
+    private static Component biomes(String[] biomes) {
+        if (biomes.length == 0) return Component.translatable(INFO_KEY + "all_biomes");
+        var list = Component.empty();
+        for (int index = 0; index < biomes.length; index++) {
+            if (index > 0) list.append(Component.translatable(INFO_KEY + "separator"));
+            list.append(Component.translatable("biome." + ThermalShockReforged.MOD_ID + "." + biomes[index]));
+        }
+        return list;
+    }
+
     private record Generation(String[] biomes, int min, int max, boolean peak) { }
+
+    private record Source(String key, String[] biomes) { }
 
     private static final String INFO_KEY = "tooltip." + ThermalShockReforged.MOD_ID + ".ore_info.";
     private static final String[] ALL = { };
@@ -93,4 +97,8 @@ public final class OreChoiceTooltips {
             Map.entry("thermite", new Generation(ALL, -64, -46, false)),
             Map.entry("ferrous_shale", new Generation(ALL, -64, 180, true)), Map.entry("ferrous_mantlestone", new Generation(ALL, -64, 180, true)),
             Map.entry("corroded_shale", new Generation(new String[] { "luminous_sea", "cobalt_heights" }, -64, 50, true)), Map.entry("corroded_mantlestone", new Generation(new String[] { "luminous_sea", "cobalt_heights" }, -64, 50, true)));
+    private static final String[] COBALT_HEIGHTS = { "cobalt_heights" };
+    private static final Map<String, Source[]> SOURCES = Map.ofEntries(
+            Map.entry("cobalt", new Source[] { new Source("cobalt_pillar", COBALT_HEIGHTS), new Source("cobalt_lake", ALL) }),
+            Map.entry("snowy_cobalt", new Source[] { new Source("cobalt_pillar", COBALT_HEIGHTS) }));
 }

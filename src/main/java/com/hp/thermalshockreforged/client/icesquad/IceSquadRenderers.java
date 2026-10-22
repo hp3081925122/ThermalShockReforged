@@ -23,8 +23,7 @@ public final class IceSquadRenderers {
         event.registerEntityRenderer(IceSquadContent.STRIDER_ATTACK.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(IceSquadContent.CRYONIC_PROJECTILE.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(IceSquadContent.ALT_CRYONIC_PROJECTILE.get(), ThrownItemRenderer::new);
-        event.registerEntityRenderer(IceSquadContent.GUNNER_BULLET.get(), ThrownItemRenderer::new);
-        event.registerEntityRenderer(IceSquadContent.BURNER_FLAME.get(), ThrownItemRenderer::new);
+        event.registerEntityRenderer(IceSquadContent.GUNNER_BULLET.get(), ShardRenderer::new);
     }
     private static ResourceLocation resource(String path) { return ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
     private static final class Model extends GeoModel<IcidrogruntEntity> {

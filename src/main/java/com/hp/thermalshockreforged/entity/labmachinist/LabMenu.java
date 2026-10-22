@@ -58,8 +58,10 @@ public final class LabMenu extends AbstractContainerMenu {
         if (page == LabPage.ERRAND_D && !LabPlayerState.available(server, "errands_get", "icebreaker_1")) return false;
         if (page == LabPage.ERRAND_E || page == LabPage.SAFE_1 || page == LabPage.SAFE_2) { changedPage = true; server.closeContainer(); return true; }
         LabPage next = switch (page) { case ERRAND -> LabPage.ERRAND_B; case ERRAND_B -> LabPage.ERRAND_C; case ERRAND_C -> LabPage.ERRAND_D; case ERRAND_D -> LabPage.ERRAND_E; default -> LabPage.MAIN; };
+        boolean fresh = page == LabPage.ERRAND_D && !QoMenu.completed(server, "icebreaker_1");
         boolean opened = route(server, next);
         if (opened && page == LabPage.ERRAND_D) { LabPlayerState.award(server, "errands_get"); LabPlayerState.award(server, "icebreaker_1"); }
+        if (opened && fresh) com.hp.thermalshockreforged.world.ErrandMaps.give(server, "blizzard_sanctum");
         return opened;
     }
     private boolean route(ServerPlayer player, LabPage next) { changedPage = true; boolean opened = LabContent.open(player, npc(), anchor, next); if (!opened) changedPage = false; return opened; }

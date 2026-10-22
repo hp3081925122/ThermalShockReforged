@@ -48,7 +48,7 @@ public final class ShutterbugMenu extends AbstractContainerMenu {
         if (page == ShutterbugPage.INTRO_5 && ShutterbugQuest.introduced(server)) next = ShutterbugPage.MAIN;
         ShutterbugContent.open(server, npc(), anchor, next);
         if (page == ShutterbugPage.INTRO_5 && next == ShutterbugPage.INTRO_6) ShutterbugQuest.finishIntroduction(server);
-        if (page == ShutterbugPage.ERRAND_B) ShutterbugQuest.grantNew(server, "leaf_it_to_me_1");
+        if (page == ShutterbugPage.ERRAND_B && ShutterbugQuest.grantNew(server, "leaf_it_to_me_1")) com.hp.thermalshockreforged.world.ErrandMaps.give(server, "cavebloomer_field");
         return true;
     }
     @Override public ItemStack quickMoveStack(Player player, int index) {
