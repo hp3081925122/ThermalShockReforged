@@ -42,7 +42,6 @@ public final class ZerkerGauntletItem extends Item implements GeoItem {
         if (wielder.level() instanceof ServerLevel server) {
             server.playSound(null, wielder.blockPosition(), SoundEvents.IRON_GOLEM_ATTACK, SoundSource.NEUTRAL, 1, 1);
             triggerAnim(wielder, GeoItem.getOrAssignId(stack, server), "procedure", "1");
-            if (wielder instanceof Player player) player.getCooldowns().addCooldown(this, 80);
         }
         return false;
     }
@@ -56,6 +55,10 @@ public final class ZerkerGauntletItem extends Item implements GeoItem {
             if (strength > 0) {
                 victim.setDeltaMovement(victim.getDeltaMovement().lerp(new Vec3(0, 1, 0), strength));
                 victim.hurtMarked = true;
+            }
+            if (attacker instanceof Player player) {
+                player.getCooldowns().addCooldown(this, 80);
+                ThermalShockReforged.LOGGER.debug("Zerker Gauntlet special effect triggered: attacker={}, victim={}, cooldown={}", player.getUUID(), victim.getUUID(), 80);
             }
         }
         if (victim.getType() == IceContent.ICIDROZERK.get() && victim instanceof IceCreatureEntity ice && ice.hasCommittedDeath() && attacker instanceof ServerPlayer player) {

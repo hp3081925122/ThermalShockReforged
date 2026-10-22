@@ -362,7 +362,7 @@ There is work too be don.
 ### `message.thermal_shock_reforged.cache.locked`
 
 ```text
-§a这是一处上锁的贮藏箱；手持钥匙右键打开。
+§a这是一处上锁的贮藏箱；手持深寒密钥右键打开。
 ```
 
 ### `message.thermal_shock_reforged.cache.open`
@@ -676,7 +676,7 @@ There is work too be don.
 ### `advancements.herald_get.descr`
 
 ```text
-喂养先驱直至其绽放，夺取其密钥
+喂养先驱直至其绽放，夺取先驱密钥
 ```
 
 ### `advancements.spear_kill_get.descr`
@@ -1217,7 +1217,7 @@ There is work too be don.
 ### `advancements.frigid_altar_get.descr`
 
 ```text
-用特殊密钥解锁凛冬祭坛，可从塔尖中提取深寒能量。
+用凛冬祭坛密钥解锁凛冬祭坛，可从塔尖中提取深寒能量。
 ```
 
 ### `advancements.garden_plant_get.descr`
@@ -1984,7 +1984,7 @@ There is work too be don.
 ### `gui.thermal_shock_reforged.qo_lab_errand_1_e.label_kutty`
 
 ```text
-❄ 如果你能给我拿来一把祭坛钥匙，还有，嗯，能让我拆用的导电物件……理论上，我想我能调校你的界域基石，让它匹配档案馆的护盾锁，你就能把他们的家底都挖空了！
+❄ 如果你能给我拿来一把凛冬祭坛密钥，还有，嗯，能让我拆用的导电物件……理论上，我想我能调校你的界域基石，让它匹配档案馆的护盾锁，你就能把他们的家底都挖空了！
 ❄ 听懂了吗？无所谓。快去办。
 ```
 
@@ -2685,9 +2685,9 @@ There is work too be don.
 ### `gui.thermal_shock_reforged.qo_lab_errand_1_c.label_kutty`
 
 ```text
-❄ 还记得那些惧光石都被魔法锁住了吗？就是祭坛和钥匙那一套。
+❄ 还记得那些惧光石都被魔法锁住了吗？就是祭坛和凛冬祭坛密钥那一套。
 ❄ 那里也装了类似的东西。
-❄ 那地方完全无法破坏……但说到底，你需要的只是一把更强的钥匙。
+❄ 那地方完全无法破坏……但说到底，你需要的只是更强的界域基石。
 ```
 
 ### `gui.thermal_shock_reforged.qo_lab_errand_1.label_kutty`
@@ -2965,7 +2965,7 @@ There is work too be don.
 ### `gui.thermal_shock_reforged.qo_altar_key_1.label_kutty`
 
 ```text
-❄ 那是什么，祭坛钥匙？
+❄ 那是什么，凛冬祭坛密钥？
 ```
 
 ### `gui.thermal_shock_reforged.une_tip_8.label_no_shame_in`

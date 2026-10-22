@@ -64,7 +64,7 @@ public final class EcosystemContent {
         }, RegisterSpawnPlacementsEvent.Operation.REPLACE);
         event.register(RAINCATCHER.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (type, level, reason, pos, random) -> {
             var id = BuiltInRegistries.BLOCK.getKey(level.getBlockState(pos.below()).getBlock());
-            return level.getLevelData().isThundering() && id.getNamespace().equals(ThermalShockReforged.MOD_ID)
+            return (level.getLevelData().isThundering() || level.getLevelData().isRaining()) && id.getNamespace().equals(ThermalShockReforged.MOD_ID)
                     && (id.getPath().equals("snowy_shale") || id.getPath().equals("snowy_cobalt"));
         }, RegisterSpawnPlacementsEvent.Operation.REPLACE);
     }

@@ -1,9 +1,7 @@
 package com.hp.thermalshockreforged.entity.labmachinist;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
-import com.hp.thermalshockreforged.content.MaterialContent;
-import com.hp.thermalshockreforged.content.atlas.AtlasContent;
-import com.hp.thermalshockreforged.content.weapons.WeaponContent;
+import com.hp.thermalshockreforged.content.recipe.AssemblerRecipe;
 import com.hp.thermalshockreforged.entity.qo.*;
 import java.util.*;
 import net.minecraft.core.BlockPos;
@@ -66,11 +64,14 @@ public final class LabMenu extends AbstractContainerMenu {
     }
     private boolean route(ServerPlayer player, LabPage next) { changedPage = true; boolean opened = LabContent.open(player, npc(), anchor, next); if (!opened) changedPage = false; return opened; }
     private boolean craft(ServerPlayer player) {
-        if (npcId >= 0 || !(output instanceof LabMachineBlockEntity machine) || machine.wallbore || !output.getItem(0).isEmpty() || !LabPlayerState.available(player, "icebreaker_2")) return false;
-        List<Item> materials = List.of(MaterialContent.items().get("frigid_altar_key").get(), WeaponContent.ZAP_GAUNTLET.get(), LabContent.STORM_BATTERY.get().asItem(), AtlasContent.KEYSTONE.get());
-        if (materials.stream().anyMatch(item -> LabPlayerState.count(player, item) < 1)) return false;
-        for (var item : materials) player.getInventory().clearOrCountMatchingItems(stack -> stack.is(item), 1, player.inventoryMenu.getCraftSlots());
-        output.setItem(0, new ItemStack(AtlasContent.VIRUSTONE.get())); output.setChanged();
+        if (npcId >= 0 || !(output instanceof LabMachineBlockEntity machine) || machine.wallbore || !output.getItem(0).isEmpty() || !QoMenu.completed(player, "icebreaker_1")) return false;
+        var recipe = AssemblerRecipe.find(level, player.getInventory());
+        if (recipe == null) return false;
+        var plan = recipe.removalPlan(player.getInventory());
+        if (plan == null) return false;
+        recipe.consume(player.getInventory(), plan);
+        player.getInventory().setChanged();
+        output.setItem(0, recipe.result().copy()); output.setChanged();
         player.level().playSound(null, anchor, SoundEvents.CONDUIT_ACTIVATE, SoundSource.NEUTRAL, 1, 2);
         player.level().playSound(null, anchor, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.NEUTRAL, 1, 1);
         LabPlayerState.award(player, "icebreaker_2"); LabPlayerState.sound(player, LabContent.id("thermalshockjingle"), anchor, 1, 1);

@@ -23,6 +23,7 @@ public final class MachineCategory implements IRecipeCategory<MachineEntry> {
     public static final RecipeType<MachineEntry> EXTRACTOR = RecipeType.create(ThermalShockReforged.MOD_ID, "extractor", MachineEntry.class);
     public static final RecipeType<MachineEntry> CENTRIFUGE = RecipeType.create(ThermalShockReforged.MOD_ID, "centrifuge", MachineEntry.class);
     public static final RecipeType<MachineEntry> LAPIDARY = RecipeType.create(ThermalShockReforged.MOD_ID, "lapidary", MachineEntry.class);
+    public static final RecipeType<MachineEntry> ASSEMBLER = RecipeType.create(ThermalShockReforged.MOD_ID, "assembler", MachineEntry.class);
 
     public record Layout(int[][] inputs, int arrowX, int arrowY, int outputX, int outputY, int outputColumns, int width, int height) { }
 

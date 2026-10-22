@@ -243,6 +243,9 @@ public final class ClientEvents {
         event.registerSpriteSet(com.hp.thermalshockreforged.content.weapons.WeaponContent.PRISM_CLUSTER.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "prismcluster", 1, ParticleRenderType.PARTICLE_SHEET_OPAQUE, false, false, 1));
         event.registerSpriteSet(com.hp.thermalshockreforged.content.armor.ArmorContent.PURPLE_SPARKLE.get(), com.hp.thermalshockreforged.client.armor.PurpleSparkleParticle.Provider::new);
         CavebloomerClient.particles(event);
+        event.registerSpriteSet(com.hp.thermalshockreforged.content.weapons.WeaponContent.LITEPRISM_BEAM.get(), com.hp.thermalshockreforged.client.weapons.LiteprismParticles.BeamProvider::new);
+        event.registerSpriteSet(com.hp.thermalshockreforged.content.weapons.WeaponContent.LITEPRISM_FLARE.get(), com.hp.thermalshockreforged.client.weapons.LiteprismParticles.FlareProvider::new);
+        event.registerSpriteSet(com.hp.thermalshockreforged.content.weapons.WeaponContent.LITEPRISM_SPARK.get(), com.hp.thermalshockreforged.client.weapons.LiteprismParticles.SparkProvider::new);
         event.registerSpriteSet(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.TURQ_EXPLODE.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "turqexplode", 0, ParticleRenderType.PARTICLE_SHEET_OPAQUE, false, true, 0));
         event.registerSpriteSet(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.FIRE_BOMB_EFFECT.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "firebomb", 0, ParticleRenderType.PARTICLE_SHEET_OPAQUE, false, true, 0));
         event.registerSpriteSet(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.FROST_RING.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "frostring", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true, false, 0));

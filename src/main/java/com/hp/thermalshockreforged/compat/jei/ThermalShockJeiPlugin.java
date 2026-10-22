@@ -5,6 +5,7 @@ import com.hp.thermalshockreforged.content.fabrication.FabricationRecipe;
 import com.hp.thermalshockreforged.content.fabrication.FabricatorPage;
 import com.hp.thermalshockreforged.content.recipe.NpcTradeRecipe;
 import com.hp.thermalshockreforged.content.recipe.RecipeContent;
+import com.hp.thermalshockreforged.content.recipe.AssemblerRecipe;
 import com.hp.thermalshockreforged.entity.labmachinist.LabPage;
 import com.hp.thermalshockreforged.entity.whisper.WhisperPage;
 import com.mojang.serialization.JsonOps;
@@ -50,7 +51,8 @@ public final class ThermalShockJeiPlugin implements IModPlugin {
             new Machine(MachineCategory.TRANSMUTATOR, List.of("transmutator"), new MachineCategory.Layout(new int[][]{{0, 20}}, 24, 20, 54, 20, 1, 72, 40)),
             new Machine(MachineCategory.EXTRACTOR, List.of("extractor"), new MachineCategory.Layout(new int[][]{{0, 20}}, 24, 20, 54, 20, 1, 72, 52)),
             new Machine(MachineCategory.CENTRIFUGE, List.of("centrifuge"), new MachineCategory.Layout(new int[][]{{0, 20}, {18, 2}, {36, 20}}, 60, 20, 90, 20, 1, 108, 40)),
-            new Machine(MachineCategory.LAPIDARY, List.of("lapidarian_workbench"), new MachineCategory.Layout(new int[][]{{0, 20}}, 24, 20, 54, 2, 6, 162, 56)));
+            new Machine(MachineCategory.LAPIDARY, List.of("lapidarian_workbench"), new MachineCategory.Layout(new int[][]{{0, 20}}, 24, 20, 54, 2, 6, 162, 56)),
+            new Machine(MachineCategory.ASSEMBLER, List.of("assembler"), new MachineCategory.Layout(new int[][]{{0, 0}, {18, 0}, {36, 0}, {54, 0}, {0, 20}, {18, 20}, {36, 20}, {54, 20}}, 72, 20, 102, 20, 1, 132, 58)));
     private static final Map<String, List<String>> TRADE_LOCATIONS = Map.of(
             "florist", List.of("shalespring@fixed_loqendia"),
             "shutterbug", List.of("shalespring@fixed_loqendia"),
@@ -263,6 +265,14 @@ public final class ThermalShockJeiPlugin implements IModPlugin {
             if (!outputs.isEmpty()) lapidary.add(new MachineEntry(List.of(new MachineEntry.Slot(List.of(recipe.ingredient().getItems()), notes)), outputs, null, List.of()));
         }
         registration.addRecipes(MachineCategory.LAPIDARY, lapidary);
+        var assembly = new ArrayList<MachineEntry>();
+        for (var holder : RecipeContent.ASSEMBLER.all(level)) {
+            var recipe = holder.value();
+            var inputs = new ArrayList<MachineEntry.Slot>();
+            for (var cost : recipe.materials()) inputs.add(slot(new ItemStack(cost.item().value(), cost.count())));
+            assembly.add(new MachineEntry(inputs, List.of(slot(recipe.result())), null, List.of()));
+        }
+        registration.addRecipes(MachineCategory.ASSEMBLER, assembly);
         var altars = new ArrayList<MachineEntry>();
         var unlock = Component.translatable(KEY + "altar.unlock");
         for (var holder : RecipeContent.ALTAR_CONVERSION.all(level)) {
@@ -297,7 +307,7 @@ public final class ThermalShockJeiPlugin implements IModPlugin {
         caches.add(cache("super_cryonic_cache", "blocks/super_cryonic_cache", List.of(key), consumed));
         caches.add(cache("enchanted_cache", "enchanted_cache_loot", List.of(pads), consumed));
         registration.addRecipes(CacheLootCategory.TYPE, caches);
-        ThermalShockReforged.LOGGER.debug("JEI data recipes registered: fabrication={}, transmutation={}, extraction={}, centrifuge={}, lapidary={}, altar={}, caches={}", fabrication.size(), transmutation.size(), extraction.size(), centrifuge.size(), lapidary.size(), altars.size(), caches.size());
+        ThermalShockReforged.LOGGER.debug("JEI data recipes registered: fabrication={}, transmutation={}, extraction={}, centrifuge={}, lapidary={}, assembler={}, altar={}, caches={}", fabrication.size(), transmutation.size(), extraction.size(), centrifuge.size(), lapidary.size(), assembly.size(), altars.size(), caches.size());
     }
 
     private static CacheLootEntry cache(String cache, String table, List<MachineEntry.Slot> requirements, Component consumed) {

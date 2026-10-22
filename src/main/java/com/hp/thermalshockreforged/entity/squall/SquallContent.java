@@ -37,7 +37,7 @@ public final class SquallContent {
     private static void attributes(EntityAttributeCreationEvent event) { event.put(SQUALL.get(), SquallEntity.createAttributes().build()); }
     private static void placements(RegisterSpawnPlacementsEvent event) {
         event.register(SQUALL.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            (type, level, reason, pos, random) -> WorldProgressData.forGeneration(level.getLevel()).squallSpawn() && level.getLevelData().isThundering() && pos.getY() >= 70,
+            (type, level, reason, pos, random) -> WorldProgressData.forGeneration(level.getLevel()).squallSpawn() && (level.getLevelData().isThundering() || level.getLevelData().isRaining()) && pos.getY() >= 70,
             RegisterSpawnPlacementsEvent.Operation.REPLACE);
     }
     private SquallContent() { }

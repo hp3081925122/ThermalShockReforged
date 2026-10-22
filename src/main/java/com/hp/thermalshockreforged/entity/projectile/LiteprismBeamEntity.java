@@ -38,7 +38,20 @@ public final class LiteprismBeamEntity extends ShortBeamEntity {
             ((com.hp.thermalshockreforged.mixin.ArrowPiercingAccess) (Object) beam).thermalShockReforged$setPierceLevel((byte) 5);
             beam.shoot(direction.x, direction.y, direction.z, 1, 0);
             if (level.addFreshEntity(beam)) emitted++;
-            level.sendParticles(net.minecraft.core.particles.ParticleTypes.END_ROD, position.x, position.y, position.z, 1, 0, 0, 0, 0);
+        }
+        var right = direction.cross(new net.minecraft.world.phys.Vec3(0, 1, 0));
+        if (right.lengthSqr() < 1.0E-4) right = new net.minecraft.world.phys.Vec3(1, 0, 0);
+        right = right.normalize().scale(.3);
+        if (shooter.getMainArm() == net.minecraft.world.entity.HumanoidArm.LEFT) right = right.scale(-1);
+        var muzzle = origin.add(direction.scale(.7)).add(right).add(0, -.22, 0);
+        var end = origin.add(direction.scale(visibleLength));
+        var span = end.subtract(muzzle);
+        level.sendParticles(com.hp.thermalshockreforged.content.weapons.WeaponContent.LITEPRISM_BEAM.get(), muzzle.x, muzzle.y, muzzle.z, 0, span.x, span.y, span.z, 1);
+        level.sendParticles(com.hp.thermalshockreforged.content.weapons.WeaponContent.LITEPRISM_FLARE.get(), muzzle.x, muzzle.y, muzzle.z, 0, .3, 0, 0, 1);
+        level.sendParticles(com.hp.thermalshockreforged.content.weapons.WeaponContent.LITEPRISM_FLARE.get(), end.x, end.y, end.z, 0, .5, 0, 0, 1);
+        for (double along = 1.5; along < visibleLength; along += 1.5) {
+            var at = origin.add(direction.scale(along));
+            level.sendParticles(com.hp.thermalshockreforged.content.weapons.WeaponContent.LITEPRISM_SPARK.get(), at.x, at.y, at.z, 0, (level.random.nextDouble() - .5) * .08, .02 + level.random.nextDouble() * .04, (level.random.nextDouble() - .5) * .08, 1);
         }
         return emitted;
     }
