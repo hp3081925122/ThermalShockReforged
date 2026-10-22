@@ -32,7 +32,7 @@ public final class StratusReactorCoreBlock extends Block implements EntityBlock 
     @Override public boolean canHarvestBlock(BlockState state, BlockGetter level, BlockPos pos, Player player) { return state.getValue(BLOCKSTATE) != 1 && super.canHarvestBlock(state, level, pos, player); }
     @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> lines, TooltipFlag flag) {
         super.appendHoverText(stack, context, lines, flag);
-        for (int i = 0; i < 4; i++) lines.add(Component.translatable(getDescriptionId() + ".description_" + i));
+        for (int i = 0; i < 5; i++) lines.add(Component.translatable(getDescriptionId() + ".description_" + i));
     }
     @Override protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         if (hand == InteractionHand.MAIN_HAND && level instanceof ServerLevel server) activate(server, pos, player);
@@ -42,22 +42,39 @@ public final class StratusReactorCoreBlock extends Block implements EntityBlock 
         if (level instanceof ServerLevel server) activate(server, pos, player);
         return InteractionResult.SUCCESS;
     }
-    private boolean pattern(ServerLevel level, BlockPos pos) {
+    private boolean pattern(ServerLevel level, BlockPos pos, Player player) {
+        boolean valid = true;
         for (int x = -1; x <= 1; x++) for (int z = -1; z <= 1; z++) {
             BlockPos lower = pos.offset(x, -1, z);
             BlockPos upper = pos.offset(x, 1, z);
             boolean corner = x != 0 && z != 0;
-            if (!level.hasChunkAt(lower)) return false;
             String material = corner ? "bordered_hazard_stripes" : "steelstem_block";
-            if (!level.getBlockState(lower).is(MaterialContent.blocks().get(material).get())) return false;
+            if (!level.hasChunkAt(lower)) {
+                valid = false;
+                reportMismatch(player, lower, MaterialContent.blocks().get(material).get().defaultBlockState(), Blocks.AIR.defaultBlockState());
+                continue;
+            }
+            BlockState lowerExpected = MaterialContent.blocks().get(material).get().defaultBlockState();
+            if (!checkBlock(level, lower, lowerExpected, player)) valid = false;
             BlockPos frostrock = corner ? pos.offset(x, 0, z) : upper;
-            if (!level.getBlockState(frostrock).is(MaterialContent.blocks().get("dark_frostrock_block").get())) return false;
+            BlockState frostrockExpected = MaterialContent.blocks().get("dark_frostrock_block").get().defaultBlockState();
+            if (!checkBlock(level, frostrock, frostrockExpected, player)) valid = false;
         }
-        return true;
+        return valid;
+    }
+    private boolean checkBlock(ServerLevel level, BlockPos pos, BlockState expected, Player player) {
+        BlockState actual = level.getBlockState(pos);
+        if (actual.is(expected.getBlock())) return true;
+        reportMismatch(player, pos, expected, actual);
+        return false;
+    }
+    private void reportMismatch(Player player, BlockPos pos, BlockState expected, BlockState actual) {
+        if (player == null) return;
+        player.displayClientMessage(Component.translatable("message.thermal_shock_reforged.stratus_reactor.invalid_block", pos.getX(), pos.getY(), pos.getZ(), expected.getBlock().getName(), actual.getBlock().getName()), false);
     }
     private void activate(ServerLevel level, BlockPos pos, Player player) {
         BlockState current = level.getBlockState(pos);
-        if (!current.is(this) || current.getValue(BLOCKSTATE) == 1 || !pattern(level, pos) || !(level.getBlockEntity(pos) instanceof ReactorCoreBlockEntity core)) return;
+        if (!current.is(this) || current.getValue(BLOCKSTATE) == 1 || !pattern(level, pos, player) || !(level.getBlockEntity(pos) instanceof ReactorCoreBlockEntity core)) return;
         ReactorSequenceEntity task = ReactorContent.SEQUENCE.get().create(level);
         if (task == null) return;
         task.prepare(level, pos);

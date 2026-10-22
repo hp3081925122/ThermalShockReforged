@@ -57,7 +57,7 @@ public final class SylviaRifleItem extends Item implements GeoItem {
         int remaining = living.isAlive() ? Math.clamp(data.getInt(REMAINING), 0, 27) - 1 : 0;
         if (remaining > 0) data.putInt(REMAINING, remaining); else { data.remove(CHARGE); data.remove(REMAINING); data.remove(CREATED); }
     }
-    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) { super.appendHoverText(stack, context, lines, flag); for (int i = 0; i < 3; i++) lines.add(Component.translatable("item.thermal_shock_reforged.sylvia_rifle.description_" + i)); }
+    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) { super.appendHoverText(stack, context, lines, flag); for (int i = 0; i < 5; i++) lines.add(Component.translatable("item.thermal_shock_reforged.sylvia_rifle.description_" + i)); }
     public void pruneAnimations() { animations.prune(); }
     public void clearAnimations() { animations.clear(); }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {

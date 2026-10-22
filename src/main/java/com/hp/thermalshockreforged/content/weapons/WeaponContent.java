@@ -81,6 +81,9 @@ public final class WeaponContent {
         bus.addListener(WeaponContent::coreAttributes);
         NeoForge.EVENT_BUS.addListener(HeldWeaponState::tick);
         NeoForge.EVENT_BUS.addListener(HeldWeaponState::join);
+        NeoForge.EVENT_BUS.addListener(HeldWeaponState::attack);
+        NeoForge.EVENT_BUS.addListener(HeldWeaponState::interact);
+        NeoForge.EVENT_BUS.addListener(HeldWeaponState::interactSpecific);
         NeoForge.EVENT_BUS.addListener(WeaponContent::serverTick);
         NeoForge.EVENT_BUS.addListener(WeaponContent::serverStopped);
     }

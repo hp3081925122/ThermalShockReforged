@@ -2,8 +2,12 @@ package com.hp.thermalshockreforged.content.weapons;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.ai.attributes.*;
+import net.neoforged.neoforge.event.entity.player.AttackEntityEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.tick.EntityTickEvent;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 
@@ -71,32 +75,52 @@ public final class HeldWeaponState {
 
     public static void refreshNoMelee(LivingEntity entity, int duration, int reduction) {
         if (entity.level().isClientSide) return;
-        if (entity.getAttribute(Attributes.ENTITY_INTERACTION_RANGE) == null) return;
         var data = entity.getPersistentData();
         String remaining = reduction == 20 ? SPEAR_REMAINING : REMAINING;
         String created = reduction == 20 ? SPEAR_CREATED : CREATED;
         data.putInt(remaining, Math.max(data.getInt(remaining), Math.clamp(duration, 1, 3)));
         data.putLong(created, entity.level().getGameTime());
-        updateNoMeleeModifier(entity);
     }
 
-    private static void updateNoMeleeModifier(LivingEntity entity) {
-        var range = entity.getAttribute(Attributes.ENTITY_INTERACTION_RANGE);
-        if (range == null) return;
+    public static boolean blocksMelee(LivingEntity entity) {
         var data = entity.getPersistentData();
-        int reduction = data.getInt(REMAINING) > 0 ? 40 : data.getInt(SPEAR_REMAINING) > 0 ? 20 : 0;
-        var modifier = range.getModifier(MODIFIER);
-        if (reduction == 0) {
+        return data.getInt(REMAINING) > 0 || data.getInt(SPEAR_REMAINING) > 0;
+    }
+
+    public static void attack(AttackEntityEvent event) {
+        if (!event.getEntity().level().isClientSide && blocksMelee(event.getEntity())) event.setCanceled(true);
+    }
+
+    public static void interact(PlayerInteractEvent.EntityInteract event) {
+        if (!event.getEntity().level().isClientSide && blocksMelee(event.getEntity())) {
+            event.setCancellationResult(InteractionResult.PASS);
+            event.setCanceled(true);
+        }
+    }
+
+    public static void interactSpecific(PlayerInteractEvent.EntityInteractSpecific event) {
+        if (!event.getEntity().level().isClientSide && blocksMelee(event.getEntity())) {
+            event.setCancellationResult(InteractionResult.PASS);
+            event.setCanceled(true);
+        }
+    }
+
+    private static void clearLegacyModifier(LivingEntity entity) {
+        var range = entity.getAttribute(Attributes.ENTITY_INTERACTION_RANGE);
+        if (range != null && range.hasModifier(MODIFIER)) {
             range.removeModifier(MODIFIER);
-        } else if (modifier == null || modifier.amount() != -reduction) {
-            range.removeModifier(MODIFIER);
-            range.addTransientModifier(new AttributeModifier(MODIFIER, -reduction, AttributeModifier.Operation.ADD_VALUE));
+            ThermalShockReforged.LOGGER.debug("Removed legacy held weapon interaction modifier: entity={}", entity.getUUID());
         }
     }
 
     public static void tick(EntityTickEvent.Post event) {
         if (!(event.getEntity() instanceof LivingEntity entity) || entity.level().isClientSide) return;
         var data = entity.getPersistentData();
+        if (!data.contains(REMAINING) && !data.contains(SPEAR_REMAINING)) {
+            if (entity instanceof Player) clearLegacyModifier(entity);
+            return;
+        }
+        clearLegacyModifier(entity);
         if (data.contains(ZOOM_REMAINING) && (!entity.isAlive() || data.getLong(ZOOM_CREATED) != entity.level().getGameTime())) {
             var speed = entity.getAttribute(Attributes.MOVEMENT_SPEED);
             if (speed != null) speed.removeModifier(ZOOM_MODIFIER);
@@ -135,7 +159,6 @@ public final class HeldWeaponState {
             }
             data.remove(REACH_CREATED);
         }
-        if (!data.contains(REMAINING) && !data.contains(SPEAR_REMAINING)) return;
         if (data.contains(REMAINING) && (!entity.isAlive() || data.getLong(CREATED) != entity.level().getGameTime())) {
             int remaining = entity.isAlive() ? data.getInt(REMAINING) - 1 : 0;
             if (remaining > 0) data.putInt(REMAINING, remaining);
@@ -152,7 +175,6 @@ public final class HeldWeaponState {
                 data.remove(SPEAR_CREATED);
             }
         }
-        updateNoMeleeModifier(entity);
     }
 
     public static void join(EntityJoinLevelEvent event) {
@@ -178,6 +200,6 @@ public final class HeldWeaponState {
             data.putInt(SPEAR_REMAINING, Math.clamp(data.getInt(SPEAR_REMAINING), 1, 3));
             data.putLong(SPEAR_CREATED, Long.MIN_VALUE);
         }
-        updateNoMeleeModifier(entity);
+        clearLegacyModifier(entity);
     }
 }

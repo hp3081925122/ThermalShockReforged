@@ -41,9 +41,7 @@ final class SquallParticles {
             xd = dx;
             yd = dy;
             zd = dz;
-            quadSize = .14F + level.random.nextFloat() * .12F;
-            roll = level.random.nextFloat() * Mth.TWO_PI;
-            oRoll = roll;
+            quadSize = .25F;
         }
         @Override public void tick() {
             super.tick();
