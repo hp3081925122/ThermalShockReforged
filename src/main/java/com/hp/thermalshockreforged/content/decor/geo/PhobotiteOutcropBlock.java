@@ -11,7 +11,8 @@ import net.minecraft.world.level.block.state.BlockState;
 final class PhobotiteOutcropBlock extends GeoDecorBlock {
     PhobotiteOutcropBlock(GeoDecorKind kind) { super(kind); }
     @Override public boolean canHarvestBlock(BlockState state, BlockGetter level, BlockPos pos, Player player) {
-        return super.canHarvestBlock(state, level, pos, player) && AltarProgressPayload.unlocked(player.level());
+        return super.canHarvestBlock(state, level, pos, player)
+                && (!player.level().getGameRules().getBoolean(ModGameRules.LOQENDIA_ENFORCE_PROGRESSION) || AltarProgressPayload.unlocked(player.level()));
     }
     @Override protected void attack(BlockState state, Level level, BlockPos pos, Player player) {
         super.attack(state, level, pos, player);
