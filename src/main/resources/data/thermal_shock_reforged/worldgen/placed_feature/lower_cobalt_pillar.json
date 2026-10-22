@@ -17,6 +17,26 @@
       "heightmap": "OCEAN_FLOOR_WG"
     },
     {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:not",
+        "predicate": {
+          "type": "minecraft:matching_blocks",
+          "offset": [
+            0,
+            -1,
+            0
+          ],
+          "blocks": [
+            "thermal_shock_reforged:cobalt",
+            "thermal_shock_reforged:snowy_cobalt",
+            "thermal_shock_reforged:sanctum_bricks",
+            "thermal_shock_reforged:snowy_sanctum_bricks"
+          ]
+        }
+      }
+    },
+    {
       "type": "minecraft:random_offset",
       "xz_spread": 0,
       "y_spread": {
