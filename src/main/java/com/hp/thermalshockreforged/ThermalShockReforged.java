@@ -194,6 +194,7 @@ public final class ThermalShockReforged {
         com.hp.thermalshockreforged.entity.monolith.MonolithContent.register(bus);
         com.hp.thermalshockreforged.entity.gravers.GraverContent.register(bus);
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(com.hp.thermalshockreforged.entity.labmachinist.LabPlayerState::clonePlayer);
+        com.hp.thermalshockreforged.content.npc.NpcNameLocalization.register();
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(com.hp.thermalshockreforged.entity.labmachinist.SylviaRifleItem::tickCharge);
         com.hp.thermalshockreforged.entity.jellercel.JellercelContent.register(bus);
         com.hp.thermalshockreforged.entity.orb.OrbContent.register(bus);
