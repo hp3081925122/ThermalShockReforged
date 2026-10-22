@@ -32,7 +32,7 @@ public final class LyScreen extends AbstractContainerScreen<LyMenu> {
     }
     private void button(int action, int x, int y, int width, int height, String texture, String labelKey) { addRenderableWidget(new ImageButton(action, x, y, width, height, texture, Component.translatable(labelKey))); }
     @Override protected void containerTick() { if (menu.page == LyPage.MAIN) clock.frame = clock.frame > 12 ? 0 : clock.frame + 1; }
-    @Override public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) { super.render(graphics, mouseX, mouseY, partialTick); renderTooltip(graphics, mouseX, mouseY); if (menu.getCarried().isEmpty()) for (var line : menu.page.lines) if (com.hp.thermalshockreforged.client.npc.NpcTradeLabels.tooltip(graphics, font, line.key(), leftPos + line.x(), topPos + line.y(), mouseX, mouseY)) break; }
+    @Override public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) { super.render(graphics, mouseX, mouseY, partialTick); renderTooltip(graphics, mouseX, mouseY); if (menu.getCarried().isEmpty() && hoveredSlot == null) com.hp.thermalshockreforged.client.npc.NpcIcons.tooltip(graphics, font, menu.page.icon, leftPos + 47, topPos + 26, 16, 16, mouseX, mouseY); if (menu.getCarried().isEmpty()) for (var line : menu.page.lines) if (com.hp.thermalshockreforged.client.npc.NpcTradeLabels.tooltip(graphics, font, line.key(), leftPos + line.x(), topPos + line.y(), mouseX, mouseY)) break; }
     private void blit(GuiGraphics graphics, String texture, int x, int y, int width, int height) { graphics.blit(id(texture), leftPos + x, topPos + y, 0, 0, width, height, width, height); }
     @Override protected void renderBg(GuiGraphics graphics, float partialTick, int mouseX, int mouseY) {
         RenderSystem.setShaderColor(1, 1, 1, 1); RenderSystem.enableBlend(); RenderSystem.defaultBlendFunc();
@@ -42,7 +42,7 @@ public final class LyScreen extends AbstractContainerScreen<LyMenu> {
             graphics.blit(id("gubyidleportrait"), leftPos - 24, topPos - 24, 0, Mth.clamp(clock.frame * 128, 0, 1408), 128, 128, 128, 1536);
         } else {
             blit(graphics, "lytrademenu", -20, 0, 246, 180);
-            blit(graphics, menu.page.icon, 47, 26, 16, 16);
+            if (!com.hp.thermalshockreforged.client.npc.NpcIcons.draw(graphics, menu.page.icon, leftPos + 47, topPos + 26, 16, 16)) blit(graphics, menu.page.icon, 47, 26, 16, 16);
         }
         RenderSystem.disableBlend();
     }

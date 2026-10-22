@@ -36,11 +36,11 @@ public final class QoScreen extends AbstractContainerScreen<QoMenu> implements c
         if (menu.page != QoPage.STRATUS_2) clock.frame = clock.frame > 12 ? 0 : clock.frame + 1;
     }
     @Override public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
-        super.render(graphics, mouseX, mouseY, partialTick); renderTooltip(graphics, mouseX, mouseY);
+        super.render(graphics, mouseX, mouseY, partialTick); renderTooltip(graphics, mouseX, mouseY); if (menu.getCarried().isEmpty() && hoveredSlot == null) for (var image : menu.page.images) if (com.hp.thermalshockreforged.client.npc.NpcIcons.tooltip(graphics, font, image.texture(), leftPos + image.x(), topPos + image.y(), image.width(), image.height(), mouseX, mouseY)) break;
     }
     @Override protected void renderBg(GuiGraphics graphics, float partialTick, int mouseX, int mouseY) {
         RenderSystem.setShaderColor(1, 1, 1, 1); RenderSystem.enableBlend(); RenderSystem.defaultBlendFunc();
-        for (var image : menu.page.images) graphics.blit(texture(image.texture()), leftPos + image.x(), topPos + image.y(), 0, image.animated() ? Mth.clamp(clock.frame * 128, 0, 1408) : 0, image.width(), image.height(), image.textureWidth(), image.textureHeight());
+        for (var image : menu.page.images) if (!com.hp.thermalshockreforged.client.npc.NpcIcons.draw(graphics, image.texture(), leftPos + image.x(), topPos + image.y(), image.width(), image.height())) graphics.blit(texture(image.texture()), leftPos + image.x(), topPos + image.y(), 0, image.animated() ? Mth.clamp(clock.frame * 128, 0, 1408) : 0, image.width(), image.height(), image.textureWidth(), image.textureHeight());
         RenderSystem.disableBlend();
     }
     @Override protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) {

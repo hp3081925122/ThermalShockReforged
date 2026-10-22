@@ -44,14 +44,14 @@ public final class FloristScreen extends AbstractContainerScreen<FloristMenu> {
     @Override protected void containerTick() { if (menu.page.trade == null) clock.frame = clock.frame > 12 ? 0 : clock.frame + 1; }
     @Override public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
         if (concierge != null) concierge.visible = menu.conciergeAllowed();
-        super.render(graphics, mouseX, mouseY, partialTick); renderTooltip(graphics, mouseX, mouseY); if (menu.getCarried().isEmpty()) for (var line : menu.page.lines) if (com.hp.thermalshockreforged.client.npc.NpcTradeLabels.tooltip(graphics, font, line.key(), leftPos + line.x(), topPos + line.y(), mouseX, mouseY)) break;
+        super.render(graphics, mouseX, mouseY, partialTick); renderTooltip(graphics, mouseX, mouseY); if (menu.getCarried().isEmpty() && hoveredSlot == null) com.hp.thermalshockreforged.client.npc.NpcIcons.tooltip(graphics, font, menu.page.icon, leftPos + 47, topPos + 26, 16, 16, mouseX, mouseY); if (menu.getCarried().isEmpty()) for (var line : menu.page.lines) if (com.hp.thermalshockreforged.client.npc.NpcTradeLabels.tooltip(graphics, font, line.key(), leftPos + line.x(), topPos + line.y(), mouseX, mouseY)) break;
     }
     private void blit(GuiGraphics graphics, String texture, int x, int y, int width, int height) { graphics.blit(id(texture), leftPos + x, topPos + y, 0, 0, width, height, width, height); }
     @Override protected void renderBg(GuiGraphics graphics, float partialTick, int mouseX, int mouseY) {
         RenderSystem.setShaderColor(1, 1, 1, 1); RenderSystem.enableBlend(); RenderSystem.defaultBlendFunc();
         if (menu.page.trade != null) {
             blit(graphics, "umabeltrademenu", -20, 0, 246, 180);
-            blit(graphics, menu.page.icon, 47, 26, 16, 16);
+            if (!com.hp.thermalshockreforged.client.npc.NpcIcons.draw(graphics, menu.page.icon, leftPos + 47, topPos + 26, 16, 16)) blit(graphics, menu.page.icon, 47, 26, 16, 16);
         } else if (menu.page == FloristPage.INFO) blit(graphics, "umabelinfobox", 0, 0, 212, 116);
         else {
             if (menu.page == FloristPage.MAIN) blit(graphics, "mainflavourboxes", 62, -110, 214, 214);

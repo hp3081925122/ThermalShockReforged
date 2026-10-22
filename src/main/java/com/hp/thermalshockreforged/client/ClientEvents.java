@@ -232,6 +232,7 @@ public final class ClientEvents {
         com.hp.thermalshockreforged.client.decor.geo.GeoDecorRenderers.particles(event);
         com.hp.thermalshockreforged.client.gaze.GazeRenderers.particles(event);
         com.hp.thermalshockreforged.client.squall.SquallRenderers.particles(event);
+        com.hp.thermalshockreforged.client.icesquad.BastionRenderers.particles(event);
         event.registerSpriteSet(com.hp.thermalshockreforged.combat.ElementalCombat.HIT_CRYO.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "hitcryo", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true));
         event.registerSpriteSet(com.hp.thermalshockreforged.combat.ElementalCombat.HIT_PYRO.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "hitpyro", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true));
         event.registerSpriteSet(com.hp.thermalshockreforged.combat.ElementalCombat.HIT_RESIST.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "hitresist", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true));

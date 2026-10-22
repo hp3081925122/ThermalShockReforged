@@ -59,7 +59,7 @@ public final class ConciergeMenu extends AbstractContainerMenu {
             case INFECTION, BLIZZARD, SELF, VILEBATH, FLORIST -> { if (button == 0) next = ConciergePage.INFO; }
             case TRADE_INTRO -> { if (button == 0) next = ConciergePage.LILIES; }
             case ERRAND_1 -> { if (button == 0) next = ConciergePage.ERRAND_2; }
-            case ERRAND_2 -> { if (button == 0) { if (!ConciergeQuest.award(server, "blasphemy_1")) return false; next = ConciergePage.ERRAND_3; } }
+            case ERRAND_2 -> { if (button == 0) { boolean fresh = !ConciergeQuest.has(server, "blasphemy_1"); if (!ConciergeQuest.award(server, "blasphemy_1")) return false; if (fresh) com.hp.thermalshockreforged.world.ErrandMaps.give(server, "vilebath_castle"); next = ConciergePage.ERRAND_3; } }
             case ERRAND_3, NONE, FINISH -> {
                 if (button == 0) {
                     transaction = true;

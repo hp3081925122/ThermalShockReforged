@@ -21,7 +21,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.ItemSupplier;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
@@ -35,13 +36,16 @@ public final class IceSquadProjectileEntity extends AbstractArrow implements Ite
     private boolean hitConsumed;
     public IceSquadProjectileEntity(EntityType<? extends IceSquadProjectileEntity> type, Level level) { super(type, level); }
     private String kind() { return BuiltInRegistries.ENTITY_TYPE.getKey(getType()).getPath(); }
-    private boolean flame() { return kind().equals("icidroburner_flame"); }
     private boolean strider() { return kind().equals("strider_attack"); }
-    private boolean reactive() { return flame() || kind().equals("icidrogunner_bullet"); }
-    private int lifetime() { return strider() ? 5 : flame() ? 20 : 80; }
+    private boolean reactive() { return kind().equals("icidrogunner_bullet"); }
+    private int lifetime() {
+        if (strider()) return 5;
+        return 80;
+    }
     @Override public ItemStack getItem() { return getDefaultPickupItem(); }
     @Override protected ItemStack getDefaultPickupItem() {
-        return new ItemStack(strider() ? NativeDecorContent.LIGHT_BLOCKING_BARRIER.get().asItem() : flame() ? Items.BLAZE_POWDER : GeoDecorContent.item(GeoDecorKind.BLUE_ORB));
+        if (strider()) return new ItemStack(NativeDecorContent.LIGHT_BLOCKING_BARRIER.get().asItem());
+        return new ItemStack(GeoDecorContent.item(GeoDecorKind.BLUE_ORB));
     }
     public void configure(LivingEntity source, boolean owned, double multiplier, double knockback) {
         caster = source.getUUID();
@@ -50,7 +54,6 @@ public final class IceSquadProjectileEntity extends AbstractArrow implements Ite
         setBaseDamage(Double.isFinite(damage) ? Math.max(0, damage) : 0);
         impactKnockback = Double.isFinite(knockback) ? Math.clamp(knockback, 0, 0.6) : 0;
         setSilent(true);
-        if (flame()) igniteForSeconds(100);
     }
     @Override public void setOwner(Entity owner) { super.setOwner(owner); pickup = Pickup.DISALLOWED; }
     @Override protected boolean canHitEntity(Entity target) { return (caster == null || !caster.equals(target.getUUID())) && super.canHitEntity(target); }
@@ -87,9 +90,10 @@ public final class IceSquadProjectileEntity extends AbstractArrow implements Ite
         if (!level().isClientSide) discard();
         String targetId = BuiltInRegistries.ENTITY_TYPE.getKey(target.getType()).toString();
         if (targetId.equals("thermal_shock_reforged:icidrogunner") || targetId.equals("thermal_shock_reforged:icidroburner")) return;
-        if (flame()) target.igniteForSeconds(5);
+        if (!level().isClientSide && target instanceof LivingEntity living && living != getOwner()) living.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 40, 0));
+        if (level() instanceof ServerLevel server && caster != null && target instanceof LivingEntity living && server.getEntity(caster) instanceof BastionEntity boss) BastionEntity.thermalShock(server, living, boss, true);
         sound(x, y, z, SoundEvents.GENERIC_HURT, 3);
-        sound(x, y, z, flame() ? SoundEvents.FIRE_AMBIENT : SoundEvents.GLASS_BREAK, flame() ? 3 : 6);
+        sound(x, y, z, SoundEvents.GLASS_BREAK, 6);
     }
     private void sound(double x, double y, double z, SoundEvent sound, float pitch) {
         if (level().isClientSide) level().playLocalSound(x, y, z, sound, SoundSource.NEUTRAL, 1, pitch, false);
@@ -98,11 +102,9 @@ public final class IceSquadProjectileEntity extends AbstractArrow implements Ite
     @Override public void tick() {
         if (!level().isClientSide && lifetimeStarted && remainingEndTicks <= 0) { discard(); return; }
         super.tick();
-        if (flame()) level().addParticle(ParticleTypes.FLAME, getX() + 0.5, getY() + 0.5, getZ() + 0.5, 0, 0, 0);
-        else {
-            if (!strider()) level().addParticle(ParticleTypes.SOUL_FIRE_FLAME, getX(), getY(), getZ(), 0, 0, 0);
-            setNoGravity(true);
-        }
+        if (reactive()) level().addParticle(IceSquadContent.LOD_TRAIL.get(), getX(), getY(), getZ(), 0, 0, 0);
+        else if (!strider()) level().addParticle(ParticleTypes.SOUL_FIRE_FLAME, getX(), getY(), getZ(), 0, 0, 0);
+        setNoGravity(true);
         if (inGround) discard();
         if (!isRemoved() && level() instanceof ServerLevel server) {
             if (!lifetimeStarted) {

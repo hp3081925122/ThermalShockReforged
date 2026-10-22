@@ -94,6 +94,7 @@ public final class ThermalShockReforged {
         com.hp.thermalshockreforged.world.WorldProgressData.register();
         com.hp.thermalshockreforged.world.AltarProgressPayload.register(bus);
         com.hp.thermalshockreforged.world.OreChoicePayload.register(bus);
+        com.hp.thermalshockreforged.world.ErrandMarkerPayload.register(bus);
         com.hp.thermalshockreforged.content.loot.LootContent.register(bus);
         com.hp.thermalshockreforged.world.ShalespringGeneration.register();
         com.hp.thermalshockreforged.world.PalaceGeneration.register();
@@ -193,8 +194,8 @@ public final class ThermalShockReforged {
         com.hp.thermalshockreforged.entity.beetles.BeetleContent.register(bus);
         com.hp.thermalshockreforged.entity.monolith.MonolithContent.register(bus);
         com.hp.thermalshockreforged.entity.gravers.GraverContent.register(bus);
-        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(com.hp.thermalshockreforged.entity.labmachinist.LabPlayerState::clonePlayer);
         com.hp.thermalshockreforged.content.npc.NpcNameLocalization.register();
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(com.hp.thermalshockreforged.entity.labmachinist.LabPlayerState::clonePlayer);
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(com.hp.thermalshockreforged.entity.labmachinist.SylviaRifleItem::tickCharge);
         com.hp.thermalshockreforged.entity.jellercel.JellercelContent.register(bus);
         com.hp.thermalshockreforged.entity.orb.OrbContent.register(bus);

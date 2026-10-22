@@ -6,6 +6,7 @@ import com.hp.thermalshockreforged.content.decor.geo.AltarBlock;
 import com.hp.thermalshockreforged.content.decor.geo.DecorPartBlock;
 import com.hp.thermalshockreforged.content.farming.FarmSeedBlock;
 import com.hp.thermalshockreforged.content.growth.GrowthSeedBlock;
+import com.hp.thermalshockreforged.content.decor.geo.SuspiciousCavebloomerBlock;
 import com.hp.thermalshockreforged.entity.mangler.HeraldEntity;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -37,6 +38,8 @@ public final class ThermalShockJadePlugin implements IWailaPlugin {
     private static final ResourceLocation HERALD = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "herald");
     private static final String HERALD_KEY = "jade." + ThermalShockReforged.MOD_ID + ".herald.";
     private static final String HERALD_KILLS = "HeraldKills";
+    private static final ResourceLocation SUSPICIOUS_CAVEBLOOMER = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "suspicious_cavebloomer");
+    private static final String SUSPICIOUS_CAVEBLOOMER_KEY = "jade." + ThermalShockReforged.MOD_ID + ".suspicious_cavebloomer.";
 
     @Override
     public void register(IWailaCommonRegistration registration) {
@@ -58,6 +61,7 @@ public final class ThermalShockJadePlugin implements IWailaPlugin {
         registration.registerBlockComponent(AltarProvider.INSTANCE, AltarBlock.class);
         registration.registerBlockComponent(SeedProvider.INSTANCE, FarmSeedBlock.class);
         registration.registerBlockComponent(SeedProvider.INSTANCE, GrowthSeedBlock.class);
+        registration.registerBlockComponent(SuspiciousCavebloomerProvider.INSTANCE, SuspiciousCavebloomerBlock.class);
         registration.registerEntityComponent(HeraldProvider.INSTANCE, HeraldEntity.class);
     }
 
@@ -133,5 +137,18 @@ public final class ThermalShockJadePlugin implements IWailaPlugin {
 
         @Override
         public ResourceLocation getUid() { return SEED; }
+    }
+
+    private enum SuspiciousCavebloomerProvider implements IBlockComponentProvider {
+        INSTANCE;
+
+        @Override
+        public void appendTooltip(ITooltip tooltip, BlockAccessor accessor, IPluginConfig config) {
+            tooltip.add(Component.translatable(SUSPICIOUS_CAVEBLOOMER_KEY + "budding"));
+            tooltip.add(Component.translatable(SUSPICIOUS_CAVEBLOOMER_KEY + "boss"));
+        }
+
+        @Override
+        public ResourceLocation getUid() { return SUSPICIOUS_CAVEBLOOMER; }
     }
 }

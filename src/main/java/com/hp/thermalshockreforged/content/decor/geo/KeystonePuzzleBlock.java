@@ -70,6 +70,7 @@ public class KeystonePuzzleBlock extends GeoDecorBlock {
         level.sendBlockUpdated(center, level.getBlockState(center), level.getBlockState(center), 3);
         level.playSound(null, pos, SoundEvents.MINECART_RIDING, SoundSource.NEUTRAL, 1, -3);
         level.playSound(null, pos, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.NEUTRAL, .5F, 1);
+        player.displayClientMessage(Component.translatable("message.thermal_shock_reforged.keystone.puzzle_center"), false);
         return true;
     }
     private static void maybePromptLever(ServerLevel server, BlockPos buttonPos, Player player) {
