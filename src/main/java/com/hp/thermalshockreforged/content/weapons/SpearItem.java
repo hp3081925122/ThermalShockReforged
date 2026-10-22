@@ -29,18 +29,18 @@ import software.bernie.geckolib.animation.RawAnimation;
 
 public final class SpearItem extends Item implements GeoItem {
     public enum Kind {
-        SPELEOTHEM(1800, 9, 5, 35, 32, 35, "speleothem", "speleothem", true),
-        RUBY(1200, 5.5, 3, 21, 20, 23, "rubyspearalt", "rubyspearalt", false),
-        CARBORUNDUM(900, 6.5, 3, 21, 20, 23, "rubyspearalt", "carborundum_spear", false),
-        HI_VOLT(1200, 6, 3, 16, 16, 16, "hi_volt_lance", "hi_volt_lance", false),
-        BLOODSTONE_HALBERD(1200, 5.5, 3, 21, 20, 20, "bloodhalberd", "bloodhalberd", false),
-        CARBORUNDUM_HALBERD(900, 6.5, 3, 21, 20, 20, "bloodhalberd", "carborundum_halberd", false);
-        final int durability, reach, cooldown, first, last;
+        SPELEOTHEM(1800, 9, 5, 32, 35, "speleothem", "speleothem", true),
+        RUBY(1200, 5.5, 3, 20, 23, "rubyspearalt", "rubyspearalt", false),
+        CARBORUNDUM(900, 6.5, 3, 20, 23, "rubyspearalt", "carborundum_spear", false),
+        HI_VOLT(1200, 6, 3, 16, 16, "hi_volt_lance", "hi_volt_lance", false),
+        BLOODSTONE_HALBERD(1200, 5.5, 3, 20, 20, "bloodhalberd", "bloodhalberd", false),
+        CARBORUNDUM_HALBERD(900, 6.5, 3, 20, 20, "bloodhalberd", "carborundum_halberd", false);
+        final int durability, reach, first, last;
         final double damage;
         public final String model, texture;
         final boolean cryo;
-        Kind(int durability, double damage, int reach, int cooldown, int first, int last, String model, String texture, boolean cryo) {
-            this.durability = durability; this.damage = damage; this.reach = reach; this.cooldown = cooldown; this.first = first; this.last = last; this.model = model; this.texture = texture; this.cryo = cryo;
+        Kind(int durability, double damage, int reach, int first, int last, String model, String texture, boolean cryo) {
+            this.durability = durability; this.damage = damage; this.reach = reach; this.first = first; this.last = last; this.model = model; this.texture = texture; this.cryo = cryo;
         }
         boolean halberd() { return this == BLOODSTONE_HALBERD || this == CARBORUNDUM_HALBERD; }
     }
@@ -81,18 +81,15 @@ public final class SpearItem extends Item implements GeoItem {
         return result;
     }
     @Override public boolean onEntitySwing(ItemStack stack, LivingEntity wielder, InteractionHand hand) {
-        if (!(wielder instanceof Player player) || !player.getCooldowns().isOnCooldown(this)) {
-            if (wielder instanceof Player player) player.getCooldowns().addCooldown(this, kind.cooldown);
-            if (!wielder.level().isClientSide) {
-                wielder.level().playSound(null, wielder.blockPosition(), net.minecraft.sounds.SoundEvents.PLAYER_ATTACK_SWEEP, SoundSource.NEUTRAL, 1, kind.halberd() ? 1 : 3);
-                if (kind == Kind.HI_VOLT) {
-                    wielder.level().playSound(null, wielder.blockPosition(), net.minecraft.core.registries.BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "galvanitehurt")), SoundSource.NEUTRAL, .5F, 8);
-                    HiVoltPulseEntity.submit((net.minecraft.server.level.ServerLevel) wielder.level(), wielder, false);
-                } else if (kind.halberd()) SpeleothemSoundEntity.submitSingle((net.minecraft.server.level.ServerLevel) wielder.level(), wielder.getX(), wielder.getY(), wielder.getZ(), 20, .7F, 3);
-                else SpeleothemSoundEntity.submit((net.minecraft.server.level.ServerLevel) wielder.level(), wielder.getX(), wielder.getY(), wielder.getZ(), kind.first, kind.last);
-            }
-            if (wielder.level() instanceof net.minecraft.server.level.ServerLevel server) triggerAnim(wielder, GeoItem.getOrAssignId(stack, server), "procedure", kind.halberd() && wielder.getRandom().nextBoolean() ? "2" : "1");
+        if (!wielder.level().isClientSide) {
+            wielder.level().playSound(null, wielder.blockPosition(), net.minecraft.sounds.SoundEvents.PLAYER_ATTACK_SWEEP, SoundSource.NEUTRAL, 1, kind.halberd() ? 1 : 3);
+            if (kind == Kind.HI_VOLT) {
+                wielder.level().playSound(null, wielder.blockPosition(), net.minecraft.core.registries.BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "galvanitehurt")), SoundSource.NEUTRAL, .5F, 8);
+                HiVoltPulseEntity.submit((net.minecraft.server.level.ServerLevel) wielder.level(), wielder, false);
+            } else if (kind.halberd()) SpeleothemSoundEntity.submitSingle((net.minecraft.server.level.ServerLevel) wielder.level(), wielder.getX(), wielder.getY(), wielder.getZ(), 20, .7F, 3);
+            else SpeleothemSoundEntity.submit((net.minecraft.server.level.ServerLevel) wielder.level(), wielder.getX(), wielder.getY(), wielder.getZ(), kind.first, kind.last);
         }
+        if (wielder.level() instanceof net.minecraft.server.level.ServerLevel server) triggerAnim(wielder, GeoItem.getOrAssignId(stack, server), "procedure", kind.halberd() && wielder.getRandom().nextBoolean() ? "2" : "1");
         return false;
     }
     @Override public boolean hurtEnemy(ItemStack stack, LivingEntity victim, LivingEntity attacker) {
@@ -112,8 +109,7 @@ public final class SpearItem extends Item implements GeoItem {
     @Override public void inventoryTick(ItemStack stack, Level level, net.minecraft.world.entity.Entity entity, int slot, boolean selected) {
         super.inventoryTick(stack, level, entity, slot, selected);
         if (selected && entity instanceof LivingEntity living && !level.isClientSide) {
-            if (living instanceof Player player && player.getCooldowns().isOnCooldown(this)) HeldWeaponState.refreshNoMelee(living, 3, 20);
-            else HeldWeaponState.refreshReach(living, kind.reach);
+            HeldWeaponState.refreshReach(living, kind.reach);
         }
         if (level instanceof net.minecraft.server.level.ServerLevel server) GeoItem.getOrAssignId(stack, server);
     }
