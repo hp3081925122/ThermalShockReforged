@@ -25,7 +25,7 @@ public final class OutcropRenderers {
     }
     private static final class BlockRenderer extends GeoBlockRenderer<OutcropBlockEntity> {
         private BlockRenderer() { super(new Model<>()); }
-        @Override public RenderType getRenderType(OutcropBlockEntity entity, ResourceLocation texture, MultiBufferSource buffers, float partialTick) { return RenderType.entityTranslucent(texture); }
+        @Override public RenderType getRenderType(OutcropBlockEntity entity, ResourceLocation texture, MultiBufferSource buffers, float partialTick) { return RenderType.entityTranslucentCull(texture); }
     }
     private static final class ItemRenderer extends GeoItemRenderer<OutcropItem> {
         private ItemRenderer() { super(new Model<>()); }
