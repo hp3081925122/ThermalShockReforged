@@ -4,6 +4,9 @@ import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.ModGameRules;
 import com.hp.thermalshockreforged.content.decor.geo.AltarBlock;
 import com.hp.thermalshockreforged.content.decor.geo.DecorPartBlock;
+import com.hp.thermalshockreforged.content.decor.geo.GeoDecorBlock;
+import com.hp.thermalshockreforged.content.decor.geo.GeoDecorContent;
+import com.hp.thermalshockreforged.content.decor.geo.GeoDecorKind;
 import com.hp.thermalshockreforged.content.farming.FarmSeedBlock;
 import com.hp.thermalshockreforged.content.growth.GrowthSeedBlock;
 import com.hp.thermalshockreforged.content.decor.geo.SuspiciousCavebloomerBlock;
@@ -40,10 +43,14 @@ public final class ThermalShockJadePlugin implements IWailaPlugin {
     private static final String HERALD_KILLS = "HeraldKills";
     private static final ResourceLocation SUSPICIOUS_CAVEBLOOMER = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "suspicious_cavebloomer");
     private static final String SUSPICIOUS_CAVEBLOOMER_KEY = "jade." + ThermalShockReforged.MOD_ID + ".suspicious_cavebloomer.";
+    private static final ResourceLocation PHOBOTITE = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "phobotite");
+    private static final String PHOBOTITE_STATUS = "PhobotiteStatus";
+    private static final String PHOBOTITE_KEY = "jade." + ThermalShockReforged.MOD_ID + ".phobotite.";
 
     @Override
     public void register(IWailaCommonRegistration registration) {
         registration.registerBlockDataProvider(AltarProvider.INSTANCE, AltarBlock.class);
+        registration.registerBlockDataProvider(PhobotiteProvider.INSTANCE, GeoDecorBlock.class);
         registration.registerBlockDataProvider(SeedProvider.INSTANCE, FarmSeedBlock.class);
         registration.registerBlockDataProvider(SeedProvider.INSTANCE, GrowthSeedBlock.class);
         registration.registerEntityDataProvider(HeraldProvider.INSTANCE, HeraldEntity.class);
@@ -59,6 +66,7 @@ public final class ThermalShockJadePlugin implements IWailaPlugin {
             return registration.blockAccessor().from(block).hit(blockHit.withPosition(main)).blockState(level.getBlockState(main)).blockEntity(level.getBlockEntity(main)).build();
         });
         registration.registerBlockComponent(AltarProvider.INSTANCE, AltarBlock.class);
+        registration.registerBlockComponent(PhobotiteProvider.INSTANCE, GeoDecorBlock.class);
         registration.registerBlockComponent(SeedProvider.INSTANCE, FarmSeedBlock.class);
         registration.registerBlockComponent(SeedProvider.INSTANCE, GrowthSeedBlock.class);
         registration.registerBlockComponent(SuspiciousCavebloomerProvider.INSTANCE, SuspiciousCavebloomerBlock.class);
@@ -111,6 +119,31 @@ public final class ThermalShockJadePlugin implements IWailaPlugin {
 
         @Override
         public ResourceLocation getUid() { return ALTAR; }
+    }
+
+    private enum PhobotiteProvider implements IBlockComponentProvider, IServerDataProvider<BlockAccessor> {
+        INSTANCE;
+
+        private static boolean isPhobotite(BlockAccessor accessor) {
+            var state = accessor.getBlockState();
+            return state.is(GeoDecorContent.block(GeoDecorKind.PHOBOTITE_OUTCROP)) || state.is(GeoDecorContent.block(GeoDecorKind.PHOBOTITE_MANTLE_OUTCROP));
+        }
+
+        @Override
+        public void appendServerData(CompoundTag data, BlockAccessor accessor) {
+            if (!isPhobotite(accessor) || !(accessor.getPlayer() instanceof ServerPlayer player)
+                    || !player.serverLevel().getGameRules().getBoolean(ModGameRules.LOQENDIA_ENFORCE_PROGRESSION)
+                    || AltarBlock.unlocked(player)) return;
+            data.putBoolean(PHOBOTITE_STATUS, true);
+        }
+
+        @Override
+        public void appendTooltip(ITooltip tooltip, BlockAccessor accessor, IPluginConfig config) {
+            if (accessor.getServerData().getBoolean(PHOBOTITE_STATUS)) tooltip.add(Component.translatable(PHOBOTITE_KEY + "locked"));
+        }
+
+        @Override
+        public ResourceLocation getUid() { return PHOBOTITE; }
     }
 
     private enum SeedProvider implements IBlockComponentProvider, IServerDataProvider<BlockAccessor> {
