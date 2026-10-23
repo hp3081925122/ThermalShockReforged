@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.entity.kofoni;
+import net.minecraft.world.item.SpawnEggItem;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import java.util.EnumMap;
@@ -12,7 +13,7 @@ import net.minecraft.world.entity.player.*;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.common.DeferredSpawnEggItem;
+
 import net.neoforged.neoforge.common.extensions.IMenuTypeExtension;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.registries.*;
@@ -24,11 +25,11 @@ public final class KofoniContent {
     private static final EnumMap<KofoniPage, DeferredHolder<MenuType<?>, MenuType<KofoniMenu>>> PAGES = new EnumMap<>(KofoniPage.class);
     public static final DeferredHolder<EntityType<?>, EntityType<KofoniEntity>> KOFONI = TYPES.register("kofoni", () -> EntityType.Builder.of(KofoniEntity::new, MobCategory.MONSTER).sized(.9F, 1.2F).setShouldReceiveVelocityUpdates(true).fireImmune().clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":kofoni"));
     static {
-        ITEMS.register("kofoni_spawn_egg", () -> new DeferredSpawnEggItem(KOFONI, -1, -1, new Item.Properties()));
+        ITEMS.register("kofoni_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(KOFONI.get())));
         for (var page : KofoniPage.values()) PAGES.put(page, MENUS.register(page.id, () -> IMenuTypeExtension.create((id, inventory, data) -> new KofoniMenu(page, id, inventory, data.readVarInt(), data.readUUID(), data.readBlockPos(), data.readVarInt()))));
     }
     private KofoniContent() { }
-    public static net.minecraft.resources.ResourceLocation id(String path) { return net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
+    public static net.minecraft.resources.Identifier id(String path) { return net.minecraft.resources.Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
     public static MenuType<KofoniMenu> menu(KofoniPage page) { return PAGES.get(page).get(); }
     public static boolean open(ServerPlayer player, KofoniEntity npc, BlockPos anchor, KofoniPage page) {
         if (npc == null || !npc.isAlive() || npc.level() != player.level() || player.distanceToSqr(npc) > 64) return false;

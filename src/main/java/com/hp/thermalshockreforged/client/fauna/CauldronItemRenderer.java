@@ -1,25 +1,27 @@
 package com.hp.thermalshockreforged.client.fauna;
+import net.minecraft.client.renderer.rendertype.RenderTypes;
+import net.minecraft.client.renderer.rendertype.RenderType;
 
 import com.hp.thermalshockreforged.entity.fauna.block.CauldronOfTrilobiteItem;
 import net.minecraft.client.renderer.*;
-import net.minecraft.resources.ResourceLocation;
-import software.bernie.geckolib.model.GeoModel;
-import software.bernie.geckolib.renderer.GeoItemRenderer;
+import net.minecraft.resources.Identifier;
+import com.hp.thermalshockreforged.client.compat.LegacyGeoModel;
+import com.hp.thermalshockreforged.client.compat.LegacyGeoItemRenderer;
 
-final class CauldronItemRenderer extends GeoItemRenderer<CauldronOfTrilobiteItem> {
+final class CauldronItemRenderer extends LegacyGeoItemRenderer<CauldronOfTrilobiteItem> {
     CauldronItemRenderer() { super(new Model()); }
 
     @Override
-    public RenderType getRenderType(CauldronOfTrilobiteItem entity, ResourceLocation texture, MultiBufferSource buffers, float partialTick) { return RenderType.entityTranslucent(texture); }
+    public RenderType getRenderType(CauldronOfTrilobiteItem entity, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
 
-    private static final class Model extends GeoModel<CauldronOfTrilobiteItem> {
+    private static final class Model extends LegacyGeoModel<CauldronOfTrilobiteItem> {
         @Override
-        public ResourceLocation getModelResource(CauldronOfTrilobiteItem entity) { return ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", "geo/trilobitcauldron.geo.json"); }
-
-        @Override
-        public ResourceLocation getTextureResource(CauldronOfTrilobiteItem entity) { return ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", "textures/block/trilobitecauldron.png"); }
+        public Identifier getModelResource(CauldronOfTrilobiteItem entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", "geo/trilobitcauldron.geo.json"); }
 
         @Override
-        public ResourceLocation getAnimationResource(CauldronOfTrilobiteItem entity) { return ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", "animations/trilobitcauldron.animation.json"); }
+        public Identifier getTextureResource(CauldronOfTrilobiteItem entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", "textures/block/trilobitecauldron.png"); }
+
+        @Override
+        public Identifier getAnimationResource(CauldronOfTrilobiteItem entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", "animations/trilobitcauldron.animation.json"); }
     }
 }

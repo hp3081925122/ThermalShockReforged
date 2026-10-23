@@ -6,7 +6,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.*;
-import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
@@ -28,7 +28,7 @@ public final class GelshooterSeedBlock extends Block {
         try {
             reserved=server.removeBlock(pos,false);
             if(!reserved)return;
-            spawned=GrowthEntities.GELSHOOTER.get().create(server,null,pos,MobSpawnType.MOB_SUMMONED,false,false);
+            spawned=GrowthEntities.GELSHOOTER.get().create(server,null,pos,EntitySpawnReason.MOB_SUMMONED,false,false);
             if(spawned!=null)server.tryAddFreshEntityWithPassengers(spawned);
             success=spawned!=null&&spawned.isAddedToLevel()&&!spawned.isRemoved();
             if(!success)return;

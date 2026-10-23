@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.content.utility;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.component.TooltipDisplay;
+import java.util.function.Consumer;
 
 import com.hp.thermalshockreforged.entity.cavebloomer.CavebloomerContent;
 import com.hp.thermalshockreforged.entity.pots.SkullscorEntity;
@@ -17,13 +20,13 @@ import net.minecraft.world.phys.AABB;
 
 public final class PesticideItem extends Item {
     public PesticideItem() { super(new Properties().stacksTo(64).rarity(Rarity.COMMON)); }
-    @Override public UseAnim getUseAnimation(ItemStack stack) { return UseAnim.DRINK; }
+    @Override public ItemUseAnimation getUseAnimation(ItemStack stack) { return ItemUseAnimation.DRINK; }
     @Override public int getUseDuration(ItemStack stack, LivingEntity consumer) { return 20; }
-    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) {
-        super.appendHoverText(stack, context, lines, flag); lines.add(Component.translatable("item.thermal_shock_reforged.pesticide.description_0"));
+    @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+        super.appendHoverText(stack, context, display, tooltipAdder, flag); tooltipAdder.accept(Component.translatable("item.thermal_shock_reforged.pesticide.description_0"));
     }
-    @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-        player.startUsingItem(hand); return InteractionResultHolder.sidedSuccess(player.getItemInHand(hand), level.isClientSide);
+    @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {
+        player.startUsingItem(hand); return InteractionResult.SUCCESS;
     }
     @Override public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity consumer) {
         if (level instanceof ServerLevel server) {

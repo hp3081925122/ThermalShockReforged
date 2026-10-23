@@ -36,14 +36,14 @@ public final class IcebreakerPulseEntity extends Entity implements ServerEndTick
         var task = IcebreakerContent.ICEBREAKER_PULSE.get().create(level);
         if (task == null) return false;
         task.anchor = pos.immutable();
-        task.dimension = level.dimension().location().toString();
+        task.dimension = level.dimension().identifier().toString();
         task.armed = true;
         task.setPos(pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5);
         owner.assign(task.getUUID());
         if (!level.addFreshEntity(task) || task.isRemoved() || level.getEntity(task.getUUID()) != task) {
             task.discard();
             if (level.getBlockEntity(pos) == owner && owner.owns(task.getUUID())) owner.assign(null);
-            ThermalShockReforged.LOGGER.debug("Icebreaker task insertion rejected: position={}, dimension={}", pos, level.dimension().location());
+            ThermalShockReforged.LOGGER.debug("Icebreaker task insertion rejected: position={}, dimension={}", pos, level.dimension().identifier());
             return false;
         }
         ThermalShockReforged.LOGGER.debug("Icebreaker task committed: task={}, position={}", task.getUUID(), pos);
@@ -67,7 +67,7 @@ public final class IcebreakerPulseEntity extends Entity implements ServerEndTick
     }
 
     private boolean valid(ServerLevel level) {
-        return armed && phase >= 0 && phase < 2 && dimension.equals(level.dimension().location().toString());
+        return armed && phase >= 0 && phase < 2 && dimension.equals(level.dimension().identifier().toString());
     }
 
     private boolean areaLoaded(ServerLevel level) {
@@ -121,20 +121,20 @@ public final class IcebreakerPulseEntity extends Entity implements ServerEndTick
         ThermalShockReforged.LOGGER.debug("Icebreaker melt committed: task={}, position={}, changed={}", getUUID(), anchor, changed);
     }
 
-    @Override protected void addAdditionalSaveData(CompoundTag tag) {
-        tag.putLong("IcebreakerAnchor", anchor.asLong());
-        tag.putString("IcebreakerDimension", dimension);
-        tag.putInt("IcebreakerPhase", phase);
-        tag.putInt("IcebreakerRemaining", remaining);
-        tag.putBoolean("IcebreakerArmed", armed);
+    @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        output.putLong("IcebreakerAnchor", anchor.asLong());
+        output.putString("IcebreakerDimension", dimension);
+        output.putInt("IcebreakerPhase", phase);
+        output.putInt("IcebreakerRemaining", remaining);
+        output.putBoolean("IcebreakerArmed", armed);
     }
 
-    @Override protected void readAdditionalSaveData(CompoundTag tag) {
-        anchor = BlockPos.of(tag.getLong("IcebreakerAnchor"));
-        dimension = tag.getString("IcebreakerDimension");
-        phase = tag.getInt("IcebreakerPhase");
-        remaining = Math.clamp(tag.getInt("IcebreakerRemaining"), 1, phase == 0 ? 20 : 10);
-        armed = tag.getBoolean("IcebreakerArmed") && tag.contains("IcebreakerAnchor") && phase >= 0 && phase < 2;
+    @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        anchor = BlockPos.of(input.getLongOr("IcebreakerAnchor", 0L));
+        dimension = input.getStringOr("IcebreakerDimension", "");
+        phase = input.getIntOr("IcebreakerPhase", 0);
+        remaining = Math.clamp(input.getIntOr("IcebreakerRemaining", 0), 1, phase == 0 ? 20 : 10);
+        armed = input.getBooleanOr("IcebreakerArmed", false) && input.getString("IcebreakerAnchor").isPresent() && phase >= 0 && phase < 2;
         noPhysics = true;
         setNoGravity(true);
     }

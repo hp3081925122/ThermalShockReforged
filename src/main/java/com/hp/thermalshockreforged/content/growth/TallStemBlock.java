@@ -15,7 +15,7 @@ import net.neoforged.neoforge.common.CommonHooks;
 public class TallStemBlock extends SugarCaneBlock {
     private final int maximumHeight;
     public TallStemBlock() {
-        this(Properties.of().mapColor(MapColor.PLANT).randomTicks().sound(SoundType.BAMBOO).instabreak().speedFactor(.8f).jumpFactor(.8f).noCollission().offsetType(OffsetType.NONE).pushReaction(PushReaction.DESTROY), 9);
+        this(Properties.of().mapColor(MapColor.PLANT).randomTicks().sound(SoundType.BAMBOO).instabreak().speedFactor(.8f).jumpFactor(.8f).noCollision().offsetType(OffsetType.NONE).pushReaction(PushReaction.DESTROY), 9);
     }
     protected TallStemBlock(Properties properties, int maximumHeight) { super(properties); this.maximumHeight = maximumHeight; }
     @Override public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction face) { return 100; }
@@ -44,7 +44,7 @@ public class TallStemBlock extends SugarCaneBlock {
     public static final class Waterlogged extends TallStemBlock implements SimpleWaterloggedBlock {
         public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
         public Waterlogged() {
-            super(Properties.of().mapColor(MapColor.PLANT).randomTicks().sound(SoundType.GRASS).instabreak().hasPostProcess((s,l,p)->true).emissiveRendering((s,l,p)->true).lightLevel(s->10).noCollission().offsetType(OffsetType.XZ).pushReaction(PushReaction.DESTROY), 12);
+            super(Properties.of().mapColor(MapColor.PLANT).randomTicks().sound(SoundType.GRASS).instabreak().emissiveRendering((s,l,p)->true).lightLevel(s->10).noCollision().offsetType(OffsetType.XZ).pushReaction(PushReaction.DESTROY), 12);
             registerDefaultState(defaultBlockState().setValue(WATERLOGGED, false));
         }
         @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { super.createBlockStateDefinition(builder); builder.add(WATERLOGGED); }

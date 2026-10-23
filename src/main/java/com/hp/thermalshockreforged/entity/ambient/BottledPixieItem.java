@@ -4,21 +4,21 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 
 public final class BottledPixieItem extends Item {
     public BottledPixieItem() { super(new Properties().stacksTo(16)); }
     @Override
-    public UseAnim getUseAnimation(ItemStack stack) { return UseAnim.BOW; }
+    public ItemUseAnimation getUseAnimation(ItemStack stack) { return ItemUseAnimation.BOW; }
     @Override
     public int getUseDuration(ItemStack stack, LivingEntity entity) { return 32; }
     @Override
-    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-        if (!player.getAbilities().instabuild && findAmmo(player).isEmpty()) return InteractionResultHolder.fail(player.getItemInHand(hand));
+    public InteractionResult use(Level level, Player player, InteractionHand hand) {
+        if (!player.getAbilities().instabuild && findAmmo(player).isEmpty()) return InteractionResult.FAIL;
         player.startUsingItem(hand);
-        return InteractionResultHolder.success(player.getItemInHand(hand));
+        return InteractionResult.SUCCESS;
     }
     @Override
     public void releaseUsing(ItemStack stack, Level level, LivingEntity entity, int timeLeft) {

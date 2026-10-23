@@ -13,7 +13,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -25,13 +25,13 @@ import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
 
 public final class ExtractorBlock extends GeoDecorBlock.Waterlogged {
     public static final IntegerProperty PROCESS_ANIMATION = IntegerProperty.create("animation", 0, 2);
-    public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+    public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
     public ExtractorBlock() { super(GeoDecorKind.EXTRACTOR); registerDefaultState(defaultBlockState().setValue(FACING, Direction.NORTH)); }
     @Override protected IntegerProperty animationProperty() { return PROCESS_ANIMATION; }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { super.createBlockStateDefinition(builder); builder.add(FACING); }
@@ -55,7 +55,7 @@ public final class ExtractorBlock extends GeoDecorBlock.Waterlogged {
         input.shrink(1);
         for (var output : recipe.outputs()) {
             if (!output.guaranteed()) continue;
-            int repeat = output.repeat().sample(server.random);
+            int repeat = output.repeat().sample(server.getRandom());
             for (int count = 0; count < repeat; count++) {
                 if (!MachineContent.drop(server, pos.getX(), pos.getY(), pos.getZ(), output.item().copy())) {
                     input.grow(1);
@@ -66,13 +66,13 @@ public final class ExtractorBlock extends GeoDecorBlock.Waterlogged {
         }
         if (recipe.experience().isPresent()) {
             var experience = recipe.experience().get();
-            int orbs = experience.orbs().sample(server.random);
+            int orbs = experience.orbs().sample(server.getRandom());
             for (int count = 0; count < orbs; count++) server.addFreshEntity(new ExperienceOrb(server, pos.getX(), pos.getY(), pos.getZ(), experience.value()));
         }
         if (recipe.levels() > 0) player.giveExperienceLevels(recipe.levels());
         for (var output : recipe.outputs()) {
-            if (output.guaranteed() || server.random.nextFloat() >= output.chance()) continue;
-            int repeat = output.repeat().sample(server.random);
+            if (output.guaranteed() || server.getRandom().nextFloat() >= output.chance()) continue;
+            int repeat = output.repeat().sample(server.getRandom());
             for (int count = 0; count < repeat; count++) MachineContent.drop(server, pos.getX(), pos.getY(), pos.getZ(), output.item().copy());
         }
         for (var sound : recipe.sounds()) sound.play(server, pos, SoundSource.NEUTRAL);
@@ -84,10 +84,10 @@ public final class ExtractorBlock extends GeoDecorBlock.Waterlogged {
         ThermalShockReforged.LOGGER.debug("Extraction completed: player={}, position={}, input={}", player.getUUID(), pos, inputId);
         return true;
     }
-    @Override protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-        if (process(stack, level, pos, player)) return ItemInteractionResult.SUCCESS;
-        if (hand == InteractionHand.MAIN_HAND && ExtractionRecipe.find(level, player.getOffhandItem()) != null) return ItemInteractionResult.SKIP_DEFAULT_BLOCK_INTERACTION;
-        return ItemInteractionResult.SUCCESS;
+    @Override protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+        if (process(stack, level, pos, player)) return InteractionResult.SUCCESS;
+        if (hand == InteractionHand.MAIN_HAND && ExtractionRecipe.find(level, player.getOffhandItem()) != null) return InteractionResult.PASS;
+        return InteractionResult.SUCCESS;
     }
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) { return InteractionResult.SUCCESS; }
 }

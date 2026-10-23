@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.entity.monolith;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.entity.attack.BossDeathEffectEntity;
@@ -21,10 +24,10 @@ import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.*;
 import net.neoforged.neoforge.event.EventHooks;
-import software.bernie.geckolib.animation.*;
+import com.geckolib.animation.*;
 
 public final class MonolithEntity extends MonolithBaseEntity {
-    private static final net.minecraft.resources.ResourceLocation ATTACK_SLOW = MonolithContent.id("monolith_attack_slow");
+    private static final net.minecraft.resources.Identifier ATTACK_SLOW = MonolithContent.id("monolith_attack_slow");
     private int cooldown;
     private int slowTicks;
     private boolean submitting;
@@ -60,15 +63,15 @@ public final class MonolithEntity extends MonolithBaseEntity {
         ThermalShockReforged.LOGGER.debug("Monolith attack committed: caster={}, target={}, cooldown={}", getUUID(), victim.getUUID(), cooldown);
     }
     private void synchronizeSlow() {
-        if (level().isClientSide) return;
+        if (level().isClientSide()) return;
         var speed = getAttribute(Attributes.MOVEMENT_SPEED);
-        var actualSlow = getEffect(MobEffects.MOVEMENT_SLOWDOWN);
+        var actualSlow = getEffect(MobEffects.SLOWNESS);
         double amount = actualSlow == null ? -.3 : actualSlow.getAmplifier() == 0 ? .7 / .85 - 1 : 0;
         var previous = speed.getModifier(ATTACK_SLOW);
         if (slowTicks <= 0 || amount == 0) speed.removeModifier(ATTACK_SLOW);
         else if (previous == null || previous.amount() != amount) { speed.removeModifier(ATTACK_SLOW); speed.addTransientModifier(new AttributeModifier(ATTACK_SLOW, amount, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)); }
     }
-    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, MobSpawnType reason, SpawnGroupData data) {
+    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, EntitySpawnReason reason, SpawnGroupData data) {
         var result = super.finalizeSpawn(world, difficulty, reason, data);
         if (!initialized && world instanceof ServerLevel) { initialized = true; initializationPending = true; initialOrigin = position(); }
         return result;
@@ -84,9 +87,9 @@ public final class MonolithEntity extends MonolithBaseEntity {
         else { initializationRetry = 20; ThermalShockReforged.LOGGER.debug("Monolith initialization insertion failed: caster={}, position={}", getUUID(), initialOrigin); }
     }
     @Override public void tick() {
-        if (!level().isClientSide) { if (cooldown > 0) cooldown--; if (slowTicks > 0) slowTicks--; if (initializationRetry > 0) initializationRetry--; synchronizeSlow(); }
+        if (!level().isClientSide()) { if (cooldown > 0) cooldown--; if (slowTicks > 0) slowTicks--; if (initializationRetry > 0) initializationRetry--; synchronizeSlow(); }
         super.tick();
-        if (!level().isClientSide) { synchronizeSlow(); submitInitialization(); }
+        if (!level().isClientSide()) { synchronizeSlow(); submitInitialization(); }
     }
     @Override public void baseTick() {
         super.baseTick();
@@ -95,12 +98,12 @@ public final class MonolithEntity extends MonolithBaseEntity {
         if (server.players().stream().anyMatch(player -> !player.isRemoved() && player.getBoundingBox().intersects(playerBounds))) return;
         converting = true;
         try {
-            var replacement = MonolithContent.DORMANT.get().create(server);
+            var replacement = MonolithContent.DORMANT.get().create(server, net.minecraft.world.entity.EntitySpawnReason.MOB_SUMMONED);
             if (replacement == null) { conversionRetry = 20; return; }
             var pos = blockPosition();
             replacement.moveTo(pos.getX() + .5, pos.getY(), pos.getZ() + .5, getYRot(), 0);
             replacement.yBodyRot = getYRot(); replacement.yHeadRot = getYRot(); replacement.setDeltaMovement(Vec3.ZERO);
-            EventHooks.finalizeMobSpawn(replacement, server, server.getCurrentDifficultyAt(pos), MobSpawnType.MOB_SUMMONED, null);
+            EventHooks.finalizeMobSpawn(replacement, server, server.getCurrentDifficultyAt(pos), EntitySpawnReason.MOB_SUMMONED, null);
             if (replacement.isRemoved() || replacement.isSpawnCancelled() || !server.addFreshEntity(replacement)) { replacement.discard(); conversionRetry = 20; ThermalShockReforged.LOGGER.debug("Monolith sleep conversion rejected: source={}, position={}", getUUID(), pos); return; }
             converted = true;
             if (activeAttack != null && server.getEntity(activeAttack) instanceof MonolithTaskEntity task) task.captureCaster(this);
@@ -109,7 +112,7 @@ public final class MonolithEntity extends MonolithBaseEntity {
             discard();
         } finally { converting = false; }
     }
-    static SoundEvent sound(String name) { return BuiltInRegistries.SOUND_EVENT.get(MonolithContent.id(name)); }
+    static SoundEvent sound(String name) { return BuiltInRegistries.SOUND_EVENT.getValue(MonolithContent.id(name)); }
     @Override public SoundEvent getAmbientSound() { return sound("monolithambient"); }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return sound("monolithhurt"); }
     @Override protected SoundEvent getDeathSound() { return sound("monolithdeath"); }
@@ -119,8 +122,8 @@ public final class MonolithEntity extends MonolithBaseEntity {
     @Override protected int animationTransitionTicks() { return 1; }
     @Override protected List<String> procedureAnimations() { return List.of("attack"); }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 1, state -> PlayState.STOP).triggerableAnim("attack", RawAnimation.begin().thenPlay("attack"));
-        controllers.add(new AnimationController<>(this, "movement", 1, state -> {
+        var procedure = new LegacyAnimationController<>(this, "procedure", 1, state -> PlayState.STOP).triggerableAnim("attack", RawAnimation.begin().thenPlay("attack"));
+        controllers.add(new LegacyAnimationController<>(this, "movement", 1, state -> {
             if (procedure.isPlayingTriggeredAnimation()) return PlayState.STOP;
             if (state.isMoving() || state.getLimbSwingAmount() <= -.15F || state.getLimbSwingAmount() >= .15F) return state.setAndContinue(RawAnimation.begin().thenLoop("walk"));
             if (isDeadOrDying()) return state.setAndContinue(RawAnimation.begin().thenPlay("death"));
@@ -128,13 +131,13 @@ public final class MonolithEntity extends MonolithBaseEntity {
         }));
         controllers.add(procedure);
     }
-    @Override public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag); tag.putInt("MonolithCooldown", cooldown); tag.putInt("MonolithSlowTicks", slowTicks); tag.putBoolean("MonolithInitialized", initialized); tag.putBoolean("MonolithInitializationPending", initializationPending); tag.putInt("MonolithInitializationRetry", initializationRetry); tag.putBoolean("MonolithDeathVisual", deathVisual); tag.putDouble("MonolithInitialX", initialOrigin.x); tag.putDouble("MonolithInitialY", initialOrigin.y); tag.putDouble("MonolithInitialZ", initialOrigin.z); if (activeAttack != null) tag.putUUID("MonolithActiveAttack", activeAttack);
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        super.addAdditionalSaveData(output); output.putInt("MonolithCooldown", cooldown); output.putInt("MonolithSlowTicks", slowTicks); output.putBoolean("MonolithInitialized", initialized); output.putBoolean("MonolithInitializationPending", initializationPending); output.putInt("MonolithInitializationRetry", initializationRetry); output.putBoolean("MonolithDeathVisual", deathVisual); output.putDouble("MonolithInitialX", initialOrigin.x); output.putDouble("MonolithInitialY", initialOrigin.y); output.putDouble("MonolithInitialZ", initialOrigin.z); if (activeAttack != null) output.putString("MonolithActiveAttack", activeAttack.toString());
     }
-    @Override public void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag); cooldown = Math.clamp(tag.getInt("MonolithCooldown"), 0, 72000); slowTicks = Math.clamp(tag.getInt("MonolithSlowTicks"), 0, 40); initialized = !tag.contains("MonolithInitialized") || tag.getBoolean("MonolithInitialized"); initializationPending = tag.getBoolean("MonolithInitializationPending"); initializationRetry = Math.clamp(tag.getInt("MonolithInitializationRetry"), 0, 20); deathVisual = tag.getBoolean("MonolithDeathVisual"); initialOrigin = new Vec3(tag.getDouble("MonolithInitialX"), tag.getDouble("MonolithInitialY"), tag.getDouble("MonolithInitialZ")); if (!Double.isFinite(initialOrigin.x) || !Double.isFinite(initialOrigin.y) || !Double.isFinite(initialOrigin.z)) initializationPending = false; activeAttack = tag.hasUUID("MonolithActiveAttack") ? tag.getUUID("MonolithActiveAttack") : null;
-        var legacySlow = getEffect(MobEffects.MOVEMENT_SLOWDOWN);
-        if (!tag.contains("MonolithSlowTicks") && legacySlow != null && legacySlow.getAmplifier() == 1 && legacySlow.getDuration() <= 40 && legacySlow.isAmbient() && !legacySlow.isVisible()) { slowTicks = Math.max(slowTicks, Math.max(0, legacySlow.getDuration())); removeEffect(MobEffects.MOVEMENT_SLOWDOWN); }
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        super.readAdditionalSaveData(input); cooldown = Math.clamp(input.getIntOr("MonolithCooldown", 0), 0, 72000); slowTicks = Math.clamp(input.getIntOr("MonolithSlowTicks", 0), 0, 40); initialized = !input.getString("MonolithInitialized").isPresent() || input.getBooleanOr("MonolithInitialized", false); initializationPending = input.getBooleanOr("MonolithInitializationPending", false); initializationRetry = Math.clamp(input.getIntOr("MonolithInitializationRetry", 0), 0, 20); deathVisual = input.getBooleanOr("MonolithDeathVisual", false); initialOrigin = new Vec3(input.getDoubleOr("MonolithInitialX", 0.0), input.getDoubleOr("MonolithInitialY", 0.0), input.getDoubleOr("MonolithInitialZ", 0.0)); if (!Double.isFinite(initialOrigin.x) || !Double.isFinite(initialOrigin.y) || !Double.isFinite(initialOrigin.z)) initializationPending = false; activeAttack = input.getString("MonolithActiveAttack").map(java.util.UUID::fromString).orElse(null);
+        var legacySlow = getEffect(MobEffects.SLOWNESS);
+        if (!input.getString("MonolithSlowTicks").isPresent() && legacySlow != null && legacySlow.getAmplifier() == 1 && legacySlow.getDuration() <= 40 && legacySlow.isAmbient() && !legacySlow.isVisible()) { slowTicks = Math.max(slowTicks, Math.max(0, legacySlow.getDuration())); removeEffect(MobEffects.SLOWNESS); }
         synchronizeSlow();
     }
 }

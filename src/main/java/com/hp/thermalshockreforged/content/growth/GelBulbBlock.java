@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.content.growth;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 
 import java.util.List;
 import net.minecraft.core.*;
@@ -16,9 +17,9 @@ import net.minecraft.world.level.storage.loot.LootParams;
 
 public final class GelBulbBlock extends Block implements EntityBlock {
     public static final IntegerProperty ANIMATION = IntegerProperty.create("animation", 0, 1);
-    public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+    public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
     public GelBulbBlock() {
-        super(Properties.of().mapColor(MapColor.COLOR_MAGENTA).sound(SoundType.GRASS).strength(.5f,0).noCollission().noOcclusion().pushReaction(PushReaction.DESTROY).isRedstoneConductor((s,l,p)->false));
+        super(Properties.of().mapColor(MapColor.COLOR_MAGENTA).sound(SoundType.GRASS).strength(.5f,0).noCollision().noOcclusion().pushReaction(PushReaction.DESTROY).isRedstoneConductor((s,l,p)->false));
         registerDefaultState(defaultBlockState().setValue(ANIMATION,0).setValue(FACING,Direction.NORTH));
     }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block,BlockState> builder) { builder.add(ANIMATION,FACING); }
@@ -34,7 +35,7 @@ public final class GelBulbBlock extends Block implements EntityBlock {
     @Override protected boolean triggerEvent(BlockState state,Level level,BlockPos pos,int id,int param) { super.triggerEvent(state,level,pos,id,param); return level.getBlockEntity(pos) instanceof GelBulbBlockEntity entity&&entity.triggerEvent(id,param); }
     @Override protected void onRemove(BlockState state,Level level,BlockPos pos,BlockState replacement,boolean moving) {
         if (!state.is(replacement.getBlock())) {
-            if (!level.isClientSide&&level.getBlockEntity(pos) instanceof GelBulbBlockEntity entity) { Containers.dropContents(level,pos,entity); level.updateNeighbourForOutputSignal(pos,this); }
+            if (!level.isClientSide()&&level.getBlockEntity(pos) instanceof GelBulbBlockEntity entity) { Containers.dropContents(level,pos,entity); level.updateNeighbourForOutputSignal(pos,this); }
             super.onRemove(state,level,pos,replacement,moving);
         }
     }

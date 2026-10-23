@@ -11,23 +11,21 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.CustomData;
-import net.minecraft.world.level.GameRules;
+import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.functions.LootItemFunction;
-import net.minecraft.world.level.storage.loot.functions.LootItemFunctionType;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-import net.minecraft.world.level.storage.loot.predicates.LootItemConditionType;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.NeoForge;
@@ -37,11 +35,11 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public final class LootContent {
     private static final String UNLIMITED_KEY = ThermalShockReforged.MOD_ID + ":unlimited_lifetime";
-    private static final DeferredRegister<LootItemConditionType> CONDITIONS = DeferredRegister.create(Registries.LOOT_CONDITION_TYPE, ThermalShockReforged.MOD_ID);
-    private static final DeferredRegister<LootItemFunctionType<?>> FUNCTIONS = DeferredRegister.create(Registries.LOOT_FUNCTION_TYPE, ThermalShockReforged.MOD_ID);
-    public static final DeferredHolder<LootItemConditionType, LootItemConditionType> WORLD_CRUX = CONDITIONS.register("world_crux", () -> new LootItemConditionType(WorldCrux.CODEC));
-    public static final DeferredHolder<LootItemConditionType, LootItemConditionType> GAME_RULE = CONDITIONS.register("game_rule", () -> new LootItemConditionType(GameRule.CODEC));
-    public static final DeferredHolder<LootItemFunctionType<?>, LootItemFunctionType<UnlimitedLifetime>> UNLIMITED_LIFETIME = FUNCTIONS.register("unlimited_lifetime", () -> new LootItemFunctionType<>(UnlimitedLifetime.CODEC));
+    private static final DeferredRegister<MapCodec<? extends LootItemCondition>> CONDITIONS = DeferredRegister.create(Registries.LOOT_CONDITION_TYPE, ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister<MapCodec<? extends LootItemFunction>> FUNCTIONS = DeferredRegister.create(Registries.LOOT_FUNCTION_TYPE, ThermalShockReforged.MOD_ID);
+    public static final DeferredHolder<MapCodec<? extends LootItemCondition>, MapCodec<WorldCrux>> WORLD_CRUX = CONDITIONS.register("world_crux", () -> WorldCrux.CODEC);
+    public static final DeferredHolder<MapCodec<? extends LootItemCondition>, MapCodec<GameRule>> GAME_RULE = CONDITIONS.register("game_rule", () -> GameRule.CODEC);
+    public static final DeferredHolder<MapCodec<? extends LootItemFunction>, MapCodec<UnlimitedLifetime>> UNLIMITED_LIFETIME = FUNCTIONS.register("unlimited_lifetime", () -> UnlimitedLifetime.CODEC);
 
     private LootContent() { }
 
@@ -63,7 +61,7 @@ public final class LootContent {
     }
 
     public static ResourceKey<LootTable> table(String path) {
-        return ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path));
+        return ResourceKey.create(Registries.LOOT_TABLE, Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path));
     }
 
     public static List<ItemStack> roll(ServerLevel level, String path, Entity entity) {
@@ -84,13 +82,13 @@ public final class LootContent {
 
     public record WorldCrux(double min) implements LootItemCondition {
         static final MapCodec<WorldCrux> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(Codec.DOUBLE.fieldOf("min").forGetter(WorldCrux::min)).apply(instance, WorldCrux::new));
-        @Override public LootItemConditionType getType() { return WORLD_CRUX.get(); }
+        @Override public MapCodec<WorldCrux> codec() { return CODEC; }
         @Override public boolean test(LootContext context) { return WorldProgressData.get(context.getLevel()).worldCrux() >= min; }
     }
 
     public record GameRule(String rule) implements LootItemCondition {
         static final MapCodec<GameRule> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(Codec.STRING.fieldOf("rule").forGetter(GameRule::rule)).apply(instance, GameRule::new));
-        @Override public LootItemConditionType getType() { return GAME_RULE.get(); }
+        @Override public MapCodec<GameRule> codec() { return CODEC; }
         @Override public boolean test(LootContext context) {
             if (rule.equals("loqendiaDropHeartCrystals")) return WorldRulesConfig.DROP_HEART_CRYSTALS.get();
             var result = new boolean[] { false };
@@ -110,7 +108,7 @@ public final class LootContent {
     public record UnlimitedLifetime() implements LootItemFunction {
         static final UnlimitedLifetime INSTANCE = new UnlimitedLifetime();
         static final MapCodec<UnlimitedLifetime> CODEC = MapCodec.unit(INSTANCE);
-        @Override public LootItemFunctionType<UnlimitedLifetime> getType() { return UNLIMITED_LIFETIME.get(); }
+        @Override public MapCodec<UnlimitedLifetime> codec() { return CODEC; }
         @Override public ItemStack apply(ItemStack stack, LootContext context) {
             CustomData.update(DataComponents.CUSTOM_DATA, stack, tag -> tag.putBoolean(UNLIMITED_KEY, true));
             return stack;

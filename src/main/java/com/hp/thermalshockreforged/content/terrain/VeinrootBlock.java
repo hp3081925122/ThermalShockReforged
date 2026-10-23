@@ -14,7 +14,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 public final class VeinrootBlock extends Block {
     public VeinrootBlock() {
         super(Properties.of().mapColor(MapColor.COLOR_RED).sound(SoundType.WEEPING_VINES).instabreak()
-                .noCollission().noOcclusion().isRedstoneConductor((state, level, pos) -> false));
+                .noCollision().noOcclusion().isRedstoneConductor((state, level, pos) -> false));
     }
 
     @Override
@@ -35,7 +35,7 @@ public final class VeinrootBlock extends Block {
     @Override
     protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block neighbor, BlockPos from, boolean moving) {
         super.neighborChanged(state, level, pos, neighbor, from, moving);
-        if (!level.isClientSide && level.isEmptyBlock(pos.above())) {
+        if (!level.isClientSide() && level.isEmptyBlock(pos.above())) {
             level.destroyBlock(pos, false);
         }
     }

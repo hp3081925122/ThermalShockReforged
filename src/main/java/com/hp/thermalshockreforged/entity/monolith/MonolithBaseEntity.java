@@ -18,9 +18,9 @@ public abstract class MonolithBaseEntity extends AnimatedMonsterEntity {
     public static AttributeSupplier.Builder createAttributes(boolean dormant) { return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 160).add(Attributes.ARMOR, 16).add(Attributes.ATTACK_DAMAGE, dormant ? 12 : 14).add(Attributes.MOVEMENT_SPEED, dormant ? 0 : .3).add(Attributes.FOLLOW_RANGE, 128).add(Attributes.KNOCKBACK_RESISTANCE, 1).add(Attributes.ATTACK_KNOCKBACK, .6).add(Attributes.STEP_HEIGHT, 2); }
     @Override protected EntityDimensions getDefaultDimensions(Pose pose) { return super.getDefaultDimensions(pose).scale(1.7F); }
     @Override public boolean removeWhenFarAway(double distance) { return false; }
-    @Override public boolean hurt(DamageSource source, float amount) { return !(source.is(DamageTypes.IN_FIRE) || source.is(DamageTypes.FALL) || source.is(DamageTypes.CACTUS) || source.is(DamageTypes.DROWN)) && super.hurt(source, amount); }
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) { return !(source.is(DamageTypes.IN_FIRE) || source.is(DamageTypes.FALL) || source.is(DamageTypes.CACTUS) || source.is(DamageTypes.DROWN)) && super.hurtServer(level, source, amount); }
     private void applyConfiguredAttributes() {
-        if (level().isClientSide || attributesApplied || !MonolithConfig.SPEC.isLoaded()) return;
+        if (level().isClientSide() || attributesApplied || !MonolithConfig.SPEC.isLoaded()) return;
         int index = dormant() ? 1 : 0;
         float previous = getHealth();
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(MonolithConfig.HEALTH[index].get());
@@ -33,7 +33,7 @@ public abstract class MonolithBaseEntity extends AnimatedMonsterEntity {
         attributesApplied = true;
     }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); applyConfiguredAttributes(); }
-    @Override public void tick() { if (!level().isClientSide) { applyConfiguredAttributes(); if (conversionRetry > 0) conversionRetry--; } super.tick(); }
-    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putInt("MonolithConversionRetry", conversionRetry); tag.putBoolean("MonolithConverted", converted); }
-    @Override public void readAdditionalSaveData(CompoundTag tag) { loadedFromSave = true; super.readAdditionalSaveData(tag); attributesApplied = false; conversionRetry = Math.clamp(tag.getInt("MonolithConversionRetry"), 0, 20); converted = tag.getBoolean("MonolithConverted"); applyConfiguredAttributes(); setPersistenceRequired(); }
+    @Override public void tick() { if (!level().isClientSide()) { applyConfiguredAttributes(); if (conversionRetry > 0) conversionRetry--; } super.tick(); }
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putInt("MonolithConversionRetry", conversionRetry); output.putBoolean("MonolithConverted", converted); }
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { loadedFromSave = true; super.readAdditionalSaveData(input); attributesApplied = false; conversionRetry = Math.clamp(input.getIntOr("MonolithConversionRetry", 0), 0, 20); converted = input.getBooleanOr("MonolithConverted", false); applyConfiguredAttributes(); setPersistenceRequired(); }
 }

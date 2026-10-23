@@ -24,12 +24,4 @@ final class InfectedEffect extends MobEffect {
         }
         return true;
     }
-
-    @Override
-    public void fillEffectCures(Set<EffectCure> cures, MobEffectInstance instance) {
-        cures.clear();
-        cures.add(EffectCures.MILK);
-        cures.add(EffectCures.HONEY);
-        cures.add(EffectCures.PROTECTED_BY_TOTEM);
-    }
 }

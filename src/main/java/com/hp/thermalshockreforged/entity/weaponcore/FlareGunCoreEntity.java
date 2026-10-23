@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.entity.weaponcore;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import com.hp.thermalshockreforged.world.timing.*;
 import net.minecraft.nbt.CompoundTag;
@@ -17,10 +20,10 @@ import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
+import com.geckolib.util.GeckoLibUtil;
 
 public final class FlareGunCoreEntity extends PathfinderMob implements GeoEntity, ServerEndTickTask {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(FlareGunCoreEntity.class, EntityDataSerializers.STRING);
@@ -50,14 +53,14 @@ public final class FlareGunCoreEntity extends PathfinderMob implements GeoEntity
         goalSelector.addGoal(5, new FloatGoal(this));
     }
     @Override public boolean isWithinMeleeAttackRange(LivingEntity target) { return distanceToSqr(target) <= getBbWidth() * getBbWidth() + target.getBbWidth(); }
-    @Override public boolean hurt(DamageSource source, float amount) { return !source.is(DamageTypes.FALL) && super.hurt(source, amount); }
-    @Override public boolean causeFallDamage(float distance, float multiplier, DamageSource source) {
-        if (!level().isClientSide) entityData.set(LANDED, true);
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) { return !source.is(DamageTypes.FALL) && super.hurtServer(level, source, amount); }
+    @Override public boolean causeFallDamage(double distance, float multiplier, DamageSource source) {
+        if (!level().isClientSide()) entityData.set(LANDED, true);
         return super.causeFallDamage(distance, multiplier, source);
     }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.ANVIL_BREAK; }
     @Override protected SoundEvent getDeathSound() { return SoundEvents.ANVIL_BREAK; }
-    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType reason, SpawnGroupData data) {
+    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, EntitySpawnReason reason, SpawnGroupData data) {
         var result = super.finalizeSpawn(level, difficulty, reason, data);
         initialized = true; remaining = 120;
         addEffect(new MobEffectInstance(MobEffects.GLOWING, 9000, 1, false, false));
@@ -78,19 +81,19 @@ public final class FlareGunCoreEntity extends PathfinderMob implements GeoEntity
         discard();
         CoreDetonation.submit(server, getUUID(), origin, source.getEntity());
     }
-    @Override public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); tag.putBoolean("FlareCoreLanded", entityData.get(LANDED));
-        tag.putBoolean("FlareCoreInitialized", initialized); tag.putInt("FlareCoreRemaining", remaining); tag.putBoolean("FlareCoreDeathHandled", deathHandled);
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        super.addAdditionalSaveData(output); output.putString("Texture", texture()); output.putBoolean("FlareCoreLanded", entityData.get(LANDED));
+        output.putBoolean("FlareCoreInitialized", initialized); output.putInt("FlareCoreRemaining", remaining); output.putBoolean("FlareCoreDeathHandled", deathHandled);
     }
-    @Override public void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag);
-        if (tag.contains("Texture") && tag.getString("Texture").matches("[a-z0-9_./-]+")) setTexture(tag.getString("Texture"));
-        entityData.set(LANDED, tag.getBoolean("FlareCoreLanded")); initialized = tag.getBoolean("FlareCoreInitialized");
-        remaining = Math.clamp(tag.getInt("FlareCoreRemaining"), 0, 120); deathHandled = tag.getBoolean("FlareCoreDeathHandled");
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        super.readAdditionalSaveData(input);
+        if (input.getString("Texture").isPresent() && input.getStringOr("Texture", "").matches("[a-z0-9_./-]+")) setTexture(input.getStringOr("Texture", ""));
+        entityData.set(LANDED, input.getBooleanOr("FlareCoreLanded", false)); initialized = input.getBooleanOr("FlareCoreInitialized", false);
+        remaining = Math.clamp(input.getIntOr("FlareCoreRemaining", 0), 0, 120); deathHandled = input.getBooleanOr("FlareCoreDeathHandled", false);
     }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(this, "movement", 4, state -> entityData.get(LANDED) ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop("0"))));
-        controllers.add(new AnimationController<>(this, "procedure", 4, state -> entityData.get(LANDED) ? state.setAndContinue(RawAnimation.begin().thenPlayAndHold("1")) : PlayState.STOP));
+        controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> entityData.get(LANDED) ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop("0"))));
+        controllers.add(new LegacyAnimationController<>(this, "procedure", 4, state -> entityData.get(LANDED) ? state.setAndContinue(RawAnimation.begin().thenPlayAndHold("1")) : PlayState.STOP));
     }
     @Override public AnimatableInstanceCache getAnimatableInstanceCache() { return animations; }
 }

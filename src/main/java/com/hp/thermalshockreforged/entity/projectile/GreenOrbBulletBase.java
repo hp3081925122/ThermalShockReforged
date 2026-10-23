@@ -5,7 +5,7 @@ import com.hp.thermalshockreforged.content.decor.geo.GeoDecorContent;
 import com.hp.thermalshockreforged.content.decor.geo.GeoDecorKind;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -29,12 +29,12 @@ public abstract class GreenOrbBulletBase extends LegacyArrowEntity {
     @Override protected int lifetimeTicks() { return 40; }
     protected boolean affects(Entity target) {
         return target != null && !(target instanceof Player)
-                && !BuiltInRegistries.ENTITY_TYPE.getKey(target.getType()).equals(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "lil_jelly"));
+                && !BuiltInRegistries.ENTITY_TYPE.getKey(target.getType()).equals(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "lil_jelly"));
     }
     protected boolean discardAfterEntityEffects() { return true; }
     @Override public void tick() {
         super.tick();
-        if (level().isClientSide) level().addParticle(ProjectileContent.GREEN_PARTICLE.get(), getX(), getY(), getZ(), 0, 0, 0);
+        if (level().isClientSide()) level().addParticle(ProjectileContent.GREEN_PARTICLE.get(), getX(), getY(), getZ(), 0, 0, 0);
     }
     @Override protected void onHitEntity(EntityHitResult hit) {
         super.onHitEntity(hit);

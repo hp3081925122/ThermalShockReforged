@@ -4,10 +4,10 @@ import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.entity.sanctum.SanctumContent;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
@@ -28,9 +28,9 @@ public final class TrappedArchiveCubeBlock extends NativeDecorBlock {
             if (found.is(this)) server.setBlock(current, Blocks.AIR.defaultBlockState(), 3);
             else if (found.is(NativeDecorContent.KILOLYTE_SPAWNER.get()) && server.setBlock(current, Blocks.AIR.defaultBlockState(), 3)) {
                 server.sendParticles(SanctumContent.TURQ_EXPLODE.get(), current.getX(), current.getY(), current.getZ(), 1, 0, 0, 0, 0);
-                var kilolyte = SanctumContent.KILOLYTE.get().spawn(server, current, MobSpawnType.MOB_SUMMONED);
-                if (kilolyte != null) kilolyte.setYRot(server.random.nextFloat() * 360);
-                server.playSound(null, pos, BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "surge_pylon_breaks")), SoundSource.BLOCKS, 1, -3);
+                var kilolyte = SanctumContent.KILOLYTE.get().spawn(server, current, EntitySpawnReason.MOB_SUMMONED);
+                if (kilolyte != null) kilolyte.setYRot(server.getRandom().nextFloat() * 360);
+                server.playSound(null, pos, BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "surge_pylon_breaks")), SoundSource.BLOCKS, 1, -3);
             }
         }
         return removed;

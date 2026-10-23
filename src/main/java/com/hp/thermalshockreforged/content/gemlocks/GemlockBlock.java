@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.content.gemlocks;
+import net.minecraft.world.InteractionResult;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import net.minecraft.core.*;
@@ -28,9 +29,9 @@ public final class GemlockBlock extends Block {
     @Override protected boolean isSignalSource(BlockState state) { return true; }
     @Override protected int getSignal(BlockState state, BlockGetter level, BlockPos pos, Direction side) { return state.getValue(BLOCKSTATE) == 1 ? 15 : 0; }
     @Override public boolean canConnectRedstone(BlockState state, BlockGetter level, BlockPos pos, Direction side) { return true; }
-    @Override protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+    @Override protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         if (level instanceof ServerLevel server) toggle(server, pos, player);
-        return ItemInteractionResult.SUCCESS;
+        return InteractionResult.SUCCESS;
     }
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         if (level instanceof ServerLevel server) toggle(server, pos, player);

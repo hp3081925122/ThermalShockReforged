@@ -1,15 +1,16 @@
 package com.hp.thermalshockreforged.entity.squall;
+import net.minecraft.world.item.SpawnEggItem;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.world.WorldProgressData;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.common.DeferredSpawnEggItem;
+
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -25,8 +26,8 @@ public final class SquallContent {
     public static final DeferredHolder<net.minecraft.core.particles.ParticleType<?>, SimpleParticleType> MARK = PARTICLES.register("squall_mark", () -> new SimpleParticleType(true));
     public static final DeferredHolder<net.minecraft.core.particles.ParticleType<?>, SimpleParticleType> BURST = PARTICLES.register("squall_burst", () -> new SimpleParticleType(true));
     public static final DeferredHolder<net.minecraft.core.particles.ParticleType<?>, SimpleParticleType> BOLT = PARTICLES.register("squall_bolt", () -> new SimpleParticleType(true));
-    static { ITEMS.register("squall_spawn_egg", () -> new DeferredSpawnEggItem(SQUALL, -1, -1, new Item.Properties())); }
-    public static ResourceLocation id(String path) { return ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
+    static { ITEMS.register("squall_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(SQUALL.get()))); }
+    public static Identifier id(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
     public static void register(IEventBus bus) {
         TYPES.register(bus);
         ITEMS.register(bus);

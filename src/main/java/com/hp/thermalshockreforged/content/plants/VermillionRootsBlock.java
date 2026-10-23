@@ -16,8 +16,8 @@ final class VermillionRootsBlock extends Block implements SimpleWaterloggedBlock
 
     VermillionRootsBlock() {
         super(Properties.of().mapColor(MapColor.COLOR_RED).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.FUNGUS)
-                .strength(0.2F, 0).lightLevel(state -> 7).noCollission().speedFactor(0.7F).jumpFactor(0.9F).noOcclusion()
-                .hasPostProcess((s, l, p) -> true).emissiveRendering((s, l, p) -> true).isRedstoneConductor((s, l, p) -> false));
+                .strength(0.2F, 0).lightLevel(state -> 7).noCollision().speedFactor(0.7F).jumpFactor(0.9F).noOcclusion()
+                .emissiveRendering((s, l, p) -> true).isRedstoneConductor((s, l, p) -> false));
         registerDefaultState(stateDefinition.any().setValue(WATERLOGGED, false));
     }
 

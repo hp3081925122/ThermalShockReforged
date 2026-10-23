@@ -1,4 +1,8 @@
 package com.hp.thermalshockreforged.content.growth;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.component.TooltipDisplay;
+import java.util.function.Consumer;
+import net.minecraft.world.InteractionResult;
 
 import com.hp.thermalshockreforged.content.farming.FarmingContent;
 
@@ -8,7 +12,7 @@ import net.minecraft.core.*;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.*;
 import net.minecraft.sounds.*;
 import net.minecraft.util.RandomSource;
@@ -28,12 +32,12 @@ import net.minecraft.world.phys.shapes.*;
 public final class GrowthSeedBlock extends Block implements EntityBlock {
     public final GrowthKind kind;
     public GrowthSeedBlock(GrowthKind kind) {
-        super(Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).strength(.5f, 0).noCollission().noOcclusion().isRedstoneConductor((s, l, p) -> false));
+        super(Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).strength(.5f, 0).noCollision().noOcclusion().isRedstoneConductor((s, l, p) -> false));
         this.kind = kind;
     }
-    @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> lines, TooltipFlag flag) {
-        super.appendHoverText(stack, context, lines, flag);
-        lines.add(Component.translatable("block.thermal_shock_reforged." + kind.id + "_seed.description_0"));
+    @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+        super.appendHoverText(stack, context, display, tooltipAdder, flag);
+        tooltipAdder.accept(Component.translatable("block.thermal_shock_reforged." + kind.id + "_seed.description_0"));
     }
     @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 0; }
     @Override protected boolean propagatesSkylightDown(BlockState state, BlockGetter level, BlockPos pos) { return true; }
@@ -41,7 +45,7 @@ public final class GrowthSeedBlock extends Block implements EntityBlock {
     @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return new GrowthInventoryBlockEntity(pos, state); }
     private boolean checkSoil(Level level, BlockPos pos) {
         if (level.getBlockState(pos.below()).is(FarmingContent.PLANTER_POT.get()) || level.getBlockState(pos.below()).is(FarmingContent.PLANTER_BOX.get())) return true;
-        if (!level.isClientSide) {
+        if (!level.isClientSide()) {
             var current = level.getBlockState(pos);
             if (current.is(this) && level.destroyBlock(pos, false) && !level.getBlockState(pos).is(this)) Block.dropResources(current, level, pos, null);
         }
@@ -50,7 +54,7 @@ public final class GrowthSeedBlock extends Block implements EntityBlock {
     @Override protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState previous, boolean moving) {
         super.onPlace(state, level, pos, previous, moving);
         level.scheduleTick(pos, this, 30);
-        if (!checkSoil(level, pos) || level.isClientSide) return;
+        if (!checkSoil(level, pos) || level.isClientSide()) return;
         if (level.getBlockEntity(pos) instanceof GrowthInventoryBlockEntity seed) {
             seed.getPersistentData().putBoolean("thirsty", false);
             seed.getPersistentData().putDouble("waterings", 0);
@@ -81,7 +85,7 @@ public final class GrowthSeedBlock extends Block implements EntityBlock {
     private void water(Level level, BlockPos pos, Player player) {
         if (!(level instanceof ServerLevel server) || !(level.getBlockEntity(pos) instanceof GrowthInventoryBlockEntity seed)) return;
         var data = seed.getPersistentData();
-        boolean canWater=BuiltInRegistries.ITEM.getKey(player.getMainHandItem().getItem()).equals(ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", "watering_can"))&&data.getBoolean("thirsty");
+        boolean canWater=BuiltInRegistries.ITEM.getKey(player.getMainHandItem().getItem()).equals(Identifier.fromNamespaceAndPath("thermal_shock_reforged", "watering_can"))&&data.getBoolean("thirsty");
         if(kind==GrowthKind.SPARKLER&&(data.getDouble("waterings")==3||canWater&&data.getDouble("waterings")==2)
                 &&(pos.getY()+2>=server.getMaxBuildHeight()||!level.getBlockState(pos.above()).canBeReplaced()||!level.getBlockState(pos.above(2)).canBeReplaced())) {
             ThermalShockReforged.LOGGER.debug("Sparkler maturation blocked: position={}, upper={}, top={}, waterings={}", pos, level.getBlockState(pos.above()), level.getBlockState(pos.above(2)), data.getDouble("waterings"));
@@ -97,12 +101,12 @@ public final class GrowthSeedBlock extends Block implements EntityBlock {
             level.playSound(null, pos, SoundEvents.BOTTLE_EMPTY, SoundSource.NEUTRAL, .8f, 1);
             level.playSound(null, pos, SoundEvents.FLOWERING_AZALEA_PLACE, SoundSource.NEUTRAL, 1, 1);
             if (kind == GrowthKind.SPARKLER) {
-                server.getStructureManager().getOrCreate(ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", "planted_sparkler_a"))
-                        .placeInWorld(server, pos, pos, new StructurePlaceSettings().setRotation(Rotation.NONE).setMirror(Mirror.NONE).setIgnoreEntities(false), server.random, 3);
+                server.getStructureManager().getOrCreate(Identifier.fromNamespaceAndPath("thermal_shock_reforged", "planted_sparkler_a"))
+                        .placeInWorld(server, pos, pos, new StructurePlaceSettings().setRotation(Rotation.NONE).setMirror(Mirror.NONE).setIgnoreEntities(false), server.getRandom(), 3);
             } else level.setBlock(pos, GrowthContent.block(kind.id).defaultBlockState(), 3);
             server.sendParticles(ParticleTypes.HAPPY_VILLAGER, pos.getX() + .5, pos.getY(), pos.getZ() + .5, 15, .5, 1, .5, .1);
             if (player instanceof ServerPlayer sp) {
-                var advancement = server.getServer().getAdvancements().get(ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", "garden_plant_get"));
+                var advancement = server.getServer().getAdvancements().get(Identifier.fromNamespaceAndPath("thermal_shock_reforged", "garden_plant_get"));
                 if (advancement != null) {
                     var progress = sp.getAdvancements().getOrStartProgress(advancement);
                     if (!progress.isDone()) for (String criterion : progress.getRemainingCriteria()) sp.getAdvancements().award(advancement, criterion);
@@ -110,9 +114,9 @@ public final class GrowthSeedBlock extends Block implements EntityBlock {
             }
         }
     }
-    @Override protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+    @Override protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         water(level, pos, player);
-        return ItemInteractionResult.SUCCESS;
+        return InteractionResult.SUCCESS;
     }
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         water(level, pos, player);
@@ -125,7 +129,7 @@ public final class GrowthSeedBlock extends Block implements EntityBlock {
     }
     @Override protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState replacement, boolean moving) {
         if (!state.is(replacement.getBlock())) {
-            if (!level.isClientSide && level.getBlockEntity(pos) instanceof GrowthInventoryBlockEntity seed) {
+            if (!level.isClientSide() && level.getBlockEntity(pos) instanceof GrowthInventoryBlockEntity seed) {
                 Containers.dropContents(level, pos, seed);
                 level.updateNeighbourForOutputSignal(pos, this);
             }

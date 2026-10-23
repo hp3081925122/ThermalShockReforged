@@ -1,4 +1,6 @@
 package com.hp.thermalshockreforged.content.remainingutility;
+import net.minecraft.world.item.component.TooltipDisplay;
+import java.util.function.Consumer;
 
 import com.hp.thermalshockreforged.content.MaterialContent;
 import com.hp.thermalshockreforged.content.decor.nativeblocks.NativeDecorContent;
@@ -23,16 +25,16 @@ public final class SnowMelterItem extends Item {
     SnowMelterItem() { super(new Properties().stacksTo(1)); }
 
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) {
-        super.appendHoverText(stack, context, lines, flag);
-        lines.add(Component.translatable(getDescriptionId() + ".description_0"));
-        lines.add(Component.translatable(getDescriptionId() + ".description_1"));
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+        super.appendHoverText(stack, context, display, tooltipAdder, flag);
+        tooltipAdder.accept(Component.translatable(getDescriptionId() + ".description_0"));
+        tooltipAdder.accept(Component.translatable(getDescriptionId() + ".description_1"));
     }
 
     @Override
     public InteractionResult useOn(UseOnContext context) {
         if (!(context.getPlayer() instanceof ServerPlayer player) || player.getCooldowns().isOnCooldown(this)) return InteractionResult.SUCCESS;
-        ServerLevel level = player.serverLevel();
+        ServerLevel level = ((net.minecraft.server.level.ServerLevel) player.level());
         var pos = context.getClickedPos();
         player.getCooldowns().addCooldown(this, 5);
         var advancement = player.server.getAdvancements().get(RemainingUtilityContent.id("hpsm_get"));

@@ -1,20 +1,21 @@
 package com.hp.thermalshockreforged.client;
+import net.minecraft.client.renderer.rendertype.RenderTypes;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.entity.ScarletRayEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.rendertype.RenderType;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.resources.ResourceLocation;
-import software.bernie.geckolib.cache.object.BakedGeoModel;
-import software.bernie.geckolib.model.GeoModel;
-import software.bernie.geckolib.renderer.GeoEntityRenderer;
-import software.bernie.geckolib.renderer.layer.GeoRenderLayer;
+import net.minecraft.resources.Identifier;
+import com.geckolib.cache.model.BakedGeoModel;
+import com.hp.thermalshockreforged.client.compat.LegacyGeoModel;
+import com.hp.thermalshockreforged.client.compat.LegacyGeoEntityRenderer;
+import com.hp.thermalshockreforged.client.compat.LegacyGeoRenderLayer;
 
-public final class ScarletRayRenderer extends GeoEntityRenderer<ScarletRayEntity> {
+public final class ScarletRayRenderer extends LegacyGeoEntityRenderer<ScarletRayEntity> {
     public ScarletRayRenderer(EntityRendererProvider.Context context) {
         super(context, new Model());
         shadowRadius = 0.4F;
@@ -23,29 +24,29 @@ public final class ScarletRayRenderer extends GeoEntityRenderer<ScarletRayEntity
     }
 
     @Override
-    public RenderType getRenderType(ScarletRayEntity entity, ResourceLocation texture, MultiBufferSource buffers, float partialTick) {
-        return RenderType.entityTranslucent(texture);
+    public RenderType getRenderType(ScarletRayEntity entity, Identifier texture, MultiBufferSource buffers, float partialTick) {
+        return RenderTypes.entityTranslucent(texture);
     }
 
-    private static final class Model extends GeoModel<ScarletRayEntity> {
+    private static final class Model extends LegacyGeoModel<ScarletRayEntity> {
         @Override
-        public ResourceLocation getModelResource(ScarletRayEntity entity) {
-            return ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "geo/scarlet_ray.geo.json");
+        public Identifier getModelResource(ScarletRayEntity entity) {
+            return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "geo/scarlet_ray.geo.json");
         }
 
         @Override
-        public ResourceLocation getTextureResource(ScarletRayEntity entity) {
-            return ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/entities/" + entity.texture() + ".png");
+        public Identifier getTextureResource(ScarletRayEntity entity) {
+            return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/entities/" + entity.texture() + ".png");
         }
 
         @Override
-        public ResourceLocation getAnimationResource(ScarletRayEntity entity) {
-            return ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "animations/scarlet_ray.animation.json");
+        public Identifier getAnimationResource(ScarletRayEntity entity) {
+            return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "animations/scarlet_ray.animation.json");
         }
     }
 
-    private static final class Glow extends GeoRenderLayer<ScarletRayEntity> {
-        private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/entities/scarletrayglow.png");
+    private static final class Glow extends LegacyGeoRenderLayer<ScarletRayEntity> {
+        private static final Identifier TEXTURE = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/entities/scarletrayglow.png");
 
         private Glow(ScarletRayRenderer renderer) {
             super(renderer);
@@ -53,7 +54,7 @@ public final class ScarletRayRenderer extends GeoEntityRenderer<ScarletRayEntity
 
         @Override
         public void render(PoseStack pose, ScarletRayEntity entity, BakedGeoModel model, RenderType type, MultiBufferSource buffers, VertexConsumer vertices, float partialTick, int light, int overlay) {
-            RenderType glow = RenderType.eyes(TEXTURE);
+            RenderType glow = RenderTypes.eyes(TEXTURE);
             getRenderer().reRender(model, pose, buffers, entity, glow, buffers.getBuffer(glow), partialTick, light, OverlayTexture.NO_OVERLAY, -1);
         }
     }

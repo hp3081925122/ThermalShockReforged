@@ -1,4 +1,9 @@
 package com.hp.thermalshockreforged.entity.ambient;
+import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
+import net.minecraft.world.entity.projectile.throwableitemprojectile.AbstractThrownPotion;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
@@ -10,10 +15,10 @@ import net.minecraft.world.entity.ai.goal.target.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
+import com.geckolib.util.GeckoLibUtil;
 
 public final class PixieEntity extends PathfinderMob implements GeoEntity {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(PixieEntity.class, EntityDataSerializers.STRING);
@@ -40,15 +45,15 @@ public final class PixieEntity extends PathfinderMob implements GeoEntity {
     @Override
     public void aiStep() { super.aiStep(); setNoGravity(true); }
     @Override
-    public boolean causeFallDamage(float distance, float multiplier, DamageSource source) { return false; }
+    public boolean causeFallDamage(double distance, float multiplier, DamageSource source) { return false; }
     @Override
     protected void checkFallDamage(double distance, boolean ground, net.minecraft.world.level.block.state.BlockState state, net.minecraft.core.BlockPos pos) { }
 
     @Override
-    public boolean hurt(DamageSource source, float amount) {
-        if (source.getDirectEntity() instanceof net.minecraft.world.entity.projectile.AbstractArrow || source.getDirectEntity() instanceof net.minecraft.world.entity.projectile.ThrownPotion || source.getDirectEntity() instanceof AreaEffectCloud) return false;
+    public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) {
+        if (source.getDirectEntity() instanceof net.minecraft.world.entity.projectile.arrow.AbstractArrow || source.getDirectEntity() instanceof net.minecraft.world.entity.projectile.throwableitemprojectile.AbstractThrownPotion || source.getDirectEntity() instanceof AreaEffectCloud) return false;
         if (source.is(DamageTypes.IN_FIRE) || source.is(DamageTypes.FALL) || source.is(DamageTypes.CACTUS) || source.is(DamageTypes.DROWN) || source.is(DamageTypes.LIGHTNING_BOLT) || source.is(DamageTypes.EXPLOSION) || source.is(DamageTypes.TRIDENT) || source.is(DamageTypes.FALLING_ANVIL) || source.is(DamageTypes.DRAGON_BREATH) || source.is(DamageTypes.WITHER) || source.is(DamageTypes.WITHER_SKULL)) return false;
-        return super.hurt(source, amount);
+        return super.hurtServer(level, source, amount);
     }
     @Override
     public net.minecraft.world.InteractionResult mobInteract(Player player, net.minecraft.world.InteractionHand hand) {
@@ -56,14 +61,14 @@ public final class PixieEntity extends PathfinderMob implements GeoEntity {
         if (parent.consumesAction()) return parent;
         var stack = player.getItemInHand(hand);
         if (!stack.is(net.minecraft.world.item.Items.GLASS_BOTTLE)) return parent;
-        if (!level().isClientSide) {
+        if (!level().isClientSide()) {
             stack.shrink(1);
             var bottled = new net.minecraft.world.item.ItemStack(AmbientContent.BOTTLED_PIXIE.get());
             if (stack.isEmpty()) player.setItemInHand(hand, bottled);
             else if (!player.getInventory().add(bottled)) player.drop(bottled, false);
             discard();
         }
-        return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
+        return net.minecraft.world.InteractionResult.SUCCESS;
     }
     @Override
     protected net.minecraft.sounds.SoundEvent getHurtSound(DamageSource source) { return net.minecraft.sounds.SoundEvents.ALLAY_HURT; }
@@ -71,13 +76,13 @@ public final class PixieEntity extends PathfinderMob implements GeoEntity {
     protected net.minecraft.sounds.SoundEvent getDeathSound() { return net.minecraft.sounds.SoundEvents.ALLAY_DEATH; }
 
     @Override
-    public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putString("Texture", texture());  }
+    public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putString("Texture", texture());  }
     @Override
-    public void readAdditionalSaveData(CompoundTag tag) { super.readAdditionalSaveData(tag); if (tag.contains("Texture")) setTexture(tag.getString("Texture"));  }
+    public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));  }
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 4, state -> PlayState.STOP) .triggerableAnim("idle", RawAnimation.begin().thenPlay("idle"));
-        controllers.add(new AnimationController<>(this, "movement", 4, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop("idle"))));
+        var procedure = new LegacyAnimationController<>(this, "procedure", 4, state -> PlayState.STOP) .triggerableAnim("idle", RawAnimation.begin().thenPlay("idle"));
+        controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop("idle"))));
         controllers.add(procedure);
     }
     @Override

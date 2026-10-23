@@ -10,12 +10,12 @@ import net.minecraft.world.level.Level;
 
 public final class CompressedSpringslimeItem extends Item {
     public CompressedSpringslimeItem() { super(new Properties().stacksTo(16)); }
-    @Override public UseAnim getUseAnimation(ItemStack stack) { return UseAnim.BOW; }
+    @Override public ItemUseAnimation getUseAnimation(ItemStack stack) { return ItemUseAnimation.BOW; }
     @Override public int getUseDuration(ItemStack stack, LivingEntity entity) { return 5; }
-    @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-        if (!player.getAbilities().instabuild && findAmmo(player).isEmpty()) return InteractionResultHolder.fail(player.getItemInHand(hand));
+    @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {
+        if (!player.getAbilities().instabuild && findAmmo(player).isEmpty()) return InteractionResult.FAIL;
         player.startUsingItem(hand);
-        return InteractionResultHolder.success(player.getItemInHand(hand));
+        return InteractionResult.SUCCESS;
     }
     @Override public void releaseUsing(ItemStack stack, Level level, LivingEntity entity, int remaining) { fire(level, entity); }
     private void fire(Level level, LivingEntity entity) {
@@ -31,7 +31,7 @@ public final class CompressedSpringslimeItem extends Item {
         projectile.setBaseDamage(0); projectile.setCritArrow(false); projectile.setSilent(true);
         if (!level.addFreshEntity(projectile)) return;
         if (!player.getAbilities().instabuild) { ammo.shrink(1); if (ammo.isEmpty()) player.getInventory().removeItem(ammo); }
-        level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.SLIME_JUMP_SMALL, SoundSource.PLAYERS, 1, 1 / (level.random.nextFloat() * .5F + 1) + .35F);
+        level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.SLIME_JUMP_SMALL, SoundSource.PLAYERS, 1, 1 / (level.getRandom().nextFloat() * .5F + 1) + .35F);
     }
     private ItemStack findAmmo(Player player) {
         var held = ProjectileWeaponItem.getHeldProjectile(player, stack -> stack.is(this));

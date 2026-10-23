@@ -1,4 +1,6 @@
 package com.hp.thermalshockreforged.content.decor.nativeblocks;
+import net.minecraft.world.item.component.TooltipDisplay;
+import java.util.function.Consumer;
 
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -7,7 +9,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.BlockAndTintGetter;
+import net.minecraft.world.level.BlockAndLightGetter;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
@@ -16,7 +18,7 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.neoforged.neoforge.common.util.TriState;
+import net.minecraft.util.TriState;
 
 class NativeDecorBlock extends Block {
     record Traits(int opacity, boolean skylight, boolean emptyVisual, boolean overlay,
@@ -58,7 +60,7 @@ class NativeDecorBlock extends Block {
     }
 
     @Override
-    public boolean shouldDisplayFluidOverlay(BlockState state, BlockAndTintGetter level, BlockPos pos, FluidState fluid) {
+    public boolean shouldDisplayFluidOverlay(BlockState state, BlockAndLightGetter level, BlockPos pos, FluidState fluid) {
         return traits.overlay() || super.shouldDisplayFluidOverlay(state, level, pos, fluid);
     }
 
@@ -78,8 +80,8 @@ class NativeDecorBlock extends Block {
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> lines, TooltipFlag flag) {
-        super.appendHoverText(stack, context, lines, flag);
-        descriptions.forEach(key -> lines.add(Component.translatable(key)));
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+        super.appendHoverText(stack, context, display, tooltipAdder, flag);
+        descriptions.forEach(key -> tooltipAdder.accept(Component.translatable(key)));
     }
 }

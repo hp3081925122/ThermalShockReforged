@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.entity.gaze;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.status.aura.AuraContent;
@@ -9,7 +12,7 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.*;
 import net.minecraft.world.damagesource.*;
@@ -20,7 +23,7 @@ import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import software.bernie.geckolib.animation.*;
+import com.geckolib.animation.*;
 
 public final class SpiritEntity extends AnimatedMonsterEntity {
     private static final EntityDataAccessor<Boolean> COOLDOWN_VISIBLE = SynchedEntityData.defineId(SpiritEntity.class, EntityDataSerializers.BOOLEAN);
@@ -39,9 +42,9 @@ public final class SpiritEntity extends AnimatedMonsterEntity {
     @Override public boolean isWithinMeleeAttackRange(LivingEntity target) { return distanceToSqr(target) <= 49; }
     @Override protected List<String> procedureAnimations() { return List.of("idle", "idle2", "walk", "run"); }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 4, state -> PlayState.STOP);
+        var procedure = new LegacyAnimationController<>(this, "procedure", 4, state -> PlayState.STOP);
         for (var clip : procedureAnimations()) procedure.triggerableAnim(clip, RawAnimation.begin().thenPlay(clip));
-        controllers.add(new AnimationController<>(this, "movement", 4, state -> {
+        controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> {
             if (procedure.isPlayingTriggeredAnimation()) return PlayState.STOP;
             boolean moving = state.isMoving() || state.getLimbSwingAmount() <= -.15F || state.getLimbSwingAmount() >= .15F;
             String clip = !isAggressive() && moving ? "walk" : isAggressive() && state.isMoving() ? "run" : "idle";
@@ -65,7 +68,7 @@ public final class SpiritEntity extends AnimatedMonsterEntity {
         }
         setDeltaMovement(getLookAngle().scale(4));
         hurtMarked = true;
-        server.playSound(null, victim.blockPosition(), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "propulsionbootsactivate")), SoundSource.HOSTILE, 1, 1);
+        server.playSound(null, victim.blockPosition(), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "propulsionbootsactivate")), SoundSource.HOSTILE, 1, 1);
         addEffect(new MobEffectInstance(AuraContent.DAMAGING_AURA, 20, 3));
     }
     @Override public void baseTick() {
@@ -80,13 +83,13 @@ public final class SpiritEntity extends AnimatedMonsterEntity {
         if (!com.hp.thermalshockreforged.content.remainingcombat.CryoCooldownVisual.tickClientEffects(
                 this, entityData.get(COOLDOWN_VISIBLE), (effect, refresh) -> onEffectUpdated(effect, refresh, null))) super.tickEffects();
     }
-    @Override public boolean hurt(DamageSource source, float amount) {
-        return !source.is(DamageTypes.FALL) && !source.is(DamageTypes.DROWN) && !source.is(DamageTypes.WITHER) && !source.is(DamageTypes.WITHER_SKULL) && super.hurt(source, amount);
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) {
+        return !source.is(DamageTypes.FALL) && !source.is(DamageTypes.DROWN) && !source.is(DamageTypes.WITHER) && !source.is(DamageTypes.WITHER_SKULL) && super.hurtServer(level, source, amount);
     }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.BLAZE_HURT; }
     @Override protected SoundEvent getDeathSound() { return SoundEvents.BLAZE_DEATH; }
-    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putInt("SpiritCooldown", cooldown); }
-    @Override public void readAdditionalSaveData(CompoundTag tag) { super.readAdditionalSaveData(tag); cooldown = Math.clamp(tag.getInt("SpiritCooldown"), 0, 40); entityData.set(COOLDOWN_VISIBLE, cooldown > 0); }
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putInt("SpiritCooldown", cooldown); }
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); cooldown = Math.clamp(input.getIntOr("SpiritCooldown", 0), 0, 40); entityData.set(COOLDOWN_VISIBLE, cooldown > 0); }
     public static AttributeSupplier.Builder createAttributes() {
         return createMobAttributes().add(Attributes.MOVEMENT_SPEED, .3).add(Attributes.MAX_HEALTH, 4).add(Attributes.ARMOR, 4).add(Attributes.ATTACK_DAMAGE, 2).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.ATTACK_KNOCKBACK, .8).add(Attributes.STEP_HEIGHT, 1);
     }

@@ -20,7 +20,7 @@ final class SpiceGeyserBlock extends NativeDecorBlock implements EntityBlock {
     @Override protected boolean triggerEvent(BlockState state, Level level, BlockPos pos, int id, int parameter) { super.triggerEvent(state, level, pos, id, parameter); return level.getBlockEntity(pos) instanceof SpiceGeyserBlockEntity geyser && geyser.triggerEvent(id, parameter); }
     @Override protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState replacement, boolean moving) {
         if (!state.is(replacement.getBlock())) {
-            if (!level.isClientSide && level.getBlockEntity(pos) instanceof SpiceGeyserBlockEntity geyser) { Containers.dropContents(level, pos, geyser); level.updateNeighbourForOutputSignal(pos, this); }
+            if (!level.isClientSide() && level.getBlockEntity(pos) instanceof SpiceGeyserBlockEntity geyser) { Containers.dropContents(level, pos, geyser); level.updateNeighbourForOutputSignal(pos, this); }
             super.onRemove(state, level, pos, replacement, moving);
         }
     }

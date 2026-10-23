@@ -7,7 +7,7 @@ import java.util.Locale;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.client.gui.Font;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -35,7 +35,7 @@ public final class NpcTradeLabels {
         return Component.literal(String.format(Locale.ROOT, "%02d", count));
     }
 
-    public static boolean tooltip(GuiGraphics graphics, Font font, String key, int x, int y, int mouseX, int mouseY) {
+    public static boolean tooltip(GuiGraphicsExtractor graphics, Font font, String key, int x, int y, int mouseX, int mouseY) {
         var recipe = recipe(key);
         if (recipe == null) return false;
         String suffix = key.substring(key.lastIndexOf('.') + 1);

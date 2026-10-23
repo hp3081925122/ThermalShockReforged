@@ -22,7 +22,7 @@ import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
 import net.minecraft.world.level.Level;
 
 public final class MagnetiteEntity extends AnimatedMonsterEntity implements RangedAttackMob {
@@ -57,8 +57,8 @@ public final class MagnetiteEntity extends AnimatedMonsterEntity implements Rang
         MagnetiteBulletEntity.shoot(this, target, getAttributeValue(Attributes.ATTACK_DAMAGE) * CombatConfig.MAGNETITE_BULLET_MULTIPLIER.get(), CombatConfig.MAGNETITE_BULLET_KNOCKBACK.get());
     }
 
-    @Override public boolean hurt(DamageSource source, float amount) {
-        return !(source.getDirectEntity() instanceof AbstractArrow) && !source.is(DamageTypes.FALL) && !source.is(DamageTypes.DROWN) && super.hurt(source, amount);
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) {
+        return !(source.getDirectEntity() instanceof AbstractArrow) && !source.is(DamageTypes.FALL) && !source.is(DamageTypes.DROWN) && super.hurtServer(level, source, amount);
     }
     @Override protected void tickEffects() {
         if (!com.hp.thermalshockreforged.content.remainingcombat.CryoCooldownVisual.tickClientEffects(
@@ -71,7 +71,7 @@ public final class MagnetiteEntity extends AnimatedMonsterEntity implements Rang
     @Override protected String movementAnimation(boolean moving) { return moving && !isAggressive() ? "walk" : "idle"; }
 
     private void applyConfiguredAttributes() {
-        if (level().isClientSide || attributesApplied || !CombatConfig.SPEC.isLoaded()) return;
+        if (level().isClientSide() || attributesApplied || !CombatConfig.SPEC.isLoaded()) return;
         float health = getHealth();
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(CombatConfig.MAGNETITE_HEALTH.get());
         getAttribute(Attributes.ARMOR).setBaseValue(CombatConfig.MAGNETITE_ARMOR.get());
@@ -84,9 +84,9 @@ public final class MagnetiteEntity extends AnimatedMonsterEntity implements Rang
         attributesApplied = true;
     }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); applyConfiguredAttributes(); }
-    @Override public void readAdditionalSaveData(CompoundTag tag) {
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         loadedFromSave = true;
-        super.readAdditionalSaveData(tag);
+        super.readAdditionalSaveData(input);
         attributesApplied = false;
         applyConfiguredAttributes();
     }

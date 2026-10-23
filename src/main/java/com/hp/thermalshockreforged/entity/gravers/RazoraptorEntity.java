@@ -11,7 +11,7 @@ import net.minecraft.world.entity.ai.attributes.*;
 import net.minecraft.world.level.Level;
 
 public final class RazoraptorEntity extends GraverFamilyEntity {
-    private static final net.minecraft.resources.ResourceLocation MOVEMENT_LOCK = GraverContent.id("razoraptor_movement_lock");
+    private static final net.minecraft.resources.Identifier MOVEMENT_LOCK = GraverContent.id("razoraptor_movement_lock");
     private int cooldown;
     private int movementLock;
     private boolean submitting;
@@ -35,16 +35,16 @@ public final class RazoraptorEntity extends GraverFamilyEntity {
         if (guard) addEffect(new MobEffectInstance(StatusContent.PARRYING, 15, 1, false, false));
     }
     private void synchronizeLock() {
-        if (level().isClientSide) return;
+        if (level().isClientSide()) return;
         var speed = getAttribute(Attributes.MOVEMENT_SPEED);
         if (movementLock > 0) { if (!speed.hasModifier(MOVEMENT_LOCK)) speed.addTransientModifier(new AttributeModifier(MOVEMENT_LOCK, -1, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)); }
         else speed.removeModifier(MOVEMENT_LOCK);
     }
     @Override public void tick() {
-        if (!level().isClientSide) { if (cooldown > 0) cooldown--; if (movementLock > 0) movementLock--; synchronizeLock(); }
+        if (!level().isClientSide()) { if (cooldown > 0) cooldown--; if (movementLock > 0) movementLock--; synchronizeLock(); }
         super.tick();
     }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); synchronizeLock(); }
-    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putInt("RazoraptorCooldown", cooldown); tag.putInt("RazoraptorMovementLock", movementLock); }
-    @Override public void readAdditionalSaveData(CompoundTag tag) { super.readAdditionalSaveData(tag); cooldown = Math.clamp(tag.getInt("RazoraptorCooldown"), 0, 72000); movementLock = Math.clamp(tag.getInt("RazoraptorMovementLock"), 0, 30); }
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putInt("RazoraptorCooldown", cooldown); output.putInt("RazoraptorMovementLock", movementLock); }
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); cooldown = Math.clamp(input.getIntOr("RazoraptorCooldown", 0), 0, 72000); movementLock = Math.clamp(input.getIntOr("RazoraptorMovementLock", 0), 0, 30); }
 }

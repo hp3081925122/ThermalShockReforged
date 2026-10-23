@@ -17,13 +17,13 @@ public final class IcebreakerBlockEntity extends GeoDecorBlockEntity {
     boolean owns(UUID id) { return id.equals(pulse); }
     void assign(UUID id) { pulse = id; setChanged(); }
 
-    @Override protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.loadAdditional(tag, registries);
-        pulse = tag.hasUUID("IcebreakerPulse") ? tag.getUUID("IcebreakerPulse") : null;
+    @Override protected void loadAdditional(net.minecraft.world.level.storage.ValueInput input) {
+        super.loadAdditional(input);
+        pulse = input.getString("IcebreakerPulse").map(java.util.UUID::fromString).orElse(null);
     }
 
-    @Override protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.saveAdditional(tag, registries);
-        if (pulse != null) tag.putUUID("IcebreakerPulse", pulse);
+    @Override protected void saveAdditional(net.minecraft.world.level.storage.ValueOutput output) {
+        super.saveAdditional(output);
+        if (pulse != null) output.putString("IcebreakerPulse", pulse.toString());
     }
 }

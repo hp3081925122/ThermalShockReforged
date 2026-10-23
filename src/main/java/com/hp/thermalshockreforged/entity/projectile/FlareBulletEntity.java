@@ -7,7 +7,7 @@ import com.hp.thermalshockreforged.content.decor.geo.GeoDecorKind;
 import com.hp.thermalshockreforged.entity.projectile.ProjectileContent;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.TagKey;
@@ -23,7 +23,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 
 public final class FlareBulletEntity extends LegacyArrowEntity {
-    private static final TagKey<EntityType<?>> PYRO_WEAK = TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "pyro_weak"));
+    private static final TagKey<EntityType<?>> PYRO_WEAK = TagKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "pyro_weak"));
     public FlareBulletEntity(EntityType<? extends FlareBulletEntity> type, Level level) { super(type, level); }
     public FlareBulletEntity(LivingEntity owner, Level level) { super(ProjectileContent.FLARE_BULLET.get(), owner, level, new ItemStack(GeoDecorContent.item(GeoDecorKind.YELLOW_ORB))); }
     public static boolean fireWeaponShot(net.minecraft.server.level.ServerLevel level, LivingEntity shooter) {

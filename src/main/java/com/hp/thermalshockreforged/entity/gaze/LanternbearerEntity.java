@@ -6,7 +6,7 @@ import java.util.List;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.*;
 import net.minecraft.world.damagesource.DamageSource;
@@ -48,10 +48,10 @@ public final class LanternbearerEntity extends AnimatedMonsterEntity {
     }
     @Override protected SoundEvent getAmbientSound() { return SoundEvents.SKELETON_AMBIENT; }
     @Override protected void playStepSound(BlockPos pos, BlockState state) { playSound(SoundEvents.SKELETON_STEP, .15F, 1); }
-    @Override protected SoundEvent getHurtSound(DamageSource source) { return BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "bone_hit")); }
+    @Override protected SoundEvent getHurtSound(DamageSource source) { return BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "bone_hit")); }
     @Override protected SoundEvent getDeathSound() { return SoundEvents.SKELETON_DEATH; }
-    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putBoolean("LanternDeathCommitted", deathCommitted); }
-    @Override public void readAdditionalSaveData(CompoundTag tag) { super.readAdditionalSaveData(tag); deathCommitted = tag.getBoolean("LanternDeathCommitted"); }
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putBoolean("LanternDeathCommitted", deathCommitted); }
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); deathCommitted = input.getBooleanOr("LanternDeathCommitted", false); }
     public static AttributeSupplier.Builder createAttributes() {
         return createMobAttributes().add(Attributes.MOVEMENT_SPEED, .2).add(Attributes.MAX_HEALTH, 24).add(Attributes.ARMOR, 4).add(Attributes.ATTACK_DAMAGE, 3).add(Attributes.FOLLOW_RANGE, 32).add(Attributes.STEP_HEIGHT, .6);
     }

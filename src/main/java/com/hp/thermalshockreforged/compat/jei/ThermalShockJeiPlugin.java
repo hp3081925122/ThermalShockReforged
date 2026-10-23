@@ -30,7 +30,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 
@@ -44,7 +44,7 @@ import java.util.Map;
 
 @JeiPlugin
 public final class ThermalShockJeiPlugin implements IModPlugin {
-    private static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "jei_plugin");
+    private static final Identifier UID = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "jei_plugin");
     private static final String KEY = "jei." + ThermalShockReforged.MOD_ID + ".";
     private static final List<Machine> MACHINES = List.of(
             new Machine(MachineCategory.FABRICATOR, List.of("fabricator"), new MachineCategory.Layout(new int[][]{{0, 0}, {18, 0}, {36, 0}, {0, 18}, {18, 18}, {36, 18}, {18, 40}}, 62, 20, 92, 20, 1, 110, 58)),
@@ -118,7 +118,7 @@ public final class ThermalShockJeiPlugin implements IModPlugin {
                     List.of(d("springelatin_ball", "2-5"), d("gel_bulb_seed", "1-3"))));
 
     @Override
-    public ResourceLocation getPluginUid() { return UID; }
+    public Identifier getPluginUid() { return UID; }
 
     @Override
     public void registerCategories(IRecipeCategoryRegistration registration) {
@@ -324,7 +324,7 @@ public final class ThermalShockJeiPlugin implements IModPlugin {
 
     private static MachineEntry.Slot slot(Ingredient ingredient) { return new MachineEntry.Slot(List.of(ingredient.getItems()), List.of()); }
 
-    private static Component advancementTitle(ResourceLocation id) { return Component.translatable("advancements." + id.getPath() + ".title"); }
+    private static Component advancementTitle(Identifier id) { return Component.translatable("advancements." + id.getPath() + ".title"); }
 
     private static String percent(float chance) {
         String text = String.format(Locale.ROOT, "%.1f", chance * 100);
@@ -352,13 +352,13 @@ public final class ThermalShockJeiPlugin implements IModPlugin {
 
     private static MachineEntry.Slot slot(ItemStack stack) { return new MachineEntry.Slot(List.of(stack), List.of()); }
 
-    private static List<MachineEntry.Slot> loot(ResourceLocation table) {
+    private static List<MachineEntry.Slot> loot(Identifier table) {
         var outputs = new ArrayList<MachineEntry.Slot>();
         for (var pool : lootPools(table)) outputs.addAll(pool);
         return outputs;
     }
 
-    private static JsonObject lootJson(ResourceLocation table) {
+    private static JsonObject lootJson(Identifier table) {
         var server = Minecraft.getInstance().getSingleplayerServer();
         if (server != null) {
             var loaded = server.reloadableRegistries().getLootTable(ResourceKey.create(Registries.LOOT_TABLE, table));
@@ -381,7 +381,7 @@ public final class ThermalShockJeiPlugin implements IModPlugin {
         }
     }
 
-    private static List<List<MachineEntry.Slot>> lootPools(ResourceLocation table) {
+    private static List<List<MachineEntry.Slot>> lootPools(Identifier table) {
         var pools = new ArrayList<List<MachineEntry.Slot>>();
         var root = lootJson(table);
         if (root == null || !root.has("pools")) return pools;
@@ -442,7 +442,7 @@ public final class ThermalShockJeiPlugin implements IModPlugin {
         return (int) element.getAsJsonObject().get("value").getAsFloat();
     }
 
-    private static Component requires(ResourceLocation advancement) {
+    private static Component requires(Identifier advancement) {
         return Component.translatable(KEY + "npc_trade.requires", advancementTitle(advancement));
     }
 
@@ -463,9 +463,9 @@ public final class ThermalShockJeiPlugin implements IModPlugin {
     }
 
     private static ItemStack stack(String id, String amount) {
-        ResourceLocation key;
-        if (id.contains(":")) key = ResourceLocation.parse(id);
-        else key = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, id);
+        Identifier key;
+        if (id.contains(":")) key = Identifier.parse(id);
+        else key = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, id);
         var item = BuiltInRegistries.ITEM.get(key);
         if (item == Items.AIR) {
             ThermalShockReforged.LOGGER.warn("JEI sickle harvest item missing: {}", key);

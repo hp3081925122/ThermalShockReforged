@@ -1,18 +1,19 @@
 package com.hp.thermalshockreforged.client.vfx;
+import net.minecraft.client.renderer.rendertype.RenderTypes;
 
 import com.hp.thermalshockreforged.client.vfx.VfxDefinition.Node;
 import com.hp.thermalshockreforged.client.vfx.VfxDefinition.Ring;
-import com.mojang.blaze3d.platform.GlStateManager;
+import com.mojang.blaze3d.opengl.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.BufferBuilder;
-import com.mojang.blaze3d.vertex.BufferUploader;
 import com.mojang.blaze3d.vertex.DefaultVertexFormat;
 import com.mojang.blaze3d.vertex.MeshData;
 import com.mojang.blaze3d.vertex.Tesselator;
 import com.mojang.blaze3d.vertex.VertexFormat;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GameRenderer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.client.renderer.rendertype.RenderType;
+import net.minecraft.resources.Identifier;
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
 import org.lwjgl.opengl.GL14;
@@ -26,7 +27,7 @@ final class VfxBatch {
     private float offsetY;
     private float offsetZ;
     private BufferBuilder builder;
-    private ResourceLocation texture;
+    private Identifier texture;
     private int blend = -1;
     private boolean linear;
     private boolean depthTest;
@@ -87,7 +88,7 @@ final class VfxBatch {
         if (builder == null) return;
         MeshData mesh = builder.build();
         builder = null;
-        if (mesh != null) BufferUploader.drawWithShader(mesh);
+        if (mesh != null) net.minecraft.client.renderer.rendertype.RenderTypes.entityTranslucent(texture).draw(mesh);
     }
 
     private void vertex(Vector3f position, float u, float v, float[] color, float[] tint) {

@@ -7,7 +7,7 @@ import net.minecraft.client.particle.Particle;
 import net.minecraft.client.particle.ParticleProvider;
 import net.minecraft.client.particle.ParticleRenderType;
 import net.minecraft.client.particle.SpriteSet;
-import net.minecraft.client.particle.TextureSheetParticle;
+import com.hp.thermalshockreforged.client.compat.LegacySingleQuadParticle;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.util.Mth;
 import net.minecraft.world.phys.AABB;
@@ -21,7 +21,7 @@ public final class LiteprismParticles {
 
     private LiteprismParticles() { }
 
-    private abstract static class Glowing extends TextureSheetParticle {
+    private abstract static class Glowing extends LegacySingleQuadParticle {
         protected final SpriteSet sprites;
         protected Glowing(ClientLevel level, double x, double y, double z, SpriteSet sprites, int lifetime) {
             super(level, x, y, z);
@@ -34,8 +34,8 @@ public final class LiteprismParticles {
             zd = 0;
             setSpriteFromAge(sprites);
         }
-        @Override public int getLightColor(float partialTick) { return FULL_BRIGHT; }
-        @Override public ParticleRenderType getRenderType() { return ParticleRenderType.PARTICLE_SHEET_TRANSLUCENT; }
+        public int getLightColor(float partialTick) { return FULL_BRIGHT; }
+        @Override public ParticleRenderType getGroup() { return ParticleRenderType.SINGLE_QUADS; }
     }
 
     static final class Beam extends Glowing {
@@ -103,7 +103,7 @@ public final class LiteprismParticles {
 
     static final class Spark extends Glowing {
         private Spark(ClientLevel level, double x, double y, double z, double dx, double dy, double dz, SpriteSet sprites) {
-            super(level, x, y, z, sprites, 8 + level.random.nextInt(4));
+            super(level, x, y, z, sprites, 8 + level.getRandom().nextInt(4));
             xd = dx;
             yd = dy;
             zd = dz;
@@ -120,14 +120,14 @@ public final class LiteprismParticles {
     }
 
     public record BeamProvider(SpriteSet sprites) implements ParticleProvider<SimpleParticleType> {
-        @Override public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double dx, double dy, double dz) { return new Beam(level, x, y, z, dx, dy, dz, sprites); }
+        @Override public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double dx, double dy, double dz, net.minecraft.util.RandomSource random) { return new Beam(level, x, y, z, dx, dy, dz, sprites); }
     }
 
     public record FlareProvider(SpriteSet sprites) implements ParticleProvider<SimpleParticleType> {
-        @Override public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double dx, double dy, double dz) { return new Flare(level, x, y, z, dx, sprites); }
+        @Override public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double dx, double dy, double dz, net.minecraft.util.RandomSource random) { return new Flare(level, x, y, z, dx, sprites); }
     }
 
     public record SparkProvider(SpriteSet sprites) implements ParticleProvider<SimpleParticleType> {
-        @Override public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double dx, double dy, double dz) { return new Spark(level, x, y, z, dx, dy, dz, sprites); }
+        @Override public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double dx, double dy, double dz, net.minecraft.util.RandomSource random) { return new Spark(level, x, y, z, dx, dy, dz, sprites); }
     }
 }

@@ -10,8 +10,9 @@ public final class BeetleThrasherEntity extends BeetleCombatEntity {
     public BeetleThrasherEntity(EntityType<? extends BeetleThrasherEntity> type, Level level) { super(type, level, "blood_beetle", 25); }
     @Override protected void registerGoals() {
         super.registerGoals();
-        targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, LivingEntity.class, 10, false, false, entity -> BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType()).equals(BeetleContent.id("graver"))));
+        targetSelector.addGoal(2, new NearestAttackableTargetGoal<LivingEntity>(this, LivingEntity.class, 10, false, false, (entity, level) -> BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType()).equals(BeetleContent.id("graver"))));
         goalSelector.addGoal(6, new RandomLookAroundGoal(this));
         goalSelector.addGoal(7, new FloatGoal(this));
     }
 }
+

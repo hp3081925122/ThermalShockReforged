@@ -1,11 +1,12 @@
 package com.hp.thermalshockreforged.entity.titans;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.entity.base.AnimatedMonsterEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -18,7 +19,7 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -36,10 +37,9 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.event.EventHooks;
-import software.bernie.geckolib.animation.AnimatableManager;
-import software.bernie.geckolib.animation.AnimationController;
-import software.bernie.geckolib.animation.PlayState;
-import software.bernie.geckolib.animation.RawAnimation;
+import com.geckolib.animatable.manager.AnimatableManager;
+import com.geckolib.animation.object.PlayState;
+import com.geckolib.animation.RawAnimation;
 
 public final class SkeletalTitanEntity extends AnimatedMonsterEntity {
     public enum Kind {
@@ -52,8 +52,8 @@ public final class SkeletalTitanEntity extends AnimatedMonsterEntity {
         public double speed() { return speed; }
     }
 
-    private static final ResourceLocation MANTLESTONE = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "mantlestone");
-    private static final ResourceLocation MOVEMENT_LOCK = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "titan_movement_lock");
+    private static final Identifier MANTLESTONE = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "mantlestone");
+    private static final Identifier MOVEMENT_LOCK = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "titan_movement_lock");
     private final Kind kind;
     private boolean attributesApplied;
     private boolean loadedFromSave;
@@ -96,7 +96,7 @@ public final class SkeletalTitanEntity extends AnimatedMonsterEntity {
     }
 
     private void syncMovementLock() {
-        if (level().isClientSide) return;
+        if (level().isClientSide()) return;
         var speed = getAttribute(Attributes.MOVEMENT_SPEED);
         if (movementLock > 0) {
             if (!speed.hasModifier(MOVEMENT_LOCK)) speed.addTransientModifier(new AttributeModifier(MOVEMENT_LOCK, -1, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
@@ -104,9 +104,9 @@ public final class SkeletalTitanEntity extends AnimatedMonsterEntity {
     }
 
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 0, state -> PlayState.STOP);
+        var procedure = new LegacyAnimationController<>(this, "procedure", 0, state -> PlayState.STOP);
         for (String clip : new String[] {"idle", "bigswing1", "bigswing2", "hurt", "walk", "walk2"}) procedure.triggerableAnim(clip, RawAnimation.begin().thenPlay(clip));
-        controllers.add(new AnimationController<>(this, "movement", 0, state -> {
+        controllers.add(new LegacyAnimationController<>(this, "movement", 0, state -> {
             if (procedure.isPlayingTriggeredAnimation()) return PlayState.STOP;
             boolean moving = state.isMoving() || state.getLimbSwingAmount() <= -.15F || state.getLimbSwingAmount() >= .15F;
             if (moving && !isAggressive()) return state.setAndContinue(RawAnimation.begin().thenLoop("walk"));
@@ -118,7 +118,7 @@ public final class SkeletalTitanEntity extends AnimatedMonsterEntity {
     }
     @Override protected java.util.List<String> procedureAnimations() { return java.util.List.of("idle", "bigswing1", "bigswing2", "hurt", "walk", "walk2"); }
 
-    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, MobSpawnType reason, SpawnGroupData data) {
+    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, EntitySpawnReason reason, SpawnGroupData data) {
         var result = super.finalizeSpawn(world, difficulty, reason, data);
         if (kind != Kind.SKELETITAN || spawnVariantChecked || !(world instanceof ServerLevel server)) return result;
         spawnVariantChecked = true;
@@ -128,10 +128,10 @@ public final class SkeletalTitanEntity extends AnimatedMonsterEntity {
         var replacement = variant.create(server);
         if (replacement == null) return result;
         BlockPos pos = blockPosition();
-        replacement.moveTo(pos.getX() + .5, pos.getY(), pos.getZ() + .5, server.random.nextFloat() * 360, 0);
+        replacement.moveTo(pos.getX() + .5, pos.getY(), pos.getZ() + .5, server.getRandom().nextFloat() * 360, 0);
         replacement.yHeadRot = replacement.getYRot();
         replacement.yBodyRot = replacement.getYRot();
-        EventHooks.finalizeMobSpawn(replacement, server, server.getCurrentDifficultyAt(pos), MobSpawnType.MOB_SUMMONED, null);
+        EventHooks.finalizeMobSpawn(replacement, server, server.getCurrentDifficultyAt(pos), EntitySpawnReason.MOB_SUMMONED, null);
         if (replacement.isSpawnCancelled() || replacement.isRemoved()) {
             replacement.discard();
             ThermalShockReforged.LOGGER.debug("Skeletitan variant initialization rejected: source={}, type={}", getUUID(), BuiltInRegistries.ENTITY_TYPE.getKey(variant));
@@ -155,23 +155,23 @@ public final class SkeletalTitanEntity extends AnimatedMonsterEntity {
 
     @Override public void baseTick() {
         super.baseTick();
-        if (!level().isClientSide) {
+        if (!level().isClientSide()) {
             if (cooldown > 0) cooldown--;
             if (movementLock > 0 && --movementLock == 0) syncMovementLock();
         }
-        if (!level().isClientSide && kind == Kind.FROST && isUnderWater()) {
+        if (!level().isClientSide() && kind == Kind.FROST && isUnderWater()) {
             addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 10, 2, false, false));
             addEffect(new MobEffectInstance(MobEffects.DOLPHINS_GRACE, 10, 2, false, false));
         }
     }
-    @Override public boolean hurt(DamageSource source, float amount) { return !(kind == Kind.FROST && source.is(DamageTypes.DROWN)) && super.hurt(source, amount); }
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) { return !(kind == Kind.FROST && source.is(DamageTypes.DROWN)) && super.hurtServer(level, source, amount); }
     @Override protected SoundEvent getAmbientSound() { return SoundEvents.SKELETON_AMBIENT; }
-    @Override protected SoundEvent getHurtSound(DamageSource source) { return BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "bone_hit")); }
+    @Override protected SoundEvent getHurtSound(DamageSource source) { return BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "bone_hit")); }
     @Override protected SoundEvent getDeathSound() { return SoundEvents.SKELETON_DEATH; }
     @Override protected void playStepSound(BlockPos pos, BlockState state) { playSound(SoundEvents.SKELETON_STEP, .15F, 1); }
 
     private void applyConfiguredAttributes() {
-        if (level().isClientSide || attributesApplied || !TitanCombatConfig.SPEC.isLoaded()) return;
+        if (level().isClientSide() || attributesApplied || !TitanCombatConfig.SPEC.isLoaded()) return;
         int index = kind.ordinal();
         float previousHealth = getHealth();
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(TitanCombatConfig.HEALTH[index].get());
@@ -185,20 +185,20 @@ public final class SkeletalTitanEntity extends AnimatedMonsterEntity {
         attributesApplied = true;
     }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); applyConfiguredAttributes(); syncMovementLock(); }
-    @Override public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag);
-        tag.putBoolean("TitanSpawnVariantChecked", spawnVariantChecked);
-        tag.putInt("TitanCooldown", cooldown);
-        tag.putInt("TitanMovementLock", movementLock);
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        super.addAdditionalSaveData(output);
+        output.putBoolean("TitanSpawnVariantChecked", spawnVariantChecked);
+        output.putInt("TitanCooldown", cooldown);
+        output.putInt("TitanMovementLock", movementLock);
     }
-    @Override public void readAdditionalSaveData(CompoundTag tag) {
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         loadedFromSave = true;
-        super.readAdditionalSaveData(tag);
-        spawnVariantChecked = tag.getBoolean("TitanSpawnVariantChecked");
+        super.readAdditionalSaveData(input);
+        spawnVariantChecked = input.getBooleanOr("TitanSpawnVariantChecked", false);
         attributesApplied = false;
         applyConfiguredAttributes();
-        cooldown = Math.clamp(tag.getInt("TitanCooldown"), 0, 72000);
-        movementLock = Math.clamp(tag.getInt("TitanMovementLock"), 0, 20);
+        cooldown = Math.clamp(input.getIntOr("TitanCooldown", 0), 0, 72000);
+        movementLock = Math.clamp(input.getIntOr("TitanMovementLock", 0), 0, 20);
         syncMovementLock();
     }
 

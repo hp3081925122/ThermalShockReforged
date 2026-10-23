@@ -19,7 +19,7 @@ public final class ThermiteDetonationEntity extends Entity implements com.hp.the
     public static boolean submit(ServerLevel level, BlockPos pos) {
         var task = ThermiteContent.DETONATION.get().create(level);
         if (task == null) return false;
-        task.anchor = pos.immutable(); task.dimension = level.dimension().location().toString(); task.armed = true;
+        task.anchor = pos.immutable(); task.dimension = level.dimension().identifier().toString(); task.armed = true;
         task.setPos(pos.getX(), pos.getY(), pos.getZ());
         return level.addFreshEntity(task);
     }
@@ -29,25 +29,25 @@ public final class ThermiteDetonationEntity extends Entity implements com.hp.the
     @Override public void tick() {
         super.tick();
         if (level() instanceof ServerLevel server) {
-            if (!armed || consumed || !dimension.equals(server.dimension().location().toString())) { discard(); return; }
+            if (!armed || consumed || !dimension.equals(server.dimension().identifier().toString())) { discard(); return; }
             setPos(anchor.getX(), anchor.getY(), anchor.getZ());
             com.hp.thermalshockreforged.world.timing.ServerEndTickTasks.schedule(server, getUUID());
         }
     }
     @Override public void endTick(ServerLevel level) {
-        if (isRemoved() || !armed || consumed || !dimension.equals(level.dimension().location().toString())) { discard(); return; }
+        if (isRemoved() || !armed || consumed || !dimension.equals(level.dimension().identifier().toString())) { discard(); return; }
         if (--remaining > 0) { com.hp.thermalshockreforged.world.timing.ServerEndTickTasks.schedule(level, getUUID()); return; }
         consumed = true; discard();
         ThermalShockReforged.LOGGER.debug("Thermite detonation committed: position={}, dimension={}", anchor, dimension);
         level.explode(null, anchor.getX(), anchor.getY(), anchor.getZ(), 1, Level.ExplosionInteraction.BLOCK);
     }
-    @Override protected void addAdditionalSaveData(CompoundTag tag) {
-        tag.putLong("ThermiteAnchor", anchor.asLong()); tag.putString("ThermiteDimension", dimension);
-        tag.putInt("ThermiteRemaining", remaining); tag.putBoolean("ThermiteArmed", armed); tag.putBoolean("ThermiteConsumed", consumed);
+    @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        output.putLong("ThermiteAnchor", anchor.asLong()); output.putString("ThermiteDimension", dimension);
+        output.putInt("ThermiteRemaining", remaining); output.putBoolean("ThermiteArmed", armed); output.putBoolean("ThermiteConsumed", consumed);
     }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) {
-        anchor = BlockPos.of(tag.getLong("ThermiteAnchor")); dimension = tag.getString("ThermiteDimension");
-        remaining = Math.clamp(tag.getInt("ThermiteRemaining"), 1, 3); armed = tag.getBoolean("ThermiteArmed") && tag.contains("ThermiteAnchor"); consumed = tag.getBoolean("ThermiteConsumed");
+    @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        anchor = BlockPos.of(input.getLongOr("ThermiteAnchor", 0L)); dimension = input.getStringOr("ThermiteDimension", "");
+        remaining = Math.clamp(input.getIntOr("ThermiteRemaining", 0), 1, 3); armed = input.getBooleanOr("ThermiteArmed", false) && input.getString("ThermiteAnchor").isPresent(); consumed = input.getBooleanOr("ThermiteConsumed", false);
         noPhysics = true; setNoGravity(true);
     }
 }

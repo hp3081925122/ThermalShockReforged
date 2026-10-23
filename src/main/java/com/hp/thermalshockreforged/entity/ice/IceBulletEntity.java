@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.entity.ice;
+import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
 
 import com.hp.thermalshockreforged.content.MaterialContent;
 import com.hp.thermalshockreforged.entity.fauna.FaunaEntities;
@@ -47,7 +48,7 @@ public final class IceBulletEntity extends AbstractArrow implements ItemSupplier
         if (impulse.lengthSqr() > 0) target.push(impulse.x, 0.1 * Math.max(0, 1 - target.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE)), impulse.z);
     }
     @Override public void tick() {
-        if (!level().isClientSide && lifetime >= 40) { discard(); return; }
+        if (!level().isClientSide() && lifetime >= 40) { discard(); return; }
         super.tick();
         setNoGravity(true);
         level().addParticle(FaunaEntities.WHITE_ORB.get(), getX(), getY(), getZ(), 0, 0, 0);
@@ -55,6 +56,6 @@ public final class IceBulletEntity extends AbstractArrow implements ItemSupplier
         if (!isRemoved() && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
     }
     @Override public void endTick(ServerLevel level) { if (!isRemoved() && ++lifetime >= 40) discard(); }
-    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putInt("IceLifetime", lifetime); tag.putDouble("IceKnockback", impactKnockback); if (caster != null) tag.putUUID("IceCaster", caster); }
-    @Override public void readAdditionalSaveData(CompoundTag tag) { super.readAdditionalSaveData(tag); pickup = Pickup.DISALLOWED; lifetime = Math.max(0, Math.min(40, tag.getInt("IceLifetime"))); double kb = tag.getDouble("IceKnockback"); impactKnockback = Double.isFinite(kb) ? Math.max(0, Math.min(2, kb)) : 0; caster = tag.hasUUID("IceCaster") ? tag.getUUID("IceCaster") : null; if (!Double.isFinite(getBaseDamage()) || getBaseDamage() < 0) setBaseDamage(0); }
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putInt("IceLifetime", lifetime); output.putDouble("IceKnockback", impactKnockback); if (caster != null) output.putString("IceCaster", caster.toString()); }
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); pickup = Pickup.DISALLOWED; lifetime = Math.max(0, Math.min(40, input.getIntOr("IceLifetime", 0))); double kb = input.getDoubleOr("IceKnockback", 0.0); impactKnockback = Double.isFinite(kb) ? Math.max(0, Math.min(2, kb)) : 0; caster = input.getString("IceCaster").map(java.util.UUID::fromString).orElse(null); if (!Double.isFinite(getBaseDamage()) || getBaseDamage() < 0) setBaseDamage(0); }
 }

@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.content.weapons;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import net.minecraft.world.item.component.TooltipDisplay;
+import java.util.function.Consumer;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.MaterialContent;
@@ -7,7 +10,7 @@ import java.util.List;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -16,19 +19,18 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import software.bernie.geckolib.animatable.GeoItem;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.AnimatableManager;
-import software.bernie.geckolib.animation.AnimationController;
-import software.bernie.geckolib.animation.PlayState;
-import software.bernie.geckolib.animation.RawAnimation;
+import com.geckolib.animatable.GeoItem;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animatable.manager.AnimatableManager;
+import com.geckolib.animation.object.PlayState;
+import com.geckolib.animation.RawAnimation;
 
 public final class MagneticCrossbowItem extends Item implements GeoItem {
     private final BoundedItemAnimationCache animations = new BoundedItemAnimationCache(this);
@@ -51,7 +53,7 @@ public final class MagneticCrossbowItem extends Item implements GeoItem {
             server.playSound(null, player.blockPosition(), SoundEvents.STONE_BUTTON_CLICK_ON, SoundSource.NEUTRAL, 1, 5);
             return result;
         }
-        var bomb = ProjectileContent.MAGNETIC_BOMB.get().spawn(server, BlockPos.containing(player.getX(), player.getY() + 1, player.getZ()), MobSpawnType.MOB_SUMMONED);
+        var bomb = ProjectileContent.MAGNETIC_BOMB.get().spawn(server, BlockPos.containing(player.getX(), player.getY() + 1, player.getZ()), EntitySpawnReason.MOB_SUMMONED);
         if (bomb == null || bomb.isRemoved() || server.getEntity(bomb.getUUID()) != bomb) {
             ThermalShockReforged.LOGGER.debug("Magnetic crossbow spawn was rejected for player {}", player.getUUID());
             return result;
@@ -59,9 +61,9 @@ public final class MagneticCrossbowItem extends Item implements GeoItem {
         bomb.setDeltaMovement(player.getLookAngle().scale(2));
         player.getCooldowns().addCooldown(this, 40);
         triggerAnim(player, GeoItem.getOrAssignId(stack, server), "procedure", "1");
-        server.playSound(null, player.blockPosition(), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "magnet_bow_25")), SoundSource.NEUTRAL, .7F, 1);
+        server.playSound(null, player.blockPosition(), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "magnet_bow_25")), SoundSource.NEUTRAL, .7F, 1);
         MagneticCycleSoundEntity.submit(server, player.getX(), player.getY(), player.getZ());
-        player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 15, 2, false, false));
+        player.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 15, 2, false, false));
         player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 2, 0, true, false));
         if (!player.getAbilities().instabuild) player.getInventory().clearOrCountMatchingItems(candidate -> candidate.is(ammo), 1, player.inventoryMenu.getCraftSlots());
         return result;
@@ -74,16 +76,16 @@ public final class MagneticCrossbowItem extends Item implements GeoItem {
             if (living.isShiftKeyDown()) HeldWeaponState.refreshMagneticZoom(living);
         }
     }
-    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) {
-        super.appendHoverText(stack, context, lines, flag);
-        for (int line = 0; line < 3; line++) lines.add(Component.translatable(getDescriptionId() + ".description_" + line));
+    @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+        super.appendHoverText(stack, context, display, tooltipAdder, flag);
+        for (int line = 0; line < 3; line++) tooltipAdder.accept(Component.translatable(getDescriptionId() + ".description_" + line));
     }
     public void pruneAnimations() { animations.prune(); }
     public void clearAnimations() { animations.clear(); }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 0, state -> PlayState.STOP).triggerableAnim("1", RawAnimation.begin().thenPlay("1"));
+        var procedure = new LegacyAnimationController<>(this, "procedure", 0, state -> PlayState.STOP).triggerableAnim("1", RawAnimation.begin().thenPlay("1"));
         controllers.add(procedure);
-        controllers.add(new AnimationController<>(this, "idle", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop("0"))));
+        controllers.add(new LegacyAnimationController<>(this, "idle", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop("0"))));
     }
     @Override public AnimatableInstanceCache getAnimatableInstanceCache() { return animations; }
 }

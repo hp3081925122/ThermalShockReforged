@@ -1,10 +1,13 @@
 package com.hp.thermalshockreforged.entity.protoi;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 import com.hp.thermalshockreforged.content.MaterialContent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -12,7 +15,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.level.Level;
-import software.bernie.geckolib.animation.*;
+import com.geckolib.animation.*;
 public final class ProtoiGammaEntity extends ProtoiEntityBase {
     public ProtoiGammaEntity(EntityType<? extends ProtoiGammaEntity> type, Level level) { super(type, level, "protoi_gamma", false, 2.25); xpReward = 0; }
     public static net.minecraft.world.entity.ai.attributes.AttributeSupplier.Builder createAttributes() { return attributes(.3, 10, 3, 4, 16).add(Attributes.STEP_HEIGHT, 1); }
@@ -35,14 +38,14 @@ public final class ProtoiGammaEntity extends ProtoiEntityBase {
     @Override protected void tickDeath() { if (++deathTime >= 20 && !isRemoved()) remove(RemovalReason.KILLED); }
     @Override public void triggerProcedure(String animation) { if ("idle".equals(animation) || "walk".equals(animation)) triggerAnim("procedure", animation); }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 0, state -> PlayState.STOP).triggerableAnim("idle", RawAnimation.begin().thenPlay("idle")).triggerableAnim("walk", RawAnimation.begin().thenPlay("walk"));
-        controllers.add(new AnimationController<>(this, "movement", 0, state -> {
+        var procedure = new LegacyAnimationController<>(this, "procedure", 0, state -> PlayState.STOP).triggerableAnim("idle", RawAnimation.begin().thenPlay("idle")).triggerableAnim("walk", RawAnimation.begin().thenPlay("walk"));
+        controllers.add(new LegacyAnimationController<>(this, "movement", 0, state -> {
             if (procedure.isPlayingTriggeredAnimation()) return PlayState.STOP;
             boolean moving = state.isMoving() || state.getLimbSwingAmount() <= -.15F || state.getLimbSwingAmount() >= .15F;
             return state.setAndContinue(RawAnimation.begin().thenLoop(moving ? "walk" : "idle"));
         }));
         controllers.add(procedure);
     }
-    @Override protected SoundEvent getHurtSound(DamageSource source) { return BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", "gamma_hurt")); }
-    @Override protected SoundEvent getDeathSound() { return BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", "gamma_hurt")); }
+    @Override protected SoundEvent getHurtSound(DamageSource source) { return BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath("thermal_shock_reforged", "gamma_hurt")); }
+    @Override protected SoundEvent getDeathSound() { return BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath("thermal_shock_reforged", "gamma_hurt")); }
 }

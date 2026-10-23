@@ -1,7 +1,7 @@
 package com.hp.thermalshockreforged.content.remainingcombat;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.*;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
@@ -15,7 +15,7 @@ public final class RemainingCombatState {
     private static final String CREATED = "thermal_shock_reforged:ice_bomb_created";
     private static final String REMOVE_PENDING = "thermal_shock_reforged:ice_bomb_remove_pending";
     private static final String KNOCKBACK_CREATED = "thermal_shock_reforged:claw_no_knockback_created";
-    private static final ResourceLocation KNOCKBACK = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "claw_no_knockback");
+    private static final Identifier KNOCKBACK = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "claw_no_knockback");
     private RemainingCombatState() { }
     public static void applyCryoCooldown(LivingEntity entity) {
         entity.getPersistentData().remove(REMOVE_PENDING);
@@ -24,7 +24,7 @@ public final class RemainingCombatState {
     }
     public static boolean blocksCryoAttack(LivingEntity entity) { finishRemoval(entity); return entity.getPersistentData().getInt(CRYO) > 0; }
     public static void removed(MobEffectEvent.Remove event) {
-        if (!event.getEntity().level().isClientSide && event.getEffect().equals(RemainingCombatContent.CRYO_VISUAL) && event.getEffectInstance() != null)
+        if (!event.getEntity().level().isClientSide() && event.getEffect().equals(RemainingCombatContent.CRYO_VISUAL) && event.getEffectInstance() != null)
             event.getEntity().getPersistentData().putBoolean(REMOVE_PENDING, true);
     }
     private static void finishRemoval(LivingEntity entity) {
@@ -34,13 +34,13 @@ public final class RemainingCombatState {
         data.remove(REMOVE_PENDING);
     }
     public static void refreshNoKnockback(LivingEntity entity) {
-        if (entity.level().isClientSide) return;
+        if (entity.level().isClientSide()) return;
         var attribute = entity.getAttribute(Attributes.ATTACK_KNOCKBACK);
         if (attribute != null && !attribute.hasModifier(KNOCKBACK)) attribute.addTransientModifier(new AttributeModifier(KNOCKBACK, -1020, AttributeModifier.Operation.ADD_VALUE));
         entity.getPersistentData().putLong(KNOCKBACK_CREATED, entity.level().getGameTime());
     }
     public static void tick(EntityTickEvent.Post event) {
-        if (!(event.getEntity() instanceof LivingEntity entity) || entity.level().isClientSide) return;
+        if (!(event.getEntity() instanceof LivingEntity entity) || entity.level().isClientSide()) return;
         var data = entity.getPersistentData();
         finishRemoval(entity);
         if (data.contains(CRYO) && data.getLong(CREATED) != entity.level().getGameTime()) {
@@ -55,7 +55,7 @@ public final class RemainingCombatState {
         }
     }
     public static void join(EntityJoinLevelEvent event) {
-        if (!(event.getEntity() instanceof LivingEntity entity) || event.getLevel().isClientSide) return;
+        if (!(event.getEntity() instanceof LivingEntity entity) || event.getLevel().isClientSide()) return;
         var data = entity.getPersistentData();
         if (data.getInt(CRYO) > 0) { data.putInt(CRYO, Math.clamp(data.getInt(CRYO), 1, 120)); data.putLong(CREATED, Long.MIN_VALUE); }
         if (data.contains(KNOCKBACK_CREATED)) { data.remove(KNOCKBACK_CREATED); var attribute = entity.getAttribute(Attributes.ATTACK_KNOCKBACK); if (attribute != null) attribute.removeModifier(KNOCKBACK); }

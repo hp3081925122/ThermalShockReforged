@@ -7,7 +7,7 @@ import net.minecraft.world.entity.player.*;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.DataSlot;
 import net.minecraft.world.inventory.Slot;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -30,7 +30,7 @@ public final class FloristMenu extends AbstractContainerMenu {
         }
     }
     private static boolean unlocked(ServerPlayer player) {
-        var advancement = player.server.getAdvancements().get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "blasphemy_1"));
+        var advancement = player.server.getAdvancements().get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "blasphemy_1"));
         return advancement != null && player.getAdvancements().getOrStartProgress(advancement).isDone();
     }
     public boolean conciergeAllowed() { return concierge.get() != 0; }

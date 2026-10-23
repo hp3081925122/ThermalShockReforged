@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.client.armor.fabricated;
+import net.minecraft.client.renderer.rendertype.RenderTypes;
 
 import com.hp.thermalshockreforged.content.armor.fabricated.FabricatedArmorContent;
 import com.hp.thermalshockreforged.content.armor.fabricated.FabricatedArmorItem;
@@ -8,13 +9,15 @@ import java.util.Map;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.HumanoidModel;
+import net.minecraft.client.model.Model;
+import net.minecraft.client.resources.model.EquipmentClientInfo;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.rendertype.RenderType;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.ColorParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -27,14 +30,14 @@ import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import net.neoforged.neoforge.client.extensions.common.IClientMobEffectExtensions;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.network.PacketDistributor;
-import software.bernie.geckolib.model.GeoModel;
-import software.bernie.geckolib.renderer.GeoArmorRenderer;
+import net.neoforged.neoforge.client.network.ClientPacketDistributor;
+import com.hp.thermalshockreforged.client.compat.LegacyGeoModel;
+import com.hp.thermalshockreforged.client.compat.LegacyGeoArmorRenderer;
 
 public final class FabricatedArmorClient {
     private static final Map<Integer, FabricatedArmorPayloads.Visual> VISUALS = new HashMap<>();
     private static ClientLevel currentLevel;
-    private static final KeyMapping LAUNCH = new KeyMapping("key.thermal_shock_reforged.propulsion_boots_ability", 340, "key.categories.movement") {
+    private static final KeyMapping LAUNCH = new KeyMapping("key.thermal_shock_reforged.propulsion_boots_ability", 340, KeyMapping.Category.MOVEMENT) {
         private boolean wasDown;
         @Override public void setDown(boolean down) {
             super.setDown(down);
@@ -43,7 +46,7 @@ public final class FabricatedArmorClient {
             Minecraft client = Minecraft.getInstance();
             if (pressed && client.screen == null && client.player != null && client.getConnection() != null
                     && client.player.isSprinting() && client.player.getItemBySlot(EquipmentSlot.FEET).is(FabricatedArmorContent.PROPULSION_BOOTS.get())) {
-                PacketDistributor.sendToServer(FabricatedArmorPayloads.Launch.INSTANCE);
+                ClientPacketDistributor.sendToServer(FabricatedArmorPayloads.Launch.INSTANCE);
             }
         }
     };
@@ -100,25 +103,18 @@ public final class FabricatedArmorClient {
     private static void logout(ClientPlayerNetworkEvent.LoggingOut event) { prepareLevel(null); }
 
     private static final class Extension implements IClientItemExtensions {
-        private Renderer renderer;
-        @Override public HumanoidModel<?> getHumanoidArmorModel(LivingEntity entity, ItemStack stack, EquipmentSlot slot, HumanoidModel<?> original) {
-            if (renderer == null) renderer = new Renderer();
-            var item = (FabricatedArmorItem) stack.getItem();
-            item.observeAnimation(entity, stack, slot, stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getString("geckoAnim"));
-            renderer.prepForRender(entity, stack, slot, original);
-            return renderer;
-        }
+        public Model getGenericArmorModel(ItemStack stack, EquipmentClientInfo.LayerType layerType, Model original) { return original; }
     }
 
-    private static final class Renderer extends GeoArmorRenderer<FabricatedArmorItem> {
+    private static final class Renderer extends LegacyGeoArmorRenderer<FabricatedArmorItem> {
         private Renderer() { super(new Model()); }
         @Override public long getInstanceId(FabricatedArmorItem item) { return item.renderInstance((LivingEntity) currentEntity, currentStack, currentSlot); }
-        @Override public RenderType getRenderType(FabricatedArmorItem item, ResourceLocation texture, MultiBufferSource buffers, float partialTick) { return RenderType.entityTranslucent(texture); }
+        @Override public RenderType getRenderType(FabricatedArmorItem item, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
     }
 
-    private static final class Model extends GeoModel<FabricatedArmorItem> {
-        @Override public ResourceLocation getModelResource(FabricatedArmorItem item) { return FabricatedArmorContent.id("geo/" + item.modelName() + ".geo.json"); }
-        @Override public ResourceLocation getTextureResource(FabricatedArmorItem item) { return FabricatedArmorContent.id("textures/item/" + item.textureName() + ".png"); }
-        @Override public ResourceLocation getAnimationResource(FabricatedArmorItem item) { return FabricatedArmorContent.id("animations/" + item.modelName() + ".animation.json"); }
+    private static final class Model extends LegacyGeoModel<FabricatedArmorItem> {
+        @Override public Identifier getModelResource(FabricatedArmorItem item) { return FabricatedArmorContent.id("geo/" + item.modelName() + ".geo.json"); }
+        @Override public Identifier getTextureResource(FabricatedArmorItem item) { return FabricatedArmorContent.id("textures/item/" + item.textureName() + ".png"); }
+        @Override public Identifier getAnimationResource(FabricatedArmorItem item) { return FabricatedArmorContent.id("animations/" + item.modelName() + ".animation.json"); }
     }
 }

@@ -1,9 +1,11 @@
 package com.hp.thermalshockreforged.content.doors;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 
 import com.hp.thermalshockreforged.content.MaterialContent;
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import com.hp.thermalshockreforged.content.decor.nativeblocks.NativeDecorContent;
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -29,7 +31,7 @@ import net.minecraft.world.phys.shapes.*;
 public class SpecialDoorBlock extends Block implements EntityBlock {
     public static final IntegerProperty BLOCKSTATE = IntegerProperty.create("blockstate", 0, 1);
     public static final IntegerProperty ANIMATION = IntegerProperty.create("animation", 0, 1);
-    public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+    public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
     public final DoorKind kind;
 
     SpecialDoorBlock(DoorKind kind) {
@@ -48,7 +50,7 @@ public class SpecialDoorBlock extends Block implements EntityBlock {
     @Override public BlockState getStateForPlacement(BlockPlaceContext context) { return defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite()); }
     @Override public void onPlace(BlockState state, Level level, BlockPos pos, BlockState previous, boolean moving) {
         super.onPlace(state, level, pos, previous, moving);
-        if (kind == DoorKind.MAW && !level.isClientSide && !previous.is(this)) {
+        if (kind == DoorKind.MAW && !level.isClientSide() && !previous.is(this)) {
             for (BlockPos offset : MawDoorPartBlock.offsets(state.getValue(FACING))) {
                 if (offset.equals(BlockPos.ZERO)) continue;
                 BlockPos part = pos.offset(offset);
@@ -71,7 +73,7 @@ public class SpecialDoorBlock extends Block implements EntityBlock {
     }
     @Override protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState replacement, boolean moving) {
         if (!state.is(replacement.getBlock())) {
-            if (kind == DoorKind.MAW && !level.isClientSide) {
+            if (kind == DoorKind.MAW && !level.isClientSide()) {
                 MawDoorPartBlock.clean(() -> {
                     for (BlockPos offset : MawDoorPartBlock.offsets(state.getValue(FACING))) {
                         if (offset.equals(BlockPos.ZERO)) continue;
@@ -80,7 +82,7 @@ public class SpecialDoorBlock extends Block implements EntityBlock {
                     }
                 });
             }
-            if (!level.isClientSide && level.getBlockEntity(pos) instanceof SpecialDoorBlockEntity entity) {
+            if (!level.isClientSide() && level.getBlockEntity(pos) instanceof SpecialDoorBlockEntity entity) {
                 Containers.dropContents(level, pos, entity);
                 level.updateNeighbourForOutputSignal(pos, this);
             }
@@ -104,15 +106,15 @@ public class SpecialDoorBlock extends Block implements EntityBlock {
             player.displayClientMessage(Component.translatable("message.thermal_shock_reforged.door.herald_keys"), true);
         }
     }
-    @Override protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+    @Override protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         if (kind != DoorKind.MAW) return super.useItemOn(stack, state, level, pos, player, hand, hit);
         unlockMaw(state, level, pos, player);
-        return ItemInteractionResult.sidedSuccess(level.isClientSide);
+        return InteractionResult.SUCCESS;
     }
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         if (kind != DoorKind.MAW) return super.useWithoutItem(state, level, pos, player, hit);
         unlockMaw(state, level, pos, player);
-        return InteractionResult.sidedSuccess(level.isClientSide);
+        return InteractionResult.SUCCESS;
     }
 
     public static final class Bunker extends SpecialDoorBlock implements SimpleWaterloggedBlock {
@@ -133,7 +135,7 @@ public class SpecialDoorBlock extends Block implements EntityBlock {
             BlockState current = level.getBlockState(pos);
             if (!current.is(this) || current.getValue(BLOCKSTATE) != 0) return;
             if (!level.setBlock(pos, current.setValue(BLOCKSTATE, 1).setValue(ANIMATION, 1), 3)) return;
-            level.playSound(null, pos, BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "bunker_door")), SoundSource.NEUTRAL, 1, 1);
+            level.playSound(null, pos, BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "bunker_door")), SoundSource.NEUTRAL, 1, 1);
             BlockPos.MutableBlockPos cursor = new BlockPos.MutableBlockPos();
             for (int y = -4; y <= 4; y++) for (int x = -4; x <= 4; x++) for (int z = -4; z <= 4; z++) {
                 cursor.set(pos.getX() + x, pos.getY() + y, pos.getZ() + z);

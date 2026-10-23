@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.entity.liftbug;
+import net.minecraft.world.InteractionResult;
 
 import com.hp.thermalshockreforged.entity.base.AnimatedPathfinderEntity;
 import java.util.List;
@@ -32,19 +33,19 @@ public final class LiftbugEntity extends AnimatedPathfinderEntity {
     @Override protected List<String> procedureAnimations() { return List.of("idle"); }
     @Override public boolean removeWhenFarAway(double distance) { return false; }
     @Override public boolean canCollideWith(Entity other) { return true; }
-    @Override public boolean canBeCollidedWith() { return true; }
+    public boolean canBeCollidedWith() { return true; }
     @Override public boolean isPushable() { return false; }
     @Override protected void doPush(Entity other) { }
     @Override protected void pushEntities() { }
     @Override public void setNoGravity(boolean ignored) { super.setNoGravity(true); }
     @Override public void aiStep() { super.aiStep(); setNoGravity(true); }
     @Override public void baseTick() { super.baseTick(); setDeltaMovement(0, isShiftKeyDown() ? .1 : -.1, 0); }
-    @Override public boolean causeFallDamage(float distance, float multiplier, DamageSource source) { return false; }
+    @Override public boolean causeFallDamage(double distance, float multiplier, DamageSource source) { return false; }
     @Override protected void checkFallDamage(double distance, boolean grounded, BlockState state, BlockPos pos) { }
-    @Override public boolean hurt(DamageSource source, float amount) { return !source.is(DamageTypes.FALL) && super.hurt(source, amount); }
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) { return !source.is(DamageTypes.FALL) && super.hurtServer(level, source, amount); }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.GENERIC_HURT; }
     @Override protected SoundEvent getDeathSound() { return SoundEvents.GENERIC_DEATH; }
-    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType reason, SpawnGroupData group) {
+    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, EntitySpawnReason reason, SpawnGroupData group) {
         var result = super.finalizeSpawn(level, difficulty, reason, group);
         lookAt(EntityAnchorArgument.Anchor.EYES, position());
         return result;
@@ -53,7 +54,7 @@ public final class LiftbugEntity extends AnimatedPathfinderEntity {
         var parent = super.mobInteract(player, hand);
         if (parent.consumesAction()) return parent;
         if (!isAlive() || hand != InteractionHand.MAIN_HAND) return parent;
-        if (level().isClientSide) return InteractionResult.SUCCESS;
+        if (level().isClientSide()) return InteractionResult.SUCCESS;
         if (player.getVehicle() != this && !player.startRiding(this)) return InteractionResult.PASS;
         if (player.getVehicle() != this || getFirstPassenger() != player) return InteractionResult.PASS;
         setShiftKeyDown(!isShiftKeyDown());
@@ -62,6 +63,6 @@ public final class LiftbugEntity extends AnimatedPathfinderEntity {
         return InteractionResult.CONSUME;
     }
     @Override protected Vec3 getPassengerAttachmentPoint(Entity passenger, EntityDimensions dimensions, float scale) { return new Vec3(0, dimensions.height() * .75, 0); }
-    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putBoolean("LiftbugAscending", isShiftKeyDown()); }
-    @Override public void readAdditionalSaveData(CompoundTag tag) { super.readAdditionalSaveData(tag); setShiftKeyDown(tag.getBoolean("LiftbugAscending")); }
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putBoolean("LiftbugAscending", isShiftKeyDown()); }
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); setShiftKeyDown(input.getBooleanOr("LiftbugAscending", false)); }
 }

@@ -20,8 +20,8 @@ import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.entity.projectile.ThrownPotion;
+import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
+import net.minecraft.world.entity.projectile.throwableitemprojectile.AbstractThrownPotion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
@@ -43,7 +43,7 @@ public abstract class OrbEntityBase extends Monster {
 
     @Override protected PathNavigation createNavigation(Level level) { return new FlyingPathNavigation(this, level); }
     @Override protected void registerGoals() { super.registerGoals(); }
-    @Override public boolean causeFallDamage(float distance, float multiplier, DamageSource source) { return false; }
+    @Override public boolean causeFallDamage(double distance, float multiplier, DamageSource source) { return false; }
     @Override public boolean ignoreExplosion(Explosion explosion) { return true; }
     @Override public boolean fireImmune() { return true; }
     @Override public boolean isPushable() { return false; }
@@ -53,18 +53,18 @@ public abstract class OrbEntityBase extends Monster {
     @Override public void setNoGravity(boolean ignored) { super.setNoGravity(true); }
     @Override public void aiStep() { super.aiStep(); setNoGravity(true); }
 
-    @Override public boolean hurt(DamageSource source, float amount) {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) {
         Entity direct = source.getDirectEntity();
         if (source.is(DamageTypes.IN_FIRE) || direct instanceof AbstractArrow || direct instanceof Player
-                || direct instanceof ThrownPotion || direct instanceof AreaEffectCloud || source.is(DamageTypes.FALL)
+                || direct instanceof AbstractThrownPotion || direct instanceof AreaEffectCloud || source.is(DamageTypes.FALL)
                 || source.is(DamageTypes.CACTUS) || source.is(DamageTypes.DROWN) || source.is(DamageTypes.LIGHTNING_BOLT)
                 || source.is(DamageTypes.EXPLOSION) || source.is(DamageTypes.PLAYER_EXPLOSION) || source.is(DamageTypes.TRIDENT)
                 || source.is(DamageTypes.FALLING_ANVIL) || source.is(DamageTypes.DRAGON_BREATH) || source.is(DamageTypes.WITHER)
                 || source.is(DamageTypes.WITHER_SKULL)) return false;
-        return super.hurt(source, amount);
+        return super.hurtServer(level, source, amount);
     }
 
-    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, net.minecraft.world.DifficultyInstance difficulty, net.minecraft.world.entity.MobSpawnType reason, SpawnGroupData group) {
+    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, net.minecraft.world.DifficultyInstance difficulty, net.minecraft.world.entity.EntitySpawnReason reason, SpawnGroupData group) {
         graceTicks = 100;
         return super.finalizeSpawn(level, difficulty, reason, group);
     }
@@ -73,13 +73,13 @@ public abstract class OrbEntityBase extends Monster {
         super.baseTick();
         applyPlayerEffect();
         setDeltaMovement(getLookAngle().scale(.5));
-        if (!level().isClientSide && --graceTicks <= 0) discard();
+        if (!level().isClientSide() && --graceTicks <= 0) discard();
     }
 
     private void applyPlayerEffect() {
         var targets = level().getEntities(this, new AABB(position(), position()).inflate(.5), entity -> entity instanceof Player player && canAffect(player));
         targets.sort(Comparator.comparingDouble(entity -> entity.distanceToSqr(position())));
-        if (!targets.isEmpty() && !level().isClientSide) ThermalShockReforged.LOGGER.debug("Orb collision resolved: orb={}, type={}, position={}, targets={}, graceTicks={}", getUUID(), getType(), position(), targets.size(), graceTicks);
+        if (!targets.isEmpty() && !level().isClientSide()) ThermalShockReforged.LOGGER.debug("Orb collision resolved: orb={}, type={}, position={}, targets={}, graceTicks={}", getUUID(), getType(), position(), targets.size(), graceTicks);
         for (Entity entity : targets) {
             if (entity instanceof Player player) {
                 player.hurt(new DamageSource(level().registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.INDIRECT_MAGIC)), 5.0F);
@@ -91,14 +91,14 @@ public abstract class OrbEntityBase extends Monster {
     protected abstract boolean canAffect(Player player);
     protected abstract void spawnImpactParticles(net.minecraft.server.level.ServerLevel level);
 
-    @Override public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag);
-        tag.putInt("OrbGraceTicks", Math.max(0, Math.min(100, graceTicks)));
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        super.addAdditionalSaveData(output);
+        output.putInt("OrbGraceTicks", Math.max(0, Math.min(100, graceTicks)));
     }
 
-    @Override public void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag);
-        graceTicks = Math.max(0, Math.min(100, tag.getInt("OrbGraceTicks")));
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        super.readAdditionalSaveData(input);
+        graceTicks = Math.max(0, Math.min(100, input.getIntOr("OrbGraceTicks", 0)));
     }
 
     public static AttributeSupplier.Builder createAttributes() {

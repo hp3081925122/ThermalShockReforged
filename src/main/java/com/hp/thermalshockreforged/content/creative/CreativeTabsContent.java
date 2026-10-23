@@ -14,7 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
@@ -33,7 +33,7 @@ public final class CreativeTabsContent {
             TABS.register(definition.id().getPath(), () -> CreativeModeTab.builder()
                     .title(Component.translatable(definition.title()))
                     .icon(() -> icon(definition))
-                    .withTabsBefore(definition.tabsBefore().toArray(ResourceLocation[]::new))
+                    .withTabsBefore(definition.tabsBefore().toArray(Identifier[]::new))
                     .displayItems((parameters, output) -> display(definition, parameters, output))
                     .build());
         }
@@ -56,7 +56,7 @@ public final class CreativeTabsContent {
 
     private static void display(TabDefinition definition, CreativeModeTab.ItemDisplayParameters parameters, CreativeModeTab.Output output) {
         int missing = 0;
-        for (ResourceLocation id : definition.items()) {
+        for (Identifier id : definition.items()) {
             var item = BuiltInRegistries.ITEM.getOptional(id);
             if (item.isEmpty() || item.get() == Items.AIR) {
                 missing++;
@@ -75,22 +75,22 @@ public final class CreativeTabsContent {
         try (var reader = new InputStreamReader(stream, StandardCharsets.UTF_8)) {
             JsonObject root = GsonHelper.parse(reader);
             List<TabDefinition> definitions = new ArrayList<>();
-            Set<ResourceLocation> tabIds = new HashSet<>();
+            Set<Identifier> tabIds = new HashSet<>();
             for (JsonElement element : GsonHelper.getAsJsonArray(root, "tabs")) {
                 JsonObject tab = element.getAsJsonObject();
-                ResourceLocation id = ResourceLocation.parse(GsonHelper.getAsString(tab, "id"));
+                Identifier id = Identifier.parse(GsonHelper.getAsString(tab, "id"));
                 if (!id.getNamespace().equals(ThermalShockReforged.MOD_ID) || !tabIds.add(id)) {
                     throw new IllegalStateException("Invalid or duplicate creative tab: " + id);
                 }
-                List<ResourceLocation> before = locations(tab, "tabs_before");
-                List<ResourceLocation> items = locations(tab, "items");
+                List<Identifier> before = locations(tab, "tabs_before");
+                List<Identifier> items = locations(tab, "items");
                 if (new HashSet<>(items).size() != items.size()) throw new IllegalStateException("Duplicate creative items: " + id);
                 definitions.add(new TabDefinition(id, GsonHelper.getAsString(tab, "title"),
-                        ResourceLocation.parse(GsonHelper.getAsString(tab, "icon")), before, items));
+                        Identifier.parse(GsonHelper.getAsString(tab, "icon")), before, items));
             }
             if (definitions.isEmpty()) throw new IllegalStateException("Empty creative tab manifest");
             for (TabDefinition definition : definitions) {
-                for (ResourceLocation before : definition.tabsBefore()) {
+                for (Identifier before : definition.tabsBefore()) {
                     if (before.equals(definition.id()) || !tabIds.contains(before)) {
                         throw new IllegalStateException("Invalid creative tab ordering: " + before);
                     }
@@ -102,12 +102,12 @@ public final class CreativeTabsContent {
         }
     }
 
-    private static List<ResourceLocation> locations(JsonObject object, String key) {
-        List<ResourceLocation> locations = new ArrayList<>();
-        for (JsonElement element : GsonHelper.getAsJsonArray(object, key)) locations.add(ResourceLocation.parse(element.getAsString()));
+    private static List<Identifier> locations(JsonObject object, String key) {
+        List<Identifier> locations = new ArrayList<>();
+        for (JsonElement element : GsonHelper.getAsJsonArray(object, key)) locations.add(Identifier.parse(element.getAsString()));
         return List.copyOf(locations);
     }
 
-    private record TabDefinition(ResourceLocation id, String title, ResourceLocation icon,
-            List<ResourceLocation> tabsBefore, List<ResourceLocation> items) { }
+    private record TabDefinition(Identifier id, String title, Identifier icon,
+            List<Identifier> tabsBefore, List<Identifier> items) { }
 }

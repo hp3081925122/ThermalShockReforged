@@ -1,9 +1,10 @@
 package com.hp.thermalshockreforged.entity;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.DifficultyInstance;
-import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
@@ -30,13 +31,12 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.PathType;
 import net.neoforged.neoforge.common.NeoForgeMod;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.AnimatableManager;
-import software.bernie.geckolib.animation.AnimationController;
-import software.bernie.geckolib.animation.RawAnimation;
-import software.bernie.geckolib.animation.PlayState;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animatable.manager.AnimatableManager;
+import com.geckolib.animation.RawAnimation;
+import com.geckolib.animation.object.PlayState;
+import com.geckolib.util.GeckoLibUtil;
 
 public final class PondlerEntity extends PathfinderMob implements GeoEntity {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(PondlerEntity.class, EntityDataSerializers.STRING);
@@ -86,7 +86,7 @@ public final class PondlerEntity extends PathfinderMob implements GeoEntity {
     }
 
     @Override
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType reason, SpawnGroupData group) {
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, EntitySpawnReason reason, SpawnGroupData group) {
         SpawnGroupData result = super.finalizeSpawn(level, difficulty, reason, group);
         setTexture(random.nextDouble() < 0.5 ? "orange_pondler" : "green_pondler");
         return result;
@@ -95,7 +95,7 @@ public final class PondlerEntity extends PathfinderMob implements GeoEntity {
     @Override
     public void baseTick() {
         super.baseTick();
-        if (level().isClientSide || !isAlive()) return;
+        if (level().isClientSide() || !isAlive()) return;
         if (jumpCooldown > 0) jumpCooldown--;
         if (jumpCooldown > 0 || level().getBlockState(blockPosition().below()).canOcclude()) return;
         if (level().getBlockState(blockPosition()).is(Blocks.AIR)) {
@@ -142,13 +142,13 @@ public final class PondlerEntity extends PathfinderMob implements GeoEntity {
     }
 
     @Override
-    public boolean hurt(DamageSource source, float damage) {
+    public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float damage) {
         if (!level().getBlockState(blockPosition()).is(Blocks.AIR)) {
             var look = getLookAngle();
             setDeltaMovement(look.x, 0, look.z);
             hasImpulse = true;
         }
-        return !source.is(DamageTypes.DROWN) && super.hurt(source, damage);
+        return !source.is(DamageTypes.DROWN) && super.hurtServer(level, source, damage);
     }
 
     @Override
@@ -162,26 +162,26 @@ public final class PondlerEntity extends PathfinderMob implements GeoEntity {
     }
 
     @Override
-    public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag);
-        tag.putString("Texture", texture());
-        tag.putInt("PondlerJumpCooldown", jumpCooldown);
+    public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        super.addAdditionalSaveData(output);
+        output.putString("Texture", texture());
+        output.putInt("PondlerJumpCooldown", jumpCooldown);
     }
 
     @Override
-    public void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag);
-        if (tag.contains("Texture")) setTexture(tag.getString("Texture"));
-        jumpCooldown = Math.max(0, Math.min(300, tag.getInt("PondlerJumpCooldown")));
+    public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        super.readAdditionalSaveData(input);
+        if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
+        jumpCooldown = Math.max(0, Math.min(300, input.getIntOr("PondlerJumpCooldown", 0)));
     }
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 4, state -> PlayState.STOP)
+        var procedure = new LegacyAnimationController<>(this, "procedure", 4, state -> PlayState.STOP)
                 .triggerableAnim("jump", RawAnimation.begin().thenPlay("jump"))
                 .triggerableAnim("landidle", RawAnimation.begin().thenPlay("landidle"))
                 .triggerableAnim("idle", RawAnimation.begin().thenPlay("idle"));
-        controllers.add(new AnimationController<>(this, "movement", 4, state -> procedure.isPlayingTriggeredAnimation()
+        controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> procedure.isPlayingTriggeredAnimation()
                 ? PlayState.STOP : state.setAndContinue(isInWaterOrBubble() ? WATER_IDLE : LAND_IDLE)));
         controllers.add(procedure);
     }

@@ -7,7 +7,7 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 
 class CrateBlock extends FallingBlock {
     private static final MapCodec<CrateBlock> CODEC = simpleCodec(CrateBlock::new);
@@ -17,7 +17,7 @@ class CrateBlock extends FallingBlock {
 
     static final class Frigid extends CrateBlock {
         private static final MapCodec<Frigid> CODEC = simpleCodec(Frigid::new);
-        private static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+        private static final EnumProperty<Direction> FACING = HorizontalDirectionalBlock.FACING;
         Frigid(Properties properties) { super(properties); registerDefaultState(defaultBlockState().setValue(FACING, Direction.NORTH)); }
         @Override protected MapCodec<? extends FallingBlock> codec() { return CODEC; }
         @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { builder.add(FACING); }

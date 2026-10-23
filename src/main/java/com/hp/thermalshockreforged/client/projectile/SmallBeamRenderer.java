@@ -1,4 +1,6 @@
 package com.hp.thermalshockreforged.client.projectile;
+import com.hp.thermalshockreforged.client.compat.LegacyEntityRenderer;
+import net.minecraft.client.renderer.rendertype.RenderType;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.client.weapons.FirearmBulletRenderer;
@@ -9,11 +11,11 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.entity.*;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
 
-public final class SmallBeamRenderer<T extends LegacyArrowEntity> extends EntityRenderer<T> {
-    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/entities/zerkglow.png");
+public final class SmallBeamRenderer<T extends LegacyArrowEntity> extends LegacyEntityRenderer<T> {
+    private static final Identifier TEXTURE = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/entities/zerkglow.png");
     private final ModelPart group;
     public SmallBeamRenderer(EntityRendererProvider.Context context) { super(context); group = context.bakeLayer(FirearmBulletRenderer.LAYER).getChild("group"); }
     @Override public void render(T entity, float yaw, float partialTick, PoseStack pose, MultiBufferSource buffers, int light) {
@@ -24,5 +26,5 @@ public final class SmallBeamRenderer<T extends LegacyArrowEntity> extends Entity
         pose.popPose();
         super.render(entity, yaw, partialTick, pose, buffers, light);
     }
-    @Override public ResourceLocation getTextureLocation(T entity) { return TEXTURE; }
+    @Override public Identifier getTextureLocation(T entity) { return TEXTURE; }
 }

@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.Set;
 import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.packs.resources.Resource;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.ResourceManagerReloadListener;
@@ -24,7 +24,7 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent;
-import net.neoforged.neoforge.client.event.RegisterClientReloadListenersEvent;
+import net.neoforged.neoforge.client.event.AddClientReloadListenersEvent;
 import net.neoforged.neoforge.client.event.RenderLevelStageEvent;
 
 @EventBusSubscriber(modid = ThermalShockReforged.MOD_ID, value = Dist.CLIENT)
@@ -32,16 +32,16 @@ public final class VfxManager {
     private static final int MAX_EMITTERS = 1024;
     private static final float MAX_FRAMES_PER_UPDATE = 10;
     private static final double MAX_DISTANCE_SQUARED = 160 * 160;
-    private static final Map<ResourceLocation, VfxDefinition> DEFINITIONS = new HashMap<>();
+    private static final Map<Identifier, VfxDefinition> DEFINITIONS = new HashMap<>();
     private static final ArrayDeque<VfxEmitter> EMITTERS = new ArrayDeque<>();
-    private static final Set<ResourceLocation> MISSING = new HashSet<>();
+    private static final Set<Identifier> MISSING = new HashSet<>();
     private static final VfxBatch BATCH = new VfxBatch();
     private static Level level;
     private static long lastTime;
 
     private VfxManager() { }
 
-    public static void play(Level world, ResourceLocation effect, double x, double y, double z) {
+    public static void play(Level world, Identifier effect, double x, double y, double z) {
         if (!world.isClientSide()) return;
         VfxDefinition definition = DEFINITIONS.get(effect);
         if (definition == null) {
@@ -95,12 +95,12 @@ public final class VfxManager {
         level = null;
     }
 
-    @EventBusSubscriber(modid = ThermalShockReforged.MOD_ID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
+    @EventBusSubscriber(modid = ThermalShockReforged.MOD_ID, value = Dist.CLIENT)
     public static final class Loader {
         private Loader() { }
 
         @SubscribeEvent
-        public static void register(RegisterClientReloadListenersEvent event) {
+        public static void register(AddClientReloadListenersEvent event) {
             event.registerReloadListener((ResourceManagerReloadListener) VfxManager::reload);
         }
     }
@@ -109,12 +109,12 @@ public final class VfxManager {
         DEFINITIONS.clear();
         MISSING.clear();
         EMITTERS.clear();
-        for (Map.Entry<ResourceLocation, Resource> entry : manager.listResources("vfx", location -> location.getPath().endsWith(".json")).entrySet()) {
-            ResourceLocation file = entry.getKey();
+        for (Map.Entry<Identifier, Resource> entry : manager.listResources("vfx", location -> location.getPath().endsWith(".json")).entrySet()) {
+            Identifier file = entry.getKey();
             String path = file.getPath().substring("vfx/".length(), file.getPath().length() - ".json".length());
             try (Reader reader = entry.getValue().openAsReader()) {
                 JsonObject json = JsonParser.parseReader(reader).getAsJsonObject();
-                DEFINITIONS.put(ResourceLocation.fromNamespaceAndPath(file.getNamespace(), path), VfxDefinition.parse(json));
+                DEFINITIONS.put(Identifier.fromNamespaceAndPath(file.getNamespace(), path), VfxDefinition.parse(json));
             } catch (Exception exception) {
                 ThermalShockReforged.LOGGER.error("Failed to load visual effect {}", file, exception);
             }

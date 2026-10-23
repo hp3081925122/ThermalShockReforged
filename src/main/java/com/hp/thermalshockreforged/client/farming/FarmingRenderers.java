@@ -1,13 +1,17 @@
 package com.hp.thermalshockreforged.client.farming;
+import net.minecraft.client.renderer.rendertype.RenderTypes;
+import net.minecraft.client.renderer.rendertype.RenderType;
+import com.hp.thermalshockreforged.client.compat.LegacyGeoBlockRenderer;
+import com.hp.thermalshockreforged.client.compat.LegacyGeoItemRenderer;
 
 import com.hp.thermalshockreforged.content.farming.*;
 import net.minecraft.client.renderer.*;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.extensions.common.*;
-import software.bernie.geckolib.animatable.GeoAnimatable;
-import software.bernie.geckolib.model.GeoModel;
-import software.bernie.geckolib.renderer.*;
+import com.geckolib.animatable.GeoAnimatable;
+import com.hp.thermalshockreforged.client.compat.LegacyGeoModel;
+import com.geckolib.renderer.*;
 
 public final class FarmingRenderers {
     public static void register(EntityRenderersEvent.RegisterRenderers event) {
@@ -17,10 +21,7 @@ public final class FarmingRenderers {
     public static void extensions(RegisterClientExtensionsEvent event) {
         for (CropKind kind : CropKind.values()) if (kind.geo) event.registerItem(new IClientItemExtensions() {
             private ItemRenderer renderer;
-            @Override public BlockEntityWithoutLevelRenderer getCustomRenderer() {
-                if (renderer == null) renderer = new ItemRenderer();
-                return renderer;
-            }
+
         }, FarmingContent.geoItem(kind));
     }
 
@@ -34,24 +35,24 @@ public final class FarmingRenderers {
         event.registerSpriteSet(FarmingContent.HEARTHFLY.get(), HearthflyParticle.Provider::new);
     }
 
-    private static final class BlockRenderer extends GeoBlockRenderer<GeoCropBlockEntity> {
+    private static final class BlockRenderer extends LegacyGeoBlockRenderer<GeoCropBlockEntity> {
         private BlockRenderer() { super(new Model<>()); }
-        @Override public RenderType getRenderType(GeoCropBlockEntity entity, ResourceLocation texture, MultiBufferSource buffers, float partialTick) {
-            return RenderType.entityTranslucent(texture);
+        @Override public RenderType getRenderType(GeoCropBlockEntity entity, Identifier texture, MultiBufferSource buffers, float partialTick) {
+            return RenderTypes.entityTranslucent(texture);
         }
     }
 
-    private static final class ItemRenderer extends GeoItemRenderer<GeoCropItem> {
+    private static final class ItemRenderer extends LegacyGeoItemRenderer<GeoCropItem> {
         private ItemRenderer() { super(new Model<>()); }
-        @Override public RenderType getRenderType(GeoCropItem item, ResourceLocation texture, MultiBufferSource buffers, float partialTick) {
-            return RenderType.entityTranslucent(texture);
+        @Override public RenderType getRenderType(GeoCropItem item, Identifier texture, MultiBufferSource buffers, float partialTick) {
+            return RenderTypes.entityTranslucent(texture);
         }
     }
 
-    private static final class Model<T extends GeoAnimatable> extends GeoModel<T> {
+    private static final class Model<T extends GeoAnimatable> extends LegacyGeoModel<T> {
         private CropKind kind(T entity) { return entity instanceof GeoCropBlockEntity block ? block.kind : ((GeoCropItem)entity).kind; }
-        @Override public ResourceLocation getModelResource(T entity) { return ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", "geo/" + kind(entity).model() + ".geo.json"); }
-        @Override public ResourceLocation getTextureResource(T entity) { return ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", "textures/block/" + kind(entity).id + ".png"); }
-        @Override public ResourceLocation getAnimationResource(T entity) { return ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", "animations/" + kind(entity).model() + ".animation.json"); }
+        @Override public Identifier getModelResource(T entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", "geo/" + kind(entity).model() + ".geo.json"); }
+        @Override public Identifier getTextureResource(T entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", "textures/block/" + kind(entity).id + ".png"); }
+        @Override public Identifier getAnimationResource(T entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", "animations/" + kind(entity).model() + ".animation.json"); }
     }
 }

@@ -11,7 +11,7 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.*;
 import net.minecraft.world.effect.MobEffects;
@@ -33,7 +33,7 @@ public final class RippleCastEntity extends Entity implements ServerEndTickTask 
         var task = SanctumContent.RIPPLE_CAST.get().create(level);
         if (task == null) return false;
         task.caster = owner.getUUID(); task.target = victim.getUUID(); task.targetEyes = victim.getEyePosition();
-        task.dimension = level.dimension().location().toString(); task.setPos(victim.position());
+        task.dimension = level.dimension().identifier().toString(); task.setPos(victim.position());
         return level.addFreshEntity(task);
     }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
@@ -42,14 +42,14 @@ public final class RippleCastEntity extends Entity implements ServerEndTickTask 
     @Override public void tick() {
         super.tick();
         if (level() instanceof ServerLevel server) {
-            if (caster == null || consumed || !dimension.equals(server.dimension().location().toString())) { discard(); return; }
+            if (caster == null || consumed || !dimension.equals(server.dimension().identifier().toString())) { discard(); return; }
             Entity victim = target == null ? null : server.getEntity(target);
             if (victim != null) targetEyes = victim.getEyePosition();
             ServerEndTickTasks.schedule(server, getUUID());
         }
     }
     @Override public void endTick(ServerLevel level) {
-        if (isRemoved() || consumed || !dimension.equals(level.dimension().location().toString())) return;
+        if (isRemoved() || consumed || !dimension.equals(level.dimension().identifier().toString())) return;
         if (--remaining > 0) { ServerEndTickTasks.schedule(level, getUUID()); return; }
         consumed = true;
         level.playSound(null, blockPosition(), sound("magnet_bow_25"), SoundSource.HOSTILE, 1, 1);
@@ -60,8 +60,8 @@ public final class RippleCastEntity extends Entity implements ServerEndTickTask 
             level.playSound(null, blockPosition(), SoundEvents.END_PORTAL_SPAWN, SoundSource.HOSTILE, 1, 1);
             var hit = level.clip(new ClipContext(owner.getEyePosition(), owner.getEyePosition().add(owner.getViewVector(1).scale(4)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, owner));
             BlockPos pos = BlockPos.containing(hit.getBlockPos().getX(), owner.getY() + 4, hit.getBlockPos().getZ());
-            var err = SanctumContent.ERR.get().spawn(level, pos, MobSpawnType.MOB_SUMMONED);
-            if (err != null) err.setYRot(level.random.nextFloat() * 360);
+            var err = SanctumContent.ERR.get().spawn(level, pos, EntitySpawnReason.MOB_SUMMONED);
+            if (err != null) err.setYRot(level.getRandom().nextFloat() * 360);
             for (Player player : level.getEntitiesOfClass(Player.class, new AABB(position(), position()).inflate(3.5), entity -> true)) {
                 double resistance = net.minecraft.util.Mth.clamp(player.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE), 0, 1);
                 if (resistance < 1) { player.setDeltaMovement(new Vec3(0, .5 * (1 - resistance), 0)); player.hasImpulse = true; player.hurtMarked = true; }
@@ -72,18 +72,18 @@ public final class RippleCastEntity extends Entity implements ServerEndTickTask 
         }
         discard();
     }
-    private static SoundEvent sound(String path) { return BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path)); }
-    @Override protected void addAdditionalSaveData(CompoundTag tag) {
-        if (caster != null) tag.putUUID("RippleCaster", caster);
-        if (target != null) tag.putUUID("RippleTarget", target);
-        tag.putDouble("RippleTargetX", targetEyes.x); tag.putDouble("RippleTargetY", targetEyes.y); tag.putDouble("RippleTargetZ", targetEyes.z);
-        tag.putString("RippleDimension", dimension); tag.putInt("RippleRemaining", remaining); tag.putBoolean("RippleConsumed", consumed);
+    private static SoundEvent sound(String path) { return BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path)); }
+    @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        if (caster != null) output.putString("RippleCaster", caster.toString());
+        if (target != null) output.putString("RippleTarget", target.toString());
+        output.putDouble("RippleTargetX", targetEyes.x); output.putDouble("RippleTargetY", targetEyes.y); output.putDouble("RippleTargetZ", targetEyes.z);
+        output.putString("RippleDimension", dimension); output.putInt("RippleRemaining", remaining); output.putBoolean("RippleConsumed", consumed);
     }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) {
-        caster = tag.hasUUID("RippleCaster") ? tag.getUUID("RippleCaster") : null;
-        target = tag.hasUUID("RippleTarget") ? tag.getUUID("RippleTarget") : null;
-        targetEyes = new Vec3(tag.getDouble("RippleTargetX"), tag.getDouble("RippleTargetY"), tag.getDouble("RippleTargetZ"));
-        dimension = tag.getString("RippleDimension"); remaining = Math.clamp(tag.getInt("RippleRemaining"), 1, 29); consumed = tag.getBoolean("RippleConsumed");
+    @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        caster = input.getString("RippleCaster").map(java.util.UUID::fromString).orElse(null);
+        target = input.getString("RippleTarget").map(java.util.UUID::fromString).orElse(null);
+        targetEyes = new Vec3(input.getDoubleOr("RippleTargetX", 0.0), input.getDoubleOr("RippleTargetY", 0.0), input.getDoubleOr("RippleTargetZ", 0.0));
+        dimension = input.getStringOr("RippleDimension", ""); remaining = Math.clamp(input.getIntOr("RippleRemaining", 0), 1, 29); consumed = input.getBooleanOr("RippleConsumed", false);
         if (!Double.isFinite(targetEyes.x) || !Double.isFinite(targetEyes.y) || !Double.isFinite(targetEyes.z)) consumed = true;
     }
 }

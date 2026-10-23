@@ -6,7 +6,7 @@ import java.util.List;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -27,7 +27,7 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.BlockHitResult;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.common.util.TriState;
+import net.minecraft.util.TriState;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -127,20 +127,20 @@ public final class TerrainContent {
         private GrassyShaleBlock(boolean snowy, Properties properties) { super(properties); this.snowy = snowy; }
 
         @Override
-        protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
+        protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
                 Player player, InteractionHand hand, BlockHitResult hit) {
             if (player.isShiftKeyDown() || !player.getMainHandItem().is(Items.BONE_MEAL) || hit.getDirection() != Direction.UP
                     || !level.getBlockState(pos.above()).canBeReplaced()) {
-                return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+                return InteractionResult.PASS;
             }
-            if (!level.isClientSide) {
+            if (!level.isClientSide()) {
                 Block plant = state.is(TWILIT_GRASSY_SHALE.get()) ? com.hp.thermalshockreforged.content.plants.PlantContent.TWILIT_SHRUB.get()
-                        : snowy ? (level.random.nextBoolean() ? TALL_FROSTED_GRASS.get() : SHORT_LOQUE_GRASS.get()) : LOQUE_GRASS.get();
+                        : snowy ? (level.getRandom().nextBoolean() ? TALL_FROSTED_GRASS.get() : SHORT_LOQUE_GRASS.get()) : LOQUE_GRASS.get();
                 if (level.setBlock(pos.above(), plant.defaultBlockState(), 3)) {
                     player.getMainHandItem().shrink(1);
                 }
             }
-            return ItemInteractionResult.SUCCESS;
+            return InteractionResult.SUCCESS;
         }
     }
 
@@ -174,7 +174,7 @@ public final class TerrainContent {
     private static final class TerrainFlowerBlock extends FlowerBlock {
         private TerrainFlowerBlock() {
             super(new SuspiciousStewEffects(List.of(new SuspiciousStewEffects.Entry(MobEffects.FIRE_RESISTANCE, 100))),
-                    Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).instabreak().noCollission().replaceable()
+                    Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).instabreak().noCollision().replaceable()
                             .offsetType(BlockBehaviour.OffsetType.XZ).pushReaction(PushReaction.DESTROY));
         }
 

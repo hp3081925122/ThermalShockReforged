@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.content.decor.geo;
+import net.minecraft.world.InteractionResult;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.MaterialContent;
@@ -30,7 +31,7 @@ public final class ShalePillarBlock extends GeoDecorBlock.Directional implements
     }
     private boolean chisel(BlockState state, Level level, BlockPos pos, Player player) {
         if (!player.getMainHandItem().is(UtilityContent.CHISEL.get())) return false;
-        if (level.isClientSide) return true;
+        if (level.isClientSide()) return true;
         if (!level.getBlockState(pos).equals(state) || !(level.getBlockEntity(pos) instanceof GeoDecorBlockEntity previous)) return false;
         int index = java.util.Arrays.asList(STYLES).indexOf(kind);
         if (index < 0) return false;
@@ -49,9 +50,9 @@ public final class ShalePillarBlock extends GeoDecorBlock.Directional implements
         }
         if (changed) level.setBlock(pos, state, 3);
         if (level.getBlockEntity(pos) instanceof GeoDecorBlockEntity restored) { restored.loadWithComponents(saved, level.registryAccess()); restored.setChanged(); }
-        ThermalShockReforged.LOGGER.warn("Shale pillar style conversion failed at {} in {}", pos, level.dimension().location());
+        ThermalShockReforged.LOGGER.warn("Shale pillar style conversion failed at {} in {}", pos, level.dimension().identifier());
         return true;
     }
-    @Override protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) { return chisel(state, level, pos, player) ? ItemInteractionResult.SUCCESS : ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION; }
+    @Override protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) { return chisel(state, level, pos, player) ? InteractionResult.SUCCESS : InteractionResult.PASS; }
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) { return chisel(state, level, pos, player) ? InteractionResult.SUCCESS : InteractionResult.PASS; }
 }

@@ -6,14 +6,14 @@ import net.minecraft.core.HolderSet;
 import net.minecraft.core.RegistryCodecs;
 import net.minecraft.core.Vec3i;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 
-public record StructureFeatureConfiguration(ResourceLocation structure, boolean randomRotation, boolean randomMirror,
+public record StructureFeatureConfiguration(Identifier structure, boolean randomRotation, boolean randomMirror,
         HolderSet<Block> ignoredBlocks, Vec3i offset) implements FeatureConfiguration {
     public static final Codec<StructureFeatureConfiguration> CODEC = RecordCodecBuilder.create(builder -> builder.group(
-            ResourceLocation.CODEC.fieldOf("structure").forGetter(StructureFeatureConfiguration::structure),
+            Identifier.CODEC.fieldOf("structure").forGetter(StructureFeatureConfiguration::structure),
             Codec.BOOL.optionalFieldOf("random_rotation", false).forGetter(StructureFeatureConfiguration::randomRotation),
             Codec.BOOL.optionalFieldOf("random_mirror", false).forGetter(StructureFeatureConfiguration::randomMirror),
             RegistryCodecs.homogeneousList(Registries.BLOCK).fieldOf("ignored_blocks").forGetter(StructureFeatureConfiguration::ignoredBlocks),

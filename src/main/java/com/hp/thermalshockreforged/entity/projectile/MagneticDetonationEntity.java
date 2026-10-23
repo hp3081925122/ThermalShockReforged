@@ -9,7 +9,7 @@ import java.util.UUID;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -52,26 +52,26 @@ public final class MagneticDetonationEntity extends Entity implements ServerEndT
     @Override public void endTick(ServerLevel level) {
         if (isRemoved() || !armed || --remaining > 0) return;
         armed = false;
-        level.playSound(null, blockPosition(), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "magnet_bomb")), SoundSource.NEUTRAL, 1, 1);
+        level.playSound(null, blockPosition(), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "magnet_bomb")), SoundSource.NEUTRAL, 1, 1);
         level.sendParticles(CavebloomerContent.MAGNETIC_BOOM.get(), getX(), getY(), getZ(), 1, 0, 0, 0, 0);
         var targets = level.getEntitiesOfClass(LivingEntity.class, AABB.ofSize(position(), 8, 8, 8), target -> !(target instanceof Player)
                 && !target.getUUID().equals(source) && !(target instanceof MagneticBombEntity bomb && bomb.epsilon() == epsilon));
         targets.sort(Comparator.comparingDouble(target -> target.distanceToSqr(position())));
         for (LivingEntity target : targets) {
-            if (epsilon) target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 30, 12));
+            if (epsilon) target.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 30, 12));
             else if (damage > 0) target.hurt(level.damageSources().generic(), damage);
         }
         if (source != null && level.getEntity(source) instanceof MagneticBombEntity bomb) bomb.discard();
         discard();
     }
-    @Override protected void addAdditionalSaveData(CompoundTag tag) {
-        if (source != null) tag.putUUID("MagneticSource", source);
-        tag.putInt("MagneticRemaining", remaining); tag.putBoolean("Epsilon", epsilon); tag.putFloat("MagneticDamage", damage); tag.putBoolean("Armed", armed);
+    @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        if (source != null) output.putString("MagneticSource", source.toString());
+        output.putInt("MagneticRemaining", remaining); output.putBoolean("Epsilon", epsilon); output.putFloat("MagneticDamage", damage); output.putBoolean("Armed", armed);
     }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) {
-        source = tag.hasUUID("MagneticSource") ? tag.getUUID("MagneticSource") : null;
-        remaining = Math.clamp(tag.getInt("MagneticRemaining"), 1, 10); epsilon = tag.getBoolean("Epsilon");
-        damage = Float.isFinite(tag.getFloat("MagneticDamage")) ? Math.clamp(tag.getFloat("MagneticDamage"), 0, 2048) : 0;
-        armed = tag.getBoolean("Armed") && source != null;
+    @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        source = input.getString("MagneticSource").map(java.util.UUID::fromString).orElse(null);
+        remaining = Math.clamp(input.getIntOr("MagneticRemaining", 0), 1, 10); epsilon = input.getBooleanOr("Epsilon", false);
+        damage = Float.isFinite(input.getFloatOr("MagneticDamage", 0.0F)) ? Math.clamp(input.getFloatOr("MagneticDamage", 0.0F), 0, 2048) : 0;
+        armed = input.getBooleanOr("Armed", false) && source != null;
     }
 }

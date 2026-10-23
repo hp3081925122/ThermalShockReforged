@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.content.weapons;
+import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.ModDamageTypes;
@@ -8,7 +9,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.*;
 import net.minecraft.tags.TagKey;
@@ -30,7 +31,7 @@ public final class FirearmBulletEntity extends AbstractArrow implements ItemSupp
         remaining = isHailfall() ? 40 : 7;
         pickup = Pickup.DISALLOWED;
     }
-    private static TagKey<EntityType<?>> weak(String id) { return TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, id)); }
+    private static TagKey<EntityType<?>> weak(String id) { return TagKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, id)); }
     public boolean isHailfall() { return getType() == WeaponContent.HAILFALL_BULLET.get(); }
     @Override public ItemStack getItem() { return new ItemStack(GeoDecorContent.item(isHailfall() ? GeoDecorKind.HAIL : GeoDecorKind.YELLOW_ORB)); }
     @Override protected ItemStack getDefaultPickupItem() { return getItem(); }
@@ -65,11 +66,11 @@ public final class FirearmBulletEntity extends AbstractArrow implements ItemSupp
         if (isRemoved() || !armed) return;
         if (--remaining <= 0) discard(); else ServerEndTickTasks.schedule(level, getUUID());
     }
-    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putInt("FirearmRemaining", remaining); tag.putBoolean("FirearmArmed", armed); }
-    @Override public void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag);
-        remaining = tag.contains("FirearmRemaining") ? Math.clamp(tag.getInt("FirearmRemaining"), 1, isHailfall() ? 40 : 7) : isHailfall() ? 40 : 7;
-        armed = tag.getBoolean("FirearmArmed"); pickup = Pickup.DISALLOWED;
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putInt("FirearmRemaining", remaining); output.putBoolean("FirearmArmed", armed); }
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        super.readAdditionalSaveData(input);
+        remaining = input.getString("FirearmRemaining").isPresent() ? Math.clamp(input.getIntOr("FirearmRemaining", 0), 1, isHailfall() ? 40 : 7) : isHailfall() ? 40 : 7;
+        armed = input.getBooleanOr("FirearmArmed", false); pickup = Pickup.DISALLOWED;
         if (!Double.isFinite(getBaseDamage()) || getBaseDamage() < 0) setBaseDamage(0);
     }
 }

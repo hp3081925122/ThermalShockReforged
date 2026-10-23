@@ -1,4 +1,9 @@
 package com.hp.thermalshockreforged.entity.qo;
+import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
+import net.minecraft.world.entity.projectile.throwableitemprojectile.AbstractThrownPotion;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.MaterialContent;
@@ -14,10 +19,10 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
+import com.geckolib.util.GeckoLibUtil;
 
 public final class DefectorMachinistEntity extends PathfinderMob implements GeoEntity {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(DefectorMachinistEntity.class, EntityDataSerializers.STRING);
@@ -29,13 +34,13 @@ public final class DefectorMachinistEntity extends PathfinderMob implements GeoE
     public String texture() { return entityData.get(TEXTURE); }
     @Override public boolean removeWhenFarAway(double distance) { return false; }
     static boolean ignores(DamageSource source) {
-        return source.getDirectEntity() instanceof AbstractArrow || source.getDirectEntity() instanceof ThrownPotion || source.getDirectEntity() instanceof AreaEffectCloud || source.is(DamageTypes.IN_FIRE) || source.is(DamageTypes.FALL) || source.is(DamageTypes.CACTUS) || source.is(DamageTypes.DROWN) || source.is(DamageTypes.LIGHTNING_BOLT) || source.is(DamageTypes.EXPLOSION) || source.is(DamageTypes.TRIDENT) || source.is(DamageTypes.FALLING_ANVIL) || source.is(DamageTypes.DRAGON_BREATH) || source.is(DamageTypes.WITHER) || source.is(DamageTypes.WITHER_SKULL);
+        return source.getDirectEntity() instanceof AbstractArrow || source.getDirectEntity() instanceof AbstractThrownPotion || source.getDirectEntity() instanceof AreaEffectCloud || source.is(DamageTypes.IN_FIRE) || source.is(DamageTypes.FALL) || source.is(DamageTypes.CACTUS) || source.is(DamageTypes.DROWN) || source.is(DamageTypes.LIGHTNING_BOLT) || source.is(DamageTypes.EXPLOSION) || source.is(DamageTypes.TRIDENT) || source.is(DamageTypes.FALLING_ANVIL) || source.is(DamageTypes.DRAGON_BREATH) || source.is(DamageTypes.WITHER) || source.is(DamageTypes.WITHER_SKULL);
     }
-    @Override public boolean hurt(DamageSource source, float amount) { return !ignores(source) && super.hurt(source, amount); }
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) { return !ignores(source) && super.hurtServer(level, source, amount); }
     @Override protected InteractionResult mobInteract(Player player, InteractionHand hand) {
         super.mobInteract(player, hand);
         if (hand == InteractionHand.MAIN_HAND && player instanceof ServerPlayer server && isAlive()) {
-            var progress = QoProgressData.get(server.serverLevel());
+            var progress = QoProgressData.get(((net.minecraft.server.level.ServerLevel) server.level()));
             double contacts = progress.contacts();
             QoPage page = contacts == 0 ? QoPage.INTRO_1 : contacts == 1 ? QoPage.INTRO_2 : contacts == 2 ? QoPage.INTRO_3 : contacts == 3 ? QoPage.INTRO_4 : contacts == 4 ? QoPage.INTRO_5 : QoPage.EXHAUST;
             if (QoContent.open(server, this, blockPosition(), page)) {
@@ -58,31 +63,31 @@ public final class DefectorMachinistEntity extends PathfinderMob implements GeoE
                 }
             }
         }
-        return InteractionResult.sidedSuccess(level().isClientSide);
+        return InteractionResult.SUCCESS;
     }
     @Override public void baseTick() {
         super.baseTick();
-        if (level().isClientSide) {
+        if (level().isClientSide()) {
             if (random.nextDouble() < .005) {
                 triggerAnim("procedure", "idlejunkyard2");
                 ThermalShockReforged.LOGGER.debug("Qo local idle animation triggered: npc={}, clientTick={}", getUUID(), tickCount);
             }
             return;
         }
-        if (!level().isClientSide && idleCooldown > 0) idleCooldown--;
-        if (!level().isClientSide && idleCooldown == 0 && random.nextDouble() < .005) { idleCooldown = 120; triggerAnim("procedure", "idlejunkyard2"); }
+        if (!level().isClientSide() && idleCooldown > 0) idleCooldown--;
+        if (!level().isClientSide() && idleCooldown == 0 && random.nextDouble() < .005) { idleCooldown = 120; triggerAnim("procedure", "idlejunkyard2"); }
     }
     @Override protected void tickDeath() { if (++deathTime >= 20) remove(RemovalReason.KILLED); }
-    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); tag.putInt("QoIdleCooldown", idleCooldown); }
-    @Override public void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag);
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putString("Texture", texture()); output.putInt("QoIdleCooldown", idleCooldown); }
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        super.readAdditionalSaveData(input);
         if (!tag.contains("NeoForgeData", 10) && tag.contains("ForgeData", 10)) getPersistentData().merge(tag.getCompound("ForgeData"));
-        if (tag.contains("Texture")) entityData.set(TEXTURE, tag.getString("Texture"));
-        idleCooldown = Math.clamp(tag.getInt("QoIdleCooldown"), 0, 120); setPersistenceRequired();
+        if (input.getString("Texture").isPresent()) entityData.set(TEXTURE, input.getStringOr("Texture", ""));
+        idleCooldown = Math.clamp(input.getIntOr("QoIdleCooldown", 0), 0, 120); setPersistenceRequired();
     }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 4, state -> PlayState.STOP).triggerableAnim("idlejunkyard2", RawAnimation.begin().thenPlay("idlejunkyard2"));
-        controllers.add(new AnimationController<>(this, "movement", 4, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop("idlejunkyard")))); controllers.add(procedure);
+        var procedure = new LegacyAnimationController<>(this, "procedure", 4, state -> PlayState.STOP).triggerableAnim("idlejunkyard2", RawAnimation.begin().thenPlay("idlejunkyard2"));
+        controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop("idlejunkyard")))); controllers.add(procedure);
     }
     @Override public AnimatableInstanceCache getAnimatableInstanceCache() { return animations; }
 }

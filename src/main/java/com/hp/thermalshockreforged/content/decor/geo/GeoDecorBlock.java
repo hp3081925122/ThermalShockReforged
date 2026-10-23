@@ -1,4 +1,6 @@
 package com.hp.thermalshockreforged.content.decor.geo;
+import net.minecraft.world.level.BlockAndLightGetter;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import net.minecraft.server.level.ServerLevel;
@@ -32,7 +34,7 @@ public class GeoDecorBlock extends Block implements EntityBlock {
     @Override protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) { return kind.shape; }
     @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 0; }
     @Override protected boolean propagatesSkylightDown(BlockState state, BlockGetter level, BlockPos pos) { return true; }
-    @Override public boolean shouldDisplayFluidOverlay(BlockState state, BlockAndTintGetter level, BlockPos pos, FluidState fluid) {
+    @Override public boolean shouldDisplayFluidOverlay(BlockState state, BlockAndLightGetter level, BlockPos pos, FluidState fluid) {
         return kind == GeoDecorKind.VOLTFLOWER_BULB || super.shouldDisplayFluidOverlay(state, level, pos, fluid);
     }
     @Override public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
@@ -82,7 +84,7 @@ public class GeoDecorBlock extends Block implements EntityBlock {
     }
     @Override protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState previous, boolean moving) {
         super.onPlace(state, level, pos, previous, moving);
-        if (!level.isClientSide && !kind.parts.isEmpty()) placeParts(level, pos);
+        if (!level.isClientSide() && !kind.parts.isEmpty()) placeParts(level, pos);
     }
     @Override protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         super.tick(state, level, pos, random);
@@ -90,8 +92,8 @@ public class GeoDecorBlock extends Block implements EntityBlock {
     }
     @Override protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState replacement, boolean moving) {
         if (!state.is(replacement.getBlock())) {
-            if (!level.isClientSide && !kind.parts.isEmpty()) removeParts(level, pos);
-            if (!level.isClientSide && level.getBlockEntity(pos) instanceof GeoDecorBlockEntity entity) {
+            if (!level.isClientSide() && !kind.parts.isEmpty()) removeParts(level, pos);
+            if (!level.isClientSide() && level.getBlockEntity(pos) instanceof GeoDecorBlockEntity entity) {
                 Containers.dropContents(level, pos, entity);
                 level.updateNeighbourForOutputSignal(pos, this);
             }
@@ -117,7 +119,7 @@ public class GeoDecorBlock extends Block implements EntityBlock {
         }
     }
     public static class Directional extends GeoDecorBlock {
-        public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+        public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
         public Directional(GeoDecorKind kind) { super(kind); registerDefaultState(defaultBlockState().setValue(FACING, Direction.NORTH)); }
         @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { super.createBlockStateDefinition(builder); builder.add(FACING); }
         @Override public BlockState getStateForPlacement(BlockPlaceContext context) { return defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite()); }

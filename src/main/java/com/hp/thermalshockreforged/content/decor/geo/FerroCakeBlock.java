@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.content.decor.geo;
+import net.minecraft.world.InteractionResult;
 
 import com.hp.thermalshockreforged.content.food.FerroCakeConsumption;
 import net.minecraft.core.BlockPos;
@@ -18,6 +19,6 @@ public final class FerroCakeBlock extends GeoDecorBlock.Directional {
     private void consume(Level level, BlockPos pos, Player player) {
         if (level instanceof ServerLevel server && player instanceof ServerPlayer owner && level.getBlockEntity(pos) instanceof GeoDecorBlockEntity cake && cake.kind == GeoDecorKind.FERRO_CAKE) FerroCakeConsumption.begin(server, pos, cake, owner);
     }
-    @Override protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) { consume(level, pos, player); return ItemInteractionResult.SUCCESS; }
+    @Override protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) { consume(level, pos, player); return InteractionResult.SUCCESS; }
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) { consume(level, pos, player); return InteractionResult.SUCCESS; }
 }

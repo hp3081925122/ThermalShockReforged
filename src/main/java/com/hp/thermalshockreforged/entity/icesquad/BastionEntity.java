@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.entity.icesquad;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.remainingcombat.RemainingCombatState;
@@ -16,7 +17,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerBossEvent;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -45,13 +46,12 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.AnimatableManager;
-import software.bernie.geckolib.animation.AnimationController;
-import software.bernie.geckolib.animation.PlayState;
-import software.bernie.geckolib.animation.RawAnimation;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animatable.manager.AnimatableManager;
+import com.geckolib.animation.object.PlayState;
+import com.geckolib.animation.RawAnimation;
+import com.geckolib.util.GeckoLibUtil;
 
 public final class BastionEntity extends Monster implements GeoEntity {
     public static final int NONE = 0;
@@ -162,7 +162,7 @@ public final class BastionEntity extends Monster implements GeoEntity {
             setTexture("icidrobastionred");
             color = BossEvent.BossBarColor.RED;
         } else setTexture("icidrobastionblu");
-        bossInfo = new ServerBossEvent(getDisplayName(), color, BossEvent.BossBarOverlay.PROGRESS);
+        bossInfo = new ServerBossEvent(getUUID(), getDisplayName(), color, BossEvent.BossBarOverlay.PROGRESS);
         applyConfiguredAttributes();
     }
 
@@ -180,7 +180,7 @@ public final class BastionEntity extends Monster implements GeoEntity {
     }
 
     void applyConfiguredAttributes() {
-        if (level().isClientSide || attributesApplied || !BastionCombatConfig.SPEC.isLoaded()) return;
+        if (level().isClientSide() || attributesApplied || !BastionCombatConfig.SPEC.isLoaded()) return;
         int k = kind();
         float health = getHealth();
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(BastionCombatConfig.HEALTH[k].get());
@@ -220,7 +220,7 @@ public final class BastionEntity extends Monster implements GeoEntity {
     }
 
     @Override public void tick() {
-        if (!level().isClientSide) applyConfiguredAttributes();
+        if (!level().isClientSide()) applyConfiguredAttributes();
         super.tick();
     }
 
@@ -412,7 +412,7 @@ public final class BastionEntity extends Monster implements GeoEntity {
                 if (victim.position().subtract(at).horizontalDistanceSqr() > 1.2) continue;
                 if (!victim.hurt(damageSources().mobAttack(this), (float) damage)) continue;
                 thermalShock(server, victim, this, true);
-                victim.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 40, 0));
+                victim.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 40, 0));
                 lift(victim, .3);
             }
             return;
@@ -775,7 +775,7 @@ public final class BastionEntity extends Monster implements GeoEntity {
     }
 
     private void shoot(ServerLevel server, float offset) {
-        IceSquadProjectileEntity shard = IceSquadContent.GUNNER_BULLET.get().create(server);
+        IceSquadProjectileEntity shard = IceSquadContent.GUNNER_BULLET.get().create(server, net.minecraft.world.entity.EntitySpawnReason.MOB_SUMMONED);
         if (shard == null) return;
         shard.configure(this, false, BastionCombatConfig.SHARD_MULTIPLIER.get() / SHARD_SPEED, 0);
         Vec3 muzzle = gun();
@@ -816,7 +816,7 @@ public final class BastionEntity extends Monster implements GeoEntity {
             if (away.horizontalDistanceSqr() > reach) continue;
             if (!victim.hurt(damageSources().mobAttack(this), (float) damage)) continue;
             thermalShock(server, victim, this, true);
-            victim.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 60, 1));
+            victim.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 60, 1));
             if (away.horizontalDistanceSqr() < 1.0E-4) away = victim.position().subtract(position());
             victim.knockback(BastionCombatConfig.SKILL_KNOCKBACK[0].get(), -away.x, -away.z);
             victim.hurtMarked = true;
@@ -954,7 +954,7 @@ public final class BastionEntity extends Monster implements GeoEntity {
         data.putLong(SHOCK_KEY, now + BastionCombatConfig.THERMAL_COOLDOWN.get());
         data.remove(CHILL_KEY);
         victim.clearFire();
-        victim.removeEffect(MobEffects.MOVEMENT_SLOWDOWN);
+        victim.removeEffect(MobEffects.SLOWNESS);
         Vec3 center = victim.getBoundingBox().getCenter();
         server.sendParticles(IceSquadContent.THERMAL_BURST.get(), center.x, center.y, center.z, 0, 1.4, 0, 0, 1);
         for (int i = 0; i < 6; i++) {
@@ -1017,7 +1017,7 @@ public final class BastionEntity extends Monster implements GeoEntity {
         return new Vec3(position.x, cursor.getY(), position.z);
     }
 
-    private static SoundEvent customSound(String name) { return BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, name)); }
+    private static SoundEvent customSound(String name) { return BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, name)); }
 
     private void play(SoundEvent sound, float volume, float pitch) { playAt(position(), sound, volume, pitch); }
 
@@ -1028,7 +1028,7 @@ public final class BastionEntity extends Monster implements GeoEntity {
 
     @Override public void aiStep() {
         super.aiStep();
-        if (!level().isClientSide || !isAlive()) return;
+        if (!level().isClientSide() || !isAlive()) return;
         int skill = cast();
         if (skill != clientCast) {
             clientCast = skill;
@@ -1087,7 +1087,7 @@ public final class BastionEntity extends Monster implements GeoEntity {
         }
     }
 
-    @Override public boolean hurt(DamageSource source, float amount) { return !source.is(DamageTypes.DROWN) && !source.is(DamageTypes.LIGHTNING_BOLT) && super.hurt(source, amount); }
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) { return !source.is(DamageTypes.DROWN) && !source.is(DamageTypes.LIGHTNING_BOLT) && super.hurtServer(level, source, amount); }
     @Override public boolean removeWhenFarAway(double distance) { return false; }
     @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.IRON_GOLEM_HURT; }
@@ -1110,7 +1110,7 @@ public final class BastionEntity extends Monster implements GeoEntity {
         }
     }
 
-    @Override protected void dropExperience(Entity attacker) {
+    @Override protected void dropExperience(net.minecraft.server.level.ServerLevel level, Entity attacker) {
         experiencePending = true;
         experienceAttacker = null;
         if (attacker != null) experienceAttacker = attacker.getUUID();
@@ -1123,39 +1123,39 @@ public final class BastionEntity extends Monster implements GeoEntity {
                 experiencePending = false;
                 Entity attacker = null;
                 if (experienceAttacker != null) attacker = server.getEntity(experienceAttacker);
-                super.dropExperience(attacker);
+                super.dropExperience(server, attacker);
             }
         }
     }
 
-    @Override public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag);
-        tag.putString("Texture", texture());
-        tag.putBoolean("BastionEnraged", enraged());
-        tag.putBoolean("BastionDeathCommitted", deathCommitted);
-        tag.putBoolean("BastionExperiencePending", experiencePending);
-        if (experienceAttacker != null) tag.putUUID("BastionExperienceAttacker", experienceAttacker);
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        super.addAdditionalSaveData(output);
+        output.putString("Texture", texture());
+        output.putBoolean("BastionEnraged", enraged());
+        output.putBoolean("BastionDeathCommitted", deathCommitted);
+        output.putBoolean("BastionExperiencePending", experiencePending);
+        if (experienceAttacker != null) output.putString("BastionExperienceAttacker", experienceAttacker.toString());
     }
 
-    @Override public void readAdditionalSaveData(CompoundTag tag) {
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         loadedFromSave = true;
-        super.readAdditionalSaveData(tag);
+        super.readAdditionalSaveData(input);
         attributesApplied = false;
         applyConfiguredAttributes();
         setPersistenceRequired();
-        if (tag.contains("Texture")) setTexture(tag.getString("Texture"));
-        entityData.set(ENRAGED, tag.getBoolean("BastionEnraged"));
-        deathCommitted = tag.getBoolean("BastionDeathCommitted");
-        experiencePending = tag.getBoolean("BastionExperiencePending");
+        if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
+        entityData.set(ENRAGED, input.getBooleanOr("BastionEnraged", false));
+        deathCommitted = input.getBooleanOr("BastionDeathCommitted", false);
+        experiencePending = input.getBooleanOr("BastionExperiencePending", false);
         experienceAttacker = null;
-        if (tag.hasUUID("BastionExperienceAttacker")) experienceAttacker = tag.getUUID("BastionExperienceAttacker");
+        if (input.getString("BastionExperienceAttacker").isPresent()) experienceAttacker = java.util.UUID.fromString(input.getStringOr("BastionExperienceAttacker", "00000000-0000-0000-0000-000000000000"));
         bossInfo.setName(getDisplayName());
     }
 
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 4, state -> PlayState.STOP);
+        var procedure = new LegacyAnimationController<>(this, "procedure", 4, state -> PlayState.STOP);
         for (String name : new String[]{"idle", "walk", "aimchaingun", "firechaingun", "firechaingun2", "aimflamethrower", "fireflamethrower", "fireflamethrower2", "aimmortar", "firemortar", "rift", "boost", "enrage", "aimlob", "firelob", "sweep", "vent", "erupt", "chargewind", "chargerun"}) procedure.triggerableAnim(name, RawAnimation.begin().thenPlay(name));
-        controllers.add(new AnimationController<>(this, "movement", 4, state -> {
+        controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> {
             if (procedure.isPlayingTriggeredAnimation()) return PlayState.STOP;
             String loop = "idle";
             if (state.isMoving() || Math.abs(state.getLimbSwingAmount()) >= 0.15F) loop = "walk";

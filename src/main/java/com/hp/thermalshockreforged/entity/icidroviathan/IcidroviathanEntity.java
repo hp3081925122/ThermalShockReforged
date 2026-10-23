@@ -1,11 +1,12 @@
 package com.hp.thermalshockreforged.entity.icidroviathan;
+import net.minecraft.world.InteractionResult;
 
 import com.hp.thermalshockreforged.content.decor.nativeblocks.NativeDecorContent;
 import com.hp.thermalshockreforged.entity.base.AnimatedPathfinderEntity;
 import java.util.List;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.*;
 import net.minecraft.world.*;
 import net.minecraft.world.damagesource.*;
@@ -17,7 +18,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
 public final class IcidroviathanEntity extends AnimatedPathfinderEntity {
-    private static final ResourceLocation TERRAIN_SPEED = ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", "icidroviathan_terrain_speed");
+    private static final Identifier TERRAIN_SPEED = Identifier.fromNamespaceAndPath("thermal_shock_reforged", "icidroviathan_terrain_speed");
     private int terrainSlowTicks;
     public IcidroviathanEntity(EntityType<? extends IcidroviathanEntity> type, Level level) { super(type, level, "icidroviathan_slagged", 0); setPersistenceRequired(); }
     public static AttributeSupplier.Builder attributes() {
@@ -28,7 +29,7 @@ public final class IcidroviathanEntity extends AnimatedPathfinderEntity {
     @Override protected List<String> procedureAnimations() { return List.of("idle", "swim"); }
     @Override public boolean removeWhenFarAway(double distance) { return false; }
     @Override public boolean canCollideWith(Entity entity) { return true; }
-    @Override public boolean canBeCollidedWith() { return true; }
+    public boolean canBeCollidedWith() { return true; }
     @Override public boolean isPushable() { return false; }
     @Override protected void doPush(Entity entity) { }
     @Override protected void pushEntities() { }
@@ -46,19 +47,19 @@ public final class IcidroviathanEntity extends AnimatedPathfinderEntity {
     @Override protected InteractionResult mobInteract(Player player, InteractionHand hand) {
         var result = super.mobInteract(player, hand);
         if (result.consumesAction() || hand != InteractionHand.MAIN_HAND || !isAlive()) return result;
-        if (level().isClientSide) return InteractionResult.SUCCESS;
+        if (level().isClientSide()) return InteractionResult.SUCCESS;
         return player.getVehicle() == this || player.startRiding(this) ? InteractionResult.CONSUME : InteractionResult.PASS;
     }
     @Override public void baseTick() {
         super.baseTick();
-        if (level().isClientSide) return;
+        if (level().isClientSide()) return;
         if (!level().getBlockState(BlockPos.containing(getX(), getY() - 1, getZ())).is(NativeDecorContent.MANTLESLAG.get())) terrainSlowTicks = 5;
         else if (terrainSlowTicks > 0) --terrainSlowTicks;
         updateTerrainSpeed();
     }
     private void updateTerrainSpeed() {
         var speed = getAttribute(Attributes.MOVEMENT_SPEED);
-        var actual = getEffect(MobEffects.MOVEMENT_SLOWDOWN);
+        var actual = getEffect(MobEffects.SLOWNESS);
         double factor = actual == null ? 1 : 1 - (double).15F * (actual.getAmplifier() + 1);
         double limit = 1 - (double).15F * 4;
         double amount = terrainSlowTicks > 0 && factor > limit ? limit / factor - 1 : 0;
@@ -67,10 +68,10 @@ public final class IcidroviathanEntity extends AnimatedPathfinderEntity {
         if (previous != null) speed.removeModifier(TERRAIN_SPEED);
         if (amount != 0) speed.addTransientModifier(new AttributeModifier(TERRAIN_SPEED, amount, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
     }
-    @Override public boolean removeAllEffects() { boolean result = super.removeAllEffects(); if (!level().isClientSide && terrainSlowTicks > 0) { terrainSlowTicks = 0; updateTerrainSpeed(); return true; } return result; }
-    @Override public boolean hurt(DamageSource source, float amount) { return !source.is(DamageTypes.IN_FIRE) && !source.is(DamageTypes.FALL) && !source.is(DamageTypes.DROWN) && super.hurt(source, amount); }
+    @Override public boolean removeAllEffects() { boolean result = super.removeAllEffects(); if (!level().isClientSide() && terrainSlowTicks > 0) { terrainSlowTicks = 0; updateTerrainSpeed(); return true; } return result; }
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) { return !source.is(DamageTypes.IN_FIRE) && !source.is(DamageTypes.FALL) && !source.is(DamageTypes.DROWN) && super.hurtServer(level, source, amount); }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.GENERIC_HURT; }
     @Override protected SoundEvent getDeathSound() { return SoundEvents.GENERIC_DEATH; }
-    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putInt("IcidroviathanTerrainSlow", terrainSlowTicks); }
-    @Override public void readAdditionalSaveData(CompoundTag tag) { super.readAdditionalSaveData(tag); terrainSlowTicks = Math.clamp(tag.getInt("IcidroviathanTerrainSlow"), 0, 5); updateTerrainSpeed(); }
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putInt("IcidroviathanTerrainSlow", terrainSlowTicks); }
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); terrainSlowTicks = Math.clamp(input.getIntOr("IcidroviathanTerrainSlow", 0), 0, 5); updateTerrainSpeed(); }
 }

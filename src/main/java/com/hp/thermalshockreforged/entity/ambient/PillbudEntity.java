@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.entity.ambient;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.world.timing.ServerEndTickTask;
@@ -14,10 +17,10 @@ import net.minecraft.world.entity.ai.goal.target.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
+import com.geckolib.util.GeckoLibUtil;
 
 public final class PillbudEntity extends net.minecraft.world.entity.monster.Monster implements GeoEntity, ServerEndTickTask {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(PillbudEntity.class, EntityDataSerializers.STRING);
@@ -46,13 +49,13 @@ public final class PillbudEntity extends net.minecraft.world.entity.monster.Mons
     @Override
     public boolean isWithinMeleeAttackRange(LivingEntity target) { return distanceToSqr(target) <= 49; }
     @Override
-    public boolean doHurtTarget(Entity target) { if (target instanceof LivingEntity living) beginSkill(living); return false; }
+    public boolean doHurtTarget(net.minecraft.server.level.ServerLevel level, Entity target) { if (target instanceof LivingEntity living) beginSkill(living); return false; }
     public void beginSkill(LivingEntity target) {
-        if (level().isClientSide || !isAlive() || cooldown > 0 || skillTick >= 0 || !target.isAlive() || target.level() != level() || !(target instanceof Player)) return;
+        if (level().isClientSide() || !isAlive() || cooldown > 0 || skillTick >= 0 || !target.isAlive() || target.level() != level() || !(target instanceof Player)) return;
         cooldown = 60;
         skillTick = 0;
         skillTarget = target.getUUID();
-        skillDimension = level().dimension().location().toString();
+        skillDimension = level().dimension().identifier().toString();
         origin = target.position();
         face(target);
         setAnimation("attack");
@@ -61,7 +64,7 @@ public final class PillbudEntity extends net.minecraft.world.entity.monster.Mons
     }
     private void face(LivingEntity target) { lookAt(net.minecraft.commands.arguments.EntityAnchorArgument.Anchor.EYES, target.getEyePosition()); yBodyRot = getYRot(); yHeadRot = getYRot(); }
     private LivingEntity skillTarget() {
-        if (!(level() instanceof net.minecraft.server.level.ServerLevel server) || skillTarget == null || !skillDimension.equals(level().dimension().location().toString())) return null;
+        if (!(level() instanceof net.minecraft.server.level.ServerLevel server) || skillTarget == null || !skillDimension.equals(level().dimension().identifier().toString())) return null;
         var found = server.getEntity(skillTarget);
         return found instanceof LivingEntity living && living.isAlive() && living.level() == level() ? living : null;
     }
@@ -72,16 +75,16 @@ public final class PillbudEntity extends net.minecraft.world.entity.monster.Mons
     }
     @Override
     public void tick() {
-        if (!level().isClientSide && cooldown > 0) cooldown--;
+        if (!level().isClientSide() && cooldown > 0) cooldown--;
         super.tick();
-        if (level().isClientSide) return;
+        if (level().isClientSide()) return;
         if (!isAlive()) { skillTick = -1; skillTarget = null; return; }
         if (skillTick >= 0 && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
     }
     @Override
     public void endTick(ServerLevel server) {
         if (skillTick < 0 || isRemoved()) return;
-        if (!isAlive() || !skillDimension.equals(server.dimension().location().toString())) { skillTick = -1; skillTarget = null; return; }
+        if (!isAlive() || !skillDimension.equals(server.dimension().identifier().toString())) { skillTick = -1; skillTarget = null; return; }
         var target = skillTarget();
         if (target == null) { skillTick = -1; skillTarget = null; return; }
         if (resumeAnimation) { setAnimation("attack"); resumeAnimation = false; }
@@ -93,7 +96,7 @@ public final class PillbudEntity extends net.minecraft.world.entity.monster.Mons
             var look = getLookAngle();
             setDeltaMovement(look.x * 2, 0.4, look.z * 2);
             hasImpulse = true;
-            soundAtOrigin(net.minecraft.core.registries.BuiltInRegistries.SOUND_EVENT.get(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", "propulsionbootsactivate")));
+            soundAtOrigin(net.minecraft.core.registries.BuiltInRegistries.SOUND_EVENT.getValue(net.minecraft.resources.Identifier.fromNamespaceAndPath("thermal_shock_reforged", "propulsionbootsactivate")));
             soundAtOrigin(net.minecraft.sounds.SoundEvents.FIREWORK_ROCKET_LAUNCH);
         }
         if (skillTick == 22) {
@@ -117,13 +120,13 @@ public final class PillbudEntity extends net.minecraft.world.entity.monster.Mons
     protected net.minecraft.sounds.SoundEvent getHurtSound(DamageSource source) { return net.minecraft.sounds.SoundEvents.GENERIC_HURT; }
 
     @Override
-    public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); tag.putInt("SkillCooldown", cooldown); tag.putInt("SkillTick", skillTick); if (skillTarget != null) tag.putUUID("SkillTarget", skillTarget); tag.putString("SkillDimension", skillDimension); tag.putDouble("OriginX", origin.x); tag.putDouble("OriginY", origin.y); tag.putDouble("OriginZ", origin.z); }
+    public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putString("Texture", texture()); output.putInt("SkillCooldown", cooldown); output.putInt("SkillTick", skillTick); if (skillTarget != null) output.putString("SkillTarget", skillTarget.toString()); output.putString("SkillDimension", skillDimension); output.putDouble("OriginX", origin.x); output.putDouble("OriginY", origin.y); output.putDouble("OriginZ", origin.z); }
     @Override
-    public void readAdditionalSaveData(CompoundTag tag) { super.readAdditionalSaveData(tag); if (tag.contains("Texture")) setTexture(tag.getString("Texture")); cooldown = Math.max(0, tag.getInt("SkillCooldown")); skillTick = tag.contains("SkillTick") ? tag.getInt("SkillTick") : -1; skillTarget = tag.hasUUID("SkillTarget") ? tag.getUUID("SkillTarget") : null; skillDimension = tag.getString("SkillDimension"); origin = new Vec3(tag.getDouble("OriginX"), tag.getDouble("OriginY"), tag.getDouble("OriginZ")); resumeAnimation = skillTick >= 0; }
+    public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", "")); cooldown = Math.max(0, input.getIntOr("SkillCooldown", 0)); skillTick = input.getString("SkillTick").isPresent() ? input.getIntOr("SkillTick", 0) : -1; skillTarget = input.getString("SkillTarget").map(java.util.UUID::fromString).orElse(null); skillDimension = input.getStringOr("SkillDimension", ""); origin = new Vec3(input.getDoubleOr("OriginX", 0.0), input.getDoubleOr("OriginY", 0.0), input.getDoubleOr("OriginZ", 0.0)); resumeAnimation = skillTick >= 0; }
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 4, state -> PlayState.STOP) .triggerableAnim("idle", RawAnimation.begin().thenPlay("idle")).triggerableAnim("walk", RawAnimation.begin().thenPlay("walk")).triggerableAnim("attack", RawAnimation.begin().thenPlay("attack"));
-        controllers.add(new AnimationController<>(this, "movement", 4, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(state.isMoving() || Math.abs(state.getLimbSwingAmount()) >= 0.15F ? "walk" : "idle"))));
+        var procedure = new LegacyAnimationController<>(this, "procedure", 4, state -> PlayState.STOP) .triggerableAnim("idle", RawAnimation.begin().thenPlay("idle")).triggerableAnim("walk", RawAnimation.begin().thenPlay("walk")).triggerableAnim("attack", RawAnimation.begin().thenPlay("attack"));
+        controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(state.isMoving() || Math.abs(state.getLimbSwingAmount()) >= 0.15F ? "walk" : "idle"))));
         controllers.add(procedure);
     }
     @Override

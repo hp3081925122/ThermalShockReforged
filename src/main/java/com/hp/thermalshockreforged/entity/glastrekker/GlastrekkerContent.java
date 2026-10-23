@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.entity.glastrekker;
+import net.minecraft.world.item.SpawnEggItem;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.combat.AttackAttemptEvent;
@@ -26,7 +27,7 @@ public final class GlastrekkerContent {
     }
     public static void register(IEventBus bus) {
         ITEMS.registerSimpleBlockItem(EGG);
-        ITEMS.register("glastrekker_spawn_egg", () -> new DeferredSpawnEggItem(GLASTREKKER, -1, -1, new Item.Properties()));
+        ITEMS.register("glastrekker_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(GLASTREKKER.get())));
         TYPES.register(bus); ITEMS.register(bus); BLOCKS.register(bus);
         bus.addListener(GlastrekkerContent::attributes);
         bus.addListener(GlastrekkerContent::placements);
@@ -43,7 +44,7 @@ public final class GlastrekkerContent {
     private static void attack(AttackAttemptEvent event) {
         if (event.getEntity() instanceof GlastrekkerEntity entity && !entity.armored() && event.getSource().getDirectEntity() != null && event.getSource().getDirectEntity().getY() < entity.getY() + 4) {
             event.setCanceled(true);
-            if (!entity.level().isClientSide) entity.level().playSound(null, entity.blockPosition(), SoundEvents.BASALT_BREAK, SoundSource.NEUTRAL, 1, 1);
+            if (!entity.level().isClientSide()) entity.level().playSound(null, entity.blockPosition(), SoundEvents.BASALT_BREAK, SoundSource.NEUTRAL, 1, 1);
         }
     }
     private GlastrekkerContent() { }

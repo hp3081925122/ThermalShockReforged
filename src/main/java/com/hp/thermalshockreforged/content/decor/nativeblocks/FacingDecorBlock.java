@@ -10,13 +10,13 @@ import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 class FacingDecorBlock extends NativeDecorBlock {
-    static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+    static final EnumProperty<Direction> FACING = HorizontalDirectionalBlock.FACING;
     enum Outline { FULL, BARS, CORNER }
     private static final VoxelShape NORTH = Block.box(0, 0, 0, 16, 32, 1);
     private static final VoxelShape SOUTH = Block.box(0, 0, 15, 16, 32, 16);

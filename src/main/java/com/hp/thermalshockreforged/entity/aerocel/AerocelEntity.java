@@ -11,7 +11,7 @@ import net.minecraft.world.entity.ai.attributes.*;
 import net.minecraft.world.entity.ai.control.FlyingMoveControl;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.navigation.*;
-import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
@@ -36,16 +36,16 @@ public final class AerocelEntity extends AnimatedPathfinderEntity {
     @Override protected List<String> procedureAnimations() { return List.of("idle"); }
     @Override public void setNoGravity(boolean ignored) { super.setNoGravity(true); }
     @Override public void aiStep() { super.aiStep(); setNoGravity(true); }
-    @Override public boolean causeFallDamage(float distance, float multiplier, DamageSource source) { return false; }
+    @Override public boolean causeFallDamage(double distance, float multiplier, DamageSource source) { return false; }
     @Override protected void checkFallDamage(double distance, boolean grounded, BlockState state, BlockPos pos) { }
-    @Override public boolean hurt(DamageSource source, float amount) {
-        return !(source.getDirectEntity() instanceof AbstractArrow || source.is(DamageTypes.FALL) || source.is(DamageTypes.DROWN) || source.is(DamageTypes.LIGHTNING_BOLT)) && super.hurt(source, amount);
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) {
+        return !(source.getDirectEntity() instanceof AbstractArrow || source.is(DamageTypes.FALL) || source.is(DamageTypes.DROWN) || source.is(DamageTypes.LIGHTNING_BOLT)) && super.hurtServer(level, source, amount);
     }
     @Override protected SoundEvent getAmbientSound() { return SoundEvents.COD_AMBIENT; }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.COD_HURT; }
     @Override protected SoundEvent getDeathSound() { return SoundEvents.COD_DEATH; }
     @Override protected void playStepSound(BlockPos pos, BlockState state) { playSound(SoundEvents.COD_FLOP, .15F, 1); }
-    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType reason, SpawnGroupData group) {
+    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, EntitySpawnReason reason, SpawnGroupData group) {
         var result = super.finalizeSpawn(level, difficulty, reason, group);
         var destination = getBoundingBox().move(0, 5, 0);
         if (destination.minY >= level.getMinBuildHeight() && destination.maxY <= level.getMaxBuildHeight()

@@ -1,10 +1,13 @@
 package com.hp.thermalshockreforged.content.decor.geo;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 
-import software.bernie.geckolib.animatable.GeoBlockEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoBlockEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
+import com.geckolib.util.GeckoLibUtil;
 
 import net.minecraft.core.*;
 import net.minecraft.nbt.CompoundTag;
@@ -40,17 +43,15 @@ public class GeoDecorBlockEntity extends RandomizableContainerBlockEntity implem
     public IItemHandler itemHandler(Direction side) { return side == null ? null : handlers[side.ordinal()]; }
 
     @Override
-    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.loadAdditional(tag, registries);
-        if (!tag.contains("NeoForgeData", 10) && tag.contains("ForgeData", 10)) getPersistentData().merge(tag.getCompound("ForgeData"));
-        items = NonNullList.withSize(9, ItemStack.EMPTY);
-        if (!tryLoadLootTable(tag)) ContainerHelper.loadAllItems(tag, items, registries);
+    protected void loadAdditional(net.minecraft.world.level.storage.ValueInput input) {
+        super.loadAdditional(input);        items = NonNullList.withSize(9, ItemStack.EMPTY);
+        if (!tryLoadLootTable(input)) ContainerHelper.loadAllItems(input, items);
     }
 
     @Override
-    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.saveAdditional(tag, registries);
-        if (!trySaveLootTable(tag)) ContainerHelper.saveAllItems(tag, items, registries);
+    protected void saveAdditional(net.minecraft.world.level.storage.ValueOutput output) {
+        super.saveAdditional(output);
+        if (!trySaveLootTable(output)) ContainerHelper.saveAllItems(output, items);
     }
 
     @Override
@@ -84,7 +85,7 @@ public class GeoDecorBlockEntity extends RandomizableContainerBlockEntity implem
     public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction side) { return true; }
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(this, "controller", 0, state -> {
+        controllers.add(new LegacyAnimationController<>(this, "controller", 0, state -> {
             int variant = kind == GeoDecorKind.HOLOGRAM_MONITOR ? getBlockState().getValue(HologramMonitorBlock.VARIANT) : kind == GeoDecorKind.CIVILIAN ? getBlockState().getValue(DialogueBlock.VARIANT) : kind == GeoDecorKind.CAPSULE ? getBlockState().getValue(CapsuleBlock.VARIANT) : kind == GeoDecorKind.SHALE_POT ? getBlockState().getValue(ShalePotBlock.VARIANT) : 0;
             if ((kind == GeoDecorKind.HOLOGRAM_MONITOR || kind == GeoDecorKind.SHALE_POT || kind == GeoDecorKind.CIVILIAN || kind == GeoDecorKind.CAPSULE) && previousVariant != variant) {
                 previousVariant = variant;
@@ -93,13 +94,13 @@ public class GeoDecorBlockEntity extends RandomizableContainerBlockEntity implem
             }
             return getBlockState().getValue(((GeoDecorBlock)getBlockState().getBlock()).animationProperty()) == 0 ? state.setAndContinue(RawAnimation.begin().thenLoop(kind.idleAnimation())) : PlayState.STOP;
         }));
-        controllers.add(new AnimationController<>(this, "procedurecontroller", 0, state -> {
+        controllers.add(new LegacyAnimationController<>(this, "procedurecontroller", 0, state -> {
             String requested = Integer.toString(getBlockState().getValue(((GeoDecorBlock)getBlockState().getBlock()).animationProperty()));
-            if ((!requested.equals("0") && state.getController().getAnimationState() == AnimationController.State.STOPPED)
+            if ((!requested.equals("0") && state.getController().getAnimationState() == LegacyAnimationController.State.STOPPED)
                     || (!requested.equals(previousAnimation) && !requested.equals("0"))) {
                 if (!requested.equals(previousAnimation)) state.getController().forceAnimationReset();
                 state.getController().setAnimation(RawAnimation.begin().thenPlay(requested));
-                if (state.getController().getAnimationState() == AnimationController.State.STOPPED) {
+                if (state.getController().getAnimationState() == LegacyAnimationController.State.STOPPED) {
                     if (level != null) level.setBlock(worldPosition, getBlockState().setValue(((GeoDecorBlock)getBlockState().getBlock()).animationProperty(), 0), 3);
                     state.getController().forceAnimationReset();
                 }

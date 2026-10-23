@@ -1,11 +1,16 @@
 package com.hp.thermalshockreforged.content.weapons;
+import com.hp.thermalshockreforged.content.tools.SwordItem;
+import com.hp.thermalshockreforged.content.tools.Tier;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.component.TooltipDisplay;
+import java.util.function.Consumer;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.MaterialContent;
 import java.util.List;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.*;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.*;
@@ -26,12 +31,12 @@ public final class SickleItem extends HoeItem {
     }
     private SickleItem(String id, Tier tier) {
         super(tier, new Properties().attributes(DiggerItem.createAttributes(tier, 0, -2).withModifierAdded(Attributes.ATTACK_KNOCKBACK,
-                new AttributeModifier(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "sickle_attack_knockback"), -1, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL), EquipmentSlotGroup.MAINHAND)));
+                new AttributeModifier(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "sickle_attack_knockback"), -1, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL), EquipmentSlotGroup.MAINHAND)));
         this.id = id;
     }
     @Override public boolean hurtEnemy(ItemStack stack, LivingEntity victim, LivingEntity attacker) {
         boolean result = super.hurtEnemy(stack, victim, attacker);
-        if (!victim.level().isClientSide && victim != attacker) {
+        if (!victim.level().isClientSide() && victim != attacker) {
             var wound = victim.getEffect(WeaponContent.SICKLE_WOUND);
             int level = wound == null ? 0 : wound.getAmplifier() + 1;
             victim.addEffect(new MobEffectInstance(WeaponContent.SICKLE_WOUND, 20, level));
@@ -39,18 +44,18 @@ public final class SickleItem extends HoeItem {
             if (applied != null && applied.getAmplifier() >= 2) {
                 victim.removeEffect(WeaponContent.SICKLE_WOUND);
                 ThermalShockReforged.LOGGER.debug("Sickle wound burst committed: attacker={}, victim={}, appliedAmplifier={}", attacker.getUUID(), victim.getUUID(), applied.getAmplifier());
-                var sound = BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "sickle_slash"));
+                var sound = BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "sickle_slash"));
                 victim.level().playSound(null, victim.blockPosition(), sound, SoundSource.NEUTRAL, 1, 1);
                 victim.hurt(victim.damageSources().source(DamageTypes.GENERIC), attacker.getMainHandItem().is(WeaponContent.STRATOSILVER_SICKLE.get()) ? 14 : 10);
             }
         }
         return result;
     }
-    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) {
-        super.appendHoverText(stack, context, lines, flag);
-        lines.add(Component.translatable("item." + ThermalShockReforged.MOD_ID + "." + id + ".description_0"));
-        lines.add(Component.translatable("item." + ThermalShockReforged.MOD_ID + "." + id + ".description_1"));
-        if (id.equals("stratosilver_sickle")) lines.add(Component.translatable("item." + ThermalShockReforged.MOD_ID + "." + id + ".description_2"));
+    @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+        super.appendHoverText(stack, context, display, tooltipAdder, flag);
+        tooltipAdder.accept(Component.translatable("item." + ThermalShockReforged.MOD_ID + "." + id + ".description_0"));
+        tooltipAdder.accept(Component.translatable("item." + ThermalShockReforged.MOD_ID + "." + id + ".description_1"));
+        if (id.equals("stratosilver_sickle")) tooltipAdder.accept(Component.translatable("item." + ThermalShockReforged.MOD_ID + "." + id + ".description_2"));
     }
     private record SickleTier(int durability, float speed, String repair, float damage, int enchantmentValue) implements Tier {
         @Override public int getUses() { return durability; }

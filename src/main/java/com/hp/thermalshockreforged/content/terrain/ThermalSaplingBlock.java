@@ -6,7 +6,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.SoundType;
@@ -20,8 +20,8 @@ public final class ThermalSaplingBlock extends SaplingBlock {
     public ThermalSaplingBlock(String name, String feature) {
         super(new TreeGrower(ThermalShockReforged.MOD_ID + ":" + name, Optional.empty(),
                         Optional.of(ResourceKey.create(Registries.CONFIGURED_FEATURE,
-                                ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, feature))), Optional.empty()),
-                Properties.of().mapColor(MapColor.PLANT).randomTicks().sound(SoundType.GRASS).instabreak().noCollission()
+                                Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, feature))), Optional.empty()),
+                Properties.of().mapColor(MapColor.PLANT).randomTicks().sound(SoundType.GRASS).instabreak().noCollision()
                         .offsetType(BlockBehaviour.OffsetType.NONE).pushReaction(PushReaction.DESTROY));
     }
 

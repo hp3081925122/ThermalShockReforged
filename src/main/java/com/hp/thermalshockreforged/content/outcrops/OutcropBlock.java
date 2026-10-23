@@ -33,7 +33,7 @@ public final class OutcropBlock extends Block implements EntityBlock {
     }
     @Override protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState next, boolean moving) {
         if (!state.is(next.getBlock())) {
-            if (!level.isClientSide && level.getBlockEntity(pos) instanceof OutcropBlockEntity entity) {
+            if (!level.isClientSide() && level.getBlockEntity(pos) instanceof OutcropBlockEntity entity) {
                 Containers.dropContents(level, pos, entity);
                 level.updateNeighbourForOutputSignal(pos, this);
             }

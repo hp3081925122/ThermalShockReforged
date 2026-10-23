@@ -8,7 +8,7 @@ import java.util.Comparator;
 import net.minecraft.core.registries.*;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.*;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.TagKey;
@@ -27,13 +27,13 @@ public final class CombatItemTaskEntity extends Entity implements ServerEndTickT
     public static boolean submit(ServerLevel level, Vec3 anchor, int kind) {
         var task = RemainingCombatContent.TASK.get().create(level);
         if (task == null) return false;
-        task.anchor = anchor; task.dimension = level.dimension().location().toString();
+        task.anchor = anchor; task.dimension = level.dimension().identifier().toString();
         task.setPos(anchor); task.kind = kind; task.armed = true;
         return level.addFreshEntity(task);
     }
     public static void sound(ServerLevel level, Vec3 anchor, String name, float volume, float pitch) {
-        var id = name.contains(":") ? ResourceLocation.parse(name) : ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, name);
-        level.playSound(null, net.minecraft.core.BlockPos.containing(anchor), BuiltInRegistries.SOUND_EVENT.get(id), SoundSource.NEUTRAL, volume, pitch);
+        var id = name.contains(":") ? Identifier.parse(name) : Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, name);
+        level.playSound(null, net.minecraft.core.BlockPos.containing(anchor), BuiltInRegistries.SOUND_EVENT.getValue(id), SoundSource.NEUTRAL, volume, pitch);
     }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
     @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
@@ -41,12 +41,12 @@ public final class CombatItemTaskEntity extends Entity implements ServerEndTickT
     @Override public void tick() {
         super.tick();
         if (level() instanceof ServerLevel server) {
-            if (!armed || !dimension.equals(server.dimension().location().toString())) { discard(); return; }
+            if (!armed || !dimension.equals(server.dimension().identifier().toString())) { discard(); return; }
             setPos(anchor); ServerEndTickTasks.schedule(server, getUUID());
         }
     }
     @Override public void endTick(ServerLevel level) {
-        if (!armed || isRemoved() || !dimension.equals(level.dimension().location().toString())) return;
+        if (!armed || isRemoved() || !dimension.equals(level.dimension().identifier().toString())) return;
         int stage = ++elapsed;
         boolean terminal = stage >= (kind == JUDGE ? 30 : 20);
         if (terminal) { armed = false; discard(); }
@@ -66,7 +66,7 @@ public final class CombatItemTaskEntity extends Entity implements ServerEndTickT
     private void burst(ServerLevel level) {
         sound(level, position(), "flarecoreexplode", 1, 1);
         if (kind == FLOWER) sound(level, position(), "minecraft:block.rooted_dirt.break", 1, 1);
-        var weak = TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, kind == ICE ? "cryo_weak" : "cloro_weak"));
+        var weak = TagKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, kind == ICE ? "cryo_weak" : "cloro_weak"));
         var targets = level.getEntitiesOfClass(Entity.class, new AABB(position(), position()).inflate(3), target -> target.getType().is(weak));
         targets.sort(Comparator.comparingDouble(target -> target.distanceToSqr(position())));
         for (Entity target : targets) {
@@ -75,7 +75,7 @@ public final class CombatItemTaskEntity extends Entity implements ServerEndTickT
                 if (target instanceof LivingEntity living) {
                     RemainingCombatState.applyCryoCooldown(living);
                     living.addEffect(new MobEffectInstance(RemainingCombatContent.CRYO_VISUAL, 120, 0));
-                    living.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 120, 9));
+                    living.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 120, 9));
                 }
             } else {
                 double x = target.getX(), y = target.getY() - target.getEyeHeight(), z = target.getZ();
@@ -87,15 +87,15 @@ public final class CombatItemTaskEntity extends Entity implements ServerEndTickT
         }
         level.sendParticles(kind == ICE ? SanctumContent.TURQ_EXPLODE.get() : CavebloomerContent.MAGNETIC_BOOM.get(), getX(), getY(), getZ(), 1, .001, .001, .001, 0);
     }
-    @Override protected void addAdditionalSaveData(CompoundTag tag) {
-        tag.putInt("CombatItemKind", kind); tag.putInt("CombatItemElapsed", elapsed); tag.putBoolean("CombatItemArmed", armed);
-        tag.putDouble("CombatItemX", anchor.x); tag.putDouble("CombatItemY", anchor.y); tag.putDouble("CombatItemZ", anchor.z); tag.putString("CombatItemDimension", dimension);
+    @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        output.putInt("CombatItemKind", kind); output.putInt("CombatItemElapsed", elapsed); output.putBoolean("CombatItemArmed", armed);
+        output.putDouble("CombatItemX", anchor.x); output.putDouble("CombatItemY", anchor.y); output.putDouble("CombatItemZ", anchor.z); output.putString("CombatItemDimension", dimension);
     }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) {
-        kind = tag.getInt("CombatItemKind"); elapsed = tag.getInt("CombatItemElapsed");
-        anchor = new Vec3(tag.getDouble("CombatItemX"), tag.getDouble("CombatItemY"), tag.getDouble("CombatItemZ")); dimension = tag.getString("CombatItemDimension");
-        armed = tag.getBoolean("CombatItemArmed") && kind >= ICE && kind <= JUDGE && elapsed >= 0 && elapsed < (kind == JUDGE ? 30 : 20)
-                && tag.contains("CombatItemX") && tag.contains("CombatItemY") && tag.contains("CombatItemZ")
-                && Double.isFinite(anchor.x) && Double.isFinite(anchor.y) && Double.isFinite(anchor.z) && ResourceLocation.tryParse(dimension) != null;
+    @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        kind = input.getIntOr("CombatItemKind", 0); elapsed = input.getIntOr("CombatItemElapsed", 0);
+        anchor = new Vec3(input.getDoubleOr("CombatItemX", 0.0), input.getDoubleOr("CombatItemY", 0.0), input.getDoubleOr("CombatItemZ", 0.0)); dimension = input.getStringOr("CombatItemDimension", "");
+        armed = input.getBooleanOr("CombatItemArmed", false) && kind >= ICE && kind <= JUDGE && elapsed >= 0 && elapsed < (kind == JUDGE ? 30 : 20)
+                && input.getString("CombatItemX").isPresent() && input.getString("CombatItemY").isPresent() && input.getString("CombatItemZ").isPresent()
+                && Double.isFinite(anchor.x) && Double.isFinite(anchor.y) && Double.isFinite(anchor.z) && Identifier.tryParse(dimension) != null;
     }
 }

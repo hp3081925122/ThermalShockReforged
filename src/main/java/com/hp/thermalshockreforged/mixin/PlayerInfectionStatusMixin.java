@@ -21,7 +21,7 @@ public abstract class PlayerInfectionStatusMixin implements com.hp.thermalshockr
     @Override public boolean hasArrivalProtectionVisual() { return ((Player)(Object)this).getEntityData().get(THERMAL_SHOCK_REFORGED_ARRIVAL) > 0; }
     @Override public void beginArrivalProtection(int ticks) {
         Player player = (Player)(Object)this;
-        if (player.level().isClientSide) return;
+        if (player.level().isClientSide()) return;
         thermalShockReforged$arrivalTicks = Math.clamp(ticks, 0, 180);
         player.getEntityData().set(THERMAL_SHOCK_REFORGED_ARRIVAL, thermalShockReforged$arrivalTicks, true);
     }
@@ -29,11 +29,11 @@ public abstract class PlayerInfectionStatusMixin implements com.hp.thermalshockr
     private void thermalShockReforged$arrivalData(net.minecraft.network.syncher.SynchedEntityData.Builder builder, CallbackInfo callback) { builder.define(THERMAL_SHOCK_REFORGED_ARRIVAL, 0); }
     @Override public void tickArrivalProtection() {
         Player player = (Player)(Object)this;
-        if (thermalShockReforged$arrivalTicks > 0 && --thermalShockReforged$arrivalTicks == 0 && !player.level().isClientSide) player.getEntityData().set(THERMAL_SHOCK_REFORGED_ARRIVAL, 0);
+        if (thermalShockReforged$arrivalTicks > 0 && --thermalShockReforged$arrivalTicks == 0 && !player.level().isClientSide()) player.getEntityData().set(THERMAL_SHOCK_REFORGED_ARRIVAL, 0);
     }
     @Override public void receiveArrivalProtectionData(net.minecraft.network.syncher.EntityDataAccessor<?> key) {
         Player player = (Player)(Object)this;
-        if (key == THERMAL_SHOCK_REFORGED_ARRIVAL && player.level().isClientSide) thermalShockReforged$arrivalTicks = player.getEntityData().get(THERMAL_SHOCK_REFORGED_ARRIVAL);
+        if (key == THERMAL_SHOCK_REFORGED_ARRIVAL && player.level().isClientSide()) thermalShockReforged$arrivalTicks = player.getEntityData().get(THERMAL_SHOCK_REFORGED_ARRIVAL);
     }
     @Inject(method = "addAdditionalSaveData", at = @At("TAIL"))
     private void thermalShockReforged$saveArrival(net.minecraft.nbt.CompoundTag tag, CallbackInfo callback) { if (thermalShockReforged$arrivalTicks > 0) tag.putInt("ThermalShockReforgedArrivalTicks", thermalShockReforged$arrivalTicks); }

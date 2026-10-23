@@ -36,7 +36,7 @@ public final class PylonCoreActivationEntity extends Entity implements ServerEnd
         }
         var task = SanctumContent.CORE_ACTIVATION.get().create(level);
         if (task == null) return false;
-        task.anchor = pos.immutable(); task.setPos(Vec3.atLowerCornerOf(pos)); task.dimension = level.dimension().location().toString(); task.explosive = explosive; task.loot = loot; task.armed = true;
+        task.anchor = pos.immutable(); task.setPos(Vec3.atLowerCornerOf(pos)); task.dimension = level.dimension().identifier().toString(); task.explosive = explosive; task.loot = loot; task.armed = true;
         var data = core.getPersistentData(); data.putUUID(PylonCoreBlock.ACTIVATION_TOKEN, task.getUUID()); core.setChanged();
         if (!level.addFreshEntity(task)) {
             task.discard();
@@ -54,7 +54,7 @@ public final class PylonCoreActivationEntity extends Entity implements ServerEnd
     @Override public void tick() {
         super.tick();
         if (level() instanceof ServerLevel server) {
-            if (!armed || consumed || !dimension.equals(server.dimension().location().toString())) { discard(); return; }
+            if (!armed || consumed || !dimension.equals(server.dimension().identifier().toString())) { discard(); return; }
             setPos(Vec3.atLowerCornerOf(anchor)); ServerEndTickTasks.schedule(server, getUUID());
         }
     }
@@ -69,7 +69,7 @@ public final class PylonCoreActivationEntity extends Entity implements ServerEnd
         if (level.getBlockState(anchor).is(core.getBlockState().getBlock())) level.setBlock(anchor, level.getBlockState(anchor).setValue(GeoDecorBlock.ANIMATION, 0), 3);
     }
     @Override public void endTick(ServerLevel level) {
-        if (isRemoved() || !armed || consumed || !dimension.equals(level.dimension().location().toString())) { discard(); return; }
+        if (isRemoved() || !armed || consumed || !dimension.equals(level.dimension().identifier().toString())) { discard(); return; }
         if (--remaining > 0) { ServerEndTickTasks.schedule(level, getUUID()); return; }
         consumed = true; discard();
         var core = ownCore(level);
@@ -90,14 +90,14 @@ public final class PylonCoreActivationEntity extends Entity implements ServerEnd
         for (var stack : table.getRandomItems(params)) { var drop = new ItemEntity(level, origin.x, origin.y, origin.z, stack); drop.setDefaultPickUpDelay(); level.addFreshEntity(drop); }
         level.sendParticles(ParticleTypes.END_ROD, anchor.getX(), anchor.getY() + 1.5, anchor.getZ(), 30, .2, .2, .2, .2);
     }
-    @Override protected void addAdditionalSaveData(CompoundTag tag) {
-        tag.putLong("CoreAnchor", anchor.asLong()); tag.putString("CoreDimension", dimension); tag.putBoolean("CoreExplosive", explosive); if (loot != null) tag.putString("CoreLoot", loot.location().toString()); tag.putBoolean("CoreArmed", armed); tag.putBoolean("CoreConsumed", consumed); tag.putInt("CoreRemaining", remaining);
+    @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        output.putLong("CoreAnchor", anchor.asLong()); output.putString("CoreDimension", dimension); output.putBoolean("CoreExplosive", explosive); if (loot != null) output.putString("CoreLoot", loot.location().toString()); output.putBoolean("CoreArmed", armed); output.putBoolean("CoreConsumed", consumed); output.putInt("CoreRemaining", remaining);
     }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) {
-        anchor = BlockPos.of(tag.getLong("CoreAnchor")); dimension = tag.getString("CoreDimension"); explosive = tag.getBoolean("CoreExplosive"); consumed = tag.getBoolean("CoreConsumed"); remaining = Math.clamp(tag.getInt("CoreRemaining"), 1, 40);
-        var lootId = ResourceLocation.tryParse(tag.getString("CoreLoot"));
+    @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        anchor = BlockPos.of(input.getLongOr("CoreAnchor", 0L)); dimension = input.getStringOr("CoreDimension", ""); explosive = input.getBooleanOr("CoreExplosive", false); consumed = input.getBooleanOr("CoreConsumed", false); remaining = Math.clamp(input.getIntOr("CoreRemaining", 0), 1, 40);
+        var lootId = Identifier.tryParse(input.getStringOr("CoreLoot", ""));
         loot = null;
         if (tag.contains("CoreLoot", 8) && lootId != null) loot = ResourceKey.create(Registries.LOOT_TABLE, lootId);
-        armed = tag.getBoolean("CoreArmed") && tag.contains("CoreAnchor", 99) && ResourceLocation.tryParse(dimension) != null && (explosive || loot != null);
+        armed = input.getBooleanOr("CoreArmed", false) && tag.contains("CoreAnchor", 99) && Identifier.tryParse(dimension) != null && (explosive || loot != null);
     }
 }

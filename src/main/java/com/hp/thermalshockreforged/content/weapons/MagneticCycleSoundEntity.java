@@ -43,6 +43,6 @@ public final class MagneticCycleSoundEntity extends Entity implements ServerEndT
         if (phase == 3) { armed = false; discard(); }
         else ServerEndTickTasks.schedule(level, getUUID());
     }
-    @Override protected void addAdditionalSaveData(CompoundTag tag) { tag.putInt("Remaining", remaining); tag.putInt("Phase", phase); tag.putBoolean("Armed", armed); }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) { remaining = Math.clamp(tag.getInt("Remaining"), 1, 5); phase = Math.clamp(tag.getInt("Phase"), 0, 3); armed = tag.getBoolean("Armed") && phase < 3; }
+    @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { output.putInt("Remaining", remaining); output.putInt("Phase", phase); output.putBoolean("Armed", armed); }
+    @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { remaining = Math.clamp(input.getIntOr("Remaining", 0), 1, 5); phase = Math.clamp(input.getIntOr("Phase", 0), 0, 3); armed = input.getBooleanOr("Armed", false) && phase < 3; }
 }

@@ -48,7 +48,7 @@ public final class FluidContent {
                 .bucket(springelatin ? SPRINGELATIN_BUCKET : BLOOD_BUCKET).block(springelatin ? SPRINGELATIN_BLOCK : BLOOD_BLOCK);
     }
     private static BlockBehaviour.Properties blockProperties() {
-        return BlockBehaviour.Properties.of().mapColor(MapColor.WATER).strength(100).noCollission().noLootTable()
+        return BlockBehaviour.Properties.of().mapColor(MapColor.WATER).strength(100).noCollision().noLootTable()
                 .liquid().pushReaction(PushReaction.DESTROY).sound(SoundType.EMPTY).replaceable();
     }
     public static void register(IEventBus bus) {

@@ -1,4 +1,9 @@
 package com.hp.thermalshockreforged.entity.kofoni;
+import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
+import net.minecraft.world.entity.projectile.throwableitemprojectile.AbstractThrownPotion;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.world.timing.ServerEndTickTask;
@@ -15,10 +20,10 @@ import net.minecraft.world.entity.ai.attributes.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.*;
 import net.minecraft.world.level.Level;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
+import com.geckolib.util.GeckoLibUtil;
 
 public final class KofoniEntity extends PathfinderMob implements GeoEntity, ServerEndTickTask {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(KofoniEntity.class, EntityDataSerializers.STRING);
@@ -29,10 +34,10 @@ public final class KofoniEntity extends PathfinderMob implements GeoEntity, Serv
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, "kofoni"); }
     public String texture() { return entityData.get(TEXTURE); }
     @Override public boolean removeWhenFarAway(double distance) { return false; }
-    @Override public boolean hurt(DamageSource source, float amount) {
-        if (source.getDirectEntity() instanceof AbstractArrow || source.getDirectEntity() instanceof ThrownPotion || source.getDirectEntity() instanceof AreaEffectCloud) return false;
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) {
+        if (source.getDirectEntity() instanceof AbstractArrow || source.getDirectEntity() instanceof AbstractThrownPotion || source.getDirectEntity() instanceof AreaEffectCloud) return false;
         if (source.is(DamageTypes.IN_FIRE) || source.is(DamageTypes.FALL) || source.is(DamageTypes.CACTUS) || source.is(DamageTypes.DROWN) || source.is(DamageTypes.LIGHTNING_BOLT) || source.is(DamageTypes.EXPLOSION) || source.is(DamageTypes.TRIDENT) || source.is(DamageTypes.FALLING_ANVIL) || source.is(DamageTypes.DRAGON_BREATH) || source.is(DamageTypes.WITHER) || source.is(DamageTypes.WITHER_SKULL)) return false;
-        return super.hurt(source, amount);
+        return super.hurtServer(level, source, amount);
     }
     @Override protected InteractionResult mobInteract(Player player, InteractionHand hand) {
         super.mobInteract(player, hand);
@@ -40,15 +45,15 @@ public final class KofoniEntity extends PathfinderMob implements GeoEntity, Serv
             if (isShiftKeyDown()) {
                 triggerAnim("procedure", "wake");
                 wakeSchedule |= 1 << 19;
-                ServerEndTickTasks.schedule(serverPlayer.serverLevel(), getUUID());
+                ServerEndTickTasks.schedule(server((net.minecraft.server.level.ServerLevel) player.level()), getUUID());
                 ThermalShockReforged.LOGGER.debug("Kofoni wake armed: entity={}, pendingEndTickSlots={}", getUUID(), Integer.bitCount(wakeSchedule));
             } else {
                 KofoniContent.open(serverPlayer, this, blockPosition(), KofoniPage.MAIN);
             }
         }
-        return InteractionResult.sidedSuccess(level().isClientSide);
+        return InteractionResult.SUCCESS;
     }
-    @Override public SpawnGroupData finalizeSpawn(net.minecraft.world.level.ServerLevelAccessor world, net.minecraft.world.DifficultyInstance difficulty, MobSpawnType reason, SpawnGroupData group) { var result = super.finalizeSpawn(world, difficulty, reason, group); setNoGravity(true); return result; }
+    @Override public SpawnGroupData finalizeSpawn(net.minecraft.world.level.ServerLevelAccessor world, net.minecraft.world.DifficultyInstance difficulty, EntitySpawnReason reason, SpawnGroupData group) { var result = super.finalizeSpawn(world, difficulty, reason, group); setNoGravity(true); return result; }
     @Override public void tick() {
         super.tick();
         if (wakeSchedule != 0 && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
@@ -62,19 +67,19 @@ public final class KofoniEntity extends PathfinderMob implements GeoEntity, Serv
         if (wakeSchedule != 0) ServerEndTickTasks.schedule(server, getUUID());
     }
     @Override protected void tickDeath() { if (++deathTime >= 20) remove(RemovalReason.KILLED); }
-    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); tag.putInt("KofoniWakeSchedule", wakeSchedule); tag.putBoolean("KofoniWakeShifted", isShiftKeyDown()); }
-    @Override public void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag);
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putString("Texture", texture()); output.putInt("KofoniWakeSchedule", wakeSchedule); output.putBoolean("KofoniWakeShifted", isShiftKeyDown()); }
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        super.readAdditionalSaveData(input);
         if (!tag.contains("NeoForgeData", 10) && tag.contains("ForgeData", 10)) getPersistentData().merge(tag.getCompound("ForgeData"));
-        if (tag.contains("Texture")) entityData.set(TEXTURE, tag.getString("Texture"));
-        int legacyTicks = Math.clamp(tag.getInt("KofoniWakeTicks"), 0, 20);
-        wakeSchedule = tag.contains("KofoniWakeSchedule") ? tag.getInt("KofoniWakeSchedule") & 0xfffff : legacyTicks > 0 ? 1 << (legacyTicks - 1) : 0;
-        if (wakeSchedule != 0) setShiftKeyDown(!tag.contains("KofoniWakeShifted") || tag.getBoolean("KofoniWakeShifted"));
+        if (input.getString("Texture").isPresent()) entityData.set(TEXTURE, input.getStringOr("Texture", ""));
+        int legacyTicks = Math.clamp(input.getIntOr("KofoniWakeTicks", 0), 0, 20);
+        wakeSchedule = input.getString("KofoniWakeSchedule").isPresent() ? input.getIntOr("KofoniWakeSchedule", 0) & 0xfffff : legacyTicks > 0 ? 1 << (legacyTicks - 1) : 0;
+        if (wakeSchedule != 0) setShiftKeyDown(!input.getString("KofoniWakeShifted").isPresent() || input.getBooleanOr("KofoniWakeShifted", false));
         setPersistenceRequired();
     }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 4, state -> PlayState.STOP).triggerableAnim("wake", RawAnimation.begin().thenPlay("wake"));
-        controllers.add(new AnimationController<>(this, "movement", 4, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(isShiftKeyDown() ? "sneak" : "idle2"))));
+        var procedure = new LegacyAnimationController<>(this, "procedure", 4, state -> PlayState.STOP).triggerableAnim("wake", RawAnimation.begin().thenPlay("wake"));
+        controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(isShiftKeyDown() ? "sneak" : "idle2"))));
         controllers.add(procedure);
     }
     @Override public AnimatableInstanceCache getAnimatableInstanceCache() { return animations; }

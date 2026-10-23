@@ -1,4 +1,6 @@
 package com.hp.thermalshockreforged.client.weapons;
+import com.hp.thermalshockreforged.client.compat.LegacyEntityRenderer;
+import net.minecraft.client.renderer.rendertype.RenderType;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.entity.projectile.LiteprismDiskProjectileEntity;
@@ -9,13 +11,13 @@ import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.entity.*;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
-public final class LiteprismDiskRenderer extends EntityRenderer<LiteprismDiskProjectileEntity> {
-    private static final ModelLayerLocation LAYER = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "modellitediskproj"), "main");
-    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/entities/liteprism_disk_proj.png");
+public final class LiteprismDiskRenderer extends LegacyEntityRenderer<LiteprismDiskProjectileEntity> {
+    private static final ModelLayerLocation LAYER = new ModelLayerLocation(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "modellitediskproj"), "main");
+    private static final Identifier TEXTURE = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/entities/liteprism_disk_proj.png");
     private final ModelPart bone;
     public LiteprismDiskRenderer(EntityRendererProvider.Context context) { super(context); bone = context.bakeLayer(LAYER).getChild("bone"); }
     public static void layers(EntityRenderersEvent.RegisterLayerDefinitions event) {
@@ -36,5 +38,5 @@ public final class LiteprismDiskRenderer extends EntityRenderer<LiteprismDiskPro
         pose.popPose();
         super.render(entity, yaw, partialTick, pose, buffers, light);
     }
-    @Override public ResourceLocation getTextureLocation(LiteprismDiskProjectileEntity entity) { return TEXTURE; }
+    @Override public Identifier getTextureLocation(LiteprismDiskProjectileEntity entity) { return TEXTURE; }
 }

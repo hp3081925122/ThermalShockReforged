@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.entity.protoi;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.config.CombatConfig;
@@ -9,7 +12,7 @@ import net.minecraft.commands.arguments.EntityAnchorArgument;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -29,10 +32,10 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
-import software.bernie.geckolib.animation.*;
+import com.geckolib.animation.*;
 
 public final class ProtoiEpsilonEntity extends ProtoiEntityBase implements ServerEndTickTask {
-    private static final ResourceLocation DRIFT_SPEED = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "epsilon_drift_speed");
+    private static final Identifier DRIFT_SPEED = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "epsilon_drift_speed");
     private int cooldown;
     private int driftRemaining;
     private boolean impulsePending;
@@ -53,7 +56,7 @@ public final class ProtoiEpsilonEntity extends ProtoiEntityBase implements Serve
         return attributes(.3, 20, 10, 3, 64).add(Attributes.KNOCKBACK_RESISTANCE, 1).add(Attributes.FLYING_SPEED, .3).add(Attributes.STEP_HEIGHT, 0);
     }
     private void applyConfiguredAttributes() {
-        if (level().isClientSide || attributesApplied || !CombatConfig.SPEC.isLoaded()) return;
+        if (level().isClientSide() || attributesApplied || !CombatConfig.SPEC.isLoaded()) return;
         float health = getHealth();
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(CombatConfig.EPSILON_HEALTH.get());
         getAttribute(Attributes.ARMOR).setBaseValue(CombatConfig.EPSILON_ARMOR.get());
@@ -95,11 +98,11 @@ public final class ProtoiEpsilonEntity extends ProtoiEntityBase implements Serve
         var sound = state.getSoundType(level(), pos, this);
         playSound(sound.getStepSound(), sound.getVolume() * .15F, sound.getPitch());
     }
-    private static SoundEvent sound(String id) { return BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, id)); }
+    private static SoundEvent sound(String id) { return BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, id)); }
     @Override public SoundEvent getAmbientSound() { return sound("delta_ambient"); }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return sound("gamma_hurt"); }
     @Override protected SoundEvent getDeathSound() { return sound("gamma_hurt"); }
-    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType reason, SpawnGroupData data) {
+    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, EntitySpawnReason reason, SpawnGroupData data) {
         SpawnGroupData result = super.finalizeSpawn(level, difficulty, reason, data);
         setNoGravity(true);
         teleportTo(getX(), getY() + 1, getZ());
@@ -110,7 +113,7 @@ public final class ProtoiEpsilonEntity extends ProtoiEntityBase implements Serve
         if (!(level() instanceof ServerLevel server)) return;
         if (cooldown > 0) cooldown--;
         if (driftRemaining > 0) driftRemaining--;
-        if (driftRemaining == 0 && !hasEffect(MobEffects.MOVEMENT_SLOWDOWN)) impulsePending = true;
+        if (driftRemaining == 0 && !hasEffect(MobEffects.SLOWNESS)) impulsePending = true;
         syncDriftSpeed();
         server.playSound(null, blockPosition(), SoundEvents.BAMBOO_PLACE, SoundSource.HOSTILE, .1F, 3);
         if (impulsePending || driftLockPending) ServerEndTickTasks.schedule(server, getUUID());
@@ -124,7 +127,7 @@ public final class ProtoiEpsilonEntity extends ProtoiEntityBase implements Serve
         if (speed == null) return;
         double multiplier = 0;
         if (driftRemaining > 0) {
-            var external = getEffect(MobEffects.MOVEMENT_SLOWDOWN);
+            var external = getEffect(MobEffects.SLOWNESS);
             double externalFactor = external == null ? 1 : Math.max(0, 1 + -.15F * (double)(external.getAmplifier() + 1));
             if (externalFactor > 0) multiplier = Math.min(1, (1 + -.15F * 3.0) / externalFactor) - 1;
         }
@@ -151,38 +154,38 @@ public final class ProtoiEpsilonEntity extends ProtoiEntityBase implements Serve
     }
     @Override public void triggerProcedure(String animation) { if ("idle".equals(animation) || "ready".equals(animation)) triggerAnim("procedure", animation); }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 0, state -> PlayState.STOP).triggerableAnim("idle", RawAnimation.begin().thenPlay("idle")).triggerableAnim("ready", RawAnimation.begin().thenPlay("ready"));
-        controllers.add(new AnimationController<>(this, "movement", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop("idle"))));
+        var procedure = new LegacyAnimationController<>(this, "procedure", 0, state -> PlayState.STOP).triggerableAnim("idle", RawAnimation.begin().thenPlay("idle")).triggerableAnim("ready", RawAnimation.begin().thenPlay("ready"));
+        controllers.add(new LegacyAnimationController<>(this, "movement", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop("idle"))));
         controllers.add(procedure);
     }
-    @Override protected void dropExperience(Entity attacker) { experiencePending = true; experienceAttacker = attacker == null ? null : attacker.getUUID(); }
+    @Override protected void dropExperience(net.minecraft.server.level.ServerLevel level, Entity attacker) { experiencePending = true; experienceAttacker = attacker == null ? null : attacker.getUUID(); }
     @Override protected void tickDeath() {
         if (++deathTime >= 20 && !isRemoved()) {
             remove(RemovalReason.KILLED);
             if (experiencePending && level() instanceof ServerLevel server) {
                 experiencePending = false;
-                super.dropExperience(experienceAttacker == null ? null : server.getEntity(experienceAttacker));
+                super.dropExperience(server, experienceAttacker == null ? null : server.getEntity(experienceAttacker));
             }
         }
     }
-    @Override public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag);
-        tag.putInt("EpsilonCooldown", cooldown); tag.putInt("EpsilonDriftRemaining", driftRemaining);
-        tag.putBoolean("EpsilonImpulsePending", impulsePending); tag.putBoolean("EpsilonLockPending", driftLockPending);
-        if (attackTask != null) tag.putUUID("EpsilonAttackTask", attackTask);
-        tag.putBoolean("EpsilonExperiencePending", experiencePending);
-        if (experienceAttacker != null) tag.putUUID("EpsilonExperienceAttacker", experienceAttacker);
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        super.addAdditionalSaveData(output);
+        output.putInt("EpsilonCooldown", cooldown); output.putInt("EpsilonDriftRemaining", driftRemaining);
+        output.putBoolean("EpsilonImpulsePending", impulsePending); output.putBoolean("EpsilonLockPending", driftLockPending);
+        if (attackTask != null) output.putString("EpsilonAttackTask", attackTask.toString());
+        output.putBoolean("EpsilonExperiencePending", experiencePending);
+        if (experienceAttacker != null) output.putString("EpsilonExperienceAttacker", experienceAttacker.toString());
     }
-    @Override public void readAdditionalSaveData(CompoundTag tag) {
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         loadedFromSave = true;
-        super.readAdditionalSaveData(tag);
+        super.readAdditionalSaveData(input);
         attributesApplied = false; applyConfiguredAttributes();
-        cooldown = Math.clamp(tag.getInt("EpsilonCooldown"), 0, 72000);
-        driftRemaining = Math.clamp(tag.getInt("EpsilonDriftRemaining"), 0, 40);
-        impulsePending = tag.getBoolean("EpsilonImpulsePending"); driftLockPending = tag.getBoolean("EpsilonLockPending");
-        attackTask = tag.hasUUID("EpsilonAttackTask") ? tag.getUUID("EpsilonAttackTask") : null;
-        experiencePending = tag.getBoolean("EpsilonExperiencePending");
-        experienceAttacker = tag.hasUUID("EpsilonExperienceAttacker") ? tag.getUUID("EpsilonExperienceAttacker") : null;
-        if (!level().isClientSide) syncDriftSpeed();
+        cooldown = Math.clamp(input.getIntOr("EpsilonCooldown", 0), 0, 72000);
+        driftRemaining = Math.clamp(input.getIntOr("EpsilonDriftRemaining", 0), 0, 40);
+        impulsePending = input.getBooleanOr("EpsilonImpulsePending", false); driftLockPending = input.getBooleanOr("EpsilonLockPending", false);
+        attackTask = input.getString("EpsilonAttackTask").map(java.util.UUID::fromString).orElse(null);
+        experiencePending = input.getBooleanOr("EpsilonExperiencePending", false);
+        experienceAttacker = input.getString("EpsilonExperienceAttacker").map(java.util.UUID::fromString).orElse(null);
+        if (!level().isClientSide()) syncDriftSpeed();
     }
 }

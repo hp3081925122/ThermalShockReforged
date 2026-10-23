@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.content.decor.nativeblocks;
+import net.minecraft.world.InteractionResult;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.recipe.LapidaryRecipe;
@@ -10,7 +11,7 @@ import net.minecraft.resources.*;
 import net.minecraft.server.level.*;
 import net.minecraft.sounds.*;
 import net.minecraft.world.*;
-import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -62,7 +63,7 @@ final class LapidarianWorkbenchBlock extends FacingDecorBlock {
             if (!progress.isDone()) for (String criterion : progress.getRemainingCriteria()) owner.getAdvancements().award(advancement, criterion);
         }
         if (springling && Math.random() < recipe.springlingChance()) {
-            var child = EcosystemContent.SPRINGLING.get().spawn(server, BlockPos.containing(origin), MobSpawnType.MOB_SUMMONED);
+            var child = EcosystemContent.SPRINGLING.get().spawn(server, BlockPos.containing(origin), EntitySpawnReason.MOB_SUMMONED);
             if (child != null) child.setDeltaMovement(0, .1, 0);
         }
         ThermalShockReforged.LOGGER.debug("Lapidarian processing completed: player={}, position={}, input={}", player.getUUID(), pos, inputId);
@@ -75,6 +76,6 @@ final class LapidarianWorkbenchBlock extends FacingDecorBlock {
             drop.setDefaultPickUpDelay(); level.addFreshEntity(drop);
         }
     }
-    @Override protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) { return process(level, pos, player) ? ItemInteractionResult.SUCCESS : ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION; }
+    @Override protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) { return process(level, pos, player) ? InteractionResult.SUCCESS : InteractionResult.PASS; }
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) { return process(level, pos, player) ? InteractionResult.SUCCESS : InteractionResult.PASS; }
 }

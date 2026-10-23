@@ -1,10 +1,11 @@
 package com.hp.thermalshockreforged.client.snobol;
+import com.hp.thermalshockreforged.client.compat.LegacySingleQuadParticle;
 
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
 import net.minecraft.core.particles.SimpleParticleType;
 
-final class ToxicBubbleParticle extends TextureSheetParticle {
+final class ToxicBubbleParticle extends LegacySingleQuadParticle {
     private final SpriteSet sprites;
 
     private ToxicBubbleParticle(ClientLevel level, double x, double y, double z, double vx, double vy, double vz, SpriteSet sprites) {
@@ -25,7 +26,7 @@ final class ToxicBubbleParticle extends TextureSheetParticle {
     protected int getLightColor(float partialTick) { return 0xF000F0; }
 
     @Override
-    public ParticleRenderType getRenderType() { return ParticleRenderType.PARTICLE_SHEET_LIT; }
+    public ParticleRenderType getGroup() { return ParticleRenderType.SINGLE_QUADS; }
 
     @Override
     public void tick() {
@@ -37,6 +38,6 @@ final class ToxicBubbleParticle extends TextureSheetParticle {
         private final SpriteSet sprites;
         Provider(SpriteSet sprites) { this.sprites = sprites; }
         @Override
-        public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double dx, double dy, double dz) { return new ToxicBubbleParticle(level, x, y, z, dx, dy, dz, sprites); }
+        public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double dx, double dy, double dz, net.minecraft.util.RandomSource random) { return new ToxicBubbleParticle(level, x, y, z, dx, dy, dz, sprites); }
     }
 }

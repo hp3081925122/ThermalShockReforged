@@ -1,4 +1,8 @@
 package com.hp.thermalshockreforged.content.armor.fabricated;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import net.minecraft.world.item.component.TooltipDisplay;
+import java.util.function.Consumer;
+import com.geckolib.animation.state.AnimationTest;
 
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
@@ -10,28 +14,32 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.equipment.ArmorMaterial;
+import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import software.bernie.geckolib.animatable.GeoItem;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animatable.instance.SingletonAnimatableInstanceCache;
-import software.bernie.geckolib.animation.AnimatableManager;
-import software.bernie.geckolib.animation.AnimationController;
-import software.bernie.geckolib.animation.PlayState;
-import software.bernie.geckolib.animation.RawAnimation;
-import software.bernie.geckolib.constant.DataTickets;
+import com.geckolib.animatable.GeoItem;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animatable.instance.SingletonAnimatableInstanceCache;
+import com.geckolib.animatable.manager.AnimatableManager;
+import com.geckolib.animation.object.PlayState;
+import com.geckolib.animation.RawAnimation;
+import com.geckolib.constant.DataTickets;
 
-public final class FabricatedArmorItem extends ArmorItem implements GeoItem {
+public final class FabricatedArmorItem extends Item implements GeoItem {
     private final ArmorCache animations = new ArmorCache(this);
     private final Style style;
+    private final ArmorType type;
 
-    public FabricatedArmorItem(Holder<ArmorMaterial> material, Type type, Style style, Properties properties) {
-        super(material, type, properties);
+    public FabricatedArmorItem(Holder<ArmorMaterial> material, ArmorType type, Style style, Properties properties) {
+        super(properties.humanoidArmor(material.value(), type));
+        this.type = type;
         this.style = style;
     }
+
+    public ArmorType getType() { return type; }
 
     public String modelName() { return style.model; }
     public String textureName() { return style.texture; }
@@ -49,9 +57,9 @@ public final class FabricatedArmorItem extends ArmorItem implements GeoItem {
     }
 
     @Override
-    public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
-        super.inventoryTick(stack, level, entity, slot, selected);
-        if (level instanceof ServerLevel serverLevel) GeoItem.getOrAssignId(stack, serverLevel);
+    public void inventoryTick(ItemStack stack, ServerLevel level, Entity entity, EquipmentSlot slot) {
+        super.inventoryTick(stack, level, entity, slot);
+        GeoItem.getOrAssignId(stack, level);
     }
 
     public long prepareInstance(LivingEntity owner, ItemStack stack, EquipmentSlot slot) {
@@ -92,33 +100,27 @@ public final class FabricatedArmorItem extends ArmorItem implements GeoItem {
     public void clearInstances() { animations.bindings.clear(); animations.clearManagers(); }
 
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) {
-        super.appendHoverText(stack, context, lines, flag);
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+        super.appendHoverText(stack, context, display, tooltipAdder, flag);
         if (style == Style.PROPULSION) {
-            lines.add(Component.translatable("tooltip.thermal_shock_reforged.propulsion_boots.ability"));
+            tooltipAdder.accept(Component.translatable("tooltip.thermal_shock_reforged.propulsion_boots.ability"));
         } else {
-            String part = getType() == Type.HELMET ? "helmet" : "chestplate";
-            lines.add(Component.translatable("tooltip.thermal_shock_reforged.silenced_armor." + part + ".ability"));
-            lines.add(Component.translatable("tooltip.thermal_shock_reforged.silenced_armor.set_bonus"));
-            lines.add(Component.translatable("tooltip.thermal_shock_reforged.silenced_armor." + part + ".quote"));
+            String part = getType() == ArmorType.HELMET ? "helmet" : "chestplate";
+            tooltipAdder.accept(Component.translatable("tooltip.thermal_shock_reforged.silenced_armor." + part + ".ability"));
+            tooltipAdder.accept(Component.translatable("tooltip.thermal_shock_reforged.silenced_armor.set_bonus"));
+            tooltipAdder.accept(Component.translatable("tooltip.thermal_shock_reforged.silenced_armor." + part + ".quote"));
         }
     }
 
-    private Playback playback(software.bernie.geckolib.animation.AnimationState<FabricatedArmorItem> state) {
-        Entity owner = state.getData(DataTickets.ENTITY);
-        ItemStack stack = state.getData(DataTickets.ITEMSTACK);
-        EquipmentSlot slot = state.getData(DataTickets.EQUIPMENT_SLOT);
-        if (!(owner instanceof LivingEntity living) || stack == null || slot == null) return null;
-        return animations.bindings.get(prepareInstance(living, stack, slot));
-    }
+    private Playback playback(LegacyAnimationController.LegacyAnimationState<FabricatedArmorItem> state) { return null; }
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar registrar) {
-        registrar.add(new AnimationController<>(this, "controller", 5, state -> {
+        registrar.add(new LegacyAnimationController<>(this, "controller", 5, state -> {
             Playback active = playback(state);
             return active == null || !active.playing ? state.setAndContinue(RawAnimation.begin().thenLoop("0")) : PlayState.STOP;
         }));
-        registrar.add(new AnimationController<>(this, "procedureController", 5, state -> {
+        registrar.add(new LegacyAnimationController<>(this, "procedureController", 5, state -> {
             Playback active = playback(state);
             if (active == null) return PlayState.STOP;
             if (!active.pending.isEmpty()) {
@@ -129,7 +131,7 @@ public final class FabricatedArmorItem extends ArmorItem implements GeoItem {
                 active.playing = true;
                 return PlayState.CONTINUE;
             }
-            if (active.playing && state.getController().getAnimationState() != AnimationController.State.STOPPED) return PlayState.CONTINUE;
+            if (active.playing && state.getController().getAnimationState() != LegacyAnimationController.State.STOPPED) return PlayState.CONTINUE;
             active.playing = false;
             active.current = "";
             return PlayState.STOP;

@@ -9,7 +9,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.*;
@@ -25,20 +25,20 @@ public final class DissolverCycleEntity extends Entity implements ServerEndTickT
     private int voices;
     private boolean armed;
     public DissolverCycleEntity(EntityType<? extends DissolverCycleEntity> type, Level level) { super(type, level); noPhysics = true; setNoGravity(true); }
-    void prepare(ServerLevel level, BlockPos pos) { anchor = pos.immutable(); dimension = level.dimension().location().toString(); armed = true; setPos(pos.getX(), pos.getY(), pos.getZ()); }
+    void prepare(ServerLevel level, BlockPos pos) { anchor = pos.immutable(); dimension = level.dimension().identifier().toString(); armed = true; setPos(pos.getX(), pos.getY(), pos.getZ()); }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
     @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); if (armed && phase < 5 && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
     @Override public void tick() {
         super.tick();
         if (level() instanceof ServerLevel server) {
-            if (!armed || phase >= 5 || !dimension.equals(server.dimension().location().toString())) { discard(); return; }
+            if (!armed || phase >= 5 || !dimension.equals(server.dimension().identifier().toString())) { discard(); return; }
             setPos(anchor.getX(), anchor.getY(), anchor.getZ());
             ServerEndTickTasks.schedule(server, getUUID());
         }
     }
     @Override public void endTick(ServerLevel level) {
-        if (isRemoved() || !armed || phase >= 5 || !dimension.equals(level.dimension().location().toString())) return;
+        if (isRemoved() || !armed || phase >= 5 || !dimension.equals(level.dimension().identifier().toString())) return;
         int due = switch (phase) { case 0 -> 20; case 1 -> 25; case 2 -> 30; case 3 -> 33; default -> 50; };
         if (elapsed + 1 >= due && phase < 3 && !sphereLoaded(level, 1 << phase)) { ServerEndTickTasks.schedule(level, getUUID()); return; }
         elapsed++;
@@ -73,9 +73,9 @@ public final class DissolverCycleEntity extends Entity implements ServerEndTickT
         var found = level.getEntitiesOfClass(Entity.class, new AABB(center, center).inflate(4.5), entity -> true).stream().sorted(Comparator.comparingDouble(entity -> entity.distanceToSqr(center))).toList();
         for (var entity : found) if (entity instanceof LabMachinistEntity npc) { npc.triggerAnim("procedure", "notice"); voices++; }
     }
-    private void sound(ServerLevel level, String name, SoundSource source, float pitch) { level.playSound(null, anchor, BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, name)), source, 1, pitch); }
-    @Override protected void addAdditionalSaveData(CompoundTag tag) { tag.putLong("DissolverAnchor", anchor.asLong()); tag.putString("DissolverDimension", dimension); tag.putInt("DissolverElapsed", elapsed); tag.putInt("DissolverPhase", phase); tag.putInt("DissolverVoices", voices); tag.putBoolean("DissolverArmed", armed); }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) {
-        anchor = BlockPos.of(tag.getLong("DissolverAnchor")); dimension = tag.getString("DissolverDimension"); elapsed = Math.clamp(tag.getInt("DissolverElapsed"), 0, 50); phase = Math.clamp(tag.getInt("DissolverPhase"), 0, 5); voices = Math.max(0, tag.getInt("DissolverVoices")); armed = tag.getBoolean("DissolverArmed") && tag.contains("DissolverAnchor"); noPhysics = true; setNoGravity(true);
+    private void sound(ServerLevel level, String name, SoundSource source, float pitch) { level.playSound(null, anchor, BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, name)), source, 1, pitch); }
+    @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { output.putLong("DissolverAnchor", anchor.asLong()); output.putString("DissolverDimension", dimension); output.putInt("DissolverElapsed", elapsed); output.putInt("DissolverPhase", phase); output.putInt("DissolverVoices", voices); output.putBoolean("DissolverArmed", armed); }
+    @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        anchor = BlockPos.of(input.getLongOr("DissolverAnchor", 0L)); dimension = input.getStringOr("DissolverDimension", ""); elapsed = Math.clamp(input.getIntOr("DissolverElapsed", 0), 0, 50); phase = Math.clamp(input.getIntOr("DissolverPhase", 0), 0, 5); voices = Math.max(0, input.getIntOr("DissolverVoices", 0)); armed = input.getBooleanOr("DissolverArmed", false) && input.getString("DissolverAnchor").isPresent(); noPhysics = true; setNoGravity(true);
     }
 }

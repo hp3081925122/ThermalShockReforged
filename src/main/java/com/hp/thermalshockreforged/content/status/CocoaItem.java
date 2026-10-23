@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.content.status;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.component.TooltipDisplay;
+import java.util.function.Consumer;
 
 import java.util.List;
 import net.minecraft.network.chat.Component;
@@ -15,18 +18,18 @@ final class CocoaItem extends Item {
     }
 
     @Override
-    public UseAnim getUseAnimation(ItemStack stack) { return UseAnim.DRINK; }
+    public ItemUseAnimation getUseAnimation(ItemStack stack) { return ItemUseAnimation.DRINK; }
 
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
-        super.appendHoverText(stack, context, tooltip, flag);
-        tooltip.add(Component.translatable("item.thermal_shock_reforged.cocoa.description_0"));
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+        super.appendHoverText(stack, context, display, tooltipAdder, flag);
+        tooltipAdder.accept(Component.translatable("item.thermal_shock_reforged.cocoa.description_0"));
     }
 
     @Override
     public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity entity) {
         super.finishUsingItem(stack, level, entity);
-        if (!level.isClientSide) {
+        if (!level.isClientSide()) {
             entity.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 120, 1, true, false));
             entity.addEffect(new MobEffectInstance(StatusContent.COCOA_EFFECT, 1000, 1, true, true));
         }

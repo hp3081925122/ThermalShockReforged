@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.content.atlas;
+import net.minecraft.world.InteractionResult;
 
 import com.hp.thermalshockreforged.content.decor.geo.*;
 import com.hp.thermalshockreforged.world.WorldProgressData;
@@ -47,6 +48,6 @@ public final class AtlasBlock extends GeoDecorBlock implements SimpleWaterlogged
     @Override protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) { if (state.getValue(ANIMATION) == 1) level.setBlock(pos, state.setValue(ANIMATION, 0), 3); }
     @Override protected MenuProvider getMenuProvider(BlockState state, Level level, BlockPos pos) { return new SimpleMenuProvider((id, inventory, player) -> new AtlasMenu(id, inventory, pos), Component.translatable("block.thermal_shock_reforged.atlas")); }
     private void open(Level level, BlockPos pos, Player player) { if (player instanceof ServerPlayer server && level.getBlockEntity(pos) instanceof GeoDecorBlockEntity) server.openMenu(getMenuProvider(level.getBlockState(pos), level, pos), pos); }
-    @Override protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) { open(level, pos, player); return ItemInteractionResult.SUCCESS; }
+    @Override protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) { open(level, pos, player); return InteractionResult.SUCCESS; }
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) { open(level, pos, player); return InteractionResult.SUCCESS; }
 }

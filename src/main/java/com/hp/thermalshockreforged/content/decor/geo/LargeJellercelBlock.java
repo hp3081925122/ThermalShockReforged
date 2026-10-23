@@ -27,7 +27,7 @@ public final class LargeJellercelBlock extends JellercelBlock {
 
     @Override protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState previous, boolean moving) {
         super.onPlace(state, level, pos, previous, moving);
-        if (level.isClientSide || previous.is(this)) return;
+        if (level.isClientSide() || previous.is(this)) return;
         if (!available(level, pos)) {
             ThermalShockReforged.LOGGER.debug("Large Jellercel placement rejected at {}: occupied, unloaded or out-of-bounds part", pos);
             level.destroyBlock(pos, true);
@@ -42,7 +42,7 @@ public final class LargeJellercelBlock extends JellercelBlock {
     }
 
     @Override protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState replacement, boolean moving) {
-        if (!level.isClientSide && !state.is(replacement.getBlock())) {
+        if (!level.isClientSide() && !state.is(replacement.getBlock())) {
             for (int part = 1; part <= 7; part++) {
                 BlockPos at = partPos(pos, part);
                 if (!level.hasChunkAt(at)) continue;

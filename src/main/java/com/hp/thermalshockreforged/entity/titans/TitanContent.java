@@ -1,9 +1,10 @@
 package com.hp.thermalshockreforged.entity.titans;
+import net.minecraft.world.item.SpawnEggItem;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.combat.AttackAttemptEvent;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.EntityType;
@@ -14,7 +15,7 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.common.DeferredSpawnEggItem;
+
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -23,7 +24,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public final class TitanContent {
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
-    private static final TagKey<EntityType<?>> SKELETITAN_TAG = TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "skeletitan"));
+    private static final TagKey<EntityType<?>> SKELETITAN_TAG = TagKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "skeletitan"));
     public static final DeferredHolder<EntityType<?>, EntityType<SkeletalTitanEntity>> SKELETITAN = titan(SkeletalTitanEntity.Kind.SKELETITAN);
     public static final DeferredHolder<EntityType<?>, EntityType<SkeletalTitanEntity>> FROST_TITAN = titan(SkeletalTitanEntity.Kind.FROST);
     public static final DeferredHolder<EntityType<?>, EntityType<SkeletalTitanEntity>> MANTLETITAN = titan(SkeletalTitanEntity.Kind.MANTLE);
@@ -33,7 +34,7 @@ public final class TitanContent {
     private static DeferredHolder<EntityType<?>, EntityType<SkeletalTitanEntity>> titan(SkeletalTitanEntity.Kind kind) {
         var type = TYPES.register(kind.id(), () -> EntityType.Builder.<SkeletalTitanEntity>of((entityType, level) -> new SkeletalTitanEntity(entityType, level, kind), MobCategory.MONSTER)
             .sized(1, 2.5F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":" + kind.id()));
-        ITEMS.register(kind.id() + "_spawn_egg", () -> new DeferredSpawnEggItem(type, -1, -1, new net.minecraft.world.item.Item.Properties()));
+        ITEMS.register(kind.id() + "_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(type.get())));
         return type;
     }
 

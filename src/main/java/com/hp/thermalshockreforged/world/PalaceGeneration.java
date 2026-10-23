@@ -3,7 +3,7 @@ package com.hp.thermalshockreforged.world;
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.ModGameRules;
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.Rotation;
@@ -12,8 +12,8 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.entity.player.AdvancementEvent;
 
 public final class PalaceGeneration {
-    private static final ResourceLocation ARRIVAL = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "palace_get");
-    private static final ResourceLocation TEMPLATE = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "lavender_palace");
+    private static final Identifier ARRIVAL = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "palace_get");
+    private static final Identifier TEMPLATE = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "lavender_palace");
     private static final BlockPos ORIGIN = new BlockPos(-74, 178, -132);
 
     private PalaceGeneration() { }
@@ -30,14 +30,14 @@ public final class PalaceGeneration {
         try {
             var template = level.getStructureManager().get(TEMPLATE);
             if (template.isEmpty()) {
-                ThermalShockReforged.LOGGER.error("Palace template is missing: template={}, dimension={}", TEMPLATE, level.dimension().location());
+                ThermalShockReforged.LOGGER.error("Palace template is missing: template={}, dimension={}", TEMPLATE, level.dimension().identifier());
                 return;
             }
-            ThermalShockReforged.LOGGER.debug("Placing full Palace template: position={}, dimension={}", ORIGIN, level.dimension().location());
+            ThermalShockReforged.LOGGER.debug("Placing full Palace template: position={}, dimension={}", ORIGIN, level.dimension().identifier());
             placed = template.get().placeInWorld(level, ORIGIN, ORIGIN,
-                    new StructurePlaceSettings().setRotation(Rotation.NONE).setMirror(Mirror.NONE).setIgnoreEntities(false), level.random, 3);
-            if (placed) ThermalShockReforged.LOGGER.debug("Palace placement completed: position={}, dimension={}", ORIGIN, level.dimension().location());
-            else ThermalShockReforged.LOGGER.error("Palace placement failed: position={}, dimension={}", ORIGIN, level.dimension().location());
+                    new StructurePlaceSettings().setRotation(Rotation.NONE).setMirror(Mirror.NONE).setIgnoreEntities(false), level.getRandom(), 3);
+            if (placed) ThermalShockReforged.LOGGER.debug("Palace placement completed: position={}, dimension={}", ORIGIN, level.dimension().identifier());
+            else ThermalShockReforged.LOGGER.error("Palace placement failed: position={}, dimension={}", ORIGIN, level.dimension().identifier());
         } finally {
             progress.finishPalacePlacement(placed);
         }

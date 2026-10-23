@@ -1,10 +1,13 @@
 package com.hp.thermalshockreforged.content.lights;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 
-import software.bernie.geckolib.animatable.GeoBlockEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoBlockEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
+import com.geckolib.util.GeckoLibUtil;
 
 import net.minecraft.core.*;
 import net.minecraft.nbt.CompoundTag;
@@ -36,16 +39,16 @@ public final class GlowstickBlockEntity extends RandomizableContainerBlockEntity
     public IItemHandler itemHandler(Direction side) { return side == null ? null : handlers[side.ordinal()]; }
 
     @Override
-    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.loadAdditional(tag, registries);
+    protected void loadAdditional(net.minecraft.world.level.storage.ValueInput input) {
+        super.loadAdditional(input);
         items = NonNullList.withSize(9, ItemStack.EMPTY);
-        if (!tryLoadLootTable(tag)) ContainerHelper.loadAllItems(tag, items, registries);
+        if (!tryLoadLootTable(input)) ContainerHelper.loadAllItems(input, items);
     }
 
     @Override
-    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.saveAdditional(tag, registries);
-        if (!trySaveLootTable(tag)) ContainerHelper.saveAllItems(tag, items, registries);
+    protected void saveAdditional(net.minecraft.world.level.storage.ValueOutput output) {
+        super.saveAdditional(output);
+        if (!trySaveLootTable(output)) ContainerHelper.saveAllItems(output, items);
     }
 
     @Override
@@ -79,14 +82,14 @@ public final class GlowstickBlockEntity extends RandomizableContainerBlockEntity
     public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction side) { return true; }
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(this, "controller", 0, state -> getBlockState().getValue(GlowstickBlock.ANIMATION) == 0 ? state.setAndContinue(RawAnimation.begin().thenLoop("0")) : PlayState.STOP));
-        controllers.add(new AnimationController<>(this, "procedurecontroller", 0, state -> {
+        controllers.add(new LegacyAnimationController<>(this, "controller", 0, state -> getBlockState().getValue(GlowstickBlock.ANIMATION) == 0 ? state.setAndContinue(RawAnimation.begin().thenLoop("0")) : PlayState.STOP));
+        controllers.add(new LegacyAnimationController<>(this, "procedurecontroller", 0, state -> {
             String requested = Integer.toString(getBlockState().getValue(GlowstickBlock.ANIMATION));
-            if ((!requested.equals("0") && state.getController().getAnimationState() == AnimationController.State.STOPPED)
+            if ((!requested.equals("0") && state.getController().getAnimationState() == LegacyAnimationController.State.STOPPED)
                     || (!requested.equals(previousAnimation) && !requested.equals("0"))) {
                 if (!requested.equals(previousAnimation)) state.getController().forceAnimationReset();
                 state.getController().setAnimation(RawAnimation.begin().thenPlay(requested));
-                if (state.getController().getAnimationState() == AnimationController.State.STOPPED) {
+                if (state.getController().getAnimationState() == LegacyAnimationController.State.STOPPED) {
                     if (level != null) level.setBlock(worldPosition, getBlockState().setValue(GlowstickBlock.ANIMATION, 0), 3);
                     state.getController().forceAnimationReset();
                 }

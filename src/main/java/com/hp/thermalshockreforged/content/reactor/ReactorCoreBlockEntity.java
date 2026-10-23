@@ -11,12 +11,12 @@ public final class ReactorCoreBlockEntity extends BlockEntity {
     public ReactorCoreBlockEntity(BlockPos pos, BlockState state) { super(ReactorContent.CORE_ENTITY.get(), pos, state); }
     void assign(UUID id) { sequence = id; setChanged(); }
     boolean owns(UUID id) { return id.equals(sequence); }
-    @Override protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.loadAdditional(tag, registries);
-        sequence = tag.hasUUID("ReactorSequence") ? tag.getUUID("ReactorSequence") : null;
+    @Override protected void loadAdditional(net.minecraft.world.level.storage.ValueInput input) {
+        super.loadAdditional(input);
+        sequence = input.getString("ReactorSequence").map(java.util.UUID::fromString).orElse(null);
     }
-    @Override protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.saveAdditional(tag, registries);
-        if (sequence != null) tag.putUUID("ReactorSequence", sequence);
+    @Override protected void saveAdditional(net.minecraft.world.level.storage.ValueOutput output) {
+        super.saveAdditional(output);
+        if (sequence != null) output.putString("ReactorSequence", sequence.toString());
     }
 }

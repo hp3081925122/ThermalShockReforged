@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.entity.ambient;
+import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -37,17 +38,17 @@ public final class PixieBottleEntity extends AbstractArrow implements ItemSuppli
         if (released || !(level() instanceof ServerLevel server)) return;
         released = true;
         pickup = Pickup.DISALLOWED;
-        var pixie = AmbientContent.PIXIE.get().spawn(server, BlockPos.containing(x + 0.5, y + 1, z + 0.5), MobSpawnType.MOB_SUMMONED);
+        var pixie = AmbientContent.PIXIE.get().spawn(server, BlockPos.containing(x + 0.5, y + 1, z + 0.5), EntitySpawnReason.MOB_SUMMONED);
         if (pixie != null) pixie.setDeltaMovement(Vec3.ZERO);
         server.playSound(null, BlockPos.containing(x, y, z), SoundEvents.SPLASH_POTION_BREAK, SoundSource.NEUTRAL, 1, 1);
         discard();
     }
     @Override
-    public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putBoolean("Released", released); }
+    public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putBoolean("Released", released); }
     @Override
-    public void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag);
-        released = tag.getBoolean("Released");
+    public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        super.readAdditionalSaveData(input);
+        released = input.getBooleanOr("Released", false);
         if (released) { pickup = Pickup.DISALLOWED; discard(); }
     }
     @Override
@@ -58,7 +59,7 @@ public final class PixieBottleEntity extends AbstractArrow implements ItemSuppli
         bottle.shoot(view.x, view.y, view.z, power * 2, 0);
         bottle.setSilent(true); bottle.setCritArrow(false); bottle.setBaseDamage(1);
         level.addFreshEntity(bottle);
-        level.playSound(null, owner.getX(), owner.getY(), owner.getZ(), SoundEvents.SPLASH_POTION_THROW, SoundSource.PLAYERS, 1, 1 / (level.random.nextFloat() * 0.5F + 1) + power / 2);
+        level.playSound(null, owner.getX(), owner.getY(), owner.getZ(), SoundEvents.SPLASH_POTION_THROW, SoundSource.PLAYERS, 1, 1 / (level.getRandom().nextFloat() * 0.5F + 1) + power / 2);
         return bottle;
     }
     public static PixieBottleEntity shoot(LivingEntity owner, LivingEntity target) {

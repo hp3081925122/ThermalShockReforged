@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.content.remainingcombat;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.component.TooltipDisplay;
+import java.util.function.Consumer;
 
 import com.hp.thermalshockreforged.content.MaterialContent;
 import com.hp.thermalshockreforged.content.weapons.HeldWeaponState;
@@ -40,7 +43,7 @@ public final class RemainingGunItem extends AnimatedCombatItem {
         boolean spawned = false;
         var look = player.getLookAngle();
         for (int index = 0; index < (judge ? 6 : 1); index++) {
-            LegacyArrowEntity bullet = judge ? ProjectileContent.VOLCANO_BULLET.get().create(server) : ProjectileContent.NET_BULLET.get().create(server);
+            LegacyArrowEntity bullet = judge ? ProjectileContent.VOLCANO_BULLET.get().create(server, net.minecraft.world.entity.EntitySpawnReason.MOB_SUMMONED) : ProjectileContent.NET_BULLET.get().create(server, net.minecraft.world.entity.EntitySpawnReason.MOB_SUMMONED);
             if (bullet == null) continue;
             bullet.setOwner(player); bullet.setBaseDamage(judge ? 30 : 1); bullet.setImpactKnockback(judge ? 3 : 0);
             bullet.setSilent(true); bullet.setCritArrow(false);
@@ -69,9 +72,9 @@ public final class RemainingGunItem extends AnimatedCombatItem {
         player.getInventory().clearOrCountMatchingItems(candidate -> candidate.is(ammo), 1, player.inventoryMenu.getCraftSlots());
         return false;
     }
-    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) {
-        super.appendHoverText(stack, context, lines, flag);
+    @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+        super.appendHoverText(stack, context, display, tooltipAdder, flag);
         String prefix = "item.thermal_shock_reforged." + (judge ? "the_judge" : "net_launcher") + ".description_";
-        for (int line = 0; line < (judge ? 3 : 2); line++) lines.add(Component.translatable(prefix + line));
+        for (int line = 0; line < (judge ? 3 : 2); line++) tooltipAdder.accept(Component.translatable(prefix + line));
     }
 }

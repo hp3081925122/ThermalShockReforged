@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.content.tools;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.component.TooltipDisplay;
+import java.util.function.Consumer;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.MaterialContent;
@@ -10,7 +13,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.Supplier;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EquipmentSlotGroup;
@@ -75,7 +78,7 @@ public final class ToolsContent {
         @Override public Ingredient getRepairIngredient() { return repair.get(); }
     }
 
-    private static void tooltip(List<String> keys, List<Component> lines) { keys.forEach(key -> lines.add(Component.translatable(key))); }
+    private static void tooltip(List<String> keys, Consumer<Component> tooltipAdder) { keys.forEach(key -> tooltipAdder.accept(Component.translatable(key))); }
 
     private static final class DescribedPickaxe extends PickaxeItem {
         private final List<String> descriptions;
@@ -84,9 +87,9 @@ public final class ToolsContent {
             this.descriptions = List.of(descriptions);
         }
         @Override
-        public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) {
-            super.appendHoverText(stack, context, lines, flag);
-            tooltip(descriptions, lines);
+        public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+            super.appendHoverText(stack, context, display, tooltipAdder, flag);
+            tooltip(descriptions, tooltipAdder);
         }
     }
 
@@ -97,9 +100,9 @@ public final class ToolsContent {
             this.descriptions = List.of(descriptions);
         }
         @Override
-        public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) {
-            super.appendHoverText(stack, context, lines, flag);
-            tooltip(descriptions, lines);
+        public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+            super.appendHoverText(stack, context, display, tooltipAdder, flag);
+            tooltip(descriptions, tooltipAdder);
         }
     }
 
@@ -110,9 +113,9 @@ public final class ToolsContent {
             this.descriptions = List.of(descriptions);
         }
         @Override
-        public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) {
-            super.appendHoverText(stack, context, lines, flag);
-            tooltip(descriptions, lines);
+        public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+            super.appendHoverText(stack, context, display, tooltipAdder, flag);
+            tooltip(descriptions, tooltipAdder);
         }
     }
 
@@ -133,9 +136,9 @@ public final class ToolsContent {
             if (reach > 0 && selected && entity instanceof LivingEntity living) HeldWeaponState.refreshReach(living, reach);
         }
         @Override
-        public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) {
-            super.appendHoverText(stack, context, lines, flag);
-            tooltip(descriptions, lines);
+        public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+            super.appendHoverText(stack, context, display, tooltipAdder, flag);
+            tooltip(descriptions, tooltipAdder);
         }
     }
 }

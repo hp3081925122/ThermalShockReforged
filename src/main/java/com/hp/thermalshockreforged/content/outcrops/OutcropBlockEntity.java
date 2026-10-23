@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.content.outcrops;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import net.minecraft.core.*;
 import net.minecraft.nbt.CompoundTag;
@@ -13,10 +16,10 @@ import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.wrapper.SidedInvWrapper;
-import software.bernie.geckolib.animatable.GeoBlockEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoBlockEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
+import com.geckolib.util.GeckoLibUtil;
 
 public final class OutcropBlockEntity extends RandomizableContainerBlockEntity implements WorldlyContainer, GeoBlockEntity {
     private static final int[] SLOTS = {0, 1, 2, 3, 4, 5, 6, 7, 8};
@@ -27,15 +30,13 @@ public final class OutcropBlockEntity extends RandomizableContainerBlockEntity i
     public final OutcropKind kind;
     public OutcropBlockEntity(OutcropKind kind, BlockPos pos, BlockState state) { super(OutcropContent.entity(kind), pos, state); this.kind = kind; }
     public IItemHandler itemHandler(Direction side) { return side == null ? null : handlers[side.ordinal()]; }
-    @Override protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.loadAdditional(tag, registries);
-        if (!tag.contains("NeoForgeData", 10) && tag.contains("ForgeData", 10)) getPersistentData().merge(tag.getCompound("ForgeData"));
-        items = NonNullList.withSize(9, ItemStack.EMPTY);
-        if (!tryLoadLootTable(tag)) ContainerHelper.loadAllItems(tag, items, registries);
+    @Override protected void loadAdditional(net.minecraft.world.level.storage.ValueInput input) {
+        super.loadAdditional(input);        items = NonNullList.withSize(9, ItemStack.EMPTY);
+        if (!tryLoadLootTable(input)) ContainerHelper.loadAllItems(input, items);
     }
-    @Override protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.saveAdditional(tag, registries);
-        if (!trySaveLootTable(tag)) ContainerHelper.saveAllItems(tag, items, registries);
+    @Override protected void saveAdditional(net.minecraft.world.level.storage.ValueOutput output) {
+        super.saveAdditional(output);
+        if (!trySaveLootTable(output)) ContainerHelper.saveAllItems(output, items);
     }
     @Override public ClientboundBlockEntityDataPacket getUpdatePacket() { return ClientboundBlockEntityDataPacket.create(this); }
     @Override public CompoundTag getUpdateTag(HolderLookup.Provider registries) { return saveWithoutMetadata(registries); }
@@ -49,14 +50,14 @@ public final class OutcropBlockEntity extends RandomizableContainerBlockEntity i
     @Override public boolean canPlaceItemThroughFace(int slot, ItemStack stack, Direction side) { return true; }
     @Override public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction side) { return true; }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(this, "controller", 0, state -> getBlockState().getValue(OutcropBlock.ANIMATION) == 0 ? state.setAndContinue(RawAnimation.begin().thenLoop("0")) : PlayState.STOP));
-        controllers.add(new AnimationController<>(this, "procedurecontroller", 0, state -> {
+        controllers.add(new LegacyAnimationController<>(this, "controller", 0, state -> getBlockState().getValue(OutcropBlock.ANIMATION) == 0 ? state.setAndContinue(RawAnimation.begin().thenLoop("0")) : PlayState.STOP));
+        controllers.add(new LegacyAnimationController<>(this, "procedurecontroller", 0, state -> {
             String requested = Integer.toString(getBlockState().getValue(OutcropBlock.ANIMATION));
-            if ((!requested.equals("0") && state.getController().getAnimationState() == AnimationController.State.STOPPED)
+            if ((!requested.equals("0") && state.getController().getAnimationState() == LegacyAnimationController.State.STOPPED)
                     || (!requested.equals(previousAnimation) && !requested.equals("0"))) {
                 if (!requested.equals(previousAnimation)) state.getController().forceAnimationReset();
                 state.getController().setAnimation(RawAnimation.begin().thenPlay(requested));
-                if (state.getController().getAnimationState() == AnimationController.State.STOPPED) {
+                if (state.getController().getAnimationState() == LegacyAnimationController.State.STOPPED) {
                     if (level != null) level.setBlock(worldPosition, getBlockState().setValue(OutcropBlock.ANIMATION, 0), 3);
                     state.getController().forceAnimationReset();
                 }

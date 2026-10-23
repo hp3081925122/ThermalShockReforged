@@ -9,7 +9,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -33,14 +33,14 @@ public final class RecipeContent {
     private RecipeContent() { }
 
     private static <T extends DataRecipe> Kind<T> kind(String name, MapCodec<T> codec) {
-        var id = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, name);
+        var id = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, name);
         StreamCodec<RegistryFriendlyByteBuf, T> stream = ByteBufCodecs.fromCodecWithRegistries(codec.codec());
-        DeferredHolder<RecipeSerializer<?>, RecipeSerializer<T>> serializer = SERIALIZERS.register(name, () -> new Serializer<>(codec, stream));
+        DeferredHolder<RecipeSerializer<?>, RecipeSerializer<T>> serializer = SERIALIZERS.register(name, () -> new RecipeSerializer<>(codec, stream));
         DeferredHolder<RecipeType<?>, RecipeType<T>> type = TYPES.register(name, () -> RecipeType.simple(id));
         return new Kind<>(type, serializer);
     }
 
-    public static ResourceLocation id(String path) { return ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
+    public static Identifier id(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
 
     public static void register(IEventBus bus) {
         TYPES.register(bus);
@@ -54,7 +54,7 @@ public final class RecipeContent {
             return list;
         }
 
-        public T get(Level level, ResourceLocation id) {
+        public T get(Level level, Identifier id) {
             var holder = level.getRecipeManager().byKey(id).orElse(null);
             if (holder == null || holder.value().getType() != type.get()) return null;
             @SuppressWarnings("unchecked") T recipe = (T) holder.value();
@@ -62,5 +62,4 @@ public final class RecipeContent {
         }
     }
 
-    private record Serializer<T extends Recipe<?>>(MapCodec<T> codec, StreamCodec<RegistryFriendlyByteBuf, T> streamCodec) implements RecipeSerializer<T> { }
 }

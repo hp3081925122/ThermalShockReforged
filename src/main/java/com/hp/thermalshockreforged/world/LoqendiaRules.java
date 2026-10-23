@@ -3,11 +3,11 @@ package com.hp.thermalshockreforged.world;
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.config.WorldRulesConfig;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.entity.animal.Pig;
+import net.minecraft.world.entity.animal.pig.Pig;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -16,7 +16,7 @@ import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
 
 final class LoqendiaRules {
-    private static final TagKey<Block> SUSTAIN_FIRE = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "sustain_fire"));
+    private static final TagKey<Block> SUSTAIN_FIRE = TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "sustain_fire"));
 
     private LoqendiaRules() { }
 
@@ -35,7 +35,7 @@ final class LoqendiaRules {
     private static void place(BlockEvent.EntityPlaceEvent event) {
         var actor = event.getEntity();
         if (actor == null || !actor.level().dimension().equals(LoqendiaContent.DIMENSION)
-                || !(event.getLevel() instanceof Level level) || level.isClientSide) return;
+                || !(event.getLevel() instanceof Level level) || level.isClientSide()) return;
         var pos = event.getPos();
         var state = level.getBlockState(pos);
         if (state.is(Blocks.FIRE) && WorldRulesConfig.FIRE_EXTINGUISHES.get()

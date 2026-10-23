@@ -13,7 +13,7 @@ import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.BlockHitResult;
 
 final class HangingSparklerBulbBlock extends Block {
-    HangingSparklerBulbBlock() { super(Properties.of().mapColor(MapColor.SAND).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.FUNGUS).strength(.45F, 0).lightLevel(state -> 14).randomTicks().hasPostProcess((state, level, pos) -> true).emissiveRendering((state, level, pos) -> true)); }
+    HangingSparklerBulbBlock() { super(Properties.of().mapColor(MapColor.SAND).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.FUNGUS).strength(.45F, 0).lightLevel(state -> 14).randomTicks().emissiveRendering((state, level, pos) -> true)); }
     @Override protected boolean propagatesSkylightDown(BlockState state, BlockGetter level, BlockPos pos) { return true; }
     @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 0; }
     @Override public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) { if (random.nextDouble() < .4) level.playLocalSound(pos.getX(), pos.getY(), pos.getZ(), SoundEvents.CONDUIT_AMBIENT_SHORT, SoundSource.NEUTRAL, 1, 1, false); }

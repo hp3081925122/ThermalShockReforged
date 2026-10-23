@@ -1,4 +1,6 @@
 package com.hp.thermalshockreforged.content;
+import net.minecraft.world.item.component.TooltipDisplay;
+import java.util.function.Consumer;
 
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -34,9 +36,9 @@ public final class InteractiveBlocks {
             }
 
             @Override
-            public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> lines, TooltipFlag flag) {
-                super.appendHoverText(stack, context, lines, flag);
-                tooltip.forEach(key -> lines.add(Component.translatable(key)));
+            public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+                super.appendHoverText(stack, context, display, tooltipAdder, flag);
+                tooltip.forEach(key -> tooltipAdder.accept(Component.translatable(key)));
             }
         };
     }
@@ -55,9 +57,9 @@ public final class InteractiveBlocks {
             }
 
             @Override
-            public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> lines, TooltipFlag flag) {
-                super.appendHoverText(stack, context, lines, flag);
-                tooltip.forEach(key -> lines.add(Component.translatable(key)));
+            public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+                super.appendHoverText(stack, context, display, tooltipAdder, flag);
+                tooltip.forEach(key -> tooltipAdder.accept(Component.translatable(key)));
             }
         };
     }
@@ -76,9 +78,9 @@ public final class InteractiveBlocks {
             }
 
             @Override
-            public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> lines, TooltipFlag flag) {
-                super.appendHoverText(stack, context, lines, flag);
-                tooltip.forEach(key -> lines.add(Component.translatable(key)));
+            public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+                super.appendHoverText(stack, context, display, tooltipAdder, flag);
+                tooltip.forEach(key -> tooltipAdder.accept(Component.translatable(key)));
             }
         };
     }
@@ -97,9 +99,9 @@ public final class InteractiveBlocks {
             }
 
             @Override
-            public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> lines, TooltipFlag flag) {
-                super.appendHoverText(stack, context, lines, flag);
-                tooltip.forEach(key -> lines.add(Component.translatable(key)));
+            public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+                super.appendHoverText(stack, context, display, tooltipAdder, flag);
+                tooltip.forEach(key -> tooltipAdder.accept(Component.translatable(key)));
             }
 
             @Override

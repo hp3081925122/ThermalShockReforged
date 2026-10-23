@@ -1,9 +1,10 @@
 package com.hp.thermalshockreforged.entity.gravers;
+import net.minecraft.world.item.SpawnEggItem;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.combat.AttackAttemptEvent;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.Monster;
@@ -24,12 +25,12 @@ public final class GraverContent {
     public static final DeferredHolder<EntityType<?>, EntityType<RazoraptorEntity>> RAZORAPTOR = TYPES.register("razoraptor", () -> EntityType.Builder.of(RazoraptorEntity::new, MobCategory.AMBIENT).sized(1.3F, 2.6F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(id("razoraptor").toString()));
     public static final DeferredHolder<EntityType<?>, EntityType<RazoraptorStrikeEntity>> STRIKE = TYPES.register("razoraptor_strike_task", () -> EntityType.Builder.<RazoraptorStrikeEntity>of(RazoraptorStrikeEntity::new, MobCategory.MISC).noSummon().sized(.1F, .1F).clientTrackingRange(1).updateInterval(Integer.MAX_VALUE).build(id("razoraptor_strike_task").toString()));
     static {
-        ITEMS.register("graver_spawn_egg", () -> new DeferredSpawnEggItem(GRAVER, -1, -1, new Item.Properties()));
-        ITEMS.register("assimilator_spawn_egg", () -> new DeferredSpawnEggItem(ASSIMILATOR, -1, -1, new Item.Properties()));
-        ITEMS.register("assimilated_graver_spawn_egg", () -> new DeferredSpawnEggItem(ASSIMILATED, -1, -1, new Item.Properties()));
-        ITEMS.register("razoraptor_spawn_egg", () -> new DeferredSpawnEggItem(RAZORAPTOR, -1, -1, new Item.Properties()));
+        ITEMS.register("graver_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(GRAVER.get())));
+        ITEMS.register("assimilator_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(ASSIMILATOR.get())));
+        ITEMS.register("assimilated_graver_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(ASSIMILATED.get())));
+        ITEMS.register("razoraptor_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(RAZORAPTOR.get())));
     }
-    public static ResourceLocation id(String path) { return ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
+    public static Identifier id(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
     public static void register(IEventBus bus) {
         TYPES.register(bus); ITEMS.register(bus);
         bus.addListener(GraverContent::attributes); bus.addListener(GraverContent::placements);
@@ -48,7 +49,7 @@ public final class GraverContent {
         event.register(ASSIMILATED.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, GraverContent::darkSpawn, RegisterSpawnPlacementsEvent.Operation.REPLACE);
         event.register(RAZORAPTOR.get(), SpawnPlacementTypes.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Mob::checkMobSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
     }
-    private static boolean darkSpawn(EntityType<? extends Monster> type, net.minecraft.world.level.ServerLevelAccessor level, MobSpawnType reason, net.minecraft.core.BlockPos pos, net.minecraft.util.RandomSource random) { return level.getDifficulty() != Difficulty.PEACEFUL && Monster.isDarkEnoughToSpawn(level, pos, random) && Mob.checkMobSpawnRules(type, level, reason, pos, random); }
+    private static boolean darkSpawn(EntityType<? extends Monster> type, net.minecraft.world.level.ServerLevelAccessor level, EntitySpawnReason reason, net.minecraft.core.BlockPos pos, net.minecraft.util.RandomSource random) { return level.getDifficulty() != Difficulty.PEACEFUL && Monster.isDarkEnoughToSpawn(level, pos, random) && Mob.checkMobSpawnRules(type, level, reason, pos, random); }
     private static void attack(AttackAttemptEvent event) { if (event.getSource().getEntity() instanceof RazoraptorEntity razoraptor) { event.setCanceled(true); razoraptor.beginAttack(event.getEntity()); } }
     private GraverContent() { }
 }

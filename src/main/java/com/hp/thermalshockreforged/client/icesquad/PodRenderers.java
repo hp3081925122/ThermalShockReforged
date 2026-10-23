@@ -1,15 +1,18 @@
 package com.hp.thermalshockreforged.client.icesquad;
+import net.minecraft.client.renderer.rendertype.RenderTypes;
+import com.hp.thermalshockreforged.client.compat.LegacyEntityRenderer;
+import net.minecraft.client.renderer.rendertype.RenderType;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.entity.icesquad.*;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.entity.*;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
-import software.bernie.geckolib.model.GeoModel;
-import software.bernie.geckolib.renderer.GeoEntityRenderer;
+import com.hp.thermalshockreforged.client.compat.LegacyGeoModel;
+import com.hp.thermalshockreforged.client.compat.LegacyGeoEntityRenderer;
 
 public final class PodRenderers {
     private PodRenderers() { }
@@ -18,19 +21,19 @@ public final class PodRenderers {
         event.registerEntityRenderer(IceSquadContent.DEPLOYMENT_TASK.get(), InvisibleRenderer::new);
     }
     public static void particles(RegisterParticleProvidersEvent event) { event.registerSpriteSet(IceSquadContent.FOG_CLOUD.get(), FogCloudParticle.Provider::new); }
-    private static ResourceLocation resource(String path) { return ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
-    private static final class Model extends GeoModel<BlizzardDropPodEntity> {
-        @Override public ResourceLocation getModelResource(BlizzardDropPodEntity pod) { return resource("geo/drop_pod.geo.json"); }
-        @Override public ResourceLocation getAnimationResource(BlizzardDropPodEntity pod) { return resource("animations/drop_pod.animation.json"); }
-        @Override public ResourceLocation getTextureResource(BlizzardDropPodEntity pod) { return resource("textures/entities/" + pod.texture() + ".png"); }
+    private static Identifier resource(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
+    private static final class Model extends LegacyGeoModel<BlizzardDropPodEntity> {
+        @Override public Identifier getModelResource(BlizzardDropPodEntity pod) { return resource("geo/drop_pod.geo.json"); }
+        @Override public Identifier getAnimationResource(BlizzardDropPodEntity pod) { return resource("animations/drop_pod.animation.json"); }
+        @Override public Identifier getTextureResource(BlizzardDropPodEntity pod) { return resource("textures/entities/" + pod.texture() + ".png"); }
     }
-    private static final class PodRenderer extends GeoEntityRenderer<BlizzardDropPodEntity> {
+    private static final class PodRenderer extends LegacyGeoEntityRenderer<BlizzardDropPodEntity> {
         private PodRenderer(EntityRendererProvider.Context context) { super(context, new Model()); shadowRadius = 0.5F; withScale(1); }
-        @Override public RenderType getRenderType(BlizzardDropPodEntity pod, ResourceLocation texture, MultiBufferSource buffers, float partialTick) { return RenderType.entityTranslucent(texture); }
+        @Override public RenderType getRenderType(BlizzardDropPodEntity pod, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
     }
-    private static final class InvisibleRenderer extends EntityRenderer<DeploymentTaskEntity> {
+    private static final class InvisibleRenderer extends LegacyEntityRenderer<DeploymentTaskEntity> {
         private InvisibleRenderer(EntityRendererProvider.Context context) { super(context); }
         @Override public void render(DeploymentTaskEntity task, float yaw, float partialTick, PoseStack pose, MultiBufferSource buffers, int light) { }
-        @Override public ResourceLocation getTextureLocation(DeploymentTaskEntity task) { return ResourceLocation.withDefaultNamespace("textures/misc/white.png"); }
+        @Override public Identifier getTextureLocation(DeploymentTaskEntity task) { return Identifier.withDefaultNamespace("textures/misc/white.png"); }
     }
 }

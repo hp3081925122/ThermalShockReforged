@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.client.ice;
+import net.minecraft.client.renderer.rendertype.RenderTypes;
+import net.minecraft.client.renderer.rendertype.RenderType;
+import com.hp.thermalshockreforged.client.compat.LegacyGeoEntityRenderer;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.entity.ice.*;
@@ -6,15 +9,14 @@ import com.mojang.blaze3d.vertex.*;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.entity.*;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
-import software.bernie.geckolib.animation.AnimationState;
-import software.bernie.geckolib.cache.object.BakedGeoModel;
-import software.bernie.geckolib.constant.DataTickets;
-import software.bernie.geckolib.model.GeoModel;
-import software.bernie.geckolib.renderer.*;
-import software.bernie.geckolib.renderer.layer.GeoRenderLayer;
+import com.geckolib.animation.state.AnimationTest;
+import com.geckolib.cache.model.BakedGeoModel;
+import com.hp.thermalshockreforged.client.compat.LegacyGeoModel;
+import com.geckolib.renderer.*;
+import com.hp.thermalshockreforged.client.compat.LegacyGeoRenderLayer;
 
 public final class IceRenderers {
     private IceRenderers() { }
@@ -26,32 +28,32 @@ public final class IceRenderers {
         event.registerEntityRenderer(IceContent.ICE_BULLET.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(IceContent.SOLDIER_COMBO.get(), NoopRenderer::new);
     }
-    private static ResourceLocation resource(String path) { return ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
-    private static final class Model extends GeoModel<IceCreatureEntity> {
+    private static Identifier resource(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
+    private static final class Model extends LegacyGeoModel<IceCreatureEntity> {
         private final String id;
         private final String bone;
         private Model(String id, String bone) { this.id = id; this.bone = bone; }
-        @Override public ResourceLocation getModelResource(IceCreatureEntity entity) { return resource("geo/" + id + ".geo.json"); }
-        @Override public ResourceLocation getAnimationResource(IceCreatureEntity entity) { return resource("animations/" + id + ".animation.json"); }
-        @Override public ResourceLocation getTextureResource(IceCreatureEntity entity) { return resource("textures/entities/" + entity.texture() + ".png"); }
-        @Override public void setCustomAnimations(IceCreatureEntity entity, long instanceId, AnimationState<IceCreatureEntity> state) {
+        @Override public Identifier getModelResource(IceCreatureEntity entity) { return resource("geo/" + id + ".geo.json"); }
+        @Override public Identifier getAnimationResource(IceCreatureEntity entity) { return resource("animations/" + id + ".animation.json"); }
+        @Override public Identifier getTextureResource(IceCreatureEntity entity) { return resource("textures/entities/" + entity.texture() + ".png"); }
+        @Override public void setCustomAnimations(IceCreatureEntity entity, long instanceId, AnimationTest<IceCreatureEntity> state) {
             super.setCustomAnimations(entity, instanceId, state);
             if (bone == null) return;
-            var current = getAnimationProcessor().getBone(bone); var data = state.getData(DataTickets.ENTITY_MODEL_DATA);
+            var current = getAnimationProcessor().getBone(bone); var data = com.hp.thermalshockreforged.compat.LegacyAnimationData.from(state);
             if (current != null && data != null) { current.setRotX(data.headPitch() * Mth.DEG_TO_RAD); current.setRotY(data.netHeadYaw() * Mth.DEG_TO_RAD); }
         }
     }
-    private static final class Renderer extends GeoEntityRenderer<IceCreatureEntity> {
+    private static final class Renderer extends LegacyGeoEntityRenderer<IceCreatureEntity> {
         private Renderer(EntityRendererProvider.Context context, String id, String bone, float scale, float shadow, String glow) {
             super(context, new Model(id, bone)); withScale(scale); shadowRadius = shadow; if (glow != null) addRenderLayer(new Glow(this, glow));
         }
-        @Override public RenderType getRenderType(IceCreatureEntity entity, ResourceLocation texture, MultiBufferSource buffers, float partialTick) { return RenderType.entityTranslucent(texture); }
+        @Override public RenderType getRenderType(IceCreatureEntity entity, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
     }
-    private static final class Glow extends GeoRenderLayer<IceCreatureEntity> {
-        private final ResourceLocation texture;
-        private Glow(GeoRenderer<IceCreatureEntity> renderer, String texture) { super(renderer); this.texture = resource("textures/entities/" + texture + ".png"); }
+    private static final class Glow extends LegacyGeoRenderLayer<IceCreatureEntity> {
+        private final Identifier texture;
+        private Glow(LegacyGeoEntityRenderer<IceCreatureEntity> renderer, String texture) { super(renderer); this.texture = resource("textures/entities/" + texture + ".png"); }
         @Override public void render(PoseStack pose, IceCreatureEntity entity, BakedGeoModel model, RenderType type, MultiBufferSource buffers, VertexConsumer vertices, float partialTick, int light, int overlay) {
-            var glow = RenderType.eyes(texture);
+            var glow = RenderTypes.eyes(texture);
             getRenderer().reRender(model, pose, buffers, entity, glow, buffers.getBuffer(glow), partialTick, light, OverlayTexture.NO_OVERLAY, -1);
         }
     }

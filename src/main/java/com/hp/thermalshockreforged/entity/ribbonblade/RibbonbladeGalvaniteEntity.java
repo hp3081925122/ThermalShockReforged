@@ -60,7 +60,7 @@ public final class RibbonbladeGalvaniteEntity extends AnimatedMonsterEntity impl
     }
     public void beginAttack(LivingEntity target) {
         if (!(level() instanceof ServerLevel server) || !isAlive() || target == this || target.level() != level() || cooldown > 0 || submitting) return;
-        if (tauntWindow > 0 || hasEffect(MobEffects.MOVEMENT_SLOWDOWN)) {
+        if (tauntWindow > 0 || hasEffect(MobEffects.SLOWNESS)) {
             cooldown = RibbonbladeConfig.TAUNT_COOLDOWN.get(); entityData.set(COOLDOWN_VISIBLE, false);
             triggerProcedure("taunt"); sound(server, "ribbonblade_taunting", 1, 1); return;
         }
@@ -105,13 +105,13 @@ public final class RibbonbladeGalvaniteEntity extends AnimatedMonsterEntity impl
     }
     @Override public void endTick(ServerLevel level) { if (!isRemoved() && chargeDelay > 0 && --chargeDelay == 0) addEffect(new MobEffectInstance(StatusContent.ELECTRIFIED, 30, 0, false, true)); if (chargeDelay > 0) ServerEndTickTasks.schedule(level, getUUID()); }
     @Override protected void tickEffects() {
-        if (!level().isClientSide || !entityData.get(COOLDOWN_VISIBLE)) { super.tickEffects(); return; }
-        for (var effect : new ArrayList<>(getActiveEffects())) { boolean active = effect.tick(this, () -> onEffectUpdated(effect, true, null)); if (active && effect.getDuration() % 600 == 0) onEffectUpdated(effect, false, null); }
+        if (!level().isClientSide() || !entityData.get(COOLDOWN_VISIBLE)) { super.tickEffects(); return; }
+        for (var effect : new ArrayList<>(getActiveEffects())) { boolean active = onEffectUpdated(effect, true, null); if (active && effect.getDuration() % 600 == 0) onEffectUpdated(effect, false, null); }
         if (isInvisible() ? random.nextInt(15) == 0 : random.nextBoolean()) LegacyEffectParticles.emit(this, -1, 1);
     }
-    @Override public boolean hurt(DamageSource source, float amount) { return Float.isFinite(amount) && amount > 0 && !source.is(DamageTypes.LIGHTNING_BOLT) && super.hurt(source, amount); }
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) { return Float.isFinite(amount) && amount > 0 && !source.is(DamageTypes.LIGHTNING_BOLT) && super.hurtServer(level, source, amount); }
     @Override public void die(DamageSource source) { super.die(source); if (dead && !deathDropsDone && level() instanceof ServerLevel server) { deathDropsDone = true; } }
-    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType reason, SpawnGroupData data) {
+    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, EntitySpawnReason reason, SpawnGroupData data) {
         var result = super.finalizeSpawn(level, difficulty, reason, data);
         applyConfiguredAttributes();
         if (level instanceof ServerLevel server) {
@@ -123,11 +123,11 @@ public final class RibbonbladeGalvaniteEntity extends AnimatedMonsterEntity impl
     }
     @Override public void awardKillScore(Entity target, int score, DamageSource source) { super.awardKillScore(target, score, source); if (level() instanceof ServerLevel server) sound(server, "ribbonblade_win", 1, 1); }
     @Override public void remove(RemovalReason reason) { if (activeStrike != null && level() instanceof ServerLevel server && server.getEntity(activeStrike) instanceof RibbonbladeActionEntity task) task.capture(this); super.remove(reason); }
-    private void sound(ServerLevel server, String name, float volume, float pitch) { server.playSound(null, blockPosition(), BuiltInRegistries.SOUND_EVENT.get(RibbonbladeContent.id(name)), SoundSource.HOSTILE, volume, pitch); }
+    private void sound(ServerLevel server, String name, float volume, float pitch) { server.playSound(null, blockPosition(), BuiltInRegistries.SOUND_EVENT.getValue(RibbonbladeContent.id(name)), SoundSource.HOSTILE, volume, pitch); }
     @Override protected void playStepSound(BlockPos pos, BlockState state) { playSound(SoundEvents.CHAIN_PLACE, .15F, 1); }
-    @Override protected SoundEvent getHurtSound(DamageSource source) { return BuiltInRegistries.SOUND_EVENT.get(RibbonbladeContent.id("galvanitehurt")); }
-    @Override protected SoundEvent getDeathSound() { return BuiltInRegistries.SOUND_EVENT.get(RibbonbladeContent.id("galvanitedeath")); }
-    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putInt("RibbonCooldown", cooldown); tag.putInt("RibbonTaunt", tauntWindow); tag.putInt("RibbonCharge", chargeDelay); tag.putBoolean("RibbonCooldownVisible", entityData.get(COOLDOWN_VISIBLE)); tag.putBoolean("RibbonDropsDone", deathDropsDone); if (activeStrike != null) tag.putUUID("RibbonActiveStrike", activeStrike); }
-    @Override public void readAdditionalSaveData(CompoundTag tag) { super.readAdditionalSaveData(tag); loaded = true; cooldown = Math.clamp(tag.getInt("RibbonCooldown"), 0, 72000); tauntWindow = Math.clamp(tag.getInt("RibbonTaunt"), 0, 40); chargeDelay = Math.clamp(tag.getInt("RibbonCharge"), 0, 5); entityData.set(COOLDOWN_VISIBLE, cooldown > 0 && tag.getBoolean("RibbonCooldownVisible")); deathDropsDone = tag.getBoolean("RibbonDropsDone"); activeStrike = tag.hasUUID("RibbonActiveStrike") ? tag.getUUID("RibbonActiveStrike") : null; }
+    @Override protected SoundEvent getHurtSound(DamageSource source) { return BuiltInRegistries.SOUND_EVENT.getValue(RibbonbladeContent.id("galvanitehurt")); }
+    @Override protected SoundEvent getDeathSound() { return BuiltInRegistries.SOUND_EVENT.getValue(RibbonbladeContent.id("galvanitedeath")); }
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putInt("RibbonCooldown", cooldown); output.putInt("RibbonTaunt", tauntWindow); output.putInt("RibbonCharge", chargeDelay); output.putBoolean("RibbonCooldownVisible", entityData.get(COOLDOWN_VISIBLE)); output.putBoolean("RibbonDropsDone", deathDropsDone); if (activeStrike != null) output.putString("RibbonActiveStrike", activeStrike.toString()); }
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); loaded = true; cooldown = Math.clamp(input.getIntOr("RibbonCooldown", 0), 0, 72000); tauntWindow = Math.clamp(input.getIntOr("RibbonTaunt", 0), 0, 40); chargeDelay = Math.clamp(input.getIntOr("RibbonCharge", 0), 0, 5); entityData.set(COOLDOWN_VISIBLE, cooldown > 0 && input.getBooleanOr("RibbonCooldownVisible", false)); deathDropsDone = input.getBooleanOr("RibbonDropsDone", false); activeStrike = input.getString("RibbonActiveStrike").map(java.util.UUID::fromString).orElse(null); }
     public static AttributeSupplier.Builder attributes() { return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 40).add(Attributes.ARMOR, 10).add(Attributes.ATTACK_DAMAGE, 7).add(Attributes.MOVEMENT_SPEED, 0).add(Attributes.FOLLOW_RANGE, 32).add(Attributes.ATTACK_KNOCKBACK, .8).add(Attributes.STEP_HEIGHT, 1.6); }
 }

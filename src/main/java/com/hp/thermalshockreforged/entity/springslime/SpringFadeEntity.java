@@ -22,7 +22,7 @@ public final class SpringFadeEntity extends Entity implements ServerEndTickTask 
     public static boolean submit(ServerLevel level, SpringslimeEntity source) {
         var task = SpringslimeContent.FADE.get().create(level);
         if (task == null) return false;
-        task.spring = source.getUUID(); task.anchor = source.position(); task.dimension = level.dimension().location().toString(); task.armed = true;
+        task.spring = source.getUUID(); task.anchor = source.position(); task.dimension = level.dimension().identifier().toString(); task.armed = true;
         task.setPos(task.anchor);
         return level.addFreshEntity(task);
     }
@@ -32,12 +32,12 @@ public final class SpringFadeEntity extends Entity implements ServerEndTickTask 
     @Override public void tick() {
         super.tick();
         if (level() instanceof ServerLevel server) {
-            if (!armed || consumed || !dimension.equals(server.dimension().location().toString())) { discard(); return; }
+            if (!armed || consumed || !dimension.equals(server.dimension().identifier().toString())) { discard(); return; }
             setPos(anchor); ServerEndTickTasks.schedule(server, getUUID());
         }
     }
     @Override public void endTick(ServerLevel level) {
-        if (isRemoved() || !armed || consumed || !dimension.equals(level.dimension().location().toString())) { discard(); return; }
+        if (isRemoved() || !armed || consumed || !dimension.equals(level.dimension().identifier().toString())) { discard(); return; }
         if (--remaining > 0) { ServerEndTickTasks.schedule(level, getUUID()); return; }
         consumed = true; discard();
         if (spring != null && level.getEntity(spring) instanceof SpringslimeEntity source) source.discard();
@@ -45,11 +45,11 @@ public final class SpringFadeEntity extends Entity implements ServerEndTickTask 
         com.hp.thermalshockreforged.ThermalShockReforged.LOGGER.debug("Springslime fade sound completed: task={}, source={}, anchor={}", getUUID(), spring, anchor);
         level.sendParticles(ParticleTypes.POOF, anchor.x, anchor.y, anchor.z, 15, 1, 1, 1, .3);
     }
-    @Override protected void addAdditionalSaveData(CompoundTag tag) { if (spring != null) tag.putUUID("SpringSource", spring); tag.putDouble("SpringX", anchor.x); tag.putDouble("SpringY", anchor.y); tag.putDouble("SpringZ", anchor.z); tag.putString("SpringDimension", dimension); tag.putInt("SpringRemaining", remaining); tag.putBoolean("SpringArmed", armed); tag.putBoolean("SpringConsumed", consumed); }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) {
-        spring = tag.hasUUID("SpringSource") ? tag.getUUID("SpringSource") : null;
-        anchor = new Vec3(tag.getDouble("SpringX"), tag.getDouble("SpringY"), tag.getDouble("SpringZ")); dimension = tag.getString("SpringDimension");
-        remaining = Math.clamp(tag.getInt("SpringRemaining"), 1, 20); armed = tag.getBoolean("SpringArmed") && spring != null && Double.isFinite(anchor.x) && Double.isFinite(anchor.y) && Double.isFinite(anchor.z); consumed = tag.getBoolean("SpringConsumed");
+    @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { if (spring != null) output.putString("SpringSource", spring.toString()); output.putDouble("SpringX", anchor.x); output.putDouble("SpringY", anchor.y); output.putDouble("SpringZ", anchor.z); output.putString("SpringDimension", dimension); output.putInt("SpringRemaining", remaining); output.putBoolean("SpringArmed", armed); output.putBoolean("SpringConsumed", consumed); }
+    @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        spring = input.getString("SpringSource").map(java.util.UUID::fromString).orElse(null);
+        anchor = new Vec3(input.getDoubleOr("SpringX", 0.0), input.getDoubleOr("SpringY", 0.0), input.getDoubleOr("SpringZ", 0.0)); dimension = input.getStringOr("SpringDimension", "");
+        remaining = Math.clamp(input.getIntOr("SpringRemaining", 0), 1, 20); armed = input.getBooleanOr("SpringArmed", false) && spring != null && Double.isFinite(anchor.x) && Double.isFinite(anchor.y) && Double.isFinite(anchor.z); consumed = input.getBooleanOr("SpringConsumed", false);
         noPhysics = true; setNoGravity(true);
     }
 }

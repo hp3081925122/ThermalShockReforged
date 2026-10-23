@@ -1,4 +1,6 @@
 package com.hp.thermalshockreforged.content.weatherutility;
+import net.minecraft.world.item.component.TooltipDisplay;
+import java.util.function.Consumer;
 
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -20,13 +22,13 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.material.MapColor;
 
 public final class PurifierBlock extends Block implements EntityBlock {
-    public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+    public static final EnumProperty<Direction> FACING = HorizontalDirectionalBlock.FACING;
     public PurifierBlock() {
-        super(Properties.of().mapColor(MapColor.SNOW).sound(SoundType.GLASS).strength(7, 99).requiresCorrectToolForDrops().hasPostProcess((state, level, pos) -> true).emissiveRendering((state, level, pos) -> true));
+        super(Properties.of().mapColor(MapColor.SNOW).sound(SoundType.GLASS).strength(7, 99).requiresCorrectToolForDrops().emissiveRendering((state, level, pos) -> true));
         registerDefaultState(defaultBlockState().setValue(FACING, Direction.NORTH));
     }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { super.createBlockStateDefinition(builder); builder.add(FACING); }
@@ -35,10 +37,10 @@ public final class PurifierBlock extends Block implements EntityBlock {
     @Override protected BlockState mirror(BlockState state, Mirror mirror) { return state.rotate(mirror.getRotation(state.getValue(FACING))); }
     @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 15; }
     @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return new PurifierBlockEntity(pos, state); }
-    @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> lines, TooltipFlag flag) {
-        super.appendHoverText(stack, context, lines, flag);
-        lines.add(Component.translatable(getDescriptionId() + ".description_0"));
-        lines.add(Component.translatable(getDescriptionId() + ".description_1"));
+    @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+        super.appendHoverText(stack, context, display, tooltipAdder, flag);
+        tooltipAdder.accept(Component.translatable(getDescriptionId() + ".description_0"));
+        tooltipAdder.accept(Component.translatable(getDescriptionId() + ".description_1"));
     }
     @Override protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState oldState, boolean moving) {
         super.onPlace(state, level, pos, oldState, moving);

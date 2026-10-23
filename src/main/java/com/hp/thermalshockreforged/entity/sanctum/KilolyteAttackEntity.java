@@ -18,7 +18,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
 public final class KilolyteAttackEntity extends Entity implements ServerEndTickTask {
-    private static final ResourceKey<DamageType> DAMAGE = ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "errant_damage"));
+    private static final ResourceKey<DamageType> DAMAGE = ResourceKey.create(Registries.DAMAGE_TYPE, Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "errant_damage"));
     private static final int[][] OFFSETS = {{3,0,-3,0}, {0,3,0,-3}, {2,2,-2,-2}, {2,-2,-2,2}};
     private UUID caster;
     private UUID target;
@@ -38,7 +38,7 @@ public final class KilolyteAttackEntity extends Entity implements ServerEndTickT
         if (task == null) return false;
         var config = SanctumConfig.KILOLYTE;
         task.caster = owner.getUUID(); task.target = victim.getUUID(); task.sourcePosition = owner.position(); task.soundOrigin = victim.blockPosition();
-        task.dimension = level.dimension().location().toString(); task.baseDamage = finiteDamage(owner.getAttributeValue(Attributes.ATTACK_DAMAGE));
+        task.dimension = level.dimension().identifier().toString(); task.baseDamage = finiteDamage(owner.getAttributeValue(Attributes.ATTACK_DAMAGE));
         task.meleeMultiplier = config.meleeMultiplier().get(); task.armorFactor = config.armorFactor().get(); task.zapMultiplier = config.zapMultiplier().get();
         task.ring = ring; task.remaining = ring ? 22 : 17; task.setPos(owner.position());
         return level.addFreshEntity(task);
@@ -54,12 +54,12 @@ public final class KilolyteAttackEntity extends Entity implements ServerEndTickT
     @Override public void tick() {
         super.tick();
         if (level() instanceof ServerLevel server) {
-            if (caster == null || phase >= (ring ? 4 : 1) || !dimension.equals(server.dimension().location().toString())) { discard(); return; }
+            if (caster == null || phase >= (ring ? 4 : 1) || !dimension.equals(server.dimension().identifier().toString())) { discard(); return; }
             capture(server); ServerEndTickTasks.schedule(server, getUUID());
         }
     }
     @Override public void endTick(ServerLevel level) {
-        if (isRemoved() || caster == null || phase >= (ring ? 4 : 1) || !dimension.equals(level.dimension().location().toString())) return;
+        if (isRemoved() || caster == null || phase >= (ring ? 4 : 1) || !dimension.equals(level.dimension().identifier().toString())) return;
         if (--remaining > 0) { ServerEndTickTasks.schedule(level, getUUID()); return; }
         if (level.getEntity(caster) == null) {
             for (ServerLevel other : level.getServer().getAllLevels()) if (other != level && other.getEntity(caster) != null) { discard(); return; }
@@ -76,7 +76,7 @@ public final class KilolyteAttackEntity extends Entity implements ServerEndTickT
             for (int i = 0; i < 4; i += 2) {
                 var pos = BlockPos.containing(sourcePosition.x + offsets[i], sourcePosition.y, sourcePosition.z + offsets[i + 1]);
                 var zap = ZapWarningEntity.spawn(level, pos, caster, finiteDamage(baseDamage * zapMultiplier), true);
-                if (zap != null) zap.setYRot(level.random.nextFloat() * 360);
+                if (zap != null) zap.setYRot(level.getRandom().nextFloat() * 360);
             }
         } else {
             level.playSound(null, soundOrigin, SoundEvents.PLAYER_ATTACK_SWEEP, SoundSource.HOSTILE, 1, -3);
@@ -90,21 +90,21 @@ public final class KilolyteAttackEntity extends Entity implements ServerEndTickT
         if (phase >= (ring ? 4 : 1)) discard(); else ServerEndTickTasks.schedule(level, getUUID());
     }
     private static double finiteDamage(double value) { return Double.isFinite(value) ? Math.clamp(value, 0, Float.MAX_VALUE) : 0; }
-    @Override protected void addAdditionalSaveData(CompoundTag tag) {
-        if (caster != null) tag.putUUID("KilolyteCaster", caster); if (target != null) tag.putUUID("KilolyteTarget", target);
-        tag.putDouble("KilolyteSourceX", sourcePosition.x); tag.putDouble("KilolyteSourceY", sourcePosition.y); tag.putDouble("KilolyteSourceZ", sourcePosition.z);
-        tag.putLong("KilolyteSoundOrigin", soundOrigin.asLong()); tag.putString("KilolyteDimension", dimension);
-        tag.putDouble("KilolyteBaseDamage", baseDamage); tag.putDouble("KilolyteMeleeMultiplier", meleeMultiplier); tag.putDouble("KilolyteArmorFactor", armorFactor); tag.putDouble("KilolyteZapMultiplier", zapMultiplier);
-        tag.putInt("KilolyteRemaining", remaining); tag.putInt("KilolytePhase", phase); tag.putBoolean("KilolyteRing", ring);
+    @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        if (caster != null) output.putString("KilolyteCaster", caster.toString()); if (target != null) output.putString("KilolyteTarget", target.toString());
+        output.putDouble("KilolyteSourceX", sourcePosition.x); output.putDouble("KilolyteSourceY", sourcePosition.y); output.putDouble("KilolyteSourceZ", sourcePosition.z);
+        output.putLong("KilolyteSoundOrigin", soundOrigin.asLong()); output.putString("KilolyteDimension", dimension);
+        output.putDouble("KilolyteBaseDamage", baseDamage); output.putDouble("KilolyteMeleeMultiplier", meleeMultiplier); output.putDouble("KilolyteArmorFactor", armorFactor); output.putDouble("KilolyteZapMultiplier", zapMultiplier);
+        output.putInt("KilolyteRemaining", remaining); output.putInt("KilolytePhase", phase); output.putBoolean("KilolyteRing", ring);
     }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) {
-        caster = tag.hasUUID("KilolyteCaster") ? tag.getUUID("KilolyteCaster") : null; target = tag.hasUUID("KilolyteTarget") ? tag.getUUID("KilolyteTarget") : null;
-        sourcePosition = new Vec3(tag.getDouble("KilolyteSourceX"), tag.getDouble("KilolyteSourceY"), tag.getDouble("KilolyteSourceZ"));
-        soundOrigin = BlockPos.of(tag.getLong("KilolyteSoundOrigin")); dimension = tag.getString("KilolyteDimension");
-        baseDamage = finiteDamage(tag.getDouble("KilolyteBaseDamage")); meleeMultiplier = Math.min(100, finiteDamage(tag.getDouble("KilolyteMeleeMultiplier")));
-        armorFactor = Math.min(100, finiteDamage(tag.getDouble("KilolyteArmorFactor"))); zapMultiplier = Math.min(100, finiteDamage(tag.getDouble("KilolyteZapMultiplier")));
-        ring = tag.getBoolean("KilolyteRing"); phase = Math.clamp(tag.getInt("KilolytePhase"), 0, ring ? 4 : 1);
-        remaining = Math.clamp(tag.getInt("KilolyteRemaining"), 1, phase == 0 ? (ring ? 22 : 17) : 2);
+    @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        caster = input.getString("KilolyteCaster").map(java.util.UUID::fromString).orElse(null); target = input.getString("KilolyteTarget").map(java.util.UUID::fromString).orElse(null);
+        sourcePosition = new Vec3(input.getDoubleOr("KilolyteSourceX", 0.0), input.getDoubleOr("KilolyteSourceY", 0.0), input.getDoubleOr("KilolyteSourceZ", 0.0));
+        soundOrigin = BlockPos.of(input.getLongOr("KilolyteSoundOrigin", 0L)); dimension = input.getStringOr("KilolyteDimension", "");
+        baseDamage = finiteDamage(input.getDoubleOr("KilolyteBaseDamage", 0.0)); meleeMultiplier = Math.min(100, finiteDamage(input.getDoubleOr("KilolyteMeleeMultiplier", 0.0)));
+        armorFactor = Math.min(100, finiteDamage(input.getDoubleOr("KilolyteArmorFactor", 0.0))); zapMultiplier = Math.min(100, finiteDamage(input.getDoubleOr("KilolyteZapMultiplier", 0.0)));
+        ring = input.getBooleanOr("KilolyteRing", false); phase = Math.clamp(input.getIntOr("KilolytePhase", 0), 0, ring ? 4 : 1);
+        remaining = Math.clamp(input.getIntOr("KilolyteRemaining", 0), 1, phase == 0 ? (ring ? 22 : 17) : 2);
         if (!Double.isFinite(sourcePosition.x) || !Double.isFinite(sourcePosition.y) || !Double.isFinite(sourcePosition.z)) phase = ring ? 4 : 1;
     }
 }

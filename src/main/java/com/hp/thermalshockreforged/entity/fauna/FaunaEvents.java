@@ -7,6 +7,6 @@ final class FaunaEvents {
     private FaunaEvents() { }
 
     static void incomingDamage(AttackAttemptEvent event) {
-        if (!event.getEntity().level().isClientSide && (event.getSource().getEntity() instanceof FlareEntity || event.getSource().getEntity() instanceof SolaEntity)) event.getEntity().igniteForSeconds(4);
+        if (!event.getEntity().level().isClientSide() && (event.getSource().getEntity() instanceof FlareEntity || event.getSource().getEntity() instanceof SolaEntity)) event.getEntity().igniteForSeconds(4);
     }
 }

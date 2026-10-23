@@ -3,7 +3,7 @@ package com.hp.thermalshockreforged.world.loqendiaportal;
 import com.hp.thermalshockreforged.world.LoqendiaContent;
 import java.util.Comparator;
 import java.util.Optional;
-import net.minecraft.BlockUtil;
+import net.minecraft.util.BlockUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Vec3i;
@@ -20,17 +20,17 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.border.WorldBorder;
 import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.levelgen.Heightmap;
-import net.minecraft.world.level.portal.DimensionTransition;
+import net.minecraft.world.level.portal.TeleportTransition;
 import net.minecraft.world.level.portal.PortalShape;
 import net.minecraft.world.phys.Vec3;
 
 public final class LoqendiaPortalTravel {
-    private static final TicketType<BlockPos> PORTAL_TICKET = TicketType.create("thermal_shock_reforged:loqendia_portal", Vec3i::compareTo, 300);
+    private static final TicketType PORTAL_TICKET = TicketType.create("thermal_shock_reforged:loqendia_portal", Vec3i::compareTo, 300);
     private final ServerLevel level;
 
     private LoqendiaPortalTravel(ServerLevel level) { this.level = level; }
 
-    public static DimensionTransition destination(ServerLevel source, ServerLevel destination, Entity entity, BlockPos entrance) {
+    public static TeleportTransition destination(ServerLevel source, ServerLevel destination, Entity entity, BlockPos entrance) {
         double scale = DimensionType.getTeleportationScale(source.dimensionType(), destination.dimensionType());
         WorldBorder border = destination.getWorldBorder();
         BlockPos search = border.clampToBounds(entity.getX() * scale, entity.getY(), entity.getZ() * scale);
@@ -41,7 +41,7 @@ public final class LoqendiaPortalTravel {
             exit = travel.createPortal(search, axis);
         }
         if (exit.isEmpty()) {
-            return new DimensionTransition(destination, entity.position(), Vec3.ZERO, entity.getYRot(), entity.getXRot(), DimensionTransition.PLAY_PORTAL_SOUND);
+            return new TeleportTransition(destination, entity.position(), Vec3.ZERO, entity.getYRot(), entity.getXRot(), TeleportTransition.PLAY_PORTAL_SOUND);
         }
         var entryState = source.getBlockState(entrance);
         Direction.Axis entryAxis = entryState.getOptionalValue(LoqendiaPortalBlock.AXIS).orElse(Direction.Axis.X);
@@ -64,7 +64,7 @@ public final class LoqendiaPortalTravel {
         Vec3 velocity = entity.getDeltaMovement();
         boolean rotate = entryAxis != exitAxis;
         if (rotate) velocity = new Vec3(velocity.z, velocity.y, -velocity.x);
-        return new DimensionTransition(destination, point, velocity, entity.getYRot() + (rotate ? 90 : 0), entity.getXRot(), DimensionTransition.PLAY_PORTAL_SOUND);
+        return new TeleportTransition(destination, point, velocity, entity.getYRot() + (rotate ? 90 : 0), entity.getXRot(), TeleportTransition.PLAY_PORTAL_SOUND);
     }
 
     private Optional<BlockUtil.FoundRectangle> findPortal(BlockPos search, WorldBorder border) {

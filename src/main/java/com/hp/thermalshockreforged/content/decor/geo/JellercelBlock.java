@@ -9,6 +9,6 @@ public class JellercelBlock extends GeoDecorBlock.Waterlogged {
     public JellercelBlock(GeoDecorKind kind) { super(kind); }
     @Override protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
         super.entityInside(state, level, pos, entity);
-        if (!level.isClientSide) entity.hurt(level.damageSources().lightningBolt(), 1);
+        if (!level.isClientSide()) entity.hurt(level.damageSources().lightningBolt(), 1);
     }
 }

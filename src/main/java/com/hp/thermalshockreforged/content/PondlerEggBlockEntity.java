@@ -31,18 +31,18 @@ public final class PondlerEggBlockEntity extends RandomizableContainerBlockEntit
     }
 
     @Override
-    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.loadAdditional(tag, registries);
-        incubationAge = Math.max(0, Math.min(600, tag.contains("IncubationAge") ? tag.getInt("IncubationAge") : (int) getPersistentData().getDouble("age")));
+    protected void loadAdditional(net.minecraft.world.level.storage.ValueInput input) {
+        super.loadAdditional(input);
+        incubationAge = Math.max(0, Math.min(600, tag.contains("IncubationAge") ? input.getIntOr("IncubationAge", 0) : (int) getPersistentData().getDouble("age")));
         items = NonNullList.withSize(9, ItemStack.EMPTY);
-        if (!tryLoadLootTable(tag)) ContainerHelper.loadAllItems(tag, items, registries);
+        if (!tryLoadLootTable(input)) ContainerHelper.loadAllItems(input, items);
     }
 
     @Override
-    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.saveAdditional(tag, registries);
-        tag.putInt("IncubationAge", incubationAge);
-        if (!trySaveLootTable(tag)) ContainerHelper.saveAllItems(tag, items, registries);
+    protected void saveAdditional(net.minecraft.world.level.storage.ValueOutput output) {
+        super.saveAdditional(output);
+        output.putInt("IncubationAge", incubationAge);
+        if (!trySaveLootTable(output)) ContainerHelper.saveAllItems(output, items);
     }
 
     @Override

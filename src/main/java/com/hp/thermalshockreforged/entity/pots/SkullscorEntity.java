@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.entity.pots;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import com.hp.thermalshockreforged.entity.gardenling.GardenlingEntity;
 import java.util.UUID;
@@ -16,10 +19,10 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
+import com.geckolib.util.GeckoLibUtil;
 
 public final class SkullscorEntity extends Monster implements GeoEntity {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(SkullscorEntity.class, EntityDataSerializers.STRING);
@@ -54,36 +57,36 @@ public final class SkullscorEntity extends Monster implements GeoEntity {
     @Override protected SoundEvent getDeathSound() { return SoundEvents.SPIDER_DEATH; }
     @Override protected void playStepSound(BlockPos pos, BlockState state) { playSound(SoundEvents.SPIDER_STEP, 0.15F, 1); }
     @Override public void aiStep() { super.aiStep(); updateSwingTime(); }
-    @Override protected void dropExperience(Entity attacker) { experiencePending = true; experienceAttacker = attacker == null ? null : attacker.getUUID(); }
+    @Override protected void dropExperience(net.minecraft.server.level.ServerLevel level, Entity attacker) { experiencePending = true; experienceAttacker = attacker == null ? null : attacker.getUUID(); }
     @Override protected void tickDeath() {
         if (++deathTime >= 20 && !isRemoved()) {
             remove(RemovalReason.KILLED);
             if (experiencePending && level() instanceof ServerLevel server) {
                 experiencePending = false;
-                super.dropExperience(experienceAttacker == null ? null : server.getEntity(experienceAttacker));
+                super.dropExperience(server, experienceAttacker == null ? null : server.getEntity(experienceAttacker));
             }
         }
     }
-    @Override public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); tag.putBoolean("SkullscorExperiencePending", experiencePending);
-        if (experienceAttacker != null) tag.putUUID("SkullscorExperienceAttacker", experienceAttacker);
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        super.addAdditionalSaveData(output); output.putString("Texture", texture()); output.putBoolean("SkullscorExperiencePending", experiencePending);
+        if (experienceAttacker != null) output.putString("SkullscorExperienceAttacker", experienceAttacker.toString());
     }
-    @Override public void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag); if (tag.contains("Texture")) setTexture(tag.getString("Texture"));
-        experiencePending = tag.getBoolean("SkullscorExperiencePending");
-        experienceAttacker = tag.hasUUID("SkullscorExperienceAttacker") ? tag.getUUID("SkullscorExperienceAttacker") : null;
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        super.readAdditionalSaveData(input); if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
+        experiencePending = input.getBooleanOr("SkullscorExperiencePending", false);
+        experienceAttacker = input.getString("SkullscorExperienceAttacker").map(java.util.UUID::fromString).orElse(null);
     }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 4, state -> PlayState.STOP);
+        var procedure = new LegacyAnimationController<>(this, "procedure", 4, state -> PlayState.STOP);
         for (String clip : new String[]{"idle", "walk", "attack"}) procedure.triggerableAnim(clip, RawAnimation.begin().thenPlay(clip));
-        controllers.add(new AnimationController<>(this, "movement", 4, state -> {
+        controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> {
             if (procedure.isPlayingTriggeredAnimation()) return PlayState.STOP;
             return state.setAndContinue(RawAnimation.begin().thenLoop(state.isMoving() || Math.abs(state.getLimbSwingAmount()) >= 0.15F ? "walk" : "idle"));
         }));
-        controllers.add(new AnimationController<>(this, "attacking", 4, state -> {
+        controllers.add(new LegacyAnimationController<>(this, "attacking", 4, state -> {
             if (getAttackAnim(state.getPartialTick()) > 0 && !swinging) { swinging = true; lastSwing = level().getGameTime(); }
             if (swinging && lastSwing + 7 <= level().getGameTime()) swinging = false;
-            if (swinging && state.getController().getAnimationState() == AnimationController.State.STOPPED) {
+            if (swinging && state.getController().getAnimationState() == LegacyAnimationController.State.STOPPED) {
                 state.getController().forceAnimationReset();
                 return state.setAndContinue(RawAnimation.begin().thenPlay("attack"));
             }

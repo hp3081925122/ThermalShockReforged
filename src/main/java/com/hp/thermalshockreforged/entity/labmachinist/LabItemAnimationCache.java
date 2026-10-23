@@ -1,9 +1,9 @@
 package com.hp.thermalshockreforged.entity.labmachinist;
 
 import java.util.*;
-import software.bernie.geckolib.animatable.GeoAnimatable;
-import software.bernie.geckolib.animatable.instance.SingletonAnimatableInstanceCache;
-import software.bernie.geckolib.animation.AnimatableManager;
+import com.geckolib.animatable.GeoAnimatable;
+import com.geckolib.animatable.instance.SingletonAnimatableInstanceCache;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 final class LabItemAnimationCache extends SingletonAnimatableInstanceCache {
     private final Map<Long, Long> accessed = new HashMap<>();

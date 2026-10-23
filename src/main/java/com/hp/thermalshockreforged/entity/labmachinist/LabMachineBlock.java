@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.entity.labmachinist;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 
 import com.hp.thermalshockreforged.entity.qo.QoMenu;
 import java.util.List;
@@ -24,7 +25,7 @@ import net.minecraft.world.phys.shapes.*;
 public abstract class LabMachineBlock extends Block implements EntityBlock {
     public static final IntegerProperty ANIMATION = IntegerProperty.create("animation", 0, 1);
     public static final IntegerProperty MODE = IntegerProperty.create("blockstate", 0, 1);
-    public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+    public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     protected LabMachineBlock(Properties properties) { super(properties); registerDefaultState(defaultBlockState().setValue(FACING, Direction.NORTH).setValue(ANIMATION, 0)); }
     public abstract boolean wallbore();
@@ -41,7 +42,7 @@ public abstract class LabMachineBlock extends Block implements EntityBlock {
     @Override protected MenuProvider getMenuProvider(BlockState state, Level level, BlockPos pos) { return !wallbore() && level.getBlockEntity(pos) instanceof LabMachineBlockEntity machine ? machine : null; }
     @Override protected boolean triggerEvent(BlockState state, Level level, BlockPos pos, int id, int parameter) { super.triggerEvent(state, level, pos, id, parameter); return level.getBlockEntity(pos) instanceof LabMachineBlockEntity machine && machine.triggerEvent(id, parameter); }
     @Override protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState replacement, boolean moving) {
-        if (!state.is(replacement.getBlock())) { if (!level.isClientSide && level.getBlockEntity(pos) instanceof LabMachineBlockEntity machine) { Containers.dropContents(level, pos, machine); level.updateNeighbourForOutputSignal(pos, this); } super.onRemove(state, level, pos, replacement, moving); }
+        if (!state.is(replacement.getBlock())) { if (!level.isClientSide() && level.getBlockEntity(pos) instanceof LabMachineBlockEntity machine) { Containers.dropContents(level, pos, machine); level.updateNeighbourForOutputSignal(pos, this); } super.onRemove(state, level, pos, replacement, moving); }
     }
     @Override protected boolean hasAnalogOutputSignal(BlockState state) { return true; }
     @Override protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) { return level.getBlockEntity(pos) instanceof LabMachineBlockEntity machine ? AbstractContainerMenu.getRedstoneSignalFromContainer(machine) : 0; }
@@ -71,11 +72,11 @@ public abstract class LabMachineBlock extends Block implements EntityBlock {
                 }
             } else LabContent.openBlock(server, pos, QoMenu.completed(server, "icebreaker_1") ? LabPage.ASSEMBLY : LabPage.ASSEMBLER_TOUCH);
         }
-        return InteractionResult.sidedSuccess(level.isClientSide);
+        return InteractionResult.SUCCESS;
     }
     @Override public void onPlace(BlockState state, Level level, BlockPos pos, BlockState oldState, boolean moving) {
         super.onPlace(state, level, pos, oldState, moving);
-        if (wallbore() && !level.isClientSide && !oldState.is(this)) { level.scheduleTick(pos, this, 60); if (level.getBlockEntity(pos) instanceof LabMachineBlockEntity machine) { machine.getPersistentData().putDouble("effic", 0); machine.setChanged(); } }
+        if (wallbore() && !level.isClientSide() && !oldState.is(this)) { level.scheduleTick(pos, this, 60); if (level.getBlockEntity(pos) instanceof LabMachineBlockEntity machine) { machine.getPersistentData().putDouble("effic", 0); machine.setChanged(); } }
     }
     @Override protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         if (!wallbore()) return;

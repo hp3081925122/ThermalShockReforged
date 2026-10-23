@@ -36,9 +36,9 @@ public final class FlareGunCycleEntity extends Entity implements ServerEndTickTa
         }
         if (armed) ServerEndTickTasks.schedule(level, getUUID());
     }
-    @Override protected void addAdditionalSaveData(CompoundTag tag) { tag.putInt("FlareCycleElapsed", elapsed); tag.putBoolean("FlareCycleAlternate", alternate); tag.putBoolean("FlareCycleArmed", armed); }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) {
-        alternate = tag.getBoolean("FlareCycleAlternate"); elapsed = Math.clamp(tag.getInt("FlareCycleElapsed"), 0, 20);
-        armed = tag.getBoolean("FlareCycleArmed") && elapsed < (alternate ? 20 : 18);
+    @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { output.putInt("FlareCycleElapsed", elapsed); output.putBoolean("FlareCycleAlternate", alternate); output.putBoolean("FlareCycleArmed", armed); }
+    @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        alternate = input.getBooleanOr("FlareCycleAlternate", false); elapsed = Math.clamp(input.getIntOr("FlareCycleElapsed", 0), 0, 20);
+        armed = input.getBooleanOr("FlareCycleArmed", false) && elapsed < (alternate ? 20 : 18);
     }
 }

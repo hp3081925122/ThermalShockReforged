@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.entity.labmachinist;
+import net.minecraft.world.item.SpawnEggItem;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.entity.qo.QoMenu;
@@ -7,7 +8,7 @@ import java.util.UUID;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.*;
@@ -17,7 +18,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.capabilities.*;
-import net.neoforged.neoforge.common.DeferredSpawnEggItem;
+
 import net.neoforged.neoforge.common.extensions.IMenuTypeExtension;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.registries.*;
@@ -46,11 +47,11 @@ public final class LabContent {
     public static final DeferredItem<ClimbingPickItem> JELLY_PICK = ITEMS.register("jelly_pick", () -> new ClimbingPickItem(true));
     static {
         ITEMS.registerSimpleBlockItem(WALLBORE_CONSTRUCTOR); ITEMS.registerSimpleBlockItem(SUSPICIOUS_SAFE); ITEMS.registerSimpleBlockItem(STORM_BATTERY);
-        ITEMS.register("lab_machinist_spawn_egg", () -> new DeferredSpawnEggItem(LAB_MACHINIST, -1, -1, new Item.Properties()));
+        ITEMS.register("lab_machinist_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(LAB_MACHINIST.get())));
         for (var page : LabPage.values()) PAGES.put(page, MENUS.register(page.id, () -> IMenuTypeExtension.create((id, inventory, data) -> new LabMenu(page, id, inventory, data.readVarInt(), data.readUUID(), data.readBlockPos(), data.readUtf(), data.readUtf(), data.readVarInt()))));
     }
     private LabContent() { }
-    public static ResourceLocation id(String path) { return ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
+    public static Identifier id(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
     public static MenuType<LabMenu> menu(LabPage page) { return PAGES.get(page).get(); }
     public static boolean open(ServerPlayer player, LabMachinistEntity npc, BlockPos anchor, LabPage page) {
         if (npc == null || !npc.isAlive() || npc.level() != player.level() || player.distanceToSqr(npc) > 64) return false;

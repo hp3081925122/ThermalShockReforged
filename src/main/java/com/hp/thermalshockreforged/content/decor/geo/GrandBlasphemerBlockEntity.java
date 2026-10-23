@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.content.decor.geo;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.machines.BlasphemerProcessEntity;
@@ -10,10 +11,9 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.level.block.state.BlockState;
-import software.bernie.geckolib.animation.AnimatableManager;
-import software.bernie.geckolib.animation.AnimationController;
-import software.bernie.geckolib.animation.PlayState;
-import software.bernie.geckolib.animation.RawAnimation;
+import com.geckolib.animatable.manager.AnimatableManager;
+import com.geckolib.animation.object.PlayState;
+import com.geckolib.animation.RawAnimation;
 
 public final class GrandBlasphemerBlockEntity extends GeoDecorBlockEntity {
     private boolean procedureStarted;
@@ -44,11 +44,11 @@ public final class GrandBlasphemerBlockEntity extends GeoDecorBlockEntity {
         }
     }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(this, "controller", 0, state -> {
+        controllers.add(new LegacyAnimationController<>(this, "controller", 0, state -> {
             int phase = getBlockState().getValue(GrandBlasphemerBlock.PHASE);
             return phase == 1 ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(Integer.toString(phase)));
         }));
-        controllers.add(new AnimationController<>(this, "procedurecontroller", 0, state -> {
+        controllers.add(new LegacyAnimationController<>(this, "procedurecontroller", 0, state -> {
             if (getBlockState().getValue(GrandBlasphemerBlock.PHASE) != 1) {
                 if (procedureStarted) state.getController().forceAnimationReset();
                 procedureStarted = false;

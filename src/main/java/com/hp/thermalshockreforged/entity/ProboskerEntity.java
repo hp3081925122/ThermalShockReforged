@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.entity;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.MaterialContent;
@@ -7,7 +10,7 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -32,14 +35,14 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.event.EventHooks;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
+import com.geckolib.util.GeckoLibUtil;
 
 public final class ProboskerEntity extends TamableAnimal implements GeoEntity {
     private static final EntityDataAccessor<Boolean> PURPLE = SynchedEntityData.defineId(ProboskerEntity.class, EntityDataSerializers.BOOLEAN);
-    private static final ResourceLocation MOVEMENT_LOCK = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "probosker_movement_lock");
+    private static final Identifier MOVEMENT_LOCK = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "probosker_movement_lock");
     private static final RawAnimation WALK = RawAnimation.begin().thenLoop("walk");
     private static final RawAnimation SIT = RawAnimation.begin().thenLoop("sit");
     private static final RawAnimation IDLE = RawAnimation.begin().thenLoop("idle");
@@ -108,7 +111,7 @@ public final class ProboskerEntity extends TamableAnimal implements GeoEntity {
     public InteractionResult mobInteract(Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         if (stack.getItem() instanceof SpawnEggItem) return super.mobInteract(player, hand);
-        if (level().isClientSide) return isOwnedBy(player) || isFood(stack) ? InteractionResult.CONSUME : InteractionResult.PASS;
+        if (level().isClientSide()) return isOwnedBy(player) || isFood(stack) ? InteractionResult.CONSUME : InteractionResult.PASS;
         if (!isTame() && isFood(stack)) {
             usePlayerItem(player, hand, stack);
             if (random.nextInt(3) == 0 && !EventHooks.onAnimalTame(this, player)) {
@@ -146,7 +149,7 @@ public final class ProboskerEntity extends TamableAnimal implements GeoEntity {
     }
 
     @Override
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType reason, SpawnGroupData group) {
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, EntitySpawnReason reason, SpawnGroupData group) {
         SpawnGroupData result = super.finalizeSpawn(level, difficulty, reason, group);
         setPurple(random.nextDouble() < 0.4);
         return result;
@@ -155,13 +158,13 @@ public final class ProboskerEntity extends TamableAnimal implements GeoEntity {
     @Override
     public AgeableMob getBreedOffspring(ServerLevel level, AgeableMob other) {
         ProboskerEntity child = ModEntities.PROBOSKER.get().create(level);
-        if (child != null) child.finalizeSpawn(level, level.getCurrentDifficultyAt(child.blockPosition()), MobSpawnType.BREEDING, null);
+        if (child != null) child.finalizeSpawn(level, level.getCurrentDifficultyAt(child.blockPosition()), EntitySpawnReason.BREEDING, null);
         return child;
     }
 
     @Override
-    public boolean hurt(DamageSource source, float damage) {
-        return !source.is(DamageTypes.DROWN) && super.hurt(source, damage);
+    public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float damage) {
+        return !source.is(DamageTypes.DROWN) && super.hurtServer(level, source, damage);
     }
 
     @Override
@@ -200,26 +203,26 @@ public final class ProboskerEntity extends TamableAnimal implements GeoEntity {
     }
 
     @Override
-    public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag);
-        tag.putString("Texture", texture());
+    public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        super.addAdditionalSaveData(output);
+        output.putString("Texture", texture());
     }
 
     @Override
-    public void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag);
-        setPurple(tag.getString("Texture").equals("purple_probosker"));
+    public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        super.readAdditionalSaveData(input);
+        setPurple(input.getStringOr("Texture", "").equals("purple_probosker"));
     }
 
     public void setAnimation(String animation) { triggerAnim("procedure", animation); }
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 4, state -> PlayState.STOP);
+        var procedure = new LegacyAnimationController<>(this, "procedure", 4, state -> PlayState.STOP);
         for (String animation : new String[]{"sit", "idle", "walk", "swim", "swim2", "swim3"}) {
             procedure.triggerableAnim(animation, RawAnimation.begin().thenPlay(animation));
         }
-        controllers.add(new AnimationController<>(this, "movement", 4, state -> procedure.isPlayingTriggeredAnimation()
+        controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> procedure.isPlayingTriggeredAnimation()
                 ? PlayState.STOP : state.setAndContinue(state.isMoving() || Math.abs(state.getLimbSwingAmount()) >= 0.15F ? WALK : isInSittingPose() ? SIT : IDLE)));
         controllers.add(procedure);
     }

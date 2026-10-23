@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.entity.spore;
+import net.minecraft.world.item.SpawnEggItem;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.entity.spore.block.*;
@@ -8,7 +9,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.common.DeferredSpawnEggItem;
+
 import net.neoforged.neoforge.event.entity.*;
 import net.neoforged.neoforge.registries.*;
 
@@ -21,7 +22,7 @@ public final class SporeContent {
     public static final DeferredBlock<SporePodBlock> SPORE_POD = BLOCKS.register("spore_pod", SporePodBlock::new);
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SporePodBlockEntity>> SPORE_POD_ENTITY = BLOCK_ENTITIES.register("spore_pod", () -> BlockEntityType.Builder.of(SporePodBlockEntity::new, SPORE_POD.get()).build(null));
     public static final DeferredItem<SporePodItem> SPORE_POD_ITEM = ITEMS.register("spore_pod", () -> new SporePodItem(SPORE_POD.get(), new Item.Properties()));
-    static { ITEMS.register("blighted_spore_spawn_egg", () -> new DeferredSpawnEggItem(BLIGHTED_SPORE, -1, -1, new Item.Properties())); }
+    static { ITEMS.register("blighted_spore_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(BLIGHTED_SPORE.get()))); }
     private SporeContent() { }
     public static void register(IEventBus bus) {
         TYPES.register(bus); ITEMS.register(bus); BLOCKS.register(bus); BLOCK_ENTITIES.register(bus);

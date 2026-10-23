@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.entity.snobol;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.world.timing.ServerEndTickTask;
@@ -18,10 +21,10 @@ import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
+import com.geckolib.util.GeckoLibUtil;
 
 public final class ExplosiveSnobolEntity extends Monster implements GeoEntity, ServerEndTickTask {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(ExplosiveSnobolEntity.class, EntityDataSerializers.STRING);
@@ -76,11 +79,11 @@ public final class ExplosiveSnobolEntity extends Monster implements GeoEntity, S
     protected SoundEvent getDeathSound() { return SoundEvents.RABBIT_DEATH; }
 
     @Override
-    public boolean hurt(DamageSource source, float amount) {
+    public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) {
         if (level() instanceof net.minecraft.server.level.ServerLevel server && isAlive() && fuseRemaining == 0
                 && amount > 0 && !source.is(DamageTypes.FALL) && !isInvulnerableTo(source)) {
             fuseRemaining = 20;
-            fuseDimension = server.dimension().location().toString();
+            fuseDimension = server.dimension().identifier().toString();
             fuseOrigin = position();
             fuseDamage = getAttributeValue(Attributes.ATTACK_DAMAGE);
             setAnimation("bounce");
@@ -88,7 +91,7 @@ public final class ExplosiveSnobolEntity extends Monster implements GeoEntity, S
             ServerEndTickTasks.schedule(server, getUUID());
             ThermalShockReforged.LOGGER.debug("Explosive Snobol fuse armed: entity={}, remainingEndTicks={}, origin={}", getUUID(), fuseRemaining, fuseOrigin);
         }
-        return !source.is(DamageTypes.FALL) && super.hurt(source, amount);
+        return !source.is(DamageTypes.FALL) && super.hurtServer(level, source, amount);
     }
 
     @Override
@@ -106,9 +109,9 @@ public final class ExplosiveSnobolEntity extends Monster implements GeoEntity, S
     @Override
     public void endTick(ServerLevel server) {
         if (isRemoved() || fuseRemaining <= 0) return;
-        if (!isAlive() || !fuseDimension.equals(server.dimension().location().toString())) {
+        if (!isAlive() || !fuseDimension.equals(server.dimension().identifier().toString())) {
             fuseRemaining = 0;
-            ThermalShockReforged.LOGGER.debug("Explosive Snobol fuse cancelled: entity={}, alive={}, dimension={}", getUUID(), isAlive(), server.dimension().location());
+            ThermalShockReforged.LOGGER.debug("Explosive Snobol fuse cancelled: entity={}, alive={}, dimension={}", getUUID(), isAlive(), server.dimension().identifier());
             return;
         }
         if (--fuseRemaining == 0) {
@@ -119,38 +122,38 @@ public final class ExplosiveSnobolEntity extends Monster implements GeoEntity, S
     }
 
     @Override
-    public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag);
-        tag.putString("Texture", texture());
-        tag.putInt("FuseRemaining", fuseRemaining);
+    public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        super.addAdditionalSaveData(output);
+        output.putString("Texture", texture());
+        output.putInt("FuseRemaining", fuseRemaining);
         if (fuseOrigin != null) {
-            tag.putDouble("FuseX", fuseOrigin.x);
-            tag.putDouble("FuseY", fuseOrigin.y);
-            tag.putDouble("FuseZ", fuseOrigin.z);
+            output.putDouble("FuseX", fuseOrigin.x);
+            output.putDouble("FuseY", fuseOrigin.y);
+            output.putDouble("FuseZ", fuseOrigin.z);
         }
-        tag.putDouble("FuseDamage", fuseDamage);
-        tag.putString("FuseDimension", fuseDimension);
+        output.putDouble("FuseDamage", fuseDamage);
+        output.putString("FuseDimension", fuseDimension);
     }
 
     @Override
-    public void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag);
-        if (tag.contains("Texture")) setTexture(tag.getString("Texture"));
-        fuseRemaining = tag.getString("FuseDimension").equals(level().dimension().location().toString())
-                ? Math.max(0, Math.min(20, tag.getInt("FuseRemaining"))) : 0;
-        fuseOrigin = tag.contains("FuseX") ? new net.minecraft.world.phys.Vec3(tag.getDouble("FuseX"), tag.getDouble("FuseY"), tag.getDouble("FuseZ")) : position();
-        fuseDamage = Math.max(0, tag.getDouble("FuseDamage"));
+    public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        super.readAdditionalSaveData(input);
+        if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
+        fuseRemaining = input.getStringOr("FuseDimension", "").equals(level().dimension().identifier().toString())
+                ? Math.max(0, Math.min(20, input.getIntOr("FuseRemaining", 0))) : 0;
+        fuseOrigin = input.getString("FuseX").isPresent() ? new net.minecraft.world.phys.Vec3(input.getDoubleOr("FuseX", 0.0), input.getDoubleOr("FuseY", 0.0), input.getDoubleOr("FuseZ", 0.0)) : position();
+        fuseDamage = Math.max(0, input.getDoubleOr("FuseDamage", 0.0));
         if (!Double.isFinite(fuseDamage)) fuseDamage = 0;
-        fuseDimension = tag.getString("FuseDimension");
+        fuseDimension = input.getStringOr("FuseDimension", "");
     }
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 4, state -> PlayState.STOP)
+        var procedure = new LegacyAnimationController<>(this, "procedure", 4, state -> PlayState.STOP)
                 .triggerableAnim("idle", RawAnimation.begin().thenPlay("idle"))
                 .triggerableAnim("walk", RawAnimation.begin().thenPlay("walk"))
                 .triggerableAnim("bounce", RawAnimation.begin().thenPlay("bounce"));
-        controllers.add(new AnimationController<>(this, "movement", 4, state -> procedure.isPlayingTriggeredAnimation()
+        controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> procedure.isPlayingTriggeredAnimation()
                 ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(state.isMoving() || Math.abs(state.getLimbSwingAmount()) >= 0.15F ? "walk" : "idle"))));
         controllers.add(procedure);
     }

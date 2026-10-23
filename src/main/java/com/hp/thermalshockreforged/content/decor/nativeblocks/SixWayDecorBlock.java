@@ -8,10 +8,10 @@ import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 
 final class SixWayDecorBlock extends NativeDecorBlock {
-    static final DirectionProperty FACING = DirectionalBlock.FACING;
+    static final EnumProperty<Direction> FACING = DirectionalBlock.FACING;
 
     SixWayDecorBlock(Properties properties, Traits traits) {
         super(properties, traits, null);

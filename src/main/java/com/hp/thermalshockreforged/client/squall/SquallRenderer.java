@@ -1,20 +1,21 @@
 package com.hp.thermalshockreforged.client.squall;
+import net.minecraft.client.renderer.rendertype.RenderTypes;
 
 import com.hp.thermalshockreforged.entity.squall.SquallContent;
 import com.hp.thermalshockreforged.entity.squall.SquallEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.minecraft.client.renderer.LightTexture;
+import net.minecraft.util.LightCoordsUtil;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.entity.EntityRenderer;
+import net.minecraft.client.renderer.rendertype.RenderType;
+import com.hp.thermalshockreforged.client.compat.LegacyEntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
 
-public final class SquallRenderer extends EntityRenderer<SquallEntity> {
-    private static final ResourceLocation TEXTURE = SquallContent.id("textures/particle/squall_visage.png");
+public final class SquallRenderer extends LegacyEntityRenderer<SquallEntity> {
+    private static final Identifier TEXTURE = SquallContent.id("textures/particle/squall_visage.png");
 
     public SquallRenderer(EntityRendererProvider.Context context) {
         super(context);
@@ -38,7 +39,7 @@ public final class SquallRenderer extends EntityRenderer<SquallEntity> {
         pose.translate(shake, 1.4 + Mth.sin(time * .08F) * .08F, 0);
         pose.mulPose(entityRenderDispatcher.cameraOrientation());
         pose.scale(size, size, size);
-        VertexConsumer consumer = buffers.getBuffer(RenderType.entityTranslucent(TEXTURE));
+        VertexConsumer consumer = buffers.getBuffer(RenderTypes.entityTranslucent(TEXTURE));
         PoseStack.Pose last = pose.last();
         vertex(consumer, last, -1, -1, 0, 1, alpha);
         vertex(consumer, last, 1, -1, 1, 1, alpha);
@@ -48,8 +49,8 @@ public final class SquallRenderer extends EntityRenderer<SquallEntity> {
     }
 
     private static void vertex(VertexConsumer consumer, PoseStack.Pose pose, float x, float y, float u, float v, float alpha) {
-        consumer.addVertex(pose, x, y, 0).setColor(1, 1, 1, alpha).setUv(u, v).setOverlay(OverlayTexture.NO_OVERLAY).setLight(LightTexture.FULL_BRIGHT).setNormal(pose, 0, 1, 0);
+        consumer.addVertex(pose, x, y, 0).setColor(1, 1, 1, alpha).setUv(u, v).setOverlay(OverlayTexture.NO_OVERLAY).setLight(LightCoordsUtil.FULL_BRIGHT).setNormal(pose, 0, 1, 0);
     }
 
-    @Override public ResourceLocation getTextureLocation(SquallEntity entity) { return TEXTURE; }
+    @Override public Identifier getTextureLocation(SquallEntity entity) { return TEXTURE; }
 }

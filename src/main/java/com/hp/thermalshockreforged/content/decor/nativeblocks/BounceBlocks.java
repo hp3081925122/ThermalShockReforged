@@ -22,7 +22,7 @@ final class BounceBlocks {
 
     private static void bounce(Level level, BlockPos pos, Entity entity, boolean strong) {
         if (entity.isShiftKeyDown()) return;
-        if (strong && !level.isClientSide) level.playSound(null, pos, SoundEvents.FIREWORK_ROCKET_LAUNCH, SoundSource.BLOCKS, 1, 1);
+        if (strong && !level.isClientSide()) level.playSound(null, pos, SoundEvents.FIREWORK_ROCKET_LAUNCH, SoundSource.BLOCKS, 1, 1);
         entity.setDeltaMovement(0, strong ? 3 : .9, 0);
     }
     static final class Full extends FacingDecorBlock {
@@ -34,7 +34,7 @@ final class BounceBlocks {
         Slab(boolean strong) { super(properties(strong)); this.strong = strong; }
         private static Properties properties(boolean strong) {
             var properties = Properties.of().mapColor(MapColor.COLOR_GRAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.SLIME_BLOCK).dynamicShape();
-            return strong ? properties.strength(-1, 3600000).hasPostProcess((state, level, pos) -> true).emissiveRendering((state, level, pos) -> true) : properties.strength(1.25F, 0).requiresCorrectToolForDrops();
+            return strong ? properties.strength(-1, 3600000).emissiveRendering((state, level, pos) -> true) : properties.strength(1.25F, 0).requiresCorrectToolForDrops();
         }
         @Override public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) { super.stepOn(level, pos, state, entity); bounce(level, pos, entity, strong); }
     }

@@ -1,16 +1,17 @@
 package com.hp.thermalshockreforged.entity.ecosystem;
+import net.minecraft.world.item.SpawnEggItem;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.entity.ecosystem.block.*;
 import net.minecraft.core.registries.*;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.common.DeferredSpawnEggItem;
+
 import net.neoforged.neoforge.event.entity.*;
 import net.neoforged.neoforge.registries.*;
 
@@ -27,14 +28,14 @@ public final class EcosystemContent {
 
     static {
         ITEMS.registerSimpleBlockItem(CHILLOO_EGG);
-        ITEMS.register("chilloo_spawn_egg", () -> new DeferredSpawnEggItem(CHILLOO, -1, -1, new Item.Properties()));
-        ITEMS.register("springling_spawn_egg", () -> new DeferredSpawnEggItem(SPRINGLING, -1, -1, new Item.Properties()));
-        ITEMS.register("raincatcher_spawn_egg", () -> new DeferredSpawnEggItem(RAINCATCHER, -1, -1, new Item.Properties()));
+        ITEMS.register("chilloo_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(CHILLOO.get())));
+        ITEMS.register("springling_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(SPRINGLING.get())));
+        ITEMS.register("raincatcher_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(RAINCATCHER.get())));
     }
 
     private EcosystemContent() { }
 
-    static boolean hasType(LivingEntity entity, String path) { return BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType()).equals(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path)); }
+    static boolean hasType(LivingEntity entity, String path) { return BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType()).equals(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path)); }
 
     public static void register(IEventBus bus) {
         TYPES.register(bus);

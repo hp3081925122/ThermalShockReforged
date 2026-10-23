@@ -26,6 +26,6 @@ public final class RifleCycleSoundEntity extends Entity implements ServerEndTick
         if (--remaining > 0) { ServerEndTickTasks.schedule(level, getUUID()); return; }
         armed = false; discard(); level.playSound(null, blockPosition(), SoundEvents.STONE_BUTTON_CLICK_OFF, SoundSource.NEUTRAL, 1.5F, -2);
     }
-    @Override protected void addAdditionalSaveData(CompoundTag tag) { tag.putInt("RifleCycleRemaining", remaining); tag.putBoolean("RifleCycleArmed", armed); }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) { remaining = Math.clamp(tag.getInt("RifleCycleRemaining"), 1, 5); armed = tag.getBoolean("RifleCycleArmed"); }
+    @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { output.putInt("RifleCycleRemaining", remaining); output.putBoolean("RifleCycleArmed", armed); }
+    @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { remaining = Math.clamp(input.getIntOr("RifleCycleRemaining", 0), 1, 5); armed = input.getBooleanOr("RifleCycleArmed", false); }
 }

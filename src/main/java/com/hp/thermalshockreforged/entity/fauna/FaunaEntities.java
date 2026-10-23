@@ -1,8 +1,9 @@
 package com.hp.thermalshockreforged.entity.fauna;
+import net.minecraft.world.item.SpawnEggItem;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import net.minecraft.core.registries.*;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.item.Item;
@@ -10,7 +11,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.common.DeferredSpawnEggItem;
+
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
@@ -39,24 +40,24 @@ public final class FaunaEntities {
     public static final DeferredItem<RawTorpedoItem> RAW_TORPEDO = ITEMS.register("raw_torpedo", RawTorpedoItem::new);
 
     static {
-        ITEMS.register("bonerahna_spawn_egg", () -> new DeferredSpawnEggItem(BONERAHNA, -1, -1, new Item.Properties()));
-        ITEMS.register("chromefish_spawn_egg", () -> new DeferredSpawnEggItem(CHROMEFISH, -1, -1, new Item.Properties()));
-        ITEMS.register("torpedo_spawn_egg", () -> new DeferredSpawnEggItem(TORPEDO, -1, -1, new Item.Properties()));
-        ITEMS.register("trilobite_spawn_egg", () -> new DeferredSpawnEggItem(TRILOBITE, -1, -1, new Item.Properties()));
-        ITEMS.register("willograde_spawn_egg", () -> new DeferredSpawnEggItem(WILLOGRADE, -1, -1, new Item.Properties()));
-        ITEMS.register("flare_spawn_egg", () -> new DeferredSpawnEggItem(FLARE, -1, -1, new Item.Properties()));
+        ITEMS.register("bonerahna_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(BONERAHNA.get())));
+        ITEMS.register("chromefish_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(CHROMEFISH.get())));
+        ITEMS.register("torpedo_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(TORPEDO.get())));
+        ITEMS.register("trilobite_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(TRILOBITE.get())));
+        ITEMS.register("willograde_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(WILLOGRADE.get())));
+        ITEMS.register("flare_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(FLARE.get())));
     }
 
     private FaunaEntities() { }
 
     public static Item item(String id) {
-        var key = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, id);
+        var key = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, id);
         if (!BuiltInRegistries.ITEM.containsKey(key)) throw new IllegalStateException("Missing fauna item dependency: " + key);
         return BuiltInRegistries.ITEM.get(key);
     }
 
     public static Block block(String id) {
-        var key = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, id);
+        var key = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, id);
         if (!BuiltInRegistries.BLOCK.containsKey(key)) throw new IllegalStateException("Missing fauna block dependency: " + key);
         return BuiltInRegistries.BLOCK.get(key);
     }

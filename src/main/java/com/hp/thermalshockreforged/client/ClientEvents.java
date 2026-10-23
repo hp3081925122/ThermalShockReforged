@@ -46,7 +46,7 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 
-@EventBusSubscriber(modid = ThermalShockReforged.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+@EventBusSubscriber(modid = ThermalShockReforged.MOD_ID, value = Dist.CLIENT)
 public final class ClientEvents {
     @SubscribeEvent
     public static void renderers(EntityRenderersEvent.RegisterRenderers event) {
@@ -162,21 +162,6 @@ public final class ClientEvents {
 
     @SubscribeEvent
     public static void orbLayers(EntityRenderersEvent.RegisterLayerDefinitions event) { com.hp.thermalshockreforged.client.orb.OrbRenderers.layers(event); }
-
-    @SubscribeEvent
-    public static void dimensionEffects(net.neoforged.neoforge.client.event.RegisterDimensionSpecialEffectsEvent event) {
-        event.register(com.hp.thermalshockreforged.content.atlas.AtlasContent.PALACE.location(), new net.minecraft.client.renderer.DimensionSpecialEffects(Float.NaN, true, net.minecraft.client.renderer.DimensionSpecialEffects.SkyType.NORMAL, false, false) {
-            @Override public net.minecraft.world.phys.Vec3 getBrightnessDependentFogColor(net.minecraft.world.phys.Vec3 color, float sunHeight) { return net.minecraft.world.phys.Vec3.ZERO; }
-            @Override public boolean isFoggyAt(int x, int y) { return false; }
-        });
-        event.register(LoqendiaContent.LOQENDIA_ID, new net.minecraft.client.renderer.DimensionSpecialEffects(150, true, net.minecraft.client.renderer.DimensionSpecialEffects.SkyType.NORMAL, false, false) {
-            @Override public net.minecraft.world.phys.Vec3 getBrightnessDependentFogColor(net.minecraft.world.phys.Vec3 color, float sunHeight) {
-                return color.multiply(sunHeight * 0.94 + 0.06, sunHeight * 0.94 + 0.06, sunHeight * 0.91 + 0.09);
-            }
-            @Override public boolean isFoggyAt(int x, int y) { return false; }
-        });
-    }
-
     @SubscribeEvent
     public static void screens(RegisterMenuScreensEvent event) {
         event.register(com.hp.thermalshockreforged.content.centrifuge.CentrifugeContent.MENU.get(), com.hp.thermalshockreforged.client.centrifuge.CentrifugeScreen::new);
@@ -233,53 +218,50 @@ public final class ClientEvents {
         com.hp.thermalshockreforged.client.gaze.GazeRenderers.particles(event);
         com.hp.thermalshockreforged.client.squall.SquallRenderers.particles(event);
         com.hp.thermalshockreforged.client.icesquad.BastionRenderers.particles(event);
-        event.registerSpriteSet(com.hp.thermalshockreforged.combat.ElementalCombat.HIT_CRYO.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "hitcryo", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true));
-        event.registerSpriteSet(com.hp.thermalshockreforged.combat.ElementalCombat.HIT_PYRO.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "hitpyro", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true));
-        event.registerSpriteSet(com.hp.thermalshockreforged.combat.ElementalCombat.HIT_RESIST.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "hitresist", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true));
-        event.registerSpriteSet(com.hp.thermalshockreforged.content.weapons.WeaponContent.HIT_FERRO.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "hitferro", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true));
-        event.registerSpriteSet(com.hp.thermalshockreforged.content.weapons.WeaponContent.HIT_CLORO.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "hitcloro", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true));
+        event.registerSpriteSet(com.hp.thermalshockreforged.combat.ElementalCombat.HIT_CRYO.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "hitcryo", 0, ParticleRenderType.SINGLE_QUADS, true));
+        event.registerSpriteSet(com.hp.thermalshockreforged.combat.ElementalCombat.HIT_PYRO.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "hitpyro", 0, ParticleRenderType.SINGLE_QUADS, true));
+        event.registerSpriteSet(com.hp.thermalshockreforged.combat.ElementalCombat.HIT_RESIST.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "hitresist", 0, ParticleRenderType.SINGLE_QUADS, true));
+        event.registerSpriteSet(com.hp.thermalshockreforged.content.weapons.WeaponContent.HIT_FERRO.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "hitferro", 0, ParticleRenderType.SINGLE_QUADS, true));
+        event.registerSpriteSet(com.hp.thermalshockreforged.content.weapons.WeaponContent.HIT_CLORO.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "hitcloro", 0, ParticleRenderType.SINGLE_QUADS, true));
         event.registerSpriteSet(com.hp.thermalshockreforged.content.weapons.WeaponContent.BLUE_PLUS_BLAST.get(), com.hp.thermalshockreforged.client.particle.BluePlusBlastParticle.Provider::new);
-        event.registerSpriteSet(com.hp.thermalshockreforged.content.weapons.WeaponContent.BLOOD_SPLATTER.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "bloodsplatter", 0, ParticleRenderType.PARTICLE_SHEET_OPAQUE, false, false, 1));
-        event.registerSpriteSet(com.hp.thermalshockreforged.content.weapons.WeaponContent.PRISM_CLUSTER.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "prismcluster", 1, ParticleRenderType.PARTICLE_SHEET_OPAQUE, false, false, 1));
+        event.registerSpriteSet(com.hp.thermalshockreforged.content.weapons.WeaponContent.BLOOD_SPLATTER.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "bloodsplatter", 0, ParticleRenderType.SINGLE_QUADS, false, false, 1));
+        event.registerSpriteSet(com.hp.thermalshockreforged.content.weapons.WeaponContent.PRISM_CLUSTER.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "prismcluster", 1, ParticleRenderType.SINGLE_QUADS, false, false, 1));
         event.registerSpriteSet(com.hp.thermalshockreforged.content.armor.ArmorContent.PURPLE_SPARKLE.get(), com.hp.thermalshockreforged.client.armor.PurpleSparkleParticle.Provider::new);
         CavebloomerClient.particles(event);
         event.registerSpriteSet(com.hp.thermalshockreforged.content.weapons.WeaponContent.LITEPRISM_BEAM.get(), com.hp.thermalshockreforged.client.weapons.LiteprismParticles.BeamProvider::new);
         event.registerSpriteSet(com.hp.thermalshockreforged.content.weapons.WeaponContent.LITEPRISM_FLARE.get(), com.hp.thermalshockreforged.client.weapons.LiteprismParticles.FlareProvider::new);
         event.registerSpriteSet(com.hp.thermalshockreforged.content.weapons.WeaponContent.LITEPRISM_SPARK.get(), com.hp.thermalshockreforged.client.weapons.LiteprismParticles.SparkProvider::new);
-        event.registerSpriteSet(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.TURQ_EXPLODE.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "turqexplode", 0, ParticleRenderType.PARTICLE_SHEET_OPAQUE, false, true, 0));
-        event.registerSpriteSet(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.FIRE_BOMB_EFFECT.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "firebomb", 0, ParticleRenderType.PARTICLE_SHEET_OPAQUE, false, true, 0));
-        event.registerSpriteSet(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.FROST_RING.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "frostring", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true, false, 0));
-        event.registerSpriteSet(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.ERR_EFFECT.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "err", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true, false, 0));
+        event.registerSpriteSet(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.TURQ_EXPLODE.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "turqexplode", 0, ParticleRenderType.SINGLE_QUADS, false, true, 0));
+        event.registerSpriteSet(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.FIRE_BOMB_EFFECT.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "firebomb", 0, ParticleRenderType.SINGLE_QUADS, false, true, 0));
+        event.registerSpriteSet(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.FROST_RING.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "frostring", 0, ParticleRenderType.SINGLE_QUADS, true, false, 0));
+        event.registerSpriteSet(com.hp.thermalshockreforged.entity.sanctum.SanctumContent.ERR_EFFECT.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "err", 0, ParticleRenderType.SINGLE_QUADS, true, false, 0));
         event.registerSpriteSet(ModEntities.ZAP_PARTICLE.get(), ZapAttackParticle.Provider::new);
         event.registerSpriteSet(ModEntities.TELEPORT_FLASH.get(), TeleportFlashParticle.Provider::new);
-        event.registerSpriteSet(ModEntities.ORB_RED_MED.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "redshortorb", 1, ParticleRenderType.PARTICLE_SHEET_OPAQUE, false, false, 0));
-        event.registerSpriteSet(ModEntities.ORB_RED_SMOL.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "smallredshortorb", 1, ParticleRenderType.PARTICLE_SHEET_OPAQUE, false, true, 0));
-        event.registerSpriteSet(ModEntities.PROJECTILE_IMPACT.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "crosshair", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true, true, 1));
+        event.registerSpriteSet(ModEntities.ORB_RED_MED.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "redshortorb", 1, ParticleRenderType.SINGLE_QUADS, false, false, 0));
+        event.registerSpriteSet(ModEntities.ORB_RED_SMOL.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "smallredshortorb", 1, ParticleRenderType.SINGLE_QUADS, false, true, 0));
+        event.registerSpriteSet(ModEntities.PROJECTILE_IMPACT.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "crosshair", 0, ParticleRenderType.SINGLE_QUADS, true, true, 1));
         event.registerSpriteSet(ModEntities.BLOOD_PETAL.get(), com.hp.thermalshockreforged.client.particle.BloodPetalParticle.Provider::new);
-        event.registerSpriteSet(ModEntities.KILO_ATTACK.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "kiloattack", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true, true, 0));
+        event.registerSpriteSet(ModEntities.KILO_ATTACK.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "kiloattack", 0, ParticleRenderType.SINGLE_QUADS, true, true, 0));
         event.registerSpriteSet(com.hp.thermalshockreforged.entity.electricsphere.ElectricSphereContent.ELECTRIC_GLOW.get(), com.hp.thermalshockreforged.client.electricsphere.ElectricGlowParticle.Provider::new);
         event.registerSpriteSet(com.hp.thermalshockreforged.entity.orb.OrbContent.BLUE_X_BLAST.get(), com.hp.thermalshockreforged.client.particle.BlueXBlastParticle.Provider::new);
         event.registerSpriteSet(com.hp.thermalshockreforged.entity.projectile.ProjectileContent.GREEN_PARTICLE.get(), com.hp.thermalshockreforged.client.particle.GreenParticle.Provider::new);
         event.registerSpriteSet(com.hp.thermalshockreforged.entity.projectile.ProjectileContent.ORANGE_RING_BLAST.get(), com.hp.thermalshockreforged.client.particle.OrangeRingBlastParticle.Provider::new);
-        event.registerSpriteSet(com.hp.thermalshockreforged.entity.projectile.ProjectileContent.VOLCANO_SPARK.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "volcanospark", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true, false, 0));
-        event.registerSpriteSet(LoqendiaContent.GOLD_GLITTER.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "goldglitter", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true, false, 0));
-        event.registerSpriteSet(com.hp.thermalshockreforged.content.camera.CameraContent.CAM_PHOTO.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "camphoto", 0, ParticleRenderType.PARTICLE_SHEET_LIT, true));
+        event.registerSpriteSet(com.hp.thermalshockreforged.entity.projectile.ProjectileContent.VOLCANO_SPARK.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "volcanospark", 0, ParticleRenderType.SINGLE_QUADS, true, false, 0));
+        event.registerSpriteSet(LoqendiaContent.GOLD_GLITTER.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "goldglitter", 0, ParticleRenderType.SINGLE_QUADS, true, false, 0));
+        event.registerSpriteSet(com.hp.thermalshockreforged.content.camera.CameraContent.CAM_PHOTO.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "camphoto", 0, ParticleRenderType.SINGLE_QUADS, true));
         FaunaRenderers.particles(event);
         StatusClient.registerParticles(event);
         SnobolRenderers.particles(event);
         AmbientRenderers.particles(event);
         AuraClient.particles(event);
         PodRenderers.particles(event);
-        event.registerSpriteSet(com.hp.thermalshockreforged.content.reactor.ReactorContent.SHOCKWAVE.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "shockwavereactor", 7, ParticleRenderType.PARTICLE_SHEET_LIT, true, true, 1));
+        event.registerSpriteSet(com.hp.thermalshockreforged.content.reactor.ReactorContent.SHOCKWAVE.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "shockwavereactor", 7, ParticleRenderType.SINGLE_QUADS, true, true, 1));
         FarmingRenderers.particles(event);
     }
 
     @SubscribeEvent
-    public static void itemColors(RegisterColorHandlersEvent.Item event) { FluidClient.colors(event); }
-
-    @SubscribeEvent
     public static void setup(FMLClientSetupEvent event) { event.enqueueWork(() -> {
-        FarmingRenderers.layers(); FluidClient.layers();
+        
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener((net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent.LoggingOut logout) -> { com.hp.thermalshockreforged.world.AltarProgressPayload.resetClient(); com.hp.thermalshockreforged.world.OreChoicePayload.resetClient(); });
     }); }
 

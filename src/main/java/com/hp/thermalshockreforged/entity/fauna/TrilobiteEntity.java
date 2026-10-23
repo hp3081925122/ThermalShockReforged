@@ -1,4 +1,6 @@
 package com.hp.thermalshockreforged.entity.fauna;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -22,10 +24,10 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.PathType;
 import net.neoforged.neoforge.common.NeoForgeMod;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
+import com.geckolib.util.GeckoLibUtil;
 
 public final class TrilobiteEntity extends Monster implements GeoEntity {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(TrilobiteEntity.class, EntityDataSerializers.STRING);
@@ -70,12 +72,12 @@ public final class TrilobiteEntity extends Monster implements GeoEntity {
     protected void playStepSound(BlockPos pos, BlockState state) { playSound(SoundEvents.SPIDER_STEP, 0.15F, 1); }
 
     @Override
-    public boolean hurt(DamageSource source, float amount) { return !source.is(DamageTypes.IN_FIRE) && !source.is(DamageTypes.FALL) && super.hurt(source, amount); }
+    public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) { return !source.is(DamageTypes.IN_FIRE) && !source.is(DamageTypes.FALL) && super.hurtServer(level, source, amount); }
 
     @Override
     public void baseTick() {
         super.baseTick();
-        if (!level().isClientSide) addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.SLOW_FALLING, 60, 1));
+        if (!level().isClientSide()) addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.SLOW_FALLING, 60, 1));
     }
 
     @Override
@@ -84,7 +86,7 @@ public final class TrilobiteEntity extends Monster implements GeoEntity {
         boolean milk = held.is(net.minecraft.world.item.Items.BUCKET);
         boolean capture = held.is(net.minecraft.world.item.Items.CAULDRON);
         if (!milk && !capture) return super.mobInteract(player, hand);
-        if (!level().isClientSide) {
+        if (!level().isClientSide()) {
             var result = milk ? FaunaEntities.item("loque_milk") : FaunaEntities.CAULDRON_ITEM.get();
             held.shrink(1);
             var stack = new net.minecraft.world.item.ItemStack(result);
@@ -92,24 +94,24 @@ public final class TrilobiteEntity extends Monster implements GeoEntity {
             level().playSound(null, blockPosition(), milk ? SoundEvents.MOOSHROOM_MILK : SoundEvents.BUCKET_FILL_POWDER_SNOW, net.minecraft.sounds.SoundSource.NEUTRAL, 1, 1);
             if (capture) discard();
         }
-        return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
+        return net.minecraft.world.InteractionResult.SUCCESS;
     }
 
     @Override
-    public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag);
-        tag.putString("Texture", texture());
+    public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        super.addAdditionalSaveData(output);
+        output.putString("Texture", texture());
     }
 
     @Override
-    public void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag);
-        if (tag.contains("Texture")) setTexture(tag.getString("Texture"));
+    public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        super.readAdditionalSaveData(input);
+        if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
     }
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(this, "movement", 4, state -> {
+        controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> {
             return state.setAndContinue(RawAnimation.begin().thenLoop(state.isMoving() || Math.abs(state.getLimbSwingAmount()) >= 0.15F ? "walk" : "idle"));
         })
                 .triggerableAnim("walk", RawAnimation.begin().thenPlay("walk"))

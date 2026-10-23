@@ -58,16 +58,16 @@ public final class EffigyStrikeEntity extends Entity implements ServerEndTickTas
         double amount = damage - living.getArmorValue() * .6;
         if (Double.isFinite(amount) && amount > 0) { boolean accepted = living.hurt(new DamageSource(level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DAMAGE)), (float)Math.min(amount, Float.MAX_VALUE)); ThermalShockReforged.LOGGER.debug("Effigy strike resolved: task={}, target={}, damage={}, accepted={}", getUUID(), target, amount, accepted); }
     }
-    @Override protected void addAdditionalSaveData(CompoundTag tag) {
-        if (caster != null) tag.putUUID("Caster", caster); if (target != null) tag.putUUID("Target", target);
-        tag.putInt("TargetEntityId", targetEntityId); tag.putBoolean("PlayerTarget", playerTarget); tag.putLong("SoundOrigin", soundOrigin.asLong());
-        tag.putDouble("Damage", damage); tag.putInt("Remaining", remaining); tag.putBoolean("Armed", armed); tag.putBoolean("FollowCaster", followCaster);
+    @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        if (caster != null) output.putString("Caster", caster.toString()); if (target != null) output.putString("Target", target.toString());
+        output.putInt("TargetEntityId", targetEntityId); output.putBoolean("PlayerTarget", playerTarget); output.putLong("SoundOrigin", soundOrigin.asLong());
+        output.putDouble("Damage", damage); output.putInt("Remaining", remaining); output.putBoolean("Armed", armed); output.putBoolean("FollowCaster", followCaster);
     }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) {
-        caster = tag.hasUUID("Caster") ? tag.getUUID("Caster") : null; target = tag.hasUUID("Target") ? tag.getUUID("Target") : null;
-        targetEntityId = tag.getInt("TargetEntityId"); playerTarget = tag.getBoolean("PlayerTarget"); soundOrigin = BlockPos.of(tag.getLong("SoundOrigin"));
-        double amount = tag.getDouble("Damage"); damage = Double.isFinite(amount) ? Math.clamp(amount, 0, Float.MAX_VALUE) : 0;
-        remaining = Math.clamp(tag.getInt("Remaining"), 1, 19); armed = tag.getBoolean("Armed") && caster != null && target != null && !caster.equals(target);
-        followCaster = !tag.contains("FollowCaster") || tag.getBoolean("FollowCaster");
+    @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        caster = input.getString("Caster").map(java.util.UUID::fromString).orElse(null); target = input.getString("Target").map(java.util.UUID::fromString).orElse(null);
+        targetEntityId = input.getIntOr("TargetEntityId", 0); playerTarget = input.getBooleanOr("PlayerTarget", false); soundOrigin = BlockPos.of(input.getLongOr("SoundOrigin", 0L));
+        double amount = input.getDoubleOr("Damage", 0.0); damage = Double.isFinite(amount) ? Math.clamp(amount, 0, Float.MAX_VALUE) : 0;
+        remaining = Math.clamp(input.getIntOr("Remaining", 0), 1, 19); armed = input.getBooleanOr("Armed", false) && caster != null && target != null && !caster.equals(target);
+        followCaster = !input.getString("FollowCaster").isPresent() || input.getBooleanOr("FollowCaster", false);
     }
 }

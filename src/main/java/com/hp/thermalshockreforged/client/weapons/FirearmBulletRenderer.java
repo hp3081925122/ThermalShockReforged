@@ -1,4 +1,6 @@
 package com.hp.thermalshockreforged.client.weapons;
+import com.hp.thermalshockreforged.client.compat.LegacyEntityRenderer;
+import net.minecraft.client.renderer.rendertype.RenderType;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.weapons.*;
@@ -9,13 +11,13 @@ import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.entity.*;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
-public final class FirearmBulletRenderer extends EntityRenderer<FirearmBulletEntity> {
-    public static final ModelLayerLocation LAYER = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "model_small_laser_beam"), "main");
-    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/entities/gruntglow.png");
+public final class FirearmBulletRenderer extends LegacyEntityRenderer<FirearmBulletEntity> {
+    public static final ModelLayerLocation LAYER = new ModelLayerLocation(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "model_small_laser_beam"), "main");
+    private static final Identifier TEXTURE = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/entities/gruntglow.png");
     private final ModelPart group;
     public FirearmBulletRenderer(EntityRendererProvider.Context context) { super(context); group = context.bakeLayer(LAYER).getChild("group"); }
     public static void layers(EntityRenderersEvent.RegisterLayerDefinitions event) {
@@ -39,5 +41,5 @@ public final class FirearmBulletRenderer extends EntityRenderer<FirearmBulletEnt
         pose.popPose();
         super.render(entity, yaw, partialTick, pose, buffers, light);
     }
-    @Override public ResourceLocation getTextureLocation(FirearmBulletEntity entity) { return TEXTURE; }
+    @Override public Identifier getTextureLocation(FirearmBulletEntity entity) { return TEXTURE; }
 }

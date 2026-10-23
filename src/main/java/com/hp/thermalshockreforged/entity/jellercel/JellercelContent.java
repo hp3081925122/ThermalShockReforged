@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.entity.jellercel;
+import net.minecraft.world.item.SpawnEggItem;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import java.util.EnumMap;
@@ -11,7 +12,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.common.DeferredSpawnEggItem;
+
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -26,7 +27,7 @@ public final class JellercelContent {
             var type = TYPES.register(kind.id, () -> EntityType.Builder.<JellercelEntity>of((entityType, level) -> new JellercelEntity(entityType, level, kind), MobCategory.WATER_AMBIENT)
                     .sized(kind.width, kind.height).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":" + kind.id));
             VALUES.put(kind, type);
-            ITEMS.register(kind.id + "_spawn_egg", () -> new DeferredSpawnEggItem(type, -1, -1, new Item.Properties()));
+            ITEMS.register(kind.id + "_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(type.get())));
         }
     }
     private JellercelContent() { }

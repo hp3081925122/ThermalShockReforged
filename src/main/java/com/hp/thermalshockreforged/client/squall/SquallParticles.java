@@ -4,9 +4,10 @@ import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.particle.ParticleProvider;
 import net.minecraft.client.particle.ParticleRenderType;
+import com.hp.thermalshockreforged.client.compat.LegacySingleQuadParticle;
 import net.minecraft.client.particle.SingleQuadParticle;
 import net.minecraft.client.particle.SpriteSet;
-import net.minecraft.client.particle.TextureSheetParticle;
+import com.hp.thermalshockreforged.client.compat.LegacySingleQuadParticle;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.util.Mth;
 
@@ -16,7 +17,7 @@ final class SquallParticles {
 
     private SquallParticles() { }
 
-    private abstract static class Animated extends TextureSheetParticle {
+    private abstract static class Animated extends LegacySingleQuadParticle {
         protected final SpriteSet sprites;
         protected Animated(ClientLevel level, double x, double y, double z, SpriteSet sprites, int lifetime) {
             super(level, x, y, z);
@@ -31,13 +32,13 @@ final class SquallParticles {
             super.tick();
             if (isAlive()) setSpriteFromAge(sprites);
         }
-        @Override public int getLightColor(float partialTick) { return FULL_BRIGHT; }
-        @Override public ParticleRenderType getRenderType() { return ParticleRenderType.PARTICLE_SHEET_TRANSLUCENT; }
+        public int getLightColor(float partialTick) { return FULL_BRIGHT; }
+        @Override public ParticleRenderType getGroup() { return ParticleRenderType.SINGLE_QUADS; }
     }
 
     static final class Wisp extends Animated {
         private Wisp(ClientLevel level, double x, double y, double z, double dx, double dy, double dz, SpriteSet sprites) {
-            super(level, x, y, z, sprites, 18 + level.random.nextInt(9));
+            super(level, x, y, z, sprites, 18 + level.getRandom().nextInt(9));
             xd = dx;
             yd = dy;
             zd = dz;
@@ -75,18 +76,18 @@ final class SquallParticles {
     }
 
     record WispProvider(SpriteSet sprites) implements ParticleProvider<SimpleParticleType> {
-        @Override public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double dx, double dy, double dz) { return new Wisp(level, x, y, z, dx, dy, dz, sprites); }
+        @Override public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double dx, double dy, double dz, net.minecraft.util.RandomSource random) { return new Wisp(level, x, y, z, dx, dy, dz, sprites); }
     }
 
     record MarkProvider(SpriteSet sprites) implements ParticleProvider<SimpleParticleType> {
-        @Override public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double dx, double dy, double dz) { return new Mark(level, x, y, z, dx, dy, sprites); }
+        @Override public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double dx, double dy, double dz, net.minecraft.util.RandomSource random) { return new Mark(level, x, y, z, dx, dy, sprites); }
     }
 
     record BurstProvider(SpriteSet sprites) implements ParticleProvider<SimpleParticleType> {
-        @Override public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double dx, double dy, double dz) { return new Burst(level, x, y, z, dx, sprites); }
+        @Override public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double dx, double dy, double dz, net.minecraft.util.RandomSource random) { return new Burst(level, x, y, z, dx, sprites); }
     }
 
     record BoltProvider(SpriteSet sprites) implements ParticleProvider<SimpleParticleType> {
-        @Override public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double dx, double dy, double dz) { return new Bolt(level, x, y, z, dx, sprites); }
+        @Override public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double dx, double dy, double dz, net.minecraft.util.RandomSource random) { return new Bolt(level, x, y, z, dx, sprites); }
     }
 }

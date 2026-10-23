@@ -16,6 +16,6 @@ final class PhobotiteOutcropBlock extends GeoDecorBlock {
     }
     @Override protected void attack(BlockState state, Level level, BlockPos pos, Player player) {
         super.attack(state, level, pos, player);
-        if (!level.isClientSide && !AltarProgressPayload.unlocked(level) && level.getGameRules().getBoolean(ModGameRules.LOQENDIA_ENFORCE_PROGRESSION)) player.displayClientMessage(Component.translatable("message.thermal_shock_reforged.phobotite.too_cold"), true);
+        if (!level.isClientSide() && !AltarProgressPayload.unlocked(level) && level.getGameRules().getBoolean(ModGameRules.LOQENDIA_ENFORCE_PROGRESSION)) player.displayClientMessage(Component.translatable("message.thermal_shock_reforged.phobotite.too_cold"), true);
     }
 }

@@ -20,7 +20,7 @@ public final class WhistlerNoteEntity extends LegacyArrowEntity {
     @Override protected int lifetimeTicks() { return 40; }
     @Override public void tick() {
         super.tick();
-        if (level().isClientSide) level().addParticle(FaunaEntities.WHITE_ORB.get(), getX(), getY(), getZ(), 0, 0, 0);
+        if (level().isClientSide()) level().addParticle(FaunaEntities.WHITE_ORB.get(), getX(), getY(), getZ(), 0, 0, 0);
     }
     public static WhistlerNoteEntity shoot(Level level, LivingEntity owner, RandomSource random) { return shoot(level, owner, random, .1F, 5, 5); }
     public static WhistlerNoteEntity shoot(Level level, LivingEntity owner, RandomSource random, float pullingPower) { return shoot(level, owner, random, pullingPower * .1F, 5, 5); }

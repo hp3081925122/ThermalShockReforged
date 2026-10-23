@@ -8,12 +8,12 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.locale.Language;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Inventory;
@@ -22,8 +22,8 @@ import net.minecraft.world.item.ItemStack;
 
 public final class FabricatorScreen extends AbstractContainerScreen<FabricatorMenu> {
     private static final String KEY = "gui." + ThermalShockReforged.MOD_ID + ".fabricator.";
-    private static final ResourceLocation BACKGROUND = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/screens/fabricator_ui.png");
-    private static final ResourceLocation CRAFT = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/screens/atlas/imagebutton_fabricator_craft_button.png");
+    private static final Identifier BACKGROUND = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/screens/fabricator_ui.png");
+    private static final Identifier CRAFT = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/screens/atlas/imagebutton_fabricator_craft_button.png");
     private static final List<String> TAB_KEYS = List.of("gui.thermal_shock_reforged.fabic_guide_page_one.label_tools", "gui.thermal_shock_reforged.fabic_guide_page_two.label_tools", "gui.thermal_shock_reforged.fabric_guide_page_three.label_tools");
     private static final int TEXT = 0xFFE0E0E0;
     private static final int TAB_X = 6, TAB_Y = 18, TAB_WIDTH = 37, TAB_HEIGHT = 14;
@@ -36,9 +36,7 @@ public final class FabricatorScreen extends AbstractContainerScreen<FabricatorMe
     private boolean dragging;
 
     public FabricatorScreen(FabricatorMenu menu, Inventory inventory, Component title) {
-        super(menu, inventory, title);
-        imageWidth = 256;
-        imageHeight = 194;
+        super(menu, inventory, title, 256, 194);
         inventoryLabelX = FabricatorMenu.INVENTORY_X;
         inventoryLabelY = FabricatorMenu.INVENTORY_Y - 11;
         category = menu.page().category();
@@ -70,20 +68,18 @@ public final class FabricatorScreen extends AbstractContainerScreen<FabricatorMe
 
     private FabricationRecipe recipe(FabricatorPage page) {
         if (page.isGuide() || minecraft == null || minecraft.level == null) return null;
-        var holder = minecraft.level.getRecipeManager().byKey(page.recipe).orElse(null);
-        if (holder != null && holder.value() instanceof FabricationRecipe recipe) return recipe;
         return null;
     }
 
     private ItemStack result(FabricatorPage page) {
         var recipe = recipe(page);
         if (recipe == null || minecraft == null || minecraft.level == null) return ItemStack.EMPTY;
-        return recipe.getResultItem(minecraft.level.registryAccess());
+        return recipe.result();
     }
 
     private int owned(Item item) {
         int total = 0;
-        for (var stack : menu.inventory().items) if (stack.is(item)) total += stack.getCount();
+        for (var stack : menu.inventory().getNonEquipmentItems()) if (stack.is(item)) total += stack.getCount();
         return total;
     }
 
@@ -105,7 +101,8 @@ public final class FabricatorScreen extends AbstractContainerScreen<FabricatorMe
     }
 
     @Override
-    public boolean mouseClicked(double mouseX, double mouseY, int button) {
+    public boolean mouseClicked(net.minecraft.client.input.MouseButtonEvent event, boolean doubleClick) {
+        double mouseX = event.x(); double mouseY = event.y(); int button = event.button();
         if (button == 0) {
             for (int index = 0; index < FabricatorPage.CATEGORIES.size(); index++) {
                 if (!inside(mouseX, mouseY, leftPos + TAB_X + index * (TAB_WIDTH + 1), topPos + TAB_Y, TAB_WIDTH, TAB_HEIGHT)) continue;
@@ -136,22 +133,24 @@ public final class FabricatorScreen extends AbstractContainerScreen<FabricatorMe
                 return true;
             }
         }
-        return super.mouseClicked(mouseX, mouseY, button);
+        return super.mouseClicked(event, doubleClick);
     }
 
     @Override
-    public boolean mouseDragged(double mouseX, double mouseY, int button, double dragX, double dragY) {
+    public boolean mouseDragged(net.minecraft.client.input.MouseButtonEvent event, double dragX, double dragY) {
+        double mouseX = event.x(); double mouseY = event.y(); int button = event.button();
         if (dragging) {
             dragTo(mouseY);
             return true;
         }
-        return super.mouseDragged(mouseX, mouseY, button, dragX, dragY);
+        return super.mouseDragged(event, dragX, dragY);
     }
 
     @Override
-    public boolean mouseReleased(double mouseX, double mouseY, int button) {
+    public boolean mouseReleased(net.minecraft.client.input.MouseButtonEvent event) {
+        int button = event.button();
         if (button == 0) dragging = false;
-        return super.mouseReleased(mouseX, mouseY, button);
+        return super.mouseReleased(event);
     }
 
     @Override
@@ -167,19 +166,19 @@ public final class FabricatorScreen extends AbstractContainerScreen<FabricatorMe
     }
 
     @Override
-    public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
-        super.render(graphics, mouseX, mouseY, partialTick);
-        renderTooltip(graphics, mouseX, mouseY);
+    public void extractRenderState(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) {
+        super.extractRenderState(graphics, mouseX, mouseY, partialTick);
+        
         if (menu.getCarried().isEmpty()) customTooltips(graphics, mouseX, mouseY);
     }
 
-    private void customTooltips(GuiGraphics graphics, int mouseX, int mouseY) {
+    private void customTooltips(GuiGraphicsExtractor graphics, int mouseX, int mouseY) {
         for (int cell = 0; cell < GRID_COLUMNS * GRID_ROWS; cell++) {
             if (!inside(mouseX, mouseY, cellX(cell), cellY(cell), 18, 18)) continue;
             var page = visible(cell);
             if (page == null) return;
             var stack = result(page);
-            if (!stack.isEmpty()) graphics.renderTooltip(font, stack, mouseX, mouseY);
+            if (!stack.isEmpty()) graphics.setTooltipForNextFrame(font, stack, mouseX, mouseY);
             return;
         }
         var recipe = recipe(menu.page());
@@ -196,28 +195,28 @@ public final class FabricatorScreen extends AbstractContainerScreen<FabricatorMe
             tooltip(graphics, new ItemStack(energy.item(), energy.count()), energy.count(), 0, mouseX, mouseY);
             return;
         }
-        if (inside(mouseX, mouseY, leftPos + CRAFT_X, topPos + CRAFT_Y, CRAFT_WIDTH, CRAFT_HEIGHT)) graphics.renderTooltip(font, Component.translatable(KEY + "craft_hint"), mouseX, mouseY);
+        if (inside(mouseX, mouseY, leftPos + CRAFT_X, topPos + CRAFT_Y, CRAFT_WIDTH, CRAFT_HEIGHT)) graphics.setTooltipForNextFrame(font, Component.translatable(KEY + "craft_hint"), mouseX, mouseY);
     }
 
-    private void tooltip(GuiGraphics graphics, ItemStack stack, int need, int have, int mouseX, int mouseY) {
+    private void tooltip(GuiGraphicsExtractor graphics, ItemStack stack, int need, int have, int mouseX, int mouseY) {
         var lines = new ArrayList<>(getTooltipFromContainerItem(stack));
         var style = ChatFormatting.GREEN;
         if (have < need) style = ChatFormatting.RED;
         lines.add(Component.translatable(KEY + "need", need, have).withStyle(style));
-        graphics.renderComponentTooltip(font, lines, mouseX, mouseY);
+        graphics.setTooltipForNextFrame(font, lines, java.util.Optional.empty(), mouseX, mouseY);
     }
 
-    private void clippedItem(GuiGraphics graphics, ItemStack stack, int x, int y) {
+    private void clippedItem(GuiGraphicsExtractor graphics, ItemStack stack, int x, int y) {
         graphics.enableScissor(x, y, x + 16, y + 16);
-        graphics.renderItem(stack, x, y);
+        graphics.item(stack, x, y);
         graphics.disableScissor();
     }
 
     @Override
-    protected void renderBg(GuiGraphics graphics, float partialTick, int mouseX, int mouseY) {
+    public void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) {
         int x = leftPos;
         int y = topPos;
-        RenderSystem.enableBlend();
+        com.mojang.blaze3d.opengl.GlStateManager._enableBlend();
         graphics.blit(BACKGROUND, x, y, 0, 0, imageWidth, imageHeight, 256, 194);
         for (int index = 0; index < FabricatorPage.CATEGORIES.size(); index++) {
             int tabX = x + TAB_X + index * (TAB_WIDTH + 1);
@@ -231,7 +230,7 @@ public final class FabricatorScreen extends AbstractContainerScreen<FabricatorMe
             graphics.fill(tabX, y + TAB_Y, tabX + TAB_WIDTH, y + TAB_Y + TAB_HEIGHT, 0xFF000000);
             graphics.fill(tabX + 1, y + TAB_Y + 1, tabX + TAB_WIDTH - 1, y + TAB_Y + TAB_HEIGHT - 1, border);
             graphics.fill(tabX + 2, y + TAB_Y + 2, tabX + TAB_WIDTH - 2, y + TAB_Y + TAB_HEIGHT - 2, fill);
-            graphics.drawCenteredString(font, Component.translatable(TAB_KEYS.get(index)), tabX + TAB_WIDTH / 2, y + TAB_Y + 3, TEXT);
+            graphics.centeredText(font, Component.translatable(TAB_KEYS.get(index)), tabX + TAB_WIDTH / 2, y + TAB_Y + 3, TEXT);
         }
         for (int cell = 0; cell < GRID_COLUMNS * GRID_ROWS; cell++) {
             var page = visible(cell);
@@ -258,25 +257,25 @@ public final class FabricatorScreen extends AbstractContainerScreen<FabricatorMe
                 clippedItem(graphics, stack, itemX, itemY);
                 String count = String.valueOf(cost.count());
                 if (owned(cost.item().value()) < cost.count()) count = ChatFormatting.RED + count;
-                graphics.renderItemDecorations(font, stack, itemX, itemY, count);
+                graphics.itemDecorations(font, stack, itemX, itemY, count);
             }
             var energySlot = menu.getSlot(1);
             if (!energySlot.hasItem()) {
                 var energy = new ItemStack(recipe.energy().item(), recipe.energy().count());
-                graphics.renderFakeItem(energy, x + energySlot.x, y + energySlot.y);
-                graphics.renderItemDecorations(font, energy, x + energySlot.x, y + energySlot.y, ChatFormatting.RED + String.valueOf(recipe.energy().count()));
+                graphics.fakeItem(energy, x + energySlot.x, y + energySlot.y);
+                graphics.itemDecorations(font, energy, x + energySlot.x, y + energySlot.y, ChatFormatting.RED + String.valueOf(recipe.energy().count()));
             }
             int v = 0;
             if (inside(mouseX, mouseY, x + CRAFT_X, y + CRAFT_Y, CRAFT_WIDTH, CRAFT_HEIGHT)) v = CRAFT_HEIGHT;
             graphics.blit(CRAFT, x + CRAFT_X, y + CRAFT_Y, 0, v, CRAFT_WIDTH, CRAFT_HEIGHT, CRAFT_WIDTH, CRAFT_HEIGHT * 2); com.hp.thermalshockreforged.client.ButtonLabels.draw(graphics, CRAFT, x + CRAFT_X, y + CRAFT_Y, CRAFT_WIDTH, CRAFT_HEIGHT, v > 0);
         }
-        RenderSystem.disableBlend();
+        com.mojang.blaze3d.opengl.GlStateManager._disableBlend();
     }
 
     @Override
-    protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) {
-        graphics.drawString(font, title, 8, 6, TEXT, false);
-        graphics.drawString(font, playerInventoryTitle, inventoryLabelX, inventoryLabelY, TEXT, false);
+    protected void extractLabels(GuiGraphicsExtractor graphics, int mouseX, int mouseY) {
+        graphics.text(font, title, 8, 6, TEXT, false);
+        graphics.text(font, playerInventoryTitle, inventoryLabelX, inventoryLabelY, TEXT, false);
         var page = menu.page();
         Component name = Component.translatable(KEY + "select");
         if (!page.isGuide()) {
@@ -284,6 +283,6 @@ public final class FabricatorScreen extends AbstractContainerScreen<FabricatorMe
             if (!result.isEmpty()) name = result.getHoverName();
         }
         var text = font.substrByWidth(name, imageWidth - DETAIL_X - 8);
-        graphics.drawString(font, Language.getInstance().getVisualOrder(text), DETAIL_X, 20, TEXT, false);
+        graphics.text(font, Language.getInstance().getVisualOrder(text), DETAIL_X, 20, TEXT, false);
     }
 }

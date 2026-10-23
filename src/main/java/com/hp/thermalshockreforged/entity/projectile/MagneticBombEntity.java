@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.entity.projectile;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.world.timing.ServerEndTickTask;
@@ -15,21 +16,20 @@ import net.minecraft.world.entity.AreaEffectCloud;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.projectile.ThrownPotion;
+import net.minecraft.world.entity.projectile.throwableitemprojectile.AbstractThrownPotion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.AnimatableManager;
-import software.bernie.geckolib.animation.AnimationController;
-import software.bernie.geckolib.animation.PlayState;
-import software.bernie.geckolib.animation.RawAnimation;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animatable.manager.AnimatableManager;
+import com.geckolib.animation.object.PlayState;
+import com.geckolib.animation.RawAnimation;
+import com.geckolib.util.GeckoLibUtil;
 
 public final class MagneticBombEntity extends PathfinderMob implements GeoEntity, ServerEndTickTask {
     private static final EntityDataAccessor<Boolean> DETONATING = SynchedEntityData.defineId(MagneticBombEntity.class, EntityDataSerializers.BOOLEAN);
@@ -47,7 +47,7 @@ public final class MagneticBombEntity extends PathfinderMob implements GeoEntity
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) {
         super.defineSynchedData(builder); builder.define(DETONATING, false); builder.define(TEXTURE, "magnetic_bomb_base");
     }
-    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType reason, SpawnGroupData data) {
+    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, EntitySpawnReason reason, SpawnGroupData data) {
         SpawnGroupData result = super.finalizeSpawn(level, difficulty, reason, data);
         setNoGravity(true); fuse = 40;
         if (level instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
@@ -55,7 +55,7 @@ public final class MagneticBombEntity extends PathfinderMob implements GeoEntity
     }
     @Override public void baseTick() {
         super.baseTick();
-        if (!epsilon() && level().isClientSide) level().addParticle(ProjectileContent.GREEN_PARTICLE.get(), getX(), getY(), getZ(), 0, 0, 0);
+        if (!epsilon() && level().isClientSide()) level().addParticle(ProjectileContent.GREEN_PARTICLE.get(), getX(), getY(), getZ(), 0, 0, 0);
     }
     @Override public void tick() {
         super.tick();
@@ -72,26 +72,26 @@ public final class MagneticBombEntity extends PathfinderMob implements GeoEntity
         entityData.set(DETONATING, true); fuse = 0;
         ThermalShockReforged.LOGGER.debug("Magnetic detonation committed once for {} (epsilon={})", getUUID(), epsilon());
     }
-    @Override public boolean hurt(DamageSource source, float amount) {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) {
         if (source.is(DamageTypes.IN_FIRE) || source.is(DamageTypes.FALL) || source.is(DamageTypes.CACTUS)
                 || source.is(DamageTypes.DROWN) || source.is(DamageTypes.LIGHTNING_BOLT) || source.is(DamageTypes.FALLING_ANVIL)
                 || source.is(DamageTypes.DRAGON_BREATH) || source.is(DamageTypes.WITHER) || source.is(DamageTypes.WITHER_SKULL)
-                || source.getDirectEntity() instanceof ThrownPotion || source.getDirectEntity() instanceof AreaEffectCloud) return false;
-        return super.hurt(source, amount);
+                || source.getDirectEntity() instanceof AbstractThrownPotion || source.getDirectEntity() instanceof AreaEffectCloud) return false;
+        return super.hurtServer(level, source, amount);
     }
     @Override public void die(DamageSource source) { super.die(source); if (level() instanceof ServerLevel server) prime(server); }
     @Override protected void tickDeath() { if (++deathTime == 10) { remove(Entity.RemovalReason.KILLED); dropExperience(getLastDamageSource() == null ? null : getLastDamageSource().getEntity()); } }
-    @Override public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag); tag.putInt("MagneticFuse", fuse); tag.putBoolean("MagneticDetonating", detonating()); tag.putString("Texture", texture());
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        super.addAdditionalSaveData(output); output.putInt("MagneticFuse", fuse); output.putBoolean("MagneticDetonating", detonating()); output.putString("Texture", texture());
     }
-    @Override public void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag); fuse = tag.contains("MagneticFuse") ? Math.clamp(tag.getInt("MagneticFuse"), -1, 40) : -1;
-        entityData.set(DETONATING, tag.getBoolean("MagneticDetonating"));
-        if (tag.contains("Texture") && tag.getString("Texture").matches("[a-z0-9_]+")) entityData.set(TEXTURE, tag.getString("Texture"));
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        super.readAdditionalSaveData(input); fuse = input.getString("MagneticFuse").isPresent() ? Math.clamp(input.getIntOr("MagneticFuse", 0), -1, 40) : -1;
+        entityData.set(DETONATING, input.getBooleanOr("MagneticDetonating", false));
+        if (input.getString("Texture").isPresent() && input.getStringOr("Texture", "").matches("[a-z0-9_]+")) entityData.set(TEXTURE, input.getStringOr("Texture", ""));
     }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(this, "movement", 4, state -> detonating() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop("0"))));
-        controllers.add(new AnimationController<>(this, "procedure", 4, state -> detonating() ? state.setAndContinue(RawAnimation.begin().thenPlay("1")) : PlayState.STOP));
+        controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> detonating() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop("0"))));
+        controllers.add(new LegacyAnimationController<>(this, "procedure", 4, state -> detonating() ? state.setAndContinue(RawAnimation.begin().thenPlay("1")) : PlayState.STOP));
     }
     @Override public AnimatableInstanceCache getAnimatableInstanceCache() { return cache; }
 }

@@ -13,7 +13,7 @@ import com.hp.thermalshockreforged.content.decor.geo.SuspiciousCavebloomerBlock;
 import com.hp.thermalshockreforged.entity.mangler.HeraldEntity;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.phys.BlockHitResult;
 import snownee.jade.api.BlockAccessor;
@@ -30,20 +30,20 @@ import snownee.jade.api.config.IPluginConfig;
 
 @WailaPlugin(ThermalShockReforged.MOD_ID)
 public final class ThermalShockJadePlugin implements IWailaPlugin {
-    private static final ResourceLocation ALTAR = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "altar");
+    private static final Identifier ALTAR = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "altar");
     private static final String STATUS = "AltarStatus";
     private static final String KEY = "jade." + ThermalShockReforged.MOD_ID + ".altar.";
-    private static final ResourceLocation SEED = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "seed");
+    private static final Identifier SEED = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "seed");
     private static final String SEED_KEY = "jade." + ThermalShockReforged.MOD_ID + ".seed.";
     private static final String THIRSTY = "SeedThirsty";
     private static final String WATERINGS = "SeedWaterings";
     private static final int MAX_WATERINGS = 3;
-    private static final ResourceLocation HERALD = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "herald");
+    private static final Identifier HERALD = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "herald");
     private static final String HERALD_KEY = "jade." + ThermalShockReforged.MOD_ID + ".herald.";
     private static final String HERALD_KILLS = "HeraldKills";
-    private static final ResourceLocation SUSPICIOUS_CAVEBLOOMER = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "suspicious_cavebloomer");
+    private static final Identifier SUSPICIOUS_CAVEBLOOMER = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "suspicious_cavebloomer");
     private static final String SUSPICIOUS_CAVEBLOOMER_KEY = "jade." + ThermalShockReforged.MOD_ID + ".suspicious_cavebloomer.";
-    private static final ResourceLocation PHOBOTITE = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "phobotite");
+    private static final Identifier PHOBOTITE = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "phobotite");
     private static final String PHOBOTITE_STATUS = "PhobotiteStatus";
     private static final String PHOBOTITE_KEY = "jade." + ThermalShockReforged.MOD_ID + ".phobotite.";
 
@@ -88,7 +88,7 @@ public final class ThermalShockJadePlugin implements IWailaPlugin {
         }
 
         @Override
-        public ResourceLocation getUid() { return HERALD; }
+        public Identifier getUid() { return HERALD; }
     }
 
     private enum AltarProvider implements IBlockComponentProvider, IServerDataProvider<BlockAccessor> {
@@ -98,7 +98,7 @@ public final class ThermalShockJadePlugin implements IWailaPlugin {
         public void appendServerData(CompoundTag data, BlockAccessor accessor) {
             if (!(accessor.getPlayer() instanceof ServerPlayer player)) return;
             int status = 0;
-            if (!player.serverLevel().getGameRules().getBoolean(ModGameRules.LOQENDIA_ENFORCE_PROGRESSION)) status = 2;
+            if (!((net.minecraft.server.level.ServerLevel) player.level()).getGameRules().getBoolean(ModGameRules.LOQENDIA_ENFORCE_PROGRESSION)) status = 2;
             else if (AltarBlock.unlocked(player)) status = 1;
             data.putInt(STATUS, status);
         }
@@ -118,7 +118,7 @@ public final class ThermalShockJadePlugin implements IWailaPlugin {
         }
 
         @Override
-        public ResourceLocation getUid() { return ALTAR; }
+        public Identifier getUid() { return ALTAR; }
     }
 
     private enum PhobotiteProvider implements IBlockComponentProvider, IServerDataProvider<BlockAccessor> {
@@ -132,7 +132,7 @@ public final class ThermalShockJadePlugin implements IWailaPlugin {
         @Override
         public void appendServerData(CompoundTag data, BlockAccessor accessor) {
             if (!isPhobotite(accessor) || !(accessor.getPlayer() instanceof ServerPlayer player)
-                    || !player.serverLevel().getGameRules().getBoolean(ModGameRules.LOQENDIA_ENFORCE_PROGRESSION)
+                    || !((net.minecraft.server.level.ServerLevel) player.level()).getGameRules().getBoolean(ModGameRules.LOQENDIA_ENFORCE_PROGRESSION)
                     || AltarBlock.unlocked(player)) return;
             data.putBoolean(PHOBOTITE_STATUS, true);
         }
@@ -143,7 +143,7 @@ public final class ThermalShockJadePlugin implements IWailaPlugin {
         }
 
         @Override
-        public ResourceLocation getUid() { return PHOBOTITE; }
+        public Identifier getUid() { return PHOBOTITE; }
     }
 
     private enum SeedProvider implements IBlockComponentProvider, IServerDataProvider<BlockAccessor> {
@@ -169,7 +169,7 @@ public final class ThermalShockJadePlugin implements IWailaPlugin {
         }
 
         @Override
-        public ResourceLocation getUid() { return SEED; }
+        public Identifier getUid() { return SEED; }
     }
 
     private enum SuspiciousCavebloomerProvider implements IBlockComponentProvider {
@@ -182,6 +182,6 @@ public final class ThermalShockJadePlugin implements IWailaPlugin {
         }
 
         @Override
-        public ResourceLocation getUid() { return SUSPICIOUS_CAVEBLOOMER; }
+        public Identifier getUid() { return SUSPICIOUS_CAVEBLOOMER; }
     }
 }

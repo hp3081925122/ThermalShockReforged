@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.content.growth;
+import net.minecraft.world.InteractionResult;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -21,7 +22,7 @@ import net.minecraft.world.phys.shapes.*;
 public final class VisiBulbBlock extends Block implements EntityBlock {
     public static final IntegerProperty BLOCKSTATE=IntegerProperty.create("blockstate",0,1);
     public VisiBulbBlock() {
-        super(Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).sound(SoundType.GRASS).strength(.5f,0).lightLevel(s->s.getValue(BLOCKSTATE)==1?4:0).noCollission().noOcclusion().hasPostProcess((s,l,p)->true).emissiveRendering((s,l,p)->true).isRedstoneConductor((s,l,p)->false));
+        super(Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).sound(SoundType.GRASS).strength(.5f,0).lightLevel(s->s.getValue(BLOCKSTATE)==1?4:0).noCollision().noOcclusion().emissiveRendering((s,l,p)->true).isRedstoneConductor((s,l,p)->false));
         registerDefaultState(defaultBlockState().setValue(BLOCKSTATE,0));
     }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block,BlockState> builder) { super.createBlockStateDefinition(builder); builder.add(BLOCKSTATE); }
@@ -43,7 +44,7 @@ public final class VisiBulbBlock extends Block implements EntityBlock {
         level.playSound(null,pos,SoundEvents.BUBBLE_COLUMN_BUBBLE_POP,SoundSource.NEUTRAL,1,1);
         server.sendParticles(ParticleTypes.SPLASH,pos.getX()+.5,pos.getY()+.5,pos.getZ()+.5,5,.4,.4,.4,.1);
     }
-    @Override protected ItemInteractionResult useItemOn(ItemStack stack,BlockState state,Level level,BlockPos pos,Player player,InteractionHand hand,BlockHitResult hit) { use(level,pos,player); return ItemInteractionResult.SUCCESS; }
+    @Override protected InteractionResult useItemOn(ItemStack stack,BlockState state,Level level,BlockPos pos,Player player,InteractionHand hand,BlockHitResult hit) { use(level,pos,player); return InteractionResult.SUCCESS; }
     @Override protected InteractionResult useWithoutItem(BlockState state,Level level,BlockPos pos,Player player,BlockHitResult hit) { use(level,pos,player); return InteractionResult.SUCCESS; }
     @Override protected MenuProvider getMenuProvider(BlockState state,Level level,BlockPos pos) { return level.getBlockEntity(pos) instanceof GrowthInventoryBlockEntity entity?entity:null; }
     @Override protected boolean triggerEvent(BlockState state,Level level,BlockPos pos,int id,int param) { super.triggerEvent(state,level,pos,id,param); return level.getBlockEntity(pos) instanceof GrowthInventoryBlockEntity entity&&entity.triggerEvent(id,param); }
@@ -51,7 +52,7 @@ public final class VisiBulbBlock extends Block implements EntityBlock {
     @Override protected int getAnalogOutputSignal(BlockState state,Level level,BlockPos pos) { return level.getBlockEntity(pos) instanceof GrowthInventoryBlockEntity entity?AbstractContainerMenu.getRedstoneSignalFromContainer(entity):0; }
     @Override protected void onRemove(BlockState state,Level level,BlockPos pos,BlockState replacement,boolean moving) {
         if (!state.is(replacement.getBlock())) {
-            if (!level.isClientSide&&level.getBlockEntity(pos) instanceof GrowthInventoryBlockEntity entity) { Containers.dropContents(level,pos,entity); level.updateNeighbourForOutputSignal(pos,this); }
+            if (!level.isClientSide()&&level.getBlockEntity(pos) instanceof GrowthInventoryBlockEntity entity) { Containers.dropContents(level,pos,entity); level.updateNeighbourForOutputSignal(pos,this); }
             super.onRemove(state,level,pos,replacement,moving);
         }
     }

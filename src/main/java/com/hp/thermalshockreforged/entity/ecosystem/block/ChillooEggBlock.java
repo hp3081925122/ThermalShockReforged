@@ -9,7 +9,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
-import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.*;
@@ -69,7 +69,7 @@ public final class ChillooEggBlock extends Block implements SimpleWaterloggedBlo
     @Override
     protected void onPlace(BlockState state, Level level, BlockPos position, BlockState previous, boolean moving) {
         super.onPlace(state, level, position, previous, moving);
-        if (!level.isClientSide && !previous.is(this)) level.scheduleTick(position, this, 20);
+        if (!level.isClientSide() && !previous.is(this)) level.scheduleTick(position, this, 20);
     }
 
     @Override
@@ -78,7 +78,7 @@ public final class ChillooEggBlock extends Block implements SimpleWaterloggedBlo
         if (egg.advanceIncubation()) {
             level.destroyBlock(position, false);
             level.playSound(null, position, SoundEvents.TURTLE_EGG_CRACK, SoundSource.BLOCKS, 1, -1);
-            EcosystemContent.CHILLOO.get().spawn(level, position, MobSpawnType.MOB_SUMMONED);
+            EcosystemContent.CHILLOO.get().spawn(level, position, EntitySpawnReason.MOB_SUMMONED);
             return;
         }
         if (random.nextDouble() < 0.1) level.playSound(null, position, SoundEvents.TURTLE_EGG_CRACK, SoundSource.BLOCKS, 1, 1);

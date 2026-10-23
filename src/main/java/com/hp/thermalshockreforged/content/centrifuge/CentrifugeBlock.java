@@ -1,4 +1,8 @@
 package com.hp.thermalshockreforged.content.centrifuge;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.component.TooltipDisplay;
+import java.util.function.Consumer;
+import net.minecraft.world.InteractionResult;
 
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -16,14 +20,14 @@ import net.minecraft.world.phys.BlockHitResult;
 
 public final class CentrifugeBlock extends Block implements EntityBlock {
     public CentrifugeBlock() { super(Properties.of().mapColor(MapColor.METAL).sound(SoundType.METAL).strength(2, 20).lightLevel(state -> 10)); }
-    @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> lines, TooltipFlag flag) {
-        super.appendHoverText(stack, context, lines, flag);
-        lines.add(Component.translatable("block.thermal_shock_reforged.centrifuge.description_0"));
+    @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+        super.appendHoverText(stack, context, display, tooltipAdder, flag);
+        tooltipAdder.accept(Component.translatable("block.thermal_shock_reforged.centrifuge.description_0"));
     }
     @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 15; }
-    @Override protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+    @Override protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         if (player instanceof ServerPlayer server) CentrifugeMenu.open(server, pos);
-        return ItemInteractionResult.SUCCESS;
+        return InteractionResult.SUCCESS;
     }
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         if (player instanceof ServerPlayer server) CentrifugeMenu.open(server, pos);

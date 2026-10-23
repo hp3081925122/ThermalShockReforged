@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.entity;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
 
 import com.hp.thermalshockreforged.config.CombatConfig;
 import com.hp.thermalshockreforged.ThermalShockReforged;
@@ -16,7 +17,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -26,7 +27,7 @@ import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -41,18 +42,17 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.AnimatableManager;
-import software.bernie.geckolib.animation.AnimationController;
-import software.bernie.geckolib.animation.PlayState;
-import software.bernie.geckolib.animation.RawAnimation;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animatable.manager.AnimatableManager;
+import com.geckolib.animation.object.PlayState;
+import com.geckolib.animation.RawAnimation;
+import com.geckolib.util.GeckoLibUtil;
 import java.util.UUID;
 
 public final class ForecastEntity extends Monster implements GeoEntity, ServerEndTickTask {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(ForecastEntity.class, EntityDataSerializers.STRING);
-    private static final ResourceLocation DRIFT_SPEED = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "forecast_drift_speed");
+    private static final Identifier DRIFT_SPEED = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "forecast_drift_speed");
     private static final EntitySelector NEAREST_PLAYER = nearestSelector();
     private final AnimatableInstanceCache animations = GeckoLibUtil.createInstanceCache(this);
     private int driftCooldown;
@@ -118,12 +118,12 @@ public final class ForecastEntity extends Monster implements GeoEntity, ServerEn
         goalSelector.addGoal(4, new RandomLookAroundGoal(this));
     }
 
-    @Override public boolean doHurtTarget(Entity target) {
+    @Override public boolean doHurtTarget(net.minecraft.server.level.ServerLevel level, Entity target) {
         if (!(level() instanceof ServerLevel server) || !isAlive() || target == this || attackCooldown > 0 || !target.isAlive() || target.level() != level()) return false;
         attackCooldown = CombatConfig.FORECAST_COOLDOWN.get();
         setAnimation("attack2");
         server.playSound(null, target.blockPosition(), SoundEvents.BEACON_ACTIVATE, SoundSource.HOSTILE, 1, 3);
-        ZapWarningEntity zap = ModEntities.ZAP.get().spawn(server, target.blockPosition(), MobSpawnType.MOB_SUMMONED);
+        ZapWarningEntity zap = ModEntities.ZAP.get().spawn(server, target.blockPosition(), EntitySpawnReason.MOB_SUMMONED);
         if (zap != null) {
             zap.arm(this, CombatConfig.FORECAST_ZAP_MULTIPLIER.get());
             zap.setYRot(random.nextFloat() * 360);
@@ -135,10 +135,10 @@ public final class ForecastEntity extends Monster implements GeoEntity, ServerEn
 
     @Override public void baseTick() {
         super.baseTick();
-        if (!level().isClientSide) {
+        if (!level().isClientSide()) {
             if (attackCooldown > 0) attackCooldown--;
             if (driftCooldown > 0) driftCooldown--;
-            if (isAlive() && driftCooldown == 0 && !hasEffect(MobEffects.MOVEMENT_SLOWDOWN)) driftMovePending = true;
+            if (isAlive() && driftCooldown == 0 && !hasEffect(MobEffects.SLOWNESS)) driftMovePending = true;
             updateDriftSpeed();
             if ((driftMovePending || driftSlowPending) && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
         }
@@ -189,7 +189,7 @@ public final class ForecastEntity extends Monster implements GeoEntity, ServerEn
 
     private void updateDriftSpeed() {
         var attribute = getAttribute(Attributes.MOVEMENT_SPEED);
-        var actual = getEffect(MobEffects.MOVEMENT_SLOWDOWN);
+        var actual = getEffect(MobEffects.SLOWNESS);
         double factor = actual == null ? 1 : 1 - (double) 0.15F * (actual.getAmplifier() + 1);
         double amount = driftCooldown > 0 && factor > 1 - (double) 0.15F * 3 ? (1 - (double) 0.15F * 3) / factor - 1 : 0;
         var previous = attribute.getModifier(DRIFT_SPEED);
@@ -198,18 +198,18 @@ public final class ForecastEntity extends Monster implements GeoEntity, ServerEn
         if (amount != 0) attribute.addTransientModifier(new AttributeModifier(DRIFT_SPEED, amount, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
     }
 
-    @Override public boolean hurt(DamageSource source, float amount) {
-        return !source.is(DamageTypes.FALL) && !source.is(DamageTypes.LIGHTNING_BOLT) && super.hurt(source, amount);
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) {
+        return !source.is(DamageTypes.FALL) && !source.is(DamageTypes.LIGHTNING_BOLT) && super.hurtServer(level, source, amount);
     }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.GENERIC_HURT; }
     @Override protected SoundEvent getDeathSound() { return SoundEvents.GENERIC_DEATH; }
-    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType reason, SpawnGroupData data) {
+    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, EntitySpawnReason reason, SpawnGroupData data) {
         SpawnGroupData result = super.finalizeSpawn(level, difficulty, reason, data);
         if (!spawnInitialized) { spawnInitialized = true; setNoGravity(true); setPos(getX(), getY() + 1, getZ()); }
         return result;
     }
 
-    @Override protected void dropExperience(Entity attacker) {
+    @Override protected void dropExperience(net.minecraft.server.level.ServerLevel level, Entity attacker) {
         experiencePending = true;
         experienceAttacker = attacker == null ? null : attacker.getUUID();
     }
@@ -218,36 +218,36 @@ public final class ForecastEntity extends Monster implements GeoEntity, ServerEn
             remove(RemovalReason.KILLED);
             if (experiencePending && level() instanceof ServerLevel server) {
                 experiencePending = false;
-                super.dropExperience(experienceAttacker == null ? null : server.getEntity(experienceAttacker));
+                super.dropExperience(server, experienceAttacker == null ? null : server.getEntity(experienceAttacker));
             }
         }
     }
 
-    @Override public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag);
-        tag.putString("Texture", texture()); tag.putInt("ZapCooldown", attackCooldown); tag.putInt("DriftCooldown", driftCooldown);
-        tag.putBoolean("DriftMovePending", driftMovePending); tag.putBoolean("DriftSlowPending", driftSlowPending); tag.putBoolean("ForecastSpawnInitialized", spawnInitialized);
-        tag.putBoolean("ForecastExperiencePending", experiencePending);
-        if (experienceAttacker != null) tag.putUUID("ForecastExperienceAttacker", experienceAttacker);
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        super.addAdditionalSaveData(output);
+        output.putString("Texture", texture()); output.putInt("ZapCooldown", attackCooldown); output.putInt("DriftCooldown", driftCooldown);
+        output.putBoolean("DriftMovePending", driftMovePending); output.putBoolean("DriftSlowPending", driftSlowPending); output.putBoolean("ForecastSpawnInitialized", spawnInitialized);
+        output.putBoolean("ForecastExperiencePending", experiencePending);
+        if (experienceAttacker != null) output.putString("ForecastExperienceAttacker", experienceAttacker.toString());
     }
-    @Override public void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag);
-        if (tag.contains("Texture")) setTexture(tag.getString("Texture"));
-        attackCooldown = Math.clamp(tag.getInt("ZapCooldown"), 0, 72000);
-        driftCooldown = Math.clamp(tag.getInt("DriftCooldown"), 0, 40);
-        driftMovePending = tag.getBoolean("DriftMovePending"); driftSlowPending = tag.getBoolean("DriftSlowPending"); spawnInitialized = tag.getBoolean("ForecastSpawnInitialized");
-        experiencePending = tag.getBoolean("ForecastExperiencePending");
-        experienceAttacker = tag.hasUUID("ForecastExperienceAttacker") ? tag.getUUID("ForecastExperienceAttacker") : null;
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        super.readAdditionalSaveData(input);
+        if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
+        attackCooldown = Math.clamp(input.getIntOr("ZapCooldown", 0), 0, 72000);
+        driftCooldown = Math.clamp(input.getIntOr("DriftCooldown", 0), 0, 40);
+        driftMovePending = input.getBooleanOr("DriftMovePending", false); driftSlowPending = input.getBooleanOr("DriftSlowPending", false); spawnInitialized = input.getBooleanOr("ForecastSpawnInitialized", false);
+        experiencePending = input.getBooleanOr("ForecastExperiencePending", false);
+        experienceAttacker = input.getString("ForecastExperienceAttacker").map(java.util.UUID::fromString).orElse(null);
         applyConfiguredAttributes(false);
-        if (!level().isClientSide) updateDriftSpeed();
+        if (!level().isClientSide()) updateDriftSpeed();
     }
 
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 4, state -> PlayState.STOP)
+        var procedure = new LegacyAnimationController<>(this, "procedure", 4, state -> PlayState.STOP)
                 .triggerableAnim("idle", RawAnimation.begin().thenPlay("idle"))
                 .triggerableAnim("attack", RawAnimation.begin().thenPlay("attack"))
                 .triggerableAnim("attack2", RawAnimation.begin().thenPlay("attack2"));
-        controllers.add(new AnimationController<>(this, "movement", 4, state -> procedure.isPlayingTriggeredAnimation()
+        controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> procedure.isPlayingTriggeredAnimation()
                 ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop("idle"))));
         controllers.add(procedure);
     }

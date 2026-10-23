@@ -1,21 +1,24 @@
 package com.hp.thermalshockreforged.client.snobol;
+import net.minecraft.client.renderer.rendertype.RenderTypes;
+import net.minecraft.client.renderer.rendertype.RenderType;
+import com.hp.thermalshockreforged.client.compat.LegacyGeoEntityRenderer;
 
 import com.hp.thermalshockreforged.entity.snobol.*;
 import com.mojang.blaze3d.vertex.*;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.Mob;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.extensions.common.*;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animation.AnimationState;
-import software.bernie.geckolib.cache.object.BakedGeoModel;
-import software.bernie.geckolib.constant.DataTickets;
-import software.bernie.geckolib.model.GeoModel;
-import software.bernie.geckolib.renderer.*;
-import software.bernie.geckolib.renderer.layer.GeoRenderLayer;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animation.state.AnimationTest;
+import com.geckolib.cache.model.BakedGeoModel;
+import com.geckolib.constant.DataTickets;
+import com.hp.thermalshockreforged.client.compat.LegacyGeoModel;
+import com.geckolib.renderer.*;
+import com.hp.thermalshockreforged.client.compat.LegacyGeoRenderLayer;
 import java.util.function.Function;
 
 public final class SnobolRenderers {
@@ -32,21 +35,21 @@ public final class SnobolRenderers {
         event.registerSpriteSet(SnobolContent.TOXIC_BUBBLE.get(), ToxicBubbleParticle.Provider::new);
     }
 
-    private static final class Invisible extends net.minecraft.client.renderer.entity.EntityRenderer<SnobolBlastEntity> {
+    private static final class Invisible extends com.hp.thermalshockreforged.client.compat.LegacyEntityRenderer<SnobolBlastEntity> {
         private Invisible(EntityRendererProvider.Context context) { super(context); }
         @Override
         public void render(SnobolBlastEntity entity, float yaw, float partialTick, PoseStack pose, MultiBufferSource buffers, int light) { }
         @Override
-        public ResourceLocation getTextureLocation(SnobolBlastEntity entity) { return ResourceLocation.withDefaultNamespace("textures/misc/white.png"); }
+        public Identifier getTextureLocation(SnobolBlastEntity entity) { return Identifier.withDefaultNamespace("textures/misc/white.png"); }
     }
 
     private static <T extends Mob & GeoEntity> EntityRendererProvider<T> factory(String id, Function<T, String> texture, float shadow, float scale, boolean glow) {
         return context -> new Renderer<>(context, new Model<>(id, texture), shadow, scale, glow);
     }
 
-    private static ResourceLocation resource(String path) { return ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", path); }
+    private static Identifier resource(String path) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", path); }
 
-    private static final class Model<T extends Mob & GeoEntity> extends GeoModel<T> {
+    private static final class Model<T extends Mob & GeoEntity> extends LegacyGeoModel<T> {
         private final String id;
         private final Function<T, String> texture;
 
@@ -56,26 +59,26 @@ public final class SnobolRenderers {
         }
 
         @Override
-        public ResourceLocation getModelResource(T entity) { return resource("geo/" + id + ".geo.json"); }
+        public Identifier getModelResource(T entity) { return resource("geo/" + id + ".geo.json"); }
 
         @Override
-        public ResourceLocation getTextureResource(T entity) { return resource("textures/entities/" + texture.apply(entity) + ".png"); }
+        public Identifier getTextureResource(T entity) { return resource("textures/entities/" + texture.apply(entity) + ".png"); }
 
         @Override
-        public ResourceLocation getAnimationResource(T entity) { return resource("animations/" + id + ".animation.json"); }
+        public Identifier getAnimationResource(T entity) { return resource("animations/" + id + ".animation.json"); }
 
 
     }
 
-    private static final class Renderer<T extends Mob & GeoEntity> extends GeoEntityRenderer<T> {
-        private Renderer(EntityRendererProvider.Context context, GeoModel<T> model, float shadow, float scale, boolean glow) {
+    private static final class Renderer<T extends Mob & GeoEntity> extends LegacyGeoEntityRenderer<T> {
+        private Renderer(EntityRendererProvider.Context context, LegacyGeoModel<T> model, float shadow, float scale, boolean glow) {
             super(context, model);
             shadowRadius = shadow;
             withScale(scale);
         }
 
         @Override
-        public RenderType getRenderType(T entity, ResourceLocation texture, MultiBufferSource buffers, float partialTick) { return RenderType.entityTranslucent(texture); }
+        public RenderType getRenderType(T entity, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
     }
 
 }

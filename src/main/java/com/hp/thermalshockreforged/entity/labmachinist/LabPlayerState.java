@@ -8,7 +8,7 @@ import net.minecraft.core.*;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.*;
 import net.minecraft.network.protocol.game.ClientboundSoundPacket;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.player.Player;
@@ -29,13 +29,13 @@ public final class LabPlayerState {
     static int count(Player player, Item item) { int total = 0; for (int slot = 0; slot < player.getInventory().getContainerSize(); slot++) { var stack = player.getInventory().getItem(slot); if (stack.is(item)) total += stack.getCount(); } return total; }
     static boolean available(ServerPlayer player, String... ids) { for (String id : ids) if (player.server.getAdvancements().get(LabContent.id(id)) == null) { ThermalShockReforged.LOGGER.warn("Lab advancement unavailable: player={}, id={}", player.getUUID(), id); return false; } return true; }
     static void award(ServerPlayer player, String id) { var advancement = player.server.getAdvancements().get(LabContent.id(id)); if (advancement != null) for (String criterion : player.getAdvancements().getOrStartProgress(advancement).getRemainingCriteria()) player.getAdvancements().award(advancement, criterion); }
-    public static void sound(ServerPlayer player, ResourceLocation sound, BlockPos pos, float volume, float pitch) { player.connection.send(new ClientboundSoundPacket(Holder.direct(BuiltInRegistries.SOUND_EVENT.get(sound)), SoundSource.NEUTRAL, pos.getX(), pos.getY(), pos.getZ(), volume, pitch, player.getRandom().nextLong())); }
+    public static void sound(ServerPlayer player, Identifier sound, BlockPos pos, float volume, float pitch) { player.connection.send(new ClientboundSoundPacket(Holder.direct(BuiltInRegistries.SOUND_EVENT.getValue(sound)), SoundSource.NEUTRAL, pos.getX(), pos.getY(), pos.getZ(), volume, pitch, player.getRandom().nextLong())); }
     static boolean buy(ServerPlayer player, LabPage page, BlockPos anchor) {
         var recipe = NpcTradeRecipe.get(player.level(), page.id);
         if (recipe == null || !recipe.allowed(player) || !recipe.trade(player)) return false;
         sound(player, LabContent.id("npcbuy"), anchor, 1, 1);
-        if (recipe.cost(MaterialContent.items().get(SPICES.get(0)).get()) > 0) sound(player, ResourceLocation.withDefaultNamespace("block.dispenser.fail"), anchor, .5F, 5);
-        if (recipe.levels() > 0) sound(player, ResourceLocation.withDefaultNamespace("entity.experience_orb.pickup"), anchor, .5F, 5);
+        if (recipe.cost(MaterialContent.items().get(SPICES.get(0)).get()) > 0) sound(player, Identifier.withDefaultNamespace("block.dispenser.fail"), anchor, .5F, 5);
+        if (recipe.levels() > 0) sound(player, Identifier.withDefaultNamespace("entity.experience_orb.pickup"), anchor, .5F, 5);
         ThermalShockReforged.LOGGER.debug("Lab purchase paid in full: player={}, page={}, levels={}, costs={}", player.getUUID(), page.id, recipe.levels(), recipe.costs().size());
         return true;
     }

@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.entity.hunters;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import net.minecraft.world.InteractionResult;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.MaterialContent;
@@ -23,10 +26,10 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.event.EventHooks;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
+import com.geckolib.util.GeckoLibUtil;
 
 public final class RazorwingEntity extends TamableAnimal implements GeoEntity {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(RazorwingEntity.class, EntityDataSerializers.STRING);
@@ -78,7 +81,7 @@ public final class RazorwingEntity extends TamableAnimal implements GeoEntity {
     private InteractionResult animalInteraction(Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         if (stack.getItem() instanceof SpawnEggItem) return super.mobInteract(player, hand);
-        if (level().isClientSide) return isOwnedBy(player) || isFood(stack) ? InteractionResult.CONSUME : InteractionResult.PASS;
+        if (level().isClientSide()) return isOwnedBy(player) || isFood(stack) ? InteractionResult.CONSUME : InteractionResult.PASS;
         if (isTame()) {
             if (!isOwnedBy(player)) return InteractionResult.SUCCESS;
             if (isFood(stack) && getHealth() < getMaxHealth()) {
@@ -112,10 +115,10 @@ public final class RazorwingEntity extends TamableAnimal implements GeoEntity {
             EntityType<RazorwingEntity> next = armor.is(MaterialContent.items().get("ruby_razorwing_armor").get()) ? HuntersContent.RUBY_ARMOURED_RAZORWING.get()
                     : armor.is(MaterialContent.items().get("bloodstone_razorwing_armor").get()) ? HuntersContent.BLOOD_ARMOURED_RAZORWING.get() : null;
             if (next != null && isOwnedBy(player) && isAlive()) {
-                if (level().isClientSide) return InteractionResult.SUCCESS;
+                if (level().isClientSide()) return InteractionResult.SUCCESS;
                 return convertArmor(player, armor, next) ? InteractionResult.SUCCESS : InteractionResult.FAIL;
             }
-        } else if (!level().isClientSide) player.startRiding(this);
+        } else if (!level().isClientSide()) player.startRiding(this);
         return result;
     }
 
@@ -124,9 +127,9 @@ public final class RazorwingEntity extends TamableAnimal implements GeoEntity {
         converting = true;
         RazorwingEntity replacement = null;
         try {
-            replacement = type.create(server);
+            replacement = type.create(server, net.minecraft.world.entity.EntitySpawnReason.MOB_SUMMONED);
             if (replacement == null) { ThermalShockReforged.LOGGER.debug("Razorwing armor conversion failed to create replacement: source={}", getUUID()); return false; }
-            replacement.finalizeSpawn(server, server.getCurrentDifficultyAt(blockPosition()), MobSpawnType.CONVERSION, null);
+            replacement.finalizeSpawn(server, server.getCurrentDifficultyAt(blockPosition()), EntitySpawnReason.CONVERSION, null);
             CompoundTag state = saveWithoutId(new CompoundTag());
             state.remove("UUID"); state.remove("Passengers"); state.remove("Texture");
             replacement.load(state);
@@ -182,21 +185,21 @@ public final class RazorwingEntity extends TamableAnimal implements GeoEntity {
     @Override
     public AgeableMob getBreedOffspring(ServerLevel server, AgeableMob other) {
         RazorwingEntity child = ((EntityType<RazorwingEntity>)getType()).create(server);
-        if (child != null) child.finalizeSpawn(server, server.getCurrentDifficultyAt(child.blockPosition()), MobSpawnType.BREEDING, null);
+        if (child != null) child.finalizeSpawn(server, server.getCurrentDifficultyAt(child.blockPosition()), EntitySpawnReason.BREEDING, null);
         return child;
     }
     @Override public boolean removeWhenFarAway(double distance) { return armored() ? false : super.removeWhenFarAway(distance); }
-    @Override public boolean hurt(DamageSource source, float amount) { return !source.is(DamageTypes.FALL) && !source.is(DamageTypes.CACTUS) && super.hurt(source, amount); }
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) { return !source.is(DamageTypes.FALL) && !source.is(DamageTypes.CACTUS) && super.hurtServer(level, source, amount); }
     @Override protected SoundEvent getAmbientSound() { return SoundEvents.STRIDER_AMBIENT; }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.STRIDER_HURT; }
     @Override protected SoundEvent getDeathSound() { return SoundEvents.STRIDER_DEATH; }
     @Override protected void playStepSound(BlockPos pos, BlockState state) { playSound(SoundEvents.STRIDER_STEP, 0.15F, 1); }
     @Override public void aiStep() { super.aiStep(); updateSwingTime(); }
-    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); }
-    @Override public void readAdditionalSaveData(CompoundTag tag) { super.readAdditionalSaveData(tag); if (tag.contains("Texture")) setTexture(tag.getString("Texture")); }
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putString("Texture", texture()); }
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", "")); }
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(this, "movement", 4, state -> {
+        controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> {
             boolean moving = state.isMoving() || Math.abs(state.getLimbSwingAmount()) >= 0.15F;
             String animation = moving && !isVehicle() && !isAggressive() ? "walk" : state.isMoving() && (isVehicle() || isAggressive()) ? "walk2" : "idle";
             return state.setAndContinue(RawAnimation.begin().thenLoop(animation));

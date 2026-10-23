@@ -2,7 +2,7 @@ package com.hp.thermalshockreforged.content.growth;
 
 import net.minecraft.core.*;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
@@ -18,7 +18,7 @@ import net.minecraft.world.phys.shapes.*;
 public final class SparklerBlock extends Block implements SimpleWaterloggedBlock {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public SparklerBlock(int light) {
-        super(Properties.of().mapColor(MapColor.TERRACOTTA_BLUE).sound(SoundType.CHAIN).instabreak().lightLevel(s->light).noCollission().noOcclusion().pushReaction(PushReaction.DESTROY).isRedstoneConductor((s,l,p)->false));
+        super(Properties.of().mapColor(MapColor.TERRACOTTA_BLUE).sound(SoundType.CHAIN).instabreak().lightLevel(s->light).noCollision().noOcclusion().pushReaction(PushReaction.DESTROY).isRedstoneConductor((s,l,p)->false));
         registerDefaultState(defaultBlockState().setValue(WATERLOGGED, false));
     }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { super.createBlockStateDefinition(builder); builder.add(WATERLOGGED); }

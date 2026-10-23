@@ -33,6 +33,6 @@ public final class WallboreCycleEntity extends Entity implements ServerEndTickTa
         }
         ServerEndTickTasks.schedule(server, getUUID());
     }
-    @Override protected void addAdditionalSaveData(CompoundTag tag) { tag.putBoolean("Armed", armed); tag.putInt("Remaining", remaining); tag.putInt("Age", age); tag.putInt("Frozen", frozen); tag.putInt("Facing", facing.get2DDataValue()); tag.putLong("Anchor", anchor.asLong()); }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) { armed = tag.getBoolean("Armed"); remaining = Math.clamp(tag.getInt("Remaining"), 1, 19); age = Math.clamp(tag.getInt("Age"), -1, 22); frozen = Math.clamp(tag.getInt("Frozen"), 0, 1); facing = Direction.from2DDataValue(tag.getInt("Facing")); anchor = BlockPos.of(tag.getLong("Anchor")); }
+    @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { output.putBoolean("Armed", armed); output.putInt("Remaining", remaining); output.putInt("Age", age); output.putInt("Frozen", frozen); output.putInt("Facing", facing.get2DDataValue()); output.putLong("Anchor", anchor.asLong()); }
+    @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { armed = input.getBooleanOr("Armed", false); remaining = Math.clamp(input.getIntOr("Remaining", 0), 1, 19); age = Math.clamp(input.getIntOr("Age", 0), -1, 22); frozen = Math.clamp(input.getIntOr("Frozen", 0), 0, 1); facing = Direction.from2DDataValue(input.getIntOr("Facing", 0)); anchor = BlockPos.of(input.getLongOr("Anchor", 0L)); }
 }

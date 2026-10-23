@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.entity.cavebloomer;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.status.aura.AuraContent;
@@ -11,7 +14,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.syncher.*;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.*;
 import net.minecraft.sounds.*;
 import net.minecraft.world.BossEvent;
@@ -26,17 +29,17 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
+import com.geckolib.util.GeckoLibUtil;
 
 public final class AngryCavebloomerEntity extends Monster implements GeoEntity, ServerEndTickTask {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(AngryCavebloomerEntity.class, EntityDataSerializers.STRING);
     private final AnimatableInstanceCache animations = GeckoLibUtil.createInstanceCache(this);
     private final CavebloomerAttacks attacks = new CavebloomerAttacks(this);
     private final BossDeathSequence deathSequence = new BossDeathSequence();
-    private final ServerBossEvent bossBar = new ServerBossEvent(getDisplayName(), BossEvent.BossBarColor.PINK, BossEvent.BossBarOverlay.NOTCHED_6);
+    private final ServerBossEvent bossBar = new ServerBossEvent(getUUID(), getDisplayName(), BossEvent.BossBarColor.PINK, BossEvent.BossBarOverlay.NOTCHED_6);
     private boolean deathCommitted, experiencePending;
     private UUID experienceAttacker;
     public AngryCavebloomerEntity(EntityType<? extends AngryCavebloomerEntity> type, Level level) {
@@ -69,20 +72,20 @@ public final class AngryCavebloomerEntity extends Monster implements GeoEntity, 
         goalSelector.addGoal(3, new RandomStrollGoal(this, 1)); targetSelector.addGoal(4, new HurtByTargetGoal(this));
         goalSelector.addGoal(5, new RandomLookAroundGoal(this)); goalSelector.addGoal(6, new FloatGoal(this));
     }
-    @Override public boolean doHurtTarget(Entity target) { attacks.begin(target); return false; }
+    @Override public boolean doHurtTarget(net.minecraft.server.level.ServerLevel level, Entity target) { attacks.begin(target); return false; }
     void beginAttack(Entity target) { attacks.begin(target); }
     @Override public boolean removeWhenFarAway(double distance) { return false; }
-    @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
+    public boolean canChangeDimensions(Level from, Level to) { return false; }
     public void sound(SoundEvent sound, float volume, float pitch) { level().playSound(null, blockPosition(), sound, SoundSource.HOSTILE, volume, pitch); }
     public void sound(String name, float volume, float pitch) { sound(soundEvent(name), volume, pitch); }
-    private SoundEvent soundEvent(String name) { return BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, name)); }
+    private SoundEvent soundEvent(String name) { return BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, name)); }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return soundEvent("cavebloomer_hurt"); }
     @Override protected SoundEvent getDeathSound() { return soundEvent("cavebloomer_death"); }
-    @Override public boolean hurt(DamageSource source, float amount) {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) {
         if (source.getEntity() != null && source.getDirectEntity() instanceof CavebloomerBombEntity bomb) {
-            if (!level().isClientSide) bomb.discard(); return false;
+            if (!level().isClientSide()) bomb.discard(); return false;
         }
-        return !source.is(DamageTypes.FALL) && super.hurt(source, amount);
+        return !source.is(DamageTypes.FALL) && super.hurtServer(level, source, amount);
     }
     @Override public void tick() {
         super.tick();
@@ -94,7 +97,7 @@ public final class AngryCavebloomerEntity extends Monster implements GeoEntity, 
     }
     @Override public void baseTick() {
         super.baseTick();
-        if (!level().isClientSide && isAlive() && getHealth() < getMaxHealth() * CavebloomerConfig.AURA_HEALTH_FRACTION.get()) addEffect(new MobEffectInstance(AuraContent.DAMAGING_AURA, 20, 2));
+        if (!level().isClientSide() && isAlive() && getHealth() < getMaxHealth() * CavebloomerConfig.AURA_HEALTH_FRACTION.get()) addEffect(new MobEffectInstance(AuraContent.DAMAGING_AURA, 20, 2));
     }
     @Override public void onAddedToLevel() {
         super.onAddedToLevel();
@@ -114,7 +117,7 @@ public final class AngryCavebloomerEntity extends Monster implements GeoEntity, 
         server.playSound(null, blockPosition(), soundEvent("cavebloomer_death"), SoundSource.NEUTRAL, 1, 1);
         var center = position(); var players = server.getEntitiesOfClass(ServerPlayer.class, new AABB(center, center).inflate(24), player -> true);
         players.sort(Comparator.comparingDouble(player -> player.distanceToSqr(center)));
-        var advancement = server.getServer().getAdvancements().get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "cavebloomer_kill"));
+        var advancement = server.getServer().getAdvancements().get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "cavebloomer_kill"));
         if (advancement == null) ThermalShockReforged.LOGGER.warn("Cavebloomer advancement chain is not available: cavebloomer_kill");
         else for (var player : players) {
             var progress = player.getAdvancements().getOrStartProgress(advancement);
@@ -123,12 +126,12 @@ public final class AngryCavebloomerEntity extends Monster implements GeoEntity, 
         server.getServer().getPlayerList().broadcastSystemMessage(Component.translatable("message.thermal_shock_reforged.cavebloomer.defeated"), false);
         WorldProgressData.get(server).advanceCrux(1);
     }
-    @Override protected void dropExperience(Entity attacker) { experiencePending = true; experienceAttacker = attacker == null ? null : attacker.getUUID(); }
+    @Override protected void dropExperience(net.minecraft.server.level.ServerLevel level, Entity attacker) { experiencePending = true; experienceAttacker = attacker == null ? null : attacker.getUUID(); }
     @Override protected void tickDeath() {
         if (++deathTime >= 60 && !isRemoved()) {
             remove(RemovalReason.KILLED);
             if (experiencePending && level() instanceof ServerLevel server) {
-                experiencePending = false; super.dropExperience(experienceAttacker == null ? null : server.getEntity(experienceAttacker));
+                experiencePending = false; super.dropExperience(server, experienceAttacker == null ? null : server.getEntity(experienceAttacker));
             }
         }
     }
@@ -139,20 +142,20 @@ public final class AngryCavebloomerEntity extends Monster implements GeoEntity, 
     @Override public void startSeenByPlayer(ServerPlayer player) { super.startSeenByPlayer(player); bossBar.addPlayer(player); }
     @Override public void stopSeenByPlayer(ServerPlayer player) { super.stopSeenByPlayer(player); bossBar.removePlayer(player); }
     @Override public void setCustomName(Component name) { super.setCustomName(name); if (bossBar != null) bossBar.setName(getDisplayName()); }
-    @Override public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); attacks.save(tag); deathSequence.save(tag);
-        tag.putBoolean("CavebloomerDeathCommitted", deathCommitted); tag.putBoolean("CavebloomerExperiencePending", experiencePending);
-        if (experienceAttacker != null) tag.putUUID("CavebloomerExperienceAttacker", experienceAttacker);
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        super.addAdditionalSaveData(output); output.putString("Texture", texture()); attacks.save(new CompoundTag()); deathSequence.save(new CompoundTag());
+        output.putBoolean("CavebloomerDeathCommitted", deathCommitted); output.putBoolean("CavebloomerExperiencePending", experiencePending);
+        if (experienceAttacker != null) output.putString("CavebloomerExperienceAttacker", experienceAttacker.toString());
     }
-    @Override public void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag); applyConfiguredAttributes(false); if (tag.contains("Texture")) setTexture(tag.getString("Texture"));
-        attacks.load(tag); deathSequence.load(tag); deathCommitted = tag.getBoolean("CavebloomerDeathCommitted"); experiencePending = tag.getBoolean("CavebloomerExperiencePending");
-        experienceAttacker = tag.hasUUID("CavebloomerExperienceAttacker") ? tag.getUUID("CavebloomerExperienceAttacker") : null; bossBar.setName(getDisplayName());
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        super.readAdditionalSaveData(input); applyConfiguredAttributes(false); if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
+        attacks.load(new CompoundTag()); deathSequence.load(new CompoundTag()); deathCommitted = input.getBooleanOr("CavebloomerDeathCommitted", false); experiencePending = input.getBooleanOr("CavebloomerExperiencePending", false);
+        experienceAttacker = input.getString("CavebloomerExperienceAttacker").map(java.util.UUID::fromString).orElse(null); bossBar.setName(getDisplayName());
     }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 4, state -> PlayState.STOP);
+        var procedure = new LegacyAnimationController<>(this, "procedure", 4, state -> PlayState.STOP);
         for (String clip : new String[]{"0", "1", "2", "Idle", "walk", "prime", "prime2", "prime3", "prime4"}) procedure.triggerableAnim(clip, RawAnimation.begin().thenPlay(clip));
-        controllers.add(new AnimationController<>(this, "movement", 4, state -> {
+        controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> {
             if (procedure.isPlayingTriggeredAnimation()) return PlayState.STOP;
             return state.setAndContinue(RawAnimation.begin().thenLoop(state.isMoving() || Math.abs(state.getLimbSwingAmount()) >= 0.15F ? "walk" : "Idle"));
         })); controllers.add(procedure);

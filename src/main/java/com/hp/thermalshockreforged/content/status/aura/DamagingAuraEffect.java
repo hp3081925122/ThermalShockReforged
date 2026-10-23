@@ -9,7 +9,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import java.util.Set;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.*;
 import net.minecraft.world.effect.*;
@@ -19,8 +19,8 @@ import net.minecraft.world.phys.AABB;
 import net.neoforged.neoforge.common.*;
 
 final class DamagingAuraEffect extends MobEffect {
-    private static final ResourceLocation ANGRY = ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", "angry_cavebloomer");
-    private static final Set<ResourceLocation> LARGE_AURA = Set.of(ANGRY, ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", "beetle_crasher"), ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", "protoi_epsilon"));
+    private static final Identifier ANGRY = Identifier.fromNamespaceAndPath("thermal_shock_reforged", "angry_cavebloomer");
+    private static final Set<Identifier> LARGE_AURA = Set.of(ANGRY, Identifier.fromNamespaceAndPath("thermal_shock_reforged", "beetle_crasher"), Identifier.fromNamespaceAndPath("thermal_shock_reforged", "protoi_epsilon"));
     DamagingAuraEffect() { super(MobEffectCategory.BENEFICIAL, -65536); }
     @Override
     public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) { return true; }
@@ -46,12 +46,5 @@ final class DamagingAuraEffect extends MobEffect {
             target.hurt(source, Double.isFinite(raw) ? (float)Math.max(0, raw - armor * armorFactor) : 0);
         }
         return true;
-    }
-    @Override
-    public void fillEffectCures(Set<EffectCure> cures, MobEffectInstance instance) {
-        cures.clear();
-        cures.add(EffectCures.MILK);
-        cures.add(EffectCures.HONEY);
-        cures.add(EffectCures.PROTECTED_BY_TOTEM);
     }
 }

@@ -1,4 +1,6 @@
 package com.hp.thermalshockreforged.entity.fauna.block;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 
 import com.hp.thermalshockreforged.entity.fauna.FaunaEntities;
 import net.minecraft.core.*;
@@ -17,7 +19,7 @@ import net.minecraft.world.phys.shapes.*;
 
 public final class CauldronOfTrilobiteBlock extends Block implements EntityBlock {
     public static final IntegerProperty ANIMATION = IntegerProperty.create("animation", 0, 1);
-    public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+    public static final EnumProperty<Direction> FACING = HorizontalDirectionalBlock.FACING;
     private static final VoxelShape SHAPE = box(0.1, 0.1, 0.1, 15.9, 13, 15.9);
 
     public CauldronOfTrilobiteBlock() {
@@ -45,7 +47,7 @@ public final class CauldronOfTrilobiteBlock extends Block implements EntityBlock
 
     @Override
     public <T extends BlockEntity> net.minecraft.world.level.block.entity.BlockEntityTicker<T> getTicker(Level level, BlockState state, net.minecraft.world.level.block.entity.BlockEntityType<T> type) {
-        if (level.isClientSide || type != FaunaEntities.CAULDRON_ENTITY.get()) return null;
+        if (level.isClientSide() || type != FaunaEntities.CAULDRON_ENTITY.get()) return null;
         return (world, pos, blockState, entity) -> {
             if (entity instanceof CauldronOfTrilobiteBlockEntity cauldron) cauldron.animationTick();
         };
@@ -69,14 +71,14 @@ public final class CauldronOfTrilobiteBlock extends Block implements EntityBlock
     protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) { return SHAPE; }
 
     @Override
-    protected ItemInteractionResult useItemOn(ItemStack held, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-        if (!held.is(Items.BUCKET)) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
-        if (!level.isClientSide) {
+    protected InteractionResult useItemOn(ItemStack held, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+        if (!held.is(Items.BUCKET)) return InteractionResult.PASS;
+        if (!level.isClientSide()) {
             held.shrink(1);
             var milk = new ItemStack(FaunaEntities.item("loque_milk"));
             if (!player.getInventory().add(milk)) player.drop(milk, false);
             level.playSound(null, pos, net.minecraft.sounds.SoundEvents.MOOSHROOM_MILK, net.minecraft.sounds.SoundSource.NEUTRAL, 1, 1);
         }
-        return ItemInteractionResult.sidedSuccess(level.isClientSide);
+        return InteractionResult.SUCCESS;
     }
 }

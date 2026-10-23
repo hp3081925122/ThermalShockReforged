@@ -1,7 +1,8 @@
 package com.hp.thermalshockreforged.entity.growth;
+import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
 
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.*;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.*;
@@ -14,13 +15,13 @@ import net.minecraft.world.phys.EntityHitResult;
 public final class GelshooterBulletEntity extends AbstractArrow implements ItemSupplier {
     public GelshooterBulletEntity(EntityType<? extends GelshooterBulletEntity> type,Level level) { super(type,level); }
     public GelshooterBulletEntity(LivingEntity owner) { super(GrowthEntities.GELSHOOTER_BULLET.get(),owner,owner.level(),projectileItem(),null); }
-    private static ItemStack projectileItem() { return new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged","springelatin_ball"))); }
+    private static ItemStack projectileItem() { return new ItemStack(BuiltInRegistries.ITEM.get(Identifier.fromNamespaceAndPath("thermal_shock_reforged","springelatin_ball"))); }
     @Override public ItemStack getItem() { return projectileItem(); }
     @Override protected ItemStack getDefaultPickupItem() { return projectileItem(); }
     @Override protected void doPostHurtEffects(LivingEntity target) { super.doPostHurtEffects(target); target.setArrowCount(target.getArrowCount()-1); }
     @Override protected void onHitEntity(EntityHitResult hit) {
         super.onHitEntity(hit);
-        if(!level().isClientSide&&hit.getEntity() instanceof LivingEntity target) target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,20,0));
+        if(!level().isClientSide()&&hit.getEntity() instanceof LivingEntity target) target.addEffect(new MobEffectInstance(MobEffects.SLOWNESS,20,0));
     }
     @Override public void tick() { super.tick(); if(inGround)discard(); }
     public static GelshooterBulletEntity shoot(LivingEntity owner,LivingEntity target) {

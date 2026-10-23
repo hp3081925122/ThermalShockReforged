@@ -19,11 +19,11 @@ import net.minecraft.world.level.storage.loot.parameters.*;
 public final class UneasyAllianceBundleItem extends Item {
     private static final ResourceKey<LootTable> LOOT = ResourceKey.create(Registries.LOOT_TABLE, QoContent.id("gameplay/uneasy_alliance_loot"));
     public UneasyAllianceBundleItem() { super(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)); }
-    @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+    @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         if (level instanceof ServerLevel server && player instanceof ServerPlayer owner) {
             LootTable table = server.getServer().reloadableRegistries().getLootTable(LOOT);
-            if (table == LootTable.EMPTY) { ThermalShockReforged.LOGGER.warn("Uneasy alliance loot table unavailable; keeping bundle: player={}", player.getUUID()); return InteractionResultHolder.fail(stack); }
+            if (table == LootTable.EMPTY) { ThermalShockReforged.LOGGER.warn("Uneasy alliance loot table unavailable; keeping bundle: player={}", player.getUUID()); return InteractionResult.FAIL; }
             var origin = player.position();
             var params = new LootParams.Builder(server).withParameter(LootContextParams.ORIGIN, origin).create(LootContextParamSets.CHEST);
             stack.shrink(1);
@@ -32,6 +32,6 @@ public final class UneasyAllianceBundleItem extends Item {
             server.sendParticles(ParticleTypes.END_ROD, origin.x, origin.y, origin.z, 20, .5, 1, .5, 0);
             ThermalShockReforged.LOGGER.debug("Uneasy alliance bundle opened: player={}, hand={}", player.getUUID(), hand);
         }
-        return InteractionResultHolder.sidedSuccess(stack, level.isClientSide);
+        return InteractionResult.SUCCESS;
     }
 }

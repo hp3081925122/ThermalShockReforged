@@ -8,7 +8,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.AxeItem;
-import net.minecraft.world.item.Tier;
+import com.hp.thermalshockreforged.content.tools.Tier;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 
@@ -32,12 +32,12 @@ final class CobaltAxe extends AxeItem {
         if (!id.getNamespace().equals(ThermalShockReforged.MOD_ID)) return original;
         String target = STRIPPING.get(id.getPath());
         if (target == null) return original;
-        if (!level.isClientSide) {
+        if (!level.isClientSide()) {
             var stripped = MaterialContent.blocks().get(target).get().defaultBlockState();
             stripped = stripped.setValue(RotatedPillarBlock.AXIS, state.getValue(RotatedPillarBlock.AXIS));
             level.setBlock(position, stripped, 3);
             level.playSound(null, position, SoundEvents.AXE_STRIP, SoundSource.NEUTRAL, 1, 1);
         }
-        return InteractionResult.sidedSuccess(level.isClientSide);
+        return InteractionResult.SUCCESS;
     }
 }

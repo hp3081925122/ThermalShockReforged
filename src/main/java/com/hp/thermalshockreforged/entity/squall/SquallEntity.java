@@ -29,7 +29,7 @@ import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.ThrownPotion;
+import net.minecraft.world.entity.projectile.throwableitemprojectile.AbstractThrownPotion;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
@@ -86,16 +86,16 @@ public final class SquallEntity extends Monster {
 
     @Override public boolean ignoreExplosion(Explosion explosion) { return true; }
     @Override public boolean isPushedByFluid() { return false; }
-    @Override public boolean causeFallDamage(float distance, float multiplier, DamageSource source) { return false; }
+    @Override public boolean causeFallDamage(double distance, float multiplier, DamageSource source) { return false; }
 
-    @Override public boolean hurt(DamageSource source, float amount) {
-        if (source.is(DamageTypes.IN_FIRE) || source.getDirectEntity() instanceof ThrownPotion || source.getDirectEntity() instanceof AreaEffectCloud || source.is(DamageTypes.FALL) || source.is(DamageTypes.CACTUS) || source.is(DamageTypes.DROWN) || source.is(DamageTypes.LIGHTNING_BOLT) || source.is(DamageTypes.EXPLOSION) || source.is(DamageTypes.PLAYER_EXPLOSION) || source.is(DamageTypes.FALLING_ANVIL) || source.is(DamageTypes.DRAGON_BREATH) || source.is(DamageTypes.WITHER) || source.is(DamageTypes.WITHER_SKULL)) return false;
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) {
+        if (source.is(DamageTypes.IN_FIRE) || source.getDirectEntity() instanceof AbstractThrownPotion || source.getDirectEntity() instanceof AreaEffectCloud || source.is(DamageTypes.FALL) || source.is(DamageTypes.CACTUS) || source.is(DamageTypes.DROWN) || source.is(DamageTypes.LIGHTNING_BOLT) || source.is(DamageTypes.EXPLOSION) || source.is(DamageTypes.PLAYER_EXPLOSION) || source.is(DamageTypes.FALLING_ANVIL) || source.is(DamageTypes.DRAGON_BREATH) || source.is(DamageTypes.WITHER) || source.is(DamageTypes.WITHER_SKULL)) return false;
         if (lit()) amount *= SquallConfig.LIGHT_DAMAGE_MULTIPLIER.get().floatValue();
-        return super.hurt(source, amount);
+        return super.hurtServer(level, source, amount);
     }
 
     private void applyConfiguredAttributes() {
-        if (level().isClientSide || attributesApplied || !SquallConfig.SPEC.isLoaded()) return;
+        if (level().isClientSide() || attributesApplied || !SquallConfig.SPEC.isLoaded()) return;
         float previous = getHealth();
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(SquallConfig.HEALTH.get());
         getAttribute(Attributes.ARMOR).setBaseValue(SquallConfig.ARMOR.get());
@@ -111,7 +111,7 @@ public final class SquallEntity extends Monster {
 
     @Override public void tick() {
         super.tick();
-        if (!level().isClientSide || !isAlive()) return;
+        if (!level().isClientSide() || !isAlive()) return;
         RandomSource random = getRandom();
         if (tickCount % 3 == 0) level().addParticle(SquallContent.WISP.get(), getX() + (random.nextDouble() - .5) * .9, getY() + .9 + random.nextDouble() * .9, getZ() + (random.nextDouble() - .5) * .9, 0, .02, 0);
         if (cast() != GALE) return;
@@ -327,7 +327,7 @@ public final class SquallEntity extends Monster {
     }
 
     private void sound(Vec3 at, String id, float volume, float pitch) {
-        var event = BuiltInRegistries.SOUND_EVENT.get(SquallContent.id(id));
+        var event = BuiltInRegistries.SOUND_EVENT.getValue(SquallContent.id(id));
         if (event != null) level().playSound(null, at.x, at.y, at.z, event, SoundSource.HOSTILE, volume, pitch);
     }
 
@@ -343,24 +343,24 @@ public final class SquallEntity extends Monster {
         }
     }
 
-    @Override public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag);
-        tag.putBoolean("SquallDeathAwarded", deathAwarded);
-        tag.putBoolean("SquallEnraged", enraged());
-        tag.putInt("SquallSurgeCooldown", surgeCooldown);
-        tag.putInt("SquallGaleCooldown", galeCooldown);
-        tag.putInt("SquallBoltCooldown", boltCooldown);
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        super.addAdditionalSaveData(output);
+        output.putBoolean("SquallDeathAwarded", deathAwarded);
+        output.putBoolean("SquallEnraged", enraged());
+        output.putInt("SquallSurgeCooldown", surgeCooldown);
+        output.putInt("SquallGaleCooldown", galeCooldown);
+        output.putInt("SquallBoltCooldown", boltCooldown);
     }
 
-    @Override public void readAdditionalSaveData(CompoundTag tag) {
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         loadedFromSave = true;
-        super.readAdditionalSaveData(tag);
+        super.readAdditionalSaveData(input);
         attributesApplied = false;
-        deathAwarded = tag.getBoolean("SquallDeathAwarded");
-        entityData.set(ENRAGED, tag.getBoolean("SquallEnraged"));
-        surgeCooldown = Math.max(0, tag.getInt("SquallSurgeCooldown"));
-        galeCooldown = Math.max(0, tag.getInt("SquallGaleCooldown"));
-        boltCooldown = Math.max(0, tag.getInt("SquallBoltCooldown"));
+        deathAwarded = input.getBooleanOr("SquallDeathAwarded", false);
+        entityData.set(ENRAGED, input.getBooleanOr("SquallEnraged", false));
+        surgeCooldown = Math.max(0, input.getIntOr("SquallSurgeCooldown", 0));
+        galeCooldown = Math.max(0, input.getIntOr("SquallGaleCooldown", 0));
+        boltCooldown = Math.max(0, input.getIntOr("SquallBoltCooldown", 0));
         applyConfiguredAttributes();
     }
 }

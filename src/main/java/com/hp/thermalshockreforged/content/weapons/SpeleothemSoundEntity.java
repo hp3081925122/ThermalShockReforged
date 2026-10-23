@@ -44,10 +44,10 @@ public final class SpeleothemSoundEntity extends Entity implements ServerEndTick
         else ServerEndTickTasks.schedule(level, getUUID());
     }
     @Override protected void defineSynchedData(net.minecraft.network.syncher.SynchedEntityData.Builder builder) { }
-    @Override protected void addAdditionalSaveData(CompoundTag tag) { tag.putInt("SpearSoundRemaining", remaining); tag.putInt("SpearSoundFirst", firstRemaining); tag.putBoolean("SpearSoundArmed", armed); tag.putBoolean("SpearSoundSingle", single); tag.putFloat("SpearSoundVolume", singleVolume); tag.putFloat("SpearSoundPitch", singlePitch); }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) {
-        remaining = Math.clamp(tag.getInt("SpearSoundRemaining"), 1, 55); firstRemaining = Math.clamp(tag.getInt("SpearSoundFirst"), 1, 29); armed = tag.getBoolean("SpearSoundArmed"); single = tag.getBoolean("SpearSoundSingle");
-        singleVolume = Float.isFinite(tag.getFloat("SpearSoundVolume")) ? Math.clamp(tag.getFloat("SpearSoundVolume"), 0, 1) : .7F;
-        singlePitch = Float.isFinite(tag.getFloat("SpearSoundPitch")) ? Math.clamp(tag.getFloat("SpearSoundPitch"), 0, 4) : 3;
+    @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { output.putInt("SpearSoundRemaining", remaining); output.putInt("SpearSoundFirst", firstRemaining); output.putBoolean("SpearSoundArmed", armed); output.putBoolean("SpearSoundSingle", single); output.putFloat("SpearSoundVolume", singleVolume); output.putFloat("SpearSoundPitch", singlePitch); }
+    @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        remaining = Math.clamp(input.getIntOr("SpearSoundRemaining", 0), 1, 55); firstRemaining = Math.clamp(input.getIntOr("SpearSoundFirst", 0), 1, 29); armed = input.getBooleanOr("SpearSoundArmed", false); single = input.getBooleanOr("SpearSoundSingle", false);
+        singleVolume = Float.isFinite(input.getFloatOr("SpearSoundVolume", 0.0F)) ? Math.clamp(input.getFloatOr("SpearSoundVolume", 0.0F), 0, 1) : .7F;
+        singlePitch = Float.isFinite(input.getFloatOr("SpearSoundPitch", 0.0F)) ? Math.clamp(input.getFloatOr("SpearSoundPitch", 0.0F), 0, 4) : 3;
     }
 }

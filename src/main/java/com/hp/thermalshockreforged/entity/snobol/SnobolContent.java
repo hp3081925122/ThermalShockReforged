@@ -1,9 +1,10 @@
 package com.hp.thermalshockreforged.entity.snobol;
+import net.minecraft.world.item.SpawnEggItem;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import net.minecraft.core.registries.*;
 import net.minecraft.core.particles.*;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
@@ -27,16 +28,16 @@ public final class SnobolContent {
     public static final DeferredItem<Item> BUCKET_OF_SIIBOL = ITEMS.register("bucket_of_siibol", BucketOfSiibolItem::new);
 
     static {
-        ITEMS.register("snobol_spawn_egg", () -> new DeferredSpawnEggItem(SNOBOL, -1, -1, new Item.Properties()));
-        ITEMS.register("explosive_snobol_spawn_egg", () -> new DeferredSpawnEggItem(EXPLOSIVE_SNOBOL, -1, -1, new Item.Properties()));
-        ITEMS.register("siibol_spawn_egg", () -> new DeferredSpawnEggItem(SIIBOL, -1, -1, new Item.Properties()));
+        ITEMS.register("snobol_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(SNOBOL.get())));
+        ITEMS.register("explosive_snobol_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(EXPLOSIVE_SNOBOL.get())));
+        ITEMS.register("siibol_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(SIIBOL.get())));
     }
 
     private SnobolContent() { }
 
     static void give(Player player, ItemStack stack) { if (!player.getInventory().add(stack)) player.drop(stack, false); }
 
-    static boolean hasType(LivingEntity entity, String path) { return BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType()).equals(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path)); }
+    static boolean hasType(LivingEntity entity, String path) { return BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType()).equals(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path)); }
 
     public static void register(IEventBus bus) {
         TYPES.register(bus);

@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.content.decor.geo;
+import net.minecraft.world.InteractionResult;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.MaterialContent;
@@ -19,14 +20,14 @@ public final class HologramMonitorBlock extends GeoDecorBlock {
     public HologramMonitorBlock() { super(GeoDecorKind.HOLOGRAM_MONITOR); registerDefaultState(defaultBlockState().setValue(VARIANT, 0)); }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { super.createBlockStateDefinition(builder); builder.add(VARIANT); }
     private void replay(Level level, BlockPos pos, Player player) {
-        if (level.isClientSide) return;
+        if (level.isClientSide()) return;
         int recording = 0;
         for (int disk = 1; disk <= 9; disk++) if (player.getMainHandItem().is(MaterialContent.items().get("diskette_" + disk).get())) { recording = disk; break; }
         level.setBlock(pos, level.getBlockState(pos).setValue(VARIANT, recording), 3);
         if (recording > 0) player.displayClientMessage(Component.translatableWithFallback("message.thermal_shock_reforged.hologram_monitor.recording_" + recording, HologramRecordings.text(recording)), false);
         ThermalShockReforged.LOGGER.debug("Hologram monitor selected: player={}, position={}, recording={}", player.getUUID(), pos, recording);
     }
-    @Override protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) { replay(level, pos, player); return ItemInteractionResult.SUCCESS; }
+    @Override protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) { replay(level, pos, player); return InteractionResult.SUCCESS; }
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) { replay(level, pos, player); return InteractionResult.SUCCESS; }
     @Override public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
         super.animateTick(state, level, pos, random);

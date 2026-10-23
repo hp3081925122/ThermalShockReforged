@@ -9,7 +9,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.Entity;
@@ -27,7 +27,7 @@ public final class ZapDetonationEntity extends Entity implements ServerEndTickTa
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
     public static final DeferredHolder<EntityType<?>, EntityType<ZapDetonationEntity>> TYPE = TYPES.register("zap_detonation", () -> EntityType.Builder.<ZapDetonationEntity>of(ZapDetonationEntity::new, MobCategory.MISC)
             .sized(.1F, .1F).clientTrackingRange(4).updateInterval(20).build(ThermalShockReforged.MOD_ID + ":zap_detonation"));
-    private static final ResourceLocation SOUND = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "sparkexplode");
+    private static final Identifier SOUND = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "sparkexplode");
     private UUID source;
     private UUID caster;
     private double damage;
@@ -39,9 +39,9 @@ public final class ZapDetonationEntity extends Entity implements ServerEndTickTa
     public ZapDetonationEntity(EntityType<? extends ZapDetonationEntity> type, Level level) { super(type, level); noPhysics = true; setNoGravity(true); }
     public static void register(IEventBus bus) { TYPES.register(bus); }
     static ZapDetonationEntity submit(ServerLevel server, ZapWarningEntity source, Vec3 origin, UUID caster, double damage, boolean ignoreCaster, int remaining) {
-        var task = TYPE.get().create(server);
+        var task = TYPE.get().create(server, net.minecraft.world.entity.EntitySpawnReason.MOB_SUMMONED);
         if (task == null) return null;
-        task.source = source.getUUID(); task.setPos(origin); task.dimension = server.dimension().location().toString();
+        task.source = source.getUUID(); task.setPos(origin); task.dimension = server.dimension().identifier().toString();
         task.configure(caster, damage, ignoreCaster); task.remaining = Math.clamp(remaining, 1, 20); task.armed = true;
         if (server.addFreshEntity(task)) return task;
         task.discard(); return null;
@@ -56,18 +56,18 @@ public final class ZapDetonationEntity extends Entity implements ServerEndTickTa
     @Override public void tick() {
         super.tick();
         if (level() instanceof ServerLevel server) {
-            if (!armed || !dimension.equals(server.dimension().location().toString())) cancel();
+            if (!armed || !dimension.equals(server.dimension().identifier().toString())) cancel();
             else ServerEndTickTasks.schedule(server, getUUID());
         }
     }
     @Override public void endTick(ServerLevel server) {
         if (isRemoved() || !armed) return;
-        if (!dimension.equals(server.dimension().location().toString())) { cancel(); return; }
+        if (!dimension.equals(server.dimension().identifier().toString())) { cancel(); return; }
         if (--remaining > 0) { ServerEndTickTasks.schedule(server, getUUID()); return; }
         armed = false;
         ZapWarningEntity warning = source != null && server.getEntity(source) instanceof ZapWarningEntity value ? value : null;
         if (warning != null) warning.completeDetonation(getUUID());
-        server.playSound(null, blockPosition(), BuiltInRegistries.SOUND_EVENT.get(SOUND), SoundSource.NEUTRAL, 1, 2);
+        server.playSound(null, blockPosition(), BuiltInRegistries.SOUND_EVENT.getValue(SOUND), SoundSource.NEUTRAL, 1, 2);
         var targets = server.getEntitiesOfClass(Entity.class, new AABB(position(), position()).inflate(1.5), entity -> !(entity instanceof ItemEntity)
                 && !(entity instanceof ZapDetonationEntity) && (!ignoreCaster || caster == null || !caster.equals(entity.getUUID())));
         targets.sort(Comparator.comparingDouble(entity -> entity.distanceToSqr(position())));
@@ -83,16 +83,16 @@ public final class ZapDetonationEntity extends Entity implements ServerEndTickTa
         }
         super.remove(reason);
     }
-    @Override protected void addAdditionalSaveData(CompoundTag tag) {
-        if (source != null) tag.putUUID("Warning", source); if (caster != null) tag.putUUID("Caster", caster);
-        tag.putDouble("Damage", damage); tag.putBoolean("IgnoreCaster", ignoreCaster); tag.putBoolean("Armed", armed);
-        tag.putInt("RemainingEndTicks", remaining); tag.putString("Dimension", dimension);
+    @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        if (source != null) output.putString("Warning", source.toString()); if (caster != null) output.putString("Caster", caster.toString());
+        output.putDouble("Damage", damage); output.putBoolean("IgnoreCaster", ignoreCaster); output.putBoolean("Armed", armed);
+        output.putInt("RemainingEndTicks", remaining); output.putString("Dimension", dimension);
     }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) {
-        source = tag.hasUUID("Warning") ? tag.getUUID("Warning") : null;
-        configure(tag.hasUUID("Caster") ? tag.getUUID("Caster") : null, tag.getDouble("Damage"), tag.getBoolean("IgnoreCaster"));
-        remaining = Math.clamp(tag.getInt("RemainingEndTicks"), 0, 20); dimension = tag.getString("Dimension");
-        armed = tag.getBoolean("Armed") && source != null && remaining > 0;
+    @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        source = input.getString("Warning").map(java.util.UUID::fromString).orElse(null);
+        configure(input.getString("Caster").map(java.util.UUID::fromString).orElse(null), input.getDoubleOr("Damage", 0.0), input.getBooleanOr("IgnoreCaster", false));
+        remaining = Math.clamp(input.getIntOr("RemainingEndTicks", 0), 0, 20); dimension = input.getStringOr("Dimension", "");
+        armed = input.getBooleanOr("Armed", false) && source != null && remaining > 0;
         noPhysics = true; setNoGravity(true);
     }
 }

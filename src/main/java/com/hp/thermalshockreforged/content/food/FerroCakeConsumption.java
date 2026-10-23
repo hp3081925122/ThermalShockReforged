@@ -8,7 +8,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.*;
 import net.minecraft.nbt.*;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.*;
 import net.minecraft.sounds.*;
 import net.minecraft.stats.Stats;
@@ -37,7 +37,7 @@ public final class FerroCakeConsumption extends Entity implements ServerEndTickT
         if (!player.isAlive() || cake.kind != GeoDecorKind.FERRO_CAKE || level.getBlockEntity(pos) != cake || cake.getPersistentData().getDouble("slicecount") == 1) return false;
         var task = TYPE.get().create(level);
         if (task == null) return false;
-        task.owner = player.getUUID(); task.ownerDeaths = player.getStats().getValue(Stats.CUSTOM, Stats.DEATHS); task.anchor = pos.immutable(); task.dimension = level.dimension().location().toString(); task.armed = true;
+        task.owner = player.getUUID(); task.ownerDeaths = player.getStats().getValue(Stats.CUSTOM, Stats.DEATHS); task.anchor = pos.immutable(); task.dimension = level.dimension().identifier().toString(); task.armed = true;
         task.setPos(pos.getX(), pos.getY(), pos.getZ());
         var data = cake.getPersistentData();
         Tag previousSlice = data.get("slicecount"), previousToken = data.get(TOKEN);
@@ -53,7 +53,7 @@ public final class FerroCakeConsumption extends Entity implements ServerEndTickT
         }
         level.sendBlockUpdated(pos, level.getBlockState(pos), level.getBlockState(pos), 3);
         level.playSound(null, pos, SoundEvents.HONEY_BLOCK_BREAK, SoundSource.NEUTRAL, 1, 1);
-        level.playSound(null, pos, BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "nomnomnom")), SoundSource.NEUTRAL, .8F, 1);
+        level.playSound(null, pos, BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "nomnomnom")), SoundSource.NEUTRAL, .8F, 1);
         level.setBlock(pos, level.getBlockState(pos).setValue(FerroCakeBlock.CAKE_ANIMATION, 1), 3);
         feed(player);
         player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 260, 1));
@@ -67,12 +67,12 @@ public final class FerroCakeConsumption extends Entity implements ServerEndTickT
     @Override public void tick() {
         super.tick();
         if (level() instanceof ServerLevel server) {
-            if (!armed || consumed || !dimension.equals(server.dimension().location().toString())) { discard(); return; }
+            if (!armed || consumed || !dimension.equals(server.dimension().identifier().toString())) { discard(); return; }
             setPos(anchor.getX(), anchor.getY(), anchor.getZ()); ServerEndTickTasks.schedule(server, getUUID());
         }
     }
     @Override public void endTick(ServerLevel level) {
-        if (isRemoved() || !armed || consumed || !dimension.equals(level.dimension().location().toString())) { discard(); return; }
+        if (isRemoved() || !armed || consumed || !dimension.equals(level.dimension().identifier().toString())) { discard(); return; }
         if (--remaining > 0) { ServerEndTickTasks.schedule(level, getUUID()); return; }
         int current = phase;
         if (current == 3) { consumed = true; discard(); }
@@ -86,16 +86,16 @@ public final class FerroCakeConsumption extends Entity implements ServerEndTickT
         ServerPlayer player = owner == null ? null : level.getServer().getPlayerList().getPlayer(owner);
         if (player != null && player.isAlive() && player.getStats().getValue(Stats.CUSTOM, Stats.DEATHS) == ownerDeaths) feed(player);
     }
-    @Override protected void addAdditionalSaveData(CompoundTag tag) {
-        if (owner != null) tag.putUUID("CakeOwner", owner);
-        tag.putInt("CakeOwnerDeaths", ownerDeaths);
-        tag.putLong("CakeAnchor", anchor.asLong()); tag.putString("CakeDimension", dimension); tag.putInt("CakePhase", phase); tag.putInt("CakeRemaining", remaining); tag.putBoolean("CakeArmed", armed); tag.putBoolean("CakeConsumed", consumed);
+    @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        if (owner != null) output.putString("CakeOwner", owner.toString());
+        output.putInt("CakeOwnerDeaths", ownerDeaths);
+        output.putLong("CakeAnchor", anchor.asLong()); output.putString("CakeDimension", dimension); output.putInt("CakePhase", phase); output.putInt("CakeRemaining", remaining); output.putBoolean("CakeArmed", armed); output.putBoolean("CakeConsumed", consumed);
     }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) {
-        owner = tag.hasUUID("CakeOwner") ? tag.getUUID("CakeOwner") : null;
-        ownerDeaths = Math.max(0, tag.getInt("CakeOwnerDeaths"));
-        anchor = BlockPos.of(tag.getLong("CakeAnchor")); dimension = tag.getString("CakeDimension"); phase = Math.clamp(tag.getInt("CakePhase"), 1, 3); remaining = Math.clamp(tag.getInt("CakeRemaining"), 1, 5);
-        armed = tag.getBoolean("CakeArmed") && owner != null && tag.contains("CakeAnchor", 99) && ResourceLocation.tryParse(dimension) != null; consumed = tag.getBoolean("CakeConsumed");
+    @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        owner = input.getString("CakeOwner").map(java.util.UUID::fromString).orElse(null);
+        ownerDeaths = Math.max(0, input.getIntOr("CakeOwnerDeaths", 0));
+        anchor = BlockPos.of(input.getLongOr("CakeAnchor", 0L)); dimension = input.getStringOr("CakeDimension", ""); phase = Math.clamp(input.getIntOr("CakePhase", 0), 1, 3); remaining = Math.clamp(input.getIntOr("CakeRemaining", 0), 1, 5);
+        armed = input.getBooleanOr("CakeArmed", false) && owner != null && tag.contains("CakeAnchor", 99) && Identifier.tryParse(dimension) != null; consumed = input.getBooleanOr("CakeConsumed", false);
         noPhysics = true; setNoGravity(true);
     }
 }

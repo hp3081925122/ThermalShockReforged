@@ -16,7 +16,7 @@ import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.ClickType;
+import net.minecraft.world.inventory.ContainerInput;
 import net.minecraft.world.inventory.DataSlot;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
@@ -46,7 +46,7 @@ public final class FabricatorMenu extends AbstractContainerMenu {
         selected.set(page.ordinal());
         addDataSlot(selected);
         attached = level.hasChunkAt(pos) && level.getBlockEntity(pos) instanceof GeoDecorBlockEntity entity && entity.kind == GeoDecorKind.FABRICATOR ? entity : null;
-        storage = !level.isClientSide && attached != null ? attached : new SimpleContainer(9);
+        storage = !level.isClientSide() && attached != null ? attached : new SimpleContainer(9);
         addSlot(new Slot(storage, 0, OUTPUT_X, OUTPUT_Y) {
             @Override public boolean mayPlace(ItemStack stack) { return false; }
         });
@@ -68,7 +68,7 @@ public final class FabricatorMenu extends AbstractContainerMenu {
     public Inventory inventory() { return inventory; }
 
     public static boolean open(ServerPlayer player, BlockPos pos, FabricatorPage page) {
-        var level = player.serverLevel();
+        var level = ((net.minecraft.server.level.ServerLevel) player.level());
         if (!player.isAlive() || !level.hasChunkAt(pos) || player.distanceToSqr(pos.getCenter()) > 64
                 || !level.getBlockState(pos).is(GeoDecorContent.block(GeoDecorKind.FABRICATOR))
                 || !(level.getBlockEntity(pos) instanceof GeoDecorBlockEntity entity) || entity.kind != GeoDecorKind.FABRICATOR) return false;
@@ -83,7 +83,7 @@ public final class FabricatorMenu extends AbstractContainerMenu {
     @Override public boolean stillValid(Player player) {
         return player == owner && player.isAlive() && player.level() == level && level.hasChunkAt(pos)
                 && player.distanceToSqr(pos.getCenter()) <= 64 && level.getBlockState(pos).is(GeoDecorContent.block(GeoDecorKind.FABRICATOR))
-                && (level.isClientSide || attached != null && !attached.isRemoved() && level.getBlockEntity(pos) == attached);
+                && (level.isClientSide() || attached != null && !attached.isRemoved() && level.getBlockEntity(pos) == attached);
     }
 
     @Override public boolean clickMenuButton(Player player, int button) {
@@ -97,15 +97,15 @@ public final class FabricatorMenu extends AbstractContainerMenu {
 
     private boolean fabricate(ServerPlayer player) {
         var page = page();
-        var holder = level.getRecipeManager().byKey(page.recipe).orElse(null);
+        var holder = ((net.minecraft.server.level.ServerLevel) level).recipeAccess().byKey(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.RECIPE, page.recipe)).orElse(null);
         if (holder == null || !(holder.value() instanceof FabricationRecipe recipe)) {
             ThermalShockReforged.LOGGER.debug("Fabrication recipe unavailable: recipe={}, player={}, position={}", page.recipe, player.getUUID(), pos);
             return false;
         }
-        var input = new FabricationRecipe.Input(inventory.items, storage.getItem(1));
+        var input = new FabricationRecipe.Input(inventory.getNonEquipmentItems(), storage.getItem(1));
         var plan = recipe.removalPlan(input);
         if (plan == null) return false;
-        var result = recipe.assemble(input, level.registryAccess());
+        var result = recipe.assemble(input);
         var previous = storage.getItem(0);
         int existing = previous.isEmpty() ? 0 : previous.getCount();
         if (result.isEmpty() || !previous.isEmpty() && !ItemStack.isSameItemSameComponents(previous, result)
@@ -123,7 +123,7 @@ public final class FabricatorMenu extends AbstractContainerMenu {
         return true;
     }
 
-    @Override public void clicked(int slot, int button, ClickType type, Player player) {
+    @Override public void clicked(int slot, int button, ContainerInput type, Player player) {
         if (stillValid(player)) super.clicked(slot, button, type, player);
     }
 

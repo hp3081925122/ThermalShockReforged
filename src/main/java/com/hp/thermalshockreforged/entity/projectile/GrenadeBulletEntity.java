@@ -5,7 +5,7 @@ import com.hp.thermalshockreforged.content.ModDamageTypes;
 import com.hp.thermalshockreforged.content.decor.geo.GeoDecorContent;
 import com.hp.thermalshockreforged.content.decor.geo.GeoDecorKind;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
@@ -18,7 +18,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 
 public final class GrenadeBulletEntity extends LegacyArrowEntity {
-    private static final TagKey<EntityType<?>> CLORO_WEAK = TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "cloro_weak"));
+    private static final TagKey<EntityType<?>> CLORO_WEAK = TagKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "cloro_weak"));
     public GrenadeBulletEntity(EntityType<? extends GrenadeBulletEntity> type, Level level) { super(type, level); }
     public GrenadeBulletEntity(LivingEntity owner, Level level) { super(ProjectileContent.GRENADE_BULLET.get(), owner, level, new ItemStack(GeoDecorContent.item(GeoDecorKind.YELLOW_ORB))); }
     @Override protected ItemStack projectileItem() { return new ItemStack(GeoDecorContent.item(GeoDecorKind.YELLOW_ORB)); }

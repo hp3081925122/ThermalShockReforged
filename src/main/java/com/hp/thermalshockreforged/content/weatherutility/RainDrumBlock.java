@@ -29,8 +29,8 @@ public final class RainDrumBlock extends Block {
     private void rainNote(Level level, BlockPos pos) {
         if (!level.getLevelData().isRaining() || !level.isEmptyBlock(pos.above())) return;
         boolean angry = level.getBlockState(pos.below()).is(NativeDecorContent.THERMITE.get());
-        var sound = BuiltInRegistries.SOUND_EVENT.get(WeatherUtilityContent.id(angry ? "angry_rain_drum_random" : "rain_drum_random"));
-        if (level.isClientSide) level.playLocalSound(pos.getX(), pos.getY(), pos.getZ(), sound, SoundSource.BLOCKS, 1, 1, false);
+        var sound = BuiltInRegistries.SOUND_EVENT.getValue(WeatherUtilityContent.id(angry ? "angry_rain_drum_random" : "rain_drum_random"));
+        if (level.isClientSide()) level.playLocalSound(pos.getX(), pos.getY(), pos.getZ(), sound, SoundSource.BLOCKS, 1, 1, false);
         else level.playSound(null, pos, sound, SoundSource.BLOCKS, 1, 1);
         level.addParticle(ParticleTypes.NOTE, pos.getX() + .5, pos.getY() + 1.5, pos.getZ() + .5, 0, 1, 0);
     }

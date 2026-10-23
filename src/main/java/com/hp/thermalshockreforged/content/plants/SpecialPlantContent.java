@@ -29,11 +29,11 @@ public final class SpecialPlantContent {
     public static void register(IEventBus bus) { BLOCKS.register(bus); ITEMS.register(bus); }
 
     private static BlockBehaviour.Properties properties() {
-        return BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).instabreak().noCollission()
+        return BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).instabreak().noCollision()
                 .offsetType(BlockBehaviour.OffsetType.XZ).pushReaction(PushReaction.DESTROY);
     }
 
     private static BlockBehaviour.Properties glowing() {
-        return properties().lightLevel(state -> 9).hasPostProcess((state, level, pos) -> true).emissiveRendering((state, level, pos) -> true);
+        return properties().lightLevel(state -> 9).emissiveRendering((state, level, pos) -> true);
     }
 }

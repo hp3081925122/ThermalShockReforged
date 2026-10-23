@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.entity.mangler;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import java.util.UUID;
 import com.hp.thermalshockreforged.entity.summon.SummonLedger;
@@ -11,7 +14,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.*;
 import net.minecraft.world.damagesource.*;
@@ -26,10 +29,10 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.phys.Vec3;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
+import com.geckolib.util.GeckoLibUtil;
 
 public final class HeraldEntity extends Monster implements GeoEntity, ServerEndTickTask {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(HeraldEntity.class, EntityDataSerializers.STRING);
@@ -47,7 +50,7 @@ public final class HeraldEntity extends Monster implements GeoEntity, ServerEndT
     private boolean loadedFromSave;
     public HeraldEntity(EntityType<? extends HeraldEntity> type, Level level) { super(type, level); xpReward = 500; setPersistenceRequired(); applyConfiguredAttributes(); }
     void applyConfiguredAttributes() {
-        if (level().isClientSide || configuredAttributes || !ManglerCombatConfig.SPEC.isLoaded()) return;
+        if (level().isClientSide() || configuredAttributes || !ManglerCombatConfig.SPEC.isLoaded()) return;
         float savedHealth = getHealth();
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(ManglerCombatConfig.HERALD_HEALTH.get());
         getAttribute(Attributes.ARMOR).setBaseValue(ManglerCombatConfig.HERALD_ARMOR.get());
@@ -69,13 +72,13 @@ public final class HeraldEntity extends Monster implements GeoEntity, ServerEndT
     @Override
     public boolean removeWhenFarAway(double distance) { return false; }
     @Override
-    public boolean hurt(DamageSource source, float amount) {
+    public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) {
         if (!keyDropped) {
             ThermalShockReforged.LOGGER.debug("Herald damage blocked before key generation: entity={}, amount={}, source={}", getUUID(), amount, source.typeHolder().unwrapKey().map(key -> key.location()).orElse(null));
             return false;
         }
         if (source.is(DamageTypes.IN_FIRE) || source.is(DamageTypes.FALL) || source.is(DamageTypes.CACTUS) || source.is(DamageTypes.DROWN) || source.is(DamageTypes.FALLING_ANVIL) || source.is(DamageTypes.WITHER) || source.is(DamageTypes.WITHER_SKULL)) return false;
-        return super.hurt(source, amount);
+        return super.hurtServer(level, source, amount);
     }
     void acceptedDamage() {
         if (!(level() instanceof ServerLevel server) || !isAlive()) return;
@@ -86,7 +89,7 @@ public final class HeraldEntity extends Monster implements GeoEntity, ServerEndT
         if (!ledger.reserve(getUUID(), reservation, until, ManglerCombatConfig.SUMMON_CAP.get())) return;
         if (random.nextDouble() >= ManglerCombatConfig.SUMMON_CHANCE.get()) { ledger.release(getUUID(), reservation); return; }
         var spawnPos = summonPosition();
-        var child = ManglerContent.SUMMONED_MANGLER.get().spawn(server, spawnPos, MobSpawnType.MOB_SUMMONED);
+        var child = ManglerContent.SUMMONED_MANGLER.get().spawn(server, spawnPos, EntitySpawnReason.MOB_SUMMONED);
         if (child == null || server.getEntity(child.getUUID()) != child) { ledger.release(getUUID(), reservation); return; }
         child.bind(getUUID(), until); child.setDeltaMovement(Vec3.ZERO);
         ledger.replace(getUUID(), reservation, child.getUUID(), until);
@@ -112,8 +115,8 @@ public final class HeraldEntity extends Monster implements GeoEntity, ServerEndT
     public void baseTick() {
         applyConfiguredAttributes();
         super.baseTick();
-        if (level().isClientSide) return;
-        String dimension = level().dimension().location().toString();
+        if (level().isClientSide()) return;
+        String dimension = level().dimension().identifier().toString();
         if (anchor == null || !anchorDimension.equals(dimension)) {
             if (anchor != null && activationRemaining >= 0) { activationRemaining = -1; if (!active && !keyDropped && isAlive()) killCount = Math.min(killCount, 9); }
             anchor = position(); anchorDimension = dimension;
@@ -122,9 +125,9 @@ public final class HeraldEntity extends Monster implements GeoEntity, ServerEndT
         if (position().distanceToSqr(anchor) > 1.0E-10) teleportTo(anchor.x, anchor.y, anchor.z);
     }
     @Override
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType reason, SpawnGroupData group) {
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, EntitySpawnReason reason, SpawnGroupData group) {
         var result = super.finalizeSpawn(level, difficulty, reason, group);
-        anchor = position(); anchorDimension = level.getLevel().dimension().location().toString();
+        anchor = position(); anchorDimension = level.getLevel().dimension().identifier().toString();
         ThermalShockReforged.LOGGER.debug("Herald spawn anchor initialized: entity={}, position={}, dimension={}, reason={}", getUUID(), anchor, anchorDimension, reason);
         return result;
     }
@@ -142,7 +145,7 @@ public final class HeraldEntity extends Monster implements GeoEntity, ServerEndT
     public void endTick(ServerLevel server) {
         if (isRemoved() || activationRemaining < 0) return;
         if (!isAlive()) { activationRemaining = -1; return; }
-        if (!anchorDimension.isEmpty() && !anchorDimension.equals(server.dimension().location().toString())) {
+        if (!anchorDimension.isEmpty() && !anchorDimension.equals(server.dimension().identifier().toString())) {
             activationRemaining = -1;
             if (!active && !keyDropped) killCount = Math.min(killCount, 9);
             return;
@@ -163,30 +166,30 @@ public final class HeraldEntity extends Monster implements GeoEntity, ServerEndT
     protected SoundEvent getHurtSound(DamageSource source) { return sound("monolithhurt"); }
     @Override
     protected SoundEvent getDeathSound() { return sound("monolithdeath"); }
-    static SoundEvent sound(String path) { return BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", path)); }
+    static SoundEvent sound(String path) { return BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath("thermal_shock_reforged", path)); }
     @Override
-    public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); tag.putLong("SummonReadyAt", summonReadyAt); tag.putInt("HeraldKillCount", killCount); tag.putBoolean("HeraldBloom", active); tag.putBoolean("KeyDropped", keyDropped); tag.putBoolean("DeathVisualStarted", deathVisualStarted); tag.putInt("ActivationRemaining", activationRemaining);
-        tag.putDouble("ActivationX", activationOrigin.x); tag.putDouble("ActivationY", activationOrigin.y); tag.putDouble("ActivationZ", activationOrigin.z);
-        if (anchor != null) { tag.putDouble("HeraldXpos", anchor.x); tag.putDouble("HeraldYpos", anchor.y); tag.putDouble("HeraldZpos", anchor.z); tag.putString("AnchorDimension", anchorDimension); }
+    public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        super.addAdditionalSaveData(output); output.putString("Texture", texture()); output.putLong("SummonReadyAt", summonReadyAt); output.putInt("HeraldKillCount", killCount); output.putBoolean("HeraldBloom", active); output.putBoolean("KeyDropped", keyDropped); output.putBoolean("DeathVisualStarted", deathVisualStarted); output.putInt("ActivationRemaining", activationRemaining);
+        output.putDouble("ActivationX", activationOrigin.x); output.putDouble("ActivationY", activationOrigin.y); output.putDouble("ActivationZ", activationOrigin.z);
+        if (anchor != null) { output.putDouble("HeraldXpos", anchor.x); output.putDouble("HeraldYpos", anchor.y); output.putDouble("HeraldZpos", anchor.z); output.putString("AnchorDimension", anchorDimension); }
     }
     @Override
-    public void readAdditionalSaveData(CompoundTag tag) {
+    public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         loadedFromSave = true;
-        super.readAdditionalSaveData(tag);
+        super.readAdditionalSaveData(input);
         configuredAttributes = false;
         applyConfiguredAttributes();
-        if (tag.contains("Texture")) setTexture(tag.getString("Texture")); summonReadyAt = tag.getLong("SummonReadyAt");
-        var legacy = getPersistentData(); killCount = Math.max(0, Math.min(10, tag.contains("HeraldKillCount") ? tag.getInt("HeraldKillCount") : (int) legacy.getDouble("HeraldKillCount"))); active = tag.getBoolean("HeraldBloom") || legacy.getString("HeraldActive").equals("Yup"); keyDropped = tag.getBoolean("KeyDropped") || active; deathVisualStarted = tag.getBoolean("DeathVisualStarted");
-        activationRemaining = !keyDropped && tag.contains("ActivationRemaining") ? Math.clamp(tag.getInt("ActivationRemaining"), -1, 20) : -1; activationOrigin = new Vec3(tag.getDouble("ActivationX"), tag.getDouble("ActivationY"), tag.getDouble("ActivationZ"));
+        if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", "")); summonReadyAt = input.getLongOr("SummonReadyAt", 0L);
+        var legacy = getPersistentData(); killCount = Math.max(0, Math.min(10, input.getString("HeraldKillCount").isPresent() ? input.getIntOr("HeraldKillCount", 0) : (int) legacy.getDouble("HeraldKillCount"))); active = input.getBooleanOr("HeraldBloom", false) || legacy.getString("HeraldActive").equals("Yup"); keyDropped = input.getBooleanOr("KeyDropped", false) || active; deathVisualStarted = input.getBooleanOr("DeathVisualStarted", false);
+        activationRemaining = !keyDropped && input.getString("ActivationRemaining").isPresent() ? Math.clamp(input.getIntOr("ActivationRemaining", 0), -1, 20) : -1; activationOrigin = new Vec3(input.getDoubleOr("ActivationX", 0.0), input.getDoubleOr("ActivationY", 0.0), input.getDoubleOr("ActivationZ", 0.0));
         if (!Double.isFinite(activationOrigin.x) || !Double.isFinite(activationOrigin.y) || !Double.isFinite(activationOrigin.z)) activationRemaining = -1;
-        var anchorTag = tag.contains("HeraldXpos") ? tag : legacy;
-        if (anchorTag.contains("HeraldXpos") && anchorTag.contains("HeraldYpos") && anchorTag.contains("HeraldZpos")) { anchor = new Vec3(anchorTag.getDouble("HeraldXpos"), anchorTag.getDouble("HeraldYpos"), anchorTag.getDouble("HeraldZpos")); anchorDimension = tag.contains("AnchorDimension") ? tag.getString("AnchorDimension") : level().dimension().location().toString(); }
+        var anchorTag = input.getString("HeraldXpos").isPresent() ? tag : legacy;
+        if (anchorinput.getString("HeraldXpos").isPresent() && anchorinput.getString("HeraldYpos").isPresent() && anchorinput.getString("HeraldZpos").isPresent()) { anchor = new Vec3(anchorinput.getDoubleOr("HeraldXpos", 0.0), anchorinput.getDoubleOr("HeraldYpos", 0.0), anchorinput.getDoubleOr("HeraldZpos", 0.0)); anchorDimension = input.getString("AnchorDimension").isPresent() ? input.getStringOr("AnchorDimension", "") : level().dimension().identifier().toString(); }
     }
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 4, state -> PlayState.STOP).triggerableAnim("siphon", RawAnimation.begin().thenPlay("siphon")).triggerableAnim("siphon2", RawAnimation.begin().thenPlay("siphon2")).triggerableAnim("siphon3", RawAnimation.begin().thenPlay("siphon3"));
-        controllers.add(new AnimationController<>(this, "movement", 4, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(isShiftKeyDown() ? "idlebloom" : "idle")))); controllers.add(procedure);
+        var procedure = new LegacyAnimationController<>(this, "procedure", 4, state -> PlayState.STOP).triggerableAnim("siphon", RawAnimation.begin().thenPlay("siphon")).triggerableAnim("siphon2", RawAnimation.begin().thenPlay("siphon2")).triggerableAnim("siphon3", RawAnimation.begin().thenPlay("siphon3"));
+        controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(isShiftKeyDown() ? "idlebloom" : "idle")))); controllers.add(procedure);
     }
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() { return animations; }

@@ -32,13 +32,13 @@ public final class PurifierPulseEntity extends Entity implements ServerEndTickTa
         if (owner.activated()) return false;
         var pulse = WeatherUtilityContent.PURIFIER_PULSE.get().create(level);
         if (pulse == null) return false;
-        pulse.anchor = pos.immutable(); pulse.dimension = level.dimension().location().toString(); pulse.armed = true;
+        pulse.anchor = pos.immutable(); pulse.dimension = level.dimension().identifier().toString(); pulse.armed = true;
         pulse.setPos(pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5);
         owner.assign(pulse.getUUID());
         if (!level.addFreshEntity(pulse) || pulse.isRemoved() || level.getEntity(pulse.getUUID()) != pulse) {
             pulse.discard();
             if (level.getBlockEntity(pos) == owner && owner.owns(pulse.getUUID())) owner.assign(null);
-            ThermalShockReforged.LOGGER.debug("Purifier pulse insertion rejected: position={}, dimension={}", pos, level.dimension().location());
+            ThermalShockReforged.LOGGER.debug("Purifier pulse insertion rejected: position={}, dimension={}", pos, level.dimension().identifier());
             return false;
         }
         ThermalShockReforged.LOGGER.debug("Purifier pulse committed: task={}, position={}, remaining={}", pulse.getUUID(), pos, pulse.remaining);
@@ -55,7 +55,7 @@ public final class PurifierPulseEntity extends Entity implements ServerEndTickTa
             ServerEndTickTasks.schedule(server, getUUID());
         }
     }
-    private boolean valid(ServerLevel level) { return armed && dimension.equals(level.dimension().location().toString()); }
+    private boolean valid(ServerLevel level) { return armed && dimension.equals(level.dimension().identifier().toString()); }
     private boolean areaLoaded(ServerLevel level) {
         for (int x = (anchor.getX() - 15) >> 4; x <= (anchor.getX() + 15) >> 4; x++)
             for (int z = (anchor.getZ() - 15) >> 4; z <= (anchor.getZ() + 15) >> 4; z++)
@@ -97,11 +97,11 @@ public final class PurifierPulseEntity extends Entity implements ServerEndTickTa
         return changed;
     }
     private static int replace(ServerLevel level, BlockPos pos, Block target) { return level.setBlock(pos, target.withPropertiesOf(level.getBlockState(pos)), 3) ? 1 : 0; }
-    @Override protected void addAdditionalSaveData(CompoundTag tag) {
-        tag.putLong("PurifierAnchor", anchor.asLong()); tag.putString("PurifierDimension", dimension); tag.putInt("PurifierRemaining", remaining); tag.putBoolean("PurifierArmed", armed);
+    @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        output.putLong("PurifierAnchor", anchor.asLong()); output.putString("PurifierDimension", dimension); output.putInt("PurifierRemaining", remaining); output.putBoolean("PurifierArmed", armed);
     }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) {
-        anchor = BlockPos.of(tag.getLong("PurifierAnchor")); dimension = tag.getString("PurifierDimension"); remaining = Math.clamp(tag.getInt("PurifierRemaining"), 1, 20);
-        armed = tag.getBoolean("PurifierArmed") && tag.contains("PurifierAnchor"); noPhysics = true; setNoGravity(true);
+    @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        anchor = BlockPos.of(input.getLongOr("PurifierAnchor", 0L)); dimension = input.getStringOr("PurifierDimension", ""); remaining = Math.clamp(input.getIntOr("PurifierRemaining", 0), 1, 20);
+        armed = input.getBooleanOr("PurifierArmed", false) && input.getString("PurifierAnchor").isPresent(); noPhysics = true; setNoGravity(true);
     }
 }

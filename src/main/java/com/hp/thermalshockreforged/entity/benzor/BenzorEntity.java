@@ -1,4 +1,6 @@
 package com.hp.thermalshockreforged.entity.benzor;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import com.hp.thermalshockreforged.content.npc.benzor.*;
 import net.minecraft.ChatFormatting;
@@ -15,10 +17,10 @@ import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.*;
 import net.minecraft.world.level.*;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
+import com.geckolib.util.GeckoLibUtil;
 
 public final class BenzorEntity extends PathfinderMob implements GeoEntity {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(BenzorEntity.class, EntityDataSerializers.STRING);
@@ -30,25 +32,25 @@ public final class BenzorEntity extends PathfinderMob implements GeoEntity {
     public void setTexture(String texture) { entityData.set(TEXTURE, texture); }
     @Override protected void registerGoals() { goalSelector.addGoal(1, new LookAtPlayerGoal(this, Player.class, 6)); }
     @Override public boolean canCollideWith(Entity entity) { return true; }
-    @Override public boolean canBeCollidedWith() { return true; }
+    public boolean canBeCollidedWith() { return true; }
     @Override public boolean removeWhenFarAway(double distance) { return false; }
-    @Override public boolean isInvulnerableTo(DamageSource source) {
+    public boolean isInvulnerableTo(DamageSource source) {
         if (source.is(net.minecraft.tags.DamageTypeTags.BYPASSES_INVULNERABILITY)) return false;
         return !(source.getEntity() instanceof net.minecraft.world.entity.player.Player player && player.isCreative());
     }
-    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, MobSpawnType reason, SpawnGroupData group) { var result = super.finalizeSpawn(world, difficulty, reason, group); setNoGravity(true); return result; }
+    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, EntitySpawnReason reason, SpawnGroupData group) { var result = super.finalizeSpawn(world, difficulty, reason, group); setNoGravity(true); return result; }
     @Override protected InteractionResult mobInteract(Player player, InteractionHand hand) {
         super.mobInteract(player, hand);
         if (player instanceof ServerPlayer server) {
             if (isShiftKeyDown()) { setShiftKeyDown(false); level().playSound(null, blockPosition(), SoundEvents.WARDEN_EMERGE, SoundSource.NEUTRAL, .6F, 3); }
             else if (BenzorMenus.open(server, this, BenzorPage.MAIN)) server.getPersistentData().putBoolean(BenzorMenus.INFO, true);
         }
-        return InteractionResult.sidedSuccess(level().isClientSide);
+        return InteractionResult.SUCCESS;
     }
     @Override public void aiStep() { super.aiStep(); updateSwingTime(); }
     @Override protected void tickDeath() { if (++deathTime >= 20 && !isRemoved()) remove(RemovalReason.KILLED); }
-    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); }
-    @Override public void readAdditionalSaveData(CompoundTag tag) { super.readAdditionalSaveData(tag); if (tag.contains("Texture")) setTexture(tag.getString("Texture")); setPersistenceRequired(); }
-    @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) { controllers.add(new AnimationController<>(this, "movement", 4, state -> state.setAndContinue(RawAnimation.begin().thenLoop(isShiftKeyDown() ? "idle" : "idle2")))); }
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putString("Texture", texture()); }
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", "")); setPersistenceRequired(); }
+    @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) { controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> state.setAndContinue(RawAnimation.begin().thenLoop(isShiftKeyDown() ? "idle" : "idle2")))); }
     @Override public AnimatableInstanceCache getAnimatableInstanceCache() { return animations; }
 }

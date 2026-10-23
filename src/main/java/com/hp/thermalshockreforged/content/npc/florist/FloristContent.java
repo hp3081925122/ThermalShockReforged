@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.content.npc.florist;
+import net.minecraft.world.item.SpawnEggItem;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import java.util.EnumMap;
@@ -14,7 +15,7 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.common.DeferredSpawnEggItem;
+
 import net.neoforged.neoforge.common.extensions.IMenuTypeExtension;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.registries.*;
@@ -27,7 +28,7 @@ public final class FloristContent {
     public static final DeferredHolder<EntityType<?>, EntityType<FloristEntity>> FLORIST = TYPES.register("florist", () -> EntityType.Builder.of(FloristEntity::new, MobCategory.MONSTER).sized(.6F, 2F).fireImmune().clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":florist"));
     static {
         ITEMS.register("leafcutter", LeafcutterItem::new);
-        ITEMS.register("florist_spawn_egg", () -> new DeferredSpawnEggItem(FLORIST, -1, -1, new Item.Properties()));
+        ITEMS.register("florist_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(FLORIST.get())));
         for (var page : FloristPage.values()) PAGES.put(page, MENUS.register(page.id, () -> IMenuTypeExtension.create((id, inventory, data) -> new FloristMenu(page, id, inventory, data.readVarInt(), data.readUUID(), data.readBlockPos(), data.readVarInt()))));
     }
     public static MenuType<FloristMenu> menu(FloristPage page) { return PAGES.get(page).get(); }

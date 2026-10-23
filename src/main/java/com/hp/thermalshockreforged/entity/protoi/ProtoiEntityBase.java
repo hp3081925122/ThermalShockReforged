@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.entity.protoi;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -22,10 +25,10 @@ import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
+import com.geckolib.util.GeckoLibUtil;
 
 public abstract class ProtoiEntityBase extends PathfinderMob implements GeoEntity {
     private final AnimatableInstanceCache animations = GeckoLibUtil.createInstanceCache(this);
@@ -61,20 +64,20 @@ public abstract class ProtoiEntityBase extends PathfinderMob implements GeoEntit
     protected boolean persistentByDefault() { return true; }
     protected boolean ignoresDamage(DamageSource source) { return source.is(DamageTypes.IN_FIRE) || source.is(DamageTypes.FALL) || source.is(DamageTypes.DROWN); }
     @Override public boolean removeWhenFarAway(double distance) { return false; }
-    @Override public boolean causeFallDamage(float distance, float multiplier, DamageSource source) { return false; }
-    @Override public boolean hurt(DamageSource source, float amount) { return !ignoresDamage(source) && super.hurt(source, amount); }
+    @Override public boolean causeFallDamage(double distance, float multiplier, DamageSource source) { return false; }
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) { return !ignoresDamage(source) && super.hurtServer(level, source, amount); }
     @Override protected void playStepSound(BlockPos pos, net.minecraft.world.level.block.state.BlockState state) { }
     @Override protected SoundEvent getAmbientSound() { return null; }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, ""); }
-    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); tag.putString("Procedure", procedure); }
-    @Override public void readAdditionalSaveData(CompoundTag tag) { super.readAdditionalSaveData(tag); if (tag.contains("Texture")) setTexture(tag.getString("Texture")); procedure = tag.contains("Procedure") ? tag.getString("Procedure") : "empty"; }
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putString("Texture", texture()); output.putString("Procedure", procedure); }
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", "")); procedure = input.getString("Procedure").isPresent() ? input.getStringOr("Procedure", "") : "empty"; }
     @Override public void aiStep() { super.aiStep(); if (flying) setNoGravity(true); updateSwingTime(); }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(this, "movement", 4, state -> {
+        controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> {
             if (!procedure.equals("empty")) return PlayState.STOP;
             return state.setAndContinue(RawAnimation.begin().thenLoop(flying ? "idle" : (state.isMoving() ? "walk" : "idle")));
         }));
-        controllers.add(new AnimationController<>(this, "procedure", 4, state -> procedure.equals("empty") ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenPlay(procedure))));
+        controllers.add(new LegacyAnimationController<>(this, "procedure", 4, state -> procedure.equals("empty") ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenPlay(procedure))));
     }
     @Override public AnimatableInstanceCache getAnimatableInstanceCache() { return animations; }
     public static AttributeSupplier.Builder attributes(double speed, double health, double armor, double damage, double follow) {

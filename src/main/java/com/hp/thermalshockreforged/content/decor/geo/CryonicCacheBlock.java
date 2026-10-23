@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.content.decor.geo;
+import net.minecraft.world.InteractionResult;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.MaterialContent;
@@ -10,7 +11,7 @@ import net.minecraft.resources.*;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.*;
 import net.minecraft.world.*;
-import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -27,11 +28,11 @@ public final class CryonicCacheBlock extends GeoDecorBlock {
     public CryonicCacheBlock(GeoDecorKind kind) {
         super(kind);
         if (kind != GeoDecorKind.CRYONIC_CACHE && kind != GeoDecorKind.SUPER_CRYONIC_CACHE) throw new IllegalArgumentException("Not a cryonic cache: " + kind);
-        loot = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "blocks/" + kind.id));
+        loot = ResourceKey.create(Registries.LOOT_TABLE, Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "blocks/" + kind.id));
     }
     @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return new CacheBlockEntity(kind, pos, state); }
     private static void hint(Level level, BlockPos pos, Player player) {
-        if (level.isClientSide) return;
+        if (level.isClientSide()) return;
         player.displayClientMessage(Component.translatable("message.thermal_shock_reforged.cache.locked"), true);
         level.playSound(null, pos, SoundEvents.NOTE_BLOCK_BASS.value(), SoundSource.NEUTRAL, 1, 1);
     }
@@ -54,8 +55,8 @@ public final class CryonicCacheBlock extends GeoDecorBlock {
                 if (server.getBlockState(cursor).is(darksteel) && server.setBlock(cursor, Blocks.AIR.defaultBlockState(), 3)) server.playSound(null, pos, SoundEvents.GLASS_BREAK, SoundSource.NEUTRAL, .5F, -4);
             }
             for (int i = 0; i < 9; i++) {
-                var mob = FaunaEntities.BONERAHNA.get().spawn(server, pos, MobSpawnType.MOB_SUMMONED);
-                if (mob != null) mob.setYRot(server.random.nextFloat() * 360);
+                var mob = FaunaEntities.BONERAHNA.get().spawn(server, pos, EntitySpawnReason.MOB_SUMMONED);
+                if (mob != null) mob.setYRot(server.getRandom().nextFloat() * 360);
             }
         } else {
             key.shrink(1);
@@ -64,8 +65,8 @@ public final class CryonicCacheBlock extends GeoDecorBlock {
             var params = new LootParams.Builder(server).withParameter(LootContextParams.ORIGIN, origin).create(LootContextParamSets.CHEST);
             for (var drop : table.getRandomItems(params)) { var item = new ItemEntity(server, origin.x, origin.y, origin.z, drop.copy()); item.setDefaultPickUpDelay(); server.addFreshEntity(item); }
         }
-        ThermalShockReforged.LOGGER.debug("Cryonic cache consumed: position={}, dimension={}, trapped={}, kind={}", pos, server.dimension().location(), trapped, kind);
+        ThermalShockReforged.LOGGER.debug("Cryonic cache consumed: position={}, dimension={}, trapped={}, kind={}", pos, server.dimension().identifier(), trapped, kind);
     }
-    @Override protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) { open(level, pos, player); return ItemInteractionResult.SUCCESS; }
+    @Override protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) { open(level, pos, player); return InteractionResult.SUCCESS; }
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) { open(level, pos, player); return InteractionResult.SUCCESS; }
 }

@@ -7,11 +7,11 @@ import net.minecraft.core.*;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
-import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.*;
 import net.neoforged.neoforge.event.EventHooks;
@@ -44,25 +44,25 @@ public final class SuspiciousCavebloomerBlockEntity extends GeoDecorBlockEntity 
     private void emitBudding(ServerLevel server) {
         emitting = true;
         try {
-            var pos = BlockPos.containing(worldPosition.getX() + Mth.nextDouble(server.random, -6, 6), worldPosition.getY() + 3, worldPosition.getZ() + Mth.nextDouble(server.random, -6, 6));
-            var bloom = CavebloomerContent.BUDDING.get().spawn(server, pos, MobSpawnType.MOB_SUMMONED);
-            if (bloom != null) bloom.setYRot(server.random.nextFloat() * 360);
+            var pos = BlockPos.containing(worldPosition.getX() + Mth.nextDouble(server.getRandom(), -6, 6), worldPosition.getY() + 3, worldPosition.getZ() + Mth.nextDouble(server.getRandom(), -6, 6));
+            var bloom = CavebloomerContent.BUDDING.get().spawn(server, pos, EntitySpawnReason.MOB_SUMMONED);
+            if (bloom != null) bloom.setYRot(server.getRandom().nextFloat() * 360);
         } finally { emitting = false; }
     }
     private void summonBoss(ServerLevel server) {
         summoning = true;
         try {
-            var boss = CavebloomerContent.ANGRY.get().create(server);
+            var boss = CavebloomerContent.ANGRY.get().create(server, net.minecraft.world.entity.EntitySpawnReason.MOB_SUMMONED);
             if (boss == null) return;
-            boss.moveTo(worldPosition.getX() + 0.5, worldPosition.getY(), worldPosition.getZ() + 0.5, Mth.wrapDegrees(server.random.nextFloat() * 360), 0);
+            boss.moveTo(worldPosition.getX() + 0.5, worldPosition.getY(), worldPosition.getZ() + 0.5, Mth.wrapDegrees(server.getRandom().nextFloat() * 360), 0);
             boss.yHeadRot = boss.getYRot(); boss.yBodyRot = boss.getYRot();
-            EventHooks.finalizeMobSpawn(boss, server, server.getCurrentDifficultyAt(worldPosition), MobSpawnType.MOB_SUMMONED, null);
+            EventHooks.finalizeMobSpawn(boss, server, server.getCurrentDifficultyAt(worldPosition), EntitySpawnReason.MOB_SUMMONED, null);
             if (boss.isSpawnCancelled() || boss.isRemoved() || isRemoved() || server.getBlockEntity(worldPosition) != this) { boss.discard(); return; }
-            boss.playAmbientSound(); boss.setYRot(server.random.nextFloat() * 360);
+            boss.playAmbientSound(); boss.setYRot(server.getRandom().nextFloat() * 360);
             if (!server.addFreshEntity(boss)) { boss.discard(); return; }
             if (server.getBlockEntity(worldPosition) == this) server.destroyBlock(worldPosition, false);
             server.getServer().getPlayerList().broadcastSystemMessage(Component.translatable("message.thermal_shock_reforged.cavebloomer.awoken"), false);
-            var sound = BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "cavebloomer_detonates"));
+            var sound = BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "cavebloomer_detonates"));
             server.playSound(null, worldPosition, sound, SoundSource.HOSTILE, 0.6F, 3);
             server.sendParticles(CavebloomerContent.NUKE_CLOUD.get(), worldPosition.getX(), worldPosition.getY(), worldPosition.getZ(), 1, 0, 0, 0, 1);
         } finally { summoning = false; }
@@ -79,11 +79,11 @@ public final class SuspiciousCavebloomerBlockEntity extends GeoDecorBlockEntity 
         super.onLoad();
         if (level instanceof ServerLevel server) updateTicker(server);
     }
-    @Override protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.saveAdditional(tag, registries); tag.putInt("CavebloomerSummonsRemaining", remaining); tag.putInt("CavebloomerSummonDelay", delay); tag.putLong("CavebloomerSummonStartedAt", startedAt);
+    @Override protected void saveAdditional(net.minecraft.world.level.storage.ValueOutput output) {
+        super.saveAdditional(output); output.putInt("CavebloomerSummonsRemaining", remaining); output.putInt("CavebloomerSummonDelay", delay); tag.putLong("CavebloomerSummonStartedAt", startedAt);
     }
-    @Override protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.loadAdditional(tag, registries); remaining = Math.clamp(tag.getInt("CavebloomerSummonsRemaining"), 0, 3); delay = Math.clamp(tag.getInt("CavebloomerSummonDelay"), 0, 7);
+    @Override protected void loadAdditional(net.minecraft.world.level.storage.ValueInput input) {
+        super.loadAdditional(input); remaining = Math.clamp(input.getIntOr("CavebloomerSummonsRemaining", 0), 0, 3); delay = Math.clamp(input.getIntOr("CavebloomerSummonDelay", 0), 0, 7);
         startedAt = tag.contains("CavebloomerSummonStartedAt") ? tag.getLong("CavebloomerSummonStartedAt") : Long.MIN_VALUE;
         if (getPersistentData().getDouble("phase") != 1) { remaining = 0; delay = 0; }
     }

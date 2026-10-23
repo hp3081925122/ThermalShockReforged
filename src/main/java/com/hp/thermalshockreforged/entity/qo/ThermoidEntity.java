@@ -1,4 +1,6 @@
 package com.hp.thermalshockreforged.entity.qo;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -20,10 +22,10 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
+import com.geckolib.util.GeckoLibUtil;
 
 public final class ThermoidEntity extends Monster implements GeoEntity {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(ThermoidEntity.class, EntityDataSerializers.STRING);
@@ -42,7 +44,7 @@ public final class ThermoidEntity extends Monster implements GeoEntity {
         goalSelector.addGoal(3, new RandomStrollGoal(this, .8, 20) { @Override protected Vec3 getPosition() { return position().add((random.nextFloat() * 2 - 1) * 16, (random.nextFloat() * 2 - 1) * 16, (random.nextFloat() * 2 - 1) * 16); } });
         goalSelector.addGoal(4, new RandomLookAroundGoal(this));
     }
-    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, MobSpawnType reason, SpawnGroupData group) {
+    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, EntitySpawnReason reason, SpawnGroupData group) {
         var result = super.finalizeSpawn(world, difficulty, reason, group); remainingTicks = 320;
         if (world instanceof ServerLevel server) server.sendParticles(ParticleTypes.POOF, getX(), getY(), getZ(), 5, .1, .1, .1, .1);
         return result;
@@ -51,20 +53,20 @@ public final class ThermoidEntity extends Monster implements GeoEntity {
         super.baseTick();
         if (level() instanceof ServerLevel server && --remainingTicks <= 0) { discard(); server.sendParticles(ParticleTypes.POOF, getX(), getY(), getZ(), 5, .001, .001, .001, 0); }
     }
-    @Override public boolean hurt(DamageSource source, float amount) { return !(source.getDirectEntity() instanceof Player) && !DefectorMachinistEntity.ignores(source) && super.hurt(source, amount); }
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) { return !(source.getDirectEntity() instanceof Player) && !DefectorMachinistEntity.ignores(source) && super.hurtServer(level, source, amount); }
     @Override public boolean removeWhenFarAway(double distance) { return false; }
     @Override public boolean isPushable() { return false; }
     @Override protected void doPush(Entity other) { }
     @Override protected void pushEntities() { }
     @Override public void setNoGravity(boolean ignored) { super.setNoGravity(true); }
     @Override public void aiStep() { super.aiStep(); setNoGravity(true); }
-    @Override public boolean causeFallDamage(float distance, float multiplier, DamageSource source) { return false; }
+    @Override public boolean causeFallDamage(double distance, float multiplier, DamageSource source) { return false; }
     @Override protected void checkFallDamage(double distance, boolean onGround, BlockState state, BlockPos pos) { }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.GENERIC_HURT; }
     @Override protected SoundEvent getDeathSound() { return SoundEvents.GENERIC_DEATH; }
     @Override protected void tickDeath() { if (++deathTime >= 20) remove(RemovalReason.KILLED); }
-    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); tag.putInt("ThermoidRemainingTicks", remainingTicks); }
-    @Override public void readAdditionalSaveData(CompoundTag tag) { super.readAdditionalSaveData(tag); if (tag.contains("Texture")) entityData.set(TEXTURE, tag.getString("Texture")); remainingTicks = Math.clamp(tag.getInt("ThermoidRemainingTicks"), 0, 320); setPersistenceRequired(); setNoGravity(true); }
-    @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) { controllers.add(new AnimationController<>(this, "movement", 4, state -> state.setAndContinue(RawAnimation.begin().thenLoop("idle")))); }
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putString("Texture", texture()); output.putInt("ThermoidRemainingTicks", remainingTicks); }
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); if (input.getString("Texture").isPresent()) entityData.set(TEXTURE, input.getStringOr("Texture", "")); remainingTicks = Math.clamp(input.getIntOr("ThermoidRemainingTicks", 0), 0, 320); setPersistenceRequired(); setNoGravity(true); }
+    @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) { controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> state.setAndContinue(RawAnimation.begin().thenLoop("idle")))); }
     @Override public AnimatableInstanceCache getAnimatableInstanceCache() { return animations; }
 }

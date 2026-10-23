@@ -1,8 +1,9 @@
 package com.hp.thermalshockreforged.entity.infestation;
+import net.minecraft.world.item.SpawnEggItem;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import net.minecraft.core.registries.*;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -19,14 +20,14 @@ public final class InfestationEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<LouseEntity>> LOUSE = TYPES.register("louse", () -> EntityType.Builder.of(LouseEntity::new, MobCategory.AMBIENT).sized(0.2F, 0.2F).clientTrackingRange(32).updateInterval(3).build("thermal_shock_reforged:louse"));
 
     static {
-        ITEMS.register("infestophage_seed_spawn_egg", () -> new DeferredSpawnEggItem(SEED, -1, -1, new Item.Properties()));
-        ITEMS.register("louse_spawn_egg", () -> new DeferredSpawnEggItem(LOUSE, -1, -1, new Item.Properties()));
+        ITEMS.register("infestophage_seed_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(SEED.get())));
+        ITEMS.register("louse_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(LOUSE.get())));
     }
 
     private InfestationEntities() { }
 
     static boolean hasType(LivingEntity entity, String path) {
-        return BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType()).equals(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path));
+        return BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType()).equals(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path));
     }
 
     public static void register(IEventBus bus) {

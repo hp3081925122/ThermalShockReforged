@@ -4,7 +4,7 @@ import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.status.StatusContent;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
@@ -15,7 +15,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FlowingFluid;
 
 public final class ReactiveFluidBlock extends LiquidBlock {
-    private static final ResourceLocation GRAVEYARD = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "graveyard");
+    private static final Identifier GRAVEYARD = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "graveyard");
     private final boolean springelatin;
 
     ReactiveFluidBlock(FlowingFluid fluid, boolean springelatin, Properties properties) {
@@ -27,7 +27,7 @@ public final class ReactiveFluidBlock extends LiquidBlock {
     protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
         super.entityInside(state, level, pos, entity);
         if (springelatin) entity.setDeltaMovement(0, 0.55, 0);
-        else if (!level.isClientSide && entity instanceof LivingEntity living) living.addEffect(new MobEffectInstance(StatusContent.INFECTED, 100, 1));
+        else if (!level.isClientSide() && entity instanceof LivingEntity living) living.addEffect(new MobEffectInstance(StatusContent.INFECTED, 100, 1));
     }
 
     @Override

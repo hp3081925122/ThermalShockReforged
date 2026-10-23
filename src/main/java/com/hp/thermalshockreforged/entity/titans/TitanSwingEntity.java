@@ -10,7 +10,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -24,7 +24,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
 public final class TitanSwingEntity extends Entity implements ServerEndTickTask {
-    private static final ResourceKey<DamageType> DAMAGE = ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "errant_damage"));
+    private static final ResourceKey<DamageType> DAMAGE = ResourceKey.create(Registries.DAMAGE_TYPE, Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "errant_damage"));
     private UUID caster;
     private UUID target;
     private int targetEntityId;
@@ -38,7 +38,7 @@ public final class TitanSwingEntity extends Entity implements ServerEndTickTask 
 
     public TitanSwingEntity(EntityType<? extends TitanSwingEntity> type, Level level) { super(type, level); noPhysics = true; setNoGravity(true); }
     public static boolean submit(ServerLevel server, SkeletalTitanEntity owner, LivingEntity victim) {
-        var swing = TitanContent.SWING.get().create(server);
+        var swing = TitanContent.SWING.get().create(server, net.minecraft.world.entity.EntitySpawnReason.MOB_SUMMONED);
         if (swing == null) return false;
         swing.caster = owner.getUUID();
         swing.target = victim.getUUID();
@@ -87,29 +87,29 @@ public final class TitanSwingEntity extends Entity implements ServerEndTickTask 
         discard();
     }
     private static double finiteDamage(double value) { return Double.isFinite(value) ? Math.clamp(value, 0, Float.MAX_VALUE) : 0; }
-    @Override protected void addAdditionalSaveData(CompoundTag tag) {
-        if (caster != null) tag.putUUID("TitanSwingCaster", caster);
-        if (target != null) tag.putUUID("TitanSwingTarget", target);
-        tag.putInt("TitanSwingTargetEntityId", targetEntityId);
-        tag.putBoolean("TitanSwingTargetPlayer", targetPlayer);
-        tag.putDouble("TitanSwingTargetX", targetOrigin.x);
-        tag.putDouble("TitanSwingTargetY", targetOrigin.y);
-        tag.putDouble("TitanSwingTargetZ", targetOrigin.z);
-        tag.putDouble("TitanSwingDamage", damage);
-        tag.putInt("TitanSwingElapsed", elapsed);
-        tag.putBoolean("TitanSwingMantle", mantle);
-        tag.putBoolean("TitanSwingArmed", armed);
+    @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        if (caster != null) output.putString("TitanSwingCaster", caster.toString());
+        if (target != null) output.putString("TitanSwingTarget", target.toString());
+        output.putInt("TitanSwingTargetEntityId", targetEntityId);
+        output.putBoolean("TitanSwingTargetPlayer", targetPlayer);
+        output.putDouble("TitanSwingTargetX", targetOrigin.x);
+        output.putDouble("TitanSwingTargetY", targetOrigin.y);
+        output.putDouble("TitanSwingTargetZ", targetOrigin.z);
+        output.putDouble("TitanSwingDamage", damage);
+        output.putInt("TitanSwingElapsed", elapsed);
+        output.putBoolean("TitanSwingMantle", mantle);
+        output.putBoolean("TitanSwingArmed", armed);
     }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) {
-        caster = tag.hasUUID("TitanSwingCaster") ? tag.getUUID("TitanSwingCaster") : null;
-        target = tag.hasUUID("TitanSwingTarget") ? tag.getUUID("TitanSwingTarget") : null;
-        targetEntityId = tag.getInt("TitanSwingTargetEntityId");
-        targetPlayer = !tag.contains("TitanSwingTargetPlayer") || tag.getBoolean("TitanSwingTargetPlayer");
+    @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        caster = input.getString("TitanSwingCaster").map(java.util.UUID::fromString).orElse(null);
+        target = input.getString("TitanSwingTarget").map(java.util.UUID::fromString).orElse(null);
+        targetEntityId = input.getIntOr("TitanSwingTargetEntityId", 0);
+        targetPlayer = !input.getString("TitanSwingTargetPlayer").isPresent() || input.getBooleanOr("TitanSwingTargetPlayer", false);
         originalPlayerTarget = null;
-        targetOrigin = new Vec3(tag.getDouble("TitanSwingTargetX"), tag.getDouble("TitanSwingTargetY"), tag.getDouble("TitanSwingTargetZ"));
-        damage = finiteDamage(tag.getDouble("TitanSwingDamage"));
-        elapsed = Math.clamp(tag.getInt("TitanSwingElapsed"), 0, 20);
-        mantle = tag.getBoolean("TitanSwingMantle");
-        armed = tag.getBoolean("TitanSwingArmed") && caster != null && target != null && elapsed < 20 && Double.isFinite(targetOrigin.x) && Double.isFinite(targetOrigin.y) && Double.isFinite(targetOrigin.z);
+        targetOrigin = new Vec3(input.getDoubleOr("TitanSwingTargetX", 0.0), input.getDoubleOr("TitanSwingTargetY", 0.0), input.getDoubleOr("TitanSwingTargetZ", 0.0));
+        damage = finiteDamage(input.getDoubleOr("TitanSwingDamage", 0.0));
+        elapsed = Math.clamp(input.getIntOr("TitanSwingElapsed", 0), 0, 20);
+        mantle = input.getBooleanOr("TitanSwingMantle", false);
+        armed = input.getBooleanOr("TitanSwingArmed", false) && caster != null && target != null && elapsed < 20 && Double.isFinite(targetOrigin.x) && Double.isFinite(targetOrigin.y) && Double.isFinite(targetOrigin.z);
     }
 }

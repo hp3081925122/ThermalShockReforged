@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.entity.sentrarius;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import com.hp.thermalshockreforged.content.utility.UtilityContent;
 import java.util.UUID;
@@ -19,10 +22,10 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
+import com.geckolib.util.GeckoLibUtil;
 
 public final class SentrariusEntity extends PathfinderMob implements GeoEntity {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(SentrariusEntity.class, EntityDataSerializers.STRING);
@@ -38,16 +41,16 @@ public final class SentrariusEntity extends PathfinderMob implements GeoEntity {
     @Override protected void registerGoals() { goalSelector.addGoal(1, new TemptGoal(this, 1, Ingredient.of(Items.BONE), false)); goalSelector.addGoal(2, new TemptGoal(this, 1, Ingredient.of(Blocks.BONE_BLOCK.asItem()), false)); goalSelector.addGoal(3, new FollowMobGoal(this, 1, 10, 5)); goalSelector.addGoal(4, new RandomStrollGoal(this, 1)); goalSelector.addGoal(5, new PanicGoal(this, 1.2)); goalSelector.addGoal(6, new FloatGoal(this)); }
     @Override protected InteractionResult mobInteract(Player player, InteractionHand hand) {
         super.mobInteract(player, hand);
-        if (!level().isClientSide && feeding == 0 && player.getMainHandItem().is(Items.BONE)) {
+        if (!level().isClientSide() && feeding == 0 && player.getMainHandItem().is(Items.BONE)) {
             feeding = 30;
             player.getInventory().clearOrCountMatchingItems(stack -> stack.is(Items.BONE), 1, player.inventoryMenu.getCraftSlots());
             level().playSound(null, blockPosition(), SoundEvents.EVOKER_FANGS_ATTACK, SoundSource.NEUTRAL, 1, 1);
             triggerAnim("procedure", "bite");
         }
-        return InteractionResult.sidedSuccess(level().isClientSide);
+        return InteractionResult.SUCCESS;
     }
-    @Override protected void tickEffects() { super.tickEffects(); if (!level().isClientSide && feeding > 0 && --feeding == 0) finishFeeding(); }
-    @Override public boolean removeAllEffects() { boolean removed = super.removeAllEffects(); if (!level().isClientSide && feeding > 0) { feeding = 0; finishFeeding(); return true; } return removed; }
+    @Override protected void tickEffects() { super.tickEffects(); if (!level().isClientSide() && feeding > 0 && --feeding == 0) finishFeeding(); }
+    @Override public boolean removeAllEffects() { boolean removed = super.removeAllEffects(); if (!level().isClientSide() && feeding > 0) { feeding = 0; finishFeeding(); return true; } return removed; }
     private void finishFeeding() {
         if (!(level() instanceof ServerLevel server)) return;
         server.playSound(null, blockPosition(), SoundEvents.STEM_PLACE, SoundSource.NEUTRAL, 1, 2);
@@ -57,13 +60,13 @@ public final class SentrariusEntity extends PathfinderMob implements GeoEntity {
     @Override protected void playStepSound(BlockPos pos, BlockState state) { playSound(SoundEvents.RAVAGER_STEP, .15F, 1); }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.GENERIC_HURT; }
     @Override protected SoundEvent getDeathSound() { return SoundEvents.GENERIC_DEATH; }
-    @Override protected void dropExperience(Entity attacker) { experiencePending = true; experienceAttacker = attacker == null ? null : attacker.getUUID(); }
-    @Override protected void tickDeath() { if (++deathTime >= 20 && !isRemoved()) { remove(RemovalReason.KILLED); if (experiencePending && level() instanceof ServerLevel server) { experiencePending = false; super.dropExperience(experienceAttacker == null ? null : server.getEntity(experienceAttacker)); } } }
-    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); tag.putInt("SentrariusFeeding", feeding); tag.putBoolean("SentrariusExperiencePending", experiencePending); if (experienceAttacker != null) tag.putUUID("SentrariusExperienceAttacker", experienceAttacker); }
-    @Override public void readAdditionalSaveData(CompoundTag tag) { super.readAdditionalSaveData(tag); if (tag.contains("Texture")) setTexture(tag.getString("Texture")); feeding = Math.clamp(tag.getInt("SentrariusFeeding"), 0, 30); experiencePending = tag.getBoolean("SentrariusExperiencePending"); experienceAttacker = tag.hasUUID("SentrariusExperienceAttacker") ? tag.getUUID("SentrariusExperienceAttacker") : null; }
+    @Override protected void dropExperience(net.minecraft.server.level.ServerLevel level, Entity attacker) { experiencePending = true; experienceAttacker = attacker == null ? null : attacker.getUUID(); }
+    @Override protected void tickDeath() { if (++deathTime >= 20 && !isRemoved()) { remove(RemovalReason.KILLED); if (experiencePending && level() instanceof ServerLevel server) { experiencePending = false; super.dropExperience(server, experienceAttacker == null ? null : server.getEntity(experienceAttacker)); } } }
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putString("Texture", texture()); output.putInt("SentrariusFeeding", feeding); output.putBoolean("SentrariusExperiencePending", experiencePending); if (experienceAttacker != null) output.putString("SentrariusExperienceAttacker", experienceAttacker.toString()); }
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", "")); feeding = Math.clamp(input.getIntOr("SentrariusFeeding", 0), 0, 30); experiencePending = input.getBooleanOr("SentrariusExperiencePending", false); experienceAttacker = input.getString("SentrariusExperienceAttacker").map(java.util.UUID::fromString).orElse(null); }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 4, state -> PlayState.STOP).triggerableAnim("bite", RawAnimation.begin().thenPlay("bite"));
-        controllers.add(new AnimationController<>(this, "movement", 4, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(state.isMoving() || Math.abs(state.getLimbSwingAmount()) >= .15F ? "walk" : "idle")))); controllers.add(procedure);
+        var procedure = new LegacyAnimationController<>(this, "procedure", 4, state -> PlayState.STOP).triggerableAnim("bite", RawAnimation.begin().thenPlay("bite"));
+        controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(state.isMoving() || Math.abs(state.getLimbSwingAmount()) >= .15F ? "walk" : "idle")))); controllers.add(procedure);
     }
     @Override public AnimatableInstanceCache getAnimatableInstanceCache() { return animations; }
 }

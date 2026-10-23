@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.entity.gravers;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import com.hp.thermalshockreforged.entity.base.AnimatedMonsterEntity;
 import com.hp.thermalshockreforged.entity.monolith.MonolithEntity;
@@ -14,7 +17,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.core.BlockPos;
-import software.bernie.geckolib.animation.*;
+import com.geckolib.animation.*;
 
 public abstract class GraverFamilyEntity extends AnimatedMonsterEntity {
     private boolean attributesApplied;
@@ -47,9 +50,9 @@ public abstract class GraverFamilyEntity extends AnimatedMonsterEntity {
         };
     }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 4, state -> PlayState.STOP);
+        var procedure = new LegacyAnimationController<>(this, "procedure", 4, state -> PlayState.STOP);
         for (var clip : procedureAnimations()) procedure.triggerableAnim(clip, RawAnimation.begin().thenPlay(clip));
-        controllers.add(new AnimationController<>(this, "movement", 4, state -> {
+        controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> {
             if (procedure.isPlayingTriggeredAnimation()) return PlayState.STOP;
             boolean moving = state.isMoving() || state.getLimbSwingAmount() <= -.15F || state.getLimbSwingAmount() >= .15F;
             int kind = variant();
@@ -63,11 +66,11 @@ public abstract class GraverFamilyEntity extends AnimatedMonsterEntity {
         controllers.add(procedure);
     }
     @Override protected SoundEvent getAmbientSound() { return variant() == 2 || variant() == 4 ? null : SoundEvents.SKELETON_AMBIENT; }
-    @Override protected SoundEvent getHurtSound(DamageSource source) { return variant() == 2 || variant() == 4 ? super.getHurtSound(source) : variant() == 3 ? SoundEvents.SKELETON_HURT : net.minecraft.core.registries.BuiltInRegistries.SOUND_EVENT.get(GraverContent.id("bone_hit")); }
+    @Override protected SoundEvent getHurtSound(DamageSource source) { return variant() == 2 || variant() == 4 ? super.getHurtSound(source) : variant() == 3 ? SoundEvents.SKELETON_HURT : net.minecraft.core.registries.BuiltInRegistries.SOUND_EVENT.getValue(GraverContent.id("bone_hit")); }
     @Override protected SoundEvent getDeathSound() { return variant() == 2 || variant() == 4 ? super.getDeathSound() : SoundEvents.SKELETON_DEATH; }
     @Override protected void playStepSound(BlockPos pos, BlockState state) { if (variant() == 2 || variant() == 4) super.playStepSound(pos, state); else playSound(SoundEvents.SKELETON_STEP, .15F, 1); }
     private void applyConfiguration() {
-        if (level().isClientSide || attributesApplied || !GraverConfig.SPEC.isLoaded()) return;
+        if (level().isClientSide() || attributesApplied || !GraverConfig.SPEC.isLoaded()) return;
         int kind = variant();
         float health = getHealth();
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(GraverConfig.HEALTH[kind].get());
@@ -80,7 +83,7 @@ public abstract class GraverFamilyEntity extends AnimatedMonsterEntity {
     }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); applyConfiguration(); }
     @Override public void tick() { applyConfiguration(); super.tick(); }
-    @Override public void readAdditionalSaveData(CompoundTag tag) { loaded = true; super.readAdditionalSaveData(tag); attributesApplied = false; }
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { loaded = true; super.readAdditionalSaveData(input); attributesApplied = false; }
     public static AttributeSupplier.Builder createAttributes(int kind) {
         var builder = createMobAttributes().add(Attributes.MAX_HEALTH, GraverConfig.DEFAULT_HEALTH[kind]).add(Attributes.ARMOR, GraverConfig.DEFAULT_ARMOR[kind]).add(Attributes.ATTACK_DAMAGE, GraverConfig.DEFAULT_DAMAGE[kind]).add(Attributes.MOVEMENT_SPEED, GraverConfig.DEFAULT_SPEED[kind]).add(Attributes.FOLLOW_RANGE, 32).add(Attributes.STEP_HEIGHT, kind == 4 ? 1 : .6);
         if (kind >= 3) builder.add(Attributes.KNOCKBACK_RESISTANCE, .2).add(Attributes.ATTACK_KNOCKBACK, kind == 3 ? .2 : .5);

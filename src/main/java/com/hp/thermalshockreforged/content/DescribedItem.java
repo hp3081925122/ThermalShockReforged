@@ -1,4 +1,6 @@
 package com.hp.thermalshockreforged.content;
+import net.minecraft.world.item.component.TooltipDisplay;
+import java.util.function.Consumer;
 
 import java.util.List;
 import net.minecraft.network.chat.Component;
@@ -15,8 +17,8 @@ public final class DescribedItem extends Item {
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
-        super.appendHoverText(stack, context, tooltip, flag);
-        descriptions.forEach(key -> tooltip.add(Component.translatable(key)));
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+        super.appendHoverText(stack, context, display, tooltipAdder, flag);
+        descriptions.forEach(key -> tooltipAdder.accept(Component.translatable(key)));
     }
 }

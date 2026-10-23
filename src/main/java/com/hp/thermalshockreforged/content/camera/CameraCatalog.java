@@ -3,7 +3,7 @@ package com.hp.thermalshockreforged.content.camera;
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import java.util.*;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerPlayer;
 
 final class CameraCatalog {
@@ -94,8 +94,8 @@ final class CameraCatalog {
         new Entry(Set.of(id("huntress"), id("huntress_boss")), "camera.thermal_shock_reforged.catalog.huntress", false),
         new Entry(Set.of(id("ly")), "camera.thermal_shock_reforged.catalog.ly", false),
         new Entry(Set.of(id("laut")), "camera.thermal_shock_reforged.catalog.laut", false));
-    private static ResourceLocation id(String path) { return ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
-    static void describe(ServerPlayer player, Set<ResourceLocation> subjects) {
+    private static Identifier id(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
+    static void describe(ServerPlayer player, Set<Identifier> subjects) {
         for (Entry entry : ENTRIES) {
             if (Collections.disjoint(entry.types, subjects)) continue;
             player.displayClientMessage(Component.translatable(entry.translationKey), false);
@@ -107,5 +107,5 @@ final class CameraCatalog {
             }
         }
     }
-    private record Entry(Set<ResourceLocation> types, String translationKey, boolean photoQuest) { }
+    private record Entry(Set<Identifier> types, String translationKey, boolean photoQuest) { }
 }

@@ -1,4 +1,6 @@
 package com.hp.thermalshockreforged.content.remainingutility;
+import net.minecraft.world.item.component.TooltipDisplay;
+import java.util.function.Consumer;
 
 import java.util.List;
 import net.minecraft.core.registries.Registries;
@@ -6,7 +8,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -21,16 +23,16 @@ public final class IgnitionDetectorItem extends Item {
     IgnitionDetectorItem() { super(new Properties().stacksTo(1)); }
 
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) {
-        super.appendHoverText(stack, context, lines, flag);
-        lines.add(Component.translatable(getDescriptionId() + ".description_0"));
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+        super.appendHoverText(stack, context, display, tooltipAdder, flag);
+        tooltipAdder.accept(Component.translatable(getDescriptionId() + ".description_0"));
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+    public InteractionResult use(Level level, Player player, InteractionHand hand) {
         if (!player.getCooldowns().isOnCooldown(this)) {
             player.getCooldowns().addCooldown(this, 100);
-            if (level.isClientSide) {
+            if (level.isClientSide()) {
                 level.playLocalSound(player.getX(), player.getY(), player.getZ(), RemainingUtilityContent.sound("ignition_detector_click"), SoundSource.NEUTRAL, 1, 1, false);
             } else {
                 var biome = level.getBiome(player.blockPosition());

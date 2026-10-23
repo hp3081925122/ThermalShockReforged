@@ -43,7 +43,7 @@ public final class ConciergeQuest {
         award(player, "blasphemy_4");
         ItemHandlerHelper.giveItemToPlayer(player, new ItemStack(reward));
         player.giveExperienceLevels(25);
-        player.serverLevel().addFreshEntity(new ExperienceOrb(player.serverLevel(), anchor.getX(), anchor.getY(), anchor.getZ(), 60));
+        ((net.minecraft.server.level.ServerLevel) player.level()).addFreshEntity(new ExperienceOrb(((net.minecraft.server.level.ServerLevel) player.level()), anchor.getX(), anchor.getY(), anchor.getZ(), 60));
         player.getInventory().setChanged(); player.containerMenu.broadcastChanges();
         ThermalShockReforged.LOGGER.debug("Concierge quest settled: player={}, blood=1, panacea=1, levels=25, orb=60", player.getUUID());
         return true;

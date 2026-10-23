@@ -13,7 +13,7 @@ public final class GraverEntity extends GraverFamilyEntity {
     private boolean initialized;
     private boolean rarePending;
     public GraverEntity(EntityType<? extends GraverEntity> type, Level level) { super(type, level, "gravera", 3); }
-    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType reason, SpawnGroupData group) {
+    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, EntitySpawnReason reason, SpawnGroupData group) {
         var result = super.finalizeSpawn(level, difficulty, reason, group);
         if (!initialized && !isSpawnCancelled()) {
             initialized = true;
@@ -26,11 +26,11 @@ public final class GraverEntity extends GraverFamilyEntity {
         super.onAddedToLevel();
         if (rarePending && level() instanceof ServerLevel server && !isRemoved()) {
             rarePending = false;
-            var replacement = GraverContent.NEON.get().spawn(server, blockPosition(), MobSpawnType.MOB_SUMMONED);
+            var replacement = GraverContent.NEON.get().spawn(server, blockPosition(), EntitySpawnReason.MOB_SUMMONED);
             if (replacement != null && server.getEntity(replacement.getUUID()) == replacement && !replacement.isRemoved()) { replacement.setYRot(random.nextFloat() * 360); discard(); }
             else ThermalShockReforged.LOGGER.debug("Rare graver transformation rejected: source={}, position={}", getUUID(), blockPosition());
         }
     }
-    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putBoolean("GraverInitialized", initialized); tag.putBoolean("GraverRarePending", rarePending); }
-    @Override public void readAdditionalSaveData(CompoundTag tag) { super.readAdditionalSaveData(tag); initialized = tag.getBoolean("GraverInitialized"); rarePending = tag.getBoolean("GraverRarePending"); }
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putBoolean("GraverInitialized", initialized); output.putBoolean("GraverRarePending", rarePending); }
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); initialized = input.getBooleanOr("GraverInitialized", false); rarePending = input.getBooleanOr("GraverRarePending", false); }
 }

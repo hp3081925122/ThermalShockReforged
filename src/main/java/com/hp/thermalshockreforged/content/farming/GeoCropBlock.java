@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.content.farming;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 
 import net.minecraft.core.*;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -24,9 +25,9 @@ public class GeoCropBlock extends Block implements EntityBlock {
     }
     private static Properties properties(CropKind kind) {
         var props = Properties.of().mapColor(MapColor.PLANT).sound(kind == CropKind.ANCIENT_BARBUBBLE ? SoundType.WOOD : SoundType.GRASS)
-                .strength(kind == CropKind.ANCIENT_BARBUBBLE ? .7f : .5f, 0).noCollission().noOcclusion().pushReaction(PushReaction.DESTROY)
+                .strength(kind == CropKind.ANCIENT_BARBUBBLE ? .7f : .5f, 0).noCollision().noOcclusion().pushReaction(PushReaction.DESTROY)
                 .isRedstoneConductor((s, l, p) -> false);
-        if (kind.luminous) props.lightLevel(s -> 5).hasPostProcess((s, l, p) -> true).emissiveRendering((s, l, p) -> true);
+        if (kind.luminous) props.lightLevel(s -> 5).emissiveRendering((s, l, p) -> true);
         return props;
     }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { builder.add(ANIMATION); }
@@ -46,7 +47,7 @@ public class GeoCropBlock extends Block implements EntityBlock {
     }
     @Override protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState oldState, boolean moving) {
         super.onPlace(state, level, pos, oldState, moving);
-        if (level.isClientSide) return;
+        if (level.isClientSide()) return;
         String soil = BuiltInRegistries.BLOCK.getKey(level.getBlockState(pos.below()).getBlock()).toString();
         if (!java.util.Set.of("thermal_shock_reforged:purified_grassy_shale", "thermal_shock_reforged:grassy_shale", "thermal_shock_reforged:snowy_shale", "thermal_shock_reforged:planter_pot", "thermal_shock_reforged:planter_box").contains(soil)) {
             if (level.getBlockState(pos).is(this) && level.destroyBlock(pos, false) && !level.getBlockState(pos).is(this)) Block.dropResources(state, level, pos, null);
@@ -60,7 +61,7 @@ public class GeoCropBlock extends Block implements EntityBlock {
     }
     @Override protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState replacement, boolean moving) {
         if (!state.is(replacement.getBlock())) {
-            if (!level.isClientSide && level.getBlockEntity(pos) instanceof FarmInventoryBlockEntity entity) {
+            if (!level.isClientSide() && level.getBlockEntity(pos) instanceof FarmInventoryBlockEntity entity) {
                 Containers.dropContents(level, pos, entity);
                 level.updateNeighbourForOutputSignal(pos, this);
             }
@@ -68,7 +69,7 @@ public class GeoCropBlock extends Block implements EntityBlock {
         }
     }
     public static final class Directional extends GeoCropBlock {
-        public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+        public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
         public Directional(CropKind kind) { super(kind); registerDefaultState(defaultBlockState().setValue(FACING, Direction.NORTH)); }
         @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { super.createBlockStateDefinition(builder); builder.add(FACING); }
         @Override public BlockState getStateForPlacement(BlockPlaceContext context) { return defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite()); }

@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.entity.spore;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import com.hp.thermalshockreforged.content.status.StatusContent;
 import net.minecraft.nbt.CompoundTag;
@@ -15,10 +18,10 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.sounds.*;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
+import com.geckolib.util.GeckoLibUtil;
 
 public final class BlightedSporeEntity extends Monster implements GeoEntity {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(BlightedSporeEntity.class, EntityDataSerializers.STRING);
@@ -47,7 +50,7 @@ public final class BlightedSporeEntity extends Monster implements GeoEntity {
     @Override
     public void baseTick() {
         super.baseTick();
-        if (level().isClientSide || level().getNearestPlayer(getX(), getY(), getZ(), 5, true) == null || getServer() == null) return;
+        if (level().isClientSide() || level().getNearestPlayer(getX(), getY(), getZ(), 5, true) == null || getServer() == null) return;
         Player nearest = null;
         double distance = Double.MAX_VALUE;
         for (var player : getServer().getPlayerList().getPlayers()) {
@@ -62,7 +65,7 @@ public final class BlightedSporeEntity extends Monster implements GeoEntity {
     @Override
     public void playerTouch(Player player) {
         super.playerTouch(player);
-        if (level().isClientSide) return;
+        if (level().isClientSide()) return;
         player.addEffect(new MobEffectInstance(StatusContent.INFECTED, 360, 0));
         if (random.nextDouble() < 0.3) level().playSound(null, blockPosition(), SoundEvents.SLIME_HURT, SoundSource.NEUTRAL, 1, 5);
     }
@@ -73,9 +76,9 @@ public final class BlightedSporeEntity extends Monster implements GeoEntity {
     @Override
     protected SoundEvent getDeathSound() { return SoundEvents.SCULK_CATALYST_BREAK; }
     @Override
-    public boolean hurt(DamageSource source, float amount) { return !source.is(DamageTypes.IN_FIRE) && !source.is(DamageTypes.FALL) && super.hurt(source, amount); }
+    public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) { return !source.is(DamageTypes.IN_FIRE) && !source.is(DamageTypes.FALL) && super.hurtServer(level, source, amount); }
     @Override
-    public boolean causeFallDamage(float distance, float multiplier, DamageSource source) { return false; }
+    public boolean causeFallDamage(double distance, float multiplier, DamageSource source) { return false; }
     @Override
     protected void checkFallDamage(double distance, boolean ground, net.minecraft.world.level.block.state.BlockState state, net.minecraft.core.BlockPos pos) { }
     @Override
@@ -83,16 +86,16 @@ public final class BlightedSporeEntity extends Monster implements GeoEntity {
     @Override
     public void aiStep() { super.aiStep(); setNoGravity(true); }
     @Override
-    public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); }
+    public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putString("Texture", texture()); }
     @Override
-    public void readAdditionalSaveData(CompoundTag tag) { super.readAdditionalSaveData(tag); if (tag.contains("Texture")) setTexture(tag.getString("Texture")); }
+    public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", "")); }
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 4, state -> PlayState.STOP)
+        var procedure = new LegacyAnimationController<>(this, "procedure", 4, state -> PlayState.STOP)
                 .triggerableAnim("idle", RawAnimation.begin().thenPlay("idle"))
                 .triggerableAnim("heartattack", RawAnimation.begin().thenPlay("heartattack"))
                 .triggerableAnim("heartattackloop", RawAnimation.begin().thenPlay("heartattackloop"));
-        controllers.add(new AnimationController<>(this, "movement", 4, state -> {
+        controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> {
             if (procedure.isPlayingTriggeredAnimation()) return PlayState.STOP;
             if ((state.isMoving() || Math.abs(state.getLimbSwingAmount()) >= 0.15F) && onGround()) return state.setAndContinue(RawAnimation.begin().thenLoop("idle"));
             return state.setAndContinue(isDeadOrDying() ? RawAnimation.begin().thenPlay("heartattackloop") : RawAnimation.begin().thenLoop("idle"));

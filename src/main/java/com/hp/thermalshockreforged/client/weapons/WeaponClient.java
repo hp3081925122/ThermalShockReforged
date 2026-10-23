@@ -1,18 +1,20 @@
 package com.hp.thermalshockreforged.client.weapons;
+import net.minecraft.client.renderer.rendertype.RenderTypes;
+import net.minecraft.client.renderer.rendertype.RenderType;
 
 import com.hp.thermalshockreforged.content.weapons.*;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.*;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.client.extensions.common.*;
 import net.neoforged.neoforge.common.NeoForge;
-import software.bernie.geckolib.model.GeoModel;
-import software.bernie.geckolib.renderer.GeoItemRenderer;
+import com.hp.thermalshockreforged.client.compat.LegacyGeoModel;
+import com.hp.thermalshockreforged.client.compat.LegacyGeoItemRenderer;
 
 public final class WeaponClient {
     private WeaponClient() { }
@@ -32,10 +34,7 @@ public final class WeaponClient {
         event.registerItem(new IClientItemExtensions() {
             private Renderer renderer;
             @Override
-            public BlockEntityWithoutLevelRenderer getCustomRenderer() {
-                if (renderer == null) renderer = new Renderer();
-                return renderer;
-            }
+
             @Override
             public boolean applyForgeHandTransform(PoseStack pose, LocalPlayer player, HumanoidArm arm,
                     ItemStack stack, float partialTick, float equipProcess, float swingProcess) {
@@ -51,20 +50,20 @@ public final class WeaponClient {
     private static void tick(ClientTickEvent.Post event) { WeaponContent.pruneAnimations(); }
     private static void logout(ClientPlayerNetworkEvent.LoggingOut event) { WeaponContent.clearAnimations(); }
 
-    private static final class Renderer extends GeoItemRenderer<BlindingLanternItem> {
+    private static final class Renderer extends LegacyGeoItemRenderer<BlindingLanternItem> {
         private Renderer() { super(new Model()); }
         @Override
-        public RenderType getRenderType(BlindingLanternItem item, ResourceLocation texture, MultiBufferSource buffers, float partialTick) {
-            return RenderType.entityTranslucent(texture);
+        public RenderType getRenderType(BlindingLanternItem item, Identifier texture, MultiBufferSource buffers, float partialTick) {
+            return RenderTypes.entityTranslucent(texture);
         }
     }
 
-    private static final class Model extends GeoModel<BlindingLanternItem> {
-        private static final ResourceLocation MODEL = ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", "geo/blinding_lantern.geo.json");
-        private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", "textures/item/blindinglantern.png");
-        private static final ResourceLocation ANIMATION = ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", "animations/blinding_lantern.animation.json");
-        @Override public ResourceLocation getModelResource(BlindingLanternItem item) { return MODEL; }
-        @Override public ResourceLocation getTextureResource(BlindingLanternItem item) { return TEXTURE; }
-        @Override public ResourceLocation getAnimationResource(BlindingLanternItem item) { return ANIMATION; }
+    private static final class Model extends LegacyGeoModel<BlindingLanternItem> {
+        private static final Identifier MODEL = Identifier.fromNamespaceAndPath("thermal_shock_reforged", "geo/blinding_lantern.geo.json");
+        private static final Identifier TEXTURE = Identifier.fromNamespaceAndPath("thermal_shock_reforged", "textures/item/blindinglantern.png");
+        private static final Identifier ANIMATION = Identifier.fromNamespaceAndPath("thermal_shock_reforged", "animations/blinding_lantern.animation.json");
+        @Override public Identifier getModelResource(BlindingLanternItem item) { return MODEL; }
+        @Override public Identifier getTextureResource(BlindingLanternItem item) { return TEXTURE; }
+        @Override public Identifier getAnimationResource(BlindingLanternItem item) { return ANIMATION; }
     }
 }

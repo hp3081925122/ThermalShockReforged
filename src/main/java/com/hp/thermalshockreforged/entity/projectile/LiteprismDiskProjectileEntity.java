@@ -9,7 +9,7 @@ import java.util.HashSet;
 import java.util.Set;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -32,7 +32,7 @@ public final class LiteprismDiskProjectileEntity extends LegacyArrowEntity {
         disk.shoot(direction.x, direction.y, direction.z, 2, 0);
         disk.setSilent(true); disk.setCritArrow(false); disk.setBaseDamage(2); disk.setImpactKnockback(0);
         if (!level.addFreshEntity(disk)) return false;
-        level.playSound(null, owner.getX(), owner.getY(), owner.getZ(), SoundEvents.TRIDENT_THROW.value(), SoundSource.PLAYERS, 1, 1 / (level.random.nextFloat() * .5F + 1) + .5F);
+        level.playSound(null, owner.getX(), owner.getY(), owner.getZ(), SoundEvents.TRIDENT_THROW.value(), SoundSource.PLAYERS, 1, 1 / (level.getRandom().nextFloat() * .5F + 1) + .5F);
         return true;
     }
     @Override protected void onHitEntity(EntityHitResult hit) {
@@ -51,7 +51,7 @@ public final class LiteprismDiskProjectileEntity extends LegacyArrowEntity {
                         living.hurt(new DamageSource(server.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ModDamageTypes.THERM_IFRAME_BYPASS)), 10);
                         server.sendParticles(WeaponContent.PRISM_CLUSTER.get(), getX(), living.getEyeY(), getZ(), 1, .0001, .0001, .0001, 0);
                         living.removeEffect(WeaponContent.LITEPRISM_BUILDUP);
-                        server.playSound(null, blockPosition(), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "prism_breakout")), SoundSource.NEUTRAL, 1, 1);
+                        server.playSound(null, blockPosition(), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "prism_breakout")), SoundSource.NEUTRAL, 1, 1);
                         ThermalShockReforged.LOGGER.debug("Liteprism buildup discharged: target={}", living.getUUID());
                     } finally {
                         active.remove(living);

@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.entity;
+import net.minecraft.world.item.SpawnEggItem;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -11,7 +12,7 @@ import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.common.DeferredSpawnEggItem;
+
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -41,12 +42,12 @@ public final class ModEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<PondlerEntity>> PONDLER = TYPES.register("pondler", () -> EntityType.Builder.of(PondlerEntity::new, MobCategory.WATER_AMBIENT).sized(0.6F, 0.6F).clientTrackingRange(64).updateInterval(3).build("thermal_shock_reforged:pondler"));
 
     static {
-        ITEMS.register("pondler_spawn_egg", () -> new DeferredSpawnEggItem(PONDLER, -1, -1, new Item.Properties()));
-        ITEMS.register("probosker_spawn_egg", () -> new DeferredSpawnEggItem(PROBOSKER, -1, -1, new Item.Properties()));
-        ITEMS.register("scarlet_ray_spawn_egg", () -> new DeferredSpawnEggItem(SCARLET_RAY, -1, -1, new Item.Properties()));
-        ITEMS.register("crystal_koi_spawn_egg", () -> new DeferredSpawnEggItem(CRYSTAL_KOI, -1, -1, new Item.Properties()));
-        ITEMS.register("forecast_spawn_egg", () -> new DeferredSpawnEggItem(FORECAST, -1, -1, new Item.Properties()));
-        ITEMS.register("galvanite_spawn_egg", () -> new DeferredSpawnEggItem(GALVANITE, -1, -1, new Item.Properties()));
+        ITEMS.register("pondler_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(PONDLER.get())));
+        ITEMS.register("probosker_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(PROBOSKER.get())));
+        ITEMS.register("scarlet_ray_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(SCARLET_RAY.get())));
+        ITEMS.register("crystal_koi_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(CRYSTAL_KOI.get())));
+        ITEMS.register("forecast_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(FORECAST.get())));
+        ITEMS.register("galvanite_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(GALVANITE.get())));
     }
 
     private ModEntities() {
