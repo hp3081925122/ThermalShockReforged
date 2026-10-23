@@ -75,7 +75,7 @@ class NativeDecorBlock extends Block implements com.hp.thermalshockreforged.cont
     }
 
     @Override
-    public float getEnchantPowerBonus(BlockState state, LevelReader level, BlockPos pos) {
+    public float getEnchantPowerBonus(BlockState state, net.minecraft.world.level.BlockGetter level, BlockPos pos) {
         return traits.enchantPower() == 0 ? super.getEnchantPowerBonus(state, level, pos) : traits.enchantPower();
     }
 

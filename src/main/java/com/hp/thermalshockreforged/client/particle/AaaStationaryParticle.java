@@ -19,7 +19,7 @@ public final class AaaStationaryParticle extends LegacySingleQuadParticle {
         setSize(0.2F, 0.2F); lifetime = life; gravity = 0; hasPhysics = physics;
         xd = velocity.x; yd = velocity.y; zd = velocity.z; pickSprite(sprites);
     }
-    public int getLightColor(float partialTick) { return fullBright ? 0xF000F0 : super.getLightColor(partialTick); }
+    public int getLightCoords(float partialTick) { return fullBright ? 0xF000F0 : super.getLightColor(partialTick); }
     @Override public ParticleRenderType getGroup() { return renderType; }
     @Override public void tick() {
         super.tick();

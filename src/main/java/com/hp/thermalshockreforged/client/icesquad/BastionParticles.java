@@ -31,7 +31,7 @@ final class BastionParticles {
             super.tick();
             if (isAlive()) setSpriteFromAge(sprites);
         }
-        public int getLightColor(float partialTick) { return FULL_BRIGHT; }
+        public int getLightCoords(float partialTick) { return FULL_BRIGHT; }
         @Override public ParticleRenderType getGroup() { return ParticleRenderType.SINGLE_QUADS; }
     }
 

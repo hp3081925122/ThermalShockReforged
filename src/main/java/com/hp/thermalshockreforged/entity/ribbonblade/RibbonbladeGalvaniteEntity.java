@@ -121,7 +121,7 @@ public final class RibbonbladeGalvaniteEntity extends AnimatedMonsterEntity impl
         }
         return result;
     }
-    @Override public void awardKillScore(Entity target, int score, DamageSource source) { super.awardKillScore(target, score, source); if (level() instanceof ServerLevel server) sound(server, "ribbonblade_win", 1, 1); }
+    @Override public void awardKillScore(Entity target, DamageSource source) { super.awardKillScore(target, source); if (level() instanceof ServerLevel server) sound(server, "ribbonblade_win", 1, 1); }
     @Override public void remove(RemovalReason reason) { if (activeStrike != null && level() instanceof ServerLevel server && server.getEntity(activeStrike) instanceof RibbonbladeActionEntity task) task.capture(this); super.remove(reason); }
     private void sound(ServerLevel server, String name, float volume, float pitch) { server.playSound(null, blockPosition(), BuiltInRegistries.SOUND_EVENT.getValue(RibbonbladeContent.id(name)), SoundSource.HOSTILE, volume, pitch); }
     @Override protected void playStepSound(BlockPos pos, BlockState state) { playSound(SoundEvents.CHAIN_PLACE, .15F, 1); }

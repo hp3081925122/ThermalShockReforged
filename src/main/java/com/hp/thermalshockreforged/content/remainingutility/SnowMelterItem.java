@@ -22,7 +22,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
 public final class SnowMelterItem extends Item {
-    SnowMelterItem() { super(new Properties().stacksTo(1)); }
+    SnowMelterItem() { super(com.hp.thermalshockreforged.ModRegistration.item().stacksTo(1)); }
 
     @Override
     public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {

@@ -18,7 +18,7 @@ import net.minecraft.world.level.*;
 import net.minecraft.world.phys.Vec3;
 
 public final class EnderTentacleItem extends Item {
-    public EnderTentacleItem() { super(new Properties().stacksTo(1)); }
+    public EnderTentacleItem() { super(com.hp.thermalshockreforged.ModRegistration.item().stacksTo(1)); }
     @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) { super.appendHoverText(stack, context, display, tooltipAdder, flag); tooltipAdder.accept(Component.translatable("item.thermal_shock_reforged.ender_tentacle.description_0")); }
     @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {
         var stack = player.getItemInHand(hand);

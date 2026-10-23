@@ -23,12 +23,12 @@ import net.neoforged.neoforge.registries.*;
 
 public final class WhisperContent {
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
-    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Items ITEMS = com.hp.thermalshockreforged.ModRegistration.items(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(Registries.MENU, ThermalShockReforged.MOD_ID);
     private static final EnumMap<WhisperPage, DeferredHolder<MenuType<?>, MenuType<WhisperMenu>>> PAGES = new EnumMap<>(WhisperPage.class);
     public static final DeferredHolder<EntityType<?>, EntityType<WhisperEntity>> WHISPER = TYPES.register("whisper", () -> EntityType.Builder.of(WhisperEntity::new, MobCategory.AMBIENT).sized(.8F, 3.5F).fireImmune().setShouldReceiveVelocityUpdates(true).clientTrackingRange(10).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("whisper")));
     static {
-        ITEMS.register("whisper_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(WHISPER.get())));
+        ITEMS.register("whisper_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(WHISPER.get())));
         for (var page : WhisperPage.values()) PAGES.put(page, MENUS.register(page.id, () -> IMenuTypeExtension.create((id, inv, data) -> new WhisperMenu(page, id, inv, data.readVarInt(), data.readUUID(), data.readBlockPos(), data.readVarInt()))));
     }
     public static Identifier id(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }

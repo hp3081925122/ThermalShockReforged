@@ -14,7 +14,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 
 public final class RawTorpedoItem extends Item {
-    public RawTorpedoItem() { super(new Properties().stacksTo(1).food(new FoodProperties.Builder().nutrition(12).saturationModifier(2).build())); }
+    public RawTorpedoItem() { super(com.hp.thermalshockreforged.ModRegistration.item().stacksTo(1).food(new FoodProperties.Builder().nutrition(12).saturationModifier(2).build())); }
 
     @Override
     public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
@@ -37,12 +37,12 @@ public final class RawTorpedoItem extends Item {
     }
 
     @Override
-    public void releaseUsing(ItemStack stack, Level level, LivingEntity entity, int timeLeft) {
-        if (!(entity instanceof ServerPlayer player)) return;
+    public boolean releaseUsing(ItemStack stack, Level level, LivingEntity entity, int timeLeft) {
+        if (!(entity instanceof ServerPlayer player)) return false;
         float power = BowItem.getPowerForTime(getUseDuration(stack, entity) - timeLeft);
-        if (power < 0.1F) return;
+        if (power < 0.1F) return false;
         var ammo = findAmmo(player);
-        if (!player.getAbilities().instabuild && ammo.isEmpty()) return;
+        if (!player.getAbilities().instabuild && ammo.isEmpty()) return false;
         var orb = GoreFlayerOrbEntity.shoot(level, entity, power);
         if (player.getAbilities().instabuild) {
             orb.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
@@ -52,8 +52,7 @@ public final class RawTorpedoItem extends Item {
         } else {
             ammo.shrink(1);
             if (ammo.isEmpty()) player.getInventory().removeItem(ammo);
-        }
-    }
+        } return false; }
 
     private ItemStack findAmmo(Player player) {
         var ammo = ProjectileWeaponItem.getHeldProjectile(player, stack -> stack.is(FaunaEntities.item("gore_projectile")));

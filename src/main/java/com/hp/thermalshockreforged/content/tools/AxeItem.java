@@ -1,7 +1,5 @@
 package com.hp.thermalshockreforged.content.tools;
 
-import net.minecraft.world.item.Item;
-
-public class AxeItem extends Item {
-    public AxeItem(Tier tier, Properties properties) { super(tier.toolMaterial().applyToolProperties(properties, tier.getIncorrectBlocksForDrops(), 5, -3.0F, 0)); }
+public class AxeItem extends net.minecraft.world.item.AxeItem {
+    public AxeItem(Tier tier, float damage, float speed, Properties properties) { super(tier.toolMaterial(), damage, speed, properties); }
 }

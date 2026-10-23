@@ -18,7 +18,7 @@ import net.minecraft.world.level.storage.loot.parameters.*;
 
 public final class QuestLootBundleItem extends Item {
     private static final ResourceKey<LootTable> LOOT = ResourceKey.create(Registries.LOOT_TABLE, Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "leaf_it_to_me_loot"));
-    public QuestLootBundleItem() { super(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)); }
+    public QuestLootBundleItem() { super(com.hp.thermalshockreforged.ModRegistration.item().stacksTo(1).rarity(Rarity.RARE)); }
     @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         if (level instanceof ServerLevel server && player instanceof ServerPlayer owner) {

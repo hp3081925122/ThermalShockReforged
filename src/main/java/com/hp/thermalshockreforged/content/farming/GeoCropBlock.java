@@ -24,7 +24,7 @@ public class GeoCropBlock extends Block implements EntityBlock {
         registerDefaultState(defaultBlockState().setValue(ANIMATION, 0));
     }
     private static Properties properties(CropKind kind) {
-        var props = Properties.of().mapColor(MapColor.PLANT).sound(kind == CropKind.ANCIENT_BARBUBBLE ? SoundType.WOOD : SoundType.GRASS)
+        var props = com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.PLANT).sound(kind == CropKind.ANCIENT_BARBUBBLE ? SoundType.WOOD : SoundType.GRASS)
                 .strength(kind == CropKind.ANCIENT_BARBUBBLE ? .7f : .5f, 0).noCollision().noOcclusion().pushReaction(PushReaction.DESTROY)
                 .isRedstoneConductor((s, l, p) -> false);
         if (kind.luminous) props.lightLevel(s -> 5).emissiveRendering((s, l, p) -> true);

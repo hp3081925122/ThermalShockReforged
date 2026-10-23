@@ -119,7 +119,7 @@ public final class InfestophageSeedEntity extends PathfinderMob implements GeoEn
     }
 
     @Override
-    protected void dropExperience(Entity source) {
+    protected void dropExperience(net.minecraft.server.level.ServerLevel serverLevel, Entity source) {
         experiencePending = true;
         experienceSource = source == null ? null : source.getUUID();
     }

@@ -23,7 +23,7 @@ import java.util.List;
 public final class GeoDecorItem extends BlockItem implements GeoItem {
     private final AnimatableInstanceCache animations = GeckoLibUtil.createInstanceCache(this);
     public final GeoDecorKind kind;
-    public GeoDecorItem(Block block, GeoDecorKind kind, Properties properties) { super(block, properties); this.kind = kind; }
+    public GeoDecorItem(Block block, GeoDecorKind kind, Properties properties) { super(block, com.hp.thermalshockreforged.ModRegistration.blockItem(block, properties)); this.kind = kind; }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar registrar) {
         registrar.add(new LegacyAnimationController<>(this, "controller", 0, state -> switch (kind) {
             case ATLAS, GRAND_BLASPHEMER, PYLON_CORE, EXTRACTOR, WORLD_TOUR_TROPHY, PYROGENIC_PYLON_CORE, SPIDER_LILIES, ICEBREAKER -> state.setAndContinue(RawAnimation.begin().thenLoop("0"));

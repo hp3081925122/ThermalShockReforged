@@ -17,7 +17,7 @@ import net.minecraft.world.phys.BlockHitResult;
 final class CrystalleyeBlock extends NativeDecorBlock {
     private final int style;
     CrystalleyeBlock(int style) {
-        super(Properties.of().mapColor(MapColor.COLOR_GRAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.BASALT).strength(2, 30).lightLevel(state -> style == 0 ? 0 : 10).requiresCorrectToolForDrops(), new Traits(15, false, false, false, 0, 0, false, false), null, "block.thermal_shock_reforged." + (style == 0 ? "chiseled_mantlestone" : style == 1 ? "red_crystalleye_lamp" : "blue_crystalleye_lamp") + ".description_0");
+        super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.COLOR_GRAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.BASALT).strength(2, 30).lightLevel(state -> style == 0 ? 0 : 10).requiresCorrectToolForDrops(), new Traits(15, false, false, false, 0, 0, false, false), null, "block.thermal_shock_reforged." + (style == 0 ? "chiseled_mantlestone" : style == 1 ? "red_crystalleye_lamp" : "blue_crystalleye_lamp") + ".description_0");
         this.style = style;
     }
     private boolean chisel(BlockState state, Level level, BlockPos pos, Player player) {

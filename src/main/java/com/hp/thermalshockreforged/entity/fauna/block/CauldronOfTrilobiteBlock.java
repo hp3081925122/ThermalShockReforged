@@ -23,7 +23,7 @@ public final class CauldronOfTrilobiteBlock extends Block implements EntityBlock
     private static final VoxelShape SHAPE = box(0.1, 0.1, 0.1, 15.9, 13, 15.9);
 
     public CauldronOfTrilobiteBlock() {
-        super(Properties.of().mapColor(net.minecraft.world.level.material.MapColor.METAL).sound(SoundType.METAL).strength(2, 10).noOcclusion().isRedstoneConductor((s, r, p) -> false));
+        super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(net.minecraft.world.level.material.MapColor.METAL).sound(SoundType.METAL).strength(2, 10).noOcclusion().isRedstoneConductor((s, r, p) -> false));
         registerDefaultState(stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(ANIMATION, 0));
     }
 

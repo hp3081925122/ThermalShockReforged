@@ -28,7 +28,7 @@ import net.minecraft.world.level.material.MapColor;
 public final class PurifierBlock extends Block implements EntityBlock, com.hp.thermalshockreforged.content.BlockTooltips.Provider {
     public static final EnumProperty<Direction> FACING = HorizontalDirectionalBlock.FACING;
     public PurifierBlock() {
-        super(Properties.of().mapColor(MapColor.SNOW).sound(SoundType.GLASS).strength(7, 99).requiresCorrectToolForDrops().emissiveRendering((state, level, pos) -> true));
+        super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.SNOW).sound(SoundType.GLASS).strength(7, 99).requiresCorrectToolForDrops().emissiveRendering((state, level, pos) -> true));
         registerDefaultState(defaultBlockState().setValue(FACING, Direction.NORTH));
     }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { super.createBlockStateDefinition(builder); builder.add(FACING); }

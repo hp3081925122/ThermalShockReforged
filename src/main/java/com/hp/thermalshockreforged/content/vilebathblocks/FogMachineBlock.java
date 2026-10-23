@@ -18,7 +18,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 final class FogMachineBlock extends Block {
     FogMachineBlock() {
-        super(Properties.of().mapColor(MapColor.METAL).sound(SoundType.METAL).strength(1, 10)
+        super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.METAL).sound(SoundType.METAL).strength(1, 10)
                 .requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((state, level, pos) -> false));
     }
 

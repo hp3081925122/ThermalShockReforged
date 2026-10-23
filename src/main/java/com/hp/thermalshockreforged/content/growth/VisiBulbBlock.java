@@ -22,7 +22,7 @@ import net.minecraft.world.phys.shapes.*;
 public final class VisiBulbBlock extends Block implements EntityBlock {
     public static final IntegerProperty BLOCKSTATE=IntegerProperty.create("blockstate",0,1);
     public VisiBulbBlock() {
-        super(Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).sound(SoundType.GRASS).strength(.5f,0).lightLevel(s->s.getValue(BLOCKSTATE)==1?4:0).noCollision().noOcclusion().emissiveRendering((s,l,p)->true).isRedstoneConductor((s,l,p)->false));
+        super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.COLOR_LIGHT_BLUE).sound(SoundType.GRASS).strength(.5f,0).lightLevel(s->s.getValue(BLOCKSTATE)==1?4:0).noCollision().noOcclusion().emissiveRendering((s,l,p)->true).isRedstoneConductor((s,l,p)->false));
         registerDefaultState(defaultBlockState().setValue(BLOCKSTATE,0));
     }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block,BlockState> builder) { super.createBlockStateDefinition(builder); builder.add(BLOCKSTATE); }

@@ -20,7 +20,7 @@ import net.minecraft.world.phys.BlockHitResult;
 class ShaleLampBlock extends NativeDecorBlock {
     static final IntegerProperty VARIANT = IntegerProperty.create("blockstate", 0, 1);
     ShaleLampBlock() {
-        super(Properties.of().mapColor(MapColor.COLOR_GRAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERRACK).strength(1, 5)
+        super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.COLOR_GRAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERRACK).strength(1, 5)
                 .lightLevel(state -> state.getValue(state.getBlock() instanceof Chromatic ? Chromatic.VARIANT : VARIANT) == 1 ? 0 : 15)
                 .requiresCorrectToolForDrops().randomTicks(), new Traits(15, false, false, false, 0, 0, false, false), null);
         registerDefaultState(defaultBlockState().setValue(variant(), 0));

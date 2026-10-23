@@ -25,8 +25,8 @@ import net.neoforged.neoforge.registries.*;
 
 public final class LabContent {
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
-    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
-    private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Items ITEMS = com.hp.thermalshockreforged.ModRegistration.items(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Blocks BLOCKS = com.hp.thermalshockreforged.ModRegistration.blocks(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<BlockEntityType<?>> ENTITIES = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(Registries.MENU, ThermalShockReforged.MOD_ID);
     private static final EnumMap<LabPage, DeferredHolder<MenuType<?>, MenuType<LabMenu>>> PAGES = new EnumMap<>(LabPage.class);
@@ -47,7 +47,7 @@ public final class LabContent {
     public static final DeferredItem<ClimbingPickItem> JELLY_PICK = ITEMS.register("jelly_pick", () -> new ClimbingPickItem(true));
     static {
         ITEMS.registerSimpleBlockItem(WALLBORE_CONSTRUCTOR); ITEMS.registerSimpleBlockItem(SUSPICIOUS_SAFE); ITEMS.registerSimpleBlockItem(STORM_BATTERY);
-        ITEMS.register("lab_machinist_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(LAB_MACHINIST.get())));
+        ITEMS.register("lab_machinist_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(LAB_MACHINIST.get())));
         for (var page : LabPage.values()) PAGES.put(page, MENUS.register(page.id, () -> IMenuTypeExtension.create((id, inventory, data) -> new LabMenu(page, id, inventory, data.readVarInt(), data.readUUID(), data.readBlockPos(), data.readUtf(), data.readUtf(), data.readVarInt()))));
     }
     private LabContent() { }

@@ -19,7 +19,7 @@ final class BloomerAuraParticle extends LegacySingleQuadParticle {
         pickSprite(sprites);
     }
     @Override
-    public int getLightColor(float partialTick) { return 0xF000F0; }
+    public int getLightCoords(float partialTick) { return 0xF000F0; }
     @Override
     public ParticleRenderType getGroup() { return ParticleRenderType.SINGLE_QUADS; }
     @Override

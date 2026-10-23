@@ -9,7 +9,7 @@ import net.minecraft.util.TriState;
 
 public final class PlanterBlock extends Block {
     public PlanterBlock(boolean metal) {
-        super(Properties.of().mapColor(metal ? MapColor.METAL : MapColor.WOOD).sound(metal ? SoundType.METAL : SoundType.WOOD).strength(1, 3.8f).requiresCorrectToolForDrops());
+        super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(metal ? MapColor.METAL : MapColor.WOOD).sound(metal ? SoundType.METAL : SoundType.WOOD).strength(1, 3.8f).requiresCorrectToolForDrops());
     }
     @Override protected int getLightDampening(BlockState state) { return 15; }
     @Override public TriState canSustainPlant(BlockState state, BlockGetter level, BlockPos pos, Direction face, BlockState plant) { return TriState.TRUE; }

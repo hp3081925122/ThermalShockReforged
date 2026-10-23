@@ -11,7 +11,7 @@ import com.geckolib.util.GeckoLibUtil;
 
 public final class GelBulbItem extends BlockItem implements GeoItem {
     private final AnimatableInstanceCache animations = GeckoLibUtil.createInstanceCache(this);
-    public GelBulbItem(Block block) { super(block, new Properties()); }
+    public GelBulbItem(Block block) { super(block, com.hp.thermalshockreforged.ModRegistration.blockItem(block)); }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar registrar) {
         registrar.add(new LegacyAnimationController<>(this, "controller", 0, state -> state.setAndContinue(RawAnimation.begin().thenLoop("0"))));
     }

@@ -36,7 +36,7 @@ final class ReinforcedWindowBlock extends Block implements com.hp.thermalshockre
     static final IntegerProperty DESIGN = IntegerProperty.create("blockstate", 0, 5);
 
     ReinforcedWindowBlock() {
-        super(Properties.of().mapColor(MapColor.METAL).instrument(NoteBlockInstrument.BASEDRUM)
+        super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.METAL).instrument(NoteBlockInstrument.BASEDRUM)
                 .sound(SoundType.NETHERITE_BLOCK).strength(2, 30).requiresCorrectToolForDrops()
                 .noOcclusion().isRedstoneConductor((state, level, pos) -> false));
         registerDefaultState(defaultBlockState().setValue(DESIGN, 0));

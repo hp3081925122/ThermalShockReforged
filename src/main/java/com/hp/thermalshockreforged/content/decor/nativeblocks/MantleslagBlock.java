@@ -13,7 +13,7 @@ import net.minecraft.world.phys.Vec3;
 
 final class MantleslagBlock extends NativeDecorBlock {
     MantleslagBlock() {
-        super(Properties.of().mapColor(MapColor.TERRACOTTA_ORANGE).sound(SoundType.STONE).strength(-1, 3600000).lightLevel(state -> 10).speedFactor(.4F)
+        super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.TERRACOTTA_ORANGE).sound(SoundType.STONE).strength(-1, 3600000).lightLevel(state -> 10).speedFactor(.4F)
                 .noOcclusion().emissiveRendering((state, level, pos) -> true).isRedstoneConductor((state, level, pos) -> false),
                 new Traits(0, true, true, false, 0, 0, false, true), Block.box(0, 0, 0, 16, 15, 16));
     }

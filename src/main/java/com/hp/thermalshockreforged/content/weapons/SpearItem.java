@@ -50,7 +50,7 @@ public final class SpearItem extends Item implements GeoItem {
     public Kind kind() { return kind; }
     private final BoundedItemAnimationCache animations = new BoundedItemAnimationCache(this);
     public SpearItem(Kind kind) {
-        super(new Properties().durability(kind.durability).rarity(kind.cryo || kind == Kind.HI_VOLT ? net.minecraft.world.item.Rarity.UNCOMMON : net.minecraft.world.item.Rarity.COMMON).attributes(net.minecraft.world.item.component.ItemAttributeModifiers.builder()
+        super(com.hp.thermalshockreforged.ModRegistration.item().durability(kind.durability).rarity(kind.cryo || kind == Kind.HI_VOLT ? net.minecraft.world.item.Rarity.UNCOMMON : net.minecraft.world.item.Rarity.COMMON).attributes(net.minecraft.world.item.component.ItemAttributeModifiers.builder()
                 .add(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_ID, kind.damage, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
                 .add(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_ID, -2.4, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).build()));
         this.kind = kind;

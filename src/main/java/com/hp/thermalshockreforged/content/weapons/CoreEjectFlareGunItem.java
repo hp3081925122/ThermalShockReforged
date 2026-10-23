@@ -30,11 +30,10 @@ import com.geckolib.animation.*;
 public final class CoreEjectFlareGunItem extends Item implements GeoItem {
     private final BoundedItemAnimationCache animations = new BoundedItemAnimationCache(this);
     public CoreEjectFlareGunItem() {
-        super(new Properties().durability(345).fireResistant().rarity(Rarity.COMMON));
+        super(com.hp.thermalshockreforged.ModRegistration.item().enchantable(5).durability(345).fireResistant().rarity(Rarity.COMMON));
         GeoItem.registerSyncedAnimatable(this);
     }
     @Override public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) { return false; }
-    @Override public int getEnchantmentValue() { return 5; }
     @Override public boolean onEntitySwing(ItemStack stack, LivingEntity wielder, InteractionHand hand) {
         if (wielder instanceof Player player) fire(player, stack, false);
         return false;

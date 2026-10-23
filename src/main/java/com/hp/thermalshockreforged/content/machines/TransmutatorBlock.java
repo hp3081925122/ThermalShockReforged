@@ -28,7 +28,7 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.BlockHitResult;
 
 public final class TransmutatorBlock extends Block implements com.hp.thermalshockreforged.content.BlockTooltips.Provider {
-    public TransmutatorBlock() { super(Properties.of().mapColor(MapColor.METAL).sound(SoundType.METAL).strength(2, 20).lightLevel(state -> 10)); }
+    public TransmutatorBlock() { super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.METAL).sound(SoundType.METAL).strength(2, 20).lightLevel(state -> 10)); }
     private boolean process(ItemStack input, Level level, BlockPos pos, Player player) {
         var recipe = TransmutationRecipe.find(level, input);
         if (recipe == null) return false;

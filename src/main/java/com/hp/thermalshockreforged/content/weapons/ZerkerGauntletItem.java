@@ -32,13 +32,12 @@ import com.geckolib.animation.*;
 public final class ZerkerGauntletItem extends Item implements GeoItem {
     private final BoundedItemAnimationCache animations = new BoundedItemAnimationCache(this);
     public ZerkerGauntletItem() {
-        super(new Properties().durability(155).rarity(Rarity.UNCOMMON).attributes(ItemAttributeModifiers.builder()
+        super(com.hp.thermalshockreforged.ModRegistration.item().enchantable(12).durability(155).rarity(Rarity.UNCOMMON).attributes(ItemAttributeModifiers.builder()
                 .add(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_ID, 8, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
                 .add(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_ID, -2.4, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).build()));
         GeoItem.registerSyncedAnimatable(this);
     }
     @Override public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) { return false; }
-    @Override public int getEnchantmentValue() { return 12; }
     @Override public float getDestroySpeed(ItemStack stack, BlockState state) { return 1.4F; }
     @Override public void inventoryTick(ItemStack stack, net.minecraft.server.level.ServerLevel level, Entity entity, net.minecraft.world.entity.EquipmentSlot slot) {
         super.inventoryTick(stack, level, entity, slot);

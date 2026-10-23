@@ -20,7 +20,7 @@ public final class IgnitionDetectorItem extends Item {
     private static final List<TagKey<Biome>> SCORES = java.util.stream.IntStream.rangeClosed(-2, 2)
             .mapToObj(score -> TagKey.create(Registries.BIOME, RemainingUtilityContent.id("ignition_" + score))).toList();
 
-    IgnitionDetectorItem() { super(new Properties().stacksTo(1)); }
+    IgnitionDetectorItem() { super(com.hp.thermalshockreforged.ModRegistration.item().stacksTo(1)); }
 
     @Override
     public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {

@@ -12,7 +12,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 
 public final class IceArtifactItem extends Item {
-    public IceArtifactItem() { super(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)); }
+    public IceArtifactItem() { super(com.hp.thermalshockreforged.ModRegistration.item().stacksTo(1).rarity(Rarity.UNCOMMON)); }
     @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         if (player.getCooldowns().isOnCooldown(this)) return InteractionResult.FAIL;

@@ -48,14 +48,14 @@ public final class ElementalBladeItem extends SwordItem {
         @Override public float getAttackDamageBonus() { return damage; }
         @Override public int getEnchantmentValue() { return enchantment; }
         @Override public TagKey<Block> getIncorrectBlocksForDrops() { return this == SHOCK_STICK ? BlockTags.INCORRECT_FOR_IRON_TOOL : BlockTags.INCORRECT_FOR_DIAMOND_TOOL; }
-        @Override public Ingredient getRepairIngredient() { return this == SHOCK_STICK ? Ingredient.EMPTY : Ingredient.of(MaterialContent.items().get("stratus_alloy").get()); }
+        @Override public TagKey<Item> getRepairItems() { return Tier.repairTag(this == SHOCK_STICK ? "none" : "stratus_alloy"); }
     }
     private static final TagKey<EntityType<?>> FERRO_WEAK = TagKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "ferro_weak"));
     private static final TagKey<EntityType<?>> CLORO_WEAK = TagKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "cloro_weak"));
     private final Kind kind;
-    public ElementalBladeItem(Kind kind) { super(kind, properties(kind)); this.kind = kind; }
+    public ElementalBladeItem(Kind kind) { super(kind, 3, kind == Kind.SHOCK_STICK ? -2 : -2.6F, properties(kind)); this.kind = kind; }
     private static Properties properties(Kind kind) {
-        var properties = new Properties().attributes(SwordItem.createAttributes(kind, 3, kind == Kind.SHOCK_STICK ? -2 : -2.6F));
+        var properties = com.hp.thermalshockreforged.ModRegistration.item();
         return kind == Kind.KNIGHTS_EDGE ? properties.fireResistant() : properties;
     }
     @Override public void hurtEnemy(ItemStack stack, LivingEntity victim, LivingEntity attacker) {

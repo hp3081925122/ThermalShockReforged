@@ -27,7 +27,7 @@ public record ExtractionRecipe(Ingredient ingredient, int levels, Optional<Exper
 
     public record Output(ItemStack item, float chance, IntProvider repeat) {
         public static final Codec<Output> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-                ItemStack.STRICT_CODEC.fieldOf("item").forGetter(Output::item),
+                ItemStack.CODEC.fieldOf("item").forGetter(Output::item),
                 Codec.floatRange(0, 1).optionalFieldOf("chance", 1F).forGetter(Output::chance),
                 IntProvider.POSITIVE_CODEC.optionalFieldOf("repeat", ConstantInt.of(1)).forGetter(Output::repeat)
         ).apply(instance, Output::new));
@@ -36,7 +36,7 @@ public record ExtractionRecipe(Ingredient ingredient, int levels, Optional<Exper
     }
 
     public static final MapCodec<ExtractionRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
-            Ingredient.CODEC_NONEMPTY.fieldOf("ingredient").forGetter(ExtractionRecipe::ingredient),
+            Ingredient.CODEC.fieldOf("ingredient").forGetter(ExtractionRecipe::ingredient),
             Codec.intRange(0, Integer.MAX_VALUE).optionalFieldOf("levels", 0).forGetter(ExtractionRecipe::levels),
             Experience.CODEC.optionalFieldOf("experience").forGetter(ExtractionRecipe::experience),
             Output.CODEC.listOf().optionalFieldOf("outputs", List.of()).forGetter(ExtractionRecipe::outputs),
@@ -51,6 +51,6 @@ public record ExtractionRecipe(Ingredient ingredient, int levels, Optional<Exper
         return null;
     }
 
-    @Override public RecipeSerializer<?> getSerializer() { return RecipeContent.EXTRACTION.serializer().get(); }
-    @Override public RecipeType<?> getType() { return RecipeContent.EXTRACTION.type().get(); }
+    @Override public RecipeSerializer<? extends DataRecipe> getSerializer() { return RecipeContent.EXTRACTION.serializer().get(); }
+    @Override public RecipeType<? extends DataRecipe> getType() { return RecipeContent.EXTRACTION.type().get(); }
 }

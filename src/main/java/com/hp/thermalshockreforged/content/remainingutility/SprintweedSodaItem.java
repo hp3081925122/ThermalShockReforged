@@ -14,7 +14,7 @@ import net.minecraft.world.item.ItemUseAnimation;
 import net.minecraft.world.level.Level;
 
 public final class SprintweedSodaItem extends Item {
-    SprintweedSodaItem() { super(new Properties().stacksTo(1)); }
+    SprintweedSodaItem() { super(com.hp.thermalshockreforged.ModRegistration.item().stacksTo(1)); }
 
     @Override public ItemUseAnimation getUseAnimation(ItemStack stack) { return ItemUseAnimation.DRINK; }
     @Override public int getUseDuration(ItemStack stack, LivingEntity consumer) { return 20; }

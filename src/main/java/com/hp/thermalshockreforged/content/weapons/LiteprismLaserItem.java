@@ -27,11 +27,10 @@ import com.geckolib.animation.*;
 public final class LiteprismLaserItem extends Item implements GeoItem {
     private final BoundedItemAnimationCache animations = new BoundedItemAnimationCache(this);
     public LiteprismLaserItem() {
-        super(new Properties().durability(1000).rarity(Rarity.UNCOMMON));
+        super(com.hp.thermalshockreforged.ModRegistration.item().enchantable(5).durability(1000).rarity(Rarity.UNCOMMON));
         GeoItem.registerSyncedAnimatable(this);
     }
     @Override public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) { return false; }
-    @Override public int getEnchantmentValue() { return 5; }
     @Override public int getUseDuration(ItemStack stack, LivingEntity entity) { return 20; }
     @Override public boolean onEntitySwing(ItemStack stack, LivingEntity wielder, InteractionHand hand) {
         if (!(wielder instanceof Player player) || !(player.level() instanceof ServerLevel server) || player.getCooldowns().isOnCooldown(this)) return false;

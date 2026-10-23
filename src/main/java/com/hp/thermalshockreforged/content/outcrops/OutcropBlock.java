@@ -14,7 +14,7 @@ public final class OutcropBlock extends Block implements EntityBlock {
     public static final IntegerProperty ANIMATION = IntegerProperty.create("animation", 0, 1);
     public final OutcropKind kind;
     public OutcropBlock(OutcropKind kind) {
-        super(Properties.of().mapColor(kind.mapColor).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERRACK).strength(3, 5).requiresCorrectToolForDrops());
+        super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(kind.mapColor).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERRACK).strength(3, 5).requiresCorrectToolForDrops());
         this.kind = kind;
         registerDefaultState(defaultBlockState().setValue(ANIMATION, 0));
     }

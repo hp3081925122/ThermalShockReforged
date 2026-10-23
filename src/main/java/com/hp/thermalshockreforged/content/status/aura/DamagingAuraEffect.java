@@ -25,7 +25,7 @@ final class DamagingAuraEffect extends MobEffect {
     @Override
     public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) { return true; }
     @Override
-    public boolean applyEffectTick(LivingEntity caster, int amplifier) {
+    public boolean applyEffectTick(net.minecraft.server.level.ServerLevel serverLevel, LivingEntity caster, int amplifier) {
         if (!(caster.level() instanceof ServerLevel server)) return true;
         var id = BuiltInRegistries.ENTITY_TYPE.getKey(caster.getType());
         if (id.equals(ANGRY) && caster.getRandom().nextDouble() < 0.1) server.sendParticles(AuraContent.BLOOMER_AURA.get(), caster.getX(), caster.getY() + caster.getEyeHeight(), caster.getZ(), 1, 0, 0, 0, 0);

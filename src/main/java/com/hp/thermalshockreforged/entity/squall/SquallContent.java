@@ -18,7 +18,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public final class SquallContent {
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
-    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Items ITEMS = com.hp.thermalshockreforged.ModRegistration.items(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<net.minecraft.core.particles.ParticleType<?>> PARTICLES = DeferredRegister.create(Registries.PARTICLE_TYPE, ThermalShockReforged.MOD_ID);
     public static final DeferredHolder<EntityType<?>, EntityType<SquallEntity>> SQUALL = TYPES.register("squall", () -> EntityType.Builder.of(SquallEntity::new, MobCategory.MONSTER).sized(.6F, 1.8F).fireImmune().setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("squall")));
     public static final DeferredHolder<net.minecraft.core.particles.ParticleType<?>, SimpleParticleType> SMOKE = PARTICLES.register("squall_smoke", () -> new SimpleParticleType(false));
@@ -26,7 +26,7 @@ public final class SquallContent {
     public static final DeferredHolder<net.minecraft.core.particles.ParticleType<?>, SimpleParticleType> MARK = PARTICLES.register("squall_mark", () -> new SimpleParticleType(true));
     public static final DeferredHolder<net.minecraft.core.particles.ParticleType<?>, SimpleParticleType> BURST = PARTICLES.register("squall_burst", () -> new SimpleParticleType(true));
     public static final DeferredHolder<net.minecraft.core.particles.ParticleType<?>, SimpleParticleType> BOLT = PARTICLES.register("squall_bolt", () -> new SimpleParticleType(true));
-    static { ITEMS.register("squall_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(SQUALL.get()))); }
+    static { ITEMS.register("squall_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(SQUALL.get()))); }
     public static Identifier id(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
     public static void register(IEventBus bus) {
         TYPES.register(bus);

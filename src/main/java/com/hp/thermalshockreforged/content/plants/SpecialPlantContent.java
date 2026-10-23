@@ -12,8 +12,8 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.*;
 
 public final class SpecialPlantContent {
-    private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(ThermalShockReforged.MOD_ID);
-    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Blocks BLOCKS = com.hp.thermalshockreforged.ModRegistration.blocks(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Items ITEMS = com.hp.thermalshockreforged.ModRegistration.items(ThermalShockReforged.MOD_ID);
     public static final DeferredBlock<Block> BOUNCEWEED = BLOCKS.register("bounceweed", () -> new BuffWeedBlock(MobEffects.JUMP_BOOST, glowing()));
     public static final DeferredBlock<Block> FLOATWEED = BLOCKS.register("floatweed", () -> new BuffWeedBlock(MobEffects.SLOW_FALLING, glowing()));
     public static final DeferredBlock<Block> VERMILLION_ROOTS = BLOCKS.register("vermillion_roots", VermillionRootsBlock::new);
@@ -29,7 +29,7 @@ public final class SpecialPlantContent {
     public static void register(IEventBus bus) { BLOCKS.register(bus); ITEMS.register(bus); }
 
     private static BlockBehaviour.Properties properties() {
-        return BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).instabreak().noCollision()
+        return com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.PLANT).sound(SoundType.GRASS).instabreak().noCollision()
                 .offsetType(BlockBehaviour.OffsetType.XZ).pushReaction(PushReaction.DESTROY);
     }
 

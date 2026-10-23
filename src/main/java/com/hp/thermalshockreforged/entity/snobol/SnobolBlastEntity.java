@@ -56,8 +56,8 @@ public final class SnobolBlastEntity extends Entity {
     static void detonate(ServerLevel server, Vec3 position, double damage) {
         var calculator = new ExplosionDamageCalculator() {
             @Override
-            public float getEntityDamageAmount(Explosion explosion, Entity target) {
-                return (float) (super.getEntityDamageAmount(explosion, target) * damage);
+            public float getEntityDamageAmount(Explosion explosion, Entity target, float seenPercent) {
+                return (float) (super.getEntityDamageAmount(explosion, target, seenPercent) * damage);
             }
             @Override
             public float getKnockbackMultiplier(Entity target) {

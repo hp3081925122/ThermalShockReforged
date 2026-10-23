@@ -16,7 +16,7 @@ import net.neoforged.neoforge.registries.*;
 
 public final class AmbientContent {
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
-    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Items ITEMS = com.hp.thermalshockreforged.ModRegistration.items(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<ParticleType<?>> PARTICLES = DeferredRegister.create(Registries.PARTICLE_TYPE, ThermalShockReforged.MOD_ID);
     public static final DeferredHolder<EntityType<?>, EntityType<PillbudEntity>> PILLBUD = TYPES.register("pillbud", () -> EntityType.Builder.of(PillbudEntity::new, MobCategory.AMBIENT).sized(0.8F, 0.8F).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("pillbud")));
     public static final DeferredHolder<EntityType<?>, EntityType<PixieEntity>> PIXIE = TYPES.register("pixie", () -> EntityType.Builder.of(PixieEntity::new, MobCategory.AMBIENT).fireImmune().sized(0.7F, 0.7F).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("pixie")));
@@ -25,9 +25,9 @@ public final class AmbientContent {
     public static final DeferredItem<BottledPixieItem> BOTTLED_PIXIE = ITEMS.register("bottled_pixie", BottledPixieItem::new);
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> PRISMATIC_BOOM = PARTICLES.register("prismatic_boom", () -> new SimpleParticleType(true));
     static {
-        ITEMS.register("pillbud_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(PILLBUD.get())));
-        ITEMS.register("pixie_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(PIXIE.get())));
-        ITEMS.register("sootling_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(SOOTLING.get())));
+        ITEMS.register("pillbud_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(PILLBUD.get())));
+        ITEMS.register("pixie_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(PIXIE.get())));
+        ITEMS.register("sootling_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(SOOTLING.get())));
     }
     private AmbientContent() { }
     public static void register(IEventBus bus) {

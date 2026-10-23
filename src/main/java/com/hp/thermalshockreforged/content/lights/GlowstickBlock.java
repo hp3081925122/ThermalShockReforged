@@ -20,7 +20,7 @@ public final class GlowstickBlock extends Block implements EntityBlock, SimpleWa
     private static final VoxelShape SHAPE = box(7, 0, 7, 9, 16, 9);
 
     public GlowstickBlock() {
-        super(Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).sound(SoundType.SPORE_BLOSSOM).instabreak().lightLevel(state -> 9)
+        super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.COLOR_LIGHT_BLUE).sound(SoundType.SPORE_BLOSSOM).instabreak().lightLevel(state -> 9)
                 .noCollision().noOcclusion().pushReaction(PushReaction.DESTROY)
                 .emissiveRendering((s, l, p) -> true).isRedstoneConductor((s, l, p) -> false));
         registerDefaultState(stateDefinition.any().setValue(ANIMATION, 0).setValue(WATERLOGGED, false));

@@ -16,7 +16,7 @@ public final class HangingFruitBlock extends Block {
     private final boolean lunar;
     public HangingFruitBlock(boolean lunar) { super(properties(lunar)); this.lunar = lunar; }
     private static Properties properties(boolean lunar) {
-        var properties = Properties.of().mapColor(lunar ? MapColor.COLOR_LIGHT_BLUE : MapColor.COLOR_ORANGE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.FUNGUS).strength(.2f, 0).noCollision().noOcclusion().isRedstoneConductor((s,l,p)->false);
+        var properties = com.hp.thermalshockreforged.ModRegistration.block().mapColor(lunar ? MapColor.COLOR_LIGHT_BLUE : MapColor.COLOR_ORANGE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.FUNGUS).strength(.2f, 0).noCollision().noOcclusion().isRedstoneConductor((s,l,p)->false);
         return lunar ? properties.lightLevel(s->7).emissiveRendering((s,l,p)->true) : properties;
     }
     @Override protected int getLightDampening(BlockState state) { return 0; }

@@ -13,8 +13,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
 public final class LeafcutterItem extends ShearsItem {
-    public LeafcutterItem() { super(new Item.Properties().durability(380).component(DataComponents.TOOL, ShearsItem.createToolProperties())); }
-    @Override public int getEnchantmentValue() { return 8; }
+    public LeafcutterItem() { super(com.hp.thermalshockreforged.ModRegistration.item().enchantable(8).durability(380).component(DataComponents.TOOL, ShearsItem.createToolProperties())); }
     @Override public float getDestroySpeed(ItemStack stack, BlockState state) { return 4; }
     @Override public boolean mineBlock(ItemStack stack, Level level, BlockState state, BlockPos pos, LivingEntity miner) {
         boolean result = super.mineBlock(stack, level, state, pos, miner);

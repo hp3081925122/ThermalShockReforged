@@ -15,8 +15,8 @@ public final class ShalePotBlock extends GeoDecorBlock {
     public static final IntegerProperty VARIANT = IntegerProperty.create("blockstate", 0, 2);
     public ShalePotBlock() { super(GeoDecorKind.SHALE_POT); registerDefaultState(defaultBlockState().setValue(VARIANT, 0)); }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { super.createBlockStateDefinition(builder); builder.add(VARIANT); }
-    @Override public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean harvest, FluidState fluid) {
-        boolean removed = super.onDestroyedByPlayer(state, level, pos, player, harvest, fluid);
+    @Override public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, ItemStack toolStack, boolean harvest, FluidState fluid) {
+        boolean removed = super.onDestroyedByPlayer(state, level, pos, player, toolStack, harvest, fluid);
         if (removed && level instanceof ServerLevel server && !server.getBlockState(pos).is(this) && server.getRandom().nextDouble() < 0.025) {
             var skullscor = PotContent.SKULLSCOR.get().spawn(server, pos, EntitySpawnReason.MOB_SUMMONED);
             if (skullscor != null) skullscor.setDeltaMovement(0, 0, 0);

@@ -11,8 +11,8 @@ import net.minecraft.world.level.Level;
 
 public record TransmutationRecipe(Ingredient ingredient, ItemStack result) implements DataRecipe {
     public static final MapCodec<TransmutationRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
-            Ingredient.CODEC_NONEMPTY.fieldOf("ingredient").forGetter(TransmutationRecipe::ingredient),
-            ItemStack.STRICT_CODEC.fieldOf("result").forGetter(TransmutationRecipe::result)
+            Ingredient.CODEC.fieldOf("ingredient").forGetter(TransmutationRecipe::ingredient),
+            ItemStack.CODEC.fieldOf("result").forGetter(TransmutationRecipe::result)
     ).apply(instance, TransmutationRecipe::new));
 
     public static TransmutationRecipe find(Level level, ItemStack stack) {
@@ -21,7 +21,7 @@ public record TransmutationRecipe(Ingredient ingredient, ItemStack result) imple
         return null;
     }
 
-    @Override public ItemStack getResultItem(HolderLookup.Provider registries) { return result; }
-    @Override public RecipeSerializer<?> getSerializer() { return RecipeContent.TRANSMUTATION.serializer().get(); }
-    @Override public RecipeType<?> getType() { return RecipeContent.TRANSMUTATION.type().get(); }
+    public ItemStack getResultItem(HolderLookup.Provider registries) { return result; }
+    @Override public RecipeSerializer<? extends DataRecipe> getSerializer() { return RecipeContent.TRANSMUTATION.serializer().get(); }
+    @Override public RecipeType<? extends DataRecipe> getType() { return RecipeContent.TRANSMUTATION.type().get(); }
 }

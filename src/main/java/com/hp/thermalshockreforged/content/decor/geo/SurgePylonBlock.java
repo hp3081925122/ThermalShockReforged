@@ -22,7 +22,7 @@ final class SurgePylonBlock extends GeoDecorBlock {
     static BlockBehaviour.Properties createPylonProperties() {
         var sounds = new DeferredSoundType(1, 1, () -> BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "surge_pylon_breaks")),
                 () -> SoundEvents.LODESTONE_STEP, () -> SoundEvents.LODESTONE_PLACE, () -> SoundEvents.LODESTONE_HIT, () -> SoundEvents.LODESTONE_FALL);
-        return BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).instrument(NoteBlockInstrument.BASEDRUM).sound(sounds).strength(-1, 3600000)
+        return com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.COLOR_BLUE).instrument(NoteBlockInstrument.BASEDRUM).sound(sounds).strength(-1, 3600000)
                 .lightLevel(state -> 15).requiresCorrectToolForDrops().noOcclusion().randomTicks().pushReaction(PushReaction.BLOCK).isRedstoneConductor((state, level, pos) -> false);
     }
     @Override protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) { pulse(level, pos); }

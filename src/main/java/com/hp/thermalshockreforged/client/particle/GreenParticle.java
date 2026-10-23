@@ -21,7 +21,7 @@ public final class GreenParticle extends LegacySingleQuadParticle {
         zd = dz;
         pickSprite(sprites);
     }
-    public int getLightColor(float partialTick) { return 0xF000F0; }
+    public int getLightCoords(float partialTick) { return 0xF000F0; }
     @Override public ParticleRenderType getGroup() { return ParticleRenderType.SINGLE_QUADS; }
     public static final class Provider implements ParticleProvider<SimpleParticleType> {
         private final SpriteSet sprites;

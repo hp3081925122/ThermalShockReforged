@@ -21,7 +21,7 @@ import net.minecraft.world.phys.*;
 
 public final class CameraItem extends Item {
     private final boolean flash;
-    public CameraItem(boolean flash) { super(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)); this.flash = flash; }
+    public CameraItem(boolean flash) { super(com.hp.thermalshockreforged.ModRegistration.item().stacksTo(1).rarity(Rarity.UNCOMMON)); this.flash = flash; }
     @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flags) { super.appendHoverText(stack, context, display, tooltipAdder, flags); if (flash) tooltipAdder.accept(Component.translatable("item.thermal_shock_reforged.e_xpolar_camera.description_0")); }
     @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);

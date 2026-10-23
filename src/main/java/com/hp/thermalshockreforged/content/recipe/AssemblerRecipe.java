@@ -41,7 +41,7 @@ public record AssemblerRecipe(List<Cost> materials, ItemStack result) implements
             materials.isEmpty() || materials.size() > 8 ? DataResult.error(() -> "Assembler needs 1 to 8 material entries") : DataResult.success(materials));
     public static final MapCodec<AssemblerRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
             MATERIALS_CODEC.fieldOf("materials").forGetter(AssemblerRecipe::materials),
-            ItemStack.STRICT_CODEC.fieldOf("result").forGetter(AssemblerRecipe::result)
+            ItemStack.CODEC.fieldOf("result").forGetter(AssemblerRecipe::result)
     ).apply(instance, AssemblerRecipe::new));
     private static final StreamCodec<RegistryFriendlyByteBuf, AssemblerRecipe> STREAM_CODEC = StreamCodec.composite(
             Cost.STREAM_CODEC.apply(ByteBufCodecs.list(8)), AssemblerRecipe::materials,
@@ -82,8 +82,8 @@ public record AssemblerRecipe(List<Cost> materials, ItemStack result) implements
     public boolean matches(Container inventory) { return removalPlan(inventory) != null; }
     public void consume(Container inventory, int[] plan) { for (int slot = 0; slot < plan.length; slot++) if (plan[slot] > 0) inventory.getItem(slot).shrink(plan[slot]); }
     public ItemStack getResultItem(HolderLookup.Provider registries) { return result.copy(); }
-    public RecipeSerializer<?> getSerializer() { return RecipeContent.ASSEMBLER.serializer().get(); }
-    public RecipeType<?> getType() { return RecipeContent.ASSEMBLER.type().get(); }
+    public RecipeSerializer<? extends DataRecipe> getSerializer() { return RecipeContent.ASSEMBLER.serializer().get(); }
+    public RecipeType<? extends DataRecipe> getType() { return RecipeContent.ASSEMBLER.type().get(); }
     public NonNullList<Ingredient> getIngredients() {
         var ingredients = NonNullList.<Ingredient>create();
         for (var cost : materials) ingredients.add(Ingredient.of(cost.item().value()));

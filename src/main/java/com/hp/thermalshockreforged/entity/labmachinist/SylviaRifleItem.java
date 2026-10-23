@@ -31,9 +31,8 @@ public final class SylviaRifleItem extends Item implements GeoItem {
     private static final String REMAINING = "thermal_shock_reforged:sylvia_charge_remaining";
     private static final String CREATED = "thermal_shock_reforged:sylvia_charge_created";
     private final LabItemAnimationCache animations = new LabItemAnimationCache(this);
-    public SylviaRifleItem() { super(new Properties().durability(1000).rarity(Rarity.UNCOMMON)); GeoItem.registerSyncedAnimatable(this); }
+    public SylviaRifleItem() { super(com.hp.thermalshockreforged.ModRegistration.item().enchantable(5).durability(1000).rarity(Rarity.UNCOMMON)); GeoItem.registerSyncedAnimatable(this); }
     @Override public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) { return false; }
-    @Override public int getEnchantmentValue() { return 5; }
     @Override public int getUseDuration(ItemStack stack, LivingEntity user) { return 20; }
     @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {
         var stack = player.getItemInHand(hand);

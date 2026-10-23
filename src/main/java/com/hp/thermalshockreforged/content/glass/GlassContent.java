@@ -17,8 +17,8 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.*;
 
 public final class GlassContent {
-    private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(ThermalShockReforged.MOD_ID);
-    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Blocks BLOCKS = com.hp.thermalshockreforged.ModRegistration.blocks(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Items ITEMS = com.hp.thermalshockreforged.ModRegistration.items(ThermalShockReforged.MOD_ID);
     public static final DeferredBlock<Block> GHOSTGLASS_BLOCK = BLOCKS.register("ghostglass_block", () -> new DirectionalGlassBlock(MapColor.COLOR_LIGHT_BLUE));
     public static final DeferredBlock<Block> LITEPRISM_WINDOW = BLOCKS.register("liteprism_window", () -> new DirectionalGlassBlock(MapColor.COLOR_CYAN));
 
@@ -36,7 +36,7 @@ public final class GlassContent {
         private static final EnumProperty<Direction> FACING = DirectionalBlock.FACING;
 
         private DirectionalGlassBlock(MapColor color) {
-            super(Properties.of().mapColor(color).instrument(NoteBlockInstrument.HAT).sound(SoundType.GLASS).strength(0.5F, 0)
+            super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(color).instrument(NoteBlockInstrument.HAT).sound(SoundType.GLASS).strength(0.5F, 0)
                     .lightLevel(state -> 2).requiresCorrectToolForDrops().noOcclusion()
                     .emissiveRendering((s, l, p) -> true).isRedstoneConductor((s, l, p) -> false));
             registerDefaultState(stateDefinition.any().setValue(FACING, Direction.NORTH));

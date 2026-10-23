@@ -26,7 +26,7 @@ import net.minecraft.world.phys.*;
 
 final class LapidarianWorkbenchBlock extends FacingDecorBlock {
     LapidarianWorkbenchBlock() {
-        super(Properties.of().mapColor(MapColor.WOOD).ignitedByLava().instrument(NoteBlockInstrument.BASS)
+        super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.WOOD).ignitedByLava().instrument(NoteBlockInstrument.BASS)
                         .sound(SoundType.CHISELED_BOOKSHELF).strength(1, 5),
                 new Traits(15, false, false, false, 0, 0, false, false), Outline.FULL,
                 "block.thermal_shock_reforged.lapidarian_workbench.description_0");

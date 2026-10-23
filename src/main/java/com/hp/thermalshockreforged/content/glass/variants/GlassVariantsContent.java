@@ -12,8 +12,8 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public final class GlassVariantsContent {
-    private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(ThermalShockReforged.MOD_ID);
-    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Blocks BLOCKS = com.hp.thermalshockreforged.ModRegistration.blocks(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Items ITEMS = com.hp.thermalshockreforged.ModRegistration.items(ThermalShockReforged.MOD_ID);
     public static final DeferredBlock<Block> SHALE_GHOSTGLASS = BLOCKS.register("shale_ghostglass", () -> new FacedGlassBlock(faced(MapColor.STONE)));
     public static final DeferredBlock<Block> MANTLE_GHOSTGLASS = BLOCKS.register("mantle_ghostglass", () -> new FacedGlassBlock(faced(MapColor.TERRACOTTA_GRAY)));
     public static final DeferredBlock<Block> COBALT_GHOSTGLASS = BLOCKS.register("cobalt_ghostglass", () -> new FacedGlassBlock(faced(MapColor.COLOR_BLUE)));
@@ -41,7 +41,7 @@ public final class GlassVariantsContent {
     }
 
     private static BlockBehaviour.Properties base(MapColor color, SoundType sound, float hardness, float resistance) {
-        return BlockBehaviour.Properties.of().mapColor(color).sound(sound).strength(hardness, resistance).noOcclusion().isRedstoneConductor((state, level, pos) -> false);
+        return com.hp.thermalshockreforged.ModRegistration.block().mapColor(color).sound(sound).strength(hardness, resistance).noOcclusion().isRedstoneConductor((state, level, pos) -> false);
     }
 
     private static BlockBehaviour.Properties faced(MapColor color) {

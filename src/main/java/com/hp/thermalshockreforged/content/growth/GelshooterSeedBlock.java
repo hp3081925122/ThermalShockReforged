@@ -15,7 +15,7 @@ import net.minecraft.world.level.material.MapColor;
 
 public final class GelshooterSeedBlock extends Block {
     private static final Map<ServerLevel,Set<BlockPos>> ACTIVE=new WeakHashMap<>();
-    public GelshooterSeedBlock() { super(Properties.of().mapColor(MapColor.COLOR_MAGENTA).sound(SoundType.GLASS).strength(1,10)); }
+    public GelshooterSeedBlock() { super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.COLOR_MAGENTA).sound(SoundType.GLASS).strength(1,10)); }
     @Override protected int getLightDampening(BlockState state) { return 15; }
     @Override protected void onPlace(BlockState state,Level level,BlockPos pos,BlockState previous,boolean moving) {
         super.onPlace(state,level,pos,previous,moving);

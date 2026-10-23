@@ -22,13 +22,12 @@ public final class RemainingGunItem extends AnimatedCombatItem {
     private final boolean judge;
     public RemainingGunItem(boolean judge) { super(properties(judge)); this.judge = judge; }
     private static Properties properties(boolean judge) {
-        var properties = new Properties().durability(920).rarity(judge ? Rarity.EPIC : Rarity.UNCOMMON);
+        var properties = com.hp.thermalshockreforged.ModRegistration.item().enchantable(5).durability(920).rarity(judge ? Rarity.EPIC : Rarity.UNCOMMON);
         return judge ? properties.fireResistant() : properties;
     }
     public boolean isJudge() { return judge; }
     @Override public String modelName() { return judge ? "super_shotgun" : "net_launcher"; }
     @Override public String textureName() { return judge ? "supershotgun" : "net_launcher"; }
-    @Override public int getEnchantmentValue() { return 5; }
     @Override public void inventoryTick(ItemStack stack, net.minecraft.server.level.ServerLevel level, Entity entity, net.minecraft.world.entity.EquipmentSlot slot) {
         super.inventoryTick(stack, level, entity, slot);
         if (slot == net.minecraft.world.entity.EquipmentSlot.MAINHAND && entity instanceof LivingEntity living) HeldWeaponState.refreshNoMelee(living);

@@ -46,7 +46,7 @@ public final class MonolithEntity extends MonolithBaseEntity {
         targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, Player.class, true, true));
     }
     @Override public boolean isWithinMeleeAttackRange(LivingEntity target) { return distanceToSqr(target) <= 16; }
-    @Override public boolean doHurtTarget(Entity victim) { if (victim instanceof LivingEntity living) beginAttack(living); return false; }
+    @Override public boolean doHurtTarget(net.minecraft.server.level.ServerLevel serverLevel, Entity victim) { if (victim instanceof LivingEntity living) beginAttack(living); return false; }
     public void beginAttack(LivingEntity victim) {
         if (!(level() instanceof ServerLevel server) || !isAlive() || converted || converting || submitting || cooldown > 0 || !victim.isAlive() || victim == this || victim.level() != level()) return;
         MonolithTaskEntity task;

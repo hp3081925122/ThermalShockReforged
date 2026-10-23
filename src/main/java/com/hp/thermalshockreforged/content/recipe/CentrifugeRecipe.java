@@ -13,12 +13,12 @@ import net.minecraft.world.level.Level;
 
 public record CentrifugeRecipe(List<Ingredient> energy, Ingredient ingredient, ItemStack result) implements DataRecipe {
     public static final MapCodec<CentrifugeRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
-            Ingredient.CODEC_NONEMPTY.listOf().validate(list -> {
+            Ingredient.CODEC.listOf().validate(list -> {
                 if (list.size() == 2) return DataResult.success(list);
                 return DataResult.error(() -> "Centrifuge needs exactly 2 energy ingredients");
             }).fieldOf("energy").forGetter(CentrifugeRecipe::energy),
-            Ingredient.CODEC_NONEMPTY.fieldOf("ingredient").forGetter(CentrifugeRecipe::ingredient),
-            ItemStack.STRICT_CODEC.fieldOf("result").forGetter(CentrifugeRecipe::result)
+            Ingredient.CODEC.fieldOf("ingredient").forGetter(CentrifugeRecipe::ingredient),
+            ItemStack.CODEC.fieldOf("result").forGetter(CentrifugeRecipe::result)
     ).apply(instance, CentrifugeRecipe::new));
 
     public boolean matches(ItemStack first, ItemStack second, ItemStack extra) {
@@ -39,7 +39,7 @@ public record CentrifugeRecipe(List<Ingredient> energy, Ingredient ingredient, I
         return false;
     }
 
-    @Override public ItemStack getResultItem(HolderLookup.Provider registries) { return result; }
-    @Override public RecipeSerializer<?> getSerializer() { return RecipeContent.CENTRIFUGE.serializer().get(); }
-    @Override public RecipeType<?> getType() { return RecipeContent.CENTRIFUGE.type().get(); }
+    public ItemStack getResultItem(HolderLookup.Provider registries) { return result; }
+    @Override public RecipeSerializer<? extends DataRecipe> getSerializer() { return RecipeContent.CENTRIFUGE.serializer().get(); }
+    @Override public RecipeType<? extends DataRecipe> getType() { return RecipeContent.CENTRIFUGE.type().get(); }
 }

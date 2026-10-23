@@ -38,7 +38,7 @@ public final class LoqendiaPortalBlock extends Block implements Portal {
     private static final VoxelShape Z_SHAPE = Block.box(6, 0, 0, 10, 16, 16);
 
     public LoqendiaPortalBlock() {
-        this(Properties.of().mapColor(MapColor.COLOR_PURPLE).noCollision().randomTicks().pushReaction(PushReaction.BLOCK)
+        this(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.COLOR_PURPLE).noCollision().randomTicks().pushReaction(PushReaction.BLOCK)
                 .strength(-1).sound(SoundType.GLASS).lightLevel(state -> 15).noLootTable());
     }
 
@@ -56,7 +56,7 @@ public final class LoqendiaPortalBlock extends Block implements Portal {
         return rotation == Rotation.CLOCKWISE_90 || rotation == Rotation.COUNTERCLOCKWISE_90
                 ? state.setValue(AXIS, state.getValue(AXIS) == Direction.Axis.X ? Direction.Axis.Z : Direction.Axis.X) : state;
     }
-    @Override public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) { return ItemStack.EMPTY; }
+    @Override public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state, boolean includeData) { return ItemStack.EMPTY; }
     @Override protected BlockState updateShape(BlockState state, net.minecraft.world.level.LevelReader level, net.minecraft.world.level.ScheduledTickAccess ticks, BlockPos pos, Direction side, BlockPos neighborPos, BlockState neighbor, net.minecraft.util.RandomSource random) {
         boolean perpendicular = side.getAxis().isHorizontal() && side.getAxis() != state.getValue(AXIS);
         return !perpendicular && !neighbor.is(this) && !new LoqendiaPortalShape(level, pos, state.getValue(AXIS)).isComplete()

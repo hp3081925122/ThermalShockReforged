@@ -11,7 +11,7 @@ import net.minecraft.world.level.material.MapColor;
 
 final class PhaserBlock extends NativeDecorBlock {
     PhaserBlock() {
-        super(Properties.of().mapColor(MapColor.COLOR_CYAN).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHER_BRICKS).strength(5, 100).lightLevel(state -> 10)
+        super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.COLOR_CYAN).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHER_BRICKS).strength(5, 100).lightLevel(state -> 10)
                 .requiresCorrectToolForDrops().noCollision().noOcclusion().isRedstoneConductor((state, level, pos) -> false),
                 new Traits(15, false, true, false, 0, 0, false, true), null, "block.thermal_shock_reforged.phaser.description_0");
     }

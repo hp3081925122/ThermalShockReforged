@@ -26,12 +26,12 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public final class LegacyContent {
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
-    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Items ITEMS = com.hp.thermalshockreforged.ModRegistration.items(ThermalShockReforged.MOD_ID);
     private static final Identifier MANTLESTONE = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "mantlestone");
     public static final DeferredHolder<EntityType<?>, EntityType<SolaEntity>> SOLA = TYPES.register("sola", () -> EntityType.Builder.of(SolaEntity::new, MobCategory.MONSTER).sized(.9F, .9F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(16).updateInterval(3).fireImmune().build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("sola")));
-    public static final DeferredHolder<Item, Item> SOLA_EGG = ITEMS.register("sola_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(SOLA.get())));
+    public static final DeferredHolder<Item, Item> SOLA_EGG = ITEMS.register("sola_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(SOLA.get())));
     public static final DeferredHolder<EntityType<?>, EntityType<SpectreEntity>> SPECTRE = TYPES.register("spectre", () -> EntityType.Builder.of(SpectreEntity::new, MobCategory.MONSTER).sized(.8F, 1.7F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("spectre")));
-    public static final DeferredHolder<Item, Item> SPECTRE_EGG = ITEMS.register("spectre_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(SPECTRE.get())));
+    public static final DeferredHolder<Item, Item> SPECTRE_EGG = ITEMS.register("spectre_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(SPECTRE.get())));
     public static final DeferredHolder<EntityType<?>, EntityType<LilJellyEntity>> LIL_JELLY = TYPES.register("lil_jelly", () -> EntityType.Builder.of(LilJellyEntity::new, MobCategory.MONSTER).sized(.9F, 1.6F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).fireImmune().build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("lil_jelly")));
     public static final DeferredHolder<Item, Item> AMALJELLY_CANISTER = ITEMS.register("amaljelly_canister", AmaljellyCanisterItem::new);
     private LegacyContent() { }

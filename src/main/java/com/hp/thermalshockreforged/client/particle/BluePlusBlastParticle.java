@@ -15,7 +15,7 @@ public final class BluePlusBlastParticle extends LegacySingleQuadParticle {
         setSize(.2F, .2F); quadSize *= 16; lifetime = 8; gravity = 0; hasPhysics = false;
         xd = 0; yd = 0; zd = 0; setSpriteFromAge(sprites);
     }
-    public int getLightColor(float partialTick) { return 0xF000F0; }
+    public int getLightCoords(float partialTick) { return 0xF000F0; }
     @Override public ParticleRenderType getGroup() { return ParticleRenderType.SINGLE_QUADS; }
     @Override public void tick() { super.tick(); if (!removed) setSprite(sprites.get(age % 9 + 1, 9)); }
     public record Provider(SpriteSet sprites) implements ParticleProvider<SimpleParticleType> {

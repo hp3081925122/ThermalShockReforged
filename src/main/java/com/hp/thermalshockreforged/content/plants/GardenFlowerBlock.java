@@ -38,7 +38,7 @@ class GardenFlowerBlock extends FlowerBlock {
         StickClone(Properties properties) { super(MobEffects.NAUSEA, properties); }
 
         @Override
-        public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) { return new ItemStack(Items.STICK); }
+        public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state, boolean includeData) { return new ItemStack(Items.STICK); }
     }
 
     static final class Waterlogged extends GardenFlowerBlock implements SimpleWaterloggedBlock {

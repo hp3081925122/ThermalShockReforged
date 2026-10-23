@@ -22,7 +22,7 @@ public final class DevCharacterToolItem extends Item {
     private final boolean delete;
 
     DevCharacterToolItem(boolean delete) {
-        super(new Properties().stacksTo(1).rarity(Rarity.EPIC));
+        super(com.hp.thermalshockreforged.ModRegistration.item().stacksTo(1).rarity(Rarity.EPIC));
         this.delete = delete;
     }
 

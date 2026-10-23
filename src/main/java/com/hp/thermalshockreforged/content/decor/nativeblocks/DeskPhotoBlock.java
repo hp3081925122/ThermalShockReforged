@@ -22,7 +22,7 @@ final class DeskPhotoBlock extends FacingDecorBlock {
     private static final VoxelShape SHAPE = box(0, 0, 0, 16, 1, 16);
 
     DeskPhotoBlock() {
-        super(Properties.of().mapColor(MapColor.COLOR_BROWN).sound(SoundType.ANVIL).strength(-1, 3600000)
+        super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.COLOR_BROWN).sound(SoundType.ANVIL).strength(-1, 3600000)
                 .requiresCorrectToolForDrops().noCollision().noOcclusion().pushReaction(PushReaction.BLOCK)
                 .isRedstoneConductor((state, level, pos) -> false),
                 new Traits(0, true, true, false, 0, 0, false, false), Outline.FULL);

@@ -12,7 +12,7 @@ import com.geckolib.util.GeckoLibUtil;
 
 public final class GlowstickItem extends BlockItem implements GeoItem {
     private final AnimatableInstanceCache animations = GeckoLibUtil.createInstanceCache(this);
-    public GlowstickItem(Block block, Properties properties) { super(block, properties); }
+    public GlowstickItem(Block block, Properties properties) { super(block, com.hp.thermalshockreforged.ModRegistration.blockItem(block, properties)); }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar registrar) {
         registrar.add(new LegacyAnimationController<>(this, "controller", 0, state -> PlayState.CONTINUE));
     }

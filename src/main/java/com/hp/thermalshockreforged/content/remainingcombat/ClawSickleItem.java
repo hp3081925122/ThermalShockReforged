@@ -21,16 +21,16 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 
-public final class ClawSickleItem extends HoeItem {
+public final class ClawSickleItem extends com.hp.thermalshockreforged.content.tools.HoeItem {
     private static final Tier TIER = new Tier() {
         @Override public int getUses() { return 1200; }
         @Override public float getSpeed() { return 10; }
         @Override public float getAttackDamageBonus() { return 4.5F; }
         @Override public TagKey<Block> getIncorrectBlocksForDrops() { return BlockTags.INCORRECT_FOR_DIAMOND_TOOL; }
         @Override public int getEnchantmentValue() { return 21; }
-        @Override public Ingredient getRepairIngredient() { return Ingredient.of(MaterialContent.items().get("beetle_claw").get(), MaterialContent.items().get("ferrum_ingot").get()); }
+        @Override public TagKey<Item> getRepairItems() { return Tier.repairTag("claw_sickle"); }
     };
-    public ClawSickleItem() { super(TIER, new Properties().attributes(DiggerItem.createAttributes(TIER, 0, -2))); }
+    public ClawSickleItem() { super(TIER, 0, -2, com.hp.thermalshockreforged.ModRegistration.item()); }
     @Override public void inventoryTick(ItemStack stack, net.minecraft.server.level.ServerLevel level, Entity entity, net.minecraft.world.entity.EquipmentSlot slot) {
         super.inventoryTick(stack, level, entity, slot);
         if (slot == net.minecraft.world.entity.EquipmentSlot.MAINHAND && entity instanceof LivingEntity living) RemainingCombatState.refreshNoKnockback(living);

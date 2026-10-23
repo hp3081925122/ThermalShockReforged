@@ -16,8 +16,8 @@ import net.neoforged.neoforge.registries.*;
 
 public final class GlastrekkerContent {
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
-    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
-    private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Items ITEMS = com.hp.thermalshockreforged.ModRegistration.items(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Blocks BLOCKS = com.hp.thermalshockreforged.ModRegistration.blocks(ThermalShockReforged.MOD_ID);
     public static final DeferredHolder<EntityType<?>, EntityType<GlastrekkerEntity>> GLASTREKKER = entity("glastrekker", false);
     public static final DeferredHolder<EntityType<?>, EntityType<GlastrekkerEntity>> ARMOURED_GLASTREKKER = entity("armoured_glastrekker", true);
     public static final DeferredBlock<GlastrekkerEggBlock> EGG = BLOCKS.register("glastrekker_egg", GlastrekkerEggBlock::new);
@@ -27,7 +27,7 @@ public final class GlastrekkerContent {
     }
     public static void register(IEventBus bus) {
         ITEMS.registerSimpleBlockItem(EGG);
-        ITEMS.register("glastrekker_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(GLASTREKKER.get())));
+        ITEMS.register("glastrekker_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(GLASTREKKER.get())));
         TYPES.register(bus); ITEMS.register(bus); BLOCKS.register(bus);
         bus.addListener(GlastrekkerContent::attributes);
         bus.addListener(GlastrekkerContent::placements);

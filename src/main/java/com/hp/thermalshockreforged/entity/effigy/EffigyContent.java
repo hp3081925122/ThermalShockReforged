@@ -17,10 +17,10 @@ import net.neoforged.neoforge.registries.*;
 
 public final class EffigyContent {
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
-    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Items ITEMS = com.hp.thermalshockreforged.ModRegistration.items(ThermalShockReforged.MOD_ID);
     public static final DeferredHolder<EntityType<?>, EntityType<EffigyEntity>> EFFIGY = TYPES.register("effigy", () -> EntityType.Builder.of(EffigyEntity::new, MobCategory.MONSTER).sized(1, 2.9F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("effigy")));
     public static final DeferredHolder<EntityType<?>, EntityType<EffigyStrikeEntity>> STRIKE = TYPES.register("effigy_strike_task", () -> EntityType.Builder.<EffigyStrikeEntity>of(EffigyStrikeEntity::new, MobCategory.MISC).noSummon().sized(.01F, .01F).clientTrackingRange(0).updateInterval(20).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("effigy_strike_task")));
-    static { ITEMS.register("effigy_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(EFFIGY.get()))); }
+    static { ITEMS.register("effigy_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(EFFIGY.get()))); }
     public static Identifier id(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
     public static void register(IEventBus bus) { TYPES.register(bus); ITEMS.register(bus); bus.addListener(EffigyContent::attributes); bus.addListener(EffigyContent::placements); NeoForge.EVENT_BUS.addListener(EffigyContent::attack); }
     private static void attributes(EntityAttributeCreationEvent event) { event.put(EFFIGY.get(), EffigyEntity.attributes().build()); }

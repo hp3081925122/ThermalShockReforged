@@ -19,7 +19,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 
 public final class PesticideItem extends Item {
-    public PesticideItem() { super(new Properties().stacksTo(64).rarity(Rarity.COMMON)); }
+    public PesticideItem() { super(com.hp.thermalshockreforged.ModRegistration.item().stacksTo(64).rarity(Rarity.COMMON)); }
     @Override public ItemUseAnimation getUseAnimation(ItemStack stack) { return ItemUseAnimation.DRINK; }
     @Override public int getUseDuration(ItemStack stack, LivingEntity consumer) { return 20; }
     @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {

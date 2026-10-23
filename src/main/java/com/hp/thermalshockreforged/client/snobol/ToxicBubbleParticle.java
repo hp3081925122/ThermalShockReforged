@@ -23,7 +23,7 @@ final class ToxicBubbleParticle extends LegacySingleQuadParticle {
     }
 
     @Override
-    protected int getLightColor(float partialTick) { return 0xF000F0; }
+    protected int getLightCoords(float partialTick) { return 0xF000F0; }
 
     @Override
     public ParticleRenderType getGroup() { return ParticleRenderType.SINGLE_QUADS; }

@@ -21,7 +21,7 @@ public final class ThermalSaplingBlock extends SaplingBlock {
         super(new TreeGrower(ThermalShockReforged.MOD_ID + ":" + name, Optional.empty(),
                         Optional.of(ResourceKey.create(Registries.CONFIGURED_FEATURE,
                                 Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, feature))), Optional.empty()),
-                Properties.of().mapColor(MapColor.PLANT).randomTicks().sound(SoundType.GRASS).instabreak().noCollision()
+                com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.PLANT).randomTicks().sound(SoundType.GRASS).instabreak().noCollision()
                         .offsetType(BlockBehaviour.OffsetType.NONE).pushReaction(PushReaction.DESTROY));
     }
 

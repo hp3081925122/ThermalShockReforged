@@ -27,11 +27,10 @@ import com.geckolib.animation.*;
 public final class BuzzsawItem extends Item implements GeoItem {
     private final BoundedItemAnimationCache animations = new BoundedItemAnimationCache(this);
     public BuzzsawItem() {
-        super(new Properties().durability(1350).rarity(Rarity.UNCOMMON));
+        super(com.hp.thermalshockreforged.ModRegistration.item().enchantable(5).durability(1350).rarity(Rarity.UNCOMMON));
         GeoItem.registerSyncedAnimatable(this);
     }
     @Override public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) { return false; }
-    @Override public int getEnchantmentValue() { return 5; }
     @Override public boolean onEntitySwing(ItemStack stack, LivingEntity wielder, InteractionHand hand) {
         if (!wielder.isAlive() || wielder instanceof Player player && player.getCooldowns().isOnCooldown(this)) return false;
         if (wielder.level().isClientSide()) {

@@ -30,6 +30,6 @@ public record AltarConversionRecipe(Holder<Block> core, List<Holder<Block>> alta
         return null;
     }
 
-    @Override public RecipeSerializer<?> getSerializer() { return RecipeContent.ALTAR_CONVERSION.serializer().get(); }
-    @Override public RecipeType<?> getType() { return RecipeContent.ALTAR_CONVERSION.type().get(); }
+    @Override public RecipeSerializer<? extends DataRecipe> getSerializer() { return RecipeContent.ALTAR_CONVERSION.serializer().get(); }
+    @Override public RecipeType<? extends DataRecipe> getType() { return RecipeContent.ALTAR_CONVERSION.type().get(); }
 }

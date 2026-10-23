@@ -85,7 +85,7 @@ public abstract class LabMachineBlock extends Block implements EntityBlock {
         level.scheduleTick(pos, this, 60);
     }
     public static final class Assembler extends LabMachineBlock implements SimpleWaterloggedBlock {
-        public Assembler() { super(Properties.of().mapColor(MapColor.COLOR_GRAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.LODESTONE).strength(10, 999).lightLevel(state -> 13).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((state, level, pos) -> false)); registerDefaultState(defaultBlockState().setValue(WATERLOGGED, false)); }
+        public Assembler() { super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.COLOR_GRAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.LODESTONE).strength(10, 999).lightLevel(state -> 13).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((state, level, pos) -> false)); registerDefaultState(defaultBlockState().setValue(WATERLOGGED, false)); }
         @Override public boolean wallbore() { return false; }
         @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { super.createBlockStateDefinition(builder); builder.add(WATERLOGGED); }
         @Override public BlockState getStateForPlacement(BlockPlaceContext context) { return super.getStateForPlacement(context).setValue(WATERLOGGED, context.getLevel().getFluidState(context.getClickedPos()).getType() == Fluids.WATER); }
@@ -94,7 +94,7 @@ public abstract class LabMachineBlock extends Block implements EntityBlock {
         @Override public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) { if (random.nextDouble() < .05) level.playLocalSound(pos.getX(), pos.getY(), pos.getZ(), SoundEvents.BEACON_AMBIENT, SoundSource.NEUTRAL, 1, 1, false); }
     }
     public static final class Wallbore extends LabMachineBlock {
-        public Wallbore() { super(Properties.of().mapColor(MapColor.COLOR_GRAY).sound(SoundType.METAL).strength(3, 999)); registerDefaultState(defaultBlockState().setValue(MODE, 0)); }
+        public Wallbore() { super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.COLOR_GRAY).sound(SoundType.METAL).strength(3, 999)); registerDefaultState(defaultBlockState().setValue(MODE, 0)); }
         @Override public boolean wallbore() { return true; }
         @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { super.createBlockStateDefinition(builder); builder.add(MODE); }
     }

@@ -20,7 +20,7 @@ final class PlayerStatusEffect extends MobEffect {
     }
 
     @Override
-    public boolean applyEffectTick(LivingEntity entity, int amplifier) {
+    public boolean applyEffectTick(net.minecraft.server.level.ServerLevel serverLevel, LivingEntity entity, int amplifier) {
         if (action == Action.WARM) entity.removeEffect(StatusContent.FROSTBITE);
         if (action == Action.ANTITOXIN) entity.removeEffect(MobEffects.POISON);
         return true;
