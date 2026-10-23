@@ -87,7 +87,7 @@ public final class RemainingGuiMenu extends AbstractContainerMenu implements Sup
         boolean any = false;
         for (int slot = 0; slot < 3; slot++) any |= !customSlots.get(slot).getItem().isEmpty();
         if (any) {
-            var advancement = server.server.getAdvancements().get(RemainingGuiContent.id("whisper_advancement"));
+            var advancement = server.getServer().getAdvancements().get(RemainingGuiContent.id("whisper_advancement"));
             if (advancement != null) {
                 var progress = server.getAdvancements().getOrStartProgress(advancement);
                 if (!progress.isDone()) for (String criterion : progress.getRemainingCriteria()) server.getAdvancements().award(advancement, criterion);

@@ -56,7 +56,7 @@ public final class EffigyStrikeEntity extends Entity implements ServerEndTickTas
         var victim = level.getEntity(target);
         if (!(victim instanceof LivingEntity living) || !living.isAlive() || playerTarget && victim.getId() != targetEntityId || victim.distanceToSqr(position()) > 9) return;
         double amount = damage - living.getArmorValue() * .6;
-        if (Double.isFinite(amount) && amount > 0) { boolean accepted = living.hurt(new DamageSource(level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DAMAGE)), (float)Math.min(amount, Float.MAX_VALUE)); ThermalShockReforged.LOGGER.debug("Effigy strike resolved: task={}, target={}, damage={}, accepted={}", getUUID(), target, amount, accepted); }
+        if (Double.isFinite(amount) && amount > 0) { boolean accepted = living.hurt(new DamageSource(level.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(DAMAGE)), (float)Math.min(amount, Float.MAX_VALUE)); ThermalShockReforged.LOGGER.debug("Effigy strike resolved: task={}, target={}, damage={}, accepted={}", getUUID(), target, amount, accepted); }
     }
     @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
         if (caster != null) output.putString("Caster", caster.toString()); if (target != null) output.putString("Target", target.toString());

@@ -71,11 +71,11 @@ public final class MonolithTaskEntity extends Entity implements ServerEndTickTas
             server.playSound(null, BlockPos.containing(origin), MonolithEntity.sound("monolithhurt"), SoundSource.HOSTILE, 1, 5);
             if (target != null && !target.equals(caster) && server.getEntity(target) instanceof LivingEntity victim && victim.isAlive() && (!playerTarget || victim.getId() == targetEntityId && originalPlayer != null && originalPlayer.get() == victim) && victim.position().distanceTo(casterOrigin) <= 6) {
                 float amount = (float)finite(damage - victim.getArmorValue() * .2);
-                if (amount > 0) victim.hurt(new DamageSource(server.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.GENERIC)), amount);
+                if (amount > 0) victim.hurt(new DamageSource(server.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(DamageTypes.GENERIC)), amount);
             }
         } else if (!attack && current == 20) {
             var closest = server.getEntitiesOfClass(DormantMonolithEntity.class, AABB.ofSize(origin, 128, 128, 128), entity -> true).stream().min(Comparator.comparingDouble(entity -> entity.distanceToSqr(origin))).orElse(null);
-            if (closest != null) closest.hurt(new DamageSource(server.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.EXPLOSION)), 1);
+            if (closest != null) closest.hurt(new DamageSource(server.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(DamageTypes.EXPLOSION)), 1);
         }
         if (current >= (attack ? 22 : 20)) { armed = false; discard(); } else ServerEndTickTasks.schedule(server, getUUID());
     }

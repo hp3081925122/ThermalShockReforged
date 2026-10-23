@@ -15,6 +15,6 @@ public final class CavebloomerCombat {
     public static void setResistedVelocity(Entity victim, Vec3 velocity) {
         double resistance = victim instanceof LivingEntity living ? Math.clamp(1 - living.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE), 0, 1) : 1;
         if (resistance <= 0) return;
-        victim.setDeltaMovement(velocity.scale(resistance)); victim.hasImpulse = true; victim.hurtMarked = true;
+        victim.setDeltaMovement(velocity.scale(resistance)); victim.hurtMarked = true; victim.hurtMarked = true;
     }
 }

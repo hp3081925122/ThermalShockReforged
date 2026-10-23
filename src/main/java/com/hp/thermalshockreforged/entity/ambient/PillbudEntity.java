@@ -95,14 +95,14 @@ public final class PillbudEntity extends net.minecraft.world.entity.monster.Mons
             face(target);
             var look = getLookAngle();
             setDeltaMovement(look.x * 2, 0.4, look.z * 2);
-            hasImpulse = true;
+            hurtMarked = true;
             soundAtOrigin(net.minecraft.core.registries.BuiltInRegistries.SOUND_EVENT.getValue(net.minecraft.resources.Identifier.fromNamespaceAndPath("thermal_shock_reforged", "propulsionbootsactivate")));
             soundAtOrigin(net.minecraft.sounds.SoundEvents.FIREWORK_ROCKET_LAUNCH);
         }
         if (skillTick == 22) {
             ThermalShockReforged.LOGGER.debug("Pillbud detonation at server end tick: entity={}, age={}, origin={}", getUUID(), skillTick, origin);
             var position = position();
-            var source = new DamageSource(server.registryAccess().registryOrThrow(net.minecraft.core.registries.Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.EXPLOSION));
+            var source = new DamageSource(server.registryAccess().lookupOrThrow(net.minecraft.core.registries.Registries.DAMAGE_TYPE).getOrThrow(DamageTypes.EXPLOSION));
             float damage = (float) (getAttributeValue(Attributes.ATTACK_DAMAGE) * 8);
             discard();
             for (var hit : server.getEntitiesOfClass(Entity.class, new net.minecraft.world.phys.AABB(position, position).inflate(2), e -> true)) hit.hurt(source, damage);

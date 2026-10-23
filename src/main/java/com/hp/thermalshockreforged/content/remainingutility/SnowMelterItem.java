@@ -37,7 +37,7 @@ public final class SnowMelterItem extends Item {
         ServerLevel level = ((net.minecraft.server.level.ServerLevel) player.level());
         var pos = context.getClickedPos();
         player.getCooldowns().addCooldown(this, 5);
-        var advancement = player.server.getAdvancements().get(RemainingUtilityContent.id("hpsm_get"));
+        var advancement = player.getServer().getAdvancements().get(RemainingUtilityContent.id("hpsm_get"));
         if (advancement != null) {
             var progress = player.getAdvancements().getOrStartProgress(advancement);
             if (!progress.isDone()) for (String criterion : progress.getRemainingCriteria()) player.getAdvancements().award(advancement, criterion);

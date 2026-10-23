@@ -23,7 +23,7 @@ public final class BloomlingRenderer extends LegacyGeoEntityRenderer<BloomlingEn
     }
     private static Identifier resource(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
     @Override public RenderType getRenderType(BloomlingEntity entity, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
-    protected float getDeathMaxRotation(BloomlingEntity entity) { return 0; }
+    protected float getDeathMaxRotation(com.geckolib.renderer.base.GeoRenderState state) { return 0; }
     private static final class Model extends LegacyGeoModel<BloomlingEntity> {
         @Override public Identifier getModelResource(BloomlingEntity entity) { return resource("geo/" + entity.modelStem() + ".geo.json"); }
         @Override public Identifier getAnimationResource(BloomlingEntity entity) { return resource("animations/" + entity.modelStem() + ".animation.json"); }

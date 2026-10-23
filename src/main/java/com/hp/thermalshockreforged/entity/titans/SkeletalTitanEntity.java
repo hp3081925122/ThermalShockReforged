@@ -160,7 +160,7 @@ public final class SkeletalTitanEntity extends AnimatedMonsterEntity {
             if (movementLock > 0 && --movementLock == 0) syncMovementLock();
         }
         if (!level().isClientSide() && kind == Kind.FROST && isUnderWater()) {
-            addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 10, 2, false, false));
+            addEffect(new MobEffectInstance(MobEffects.SPEED, 10, 2, false, false));
             addEffect(new MobEffectInstance(MobEffects.DOLPHINS_GRACE, 10, 2, false, false));
         }
     }

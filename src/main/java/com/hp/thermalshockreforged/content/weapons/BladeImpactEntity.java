@@ -61,7 +61,7 @@ public final class BladeImpactEntity extends Entity implements ServerEndTickTask
         } else {
             level.playSound(null, blockPosition(), SoundEvents.GENERIC_EXPLODE.value(), SoundSource.PLAYERS, 1, 1);
             level.sendParticles(CavebloomerContent.RED_EXPLODE.get(), getX(), getY(), getZ(), 5, 1, 1, 1, 0);
-            var source = new DamageSource(level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ModDamageTypes.THERM_IFRAME_BYPASS), level.getEntity(owner));
+            var source = new DamageSource(level.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(ModDamageTypes.THERM_IFRAME_BYPASS), level.getEntity(owner));
             var nearby = level.getEntitiesOfClass(Entity.class, new AABB(position(), position()).inflate(3), other -> !other.getUUID().equals(owner) && other != this && !(other instanceof ItemEntity) && !(other instanceof TamableAnimal pet && pet.isTame()));
             nearby.sort(Comparator.comparingDouble(other -> other.distanceToSqr(position())));
             for (var target : nearby) target.hurt(source, 10);

@@ -33,7 +33,7 @@ public final class ErrandMaps {
             return;
         }
         var key = ResourceKey.create(Registries.STRUCTURE, Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, structure));
-        var holder = level.registryAccess().registryOrThrow(Registries.STRUCTURE).getHolder(key);
+        var holder = level.registryAccess().lookupOrThrow(Registries.STRUCTURE).getHolder(key);
         if (holder.isEmpty()) {
             ThermalShockReforged.LOGGER.warn("Errand map skipped: structure missing, structure={}", structure);
             return;

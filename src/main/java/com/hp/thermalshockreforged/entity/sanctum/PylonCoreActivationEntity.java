@@ -97,7 +97,7 @@ public final class PylonCoreActivationEntity extends Entity implements ServerEnd
         anchor = BlockPos.of(input.getLongOr("CoreAnchor", 0L)); dimension = input.getStringOr("CoreDimension", ""); explosive = input.getBooleanOr("CoreExplosive", false); consumed = input.getBooleanOr("CoreConsumed", false); remaining = Math.clamp(input.getIntOr("CoreRemaining", 0), 1, 40);
         var lootId = Identifier.tryParse(input.getStringOr("CoreLoot", ""));
         loot = null;
-        if (tag.contains("CoreLoot", 8) && lootId != null) loot = ResourceKey.create(Registries.LOOT_TABLE, lootId);
-        armed = input.getBooleanOr("CoreArmed", false) && tag.contains("CoreAnchor", 99) && Identifier.tryParse(dimension) != null && (explosive || loot != null);
+        if (lootId != null) loot = ResourceKey.create(Registries.LOOT_TABLE, lootId);
+        armed = input.getBooleanOr("CoreArmed", false)  && Identifier.tryParse(dimension) != null && (explosive || loot != null);
     }
 }

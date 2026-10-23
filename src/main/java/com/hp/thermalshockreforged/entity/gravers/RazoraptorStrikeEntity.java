@@ -66,10 +66,10 @@ public final class RazoraptorStrikeEntity extends Entity implements ServerEndTic
         server.playSound(null, BlockPos.containing(soundOrigin), SoundEvents.PLAYER_ATTACK_SWEEP, SoundSource.NEUTRAL, 1, 4);
         if (target != null && !target.equals(caster) && server.getEntity(target) instanceof LivingEntity victim && victim.isAlive() && victim.distanceToSqr(position()) <= 9 && (!playerTarget || victim.getId() == targetEntityId && originalPlayer != null && originalPlayer.get() == victim)) {
             double amount = finite(damage - victim.getArmorValue() * .4);
-            if (amount > 0) victim.hurt(new DamageSource(server.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DAMAGE_TYPE)), (float) amount);
+            if (amount > 0) victim.hurt(new DamageSource(server.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(DAMAGE_TYPE)), (float) amount);
             double resistance = Mth.clamp(victim.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE), 0, 1);
             double strength = Double.isFinite(resistance) ? knockback * (1 - resistance) : 0;
-            if (strength > 0) { victim.setDeltaMovement(look.scale(strength)); victim.hasImpulse = true; victim.hurtMarked = true; }
+            if (strength > 0) { victim.setDeltaMovement(look.scale(strength)); victim.hurtMarked = true; victim.hurtMarked = true; }
         }
         discard();
     }

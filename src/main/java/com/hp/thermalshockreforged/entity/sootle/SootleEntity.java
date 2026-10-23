@@ -94,7 +94,7 @@ public final class SootleEntity extends AbstractSootleEntity implements ServerEn
         soundAtOrigin(SoundEvents.PLAYER_ATTACK_SWEEP, pitch);
         if (distanceTo(target) > (single ? 2 : 3)) return;
         var type = single ? DamageTypes.GENERIC : ModDamageTypes.THERM_IFRAME_BYPASS;
-        var source = new DamageSource(level().registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(type));
+        var source = new DamageSource(level().registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(type));
         float damage = (float) (getAttributeValue(Attributes.ATTACK_DAMAGE) * (single ? 4.0 / 3.0 : 1) - target.getArmorValue() * 0.4);
         target.hurt(source, Math.max(0, damage));
     }

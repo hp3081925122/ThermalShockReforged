@@ -26,9 +26,7 @@ public final class FarmingRenderers {
     }
 
     public static void layers() {
-        net.minecraft.client.renderer.ItemBlockRenderTypes.setRenderLayer(FarmingContent.crop(CropKind.SKORIO), RenderType.cutout());
-        net.minecraft.client.renderer.ItemBlockRenderTypes.setRenderLayer(FarmingContent.crop(CropKind.BARBUBBLE), RenderType.cutout());
-        for (CropKind kind : CropKind.values()) net.minecraft.client.renderer.ItemBlockRenderTypes.setRenderLayer(FarmingContent.seed(kind), RenderType.cutout());
+        // 26.1：方块 cutout 由模型 JSON 的 render_type 控制，ItemBlockRenderTypes 已移除
     }
 
     public static void particles(net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent event) {

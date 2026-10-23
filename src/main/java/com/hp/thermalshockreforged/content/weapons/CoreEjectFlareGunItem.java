@@ -60,7 +60,7 @@ public final class CoreEjectFlareGunItem extends Item implements GeoItem {
             if (core != null) {
                 var look = player.getLookAngle();
                 core.setDeltaMovement(look.x, look.y + .25, look.z);
-                core.hasImpulse = true;
+                core.hurtMarked = true;
             }
         } else {
             FlareBulletEntity.fireWeaponShot(server, player);

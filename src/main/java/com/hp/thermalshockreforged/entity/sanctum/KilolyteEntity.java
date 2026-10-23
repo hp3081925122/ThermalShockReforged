@@ -182,8 +182,7 @@ public final class KilolyteEntity extends Monster implements GeoEntity {
             entityData.set(ANIMATION_SEQUENCE, entityData.get(ANIMATION_SEQUENCE) + 1);
         }
         applyConfiguredAttributes();
-        if (!tag.contains("NeoForgeData", 10) && tag.contains("ForgeData", 10)) getPersistentData().merge(tag.getCompound("ForgeData"));
-        if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
+if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
         cooldown = Math.clamp(input.getIntOr("KilolyteCooldown", 0), 0, 35);
         movementLock = Math.clamp(input.getIntOr("KilolyteMovementLock", 0), 0, 45);
         if (!level().isClientSide()) syncMovementLock();

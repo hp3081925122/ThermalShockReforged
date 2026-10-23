@@ -39,7 +39,7 @@ public final class SupernovaBlastEntity extends Entity implements ServerEndTickT
         level.playSound(null, BlockPos.containing(origin), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "supernova_blast")), SoundSource.NEUTRAL, .7F, 1);
         if (source instanceof PrismaticSupernovaEntity) source.discard();
         level.sendParticles(AmbientContent.PRISMATIC_BOOM.get(), origin.x, origin.y, origin.z, 1, .001, .001, .001, 0);
-        var damage = new DamageSource(level.registryAccess().registryOrThrow(net.minecraft.core.registries.Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.EXPLOSION));
+        var damage = new DamageSource(level.registryAccess().lookupOrThrow(net.minecraft.core.registries.Registries.DAMAGE_TYPE).getOrThrow(DamageTypes.EXPLOSION));
         var targets = level.getEntitiesOfClass(LivingEntity.class, new AABB(origin, origin).inflate(4), entity -> !(entity instanceof Player || entity instanceof PrismaticSupernovaEntity));
         targets.sort(Comparator.comparingDouble(entity -> entity.distanceToSqr(origin)));
         for (var target : targets) target.hurt(damage, 9);

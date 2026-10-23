@@ -18,7 +18,7 @@ public final class HighDirectorSopelRenderer extends LegacyGeoEntityRenderer<Hig
     public HighDirectorSopelRenderer(EntityRendererProvider.Context context) { super(context, new Model()); shadowRadius = .5F;  addRenderLayer(new Glow(this)); }
     public static void register(EntityRenderersEvent.RegisterRenderers event) { event.registerEntityRenderer(SopelEntityContent.SOPEL.get(), HighDirectorSopelRenderer::new); }
     @Override public RenderType getRenderType(HighDirectorSopelEntity entity, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
-    protected float getDeathMaxRotation(HighDirectorSopelEntity entity) { return 0; }
+    protected float getDeathMaxRotation(com.geckolib.renderer.base.GeoRenderState state) { return 0; }
     private static final class Model extends LegacyGeoModel<HighDirectorSopelEntity> {
         @Override public Identifier getModelResource(HighDirectorSopelEntity entity) { return SopelEntityContent.id("geo/sopel.geo.json"); }
         @Override public Identifier getAnimationResource(HighDirectorSopelEntity entity) { return SopelEntityContent.id("animations/sopel.animation.json"); }

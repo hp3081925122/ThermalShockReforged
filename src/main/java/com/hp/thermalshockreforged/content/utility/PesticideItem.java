@@ -32,7 +32,7 @@ public final class PesticideItem extends Item {
         if (level instanceof ServerLevel server) {
             var origin = consumer.position();
             server.sendParticles(CavebloomerContent.POISON_CLOUD.get(), origin.x, origin.y, origin.z, 1, 0, 0, 0, 0);
-            var source = new DamageSource(server.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.INDIRECT_MAGIC));
+            var source = new DamageSource(server.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(DamageTypes.INDIRECT_MAGIC));
             var targets = server.getEntitiesOfClass(SkullscorEntity.class, new AABB(origin, origin).inflate(1.75), entity -> true);
             targets.sort(Comparator.comparingDouble(entity -> entity.distanceToSqr(origin)));
             for (SkullscorEntity target : targets) target.hurt(source, 50);

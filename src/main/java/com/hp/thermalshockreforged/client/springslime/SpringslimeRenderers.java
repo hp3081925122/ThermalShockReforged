@@ -21,7 +21,7 @@ public final class SpringslimeRenderers {
     private static final class Renderer extends LegacyGeoEntityRenderer<SpringslimeEntity> {
         Renderer(EntityRendererProvider.Context context) { super(context, new Model()); shadowRadius = 1.2F; }
         @Override public RenderType getRenderType(SpringslimeEntity entity, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
-        protected float getDeathMaxRotation(SpringslimeEntity entity) { return 0; }
+        protected float getDeathMaxRotation(com.geckolib.renderer.base.GeoRenderState state) { return 0; }
     }
     private static final class Model extends LegacyGeoModel<SpringslimeEntity> {
         @Override public Identifier getModelResource(SpringslimeEntity entity) { return id("geo/violetsplat.geo.json"); }

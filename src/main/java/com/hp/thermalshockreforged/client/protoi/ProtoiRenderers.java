@@ -53,7 +53,7 @@ public final class ProtoiRenderers {
     private static final class Renderer extends LegacyGeoEntityRenderer<ProtoiEntityBase> {
         private Renderer(EntityRendererProvider.Context context, String id, float scale, float shadow) { super(context, new Model(id)); withScale(scale); shadowRadius = shadow; if (id.equals("protoi_sunbeam")) addRenderLayer(new SunbeamGlow(this)); }
         @Override public RenderType getRenderType(ProtoiEntityBase entity, Identifier texture, MultiBufferSource buffers, float partialTick) { return entity instanceof ProtoiGammaEntity || entity instanceof ProtoiDeltaEntity || entity instanceof ProtoiSunbeamEntity ? RenderTypes.entityTranslucent(texture) : super.getRenderType(entity, texture, buffers, partialTick); }
-        protected float getDeathMaxRotation(ProtoiEntityBase entity) { return entity instanceof ProtoiSunbeamEntity ? 0 : super.getDeathMaxRotation(entity); }
+        protected float getDeathMaxRotation(com.geckolib.renderer.base.GeoRenderState state) { return entity instanceof ProtoiSunbeamEntity ? 0 : super.getDeathMaxRotation(entity); }
     }
     private static final class SunbeamGlow extends LegacyGeoRenderLayer<ProtoiEntityBase> {
         private static final Identifier TEXTURE = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/entities/sunbeam_glow.png");

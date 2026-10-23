@@ -29,7 +29,7 @@ public final class KeystoneChamberGeneration {
     private static void wakeUp(PlayerWakeUpEvent event) {
         if (!(event.getEntity() instanceof ServerPlayer player) || !(player.level() instanceof ServerLevel level)
                 || !level.getGameRules().getBoolean(ModGameRules.LOQENDIA_GENERATE_SPECIAL_STRUCTURES)) return;
-        var advancement = player.server.getAdvancements().get(ARRIVAL);
+        var advancement = player.getServer().getAdvancements().get(ARRIVAL);
         if (advancement == null) {
             ThermalShockReforged.LOGGER.warn("Keystone chamber arrival advancement is missing: {}", ARRIVAL);
             return;

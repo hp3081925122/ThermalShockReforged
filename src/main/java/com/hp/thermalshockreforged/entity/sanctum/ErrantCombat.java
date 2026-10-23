@@ -44,7 +44,7 @@ final class ErrantCombat {
                 owner.setAnimation("dodge");
                 level.playSound(null, soundOrigin, BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "propulsionbootsactivate")), SoundSource.NEUTRAL, 1, 3);
                 owner.setDeltaMovement(owner.getLookAngle().scale(-2));
-                owner.hasImpulse = true;
+                owner.hurtMarked = true;
             }
         } else {
             cooldown = 50;
@@ -82,11 +82,11 @@ final class ErrantCombat {
         var values = owner.sanctum() ? SanctumConfig.SANCTUM_ERRANT : SanctumConfig.ERRANT;
         double damage = owner.getAttributeValue(Attributes.ATTACK_DAMAGE) * values.strikeMultiplier().get() - victim.getArmorValue() * values.armorFactor().get();
         if (damage < 0) ThermalShockReforged.LOGGER.debug("Clamped negative errant strike damage: entity={}, target={}, rawDamage={}, armor={}", owner.getUUID(), victim.getUUID(), damage, victim.getArmorValue());
-        if (Double.isFinite(damage)) victim.hurt(new DamageSource(level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DAMAGE)), (float)Math.clamp(damage, 0, Float.MAX_VALUE));
+        if (Double.isFinite(damage)) victim.hurt(new DamageSource(level.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(DAMAGE)), (float)Math.clamp(damage, 0, Float.MAX_VALUE));
         double strength = values.strikeKnockback().get() * (1 - Mth.clamp(victim.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE), 0, 1));
         if (Double.isFinite(strength) && strength > 0) {
             victim.setDeltaMovement(owner.getLookAngle().scale(strength));
-            victim.hasImpulse = true;
+            victim.hurtMarked = true;
             victim.hurtMarked = true;
         }
     }

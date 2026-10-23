@@ -64,7 +64,7 @@ public final class MagneticCrossbowItem extends Item implements GeoItem {
         server.playSound(null, player.blockPosition(), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "magnet_bow_25")), SoundSource.NEUTRAL, .7F, 1);
         MagneticCycleSoundEntity.submit(server, player.getX(), player.getY(), player.getZ());
         player.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 15, 2, false, false));
-        player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 2, 0, true, false));
+        player.addEffect(new MobEffectInstance(MobEffects.SPEED, 2, 0, true, false));
         if (!player.getAbilities().instabuild) player.getInventory().clearOrCountMatchingItems(candidate -> candidate.is(ammo), 1, player.inventoryMenu.getCraftSlots());
         return result;
     }

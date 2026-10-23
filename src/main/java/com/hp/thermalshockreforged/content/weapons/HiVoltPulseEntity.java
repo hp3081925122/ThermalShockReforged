@@ -62,7 +62,7 @@ public final class HiVoltPulseEntity extends Entity implements ServerEndTickTask
     }
     private void pulse(ServerLevel level) {
         level.playSound(null, blockPosition(), SoundEvents.PLAYER_ATTACK_SWEEP, SoundSource.NEUTRAL, .8F, 4);
-        var damage = new DamageSource(level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ModDamageTypes.THERM_IFRAME_BYPASS));
+        var damage = new DamageSource(level.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(ModDamageTypes.THERM_IFRAME_BYPASS));
         for (Entity target : targets(level)) target.hurt(damage, 1.5F);
     }
     @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {

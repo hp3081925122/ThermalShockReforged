@@ -95,7 +95,7 @@ public final class FerroCakeConsumption extends Entity implements ServerEndTickT
         owner = input.getString("CakeOwner").map(java.util.UUID::fromString).orElse(null);
         ownerDeaths = Math.max(0, input.getIntOr("CakeOwnerDeaths", 0));
         anchor = BlockPos.of(input.getLongOr("CakeAnchor", 0L)); dimension = input.getStringOr("CakeDimension", ""); phase = Math.clamp(input.getIntOr("CakePhase", 0), 1, 3); remaining = Math.clamp(input.getIntOr("CakeRemaining", 0), 1, 5);
-        armed = input.getBooleanOr("CakeArmed", false) && owner != null && tag.contains("CakeAnchor", 99) && Identifier.tryParse(dimension) != null; consumed = input.getBooleanOr("CakeConsumed", false);
+        armed = input.getBooleanOr("CakeArmed", false) && owner != null  && Identifier.tryParse(dimension) != null; consumed = input.getBooleanOr("CakeConsumed", false);
         noPhysics = true; setNoGravity(true);
     }
 }

@@ -68,8 +68,7 @@ public final class ConciergeEntity extends PathfinderMob implements GeoEntity, S
     @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putString("Texture", texture()); output.putInt("ConciergeNoticeSchedule", noticeSchedule); output.putBoolean("ConciergeNoticeShifted", isShiftKeyDown()); }
     @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         super.readAdditionalSaveData(input);
-        if (!tag.contains("NeoForgeData", 10) && tag.contains("ForgeData", 10)) getPersistentData().merge(tag.getCompound("ForgeData"));
-        if (input.getString("Texture").isPresent()) entityData.set(TEXTURE, input.getStringOr("Texture", ""));
+if (input.getString("Texture").isPresent()) entityData.set(TEXTURE, input.getStringOr("Texture", ""));
         int legacyTicks = Math.clamp(input.getIntOr("ConciergeNoticeTicks", 0), 0, 20);
         noticeSchedule = input.getString("ConciergeNoticeSchedule").isPresent() ? input.getIntOr("ConciergeNoticeSchedule", 0) & 0xfffff : legacyTicks > 0 ? 1 << (legacyTicks - 1) : 0;
         if (noticeSchedule != 0) setShiftKeyDown(!input.getString("ConciergeNoticeShifted").isPresent() || input.getBooleanOr("ConciergeNoticeShifted", false));

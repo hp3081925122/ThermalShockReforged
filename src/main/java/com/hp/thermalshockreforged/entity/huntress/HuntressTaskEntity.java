@@ -108,13 +108,13 @@ public final class HuntressTaskEntity extends Entity implements ServerEndTickTas
         if (current >= end) { armed = false; discard(); } else ServerEndTickTasks.schedule(server, getUUID());
     }
     private void faceAndDash(HuntressBossEntity owner) {
-        if (owner != null) { owner.lookAt(EntityAnchorArgument.Anchor.EYES, targetOrigin); owner.yBodyRot = owner.getYRot(); owner.yHeadRot = owner.getYRot(); look = owner.getLookAngle(); owner.setDeltaMovement(look); owner.hasImpulse = true; }
+        if (owner != null) { owner.lookAt(EntityAnchorArgument.Anchor.EYES, targetOrigin); owner.yBodyRot = owner.getYRot(); owner.yHeadRot = owner.getYRot(); look = owner.getLookAngle(); owner.setDeltaMovement(look); owner.hurtMarked = true; }
         else { var delta = targetOrigin.subtract(casterOrigin.add(0, eyeHeight, 0)); if (delta.lengthSqr() > 0) look = delta.normalize(); }
     }
     private void teleportOwner(HuntressBossEntity owner, Vec3 position) { casterOrigin = position; if (owner != null) { owner.teleportTo(position.x, position.y, position.z); casterOrigin = owner.position(); } setPos(casterOrigin); }
     private void strike(ServerLevel server, boolean second) {
         var entities = server.getEntitiesOfClass(Entity.class, new AABB(casterOrigin, casterOrigin).inflate(2.5), entity -> entity != this).stream().sorted(Comparator.comparingDouble(entity -> entity.distanceToSqr(casterOrigin))).toList();
-        var source = new DamageSource(server.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DAMAGE_TYPE));
+        var source = new DamageSource(server.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(DAMAGE_TYPE));
         for (var entity : entities) {
             if (entity.getUUID().equals(caster) || entity instanceof LivingEntity living && living.isBlocking()) continue;
             double armor = entity instanceof LivingEntity living ? living.getArmorValue() : 0;
@@ -123,7 +123,7 @@ public final class HuntressTaskEntity extends Entity implements ServerEndTickTas
             double resistance = entity instanceof LivingEntity living ? Mth.clamp(living.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE), 0, 1) : 0;
             if (!Double.isFinite(resistance)) resistance = 1;
             double strength = knockback * (1 - resistance);
-            if (strength > 0) { Vec3 vector = skill == 2 ? new Vec3(0, 1, 0) : second ? new Vec3(look.x, .4, look.z) : look; entity.setDeltaMovement(vector.scale(strength)); entity.hasImpulse = true; entity.hurtMarked = true; }
+            if (strength > 0) { Vec3 vector = skill == 2 ? new Vec3(0, 1, 0) : second ? new Vec3(look.x, .4, look.z) : look; entity.setDeltaMovement(vector.scale(strength)); entity.hurtMarked = true; entity.hurtMarked = true; }
         }
     }
     private void sound(ServerLevel server, SoundEvent sound, SoundSource source, float pitch) { server.playSound(null, BlockPos.containing(soundOrigin), sound, source, 1, pitch); }

@@ -29,7 +29,7 @@ public final class QoMenu extends AbstractContainerMenu {
     }
     private net.minecraft.world.entity.PathfinderMob npc() { return level.getEntity(npcId) instanceof net.minecraft.world.entity.PathfinderMob npc && (npc instanceof DefectorMachinistEntity || npc instanceof com.hp.thermalshockreforged.entity.labmachinist.LabMachinistEntity) && npc.getUUID().equals(npcUuid) ? npc : null; }
     @Override public boolean stillValid(Player player) { var npc = npc(); return !closed && player == owner && player.level() == level && player.isAlive() && npc != null && npc.isAlive() && !npc.isRemoved() && player.distanceToSqr(npc) <= 64; }
-    public static boolean completed(ServerPlayer player, String id) { var advancement = player.server.getAdvancements().get(QoContent.id(id)); return advancement != null && player.getAdvancements().getOrStartProgress(advancement).isDone(); }
+    public static boolean completed(ServerPlayer player, String id) { var advancement = player.getServer().getAdvancements().get(QoContent.id(id)); return advancement != null && player.getAdvancements().getOrStartProgress(advancement).isDone(); }
     @Override public boolean clickMenuButton(Player player, int button) {
         if (changedPage || !(player instanceof ServerPlayer server) || player.containerMenu != this || !stillValid(player)) return false;
         QoPage next = page == QoPage.STRATUS_1 && button == 0 ? QoPage.STRATUS_2 : page == QoPage.STRATUS_2 && button == 1 ? QoPage.STRATUS_REJECT : null;
@@ -38,8 +38,8 @@ public final class QoMenu extends AbstractContainerMenu {
         changedPage = true; boolean opened = QoContent.open(server, npc(), anchor, next); if (!opened) changedPage = false; return opened;
     }
     private boolean accept(ServerPlayer player) {
-        var errands = player.server.getAdvancements().get(QoContent.id("errands_get"));
-        var alliance = player.server.getAdvancements().get(QoContent.id("uneasy_alliance_1"));
+        var errands = player.getServer().getAdvancements().get(QoContent.id("errands_get"));
+        var alliance = player.getServer().getAdvancements().get(QoContent.id("uneasy_alliance_1"));
         if (errands == null || alliance == null) { ThermalShockReforged.LOGGER.warn("Qo errand advancements unavailable; keeping payment: player={}", player.getUUID()); return false; }
         if (player.getAdvancements().getOrStartProgress(alliance).isDone()) return false;
         var material = MaterialContent.items().get("stratus_alloy").get();

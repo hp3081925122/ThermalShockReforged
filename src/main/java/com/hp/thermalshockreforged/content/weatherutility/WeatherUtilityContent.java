@@ -24,7 +24,7 @@ public final class WeatherUtilityContent {
     public static Identifier id(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
     public static void register(IEventBus bus) { BLOCKS.register(bus); ITEMS.register(bus); BLOCK_ENTITIES.register(bus); ENTITIES.register(bus); }
     static void award(ServerPlayer player, String path) {
-        var advancement = player.server.getAdvancements().get(id(path));
+        var advancement = player.getServer().getAdvancements().get(id(path));
         if (advancement == null) return;
         var progress = player.getAdvancements().getOrStartProgress(advancement);
         if (!progress.isDone()) for (String criterion : progress.getRemainingCriteria()) player.getAdvancements().award(advancement, criterion);

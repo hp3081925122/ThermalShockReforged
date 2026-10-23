@@ -72,7 +72,7 @@ public final class TallPlantContent {
         private Sprintweed(Properties properties) { super(properties); }
         @Override protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
             super.entityInside(state, level, pos, entity);
-            if (!level.isClientSide() && entity instanceof LivingEntity living && !entity.getType().is(BLACKLIST)) living.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 220, 1, true, true));
+            if (!level.isClientSide() && entity instanceof LivingEntity living && !entity.getType().is(BLACKLIST)) living.addEffect(new MobEffectInstance(MobEffects.SPEED, 220, 1, true, true));
         }
     }
 }

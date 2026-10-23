@@ -24,7 +24,7 @@ public final class SporeRenderers {
         @Override
         public RenderType getRenderType(BlightedSporeEntity entity, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
         @Override
-        protected float getDeathMaxRotation(BlightedSporeEntity entity) { return 0; }
+        protected float getDeathMaxRotation(com.geckolib.renderer.base.GeoRenderState state) { return 0; }
     }
     private static final class Model extends LegacyGeoModel<BlightedSporeEntity> {
         @Override

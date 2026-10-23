@@ -34,7 +34,7 @@ public final class ParryingStatus {
         entity.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 20, 1, true, false));
         double recoil = 0.6 * (1 - Mth.clamp(entity.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE), 0, 1));
         entity.setDeltaMovement(entity.getDeltaMovement().add(entity.getLookAngle().scale(-recoil)));
-        entity.hasImpulse = true;
+        entity.hurtMarked = true;
         entity.hurtMarked = true;
         if (KNIGHTS_EDGE.equals(BuiltInRegistries.ITEM.getKey(entity.getMainHandItem().getItem()))) {
             entity.addEffect(new MobEffectInstance(StatusContent.KNIGHTS_EDGE_CHARGE, 40, 0));

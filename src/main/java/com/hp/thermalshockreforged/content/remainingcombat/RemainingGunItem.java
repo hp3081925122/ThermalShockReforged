@@ -63,11 +63,11 @@ public final class RemainingGunItem extends AnimatedCombatItem {
         if (judge) {
             CombatItemTaskEntity.sound(server, player.position(), "minecraft:entity.generic.explode", .2F, 3);
             CombatItemTaskEntity.sound(server, player.position(), "volcanofire", .8F, .5F);
-            player.setDeltaMovement(look.scale(-1)); player.hasImpulse = true; player.hurtMarked = true;
+            player.setDeltaMovement(look.scale(-1)); player.hurtMarked = true; player.hurtMarked = true;
         } else {
             CombatItemTaskEntity.sound(server, player.position(), "minecraft:entity.firework_rocket.shoot", .2F, 3);
             CombatItemTaskEntity.sound(server, player.position(), "minecraft:item.crossbow.shoot", .7F, 1);
-            player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 2, 0, true, false));
+            player.addEffect(new MobEffectInstance(MobEffects.SPEED, 2, 0, true, false));
         }
         player.getInventory().clearOrCountMatchingItems(candidate -> candidate.is(ammo), 1, player.inventoryMenu.getCraftSlots());
         return false;

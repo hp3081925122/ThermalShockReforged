@@ -78,7 +78,7 @@ public final class TitanSwingEntity extends Entity implements ServerEndTickTask 
         server.sendParticles(ParticleTypes.CAMPFIRE_COSY_SMOKE, getX(), getY(), getZ(), 30, 3, 0, 3, 0);
         if (target != null && !target.equals(caster) && server.getEntity(target) instanceof LivingEntity victim && (!targetPlayer || victim.getId() == targetEntityId && originalPlayerTarget != null && originalPlayerTarget.get() == victim) && victim.isAlive()
             && victim.position().distanceTo(targetOrigin) <= 1.7 && victim.distanceToSqr(position()) <= 16) {
-            if (damage > 0) victim.hurt(new DamageSource(server.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DAMAGE)), (float) damage);
+            if (damage > 0) victim.hurt(new DamageSource(server.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(DAMAGE)), (float) damage);
             if (mantle) {
                 victim.igniteForSeconds(5);
                 server.sendParticles(ParticleTypes.FLAME, targetOrigin.x, targetOrigin.y, targetOrigin.z, 18, 1, 1, 1, 0);

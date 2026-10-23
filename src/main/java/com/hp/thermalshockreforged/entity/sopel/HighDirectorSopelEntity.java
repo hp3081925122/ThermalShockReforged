@@ -46,7 +46,7 @@ public final class HighDirectorSopelEntity extends AnimatedMonsterEntity {
         double strength = SopelConfig.PUSH.get() * (1 - (Double.isFinite(resistance) ? Mth.clamp(resistance, 0, 1) : 1));
         if (Double.isFinite(strength) && strength > 0) {
             victim.setDeltaMovement(direction == 1 ? strength : direction == 2 ? -strength : 0, 0, direction == 3 ? strength : direction == 0 ? -strength : 0);
-            victim.hasImpulse = true; victim.hurtMarked = true;
+            victim.hurtMarked = true; victim.hurtMarked = true;
         }
     }
     private void applyConfiguration() {
@@ -66,7 +66,7 @@ public final class HighDirectorSopelEntity extends AnimatedMonsterEntity {
     @Override protected SoundEvent getDeathSound() { return SoundEvents.GENERIC_DEATH; }
     @Override public void startSeenByPlayer(ServerPlayer player) { super.startSeenByPlayer(player); bossInfo.addPlayer(player); }
     @Override public void stopSeenByPlayer(ServerPlayer player) { super.stopSeenByPlayer(player); bossInfo.removePlayer(player); }
-    @Override protected void customServerAiStep() { super.customServerAiStep(); bossInfo.setProgress(getHealth() / getMaxHealth()); }
+    @Override protected void customServerAiStep(net.minecraft.server.level.ServerLevel level) { super.customServerAiStep(level); bossInfo.setProgress(getHealth() / getMaxHealth()); }
     @Override protected int deathDuration() { return 60; }
     @Override protected String movementAnimation(boolean moving) { return "idle2"; }
     @Override protected List<String> procedureAnimations() { return List.of("idle", "idle2", "dash"); }

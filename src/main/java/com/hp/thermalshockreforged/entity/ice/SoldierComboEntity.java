@@ -84,7 +84,7 @@ public final class SoldierComboEntity extends Entity implements ServerEndTickTas
         float dx = (float)(victim.getX() - casterPosition.x), dy = (float)(victim.getY() - casterPosition.y), dz = (float)(victim.getZ() - casterPosition.z);
         if (Mth.sqrt(dx * dx + dy * dy + dz * dz) > 2.5F) return;
         double amount = damage * 1.8 - victim.getArmorValue() * armorFactor;
-        if (Double.isFinite(amount) && amount > 0) victim.hurt(new DamageSource(level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ERRANT)), (float)Math.min(amount, Float.MAX_VALUE));
+        if (Double.isFinite(amount) && amount > 0) victim.hurt(new DamageSource(level.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(ERRANT)), (float)Math.min(amount, Float.MAX_VALUE));
     }
     private void sound(ServerLevel level, SoundEvent sound, float volume, float pitch) { level.playSound(null, soundOrigin, sound, SoundSource.HOSTILE, volume, pitch); }
     private static SoundEvent custom(String name) { return BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, name)); }

@@ -42,7 +42,7 @@ public final class FirearmBulletEntity extends AbstractArrow implements ItemSupp
         super.onHitEntity(hit);
         Entity target = hit.getEntity();
         if (!(level() instanceof ServerLevel server) || target instanceof Player) return;
-        DamageSource elemental = new DamageSource(server.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ModDamageTypes.THERM_IFRAME_BYPASS));
+        DamageSource elemental = new DamageSource(server.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(ModDamageTypes.THERM_IFRAME_BYPASS));
         if (isHailfall()) target.hurt(elemental, 1);
         sound(server, blockPosition(), SoundEvents.GENERIC_HURT, 1);
         sound(server, blockPosition(), isHailfall() ? SoundEvents.GLASS_BREAK : SoundEvents.FIREWORK_ROCKET_BLAST, isHailfall() ? 2 : 1);

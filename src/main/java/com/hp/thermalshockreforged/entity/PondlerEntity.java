@@ -106,7 +106,7 @@ public final class PondlerEntity extends PathfinderMob implements GeoEntity {
         } else {
             setDeltaMovement(0, 0.5, 0);
         }
-        hasImpulse = true;
+        hurtMarked = true;
     }
 
     @Override
@@ -146,7 +146,7 @@ public final class PondlerEntity extends PathfinderMob implements GeoEntity {
         if (!level().getBlockState(blockPosition()).is(Blocks.AIR)) {
             var look = getLookAngle();
             setDeltaMovement(look.x, 0, look.z);
-            hasImpulse = true;
+            hurtMarked = true;
         }
         return !source.is(DamageTypes.DROWN) && super.hurtServer(level, source, damage);
     }

@@ -84,7 +84,7 @@ public final class SuspiciousCavebloomerBlockEntity extends GeoDecorBlockEntity 
     }
     @Override protected void loadAdditional(net.minecraft.world.level.storage.ValueInput input) {
         super.loadAdditional(input); remaining = Math.clamp(input.getIntOr("CavebloomerSummonsRemaining", 0), 0, 3); delay = Math.clamp(input.getIntOr("CavebloomerSummonDelay", 0), 0, 7);
-        startedAt = tag.contains("CavebloomerSummonStartedAt") ? tag.getLong("CavebloomerSummonStartedAt") : Long.MIN_VALUE;
+        startedAt = input.getString("CavebloomerSummonStartedAt").isPresent() ? input.getLongOr("CavebloomerSummonStartedAt", Long.MIN_VALUE) : Long.MIN_VALUE;
         if (getPersistentData().getDouble("phase") != 1) { remaining = 0; delay = 0; }
     }
 }

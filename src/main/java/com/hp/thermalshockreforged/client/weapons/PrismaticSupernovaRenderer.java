@@ -17,7 +17,7 @@ import com.hp.thermalshockreforged.client.compat.LegacyGeoRenderLayer;
 public final class PrismaticSupernovaRenderer extends LegacyGeoEntityRenderer<PrismaticSupernovaEntity> {
     public PrismaticSupernovaRenderer(EntityRendererProvider.Context context) { super(context, new Model()); shadowRadius = .5F; addRenderLayer(new Glow(this)); }
     @Override public RenderType getRenderType(PrismaticSupernovaEntity entity, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
-    protected float getDeathMaxRotation(PrismaticSupernovaEntity entity) { return 0; }
+    protected float getDeathMaxRotation(com.geckolib.renderer.base.GeoRenderState state) { return 0; }
     private static Identifier resource(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
     private static final class Model extends LegacyGeoModel<PrismaticSupernovaEntity> {
         @Override public Identifier getModelResource(PrismaticSupernovaEntity entity) { return resource("geo/prism_vortex.geo.json"); }

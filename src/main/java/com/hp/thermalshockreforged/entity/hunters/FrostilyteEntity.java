@@ -130,7 +130,7 @@ public final class FrostilyteEntity extends Monster implements GeoEntity, Server
         if (targetId == null || !(server.getEntity(targetId) instanceof LivingEntity target) || !target.isAlive() || target == this || distanceTo(target) > 1.5F) return;
         double damage = getAttributeValue(Attributes.ATTACK_DAMAGE) * 1.5 - target.getArmorValue() * 0.6;
         if (!Double.isFinite(damage)) return;
-        target.hurt(new DamageSource(server.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DAMAGE)), (float)Math.max(0, damage));
+        target.hurt(new DamageSource(server.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(DAMAGE)), (float)Math.max(0, damage));
     }
 
     @Override

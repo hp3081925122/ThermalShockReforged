@@ -141,7 +141,7 @@ public final class IceCreatureEntity extends Monster implements GeoEntity, Range
         } else {
             cooldown = IceCombatConfig.ZERK_COOLDOWN.get(); alternate = random.nextDouble() < IceCombatConfig.ZERK_ALT_CHANCE.get(); entityData.set(COOLDOWN_VISIBLE, true);
             if (alternate) { movementLock = 4; target.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 25, 5, true, true)); }
-            else { animate("attack"); sound(SoundEvents.SHIELD_BREAK, 0.8F, -1); attackAge = -1; pendingTarget = null; }
+            else { animate("attack"); sound(SoundEvents.SHIELD_BREAK.value(), 0.8F, -1); attackAge = -1; pendingTarget = null; }
         }
         syncMovementLock();
         if (attackAge >= 0 && level() instanceof ServerLevel server) {
@@ -179,7 +179,7 @@ public final class IceCreatureEntity extends Monster implements GeoEntity, Range
             double strength = IceCombatConfig.ZERK_LAUNCH.get() * Math.max(0, 1 - target.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE));
             if (strength > 0) target.setDeltaMovement(0, strength, 0);
             double damage = getAttributeValue(Attributes.ATTACK_DAMAGE) * IceCombatConfig.ZERK_ALT_MULTIPLIER.get();
-            if (Double.isFinite(damage)) target.hurt(new DamageSource(registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.GENERIC_KILL)), (float)Math.max(0, damage));
+            if (Double.isFinite(damage)) target.hurt(new DamageSource(registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(DamageTypes.GENERIC_KILL)), (float)Math.max(0, damage));
             sound(SoundEvents.IRON_GOLEM_ATTACK, 1, 1); sound(SoundEvents.ANVIL_PLACE, 1, -1); animate("attack2");
         }
     }
@@ -219,7 +219,7 @@ public final class IceCreatureEntity extends Monster implements GeoEntity, Range
         if (driftMovePending) {
             driftMovePending = false;
             setDeltaMovement(random.nextDouble() * 2 - 1, random.nextDouble() * 0.4 - 0.2, random.nextDouble() * 2 - 1);
-            hasImpulse = true;
+            hurtMarked = true;
             driftSlowPending = true;
             ThermalShockReforged.LOGGER.debug("Icidrone drift pulse: entity={}, slowPending={}", getUUID(), driftSlowPending);
         }
@@ -228,7 +228,7 @@ public final class IceCreatureEntity extends Monster implements GeoEntity, Range
     @Override public void baseTick() {
         super.baseTick();
         if (level() instanceof ServerLevel server && kind() == 2) droneTick(server);
-        if (!level().isClientSide() && kind() == 3 && isInWater()) { addEffect(new MobEffectInstance(MobEffects.DOLPHINS_GRACE, 2, 3, true, false)); addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 2, 3, true, false)); }
+        if (!level().isClientSide() && kind() == 3 && isInWater()) { addEffect(new MobEffectInstance(MobEffects.DOLPHINS_GRACE, 2, 3, true, false)); addEffect(new MobEffectInstance(MobEffects.SPEED, 2, 3, true, false)); }
     }
     @Override public void tick() {
         if (!level().isClientSide()) {
@@ -261,7 +261,7 @@ public final class IceCreatureEntity extends Monster implements GeoEntity, Range
         }
     }
     @Override protected void dropExperience(net.minecraft.server.level.ServerLevel level, Entity attacker) {
-        if (kind() != 0) { super.dropExperience(server, attacker); return; }
+        if (kind() != 0) { super.dropExperience(level, attacker); return; }
         soldierExperiencePending = true; soldierExperienceAttacker = attacker == null ? null : attacker.getUUID();
     }
     @Override protected void tickDeath() {
@@ -285,8 +285,8 @@ public final class IceCreatureEntity extends Monster implements GeoEntity, Range
     @Override protected void tickEffects() {
         if (!level().isClientSide() || !entityData.get(COOLDOWN_VISIBLE)) { super.tickEffects(); return; }
         for (var effect : new ArrayList<>(getActiveEffects())) {
-            boolean active = onEffectUpdated(effect, true, null);
-            if (active && effect.getDuration() % 600 == 0) onEffectUpdated(effect, false, null);
+            onEffectUpdated(effect, true, null);
+            if (effect.getDuration() % 600 == 0) onEffectUpdated(effect, false, null);
         }
         boolean spawn = isInvisible() ? random.nextInt(15) == 0 : random.nextBoolean();
         if (spawn) LegacyEffectParticles.emit(this, 0xFFFFFF, 2);
@@ -300,7 +300,6 @@ public final class IceCreatureEntity extends Monster implements GeoEntity, Range
     }
     @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         loadedFromSave = true; super.readAdditionalSaveData(input); attributesApplied = false; applyConfiguredAttributes();
-        if (!tag.contains("NeoForgeData", 10) && tag.contains("ForgeData", 10)) getPersistentData().merge(tag.getCompound("ForgeData"));
         soldierExperiencePending = input.getBooleanOr("SoldierExperiencePending", false); soldierExperienceAttacker = input.getString("SoldierExperienceAttacker").map(java.util.UUID::fromString).orElse(null);
         if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
         cooldown = Math.max(0, Math.min(72000, input.getIntOr("IceCooldown", 0))); movementLock = Math.max(0, Math.min(29, input.getIntOr("IceMovementLock", 0)));
