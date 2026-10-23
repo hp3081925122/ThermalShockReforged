@@ -140,21 +140,21 @@ public final class WorldProgressData extends SavedData {
     }
     private static WorldProgressData load(CompoundTag tag, HolderLookup.Provider lookup) {
         var data = new WorldProgressData();
-        double value = tag.getDouble("WorldCrux");
+        double value = tag.getDoubleOr("WorldCrux", 0);
         data.worldCrux = Double.isFinite(value) ? Math.max(0, value) : 0;
-        data.altarUnlocked = tag.getBoolean("AltarUnlocked");
-        data.squallSpawn = !tag.contains("SquallSpawn") || tag.getBoolean("SquallSpawn");
-        data.palaceExists = tag.getBoolean("PalaceExists");
-        data.shalespringExists = tag.getBoolean("ShalespringExists");
-        data.keystoneExists = tag.getBoolean("KeystoneExists");
-        data.keystonePuzzleHintShown = tag.getBoolean("KeystonePuzzleHintShown");
-        data.keystoneLeverHintShown = tag.getBoolean("KeystoneLeverHintShown");
-        data.keystoneNoticeDimension = net.minecraft.resources.Identifier.tryParse(tag.getString("KeystoneNoticeDimension"));
-        data.keystoneNoticeAnchor = net.minecraft.core.BlockPos.of(tag.getLong("KeystoneNoticeAnchor"));
-        int noticeTicks = tag.getInt("KeystoneNoticeTicks");
-        if (data.keystoneExists && data.keystoneNoticeDimension != null && tag.contains("KeystoneNoticeTicks", 99) && noticeTicks >= 0 && noticeTicks < 200) data.keystoneNoticeTicks = noticeTicks;
-        data.oreTier1 = validOreTier(tag.getInt("OreTier1"));
-        data.oreTier2 = validOreTier(tag.getInt("OreTier2"));
+        data.altarUnlocked = tag.getBooleanOr("AltarUnlocked", false);
+        data.squallSpawn = !tag.contains("SquallSpawn") || tag.getBooleanOr("SquallSpawn", false);
+        data.palaceExists = tag.getBooleanOr("PalaceExists", false);
+        data.shalespringExists = tag.getBooleanOr("ShalespringExists", false);
+        data.keystoneExists = tag.getBooleanOr("KeystoneExists", false);
+        data.keystonePuzzleHintShown = tag.getBooleanOr("KeystonePuzzleHintShown", false);
+        data.keystoneLeverHintShown = tag.getBooleanOr("KeystoneLeverHintShown", false);
+        data.keystoneNoticeDimension = net.minecraft.resources.Identifier.tryParse(tag.getStringOr("KeystoneNoticeDimension", ""));
+        data.keystoneNoticeAnchor = net.minecraft.core.BlockPos.of(tag.getLongOr("KeystoneNoticeAnchor", 0L));
+        int noticeTicks = tag.getIntOr("KeystoneNoticeTicks", 0);
+        if (data.keystoneExists && data.keystoneNoticeDimension != null && tag.get("KeystoneNoticeTicks") instanceof net.minecraft.nbt.NumericTag && noticeTicks >= 0 && noticeTicks < 200) data.keystoneNoticeTicks = noticeTicks;
+        data.oreTier1 = validOreTier(tag.getIntOr("OreTier1", 0));
+        data.oreTier2 = validOreTier(tag.getIntOr("OreTier2", 0));
         return data;
     }
     private static int validOreTier(int value) { return value == 1 || value == 2 ? value : 0; }

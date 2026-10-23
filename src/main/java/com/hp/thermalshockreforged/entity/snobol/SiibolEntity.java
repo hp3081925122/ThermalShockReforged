@@ -148,7 +148,7 @@ public final class SiibolEntity extends PathfinderMob implements GeoEntity, Serv
         var targets = server.getEntitiesOfClass(Entity.class, box, entity -> true);
         if (targets.stream().noneMatch(entity -> entity instanceof LivingEntity)) return;
         for (var target : targets) {
-            if (target instanceof net.minecraft.world.entity.item.ItemEntity || target instanceof SiibolEntity || target.getType().is(CHARACTERS)) continue;
+            if (target instanceof net.minecraft.world.entity.item.ItemEntity || target instanceof SiibolEntity || target.is(CHARACTERS)) continue;
             if (target instanceof LivingEntity living) {
                 if (living.hasEffect(com.hp.thermalshockreforged.content.status.StatusContent.ANTITOXIN_EFFECT)) continue;
                 living.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.POISON, 60, 3));

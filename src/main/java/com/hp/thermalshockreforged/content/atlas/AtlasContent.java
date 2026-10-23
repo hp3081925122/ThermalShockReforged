@@ -20,7 +20,7 @@ public final class AtlasContent {
     public static final DeferredItem<Item> VIRUSTONE = ITEMS.register("virustone", VirustoneItem::new);
     public static final DeferredItem<Item> KEYSTONE = ITEMS.register("keystone", KeystoneItem::new);
     public static final DeferredHolder<MenuType<?>, MenuType<AtlasMenu>> MENU = MENUS.register("atlas_menu", () -> IMenuTypeExtension.create(AtlasMenu::new));
-    public static final DeferredHolder<EntityType<?>, EntityType<AtlasActivationEntity>> ACTIVATION = ENTITIES.register("atlas_activation", () -> EntityType.Builder.of(AtlasActivationEntity::new, MobCategory.MISC).noSummon().fireImmune().sized(0.01F, 0.01F).clientTrackingRange(0).updateInterval(20).build(ThermalShockReforged.MOD_ID + ":atlas_activation"));
+    public static final DeferredHolder<EntityType<?>, EntityType<AtlasActivationEntity>> ACTIVATION = ENTITIES.register("atlas_activation", () -> EntityType.Builder.of(AtlasActivationEntity::new, MobCategory.MISC).noSummon().fireImmune().sized(0.01F, 0.01F).clientTrackingRange(0).updateInterval(20).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("atlas_activation")));
     private AtlasContent() { }
     public static void register(IEventBus bus) { ITEMS.register(bus); MENUS.register(bus); ENTITIES.register(bus); }
 }

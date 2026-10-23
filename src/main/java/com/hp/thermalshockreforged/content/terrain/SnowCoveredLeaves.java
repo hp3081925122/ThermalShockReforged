@@ -28,7 +28,7 @@ public final class SnowCoveredLeaves extends UnderbrushLeaves {
     }
 
     @Override
-    protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block neighbor, BlockPos from, boolean moving) {
+    protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block neighbor, net.minecraft.world.level.redstone.Orientation from, boolean moving) {
         super.neighborChanged(state, level, pos, neighbor, from, moving);
         if (!level.isClientSide()) {
             int snowy = level.getBlockState(pos.above()).is(Blocks.SNOW) ? 1 : 0;

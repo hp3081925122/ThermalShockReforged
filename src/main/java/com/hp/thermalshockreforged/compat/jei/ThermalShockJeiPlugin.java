@@ -466,7 +466,7 @@ public final class ThermalShockJeiPlugin implements IModPlugin {
         Identifier key;
         if (id.contains(":")) key = Identifier.parse(id);
         else key = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, id);
-        var item = BuiltInRegistries.ITEM.get(key);
+        var item = BuiltInRegistries.ITEM.getValue(key);
         if (item == Items.AIR) {
             ThermalShockReforged.LOGGER.warn("JEI sickle harvest item missing: {}", key);
             return ItemStack.EMPTY;

@@ -19,6 +19,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 
 public final class IcebreakerPulseEntity extends Entity implements ServerEndTickTask {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, net.minecraft.world.damagesource.DamageSource source, float damage) { return false; }
     private BlockPos anchor = BlockPos.ZERO;
     private String dimension = "";
     private int phase;
@@ -33,7 +34,7 @@ public final class IcebreakerPulseEntity extends Entity implements ServerEndTick
 
     static boolean submit(ServerLevel level, BlockPos pos, IcebreakerBlockEntity owner) {
         if (owner.activated()) return false;
-        var task = IcebreakerContent.ICEBREAKER_PULSE.get().create(level);
+        var task = IcebreakerContent.ICEBREAKER_PULSE.get().create(level, net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
         if (task == null) return false;
         task.anchor = pos.immutable();
         task.dimension = level.dimension().identifier().toString();
@@ -51,7 +52,7 @@ public final class IcebreakerPulseEntity extends Entity implements ServerEndTick
     }
 
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
-    @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
+    @Override public boolean canTeleport(Level from, Level to) { return false; }
     @Override public void onAddedToLevel() {
         super.onAddedToLevel();
         if (armed && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());

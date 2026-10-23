@@ -18,11 +18,11 @@ final class WorldTourRedemption {
     private static final String CLAIMED = "HasFschtTrophy";
 
     private static boolean claimed(Player player) {
-        return player.getPersistentData().getCompound(Player.PERSISTED_NBT_TAG).getCompound(ThermalShockReforged.MOD_ID).getBoolean(CLAIMED);
+        return player.getPersistentData().getCompoundOrEmpty(Player.PERSISTED_NBT_TAG).getCompoundOrEmpty(ThermalShockReforged.MOD_ID).getBooleanOr(CLAIMED, false);
     }
     private static void claim(Player player) {
-        CompoundTag persisted = player.getPersistentData().getCompound(Player.PERSISTED_NBT_TAG);
-        CompoundTag mod = persisted.getCompound(ThermalShockReforged.MOD_ID);
+        CompoundTag persisted = player.getPersistentData().getCompoundOrEmpty(Player.PERSISTED_NBT_TAG);
+        CompoundTag mod = persisted.getCompoundOrEmpty(ThermalShockReforged.MOD_ID);
         mod.putBoolean(CLAIMED, true);
         persisted.put(ThermalShockReforged.MOD_ID, mod);
         player.getPersistentData().put(Player.PERSISTED_NBT_TAG, persisted);
@@ -39,7 +39,7 @@ final class WorldTourRedemption {
                 String name = player.getDisplayName().getString();
                 if ((name.equals("Dev") || name.equals("fshct")) && !claimed(player)) {
                     ItemHandlerHelper.giveItemToPlayer(player, new ItemStack(GeoDecorContent.item(GeoDecorKind.WORLD_TOUR_TROPHY)));
-                    player.displayClientMessage(Component.translatable("message.thermal_shock_reforged.world_tour.congratulations"), false);
+                    player.sendSystemMessage(Component.translatable("message.thermal_shock_reforged.world_tour.congratulations"));
                     claim(player);
                     sound = "thermalshockjingle";
                     pitch = 2;

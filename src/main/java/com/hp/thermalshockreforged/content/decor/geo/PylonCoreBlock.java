@@ -42,12 +42,12 @@ public final class PylonCoreBlock extends GeoDecorBlock {
             PylonCoreActivationEntity.begin(server, pos, recipe.lootTable());
             return;
         }
-        if (placer instanceof ServerPlayer player) player.displayClientMessage(Component.translatable("message.thermal_shock_reforged.altar.locked"), true);
+        if (placer instanceof ServerPlayer player) player.sendOverlayMessage(Component.translatable("message.thermal_shock_reforged.altar.locked"));
         if (WorldRulesConfig.PYLON_CORES_EXPLODE.get()) PylonCoreActivationEntity.begin(server, pos, null);
     }
     @Override public PathType getBlockPathType(BlockState state, BlockGetter level, BlockPos pos, Mob mob) { return PathType.DANGER_OTHER; }
     @Override protected List<ItemStack> getDrops(BlockState state, LootParams.Builder builder) {
         var entity = builder.getOptionalParameter(LootContextParams.BLOCK_ENTITY);
-        return entity != null && entity.getPersistentData().hasUUID(ACTIVATION_TOKEN) ? List.of() : super.getDrops(state, builder);
+        return entity != null && entity.getPersistentData().read(ACTIVATION_TOKEN, net.minecraft.core.UUIDUtil.CODEC).isPresent() ? List.of() : super.getDrops(state, builder);
     }
 }

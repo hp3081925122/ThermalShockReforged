@@ -29,18 +29,17 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.*;
 import net.minecraft.world.phys.shapes.*;
 
-public final class GrowthSeedBlock extends Block implements EntityBlock {
+public final class GrowthSeedBlock extends Block implements EntityBlock, com.hp.thermalshockreforged.content.BlockTooltips.Provider {
     public final GrowthKind kind;
     public GrowthSeedBlock(GrowthKind kind) {
         super(Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).strength(.5f, 0).noCollision().noOcclusion().isRedstoneConductor((s, l, p) -> false));
         this.kind = kind;
     }
     @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
-        super.appendHoverText(stack, context, display, tooltipAdder, flag);
         tooltipAdder.accept(Component.translatable("block.thermal_shock_reforged." + kind.id + "_seed.description_0"));
     }
-    @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 0; }
-    @Override protected boolean propagatesSkylightDown(BlockState state, BlockGetter level, BlockPos pos) { return true; }
+    @Override protected int getLightDampening(BlockState state) { return 0; }
+    @Override protected boolean propagatesSkylightDown(BlockState state) { return true; }
     @Override protected VoxelShape getVisualShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) { return Shapes.empty(); }
     @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return new GrowthInventoryBlockEntity(pos, state); }
     private boolean checkSoil(Level level, BlockPos pos) {
@@ -61,7 +60,7 @@ public final class GrowthSeedBlock extends Block implements EntityBlock {
             changed(level, pos, seed);
         }
     }
-    @Override protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block block, BlockPos from, boolean moving) {
+    @Override protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block block, net.minecraft.world.level.redstone.Orientation from, boolean moving) {
         super.neighborChanged(state, level, pos, block, from, moving);
         checkSoil(level, pos);
     }
@@ -74,30 +73,30 @@ public final class GrowthSeedBlock extends Block implements EntityBlock {
         super.tick(state, level, pos, random);
         if (level.getBlockEntity(pos) instanceof GrowthInventoryBlockEntity seed) {
             var data = seed.getPersistentData();
-            if (!data.getBoolean("thirsty") && random.nextDouble() < .0026) {
+            if (!data.getBooleanOr("thirsty", false) && random.nextDouble() < .0026) {
                 data.putBoolean("thirsty", true);
                 changed(level, pos, seed);
             }
-            if (data.getBoolean("thirsty")) level.sendParticles(ParticleTypes.FALLING_WATER, pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5, 5, .3, .3, .3, 0);
+            if (data.getBooleanOr("thirsty", false)) level.sendParticles(ParticleTypes.FALLING_WATER, pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5, 5, .3, .3, .3, 0);
         }
         level.scheduleTick(pos, this, 30);
     }
     private void water(Level level, BlockPos pos, Player player) {
         if (!(level instanceof ServerLevel server) || !(level.getBlockEntity(pos) instanceof GrowthInventoryBlockEntity seed)) return;
         var data = seed.getPersistentData();
-        boolean canWater=BuiltInRegistries.ITEM.getKey(player.getMainHandItem().getItem()).equals(Identifier.fromNamespaceAndPath("thermal_shock_reforged", "watering_can"))&&data.getBoolean("thirsty");
-        if(kind==GrowthKind.SPARKLER&&(data.getDouble("waterings")==3||canWater&&data.getDouble("waterings")==2)
+        boolean canWater=BuiltInRegistries.ITEM.getKey(player.getMainHandItem().getItem()).equals(Identifier.fromNamespaceAndPath("thermal_shock_reforged", "watering_can"))&&data.getBooleanOr("thirsty", false);
+        if(kind==GrowthKind.SPARKLER&&(data.getDoubleOr("waterings", 0)==3||canWater&&data.getDoubleOr("waterings", 0)==2)
                 &&(pos.getY()+2>=server.getMaxBuildHeight()||!level.getBlockState(pos.above()).canBeReplaced()||!level.getBlockState(pos.above(2)).canBeReplaced())) {
             ThermalShockReforged.LOGGER.debug("Sparkler maturation blocked: position={}, upper={}, top={}, waterings={}", pos, level.getBlockState(pos.above()), level.getBlockState(pos.above(2)), data.getDouble("waterings"));
             return;
         }
         if (canWater) {
             data.putBoolean("thirsty", false);
-            data.putDouble("waterings", data.getDouble("waterings") + 1);
+            data.putDouble("waterings", data.getDoubleOr("waterings", 0) + 1);
             changed(level, pos, seed);
             level.playSound(null, pos, SoundEvents.BOTTLE_EMPTY, SoundSource.NEUTRAL, .8f, 1);
         }
-        if (data.getDouble("waterings") == 3) {
+        if (data.getDoubleOr("waterings", 0) == 3) {
             level.playSound(null, pos, SoundEvents.BOTTLE_EMPTY, SoundSource.NEUTRAL, .8f, 1);
             level.playSound(null, pos, SoundEvents.FLOWERING_AZALEA_PLACE, SoundSource.NEUTRAL, 1, 1);
             if (kind == GrowthKind.SPARKLER) {
@@ -127,17 +126,9 @@ public final class GrowthSeedBlock extends Block implements EntityBlock {
         super.triggerEvent(state, level, pos, id, param);
         return level.getBlockEntity(pos) instanceof GrowthInventoryBlockEntity seed && seed.triggerEvent(id, param);
     }
-    @Override protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState replacement, boolean moving) {
-        if (!state.is(replacement.getBlock())) {
-            if (!level.isClientSide() && level.getBlockEntity(pos) instanceof GrowthInventoryBlockEntity seed) {
-                Containers.dropContents(level, pos, seed);
-                level.updateNeighbourForOutputSignal(pos, this);
-            }
-            super.onRemove(state, level, pos, replacement, moving);
-        }
-    }
+    @Override protected void affectNeighborsAfterRemoval(BlockState state, net.minecraft.server.level.ServerLevel level, BlockPos pos, boolean moving) { Containers.updateNeighboursAfterDestroy(state, level, pos); }
     @Override protected boolean hasAnalogOutputSignal(BlockState state) { return true; }
-    @Override protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {
+    @Override protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos, net.minecraft.core.Direction direction) {
         return level.getBlockEntity(pos) instanceof GrowthInventoryBlockEntity seed ? AbstractContainerMenu.getRedstoneSignalFromContainer(seed) : 0;
     }
 }

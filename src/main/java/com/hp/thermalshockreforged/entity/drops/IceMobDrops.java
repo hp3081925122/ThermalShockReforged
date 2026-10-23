@@ -22,9 +22,9 @@ public final class IceMobDrops {
 
     public static void death(LivingDeathEvent event) {
         var entity = event.getEntity();
-        if (!(entity.level() instanceof ServerLevel level) || !level.getGameRules().getBoolean(GameRules.RULE_DOENTITYDROPS)) return;
+        if (!(entity.level() instanceof ServerLevel level) || !level.getGameRules().get(GameRules.ENTITY_DROPS)) return;
         var type = entity.getType();
-        if (type != IceContent.FROSTILYTE_CRYOMANCER.get() || !type.is(ICE) || entity.getRandom().nextDouble() >= 0.7) return;
+        if (type != IceContent.FROSTILYTE_CRYOMANCER.get() || !type.builtInRegistryHolder().is(ICE) || entity.getRandom().nextDouble() >= 0.7) return;
         var drone = IceContent.ICIDRONE.get().spawn(level, BlockPos.containing(entity.position()), EntitySpawnReason.MOB_SUMMONED);
         if (drone != null) drone.setDeltaMovement(0, 0.05, 0);
         level.sendParticles(ParticleTypes.SOUL_FIRE_FLAME, entity.getX(), entity.getY(), entity.getZ(), 12, 1, 1, 1, 0.5);

@@ -24,6 +24,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
 public final class BeetleAttackEntity extends Entity implements ServerEndTickTask {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, net.minecraft.world.damagesource.DamageSource source, float damage) { return false; }
     private UUID caster;
     private UUID target;
     private int targetEntityId;
@@ -52,7 +53,7 @@ public final class BeetleAttackEntity extends Entity implements ServerEndTickTas
     private BeetleCombatEntity owner(ServerLevel server) { return caster != null && server.getEntity(caster) instanceof BeetleCombatEntity owner ? owner : null; }
     private LivingEntity victim(ServerLevel server) { return target != null && !target.equals(caster) && server.getEntity(target) instanceof LivingEntity living && living.isAlive() && (!playerTarget || living.getId() == targetEntityId && originalPlayer != null && originalPlayer.get() == living) ? living : null; }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
-    @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
+    @Override public boolean canTeleport(Level from, Level to) { return false; }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); if (armed && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
     @Override public void tick() {
         super.tick();

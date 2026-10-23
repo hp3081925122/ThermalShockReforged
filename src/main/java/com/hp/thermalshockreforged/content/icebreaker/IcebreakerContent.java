@@ -13,7 +13,7 @@ public final class IcebreakerContent {
     private static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
     public static final DeferredHolder<EntityType<?>, EntityType<IcebreakerPulseEntity>> ICEBREAKER_PULSE = ENTITIES.register("icebreaker_pulse", () -> EntityType.Builder.of(IcebreakerPulseEntity::new, MobCategory.MISC)
             .noSummon().fireImmune().sized(.01F, .01F).clientTrackingRange(0).updateInterval(20)
-            .build(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "icebreaker_pulse").toString()));
+            .build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("icebreaker_pulse")));
 
     private IcebreakerContent() { }
     public static void register(IEventBus bus) { ENTITIES.register(bus); }

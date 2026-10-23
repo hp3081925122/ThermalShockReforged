@@ -19,9 +19,9 @@ final class BuffWeedBlock extends GardenFlowerBlock {
     BuffWeedBlock(Holder<MobEffect> buff, Properties properties) { super(buff, properties); this.buff = buff; }
 
     @Override
-    protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
-        super.entityInside(state, level, pos, entity);
-        if (!level.isClientSide() && entity instanceof LivingEntity living && !entity.getType().is(BLACKLIST)) {
+    protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, net.minecraft.world.entity.InsideBlockEffectApplier effects, boolean precise) {
+        super.entityInside(state, level, pos, entity, effects, precise);
+        if (!level.isClientSide() && entity instanceof LivingEntity living && !entity.is(BLACKLIST)) {
             living.addEffect(new MobEffectInstance(buff, 120, 1, true, true));
         }
     }

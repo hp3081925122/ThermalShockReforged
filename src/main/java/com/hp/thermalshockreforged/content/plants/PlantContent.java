@@ -15,7 +15,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public final class PlantContent {
     private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
-    public static final DeferredBlock<Block> ANGLER_BULB = BLOCKS.register("angler_bulb", () -> new GardenFlowerBlock(MobEffects.DIG_SPEED, properties().lightLevel(state -> 5)));
+    public static final DeferredBlock<Block> ANGLER_BULB = BLOCKS.register("angler_bulb", () -> new GardenFlowerBlock(MobEffects.HASTE, properties().lightLevel(state -> 5)));
     public static final DeferredBlock<Block> BELLFLOWER = BLOCKS.register("bellflower", () -> new GardenFlowerBlock(MobEffects.REGENERATION, properties()));
     public static final DeferredBlock<Block> DULL_SHRUB = BLOCKS.register("dull_shrub", () -> new GardenFlowerBlock.StickClone(properties().replaceable()));
     public static final DeferredBlock<Block> LOQUE_FERN = BLOCKS.register("loque_fern", () -> new GardenFlowerBlock(MobEffects.LUCK, properties()));

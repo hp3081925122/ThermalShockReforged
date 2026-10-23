@@ -131,9 +131,9 @@ public final class ToolsContent {
             this.reach = reach;
         }
         @Override
-        public void inventoryTick(ItemStack stack, net.minecraft.world.level.Level level, Entity entity, int slot, boolean selected) {
-            super.inventoryTick(stack, level, entity, slot, selected);
-            if (reach > 0 && selected && entity instanceof LivingEntity living) HeldWeaponState.refreshReach(living, reach);
+        public void inventoryTick(ItemStack stack, net.minecraft.server.level.ServerLevel level, Entity entity, net.minecraft.world.entity.EquipmentSlot slot) {
+            super.inventoryTick(stack, level, entity, slot);
+            if (reach > 0 && slot == net.minecraft.world.entity.EquipmentSlot.MAINHAND && entity instanceof LivingEntity living) HeldWeaponState.refreshReach(living, reach);
         }
         @Override
         public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {

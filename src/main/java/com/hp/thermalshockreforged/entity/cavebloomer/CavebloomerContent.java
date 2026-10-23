@@ -26,22 +26,22 @@ public final class CavebloomerContent {
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<ParticleType<?>> PARTICLES = DeferredRegister.create(Registries.PARTICLE_TYPE, ThermalShockReforged.MOD_ID);
     public static final DeferredHolder<EntityType<?>, EntityType<CavebloomerBombEntity>> MORTAR_BOMB = TYPES.register("mortar_bomb", () -> EntityType.Builder.<CavebloomerBombEntity>of(CavebloomerBombEntity::new, MobCategory.MISC)
-            .sized(0.5F, 0.5F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(1).build(ThermalShockReforged.MOD_ID + ":mortar_bomb"));
+            .sized(0.5F, 0.5F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(1).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("mortar_bomb")));
     public static final DeferredHolder<EntityType<?>, EntityType<CavebloomerBombEntity>> POISON_BOMB = TYPES.register("poison_bomb", () -> EntityType.Builder.<CavebloomerBombEntity>of(CavebloomerBombEntity::new, MobCategory.MISC)
-            .sized(0.5F, 0.5F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(1).build(ThermalShockReforged.MOD_ID + ":poison_bomb"));
+            .sized(0.5F, 0.5F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(1).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("poison_bomb")));
     public static final DeferredHolder<EntityType<?>, EntityType<CavebloomerImpactEntity>> SHOCK_IMPACT = TYPES.register("shock_attack_entity", () -> EntityType.Builder.of(CavebloomerImpactEntity::new, MobCategory.MONSTER)
-            .sized(1, 1).fireImmune().setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":shock_attack_entity"));
+            .sized(1, 1).fireImmune().setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("shock_attack_entity")));
     public static final DeferredHolder<EntityType<?>, EntityType<CavebloomerImpactEntity>> POISON_IMPACT = TYPES.register("poison_attack_entity", () -> EntityType.Builder.of(CavebloomerImpactEntity::new, MobCategory.MONSTER)
-            .sized(1, 1).fireImmune().setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":poison_attack_entity"));
+            .sized(1, 1).fireImmune().setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("poison_attack_entity")));
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> SHOCK_ATTACK = PARTICLES.register("shock_attack", () -> new SimpleParticleType(true));
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> POISON_CLOUD = PARTICLES.register("poison_cloud", () -> new SimpleParticleType(true));
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> RED_ORB = PARTICLES.register("red_orb", () -> new SimpleParticleType(false));
     public static final DeferredHolder<EntityType<?>, EntityType<BloomlingEntity>> BUDDING = TYPES.register("budding_bloomer", () -> EntityType.Builder.of(BloomlingEntity::new, MobCategory.MONSTER)
-            .sized(1, 2.5F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":budding_bloomer"));
+            .sized(1, 2.5F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("budding_bloomer")));
     public static final DeferredHolder<EntityType<?>, EntityType<BloomlingEntity>> DANDY = TYPES.register("dandybloomer", () -> EntityType.Builder.of(BloomlingEntity::new, MobCategory.MONSTER)
-            .sized(1, 2.5F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":dandybloomer"));
+            .sized(1, 2.5F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("dandybloomer")));
     public static final DeferredHolder<EntityType<?>, EntityType<AngryCavebloomerEntity>> ANGRY = TYPES.register("angry_cavebloomer", () -> EntityType.Builder.of(AngryCavebloomerEntity::new, MobCategory.MONSTER)
-            .sized(1, 4.5F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":angry_cavebloomer"));
+            .sized(1, 4.5F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("angry_cavebloomer")));
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> NUKE_CLOUD = PARTICLES.register("nuke_cloud", () -> new SimpleParticleType(true));
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> RED_EXPLODE = PARTICLES.register("red_explode", () -> new SimpleParticleType(false));

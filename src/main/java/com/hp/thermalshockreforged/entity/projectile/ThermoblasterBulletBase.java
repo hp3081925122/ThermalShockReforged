@@ -58,7 +58,7 @@ public abstract class ThermoblasterBulletBase extends LegacyArrowEntity {
             server.playSound(null, pos, SoundEvents.FIREWORK_ROCKET_BLAST, SoundSource.NEUTRAL, 1, 1);
             if (!scatter) server.sendParticles(OrbContent.BLUE_X_BLAST.get(), x, y, z, 1, .1, .1, .1, 0);
             if (scatter && target instanceof LivingEntity living) living.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 60, 3, false, false));
-            if (applyDamage && target.getType().is(scatter ? PYRO_WEAK : CRYO_WEAK)) target.hurt(new net.minecraft.world.damagesource.DamageSource(server.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(ModDamageTypes.THERM_IFRAME_BYPASS)), 6);
+            if (applyDamage && target.is(scatter ? PYRO_WEAK : CRYO_WEAK)) target.hurt(new net.minecraft.world.damagesource.DamageSource(server.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(ModDamageTypes.THERM_IFRAME_BYPASS)), 6);
         }
     }
 }

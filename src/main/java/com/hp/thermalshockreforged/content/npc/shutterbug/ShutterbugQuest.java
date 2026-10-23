@@ -12,21 +12,21 @@ import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.items.ItemHandlerHelper;
 
 final class ShutterbugQuest {
-    static boolean introduced(ServerPlayer player) { return player.getPersistentData().getCompound(Player.PERSISTED_NBT_TAG).getCompound(ThermalShockReforged.MOD_ID).getBoolean("UnetteIntroduced"); }
+    static boolean introduced(ServerPlayer player) { return player.getPersistentData().getCompoundOrEmpty(Player.PERSISTED_NBT_TAG).getCompoundOrEmpty(ThermalShockReforged.MOD_ID).getBooleanOr("UnetteIntroduced", false); }
     static void finishIntroduction(ServerPlayer player) {
         if (introduced(player)) return;
-        CompoundTag persisted = player.getPersistentData().getCompound(Player.PERSISTED_NBT_TAG);
-        CompoundTag mod = persisted.getCompound(ThermalShockReforged.MOD_ID);
+        CompoundTag persisted = player.getPersistentData().getCompoundOrEmpty(Player.PERSISTED_NBT_TAG);
+        CompoundTag mod = persisted.getCompoundOrEmpty(ThermalShockReforged.MOD_ID);
         mod.putBoolean("UnetteIntroduced", true); persisted.put(ThermalShockReforged.MOD_ID, mod); player.getPersistentData().put(Player.PERSISTED_NBT_TAG, persisted);
         ItemHandlerHelper.giveItemToPlayer(player, new ItemStack(CameraContent.CAMERA.get()));
         ThermalShockReforged.LOGGER.debug("Unette introduction committed: player={}", player.getUUID());
     }
     static boolean done(ServerPlayer player, String id) {
-        var advancement = player.getServer().getAdvancements().get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, id));
+        var advancement = player.level().getServer().getAdvancements().get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, id));
         return advancement != null && player.getAdvancements().getOrStartProgress(advancement).isDone();
     }
     static boolean grantNew(ServerPlayer player, String id) {
-        var advancement = player.getServer().getAdvancements().get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, id));
+        var advancement = player.level().getServer().getAdvancements().get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, id));
         if (advancement == null) { ThermalShockReforged.LOGGER.warn("Unette advancement unavailable: id={}, player={}", id, player.getUUID()); return false; }
         var progress = player.getAdvancements().getOrStartProgress(advancement);
         if (progress.isDone()) return false;

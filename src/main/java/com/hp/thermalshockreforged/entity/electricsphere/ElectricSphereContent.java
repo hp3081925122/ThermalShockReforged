@@ -18,7 +18,7 @@ public final class ElectricSphereContent {
     private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<ParticleType<?>> PARTICLES = DeferredRegister.create(Registries.PARTICLE_TYPE, ThermalShockReforged.MOD_ID);
-    public static final DeferredHolder<EntityType<?>, EntityType<ElectricSphereEntity>> ELECTRIC_SPHERE = TYPES.register("electric_sphere", () -> EntityType.Builder.of(ElectricSphereEntity::new, MobCategory.MONSTER).sized(.7F, .7F).fireImmune().setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":electric_sphere"));
+    public static final DeferredHolder<EntityType<?>, EntityType<ElectricSphereEntity>> ELECTRIC_SPHERE = TYPES.register("electric_sphere", () -> EntityType.Builder.of(ElectricSphereEntity::new, MobCategory.MONSTER).sized(.7F, .7F).fireImmune().setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("electric_sphere")));
     public static final DeferredBlock<Block> CONSTRUCTOR = BLOCKS.register("electric_sphere_constructor", ElectricSphereConstructorBlock::new);
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> ELECTRIC_GLOW = PARTICLES.register("electric_glow", () -> new SimpleParticleType(true));
     static { ITEMS.register("electric_sphere_constructor", () -> new BlockItem(CONSTRUCTOR.get(), new Item.Properties())); }

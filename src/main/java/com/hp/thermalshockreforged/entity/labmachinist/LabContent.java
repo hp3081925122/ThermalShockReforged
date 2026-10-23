@@ -30,15 +30,15 @@ public final class LabContent {
     private static final DeferredRegister<BlockEntityType<?>> ENTITIES = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(Registries.MENU, ThermalShockReforged.MOD_ID);
     private static final EnumMap<LabPage, DeferredHolder<MenuType<?>, MenuType<LabMenu>>> PAGES = new EnumMap<>(LabPage.class);
-    public static final DeferredHolder<EntityType<?>, EntityType<LabMachinistEntity>> LAB_MACHINIST = TYPES.register("lab_machinist", () -> EntityType.Builder.of(LabMachinistEntity::new, MobCategory.MONSTER).sized(2, 2).setShouldReceiveVelocityUpdates(true).fireImmune().clientTrackingRange(64).updateInterval(3).build(id("lab_machinist").toString()));
-    public static final DeferredHolder<EntityType<?>, EntityType<WallboreCycleEntity>> WALLBORE_CYCLE = TYPES.register("wallbore_cycle", () -> EntityType.Builder.<WallboreCycleEntity>of(WallboreCycleEntity::new, MobCategory.MISC).sized(.01F, .01F).noSummon().fireImmune().clientTrackingRange(1).updateInterval(20).build(id("wallbore_cycle").toString()));
+    public static final DeferredHolder<EntityType<?>, EntityType<LabMachinistEntity>> LAB_MACHINIST = TYPES.register("lab_machinist", () -> EntityType.Builder.of(LabMachinistEntity::new, MobCategory.MONSTER).sized(2, 2).setShouldReceiveVelocityUpdates(true).fireImmune().clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("lab_machinist")));
+    public static final DeferredHolder<EntityType<?>, EntityType<WallboreCycleEntity>> WALLBORE_CYCLE = TYPES.register("wallbore_cycle", () -> EntityType.Builder.<WallboreCycleEntity>of(WallboreCycleEntity::new, MobCategory.MISC).sized(.01F, .01F).noSummon().fireImmune().clientTrackingRange(1).updateInterval(20).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("wallbore_cycle")));
     public static final DeferredBlock<LabMachineBlock> ASSEMBLER = BLOCKS.register("assembler", LabMachineBlock.Assembler::new);
     public static final DeferredBlock<LabMachineBlock> WALLBORE = BLOCKS.register("wallbore", LabMachineBlock.Wallbore::new);
     public static final DeferredBlock<LabUtilityBlock> WALLBORE_CONSTRUCTOR = BLOCKS.register("wallbore_constructor", LabUtilityBlock.Constructor::new);
     public static final DeferredBlock<LabUtilityBlock> SUSPICIOUS_SAFE = BLOCKS.register("suspicious_safe", LabUtilityBlock.Safe::new);
     public static final DeferredBlock<LabUtilityBlock> STORM_BATTERY = BLOCKS.register("storm_battery", LabUtilityBlock.Battery::new);
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<LabMachineBlockEntity>> ASSEMBLER_ENTITY = ENTITIES.register("assembler", () -> BlockEntityType.Builder.of((BlockPos pos, net.minecraft.world.level.block.state.BlockState state) -> new LabMachineBlockEntity(false, pos, state), ASSEMBLER.get()).build(null));
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<LabMachineBlockEntity>> WALLBORE_ENTITY = ENTITIES.register("wallbore", () -> BlockEntityType.Builder.of((BlockPos pos, net.minecraft.world.level.block.state.BlockState state) -> new LabMachineBlockEntity(true, pos, state), WALLBORE.get()).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<LabMachineBlockEntity>> ASSEMBLER_ENTITY = ENTITIES.register("assembler", () -> new BlockEntityType<>((BlockPos pos, net.minecraft.world.level.block.state.BlockState state) -> new LabMachineBlockEntity(false, pos, state), ASSEMBLER.get()));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<LabMachineBlockEntity>> WALLBORE_ENTITY = ENTITIES.register("wallbore", () -> new BlockEntityType<>((BlockPos pos, net.minecraft.world.level.block.state.BlockState state) -> new LabMachineBlockEntity(true, pos, state), WALLBORE.get()));
     public static final DeferredItem<LabMachineItem> ASSEMBLER_ITEM = ITEMS.register("assembler", () -> new LabMachineItem(ASSEMBLER.get(), false));
     public static final DeferredItem<LabMachineItem> WALLBORE_ITEM = ITEMS.register("wallbore", () -> new LabMachineItem(WALLBORE.get(), true));
     public static final DeferredItem<SylviaRifleItem> SYLVIA_RIFLE = ITEMS.register("sylvia_rifle", SylviaRifleItem::new);
@@ -78,7 +78,7 @@ public final class LabContent {
     public static void register(IEventBus bus) { TYPES.register(bus); ITEMS.register(bus); BLOCKS.register(bus); ENTITIES.register(bus); MENUS.register(bus); bus.addListener(LabContent::attributes); bus.addListener(LabContent::capabilities); }
     private static void attributes(EntityAttributeCreationEvent event) { event.put(LAB_MACHINIST.get(), LabMachinistEntity.createAttributes().build()); }
     private static void capabilities(RegisterCapabilitiesEvent event) {
-        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, ASSEMBLER_ENTITY.get(), (entity, side) -> entity.itemHandler(side));
-        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, WALLBORE_ENTITY.get(), (entity, side) -> entity.itemHandler(side));
+        event.registerBlockEntity(Capabilities.Item.BLOCK, ASSEMBLER_ENTITY.get(), (entity, side) -> entity.itemHandler(side));
+        event.registerBlockEntity(Capabilities.Item.BLOCK, WALLBORE_ENTITY.get(), (entity, side) -> entity.itemHandler(side));
     }
 }

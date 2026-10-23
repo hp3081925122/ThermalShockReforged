@@ -49,16 +49,16 @@ public final class PondlerEggBlock extends Block implements SimpleWaterloggedBlo
     }
 
     @Override
-    protected BlockState updateShape(BlockState state, Direction direction, BlockState neighbor, LevelAccessor level, BlockPos position, BlockPos neighborPosition) {
-        if (state.getValue(WATERLOGGED)) level.scheduleTick(position, Fluids.WATER, Fluids.WATER.getTickDelay(level));
-        return super.updateShape(state, direction, neighbor, level, position, neighborPosition);
+    protected BlockState updateShape(BlockState state, net.minecraft.world.level.LevelReader level, net.minecraft.world.level.ScheduledTickAccess ticks, BlockPos position, Direction direction, BlockPos neighborPosition, BlockState neighbor, net.minecraft.util.RandomSource random) {
+        if (state.getValue(WATERLOGGED)) ticks.scheduleTick(position, Fluids.WATER, Fluids.WATER.getTickDelay(level));
+        return super.updateShape(state, level, ticks, position, direction, neighborPosition, neighbor, random);
     }
 
     @Override
-    protected boolean propagatesSkylightDown(BlockState state, BlockGetter level, BlockPos position) { return state.getFluidState().isEmpty(); }
+    protected boolean propagatesSkylightDown(BlockState state) { return state.getFluidState().isEmpty(); }
 
     @Override
-    protected int getLightBlock(BlockState state, BlockGetter level, BlockPos position) { return 0; }
+    protected int getLightDampening(BlockState state) { return 0; }
 
     @Override
     protected VoxelShape getVisualShape(BlockState state, BlockGetter level, BlockPos position, CollisionContext context) { return Shapes.empty(); }
@@ -85,22 +85,13 @@ public final class PondlerEggBlock extends Block implements SimpleWaterloggedBlo
         level.scheduleTick(position, this, 20);
     }
 
-    @Override
-    protected void onRemove(BlockState state, Level level, BlockPos position, BlockState replacement, boolean moving) {
-        if (!state.is(replacement.getBlock())) {
-            if (level.getBlockEntity(position) instanceof PondlerEggBlockEntity egg) {
-                Containers.dropContents(level, position, egg);
-                level.updateNeighbourForOutputSignal(position, this);
-            }
-            super.onRemove(state, level, position, replacement, moving);
-        }
-    }
+    @Override protected void affectNeighborsAfterRemoval(BlockState state, net.minecraft.server.level.ServerLevel level, BlockPos pos, boolean moving) { Containers.updateNeighboursAfterDestroy(state, level, pos); }
 
     @Override
     protected boolean hasAnalogOutputSignal(BlockState state) { return true; }
 
     @Override
-    protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos position) {
+    protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos position, net.minecraft.core.Direction direction) {
         return level.getBlockEntity(position) instanceof PondlerEggBlockEntity egg ? AbstractContainerMenu.getRedstoneSignalFromContainer(egg) : 0;
     }
 

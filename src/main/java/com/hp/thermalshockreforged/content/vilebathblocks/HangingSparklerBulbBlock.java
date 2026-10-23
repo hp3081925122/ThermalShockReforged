@@ -14,8 +14,8 @@ import net.minecraft.world.phys.BlockHitResult;
 
 final class HangingSparklerBulbBlock extends Block {
     HangingSparklerBulbBlock() { super(Properties.of().mapColor(MapColor.SAND).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.FUNGUS).strength(.45F, 0).lightLevel(state -> 14).randomTicks().emissiveRendering((state, level, pos) -> true)); }
-    @Override protected boolean propagatesSkylightDown(BlockState state, BlockGetter level, BlockPos pos) { return true; }
-    @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 0; }
+    @Override protected boolean propagatesSkylightDown(BlockState state) { return true; }
+    @Override protected int getLightDampening(BlockState state) { return 0; }
     @Override public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) { if (random.nextDouble() < .4) level.playLocalSound(pos.getX(), pos.getY(), pos.getZ(), SoundEvents.CONDUIT_AMBIENT_SHORT, SoundSource.NEUTRAL, 1, 1, false); }
     @Override public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean harvest, FluidState fluid) { boolean removed = super.onDestroyedByPlayer(state, level, pos, player, harvest, fluid); if (removed) SparklerDetonations.submit(level, pos); return removed; }
     @Override public void wasExploded(Level level, BlockPos pos, Explosion explosion) { super.wasExploded(level, pos, explosion); SparklerDetonations.submit(level, pos); }

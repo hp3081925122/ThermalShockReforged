@@ -70,7 +70,7 @@ public final class NpcTradeLabels {
             case "label_xx2" -> name = "tourmaline_spice";
             default -> { return null; }
         }
-        return BuiltInRegistries.ITEM.get(RecipeContent.id(name));
+        return BuiltInRegistries.ITEM.getValue(RecipeContent.id(name));
     }
 
     private static boolean inside(int mouseX, int mouseY, int x, int y, int width, int height) {

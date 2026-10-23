@@ -29,9 +29,9 @@ public final class RemainingGunItem extends AnimatedCombatItem {
     @Override public String modelName() { return judge ? "super_shotgun" : "net_launcher"; }
     @Override public String textureName() { return judge ? "supershotgun" : "net_launcher"; }
     @Override public int getEnchantmentValue() { return 5; }
-    @Override public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
-        super.inventoryTick(stack, level, entity, slot, selected);
-        if (selected && entity instanceof LivingEntity living) HeldWeaponState.refreshNoMelee(living);
+    @Override public void inventoryTick(ItemStack stack, net.minecraft.server.level.ServerLevel level, Entity entity, net.minecraft.world.entity.EquipmentSlot slot) {
+        super.inventoryTick(stack, level, entity, slot);
+        if (slot == net.minecraft.world.entity.EquipmentSlot.MAINHAND && entity instanceof LivingEntity living) HeldWeaponState.refreshNoMelee(living);
     }
     @Override public boolean onEntitySwing(ItemStack stack, LivingEntity wielder, InteractionHand hand) {
         if (!(wielder instanceof Player player) || !(player.level() instanceof ServerLevel server) || player.getCooldowns().isOnCooldown(this)) return false;

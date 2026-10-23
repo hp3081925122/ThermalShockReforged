@@ -39,8 +39,8 @@ public final class JellercelCollisionBlock extends Block implements SimpleWaterl
     @Override protected RenderShape getRenderShape(BlockState state) { return RenderShape.INVISIBLE; }
     @Override protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) { return SHAPE; }
     @Override protected VoxelShape getVisualShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) { return Shapes.empty(); }
-    @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 0; }
-    @Override protected boolean propagatesSkylightDown(BlockState state, BlockGetter level, BlockPos pos) { return state.getFluidState().isEmpty(); }
+    @Override protected int getLightDampening(BlockState state) { return 0; }
+    @Override protected boolean propagatesSkylightDown(BlockState state) { return state.getFluidState().isEmpty(); }
     @Override protected FluidState getFluidState(BlockState state) { return state.getValue(BlockStateProperties.WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state); }
     @Override public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) { return new ItemStack(GeoDecorContent.block(GeoDecorKind.LARGE_JELLERCEL)); }
 
@@ -70,9 +70,9 @@ public final class JellercelCollisionBlock extends Block implements SimpleWaterl
         return anchor(context.getLevel(), context.getClickedPos(), state) == null ? null : state;
     }
 
-    @Override protected BlockState updateShape(BlockState state, Direction side, BlockState neighbor, LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
-        if (state.getValue(BlockStateProperties.WATERLOGGED)) level.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
-        return super.updateShape(state, side, neighbor, level, pos, neighborPos);
+    @Override protected BlockState updateShape(BlockState state, net.minecraft.world.level.LevelReader level, net.minecraft.world.level.ScheduledTickAccess ticks, BlockPos pos, Direction side, BlockPos neighborPos, BlockState neighbor, net.minecraft.util.RandomSource random) {
+        if (state.getValue(BlockStateProperties.WATERLOGGED)) ticks.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
+        return super.updateShape(state, level, ticks, pos, side, neighborPos, neighbor, random);
     }
 
     @Override protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
@@ -92,16 +92,14 @@ public final class JellercelCollisionBlock extends Block implements SimpleWaterl
         return super.playerWillDestroy(level, pos, state, player);
     }
 
-    @Override protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState replacement, boolean moving) {
-        if (!level.isClientSide() && !state.is(replacement.getBlock())) {
-            BlockPos core = anchor(level, pos, state);
-            if (core != null) level.destroyBlock(core, true);
-        }
-        super.onRemove(state, level, pos, replacement, moving);
+    @Override protected void affectNeighborsAfterRemoval(BlockState state, net.minecraft.server.level.ServerLevel level, BlockPos pos, boolean moving) {
+        BlockPos core = anchor(level, pos, state);
+        if (core != null) level.destroyBlock(core, true);
+        super.affectNeighborsAfterRemoval(state, level, pos, moving);
     }
 
-    @Override protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
-        super.entityInside(state, level, pos, entity);
+    @Override protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, net.minecraft.world.entity.InsideBlockEffectApplier effects, boolean precise) {
+        super.entityInside(state, level, pos, entity, effects, precise);
         if (!level.isClientSide()) entity.hurt(level.damageSources().lightningBolt(), 1);
     }
     @Override public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) {

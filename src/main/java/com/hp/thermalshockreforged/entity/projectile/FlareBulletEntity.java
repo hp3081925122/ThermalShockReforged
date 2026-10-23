@@ -42,7 +42,7 @@ public final class FlareBulletEntity extends LegacyArrowEntity {
         server.playSound(null, pos, SoundEvents.GENERIC_HURT, SoundSource.NEUTRAL, 1, 1);
         server.playSound(null, pos, SoundEvents.FIREWORK_ROCKET_BLAST, SoundSource.NEUTRAL, 1, 1);
         server.sendParticles(ProjectileContent.ORANGE_RING_BLAST.get(), target == null ? pos.getX() : getX(), target == null ? pos.getY() + .9 : getY(), target == null ? pos.getZ() : getZ(), 1, target == null ? .05 : 0, target == null ? .05 : 0, target == null ? .05 : 0, 0);
-        if (target != null && target.getType().is(PYRO_WEAK)) target.hurt(new DamageSource(server.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(ModDamageTypes.THERM_IFRAME_BYPASS)), 6);
+        if (target != null && target.is(PYRO_WEAK)) target.hurt(new DamageSource(server.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(ModDamageTypes.THERM_IFRAME_BYPASS)), 6);
         if (target == null) discard();
     }
     public static FlareBulletEntity shoot(Level level, LivingEntity owner, RandomSource random) { return shoot(level, owner, random, .7F, 1, 0); }

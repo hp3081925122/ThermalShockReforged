@@ -28,9 +28,9 @@ public class KeystonePuzzleBlock extends GeoDecorBlock {
     public KeystonePuzzleBlock(GeoDecorKind kind) { super(kind); }
     private boolean interact(Level level, BlockPos pos, Player player) {
         if (!(level.getBlockEntity(pos) instanceof GeoDecorBlockEntity entity) || entity.kind != kind) return kind != GeoDecorKind.KEYSTONE_PEDESTAL;
-        if (!(level instanceof ServerLevel server)) return kind != GeoDecorKind.KEYSTONE_PEDESTAL || entity.getPersistentData().getBoolean("caninteract") && !entity.getPersistentData().getBoolean(CLAIMED);
+        if (!(level instanceof ServerLevel server)) return kind != GeoDecorKind.KEYSTONE_PEDESTAL || entity.getPersistentData().getBooleanOr("caninteract", false) && !entity.getPersistentData().getBooleanOr(CLAIMED, false);
         if (kind == GeoDecorKind.RINTHIUM_BUTTON) {
-            if (!entity.getPersistentData().getBoolean("active")) {
+            if (!entity.getPersistentData().getBooleanOr("active", false)) {
                 entity.getPersistentData().putBoolean("active", true);
                 entity.setChanged();
                 level.setBlock(pos, level.getBlockState(pos).setValue(animationProperty(), 1), 3);
@@ -42,7 +42,7 @@ public class KeystonePuzzleBlock extends GeoDecorBlock {
         }
         if (kind == GeoDecorKind.KEYSTONE_PEDESTAL) {
             var data = entity.getPersistentData();
-            if (!data.getBoolean("caninteract") || data.getBoolean(CLAIMED)) return false;
+            if (!data.getBooleanOr("caninteract", false) || data.getBooleanOr(CLAIMED, false)) return false;
             data.putBoolean("caninteract", false);
             data.putBoolean(CLAIMED, true);
             entity.setChanged();
@@ -55,7 +55,7 @@ public class KeystonePuzzleBlock extends GeoDecorBlock {
         }
         BlockPos center = pos.offset(7, 2, 0);
         var oldCenter = level.getBlockEntity(center);
-        boolean ready = oldCenter == null || !oldCenter.getPersistentData().getBoolean("caninteract") && !oldCenter.getPersistentData().getBoolean(CLAIMED);
+        boolean ready = oldCenter == null || !oldCenter.getPersistentData().getBooleanOr("caninteract", false) && !oldCenter.getPersistentData().getBooleanOr(CLAIMED, false);
         if (!allSwitchesActive(level, pos)) ready = false;
         if (!ready) {
             level.playSound(null, pos, SoundEvents.NOTE_BLOCK_BASS.value(), SoundSource.NEUTRAL, 1, 1);
@@ -72,7 +72,7 @@ public class KeystonePuzzleBlock extends GeoDecorBlock {
         level.sendBlockUpdated(center, level.getBlockState(center), level.getBlockState(center), 3);
         level.playSound(null, pos, SoundEvents.MINECART_RIDING, SoundSource.NEUTRAL, 1, -3);
         level.playSound(null, pos, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.NEUTRAL, .5F, 1);
-        player.displayClientMessage(Component.translatable("message.thermal_shock_reforged.keystone.puzzle_center"), false);
+        player.sendSystemMessage(Component.translatable("message.thermal_shock_reforged.keystone.puzzle_center"));
         return true;
     }
     private static void maybePromptLever(ServerLevel server, BlockPos buttonPos, Player player) {
@@ -86,12 +86,12 @@ public class KeystonePuzzleBlock extends GeoDecorBlock {
         }
         if (lever == null || !allSwitchesActive(server, lever)) return;
         var progress = WorldProgressData.get(server);
-        if (progress.keystoneNoticeComplete() && progress.markKeystoneLeverHintShown()) player.displayClientMessage(Component.translatable("message.thermal_shock_reforged.keystone.puzzle_lever"), false);
+        if (progress.keystoneNoticeComplete() && progress.markKeystoneLeverHintShown()) player.sendSystemMessage(Component.translatable("message.thermal_shock_reforged.keystone.puzzle_lever"));
     }
     private static boolean allSwitchesActive(Level level, BlockPos leverPos) {
         for (BlockPos offset : SWITCHES) {
             var button = level.getBlockEntity(leverPos.offset(offset));
-            if (button == null || !button.getPersistentData().getBoolean("active")) return false;
+            if (button == null || !button.getPersistentData().getBooleanOr("active", false)) return false;
         }
         return true;
     }

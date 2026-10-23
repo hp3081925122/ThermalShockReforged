@@ -15,7 +15,7 @@ public final class QoProgressData extends SavedData {
     public double contacts() { return contacts; }
     public void advance() { contacts++; setDirty(); }
     private static QoProgressData load(CompoundTag tag, HolderLookup.Provider lookup) {
-        var data = new QoProgressData(); double value = tag.getDouble("NPCiceArtifact"); data.contacts = Double.isFinite(value) && value >= 0 ? value : 0; return data;
+        var data = new QoProgressData(); double value = tag.getDoubleOr("NPCiceArtifact", 0); data.contacts = Double.isFinite(value) && value >= 0 ? value : 0; return data;
     }
     @Override public CompoundTag save(CompoundTag tag, HolderLookup.Provider lookup) { tag.putDouble("NPCiceArtifact", contacts); return tag; }
 }

@@ -80,7 +80,7 @@ public final class LouseEntity extends Monster implements GeoEntity {
         if (result.consumesAction()) return result;
         if (!level().isClientSide()) {
             discard();
-            level().playSound(null, blockPosition(), SoundEvents.GENERIC_EAT, SoundSource.PLAYERS, 1, 1);
+            level().playSound(null, blockPosition(), SoundEvents.GENERIC_EAT.value(), SoundSource.PLAYERS, 1, 1);
             player.getFoodData().setFoodLevel(player.getFoodData().getFoodLevel() + 1);
         }
         return net.minecraft.world.InteractionResult.SUCCESS;

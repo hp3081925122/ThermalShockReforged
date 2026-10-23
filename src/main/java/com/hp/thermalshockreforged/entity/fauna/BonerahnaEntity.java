@@ -104,7 +104,7 @@ public final class BonerahnaEntity extends Monster implements GeoEntity {
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> {
-            return state.setAndContinue(RawAnimation.begin().thenLoop(isInWaterOrBubble() ? "swim" : "idle"));
+            return state.setAndContinue(RawAnimation.begin().thenLoop(isInWater() ? "swim" : "idle"));
         })
                 .triggerableAnim("swim", RawAnimation.begin().thenPlay("swim"))
                 .triggerableAnim("idle", RawAnimation.begin().thenPlay("idle"))

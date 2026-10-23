@@ -23,7 +23,7 @@ public final class SuspiciousCavebloomerBlockEntity extends GeoDecorBlockEntity 
     public SuspiciousCavebloomerBlockEntity(BlockPos pos, BlockState state) { super(GeoDecorKind.SUSPICIOUS_CAVEBLOOMER, pos, state); }
     public void interact(ServerLevel server) {
         if (isRemoved() || emitting || summoning || remaining > 0 || server.getBlockEntity(worldPosition) != this) return;
-        if (getPersistentData().getDouble("phase") != 1) {
+        if (getPersistentData().getDoubleOr("phase", 0) != 1) {
             getPersistentData().putDouble("phase", 1); remaining = 3; delay = 6; startedAt = server.getGameTime(); setChanged();
             server.setBlock(worldPosition, getBlockState().setValue(GeoDecorBlock.ANIMATION, 1).setValue(SuspiciousCavebloomerBlock.SPAWNING, true), 3);
             emitBudding(server);
@@ -85,6 +85,6 @@ public final class SuspiciousCavebloomerBlockEntity extends GeoDecorBlockEntity 
     @Override protected void loadAdditional(net.minecraft.world.level.storage.ValueInput input) {
         super.loadAdditional(input); remaining = Math.clamp(input.getIntOr("CavebloomerSummonsRemaining", 0), 0, 3); delay = Math.clamp(input.getIntOr("CavebloomerSummonDelay", 0), 0, 7);
         startedAt = input.getString("CavebloomerSummonStartedAt").isPresent() ? input.getLongOr("CavebloomerSummonStartedAt", Long.MIN_VALUE) : Long.MIN_VALUE;
-        if (getPersistentData().getDouble("phase") != 1) { remaining = 0; delay = 0; }
+        if (getPersistentData().getDoubleOr("phase", 0) != 1) { remaining = 0; delay = 0; }
     }
 }

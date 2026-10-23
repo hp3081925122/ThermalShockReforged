@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 
 public final class AtlasActivationEntity extends Entity implements ServerEndTickTask {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, net.minecraft.world.damagesource.DamageSource source, float damage) { return false; }
     private BlockPos anchor = BlockPos.ZERO;
     private Direction direction = Direction.UP;
     private String dimension = "";
@@ -22,7 +23,7 @@ public final class AtlasActivationEntity extends Entity implements ServerEndTick
     public AtlasActivationEntity(EntityType<? extends AtlasActivationEntity> type, Level level) { super(type, level); noPhysics = true; setNoGravity(true); }
     void prepare(ServerLevel level, BlockPos pos, Direction face) { anchor = pos.immutable(); direction = face; dimension = level.dimension().identifier().toString(); armed = true; setPos(pos.getX(), pos.getY(), pos.getZ()); }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
-    @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
+    @Override public boolean canTeleport(Level from, Level to) { return false; }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); if (armed && phase < 2 && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
     @Override public void tick() {
         super.tick();

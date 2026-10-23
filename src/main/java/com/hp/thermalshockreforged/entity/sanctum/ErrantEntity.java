@@ -89,7 +89,7 @@ public final class ErrantEntity extends Monster implements GeoEntity, com.hp.the
     @Override protected SoundEvent getDeathSound() { return SoundEvents.GENERIC_HURT; }
     @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) {
         if (hasEffect(StatusContent.PARRYING) && level() instanceof ServerLevel server) {
-            addEffect(new MobEffectInstance(MobEffects.HEAL, 1, 0, true, false));
+            addEffect(new MobEffectInstance(MobEffects.INSTANT_HEALTH, 1, 0, true, false));
             server.playSound(null, blockPosition(), SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.NEUTRAL, .8F, 3);
         }
         return super.hurtServer(level, source, amount);

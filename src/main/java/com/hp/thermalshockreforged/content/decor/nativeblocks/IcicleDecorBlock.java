@@ -33,11 +33,11 @@ class IcicleDecorBlock extends NativeDecorBlock {
     @Override protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState oldState, boolean moving) {
         super.onPlace(state, level, pos, oldState, moving); checkAttachment(level, pos);
     }
-    @Override protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block source, BlockPos from, boolean moving) {
+    @Override protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block source, net.minecraft.world.level.redstone.Orientation from, boolean moving) {
         super.neighborChanged(state, level, pos, source, from, moving); checkAttachment(level, pos);
     }
-    @Override protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
-        super.entityInside(state, level, pos, entity);
+    @Override protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, net.minecraft.world.entity.InsideBlockEffectApplier effects, boolean precise) {
+        super.entityInside(state, level, pos, entity, effects, precise);
         if (!level.isClientSide() && level.getBlockState(pos).is(this) && level.destroyBlock(pos, false)) entity.hurt(entity.damageSources().source(DamageTypes.STALAGMITE), 1);
     }
     static final class Plain extends IcicleDecorBlock {

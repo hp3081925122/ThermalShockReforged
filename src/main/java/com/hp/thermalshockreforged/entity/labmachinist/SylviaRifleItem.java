@@ -40,13 +40,13 @@ public final class SylviaRifleItem extends Item implements GeoItem {
         if (level instanceof ServerLevel server && !player.getCooldowns().isOnCooldown(this)) {
             player.getCooldowns().addCooldown(this, 10); triggerAnim(player, GeoItem.getOrAssignId(stack, server), "procedure", "1");
             server.playSound(null, player.blockPosition(), SoundEvents.PISTON_CONTRACT, SoundSource.NEUTRAL, 1, 3); server.playSound(null, player.blockPosition(), SoundEvents.FIREWORK_ROCKET_LAUNCH, SoundSource.NEUTRAL, 1, 3);
-            var data = player.getPersistentData(); int charge = Math.min(255, Math.max(0, data.getInt(CHARGE)) + 1); data.putInt(CHARGE, charge); data.putInt(REMAINING, 27); data.putLong(CREATED, server.getGameTime());
+            var data = player.getPersistentData(); int charge = Math.min(255, Math.max(0, data.getIntOr(CHARGE, 0)) + 1); data.putInt(CHARGE, charge); data.putInt(REMAINING, 27); data.putLong(CREATED, server.getGameTime());
             if (charge >= 4) server.playSound(null, player.blockPosition(), SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.NEUTRAL, 1, 1);
         }
         return InteractionResult.PASS;
     }
     @Override public boolean onEntitySwing(ItemStack stack, LivingEntity wielder, InteractionHand hand) {
-        if (!(wielder instanceof Player player) || !(player.level() instanceof ServerLevel server) || player.getCooldowns().isOnCooldown(this) || player.getPersistentData().getInt(REMAINING) <= 0 || player.getPersistentData().getInt(CHARGE) < 4) return false;
+        if (!(wielder instanceof Player player) || !(player.level() instanceof ServerLevel server) || player.getCooldowns().isOnCooldown(this) || player.getPersistentData().getIntOr(REMAINING, 0) <= 0 || player.getPersistentData().getIntOr(CHARGE, 0) < 4) return false;
         var ammo = MaterialContent.items().get("specialized_round").get(); if (!player.getAbilities().instabuild && !player.getInventory().contains(new ItemStack(ammo))) return false;
         var direction = player.getLookAngle();
         int emitted = LiteprismBeamEntity.fireSylviaLine(server, player);
@@ -57,11 +57,11 @@ public final class SylviaRifleItem extends Item implements GeoItem {
         if (!player.getAbilities().instabuild) player.getInventory().clearOrCountMatchingItems(candidate -> candidate.is(ammo), 1, player.inventoryMenu.getCraftSlots());
         ThermalShockReforged.LOGGER.debug("Sylvia rifle fired: player={}, hand={}, segments={}", player.getUUID(), hand, emitted); return false;
     }
-    @Override public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) { super.inventoryTick(stack, level, entity, slot, selected); if (level instanceof ServerLevel server) GeoItem.getOrAssignId(stack, server); if (selected && entity instanceof LivingEntity living) HeldWeaponState.refreshNoMelee(living); }
+    @Override public void inventoryTick(ItemStack stack, net.minecraft.server.level.ServerLevel level, Entity entity, net.minecraft.world.entity.EquipmentSlot slot) { super.inventoryTick(stack, level, entity, slot); if (level instanceof ServerLevel server) GeoItem.getOrAssignId(stack, server); if (slot == net.minecraft.world.entity.EquipmentSlot.MAINHAND && entity instanceof LivingEntity living) HeldWeaponState.refreshNoMelee(living); }
     public static void tickCharge(EntityTickEvent.Post event) {
         if (!(event.getEntity() instanceof LivingEntity living) || living.level().isClientSide()) return; var data = living.getPersistentData(); if (!data.contains(REMAINING)) return;
-        if (living.isAlive() && data.getLong(CREATED) == living.level().getGameTime()) return;
-        int remaining = living.isAlive() ? Math.clamp(data.getInt(REMAINING), 0, 27) - 1 : 0;
+        if (living.isAlive() && data.getLongOr(CREATED, 0L) == living.level().getGameTime()) return;
+        int remaining = living.isAlive() ? Math.clamp(data.getIntOr(REMAINING, 0), 0, 27) - 1 : 0;
         if (remaining > 0) data.putInt(REMAINING, remaining); else { data.remove(CHARGE); data.remove(REMAINING); data.remove(CREATED); }
     }
     @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) { super.appendHoverText(stack, context, display, tooltipAdder, flag); for (int i = 0; i < 5; i++) tooltipAdder.accept(Component.translatable("item.thermal_shock_reforged.sylvia_rifle.description_" + i)); }

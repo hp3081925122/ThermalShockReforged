@@ -19,6 +19,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
 
 public final class VolcanoSparkEntity extends Entity implements ServerEndTickTask {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, net.minecraft.world.damagesource.DamageSource source, float damage) { return false; }
     private final List<PendingSpark> pending = new ArrayList<>(3);
     private UUID source;
     private static final class PendingSpark {
@@ -32,7 +33,7 @@ public final class VolcanoSparkEntity extends Entity implements ServerEndTickTas
         if (previous != null && level.getEntity(previous) instanceof VolcanoSparkEntity existing && !existing.isRemoved()) {
             task = existing;
         } else {
-            task = ProjectileContent.VOLCANO_SPARK_TASK.get().create(level);
+            task = ProjectileContent.VOLCANO_SPARK_TASK.get().create(level, net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
             if (task == null) return null;
             task.source = bullet.getUUID();
             task.setPos(bullet.position());
@@ -47,7 +48,7 @@ public final class VolcanoSparkEntity extends Entity implements ServerEndTickTas
         return task.getUUID();
     }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
-    @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
+    @Override public boolean canTeleport(Level from, Level to) { return false; }
     @Override public void tick() {
         super.tick();
         if (level() instanceof ServerLevel server) {
@@ -84,10 +85,10 @@ public final class VolcanoSparkEntity extends Entity implements ServerEndTickTas
     @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         source = input.getString("VolcanoSource").map(java.util.UUID::fromString).orElse(null);
         pending.clear();
-        ListTag sparks = tag.getList("PendingSparks", Tag.TAG_COMPOUND);
+        ListTag sparks = tag.getListOrEmpty("PendingSparks");
         for (int i = 0; i < Math.min(3, sparks.size()); i++) {
-            CompoundTag value = sparks.getCompound(i);
-            pending.add(new PendingSpark(Math.clamp(value.getInt("Delay"), 1, 3), BlockPos.of(value.getLong("SoundAnchor"))));
+            CompoundTag value = sparks.getCompoundOrEmpty(i);
+            pending.add(new PendingSpark(Math.clamp(value.getIntOr("Delay", 0), 1, 3), BlockPos.of(value.getLongOr("SoundAnchor", 0L))));
         }
         if (!Double.isFinite(getX()) || !Double.isFinite(getY()) || !Double.isFinite(getZ())) pending.clear();
     }

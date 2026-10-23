@@ -98,9 +98,9 @@ final class CameraCatalog {
     static void describe(ServerPlayer player, Set<Identifier> subjects) {
         for (Entry entry : ENTRIES) {
             if (Collections.disjoint(entry.types, subjects)) continue;
-            player.displayClientMessage(Component.translatable(entry.translationKey), false);
+            player.sendSystemMessage(Component.translatable(entry.translationKey));
             if (entry.photoQuest) {
-                var advancement = player.getServer().getAdvancements().get(id("leaf_it_to_me_2"));
+                var advancement = player.level().getServer().getAdvancements().get(id("leaf_it_to_me_2"));
                 if (advancement == null) { ThermalShockReforged.LOGGER.warn("Camera photo advancement unavailable: leaf_it_to_me_2"); continue; }
                 var progress = player.getAdvancements().getOrStartProgress(advancement);
                 if (!progress.isDone()) for (String criterion : progress.getRemainingCriteria()) player.getAdvancements().award(advancement, criterion);

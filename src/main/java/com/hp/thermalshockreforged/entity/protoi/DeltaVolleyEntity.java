@@ -20,6 +20,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
 public final class DeltaVolleyEntity extends Entity implements ServerEndTickTask {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, net.minecraft.world.damagesource.DamageSource source, float damage) { return false; }
     private UUID caster;
     private UUID target;
     private Vec3 targetEyes = Vec3.ZERO;
@@ -30,7 +31,7 @@ public final class DeltaVolleyEntity extends Entity implements ServerEndTickTask
     private int fired;
     public DeltaVolleyEntity(EntityType<? extends DeltaVolleyEntity> type, Level level) { super(type, level); noPhysics = true; setNoGravity(true); }
     public static UUID submit(ServerLevel level, ProtoiDeltaEntity owner, LivingEntity victim) {
-        var task = ProtoiContent.DELTA_VOLLEY.get().create(level);
+        var task = ProtoiContent.DELTA_VOLLEY.get().create(level, net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
         if (task == null) return null;
         task.caster = owner.getUUID(); task.target = victim.getUUID(); task.targetEyes = victim.getEyePosition();
         task.dimension = level.dimension().identifier().toString(); task.capture(owner);
@@ -58,7 +59,7 @@ public final class DeltaVolleyEntity extends Entity implements ServerEndTickTask
         return calculateViewVector(getXRot(), getYRot());
     }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
-    @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
+    @Override public boolean canTeleport(Level from, Level to) { return false; }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); if (caster != null && fired < 8 && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
     @Override public void tick() {
         super.tick();
@@ -77,7 +78,7 @@ public final class DeltaVolleyEntity extends Entity implements ServerEndTickTask
         Vec3 look = faceTarget(owner);
         fired++; remaining = 3;
         level.playSound(null, blockPosition(), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "laser_fires")), SoundSource.HOSTILE, 1, 1);
-        var bullet = IceContent.ICE_BULLET.get().create(level);
+        var bullet = IceContent.ICE_BULLET.get().create(level, net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
         if (bullet != null) {
             bullet.configureUnowned(caster, damage);
             if (owner != null) bullet.setOwner(owner);

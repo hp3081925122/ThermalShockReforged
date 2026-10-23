@@ -50,7 +50,7 @@ public final class ElementalCombat {
         for (Element element : ELEMENTS) {
             if (!element.matches(attacker, direct)) continue;
             active |= 1 << element.ordinal();
-            if (victim.getType().is(element.resist)) resisted = true;
+            if (victim.is(element.resist)) resisted = true;
         }
         if (active == 0) return;
         DamageSource secondary = new DamageSource(level.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(ModDamageTypes.THERM_IFRAME_BYPASS));
@@ -65,7 +65,7 @@ public final class ElementalCombat {
         boolean recoil = false;
         float bonus = (float)Math.min(Float.MAX_VALUE, (double)amount * 1.5);
         for (Element element : ELEMENTS) {
-            if ((active & 1 << element.ordinal()) == 0 || !victim.getType().is(element.weak) || element.excluded(attacker)) continue;
+            if ((active & 1 << element.ordinal()) == 0 || !victim.is(element.weak) || element.excluded(attacker)) continue;
             victim.hurt(secondary, bonus);
             level.playSound(null, victim.blockPosition(), element.sound, SoundSource.NEUTRAL, .4F, element.pitch);
             level.playSound(null, victim.blockPosition(), SoundEvents.ZOMBIE_ATTACK_IRON_DOOR, SoundSource.NEUTRAL, .5F, 1);
@@ -115,7 +115,7 @@ public final class ElementalCombat {
         private boolean matches(Entity attacker, Entity direct) {
             if (this == PYRO && direct == null) return false;
             Entity source = this == PYRO ? direct : attacker;
-            return source.getType().is(entities) || attacker instanceof LivingEntity living && (living.getMainHandItem().is(items) || living.getOffhandItem().is(items));
+            return source.is(entities) || attacker instanceof LivingEntity living && (living.getMainHandItem().is(items) || living.getOffhandItem().is(items));
         }
 
         private boolean excluded(Entity attacker) {

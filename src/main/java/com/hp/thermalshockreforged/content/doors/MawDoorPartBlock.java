@@ -44,8 +44,8 @@ public final class MawDoorPartBlock extends Block {
 
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { builder.add(X, Y, Z); }
     @Override protected RenderShape getRenderShape(BlockState state) { return RenderShape.INVISIBLE; }
-    @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 0; }
-    @Override protected boolean propagatesSkylightDown(BlockState state, BlockGetter level, BlockPos pos) { return true; }
+    @Override protected int getLightDampening(BlockState state) { return 0; }
+    @Override protected boolean propagatesSkylightDown(BlockState state) { return true; }
     @Override protected VoxelShape getVisualShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) { return Shapes.empty(); }
 
     public BlockState state(BlockPos offset) {
@@ -124,12 +124,12 @@ public final class MawDoorPartBlock extends Block {
         return destroyed;
     }
 
-    @Override protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState replacement, boolean moving) {
-        if (!level.isClientSide() && !cleaning && !state.is(replacement.getBlock())) {
+    @Override protected void affectNeighborsAfterRemoval(BlockState state, net.minecraft.server.level.ServerLevel level, BlockPos pos, boolean moving) {
+        if (!cleaning) {
             BlockPos main = main(level, pos, state);
             if (main != null) level.destroyBlock(main, true);
         }
-        super.onRemove(state, level, pos, replacement, moving);
+        super.affectNeighborsAfterRemoval(state, level, pos, moving);
     }
 
     static void clean(Runnable action) {

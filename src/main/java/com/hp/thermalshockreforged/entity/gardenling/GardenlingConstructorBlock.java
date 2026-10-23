@@ -14,7 +14,7 @@ final class GardenlingConstructorBlock extends Block {
     GardenlingConstructorBlock() { super(Properties.of().mapColor(MapColor.COLOR_PURPLE).sound(SoundType.GLASS).strength(1, 10)); }
 
     @Override
-    protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 15; }
+    protected int getLightDampening(BlockState state) { return 15; }
 
     @Override
     protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState previous, boolean moving) {

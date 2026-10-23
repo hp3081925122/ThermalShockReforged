@@ -14,7 +14,7 @@ public final class MaterialBlock extends Block {
     }
 
     @Override
-    protected int getLightBlock(BlockState state, BlockGetter level, BlockPos position) {
+    protected int getLightDampening(BlockState state) {
         return blockedLight;
     }
 }

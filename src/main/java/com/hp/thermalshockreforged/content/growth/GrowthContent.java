@@ -36,11 +36,11 @@ public final class GrowthContent {
     public static final DeferredItem<GelBulbItem> GEL_BULB_ITEM = ITEMS.register("gel_bulb", () -> new GelBulbItem(GEL_BULB.get()));
     public static final DeferredBlock<Block> VISI_BULB = block("visi_bulb", VisiBulbBlock::new);
     public static final DeferredBlock<Block> GELSHOOTER_SEED = block("gelshooter_seed", GelshooterSeedBlock::new);
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GelBulbBlockEntity>> GEL_ENTITY = ENTITIES.register("gel_bulb", () -> BlockEntityType.Builder.of(GelBulbBlockEntity::new, GEL_BULB.get()).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GelBulbBlockEntity>> GEL_ENTITY = ENTITIES.register("gel_bulb", () -> new BlockEntityType<>(GelBulbBlockEntity::new, GEL_BULB.get()));
     static {
         for (GrowthKind kind : GrowthKind.values()) block(kind.id + "_seed", () -> new GrowthSeedBlock(kind));
         for (String id : List.of("sparkler_seed", "gel_bulb_seed", "visi_bulb_seed", "visi_bulb")) INVENTORIES.put(id,
-                ENTITIES.register(id, () -> BlockEntityType.Builder.of(GrowthInventoryBlockEntity::new, BLOCK_VALUES.get(id).get()).build(null)));
+                ENTITIES.register(id, () -> new BlockEntityType<>(GrowthInventoryBlockEntity::new, BLOCK_VALUES.get(id).get())));
     }
     private static DeferredBlock<Block> block(String id, Supplier<Block> factory) {
         DeferredBlock<Block> holder = BLOCKS.register(id, factory);
@@ -58,7 +58,7 @@ public final class GrowthContent {
         GrowthEntities.register(bus);
     }
     private static void capabilities(RegisterCapabilitiesEvent event) {
-        for (var holder : INVENTORIES.values()) event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, holder.get(), (entity, side) -> entity.itemHandler(side));
-        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, GEL_ENTITY.get(), (entity, side) -> entity.itemHandler(side));
+        for (var holder : INVENTORIES.values()) event.registerBlockEntity(Capabilities.Item.BLOCK, holder.get(), (entity, side) -> entity.itemHandler(side));
+        event.registerBlockEntity(Capabilities.Item.BLOCK, GEL_ENTITY.get(), (entity, side) -> entity.itemHandler(side));
     }
 }

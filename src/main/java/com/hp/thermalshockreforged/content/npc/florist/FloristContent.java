@@ -25,7 +25,7 @@ public final class FloristContent {
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(Registries.MENU, ThermalShockReforged.MOD_ID);
     private static final EnumMap<FloristPage, DeferredHolder<MenuType<?>, MenuType<FloristMenu>>> PAGES = new EnumMap<>(FloristPage.class);
-    public static final DeferredHolder<EntityType<?>, EntityType<FloristEntity>> FLORIST = TYPES.register("florist", () -> EntityType.Builder.of(FloristEntity::new, MobCategory.MONSTER).sized(.6F, 2F).fireImmune().clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":florist"));
+    public static final DeferredHolder<EntityType<?>, EntityType<FloristEntity>> FLORIST = TYPES.register("florist", () -> EntityType.Builder.of(FloristEntity::new, MobCategory.MONSTER).sized(.6F, 2F).fireImmune().clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("florist")));
     static {
         ITEMS.register("leafcutter", LeafcutterItem::new);
         ITEMS.register("florist_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(FLORIST.get())));

@@ -20,11 +20,10 @@ import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.BlockHitResult;
 
-public final class GlastrekkerEggBlock extends Block {
+public final class GlastrekkerEggBlock extends Block implements com.hp.thermalshockreforged.content.BlockTooltips.Provider {
     public GlastrekkerEggBlock() { super(Properties.of().mapColor(MapColor.QUARTZ).sound(SoundType.CALCITE).strength(.8F, .2F).friction(.7F)); }
-    @Override public int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 10; }
+    @Override public int getLightDampening(BlockState state) { return 10; }
     @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
-        super.appendHoverText(stack, context, display, tooltipAdder, flag);
         tooltipAdder.accept(Component.translatable("block.thermal_shock_reforged.glastrekker_egg.description_0"));
     }
     @Override protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {

@@ -23,8 +23,8 @@ final class DandelionBlock extends GardenFlowerBlock {
     DandelionBlock(boolean windblown, Properties properties) { super(MobEffects.REGENERATION, properties); this.windblown = windblown; }
 
     @Override
-    protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
-        super.entityInside(state, level, pos, entity);
+    protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, net.minecraft.world.entity.InsideBlockEffectApplier effects, boolean precise) {
+        super.entityInside(state, level, pos, entity, effects, precise);
         if (!windblown && !entity.isShiftKeyDown() && level instanceof ServerLevel server && level.getBlockState(pos).is(this)
                 && server.setBlock(pos, SpecialPlantContent.WINDBLOWN_LOQUE_DANDELION.get().defaultBlockState(), 3)) {
             server.sendParticles(ParticleTypes.POOF, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 5, 0.3, 0.3, 0.3, 0.05);

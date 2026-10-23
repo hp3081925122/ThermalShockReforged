@@ -20,8 +20,8 @@ import net.neoforged.neoforge.registries.*;
 public final class MaidenContent {
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
-    public static final DeferredHolder<EntityType<?>, EntityType<MaidenEntity>> MAIDEN = TYPES.register("maiden", () -> EntityType.Builder.of(MaidenEntity::new, MobCategory.MONSTER).sized(1.2F, 3.1F).fireImmune().setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(id("maiden").toString()));
-    public static final DeferredHolder<EntityType<?>, EntityType<MaidenVolleyEntity>> VOLLEY = TYPES.register("maiden_volley", () -> EntityType.Builder.<MaidenVolleyEntity>of(MaidenVolleyEntity::new, MobCategory.MISC).sized(.01F, .01F).noSummon().fireImmune().clientTrackingRange(0).updateInterval(20).build(id("maiden_volley").toString()));
+    public static final DeferredHolder<EntityType<?>, EntityType<MaidenEntity>> MAIDEN = TYPES.register("maiden", () -> EntityType.Builder.of(MaidenEntity::new, MobCategory.MONSTER).sized(1.2F, 3.1F).fireImmune().setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("maiden")));
+    public static final DeferredHolder<EntityType<?>, EntityType<MaidenVolleyEntity>> VOLLEY = TYPES.register("maiden_volley", () -> EntityType.Builder.<MaidenVolleyEntity>of(MaidenVolleyEntity::new, MobCategory.MISC).sized(.01F, .01F).noSummon().fireImmune().clientTrackingRange(0).updateInterval(20).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("maiden_volley")));
     static { ITEMS.register("maiden_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(MAIDEN.get()))); }
     public static Identifier id(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
     public static void register(IEventBus bus) { TYPES.register(bus); ITEMS.register(bus); bus.addListener(MaidenContent::attributes); bus.addListener(MaidenContent::placements); NeoForge.EVENT_BUS.addListener(MaidenContent::attack); NeoForge.EVENT_BUS.addListener(MaidenContent::shield); }
@@ -31,7 +31,7 @@ public final class MaidenContent {
     private static void shield(AttackAttemptEvent event) {
         if (event.getEntity() instanceof MaidenEntity maiden && !maiden.hasEffect(StatusContent.STUNNED)) {
             event.setCanceled(true); var level = maiden.level();
-            if (level.isClientSide()) level.playLocalSound(maiden.getX(), maiden.getY(), maiden.getZ(), SoundEvents.SHIELD_BLOCK, SoundSource.NEUTRAL, 1, 2, false); else level.playSound(null, maiden.blockPosition(), SoundEvents.SHIELD_BLOCK, SoundSource.NEUTRAL, 1, 2);
+            if (level.isClientSide()) level.playLocalSound(maiden.getX(), maiden.getY(), maiden.getZ(), SoundEvents.SHIELD_BLOCK.value(), SoundSource.NEUTRAL, 1, 2, false); else level.playSound(null, maiden.blockPosition(), SoundEvents.SHIELD_BLOCK.value(), SoundSource.NEUTRAL, 1, 2);
         }
     }
     private MaidenContent() { }

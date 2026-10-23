@@ -69,7 +69,7 @@ public final class LensEntity extends AnimatedMonsterEntity {
                 if (distance < bestDistance || distance == bestDistance && lens.getId() < nearest.getId()) { nearest = lens; bestDistance = distance; }
             }
             player.lookAt(Anchor.FEET, nearest, Anchor.FEET);
-            if (server.getDifficulty() != Difficulty.EASY) player.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 120, 1));
+            if (server.getDifficulty() != Difficulty.EASY) player.addEffect(new MobEffectInstance(MobEffects.NAUSEA, 120, 1));
         }
         server.sendParticles(random.nextBoolean() ? GazeContent.LENS_VISAGE_1.get() : GazeContent.LENS_VISAGE_2.get(), getX(), getY() + 2, getZ(), 1, .0001, .0001, .0001, 0);
     }

@@ -14,8 +14,8 @@ import net.neoforged.neoforge.registries.*;
 public final class SootleContent {
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
-    public static final DeferredHolder<EntityType<?>, EntityType<SootleEntity>> SOOTLE = TYPES.register("sootle", () -> EntityType.Builder.of(SootleEntity::new, MobCategory.MONSTER).fireImmune().sized(0.6F, 1.8F).clientTrackingRange(64).updateInterval(3).build("thermal_shock_reforged:sootle"));
-    public static final DeferredHolder<EntityType<?>, EntityType<SootleIdleEntity>> SOOTLE_IDLE = TYPES.register("sootle_idle", () -> EntityType.Builder.of(SootleIdleEntity::new, MobCategory.MONSTER).fireImmune().sized(0.6F, 1.8F).clientTrackingRange(64).updateInterval(3).build("thermal_shock_reforged:sootle_idle"));
+    public static final DeferredHolder<EntityType<?>, EntityType<SootleEntity>> SOOTLE = TYPES.register("sootle", () -> EntityType.Builder.of(SootleEntity::new, MobCategory.MONSTER).fireImmune().sized(0.6F, 1.8F).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("sootle")));
+    public static final DeferredHolder<EntityType<?>, EntityType<SootleIdleEntity>> SOOTLE_IDLE = TYPES.register("sootle_idle", () -> EntityType.Builder.of(SootleIdleEntity::new, MobCategory.MONSTER).fireImmune().sized(0.6F, 1.8F).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("sootle_idle")));
     static { ITEMS.register("sootle_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(SOOTLE.get()))); }
     private SootleContent() { }
     public static void register(IEventBus bus) { TYPES.register(bus); ITEMS.register(bus); bus.addListener(SootleContent::attributes); NeoForge.EVENT_BUS.addListener(SootleContent::attackAttempt); }

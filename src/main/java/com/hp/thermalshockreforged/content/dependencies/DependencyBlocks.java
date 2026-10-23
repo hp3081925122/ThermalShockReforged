@@ -26,12 +26,11 @@ public final class DependencyBlocks {
     private DependencyBlocks() { }
     public static void register(IEventBus bus) { BLOCKS.register(bus); ITEMS.register(bus); }
 
-    private static final class Muck extends Block {
+    private static final class Muck extends Block implements com.hp.thermalshockreforged.content.BlockTooltips.Provider {
         private Muck() { super(Properties.of().mapColor(MapColor.COLOR_GRAY).sound(SoundType.MUD).strength(0.8F, 4).speedFactor(0.6F).jumpFactor(0.7F)); }
-        @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 15; }
+        @Override protected int getLightDampening(BlockState state) { return 15; }
         @Override
         public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
-            super.appendHoverText(stack, context, display, tooltipAdder, flag);
             tooltipAdder.accept(Component.translatable("block.thermal_shock_reforged.pure_muck.description_0"));
         }
     }
@@ -44,6 +43,6 @@ public final class DependencyBlocks {
             registerDefaultState(stateDefinition.any().setValue(BLOCKSTATE, 0));
         }
         @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { builder.add(BLOCKSTATE); }
-        @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 15; }
+        @Override protected int getLightDampening(BlockState state) { return 15; }
     }
 }

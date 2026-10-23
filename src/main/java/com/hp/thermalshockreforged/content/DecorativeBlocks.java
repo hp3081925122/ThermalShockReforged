@@ -23,10 +23,10 @@ public final class DecorativeBlocks {
 
     public static Block fence(BlockBehaviour.Properties properties, int light, int flammability, boolean fluidOverlay, String... descriptions) {
         List<String> tooltip = List.of(descriptions);
-        return new FenceBlock(properties) {
+        return BlockTooltips.keys(new FenceBlock(properties) {
             @Override
-            protected int getLightBlock(BlockState state, BlockGetter level, BlockPos position) {
-                return light < 0 ? super.getLightBlock(state, level, position) : light;
+            protected int getLightDampening(BlockState state) {
+                return light < 0 ? super.getLightDampening(state) : light;
             }
 
             @Override
@@ -38,21 +38,15 @@ public final class DecorativeBlocks {
             public boolean shouldDisplayFluidOverlay(BlockState state, BlockAndLightGetter level, BlockPos position, FluidState fluid) {
                 return fluidOverlay || super.shouldDisplayFluidOverlay(state, level, position, fluid);
             }
-
-            @Override
-            public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
-                super.appendHoverText(stack, context, display, tooltipAdder, flag);
-                tooltip.forEach(key -> tooltipAdder.accept(Component.translatable(key)));
-            }
-        };
+        }, tooltip);
     }
 
     public static Block gate(BlockBehaviour.Properties properties, int light, int flammability, boolean fluidOverlay, String... descriptions) {
         List<String> tooltip = List.of(descriptions);
-        return new FenceGateBlock(WoodType.OAK, properties) {
+        return BlockTooltips.keys(new FenceGateBlock(WoodType.OAK, properties) {
             @Override
-            protected int getLightBlock(BlockState state, BlockGetter level, BlockPos position) {
-                return light < 0 ? super.getLightBlock(state, level, position) : light;
+            protected int getLightDampening(BlockState state) {
+                return light < 0 ? super.getLightDampening(state) : light;
             }
 
             @Override
@@ -64,21 +58,15 @@ public final class DecorativeBlocks {
             public boolean shouldDisplayFluidOverlay(BlockState state, BlockAndLightGetter level, BlockPos position, FluidState fluid) {
                 return fluidOverlay || super.shouldDisplayFluidOverlay(state, level, position, fluid);
             }
-
-            @Override
-            public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
-                super.appendHoverText(stack, context, display, tooltipAdder, flag);
-                tooltip.forEach(key -> tooltipAdder.accept(Component.translatable(key)));
-            }
-        };
+        }, tooltip);
     }
 
     public static Block bars(BlockBehaviour.Properties properties, int light, int flammability, boolean fluidOverlay, String... descriptions) {
         List<String> tooltip = List.of(descriptions);
-        return new IronBarsBlock(properties) {
+        return BlockTooltips.keys(new IronBarsBlock(properties) {
             @Override
-            protected int getLightBlock(BlockState state, BlockGetter level, BlockPos position) {
-                return light < 0 ? super.getLightBlock(state, level, position) : light;
+            protected int getLightDampening(BlockState state) {
+                return light < 0 ? super.getLightDampening(state) : light;
             }
 
             @Override
@@ -90,21 +78,15 @@ public final class DecorativeBlocks {
             public boolean shouldDisplayFluidOverlay(BlockState state, BlockAndLightGetter level, BlockPos position, FluidState fluid) {
                 return fluidOverlay || super.shouldDisplayFluidOverlay(state, level, position, fluid);
             }
-
-            @Override
-            public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
-                super.appendHoverText(stack, context, display, tooltipAdder, flag);
-                tooltip.forEach(key -> tooltipAdder.accept(Component.translatable(key)));
-            }
-        };
+        }, tooltip);
     }
 
     public static Block slab(BlockBehaviour.Properties properties, int light, int flammability, boolean fluidOverlay, String... descriptions) {
         List<String> tooltip = List.of(descriptions);
-        return new SlabBlock(properties) {
+        return BlockTooltips.keys(new SlabBlock(properties) {
             @Override
-            protected int getLightBlock(BlockState state, BlockGetter level, BlockPos position) {
-                return light < 0 ? super.getLightBlock(state, level, position) : light;
+            protected int getLightDampening(BlockState state) {
+                return light < 0 ? super.getLightDampening(state) : light;
             }
 
             @Override
@@ -116,21 +98,15 @@ public final class DecorativeBlocks {
             public boolean shouldDisplayFluidOverlay(BlockState state, BlockAndLightGetter level, BlockPos position, FluidState fluid) {
                 return fluidOverlay || super.shouldDisplayFluidOverlay(state, level, position, fluid);
             }
-
-            @Override
-            public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
-                super.appendHoverText(stack, context, display, tooltipAdder, flag);
-                tooltip.forEach(key -> tooltipAdder.accept(Component.translatable(key)));
-            }
-        };
+        }, tooltip);
     }
 
     public static Block wall(BlockBehaviour.Properties properties, int light, int flammability, boolean fluidOverlay, String... descriptions) {
         List<String> tooltip = List.of(descriptions);
-        return new WallBlock(properties) {
+        return BlockTooltips.keys(new WallBlock(properties) {
             @Override
-            protected int getLightBlock(BlockState state, BlockGetter level, BlockPos position) {
-                return light < 0 ? super.getLightBlock(state, level, position) : light;
+            protected int getLightDampening(BlockState state) {
+                return light < 0 ? super.getLightDampening(state) : light;
             }
 
             @Override
@@ -142,12 +118,6 @@ public final class DecorativeBlocks {
             public boolean shouldDisplayFluidOverlay(BlockState state, BlockAndLightGetter level, BlockPos position, FluidState fluid) {
                 return fluidOverlay || super.shouldDisplayFluidOverlay(state, level, position, fluid);
             }
-
-            @Override
-            public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
-                super.appendHoverText(stack, context, display, tooltipAdder, flag);
-                tooltip.forEach(key -> tooltipAdder.accept(Component.translatable(key)));
-            }
-        };
+        }, tooltip);
     }
 }

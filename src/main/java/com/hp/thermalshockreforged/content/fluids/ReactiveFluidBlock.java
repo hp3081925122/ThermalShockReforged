@@ -24,8 +24,8 @@ public final class ReactiveFluidBlock extends LiquidBlock {
     }
 
     @Override
-    protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
-        super.entityInside(state, level, pos, entity);
+    protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, net.minecraft.world.entity.InsideBlockEffectApplier effects, boolean precise) {
+        super.entityInside(state, level, pos, entity, effects, precise);
         if (springelatin) entity.setDeltaMovement(0, 0.55, 0);
         else if (!level.isClientSide() && entity instanceof LivingEntity living) living.addEffect(new MobEffectInstance(StatusContent.INFECTED, 100, 1));
     }

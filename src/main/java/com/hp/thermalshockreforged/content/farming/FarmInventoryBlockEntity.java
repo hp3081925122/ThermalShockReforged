@@ -14,18 +14,18 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.items.IItemHandler;
-import net.neoforged.neoforge.items.wrapper.SidedInvWrapper;
+import net.neoforged.neoforge.transfer.item.WorldlyContainerWrapper;
 
 public abstract class FarmInventoryBlockEntity extends RandomizableContainerBlockEntity implements WorldlyContainer {
     private static final int[] SLOTS = {0, 1, 2, 3, 4, 5, 6, 7, 8};
     private NonNullList<ItemStack> items = NonNullList.withSize(9, ItemStack.EMPTY);
-    private final IItemHandler[] handlers = java.util.Arrays.stream(Direction.values()).map(side -> new SidedInvWrapper(this, side)).toArray(IItemHandler[]::new);
+    private final WorldlyContainerWrapper[] handlers = java.util.Arrays.stream(Direction.values()).map(side -> new WorldlyContainerWrapper(this, side)).toArray(WorldlyContainerWrapper[]::new);
 
     protected FarmInventoryBlockEntity(net.minecraft.world.level.block.entity.BlockEntityType<?> type, BlockPos position, BlockState state) {
         super(type, position, state);
     }
 
-    public IItemHandler itemHandler(Direction side) { return side == null ? null : handlers[side.ordinal()]; }
+    public net.neoforged.neoforge.transfer.ResourceHandler<net.neoforged.neoforge.transfer.item.ItemResource> itemHandler(Direction side) { return side == null ? null : handlers[side.ordinal()]; }
 
     @Override
     protected void loadAdditional(net.minecraft.world.level.storage.ValueInput input) {

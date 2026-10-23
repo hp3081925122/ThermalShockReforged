@@ -335,7 +335,7 @@ public final class SquallEntity extends Monster {
         super.die(source);
         if (!dead || deathAwarded || !(source.getEntity() instanceof ServerPlayer player)) return;
         deathAwarded = true;
-        var advancement = player.getServer().getAdvancements().get(SquallContent.id("squall_kill_get"));
+        var advancement = player.level().getServer().getAdvancements().get(SquallContent.id("squall_kill_get"));
         if (advancement == null) ThermalShockReforged.LOGGER.warn("Squall kill advancement is unavailable: squall_kill_get");
         else {
             var progress = player.getAdvancements().getOrStartProgress(advancement);

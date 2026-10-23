@@ -17,8 +17,8 @@ final class MantleslagBlock extends NativeDecorBlock {
                 .noOcclusion().emissiveRendering((state, level, pos) -> true).isRedstoneConductor((state, level, pos) -> false),
                 new Traits(0, true, true, false, 0, 0, false, true), Block.box(0, 0, 0, 16, 15, 16));
     }
-    @Override protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
-        super.entityInside(state, level, pos, entity);
+    @Override protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, net.minecraft.world.entity.InsideBlockEffectApplier effects, boolean precise) {
+        super.entityInside(state, level, pos, entity, effects, precise);
         if (level.isClientSide()) return;
         if (level.dimension().equals(AtlasContent.PALACE)) {
             Vec3 destination = entity instanceof Player player ? AtlasCoordinates.get(player, AtlasContent.PALACE) : new Vec3(0, 194, 0);

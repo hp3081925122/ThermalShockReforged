@@ -180,7 +180,7 @@ public final class HeraldEntity extends Monster implements GeoEntity, ServerEndT
         configuredAttributes = false;
         applyConfiguredAttributes();
         if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", "")); summonReadyAt = input.getLongOr("SummonReadyAt", 0L);
-        var legacy = getPersistentData(); killCount = Math.max(0, Math.min(10, input.getString("HeraldKillCount").isPresent() ? input.getIntOr("HeraldKillCount", 0) : (int) legacy.getDouble("HeraldKillCount"))); active = input.getBooleanOr("HeraldBloom", false) || legacy.getString("HeraldActive").equals("Yup"); keyDropped = input.getBooleanOr("KeyDropped", false) || active; deathVisualStarted = input.getBooleanOr("DeathVisualStarted", false);
+        var legacy = getPersistentData(); killCount = Math.max(0, Math.min(10, input.getStringOr("HeraldKillCount", "").isPresent() ? input.getIntOr("HeraldKillCount", 0) : (int) legacy.getDoubleOr("HeraldKillCount", 0))); active = input.getBooleanOr("HeraldBloom", false) || legacy.getStringOr("HeraldActive", "").equals("Yup"); keyDropped = input.getBooleanOr("KeyDropped", false) || active; deathVisualStarted = input.getBooleanOr("DeathVisualStarted", false);
         activationRemaining = !keyDropped && input.getString("ActivationRemaining").isPresent() ? Math.clamp(input.getIntOr("ActivationRemaining", 0), -1, 20) : -1; activationOrigin = new Vec3(input.getDoubleOr("ActivationX", 0.0), input.getDoubleOr("ActivationY", 0.0), input.getDoubleOr("ActivationZ", 0.0));
         if (!Double.isFinite(activationOrigin.x) || !Double.isFinite(activationOrigin.y) || !Double.isFinite(activationOrigin.z)) activationRemaining = -1;
         var anchorTag = input.getString("HeraldXpos").isPresent() ? tag : legacy;

@@ -34,8 +34,8 @@ public final class SickleItem extends HoeItem {
                 new AttributeModifier(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "sickle_attack_knockback"), -1, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL), EquipmentSlotGroup.MAINHAND)));
         this.id = id;
     }
-    @Override public boolean hurtEnemy(ItemStack stack, LivingEntity victim, LivingEntity attacker) {
-        boolean result = super.hurtEnemy(stack, victim, attacker);
+    @Override public void hurtEnemy(ItemStack stack, LivingEntity victim, LivingEntity attacker) {
+        super.hurtEnemy(stack, victim, attacker);
         if (!victim.level().isClientSide() && victim != attacker) {
             var wound = victim.getEffect(WeaponContent.SICKLE_WOUND);
             int level = wound == null ? 0 : wound.getAmplifier() + 1;
@@ -49,7 +49,6 @@ public final class SickleItem extends HoeItem {
                 victim.hurt(victim.damageSources().source(DamageTypes.GENERIC), attacker.getMainHandItem().is(WeaponContent.STRATOSILVER_SICKLE.get()) ? 14 : 10);
             }
         }
-        return result;
     }
     @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
         super.appendHoverText(stack, context, display, tooltipAdder, flag);

@@ -20,7 +20,7 @@ public class UnderbrushLeaves extends LeavesBlock {
     }
 
     @Override
-    protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) {
+    protected int getLightDampening(BlockState state) {
         return opacity;
     }
 

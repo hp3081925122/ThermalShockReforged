@@ -46,16 +46,16 @@ public final class FixedStructureItem extends Item {
             var template = serverLevel.getStructureManager().get(templateId);
             if (template.isEmpty()) {
                 ThermalShockReforged.LOGGER.error("Fixed structure template is missing: template={}, dimension={}", templateId, level.dimension().identifier());
-                player.displayClientMessage(Component.translatable("message.thermal_shock_reforged.fixed_structure_failed"), true);
+                player.sendOverlayMessage(Component.translatable("message.thermal_shock_reforged.fixed_structure_failed"));
                 return InteractionResult.FAIL;
             }
-            player.displayClientMessage(Component.translatable("message.thermal_shock_reforged.fixed_structure_start"), true);
+            player.sendOverlayMessage(Component.translatable("message.thermal_shock_reforged.fixed_structure_start"));
             ThermalShockReforged.LOGGER.debug("Placing full fixed structure: template={}, position={}, dimension={}", templateId, ORIGIN, level.dimension().identifier());
             boolean placed = template.get().placeInWorld(serverLevel, ORIGIN, ORIGIN,
                     new StructurePlaceSettings().setRotation(Rotation.NONE).setMirror(Mirror.NONE).setIgnoreEntities(false), serverLevel.random, 3);
             if (!placed) {
                 ThermalShockReforged.LOGGER.error("Fixed structure placement failed: template={}, position={}, dimension={}", templateId, ORIGIN, level.dimension().identifier());
-                player.displayClientMessage(Component.translatable("message.thermal_shock_reforged.fixed_structure_failed"), true);
+                player.sendOverlayMessage(Component.translatable("message.thermal_shock_reforged.fixed_structure_failed"));
                 return InteractionResult.FAIL;
             }
             stack.shrink(1);

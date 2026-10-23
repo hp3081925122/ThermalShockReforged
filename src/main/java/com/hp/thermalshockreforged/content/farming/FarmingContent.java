@@ -39,8 +39,8 @@ public final class FarmingContent {
             var seed = BLOCKS.register(kind.id + "_seed", () -> new FarmSeedBlock(kind));
             SEEDS.put(kind, seed);
             ITEMS.registerSimpleBlockItem(seed);
-            SEED_ENTITIES.put(kind, ENTITIES.register(kind.id + "_seed", () -> BlockEntityType.Builder.of((pos, state) -> new SeedBlockEntity(kind, pos, state), seed.get()).build(null)));
-            if (kind.geo) CROP_ENTITIES.put(kind, ENTITIES.register(kind.id, () -> BlockEntityType.Builder.of((pos, state) -> new GeoCropBlockEntity(kind, pos, state), crop.get()).build(null)));
+            SEED_ENTITIES.put(kind, ENTITIES.register(kind.id + "_seed", () -> new BlockEntityType<>((pos, state) -> new SeedBlockEntity(kind, pos, state), seed.get())));
+            if (kind.geo) CROP_ENTITIES.put(kind, ENTITIES.register(kind.id, () -> new BlockEntityType<>((pos, state) -> new GeoCropBlockEntity(kind, pos, state), crop.get())));
         }
     }
 
@@ -58,7 +58,7 @@ public final class FarmingContent {
         bus.addListener(FarmingContent::capabilities);
     }
     private static void capabilities(RegisterCapabilitiesEvent event) {
-        for (var type : SEED_ENTITIES.values()) event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, type.get(), (entity, side) -> entity.itemHandler(side));
-        for (var type : CROP_ENTITIES.values()) event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, type.get(), (entity, side) -> entity.itemHandler(side));
+        for (var type : SEED_ENTITIES.values()) event.registerBlockEntity(Capabilities.Item.BLOCK, type.get(), (entity, side) -> entity.itemHandler(side));
+        for (var type : CROP_ENTITIES.values()) event.registerBlockEntity(Capabilities.Item.BLOCK, type.get(), (entity, side) -> entity.itemHandler(side));
     }
 }

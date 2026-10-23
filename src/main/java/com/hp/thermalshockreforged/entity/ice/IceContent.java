@@ -19,8 +19,8 @@ public final class IceContent {
     public static final DeferredHolder<EntityType<?>, EntityType<IceCreatureEntity>> FROSTILYTE_CRYOMANCER = creature("frostilyte_cryomancer", 0.6F, 1.7F);
     public static final DeferredHolder<EntityType<?>, EntityType<IceCreatureEntity>> ICIDRONE = creature("icidrone", 0.8F, 0.8F);
     public static final DeferredHolder<EntityType<?>, EntityType<IceCreatureEntity>> ICIDROZERK = creature("icidrozerk", 1.8F, 2.2F);
-    public static final DeferredHolder<EntityType<?>, EntityType<IceBulletEntity>> ICE_BULLET = TYPES.register("ice_bullet", () -> EntityType.Builder.<IceBulletEntity>of(IceBulletEntity::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(64).updateInterval(1).build(ThermalShockReforged.MOD_ID + ":ice_bullet"));
-    public static final DeferredHolder<EntityType<?>, EntityType<SoldierComboEntity>> SOLDIER_COMBO = TYPES.register("soldier_combo_task", () -> EntityType.Builder.<SoldierComboEntity>of(SoldierComboEntity::new, MobCategory.MISC).noSummon().sized(.01F, .01F).clientTrackingRange(0).updateInterval(20).build(ThermalShockReforged.MOD_ID + ":soldier_combo_task"));
+    public static final DeferredHolder<EntityType<?>, EntityType<IceBulletEntity>> ICE_BULLET = TYPES.register("ice_bullet", () -> EntityType.Builder.<IceBulletEntity>of(IceBulletEntity::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(64).updateInterval(1).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("ice_bullet")));
+    public static final DeferredHolder<EntityType<?>, EntityType<SoldierComboEntity>> SOLDIER_COMBO = TYPES.register("soldier_combo_task", () -> EntityType.Builder.<SoldierComboEntity>of(SoldierComboEntity::new, MobCategory.MISC).noSummon().sized(.01F, .01F).clientTrackingRange(0).updateInterval(20).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("soldier_combo_task")));
     static {
         ITEMS.register("frostilyte_soldier_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(FROSTILYTE_SOLDIER.get())));
         ITEMS.register("frostilyte_cryomancer_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(FROSTILYTE_CRYOMANCER.get())));
@@ -29,7 +29,7 @@ public final class IceContent {
     }
     private IceContent() { }
     private static DeferredHolder<EntityType<?>, EntityType<IceCreatureEntity>> creature(String id, float width, float height) {
-        return TYPES.register(id, () -> EntityType.Builder.of(IceCreatureEntity::new, MobCategory.MONSTER).sized(width, height).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":" + id));
+        return TYPES.register(id, () -> EntityType.Builder.of(IceCreatureEntity::new, MobCategory.MONSTER).sized(width, height).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey(id)));
     }
     public static void register(IEventBus bus) { TYPES.register(bus); ITEMS.register(bus); bus.addListener(IceContent::attributes); NeoForge.EVENT_BUS.addListener(IceContent::attack); NeoForge.EVENT_BUS.addListener(IceContent::join); }
     private static void attributes(EntityAttributeCreationEvent event) {

@@ -24,7 +24,7 @@ public final class HologramMonitorBlock extends GeoDecorBlock {
         int recording = 0;
         for (int disk = 1; disk <= 9; disk++) if (player.getMainHandItem().is(MaterialContent.items().get("diskette_" + disk).get())) { recording = disk; break; }
         level.setBlock(pos, level.getBlockState(pos).setValue(VARIANT, recording), 3);
-        if (recording > 0) player.displayClientMessage(Component.translatableWithFallback("message.thermal_shock_reforged.hologram_monitor.recording_" + recording, HologramRecordings.text(recording)), false);
+        if (recording > 0) player.sendSystemMessage(Component.translatableWithFallback("message.thermal_shock_reforged.hologram_monitor.recording_" + recording, HologramRecordings.text(recording)));
         ThermalShockReforged.LOGGER.debug("Hologram monitor selected: player={}, position={}, recording={}", player.getUUID(), pos, recording);
     }
     @Override protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) { replay(level, pos, player); return InteractionResult.SUCCESS; }

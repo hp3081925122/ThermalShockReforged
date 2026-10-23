@@ -44,21 +44,21 @@ final class ArmorSetEvents {
         boolean eligible = player.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.HEAD).is(ZENITH)
                 || player.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.FEET).is(ZENITH);
         if (eligible && player.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.HEAD).is(ArmorContent.CORRIAL_DIVING_HELMET.get())) player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 60, 0, true, false));
-        if (eligible && wearing(player, ArmorContent.RUBY)) player.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED, 20, 0, true, false));
+        if (eligible && wearing(player, ArmorContent.RUBY)) player.addEffect(new MobEffectInstance(MobEffects.HASTE, 20, 0, true, false));
         if (eligible && wearing(player, ArmorContent.RUBY_ZENITH)) {
-            player.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED, 20, 1, true, false));
+            player.addEffect(new MobEffectInstance(MobEffects.HASTE, 20, 1, true, false));
             award(player, ZENITH_ADVANCEMENT);
         }
         if (eligible && wearing(player, ArmorContent.BLOOD_ZENITH)) {
-            player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 20, 0, false, false));
+            player.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 20, 0, false, false));
             award(player, ZENITH_ADVANCEMENT);
         }
         if (eligible && wearing(player, ArmorContent.BLOOD)) {
-            player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 20, 0, false, false));
+            player.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 20, 0, false, false));
             if (player.getMainHandItem().is(WEAPONS)) player.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 20, 1, false, false));
         }
         boolean carbon = eligible && wearing(player, ArmorContent.CARBORUNDUM) && !player.level().dimension().identifier().equals(AQERON);
-        int remaining = carbon ? 10 : Math.max(0, player.getPersistentData().getInt(REMAINING) - 1);
+        int remaining = carbon ? 10 : Math.max(0, player.getPersistentData().getIntOr(REMAINING, 0) - 1);
         var gravity = player.getAttribute(Attributes.GRAVITY);
         if (remaining > 0) {
             player.getPersistentData().putInt(REMAINING, remaining);
@@ -71,7 +71,7 @@ final class ArmorSetEvents {
 
     private static void award(Player player, Identifier id) {
         if (player instanceof ServerPlayer serverPlayer) {
-            var advancement = serverPlayer.getServer().getAdvancements().get(id);
+            var advancement = serverPlayer.level().getServer().getAdvancements().get(id);
             if (advancement != null) {
                 var progress = serverPlayer.getAdvancements().getOrStartProgress(advancement);
                 if (!progress.isDone()) for (String criterion : progress.getRemainingCriteria()) serverPlayer.getAdvancements().award(advancement, criterion);
@@ -136,7 +136,7 @@ final class ArmorSetEvents {
             clear(event.getOriginal());
             clear(event.getEntity());
         } else {
-            int remaining = event.getOriginal().getPersistentData().getInt(REMAINING);
+            int remaining = event.getOriginal().getPersistentData().getIntOr(REMAINING, 0);
             if (remaining > 0) event.getEntity().getPersistentData().putInt(REMAINING, remaining);
         }
     }

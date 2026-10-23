@@ -32,19 +32,19 @@ public final class LegacyAttackRules {
     private static void attack(AttackAttemptEvent event) {
         var victim = event.getEntity();
         if (!(victim.level() instanceof ServerLevel level)) return;
-        if (victim.getType().is(CHARACTERS)) {
+        if (victim.is(CHARACTERS)) {
             event.setCanceled(true);
             ThermalShockReforged.LOGGER.debug("Character attack canceled: victim={}, source={}", victim.getUUID(), event.getSource().getMsgId());
             return;
         }
         var attacker = event.getSource().getEntity();
         if (attacker == null) return;
-        if (victim instanceof Player && attacker.getType().is(COLD_REFLECTORS) && victim.getRandom().nextDouble() < .2) {
+        if (victim instanceof Player && attacker.is(COLD_REFLECTORS) && victim.getRandom().nextDouble() < .2) {
             attacker.hurt(level.damageSources().source(DamageTypes.PLAYER_ATTACK), 2);
             level.playSound(null, victim.blockPosition(), SoundEvents.GLASS_BREAK, SoundSource.NEUTRAL, .3F, 1);
             ThermalShockReforged.LOGGER.debug("Cold attack reflected: victim={}, attacker={}", victim.getUUID(), attacker.getUUID());
         }
-        if (level.getBiome(victim.blockPosition()).is(COLD_BIOMES) && attacker.getType().is(CRYO_RESIST) && victim.getRandom().nextDouble() < .7) {
+        if (level.getBiome(victim.blockPosition()).is(COLD_BIOMES) && attacker.is(CRYO_RESIST) && victim.getRandom().nextDouble() < .7) {
             victim.addEffect(new MobEffectInstance(StatusContent.FROSTBITE, 120, 0));
             ThermalShockReforged.LOGGER.debug("Cold biome frostbite applied: victim={}, attacker={}", victim.getUUID(), attacker.getUUID());
         }

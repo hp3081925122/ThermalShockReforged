@@ -65,7 +65,7 @@ public final class HuntressBossEntity extends AnimatedMonsterEntity {
     }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); applyConfiguration(); if (!level().isClientSide()) synchronizeMovementLock(); }
     @Override public void tick() { if (!level().isClientSide()) { applyConfiguration(); if (cooldown > 0) cooldown--; if (movementLock > 0) movementLock--; if (gravityFailsafe > 0 && --gravityFailsafe == 0) setNoGravity(false); synchronizeMovementLock(); } super.tick(); }
-    @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
+    @Override public boolean canTeleport(Level from, Level to) { return false; }
     @Override public void remove(RemovalReason reason) { if (activeTask != null && level() instanceof ServerLevel server && server.getEntity(activeTask) instanceof HuntressTaskEntity task) task.captureCaster(this); super.remove(reason); }
     @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) { return !(source.is(DamageTypes.FALL) || source.is(DamageTypes.CACTUS) || source.is(DamageTypes.DROWN)) && super.hurtServer(level, source, amount); }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.GENERIC_HURT; }

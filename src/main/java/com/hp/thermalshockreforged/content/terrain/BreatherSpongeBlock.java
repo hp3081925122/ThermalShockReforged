@@ -29,7 +29,7 @@ public final class BreatherSpongeBlock extends Block {
     }
 
     @Override
-    protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 15; }
+    protected int getLightDampening(BlockState state) { return 15; }
 
     @Override
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
@@ -50,9 +50,9 @@ public final class BreatherSpongeBlock extends Block {
             player.getCooldowns().addCooldown(straw.getItem(), silly ? 60 : 20);
             player.setAirSupply(silly ? 300 : Math.min(300, player.getAirSupply() + 60));
             straw.hurtAndBreak(1, player, EquipmentSlot.MAINHAND);
-            level.playSound(null, pos, SoundEvents.HONEY_DRINK, SoundSource.NEUTRAL, 1, 1);
+            level.playSound(null, pos, SoundEvents.HONEY_DRINK.value(), SoundSource.NEUTRAL, 1, 1);
             if (player instanceof ServerPlayer serverPlayer) {
-                var advancement = serverPlayer.getServer().getAdvancements().get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "breather_sponge_get"));
+                var advancement = serverPlayer.level().getServer().getAdvancements().get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "breather_sponge_get"));
                 if (advancement != null) {
                     var progress = serverPlayer.getAdvancements().getOrStartProgress(advancement);
                     if (!progress.isDone()) for (String criterion : progress.getRemainingCriteria()) serverPlayer.getAdvancements().award(advancement, criterion);

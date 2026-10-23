@@ -10,6 +10,6 @@ public final class AtlasArrivalVisuals {
         var random = entity.getRandom();
         boolean emit = entity.isInvisible() ? random.nextInt(15) == 0 : random.nextBoolean();
         if (!emit) return;
-        com.hp.thermalshockreforged.content.status.LegacyEffectParticles.emit(entity, 0x9146F0, 10, net.minecraft.world.effect.MobEffects.DAMAGE_RESISTANCE);
+        com.hp.thermalshockreforged.content.status.LegacyEffectParticles.emit(entity, 0x9146F0, 10, net.minecraft.world.effect.MobEffects.RESISTANCE);
     }
 }

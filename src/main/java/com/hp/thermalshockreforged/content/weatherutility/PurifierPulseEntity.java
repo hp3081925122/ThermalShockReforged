@@ -23,6 +23,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
 public final class PurifierPulseEntity extends Entity implements ServerEndTickTask {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, net.minecraft.world.damagesource.DamageSource source, float damage) { return false; }
     private BlockPos anchor = BlockPos.ZERO;
     private String dimension = "";
     private int remaining = 20;
@@ -30,7 +31,7 @@ public final class PurifierPulseEntity extends Entity implements ServerEndTickTa
     public PurifierPulseEntity(EntityType<? extends PurifierPulseEntity> type, Level level) { super(type, level); noPhysics = true; setNoGravity(true); }
     static boolean submit(ServerLevel level, BlockPos pos, PurifierBlockEntity owner) {
         if (owner.activated()) return false;
-        var pulse = WeatherUtilityContent.PURIFIER_PULSE.get().create(level);
+        var pulse = WeatherUtilityContent.PURIFIER_PULSE.get().create(level, net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
         if (pulse == null) return false;
         pulse.anchor = pos.immutable(); pulse.dimension = level.dimension().identifier().toString(); pulse.armed = true;
         pulse.setPos(pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5);
@@ -45,7 +46,7 @@ public final class PurifierPulseEntity extends Entity implements ServerEndTickTa
         return true;
     }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
-    @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
+    @Override public boolean canTeleport(Level from, Level to) { return false; }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); if (armed && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
     @Override public void tick() {
         super.tick();

@@ -44,7 +44,7 @@ public final class GlassContent {
 
         @Override public boolean shouldDisplayFluidOverlay(BlockState state, BlockAndLightGetter level, BlockPos pos, FluidState fluid) { return true; }
         @Override protected boolean skipRendering(BlockState state, BlockState adjacent, Direction side) { return adjacent.is(this) || super.skipRendering(state, adjacent, side); }
-        @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 15; }
+        @Override protected int getLightDampening(BlockState state) { return 15; }
         @Override protected VoxelShape getVisualShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) { return Shapes.empty(); }
         @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { builder.add(FACING); }
         @Override public BlockState getStateForPlacement(BlockPlaceContext context) { return defaultBlockState().setValue(FACING, context.getNearestLookingDirection().getOpposite()); }

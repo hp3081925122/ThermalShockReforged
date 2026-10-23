@@ -13,19 +13,20 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.*;
 
 public final class TeslaPulseEntity extends Entity implements ServerEndTickTask {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, net.minecraft.world.damagesource.DamageSource source, float damage) { return false; }
     private int remaining = 13;
     private int phase;
     private int soundCopies;
     private boolean armed;
     public TeslaPulseEntity(EntityType<? extends TeslaPulseEntity> type, Level level) { super(type, level); noPhysics = true; setNoGravity(true); }
     public static boolean submit(ServerLevel level, Vec3 origin) {
-        var task = TeslaReedContent.PULSE.get().create(level);
+        var task = TeslaReedContent.PULSE.get().create(level, net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
         if (task == null) return false;
         task.setPos(origin); task.armed = true;
         return level.addFreshEntity(task);
     }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
-    @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
+    @Override public boolean canTeleport(Level from, Level to) { return false; }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); if (armed && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
     @Override public void tick() { super.tick(); if (level() instanceof ServerLevel server) { if (armed) ServerEndTickTasks.schedule(server, getUUID()); else discard(); } }
     @Override public void endTick(ServerLevel level) {

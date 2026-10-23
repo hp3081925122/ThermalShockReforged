@@ -16,6 +16,7 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.level.Level;
 
 public final class ReactorSequenceEntity extends Entity implements ServerEndTickTask {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, net.minecraft.world.damagesource.DamageSource source, float damage) { return false; }
     private BlockPos anchor = BlockPos.ZERO;
     private String dimension = "";
     private int elapsed;
@@ -26,7 +27,7 @@ public final class ReactorSequenceEntity extends Entity implements ServerEndTick
     void prepare(ServerLevel level, BlockPos pos) { anchor = pos.immutable(); dimension = level.dimension().identifier().toString(); armed = true; setPos(pos.getX(), pos.getY(), pos.getZ()); }
     void firstPulse(ServerLevel level) { if (armed && !finished && pulses == 0 && arenaLoaded(level)) { pulses++; pulse(level); } }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
-    @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
+    @Override public boolean canTeleport(Level from, Level to) { return false; }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); if (armed && !finished && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
     @Override public void tick() {
         super.tick();
@@ -52,7 +53,7 @@ public final class ReactorSequenceEntity extends Entity implements ServerEndTick
             finished = true;
             spawn(level, SquallContent.SQUALL.get(), anchor.above(3));
             if (level.getBlockState(anchor).is(ReactorContent.CORE.get()) && level.getBlockEntity(anchor) instanceof ReactorCoreBlockEntity core && core.owns(getUUID())) level.destroyBlock(anchor, false);
-            level.playSound(null, anchor, SoundEvents.ITEM_BREAK, SoundSource.BLOCKS, 1.5F, -1);
+            level.playSound(null, anchor, SoundEvents.ITEM_BREAK.value(), SoundSource.BLOCKS, 1.5F, -1);
             ThermalShockReforged.LOGGER.debug("Reactor sequence {} completed at {} in {}", getUUID(), anchor, dimension);
             discard();
         } else ServerEndTickTasks.schedule(level, getUUID());

@@ -23,6 +23,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 
 public final class MagneticDetonationEntity extends Entity implements ServerEndTickTask {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, net.minecraft.world.damagesource.DamageSource source, float damage) { return false; }
     private UUID source;
     private int remaining = 10;
     private boolean epsilon;
@@ -30,7 +31,7 @@ public final class MagneticDetonationEntity extends Entity implements ServerEndT
     private boolean armed;
     public MagneticDetonationEntity(EntityType<? extends MagneticDetonationEntity> type, Level level) { super(type, level); noPhysics = true; setNoGravity(true); }
     public static boolean submit(ServerLevel level, MagneticBombEntity bomb) {
-        var task = ProjectileContent.MAGNETIC_DETONATION.get().create(level);
+        var task = ProjectileContent.MAGNETIC_DETONATION.get().create(level, net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
         if (task == null) return false;
         task.source = bomb.getUUID(); task.epsilon = bomb.epsilon(); task.setPos(bomb.position());
         double attack = bomb.getAttributeValue(Attributes.ATTACK_DAMAGE);
@@ -41,7 +42,7 @@ public final class MagneticDetonationEntity extends Entity implements ServerEndT
         return true;
     }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
-    @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
+    @Override public boolean canTeleport(Level from, Level to) { return false; }
     @Override public void tick() {
         super.tick();
         if (level() instanceof ServerLevel server) {

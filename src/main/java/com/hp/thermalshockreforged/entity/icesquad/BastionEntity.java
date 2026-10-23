@@ -948,9 +948,9 @@ public final class BastionEntity extends Monster implements GeoEntity {
         CompoundTag data = victim.getPersistentData();
         boolean primed;
         if (frost) primed = victim.isOnFire();
-        else primed = data.getLong(CHILL_KEY) > now;
+        else primed = data.getLongOr(CHILL_KEY, 0L) > now;
         if (frost) data.putLong(CHILL_KEY, now + 80);
-        if (!primed || data.getLong(SHOCK_KEY) > now) return;
+        if (!primed || data.getLongOr(SHOCK_KEY, 0L) > now) return;
         data.putLong(SHOCK_KEY, now + BastionCombatConfig.THERMAL_COOLDOWN.get());
         data.remove(CHILL_KEY);
         victim.clearFire();
@@ -1089,7 +1089,7 @@ public final class BastionEntity extends Monster implements GeoEntity {
 
     @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) { return !source.is(DamageTypes.DROWN) && !source.is(DamageTypes.LIGHTNING_BOLT) && super.hurtServer(level, source, amount); }
     @Override public boolean removeWhenFarAway(double distance) { return false; }
-    @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
+    @Override public boolean canTeleport(Level from, Level to) { return false; }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.IRON_GOLEM_HURT; }
     @Override protected SoundEvent getDeathSound() { return SoundEvents.IRON_GOLEM_DEATH; }
     @Override protected void playStepSound(BlockPos pos, BlockState state) { playSound(SoundEvents.IRON_GOLEM_STEP, 0.15F, 1); }

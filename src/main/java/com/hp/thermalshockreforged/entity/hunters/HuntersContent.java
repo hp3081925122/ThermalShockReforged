@@ -17,7 +17,7 @@ import net.neoforged.neoforge.registries.*;
 public final class HuntersContent {
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
-    public static final DeferredHolder<EntityType<?>, EntityType<FrostilyteEntity>> FROSTILYTE = TYPES.register("frostilyte", () -> EntityType.Builder.of(FrostilyteEntity::new, MobCategory.MONSTER).sized(0.6F, 1.7F).clientTrackingRange(64).updateInterval(3).build("thermal_shock_reforged:frostilyte"));
+    public static final DeferredHolder<EntityType<?>, EntityType<FrostilyteEntity>> FROSTILYTE = TYPES.register("frostilyte", () -> EntityType.Builder.of(FrostilyteEntity::new, MobCategory.MONSTER).sized(0.6F, 1.7F).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("frostilyte")));
     public static final DeferredHolder<EntityType<?>, EntityType<RazorwingEntity>> RAZORWING = razorwing("razorwing");
     public static final DeferredHolder<EntityType<?>, EntityType<RazorwingEntity>> RUBY_ARMOURED_RAZORWING = razorwing("ruby_armoured_razorwing");
     public static final DeferredHolder<EntityType<?>, EntityType<RazorwingEntity>> BLOOD_ARMOURED_RAZORWING = razorwing("blood_armoured_razorwing");
@@ -27,7 +27,7 @@ public final class HuntersContent {
     }
     private HuntersContent() { }
     private static DeferredHolder<EntityType<?>, EntityType<RazorwingEntity>> razorwing(String id) {
-        return TYPES.register(id, () -> EntityType.Builder.of(RazorwingEntity::new, MobCategory.AMBIENT).sized(1, 2.2F).clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":" + id));
+        return TYPES.register(id, () -> EntityType.Builder.of(RazorwingEntity::new, MobCategory.AMBIENT).sized(1, 2.2F).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey(id)));
     }
     public static void register(IEventBus bus) {
         TYPES.register(bus); ITEMS.register(bus); bus.addListener(HuntersContent::attributes); bus.addListener(HuntersContent::placements);
@@ -42,7 +42,7 @@ public final class HuntersContent {
     private static void placements(RegisterSpawnPlacementsEvent event) {
         event.register(RAZORWING.get(), SpawnPlacementTypes.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (type, level, reason, pos, random) ->
                 (level.getBlockState(pos.below()).is(TerrainContent.GRASSY_SHALE.get()) || level.getBlockState(pos.below()).is(TerrainContent.SNOWY_SHALE.get()))
-                && level.canSeeSkyFromBelowWater(pos) && level instanceof Level world && world.isDay(), RegisterSpawnPlacementsEvent.Operation.REPLACE);
+                && level.canSeeSkyFromBelowWater(pos) && level instanceof Level world && world.isBrightOutside(), RegisterSpawnPlacementsEvent.Operation.REPLACE);
     }
     private static void attack(AttackAttemptEvent event) {
         if (event.getSource().getEntity() instanceof FrostilyteEntity caster) { event.setCanceled(true); caster.startAttack(event.getEntity()); }

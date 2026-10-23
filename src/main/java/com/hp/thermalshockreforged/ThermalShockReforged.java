@@ -64,9 +64,14 @@ public final class ThermalShockReforged {
     public static final String MOD_ID = "thermal_shock_reforged";
     public static final Logger LOGGER = LogUtils.getLogger();
 
+    public static net.minecraft.resources.ResourceKey<net.minecraft.world.entity.EntityType<?>> entityKey(String path) {
+        return net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.resources.Identifier.fromNamespaceAndPath(MOD_ID, path));
+    }
+
     public ThermalShockReforged(IEventBus bus, ModContainer container) {
         LOGGER.debug("Thermal Shock Reforged startup reached mod initialization with an isolated mixin namespace");
-        ModGameRules.initialize();
+        ModGameRules.register(bus);
+        com.hp.thermalshockreforged.content.BlockTooltips.register(bus);
         container.registerConfig(ModConfig.Type.COMMON, CombatConfig.SPEC);
         container.registerConfig(ModConfig.Type.SERVER, WorldRulesConfig.SPEC, "thermal_shock_reforged-world.toml");
         container.registerConfig(ModConfig.Type.COMMON, com.hp.thermalshockreforged.entity.titans.TitanCombatConfig.SPEC, "thermal_shock_reforged-titans.toml");

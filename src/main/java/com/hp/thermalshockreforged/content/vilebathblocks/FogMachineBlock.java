@@ -22,7 +22,7 @@ final class FogMachineBlock extends Block {
                 .requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((state, level, pos) -> false));
     }
 
-    @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 15; }
+    @Override protected int getLightDampening(BlockState state) { return 15; }
     @Override protected VoxelShape getVisualShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) { return Shapes.empty(); }
     @Override public boolean canConnectRedstone(BlockState state, BlockGetter level, BlockPos pos, Direction side) { return true; }
 

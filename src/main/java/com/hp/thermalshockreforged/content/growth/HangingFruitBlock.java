@@ -19,8 +19,8 @@ public final class HangingFruitBlock extends Block {
         var properties = Properties.of().mapColor(lunar ? MapColor.COLOR_LIGHT_BLUE : MapColor.COLOR_ORANGE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.FUNGUS).strength(.2f, 0).noCollision().noOcclusion().isRedstoneConductor((s,l,p)->false);
         return lunar ? properties.lightLevel(s->7).emissiveRendering((s,l,p)->true) : properties;
     }
-    @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 0; }
-    @Override protected boolean propagatesSkylightDown(BlockState state, BlockGetter level, BlockPos pos) { return true; }
+    @Override protected int getLightDampening(BlockState state) { return 0; }
+    @Override protected boolean propagatesSkylightDown(BlockState state) { return true; }
     @Override protected VoxelShape getVisualShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) { return Shapes.empty(); }
     @Override protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) { return box(5, lunar ? 11 : 0, 5, 11, 16, 11); }
     private void checkAbove(Level level, BlockPos pos) {
@@ -29,5 +29,5 @@ public final class HangingFruitBlock extends Block {
         if (state.is(this) && level.destroyBlock(pos, false) && !level.getBlockState(pos).is(this)) dropResources(state, level, pos, null);
     }
     @Override protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState previous, boolean moving) { super.onPlace(state, level, pos, previous, moving); checkAbove(level, pos); }
-    @Override protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block block, BlockPos from, boolean moving) { super.neighborChanged(state, level, pos, block, from, moving); checkAbove(level, pos); }
+    @Override protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block block, net.minecraft.world.level.redstone.Orientation from, boolean moving) { super.neighborChanged(state, level, pos, block, from, moving); checkAbove(level, pos); }
 }

@@ -12,7 +12,7 @@ import net.minecraft.world.level.block.state.BlockState;
 public class GeoFlowerBlock extends GeoDecorBlock {
     public GeoFlowerBlock(GeoDecorKind kind) { super(kind); }
 
-    @Override protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block neighbor, BlockPos from, boolean moving) {
+    @Override protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block neighbor, net.minecraft.world.level.redstone.Orientation from, boolean moving) {
         super.neighborChanged(state, level, pos, neighbor, from, moving);
         if (level instanceof ServerLevel server && level.isEmptyBlock(pos.below()) && level.getBlockState(pos).is(this)
                 && level.destroyBlock(pos, false) && !level.getBlockState(pos).is(this)) {

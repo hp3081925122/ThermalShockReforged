@@ -24,7 +24,7 @@ public final class SpecialDoorsContent {
             var block = BLOCKS.register(kind.id, () -> kind == DoorKind.BUNKER ? new SpecialDoorBlock.Bunker() : new SpecialDoorBlock(kind));
             DOORS.put(kind, block);
             DISPLAY_ITEMS.put(kind, ITEMS.register(kind.id, () -> new SpecialDoorItem(block.get(), kind)));
-            TYPES.put(kind, ENTITIES.register(kind.id, () -> BlockEntityType.Builder.of((pos, state) -> new SpecialDoorBlockEntity(kind, pos, state), block.get()).build(null)));
+            TYPES.put(kind, ENTITIES.register(kind.id, () -> new BlockEntityType<>((pos, state) -> new SpecialDoorBlockEntity(kind, pos, state), block.get())));
         }
     }
 
@@ -38,6 +38,6 @@ public final class SpecialDoorsContent {
         bus.addListener(SpecialDoorsContent::capabilities);
     }
     private static void capabilities(RegisterCapabilitiesEvent event) {
-        for (var type : TYPES.values()) event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, type.get(), (entity, side) -> entity.itemHandler(side));
+        for (var type : TYPES.values()) event.registerBlockEntity(Capabilities.Item.BLOCK, type.get(), (entity, side) -> entity.itemHandler(side));
     }
 }

@@ -20,7 +20,7 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.util.TriState;
 
-class NativeDecorBlock extends Block {
+class NativeDecorBlock extends Block implements com.hp.thermalshockreforged.content.BlockTooltips.Provider {
     record Traits(int opacity, boolean skylight, boolean emptyVisual, boolean overlay,
                   float enchantPower, int flammability, boolean soil, boolean cullSame) { }
     private final Traits traits;
@@ -35,13 +35,13 @@ class NativeDecorBlock extends Block {
     }
 
     @Override
-    protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) {
+    protected int getLightDampening(BlockState state) {
         return traits.opacity();
     }
 
     @Override
-    protected boolean propagatesSkylightDown(BlockState state, BlockGetter level, BlockPos pos) {
-        return traits.skylight() || super.propagatesSkylightDown(state, level, pos);
+    protected boolean propagatesSkylightDown(BlockState state) {
+        return traits.skylight() || super.propagatesSkylightDown(state);
     }
 
     @Override
@@ -81,7 +81,6 @@ class NativeDecorBlock extends Block {
 
     @Override
     public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
-        super.appendHoverText(stack, context, display, tooltipAdder, flag);
         descriptions.forEach(key -> tooltipAdder.accept(Component.translatable(key)));
     }
 }

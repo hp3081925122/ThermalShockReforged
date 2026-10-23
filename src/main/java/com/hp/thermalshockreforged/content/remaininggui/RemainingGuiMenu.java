@@ -52,14 +52,14 @@ public final class RemainingGuiMenu extends AbstractContainerMenu implements Sup
             byte hand = data.readByte();
             var stack = hand == 0 ? owner.getMainHandItem() : owner.getOffhandItem();
             boundItemMatcher = () -> stack == (hand == 0 ? owner.getMainHandItem() : owner.getOffhandItem());
-            bound = stack.getCapability(Capabilities.ItemHandler.ITEM) != null;
+            bound = stack.getCapability(Capabilities.Item.ITEM, net.neoforged.neoforge.transfer.access.ItemAccess.forPlayerInteraction(owner, hand == 0 ? net.minecraft.world.InteractionHand.MAIN_HAND : net.minecraft.world.InteractionHand.OFF_HAND)) != null;
         } else if (data.readableBytes() > 1) {
             data.readByte();
             boundEntity = level.getEntity(data.readVarInt());
-            bound = boundEntity != null && boundEntity.getCapability(Capabilities.ItemHandler.ENTITY) != null;
+            bound = boundEntity != null && boundEntity.getCapability(Capabilities.Item.ENTITY, null) != null;
         } else {
             boundBlockEntity = level.getBlockEntity(anchor);
-            bound = boundBlockEntity != null && level.getCapability(Capabilities.ItemHandler.BLOCK, anchor, null) != null;
+            bound = boundBlockEntity != null && level.getCapability(Capabilities.Item.BLOCK, anchor, null) != null;
         }
     }
 
@@ -87,7 +87,7 @@ public final class RemainingGuiMenu extends AbstractContainerMenu implements Sup
         boolean any = false;
         for (int slot = 0; slot < 3; slot++) any |= !customSlots.get(slot).getItem().isEmpty();
         if (any) {
-            var advancement = server.getServer().getAdvancements().get(RemainingGuiContent.id("whisper_advancement"));
+            var advancement = server.level().getServer().getAdvancements().get(RemainingGuiContent.id("whisper_advancement"));
             if (advancement != null) {
                 var progress = server.getAdvancements().getOrStartProgress(advancement);
                 if (!progress.isDone()) for (String criterion : progress.getRemainingCriteria()) server.getAdvancements().award(advancement, criterion);

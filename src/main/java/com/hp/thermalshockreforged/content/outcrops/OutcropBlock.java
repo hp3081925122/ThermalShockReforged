@@ -19,10 +19,10 @@ public final class OutcropBlock extends Block implements EntityBlock {
         registerDefaultState(defaultBlockState().setValue(ANIMATION, 0));
     }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { builder.add(ANIMATION); }
-    @Override protected RenderShape getRenderShape(BlockState state) { return RenderShape.ENTITYBLOCK_ANIMATED; }
+    @Override protected RenderShape getRenderShape(BlockState state) { return RenderShape.INVISIBLE; }
     @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return new OutcropBlockEntity(kind, pos, state); }
-    @Override protected boolean propagatesSkylightDown(BlockState state, BlockGetter level, BlockPos pos) { return true; }
-    @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 0; }
+    @Override protected boolean propagatesSkylightDown(BlockState state) { return true; }
+    @Override protected int getLightDampening(BlockState state) { return 0; }
     @Override protected MenuProvider getMenuProvider(BlockState state, Level level, BlockPos pos) {
         return level.getBlockEntity(pos) instanceof OutcropBlockEntity entity ? entity : null;
     }
@@ -31,13 +31,5 @@ public final class OutcropBlock extends Block implements EntityBlock {
         var entity = level.getBlockEntity(pos);
         return entity != null && entity.triggerEvent(id, parameter);
     }
-    @Override protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState next, boolean moving) {
-        if (!state.is(next.getBlock())) {
-            if (!level.isClientSide() && level.getBlockEntity(pos) instanceof OutcropBlockEntity entity) {
-                Containers.dropContents(level, pos, entity);
-                level.updateNeighbourForOutputSignal(pos, this);
-            }
-            super.onRemove(state, level, pos, next, moving);
-        }
-    }
+    @Override protected void affectNeighborsAfterRemoval(BlockState state, net.minecraft.server.level.ServerLevel level, BlockPos pos, boolean moving) { Containers.updateNeighboursAfterDestroy(state, level, pos); }
 }

@@ -31,7 +31,7 @@ public final class RazoraptorEntity extends GraverFamilyEntity {
         synchronizeLock();
         getNavigation().stop();
         triggerProcedure(guard ? "hold" : "attack");
-        server.playSound(null, victim.blockPosition(), guard ? SoundEvents.SHIELD_BLOCK : SoundEvents.WOODEN_BUTTON_CLICK_ON, SoundSource.NEUTRAL, 1, guard ? 4 : 1);
+        server.playSound(null, victim.blockPosition(), guard ? SoundEvents.SHIELD_BLOCK.value() : SoundEvents.WOODEN_BUTTON_CLICK_ON, SoundSource.NEUTRAL, 1, guard ? 4 : 1);
         if (guard) addEffect(new MobEffectInstance(StatusContent.PARRYING, 15, 1, false, false));
     }
     private void synchronizeLock() {

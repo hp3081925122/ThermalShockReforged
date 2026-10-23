@@ -18,12 +18,7 @@ final class SpiceGeyserBlock extends NativeDecorBlock implements EntityBlock {
     @Override public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) { super.animateTick(state, level, pos, random); level.addParticle(ParticleTypes.CAMPFIRE_SIGNAL_SMOKE, pos.getX() + .5, pos.getY() + 1, pos.getZ() + .5, 0, .1, 0); }
     @Override protected MenuProvider getMenuProvider(BlockState state, Level level, BlockPos pos) { return level.getBlockEntity(pos) instanceof SpiceGeyserBlockEntity geyser ? geyser : null; }
     @Override protected boolean triggerEvent(BlockState state, Level level, BlockPos pos, int id, int parameter) { super.triggerEvent(state, level, pos, id, parameter); return level.getBlockEntity(pos) instanceof SpiceGeyserBlockEntity geyser && geyser.triggerEvent(id, parameter); }
-    @Override protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState replacement, boolean moving) {
-        if (!state.is(replacement.getBlock())) {
-            if (!level.isClientSide() && level.getBlockEntity(pos) instanceof SpiceGeyserBlockEntity geyser) { Containers.dropContents(level, pos, geyser); level.updateNeighbourForOutputSignal(pos, this); }
-            super.onRemove(state, level, pos, replacement, moving);
-        }
-    }
+    @Override protected void affectNeighborsAfterRemoval(BlockState state, net.minecraft.server.level.ServerLevel level, BlockPos pos, boolean moving) { Containers.updateNeighboursAfterDestroy(state, level, pos); }
     @Override protected boolean hasAnalogOutputSignal(BlockState state) { return true; }
-    @Override protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) { return level.getBlockEntity(pos) instanceof SpiceGeyserBlockEntity geyser ? AbstractContainerMenu.getRedstoneSignalFromContainer(geyser) : 0; }
+    @Override protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos, net.minecraft.core.Direction direction) { return level.getBlockEntity(pos) instanceof SpiceGeyserBlockEntity geyser ? AbstractContainerMenu.getRedstoneSignalFromContainer(geyser) : 0; }
 }

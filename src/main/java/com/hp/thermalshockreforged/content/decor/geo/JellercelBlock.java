@@ -7,8 +7,8 @@ import net.minecraft.world.level.block.state.BlockState;
 
 public class JellercelBlock extends GeoDecorBlock.Waterlogged {
     public JellercelBlock(GeoDecorKind kind) { super(kind); }
-    @Override protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
-        super.entityInside(state, level, pos, entity);
+    @Override protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, net.minecraft.world.entity.InsideBlockEffectApplier effects, boolean precise) {
+        super.entityInside(state, level, pos, entity, effects, precise);
         if (!level.isClientSide()) entity.hurt(level.damageSources().lightningBolt(), 1);
     }
 }

@@ -27,7 +27,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.BlockHitResult;
 
-public final class TransmutatorBlock extends Block {
+public final class TransmutatorBlock extends Block implements com.hp.thermalshockreforged.content.BlockTooltips.Provider {
     public TransmutatorBlock() { super(Properties.of().mapColor(MapColor.METAL).sound(SoundType.METAL).strength(2, 20).lightLevel(state -> 10)); }
     private boolean process(ItemStack input, Level level, BlockPos pos, Player player) {
         var recipe = TransmutationRecipe.find(level, input);
@@ -48,12 +48,11 @@ public final class TransmutatorBlock extends Block {
         return process(stack, level, pos, player) ? InteractionResult.SUCCESS : InteractionResult.PASS;
     }
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) { return InteractionResult.PASS; }
-    @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 15; }
+    @Override protected int getLightDampening(BlockState state) { return 15; }
     @Override public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
         if (random.nextDouble() < .1) level.addParticle(ParticleTypes.END_ROD, pos.getX() + .5, pos.getY() + 1, pos.getZ() + .5, 0, .2, 0);
     }
     @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
-        super.appendHoverText(stack, context, display, tooltipAdder, flag);
         tooltipAdder.accept(Component.translatable("block.thermal_shock_reforged.transmutator.description_0"));
     }
 }

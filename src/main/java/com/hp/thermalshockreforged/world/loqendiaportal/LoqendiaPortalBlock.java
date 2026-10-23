@@ -57,7 +57,7 @@ public final class LoqendiaPortalBlock extends Block implements Portal {
                 ? state.setValue(AXIS, state.getValue(AXIS) == Direction.Axis.X ? Direction.Axis.Z : Direction.Axis.X) : state;
     }
     @Override public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) { return ItemStack.EMPTY; }
-    @Override protected BlockState updateShape(BlockState state, Direction side, BlockState neighbor, LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
+    @Override protected BlockState updateShape(BlockState state, net.minecraft.world.level.LevelReader level, net.minecraft.world.level.ScheduledTickAccess ticks, BlockPos pos, Direction side, BlockPos neighborPos, BlockState neighbor, net.minecraft.util.RandomSource random) {
         boolean perpendicular = side.getAxis().isHorizontal() && side.getAxis() != state.getValue(AXIS);
         return !perpendicular && !neighbor.is(this) && !new LoqendiaPortalShape(level, pos, state.getValue(AXIS)).isComplete()
                 ? Blocks.AIR.defaultBlockState() : state;
@@ -68,10 +68,10 @@ public final class LoqendiaPortalBlock extends Block implements Portal {
         return LoqendiaPortalShape.findEmpty(level, pos, Direction.Axis.X).map(LoqendiaPortalShape::createPortalBlocks).orElse(false);
     }
 
-    @Override protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
+    @Override protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, net.minecraft.world.entity.InsideBlockEffectApplier effects, boolean precise) {
         if (!(level instanceof ServerLevel server) || entity.isRemoved() || entity.isPassenger() || entity.isVehicle()) return;
         ServerLevel destination = server.getServer().getLevel(server.dimension() == LoqendiaContent.DIMENSION ? Level.OVERWORLD : LoqendiaContent.DIMENSION);
-        if (destination == null || !entity.canChangeDimensions(server, destination)) return;
+        if (destination == null || !entity.canTeleport(server, destination)) return;
         if (entity.isOnPortalCooldown()) {
             entity.setPortalCooldown();
             return;

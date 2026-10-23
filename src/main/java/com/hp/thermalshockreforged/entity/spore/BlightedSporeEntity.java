@@ -50,10 +50,10 @@ public final class BlightedSporeEntity extends Monster implements GeoEntity {
     @Override
     public void baseTick() {
         super.baseTick();
-        if (level().isClientSide() || level().getNearestPlayer(getX(), getY(), getZ(), 5, true) == null || getServer() == null) return;
+        if (level().isClientSide() || level().getNearestPlayer(getX(), getY(), getZ(), 5, true) == null || level().getServer() == null) return;
         Player nearest = null;
         double distance = Double.MAX_VALUE;
-        for (var player : getServer().getPlayerList().getPlayers()) {
+        for (var player : level().getServer().getPlayerList().getPlayers()) {
             double candidate = player.distanceToSqr(position());
             if (candidate < distance) { distance = candidate; nearest = player; }
         }

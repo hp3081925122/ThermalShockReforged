@@ -125,7 +125,7 @@ public final class SkeletalTitanEntity extends AnimatedMonsterEntity {
         boolean mantle = BuiltInRegistries.BLOCK.getKey(world.getBlockState(BlockPos.containing(getX(), getY() - 1, getZ())).getBlock()).equals(MANTLESTONE);
         EntityType<SkeletalTitanEntity> variant = mantle ? TitanContent.MANTLETITAN.get() : random.nextDouble() < .12 ? TitanContent.FROST_TITAN.get() : null;
         if (variant == null) return result;
-        var replacement = variant.create(server);
+        var replacement = variant.create(server, reason);
         if (replacement == null) return result;
         BlockPos pos = blockPosition();
         replacement.moveTo(pos.getX() + .5, pos.getY(), pos.getZ() + .5, server.getRandom().nextFloat() * 360, 0);

@@ -48,7 +48,7 @@ public final class ConciergeMenu extends AbstractContainerMenu {
             case MAIN -> {
                 if (button == 0) next = ConciergePage.INFO;
                 if (button == 1) {
-                    next = server.getPersistentData().getBoolean(ConciergeQuest.INTRO) ? ConciergePage.WIDE : ConciergePage.TRADE_INTRO;
+                    next = server.getPersistentData().getBooleanOr(ConciergeQuest.INTRO, false) ? ConciergePage.WIDE : ConciergePage.TRADE_INTRO;
                     server.getPersistentData().putBoolean(ConciergeQuest.INTRO, true);
                 }
                 if (button == 2) { if (!ConciergeQuest.award(server, "errands_get")) return false; next = ConciergeQuest.completed(server) ? ConciergePage.NONE : ConciergePage.ERRAND_1; }

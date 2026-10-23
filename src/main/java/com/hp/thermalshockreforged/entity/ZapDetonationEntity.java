@@ -24,9 +24,10 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public final class ZapDetonationEntity extends Entity implements ServerEndTickTask {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, net.minecraft.world.damagesource.DamageSource source, float damage) { return false; }
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
     public static final DeferredHolder<EntityType<?>, EntityType<ZapDetonationEntity>> TYPE = TYPES.register("zap_detonation", () -> EntityType.Builder.<ZapDetonationEntity>of(ZapDetonationEntity::new, MobCategory.MISC)
-            .sized(.1F, .1F).clientTrackingRange(4).updateInterval(20).build(ThermalShockReforged.MOD_ID + ":zap_detonation"));
+            .sized(.1F, .1F).clientTrackingRange(4).updateInterval(20).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("zap_detonation")));
     private static final Identifier SOUND = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "sparkexplode");
     private UUID source;
     private UUID caster;
@@ -51,7 +52,7 @@ public final class ZapDetonationEntity extends Entity implements ServerEndTickTa
     }
     void cancel() { armed = false; discard(); }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
-    @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
+    @Override public boolean canTeleport(Level from, Level to) { return false; }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); if (armed && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
     @Override public void tick() {
         super.tick();

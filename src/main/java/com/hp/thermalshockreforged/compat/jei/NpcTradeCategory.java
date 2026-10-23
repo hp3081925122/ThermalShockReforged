@@ -153,7 +153,7 @@ public final class NpcTradeCategory implements IRecipeCategory<NpcTradeEntry> {
         var cached = ENTITIES.get(npc);
         if (cached != null && cached.level() == level) return cached;
         try {
-            var created = BuiltInRegistries.ENTITY_TYPE.get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, npc)).create(level);
+            var created = BuiltInRegistries.ENTITY_TYPE.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, npc)).create(level, net.minecraft.world.entity.EntitySpawnReason.LOAD);
             if (created instanceof LivingEntity living) {
                 ENTITIES.put(npc, living);
                 ThermalShockReforged.LOGGER.debug("JEI npc trade entity created: npc={}, type={}, height={}, width={}", npc, living.getType(), living.getBbHeight(), living.getBbWidth());

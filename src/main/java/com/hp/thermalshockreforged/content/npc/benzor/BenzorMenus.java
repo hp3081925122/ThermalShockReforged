@@ -22,7 +22,7 @@ public final class BenzorMenus {
     static { for (var page : BenzorPage.values()) PAGES.put(page, MENUS.register(page.id, () -> IMenuTypeExtension.create((id, inventory, data) -> new BenzorMenu(page, id, inventory, data.readVarInt(), data.readUUID(), data.readVarInt())))); }
     public static void register(IEventBus bus) { MENUS.register(bus); net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(BenzorMenus::clonePlayer); }
     public static MenuType<BenzorMenu> menu(BenzorPage page) { return PAGES.get(page).get(); }
-    public static boolean blackpowder(ServerPlayer player) { var advancement = player.getServer().getAdvancements().get(BenzorContent.id("blackpowder_get")); return advancement != null && player.getAdvancements().getOrStartProgress(advancement).isDone(); }
+    public static boolean blackpowder(ServerPlayer player) { var advancement = player.level().getServer().getAdvancements().get(BenzorContent.id("blackpowder_get")); return advancement != null && player.getAdvancements().getOrStartProgress(advancement).isDone(); }
     public static boolean open(ServerPlayer player, BenzorEntity npc, BenzorPage page) {
         if (npc == null || !npc.isAlive() || npc.level() != player.level() || player.distanceToSqr(npc) > 64 || page == BenzorPage.BLACKPOWDER && !blackpowder(player)) return false;
         int intro = page == BenzorPage.MAIN || page == BenzorPage.INFO ? player.getRandom().nextInt(2) + 1 : player.containerMenu instanceof BenzorMenu previous ? previous.intro : 0;
@@ -34,6 +34,6 @@ public final class BenzorMenus {
         };
         return player.openMenu(provider, data -> { data.writeVarInt(npc.getId()); data.writeUUID(npc.getUUID()); data.writeVarInt(intro); }).isPresent();
     }
-    private static void clonePlayer(PlayerEvent.Clone event) { for (String key : new String[]{INTRO, INFO}) if (event.getOriginal().getPersistentData().getBoolean(key)) event.getEntity().getPersistentData().putBoolean(key, true); }
+    private static void clonePlayer(PlayerEvent.Clone event) { for (String key : new String[]{INTRO, INFO}) if (event.getOriginal().getPersistentData().getBooleanOr(key, false)) event.getEntity().getPersistentData().putBoolean(key, true); }
     private BenzorMenus() { }
 }

@@ -29,11 +29,11 @@ public class GeoDecorBlock extends Block implements EntityBlock {
     }
     protected IntegerProperty animationProperty() { return ANIMATION; }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { builder.add(animationProperty()); }
-    @Override protected RenderShape getRenderShape(BlockState state) { return RenderShape.ENTITYBLOCK_ANIMATED; }
+    @Override protected RenderShape getRenderShape(BlockState state) { return RenderShape.INVISIBLE; }
     @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return new GeoDecorBlockEntity(kind, pos, state); }
     @Override protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) { return kind.shape; }
-    @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 0; }
-    @Override protected boolean propagatesSkylightDown(BlockState state, BlockGetter level, BlockPos pos) { return true; }
+    @Override protected int getLightDampening(BlockState state) { return 0; }
+    @Override protected boolean propagatesSkylightDown(BlockState state) { return true; }
     @Override public boolean shouldDisplayFluidOverlay(BlockState state, BlockAndLightGetter level, BlockPos pos, FluidState fluid) {
         return kind == GeoDecorKind.VOLTFLOWER_BULB || super.shouldDisplayFluidOverlay(state, level, pos, fluid);
     }
@@ -90,18 +90,13 @@ public class GeoDecorBlock extends Block implements EntityBlock {
         super.tick(state, level, pos, random);
         if (!kind.parts.isEmpty()) placeParts(level, pos);
     }
-    @Override protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState replacement, boolean moving) {
-        if (!state.is(replacement.getBlock())) {
-            if (!level.isClientSide() && !kind.parts.isEmpty()) removeParts(level, pos);
-            if (!level.isClientSide() && level.getBlockEntity(pos) instanceof GeoDecorBlockEntity entity) {
-                Containers.dropContents(level, pos, entity);
-                level.updateNeighbourForOutputSignal(pos, this);
-            }
-            super.onRemove(state, level, pos, replacement, moving);
-        }
+    @Override protected void affectNeighborsAfterRemoval(BlockState state, net.minecraft.server.level.ServerLevel level, BlockPos pos, boolean moving) {
+        if (!kind.parts.isEmpty()) removeParts(level, pos);
+        Containers.updateNeighboursAfterDestroy(state, level, pos);
+        super.affectNeighborsAfterRemoval(state, level, pos, moving);
     }
     @Override protected boolean hasAnalogOutputSignal(BlockState state) { return kind.comparator; }
-    @Override protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {
+    @Override protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos, net.minecraft.core.Direction direction) {
         return kind.comparator && level.getBlockEntity(pos) instanceof GeoDecorBlockEntity entity ? AbstractContainerMenu.getRedstoneSignalFromContainer(entity) : 0;
     }
     public static class Waterlogged extends GeoDecorBlock implements SimpleWaterloggedBlock {
@@ -112,10 +107,10 @@ public class GeoDecorBlock extends Block implements EntityBlock {
             return defaultBlockState().setValue(WATERLOGGED, context.getLevel().getFluidState(context.getClickedPos()).getType() == Fluids.WATER);
         }
         @Override protected FluidState getFluidState(BlockState state) { return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state); }
-        @Override protected boolean propagatesSkylightDown(BlockState state, BlockGetter level, BlockPos pos) { return state.getFluidState().isEmpty(); }
-        @Override protected BlockState updateShape(BlockState state, Direction side, BlockState neighbor, LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
-            if (state.getValue(WATERLOGGED)) level.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
-            return super.updateShape(state, side, neighbor, level, pos, neighborPos);
+        @Override protected boolean propagatesSkylightDown(BlockState state) { return state.getFluidState().isEmpty(); }
+        @Override protected BlockState updateShape(BlockState state, net.minecraft.world.level.LevelReader level, net.minecraft.world.level.ScheduledTickAccess ticks, BlockPos pos, Direction side, BlockPos neighborPos, BlockState neighbor, net.minecraft.util.RandomSource random) {
+            if (state.getValue(WATERLOGGED)) ticks.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
+            return super.updateShape(state, level, ticks, pos, side, neighborPos, neighbor, random);
         }
     }
     public static class Directional extends GeoDecorBlock {

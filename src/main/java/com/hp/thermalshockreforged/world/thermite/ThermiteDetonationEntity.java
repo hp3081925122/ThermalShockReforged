@@ -10,6 +10,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
 
 public final class ThermiteDetonationEntity extends Entity implements com.hp.thermalshockreforged.world.timing.ServerEndTickTask {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, net.minecraft.world.damagesource.DamageSource source, float damage) { return false; }
     private BlockPos anchor = BlockPos.ZERO;
     private String dimension = "";
     private int remaining = 3;
@@ -17,14 +18,14 @@ public final class ThermiteDetonationEntity extends Entity implements com.hp.the
     private boolean consumed;
     public ThermiteDetonationEntity(EntityType<? extends ThermiteDetonationEntity> type, Level level) { super(type, level); noPhysics = true; setNoGravity(true); }
     public static boolean submit(ServerLevel level, BlockPos pos) {
-        var task = ThermiteContent.DETONATION.get().create(level);
+        var task = ThermiteContent.DETONATION.get().create(level, net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
         if (task == null) return false;
         task.anchor = pos.immutable(); task.dimension = level.dimension().identifier().toString(); task.armed = true;
         task.setPos(pos.getX(), pos.getY(), pos.getZ());
         return level.addFreshEntity(task);
     }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
-    @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
+    @Override public boolean canTeleport(Level from, Level to) { return false; }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); if (armed && !consumed && level() instanceof ServerLevel server) com.hp.thermalshockreforged.world.timing.ServerEndTickTasks.schedule(server, getUUID()); }
     @Override public void tick() {
         super.tick();

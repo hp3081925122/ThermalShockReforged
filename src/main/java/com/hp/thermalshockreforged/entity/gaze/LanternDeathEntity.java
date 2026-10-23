@@ -15,12 +15,13 @@ import net.minecraft.world.level.*;
 import net.minecraft.world.phys.Vec3;
 
 public final class LanternDeathEntity extends Entity implements ServerEndTickTask {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, net.minecraft.world.damagesource.DamageSource source, float damage) { return false; }
     private int elapsed;
     private boolean armed;
     private double damageScale = 1;
     public LanternDeathEntity(EntityType<? extends LanternDeathEntity> type, Level level) { super(type, level); noPhysics = true; }
     static void submit(ServerLevel level, Vec3 position, double attackDamage) {
-        var task = GazeContent.LANTERN_DEATH.get().create(level);
+        var task = GazeContent.LANTERN_DEATH.get().create(level, net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
         if (task == null) return;
         task.setPos(position);
         task.armed = true;

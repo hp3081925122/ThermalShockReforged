@@ -19,6 +19,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.*;
 
 public final class RibbonbladeActionEntity extends Entity implements ServerEndTickTask {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, net.minecraft.world.damagesource.DamageSource source, float damage) { return false; }
     private static final ResourceKey<DamageType> DAMAGE = ResourceKey.create(Registries.DAMAGE_TYPE, RibbonbladeContent.id("errant_damage"));
     private UUID caster;
     private UUID target;
@@ -32,21 +33,21 @@ public final class RibbonbladeActionEntity extends Entity implements ServerEndTi
     private boolean armed;
     public RibbonbladeActionEntity(EntityType<? extends RibbonbladeActionEntity> type, Level level) { super(type, level); noPhysics = true; setNoGravity(true); }
     public static RibbonbladeActionEntity submitStrike(ServerLevel level, RibbonbladeGalvaniteEntity caster, LivingEntity target, Vec3 destination) {
-        var task = RibbonbladeContent.ACTION.get().create(level);
+        var task = RibbonbladeContent.ACTION.get().create(level, net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
         if (task == null) return null;
         task.caster = caster.getUUID(); task.target = target.getUUID(); task.lastTarget = target.position(); task.soundOrigin = target.blockPosition();
         task.strike = true; task.armed = true; task.remaining = 17; task.capture(caster); task.setPos(destination);
         return level.addFreshEntity(task) ? task : null;
     }
     public static void submitSpawn(ServerLevel level, RibbonbladeGalvaniteEntity caster) {
-        var task = RibbonbladeContent.ACTION.get().create(level);
+        var task = RibbonbladeContent.ACTION.get().create(level, net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
         if (task == null) return;
         task.caster = caster.getUUID(); task.setPos(caster.position()); task.soundOrigin = caster.blockPosition(); task.remaining = 5; task.armed = true;
         level.addFreshEntity(task);
     }
     void capture(RibbonbladeGalvaniteEntity owner) { setPos(owner.position()); look = owner.getLookAngle(); double value = owner.getAttributeValue(Attributes.ATTACK_DAMAGE) * RibbonbladeConfig.MULTIPLIER.get(); damage = Double.isFinite(value) ? Math.clamp(value, 0, Float.MAX_VALUE) : 0; knockback = RibbonbladeConfig.KNOCKBACK.get(); }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
-    @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
+    @Override public boolean canTeleport(Level from, Level to) { return false; }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); if (armed && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
     @Override public void tick() {
         super.tick();

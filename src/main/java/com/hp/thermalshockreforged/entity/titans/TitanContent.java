@@ -29,11 +29,11 @@ public final class TitanContent {
     public static final DeferredHolder<EntityType<?>, EntityType<SkeletalTitanEntity>> FROST_TITAN = titan(SkeletalTitanEntity.Kind.FROST);
     public static final DeferredHolder<EntityType<?>, EntityType<SkeletalTitanEntity>> MANTLETITAN = titan(SkeletalTitanEntity.Kind.MANTLE);
     public static final DeferredHolder<EntityType<?>, EntityType<TitanSwingEntity>> SWING = TYPES.register("titan_swing", () -> EntityType.Builder.<TitanSwingEntity>of(TitanSwingEntity::new, MobCategory.MISC)
-        .sized(.01F, .01F).noSummon().clientTrackingRange(0).updateInterval(20).build(ThermalShockReforged.MOD_ID + ":titan_swing"));
+        .sized(.01F, .01F).noSummon().clientTrackingRange(0).updateInterval(20).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("titan_swing")));
 
     private static DeferredHolder<EntityType<?>, EntityType<SkeletalTitanEntity>> titan(SkeletalTitanEntity.Kind kind) {
         var type = TYPES.register(kind.id(), () -> EntityType.Builder.<SkeletalTitanEntity>of((entityType, level) -> new SkeletalTitanEntity(entityType, level, kind), MobCategory.MONSTER)
-            .sized(1, 2.5F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":" + kind.id()));
+            .sized(1, 2.5F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey(kind.id())));
         ITEMS.register(kind.id() + "_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(type.get())));
         return type;
     }
@@ -47,7 +47,7 @@ public final class TitanContent {
     }
 
     private static void attack(AttackAttemptEvent event) {
-        if (event.getSource().getEntity() instanceof SkeletalTitanEntity titan && titan.getType().is(SKELETITAN_TAG)) {
+        if (event.getSource().getEntity() instanceof SkeletalTitanEntity titan && titan.is(SKELETITAN_TAG)) {
             event.setCanceled(true);
             titan.beginAttack(event.getEntity());
         }

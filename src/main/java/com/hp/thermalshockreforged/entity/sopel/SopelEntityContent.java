@@ -14,7 +14,7 @@ import net.neoforged.neoforge.registries.*;
 public final class SopelEntityContent {
     static final String OWNER_COOLDOWN = "thermal_shock_reforged:SopelOwnerCooldown";
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
-    public static final DeferredHolder<EntityType<?>, EntityType<HighDirectorSopelEntity>> SOPEL = TYPES.register("high_director_sopel", () -> EntityType.Builder.of(HighDirectorSopelEntity::new, MobCategory.MONSTER).sized(.7F, 3).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(id("high_director_sopel").toString()));
+    public static final DeferredHolder<EntityType<?>, EntityType<HighDirectorSopelEntity>> SOPEL = TYPES.register("high_director_sopel", () -> EntityType.Builder.of(HighDirectorSopelEntity::new, MobCategory.MONSTER).sized(.7F, 3).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("high_director_sopel")));
     public static Identifier id(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
     public static void register(IEventBus bus) { TYPES.register(bus); bus.addListener(SopelEntityContent::attributes); NeoForge.EVENT_BUS.addListener(SopelEntityContent::attack); NeoForge.EVENT_BUS.addListener(SopelEntityContent::tickOwnerCooldown); }
     private static void attributes(EntityAttributeCreationEvent event) { event.put(SOPEL.get(), HighDirectorSopelEntity.createAttributes().build()); }
@@ -28,7 +28,7 @@ public final class SopelEntityContent {
     private static void tickOwnerCooldown(EntityTickEvent.Pre event) {
         if (event.getEntity() instanceof LivingEntity living && !(living instanceof HighDirectorSopelEntity) && !living.level().isClientSide()) {
             var data = living.getPersistentData();
-            if (data.contains(OWNER_COOLDOWN)) { int remaining = Math.clamp(data.getInt(OWNER_COOLDOWN), 0, 72000) - 1; if (remaining > 0) data.putInt(OWNER_COOLDOWN, remaining); else data.remove(OWNER_COOLDOWN); }
+            if (data.contains(OWNER_COOLDOWN)) { int remaining = Math.clamp(data.getIntOr(OWNER_COOLDOWN, 0), 0, 72000) - 1; if (remaining > 0) data.putInt(OWNER_COOLDOWN, remaining); else data.remove(OWNER_COOLDOWN); }
         }
     }
     public static boolean clearOwnerCooldown(LivingEntity living) { var data = living.getPersistentData(); if (living.level().isClientSide() || !data.contains(OWNER_COOLDOWN)) return false; data.remove(OWNER_COOLDOWN); return true; }

@@ -84,7 +84,7 @@ public final class ThermalShockJadePlugin implements IWailaPlugin {
         @Override
         public void appendTooltip(ITooltip tooltip, EntityAccessor accessor, IPluginConfig config) {
             var data = accessor.getServerData();
-            if (data.contains(HERALD_KILLS)) tooltip.add(Component.translatable(HERALD_KEY + "kills", Math.min(data.getInt(HERALD_KILLS), 10)));
+            if (data.contains(HERALD_KILLS)) tooltip.add(Component.translatable(HERALD_KEY + "kills", Math.min(data.getIntOr(HERALD_KILLS, 0), 10)));
         }
 
         @Override
@@ -98,7 +98,7 @@ public final class ThermalShockJadePlugin implements IWailaPlugin {
         public void appendServerData(CompoundTag data, BlockAccessor accessor) {
             if (!(accessor.getPlayer() instanceof ServerPlayer player)) return;
             int status = 0;
-            if (!((net.minecraft.server.level.ServerLevel) player.level()).getGameRules().getBoolean(ModGameRules.LOQENDIA_ENFORCE_PROGRESSION)) status = 2;
+            if (!ModGameRules.get(player.level(), ModGameRules.LOQENDIA_ENFORCE_PROGRESSION)) status = 2;
             else if (AltarBlock.unlocked(player)) status = 1;
             data.putInt(STATUS, status);
         }
@@ -107,7 +107,7 @@ public final class ThermalShockJadePlugin implements IWailaPlugin {
         public void appendTooltip(ITooltip tooltip, BlockAccessor accessor, IPluginConfig config) {
             var data = accessor.getServerData();
             if (!data.contains(STATUS)) return;
-            int status = data.getInt(STATUS);
+            int status = data.getIntOr(STATUS, 0);
             if (status == 2) tooltip.add(Component.translatable(KEY + "not_required"));
             if (status == 1) tooltip.add(Component.translatable(KEY + "unlocked"));
             if (status == 0) {
@@ -132,14 +132,14 @@ public final class ThermalShockJadePlugin implements IWailaPlugin {
         @Override
         public void appendServerData(CompoundTag data, BlockAccessor accessor) {
             if (!isPhobotite(accessor) || !(accessor.getPlayer() instanceof ServerPlayer player)
-                    || !((net.minecraft.server.level.ServerLevel) player.level()).getGameRules().getBoolean(ModGameRules.LOQENDIA_ENFORCE_PROGRESSION)
+                    || !ModGameRules.get(player.level(), ModGameRules.LOQENDIA_ENFORCE_PROGRESSION)
                     || AltarBlock.unlocked(player)) return;
             data.putBoolean(PHOBOTITE_STATUS, true);
         }
 
         @Override
         public void appendTooltip(ITooltip tooltip, BlockAccessor accessor, IPluginConfig config) {
-            if (accessor.getServerData().getBoolean(PHOBOTITE_STATUS)) tooltip.add(Component.translatable(PHOBOTITE_KEY + "locked"));
+            if (accessor.getServerData().getBooleanOr(PHOBOTITE_STATUS, false)) tooltip.add(Component.translatable(PHOBOTITE_KEY + "locked"));
         }
 
         @Override
@@ -154,8 +154,8 @@ public final class ThermalShockJadePlugin implements IWailaPlugin {
             var entity = accessor.getBlockEntity();
             if (entity == null) return;
             var seed = entity.getPersistentData();
-            data.putBoolean(THIRSTY, seed.getBoolean("thirsty"));
-            data.putInt(WATERINGS, (int) seed.getDouble("waterings"));
+            data.putBoolean(THIRSTY, seed.getBooleanOr("thirsty", false));
+            data.putInt(WATERINGS, (int) seed.getDoubleOr("waterings", 0));
         }
 
         @Override
@@ -163,9 +163,9 @@ public final class ThermalShockJadePlugin implements IWailaPlugin {
             var data = accessor.getServerData();
             if (!data.contains(WATERINGS)) return;
             String answer = "no";
-            if (data.getBoolean(THIRSTY)) answer = "yes";
+            if (data.getBooleanOr(THIRSTY, false)) answer = "yes";
             tooltip.add(Component.translatable(SEED_KEY + "thirsty", Component.translatable(SEED_KEY + answer)));
-            tooltip.add(Component.translatable(SEED_KEY + "waterings", Math.min(data.getInt(WATERINGS), MAX_WATERINGS), MAX_WATERINGS));
+            tooltip.add(Component.translatable(SEED_KEY + "waterings", Math.min(data.getIntOr(WATERINGS, 0), MAX_WATERINGS), MAX_WATERINGS));
         }
 
         @Override

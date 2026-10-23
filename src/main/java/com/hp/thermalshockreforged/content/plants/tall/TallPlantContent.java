@@ -61,18 +61,18 @@ public final class TallPlantContent {
 
     private static final class Thorns extends TallPlant {
         private Thorns(Properties properties) { super(properties); }
-        @Override protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
-            super.entityInside(state, level, pos, entity);
-            if (!level.isClientSide() && (!(entity instanceof LivingEntity) || !entity.getType().is(EntityTypeTags.UNDEAD))) entity.hurt(level.damageSources().cactus(), 1);
+        @Override protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, net.minecraft.world.entity.InsideBlockEffectApplier effects, boolean precise) {
+            super.entityInside(state, level, pos, entity, effects, precise);
+            if (!level.isClientSide() && (!(entity instanceof LivingEntity) || !entity.is(EntityTypeTags.UNDEAD))) entity.hurt(level.damageSources().cactus(), 1);
         }
     }
 
     private static final class Sprintweed extends TallPlant {
         private static final TagKey<EntityType<?>> BLACKLIST = TagKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "sprintweed_blacklist"));
         private Sprintweed(Properties properties) { super(properties); }
-        @Override protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
-            super.entityInside(state, level, pos, entity);
-            if (!level.isClientSide() && entity instanceof LivingEntity living && !entity.getType().is(BLACKLIST)) living.addEffect(new MobEffectInstance(MobEffects.SPEED, 220, 1, true, true));
+        @Override protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, net.minecraft.world.entity.InsideBlockEffectApplier effects, boolean precise) {
+            super.entityInside(state, level, pos, entity, effects, precise);
+            if (!level.isClientSide() && entity instanceof LivingEntity living && !entity.is(BLACKLIST)) living.addEffect(new MobEffectInstance(MobEffects.SPEED, 220, 1, true, true));
         }
     }
 }

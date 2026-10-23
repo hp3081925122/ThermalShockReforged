@@ -20,6 +20,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
 public final class SunbeamAttackEntity extends Entity implements ServerEndTickTask {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, net.minecraft.world.damagesource.DamageSource source, float damage) { return false; }
     private UUID caster;
     private UUID target;
     private Vec3 targetEyes = Vec3.ZERO;
@@ -32,7 +33,7 @@ public final class SunbeamAttackEntity extends Entity implements ServerEndTickTa
     private boolean consumed;
     public SunbeamAttackEntity(EntityType<? extends SunbeamAttackEntity> type, Level level) { super(type, level); noPhysics = true; setNoGravity(true); }
     public static UUID submit(ServerLevel level, ProtoiSunbeamEntity owner, LivingEntity victim) {
-        var task = ProtoiContent.SUNBEAM_ATTACK.get().create(level);
+        var task = ProtoiContent.SUNBEAM_ATTACK.get().create(level, net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
         if (task == null) return null;
         task.caster = owner.getUUID(); task.target = victim.getUUID(); task.targetEyes = victim.getEyePosition();
         task.soundOrigin = victim.blockPosition(); task.dimension = level.dimension().identifier().toString(); task.capture(owner);
@@ -47,7 +48,7 @@ public final class SunbeamAttackEntity extends Entity implements ServerEndTickTa
     }
     private void sampleTarget(ServerLevel level) { Entity victim = target == null ? null : level.getEntity(target); if (victim != null) targetEyes = victim.getEyePosition(); }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
-    @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
+    @Override public boolean canTeleport(Level from, Level to) { return false; }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); if (caster != null && !consumed && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
     @Override public void tick() {
         super.tick();
@@ -73,7 +74,7 @@ public final class SunbeamAttackEntity extends Entity implements ServerEndTickTa
             setYRot(Mth.wrapDegrees((float)(Mth.atan2(delta.z, delta.x) * 180.0F / (float)Math.PI) - 90.0F));
             look = calculateViewVector(getXRot(), getYRot());
         }
-        var bullet = ProtoiContent.SUNBEAM_BULLET.get().create(level);
+        var bullet = ProtoiContent.SUNBEAM_BULLET.get().create(level, net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
         if (bullet != null) {
             if (owner != null) bullet.setOwner(owner);
             bullet.setPos(muzzle); bullet.configure(damage, knockback, (byte)5);

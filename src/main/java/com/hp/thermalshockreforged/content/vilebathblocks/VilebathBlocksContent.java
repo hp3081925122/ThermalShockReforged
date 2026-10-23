@@ -17,9 +17,9 @@ public final class VilebathBlocksContent {
     public static final DeferredBlock<Block> HANGING_SPARKLER_BULB = BLOCKS.register("hanging_sparkler_bulb", HangingSparklerBulbBlock::new);
     public static final DeferredBlock<Block> SPARKLER_BULB = BLOCKS.register("sparkler_bulb", HangingSparklerBulbBlock::new);
     public static final DeferredBlock<Block> FOG_MACHINE = BLOCKS.register("fog_machine", FogMachineBlock::new);
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ThermalGeyserBlockEntity>> THERMAL_GEYSER_ENTITY = TYPES.register("thermal_geyser", () -> BlockEntityType.Builder.of(ThermalGeyserBlockEntity::new, THERMAL_GEYSER.get()).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ThermalGeyserBlockEntity>> THERMAL_GEYSER_ENTITY = TYPES.register("thermal_geyser", () -> new BlockEntityType<>(ThermalGeyserBlockEntity::new, THERMAL_GEYSER.get()));
     static { ITEMS.registerSimpleBlockItem(THERMAL_GEYSER); ITEMS.registerSimpleBlockItem(HANGING_SPARKLER_BULB); ITEMS.registerSimpleBlockItem(SPARKLER_BULB); ITEMS.registerSimpleBlockItem(FOG_MACHINE); }
     public static void register(IEventBus bus) { BLOCKS.register(bus); ITEMS.register(bus); TYPES.register(bus); bus.addListener(VilebathBlocksContent::capabilities); }
-    private static void capabilities(RegisterCapabilitiesEvent event) { event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, THERMAL_GEYSER_ENTITY.get(), (geyser, side) -> geyser.itemHandler(side)); }
+    private static void capabilities(RegisterCapabilitiesEvent event) { event.registerBlockEntity(Capabilities.Item.BLOCK, THERMAL_GEYSER_ENTITY.get(), (geyser, side) -> geyser.itemHandler(side)); }
     private VilebathBlocksContent() { }
 }

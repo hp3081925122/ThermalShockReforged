@@ -12,7 +12,7 @@ final class GreenhouseGlassBlock extends VariantGlassBlock {
     GreenhouseGlassBlock(Properties properties) { super(properties, 0); }
 
     @Override
-    protected boolean propagatesSkylightDown(BlockState state, BlockGetter level, BlockPos pos) { return true; }
+    protected boolean propagatesSkylightDown(BlockState state) { return true; }
 
     @Override
     protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) { return SHAPE; }

@@ -15,9 +15,9 @@ import net.neoforged.neoforge.registries.*;
 public final class InfestationEntities {
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
-    public static final DeferredHolder<EntityType<?>, EntityType<InfestophageSeedEntity>> SEED = TYPES.register("infestophage_seed", () -> EntityType.Builder.of(InfestophageSeedEntity::new, MobCategory.AMBIENT).sized(0, 0).fireImmune().clientTrackingRange(64).updateInterval(3).build("thermal_shock_reforged:infestophage_seed"));
-    public static final DeferredHolder<EntityType<?>, EntityType<InfestophageEntity>> INFESTOPHAGE = TYPES.register("infestophage", () -> EntityType.Builder.of(InfestophageEntity::new, MobCategory.MONSTER).sized(0.8F, 2).clientTrackingRange(64).updateInterval(3).build("thermal_shock_reforged:infestophage"));
-    public static final DeferredHolder<EntityType<?>, EntityType<LouseEntity>> LOUSE = TYPES.register("louse", () -> EntityType.Builder.of(LouseEntity::new, MobCategory.AMBIENT).sized(0.2F, 0.2F).clientTrackingRange(32).updateInterval(3).build("thermal_shock_reforged:louse"));
+    public static final DeferredHolder<EntityType<?>, EntityType<InfestophageSeedEntity>> SEED = TYPES.register("infestophage_seed", () -> EntityType.Builder.of(InfestophageSeedEntity::new, MobCategory.AMBIENT).sized(0, 0).fireImmune().clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("infestophage_seed")));
+    public static final DeferredHolder<EntityType<?>, EntityType<InfestophageEntity>> INFESTOPHAGE = TYPES.register("infestophage", () -> EntityType.Builder.of(InfestophageEntity::new, MobCategory.MONSTER).sized(0.8F, 2).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("infestophage")));
+    public static final DeferredHolder<EntityType<?>, EntityType<LouseEntity>> LOUSE = TYPES.register("louse", () -> EntityType.Builder.of(LouseEntity::new, MobCategory.AMBIENT).sized(0.2F, 0.2F).clientTrackingRange(32).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("louse")));
 
     static {
         ITEMS.register("infestophage_seed_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(SEED.get())));

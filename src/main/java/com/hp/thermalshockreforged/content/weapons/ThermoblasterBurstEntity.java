@@ -15,6 +15,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
 public final class ThermoblasterBurstEntity extends Entity implements ServerEndTickTask {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, net.minecraft.world.damagesource.DamageSource source, float damage) { return false; }
     private UUID owner;
     private int ownerEntityId;
     private long animationInstance;
@@ -24,7 +25,7 @@ public final class ThermoblasterBurstEntity extends Entity implements ServerEndT
     private boolean armed;
     public ThermoblasterBurstEntity(EntityType<? extends ThermoblasterBurstEntity> type, Level level) { super(type, level); noPhysics = true; setNoGravity(true); }
     public static boolean submit(ServerLevel level, LivingEntity wielder, long animationInstance, boolean zenith) {
-        var task = WeaponContent.THERMOBLASTER_BURST.get().create(level);
+        var task = WeaponContent.THERMOBLASTER_BURST.get().create(level, net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
         if (task == null) return false;
         task.setPos(wielder.position()); task.owner = wielder.getUUID(); task.ownerEntityId = wielder.getId(); task.lastLook = wielder.getLookAngle();
         task.animationInstance = animationInstance; task.zenith = zenith; task.armed = true;
@@ -33,7 +34,7 @@ public final class ThermoblasterBurstEntity extends Entity implements ServerEndT
         return true;
     }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
-    @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
+    @Override public boolean canTeleport(Level from, Level to) { return false; }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); if (armed && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
     @Override public void tick() { super.tick(); if (level() instanceof ServerLevel server) { if (armed) ServerEndTickTasks.schedule(server, getUUID()); else discard(); } }
     @Override public void endTick(ServerLevel level) {

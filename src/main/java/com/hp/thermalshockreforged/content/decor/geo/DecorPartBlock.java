@@ -81,8 +81,8 @@ public final class DecorPartBlock extends Block implements SimpleWaterloggedBloc
 
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { builder.add(X, Y, Z, WATERLOGGED); }
     @Override protected RenderShape getRenderShape(BlockState state) { return RenderShape.INVISIBLE; }
-    @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 0; }
-    @Override protected boolean propagatesSkylightDown(BlockState state, BlockGetter level, BlockPos pos) { return state.getFluidState().isEmpty(); }
+    @Override protected int getLightDampening(BlockState state) { return 0; }
+    @Override protected boolean propagatesSkylightDown(BlockState state) { return state.getFluidState().isEmpty(); }
     @Override protected FluidState getFluidState(BlockState state) {
         if (state.getValue(WATERLOGGED)) return Fluids.WATER.getSource(false);
         return super.getFluidState(state);
@@ -104,9 +104,9 @@ public final class DecorPartBlock extends Block implements SimpleWaterloggedBloc
     }
 
     @Override
-    protected BlockState updateShape(BlockState state, Direction side, BlockState neighbor, LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
-        if (state.getValue(WATERLOGGED)) level.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
-        return super.updateShape(state, side, neighbor, level, pos, neighborPos);
+    protected BlockState updateShape(BlockState state, net.minecraft.world.level.LevelReader level, net.minecraft.world.level.ScheduledTickAccess ticks, BlockPos pos, Direction side, BlockPos neighborPos, BlockState neighbor, net.minecraft.util.RandomSource random) {
+        if (state.getValue(WATERLOGGED)) ticks.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
+        return super.updateShape(state, level, ticks, pos, side, neighborPos, neighbor, random);
     }
 
     @Override
@@ -173,15 +173,15 @@ public final class DecorPartBlock extends Block implements SimpleWaterloggedBloc
     protected void spawnDestroyParticles(Level level, Player player, BlockPos pos, BlockState state) { }
 
     @Override
-    protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState replacement, boolean moving) {
-        if (!level.isClientSide() && !cleaning && !state.is(replacement.getBlock())) {
+    protected void affectNeighborsAfterRemoval(BlockState state, net.minecraft.server.level.ServerLevel level, BlockPos pos, boolean moving) {
+        if (!cleaning) {
             var main = main(level, pos, state);
             if (main != null) {
                 ThermalShockReforged.LOGGER.debug("Decor part removed externally, breaking main block: part={}, main={}", pos, main);
                 level.destroyBlock(main, true);
             }
         }
-        super.onRemove(state, level, pos, replacement, moving);
+        super.affectNeighborsAfterRemoval(state, level, pos, moving);
     }
 
     @Override

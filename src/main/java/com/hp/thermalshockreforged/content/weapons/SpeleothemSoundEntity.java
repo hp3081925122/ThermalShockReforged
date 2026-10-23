@@ -11,6 +11,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
 
 public final class SpeleothemSoundEntity extends Entity implements ServerEndTickTask {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, net.minecraft.world.damagesource.DamageSource source, float damage) { return false; }
     private int remaining = 35;
     private int firstRemaining = 3;
     private boolean armed;
@@ -19,17 +20,17 @@ public final class SpeleothemSoundEntity extends Entity implements ServerEndTick
     private float singlePitch = 3;
     public SpeleothemSoundEntity(EntityType<? extends SpeleothemSoundEntity> type, Level level) { super(type, level); noPhysics = true; setNoGravity(true); }
     public static void submit(ServerLevel level, double x, double y, double z, int first, int last) {
-        var task = WeaponContent.SPELEOTHEM_SOUND.get().create(level);
+        var task = WeaponContent.SPELEOTHEM_SOUND.get().create(level, net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
         if (task == null) return;
         task.setPos(x, y, z); task.remaining = last; task.firstRemaining = last - first; task.armed = true; level.addFreshEntity(task);
     }
     public static void submitSingle(ServerLevel level, double x, double y, double z, int delay, float volume, float pitch) {
-        var task = WeaponContent.SPELEOTHEM_SOUND.get().create(level);
+        var task = WeaponContent.SPELEOTHEM_SOUND.get().create(level, net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
         if (task == null) return;
         task.setPos(x, y, z); task.remaining = delay; task.single = true; task.singleVolume = volume; task.singlePitch = pitch; task.armed = true; level.addFreshEntity(task);
     }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); if (armed && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
-    @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
+    @Override public boolean canTeleport(Level from, Level to) { return false; }
     @Override public void tick() { super.tick(); if (level() instanceof ServerLevel server) { if (armed) ServerEndTickTasks.schedule(server, getUUID()); else discard(); } }
     @Override public void endTick(ServerLevel level) {
         if (!armed || isRemoved()) return;

@@ -75,7 +75,7 @@ public final class AngryCavebloomerEntity extends Monster implements GeoEntity, 
     @Override public boolean doHurtTarget(net.minecraft.server.level.ServerLevel level, Entity target) { attacks.begin(target); return false; }
     void beginAttack(Entity target) { attacks.begin(target); }
     @Override public boolean removeWhenFarAway(double distance) { return false; }
-    public boolean canChangeDimensions(Level from, Level to) { return false; }
+    public boolean canTeleport(Level from, Level to) { return false; }
     public void sound(SoundEvent sound, float volume, float pitch) { level().playSound(null, blockPosition(), sound, SoundSource.HOSTILE, volume, pitch); }
     public void sound(String name, float volume, float pitch) { sound(soundEvent(name), volume, pitch); }
     private SoundEvent soundEvent(String name) { return BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, name)); }

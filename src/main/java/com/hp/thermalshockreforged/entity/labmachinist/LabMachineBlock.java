@@ -30,10 +30,10 @@ public abstract class LabMachineBlock extends Block implements EntityBlock {
     protected LabMachineBlock(Properties properties) { super(properties); registerDefaultState(defaultBlockState().setValue(FACING, Direction.NORTH).setValue(ANIMATION, 0)); }
     public abstract boolean wallbore();
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { builder.add(ANIMATION, FACING); }
-    @Override protected RenderShape getRenderShape(BlockState state) { return RenderShape.ENTITYBLOCK_ANIMATED; }
+    @Override protected RenderShape getRenderShape(BlockState state) { return RenderShape.INVISIBLE; }
     @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return new LabMachineBlockEntity(wallbore(), pos, state); }
-    @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 0; }
-    @Override protected boolean propagatesSkylightDown(BlockState state, BlockGetter level, BlockPos pos) { return state.getFluidState().isEmpty(); }
+    @Override protected int getLightDampening(BlockState state) { return 0; }
+    @Override protected boolean propagatesSkylightDown(BlockState state) { return state.getFluidState().isEmpty(); }
     @Override protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) { return wallbore() ? Shapes.block() : box(.1, .1, .1, 15.9, 14, 15.9); }
     @Override public BlockState getStateForPlacement(BlockPlaceContext context) { return defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite()); }
     @Override protected BlockState rotate(BlockState state, Rotation rotation) { return state.setValue(FACING, rotation.rotate(state.getValue(FACING))); }
@@ -41,11 +41,9 @@ public abstract class LabMachineBlock extends Block implements EntityBlock {
     @Override public boolean canHarvestBlock(BlockState state, BlockGetter level, BlockPos pos, Player player) { return super.canHarvestBlock(state, level, pos, player) && (!wallbore() || state.getValue(MODE) == 0); }
     @Override protected MenuProvider getMenuProvider(BlockState state, Level level, BlockPos pos) { return !wallbore() && level.getBlockEntity(pos) instanceof LabMachineBlockEntity machine ? machine : null; }
     @Override protected boolean triggerEvent(BlockState state, Level level, BlockPos pos, int id, int parameter) { super.triggerEvent(state, level, pos, id, parameter); return level.getBlockEntity(pos) instanceof LabMachineBlockEntity machine && machine.triggerEvent(id, parameter); }
-    @Override protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState replacement, boolean moving) {
-        if (!state.is(replacement.getBlock())) { if (!level.isClientSide() && level.getBlockEntity(pos) instanceof LabMachineBlockEntity machine) { Containers.dropContents(level, pos, machine); level.updateNeighbourForOutputSignal(pos, this); } super.onRemove(state, level, pos, replacement, moving); }
-    }
+    @Override protected void affectNeighborsAfterRemoval(BlockState state, net.minecraft.server.level.ServerLevel level, BlockPos pos, boolean moving) { Containers.updateNeighboursAfterDestroy(state, level, pos); }
     @Override protected boolean hasAnalogOutputSignal(BlockState state) { return true; }
-    @Override protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) { return level.getBlockEntity(pos) instanceof LabMachineBlockEntity machine ? AbstractContainerMenu.getRedstoneSignalFromContainer(machine) : 0; }
+    @Override protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos, net.minecraft.core.Direction direction) { return level.getBlockEntity(pos) instanceof LabMachineBlockEntity machine ? AbstractContainerMenu.getRedstoneSignalFromContainer(machine) : 0; }
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         if (player instanceof ServerPlayer server) {
             if (wallbore()) {
@@ -53,7 +51,7 @@ public abstract class LabMachineBlock extends Block implements EntityBlock {
                 if (current.is(this) && current.getValue(MODE) == 1 && player.getMainHandItem().is(Items.LAVA_BUCKET)
                         && level.getBlockEntity(pos) instanceof LabMachineBlockEntity machine) {
                     ItemStack payment = player.getMainHandItem().split(1);
-                    double previousEffic = machine.getPersistentData().getDouble("effic");
+                    double previousEffic = machine.getPersistentData().getDoubleOr("effic", 0);
                     machine.getPersistentData().putDouble("effic", 0);
                     machine.setChanged();
                     if (!level.setBlock(pos, current.setValue(MODE, 0), 3)
@@ -82,7 +80,7 @@ public abstract class LabMachineBlock extends Block implements EntityBlock {
         if (!wallbore()) return;
         if (level.getBlockEntity(pos) instanceof LabMachineBlockEntity machine) {
             machine.beginCycle(state);
-            if (machine.getPersistentData().getDouble("effic") == 30) level.setBlock(pos, level.getBlockState(pos).setValue(MODE, 1), 3);
+            if (machine.getPersistentData().getDoubleOr("effic", 0) == 30) level.setBlock(pos, level.getBlockState(pos).setValue(MODE, 1), 3);
         }
         level.scheduleTick(pos, this, 60);
     }
@@ -92,7 +90,7 @@ public abstract class LabMachineBlock extends Block implements EntityBlock {
         @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { super.createBlockStateDefinition(builder); builder.add(WATERLOGGED); }
         @Override public BlockState getStateForPlacement(BlockPlaceContext context) { return super.getStateForPlacement(context).setValue(WATERLOGGED, context.getLevel().getFluidState(context.getClickedPos()).getType() == Fluids.WATER); }
         @Override protected FluidState getFluidState(BlockState state) { return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state); }
-        @Override protected BlockState updateShape(BlockState state, Direction direction, BlockState neighbor, LevelAccessor level, BlockPos pos, BlockPos neighborPos) { if (state.getValue(WATERLOGGED)) level.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level)); return super.updateShape(state, direction, neighbor, level, pos, neighborPos); }
+        @Override protected BlockState updateShape(BlockState state, net.minecraft.world.level.LevelReader level, net.minecraft.world.level.ScheduledTickAccess ticks, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighbor, net.minecraft.util.RandomSource random) { if (state.getValue(WATERLOGGED)) ticks.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level)); return super.updateShape(state, level, ticks, pos, direction, neighborPos, neighbor, random); }
         @Override public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) { if (random.nextDouble() < .05) level.playLocalSound(pos.getX(), pos.getY(), pos.getZ(), SoundEvents.BEACON_AMBIENT, SoundSource.NEUTRAL, 1, 1, false); }
     }
     public static final class Wallbore extends LabMachineBlock {

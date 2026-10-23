@@ -38,14 +38,14 @@ public final class SpiderLiliesBlock extends GeoFlowerBlock {
 
     private boolean addPetal(BlockState state, Level level, BlockPos pos, Player player) {
         if (!player.getMainHandItem().is(asItem()) || !(level.getBlockEntity(pos) instanceof GeoDecorBlockEntity entity)) return false;
-        double count = entity.getPersistentData().getDouble("PetalCount");
+        double count = entity.getPersistentData().getDoubleOr("PetalCount", 0);
         if (!(count < 3)) return false;
         if (!level.isClientSide()) {
             entity.getPersistentData().putDouble("PetalCount", count + 1);
             entity.setChanged();
             level.sendBlockUpdated(pos, state, state, 3);
         }
-        int animation = (int)entity.getPersistentData().getDouble("PetalCount");
+        int animation = (int)entity.getPersistentData().getDoubleOr("PetalCount", 0);
         if (ANIMATION.getPossibleValues().contains(animation)) level.setBlock(pos, level.getBlockState(pos).setValue(ANIMATION, animation), 3);
         if (level.isClientSide()) level.playLocalSound(pos.getX(), pos.getY(), pos.getZ(), SoundEvents.GRASS_PLACE, SoundSource.BLOCKS, 1, 1, false);
         else level.playSound(null, pos, SoundEvents.GRASS_PLACE, SoundSource.BLOCKS, 1, 1);

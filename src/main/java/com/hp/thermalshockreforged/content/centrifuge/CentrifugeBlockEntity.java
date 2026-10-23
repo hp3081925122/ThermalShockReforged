@@ -12,14 +12,14 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.items.IItemHandler;
-import net.neoforged.neoforge.items.wrapper.SidedInvWrapper;
+import net.neoforged.neoforge.transfer.item.WorldlyContainerWrapper;
 
 public final class CentrifugeBlockEntity extends RandomizableContainerBlockEntity implements WorldlyContainer {
     private static final int[] SLOTS = {0, 1, 2};
     private NonNullList<ItemStack> items = NonNullList.withSize(3, ItemStack.EMPTY);
-    private final IItemHandler[] handlers = java.util.Arrays.stream(Direction.values()).map(side -> new SidedInvWrapper(this, side)).toArray(IItemHandler[]::new);
+    private final WorldlyContainerWrapper[] handlers = java.util.Arrays.stream(Direction.values()).map(side -> new WorldlyContainerWrapper(this, side)).toArray(WorldlyContainerWrapper[]::new);
     public CentrifugeBlockEntity(BlockPos pos, BlockState state) { super(CentrifugeContent.ENTITY.get(), pos, state); }
-    public IItemHandler itemHandler(Direction side) { return side == null ? null : handlers[side.ordinal()]; }
+    public net.neoforged.neoforge.transfer.ResourceHandler<net.neoforged.neoforge.transfer.item.ItemResource> itemHandler(Direction side) { return side == null ? null : handlers[side.ordinal()]; }
     @Override protected void loadAdditional(net.minecraft.world.level.storage.ValueInput input) {
         super.loadAdditional(input);        items = NonNullList.withSize(3, ItemStack.EMPTY);
         if (!tryLoadLootTable(input)) ContainerHelper.loadAllItems(input, items);

@@ -15,8 +15,8 @@ public final class ReactorContent {
     private static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<ParticleType<?>> PARTICLES = DeferredRegister.create(Registries.PARTICLE_TYPE, ThermalShockReforged.MOD_ID);
     public static final DeferredBlock<StratusReactorCoreBlock> CORE = BLOCKS.register("stratus_reactor_core", StratusReactorCoreBlock::new);
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ReactorCoreBlockEntity>> CORE_ENTITY = BLOCK_ENTITIES.register("stratus_reactor_core", () -> BlockEntityType.Builder.of(ReactorCoreBlockEntity::new, CORE.get()).build(null));
-    public static final DeferredHolder<EntityType<?>, EntityType<ReactorSequenceEntity>> SEQUENCE = ENTITIES.register("stratus_reactor_sequence", () -> EntityType.Builder.of(ReactorSequenceEntity::new, MobCategory.MISC).noSummon().fireImmune().sized(.01F, .01F).clientTrackingRange(0).updateInterval(20).build(ThermalShockReforged.MOD_ID + ":stratus_reactor_sequence"));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ReactorCoreBlockEntity>> CORE_ENTITY = BLOCK_ENTITIES.register("stratus_reactor_core", () -> new BlockEntityType<>(ReactorCoreBlockEntity::new, CORE.get()));
+    public static final DeferredHolder<EntityType<?>, EntityType<ReactorSequenceEntity>> SEQUENCE = ENTITIES.register("stratus_reactor_sequence", () -> EntityType.Builder.of(ReactorSequenceEntity::new, MobCategory.MISC).noSummon().fireImmune().sized(.01F, .01F).clientTrackingRange(0).updateInterval(20).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("stratus_reactor_sequence")));
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> SHOCKWAVE = PARTICLES.register("reactor_shockwave", () -> new SimpleParticleType(false));
     static { ITEMS.registerSimpleBlockItem(CORE); }
     private ReactorContent() { }

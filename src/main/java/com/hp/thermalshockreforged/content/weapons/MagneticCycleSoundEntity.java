@@ -13,18 +13,19 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
 
 public final class MagneticCycleSoundEntity extends Entity implements ServerEndTickTask {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, net.minecraft.world.damagesource.DamageSource source, float damage) { return false; }
     private int remaining = 5;
     private int phase;
     private boolean armed;
     public MagneticCycleSoundEntity(EntityType<? extends MagneticCycleSoundEntity> type, Level level) { super(type, level); noPhysics = true; setNoGravity(true); }
     public static void submit(ServerLevel level, double x, double y, double z) {
-        var task = WeaponContent.MAGNETIC_CYCLE_SOUND.get().create(level);
+        var task = WeaponContent.MAGNETIC_CYCLE_SOUND.get().create(level, net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
         if (task == null) return;
         task.setPos(x, y, z); task.armed = true;
         if (!level.addFreshEntity(task)) ThermalShockReforged.LOGGER.warn("Unable to submit magnetic crossbow cycle sounds at {}", task.blockPosition());
     }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
-    @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
+    @Override public boolean canTeleport(Level from, Level to) { return false; }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); if (armed && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
     @Override public void tick() {
         super.tick();

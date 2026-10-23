@@ -19,13 +19,14 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
 public final class DiskResonanceEntity extends Entity implements ServerEndTickTask {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, net.minecraft.world.damagesource.DamageSource source, float damage) { return false; }
     private UUID owner;
     private int ownerEntityId;
     private int elapsed;
     private boolean armed;
     public DiskResonanceEntity(EntityType<? extends DiskResonanceEntity> type, Level level) { super(type, level); noPhysics = true; setNoGravity(true); }
     public static boolean submit(ServerLevel level, Vec3 anchor, Entity owner) {
-        var task = WeaponContent.DISK_RESONANCE.get().create(level);
+        var task = WeaponContent.DISK_RESONANCE.get().create(level, net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
         if (task == null || owner == null) return false;
         task.setPos(anchor); task.owner = owner.getUUID(); task.ownerEntityId = owner.getId(); task.armed = true;
         if (!level.addFreshEntity(task)) return false;
@@ -33,7 +34,7 @@ public final class DiskResonanceEntity extends Entity implements ServerEndTickTa
         return true;
     }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
-    @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
+    @Override public boolean canTeleport(Level from, Level to) { return false; }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); if (armed && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
     @Override public void tick() { super.tick(); if (level() instanceof ServerLevel server) { if (armed) ServerEndTickTasks.schedule(server, getUUID()); else discard(); } }
     @Override public void endTick(ServerLevel level) {

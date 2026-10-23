@@ -26,7 +26,7 @@ public final class WhisperContent {
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(Registries.MENU, ThermalShockReforged.MOD_ID);
     private static final EnumMap<WhisperPage, DeferredHolder<MenuType<?>, MenuType<WhisperMenu>>> PAGES = new EnumMap<>(WhisperPage.class);
-    public static final DeferredHolder<EntityType<?>, EntityType<WhisperEntity>> WHISPER = TYPES.register("whisper", () -> EntityType.Builder.of(WhisperEntity::new, MobCategory.AMBIENT).sized(.8F, 3.5F).fireImmune().setShouldReceiveVelocityUpdates(true).clientTrackingRange(10).updateInterval(3).build(id("whisper").toString()));
+    public static final DeferredHolder<EntityType<?>, EntityType<WhisperEntity>> WHISPER = TYPES.register("whisper", () -> EntityType.Builder.of(WhisperEntity::new, MobCategory.AMBIENT).sized(.8F, 3.5F).fireImmune().setShouldReceiveVelocityUpdates(true).clientTrackingRange(10).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("whisper")));
     static {
         ITEMS.register("whisper_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(WHISPER.get())));
         for (var page : WhisperPage.values()) PAGES.put(page, MENUS.register(page.id, () -> IMenuTypeExtension.create((id, inv, data) -> new WhisperMenu(page, id, inv, data.readVarInt(), data.readUUID(), data.readBlockPos(), data.readVarInt()))));

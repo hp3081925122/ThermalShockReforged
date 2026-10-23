@@ -10,6 +10,7 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.level.Level;
 
 public final class WallboreCycleEntity extends Entity implements ServerEndTickTask {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, net.minecraft.world.damagesource.DamageSource source, float damage) { return false; }
     private boolean armed;
     private int remaining = 19, frozen, age = -1;
     private BlockPos anchor = BlockPos.ZERO;
@@ -17,7 +18,7 @@ public final class WallboreCycleEntity extends Entity implements ServerEndTickTa
     public WallboreCycleEntity(EntityType<? extends WallboreCycleEntity> type, Level level) { super(type, level); noPhysics = true; setNoGravity(true); }
     void arm(BlockPos pos, Direction facing, int frozen) { armed = true; anchor = pos.immutable(); this.facing = facing; this.frozen = frozen; setPos(pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5); }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
-    @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
+    @Override public boolean canTeleport(Level from, Level to) { return false; }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); if (armed && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
     @Override public void tick() { super.tick(); if (level() instanceof ServerLevel server) { if (!armed) discard(); else ServerEndTickTasks.schedule(server, getUUID()); } }
     @Override public void endTick(ServerLevel server) {

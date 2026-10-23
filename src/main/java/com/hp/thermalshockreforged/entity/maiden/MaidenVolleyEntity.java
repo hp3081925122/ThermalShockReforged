@@ -18,6 +18,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
 public final class MaidenVolleyEntity extends Entity implements ServerEndTickTask {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, net.minecraft.world.damagesource.DamageSource source, float damage) { return false; }
     private static final int[][] DIRECTIONS = {{1,0},{1,1},{0,1},{-1,0},{-1,-1},{0,-1},{1,-1},{-1,1}};
     private UUID caster;
     private UUID target;
@@ -45,7 +46,7 @@ public final class MaidenVolleyEntity extends Entity implements ServerEndTickTas
     void captureCaster(MaidenEntity owner) { casterPosition = owner.position(); setPos(casterPosition); }
     private void snapshot(ServerLevel server, MaidenEntity owner) { if (owner != null) captureCaster(owner); if (target != null && server.getEntity(target) instanceof LivingEntity victim && (!playerTarget || victim.getId() == targetEntityId && originalPlayer != null && originalPlayer.get() == victim)) targetEyeHeight = victim.getEyeHeight(); }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
-    @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
+    @Override public boolean canTeleport(Level from, Level to) { return false; }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); if (armed && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
     @Override public void tick() { super.tick(); if (level() instanceof ServerLevel server) { if (!armed || !dimension.equals(server.dimension().identifier().toString())) { discard(); return; } snapshot(server, owner(server)); ServerEndTickTasks.schedule(server, getUUID()); } }
     @Override public void endTick(ServerLevel server) {
@@ -58,7 +59,7 @@ public final class MaidenVolleyEntity extends Entity implements ServerEndTickTas
             server.playSound(null, BlockPos.containing(origin), SoundEvents.SHULKER_SHOOT, SoundSource.HOSTILE, 1, 2);
             for (int index = 0; index < DIRECTIONS.length; index++) {
                 var bullet = new BloodBulletEntity(ProjectileContent.BLOOD_BULLET.get(), server);
-                if (owner != null) bullet.setOwner(owner); else { var ownerData = new CompoundTag(); bullet.addAdditionalSaveData(ownerData); ownerData.putUUID("Owner", caster); bullet.readAdditionalSaveData(ownerData); }
+                if (owner != null) bullet.setOwner(owner); else { var ownerData = new CompoundTag(); bullet.addAdditionalSaveData(ownerData); ownerData.store("Owner", net.minecraft.core.UUIDUtil.CODEC, caster); bullet.readAdditionalSaveData(ownerData); }
                 bullet.setBaseDamage(index == 7 ? lastDamage : damage); bullet.setSkillKnockback(0); bullet.setSilent(true); bullet.setCritArrow(false); bullet.setPos(casterPosition.x, casterPosition.y + targetEyeHeight, casterPosition.z);
                 bullet.shoot(DIRECTIONS[index][0], .17, DIRECTIONS[index][1], single ? .3F : .4F, 0); server.addFreshEntity(bullet);
             }

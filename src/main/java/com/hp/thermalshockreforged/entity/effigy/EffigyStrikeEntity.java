@@ -17,6 +17,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 
 public final class EffigyStrikeEntity extends Entity implements ServerEndTickTask {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, net.minecraft.world.damagesource.DamageSource source, float damage) { return false; }
     private static final ResourceKey<DamageType> DAMAGE = ResourceKey.create(Registries.DAMAGE_TYPE, EffigyContent.id("errant_damage"));
     private UUID caster;
     private UUID target;
@@ -29,7 +30,7 @@ public final class EffigyStrikeEntity extends Entity implements ServerEndTickTas
     private boolean followCaster = true;
     public EffigyStrikeEntity(EntityType<? extends EffigyStrikeEntity> type, Level level) { super(type, level); noPhysics = true; setNoGravity(true); }
     static boolean submit(ServerLevel level, EffigyEntity caster, LivingEntity target) {
-        var task = EffigyContent.STRIKE.get().create(level);
+        var task = EffigyContent.STRIKE.get().create(level, net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
         if (task == null) return false;
         task.caster = caster.getUUID(); task.target = target.getUUID(); task.targetEntityId = target.getId(); task.playerTarget = target instanceof Player;
         task.soundOrigin = target.blockPosition(); task.setPos(caster.position()); task.damage = caster.getAttributeValue(Attributes.ATTACK_DAMAGE) * (8.0 / 3);
@@ -42,7 +43,7 @@ public final class EffigyStrikeEntity extends Entity implements ServerEndTickTas
     void capture(EffigyEntity owner) { setPos(owner.position()); double amount = owner.getAttributeValue(Attributes.ATTACK_DAMAGE) * (8.0 / 3); damage = Double.isFinite(amount) ? Math.clamp(amount, 0, Float.MAX_VALUE) : 0; }
     void release(EffigyEntity owner, RemovalReason reason) { capture(owner); if (reason.shouldDestroy() || reason == RemovalReason.CHANGED_DIMENSION) followCaster = false; ThermalShockReforged.LOGGER.debug("Effigy strike caster removed: task={}, caster={}, reason={}, following={}", getUUID(), caster, reason, followCaster); }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
-    @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
+    @Override public boolean canTeleport(Level from, Level to) { return false; }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); if (armed && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
     @Override public void tick() { super.tick(); if (level() instanceof ServerLevel server) { if (!armed) { discard(); return; } if (followCaster && server.getEntity(caster) instanceof EffigyEntity owner) capture(owner); ServerEndTickTasks.schedule(server, getUUID()); } }
     @Override public void endTick(ServerLevel level) {

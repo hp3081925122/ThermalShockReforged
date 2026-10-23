@@ -19,15 +19,15 @@ import net.minecraft.world.level.material.MapColor;
 
 public final class RainDrumBlock extends Block {
     public RainDrumBlock() { super(Properties.of().mapColor(MapColor.COLOR_PURPLE).sound(SoundType.METAL).strength(.5F, 12).requiresCorrectToolForDrops()); }
-    @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 15; }
+    @Override protected int getLightDampening(BlockState state) { return 15; }
     @Override public boolean canConnectRedstone(BlockState state, BlockGetter level, BlockPos pos, Direction side) { return true; }
-    @Override protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block neighbor, BlockPos fromPos, boolean moving) {
+    @Override protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block neighbor, net.minecraft.world.level.redstone.Orientation fromPos, boolean moving) {
         super.neighborChanged(state, level, pos, neighbor, fromPos, moving);
         if (level.getBestNeighborSignal(pos) > 0) rainNote(level, pos);
     }
     @Override public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) { super.animateTick(state, level, pos, random); rainNote(level, pos); }
     private void rainNote(Level level, BlockPos pos) {
-        if (!level.getLevelData().isRaining() || !level.isEmptyBlock(pos.above())) return;
+        if (!level.isRaining() || !level.isEmptyBlock(pos.above())) return;
         boolean angry = level.getBlockState(pos.below()).is(NativeDecorContent.THERMITE.get());
         var sound = BuiltInRegistries.SOUND_EVENT.getValue(WeatherUtilityContent.id(angry ? "angry_rain_drum_random" : "rain_drum_random"));
         if (level.isClientSide()) level.playLocalSound(pos.getX(), pos.getY(), pos.getZ(), sound, SoundSource.BLOCKS, 1, 1, false);

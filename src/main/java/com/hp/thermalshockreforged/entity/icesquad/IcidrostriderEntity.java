@@ -60,7 +60,7 @@ public final class IcidrostriderEntity extends Monster implements GeoEntity {
         if (!isAlive()) return InteractionResult.PASS;
         if (!level().isClientSide() && player.startRiding(this)) {
             level().playSound(null, blockPosition(), SoundEvents.IRON_GOLEM_REPAIR, SoundSource.NEUTRAL, 0.5F, 2.5F);
-            player.displayClientMessage(Component.translatable("message.thermal_shock_reforged.strider_controls", Component.keybind("key.thermal_shock_reforged.icidrostrider_attack")), true);
+            player.sendOverlayMessage(Component.translatable("message.thermal_shock_reforged.strider_controls", Component.keybind("key.thermal_shock_reforged.icidrostrider_attack")));
         }
         return InteractionResult.SUCCESS;
     }
