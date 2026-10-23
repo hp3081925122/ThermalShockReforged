@@ -30,7 +30,7 @@ public final class HighDirectorSopelEntity extends AnimatedMonsterEntity {
     @Override public boolean isWithinMeleeAttackRange(LivingEntity target) { return distanceToSqr(target) <= 256; }
     public void displace(LivingEntity victim, Entity owner) {
         if (!(victim.level() instanceof ServerLevel server)) return;
-        if (owner instanceof HighDirectorSopelEntity sopel && sopel.cooldown > 0 || owner instanceof LivingEntity living && living.getPersistentData().getInt(SopelEntityContent.OWNER_COOLDOWN) > 0) return;
+        if (owner instanceof HighDirectorSopelEntity sopel && sopel.cooldown > 0 || owner instanceof LivingEntity living && living.getPersistentData().getIntOr(SopelEntityContent.OWNER_COOLDOWN, 0) > 0) return;
         int delay = SopelConfig.COOLDOWN.get();
         if (owner instanceof HighDirectorSopelEntity sopel) sopel.cooldown = delay;
         else if (owner instanceof LivingEntity living) living.getPersistentData().putInt(SopelEntityContent.OWNER_COOLDOWN, delay);
@@ -60,7 +60,7 @@ public final class HighDirectorSopelEntity extends AnimatedMonsterEntity {
     @Override protected void tickEffects() { super.tickEffects(); if (!level().isClientSide() && cooldown > 0) cooldown--; }
     @Override public boolean removeAllEffects() { boolean removed = super.removeAllEffects(); if (!level().isClientSide() && cooldown > 0) { cooldown = 0; return true; } return removed; }
     @Override public boolean removeWhenFarAway(double distance) { return false; }
-    @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
+    @Override public boolean canTeleport(Level from, Level to) { return false; }
     @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) { return !(source.is(DamageTypes.FALL) || source.is(DamageTypes.DROWN)) && super.hurtServer(level, source, amount); }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.GENERIC_HURT; }
     @Override protected SoundEvent getDeathSound() { return SoundEvents.GENERIC_DEATH; }

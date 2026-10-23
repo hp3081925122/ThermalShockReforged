@@ -23,7 +23,7 @@ public final class OutcropContent {
             var block = BLOCKS.register(kind.id, () -> new OutcropBlock(kind));
             BLOCK_VALUES.put(kind, block);
             ITEM_VALUES.put(kind, ITEMS.register(kind.id, () -> new OutcropItem(block.get(), kind)));
-            ENTITY_VALUES.put(kind, ENTITIES.register(kind.id, () -> BlockEntityType.Builder.<OutcropBlockEntity>of((pos, state) -> new OutcropBlockEntity(kind, pos, state), block.get()).build(null)));
+            ENTITY_VALUES.put(kind, ENTITIES.register(kind.id, () -> new BlockEntityType<OutcropBlockEntity>((pos, state) -> new OutcropBlockEntity(kind, pos, state), block.get())));
             FEATURES.register(kind.id + "_generation", () -> new OutcropFeature(kind.oreChoice));
         }
     }
@@ -39,6 +39,6 @@ public final class OutcropContent {
         bus.addListener(OutcropContent::capabilities);
     }
     private static void capabilities(RegisterCapabilitiesEvent event) {
-        for (var type : ENTITY_VALUES.values()) event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, type.get(), (entity, side) -> entity.itemHandler(side));
+        for (var type : ENTITY_VALUES.values()) event.registerBlockEntity(Capabilities.Item.BLOCK, type.get(), (entity, side) -> entity.itemHandler(side));
     }
 }

@@ -29,17 +29,17 @@ public final class ModEntities {
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> PROJECTILE_IMPACT = PARTICLES.register("projectile_impact", () -> new SimpleParticleType(false));
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> BLOOD_PETAL = PARTICLES.register("blood_petal", () -> new SimpleParticleType(false));
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> KILO_ATTACK = PARTICLES.register("kilo_attack", () -> new SimpleParticleType(true));
-    public static final DeferredHolder<EntityType<?>, EntityType<GalvaniteEntity>> GALVANITE = TYPES.register("galvanite", () -> EntityType.Builder.of(GalvaniteEntity::new, MobCategory.MONSTER).sized(0.6F, 2).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":galvanite"));
-    public static final DeferredHolder<EntityType<?>, EntityType<ForecastEntity>> FORECAST = TYPES.register("forecast", () -> EntityType.Builder.of(ForecastEntity::new, MobCategory.MONSTER).sized(0.8F, 1.2F).clientTrackingRange(64).updateInterval(3).build("thermal_shock_reforged:forecast"));
-    public static final DeferredHolder<EntityType<?>, EntityType<ZapWarningEntity>> ZAP = TYPES.register("zap_attack_entity", () -> EntityType.Builder.of(ZapWarningEntity::new, MobCategory.MONSTER).sized(1.0F, 1.0F).fireImmune().setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build("thermal_shock_reforged:zap_attack_entity"));
+    public static final DeferredHolder<EntityType<?>, EntityType<GalvaniteEntity>> GALVANITE = TYPES.register("galvanite", () -> EntityType.Builder.of(GalvaniteEntity::new, MobCategory.MONSTER).sized(0.6F, 2).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("galvanite")));
+    public static final DeferredHolder<EntityType<?>, EntityType<ForecastEntity>> FORECAST = TYPES.register("forecast", () -> EntityType.Builder.of(ForecastEntity::new, MobCategory.MONSTER).sized(0.8F, 1.2F).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("forecast")));
+    public static final DeferredHolder<EntityType<?>, EntityType<ZapWarningEntity>> ZAP = TYPES.register("zap_attack_entity", () -> EntityType.Builder.of(ZapWarningEntity::new, MobCategory.MONSTER).sized(1.0F, 1.0F).fireImmune().setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("zap_attack_entity")));
 
-    public static final DeferredHolder<EntityType<?>, EntityType<CrystalKoiEntity>> CRYSTAL_KOI = TYPES.register("crystal_koi", () -> EntityType.Builder.of(CrystalKoiEntity::new, MobCategory.WATER_AMBIENT).sized(0.3F, 0.3F).clientTrackingRange(64).updateInterval(3).build("thermal_shock_reforged:crystal_koi"));
+    public static final DeferredHolder<EntityType<?>, EntityType<CrystalKoiEntity>> CRYSTAL_KOI = TYPES.register("crystal_koi", () -> EntityType.Builder.of(CrystalKoiEntity::new, MobCategory.WATER_AMBIENT).sized(0.3F, 0.3F).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("crystal_koi")));
 
-    public static final DeferredHolder<EntityType<?>, EntityType<ScarletRayEntity>> SCARLET_RAY = TYPES.register("scarlet_ray", () -> EntityType.Builder.of(ScarletRayEntity::new, MobCategory.WATER_AMBIENT).sized(1.0F, 0.3F).clientTrackingRange(64).updateInterval(3).build("thermal_shock_reforged:scarlet_ray"));
+    public static final DeferredHolder<EntityType<?>, EntityType<ScarletRayEntity>> SCARLET_RAY = TYPES.register("scarlet_ray", () -> EntityType.Builder.of(ScarletRayEntity::new, MobCategory.WATER_AMBIENT).sized(1.0F, 0.3F).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("scarlet_ray")));
 
-    public static final DeferredHolder<EntityType<?>, EntityType<ProboskerEntity>> PROBOSKER = TYPES.register("probosker", () -> EntityType.Builder.of(ProboskerEntity::new, MobCategory.AMBIENT).sized(0.9F, 1.0F).clientTrackingRange(64).updateInterval(3).build("thermal_shock_reforged:probosker"));
+    public static final DeferredHolder<EntityType<?>, EntityType<ProboskerEntity>> PROBOSKER = TYPES.register("probosker", () -> EntityType.Builder.of(ProboskerEntity::new, MobCategory.AMBIENT).sized(0.9F, 1.0F).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("probosker")));
 
-    public static final DeferredHolder<EntityType<?>, EntityType<PondlerEntity>> PONDLER = TYPES.register("pondler", () -> EntityType.Builder.of(PondlerEntity::new, MobCategory.WATER_AMBIENT).sized(0.6F, 0.6F).clientTrackingRange(64).updateInterval(3).build("thermal_shock_reforged:pondler"));
+    public static final DeferredHolder<EntityType<?>, EntityType<PondlerEntity>> PONDLER = TYPES.register("pondler", () -> EntityType.Builder.of(PondlerEntity::new, MobCategory.WATER_AMBIENT).sized(0.6F, 0.6F).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("pondler")));
 
     static {
         ITEMS.register("pondler_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(PONDLER.get())));
@@ -75,7 +75,7 @@ public final class ModEntities {
 
     private static void spawnPlacements(RegisterSpawnPlacementsEvent event) {
         event.register(GALVANITE.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (type, level, reason, position, random) -> {
-            if (!level.getLevelData().isThundering() && !level.getLevelData().isRaining()) return false;
+            if (!level.getLevel().getWeatherData().isThundering() && !level.getLevel().getWeatherData().isRaining()) return false;
             var id = BuiltInRegistries.BLOCK.getKey(level.getBlockState(position.below()).getBlock());
             return id.getNamespace().equals(ThermalShockReforged.MOD_ID) && (id.getPath().equals("snowy_shale") || id.getPath().equals("snowy_cobalt"));
         }, RegisterSpawnPlacementsEvent.Operation.REPLACE);
@@ -83,13 +83,13 @@ public final class ModEntities {
         event.register(PROBOSKER.get(), SpawnPlacementTypes.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (type, level, reason, position, random) -> {
             var id = BuiltInRegistries.BLOCK.getKey(level.getBlockState(position.below()).getBlock());
             return id.getNamespace().equals(ThermalShockReforged.MOD_ID) && (id.getPath().equals("grassy_shale") || id.getPath().equals("snowy_shale"))
-                    && level.canSeeSkyFromBelowWater(position) && level.getLevel().isDay();
+                    && level.canSeeSkyFromBelowWater(position) && level.getLevel().isBrightOutside();
         }, RegisterSpawnPlacementsEvent.Operation.REPLACE);
         event.register(CRYSTAL_KOI.get(), SpawnPlacementTypes.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (type, level, reason, position, random) -> level.getBlockState(position).is(net.minecraft.world.level.block.Blocks.WATER) && level.getBlockState(position.above()).is(net.minecraft.world.level.block.Blocks.WATER), RegisterSpawnPlacementsEvent.Operation.REPLACE);
         event.register(SCARLET_RAY.get(), SpawnPlacementTypes.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (type, level, reason, position, random) -> level.getBlockState(position).is(net.minecraft.world.level.block.Blocks.WATER) && level.getBlockState(position.above()).is(net.minecraft.world.level.block.Blocks.WATER), RegisterSpawnPlacementsEvent.Operation.REPLACE);
         event.register(FORECAST.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (type, level, reason, position, random) -> {
             if (reason == net.minecraft.world.entity.EntitySpawnReason.TRIAL_SPAWNER) return true;
-            if (!level.getLevelData().isThundering() && !level.getLevelData().isRaining()) return false;
+            if (!level.getLevel().getWeatherData().isThundering() && !level.getLevel().getWeatherData().isRaining()) return false;
             var id = BuiltInRegistries.BLOCK.getKey(level.getBlockState(position.below()).getBlock());
             return id.getNamespace().equals(ThermalShockReforged.MOD_ID) && (id.getPath().equals("snowy_shale") || id.getPath().equals("snowy_cobalt"));
         }, RegisterSpawnPlacementsEvent.Operation.REPLACE);

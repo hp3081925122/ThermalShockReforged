@@ -182,7 +182,7 @@ public final class PondlerEntity extends PathfinderMob implements GeoEntity {
                 .triggerableAnim("landidle", RawAnimation.begin().thenPlay("landidle"))
                 .triggerableAnim("idle", RawAnimation.begin().thenPlay("idle"));
         controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> procedure.isPlayingTriggeredAnimation()
-                ? PlayState.STOP : state.setAndContinue(isInWaterOrBubble() ? WATER_IDLE : LAND_IDLE)));
+                ? PlayState.STOP : state.setAndContinue(isInWater() ? WATER_IDLE : LAND_IDLE)));
         controllers.add(procedure);
     }
 

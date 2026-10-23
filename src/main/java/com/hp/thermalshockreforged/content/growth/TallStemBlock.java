@@ -53,9 +53,9 @@ public class TallStemBlock extends SugarCaneBlock {
             return placed==null?null:placed.setValue(WATERLOGGED,context.getLevel().getFluidState(context.getClickedPos()).getType()==Fluids.WATER);
         }
         @Override protected FluidState getFluidState(BlockState state) { return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state); }
-        @Override protected BlockState updateShape(BlockState state, Direction facing, BlockState neighbor, LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
-            if (state.getValue(WATERLOGGED)) level.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
-            return super.updateShape(state, facing, neighbor, level, pos, neighborPos);
+        @Override protected BlockState updateShape(BlockState state, net.minecraft.world.level.LevelReader level, net.minecraft.world.level.ScheduledTickAccess ticks, BlockPos pos, Direction facing, BlockPos neighborPos, BlockState neighbor, net.minecraft.util.RandomSource random) {
+            if (state.getValue(WATERLOGGED)) ticks.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
+            return super.updateShape(state, level, ticks, pos, facing, neighborPos, neighbor, random);
         }
     }
 }

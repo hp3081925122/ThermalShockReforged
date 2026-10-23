@@ -25,7 +25,7 @@ public final class SopelMenu extends AbstractContainerMenu {
     }
     @Override public boolean clickMenuButton(Player player, int button) {
         if (changedPage || !(player instanceof ServerPlayer server) || player.containerMenu != this || !stillValid(player) || button < 0 || button > (page == SopelPage.CHOICE ? 1 : 0)) return false;
-        var advancement = page == SopelPage.CHOICE ? server.getServer().getAdvancements().get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "beta_complete")) : null;
+        var advancement = page == SopelPage.CHOICE ? server.level().getServer().getAdvancements().get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "beta_complete")) : null;
         if (page == SopelPage.CHOICE && advancement == null) {
             ThermalShockReforged.LOGGER.warn("Sopel completion advancement unavailable; keeping choice menu: player={}, position={}", player.getUUID(), anchor);
             return false;

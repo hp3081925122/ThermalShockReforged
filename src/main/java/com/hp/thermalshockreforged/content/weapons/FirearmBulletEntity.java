@@ -46,7 +46,7 @@ public final class FirearmBulletEntity extends AbstractArrow implements ItemSupp
         if (isHailfall()) target.hurt(elemental, 1);
         sound(server, blockPosition(), SoundEvents.GENERIC_HURT, 1);
         sound(server, blockPosition(), isHailfall() ? SoundEvents.GLASS_BREAK : SoundEvents.FIREWORK_ROCKET_BLAST, isHailfall() ? 2 : 1);
-        if (target.getType().is(isHailfall() ? CRYO_WEAK : PYRO_WEAK)) target.hurt(elemental, 6);
+        if (target.is(isHailfall() ? CRYO_WEAK : PYRO_WEAK)) target.hurt(elemental, 6);
     }
     @Override protected void onHitBlock(BlockHitResult hit) {
         super.onHitBlock(hit);

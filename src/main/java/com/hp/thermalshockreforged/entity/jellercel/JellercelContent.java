@@ -25,7 +25,7 @@ public final class JellercelContent {
     static {
         for (JellercelKind kind : JellercelKind.values()) {
             var type = TYPES.register(kind.id, () -> EntityType.Builder.<JellercelEntity>of((entityType, level) -> new JellercelEntity(entityType, level, kind), MobCategory.WATER_AMBIENT)
-                    .sized(kind.width, kind.height).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":" + kind.id));
+                    .sized(kind.width, kind.height).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey(kind.id)));
             VALUES.put(kind, type);
             ITEMS.register(kind.id + "_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(type.get())));
         }

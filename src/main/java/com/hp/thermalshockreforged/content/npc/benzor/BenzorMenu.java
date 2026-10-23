@@ -40,7 +40,7 @@ public final class BenzorMenu extends AbstractContainerMenu {
     @Override public boolean clickMenuButton(Player player, int button) {
         if (changedPage || transaction || !(player instanceof ServerPlayer server) || player.containerMenu != this || !stillValid(player)) return false;
         if (page == BenzorPage.SPICE) { if (button != 0) return false; transaction = true; try { return exchange(server); } finally { transaction = false; } }
-        boolean introduce = page == BenzorPage.MAIN && button == 1 && !server.getPersistentData().getBoolean(BenzorMenus.INTRO);
+        boolean introduce = page == BenzorPage.MAIN && button == 1 && !server.getPersistentData().getBooleanOr(BenzorMenus.INTRO, false);
         BenzorPage next = switch (page) {
             case MAIN -> button == 0 ? BenzorPage.INFO : button == 1 ? introduce ? BenzorPage.SPICE_INTRO : BenzorPage.SPICE : null;
             case INFO -> switch (button) { case 0 -> BenzorPage.SELF; case 1 -> BenzorPage.SPICE_INFO; case 2 -> BenzorPage.INFECTION; case 3 -> BenzorPage.BLIZZARD; case 4 -> BenzorMenus.blackpowder(server) ? BenzorPage.BLACKPOWDER : null; default -> null; };
@@ -54,7 +54,7 @@ public final class BenzorMenu extends AbstractContainerMenu {
         int[] counts = new int[3]; int experience = 0;
         for (int index = 0; index < 3; index++) { var stack = input.getItem(index); if (!stack.isEmpty() && !accepts(index, stack)) return false; counts[index] = stack.getCount(); experience += counts[index] * (2 << index); }
         if (experience <= 0) return false;
-        var advancement = player.getServer().getAdvancements().get(BenzorContent.id("whisper_advancement"));
+        var advancement = player.level().getServer().getAdvancements().get(BenzorContent.id("whisper_advancement"));
         if (advancement == null) { ThermalShockReforged.LOGGER.warn("Benzor exchange advancement missing; keeping input: player={}", player.getUUID()); return false; }
         for (int index = 0; index < 3; index++) input.setItem(index, ItemStack.EMPTY);
         var progress = player.getAdvancements().getOrStartProgress(advancement); if (!progress.isDone()) for (String criterion : progress.getRemainingCriteria()) player.getAdvancements().award(advancement, criterion);

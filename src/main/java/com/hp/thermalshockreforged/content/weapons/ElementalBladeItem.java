@@ -58,11 +58,11 @@ public final class ElementalBladeItem extends SwordItem {
         var properties = new Properties().attributes(SwordItem.createAttributes(kind, 3, kind == Kind.SHOCK_STICK ? -2 : -2.6F));
         return kind == Kind.KNIGHTS_EDGE ? properties.fireResistant() : properties;
     }
-    @Override public boolean hurtEnemy(ItemStack stack, LivingEntity victim, LivingEntity attacker) {
-        boolean result = super.hurtEnemy(stack, victim, attacker);
-        if (!(victim.level() instanceof ServerLevel server) || victim == attacker) return result;
+    @Override public void hurtEnemy(ItemStack stack, LivingEntity victim, LivingEntity attacker) {
+        super.hurtEnemy(stack, victim, attacker);
+        if (!(victim.level() instanceof ServerLevel server) || victim == attacker) return;
         boolean shock = kind == Kind.SHOCK_STICK;
-        if (victim.getType().is(shock ? FERRO_WEAK : CLORO_WEAK)) {
+        if (victim.is(shock ? FERRO_WEAK : CLORO_WEAK)) {
             victim.hurt(new DamageSource(server.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(ModDamageTypes.THERM_IFRAME_BYPASS)), shock ? 7 : 9);
             server.playSound(null, victim.blockPosition(), shock ? SoundEvents.ANVIL_PLACE : SoundEvents.GRASS_BREAK, SoundSource.NEUTRAL, .4F, shock ? 3 : 1);
             server.playSound(null, victim.blockPosition(), SoundEvents.ZOMBIE_ATTACK_IRON_DOOR, SoundSource.NEUTRAL, .5F, 1);
@@ -70,7 +70,6 @@ public final class ElementalBladeItem extends SwordItem {
             com.hp.thermalshockreforged.combat.ElementalCombat.recoilDirectSource(attacker);
         }
         if (shock || attacker.hasEffect(StatusContent.KNIGHTS_EDGE_CHARGE)) BladeImpactEntity.submit(server, victim, attacker, shock);
-        return result;
     }
     @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {
         var result = super.use(level, player, hand);

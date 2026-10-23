@@ -26,8 +26,8 @@ public final class VisiBulbBlock extends Block implements EntityBlock {
         registerDefaultState(defaultBlockState().setValue(BLOCKSTATE,0));
     }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block,BlockState> builder) { super.createBlockStateDefinition(builder); builder.add(BLOCKSTATE); }
-    @Override protected int getLightBlock(BlockState state,BlockGetter level,BlockPos pos) { return 0; }
-    @Override protected boolean propagatesSkylightDown(BlockState state,BlockGetter level,BlockPos pos) { return true; }
+    @Override protected int getLightDampening(BlockState state) { return 0; }
+    @Override protected boolean propagatesSkylightDown(BlockState state) { return true; }
     @Override protected VoxelShape getVisualShape(BlockState state,BlockGetter level,BlockPos pos,CollisionContext context) { return Shapes.empty(); }
     @Override public BlockEntity newBlockEntity(BlockPos pos,BlockState state) { return new GrowthInventoryBlockEntity(pos,state); }
     @Override protected void onPlace(BlockState state,Level level,BlockPos pos,BlockState previous,boolean moving) { super.onPlace(state,level,pos,previous,moving); GrowthSoil.checkMature(level,pos); }
@@ -49,11 +49,6 @@ public final class VisiBulbBlock extends Block implements EntityBlock {
     @Override protected MenuProvider getMenuProvider(BlockState state,Level level,BlockPos pos) { return level.getBlockEntity(pos) instanceof GrowthInventoryBlockEntity entity?entity:null; }
     @Override protected boolean triggerEvent(BlockState state,Level level,BlockPos pos,int id,int param) { super.triggerEvent(state,level,pos,id,param); return level.getBlockEntity(pos) instanceof GrowthInventoryBlockEntity entity&&entity.triggerEvent(id,param); }
     @Override protected boolean hasAnalogOutputSignal(BlockState state) { return true; }
-    @Override protected int getAnalogOutputSignal(BlockState state,Level level,BlockPos pos) { return level.getBlockEntity(pos) instanceof GrowthInventoryBlockEntity entity?AbstractContainerMenu.getRedstoneSignalFromContainer(entity):0; }
-    @Override protected void onRemove(BlockState state,Level level,BlockPos pos,BlockState replacement,boolean moving) {
-        if (!state.is(replacement.getBlock())) {
-            if (!level.isClientSide()&&level.getBlockEntity(pos) instanceof GrowthInventoryBlockEntity entity) { Containers.dropContents(level,pos,entity); level.updateNeighbourForOutputSignal(pos,this); }
-            super.onRemove(state,level,pos,replacement,moving);
-        }
-    }
+    @Override protected int getAnalogOutputSignal(BlockState state,Level level,BlockPos pos,net.minecraft.core.Direction direction) { return level.getBlockEntity(pos) instanceof GrowthInventoryBlockEntity entity?AbstractContainerMenu.getRedstoneSignalFromContainer(entity):0; }
+    @Override protected void affectNeighborsAfterRemoval(BlockState state, net.minecraft.server.level.ServerLevel level, BlockPos pos, boolean moving) { Containers.updateNeighboursAfterDestroy(state, level, pos); }
 }

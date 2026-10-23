@@ -25,7 +25,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.material.MapColor;
 
-public final class PurifierBlock extends Block implements EntityBlock {
+public final class PurifierBlock extends Block implements EntityBlock, com.hp.thermalshockreforged.content.BlockTooltips.Provider {
     public static final EnumProperty<Direction> FACING = HorizontalDirectionalBlock.FACING;
     public PurifierBlock() {
         super(Properties.of().mapColor(MapColor.SNOW).sound(SoundType.GLASS).strength(7, 99).requiresCorrectToolForDrops().emissiveRendering((state, level, pos) -> true));
@@ -35,10 +35,9 @@ public final class PurifierBlock extends Block implements EntityBlock {
     @Override public BlockState getStateForPlacement(BlockPlaceContext context) { return defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite()); }
     @Override protected BlockState rotate(BlockState state, Rotation rotation) { return state.setValue(FACING, rotation.rotate(state.getValue(FACING))); }
     @Override protected BlockState mirror(BlockState state, Mirror mirror) { return state.rotate(mirror.getRotation(state.getValue(FACING))); }
-    @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 15; }
+    @Override protected int getLightDampening(BlockState state) { return 15; }
     @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return new PurifierBlockEntity(pos, state); }
     @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
-        super.appendHoverText(stack, context, display, tooltipAdder, flag);
         tooltipAdder.accept(Component.translatable(getDescriptionId() + ".description_0"));
         tooltipAdder.accept(Component.translatable(getDescriptionId() + ".description_1"));
     }

@@ -19,13 +19,13 @@ final class AtlasTravel {
         if ((!source.equals(Level.OVERWORLD) && !source.equals(LoqendiaContent.DIMENSION) && !source.equals(AtlasContent.PALACE)) || source.equals(destination)) {
             player.closeContainer();
             player.level().playSound(null, origin, SoundEvents.NOTE_BLOCK_BASS.value(), SoundSource.NEUTRAL, 1, 1);
-            player.displayClientMessage(Component.translatable("message.thermal_shock_reforged.atlas.already_here"), true);
+            player.sendOverlayMessage(Component.translatable("message.thermal_shock_reforged.atlas.already_here"));
             return true;
         }
         var target = player.server.getLevel(destination);
         if (target == null) {
             ThermalShockReforged.LOGGER.warn("Atlas destination is unavailable: player={}, destination={}", player.getUUID(), destination.location());
-            player.displayClientMessage(Component.translatable("message.thermal_shock_reforged.atlas.destination_unavailable"), true);
+            player.sendOverlayMessage(Component.translatable("message.thermal_shock_reforged.atlas.destination_unavailable"));
             return false;
         }
         var point = AtlasCoordinates.get(player, destination);

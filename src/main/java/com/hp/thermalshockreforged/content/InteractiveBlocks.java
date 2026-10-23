@@ -24,90 +24,66 @@ public final class InteractiveBlocks {
 
     public static Block door(BlockBehaviour.Properties properties, BlockSetType type, int light, int flammability, String... descriptions) {
         List<String> tooltip = List.of(descriptions);
-        return new DoorBlock(type, properties) {
+        return BlockTooltips.keys(new DoorBlock(type, properties) {
             @Override
-            protected int getLightBlock(BlockState state, BlockGetter level, BlockPos position) {
-                return light < 0 ? super.getLightBlock(state, level, position) : light;
+            protected int getLightDampening(BlockState state) {
+                return light < 0 ? super.getLightDampening(state) : light;
             }
 
             @Override
             public int getFlammability(BlockState state, BlockGetter level, BlockPos position, Direction face) {
                 return flammability < 0 ? super.getFlammability(state, level, position, face) : flammability;
             }
-
-            @Override
-            public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
-                super.appendHoverText(stack, context, display, tooltipAdder, flag);
-                tooltip.forEach(key -> tooltipAdder.accept(Component.translatable(key)));
-            }
-        };
+        }, tooltip);
     }
 
     public static Block trapdoor(BlockBehaviour.Properties properties, BlockSetType type, int light, int flammability, String... descriptions) {
         List<String> tooltip = List.of(descriptions);
-        return new TrapDoorBlock(type, properties) {
+        return BlockTooltips.keys(new TrapDoorBlock(type, properties) {
             @Override
-            protected int getLightBlock(BlockState state, BlockGetter level, BlockPos position) {
-                return light < 0 ? super.getLightBlock(state, level, position) : light;
+            protected int getLightDampening(BlockState state) {
+                return light < 0 ? super.getLightDampening(state) : light;
             }
 
             @Override
             public int getFlammability(BlockState state, BlockGetter level, BlockPos position, Direction face) {
                 return flammability < 0 ? super.getFlammability(state, level, position, face) : flammability;
             }
-
-            @Override
-            public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
-                super.appendHoverText(stack, context, display, tooltipAdder, flag);
-                tooltip.forEach(key -> tooltipAdder.accept(Component.translatable(key)));
-            }
-        };
+        }, tooltip);
     }
 
     public static Block button(BlockBehaviour.Properties properties, BlockSetType type, int pressTicks, int light, int flammability, String... descriptions) {
         List<String> tooltip = List.of(descriptions);
-        return new ButtonBlock(type, pressTicks, properties) {
+        return BlockTooltips.keys(new ButtonBlock(type, pressTicks, properties) {
             @Override
-            protected int getLightBlock(BlockState state, BlockGetter level, BlockPos position) {
-                return light < 0 ? super.getLightBlock(state, level, position) : light;
+            protected int getLightDampening(BlockState state) {
+                return light < 0 ? super.getLightDampening(state) : light;
             }
 
             @Override
             public int getFlammability(BlockState state, BlockGetter level, BlockPos position, Direction face) {
                 return flammability < 0 ? super.getFlammability(state, level, position, face) : flammability;
             }
-
-            @Override
-            public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
-                super.appendHoverText(stack, context, display, tooltipAdder, flag);
-                tooltip.forEach(key -> tooltipAdder.accept(Component.translatable(key)));
-            }
-        };
+        }, tooltip);
     }
 
     public static Block pressurePlate(BlockBehaviour.Properties properties, BlockSetType type, boolean mobsOnly, int light, int flammability, String... descriptions) {
         List<String> tooltip = List.of(descriptions);
-        return new PressurePlateBlock(type, properties) {
+        return BlockTooltips.keys(new PressurePlateBlock(type, properties) {
             @Override
-            protected int getLightBlock(BlockState state, BlockGetter level, BlockPos position) {
-                return light < 0 ? super.getLightBlock(state, level, position) : light;
+            protected int getLightDampening(BlockState state) {
+                return light < 0 ? super.getLightDampening(state) : light;
             }
 
             @Override
             public int getFlammability(BlockState state, BlockGetter level, BlockPos position, Direction face) {
                 return flammability < 0 ? super.getFlammability(state, level, position, face) : flammability;
-            }
-
-            @Override
-            public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
-                super.appendHoverText(stack, context, display, tooltipAdder, flag);
-                tooltip.forEach(key -> tooltipAdder.accept(Component.translatable(key)));
             }
 
             @Override
             protected int getSignalStrength(Level level, BlockPos position) {
                 return getEntityCount(level, TOUCH_AABB.move(position), mobsOnly ? LivingEntity.class : Entity.class) > 0 ? 15 : 0;
             }
-        };
+        }, tooltip);
     }
 }

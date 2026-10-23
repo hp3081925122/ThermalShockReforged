@@ -39,7 +39,7 @@ public final class LiteprismSwordItem extends SwordItem {
         if (!wielder.isShiftKeyDown()) return super.onEntitySwing(stack, wielder, hand);
         if (wielder instanceof Player player) {
             if (player.getCooldowns().isOnCooldown(this)) return super.onEntitySwing(stack, wielder, hand);
-        } else if (wielder.getPersistentData().getLong(NEXT_CAST) > level.getGameTime()) return super.onEntitySwing(stack, wielder, hand);
+        } else if (wielder.getPersistentData().getLongOr(NEXT_CAST, 0L) > level.getGameTime()) return super.onEntitySwing(stack, wielder, hand);
         var position = wielder.getEyePosition().add(wielder.getLookAngle().scale(10));
         var supernova = WeaponContent.PRISMATIC_SUPERNOVA.get().spawn(level, BlockPos.containing(position), EntitySpawnReason.MOB_SUMMONED);
         if (supernova != null && !supernova.isRemoved() && level.getEntity(supernova.getUUID()) == supernova) {

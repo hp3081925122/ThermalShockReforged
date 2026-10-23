@@ -10,6 +10,7 @@ import net.minecraft.world.phys.Vec3;
 import java.util.*;
 
 public final class SnobolBlastEntity extends Entity {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, net.minecraft.world.damagesource.DamageSource source, float damage) { return false; }
     private UUID owner;
     private boolean detached;
     private final List<Blast> pending = new ArrayList<>();
@@ -88,7 +89,7 @@ public final class SnobolBlastEntity extends Entity {
         owner = input.getString("Owner").map(java.util.UUID::fromString).orElse(null);
         detached = input.getBooleanOr("Detached", false);
         pending.clear();
-        var tasks = tag.getList("PendingBlasts", Tag.TAG_COMPOUND);
+        var tasks = tag.getListOrEmpty("PendingBlasts");
         for (int i = 0; i < Math.min(1, tasks.size()); i++) {
             var task = tasks.getCompound(i);
             double damage = Math.max(0, task.getDouble("Damage"));

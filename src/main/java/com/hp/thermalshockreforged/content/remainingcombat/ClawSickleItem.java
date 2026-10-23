@@ -31,12 +31,12 @@ public final class ClawSickleItem extends HoeItem {
         @Override public Ingredient getRepairIngredient() { return Ingredient.of(MaterialContent.items().get("beetle_claw").get(), MaterialContent.items().get("ferrum_ingot").get()); }
     };
     public ClawSickleItem() { super(TIER, new Properties().attributes(DiggerItem.createAttributes(TIER, 0, -2))); }
-    @Override public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
-        super.inventoryTick(stack, level, entity, slot, selected);
-        if (selected && entity instanceof LivingEntity living) RemainingCombatState.refreshNoKnockback(living);
+    @Override public void inventoryTick(ItemStack stack, net.minecraft.server.level.ServerLevel level, Entity entity, net.minecraft.world.entity.EquipmentSlot slot) {
+        super.inventoryTick(stack, level, entity, slot);
+        if (slot == net.minecraft.world.entity.EquipmentSlot.MAINHAND && entity instanceof LivingEntity living) RemainingCombatState.refreshNoKnockback(living);
     }
-    @Override public boolean hurtEnemy(ItemStack stack, LivingEntity victim, LivingEntity attacker) {
-        boolean result = super.hurtEnemy(stack, victim, attacker);
+    @Override public void hurtEnemy(ItemStack stack, LivingEntity victim, LivingEntity attacker) {
+        super.hurtEnemy(stack, victim, attacker);
         if (!victim.level().isClientSide()) {
             var existing = victim.getEffect(WeaponContent.SICKLE_WOUND);
             int amplifier = existing == null ? 0 : existing.getAmplifier() + 1;
@@ -50,7 +50,6 @@ public final class ClawSickleItem extends HoeItem {
                 victim.hurt(victim.damageSources().source(DamageTypes.GENERIC), bonus);
             }
         }
-        return result;
     }
     @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
         super.appendHoverText(stack, context, display, tooltipAdder, flag);

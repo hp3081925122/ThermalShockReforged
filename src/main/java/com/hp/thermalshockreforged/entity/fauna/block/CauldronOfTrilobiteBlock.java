@@ -40,7 +40,7 @@ public final class CauldronOfTrilobiteBlock extends Block implements EntityBlock
     protected BlockState mirror(BlockState state, Mirror mirror) { return state.rotate(mirror.getRotation(state.getValue(FACING))); }
 
     @Override
-    protected RenderShape getRenderShape(BlockState state) { return RenderShape.ENTITYBLOCK_ANIMATED; }
+    protected RenderShape getRenderShape(BlockState state) { return RenderShape.INVISIBLE; }
 
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return new CauldronOfTrilobiteBlockEntity(pos, state); }
@@ -53,19 +53,12 @@ public final class CauldronOfTrilobiteBlock extends Block implements EntityBlock
         };
     }
 
-    @Override
-    protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState replacement, boolean moving) {
-        if (!state.is(replacement.getBlock())) {
-            if (level.getBlockEntity(pos) instanceof CauldronOfTrilobiteBlockEntity cauldron) Containers.dropContents(level, pos, cauldron);
-            super.onRemove(state, level, pos, replacement, moving);
-        }
-    }
 
     @Override
-    protected boolean propagatesSkylightDown(BlockState state, BlockGetter level, BlockPos pos) { return true; }
+    protected boolean propagatesSkylightDown(BlockState state) { return true; }
 
     @Override
-    protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 0; }
+    protected int getLightDampening(BlockState state) { return 0; }
 
     @Override
     protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) { return SHAPE; }

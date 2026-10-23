@@ -16,19 +16,20 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 
 public final class BuzzsawSweepEntity extends Entity implements ServerEndTickTask {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, net.minecraft.world.damagesource.DamageSource source, float damage) { return false; }
     private UUID owner;
     private int ownerEntityId;
     private int elapsed;
     private boolean armed;
     public BuzzsawSweepEntity(EntityType<? extends BuzzsawSweepEntity> type, Level level) { super(type, level); noPhysics = true; setNoGravity(true); }
     public static BuzzsawSweepEntity submit(ServerLevel level, LivingEntity wielder) {
-        var sweep = WeaponContent.BUZZSAW_SWEEP.get().create(level);
+        var sweep = WeaponContent.BUZZSAW_SWEEP.get().create(level, net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
         if (sweep == null) return null;
         sweep.setPos(wielder.position()); sweep.owner = wielder.getUUID(); sweep.ownerEntityId = wielder.getId(); sweep.armed = true;
         return level.addFreshEntity(sweep) ? sweep : null;
     }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
-    @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
+    @Override public boolean canTeleport(Level from, Level to) { return false; }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); if (armed && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
     @Override public void tick() { super.tick(); if (level() instanceof ServerLevel server) { if (armed) ServerEndTickTasks.schedule(server, getUUID()); else discard(); } }
     @Override public void endTick(ServerLevel level) {

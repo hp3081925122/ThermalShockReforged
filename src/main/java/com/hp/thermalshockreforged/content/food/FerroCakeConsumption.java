@@ -20,8 +20,9 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.*;
 
 public final class FerroCakeConsumption extends Entity implements ServerEndTickTask {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, net.minecraft.world.damagesource.DamageSource source, float damage) { return false; }
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
-    public static final DeferredHolder<EntityType<?>, EntityType<FerroCakeConsumption>> TYPE = TYPES.register("ferro_cake_consumption", () -> EntityType.Builder.of(FerroCakeConsumption::new, MobCategory.MISC).noSummon().fireImmune().sized(.01F, .01F).clientTrackingRange(0).updateInterval(20).build(ThermalShockReforged.MOD_ID + ":ferro_cake_consumption"));
+    public static final DeferredHolder<EntityType<?>, EntityType<FerroCakeConsumption>> TYPE = TYPES.register("ferro_cake_consumption", () -> EntityType.Builder.of(FerroCakeConsumption::new, MobCategory.MISC).noSummon().fireImmune().sized(.01F, .01F).clientTrackingRange(0).updateInterval(20).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("ferro_cake_consumption")));
     private static final String TOKEN = "FerroCakeConsumption";
     private UUID owner;
     private int ownerDeaths;
@@ -34,17 +35,17 @@ public final class FerroCakeConsumption extends Entity implements ServerEndTickT
     public FerroCakeConsumption(EntityType<? extends FerroCakeConsumption> type, Level level) { super(type, level); noPhysics = true; setNoGravity(true); }
     public static void register(IEventBus bus) { TYPES.register(bus); }
     public static boolean begin(ServerLevel level, BlockPos pos, GeoDecorBlockEntity cake, ServerPlayer player) {
-        if (!player.isAlive() || cake.kind != GeoDecorKind.FERRO_CAKE || level.getBlockEntity(pos) != cake || cake.getPersistentData().getDouble("slicecount") == 1) return false;
-        var task = TYPE.get().create(level);
+        if (!player.isAlive() || cake.kind != GeoDecorKind.FERRO_CAKE || level.getBlockEntity(pos) != cake || cake.getPersistentData().getDoubleOr("slicecount", 0) == 1) return false;
+        var task = TYPE.get().create(level, net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
         if (task == null) return false;
         task.owner = player.getUUID(); task.ownerDeaths = player.getStats().getValue(Stats.CUSTOM, Stats.DEATHS); task.anchor = pos.immutable(); task.dimension = level.dimension().identifier().toString(); task.armed = true;
         task.setPos(pos.getX(), pos.getY(), pos.getZ());
         var data = cake.getPersistentData();
         Tag previousSlice = data.get("slicecount"), previousToken = data.get(TOKEN);
-        data.putDouble("slicecount", 1); data.putUUID(TOKEN, task.getUUID()); cake.setChanged();
+        data.putDouble("slicecount", 1); data.store(TOKEN, net.minecraft.core.UUIDUtil.CODEC, task.getUUID()); cake.setChanged();
         if (!level.addFreshEntity(task) || level.getBlockEntity(pos) != cake) {
             task.discard();
-            if (level.getBlockEntity(pos) == cake && data.hasUUID(TOKEN) && data.getUUID(TOKEN).equals(task.getUUID())) {
+            if (level.getBlockEntity(pos) == cake && data.read(TOKEN, net.minecraft.core.UUIDUtil.CODEC).isPresent() && data.read(TOKEN, net.minecraft.core.UUIDUtil.CODEC).orElseThrow().equals(task.getUUID())) {
                 if (previousSlice == null) data.remove("slicecount"); else data.put("slicecount", previousSlice);
                 if (previousToken == null) data.remove(TOKEN); else data.put(TOKEN, previousToken);
                 cake.setChanged();
@@ -56,13 +57,13 @@ public final class FerroCakeConsumption extends Entity implements ServerEndTickT
         level.playSound(null, pos, BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "nomnomnom")), SoundSource.NEUTRAL, .8F, 1);
         level.setBlock(pos, level.getBlockState(pos).setValue(FerroCakeBlock.CAKE_ANIMATION, 1), 3);
         feed(player);
-        player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 260, 1));
+        player.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 260, 1));
         ThermalShockReforged.LOGGER.debug("Ferro cake consumption started: player={}, position={}, dimension={}, task={}", player.getUUID(), pos, task.dimension, task.getUUID());
         return true;
     }
     private static void feed(ServerPlayer player) { player.getFoodData().eat(3, .5F); }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
-    @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
+    @Override public boolean canTeleport(Level from, Level to) { return false; }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); if (armed && !consumed && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
     @Override public void tick() {
         super.tick();
@@ -79,7 +80,7 @@ public final class FerroCakeConsumption extends Entity implements ServerEndTickT
         else { phase++; remaining = 5; ServerEndTickTasks.schedule(level, getUUID()); }
         if (current == 3 && level.getBlockState(anchor).is(GeoDecorContent.block(GeoDecorKind.FERRO_CAKE)) && level.getBlockEntity(anchor) instanceof GeoDecorBlockEntity cake) {
             var data = cake.getPersistentData();
-            if (data.hasUUID(TOKEN) && data.getUUID(TOKEN).equals(getUUID())) level.setBlock(anchor, Blocks.AIR.defaultBlockState(), 3);
+            if (data.read(TOKEN, net.minecraft.core.UUIDUtil.CODEC).isPresent() && data.read(TOKEN, net.minecraft.core.UUIDUtil.CODEC).orElseThrow().equals(getUUID())) level.setBlock(anchor, Blocks.AIR.defaultBlockState(), 3);
         }
         level.playSound(null, anchor, SoundEvents.HONEY_BLOCK_BREAK, SoundSource.NEUTRAL, 1, current + 1);
         if (current == 3) level.playSound(null, anchor, SoundEvents.PLAYER_BURP, SoundSource.NEUTRAL, 1, 1);

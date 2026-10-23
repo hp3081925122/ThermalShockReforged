@@ -21,7 +21,7 @@ public final class DissolverGemlockBlock extends Block {
     public static final IntegerProperty BLOCKSTATE = IntegerProperty.create("blockstate", 0, 1);
     public DissolverGemlockBlock() { super(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).sound(SoundType.STONE).strength(-1, 3600000).requiresCorrectToolForDrops().pushReaction(PushReaction.BLOCK).lightLevel(state -> state.getValue(BLOCKSTATE) == 1 ? 15 : 0)); registerDefaultState(defaultBlockState().setValue(BLOCKSTATE, 0)); }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { builder.add(BLOCKSTATE); }
-    @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 15; }
+    @Override protected int getLightDampening(BlockState state) { return 15; }
     @Override protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         if (hand == InteractionHand.MAIN_HAND && level instanceof ServerLevel server) activate(server, pos, player);
         return InteractionResult.SUCCESS;
@@ -31,7 +31,7 @@ public final class DissolverGemlockBlock extends Block {
         BlockState current = level.getBlockState(pos);
         ItemStack held = player.getMainHandItem();
         if (!current.is(this) || current.getValue(BLOCKSTATE) != 0 || !held.is(MaterialContent.items().get("phobotite").get()) || held.isEmpty()) return;
-        var task = LabWorldgenContent.DISSOLVER_CYCLE.get().create(level);
+        var task = LabWorldgenContent.DISSOLVER_CYCLE.get().create(level, net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
         if (task == null) { ThermalShockReforged.LOGGER.debug("Dissolver task creation failed at {}", pos); return; }
         task.prepare(level, pos);
         BlockState activated = current.setValue(BLOCKSTATE, 1);

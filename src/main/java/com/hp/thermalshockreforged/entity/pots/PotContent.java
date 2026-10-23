@@ -17,7 +17,7 @@ import net.neoforged.neoforge.registries.*;
 public final class PotContent {
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
-    public static final DeferredHolder<EntityType<?>, EntityType<SkullscorEntity>> SKULLSCOR = TYPES.register("skullscor", () -> EntityType.Builder.of(SkullscorEntity::new, MobCategory.MONSTER).sized(1, 0.6F).clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":skullscor"));
+    public static final DeferredHolder<EntityType<?>, EntityType<SkullscorEntity>> SKULLSCOR = TYPES.register("skullscor", () -> EntityType.Builder.of(SkullscorEntity::new, MobCategory.MONSTER).sized(1, 0.6F).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("skullscor")));
     public static final DeferredItem<SpawnEggItem> SKULLSCOR_EGG = ITEMS.register("skullscor_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(SKULLSCOR.get())));
     private PotContent() { }
     public static void register(IEventBus bus) {

@@ -19,6 +19,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
 public final class GunnerVolleyEntity extends Entity implements ServerEndTickTask {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, net.minecraft.world.damagesource.DamageSource source, float damage) { return false; }
     private UUID caster;
     private UUID target;
     private Vec3 targetEyes = Vec3.ZERO;
@@ -31,7 +32,7 @@ public final class GunnerVolleyEntity extends Entity implements ServerEndTickTas
     private int fired;
     public GunnerVolleyEntity(EntityType<? extends GunnerVolleyEntity> type, Level level) { super(type, level); noPhysics = true; setNoGravity(true); }
     public static boolean submit(ServerLevel level, FrostilyteGunnerEntity owner, LivingEntity victim) {
-        var task = SanctumContent.GUNNER_VOLLEY.get().create(level);
+        var task = SanctumContent.GUNNER_VOLLEY.get().create(level, net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
         if (task == null) return false;
         task.caster = owner.getUUID(); task.target = victim.getUUID(); task.targetEyes = victim.getEyePosition();
         task.soundOrigin = victim.blockPosition(); task.dimension = level.dimension().identifier().toString();
@@ -44,7 +45,7 @@ public final class GunnerVolleyEntity extends Entity implements ServerEndTickTas
         damage = Double.isFinite(value) ? Math.clamp(value, 0, Float.MAX_VALUE) : 0;
     }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
-    @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
+    @Override public boolean canTeleport(Level from, Level to) { return false; }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); if (caster != null && fired < 3 && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
     @Override public void tick() {
         super.tick();
@@ -75,7 +76,7 @@ public final class GunnerVolleyEntity extends Entity implements ServerEndTickTas
             if (direction.lengthSqr() > 1.0E-12) look = direction.normalize();
         }
         level.playSound(null, soundOrigin, BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "hailfire")), SoundSource.HOSTILE, 1, 1);
-        var bullet = IceContent.ICE_BULLET.get().create(level);
+        var bullet = IceContent.ICE_BULLET.get().create(level, net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
         if (bullet != null) {
             bullet.configureUnowned(caster, damage);
             bullet.setPos(muzzle);

@@ -22,6 +22,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.*;
 
 public final class HuntressTaskEntity extends Entity implements ServerEndTickTask {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, net.minecraft.world.damagesource.DamageSource source, float damage) { return false; }
     private static final ResourceKey<DamageType> DAMAGE_TYPE = ResourceKey.create(Registries.DAMAGE_TYPE, HuntressContent.id("errant_damage"));
     private UUID caster;
     private UUID target;
@@ -60,7 +61,7 @@ public final class HuntressTaskEntity extends Entity implements ServerEndTickTas
     void captureCaster(HuntressBossEntity owner) { casterOrigin = owner.position(); look = owner.getLookAngle(); eyeHeight = owner.getEyeHeight(); setPos(casterOrigin); }
     private void snapshot(ServerLevel server, HuntressBossEntity owner) { if (owner != null) captureCaster(owner); var victim = victim(server); if (victim != null) targetOrigin = victim.position(); setPos(casterOrigin); }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
-    @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
+    @Override public boolean canTeleport(Level from, Level to) { return false; }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); if (armed && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
     @Override public void tick() {
         super.tick();
@@ -95,7 +96,7 @@ public final class HuntressTaskEntity extends Entity implements ServerEndTickTas
             }
             if (current == 34) {
                 if (owner != null) owner.releaseGravity();
-                for (int i = 0; i < 3; i++) sound(server, SoundEvents.SHIELD_BREAK, SoundSource.HOSTILE, 3);
+                for (int i = 0; i < 3; i++) sound(server, SoundEvents.SHIELD_BREAK.value(), SoundSource.HOSTILE, 3);
                 teleportOwner(owner, targetOrigin);
             }
             if (current == 44) {
@@ -130,7 +131,7 @@ public final class HuntressTaskEntity extends Entity implements ServerEndTickTas
     private static double finite(double value) { return Double.isFinite(value) ? Math.clamp(value, 0, Float.MAX_VALUE) : 0; }
     private static boolean valid(Vec3 value) { return Double.isFinite(value.x) && Double.isFinite(value.y) && Double.isFinite(value.z); }
     private static void putVector(CompoundTag tag, String key, Vec3 value) { output.putDouble(key + "X", value.x); output.putDouble(key + "Y", value.y); output.putDouble(key + "Z", value.z); }
-    private static Vec3 getVector(CompoundTag tag, String key) { return new Vec3(tag.getDouble(key + "X"), tag.getDouble(key + "Y"), tag.getDouble(key + "Z")); }
+    private static Vec3 getVector(CompoundTag tag, String key) { return new Vec3(tag.getDoubleOr(key + "X", 0), tag.getDoubleOr(key + "Y", 0), tag.getDoubleOr(key + "Z", 0)); }
     @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
         if (caster != null) output.putString("HuntressCaster", caster.toString()); if (target != null) output.putString("HuntressTarget", target.toString());
         output.putInt("HuntressTargetEntityId", targetEntityId); output.putBoolean("HuntressPlayerTarget", playerTarget); output.putString("HuntressDimension", dimension); output.putInt("HuntressSkill", skill); output.putInt("HuntressElapsed", elapsed); output.putBoolean("HuntressArmed", armed); output.putDouble("HuntressDamage", damage); output.putDouble("HuntressKnockback", knockback); output.putDouble("HuntressEyeHeight", eyeHeight);

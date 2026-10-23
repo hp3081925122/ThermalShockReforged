@@ -30,7 +30,7 @@ public final class DevCharacterToolItem extends Item {
     public InteractionResult use(Level level, Player player, InteractionHand hand) {
         if (!level.isClientSide()) {
             var center = player.position();
-            var targets = level.getEntitiesOfClass(Entity.class, new AABB(center, center).inflate(1), entity -> entity.getType().is(CHARACTERS));
+            var targets = level.getEntitiesOfClass(Entity.class, new AABB(center, center).inflate(1), entity -> entity.is(CHARACTERS));
             targets.sort(Comparator.comparingDouble(entity -> entity.distanceToSqr(center)));
             for (Entity target : targets) {
                 if (delete) {

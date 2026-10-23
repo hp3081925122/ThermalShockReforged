@@ -40,10 +40,10 @@ public class SpecialDoorBlock extends Block implements EntityBlock {
         registerDefaultState(defaultBlockState().setValue(BLOCKSTATE, 0).setValue(ANIMATION, 0).setValue(FACING, Direction.NORTH));
     }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { builder.add(BLOCKSTATE, ANIMATION, FACING); }
-    @Override protected RenderShape getRenderShape(BlockState state) { return RenderShape.ENTITYBLOCK_ANIMATED; }
+    @Override protected RenderShape getRenderShape(BlockState state) { return RenderShape.INVISIBLE; }
     @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return new SpecialDoorBlockEntity(kind, pos, state); }
-    @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 0; }
-    @Override protected boolean propagatesSkylightDown(BlockState state, BlockGetter level, BlockPos pos) { return true; }
+    @Override protected int getLightDampening(BlockState state) { return 0; }
+    @Override protected boolean propagatesSkylightDown(BlockState state) { return true; }
     @Override protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return kind == DoorKind.MAW ? kind.cellShape(state.getValue(FACING), state.getValue(BLOCKSTATE) == 1, BlockPos.ZERO) : kind.shape(state.getValue(FACING), state.getValue(BLOCKSTATE) == 1);
     }
@@ -71,9 +71,9 @@ public class SpecialDoorBlock extends Block implements EntityBlock {
         super.triggerEvent(state, level, pos, id, param);
         return level.getBlockEntity(pos) instanceof SpecialDoorBlockEntity entity && entity.triggerEvent(id, param);
     }
-    @Override protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState replacement, boolean moving) {
-        if (!state.is(replacement.getBlock())) {
-            if (kind == DoorKind.MAW && !level.isClientSide()) {
+    @Override protected void affectNeighborsAfterRemoval(BlockState state, net.minecraft.server.level.ServerLevel level, BlockPos pos, boolean moving) {
+        {
+            if (kind == DoorKind.MAW) {
                 MawDoorPartBlock.clean(() -> {
                     for (BlockPos offset : MawDoorPartBlock.offsets(state.getValue(FACING))) {
                         if (offset.equals(BlockPos.ZERO)) continue;
@@ -82,11 +82,8 @@ public class SpecialDoorBlock extends Block implements EntityBlock {
                     }
                 });
             }
-            if (!level.isClientSide() && level.getBlockEntity(pos) instanceof SpecialDoorBlockEntity entity) {
-                Containers.dropContents(level, pos, entity);
-                level.updateNeighbourForOutputSignal(pos, this);
-            }
-            super.onRemove(state, level, pos, replacement, moving);
+            Containers.updateNeighboursAfterDestroy(state, level, pos);
+            super.affectNeighborsAfterRemoval(state, level, pos, moving);
         }
     }
 
@@ -103,7 +100,7 @@ public class SpecialDoorBlock extends Block implements EntityBlock {
             level.playSound(null, pos, SoundEvents.MINECART_RIDING, SoundSource.NEUTRAL, 1, 1);
         } else {
             level.playSound(null, pos, SoundEvents.NOTE_BLOCK_BASS.value(), SoundSource.NEUTRAL, 1, 1);
-            player.displayClientMessage(Component.translatable("message.thermal_shock_reforged.door.herald_keys"), true);
+            player.sendOverlayMessage(Component.translatable("message.thermal_shock_reforged.door.herald_keys"));
         }
     }
     @Override protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
@@ -123,13 +120,13 @@ public class SpecialDoorBlock extends Block implements EntityBlock {
         @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { super.createBlockStateDefinition(builder); builder.add(WATERLOGGED); }
         @Override public BlockState getStateForPlacement(BlockPlaceContext context) { return super.getStateForPlacement(context).setValue(WATERLOGGED, context.getLevel().getFluidState(context.getClickedPos()).getType() == Fluids.WATER); }
         @Override protected FluidState getFluidState(BlockState state) { return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state); }
-        @Override protected boolean propagatesSkylightDown(BlockState state, BlockGetter level, BlockPos pos) { return state.getFluidState().isEmpty(); }
-        @Override protected BlockState updateShape(BlockState state, Direction side, BlockState neighbor, LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
-            if (state.getValue(WATERLOGGED)) level.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
-            return super.updateShape(state, side, neighbor, level, pos, neighborPos);
+        @Override protected boolean propagatesSkylightDown(BlockState state) { return state.getFluidState().isEmpty(); }
+        @Override protected BlockState updateShape(BlockState state, net.minecraft.world.level.LevelReader level, net.minecraft.world.level.ScheduledTickAccess ticks, BlockPos pos, Direction side, BlockPos neighborPos, BlockState neighbor, net.minecraft.util.RandomSource random) {
+            if (state.getValue(WATERLOGGED)) ticks.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
+            return super.updateShape(state, level, ticks, pos, side, neighborPos, neighbor, random);
         }
         @Override public boolean canConnectRedstone(BlockState state, BlockGetter level, BlockPos pos, Direction side) { return true; }
-        @Override protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block neighbor, BlockPos fromPos, boolean moving) {
+        @Override protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block neighbor, net.minecraft.world.level.redstone.Orientation fromPos, boolean moving) {
             super.neighborChanged(state, level, pos, neighbor, fromPos, moving);
             if (!(level instanceof ServerLevel) || state.getValue(BLOCKSTATE) != 0 || level.getBestNeighborSignal(pos) <= 0) return;
             BlockState current = level.getBlockState(pos);

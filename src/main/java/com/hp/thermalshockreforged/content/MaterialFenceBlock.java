@@ -11,7 +11,7 @@ public final class MaterialFenceBlock extends FenceBlock {
     }
 
     @Override
-    protected int getLightBlock(BlockState state, BlockGetter level, BlockPos position) {
+    protected int getLightDampening(BlockState state) {
         return 0;
     }
 }

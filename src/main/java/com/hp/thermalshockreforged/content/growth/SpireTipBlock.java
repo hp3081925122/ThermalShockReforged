@@ -12,10 +12,10 @@ import net.minecraft.world.phys.shapes.*;
 
 public final class SpireTipBlock extends Block {
     public SpireTipBlock() { super(Properties.of().mapColor(MapColor.COLOR_PURPLE).sound(SoundType.SLIME_BLOCK).instabreak().lightLevel(s->7).noCollision().noOcclusion().isRedstoneConductor((s,l,p)->false)); }
-    @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 0; }
-    @Override protected boolean propagatesSkylightDown(BlockState state, BlockGetter level, BlockPos pos) { return true; }
+    @Override protected int getLightDampening(BlockState state) { return 0; }
+    @Override protected boolean propagatesSkylightDown(BlockState state) { return true; }
     @Override protected VoxelShape getVisualShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) { return Shapes.empty(); }
-    @Override protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block block, BlockPos from, boolean moving) {
+    @Override protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block block, net.minecraft.world.level.redstone.Orientation from, boolean moving) {
         super.neighborChanged(state, level, pos, block, from, moving);
         if (level instanceof ServerLevel server && level.isEmptyBlock(pos.below()) && level.getBlockState(pos).is(this)
                 && level.destroyBlock(pos, false) && !level.getBlockState(pos).is(this)) {

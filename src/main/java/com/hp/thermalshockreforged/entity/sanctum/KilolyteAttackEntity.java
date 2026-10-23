@@ -18,6 +18,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
 public final class KilolyteAttackEntity extends Entity implements ServerEndTickTask {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, net.minecraft.world.damagesource.DamageSource source, float damage) { return false; }
     private static final ResourceKey<DamageType> DAMAGE = ResourceKey.create(Registries.DAMAGE_TYPE, Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "errant_damage"));
     private static final int[][] OFFSETS = {{3,0,-3,0}, {0,3,0,-3}, {2,2,-2,-2}, {2,-2,-2,2}};
     private UUID caster;
@@ -34,7 +35,7 @@ public final class KilolyteAttackEntity extends Entity implements ServerEndTickT
     private boolean ring;
     public KilolyteAttackEntity(EntityType<? extends KilolyteAttackEntity> type, Level level) { super(type, level); noPhysics = true; setNoGravity(true); }
     public static boolean submit(ServerLevel level, KilolyteEntity owner, LivingEntity victim, boolean ring) {
-        var task = SanctumContent.KILOLYTE_ATTACK.get().create(level);
+        var task = SanctumContent.KILOLYTE_ATTACK.get().create(level, net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
         if (task == null) return false;
         var config = SanctumConfig.KILOLYTE;
         task.caster = owner.getUUID(); task.target = victim.getUUID(); task.sourcePosition = owner.position(); task.soundOrigin = victim.blockPosition();
@@ -44,7 +45,7 @@ public final class KilolyteAttackEntity extends Entity implements ServerEndTickT
         return level.addFreshEntity(task);
     }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
-    @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
+    @Override public boolean canTeleport(Level from, Level to) { return false; }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); if (caster != null && phase < (ring ? 4 : 1) && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
     private void capture(ServerLevel level) {
         if (level.getEntity(caster) instanceof KilolyteEntity owner) {

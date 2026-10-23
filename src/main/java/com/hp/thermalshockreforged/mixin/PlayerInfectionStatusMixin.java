@@ -38,7 +38,7 @@ public abstract class PlayerInfectionStatusMixin implements com.hp.thermalshockr
     @Inject(method = "addAdditionalSaveData", at = @At("TAIL"))
     private void thermalShockReforged$saveArrival(net.minecraft.nbt.CompoundTag tag, CallbackInfo callback) { if (thermalShockReforged$arrivalTicks > 0) tag.putInt("ThermalShockReforgedArrivalTicks", thermalShockReforged$arrivalTicks); }
     @Inject(method = "readAdditionalSaveData", at = @At("TAIL"))
-    private void thermalShockReforged$loadArrival(net.minecraft.nbt.CompoundTag tag, CallbackInfo callback) { beginArrivalProtection(tag.getInt("ThermalShockReforgedArrivalTicks")); }
+    private void thermalShockReforged$loadArrival(net.minecraft.nbt.CompoundTag tag, CallbackInfo callback) { beginArrivalProtection(tag.getIntOr("ThermalShockReforgedArrivalTicks", 0)); }
 
     @Inject(method = "hurt", at = @At("HEAD"), cancellable = true)
     private void thermalShockReforged$infectionAttack(DamageSource source, float amount, CallbackInfoReturnable<Boolean> callback) {

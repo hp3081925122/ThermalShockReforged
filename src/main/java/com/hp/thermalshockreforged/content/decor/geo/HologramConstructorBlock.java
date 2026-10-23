@@ -15,7 +15,7 @@ import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.level.material.MapColor;
 
-public final class HologramConstructorBlock extends Block {
+public final class HologramConstructorBlock extends Block implements com.hp.thermalshockreforged.content.BlockTooltips.Provider {
     public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
     public HologramConstructorBlock() {
         super(Properties.of().mapColor(MapColor.METAL).sound(SoundType.ANVIL).strength(1, 10));
@@ -25,13 +25,12 @@ public final class HologramConstructorBlock extends Block {
     @Override public BlockState getStateForPlacement(BlockPlaceContext context) { return defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite()); }
     @Override protected BlockState rotate(BlockState state, Rotation rotation) { return state.setValue(FACING, rotation.rotate(state.getValue(FACING))); }
     @Override protected BlockState mirror(BlockState state, Mirror mirror) { return state.rotate(mirror.getRotation(state.getValue(FACING))); }
-    @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 15; }
+    @Override protected int getLightDampening(BlockState state) { return 15; }
     @Override protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState previous, boolean moving) {
         super.onPlace(state, level, pos, previous, moving);
         level.setBlock(pos, GeoDecorContent.block(GeoDecorKind.HOLOGRAM_MONITOR).defaultBlockState(), 3);
     }
     @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
-        super.appendHoverText(stack, context, display, tooltipAdder, flag);
         tooltipAdder.accept(Component.translatable("block.thermal_shock_reforged.hologram_constructor.description_0"));
     }
 }

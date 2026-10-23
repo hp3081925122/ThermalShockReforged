@@ -17,14 +17,14 @@ public final class WeatherUtilityContent {
     private static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
     public static final DeferredBlock<RainDrumBlock> RAIN_DRUM = BLOCKS.register("rain_drum", RainDrumBlock::new);
     public static final DeferredBlock<PurifierBlock> PURIFIER = BLOCKS.register("purifier", PurifierBlock::new);
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<PurifierBlockEntity>> PURIFIER_ENTITY = BLOCK_ENTITIES.register("purifier", () -> BlockEntityType.Builder.of(PurifierBlockEntity::new, PURIFIER.get()).build(null));
-    public static final DeferredHolder<EntityType<?>, EntityType<PurifierPulseEntity>> PURIFIER_PULSE = ENTITIES.register("purifier_pulse", () -> EntityType.Builder.of(PurifierPulseEntity::new, MobCategory.MISC).noSummon().fireImmune().sized(.01F, .01F).clientTrackingRange(0).updateInterval(20).build(id("purifier_pulse").toString()));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<PurifierBlockEntity>> PURIFIER_ENTITY = BLOCK_ENTITIES.register("purifier", () -> new BlockEntityType<>(PurifierBlockEntity::new, PURIFIER.get()));
+    public static final DeferredHolder<EntityType<?>, EntityType<PurifierPulseEntity>> PURIFIER_PULSE = ENTITIES.register("purifier_pulse", () -> EntityType.Builder.of(PurifierPulseEntity::new, MobCategory.MISC).noSummon().fireImmune().sized(.01F, .01F).clientTrackingRange(0).updateInterval(20).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("purifier_pulse")));
     static { ITEMS.registerSimpleBlockItem(RAIN_DRUM); ITEMS.registerSimpleBlockItem(PURIFIER); }
     private WeatherUtilityContent() { }
     public static Identifier id(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
     public static void register(IEventBus bus) { BLOCKS.register(bus); ITEMS.register(bus); BLOCK_ENTITIES.register(bus); ENTITIES.register(bus); }
     static void award(ServerPlayer player, String path) {
-        var advancement = player.getServer().getAdvancements().get(id(path));
+        var advancement = player.level().getServer().getAdvancements().get(id(path));
         if (advancement == null) return;
         var progress = player.getAdvancements().getOrStartProgress(advancement);
         if (!progress.isDone()) for (String criterion : progress.getRemainingCriteria()) player.getAdvancements().award(advancement, criterion);

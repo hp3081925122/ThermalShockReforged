@@ -14,7 +14,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
-public final class MaterialStairBlock extends StairBlock {
+public final class MaterialStairBlock extends StairBlock implements com.hp.thermalshockreforged.content.BlockTooltips.Provider {
     private final java.util.List<String> descriptions;
     private final float blastResistance;
     private final boolean randomTicks;
@@ -43,8 +43,8 @@ public final class MaterialStairBlock extends StairBlock {
     }
 
     @Override
-    protected int getLightBlock(BlockState state, BlockGetter level, BlockPos position) {
-        return blockedLight < 0 ? super.getLightBlock(state, level, position) : blockedLight;
+    protected int getLightDampening(BlockState state) {
+        return blockedLight < 0 ? super.getLightDampening(state) : blockedLight;
     }
 
     @Override
@@ -58,7 +58,6 @@ public final class MaterialStairBlock extends StairBlock {
     }
     @Override
     public void appendHoverText(net.minecraft.world.item.ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
-        super.appendHoverText(stack, context, display, tooltipAdder, flag);
         descriptions.forEach(key -> tooltipAdder.accept(net.minecraft.network.chat.Component.translatable(key)));
     }
 

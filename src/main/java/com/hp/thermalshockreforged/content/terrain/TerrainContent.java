@@ -202,7 +202,7 @@ public final class TerrainContent {
         }
 
         @Override
-        protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) {
+        protected int getLightDampening(BlockState state) {
             return 15;
         }
     }

@@ -50,7 +50,7 @@ public final class FabricatedArmorEvents {
         syncVisual(server);
     }
 
-    private static int remaining(Player player) { return Math.clamp(player.getPersistentData().getInt(REMAINING), 0, 135); }
+    private static int remaining(Player player) { return Math.clamp(player.getPersistentData().getIntOr(REMAINING, 0), 0, 135); }
 
     private static void visualMarker(Player player) {
         if (!player.hasEffect(FabricatedArmorContent.COOLDOWN_VISUAL)) player.addEffect(new MobEffectInstance(FabricatedArmorContent.COOLDOWN_VISUAL, -1, 1, false, true));
@@ -69,7 +69,7 @@ public final class FabricatedArmorEvents {
                 visualMarker(player);
                 syncVisual(player);
             }
-        } else if (player.hasEffect(FabricatedArmorContent.COOLDOWN_VISUAL) || player.getPersistentData().getBoolean(SENT)) clear(player);
+        } else if (player.hasEffect(FabricatedArmorContent.COOLDOWN_VISUAL) || player.getPersistentData().getBooleanOr(SENT, false)) clear(player);
         if (eligible(player) && player.getItemBySlot(EquipmentSlot.HEAD).is(FabricatedArmorContent.SILENCED_HELMET.get())) {
             player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 60, 0, true, false));
         }
@@ -92,7 +92,7 @@ public final class FabricatedArmorEvents {
 
     private static void syncVisual(ServerPlayer player) {
         int color = color(player);
-        if (player.getPersistentData().getBoolean(SENT) && player.getPersistentData().getInt(COLOR) == color) return;
+        if (player.getPersistentData().getBooleanOr(SENT, false) && player.getPersistentData().getIntOr(COLOR, 0) == color) return;
         player.getPersistentData().putInt(COLOR, color);
         player.getPersistentData().putBoolean(SENT, true);
         PacketDistributor.sendToPlayersTrackingEntityAndSelf(player, new FabricatedArmorPayloads.Visual(player.getId(), player.getUUID(), color, true));
@@ -120,7 +120,7 @@ public final class FabricatedArmorEvents {
     }
 
     private static void clear(ServerPlayer player) {
-        boolean sent = player.getPersistentData().getBoolean(SENT);
+        boolean sent = player.getPersistentData().getBooleanOr(SENT, false);
         player.getPersistentData().remove(REMAINING);
         player.getPersistentData().remove(COLOR);
         player.getPersistentData().remove(SENT);

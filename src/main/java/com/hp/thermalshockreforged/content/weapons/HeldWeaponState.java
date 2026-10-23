@@ -43,8 +43,8 @@ public final class HeldWeaponState {
         var range = entity.getAttribute(Attributes.ENTITY_INTERACTION_RANGE);
         if (range == null) return;
         var data = entity.getPersistentData();
-        int current = data.getInt(REACH_CURRENT);
-        int remaining = data.getInt(REACH_REMAINING);
+        int current = data.getIntOr(REACH_CURRENT, 0);
+        int remaining = data.getIntOr(REACH_REMAINING, 0);
         if (current <= 0) {
             current = amount;
             remaining = 3;
@@ -78,13 +78,13 @@ public final class HeldWeaponState {
         var data = entity.getPersistentData();
         String remaining = reduction == 20 ? SPEAR_REMAINING : REMAINING;
         String created = reduction == 20 ? SPEAR_CREATED : CREATED;
-        data.putInt(remaining, Math.max(data.getInt(remaining), Math.clamp(duration, 1, 3)));
+        data.putInt(remaining, Math.max(data.getIntOr(remaining, 0), Math.clamp(duration, 1, 3)));
         data.putLong(created, entity.level().getGameTime());
     }
 
     public static boolean blocksMelee(LivingEntity entity) {
         var data = entity.getPersistentData();
-        return data.getInt(REMAINING) > 0 || data.getInt(SPEAR_REMAINING) > 0;
+        return data.getIntOr(REMAINING, 0) > 0 || data.getIntOr(SPEAR_REMAINING, 0) > 0;
     }
 
     public static void attack(AttackEntityEvent event) {
@@ -121,21 +121,21 @@ public final class HeldWeaponState {
             return;
         }
         clearLegacyModifier(entity);
-        if (data.contains(ZOOM_REMAINING) && (!entity.isAlive() || data.getLong(ZOOM_CREATED) != entity.level().getGameTime())) {
+        if (data.contains(ZOOM_REMAINING) && (!entity.isAlive() || data.getLongOr(ZOOM_CREATED, 0L) != entity.level().getGameTime())) {
             var speed = entity.getAttribute(Attributes.MOVEMENT_SPEED);
             if (speed != null) speed.removeModifier(ZOOM_MODIFIER);
             data.remove(ZOOM_REMAINING); data.remove(ZOOM_CREATED);
         }
-        if (data.contains(REACH_REMAINING) && (!entity.isAlive() || data.getLong(REACH_CREATED) != entity.level().getGameTime())) {
+        if (data.contains(REACH_REMAINING) && (!entity.isAlive() || data.getLongOr(REACH_CREATED, 0L) != entity.level().getGameTime())) {
             var reachRange = entity.getAttribute(Attributes.ENTITY_INTERACTION_RANGE);
-            int hiddenRemaining = data.getInt(REACH_HIDDEN_REMAINING);
+            int hiddenRemaining = data.getIntOr(REACH_HIDDEN_REMAINING, 0);
             if (hiddenRemaining > 0 && entity.isAlive()) data.putInt(REACH_HIDDEN_REMAINING, hiddenRemaining - 1);
-            int remaining = entity.isAlive() ? data.getInt(REACH_REMAINING) - 1 : 0;
+            int remaining = entity.isAlive() ? data.getIntOr(REACH_REMAINING, 0) - 1 : 0;
             if (remaining > 0) {
                 data.putInt(REACH_REMAINING, remaining);
-            } else if (data.getInt(REACH_HIDDEN_REMAINING) > 0) {
-                int hidden = data.getInt(REACH_HIDDEN);
-                hiddenRemaining = data.getInt(REACH_HIDDEN_REMAINING);
+            } else if (data.getIntOr(REACH_HIDDEN_REMAINING, 0) > 0) {
+                int hidden = data.getIntOr(REACH_HIDDEN, 0);
+                hiddenRemaining = data.getIntOr(REACH_HIDDEN_REMAINING, 0);
                 if (hiddenRemaining > 0 && entity.isAlive()) {
                     data.putInt(REACH_CURRENT, hidden);
                     data.putInt(REACH_REMAINING, hiddenRemaining);
@@ -159,16 +159,16 @@ public final class HeldWeaponState {
             }
             data.remove(REACH_CREATED);
         }
-        if (data.contains(REMAINING) && (!entity.isAlive() || data.getLong(CREATED) != entity.level().getGameTime())) {
-            int remaining = entity.isAlive() ? data.getInt(REMAINING) - 1 : 0;
+        if (data.contains(REMAINING) && (!entity.isAlive() || data.getLongOr(CREATED, 0L) != entity.level().getGameTime())) {
+            int remaining = entity.isAlive() ? data.getIntOr(REMAINING, 0) - 1 : 0;
             if (remaining > 0) data.putInt(REMAINING, remaining);
             else {
                 data.remove(REMAINING);
                 data.remove(CREATED);
             }
         }
-        if (data.contains(SPEAR_REMAINING) && (!entity.isAlive() || data.getLong(SPEAR_CREATED) != entity.level().getGameTime())) {
-            int remaining = entity.isAlive() ? data.getInt(SPEAR_REMAINING) - 1 : 0;
+        if (data.contains(SPEAR_REMAINING) && (!entity.isAlive() || data.getLongOr(SPEAR_CREATED, 0L) != entity.level().getGameTime())) {
+            int remaining = entity.isAlive() ? data.getIntOr(SPEAR_REMAINING, 0) - 1 : 0;
             if (remaining > 0) data.putInt(SPEAR_REMAINING, remaining);
             else {
                 data.remove(SPEAR_REMAINING);
@@ -180,24 +180,24 @@ public final class HeldWeaponState {
     public static void join(EntityJoinLevelEvent event) {
         if (!(event.getEntity() instanceof LivingEntity entity) || event.getLevel().isClientSide() || !entity.isAlive()) return;
         var data = entity.getPersistentData();
-        if (data.getInt(ZOOM_REMAINING) > 0) {
+        if (data.getIntOr(ZOOM_REMAINING, 0) > 0) {
             var speed = entity.getAttribute(Attributes.MOVEMENT_SPEED);
             if (speed != null && !speed.hasModifier(ZOOM_MODIFIER)) speed.addTransientModifier(new AttributeModifier(ZOOM_MODIFIER, -1, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
             data.putInt(ZOOM_REMAINING, 1); data.putLong(ZOOM_CREATED, Long.MIN_VALUE);
         }
-        if (data.getInt(REACH_REMAINING) > 0) {
+        if (data.getIntOr(REACH_REMAINING, 0) > 0) {
             var range = entity.getAttribute(Attributes.ENTITY_INTERACTION_RANGE);
-            int amount = Math.clamp(data.getInt(REACH_CURRENT), 0, 5);
+            int amount = Math.clamp(data.getIntOr(REACH_CURRENT, 0), 0, 5);
             if (range != null && !range.hasModifier(REACH_MODIFIER)) range.addTransientModifier(new AttributeModifier(REACH_MODIFIER, amount, AttributeModifier.Operation.ADD_VALUE));
-            data.putInt(REACH_REMAINING, Math.clamp(data.getInt(REACH_REMAINING), 1, 3));
+            data.putInt(REACH_REMAINING, Math.clamp(data.getIntOr(REACH_REMAINING, 0), 1, 3));
             data.putLong(REACH_CREATED, Long.MIN_VALUE);
         }
-        if (data.getInt(REMAINING) > 0) {
-            data.putInt(REMAINING, Math.clamp(data.getInt(REMAINING), 1, 3));
+        if (data.getIntOr(REMAINING, 0) > 0) {
+            data.putInt(REMAINING, Math.clamp(data.getIntOr(REMAINING, 0), 1, 3));
             data.putLong(CREATED, Long.MIN_VALUE);
         }
-        if (data.getInt(SPEAR_REMAINING) > 0) {
-            data.putInt(SPEAR_REMAINING, Math.clamp(data.getInt(SPEAR_REMAINING), 1, 3));
+        if (data.getIntOr(SPEAR_REMAINING, 0) > 0) {
+            data.putInt(SPEAR_REMAINING, Math.clamp(data.getIntOr(SPEAR_REMAINING, 0), 1, 3));
             data.putLong(SPEAR_CREATED, Long.MIN_VALUE);
         }
         clearLegacyModifier(entity);

@@ -64,7 +64,7 @@ public class ManglerEntity extends Monster implements GeoEntity, ServerEndTickTa
         combatDimension = level().dimension().identifier().toString();
         attackCooldown = ManglerCombatConfig.BOOST_COOLDOWN.get(); entityData.set(COOLDOWN_VISIBLE, true); entityData.set(COOLDOWN_AMBIENT, false); setAnimation("boost");
         Player nearest = null; double distance = Double.MAX_VALUE;
-        if (getServer() != null) for (var player : getServer().getPlayerList().getPlayers()) { double candidate = player.distanceToSqr(position()); if (candidate < distance) { distance = candidate; nearest = player; } }
+        if (level().getServer() != null) for (var player : level().getServer().getPlayerList().getPlayers()) { double candidate = player.distanceToSqr(position()); if (candidate < distance) { distance = candidate; nearest = player; } }
         if (nearest != null) { lookAt(net.minecraft.commands.arguments.EntityAnchorArgument.Anchor.FEET, nearest.position()); yBodyRot = getYRot(); yHeadRot = getYRot(); }
         var look = getLookAngle(); setDeltaMovement(look.x * 2, -0.5, look.z * 2); hurtMarked = true;
         int damage = (int) Math.min(255, Math.max(0, Math.round(getAttributeValue(Attributes.ATTACK_DAMAGE) * (this instanceof SummonedManglerEntity ? 2 : 3))));

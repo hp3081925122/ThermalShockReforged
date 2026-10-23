@@ -22,6 +22,7 @@ import net.minecraft.world.level.*;
 import net.minecraft.world.phys.*;
 
 public final class RippleCastEntity extends Entity implements ServerEndTickTask {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, net.minecraft.world.damagesource.DamageSource source, float damage) { return false; }
     private UUID caster;
     private UUID target;
     private Vec3 targetEyes = Vec3.ZERO;
@@ -30,14 +31,14 @@ public final class RippleCastEntity extends Entity implements ServerEndTickTask 
     private boolean consumed;
     public RippleCastEntity(EntityType<? extends RippleCastEntity> type, Level level) { super(type, level); noPhysics = true; setNoGravity(true); }
     public static boolean submit(ServerLevel level, RippleEntity owner, LivingEntity victim) {
-        var task = SanctumContent.RIPPLE_CAST.get().create(level);
+        var task = SanctumContent.RIPPLE_CAST.get().create(level, net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
         if (task == null) return false;
         task.caster = owner.getUUID(); task.target = victim.getUUID(); task.targetEyes = victim.getEyePosition();
         task.dimension = level.dimension().identifier().toString(); task.setPos(victim.position());
         return level.addFreshEntity(task);
     }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
-    @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
+    @Override public boolean canTeleport(Level from, Level to) { return false; }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); if (caster != null && !consumed && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
     @Override public void tick() {
         super.tick();

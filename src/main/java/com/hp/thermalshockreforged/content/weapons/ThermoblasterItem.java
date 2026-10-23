@@ -60,10 +60,10 @@ public final class ThermoblasterItem extends Item implements GeoItem {
         if (!player.getAbilities().instabuild) player.getInventory().clearOrCountMatchingItems(candidate -> candidate.is(ammo), 1, player.inventoryMenu.getCraftSlots());
         ThermalShockReforged.LOGGER.debug("Thermoblaster fired: player={}, zenith={}, shotgun={}, instance={}", player.getUUID(), zenith, shotgun, instance);
     }
-    @Override public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
-        super.inventoryTick(stack, level, entity, slot, selected);
+    @Override public void inventoryTick(ItemStack stack, net.minecraft.server.level.ServerLevel level, Entity entity, net.minecraft.world.entity.EquipmentSlot slot) {
+        super.inventoryTick(stack, level, entity, slot);
         if (level instanceof ServerLevel server) GeoItem.getOrAssignId(stack, server);
-        if (selected && entity instanceof LivingEntity living) HeldWeaponState.refreshNoMelee(living);
+        if (slot == net.minecraft.world.entity.EquipmentSlot.MAINHAND && entity instanceof LivingEntity living) HeldWeaponState.refreshNoMelee(living);
     }
     @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
         super.appendHoverText(stack, context, display, tooltipAdder, flag);

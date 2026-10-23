@@ -17,13 +17,14 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
 
 public final class BlasphemerProcessEntity extends Entity implements ServerEndTickTask {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, net.minecraft.world.damagesource.DamageSource source, float damage) { return false; }
     private BlockPos anchor = BlockPos.ZERO;
     private UUID token;
     private int elapsed;
     private boolean armed;
     public BlasphemerProcessEntity(EntityType<? extends BlasphemerProcessEntity> type, Level level) { super(type, level); noPhysics = true; setNoGravity(true); }
     public static boolean submit(ServerLevel level, BlockPos pos, UUID token) {
-        var task = MachineContent.BLASPHEMER_PROCESS.get().create(level);
+        var task = MachineContent.BLASPHEMER_PROCESS.get().create(level, net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
         if (task == null) return false;
         task.anchor = pos.immutable(); task.token = token; task.armed = true;
         task.setPos(pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5);
@@ -32,7 +33,7 @@ public final class BlasphemerProcessEntity extends Entity implements ServerEndTi
         return false;
     }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
-    @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
+    @Override public boolean canTeleport(Level from, Level to) { return false; }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); if (armed && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
     @Override public void tick() {
         super.tick();

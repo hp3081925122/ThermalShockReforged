@@ -19,7 +19,7 @@ public final class GrandBlasphemerBlockEntity extends GeoDecorBlockEntity {
     private boolean procedureStarted;
     public GrandBlasphemerBlockEntity(BlockPos pos, BlockState state) { super(GeoDecorKind.GRAND_BLASPHEMER, pos, state); }
     public void activate(ServerPlayer player) {
-        if (!(level instanceof ServerLevel server) || isRemoved() || getPersistentData().getBoolean("UsedHole")) return;
+        if (!(level instanceof ServerLevel server) || isRemoved() || getPersistentData().getBooleanOr("UsedHole", false)) return;
         var advancement = server.getServer().getAdvancements().get(MachineContent.id("blasphemy_2"));
         if (advancement == null) {
             ThermalShockReforged.LOGGER.debug("Blasphemer advancement unavailable; leaving machine unused: player={}, position={}", player.getUUID(), worldPosition);
@@ -28,7 +28,7 @@ public final class GrandBlasphemerBlockEntity extends GeoDecorBlockEntity {
         UUID token = UUID.randomUUID();
         if (!BlasphemerProcessEntity.submit(server, worldPosition, token)) return;
         getPersistentData().putBoolean("UsedHole", true);
-        getPersistentData().putUUID("ProcessToken", token);
+        getPersistentData().store("ProcessToken", net.minecraft.core.UUIDUtil.CODEC, token);
         setChanged();
         server.setBlock(worldPosition, getBlockState().setValue(GrandBlasphemerBlock.PHASE, 1), 3);
         var progress = player.getAdvancements().getOrStartProgress(advancement);
@@ -38,8 +38,8 @@ public final class GrandBlasphemerBlockEntity extends GeoDecorBlockEntity {
         ThermalShockReforged.LOGGER.debug("Blasphemer process activated: player={}, position={}, token={}", player.getUUID(), worldPosition, token);
     }
     public void finish(UUID token) {
-        if (level instanceof ServerLevel server && !isRemoved() && getPersistentData().getBoolean("UsedHole")
-                && getPersistentData().hasUUID("ProcessToken") && token.equals(getPersistentData().getUUID("ProcessToken"))) {
+        if (level instanceof ServerLevel server && !isRemoved() && getPersistentData().getBooleanOr("UsedHole", false)
+                && getPersistentData().read("ProcessToken", net.minecraft.core.UUIDUtil.CODEC).isPresent() && token.equals(getPersistentData().read("ProcessToken", net.minecraft.core.UUIDUtil.CODEC).orElseThrow())) {
             server.setBlock(worldPosition, getBlockState().setValue(GrandBlasphemerBlock.PHASE, 2), 3);
         }
     }

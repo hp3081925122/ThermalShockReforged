@@ -19,7 +19,7 @@ final class SpiceFallingBlock extends FallingBlock {
     }
 
     @Override
-    protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) {
+    protected int getLightDampening(BlockState state) {
         return 15;
     }
 }

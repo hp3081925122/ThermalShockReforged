@@ -46,10 +46,10 @@ public final class SummonLedger extends SavedData {
     }
     private static SummonLedger load(CompoundTag tag, HolderLookup.Provider registries) {
         var ledger = new SummonLedger();
-        for (var value : tag.getList("Leases", Tag.TAG_COMPOUND)) {
+        for (var value : tag.getListOrEmpty("Leases")) {
             var lease = (CompoundTag) value;
-            if (!lease.hasUUID("Owner") || !lease.hasUUID("Child")) continue;
-            UUID owner = lease.getUUID("Owner"), child = lease.getUUID("Child"); long until = lease.getLong("Until");
+            if (!lease.read("Owner", net.minecraft.core.UUIDUtil.CODEC).isPresent() || !lease.read("Child", net.minecraft.core.UUIDUtil.CODEC).isPresent()) continue;
+            UUID owner = lease.read("Owner", net.minecraft.core.UUIDUtil.CODEC).orElseThrow(), child = lease.read("Child", net.minecraft.core.UUIDUtil.CODEC).orElseThrow(); long until = lease.getLongOr("Until", 0L);
             ledger.owners.computeIfAbsent(owner, key -> new HashMap<>()).put(child, until); ledger.expiry.computeIfAbsent(until, key -> new HashSet<>()).add(new Key(owner, child));
         }
         return ledger;
@@ -57,7 +57,7 @@ public final class SummonLedger extends SavedData {
     @Override
     public CompoundTag save(CompoundTag tag, HolderLookup.Provider registries) {
         var leases = new ListTag();
-        owners.forEach((owner, children) -> children.forEach((child, until) -> { var value = new CompoundTag(); value.putUUID("Owner", owner); value.putUUID("Child", child); value.putLong("Until", until); leases.add(value); }));
+        owners.forEach((owner, children) -> children.forEach((child, until) -> { var value = new CompoundTag(); value.store("Owner", net.minecraft.core.UUIDUtil.CODEC, owner); value.store("Child", net.minecraft.core.UUIDUtil.CODEC, child); value.putLong("Until", until); leases.add(value); }));
         tag.put("Leases", leases); return tag;
     }
     private record Key(UUID owner, UUID child) { }

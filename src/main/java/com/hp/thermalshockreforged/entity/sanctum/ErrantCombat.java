@@ -37,7 +37,7 @@ final class ErrantCombat {
                 movementLock = 30;
                 syncMovementLock();
                 owner.setAnimation("hold");
-                level.playSound(null, soundOrigin, SoundEvents.SHIELD_BLOCK, SoundSource.NEUTRAL, 1, 4);
+                level.playSound(null, soundOrigin, SoundEvents.SHIELD_BLOCK.value(), SoundSource.NEUTRAL, 1, 4);
                 owner.addEffect(new MobEffectInstance(StatusContent.PARRYING, 20, 1, false, false));
             } else {
                 cooldown = 10;
@@ -96,15 +96,15 @@ final class ErrantCombat {
         tag.putInt("ErrantStrikeRemaining", strikeRemaining);
         tag.putString("ErrantCombatDimension", dimension);
         tag.putLong("ErrantSoundOrigin", soundOrigin.asLong());
-        if (target != null) tag.putUUID("ErrantStrikeTarget", target);
+        if (target != null) tag.store("ErrantStrikeTarget", net.minecraft.core.UUIDUtil.CODEC, target);
     }
     void load(CompoundTag tag) {
-        cooldown = Math.clamp(tag.getInt("ErrantCooldown"), 0, 50);
-        movementLock = Math.clamp(tag.getInt("ErrantMovementLock"), 0, 30);
-        strikeRemaining = Math.clamp(tag.getInt("ErrantStrikeRemaining"), 0, 12);
-        dimension = tag.getString("ErrantCombatDimension");
-        soundOrigin = BlockPos.of(tag.getLong("ErrantSoundOrigin"));
-        target = tag.hasUUID("ErrantStrikeTarget") ? tag.getUUID("ErrantStrikeTarget") : null;
+        cooldown = Math.clamp(tag.getIntOr("ErrantCooldown", 0), 0, 50);
+        movementLock = Math.clamp(tag.getIntOr("ErrantMovementLock", 0), 0, 30);
+        strikeRemaining = Math.clamp(tag.getIntOr("ErrantStrikeRemaining", 0), 0, 12);
+        dimension = tag.getStringOr("ErrantCombatDimension", "");
+        soundOrigin = BlockPos.of(tag.getLongOr("ErrantSoundOrigin", 0L));
+        target = tag.read("ErrantStrikeTarget", net.minecraft.core.UUIDUtil.CODEC).isPresent() ? tag.read("ErrantStrikeTarget", net.minecraft.core.UUIDUtil.CODEC).orElseThrow() : null;
         if (Identifier.tryParse(dimension) == null) { cooldown = 0; movementLock = 0; strikeRemaining = 0; dimension = ""; }
         if (target == null) strikeRemaining = 0;
         if (!owner.level().isClientSide()) syncMovementLock();

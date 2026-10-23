@@ -18,6 +18,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.*;
 
 public final class CombatItemTaskEntity extends Entity implements ServerEndTickTask {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, net.minecraft.world.damagesource.DamageSource source, float damage) { return false; }
     public static final int ICE = 0, FLOWER = 1, NET = 2, JUDGE = 3;
     private int kind, elapsed;
     private boolean armed;
@@ -25,7 +26,7 @@ public final class CombatItemTaskEntity extends Entity implements ServerEndTickT
     private String dimension = "";
     public CombatItemTaskEntity(EntityType<? extends CombatItemTaskEntity> type, Level level) { super(type, level); noPhysics = true; setNoGravity(true); }
     public static boolean submit(ServerLevel level, Vec3 anchor, int kind) {
-        var task = RemainingCombatContent.TASK.get().create(level);
+        var task = RemainingCombatContent.TASK.get().create(level, net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
         if (task == null) return false;
         task.anchor = anchor; task.dimension = level.dimension().identifier().toString();
         task.setPos(anchor); task.kind = kind; task.armed = true;
@@ -36,7 +37,7 @@ public final class CombatItemTaskEntity extends Entity implements ServerEndTickT
         level.playSound(null, net.minecraft.core.BlockPos.containing(anchor), BuiltInRegistries.SOUND_EVENT.getValue(id), SoundSource.NEUTRAL, volume, pitch);
     }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
-    @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
+    @Override public boolean canTeleport(Level from, Level to) { return false; }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); if (armed && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
     @Override public void tick() {
         super.tick();
@@ -67,7 +68,7 @@ public final class CombatItemTaskEntity extends Entity implements ServerEndTickT
         sound(level, position(), "flarecoreexplode", 1, 1);
         if (kind == FLOWER) sound(level, position(), "minecraft:block.rooted_dirt.break", 1, 1);
         var weak = TagKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, kind == ICE ? "cryo_weak" : "cloro_weak"));
-        var targets = level.getEntitiesOfClass(Entity.class, new AABB(position(), position()).inflate(3), target -> target.getType().is(weak));
+        var targets = level.getEntitiesOfClass(Entity.class, new AABB(position(), position()).inflate(3), target -> target.is(weak));
         targets.sort(Comparator.comparingDouble(target -> target.distanceToSqr(position())));
         for (Entity target : targets) {
             if (kind == ICE) {

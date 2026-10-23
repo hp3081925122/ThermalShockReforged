@@ -46,7 +46,7 @@ public final class ZapWarningEntity extends AttackCarrierBody {
         if (detonationTask != null && level() instanceof ServerLevel server && server.getEntity(detonationTask) instanceof ZapDetonationEntity task) task.configure(caster, damage, ignoreCaster);
     }
     public static ZapWarningEntity spawn(ServerLevel level, BlockPos pos, UUID owner, double damage, boolean ignoreCaster) {
-        var zap = ModEntities.ZAP.get().create(level);
+        var zap = ModEntities.ZAP.get().create(level, net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
         if (zap == null) return null;
         zap.configureDamage(owner, damage); zap.ignoreCaster = ignoreCaster;
         zap.moveTo(pos.getX() + .5, pos.getY(), pos.getZ() + .5, net.minecraft.util.Mth.wrapDegrees(level.getRandom().nextFloat() * 360), 0);

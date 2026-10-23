@@ -13,7 +13,7 @@ public final class GardenlingContent {
     private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
     public static final DeferredHolder<EntityType<?>, EntityType<GardenlingEntity>> GARDENLING = TYPES.register("gardenling", () ->
-            EntityType.Builder.of(GardenlingEntity::new, MobCategory.MONSTER).sized(0.6F, 1.8F).clientTrackingRange(16).updateInterval(3).build("thermal_shock_reforged:gardenling"));
+            EntityType.Builder.of(GardenlingEntity::new, MobCategory.MONSTER).sized(0.6F, 1.8F).clientTrackingRange(16).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("gardenling")));
     public static final DeferredBlock<Block> CONSTRUCTOR = BLOCKS.register("gardenling_constructor", GardenlingConstructorBlock::new);
 
     static { ITEMS.registerSimpleBlockItem(CONSTRUCTOR); }

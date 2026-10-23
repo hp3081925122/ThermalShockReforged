@@ -13,7 +13,7 @@ class CrateBlock extends FallingBlock {
     private static final MapCodec<CrateBlock> CODEC = simpleCodec(CrateBlock::new);
     CrateBlock(Properties properties) { super(properties); }
     @Override protected MapCodec<? extends FallingBlock> codec() { return CODEC; }
-    @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 15; }
+    @Override protected int getLightDampening(BlockState state) { return 15; }
 
     static final class Frigid extends CrateBlock {
         private static final MapCodec<Frigid> CODEC = simpleCodec(Frigid::new);

@@ -25,7 +25,7 @@ public final class GemlockBlock extends Block {
         registerDefaultState(defaultBlockState().setValue(BLOCKSTATE, 0));
     }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { builder.add(BLOCKSTATE); }
-    @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 15; }
+    @Override protected int getLightDampening(BlockState state) { return 15; }
     @Override protected boolean isSignalSource(BlockState state) { return true; }
     @Override protected int getSignal(BlockState state, BlockGetter level, BlockPos pos, Direction side) { return state.getValue(BLOCKSTATE) == 1 ? 15 : 0; }
     @Override public boolean canConnectRedstone(BlockState state, BlockGetter level, BlockPos pos, Direction side) { return true; }

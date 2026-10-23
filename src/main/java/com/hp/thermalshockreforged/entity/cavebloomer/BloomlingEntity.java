@@ -77,7 +77,7 @@ public final class BloomlingEntity extends Monster implements GeoEntity {
         goalSelector.addGoal(7, new FloatGoal(this));
     }
     @Override public boolean removeWhenFarAway(double distance) { return false; }
-    public boolean canChangeDimensions(Level from, Level to) { return burstKind == 0; }
+    public boolean canTeleport(Level from, Level to) { return burstKind == 0; }
     @Override protected SoundEvent getAmbientSound() { return SoundEvents.SPIDER_STEP; }
     private SoundEvent sound(String name) { return BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, name)); }
     @Override protected void playStepSound(BlockPos pos, BlockState state) { playSound(sound("budbloomer_ambient"), 0.15F, 1); }

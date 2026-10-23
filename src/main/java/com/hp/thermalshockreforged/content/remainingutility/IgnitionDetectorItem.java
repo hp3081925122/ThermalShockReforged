@@ -43,7 +43,7 @@ public final class IgnitionDetectorItem extends Item {
                         break;
                     }
                 }
-                player.displayClientMessage(Component.translatable("message.thermal_shock_reforged.ignition_score." + report), false);
+                player.sendSystemMessage(Component.translatable("message.thermal_shock_reforged.ignition_score." + report));
             }
         }
         return super.use(level, player, hand);

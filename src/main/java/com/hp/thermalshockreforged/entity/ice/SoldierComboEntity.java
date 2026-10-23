@@ -20,6 +20,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
 public final class SoldierComboEntity extends Entity implements ServerEndTickTask {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, net.minecraft.world.damagesource.DamageSource source, float damage) { return false; }
     private static final ResourceKey<DamageType> ERRANT = ResourceKey.create(Registries.DAMAGE_TYPE, Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "errant_damage"));
     private UUID caster;
     private UUID target;
@@ -33,7 +34,7 @@ public final class SoldierComboEntity extends Entity implements ServerEndTickTas
     public SoldierComboEntity(EntityType<? extends SoldierComboEntity> type, Level level) { super(type, level); noPhysics = true; setNoGravity(true); }
     public static boolean submit(ServerLevel level, IceCreatureEntity owner, UUID target, Vec3 origin, int elapsed) {
         if (elapsed >= 22) return true;
-        var task = IceContent.SOLDIER_COMBO.get().create(level);
+        var task = IceContent.SOLDIER_COMBO.get().create(level, net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
         if (task == null) return false;
         task.caster = owner.getUUID(); task.target = target; task.soundOrigin = BlockPos.containing(origin); task.dimension = level.dimension().identifier().toString();
         task.phase = elapsed < 11 ? 0 : elapsed < 16 ? 1 : 2;
@@ -47,7 +48,7 @@ public final class SoldierComboEntity extends Entity implements ServerEndTickTas
         damage = Double.isFinite(value) ? Math.clamp(value, 0, Float.MAX_VALUE) : 0;
     }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
-    @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
+    @Override public boolean canTeleport(Level from, Level to) { return false; }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); if (caster != null && phase < 3 && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
     @Override public void tick() {
         super.tick();
@@ -70,7 +71,7 @@ public final class SoldierComboEntity extends Entity implements ServerEndTickTas
         if (committed == 0) {
             sound(level, SoundEvents.PLAYER_ATTACK_SWEEP, 1, 2); strike(level, .6);
         } else if (committed == 1) {
-            sound(level, SoundEvents.SHIELD_BLOCK, 1, 1);
+            sound(level, SoundEvents.SHIELD_BLOCK.value(), 1, 1);
             if (owner != null) owner.addEffect(new MobEffectInstance(StatusContent.PARRYING, 6, 0));
         } else {
             sound(level, custom("magnet_bow_25"), 1, 1); sound(level, custom("propulsionbootsactivate"), .5F, 1);

@@ -20,6 +20,7 @@ import net.minecraft.world.level.storage.loot.parameters.*;
 import net.minecraft.world.phys.Vec3;
 
 public final class PylonCoreActivationEntity extends Entity implements ServerEndTickTask {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, net.minecraft.world.damagesource.DamageSource source, float damage) { return false; }
     private BlockPos anchor = BlockPos.ZERO;
     private String dimension = "";
     private boolean explosive;
@@ -30,17 +31,17 @@ public final class PylonCoreActivationEntity extends Entity implements ServerEnd
     public PylonCoreActivationEntity(EntityType<? extends PylonCoreActivationEntity> type, Level level) { super(type, level); noPhysics = true; setNoGravity(true); }
     public static boolean begin(ServerLevel level, BlockPos pos, ResourceKey<LootTable> loot) {
         boolean explosive = loot == null;
-        if (!(level.getBlockEntity(pos) instanceof GeoDecorBlockEntity core) || core.kind != GeoDecorKind.PYLON_CORE || core.getPersistentData().hasUUID(PylonCoreBlock.ACTIVATION_TOKEN)) return false;
+        if (!(level.getBlockEntity(pos) instanceof GeoDecorBlockEntity core) || core.kind != GeoDecorKind.PYLON_CORE || core.getPersistentData().read(PylonCoreBlock.ACTIVATION_TOKEN, net.minecraft.core.UUIDUtil.CODEC).isPresent()) return false;
         if (!explosive && level.getServer().reloadableRegistries().getLootTable(loot) == LootTable.EMPTY) {
             ThermalShockReforged.LOGGER.warn("Pylon core dust table is unavailable; keeping inactive core: position={}", pos); return false;
         }
-        var task = SanctumContent.CORE_ACTIVATION.get().create(level);
+        var task = SanctumContent.CORE_ACTIVATION.get().create(level, net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
         if (task == null) return false;
         task.anchor = pos.immutable(); task.setPos(Vec3.atLowerCornerOf(pos)); task.dimension = level.dimension().identifier().toString(); task.explosive = explosive; task.loot = loot; task.armed = true;
-        var data = core.getPersistentData(); data.putUUID(PylonCoreBlock.ACTIVATION_TOKEN, task.getUUID()); core.setChanged();
+        var data = core.getPersistentData(); data.store(PylonCoreBlock.ACTIVATION_TOKEN, net.minecraft.core.UUIDUtil.CODEC, task.getUUID()); core.setChanged();
         if (!level.addFreshEntity(task)) {
             task.discard();
-            if (level.getBlockEntity(pos) == core && data.hasUUID(PylonCoreBlock.ACTIVATION_TOKEN) && data.getUUID(PylonCoreBlock.ACTIVATION_TOKEN).equals(task.getUUID())) { data.remove(PylonCoreBlock.ACTIVATION_TOKEN); core.setChanged(); }
+            if (level.getBlockEntity(pos) == core && data.read(PylonCoreBlock.ACTIVATION_TOKEN, net.minecraft.core.UUIDUtil.CODEC).isPresent() && data.read(PylonCoreBlock.ACTIVATION_TOKEN, net.minecraft.core.UUIDUtil.CODEC).orElseThrow().equals(task.getUUID())) { data.remove(PylonCoreBlock.ACTIVATION_TOKEN); core.setChanged(); }
             ThermalShockReforged.LOGGER.warn("Pylon core activation could not be scheduled: position={}, explosive={}", pos, explosive); return false;
         }
         if (level.getBlockState(pos).is(GeoDecorContent.block(GeoDecorKind.PYLON_CORE))) level.setBlock(pos, level.getBlockState(pos).setValue(GeoDecorBlock.ANIMATION, 1), 3);
@@ -49,7 +50,7 @@ public final class PylonCoreActivationEntity extends Entity implements ServerEnd
         return true;
     }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
-    @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
+    @Override public boolean canTeleport(Level from, Level to) { return false; }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); if (armed && !consumed && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
     @Override public void tick() {
         super.tick();
@@ -61,7 +62,7 @@ public final class PylonCoreActivationEntity extends Entity implements ServerEnd
     private GeoDecorBlockEntity ownCore(ServerLevel level) {
         if (!level.hasChunkAt(anchor) || !level.getBlockState(anchor).is(GeoDecorContent.block(GeoDecorKind.PYLON_CORE)) || !(level.getBlockEntity(anchor) instanceof GeoDecorBlockEntity core)) return null;
         var data = core.getPersistentData();
-        return data.hasUUID(PylonCoreBlock.ACTIVATION_TOKEN) && data.getUUID(PylonCoreBlock.ACTIVATION_TOKEN).equals(getUUID()) ? core : null;
+        return data.read(PylonCoreBlock.ACTIVATION_TOKEN, net.minecraft.core.UUIDUtil.CODEC).isPresent() && data.read(PylonCoreBlock.ACTIVATION_TOKEN, net.minecraft.core.UUIDUtil.CODEC).orElseThrow().equals(getUUID()) ? core : null;
     }
     private void release(ServerLevel level, GeoDecorBlockEntity core) {
         if (core == null) return;

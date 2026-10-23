@@ -41,8 +41,8 @@ public final class LargeJellercelBlock extends JellercelBlock {
         }
     }
 
-    @Override protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState replacement, boolean moving) {
-        if (!level.isClientSide() && !state.is(replacement.getBlock())) {
+    @Override protected void affectNeighborsAfterRemoval(BlockState state, net.minecraft.server.level.ServerLevel level, BlockPos pos, boolean moving) {
+        {
             for (int part = 1; part <= 7; part++) {
                 BlockPos at = partPos(pos, part);
                 if (!level.hasChunkAt(at)) continue;
@@ -50,6 +50,6 @@ public final class LargeJellercelBlock extends JellercelBlock {
                 if (JellercelCollisionBlock.belongsTo(level, at, current, pos, part)) level.setBlock(at, current.getFluidState().createLegacyBlock(), 3);
             }
         }
-        super.onRemove(state, level, pos, replacement, moving);
+        super.affectNeighborsAfterRemoval(state, level, pos, moving);
     }
 }

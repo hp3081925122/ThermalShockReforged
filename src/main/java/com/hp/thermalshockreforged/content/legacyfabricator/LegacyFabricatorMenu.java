@@ -22,10 +22,13 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.neoforged.neoforge.capabilities.Capabilities;
-import net.neoforged.neoforge.items.IItemHandler;
-import net.neoforged.neoforge.items.IItemHandlerModifiable;
-import net.neoforged.neoforge.items.ItemStackHandler;
-import net.neoforged.neoforge.items.SlotItemHandler;
+import net.neoforged.neoforge.transfer.IndexModifier;
+import net.neoforged.neoforge.transfer.ResourceHandler;
+import net.neoforged.neoforge.transfer.access.ItemAccess;
+import net.neoforged.neoforge.transfer.item.ItemResource;
+import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
+import net.neoforged.neoforge.transfer.item.ResourceHandlerSlot;
+import net.neoforged.neoforge.transfer.transaction.Transaction;
 
 public final class LegacyFabricatorMenu extends AbstractContainerMenu {
     private static final Identifier RECIPE = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "fabrication/ender_tentacle");
@@ -34,7 +37,8 @@ public final class LegacyFabricatorMenu extends AbstractContainerMenu {
     private final Inventory inventory;
     private final Level level;
     private final BlockPos pos;
-    private final IItemHandlerModifiable storage;
+    private final ResourceHandler<ItemResource> storage;
+    private final IndexModifier<ItemResource> modifier;
     private final boolean bound;
     private final boolean rejectedBinding;
     private final InteractionHand hand;
@@ -71,20 +75,22 @@ public final class LegacyFabricatorMenu extends AbstractContainerMenu {
         boundStack = hand == null ? ItemStack.EMPTY : owner.getItemInHand(hand);
         boundEntity = context.entityId() < 0 ? null : level.getEntity(context.entityId());
         boundBlock = hand == null && context.entityId() < 0 && level.hasChunkAt(pos) ? level.getBlockEntity(pos) : null;
-        IItemHandler capability = null;
+        ResourceHandler<ItemResource> capability = null;
         if (!level.isClientSide()) {
-            if (hand != null) capability = boundStack.getCapability(Capabilities.ItemHandler.ITEM);
-            else if (boundEntity != null) capability = boundEntity.getCapability(Capabilities.ItemHandler.ENTITY);
-            else if (boundBlock != null) capability = level.getCapability(Capabilities.ItemHandler.BLOCK, pos, null);
+            if (hand != null) capability = boundStack.getCapability(Capabilities.Item.ITEM, ItemAccess.forPlayerInteraction(owner, hand));
+            else if (boundEntity != null) capability = boundEntity.getCapability(Capabilities.Item.ENTITY, null);
+            else if (boundBlock != null) capability = level.getCapability(Capabilities.Item.BLOCK, pos, null);
         }
-        bound = capability instanceof IItemHandlerModifiable && capability.getSlots() >= 2;
+        bound = capability instanceof ItemStacksResourceHandler && capability.size() >= 2;
         rejectedBinding = capability != null && !bound;
-        storage = bound ? (IItemHandlerModifiable) capability : new ItemStackHandler(2);
+        ItemStacksResourceHandler stacks = bound ? (ItemStacksResourceHandler) capability : new ItemStacksResourceHandler(2);
+        storage = stacks;
+        modifier = stacks::set;
         if (rejectedBinding) ThermalShockReforged.LOGGER.debug("Legacy fabrication binding rejected: page={}, position={}, player={}", page.id, pos, owner.getUUID());
-        addSlot(new SlotItemHandler(storage, 0, 186, 15) {
+        addSlot(new ResourceHandlerSlot(storage, modifier, 0, 186, 15) {
             @Override public boolean mayPlace(ItemStack stack) { return false; }
         });
-        addSlot(new SlotItemHandler(storage, 1, 15, 123));
+        addSlot(new ResourceHandlerSlot(storage, modifier, 1, 15, 123));
         for (int row = 0; row < 3; row++) for (int column = 0; column < 9; column++) addSlot(new Slot(inventory, column + (row + 1) * 9, 43 + column * 18, 82 + row * 18));
         for (int column = 0; column < 9; column++) addSlot(new Slot(inventory, column, 43 + column * 18, 140));
     }
@@ -113,20 +119,19 @@ public final class LegacyFabricatorMenu extends AbstractContainerMenu {
             if (holder == null || !(holder.value() instanceof FabricationRecipe recipe)) return false;
             var materials = new ArrayList<ItemStack>(inventory.getContainerSize());
             for (int slot = 0; slot < inventory.getContainerSize(); slot++) materials.add(inventory.getItem(slot));
-            var input = new FabricationRecipe.Input(materials, storage.getStackInSlot(1));
+            var input = new FabricationRecipe.Input(materials, stackIn(1));
             var plan = recipe.removalPlan(input);
             if (plan == null) return false;
             var result = recipe.assemble(input, level.registryAccess());
-            var previous = storage.getStackInSlot(0);
+            var previous = stackIn(0);
             int existing = previous.isEmpty() ? 0 : previous.getCount();
-            int limit = Math.min(storage.getSlotLimit(0), result.getMaxStackSize());
+            int limit = result.isEmpty() ? 0 : (int) Math.min(storage.getCapacityAsLong(0, ItemResource.of(result)), result.getMaxStackSize());
             if (result.isEmpty() || !previous.isEmpty() && !ItemStack.isSameItemSameComponents(previous, result) || result.getCount() > limit - existing
-                    || storage.extractItem(1, recipe.energyCount(), true).getCount() != recipe.energyCount()) return false;
-            var energy = storage.extractItem(1, recipe.energyCount(), false);
-            if (energy.getCount() != recipe.energyCount()) return false;
+                    || extractEnergy(recipe.energyCount(), false) != recipe.energyCount()) return false;
+            if (extractEnergy(recipe.energyCount(), true) != recipe.energyCount()) return false;
             for (int slot = 0; slot < plan.length; slot++) if (plan[slot] > 0) inventory.removeItem(slot, plan[slot]);
             result.grow(existing);
-            storage.setStackInSlot(0, result);
+            modifier.set(0, ItemResource.of(result), result.getCount());
             if (boundBlock != null && bound) boundBlock.setChanged();
             inventory.setChanged();
             broadcastChanges();
@@ -136,6 +141,18 @@ public final class LegacyFabricatorMenu extends AbstractContainerMenu {
             return true;
         } finally {
             transacting = false;
+        }
+    }
+
+    private ItemStack stackIn(int index) {
+        return storage.getResource(index).toStack(storage.getAmountAsInt(index));
+    }
+
+    private int extractEnergy(int amount, boolean commit) {
+        try (var transaction = Transaction.openRoot()) {
+            int extracted = storage.extract(1, storage.getResource(1), amount, transaction);
+            if (commit && extracted == amount) transaction.commit();
+            return extracted;
         }
     }
 
@@ -167,8 +184,8 @@ public final class LegacyFabricatorMenu extends AbstractContainerMenu {
         super.removed(player);
         if (bound || !(player instanceof ServerPlayer server)) return;
         for (int slot = 0; slot < 2; slot++) {
-            var stack = storage.getStackInSlot(slot).copy();
-            storage.setStackInSlot(slot, ItemStack.EMPTY);
+            var stack = stackIn(slot);
+            modifier.set(slot, ItemResource.EMPTY, 0);
             if (stack.isEmpty()) continue;
             if (!server.isAlive() || server.hasDisconnected()) server.drop(stack, false);
             else inventory.placeItemBackInInventory(stack);

@@ -14,17 +14,12 @@ import net.minecraft.world.level.material.MapColor;
 
 final class ThermalGeyserBlock extends Block implements EntityBlock {
     ThermalGeyserBlock() { super(Properties.of().mapColor(MapColor.COLOR_GRAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERRACK).strength(1, 5).requiresCorrectToolForDrops()); }
-    @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 15; }
+    @Override protected int getLightDampening(BlockState state) { return 15; }
     @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return new ThermalGeyserBlockEntity(pos, state); }
     @Override public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) { level.addParticle(ParticleTypes.CAMPFIRE_SIGNAL_SMOKE, pos.getX() + .5, pos.getY() + 1, pos.getZ() + .5, 0, .1, 0); }
     @Override protected MenuProvider getMenuProvider(BlockState state, Level level, BlockPos pos) { return level.getBlockEntity(pos) instanceof ThermalGeyserBlockEntity geyser ? geyser : null; }
     @Override protected boolean triggerEvent(BlockState state, Level level, BlockPos pos, int id, int parameter) { super.triggerEvent(state, level, pos, id, parameter); return level.getBlockEntity(pos) instanceof ThermalGeyserBlockEntity geyser && geyser.triggerEvent(id, parameter); }
-    @Override protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState replacement, boolean moving) {
-        if (!state.is(replacement.getBlock())) {
-            if (!level.isClientSide() && level.getBlockEntity(pos) instanceof ThermalGeyserBlockEntity geyser) { Containers.dropContents(level, pos, geyser); level.updateNeighbourForOutputSignal(pos, this); }
-            super.onRemove(state, level, pos, replacement, moving);
-        }
-    }
+    @Override protected void affectNeighborsAfterRemoval(BlockState state, net.minecraft.server.level.ServerLevel level, BlockPos pos, boolean moving) { Containers.updateNeighboursAfterDestroy(state, level, pos); }
     @Override protected boolean hasAnalogOutputSignal(BlockState state) { return true; }
-    @Override protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) { return level.getBlockEntity(pos) instanceof ThermalGeyserBlockEntity geyser ? AbstractContainerMenu.getRedstoneSignalFromContainer(geyser) : 0; }
+    @Override protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos, net.minecraft.core.Direction direction) { return level.getBlockEntity(pos) instanceof ThermalGeyserBlockEntity geyser ? AbstractContainerMenu.getRedstoneSignalFromContainer(geyser) : 0; }
 }

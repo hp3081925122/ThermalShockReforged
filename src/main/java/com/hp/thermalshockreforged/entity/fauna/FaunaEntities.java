@@ -26,17 +26,17 @@ public final class FaunaEntities {
     private static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, ThermalShockReforged.MOD_ID);
     public static final DeferredBlock<CauldronOfTrilobiteBlock> CAULDRON = BLOCKS.register("cauldron_of_trilobite", CauldronOfTrilobiteBlock::new);
     public static final DeferredItem<CauldronOfTrilobiteItem> CAULDRON_ITEM = ITEMS.register("cauldron_of_trilobite", () -> new CauldronOfTrilobiteItem(CAULDRON.get(), new Item.Properties()));
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CauldronOfTrilobiteBlockEntity>> CAULDRON_ENTITY = BLOCK_ENTITIES.register("cauldron_of_trilobite", () -> BlockEntityType.Builder.of(CauldronOfTrilobiteBlockEntity::new, CAULDRON.get()).build(null));
-    public static final DeferredHolder<EntityType<?>, EntityType<BonerahnaEntity>> BONERAHNA = TYPES.register("bonerahna", () -> EntityType.Builder.of(BonerahnaEntity::new, MobCategory.WATER_AMBIENT).sized(0.400F, 0.400F).clientTrackingRange(64).updateInterval(3).build("thermal_shock_reforged:bonerahna"));
-    public static final DeferredHolder<EntityType<?>, EntityType<ChromefishEntity>> CHROMEFISH = TYPES.register("chromefish", () -> EntityType.Builder.of(ChromefishEntity::new, MobCategory.WATER_AMBIENT).sized(0.300F, 0.300F).clientTrackingRange(64).updateInterval(3).build("thermal_shock_reforged:chromefish"));
-    public static final DeferredHolder<EntityType<?>, EntityType<TorpedoEntity>> TORPEDO = TYPES.register("torpedo", () -> EntityType.Builder.of(TorpedoEntity::new, MobCategory.WATER_AMBIENT).sized(1.120F, 0.280F).clientTrackingRange(64).updateInterval(3).build("thermal_shock_reforged:torpedo"));
-    public static final DeferredHolder<EntityType<?>, EntityType<TrilobiteEntity>> TRILOBITE = TYPES.register("trilobite", () -> EntityType.Builder.of(TrilobiteEntity::new, MobCategory.MONSTER).sized(1.000F, 0.500F).fireImmune().clientTrackingRange(64).updateInterval(3).build("thermal_shock_reforged:trilobite"));
-    public static final DeferredHolder<EntityType<?>, EntityType<WillogradeEntity>> WILLOGRADE = TYPES.register("willograde", () -> EntityType.Builder.of(WillogradeEntity::new, MobCategory.AMBIENT).sized(1.400F, 1.500F).clientTrackingRange(64).updateInterval(3).build("thermal_shock_reforged:willograde"));
-    public static final DeferredHolder<EntityType<?>, EntityType<FlareEntity>> FLARE = TYPES.register("flare", () -> EntityType.Builder.of(FlareEntity::new, MobCategory.AMBIENT).sized(0.800F, 0.800F).fireImmune().clientTrackingRange(64).updateInterval(3).build("thermal_shock_reforged:flare"));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CauldronOfTrilobiteBlockEntity>> CAULDRON_ENTITY = BLOCK_ENTITIES.register("cauldron_of_trilobite", () -> new BlockEntityType<>(CauldronOfTrilobiteBlockEntity::new, CAULDRON.get()));
+    public static final DeferredHolder<EntityType<?>, EntityType<BonerahnaEntity>> BONERAHNA = TYPES.register("bonerahna", () -> EntityType.Builder.of(BonerahnaEntity::new, MobCategory.WATER_AMBIENT).sized(0.400F, 0.400F).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("bonerahna")));
+    public static final DeferredHolder<EntityType<?>, EntityType<ChromefishEntity>> CHROMEFISH = TYPES.register("chromefish", () -> EntityType.Builder.of(ChromefishEntity::new, MobCategory.WATER_AMBIENT).sized(0.300F, 0.300F).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("chromefish")));
+    public static final DeferredHolder<EntityType<?>, EntityType<TorpedoEntity>> TORPEDO = TYPES.register("torpedo", () -> EntityType.Builder.of(TorpedoEntity::new, MobCategory.WATER_AMBIENT).sized(1.120F, 0.280F).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("torpedo")));
+    public static final DeferredHolder<EntityType<?>, EntityType<TrilobiteEntity>> TRILOBITE = TYPES.register("trilobite", () -> EntityType.Builder.of(TrilobiteEntity::new, MobCategory.MONSTER).sized(1.000F, 0.500F).fireImmune().clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("trilobite")));
+    public static final DeferredHolder<EntityType<?>, EntityType<WillogradeEntity>> WILLOGRADE = TYPES.register("willograde", () -> EntityType.Builder.of(WillogradeEntity::new, MobCategory.AMBIENT).sized(1.400F, 1.500F).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("willograde")));
+    public static final DeferredHolder<EntityType<?>, EntityType<FlareEntity>> FLARE = TYPES.register("flare", () -> EntityType.Builder.of(FlareEntity::new, MobCategory.AMBIENT).sized(0.800F, 0.800F).fireImmune().clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("flare")));
 
     private static final DeferredRegister<net.minecraft.core.particles.ParticleType<?>> PARTICLES = DeferredRegister.create(Registries.PARTICLE_TYPE, ThermalShockReforged.MOD_ID);
     public static final DeferredHolder<net.minecraft.core.particles.ParticleType<?>, net.minecraft.core.particles.SimpleParticleType> WHITE_ORB = PARTICLES.register("white_orb", () -> new net.minecraft.core.particles.SimpleParticleType(false));
-    public static final DeferredHolder<EntityType<?>, EntityType<GoreFlayerOrbEntity>> GORE_FLAYER_ORB = TYPES.register("gore_flayer_orb", () -> EntityType.Builder.<GoreFlayerOrbEntity>of(GoreFlayerOrbEntity::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(64).updateInterval(1).build("thermal_shock_reforged:gore_flayer_orb"));
+    public static final DeferredHolder<EntityType<?>, EntityType<GoreFlayerOrbEntity>> GORE_FLAYER_ORB = TYPES.register("gore_flayer_orb", () -> EntityType.Builder.<GoreFlayerOrbEntity>of(GoreFlayerOrbEntity::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(64).updateInterval(1).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("gore_flayer_orb")));
     public static final DeferredItem<RawTorpedoItem> RAW_TORPEDO = ITEMS.register("raw_torpedo", RawTorpedoItem::new);
 
     static {
@@ -53,13 +53,13 @@ public final class FaunaEntities {
     public static Item item(String id) {
         var key = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, id);
         if (!BuiltInRegistries.ITEM.containsKey(key)) throw new IllegalStateException("Missing fauna item dependency: " + key);
-        return BuiltInRegistries.ITEM.get(key);
+        return BuiltInRegistries.ITEM.getValue(key);
     }
 
     public static Block block(String id) {
         var key = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, id);
         if (!BuiltInRegistries.BLOCK.containsKey(key)) throw new IllegalStateException("Missing fauna block dependency: " + key);
-        return BuiltInRegistries.BLOCK.get(key);
+        return BuiltInRegistries.BLOCK.getValue(key);
     }
 
     public static void register(IEventBus bus) {
@@ -75,7 +75,7 @@ public final class FaunaEntities {
     }
 
     private static void capabilities(net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent event) {
-        event.registerBlockEntity(net.neoforged.neoforge.capabilities.Capabilities.ItemHandler.BLOCK, CAULDRON_ENTITY.get(), (cauldron, side) -> side == null ? null : new net.neoforged.neoforge.items.wrapper.SidedInvWrapper(cauldron, side));
+        event.registerBlockEntity(net.neoforged.neoforge.capabilities.Capabilities.Item.BLOCK, CAULDRON_ENTITY.get(), (cauldron, side) -> side == null ? null : new net.neoforged.neoforge.transfer.item.WorldlyContainerWrapper(cauldron, side));
     }
 
     private static void attributes(EntityAttributeCreationEvent event) {

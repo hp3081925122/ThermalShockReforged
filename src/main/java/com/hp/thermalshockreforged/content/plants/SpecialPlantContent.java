@@ -14,7 +14,7 @@ import net.neoforged.neoforge.registries.*;
 public final class SpecialPlantContent {
     private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
-    public static final DeferredBlock<Block> BOUNCEWEED = BLOCKS.register("bounceweed", () -> new BuffWeedBlock(MobEffects.JUMP, glowing()));
+    public static final DeferredBlock<Block> BOUNCEWEED = BLOCKS.register("bounceweed", () -> new BuffWeedBlock(MobEffects.JUMP_BOOST, glowing()));
     public static final DeferredBlock<Block> FLOATWEED = BLOCKS.register("floatweed", () -> new BuffWeedBlock(MobEffects.SLOW_FALLING, glowing()));
     public static final DeferredBlock<Block> VERMILLION_ROOTS = BLOCKS.register("vermillion_roots", VermillionRootsBlock::new);
     public static final DeferredBlock<Block> LOQUE_DANDELION = BLOCKS.register("loque_dandelion", () -> new DandelionBlock(false, properties()));

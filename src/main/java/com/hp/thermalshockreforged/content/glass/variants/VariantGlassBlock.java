@@ -26,7 +26,7 @@ class VariantGlassBlock extends Block {
     protected boolean skipRendering(BlockState state, BlockState adjacent, Direction side) { return adjacent.is(this) || super.skipRendering(state, adjacent, side); }
 
     @Override
-    protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return blockedLight; }
+    protected int getLightDampening(BlockState state) { return blockedLight; }
 
     @Override
     protected VoxelShape getVisualShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) { return Shapes.empty(); }

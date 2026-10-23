@@ -17,7 +17,7 @@ public final class LunarPanelBlock extends GeoDecorBlock {
         BlockPos below = pos.below();
         if (level.hasChunkAt(below) && level.getBlockEntity(below) != null) {
             int amount = 150;
-            if (level.isDay()) {
+            if (level.isBrightOutside()) {
                 var unsided = level.getCapability(Capabilities.EnergyStorage.BLOCK, below, null);
                 if (unsided != null && unsided.canReceive()) amount = 5;
             }

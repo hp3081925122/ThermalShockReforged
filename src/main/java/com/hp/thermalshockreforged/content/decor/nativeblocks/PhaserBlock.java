@@ -15,8 +15,8 @@ final class PhaserBlock extends NativeDecorBlock {
                 .requiresCorrectToolForDrops().noCollision().noOcclusion().isRedstoneConductor((state, level, pos) -> false),
                 new Traits(15, false, true, false, 0, 0, false, true), null, "block.thermal_shock_reforged.phaser.description_0");
     }
-    @Override protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
-        super.entityInside(state, level, pos, entity);
+    @Override protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, net.minecraft.world.entity.InsideBlockEffectApplier effects, boolean precise) {
+        super.entityInside(state, level, pos, entity, effects, precise);
         if (!level.isClientSide() && entity instanceof LivingEntity living) living.addEffect(new MobEffectInstance(entity.isShiftKeyDown() ? MobEffects.SLOW_FALLING : MobEffects.LEVITATION, 5, 1, true, true));
     }
 }

@@ -45,7 +45,7 @@ public record NpcTradeRecipe(List<FabricationRecipe.Cost> costs, int levels, Ite
 
     public boolean allowed(ServerPlayer player) {
         if (requires.isEmpty()) return true;
-        var advancement = player.getServer().getAdvancements().get(requires.get());
+        var advancement = player.level().getServer().getAdvancements().get(requires.get());
         return advancement != null && player.getAdvancements().getOrStartProgress(advancement).isDone();
     }
 

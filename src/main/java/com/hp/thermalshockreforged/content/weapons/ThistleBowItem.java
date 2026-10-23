@@ -58,8 +58,8 @@ public final class ThistleBowItem extends Item implements GeoItem {
         }
     }
 
-    @Override public void inventoryTick(ItemStack stack, Level level, Entity holder, int slot, boolean selected) {
-        super.inventoryTick(stack, level, holder, slot, selected);
+    @Override public void inventoryTick(ItemStack stack, net.minecraft.server.level.ServerLevel level, Entity holder, net.minecraft.world.entity.EquipmentSlot slot) {
+        super.inventoryTick(stack, level, holder, slot);
         if (level instanceof ServerLevel server) GeoItem.getOrAssignId(stack, server);
     }
 

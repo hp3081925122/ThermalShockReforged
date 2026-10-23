@@ -15,7 +15,7 @@ public final class MaterialPillarBlock extends RotatedPillarBlock {
     }
 
     @Override
-    protected int getLightBlock(BlockState state, BlockGetter level, BlockPos position) {
+    protected int getLightDampening(BlockState state) {
         return 15;
     }
 

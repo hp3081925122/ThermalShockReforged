@@ -37,7 +37,7 @@ public final class RemainingCombatContent {
     public static final DeferredHolder<net.minecraft.core.particles.ParticleType<?>, SimpleParticleType> ICE_BOMB_EFFECT = PARTICLES.register("ice_bomb_effect", () -> new SimpleParticleType(false));
     public static final DeferredHolder<net.minecraft.world.effect.MobEffect, CryoCooldownVisual> CRYO_VISUAL = EFFECTS.register("ice_bomb_cooldown_visual", CryoCooldownVisual::new);
     public static final DeferredHolder<EntityType<?>, EntityType<CombatItemTaskEntity>> TASK = TYPES.register("combat_item_task", () -> EntityType.Builder.<CombatItemTaskEntity>of(CombatItemTaskEntity::new, MobCategory.MISC)
-            .noSummon().sized(.01F, .01F).clientTrackingRange(0).updateInterval(20).build(ThermalShockReforged.MOD_ID + ":combat_item_task"));
+            .noSummon().sized(.01F, .01F).clientTrackingRange(0).updateInterval(20).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("combat_item_task")));
     public static final List<DeferredItem<? extends Item>> ALL = List.of(ANTENNAE, CLAW_SICKLE, FLOWER_BOMB, ICE_BOMB, JELLY_UMBRELLA, LEGENDARY_JELLY_UMBRELLA, NET_LAUNCHER, THE_JUDGE, PISTON_GAUNTLET);
     private RemainingCombatContent() { }
     public static void register(IEventBus bus) {

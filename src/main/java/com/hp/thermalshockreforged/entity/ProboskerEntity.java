@@ -157,7 +157,7 @@ public final class ProboskerEntity extends TamableAnimal implements GeoEntity {
 
     @Override
     public AgeableMob getBreedOffspring(ServerLevel level, AgeableMob other) {
-        ProboskerEntity child = ModEntities.PROBOSKER.get().create(level);
+        ProboskerEntity child = ModEntities.PROBOSKER.get().create(level, net.minecraft.world.entity.EntitySpawnReason.BREEDING);
         if (child != null) child.finalizeSpawn(level, level.getCurrentDifficultyAt(child.blockPosition()), EntitySpawnReason.BREEDING, null);
         return child;
     }
@@ -177,7 +177,7 @@ public final class ProboskerEntity extends TamableAnimal implements GeoEntity {
     protected SoundEvent getDeathSound() { return SoundEvents.PUFFER_FISH_DEATH; }
 
     @Override
-    protected void playStepSound(BlockPos position, BlockState state) { playSound(SoundEvents.WOLF_STEP, 0.15F, 1); }
+    protected void playStepSound(BlockPos position, BlockState state) { playSound(SoundEvents.WOLF_STEP.value(), 0.15F, 1); }
 
     @Override
     public void aiStep() {

@@ -46,7 +46,7 @@ public final class LautEntity extends PathfinderMob implements GeoEntity {
     @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         super.readAdditionalSaveData(input);
 if (input.getString("Texture").isPresent()) entityData.set(TEXTURE, input.getStringOr("Texture", ""));
-        entityData.set(COMPLETED, input.getBooleanOr("LautHasPlenkys", false) || getPersistentData().getBoolean("hasplenkys"));
+        entityData.set(COMPLETED, input.getBooleanOr("LautHasPlenkys", false) || getPersistentData().getBooleanOr("hasplenkys", false));
         setPersistenceRequired();
     }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) { controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> state.setAndContinue(RawAnimation.begin().thenLoop(completed() ? "1" : "0")))); }

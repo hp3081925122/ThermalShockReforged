@@ -66,7 +66,7 @@ public final class KofoniMenu extends AbstractContainerMenu {
     private boolean exchange(ServerPlayer player) {
         ItemStack payment = input.getItem(0);
         if (payment.isEmpty() || !payment.is(TABLETS)) return false;
-        var advancement = player.getServer().getAdvancements().get(KofoniContent.id("whisper_advancement"));
+        var advancement = player.level().getServer().getAdvancements().get(KofoniContent.id("whisper_advancement"));
         if (advancement == null) { ThermalShockReforged.LOGGER.warn("Kofoni exchange advancement missing; keeping input: player={}", player.getUUID()); return false; }
         int consumed = payment.getCount();
         var item = payment.getItem();

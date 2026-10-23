@@ -24,18 +24,17 @@ import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.BlockHitResult;
 
-public final class StratusReactorCoreBlock extends Block implements EntityBlock {
+public final class StratusReactorCoreBlock extends Block implements EntityBlock, com.hp.thermalshockreforged.content.BlockTooltips.Provider {
     public static final IntegerProperty BLOCKSTATE = IntegerProperty.create("blockstate", 0, 1);
     public StratusReactorCoreBlock() {
         super(Properties.of().mapColor(MapColor.METAL).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERITE_BLOCK).strength(2, 30).requiresCorrectToolForDrops().lightLevel(state -> state.getValue(BLOCKSTATE) == 1 ? 0 : 15));
         registerDefaultState(defaultBlockState().setValue(BLOCKSTATE, 0));
     }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { builder.add(BLOCKSTATE); }
-    @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 15; }
+    @Override protected int getLightDampening(BlockState state) { return 15; }
     @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return new ReactorCoreBlockEntity(pos, state); }
     @Override public boolean canHarvestBlock(BlockState state, BlockGetter level, BlockPos pos, Player player) { return state.getValue(BLOCKSTATE) != 1 && super.canHarvestBlock(state, level, pos, player); }
     @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
-        super.appendHoverText(stack, context, display, tooltipAdder, flag);
         for (int i = 0; i < 5; i++) tooltipAdder.accept(Component.translatable(getDescriptionId() + ".description_" + i));
     }
     @Override protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
@@ -74,12 +73,12 @@ public final class StratusReactorCoreBlock extends Block implements EntityBlock 
     }
     private void reportMismatch(Player player, BlockPos pos, BlockState expected, BlockState actual) {
         if (player == null) return;
-        player.displayClientMessage(Component.translatable("message.thermal_shock_reforged.stratus_reactor.invalid_block", pos.getX(), pos.getY(), pos.getZ(), expected.getBlock().getName(), actual.getBlock().getName()), false);
+        player.sendSystemMessage(Component.translatable("message.thermal_shock_reforged.stratus_reactor.invalid_block", pos.getX(), pos.getY(), pos.getZ(), expected.getBlock().getName(), actual.getBlock().getName()));
     }
     private void activate(ServerLevel level, BlockPos pos, Player player) {
         BlockState current = level.getBlockState(pos);
         if (!current.is(this) || current.getValue(BLOCKSTATE) == 1 || !pattern(level, pos, player) || !(level.getBlockEntity(pos) instanceof ReactorCoreBlockEntity core)) return;
-        ReactorSequenceEntity task = ReactorContent.SEQUENCE.get().create(level);
+        ReactorSequenceEntity task = ReactorContent.SEQUENCE.get().create(level, net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
         if (task == null) return;
         task.prepare(level, pos);
         BlockState activated = current.setValue(BLOCKSTATE, 1);

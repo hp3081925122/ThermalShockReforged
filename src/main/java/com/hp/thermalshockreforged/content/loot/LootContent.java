@@ -91,17 +91,13 @@ public final class LootContent {
         @Override public MapCodec<GameRule> codec() { return CODEC; }
         @Override public boolean test(LootContext context) {
             if (rule.equals("loqendiaDropHeartCrystals")) return WorldRulesConfig.DROP_HEART_CRYSTALS.get();
-            var result = new boolean[] { false };
-            var found = new boolean[] { false };
-            GameRules.visitGameRuleTypes(new GameRules.GameRuleTypeVisitor() {
-                @Override public void visitBoolean(GameRules.Key<GameRules.BooleanValue> key, GameRules.Type<GameRules.BooleanValue> type) {
-                    if (!key.getId().equals(rule)) return;
-                    found[0] = true;
-                    result[0] = context.getLevel().getGameRules().getBoolean(key);
-                }
-            });
-            if (!found[0]) ThermalShockReforged.LOGGER.warn("Loot condition references unknown boolean game rule: {}", rule);
-            return result[0];
+            for (var gameRule : net.minecraft.core.registries.BuiltInRegistries.GAME_RULE) {
+                if (gameRule.gameRuleType() != net.minecraft.world.level.gamerules.GameRuleType.BOOL || !gameRule.id().equals(rule)) continue;
+                @SuppressWarnings("unchecked") var booleanRule = (net.minecraft.world.level.gamerules.GameRule<Boolean>) gameRule;
+                return context.getLevel().getGameRules().get(booleanRule);
+            }
+            ThermalShockReforged.LOGGER.warn("Loot condition references unknown boolean game rule: {}", rule);
+            return false;
         }
     }
 

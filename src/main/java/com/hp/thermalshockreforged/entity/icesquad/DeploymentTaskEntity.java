@@ -33,7 +33,7 @@ public final class DeploymentTaskEntity extends Entity implements ServerEndTickT
     }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); if (armed && !consumed && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
-    public boolean canChangeDimensions(Level from, Level to) { return false; }
+    public boolean canTeleport(Level from, Level to) { return false; }
     @Override public boolean hurtServer(ServerLevel level, net.minecraft.world.damagesource.DamageSource source, float amount) { return false; }
     @Override public void tick() {
         super.tick();

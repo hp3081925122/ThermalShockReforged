@@ -79,7 +79,7 @@ public final class WillogradeEntity extends PathfinderMob implements GeoEntity {
         if (!held.is(FaunaEntities.item("adamantine_spice")) || feedCooldown > 0) return super.mobInteract(player, hand);
         if (!level().isClientSide()) {
             held.shrink(1);
-            level().playSound(null, blockPosition(), SoundEvents.GENERIC_EAT, net.minecraft.sounds.SoundSource.NEUTRAL, 1, 1);
+            level().playSound(null, blockPosition(), SoundEvents.GENERIC_EAT.value(), net.minecraft.sounds.SoundSource.NEUTRAL, 1, 1);
             level().levelEvent(2001, blockPosition(), net.minecraft.world.level.block.Block.getId(FaunaEntities.block("adamantine_spice_block").defaultBlockState()));
             if (random.nextDouble() < 0.5) {
                 feedCooldown = 90;

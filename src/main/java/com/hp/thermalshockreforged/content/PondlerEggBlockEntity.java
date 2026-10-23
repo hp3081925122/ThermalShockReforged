@@ -33,7 +33,7 @@ public final class PondlerEggBlockEntity extends RandomizableContainerBlockEntit
     @Override
     protected void loadAdditional(net.minecraft.world.level.storage.ValueInput input) {
         super.loadAdditional(input);
-        incubationAge = Math.max(0, Math.min(600, input.getString("IncubationAge").isPresent() ? input.getIntOr("IncubationAge", 0) : (int) getPersistentData().getDouble("age")));
+        incubationAge = Math.max(0, Math.min(600, input.getStringOr("IncubationAge", "").isPresent() ? input.getIntOr("IncubationAge", 0) : (int) getPersistentData().getDoubleOr("age", 0)));
         items = NonNullList.withSize(9, ItemStack.EMPTY);
         if (!tryLoadLootTable(input)) ContainerHelper.loadAllItems(input, items);
     }

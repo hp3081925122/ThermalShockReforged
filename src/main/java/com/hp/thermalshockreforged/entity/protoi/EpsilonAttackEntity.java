@@ -20,6 +20,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
 public final class EpsilonAttackEntity extends Entity implements ServerEndTickTask {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, net.minecraft.world.damagesource.DamageSource source, float damage) { return false; }
     private UUID caster;
     private UUID target;
     private Vec3 casterPosition = Vec3.ZERO;
@@ -32,7 +33,7 @@ public final class EpsilonAttackEntity extends Entity implements ServerEndTickTa
     private int phase;
     public EpsilonAttackEntity(EntityType<? extends EpsilonAttackEntity> type, Level level) { super(type, level); noPhysics = true; setNoGravity(true); }
     public static UUID submit(ServerLevel level, ProtoiEpsilonEntity owner, LivingEntity victim) {
-        var task = ProtoiContent.EPSILON_ATTACK.get().create(level);
+        var task = ProtoiContent.EPSILON_ATTACK.get().create(level, net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
         if (task == null) return null;
         task.caster = owner.getUUID(); task.target = victim.getUUID();
         task.targetEyes = victim.getEyePosition(); task.targetPosition = victim.position();
@@ -60,7 +61,7 @@ public final class EpsilonAttackEntity extends Entity implements ServerEndTickTa
         return calculateViewVector(getXRot(), getYRot());
     }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
-    @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
+    @Override public boolean canTeleport(Level from, Level to) { return false; }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); if (caster != null && phase < 2 && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
     @Override public void tick() {
         super.tick();

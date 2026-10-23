@@ -54,13 +54,13 @@ public abstract class LivingEntityStatusMixin {
     private void thermalShockReforged$clearArrival(CallbackInfoReturnable<Boolean> callback) {
         LivingEntity entity = (LivingEntity)(Object)this;
         if (com.hp.thermalshockreforged.entity.sopel.SopelEntityContent.clearOwnerCooldown(entity)) callback.setReturnValue(true);
-        if (entity.hasEffect(net.minecraft.world.effect.MobEffects.DAMAGE_RESISTANCE)) return;
+        if (entity.hasEffect(net.minecraft.world.effect.MobEffects.RESISTANCE)) return;
         if (!entity.level().isClientSide() && entity instanceof com.hp.thermalshockreforged.content.atlas.AtlasArrivalState arrival && arrival.arrivalProtectionTicks() > 0) { arrival.beginArrivalProtection(0); callback.setReturnValue(true); }
     }    @Inject(method = "removeEffect", at = @At("TAIL"), cancellable = true)
     private void thermalShockReforged$removeArrival(net.minecraft.core.Holder<net.minecraft.world.effect.MobEffect> effect, CallbackInfoReturnable<Boolean> callback) {
         LivingEntity entity = (LivingEntity)(Object)this;
-        if (entity.hasEffect(net.minecraft.world.effect.MobEffects.DAMAGE_RESISTANCE)) return;
-        if (!entity.level().isClientSide() && effect.equals(net.minecraft.world.effect.MobEffects.DAMAGE_RESISTANCE) && entity instanceof com.hp.thermalshockreforged.content.atlas.AtlasArrivalState arrival && arrival.arrivalProtectionTicks() > 0) { arrival.beginArrivalProtection(0); callback.setReturnValue(true); }
+        if (entity.hasEffect(net.minecraft.world.effect.MobEffects.RESISTANCE)) return;
+        if (!entity.level().isClientSide() && effect.equals(net.minecraft.world.effect.MobEffects.RESISTANCE) && entity instanceof com.hp.thermalshockreforged.content.atlas.AtlasArrivalState arrival && arrival.arrivalProtectionTicks() > 0) { arrival.beginArrivalProtection(0); callback.setReturnValue(true); }
     }
     @Inject(method = "hurt", at = @At("HEAD"), cancellable = true)
     private void thermalShockReforged$infectionAttack(DamageSource source, float amount, CallbackInfoReturnable<Boolean> callback) {

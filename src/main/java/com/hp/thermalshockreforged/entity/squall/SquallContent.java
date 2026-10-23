@@ -20,7 +20,7 @@ public final class SquallContent {
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<net.minecraft.core.particles.ParticleType<?>> PARTICLES = DeferredRegister.create(Registries.PARTICLE_TYPE, ThermalShockReforged.MOD_ID);
-    public static final DeferredHolder<EntityType<?>, EntityType<SquallEntity>> SQUALL = TYPES.register("squall", () -> EntityType.Builder.of(SquallEntity::new, MobCategory.MONSTER).sized(.6F, 1.8F).fireImmune().setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(id("squall").toString()));
+    public static final DeferredHolder<EntityType<?>, EntityType<SquallEntity>> SQUALL = TYPES.register("squall", () -> EntityType.Builder.of(SquallEntity::new, MobCategory.MONSTER).sized(.6F, 1.8F).fireImmune().setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("squall")));
     public static final DeferredHolder<net.minecraft.core.particles.ParticleType<?>, SimpleParticleType> SMOKE = PARTICLES.register("squall_smoke", () -> new SimpleParticleType(false));
     public static final DeferredHolder<net.minecraft.core.particles.ParticleType<?>, SimpleParticleType> WISP = PARTICLES.register("squall_wisp", () -> new SimpleParticleType(false));
     public static final DeferredHolder<net.minecraft.core.particles.ParticleType<?>, SimpleParticleType> MARK = PARTICLES.register("squall_mark", () -> new SimpleParticleType(true));
@@ -38,7 +38,7 @@ public final class SquallContent {
     private static void attributes(EntityAttributeCreationEvent event) { event.put(SQUALL.get(), SquallEntity.createAttributes().build()); }
     private static void placements(RegisterSpawnPlacementsEvent event) {
         event.register(SQUALL.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            (type, level, reason, pos, random) -> WorldProgressData.forGeneration(level.getLevel()).squallSpawn() && (level.getLevelData().isThundering() || level.getLevelData().isRaining()) && pos.getY() >= 70,
+            (type, level, reason, pos, random) -> WorldProgressData.forGeneration(level.getLevel()).squallSpawn() && (level.getLevel().getWeatherData().isThundering() || level.getLevel().getWeatherData().isRaining()) && pos.getY() >= 70,
             RegisterSpawnPlacementsEvent.Operation.REPLACE);
     }
     private SquallContent() { }

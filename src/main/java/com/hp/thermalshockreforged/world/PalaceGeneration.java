@@ -23,7 +23,7 @@ public final class PalaceGeneration {
     }
     private static void advancement(AdvancementEvent.AdvancementEarnEvent event) {
         if (!ARRIVAL.equals(event.getAdvancement().id()) || !(event.getEntity().level() instanceof ServerLevel level)
-                || !level.getGameRules().getBoolean(ModGameRules.LOQENDIA_GENERATE_SPECIAL_STRUCTURES)) return;
+                || !level.getGameRules().get(ModGameRules.LOQENDIA_GENERATE_SPECIAL_STRUCTURES.get())) return;
         WorldProgressData progress = WorldProgressData.get(level);
         if (!progress.beginPalacePlacement()) return;
         boolean placed = false;

@@ -10,12 +10,12 @@ public final class PylonBuildingLock {
     public static void refresh(Player player) {
         if (!player.level().isClientSide()) player.getPersistentData().putInt(REMAINING, 100);
     }
-    public static boolean active(Entity entity) { return entity instanceof Player player && player.getPersistentData().getInt(REMAINING) > 0; }
+    public static boolean active(Entity entity) { return entity instanceof Player player && player.getPersistentData().getIntOr(REMAINING, 0) > 0; }
     public static void tick(LivingEntity entity) {
         if (!(entity instanceof Player) || entity.level().isClientSide()) return;
         var data = entity.getPersistentData();
         if (!data.contains(REMAINING)) return;
-        int remaining = Math.clamp(data.getInt(REMAINING), 0, 100);
+        int remaining = Math.clamp(data.getIntOr(REMAINING, 0), 0, 100);
         if (remaining <= 1) data.remove(REMAINING); else data.putInt(REMAINING, remaining - 1);
     }
 }

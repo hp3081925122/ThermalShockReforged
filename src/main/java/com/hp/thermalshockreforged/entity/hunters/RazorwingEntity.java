@@ -147,7 +147,7 @@ public final class RazorwingEntity extends TamableAnimal implements GeoEntity {
             ThermalShockReforged.LOGGER.debug("Razorwing armor conversion committed: source={}, replacement={}, owner={}, health={}, type={}", getUUID(), replacement.getUUID(), replacement.getOwnerUUID(), replacement.getHealth(), BuiltInRegistries.ENTITY_TYPE.getKey(type));
             discard();
             server.playSound(null, blockPosition(), SoundEvents.STRIDER_HAPPY, SoundSource.NEUTRAL, 1, 1);
-            server.playSound(null, blockPosition(), SoundEvents.HORSE_ARMOR, SoundSource.NEUTRAL, 1, 1);
+            server.playSound(null, blockPosition(), SoundEvents.HORSE_ARMOR.value(), SoundSource.NEUTRAL, 1, 1);
             return true;
         } finally {
             if (!isRemoved()) converting = false;
@@ -184,7 +184,7 @@ public final class RazorwingEntity extends TamableAnimal implements GeoEntity {
     }
     @Override
     public AgeableMob getBreedOffspring(ServerLevel server, AgeableMob other) {
-        RazorwingEntity child = ((EntityType<RazorwingEntity>)getType()).create(server);
+        RazorwingEntity child = ((EntityType<RazorwingEntity>)getType()).create(server, net.minecraft.world.entity.EntitySpawnReason.BREEDING);
         if (child != null) child.finalizeSpawn(server, server.getCurrentDifficultyAt(child.blockPosition()), EntitySpawnReason.BREEDING, null);
         return child;
     }

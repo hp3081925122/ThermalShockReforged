@@ -20,7 +20,7 @@ public final class PortraitContent {
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(Registries.MENU, ThermalShockReforged.MOD_ID);
-    public static final DeferredHolder<EntityType<?>, EntityType<PortraitCharacterEntity>> PORTRAIT = TYPES.register("portrait_character", () -> EntityType.Builder.of(PortraitCharacterEntity::new, MobCategory.MONSTER).sized(1, 4.5F).fireImmune().clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":portrait_character"));
+    public static final DeferredHolder<EntityType<?>, EntityType<PortraitCharacterEntity>> PORTRAIT = TYPES.register("portrait_character", () -> EntityType.Builder.of(PortraitCharacterEntity::new, MobCategory.MONSTER).sized(1, 4.5F).fireImmune().clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("portrait_character")));
     private static final DeferredHolder<MenuType<?>, MenuType<PortraitMenu>> NYX = menu("laven_civil_1_tlk", false);
     private static final DeferredHolder<MenuType<?>, MenuType<PortraitMenu>> IBEX = menu("laven_civil_2_tlk", true);
     static { ITEMS.register("portrait_character_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(PORTRAIT.get()))); }

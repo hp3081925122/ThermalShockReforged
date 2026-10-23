@@ -16,11 +16,11 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
 import java.util.List;
 
-public final class StriderConstructorBlock extends Block {
+public final class StriderConstructorBlock extends Block implements com.hp.thermalshockreforged.content.BlockTooltips.Provider {
     public StriderConstructorBlock() { super(Properties.of().mapColor(MapColor.METAL).sound(SoundType.GLASS).strength(1, 10)); }
-    @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 15; }
+    @Override protected int getLightDampening(BlockState state) { return 15; }
     @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
-        super.appendHoverText(stack, context, display, tooltipAdder, flag); tooltipAdder.accept(Component.translatable("block.thermal_shock_reforged.icidrostrider_constructor.description_0"));
+        tooltipAdder.accept(Component.translatable("block.thermal_shock_reforged.icidrostrider_constructor.description_0"));
     }
     @Override protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState previous, boolean moving) {
         super.onPlace(state, level, pos, previous, moving);

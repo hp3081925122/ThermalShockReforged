@@ -40,8 +40,8 @@ public final class ZerkerGauntletItem extends Item implements GeoItem {
     @Override public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) { return false; }
     @Override public int getEnchantmentValue() { return 12; }
     @Override public float getDestroySpeed(ItemStack stack, BlockState state) { return 1.4F; }
-    @Override public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
-        super.inventoryTick(stack, level, entity, slot, selected);
+    @Override public void inventoryTick(ItemStack stack, net.minecraft.server.level.ServerLevel level, Entity entity, net.minecraft.world.entity.EquipmentSlot slot) {
+        super.inventoryTick(stack, level, entity, slot);
         if (level instanceof ServerLevel server) GeoItem.getOrAssignId(stack, server);
     }
     @Override public boolean onEntitySwing(ItemStack stack, LivingEntity wielder, InteractionHand hand) {
@@ -51,11 +51,11 @@ public final class ZerkerGauntletItem extends Item implements GeoItem {
         }
         return false;
     }
-    @Override public boolean hurtEnemy(ItemStack stack, LivingEntity victim, LivingEntity attacker) {
-        boolean result = super.hurtEnemy(stack, victim, attacker);
-        if (!(victim.level() instanceof ServerLevel server) || victim == attacker) return result;
+    @Override public void hurtEnemy(ItemStack stack, LivingEntity victim, LivingEntity attacker) {
+        super.hurtEnemy(stack, victim, attacker);
+        if (!(victim.level() instanceof ServerLevel server) || victim == attacker) return;
         if (!(attacker instanceof Player player) || !player.getCooldowns().isOnCooldown(this)) {
-            server.playSound(null, victim.blockPosition(), SoundEvents.SHIELD_BREAK, SoundSource.NEUTRAL, 1, 2);
+            server.playSound(null, victim.blockPosition(), SoundEvents.SHIELD_BREAK.value(), SoundSource.NEUTRAL, 1, 2);
             victim.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 35, 4, false, false));
             double strength = 1 - Math.clamp(victim.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE), 0, 1);
             if (strength > 0) {
@@ -68,7 +68,7 @@ public final class ZerkerGauntletItem extends Item implements GeoItem {
             }
         }
         if (victim.getType() == IceContent.ICIDROZERK.get() && victim instanceof IceCreatureEntity ice && ice.hasCommittedDeath() && attacker instanceof ServerPlayer player) {
-            var advancement = player.getServer().getAdvancements().get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "icidrozerk_mace_kill_get"));
+            var advancement = player.level().getServer().getAdvancements().get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "icidrozerk_mace_kill_get"));
             if (advancement != null) {
                 var progress = player.getAdvancements().getOrStartProgress(advancement);
                 if (!progress.isDone()) {
@@ -77,7 +77,6 @@ public final class ZerkerGauntletItem extends Item implements GeoItem {
                 }
             }
         }
-        return result;
     }
     @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
         super.appendHoverText(stack, context, display, tooltipAdder, flag);

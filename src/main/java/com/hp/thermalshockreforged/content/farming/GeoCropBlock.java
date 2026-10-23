@@ -31,7 +31,7 @@ public class GeoCropBlock extends Block implements EntityBlock {
         return props;
     }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { builder.add(ANIMATION); }
-    @Override protected RenderShape getRenderShape(BlockState state) { return RenderShape.ENTITYBLOCK_ANIMATED; }
+    @Override protected RenderShape getRenderShape(BlockState state) { return RenderShape.INVISIBLE; }
     @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return new GeoCropBlockEntity(kind, pos, state); }
     @Override protected net.minecraft.world.MenuProvider getMenuProvider(BlockState state, Level level, BlockPos pos) {
         return level.getBlockEntity(pos) instanceof GeoCropBlockEntity entity ? entity : null;
@@ -40,8 +40,8 @@ public class GeoCropBlock extends Block implements EntityBlock {
         super.triggerEvent(state, level, pos, id, param);
         return level.getBlockEntity(pos) instanceof GeoCropBlockEntity entity && entity.triggerEvent(id, param);
     }
-    @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 0; }
-    @Override protected boolean propagatesSkylightDown(BlockState state, BlockGetter level, BlockPos pos) { return true; }
+    @Override protected int getLightDampening(BlockState state) { return 0; }
+    @Override protected boolean propagatesSkylightDown(BlockState state) { return true; }
     @Override protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return kind == CropKind.FROST_LOTUS ? box(.1, .1, .1, 15.9, 15.9, 15.9) : super.getShape(state, level, pos, context);
     }
@@ -59,15 +59,7 @@ public class GeoCropBlock extends Block implements EntityBlock {
                 pos.getX() + random.nextDouble(), pos.getY() + 1.9, pos.getZ() + random.nextDouble(),
                 random.nextDouble() * .2 - .1, random.nextDouble() * .2 - .1, random.nextDouble() * .2 - .1);
     }
-    @Override protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState replacement, boolean moving) {
-        if (!state.is(replacement.getBlock())) {
-            if (!level.isClientSide() && level.getBlockEntity(pos) instanceof FarmInventoryBlockEntity entity) {
-                Containers.dropContents(level, pos, entity);
-                level.updateNeighbourForOutputSignal(pos, this);
-            }
-            super.onRemove(state, level, pos, replacement, moving);
-        }
-    }
+    @Override protected void affectNeighborsAfterRemoval(BlockState state, net.minecraft.server.level.ServerLevel level, BlockPos pos, boolean moving) { Containers.updateNeighboursAfterDestroy(state, level, pos); }
     public static final class Directional extends GeoCropBlock {
         public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
         public Directional(CropKind kind) { super(kind); registerDefaultState(defaultBlockState().setValue(FACING, Direction.NORTH)); }

@@ -71,7 +71,7 @@ public final class NpcIcons {
         Identifier id;
         if (name.contains(":")) id = Identifier.tryParse(name);
         else id = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, name);
-        var item = BuiltInRegistries.ITEM.get(id);
+        var item = BuiltInRegistries.ITEM.getValue(id);
         if (item == Items.AIR) {
             ThermalShockReforged.LOGGER.debug("NPC icon {} has no matching item, keeping texture", texture);
             return ItemStack.EMPTY;

@@ -28,8 +28,8 @@ public final class KeystoneChamberGeneration {
     }
     private static void wakeUp(PlayerWakeUpEvent event) {
         if (!(event.getEntity() instanceof ServerPlayer player) || !(player.level() instanceof ServerLevel level)
-                || !level.getGameRules().getBoolean(ModGameRules.LOQENDIA_GENERATE_SPECIAL_STRUCTURES)) return;
-        var advancement = player.getServer().getAdvancements().get(ARRIVAL);
+                || !level.getGameRules().get(ModGameRules.LOQENDIA_GENERATE_SPECIAL_STRUCTURES.get())) return;
+        var advancement = player.level().getServer().getAdvancements().get(ARRIVAL);
         if (advancement == null) {
             ThermalShockReforged.LOGGER.warn("Keystone chamber arrival advancement is missing: {}", ARRIVAL);
             return;
@@ -77,6 +77,6 @@ public final class KeystoneChamberGeneration {
         WorldProgressData progress = WorldProgressData.get(level);
         var dimension = progress.keystoneNoticeDimension();
         if (dimension == null || !dimension.equals(level.dimension().identifier()) || !progress.keystoneNoticeComplete() || player.blockPosition().distSqr(ORIGIN) > 48 * 48) return;
-        if (progress.markKeystonePuzzleHintShown()) player.displayClientMessage(Component.translatable("message.thermal_shock_reforged.keystone.puzzle_buttons"), false);
+        if (progress.markKeystonePuzzleHintShown()) player.sendSystemMessage(Component.translatable("message.thermal_shock_reforged.keystone.puzzle_buttons"));
     }
 }

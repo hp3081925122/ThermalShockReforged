@@ -28,7 +28,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-final class TridentLampBlock extends Block {
+final class TridentLampBlock extends Block implements com.hp.thermalshockreforged.content.BlockTooltips.Provider {
     static final IntegerProperty DESIGN = IntegerProperty.create("blockstate", 0, 2);
 
     TridentLampBlock() {
@@ -44,8 +44,8 @@ final class TridentLampBlock extends Block {
         builder.add(DESIGN);
     }
 
-    @Override protected boolean propagatesSkylightDown(BlockState state, BlockGetter level, BlockPos pos) { return true; }
-    @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 0; }
+    @Override protected boolean propagatesSkylightDown(BlockState state) { return true; }
+    @Override protected int getLightDampening(BlockState state) { return 0; }
     @Override protected VoxelShape getVisualShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) { return Shapes.empty(); }
     @Override protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) { return Shapes.block(); }
 
@@ -68,7 +68,6 @@ final class TridentLampBlock extends Block {
     }
 
     @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
-        super.appendHoverText(stack, context, display, tooltipAdder, flag);
         tooltipAdder.accept(Component.translatable("block.thermal_shock_reforged.trident_lamp.description_0"));
     }
 }

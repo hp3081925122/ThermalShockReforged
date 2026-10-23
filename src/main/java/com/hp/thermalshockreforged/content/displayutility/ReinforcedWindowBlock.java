@@ -32,7 +32,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-final class ReinforcedWindowBlock extends Block {
+final class ReinforcedWindowBlock extends Block implements com.hp.thermalshockreforged.content.BlockTooltips.Provider {
     static final IntegerProperty DESIGN = IntegerProperty.create("blockstate", 0, 5);
 
     ReinforcedWindowBlock() {
@@ -47,7 +47,7 @@ final class ReinforcedWindowBlock extends Block {
         builder.add(DESIGN);
     }
 
-    @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 15; }
+    @Override protected int getLightDampening(BlockState state) { return 15; }
     @Override protected VoxelShape getVisualShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) { return Shapes.empty(); }
     @Override public boolean shouldDisplayFluidOverlay(BlockState state, BlockAndLightGetter level, BlockPos pos, FluidState fluid) { return true; }
     @Override protected boolean skipRendering(BlockState state, BlockState adjacent, Direction side) {
@@ -73,7 +73,6 @@ final class ReinforcedWindowBlock extends Block {
     }
 
     @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
-        super.appendHoverText(stack, context, display, tooltipAdder, flag);
         tooltipAdder.accept(Component.translatable("block.thermal_shock_reforged.reinforced_window.description_0"));
     }
 }

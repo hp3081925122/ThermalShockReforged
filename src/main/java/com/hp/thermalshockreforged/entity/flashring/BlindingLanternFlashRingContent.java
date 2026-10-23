@@ -10,7 +10,7 @@ import net.neoforged.neoforge.registries.*;
 
 public final class BlindingLanternFlashRingContent {
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
-    public static final DeferredHolder<EntityType<?>, EntityType<BlindingLanternFlashRingEntity>> FLASH_RING = TYPES.register("blinding_lantern_flash_ring", () -> EntityType.Builder.of(BlindingLanternFlashRingEntity::new, MobCategory.MONSTER).sized(.1F, .1F).fireImmune().setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(id("blinding_lantern_flash_ring").toString()));
+    public static final DeferredHolder<EntityType<?>, EntityType<BlindingLanternFlashRingEntity>> FLASH_RING = TYPES.register("blinding_lantern_flash_ring", () -> EntityType.Builder.of(BlindingLanternFlashRingEntity::new, MobCategory.MONSTER).sized(.1F, .1F).fireImmune().setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("blinding_lantern_flash_ring")));
     public static Identifier id(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
     public static void register(IEventBus bus) { TYPES.register(bus); bus.addListener(BlindingLanternFlashRingContent::attributes); }
     private static void attributes(EntityAttributeCreationEvent event) { event.put(FLASH_RING.get(), BlindingLanternFlashRingEntity.createAttributes().build()); }

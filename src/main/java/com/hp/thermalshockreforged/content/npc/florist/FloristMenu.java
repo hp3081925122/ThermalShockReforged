@@ -30,7 +30,7 @@ public final class FloristMenu extends AbstractContainerMenu {
         }
     }
     private static boolean unlocked(ServerPlayer player) {
-        var advancement = player.getServer().getAdvancements().get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "blasphemy_1"));
+        var advancement = player.level().getServer().getAdvancements().get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "blasphemy_1"));
         return advancement != null && player.getAdvancements().getOrStartProgress(advancement).isDone();
     }
     public boolean conciergeAllowed() { return concierge.get() != 0; }

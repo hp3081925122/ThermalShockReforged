@@ -23,14 +23,14 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.items.IItemHandler;
-import net.neoforged.neoforge.items.wrapper.SidedInvWrapper;
+import net.neoforged.neoforge.transfer.item.WorldlyContainerWrapper;
 
 public class GeoDecorBlockEntity extends RandomizableContainerBlockEntity implements WorldlyContainer, GeoBlockEntity {
     private static final int[] SLOTS = {0, 1, 2, 3, 4, 5, 6, 7, 8};
     private NonNullList<ItemStack> items = NonNullList.withSize(9, ItemStack.EMPTY);
     private final AnimatableInstanceCache animations = GeckoLibUtil.createInstanceCache(this);
     private String previousAnimation = "0";
-    private final IItemHandler[] handlers = java.util.Arrays.stream(Direction.values()).map(side -> new SidedInvWrapper(this, side)).toArray(IItemHandler[]::new);
+    private final WorldlyContainerWrapper[] handlers = java.util.Arrays.stream(Direction.values()).map(side -> new WorldlyContainerWrapper(this, side)).toArray(WorldlyContainerWrapper[]::new);
 
     private int previousVariant;
     public final GeoDecorKind kind;
@@ -40,7 +40,7 @@ public class GeoDecorBlockEntity extends RandomizableContainerBlockEntity implem
         previousVariant = kind == GeoDecorKind.HOLOGRAM_MONITOR ? state.getValue(HologramMonitorBlock.VARIANT) : kind == GeoDecorKind.CIVILIAN ? state.getValue(DialogueBlock.VARIANT) : kind == GeoDecorKind.CAPSULE ? state.getValue(CapsuleBlock.VARIANT) : state.hasProperty(ShalePotBlock.VARIANT) ? state.getValue(ShalePotBlock.VARIANT) : 0;
     }
 
-    public IItemHandler itemHandler(Direction side) { return side == null ? null : handlers[side.ordinal()]; }
+    public net.neoforged.neoforge.transfer.ResourceHandler<net.neoforged.neoforge.transfer.item.ItemResource> itemHandler(Direction side) { return side == null ? null : handlers[side.ordinal()]; }
 
     @Override
     protected void loadAdditional(net.minecraft.world.level.storage.ValueInput input) {

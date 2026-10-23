@@ -79,7 +79,7 @@ public final class GlastrekkerEntity extends AnimatedMonsterEntity {
         if (!player.getAbilities().instabuild) player.getMainHandItem().shrink(1);
         server.playSound(null, pos, SoundEvents.HORSE_ARMOR.value(), SoundSource.NEUTRAL, 1, 1);
         if (player instanceof ServerPlayer user) {
-            var advancement = user.getServer().getAdvancements().get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "glastrekker_armor_get"));
+            var advancement = user.level().getServer().getAdvancements().get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "glastrekker_armor_get"));
             if (advancement != null) {
                 var progress = user.getAdvancements().getOrStartProgress(advancement);
                 if (!progress.isDone()) for (String criterion : progress.getRemainingCriteria()) user.getAdvancements().award(advancement, criterion);

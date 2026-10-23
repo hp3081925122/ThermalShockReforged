@@ -23,7 +23,7 @@ public final class GlastrekkerContent {
     public static final DeferredBlock<GlastrekkerEggBlock> EGG = BLOCKS.register("glastrekker_egg", GlastrekkerEggBlock::new);
     private static DeferredHolder<EntityType<?>, EntityType<GlastrekkerEntity>> entity(String id, boolean armored) {
         return TYPES.register(id, () -> EntityType.Builder.<GlastrekkerEntity>of((type, level) -> new GlastrekkerEntity(type, level, armored), armored ? MobCategory.MONSTER : MobCategory.WATER_CREATURE)
-            .sized(2, 6.2F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":" + id));
+            .sized(2, 6.2F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey(id)));
     }
     public static void register(IEventBus bus) {
         ITEMS.registerSimpleBlockItem(EGG);

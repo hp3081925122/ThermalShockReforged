@@ -20,11 +20,11 @@ public final class EcosystemContent {
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, ThermalShockReforged.MOD_ID);
-    public static final DeferredHolder<EntityType<?>, EntityType<ChillooEntity>> CHILLOO = TYPES.register("chilloo", () -> EntityType.Builder.of(ChillooEntity::new, MobCategory.AMBIENT).sized(1.2F, 1.3F).clientTrackingRange(64).updateInterval(3).build("thermal_shock_reforged:chilloo"));
-    public static final DeferredHolder<EntityType<?>, EntityType<SpringlingEntity>> SPRINGLING = TYPES.register("springling", () -> EntityType.Builder.of(SpringlingEntity::new, MobCategory.AMBIENT).sized(0.9F, 0.9F).clientTrackingRange(64).updateInterval(3).build("thermal_shock_reforged:springling"));
-    public static final DeferredHolder<EntityType<?>, EntityType<RaincatcherEntity>> RAINCATCHER = TYPES.register("raincatcher", () -> EntityType.Builder.of(RaincatcherEntity::new, MobCategory.MONSTER).sized(0.6F, 1.7F).clientTrackingRange(64).updateInterval(3).build("thermal_shock_reforged:raincatcher"));
+    public static final DeferredHolder<EntityType<?>, EntityType<ChillooEntity>> CHILLOO = TYPES.register("chilloo", () -> EntityType.Builder.of(ChillooEntity::new, MobCategory.AMBIENT).sized(1.2F, 1.3F).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("chilloo")));
+    public static final DeferredHolder<EntityType<?>, EntityType<SpringlingEntity>> SPRINGLING = TYPES.register("springling", () -> EntityType.Builder.of(SpringlingEntity::new, MobCategory.AMBIENT).sized(0.9F, 0.9F).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("springling")));
+    public static final DeferredHolder<EntityType<?>, EntityType<RaincatcherEntity>> RAINCATCHER = TYPES.register("raincatcher", () -> EntityType.Builder.of(RaincatcherEntity::new, MobCategory.MONSTER).sized(0.6F, 1.7F).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("raincatcher")));
     public static final DeferredBlock<ChillooEggBlock> CHILLOO_EGG = BLOCKS.register("chilloo_egg", ChillooEggBlock::new);
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ChillooEggBlockEntity>> CHILLOO_EGG_ENTITY = BLOCK_ENTITIES.register("chilloo_egg", () -> BlockEntityType.Builder.of(ChillooEggBlockEntity::new, CHILLOO_EGG.get()).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ChillooEggBlockEntity>> CHILLOO_EGG_ENTITY = BLOCK_ENTITIES.register("chilloo_egg", () -> new BlockEntityType<>(ChillooEggBlockEntity::new, CHILLOO_EGG.get()));
 
     static {
         ITEMS.registerSimpleBlockItem(CHILLOO_EGG);
@@ -54,7 +54,7 @@ public final class EcosystemContent {
     }
 
     private static void capabilities(net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent event) {
-        event.registerBlockEntity(net.neoforged.neoforge.capabilities.Capabilities.ItemHandler.BLOCK, CHILLOO_EGG_ENTITY.get(), (egg, side) -> side == null ? null : new net.neoforged.neoforge.items.wrapper.SidedInvWrapper(egg, side));
+        event.registerBlockEntity(net.neoforged.neoforge.capabilities.Capabilities.Item.BLOCK, CHILLOO_EGG_ENTITY.get(), (egg, side) -> side == null ? null : new net.neoforged.neoforge.transfer.item.WorldlyContainerWrapper(egg, side));
     }
 
     private static void placements(RegisterSpawnPlacementsEvent event) {
@@ -65,7 +65,7 @@ public final class EcosystemContent {
         }, RegisterSpawnPlacementsEvent.Operation.REPLACE);
         event.register(RAINCATCHER.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (type, level, reason, pos, random) -> {
             var id = BuiltInRegistries.BLOCK.getKey(level.getBlockState(pos.below()).getBlock());
-            return (level.getLevelData().isThundering() || level.getLevelData().isRaining()) && id.getNamespace().equals(ThermalShockReforged.MOD_ID)
+            return (level.getLevel().getWeatherData().isThundering() || level.getLevel().getWeatherData().isRaining()) && id.getNamespace().equals(ThermalShockReforged.MOD_ID)
                     && (id.getPath().equals("snowy_shale") || id.getPath().equals("snowy_cobalt"));
         }, RegisterSpawnPlacementsEvent.Operation.REPLACE);
     }

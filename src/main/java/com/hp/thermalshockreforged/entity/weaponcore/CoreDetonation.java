@@ -47,7 +47,7 @@ final class CoreDetonation {
             if (target instanceof LivingEntity living && BuiltInRegistries.ENTITY_TYPE.getKey(target.getType()).equals(FROST_TITAN)
                     && ((LivingDeathStateAccess) (Object) living).thermalShockReforged$isDeathCommitted()
                     && level.isEmptyBlock(BlockPos.containing(origin.x, origin.y - 1, origin.z)) && burst.attacker() instanceof ServerPlayer player) {
-                var advancement = player.getServer().getAdvancements().get(CHALLENGE);
+                var advancement = player.level().getServer().getAdvancements().get(CHALLENGE);
                 if (advancement != null) {
                     var progress = player.getAdvancements().getOrStartProgress(advancement);
                     if (!progress.isDone()) for (String criterion : progress.getRemainingCriteria()) player.getAdvancements().award(advancement, criterion);

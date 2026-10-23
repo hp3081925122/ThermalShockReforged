@@ -33,18 +33,18 @@ public final class SporePodBlock extends Block implements EntityBlock, SimpleWat
     @Override
     protected FluidState getFluidState(BlockState state) { return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state); }
     @Override
-    protected BlockState updateShape(BlockState state, Direction direction, BlockState neighbor, LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
-        if (state.getValue(WATERLOGGED)) level.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
-        return super.updateShape(state, direction, neighbor, level, pos, neighborPos);
+    protected BlockState updateShape(BlockState state, net.minecraft.world.level.LevelReader level, net.minecraft.world.level.ScheduledTickAccess ticks, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighbor, net.minecraft.util.RandomSource random) {
+        if (state.getValue(WATERLOGGED)) ticks.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
+        return super.updateShape(state, level, ticks, pos, direction, neighborPos, neighbor, random);
     }
     @Override
-    protected boolean propagatesSkylightDown(BlockState state, BlockGetter level, BlockPos pos) { return state.getFluidState().isEmpty(); }
+    protected boolean propagatesSkylightDown(BlockState state) { return state.getFluidState().isEmpty(); }
     @Override
-    protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 0; }
+    protected int getLightDampening(BlockState state) { return 0; }
     @Override
     protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) { return SHAPE; }
     @Override
-    protected RenderShape getRenderShape(BlockState state) { return RenderShape.ENTITYBLOCK_ANIMATED; }
+    protected RenderShape getRenderShape(BlockState state) { return RenderShape.INVISIBLE; }
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return new SporePodBlockEntity(pos, state); }
     private SporePodBlockEntity pod(Level level, BlockPos pos) {
@@ -70,18 +70,11 @@ public final class SporePodBlock extends Block implements EntityBlock, SimpleWat
         if (!level.getBlockState(pos).is(this)) attempt(level, pos, pod, true);
     }
     @Override
-    protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) { super.entityInside(state, level, pos, entity); attempt(level, pos, pod(level, pos), false); }
+    protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, net.minecraft.world.entity.InsideBlockEffectApplier effects, boolean precise) { super.entityInside(state, level, pos, entity, effects, precise); attempt(level, pos, pod(level, pos), false); }
     @Override
     public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) { super.stepOn(level, pos, state, entity); attempt(level, pos, pod(level, pos), false); }
     @Override
     protected void onProjectileHit(Level level, BlockState state, BlockHitResult hit, Projectile projectile) { attempt(level, hit.getBlockPos(), pod(level, hit.getBlockPos()), false); }
-    @Override
-    protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState replacement, boolean moving) {
-        if (!state.is(replacement.getBlock())) {
-            if (level.getBlockEntity(pos) instanceof SporePodBlockEntity pod) Containers.dropContents(level, pos, pod);
-            super.onRemove(state, level, pos, replacement, moving);
-        }
-    }
     @Override
     protected MenuProvider getMenuProvider(BlockState state, Level level, BlockPos pos) { return level.getBlockEntity(pos) instanceof SporePodBlockEntity pod ? pod : null; }
     @Override

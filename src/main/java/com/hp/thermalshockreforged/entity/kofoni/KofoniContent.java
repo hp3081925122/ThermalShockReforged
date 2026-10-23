@@ -23,7 +23,7 @@ public final class KofoniContent {
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(Registries.MENU, ThermalShockReforged.MOD_ID);
     private static final EnumMap<KofoniPage, DeferredHolder<MenuType<?>, MenuType<KofoniMenu>>> PAGES = new EnumMap<>(KofoniPage.class);
-    public static final DeferredHolder<EntityType<?>, EntityType<KofoniEntity>> KOFONI = TYPES.register("kofoni", () -> EntityType.Builder.of(KofoniEntity::new, MobCategory.MONSTER).sized(.9F, 1.2F).setShouldReceiveVelocityUpdates(true).fireImmune().clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":kofoni"));
+    public static final DeferredHolder<EntityType<?>, EntityType<KofoniEntity>> KOFONI = TYPES.register("kofoni", () -> EntityType.Builder.of(KofoniEntity::new, MobCategory.MONSTER).sized(.9F, 1.2F).setShouldReceiveVelocityUpdates(true).fireImmune().clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("kofoni")));
     static {
         ITEMS.register("kofoni_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(KOFONI.get())));
         for (var page : KofoniPage.values()) PAGES.put(page, MENUS.register(page.id, () -> IMenuTypeExtension.create((id, inventory, data) -> new KofoniMenu(page, id, inventory, data.readVarInt(), data.readUUID(), data.readBlockPos(), data.readVarInt()))));

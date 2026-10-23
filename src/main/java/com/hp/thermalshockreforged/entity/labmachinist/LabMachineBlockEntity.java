@@ -24,7 +24,7 @@ import net.minecraft.world.level.storage.loot.*;
 import net.minecraft.world.level.storage.loot.parameters.*;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.items.IItemHandler;
-import net.neoforged.neoforge.items.wrapper.SidedInvWrapper;
+import net.neoforged.neoforge.transfer.item.WorldlyContainerWrapper;
 import com.geckolib.animatable.GeoBlockEntity;
 import com.geckolib.animatable.instance.AnimatableInstanceCache;
 import com.geckolib.animation.*;
@@ -34,12 +34,12 @@ public final class LabMachineBlockEntity extends RandomizableContainerBlockEntit
     public final boolean wallbore;
     private NonNullList<ItemStack> items;
     private final AnimatableInstanceCache animations = GeckoLibUtil.createInstanceCache(this);
-    private final IItemHandler[] handlers = java.util.Arrays.stream(Direction.values()).map(side -> new SidedInvWrapper(this, side)).toArray(IItemHandler[]::new);
+    private final WorldlyContainerWrapper[] handlers = java.util.Arrays.stream(Direction.values()).map(side -> new WorldlyContainerWrapper(this, side)).toArray(WorldlyContainerWrapper[]::new);
     private String previousAnimation = "0";
     private int previousMode;
     private java.util.UUID cycleUuid;
     public LabMachineBlockEntity(boolean wallbore, BlockPos pos, BlockState state) { super(wallbore ? LabContent.WALLBORE_ENTITY.get() : LabContent.ASSEMBLER_ENTITY.get(), pos, state); this.wallbore = wallbore; items = NonNullList.withSize(wallbore ? 0 : 1, ItemStack.EMPTY); previousMode = wallbore ? state.getValue(LabMachineBlock.MODE) : 0; }
-    public IItemHandler itemHandler(Direction side) { return side == null ? null : handlers[side.ordinal()]; }
+    public net.neoforged.neoforge.transfer.ResourceHandler<net.neoforged.neoforge.transfer.item.ItemResource> itemHandler(Direction side) { return side == null ? null : handlers[side.ordinal()]; }
     @Override protected void loadAdditional(net.minecraft.world.level.storage.ValueInput input) {
         super.loadAdditional(input);        items = NonNullList.withSize(wallbore ? 0 : 1, ItemStack.EMPTY); if (!tryLoadLootTable(input)) ContainerHelper.loadAllItems(input, items);
         cycleUuid = input.getString("LabCycleUuid").map(java.util.UUID::fromString).orElse(null);
@@ -69,7 +69,7 @@ public final class LabMachineBlockEntity extends RandomizableContainerBlockEntit
         var params = new LootParams.Builder(server).withParameter(LootContextParams.ORIGIN, origin).create(LootContextParamSets.CHEST);
         for (var stack : table.getRandomItems(params)) { var item = new ItemEntity(server, origin.x, origin.y, origin.z, stack.copy()); item.setDefaultPickUpDelay(); server.addFreshEntity(item); }
         server.playSound(null, worldPosition, SoundEvents.DEEPSLATE_BREAK, SoundSource.BLOCKS, 1, 1); server.playSound(null, worldPosition, SoundEvents.NETHER_BRICKS_BREAK, SoundSource.BLOCKS, 1, 1);
-        if (server.getRandom().nextDouble() < .5) { getPersistentData().putDouble("effic", getPersistentData().getDouble("effic") + 1); server.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), 3); }
+        if (server.getRandom().nextDouble() < .5) { getPersistentData().putDouble("effic", getPersistentData().getDoubleOr("effic", 0) + 1); server.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), 3); }
         setChanged(); return true;
     }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {

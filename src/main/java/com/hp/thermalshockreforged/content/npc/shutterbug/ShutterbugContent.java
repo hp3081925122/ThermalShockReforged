@@ -30,7 +30,7 @@ public final class ShutterbugContent {
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(Registries.MENU, ThermalShockReforged.MOD_ID);
     private static final EnumMap<ShutterbugPage, DeferredHolder<MenuType<?>, MenuType<ShutterbugMenu>>> PAGES = new EnumMap<>(ShutterbugPage.class);
-    public static final DeferredHolder<EntityType<?>, EntityType<ShutterbugEntity>> SHUTTERBUG = TYPES.register("shutterbug", () -> EntityType.Builder.of(ShutterbugEntity::new, MobCategory.MONSTER).sized(.6F, 1.8F).fireImmune().clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":shutterbug"));
+    public static final DeferredHolder<EntityType<?>, EntityType<ShutterbugEntity>> SHUTTERBUG = TYPES.register("shutterbug", () -> EntityType.Builder.of(ShutterbugEntity::new, MobCategory.MONSTER).sized(.6F, 1.8F).fireImmune().clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("shutterbug")));
     static {
         ITEMS.register("shutterbug_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(SHUTTERBUG.get())));
         for (var page : ShutterbugPage.values()) PAGES.put(page, MENUS.register(page.id, () -> IMenuTypeExtension.create((id, inventory, data) -> new ShutterbugMenu(page, id, inventory, data.readVarInt(), data.readUUID(), data.readBlockPos(), data.readVarInt()))));

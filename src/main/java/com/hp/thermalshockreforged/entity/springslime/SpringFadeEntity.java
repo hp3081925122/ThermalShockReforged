@@ -12,6 +12,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
 public final class SpringFadeEntity extends Entity implements ServerEndTickTask {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, net.minecraft.world.damagesource.DamageSource source, float damage) { return false; }
     private UUID spring;
     private Vec3 anchor = Vec3.ZERO;
     private String dimension = "";
@@ -20,14 +21,14 @@ public final class SpringFadeEntity extends Entity implements ServerEndTickTask 
     private boolean consumed;
     public SpringFadeEntity(EntityType<? extends SpringFadeEntity> type, Level level) { super(type, level); noPhysics = true; setNoGravity(true); }
     public static boolean submit(ServerLevel level, SpringslimeEntity source) {
-        var task = SpringslimeContent.FADE.get().create(level);
+        var task = SpringslimeContent.FADE.get().create(level, net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
         if (task == null) return false;
         task.spring = source.getUUID(); task.anchor = source.position(); task.dimension = level.dimension().identifier().toString(); task.armed = true;
         task.setPos(task.anchor);
         return level.addFreshEntity(task);
     }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
-    @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
+    @Override public boolean canTeleport(Level from, Level to) { return false; }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); if (armed && !consumed && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
     @Override public void tick() {
         super.tick();

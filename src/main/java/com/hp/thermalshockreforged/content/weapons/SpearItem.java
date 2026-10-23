@@ -94,23 +94,22 @@ public final class SpearItem extends Item implements GeoItem {
         if (wielder.level() instanceof net.minecraft.server.level.ServerLevel server) triggerAnim(wielder, GeoItem.getOrAssignId(stack, server), "procedure", kind.halberd() && wielder.getRandom().nextBoolean() ? "2" : "1");
         return false;
     }
-    @Override public boolean hurtEnemy(ItemStack stack, LivingEntity victim, LivingEntity attacker) {
-        boolean result = super.hurtEnemy(stack, victim, attacker);
-        if (victim == attacker) return result;
+    @Override public void hurtEnemy(ItemStack stack, LivingEntity victim, LivingEntity attacker) {
+        super.hurtEnemy(stack, victim, attacker);
+        if (victim == attacker) return;
         if (!victim.level().isClientSide()) stack.hurtAndBreak(1, attacker, net.minecraft.world.entity.EquipmentSlot.MAINHAND);
         if (!victim.isAlive() && attacker instanceof ServerPlayer player) {
             if (!((com.hp.thermalshockreforged.mixin.LivingDeathStateAccess) (Object) victim).thermalShockReforged$isDeathCommitted()) {
                 ThermalShockReforged.LOGGER.debug("Spear kill challenge skipped before committed death: victim={}, attacker={}", victim.getUUID(), attacker.getUUID());
-                return result;
+                return;
             }
-            AdvancementHolder advancement = player.getServer().getAdvancements().get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "spear_kill_get"));
+            AdvancementHolder advancement = player.level().getServer().getAdvancements().get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "spear_kill_get"));
             if (advancement != null) for (String criterion : player.getAdvancements().getOrStartProgress(advancement).getRemainingCriteria()) player.getAdvancements().award(advancement, criterion);
         }
-        return result;
     }
-    @Override public void inventoryTick(ItemStack stack, Level level, net.minecraft.world.entity.Entity entity, int slot, boolean selected) {
-        super.inventoryTick(stack, level, entity, slot, selected);
-        if (selected && entity instanceof LivingEntity living && !level.isClientSide()) {
+    @Override public void inventoryTick(ItemStack stack, net.minecraft.server.level.ServerLevel level, net.minecraft.world.entity.Entity entity, net.minecraft.world.entity.EquipmentSlot slot) {
+        super.inventoryTick(stack, level, entity, slot);
+        if (slot == net.minecraft.world.entity.EquipmentSlot.MAINHAND && entity instanceof LivingEntity living && !level.isClientSide()) {
             HeldWeaponState.refreshReach(living, kind.reach);
         }
         if (level instanceof net.minecraft.server.level.ServerLevel server) GeoItem.getOrAssignId(stack, server);

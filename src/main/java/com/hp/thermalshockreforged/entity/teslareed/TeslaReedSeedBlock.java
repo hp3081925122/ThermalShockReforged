@@ -12,7 +12,7 @@ import net.minecraft.world.level.material.MapColor;
 
 public final class TeslaReedSeedBlock extends Block {
     public TeslaReedSeedBlock() { super(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GLASS).strength(1, 10)); }
-    @Override public int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 15; }
+    @Override public int getLightDampening(BlockState state) { return 15; }
     @Override protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState oldState, boolean moving) {
         super.onPlace(state, level, pos, oldState, moving);
         if (!(level instanceof ServerLevel server) || oldState.is(this) || !level.getBlockState(pos).is(this)) return;

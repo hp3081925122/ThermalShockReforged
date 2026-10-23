@@ -31,9 +31,10 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public final class BloomlingBurstEntity extends Entity implements ServerEndTickTask {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, net.minecraft.world.damagesource.DamageSource source, float damage) { return false; }
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
     public static final DeferredHolder<EntityType<?>, EntityType<BloomlingBurstEntity>> TYPE = TYPES.register("bloomling_burst", () -> EntityType.Builder.<BloomlingBurstEntity>of(BloomlingBurstEntity::new, MobCategory.MISC)
-            .sized(0.1F, 0.1F).clientTrackingRange(4).updateInterval(20).build(ThermalShockReforged.MOD_ID + ":bloomling_burst"));
+            .sized(0.1F, 0.1F).clientTrackingRange(4).updateInterval(20).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("bloomling_burst")));
     private UUID caster;
     private UUID target;
     private WeakReference<BloomlingEntity> originalCaster;
@@ -77,7 +78,7 @@ public final class BloomlingBurstEntity extends Entity implements ServerEndTickT
         super.remove(reason);
     }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
-    @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
+    @Override public boolean canTeleport(Level from, Level to) { return false; }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); if (kind != 0 && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
     @Override public void tick() {
         super.tick();

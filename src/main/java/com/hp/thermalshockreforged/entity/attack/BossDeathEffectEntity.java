@@ -15,6 +15,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
 public final class BossDeathEffectEntity extends Entity implements ServerEndTickTask {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, net.minecraft.world.damagesource.DamageSource source, float damage) { return false; }
     private Vec3 origin = Vec3.ZERO;
     private int remaining;
     private int delay = 4;
@@ -22,7 +23,7 @@ public final class BossDeathEffectEntity extends Entity implements ServerEndTick
     private String dimension = "";
     public BossDeathEffectEntity(EntityType<? extends BossDeathEffectEntity> type, Level level) { super(type, level); noPhysics = true; setNoGravity(true); }
     public static boolean submit(ServerLevel level, EntityType<BossDeathEffectEntity> type, Vec3 origin, float eyeHeight) {
-        var task = type.create(level);
+        var task = type.create(level, net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
         if (task == null) return false;
         task.origin = origin; task.setPos(origin); task.eyeHeight = eyeHeight; task.remaining = 15; task.dimension = level.dimension().identifier().toString();
         if (!level.addFreshEntity(task)) return false;
@@ -36,7 +37,7 @@ public final class BossDeathEffectEntity extends Entity implements ServerEndTick
         level.playSound(null, BlockPos.containing(origin), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "mob_death_explode")), SoundSource.HOSTILE, 2, 2);
     }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
-    @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
+    @Override public boolean canTeleport(Level from, Level to) { return false; }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); if (remaining > 0 && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
     @Override public void tick() {
         super.tick();
