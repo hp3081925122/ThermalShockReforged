@@ -103,6 +103,13 @@ tasks.withType(ProcessResources).configureEach {
     }
 }
 
+// 原作 MIT 许可要求分发副本保留版权声明，随成品一并打包。
+tasks.named('jar') {
+    from(rootProject.file('LICENSE')) {
+        rename { "${it}_${project.mod_id}" }
+    }
+}
+
 publishing {
     publications {
         register('mavenJava', MavenPublication) {
@@ -137,6 +144,15 @@ configurations {
 runs {
     gameTestServer {
         modSource sourceSets.gametest
+    }
+
+    // 百科图标导出：带 gametest 源集启动客户端，在标题界面渲染指定物品后自动退出。
+    wikiIconClient {
+        runType 'client'
+        modSource sourceSets.gametest
+        systemProperty 'tsr.wikiIcons', (project.findProperty('wikiIcons') ?: '').toString()
+        systemProperty 'tsr.wikiIconRotY', (project.findProperty('wikiIconRotY') ?: '').toString()
+        systemProperty 'tsr.wikiIconDir', (project.findProperty('wikiIconDir') ?: 'D:/AI临时文件/icons_render').toString()
     }
 }
 
